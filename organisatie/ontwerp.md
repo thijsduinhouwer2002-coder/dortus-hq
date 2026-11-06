@@ -21,8 +21,10 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 ```
 
 ### Thijs (eigenaar)
-- Neemt de beslissingen. Managers stellen voor, Thijs kiest.
-- Doet alles wat met zijn accounts te maken heeft: inloggen, indienen in een winkel, berichten plaatsen, betalen, voorwaarden accepteren.
+- Wil onderbouwde keuzes, enthousiasme en hard werken.
+- Wil zelf zo min mogelijk doen. De managers werken zelfstandig en beslissen zelf, naar eigen inzicht. Elke beslissing krijgt een korte onderbouwing in het logboek, zodat Thijs achteraf kan zien waarom.
+- Wordt alleen gevraagd in nood (zie "Wanneer Thijs vragen").
+- Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform. Thijs koppelt daarvoor één keer per platform zijn account (zie "Wat bij Thijs blijft").
 - Leest elke ochtend het rapport (±3 minuten).
 
 ### Hoofdmanager
@@ -30,7 +32,8 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Leest de status van elk platform en schrijft het dagrapport.
 - Houdt het bord bij: één lijst met wat er per platform loopt.
 - Bewaakt de regels en het tegoed. Ziet hij dat een manager steeds hetzelfde doet zonder resultaat, dan meldt hij dat.
-- Bouwt zelf niets en geeft platformmanagers geen nieuwe richting zonder Thijs. Hij mag wel taken herschikken binnen wat Thijs al heeft goedgekeurd.
+- Bepaalt de koers: welke platformen erbij komen, welke stoppen, waar de meeste tijd heen gaat. Altijd met onderbouwing in het rapport.
+- Bouwt zelf niets.
 
 ### Platformmanager (één per platform)
 - Draait één keer per nacht.
@@ -53,7 +56,7 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 | Atlassian | Alleen meten: installs, reviews, vragen van klanten. De code blijft in Sprintbrief. | 1x per week |
 | Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | 2x per week |
 
-Een nieuw platform krijgt pas een eigen manager als Thijs het voorstel van de verkenner goedkeurt.
+Een nieuw platform krijgt een eigen manager als de hoofdmanager het voorstel van de verkenner goed onderbouwd vindt. Kost het geld, dan vraagt hij Thijs eerst.
 
 ## Wanneer het draait (Nederlandse tijd)
 
@@ -67,23 +70,33 @@ Een nieuw platform krijgt pas een eigen manager als Thijs het voorstel van de ve
 
 De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitten bij het opslaan van hun werk.
 
-## Wat níemand mag (behalve Thijs)
+## Wanneer Thijs vragen (alleen in nood)
 
-- Inloggen, wachtwoorden of codes invullen.
-- Iets indienen in een winkel of marktplaats.
-- Iets openbaar plaatsen: forum, Reddit, Discord, reviews beantwoorden.
-- Betalen, abonnementen afsluiten, voorwaarden accepteren.
-- Accountinstellingen wijzigen of accounts aanmaken.
-- Iets definitief verwijderen.
+- Er moet geld uitgegeven worden.
+- Iets is niet terug te draaien: iets definitief verwijderen, een live product stoppen of uit een winkel halen.
+- Er is een risico voor zijn accounts of juridisch (bijvoorbeeld een waarschuwing van een platform).
+- Een taak lukt twee nachten op rij niet.
+- Een eenmalige handeling die alleen Thijs kan doen (zie hieronder).
 
-Zo'n stap komt op **de lijst voor Thijs** in het rapport, met een link en precies wat hij moet doen. Alles wat klaargezet kan worden (tekst, bestanden, schermafbeeldingen), zet de manager klaar.
+Al het andere beslissen de managers zelf.
+
+## Wat bij Thijs blijft
+
+Dit blijft bij Thijs. Niet omdat het moeilijk is, maar omdat Claude het niet mag of niet kan:
+
+- **Inloggen en wachtwoorden.** Claude vult nooit een wachtwoord of code in.
+- **Eenmalig koppelen per platform.** Indienen gaat waar het kan automatisch, met een sleutel (token) die Thijs één keer zelf aanmaakt en in GitHub opslaat. Daarna brengen de managers zelf nieuwe versies uit. Waar een platform geen sleutel kent, zet de manager alles klaar en hoeft Thijs alleen op de knop te drukken.
+- **Accounts aanmaken, betalen en voorwaarden accepteren.**
+- **Berichten onder zijn naam** op forums, Reddit, Discord of als antwoord op reviews. De managers schrijven ze en zetten ze klaar. Thijs keurt ze in één keer goed vanuit het rapport, bijvoorbeeld met "ja, allemaal". Dat is een regel van Claude zelf, en veel forums verbieden automatisch geplaatste berichten: zijn account kan dan geblokkeerd worden.
+
+Zo'n stap komt op **de lijst voor Thijs** in het rapport, met een link en precies wat hij moet doen.
 
 ## Regels voor het werk
 
 1. **Bewijs bij elke bewering.** Elk cijfer krijgt een label: GEZIEN (zelf gemeten), DERDEN (uit een bron, met link) of GOK.
 2. **Nakijken voor het telt.** Geen werk is klaar zonder controleur. Code is pas klaar als de tests groen zijn.
 3. **Eén taak tegelijk per manager.** Liever één ding af dan drie half.
-4. **Stopregel per product.** Op dag 30 na lancering: onder de 30 gebruikers stelt de manager voor om te stoppen of te veranderen. Thijs beslist.
+4. **Stopregel per product.** Op dag 30 na lancering: onder de 30 gebruikers stopt of verandert de manager, met onderbouwing. Een product uit een winkel halen is wel een vraag aan Thijs.
 5. **Geen herhaling zonder resultaat.** Lukt een taak twee nachten niet, dan stopt de manager ermee en vraagt hij Thijs wat te doen.
 6. **Open blik.** We bouwen wat op een platform ontbreekt, niet wat we toevallig al hebben. Wat Dortus eerder voor Atlassian maakte, is geen reden om het elders ook te bouwen.
 7. **Opslaan:** werk gaat via een eigen tak (branch) en wordt pas in de hoofdversie gezet als het nagekeken is.
@@ -119,8 +132,9 @@ Elke ochtend, kort. Altijd dezelfde vorm:
 1. **Cijfers:** per platform installs, nieuwe reviews, verkopen.
 2. **Wat er vannacht gebeurd is:** per platform één of twee zinnen.
 3. **Wat jij moet doen:** een genummerde lijst met links. Bovenaan wat het meest oplevert.
-4. **Beslissingen:** alleen als er iets te kiezen valt. Met opties, voor- en nadelen en het advies van de manager.
-5. **Problemen:** wat vastloopt of fout ging.
+4. **Genomen beslissingen:** wat de managers besloten hebben en waarom, in één zin per beslissing.
+5. **Vragen aan Thijs:** alleen in nood. Met opties, voor- en nadelen en het advies.
+6. **Problemen:** wat vastloopt of fout ging.
 
 Thijs krijgt een melding op zijn telefoon als het rapport klaar is.
 
