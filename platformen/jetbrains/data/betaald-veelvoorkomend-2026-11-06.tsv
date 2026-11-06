@@ -1,0 +1,19 @@
+id	naam	model	downloads	versies	eerste_versie	downloads_per_maand	nieuwste_versie:downloads	grootste_versie:downloads	downloads_versies_laatste_90_dagen	reviews	meanRating_api_(gelijk_voor_alle)	sterren	proefdagen	prijs_eerste_jaar_US
+26270	Jenkinsfile	PAID	162049	47	2025-01-06	7364	1.7.2:523	1.2.1:33210	6713	13	4.06383	{'5': 4}	7	pers 15.00 / comm 50.00 USD
+26583	Jenkinsfile Pro	PAID	30484	19	2025-02-19	1483	1.6.1:93	1.1.3:7615	107	0	4.06383	{}	0	pers 24.00 / comm 65.00 USD
+28063	Serverless Insight	PAID	11357	31	2025-08-04	752	1.5.0:70	1.3.0:2139	70	3	4.06383	{'5': 1}	7	pers 15.00 / comm 45.00 USD
+26785	IReport 6	PAID	7420	16	2025-03-11	373	1.5.0:42	1.0.3:2123	42	2	4.06383	{'5': 1}	7	pers 15.00 / comm 65.00 USD
+23855	JMeter Runner	PAID	6969	20	2024-02-27	216	1.7.0:26	1.1.0:1567	26	3	4.06383	{'5': 3}	7	pers 12.00 / comm 30.00 USD
+23812	JMeter Manager	PAID	4170	22	2024-02-22	128	1.7.0:36	1.1.0:849	36	1	4.06383	{'5': 1}	7	pers 12.00 / comm 30.00 USD
+24958	CodeQL	PAID	3939	17	2024-07-27	144	1.6.0:23	1.0.2:941	23	1	4.06383	{}	14	pers 5.00 / comm 15.00 USD
+28160	DirEnv Pro	PAID	2549	13	2025-08-10	171	1.3.1:13	1.0.1:511	21	1	4.06383	{'2': 1}	7	pers 15.00 / comm 45.00 USD
+32391	Procfile	PAID	1497	6	2026-06-21	330	1.2.1:22	1.0.2:763	33	0	4.06383	{}	7	pers 10.00 / comm 25.00 USD
+26405	Jenkinsfile Linter Offline	PAID	1298	13	2025-02-05	62	1.4.0:9	1.0.3:368	9	0	4.06383	{}	14	pers 10.00 / comm 40.00 USD
+34804	BatchCraft: Batch & CMD	PAID	9054	3	2026-10-05	8601	1.0.2:8347	1.0.2:8347	9054	0	4.06383	{}	7	{'shopBuyUrl': 'https://www.jetbrains.com/shop/buy', 'shopQuoteUrl': 'https://ww
+20061	Brew Bundle	PAID	19686	31	2022-09-30	400	2026.3.0:28	2023.1.1:2274	28	0	4.06383	{'5': 1}	10	pers 1.00 / comm 3.00 USD
+18280	Nginx Configuration Pro	PAID	268231	69	2021-12-28	4597	202624.0:377	2022.1.1:61142	8743	1	4.06383	{'5': 1}	14	pers 20.00 / comm 50.00 USD
+32813	Caddyfile Pro	PAID	769	1	2026-07-09	195	2026.1.1:768	2026.1.1:768	0	0	4.06383	{}	30	pers 16.00 / comm 32.00 USD
+31590	Docker Manager	PAID	2829	7	2026-05-04	462	7.0.0:27	2.0.0:874	1708	0	4.06383	{}	14	pers 20.00 / comm 50.00 USD
+26716	CSV Color Pro	PAID	9614	2	2025-03-02	476	2025.1.2:9462	2025.1.2:9462	0	0	4.06383	{}	30	pers 15.00 / comm 20.00 USD
+13841	BashSupport Pro	PAID	620266	522	2020-02-25	7709	5.0.12.263:692	4.5.0.243:18043	692	20	4.06383	{'5': 59, '4': 1}	30	pers 39.00 / comm 99.00 USD
+18663	ExcelEditor	FREEMIUM	316165	48	2022-02-21	5591	2026.11.1-263:551	2024.11.1-222.242:27922	551	16	4.06383	{'5': 7, '1': 6, '2': 1}	0	pers 39.00 / comm 390.00 USD

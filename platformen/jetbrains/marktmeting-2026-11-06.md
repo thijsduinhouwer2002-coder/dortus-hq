@@ -248,3 +248,41 @@ Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet
 - **Gevolg:** spoor (a) levert geen betaald product op. Het sterkste overgebleven spoor is (b): bewijs zoeken dat mensen betalen voor plugins voor veelvoorkomende bestanden (Jenkinsfile 204.800 bestanden met een betaalde plugin van 162.049 downloads, Procfile 224.768 bestanden met een betaalde plugin van dezelfde maker). Volgende stap: bij Anbora Labs en BatchCraft nagaan hoeveel van de downloads gebruikers zijn en of er prijzen en reviews zijn die op kopers wijzen.
 - **Nakijken:** controleur deed de tellingen en zoekopdrachten opnieuw en kreeg dezelfde getallen. Goedgekeurd mits vier zinnen minder stellig: "helemaal geen plugin", "bestand dat uitsterft", en twee kanttekeningen bij de zoekmethodes. Alle vier verwerkt. De downloads van Jenkinsfile (162.049) komen uit deel 7 en zijn hier niet opnieuw nagekeken.
 - **Geen bouwbesluit.**
+
+## Meting deel 10: betalen mensen voor plugins voor veelvoorkomende bestanden? (spoor b, 18:53 tot 19:00 UTC, met curl en GitHub-zoeken)
+**Hoe:** per plugin met curl de versies met downloads per versie (`/api/plugins/{id}/updates`), de reviews (`/api/plugins/{id}/comments`), de sterren (`/api/plugins/{id}/rating`, veld `votes`) en de prijs (`/api/marketplace/plugin/{id}/prices?countryCode=US`, die laatste route gevonden in de JavaScript van de Marketplace). Alle ruwe cijfers en het script: `data/betaald-veelvoorkomend-2026-11-06.tsv` en `data/meet-betaald-2026-11-06.py`. Let op: het veld `meanRating` van de rating-route is voor elke plugin 4,06383, dus dat is geen cijfer per plugin; alleen `votes` telt.
+
+**1. Prijzen (GEZIEN, eerste jaar, VS, zonder btw)**
+
+| Plugin | Bestand | Downloads | Per maand sinds eerste versie | Prijs persoonlijk / zakelijk | Proef |
+|---|---|---|---|---|---|
+| Jenkinsfile (Anbora Labs) | `Jenkinsfile` | 162.049 | 7.364 | $15 / $50 per jaar | 7 dagen |
+| Jenkinsfile Pro (Anbora Labs) | `Jenkinsfile` | 30.484 | 1.483 | $24 / $65 per jaar | geen |
+| Procfile (Anbora Labs) | `Procfile` | 1.497 | 330 | $10 / $25 per jaar | 7 dagen |
+| BatchCraft (KITSS TECH) | `*.bat`, `*.cmd` | 9.054 | 8.601 | $1 / $1 per maand | 7 dagen |
+| Nginx Configuration Pro | `*.conf` | 268.231 | 4.597 | $20 / $50 per jaar | 14 dagen |
+| BashSupport Pro | `*.sh` | 620.266 | 7.709 | $39 / $99 per jaar | 30 dagen |
+| Brew Bundle | `Brewfile` | 19.686 | 400 | $1 / $3 per jaar | 10 dagen |
+| Docker Manager | `Dockerfile` | 2.829 | 462 | $20 / $50 per jaar | 14 dagen |
+| Caddyfile Pro | `Caddyfile` | 769 | 195 | $16 / $32 per jaar | 30 dagen |
+
+**2. Bewijs dat er echt gekocht wordt (GEZIEN, in reviews):** bij Jenkinsfile schrijft een gebruiker op 9 december 2025: "After about a year's use I've cancelled my subscription renewal". Bij IReport 6 (Anbora Labs): "give me my money back". Bij BashSupport Pro: "Best plugin I have bought for Bash Scripting" en "well worth" het geld. Dus: er zijn kopers bij een plugin voor een veelvoorkomend bestand. Hoeveel is nergens te zien. Openbare omzet van een JetBrains-plugin vond ik niet (WebSearch, twee zoekopdrachten, alleen een maker die zijn prijs van €3 per maand noemt: https://wlplugin.halirutan.de/plugin-on-marketplace/).
+
+**3. Hoeveel van de Jenkinsfile-downloads zijn gebruikers (GEZIEN voor de getallen, de schatting is een GOK).** De plugin heeft 47 versies. De grote klap kwam vroeg: versie 1.2.0 en 1.2.1 (februari en maart 2025) samen 54.191 downloads. De nieuwste versies per IDE-tak, alle drie van 11 september 2026, hebben samen 6.691 downloads (1.6.4: 4.617, 1.5.12: 1.551, 1.7.2: 523). Een gebruiker die bijwerkt, haalt de nieuwste versie voor zijn IDE, dus ruwweg 5.000 tot 7.000 mensen hadden de plugin in de laatste 8 weken staan en werkten hem bij (GOK). Wie na de proef niet betaalt maar de plugin laat staan, telt hier ook mee, dus het aantal kopers ligt lager. Met de rekenregel uit `organisatie/doelen.md` (2 tot 5% betaalt, GOK) zou dat 100 tot 350 betalers zijn, en bij $15 tot $50 per jaar ruwweg $125 tot $1.250 per maand voor de maker (GOK op GOK, alleen een orde van grootte).
+
+**4. Het belangrijkste verschil: Jenkinsfile en Procfile (GEZIEN).** Zelfde maker, zelfde soort prijs, en bij beide raadt de IDE de plugin aan (deel 7: bij Procfile is het zelfs de enige aangeraden plugin). Beide komen ongeveer even vaak voor op GitHub (204.800 tegen 224.768, deel 9). Toch haalt Jenkinsfile 7.364 downloads per maand en Procfile 330. Wat verschilt is hoe groot de bestanden zijn. GitHub-zoeken met `size:>2000` (groter dan ±2 kB, GEZIEN, schattingen van GitHub):
+
+| Bestand | Alle bestanden | Groter dan 2 kB | Deel groot |
+|---|---|---|---|
+| `Jenkinsfile` | 204.800 | 89.472 | 44% |
+| `Procfile` | 224.768 | 3.496 | 2% |
+| `*.bat` (BatchCraft) | 3.645.440 | 954.368 | 26% |
+
+Een Procfile is meestal een paar regels, een Jenkinsfile een pijplijn in Groovy waar mensen echt in werken en fouten in maken (GOK dat dit de reden is, maar het verschil in grootte is GEZIEN). **Les:** veel bestanden en aangeraden worden is niet genoeg. Het bestand moet werk zijn: groot, met de hand geschreven, foutgevoelig.
+
+**5. Andere kanttekeningen.** Brew Bundle is al sinds 2022 betaald en blijft klein (400 per maand), ook bij een prijs van $1. Docker Manager (2026) haalt 462 per maand, maar Dockerfile kent de IDE zelf al. Bij `*.prof` bestaat al een kleine freemium viewer (Profile Viewer, 91 downloads), dat raakt spoor (c).
+
+**Gevolg voor het bouwbesluit:**
+- Spoor (b) is bevestigd als richting: mensen betalen voor een plugin voor een veelvoorkomend bestand, als het bestand werk is (GEZIEN dat er kopers zijn, aantallen GOK).
+- De eis voor een kandidaat wordt nu: (1) zit in veel projecten, (2) de IDE kent het niet en raadt plugins aan, (3) een groot deel van de bestanden is groot (meer dan 2 kB), (4) geen plugin van JetBrains en geen sterke betaalde of gratis plugin die bijgehouden wordt.
+- Volgende stap: de 302 soorten uit deel 7 eerst filteren op (1), (2) en (4), en de overblijvers meten op (3) met `size:>2000`. Geen bouwbesluit.
