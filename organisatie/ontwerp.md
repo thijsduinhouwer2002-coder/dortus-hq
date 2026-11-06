@@ -12,6 +12,8 @@ De eerste opzet was één agent die vijf projecten onderhield. Dat werd een romm
 
 ## Wie is wie
 
+Naast de lijn van managers is er **de strateeg**: hij houdt het overzicht, scant de markt op kansen en bedreigingen, en adviseert de hoofdmanager over de grote lijnen (combineren, marketing, koers). Hij geeft managers geen opdrachten: de hoofdmanager beslist over zijn adviezen. Zie `organisatie/rollen/strateeg.md`.
+
 ```
                  Thijs (eigenaar)
                        |
@@ -70,6 +72,7 @@ Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. We
 
 | Tijd | Wie |
 |---|---|
+| 07:44 | Strateeg: koers, kansen, bedreigingen, adviezen |
 | elk uur om :13, 08:13 tot 19:13 | Obsidian-manager |
 | elk uur om :52, 08:52 tot 19:52 | JetBrains-manager |
 | elk uur om :31, 08:31 tot 19:31 | Verkenner |

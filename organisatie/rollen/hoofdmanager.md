@@ -16,7 +16,7 @@ Na het aanmaken: controleer met list_triggers dat de taak er staat, met de juist
 Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map en de takenlijst, en zet op `organisatie/lijst-thijs.md` de klus "Maak een geplande taak voor <platform> aan vanuit de projectchat". Zet erbij de tijd, de volledige opdracht uitgeschreven, en de **letterlijke foutmelding**. Geen eigen samenvatting van de fout. Probeer niet om de fout heen te werken.
 
 ## Elke run
-1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md`, `organisatie/lijst-thijs.md`, en van elk platform in `platformen/` de `status.md` en het laatste blok van `logboek.md`.
+1. `git pull --rebase`. Lees `strategie/koers.md` en de open adviezen in `strategie/adviezen.md`, en `organisatie/regels.md`, `organisatie/bord.md`, `organisatie/lijst-thijs.md`, en van elk platform in `platformen/` de `status.md` en het laatste blok van `logboek.md`.
 2. Controleer:
    - Heeft elke manager vandaag gedraaid en opgeslagen? Zo niet, meld dat.
    - Houden ze zich aan de regels? Draait iemand rondjes zonder resultaat? Grijp in: pas zijn `taken.md` aan en schrijf waarom.
@@ -31,6 +31,7 @@ Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map e
      - Zet in het rapport bij elk voorstel het cijfer en in één zin waarom.
  gaat een platform onder de stopregel, laat de manager stoppen of veranderen.
    - **Tijd verdelen:** waar levert extra werk het meeste op?
+   - **Adviezen van de strateeg:** beslis over elk open advies: overnemen (pas de `taken.md` van de betrokken manager aan) of afwijzen. Zet de status en je reden in `strategie/adviezen.md`. Jij bent de enige die managers stuurt.
 4. Werk `organisatie/bord.md` bij: per platform één regel met fase, laatste cijfers en de volgende stap.
 5. Schrijf `rapporten/<datum>.md` in deze vorm:
    0. **Op koers?** De stand tegen de eerstvolgende tussenstap uit `organisatie/doelen.md`: op koers, achter of ver achter, met de reden. Achter: stel een koerswijziging voor.
