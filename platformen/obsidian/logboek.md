@@ -76,3 +76,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** nieuwe lijsten bij het laden in plaats van structuredClone. Waarom: de controleur wist niet zeker of oudere iOS-versies structuredClone hebben, en de simpele weg heeft dat risico niet.
 **Beslissing:** bij `dice-mod:` opent alleen Ctrl-klik op een sectie of tabel de bron, elke andere klik opent het vervangvenster. Waarom: zo komt er nooit een schrijfactie zonder bevestiging.
 **Wat misging:** niets. Op telefoon zijn Ctrl en Alt er niet, dat staat op de handmatige testlijst (punt 16 in OPEN.md).
+
+## 6 nov 2026, 16:48 tot 16:54: notitievelden
+**Gedaan:** bouwer maakte punt 5 van notatie 0.2 op tak `claude/obsidian-2026-11-06-h`: `dice: str` en `1d20 + str` lezen een getal uit de frontmatter van de notitie met de code, via de bestaande weg van opgeslagen formules (rekenkern niet groter). Controleur: akkoord, één licht punt (een YAML-getal als `1e21` gaf een onbegrijpelijke fout). Zelf gerepareerd met test, herkeurd: akkoord. 394 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
+**Beslissing:** in de uitleg staat het getal, niet de veldnaam (`[12] + 3`). Waarom: zo blijft `evaluate.ts` (al boven 400 regels) even groot; de naam tonen kan later bij het opsplitsen.
+**Beslissing:** run hier gestopt (±40 minuten). Waarom: `1dS` en narratief zijn te groot voor de resttijd; volgende run begint met punt 6.
+**Opruimen voor later:** `src/engine/evaluate.ts` is 454 regels, boven de grens van ±400. Bij de weekelijkse opruimtaak splitsen.

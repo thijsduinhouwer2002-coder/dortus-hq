@@ -912,6 +912,34 @@ function averageOf(formula, options = {}) {
   return { value: mean, exact: false };
 }
 
+// src/rollers/fields.ts
+var NOTATION_WORD = /^d?f?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/i;
+var NUMBER_TEXT = /^-?\d+(\.\d+)?$/;
+function usableName(name) {
+  var _a;
+  if (NOTATION_WORD.test(name)) return false;
+  try {
+    const tokens = tokenize(name);
+    return tokens.length === 1 && ((_a = tokens[0]) == null ? void 0 : _a.type) === "word" && tokens[0].value === name;
+  } catch (e) {
+    return false;
+  }
+}
+function numberText(value) {
+  if (typeof value !== "number" && typeof value !== "string") return void 0;
+  const text = typeof value === "number" ? String(value) : value.trim();
+  return NUMBER_TEXT.test(text) && Number.isFinite(Number(text)) ? text : void 0;
+}
+function fieldNames(frontmatter) {
+  const names = {};
+  if (typeof frontmatter !== "object" || frontmatter === null || Array.isArray(frontmatter)) return names;
+  for (const [name, value] of Object.entries(frontmatter)) {
+    const text = numberText(value);
+    if (text !== void 0 && name !== "__proto__" && usableName(name)) names[name] = text;
+  }
+  return names;
+}
+
 // src/rollers/defuse.ts
 var IMAGE = /\.(avif|bmp|gif|jpe?g|png|svg|webp)$/i;
 function isImage(target) {
@@ -2145,7 +2173,7 @@ var RollwrightPlugin = class extends import_obsidian8.Plugin {
   }
   /** Builds the bridge between the pure rollers and this vault. */
   rollContext(sourcePath) {
-    const aliases = {};
+    const aliases = this.noteFields(sourcePath);
     for (const formula of this.settings.formulas) aliases[formula.name] = formula.formula;
     return {
       sourcePath,
@@ -2155,6 +2183,17 @@ var RollwrightPlugin = class extends import_obsidian8.Plugin {
       readNote: (link, from) => this.readNote(link, from),
       notesWithTag: (tag) => this.notesWithTag(tag)
     };
+  }
+  /** The number fields in the frontmatter of this note, as names. Nothing when it has none. */
+  noteFields(sourcePath) {
+    var _a;
+    try {
+      const file = this.app.vault.getAbstractFileByPath(sourcePath);
+      if (!(file instanceof import_obsidian8.TFile)) return {};
+      return fieldNames((_a = this.app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter);
+    } catch (e) {
+      return {};
+    }
   }
   async readNote(link, sourcePath) {
     const file = this.app.metadataCache.getFirstLinkpathDest(link, sourcePath);
