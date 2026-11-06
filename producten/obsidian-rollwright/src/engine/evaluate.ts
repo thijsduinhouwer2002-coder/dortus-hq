@@ -251,6 +251,7 @@ function evaluateDice(node: Extract<Node, { type: "dice" }>, state: State): Eval
 		value = active.reduce((sum, d) => sum + (d.score ?? 0), 0);
 	} else {
 		value = active.reduce((sum, d) => sum + d.value, 0);
+		if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
 	}
 	return { value, text: `[${dice.map(showDie).join(", ")}]` };
 }
