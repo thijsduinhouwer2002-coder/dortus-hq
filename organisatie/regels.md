@@ -44,6 +44,7 @@ Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk 
 - Het netwerk van de cloudomgeving staat open (Full). Lees webpagina's daarom met `curl` in Bash (bijvoorbeeld `curl -sL <url>`), of met een klein script. Dat vraagt geen toestemming.
 - De leestool WebFetch kan per website om toestemming vragen. In een run zit niemand om te antwoorden, dus dan sta je stil. Gebruik WebFetch alleen als `curl` niet werkt (bijvoorbeeld een pagina die alleen in een browser laadt), en stop als er een toestemmingsvraag komt: noteer de site en ga door met ander werk.
 - WebSearch (zoeken) mag gewoon.
+- Zet deze regel letterlijk in de opdracht van elke agent die je inzet: agents lezen `CLAUDE.md` niet vanzelf.
 
 ## Middelen
 - Alle sites en programma's staan in `organisatie/middelen.md`. Begin je iets nieuws te gebruiken, zet het er meteen bij, met wie er mag inloggen.

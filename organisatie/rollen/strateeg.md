@@ -11,7 +11,7 @@ Je draait elke ochtend om 07:44, voordat de managers beginnen. Werk ongeveer 45 
 
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/doelen.md`, `organisatie/regels.md`, `organisatie/bord.md`, het laatste rapport in `rapporten/`, van elk platform `status.md`, de voorstellen in `platformen/verkenner/voorstellen/`, en je eigen map `strategie/`.
-2. Scan de markt met 1 of 2 agents (een onderzoeker en een controleur): nieuws van de platformen waar we op zitten of naar kijken, en wat er in de wereld van apps, plugins en kleine makers verandert. Elk feit krijgt een label: GEZIEN, DERDEN (met link) of GOK.
+2. Scan de markt met 1 of 2 agents (een onderzoeker en een controleur). Zet in elke agentopdracht letterlijk: "Lees webpagina's met curl in Bash, nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil." De agents kijken naar: nieuws van de platformen waar we op zitten of naar kijken, en wat er in de wereld van apps, plugins en kleine makers verandert. Elk feit krijgt een label: GEZIEN, DERDEN (met link) of GOK.
 3. Werk bij:
    - `strategie/signalen.md`: nieuwe kansen en bedreigingen, nieuwste bovenaan, één regel per signaal met datum, label en link.
    - `strategie/koers.md`: het grote plaatje in maximaal één pagina. Waar staan we, waar gaan we heen, wat zijn de drie belangrijkste dingen nu.
