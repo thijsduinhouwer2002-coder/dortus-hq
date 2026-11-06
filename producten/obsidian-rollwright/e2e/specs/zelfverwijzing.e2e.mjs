@@ -41,10 +41,17 @@ async function answerTime() {
 }
 
 async function waitForValue(view) {
-	await browser.waitUntil(async () => {
-		const c = await count(view);
-		return c.rolls > 0 && c.values.every((v) => v.trim() !== "");
-	}, { timeout: 20000, timeoutMsg: `geen uitkomst in ${view}` });
+	let last = null;
+	try {
+		await browser.waitUntil(async () => {
+			last = await count(view);
+			return last.rolls > 0 && last.values.every((v) => v.trim() !== "");
+		}, { timeout: 20000 });
+	} catch {
+		const html = await browser.execute((sel) => document.querySelector(sel)?.innerHTML.slice(0, 2000), `${LEAF} ${view}`);
+		console.log("GEEN UITKOMST. TELLING:", JSON.stringify(last), "HTML:", html);
+		throw new Error(`geen uitkomst in ${view}`);
+	}
 }
 
 /** Wacht tot Obsidian klaar is met invoegen: twee tellingen na elkaar gelijk. */
@@ -143,9 +150,10 @@ describe("Rollwright: een notitie die op zichzelf rolt", function () {
 		await clickFive(".markdown-reading-view");
 	});
 
-	// Een code die langs defuseRolls glipt (<b> midden in het woord dice): alleen de controle
+	// Een code die langs defuseRolls glipt (<b> midden in het woord dice, haken als &#91;, anders
+	// maakt Obsidian er een link van en is het geen formule meer): alleen de controle
 	// el.closest(".rollwright-value") in reading-view.ts houdt de herhaling dan tegen.
-	it("de tweede controle alleen: <code>d<b>ice</b>: [[Zichzelf html]]</code>", async function () {
+	it("de tweede controle alleen: <code>d<b>ice</b>: &#91;&#91;Zichzelf html&#93;&#93;</code>", async function () {
 		const c = await checkStable("Zichzelf html.md", "preview", ".markdown-reading-view", "z5-zichzelf-html");
 		expect(c.rolls).toBe(1);
 		expect(c.nested).toBe(0);
