@@ -133,6 +133,28 @@ function newBudget() {
   return { rolls: 0, steps: 0, picks: 0 };
 }
 
+// src/engine/stunt.ts
+var STUNT_SPREAD = { mean: 10.5, min: 3, max: 18, whole: true };
+function isStuntWord(word) {
+  return word.startsWith("dS");
+}
+function stuntNode(count, word) {
+  if (word.value !== "dS") throw new DiceError(`The stunt die takes no modifiers: write 1dS, not ${word.value}`);
+  if (count !== null && !(count.type === "number" && count.value === 1)) {
+    const shown = count.type === "number" ? String(count.value) : "X";
+    throw new DiceError(`Only one stunt die can be rolled: write 1dS, not ${shown}dS`);
+  }
+  return { type: "stunt" };
+}
+function rollStunt(rollD6) {
+  const first = rollD6();
+  const second = rollD6();
+  const stunt = rollD6();
+  const double = first === second || first === stunt || second === stunt;
+  const points = double ? ` (${stunt} stunt ${stunt === 1 ? "point" : "points"})` : "";
+  return { value: first + second + stunt, text: `[${first}, ${second}, S:${stunt}]${points}` };
+}
+
 // src/engine/tokenizer.ts
 var COMPARATORS = [">=", "<=", "=<", "=>", "=!", "=-", "-=", ">", "<", "="];
 function isDigit(ch) {
@@ -331,6 +353,10 @@ var Parser = class {
   }
   dice(count) {
     const word = this.peek();
+    if (isStuntWord(word.value)) {
+      this.index++;
+      return stuntNode(count, word);
+    }
     let rest = word.value.slice(1);
     let sides = { kind: "default" };
     if (rest.charAt(0) === "F" || rest.charAt(0) === "f") {
@@ -527,8 +553,9 @@ function formatNumber(value) {
   if (!Number.isFinite(rounded)) return String(value);
   return String(rounded === 0 ? 0 : rounded);
 }
-function roundNumber(value, mode) {
-  if (mode === void 0 || !Number.isFinite(value)) return value;
+function roundNumber(raw, mode) {
+  if (mode === void 0 || !Number.isFinite(raw)) return raw;
+  const value = Number(raw.toFixed(10));
   if (mode === "ceil") return Math.ceil(value);
   if (mode === "floor") return Math.floor(value);
   return Math.sign(value) * Math.round(Math.abs(value));
@@ -541,6 +568,27 @@ function formatResult(value, style = {}) {
 
 // src/engine/random.ts
 var defaultRandom = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+
+// src/engine/compare.ts
+function compare(value, op, target) {
+  switch (op) {
+    case "=":
+      return value === target;
+    case "!=":
+      return value !== target;
+    case ">":
+      return value > target;
+    case "<":
+      return value < target;
+    case ">=":
+      return value >= target;
+    case "<=":
+      return value <= target;
+  }
+}
+function matchesAny(value, conditions) {
+  return conditions.some((c) => compare(value, c.op, c.value));
+}
 
 // src/engine/evaluate.ts
 function range(min, max) {
@@ -602,25 +650,6 @@ function checkedSides(sides) {
 function checkedSpan(min, max) {
   if (max - min + 1 > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
   return range(min, max);
-}
-function compare(value, op, target) {
-  switch (op) {
-    case "=":
-      return value === target;
-    case "!=":
-      return value !== target;
-    case ">":
-      return value > target;
-    case "<":
-      return value < target;
-    case ">=":
-      return value >= target;
-    case "<=":
-      return value <= target;
-  }
-}
-function matchesAny(value, conditions) {
-  return conditions.some((c) => compare(value, c.op, c.value));
 }
 function spend(state) {
   if (++state.budget.rolls > LIMITS.rollsPerFormula) {
@@ -788,6 +817,8 @@ function evaluate(node, state) {
     }
     case "dice":
       return evaluateDice(node, state);
+    case "stunt":
+      return rollStunt(() => rollDie(range(1, 6), state).value);
     case "binary": {
       const left = evaluate(node.left, state);
       const right = evaluate(node.right, state);
@@ -859,6 +890,8 @@ function exactSpread(node, state) {
     }
     case "dice":
       return exactDice(node, state);
+    case "stunt":
+      return STUNT_SPREAD;
     case "binary": {
       const left = exactSpread(node.left, state);
       if (!left) return null;

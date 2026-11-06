@@ -82,3 +82,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** in de uitleg staat het getal, niet de veldnaam (`[12] + 3`). Waarom: zo blijft `evaluate.ts` (al boven 400 regels) even groot; de naam tonen kan later bij het opsplitsen.
 **Beslissing:** run hier gestopt (±40 minuten). Waarom: `1dS` en narratief zijn te groot voor de resttijd; volgende run begint met punt 6.
 **Opruimen voor later:** `src/engine/evaluate.ts` is 454 regels, boven de grens van ±400. Bij de weekelijkse opruimtaak splitsen.
+
+## 6 nov 2026, 17:14 tot 17:25: 1dS
+**Gedaan:** bouwer maakte punt 6 van notatie 0.2 op tak `claude/obsidian-2026-11-06-i`: `1dS` gooit drie zesvlakken, de derde is de stuntsteen, bij een dubbel zijn de stuntpunten de waarde van de stuntsteen (voorwaarde 8). Uitleg `[3, 5, S:3] (3 stunt points)`. `2dS` en modifiers geven een melding. Ook de ceil-afrondfout uit OPEN.md opgelost (eerst op 10 decimalen afronden). `compare` en `matchesAny` naar `compare.ts`, `evaluate.ts` van 454 naar 439 regels. Controleur in eigen kloon: akkoord, alle 216 uitkomsten nagelopen, oude notaties (`1ds`, `2d6s`, `4dF`, `1DS`, formulenamen als `dSomething`) gelijk. Drie lichte punten in OPEN.md zelf verwerkt. 422 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd op main, testpakket vernieuwd.
+**Beslissing:** alleen `dS` met hoofdletter S na kleine d is de stuntsteen. Waarom: `s` is sorteren, en zo blijven `1ds` en `2d6s` zoals ze waren.
+**Beslissing:** `architectuur.md` schrijven bij de opruimtaak, niet nu. Waarom: de controleur zag dat hij ontbreekt, maar dat was al zo en hoort bij de opruimbeurt.
+**Wat misging:** niets. Of de spelregels van Fantasy AGE precies zo zijn, is niet nagekeken; we volgen voorwaarde 8.
