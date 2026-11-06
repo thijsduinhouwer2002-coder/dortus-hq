@@ -1,5 +1,5 @@
 import json,datetime,statistics as st,collections
-d=[x for x in json.load(open('platformen/verkenner/data/shopify-steekproef-2026-11-06.json')) if x.get('ok') and x.get('launched')]
+d=[x for x in json.load(open('platformen/verkenner/data/shopify-steekproef-2026-11-06.json')) if x.get('launched')]
 for x in d: x['dt']=datetime.datetime.strptime(x['launched'],'%B %d, %Y')
 print('ok met datum',len(d))
 c=collections.Counter(x['dt'].strftime('%Y') for x in d); print(sorted(c.items()))
