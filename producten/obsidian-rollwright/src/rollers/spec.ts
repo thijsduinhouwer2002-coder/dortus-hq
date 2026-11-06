@@ -19,6 +19,8 @@ export interface Spec {
 	flags: Flags;
 	/** Everything after "|" that is not a display flag: column names, block types, "line", "-" and so on. */
 	args: string[];
+	/** Everything after "|" in the order it was written, flags included. A table may have a column with such a name. */
+	parts: string[];
 }
 
 /** Flags from the notation that we accept and that change nothing in this version. */
@@ -71,6 +73,15 @@ function parseLink(head: string): { prefix: string; note: string; blockId?: stri
 	return { prefix: prefix.trim(), note, blockId: link.slice(caret + 1).trim() };
 }
 
+/** The flags without the one a word stands for, now that the word turned out to be a column. */
+export function withoutFlag(flags: Flags, word: string): Flags {
+	const lower = word.toLowerCase();
+	const output = { ...flags };
+	if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") output[lower] = false;
+	else if (lower.startsWith("text(")) delete output.text;
+	return output;
+}
+
 export function parseSpec(raw: string, aliases: Record<string, string> = {}): Spec {
 	const [first = "", ...rest] = splitPipes(raw);
 	const alias = Object.prototype.hasOwnProperty.call(aliases, first) ? aliases[first] : undefined;
@@ -79,21 +90,22 @@ export function parseSpec(raw: string, aliases: Record<string, string> = {}): Sp
 
 	const flags: Flags = { nodice: false, form: false, avg: false, none: false };
 	const args: string[] = [];
-	for (const part of [...pipes.slice(1), ...rest]) {
+	const parts = [...pipes.slice(1), ...rest].filter((part) => part !== "");
+	for (const part of parts) {
 		const lower = part.toLowerCase();
 		if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") {
 			flags[lower] = true;
 		} else if (lower.startsWith("text(") && part.endsWith(")")) {
 			flags.text = part.slice(5, -1);
-		} else if (!IGNORED_FLAGS.has(lower) && part !== "") {
+		} else if (!IGNORED_FLAGS.has(lower)) {
 			args.push(part);
 		}
 	}
 
 	const link = parseLink(body);
-	if (link) return { raw, flags, args, target: { kind: "note", ...link } };
+	if (link) return { raw, flags, args, parts, target: { kind: "note", ...link } };
 	const tag = /^(.*?)#([^\s#]+)$/.exec(body);
-	if (tag) return { raw, flags, args, target: { kind: "tag", prefix: (tag[1] as string).trim(), tag: tag[2] as string } };
+	if (tag) return { raw, flags, args, parts, target: { kind: "tag", prefix: (tag[1] as string).trim(), tag: tag[2] as string } };
 	if (args.length > 0) throw new DiceError(`Unknown flag "${args[0] as string}"`);
-	return { raw, flags, args, target: { kind: "dice", formula: body } };
+	return { raw, flags, args, parts, target: { kind: "dice", formula: body } };
 }
