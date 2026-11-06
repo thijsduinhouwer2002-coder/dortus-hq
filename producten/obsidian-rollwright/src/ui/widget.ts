@@ -1,6 +1,7 @@
 import { Component, MarkdownRenderer, setIcon, setTooltip } from "obsidian";
 import { formatNumber } from "../engine";
 import type RollwrightPlugin from "../main";
+import { defuseRolls } from "../rollers/defuse";
 import { parseSpec } from "../rollers/spec";
 import type { RollOutcome } from "../rollers/run";
 
@@ -35,7 +36,7 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 	if (outcome.kind === "dice") {
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatNumber(outcome.total)}`);
 	} else {
-		await MarkdownRenderer.render(plugin.app, outcome.text, value, sourcePath, component);
+		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
 	}
 	setTooltip(target, tooltipFor(outcome));
 }

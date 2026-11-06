@@ -16,6 +16,8 @@ function codePositions(el: HTMLElement, ctx: MarkdownPostProcessorContext): { li
 }
 
 export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ctx: MarkdownPostProcessorContext): void {
+	// Second lock next to defuseRolls: never mount inside a rendered result.
+	if (el.closest(".rollwright-value")) return;
 	const codes = Array.from(el.querySelectorAll("code")).filter((code) => code.parentElement?.tagName !== "PRE");
 	const positions = codePositions(el, ctx);
 	let nth = 0;

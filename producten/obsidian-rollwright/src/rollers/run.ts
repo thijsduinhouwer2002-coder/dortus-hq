@@ -1,4 +1,4 @@
-import { averageOf, defaultRandom, DiceError, formatNumber, roll, type RandomInt } from "../engine";
+import { averageOf, defaultRandom, DiceError, formatNumber, LIMITS, newBudget, roll, type Budget, type RandomInt } from "../engine";
 import { listItems, noteLines, parseBlocks, type Block } from "./markdown";
 import { parseSpec, type Flags, type Spec } from "./spec";
 import { findColumn, findLookupRow, lookupFormula, parseTable, type Table } from "./table";
@@ -17,6 +17,8 @@ export interface RollContext {
 	defaultSides?: number;
 	defaultCount?: number;
 	aliases?: Record<string, string>;
+	/** Shared by everything in one roll. Set by rollSpec. */
+	budget?: Budget;
 }
 
 export interface RollOutcome {
@@ -43,6 +45,12 @@ const BLOCK_TYPES = new Set([
 	"table", "text", "thematicBreak", "toml", "yaml", "definition", "footnoteDefinition",
 ]);
 
+function spendPick(context: RollContext): void {
+	if (context.budget && ++context.budget.picks > LIMITS.picksPerRoll) {
+		throw new DiceError(`This roll picks more than ${LIMITS.picksPerRoll} results`);
+	}
+}
+
 function pick<T>(items: T[], random: RandomInt): T {
 	return items[random(0, items.length - 1)] as T;
 }
@@ -53,6 +61,7 @@ function diceOptions(context: RollContext) {
 		defaultSides: context.defaultSides,
 		defaultCount: context.defaultCount,
 		names: context.aliases,
+		budget: context.budget,
 	};
 }
 
@@ -82,6 +91,7 @@ async function resolveNested(text: string, context: RollContext, depth: number):
 
 async function pickFromTable(table: Table, args: string[], context: RollContext, depth: number): Promise<{ text: string; detail: string }> {
 	const random = context.random ?? defaultRandom;
+	spendPick(context);
 	if (table.rows.length === 0) throw new DiceError("The table has no rows");
 	const formula = lookupFormula(table);
 	const column = args[0];
@@ -137,11 +147,14 @@ function blockTypes(args: string[]): string[] {
 	return args.flatMap((arg) => arg.split(",")).map((type) => type.trim()).filter((type) => type !== "");
 }
 
-function pickMany(options: string[], count: number, random: RandomInt, emptyMessage: string): string[] {
+function pickMany(options: string[], count: number, random: RandomInt, emptyMessage: string, context: RollContext): string[] {
 	if (count === 0) return [];
 	if (options.length === 0) throw new DiceError(emptyMessage);
 	const picks: string[] = [];
-	for (let i = 0; i < count; i++) picks.push(pick(options, random));
+	for (let i = 0; i < count; i++) {
+		spendPick(context);
+		picks.push(pick(options, random));
+	}
 	return picks;
 }
 
@@ -165,7 +178,7 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 			return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path };
 		}
 		if (block.type === "list") {
-			const picks = pickMany(listItems(block.text), count, random, "The list is empty");
+			const picks = pickMany(listItems(block.text), count, random, "The list is empty", context);
 			const texts: string[] = [];
 			for (const item of picks) texts.push(await resolveNested(item, context, depth));
 			return { kind: "list", text: texts.join(", "), details: "", source: note.path };
@@ -174,12 +187,12 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 	}
 
 	if (spec.args.some((arg) => arg.toLowerCase() === "line")) {
-		const picks = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines`);
+		const picks = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines`, context);
 		return { kind: "line", text: picks.join("\n"), details: "", source: note.path };
 	}
 
 	const options = selectBlocks(blocks, blockTypes(spec.args));
-	const picks = pickMany(options, count, random, `"${target.note}" has no matching blocks`);
+	const picks = pickMany(options, count, random, `"${target.note}" has no matching blocks`, context);
 	return { kind: "section", text: picks.join("\n\n"), details: "", source: note.path };
 }
 
@@ -201,7 +214,7 @@ async function rollTag(spec: Spec, context: RollContext): Promise<Omit<RollOutco
 	const parts: string[] = [];
 	for (const note of chosen) {
 		const options = selectBlocks(parseBlocks(note.markdown), types);
-		if (options.length > 0) parts.push(...pickMany(options, count, random, ""));
+		if (options.length > 0) parts.push(...pickMany(options, count, random, "", context));
 	}
 	if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}`);
 	return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? chosen[0]?.path : undefined };
@@ -230,7 +243,7 @@ async function rollSpecAt(raw: string, context: RollContext, depth: number, firs
  * With firstRoll set, |avg gives the mean instead of a roll; a click then rolls for real.
  */
 export function rollSpec(raw: string, context: RollContext, options: { firstRoll?: boolean } = {}): Promise<RollOutcome> {
-	return rollSpecAt(raw, context, 0, options.firstRoll ?? false);
+	return rollSpecAt(raw, { ...context, budget: newBudget() }, 0, options.firstRoll ?? false);
 }
 
 export { parseSpec };
