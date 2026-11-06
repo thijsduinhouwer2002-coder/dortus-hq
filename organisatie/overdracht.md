@@ -1,23 +1,27 @@
-# Overdracht (6 nov 2026)
+# Overdracht (6 nov 2026, 15:00)
 
-Voor de Claude die deze organisatie vanuit het nieuwe project opstart.
+Voor elke Claude die in een nieuwe chat aan Dortus gaat werken. Lees daarna `CLAUDE.md`.
 
-## Wat er al staat
-- Het ontwerp, de regels, de rollen en per platform een map met status en taken. Alles goedgekeurd door Thijs.
-- Gekozen platformen: Obsidian (bijzaak, voor bereik) en JetBrains (voor geld). De verkenner zoekt door. Blender staat klaar als voorstel.
+## Wat er staat
+- **De ploeg draait.** Strateeg 07:44, Obsidian-, JetBrains-manager en verkenner elk uur van 08:00 tot 20:00, hoofdmanager met dagrapport om 20:44. Allemaal geplande taken in Claude, op Opus 5.5, Auto, in de cloud. De opdrachten staan in `organisatie/geplande-taken.md`.
+- **Doelen:** zie `organisatie/doelen.md` (€ 300 tot 400 per maand in maart 2027, € 1.000 in nov 2027, € 2.000 tot 3.000 in nov 2028).
+- **Nieuwe platformen vinden is de hoofdzaak.** Atlassian is gestopt. Geen oude apps overzetten.
+- **Website:** dortus.com (repo `thijsduinhouwer2002-coder/dortus`), alleen in eigen productmappen werken. Support: support@dortus.com.
+- **Middelen en inlogs:** `organisatie/middelen.md`.
 
-## Wat Thijs wil
-- Onderbouwde keuzes, enthousiasme, hard werken.
-- Zo min mogelijk gevraagd worden: zelfstandig werken, alleen in nood vragen.
-- Het tegoed speelt geen rol.
-- Altijd links geven. Gewone woorden, Nederlands, geen gedachtestreepjes. Eerlijk, niet naar de mond praten.
+## Wat we vandaag leerden
+- Een geplande taak krijgt de repo-toegang die de chat had bij het aanmaken. Daarom: taken altijd aanmaken vanuit een chat die beide repo's met push heeft.
+- `add_repo` bestaat niet altijd in een geplande run. De eerste stap is daarom: "Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo."
+- De status "geslaagd" van een taak zegt niets over opslaan. Elke run sluit af met `git ls-remote`.
+- Claude in Chrome werkte vanuit de projectchat op Thijs' HP (Browser 2, deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0), ingelogd op GitHub. Of geplande runs Chrome ook kunnen gebruiken, werd om 14:50 getest (taak "Dortus test: browser vanaf de HP"). Uitkomst: nog niet verwerkt.
 
-## Volgende stappen
-1. **Repo op private** (Thijs, via de instellingen van de repo). Er staat strategie in.
-2. **Proefrun:** start de Obsidian-manager één keer als geplande taak, en daarna de hoofdmanager. Test daarmee of een geplande run toegang heeft tot deze repo.
-3. Bekijk samen met Thijs het eerste rapport.
-4. Werkt het: zet de vaste tijden aan (zie `ontwerp.md`), met een melding op zijn telefoon bij het rapport.
+## Thijs
+- Ondernemer, dit is zijn fulltime werk. Durft ergens voor te gaan.
+- Wil eerlijkheid en onderbouwing, maar niet te snel afschieten. Een 7 op 10 is top.
+- Kies, onderbouw, en vraag alleen in nood.
 
-## Nog onzeker
-- Of geplande runs toegang hebben tot deze repo.
-- De browser in de Claude-app werkt alleen als Thijs' computer aan staat. Werk dat de browser nodig heeft, past 's nachts misschien niet.
+## Nog open
+- Uitkomst van de Chrome-test verwerken. Werkt het: managers mogen zelf indienen en publiceren via de officiële weg.
+- Repo dortus-hq op privé zetten (Thijs), na het eerste dagrapport.
+- Koppelingen Gmail, Shopify, Trello en Kondo weghalen bij de geplande taken (Thijs, in de app).
+- Thijs vult aan in `middelen.md`: waar het domein staat, welke mailaanbieder, of hosting GitHub Pages is.
