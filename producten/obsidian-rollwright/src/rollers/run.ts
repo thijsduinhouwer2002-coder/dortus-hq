@@ -1,4 +1,4 @@
-import { averageOf, defaultRandom, DiceError, formatNumber, LIMITS, newBudget, roll, type Budget, type RandomInt } from "../engine";
+import { averageOf, defaultRandom, DiceError, formatNumber, formatResult, LIMITS, newBudget, roll, type Budget, type RandomInt } from "../engine";
 import { listItems, noteLines, parseBlocks, type Block } from "./markdown";
 import { parseSpec, withoutFlag, type Flags, type Spec } from "./spec";
 import { findColumn, findLookupRow, lookupFormula, parseTable, type Table } from "./table";
@@ -238,10 +238,10 @@ async function rollSpecAt(raw: string, context: RollContext, depth: number, firs
 		const dice = spec.target.formula;
 		if (firstRoll && spec.flags.avg) {
 			const average = averageOf(dice, diceOptions(context));
-			return { kind: "dice", text: formatNumber(average.value), total: average.value, estimated: !average.exact, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
+			return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
 		}
 		const result = roll(dice, diceOptions(context));
-		return { kind: "dice", text: formatNumber(result.total), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
+		return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
 	}
 	const outcome = spec.target.kind === "note" ? await rollNote(spec, context, depth) : await rollTag(spec, context);
 	return { flags: spec.flags, ...outcome, formula };

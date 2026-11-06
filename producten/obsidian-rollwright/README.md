@@ -53,6 +53,15 @@ Add flags after `|`, as in `1d20 + 2|nodice|text(Dexterity +2)`.
 | `\|avg` | Show the average first; a click rolls. With modifiers, or when a formula divides by dice or raises dice to a power, the average is an estimate, marked with `~` |
 | `\|none` | Show only an icon until the first click |
 | `\|text(label)` | Show your label before the result |
+| `\|round` | Round a dice result to the nearest whole number (2.5 becomes 3, -2.5 becomes -3). Off unless you add it, so `10 / 4` shows 2.5 |
+| `\|ceil` | Round a dice result up (1.25 becomes 2) |
+| `\|floor` | Round a dice result down (1.75 becomes 1) |
+| `\|noround` | Turn rounding off again |
+| `\|signed` | Always show a sign: `+3`, `-2`, `+0` |
+| `\|paren` | Put the result between brackets: `(6)`, with `\|signed` `(+3)` |
+| `\|noparen` | Turn the brackets off again |
+
+The number flags only change dice results, not picks from tables, lists or notes, and only what is shown: the tooltip still shows the exact roll. When two of them clash, the last one counts, so `|round|noround` does not round. A table column with the same name as a flag, such as Round, still wins.
 
 ## Rolling on your notes
 

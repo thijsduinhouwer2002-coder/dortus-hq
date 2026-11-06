@@ -10,7 +10,7 @@ Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de i
 2. `` `dice: 2d6` `` in lezen en in Live Preview: uitkomst, tooltip, klik rolt opnieuw.
 3. Live Preview: de cursor op de code toont de bron, de cursor eraf toont de uitkomst. Typen elders en scrollen laten de uitkomst staan. Geen uitkomst in een codeblok. De controle op codeblokken zoekt op de naam "codeblock" in de syntaxboom: dat is een aanname.
 4. Dezelfde uitkomst in lezen en Live Preview op dezelfde plek. Regels toevoegen boven een worp geeft een nieuwe worp: dat is bekend gedrag van de sleutel met regelnummer.
-5. Vlaggen `|nodice`, `|form`, `|avg`, `|none`, `|text(x)`.
+5. Vlaggen `|nodice`, `|form`, `|avg`, `|none`, `|text(x)`, en `|round`, `|ceil`, `|floor`, `|signed`, `|paren` in de widget (bijvoorbeeld `` `dice: 1d6/4|ceil|signed|paren|text(Schade)` ``), ook na een klik.
 6. Kapotte formule: rood onderstreept, reden in de tooltip.
 7. Tabel, lookup, geneste cel, lijst, sectie, regel, tag op echte notities. Vooral kijken of een uitkomst met meerdere alinea's er goed uitziet in de regel. Ook: een dobbelcode in een tabelcel van de notitie zelf (krijgt die een eigen uitkomst per cel), en een kolom met een vlagnaam zoals Round.
 8. Tags uit frontmatter en uit de tekst, ook geneste tags.
@@ -44,13 +44,20 @@ De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is ei
 - `#tag` zonder `|+` of `|-` werkt als `|+`.
 - `|xy` slaat de eerste kolom over, omdat daar meestal de rijnamen staan.
 - Meerdere trekkingen uit een tabel, lijst of sectie kunnen dezelfde uitkomst geven.
+- Vlaggen voor getallen (punt 1 van notatie 0.2, tak `claude/obsidian-2026-11-06-d`). Deel 4.6 noemt alleen de namen, dus de werking is eigen keuze:
+  - `|round` rondt af naar het dichtstbijzijnde hele getal, een half weg van nul (2.5 wordt 3, -2.5 wordt -3). `|ceil` naar boven, `|floor` naar beneden. `|noround` zet afronden uit. Afronden staat standaard uit (voorwaarde 2), zodat `10 / 4` 2.5 blijft. Een instelling voor afronden is er niet gekomen.
+  - `|signed` zet altijd een teken: `+3`, `-2`, en ook `+0`.
+  - `|paren` zet haakjes om de uitkomst, `|noparen` haalt ze weg. Volgorde: eerst afronden, dan het teken, dan de haakjes, dus `(+3)`. Bij `|avg` komt `~` ervoor: `~(4)`.
+  - Spreken vlaggen elkaar tegen, dan telt de laatste: `|round|noround` rondt niet af, `|ceil|floor` rondt naar beneden.
+  - Alleen dobbeluitkomsten veranderen, ook dobbelcodes in een tabelcel. Een trekking uit een tabel, lijst of notitie blijft zoals hij is. Alleen de weergave verandert: het getal in de uitkomst blijft exact (`total`), de tooltip toont de worp zonder afronding, en de geschiedenis bewaart de getoonde tekst.
+  - Met `|text(x)` en `|nodice` samen te gebruiken. Een tabelkolom met dezelfde naam (Round, Signed) gaat voor, zoals bij L3, en de vlag geldt dan niet.
 - `|text(x)` toont `x: uitkomst`. `|nodice` verbergt het dobbelicoon. De precieze betekenis in Dice Roller heb ik niet vastgesteld.
 - Alleen geklikte en getypte worpen komen in de geschiedenis. Anders vult het openen van een notitie de lijst.
 - `minAppVersion` is 1.7.2, de hoogste `@since` onder de gebruikte API's in `obsidian.d.ts` (`Workspace.revealLeaf` met belofte). Nagekeken in de typebestanden, niet in een oude Obsidian.
 
 ## Niet gebouwd in deze versie
 
-Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice+:`, `dice-:`, `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde, en de vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` (die worden geaccepteerd maar doen nog niets). `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
+Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice+:`, `dice-:`, `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde. De vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` werken sinds tak `claude/obsidian-2026-11-06-d`. `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
 
 ## Voor uitgave
 

@@ -6,7 +6,15 @@ export interface Flags {
 	avg: boolean;
 	none: boolean;
 	text?: string;
+	/** How to make the result whole. Off unless a flag asks for it. */
+	round?: Rounding;
+	/** Always show a plus or minus sign. */
+	signed?: boolean;
+	/** Put the result between brackets. */
+	paren?: boolean;
 }
+
+export type Rounding = "round" | "ceil" | "floor";
 
 export type Target =
 	| { kind: "dice"; formula: string }
@@ -24,7 +32,18 @@ export interface Spec {
 }
 
 /** Flags from the notation that we accept and that change nothing in this version. */
-const IGNORED_FLAGS = new Set(["dice", "render", "norender", "noform", "paren", "noparen", "round", "noround", "ceil", "floor", "signed"]);
+const IGNORED_FLAGS = new Set(["dice", "render", "norender", "noform"]);
+
+/** Flags that change how a number is shown. When several are written, the last one counts. */
+function applyNumberFlag(flags: Flags, lower: string): boolean {
+	if (lower === "round" || lower === "ceil" || lower === "floor") flags.round = lower;
+	else if (lower === "noround") delete flags.round;
+	else if (lower === "signed") flags.signed = true;
+	else if (lower === "paren") flags.paren = true;
+	else if (lower === "noparen") delete flags.paren;
+	else return false;
+	return true;
+}
 
 /** Splits on "|", but not inside (), [] or [[]]. */
 export function splitPipes(raw: string): string[] {
@@ -79,6 +98,9 @@ export function withoutFlag(flags: Flags, word: string): Flags {
 	const output = { ...flags };
 	if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") output[lower] = false;
 	else if (lower.startsWith("text(")) delete output.text;
+	else if (lower === "round" || lower === "ceil" || lower === "floor") delete output.round;
+	else if (lower === "signed") delete output.signed;
+	else if (lower === "paren") delete output.paren;
 	return output;
 }
 
@@ -97,7 +119,7 @@ export function parseSpec(raw: string, aliases: Record<string, string> = {}): Sp
 			flags[lower] = true;
 		} else if (lower.startsWith("text(") && part.endsWith(")")) {
 			flags.text = part.slice(5, -1);
-		} else if (!IGNORED_FLAGS.has(lower)) {
+		} else if (!applyNumberFlag(flags, lower) && !IGNORED_FLAGS.has(lower)) {
 			args.push(part);
 		}
 	}
