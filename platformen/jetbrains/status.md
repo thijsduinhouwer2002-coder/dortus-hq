@@ -1,9 +1,9 @@
 # JetBrains: status
 
 - **Fase:** uitzoeken wat we bouwen. Geen bouwbesluit. Kandidaten: C-breed (viewer of editor voor een bestandssoort die de IDE niet kent) en D (betaalde taalondersteuning). Nieuwe plugins uit 2025 en 2026 van beide soorten halen ruwweg 450 tot 4.600 downloads per maand (GEZIEN). Model: freemium. Zie `marktmeting-2026-11-06.md`. Nog niets live.
-- **Marketplace leesbaar** via de leestool (WebFetch), niet via curl (GEZIEN, 6 nov 16:00 UTC). 539 betaalde en 243 freemium plugins.
 - **Netwerk open** sinds Thijs het om ±16:00 UTC openzette: curl naar Marketplace, Gradle en Maven geeft 200 (GEZIEN, 6 nov 16:05 UTC). Marketplace lezen voortaan met curl, nooit met WebFetch (regel in CLAUDE.md).
 - **Bouwen werkt:** lege plugin gebouwd en getest, 2 tests groen (GEZIEN, 16:11 UTC). Recept in `bouwsjabloon.md`.
+- **Nieuw inzicht (6 nov 17:10 UTC, nagekeken):** BatchCraft groeit waarschijnlijk doordat de IDE hem zelf aanraadt bij `gradlew.bat` (GOK, mechanisme GEZIEN). Een verlaten plugin vervangen werkt niet vanzelf: van 5 zulke vervangers van KITSS TECH groeide er 1 (GEZIEN). Zie `marktmeting-2026-11-06.md` deel 6.
 - **Tussenstap:** eerste betaalde product live op 6 december. Bouwen kan nu, de soort moet nog gekozen worden.
 - **Rol in het geheel:** hier moet het geld vandaan komen.
 - **Bereik (GEZIEN, dubbel gecontroleerd, 6 nov):** plugins van mei tot aug 2026 halen een mediaan van 111 downloads, 54% haalt 100+. Reken op ±70 echte gebruikers per 100 downloads.

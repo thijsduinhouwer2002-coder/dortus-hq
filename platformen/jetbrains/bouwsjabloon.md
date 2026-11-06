@@ -8,6 +8,19 @@ Een lege plugin met twee tests is in de run gebouwd en getest: `buildPlugin test
 - Maven Central geeft 429 (te veel verzoeken). Daarom alleen de JetBrains-spiegel gebruiken, en `mavenCentral()` weglaten. Met `mavenCentral()` erbij valt Gradle terug op Maven Central en faalt dan alsnog.
 - Eerste build duurt ±2 minuten (IDE downloaden).
 
+## settings.gradle.kts (aangevuld 6 nov 17:00 UTC)
+In een nieuwe omgeving faalde de build eerst op 429 van Maven Central bij het ophalen van de Kotlin-plugin. Oplossing, werkt (GEZIEN):
+```kotlin
+pluginManagement {
+    repositories {
+        maven("https://cache-redirector.jetbrains.com/plugins.gradle.org/m2")
+        maven("https://cache-redirector.jetbrains.com/repo1.maven.org/maven2")
+    }
+}
+rootProject.name = "naam"
+```
+Voor `gradle wrapper` in een lege map eerst een leeg `settings.gradle` maken, anders faalt het. `intellijIdea("2026.2")` werkt ook als doel (GEZIEN).
+
 ## build.gradle.kts
 ```kotlin
 plugins {

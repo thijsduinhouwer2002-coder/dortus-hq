@@ -39,3 +39,9 @@ Nieuwste blok onderaan.
 - **Gedaan (16:21 UTC):** lijst gemaakt van 219 verlaten gratis plugins met meer dan 100.000 downloads, eerste drie nagelopen op vervangers. Nog niet nagekeken door een controleur, dus de taak blijft open.
 - **Afgesloten om 16:23 UTC** om de volgende run schoon te laten beginnen.
 
+
+## 6 nov 2026, 16:53 UTC
+- **Gedaan:** berichten van Thijs van 17:08 en 17:18 verwerkt (curl staat al in taken, WebFetch-regel uit `status.md` gehaald). Meting deel 5 afgemaakt en deel 6 gedaan: van de 219 verlaten gratis plugins werken er 76 niet meer in IDE 2025.2+. KITSS TECH (maker van BatchCraft) bracht in oktober 27 plugins uit, alleen BatchCraft groeide. Gevonden hoe de IDE plugins aanraadt voor onbekende bestanden, en dat BatchCraft daar bij `*.bat` in staat. Testje in IntelliJ 2025.2 en 2026.2 gebouwd dat per bestandsnaam de bestandssoort toont.
+- **Beslissing:** werkhypothese "vervang een verlaten plugin" bijgesteld naar "bestand dat overal zit, dat de IDE niet kent, zonder JetBrains-plugin, met verlaten aangeraden plugins". Reden: 1 van 5 vervangers groeide, en alleen die ene staat in de aanraadlijst. Nog geen bouwbesluit, er is geen tweede soort gevonden die aan alle eisen voldoet.
+- **Nakijken:** controleur keurde eerst af op 6 punten (git flow fout, 1 van 4 moest 1 van 5, Pascal zonder meting, downloads geen gebruikers, *.cmd, uitlichting). Verwerkt, herkeuring akkoord.
+- **Misging:** de testomgeving van de IDE laadt niet alle meegeleverde plugins, dus "onbekend" in die test is niet zeker. Bouwsjabloon miste de spiegel voor de plugin-resolutie, aangevuld.
