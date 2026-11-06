@@ -14,19 +14,20 @@ class RollWidget extends WidgetType {
 		private readonly formula: string,
 		private readonly key: string,
 		private readonly sourcePath: string,
+		private readonly keep: boolean,
 	) {
 		super();
 	}
 
 	eq(other: RollWidget): boolean {
-		return other.key === this.key;
+		return other.key === this.key && other.keep === this.keep;
 	}
 
 	toDOM(): HTMLElement {
 		const span = activeDocument.createElement("span");
 		this.component = new Component();
 		this.component.load();
-		mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component);
+		mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component, this.keep);
 		return span;
 	}
 
@@ -58,7 +59,7 @@ function build(plugin: RollwrightPlugin, view: EditorView): DecorationSet {
 				if (selection.some((range) => range.from <= end && range.to >= start)) return;
 				if (tree.resolveInner(start + 1, 1).name.includes("codeblock")) return;
 				const key = `${sourcePath}|${line.number - 1}:${index}|${found.formula}`;
-				builder.add(start, end, Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath) }));
+				builder.add(start, end, Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep) }));
 			});
 			if (line.to >= to || line.number >= state.doc.lines) break;
 			line = state.doc.line(line.number + 1);

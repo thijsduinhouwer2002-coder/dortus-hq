@@ -1,6 +1,6 @@
 import { MarkdownRenderChild, type MarkdownPostProcessorContext } from "obsidian";
 import type RollwrightPlugin from "../main";
-import { findInlineDice, formulaFromCode } from "../rollers/inline";
+import { findInlineDice, readDiceCode } from "../rollers/inline";
 import { mountRoll } from "./widget";
 
 /** The note lines of each dice code in a section, so reading view and Live Preview share results. */
@@ -25,8 +25,9 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 	const positions = codePositions(el, ctx);
 	let nth = 0;
 	for (const code of codes) {
-		const formula = formulaFromCode(code.textContent ?? "");
-		if (formula === null) continue;
+		const dice = readDiceCode(code.textContent ?? "");
+		if (dice === null) continue;
+		const { formula, keep } = dice;
 		const position = positions[nth];
 		const place = position ? `${position.line}:${position.index}` : `el:${++unplaced}`;
 		nth++;
@@ -34,6 +35,6 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 		code.replaceWith(span);
 		const child = new MarkdownRenderChild(span);
 		ctx.addChild(child);
-		mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child);
+		mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child, keep);
 	}
 }

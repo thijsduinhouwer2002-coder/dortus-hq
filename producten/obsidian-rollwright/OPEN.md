@@ -14,11 +14,12 @@ Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de i
 6. Kapotte formule: rood onderstreept, reden in de tooltip.
 7. Tabel, lookup, geneste cel, lijst, sectie, regel, tag op echte notities. Vooral kijken of een uitkomst met meerdere alinea's er goed uitziet in de regel. Ook: een dobbelcode in een tabelcel van de notitie zelf (krijgt die een eigen uitkomst per cel), en een kolom met een vlagnaam zoals Round.
 8. Tags uit frontmatter en uit de tekst, ook geneste tags.
-9. Zijpaneel: opent, toont bronnotitie, klik op bron opent de notitie, opnieuw rollen, wissen. Bewaard na herstart.
-10. Instellingen: alles opslaan, formule met naam gebruiken in een worp.
-11. Import met een echte `data.json` van Dice Roller.
-12. Skins: de betaalde zijn niet kiesbaar zonder sleutel, wel met sleutel. Ook in een los venster. Kleuren in licht en donker thema.
-13. Op iOS laden, in verband met reguliere expressies en de API.
+9. `dice+:` (tak `claude/obsidian-2026-11-06-e`): uitkomst blijft na herstart van Obsidian, in lezen en Live Preview dezelfde; klik rolt opnieuw en ook die blijft na herstart. `dice-:` rolt na herstart opnieuw. Kijk of het opslaan bij het openen van een notitie met veel `dice+:` niet hapert (elke nieuwe uitkomst schrijft de plugindata).
+10. Zijpaneel: opent, toont bronnotitie, klik op bron opent de notitie, opnieuw rollen, wissen. Bewaard na herstart.
+11. Instellingen: alles opslaan, formule met naam gebruiken in een worp.
+12. Import met een echte `data.json` van Dice Roller.
+13. Skins: de betaalde zijn niet kiesbaar zonder sleutel, wel met sleutel. Ook in een los venster. Kleuren in licht en donker thema.
+14. Op iOS laden, in verband met reguliere expressies en de API.
 
 Lint geeft 0 fouten en 1 waarschuwing: `RollwrightSettingTab` heeft geen `getSettingDefinitions()`, dus de instellingen staan niet in de zoekfunctie van Obsidian 1.13 en later. Dat is een nieuwe functie en valt buiten deze reparaties.
 
@@ -51,13 +52,24 @@ De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is ei
   - Spreken vlaggen elkaar tegen, dan telt de laatste: `|round|noround` rondt niet af, `|ceil|floor` rondt naar beneden.
   - Alleen dobbeluitkomsten veranderen, ook dobbelcodes in een tabelcel. Een trekking uit een tabel, lijst of notitie blijft zoals hij is. Alleen de weergave verandert: het getal in de uitkomst blijft exact (`total`), de tooltip toont de worp zonder afronding, en de geschiedenis bewaart de getoonde tekst.
   - Met `|text(x)` en `|nodice` samen te gebruiken. Een tabelkolom met dezelfde naam (Round, Signed) gaat voor, zoals bij L3, en de vlag geldt dan niet.
+- `dice+:` en `dice-:` (punt 2 van notatie 0.2, tak `claude/obsidian-2026-11-06-e`). Eigen keuzes:
+  - Bewaard wordt per sleutel: notitie, plaats (regel en volgnummer, of cel) en formule, dezelfde sleutel als het werkgeheugen. Regels erboven toevoegen geeft dus ook bij `dice+:` een nieuwe worp, en de oude blijft staan tot hij als oudste wegvalt.
+  - Grens: 500 bewaarde uitkomsten in de plugindata (`keptResults`), de oudste eruit. Een nieuwe worp op dezelfde sleutel telt als nieuwste.
+  - `dice-:` werkt nu precies als `dice:`, want er is geen instelling "standaard bewaren".
+  - In een geneste cel en als kop van een opzoektabel rollen `dice+:` en `dice-:` als `dice:`. Ze worden niet los bewaard; de buitenste worp bepaalt.
+  - `dice-mod:` wordt overal bewust geweigerd: geen worp, de tekst blijft staan (en defuse maakt hem onschadelijk). Een tabel met `dice-mod:` als kop is een gewone tabel.
+  - Defuse vangt ook `dice+:`, `dice-:` en `dice-mod:`, ook met spaties zoals `dice - mod:`.
 - `|text(x)` toont `x: uitkomst`. `|nodice` verbergt het dobbelicoon. De precieze betekenis in Dice Roller heb ik niet vastgesteld.
 - Alleen geklikte en getypte worpen komen in de geschiedenis. Anders vult het openen van een notitie de lijst.
 - `minAppVersion` is 1.7.2, de hoogste `@since` onder de gebruikte API's in `obsidian.d.ts` (`Workspace.revealLeaf` met belofte). Nagekeken in de typebestanden, niet in een oude Obsidian.
 
 ## Niet gebouwd in deze versie
 
-Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice+:`, `dice-:`, `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde. De vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` werken sinds tak `claude/obsidian-2026-11-06-d`. `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
+Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde. De vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` werken sinds tak `claude/obsidian-2026-11-06-d`, `dice+:` en `dice-:` sinds tak `claude/obsidian-2026-11-06-e`.
+
+Open punt: het ontwerp zegt "`dice:` volgt de instelling", maar een instelling "standaard bewaren" bestaat niet en is niet toegevoegd. Nu bewaart `dice:` nooit. Wie dat wil, beslist over zo'n instelling; dan krijgt `dice-:` pas echt betekenis.
+
+Open punt: er is geen knop om bewaarde uitkomsten te wissen. Ze blijven tot ze als oudste wegvallen. `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
 
 ## Voor uitgave
 

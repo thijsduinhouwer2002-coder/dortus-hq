@@ -44,9 +44,10 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 /**
  * Fills an element with a roll and makes it clickable. Used by both the reading
  * view and Live Preview. A broken formula shows a marked message, it never throws.
- * The component owns anything rendered from markdown.
+ * The component owns anything rendered from markdown. With keep (`dice+:`) the
+ * result is kept across restarts, and a click keeps the new one.
  */
-export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula: string, key: string, sourcePath: string, component: Component): void {
+export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula: string, key: string, sourcePath: string, component: Component, keep = false): void {
 	target.addClass("rollwright-roll");
 	target.setAttribute("role", "button");
 
@@ -59,7 +60,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	const rerollNow = async (): Promise<void> => {
 		try {
-			await showOutcome(plugin, target, await plugin.freshResult(key, formula, sourcePath), sourcePath, component);
+			await showOutcome(plugin, target, await plugin.freshResult(key, formula, sourcePath, keep), sourcePath, component);
 		} catch (error) {
 			showError(target, formula, error);
 		}
@@ -79,12 +80,12 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	// Keep the editor from moving the cursor into the code on a click.
 	target.addEventListener("mousedown", (event) => event.preventDefault());
 
-	if (hideFirst && !plugin.hasResult(key)) {
+	if (hideFirst && !plugin.hasResult(key, keep)) {
 		setIcon(target.createSpan({ cls: "rollwright-icon" }), "dices");
 		setTooltip(target, formula);
 		return;
 	}
-	plugin.firstResult(key, formula, sourcePath).then(
+	plugin.firstResult(key, formula, sourcePath, keep).then(
 		(outcome) => showOutcome(plugin, target, outcome, sourcePath, component),
 		(error: unknown) => showError(target, formula, error),
 	).catch((error: unknown) => showError(target, formula, error));
