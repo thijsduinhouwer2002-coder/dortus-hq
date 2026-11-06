@@ -200,3 +200,19 @@ Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet
 - **Geen bouwbesluit.** Er is nog geen tweede bestandssoort gevonden die aan alle vier de eisen voldoet.
 - Nagekeken door een controleur: afgekeurd op 6 punten (git flow fout, 1 van 4 moest 1 van 5 zijn, Pascal zonder meting, downloads zijn geen gebruikers, *.cmd ontbrak, uitlichting niet genoemd). Alles verwerkt, herkeuring akkoord.
 - Volgende meting: per aangeraden bestandssoort (de lijst van ruim 170 en meer) automatisch nagaan of er een plugin van JetBrains bij zit en of de beste niet-JetBrains-plugin na 2024 nog is bijgewerkt. Over blijft een korte lijst. Daarna per soort schatten hoe vaak hij in projecten voorkomt (bijvoorbeeld via de zoekfunctie van GitHub op bestandsnaam).
+
+## Meting deel 7: bouwbesluit stap 1, 302 bestandssoorten (17:14 tot 17:19 UTC, met curl)
+**Hoe:** voor 302 bestandssoorten en bestandsnamen de aanraadlijst van de Marketplace opgehaald, en per aangeraden plugin de maker, downloads en datum van de nieuwste versie. Alles in `data/bestandssoorten-stap1-2026-11-06.tsv` (GEZIEN). Of de IDE de soort zelf al kent is hier niet gemeten (zie de kanttekening bij deel 6).
+
+**Uitkomst (GEZIEN):**
+- 122 van de 302 hebben een plugin van JetBrains in de lijst. 57 hebben helemaal geen aangeraden plugin.
+- Soorten zonder JetBrains-plugin waar de nieuwste andere plugin van voor 2025 is: maar 7 (plus `*.pbf` zonder datum), allemaal klein (de grootste is SVG2VectorDrawable bij `*.svg` met 152.773, maar `.svg` kent de IDE zelf). Daar zit geen tweede batch tussen.
+- Zwak bediend, maar ook niet groot: NSIS (`*.nsi`, gratis plugins uit 2015, nieuwe betaalde met 66), AppleScript (gratis uit 2021, nieuwe betaalde met 274), Org (`*.org`, Org4Idea uit 2018, wel OrgMode met 1.656 downloads, bijgewerkt oktober 2026), Julia (2021, nieuwe betaalde Flexible Julia 9.048, maar die bracht sinds januari 2026 meer dan 100 versies uit en elke update telt als download).
+- Opvallend: `Jenkinsfile` heeft een **betaalde** plugin met 162.049 downloads (Jenkinsfile, bijgewerkt september 2026). Maker is Anbora Labs, ook van de betaalde Procfile-plugin. Let op: 47 versies sinds januari 2025 en elke update telt als download, dus 162.049 zegt weinig over kopers. Dat een betaald product voor zo'n bestand groot kan worden is een GOK.
+- Geen enkele plugin aangeraden voor onder meer `Podfile`, `.npmrc`, `*.webmanifest`, `*.heapsnapshot`, `*.cpuprofile`, `*.geojson`, `*.ics`, `*.srt`, `*.vtt`. (Ook `*.csproj`, `*.razor` en `*.xaml`, maar die kent Rider zelf, GOK, dus geen gat.)
+
+## Tussenstand na deel 7
+- Batch lijkt een buitenkans die er nu niet meer is: in 302 soorten geen tweede veelvoorkomende soort met alleen verlaten plugins en zonder JetBrains (GEZIEN voor deze 302, meer soorten bestaan).
+- Overgebleven sporen voor de volgende run: (a) soorten zonder enige aangeraden plugin die toch vaak in projecten zitten, bijvoorbeeld `Podfile` (staat in de map ios van Flutter-projecten die voor iOS bouwen, GOK) en `.npmrc`; eerst echt testen of de IDE ze kent. (b) Betaalde plugins voor veelvoorkomende bestanden die het goed doen (Jenkinsfile 162.049, BatchCraft) als bewijs dat mensen voor zoiets betalen. (c) Terug naar C-breed: viewers voor bestanden zonder aanbod (`*.heapsnapshot`, `*.cpuprofile`).
+- Nagekeken door een controleur: afgekeurd op 6 kleine punten (8 moest 7, OrgMode vergeten, Jenkinsfile en Flexible Julia te stellig door updates, Rider-soorten, Podfile). Alles verwerkt.
+- **Geen bouwbesluit.**

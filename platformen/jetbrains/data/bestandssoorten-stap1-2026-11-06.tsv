@@ -1,0 +1,303 @@
+soort	aantal	jetbrains	beste_ander	beste_dl	beste_laatste	nieuwste_ander_laatste	andere
+*.7z	5	nee	Archive Browser	340128	2026-08	2026-11	Archive Browser (340128, 2026-08, FREE); File Expander (337163, 2024-04, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); ArchiveManager (4756, 2023-12, FREE); File Expander2 (1732, ?, FREE)
+*.a	0	nee		0			
+*.a2l	0	nee		0			
+*.aar	4	ja	Archive Browser	340128	2026-08	2026-08	Archive Browser (340128, 2026-08, FREE); Android Bundle Support (53280, 2019-10, FREE)
+*.ada	0	nee		0			
+*.adoc	1	nee	AsciiDoc	3515151	2026-10	2026-10	AsciiDoc (3515151, 2026-10, FREE)
+*.ahk	1	nee	AutoHotkey	32432	2025-04	2025-04	AutoHotkey (32432, 2025-04, FREE)
+*.apk	3	ja	Archive Browser	340128	2026-08	2026-08	Archive Browser (340128, 2026-08, FREE)
+*.applescript	2	nee	AppleScript Support	82447	2021-10	2026-08	AppleScript Support (82447, 2021-10, FREE); AppleScript Toolkit (274, 2026-08, PAID)
+*.arb	4	nee	Flutter Intl	923128	2024-10	2026-10	Flutter Intl (923128, 2024-10, FREE); gpt-helper (20163, 2026-02, FREE); Auto Localizer (6733, 2026-03, FREE); Arb.NET (76, 2026-10, FREE)
+*.arxml	0	nee		0			
+*.asm	12	ja	NASM Assembly Language	76046	2023-07	2026-11	NASM Assembly Language (76046, 2023-07, FREE); MC68000 Assembly Language Support (27119, 2024-02, FREE); 6502 Assembly (15122, 2026-07, FREE); Motorola 68000 Series Assembler (12498, 2026-11, FREE); NASM Assembly Support (8566, 2017-01, FREE); Kick Assembler (... and chew bubble gum) (6569, 2024-08, FREE)
+*.astro	2	ja	Astro Pro	3094	2026-11	2026-11	Astro Pro (3094, 2026-11, PAID)
+*.au3	0	nee		0			
+*.avro	7	ja	Cap-Hadoop	100420	2022-06	2026-11	Cap-Hadoop (100420, 2022-06, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer (1414, 2026-10, FREEMIUM); TableKit: Excel & Parquet Viewer (388, 2026-08, FREE); Columns - Parquet and Avro Editor (120, 2026-08, PAID)
+*.awk	1	nee	AWK Support	40275	2026-10	2026-10	AWK Support (40275, 2026-10, FREE)
+*.bas	0	nee		0			
+*.bat	3	nee	CMD Support	2245589	2015-03	2026-10	CMD Support (2245589, 2015-03, FREE); Batch Scripts Support (2061264, 2021-12, FREE); BatchCraft: Batch & CMD (9054, 2026-10, PAID)
+*.bazel	2	ja		0			
+*.bib	2	nee	TeXiFy-IDEA	900148	2026-09	2026-11	TeXiFy-IDEA (900148, 2026-09, FREE); LaTeX Pro (2588, 2026-11, PAID)
+*.bicep	3	ja	Azure Toolkit for IntelliJ	940828	2026-11	2026-11	Azure Toolkit for IntelliJ (940828, 2026-11, FREE)
+*.bin	3	ja	BinEd - Binary/Hex Editor	499629	2026-10	2026-11	BinEd - Binary/Hex Editor (499629, 2026-10, FREE); Hex Editor (47267, 2026-11, FREEMIUM)
+*.blend	0	nee		0			
+*.bzl	4	ja	Bazel for Android Studio	71124	2026-10	2026-10	Bazel for Android Studio (71124, 2026-10, FREE); Buck for IDEA (48589, 2018-09, FREE)
+*.cabal	3	nee	HaskForce	61831	2021-06	2026-11	HaskForce (61831, 2021-06, FREE); Flexible Haskell (2671, 2026-11, PAID); Haskeletor (301, 2026-05, FREE)
+*.cairo	1	nee	Cairo Analyzer	881	2024-06	2024-06	Cairo Analyzer (881, 2024-06, FREE)
+*.cfg	8	ja	Minecraft Development	2405526	2026-10	2026-10	Minecraft Development (2405526, 2026-10, FREE); Context Free Grammar (264482, 2017-11, FREE); GDScript (111825, 2023-07, FREE)
+*.class	4	ja		0			
+*.clj	3	nee	Cursive	690815	2026-11	2026-11	Cursive (690815, 2026-11, FREE); Clojure-Kit (89676, 2021-02, FREE); Clojure LSP (20264, 2026-09, FREE)
+*.cls	4	nee	TeXiFy-IDEA	900148	2026-09	2026-11	TeXiFy-IDEA (900148, 2026-09, FREE); Illuminated Cloud 2 (819273, 2026-11, FREE); JetForcer | The Smartest Force.com IDE (342090, 2025-07, PAID); Illuminated Cloud (166109, 2020-07, FREE)
+*.cmake	1	ja		0			
+*.cmd	5	nee	CMD Support	2245589	2015-03	2026-10	CMD Support (2245589, 2015-03, FREE); Batch Scripts Support (2061264, 2021-12, FREE); EPICS Workbench (11359, 2026-04, FREE); BatchCraft: Batch & CMD (9054, 2026-10, PAID); BatchUI (8692, 2025-02, FREE)
+*.cob	3	nee	Creatures CAOS and Agenteering	7114	2024-04	2026-11	Creatures CAOS and Agenteering (7114, 2024-04, FREE); Cobol Forge (2367, 2026-01, FREE); Flexible COBOL (343, 2026-11, PAID)
+*.conf	14	ja	Nginx Configuration	2762004	2026-07	2026-11	Nginx Configuration (2762004, 2026-07, FREE); HOCON (1318387, 2026-10, FREE); logstash-config-files-support (599615, 2025-06, FREE); Nginx Configuration Pro (268231, 2026-11, PAID); Casbin (101833, 2023-12, FREE); nginx-support (27454, 2026-09, FREE)
+*.cpuprofile	0	nee		0			
+*.cshtml	0	nee		0			
+*.csproj	0	nee		0			
+*.csv	9	ja	CSV Editor	13814951	2026-11	2026-11	CSV Editor (13814951, 2026-11, FREE); Rainbow CSV (1836563, 2022-05, FREE); ExcelReader (1240277, 2026-11, FREE); ExcelEditor (316165, 2026-10, FREEMIUM); Cap-Hadoop (100420, 2022-06, FREE); Document Viewer (36509, 2026-08, FREE)
+*.csx	0	nee		0			
+*.cue	2	nee	CUE	37346	2026-11	2026-11	CUE (37346, 2026-11, FREE)
+*.dart	1	nee	Dart	29368933	2026-11	2026-11	Dart (29368933, 2026-11, FREE)
+*.db	6	nee	SimpleSqliteBrowser	488055	2026-04	2026-10	SimpleSqliteBrowser (488055, 2026-04, FREE); SQLDelight (469456, 2026-10, FREE); BoltDB Explorer (27806, 2025-09, FREE); EPICS Workbench (11359, 2026-04, FREE); bbolt Database (4054, 2026-07, FREE)
+*.dbc	1	nee	NPCoding CAN Database Files	43	2026-10	2026-10	NPCoding CAN Database Files (43, 2026-10, PAID)
+*.dcm	2	nee	Scientific Image Visualizer	728	2026-09	2026-09	Scientific Image Visualizer (728, 2026-09, FREE); DICOM Viewer (235, 2026-04, FREE)
+*.desktop	0	nee		0			
+*.dhall	1	nee	Dhall	3733	2020-03	2020-03	Dhall (3733, 2020-03, FREE)
+*.diff	2	nee	Diff / Patch File Support	47045	2026-10	2026-10	Diff / Patch File Support (47045, 2026-10, FREE); Diff / Patch File Support (14285, 2020-12, FREE)
+*.dll	2	ja	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.docx	3	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM); Document Viewer (36509, 2026-08, FREE); OOXml Tools (15058, 2026-10, FREE)
+*.dot	6	nee	DOT Language	154562	2024-08	2026-08	DOT Language (154562, 2024-08, FREE); Document Viewer (36509, 2026-08, FREE); Dot Base (21759, 2026-04, FREE); Dot Plus (2286, 2026-04, FREE); Dot Compat (191, 2025-06, FREE); DevTools (102, ?, FREE)
+*.drawio	1	nee	Diagrams.net Integration	499736	2026-08	2026-08	Diagrams.net Integration (499736, 2026-08, FREE)
+*.dtd	0	nee		0			
+*.duckdb	2	nee	DuckDB Lens: DuckDB Database File Viewer	1383	2026-10	2026-10	DuckDB Lens: DuckDB Database File Viewer (1383, 2026-10, FREEMIUM); Toolkit for DuckDB (14, 2026-10, PAID)
+*.dylib	2	ja	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.edf	0	nee		0			
+*.ejs	2	ja	EJS Hero	508	2026-02	2026-02	EJS Hero (508, 2026-02, PAID)
+*.elf	4	ja	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM); LiteFlowX (31971, 2024-08, FREE)
+*.entitlements	0	nee		0			
+*.env	4	ja	EnvFile	2421988	2026-03	2026-09	EnvFile (2421988, 2026-03, FREE); Env File Masker (40250, 2026-05, FREE); EnvForge - AI-Safe Environment Manager (30476, 2026-09, FREE)
+*.erb	1	ja		0			
+*.erl	1	nee	Erlang	745034	2026-07	2026-07	Erlang (745034, 2026-07, FREE)
+*.ex	4	nee	Elixir	507015	2026-08	2026-11	Elixir (507015, 2026-08, FREE); Flexible Elixir (3499, 2026-11, PAID); Elixirij (494, 2026-02, FREE); Explore: Elixir Support (341, 2026-03, FREE)
+*.exe	2	ja	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.f90	1	nee	Fortran	102014	2026-01	2026-01	Fortran (102014, 2026-01, FREE)
+*.fbx	1	nee	3D Visualizer	751	2026-09	2026-09	3D Visualizer (751, 2026-09, FREE)
+*.feature	12	ja	Karate	341359	2026-10	2026-11	Karate (341359, 2026-10, FREE); Substeps IntelliJ Plugin (192508, 2017-12, FREE); Reqnroll for Rider (143563, 2026-07, FREE); TAG Editor (67080, 2023-09, FREE); KnopkaOgurec (35947, 2026-05, FREE); MBKarate For AutoTest (19934, 2026-04, FREE)
+*.fits	1	nee	Scientific Image Visualizer	728	2026-09	2026-09	Scientific Image Visualizer (728, 2026-09, FREE)
+*.frm	0	nee		0			
+*.fs	4	ja		0			
+*.ftl	9	ja	Fluent Language	57570	2026-09	2026-11	Fluent Language (57570, 2026-09, FREE); Flexible Freemarker (19513, 2026-11, PAID); AEM Integration (4063, 2026-11, PAID); Magnolia CMS Integration (1755, 2026-11, PAID); FreeMarker Support (1116, 2026-06, FREEMIUM); FreeMarker Templates PRO (515, 2026-05, FREE)
+*.g4	4	nee	ANTLR v4	787998	2026-08	2026-10	ANTLR v4 (787998, 2026-08, FREE); ANTLR v4 Grammar (44486, 2026-09, FREE); ANTLR4 Plus (2125, 2026-10, FREE); ANTLR4 Helper (268, 2026-06, PAID)
+*.gemspec	2	ja		0			
+*.geojson	0	nee		0			
+*.gguf	1	nee	Model File Inspector	646	2026-09	2026-09	Model File Inspector (646, 2026-09, FREEMIUM)
+*.gif	1	nee	Image Editor	1649	2026-11	2026-11	Image Editor (1649, 2026-11, FREEMIUM)
+*.gitlab-ci.yml	2	nee	CI Aid for GitLab	1728699	2026-09	2026-09	CI Aid for GitLab (1728699, 2026-09, FREE)
+*.glb	3	nee	GLB Viewer	8153	2024-09	2026-09	GLB Viewer (8153, 2024-09, FREE); 3D Model Viewer (2751, 2026-07, FREE); 3D Visualizer (751, 2026-09, FREE)
+*.gltf	2	nee	3D Model Viewer	2751	2026-07	2026-09	3D Model Viewer (2751, 2026-07, FREE); 3D Visualizer (751, 2026-09, FREE)
+*.go	3	ja	Go language (golang.org) support plugin	922771	2017-03	2017-03	Go language (golang.org) support plugin (922771, 2017-03, FREE)
+*.gpx	0	nee		0			
+*.gql	4	ja	Apollo GraphQL	94910	2026-06	2026-08	Apollo GraphQL (94910, 2026-06, FREE); Graql (33127, 2018-08, FREE); MarkLogic Pulse (241, 2026-08, FREE)
+*.gradle	2	ja		0			
+*.graphql	2	ja	Apollo GraphQL	94910	2026-06	2026-06	Apollo GraphQL (94910, 2026-06, FREE)
+*.grib	0	nee		0			
+*.groovy	2	ja		0			
+*.gv	4	nee	DOT Language	154562	2024-08	2026-04	DOT Language (154562, 2024-08, FREE); Dot Base (21759, 2026-04, FREE); Dot Plus (2286, 2026-04, FREE); Dot Compat (191, 2025-06, FREE)
+*.gz	7	ja	Archive Browser	340128	2026-08	2026-11	Archive Browser (340128, 2026-08, FREE); File Expander (337163, 2024-04, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); ArchiveManager (4756, 2023-12, FREE); Expert.ai Studio Core (2087, ?, FREE); File Expander2 (1732, ?, FREE)
+*.h5	1	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM)
+*.haml	2	ja		0			
+*.har	1	ja		0			
+*.hbs	1	ja		0			
+*.hcl	3	ja	Atlas	42368	2026-07	2026-07	Atlas (42368, 2026-07, FREE); function-hcl (1411, 2026-07, FREE)
+*.heapsnapshot	0	nee		0			
+*.hex	1	nee	Advanced JSON Studio	1461138	2026-06	2026-06	Advanced JSON Studio (1461138, 2026-06, FREEMIUM)
+*.hjson	1	nee	HJson	1601	2023-08	2023-08	HJson (1601, 2023-08, FREE)
+*.hprof	3	ja	JProfiler	879846	2026-09	2026-10	JProfiler (879846, 2026-09, FREE); Heap Dump Lens: JVM Heap Dump, Thread Dump & GC Log Viewer (1649, 2026-10, FREEMIUM)
+*.hql	3	ja	LinhScript	47	2026-04	2026-04	LinhScript (47, 2026-04, FREE)
+*.hs	7	nee	HaskForce	61831	2021-06	2026-11	HaskForce (61831, 2021-06, FREE); Haskell LSP (20405, 2026-08, FREE); Haskell (8719, 2012-01, FREE); Flexible Haskell (2671, 2026-11, PAID); Haskell Syntax Highlighting (1354, 2022-06, FREE); CardanoPyC (484, 2025-09, FREE)
+*.http	2	ja		0			
+*.ico	1	nee	Image Editor	1649	2026-11	2026-11	Image Editor (1649, 2026-11, FREEMIUM)
+*.ics	0	nee		0			
+*.img	1	nee	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.inf	0	nee		0			
+*.ini	3	ja	JASS	17619	2024-12	2024-12	JASS (17619, 2024-12, FREE)
+*.ipynb	5	ja	Notebook Lens: Jupyter ipynb Viewer	2304	2026-10	2026-10	Notebook Lens: Jupyter ipynb Viewer (2304, 2026-10, FREEMIUM)
+*.iso	3	nee	Archive Browser	340128	2026-08	2026-11	Archive Browser (340128, 2026-08, FREE); Hex Editor (47267, 2026-11, FREEMIUM); ArchiveManager (4756, 2023-12, FREE)
+*.iss	1	nee	Inno Setup	1038	2026-08	2026-08	Inno Setup (1038, 2026-08, FREE)
+*.j2	5	ja	OrchidE - Ansible Language Support	355450	2026-09	2026-10	OrchidE - Ansible Language Support (355450, 2026-09, PAID); Jinja2 Enhanced Support (10029, 2026-10, PAID); SaltStack Toolkit (3970, 2026-10, FREE); Rolewise for Ansible (379, 2026-10, PAID)
+*.jar	0	nee		0			
+*.jfr	1	nee	Java JFR Profiler	36713	2026-11	2026-11	Java JFR Profiler (36713, 2026-11, FREE)
+*.jinja	3	ja	Jinja2 Enhanced Support	10029	2026-10	2026-10	Jinja2 Enhanced Support (10029, 2026-10, PAID); SaltStack Toolkit (3970, 2026-10, FREE)
+*.jl	2	nee	Julia	78090	2021-02	2026-11	Julia (78090, 2021-02, FREE); Flexible Julia (9048, 2026-11, PAID)
+*.jpg	1	nee	Image Editor	1649	2026-11	2026-11	Image Editor (1649, 2026-11, FREEMIUM)
+*.json5	1	ja		0			
+*.jsonc	1	ja		0			
+*.jsonnet	3	nee	Jsonnet	68617	2024-03	2026-08	Jsonnet (68617, 2024-03, FREE); Jsonnet Language Server (51972, 2026-08, FREE)
+*.kdl	1	nee	KDL Document Language	3780	2024-05	2024-05	KDL Document Language (3780, 2024-05, FREE)
+*.kicad_pcb	1	nee	Flexible For Schematics	260	2026-11	2026-11	Flexible For Schematics (260, 2026-11, PAID)
+*.kml	0	nee		0			
+*.kql	2	nee	Elasticsearch	155739	2026-07	2026-07	Elasticsearch (155739, 2026-07, PAID); Kusto Hero (230, 2026-06, PAID)
+*.ksy	0	nee		0			
+*.kt	6	ja	KEEP-87 Kotlin	4	?		KEEP-87 Kotlin (4, ?, FREE)
+*.l	0	nee		0			
+*.libsonnet	4	nee	Jsonnet	68617	2024-03	2026-08	Jsonnet (68617, 2024-03, FREE); Jsonnet Language Server (51972, 2026-08, FREE); DataSonnet Mapper (2843, 2025-04, FREE)
+*.liquid	3	ja	Liquid Hero	3350	2026-10	2026-11	Liquid Hero (3350, 2026-10, PAID); Liquid for Shopify & Jekyll (598, 2026-11, PAID)
+*.lock	0	nee		0			
+*.log	2	ja	Catdea	275454	2020-03	2020-03	Catdea (275454, 2020-03, FREE)
+*.lua	11	ja	EmmyLua	1013855	2026-08	2026-11	EmmyLua (1013855, 2026-08, FREE); Lua [Deprecated] (896439, 2020-06, FREE); Luanalysis (155671, 2023-01, FREE); SumnekoLua (81643, 2026-07, FREE); Luau (23641, 2026-10, FREE); Luakit (13141, 2018-11, FREE)
+*.m	7	ja	Matlab Support	138129	2023-06	2026-06	Matlab Support (138129, 2023-06, FREE); Wolfram Language (132469, 2026-04, PAID); Magma (3245, 2026-05, FREE); Matrix Hero - MATLAB IDE (1218, 2026-06, PAID); Miranda Language Support (783, 2023-01, FREE)
+*.mbtiles	1	nee	SQLite Lens: SQLite Database File Viewer	5209	2026-10	2026-10	SQLite Lens: SQLite Database File Viewer (5209, 2026-10, FREEMIUM)
+*.md	5	ja	Markdown Navigator Enhanced	5392483	2023-05	2026-11	Markdown Navigator Enhanced (5392483, 2023-05, FREE); Gemini Code Assist (2229095, 2026-10, FREE); Illuminated Cloud 2 (819273, 2026-11, FREE); mini markdown (2113, 2025-10, FREE)
+*.mdf	1	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM)
+*.mdx	1	ja		0			
+*.mjml	1	nee	MJML Support	198635	2026-06	2026-06	MJML Support (198635, 2026-06, FREE)
+*.mk	5	ja	DockDockBuild	96270	2024-10	2026-11	DockDockBuild (96270, 2024-10, FREE); AndroidSupportFramework (79895, 2026-06, FREEMIUM); Wave Language (5124, 2026-03, FREE); mk-format Highlighter (1118, 2026-11, FREE)
+*.ml	3	ja	ReasonML	113428	2025-09	2025-09	ReasonML (113428, 2025-09, FREE); OCaml (5297, 2023-11, FREE)
+*.mmd	8	ja	SciaReto Mind Map	208005	2026-10	2026-11	SciaReto Mind Map (208005, 2026-10, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); Mermaid Visualizer (46381, 2026-11, FREE); Mermaid Studio Core (26433, 2026-09, FREEMIUM); Mermaid Studio (15441, 2026-09, PAID); Nereid (9402, 2026-09, FREE)
+*.mod	5	nee	CPLEX OPL	16995	2026-10	2026-10	CPLEX OPL (16995, 2026-10, FREE); Stellaris Modding Support (3538, 2021-03, FREE); Rapid (383, 2024-04, FREE); Oberon (37, ?, FREE); Lexa Studio (2, ?, FREE)
+*.move	5	nee	Move on Aptos	26030	2026-07	2026-07	Move on Aptos (26030, 2026-07, FREE); Sui Move Language (9668, 2026-04, FREE); Move Language for Sui (142, 2025-06, FREE); IOTA Move (81, 2026-01, FREE); Move on Endless (64, 2025-12, FREE)
+*.mp3	5	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM); jetplay (15280, 2026-08, FREE); Audio Player (5370, 2026-10, FREE); CocosEditor2.0 (2312, 2014-12, FREE); CocosEditor2.0-AppCode (128, 2016-07, FREE)
+*.mp4	2	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM); jetplay (15280, 2026-08, FREE)
+*.mustache	1	ja		0			
+*.nc	2	nee	NC Viewer	1744	2025-11	2026-09	NC Viewer (1744, 2025-11, FREE); Scientific Image Visualizer (728, 2026-09, FREE)
+*.nii	1	nee	Niivue Viewer	1661	2026-07	2026-07	Niivue Viewer (1661, 2026-07, FREE)
+*.nim	5	ja	Nimatron	1259	2020-10	2026-11	Nimatron (1259, 2020-10, FREE); Nim using nimlangserver (468, 2026-10, FREE); Nim Language Support (383, 2018-01, FREE); Nim Pro (49, 2026-11, PAID)
+*.nix	2	nee	NixIDEA	199202	2026-07	2026-10	NixIDEA (199202, 2026-07, FREE); Nix Pro (1463, 2026-10, PAID)
+*.njk	2	nee	Nunjucks Hero	2640	2026-10	2026-10	Nunjucks Hero (2640, 2026-10, PAID); Nunjucks (819, 2026-09, PAID)
+*.npy	2	nee	Niivue Viewer	1661	2026-07	2026-09	Niivue Viewer (1661, 2026-07, FREE); Scientific Image Visualizer (728, 2026-09, FREE)
+*.nsi	3	nee	NSIS plugin	26509	2015-03	2026-10	NSIS plugin (26509, 2015-03, FREE); NSIS Language Support (6293, 2015-08, FREE); NPCoding Installer Scripts (66, 2026-10, PAID)
+*.nuspec	0	nee		0			
+*.o	1	nee	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.obj	4	nee	Wavefront OBJ	105144	2026-10	2026-11	Wavefront OBJ (105144, 2026-10, FREE); Hex Editor (47267, 2026-11, FREEMIUM); 3D Visualizer (751, 2026-09, FREE); SCAD Sphere (23, 2026-11, FREE)
+*.onnx	1	nee	ONNX4IDEA	224	2022-06	2022-06	ONNX4IDEA (224, 2022-06, FREE)
+*.opam	0	nee		0			
+*.org	2	nee	Org4Idea	32267	2018-05	2026-10	Org4Idea (32267, 2018-05, FREE); OrgMode (1656, 2026-10, FREE)
+*.osm	0	nee		0			
+*.parquet	10	ja	Cap-Hadoop	100420	2022-06	2026-11	Cap-Hadoop (100420, 2022-06, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); Parquet Studio (3284, 2026-08, FREE); Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer (1414, 2026-10, FREEMIUM); TableKit: Excel & Parquet Viewer (388, 2026-08, FREE); Columns - Parquet and Avro Editor (120, 2026-08, PAID)
+*.pas	3	nee	I-Pascal	151908	2020-06	2026-11	I-Pascal (151908, 2020-06, FREE); Pascal Flow (2344, 2026-11, FREEMIUM); Flexible Delphi (279, 2026-11, PAID)
+*.patch	2	nee	Diff / Patch File Support	47045	2026-10	2026-10	Diff / Patch File Support (47045, 2026-10, FREE); Diff / Patch File Support (14285, 2020-12, FREE)
+*.pbf	1	nee	PureBasic Language	80	?		PureBasic Language (80, ?, FREE)
+*.pbxproj	5	ja	Noctule, the Swift IDE	435158	2026-11	2026-11	Noctule, the Swift IDE (435158, 2026-11, FREEMIUM); Multi-OS Engine (89160, 2026-06, FREE); Multi-OS Engine Community Edition (30760, ?, FREE); Flexible Swift (13592, 2026-11, PAID)
+*.pcap	2	ja	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM)
+*.pdf	7	ja	PDF Viewer	413292	2026-09	2026-11	PDF Viewer (413292, 2026-09, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); Document Viewer (36509, 2026-08, FREE); Reader (2614, 2026-03, FREE); FusionPDF (1548, 2025-03, FREE); R3 Book Reader (319, 2026-07, FREE)
+*.pkl	0	nee		0			
+*.plist	4	ja	Noctule, the Swift IDE	435158	2026-11	2026-11	Noctule, the Swift IDE (435158, 2026-11, FREEMIUM); Flexible Swift (13592, 2026-11, PAID)
+*.png	1	nee	Image Editor	1649	2026-11	2026-11	Image Editor (1649, 2026-11, FREEMIUM)
+*.po	2	ja		0			
+*.podspec	0	nee		0			
+*.pom	3	ja	Easy Maven	13187	2026-11	2026-11	Easy Maven (13187, 2026-11, FREE)
+*.pot	2	ja		0			
+*.pprof	0	nee		0			
+*.prefab	1	ja		0			
+*.prisma	4	ja	Prisma	57320	2022-02	2026-01	Prisma (57320, 2022-02, FREE); Prisma Support (34150, 2021-11, FREE); Prisma Graph Visualizer (23226, 2026-01, FREE)
+*.prof	1	nee	Profile Viewer: CPU & Heap Profiles, Flame Graphs	91	2026-09	2026-09	Profile Viewer: CPU & Heap Profiles, Flame Graphs (91, 2026-09, FREEMIUM)
+*.properties	5	ja	ApiTool	7852	2026-09	2026-11	ApiTool (7852, 2026-09, FREE); Jasypt Helper (3225, 2026-11, FREE); TableGear - Yet Another ORM and ElasticSearch Code Generator (727, 2026-04, FREE)
+*.proto	7	ja	Protobuf Support	763372	?	2026-10	Protobuf Support (763372, ?, FREE); Protobuf (558340, 2026-08, FREE); Buf for Protocol Buffers (241431, 2026-10, FREE); Google Protocol Buffers support (178662, 2015-02, FREE); ProtoStuff Generate (31735, 2024-05, FREE); EPICS Workbench (11359, 2026-04, FREE)
+*.ps1	2	nee	PowerShell	1504442	2026-07	2026-07	PowerShell (1504442, 2026-07, FREE); PowerShell 7 (809, ?, FREE)
+*.pug	2	ja	NPCoding Support for Pug	18	2026-10	2026-10	NPCoding Support for Pug (18, 2026-10, FREE)
+*.puml	2	nee	plantuml4idea	5089819	2026-09	2026-11	plantuml4idea (5089819, 2026-09, FREE); Omni Viewer (62355, 2026-11, FREEMIUM)
+*.r	1	ja		0			
+*.razor	0	nee		0			
+*.rb	2	ja		0			
+*.reg	1	nee	NPCoding Registry Files	29	2026-10	2026-10	NPCoding Registry Files (29, 2026-10, PAID)
+*.rego	1	nee	Open Policy Agent	87641	2026-08	2026-08	Open Policy Agent (87641, 2026-08, FREE)
+*.rest	3	ja	Retrofit Rest Client	12193	2021-12	2021-12	Retrofit Rest Client (12193, 2021-12, FREE); Http Editor Client (11681, 2016-11, FREE)
+*.resx	0	nee		0			
+*.rkt	1	nee	Racket	6898	2026-09	2026-09	Racket (6898, 2026-09, FREE)
+*.robot	11	nee	IntelliBot	567811	2016-05	2026-10	IntelliBot (567811, 2016-05, FREE); Robot Framework Support (405277, 2022-01, FREE); Hyper RobotFramework Support (317844, 2026-10, FREE); Robot Framework Language Server (246340, 2023-06, FREE); IntelliBot #patched (183313, 2023-03, FREE); RobotFramework Helper (68496, 2026-10, FREE)
+*.ron	6	nee	RON Extended Support	8611	2024-01	2026-10	RON Extended Support (8611, 2024-01, FREE); RON (3035, 2021-02, FREE); RON (Rusty Object Notation) (1366, 2019-07, FREE); RON LSP (1189, 2025-12, FREE); RON Assist (911, 2026-10, FREE); RON Extended Support for Rust Rover (882, 2026-09, FREE)
+*.rs	3	ja	Rust Pro	58	2026-11	2026-11	Rust Pro (58, 2026-11, PAID)
+*.rst	5	ja	reStructuredText Pro	1260	2026-10	2026-10	reStructuredText Pro (1260, 2026-10, PAID)
+*.s	7	ja	MC68000 Assembly Language Support	27119	2024-02	2026-11	MC68000 Assembly Language Support (27119, 2024-02, FREE); 6502 Assembly (15122, 2026-07, FREE); Motorola 68000 Series Assembler (12498, 2026-11, FREE); Wave Language (5124, 2026-03, FREE); TASKING winIDEA (1092, 2026-04, FREE); MASMLD Core (16, 2026-11, FREE)
+*.safetensors	1	nee	Model File Inspector	646	2026-09	2026-09	Model File Inspector (646, 2026-09, FREEMIUM)
+*.sav	0	nee		0			
+*.sb3	0	nee		0			
+*.scm	2	nee	Scheme	23037	2025-12	2025-12	Scheme (23037, 2025-12, FREE); Schemely (2825, 2011-04, FREE)
+*.scpt	2	nee	AppleScript Support	82447	2021-10	2026-08	AppleScript Support (82447, 2021-10, FREE); AppleScript Toolkit (274, 2026-08, PAID)
+*.sed	0	nee		0			
+*.service	1	nee	Unit File Support (systemd)	1273998	2026-11	2026-11	Unit File Support (systemd) (1273998, 2026-11, FREE)
+*.sh	3	ja	BashSupport	14499118	2020-07	2026-09	BashSupport (14499118, 2020-07, FREE); BashSupport Pro (620266, 2026-09, PAID)
+*.shp	1	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM)
+*.slim	2	ja		0			
+*.sln	1	nee	jetplay	15280	2026-08	2026-08	jetplay (15280, 2026-08, FREE)
+*.so	3	ja	Android Bundle Support	53280	2019-10	2026-11	Android Bundle Support (53280, 2019-10, FREE); Hex Editor (47267, 2026-11, FREEMIUM)
+*.sol	2	nee	Solidity	454702	2026-02	2026-11	Solidity (454702, 2026-02, FREE); Flexible Solidity (3455, 2026-11, PAID)
+*.sql	9	ja	Database Navigator	5051077	2026-09	2026-10	Database Navigator (5051077, 2026-09, FREE); MaxCompute Studio (931207, 2026-08, FREE); Databee: Database Client & SQL (142015, 2026-10, PAID); SQL Code Assistant (44741, 2014-08, FREE); Spark SQL Helper (1982, 2025-09, PAID); MarkLogic Pulse (241, 2026-08, FREE)
+*.sqlite	2	nee	SimpleSqliteBrowser	488055	2026-04	2026-10	SimpleSqliteBrowser (488055, 2026-04, FREE); SQLite Lens: SQLite Database File Viewer (5209, 2026-10, FREEMIUM)
+*.srt	0	nee		0			
+*.st	3	nee	StringTemplate v4	54585	2023-11	2026-04	StringTemplate v4 (54585, 2023-11, FREE); EPICS Workbench (11359, 2026-04, FREE); Redline Smalltalk (3025, 2013-04, FREE)
+*.star	2	ja		0			
+*.stl	3	nee	3D Visualizer	751	2026-09	2026-11	3D Visualizer (751, 2026-09, FREE); Flexible For OpenSCAD (580, 2026-11, PAID); SCAD Sphere (23, 2026-11, FREE)
+*.storyboard	1	ja		0			
+*.strings	2	ja	Flexible Swift	13592	2026-11	2026-11	Flexible Swift (13592, 2026-11, PAID)
+*.sum	0	nee		0			
+*.sv	5	nee	SystemVerilog Studio	13039	2026-10	2026-10	SystemVerilog Studio (13039, 2026-10, PAID); HDL and Vivado + MCP Support (1940, 2026-08, FREE); SystemVerilog Language Support (1333, 2026-04, PAID); basic-verilog-support (990, 2025-07, FREE)
+*.svelte	3	ja	Svelte	20505	2017-09	2026-10	Svelte (20505, 2017-09, FREE); Svelte Hero (2279, 2026-10, PAID)
+*.svg	1	nee	SVG2VectorDrawable	152773	2024-01	2024-01	SVG2VectorDrawable (152773, 2024-01, FREE)
+*.swift	4	ja	Noctule, the Swift IDE	435158	2026-11	2026-11	Noctule, the Swift IDE (435158, 2026-11, FREEMIUM); Flexible Swift (13592, 2026-11, PAID)
+*.tar	6	ja	Archive Browser	340128	2026-08	2026-11	Archive Browser (340128, 2026-08, FREE); File Expander (337163, 2024-04, FREE); Omni Viewer (62355, 2026-11, FREEMIUM); ArchiveManager (4756, 2023-12, FREE); File Expander2 (1732, ?, FREE)
+*.tcl	2	nee	Tcl Language Support	2727	2026-09	2026-09	Tcl Language Support (2727, 2026-09, FREE); HDL and Vivado + MCP Support (1940, 2026-08, FREE)
+*.tex	2	nee	TeXiFy-IDEA	900148	2026-09	2026-11	TeXiFy-IDEA (900148, 2026-09, FREE); LaTeX Pro (2588, 2026-11, PAID)
+*.tf	2	ja	Terraform Code Visualizer	3916	2021-10	2021-10	Terraform Code Visualizer (3916, 2021-10, FREE)
+*.thrift	5	nee	Thrift Support	361136	2022-05	2026-06	Thrift Support (361136, 2022-05, FREE); Thrift Support (fork) (199360, 2026-06, FREE); Thrift Assistant (19269, 2025-09, FREE); Thrift-Formatter (4882, 2024-12, FREE); Thrift Hero (1380, 2026-06, PAID)
+*.toml	2	ja	Groml Support	5244	2025-05	2025-05	Groml Support (5244, 2025-05, FREE)
+*.tpl	5	ja	PRADO Plugin	17836	2015-06	2015-06	PRADO Plugin (17836, 2015-06, FREE); DevTools (102, ?, FREE)
+*.trace	3	ja		0			
+*.tres	2	nee	GDScript	111825	2023-07	2025-01	GDScript (111825, 2023-07, FREE); GdScript (95930, 2025-01, FREE)
+*.tscn	3	nee	GDScript	111825	2023-07	2026-10	GDScript (111825, 2023-07, FREE); GdScript (95930, 2025-01, FREE); Godot-JVM (12283, 2026-10, FREE)
+*.tsv	5	ja	CSV Editor	13814951	2026-11	2026-11	CSV Editor (13814951, 2026-11, FREE); Document Viewer (36509, 2026-08, FREE); m3 Robot Support (18484, 2024-10, FREE); CSV Color Pro (9614, 2025-05, PAID)
+*.ttf	5	ja	Icon Font Viewer	16963	2025-05	2026-07	Icon Font Viewer (16963, 2025-05, FREE); FontViewer (2080, 2026-07, FREE)
+*.twig	2	ja		0			
+*.txt	0	nee		0			
+*.uasset	0	nee		0			
+*.unity	1	ja		0			
+*.v	7	nee	Vlang	22476	2023-04	2026-10	Vlang (22476, 2023-04, FREE); SystemVerilog Studio (13039, 2026-10, PAID); Vlang (6390, 2025-09, FREE); Verilog Language Support (5013, 2026-03, PAID); HDL and Vivado + MCP Support (1940, 2026-08, FREE); basic-verilog-support (990, 2025-07, FREE)
+*.vba	0	nee		0			
+*.vbs	2	nee	VBScript	28747	2026-03	2026-10	VBScript (28747, 2026-03, FREE); ASP Classic Language Support (443, 2026-10, FREE)
+*.vcf	0	nee		0			
+*.vcxproj	0	nee		0			
+*.vhd	5	nee	Archive Browser	340128	2026-08	2026-08	Archive Browser (340128, 2026-08, FREE); ArchiveManager (4756, 2023-12, FREE); HDLine (4475, 2017-01, FREE); Driver (4170, 2024-11, FREE); VHDL Language Support (1394, 2026-04, PAID)
+*.vm	4	ja	Illuminated Cloud 2	819273	2026-11	2026-11	Illuminated Cloud 2 (819273, 2026-11, FREE)
+*.vtt	0	nee		0			
+*.vue	1	ja		0			
+*.wasm	2	ja	Hex Editor	47267	2026-11	2026-11	Hex Editor (47267, 2026-11, FREEMIUM)
+*.wat	2	ja		0			
+*.wav	5	nee	Omni Viewer	62355	2026-11	2026-11	Omni Viewer (62355, 2026-11, FREEMIUM); jetplay (15280, 2026-08, FREE); Audio Player (5370, 2026-10, FREE); CocosEditor2.0 (2312, 2014-12, FREE); CocosEditor2.0-AppCode (128, 2016-07, FREE)
+*.webmanifest	0	nee		0			
+*.webp	3	ja	Image Editor	1649	2026-11	2026-11	Image Editor (1649, 2026-11, FREEMIUM)
+*.woff	1	nee	FontViewer	2080	2026-07	2026-07	FontViewer (2080, 2026-07, FREE)
+*.wsdl	0	nee		0			
+*.xaml	0	nee		0			
+*.xcconfig	1	ja		0			
+*.xib	1	ja		0			
+*.xliff	4	nee	i18n Ally	65968	2024-10	2026-07	i18n Ally (65968, 2024-10, FREE); Localization (49920, 2020-08, FREE); Neos Support (27207, 2026-07, FREE); Auto Localizer (6733, 2026-03, FREE)
+*.xlsx	10	nee	ExcelReader	1240277	2026-11	2026-11	ExcelReader (1240277, 2026-11, FREE); ExcelEditor (316165, 2026-10, FREEMIUM); Omni Viewer (62355, 2026-11, FREEMIUM); Document Viewer (36509, 2026-08, FREE); Light Sheet (16394, 2025-01, FREE); OOXml Tools (15058, 2026-10, FREE)
+*.xml	1	nee	Vector Thumbnails	27370	2026-07	2026-07	Vector Thumbnails (27370, 2026-07, FREE)
+*.xsd	1	nee	XSD / WSDL Visualizer	37876	2026-10	2026-10	XSD / WSDL Visualizer (37876, 2026-10, FREEMIUM)
+*.y	2	nee	GoYacc Support	21165	2020-05	2023-09	GoYacc Support (21165, 2020-05, FREE); Bison Language Support (13017, 2023-09, FREE)
+*.yaml	6	ja	Alibaba Cloud Toolkit	703372	2024-12	2026-11	Alibaba Cloud Toolkit (703372, 2024-12, FREE); OrchidE - Ansible Language Support (355450, 2026-09, PAID); Grav Support (5708, 2020-12, FREE); Jasypt Helper (3225, 2026-11, FREE)
+*.yml	5	ja	OrchidE - Ansible Language Support	355450	2026-09	2026-11	OrchidE - Ansible Language Support (355450, 2026-09, PAID); Jasypt Helper (3225, 2026-11, FREE)
+*.zig	6	nee	ZigBrains	126311	2026-10	2026-11	ZigBrains (126311, 2026-10, FREE); Zig Support (10867, 2023-08, FREE); Zig (8268, 2022-11, FREE); ZigLang (736, 2021-08, FREE); Zig Pro (37, 2026-11, PAID); ZJ (17, ?, FREE)
+*.zip	2	nee	Archive Browser	340128	2026-08	2026-11	Archive Browser (340128, 2026-08, FREE); Omni Viewer (62355, 2026-11, FREEMIUM)
+.babelrc	2	ja		0			
+.dockerignore	0	nee		0			
+.editorconfig	1	ja		0			
+.eslintrc	3	ja	ESLint	323796	2019-05	2019-05	ESLint (323796, 2019-05, FREE)
+.gitattributes	1	nee	.gitattributes support	759790	2026-07	2026-07	.gitattributes support (759790, 2026-07, FREE)
+.gitignore	1	ja		0			
+.htaccess	2	ja		0			
+.npmrc	0	nee		0			
+.nvmrc	1	nee	Version Checker	276	2026-11	2026-11	Version Checker (276, 2026-11, FREE)
+.prettierrc	1	ja		0			
+.tool-versions	1	nee	Version Checker	276	2026-11	2026-11	Version Checker (276, 2026-11, FREE)
+BUILD	4	ja	Bazel for Android Studio	71124	2026-10	2026-10	Bazel for Android Studio (71124, 2026-10, FREE)
+Brewfile	1	nee	Brew Bundle	19686	2026-09	2026-09	Brew Bundle (19686, 2026-09, PAID)
+CMakeLists.txt	1	ja		0			
+CODEOWNERS	2	nee	Git Codeowners	466335	2026-07	2026-07	Git Codeowners (466335, 2026-07, FREE); Codeowls (1798, 2026-05, FREE)
+Caddyfile	2	nee	Caddyfile support	94403	2026-07	2026-07	Caddyfile support (94403, 2026-07, FREE); Caddyfile Pro (769, 2026-07, PAID)
+Cargo.lock	1	ja		0			
+Dockerfile	3	ja	Red Hat Dependency Analytics	66560	2026-09	2026-11	Red Hat Dependency Analytics (66560, 2026-09, FREE); Docker Manager (2829, 2026-11, PAID)
+Earthfile	2	nee	Earthly	8897	2024-11	2026-05	Earthly (8897, 2024-11, FREE); EarthBuild (1116, 2026-05, FREE)
+Gemfile	2	ja		0			
+Jenkinsfile	7	nee	Jenkinsfile	162049	2026-09	2026-10	Jenkinsfile (162049, 2026-09, PAID); Jenkinsfile Syntax Highlighter (41555, 2026-05, FREE); Jenkinsfile Pro (30484, 2026-10, PAID); PipelineLens (17399, 2026-05, FREE); Jenkinsfile Support (6120, 2026-07, FREE); PandaCoder (2599, ?, FREE)
+Justfile	1	nee	Just	560543	2026-11	2026-11	Just (560543, 2026-11, FREE)
+LICENSE	0	nee		0			
+Makefile	2	ja	Wave Language	5124	2026-03	2026-03	Wave Language (5124, 2026-03, FREE)
+Pipfile	1	ja		0			
+Podfile	0	nee		0			
+Procfile	1	nee	Procfile	1497	2026-10	2026-10	Procfile (1497, 2026-10, PAID)
+SConstruct	0	nee		0			
+Taskfile.yml	0	nee		0			
+Tiltfile	1	nee	Tiltfile Support	1506	2026-01	2026-01	Tiltfile Support (1506, 2026-01, FREE)
+Vagrantfile	3	ja	Vagrant Icon	8527	2024-11	2024-11	Vagrant Icon (8527, 2024-11, FREE)
+WORKSPACE	2	ja		0			
+go.mod	1	ja		0			
+justfile	1	nee	Just	560543	2026-11	2026-11	Just (560543, 2026-11, FREE)
+meson.build	1	ja		0			
+package-lock.json	0	nee		0			
+pnpm-lock.yaml	0	nee		0			
+poetry.lock	1	ja		0			
+requirements.txt	2	ja		0			
+yarn.lock	2	ja		0			
