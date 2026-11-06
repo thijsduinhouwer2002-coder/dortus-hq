@@ -5,7 +5,7 @@ Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elk u
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md` en je map `platformen/verkenner/`.
 2. Kies één platform uit `kandidaten.md` (of vind een nieuwe). Sla platformen over die in `onderzocht.md` staan, tenzij er iets veranderd is.
-3. Meet het met 1 of 2 agents (een onderzoeker en een controleur). De maatstaf:
+3. Meet het met 1 of 2 agents (een onderzoeker en een controleur). Zet in elke agentopdracht letterlijk: "Lees webpagina's met curl in Bash, nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil." De maatstaf:
    - **Bereik:** hoeveel installs halen nieuwe apps van kleine makers na 3 tot 6 maanden? Mediaan en het percentage dat 100+ haalt. Weegt samen met geld het zwaarst.
    - **Geld (weegt sinds 6 nov net zo zwaar als bereik, zie `organisatie/doelen.md`):** kan er betaald worden, en verdienen kleine makers er aantoonbaar geld?
    - **Drukte:** hoeveel nieuwe apps per maand?

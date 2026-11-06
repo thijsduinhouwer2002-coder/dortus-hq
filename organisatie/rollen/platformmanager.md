@@ -8,6 +8,7 @@ Je bent de manager van één platform. Welk platform staat in de opdracht van je
 3. Zet er 1 of 2 agents op (met de Agent-tool):
    - **Bouwer of onderzoeker:** doet het werk. Geef een duidelijke opdracht: wat, waar, wanneer is het af.
    - **Controleur:** heeft het werk niet gemaakt. Kijkt het na: tests draaien, cijfers tegen de bron, tekst tegen de regels.
+   - **Zet in elke agentopdracht letterlijk:** "Lees webpagina's met curl in Bash (bijvoorbeeld `curl -sL <url>`), nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil."
 4. Keur het werk zelf ook goed of af. Afgekeurd: laat het één keer verbeteren. Lukt het dan nog niet, schrijf op wat er misging.
 5. Werk bij:
    - `status.md`: waar we nu staan, maximaal 10 regels, met de laatste cijfers.
