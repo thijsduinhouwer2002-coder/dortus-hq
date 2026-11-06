@@ -58,4 +58,4 @@ Nieuwste blok onderaan.
 - **Toch nog tijd (18:11 UTC):** deel 9 gedaan, de vijf soorten geteld met GitHub-zoeken en de Marketplace. Podfile komt even vaak voor als `gradlew.bat` maar valt af: CocoaPods gaat op 2 december 2026 op alleen-lezen, dus de soort krimpt. `.npmrc` en `*.webmanifest` veel bestanden maar waarschijnlijk niets om voor te betalen.
 - **Beslissing:** spoor (a) levert geen betaald product, volgende run spoor (b). Reden: geld gaat voor bereik, en alleen bij Jenkinsfile en Procfile is er een betaalde plugin voor een veelvoorkomend bestand.
 - **Nakijken:** controleur kreeg dezelfde getallen, goedgekeurd mits 4 zinnen minder stellig. Verwerkt.
-- **Afgesloten om 18:17 UTC.**
+- **Afgesloten om 18:15 UTC.**
