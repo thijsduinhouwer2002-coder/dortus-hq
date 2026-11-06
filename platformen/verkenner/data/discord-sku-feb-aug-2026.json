@@ -1,0 +1,10299 @@
+[
+{
+"id": "1527969363963936858",
+"name": "AI Server Builder",
+"maand": "2026-07",
+"servers": 552,
+"skus": [
+{
+"naam": "100 Credits",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "300 Credits",
+"type": 3,
+"prijs": 599
+},
+{
+"naam": "500 Credits",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "1000 Credits",
+"type": 3,
+"prijs": 1099
+},
+{
+"naam": "Unlimited Credits",
+"type": 2,
+"prijs": 2599
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Premium User",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1517257160273297562",
+"name": "Auto Partner Bot",
+"maand": "2026-06",
+"servers": 393,
+"skus": [
+{
+"naam": "Auto Partner Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521979245977534706",
+"name": "AttendiBot",
+"maand": "2026-07",
+"servers": 118,
+"skus": []
+},
+{
+"id": "1512871091956093198",
+"name": "Among",
+"maand": "2026-06",
+"servers": 12,
+"skus": [
+{
+"naam": "BOLTS_MEGA",
+"type": 2,
+"prijs": 1999
+},
+{
+"naam": "BOLTS_BIG",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "BOLTS_STANDARD",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "BOLTS_STARTER",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1480304486613516420",
+"name": "ASURAS & TIGERS",
+"maand": "2026-03",
+"servers": 51,
+"skus": [
+{
+"naam": "Growth Fund",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "Tiger Pact",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Vermillion Chalice",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Azure Spirit Vein",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Immortal Peach",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Jade Mat",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "24k Jade",
+"type": 3,
+"prijs": 14999
+},
+{
+"naam": "75k Jade",
+"type": 3,
+"prijs": 39999
+},
+{
+"naam": "36k Jade",
+"type": 3,
+"prijs": 19999
+},
+{
+"naam": "Conquest Rush",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "75 Jade",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "420 Jade",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "1.5k Jade",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "3.3k Jade",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "6k Jade",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "14k Jade",
+"type": 3,
+"prijs": 9999
+}
+]
+},
+{
+"id": "1483186373438738454",
+"name": "Aura Security",
+"maand": "2026-03",
+"servers": 235,
+"skus": [
+{
+"naam": "Aura Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1533807836729970718",
+"name": "Aurgarde",
+"maand": "2026-08",
+"servers": 42,
+"skus": []
+},
+{
+"id": "1475561154330755142",
+"name": "AstraShield Security",
+"maand": "2026-02",
+"servers": 163,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534878000691019909",
+"name": "AstraVerify",
+"maand": "2026-08",
+"servers": 32,
+"skus": [
+{
+"naam": "Premium Verification",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484932978357436578",
+"name": "ArtiMod",
+"maand": "2026-03",
+"servers": 144,
+"skus": [
+{
+"naam": "ArtiMod Enterprise",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "ArtiMod Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1488323554574467182",
+"name": "Arvee",
+"maand": "2026-03",
+"servers": 30,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1542933117017264240",
+"name": "Avaris",
+"maand": "2026-08",
+"servers": 9,
+"skus": [
+{
+"naam": "Avaris-Ultime",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Avaris-Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1542312295147905064",
+"name": "Abraxas",
+"maand": "2026-08",
+"servers": 6,
+"skus": []
+},
+{
+"id": "1485678805086638100",
+"name": "AutoTicket",
+"maand": "2026-03",
+"servers": 44,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1478894708288786502",
+"name": "Alto",
+"maand": "2026-03",
+"servers": 50,
+"skus": []
+},
+{
+"id": "1478682597197349058",
+"name": "Asward-Helper",
+"maand": "2026-03",
+"servers": 36,
+"skus": [
+{
+"naam": "Asward-Helper Basic",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Asward-Helper Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1485374283629723668",
+"name": "Astra Tickets",
+"maand": "2026-03",
+"servers": 102,
+"skus": []
+},
+{
+"id": "1492342289115123732",
+"name": "Account Link",
+"maand": "2026-04",
+"servers": 18,
+"skus": [
+{
+"naam": "Basic",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Growth",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Ultimate",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1487064221379199086",
+"name": "AUDITOR BANCARIO",
+"maand": "2026-03",
+"servers": 6,
+"skus": [
+{
+"naam": "SOCIO VCT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512171831862493204",
+"name": "Atlas",
+"maand": "2026-06",
+"servers": 14,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1532342100870566109",
+"name": "AllianceHQ",
+"maand": "2026-07",
+"servers": 6,
+"skus": [
+{
+"naam": "AllianceHQ Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1509483261162819745",
+"name": "ArtSoul OS",
+"maand": "2026-05",
+"servers": 9,
+"skus": [
+{
+"naam": "PREMIUM",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1479301690866925790",
+"name": "Animal Cards",
+"maand": "2026-03",
+"servers": 18,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1469683279367110740",
+"name": "Atlas",
+"maand": "2026-02",
+"servers": 17,
+"skus": []
+},
+{
+"id": "1515328559655420075",
+"name": "Jigsaw Addict ( Puzzles )",
+"maand": "2026-06",
+"servers": 21,
+"skus": []
+},
+{
+"id": "1491195781502206012",
+"name": "Card Arena",
+"maand": "2026-04",
+"servers": 4,
+"skus": [
+{
+"naam": "50.000 Coins",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "5.000 Coins",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "20.000 Coins",
+"type": 3,
+"prijs": 499
+}
+]
+},
+{
+"id": "1488378654709780510",
+"name": "LW Alliance Helper",
+"maand": "2026-03",
+"servers": 137,
+"skus": [
+{
+"naam": "LW Alliance Helper Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1494506314305503352",
+"name": "Charges and Citation 2.0",
+"maand": "2026-04",
+"servers": 121,
+"skus": []
+},
+{
+"id": "1531515418492014836",
+"name": "Snake Adventures",
+"maand": "2026-07",
+"servers": 1,
+"skus": [
+{
+"naam": "Bone Serpent",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Phantom Royal",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Embercoil",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Wrenbound",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1525567976877588530",
+"name": "Udderly Abducted",
+"maand": "2026-07",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1497711638818853105",
+"name": "Suki AI",
+"maand": "2026-04",
+"servers": 2,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501646323047333919",
+"name": "Sons Of Anarchy",
+"maand": "2026-05",
+"servers": 9,
+"skus": [
+{
+"naam": "silver",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1537971830701293720",
+"name": "Don't Be A Joker",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "Lifetime Access",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1506113140511740044",
+"name": "Time for Adventure",
+"maand": "2026-05",
+"servers": 25,
+"skus": [
+{
+"naam": "Funds7",
+"type": 3,
+"prijs": 999
+}
+]
+},
+{
+"id": "1491958000599175180",
+"name": "Skipper",
+"maand": "2026-04",
+"servers": 185,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514913359617851482",
+"name": "Prism",
+"maand": "2026-06",
+"servers": 308,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526499334231822346",
+"name": "BBTSL",
+"maand": "2026-07",
+"servers": 31,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541445973329317889",
+"name": "Gatherpot",
+"maand": "2026-08",
+"servers": 3,
+"skus": [
+{
+"naam": "Founder\u2019s Bundle",
+"type": 2,
+"prijs": 599
+},
+{
+"naam": "Golden Victory",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Table Emotes \u00b7 Vol. 1",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Sakura Card Back",
+"type": 2,
+"prijs": 0
+},
+{
+"naam": "Porcelain Card Back",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Jade Card Back",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Sakura Garden",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Midnight Market",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Jade Tea House",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Supporter Pack",
+"type": 2,
+"prijs": 299
+}
+]
+},
+{
+"id": "1472057549464277214",
+"name": "PredixHub",
+"maand": "2026-02",
+"servers": 39,
+"skus": []
+},
+{
+"id": "1476333421050728458",
+"name": "Vektra",
+"maand": "2026-02",
+"servers": 6,
+"skus": [
+{
+"naam": "Vektra Gold",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Vektra Silver",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Vektra Bronze",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1472024953896435864",
+"name": "VGClod",
+"maand": "2026-02",
+"servers": 13,
+"skus": [
+{
+"naam": "VGClod Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1507491577826639942",
+"name": "DartsInsights",
+"maand": "2026-05",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1500739883046670346",
+"name": "SeekDeep",
+"maand": "2026-05",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1527991881831546910",
+"name": "ABURA",
+"maand": "2026-07",
+"servers": 24,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512620567390457967",
+"name": "Ayobots | Free Bot",
+"maand": "2026-06",
+"servers": 14,
+"skus": [
+{
+"naam": "Lifetime Premium",
+"type": 2,
+"prijs": 7999
+},
+{
+"naam": "1 Monats Abo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1510833955564290200",
+"name": "British Army Community",
+"maand": "2026-06",
+"servers": 5,
+"skus": [
+{
+"naam": "Test",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525722281706258502",
+"name": "Content Creator Academy",
+"maand": "2026-07",
+"servers": 6,
+"skus": [
+{
+"naam": "Content Creator Academy",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1530082454390440036",
+"name": "Live Tennis API Alerts",
+"maand": "2026-07",
+"servers": 9,
+"skus": [
+{
+"naam": "Alerts Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1489004831124361306",
+"name": "Ruckus",
+"maand": "2026-04",
+"servers": 11,
+"skus": [
+{
+"naam": "5,000 Tokens",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "2,500 Tokens",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "500 Tokens",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1468268131314176122",
+"name": "Cozy Casting",
+"maand": "2026-02",
+"servers": 398,
+"skus": [
+{
+"naam": "Design a Fish!",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Cozy Server Pass",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "Cozy Captain",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Cozy Caster",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1472274280279703562",
+"name": "Brasil Mix",
+"maand": "2026-02",
+"servers": 21,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1497648621175439691",
+"name": "CatchMeUp",
+"maand": "2026-04",
+"servers": 23,
+"skus": [
+{
+"naam": "CatchMeUp Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525164840468091082",
+"name": "box4fit",
+"maand": "2026-07",
+"servers": 1,
+"skus": [
+{
+"naam": "Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Donate",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1493623994509693008",
+"name": "Voice Party",
+"maand": "2026-04",
+"servers": 12,
+"skus": [
+{
+"naam": "Lifetime Premium Code (One Server)",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "Voice Party Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1515083220167819385",
+"name": "RaidHelper",
+"maand": "2026-06",
+"servers": 364,
+"skus": [
+{
+"naam": "RaidHelper Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "RaidHelper Premium \u2014 3 Months",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "RaidHelper Premium \u2014 6 Months",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "RaidHelper Premium \u2014 12 Months",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "RaidHelper Premium \u2014 Lifetime",
+"type": 2,
+"prijs": 4999
+}
+]
+},
+{
+"id": "1493289368092278834",
+"name": "PokeBot",
+"maand": "2026-04",
+"servers": 62,
+"skus": [
+{
+"naam": "Supporter <3",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "MASTER TRAINER",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Diamond Trainer",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Gold Trainer",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Silver Trainer",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Bronze Trainer",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1508447949473054781",
+"name": "PickThe.Games",
+"maand": "2026-05",
+"servers": 149,
+"skus": [
+{
+"naam": "Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1519738662231871568",
+"name": "Valesong",
+"maand": "2026-06",
+"servers": 6,
+"skus": [
+{
+"naam": "10,000 Gems",
+"type": 3,
+"prijs": 9999
+},
+{
+"naam": "5000 Gems",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "2000 Gems",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "1000 Gems",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "300 Gems",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1501846179548500049",
+"name": "TweetSyncer",
+"maand": "2026-05",
+"servers": 20,
+"skus": [
+{
+"naam": "Unlimited",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Growth",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Starter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1499291614290382848",
+"name": "Broadcaster Bot",
+"maand": "2026-04",
+"servers": 29,
+"skus": [
+{
+"naam": "Elite Broadcaster",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro Broadcaster",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1500796951308927026",
+"name": "FerrioBot",
+"maand": "2026-05",
+"servers": 3,
+"skus": []
+},
+{
+"id": "1484824945891737660",
+"name": "SocialBeacon",
+"maand": "2026-03",
+"servers": 370,
+"skus": [
+{
+"naam": "SocialBeacon - Basic +5 extra slots",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "SocialBeacon - Pro +15 extra slots",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "SocialBeacon - Advanced +50 extra slots",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482091949136810166",
+"name": "Vibecheque",
+"maand": "2026-03",
+"servers": 11,
+"skus": [
+{
+"naam": "Secretly Check Vibes",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Vibecheque Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1537613007000051732",
+"name": "Fountain Plus Man",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1503053785977585784",
+"name": "Glimbo",
+"maand": "2026-05",
+"servers": 170,
+"skus": [
+{
+"naam": "Extra Member Cards: 30 cards",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Extra Member Cards: 10 cards",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "Glimbo Server Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "5 Personal Credits",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Glimbo Founder Pack",
+"type": 2,
+"prijs": 1499
+},
+{
+"naam": "50 Personal Credits",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "15 Personal Credits",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Glimbo Server Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1518207866283233430",
+"name": "DisCommish",
+"maand": "2026-06",
+"servers": 21,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1504053988620763256",
+"name": "Naruto Ninja Cards",
+"maand": "2026-05",
+"servers": 296,
+"skus": [
+{
+"naam": "Jonin Chest \u2014 375 Fragments",
+"type": 3,
+"prijs": 1599
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Ninja Way",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Sannin",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Genin Kit \u2014 50 Fragments",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Chunin Scroll \u2014 175 Fragments",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "Anbu Reserve \u2014 1,375 Fragments",
+"type": 3,
+"prijs": 5499
+},
+{
+"naam": "Kage Treasury \u2014 2,125 Fragments",
+"type": 3,
+"prijs": 7999
+}
+]
+},
+{
+"id": "1502972996275540101",
+"name": "AstraBot",
+"maand": "2026-05",
+"servers": 25,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1493636598531625001",
+"name": "axiom",
+"maand": "2026-04",
+"servers": 13,
+"skus": [
+{
+"naam": "Axiom Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1469266577009414326",
+"name": "Aurelia",
+"maand": "2026-02",
+"servers": 14,
+"skus": []
+},
+{
+"id": "1535391870459453630",
+"name": "Antigravity Moderator Shield",
+"maand": "2026-08",
+"servers": 3,
+"skus": []
+},
+{
+"id": "1476927368508608779",
+"name": "Aegis",
+"maand": "2026-02",
+"servers": 8,
+"skus": [
+{
+"naam": "Aegis Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539698426780844124",
+"name": "t\u00e9l\u00e9phone arabe",
+"maand": "2026-08",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1507757703479689297",
+"name": "NexusForge AI",
+"maand": "2026-05",
+"servers": 14,
+"skus": [
+{
+"naam": "Pro Plan",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Starter Support",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1488234133300842588",
+"name": "Kitchen Cream App",
+"maand": "2026-03",
+"servers": 7,
+"skus": []
+},
+{
+"id": "1469692518567514286",
+"name": "Reactify",
+"maand": "2026-02",
+"servers": 988,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Reactify Premium",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1538101174031491122",
+"name": "ZombyIO",
+"maand": "2026-08",
+"servers": 190,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482501095312986294",
+"name": "Orion AI",
+"maand": "2026-03",
+"servers": 53,
+"skus": [
+{
+"naam": "5 Dollar Donation Subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "5 Dollar Donation",
+"type": 3,
+"prijs": 499
+}
+]
+},
+{
+"id": "1507568223732764672",
+"name": "RegPing AI & Privacy",
+"maand": "2026-05",
+"servers": 4,
+"skus": [
+{
+"naam": "AI & Privacy Regulatory Alerts",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539251878972497940",
+"name": "Chronos",
+"maand": "2026-08",
+"servers": 22,
+"skus": []
+},
+{
+"id": "1508899864602345582",
+"name": "Disc-Tools",
+"maand": "2026-05",
+"servers": 77,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525488033674297504",
+"name": "remote-clipboard",
+"maand": "2026-07",
+"servers": 1,
+"skus": [
+{
+"naam": "Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1477622065371549809",
+"name": "FluxBump",
+"maand": "2026-03",
+"servers": 48,
+"skus": [
+{
+"naam": "FluxBump Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482571227997671446",
+"name": "EpsteinExposed",
+"maand": "2026-03",
+"servers": 9,
+"skus": []
+},
+{
+"id": "1494484339688341634",
+"name": "Ergod",
+"maand": "2026-04",
+"servers": 471,
+"skus": [
+{
+"naam": "Credits \u00b7 Standard",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Credits \u00b7 Starter",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Ergod Pro+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Ergod Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1523663826271207616",
+"name": "Echo Protocol",
+"maand": "2026-07",
+"servers": 1,
+"skus": [
+{
+"naam": "Lifetime Archive",
+"type": 2,
+"prijs": 2999
+},
+{
+"naam": "Protocol Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Archive Pass",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1496984225574813896",
+"name": "Eyeke Embassy",
+"maand": "2026-04",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1477803616382488729",
+"name": "EAFC-GM",
+"maand": "2026-03",
+"servers": 83,
+"skus": [
+{
+"naam": "Licence Mensuel",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1542850252183310427",
+"name": "Elude",
+"maand": "2026-08",
+"servers": 0,
+"skus": [
+{
+"naam": "DOUBLE TIME",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "DEPUTY'S SEAL",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1499494684056359083",
+"name": "Escoteiro",
+"maand": "2026-04",
+"servers": 10,
+"skus": [
+{
+"naam": "test",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Legend",
+"type": 3,
+"prijs": 1599
+},
+{
+"naam": "Champion",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Noble",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Free",
+"type": 3,
+"prijs": 0
+},
+{
+"naam": "Apoiador Supreme +",
+"type": 3,
+"prijs": 39999
+},
+{
+"naam": "Apoiador Supreme",
+"type": 3,
+"prijs": 19999
+},
+{
+"naam": "Apoiador Prestige",
+"type": 3,
+"prijs": 7999
+},
+{
+"naam": "Apoiador Exclusive",
+"type": 3,
+"prijs": 3999
+},
+{
+"naam": "Apoiador Select",
+"type": 3,
+"prijs": 1599
+},
+{
+"naam": "Apoiador Patron",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Apoiador Vanguard",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Apoiador B\u00e1sico",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Como usar Discord",
+"type": 2,
+"prijs": 3999
+},
+{
+"naam": "Gerenciador de Bots",
+"type": 2,
+"prijs": 7999
+},
+{
+"naam": "Supervis\u00e3o do servidor",
+"type": 2,
+"prijs": 5999
+},
+{
+"naam": "Auditoria & Seguran\u00e7a do Servidor",
+"type": 2,
+"prijs": 5999
+},
+{
+"naam": "Configura\u00e7\u00e3o do servidor",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Legend",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Champion",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Noble",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1498264121559486525",
+"name": "Emden Network",
+"maand": "2026-04",
+"servers": 2,
+"skus": [
+{
+"naam": "Spende 2,99 euro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1477438235608219980",
+"name": "EmbedForge",
+"maand": "2026-02",
+"servers": 30,
+"skus": [
+{
+"naam": "EmbedForge Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1491595274496381009",
+"name": "Easy PvP",
+"maand": "2026-04",
+"servers": 8,
+"skus": [
+{
+"naam": "Apoyo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492841468220670012",
+"name": "Furry Entreprise Bots",
+"maand": "2026-04",
+"servers": 40,
+"skus": []
+},
+{
+"id": "1472618252776640563",
+"name": "RP - Executive",
+"maand": "2026-02",
+"servers": 117,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1504252500226605075",
+"name": "Server Exchange",
+"maand": "2026-05",
+"servers": 15,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534847221596553276",
+"name": "Scribe",
+"maand": "2026-08",
+"servers": 161,
+"skus": [
+{
+"naam": "Scribe Pro+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Scribe Lite",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Scribe Enterprise",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Scribe Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539583695080521738",
+"name": "WorldGuess",
+"maand": "2026-08",
+"servers": 11,
+"skus": [
+{
+"naam": "WorldGuess Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514440489368289460",
+"name": "PrimalDex",
+"maand": "2026-06",
+"servers": 16,
+"skus": [
+{
+"naam": "Premium Plus Server Lifetime",
+"type": 2,
+"prijs": 39999
+},
+{
+"naam": "Premium Server Lifetime",
+"type": 2,
+"prijs": 19999
+},
+{
+"naam": "VIP Wanderer Lifetime",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "VIP Explorer Lifetime",
+"type": 2,
+"prijs": 5999
+},
+{
+"naam": "\ud83d\udc63VIP Wanderer",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "\ud83e\udded VIP Explorer",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "\ud83d\udc51 Premium Server Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "\ud83d\udca0 Premium Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526705099525853194",
+"name": "LootIndex.gg",
+"maand": "2026-07",
+"servers": 22,
+"skus": []
+},
+{
+"id": "1543990490653921281",
+"name": "Rummy Battle & Classic",
+"maand": "2026-08",
+"servers": 3,
+"skus": []
+},
+{
+"id": "1483660810575151277",
+"name": "Luna.ai",
+"maand": "2026-03",
+"servers": 77,
+"skus": [
+{
+"naam": "Auto Release Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Auto Catch Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Haste badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Despawn Protection",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "Pickaxe Infinity",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Mining Yield Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Mining Luck Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Gold Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "XP Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Rarity Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Spawn Badge",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Character Token",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "+70 Permanent Slots",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "+30 Permanent Slots",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "+10 Permanent Slots",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "400,000 Gold (Save 33%)",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "75,000 Gold (Save 20%)",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "25,000 Gold",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "7,000 Gems (Save 30%)",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "2,500 Gems (Save 20%)",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "1,100 Gems (Save 10%)",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "200 Gems",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Luna Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1511646578945822770",
+"name": "The Oathless",
+"maand": "2026-06",
+"servers": 4,
+"skus": []
+},
+{
+"id": "1509255305223995432",
+"name": "Quiznight",
+"maand": "2026-05",
+"servers": 92,
+"skus": []
+},
+{
+"id": "1515335716698325124",
+"name": "OzBot",
+"maand": "2026-06",
+"servers": 4,
+"skus": [
+{
+"naam": "5000 Cr\u00e9dits IA",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "2200 Cr\u00e9dits IA",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "1000 Cr\u00e9dits IA",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "450 Cr\u00e9dits IA",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "150 Cr\u00e9dits IA",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1479529115819442355",
+"name": "PowerPath",
+"maand": "2026-03",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1493570546732896406",
+"name": "Orbio-KingShot",
+"maand": "2026-04",
+"servers": 1460,
+"skus": []
+},
+{
+"id": "1493914440284897300",
+"name": "HiveCode",
+"maand": "2026-04",
+"servers": 157,
+"skus": [
+{
+"naam": "Personal AI Credits $25",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "Personal AI Credits $10",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Personal AI Credits $5",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Enterprise",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541547107159121940",
+"name": "Pok\u00e9bot",
+"maand": "2026-08",
+"servers": 26,
+"skus": [
+{
+"naam": "100pok\u00e9dollars + 20 pok\u00e9dollars bonus",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "500 pok\u00e9dollars + 50 pok\u00e9dollars bonus",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "10 pokedollars +2.50 pok\u00e9dollars bonus",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "5 pokedollars",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "VIP TCG",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1530381169093382176",
+"name": "Skordle",
+"maand": "2026-07",
+"servers": 3,
+"skus": [
+{
+"naam": "5 Hints",
+"type": 3,
+"prijs": 199
+}
+]
+},
+{
+"id": "1516543473967300698",
+"name": "The Loot",
+"maand": "2026-06",
+"servers": 91,
+"skus": []
+},
+{
+"id": "1504146656239550504",
+"name": "SC ORG PLANNER",
+"maand": "2026-05",
+"servers": 11,
+"skus": [
+{
+"naam": "Monthly",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Lifetime",
+"type": 2,
+"prijs": 8999
+}
+]
+},
+{
+"id": "1524538799445508238",
+"name": "Sudokudle",
+"maand": "2026-07",
+"servers": 274,
+"skus": [
+{
+"naam": "Golden Royal Theme",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Sakura Dreams Theme",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Midnight Galaxy Theme",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Cozy Cat Theme",
+"type": 2,
+"prijs": 199
+}
+]
+},
+{
+"id": "1474103634521493717",
+"name": "Keyless",
+"maand": "2026-02",
+"servers": 721,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1468455228000178208",
+"name": "Invaro Systems",
+"maand": "2026-02",
+"servers": 252,
+"skus": [
+{
+"naam": "[$2] Invaro Donation",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "[$1] Invaro Donation",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "[$10] Invaro Donation",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "[$5] Invaro Donation",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1539508635246534686",
+"name": "Gaming Lounge \u2718 Public Bot",
+"maand": "2026-08",
+"servers": 92,
+"skus": []
+},
+{
+"id": "1540911910902571020",
+"name": "Overseer Tribe Logs",
+"maand": "2026-08",
+"servers": 143,
+"skus": [
+{
+"naam": "Overseer Tribelogs x3 Stream",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer Tribelogs x2 Stream",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer Tribelogs x1 Stream",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482795853096816680",
+"name": "Betting Buddha",
+"maand": "2026-03",
+"servers": 107,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1481447308385325177",
+"name": "Persian Bot",
+"maand": "2026-03",
+"servers": 13,
+"skus": []
+},
+{
+"id": "1476015649775157369",
+"name": "Serializd Tracker Bot",
+"maand": "2026-02",
+"servers": 266,
+"skus": []
+},
+{
+"id": "1511391727154368592",
+"name": "MLB",
+"maand": "2026-06",
+"servers": 269,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539847854233755779",
+"name": "9tool",
+"maand": "2026-08",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1508247223622832228",
+"name": "BabbleBot",
+"maand": "2026-05",
+"servers": 245,
+"skus": []
+},
+{
+"id": "1472595717167255623",
+"name": "Dinger Bot",
+"maand": "2026-02",
+"servers": 18,
+"skus": [
+{
+"naam": "Monthly server access (during season)",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1470783635027267676",
+"name": "WikiRace Daily",
+"maand": "2026-02",
+"servers": 38,
+"skus": []
+},
+{
+"id": "1502001665841299526",
+"name": "Question Bot",
+"maand": "2026-05",
+"servers": 20,
+"skus": [
+{
+"naam": "VIP",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541239188454908015",
+"name": "UniversalStreams",
+"maand": "2026-08",
+"servers": 10,
+"skus": []
+},
+{
+"id": "1534435496820867224",
+"name": "DisDubs",
+"maand": "2026-08",
+"servers": 9360,
+"skus": [
+{
+"naam": "DisDubs Studio PRO",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "DisDubs Studio",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Scene Pack \u2014 5 Slots",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1508318189086310490",
+"name": "QuadCino \ud83d\udc51",
+"maand": "2026-05",
+"servers": 30,
+"skus": []
+},
+{
+"id": "1520561230648049965",
+"name": "Luminox",
+"maand": "2026-06",
+"servers": 9,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1542211007458451649",
+"name": "GameQuiz",
+"maand": "2026-08",
+"servers": 19,
+"skus": []
+},
+{
+"id": "1475946295758950753",
+"name": "Redline",
+"maand": "2026-02",
+"servers": 176,
+"skus": [
+{
+"naam": "Pit Crew Trial (14 days)",
+"type": 2,
+"prijs": 0
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Apex Team",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pit Crew",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Neon City Profile Banner",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Gold Leaf Card Frame",
+"type": 2,
+"prijs": 699
+},
+{
+"naam": "Neon Circuit Card Frame",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1542679620716068955",
+"name": "Socials Portal",
+"maand": "2026-08",
+"servers": 9,
+"skus": [
+{
+"naam": "Socials Portal Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1533111573403668601",
+"name": "Shinoya (\u30b7\u30ce\u30e4)",
+"maand": "2026-08",
+"servers": 17,
+"skus": [
+{
+"naam": "Premium+ Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Premium+ User",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "Premium User",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1525431844470915134",
+"name": "LooBito",
+"maand": "2026-07",
+"servers": 12,
+"skus": []
+},
+{
+"id": "1472303111962886250",
+"name": "Sinaloha",
+"maand": "2026-02",
+"servers": 6,
+"skus": [
+{
+"naam": "synaloha premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1468363978240430084",
+"name": "Xyqon",
+"maand": "2026-02",
+"servers": 16,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1531023771211792384",
+"name": "Panel Pro",
+"maand": "2026-07",
+"servers": 5,
+"skus": [
+{
+"naam": "Panel Pro Unlimited",
+"type": 2,
+"prijs": 39999
+},
+{
+"naam": "Panel Pro Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1506572365675499571",
+"name": "Miacha",
+"maand": "2026-05",
+"servers": 2,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484524163023638619",
+"name": "GLYPH",
+"maand": "2026-03",
+"servers": 11,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Supporter Glyph",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1471304467021299815",
+"name": "Lonily",
+"maand": "2026-02",
+"servers": 15,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1481854609059217619",
+"name": "Junior Contractor Sora",
+"maand": "2026-03",
+"servers": 7,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1493212351476924538",
+"name": "RenanX Community",
+"maand": "2026-04",
+"servers": 4,
+"skus": [
+{
+"naam": "VIP Member",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1504205897931685899",
+"name": "Brovenco Netzwerk",
+"maand": "2026-05",
+"servers": 1,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502658843698528358",
+"name": "KORA",
+"maand": "2026-05",
+"servers": 7,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512878719017029792",
+"name": "Overseer Scout",
+"maand": "2026-06",
+"servers": 235,
+"skus": [
+{
+"naam": "Overseer Scout x4 Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer Scout x3 Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer Scout x2 Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer Scout x1 Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1504215364458778764",
+"name": "Brovenco Support",
+"maand": "2026-05",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1508363363074445422",
+"name": "DayZmetrics",
+"maand": "2026-05",
+"servers": 72,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Group",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1523795425125990430",
+"name": "Nexora Core \u00a9",
+"maand": "2026-07",
+"servers": 9,
+"skus": []
+},
+{
+"id": "1470885967412986162",
+"name": "MULTI BOT",
+"maand": "2026-02",
+"servers": 17,
+"skus": [
+{
+"naam": "MULTI-BOT PLUS",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1505732513874579476",
+"name": "Deal Logger Bot",
+"maand": "2026-05",
+"servers": 10,
+"skus": []
+},
+{
+"id": "1540243577815310356",
+"name": "OrderBot",
+"maand": "2026-08",
+"servers": 26,
+"skus": [
+{
+"naam": "+5 Product Slots",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Custom Bot Branding",
+"type": 2,
+"prijs": 1499
+},
+{
+"naam": "Pro Store Tier",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Verified Business Application",
+"type": 3,
+"prijs": 4999
+}
+]
+},
+{
+"id": "1485717503723311216",
+"name": "NeuroVox",
+"maand": "2026-03",
+"servers": 792,
+"skus": [
+{
+"naam": "Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Starter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1536639169969922079",
+"name": "Camou Voice",
+"maand": "2026-08",
+"servers": 10,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1488194411929145395",
+"name": "InviteForge",
+"maand": "2026-03",
+"servers": 912,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1520470746919600259",
+"name": "ITS-BOT",
+"maand": "2026-06",
+"servers": 128,
+"skus": []
+},
+{
+"id": "1541328325732081664",
+"name": "Iridex",
+"maand": "2026-08",
+"servers": 21,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Iridex Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1535307069517733938",
+"name": "Ironcloud Skirmish",
+"maand": "2026-08",
+"servers": 0,
+"skus": [
+{
+"naam": "10000 Gold",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1488288376527392818",
+"name": "Identity Crisis",
+"maand": "2026-03",
+"servers": 6,
+"skus": []
+},
+{
+"id": "1525066153339260928",
+"name": "image-2-text",
+"maand": "2026-07",
+"servers": 13,
+"skus": [
+{
+"naam": "Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1519387081883914250",
+"name": "Winghub Intergration",
+"maand": "2026-06",
+"servers": 11,
+"skus": []
+},
+{
+"id": "1542724866644516884",
+"name": "You Know What I Mean?",
+"maand": "2026-08",
+"servers": 2,
+"skus": [
+{
+"naam": "YKWIM - SciFi Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "YKWIM - Fantasy Pack",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1506635265215561848",
+"name": "TempVC",
+"maand": "2026-05",
+"servers": 1560,
+"skus": [
+{
+"naam": "Tire 3 - Silver",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Tire 2 - Silver",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Tire 1 - Bronze",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1475201200579153940",
+"name": "Sw1ngLiv3",
+"maand": "2026-02",
+"servers": 1,
+"skus": [
+{
+"naam": "Apoya a la comunidad",
+"type": 2,
+"prijs": 599
+},
+{
+"naam": "Ayuda a un Creador",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1479914529843581000",
+"name": "SpiderEye",
+"maand": "2026-03",
+"servers": 4650,
+"skus": [
+{
+"naam": "Ranking Discord Bot",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "SpiderEye Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502049184981975040",
+"name": "WordCast",
+"maand": "2026-05",
+"servers": 23,
+"skus": []
+},
+{
+"id": "1475963021149868052",
+"name": "Bunker Game",
+"maand": "2026-02",
+"servers": 66,
+"skus": [
+{
+"naam": "\ud83d\udc51 High Support",
+"type": 3,
+"prijs": 14999
+},
+{
+"naam": "\ud83d\udd38 Sponsor",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "\ud83d\ude80 Helper",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "A great helper",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "\ud83e\udd1d Contribution",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "\ud83d\udce6 Supporter",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "\ud83e\ude99 Support Rookie",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1543399158390722610",
+"name": "Nearia",
+"maand": "2026-08",
+"servers": 34,
+"skus": [
+{
+"naam": "200 Gems",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "550 Gems",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "1,200 Gems",
+"type": 3,
+"prijs": 999
+}
+]
+},
+{
+"id": "1525615715355197613",
+"name": "Peach",
+"maand": "2026-07",
+"servers": 76,
+"skus": [
+{
+"naam": "LIFETIME Premium Peach Membership",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "Premium Peach Membership x1Yr.",
+"type": 3,
+"prijs": 4899
+},
+{
+"naam": "Premium Peach Membership x6Mo.",
+"type": 3,
+"prijs": 2699
+},
+{
+"naam": "Premium Peach Membership x3mo.",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "Premium Peach Membership",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1505548853842153512",
+"name": "Voria",
+"maand": "2026-05",
+"servers": 189,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1509846771826954250",
+"name": "VerifyUGC",
+"maand": "2026-05",
+"servers": 103,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525465097496039515",
+"name": "FlipIt",
+"maand": "2026-07",
+"servers": 2,
+"skus": [
+{
+"naam": "High Roller",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "Mayhem Pack",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "Diamond Badge",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Supporter Star",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Mischief Emote Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Sunset Table",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Casino Green Table",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Midnight Table",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Donator",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1503374094060490792",
+"name": "Sunatia",
+"maand": "2026-05",
+"servers": 22,
+"skus": [
+{
+"naam": "Pack of 10,000 Sunas.",
+"type": 3,
+"prijs": 199
+}
+]
+},
+{
+"id": "1533546983233556642",
+"name": "Vertex",
+"maand": "2026-08",
+"servers": 27,
+"skus": []
+},
+{
+"id": "1499257753712066610",
+"name": "Fibble",
+"maand": "2026-04",
+"servers": 6,
+"skus": [
+{
+"naam": "Premium Monthly",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1507721065235877958",
+"name": "Crimstone",
+"maand": "2026-05",
+"servers": 38,
+"skus": []
+},
+{
+"id": "1486647778779074672",
+"name": "Wanderers",
+"maand": "2026-03",
+"servers": 6,
+"skus": [
+{
+"naam": "Energy Bundle of 50",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Energy Bundle of 500",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Energy Bundle of 1000",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "Single RAM",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Starter Pack 3 RAM",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Advanced Pack 6 RAM",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1491288845625327686",
+"name": "Disclash",
+"maand": "2026-04",
+"servers": 5,
+"skus": [
+{
+"naam": "Large Coin Pack",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Medium Coin Pack",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "Small Coin Pack",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "Host Pass",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1485190210114293770",
+"name": "StarLedger",
+"maand": "2026-03",
+"servers": 73,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Tier II Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Tier I Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1480389380936831117",
+"name": "Becky",
+"maand": "2026-03",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1482544129262096404",
+"name": "Rachel",
+"maand": "2026-03",
+"servers": 6,
+"skus": []
+},
+{
+"id": "1506458321614278686",
+"name": "Connections",
+"maand": "2026-05",
+"servers": 897,
+"skus": []
+},
+{
+"id": "1493648847266779217",
+"name": "LMU Bop Tourist",
+"maand": "2026-04",
+"servers": 129,
+"skus": [
+{
+"naam": "LMU BoP Tourism Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1531284930104135751",
+"name": "Palcord",
+"maand": "2026-07",
+"servers": 491,
+"skus": [
+{
+"naam": "Palcord Premium Lifetime",
+"type": 2,
+"prijs": 4999
+},
+{
+"naam": "Starter Pack",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "15,000 Gems",
+"type": 3,
+"prijs": 9999
+},
+{
+"naam": "5,600 Gems",
+"type": 3,
+"prijs": 3999
+},
+{
+"naam": "2,600 Gems",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "1,200 Gems",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "550 Gems",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Palcord Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1497777661194272948",
+"name": "Vexa",
+"maand": "2026-04",
+"servers": 112,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Vexa Server",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1541929510063177748",
+"name": "cayo vanity",
+"maand": "2026-08",
+"servers": 217,
+"skus": []
+},
+{
+"id": "1494870479897493524",
+"name": "Translatey",
+"maand": "2026-04",
+"servers": 167,
+"skus": [
+{
+"naam": "Pro Plan",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Basic Plan",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502423188032716953",
+"name": "Lunalith",
+"maand": "2026-05",
+"servers": 102,
+"skus": [
+{
+"naam": "\u00c9clipse",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1500950424314970277",
+"name": "blade",
+"maand": "2026-05",
+"servers": 99,
+"skus": []
+},
+{
+"id": "1486676712275054632",
+"name": "HelperX",
+"maand": "2026-03",
+"servers": 179,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534797195369255023",
+"name": "CybaVPN",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "CybaVPN All-in-One Monthly",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1472960650870259763",
+"name": "PolyMind",
+"maand": "2026-02",
+"servers": 87,
+"skus": [
+{
+"naam": "PolyMind Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525332862163877888",
+"name": "Ticky",
+"maand": "2026-07",
+"servers": 120,
+"skus": [
+{
+"naam": "Ticky Business",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Ticky Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1528046559923666944",
+"name": "ModerationDesk",
+"maand": "2026-07",
+"servers": 4,
+"skus": [
+{
+"naam": "ModerationDesk Pro+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "ModerationDesk Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1495022933905768661",
+"name": "NovaBot",
+"maand": "2026-04",
+"servers": 11,
+"skus": [
+{
+"naam": "Vip",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1510517568031559781",
+"name": "Hiyuki",
+"maand": "2026-05",
+"servers": 60,
+"skus": [
+{
+"naam": "Hiyuki Premium",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "Hiyuki Server Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1519529637258989578",
+"name": "HotDrop",
+"maand": "2026-06",
+"servers": 12,
+"skus": [
+{
+"naam": "HotDrop+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1490677649427923065",
+"name": "MindRelay",
+"maand": "2026-04",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1475437369875496970",
+"name": "VADWARE TRACKER",
+"maand": "2026-02",
+"servers": 15,
+"skus": []
+},
+{
+"id": "1497179727302234163",
+"name": "Tenviora Technologies",
+"maand": "2026-04",
+"servers": 33,
+"skus": [
+{
+"naam": "User Subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1483155584822935663",
+"name": "OpsQueue",
+"maand": "2026-03",
+"servers": 19,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1494719980456120490",
+"name": "Protocol V",
+"maand": "2026-04",
+"servers": 1,
+"skus": [
+{
+"naam": "Supporting",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1483953598546186460",
+"name": "Silent Phantom",
+"maand": "2026-03",
+"servers": 33,
+"skus": [
+{
+"naam": "Custom Server Tag System",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524829473076416532",
+"name": "Paint & Seek",
+"maand": "2026-07",
+"servers": 11,
+"skus": [
+{
+"naam": "Blind Neon",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Blind Sleep",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Gun Toxic",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Gun Bubblegum",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Gun Midnight",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Hat Halo",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Hat Cone",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Hat Top Hat",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Hat Cap",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Frame Drip",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Frame Neon",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Frame Gold",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Emote Dance",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Emote Cool",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Emote Crown",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Emote Party",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Burst Ghost",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Burst Fireworks",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Burst Confetti",
+"type": 2,
+"prijs": 199
+}
+]
+},
+{
+"id": "1504620262279348265",
+"name": "Storm Client",
+"maand": "2026-05",
+"servers": 8,
+"skus": []
+},
+{
+"id": "1486429912939368549",
+"name": "OracleBot",
+"maand": "2026-03",
+"servers": 185,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484594486146367600",
+"name": "OSP GridLock TD",
+"maand": "2026-03",
+"servers": 10,
+"skus": []
+},
+{
+"id": "1530905759053905990",
+"name": "OneClick Translator",
+"maand": "2026-07",
+"servers": 20,
+"skus": [
+{
+"naam": "OneClick Translator Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1540366918404542504",
+"name": "Own the Map",
+"maand": "2026-08",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1523415590490865894",
+"name": "OliverBot",
+"maand": "2026-07",
+"servers": 87,
+"skus": []
+},
+{
+"id": "1467674662283772013",
+"name": "Orion",
+"maand": "2026-02",
+"servers": 32,
+"skus": [
+{
+"naam": "Founder Edition",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "Supporter Pack",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1503989386574954606",
+"name": "OrbitDay",
+"maand": "2026-05",
+"servers": 46,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541027231923441755",
+"name": "OnixX",
+"maand": "2026-08",
+"servers": 11,
+"skus": [
+{
+"naam": "OnixX Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539552875166826527",
+"name": "Overseer GachaLog",
+"maand": "2026-08",
+"servers": 5,
+"skus": [
+{
+"naam": "Overseer GachaLog x5 BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer GachaLog x4 BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer GachaLog x3 BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer GachaLog x2 BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Overseer GachaLog x1 BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1533848960928579726",
+"name": "WoS Oracle",
+"maand": "2026-08",
+"servers": 4560,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Oracle+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Oracle+ Premium",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1512215958457155754",
+"name": "Werewolves Online",
+"maand": "2026-06",
+"servers": 47,
+"skus": [
+{
+"naam": "22000 Coins",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "8000 Coins",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "3500 Coins",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "1500 Coins",
+"type": 3,
+"prijs": 499
+}
+]
+},
+{
+"id": "1516180336093171812",
+"name": "Hot Or Cold",
+"maand": "2026-06",
+"servers": 1,
+"skus": [
+{
+"naam": "Hot or Cold - After Dark \ud83c\udf36",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Hot or Cold PRO!",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1533503276509827102",
+"name": "Lordrush Oracle",
+"maand": "2026-08",
+"servers": 91,
+"skus": [
+{
+"naam": "Rusher+ Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Rusher+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1515812642332086373",
+"name": "Galactic Overkill",
+"maand": "2026-06",
+"servers": 5,
+"skus": [
+{
+"naam": "Supporter Pack",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1514676257822871686",
+"name": "Discore Official",
+"maand": "2026-06",
+"servers": 20,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521862092473241672",
+"name": "V\u00c6ZRA OS",
+"maand": "2026-07",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1507099131653521649",
+"name": "RIVALS FPS - Online Shooter",
+"maand": "2026-05",
+"servers": 230,
+"skus": [
+{
+"naam": "Change Name",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "3840 Gems",
+"type": 3,
+"prijs": 2299
+},
+{
+"naam": "1920 Gems",
+"type": 3,
+"prijs": 1399
+},
+{
+"naam": "960 Gems",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "480 Gems",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "240 Gems",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "120 Gems",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Premium 1 Day",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Premium Permanent",
+"type": 2,
+"prijs": 2499
+}
+]
+},
+{
+"id": "1494686224508522579",
+"name": "Quest",
+"maand": "2026-04",
+"servers": 46,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1506230810032734220",
+"name": "27",
+"maand": "2026-05",
+"servers": 5,
+"skus": [
+{
+"naam": "Premium Plans",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1544037339280441344",
+"name": "RoyalPoll",
+"maand": "2026-08",
+"servers": 1,
+"skus": [
+{
+"naam": "Fortune Royale",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Tr\u00e9sor de RPC",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Coffre de RPC",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Bourse de RPC",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Sac de RPC",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1535587324291850291",
+"name": "WrongCue",
+"maand": "2026-08",
+"servers": 1,
+"skus": [
+{
+"naam": "WrongCue Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1528064497036558478",
+"name": "OAG Nexus",
+"maand": "2026-07",
+"servers": 26,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1523725188070506618",
+"name": "PineBot",
+"maand": "2026-07",
+"servers": 7,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521054151398785105",
+"name": "Maya",
+"maand": "2026-06",
+"servers": 85,
+"skus": [
+{
+"naam": "Pack 4000 MP",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Pack 1500 MP",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Maya+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pass Maya",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482790506546331719",
+"name": "Fortune Fox",
+"maand": "2026-03",
+"servers": 135,
+"skus": [
+{
+"naam": "Fortune Fox Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524551050667753565",
+"name": "Brd Support",
+"maand": "2026-07",
+"servers": 2,
+"skus": [
+{
+"naam": "BRD Support Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514613560326623283",
+"name": "SMF(ShotzMontanaFam)",
+"maand": "2026-06",
+"servers": 2,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1481776740920725514",
+"name": "Mega System",
+"maand": "2026-03",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1517951048038224012",
+"name": "Hunchkoo",
+"maand": "2026-06",
+"servers": 8,
+"skus": [
+{
+"naam": "1000coins",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "500coins",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "250Coins",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "100Coins",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Supporter(abonnement)",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541320885489631252",
+"name": "Blox 4 Dead",
+"maand": "2026-08",
+"servers": 3,
+"skus": [
+{
+"naam": "Founding Edition",
+"type": 2,
+"prijs": 1999
+},
+{
+"naam": "Veteran Ammo Cache",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Veteran Mortar Beacon",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Mechanic Arc Fence",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Mechanic Sentry Mk II",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Medic Antitoxin Mist",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Medic Revive Pylon",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Scout Static Web",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Scout Pulse Snare",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Assault Rifle Finishes",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Plasma Cannon Finishes",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Tactical Shotgun Finishes",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Veteran Wardrobe",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Mechanic Wardrobe",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Medic Wardrobe",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Scout Wardrobe",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Salvage Backpacks",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Utility Backpacks",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Assault Backpacks",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Hazard Plate Carriers",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Field Plate Carriers",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Urban Plate Carriers",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Tactical Headgear Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Recon Headgear Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Industrial Headgear Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Patrol Headgear Pack",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1539687474538750032",
+"name": "FrameOne",
+"maand": "2026-08",
+"servers": 3,
+"skus": []
+},
+{
+"id": "1515008402978246886",
+"name": "Botforge",
+"maand": "2026-06",
+"servers": 74,
+"skus": []
+},
+{
+"id": "1522307994480808179",
+"name": "HolliBot",
+"maand": "2026-07",
+"servers": 7,
+"skus": []
+},
+{
+"id": "1492933479514509565",
+"name": "WikiDex",
+"maand": "2026-04",
+"servers": 13,
+"skus": [
+{
+"naam": "WikiDex Server Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524928910683275414",
+"name": "Primetime",
+"maand": "2026-07",
+"servers": 10,
+"skus": [
+{
+"naam": "Primetime Premium - Monthly Subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Primetime Premium - 2026 Season",
+"type": 2,
+"prijs": 1999
+}
+]
+},
+{
+"id": "1486359697589014738",
+"name": "whisker",
+"maand": "2026-03",
+"servers": 104,
+"skus": [
+{
+"naam": "Support the development of  Whisker",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1474892349133029539",
+"name": "CoD Stats",
+"maand": "2026-02",
+"servers": 57,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541001302933377104",
+"name": "Flash Radio",
+"maand": "2026-08",
+"servers": 10,
+"skus": []
+},
+{
+"id": "1504564840704774215",
+"name": "Nexion Bot",
+"maand": "2026-05",
+"servers": 7,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1490448422803734660",
+"name": "DayZ RP Bot",
+"maand": "2026-04",
+"servers": 46,
+"skus": []
+},
+{
+"id": "1493918718110204054",
+"name": "Squawk 7600 & 7700",
+"maand": "2026-04",
+"servers": 55,
+"skus": [
+{
+"naam": "Aviation Pin of your choice",
+"type": 2,
+"prijs": 3499
+},
+{
+"naam": "Antonov Airlines Antonov AN-225 \"Mriya\"",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "5 random aviation stickers",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "Ultimate Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Super Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Supporter+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1505709528962961459",
+"name": "Project X",
+"maand": "2026-05",
+"servers": 15,
+"skus": [
+{
+"naam": "Project X Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "ProjectX Basic",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534613803386536006",
+"name": "Kuroha (\u30af\u30ed\u30cf)",
+"maand": "2026-08",
+"servers": 3,
+"skus": [
+{
+"naam": "Kuroha AI Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484531595493773413",
+"name": "Newsletter",
+"maand": "2026-03",
+"servers": 48,
+"skus": [
+{
+"naam": "Tip Jar [$4.99]",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Tip Jar [$2.99]",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Tip Jar [$0.99]",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Extra Feed Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "+1 linked premium server",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Reader Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Reader Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Reader",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1522747593845903493",
+"name": "Kryzo",
+"maand": "2026-07",
+"servers": 19,
+"skus": [
+{
+"naam": "VIP",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1530763760409510070",
+"name": "Ultimate Gym Game Tracker",
+"maand": "2026-07",
+"servers": 9,
+"skus": [
+{
+"naam": "\u2b50 Supporter",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "\u2b50\u2b50 Supporter",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "\u2b50\u2b50\u2b50 Supporter",
+"type": 2,
+"prijs": 2499
+},
+{
+"naam": "\u2b50\u2b50\u2b50\u2b50 Supporter",
+"type": 2,
+"prijs": 4999
+},
+{
+"naam": "ULTIMATE SUPPORTER",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1521141098402283640",
+"name": "CrimLife - The Underworld RPG",
+"maand": "2026-06",
+"servers": 0,
+"skus": []
+},
+{
+"id": "1534054263964172368",
+"name": "Zap",
+"maand": "2026-08",
+"servers": 177,
+"skus": [
+{
+"naam": "Zap server pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1488734171437207693",
+"name": "WordleRoyale",
+"maand": "2026-04",
+"servers": 18,
+"skus": [
+{
+"naam": "VIP Supporter badge",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Supporter badge",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1489362526880796903",
+"name": "Pocket Tool",
+"maand": "2026-04",
+"servers": 14,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Pocket Tool Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525524865094778952",
+"name": "SentryCord",
+"maand": "2026-07",
+"servers": 47,
+"skus": [
+{
+"naam": "SentryCord Premium Server",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1471254474998677658",
+"name": "FateBreak",
+"maand": "2026-02",
+"servers": 5,
+"skus": [
+{
+"naam": "Ascension",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Evolution",
+"type": 3,
+"prijs": 1699
+},
+{
+"naam": "First Spin",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Re-Spin",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Character Spin",
+"type": 3,
+"prijs": 999
+}
+]
+},
+{
+"id": "1506123145571078185",
+"name": "NamelessMuseInstance",
+"maand": "2026-05",
+"servers": 10,
+"skus": [
+{
+"naam": "SubscriptionDonateWHY??",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "SubscriptionDonateMONSTER!",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "SubscriptionDonate9.99",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "SubscriptionDonate19.99",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "DonateMONSTER!",
+"type": 3,
+"prijs": 39999
+},
+{
+"naam": "DonateWHY??",
+"type": 3,
+"prijs": 19999
+},
+{
+"naam": "Donate19.99",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Donate9.99",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Donate5.99",
+"type": 3,
+"prijs": 599
+},
+{
+"naam": "SubscriptionDonate5.99",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "SubscriptionDonate3.99",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Donate2.99",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "SubscriptionDonate1.99",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513256687820079326",
+"name": "MCRealSpielSystem",
+"maand": "2026-06",
+"servers": 1,
+"skus": [
+{
+"naam": "\ud83d\udfe2 VIP",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1500475284061949982",
+"name": "Big Brother",
+"maand": "2026-05",
+"servers": 7,
+"skus": [
+{
+"naam": "Little Orwell",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1498122792665612408",
+"name": "DiscorIQ",
+"maand": "2026-04",
+"servers": 6,
+"skus": [
+{
+"naam": "DiscorIQ Whitelabel",
+"type": 2,
+"prijs": 4999
+},
+{
+"naam": "DiscorIQ Enterprise",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "DiscorIQ Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1486353346951643277",
+"name": "La Banque",
+"maand": "2026-03",
+"servers": 7,
+"skus": [
+{
+"naam": "Premium+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1508153998677377125",
+"name": "Dispresso Bot",
+"maand": "2026-05",
+"servers": 394,
+"skus": [
+{
+"naam": "Featured 24h",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Server Boost",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Server Elite",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Dispresso Shots \u00b7 50",
+"type": 3,
+"prijs": 1799
+},
+{
+"naam": "Dispresso Shots \u00b7 100",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "Dispresso Shots \u00b7 250",
+"type": 3,
+"prijs": 6999
+},
+{
+"naam": "Tip Pack 5",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Gift Pack 50",
+"type": 3,
+"prijs": 1799
+},
+{
+"naam": "Gift Pack+ 100",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "Featured 7d",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "Featured 30d",
+"type": 3,
+"prijs": 7999
+},
+{
+"naam": "Dispresso Plus (30 Days)",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Dispresso Pro (30 Days)",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Tip Pack+ 15",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Dispresso Shots \u00b7 500",
+"type": 3,
+"prijs": 12999
+},
+{
+"naam": "Dispresso Shots \u00b7 25",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Dispresso Shots \u00b7 10",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1510115683822862357",
+"name": "semetary",
+"maand": "2026-05",
+"servers": 21,
+"skus": [
+{
+"naam": "Lifetime Premium",
+"type": 2,
+"prijs": 2499
+},
+{
+"naam": "Customize Premium",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514213194749706271",
+"name": "StatStation",
+"maand": "2026-06",
+"servers": 21,
+"skus": [
+{
+"naam": "Federation",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Alliance",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Solo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1495293593424756906",
+"name": "Floki",
+"maand": "2026-04",
+"servers": 27,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Odin's Wacht Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534681008706945235",
+"name": "GorBot",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "GorBot Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1468015031076786409",
+"name": "Golden Stallion",
+"maand": "2026-02",
+"servers": 12,
+"skus": []
+},
+{
+"id": "1519342623364616374",
+"name": "Der D\u00fcmmste Fliegt",
+"maand": "2026-06",
+"servers": 16,
+"skus": []
+},
+{
+"id": "1479507954464985128",
+"name": "PartyUp Bot",
+"maand": "2026-03",
+"servers": 35,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "PartyUp Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1480590410383495371",
+"name": "Backup King",
+"maand": "2026-03",
+"servers": 15,
+"skus": [
+{
+"naam": "Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526668458765320212",
+"name": "Sam's Translator",
+"maand": "2026-07",
+"servers": 14,
+"skus": [
+{
+"naam": "Sams Translator Abo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1519647600926785687",
+"name": "Warroe",
+"maand": "2026-06",
+"servers": 47,
+"skus": []
+},
+{
+"id": "1514977679215038544",
+"name": "NexCore",
+"maand": "2026-06",
+"servers": 6,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1507565330333958224",
+"name": "RegPing Financial",
+"maand": "2026-05",
+"servers": 4,
+"skus": [
+{
+"naam": "Financial Regulatory Alerts",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1468325015014346877",
+"name": "nights",
+"maand": "2026-02",
+"servers": 190,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1510643364104765460",
+"name": "Nexus",
+"maand": "2026-05",
+"servers": 427,
+"skus": [
+{
+"naam": "Nexus Premium (Monthly)",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1494157960249868490",
+"name": "Nemesis",
+"maand": "2026-04",
+"servers": 39,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1511426423376842922",
+"name": "Noctigarde",
+"maand": "2026-06",
+"servers": 36,
+"skus": []
+},
+{
+"id": "1539515799130218566",
+"name": "NightCrew",
+"maand": "2026-08",
+"servers": 33,
+"skus": [
+{
+"naam": "Custom Bot",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Bot",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514724486958682152",
+"name": "Noxium Protect",
+"maand": "2026-06",
+"servers": 13,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Abonnement Premium",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1523322434852487310",
+"name": "Neura",
+"maand": "2026-07",
+"servers": 9,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Prestige",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501930452968276028",
+"name": "NeuroMod",
+"maand": "2026-05",
+"servers": 44,
+"skus": []
+},
+{
+"id": "1477942919288586270",
+"name": "Nexus",
+"maand": "2026-03",
+"servers": 3,
+"skus": [
+{
+"naam": "P\u00e9riode d'essai",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Ultimate",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1489719466181918740",
+"name": "NoMerc",
+"maand": "2026-04",
+"servers": 63,
+"skus": [
+{
+"naam": "Nomerc Refill Token 15",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Nomerc Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1482111342466043997",
+"name": "New Haven Gaming",
+"maand": "2026-03",
+"servers": 20,
+"skus": [
+{
+"naam": "OG Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "VIP Role",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Role",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1517517506875621426",
+"name": "\u039elSRX Nexus",
+"maand": "2026-06",
+"servers": 180,
+"skus": [
+{
+"naam": "donation",
+"type": 3,
+"prijs": 399
+}
+]
+},
+{
+"id": "1472909892799959141",
+"name": "Crazyland Narrator",
+"maand": "2026-02",
+"servers": 36,
+"skus": [
+{
+"naam": "Premium Features",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1480037795107049682",
+"name": "(c)Nexus Core",
+"maand": "2026-03",
+"servers": 3,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1477637592546803805",
+"name": "TrackBlitz",
+"maand": "2026-03",
+"servers": 15,
+"skus": []
+},
+{
+"id": "1482903639973560360",
+"name": "112PLAY",
+"maand": "2026-03",
+"servers": 3,
+"skus": [
+{
+"naam": "112PLAY Discord PRO",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1516560069024809171",
+"name": "Bomb Defuser",
+"maand": "2026-06",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1539074676570062979",
+"name": "Booty Hunters! Digital",
+"maand": "2026-08",
+"servers": 2,
+"skus": [
+{
+"naam": "Boarding Pass",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Booty Hunters! Digital \u2014 Early Access",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1494365346235154523",
+"name": "Daily Chess Puzzle",
+"maand": "2026-04",
+"servers": 161,
+"skus": []
+},
+{
+"id": "1505131522309488730",
+"name": "Bovio",
+"maand": "2026-05",
+"servers": 11,
+"skus": [
+{
+"naam": "Bovio Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1525974622875422831",
+"name": "JustTheHelper",
+"maand": "2026-07",
+"servers": 8,
+"skus": [
+{
+"naam": "Guild Subscription Monthly Pass",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501974707933679887",
+"name": "CloudMod.io",
+"maand": "2026-05",
+"servers": 1030,
+"skus": [
+{
+"naam": "Server Profile",
+"type": 2,
+"prijs": 1499
+},
+{
+"naam": "CloudMod - LINK",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "CloudMod - Network",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492683039275221062",
+"name": "Sentinel",
+"maand": "2026-04",
+"servers": 53,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1533576227271610399",
+"name": "bloxbet",
+"maand": "2026-08",
+"servers": 4,
+"skus": []
+},
+{
+"id": "1475980724430573719",
+"name": "Text Me",
+"maand": "2026-02",
+"servers": 10,
+"skus": [
+{
+"naam": "Text Me Subscription | Britt's Bots",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1483970800477409422",
+"name": "CreatorAlert",
+"maand": "2026-03",
+"servers": 24,
+"skus": [
+{
+"naam": "CreatorAlert Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1486691177439825980",
+"name": "TCG MASTER",
+"maand": "2026-03",
+"servers": 481,
+"skus": [
+{
+"naam": "Bluelock (BBLK) 24 Pack",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "Kuroko's Basketball (KNB) 24 Pack Booster Box",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Serie 2 - 48 Pack Booster Box",
+"type": 3,
+"prijs": 1599
+},
+{
+"naam": "Serei 2 - 24 Pack Booster Box",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Mushoku Tensei  (MK) 24 Pack Booster Box",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Omniscient Reader Viewpoint (ORV) 24 Pack Booster Box",
+"type": 3,
+"prijs": 599
+},
+{
+"naam": "God Pack - 1 Pack",
+"type": 3,
+"prijs": 1299
+},
+{
+"naam": "Serie 1 - 48 Pack Booster Box",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "Serei 1 - 24 Pack Booster Box",
+"type": 3,
+"prijs": 899
+}
+]
+},
+{
+"id": "1512440748316950679",
+"name": "VinylAlert",
+"maand": "2026-06",
+"servers": 4,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1529058157341442108",
+"name": "CatzBot",
+"maand": "2026-07",
+"servers": 7,
+"skus": [
+{
+"naam": "CatzBot Premium Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "CatzBot Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1511773768438251660",
+"name": "Lerche TTS",
+"maand": "2026-06",
+"servers": 208,
+"skus": [
+{
+"naam": "Lerche Donation!",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1496825945158320128",
+"name": "rbxsociety v2",
+"maand": "2026-04",
+"servers": 10700,
+"skus": [
+{
+"naam": "Donation",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "RbxSociety Pro",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1542662497755070607",
+"name": "Roulette Royal",
+"maand": "2026-08",
+"servers": 41,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Roulette Royal Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "5,000 Chips",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "18,000 Chips",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "35,000 Chips",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "90,000 Chips",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "165,000 Chips",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "260,000 Chips",
+"type": 3,
+"prijs": 1999
+}
+]
+},
+{
+"id": "1487872803930902598",
+"name": "Rumble",
+"maand": "2026-03",
+"servers": 50,
+"skus": [
+{
+"naam": "Rumble Pass",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1518352815909638365",
+"name": "Recap Raven Bot",
+"maand": "2026-06",
+"servers": 119,
+"skus": [
+{
+"naam": "Extra TTRPG Session",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Campaign Memory Tier - 20 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Campaign Memory Tier - 10 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Campaign Memory Tier - 5 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Tier (without Memory) - 20 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Tier (without Memory) - 10 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium Tier (without Memory) - 5 Sessions/mo",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514694796290035803",
+"name": "Rack City",
+"maand": "2026-06",
+"servers": 14,
+"skus": [
+{
+"naam": "THE ENDOWMENT",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "BIG CHARGE",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "CHARGE",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "TIER SKIP +10",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "TIER SKIP +2",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "SEASON PASS",
+"type": 3,
+"prijs": 1099
+},
+{
+"naam": "RUSH HOUR",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "OVERCLOCKED",
+"type": 2,
+"prijs": 699
+},
+{
+"naam": "GHOST PROTOCOL",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "RACK RETROFIT",
+"type": 2,
+"prijs": 1299
+},
+{
+"naam": "NIGHT CREW",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "SECOND LAB BAY",
+"type": 2,
+"prijs": 799
+},
+{
+"naam": "THE ANNEX",
+"type": 2,
+"prijs": 999
+},
+{
+"naam": "SERIES A",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "SEED ROUND",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "FOUNDER PACK",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1507385450095054898",
+"name": "RNA - Le Majordome",
+"maand": "2026-05",
+"servers": 71,
+"skus": []
+},
+{
+"id": "1515266154803761152",
+"name": "Raven",
+"maand": "2026-06",
+"servers": 19,
+"skus": [
+{
+"naam": "premium 1 mois",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "premium annuel",
+"type": 3,
+"prijs": 4499
+},
+{
+"naam": "premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1508052848028680222",
+"name": "Recruit Bot",
+"maand": "2026-05",
+"servers": 17,
+"skus": [
+{
+"naam": "RecruitBot Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1510528764218576996",
+"name": "Raven Services",
+"maand": "2026-05",
+"servers": 8,
+"skus": []
+},
+{
+"id": "1536387752843677706",
+"name": "RivalRyze RPG",
+"maand": "2026-08",
+"servers": 0,
+"skus": [
+{
+"naam": "Kaffee spendieren!",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1497275192752345088",
+"name": "rumi bot",
+"maand": "2026-04",
+"servers": 80,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524630032943943861",
+"name": "RankIt",
+"maand": "2026-07",
+"servers": 6,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1518134599161614356",
+"name": "rose",
+"maand": "2026-06",
+"servers": 1,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1511482208521818233",
+"name": "Ravnyx Barcelona",
+"maand": "2026-06",
+"servers": 7,
+"skus": [
+{
+"naam": "Ravnyx Founder Premium",
+"type": 2,
+"prijs": 1699
+}
+]
+},
+{
+"id": "1507559918608191528",
+"name": "RegPing FDA",
+"maand": "2026-05",
+"servers": 3,
+"skus": [
+{
+"naam": "FDA Regulatory Alerts",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492609775886794952",
+"name": "/racks",
+"maand": "2026-04",
+"servers": 25,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1476709196325191810",
+"name": "Lostark Raid Bot",
+"maand": "2026-02",
+"servers": 1510,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Lostark Raid Bot Premium",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1535860162118688859",
+"name": "Boss Raid",
+"maand": "2026-08",
+"servers": 9,
+"skus": [
+{
+"naam": "Cosmetic Vault Bundle",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Season Pass Plus Bundle",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Season Pass Bundle",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "Founder Bundle",
+"type": 2,
+"prijs": 1499
+},
+{
+"naam": "Starter Bundle",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Sub Legend",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Sub Elite",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Gems Constellation",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "Gems Monolith",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Gems Reliquary",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Gems Geode",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Gems Cluster",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Gems Shard",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Coins Treasury",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "Coins Vault",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Coins Hoard",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Coins Chest",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Coins Pouch",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Coins Handful",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Sub Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513467983458996255",
+"name": "WOS RFC Planner",
+"maand": "2026-06",
+"servers": 21,
+"skus": []
+},
+{
+"id": "1478901657873027215",
+"name": "Drift Rush",
+"maand": "2026-03",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1476880001931673740",
+"name": "Stuttgart Real Life Roleplay",
+"maand": "2026-02",
+"servers": 16,
+"skus": [
+{
+"naam": "Premium+",
+"type": 2,
+"prijs": 1199
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1507876760686039071",
+"name": "Tilt Battle Royale",
+"maand": "2026-05",
+"servers": 2,
+"skus": [
+{
+"naam": "Trail Pass",
+"type": 2,
+"prijs": 599
+},
+{
+"naam": "Pioneer Supporter",
+"type": 2,
+"prijs": 199
+}
+]
+},
+{
+"id": "1474062933758574683",
+"name": "BF Trade Hub",
+"maand": "2026-02",
+"servers": 235,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1523386601110241431",
+"name": "Lindenberg Verwaltung",
+"maand": "2026-07",
+"servers": 14,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1469603150267683051",
+"name": "FataL Reservations",
+"maand": "2026-02",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1540712680510459944",
+"name": "ZeroBot",
+"maand": "2026-08",
+"servers": 413,
+"skus": [
+{
+"naam": "ZeroBot Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "ZeroBot Ultra",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "ZeroBot Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501415571714215997",
+"name": "Little Lantern",
+"maand": "2026-05",
+"servers": 54,
+"skus": [
+{
+"naam": "Little Lantern Hearth",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1472755214623703190",
+"name": "Maxwell",
+"maand": "2026-02",
+"servers": 22,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1515111404846321704",
+"name": "Joji Bot",
+"maand": "2026-06",
+"servers": 118,
+"skus": [
+{
+"naam": "Custom Collectible Voucher",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "Custom Command Voucher",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "Mythical Supporter Voucher",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "Epic Supporter Voucher",
+"type": 3,
+"prijs": 2499
+},
+{
+"naam": "Rare Supporter Voucher",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Uncommon Supporter Voucher",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Common Supporter Voucher",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1523449111745921175",
+"name": "Block Party",
+"maand": "2026-07",
+"servers": 11,
+"skus": []
+},
+{
+"id": "1476792738484715613",
+"name": "Musico BETA",
+"maand": "2026-02",
+"servers": 64,
+"skus": []
+},
+{
+"id": "1521768093410394143",
+"name": "Dota Buddy",
+"maand": "2026-07",
+"servers": 210,
+"skus": [
+{
+"naam": "Bounty Hoard",
+"type": 3,
+"prijs": 1199
+},
+{
+"naam": "Bounty Purse",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Coin Pouch",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Dota Buddy Community",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Dota Buddy Player",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1500045152859721758",
+"name": "Server Manager",
+"maand": "2026-05",
+"servers": 5960,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1467855257928335512",
+"name": "Serika Streaming",
+"maand": "2026-02",
+"servers": 74,
+"skus": []
+},
+{
+"id": "1535798390506651749",
+"name": "Server Wars",
+"maand": "2026-08",
+"servers": 61,
+"skus": [
+{
+"naam": "Founders Season Pass",
+"type": 2,
+"prijs": 799
+},
+{
+"naam": "Player Premium Lifetime",
+"type": 2,
+"prijs": 599
+},
+{
+"naam": "Kingdom Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1542945207819968622",
+"name": "Spelling HoneyComb",
+"maand": "2026-08",
+"servers": 0,
+"skus": [
+{
+"naam": "Storm Caller Effect Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Skyline Sentinel Pack",
+"type": 2,
+"prijs": 499
+},
+{
+"naam": "Prismatic Overlord Pack",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1504050723103572089",
+"name": "Spin the Bottle",
+"maand": "2026-05",
+"servers": 33,
+"skus": [
+{
+"naam": "100 Hearts (Welcome Pack)",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "7000 Hearts",
+"type": 3,
+"prijs": 9999
+},
+{
+"naam": "3125 Hearts",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "1200 Hearts",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "500 Hearts",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "250 Hearts",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "50 Hearts",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1480622322921635850",
+"name": "Security",
+"maand": "2026-03",
+"servers": 119,
+"skus": [
+{
+"naam": "Vip",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484830301027827733",
+"name": "Sploodji",
+"maand": "2026-03",
+"servers": 8,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539177451949793400",
+"name": "Sentinel",
+"maand": "2026-08",
+"servers": 5,
+"skus": [
+{
+"naam": "Sentinel Commander",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521132746594844773",
+"name": "Spotlite",
+"maand": "2026-06",
+"servers": 5,
+"skus": [
+{
+"naam": "Spotlite Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Spotlite Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1495426545370792087",
+"name": "Giveaway Shuffle",
+"maand": "2026-04",
+"servers": 91,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Giveaway Shuffle Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "30 - Day Server Premium",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "90 - Day Server Premium",
+"type": 3,
+"prijs": 549
+}
+]
+},
+{
+"id": "1531773917050568745",
+"name": "Hit-Star",
+"maand": "2026-07",
+"servers": 1,
+"skus": [
+{
+"naam": "Schlager Hits",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "German Bangers",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Hip-Hop",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Movie & TV",
+"type": 2,
+"prijs": 199
+}
+]
+},
+{
+"id": "1469087136824299802",
+"name": "FiveM Serverlist",
+"maand": "2026-02",
+"servers": 156,
+"skus": []
+},
+{
+"id": "1486496415428378685",
+"name": "Bee Swarm Simulator BOT",
+"maand": "2026-03",
+"servers": 21,
+"skus": [
+{
+"naam": "Sponsor the bot",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1498891895433072741",
+"name": "tame.gg/stats",
+"maand": "2026-04",
+"servers": 5,
+"skus": [
+{
+"naam": "Sniping Dashboard Access",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1500904251348746352",
+"name": "Paw Patrol server bot",
+"maand": "2026-05",
+"servers": 12,
+"skus": [
+{
+"naam": "Super Chase",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1528442866173481163",
+"name": "Saily",
+"maand": "2026-07",
+"servers": 13,
+"skus": [
+{
+"naam": "Saily Premium!",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512090260560019558",
+"name": "ScopeBot",
+"maand": "2026-06",
+"servers": 30,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502538564649619456",
+"name": "SC-Checkpoint",
+"maand": "2026-05",
+"servers": 13,
+"skus": [
+{
+"naam": "Checkpoint Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1487599032170975292",
+"name": "ServerCore",
+"maand": "2026-03",
+"servers": 11,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1535475570454831274",
+"name": "SocialSyncer",
+"maand": "2026-08",
+"servers": 1,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524511267069628568",
+"name": "SuggestIt",
+"maand": "2026-07",
+"servers": 6,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501332869832904855",
+"name": "Skrievo",
+"maand": "2026-05",
+"servers": 29,
+"skus": []
+},
+{
+"id": "1525182391008760031",
+"name": "TTS BOTTO VOICE",
+"maand": "2026-07",
+"servers": 504,
+"skus": [
+{
+"naam": "Botto Voice Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Party Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Horror Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Arcade Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Animals Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Cartoon Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "City & Vehicles Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Botto Voice Essential",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Botto Voice Studio",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Botto Voice Top-Tier Pack",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "Translation Pack 50K",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "Translation Pack 100K",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Translation Pack 250K",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "Sound Studio",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "Reactions Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Sci-Fi Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Weather & Nature Sound Pack",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Fantasy Sound Pack",
+"type": 3,
+"prijs": 199
+}
+]
+},
+{
+"id": "1494122761487126551",
+"name": "Tier Lists with Friends",
+"maand": "2026-04",
+"servers": 193,
+"skus": [
+{
+"naam": "tier-lists-supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1485679636128989365",
+"name": "TriviaForge",
+"maand": "2026-03",
+"servers": 193,
+"skus": [
+{
+"naam": "2000s Rock",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "80s Rock",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "70s Rock",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "60s Rock",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "90s Pop",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "90s Country",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "K-Pop Trivia Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Christmas Trivia Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Halloween Trivia Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "90s Alternative Rock Trivia Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "PC Gaming",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Fantasy Books Trivia Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "90s Rap & Hip-Hop Trivia Pack",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "90s R&B",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "2000s Pop & the TRL Years",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Anime Trivia Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Reality TV Trivia Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Magic: The Gathering Trivia Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "90s TV Trivia Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Internet Culture & Memes",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Pok\u00e9mon Trivia Pack",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "TriviaForge Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1531788204288512010",
+"name": "TimeZone",
+"maand": "2026-07",
+"servers": 109,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "TimeZone Pro",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1543003911126913145",
+"name": "Taicket",
+"maand": "2026-08",
+"servers": 51,
+"skus": [
+{
+"naam": "Taicket Enterprise",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Taicket Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1468756639938252891",
+"name": "Taboo Party",
+"maand": "2026-02",
+"servers": 15,
+"skus": [
+{
+"naam": "Taboo Word Pack \u2014 Ziago style",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Taboo Word Pack \u2014 Pok\u00e9mon",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Taboo Word Pack \u2014 Harry Potter",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Celebrities",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Brands",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack - Movies & TV",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Music",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Politics",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 History",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Sports",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Technology",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Science",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Geography",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack \u2014 Food",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Word Pack - Animals & Plants",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Taboo Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Taboo Coins - 2400 + 1000 bonus",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "Taboo Coins - 1200 + 400 bonus",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "Taboo Coins - 600 + 150 bonus",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Taboo Coins - 300",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1538532517735436398",
+"name": "Ticket Kick",
+"maand": "2026-08",
+"servers": 55,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1527797772361924860",
+"name": "Tsukuya",
+"maand": "2026-07",
+"servers": 17,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1516583235591868516",
+"name": "Ticketr",
+"maand": "2026-06",
+"servers": 29,
+"skus": [
+{
+"naam": "Professional",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513612820103692348",
+"name": "Tickit",
+"maand": "2026-06",
+"servers": 17,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526601187837739169",
+"name": "TicketDesk",
+"maand": "2026-07",
+"servers": 16,
+"skus": [
+{
+"naam": "Premium Lifetime X2 Servers",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "TicketDesk Lifetime",
+"type": 2,
+"prijs": 7999
+},
+{
+"naam": "Premuim",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1490042212841422938",
+"name": "TeraOne",
+"maand": "2026-04",
+"servers": 106,
+"skus": []
+},
+{
+"id": "1540128510637510676",
+"name": "TicketQuill",
+"maand": "2026-08",
+"servers": 5,
+"skus": [
+{
+"naam": "TicketQuill Business",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "TicketQuill Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1479024526569246761",
+"name": "TR4C3R",
+"maand": "2026-03",
+"servers": 116,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526816077613629512",
+"name": "PilotWord",
+"maand": "2026-07",
+"servers": 5,
+"skus": []
+},
+{
+"id": "1491931189022560386",
+"name": "Blacklist Terminal",
+"maand": "2026-04",
+"servers": 139,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1487222791500595441",
+"name": "Manfred, the Butler",
+"maand": "2026-03",
+"servers": 223,
+"skus": [
+{
+"naam": "Manfred Subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512492531131351125",
+"name": "Blobby the Server Pet",
+"maand": "2026-06",
+"servers": 19,
+"skus": [
+{
+"naam": "Transform the Pet",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Party Mode",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Founding Supporter",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Memorial",
+"type": 2,
+"prijs": 299
+},
+{
+"naam": "Caretaker",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1516460216831705088",
+"name": "Dejavue",
+"maand": "2026-06",
+"servers": 8,
+"skus": [
+{
+"naam": "AI Credit Top-Up (+5000)",
+"type": 3,
+"prijs": 3499
+},
+{
+"naam": "AI Credit Top-Up (+2000)",
+"type": 3,
+"prijs": 1599
+},
+{
+"naam": "AI Credit Top-Up (+1000)",
+"type": 3,
+"prijs": 899
+},
+{
+"naam": "Custom Domain",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "AI Credit Top-Up (+500)",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Dejavue Max",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Dejavue Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Dejavue Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512017809071276062",
+"name": "meloyo",
+"maand": "2026-06",
+"servers": 4,
+"skus": [
+{
+"naam": "Unlimited",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "10-pack",
+"type": 3,
+"prijs": 99
+}
+]
+},
+{
+"id": "1471205902966063290",
+"name": "Code Trivia Battle v2",
+"maand": "2026-02",
+"servers": 119,
+"skus": [
+{
+"naam": "Code Trivia PRO",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1497915272986886325",
+"name": "Dismind",
+"maand": "2026-04",
+"servers": 64,
+"skus": [
+{
+"naam": "Discord Mind Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1536048956012892180",
+"name": "Quavara",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "Quavara's Premium Gold Package - Best Value",
+"type": 3,
+"prijs": 3399
+},
+{
+"naam": "Translation 20,000 Characters Text + Voice + Ambassador Partner Program",
+"type": 3,
+"prijs": 1399
+},
+{
+"naam": "Text Translation Only 25000 Characters",
+"type": 3,
+"prijs": 699
+}
+]
+},
+{
+"id": "1502978867474862181",
+"name": "\u1d1b\u1d00\ua731\u1d1b\u026a\u1d04 | \ua731\u028f\ua731\u1d1b\u1d07\u1d0d",
+"maand": "2026-05",
+"servers": 1,
+"skus": [
+{
+"naam": "VIP ROLE",
+"type": 2,
+"prijs": 599
+}
+]
+},
+{
+"id": "1474844630724907108",
+"name": "Bot Fac\u00e7\u00e3o",
+"maand": "2026-02",
+"servers": 166,
+"skus": []
+},
+{
+"id": "1521627391775215787",
+"name": "Botify",
+"maand": "2026-06",
+"servers": 124,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Botify Custom",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Botify Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534233276942909451",
+"name": "ZenFN BOT",
+"maand": "2026-08",
+"servers": 9,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Prenuim Zen",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1486268915859587122",
+"name": "Flaco's Bot",
+"maand": "2026-03",
+"servers": 5,
+"skus": [
+{
+"naam": "Monthly Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1511110497838305420",
+"name": "Chess Bot",
+"maand": "2026-06",
+"servers": 534,
+"skus": [
+{
+"naam": "5$ donation subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "5$ Donation",
+"type": 3,
+"prijs": 499
+}
+]
+},
+{
+"id": "1502012424784449609",
+"name": "CALCo Bot",
+"maand": "2026-05",
+"servers": 22,
+"skus": [
+{
+"naam": "X Bot Add-On",
+"type": 2,
+"prijs": 1699
+},
+{
+"naam": "CALCo Complete Bundle",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "NFT X Notifications",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Raid Tracker",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "X Starter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492812962677784607",
+"name": "DC-Bot",
+"maand": "2026-04",
+"servers": 37,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1512720633471959161",
+"name": "FUDSTOP BOT",
+"maand": "2026-06",
+"servers": 1,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "FUDSTOP BOT",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521006217042854008",
+"name": "Cheeto Bot",
+"maand": "2026-06",
+"servers": 19,
+"skus": []
+},
+{
+"id": "1467998532333207866",
+"name": "Clair",
+"maand": "2026-02",
+"servers": 70,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502834721581699092",
+"name": "Lurifix",
+"maand": "2026-05",
+"servers": 236,
+"skus": [
+{
+"naam": "\ud83d\udc9c Supporter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1493726961527160963",
+"name": "Movr- Move Messages Bot",
+"maand": "2026-04",
+"servers": 291,
+"skus": [
+{
+"naam": "Movr Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Movr Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1541845746473767003",
+"name": "GuildPilot Games",
+"maand": "2026-08",
+"servers": 0,
+"skus": [
+{
+"naam": "13000_pt",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "5000_pt",
+"type": 3,
+"prijs": 2099
+},
+{
+"naam": "2400",
+"type": 3,
+"prijs": 1099
+},
+{
+"naam": "1100_pt",
+"type": 3,
+"prijs": 599
+},
+{
+"naam": "200_pt",
+"type": 3,
+"prijs": 199
+}
+]
+},
+{
+"id": "1467556842170355764",
+"name": "Cardinal.AC",
+"maand": "2026-02",
+"servers": 49,
+"skus": [
+{
+"naam": "Enterprise Plan",
+"type": 3,
+"prijs": 14999
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Pro Plan",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513896720528838787",
+"name": "Looply",
+"maand": "2026-06",
+"servers": 9,
+"skus": [
+{
+"naam": "Looply Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1531230302075228200",
+"name": "Bury",
+"maand": "2026-07",
+"servers": 2,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1486460835046883398",
+"name": "Homu",
+"maand": "2026-03",
+"servers": 17,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526175047851446363",
+"name": "Medieval Wars",
+"maand": "2026-07",
+"servers": 10,
+"skus": [
+{
+"naam": "Donate Siege",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Donate Feast",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Donate Ale",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Title Pack 1",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Victory Fireworks",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Theme Scorched",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Theme Dark",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Theme Autumn",
+"type": 2,
+"prijs": 399
+},
+{
+"naam": "Black Faction",
+"type": 2,
+"prijs": 499
+}
+]
+},
+{
+"id": "1503040652047290520",
+"name": "Wright Dash",
+"maand": "2026-05",
+"servers": 2,
+"skus": []
+},
+{
+"id": "1502920205217562805",
+"name": "moneyloop.io",
+"maand": "2026-05",
+"servers": 9,
+"skus": [
+{
+"naam": "Whale Bundle",
+"type": 3,
+"prijs": 3999
+},
+{
+"naam": "MEGA Cache",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Value Vault",
+"type": 3,
+"prijs": 799
+},
+{
+"naam": "Starter Stack",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1484098031296057406",
+"name": "Bingo Crazy",
+"maand": "2026-03",
+"servers": 17,
+"skus": [
+{
+"naam": "com.bingo.vacation.piggybank",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.special.sale6",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.special.sale5",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.special.sale4",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.special.sale3",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.special.sale2",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.special.sale1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel5.5",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.cashlevel5.4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cashlevel5.3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cashlevel5.2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel5.1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.cashlevel4.4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cashlevel4.3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cashlevel4.2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel4.1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.cashlevel3.5",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.cashlevel3.4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cashlevel3.3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cashlevel3.2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel3.1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.cashlevel2.5",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.cashlevel2.4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cashlevel2.3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cashlevel2.2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel2.1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.cashlevel1.5",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.cashlevel1.4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cashlevel1.3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cashlevel1.2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cashlevel1.1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.hint.sale2",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.hint.sale1",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.autodaub.sale3",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.autodaub.sale2",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.autodaub.sale1",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.props.sale6",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.props.sale5",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.props.sale4",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.props.sale3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.props.sale2",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "com.bingo.vacation.props.sale1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.mix.sale8",
+"type": 3,
+"prijs": 3999
+},
+{
+"naam": "com.bingo.vacation.mix.sale7",
+"type": 3,
+"prijs": 2999
+},
+{
+"naam": "com.bingo.vacation.mix.sale6",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.mix.sale5",
+"type": 3,
+"prijs": 1299
+},
+{
+"naam": "com.bingo.vacation.mix.sale4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.mix.sale3",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.mix.sale2",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.mix.sale1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cash.sale6",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cash.sale5",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.cash.sale4",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cash.sale3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cash.sale2",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "com.bingo.vacation.cash.sale1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.removeads.3",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.removeads.2",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.removeads.1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.firstpay.pack5",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.firstpay.pack4",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.firstpay.pack3",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.firstpay.pack2",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.firstpay.pack1",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.unlock.scene11",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.unlock.scene10",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.unlock.scene9",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.unlock.scene8",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.unlock.scene7",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.unlock.scene6",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.unlock.scene5",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.unlock.scene4",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.unlock.scene3",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.broken.props5",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.broken.props4",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "com.bingo.vacation.broken.props3",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.broken.props2",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.broken.props1",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "com.bingo.vacation.broken.free",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.broken.doublefree",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "com.bingo.vacation.broken.cooldown",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.broken.instantbingo",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.broken.cash13",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.broken.cash12",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.broken.cash11",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.broken.cash6",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "com.bingo.vacation.broken.cash5",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "com.bingo.vacation.broken.cash1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.broken.cash4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.broken.cash3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.broken.cash2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.monthlytask.unlock",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.weeklytask.unlock",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.dailyspin.pack3",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.dailyspin.pack2",
+"type": 3,
+"prijs": 1399
+},
+{
+"naam": "com.bingo.vacation.dailyspin.pack1",
+"type": 3,
+"prijs": 299
+},
+{
+"naam": "com.bingo.vacation.autodaub.pack3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.autodaub.pack2",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.autodaub.pack1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.hint.pack3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.hint.pack2",
+"type": 3,
+"prijs": 399
+},
+{
+"naam": "com.bingo.vacation.hint.pack1",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "com.bingo.vacation.props.pack4",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.props.pack3",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.props.pack2",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.props.pack1",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.cash.pack6",
+"type": 3,
+"prijs": 9999
+},
+{
+"naam": "com.bingo.vacation.cash.pack5",
+"type": 3,
+"prijs": 4999
+},
+{
+"naam": "com.bingo.vacation.cash.pack4",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "com.bingo.vacation.cash.pack3",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "com.bingo.vacation.cash.pack2",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "com.bingo.vacation.monthlyelite",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "com.bingo.vacation.cash.pack1",
+"type": 3,
+"prijs": 199
+}
+]
+},
+{
+"id": "1543782705123037274",
+"name": "\ud83d\udc97 Minx",
+"maand": "2026-08",
+"servers": 5,
+"skus": [
+{
+"naam": "Minx Exclusive - Full Dashboard Access",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Minx Premium \u2014 Full Server Access",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1527401531601719326",
+"name": "Hexrealms",
+"maand": "2026-07",
+"servers": 7,
+"skus": [
+{
+"naam": "Ocean Tides Background",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Clear Skies Background",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Lava Depths Background",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Avalon Map",
+"type": 2,
+"prijs": 99
+},
+{
+"naam": "Ragnar\u00f6k Map",
+"type": 2,
+"prijs": 99
+}
+]
+},
+{
+"id": "1512842275892236388",
+"name": "Lion Music",
+"maand": "2026-06",
+"servers": 9,
+"skus": [
+{
+"naam": "Lion Music VIP",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1507270385651941437",
+"name": "MadaraBot",
+"maand": "2026-05",
+"servers": 20,
+"skus": []
+},
+{
+"id": "1522866447649472522",
+"name": "Bless Music \u30c4",
+"maand": "2026-07",
+"servers": 4,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1485454450515509248",
+"name": "DefenX ModMail",
+"maand": "2026-03",
+"servers": 1,
+"skus": [
+{
+"naam": "ModMail pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492682941850189864",
+"name": "Beacon",
+"maand": "2026-04",
+"servers": 30,
+"skus": []
+},
+{
+"id": "1485250102065893436",
+"name": "LSK",
+"maand": "2026-03",
+"servers": 22,
+"skus": [
+{
+"naam": "NBL FAN",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1536717065740619836",
+"name": "CiupiBot",
+"maand": "2026-08",
+"servers": 6,
+"skus": [
+{
+"naam": "CiupiBot Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "CiupiBot Starter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1492395787764764682",
+"name": "Jupnich",
+"maand": "2026-04",
+"servers": 18,
+"skus": [
+{
+"naam": "Jupnich Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Jupnich Plus",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1538188765288341585",
+"name": "Guardy",
+"maand": "2026-08",
+"servers": 376,
+"skus": [
+{
+"naam": "Guardy AI credits (6,000)",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "Guardy AI credits (2,500)",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "Guardy AI credits (1,000)",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Guardy Lifetime",
+"type": 2,
+"prijs": 9999
+},
+{
+"naam": "Guardy Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513053951610585161",
+"name": "JuiceJr",
+"maand": "2026-06",
+"servers": 30,
+"skus": [
+{
+"naam": "Premium (all servers)",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1539851112163713105",
+"name": "Pip",
+"maand": "2026-08",
+"servers": 43,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1513218762545823775",
+"name": "Warship Clan Planner",
+"maand": "2026-06",
+"servers": 6,
+"skus": [
+{
+"naam": "Battle Planner Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1470536268948439134",
+"name": ".zwd",
+"maand": "2026-02",
+"servers": 7,
+"skus": [
+{
+"naam": "Free Donation",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Drip Pack",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1521672441061969970",
+"name": "Platypus",
+"maand": "2026-07",
+"servers": 15,
+"skus": [
+{
+"naam": "Platypus Complete",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1467888313640812738",
+"name": "Boba\u2122",
+"maand": "2026-02",
+"servers": 1,
+"skus": []
+},
+{
+"id": "1483164138397106236",
+"name": "FluxiBot",
+"maand": "2026-03",
+"servers": 52,
+"skus": [
+{
+"naam": "Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1484721748695056565",
+"name": "phenold",
+"maand": "2026-03",
+"servers": 14,
+"skus": []
+},
+{
+"id": "1487519753487515679",
+"name": "zavrynbot",
+"maand": "2026-03",
+"servers": 372,
+"skus": [
+{
+"naam": "Cross-server management",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "unlimited downloads",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1475902576330281022",
+"name": "purpleGPT",
+"maand": "2026-02",
+"servers": 68,
+"skus": [
+{
+"naam": "purpleGPT Pro",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "purpleGPT Starter",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1502808022618079352",
+"name": "ProfileNest",
+"maand": "2026-05",
+"servers": 11,
+"skus": [
+{
+"naam": "10 Gold coin",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "15 Gold Coin",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "1 Extra P.S.",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1503099575718772767",
+"name": "Yuri",
+"maand": "2026-05",
+"servers": 334,
+"skus": []
+},
+{
+"id": "1520480019309264957",
+"name": "Docent",
+"maand": "2026-06",
+"servers": 76,
+"skus": []
+},
+{
+"id": "1526490680204197908",
+"name": "Concierge",
+"maand": "2026-07",
+"servers": 98,
+"skus": [
+{
+"naam": "Concierge Premier",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Concierge Elite",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1534174580225347646",
+"name": "Clank",
+"maand": "2026-08",
+"servers": 3,
+"skus": [
+{
+"naam": "40 credits",
+"type": 3,
+"prijs": 1499
+},
+{
+"naam": "20 credits",
+"type": 3,
+"prijs": 699
+},
+{
+"naam": "8 credits",
+"type": 3,
+"prijs": 299
+}
+]
+},
+{
+"id": "1524585219154247730",
+"name": "Hootloot",
+"maand": "2026-07",
+"servers": 8,
+"skus": [
+{
+"naam": "Hootloot+",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1494706148836905111",
+"name": "Ben Hemmer",
+"maand": "2026-04",
+"servers": 26,
+"skus": [
+{
+"naam": "Monthly premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1527078366455529503",
+"name": "Cusca",
+"maand": "2026-07",
+"servers": 5,
+"skus": [
+{
+"naam": "Signature",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Croissance",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Personnalisation",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1529359652473540729",
+"name": "YASBOT",
+"maand": "2026-07",
+"servers": 12,
+"skus": []
+},
+{
+"id": "1502824562310774884",
+"name": "cayo",
+"maand": "2026-05",
+"servers": 622,
+"skus": [
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Tier 1 Bronze",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Tier 2 Silver",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Tier 3 Gold",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1524658725271502848",
+"name": "\u591c.",
+"maand": "2026-07",
+"servers": 12,
+"skus": []
+},
+{
+"id": "1528076091380732005",
+"name": "Pi\u00f1a",
+"maand": "2026-07",
+"servers": 26,
+"skus": [
+{
+"naam": "\ud83d\udcab Slot bonus",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "\ud83c\udfad Th\u00e8mes de profil",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "\ud83e\udd47 Profil Dor\u00e9",
+"type": 2,
+"prijs": 199
+},
+{
+"naam": "\ud83c\udf39 Rose / cadeau",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "\ud83d\udc96 Super Smash",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "\ud83d\ude80 Boost 24 h",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "D\u00e9blocage",
+"type": 3,
+"prijs": 99
+},
+{
+"naam": "premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1467968905170653320",
+"name": "MMOBattleBuddy",
+"maand": "2026-02",
+"servers": 81,
+"skus": [
+{
+"naam": "Server Premium Subscriber!",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Individual Premium Subscription",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1526229971293442302",
+"name": "GuildPilot",
+"maand": "2026-07",
+"servers": 96,
+"skus": [
+{
+"naam": "1 Month Pilot Premium",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514154495435735220",
+"name": "L3g10n",
+"maand": "2026-06",
+"servers": 23,
+"skus": [
+{
+"naam": "Buy Developer a Coffee",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Pro Tier - 12 Months",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Enterprise Tier - 1 Month",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Pro Tier - 1 Month",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1514325223124762684",
+"name": "Coinly",
+"maand": "2026-06",
+"servers": 18,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1501646050916696154",
+"name": "Disney Dex",
+"maand": "2026-05",
+"servers": 336,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+},
+{
+"id": "1473339837179363431",
+"name": "BrainBot",
+"maand": "2026-02",
+"servers": 508,
+"skus": [
+{
+"naam": "User Subscription Group",
+"type": 6,
+"prijs": null
+},
+{
+"naam": "Player Premium 1",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Player Premium 2",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Player Premium 3",
+"type": 5,
+"prijs": null
+}
+]
+},
+{
+"id": "1529536842859286699",
+"name": "Korvex",
+"maand": "2026-07",
+"servers": 30,
+"skus": [
+{
+"naam": "Server Branding \u2014 1 Extra Server",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "2,400 Gems",
+"type": 3,
+"prijs": 1999
+},
+{
+"naam": "1,100 Gems",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "500 Gems",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "Server Branding \u2014 2 Server License",
+"type": 2,
+"prijs": 999
+}
+]
+},
+{
+"id": "1524053555114151946",
+"name": "Dreamliner",
+"maand": "2026-07",
+"servers": 106,
+"skus": [
+{
+"naam": "26,000 Miles",
+"type": 3,
+"prijs": 3999
+},
+{
+"naam": "12,000 Miles",
+"type": 3,
+"prijs": 999
+},
+{
+"naam": "5,500 Miles",
+"type": 3,
+"prijs": 499
+},
+{
+"naam": "2,000 Miles",
+"type": 3,
+"prijs": 199
+},
+{
+"naam": "Dreamliner One",
+"type": 5,
+"prijs": null
+},
+{
+"naam": "Guild Subscription Group",
+"type": 6,
+"prijs": null
+}
+]
+}
+]

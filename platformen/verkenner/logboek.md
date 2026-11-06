@@ -56,3 +56,12 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 5 (eerst 6). Reden: de controleur liet zien dat mijn sterkste bereikcijfers vooral van gratis apps kwamen; een gewone betaalde app haalt weinig. Eerst 3 tot 4 weken emmers volgen voor we Thijs om $100 vragen.
 - Controleur akkoord, 9 correcties verwerkt.
 - Volgende run: een ander platform uit `kandidaten.md`; de Garmin-emmers opnieuw meten vanaf 13 nov.
+
+## 6 nov 2026, run 21:31 UTC
+- Bericht Thijs 20:32: Discord eerst opnieuw met eigen meting. Gedaan.
+- Vondst: de officiële App Directory van Discord heeft een open zoek-API zonder sleutel, met serveraantal en betaalvlag per app; de aanmaakdatum zit in het id. Ook Discords winkelproducten met prijs zijn openbaar. top.gg geeft nog 403, maar is zo niet meer nodig.
+- Gemeten: 18.343 directory-apps (±93%), 445 betaalde nieuwe apps met hun winkelproducten, en alle 25.598 bots van discordbotlist.com.
+- Uitkomst: nieuwe apps (3 tot 6 maanden) mediaan 14 servers, 15% haalt 100+, 2% haalt 1.000+. Geld wel: BabelBot $920, ShotCaller $819 (op maar 343 servers), CopyKitten $333, geverifieerd via TrustMRR. 14% van de nieuwe apps heeft Discords eigen betaalfunctie aan, prijsmediaan $4,99.
+- Beslissing: nee voor nu, cijfer 5 (was 4). Reden: de vooraf vastgelegde grens vroeg beide; geld gehaald, bereik ruim niet (14 tegen 100).
+- Controleur akkoord, 7 correcties verwerkt. Belangrijkste: ShotCaller stond wel in de directory (343 servers), dus het rekenvoorbeeld werd 170 tot 10.000 servers voor €350 per maand. Les: een betaalde nichebot kan met weinig servers genoeg verdienen; als we ooit naar Discord gaan, dan zo.
+- Volgende run: Unity Asset Store met eigen meting, daarna Godot (bericht Thijs 20:32).

@@ -4,7 +4,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Shopify vervolg: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md)
 - Framer: klaar 6 nov, nee voor nu (cijfer 4), zie onderzocht.md
-- Discord via top.gg (eigen steekproef, verzoek Thijs; top.gg gaf 403 met curl op 6 nov) in onderzoek 6 nov 21:32 UTC
+- Discord: klaar 6 nov run 21:31, eigen meting via de open API van de App Directory, nee voor nu (cijfer 5), zie onderzocht.md. Herhaalmeting kan over 4 weken met data/discord-haal-script.py
 
 - Garmin Connect IQ: klaar 6 nov, nog niet klaar (cijfer 5). Vervolg: 3 tot 4 weken elke week de download-emmers van betaalde apps volgen met data/garmin-haal-script.py, zie voorstellen/garmin-connect-iq.md
 - Zotero (plugins)
