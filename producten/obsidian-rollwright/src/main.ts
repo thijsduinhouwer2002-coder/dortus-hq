@@ -2,7 +2,9 @@ import { getAllTags, MarkdownView, Notice, Plugin, TFile, type WorkspaceLeaf } f
 import { extractSavedFormulas, mergeFormulas, type SavedFormula } from "./import/dice-roller-data";
 import { isValidLicenseKey } from "./pro/license";
 import { resolveSkin, SKINS } from "./pro/skins";
+import { replaceCodeInNote } from "./rollers/modify";
 import { rollSpec, type NoteData, type RollContext, type RollOutcome } from "./rollers/run";
+import { CHANGED_NOTICE, ReplaceCodeModal } from "./ui/dice-mod";
 import { HISTORY_VIEW, RollHistoryView } from "./ui/history-view";
 import { rollwrightLivePreview } from "./ui/live-preview";
 import { RollFormulaModal } from "./ui/modal";
@@ -26,6 +28,8 @@ export interface RollwrightSettings {
 	skin: string;
 	/** Results of `dice+:` by key (note, place, formula), oldest first. Kept across restarts. */
 	keptResults: [string, RollOutcome][];
+	/** Write the formula before the result when a `dice-mod:` code is replaced. */
+	diceModFormula: boolean;
 }
 
 const DEFAULT_SETTINGS: RollwrightSettings = {
@@ -36,6 +40,7 @@ const DEFAULT_SETTINGS: RollwrightSettings = {
 	licenseKey: "",
 	skin: "classic",
 	keptResults: [],
+	diceModFormula: true,
 };
 
 const HISTORY_LIMIT = 200;
@@ -253,6 +258,32 @@ export default class RollwrightPlugin extends Plugin {
 			await leaf?.setViewState({ type: HISTORY_VIEW, active: true });
 		}
 		if (leaf) await workspace.revealLeaf(leaf);
+	}
+
+	/** Asks before a dice-mod code is replaced. True for Replace; Cancel and closing give false. */
+	confirmReplace(text: string): Promise<boolean> {
+		return new Promise((resolve) => new ReplaceCodeModal(this.app, text, resolve).open());
+	}
+
+	/**
+	 * Replaces a dice-mod code in this one note, read fresh inside vault.process. Only when
+	 * the code with this number on this line is still dice-mod with this formula; otherwise
+	 * the note is given back as it was, with a notice. Never touches any other note.
+	 */
+	async replaceInNote(path: string, line: number, index: number, formula: string, replacement: string): Promise<boolean> {
+		const file = this.app.vault.getAbstractFileByPath(path);
+		if (!(file instanceof TFile)) {
+			new Notice(CHANGED_NOTICE);
+			return false;
+		}
+		let done = false;
+		await this.app.vault.process(file, (data) => {
+			const next = replaceCodeInNote(data, line, index, formula, replacement);
+			done = next !== null;
+			return next ?? data;
+		});
+		if (!done) new Notice(CHANGED_NOTICE);
+		return done;
 	}
 
 	currentNotePath(): string {

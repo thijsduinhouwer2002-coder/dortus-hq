@@ -48,6 +48,16 @@ export class RollwrightSettingTab extends PluginSettingTab {
 				}),
 			);
 
+		new Setting(containerEl)
+			.setName("Keep the formula when a dice-mod code is replaced")
+			.setDesc("On: 3d6 -> [2, 5, 4] -> 11. Off: [2, 5, 4] -> 11. Results of tables, lists and notes never show a formula.")
+			.addToggle((toggle) =>
+				toggle.setValue(settings.diceModFormula).onChange(async (value) => {
+					settings.diceModFormula = value;
+					await this.plugin.saveSettings();
+				}),
+			);
+
 		new Setting(containerEl).setName("Saved formulas").setHeading();
 
 		settings.formulas.forEach((formula, index) => {

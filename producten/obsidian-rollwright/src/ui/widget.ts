@@ -4,6 +4,7 @@ import type RollwrightPlugin from "../main";
 import { defuseRolls } from "../rollers/defuse";
 import { parseSpec } from "../rollers/spec";
 import type { RollOutcome } from "../rollers/run";
+import type { ModifyHandler } from "./dice-mod";
 
 function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error);
@@ -45,9 +46,11 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
  * Fills an element with a roll and makes it clickable. Used by both the reading
  * view and Live Preview. A broken formula shows a marked message, it never throws.
  * The component owns anything rendered from markdown. With keep (`dice+:`) the
- * result is kept across restarts, and a click keeps the new one.
+ * result is kept across restarts, and a click keeps the new one. With modify (`dice-mod:`)
+ * a click does not roll again: it hands the shown result to modify, which asks before it
+ * replaces the code.
  */
-export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula: string, key: string, sourcePath: string, component: Component, keep = false): void {
+export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula: string, key: string, sourcePath: string, component: Component, keep = false, modify?: ModifyHandler): void {
 	target.addClass("rollwright-roll");
 	target.setAttribute("role", "button");
 
@@ -58,11 +61,27 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		hideFirst = false;
 	}
 
+	let shown: RollOutcome | null = null;
+	const show = async (outcome: RollOutcome): Promise<void> => {
+		shown = outcome;
+		await showOutcome(plugin, target, outcome, sourcePath, component);
+	};
+	const fail = (error: unknown): void => {
+		shown = null;
+		showError(target, formula, error);
+	};
+
 	const rerollNow = async (): Promise<void> => {
 		try {
-			await showOutcome(plugin, target, await plugin.freshResult(key, formula, sourcePath, keep), sourcePath, component);
+			if (!modify) {
+				await show(await plugin.freshResult(key, formula, sourcePath, keep));
+				return;
+			}
+			// dice-mod: write what is shown. Hidden by |none, it is rolled and shown first.
+			if (shown === null) await show(await plugin.firstResult(key, formula, sourcePath));
+			if (shown !== null) modify(shown);
 		} catch (error) {
-			showError(target, formula, error);
+			fail(error);
 		}
 	};
 
@@ -85,8 +104,5 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		setTooltip(target, formula);
 		return;
 	}
-	plugin.firstResult(key, formula, sourcePath, keep).then(
-		(outcome) => showOutcome(plugin, target, outcome, sourcePath, component),
-		(error: unknown) => showError(target, formula, error),
-	).catch((error: unknown) => showError(target, formula, error));
+	plugin.firstResult(key, formula, sourcePath, keep).then(show, fail).catch(fail);
 }

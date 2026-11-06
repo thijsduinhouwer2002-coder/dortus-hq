@@ -8,7 +8,9 @@ Rollwright is at version 0.1.0 and has not been tested in a running app yet. Exp
 
 Write `` `dice: 2d6 + 3` `` in a note. It works in reading view and Live Preview. Hover to see the formula and the dice. Click to roll again. A result stays while you scroll or type elsewhere in the note. It is rolled again when you click, after a restart, and when lines above it are added or removed, because a result is tied to its line. A roll in a table cell can also roll again when the note is drawn again.
 
-To keep a result after a restart, write `` `dice+: 2d6` ``. Rollwright saves it in its own plugin data, for that note and that place in it. A click rolls again and keeps the new result. Up to 500 kept results are saved; beyond that the oldest is dropped. `` `dice-: 2d6` `` never keeps a result and works like `dice:`. When Rollwright cannot tell which line a code is on, as can happen in a table cell of the note itself, `dice+:` works like `dice:` and keeps nothing. Inside a cell of a table you roll on, or as a lookup table header, `dice+:` and `dice-:` roll like `dice:`: the result is kept, or not, as part of the outer roll. `dice-mod:` is not supported yet and is left as it is.
+To keep a result after a restart, write `` `dice+: 2d6` ``. Rollwright saves it in its own plugin data, for that note and that place in it. A click rolls again and keeps the new result. Up to 500 kept results are saved; beyond that the oldest is dropped. `` `dice-: 2d6` `` never keeps a result and works like `dice:`. When Rollwright cannot tell which line a code is on, as can happen in a table cell of the note itself, `dice+:` works like `dice:` and keeps nothing. Inside a cell of a table you roll on, or as a lookup table header, `dice+:` and `dice-:` roll like `dice:`: the result is kept, or not, as part of the outer roll. Inside such a cell or header, `dice-mod:` is not rolled and stays as text.
+
+To write a roll into the note for good, use `` `dice-mod: 3d100 + 12` ``. It shows a roll like `dice:`. A click, or Enter, does not roll again: it asks first and shows the text that goes in. Replace turns the code, backticks included, into the result you see, as in `3d100 + 12 -> [75, 20, 75] + 12 -> 182`. A setting leaves out the formula: `[75, 20, 75] + 12 -> 182`. The total follows the number flags; labels such as `|text(x)` are not written. A roll on a table, list, note or tag writes only its result, on one line, and that other note is never changed. Rollwright only writes into the note that holds the code. It refuses inside an embedded note and when it cannot tell which line the code is on, as can happen in a table cell; then it says so and changes nothing. In Live Preview, undo takes the change back. In reading view the file is changed directly, and undo may not take that back, so check the window before you choose Replace.
 
 | You write | What it does |
 |---|---|
@@ -102,7 +104,7 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 - **Roll history** shows rolls you clicked or typed, with the source note, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The history is stored in the plugin's data file.
 - **Commands:** "Open roll history" and "Roll a formula".
-- **Settings:** default die, default number of dice, and saved formulas. A saved formula works by name in any roll, such as `` `dice: attack` `` or `1d6 + bonus`.
+- **Settings:** default die, default number of dice, whether `dice-mod:` keeps the formula, and saved formulas. A saved formula works by name in any roll, such as `` `dice: attack` `` or `1d6 + bonus`.
 - **Import:** a button copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read. Existing names are kept. The layout of that file was not verified, so an import may find nothing.
 
 ## Paid skins
@@ -113,7 +115,7 @@ License keys are not on sale yet. Payment has not been arranged, and there is no
 
 ## Privacy
 
-Rollwright makes no network connections, has no telemetry and needs no account. It reads your notes to roll on them. Your notes are not changed. Outside the vault it touches nothing.
+Rollwright makes no network connections, has no telemetry and needs no account. It reads your notes to roll on them. Your notes are only changed when you confirm a `dice-mod:` code, and then only that code in that note. Outside the vault it touches nothing.
 
 ## Limits
 

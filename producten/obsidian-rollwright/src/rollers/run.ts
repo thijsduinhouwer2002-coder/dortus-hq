@@ -28,6 +28,8 @@ export interface RollOutcome {
 	total?: number;
 	/** The first shown value is a mean, not a roll. */
 	estimated?: boolean;
+	/** The shown value is the average of |avg, so details holds no breakdown of dice. */
+	average?: boolean;
 	formula: string;
 	details: string;
 	flags: Flags;
@@ -242,7 +244,7 @@ async function rollSpecAt(raw: string, context: RollContext, depth: number, firs
 		const dice = spec.target.formula;
 		if (firstRoll && spec.flags.avg) {
 			const average = averageOf(dice, diceOptions(context));
-			return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
+			return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, average: true, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
 		}
 		const result = roll(dice, diceOptions(context));
 		return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };

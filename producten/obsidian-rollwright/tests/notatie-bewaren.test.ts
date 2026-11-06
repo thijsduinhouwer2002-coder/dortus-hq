@@ -100,13 +100,13 @@ describe("dice: and dice-: never keep", () => {
 });
 
 describe("every place that reads dice: knows the prefixes", () => {
-	it("formulaFromCode and findInlineDice read dice+: and dice-:, and refuse dice-mod:", () => {
+	it("formulaFromCode and findInlineDice read dice+:, dice-: and (since punt 3) dice-mod:", () => {
 		expect(formulaFromCode("dice+: 2d6")).toBe("2d6");
 		expect(formulaFromCode("DICE-:2d6")).toBe("2d6");
-		expect(formulaFromCode("dice-mod: 2d6")).toBeNull();
+		expect(formulaFromCode("dice-mod: 2d6")).toBe("2d6");
 		expect(formulaFromCode("dice+mod: 2d6")).toBeNull();
 		const found = findInlineDice("`dice+: 1d6` `dice-: 1d8` `dice-mod: 1d4`");
-		expect(found.map((f) => [f.formula, f.keep])).toEqual([["1d6", true], ["1d8", false]]);
+		expect(found.map((f) => [f.formula, f.keep, f.modify])).toEqual([["1d6", true, false], ["1d8", false, false], ["1d4", false, true]]);
 	});
 
 	it("a lookup table header reads dice+: and dice-:, and dice-mod: makes a normal table", () => {
