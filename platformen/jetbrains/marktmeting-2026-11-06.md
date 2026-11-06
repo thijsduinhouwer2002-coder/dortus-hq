@@ -287,3 +287,24 @@ Een Procfile is meestal een paar regels, een Jenkinsfile een pijplijn in Groovy 
 - De eis voor een kandidaat wordt nu: (1) zit in veel projecten, (2) de IDE kent het niet (een nieuwe plugin wordt vanzelf aangeraden zodra hij de soort aanmeldt, dus een lege aanraadlijst is geen bezwaar), (3) een groot deel van de bestanden is groot (meer dan 2 kB; uit één paar, dus een signaal om te rangschikken, geen harde grens), (4) het publiek werkt in JetBrains-IDE's, (5) geen plugin van JetBrains en geen sterke betaalde of gratis plugin die bijgehouden wordt.
 - Volgende stap: de 302 soorten uit deel 7 eerst filteren op (1), (2) en (4), en de overblijvers meten op (3) met `size:>2000`. GitHub-zoeken laat maximaal 10 zoekopdrachten per minuut toe, met 7 seconden wachten kost een lijst van tientallen soorten dus enkele minuten. Geen bouwbesluit.
 - **Nakijken:** controleur deed 7 plugins, de sommen, de vier reviewzinnen en 5 GitHub-tellingen opnieuw: alles gelijk. Akkoord mits 8 punten (ondergrens rekensom zonder 85%, scheeftrekkers bij 5.000 tot 7.000, opzeg-review, GOK-label bij punt 4, leeftijd en publiek als andere verklaringen, prijskolom tsv, eis (2) en (3) te streng, wachttijd GitHub). Alle 8 verwerkt.
+
+## Meting deel 11: de 302 soorten gefilterd en op grootte gemeten (19:02 tot 19:13 UTC, nog niet nagekeken)
+**Hoe:** uit `data/bestandssoorten-stap1-2026-11-06.tsv` (deel 7) de soorten gehaald zonder plugin van JetBrains (180) en zonder bijgehouden plugin met 50.000+ downloads (laatste versie juni 2025 of later): 133 over. Daarvan met de hand de binaire, gegenereerde en datasoorten weggelaten (zoals `*.png`, `*.lock`, `*.sln`, `*.srt`) en de soorten die de IDE waarschijnlijk zelf kent (`*.xml`, `*.svg`, `*.txt`, GOK, niet getest). Voor 47 overgebleven soorten met GitHub-zoeken het aantal bestanden en het aantal groter dan 2 kB geteld (GEZIEN, schattingen van GitHub, script `data/gh-grootte-2026-11-06.sh`, alle getallen in `data/grootte-soorten-2026-11-06.tsv`). Let op: een extensie kan meerdere dingen zijn (`*.mod`, `*.pkl` is vaak een binair Python-bestand, `*.st`, `*.inf`), en meegekopieerde bestanden van anderen tellen mee.
+
+**Opvallend (GEZIEN voor de getallen, aanbod uit deel 7):**
+
+| Soort | Bestanden | Groter dan 2 kB | Aangeraden plugins nu |
+|---|---|---|---|
+| `*.tcl` (Tcl, veel in chipontwerp met Vivado en Quartus) | 2.150.400 | 1.415.168 (66%) | Tcl Language Support (2.727, gratis), HDL and Vivado + MCP Support (1.940, gratis) |
+| `*.y` (Yacc en Bison) | 137.984 | 98.944 (72%) | GoYacc Support (21.165, laatste versie 2020), Bison Language Support (13.017, laatste versie 2023) |
+| `*.l` (Lex en Flex) | 361.472 | 190.976 (53%) | geen |
+| `*.dot`, `*.gv` (Graphviz) | 2.367.488 en 122.752 | 47% en 43% | DOT Language (154.562, laatste versie 2024) en kleine gratis; Graphlume van KITSS (29) groeide niet |
+| `*.nsi` (NSIS-installers) | 47.424 | 66% | twee gratis uit 2015; NPCoding Installer Scripts (betaald, 66) groeide niet |
+| `*.iss` (Inno Setup) | 67.968 | 64% | Inno Setup (1.038, gratis) |
+| `*.njk` (Nunjucks) | 333.312 | 40% | twee betaalde (2.640 en 819) |
+
+Ter vergelijking: `Jenkinsfile` 44% groot, `Procfile` 2%. Klein of bijna altijd klein, dus weinig kans volgens de les uit deel 10: `Brewfile` 30%, `.tool-versions` 0,1%, `*.opam` 1%, `*.dhall` 5%, `Earthfile` 2.556 bestanden, `Tiltfile` 6.752. Programmeertalen (`*.hs`, `*.jl`, `*.sv`, `*.v`, `*.pas`) zijn vanzelf groot en horen bij spoor D; daar zijn al betaalde plugins.
+
+**Wat dit zegt (GOK):** de sterkste nieuwe kandidaten op de eisen uit deel 10 zijn Tcl (heel veel grote bestanden, alleen kleine gratis plugins) en Yacc/Bison met Lex/Flex (grote bestanden, de plugins zijn verlaten, en ze zitten in C-, C++- en Go-projecten, dus in CLion en GoLand). Graphviz heeft veel bestanden, maar een vervanger zonder aanraden groeide niet (deel 6). NSIS kreeg al een betaalde nieuwkomer die niet groeide. Niet gemeten: of de IDE Tcl, `*.y` en `*.l` zelf kent, en of de mensen met die bestanden JetBrains gebruiken (eis 4).
+
+**Volgende stap:** voor Tcl en Yacc/Bison/Flex: (1) testen of IDEA, CLion en GoLand ze kennen, (2) de groei van de aangeraden plugins per maand meten, (3) een maat voor JetBrains-publiek zoeken (YouTrack-verzoeken, reviews, Stack Overflow), (4) laten nakijken. Geen bouwbesluit.
