@@ -24,7 +24,7 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Wil onderbouwde keuzes, enthousiasme en hard werken.
 - Wil zelf zo min mogelijk doen. De managers werken zelfstandig en beslissen zelf, naar eigen inzicht. Elke beslissing krijgt een korte onderbouwing in het logboek, zodat Thijs achteraf kan zien waarom.
 - Wordt alleen gevraagd in nood (zie "Wanneer Thijs vragen").
-- Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform. Thijs koppelt daarvoor één keer per platform zijn account (zie "Harde grenzen").
+- Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform.
 - Leest elke ochtend het rapport (±3 minuten).
 
 ### Hoofdmanager
@@ -76,15 +76,9 @@ De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitt
 - Iets is niet terug te draaien: iets definitief verwijderen, een live product stoppen of uit een winkel halen.
 - Er is een risico voor zijn accounts of juridisch (bijvoorbeeld een waarschuwing van een platform).
 - Een taak lukt twee nachten op rij niet.
-- Een eenmalige handeling die alleen Thijs kan doen (zie "Harde grenzen").
+- Een handeling die alleen Thijs kan doen.
 
 Al het andere beslissen de managers zelf.
-
-## Harde grenzen
-
-- Claude logt nooit in en vult geen wachtwoorden, codes of betaalgegevens in. Indienen loopt daarom via een sleutel (token) die Thijs één keer per platform in GitHub zet.
-- Accounts aanmaken, betalen en voorwaarden accepteren doet Thijs.
-- Berichten onder Thijs' naam (forum, Reddit, Discord, reviews) zet de manager klaar; Thijs keurt ze in één keer goed vanuit het rapport.
 
 ## Regels voor het werk
 
