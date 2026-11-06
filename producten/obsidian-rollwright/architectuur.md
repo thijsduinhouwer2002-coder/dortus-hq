@@ -49,3 +49,8 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 ## Hoe het samenhangt
 
 Een code zoals `` `dice: 2d6+3` `` staat in een notitie. `ui/reading-view.ts` (leesweergave) of `ui/live-preview.ts` (editor) vindt hem met `rollers/inline.ts` en zet er een widget uit `ui/widget.ts` neer. De widget vraagt `main.ts` om de uitkomst; die geeft een vastgehouden of bewaard resultaat terug, of laat `rollers/run.ts` gooien. `run.ts` leest de code met `spec.ts`, haalt waar nodig tabellen, blokken of frontmatter uit de kluis via de `RollContext` die `main.ts` aanlevert, en laat formules uitrekenen door de rekenkern in `engine/` (`roll` of `averageOf`, via `engine/index.ts`). In de kern gaat een formule van `tokenizer` naar `parser` naar `evaluate`, met `faces`, `modifiers` en `state` als hulp. De uitkomst gaat terug naar de widget, wordt veilig gemaakt met `defuse.ts` en getoond. Een worp waar iemand om vroeg komt in de geschiedenis (`history-view.ts`). `main.ts` slaat instellingen, formules, geschiedenis en `dice+:` resultaten op met `saveData`. Bij `dice-mod:` schrijft `ui/dice-mod.ts` met `rollers/modify.ts` de uitkomst terug in de notitie.
+
+## Lint
+
+- `eslint.config.mjs` (`npm run lint`): de `recommended`-instelling van `eslint-plugin-obsidianmd`.
+- `eslint.scanner.config.mjs` (`npm run lint:scanner`): zo streng als de scanner van de communitygids voor een plugin die vandaag wordt ingediend, met dezelfde genegeerde bestanden (`tests`, `.mjs`). Draai beide vanuit de productmap, dan doen `manifest.json` en `LICENSE` mee. Werk deze bij als de docs van de plugin veranderen.

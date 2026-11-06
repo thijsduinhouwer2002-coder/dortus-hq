@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsc --noEmit && node esbuild.config.mjs",
     "test": "vitest run",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:scanner": "eslint -c eslint.scanner.config.mjs ."
   },
   "devDependencies": {
     "@codemirror/language": "^6.13.1",
