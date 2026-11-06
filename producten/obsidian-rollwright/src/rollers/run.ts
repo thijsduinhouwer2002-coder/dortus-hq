@@ -89,6 +89,13 @@ async function resolveNested(text: string, context: RollContext, depth: number):
 	return output + text.slice(last);
 }
 
+/** Rolls each cell on its own, so a cell of `dice: x` without backticks does not take in its neighbours. */
+async function resolveCells(cells: string[], context: RollContext, depth: number): Promise<string> {
+	const texts: string[] = [];
+	for (const cell of cells) texts.push(await resolveNested(cell, context, depth));
+	return texts.join(" | ");
+}
+
 async function pickFromTable(table: Table, args: string[], context: RollContext, depth: number): Promise<{ text: string; detail: string }> {
 	const random = context.random ?? defaultRandom;
 	spendPick(context);
@@ -109,7 +116,7 @@ async function pickFromTable(table: Table, args: string[], context: RollContext,
 		const shown = formatNumber(rolled.total);
 		if (!row) throw new DiceError(`The lookup table has no row for ${shown}`);
 		const cells = columnIndex > 0 ? [row[columnIndex] ?? ""] : row.slice(1);
-		return { text: await resolveNested(cells.join(" | "), context, depth), detail: `${formula} = ${shown}` };
+		return { text: await resolveCells(cells, context, depth), detail: `${formula} = ${shown}` };
 	}
 
 	const row = pick(table.rows, random);
@@ -119,7 +126,7 @@ async function pickFromTable(table: Table, args: string[], context: RollContext,
 		const from = row.length > 1 ? 1 : 0;
 		return { text: await resolveNested(row[random(from, row.length - 1)] ?? "", context, depth), detail: "xy" };
 	}
-	return { text: await resolveNested(row.join(" | "), context, depth), detail: "" };
+	return { text: await resolveCells(row, context, depth), detail: "" };
 }
 
 function matchesType(block: Block, type: string): boolean {
