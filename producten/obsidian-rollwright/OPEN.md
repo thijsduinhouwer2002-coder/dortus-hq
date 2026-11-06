@@ -1,0 +1,55 @@
+# Rollwright: wat nog open staat
+
+Stand: 6 nov 2026, versie 0.1.0. Geschreven door de bouwer.
+
+## Niet in Obsidian getest
+
+Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de import hebben tests. De pluginlaag (`src/main.ts`, `src/ui/`) is alleen door `tsc`, de build en lint gegaan en is nooit uitgevoerd. Iemand moet dit met de hand nalopen op de laatste Obsidian, op desktop en op telefoon:
+
+1. De plugin laadt zonder fout in de console en is uit te zetten zonder restanten.
+2. `` `dice: 2d6` `` in lezen en in Live Preview: uitkomst, tooltip, klik rolt opnieuw.
+3. Live Preview: de cursor op de code toont de bron, de cursor eraf toont de uitkomst. Typen elders en scrollen laten de uitkomst staan. Geen uitkomst in een codeblok. De controle op codeblokken zoekt op de naam "codeblock" in de syntaxboom: dat is een aanname.
+4. Dezelfde uitkomst in lezen en Live Preview op dezelfde plek. Regels toevoegen boven een worp geeft een nieuwe worp: dat is bekend gedrag van de sleutel met regelnummer.
+5. Vlaggen `|nodice`, `|form`, `|avg`, `|none`, `|text(x)`.
+6. Kapotte formule: rood onderstreept, reden in de tooltip.
+7. Tabel, lookup, geneste cel, lijst, sectie, regel, tag op echte notities. Vooral kijken of een uitkomst met meerdere alinea's er goed uitziet in de regel.
+8. Tags uit frontmatter en uit de tekst, ook geneste tags.
+9. Zijpaneel: opent, toont bronnotitie, klik op bron opent de notitie, opnieuw rollen, wissen. Bewaard na herstart.
+10. Instellingen: alles opslaan, formule met naam gebruiken in een worp.
+11. Import met een echte `data.json` van Dice Roller.
+12. Skins: de betaalde zijn niet kiesbaar zonder sleutel, wel met sleutel. Ook in een los venster. Kleuren in licht en donker thema.
+13. Op iOS laden, in verband met reguliere expressies en de API.
+
+Voor uitgave ook: **Review branch** in het dashboard van Obsidian draaien (Run preview scan). Dat kan alleen met het account.
+
+## Betaling (eis van de eigenaar: klaarzetten, niet aanzetten)
+
+- `BUY_URL` in `src/pro/license.ts` is leeg. Daardoor is de koopknop verborgen. Betaling is nog niet geregeld. Dat is een stap voor Thijs (geld en account).
+- **De licentiecontrole beschermt niets.** Het is een controlesom in openbare code. Iedereen die de code leest kan een geldige sleutel maken. Dat past bij "eenvoudig en zonder druk", maar voor echte verkoop is het te zwak. Advies: voor de start van de verkoop vervangen door sleutels met een digitale handtekening (alleen de publieke sleutel in de plugin). De geheime sleutel mag niet in de repo. Daarom is dat nu niet gedaan.
+- Er bestaat nu geen enkele verkochte of uitgegeven sleutel, en geen hulpmiddel om ze uit te geven. Alleen de test maakt er een.
+- In het dashboard moet de plugin het label **Optional payments** krijgen, volgens deel 5.2 van het onderzoek. Dat kan alleen met het account.
+
+## Keuzes die ik zelf maakte
+
+De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is eigen ontwerp en wijkt misschien af van Dice Roller.
+
+- `d[a,b]` is een bereik met beide grenzen erbij. Drie of meer getallen zijn de vlakken zelf. Het onderzoek waarschuwt dat het grensgedrag in Dice Roller niet is vastgesteld.
+- `!` en `r` zonder getal gelden één keer per steen, zoals tabel 4.4 zegt (`{n}` standaard 1).
+- Bij meerdere dobbelcondities telt de eerste die klopt.
+- Conditie direct na `!` of `r` hoort bij die modifier. Wil je daarna tellen, zet er iets tussen: `1d20r<3s>=15`.
+- `#tag` zonder `|+` of `|-` werkt als `|+`.
+- `|xy` slaat de eerste kolom over, omdat daar meestal de rijnamen staan.
+- Meerdere trekkingen uit een tabel, lijst of sectie kunnen dezelfde uitkomst geven.
+- `|text(x)` toont `x: uitkomst`. `|nodice` verbergt het dobbelicoon. De precieze betekenis in Dice Roller heb ik niet vastgesteld.
+- Alleen geklikte en getypte worpen komen in de geschiedenis. Anders vult het openen van een notitie de lijst.
+- `minAppVersion` is 1.7.2, de hoogste `@since` onder de gebruikte API's in `obsidian.d.ts` (`Workspace.revealLeaf` met belofte). Nagekeken in de typebestanden, niet in een oude Obsidian.
+
+## Niet gebouwd in deze versie
+
+Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice+:`, `dice-:`, `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde, en de vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` (die worden geaccepteerd maar doen nog niets). `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
+
+## Niet vastgesteld
+
+- De indeling van `data.json` van Dice Roller. Broncode lezen mocht niet, dus de import herkent eenvoudige vormen onder elke sleutel met "formula" in de naam. Tests draaien op een eigen model, niet op een echt bestand. De map `obsidian-dice-roller` komt uit het id in deel 3 van het onderzoek.
+- Of de notatie in randgevallen gelijk is aan Dice Roller: niet naast de echte plugin gedraaid.
+- Het kleurcontrast van de betaalde skins: niet bekeken.

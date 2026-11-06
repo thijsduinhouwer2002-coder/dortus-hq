@@ -1,0 +1,128 @@
+/* Results in notes */
+.rollwright-roll {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.25em;
+	padding: 0 0.35em;
+	border-radius: var(--radius-s);
+	background: var(--rollwright-bg);
+	color: var(--rollwright-fg);
+	border: 1px solid var(--rollwright-border);
+	font-weight: var(--font-semibold);
+}
+
+.rollwright-roll:hover {
+	border-color: var(--rollwright-accent);
+}
+
+.rollwright-icon {
+	display: inline-flex;
+	align-self: center;
+	color: var(--rollwright-accent);
+}
+
+.rollwright-icon svg {
+	width: 0.9em;
+	height: 0.9em;
+}
+
+.rollwright-label {
+	font-weight: var(--font-normal);
+}
+
+.rollwright-value p {
+	display: inline;
+	margin: 0;
+}
+
+.rollwright-error {
+	color: var(--text-error);
+	background: transparent;
+	border: 0;
+	font-weight: var(--font-normal);
+	text-decoration: underline wavy var(--text-error);
+}
+
+/* Free skin */
+body.rollwright-skin-classic {
+	--rollwright-bg: var(--background-secondary);
+	--rollwright-fg: var(--text-normal);
+	--rollwright-border: var(--background-modifier-border);
+	--rollwright-accent: var(--interactive-accent);
+}
+
+/* Paid skins */
+body.rollwright-skin-parchment {
+	--rollwright-bg: #efe2c0;
+	--rollwright-fg: #3f2d17;
+	--rollwright-border: #b89b63;
+	--rollwright-accent: #8c2f1b;
+}
+
+body.rollwright-skin-parchment .rollwright-roll {
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+body.rollwright-skin-arcane {
+	--rollwright-bg: #1f1838;
+	--rollwright-fg: #e9e2ff;
+	--rollwright-border: #6a4fc9;
+	--rollwright-accent: #5fd6e8;
+}
+
+body.rollwright-skin-arcane .rollwright-roll:hover {
+	box-shadow: 0 0 0.4em var(--rollwright-accent);
+}
+
+/* Side panel */
+.rollwright-history-form {
+	display: flex;
+	gap: var(--size-4-2);
+	margin-bottom: var(--size-4-2);
+}
+
+.rollwright-history-form input {
+	flex: 1;
+	min-width: 0;
+}
+
+.rollwright-history-saved {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-1);
+	margin-bottom: var(--size-4-2);
+}
+
+.rollwright-history-clear {
+	margin-bottom: var(--size-4-2);
+}
+
+.rollwright-history-empty {
+	color: var(--text-muted);
+}
+
+.rollwright-history-item {
+	padding: var(--size-4-2) 0;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.rollwright-history-result {
+	font-weight: var(--font-semibold);
+	white-space: pre-wrap;
+}
+
+.rollwright-history-formula,
+.rollwright-history-details,
+.rollwright-history-meta {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	overflow-wrap: anywhere;
+}
+
+.rollwright-history-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+}

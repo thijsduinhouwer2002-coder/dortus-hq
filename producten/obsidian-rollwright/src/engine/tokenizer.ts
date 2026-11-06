@@ -1,0 +1,68 @@
+import { DiceError, type Token } from "./types";
+
+const COMPARATORS = [">=", "<=", "=<", "=>", "=!", "=-", "-=", ">", "<", "="];
+
+function isDigit(ch: string): boolean {
+	return ch >= "0" && ch <= "9";
+}
+
+function isLetter(ch: string): boolean {
+	return (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z") || ch === "_";
+}
+
+/**
+ * Splits a formula into tokens. Letters stay together as one word: the parser
+ * knows from its position whether "dkh" is a die with a modifier or a name.
+ */
+export function tokenize(input: string): Token[] {
+	const tokens: Token[] = [];
+	let i = 0;
+	while (i < input.length) {
+		const ch = input.charAt(i);
+		if (ch === " " || ch === "\t" || ch === "\n" || ch === "{" || ch === "}") {
+			i++;
+			continue;
+		}
+		if (isDigit(ch) || (ch === "." && isDigit(input.charAt(i + 1)))) {
+			const start = i;
+			while (isDigit(input.charAt(i))) i++;
+			if (input.charAt(i) === "." && isDigit(input.charAt(i + 1))) {
+				i++;
+				while (isDigit(input.charAt(i))) i++;
+			}
+			tokens.push({ type: "num", value: input.slice(start, i), pos: start });
+			continue;
+		}
+		if (isLetter(ch)) {
+			const start = i;
+			while (isLetter(input.charAt(i)) || (i > start && isDigit(input.charAt(i)) && !isDiceBoundary(input, start, i))) i++;
+			tokens.push({ type: "word", value: input.slice(start, i), pos: start });
+			continue;
+		}
+		const comparator = COMPARATORS.find((c) => input.startsWith(c, i));
+		if (comparator) {
+			tokens.push({ type: "cmp", value: comparator, pos: i });
+			i += comparator.length;
+			continue;
+		}
+		if (ch === "!") {
+			const double = input.charAt(i + 1) === "!";
+			tokens.push({ type: "bang", value: double ? "!!" : "!", pos: i });
+			i += double ? 2 : 1;
+			continue;
+		}
+		if ("+-*/^()[],%".includes(ch)) {
+			tokens.push({ type: "sym", value: ch, pos: i });
+			i++;
+			continue;
+		}
+		throw new DiceError(`Unexpected character "${ch}" at position ${i + 1}`);
+	}
+	return tokens;
+}
+
+/** Digits end a word unless the word can only be a name, such as "str2". */
+function isDiceBoundary(input: string, start: number, i: number): boolean {
+	const word = input.slice(start, i);
+	return /^[dD]?[fF]?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/.test(word);
+}
