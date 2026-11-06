@@ -48,3 +48,11 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 4. Reden: het geldmodel is top, maar geen kleine nieuwe maker met aantoonbaar geld en geen teken van bereik voor nieuwe betaalde plugins. Controleur akkoord, acht correcties verwerkt, waaronder klachten over uitbetalingen in 2026.
 - Les: Roblox heeft een open API zonder sleutel, daardoor snel en eerlijk te meten. Zoek bij volgende platformen eerst naar zo'n API.
 - Volgende run: een ander platform uit `kandidaten.md` met betaling via de winkel (bijvoorbeeld Slack, Miro of Sketch), of Shopify-vervolg.
+
+## 6 nov 2026, run 18:31 UTC
+- Garmin Connect IQ zelf toegevoegd, omdat Garmin sinds 2024 betalen in de winkel heeft en de winkel een open API heeft (les van de vorige run: eerst zo'n API zoeken).
+- Eigen meting: 44.384 unieke apps opgehaald (±85 tot 90% van de winkel, sortering schuift). Downloads alleen in emmers. Apps en datavelden van 3 tot 6 maanden oud: mediaan 100+, ±60% haalt 100+. Wijzerplaten (82% van het aanbod) veel zwakker. Betaalde apps zonder wijzerplaat uit 2026: 11% haalt 1.000+, 56% blijft op 10+ of lager.
+- Geld: 15% afdracht plus $100 per jaar, betalen vóór downloaden. Een paar sportapps van nieuwe makers ($3 tot $8,49) op 1.000+, maar sommige spelletjes begonnen gratis, dus downloads zijn niet altijd verkopen. Eén maker deelde cijfers (Ski Pin, 68 verkopen in januari).
+- Beslissing: nog niet klaar, cijfer 5 (eerst 6). Reden: de controleur liet zien dat mijn sterkste bereikcijfers vooral van gratis apps kwamen; een gewone betaalde app haalt weinig. Eerst 3 tot 4 weken emmers volgen voor we Thijs om $100 vragen.
+- Controleur akkoord, 9 correcties verwerkt.
+- Volgende run: een ander platform uit `kandidaten.md`; de Garmin-emmers opnieuw meten vanaf 13 nov.
