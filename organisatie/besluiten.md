@@ -6,6 +6,7 @@ Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonde
 
 Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
+- 6 nov 2026 | Olaf | Obsidian: betaalde skins via Polar.sh, sleutel één keer online controleren, daarna offline ($6 eenmalig) | merchant of record (btw geregeld), betaalt uit naar NL, sleutels ingebouwd en te controleren zonder geheime sleutel of eigen server; Lemon Squeezy wordt richting Stripe uitgefaseerd, Gumroad kost 10%; zie `platformen/obsidian/onderzoek-betaalweg.md` | Polar neemt geen NL-verkopers aan, of de validate-API vraagt een geheime sleutel
 - 6 nov 2026 | Thijs | nieuwe rol Chris, commercieel manager (sales en marketing), staat uit tot de eerste lancering | verkopen is meer dan bouwen, maar zonder product verzint hij werk | -
 - 6 nov 2026 | Thijs | keuzes nooit haasten om een tussenstap te halen | haast leidt tot afraffelen, kwaliteit gaat voor de datum | -
 - 6 nov 2026 | Verkenner | Setapp: nee (3) | geen bedragen van makers, geen recent abonneecijfer, zie `platformen/verkenner/voorstellen/setapp.md` | recent abonneecijfer boven 100.000 en 2 makers die hun maandbedrag delen
