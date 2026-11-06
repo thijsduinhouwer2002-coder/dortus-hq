@@ -24,4 +24,5 @@ Zwak of te klein: Logi, Stream Deck, Grafana, OBS, ComfyUI, Raycast, Logseq, Not
 Niet te meten (6 nov): Canva, Wix, Google Workspace, Attio, Gorgias, ChatGPT-apps. Opnieuw proberen als er iets verandert.
 
 Toegevoegd:
-- Shopify (6 nov): nee voor nu. Geld is echt, maar 77 tot 80% van de 2026-apps heeft geen review en er komen 1.500+ apps per maand bij. Zie `voorstellen/shopify.md`.
+- Shopify (6 nov): nee voor nu. Geld is echt maar zit bij oude apps, geen schoon voorbeeld uit 2026 van snel betaald krijgen, veel meer nieuwe apps. Zie `voorstellen/shopify.md`.
+- Unity Asset Store (6 nov): nee, onder voorbehoud van de controle. Winkel niet zelf te meten, één recent eigen cijfer ($10.050 over 2025), 30% afdracht, dalende markt. Zie `voorstellen/unity-asset-store.md`.

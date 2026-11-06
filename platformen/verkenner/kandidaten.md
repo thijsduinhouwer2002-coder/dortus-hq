@@ -2,7 +2,6 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
-- Godot Asset Library
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
@@ -15,7 +14,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Adobe Express (add-ons)
 - Framer (plugins)
 - Sketch (plugins)
-- Unity Asset Store (tools) in onderzoek 2026-11-06 13:38 UTC
+- Godot Asset Library in onderzoek 2026-11-06 13:49 UTC
 - Zapier en Make (integraties)
 - Neovim (plugins)
 - Open VSX (Cursor, Windsurf)
