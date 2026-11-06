@@ -54,18 +54,19 @@ beforeEach(() => {
 	buttons.length = 0;
 });
 
-describe("1: while the Polar constants are empty", () => {
-	it("has empty constants, so payment is not ready", () => {
-		expect([POLAR_ORG_ID, POLAR_BENEFIT_ID, BUY_URL]).toEqual(["", "", ""]);
-		expect(paymentReady()).toBe(false);
-		expect(shouldShowBuyButton()).toBe(false);
+const EMPTY: PolarIds = { organizationId: "", benefitId: "", buyUrl: "" };
+
+describe("1: when a Polar id is empty", () => {
+	it("payment is not ready", () => {
+		expect(paymentReady(EMPTY)).toBe(false);
+		expect(shouldShowBuyButton(EMPTY)).toBe(false);
 		expect(paymentReady({ ...IDS, buyUrl: "" })).toBe(false);
 		expect(paymentReady({ ...IDS, benefitId: " " })).toBe(false);
 		expect(paymentReady(IDS)).toBe(true);
 	});
 
 	it("shows no buy button and no key field, only coming soon, and no paid skins", async () => {
-		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL }, stored: { licenseKey: "KEY-1", licenseCheckedAt: START, skin: "arcane" } });
+		const { plugin } = await load({ ids: EMPTY, stored: { licenseKey: "KEY-1", licenseCheckedAt: START, skin: "arcane" } });
 		expect(plugin.isLicensed).toBe(false);
 		new RollwrightSettingTab(plugin.app, plugin).display();
 		expect(buttons.map((b) => b.text)).not.toContain("Buy");
@@ -76,6 +77,35 @@ describe("1: while the Polar constants are empty", () => {
 		expect(settingsMade.find((s) => s.name === "Skin")?.options).toEqual(availableSkins(false).map((s) => s.id));
 		expect(settingsMade.find((s) => s.name === "Skin")?.options).toEqual(["classic"]);
 		expect(settingsMade.some((s) => s.desc.includes("Nothing is sent anywhere"))).toBe(false);
+	});
+});
+
+describe("1b: the shipped Polar constants", () => {
+	it("are the ids of the Dortus organization, the License Keys benefit and the checkout page", () => {
+		expect(POLAR_ORG_ID).toBe("5f4a360c-7552-4269-a44a-4311f7f672d6");
+		expect(POLAR_BENEFIT_ID).toBe("344f6030-66ec-437a-8fbb-186b80a98c65");
+		expect(BUY_URL).toBe("https://buy.polar.sh/polar_cl_kJQ6H0U8GSNV0qMQkejM6SY4BYkU9k3SxfApH07ipIP");
+		expect(paymentReady()).toBe(true);
+		expect(shouldShowBuyButton()).toBe(true);
+	});
+
+	it("show the buy button and the key field with an Activate button", async () => {
+		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL } });
+		new RollwrightSettingTab(plugin.app, plugin).display();
+		expect(buttons.map((b) => b.text)).toContain("Buy");
+		expect(buttons.map((b) => b.text)).toContain("Activate");
+		const key = settingsMade.find((s) => s.name === "License key");
+		expect(key?.desc).not.toBe(COMING_SOON);
+		expect(key?.texts).toHaveLength(1);
+	});
+
+	it("the buy button opens the real Polar checkout page", async () => {
+		const open = vi.fn();
+		vi.stubGlobal("activeWindow", { open });
+		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL } });
+		new RollwrightSettingTab(plugin.app, plugin).display();
+		buttons.find((b) => b.text === "Buy")?.press();
+		expect(open).toHaveBeenCalledWith(BUY_URL);
 	});
 });
 

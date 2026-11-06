@@ -115,7 +115,7 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 **All rolling features are free. Two visual skins, Parchment and Arcane, are paid and need a license key.** The Classic skin is free.
 
-License keys are not on sale yet. Until they are, the settings say "Paid skins are coming soon" and there is no buy button and no key field. Once they are, you buy the skins once through Polar, paste the key in the settings and press Activate. One key works on all your devices.
+You buy the skins once through Polar: press Buy in the settings, pay, then paste the license key from your Polar purchases in the settings and press Activate. One key works on all your devices.
 
 ## Payments and network
 
