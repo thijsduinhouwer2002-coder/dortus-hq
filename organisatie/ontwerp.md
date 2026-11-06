@@ -1,6 +1,6 @@
 # Ontwerp: de organisatie van Dortus
 
-Versie 1, 6 november 2026. Status: **voorstel, nog niet aan.** Thijs keurt goed, daarna zetten we het aan.
+Versie 1, 6 november 2026. Status: **aan sinds 6 nov 2026** (vaste geplande taken, aangemaakt vanuit de projectchat).
 
 ## Het idee in één zin
 

@@ -28,3 +28,8 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de controleur akkoord is en de tests groen zijn.
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
+
+## Afsluiten
+Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<tak>` bij een tak) hebt laten zien dat jouw laatste commit op GitHub staat. Zet de hash van je commit en de uitkomst van `git ls-remote` in je eindantwoord (niet in een bestand, want dat levert weer een nieuwe commit op). Heeft iemand daarna ook opgeslagen, dan mag de hash van jouw commit ook in `origin/main` zitten na `git fetch`.
+
+Lukt opslaan niet: zet de volledige nieuwe inhoud van je bestanden in het eindantwoord en meld in je laatste zin dat het niet is opgeslagen. De status "geslaagd" van de taak zegt niets over opslaan.

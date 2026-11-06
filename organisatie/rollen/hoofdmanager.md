@@ -5,9 +5,11 @@ Je draait elke ochtend als laatste, nadat alle managers klaar zijn. Je bepaalt d
 ## Geplande taken
 Elke geplande taak die je aanmaakt (voor jezelf, een manager of de verkenner) begint in de opdracht met deze eerste stap, letterlijk:
 
-> Koppel dortus-hq met add_repo en access push, en kloon hem.
+> Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo.
 
-Waarom: een geplande run start in een lege sessie zonder de repo. Zonder deze stap kan hij niets lezen of opslaan.
+En eindigt met de afsluitregel uit `organisatie/regels.md` (eerst `git ls-remote` laten zien, dan pas afsluiten).
+
+**Let op, dit is een harde beperking:** een geplande taak krijgt de repo-toegang mee die de sessie had waar hij is aangemaakt. Een run kan daarom zelf geen werkende nieuwe geplande taak voor de repo maken, want `add_repo` bestaat in een geplande run niet altijd en de run heeft de repo dan niet met push-rechten gekoppeld. Nieuwe geplande taken werken dus alleen als ze worden aangemaakt vanuit een sessie die de repo met push heeft (bijvoorbeeld de projectchat met Thijs). Moet er een nieuwe manager bij, maak dan de map en de takenlijst, en zet op `organisatie/lijst-thijs.md`: "Maak een geplande taak voor <platform> aan vanuit de projectchat", met de tijd en de opdracht uitgeschreven.
 
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md`, `organisatie/lijst-thijs.md`, en van elk platform in `platformen/` de `status.md` en het laatste blok van `logboek.md`.
