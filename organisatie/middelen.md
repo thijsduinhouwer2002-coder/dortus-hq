@@ -35,9 +35,16 @@ Kolom **Inloggen** zegt wie er mag inloggen:
 | [community.obsidian.md](https://community.obsidian.md) | Obsidian-plugin indienen (met Thijs' GitHub) | Alleen Thijs |
 | [forum.obsidian.md](https://forum.obsidian.md), Reddit, Discord | Lanceerberichten onder Thijs' naam | Alleen Thijs |
 
+## Inloggen met Google
+
+Thijs logt overal in met zijn eigen Google-account (keuze Thijs, 6 nov 2026). Een Claude met de browser kan daardoor op veel sites binnenkomen zonder wachtwoord. Daarom geldt:
+- Gebruik die inlog alleen voor sites met **Claude (lezen)** in de tabellen hierboven, en alleen om te lezen.
+- Open nooit Gmail, Google Drive, de instellingen van het Google-account of Google-betalingen.
+- Klik nooit op betalen, kopen, voorwaarden accepteren, verwijderen of plaatsen, ook niet als het kan. Zet zo'n stap op `lijst-thijs.md`.
+
 ## Nooit voor Claude
 
-Bank, betaalgegevens, de mailbox zelf, domein en DNS.
+Bank, betaalgegevens, de mailbox zelf, domein en DNS, het Google-account zelf.
 
 ## Gestopt
 
