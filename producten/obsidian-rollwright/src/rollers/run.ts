@@ -1,6 +1,6 @@
 import { averageOf, defaultRandom, DiceError, formatNumber, LIMITS, newBudget, roll, type Budget, type RandomInt } from "../engine";
 import { listItems, noteLines, parseBlocks, type Block } from "./markdown";
-import { parseSpec, type Flags, type Spec } from "./spec";
+import { parseSpec, withoutFlag, type Flags, type Spec } from "./spec";
 import { findColumn, findLookupRow, lookupFormula, parseTable, type Table } from "./table";
 
 export interface NoteData {
@@ -96,12 +96,11 @@ async function resolveCells(cells: string[], context: RollContext, depth: number
 	return texts.join(" | ");
 }
 
-async function pickFromTable(table: Table, args: string[], context: RollContext, depth: number): Promise<{ text: string; detail: string }> {
+async function pickFromTable(table: Table, column: string | undefined, context: RollContext, depth: number): Promise<{ text: string; detail: string }> {
 	const random = context.random ?? defaultRandom;
 	spendPick(context);
 	if (table.rows.length === 0) throw new DiceError("The table has no rows");
 	const formula = lookupFormula(table);
-	const column = args[0];
 	let columnIndex = -1;
 	if (column !== undefined) {
 		columnIndex = findColumn(table, column);
@@ -165,7 +164,7 @@ function pickMany(options: string[], count: number, random: RandomInt, emptyMess
 	return picks;
 }
 
-async function rollNote(spec: Spec, context: RollContext, depth: number): Promise<Omit<RollOutcome, "flags" | "formula">> {
+async function rollNote(spec: Spec, context: RollContext, depth: number): Promise<Omit<RollOutcome, "flags" | "formula"> & { flags?: Flags }> {
 	if (spec.target.kind !== "note") throw new DiceError("Not a note");
 	const target = spec.target;
 	const random = context.random ?? defaultRandom;
@@ -179,10 +178,13 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 		if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}"`);
 		if (block.type === "table") {
 			const table = parseTable(block.text);
+			// A word that is both a flag and a column of this table means the column.
+			const column = spec.parts.find((part) => spec.args.includes(part) || findColumn(table, part) !== -1);
+			const flags = column === undefined ? spec.flags : withoutFlag(spec.flags, column);
 			const results: { text: string; detail: string }[] = [];
-			for (let i = 0; i < count; i++) results.push(await pickFromTable(table, spec.args, context, depth));
+			for (let i = 0; i < count; i++) results.push(await pickFromTable(table, column, context, depth));
 			const detail = results.map((r) => r.detail).filter((d) => d !== "").join("; ");
-			return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path };
+			return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path, flags };
 		}
 		if (block.type === "list") {
 			const picks = pickMany(listItems(block.text), count, random, "The list is empty", context);
@@ -242,7 +244,7 @@ async function rollSpecAt(raw: string, context: RollContext, depth: number, firs
 		return { kind: "dice", text: formatNumber(result.total), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
 	}
 	const outcome = spec.target.kind === "note" ? await rollNote(spec, context, depth) : await rollTag(spec, context);
-	return { ...outcome, formula, flags: spec.flags };
+	return { flags: spec.flags, ...outcome, formula };
 }
 
 /**
