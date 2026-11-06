@@ -29,6 +29,9 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
 
+## Middelen
+- Alle sites en programma's staan in `organisatie/middelen.md`. Begin je iets nieuws te gebruiken, zet het er meteen bij, met wie er mag inloggen.
+
 ## De website dortus.com
 - De site staat in de repo `thijsduinhouwer2002-coder/dortus` (statische HTML, gepubliceerd op dortus.com). De ploeg mag hem gebruiken voor productpagina's, privacybeleid en support van onze producten.
 - Werk alleen in een eigen map per product: `<productnaam>/` in de repo, dus dortus.com/<productnaam>/. Bijvoorbeeld `dice-roller/index.html`, `dice-roller/privacy.html`, `dice-roller/support.html`.
