@@ -15,6 +15,12 @@ Kolom **Inloggen** zegt wie er mag inloggen:
 | [GitHub: dortus-hq](https://github.com/thijsduinhouwer2002-coder/dortus-hq) | Hoofdkwartier: regels, rollen, logboeken, rapporten, code | Geen (ploeg heeft toegang). Insights lezen: Claude (lezen) |
 | [GitHub: dortus](https://github.com/thijsduinhouwer2002-coder/dortus) | De website dortus.com | Geen (ploeg heeft toegang) |
 
+## De cloudomgeving van de ploeg
+
+- De geplande runs draaien in de cloudomgeving **Default** (claude.ai/code, wolkje onder het invoerveld, tandwieltje bij Default).
+- **Network access: Full** sinds 6 nov 2026. De runs kunnen elke website bereiken, maar zonder Thijs' inlogs.
+- **Network secrets:** hier komen sleutels per platform (bijvoorbeeld een upload-sleutel van JetBrains), zodat de ploeg zonder browser kan publiceren. Nooit Thijs' Google-wachtwoord of een ander wachtwoord. Een sleutel mag maar één ding kunnen en moet in te trekken zijn.
+
 ## Website en mail
 
 | Wat | Waarvoor | Inloggen |

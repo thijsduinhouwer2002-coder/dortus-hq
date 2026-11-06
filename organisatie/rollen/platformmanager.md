@@ -19,4 +19,4 @@ Je bent de manager van één platform. Welk platform staat in de opdracht van je
 Houd in `status.md` altijd bij: installs of gebruikers, aantal reviews en gemiddeld cijfer, verkopen, datum van lancering. Meet minstens één keer per week, na een lancering elke dag.
 
 ## Lanceren
-Bereid een lancering helemaal voor: winkelpagina, schermafbeeldingen, beschrijving, lanceerberichten. Indienen doe je zelf als het platform dat met een sleutel in GitHub toelaat. Anders zet je het klaar op de lijst voor Thijs.
+Bereid een lancering helemaal voor: winkelpagina, schermafbeeldingen, beschrijving, lanceerberichten. Indienen doe je zelf als het platform dat met een sleutel toelaat (een upload- of API-sleutel). Zo'n sleutel maakt Thijs aan en zet hij in de Network secrets van de cloudomgeving (zie `organisatie/middelen.md`): zet daarvoor op de lijst voor Thijs welke sleutel, waar hij die aanmaakt, met welke rechten (zo weinig mogelijk) en onder welke naam hij hem bewaart. Kan het niet met een sleutel, zet het indienen dan helemaal klaar op de lijst voor Thijs; hij laat het dan via de projectchat doen.
