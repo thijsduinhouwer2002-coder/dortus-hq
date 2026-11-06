@@ -1,0 +1,32 @@
+name: Rollwright e2e (echte Obsidian)
+
+on:
+  push:
+    branches: [main]
+    paths: ["producten/obsidian-rollwright/**", ".github/workflows/rollwright-e2e.yml"]
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: producten/obsidian-rollwright
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run build
+      - run: npm install
+        working-directory: producten/obsidian-rollwright/e2e
+      - run: xvfb-run --auto-servernum npm run e2e
+        working-directory: producten/obsidian-rollwright/e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rollwright-screenshots
+          path: producten/obsidian-rollwright/e2e/screenshots
+          if-no-files-found: warn
