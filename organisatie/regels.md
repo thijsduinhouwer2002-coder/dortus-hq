@@ -34,6 +34,15 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 4. **Klein en overzichtelijk.** Een bestand blijft onder de ±400 regels. Wordt het groter, splits het op. Elk product heeft een `architectuur.md` met de onderdelen en hoe ze samenhangen, en de bouwer werkt dat bij als er iets verandert.
 5. **Opruimen hoort erbij.** Elke week (na het weekbesluit van zondag) zet de manager één opruimtaak bovenaan: dubbele code weg, grote bestanden splitsen, `architectuur.md` bijwerken. Pas daarna weer nieuwe functies.
 
+## Testen in de echte app (GitHub Actions)
+- Elk product wordt getest in de **echte app** van het platform, niet alleen met een nagebootste versie. Dat gebeurt op **GitHub Actions** (computers van GitHub), want in de Claude-omgeving mogen gedownloade programma's niet starten. Die beveiliging omzeil je nooit.
+- Per product staat er een workflow in `.github/workflows/<product>-e2e.yml` en de tests in `producten/<product>/e2e/`. Voorbeeld: Rollwright (`rollwright-e2e.yml`, met wdio-obsidian-service). Voor JetBrains: een IDE-test op dezelfde manier (bijvoorbeeld de UI-test van het IntelliJ Platform Gradle Plugin).
+- De test start vanzelf bij elke wijziging aan het product op main. Lees de uitslag met curl (de repo is openbaar):
+  - laatste runs: `curl -s "https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/runs?per_page=5"`
+  - log van een job: `curl -sL https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/jobs/<job-id>/logs`
+- Laat de test opschrijven wat hij ziet (`console.log`), dan staat het bewijs in het log. Screenshots komen als artefact mee, maar die zijn alleen met een inlog te downloaden.
+- Een product gaat pas naar indienen als de test in de echte app groen is. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
+
 ## Opslaan
 - Begin met `git pull --rebase`.
 - Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`, Chris in `commercie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
