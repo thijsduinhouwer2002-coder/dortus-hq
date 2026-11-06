@@ -1,0 +1,51 @@
+# Architectuur van Rollwright
+
+Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk bestand blijft onder ±400 regels.
+
+## src/
+
+- `main.ts`: de plugin zelf. Laadt en bewaart instellingen, opgeslagen formules, geschiedenis en bewaarde resultaten (`dice+:`), houdt resultaten per plek in de notitie vast zodat scrollen niet opnieuw gooit, en meldt weergave, Live Preview, geschiedenisvenster, opdrachten en instellingen aan bij Obsidian.
+
+### src/engine/ (rekenkern, zonder Obsidian)
+- `index.ts`: de ingang; de rest van de plugin importeert de kern alleen hiervandaan.
+- `types.ts`: gedeelde typen (tokens, knopen, modifiers), `DiceError`, de grenzen `LIMITS` en het budget per worp.
+- `tokenizer.ts`: knipt een formule in tokens.
+- `parser.ts`: maakt van de tokens een boom (`parseFormula`), met dobbelstenen, modifiers en namen.
+- `evaluate.ts`: rekent een boom uit tot totaal en uitsplitsing (`roll`), inclusief namen en rekenkunde.
+- `modifiers.ts`: houden en weggooien, ontploffen, opnieuw gooien, uniek, en hoe een losse steen getoond wordt.
+- `faces.ts`: welke zijden een steen heeft (getal, procent, bereik, Fudge, eigen zijden, cijfers).
+- `state.ts`: de toestand tijdens een worp, een steen gooien en het budget aftellen.
+- `average.ts`: het gemiddelde (`averageOf`): precies waar het kan, anders een schatting uit gesimuleerde worpen.
+- `compare.ts`: vergelijkingen zoals `>=5` voor modifiers en tellen.
+- `format.ts`: getallen tonen en afronden.
+- `random.ts`: de standaard toevalsbron.
+- `stunt.ts`: de stuntsteen van Fantasy AGE (`1dS`).
+- `narrative.ts`: verhalende stenen van Genesys en Star Wars.
+
+### src/rollers/ (van tekst in de notitie naar een uitkomst)
+- `inline.ts`: vindt `dice:`, `dice+:`, `dice-:` en `dice-mod:` in een regel of codeblok.
+- `spec.ts`: leest wat na `dice:` staat: formule of verwijzing plus vlaggen achter `|`.
+- `run.ts`: gooit een spec (`rollSpec`): formules, tabellen, blokken en regels uit andere notities, geneste worpen.
+- `markdown.ts`: een klein blokmodel van een notitie om uit te kiezen.
+- `table.ts`: markdowntabellen lezen en opzoektabellen (`1-2 | ...`).
+- `fields.ts`: getallen uit de frontmatter als namen voor formules.
+- `defuse.ts`: maakt uitkomsten veilig om te tonen, zodat een uitkomst nooit zelf opnieuw gooit.
+- `modify.ts`: de tekst waarmee een `dice-mod:` code in de notitie wordt vervangen.
+
+### src/ui/ (wat de gebruiker ziet)
+- `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview.
+- `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
+- `live-preview.ts`: hetzelfde in de editor (CodeMirror).
+- `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie.
+- `history-view.ts`: het zijpaneel met de geschiedenis van worpen.
+- `modal.ts`: venster om snel een formule te gooien.
+- `settings.ts`: het instellingenscherm.
+
+### src/pro/ en src/import/
+- `pro/license.ts`: controle van een licentiesleutel, offline, en of de koopknop te zien is.
+- `pro/skins.ts`: de uiterlijken van de stenen, gratis en betaald.
+- `import/dice-roller-data.ts`: haalt opgeslagen formules uit de data van de plugin Dice Roller.
+
+## Hoe het samenhangt
+
+Een code zoals `` `dice: 2d6+3` `` staat in een notitie. `ui/reading-view.ts` (leesweergave) of `ui/live-preview.ts` (editor) vindt hem met `rollers/inline.ts` en zet er een widget uit `ui/widget.ts` neer. De widget vraagt `main.ts` om de uitkomst; die geeft een vastgehouden of bewaard resultaat terug, of laat `rollers/run.ts` gooien. `run.ts` leest de code met `spec.ts`, haalt waar nodig tabellen, blokken of frontmatter uit de kluis via de `RollContext` die `main.ts` aanlevert, en laat formules uitrekenen door de rekenkern in `engine/` (`roll` of `averageOf`, via `engine/index.ts`). In de kern gaat een formule van `tokenizer` naar `parser` naar `evaluate`, met `faces`, `modifiers` en `state` als hulp. De uitkomst gaat terug naar de widget, wordt veilig gemaakt met `defuse.ts` en getoond. Een worp waar iemand om vroeg komt in de geschiedenis (`history-view.ts`). `main.ts` slaat instellingen, formules, geschiedenis en `dice+:` resultaten op met `saveData`. Bij `dice-mod:` schrijft `ui/dice-mod.ts` met `rollers/modify.ts` de uitkomst terug in de notitie.
