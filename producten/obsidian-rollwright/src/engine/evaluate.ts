@@ -33,8 +33,6 @@ interface State {
 	names: Record<string, string>;
 	budget: Budget;
 	aliasStack: string[];
-	/** Replace each die by its mean instead of rolling. */
-	useMean: boolean;
 }
 
 function range(min: number, max: number): Faces {
@@ -209,15 +207,10 @@ function showDie(die: Die): string {
 
 function evaluateDice(node: Extract<Node, { type: "dice" }>, state: State): Evaluated {
 	const count = node.count ? evaluate(node.count, state).value : state.defaultCount;
-	if (!state.useMean && !Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
+	if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
 	if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count})`);
 	if (count > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}`);
 	const faces = resolveFaces(node.sides, state);
-
-	if (state.useMean) {
-		const value = count * faces.mean;
-		return { value, text: formatNumber(value) };
-	}
 
 	let dice: Die[] = [];
 	for (let i = 0; i < count; i++) dice.push(rollDie(faces, state));
@@ -267,16 +260,21 @@ function lookupName(names: Record<string, string> | undefined, name: string): st
 	return names && Object.prototype.hasOwnProperty.call(names, name) ? names[name] : undefined;
 }
 
-function evaluateName(name: string, state: State): Evaluated {
+/** Runs work on the formula behind a name, and guards against names that refer to themselves. */
+function insideName<T>(name: string, state: State, work: (node: Node) => T): T {
 	const formula = lookupName(state.names, name);
 	if (formula === undefined) throw new DiceError(`Unknown name "${name}"`);
 	if (state.aliasStack.includes(name) || state.aliasStack.length >= LIMITS.aliasDepth) {
 		throw new DiceError(`The named formula "${name}" refers to itself`);
 	}
 	state.aliasStack.push(name);
-	const result = evaluate(parseFormula(formula, Object.keys(state.names)), state);
+	const result = work(parseFormula(formula, Object.keys(state.names)));
 	state.aliasStack.pop();
 	return result;
+}
+
+function evaluateName(name: string, state: State): Evaluated {
+	return insideName(name, state, (node) => evaluate(node, state));
 }
 
 function spendStep(budget: Budget): void {
@@ -331,15 +329,14 @@ function calculate(op: string, a: number, b: number): number {
 	return value;
 }
 
-function makeState(options: RollOptions, useMean = false, random?: RandomInt): State {
+function makeState(options: RollOptions): State {
 	return {
-		random: random ?? options.random ?? defaultRandom,
+		random: options.random ?? defaultRandom,
 		defaultSides: options.defaultSides ?? 100,
 		defaultCount: options.defaultCount ?? 1,
 		names: options.names ?? {},
 		budget: options.budget ?? newBudget(),
 		aliasStack: [],
-		useMean,
 	};
 }
 
@@ -350,49 +347,107 @@ export function roll(formula: string, options: RollOptions = {}): RollResult {
 	return { formula: formula.trim(), total: value, breakdown: text };
 }
 
-function hasModifiers(node: Node, options: RollOptions, budget: Budget, seen: string[] = []): boolean {
-	spendStep(budget);
+/** What is known for sure about a part of a formula that has no modifiers. */
+interface Spread {
+	mean: number;
+	min: number;
+	max: number;
+	whole: boolean;
+}
+
+function constant(value: number): Spread {
+	return { mean: value, min: value, max: value, whole: Number.isInteger(value) };
+}
+
+function isConstant(spread: Spread): boolean {
+	return spread.min === spread.max;
+}
+
+function corners(a: Spread, b: Spread): { min: number; max: number } {
+	const products = [a.min * b.min, a.min * b.max, a.max * b.min, a.max * b.max];
+	return { min: Math.min(...products), max: Math.max(...products) };
+}
+
+/**
+ * Works out the exact mean, or returns null when only a simulation can tell.
+ * Every part of a formula rolls its own dice, so parts are independent: a sum and a
+ * product of means are exact. Dividing by a die or a power of a die is not linear
+ * ((1d4)^2 is 7.5, while (mean 2.5)^2 is 6.25), so those give null. Neither do counts
+ * that could fail in a real roll get a mean.
+ */
+function exactSpread(node: Node, state: State): Spread | null {
+	spendStep(state.budget);
 	switch (node.type) {
 		case "number":
-			return false;
-		case "name": {
-			const formula = lookupName(options.names, node.name);
-			if (formula === undefined || seen.includes(node.name)) return false;
-			return hasModifiers(parseFormula(formula, Object.keys(options.names ?? {})), options, budget, [...seen, node.name]);
-		}
-		case "negate":
+			return constant(node.value);
+		case "name":
+			return insideName(node.name, state, (inner) => exactSpread(inner, state));
 		case "group":
-			return hasModifiers(node.inner, options, budget, seen);
-		case "binary":
-			return hasModifiers(node.left, options, budget, seen) || hasModifiers(node.right, options, budget, seen);
+			return exactSpread(node.inner, state);
+		case "negate": {
+			const inner = exactSpread(node.inner, state);
+			return inner && { mean: -inner.mean, min: -inner.max, max: -inner.min, whole: inner.whole };
+		}
 		case "dice":
-			return node.modifiers.length > 0 || (node.count !== null && node.count.type !== "number" && hasModifiers(node.count, options, budget, seen));
+			return exactDice(node, state);
+		case "binary": {
+			const left = exactSpread(node.left, state);
+			if (!left) return null;
+			const right = exactSpread(node.right, state);
+			if (!right) return null;
+			switch (node.op) {
+				case "+":
+					return { mean: calculate("+", left.mean, right.mean), min: left.min + right.min, max: left.max + right.max, whole: left.whole && right.whole };
+				case "-":
+					return { mean: calculate("-", left.mean, right.mean), min: left.min - right.max, max: left.max - right.min, whole: left.whole && right.whole };
+				case "*":
+					return { mean: calculate("*", left.mean, right.mean), ...corners(left, right), whole: left.whole && right.whole };
+				case "/": {
+					if (!isConstant(right)) return null;
+					const mean = calculate("/", left.mean, right.mean);
+					const ends = [left.min / right.mean, left.max / right.mean];
+					return { mean, min: Math.min(...ends), max: Math.max(...ends), whole: isConstant(left) && Number.isInteger(mean) };
+				}
+				case "^":
+					return isConstant(left) && isConstant(right) ? constant(calculate("^", left.mean, right.mean)) : null;
+			}
+		}
 	}
+}
+
+function exactDice(node: Extract<Node, { type: "dice" }>, state: State): Spread | null {
+	if (node.modifiers.length > 0) return null;
+	const count = node.count ? exactSpread(node.count, state) : constant(state.defaultCount);
+	// Only a count that always works in a real roll: whole, not negative, within the limit.
+	if (!count || !count.whole || count.min < 0 || count.max > LIMITS.diceInGroup) return null;
+	const faces = resolveFaces(node.sides, state);
+	const facesSpread = { mean: faces.mean, min: faces.min, max: faces.max, whole: true };
+	return { mean: calculate("*", count.mean, faces.mean), ...corners(count, facesSpread), whole: true };
 }
 
 const AVERAGE_SAMPLES = 2000;
 
 /**
- * The expected result. Exact without modifiers (dice replaced by their mean),
+ * The expected result. Exact where the rules of means allow it (see exactSpread),
  * otherwise an estimate from at most 2000 simulated rolls, as far as the budget of one roll reaches.
  */
 export function averageOf(formula: string, options: RollOptions = {}): { value: number; exact: boolean } {
 	const node = parseFormula(formula, Object.keys(options.names ?? {}));
-	if (!hasModifiers(node, options, newBudget())) {
-		return { value: evaluate(node, makeState({ ...options, budget: undefined }, true)).value, exact: true };
-	}
-	let sum = 0;
+	const exact = exactSpread(node, makeState({ ...options, budget: undefined }));
+	if (exact) return { value: exact.mean, exact: true };
+	let mean = 0;
 	let samples = 0;
 	// One budget for all samples: a heavy formula gets fewer samples, not more time.
 	const budget = newBudget();
 	for (; samples < AVERAGE_SAMPLES; samples++) {
 		try {
-			sum += evaluate(node, makeState({ ...options, budget })).value;
+			// A running mean, because a sum of very large results could overflow.
+			mean += (evaluate(node, makeState({ ...options, budget })).value - mean) / (samples + 1);
 		} catch (error) {
 			const spent = budget.rolls > LIMITS.rollsPerFormula || budget.steps > LIMITS.stepsPerRoll;
 			if (!spent || samples === 0) throw error;
 			break;
 		}
 	}
-	return { value: sum / samples, exact: false };
+	return { value: mean, exact: false };
 }
