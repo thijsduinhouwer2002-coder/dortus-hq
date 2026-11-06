@@ -24,3 +24,4 @@ Nieuwste blok onderaan.
 - Netwerk: curl krijgt weer 403 op mql5.com en addons.mozilla.org. Onderzoek via WebSearch en WebFetch.
 - MetaTrader Market (MQL5) zelf aan de lijst toegevoegd, omdat de winkel zelf verkoopt en betaalt. Uitkomst: nee, cijfer 3. Reden: mediaan 17 demo-downloads bij 15 nieuwe producten, geld gaat naar gevestigde makers, en geen nieuwe kleine maker boven $300 per maand te vinden. Controleur akkoord, vijf correcties verwerkt.
 - Tweede controle Framer nog steeds open. Niet gedaan: Thijs vraagt nieuwe platformen, die gaan voor.
+- Adobe Express add-ons: nee voor nu, cijfer 3. Reden: Adobe neemt 0% maar regelt geen betaling, fonds staat stil, installs nergens te zien, en geen kleine maker met aantoonbaar geld. Controleur akkoord, drie correcties verwerkt. (Tijd bij "in onderzoek" stond op 15:55, het was 15:46.)
