@@ -1,6 +1,6 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] Repareer de punten voor uitgave uit `producten/obsidian-rollwright/OPEN.md`: eerst L7 (blokkeert), dan L8, L2, L3, L4, L5, L6.
+- [ ] Repareer de punten voor uitgave uit `producten/obsidian-rollwright/OPEN.md`: eerst L9, dan L2, L3, L4, L5, L6. L7 en L8 zijn af.
 - [ ] Ontbrekende notatie: Genesys, `1dS`, notitievelden, `dice+`, `dice-`, `dice-mod`, `|round` en de andere vlaggen die nu niets doen, Ctrl- en Alt-klik.
 - [ ] Scannerconfig en naam controleren: is `rollwright` vrij op community.obsidian.md? Na handmatige test: Review branch (op de lijst voor Thijs).
 - [ ] Betaald deel: handtekening-sleutels in plaats van controlesom en een betaalweg kiezen, pas daarna koopknop en label Optional payments.

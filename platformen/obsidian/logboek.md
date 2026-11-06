@@ -37,3 +37,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** werknaam Rollwright, id `rollwright`. Waarom: geen "dice" of "obsidian" in de naam, botst niet met de drie concurrenten. Of de naam vrij is, is nog niet gecontroleerd.
 **Beslissing:** rollen blijft gratis, alleen skins betaald. Sleutels zijn nu een controlesom en dus niet verkoopbaar. Geen koopknop zolang er geen betaalweg is.
 **Wat misging:** de indeling van `data.json` van Dice Roller is onbekend, dus de import kan bij echte bestanden niets vinden. Testpakket staat in `testpakket/` omdat `main.js` niet in git hoort; bij elke test vernieuwen.
+
+## 6 nov 2026, 15:00: L7 en L8
+**Gedaan:** `|avg` heeft één budget (31,9 s werd 62 ms, GEZIEN door controleur), onzichtbaar teken alleen nog in code. 196 tests groen. Controleur akkoord, samengevoegd.
+**Wat misging:** de L8-reparatie maakte L9 (losse backtick eerder laat echte code rollen). Op de takenlijst bovenaan, geen blokkade voor main, wel voor uitgave. Testpakket vernieuwd met deze versie.

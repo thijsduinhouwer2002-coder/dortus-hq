@@ -840,8 +840,18 @@ function averageOf(formula, options = {}) {
     return { value: evaluate(node, makeState({ ...options, budget: void 0 }, true)).value, exact: true };
   }
   let sum = 0;
-  for (let i = 0; i < AVERAGE_SAMPLES; i++) sum += evaluate(node, makeState({ ...options, budget: void 0 })).value;
-  return { value: sum / AVERAGE_SAMPLES, exact: false };
+  let samples = 0;
+  const budget = newBudget();
+  for (; samples < AVERAGE_SAMPLES; samples++) {
+    try {
+      sum += evaluate(node, makeState({ ...options, budget })).value;
+    } catch (error) {
+      const spent = budget.rolls > LIMITS.rollsPerFormula || budget.steps > LIMITS.stepsPerRoll;
+      if (!spent || samples === 0) throw error;
+      break;
+    }
+  }
+  return { value: sum / samples, exact: false };
 }
 
 // src/rollers/markdown.ts
@@ -1441,11 +1451,12 @@ function isImage(target) {
   const path = (_b = ((_a = target.split("|")[0]) != null ? _a : "").split("#")[0]) != null ? _b : "";
   return IMAGE.test(path.trim());
 }
+var CODE = /\\[\s\S]|(`+)[\s\S]*?\1|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
 function defuseRolls(markdown) {
   return markdown.replace(/!\[\[([^\]]+)\]\]/g, (whole, target) => isImage(target) ? whole : `[[${target}]]`).replace(
     /!\[([^\]]*)\]\(([^()]*)\)/g,
     (whole, label, target) => isImage(target) || /^https?:/i.test(target) ? whole : `[${label}](${target})`
-  ).replace(/(d)(ice)(\s*:)/gi, "$1$2\u200B$3");
+  ).replace(CODE, (whole) => whole.replace(/(dice)(\s*:)/gi, "$1\u200B$2"));
 }
 
 // src/ui/widget.ts

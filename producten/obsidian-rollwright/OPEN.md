@@ -71,3 +71,6 @@ Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `s
 
 ## Na de herkeuring (6 nov), voor uitgave
 - Omzeilen van `defuseRolls` kan nog met html-vormen zoals `dice&#58;` en `d<b>ice</b>:`. Dan hangt het aan `el.closest`, in Obsidian te bewijzen.
+
+## Na herkeuring L7 en L8 (6 nov), voor uitgave
+- L9: `src/rollers/defuse.ts:18`, de code-regex loopt over blokgrenzen. Een losse backtick eerder (`it`s`) maakt echte code onherkenbaar, en die blijft rollen. Per blok of regel werken, met test. Hoe erg dit is hangt af van het tweede slot in Obsidian.
