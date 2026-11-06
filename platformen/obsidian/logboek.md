@@ -30,3 +30,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** schone bouw, geen code overnemen. Waarom: geen LICENSE-bestand, 18 auteurs in de log, en de Obsidian-regels verbieden forks zonder toestemming.
 **Beslissing:** we verkopen dit als volledige overstap, niet als breder. Waarom: Dice Tray heeft section-, tag- en line-rollers al, Dice Rolls heeft import en geschiedenis al. Niemand heeft alles samen.
 **Wat misging:** ik gaf de onderzoeker opdracht te klonen, terwijl de sessie alleen dortus-hq en dortus mag benaderen. Er zijn vijf openbare repo's gekloond en stats.json opgehaald. Alleen gelezen. Klonen gewist, gemeld op de lijst voor Thijs. De controleur ving dit af. Issue #400 en de top 10 blijven daardoor onbekend (GitHub-API weigert, add_repo niet beschikbaar).
+
+## 6 nov 2026, 14:30 tot 15:00: eerste versie Rollwright
+**Gedaan:** bouwer maakte de plugin. Controleur draaide tests, 19 verdelingen (200.000 worpen elk) en randgevallen. Eerst afgekeurd om B1 (mogelijk eindeloos renderen bij `dice: [[Zichzelf]]`). Gerepareerd samen met L1 (één budget per worp). Herkeurd: mag op main als code. 187 tests groen, lint 0 fouten, 1 waarschuwing (GEZIEN).
+**Beslissing:** samengevoegd op main, maar niet indienen. Waarom: regels vragen tests groen en akkoord, en dat is er. Uitgave wacht op handmatige test, L7 en scannerconfig.
+**Beslissing:** werknaam Rollwright, id `rollwright`. Waarom: geen "dice" of "obsidian" in de naam, botst niet met de drie concurrenten. Of de naam vrij is, is nog niet gecontroleerd.
+**Beslissing:** rollen blijft gratis, alleen skins betaald. Sleutels zijn nu een controlesom en dus niet verkoopbaar. Geen koopknop zolang er geen betaalweg is.
+**Wat misging:** de indeling van `data.json` van Dice Roller is onbekend, dus de import kan bij echte bestanden niets vinden. Testpakket staat in `testpakket/` omdat `main.js` niet in git hoort; bij elke test vernieuwen.
