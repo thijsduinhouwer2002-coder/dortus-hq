@@ -24,6 +24,8 @@ export interface RollwrightSettings {
 	history: HistoryEntry[];
 	licenseKey: string;
 	skin: string;
+	/** Results of `dice+:` by key (note, place, formula), oldest first. Kept across restarts. */
+	keptResults: [string, RollOutcome][];
 }
 
 const DEFAULT_SETTINGS: RollwrightSettings = {
@@ -33,15 +35,20 @@ const DEFAULT_SETTINGS: RollwrightSettings = {
 	history: [],
 	licenseKey: "",
 	skin: "classic",
+	keptResults: [],
 };
 
 const HISTORY_LIMIT = 200;
 /** Remembered per place in a note, so scrolling never rerolls. Not kept across restarts; the oldest go first. */
 const RESULT_CACHE_LIMIT = 2000;
+/** At most this many `dice+:` results on disk; the oldest go first. */
+export const KEPT_RESULTS_LIMIT = 500;
 
 export default class RollwrightPlugin extends Plugin {
 	settings: RollwrightSettings = { ...DEFAULT_SETTINGS };
 	private readonly results = new Map<string, RollOutcome>();
+	/** Results of `dice+:`, written to disk with the settings. */
+	private readonly kept = new Map<string, RollOutcome>();
 	private readonly skinnedDocuments = new Set<Document>();
 
 	async onload(): Promise<void> {
@@ -83,9 +90,16 @@ export default class RollwrightPlugin extends Plugin {
 	async loadSettings(): Promise<void> {
 		const stored = (await this.loadData()) as Partial<RollwrightSettings> | null;
 		this.settings = { ...DEFAULT_SETTINGS, ...stored };
+		this.kept.clear();
+		const kept = Array.isArray(this.settings.keptResults) ? this.settings.keptResults : [];
+		for (const entry of kept) {
+			if (Array.isArray(entry) && typeof entry[0] === "string" && typeof entry[1]?.text === "string") this.kept.set(entry[0], entry[1]);
+		}
+		this.trimKept();
 	}
 
 	async saveSettings(): Promise<void> {
+		this.settings.keptResults = [...this.kept.entries()];
 		await this.saveData(this.settings);
 	}
 
@@ -135,25 +149,53 @@ export default class RollwrightPlugin extends Plugin {
 		return notes;
 	}
 
-	hasResult(key: string): boolean {
-		return this.results.has(key);
+	hasResult(key: string, keep = false): boolean {
+		return this.results.has(key) || (keep && this.kept.has(key));
 	}
 
-	/** The result for this place in a note: remembered, or rolled for the first time. */
-	async firstResult(key: string, formula: string, sourcePath: string): Promise<RollOutcome> {
-		const known = this.results.get(key);
-		if (known) return known;
+	/**
+	 * The result for this place in a note: remembered, or rolled for the first time.
+	 * With keep (`dice+:`) the result also comes from and goes to disk.
+	 */
+	async firstResult(key: string, formula: string, sourcePath: string, keep = false): Promise<RollOutcome> {
+		const known = this.results.get(key) ?? (keep ? this.kept.get(key) : undefined);
+		if (known) {
+			if (keep && !this.kept.has(key)) await this.keep(key, known);
+			return known;
+		}
 		const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
 		this.remember(key, outcome);
+		if (keep) await this.keep(key, outcome);
 		return outcome;
 	}
 
-	/** A roll someone asked for. Only these go into the history. */
-	async freshResult(key: string | null, formula: string, sourcePath: string): Promise<RollOutcome> {
+	/** A roll someone asked for. Only these go into the history. With keep, the new result replaces the kept one. */
+	async freshResult(key: string | null, formula: string, sourcePath: string, keep = false): Promise<RollOutcome> {
 		const outcome = await rollSpec(formula, this.rollContext(sourcePath));
 		if (key !== null) this.remember(key, outcome);
+		if (key !== null && keep) this.storeKept(key, outcome);
 		await this.addToHistory(outcome, formula, sourcePath);
 		return outcome;
+	}
+
+	/** Puts a result at the newest end of the kept results, dropping the oldest over the limit. */
+	private storeKept(key: string, outcome: RollOutcome): void {
+		this.kept.delete(key);
+		this.kept.set(key, outcome);
+		this.trimKept();
+	}
+
+	private trimKept(): void {
+		while (this.kept.size > KEPT_RESULTS_LIMIT) {
+			const oldest = this.kept.keys().next().value;
+			if (oldest === undefined) break;
+			this.kept.delete(oldest);
+		}
+	}
+
+	private async keep(key: string, outcome: RollOutcome): Promise<void> {
+		this.storeKept(key, outcome);
+		await this.saveSettings();
 	}
 
 	private remember(key: string, outcome: RollOutcome): void {

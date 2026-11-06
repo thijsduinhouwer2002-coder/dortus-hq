@@ -32,10 +32,14 @@ export function parseTable(markdown: string): Table {
 	return { headers: splitRow(head ?? ""), rows: body.map(splitRow) };
 }
 
-/** The formula of a lookup table, read from the first header. Null for a normal table. */
+/**
+ * The formula of a lookup table, read from the first header. Null for a normal table.
+ * "dice+:" and "dice-:" work as "dice:": a header is rolled each time, never kept on
+ * its own. "dice-mod:" is refused, so such a table is a normal table.
+ */
 export function lookupFormula(table: Table): string | null {
 	const first = (table.headers[0] ?? "").replace(/`/g, "").trim();
-	const match = /^dice:\s*(.+)$/i.exec(first);
+	const match = /^dice[+-]?:\s*(.+)$/i.exec(first);
 	return match ? (match[1] as string).trim() : null;
 }
 

@@ -74,11 +74,15 @@ function pickCount(prefix: string, context: RollContext): number {
 	return count;
 }
 
-/** Rolls every `dice: x` in a piece of text. A cell may consist of `dice: x` without backticks. */
+/**
+ * Rolls every `dice: x` in a piece of text. A cell may consist of `dice: x` without backticks.
+ * "dice+:" and "dice-:" roll like "dice:": a nested roll is part of the outer result and is
+ * kept or not along with it. "dice-mod:" is refused and stays text (defused when shown).
+ */
 async function resolveNested(text: string, context: RollContext, depth: number): Promise<string> {
-	const whole = /^dice:\s*(.+)$/i.exec(text.trim());
+	const whole = /^dice[+-]?:\s*(.+)$/i.exec(text.trim());
 	if (whole) return (await rollSpecAt(whole[1] as string, context, depth + 1)).text;
-	const pattern = /`dice:\s*([^`]+)`/gi;
+	const pattern = /`dice[+-]?:\s*([^`]+)`/gi;
 	let output = "";
 	let last = 0;
 	for (let match = pattern.exec(text); match; match = pattern.exec(text)) {

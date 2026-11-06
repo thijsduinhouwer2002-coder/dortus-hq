@@ -8,6 +8,8 @@ Rollwright is at version 0.1.0 and has not been tested in a running app yet. Exp
 
 Write `` `dice: 2d6 + 3` `` in a note. It works in reading view and Live Preview. Hover to see the formula and the dice. Click to roll again. A result stays while you scroll or type elsewhere in the note. It is rolled again when you click, after a restart, and when lines above it are added or removed, because a result is tied to its line. A roll in a table cell can also roll again when the note is drawn again.
 
+To keep a result after a restart, write `` `dice+: 2d6` ``. Rollwright saves it in its own plugin data, for that note and that place in it. A click rolls again and keeps the new result. Up to 500 kept results are saved; beyond that the oldest is dropped. `` `dice-: 2d6` `` never keeps a result and works like `dice:`. Inside a table cell or as a lookup table header, `dice+:` and `dice-:` roll like `dice:`: the result is kept, or not, as part of the outer roll. `dice-mod:` is not supported yet and is left as it is.
+
 | You write | What it does |
 |---|---|
 | `2d6 + 3 * (1d4 - 1) ^ 2` | Arithmetic with `+ - * / ^` and brackets |
