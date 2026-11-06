@@ -374,7 +374,7 @@ const AVERAGE_SAMPLES = 2000;
 
 /**
  * The expected result. Exact without modifiers (dice replaced by their mean),
- * otherwise an estimate from simulated rolls.
+ * otherwise an estimate from at most 2000 simulated rolls, as far as the budget of one roll reaches.
  */
 export function averageOf(formula: string, options: RollOptions = {}): { value: number; exact: boolean } {
 	const node = parseFormula(formula, Object.keys(options.names ?? {}));
@@ -382,6 +382,17 @@ export function averageOf(formula: string, options: RollOptions = {}): { value: 
 		return { value: evaluate(node, makeState({ ...options, budget: undefined }, true)).value, exact: true };
 	}
 	let sum = 0;
-	for (let i = 0; i < AVERAGE_SAMPLES; i++) sum += evaluate(node, makeState({ ...options, budget: undefined })).value;
-	return { value: sum / AVERAGE_SAMPLES, exact: false };
+	let samples = 0;
+	// One budget for all samples: a heavy formula gets fewer samples, not more time.
+	const budget = newBudget();
+	for (; samples < AVERAGE_SAMPLES; samples++) {
+		try {
+			sum += evaluate(node, makeState({ ...options, budget })).value;
+		} catch (error) {
+			const spent = budget.rolls > LIMITS.rollsPerFormula || budget.steps > LIMITS.stepsPerRoll;
+			if (!spent || samples === 0) throw error;
+			break;
+		}
+	}
+	return { value: sum / samples, exact: false };
 }

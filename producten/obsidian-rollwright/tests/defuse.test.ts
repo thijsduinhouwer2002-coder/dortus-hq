@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { roll } from "../src/engine";
+import { averageOf, roll } from "../src/engine";
 import { defuseRolls } from "../src/rollers/defuse";
 import { findInlineDice, formulaFromCode } from "../src/rollers/inline";
 import { rollSpec, type RollContext } from "../src/rollers/run";
@@ -86,6 +86,43 @@ describe("rolled text cannot roll again", () => {
 		const el = { closest: () => ({}), querySelectorAll };
 		processReadingView({} as never, el as never, {} as never);
 		expect(querySelectorAll).not.toHaveBeenCalled();
+	});
+});
+
+describe("only code changes", () => {
+	it.each(["[[Rules#Dice: basics]]", "https://e.com/dice:1", "[a](https://e.com/dice:1)", "Dice: three of them"])("leaves %s as it is", (text) => {
+		expect(defuseRolls(text)).toBe(text);
+	});
+
+	it("uses the invisible character inside code only", () => {
+		expect(defuseRolls("Dice: `dice: 1d6`")).toBe("Dice: `dice\u200b: 1d6`");
+	});
+
+	it("still catches code after an escaped backtick and an unclosed code element", () => {
+		expect(rollableCodes(defuseRolls("\\` `dice: 1d6`"))).toEqual([]);
+		expect(defuseRolls("<code>dice: 1d6")).toBe("<code>dice\u200b: 1d6");
+	});
+});
+
+describe("average within the budget of one roll", () => {
+	it("stops a heavy alias chain quickly with an estimate", () => {
+		const fan = (name: string, length: number) => Array.from({ length }, () => name).join("+");
+		const names = { a: fan("b", 300), b: fan("c", 100), c: "1" };
+		const start = Date.now();
+		const { value, exact } = averageOf("1d1k1 + a", { names });
+		expect(exact).toBe(false);
+		expect(value).toBe(30001);
+		expect(Date.now() - start).toBeLessThan(3000);
+	});
+
+	it("reports a formula that does not fit even once", () => {
+		const fan = (name: string) => Array.from({ length: 400 }, () => name).join("+");
+		expect(() => averageOf("a", { names: { a: fan("b"), b: fan("c"), c: "1d1k1" } })).toThrow(/too complex|more than/);
+	});
+
+	it("keeps all samples for a light formula and still reports other errors", () => {
+		expect(averageOf("1d1k1")).toEqual({ value: 1, exact: false });
+		expect(() => averageOf("1d6k1/0")).toThrow(/divide by zero/);
 	});
 });
 
