@@ -36,4 +36,6 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur keurde af: taallijst en viewerlijst waren selectief ingevuld, en "C-breed" als richting volgde daar niet uit. Lijsten aangevuld, richting teruggezet naar geen voorkeur.
 - **Gedaan (16:20 UTC):** uitgezocht waarom BatchCraft snel groeit: de twee gratis batch-plugins (samen ruim 4 miljoen downloads) zijn sinds 2015 en 2021 verlaten.
 - **Beslissing:** volgende run zoekt systematisch naar zulke verlaten gratis plugins, want dat is een concreet en meetbaar patroon, en het geeft een kant-en-klaar publiek. Nog één voorbeeld, dus het blijft een GOK tot er meer zijn.
+- **Gedaan (16:21 UTC):** lijst gemaakt van 219 verlaten gratis plugins met meer dan 100.000 downloads, eerste drie nagelopen op vervangers. Nog niet nagekeken door een controleur, dus de taak blijft open.
+- **Afgesloten om 16:23 UTC** om de volgende run schoon te laten beginnen.
 

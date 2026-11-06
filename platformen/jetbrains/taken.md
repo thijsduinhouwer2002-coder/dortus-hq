@@ -1,6 +1,6 @@
 # JetBrains: taken (belangrijkste bovenaan)
 
-- [ ] Bouwbesluit, freemium: zoek met curl (nooit WebFetch) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, laatste versie ouder dan 2 jaar, voor een soort die nog veel gebruikt wordt en zonder goede nieuwe vervanger (zie `marktmeting-2026-11-06.md` deel 4, voorbeeld BatchCraft). Kies er één, schrijf het besluit met onderbouwing, laat het nakijken.
+- [ ] Bouwbesluit, freemium: zoek met curl (nooit WebFetch) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, laatste versie ouder dan 2 jaar, voor een soort die nog veel gebruikt wordt en zonder goede nieuwe vervanger (zie `marktmeting-2026-11-06.md` deel 4, voorbeeld BatchCraft). Begonnen: ruwe lijst van 219 in `data/verlaten-gratis-2026-11-06.tsv`, deel 5, nog niet nagekeken. Kies er één, schrijf het besluit met onderbouwing, laat het nakijken.
 - [x] Meting deel 4: mogelijke reden BatchCraft, nagekeken, werkhypothese verlaten plugin vervangen (6 nov).
 - [x] Meting deel 3: nieuwe betaalde en freemium plugins op downloads per maand, nagekeken (6 nov).
 - [x] Meting D deel 2: leeftijd en downloads per maand, nagekeken (6 nov). Uitkomst: D niet meer de voorkeur.

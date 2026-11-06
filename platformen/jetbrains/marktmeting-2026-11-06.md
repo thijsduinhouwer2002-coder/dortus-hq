@@ -166,3 +166,10 @@ Andere zwakke gratis plugins nagekeken (laatste versie, GEZIEN; cijfers uit de z
 
 ## Volgende stap
 Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, waarvan de laatste versie ouder is dan 2 jaar, voor een taal of bestandssoort die nog veel gebruikt wordt, en waar nog geen goede nieuwe vervanger is. Dat is het bouwbesluit: kies er één, freemium.
+
+## Meting deel 5: verlaten gratis plugins (16:21 UTC, met curl, NOG NIET NAGEKEKEN)
+- Gratis plugins met minstens 100.000 downloads: 870. Daarvan niet van JetBrains en laatste versie voor november 2024: 219 (GEZIEN). De hele lijst staat in `data/verlaten-gratis-2026-11-06.tsv`.
+- Veel daarvan zijn al vervangen: CodeGlance (1.758.526, laatst 2018) door CodeGlance Pro (4.691.766, gratis), Thrift Support (361.136, laatst 2022) door een gratis fork (199.360, cijfer 4,69), Robot Framework-plugins door nieuwe, Ansible door OrchidE en Ansible Pro (GEZIEN).
+- Batch en CMD zijn nu door BatchCraft genomen.
+- Eerste kandidaat zonder zichtbare vervanger in de top 6: **Git Flow Integration**, 682.493 downloads, cijfer 4,37, laatste versie augustus 2021 (GEZIEN). Of git flow nog veel gebruikt wordt is niet gemeten.
+- Volgende run: de 219 aflopen, per stuk kijken of er een nieuwe vervanger is, en of de taak of taal nog leeft. Daarna één kiezen.
