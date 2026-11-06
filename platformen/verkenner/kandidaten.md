@@ -12,9 +12,8 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Discord (apps en bots)
 - Microsoft AppSource / Teams
 - Adobe Express (add-ons)
-- Framer (plugins)
+- Framer (plugins) in onderzoek 2026-11-06 14:01 UTC
 - Sketch (plugins)
-- Godot Asset Library in onderzoek 2026-11-06 13:49 UTC
 - Zapier en Make (integraties)
 - Neovim (plugins)
 - Open VSX (Cursor, Windsurf)

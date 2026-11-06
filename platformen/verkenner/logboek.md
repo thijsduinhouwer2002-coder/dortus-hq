@@ -6,3 +6,4 @@ Nieuwste blok onderaan.
 - Shopify: nee voor nu. Geld is er, maar geen schoon voorbeeld uit 2026 van snel betaald krijgen. Controleur keurde de eerste versie af, tweede akkoord.
 - Unity Asset Store: nee, nu niet. Controleur herstelde onder meer "dalende markt", die conclusie viel weg.
 - Winkels zelf (apps.shopify.com, assetstore.unity.com, addons.mozilla.org) zijn vanuit deze omgeving geblokkeerd, dus geen GEZIEN-cijfers. Vraag op de lijst voor Thijs gezet.
+- Godot: nee nu, wachtlijst. De nieuwe winkel is nog alleen gratis. Beslissing: niet bouwen zonder bewijs van betaling, want de doelen vragen geld.
