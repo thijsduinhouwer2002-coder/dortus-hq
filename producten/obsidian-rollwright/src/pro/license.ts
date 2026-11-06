@@ -93,9 +93,9 @@ export async function validateLicense(key: string, request: RequestFunction, ids
 	return "no-connection";
 }
 
-/** True when the last check is 30 days old or more (or the date makes no sense). */
+/** True when the last check is 30 days old or more. A date in the future is never due. */
 export function recheckDue(checkedAt: number, now: number): boolean {
-	return !(checkedAt > 0 && now >= checkedAt && now - checkedAt < RECHECK_INTERVAL_MS);
+	return checkedAt > 0 && now >= checkedAt && now - checkedAt >= RECHECK_INTERVAL_MS;
 }
 
 /** What a license field in the settings needs: the key and when it was last found valid. */
@@ -127,7 +127,13 @@ export async function activateLicense(state: LicenseState, key: string, request:
  * away; no connection or our own error keeps it active. Gives back whether the state changed.
  */
 export async function recheckLicense(state: LicenseState, request: RequestFunction, now: number, ids: PolarIds = POLAR_IDS): Promise<boolean> {
-	if (!paymentReady(ids) || !isLicenseActive(state) || !recheckDue(state.licenseCheckedAt, now)) return false;
+	if (!paymentReady(ids) || !isLicenseActive(state)) return false;
+	// The clock went back: start the 30 days from now, without asking Polar.
+	if (state.licenseCheckedAt > now) {
+		state.licenseCheckedAt = now;
+		return true;
+	}
+	if (!recheckDue(state.licenseCheckedAt, now)) return false;
 	const outcome = await validateLicense(state.licenseKey, request, ids);
 	if (outcome === "valid") state.licenseCheckedAt = now;
 	else if (outcome === "invalid") state.licenseCheckedAt = 0;

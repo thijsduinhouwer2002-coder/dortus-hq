@@ -113,6 +113,27 @@ describe("2: a valid key", () => {
 		expect(buttons.map((b) => b.text)).toContain("Buy");
 	});
 
+	it("pressing Activate twice quickly asks Polar once", async () => {
+		const request = fakeRequest(granted());
+		const { plugin } = await load({ request });
+		new RollwrightSettingTab(plugin.app, plugin).display();
+		settingsMade.find((s) => s.name === "License key")?.texts[0]?.("KEY-1");
+		const activate = buttons.find((b) => b.text === "Activate");
+		activate?.press();
+		activate?.press();
+		await vi.waitFor(() => expect(plugin.isLicensed).toBe(true));
+		expect(request).toHaveBeenCalledTimes(1);
+	});
+
+	it("the buy button opens the buy URL of the plugin's Polar ids", async () => {
+		const open = vi.fn();
+		vi.stubGlobal("activeWindow", { open });
+		const { plugin } = await load();
+		new RollwrightSettingTab(plugin.app, plugin).display();
+		buttons.find((b) => b.text === "Buy")?.press();
+		expect(open).toHaveBeenCalledWith(IDS.buyUrl);
+	});
+
 	it("an old key without a check date is not active", async () => {
 		const { plugin } = await load({ stored: { licenseKey: "RW1-ABCDE-23456-000000" } });
 		expect(plugin.isLicensed).toBe(false);
@@ -207,6 +228,21 @@ describe("5: the quiet check runs at most once per 30 days", () => {
 		setNow(START + 2 * RECHECK_INTERVAL_MS);
 		await plugin.recheckLicense();
 		expect(request).toHaveBeenCalledTimes(2);
+	});
+
+	it("a check date in the future (the clock went back) becomes now, without asking Polar", async () => {
+		const request = fakeRequest(granted());
+		const { plugin, setNow, stored } = await load({ request, now: START, stored: { licenseKey: "KEY-1", licenseCheckedAt: START + 365 * DAY } });
+		await vi.waitFor(() => expect(plugin.settings.licenseCheckedAt).toBe(START));
+		expect((stored() as { licenseCheckedAt: number }).licenseCheckedAt).toBe(START);
+		expect(plugin.isLicensed).toBe(true);
+		expect(request).not.toHaveBeenCalled();
+		setNow(START + 29 * DAY);
+		await plugin.recheckLicense();
+		expect(request).not.toHaveBeenCalled();
+		setNow(START + RECHECK_INTERVAL_MS);
+		await plugin.recheckLicense();
+		expect(request).toHaveBeenCalledTimes(1);
 	});
 
 	it("never checks without an active key", async () => {

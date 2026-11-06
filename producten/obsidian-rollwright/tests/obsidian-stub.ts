@@ -153,12 +153,16 @@ export class Setting {
 		return this;
 	}
 	addButton(make: (button: unknown) => void): this {
+		// Like a real button: a disabled one ignores presses.
+		let disabled = false;
 		const made = { text: "", press: () => {} };
 		const button = {
 			setButtonText: (text: string) => ((made.text = text), button),
 			setCta: () => button,
-			setDisabled: () => button,
-			onClick: (press: () => void) => ((made.press = press), button),
+			setDisabled: (value: boolean) => ((disabled = value), button),
+			onClick: (press: () => void) => ((made.press = () => {
+				if (!disabled) press();
+			}), button),
 		};
 		make(button);
 		buttons.push(made);
