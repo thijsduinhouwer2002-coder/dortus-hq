@@ -235,14 +235,14 @@ async function rollTag(spec: Spec, context: RollContext): Promise<Omit<RollOutco
 	return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? chosen[0]?.path : undefined };
 }
 
-async function rollSpecAt(raw: string, context: RollContext, depth: number, firstRoll = false): Promise<RollOutcome> {
+async function rollSpecAt(raw: string, context: RollContext, depth: number, firstRoll = false, average = false): Promise<RollOutcome> {
 	if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself");
 	const spec = parseSpec(raw, context.aliases);
 	const formula = raw.trim();
 
 	if (spec.target.kind === "dice") {
 		const dice = spec.target.formula;
-		if (firstRoll && spec.flags.avg) {
+		if ((firstRoll && spec.flags.avg) || average) {
 			const average = averageOf(dice, diceOptions(context));
 			return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, average: true, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
 		}
@@ -256,9 +256,10 @@ async function rollSpecAt(raw: string, context: RollContext, depth: number, firs
 /**
  * Rolls anything that can follow "dice:". Rejects with DiceError when it is broken.
  * With firstRoll set, |avg gives the mean instead of a roll; a click then rolls for real.
+ * With average set, dice give the mean as |avg does (Alt-click); anything else just rolls.
  */
-export function rollSpec(raw: string, context: RollContext, options: { firstRoll?: boolean } = {}): Promise<RollOutcome> {
-	return rollSpecAt(raw, { ...context, budget: newBudget() }, 0, options.firstRoll ?? false);
+export function rollSpec(raw: string, context: RollContext, options: { firstRoll?: boolean; average?: boolean } = {}): Promise<RollOutcome> {
+	return rollSpecAt(raw, { ...context, budget: newBudget() }, 0, options.firstRoll ?? false, options.average ?? false);
 }
 
 export { parseSpec };

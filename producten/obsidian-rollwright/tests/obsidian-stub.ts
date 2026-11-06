@@ -46,6 +46,11 @@ export function getAllTags(cache: { tags?: string[] }): string[] | null {
 	return cache.tags ?? null;
 }
 
+/** Like Obsidian: Ctrl or Cmd opens in a new tab. The real one tells Ctrl and Cmd apart per platform. */
+export const Keymap = {
+	isModEvent: (event?: { ctrlKey?: boolean; metaKey?: boolean } | null): string | boolean => (event?.ctrlKey || event?.metaKey ? "tab" : false),
+};
+
 export class ItemView {}
 export class MarkdownView {}
 export class PluginSettingTab {}

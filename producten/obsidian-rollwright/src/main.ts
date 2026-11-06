@@ -197,6 +197,25 @@ export default class RollwrightPlugin extends Plugin {
 		return outcome;
 	}
 
+	/**
+	 * Alt-click: dice show their average, as |avg does. It is remembered (and kept with keep)
+	 * but not put in the history, because nothing was rolled. Anything else rolls as a click does.
+	 */
+	async averageResult(key: string, formula: string, sourcePath: string, keep = false): Promise<RollOutcome> {
+		const outcome = await rollSpec(formula, this.rollContext(sourcePath), { average: true });
+		this.remember(key, outcome);
+		if (keep) this.storeKept(key, outcome);
+		if (outcome.kind !== "dice") await this.addToHistory(outcome, formula, sourcePath);
+		else if (keep) await this.saveSettings();
+		return outcome;
+	}
+
+	/** Ctrl-click on a |none code: forgets its result, also the kept one, so it stays empty. */
+	async forgetResult(key: string): Promise<void> {
+		this.results.delete(key);
+		if (this.kept.delete(key)) await this.saveSettings();
+	}
+
 	/** Puts a result at the newest end of the kept results, dropping the oldest over the limit. */
 	private storeKept(key: string, outcome: RollOutcome): void {
 		this.kept.delete(key);
