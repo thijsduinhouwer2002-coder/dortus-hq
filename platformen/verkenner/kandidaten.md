@@ -9,8 +9,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
 - Slack (apps)
-- Discord (apps en bots): in onderzoek 06 nov 14:57 UTC
-- Microsoft AppSource / Teams
+- Microsoft AppSource / Teams: in onderzoek 06 nov 15:00 UTC
 - Adobe Express (add-ons)
 - Sketch (plugins)
 - Zapier en Make (integraties)

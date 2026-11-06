@@ -30,3 +30,4 @@ Toegevoegd:
 - Framer (6 nov, cijfer 5): nog niet klaar. Geld bij templates vooral van voor Framer 3.0, geen kleine pluginmaker aantoonbaar betaald, bereik niet gemeten. Zie `voorstellen/framer.md`.
 - Apify Store (6 nov, cijfer 4): nee. Veel geld op platformniveau ($1,7M per maand volgens Apify), maar hoogste cijfer van een nieuwe kleine maker $47 netto, mediaan ±1 maandgebruiker in twee categorieën, 26.772 nieuwe Actors in oktober. Zie `voorstellen/apify-store.md`.
 - Bubble (6 nov, cijfer 3): nee. Eén partij heeft 60%+ van de pluginomzet, kleine makers ±$12 per maand of ±$917 met ±197 plugins, winkel zelf niet te meten. Zie `voorstellen/bubble.md`.
+- Discord (6 nov, cijfer 4): nog niet klaar. Afdracht 15 tot 30%, één geverifieerde kleine bot op $796 per maand (ShotCaller), bereik niet gemeten want top.gg niet leesbaar. Zie `voorstellen/discord.md`.
