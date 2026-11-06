@@ -44,3 +44,7 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 4 (was 5). Reden: van de drie vooraf vastgelegde eisen is er geen gehaald, en de bedragen die we wel vonden laten zien dat het weinig is.
 - Controleur akkoord, vier correcties verwerkt (aandeel betaald per halfjaar, Miglena, naam maker, groei 3 tot 4 keer).
 - curl met nep-browserkop werd geweigerd door de veiligheidscontrole. Gewone curl werkt prima op framer.com. Archive.org geeft 403.
+- Daarna Roblox Creator Store zelf toegevoegd, omdat Roblox 100% van de netto opbrengst van betaalde plugins aan makers geeft. Eigen meting via de openbare zoek-API: 1.000 betaalde plugins, waarvan 365 van feb tot aug 2026. Mediaan minder dan ±10 stemmen, 2% haalt 10+, aanbod per maand ±10 keer zo groot als een jaar geleden, prijsmediaan $4,99.
+- Beslissing: nog niet klaar, cijfer 4. Reden: het geldmodel is top, maar geen kleine nieuwe maker met aantoonbaar geld en geen teken van bereik voor nieuwe betaalde plugins. Controleur akkoord, acht correcties verwerkt, waaronder klachten over uitbetalingen in 2026.
+- Les: Roblox heeft een open API zonder sleutel, daardoor snel en eerlijk te meten. Zoek bij volgende platformen eerst naar zo'n API.
+- Volgende run: een ander platform uit `kandidaten.md` met betaling via de winkel (bijvoorbeeld Slack, Miro of Sketch), of Shopify-vervolg.
