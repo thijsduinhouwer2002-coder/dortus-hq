@@ -22,3 +22,6 @@ Mediaan = wat een nieuwe app van een kleine maker haalt na 3 tot 6 maanden.
 
 Zwak of te klein: Logi, Stream Deck, Grafana, OBS, ComfyUI, Raycast, Logseq, Notion, n8n, HACS, Webflow, Sublime, Zed, Visual Studio, Bitrix24.
 Niet te meten (6 nov): Canva, Wix, Google Workspace, Attio, Gorgias, ChatGPT-apps. Opnieuw proberen als er iets verandert.
+
+Toegevoegd:
+- Shopify (6 nov): nee voor nu. Geld is echt, maar 77 tot 80% van de 2026-apps heeft geen review en er komen 1.500+ apps per maand bij. Zie `voorstellen/shopify.md`.
