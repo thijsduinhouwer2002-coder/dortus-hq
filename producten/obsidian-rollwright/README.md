@@ -25,6 +25,7 @@ Ctrl-click (Cmd-click on a Mac) on a result from a table, list, section, line or
 | `4dF` | Fudge dice |
 | `1dS` | Fantasy AGE stunt die: three six-sided dice, the third is the stunt die (`S:`). The result is their sum. On a double, the stunt die gives that many stunt points, shown in the tooltip. Only one stunt die per `1dS`; `2dS` is an error |
 | `(1d4)d6` | Roll for the number of dice first |
+| `3g2d`, `2y1c1b`, `1w` | Narrative dice of Genesys and the Star Wars roleplaying games: Ability `g`/`a`, Proficiency `y`/`pro`, Difficulty `d`/`diff`, Challenge `r`/`c`, Boost `b`/`boo`, Setback `s`/`sb`/`blk`, Force `w`/`f`, capitals the same. `p` is Proficiency when the roll also has an `a`, `c` or `d` die, otherwise it asks you to write `y` or `d`. Success cancels Failure and Advantage cancels Threat; Triumph also counts as a Success and Despair as a Failure. The result reads like `2 Success, 1 Threat`, the tooltip shows each die. Only when the whole formula is narrative dice and cannot be read as ordinary dice: `2d`, `d`, `4dF` and `1D6KH1` stay ordinary dice, as do saved formulas and note fields such as `gp`. No average with `\|avg` |
 
 ### Modifiers
 
