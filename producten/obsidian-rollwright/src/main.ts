@@ -109,7 +109,7 @@ export default class RollwrightPlugin extends Plugin {
 	async loadSettings(): Promise<void> {
 		const stored = (await this.loadData()) as Partial<RollwrightSettings> | null;
 		// A deep copy of the defaults, so no two loads share the lists in them.
-		this.settings = { ...structuredClone(DEFAULT_SETTINGS), ...stored };
+		this.settings = { ...DEFAULT_SETTINGS, formulas: [], history: [], keptResults: [], ...stored };
 		this.kept.clear();
 		const kept = Array.isArray(this.settings.keptResults) ? this.settings.keptResults : [];
 		for (const entry of kept) {
