@@ -68,8 +68,13 @@ async function settle(view) {
 
 /** Opent de notitie, wacht op de uitkomst en kijkt na 3 seconden of er niets bij kwam. */
 async function checkStable(path, mode, view, shot) {
+	const opened = Date.now();
 	await openNote(path, mode);
 	await waitForValue(view);
+	const shownAfter = Date.now() - opened;
+	console.log(`${path} (${mode}) EERSTE UITKOMST NA MS:`, shownAfter);
+	// De worp moet er binnen een paar seconden staan, niet pas na de wachttijd van 20 seconden.
+	expect(shownAfter).toBeLessThan(5000);
 	await settle(view);
 	const first = await count(view);
 	await browser.pause(3000);
