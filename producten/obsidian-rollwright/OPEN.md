@@ -32,7 +32,7 @@ Er zijn twee lints. `npm run lint` draait de `recommended`-instelling van `eslin
 
 Voor uitgave ook: **Review branch** in het dashboard van Obsidian draaien (Run preview scan). Dat kan alleen met het account.
 
-## Betaling (eis van de eigenaar: klaarzetten, niet aanzetten)
+## Betaling (eerst klaarzetten, niet aanzetten; aangezet 6 nov op verzoek van Thijs, die de Polar-gegevens gaf)
 
 - `POLAR_ORG_ID`, `POLAR_BENEFIT_ID` en `BUY_URL` in `src/pro/license.ts` zijn ingevuld (6 nov, gegevens van Thijs: benefit License Keys zonder activatielimiet en zonder vervaldatum). Is er één leeg, dan zijn koopknop en sleutelveld verborgen en zegt de instelling "Paid skins are coming soon". Ontwerp: `ontwerp-betaald.md`. Uitbetaling bij Polar regelt Thijs later.
 - De controlesom (`RW1-...`) is weg. De sleutel wordt nu online gecontroleerd bij Polar (`validateLicense`). Wie de code aanpast kan de controle nog steeds overslaan; dat is bij elke plugin zo en past bij "eenvoudig en zonder druk".
