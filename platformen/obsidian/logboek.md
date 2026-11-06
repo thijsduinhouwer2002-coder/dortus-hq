@@ -100,3 +100,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Takken op main:** `claude/obsidian-2026-11-06-c` tot en met `-k` zijn allemaal samengevoegd (de eerdere takken `-` tot `-b` staan in eerdere blokken).
 **Beslissing:** opruimen nu in plaats van na zondag. Waarom: notatie 0.2 was af en de resttijd was te kort voor het betaalde deel.
 **Beslissing:** run hier gestopt (±35 minuten). Waarom: versie 0.2.0 en het betaalde deel passen niet meer netjes in deze run.
+
+## 6 nov 2026, 17:39 tot 17:43: versie 0.2.0
+**Let op:** in het blok hierboven staan 17:45 en 17:47; de klok gaf 17:39. Opruimen was om 17:39 af.
+**Gedaan:** versie 0.2.0 op tak `claude/obsidian-2026-11-06-l`: manifest, package, package-lock, versions.json (minAppVersion 1.7.2) en README, plus een nieuwe `CHANGELOG.md` in eigen woorden. Controleur: akkoord, elke regel van de changelog getest tegen de code; drie kleine punten zelf verwerkt (afrondregel bij de vlaggen, klikken niet op telefoon, OPEN.md op 0.2.0). 472 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
+**Beslissing:** run hier gestopt. Waarom: het betaalde deel is een groot ontwerpstuk en hoort aan het begin van een run.
