@@ -42,7 +42,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `settings.ts`: het instellingenscherm.
 
 ### src/pro/ en src/import/
-- `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID` en `BUY_URL` (leeg: dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.
+- `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID` en `BUY_URL` (ingevuld met onze Polar-organisatie, benefit en afrekenpagina; is er één leeg, dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.
 - `pro/skins.ts`: de uiterlijken van de stenen, gratis en betaald.
 - `import/dice-roller-data.ts`: haalt opgeslagen formules uit de data van de plugin Dice Roller.
 

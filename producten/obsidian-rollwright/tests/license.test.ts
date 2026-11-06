@@ -56,8 +56,8 @@ beforeEach(() => {
 
 const EMPTY: PolarIds = { organizationId: "", benefitId: "", buyUrl: "" };
 
-describe("1: while the Polar constants are empty", () => {
-	it("has empty constants, so payment is not ready", () => {
+describe("1: when a Polar id is empty", () => {
+	it("payment is not ready", () => {
 		expect(paymentReady(EMPTY)).toBe(false);
 		expect(shouldShowBuyButton(EMPTY)).toBe(false);
 		expect(paymentReady({ ...IDS, buyUrl: "" })).toBe(false);
@@ -97,6 +97,15 @@ describe("1b: the shipped Polar constants", () => {
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).not.toBe(COMING_SOON);
 		expect(key?.texts).toHaveLength(1);
+	});
+
+	it("the buy button opens the real Polar checkout page", async () => {
+		const open = vi.fn();
+		vi.stubGlobal("activeWindow", { open });
+		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL } });
+		new RollwrightSettingTab(plugin.app, plugin).display();
+		buttons.find((b) => b.text === "Buy")?.press();
+		expect(open).toHaveBeenCalledWith(BUY_URL);
 	});
 });
 
