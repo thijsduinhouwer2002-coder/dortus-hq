@@ -1,6 +1,6 @@
 # Rollwright: wat nog open staat
 
-Stand: 6 nov 2026, versie 0.1.0. Geschreven door de bouwer. Bijgewerkt na de reparaties L2 tot L6 en L9.
+Stand: 6 nov 2026, versie 0.2.0. Geschreven door de bouwer. Bijgewerkt na de reparaties L2 tot L6 en L9.
 
 ## Niet in Obsidian getest
 
