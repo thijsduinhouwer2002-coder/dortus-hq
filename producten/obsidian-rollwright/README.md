@@ -23,6 +23,7 @@ Ctrl-click (Cmd-click on a Mac) on a result from a table, list, section, line or
 | `d%` | A hundred-sided die |
 | `1d66%` | One die per digit, read together: 6 and 3 give 63 |
 | `4dF` | Fudge dice |
+| `1dS` | Fantasy AGE stunt die: three six-sided dice, the third is the stunt die (`S:`). The result is their sum. On a double, the stunt die gives that many stunt points, shown in the tooltip. Only one stunt die per `1dS`; `2dS` is an error |
 | `(1d4)d6` | Roll for the number of dice first |
 
 ### Modifiers

@@ -60,7 +60,9 @@ export type Node =
 	| { type: "negate"; inner: Node }
 	| { type: "group"; inner: Node }
 	| { type: "binary"; op: "+" | "-" | "*" | "/" | "^"; left: Node; right: Node }
-	| { type: "dice"; count: Node | null; sides: Sides; modifiers: Modifier[] };
+	| { type: "dice"; count: Node | null; sides: Sides; modifiers: Modifier[] }
+	/** 1dS, the stunt die of Fantasy AGE (see stunt.ts). */
+	| { type: "stunt" };
 
 /** What one roll has used so far. Nested rollers share one budget. */
 export interface Budget {
