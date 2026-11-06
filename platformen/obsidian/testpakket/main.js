@@ -75,9 +75,9 @@ function mergeFormulas(current, incoming) {
 
 // src/pro/license.ts
 var import_obsidian = require("obsidian");
-var POLAR_ORG_ID = "";
-var POLAR_BENEFIT_ID = "";
-var BUY_URL = "";
+var POLAR_ORG_ID = "5f4a360c-7552-4269-a44a-4311f7f672d6";
+var POLAR_BENEFIT_ID = "344f6030-66ec-437a-8fbb-186b80a98c65";
+var BUY_URL = "https://buy.polar.sh/polar_cl_kJQ6H0U8GSNV0qMQkejM6SY4BYkU9k3SxfApH07ipIP";
 var VALIDATE_URL = "https://api.polar.sh/v1/customer-portal/license-keys/validate";
 var RECHECK_INTERVAL_MS = 30 * 24 * 60 * 60 * 1e3;
 var obsidianRequest = async (request) => {
