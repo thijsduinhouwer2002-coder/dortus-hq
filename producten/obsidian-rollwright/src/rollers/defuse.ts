@@ -19,10 +19,11 @@ function isImage(target: string): boolean {
  * Backticks are not paired on purpose. Where a code span ends depends on blocks, list
  * items and table cells, so one stray backtick would throw off the pairing. A rollable
  * code always starts with "dice:" (see formulaFromCode), so looking at what follows a
- * backtick run finds all of them without knowing the pairs.
+ * backtick run finds all of them without knowing the pairs. A ">" is skipped too,
+ * because a quote or callout drops it when a code span runs over two lines.
  */
 /** An escaped character (skipped), "dice:" opening a code span, or an HTML code element. */
-const CODE = /\\[\s\S]|`+\s*dice\s*:|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
+const CODE = /\\[\s\S]|`+[\s>]*dice\s*:|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
 
 export function defuseRolls(markdown: string): string {
 	return markdown

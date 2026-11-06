@@ -81,3 +81,7 @@ Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `s
 
 ## Na herkeuring L7 en L8 (6 nov), voor uitgave
 - L9 (opgelost, 6 nov): `src/rollers/defuse.ts:18`, de code-regex liep over blokgrenzen. Een losse backtick eerder (`it`s`) maakte echte code onherkenbaar, en die bleef rollen. Gekozen is niet per blok of regel te paren, maar backticks helemaal niet te paren: een rolbare code begint altijd met `dice:` direct na de backticks (zie `formulaFromCode`), dus elke `dice:` direct na een reeks backticks krijgt het onzichtbare teken. Dat werkt ook bij lijstitems, tabelrijen en koppen, waar een indeling per blok zou falen. Bijwerking: gewone tekst die direct na een sluitende backtick met `dice:` begint, krijgt ook het onzichtbare teken; dat zie je niet. Test: `tests/l9-defuse.test.ts`.
+
+## Na de herkeuring van L2 tot L9 (6 nov, 15:30)
+- De controleur vond een nieuw lek in de L9-reparatie: een code over twee regels in een citaat of callout (`> \`` en op de volgende regel `> dice: 1d6\``) werd niet meer onschadelijk gemaakt. Opgelost door ook `>` over te slaan tussen backticks en `dice`, met vijf tests in `tests/l9-defuse.test.ts`.
+- Bekend en niet blokkerend: bij een telling die zelden mislukt, zoals `(1d1000-2)d6`, hangt het van de steekproef af of `|avg` een melding of een schatting geeft. `(-8)^(1/3)` geeft de melding "too large to show" (was er al).
