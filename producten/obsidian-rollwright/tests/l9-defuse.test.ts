@@ -33,3 +33,15 @@ describe("L9: a stray backtick does not hide real code", () => {
 		expect(defuseRolls("\\\\`dice: 1d6`")).toContain(SAFE);
 	});
 });
+
+describe("L9: code over two lines in a quote or callout", () => {
+	it.each([
+		["a quote", "> `\n> dice: 1d6`"],
+		["a quote without spaces", ">`\n>dice: 1d6`"],
+		["a callout", "> [!note]\n> roll `\n> dice: 1d6`"],
+		["a nested quote", "> > `\n> > dice: 1d6`"],
+		["a quote in a list", "- > `\n  > dice: 1d6`"],
+	])("defuses code in %s", (_name, text) => {
+		expect(defuseRolls(text)).toContain("dice​:");
+	});
+});
