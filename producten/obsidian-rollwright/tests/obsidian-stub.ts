@@ -44,9 +44,69 @@ export function getAllTags(cache: { tags?: string[] }): string[] | null {
 
 export class ItemView {}
 export class MarkdownView {}
-export class Modal {}
 export class PluginSettingTab {}
-export class Setting {}
+
+/** A tiny element: enough for a modal to put text in. */
+export interface FakeEl {
+	tag: string;
+	text: string;
+	children: FakeEl[];
+	createEl(tag: string, options?: { text?: string }): FakeEl;
+	empty(): void;
+}
+function fakeEl(tag = "div", text = ""): FakeEl {
+	const el: FakeEl = {
+		tag,
+		text,
+		children: [],
+		createEl: (child, options) => {
+			const made = fakeEl(child, options?.text ?? "");
+			el.children.push(made);
+			return made;
+		},
+		empty: () => {
+			el.children.length = 0;
+		},
+	};
+	return el;
+}
+export function allText(el: FakeEl): string[] {
+	return [el.text, ...el.children.flatMap(allText)].filter((text) => text !== "");
+}
+
+export const openedModals: Modal[] = [];
+export class Modal {
+	contentEl = fakeEl();
+	title = "";
+	constructor(public app: unknown) {}
+	setTitle(title: string): this {
+		this.title = title;
+		return this;
+	}
+	open(): void {
+		openedModals.push(this);
+		(this as { onOpen?: () => void }).onOpen?.();
+	}
+	close(): void {
+		(this as { onClose?: () => void }).onClose?.();
+	}
+}
+
+/** Buttons made through Setting.addButton, newest last, so a test can press one. */
+export const buttons: { text: string; press: () => void }[] = [];
+export class Setting {
+	addButton(make: (button: unknown) => void): this {
+		const made = { text: "", press: () => {} };
+		const button = {
+			setButtonText: (text: string) => ((made.text = text), button),
+			setCta: () => button,
+			onClick: (press: () => void) => ((made.press = press), button),
+		};
+		make(button);
+		buttons.push(made);
+		return this;
+	}
+}
 export class Component {}
 export class MarkdownRenderChild {}
 export const rendered: string[] = [];

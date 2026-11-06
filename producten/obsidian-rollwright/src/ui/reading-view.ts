@@ -1,6 +1,7 @@
 import { MarkdownRenderChild, type MarkdownPostProcessorContext } from "obsidian";
 import type RollwrightPlugin from "../main";
 import { findInlineDice, readDiceCode } from "../rollers/inline";
+import { readingModifier } from "./dice-mod";
 import { mountRoll } from "./widget";
 
 /** The note lines of each dice code in a section, so reading view and Live Preview share results. */
@@ -37,6 +38,8 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 		code.replaceWith(span);
 		const child = new MarkdownRenderChild(span);
 		ctx.addChild(child);
-		mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child, keep);
+		// dice-mod: shows a roll like dice:, and a click asks to write it into this note only.
+		const modify = dice.modify ? readingModifier(plugin, span, ctx.sourcePath, position, formula) : undefined;
+		mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child, keep, modify);
 	}
 }
