@@ -22,7 +22,13 @@ Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map e
    - Houden ze zich aan de regels? Draait iemand rondjes zonder resultaat? Grijp in: pas zijn `taken.md` aan en schrijf waarom.
 3. Beslis over de koers, met onderbouwing:
    - **Nieuwe voorstellen van de verkenner** (`platformen/verkenner/voorstellen/`): ja of nee. Bij ja: maak de map `platformen/<platform>/` met `status.md`, `taken.md` (eerste taak: uitzoeken wat we bouwen) en `logboek.md`. Maak een geplande taak voor de nieuwe manager (met de eerste stap uit "Geplande taken") als dat kan, elk uur tussen 08:00 en 20:00, op een eigen minuut, niet op hetzelfde minuut als een andere manager. Kan dat niet, zet het op de lijst voor Thijs.
-   - **Stoppen:** gaat een platform onder de stopregel, laat de manager stoppen of veranderen.
+   - **Wanneer een nieuw platform erbij komt:** er is geen tempo en geen maximum. Een platform komt erbij zodra het top is, of dat nu na 2 dagen is of na 2 weken. Is er niets top, dan wacht je. "Top" betekent alle vier:
+     1. Kleine makers verdienen er aantoonbaar geld (DERDEN met bron, of GEZIEN), geen beloftes.
+     2. Een nieuwe app krijgt er echt aandacht: er is een aannemelijke weg naar de eerste 100 gebruikers zonder dat Thijs onder zijn naam moet adverteren.
+     3. Het helpt `organisatie/doelen.md` te halen, en is duidelijk beter dan het zwakste platform dat nu loopt.
+     4. De controleur van de verkenner heeft de cijfers nagekeken.
+     Twijfel je, dan is het nee. Zeg in het rapport bij elk voorstel in één zin waarom het wel of niet top is.
+ gaat een platform onder de stopregel, laat de manager stoppen of veranderen.
    - **Tijd verdelen:** waar levert extra werk het meeste op?
 4. Werk `organisatie/bord.md` bij: per platform één regel met fase, laatste cijfers en de volgende stap.
 5. Schrijf `rapporten/<datum>.md` in deze vorm:
