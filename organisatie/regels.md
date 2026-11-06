@@ -36,7 +36,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 
 ## Opslaan
 - Begin met `git pull --rebase`.
-- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
+- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`, Chris in `commercie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
 - Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de controleur akkoord is en de tests groen zijn.
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.

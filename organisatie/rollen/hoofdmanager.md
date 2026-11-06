@@ -15,6 +15,9 @@ Na het aanmaken: controleer met list_triggers dat de taak er staat, met de juist
 
 Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map en de takenlijst, en zet op `organisatie/lijst-thijs.md` de klus "Maak een geplande taak voor <platform> aan vanuit de projectchat". Zet erbij de tijd, de volledige opdracht uitgeschreven, en de **letterlijke foutmelding**. Geen eigen samenvatting van de fout. Probeer niet om de fout heen te werken.
 
+## Chris aanzetten (commercieel manager)
+Chris staat uit tot er een product in de lanceerfase is. Zodra een platformmanager meldt dat een product klaar is om in te dienen (of live staat), maak je een geplande taak "Chris - Commercieel manager (elk uur)", elk uur om :41 van 08:00 tot 20:00, met de opdracht uit `organisatie/geplande-taken.md` (sjabloon Chris). Zet het in `organisatie/besluiten.md` en meld het in het rapport. Zijn er geen producten meer in lancering of live, zet hem dan weer uit.
+
 ## Elke run
 1. `git pull --rebase`. Lees `strategie/koers.md` en de open adviezen in `strategie/adviezen.md`, en `organisatie/regels.md`, `organisatie/bord.md`, `organisatie/lijst-thijs.md`, en van elk platform in `platformen/` de `status.md` en het laatste blok van `logboek.md`.
 2. Controleer:

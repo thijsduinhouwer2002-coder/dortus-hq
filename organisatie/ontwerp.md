@@ -19,6 +19,7 @@ De eerste opzet was één agent die vijf projecten onderhield. Dat werd een romm
 | Vera | Verkenner | `berichten/vera.md` |
 | Olaf | Obsidian-manager | `berichten/olaf.md` |
 | Jet | JetBrains-manager | `berichten/jet.md` |
+| Chris | Commercieel manager (vinden, kiezen, betalen), staat uit tot de eerste lancering | `berichten/chris.md` |
 
 Een nieuwe manager krijgt een naam die begint met de eerste letter van zijn platform, en een eigen bestand in `berichten/`.
 
