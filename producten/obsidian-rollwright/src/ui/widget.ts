@@ -1,4 +1,4 @@
-import { Component, Keymap, MarkdownRenderer, Notice, setIcon, setTooltip, type PaneType } from "obsidian";
+import { Component, Keymap, MarkdownRenderer, Notice, setIcon, setTooltip, TFile, type PaneType } from "obsidian";
 import { formatResult } from "../engine";
 import type RollwrightPlugin from "../main";
 import { defuseRolls } from "../rollers/defuse";
@@ -7,6 +7,7 @@ import type { RollOutcome } from "../rollers/run";
 import type { ModifyHandler } from "./dice-mod";
 
 export const NO_SOURCE_NOTICE = "This result comes from more than one note, so there is no single note to open.";
+export const SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
 
 function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error);
@@ -123,7 +124,13 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 			new Notice(NO_SOURCE_NOTICE);
 			return;
 		}
-		await plugin.app.workspace.openLinkText(shown.source, sourcePath, pane);
+		// A kept result can name a note that was renamed or removed; never make a new empty one.
+		const file = plugin.app.vault.getAbstractFileByPath(shown.source);
+		if (!(file instanceof TFile)) {
+			new Notice(SOURCE_GONE_NOTICE);
+			return;
+		}
+		await plugin.app.workspace.getLeaf(pane === true ? "tab" : pane).openFile(file);
 	};
 
 	target.setAttribute("tabindex", "0");

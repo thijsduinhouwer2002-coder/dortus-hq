@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import RollwrightPlugin from "../src/main";
-import { mountRoll, NO_SOURCE_NOTICE } from "../src/ui/widget";
+import { mountRoll, NO_SOURCE_NOTICE, SOURCE_GONE_NOTICE } from "../src/ui/widget";
 import { notices, rendered, TFile } from "./obsidian-stub";
 
 /** A small element: records listeners, the shown text and how often it was emptied. */
@@ -30,15 +30,24 @@ const wait = () => new Promise((resolve) => setTimeout(resolve, 20));
 
 function fakeApp(files: Record<string, { text: string; tags?: string[] }>) {
 	const tfiles = Object.keys(files).map((path) => new TFile(path));
+	/** Each opened note as [path, pane], so a test sees what opens and where. */
+	const opened: [string, unknown][] = [];
 	const openLinkText = vi.fn(async () => {});
+	const getLeaf = (pane: unknown) => ({ openFile: async (file: TFile) => void opened.push([file.path, pane]) });
 	return {
+		opened,
 		openLinkText,
-		workspace: { on: vi.fn(), getLeavesOfType: () => [], getActiveViewOfType: () => null, onLayoutReady: (callback: () => void) => callback(), iterateAllLeaves: () => {}, openLinkText },
+		workspace: { on: vi.fn(), getLeavesOfType: () => [], getActiveViewOfType: () => null, onLayoutReady: (callback: () => void) => callback(), iterateAllLeaves: () => {}, openLinkText, getLeaf },
 		metadataCache: {
 			getFirstLinkpathDest: (link: string) => tfiles.find((f) => f.path === `${link}.md`) ?? null,
 			getFileCache: (file: TFile) => ({ tags: files[file.path]?.tags }),
 		},
-		vault: { configDir: ".obsidian", cachedRead: async (file: TFile) => files[file.path]?.text ?? "", getMarkdownFiles: () => tfiles },
+		vault: {
+			configDir: ".obsidian",
+			cachedRead: async (file: TFile) => files[file.path]?.text ?? "",
+			getMarkdownFiles: () => tfiles,
+			getAbstractFileByPath: (path: string) => tfiles.find((f) => f.path === path) ?? null,
+		},
 	};
 }
 
@@ -54,8 +63,6 @@ async function load() {
 	const app = fakeApp(FILES);
 	const plugin = new (RollwrightPlugin as unknown as new (app: unknown) => RollwrightPlugin)(app);
 	await plugin.onload();
-	// DEFAULT_SETTINGS.history is one shared array between plugin objects; each test starts empty.
-	plugin.settings.history = [];
 	const fresh = vi.spyOn(plugin, "freshResult");
 	return { plugin, app, fresh };
 }
@@ -85,7 +92,7 @@ describe("Ctrl- or Cmd-click opens the source note and rolls nothing", () => {
 		await wait();
 		span.listeners.click?.(press({ ctrlKey: true }));
 		await wait();
-		expect(app.openLinkText).toHaveBeenCalledWith(source, "A.md", "tab");
+		expect(app.opened).toEqual([[source, "tab"]]);
 		expect(fresh).not.toHaveBeenCalled();
 		expect(plugin.settings.history).toHaveLength(0);
 	});
@@ -96,7 +103,7 @@ describe("Ctrl- or Cmd-click opens the source note and rolls nothing", () => {
 		await wait();
 		span.listeners.click?.(press({ metaKey: true }));
 		await wait();
-		expect(app.openLinkText).toHaveBeenCalledWith("Lore/Tab.md", "A.md", "tab");
+		expect(app.opened).toEqual([["Lore/Tab.md", "tab"]]);
 		expect(fresh).not.toHaveBeenCalled();
 	});
 
@@ -109,12 +116,12 @@ describe("Ctrl- or Cmd-click opens the source note and rolls nothing", () => {
 		one.listeners.click?.(press({ ctrlKey: true }));
 		link.listeners.click?.(press({ ctrlKey: true }));
 		await wait();
-		const opened = app.openLinkText.mock.calls.map((call) => (call as unknown[])[0]);
+		const opened = app.opened.map(([path]) => path);
 		expect(opened).toHaveLength(2);
 		for (const path of opened) expect(["Npc1.md", "Npc2.md"]).toContain(path);
 		many.listeners.click?.(press({ ctrlKey: true }));
 		await wait();
-		expect(app.openLinkText).toHaveBeenCalledTimes(2);
+		expect(app.opened).toHaveLength(2);
 		expect(notices).toContain(NO_SOURCE_NOTICE);
 	});
 
@@ -125,7 +132,7 @@ describe("Ctrl- or Cmd-click opens the source note and rolls nothing", () => {
 		span.listeners.click?.(press({ ctrlKey: true }));
 		await wait();
 		expect(fresh).toHaveBeenCalledTimes(1);
-		expect(app.openLinkText).not.toHaveBeenCalled();
+		expect(app.opened).toEqual([]);
 	});
 
 	it("on dice-mod a section opens its source; dice still open the replace window", async () => {
@@ -138,7 +145,7 @@ describe("Ctrl- or Cmd-click opens the source note and rolls nothing", () => {
 		dice.listeners.click?.(press({ ctrlKey: true }));
 		dice.listeners.click?.(press({ altKey: true }));
 		await wait();
-		expect(app.openLinkText).toHaveBeenCalledWith("Lore/Sec.md", "A.md", "tab");
+		expect(app.opened).toEqual([["Lore/Sec.md", "tab"]]);
 		expect(modify).toHaveBeenCalledTimes(2);
 		expect(modify.mock.calls.every((call) => (call[0] as { kind: string }).kind === "dice")).toBe(true);
 	});
@@ -192,7 +199,7 @@ describe("Ctrl-click on |none makes it empty again and forgets", () => {
 		await wait();
 		expect(span.text).toBe("");
 		expect(plugin.hasResult("k")).toBe(false);
-		expect(app.openLinkText).not.toHaveBeenCalled();
+		expect(app.opened).toEqual([]);
 		// Drawn again, it stays empty.
 		const redrawn = mount(plugin, "1d6|none");
 		await wait();
@@ -221,7 +228,7 @@ describe("Ctrl-click on |none makes it empty again and forgets", () => {
 		await wait();
 		span.listeners.click?.(press({ ctrlKey: true }));
 		await wait();
-		expect(app.openLinkText).not.toHaveBeenCalled();
+		expect(app.opened).toEqual([]);
 		expect(plugin.hasResult("k")).toBe(false);
 	});
 });
@@ -237,7 +244,32 @@ describe("plain click and Enter are unchanged", () => {
 		dice.listeners.keydown?.({ key: "Enter", ctrlKey: true });
 		await wait();
 		expect(fresh).toHaveBeenCalledTimes(3);
-		expect(app.openLinkText).not.toHaveBeenCalled();
+		expect(app.opened).toEqual([]);
 		expect(plugin.settings.history).toHaveLength(3);
+	});
+});
+
+describe("after the keuring", () => {
+	it("a kept result whose source note is gone opens nothing and makes no new note", async () => {
+		const { plugin, app } = await load();
+		const flags = { nodice: false, form: false, avg: false, none: false };
+		(plugin as unknown as { kept: Map<string, unknown> }).kept.set("k", { kind: "section", text: "Oud", details: "", formula: "[[Weg]]", flags, source: "Weg.md" });
+		const span = mount(plugin, "[[Weg]]", "k", true);
+		await wait();
+		span.listeners.click?.(press({ ctrlKey: true }));
+		await wait();
+		expect(app.opened).toEqual([]);
+		expect(app.openLinkText).not.toHaveBeenCalled();
+		expect(notices).toContain(SOURCE_GONE_NOTICE);
+	});
+
+	it("two plugins do not share history or formulas", async () => {
+		const first = await load();
+		await first.plugin.freshResult("k", "1d6", "A.md");
+		first.plugin.settings.formulas.push({ name: "x", formula: "1d6" });
+		const second = await load();
+		expect(second.plugin.settings.history).toEqual([]);
+		expect(second.plugin.settings.formulas).toEqual([]);
+		expect(second.plugin.settings.keptResults).toEqual([]);
 	});
 });
