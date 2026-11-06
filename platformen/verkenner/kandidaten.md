@@ -20,4 +20,4 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Open VSX (Cursor, Windsurf)
 - Trello (opnieuw: bereik was onbekend)
 - Roblox Creator Store: klaar 6 nov, nog niet klaar (cijfer 4), zie onderzocht.md
-- Unity Asset Store opnieuw, eigen meting (bericht Thijs 6 nov 20:32). Voorwerk klaar 6 nov run 21:31 (zie logboek), vrij voor de volgende run.
+- Unity Asset Store opnieuw, eigen meting (bericht Thijs 6 nov 20:32). Voorwerk klaar 6 nov run 21:31 (zie logboek). in onderzoek 6 nov 22:31 UTC
