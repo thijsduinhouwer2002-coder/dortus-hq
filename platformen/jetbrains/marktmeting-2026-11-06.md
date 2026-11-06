@@ -167,9 +167,33 @@ Andere zwakke gratis plugins nagekeken (laatste versie, GEZIEN; cijfers uit de z
 ## Volgende stap
 Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, waarvan de laatste versie ouder is dan 2 jaar, voor een taal of bestandssoort die nog veel gebruikt wordt, en waar nog geen goede nieuwe vervanger is. Dat is het bouwbesluit: kies er één, freemium.
 
-## Meting deel 5: verlaten gratis plugins (16:21 UTC, met curl, NOG NIET NAGEKEKEN)
+## Meting deel 5: verlaten gratis plugins (16:21 UTC, met curl, afgemaakt in deel 6)
 - Gratis plugins met minstens 100.000 downloads: 870. Daarvan niet van JetBrains en laatste versie voor november 2024: 219 (GEZIEN). De hele lijst staat in `data/verlaten-gratis-2026-11-06.tsv`.
 - Veel daarvan zijn al vervangen: CodeGlance (1.758.526, laatst 2018) door CodeGlance Pro (4.691.766, gratis), Thrift Support (361.136, laatst 2022) door een gratis fork (199.360, cijfer 4,69), Robot Framework-plugins door nieuwe, Ansible door OrchidE en Ansible Pro (GEZIEN).
 - Batch en CMD zijn nu door BatchCraft genomen.
 - Eerste kandidaat zonder zichtbare vervanger in de top 6: **Git Flow Integration**, 682.493 downloads, cijfer 4,37, laatste versie augustus 2021 (GEZIEN). Of git flow nog veel gebruikt wordt is niet gemeten.
 - Volgende run: de 219 aflopen, per stuk kijken of er een nieuwe vervanger is, en of de taak of taal nog leeft. Daarna één kiezen.
+
+## Meting deel 6: waarom BatchCraft groeit, en wat dat zegt (17:00 tot 17:10 UTC, met curl)
+
+**1. Welke van de 219 werken niet meer in een nieuwe IDE (GEZIEN).** Per plugin de nieuwste versie opgehaald en gekeken tot welke IDE-versie hij werkt (`until`). 76 van de 219 werken niet in IDE 2025.2 of nieuwer, 138 hebben geen bovengrens, 5 werken nog net. Lijst: `data/verlaten-gratis-compat-2026-11-06.tsv`. Voorbeelden: Git Flow Integration (682.493, werkt tot 2021.2), Git Flow Integration Plus (109.574, tot 2024.1), Luanalysis (155.671, tot 2023.3), GDScript (111.825, tot 2024.2), Minecraft NBT Support (101.777, tot 2022.3), RESTFul-Tool (621.552, tot 2024.1).
+
+**2. Wie zit er al in die gaten (GEZIEN).**
+- Git flow: 10 nieuwere plugins uit 2026, de beste (Git Flow Helper) heeft 9.448 downloads in totaal. Druk, en geen uitschieter.
+- Lua: JetBrains bracht in november 2026 zelf een Lua-plugin uit (id 34924), en EmmyLua (1.013.855) wordt onderhouden. Lua valt af.
+- Pascal: twee nieuwe freemium plugins in oktober en november 2026 (Pascal Flow van meanmail.dev, Pasforge van KITSS TECH).
+- GDScript: de nieuwste plugin werkt tot 2025.1. Niet verder uitgezocht, Rider heeft eigen Godot-steun (niet gemeten).
+
+**3. De maker van BatchCraft deed precies onze hypothese, 27 keer (GEZIEN).** KITSS TECH zette in oktober 2026 27 plugins op de Marketplace (`data/maker-kitss-tech-2026-11-06.tsv`). BatchCraft heeft er 9.054. De andere 26 hebben 16 tot 379 downloads. Daaronder zitten ook vervangers van verlaten plugins met veel downloads: Pinwise voor Python requirements (de oude Requirements-plugin heeft 2.968.692) heeft 43, Pasforge voor Pascal (I-Pascal 151.908) heeft 31, Rolewise voor Ansible (YAML/Ansible support 724.027) heeft 379. **De werkhypothese uit deel 4 klopt dus niet zoals hij er stond:** een verlaten gratis plugin met veel downloads vervangen geeft geen groei vanzelf. 1 van de 4 vervangers van KITSS groeide.
+
+**4. Wat BatchCraft wel anders heeft (GEZIEN, de reden is een GOK).** De IDE raadt zelf plugins aan als je een bestand opent dat hij niet kent. De lijst die hij toont komt van de Marketplace: `https://plugins.jetbrains.com/feature/getImplementations?featureType=com.intellij.fileTypeFactory&implementationName=*.bat`. Voor `*.bat` geeft die precies drie plugins: CMD Support (laatste versie 2015), Batch Scripts Support (2021) en BatchCraft (GEZIEN). Elk Gradle-project heeft een `gradlew.bat` en elk Maven-project met wrapper een `mvnw.cmd` (GOK dat bijna elk project die heeft, wel zeker dat Gradle hem standaard maakt). In een test met IntelliJ IDEA 2026.2 en 2025.2 Community is `gradlew.bat` een onbekend bestand (GEZIEN, `data/ide-bestandssoort-test-2026-11-06.tsv`). Dus: wie een Java- of Android-project opent en `gradlew.bat` aanklikt, krijgt BatchCraft aangeraden, naast twee verouderde plugins. Dat verklaart het snelle groeien beter dan "verlaten" alleen (GOK). Bij Pinwise, Pasforge en Rolewise speelt dit niet of veel minder: `requirements.txt` kent de IDE al met Python erbij, Pascal en Ansible zijn veel kleiner.
+
+**Kanttekening bij de test:** de testomgeving laadt niet alle meegeleverde plugins (bijvoorbeeld `.vue` en `.ini` kwamen uit als onbekend in IDEA 2026.2, terwijl daar plugins van JetBrains voor zijn). Een "onbekend" in de test betekent dus niet zeker onbekend bij de gebruiker. Voor `gradlew.bat` is er geen plugin van JetBrains (GEZIEN in de aanraadlijst), dus daar klopt het wel.
+
+**5. Aanraadlijst voor ruim 170 bestandssoorten (GEZIEN).** `data/aanraden-per-bestandssoort-2026-11-06.tsv` en, met downloads en datum van de aangeraden plugins, `data/aangeraden-plugins-2026-11-06.tsv` (19 soorten). Uitkomst: bijna elke veelvoorkomende soort die de IDE niet zelf kent, heeft een gratis plugin van JetBrains die onderhouden wordt: `.env` (.env files, 32.700.066), `.log` (Ideolog, 13.048.215), `Makefile` (7.314.825), `.ini` (8.764.067), `.http`, `.tf`, `.graphql`, `.proto`. PowerShell (1.504.442), CODEOWNERS (466.335) en `.gitattributes` (759.790) hebben een gratis plugin die in 2026 nog bijgewerkt is. Batch is in deze 19 de enige veelvoorkomende soort waar alleen verlaten gratis plugins tegenover stonden. Voor `.npmrc`, `Podfile` en `.dockerignore` raadt de Marketplace helemaal niets aan (GEZIEN); `.dockerignore` kent IDEA 2026.2 zelf, `.npmrc` en `Podfile` niet in de test. Nog niet uitgezocht of daar vraag naar is.
+
+## Tussenstand na deel 6
+- Het patroon is smaller dan gedacht. Niet "verlaten plugin", maar: **een bestand dat in heel veel projecten zit, dat de IDE niet kent, zonder plugin van JetBrains, en waar de aangeraden gratis plugins verlaten zijn.** Dan zet de IDE zelf je product voor de gebruiker. Eén voorbeeld (BatchCraft), dus nog een GOK.
+- Concurrenten die op grote schaal plugins maken (KITSS TECH 27 in een maand, meanmail.dev 30 in totaal) zitten al in veel gaten. Een gat vinden en snel bezetten is dus waar het om gaat, en de meeste pogingen leveren weinig op.
+- **Geen bouwbesluit.** Er is nog geen tweede bestandssoort gevonden die aan alle vier de eisen voldoet.
+- Volgende meting: per aangeraden bestandssoort (de lijst van ruim 170 en meer) automatisch nagaan of er een plugin van JetBrains bij zit en of de beste niet-JetBrains-plugin na 2024 nog is bijgewerkt. Over blijft een korte lijst. Daarna per soort schatten hoe vaak hij in projecten voorkomt (bijvoorbeeld via de zoekfunctie van GitHub op bestandsnaam).

@@ -1,0 +1,50 @@
+bestandssoort	plugin	downloads	model	laatste_versie	until	maker
+*.bat	CMD Support	2245589	FREE	2015-03		Yaroslav Klymko
+*.bat	Batch Scripts Support	2061264	FREE	2021-12		None
+*.bat	BatchCraft: Batch & CMD	9054	PAID	2026-10		KITSS TECH
+*.ps1	PowerShell	1504442	FREE	2026-07		Andrey Dernov
+*.ps1	PowerShell 7	809	FREE	?	None	SoumyajitXD
+*.env	.env files	32700066	FREE	2026-11	263.*	JetBrains s.r.o.
+*.env	EnvFile	2421988	FREE	2026-03		Borys Pierov
+*.env	Env File Masker	40250	FREE	2026-05		mujakayadan
+*.env	EnvForge - AI-Safe Environment Manager	30476	FREE	2026-09	262.*	Emre Erinc
+*.log	Ideolog	13048215	FREE	2026-10	263.*	JetBrains s.r.o.
+*.log	Catdea	275454	FREE	2020-03	202	Vadym Karko
+CODEOWNERS	Git Codeowners	466335	FREE	2026-07		xepozz
+CODEOWNERS	Codeowls	1798	FREE	2026-05		johannes
+Makefile	Makefile Language	7314825	FREE	2026-10	263.*	JetBrains s.r.o.
+Makefile	Wave Language	5124	FREE	2026-03		LunaStev
+Procfile	Procfile	1497	PAID	2026-10	263.*	Anbora Labs
+.gitattributes	.gitattributes support	759790	FREE	2026-07		xepozz
+Justfile	Just	560543	FREE	2026-11	263.*	linux_china
+*.service	Unit File Support (systemd)	1273998	FREE	2026-11	241.*	Steve Ramage
+*.http	HTTP Client	16546634	FREE	2026-11	263.*	JetBrains s.r.o.
+*.http	HTTP Client	16546634	FREE	2026-11	263.*	JetBrains s.r.o.
+*.ini	Ini	8764067	FREE	2026-10	263.*	JetBrains s.r.o.
+*.ini	Ini	8764067	FREE	2026-10	263.*	JetBrains s.r.o.
+*.ini	JASS	17619	FREE	2024-12	243.*	WarRaft
+*.conf	PHP	7160995	FREE	2026-11	263.*	JetBrains s.r.o.
+*.conf	PHP	7160995	FREE	2026-11	263.*	JetBrains s.r.o.
+*.conf	HOCON	1318387	FREE	2026-10	270.*	Roman Janusz
+*.conf	logstash-config-files-support	599615	FREE	2025-06		Ilya Korennoy
+*.conf	Casbin	101833	FREE	2023-12		Will
+*.conf	Nginx Configuration	2762004	FREE	2026-07		meanmail.dev
+*.conf	Nginx Configuration Pro	268231	PAID	2026-11		meanmail.dev
+*.conf	nginx-support	27454	FREE	2026-09		wang tc
+*.conf	Nginx Configuration Formatter	10796	FREE	2026-03		AyakuraYuki
+*.conf	NGINX Configuration Language	3254	FREE	2026-04		l2dy
+*.conf	PipelineLens	17399	FREE	2026-05		舒一笑不秃头
+*.conf	Nginx Lens	5366	FREE	2026-05	263.*	CarlRenny
+*.conf	HOCON Support	1059	FREE	2026-07	263.*	Daniil Sudomoin
+*.conf	Smarty	51137	FREE	2026-10	263.*	JetBrains s.r.o.
+*.tf	Terraform and HCL	6160606	FREE	2026-10	263.*	JetBrains s.r.o.
+*.tf	Terraform Code Visualizer	3916	FREE	2021-10	212.*	Stenal P Jolly
+*.graphql	GraphQL	6266386	FREE	2026-10	263.*	JetBrains s.r.o.
+*.graphql	Apollo GraphQL	94910	FREE	2026-06		Apollo GraphQL
+*.proto	Protocol Buffers	8682427	FREE	2026-10	263.*	JetBrains s.r.o.
+*.proto	Google Protocol Buffers support	178662	FREE	2015-02	141.3058	None
+*.proto	Protobuf Support	763372	FREE	?	None	Kostiantyn Shchepanovskyi
+*.proto	Protobuf	558340	FREE	2026-08	262.*	HIGAN
+*.proto	Buf for Protocol Buffers	241431	FREE	2026-10	262.*	Buf
+*.proto	ProtoStuff Generate	31735	FREE	2024-05		dahuoyzs
+*.proto	EPICS Workbench	11359	FREE	2026-04		HaoHao

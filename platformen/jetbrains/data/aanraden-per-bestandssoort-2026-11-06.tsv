@@ -1,0 +1,175 @@
+naam	aantal_aangeraden	bundled_vlag	plugins
+*.ps1	2	-	PowerShell; PowerShell 7
+*.sh	3	-	BashSupport; Shell Script; BashSupport Pro
+*.bat	3	-	CMD Support; Batch Scripts Support; BatchCraft: Batch & CMD
+*.log	2	-	Ideolog; Catdea
+*.csv	9	-	CSV Editor; Rainbow CSV; Database Tools and SQL for WebStorm; ExcelReader; ExcelEditor; Cap-Hadoop; CSV Color Pro; Document Viewer
+*.tsv	5	-	CSV Editor; Database Tools and SQL for WebStorm; m3 Robot Support; CSV Color Pro; Document Viewer
+*.env	4	-	.env files; EnvFile; Env File Masker; EnvForge - AI-Safe Environment Manager
+*.ini	3	bundled	Ini; Ini4Idea; JASS
+*.cfg	8	-	Minecraft Development; Twelf Plugin; Context Free Grammar; Ini; GDScript; Nim; Writerside; Mojo
+*.conf	14	bundled	PHP; PHP; HOCON; logstash-config-files-support; Casbin; Nginx Configuration; Nginx Configuration Pro; nginx-support
+*.toml	2	-	Toml; Groml Support
+*.properties	5	bundled	Properties Support; Properties; ApiTool; TableGear - Yet Another ORM and ElasticSearch Code Generator; Jasypt Helper
+*.xlsx	10	-	MDW Studio; ExcelReader; ExcelEditor; SCell.Reader; Light Sheet; OOXml Tools; Document Viewer; Omni Viewer
+*.docx	3	-	OOXml Tools; Document Viewer; Omni Viewer
+*.pdf	7	-	PDF Viewer; HTTP Client; FusionPDF; Reader; Document Viewer; Omni Viewer; R3 Book Reader
+*.parquet	10	-	Big Data Tools; Cap-Hadoop; Big Data File Viewer; Omni Viewer; Parquet Studio; Hexana — WebAssembly & Binary Inspector; Columns - Parquet and Avro Editor; Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer
+*.avro	7	-	Big Data Tools; Cap-Hadoop; Big Data File Viewer; Omni Viewer; Columns - Parquet and Avro Editor; TableKit: Excel & Parquet Viewer; Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer
+*.proto	7	-	Protocol Buffers; Google Protocol Buffers support; Protobuf Support; Protobuf; Buf for Protocol Buffers; ProtoStuff Generate; EPICS Workbench
+*.thrift	5	-	Thrift Support; Thrift Support (fork); Thrift-Formatter; Thrift Assistant; Thrift Hero
+*.graphql	2	-	GraphQL; Apollo GraphQL
+*.gql	4	-	Graql; GraphQL; Apollo GraphQL; MarkLogic Pulse
+*.tf	2	-	Terraform and HCL; Terraform Code Visualizer
+*.hcl	3	-	Terraform and HCL; Atlas; function-hcl
+*.nix	2	-	NixIDEA; Nix Pro
+*.lua	11	-	Lua [Deprecated]; EmmyLua; Luakit; Luanalysis; IDLua; Tarantool-EmmyLua; SumnekoLua; Openresty
+*.rb	2	bundled	Ruby; Ruby
+*.go	3	-	Go language (golang.org) support plugin; Go; Go for JetBrains Client
+*.rs	3	bundled	Android Support; Rust; Rust Pro
+*.swift	4	-	Swift; Noctule, the Swift IDE; Kotlin Multiplatform; Flexible Swift
+*.kt	6	-	Kotlin; Kotlin/Native for CLion; Kotlin/Native for AppCode; KEEP-87 Kotlin; Kotlin Multiplatform Mobile for AppCode; Kotlin for JetBrains Client
+*.dart	1	-	Dart
+*.vue	1	-	Vue.js
+*.svelte	3	-	Svelte; Svelte; Svelte Hero
+*.astro	2	-	Astro; Astro Pro
+*.hbs	1	-	Handlebars/Mustache
+*.mustache	1	-	Handlebars/Mustache
+*.ejs	2	-	EJS; EJS Hero
+*.pug	2	-	Pug (ex-Jade); NPCoding Support for Pug
+*.jinja	3	-	Python; Jinja2 Enhanced Support; SaltStack Toolkit
+*.j2	5	-	OrchidE - Ansible Language Support; Python; Jinja2 Enhanced Support; SaltStack Toolkit; Rolewise for Ansible
+*.njk	2	-	Nunjucks Hero; Nunjucks
+*.liquid	3	-	Liquid; Liquid Hero; Liquid for Shopify & Jekyll
+*.twig	2	-	PHP; Twig
+*.tpl	5	bundled	PHP; PHP; PRADO Plugin; DevTools; Smarty
+*.erb	1	-	Ruby
+*.haml	2	bundled	HAML; Haml
+*.slim	2	bundled	Slim; Slim
+*.cshtml	0	-	
+*.razor	0	-	
+*.xaml	0	-	
+*.resx	0	-	
+*.csproj	0	-	
+*.sln	1	-	jetplay
+*.vcxproj	0	-	
+*.cmake	1	-	CMake
+*.mk	5	-	Makefile Language; DockDockBuild; AndroidSupportFramework; Wave Language; mk-format Highlighter
+*.gradle	2	bundled	Groovy; Gradle for Java
+*.bzl	4	-	Bazel; Bazel for Android Studio; Buck for IDEA; Bazel LSP
+*.bazel	2	-	Bazel; Bazel LSP
+*.star	2	-	Bazel; Bazel LSP
+*.jsonnet	3	-	Jsonnet Language Server; Jsonnet Pro; Jsonnet
+*.libsonnet	4	-	Jsonnet Language Server; Jsonnet Pro; Jsonnet; DataSonnet Mapper
+*.cue	2	-	CUE; Cuefy
+*.rego	1	-	Open Policy Agent
+*.dhall	1	-	Dhall
+*.pkl	0	-	
+*.kdl	1	-	KDL Document Language
+*.ron	6	-	RON (Rusty Object Notation); RON; RON Extended Support; RON Extended Support for Rust Rover; RON LSP; RON Assist
+*.hjson	1	-	HJson
+*.json5	1	-	JSON
+*.jsonc	1	-	JSON
+*.yaml	6	bundled	YAML; OrchidE - Ansible Language Support; YAML; Grav Support; Alibaba Cloud Toolkit; Jasypt Helper
+*.yml	5	bundled	YAML; OrchidE - Ansible Language Support; YAML; simple jump; Jasypt Helper
+*.xml	1	-	Vector Thumbnails
+*.xsd	1	-	XSD / WSDL Visualizer
+*.wsdl	0	-	
+*.dtd	0	-	
+*.svg	1	-	SVG2VectorDrawable
+*.drawio	1	-	Diagrams.net Integration
+*.puml	2	-	plantuml4idea; Omni Viewer
+*.mmd	8	-	SciaReto Mind Map; Mermaid; Nereid; Mermaid Studio; Mermaid Visualizer; Mermaid Studio Core; Omni Viewer; Mermaid Companion
+*.dot	6	-	DOT Language; DevTools; Dot Base; Dot Compat; Document Viewer; Dot Plus
+*.gv	4	-	DOT Language; Dot Base; Dot Compat; Dot Plus
+*.md	5	-	Markdown; Markdown Navigator Enhanced; Illuminated Cloud 2; mini markdown; Gemini Code Assist
+*.mdx	1	-	MDX
+*.adoc	1	-	AsciiDoc
+*.rst	5	bundled	ReStructuredText; ReStructuredText Support; Python; Python Community Edition; reStructuredText Pro
+*.tex	2	-	TeXiFy-IDEA; LaTeX Pro
+*.bib	2	-	TeXiFy-IDEA; LaTeX Pro
+*.org	2	-	Org4Idea; OrgMode
+*.txt	0	-	
+*.diff	2	-	Diff / Patch File Support; Diff / Patch File Support
+*.patch	2	-	Diff / Patch File Support; Diff / Patch File Support
+*.http	2	bundled	HTTP Client; HTTP Client
+*.rest	3	-	Http Editor Client; Retrofit Rest Client; HTTP Client
+*.har	1	-	JSON
+*.pcap	2	-	Omni Viewer; Hexana — WebAssembly & Binary Inspector
+*.sqlite	2	-	SimpleSqliteBrowser; SQLite Lens: SQLite Database File Viewer
+*.db	6	-	SQLDelight; MPS file-DB persistence; SimpleSqliteBrowser; BoltDB Explorer; EPICS Workbench; bbolt Database
+*.duckdb	2	-	DuckDB Lens: DuckDB Database File Viewer; Toolkit for DuckDB
+*.ipynb	5	-	Python; Python Community Edition; Jupyter; Notebook Files; Notebook Lens: Jupyter ipynb Viewer
+*.sav	0	-	
+*.pkl	0	-	
+*.npy	2	-	Niivue Viewer; Scientific Image Visualizer
+*.h5	1	-	Omni Viewer
+*.onnx	1	-	ONNX4IDEA
+*.safetensors	1	-	Model File Inspector
+*.gguf	1	-	Model File Inspector
+*.wasm	2	-	Hexana — WebAssembly & Binary Inspector; Hex Editor
+*.wat	2	-	WebAssembly; Hexana — WebAssembly & Binary Inspector
+Makefile	2	-	Makefile Language; Wave Language
+Jenkinsfile	7	-	Jenkinsfile; Jenkinsfile Pro; PandaCoder; PipelineLens; Jenkinsfile Syntax Highlighter; GenAI Jenkinsfile; Jenkinsfile Support
+Vagrantfile	3	bundled	Ruby; Ruby; Vagrant Icon
+Procfile	1	-	Procfile
+Caddyfile	2	-	Caddyfile support; Caddyfile Pro
+CODEOWNERS	2	-	Git Codeowners; Codeowls
+justfile	1	-	Just
+Justfile	1	-	Just
+Brewfile	1	-	Brew Bundle
+Tiltfile	1	-	Tiltfile Support
+Gemfile	2	bundled	Ruby; Ruby
+Podfile	0	-	
+Dockerfile	3	-	Docker; Red Hat Dependency Analytics; Docker Manager
+Earthfile	2	-	Earthly; EarthBuild
+Taskfile.yml	0	-	
+.npmrc	0	-	
+.nvmrc	1	-	Version Checker
+.prettierrc	1	-	Prettier
+.eslintrc	3	-	ESLint; JavaScript and TypeScript; JavaScript for JetBrains Client
+.babelrc	2	-	JavaScript and TypeScript; JavaScript for JetBrains Client
+.htaccess	2	bundled	Apache config (.htaccess); Apache config (.htaccess) support
+.gitattributes	1	-	.gitattributes support
+.gitignore	1	bundled	Git Integration
+.dockerignore	0	-	
+.editorconfig	1	-	EditorConfig
+LICENSE	0	-	
+go.mod	1	-	Go
+Cargo.lock	1	-	Toml
+poetry.lock	1	-	Toml
+package-lock.json	0	-	
+yarn.lock	2	-	JavaScript and TypeScript; JavaScript for JetBrains Client
+pnpm-lock.yaml	0	-	
+requirements.txt	2	-	Python; Python Community Edition
+Pipfile	1	-	Toml
+.tool-versions	1	-	Version Checker
+CMakeLists.txt	1	-	CMake
+BUILD	4	-	Bazel; Bazel for CLion; Bazel for Android Studio; Bazel LSP
+WORKSPACE	2	-	Bazel; Bazel LSP
+meson.build	1	-	Meson
+SConstruct	0	-	
+*.cmd	5	-	CMD Support; Batch Scripts Support; BatchUI; EPICS Workbench; BatchCraft: Batch & CMD
+*.vbs	2	-	VBScript; ASP Classic Language Support
+*.vba	0	-	
+*.bas	0	-	
+*.cls	4	-	Illuminated Cloud; JetForcer | The Smartest Force.com IDE; TeXiFy-IDEA; Illuminated Cloud 2
+*.frm	0	-	
+*.au3	0	-	
+*.ahk	1	-	AutoHotkey
+*.applescript	2	-	AppleScript Support; AppleScript Toolkit
+*.scpt	2	-	AppleScript Support; AppleScript Toolkit
+*.nsi	3	-	NSIS plugin; NSIS Language Support; NPCoding Installer Scripts
+*.iss	1	-	Inno Setup
+*.reg	1	-	NPCoding Registry Files
+*.inf	0	-	
+*.desktop	0	-	
+*.service	1	-	Unit File Support (systemd)
+*.plist	4	-	RubyMotion support; Kotlin Multiplatform; Noctule, the Swift IDE; Flexible Swift
+*.strings	2	-	Kotlin Multiplatform; Flexible Swift
+*.xcconfig	1	-	Kotlin Multiplatform
+*.pbxproj	5	-	Multi-OS Engine; Multi-OS Engine Community Edition; Kotlin Multiplatform; Noctule, the Swift IDE; Flexible Swift
+*.entitlements	0	-	
+*.storyboard	1	-	Kotlin Multiplatform
+*.xib	1	-	Kotlin Multiplatform
+*.gitlab-ci.yml	2	-	GitLabCI; CI Aid for GitLab
