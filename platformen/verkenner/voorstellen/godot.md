@@ -1,6 +1,6 @@
 # Voorstel: Godot (Asset Store en Asset Library)
 
-**Advies: nee, nu niet. Wel op de wachtlijst.** In de nieuwe winkel kun je op dit moment niets verkopen, en we vonden geen omzetcijfer van een maker van Godot-plugins of tools. De groei van Godot zelf is wel groot. Opnieuw bekijken zodra betaalde items voor iedereen opengaan. Geschreven op 6 nov 2026.
+**Advies: nee, nu niet. Wel op de wachtlijst. Cijfer: 3 van 10.** In de nieuwe winkel kun je op dit moment niets verkopen, en we vonden geen omzetcijfer van een maker van Godot-plugins of tools. De groei van Godot zelf is wel groot. Opnieuw bekijken zodra betaalde items voor iedereen opengaan. Geschreven op 6 nov 2026.
 
 ## Meetgrens
 Geen eigen meting: alles is DERDEN of GOK. De winkel en itch.io waren voor de ene agent wel en de andere niet te lezen. Downloads staan niet op de itempagina, het huidige aantal items is niet geteld.

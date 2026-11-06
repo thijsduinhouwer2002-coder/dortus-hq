@@ -24,6 +24,7 @@ Zwak of te klein: Logi, Stream Deck, Grafana, OBS, ComfyUI, Raycast, Logseq, Not
 Niet te meten (6 nov): Canva, Wix, Google Workspace, Attio, Gorgias, ChatGPT-apps. Opnieuw proberen als er iets verandert.
 
 Toegevoegd:
-- Shopify (6 nov): nee voor nu. Geld is echt maar zit bij oude apps, geen schoon voorbeeld uit 2026 van snel betaald krijgen, veel meer nieuwe apps. Zie `voorstellen/shopify.md`.
-- Unity Asset Store (6 nov): nee, nu niet. Winkel niet zelf te meten, alleen losse signalen dat makers verdienen, geen compleet cijfer van een nieuwe maker, 30% afdracht. Zie `voorstellen/unity-asset-store.md`.
-- Godot (6 nov): nee nu, wel op de wachtlijst. Winkel is alleen gratis, betaald zonder datum. Opnieuw kijken als betaald opengaat. Zie `voorstellen/godot.md`.
+- Shopify (6 nov, cijfer 5): nog niet klaar, voorlopig nee. Geld is echt maar zit bij oude apps, geen schoon voorbeeld uit 2026 van snel betaald krijgen, veel meer nieuwe apps. Zie `voorstellen/shopify.md`.
+- Unity Asset Store (6 nov, cijfer 4): nog niet klaar, voorlopig nee. Winkel niet zelf te meten, alleen losse signalen dat makers verdienen, geen compleet cijfer van een nieuwe maker, 30% afdracht. Zie `voorstellen/unity-asset-store.md`.
+- Godot (6 nov, cijfer 3): nee nu, wel op de wachtlijst. Winkel is alleen gratis, betaald zonder datum. Opnieuw kijken als betaald opengaat. Zie `voorstellen/godot.md`.
+- Framer (6 nov, cijfer 5): nog niet klaar. Geld bij templates vooral van voor Framer 3.0, geen kleine pluginmaker aantoonbaar betaald, bereik niet gemeten. Zie `voorstellen/framer.md`.

@@ -1,6 +1,6 @@
 # Voorstel: Shopify (apps)
 
-**Advies: nee, nu niet.** Hoofdreden: we vonden geen enkel duidelijk voorbeeld uit 2026 van een kleine maker die een nieuwe Shopify-app snel naar betalende klanten bracht, terwijl er de afgelopen maanden veel meer nieuwe apps bijkomen. Er wordt wel veel geld verdiend, vooral door oude apps. Opnieuw bekijken als er zo'n voorbeeld opduikt of als we een eigen ingang naar winkeliers hebben. Geschreven op 6 nov 2026.
+**Advies: nog niet klaar, voorlopig nee. Cijfer: 5 van 10.** Hoofdreden: we vonden geen enkel duidelijk voorbeeld uit 2026 van een kleine maker die een nieuwe Shopify-app snel naar betalende klanten bracht, terwijl er de afgelopen maanden veel meer nieuwe apps bijkomen. Er wordt wel veel geld verdiend, vooral door oude apps. Opnieuw bekijken als er zo'n voorbeeld opduikt of als we een eigen ingang naar winkeliers hebben. Geschreven op 6 nov 2026.
 
 ## Meetgrens
 apps.shopify.com en shopify.dev waren in deze run geblokkeerd. Er is dus geen eigen meting: alles hieronder is DERDEN of GOK, en de officiële regels zijn niet gelezen. De omzetcijfers zijn modellen van derden, geen betaalgegevens. De pagina's zijn via een samenvattend hulpmiddel gelezen en de tellingen van Jakubik en AppstorePulse alleen via Sicard. Reddit en X zijn niet doorzocht.
@@ -51,6 +51,9 @@ apps.shopify.com en shopify.dev waren in deze run geblokkeerd. Er is dus geen ei
 
 ## Eerste idee (als het later toch ja wordt)
 Een klein hulpmiddel voor een smalle Europese behoefte, waar een brede zoekterm niet nodig is, bijvoorbeeld rond EU-regels voor webwinkels. Eerst uitzoeken wat er ontbreekt.
+
+## Wat er nog gemeten moet worden
+Steekproef van minstens 30 apps uit mei tot augustus 2026 met reviews, prijs en maker, zodra apps.shopify.com leesbaar is (netwerkpunt op de lijst voor Thijs). Daarnaast installs via Store Leads of StoreCensus (kost geld, dus via Thijs) en cijfers uit Reddit en X.
 
 ## Nakijken
 Eerste versie afgekeurd door de controleur (6 nov), herschreven met zijn correcties, tweede controle akkoord.

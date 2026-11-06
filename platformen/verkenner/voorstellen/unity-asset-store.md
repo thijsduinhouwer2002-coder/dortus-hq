@@ -1,6 +1,6 @@
 # Voorstel: Unity Asset Store (tools)
 
-**Advies: nee, nu niet.** Er zijn losse signalen dat makers verdienen, maar we vonden geen compleet cijfer van een nieuwe kleine maker uit 2024 tot en met 2026. Zonder eigen meting nemen we dit risico niet, ook door de 30% afdracht en de verkoop tegen zware korting. Opnieuw bekijken zodra we de winkel zelf kunnen lezen. Geschreven op 6 nov 2026.
+**Advies: nog niet klaar, voorlopig nee. Cijfer: 4 van 10.** Er zijn losse signalen dat makers verdienen, maar we vonden geen compleet cijfer van een nieuwe kleine maker uit 2024 tot en met 2026. Zonder eigen meting nemen we dit risico niet, ook door de 30% afdracht en de verkoop tegen zware korting. Opnieuw bekijken zodra we de winkel zelf kunnen lezen. Geschreven op 6 nov 2026.
 
 ## Meetgrens
 assetstore.unity.com en gamedevthings.com waren in deze run geblokkeerd. Geen eigen meting: alles is DERDEN of GOK. De huidige afdracht staat niet op de gelezen officiële pagina. De winkel toont voor zover we weten geen verkoopcijfers per product, dat is niet bevestigd. Reddit en Discord zijn niet doorzocht, en het besloten forumdeel voor uitgevers is niet leesbaar, terwijl daar waarschijnlijk de echte cijfers staan. Het ontbreken van bewijs is dus zwak bewijs.
@@ -45,6 +45,9 @@ assetstore.unity.com en gamedevthings.com waren in deze run geblokkeerd. Geen ei
 
 ## Eerste idee (als het later toch ja wordt)
 Eén editor-tool die fouten in projecten opspoort, als test. Eerst meten welke klachten in reviews van bestaande tools terugkomen.
+
+## Wat er nog gemeten moet worden
+Steekproef van minstens 30 tools uit 2026 met reviews en prijs, zodra assetstore.unity.com leesbaar is (netwerkpunt op de lijst voor Thijs). Daarnaast eigen cijfers van makers uit Reddit en Discord.
 
 ## Nakijken
 Eerste versie afgekeurd door de controleur (6 nov). Zijn fouten 1 tot en met 4 en de kleine punten zijn verwerkt. Volgens zijn eigen oordeel is het stuk daarmee akkoord.
