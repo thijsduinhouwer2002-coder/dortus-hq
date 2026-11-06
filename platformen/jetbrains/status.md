@@ -1,6 +1,6 @@
 # JetBrains: status
 
-- **Fase:** uitzoeken wat we bouwen. Geen bouwbesluit. C (visuele editor) en D (betaalde taalondersteuning) staan weer naast elkaar: nieuwe betaalde taalplugins uit 2026 halen 86 tot 567 downloads per maand, Mermaid Studio (C, sinds jan 2026) 1.682 (GEZIEN). Liquid valt terug: de gratis plugin is van JetBrains zelf. Zie `marktmeting-2026-11-06.md`. Nog niets live.
+- **Fase:** uitzoeken wat we bouwen. Geen bouwbesluit. Kandidaten: C-breed (viewer of editor voor een bestandssoort die de IDE niet kent) en D (betaalde taalondersteuning). Nieuwe plugins uit 2025 en 2026 van beide soorten halen ruwweg 450 tot 4.600 downloads per maand (GEZIEN). Model: freemium. Zie `marktmeting-2026-11-06.md`. Nog niets live.
 - **Marketplace leesbaar** via de leestool (WebFetch), niet via curl (GEZIEN, 6 nov 16:00 UTC). 539 betaalde en 243 freemium plugins.
 - **Netwerk open** sinds Thijs het om ±16:00 UTC openzette: curl naar Marketplace, Gradle en Maven geeft 200 (GEZIEN, 6 nov 16:05 UTC). Marketplace lezen voortaan met curl, nooit met WebFetch (regel in CLAUDE.md).
 - **Bouwen werkt:** lege plugin gebouwd en getest, 2 tests groen (GEZIEN, 16:11 UTC). Recept in `bouwsjabloon.md`.

@@ -27,8 +27,11 @@ Nieuwste blok onderaan.
 - **Gedaan (16:12 UTC):** meting D deel 1 met curl, ruim 40 taal- en bestandssoorten nagelopen.
 - **Beslissing:** kortste lijst Liquid, reserve Caddyfile, want Liquid heeft de meeste gebruikers, een laag cijfer en geen goede gratis plugin ernaast. Nog geen bouwbesluit, want nieuwe betaalde taalplugins halen vaak maar honderden downloads en hun leeftijd is niet gemeten.
 - **Nakijken:** controleur keurde af: gratis concurrenten bij Jsonnet, Caddyfile en Nginx weggelaten, "het slechtste cijfer" klopte niet, "oude plugins" en "werkt" zonder bewijs. Alles verbeterd, Jsonnet geschrapt.
-- **Gedaan (16:17 UTC):** leeftijd van 11 plugins gemeten via de oudste versie, downloads per maand uitgerekend. Het veld `cdate` van een plugin is niet de startdatum, dat bleek bij BashSupport Pro.
+- **Gedaan (16:14 UTC):** leeftijd van 11 plugins gemeten via de oudste versie, downloads per maand uitgerekend. Het veld `cdate` van een plugin is niet de startdatum, dat bleek bij BashSupport Pro.
 - **Beslissing:** D niet meer de voorkeur, C en D weer naast elkaar, geen bouwbesluit. Reden: de grote betaalde taalplugins bestaan al sinds 2020 en 2021, nieuwe uit 2026 halen 86 tot 567 per maand, Mermaid Studio uit 2026 haalt 1.682. Liquid valt terug omdat de gratis Liquid-plugin van JetBrains zelf is.
 - **Nakijken:** controleur akkoord, twee kleine punten verwerkt.
 - **Misging:** ik schreef eerst tijden op die niet klopten (16:17, 16:20, 16:25 terwijl het 16:12 en 16:13 was). Verbeterd met `date`. Voortaan de tijd altijd met `date` opvragen.
+- **Gedaan (16:16 UTC):** alle betaalde en freemium plugins opgehaald, 102 nieuwe (2025 en 2026) gerangschikt op downloads per maand.
+- **Beslissing:** model wordt freemium, want bijna alle nieuwe viewers en veel nieuwe taalplugins zijn freemium en halen zo honderden tot duizenden downloads per maand. Tussen C-breed en D nog geen keuze: de cijfers verschillen niet duidelijk.
+- **Nakijken:** controleur keurde af: taallijst en viewerlijst waren selectief ingevuld, en "C-breed" als richting volgde daar niet uit. Lijsten aangevuld, richting teruggezet naar geen voorkeur.
 

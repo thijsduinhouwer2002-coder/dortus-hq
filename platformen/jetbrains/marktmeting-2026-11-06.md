@@ -87,7 +87,7 @@ Zoekopdracht per soort, top 6 op downloads, alle prijsmodellen (GEZIEN). Alleen 
 - Nagekeken door een controleur (16:13 UTC): cijfers klopten, tekst daarna verbeterd op 4 punten.
 - Nog te doen voor het bouwbesluit: leeftijd (eerste uitgave) van Liquid Hero, Caddyfile Pro en de andere Pro-plugins, zodat downloads per maand te zien zijn, en de reviews van de gratis Liquid-plugin lezen om te zien wat er mist.
 
-## Meting D, deel 2: leeftijd en downloads per maand (16:17 UTC, met curl)
+## Meting D, deel 2: leeftijd en downloads per maand (16:14 UTC, met curl)
 Leeftijd = datum van de oudste versie in `/api/plugins/{id}/updates`. Het veld `cdate` van de plugin zelf is niet de startdatum (BashSupport Pro gaf daar 2026, terwijl hij in 2020 begon). Downloads per maand = alle downloads gedeeld door het aantal maanden, dus een gemiddelde (GEZIEN, rekensom eigen).
 
 | Plugin | Soort | Eerste versie | Downloads | Per maand |
@@ -114,3 +114,36 @@ Ter vergelijking, gratis: Caddyfile support (eerste versie 2025-05) haalt 5.334 
 - **Besluit: geen bouwbesluit. Richting D is niet meer de voorkeur. C en D staan weer naast elkaar.** Reden: het bewijs voor D kwam van oude plugins, en dat voordeel hebben wij niet.
 - Nagekeken door een controleur: akkoord, twee kleine punten verwerkt.
 - Volgende meting: alle betaalde en freemium plugins met een eerste versie in 2025 of 2026, gerangschikt op downloads per maand. Dan zien we welk soort nieuw betaald product nu groeit.
+
+## Meting deel 3: nieuwe betaalde en freemium plugins (16:16 UTC, met curl)
+**Hoe:** alle betaalde en freemium plugins opgehaald (891 stuks bij doorbladeren, meer dan de 539 plus 243 die de zoekfunctie als totaal gaf; niet verklaard). Daarvan 355 met minstens 1.000 downloads. Per plugin de oudste versie opgezocht. **Valkuil:** sommige makers verwijderen oude versies (Bitbucket Integration Pro, id 13538, lijkt uit juli 2026 maar heeft een laag id en bestaat dus veel langer). Daarom alleen geteld: id vanaf 27000 (rond 2025 aangemaakt, GOK op basis van Liquid Hero 27826 uit juli 2025) en oudste versie vanaf januari 2025. Dat geeft 102 plugins (GEZIEN).
+
+**Nieuwe plugins die een bestandssoort openen die de IDE zelf niet kan tonen (per maand, GEZIEN):**
+
+| Plugin | Model | Sinds | Downloads | Per maand |
+|---|---|---|---|---|
+| Omni Viewer | freemium | 2025-09 | 62.355 | 4.635 |
+| Mermaid Studio Core | freemium | 2026-04 | 26.433 | 3.808 |
+| Hex Editor | freemium | 2025-09 | 47.267 | 3.479 |
+| SQLite Lens | freemium | 2026-08 | 5.209 | 2.057 |
+| Mermaid Studio | betaald | 2026-01 | 15.441 | 1.682 |
+| XLSX Lens | freemium | 2026-08 | 3.618 | 1.447 |
+| Notebook Lens | freemium | 2026-08 | 2.304 | 973 |
+| Heap Dump Lens | freemium | 2026-08 | 1.649 | 727 |
+| JSONL Lens | freemium | 2026-08 | 1.880 | 635 |
+| DuckDB Lens | freemium | 2026-08 | 1.383 | 592 |
+
+Onder 590 per maand staan nog meer nieuwe viewers: PRISM Log Viewer 467, Log Lens 457, Mermaid Companion 438, Parquet Lens 506 (GEZIEN). Vijf van de Lens-plugins zijn van één maker, twilight-ventures (GEZIEN, 5 nagekeken). Die zijn allemaal pas ±3 maanden oud, dus hun cijfer per maand is nog onzeker.
+
+**Nieuwe taalplugins, ter vergelijking (GEZIEN):** BatchCraft (Windows batch, betaald, pas 1 maand) 8.879 per maand, Flexible Swift 1.887, Flexible For Arduino 1.847, Firebase Pro 1.105, Jinja2 Enhanced Support 1.048, Google Apps Script Support 990, Flexible Julia 841, LaTeX Pro 771, Ansible Pro 767, Serverless Insight 754, Robot Framework Professional 610, AsciiDoc Pro 597. In de telling zitten meer nieuwe taalplugins dan nieuwe viewers.
+
+**Losse zoektocht naar bestandssoorten (GEZIEN):** Word (docx): Document Viewer 36.509 downloads, cijfer 3,11. Parquet en Avro: goed gedekt door gratis plugins (Avro and Parquet Viewer 225.192, cijfer 4,77). PDF: PDF Viewer 413.292, cijfer 4,43. Pcap: alleen Omni Viewer en een binaire inspecteur.
+
+## Tussenstand na deel 3
+- Nieuwe viewers en nieuwe taalplugins halen ongeveer dezelfde aantallen: ruwweg 450 tot 4.600 per maand voor viewers, 600 tot 1.900 voor taalplugins, met BatchCraft als uitschieter na 1 maand. Er is geen duidelijk verschil.
+- Bijna alle nieuwe viewers zijn freemium. Dat steunt freemium als model.
+- Een groot deel van de nieuwe viewers komt van één maker (twilight-ventures). Wie een viewer maakt, concurreert direct met die reeks.
+- **Besluit: nog geen voorkeur tussen C-breed (viewer of editor voor een bestandssoort die de IDE niet kent) en D (taalondersteuning). Wel: freemium.** Geen bouwbesluit.
+- Of een viewer goed te bouwen is met JCEF of een eigen Swing-weergave is een GOK, nog niet geprobeerd.
+- Kansen om na te lopen: Word (gratis Document Viewer, cijfer 3,11), soorten die Omni Viewer en de Lens-reeks nog niet doen, en waarom BatchCraft zo snel groeit.
+- Nagekeken door een controleur: cijfers klopten, de vergelijking was eerst te scheef. Verbeterd volgens zijn punten.
