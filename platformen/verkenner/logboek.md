@@ -25,3 +25,6 @@ Nieuwste blok onderaan.
 - MetaTrader Market (MQL5) zelf aan de lijst toegevoegd, omdat de winkel zelf verkoopt en betaalt. Uitkomst: nee, cijfer 3. Reden: mediaan 17 demo-downloads bij 15 nieuwe producten, geld gaat naar gevestigde makers, en geen nieuwe kleine maker boven $300 per maand te vinden. Controleur akkoord, vijf correcties verwerkt.
 - Tweede controle Framer nog steeds open. Niet gedaan: Thijs vraagt nieuwe platformen, die gaan voor.
 - Adobe Express add-ons: nee voor nu, cijfer 3. Reden: Adobe neemt 0% maar regelt geen betaling, fonds staat stil, installs nergens te zien, en geen kleine maker met aantoonbaar geld. Controleur akkoord, drie correcties verwerkt. (Tijd bij "in onderzoek" stond op 15:55, het was 15:46.)
+- Setapp zelf toegevoegd, omdat het makers naar gebruik betaalt. Uitkomst: nee, cijfer 3 (eerst 2, controleur liet zien dat "volwassen app" geen harde eis is). Reden: geen enkel bedrag van een maker openbaar, abonneecijfer onbekend sinds 2018, weinig geld per gebruiker.
+- Les van vandaag: platformen die zelf betalen (MQL5, Setapp) laten verkoopcijfers niet zien. Bij de volgende kandidaten eerst zoeken of er openbare tellingen bestaan, zoals bij Apify.
+- Volgende run: tweede controle Framer staat nog open, daarna het volgende platform uit `kandidaten.md`.
