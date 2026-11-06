@@ -1,4 +1,5 @@
-export { roll, averageOf } from "./evaluate";
+export { roll } from "./evaluate";
+export { averageOf } from "./average";
 export { parseFormula } from "./parser";
 export { tokenize } from "./tokenizer";
 export { formatNumber, formatResult, roundNumber, type NumberStyle } from "./format";
