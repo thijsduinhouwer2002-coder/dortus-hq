@@ -18,6 +18,10 @@ export const LIMITS = {
 	/** Upper bound for the repeat count of ! and r, and the meaning of "i". */
 	repeats: 100,
 	aliasDepth: 8,
+	/** Calculation steps per roll, so chains of named formulas cannot run for ages. */
+	stepsPerRoll: 100000,
+	/** Picks from tables, lists and notes per roll, nesting included. */
+	picksPerRoll: 10000,
 } as const;
 
 export interface Token {
@@ -58,7 +62,19 @@ export type Node =
 	| { type: "binary"; op: "+" | "-" | "*" | "/" | "^"; left: Node; right: Node }
 	| { type: "dice"; count: Node | null; sides: Sides; modifiers: Modifier[] };
 
+/** What one roll has used so far. Nested rollers share one budget. */
+export interface Budget {
+	rolls: number;
+	steps: number;
+	picks: number;
+}
+
+export function newBudget(): Budget {
+	return { rolls: 0, steps: 0, picks: 0 };
+}
+
 export interface RollOptions {
+	budget?: Budget;
 	random?: RandomInt;
 	/** Used when the sides are left out, as in "3d". Defaults to 100. */
 	defaultSides?: number;

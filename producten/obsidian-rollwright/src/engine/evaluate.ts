@@ -1,7 +1,7 @@
 import { parseFormula } from "./parser";
 import { formatNumber } from "./format";
 import { defaultRandom } from "./random";
-import { DiceError, LIMITS, type CompareOp, type Condition, type Modifier, type Node, type RandomInt, type RollOptions, type RollResult, type Sides } from "./types";
+import { DiceError, LIMITS, newBudget, type Budget, type CompareOp, type Condition, type Modifier, type Node, type RandomInt, type RollOptions, type RollResult, type Sides } from "./types";
 
 interface Die {
 	value: number;
@@ -31,7 +31,7 @@ interface State {
 	defaultSides: number;
 	defaultCount: number;
 	names: Record<string, string>;
-	rolls: number;
+	budget: Budget;
 	aliasStack: string[];
 	/** Replace each die by its mean instead of rolling. */
 	useMean: boolean;
@@ -123,7 +123,7 @@ function matchesAny(value: number, conditions: Condition[]): boolean {
 }
 
 function spend(state: State): void {
-	if (++state.rolls > LIMITS.rollsPerFormula) {
+	if (++state.budget.rolls > LIMITS.rollsPerFormula) {
 		throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
 	}
 }
@@ -279,7 +279,12 @@ function evaluateName(name: string, state: State): Evaluated {
 	return result;
 }
 
+function spendStep(budget: Budget): void {
+	if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
+}
+
 function evaluate(node: Node, state: State): Evaluated {
+	spendStep(state.budget);
 	switch (node.type) {
 		case "number":
 			return { value: node.value, text: formatNumber(node.value) };
@@ -332,7 +337,7 @@ function makeState(options: RollOptions, useMean = false, random?: RandomInt): S
 		defaultSides: options.defaultSides ?? 100,
 		defaultCount: options.defaultCount ?? 1,
 		names: options.names ?? {},
-		rolls: 0,
+		budget: options.budget ?? newBudget(),
 		aliasStack: [],
 		useMean,
 	};
@@ -345,22 +350,23 @@ export function roll(formula: string, options: RollOptions = {}): RollResult {
 	return { formula: formula.trim(), total: value, breakdown: text };
 }
 
-function hasModifiers(node: Node, options: RollOptions, seen: string[] = []): boolean {
+function hasModifiers(node: Node, options: RollOptions, budget: Budget, seen: string[] = []): boolean {
+	spendStep(budget);
 	switch (node.type) {
 		case "number":
 			return false;
 		case "name": {
 			const formula = lookupName(options.names, node.name);
 			if (formula === undefined || seen.includes(node.name)) return false;
-			return hasModifiers(parseFormula(formula, Object.keys(options.names ?? {})), options, [...seen, node.name]);
+			return hasModifiers(parseFormula(formula, Object.keys(options.names ?? {})), options, budget, [...seen, node.name]);
 		}
 		case "negate":
 		case "group":
-			return hasModifiers(node.inner, options, seen);
+			return hasModifiers(node.inner, options, budget, seen);
 		case "binary":
-			return hasModifiers(node.left, options, seen) || hasModifiers(node.right, options, seen);
+			return hasModifiers(node.left, options, budget, seen) || hasModifiers(node.right, options, budget, seen);
 		case "dice":
-			return node.modifiers.length > 0 || (node.count !== null && node.count.type !== "number" && hasModifiers(node.count, options, seen));
+			return node.modifiers.length > 0 || (node.count !== null && node.count.type !== "number" && hasModifiers(node.count, options, budget, seen));
 	}
 }
 
@@ -372,10 +378,10 @@ const AVERAGE_SAMPLES = 2000;
  */
 export function averageOf(formula: string, options: RollOptions = {}): { value: number; exact: boolean } {
 	const node = parseFormula(formula, Object.keys(options.names ?? {}));
-	if (!hasModifiers(node, options)) {
-		return { value: evaluate(node, makeState(options, true)).value, exact: true };
+	if (!hasModifiers(node, options, newBudget())) {
+		return { value: evaluate(node, makeState({ ...options, budget: undefined }, true)).value, exact: true };
 	}
 	let sum = 0;
-	for (let i = 0; i < AVERAGE_SAMPLES; i++) sum += evaluate(node, makeState(options)).value;
+	for (let i = 0; i < AVERAGE_SAMPLES; i++) sum += evaluate(node, makeState({ ...options, budget: undefined })).value;
 	return { value: sum / AVERAGE_SAMPLES, exact: false };
 }

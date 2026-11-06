@@ -72,6 +72,8 @@ Add flags after `|`, as in `1d20 + 2|nodice|text(Dexterity +2)`.
 
 The forms `[[Note#^id]]` and `[text](Note#^id)` also work.
 
+A roll inside a block or section you draw is not rolled again: it shows as plain code. An embedded note in such a result becomes a link. Embedded images stay.
+
 ### Lookup tables
 
 If the first header is a formula, Rollwright rolls it and finds the matching row. Rows can be written as `1-2`, `11`, `13,14` or `51–60`. A cell may hold another roll, such as `` `dice: 2d6` `` or `dice: [[Note^id]]`.
@@ -104,7 +106,7 @@ Rollwright makes no network connections, has no telemetry and needs no account. 
 
 ## Limits
 
-Up to 1000 dice per group, 10000 dice per formula, 1000000 sides, and 100 repeats per die for `!` and `r`. Beyond that you get a message instead of a freeze. A broken formula is underlined and the tooltip gives the reason.
+Up to 1000 dice per group, 10000 dice per formula, 1000000 sides, and 100 repeats per die for `!` and `r`. One roll, nesting included, can use up to 10000 picks from notes. Beyond that you get a message. A broken formula is underlined and the tooltip gives the reason.
 
 ## Development
 

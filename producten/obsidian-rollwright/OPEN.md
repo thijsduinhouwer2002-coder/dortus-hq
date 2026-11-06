@@ -50,6 +50,19 @@ De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is ei
 
 Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice+:`, `dice-:`, `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde, en de vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` (die worden geaccepteerd maar doen nog niets). `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
 
+## Voor uitgave
+
+Bevindingen van de controleur, nog niet opgelost:
+
+- L2: `dice: x` zonder backticks in een tabelrij met meer kolommen geeft "Unknown flag" (`src/rollers/run.ts`, `resolveNested` krijgt de samengevoegde cellen).
+- L3: kolommen met een vlagnaam, zoals Round, worden als vlag opgegeten (`src/rollers/spec.ts`).
+- L4: `|avg` meldt exact maar is fout bij niet-lineaire formules, zoals `(1d4)^2`, en is traag op grote groepen (`src/engine/evaluate.ts`, `averageOf`).
+- L5: gelijke sleutel `el:0` voor dobbelcodes in tabelcellen (`src/ui/reading-view.ts`). De README-zin "Results stay as they are until you click" klopt niet na een regel erboven of na een herstart (`src/ui/live-preview.ts`).
+- L6, klein: weergave van Infinity (`src/engine/format.ts`, `evaluate.ts`), een leeg instelveld wordt 0 (`src/ui/settings.ts`), al open vensters zonder skin (`src/main.ts`), traag op tabelregels met 50.000 spaties (`src/rollers/markdown.ts`), `1D6KH1` wordt geweigerd.
+- Voor verkoop: sleutels met een handtekening in plaats van de controlesom.
+
+Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `src/ui/reading-view.ts`. Alleen in Obsidian te bewijzen, dus handmatig testen: `dice: [[Zichzelf]]` en `dice: #npc` in een notitie met die tag, ook met `![[Zichzelf]]` in de notitie. Let op: een andere plugin die notities in een uitkomst invoegt (zoals Dataview) is niet gedekt, en of `el.closest` werkt hangt ervan af of Obsidian het element al heeft ingehangen tijdens de post-processor.
+
 ## Niet vastgesteld
 
 - De indeling van `data.json` van Dice Roller. Broncode lezen mocht niet, dus de import herkent eenvoudige vormen onder elke sleutel met "formula" in de naam. Tests draaien op een eigen model, niet op een echt bestand. De map `obsidian-dice-roller` komt uit het id in deel 3 van het onderzoek.

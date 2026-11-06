@@ -49,7 +49,12 @@ export class PluginSettingTab {}
 export class Setting {}
 export class Component {}
 export class MarkdownRenderChild {}
-export const MarkdownRenderer = {};
+export const rendered: string[] = [];
+export const MarkdownRenderer = {
+	render: async (_app: unknown, markdown: string): Promise<void> => {
+		rendered.push(markdown);
+	},
+};
 export const editorInfoField = {};
 export const editorLivePreviewField = {};
 export function setIcon(): void {}
