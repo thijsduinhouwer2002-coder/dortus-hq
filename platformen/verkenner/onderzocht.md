@@ -28,3 +28,4 @@ Toegevoegd:
 - Unity Asset Store (6 nov, cijfer 4): nog niet klaar, voorlopig nee. Winkel niet zelf te meten, alleen losse signalen dat makers verdienen, geen compleet cijfer van een nieuwe maker, 30% afdracht. Zie `voorstellen/unity-asset-store.md`.
 - Godot (6 nov, cijfer 3): nee nu, wel op de wachtlijst. Winkel is alleen gratis, betaald zonder datum. Opnieuw kijken als betaald opengaat. Zie `voorstellen/godot.md`.
 - Framer (6 nov, cijfer 5): nog niet klaar. Geld bij templates vooral van voor Framer 3.0, geen kleine pluginmaker aantoonbaar betaald, bereik niet gemeten. Zie `voorstellen/framer.md`.
+- Apify Store (6 nov, cijfer 4): nee. Veel geld op platformniveau ($1,7M per maand volgens Apify), maar hoogste cijfer van een nieuwe kleine maker $47 netto, mediaan ±1 maandgebruiker in twee categorieën, 26.772 nieuwe Actors in oktober. Zie `voorstellen/apify-store.md`.
