@@ -11,4 +11,4 @@
 - 6 nov, run 17:31: Framer eigen gemeten (603 plugins), nu nee voor nu, cijfer 4. Controleur akkoord.
 - 6 nov, run 17:31, ook: Roblox Creator Store zelf toegevoegd en gemeten (1.000 betaalde plugins), nog niet klaar, cijfer 4. Controleur akkoord.
 - 6 nov, run 18:31: Garmin Connect IQ zelf toegevoegd en gemeten (44.384 apps via open API), nog niet klaar, cijfer 5. Controleur akkoord, 9 correcties verwerkt.
-- 6 nov, run 21:31: Discord opnieuw met eigen meting (18.343 directory-apps, 23.612 bots van discordbotlist.com), nu nee voor nu, cijfer 5. Controleur akkoord, 7 correcties verwerkt. Volgende: Unity Asset Store, dan Godot.
+- 6 nov, run 21:31: Discord opnieuw met eigen meting (18.343 directory-apps, 23.612 bots van discordbotlist.com), nu nee voor nu, cijfer 5. Controleur akkoord, 7 correcties verwerkt. Unity Asset Store: voorwerk klaar (sitemap en paginavelden), meting volgt in de volgende run.
