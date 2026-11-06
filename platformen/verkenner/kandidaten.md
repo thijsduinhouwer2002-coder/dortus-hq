@@ -18,3 +18,4 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Neovim (plugins)
 - Open VSX (Cursor, Windsurf)
 - Trello (opnieuw: bereik was onbekend)
+- Roblox Creator Store (betaalde plugins in dollars, zelf toegevoegd) in onderzoek 6 nov 17:47 UTC
