@@ -161,7 +161,8 @@ function tokenize(input) {
     }
     if (isLetter(ch)) {
       const start = i;
-      while (isLetter(input.charAt(i)) || i > start && isDigit(input.charAt(i)) && !isDiceBoundary(input, start, i)) i++;
+      const afterValue = isAfterValue(tokens);
+      while (isLetter(input.charAt(i)) || i > start && isDigit(input.charAt(i)) && !isDiceBoundary(input, start, i, afterValue)) i++;
       tokens.push({ type: "word", value: input.slice(start, i), pos: start });
       continue;
     }
@@ -186,17 +187,23 @@ function tokenize(input) {
   }
   return tokens;
 }
-function isDiceBoundary(input, start, i) {
+function isAfterValue(tokens) {
+  const last = tokens[tokens.length - 1];
+  if (!last) return false;
+  return last.type === "num" || last.type === "word" || last.type === "bang" || last.type === "sym" && (last.value === ")" || last.value === "]" || last.value === "%");
+}
+function isDiceBoundary(input, start, i, afterValue) {
   const word = input.slice(start, i);
-  return /^[dD]?[fF]?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/.test(word);
+  if (/^[dD]?[fF]?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/.test(word)) return true;
+  return afterValue && /^d?f?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/i.test(word);
 }
 
 // src/engine/parser.ts
 var MODIFIER_WORDS = ["kh", "kl", "dh", "dl", "k", "sa", "sd", "s", "u", "r"];
 function isDiceWord(word) {
   if (word.charAt(0) !== "d" && word.charAt(0) !== "D") return false;
-  let rest = word.slice(1);
-  if (rest.charAt(0) === "F" || rest.charAt(0) === "f") rest = rest.slice(1);
+  let rest = word.slice(1).toLowerCase();
+  if (rest.charAt(0) === "f") rest = rest.slice(1);
   while (rest.length > 0) {
     const match = MODIFIER_WORDS.find((m) => rest.startsWith(m));
     if (!match) return false;
@@ -407,7 +414,8 @@ var Parser = class {
       } else if (token.type === "cmp") {
         modifiers.push(this.countModifier());
       } else if (token.type === "word") {
-        const match = MODIFIER_WORDS.find((m) => token.value.startsWith(m));
+        const lower = token.value.toLowerCase();
+        const match = MODIFIER_WORDS.find((m) => lower.startsWith(m));
         if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}`);
         this.consumeWordPart(token, match.length);
         modifiers.push(this.wordModifier(match));
@@ -454,7 +462,7 @@ var Parser = class {
   /** The number after ! or r, or "i" for the highest allowed. */
   repeatCount() {
     const token = this.peek();
-    if ((token == null ? void 0 : token.type) === "word" && token.value.charAt(0) === "i") {
+    if ((token == null ? void 0 : token.type) === "word" && token.value.charAt(0).toLowerCase() === "i") {
       this.consumeWordPart(token, 1);
       return LIMITS.repeats;
     }
@@ -490,13 +498,13 @@ var Parser = class {
       this.index++;
       const value = Number(token.value);
       const next = this.peek();
-      if ((next == null ? void 0 : next.type) === "word" && next.value.charAt(0) === "d" && next.value.length === 1) {
+      if ((next == null ? void 0 : next.type) === "word" && next.value.toLowerCase() === "d") {
         this.index++;
         return { type: "dice", count: { type: "number", value }, sides: this.sides(), modifiers: [] };
       }
       return { type: "number", value };
     }
-    if ((token == null ? void 0 : token.type) === "word" && token.value === "d") {
+    if ((token == null ? void 0 : token.type) === "word" && token.value.toLowerCase() === "d") {
       this.index++;
       return { type: "dice", count: null, sides: this.sides(), modifiers: [] };
     }
@@ -512,7 +520,10 @@ function parseFormula(formula, names = []) {
 
 // src/engine/format.ts
 function formatNumber(value) {
+  if (value === Infinity) return "\u221E";
+  if (value === -Infinity) return "-\u221E";
   const rounded = Math.round(value * 100) / 100;
+  if (!Number.isFinite(rounded)) return String(value);
   return String(rounded === 0 ? 0 : rounded);
 }
 
@@ -680,14 +691,10 @@ function showDie(die) {
 }
 function evaluateDice(node, state) {
   const count = node.count ? evaluate(node.count, state).value : state.defaultCount;
-  if (!state.useMean && !Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
+  if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
   if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count})`);
   if (count > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}`);
   const faces = resolveFaces(node.sides, state);
-  if (state.useMean) {
-    const value2 = count * faces.mean;
-    return { value: value2, text: formatNumber(value2) };
-  }
   let dice = [];
   for (let i = 0; i < count; i++) dice.push(rollDie(faces, state));
   const counting = [];
@@ -728,22 +735,26 @@ function evaluateDice(node, state) {
     }, 0);
   } else {
     value = active.reduce((sum, d) => sum + d.value, 0);
+    if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
   }
   return { value, text: `[${dice.map(showDie).join(", ")}]` };
 }
 function lookupName(names, name) {
   return names && Object.prototype.hasOwnProperty.call(names, name) ? names[name] : void 0;
 }
-function evaluateName(name, state) {
+function insideName(name, state, work) {
   const formula = lookupName(state.names, name);
   if (formula === void 0) throw new DiceError(`Unknown name "${name}"`);
   if (state.aliasStack.includes(name) || state.aliasStack.length >= LIMITS.aliasDepth) {
     throw new DiceError(`The named formula "${name}" refers to itself`);
   }
   state.aliasStack.push(name);
-  const result = evaluate(parseFormula(formula, Object.keys(state.names)), state);
+  const result = work(parseFormula(formula, Object.keys(state.names)));
   state.aliasStack.pop();
   return result;
+}
+function evaluateName(name, state) {
+  return insideName(name, state, (node) => evaluate(node, state));
 }
 function spendStep(budget) {
   if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
@@ -794,16 +805,15 @@ function calculate(op, a, b) {
   if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
   return value;
 }
-function makeState(options, useMean = false, random) {
+function makeState(options) {
   var _a, _b, _c, _d, _e;
   return {
-    random: (_a = random != null ? random : options.random) != null ? _a : defaultRandom,
+    random: (_a = options.random) != null ? _a : defaultRandom,
     defaultSides: (_b = options.defaultSides) != null ? _b : 100,
     defaultCount: (_c = options.defaultCount) != null ? _c : 1,
     names: (_d = options.names) != null ? _d : {},
     budget: (_e = options.budget) != null ? _e : newBudget(),
-    aliasStack: [],
-    useMean
+    aliasStack: []
   };
 }
 function roll(formula, options = {}) {
@@ -812,46 +822,82 @@ function roll(formula, options = {}) {
   const { value, text } = evaluate(node, makeState(options));
   return { formula: formula.trim(), total: value, breakdown: text };
 }
-function hasModifiers(node, options, budget, seen = []) {
-  var _a;
-  spendStep(budget);
+function constant(value) {
+  return { mean: value, min: value, max: value, whole: Number.isInteger(value) };
+}
+function isConstant(spread) {
+  return spread.min === spread.max;
+}
+function corners(a, b) {
+  const products = [a.min * b.min, a.min * b.max, a.max * b.min, a.max * b.max];
+  return { min: Math.min(...products), max: Math.max(...products) };
+}
+function exactSpread(node, state) {
+  spendStep(state.budget);
   switch (node.type) {
     case "number":
-      return false;
-    case "name": {
-      const formula = lookupName(options.names, node.name);
-      if (formula === void 0 || seen.includes(node.name)) return false;
-      return hasModifiers(parseFormula(formula, Object.keys((_a = options.names) != null ? _a : {})), options, budget, [...seen, node.name]);
-    }
-    case "negate":
+      return constant(node.value);
+    case "name":
+      return insideName(node.name, state, (inner) => exactSpread(inner, state));
     case "group":
-      return hasModifiers(node.inner, options, budget, seen);
-    case "binary":
-      return hasModifiers(node.left, options, budget, seen) || hasModifiers(node.right, options, budget, seen);
+      return exactSpread(node.inner, state);
+    case "negate": {
+      const inner = exactSpread(node.inner, state);
+      return inner && { mean: -inner.mean, min: -inner.max, max: -inner.min, whole: inner.whole };
+    }
     case "dice":
-      return node.modifiers.length > 0 || node.count !== null && node.count.type !== "number" && hasModifiers(node.count, options, budget, seen);
+      return exactDice(node, state);
+    case "binary": {
+      const left = exactSpread(node.left, state);
+      if (!left) return null;
+      const right = exactSpread(node.right, state);
+      if (!right) return null;
+      switch (node.op) {
+        case "+":
+          return { mean: calculate("+", left.mean, right.mean), min: left.min + right.min, max: left.max + right.max, whole: left.whole && right.whole };
+        case "-":
+          return { mean: calculate("-", left.mean, right.mean), min: left.min - right.max, max: left.max - right.min, whole: left.whole && right.whole };
+        case "*":
+          return { mean: calculate("*", left.mean, right.mean), ...corners(left, right), whole: left.whole && right.whole };
+        case "/": {
+          if (!isConstant(right)) return null;
+          const mean = calculate("/", left.mean, right.mean);
+          const ends = [left.min / right.mean, left.max / right.mean];
+          return { mean, min: Math.min(...ends), max: Math.max(...ends), whole: isConstant(left) && Number.isInteger(mean) };
+        }
+        case "^":
+          return isConstant(left) && isConstant(right) ? constant(calculate("^", left.mean, right.mean)) : null;
+      }
+    }
   }
+}
+function exactDice(node, state) {
+  if (node.modifiers.length > 0) return null;
+  const count = node.count ? exactSpread(node.count, state) : constant(state.defaultCount);
+  if (!count || !count.whole || count.min < 0 || count.max > LIMITS.diceInGroup) return null;
+  const faces = resolveFaces(node.sides, state);
+  const facesSpread = { mean: faces.mean, min: faces.min, max: faces.max, whole: true };
+  return { mean: calculate("*", count.mean, faces.mean), ...corners(count, facesSpread), whole: true };
 }
 var AVERAGE_SAMPLES = 2e3;
 function averageOf(formula, options = {}) {
   var _a;
   const node = parseFormula(formula, Object.keys((_a = options.names) != null ? _a : {}));
-  if (!hasModifiers(node, options, newBudget())) {
-    return { value: evaluate(node, makeState({ ...options, budget: void 0 }, true)).value, exact: true };
-  }
-  let sum = 0;
+  const exact = exactSpread(node, makeState({ ...options, budget: void 0 }));
+  if (exact) return { value: exact.mean, exact: true };
+  let mean = 0;
   let samples = 0;
   const budget = newBudget();
   for (; samples < AVERAGE_SAMPLES; samples++) {
     try {
-      sum += evaluate(node, makeState({ ...options, budget })).value;
+      mean += (evaluate(node, makeState({ ...options, budget })).value - mean) / (samples + 1);
     } catch (error) {
       const spent = budget.rolls > LIMITS.rollsPerFormula || budget.steps > LIMITS.stepsPerRoll;
       if (!spent || samples === 0) throw error;
       break;
     }
   }
-  return { value: sum / samples, exact: false };
+  return { value: mean, exact: false };
 }
 
 // src/rollers/markdown.ts
@@ -860,13 +906,19 @@ var ID_ONLY = /^\^([A-Za-z0-9-]+)\s*$/;
 var HEADING = /^(#{1,6})\s/;
 var THEMATIC = /^ {0,3}(\*{3,}|-{3,}|_{3,})\s*$/;
 var LIST_ITEM = /^(\s*)([-*+]|\d+[.)])\s/;
-var TABLE_RULE = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
 var FENCE = /^ {0,3}(`{3,}|~{3,})/;
 var HTML = /^<[a-zA-Z/!]/;
 var FOOTNOTE = /^\[\^[^\]]+\]:/;
 var DEFINITION = /^\[[^\]]+\]:/;
+var RULE_CELL = /^:?-+:?$/;
+function isTableRule(line) {
+  let text = line.trim();
+  if (text.startsWith("|")) text = text.slice(1);
+  if (text.endsWith("|")) text = text.slice(0, -1);
+  return text.split("|").every((cell) => RULE_CELL.test(cell.trim()));
+}
 function startsBlock(line, next) {
-  return HEADING.test(line) || THEMATIC.test(line) || LIST_ITEM.test(line) || FENCE.test(line) || line.startsWith(">") || line.includes("|") && next !== void 0 && next.includes("-") && TABLE_RULE.test(next);
+  return HEADING.test(line) || THEMATIC.test(line) || LIST_ITEM.test(line) || FENCE.test(line) || line.startsWith(">") || line.includes("|") && next !== void 0 && next.includes("-") && isTableRule(next);
 }
 function finish(type, lines, level) {
   var _a;
@@ -925,7 +977,7 @@ function parseBlocks(markdown) {
     } else if (THEMATIC.test(line)) {
       blocks.push({ type: "thematicBreak", text: line });
       i++;
-    } else if (line.includes("|") && next !== void 0 && next.includes("-") && TABLE_RULE.test(next)) {
+    } else if (line.includes("|") && next !== void 0 && next.includes("-") && isTableRule(next)) {
       const body = [line, next];
       i += 2;
       while (i < lines.length && lines[i].includes("|") && !ID_ONLY.test(lines[i])) {
@@ -1045,6 +1097,13 @@ function parseLink(head) {
   const note = link.slice(0, caret).replace(/#$/, "").trim();
   return { prefix: prefix.trim(), note, blockId: link.slice(caret + 1).trim() };
 }
+function withoutFlag(flags, word) {
+  const lower = word.toLowerCase();
+  const output = { ...flags };
+  if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") output[lower] = false;
+  else if (lower.startsWith("text(")) delete output.text;
+  return output;
+}
 function parseSpec(raw, aliases = {}) {
   var _a;
   const [first = "", ...rest] = splitPipes(raw);
@@ -1053,22 +1112,23 @@ function parseSpec(raw, aliases = {}) {
   const body = (_a = pipes[0]) != null ? _a : "";
   const flags = { nodice: false, form: false, avg: false, none: false };
   const args = [];
-  for (const part of [...pipes.slice(1), ...rest]) {
+  const parts = [...pipes.slice(1), ...rest].filter((part) => part !== "");
+  for (const part of parts) {
     const lower = part.toLowerCase();
     if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") {
       flags[lower] = true;
     } else if (lower.startsWith("text(") && part.endsWith(")")) {
       flags.text = part.slice(5, -1);
-    } else if (!IGNORED_FLAGS.has(lower) && part !== "") {
+    } else if (!IGNORED_FLAGS.has(lower)) {
       args.push(part);
     }
   }
   const link = parseLink(body);
-  if (link) return { raw, flags, args, target: { kind: "note", ...link } };
+  if (link) return { raw, flags, args, parts, target: { kind: "note", ...link } };
   const tag = /^(.*?)#([^\s#]+)$/.exec(body);
-  if (tag) return { raw, flags, args, target: { kind: "tag", prefix: tag[1].trim(), tag: tag[2] } };
+  if (tag) return { raw, flags, args, parts, target: { kind: "tag", prefix: tag[1].trim(), tag: tag[2] } };
   if (args.length > 0) throw new DiceError(`Unknown flag "${args[0]}"`);
-  return { raw, flags, args, target: { kind: "dice", formula: body } };
+  return { raw, flags, args, parts, target: { kind: "dice", formula: body } };
 }
 
 // src/rollers/table.ts
@@ -1198,13 +1258,17 @@ async function resolveNested(text, context, depth) {
   }
   return output + text.slice(last);
 }
-async function pickFromTable(table, args, context, depth) {
+async function resolveCells(cells, context, depth) {
+  const texts = [];
+  for (const cell of cells) texts.push(await resolveNested(cell, context, depth));
+  return texts.join(" | ");
+}
+async function pickFromTable(table, column, context, depth) {
   var _a, _b, _c, _d;
   const random = (_a = context.random) != null ? _a : defaultRandom;
   spendPick(context);
   if (table.rows.length === 0) throw new DiceError("The table has no rows");
   const formula = lookupFormula(table);
-  const column = args[0];
   let columnIndex = -1;
   if (column !== void 0) {
     columnIndex = findColumn(table, column);
@@ -1218,7 +1282,7 @@ async function pickFromTable(table, args, context, depth) {
     const shown = formatNumber(rolled.total);
     if (!row2) throw new DiceError(`The lookup table has no row for ${shown}`);
     const cells = columnIndex > 0 ? [(_b = row2[columnIndex]) != null ? _b : ""] : row2.slice(1);
-    return { text: await resolveNested(cells.join(" | "), context, depth), detail: `${formula} = ${shown}` };
+    return { text: await resolveCells(cells, context, depth), detail: `${formula} = ${shown}` };
   }
   const row = pick(table.rows, random);
   if (columnIndex >= 0) return { text: await resolveNested((_c = row[columnIndex]) != null ? _c : "", context, depth), detail: column != null ? column : "" };
@@ -1226,7 +1290,7 @@ async function pickFromTable(table, args, context, depth) {
     const from = row.length > 1 ? 1 : 0;
     return { text: await resolveNested((_d = row[random(from, row.length - 1)]) != null ? _d : "", context, depth), detail: "xy" };
   }
-  return { text: await resolveNested(row.join(" | "), context, depth), detail: "" };
+  return { text: await resolveCells(row, context, depth), detail: "" };
 }
 function matchesType(block, type) {
   const heading = /^heading-([1-6])$/.exec(type);
@@ -1274,10 +1338,12 @@ async function rollNote(spec, context, depth) {
     if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}"`);
     if (block.type === "table") {
       const table = parseTable(block.text);
+      const column = spec.parts.find((part) => spec.args.includes(part) || findColumn(table, part) !== -1);
+      const flags = column === void 0 ? spec.flags : withoutFlag(spec.flags, column);
       const results = [];
-      for (let i = 0; i < count; i++) results.push(await pickFromTable(table, spec.args, context, depth));
+      for (let i = 0; i < count; i++) results.push(await pickFromTable(table, column, context, depth));
       const detail = results.map((r) => r.detail).filter((d) => d !== "").join("; ");
-      return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path };
+      return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path, flags };
     }
     if (block.type === "list") {
       const picks2 = pickMany(listItems(block.text), count, random, "The list is empty", context);
@@ -1332,7 +1398,7 @@ async function rollSpecAt(raw, context, depth, firstRoll = false) {
     return { kind: "dice", text: formatNumber(result.total), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
   }
   const outcome = spec.target.kind === "note" ? await rollNote(spec, context, depth) : await rollTag(spec, context);
-  return { ...outcome, formula, flags: spec.flags };
+  return { flags: spec.flags, ...outcome, formula };
 }
 function rollSpec(raw, context, options = {}) {
   var _a;
@@ -1451,7 +1517,7 @@ function isImage(target) {
   const path = (_b = ((_a = target.split("|")[0]) != null ? _a : "").split("#")[0]) != null ? _b : "";
   return IMAGE.test(path.trim());
 }
-var CODE = /\\[\s\S]|(`+)[\s\S]*?\1|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
+var CODE = /\\[\s\S]|`+[\s>]*dice\s*:|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
 function defuseRolls(markdown) {
   return markdown.replace(/!\[\[([^\]]+)\]\]/g, (whole, target) => isImage(target) ? whole : `[[${target}]]`).replace(
     /!\[([^\]]*)\]\(([^()]*)\)/g,
@@ -1649,6 +1715,7 @@ function codePositions(el, ctx) {
   }
   return positions;
 }
+var unplaced = 0;
 function processReadingView(plugin, el, ctx) {
   var _a;
   if (el.closest(".rollwright-value")) return;
@@ -1662,7 +1729,7 @@ function processReadingView(plugin, el, ctx) {
     const formula = formulaFromCode((_a = code.textContent) != null ? _a : "");
     if (formula === null) continue;
     const position = positions[nth];
-    const place = position ? `${position.line}:${position.index}` : `el:${nth}`;
+    const place = position ? `${position.line}:${position.index}` : `el:${++unplaced}`;
     nth++;
     const span = activeDocument.createElement("span");
     code.replaceWith(span);
@@ -1674,6 +1741,12 @@ function processReadingView(plugin, el, ctx) {
 
 // src/ui/settings.ts
 var import_obsidian6 = require("obsidian");
+function parseWholeNumber(value, min) {
+  const text = value.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const number = Number(text);
+  return Number.isSafeInteger(number) && number >= min ? number : null;
+}
 var RollwrightSettingTab = class extends import_obsidian6.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
@@ -1685,16 +1758,16 @@ var RollwrightSettingTab = class extends import_obsidian6.PluginSettingTab {
     const settings = this.plugin.settings;
     new import_obsidian6.Setting(containerEl).setName("Default die").setDesc("The number of sides when a formula leaves it out, as in 3d.").addText(
       (text) => text.setValue(String(settings.defaultSides)).onChange(async (value) => {
-        const sides = Number(value);
-        if (!Number.isInteger(sides) || sides < 1) return;
+        const sides = parseWholeNumber(value, 1);
+        if (sides === null) return;
         settings.defaultSides = sides;
         await this.plugin.saveSettings();
       })
     );
     new import_obsidian6.Setting(containerEl).setName("Default number of dice").setDesc("The number of dice when a formula leaves it out, as in d6.").addText(
       (text) => text.setValue(String(settings.defaultCount)).onChange(async (value) => {
-        const count = Number(value);
-        if (!Number.isInteger(count) || count < 0) return;
+        const count = parseWholeNumber(value, 0);
+        if (count === null) return;
         settings.defaultCount = count;
         await this.plugin.saveSettings();
       })
@@ -1800,6 +1873,12 @@ var RollwrightPlugin = class extends import_obsidian7.Plugin {
     });
     this.applySkin(activeDocument);
     this.registerEvent(this.app.workspace.on("window-open", (win) => this.applySkin(win.doc)));
+    this.app.workspace.onLayoutReady(() => {
+      this.app.workspace.iterateAllLeaves((leaf) => {
+        this.skinnedDocuments.add(leaf.view.containerEl.doc);
+      });
+      this.applySkin();
+    });
   }
   onunload() {
     for (const doc of this.skinnedDocuments) {

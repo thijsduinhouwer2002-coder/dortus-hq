@@ -41,3 +41,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 6 nov 2026, 15:00: L7 en L8
 **Gedaan:** `|avg` heeft één budget (31,9 s werd 62 ms, GEZIEN door controleur), onzichtbaar teken alleen nog in code. 196 tests groen. Controleur akkoord, samengevoegd.
 **Wat misging:** de L8-reparatie maakte L9 (losse backtick eerder laat echte code rollen). Op de takenlijst bovenaan, geen blokkade voor main, wel voor uitgave. Testpakket vernieuwd met deze versie.
+
+## 6 nov 2026, 15:14 tot 15:45: L2 tot L6 en L9
+**Gedaan:** bouwer repareerde L9, L2, L3, L4, L5 en L6 op tak `claude/obsidian-2026-11-06-c`, elk met een test die zonder reparatie faalt. Controleur keurde eerst af: de nieuwe L9-reparatie liet een code over twee regels in een citaat of callout door. Ik repareerde dat zelf (ook `>` overslaan, vijf tests), controleur herkeurde: akkoord. 271 tests groen, build ok, lint 0 fouten en 1 oude waarschuwing (GEZIEN). Samengevoegd op main, testpakket vernieuwd.
+**Beslissing:** L9 werkt niet per blok maar kijkt naar `dice:` direct na backticks. Waarom: per blok werken faalt bij lijsten, tabellen en koppen, en een rolbare code begint altijd met `dice:`.
+**Beslissing:** `|avg` noemt alleen nog exact wat echt exact is, de rest krijgt `~`. Waarom: een fout gemiddelde dat zich exact noemt is erger dan een eerlijke schatting.
+**Gemeten:** naam `rollwright` komt niet voor in community-plugins.json (10.029 plugins, GEZIEN).
+**Wat misging:** niets blokkerends. Schermcode (L5 sleutels, skin in open vensters) is alleen met nep-Obsidian getest.
