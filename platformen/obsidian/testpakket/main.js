@@ -1498,15 +1498,15 @@ async function rollTag(spec, context) {
   if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}`);
   return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? (_b = chosen[0]) == null ? void 0 : _b.path : void 0 };
 }
-async function rollSpecAt(raw, context, depth, firstRoll = false) {
+async function rollSpecAt(raw, context, depth, firstRoll = false, average = false) {
   if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself");
   const spec = parseSpec(raw, context.aliases);
   const formula = raw.trim();
   if (spec.target.kind === "dice") {
     const dice = spec.target.formula;
-    if (firstRoll && spec.flags.avg) {
-      const average = averageOf(dice, diceOptions(context));
-      return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, average: true, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
+    if (firstRoll && spec.flags.avg || average) {
+      const average2 = averageOf(dice, diceOptions(context));
+      return { kind: "dice", text: formatResult(average2.value, spec.flags), total: average2.value, estimated: !average2.exact, average: true, formula: dice, details: average2.exact ? "Average" : "Estimated average", flags: spec.flags };
     }
     const result = roll(dice, diceOptions(context));
     return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
@@ -1515,8 +1515,8 @@ async function rollSpecAt(raw, context, depth, firstRoll = false) {
   return { flags: spec.flags, ...outcome, formula };
 }
 function rollSpec(raw, context, options = {}) {
-  var _a;
-  return rollSpecAt(raw, { ...context, budget: newBudget() }, 0, (_a = options.firstRoll) != null ? _a : false);
+  var _a, _b;
+  return rollSpecAt(raw, { ...context, budget: newBudget() }, 0, (_a = options.firstRoll) != null ? _a : false, (_b = options.average) != null ? _b : false);
 }
 
 // src/ui/dice-mod.ts
@@ -1682,12 +1682,20 @@ var import_obsidian4 = require("obsidian");
 
 // src/ui/widget.ts
 var import_obsidian3 = require("obsidian");
+var NO_SOURCE_NOTICE = "This result comes from more than one note, so there is no single note to open.";
+var SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
 function errorMessage(error) {
   return error instanceof Error ? error.message : String(error);
 }
 function tooltipFor(outcome) {
   return outcome.details === "" ? outcome.formula : `${outcome.formula}
 ${outcome.details}`;
+}
+function showBlank(target, formula) {
+  target.empty();
+  target.removeClass("rollwright-error");
+  (0, import_obsidian3.setIcon)(target.createSpan({ cls: "rollwright-icon" }), "dices");
+  (0, import_obsidian3.setTooltip)(target, formula);
 }
 function showError(target, formula, error) {
   target.empty();
@@ -1744,6 +1752,35 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
       fail(error);
     }
   };
+  const averageNow = async () => {
+    try {
+      await show(await plugin.averageResult(key, formula, sourcePath, keep));
+    } catch (error) {
+      fail(error);
+    }
+  };
+  const modClick = async (pane) => {
+    if (hideFirst) {
+      shown = null;
+      await plugin.forgetResult(key);
+      showBlank(target, formula);
+      return;
+    }
+    if (shown === null || shown.kind === "dice") {
+      await rerollNow();
+      return;
+    }
+    if (shown.source === void 0) {
+      new import_obsidian3.Notice(NO_SOURCE_NOTICE);
+      return;
+    }
+    const file = plugin.app.vault.getAbstractFileByPath(shown.source);
+    if (!(file instanceof import_obsidian3.TFile)) {
+      new import_obsidian3.Notice(SOURCE_GONE_NOTICE);
+      return;
+    }
+    await plugin.app.workspace.getLeaf(pane === true ? "tab" : pane).openFile(file);
+  };
   target.setAttribute("tabindex", "0");
   target.addEventListener("keydown", (event) => {
     if (event.key === "Enter") void rerollNow();
@@ -1752,12 +1789,14 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
     if (event.target.instanceOf(Element) && event.target.closest("a")) return;
     event.preventDefault();
     event.stopPropagation();
-    void rerollNow();
+    const pane = import_obsidian3.Keymap.isModEvent(event);
+    if (pane) void modClick(pane);
+    else if (event.altKey && !modify) void averageNow();
+    else void rerollNow();
   });
   target.addEventListener("mousedown", (event) => event.preventDefault());
   if (hideFirst && !plugin.hasResult(key, keep)) {
-    (0, import_obsidian3.setIcon)(target.createSpan({ cls: "rollwright-icon" }), "dices");
-    (0, import_obsidian3.setTooltip)(target, formula);
+    showBlank(target, formula);
     return;
   }
   plugin.firstResult(key, formula, sourcePath, keep).then(show, fail).catch(fail);
@@ -2081,7 +2120,7 @@ var RollwrightPlugin = class extends import_obsidian8.Plugin {
   }
   async loadSettings() {
     const stored = await this.loadData();
-    this.settings = { ...DEFAULT_SETTINGS, ...stored };
+    this.settings = { ...DEFAULT_SETTINGS, formulas: [], history: [], keptResults: [], ...stored };
     this.kept.clear();
     const kept = Array.isArray(this.settings.keptResults) ? this.settings.keptResults : [];
     for (const entry of kept) {
@@ -2160,6 +2199,23 @@ var RollwrightPlugin = class extends import_obsidian8.Plugin {
     if (key !== null && keep) this.storeKept(key, outcome);
     await this.addToHistory(outcome, formula, sourcePath);
     return outcome;
+  }
+  /**
+   * Alt-click: dice show their average, as |avg does. It is remembered (and kept with keep)
+   * but not put in the history, because nothing was rolled. Anything else rolls as a click does.
+   */
+  async averageResult(key, formula, sourcePath, keep = false) {
+    const outcome = await rollSpec(formula, this.rollContext(sourcePath), { average: true });
+    this.remember(key, outcome);
+    if (keep) this.storeKept(key, outcome);
+    if (outcome.kind !== "dice") await this.addToHistory(outcome, formula, sourcePath);
+    else if (keep) await this.saveSettings();
+    return outcome;
+  }
+  /** Ctrl-click on a |none code: forgets its result, also the kept one, so it stays empty. */
+  async forgetResult(key) {
+    this.results.delete(key);
+    if (this.kept.delete(key)) await this.saveSettings();
   }
   /** Puts a result at the newest end of the kept results, dropping the oldest over the limit. */
   storeKept(key, outcome) {
