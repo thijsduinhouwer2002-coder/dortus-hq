@@ -1,6 +1,6 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] Ontbrekende notatie bouwen volgens `producten/obsidian-rollwright/ontwerp.md` (notatie 0.2, goedgekeurd met voorwaarden, 6 nov). Per punt een commit op een tak, in de volgorde van het ontwerp. Punt 1 (getalvlaggen) is af en op main (6 nov); volgende is punt 2 (`dice+:` en `dice-:`). Klein: ceil-afrondfout uit OPEN.md meenemen. Genesys, `1dS`, notitievelden, `dice+`, `dice-`, `dice-mod`, `|round` en de andere vlaggen die nu niets doen, Ctrl- en Alt-klik.
+- [ ] Ontbrekende notatie bouwen volgens `producten/obsidian-rollwright/ontwerp.md` (notatie 0.2, goedgekeurd met voorwaarden, 6 nov). Per punt een commit op een tak, in de volgorde van het ontwerp. Punt 1 (getalvlaggen) is af en op main (6 nov); punt 2 (`dice+:`, `dice-:`) af en op main (6 nov). Volgende is punt 3 (`dice-mod:`, let op voorwaarde 3). Klein: ceil-afrondfout uit OPEN.md meenemen. Genesys, `1dS`, notitievelden, `dice+`, `dice-`, `dice-mod`, `|round` en de andere vlaggen die nu niets doen, Ctrl- en Alt-klik.
 - [ ] Scannerconfig controleren (de naam `rollwright` is vrij in community-plugins.json, 6 nov). Na handmatige test: Review branch (op de lijst voor Thijs).
 - [ ] Betaald deel: handtekening-sleutels in plaats van controlesom en een betaalweg kiezen, pas daarna koopknop en label Optional payments.
 - [ ] Bereid de lancering voor: README met bewegend plaatje, schermafbeeldingen, lanceerberichten voor forum (Share & showcase), r/ObsidianMD en Discord.

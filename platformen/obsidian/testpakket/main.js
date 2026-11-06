@@ -20,6 +20,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
+  KEPT_RESULTS_LIMIT: () => KEPT_RESULTS_LIMIT,
   default: () => RollwrightPlugin
 });
 module.exports = __toCommonJS(main_exports);
@@ -1184,7 +1185,7 @@ function parseTable(markdown) {
 function lookupFormula(table) {
   var _a;
   const first = ((_a = table.headers[0]) != null ? _a : "").replace(/`/g, "").trim();
-  const match = /^dice:\s*(.+)$/i.exec(first);
+  const match = /^dice[+-]?:\s*(.+)$/i.exec(first);
   return match ? match[1].trim() : null;
 }
 function parseRowRanges(label) {
@@ -1269,9 +1270,9 @@ function pickCount(prefix, context) {
   return count;
 }
 async function resolveNested(text, context, depth) {
-  const whole = /^dice:\s*(.+)$/i.exec(text.trim());
+  const whole = /^dice[+-]?:\s*(.+)$/i.exec(text.trim());
   if (whole) return (await rollSpecAt(whole[1], context, depth + 1)).text;
-  const pattern = /`dice:\s*([^`]+)`/gi;
+  const pattern = /`dice[+-]?:\s*([^`]+)`/gi;
   let output = "";
   let last = 0;
   for (let match = pattern.exec(text); match; match = pattern.exec(text)) {
@@ -1518,16 +1519,16 @@ function findInlineDice(line) {
   const found = [];
   const pattern = /(`+)([^`]*)\1/g;
   for (let match = pattern.exec(line); match; match = pattern.exec(line)) {
-    const formula = formulaFromCode(match[2]);
-    if (match[1].length === 1 && formula !== null) {
-      found.push({ from: match.index, to: match.index + match[0].length, formula });
+    const code = readDiceCode(match[2]);
+    if (match[1].length === 1 && code !== null) {
+      found.push({ from: match.index, to: match.index + match[0].length, formula: code.formula, keep: code.keep });
     }
   }
   return found;
 }
-function formulaFromCode(text) {
-  const match = /^dice:\s*(.*\S)\s*$/i.exec(text.trim());
-  return match ? match[1] : null;
+function readDiceCode(text) {
+  const match = /^dice([+-]?):\s*(.*\S)\s*$/i.exec(text.trim());
+  return match ? { formula: match[2], keep: match[1] === "+" } : null;
 }
 
 // src/ui/widget.ts
@@ -1540,12 +1541,12 @@ function isImage(target) {
   const path = (_b = ((_a = target.split("|")[0]) != null ? _a : "").split("#")[0]) != null ? _b : "";
   return IMAGE.test(path.trim());
 }
-var CODE = /\\[\s\S]|`+[\s>]*dice\s*:|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
+var CODE = /\\[\s\S]|`+[\s>]*dice\s*(?:[+-]|-\s*mod)?\s*:|<code\b[^>]*>[\s\S]*?(?:<\/code>|$)/gi;
 function defuseRolls(markdown) {
   return markdown.replace(/!\[\[([^\]]+)\]\]/g, (whole, target) => isImage(target) ? whole : `[[${target}]]`).replace(
     /!\[([^\]]*)\]\(([^()]*)\)/g,
     (whole, label, target) => isImage(target) || /^https?:/i.test(target) ? whole : `[${label}](${target})`
-  ).replace(CODE, (whole) => whole.replace(/(dice)(\s*:)/gi, "$1\u200B$2"));
+  ).replace(CODE, (whole) => whole.replace(/(dice\s*(?:[+-]|-\s*mod)?)(\s*:)/gi, "$1\u200B$2"));
 }
 
 // src/ui/widget.ts
@@ -1581,7 +1582,7 @@ async function showOutcome(plugin, target, outcome, sourcePath, component) {
   }
   (0, import_obsidian2.setTooltip)(target, tooltipFor(outcome));
 }
-function mountRoll(plugin, target, formula, key, sourcePath, component) {
+function mountRoll(plugin, target, formula, key, sourcePath, component, keep = false) {
   target.addClass("rollwright-roll");
   target.setAttribute("role", "button");
   let hideFirst = false;
@@ -1592,7 +1593,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component) {
   }
   const rerollNow = async () => {
     try {
-      await showOutcome(plugin, target, await plugin.freshResult(key, formula, sourcePath), sourcePath, component);
+      await showOutcome(plugin, target, await plugin.freshResult(key, formula, sourcePath, keep), sourcePath, component);
     } catch (error) {
       showError(target, formula, error);
     }
@@ -1608,12 +1609,12 @@ function mountRoll(plugin, target, formula, key, sourcePath, component) {
     void rerollNow();
   });
   target.addEventListener("mousedown", (event) => event.preventDefault());
-  if (hideFirst && !plugin.hasResult(key)) {
+  if (hideFirst && !plugin.hasResult(key, keep)) {
     (0, import_obsidian2.setIcon)(target.createSpan({ cls: "rollwright-icon" }), "dices");
     (0, import_obsidian2.setTooltip)(target, formula);
     return;
   }
-  plugin.firstResult(key, formula, sourcePath).then(
+  plugin.firstResult(key, formula, sourcePath, keep).then(
     (outcome) => showOutcome(plugin, target, outcome, sourcePath, component),
     (error) => showError(target, formula, error)
   ).catch((error) => showError(target, formula, error));
@@ -1621,22 +1622,23 @@ function mountRoll(plugin, target, formula, key, sourcePath, component) {
 
 // src/ui/live-preview.ts
 var RollWidget = class extends import_view.WidgetType {
-  constructor(plugin, formula, key, sourcePath) {
+  constructor(plugin, formula, key, sourcePath, keep) {
     super();
     this.plugin = plugin;
     this.formula = formula;
     this.key = key;
     this.sourcePath = sourcePath;
+    this.keep = keep;
     this.component = null;
   }
   eq(other) {
-    return other.key === this.key;
+    return other.key === this.key && other.keep === this.keep;
   }
   toDOM() {
     const span = activeDocument.createElement("span");
     this.component = new import_obsidian3.Component();
     this.component.load();
-    mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component);
+    mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component, this.keep);
     return span;
   }
   destroy() {
@@ -1665,7 +1667,7 @@ function build(plugin, view) {
         if (selection.some((range2) => range2.from <= end && range2.to >= start)) return;
         if (tree.resolveInner(start + 1, 1).name.includes("codeblock")) return;
         const key = `${sourcePath}|${line.number - 1}:${index}|${found.formula}`;
-        builder.add(start, end, import_view.Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath) }));
+        builder.add(start, end, import_view.Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep) }));
       });
       if (line.to >= to || line.number >= state.doc.lines) break;
       line = state.doc.line(line.number + 1);
@@ -1749,16 +1751,18 @@ function processReadingView(plugin, el, ctx) {
   const positions = codePositions(el, ctx);
   let nth = 0;
   for (const code of codes) {
-    const formula = formulaFromCode((_a = code.textContent) != null ? _a : "");
-    if (formula === null) continue;
+    const dice = readDiceCode((_a = code.textContent) != null ? _a : "");
+    if (dice === null) continue;
+    const { formula } = dice;
     const position = positions[nth];
+    const keep = dice.keep && position !== void 0;
     const place = position ? `${position.line}:${position.index}` : `el:${++unplaced}`;
     nth++;
     const span = activeDocument.createElement("span");
     code.replaceWith(span);
     const child = new import_obsidian5.MarkdownRenderChild(span);
     ctx.addChild(child);
-    mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child);
+    mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child, keep);
   }
 }
 
@@ -1867,15 +1871,25 @@ var DEFAULT_SETTINGS = {
   formulas: [],
   history: [],
   licenseKey: "",
-  skin: "classic"
+  skin: "classic",
+  keptResults: []
 };
 var HISTORY_LIMIT = 200;
 var RESULT_CACHE_LIMIT = 2e3;
+var KEPT_RESULTS_LIMIT = 500;
+var OUTCOME_KINDS = /* @__PURE__ */ new Set(["dice", "table", "list", "section", "line", "tag"]);
+function isKeptOutcome(value) {
+  if (typeof value !== "object" || value === null) return false;
+  const o = value;
+  return typeof o.kind === "string" && OUTCOME_KINDS.has(o.kind) && typeof o.text === "string" && typeof o.formula === "string" && typeof o.details === "string" && typeof o.flags === "object" && o.flags !== null && !Array.isArray(o.flags) && (o.total === void 0 || typeof o.total === "number");
+}
 var RollwrightPlugin = class extends import_obsidian7.Plugin {
   constructor() {
     super(...arguments);
     this.settings = { ...DEFAULT_SETTINGS };
     this.results = /* @__PURE__ */ new Map();
+    /** Results of `dice+:`, written to disk with the settings. */
+    this.kept = /* @__PURE__ */ new Map();
     this.skinnedDocuments = /* @__PURE__ */ new Set();
   }
   async onload() {
@@ -1911,8 +1925,15 @@ var RollwrightPlugin = class extends import_obsidian7.Plugin {
   async loadSettings() {
     const stored = await this.loadData();
     this.settings = { ...DEFAULT_SETTINGS, ...stored };
+    this.kept.clear();
+    const kept = Array.isArray(this.settings.keptResults) ? this.settings.keptResults : [];
+    for (const entry of kept) {
+      if (Array.isArray(entry) && typeof entry[0] === "string" && isKeptOutcome(entry[1])) this.kept.set(entry[0], entry[1]);
+    }
+    this.trimKept();
   }
   async saveSettings() {
+    this.settings.keptResults = [...this.kept.entries()];
     await this.saveData(this.settings);
   }
   get isLicensed() {
@@ -1956,23 +1977,49 @@ var RollwrightPlugin = class extends import_obsidian7.Plugin {
     }
     return notes;
   }
-  hasResult(key) {
-    return this.results.has(key);
+  hasResult(key, keep = false) {
+    return this.results.has(key) || keep && this.kept.has(key);
   }
-  /** The result for this place in a note: remembered, or rolled for the first time. */
-  async firstResult(key, formula, sourcePath) {
-    const known = this.results.get(key);
-    if (known) return known;
+  /**
+   * The result for this place in a note: remembered, or rolled for the first time.
+   * With keep (`dice+:`) the result also comes from and goes to disk.
+   */
+  async firstResult(key, formula, sourcePath, keep = false) {
+    var _a;
+    const known = (_a = this.results.get(key)) != null ? _a : keep ? this.kept.get(key) : void 0;
+    if (known) {
+      if (keep && !this.kept.has(key)) await this.keep(key, known);
+      return known;
+    }
     const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
     this.remember(key, outcome);
+    if (keep) await this.keep(key, outcome);
     return outcome;
   }
-  /** A roll someone asked for. Only these go into the history. */
-  async freshResult(key, formula, sourcePath) {
+  /** A roll someone asked for. Only these go into the history. With keep, the new result replaces the kept one. */
+  async freshResult(key, formula, sourcePath, keep = false) {
     const outcome = await rollSpec(formula, this.rollContext(sourcePath));
     if (key !== null) this.remember(key, outcome);
+    if (key !== null && keep) this.storeKept(key, outcome);
     await this.addToHistory(outcome, formula, sourcePath);
     return outcome;
+  }
+  /** Puts a result at the newest end of the kept results, dropping the oldest over the limit. */
+  storeKept(key, outcome) {
+    this.kept.delete(key);
+    this.kept.set(key, outcome);
+    this.trimKept();
+  }
+  trimKept() {
+    while (this.kept.size > KEPT_RESULTS_LIMIT) {
+      const oldest = this.kept.keys().next().value;
+      if (oldest === void 0) break;
+      this.kept.delete(oldest);
+    }
+  }
+  async keep(key, outcome) {
+    this.storeKept(key, outcome);
+    await this.saveSettings();
   }
   remember(key, outcome) {
     if (this.results.size >= RESULT_CACHE_LIMIT) {

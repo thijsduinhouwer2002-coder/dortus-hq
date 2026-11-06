@@ -58,3 +58,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gedaan:** bouwer maakte punt 1 van notatie 0.2 (`|round`, `|noround`, `|ceil`, `|floor`, `|signed`, `|paren`, `|noparen`) op tak `claude/obsidian-2026-11-06-d`. Controleur: akkoord voor main, randgevallen nagelopen. 286 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
 **Beslissing:** afronden standaard uit. Waarom: anders veranderen bestaande uitkomsten zoals `10 / 4`.
 **Wat misging:** de controleur checkte kort een commit uit in de gedeelde map en zette meteen main terug, niets veranderd. Volgende keer de controleur meteen in een eigen kopie laten werken.
+
+## 6 nov 2026, 15:42 tot 15:55: dice+ en dice-
+**Let op:** de tijden in de twee blokken hierboven zijn te laat geschat; de klok gaf 15:37 en 15:41. Deze run liep van 15:14 tot ±15:55 UTC.
+**Gedaan:** bouwer maakte punt 2 van notatie 0.2 op tak `claude/obsidian-2026-11-06-e`: `dice+:` bewaart over herstarts (plugindata, grens 500), `dice-:` nooit, `dice-mod:` overal geweigerd tot punt 3, defuse vangt alle voorvoegsels. Controleur keurde af: `dice+:` in een tabelcel zonder bekende regel maakte bij elk hertekenen een nieuwe bewaarde sleutel. Bouwer repareerde dat (dan niet bewaren) plus een strengere laadcontrole. Herkeurd: akkoord. 308 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
+**Beslissing:** geen instelling "standaard bewaren" toegevoegd. Waarom: niet in het ontwerp, en een knop meer is pas zinvol na de handmatige test. Staat als open punt in OPEN.md.
+**Beslissing:** controleur werkt voortaan in een eigen kloon in de scratchpad. Waarom: zo raakt de gedeelde map nooit een andere tak.
