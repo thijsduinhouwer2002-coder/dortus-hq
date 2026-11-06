@@ -77,3 +77,5 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3 (was 4). Reden: geen bereik voor nieuwe makers gemeten en geen recent geldcijfer van een kleine maker gevonden; verkopen per beoordeling bleef onbekend.
 - Controleur akkoord, 5 correcties verwerkt (filter bundels en V8, cijfers bijgesteld, sitemap mist ±15%, aanbod per maand, verhouding onbekend).
 - Bericht Thijs 20:32 noemde daarna Godot. Godot staat in onderzocht.md als nee tot betaald opengaat; volgende run eerst kijken of daar iets veranderd is, anders een nieuw platform uit kandidaten.md.
+- Godot even nagekeken (roadmap store.godotengine.org): nog steeds alleen gratis items, betaald zonder datum. Niets veranderd, dus niet opnieuw onderzocht.
+- Nieuw kandidaat toegevoegd: Fab (de winkel van Epic voor Unreal), omdat makers daar volgens bronnen 88% houden en Unreal volgens een enquête meer gebruikt wordt dan Unity. Voorwerk: sitemap per dag en een open JSON per product, zonder sleutel (zie kandidaten.md). Te weinig tijd voor een meting met controleur, dus vrij gelaten voor de volgende run.
