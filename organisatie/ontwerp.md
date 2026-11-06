@@ -24,7 +24,7 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Wil onderbouwde keuzes, enthousiasme en hard werken.
 - Wil zelf zo min mogelijk doen. De managers werken zelfstandig en beslissen zelf, naar eigen inzicht. Elke beslissing krijgt een korte onderbouwing in het logboek, zodat Thijs achteraf kan zien waarom.
 - Wordt alleen gevraagd in nood (zie "Wanneer Thijs vragen").
-- Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform. Thijs koppelt daarvoor één keer per platform zijn account (zie "Wat bij Thijs blijft").
+- Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform. Thijs koppelt daarvoor één keer per platform zijn account (zie "Harde grenzen").
 - Leest elke ochtend het rapport (±3 minuten).
 
 ### Hoofdmanager
@@ -76,20 +76,15 @@ De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitt
 - Iets is niet terug te draaien: iets definitief verwijderen, een live product stoppen of uit een winkel halen.
 - Er is een risico voor zijn accounts of juridisch (bijvoorbeeld een waarschuwing van een platform).
 - Een taak lukt twee nachten op rij niet.
-- Een eenmalige handeling die alleen Thijs kan doen (zie hieronder).
+- Een eenmalige handeling die alleen Thijs kan doen (zie "Harde grenzen").
 
 Al het andere beslissen de managers zelf.
 
-## Wat bij Thijs blijft
+## Harde grenzen
 
-Dit blijft bij Thijs. Niet omdat het moeilijk is, maar omdat Claude het niet mag of niet kan:
-
-- **Inloggen en wachtwoorden.** Claude vult nooit een wachtwoord of code in.
-- **Eenmalig koppelen per platform.** Indienen gaat waar het kan automatisch, met een sleutel (token) die Thijs één keer zelf aanmaakt en in GitHub opslaat. Daarna brengen de managers zelf nieuwe versies uit. Waar een platform geen sleutel kent, zet de manager alles klaar en hoeft Thijs alleen op de knop te drukken.
-- **Accounts aanmaken, betalen en voorwaarden accepteren.**
-- **Berichten onder zijn naam** op forums, Reddit, Discord of als antwoord op reviews. De managers schrijven ze en zetten ze klaar. Thijs keurt ze in één keer goed vanuit het rapport, bijvoorbeeld met "ja, allemaal". Dat is een regel van Claude zelf, en veel forums verbieden automatisch geplaatste berichten: zijn account kan dan geblokkeerd worden.
-
-Zo'n stap komt op **de lijst voor Thijs** in het rapport, met een link en precies wat hij moet doen.
+- Claude logt nooit in en vult geen wachtwoorden, codes of betaalgegevens in. Indienen loopt daarom via een sleutel (token) die Thijs één keer per platform in GitHub zet.
+- Accounts aanmaken, betalen en voorwaarden accepteren doet Thijs.
+- Berichten onder Thijs' naam (forum, Reddit, Discord, reviews) zet de manager klaar; Thijs keurt ze in één keer goed vanuit het rapport.
 
 ## Regels voor het werk
 
