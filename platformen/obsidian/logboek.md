@@ -94,3 +94,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** `3g2p` geeft een melding in plaats van te rollen. Waarom: voorwaarde 9 zegt dat P alleen bij A, C of D Proficiency is en anders een melding geeft, en voorwaarden gaan voor op de toetslijst.
 **Beslissing:** vlakverdeling van de stenen uit eigen kennis, door bouwer en controleur los van elkaar gelijk bevonden (GOK tot het tegen het regelboek is nagekeken). Waarom: Dice Roller lezen mag niet, en de verdeling is spelmechaniek, geen tekst.
 **Wat misging:** de eerste versie las te gretig, precies de fout uit 4.3. De keuring ving het. Bekende grens in OPEN.md: woorden van alleen narratieve letters (`bad`, `gg`) worden stenen in plaats van een foutmelding.
+
+## 6 nov 2026, 17:37 tot 17:47: opruimen
+**Gedaan:** bouwer splitste `src/engine/evaluate.ts` (439 regels) op tak `claude/obsidian-2026-11-06-k` in `evaluate.ts` (143), `modifiers.ts` (79), `faces.ts` (75), `state.ts` (47) en `average.ts` (113), zonder gedragswijziging, en schreef `architectuur.md` (alle 33 bestanden in src/). Controleur: akkoord, regel voor regel vergeleken, geen kringverwijzingen, geen test gewijzigd. 472 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
+**Takken op main:** `claude/obsidian-2026-11-06-c` tot en met `-k` zijn allemaal samengevoegd (de eerdere takken `-` tot `-b` staan in eerdere blokken).
+**Beslissing:** opruimen nu in plaats van na zondag. Waarom: notatie 0.2 was af en de resttijd was te kort voor het betaalde deel.
+**Beslissing:** run hier gestopt (±35 minuten). Waarom: versie 0.2.0 en het betaalde deel passen niet meer netjes in deze run.

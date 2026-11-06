@@ -566,9 +566,6 @@ function formatResult(value, style = {}) {
   return style.paren ? `(${signed})` : signed;
 }
 
-// src/engine/random.ts
-var defaultRandom = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-
 // src/engine/compare.ts
 function compare(value, op, target) {
   switch (op) {
@@ -590,7 +587,7 @@ function matchesAny(value, conditions) {
   return conditions.some((c) => compare(value, c.op, c.value));
 }
 
-// src/engine/evaluate.ts
+// src/engine/faces.ts
 function range(min, max) {
   return { min, max, size: max - min + 1, mean: (min + max) / 2, roll: (random) => ({ value: random(min, max) }) };
 }
@@ -651,6 +648,11 @@ function checkedSpan(min, max) {
   if (max - min + 1 > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
   return range(min, max);
 }
+
+// src/engine/random.ts
+var defaultRandom = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+
+// src/engine/state.ts
 function spend(state) {
   if (++state.budget.rolls > LIMITS.rollsPerFormula) {
     throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
@@ -660,6 +662,22 @@ function rollDie(faces, state) {
   spend(state);
   return faces.roll(state.random);
 }
+function spendStep(budget) {
+  if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
+}
+function makeState(options) {
+  var _a, _b, _c, _d, _e;
+  return {
+    random: (_a = options.random) != null ? _a : defaultRandom,
+    defaultSides: (_b = options.defaultSides) != null ? _b : 100,
+    defaultCount: (_c = options.defaultCount) != null ? _c : 1,
+    names: (_d = options.names) != null ? _d : {},
+    budget: (_e = options.budget) != null ? _e : newBudget(),
+    aliasStack: []
+  };
+}
+
+// src/engine/modifiers.ts
 function applyKeepDrop(dice, mod) {
   const active = dice.filter((d) => !d.dropped).sort((a, b) => a.value - b.value);
   const wanted = Math.min(mod.count, active.length);
@@ -730,6 +748,8 @@ function showDie(die) {
   if (die.score === -1) text += "-";
   return text;
 }
+
+// src/engine/evaluate.ts
 function evaluateDice(node, state) {
   const count = node.count ? evaluate(node.count, state).value : state.defaultCount;
   if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
@@ -797,9 +817,6 @@ function insideName(name, state, work) {
 function evaluateName(name, state) {
   return insideName(name, state, (node) => evaluate(node, state));
 }
-function spendStep(budget) {
-  if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
-}
 function evaluate(node, state) {
   spendStep(state.budget);
   switch (node.type) {
@@ -848,23 +865,14 @@ function calculate(op, a, b) {
   if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
   return value;
 }
-function makeState(options) {
-  var _a, _b, _c, _d, _e;
-  return {
-    random: (_a = options.random) != null ? _a : defaultRandom,
-    defaultSides: (_b = options.defaultSides) != null ? _b : 100,
-    defaultCount: (_c = options.defaultCount) != null ? _c : 1,
-    names: (_d = options.names) != null ? _d : {},
-    budget: (_e = options.budget) != null ? _e : newBudget(),
-    aliasStack: []
-  };
-}
 function roll(formula, options = {}) {
   var _a;
   const node = parseFormula(formula, Object.keys((_a = options.names) != null ? _a : {}));
   const { value, text } = evaluate(node, makeState(options));
   return { formula: formula.trim(), total: value, breakdown: text };
 }
+
+// src/engine/average.ts
 function constant(value) {
   return { mean: value, min: value, max: value, whole: Number.isInteger(value) };
 }
@@ -1870,7 +1878,7 @@ var RollHistoryView = class extends import_obsidian2.ItemView {
 
 // src/ui/live-preview.ts
 var import_language = require("@codemirror/language");
-var import_state = require("@codemirror/state");
+var import_state4 = require("@codemirror/state");
 var import_view = require("@codemirror/view");
 var import_obsidian4 = require("obsidian");
 
@@ -2030,7 +2038,7 @@ var RollWidget = class extends import_view.WidgetType {
 };
 function build(plugin, view) {
   var _a, _b, _c;
-  const builder = new import_state.RangeSetBuilder();
+  const builder = new import_state4.RangeSetBuilder();
   const state = view.state;
   if (!state.field(import_obsidian4.editorLivePreviewField, false)) return builder.finish();
   const sourcePath = (_c = (_b = (_a = state.field(import_obsidian4.editorInfoField, false)) == null ? void 0 : _a.file) == null ? void 0 : _b.path) != null ? _c : "";
