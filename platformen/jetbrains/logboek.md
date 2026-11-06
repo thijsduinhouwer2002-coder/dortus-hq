@@ -70,3 +70,5 @@ Nieuwste blok onderaan.
 - **Daarna (19:02 UTC):** deel 11, de 302 soorten gefilterd (133 zonder sterke bijgehouden plugin) en 47 handgeschreven soorten op GitHub op grootte gemeten.
 - **Beslissing:** Yacc/Bison/Flex als sterkste kandidaat om verder te onderzoeken, Tcl tweede. Reden: grote bestanden, verlaten aangeraden plugins, en ze zitten in C-, C++- en Go-projecten. Tcl zakte omdat er sinds september 2026 een bijgehouden gratis plugin groeit. Geen bouwbesluit: eerst testen of de IDE ze kent en of het publiek JetBrains gebruikt.
 - **Nakijken:** controleur akkoord mits 5 punten (filter, dubbelzinnige `.l` en `.y`, Tcl-plugin jong, Tcl vaak gegenereerd). Verwerkt.
+- **Daarna (19:18 UTC):** deel 12, YouTrack-stemmen en de bestaande plugins voor Tcl en Yacc/Bison/Flex. Tcl heeft duidelijk vraag (38 stemmen in CLion), maar al een jonge gratis plugin; Bison weinig stemmen (8) en verlaten plugins. Stemmen passen bij Jenkinsfile tegen Procfile. Controleur akkoord mits 7 punten (onder andere GoYacc had twee versies), verwerkt. Geen bouwbesluit.
+- **Afgesloten om 19:22 UTC.**

@@ -1,6 +1,7 @@
 # JetBrains: taken (belangrijkste bovenaan)
 
-- [ ] Bouwbesluit, freemium, met curl (nooit WebFetch). Deel 10 en 11 gedaan (nagekeken). Volgende voor Yacc/Bison/Flex en Tcl: (1) testen of IDEA, CLion en GoLand ze kennen (zoek op `<fileType>`-registraties, zie deel 8), (2) groei per maand van de aangeraden plugins (Bison Language Support, GoYacc Support, Tcl Language Support), (3) maat voor JetBrains-publiek (YouTrack-verzoeken, reviews, Stack Overflow), (4) laten nakijken. Daarna stap 3: kiezen, onderbouwen, laten nakijken. Voor cpuprofile en heapsnapshot nog een andere maat voor vraag. Geen haast (bericht Thijs 6 nov 17:18).
+- [ ] Bouwbesluit, freemium, met curl (nooit WebFetch). Deel 10, 11 en 12 gedaan (nagekeken). Volgende voor Yacc/Bison/Flex en Tcl: (1) testen of IDEA en CLion ze kennen (zoek op `<fileType>`-registraties, zie deel 8), (2) Tcl Language Support installeren en bekijken wat hij kan, (3) testen of Bison Language Support in 2026.2 nog werkt, (4) laten nakijken. Daarna stap 3: kiezen, onderbouwen, laten nakijken. Voor cpuprofile en heapsnapshot nog een andere maat voor vraag. Geen haast (bericht Thijs 6 nov 17:18).
+- [x] Meting deel 12: YouTrack-vraag Tcl (38 stemmen) en Bison (8), bestaande plugins, nagekeken (6 nov).
 - [x] Meting deel 11: 302 soorten gefilterd, 47 op grootte gemeten, nagekeken (6 nov).
 - [x] Meting deel 10: spoor (b), betalen mensen voor plugins voor veelvoorkomende bestanden, nagekeken (6 nov).
 - [x] Meting deel 8: kent IDEA deze soorten zelf, nagekeken en verbeterd (6 nov).
