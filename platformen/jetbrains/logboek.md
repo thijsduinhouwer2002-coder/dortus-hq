@@ -67,3 +67,6 @@ Nieuwste blok onderaan.
 - **Beslissing:** nieuwe eis voor kandidaten: het bestand moet werk zijn en het publiek moet in JetBrains-IDE's zitten. Reden: zonder dat bleven Procfile en Brew Bundle klein, ook met aanraden en een lage prijs. Geen bouwbesluit, eerst de 302 soorten filteren en op grootte meten.
 - **Nakijken:** controleur deed de getallen opnieuw, alles gelijk. Akkoord mits 8 punten (ondergrens rekensom, GOK-label bij de verklaring, publiek als tweede verklaring, eis minder streng). Alle 8 verwerkt.
 - **Misging:** het veld `meanRating` van de Marketplace is voor elke plugin gelijk (4,06383), dus geen bruikbaar cijfer. Alleen `votes` gebruiken.
+- **Daarna (19:02 UTC):** deel 11, de 302 soorten gefilterd (133 zonder sterke bijgehouden plugin) en 47 handgeschreven soorten op GitHub op grootte gemeten.
+- **Beslissing:** Yacc/Bison/Flex als sterkste kandidaat om verder te onderzoeken, Tcl tweede. Reden: grote bestanden, verlaten aangeraden plugins, en ze zitten in C-, C++- en Go-projecten. Tcl zakte omdat er sinds september 2026 een bijgehouden gratis plugin groeit. Geen bouwbesluit: eerst testen of de IDE ze kent en of het publiek JetBrains gebruikt.
+- **Nakijken:** controleur akkoord mits 5 punten (filter, dubbelzinnige `.l` en `.y`, Tcl-plugin jong, Tcl vaak gegenereerd). Verwerkt.

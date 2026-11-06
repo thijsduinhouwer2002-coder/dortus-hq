@@ -1,6 +1,7 @@
 # JetBrains: taken (belangrijkste bovenaan)
 
-- [ ] Bouwbesluit, freemium, met curl (nooit WebFetch). Spoor (b) gedaan in deel 10 (nagekeken): er wordt betaald, mits het bestand werk is. Volgende: de 302 soorten uit deel 7 (`data/bestandssoorten-stap1-2026-11-06.tsv`) filteren op veel projecten, IDE kent het niet, geen sterke bijgehouden plugin, publiek in JetBrains-IDE's; daarna de overblijvers meten met GitHub `size:>2000` (rangschikken, geen harde grens). Voor cpuprofile en heapsnapshot nog een andere maat voor vraag zoeken (YouTrack, Stack Overflow). Daarna stap 3: kiezen, onderbouwen, laten nakijken. Geen haast (bericht Thijs 6 nov 17:18).
+- [ ] Bouwbesluit, freemium, met curl (nooit WebFetch). Deel 10 en 11 gedaan (nagekeken). Volgende voor Yacc/Bison/Flex en Tcl: (1) testen of IDEA, CLion en GoLand ze kennen (zoek op `<fileType>`-registraties, zie deel 8), (2) groei per maand van de aangeraden plugins (Bison Language Support, GoYacc Support, Tcl Language Support), (3) maat voor JetBrains-publiek (YouTrack-verzoeken, reviews, Stack Overflow), (4) laten nakijken. Daarna stap 3: kiezen, onderbouwen, laten nakijken. Voor cpuprofile en heapsnapshot nog een andere maat voor vraag. Geen haast (bericht Thijs 6 nov 17:18).
+- [x] Meting deel 11: 302 soorten gefilterd, 47 op grootte gemeten, nagekeken (6 nov).
 - [x] Meting deel 10: spoor (b), betalen mensen voor plugins voor veelvoorkomende bestanden, nagekeken (6 nov).
 - [x] Meting deel 8: kent IDEA deze soorten zelf, nagekeken en verbeterd (6 nov).
 - [x] Meting deel 5 en 6: 219 verlaten gratis plugins nagelopen op werkt-nog en vervangers, KITSS TECH-portfolio gemeten, aanraden door de IDE gevonden, nagekeken (6 nov).
