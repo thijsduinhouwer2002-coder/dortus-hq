@@ -59,3 +59,11 @@ Nieuwste blok onderaan.
 - **Beslissing:** spoor (a) levert geen betaald product, volgende run spoor (b). Reden: geld gaat voor bereik, en alleen bij Jenkinsfile en Procfile is er een betaalde plugin voor een veelvoorkomend bestand.
 - **Nakijken:** controleur kreeg dezelfde getallen, goedgekeurd mits 4 zinnen minder stellig. Verwerkt.
 - **Afgesloten om 18:15 UTC.**
+
+
+## 6 nov 2026, 18:52 UTC
+- **Gedaan:** berichten van Thijs gelezen, alle drie al verwerkt. Spoor (b) gedaan als meting deel 10: prijzen, downloads per versie en reviews van 18 betaalde plugins met curl, plus GitHub-tellingen van grote bestanden. De prijsroute van de Marketplace gevonden (`/api/marketplace/plugin/{id}/prices?countryCode=US`).
+- **Uitkomst:** er zijn aantoonbaar kopers (reviews bij Jenkinsfile, IReport 6, BashSupport Pro). Jenkinsfile en Procfile van dezelfde maker komen even vaak voor en worden allebei aangeraden, maar alleen Jenkinsfile groeit; Jenkinsfile-bestanden zijn veel vaker groot (44% tegen 2%).
+- **Beslissing:** nieuwe eis voor kandidaten: het bestand moet werk zijn en het publiek moet in JetBrains-IDE's zitten. Reden: zonder dat bleven Procfile en Brew Bundle klein, ook met aanraden en een lage prijs. Geen bouwbesluit, eerst de 302 soorten filteren en op grootte meten.
+- **Nakijken:** controleur deed de getallen opnieuw, alles gelijk. Akkoord mits 8 punten (ondergrens rekensom, GOK-label bij de verklaring, publiek als tweede verklaring, eis minder streng). Alle 8 verwerkt.
+- **Misging:** het veld `meanRating` van de Marketplace is voor elke plugin gelijk (4,06383), dus geen bruikbaar cijfer. Alleen `votes` gebruiken.
