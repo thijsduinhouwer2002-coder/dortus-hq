@@ -1,5 +1,61 @@
 # Voorstel: Shopify (apps)
 
+## Update 6 nov 2026, avond: eigen steekproef (Vera)
+
+**Advies: nog niet klaar, maar dichterbij. Cijfer: 6 van 10 (was 5).** De eigen meting bevestigt dat een gewone nieuwe app hier bijna niets haalt. Maar ze laat ook iets zien wat we eerder misten: als er een nieuwe regel komt, kunnen kleine makers binnen maanden duizenden winkels halen met een betaalde app. Shopify is daarmee geen plek voor "nog een app", wel voor een app die op een nieuwe verplichting of een gat inspeelt. Nagekeken: zie onderaan.
+
+### Hoe gemeten
+- apps.shopify.com was nu met curl leesbaar. De sitemap (`sitemap_apps_en.xml`) noemt 30.060 live apps (GEZIEN).
+- Willekeurige steekproef van 6.000 apps (20%), van elke app de pagina gelezen: lanceerdatum, aantal reviews, prijs, maker. 5.999 met datum (GEZIEN). Data en script staan in `platformen/verkenner/data/`.
+- Let op: de sitemap toont alleen apps die nog live zijn. Verwijderde apps tellen niet mee, dus de cijfers zijn eerder te mooi dan te somber.
+- Installs toont Shopify niet. Reviews zijn de benadering. Hoeveel installs bij een review horen weten we niet (GOK: 1 review per 10 tot 50 installs).
+
+### Bereik (GEZIEN, reviews als benadering)
+
+| Lanceerde in | Apps in steekproef | Mediaan reviews | Geen review | 5+ | 10+ | 25+ |
+|---|---|---|---|---|---|---|
+| mei tot aug 2026 (3 tot 6 mnd) | 1.598 | 0 | 78% | 4% | 1% | 0% |
+| nov 2025 tot apr 2026 (6 tot 12 mnd) | 644 | 0 | 63% | 14% | 6% | 2% |
+| jan tot okt 2025 | 712 | 0 | 58% | 20% | 11% | 5% |
+| 2024 | 543 | 1 | 49% | 29% | 21% | 13% |
+| 2020 tot 2023 | 1.111 | 2 | 37% | 39% | 31% | 20% |
+
+- Apps van makers met maar één app in de steekproef (76% van de nieuwe apps) doen het ongeveer even slecht als de rest: mei tot aug 2026 78% zonder review, 1% met 10+.
+- Betaalde of deels betaalde apps: ±80% in elk cohort (GEZIEN, op basis van de prijsregel).
+
+### Drukte (GEZIEN, steekproef keer 5)
+- Live apps per lanceermaand in 2026: jan tot apr ±550 per maand, mei ±2.750, juni tot sept ±1.550 tot 1.950, oktober ±2.650.
+- 52% van alle live apps is in 2026 gelanceerd. De piek in mei is dus echt (geen meetfout, zoals RevenueHunt dacht), en oktober is net zo druk.
+
+### Geld: het nieuwe signaal (GEZIEN)
+De sterkste nieuwe apps zitten rond de EU-knop voor herroeping, die volgens de apppagina's vanaf 19 juni 2026 verplicht is voor EU-winkels:
+
+| App | Maker | Gelanceerd | Reviews (6 nov) | Prijzen |
+|---|---|---|---|---|
+| EW: EU Withdrawal Button & Form | 401layers UG (klein Duits bedrijf, 2 apps) | 9 jan 2026 | 2.323 | $9,99 tot $29,99 per maand |
+| Revoq | BuschBytes (Jonas Busch Consulting) | 11 mrt 2026 | 580 | $9 tot $25 per maand |
+| Wideruf-Button | Anviara LLC | 6 mei 2026 | 108 | gratis plan, $7,99 per maand |
+| EU Withdrawal Button | Nayvo | 3 juni 2026 | 71 | $7,99 tot $22 per maand |
+
+- 2.323 reviews in 10 maanden is meer dan bijna alle apps uit 2020 tot 2023 in jaren haalden. Dit zijn kleine makers, geen grote studio's.
+- Hoeveel ze verdienen is niet te zien. Rekenvoorbeeld (GOK): 2.323 reviews is minstens ±20.000 installs; als 5% de kleinste betaalde laag neemt, is dat ±$10.000 per maand.
+- Andere uitschieters in mei tot aug 2026: Post Purchase Upsell Hero (HeroSoftware GmbH, 62 reviews, vanaf $19 per maand). De rest van de top is grotendeels gratis.
+- Les: hier verdient een kleine maker niet met een beter idee in een volle categorie, maar door als eerste te zijn bij een nieuwe verplichting of een nieuwe Shopify-functie (ook "combined listings" komt twee keer in de top voor).
+
+### Wat dit betekent voor Dortus
+- Voor: betalen zit ingebouwd, 0% afdracht onder $1 miljoen, en het bewijs dat een kleine maker in maanden groot kan worden bestaat nu (GEZIEN).
+- Tegen: wie niet zo'n golf pakt, haalt in 3 tot 6 maanden meestal niets (78% geen review). De drukte is in 2026 ±4 keer zo groot als begin 2026. De herroepingsgolf zelf is al bezet.
+- Eerste idee: een vaste "regelradar" voor EU-webwinkels. Volg aankomende EU- en landenregels (bijvoorbeeld toegankelijkheid, de EU-batterijverordening, verpakking en EPR, de nieuwe productveiligheidsregels, prijsaanduiding) en bouw de app voordat de deadline valt. Bouwen in 1 tot 2 weken kan (GOK), de keuring kost weken, dus we moeten maanden voor een deadline beginnen.
+
+### Wat er nog moet voor een ja
+1. Een concrete aankomende regel met een datum, die minstens 3 maanden weg is en waarvoor nog geen sterke app bestaat. Dat is het volgende onderzoek (eerst kijken in de winkel met de zoekfunctie).
+2. Het verband tussen reviews en installs uit één openbare bron (bijvoorbeeld een maker die beide noemt).
+3. Partneraccount via Thijs (gratis of $19).
+
+---
+
+## Eerste versie (6 nov, middag), zonder eigen meting
+
 **Advies: nog niet klaar, voorlopig nee. Cijfer: 5 van 10.** Hoofdreden: we vonden geen enkel duidelijk voorbeeld uit 2026 van een kleine maker die een nieuwe Shopify-app snel naar betalende klanten bracht, terwijl er de afgelopen maanden veel meer nieuwe apps bijkomen. Er wordt wel veel geld verdiend, vooral door oude apps. Opnieuw bekijken als er zo'n voorbeeld opduikt of als we een eigen ingang naar winkeliers hebben. Geschreven op 6 nov 2026.
 
 ## Meetgrens
