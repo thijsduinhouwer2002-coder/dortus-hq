@@ -27,6 +27,13 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 4. **Stopregel:** op dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing.
 5. **Geen herhaling zonder resultaat:** lukt een taak twee runs op rij niet, zet hem op de lijst voor Thijs en pak iets anders.
 
+## Codekwaliteit (zodat een product heel blijft als het groeit)
+1. **Tests niet aanpassen om ze te laten slagen.** Faalt een test, dan repareer je de code, niet de test. Een bestaande test wijzigen of weghalen mag alleen met een reden in de commit, en de controleur keurt dat apart goed. De controleur bekijkt bij elke beurt welke tests er veranderd zijn.
+2. **Eerst kijken wat er al is.** Lees voor je iets toevoegt de bestaande code en `producten/<naam>/architectuur.md`. Bouw voort op wat er is, maak niets dubbel.
+3. **Elke fout is jouw fout.** Faalt er iets na jouw wijziging, ook als het er "niets mee te maken lijkt te hebben", zoek de oorzaak. Zeg nooit "dat komt niet door mij" zonder bewijs.
+4. **Klein en overzichtelijk.** Een bestand blijft onder de ±400 regels. Wordt het groter, splits het op. Elk product heeft een `architectuur.md` met de onderdelen en hoe ze samenhangen, en de bouwer werkt dat bij als er iets verandert.
+5. **Opruimen hoort erbij.** Elke week (na het weekbesluit van zondag) zet de manager één opruimtaak bovenaan: dubbele code weg, grote bestanden splitsen, `architectuur.md` bijwerken. Pas daarna weer nieuwe functies.
+
 ## Opslaan
 - Begin met `git pull --rebase`.
 - Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
