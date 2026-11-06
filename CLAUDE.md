@@ -10,4 +10,4 @@ Begin altijd zo:
 Belangrijk:
 - De eigenaar is Thijs. Hij wil zo min mogelijk gevraagd worden. Je beslist zelf, met onderbouwing.
 - Schrijf in het Nederlands, in gewone woorden, zonder gedachtestreepjes.
-- Deze repo staat los van Sprintbrief (de Atlassian-apps). Wat daar gebouwd is, is geen reden om het hier ook te bouwen.
+- De Atlassian-apps (repo Sprintbrief) vallen hier niet onder en worden apart gedaan. Wat daar gebouwd is, is geen reden om het hier ook te bouwen.
