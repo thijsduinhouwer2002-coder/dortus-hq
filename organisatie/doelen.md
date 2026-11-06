@@ -10,7 +10,9 @@ Vastgesteld door Thijs op 6 november 2026. Dortus is zijn bedrijf en zijn fullti
 | 6 november 2027 (1 jaar) | € 1.000 |
 | november 2028 (2 jaar) | € 2.000 tot € 3.000 |
 
-## Tussenstappen (gekozen door Claude, zodat we vroeg zien of we achterlopen)
+## Tussenstappen (richtpunten, geen deadlines)
+
+Deze data zijn om te zien of we op koers liggen, niet om haast te maken. **Een keuze (platform, product, bouwbesluit) wordt nooit gehaast om een datum te halen.** Liever een week later met een goed onderbouwd product dan op tijd met iets afgeraffelds. Loopt een tussenstap uit, dan meldt Hans dat met de reden, en dat is prima zolang het werk grondig is.
 
 | Wanneer | Tussenstap |
 |---|---|
