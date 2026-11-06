@@ -216,3 +216,10 @@ Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet
 - Overgebleven sporen voor de volgende run: (a) soorten zonder enige aangeraden plugin die toch vaak in projecten zitten, bijvoorbeeld `Podfile` (staat in de map ios van Flutter-projecten die voor iOS bouwen, GOK) en `.npmrc`; eerst echt testen of de IDE ze kent. (b) Betaalde plugins voor veelvoorkomende bestanden die het goed doen (Jenkinsfile 162.049, BatchCraft) als bewijs dat mensen voor zoiets betalen. (c) Terug naar C-breed: viewers voor bestanden zonder aanbod (`*.heapsnapshot`, `*.cpuprofile`).
 - Nagekeken door een controleur: afgekeurd op 6 kleine punten (8 moest 7, OrgMode vergeten, Jenkinsfile en Flexible Julia te stellig door updates, Rider-soorten, Podfile). Alles verwerkt.
 - **Geen bouwbesluit.**
+
+## Meting deel 8: kent IDEA 2026.2 deze soorten zelf? (17:20 UTC, NOG NIET NAGEKEKEN)
+**Hoe:** in de echte installatie van IntelliJ IDEA 2026.2 (163 meegeleverde plugins, uit de Gradle-cache) gezocht naar de naam in de plugin-beschrijvingen en in de jar-bestanden. Dat is betrouwbaarder dan de testomgeving uit deel 6, maar niet sluitend: een soort kan ook op een andere manier herkend worden (GEZIEN voor wat er staat, de conclusie is een sterke GOK).
+- `.npmrc`: staat in de JavaScript-plugin van JetBrains. Geen gat.
+- `*.heapsnapshot` en `*.cpuprofile`: komen voor in de Node.js- en JavaScript-plugins (de V8-profiler van IDEA). Geen gat in IDEA zelf; in IDE's zonder die plugins niet gemeten.
+- `Podfile` en `*.webmanifest`: nergens gevonden. Of daar genoeg vraag is, en of mensen ervoor zouden betalen, is niet gemeten.
+- Gevolg: spoor (a) en (c) uit deel 7 worden kleiner. Spoor (b), bewijs zoeken dat mensen betalen voor plugins voor veelvoorkomende bestanden, blijft het sterkst.

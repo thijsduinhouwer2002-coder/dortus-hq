@@ -46,4 +46,5 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur keurde eerst af op 6 punten (git flow fout, 1 van 4 moest 1 van 5, Pascal zonder meting, downloads geen gebruikers, *.cmd, uitlichting). Verwerkt, herkeuring akkoord.
 - **Misging:** de testomgeving van de IDE laadt niet alle meegeleverde plugins, dus "onbekend" in die test is niet zeker. Bouwsjabloon miste de spiegel voor de plugin-resolutie, aangevuld.
 - **Later in deze run (17:14 UTC):** bouwbesluit stap 1 gedaan, 302 bestandssoorten nagelopen op aanraadlijst, JetBrains-plugin en versheid. Geen tweede batch gevonden. Controleur keurde af op 6 kleine punten (tellingen en te stellige zinnen over downloads), verwerkt. Drie sporen voor de volgende run genoteerd. Geen bouwbesluit, want geen soort voldoet aan alle eisen.
+- **Daarna (17:21 UTC):** deel 8, in de echte installatie van IDEA 2026.2 nagezocht welke soorten hij zelf kent. Nog niet nagekeken, staat bovenaan de taken.
 - **Afgesloten om 17:22 UTC.**
