@@ -11,13 +11,13 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
-| Dortus: strateeg (elke ochtend 07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01GVRZ6ps5DDFUnHg5RiGFfx` |
-| Dortus: Obsidian-manager (elk uur, 08-20) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01VYVqEqFZ8wVhUAjzSjJv5A` |
-| Dortus: verkenner (elk uur, 08-20) | `CRON_TZ=Europe/Amsterdam 31 8-19 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
-| Dortus: JetBrains-manager (elk uur, 08-20) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_018F9xQW4CXh94qTuafJRpG1` |
-| Dortus: hoofdmanager en dagrapport (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01D9bZyynavT2KcF1B6pGVs9` |
+| Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01GVRZ6ps5DDFUnHg5RiGFfx` |
+| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01VYVqEqFZ8wVhUAjzSjJv5A` |
+| Vera - Verkenner (elk uur) | `CRON_TZ=Europe/Amsterdam 31 8-19 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
+| Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_018F9xQW4CXh94qTuafJRpG1` |
+| Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01D9bZyynavT2KcF1B6pGVs9` |
 
-## Dortus: strateeg (elke ochtend 07:44)
+## Stijn - Strateeg (07:44)
 
 Schema: `CRON_TZ=Europe/Amsterdam 44 7 * * *`. Melding: nee.
 
@@ -33,7 +33,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Dortus: Obsidian-manager (elk uur, 08-20)
+## Olaf - Obsidian-manager (elk uur)
 
 Schema: `CRON_TZ=Europe/Amsterdam 13 8-19 * * *`. Melding: nee.
 
@@ -49,7 +49,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Dortus: verkenner (elk uur, 08-20)
+## Vera - Verkenner (elk uur)
 
 Schema: `CRON_TZ=Europe/Amsterdam 31 8-19 * * *`. Melding: nee.
 
@@ -67,7 +67,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Dortus: JetBrains-manager (elk uur, 08-20)
+## Jet - JetBrains-manager (elk uur)
 
 Schema: `CRON_TZ=Europe/Amsterdam 52 8-19 * * *`. Melding: nee.
 
@@ -83,7 +83,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Dortus: hoofdmanager en dagrapport (20:44)
+## Hans - Hoofdmanager (20:44)
 
 Schema: `CRON_TZ=Europe/Amsterdam 44 20 * * *`. Melding: ja, op Thijs' telefoon.
 

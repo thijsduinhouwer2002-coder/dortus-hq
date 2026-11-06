@@ -25,7 +25,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 
 ## Opslaan
 - Begin met `git pull --rebase`.
-- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
+- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
 - Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de controleur akkoord is en de tests groen zijn.
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
@@ -34,7 +34,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk mee doet. Tot Dortus een eigen account heeft:
 - **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo of Claude Docs**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
 - **Chrome:** gebruik alleen de browser van Thijs' HP (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0). Kies nooit een andere browser.
-- Open of wijzig nooit chats, projecten of geplande taken die niet met "Dortus" beginnen.
+- Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen. Dortus-taken heten Stijn, Hans, Vera, Olaf, Jet (of beginnen met "Dortus").
 
 ## Webpagina's lezen
 - Het netwerk van de cloudomgeving staat open (Full). Lees webpagina's daarom met `curl` in Bash (bijvoorbeeld `curl -sL <url>`), of met een klein script. Dat vraagt geen toestemming.

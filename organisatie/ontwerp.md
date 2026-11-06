@@ -12,6 +12,16 @@ De eerste opzet was één agent die vijf projecten onderhield. Dat werd een romm
 
 ## Wie is wie
 
+| Naam | Rol | Berichten van Thijs |
+|---|---|---|
+| Stijn | Strateeg | `berichten/stijn.md` |
+| Hans | Hoofdmanager | `berichten/hans.md` |
+| Vera | Verkenner | `berichten/vera.md` |
+| Olaf | Obsidian-manager | `berichten/olaf.md` |
+| Jet | JetBrains-manager | `berichten/jet.md` |
+
+Een nieuwe manager krijgt een naam die begint met de eerste letter van zijn platform, en een eigen bestand in `berichten/`.
+
 Naast de lijn van managers is er **de strateeg**: hij houdt het overzicht, scant de markt op kansen en bedreigingen, en adviseert de hoofdmanager over de grote lijnen (combineren, marketing, koers). Hij geeft managers geen opdrachten: de hoofdmanager beslist over zijn adviezen. Zie `organisatie/rollen/strateeg.md`.
 
 ```
