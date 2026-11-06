@@ -53,7 +53,10 @@ export const Keymap = {
 
 export class ItemView {}
 export class MarkdownView {}
-export class PluginSettingTab {}
+export class PluginSettingTab {
+	containerEl = { empty: () => {} };
+	constructor(public app: unknown, public plugin: unknown) {}
+}
 
 /** A tiny element: enough for a modal to put text in. */
 export interface FakeEl {
@@ -103,12 +106,58 @@ export class Modal {
 
 /** Buttons made through Setting.addButton, newest last, so a test can press one. */
 export const buttons: { text: string; press: () => void }[] = [];
+/** Every Setting made, with its name, description and dropdown options, so a test can read a settings tab. */
+export const settingsMade: { name: string; desc: string; options: string[]; texts: ((value: string) => void)[] }[] = [];
 export class Setting {
+	private readonly made = { name: "", desc: "", options: [] as string[], texts: [] as ((value: string) => void)[] };
+	constructor(_containerEl?: unknown) {
+		settingsMade.push(this.made);
+	}
+	setName(name: string): this {
+		this.made.name = name;
+		return this;
+	}
+	setDesc(desc: string): this {
+		this.made.desc = desc;
+		return this;
+	}
+	setHeading(): this {
+		return this;
+	}
+	addText(make: (text: unknown) => void): this {
+		const text = {
+			setValue: () => text,
+			setPlaceholder: () => text,
+			onChange: (change: (value: string) => void) => (this.made.texts.push(change), text),
+		};
+		make(text);
+		return this;
+	}
+	addToggle(make: (toggle: unknown) => void): this {
+		const toggle = { setValue: () => toggle, onChange: () => toggle };
+		make(toggle);
+		return this;
+	}
+	addExtraButton(make: (button: unknown) => void): this {
+		const button = { setIcon: () => button, setTooltip: () => button, onClick: () => button };
+		make(button);
+		return this;
+	}
+	addDropdown(make: (dropdown: unknown) => void): this {
+		const dropdown = {
+			addOption: (id: string) => (this.made.options.push(id), dropdown),
+			setValue: () => dropdown,
+			onChange: () => dropdown,
+		};
+		make(dropdown);
+		return this;
+	}
 	addButton(make: (button: unknown) => void): this {
 		const made = { text: "", press: () => {} };
 		const button = {
 			setButtonText: (text: string) => ((made.text = text), button),
 			setCta: () => button,
+			setDisabled: () => button,
 			onClick: (press: () => void) => ((made.press = press), button),
 		};
 		make(button);

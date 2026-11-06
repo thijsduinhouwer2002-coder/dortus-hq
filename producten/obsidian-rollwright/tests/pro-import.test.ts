@@ -1,31 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { extractSavedFormulas, mergeFormulas } from "../src/import/dice-roller-data";
-import { BUY_URL, isValidLicenseKey, licenseChecksum, shouldShowBuyButton } from "../src/pro/license";
 import { availableSkins, resolveSkin, SKINS } from "../src/pro/skins";
-
-const body = "RW1-ABCDE-23456";
-const validKey = `${body}-${licenseChecksum(body)}`;
-
-describe("license", () => {
-	it("accepts a well formed key, also lower case with spaces", () => {
-		expect(isValidLicenseKey(validKey)).toBe(true);
-		expect(isValidLicenseKey(`  ${validKey.toLowerCase()} `)).toBe(true);
-	});
-
-	it.each(["", "abc", "RW1-ABCDE-23456", "RW1-ABCDE-23457-000000", "RW2-ABCDE-23456-000000"])("rejects %j", (key) => {
-		expect(isValidLicenseKey(key)).toBe(false);
-	});
-
-	it("rejects a key with one changed letter", () => {
-		expect(isValidLicenseKey(validKey.replace("ABCDE", "ABCDF"))).toBe(false);
-	});
-
-	it("hides the buy button while the URL is empty", () => {
-		expect(BUY_URL).toBe("");
-		expect(shouldShowBuyButton()).toBe(false);
-		expect(shouldShowBuyButton("https://example.com/buy")).toBe(true);
-	});
-});
 
 describe("skins", () => {
 	it("has one free and two paid skins", () => {
