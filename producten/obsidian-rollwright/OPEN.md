@@ -68,3 +68,8 @@ Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `s
 - De indeling van `data.json` van Dice Roller. Broncode lezen mocht niet, dus de import herkent eenvoudige vormen onder elke sleutel met "formula" in de naam. Tests draaien op een eigen model, niet op een echt bestand. De map `obsidian-dice-roller` komt uit het id in deel 3 van het onderzoek.
 - Of de notatie in randgevallen gelijk is aan Dice Roller: niet naast de echte plugin gedraaid.
 - Het kleurcontrast van de betaalde skins: niet bekeken.
+
+## Na de herkeuring (6 nov), voor uitgave
+- L7, blokkeert uitgave: `src/engine/evaluate.ts:385`, `|avg` geeft elke steekproef een eigen budget. Alias-keten binnen de grenzen duurde 31,9 s (GEZIEN, Node). Eén budget over alle steekproeven.
+- L8: `src/rollers/defuse.ts:22` zet onzichtbare tekens ook buiten code, zoals in `[[Rules#Dice: basics]]` en `https://e.com/dice:1`. Alleen in code vervangen, en het teken als escape schrijven.
+- Omzeilen van `defuseRolls` kan nog met html-vormen zoals `dice&#58;` en `d<b>ice</b>:`. Dan hangt het aan `el.closest`, in Obsidian te bewijzen.
