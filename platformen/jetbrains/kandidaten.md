@@ -24,3 +24,6 @@ Dit bewijs is dun. Niet bouwen voordat onderstaande controle is gedaan.
 1. Haal alle betaalde en freemium plugins op, met downloads, cijfer, prijs en leeftijd.
 2. Zoek welke bestandssoorten nog geen goede visuele editor hebben, en kies er één.
 3. Doorgaan alleen als minstens 3 betaalde plugins van dit type aantoonbaar bestaan met elk meer dan 5.000 downloads (grens is een GOK). Anders opnieuw kiezen uit wat de lijst laat zien.
+
+## Startpunten voor de controle (niet nagekeken)
+Alleen uit zoekresultaten, pagina's niet gelezen. Bestaande visuele editors, dus deze soorten zijn niet leeg: [OpenAPI](https://awesome.ecosyste.ms/projects/github.com%2Fanton-okolelov%2Fopenapi-gui-editor-plugin), [BPMN](https://github.com/valb3r/flowable-bpmn-intellij-plugin). Geen downloads of prijzen bekend.
