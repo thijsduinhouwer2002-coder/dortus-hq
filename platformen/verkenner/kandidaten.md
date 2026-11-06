@@ -2,6 +2,8 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
+- Shopify (eigen steekproef op verzoek van Thijs) in onderzoek 6 nov 17:33
+
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
