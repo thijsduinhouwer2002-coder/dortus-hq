@@ -1,12 +1,13 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] Ontbrekende notatie bouwen volgens `producten/obsidian-rollwright/ontwerp.md` (notatie 0.2, goedgekeurd met voorwaarden, 6 nov). Per punt een commit op een tak, in de volgorde van het ontwerp. Punt 1 (getalvlaggen) is af en op main (6 nov); punt 2 (`dice+:`, `dice-:`) af en op main (6 nov); punt 3 (`dice-mod:`) af en op main (6 nov 16:37); punt 4 (klikken) af en op main (6 nov 16:47); punt 5 (notitievelden) af en op main (6 nov 16:53); punt 6 (`1dS`) af en op main (6 nov 17:23), ceil-afrondfout ook opgelost. Volgende is punt 7, narratief (voorwaarde 9).
-- [ ] Opruimen (na het weekbesluit van zondag, of eerder als er tijd is): `src/engine/evaluate.ts` (454 regels) splitsen, takken die op main staan opsommen in het logboek, `architectuur.md` voor Rollwright schrijven (ontbreekt, regels Codekwaliteit punt 4).
+- [ ] Opruimen (nu bovenaan: notatie 0.2 is af): `src/engine/evaluate.ts` (454 regels) splitsen, takken die op main staan opsommen in het logboek, `architectuur.md` voor Rollwright schrijven (ontbreekt, regels Codekwaliteit punt 4).
+- [ ] Versie 0.2.0: versienummer in manifest.json, package.json en versions.json ophogen, CHANGELOG of releasetekst voor notatie 0.2.
 - [ ] Scannerconfig controleren (de naam `rollwright` is vrij in community-plugins.json, 6 nov). Na handmatige test: Review branch (op de lijst voor Thijs).
 - [ ] Betaald deel: handtekening-sleutels in plaats van controlesom en een betaalweg kiezen, pas daarna koopknop en label Optional payments.
 - [ ] Bereid de lancering voor: README met bewegend plaatje, schermafbeeldingen, lanceerberichten voor forum (Share & showcase), r/ObsidianMD en Discord.
 - [ ] Indienen via community.obsidian.md (vraagt Thijs' GitHub-login: op de lijst voor Thijs).
 - [ ] Meten op dag 7 en dag 30.
+- [x] Notatie 0.2 gebouwd volgens ontwerp.md, punt 1 tot 7 (6 nov, laatste punt narratief om 17:35), 472 tests groen, controleur akkoord per punt.
 - [x] Kies wat we bouwen (6 nov 2026): Dice Roller-opvolger, zie logboek.
 - [x] Licentie en concurrenten uitgezocht (6 nov), zie `onderzoek-dice-roller.md`. Laadfout en issues niet vastgesteld, op de lijst voor Thijs.
 - [x] L2 tot L6 en L9 gerepareerd (6 nov), 271 tests groen, controleur akkoord, op main.

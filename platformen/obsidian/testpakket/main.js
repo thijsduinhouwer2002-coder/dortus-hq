@@ -945,6 +945,131 @@ function averageOf(formula, options = {}) {
   return { value: mean, exact: false };
 }
 
+// src/engine/narrative.ts
+var NAMES = {
+  ability: "Ability",
+  proficiency: "Proficiency",
+  difficulty: "Difficulty",
+  challenge: "Challenge",
+  boost: "Boost",
+  setback: "Setback",
+  force: "Force"
+};
+var FACES = {
+  boost: ["", "", "S", "S A", "A A", "A"],
+  setback: ["", "", "F", "F", "T", "T"],
+  ability: ["", "S", "S", "S S", "A", "A", "S A", "A A"],
+  difficulty: ["", "F", "F F", "T", "T", "T", "T T", "F T"],
+  proficiency: ["", "S", "S", "S S", "S S", "A", "S A", "S A", "S A", "A A", "A A", "Tr"],
+  challenge: ["", "F", "F", "F F", "F F", "T", "T", "F T", "F T", "T T", "T T", "De"],
+  force: ["D", "D", "D", "D", "D", "D", "D D", "L", "L", "L L", "L L", "L L"]
+};
+var LETTERS = {
+  g: "ability",
+  a: "ability",
+  y: "proficiency",
+  pro: "proficiency",
+  d: "difficulty",
+  diff: "difficulty",
+  r: "challenge",
+  c: "challenge",
+  b: "boost",
+  boo: "boost",
+  s: "setback",
+  sb: "setback",
+  blk: "setback",
+  w: "force",
+  f: "force"
+};
+var WORDS = [...Object.keys(LETTERS), "p"].sort((a, b) => b.length - a.length);
+var SWITCHES = /* @__PURE__ */ new Set(["a", "c", "d", "diff"]);
+function splitLetters(run, from = 0, dead = /* @__PURE__ */ new Set()) {
+  if (from === run.length) return [];
+  if (dead.has(from)) return null;
+  for (const word of WORDS) {
+    if (!run.startsWith(word, from)) continue;
+    const rest = splitLetters(run, from + word.length, dead);
+    if (rest) return [word, ...rest];
+  }
+  dead.add(from);
+  return null;
+}
+function isOrdinaryPiece(piece) {
+  try {
+    const node = parseFormula(piece, []);
+    return !(node.type === "name" || node.type === "dice" && node.sides.kind === "default" && node.modifiers.length === 0);
+  } catch (e) {
+    return false;
+  }
+}
+function parseNarrative(formula) {
+  if (formula.length > LIMITS.formulaLength) return null;
+  const pieces = formula.trim().split(/\s+/);
+  const words = [];
+  for (const piece of pieces) {
+    const text = piece.toLowerCase();
+    if (!/^[0-9a-z]*[a-z]$/.test(text) || isOrdinaryPiece(piece)) return null;
+    const groups = /(\d*)([a-z]+)/g;
+    for (let match = groups.exec(text); match; match = groups.exec(text)) {
+      const split = splitLetters(match[2]);
+      if (!split) return null;
+      split.forEach((word, i) => words.push({ count: i === 0 && match[1] !== "" ? Number(match[1]) : 1, word }));
+    }
+  }
+  const switched = words.some((w) => SWITCHES.has(w.word));
+  return words.map(({ count, word }) => {
+    if (word !== "p") return { count, kind: LETTERS[word] };
+    if (!switched) throw new DiceError("P is ambiguous here: write Y for Proficiency or D for Difficulty");
+    return { count, kind: "proficiency" };
+  });
+}
+function isNarrative(formula) {
+  try {
+    return parseNarrative(formula) !== null;
+  } catch (error) {
+    return error instanceof DiceError;
+  }
+}
+function showFace(face) {
+  return face === "" ? "blank" : face;
+}
+function summarize(counts) {
+  const parts = [];
+  const net = counts.S + counts.Tr - counts.F - counts.De;
+  if (net > 0) parts.push(`${net} Success`);
+  else if (net < 0) parts.push(`${-net} Failure`);
+  const edge = counts.A - counts.T;
+  if (edge > 0) parts.push(`${edge} Advantage`);
+  else if (edge < 0) parts.push(`${-edge} Threat`);
+  if (counts.Tr > 0) parts.push(`${counts.Tr} Triumph`);
+  if (counts.De > 0) parts.push(`${counts.De} Despair`);
+  if (counts.L > 0) parts.push(`${counts.L} Light`);
+  if (counts.D > 0) parts.push(`${counts.D} Dark`);
+  return parts.length > 0 ? parts.join(", ") : "No result";
+}
+function rollNarrative(formula, random = defaultRandom, budget = newBudget()) {
+  var _a;
+  const groups = parseNarrative(formula);
+  if (!groups) throw new DiceError(`"${formula.trim()}" is not narrative dice`);
+  const total = groups.reduce((sum, g) => sum + g.count, 0);
+  if (total > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${total}`);
+  const counts = { S: 0, F: 0, A: 0, T: 0, Tr: 0, De: 0, L: 0, D: 0 };
+  const shown = /* @__PURE__ */ new Map();
+  for (const { count, kind } of groups) {
+    const faces = FACES[kind];
+    const list = (_a = shown.get(kind)) != null ? _a : [];
+    shown.set(kind, list);
+    for (let i = 0; i < count; i++) {
+      if (++budget.rolls > LIMITS.rollsPerFormula) throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
+      const face = faces[random(1, faces.length) - 1];
+      for (const symbol of face.split(" ")) if (symbol !== "") counts[symbol]++;
+      list.push(showFace(face));
+    }
+  }
+  const breakdown = [...shown].filter(([, list]) => list.length > 0).map(([kind, list]) => `${NAMES[kind]} [${list.join(", ")}]`).join("; ");
+  return { summary: summarize(counts), breakdown: breakdown === "" ? "No dice" : breakdown, counts };
+}
+
 // src/rollers/fields.ts
 var NOTATION_WORD = /^d?f?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/i;
 var NUMBER_TEXT = /^-?\d+(\.\d+)?$/;
@@ -1560,17 +1685,25 @@ async function rollTag(spec, context) {
   return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? (_b = chosen[0]) == null ? void 0 : _b.path : void 0 };
 }
 async function rollSpecAt(raw, context, depth, firstRoll = false, average = false) {
+  var _a;
   if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself");
   const spec = parseSpec(raw, context.aliases);
   const formula = raw.trim();
   if (spec.target.kind === "dice") {
     const dice = spec.target.formula;
-    if (firstRoll && spec.flags.avg || average) {
-      const average2 = averageOf(dice, diceOptions(context));
-      return { kind: "dice", text: formatResult(average2.value, spec.flags), total: average2.value, estimated: !average2.exact, average: true, formula: dice, details: average2.exact ? "Average" : "Estimated average", flags: spec.flags };
+    try {
+      if (firstRoll && spec.flags.avg || average) {
+        const average2 = averageOf(dice, diceOptions(context));
+        return { kind: "dice", text: formatResult(average2.value, spec.flags), total: average2.value, estimated: !average2.exact, average: true, formula: dice, details: average2.exact ? "Average" : "Estimated average", flags: spec.flags };
+      }
+      const result = roll(dice, diceOptions(context));
+      return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
+    } catch (error) {
+      if (!(error instanceof DiceError) || !isNarrative(dice)) throw error;
+      if (firstRoll && spec.flags.avg || average) throw new DiceError("Narrative dice have no average");
+      const result = rollNarrative(dice, (_a = context.random) != null ? _a : defaultRandom, context.budget);
+      return { kind: "dice", text: result.summary, formula: dice, details: result.breakdown, flags: spec.flags };
     }
-    const result = roll(dice, diceOptions(context));
-    return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
   }
   const outcome = spec.target.kind === "note" ? await rollNote(spec, context, depth) : await rollTag(spec, context);
   return { flags: spec.flags, ...outcome, formula };
