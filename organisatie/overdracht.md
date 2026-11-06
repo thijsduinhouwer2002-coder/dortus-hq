@@ -5,7 +5,6 @@ Voor de Claude die deze organisatie vanuit het nieuwe project opstart.
 ## Wat er al staat
 - Het ontwerp, de regels, de rollen en per platform een map met status en taken. Alles goedgekeurd door Thijs.
 - Gekozen platformen: Obsidian (bijzaak, voor bereik) en JetBrains (voor geld). De verkenner zoekt door. Blender staat klaar als voorstel.
-- Atlassian valt hier niet onder.
 
 ## Wat Thijs wil
 - Onderbouwde keuzes, enthousiasme, hard werken.

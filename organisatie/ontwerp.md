@@ -90,7 +90,7 @@ Al het andere beslissen de managers zelf.
 3. **Eén taak tegelijk per manager.** Liever één ding af dan drie half.
 4. **Stopregel per product.** Op dag 30 na lancering: onder de 30 gebruikers stopt of verandert de manager, met onderbouwing. Een product uit een winkel halen is wel een vraag aan Thijs.
 5. **Geen herhaling zonder resultaat.** Lukt een taak twee nachten niet, dan stopt de manager ermee en vraagt hij Thijs wat te doen.
-6. **Open blik.** We bouwen wat op een platform ontbreekt, niet wat we toevallig al hebben. Wat Dortus eerder maakte (de Confluence-editors), is geen reden om het hier ook te bouwen.
+6. **Open blik.** We bouwen wat op een platform ontbreekt, niet wat we toevallig al hebben.
 7. **Opslaan:** werk gaat via een eigen tak (branch) en wordt pas in de hoofdversie gezet als het nagekeken is.
 
 ## Het geheugen
@@ -145,7 +145,3 @@ Het tegoed speelt geen rol bij beslissingen: de managers werken zo hard als nodi
 3. Proefrun: één manager en de hoofdmanager draaien één keer met de hand. We kijken samen naar het rapport.
 4. Werkt dat, dan zetten we alle geplande taken aan.
 5. Na een week kijken we terug: wat leverde het op, wat kostte het, wat moet anders.
-
-## Buiten deze organisatie
-
-De Atlassian-apps (Confluence-editors) vallen hier niet onder. Die doet Thijs apart, in de repo Sprintbrief.
