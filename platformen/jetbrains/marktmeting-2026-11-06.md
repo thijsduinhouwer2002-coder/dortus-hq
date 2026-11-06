@@ -226,3 +226,24 @@ Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet
 - `*.webmanifest`: **geen bestandssoort geregistreerd.** De JSON-plugin kent alleen `har;json;jsonc` en losse namen als `.babelrc`, dus het wordt niet als JSON herkend. Wel heeft het platform een mime-type (`application/manifest+json`) en een eigen icoon voor `webmanifest`. Of de IDE het daardoor toch als tekst met icoon toont is niet getest.
 - **Gevolg:** spoor (a) en (c) uit deel 7 worden door deze meting **niet** kleiner. Alle vijf zijn geen bestandssoort in IDEA Ultimate 2026.2, en alleen bij `*.heapsnapshot` is er wat aanbod. Of er genoeg vraag is, en of mensen ervoor betalen, is nog niet gemeten. Dat is de volgende stap: per soort schatten hoe vaak hij in projecten voorkomt.
 - **Nakijken:** controleur keurde de eerste versie af op 6 punten (npmrc en cpuprofile fout, heapsnapshot te stellig, "nergens gevonden" niet letterlijk waar, editie en methode ontbraken, gevolg verkeerd). Alles hierboven verwerkt, de controleur deed de meting zelf opnieuw, dus deze versie steunt op zijn bevindingen.
+
+## Meting deel 9: hoe vaak komen de vijf soorten voor, en is er aanbod (18:11 UTC, met curl en GitHub-zoeken, NOG NIET NAGEKEKEN)
+**Hoe:** GitHub code-zoeken (`gh api search/code`, het veld `total_count`) per bestandsnaam of extensie, plus BatchCraft-soort, Jenkinsfile en Procfile als vergelijking. Let op: `total_count` van GitHub is een schatting (ronde getallen), en telt bestanden in openbare repo's, geen gebruikers (GEZIEN voor de getallen, de betekenis is een GOK). Daarna de Marketplace doorzocht op de naam (`/api/searchPlugins`).
+
+| Soort | Bestanden op GitHub (schatting) | Plugins op Marketplace bij zoeken op naam |
+|---|---|---|
+| `gradlew.bat` (vergelijking, BatchCraft) | 517.120 | (batch: zie deel 6) |
+| `Podfile` | 496.640 | 0 bij "podfile", 1 bij "cocoapods" (CodeScoring SCA, 660, geen Podfile-plugin) |
+| `*.webmanifest` | 293.376 | 0 |
+| `Procfile` (vergelijking, betaald) | 224.768 | |
+| `Jenkinsfile` (vergelijking, betaald) | 204.800 | |
+| `.npmrc` | 172.288 | 2, allebei klein (68 en 35 downloads) |
+| `*.cpuprofile` | 2.048 | |
+| `*.heapsnapshot` | 29 | |
+
+**Wat dit zegt:**
+- `*.cpuprofile` en `*.heapsnapshot` maak je lokaal en zet je zelden in een repo, dus deze telling zegt niets over hoe vaak ze geopend worden (GOK). Spoor (c) is hiermee niet te meten; dat vraagt een andere bron.
+- `Podfile` komt even vaak voor als `gradlew.bat` en er is helemaal geen plugin voor. **Maar:** CocoaPods zet zijn centrale lijst (trunk) op 2 december 2026 definitief op alleen-lezen; van 2 tot 6 november 2026 loopt er een proef (DERDEN: https://blog.cocoapods.org/CocoaPods-Specs-Repo/). Daarna komen er geen nieuwe pods en versies meer bij. Podfile is dus een soort die gaat krimpen (GOK hoe snel). Een betaald product bouwen op een bestand dat uitsterft past niet bij "geld gaat voor bereik". Podfile valt af.
+- `*.webmanifest` en `.npmrc` komen veel voor en hebben bijna geen aanbod. Maar het zijn kleine bestanden (JSON en sleutel=waarde) die je zelden opent, en het is een GOK dat iemand ervoor betaalt. Hooguit een gratis plugin voor bereik, of een onderdeel van een groter product.
+- **Gevolg:** spoor (a) levert geen betaald product op. Het sterkste overgebleven spoor is (b): bewijs zoeken dat mensen betalen voor plugins voor veelvoorkomende bestanden (Jenkinsfile 204.800 bestanden met een betaalde plugin van 162.049 downloads, Procfile 224.768 bestanden met een betaalde plugin van dezelfde maker). Volgende stap: bij Anbora Labs en BatchCraft nagaan hoeveel van de downloads gebruikers zijn en of er prijzen en reviews zijn die op kopers wijzen.
+- **Geen bouwbesluit.**
