@@ -86,7 +86,7 @@ Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. We
 | 07:44 | Strateeg: koers, kansen, bedreigingen, adviezen |
 | elk uur om :13, 08:13 tot 19:13 | Obsidian-manager |
 | elk uur om :52, 08:52 tot 19:52 | JetBrains-manager |
-| elk uur om :31, 08:31 tot 19:31 | Verkenner |
+| elk uur om :31, 08:31 tot 23:31 | Verkenner (sinds 6 nov ook 's avonds) |
 | 20:44 | Hoofdmanager: dagrapport voor Thijs |
 
 Sinds 6 nov de hele dag in plaats van 's nachts, op verzoek van Thijs: dit is zijn fulltime werk, hij wil tempo en kan meekijken en meteen zijn klussen oppakken.

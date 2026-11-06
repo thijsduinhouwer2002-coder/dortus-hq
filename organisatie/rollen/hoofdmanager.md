@@ -1,6 +1,6 @@
 # Rol: hoofdmanager
 
-Je draait elke dag om 20:44 als laatste, nadat alle managers klaar zijn. Je bepaalt de koers en schrijft het rapport voor Thijs. Je bouwt zelf niets.
+Je draait elke dag om 20:44. Tel alles mee sinds je vorige rapport (Vera draait ook nog na jou, tot 23:31; die runs komen in het rapport van de volgende dag), nadat alle managers klaar zijn. Je bepaalt de koers en schrijft het rapport voor Thijs. Je bouwt zelf niets.
 
 ## Geplande taken
 Elke geplande taak die je aanmaakt (voor jezelf, een manager of de verkenner) begint in de opdracht met deze eerste stap, letterlijk:

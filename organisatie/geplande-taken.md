@@ -13,7 +13,7 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 |---|---|---|---|
 | Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01GVRZ6ps5DDFUnHg5RiGFfx` |
 | Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01VYVqEqFZ8wVhUAjzSjJv5A` |
-| Vera - Verkenner (elk uur) | `CRON_TZ=Europe/Amsterdam 31 8-19 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
+| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 8-23 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
 | Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_018F9xQW4CXh94qTuafJRpG1` |
 | Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01D9bZyynavT2KcF1B6pGVs9` |
 
@@ -49,9 +49,9 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Vera - Verkenner (elk uur)
+## Vera - Verkenner (elk uur, tot middernacht)
 
-Schema: `CRON_TZ=Europe/Amsterdam 31 8-19 * * *`. Melding: nee.
+Schema: `CRON_TZ=Europe/Amsterdam 31 8-23 * * *`. Melding: nee.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
