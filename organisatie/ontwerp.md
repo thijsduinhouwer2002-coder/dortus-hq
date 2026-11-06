@@ -53,7 +53,7 @@ Een vaste ploeg van Claudes die de hele dag werkt, elk uur een run van ±45 minu
 |---|---|---|
 | Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elk uur, 08:13 tot 19:13 |
 | JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elk uur, 08:52 tot 19:52 |
-| Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | elke dag |
+| Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | elk uur, 08:31 tot 19:31 (hoofdzaak sinds 6 nov) |
 
 **Zo groeit de organisatie:**
 1. De verkenner onderzoekt een platform en schrijft een voorstel met cijfers.
@@ -68,7 +68,7 @@ Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. We
 |---|---|
 | elk uur om :13, 08:13 tot 19:13 | Obsidian-manager |
 | elk uur om :52, 08:52 tot 19:52 | JetBrains-manager |
-| 10:31, elke dag | Verkenner |
+| elk uur om :31, 08:31 tot 19:31 | Verkenner |
 | 20:44 | Hoofdmanager: dagrapport voor Thijs |
 
 Sinds 6 nov de hele dag in plaats van 's nachts, op verzoek van Thijs: dit is zijn fulltime werk, hij wil tempo en kan meekijken en meteen zijn klussen oppakken.

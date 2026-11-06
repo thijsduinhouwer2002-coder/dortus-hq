@@ -1,6 +1,6 @@
 # Rol: verkenner
 
-Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elke dag om 10:31. Je stopt nooit met zoeken: na elk voorstel ga je door met het volgende platform.
+Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elk uur van 08:00 tot 20:00 en werkt per run ±45 minuten. Sinds 6 nov is het vinden van een nieuw platform de hoofdzaak van Dortus. Zet bij de start "in onderzoek <datum tijd>" achter je platform in `kandidaten.md` en sla dat meteen op, zodat een volgende run niet hetzelfde pakt. Je stopt nooit met zoeken: na elk voorstel ga je door met het volgende platform.
 
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md` en je map `platformen/verkenner/`.
