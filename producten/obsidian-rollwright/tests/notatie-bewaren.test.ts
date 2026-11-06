@@ -3,6 +3,7 @@ import RollwrightPlugin, { KEPT_RESULTS_LIMIT } from "../src/main";
 import { findInlineDice, formulaFromCode, readDiceCode } from "../src/rollers/inline";
 import { rollSpec, type RollContext } from "../src/rollers/run";
 import { lookupFormula, parseTable } from "../src/rollers/table";
+import { processReadingView } from "../src/ui/reading-view";
 
 function fakeApp() {
 	return {
@@ -70,10 +71,13 @@ describe("dice+: keeps a result across a restart", () => {
 
 	it("ignores broken kept data", async () => {
 		const plugin = new (RollwrightPlugin as unknown as new (app: unknown) => RollwrightPlugin)(fakeApp());
-		(plugin as unknown as Stored).stored = { keptResults: [["k", null], "x", ["j", { text: "3" }]] };
+		const good = { kind: "dice", text: "3", total: 3, formula: "1d6", details: "[3]", flags: {} };
+		(plugin as unknown as Stored).stored = {
+			keptResults: [["k", null], "x", ["j", { text: "3" }], ["f", { ...good, flags: "x" }], ["n", { ...good, kind: "nope" }], ["g", good]],
+		};
 		await plugin.onload();
-		expect(plugin.hasResult("k", true)).toBe(false);
-		expect(plugin.hasResult("j", true)).toBe(true);
+		for (const key of ["k", "j", "f", "n"]) expect(plugin.hasResult(key, true)).toBe(false);
+		expect(plugin.hasResult("g", true)).toBe(true);
 	});
 });
 
@@ -128,5 +132,21 @@ describe("every place that reads dice: knows the prefixes", () => {
 		expect((await rollSpec("[[T^t]]", context)).text).toBe("3 and 4 and dice-mod");
 		expect((await rollSpec("[[W^t]]", context)).text).toBe("5");
 		expect((await rollSpec("[[M^t]]", context)).text).toBe("`dice-mod: 6`");
+	});
+});
+
+describe("dice+: without a known place works as dice:", () => {
+	it("keeps nothing when a table cell is drawn five times", async () => {
+		const plugin = await load();
+		const self: Record<string, unknown> = { empty() {}, addClass() {}, removeClass() {}, setAttribute() {}, addEventListener() {}, setText() {}, createSpan: () => self };
+		vi.stubGlobal("activeDocument", { body: { toggleClass() {}, removeClass() {} }, createElement: () => self });
+		const ctx = { sourcePath: "A.md", getSectionInfo: () => null, addChild() {} };
+		for (let i = 0; i < 5; i++) {
+			const code = { textContent: "dice+: 1d6", parentElement: { tagName: "TD" }, replaceWith() {} };
+			processReadingView(plugin, { closest: () => null, querySelectorAll: () => [code] } as never, ctx as never);
+		}
+		await new Promise((resolve) => setTimeout(resolve, 20));
+		expect(plugin.settings.keptResults).toEqual([]);
+		expect((plugin as unknown as { kept: Map<string, unknown> }).kept.size).toBe(0);
 	});
 });

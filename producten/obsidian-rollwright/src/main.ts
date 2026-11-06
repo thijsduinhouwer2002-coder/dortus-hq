@@ -44,6 +44,20 @@ const RESULT_CACHE_LIMIT = 2000;
 /** At most this many `dice+:` results on disk; the oldest go first. */
 export const KEPT_RESULTS_LIMIT = 500;
 
+const OUTCOME_KINDS = new Set(["dice", "table", "list", "section", "line", "tag"]);
+
+/** A kept result read back from disk must look like a real outcome, or it is skipped. */
+function isKeptOutcome(value: unknown): value is RollOutcome {
+	if (typeof value !== "object" || value === null) return false;
+	const o = value as Record<string, unknown>;
+	return (
+		typeof o.kind === "string" && OUTCOME_KINDS.has(o.kind) &&
+		typeof o.text === "string" && typeof o.formula === "string" && typeof o.details === "string" &&
+		typeof o.flags === "object" && o.flags !== null && !Array.isArray(o.flags) &&
+		(o.total === undefined || typeof o.total === "number")
+	);
+}
+
 export default class RollwrightPlugin extends Plugin {
 	settings: RollwrightSettings = { ...DEFAULT_SETTINGS };
 	private readonly results = new Map<string, RollOutcome>();
@@ -93,7 +107,7 @@ export default class RollwrightPlugin extends Plugin {
 		this.kept.clear();
 		const kept = Array.isArray(this.settings.keptResults) ? this.settings.keptResults : [];
 		for (const entry of kept) {
-			if (Array.isArray(entry) && typeof entry[0] === "string" && typeof entry[1]?.text === "string") this.kept.set(entry[0], entry[1]);
+			if (Array.isArray(entry) && typeof entry[0] === "string" && isKeptOutcome(entry[1])) this.kept.set(entry[0], entry[1]);
 		}
 		this.trimKept();
 	}

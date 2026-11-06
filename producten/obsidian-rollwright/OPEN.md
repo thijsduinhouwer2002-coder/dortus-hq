@@ -53,7 +53,7 @@ De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is ei
   - Alleen dobbeluitkomsten veranderen, ook dobbelcodes in een tabelcel. Een trekking uit een tabel, lijst of notitie blijft zoals hij is. Alleen de weergave verandert: het getal in de uitkomst blijft exact (`total`), de tooltip toont de worp zonder afronding, en de geschiedenis bewaart de getoonde tekst.
   - Met `|text(x)` en `|nodice` samen te gebruiken. Een tabelkolom met dezelfde naam (Round, Signed) gaat voor, zoals bij L3, en de vlag geldt dan niet.
 - `dice+:` en `dice-:` (punt 2 van notatie 0.2, tak `claude/obsidian-2026-11-06-e`). Eigen keuzes:
-  - Bewaard wordt per sleutel: notitie, plaats (regel en volgnummer, of cel) en formule, dezelfde sleutel als het werkgeheugen. Regels erboven toevoegen geeft dus ook bij `dice+:` een nieuwe worp, en de oude blijft staan tot hij als oudste wegvalt.
+  - Bewaard wordt per sleutel: notitie, plaats (regel en volgnummer) en formule, dezelfde sleutel als het werkgeheugen. Is de regel onbekend (zoals soms in een tabelcel, waar de sleutel bij elk hertekenen nieuw is), dan werkt `dice+:` als `dice:` en bewaart niets. Regels erboven toevoegen geeft dus ook bij `dice+:` een nieuwe worp, en de oude blijft staan tot hij als oudste wegvalt.
   - Grens: 500 bewaarde uitkomsten in de plugindata (`keptResults`), de oudste eruit. Een nieuwe worp op dezelfde sleutel telt als nieuwste.
   - `dice-:` werkt nu precies als `dice:`, want er is geen instelling "standaard bewaren".
   - In een geneste cel en als kop van een opzoektabel rollen `dice+:` en `dice-:` als `dice:`. Ze worden niet los bewaard; de buitenste worp bepaalt.
@@ -65,11 +65,11 @@ De bronnen gaven hier geen uitsluitsel of ze zijn bewust niet gelezen. Het is ei
 
 ## Niet gebouwd in deze versie
 
-Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde. De vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` werken sinds tak `claude/obsidian-2026-11-06-d`, `dice+:` en `dice-:` sinds tak `claude/obsidian-2026-11-06-e`.
+Bewust weggelaten om binnen de tijd een werkend geheel te hebben: `dice-mod:`, narratieve dobbelstenen (Genesys), `1dS`, notitievelden als getal, Dataview `dv(...)`, codeblok `dice`, dobbelpaneel met knoppen, 3D-stenen, Ctrl-klik naar de bron, Alt-klik voor het gemiddelde. De vlaggen `|round`, `|ceil`, `|floor`, `|signed`, `|paren` werken sinds tak `claude/obsidian-2026-11-06-d`, `dice+:` en `dice-:` sinds tak `claude/obsidian-2026-11-06-e`. `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
 
 Open punt: het ontwerp zegt "`dice:` volgt de instelling", maar een instelling "standaard bewaren" bestaat niet en is niet toegevoegd. Nu bewaart `dice:` nooit. Wie dat wil, beslist over zo'n instelling; dan krijgt `dice-:` pas echt betekenis.
 
-Open punt: er is geen knop om bewaarde uitkomsten te wissen. Ze blijven tot ze als oudste wegvallen. `[[Note#Kop]]` zoekt nog niet op kop en geeft een melding. In secties herkent het eigen blokmodel alleen blokken, geen inline soorten zoals `strong` of `link`: die namen geven "no matching blocks".
+Open punt: er is geen knop om bewaarde uitkomsten te wissen. Ze blijven tot ze als oudste wegvallen.
 
 ## Voor uitgave
 

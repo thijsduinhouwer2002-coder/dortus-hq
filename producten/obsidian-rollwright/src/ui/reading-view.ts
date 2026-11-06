@@ -27,8 +27,10 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 	for (const code of codes) {
 		const dice = readDiceCode(code.textContent ?? "");
 		if (dice === null) continue;
-		const { formula, keep } = dice;
+		const { formula } = dice;
 		const position = positions[nth];
+		// Without a known line the key changes on every redraw, so keeping would only pile up keys.
+		const keep = dice.keep && position !== undefined;
 		const place = position ? `${position.line}:${position.index}` : `el:${++unplaced}`;
 		nth++;
 		const span = activeDocument.createElement("span");
