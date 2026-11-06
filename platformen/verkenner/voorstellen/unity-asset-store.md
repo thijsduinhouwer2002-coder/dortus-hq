@@ -1,5 +1,45 @@
 # Voorstel: Unity Asset Store (tools)
 
+**Advies: nee voor nu. Cijfer: 3 van 10 (was 4).** Herzien op 6 nov 2026 (run 22:31) met een eigen meting van 4.268 tools. Een gewone nieuwe betaalde tool krijgt na 3 tot 6 maanden bijna nooit een beoordeling: 82% heeft er nul, en maar ±2% heeft er 5 of meer. De tools die wel goed scoren zijn bijna allemaal vervolgversies of bundels van bekende uitgevers, die hun oude beoordelingen meenemen. Bewijs dat een nieuwe kleine maker hier geld verdient vonden we niet. De oude versie van dit voorstel staat hieronder.
+
+## Eigen meting (6 nov 2026)
+Hoe: de sitemap van de winkel (20 delen) gaf 11.744 unieke tools. Alle 4.268 tools met id 300000 of hoger (gepubliceerd van eind 2024 tot nu) zijn gelezen met `data/unity-haal-script.py` (versie 2, leest alleen het product met het id uit de URL; de fout uit versie 1 is weg). Analyse met `data/unity-analyse-script.py`, data in `data/unity-tools-2026-11-06.json`. Verkopen toont Unity niet, dus het aantal sterbeoordelingen is de maat.
+
+**Bereik (GEZIEN)**
+- Betaalde tools van 3 tot 6 maanden oud (mei tot aug 2026), zonder vervolgversies en bundels: n=886. Mediaan 0 beoordelingen. 18% heeft er 1 of meer, ±2% 5 of meer, ±0% 10 of meer (na correctie door de controleur, die 11 geërfde gevallen vond).
+- Uitgevers met 1 tot 3 tools in de meting: hetzelfde beeld (21% 1+, 2% 5+, 1% 10+).
+- Ouder cohort, jan tot jun 2025 (16 tot 22 maanden oud): 40% 1+, 9% 5+, ±3% 10+. Dat verschil zegt vooral iets over leeftijd, niet dat de markt slechter wordt. Ook na anderhalf jaar heeft de meerderheid geen enkele beoordeling.
+- Hoeveel verkopen bij één beoordeling horen is ONBEKEND. Geen betrouwbare bron gevonden (discussions.unity.com weigert curl). Zelfs bij een ruime GOK van 1 beoordeling per 30 tot 100 verkopen zit de mediane nieuwe tool onder de 30 verkopen.
+- Unity neemt beoordelingen mee naar vervolgversies en bundels (GEZIEN: PlayMaker 2, gepubliceerd 21 juli 2026, toont 3.428 beoordelingen met reviews uit 2014; ook Online Maps v5, Compass Navigator Pro 4, Grabbit 2). Wie al een naam heeft, begint dus met een voorsprong; een nieuwe maker begint op nul.
+
+**Geld**
+- Maker houdt 70% (DERDEN, zie onder). Prijsmediaan van nieuwe betaalde tools ±$20 (GEZIEN). ±85% van de nieuwe tools is betaald (GEZIEN), dus betalen is hier normaal.
+- Geen enkel recent cijfer (2025 tot 2026) van een kleine nieuwe maker gevonden. De enige echte cijfers zijn oud: $56 in de eerste maand en $316,8 na zes maanden, rond 2020 (DERDEN, [Game Developer](https://www.gamedeveloper.com/business/what-is-the-unity-asset-store-and-how-to-make-money-on-it-)). De bewering "$200 tot $800 per maand in het eerste jaar" van Exoa heeft geen eigen cijfers (DERDEN, [dev.to, juni 2026](https://dev.to/exoa/how-to-publish-a-unity-asset-to-the-asset-store-the-complete-publisher-guide-4iei)).
+
+**Drukte (GEZIEN)**
+- Nieuwe tools per maand: begin 2025 ±110, mei tot aug 2026 gemiddeld ±280, aug tot okt 2026 ±380. Ruwweg 2,5 tot 3,5 keer zo druk als begin 2025, terwijl de aandacht per tool daalt.
+
+**Meetgrenzen**
+- De sitemap mist ±15% van de gepubliceerde tools (de winkel meldt 15.232 tools; de controleur vond in 550 losse id's buiten de sitemap 4 gepubliceerde tools). Verwijderde tools ontbreken helemaal, dus oude cohorten ogen iets beter dan ze waren.
+- De grens id 300000 mist een deel van jan 2025 (±6% van dat cohort).
+- De filter op vervolgversies is een ondergrens; er kunnen nog een paar geërfde gevallen in zitten. Dat maakt het beeld voor nieuwe makers alleen maar slechter, niet beter.
+
+## Waarom nee
+Thijs zoekt een plek waar kleine makers aantoonbaar geld verdienen en waar Dortus groot kan worden. Hier haalt een nieuwe betaalde tool van een onbekende maker na een half jaar meestal geen enkele beoordeling, het aanbod groeit snel, en de winnaars zijn gevestigde uitgevers die hun beoordelingen meenemen naar nieuwe versies. Dat is het tegenovergestelde van een open kans.
+
+## Wat het oordeel kan veranderen
+- Een betrouwbare verhouding verkopen per beoordeling die veel hoger blijkt dan 100 (dan zou 1 tot 5 beoordelingen toch flink geld kunnen zijn).
+- Cijfers van een kleine maker uit 2025 tot 2026 met echte verkoop in de eerste maanden.
+- Herhaalmeting kan met dezelfde scripts; zinvol over ±3 maanden.
+
+## Nakijken
+Controleur (6 nov, run 22:31): script en rekenwerk akkoord, 10 pagina's zelf nagelezen en alles klopt. Vijf correcties, alle verwerkt: geërfde beoordelingen ook bij bundels en namen als "V8" eruit, cijfers mei tot aug bijgesteld naar 18 / 2 / 0%, sitemap mist ±15%, aanbod per maand bijgesteld, verhouding verkopen per beoordeling blijft onbekend.
+
+---
+
+# Oude versie (6 nov 2026, zonder eigen meting)
+
+
 **Advies: nog niet klaar, voorlopig nee. Cijfer: 4 van 10.** Er zijn losse signalen dat makers verdienen, maar we vonden geen compleet cijfer van een nieuwe kleine maker uit 2024 tot en met 2026. Zonder eigen meting nemen we dit risico niet, ook door de 30% afdracht en de verkoop tegen zware korting. Opnieuw bekijken zodra we de winkel zelf kunnen lezen. Geschreven op 6 nov 2026.
 
 ## Meetgrens

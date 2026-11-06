@@ -1,17 +1,29 @@
-# Analyse Unity-steekproef (tools). Gebruik: python3 -I unity-analyse-script.py tools.json
-import json, sys, statistics as st
-from collections import Counter
-d = [o for o in json.load(open(sys.argv[1])) if not o.get("fout") and o.get("eerst")]
-print("gelezen", len(d))
-for o in d: o["m"]=o["eerst"][:7]; o["r"]=int(o["reviews"] or 0); o["p"]=float(o["prijs"] or 0)
-print("per maand eerste publicatie (2025-2026):", sorted((k,v) for k,v in Counter(o["m"] for o in d).items() if k>="2025-01"))
-def blok(g, lab):
+# Analyse van unity-tools-2026-11-06.json. Gebruik: python3 -I unity-analyse-script.py <json>
+import json, sys, statistics as st, collections as C
+d = [o for o in json.load(open(sys.argv[1])) if not o.get("fout")]
+def groep(naam, g):
     if not g: return
-    r=[o["r"] for o in g]
-    print(f"{lab}: n {len(g)}, mediaan reviews {st.median(r)}, % met 1+ {round(100*sum(x>=1 for x in r)/len(r))}, % 5+ {round(100*sum(x>=5 for x in r)/len(r))}, % 10+ {round(100*sum(x>=10 for x in r)/len(r))}, max {max(r)}")
-for lo,hi,lab in [("2026-05","2026-08","mei-aug 2026"),("2026-02","2026-04","feb-apr 2026"),("2025-01","2025-06","jan-jun 2025")]:
-    g=[o for o in d if lo<=o["m"]<=hi]; blok(g, lab+" alles"); blok([o for o in g if o["p"]>0], lab+" betaald")
-b=[o for o in d if "2026-05"<=o["m"]<="2026-08" and o["p"]>0]
-if b: print("prijsmediaan betaald mei-aug 2026", st.median(o["p"] for o in b))
-print("top nieuwe betaalde (feb-aug 2026):")
-for o in sorted([o for o in d if "2026-02"<=o["m"]<="2026-08" and o["p"]>0], key=lambda o:-o["r"])[:10]: print("  ", o["m"], o["r"], o["p"], o["uitgevernaam"], o["url"].rsplit("/",1)[1])
+    b = [o["beoordelingen"] or 0 for o in g]; r = [o["reviews"] or 0 for o in g]
+    n = len(g)
+    print(f"{naam}: n={n} mediaan beoord={st.median(b)} gem={sum(b)/n:.1f} >=1:{sum(x>=1 for x in b)/n:.0%} >=5:{sum(x>=5 for x in b)/n:.0%} >=10:{sum(x>=10 for x in b)/n:.0%} >=25:{sum(x>=25 for x in b)/n:.0%} | reviews>=1:{sum(x>=1 for x in r)/n:.0%} max={max(b)}")
+cohorten = {"2025 jan-jun (16-22 mnd)": ("2025-01","2025-06"), "2025 jul-dec (10-16 mnd)": ("2025-07","2025-12"),
+            "2026 jan-apr (6-10 mnd)": ("2026-01","2026-04"), "2026 mei-aug (3-6 mnd)": ("2026-05","2026-08"),
+            "2026 sep-nov (0-2 mnd)": ("2026-09","2026-11")}
+for naam,(a,z) in cohorten.items():
+    g = [o for o in d if a <= (o["eerst"] or "")[:7] <= z]
+    groep(naam+" alles", g)
+    groep(naam+" betaald", [o for o in g if not o["vrij"]])
+    groep(naam+" gratis", [o for o in g if o["vrij"]])
+    p = [float(o["prijs"]) for o in g if not o["vrij"] and o["prijs"]]
+    if p: print("   prijsmediaan betaald", st.median(p), "aandeel betaald", f"{len(p)/len(g):.0%}")
+
+# Zonder vervolgversies (Unity neemt beoordelingen van de vorige versie soms mee, zie PlayMaker 2)
+import re
+VERV = re.compile(r"(\b(v|ver\.?|version)\s?\d+(\.\d+)?\b|\b[2-9]\b|\b(19|20)\d\d\b|\bpro edition\b)", re.I)
+pc = C.Counter(o["uitgever_id"] for o in d)
+print("\n== zonder vervolgversies (naam met versienummer of jaartal eruit) ==")
+for naam,(a,z) in cohorten.items():
+    g = [o for o in d if a <= (o["eerst"] or "")[:7] <= z and not VERV.search(o["naam"] or "")]
+    groep(naam+" betaald", [o for o in g if not o["vrij"]])
+    groep(naam+" betaald, uitgever met 1 tot 3 tools sinds eind 2024", [o for o in g if not o["vrij"] and pc[o["uitgever_id"]] <= 3])
+print("uitgevers per cohort mei-aug 2026:", len({o["uitgever_id"] for o in d if "2026-05" <= (o["eerst"] or "")[:7] <= "2026-08"}))

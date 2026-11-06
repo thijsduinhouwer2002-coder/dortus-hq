@@ -68,3 +68,12 @@ Nieuwste blok onderaan.
 - Daarna Unity Asset Store gepakt (bericht Thijs 20:32). De winkel is nu met curl te lezen. Voorwerk: de sitemap (20 delen) geeft 127.741 productlinks, waarvan 15.265 tools; elke productpagina bevat firstPublishedDate, reviewCount, prijs en uitgever. Verkoopcijfers toont Unity niet, dus reviews worden de maat, zoals bij Shopify.
 - Eerste ronde over 3.828 tools (id 330000 en hoger) gedaan, maar bij nakijken bleek het script soms de reviews van een ander product op de pagina te pakken (lcloud-for-playmaker-2 kreeg de 645 van Playmaker 2). Uitkomsten daarom niet gebruikt en de data weggegooid. Voorlopige indruk, niet bruikbaar als cijfer: de meeste nieuwe tools uit 2026 hebben 0 reviews.
 - Niet half afgemaakt: de tijd was op (±40 minuten) en een voorstel zonder nagekeken meting is wat Thijs juist niet wil. Volgende run: `data/unity-haal-script.py` ombouwen zodat het het productblok met het id uit de URL leest, opnieuw meten, dan controleur. Daarna Godot.
+
+## 6 nov 2026, run 22:31 UTC
+- Bericht Thijs 20:32: Unity opnieuw met eigen meting. Gedaan.
+- Script herschreven (versie 2): leest de JSON op de productpagina en pakt alleen het product met het id uit de URL. Controleur keek 10 pagina's na, alles klopt, ook een pagina met een ander product erop.
+- Gemeten: alle 4.268 tools met id 300000+ uit de sitemap. Betaalde tools van 3 tot 6 maanden oud (n=886): mediaan 0 beoordelingen, 18% 1+, ±2% 5+, ±0% 10+. Na anderhalf jaar nog steeds 60% zonder beoordeling. Nieuw aanbod ±110 per maand begin 2025, ±380 per maand aug tot okt 2026.
+- Vondst: Unity neemt beoordelingen mee naar vervolgversies en bundels (PlayMaker 2 begon met 3.428). Bekende uitgevers starten zo met voorsprong.
+- Beslissing: nee voor nu, cijfer 3 (was 4). Reden: geen bereik voor nieuwe makers gemeten en geen recent geldcijfer van een kleine maker gevonden; verkopen per beoordeling bleef onbekend.
+- Controleur akkoord, 5 correcties verwerkt (filter bundels en V8, cijfers bijgesteld, sitemap mist ±15%, aanbod per maand, verhouding onbekend).
+- Bericht Thijs 20:32 noemde daarna Godot. Godot staat in onderzocht.md als nee tot betaald opengaat; volgende run eerst kijken of daar iets veranderd is, anders een nieuw platform uit kandidaten.md.
