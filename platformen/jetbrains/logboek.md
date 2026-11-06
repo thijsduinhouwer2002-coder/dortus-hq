@@ -48,3 +48,11 @@ Nieuwste blok onderaan.
 - **Later in deze run (17:14 UTC):** bouwbesluit stap 1 gedaan, 302 bestandssoorten nagelopen op aanraadlijst, JetBrains-plugin en versheid. Geen tweede batch gevonden. Controleur keurde af op 6 kleine punten (tellingen en te stellige zinnen over downloads), verwerkt. Drie sporen voor de volgende run genoteerd. Geen bouwbesluit, want geen soort voldoet aan alle eisen.
 - **Daarna (17:21 UTC):** deel 8, in de echte installatie van IDEA 2026.2 nagezocht welke soorten hij zelf kent. Nog niet nagekeken, staat bovenaan de taken.
 - **Afgesloten om 17:22 UTC.**
+
+
+## 6 nov 2026, 17:53 UTC
+- **Gedaan:** berichten van Thijs gelezen, alle drie al verwerkt. Deel 8 laten nakijken door een controleur, die de meting opnieuw deed in IDEA Ultimate 2026.2 (build 262.8665.258) en zocht op echte `<fileType>`-registraties.
+- **Uitkomst:** afgekeurd op 6 punten. Mijn eerste versie zocht op losse tekst en zei daardoor ten onrechte dat de IDE `.npmrc` en `*.cpuprofile` kent. Deel 8 herschreven: alle vijf soorten zijn geen bestandssoort in IDEA, alleen heapsnapshot is via een menu te laden. Gevolg omgedraaid: spoor (a) en (c) blijven open.
+- **Beslissing:** geen bouwbesluit. Volgende stap is stap 2 (hoe vaak komen deze soorten voor en is er vraag), naast spoor (b). Reden: zonder telling van vraag is een keuze tussen deze vijf niet te onderbouwen.
+- **Misging:** de controle duurde ±15 minuten (IDE downloaden). Les: zoek naar registraties, niet naar tekst.
+- **Afgesloten om 18:11 UTC**, want de volgende stap past niet meer goed in deze run.
