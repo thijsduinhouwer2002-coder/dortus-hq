@@ -2,6 +2,8 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
+- Apify Store (Actors, makers krijgen uitbetaald): in onderzoek 06 nov 14:32 UTC
+- Bubble (betaalde plugins)
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
