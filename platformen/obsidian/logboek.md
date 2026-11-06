@@ -155,3 +155,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** de Live Preview-test zegt in een opmerking dat hij de gedeelde uitkomst toont en niet zelf opnieuw rolt. Waarom: lezen en Live Preview gebruiken dezelfde sleutel; meer beloven klopt niet.
 **Wat misging:** één push en één workflowstart gaven een tijdelijke fout 500 van GitHub; na 20 seconden lukte het.
 **Beslissing:** run hier gestopt. Waarom: `dice+:` met herstart en `dice-mod:` met Replace zijn elk een eigen blok en passen niet netjes in de resttijd.
+
+## 6 nov 2026, 23:14 tot 23:22: extra run zelfverwijzing
+**Gedaan:** extra run met dezelfde vraag als het bericht van 23:50, die in de run van 22:50 al af was (run 42308771457 groen). Nieuw in de vraag: de worp moet binnen een paar seconden verschijnen. De test wachtte tot 20 seconden; nu meet hij de tijd van openen tot de eerste uitkomst en eist hij minder dan 5 seconden (tak `claude/obsidian-2026-11-06-s`). Run 42310495780 groen, 14 van 14 tests (GEZIEN): eerste uitkomst na 33 tot 103 ms, Obsidian antwoordt in 3 tot 5 ms. Ook de push-run op main van a9663fc (42310426128) is groen. Samengevoegd op main.
+**Beslissing:** geen aparte controleur voor deze ene regel. Waarom: hij maakt een bestaande test alleen strenger en verandert verder niets; ik las hem zelf na en de run is groen.
+**Beslissing:** niet naar main gepusht zonder tak, anders dan de extra opdracht zei. Waarom: de regels vragen code op een tak en pas samenvoegen als het groen is; het resultaat is hetzelfde.
