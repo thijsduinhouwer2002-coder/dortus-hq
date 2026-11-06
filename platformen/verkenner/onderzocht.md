@@ -32,3 +32,4 @@ Toegevoegd:
 - Bubble (6 nov, cijfer 3): nee. Eén partij heeft 60%+ van de pluginomzet, kleine makers ±$12 per maand of ±$917 met ±197 plugins, winkel zelf niet te meten. Zie `voorstellen/bubble.md`.
 - Discord (6 nov, cijfer 4): nog niet klaar. Afdracht 15 tot 30%, één geverifieerde kleine bot op $796 per maand (ShotCaller), bereik niet gemeten want top.gg niet leesbaar. Zie `voorstellen/discord.md`.
 - Microsoft Marketplace, Teams en add-ins (6 nov, cijfer 3): nee voor nu. 3% afdracht, maar geen kleine maker die via de winkel verdient, SaaS-koppeling nodig, winkel niet te meten. Zie `voorstellen/microsoft-marketplace.md`.
+- MetaTrader Market, MQL5 (6 nov, cijfer 3): nee. 20% afdracht en hoge prijzen, maar mediaan 17 demo-downloads bij 15 nieuwe producten (7% haalt 100+), ±3.000 nieuwe producten per maand, geld gaat naar gevestigde makers, geen nieuwe kleine maker boven $300 per maand gevonden. Zie `voorstellen/mql5-market.md`.

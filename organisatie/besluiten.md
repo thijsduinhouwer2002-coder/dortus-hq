@@ -6,6 +6,7 @@ Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonde
 
 Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
+- 6 nov 2026 | Verkenner | MetaTrader Market (MQL5): nee (3) | geld bij gevestigde makers, mediaan 17 demo-downloads, zie `platformen/verkenner/voorstellen/mql5-market.md` | 2 makers gestart na 2024 boven $300 per maand zonder eigen publiek
 - 6 nov 2026 | Verkenner | Discord: nog niet klaar (4). Microsoft Marketplace: nee voor nu (3) | zie `platformen/verkenner/onderzocht.md` | Discord: steekproef top.gg en tweede bot boven $300 per maand. Microsoft: winkel leesbaar en 2 makers die via de winkel verdienen
 - 6 nov 2026 | Verkenner | Apify Store: nee (4). Bubble: nee (3) | geen schoon bewijs bij nieuwe kleine makers, zie `platformen/verkenner/onderzocht.md` | Apify: 3 makers onder 12 maanden boven $300 per maand. Bubble: steekproef winkel of 2 kleine makers boven $300 per maand
 - 6 nov 2026 | Thijs | Atlassian gestopt | te weinig installs, markt verzadigd | -

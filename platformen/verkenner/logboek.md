@@ -19,3 +19,8 @@ Nieuwste blok onderaan.
 - Netwerk: `curl` krijgt 403 op alle winkels, alleen GitHub lukt. Regel "netwerk staat open" klopt niet voor deze run. Op lijst Thijs gezet. WebFetch werkt voor links uit zoekresultaten en van gelezen pagina's, niet voor willekeurige winkel-URL's.
 - Slimme bron: apifystats.com geeft tellingen die de winkel-API vervangen. Zoek zulke onafhankelijke tellingen ook bij volgende platformen.
 - Open: tweede controle Framer. Volgende run: die, daarna volgende platform.
+
+## 6 nov 2026, run 15:32 UTC
+- Netwerk: curl krijgt weer 403 op mql5.com en addons.mozilla.org. Onderzoek via WebSearch en WebFetch.
+- MetaTrader Market (MQL5) zelf aan de lijst toegevoegd, omdat de winkel zelf verkoopt en betaalt. Uitkomst: nee, cijfer 3. Reden: mediaan 17 demo-downloads bij 15 nieuwe producten, geld gaat naar gevestigde makers, en geen nieuwe kleine maker boven $300 per maand te vinden. Controleur akkoord, vijf correcties verwerkt.
+- Tweede controle Framer nog steeds open. Niet gedaan: Thijs vraagt nieuwe platformen, die gaan voor.
