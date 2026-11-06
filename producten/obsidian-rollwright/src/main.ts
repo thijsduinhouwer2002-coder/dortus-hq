@@ -65,6 +65,13 @@ export default class RollwrightPlugin extends Plugin {
 
 		this.applySkin(activeDocument);
 		this.registerEvent(this.app.workspace.on("window-open", (win) => this.applySkin(win.doc)));
+		// Windows that were open before the plugin loaded never send window-open.
+		this.app.workspace.onLayoutReady(() => {
+			this.app.workspace.iterateAllLeaves((leaf) => {
+				this.skinnedDocuments.add(leaf.view.containerEl.doc);
+			});
+			this.applySkin();
+		});
 	}
 
 	onunload(): void {

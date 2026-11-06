@@ -11,7 +11,7 @@ function fakeBody() {
 	};
 }
 
-function fakeApp(files: Record<string, { text: string; tags?: string[] }>, otherPluginData?: string) {
+function fakeApp(files: Record<string, { text: string; tags?: string[] }>, otherPluginData?: string, openDocs: unknown[] = []) {
 	const adapter = {
 		exists: vi.fn(async () => otherPluginData !== undefined),
 		read: vi.fn(async () => otherPluginData ?? ""),
@@ -20,7 +20,13 @@ function fakeApp(files: Record<string, { text: string; tags?: string[] }>, other
 	const tfiles = Object.keys(files).map((path) => new TFile(path));
 	return {
 		adapter,
-		workspace: { on: vi.fn(), getLeavesOfType: () => [], getActiveViewOfType: () => null },
+		workspace: {
+			on: vi.fn(),
+			getLeavesOfType: () => [],
+			getActiveViewOfType: () => null,
+			onLayoutReady: (callback: () => void) => callback(),
+			iterateAllLeaves: (callback: (leaf: unknown) => void) => openDocs.forEach((doc) => callback({ view: { containerEl: { doc } } })),
+		},
 		metadataCache: {
 			getFirstLinkpathDest: (link: string) => tfiles.find((f) => f.path === `${link}.md`) ?? null,
 			getFileCache: (file: TFile) => ({ tags: files[file.path]?.tags }),
@@ -127,5 +133,13 @@ describe("plugin glue, with a stand-in for the app", () => {
 		expect([...body.classes]).toEqual(["rollwright-skin-classic"]);
 		plugin.onunload();
 		expect(body.classes.size).toBe(0);
+	});
+
+	it("also skins windows that were already open (L6)", async () => {
+		const popout = { body: fakeBody() };
+		const plugin = await load(fakeApp(FILES, undefined, [popout]));
+		expect([...popout.body.classes]).toEqual(["rollwright-skin-classic"]);
+		plugin.onunload();
+		expect(popout.body.classes.size).toBe(0);
 	});
 });
