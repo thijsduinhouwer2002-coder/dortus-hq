@@ -28,6 +28,7 @@ async function readRolls(view) {
 	return browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).map((r) => ({
 		value: (r.querySelector(".rollwright-value")?.textContent ?? "").trim(),
 		error: r.getAttribute("data-rollwright-error") ?? "",
+		label: r.getAttribute("aria-label") ?? "",
 	})), `${LEAF} ${view}`);
 }
 
@@ -44,7 +45,7 @@ async function waitForRolls(view, n) {
 }
 
 function check(rolls) {
-	expect(rolls.length).toBe(5);
+	expect(rolls.length).toBe(7);
 	for (const r of rolls) expect(r.error).toBe("");
 	VERWACHT.forEach((v, i) => {
 		const ok = v.mag.includes(rolls[i].value);
@@ -54,6 +55,14 @@ function check(rolls) {
 	const drie = rolls[4].value.split(",").map((x) => x.trim());
 	expect(drie.length).toBe(3);
 	for (const k of drie) expect(KLEUREN).toContain(k);
+	// De opzoektabel kiest de rij die bij de worp hoort: 1 of 2 Regen, 3 Mist, 4 een kleur.
+	const worp = Number(/1d4 = (\d+)/.exec(rolls[3].label)?.[1]);
+	console.log("OPZOEKTABEL: worp", worp, "gaf", rolls[3].value);
+	const bijWorp = worp <= 2 ? ["Regen"] : worp === 3 ? ["Mist"] : KLEUREN;
+	expect(bijWorp).toContain(rolls[3].value);
+	// Kop "dice: 4" valt altijd op rij 4, dus de geneste worp in de cel draait elke keer.
+	expect(KLEUREN).toContain(rolls[5].value);
+	expect(["Miauw", "Woef"]).toContain(rolls[6].value);
 }
 
 describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", function () {
@@ -63,7 +72,7 @@ describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", funct
 
 	it("in de leesweergave komt elke worp uit de goede tabel", async function () {
 		await openNote("Tabelworpen.md", "preview");
-		const rolls = await waitForRolls(".markdown-reading-view", 5);
+		const rolls = await waitForRolls(".markdown-reading-view", 7);
 		console.log("TABELWORPEN LEZEN:", JSON.stringify(rolls));
 		await browser.saveScreenshot(`${SHOTS}/t1-tabellen-lezen.png`);
 		check(rolls);
@@ -73,8 +82,11 @@ describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", funct
 		const seen = new Set();
 		for (let i = 0; i < 10; i++) {
 			await browser.execute((sel) => document.querySelector(`${sel} .rollwright-roll`)?.click(), `${LEAF} .markdown-reading-view`);
-			await browser.pause(300);
-			const rolls = await readRolls(".markdown-reading-view");
+			let rolls = [];
+			await browser.waitUntil(async () => {
+				rolls = await readRolls(".markdown-reading-view");
+				return rolls[0].value !== "";
+			}, { timeout: 5000, timeoutMsg: "na een klik bleef de worp leeg" });
 			expect(KLEUREN).toContain(rolls[0].value);
 			seen.add(rolls[0].value);
 		}
@@ -85,17 +97,19 @@ describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", funct
 
 	it("in Live Preview hetzelfde", async function () {
 		await openNote("Tabelworpen.md", "source");
-		const rolls = await waitForRolls(".markdown-source-view", 5);
+		const rolls = await waitForRolls(".markdown-source-view", 7);
 		console.log("TABELWORPEN LIVE PREVIEW:", JSON.stringify(rolls));
+		// Live Preview deelt de uitkomst met de leesweergave (zelfde sleutel); dit bewijst dat de
+		// widgets er staan met de goede waarden, niet dat Live Preview zelf opnieuw rolt.
 		await browser.saveScreenshot(`${SHOTS}/t2-tabellen-live-preview.png`);
 		check(rolls);
 	});
 
 	it("de notitie met de tabellen zelf toont de geneste code als worp", async function () {
 		await openNote("Tabellen.md", "preview");
-		const rolls = await waitForRolls(".markdown-reading-view", 1);
+		const rolls = await waitForRolls(".markdown-reading-view", 2);
 		console.log("TABELLEN.MD ZELF:", JSON.stringify(rolls));
-		expect(rolls.length).toBe(1);
-		expect(KLEUREN).toContain(rolls[0].value);
+		expect(rolls.length).toBe(2);
+		for (const r of rolls) expect(KLEUREN).toContain(r.value);
 	});
 });
