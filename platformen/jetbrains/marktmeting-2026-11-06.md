@@ -311,3 +311,20 @@ Ter vergelijking: `Jenkinsfile` 44% groot, `Procfile` 2%. Klein of bijna altijd 
 
 **Volgende stap:** voor Tcl en Yacc/Bison/Flex: (1) testen of IDEA, CLion en GoLand ze kennen, (2) de groei van de aangeraden plugins per maand meten, (3) een maat voor JetBrains-publiek zoeken (YouTrack-verzoeken, reviews, Stack Overflow), (4) laten nakijken. Geen bouwbesluit.
 - **Nakijken:** controleur deed 4 GitHub-tellingen, het filter (180 en 133) en de Marketplace-zoekopdrachten opnieuw: getallen gelijk, geen ontbrekende grote plugin voor Tcl of Bison/Yacc/Flex gevonden. Akkoord mits 5 punten (filter uitleggen, talen weggelaten uitleggen, `*.l` en `*.y` dubbelzinnig, Tcl-plugin is jong en groeit, Tcl vaak gegenereerd). Alle 5 verwerkt. Gevolg: Yacc/Bison/Flex is nu de sterkste kandidaat, Tcl tweede.
+
+## Meting deel 12: vraag naar Yacc/Bison/Flex en Tcl in YouTrack, en de bestaande plugins (19:18 UTC, met curl)
+**Hoe:** YouTrack van JetBrains doorzocht via `https://youtrack.jetbrains.com/api/issues?query=<woord>` (200 treffers per keer, alleen meldingen met het woord in de titel geteld), met Jenkinsfile, Procfile en Graphviz als vergelijking. Stemmen zijn een ruwe maat: wie stemt, gebruikt JetBrains en mist iets (GOK).
+
+| Soort | Meest gestemde verzoek in YouTrack (GEZIEN) |
+|---|---|
+| `Jenkinsfile` (vergelijking, betaalde plugin groeit) | RIDER-64097 "jenkinsfile highlighting support" 64 stemmen; RUBY-23392 "Support Jenkinsfile Formatting in Rubymine" 55 stemmen, open; 23 meldingen met het woord in de titel |
+| `Procfile` (vergelijking, betaalde plugin groeit niet) | geen verzoek om ondersteuning, 3 meldingen met 0 of 1 stem |
+| Tcl | CPP-6388 "Tcl language support" (CLion) 38 stemmen, open sinds 2016; nog 5 kleinere, dicht |
+| Yacc/Bison/Flex | IDEABKL-7544 "Handling Yacc and Flex (Bison) markup" 8 stemmen, open sinds 2013; CPP-1122 1 stem; IDEABKL-4162 2 stemmen |
+| Graphviz | IDEABKL-7173 "Graphviz syntax support" 0 stemmen |
+
+**De bestaande plugins (GEZIEN):** Bison Language Support (gratis, 13.017) kreeg zijn laatste versie op 2 september 2023, maar die ene versie haalde 8.233 downloads, dus ruwweg 200 per maand sinds 2023, en zijn bovengrens voor IDE-versies is open. Of hij in 2026 nog werkt is niet getest. GoYacc Support (gratis, 21.165) heeft één versie uit 2018 met 16.970 downloads. Tcl Language Support (gratis) kwam uit in mei 2026, heeft 15 versies, 2.727 downloads en 1.381 downloads op versies uit de laatste 90 dagen: jong, bijgehouden en groeiend.
+
+**Wat dit zegt (GOK):** de YouTrack-stemmen passen bij de les uit deel 10: Jenkinsfile heeft veel stemmen, Procfile geen. Tcl heeft duidelijk vraag bij JetBrains-gebruikers (38 stemmen in CLion), maar er groeit al een gratis plugin. Yacc/Bison/Flex heeft weinig stemmen (8), maar de plugins die er zijn worden nog steeds geïnstalleerd terwijl ze al jaren stilstaan. Een keuze tussen deze twee is hiermee nog niet te maken: bij Tcl de vraag of een betaalde plugin naast een goede gratis kan bestaan, bij Bison of de groep groot genoeg is om te betalen.
+
+**Volgende stap:** (1) in IDEA en CLion testen of ze Tcl, `*.y` en `*.l` kennen, (2) Tcl Language Support installeren en bekijken wat hij wel en niet kan, (3) bij Bison Language Support testen of hij in 2026.2 nog werkt, (4) laten nakijken. Nog niet nagekeken. Geen bouwbesluit.
