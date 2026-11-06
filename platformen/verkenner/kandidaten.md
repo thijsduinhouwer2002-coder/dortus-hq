@@ -2,7 +2,9 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
-- Shopify (eigen steekproef op verzoek van Thijs) in onderzoek 6 nov 17:33
+- Shopify vervolg: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md)
+- Framer (eigen steekproef, verzoek Thijs)
+- Discord via top.gg (eigen steekproef, verzoek Thijs; top.gg gaf 403 met curl op 6 nov)
 
 - Zotero (plugins)
 - Anki (add-ons)

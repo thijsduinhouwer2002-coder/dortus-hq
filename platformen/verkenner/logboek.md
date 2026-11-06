@@ -29,3 +29,10 @@ Nieuwste blok onderaan.
 - Les van vandaag: platformen die zelf betalen (MQL5, Setapp) laten verkoopcijfers niet zien. Bij de volgende kandidaten eerst zoeken of er openbare tellingen bestaan, zoals bij Apify.
 - Volgende run: tweede controle Framer staat nog open, daarna het volgende platform uit `kandidaten.md`.
 - Na de laatste pull staat in CLAUDE.md: nooit WebFetch, alleen curl. Mijn agents gebruikten in deze run WebFetch (er kwam geen toestemmingsvraag), omdat curl op alle winkels een 403 gaf. Vanaf nu alleen curl en WebSearch. Probleem: curl werkt hier niet voor winkels, dan blijft alleen WebSearch over. Run hier gestopt (±30 minuten), want een vierde platform alleen met zoekresultaten wordt een half onderzoek.
+
+## 6 nov 2026, run 16:31 UTC
+- Bericht Thijs (netwerk open, eigen steekproeven): apps.shopify.com en framer.com geven nu 200 met curl, top.gg nog 403. Gekozen voor Shopify grondig, want Thijs vraagt liever één platform goed.
+- Eigen steekproef: 6.000 willekeurige apps uit de sitemap van 30.060. Nieuwe apps van mei tot aug 2026: 78% geen review, 1% met 10+. Sinds mei 3 tot 5 keer zo veel nieuwe apps per maand.
+- Nieuw: EU-herroepingsknop (verplicht 19 juni 2026). Twee kleine makers haalden 2.323 en 580 reviews in 8 tot 10 maanden, maar van ±130 aanbieders wonnen er twee, en dezelfde maker kreeg met een GPSR-app maar 29 reviews.
+- Uitkomst: nog niet klaar, cijfer 6 (was 5). Reden: er is nu eigen bewijs dat kleine makers hier groot worden, maar alleen als vroege uitschieter bij een nieuwe regel. Controleur akkoord met 11 correcties, alle verwerkt.
+- Volgende run: Framer eigen steekproef (curl werkt), of Shopify-vervolg: een aankomende regel met datum zoeken.
