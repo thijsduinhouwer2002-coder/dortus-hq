@@ -6,10 +6,10 @@
  */
 import { requestUrl } from "obsidian";
 
-/** Empty until the Polar account exists. While any of the three is empty, paid skins are "coming soon". */
-export const POLAR_ORG_ID = "";
-export const POLAR_BENEFIT_ID = "";
-export const BUY_URL = "";
+/** Our Polar.sh organization, the License Keys benefit and the checkout page. While any of the three is empty, paid skins are "coming soon". */
+export const POLAR_ORG_ID = "5f4a360c-7552-4269-a44a-4311f7f672d6";
+export const POLAR_BENEFIT_ID = "344f6030-66ec-437a-8fbb-186b80a98c65";
+export const BUY_URL = "https://buy.polar.sh/polar_cl_kJQ6H0U8GSNV0qMQkejM6SY4BYkU9k3SxfApH07ipIP";
 
 export const VALIDATE_URL = "https://api.polar.sh/v1/customer-portal/license-keys/validate";
 /** An active key is checked again at most this often, quietly. */
