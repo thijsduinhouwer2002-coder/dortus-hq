@@ -1,3 +1,4 @@
+import { parseFormula } from "./parser";
 import { defaultRandom } from "./random";
 import { DiceError, LIMITS, newBudget, type Budget, type RandomInt } from "./types";
 
@@ -81,19 +82,37 @@ function splitLetters(run: string, from = 0, dead = new Set<number>()): string[]
 }
 
 /**
+ * True when a piece between spaces reads as ordinary notation with more than a count and a d,
+ * such as 4dF, 2d6s or 1dS. Such a piece is never narrative, so "4dF 2d" is not 4 Difficulty and a Force.
+ * "2d" and "d" are allowed: alone they roll as ordinary dice anyway, so they only get here next to narrative dice.
+ */
+function isOrdinaryPiece(piece: string): boolean {
+	try {
+		const node = parseFormula(piece, []);
+		return !(node.type === "name" || (node.type === "dice" && node.sides.kind === "default" && node.modifiers.length === 0));
+	} catch {
+		return false;
+	}
+}
+
+/**
  * Reads a formula as narrative dice. Returns null when it is not made only of groups such as
- * 3g or 2d (spaces left out, capitals the same as small letters). Throws when it is narrative
- * but a "p" cannot be told apart.
+ * 3g or 2d (capitals the same as small letters). Each piece between spaces must be narrative on
+ * its own, so "2d6 2d" is not read as "2d62d". Throws when it is narrative but a "p" cannot be told apart.
  */
 export function parseNarrative(formula: string): NarrativeGroup[] | null {
-	const text = formula.replace(/\s+/g, "").toLowerCase();
-	if (text.length > LIMITS.formulaLength || !/^[0-9a-z]*[a-z]$/.test(text)) return null;
+	if (formula.length > LIMITS.formulaLength) return null;
+	const pieces = formula.trim().split(/\s+/);
 	const words: { count: number; word: string }[] = [];
-	const groups = /(\d*)([a-z]+)/g;
-	for (let match = groups.exec(text); match; match = groups.exec(text)) {
-		const split = splitLetters(match[2] as string);
-		if (!split) return null;
-		split.forEach((word, i) => words.push({ count: i === 0 && match[1] !== "" ? Number(match[1]) : 1, word }));
+	for (const piece of pieces) {
+		const text = piece.toLowerCase();
+		if (!/^[0-9a-z]*[a-z]$/.test(text) || isOrdinaryPiece(piece)) return null;
+		const groups = /(\d*)([a-z]+)/g;
+		for (let match = groups.exec(text); match; match = groups.exec(text)) {
+			const split = splitLetters(match[2] as string);
+			if (!split) return null;
+			split.forEach((word, i) => words.push({ count: i === 0 && match[1] !== "" ? Number(match[1]) : 1, word }));
+		}
 	}
 	const switched = words.some((w) => SWITCHES.has(w.word));
 	return words.map(({ count, word }) => {

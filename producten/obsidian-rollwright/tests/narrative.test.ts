@@ -69,6 +69,16 @@ describe("narrative dice: letters", () => {
 		expect(() => rollNarrative("1001g", lowest)).toThrow("At most 1000 dice");
 	});
 
+	it("pieces between spaces are read on their own: ordinary dice next to narrative dice are not narrative", async () => {
+		for (const formula of ["2d6 2d", "1d20 d", "1d6 2d", "4dF 2d", "2d6s 1g", "1dS 2g", "1D6KH1 2d"]) {
+			expect(isNarrative(formula)).toBe(false);
+			await expect(rollSpec(formula, context(lowest))).rejects.toThrow(DiceError);
+			await expect(rollSpec(formula, context(lowest))).rejects.not.toThrow(/ambiguous|Narrative/);
+		}
+		expect(kinds("3G 2D")).toEqual(["3ability", "2difficulty"]);
+		expect(kinds("2d 3g")).toEqual(["2difficulty", "3ability"]);
+	});
+
 	it("anything else is not narrative", () => {
 		for (const formula of ["", "3g+2d", "2d6", "x", "3", "str", "dex", "boost", "g2", "1d20kh1"]) {
 			expect(isNarrative(formula)).toBe(false);
