@@ -23,6 +23,11 @@ Vastgesteld door Thijs op 6 november 2026. Dortus is zijn bedrijf en zijn fullti
 
 Een betaalde plugin van $49 per jaar levert na de afdracht (JetBrains houdt 15%) ongeveer € 3,50 per maand per betalende gebruiker op. Voor € 350 per maand zijn dan ±100 betalende gebruikers nodig. Als 2 tot 5% van de gebruikers betaalt (GOK), zijn dat 2.000 tot 5.000 gebruikers. Een gemiddelde nieuwe JetBrains-plugin haalt een mediaan van 111 downloads (GEZIEN, zie `platformen/jetbrains/status.md`). Eén gemiddelde plugin is dus niet genoeg. We hebben een uitschieter nodig, of meerdere betaalde producten.
 
+## Vaste gegevens voor winkelpagina's
+- Supportadres: **support@dortus.com**
+- Website: dortus.com, met per product een eigen map (dortus.com/<productnaam>/), zie `organisatie/regels.md`.
+- Atlassian doen we niet meer. De bestaande Atlassian-pagina's op de site blijven staan, maar de ploeg bouwt daar niets nieuws voor.
+
 ## Hoe de ploeg hierop stuurt
 
 - **Geld gaat voor bereik.** Bij een keuze tussen twee producten wint het product met de grootste kans op betalende klanten.

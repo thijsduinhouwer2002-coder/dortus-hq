@@ -29,6 +29,14 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
 
+## De website dortus.com
+- De site staat in de repo `thijsduinhouwer2002-coder/dortus` (statische HTML, gepubliceerd op dortus.com). De ploeg mag hem gebruiken voor productpagina's, privacybeleid en support van onze producten.
+- Werk alleen in een eigen map per product: `<productnaam>/` in de repo, dus dortus.com/<productnaam>/. Bijvoorbeeld `dice-roller/index.html`, `dice-roller/privacy.html`, `dice-roller/support.html`.
+- Verander of verwijder niets wat er al staat. Dat geldt voor elke bestaande pagina, `assets/`, `styles.css`, `index.html`, `sitemap.xml` en alle andere bestaande bestanden en mappen.
+- Bekijk de bestaande pagina's alleen om de stijl en de opbouw over te nemen. Linken naar bestaande bestanden (zoals `/styles.css` of `/assets/fonts/`) mag. Wil je iets aanpassen, kopieer het dan naar je eigen productmap.
+- Support op winkelpagina's en productpagina's: **support@dortus.com**.
+- Opslaan op de site gaat via dezelfde regels: `git pull --rebase`, nooit geforceerd, en afsluiten met `git ls-remote` voor die repo.
+
 ## Afsluiten
 Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<tak>` bij een tak) hebt laten zien dat jouw laatste commit op GitHub staat. Zet de hash van je commit en de uitkomst van `git ls-remote` in je eindantwoord (niet in een bestand, want dat levert weer een nieuwe commit op). Heeft iemand daarna ook opgeslagen, dan mag de hash van jouw commit ook in `origin/main` zitten na `git fetch`.
 
