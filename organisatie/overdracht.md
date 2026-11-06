@@ -21,6 +21,7 @@ Voor elke Claude die in een nieuwe chat aan Dortus gaat werken. Lees daarna `CLA
 - Kies, onderbouw, en vraag alleen in nood.
 
 ## Nog open
+- **Gedeeld account:** het Claude-account is nu van de vader van Thijs mee. Dat verandert. Krijgt Dortus een eigen account, dan moeten alle geplande taken daar opnieuw gemaakt worden vanuit een chat met beide repo's op push (zie `organisatie/geplande-taken.md`), en moet de cloudomgeving daar ook op Network access Full.
 - Uitkomst van de Chrome-test verwerken. Werkt het: managers mogen zelf indienen en publiceren via de officiële weg.
 - Repo dortus-hq op privé zetten (Thijs), na het eerste dagrapport.
 - Koppelingen Gmail, Shopify, Trello en Kondo weghalen bij de geplande taken (Thijs, in de app).

@@ -30,6 +30,12 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.
 
+## Gedeeld account (tijdelijk)
+Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk mee doet. Tot Dortus een eigen account heeft:
+- **Gebruik nooit de koppelingen Gmail, Shopify, Trello, Kondo of Claude Docs**, ook niet als ze in je run beschikbaar zijn. Dat kunnen de accounts van iemand anders zijn.
+- **Chrome:** gebruik alleen de browser van Thijs' HP (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0). Kies nooit een andere browser.
+- Open of wijzig nooit chats, projecten of geplande taken die niet met "Dortus" beginnen.
+
 ## Webpagina's lezen
 - Het netwerk van de cloudomgeving staat open (Full). Lees webpagina's daarom met `curl` in Bash (bijvoorbeeld `curl -sL <url>`), of met een klein script. Dat vraagt geen toestemming.
 - De leestool WebFetch kan per website om toestemming vragen. In een run zit niemand om te antwoorden, dus dan sta je stil. Gebruik WebFetch alleen als `curl` niet werkt (bijvoorbeeld een pagina die alleen in een browser laadt), en stop als er een toestemmingsvraag komt: noteer de site en ga door met ander werk.
