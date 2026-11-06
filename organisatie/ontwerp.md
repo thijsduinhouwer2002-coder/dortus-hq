@@ -6,6 +6,10 @@ Versie 1, 6 november 2026. Status: **aan sinds 6 nov 2026** (vaste geplande take
 
 Een vaste ploeg van Claudes die de hele dag werkt, elk uur een run van ±45 minuten: per platform een manager met 1 of 2 agents, daarboven een hoofdmanager, en die stuurt Thijs aan het eind van de dag één kort rapport.
 
+## Waarom deze opzet
+
+De eerste opzet was één agent die vijf projecten onderhield. Dat werd een rommeltje. Daarom nu: één manager per platform, met een eigen map als geheugen en een controleur. Houd dat zo: geef een manager nooit een tweede platform erbij, maak liever een nieuwe manager.
+
 ## Wie is wie
 
 ```

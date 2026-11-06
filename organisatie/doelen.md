@@ -30,6 +30,9 @@ Een betaalde plugin van $49 per jaar levert na de afdracht (JetBrains houdt 15%)
 
 ## Hoe de ploeg hierop stuurt
 
+- **Bouwen is niet het probleem, de markt wel.** Kies platformen en producten op vraag en kans, niet op wat makkelijk te bouwen is.
+- **Geen oude apps overzetten.** De bestaande Dortus-apps (Mermaid, Math, PlantUML, Markdown, MailView, AskSpace, Countdown en andere) zitten in een verzadigde markt. Stel ze niet voor als basis voor een nieuw product, tenzij Thijs erom vraagt.
+
 - **Geld gaat voor bereik.** Bij een keuze tussen twee producten wint het product met de grootste kans op betalende klanten.
 - **Hoofdmanager:** zet bovenaan elk rapport "Op koers?" met de stand tegen de eerstvolgende tussenstap: op koers, achter, of ver achter, met de reden. Lopen we achter, dan stelt hij een koerswijziging voor (ander product, ander platform, meer producten).
 - **Verkenner:** zoekt vooral naar plekken waar kleine makers aantoonbaar betaald krijgen. Bereik alleen is niet genoeg.

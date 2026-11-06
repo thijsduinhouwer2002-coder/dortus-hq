@@ -34,4 +34,5 @@ Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map e
    5. **Vragen aan Thijs:** alleen in nood, met opties, voor- en nadelen en advies.
    6. **Problemen:** wat vastloopt of fout ging.
    Kort en in gewone woorden. Thijs moet het in 3 minuten gelezen hebben.
-6. Sla op.
+6. **Op zondag ook een weekbesluit.** Zet bovenaan het rapport van zondag een blok "Weekbesluit": per platform één keuze (doorgaan, bijsturen of stoppen), gemeten tegen `organisatie/doelen.md`, met in één of twee zinnen waarom. Bijsturen of stoppen: pas meteen de `taken.md` van dat platform aan. Stoppen van een live product uit een winkel blijft een vraag aan Thijs.
+7. Sla op.
