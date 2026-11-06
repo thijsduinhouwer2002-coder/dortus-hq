@@ -6,6 +6,6 @@
 - **Concurrenten (GEZIEN):** dice-rolls 314 en dice-tray 95 (beide net gestart, lezen de Dice Roller-notatie), rpg-dice-roller 580, simple-dice-roller 8.750 (stil sinds 2022).
 - **Afgevallen:** nested grouping in Bases (er bestaan al bases-collapsing-group-table 2.469 en meer kleintjes), Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.109).
 - **Bereik-gok (GOK):** opvolgers halen 4% tot 12% van het origineel, dus ±12k tot 35k downloads.
-- **Risico:** licentie van Dice Roller niet gelezen, dus schone eigen bouw met compatibele notatie. Dice Roller kan zichzelf herstellen.
+- **Risico:** Dice Roller heeft geen LICENSE-bestand en forks zijn verboden, dus schone eigen bouw. Dat Dice Roller stuk is, is niet bewezen. Dice Tray (95) en Dice Rolls (314) hebben al veel functies, dus het gat is smal.
 - **Geld:** betaald mag sinds 12 mei 2026, Obsidian int niet. Idee: gratis kern, betaalde skins of spelsysteempakketten. Geen bewijs dat kleine makers verdienen.
 - **Cijfers eigen product:** nog geen.
