@@ -147,7 +147,7 @@ Bevindingen van de controleur. Opgelost op tak `claude/obsidian-2026-11-06-c` (6
   - `1D6KH1` werd geweigerd: nu tellen hoofdletters mee in modifiers na een getal of steen. Opgeslagen formules met hoofdletters en cijfers, zoals `K2`, blijven werken. Test: `tests/l6-capitals.test.ts`.
 - Voor verkoop: de Polar-constanten invullen (zie Betaling).
 
-Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `src/ui/reading-view.ts`. Alleen in Obsidian te bewijzen, dus handmatig testen: `dice: [[Zichzelf]]` en `dice: #npc` in een notitie met die tag, ook met `![[Zichzelf]]` in de notitie. Let op: een andere plugin die notities in een uitkomst invoegt (zoals Dataview) is niet gedekt, en of `el.closest` werkt hangt ervan af of Obsidian het element al heeft ingehangen tijdens de post-processor.
+Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `src/ui/reading-view.ts`. Sinds 6 nov 2026 getest in de echte Obsidian op GitHub Actions (`e2e/specs/zelfverwijzing.e2e.mjs`, run 42308771457 groen): `dice: [[Zichzelf]]` in lezen en Live Preview, `dice: #npc` in een notitie met die tag, `![[Zichzelf ingevoegd]]` in de notitie zelf (Obsidian voegt hem 5 keer in, één worp per invoeging, geen worp in een uitkomst), en een code die langs `defuseRolls` glipt (`<code>d<b>ice</b>: &#91;&#91;...&#93;&#93;</code>`). Overal blijft het aantal worpen gelijk, ook na vijf klikken, en Obsidian antwoordt binnen 5 ms. Niet hard bewezen: dat bij de html-notitie `el.closest` de herhaling tegenhoudt en niet dat de post-processor daar helemaal niet loopt; een proef met de controle weg zou dat laten zien. Let op: een andere plugin die notities in een uitkomst invoegt (zoals Dataview) is niet gedekt.
 
 ## Niet vastgesteld
 
