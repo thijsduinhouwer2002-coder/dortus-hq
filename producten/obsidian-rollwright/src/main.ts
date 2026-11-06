@@ -1,6 +1,6 @@
 import { getAllTags, MarkdownView, Notice, Plugin, TFile, type WorkspaceLeaf } from "obsidian";
 import { extractSavedFormulas, mergeFormulas, type SavedFormula } from "./import/dice-roller-data";
-import { isValidLicenseKey } from "./pro/license";
+import { activateLicense, isLicenseActive, obsidianRequest, paymentReady, POLAR_IDS, recheckLicense, type LicenseOutcome, type PolarIds, type RequestFunction } from "./pro/license";
 import { resolveSkin, SKINS } from "./pro/skins";
 import { fieldNames } from "./rollers/fields";
 import { replaceCodeInNote } from "./rollers/modify";
@@ -26,6 +26,8 @@ export interface RollwrightSettings {
 	formulas: SavedFormula[];
 	history: HistoryEntry[];
 	licenseKey: string;
+	/** When Polar last said the key is valid (ms since 1970), 0 when never. Name and e-mail are never stored. */
+	licenseCheckedAt: number;
 	skin: string;
 	/** Results of `dice+:` by key (note, place, formula), oldest first. Kept across restarts. */
 	keptResults: [string, RollOutcome][];
@@ -39,6 +41,7 @@ const DEFAULT_SETTINGS: RollwrightSettings = {
 	formulas: [],
 	history: [],
 	licenseKey: "",
+	licenseCheckedAt: 0,
 	skin: "classic",
 	keptResults: [],
 	diceModFormula: true,
@@ -70,6 +73,10 @@ export default class RollwrightPlugin extends Plugin {
 	/** Results of `dice+:`, written to disk with the settings. */
 	private readonly kept = new Map<string, RollOutcome>();
 	private readonly skinnedDocuments = new Set<Document>();
+	/** The network call, the clock and our Polar ids; tests put in their own. */
+	licenseRequest: RequestFunction = obsidianRequest;
+	now: () => number = () => Date.now();
+	polarIds: PolarIds = POLAR_IDS;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
@@ -98,6 +105,7 @@ export default class RollwrightPlugin extends Plugin {
 				this.skinnedDocuments.add(leaf.view.containerEl.doc);
 			});
 			this.applySkin();
+			void this.recheckLicense();
 		});
 	}
 
@@ -124,8 +132,25 @@ export default class RollwrightPlugin extends Plugin {
 		await this.saveData(this.settings);
 	}
 
+	/** The only question the rest of the code asks. A key without a check date is not active. */
 	get isLicensed(): boolean {
-		return isValidLicenseKey(this.settings.licenseKey);
+		return paymentReady(this.polarIds) && isLicenseActive(this.settings);
+	}
+
+	/** Activate in the settings. Only a valid answer stores the key and unlocks the skins. */
+	async activateLicense(key: string): Promise<LicenseOutcome> {
+		const outcome = await activateLicense(this.settings, key, this.licenseRequest, this.now(), this.polarIds);
+		if (outcome === "valid") await this.saveSettings();
+		this.applySkin();
+		return outcome;
+	}
+
+	/** Quiet check of an active key, at most once per 30 days. Only a clear "not valid" locks. */
+	async recheckLicense(): Promise<void> {
+		if (await recheckLicense(this.settings, this.licenseRequest, this.now(), this.polarIds)) {
+			await this.saveSettings();
+			this.applySkin();
+		}
 	}
 
 	/** Sets the skin on this document and on every window that already has one. */

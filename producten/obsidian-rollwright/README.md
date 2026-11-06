@@ -115,11 +115,15 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 **All rolling features are free. Two visual skins, Parchment and Arcane, are paid and need a license key.** The Classic skin is free.
 
-License keys are not on sale yet. Payment has not been arranged, and there is no buy button until it has. The key is checked on your device.
+License keys are not on sale yet. Until they are, the settings say "Paid skins are coming soon" and there is no buy button and no key field. Once they are, you buy the skins once through Polar, paste the key in the settings and press Activate. One key works on all your devices.
+
+## Payments and network
+
+The paid skins are sold through [Polar](https://polar.sh). You need no account with Rollwright. The plugin only goes online to check your license key, at `api.polar.sh`: when you press Activate, and after that quietly at most once every 30 days. It sends your key, our organization id and our benefit id, nothing else. Polar sees your IP address. The plugin keeps only the key and the date of the last check; the name and e-mail that Polar sends back are not stored and not logged. If Polar cannot be reached, a key that is already active stays active. Read Polar's [privacy policy](https://polar.sh/legal/privacy).
 
 ## Privacy
 
-Rollwright makes no network connections, has no telemetry and needs no account. It reads your notes to roll on them. Your notes are only changed when you confirm a `dice-mod:` code, and then only that code in that note. Outside the vault it touches nothing.
+Rollwright has no telemetry and needs no account. Its only network connection is the license check described above, and only once you use a license key. It reads your notes to roll on them. Your notes are only changed when you confirm a `dice-mod:` code, and then only that code in that note. Outside the vault it touches nothing.
 
 ## Limits
 

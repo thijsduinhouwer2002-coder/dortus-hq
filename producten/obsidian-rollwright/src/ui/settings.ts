@@ -1,6 +1,6 @@
-import { Notice, PluginSettingTab, Setting, type App } from "obsidian";
+import { PluginSettingTab, Setting, type App } from "obsidian";
 import type RollwrightPlugin from "../main";
-import { BUY_URL, isValidLicenseKey, shouldShowBuyButton } from "../pro/license";
+import { LICENSE_MESSAGES, paymentReady } from "../pro/license";
 import { availableSkins, SKINS } from "../pro/skins";
 
 /** A whole number of at least min, or null for anything else, an empty field included. */
@@ -11,7 +11,19 @@ export function parseWholeNumber(value: string, min: number): number | null {
 	return Number.isSafeInteger(number) && number >= min ? number : null;
 }
 
+export const COMING_SOON = "Paid skins are coming soon.";
+
+/** The line under the key field: active since a date, or what went wrong, in plain words. */
+export function licenseStatus(active: boolean, checkedAt: number, error: keyof typeof LICENSE_MESSAGES | null): string {
+	if (error !== null) return LICENSE_MESSAGES[error];
+	if (active) return `Active, checked on ${new Date(checkedAt).toLocaleDateString()}.`;
+	return "Paste the license key from your Polar purchase and press Activate.";
+}
+
 export class RollwrightSettingTab extends PluginSettingTab {
+	/** The outcome of the last Activate that failed, shown until the next try. */
+	private lastError: keyof typeof LICENSE_MESSAGES | null = null;
+
 	constructor(
 		app: App,
 		private readonly plugin: RollwrightPlugin,
@@ -109,7 +121,7 @@ export class RollwrightSettingTab extends PluginSettingTab {
 		const paidNames = SKINS.filter((skin) => skin.paid).map((skin) => skin.name).join(" and ");
 		new Setting(containerEl)
 			.setName("Skin")
-			.setDesc(`All rolling is free. ${paidNames} are paid skins and need a license key.`)
+			.setDesc(`All rolling is free. ${paidNames} are paid skins and need a license key.${paymentReady(this.plugin.polarIds) ? "" : ` ${COMING_SOON}`}`)
 			.addDropdown((dropdown) => {
 				for (const skin of availableSkins(this.plugin.isLicensed)) dropdown.addOption(skin.id, skin.name);
 				dropdown.setValue(settings.skin).onChange(async (value) => {
@@ -119,29 +131,34 @@ export class RollwrightSettingTab extends PluginSettingTab {
 				});
 			});
 
+		if (!paymentReady(this.plugin.polarIds)) {
+			new Setting(containerEl).setName("License key").setDesc(COMING_SOON);
+			return;
+		}
+
+		let draft = settings.licenseKey;
+		const status = licenseStatus(this.plugin.isLicensed, settings.licenseCheckedAt, this.lastError);
 		new Setting(containerEl)
 			.setName("License key")
-			.setDesc("Checked on this device only. Nothing is sent anywhere.")
+			.setDesc(`${status} The key is checked with Polar, at most once every 30 days.`)
 			.addText((text) =>
-				text.setValue(settings.licenseKey).onChange(async (value) => {
-					settings.licenseKey = value.trim();
-					await this.plugin.saveSettings();
-					this.plugin.applySkin();
+				text.setPlaceholder("Your license key").setValue(draft).onChange((value) => {
+					draft = value.trim();
 				}),
 			)
 			.addButton((button) =>
-				button.setButtonText("Check").onClick(() => {
-					new Notice(isValidLicenseKey(settings.licenseKey) ? "The license key is valid." : "This license key is not valid.");
+				button.setButtonText("Activate").onClick(async () => {
+					button.setDisabled(true);
+					const outcome = await this.plugin.activateLicense(draft);
+					this.lastError = outcome === "valid" ? null : outcome;
 					this.display();
 				}),
 			);
 
-		if (shouldShowBuyButton()) {
-			new Setting(containerEl).setName("Get the paid skins").addButton((button) =>
-				button.setButtonText("Buy").onClick(() => {
-					activeWindow.open(BUY_URL);
-				}),
-			);
-		}
+		new Setting(containerEl).setName("Get the paid skins").addButton((button) =>
+			button.setButtonText("Buy").onClick(() => {
+				activeWindow.open(this.plugin.polarIds.buyUrl);
+			}),
+		);
 	}
 }

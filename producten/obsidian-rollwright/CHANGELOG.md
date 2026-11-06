@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Paid skins now use license keys from Polar. Paste the key and press Activate; it is checked once at `api.polar.sh` and after that quietly at most once every 30 days. Only the key and the date of the check are stored. While payment is not set up the settings say "Paid skins are coming soon".
+- The old offline key check (`RW1-...` keys) is removed. No such keys were ever sold.
+
 ## 0.2.0
 
 Notation added so notes written for other dice plugins keep working:
