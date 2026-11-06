@@ -1,11 +1,12 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] E2e-tests uitbreiden (bericht Thijs 23:45): tabellen, lijst en sectie, `dice+:` (ook na herstart), `dice-mod:` met Replace, zoekbare instellingen (punt 20 in OPEN.md). Eén spec per onderwerp, groen op Actions voor indienen.
+- [ ] E2e-tests uitbreiden (bericht Thijs 23:45), nog te doen: sectie en regel, `dice+:` (ook na herstart), `dice-mod:` met Replace, zoekbare instellingen (punt 20 in OPEN.md), klik in Live Preview. Eén spec per onderwerp, groen op Actions voor indienen.
 - [ ] Proef: `closest`-regel in reading-view.ts tijdelijk weg op een eigen tak en de html-test draaien (verwacht rood), zodat bewezen is welk slot werkt. Niet samenvoegen.
 - [ ] Eén echte sleutel testen (na de handmatige test of een aankoop), dan versie 0.3.0.
 - [ ] Bereid de lancering voor: README met bewegend plaatje, schermafbeeldingen, lanceerberichten voor forum (Share & showcase), r/ObsidianMD en Discord.
 - [ ] Indienen via community.obsidian.md (vraagt Thijs' GitHub-login: op de lijst voor Thijs).
 - [ ] Meten op dag 7 en dag 30.
+- [x] E2e tabellen (6 nov 23:16, tak r): tabel, lijst, kolom Naam en Geluid, opzoektabel (rij past bij de worp), vaste opzoektabel met geneste cel, 3 trekkingen, lezen en Live Preview; 8 tests groen op Actions, controleur akkoord met punten (verwerkt), op main.
 - [x] E2e-test zelfverwijzing (6 nov 23:05, tak q): zes tests groen in de echte Obsidian op Actions, controleur akkoord, op main. Lint slaat e2e/ nu over (gaf al 2 fouten).
 - [x] Instellingen vindbaar in de zoekfunctie van 1.13+ (6 nov 21:47, tak p): 506 tests groen, lint 0 waarschuwingen, controleur akkoord, op main. Handmatig punt 20 in OPEN.md.
 - [x] Polar-gegevens ingevuld (6 nov 21:39, tak o): koopknop en sleutelveld verschijnen, 499 tests groen, controleur akkoord, op main. Echte test in de cloud lukte niet (programma starten geweigerd), staat bij Thijs.

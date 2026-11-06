@@ -149,3 +149,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** geen bestaande test veranderd, de workflow niet aangepast (op een tak start ik hem met de hand). Waarom: regel codekwaliteit 1, en de workflow is niet van mij.
 **Niet bewezen:** bij de html-notitie dat `el.closest` de herhaling tegenhoudt, en niet dat de post-processor daar niet loopt. Proef staat als taak.
 **Wat misging:** niets ernstigs. Eerste `git reset --hard` werd geweigerd door de veiligheidscontrole; met `git checkout -B main origin/main` ging het (de werkmap was schoon).
+
+## 6 nov 2026, 23:06 tot 23:17: e2e tabellen
+**Gedaan:** volgende stap uit het bericht van 23:45. Op tak `claude/obsidian-2026-11-06-r` `e2e/specs/tabellen.e2e.mjs` met `Tabellen.md` (tabel met één kolom, lijst, tabel met twee kolommen, opzoektabel `dice: 1d4` met een geneste worp in rij 4) en `Tabelworpen.md`. Run 1 (42309463063) meteen groen. Controleur: akkoord met punten; de belangrijkste: rij 4 met de geneste cel werd maar één op de vier keer geraakt, en niet gecontroleerd of de rij bij de worp hoort. Verwerkt: extra opzoektabel met kop `dice: 4` (altijd rij 4), de worp uit de tooltip lezen en de rij vergelijken, kolom Geluid erbij, na een klik wachten tot de waarde er is. Run 2 (42310025548) groen: 4 + 4 + 6 tests (GEZIEN; worp 3 gaf Mist, vaste rij 4 gaf een kleur, Geluid gaf Woef). Samengevoegd op main.
+**Beslissing:** de Live Preview-test zegt in een opmerking dat hij de gedeelde uitkomst toont en niet zelf opnieuw rolt. Waarom: lezen en Live Preview gebruiken dezelfde sleutel; meer beloven klopt niet.
+**Wat misging:** één push en één workflowstart gaven een tijdelijke fout 500 van GitHub; na 20 seconden lukte het.
+**Beslissing:** run hier gestopt. Waarom: `dice+:` met herstart en `dice-mod:` met Replace zijn elk een eigen blok en passen niet netjes in de resttijd.
