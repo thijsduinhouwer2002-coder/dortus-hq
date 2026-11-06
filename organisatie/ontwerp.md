@@ -31,7 +31,7 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Draait elke ochtend, nadat alle platformmanagers klaar zijn.
 - Leest de status van elk platform en schrijft het dagrapport.
 - Houdt het bord bij: één lijst met wat er per platform loopt.
-- Bewaakt de regels en het tegoed. Ziet hij dat een manager steeds hetzelfde doet zonder resultaat, dan meldt hij dat.
+- Bewaakt de regels. Ziet hij dat een manager steeds hetzelfde doet zonder resultaat, dan meldt hij dat.
 - Bepaalt de koers: welke platformen erbij komen, welke stoppen, waar de meeste tijd heen gaat. Altijd met onderbouwing in het rapport.
 - Bouwt zelf niets.
 
@@ -140,15 +140,12 @@ Thijs krijgt een melding op zijn telefoon als het rapport klaar is.
 
 ## Het tegoed
 
-- Elke run gebruikt een deel van je Claude-tegoed. Hoeveel precies kan een Claude zelf niet zien.
-- Grenzen: één run per manager per nacht, maximaal 2 agents per run, en een manager stopt na zijn ene taak.
-- Thijs kijkt de eerste week elke dag in zijn Claude-instellingen hoeveel er gebruikt is. Gaat het te hard, dan zetten we de Verkenner of de Atlassian-manager eerst minder vaak aan.
+Het tegoed speelt geen rol bij beslissingen: de managers werken zo hard als nodig is. Eén feit blijft: is het tegoed op, dan starten runs niet meer tot het weer aangevuld is. De hoofdmanager meldt dat in het rapport als het gebeurt.
 
 ## Wat ik nog niet zeker weet (eerst testen)
 
 1. **Toegang in geplande runs.** Een geplande run start in een nieuwe sessie. Ik weet nog niet zeker of die meteen toegang heeft tot deze repo. Dat testen we met één proefrun.
 2. **De browser 's nachts.** Sommig onderzoek ging vandaag alleen via de browser in de Claude-app op jouw computer. Staat die 's nachts uit, dan kan een manager dat niet. Werk dat de browser nodig heeft, plannen we overdag of het komt op jouw lijst.
-3. **Hoe snel het tegoed opraakt.** Dat zien we pas in de eerste week.
 
 ## Hoe we het aanzetten
 
