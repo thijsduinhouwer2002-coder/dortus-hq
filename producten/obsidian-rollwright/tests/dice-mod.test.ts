@@ -3,10 +3,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import RollwrightPlugin from "../src/main";
 import { defuseRolls } from "../src/rollers/defuse";
 import { findInlineDice, readDiceCode } from "../src/rollers/inline";
-import { modifiedText, replaceCodeInLine, replaceCodeInNote, replacementAt } from "../src/rollers/modify";
+import { modifiedText } from "../src/rollers/modify";
 import { rollSpec, type RollContext, type RollOutcome } from "../src/rollers/run";
 import { lookupFormula, parseTable } from "../src/rollers/table";
-import { CHANGED_NOTICE, EMBED_NOTICE, editorModifier, ReplaceCodeModal, UNPLACED_NOTICE } from "../src/ui/dice-mod";
+import { CHANGED_NOTICE, EMBED_NOTICE, editorModifier, NOT_MARKDOWN_NOTICE, ReplaceCodeModal, UNPLACED_NOTICE } from "../src/ui/dice-mod";
 import { processReadingView } from "../src/ui/reading-view";
 import { allText, buttons, type FakeEl, notices, openedModals, TFile } from "./obsidian-stub";
 
@@ -107,35 +107,6 @@ describe("defuse: a result with dice-mod: in it does not roll again (L9)", () =>
 	});
 });
 
-describe("replacing the code", () => {
-	const line = "Hit `dice-mod: 1d6` and `dice-mod: 1d6` and `dice: 2d6`";
-
-	it("replaces the right one of two codes on a line", () => {
-		expect(replaceCodeInLine(line, 1, "1d6", "1d6 -> [4] -> 4")).toBe("Hit `dice-mod: 1d6` and 1d6 -> [4] -> 4 and `dice: 2d6`");
-		expect(replaceCodeInLine(line, 0, "1d6", "X")).toBe("Hit X and `dice-mod: 1d6` and `dice: 2d6`");
-	});
-
-	it("refuses when the code changed, is gone or is not dice-mod", () => {
-		expect(replaceCodeInLine(line, 0, "1d8", "X")).toBeNull();
-		expect(replaceCodeInLine(line, 2, "2d6", "X")).toBeNull();
-		expect(replaceCodeInLine(line, 3, "1d6", "X")).toBeNull();
-		expect(replaceCodeInLine("Hit `dice: 1d6`", 0, "1d6", "X")).toBeNull();
-	});
-
-	it("replaces in a note on the right line and keeps line endings", () => {
-		const note = "a\r\n`dice-mod: 1d6`\r\nb `dice-mod: 1d6`\r\n";
-		expect(replaceCodeInNote(note, 2, 0, "1d6", "X")).toBe("a\r\n`dice-mod: 1d6`\r\nb X\r\n");
-		expect(replaceCodeInNote(note, 0, 0, "1d6", "X")).toBeNull();
-		expect(replaceCodeInNote(note, 9, 0, "1d6", "X")).toBeNull();
-	});
-
-	it("keeps a table row whole", () => {
-		expect(replaceCodeInLine("| a | `dice-mod: [[T^t]]` |", 0, "[[T^t]]", "x | y")).toBe("| a | x \\| y |");
-		expect(replacementAt("| a | `dice-mod: 1d6` |", 6, "1d6", "p|q")).toEqual({ from: 6, to: 21, insert: "p\\|q" });
-		expect(replacementAt("| a | `dice-mod: 1d6` |", 5, "1d6", "x")).toBeNull();
-	});
-});
-
 /** A small element for the widget: it records listeners and the shown text. */
 function fakeSpan(inEmbed = false) {
 	const listeners: Record<string, (event: unknown) => void> = {};
@@ -186,7 +157,7 @@ async function load(files: Record<string, string>) {
 }
 
 /** Draws one paragraph of a note in reading view and gives back the span of each code. */
-function draw(plugin: RollwrightPlugin, note: string, line: number, options: { known?: boolean; inEmbed?: boolean; sourcePath?: string } = {}) {
+function draw(plugin: RollwrightPlugin, note: string, line: number, options: { known?: boolean; inEmbed?: boolean; sourcePath?: string; dom?: string[] } = {}) {
 	const lines = note.split("\n");
 	const spans: ReturnType<typeof fakeSpan>[] = [];
 	vi.stubGlobal("activeDocument", {
@@ -198,7 +169,9 @@ function draw(plugin: RollwrightPlugin, note: string, line: number, options: { k
 		},
 	});
 	const text = lines[line] ?? "";
-	const codes = findInlineDice(text).map((f) => ({ textContent: text.slice(f.from + 1, f.to - 1), parentElement: { tagName: "P" }, replaceWith() {} }));
+	// The code elements as Obsidian would draw them; dom gives them by hand, for spans the scan does not count.
+	const texts = options.dom ?? findInlineDice(text).map((f) => text.slice(f.from + 1, f.to - 1));
+	const codes = texts.map((textContent) => ({ textContent, parentElement: { tagName: "P" }, replaceWith() {} }));
 	const ctx = {
 		sourcePath: options.sourcePath ?? "A.md",
 		getSectionInfo: () => (options.known === false ? null : { text: note, lineStart: line, lineEnd: line }),
@@ -305,10 +278,47 @@ describe("dice-mod: in reading view, with a stand-in for the app", () => {
 	});
 });
 
+describe("repairs after the review of dice-mod", () => {
+	it("4: a dice-mod code gets no place when the drawn codes and the scanned codes differ", async () => {
+		const note = "``dice-mod: 1d1`` and `dice-mod: 1d1`";
+		const files = { "A.md": note };
+		const { plugin, app, confirm } = await load(files);
+		const spans = draw(plugin, note, 0, { dom: ["dice-mod: 1d1", "dice-mod: 1d1"] });
+		await wait();
+		spans[0]?.listeners.click?.(click);
+		await wait();
+		expect(confirm).not.toHaveBeenCalled();
+		expect(app.process).not.toHaveBeenCalled();
+		expect(files["A.md"]).toBe(note);
+		expect(notices).toContain(UNPLACED_NOTICE);
+	});
+
+	it("4: dice: keeps its numbering when the counts differ", async () => {
+		const note = "<code>dice: 1d1</code> `dice: 2`";
+		const { plugin } = await load({ "A.md": note });
+		const spans = draw(plugin, note, 0, { dom: ["dice: 1d1", "dice: 2"] });
+		await wait();
+		expect(spans.map((span) => span.text)).toEqual(["1", "2"]);
+		expect(plugin.hasResult("A.md|0:0|1d1")).toBe(true);
+	});
+
+	it("5b: writes only into a markdown note", async () => {
+		const files = { "A.canvas": "`dice-mod: 1d1`" };
+		const { plugin, app } = await load(files);
+		expect(await plugin.replaceInNote("A.canvas", 0, 0, "1d1", "1")).toBe(false);
+		expect(app.process).not.toHaveBeenCalled();
+		expect(files["A.canvas"]).toBe("`dice-mod: 1d1`");
+		expect(notices).toContain(NOT_MARKDOWN_NOTICE);
+	});
+});
+
 describe("dice-mod: in Live Preview, through the editor", () => {
-	function fakeView(doc: string, at: number) {
+	/** The widget element: in the editor unless detached. */
+	const widget = { isConnected: true };
+	function fakeView(doc: string, at: number, holds: unknown[] = [widget]) {
 		const view = {
 			state: EditorState.create({ doc }),
+			contentDOM: { contains: (node: unknown) => holds.includes(node) },
 			posAtDOM: () => at,
 			dispatch: (spec: TransactionSpec) => {
 				view.state = view.state.update(spec).state;
@@ -321,7 +331,7 @@ describe("dice-mod: in Live Preview, through the editor", () => {
 		const { plugin } = await load({});
 		const view = fakeView("a `dice-mod: 1d1` b `dice-mod: 1d1`", 20);
 		const outcome = await rolled("1d1");
-		editorModifier(plugin, view as never, {} as never, "1d1")(outcome);
+		editorModifier(plugin, view as never, widget as never, "1d1")(outcome);
 		await wait();
 		expect(view.state.doc.toString()).toBe("a `dice-mod: 1d1` b 1d1 -> [1] -> 1");
 	});
@@ -329,10 +339,25 @@ describe("dice-mod: in Live Preview, through the editor", () => {
 	it("does nothing when the text there is no longer the code", async () => {
 		const { plugin } = await load({});
 		const view = fakeView("a `dice-mod: 1d2`", 2);
-		editorModifier(plugin, view as never, {} as never, "1d1")(await rolled("1d1"));
+		editorModifier(plugin, view as never, widget as never, "1d1")(await rolled("1d1"));
 		await wait();
 		expect(view.state.doc.toString()).toBe("a `dice-mod: 1d2`");
 		expect(notices).toContain(CHANGED_NOTICE);
+	});
+
+	it("does nothing when the widget left the editor (posAtDOM would give 0)", async () => {
+		const { plugin } = await load({});
+		const outcome = await rolled("1d1");
+		const gone = { isConnected: false };
+		const detached = fakeView("`dice-mod: 1d1` rest", 0, [gone]);
+		editorModifier(plugin, detached as never, gone as never, "1d1")(outcome);
+		const elsewhere = { isConnected: true };
+		const other = fakeView("`dice-mod: 1d1` rest", 0, []);
+		editorModifier(plugin, other as never, elsewhere as never, "1d1")(outcome);
+		await wait();
+		expect(detached.state.doc.toString()).toBe("`dice-mod: 1d1` rest");
+		expect(other.state.doc.toString()).toBe("`dice-mod: 1d1` rest");
+		expect(notices.filter((n) => n === CHANGED_NOTICE)).toHaveLength(2);
 	});
 });
 

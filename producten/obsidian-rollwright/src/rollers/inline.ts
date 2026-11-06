@@ -10,13 +10,18 @@ export interface InlineDice {
 	modify: boolean;
 }
 
-/** Finds `dice: x` in one line of text. Longer backtick runs are skipped. */
+/**
+ * Finds `dice: x` in one line of text. Longer backtick runs are skipped. A backtick with a
+ * backslash before it opens no code, as in markdown, so an escaped backtick written by dice-mod never
+ * pairs with a later backtick. Inside a code span a backslash means nothing.
+ */
 export function findInlineDice(line: string): InlineDice[] {
 	const found: InlineDice[] = [];
-	const pattern = /(`+)([^`]*)\1/g;
+	const pattern = /\\[\s\S]|(`+)([^`]*)\1/g;
 	for (let match = pattern.exec(line); match; match = pattern.exec(line)) {
+		if (match[1] === undefined) continue;
 		const code = readDiceCode(match[2] as string);
-		if ((match[1] as string).length === 1 && code !== null) {
+		if (match[1].length === 1 && code !== null) {
 			found.push({ from: match.index, to: match.index + match[0].length, formula: code.formula, keep: code.keep, modify: code.modify === true });
 		}
 	}

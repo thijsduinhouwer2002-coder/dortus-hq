@@ -10,6 +10,7 @@ export type ModifyHandler = (outcome: RollOutcome) => void;
 export const CHANGED_NOTICE = "The dice-mod code has changed, so nothing was replaced.";
 export const EMBED_NOTICE = "A dice-mod code in an embedded note cannot be replaced here. Open that note to replace it.";
 export const RESULT_NOTICE = "A dice-mod code inside a rolled result cannot be replaced.";
+export const NOT_MARKDOWN_NOTICE = "Only a dice-mod code in a markdown note can be replaced.";
 export const UNPLACED_NOTICE = "This dice-mod code cannot be replaced here, because its line in the note is unknown.";
 
 /** Shows the text a dice-mod code becomes and asks first. Closing it counts as cancel. */
@@ -84,6 +85,11 @@ export function editorModifier(plugin: RollwrightPlugin, view: EditorView, targe
 }
 
 function replaceInEditor(view: EditorView, target: HTMLElement, formula: string, text: string): void {
+	// A widget that left the editor (redrawn, note closed) gives posAtDOM 0 or the end of the note.
+	if (!target.isConnected || !view.contentDOM.contains(target)) {
+		new Notice(CHANGED_NOTICE);
+		return;
+	}
 	let at = -1;
 	try {
 		at = view.posAtDOM(target);

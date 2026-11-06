@@ -24,6 +24,10 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 	if (el.closest(".rollwright-value")) return;
 	const codes = Array.from(el.querySelectorAll("code")).filter((code) => code.parentElement?.tagName !== "PRE");
 	const positions = codePositions(el, ctx);
+	// Codes the source scan does not count (``dice: x``, <code>dice: x</code>, a code over two
+	// lines) shift the numbers. Then a dice-mod code gets no place, so it never writes in the
+	// wrong spot. dice: and dice+: keep the numbering as before.
+	const counted = codes.filter((code) => readDiceCode(code.textContent ?? "") !== null).length === positions.length;
 	let nth = 0;
 	for (const code of codes) {
 		const dice = readDiceCode(code.textContent ?? "");
@@ -39,7 +43,7 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 		const child = new MarkdownRenderChild(span);
 		ctx.addChild(child);
 		// dice-mod: shows a roll like dice:, and a click asks to write it into this note only.
-		const modify = dice.modify ? readingModifier(plugin, span, ctx.sourcePath, position, formula) : undefined;
+		const modify = dice.modify ? readingModifier(plugin, span, ctx.sourcePath, counted ? position : undefined, formula) : undefined;
 		mountRoll(plugin, span, formula, `${ctx.sourcePath}|${place}|${formula}`, ctx.sourcePath, child, keep, modify);
 	}
 }
