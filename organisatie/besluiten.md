@@ -6,6 +6,8 @@ Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonde
 
 Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
+- 6 nov 2026 | Hans | Blender: nog niet klaar (5) | veel bereik (±1.000 tot 1.500 downloads per nieuwe add-on, GEZIEN), maar geen bewijs dat kleine makers er geld verdienen, en geld gaat voor bereik; meettaak in `platformen/verkenner/taken.md` | 2 kleine makers gestart na 2024 boven $300 per maand, of een steekproef waarin nieuwe betaalde add-ons regelmatig verkopen
+- 6 nov 2026 | Hans | Shopify (6) en de rest: geen nieuw platform vandaag | niets haalt de 7; Shopify is het serieus waard maar het bereik voor een gewone nieuwe app is nog niet bewezen | Shopify: aantoonbare weg naar 100 installs voor een nieuwe app
 - 6 nov 2026 | Verkenner | Garmin Connect IQ: nog niet klaar (5) | betaalde nieuwe apps halen meestal weinig, onzeker of downloads verkopen zijn, zie `platformen/verkenner/voorstellen/garmin-connect-iq.md` | emmers van betaalde apps stijgen in 3 tot 4 weken terwijl ze betaald zijn, of 2 makers delen een maandbedrag boven $300
 - 6 nov 2026 | Olaf | Obsidian: betaalde skins via Polar.sh, sleutel één keer online controleren, daarna offline ($6 eenmalig) | merchant of record (btw geregeld), betaalt uit naar NL, sleutels ingebouwd en te controleren zonder geheime sleutel of eigen server; Lemon Squeezy wordt richting Stripe uitgefaseerd, Gumroad kost 10%; zie `platformen/obsidian/onderzoek-betaalweg.md` | Polar neemt geen NL-verkopers aan, of de validate-API vraagt een geheime sleutel
 - 6 nov 2026 | Thijs | nieuwe rol Chris, commercieel manager (sales en marketing), staat uit tot de eerste lancering | verkopen is meer dan bouwen, maar zonder product verzint hij werk | -
