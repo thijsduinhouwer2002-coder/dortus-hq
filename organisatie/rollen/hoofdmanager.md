@@ -22,12 +22,13 @@ Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map e
    - Houden ze zich aan de regels? Draait iemand rondjes zonder resultaat? Grijp in: pas zijn `taken.md` aan en schrijf waarom.
 3. Beslis over de koers, met onderbouwing:
    - **Nieuwe voorstellen van de verkenner** (`platformen/verkenner/voorstellen/`): ja of nee. Bij ja: maak de map `platformen/<platform>/` met `status.md`, `taken.md` (eerste taak: uitzoeken wat we bouwen) en `logboek.md`. Maak een geplande taak voor de nieuwe manager (met de eerste stap uit "Geplande taken") als dat kan, elk uur tussen 08:00 en 20:00, op een eigen minuut, niet op hetzelfde minuut als een andere manager. Kan dat niet, zet het op de lijst voor Thijs.
-   - **Wanneer een nieuw platform erbij komt:** er is geen tempo en geen maximum. Een platform komt erbij zodra het top is, of dat nu na 2 dagen is of na 2 weken. Is er niets top, dan wacht je. "Top" betekent alle vier:
-     1. Kleine makers verdienen er aantoonbaar geld (DERDEN met bron, of GEZIEN), geen beloftes.
-     2. Een nieuwe app krijgt er echt aandacht: er is een aannemelijke weg naar de eerste 100 gebruikers zonder dat Thijs onder zijn naam moet adverteren.
-     3. Het helpt `organisatie/doelen.md` te halen, en is duidelijk beter dan het zwakste platform dat nu loopt.
-     4. De controleur van de verkenner heeft de cijfers nagekeken.
-     Twijfel je, dan is het nee. Zeg in het rapport bij elk voorstel in één zin waarom het wel of niet top is.
+   - **Wanneer een nieuw platform erbij komt:** er is geen tempo en geen maximum. Een platform komt erbij zodra het top is, of dat nu na 2 dagen is of na 2 weken. Is er niets top, dan wacht je.
+     - **Een perfect platform bestaat niet.** Elk echt platform heeft nadelen en twijfels. Geef elk voorstel een cijfer van 1 tot 10. In de praktijk komt een 8, 9 of 10 bijna nooit voor: **een 7 is top, een 6 is het serieus waard.** Vergelijk met wat er werkelijk te vinden is, niet met een ideaal.
+     - "Top" betekent: er zijn aanwijzingen dat kleine makers er geld verdienen, er is een aannemelijke weg naar de eerste 100 gebruikers zonder dat Thijs onder zijn naam moet adverteren, het helpt `organisatie/doelen.md`, en de controleur heeft de cijfers nagekeken.
+     - **Niet te snel afschieten.** Een nadeel is geen reden voor nee. Weeg voor- en nadelen tegen elkaar af. "Niet genoeg gemeten" is geen nee maar "nog niet klaar": zet dan in `platformen/verkenner/taken.md` wat er nog gemeten moet worden.
+     - **Eén keer goed beslissen, niet heen en weer.** Een besluit blijft staan tot er echt nieuwe feiten zijn. Kom je terug op een besluit, schrijf dan welk nieuw feit de reden is. Zonder nieuw feit kom je er niet op terug.
+     - Zeg bij elk nee ook wat er zou moeten veranderen om het een ja te maken.
+     - Zet in het rapport bij elk voorstel het cijfer en in één zin waarom.
  gaat een platform onder de stopregel, laat de manager stoppen of veranderen.
    - **Tijd verdelen:** waar levert extra werk het meeste op?
 4. Werk `organisatie/bord.md` bij: per platform één regel met fase, laatste cijfers en de volgende stap.
