@@ -4,7 +4,7 @@ Stand: 6 nov 2026, versie 0.1.0. Geschreven door de bouwer.
 
 ## Niet in Obsidian getest
 
-Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de import hebben tests. De pluginlaag (`src/main.ts`, `src/ui/`) is alleen door `tsc`, de build en lint gegaan en is nooit uitgevoerd. Iemand moet dit met de hand nalopen op de laatste Obsidian, op desktop en op telefoon:
+Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de import hebben tests. Van de pluginlaag is `src/main.ts` getest met een zelfgeschreven nep-Obsidian (`tests/obsidian-stub.ts`): dat bewijst de samenhang, niet dat het in de echte app werkt. De schermcode in `src/ui/` (widget, Live Preview, lezen, zijpaneel, instellingen, venster) is alleen door `tsc`, de build en lint gegaan en is nooit uitgevoerd. Iemand moet dit met de hand nalopen op de laatste Obsidian, op desktop en op telefoon:
 
 1. De plugin laadt zonder fout in de console en is uit te zetten zonder restanten.
 2. `` `dice: 2d6` `` in lezen en in Live Preview: uitkomst, tooltip, klik rolt opnieuw.
@@ -19,6 +19,8 @@ Hier draait geen Obsidian. De rekenkern, de rollers, de licentiecontrole en de i
 11. Import met een echte `data.json` van Dice Roller.
 12. Skins: de betaalde zijn niet kiesbaar zonder sleutel, wel met sleutel. Ook in een los venster. Kleuren in licht en donker thema.
 13. Op iOS laden, in verband met reguliere expressies en de API.
+
+Lint draait met de `recommended`-instelling van `eslint-plugin-obsidianmd`, niet met de aparte scannerinstelling: die staat in de docs van de GitHub-repo van de plugin en die repo mocht ik niet ophalen. De map `tests` valt buiten lint.
 
 Voor uitgave ook: **Review branch** in het dashboard van Obsidian draaien (Run preview scan). Dat kan alleen met het account.
 

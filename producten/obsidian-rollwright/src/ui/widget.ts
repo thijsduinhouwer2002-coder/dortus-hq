@@ -70,7 +70,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	});
 	target.addEventListener("click", (event) => {
 		// A link inside a rendered result keeps working as a link.
-		if (event.target instanceof Element && event.target.closest("a")) return;
+		if ((event.target as Node).instanceOf(Element) && (event.target as Element).closest("a")) return;
 		event.preventDefault();
 		event.stopPropagation();
 		void rerollNow();
