@@ -26,6 +26,7 @@ Mislukt het aanmaken (tool ontbreekt, of een foutmelding): maak dan wel de map e
    - **Tijd verdelen:** waar levert extra werk het meeste op?
 4. Werk `organisatie/bord.md` bij: per platform één regel met fase, laatste cijfers en de volgende stap.
 5. Schrijf `rapporten/<datum>.md` in deze vorm:
+   0. **Op koers?** De stand tegen de eerstvolgende tussenstap uit `organisatie/doelen.md`: op koers, achter of ver achter, met de reden. Achter: stel een koerswijziging voor.
    1. **Cijfers:** per platform installs, nieuwe reviews, verkopen.
    2. **Vandaag:** per platform één of twee zinnen.
    3. **Wat jij moet doen:** genummerd, met links, belangrijkste bovenaan. Alleen wat echt bij Thijs moet.
