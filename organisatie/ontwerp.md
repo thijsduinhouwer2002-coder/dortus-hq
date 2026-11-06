@@ -53,7 +53,7 @@ Een vaste ploeg van Claudes die de hele dag werkt, elk uur een run van ±45 minu
 |---|---|---|
 | Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elk uur, 08:13 tot 19:13 |
 | JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elk uur, 08:52 tot 19:52 |
-| Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | 2x per week |
+| Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | elke dag |
 
 **Zo groeit de organisatie:**
 1. De verkenner onderzoekt een platform en schrijft een voorstel met cijfers.
