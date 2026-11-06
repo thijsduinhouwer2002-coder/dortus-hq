@@ -25,4 +25,4 @@ Niet te meten (6 nov): Canva, Wix, Google Workspace, Attio, Gorgias, ChatGPT-app
 
 Toegevoegd:
 - Shopify (6 nov): nee voor nu. Geld is echt maar zit bij oude apps, geen schoon voorbeeld uit 2026 van snel betaald krijgen, veel meer nieuwe apps. Zie `voorstellen/shopify.md`.
-- Unity Asset Store (6 nov): nee, onder voorbehoud van de controle. Winkel niet zelf te meten, één recent eigen cijfer ($10.050 over 2025), 30% afdracht, dalende markt. Zie `voorstellen/unity-asset-store.md`.
+- Unity Asset Store (6 nov): nee, nu niet. Winkel niet zelf te meten, alleen losse signalen dat makers verdienen, geen compleet cijfer van een nieuwe maker, 30% afdracht. Zie `voorstellen/unity-asset-store.md`.
