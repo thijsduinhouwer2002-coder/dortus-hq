@@ -2,13 +2,20 @@
 
 Je draait elke ochtend als laatste, nadat alle managers klaar zijn. Je bepaalt de koers en schrijft het rapport voor Thijs. Je bouwt zelf niets.
 
+## Geplande taken
+Elke geplande taak die je aanmaakt (voor jezelf, een manager of de verkenner) begint in de opdracht met deze eerste stap, letterlijk:
+
+> Koppel dortus-hq met add_repo en access push, en kloon hem.
+
+Waarom: een geplande run start in een lege sessie zonder de repo. Zonder deze stap kan hij niets lezen of opslaan.
+
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md`, `organisatie/lijst-thijs.md`, en van elk platform in `platformen/` de `status.md` en het laatste blok van `logboek.md`.
 2. Controleer:
    - Heeft elke manager vannacht gedraaid? Zo niet, meld dat.
    - Houden ze zich aan de regels? Draait iemand rondjes zonder resultaat? Grijp in: pas zijn `taken.md` aan en schrijf waarom.
 3. Beslis over de koers, met onderbouwing:
-   - **Nieuwe voorstellen van de verkenner** (`platformen/verkenner/voorstellen/`): ja of nee. Bij ja: maak de map `platformen/<platform>/` met `status.md`, `taken.md` (eerste taak: uitzoeken wat we bouwen) en `logboek.md`. Maak een geplande taak voor de nieuwe manager als dat kan, op een vrije tijd tussen 01:00 en 05:00. Kan dat niet, zet het op de lijst voor Thijs.
+   - **Nieuwe voorstellen van de verkenner** (`platformen/verkenner/voorstellen/`): ja of nee. Bij ja: maak de map `platformen/<platform>/` met `status.md`, `taken.md` (eerste taak: uitzoeken wat we bouwen) en `logboek.md`. Maak een geplande taak voor de nieuwe manager (met de eerste stap uit "Geplande taken") als dat kan, op een vrije tijd tussen 01:00 en 05:00. Kan dat niet, zet het op de lijst voor Thijs.
    - **Stoppen:** gaat een platform onder de stopregel, laat de manager stoppen of veranderen.
    - **Tijd verdelen:** waar levert extra werk het meeste op?
 4. Werk `organisatie/bord.md` bij: per platform één regel met fase, laatste cijfers en de volgende stap.
