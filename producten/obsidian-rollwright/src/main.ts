@@ -2,6 +2,7 @@ import { getAllTags, MarkdownView, Notice, Plugin, TFile, type WorkspaceLeaf } f
 import { extractSavedFormulas, mergeFormulas, type SavedFormula } from "./import/dice-roller-data";
 import { isValidLicenseKey } from "./pro/license";
 import { resolveSkin, SKINS } from "./pro/skins";
+import { fieldNames } from "./rollers/fields";
 import { replaceCodeInNote } from "./rollers/modify";
 import { rollSpec, type NoteData, type RollContext, type RollOutcome } from "./rollers/run";
 import { CHANGED_NOTICE, NOT_MARKDOWN_NOTICE, ReplaceCodeModal } from "./ui/dice-mod";
@@ -138,7 +139,8 @@ export default class RollwrightPlugin extends Plugin {
 
 	/** Builds the bridge between the pure rollers and this vault. */
 	rollContext(sourcePath: string): RollContext {
-		const aliases: Record<string, string> = {};
+		// Number fields of the note with the code; a saved formula with the same name goes first.
+		const aliases: Record<string, string> = this.noteFields(sourcePath);
 		for (const formula of this.settings.formulas) aliases[formula.name] = formula.formula;
 		return {
 			sourcePath,
@@ -148,6 +150,17 @@ export default class RollwrightPlugin extends Plugin {
 			readNote: (link, from) => this.readNote(link, from),
 			notesWithTag: (tag) => this.notesWithTag(tag),
 		};
+	}
+
+	/** The number fields in the frontmatter of this note, as names. Nothing when it has none. */
+	private noteFields(sourcePath: string): Record<string, string> {
+		try {
+			const file = this.app.vault.getAbstractFileByPath(sourcePath);
+			if (!(file instanceof TFile)) return {};
+			return fieldNames(this.app.metadataCache.getFileCache(file)?.frontmatter);
+		} catch {
+			return {};
+		}
 	}
 
 	private async readNote(link: string, sourcePath: string): Promise<NoteData | null> {
