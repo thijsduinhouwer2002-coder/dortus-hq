@@ -15,6 +15,9 @@ function codePositions(el: HTMLElement, ctx: MarkdownPostProcessorContext): { li
 	return positions;
 }
 
+/** Tells apart codes whose line is unknown, such as in table cells: they get called one element at a time. */
+let unplaced = 0;
+
 export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ctx: MarkdownPostProcessorContext): void {
 	// Second lock next to defuseRolls: never mount inside a rendered result.
 	if (el.closest(".rollwright-value")) return;
@@ -25,7 +28,7 @@ export function processReadingView(plugin: RollwrightPlugin, el: HTMLElement, ct
 		const formula = formulaFromCode(code.textContent ?? "");
 		if (formula === null) continue;
 		const position = positions[nth];
-		const place = position ? `${position.line}:${position.index}` : `el:${nth}`;
+		const place = position ? `${position.line}:${position.index}` : `el:${++unplaced}`;
 		nth++;
 		const span = activeDocument.createElement("span");
 		code.replaceWith(span);

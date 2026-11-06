@@ -6,7 +6,7 @@ Rollwright is at version 0.1.0 and has not been tested in a running app yet. Exp
 
 ## Rolling dice
 
-Write `` `dice: 2d6 + 3` `` in a note. It works in reading view and Live Preview. Hover to see the formula and the dice. Click to roll again. Results stay as they are until you click.
+Write `` `dice: 2d6 + 3` `` in a note. It works in reading view and Live Preview. Hover to see the formula and the dice. Click to roll again. A result stays while you scroll or type elsewhere in the note. It is rolled again when you click, after a restart, and when lines above it are added or removed, because a result is tied to its line. A roll in a table cell can also roll again when the note is drawn again.
 
 | You write | What it does |
 |---|---|

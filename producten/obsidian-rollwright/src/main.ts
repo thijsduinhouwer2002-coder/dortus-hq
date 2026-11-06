@@ -36,7 +36,7 @@ const DEFAULT_SETTINGS: RollwrightSettings = {
 };
 
 const HISTORY_LIMIT = 200;
-/** Results stay put until a click, so scrolling or redrawing never rerolls them. */
+/** Remembered per place in a note, so scrolling never rerolls. Not kept across restarts; the oldest go first. */
 const RESULT_CACHE_LIMIT = 2000;
 
 export default class RollwrightPlugin extends Plugin {
