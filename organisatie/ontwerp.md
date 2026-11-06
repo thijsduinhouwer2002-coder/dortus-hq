@@ -4,7 +4,7 @@ Versie 1, 6 november 2026. Status: **aan sinds 6 nov 2026** (vaste geplande take
 
 ## Het idee in één zin
 
-Een vaste ploeg van Claudes die overdag werkt, elke 2 uur een run: per platform een manager met 1 of 2 agents, daarboven een hoofdmanager, en die stuurt Thijs aan het eind van de dag één kort rapport.
+Een vaste ploeg van Claudes die de hele dag werkt, elk uur een run van ±45 minuten: per platform een manager met 1 of 2 agents, daarboven een hoofdmanager, en die stuurt Thijs aan het eind van de dag één kort rapport.
 
 ## Wie is wie
 
@@ -28,7 +28,7 @@ Een vaste ploeg van Claudes die overdag werkt, elke 2 uur een run: per platform 
 - Leest elke avond het rapport (±3 minuten).
 
 ### Hoofdmanager
-- Draait aan het eind van de dag (18:44), nadat alle platformmanagers klaar zijn.
+- Draait aan het eind van de dag (20:44), nadat alle platformmanagers klaar zijn.
 - Leest de status van elk platform en schrijft het dagrapport.
 - Houdt het bord bij: één lijst met wat er per platform loopt.
 - Bewaakt de regels. Ziet hij dat een manager steeds hetzelfde doet zonder resultaat, dan meldt hij dat.
@@ -36,7 +36,7 @@ Een vaste ploeg van Claudes die overdag werkt, elke 2 uur een run: per platform 
 - Bouwt zelf niets.
 
 ### Platformmanager (één per platform)
-- Draait elke 2 uur overdag, en pakt per run één taak.
+- Draait elk uur van 08:00 tot 20:00. Werkt per run ±45 minuten door, taak na taak, en slaat na elke taak op.
 - Leest zijn eigen map: status, takenlijst, logboek.
 - Pakt de belangrijkste taak, zet daar 1 of 2 agents op en controleert hun werk voordat het telt.
 - Schrijft na afloop: wat er gedaan is, wat er nu staat, en wat Thijs moet doen.
@@ -51,8 +51,8 @@ Een vaste ploeg van Claudes die overdag werkt, elke 2 uur een run: per platform 
 
 | Manager | Wat hij doet | Hoe vaak |
 |---|---|---|
-| Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elke 2 uur, 09:13 tot 17:13 |
-| JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elke 2 uur, 09:52 tot 17:52 |
+| Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elk uur, 08:13 tot 19:13 |
+| JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elk uur, 08:52 tot 19:52 |
 | Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | 2x per week |
 
 **Zo groeit de organisatie:**
@@ -66,12 +66,12 @@ Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. We
 
 | Tijd | Wie |
 |---|---|
-| 09:13, 11:13, 13:13, 15:13, 17:13 | Obsidian-manager |
-| 09:52, 11:52, 13:52, 15:52, 17:52 | JetBrains-manager |
-| 10:31 (maandag en donderdag) | Verkenner |
-| 18:44 | Hoofdmanager: dagrapport voor Thijs |
+| elk uur om :13, 08:13 tot 19:13 | Obsidian-manager |
+| elk uur om :52, 08:52 tot 19:52 | JetBrains-manager |
+| 10:31, elke dag | Verkenner |
+| 20:44 | Hoofdmanager: dagrapport voor Thijs |
 
-Sinds 6 nov overdag in plaats van 's nachts, op verzoek van Thijs: sneller resultaat en hij kan meekijken.
+Sinds 6 nov de hele dag in plaats van 's nachts, op verzoek van Thijs: dit is zijn fulltime werk, hij wil tempo en kan meekijken en meteen zijn klussen oppakken.
 
 De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitten bij het opslaan van hun werk.
 
@@ -120,7 +120,7 @@ producten/
 
 ## Het rapport aan Thijs
 
-Elke dag om 18:44, kort. Altijd dezelfde vorm:
+Elke dag om 20:44, kort. Altijd dezelfde vorm:
 
 1. **Cijfers:** per platform installs, nieuwe reviews, verkopen.
 2. **Wat er vandaag gebeurd is:** per platform één of twee zinnen.
