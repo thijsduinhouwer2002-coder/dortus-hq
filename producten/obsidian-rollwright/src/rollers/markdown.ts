@@ -26,11 +26,23 @@ const ID_ONLY = /^\^([A-Za-z0-9-]+)\s*$/;
 const HEADING = /^(#{1,6})\s/;
 const THEMATIC = /^ {0,3}(\*{3,}|-{3,}|_{3,})\s*$/;
 const LIST_ITEM = /^(\s*)([-*+]|\d+[.)])\s/;
-const TABLE_RULE = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
 const FENCE = /^ {0,3}(`{3,}|~{3,})/;
 const HTML = /^<[a-zA-Z/!]/;
 const FOOTNOTE = /^\[\^[^\]]+\]:/;
 const DEFINITION = /^\[[^\]]+\]:/;
+
+const RULE_CELL = /^:?-+:?$/;
+
+/**
+ * The line under a table head, such as "| --- | :-: |". Checked by hand: a regular
+ * expression with several optional spaces took about a second on a line of 50000 spaces.
+ */
+function isTableRule(line: string): boolean {
+	let text = line.trim();
+	if (text.startsWith("|")) text = text.slice(1);
+	if (text.endsWith("|")) text = text.slice(0, -1);
+	return text.split("|").every((cell) => RULE_CELL.test(cell.trim()));
+}
 
 function startsBlock(line: string, next: string | undefined): boolean {
 	return (
@@ -39,7 +51,7 @@ function startsBlock(line: string, next: string | undefined): boolean {
 		LIST_ITEM.test(line) ||
 		FENCE.test(line) ||
 		line.startsWith(">") ||
-		(line.includes("|") && next !== undefined && next.includes("-") && TABLE_RULE.test(next))
+		(line.includes("|") && next !== undefined && next.includes("-") && isTableRule(next))
 	);
 }
 
@@ -101,7 +113,7 @@ export function parseBlocks(markdown: string): Block[] {
 		} else if (THEMATIC.test(line)) {
 			blocks.push({ type: "thematicBreak", text: line });
 			i++;
-		} else if (line.includes("|") && next !== undefined && next.includes("-") && TABLE_RULE.test(next)) {
+		} else if (line.includes("|") && next !== undefined && next.includes("-") && isTableRule(next)) {
 			const body = [line, next];
 			i += 2;
 			while (i < lines.length && (lines[i] as string).includes("|") && !ID_ONLY.test(lines[i] as string)) {
