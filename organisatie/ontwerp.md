@@ -56,7 +56,12 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 | Atlassian | Alleen meten: installs, reviews, vragen van klanten. De code blijft in Sprintbrief. | 1x per week |
 | Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | 2x per week |
 
-Een nieuw platform krijgt een eigen manager als de hoofdmanager het voorstel van de verkenner goed onderbouwd vindt. Kost het geld, dan vraagt hij Thijs eerst.
+**Zo groeit de organisatie:**
+1. De verkenner onderzoekt een platform en schrijft een voorstel met cijfers.
+2. Vindt de hoofdmanager het goed onderbouwd, dan komt er een **nieuwe manager voor dat platform**, met 1 of 2 agents eronder, een eigen map en een eigen vaste tijd in de nacht. Kost het geld, dan vraagt hij Thijs eerst.
+3. De verkenner gaat gewoon door met het volgende platform. Hij stopt nooit met zoeken.
+
+Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. Werkt een platform niet (stopregel), dan stopt die manager weer.
 
 ## Wanneer het draait (Nederlandse tijd)
 
