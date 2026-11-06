@@ -57,3 +57,32 @@ Maar bij diagrammen is gratis aanbod groot: plantuml4idea 5.089.819, Diagrams.ne
 
 ## Volgende meting
 Kies een taal of bestandssoort voor kandidaat D: zoek per soort (bijvoorbeeld Caddyfile, Justfile, HAProxy, systemd units, Earthfile, Nix, Helm-templates, Ansible-alternatieven, PowerShell DSC) het aantal plugins, downloads en of er een betaalde is. Meet ook het grootste gratis alternatief naast de bestaande betaalde taalplugins (bijvoorbeeld bij Bash en Nginx). Kies er één waar gratis ondersteuning ontbreekt of slecht is (cijfer onder 3,5), en waar ontwikkelaars veel mee werken.
+
+## Meting D, deel 1 (16:17 UTC, met curl)
+Zoekopdracht per soort, top 6 op downloads, alle prijsmodellen (GEZIEN). Alleen wat ertoe doet:
+
+**Betaald naast gratis levert in 2 gevallen een tiende tot een twintigste op** (leeftijd niet gemeten):
+- Bash: gratis BashSupport 14.499.118, betaald BashSupport Pro 620.266.
+- Nginx: gratis Nginx Configuration 2.762.004 en nginx Support 276.860, betaald Nginx Configuration Pro 268.231.
+
+**Waarschuwing: nieuwe betaalde taalplugins halen weinig.** Een reeks "Pro"-plugins voor kleine talen staat laag: Mojo Pro 3.001, Flexible Haskell 2.671, Nix Pro 1.463, Caddyfile Pro 769, Elixir Pro 489, Gleam Pro 86, Nim Pro 49. Hun leeftijd is nog niet gemeten, dus per maand is onbekend.
+
+**Veel gebruikt, maar de gratis plugin scoort slecht (cijfer onder 3,5):**
+
+| Soort | Gratis plugin | Downloads | Cijfer | Betaald ernaast |
+|---|---|---|---|---|
+| Liquid (Shopify, Jekyll) | Liquid | 328.663 | 2,61 | Liquid Hero 3.350, Liquid for Shopify & Jekyll 598 |
+| Caddyfile | Caddyfile support (en Caddyfile: 16.136, cijfer 4,55) | 94.403 | 2,55 | Caddyfile Pro 769 |
+| Bicep (Azure) | Bicep | 92.193 | 2,29 | geen in top 6 |
+| Jsonnet | Jsonnet (en Jsonnet Language Server: 51.972, cijfer 4,56) | 68.617 | 2,42 | geen in top 6 |
+| Arduino | Arduino Support | 48.724 | 3,35 | Flexible For Arduino (freemium) 13.304 |
+
+**Goed gedekt door gratis (cijfer 4 of hoger, of van JetBrains zelf):** Just, systemd, Nix, Helm values, Zig, Nim, Solidity, Makefile, Terraform, Twig, Ini, Toml.
+
+**Te klein (grootste plugin onder 5.000):** HAProxy, Earthfile, KDL, Gleam, Cairo, Typst, Pkl, G-code.
+
+## Tussenstand D
+- Kortste lijst: Liquid, met Caddyfile als reserve. Jsonnet valt af, want Jsonnet Language Server (gratis, cijfer 4,56) dekt het goed. Caddyfile heeft ook een goede gratis tweede plugin, dat maakt het zwakker. Bicep valt af, want Microsoft maakt zelf Bicep-gereedschap (GOK, niet nagekeken).
+- Liquid springt eruit: de meeste gebruikers (328.663, ruim 3 keer de nummer 2), een laag cijfer (2,61) en geen goede gratis plugin ernaast. Wel heeft de betaalde Liquid Hero al cijfer 4,64 en 3.350 downloads. Maar dat zij klein zijn kan ook betekenen dat niemand betaalt.
+- Nagekeken door een controleur (16:25 UTC): cijfers klopten, tekst daarna verbeterd op 4 punten.
+- Nog te doen voor het bouwbesluit: leeftijd (eerste uitgave) van Liquid Hero, Caddyfile Pro en de andere Pro-plugins, zodat downloads per maand te zien zijn, en de reviews van de gratis Liquid-plugin lezen om te zien wat er mist.

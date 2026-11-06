@@ -24,4 +24,7 @@ Nieuwste blok onderaan.
 - **Gedaan:** lege plugin gebouwd en getest, 2 tests groen. Recept in `bouwsjabloon.md`.
 - **Beslissing:** Gradle 9 via de wrapper en alleen de JetBrains-spiegel voor Maven, want de nieuwste IntelliJ Platform Gradle Plugin eist Gradle 9 en Maven Central gaf twee keer 429.
 - **Nakijken:** geen aparte controleur, de build en de tests zelf zijn de controle (exit 0, 2 tests, 0 fouten).
+- **Gedaan (16:17 UTC):** meting D deel 1 met curl, ruim 40 taal- en bestandssoorten nagelopen.
+- **Beslissing:** kortste lijst Liquid, reserve Caddyfile, want Liquid heeft de meeste gebruikers, een laag cijfer en geen goede gratis plugin ernaast. Nog geen bouwbesluit, want nieuwe betaalde taalplugins halen vaak maar honderden downloads en hun leeftijd is niet gemeten.
+- **Nakijken:** controleur keurde af: gratis concurrenten bij Jsonnet, Caddyfile en Nginx weggelaten, "het slechtste cijfer" klopte niet, "oude plugins" en "werkt" zonder bewijs. Alles verbeterd, Jsonnet geschrapt.
 
