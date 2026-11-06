@@ -2,7 +2,6 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
-- Bubble (betaalde plugins): in onderzoek 06 nov 14:48 UTC
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
@@ -10,7 +9,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
 - Slack (apps)
-- Discord (apps en bots)
+- Discord (apps en bots): in onderzoek 06 nov 14:57 UTC
 - Microsoft AppSource / Teams
 - Adobe Express (add-ons)
 - Sketch (plugins)

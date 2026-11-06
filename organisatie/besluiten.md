@@ -6,6 +6,7 @@ Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonde
 
 Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
+- 6 nov 2026 | Verkenner | Apify Store: nee (4). Bubble: nee (3) | geen schoon bewijs bij nieuwe kleine makers, zie `platformen/verkenner/onderzocht.md` | Apify: 3 makers onder 12 maanden boven $300 per maand. Bubble: steekproef winkel of 2 kleine makers boven $300 per maand
 - 6 nov 2026 | Thijs | Atlassian gestopt | te weinig installs, markt verzadigd | -
 - 6 nov 2026 | Thijs | geen oude Dortus-apps overzetten | die markten zijn verzadigd | Thijs vraagt er zelf om
 - 6 nov 2026 | Thijs | nieuwe platformen vinden is de hoofdzaak, geen tempo of maximum | groot worden zit in de juiste markt | -
