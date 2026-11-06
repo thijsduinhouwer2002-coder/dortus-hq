@@ -48,3 +48,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** `|avg` noemt alleen nog exact wat echt exact is, de rest krijgt `~`. Waarom: een fout gemiddelde dat zich exact noemt is erger dan een eerlijke schatting.
 **Gemeten:** naam `rollwright` komt niet voor in community-plugins.json (10.029 plugins, GEZIEN).
 **Wat misging:** niets blokkerends. Schermcode (L5 sleutels, skin in open vensters) is alleen met nep-Obsidian getest.
+
+## 6 nov 2026, 15:45: ontwerp notatie 0.2
+**Gedaan:** ontwerp voor de ontbrekende notatie geschreven in `producten/obsidian-rollwright/ontwerp.md`. Controleur: goedgekeurd met tien voorwaarden, die staan in het ontwerp en gaan voor. Bouwen in de volgende run, rest van deze run was te kort.
+**Beslissing:** volgorde vlaggen, `dice+`/`dice-`, `dice-mod`, klikken, notitievelden, `1dS`, narratief. Waarom: wat het vaakst in bestaande notities staat eerst (GOK), en narratief het laatst omdat het botst met gewone notatie (`2d`, `4dF`).
+**Beslissing:** `dice-mod` wijzigt nooit de bronnotitie van een sectie of tabel. Waarom: onverwachte herschrijvingen zijn een bekende klacht over Dice Roller (DERDEN, verschillenlijst Dice Rolls).
