@@ -2,7 +2,7 @@ import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
 
 // Een notitie die op zichzelf rolt mag Obsidian niet laten vastlopen.
-// In een uitkomst wordt geen nieuwe worp gezet (defuseRolls en de controle in reading-view.ts),
+// In een uitkomst wordt geen nieuwe worp gezet (defuseRolls, en apart getest de controle in reading-view.ts),
 // dus het aantal worpen blijft gelijk aan het aantal codes in de notitie en groeit niet.
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
@@ -26,7 +26,9 @@ async function count(view) {
 			rolls: rolls.length,
 			nested: document.querySelectorAll(`${sel} .rollwright-value .rollwright-roll`).length,
 			errors: document.querySelectorAll(`${sel} .rollwright-error`).length,
-			values: rolls.map((r) => (r.querySelector(".rollwright-value")?.textContent ?? "").replace(/​/g, "")),
+			// Ingevoegde notities die Obsidian zelf toont, niet binnen een uitkomst.
+			embeds: Array.from(document.querySelectorAll(`${sel} .markdown-embed`)).filter((e) => !e.closest(".rollwright-value")).length,
+			values: rolls.map((r) => (r.querySelector(".rollwright-value")?.textContent ?? "").split(String.fromCharCode(0x200b)).join("")),
 		};
 	}, `${LEAF} ${view}`);
 }
@@ -45,10 +47,23 @@ async function waitForValue(view) {
 	}, { timeout: 20000, timeoutMsg: `geen uitkomst in ${view}` });
 }
 
+/** Wacht tot Obsidian klaar is met invoegen: twee tellingen na elkaar gelijk. */
+async function settle(view) {
+	let last = JSON.stringify(await count(view));
+	for (let i = 0; i < 20; i++) {
+		await browser.pause(1000);
+		const now = JSON.stringify(await count(view));
+		if (now === last) return;
+		last = now;
+	}
+	throw new Error(`het aantal worpen in ${view} bleef 20 seconden veranderen`);
+}
+
 /** Opent de notitie, wacht op de uitkomst en kijkt na 3 seconden of er niets bij kwam. */
 async function checkStable(path, mode, view, shot) {
 	await openNote(path, mode);
 	await waitForValue(view);
+	await settle(view);
 	const first = await count(view);
 	await browser.pause(3000);
 	const later = await count(view);
@@ -107,18 +122,34 @@ describe("Rollwright: een notitie die op zichzelf rolt", function () {
 
 	it("dice: [[Zichzelf ingevoegd]] met ![[Zichzelf ingevoegd]] in dezelfde notitie", async function () {
 		const c = await checkStable("Zichzelf ingevoegd.md", "preview", ".markdown-reading-view", "z3-zichzelf-ingevoegd");
-		// De eigen code plus hoogstens wat Obsidian zelf invoegt; nooit iets binnen een uitkomst.
-		expect(c.rolls).toBeGreaterThanOrEqual(1);
-		expect(c.rolls).toBeLessThan(10);
+		// Obsidian voegt de notitie zelf een paar keer in zichzelf in (tot zijn eigen grens).
+		// Elke invoeging heeft de eigen code, dus hoogstens één worp per invoeging plus de notitie zelf,
+		// en nooit een worp binnen een uitkomst. Meer worpen zou betekenen dat Rollwright ze maakt.
+		expect(c.rolls).toBeLessThanOrEqual(c.embeds + 1);
+		expect(c.rolls).toBeLessThan(20);
 		expect(c.nested).toBe(0);
 		await clickFive(".markdown-reading-view");
 	});
 
 	it("dice: #npc in een notitie met die tag", async function () {
+		await browser.waitUntil(() => browser.executeObsidian(({ app }) => {
+			const file = app.vault.getAbstractFileByPath("Npc.md");
+			return (app.metadataCache.getFileCache(file)?.tags ?? []).length > 0;
+		}), { timeout: 20000, timeoutMsg: "Obsidian kende de tag van Npc.md niet" });
 		const c = await checkStable("Npc.md", "preview", ".markdown-reading-view", "z4-tag-zichzelf");
 		expect(c.rolls).toBe(1);
 		expect(c.nested).toBe(0);
 		expect(c.values[0]).toContain("eigen tag");
+		await clickFive(".markdown-reading-view");
+	});
+
+	// Een code die langs defuseRolls glipt (<b> midden in het woord dice): alleen de controle
+	// el.closest(".rollwright-value") in reading-view.ts houdt de herhaling dan tegen.
+	it("de tweede controle alleen: <code>d<b>ice</b>: [[Zichzelf html]]</code>", async function () {
+		const c = await checkStable("Zichzelf html.md", "preview", ".markdown-reading-view", "z5-zichzelf-html");
+		expect(c.rolls).toBe(1);
+		expect(c.nested).toBe(0);
+		expect(c.values[0]).toContain("Zichzelf html");
 		await clickFive(".markdown-reading-view");
 	});
 });
