@@ -30,7 +30,7 @@ export function extractSavedFormulas(jsonText: string): SavedFormula[] {
 	if (typeof data !== "object" || data === null) return [];
 
 	const found: SavedFormula[] = [];
-	for (const [key, value] of Object.entries(data)) {
+	for (const [key, value] of Object.entries(data as Record<string, unknown>)) {
 		if (!key.toLowerCase().includes("formula")) continue;
 		if (Array.isArray(value)) {
 			for (const entry of value) {
@@ -40,7 +40,7 @@ export function extractSavedFormulas(jsonText: string): SavedFormula[] {
 				if (name && formula) found.push({ name, formula });
 			}
 		} else if (typeof value === "object" && value !== null) {
-			for (const [name, formula] of Object.entries(value)) {
+			for (const [name, formula] of Object.entries(value as Record<string, unknown>)) {
 				if (typeof formula === "string" && formula.trim() !== "") found.push({ name, formula: formula.trim() });
 			}
 		}

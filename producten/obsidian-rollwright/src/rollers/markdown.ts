@@ -49,7 +49,7 @@ function finish(type: BlockType, lines: string[], level?: number): Block {
 	const last = lines[lines.length - 1] ?? "";
 	const match = type === "code" ? null : TRAILING_ID.exec(last);
 	if (match) {
-		block.id = match[1] as string;
+		block.id = match[1];
 		block.text = block.text.replace(TRAILING_ID, "");
 	}
 	return block;
@@ -78,7 +78,7 @@ export function parseBlocks(markdown: string): Block[] {
 		const idOnly = ID_ONLY.exec(line);
 		const previous = blocks[blocks.length - 1];
 		if (idOnly && previous) {
-			previous.id = idOnly[1] as string;
+			previous.id = idOnly[1];
 			i++;
 			continue;
 		}
