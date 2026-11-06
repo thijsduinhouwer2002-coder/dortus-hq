@@ -92,3 +92,7 @@ Herhaald renderen is opgelost in `src/rollers/defuse.ts` plus een controle in `s
 ## Na de herkeuring van L2 tot L9 (6 nov, 15:30)
 - De controleur vond een nieuw lek in de L9-reparatie: een code over twee regels in een citaat of callout (`> \`` en op de volgende regel `> dice: 1d6\``) werd niet meer onschadelijk gemaakt. Opgelost door ook `>` over te slaan tussen backticks en `dice`, met vijf tests in `tests/l9-defuse.test.ts`.
 - Bekend en niet blokkerend: bij een telling die zelden mislukt, zoals `(1d1000-2)d6`, hangt het van de steekproef af of `|avg` een melding of een schatting geeft. `(-8)^(1/3)` geeft de melding "too large to show" (was er al).
+
+## Na keuring getalvlaggen (6 nov, 15:50), niet blokkerend
+- `|ceil` en `|floor` werken op het ruwe getal: `(0.1+0.2)*10|ceil` toont 4 (het getal is 3.0000000000000004). Eerst op een paar decimalen afronden.
+- `withoutFlag` wist bij een kolom Round elke afrondvlag, ook een `|floor` ervoor. Kolommen NoRound en NoParen niet apart behandeld. Bij tabeltrekkingen merk je dit niet.

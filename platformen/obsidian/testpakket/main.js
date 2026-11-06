@@ -526,6 +526,17 @@ function formatNumber(value) {
   if (!Number.isFinite(rounded)) return String(value);
   return String(rounded === 0 ? 0 : rounded);
 }
+function roundNumber(value, mode) {
+  if (mode === void 0 || !Number.isFinite(value)) return value;
+  if (mode === "ceil") return Math.ceil(value);
+  if (mode === "floor") return Math.floor(value);
+  return Math.sign(value) * Math.round(Math.abs(value));
+}
+function formatResult(value, style = {}) {
+  const shown = formatNumber(roundNumber(value, style.round));
+  const signed = style.signed && !shown.startsWith("-") ? `+${shown}` : shown;
+  return style.paren ? `(${signed})` : signed;
+}
 
 // src/engine/random.ts
 var defaultRandom = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
@@ -1053,7 +1064,16 @@ function noteLines(markdown) {
 }
 
 // src/rollers/spec.ts
-var IGNORED_FLAGS = /* @__PURE__ */ new Set(["dice", "render", "norender", "noform", "paren", "noparen", "round", "noround", "ceil", "floor", "signed"]);
+var IGNORED_FLAGS = /* @__PURE__ */ new Set(["dice", "render", "norender", "noform"]);
+function applyNumberFlag(flags, lower) {
+  if (lower === "round" || lower === "ceil" || lower === "floor") flags.round = lower;
+  else if (lower === "noround") delete flags.round;
+  else if (lower === "signed") flags.signed = true;
+  else if (lower === "paren") flags.paren = true;
+  else if (lower === "noparen") delete flags.paren;
+  else return false;
+  return true;
+}
 function splitPipes(raw) {
   const parts = [];
   let depth = 0;
@@ -1102,6 +1122,9 @@ function withoutFlag(flags, word) {
   const output = { ...flags };
   if (lower === "nodice" || lower === "form" || lower === "avg" || lower === "none") output[lower] = false;
   else if (lower.startsWith("text(")) delete output.text;
+  else if (lower === "round" || lower === "ceil" || lower === "floor") delete output.round;
+  else if (lower === "signed") delete output.signed;
+  else if (lower === "paren") delete output.paren;
   return output;
 }
 function parseSpec(raw, aliases = {}) {
@@ -1119,7 +1142,7 @@ function parseSpec(raw, aliases = {}) {
       flags[lower] = true;
     } else if (lower.startsWith("text(") && part.endsWith(")")) {
       flags.text = part.slice(5, -1);
-    } else if (!IGNORED_FLAGS.has(lower)) {
+    } else if (!applyNumberFlag(flags, lower) && !IGNORED_FLAGS.has(lower)) {
       args.push(part);
     }
   }
@@ -1392,10 +1415,10 @@ async function rollSpecAt(raw, context, depth, firstRoll = false) {
     const dice = spec.target.formula;
     if (firstRoll && spec.flags.avg) {
       const average = averageOf(dice, diceOptions(context));
-      return { kind: "dice", text: formatNumber(average.value), total: average.value, estimated: !average.exact, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
+      return { kind: "dice", text: formatResult(average.value, spec.flags), total: average.value, estimated: !average.exact, formula: dice, details: average.exact ? "Average" : "Estimated average", flags: spec.flags };
     }
     const result = roll(dice, diceOptions(context));
-    return { kind: "dice", text: formatNumber(result.total), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
+    return { kind: "dice", text: formatResult(result.total, spec.flags), total: result.total, formula: dice, details: result.breakdown, flags: spec.flags };
   }
   const outcome = spec.target.kind === "note" ? await rollNote(spec, context, depth) : await rollTag(spec, context);
   return { flags: spec.flags, ...outcome, formula };
@@ -1552,7 +1575,7 @@ async function showOutcome(plugin, target, outcome, sourcePath, component) {
   else if (flags.form) target.createSpan({ cls: "rollwright-label", text: `${outcome.formula} -> ` });
   const value = target.createSpan({ cls: "rollwright-value" });
   if (outcome.kind === "dice") {
-    value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === void 0 ? outcome.text : formatNumber(outcome.total)}`);
+    value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === void 0 ? outcome.text : formatResult(outcome.total, flags)}`);
   } else {
     await import_obsidian2.MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
   }

@@ -53,3 +53,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gedaan:** ontwerp voor de ontbrekende notatie geschreven in `producten/obsidian-rollwright/ontwerp.md`. Controleur: goedgekeurd met tien voorwaarden, die staan in het ontwerp en gaan voor. Bouwen in de volgende run, rest van deze run was te kort.
 **Beslissing:** volgorde vlaggen, `dice+`/`dice-`, `dice-mod`, klikken, notitievelden, `1dS`, narratief. Waarom: wat het vaakst in bestaande notities staat eerst (GOK), en narratief het laatst omdat het botst met gewone notatie (`2d`, `4dF`).
 **Beslissing:** `dice-mod` wijzigt nooit de bronnotitie van een sectie of tabel. Waarom: onverwachte herschrijvingen zijn een bekende klacht over Dice Roller (DERDEN, verschillenlijst Dice Rolls).
+
+## 6 nov 2026, 15:40 tot 15:50: getalvlaggen
+**Gedaan:** bouwer maakte punt 1 van notatie 0.2 (`|round`, `|noround`, `|ceil`, `|floor`, `|signed`, `|paren`, `|noparen`) op tak `claude/obsidian-2026-11-06-d`. Controleur: akkoord voor main, randgevallen nagelopen. 286 tests groen, build ok, lint 0 fouten (GEZIEN). Samengevoegd, testpakket vernieuwd.
+**Beslissing:** afronden standaard uit. Waarom: anders veranderen bestaande uitkomsten zoals `10 / 4`.
+**Wat misging:** de controleur checkte kort een commit uit in de gedeelde map en zette meteen main terug, niets veranderd. Volgende keer de controleur meteen in een eigen kopie laten werken.
