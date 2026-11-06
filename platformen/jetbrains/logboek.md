@@ -20,4 +20,8 @@ Nieuwste blok onderaan.
 - **Beslissing:** WebFetch is geen omweg, het is de gewone leestool die de eerste run ook al probeerde. Bouwen via GitHub Actions blijft aan Thijs.
 - **Nakijken:** controleur keurde af op het totaal (533 bij zijn telling, 539 bij de mijne), "de grootste groep" zonder telling, "minder gratis concurrentie" zonder meting en een te stellige zin. Alles verbeterd of weggehaald, verschil in totaal staat erbij.
 - **Misging:** Gradle nog dicht, dus geen build. Het verschil 539 en 533 is niet verklaard.
+- **Later in dezelfde run (16:05 UTC):** bericht van Thijs gelezen, netwerk staat open. Nieuwe regel in CLAUDE.md gezien: Marketplace voortaan met curl, nooit met WebFetch. De meting van vandaag ging nog via WebFetch, voortaan niet meer.
+- **Gedaan:** lege plugin gebouwd en getest, 2 tests groen. Recept in `bouwsjabloon.md`.
+- **Beslissing:** Gradle 9 via de wrapper en alleen de JetBrains-spiegel voor Maven, want de nieuwste IntelliJ Platform Gradle Plugin eist Gradle 9 en Maven Central gaf twee keer 429.
+- **Nakijken:** geen aparte controleur, de build en de tests zelf zijn de controle (exit 0, 2 tests, 0 fouten).
 

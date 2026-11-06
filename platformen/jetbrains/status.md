@@ -2,8 +2,9 @@
 
 - **Fase:** uitzoeken wat we bouwen. Richting nu D: betaalde taalondersteuning voor een bestandssoort die de IDE niet goed kent. C (visuele editor) is reserve. Soort nog niet gekozen, zie `marktmeting-2026-11-06.md`. Nog niets live.
 - **Marketplace leesbaar** via de leestool (WebFetch), niet via curl (GEZIEN, 6 nov 16:00 UTC). 539 betaalde en 243 freemium plugins.
-- **Geblokkeerd:** Maven en Gradle (en curl naar de Marketplace) geven nog steeds 403 (GEZIEN, 6 nov 15:53 UTC). Bouwen kan dus nog niet. Staat op `lijst-thijs.md`.
-- **Tussenstap in gevaar:** eerste betaalde product live op 6 december. Bouwen kan hier nu niet: een echte build van een lege plugin faalt omdat de Gradle-plugin niet te downloaden is (GEZIEN, 6 nov).
+- **Netwerk open** sinds Thijs het om ±16:00 UTC openzette: curl naar Marketplace, Gradle en Maven geeft 200 (GEZIEN, 6 nov 16:05 UTC). Marketplace lezen voortaan met curl, nooit met WebFetch (regel in CLAUDE.md).
+- **Bouwen werkt:** lege plugin gebouwd en getest, 2 tests groen (GEZIEN, 16:11 UTC). Recept in `bouwsjabloon.md`.
+- **Tussenstap:** eerste betaalde product live op 6 december. Bouwen kan nu, de soort moet nog gekozen worden.
 - **Rol in het geheel:** hier moet het geld vandaan komen.
 - **Bereik (GEZIEN, dubbel gecontroleerd, 6 nov):** plugins van mei tot aug 2026 halen een mediaan van 111 downloads, 54% haalt 100+. Reken op ±70 echte gebruikers per 100 downloads.
 - **Geld:** JetBrains int, de maker houdt 85%. Freemium met 30 dagen proef zit standaard in de IDE.

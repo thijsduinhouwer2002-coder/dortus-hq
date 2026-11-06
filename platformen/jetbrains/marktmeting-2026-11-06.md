@@ -1,6 +1,6 @@
 # JetBrains: marktmeting 6 nov 2026 (16:00 UTC)
 
-**Hoe gemeten:** de Marketplace-API (`/api/searchPlugins`, velden downloads, rating en pricingModel) via de leestool (WebFetch), niet via curl. Het cijfer in de tabellen is het veld rating uit die zoekresultaten. curl en Gradle krijgen nog steeds 403 van de proxy. Alle cijfers hieronder zijn GEZIEN, tenzij anders vermeld. Downloads zijn opgeteld over de hele levensduur van een plugin en tellen ook proefversies mee. Aantal betalers is nergens te zien.
+**Hoe gemeten:** de Marketplace-API (`/api/searchPlugins`, velden downloads, rating en pricingModel) via de leestool (WebFetch), niet via curl. Het cijfer in de tabellen is het veld rating uit die zoekresultaten. Toen kregen curl en Gradle nog 403. Sinds ±16:00 UTC werkt curl wel. Voortaan meten met curl, nooit met WebFetch (regel in CLAUDE.md). Alle cijfers hieronder zijn GEZIEN, tenzij anders vermeld. Downloads zijn opgeteld over de hele levensduur van een plugin en tellen ook proefversies mee. Aantal betalers is nergens te zien.
 
 ## Totalen (GEZIEN)
 - Betaalde plugins (PAID): 539 bij zoeken gesorteerd op downloads (16:00 UTC), 533 bij een tweede telling door de controleur zonder sortering (±16:15 UTC). Het verschil is niet verklaard. Freemium: 243.
@@ -52,7 +52,7 @@ Maar bij diagrammen is gratis aanbod groot: plantuml4idea 5.089.819, Diagrams.ne
 ## Conclusie
 - Betaalde taalondersteuning heeft meer bewijs dan betaalde visuele editors: 10 plugins tussen 13.000 en 620.000 downloads, tegen 6 tussen 7.000 en 89.000.
 - Kanttekeningen: de taalgroep is breder gekozen dan de editorgroep, downloads tellen over de hele levensduur (oude plugins hebben voorsprong), en het gratis aanbod naast de taalplugins is nog niet gemeten. Dat laatste moet in de volgende meting.
-- Taalondersteuning heeft geen JCEF nodig en past in de standaard testopzet van IntelliJ (GOK: nog niet gebouwd, want Gradle is geblokkeerd).
+- Taalondersteuning heeft geen JCEF nodig en past in de standaard testopzet van IntelliJ (GOK: alleen een lege plugin is gebouwd, zie `bouwsjabloon.md`).
 - Onbekend blijft hoeveel van die downloads betalen. De oudste klant van BashSupport Pro had in 2020 een klantnummer onder de 11.000 ([plugin-dev.com](https://www.plugin-dev.com/intellij/general/marketplace-stats/), DERDEN), dat zegt weinig over het aantal betalers nu.
 
 ## Volgende meting
