@@ -50,7 +50,7 @@ Add flags after `|`, as in `1d20 + 2|nodice|text(Dexterity +2)`.
 |---|---|
 | `\|nodice` | Hide the die icon |
 | `\|form` | Show the formula before the result |
-| `\|avg` | Show the average first; a click rolls. With modifiers the average is an estimate, marked with `~` |
+| `\|avg` | Show the average first; a click rolls. With modifiers, or when a formula divides by dice or raises dice to a power, the average is an estimate, marked with `~` |
 | `\|none` | Show only an icon until the first click |
 | `\|text(label)` | Show your label before the result |
 
