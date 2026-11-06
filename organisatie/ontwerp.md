@@ -4,7 +4,7 @@ Versie 1, 6 november 2026. Status: **aan sinds 6 nov 2026** (vaste geplande take
 
 ## Het idee in één zin
 
-Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1 of 2 agents, daarboven een hoofdmanager, en die stuurt Thijs elke ochtend één kort rapport.
+Een vaste ploeg van Claudes die overdag werkt, elke 2 uur een run: per platform een manager met 1 of 2 agents, daarboven een hoofdmanager, en die stuurt Thijs aan het eind van de dag één kort rapport.
 
 ## Wie is wie
 
@@ -25,10 +25,10 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Wil zelf zo min mogelijk doen. De managers werken zelfstandig en beslissen zelf, naar eigen inzicht. Elke beslissing krijgt een korte onderbouwing in het logboek, zodat Thijs achteraf kan zien waarom.
 - Wordt alleen gevraagd in nood (zie "Wanneer Thijs vragen").
 - Indienen, publiceren en nieuwe versies uitbrengen mag, via de officiële weg van het platform.
-- Leest elke ochtend het rapport (±3 minuten).
+- Leest elke avond het rapport (±3 minuten).
 
 ### Hoofdmanager
-- Draait elke ochtend, nadat alle platformmanagers klaar zijn.
+- Draait aan het eind van de dag (18:44), nadat alle platformmanagers klaar zijn.
 - Leest de status van elk platform en schrijft het dagrapport.
 - Houdt het bord bij: één lijst met wat er per platform loopt.
 - Bewaakt de regels. Ziet hij dat een manager steeds hetzelfde doet zonder resultaat, dan meldt hij dat.
@@ -36,7 +36,7 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 - Bouwt zelf niets.
 
 ### Platformmanager (één per platform)
-- Draait één keer per nacht.
+- Draait elke 2 uur overdag, en pakt per run één taak.
 - Leest zijn eigen map: status, takenlijst, logboek.
 - Pakt de belangrijkste taak, zet daar 1 of 2 agents op en controleert hun werk voordat het telt.
 - Schrijft na afloop: wat er gedaan is, wat er nu staat, en wat Thijs moet doen.
@@ -51,13 +51,13 @@ Een vaste ploeg van Claudes die elke nacht werkt: per platform een manager met 1
 
 | Manager | Wat hij doet | Hoe vaak |
 |---|---|---|
-| Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elke nacht |
-| JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elke nacht |
+| Obsidian | Eerste plugin bouwen, lanceren, meten. Bijzaak: max ±1 week bouwen. | elke 2 uur, 09:13 tot 17:13 |
+| JetBrains | Uitzoeken wat we bouwen, daarna bouwen. Hier moet het geld vandaan komen. | elke 2 uur, 09:52 tot 17:52 |
 | Verkenner | Nieuwe platformen onderzoeken als gokje. Stelt per keer één platform voor, met cijfers. | 2x per week |
 
 **Zo groeit de organisatie:**
 1. De verkenner onderzoekt een platform en schrijft een voorstel met cijfers.
-2. Vindt de hoofdmanager het goed onderbouwd, dan komt er een **nieuwe manager voor dat platform**, met 1 of 2 agents eronder, een eigen map en een eigen vaste tijd in de nacht. Kost het geld, dan vraagt hij Thijs eerst.
+2. Vindt de hoofdmanager het goed onderbouwd, dan komt er een **nieuwe manager voor dat platform**, met 1 of 2 agents eronder, een eigen map en een eigen vaste tijd overdag. Kost het geld, dan vraagt hij Thijs eerst.
 3. De verkenner gaat gewoon door met het volgende platform. Hij stopt nooit met zoeken.
 
 Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. Werkt een platform niet (stopregel), dan stopt die manager weer.
@@ -66,10 +66,12 @@ Zo komt er steeds een manager bij zolang er goede platformen gevonden worden. We
 
 | Tijd | Wie |
 |---|---|
-| 02:13 | Obsidian-manager |
-| 02:52 | JetBrains-manager |
-| 03:31 | Verkenner (maandag en donderdag) |
-| 06:44 | Hoofdmanager: rapport klaar voor Thijs wakker is |
+| 09:13, 11:13, 13:13, 15:13, 17:13 | Obsidian-manager |
+| 09:52, 11:52, 13:52, 15:52, 17:52 | JetBrains-manager |
+| 10:31 (maandag en donderdag) | Verkenner |
+| 18:44 | Hoofdmanager: dagrapport voor Thijs |
+
+Sinds 6 nov overdag in plaats van 's nachts, op verzoek van Thijs: sneller resultaat en hij kan meekijken.
 
 De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitten bij het opslaan van hun werk.
 
@@ -78,7 +80,7 @@ De tijden liggen bewust uit elkaar, zodat de managers elkaar niet in de weg zitt
 - Er moet geld uitgegeven worden.
 - Iets is niet terug te draaien: iets definitief verwijderen, een live product stoppen of uit een winkel halen.
 - Er is een risico voor zijn accounts of juridisch (bijvoorbeeld een waarschuwing van een platform).
-- Een taak lukt twee nachten op rij niet.
+- Een taak lukt twee runs op rij niet.
 - Een handeling die alleen Thijs kan doen.
 
 Al het andere beslissen de managers zelf.
@@ -89,7 +91,7 @@ Al het andere beslissen de managers zelf.
 2. **Nakijken voor het telt.** Geen werk is klaar zonder controleur. Code is pas klaar als de tests groen zijn.
 3. **Eén taak tegelijk per manager.** Liever één ding af dan drie half.
 4. **Stopregel per product.** Op dag 30 na lancering: onder de 30 gebruikers stopt of verandert de manager, met onderbouwing. Een product uit een winkel halen is wel een vraag aan Thijs.
-5. **Geen herhaling zonder resultaat.** Lukt een taak twee nachten niet, dan stopt de manager ermee en vraagt hij Thijs wat te doen.
+5. **Geen herhaling zonder resultaat.** Lukt een taak twee runs op rij niet, dan stopt de manager ermee en vraagt hij Thijs wat te doen.
 6. **Open blik.** We bouwen wat op een platform ontbreekt, niet wat we toevallig al hebben.
 7. **Opslaan:** werk gaat via een eigen tak (branch) en wordt pas in de hoofdversie gezet als het nagekeken is.
 
@@ -107,7 +109,7 @@ platformen/
   obsidian/
     status.md          waar we staan, in 10 regels
     taken.md           de takenlijst, belangrijkste bovenaan
-    logboek.md         per nacht: wat er gebeurd is
+    logboek.md         per run: wat er gebeurd is
   jetbrains/ ...
   verkenner/ ...
 rapporten/
@@ -118,10 +120,10 @@ producten/
 
 ## Het rapport aan Thijs
 
-Elke ochtend, kort. Altijd dezelfde vorm:
+Elke dag om 18:44, kort. Altijd dezelfde vorm:
 
 1. **Cijfers:** per platform installs, nieuwe reviews, verkopen.
-2. **Wat er vannacht gebeurd is:** per platform één of twee zinnen.
+2. **Wat er vandaag gebeurd is:** per platform één of twee zinnen.
 3. **Wat jij moet doen:** een genummerde lijst met links. Bovenaan wat het meest oplevert.
 4. **Genomen beslissingen:** wat de managers besloten hebben en waarom, in één zin per beslissing.
 5. **Vragen aan Thijs:** alleen in nood. Met opties, voor- en nadelen en het advies.

@@ -10,7 +10,7 @@
 - Er moet geld uitgegeven worden.
 - Iets is niet terug te draaien: definitief verwijderen, een live product uit een winkel halen.
 - Risico voor zijn accounts of juridisch.
-- Een taak lukt twee nachten op rij niet.
+- Een taak lukt twee runs op rij niet.
 - Een stap die alleen Thijs kan doen: inloggen, een account aanmaken, betalen, voorwaarden accepteren, een sleutel (token) aanmaken. Ook berichten onder zijn naam (forum, Reddit, Discord, reviews): schrijf ze uit en zet ze klaar.
 
 Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
@@ -20,7 +20,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 2. **Nakijken voor het telt:** werk is pas klaar als een controleur het heeft nagekeken. Code is pas klaar als de tests groen zijn.
 3. **Eén taak tegelijk** per manager. Liever één ding af dan drie half.
 4. **Stopregel:** op dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing.
-5. **Geen herhaling zonder resultaat:** lukt een taak twee nachten niet, zet hem op de lijst voor Thijs en pak iets anders.
+5. **Geen herhaling zonder resultaat:** lukt een taak twee runs op rij niet, zet hem op de lijst voor Thijs en pak iets anders.
 
 ## Opslaan
 - Begin met `git pull --rebase`.
