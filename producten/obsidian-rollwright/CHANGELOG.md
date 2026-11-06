@@ -1,0 +1,17 @@
+# Changelog
+
+## 0.2.0
+
+Notation added so notes written for other dice plugins keep working:
+
+- Number flags: `|round`, `|noround`, `|ceil`, `|floor`, `|signed`, `|paren`, `|noparen`. Rounding ignores tiny floating point errors, so `(0.1+0.2)*10|ceil` shows 3.
+- `dice+:` keeps a result across restarts, `dice-:` never keeps it.
+- `dice-mod:` replaces the code in your note with the formula, the full result and the total, after you confirm. Undo works.
+- Ctrl or Cmd click opens the source of a section, table, list, line or tag roller. Alt click rerolls with the average. Not available on phones without a keyboard.
+- Frontmatter fields as numbers: `dice: str`, `1d20 + str`.
+- `1dS` stunt die: three six sided dice, the third is the stunt die; on a double the stunt points equal the stunt die.
+- Narrative dice (Genesys style): `3g2d`, with text results such as `2 Success, 1 Threat`.
+
+## 0.1.0
+
+First version.

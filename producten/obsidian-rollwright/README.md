@@ -2,7 +2,7 @@
 
 Roll dice inside your notes. Write a formula in inline code, read the result, click to roll again. Rollwright also draws from tables, lists, sections, lines and tags, and it keeps a history that shows which note each roll came from.
 
-Rollwright is at version 0.1.0 and has not been tested in a running app yet. Expect rough edges.
+Rollwright is at version 0.2.0 and has not been tested in a running app yet. Expect rough edges.
 
 ## Rolling dice
 
