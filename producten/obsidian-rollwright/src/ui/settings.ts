@@ -1,4 +1,4 @@
-import { PluginSettingTab, Setting, type App } from "obsidian";
+import { PluginSettingTab, requireApiVersion, Setting, type App, type SettingDefinition, type SettingDefinitionItem } from "obsidian";
 import type RollwrightPlugin from "../main";
 import { LICENSE_MESSAGES, paymentReady } from "../pro/license";
 import { availableSkins, SKINS } from "../pro/skins";
@@ -20,6 +20,36 @@ export function licenseStatus(active: boolean, checkedAt: number, error: keyof t
 	return "Paste the license key from your Polar purchase and press Activate.";
 }
 
+/** One row of the settings tab: its name, its description and the fields or buttons it adds. */
+export interface SettingRow {
+	name: string;
+	desc?: string;
+	build?: (setting: Setting) => void;
+}
+
+/** Rows under one heading; the first section has none. */
+export interface SettingSection {
+	heading?: string;
+	rows: SettingRow[];
+}
+
+/** Fill a Setting from a row. Both display() and getSettingDefinitions() use this. */
+export function renderRow(setting: Setting, row: SettingRow): void {
+	if (row.name !== "") setting.setName(row.name);
+	if (row.desc !== undefined) setting.setDesc(row.desc);
+	row.build?.(setting);
+}
+
+/** A row as a definition for the settings search of Obsidian 1.13 and later. */
+function toDefinition(row: SettingRow): SettingDefinition {
+	return {
+		name: row.name,
+		desc: row.desc,
+		searchable: row.name !== "",
+		render: (setting: Setting) => renderRow(setting, row),
+	};
+}
+
 export class RollwrightSettingTab extends PluginSettingTab {
 	/** The outcome of the last Activate that failed, shown until the next try. */
 	private lastError: keyof typeof LICENSE_MESSAGES | null = null;
@@ -31,134 +61,193 @@ export class RollwrightSettingTab extends PluginSettingTab {
 		super(app, plugin);
 	}
 
+	/** The tab for Obsidian before 1.13. From 1.13 on, Obsidian draws getSettingDefinitions() instead. */
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
+		for (const section of this.sections()) {
+			if (section.heading !== undefined) new Setting(containerEl).setName(section.heading).setHeading();
+			for (const row of section.rows) renderRow(new Setting(containerEl), row);
+		}
+	}
+
+	/** The same rows as display(), so they show up in the settings search of Obsidian 1.13 and later. */
+	getSettingDefinitions(): SettingDefinitionItem[] {
+		return this.sections().flatMap((section): SettingDefinitionItem[] =>
+			section.heading === undefined
+				? section.rows.map(toDefinition)
+				: [{ type: "group", heading: section.heading, items: section.rows.map(toDefinition) }],
+		);
+	}
+
+	/** Draw the tab again after a row was added, removed or changed. */
+	private redraw(): void {
+		if (requireApiVersion("1.13.0")) this.update();
+		else this.display();
+	}
+
+	/** Every row of the tab, built from the current settings. The one source for both ways of drawing. */
+	sections(): SettingSection[] {
 		const settings = this.plugin.settings;
+		const save = () => this.plugin.saveSettings();
 
-		new Setting(containerEl)
-			.setName("Default die")
-			.setDesc("The number of sides when a formula leaves it out, as in 3d.")
-			.addText((text) =>
-				text.setValue(String(settings.defaultSides)).onChange(async (value) => {
-					const sides = parseWholeNumber(value, 1);
-					if (sides === null) return;
-					settings.defaultSides = sides;
-					await this.plugin.saveSettings();
-				}),
-			);
+		const general: SettingRow[] = [
+			{
+				name: "Default die",
+				desc: "The number of sides when a formula leaves it out, as in 3d.",
+				build: (setting) =>
+					setting.addText((text) =>
+						text.setValue(String(settings.defaultSides)).onChange(async (value) => {
+							const sides = parseWholeNumber(value, 1);
+							if (sides === null) return;
+							settings.defaultSides = sides;
+							await save();
+						}),
+					),
+			},
+			{
+				name: "Default number of dice",
+				desc: "The number of dice when a formula leaves it out, as in d6.",
+				build: (setting) =>
+					setting.addText((text) =>
+						text.setValue(String(settings.defaultCount)).onChange(async (value) => {
+							const count = parseWholeNumber(value, 0);
+							if (count === null) return;
+							settings.defaultCount = count;
+							await save();
+						}),
+					),
+			},
+			{
+				name: "Keep the formula when a dice-mod code is replaced",
+				desc: "On: 3d6 -> [2, 5, 4] -> 11. Off: [2, 5, 4] -> 11. Results of tables, lists and notes never show a formula.",
+				build: (setting) =>
+					setting.addToggle((toggle) =>
+						toggle.setValue(settings.diceModFormula).onChange(async (value) => {
+							settings.diceModFormula = value;
+							await save();
+						}),
+					),
+			},
+		];
 
-		new Setting(containerEl)
-			.setName("Default number of dice")
-			.setDesc("The number of dice when a formula leaves it out, as in d6.")
-			.addText((text) =>
-				text.setValue(String(settings.defaultCount)).onChange(async (value) => {
-					const count = parseWholeNumber(value, 0);
-					if (count === null) return;
-					settings.defaultCount = count;
-					await this.plugin.saveSettings();
-				}),
-			);
+		const formulas: SettingRow[] = settings.formulas.map((formula, index) => ({
+			name: "",
+			build: (setting) =>
+				setting
+					.addText((text) =>
+						text.setPlaceholder("Name").setValue(formula.name).onChange(async (value) => {
+							formula.name = value.trim();
+							await save();
+						}),
+					)
+					.addText((text) =>
+						text.setPlaceholder("Formula").setValue(formula.formula).onChange(async (value) => {
+							formula.formula = value.trim();
+							await save();
+						}),
+					)
+					.addExtraButton((button) =>
+						button.setIcon("trash").setTooltip("Remove").onClick(async () => {
+							settings.formulas.splice(index, 1);
+							await save();
+							this.redraw();
+						}),
+					),
+		}));
+		formulas.push(
+			{
+				name: "Add a formula",
+				desc: "Use its name in any roll, such as dice: attack.",
+				build: (setting) =>
+					setting.addButton((button) =>
+						button.setButtonText("Add").onClick(async () => {
+							settings.formulas.push({ name: `formula${settings.formulas.length + 1}`, formula: "1d20" });
+							await save();
+							this.redraw();
+						}),
+					),
+			},
+			{
+				name: "Import saved formulas",
+				desc: "Copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read, and existing names stay as they are.",
+				build: (setting) =>
+					setting.addButton((button) =>
+						button.setButtonText("Import").onClick(async () => {
+							await this.plugin.importSavedFormulas();
+							this.redraw();
+						}),
+					),
+			},
+		);
 
-		new Setting(containerEl)
-			.setName("Keep the formula when a dice-mod code is replaced")
-			.setDesc("On: 3d6 -> [2, 5, 4] -> 11. Off: [2, 5, 4] -> 11. Results of tables, lists and notes never show a formula.")
-			.addToggle((toggle) =>
-				toggle.setValue(settings.diceModFormula).onChange(async (value) => {
-					settings.diceModFormula = value;
-					await this.plugin.saveSettings();
-				}),
-			);
+		return [
+			{ rows: general },
+			{ heading: "Saved formulas", rows: formulas },
+			{ heading: "Skins", rows: this.skinRows() },
+		];
+	}
 
-		new Setting(containerEl).setName("Saved formulas").setHeading();
-
-		settings.formulas.forEach((formula, index) => {
-			new Setting(containerEl)
-				.addText((text) =>
-					text.setPlaceholder("Name").setValue(formula.name).onChange(async (value) => {
-						formula.name = value.trim();
-						await this.plugin.saveSettings();
-					}),
-				)
-				.addText((text) =>
-					text.setPlaceholder("Formula").setValue(formula.formula).onChange(async (value) => {
-						formula.formula = value.trim();
-						await this.plugin.saveSettings();
-					}),
-				)
-				.addExtraButton((button) =>
-					button.setIcon("trash").setTooltip("Remove").onClick(async () => {
-						settings.formulas.splice(index, 1);
-						await this.plugin.saveSettings();
-						this.display();
-					}),
-				);
-		});
-
-		new Setting(containerEl)
-			.setName("Add a formula")
-			.setDesc("Use its name in any roll, such as dice: attack.")
-			.addButton((button) =>
-				button.setButtonText("Add").onClick(async () => {
-					settings.formulas.push({ name: `formula${settings.formulas.length + 1}`, formula: "1d20" });
-					await this.plugin.saveSettings();
-					this.display();
-				}),
-			);
-
-		new Setting(containerEl)
-			.setName("Import saved formulas")
-			.setDesc("Copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read, and existing names stay as they are.")
-			.addButton((button) =>
-				button.setButtonText("Import").onClick(async () => {
-					await this.plugin.importSavedFormulas();
-					this.display();
-				}),
-			);
-
-		new Setting(containerEl).setName("Skins").setHeading();
-
+	/** The skin choice, and the key field with Activate and Buy only when payment is ready. */
+	private skinRows(): SettingRow[] {
+		const settings = this.plugin.settings;
+		const ready = paymentReady(this.plugin.polarIds);
 		const paidNames = SKINS.filter((skin) => skin.paid).map((skin) => skin.name).join(" and ");
-		new Setting(containerEl)
-			.setName("Skin")
-			.setDesc(`All rolling is free. ${paidNames} are paid skins and need a license key.${paymentReady(this.plugin.polarIds) ? "" : ` ${COMING_SOON}`}`)
-			.addDropdown((dropdown) => {
-				for (const skin of availableSkins(this.plugin.isLicensed)) dropdown.addOption(skin.id, skin.name);
-				dropdown.setValue(settings.skin).onChange(async (value) => {
-					settings.skin = value;
-					await this.plugin.saveSettings();
-					this.plugin.applySkin();
-				});
-			});
+		const rows: SettingRow[] = [
+			{
+				name: "Skin",
+				desc: `All rolling is free. ${paidNames} are paid skins and need a license key.${ready ? "" : ` ${COMING_SOON}`}`,
+				build: (setting) =>
+					setting.addDropdown((dropdown) => {
+						for (const skin of availableSkins(this.plugin.isLicensed)) dropdown.addOption(skin.id, skin.name);
+						dropdown.setValue(settings.skin).onChange(async (value) => {
+							settings.skin = value;
+							await this.plugin.saveSettings();
+							this.plugin.applySkin();
+						});
+					}),
+			},
+		];
 
-		if (!paymentReady(this.plugin.polarIds)) {
-			new Setting(containerEl).setName("License key").setDesc(COMING_SOON);
-			return;
+		if (!ready) {
+			rows.push({ name: "License key", desc: COMING_SOON });
+			return rows;
 		}
 
-		let draft = settings.licenseKey;
 		const status = licenseStatus(this.plugin.isLicensed, settings.licenseCheckedAt, this.lastError);
-		new Setting(containerEl)
-			.setName("License key")
-			.setDesc(`${status} The key is checked with Polar, at most once every 30 days.`)
-			.addText((text) =>
-				text.setPlaceholder("Your license key").setValue(draft).onChange((value) => {
-					draft = value.trim();
-				}),
-			)
-			.addButton((button) =>
-				button.setButtonText("Activate").onClick(async () => {
-					button.setDisabled(true);
-					const outcome = await this.plugin.activateLicense(draft);
-					this.lastError = outcome === "valid" ? null : outcome;
-					this.display();
-				}),
-			);
-
-		new Setting(containerEl).setName("Get the paid skins").addButton((button) =>
-			button.setButtonText("Buy").onClick(() => {
-				activeWindow.open(this.plugin.polarIds.buyUrl);
-			}),
+		rows.push(
+			{
+				name: "License key",
+				desc: `${status} The key is checked with Polar, at most once every 30 days.`,
+				build: (setting) => {
+					// Typing only changes this draft; nothing is saved or unlocked until Activate.
+					let draft = settings.licenseKey;
+					setting
+						.addText((text) =>
+							text.setPlaceholder("Your license key").setValue(draft).onChange((value) => {
+								draft = value.trim();
+							}),
+						)
+						.addButton((button) =>
+							button.setButtonText("Activate").onClick(async () => {
+								button.setDisabled(true);
+								const outcome = await this.plugin.activateLicense(draft);
+								this.lastError = outcome === "valid" ? null : outcome;
+								this.redraw();
+							}),
+						);
+				},
+			},
+			{
+				name: "Get the paid skins",
+				build: (setting) =>
+					setting.addButton((button) =>
+						button.setButtonText("Buy").onClick(() => {
+							activeWindow.open(this.plugin.polarIds.buyUrl);
+						}),
+					),
+			},
 		);
+		return rows;
 	}
 }

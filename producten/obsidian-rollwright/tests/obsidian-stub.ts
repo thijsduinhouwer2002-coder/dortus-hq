@@ -55,7 +55,23 @@ export class ItemView {}
 export class MarkdownView {}
 export class PluginSettingTab {
 	containerEl = { empty: () => {} };
+	/** How often update() was called; from Obsidian 1.13 on that redraws a tab built from definitions. */
+	updates = 0;
 	constructor(public app: unknown, public plugin: unknown) {}
+	update(): void {
+		this.updates++;
+	}
+}
+
+/** The Obsidian version the stub pretends to be; tests set it to try both ways of drawing settings. */
+export const apiVersion = { current: "1.7.2" };
+export function requireApiVersion(version: string): boolean {
+	const have = apiVersion.current.split(".").map(Number);
+	const need = version.split(".").map(Number);
+	for (let i = 0; i < 3; i++) {
+		if ((have[i] ?? 0) !== (need[i] ?? 0)) return (have[i] ?? 0) > (need[i] ?? 0);
+	}
+	return true;
 }
 
 /** A tiny element: enough for a modal to put text in. */

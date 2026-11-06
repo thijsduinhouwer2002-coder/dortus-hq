@@ -39,7 +39,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie.
 - `history-view.ts`: het zijpaneel met de geschiedenis van worpen.
 - `modal.ts`: venster om snel een formule te gooien.
-- `settings.ts`: het instellingenscherm.
+- `settings.ts`: het instellingenscherm. Eén lijst van rijen (`sections()`: naam, uitleg en de velden en knoppen met hun opslaan) is de enige bron. `display()` tekent die rijen voor Obsidian onder 1.13; `getSettingDefinitions()` geeft dezelfde rijen als definities met `render`, zodat ze in de zoekfunctie van Obsidian 1.13 en later staan. Na toevoegen, weghalen, importeren of Activate tekent de tab opnieuw met `update()` (1.13 en later) of `display()` (ouder), gekozen met `requireApiVersion`.
 
 ### src/pro/ en src/import/
 - `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID` en `BUY_URL` (ingevuld met onze Polar-organisatie, benefit en afrekenpagina; is er één leeg, dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.

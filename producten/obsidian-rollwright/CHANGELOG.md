@@ -4,6 +4,7 @@
 
 - Paid skins now use license keys from Polar. Paste the key and press Activate; it is checked once at `api.polar.sh` and after that quietly at most once every 30 days. Only the key and the date of the check are stored. The settings have a Buy button that opens the Polar checkout.
 - The old offline key check (`RW1-...` keys) is removed. No such keys were ever sold.
+- The settings of Rollwright can be found with the settings search of Obsidian 1.13 and later. Older versions show the same settings as before.
 
 ## 0.2.0
 
