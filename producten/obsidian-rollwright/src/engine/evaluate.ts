@@ -1,7 +1,9 @@
 import { parseFormula } from "./parser";
 import { formatNumber } from "./format";
 import { defaultRandom } from "./random";
-import { DiceError, LIMITS, newBudget, type Budget, type CompareOp, type Condition, type Modifier, type Node, type RandomInt, type RollOptions, type RollResult, type Sides } from "./types";
+import { compare, matchesAny } from "./compare";
+import { rollStunt, STUNT_SPREAD } from "./stunt";
+import { DiceError, LIMITS, newBudget, type Budget, type Condition, type Modifier, type Node, type RandomInt, type RollOptions, type RollResult, type Sides } from "./types";
 
 interface Die {
 	value: number;
@@ -97,27 +99,6 @@ function checkedSides(sides: number): Faces {
 function checkedSpan(min: number, max: number): Faces {
 	if (max - min + 1 > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
 	return range(min, max);
-}
-
-function compare(value: number, op: CompareOp, target: number): boolean {
-	switch (op) {
-		case "=":
-			return value === target;
-		case "!=":
-			return value !== target;
-		case ">":
-			return value > target;
-		case "<":
-			return value < target;
-		case ">=":
-			return value >= target;
-		case "<=":
-			return value <= target;
-	}
-}
-
-function matchesAny(value: number, conditions: Condition[]): boolean {
-	return conditions.some((c) => compare(value, c.op, c.value));
 }
 
 function spend(state: State): void {
@@ -299,6 +280,8 @@ function evaluate(node: Node, state: State): Evaluated {
 		}
 		case "dice":
 			return evaluateDice(node, state);
+		case "stunt":
+			return rollStunt(() => rollDie(range(1, 6), state).value);
 		case "binary": {
 			const left = evaluate(node.left, state);
 			const right = evaluate(node.right, state);
@@ -391,6 +374,8 @@ function exactSpread(node: Node, state: State): Spread | null {
 		}
 		case "dice":
 			return exactDice(node, state);
+		case "stunt":
+			return STUNT_SPREAD;
 		case "binary": {
 			const left = exactSpread(node.left, state);
 			if (!left) return null;

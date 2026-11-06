@@ -1,3 +1,4 @@
+import { isStuntWord, stuntNode } from "./stunt";
 import { tokenize } from "./tokenizer";
 import { DiceError, LIMITS, type CompareOp, type Condition, type Modifier, type Node, type Sides, type Token } from "./types";
 
@@ -145,6 +146,10 @@ class Parser {
 
 	private dice(count: Node | null): Node {
 		const word = this.peek() as Token;
+		if (isStuntWord(word.value)) {
+			this.index++;
+			return stuntNode(count, word);
+		}
 		let rest = word.value.slice(1);
 		let sides: Sides = { kind: "default" };
 		if (rest.charAt(0) === "F" || rest.charAt(0) === "f") {
