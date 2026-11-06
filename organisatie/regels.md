@@ -17,6 +17,10 @@
 Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, en precies wat hij moet doen. Zet alles klaar wat klaargezet kan worden. Ga daarna door met ander werk.
 
 ## Werkwijze
+0. **Eerst ontwerp, dan bouwen.** Voor elk nieuw product of grote functie schrijft de bouwer eerst een kort ontwerp (2 tot 3 alinea's in `producten/<naam>/ontwerp.md`): wat het doet, wat het bewust niet doet, hoe het aansluit, en wanneer het af is (toetsbare eisen). De controleur keurt het ontwerp goed. Pas daarna wordt er gebouwd, en de controleur toetst de code tegen het ontwerp.
+0b. **Besluiten vastleggen.** Elk groot besluit (platform kiezen, product kiezen, stoppen, koers veranderen) komt in `organisatie/besluiten.md`, met reden en wat het zou veranderen. Lees dat bestand voordat je iets besluit. Kom niet zonder nieuw feit terug op een besluit.
+0c. **Geen werk verzinnen.** Zit je vast, of is er niets zinvols te doen, schrijf dan in twee regels in je logboek waarom en stop. Liever een korte run dan drukte zonder resultaat.
+0d. **Logboeken alleen aanvullen.** Haal nooit iets weg uit een logboek of besluitenlijst, zodat Thijs alles kan terugzien.
 1. **Bewijs:** elk cijfer krijgt een label. GEZIEN (zelf gemeten), DERDEN (bron met link) of GOK.
 2. **Nakijken voor het telt:** werk is pas klaar als een controleur het heeft nagekeken. Code is pas klaar als de tests groen zijn.
 3. **Eén taak tegelijk** per manager. Liever één ding af dan drie half.
@@ -25,7 +29,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 
 ## Opslaan
 - Begin met `git pull --rebase`.
-- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
+- Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.
 - Code: werk op een tak `claude/<platform>-<datum>`. Voeg samen met `main` als de controleur akkoord is en de tests groen zijn.
 - Notities in je eigen map mag je direct op `main` zetten.
 - Mislukt het opslaan omdat iemand anders net iets opsloeg: `git pull --rebase` en opnieuw. Nooit geforceerd overschrijven.

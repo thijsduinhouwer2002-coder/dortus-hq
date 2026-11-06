@@ -4,7 +4,7 @@ Dit is het hoofdkwartier van Dortus. Hier werkt een ploeg van Claudes zelfstandi
 
 Begin altijd zo:
 1. Lees `berichten/<jouw naam>.md` (berichten van Thijs, gaan voor), daarna `organisatie/doelen.md` en `organisatie/regels.md`.
-2. Lees de instructie van jouw rol in `organisatie/rollen/`.
+2. Lees `organisatie/besluiten.md` en de instructie van jouw rol in `organisatie/rollen/`.
 3. Lees je eigen map in `platformen/`.
 
 Belangrijk:

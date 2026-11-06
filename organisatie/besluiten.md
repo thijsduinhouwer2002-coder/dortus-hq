@@ -1,0 +1,15 @@
+# Besluiten
+
+Alle grote besluiten van Dortus op één plek, met datum en reden. Nieuwste bovenaan. Alleen toevoegen, nooit iets weghalen of herschrijven.
+
+Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonder nieuw feit terug op een besluit. Wil iemand een besluit terugdraaien, dan zet hij er een nieuw besluit boven met het nieuwe feit, en laat hij het oude staan.
+
+Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
+
+- 6 nov 2026 | Thijs | Atlassian gestopt | te weinig installs, markt verzadigd | -
+- 6 nov 2026 | Thijs | geen oude Dortus-apps overzetten | die markten zijn verzadigd | Thijs vraagt er zelf om
+- 6 nov 2026 | Thijs | nieuwe platformen vinden is de hoofdzaak, geen tempo of maximum | groot worden zit in de juiste markt | -
+- 6 nov 2026 | Thijs | een 7 op 10 is top, niet te snel afschieten | een perfect platform bestaat niet | -
+- 6 nov 2026 | Thijs | ploeg werkt elk uur van 08:00 tot 20:00 in de cloud, niet in vaste chats | vaste chats worden te lang en kunnen stil vallen | -
+- 6 nov 2026 | Olaf | Obsidian: opvolger van Dice Roller | grootste aantoonbare vraag, Obsidian bouwt het niet zelf | het gat blijkt dicht of de licentie verbiedt het
+- 6 nov 2026 | Vera | Shopify, Unity Asset Store, Framer: nog niet klaar. Godot: nee nu, wachtlijst | zie `platformen/verkenner/onderzocht.md` | eigen metingen in de winkel (kan nu het netwerk open staat)
