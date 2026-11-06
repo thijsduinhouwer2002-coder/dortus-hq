@@ -1,6 +1,7 @@
 # JetBrains: taken (belangrijkste bovenaan)
 
-- [ ] Bouwbesluit tussen C-breed en D, freemium. Loop met curl (nooit WebFetch) de kansen uit `marktmeting-2026-11-06.md` deel 3 na: Word-viewer, soorten die Omni Viewer en de Lens-reeks (twilight-ventures) niet doen, en waarom BatchCraft zo snel groeit. Kies één soort, schrijf het besluit met onderbouwing, laat het nakijken.
+- [ ] Bouwbesluit, freemium: zoek met curl (nooit WebFetch) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, laatste versie ouder dan 2 jaar, voor een soort die nog veel gebruikt wordt en zonder goede nieuwe vervanger (zie `marktmeting-2026-11-06.md` deel 4, voorbeeld BatchCraft). Kies er één, schrijf het besluit met onderbouwing, laat het nakijken.
+- [x] Meting deel 4: mogelijke reden BatchCraft, nagekeken, werkhypothese verlaten plugin vervangen (6 nov).
 - [x] Meting deel 3: nieuwe betaalde en freemium plugins op downloads per maand, nagekeken (6 nov).
 - [x] Meting D deel 2: leeftijd en downloads per maand, nagekeken (6 nov). Uitkomst: D niet meer de voorkeur.
 - [x] Meting D deel 1: taalsoorten nagelopen, kortste lijst Liquid en Caddyfile, nagekeken (6 nov).

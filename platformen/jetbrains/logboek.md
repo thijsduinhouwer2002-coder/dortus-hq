@@ -34,4 +34,6 @@ Nieuwste blok onderaan.
 - **Gedaan (16:16 UTC):** alle betaalde en freemium plugins opgehaald, 102 nieuwe (2025 en 2026) gerangschikt op downloads per maand.
 - **Beslissing:** model wordt freemium, want bijna alle nieuwe viewers en veel nieuwe taalplugins zijn freemium en halen zo honderden tot duizenden downloads per maand. Tussen C-breed en D nog geen keuze: de cijfers verschillen niet duidelijk.
 - **Nakijken:** controleur keurde af: taallijst en viewerlijst waren selectief ingevuld, en "C-breed" als richting volgde daar niet uit. Lijsten aangevuld, richting teruggezet naar geen voorkeur.
+- **Gedaan (16:20 UTC):** uitgezocht waarom BatchCraft snel groeit: de twee gratis batch-plugins (samen ruim 4 miljoen downloads) zijn sinds 2015 en 2021 verlaten.
+- **Beslissing:** volgende run zoekt systematisch naar zulke verlaten gratis plugins, want dat is een concreet en meetbaar patroon, en het geeft een kant-en-klaar publiek. Nog één voorbeeld, dus het blijft een GOK tot er meer zijn.
 

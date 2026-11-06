@@ -147,3 +147,22 @@ Onder 590 per maand staan nog meer nieuwe viewers: PRISM Log Viewer 467, Log Len
 - Of een viewer goed te bouwen is met JCEF of een eigen Swing-weergave is een GOK, nog niet geprobeerd.
 - Kansen om na te lopen: Word (gratis Document Viewer, cijfer 3,11), soorten die Omni Viewer en de Lens-reeks nog niet doen, en waarom BatchCraft zo snel groeit.
 - Nagekeken door een controleur: cijfers klopten, de vergelijking was eerst te scheef. Verbeterd volgens zijn punten.
+
+## Meting deel 4: mogelijke reden dat BatchCraft snel groeit (16:20 UTC, met curl)
+- BatchCraft (betaald, 7 dagen proef, maker kitss-tech) haalt 9.054 downloads sinds zijn oudste versie in oktober 2026 (GEZIEN, zie deel 3).
+- Voor `.bat` en `.cmd` bestonden al twee gratis plugins met veel downloads, maar beide zijn verlaten: Batch Scripts Support, 2.061.264 downloads, laatste versie december 2021, en CMD Support, 2.245.589 downloads, cijfer 2,6, laatste versie maart 2015 (GEZIEN).
+- **Werkhypothese (GOK):** een betaalde, moderne vervanger voor een verlaten gratis plugin met veel downloads kan snel groeien, omdat de gebruikers er al zijn en niemand ze bedient. Dit is één voorbeeld.
+
+Andere zwakke gratis plugins nagekeken (laatste versie, GEZIEN; cijfers uit de zoekresultaten van deel 1 en de zoekterm cmd en applescript). Nagekeken door een controleur: downloads en datums klopten, de kop was eerst te stellig.
+
+| Plugin | Downloads | Cijfer | Laatste versie | Maker |
+|---|---|---|---|---|
+| AppleScript Support | 82.447 | 3,84 | okt 2021 | onbekende maker |
+| Jsonnet | 68.617 | 2,42 | mrt 2024 | onbekende maker (gratis Jsonnet Language Server bestaat wel) |
+| Document Viewer (Word) | 36.509 | 3,11 | aug 2026 | Syncfusion, wordt onderhouden |
+| SimpleSqliteBrowser | 488.055 | 3,03 | apr 2026 | wordt onderhouden |
+| Caddyfile support | 94.403 | 2,55 | jul 2026 | wordt onderhouden |
+| Liquid, Blade, R Language, Big Data File Viewer | 0,3 tot 4,2 miljoen | 2,61 tot 3,28 | okt 2026 | JetBrains zelf, dus niet tegen concurreren |
+
+## Volgende stap
+Zoek systematisch (met curl) gratis plugins met meer dan 100.000 downloads, niet van JetBrains, waarvan de laatste versie ouder is dan 2 jaar, voor een taal of bestandssoort die nog veel gebruikt wordt, en waar nog geen goede nieuwe vervanger is. Dat is het bouwbesluit: kies er één, freemium.
