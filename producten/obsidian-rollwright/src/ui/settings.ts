@@ -3,6 +3,14 @@ import type RollwrightPlugin from "../main";
 import { BUY_URL, isValidLicenseKey, shouldShowBuyButton } from "../pro/license";
 import { availableSkins, SKINS } from "../pro/skins";
 
+/** A whole number of at least min, or null for anything else, an empty field included. */
+export function parseWholeNumber(value: string, min: number): number | null {
+	const text = value.trim();
+	if (!/^\d+$/.test(text)) return null;
+	const number = Number(text);
+	return Number.isSafeInteger(number) && number >= min ? number : null;
+}
+
 export class RollwrightSettingTab extends PluginSettingTab {
 	constructor(
 		app: App,
@@ -21,8 +29,8 @@ export class RollwrightSettingTab extends PluginSettingTab {
 			.setDesc("The number of sides when a formula leaves it out, as in 3d.")
 			.addText((text) =>
 				text.setValue(String(settings.defaultSides)).onChange(async (value) => {
-					const sides = Number(value);
-					if (!Number.isInteger(sides) || sides < 1) return;
+					const sides = parseWholeNumber(value, 1);
+					if (sides === null) return;
 					settings.defaultSides = sides;
 					await this.plugin.saveSettings();
 				}),
@@ -33,8 +41,8 @@ export class RollwrightSettingTab extends PluginSettingTab {
 			.setDesc("The number of dice when a formula leaves it out, as in d6.")
 			.addText((text) =>
 				text.setValue(String(settings.defaultCount)).onChange(async (value) => {
-					const count = Number(value);
-					if (!Number.isInteger(count) || count < 0) return;
+					const count = parseWholeNumber(value, 0);
+					if (count === null) return;
 					settings.defaultCount = count;
 					await this.plugin.saveSettings();
 				}),
