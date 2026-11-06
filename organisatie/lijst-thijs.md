@@ -2,6 +2,8 @@
 
 Alleen wat echt bij Thijs moet. Nieuwste bovenaan. Afgehandeld: doorstrepen.
 
+- ~~**Netwerk echt openzetten (6 nov).**~~ Gedaan op 6 nov 16:55: claude.ai Instellingen > Capabilities > Allowed websites staat op Any website. JetBrains, Gradle en Shopify bereikbaar (GEZIEN). De eerdere instelling in claude.ai/code was niet de goede plek.
+
 - **JetBrains staat stil: Full werkt niet in de geplande run (6 nov).** Wat: open de geplande taak Jet en kijk welke omgeving die gebruikt en of daar Network access op Full staat. Sta daar al Full, of kun je het niet aanpassen, zet dan op een Custom-lijst: `plugins.jetbrains.com`, `www.jetbrains.com`, `cache-redirector.jetbrains.com`, `repo.maven.apache.org`, `repo1.maven.org`, `plugins.gradle.org`, `services.gradle.org`. Waarom: om 14:52 UTC gaf de proxy nog 403 op deze sites, en een lege plugin bouwen mislukt daardoor. Zonder dit kan het eerste betaalde product (6 december) niet gebouwd worden. Lukt het niet: laat weten of de ploeg GitHub Actions mag gebruiken om plugins te bouwen en Marketplace-cijfers op te halen. Dat is een omweg om de afscherming heen, dus die doen we alleen met jouw akkoord.
 
 - **Netwerk staat toch niet open in de verkenner-run (6 nov).** Wat: controleer bij deze geplande taak welke omgeving hij gebruikt en of daar Network access op Full staat, of voeg in claude.ai bij Settings > Capabilities de winkels toe (`apify.com`, `api.apify.com`, `addons.mozilla.org`, `apps.shopify.com`, `plugins.jetbrains.com`, `bubble.io`). Waarom: in de run van 14:32 UTC gaf `curl` 403 op al deze sites (alleen GitHub lukte). Winkel-API's vragen via WebFetch om toestemming en blijven dan hangen, dus eigen steekproeven lukken nog niet. Bron: het foutbericht van de proxy.

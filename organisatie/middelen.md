@@ -17,8 +17,8 @@ Kolom **Inloggen** zegt wie er mag inloggen:
 
 ## De cloudomgeving van de ploeg
 
-- De geplande runs draaien in de cloudomgeving **Default** (claude.ai/code, wolkje onder het invoerveld, tandwieltje bij Default).
-- **Network access: Full** sinds 6 nov 2026. De runs kunnen elke website bereiken, maar zonder Thijs' inlogs.
+- **Wat het netwerk van de runs bepaalt:** de runs zijn aangemaakt vanuit de projectchat. Daarvoor geldt de instelling in claude.ai: Instellingen > Capabilities > "Use the internet while making files" > Allowed websites. Die staat sinds 6 nov 2026 16:55 op **Any website** (gecontroleerd: JetBrains Marketplace, Gradle en Shopify geven 200). Let op: dit geldt voor het hele (gedeelde) account.
+- De Code-omgeving **Default** (claude.ai/code) staat ook op Network access Full, maar dat bleek niet de instelling die de runs gebruiken.
 - **Network secrets:** hier komen sleutels per platform (bijvoorbeeld een upload-sleutel van JetBrains), zodat de ploeg zonder browser kan publiceren. Nooit Thijs' Google-wachtwoord of een ander wachtwoord. Een sleutel mag maar één ding kunnen en moet in te trekken zijn.
 
 ## Website en mail
