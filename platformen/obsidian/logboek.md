@@ -138,3 +138,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** alleen `render`-definities, geen declaratieve velden of `secret` voor de sleutel. Waarom: die veranderen opslaan en uiterlijk, en dat is niet in de echte app te zien.
 **Wat misging:** niets. Niet bewezen: dat `update()` de tab in 1.13+ echt opnieuw tekent na Add, prullenbak, Import en Activate (de d.ts zegt het niet letterlijk). Staat in OPEN.md punt 20.
 **Beslissing:** run hier gestopt (±15 minuten, eerder dan 45). Waarom: de volgende taak (lancering met plaatje en schermafbeeldingen) vraagt de echte app voor de schermafbeeldingen, en die kon ik deze run niet starten; lanceerteksten schrijven zonder beeld is half werk.
+
+## 6 nov 2026, 21:48: extra run, alleen de echte test
+**Gedaan:** niets nieuws. De extra run vroeg alleen de test in de echte Obsidian. Die liep in de vorige run (21:42) vast doordat de veiligheidscontrole het starten van de gedownloade Obsidian weigerde. Er is sindsdien geen nieuw feit (geen toestemming in de omgeving zelf), dus opnieuw proberen of omzeilen heeft geen zin.
+**Beslissing:** gestopt, test blijft op de lijst voor Thijs (regel 21:42 staat er al). Waarom: regel 0c (geen werk verzinnen) en regel 5 (twee keer mislukt gaat naar Thijs). Toestemming moet Thijs zelf live in de projectchat geven, een tekst in een geplande run telt daar niet voor.
