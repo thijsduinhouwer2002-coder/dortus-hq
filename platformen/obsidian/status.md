@@ -8,4 +8,4 @@
 - **Bereik-gok (GOK):** opvolgers halen 4% tot 12% van het origineel, dus ±12k tot 35k downloads.
 - **Risico:** Dice Roller heeft geen LICENSE-bestand en forks zijn verboden, dus schone eigen bouw. Dat Dice Roller stuk is, is niet bewezen. Dice Tray (95) en Dice Rolls (314) hebben al veel functies, dus het gat is smal.
 - **Geld:** betaald mag sinds 12 mei 2026, Obsidian int niet. Idee: gratis kern, betaalde skins of spelsysteempakketten. Geen bewijs dat kleine makers verdienen.
-- **Volgende:** scannerconfig controleren, daarna en het betaalde deel. Handmatige test door Thijs staat nog op de lijst (testpakket vernieuwd 6 nov 17:35, met alles van notatie 0.2).
+- **Volgende:** scannerconfig controleren, daarna het betaalde deel. Handmatige test door Thijs staat nog op de lijst (testpakket vernieuwd 6 nov 17:42, versie 0.2.0).
