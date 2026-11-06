@@ -3,7 +3,7 @@
 **Hoe gemeten:** de Marketplace-API (`/api/searchPlugins`, velden downloads, rating en pricingModel) via de leestool (WebFetch), niet via curl. Het cijfer in de tabellen is het veld rating uit die zoekresultaten. Toen kregen curl en Gradle nog 403. Sinds ±16:00 UTC werkt curl wel. Voortaan meten met curl, nooit met WebFetch (regel in CLAUDE.md). Alle cijfers hieronder zijn GEZIEN, tenzij anders vermeld. Downloads zijn opgeteld over de hele levensduur van een plugin en tellen ook proefversies mee. Aantal betalers is nergens te zien.
 
 ## Totalen (GEZIEN)
-- Betaalde plugins (PAID): 539 bij zoeken gesorteerd op downloads (16:00 UTC), 533 bij een tweede telling door de controleur zonder sortering (±16:15 UTC). Het verschil is niet verklaard. Freemium: 243.
+- Betaalde plugins (PAID): 539 bij zoeken gesorteerd op downloads (16:00 UTC), 533 bij een tweede telling door de controleur zonder sortering (±16:00 UTC). Het verschil is niet verklaard. Freemium: 243.
 - Ter vergelijking: in juli 2020 waren er 46 betaalde plugins ([JetBrains-blog](https://blog.jetbrains.com/platform/2020/07/one-year-of-paid-plugins-on-the-marketplace/), DERDEN).
 
 ## Wat verkoopt: de betaalde top 48 op downloads (GEZIEN)
@@ -58,7 +58,7 @@ Maar bij diagrammen is gratis aanbod groot: plantuml4idea 5.089.819, Diagrams.ne
 ## Volgende meting
 Kies een taal of bestandssoort voor kandidaat D: zoek per soort (bijvoorbeeld Caddyfile, Justfile, HAProxy, systemd units, Earthfile, Nix, Helm-templates, Ansible-alternatieven, PowerShell DSC) het aantal plugins, downloads en of er een betaalde is. Meet ook het grootste gratis alternatief naast de bestaande betaalde taalplugins (bijvoorbeeld bij Bash en Nginx). Kies er één waar gratis ondersteuning ontbreekt of slecht is (cijfer onder 3,5), en waar ontwikkelaars veel mee werken.
 
-## Meting D, deel 1 (16:17 UTC, met curl)
+## Meting D, deel 1 (16:12 UTC, met curl)
 Zoekopdracht per soort, top 6 op downloads, alle prijsmodellen (GEZIEN). Alleen wat ertoe doet:
 
 **Betaald naast gratis levert in 2 gevallen een tiende tot een twintigste op** (leeftijd niet gemeten):
@@ -84,5 +84,33 @@ Zoekopdracht per soort, top 6 op downloads, alle prijsmodellen (GEZIEN). Alleen 
 ## Tussenstand D
 - Kortste lijst: Liquid, met Caddyfile als reserve. Jsonnet valt af, want Jsonnet Language Server (gratis, cijfer 4,56) dekt het goed. Caddyfile heeft ook een goede gratis tweede plugin, dat maakt het zwakker. Bicep valt af, want Microsoft maakt zelf Bicep-gereedschap (GOK, niet nagekeken).
 - Liquid springt eruit: de meeste gebruikers (328.663, ruim 3 keer de nummer 2), een laag cijfer (2,61) en geen goede gratis plugin ernaast. Wel heeft de betaalde Liquid Hero al cijfer 4,64 en 3.350 downloads. Maar dat zij klein zijn kan ook betekenen dat niemand betaalt.
-- Nagekeken door een controleur (16:25 UTC): cijfers klopten, tekst daarna verbeterd op 4 punten.
+- Nagekeken door een controleur (16:13 UTC): cijfers klopten, tekst daarna verbeterd op 4 punten.
 - Nog te doen voor het bouwbesluit: leeftijd (eerste uitgave) van Liquid Hero, Caddyfile Pro en de andere Pro-plugins, zodat downloads per maand te zien zijn, en de reviews van de gratis Liquid-plugin lezen om te zien wat er mist.
+
+## Meting D, deel 2: leeftijd en downloads per maand (16:17 UTC, met curl)
+Leeftijd = datum van de oudste versie in `/api/plugins/{id}/updates`. Het veld `cdate` van de plugin zelf is niet de startdatum (BashSupport Pro gaf daar 2026, terwijl hij in 2020 begon). Downloads per maand = alle downloads gedeeld door het aantal maanden, dus een gemiddelde (GEZIEN, rekensom eigen).
+
+| Plugin | Soort | Eerste versie | Downloads | Per maand |
+|---|---|---|---|---|
+| BashSupport Pro | taal, oud | 2020-06 | 620.266 | 8.038 |
+| Nginx Configuration Pro | taal, oud | 2021-12 | 268.231 | 4.599 |
+| Mermaid Studio | diagram met voorbeeld | 2026-01 | 15.441 | 1.682 |
+| Mojo Pro | taal, nieuw | 2026-05 | 3.001 | 567 |
+| Nix Pro | taal, nieuw | 2026-05 | 1.463 | 250 |
+| Liquid Hero | taal | 2025-07 | 3.350 | 208 |
+| Caddyfile Pro | taal, nieuw | 2026-07 | 769 | 196 |
+| Liquid for Shopify & Jekyll | taal, nieuw | 2026-07 | 598 | 175 |
+| SystemVerilog Studio | taal, oud | 2020-05 | 13.039 | 167 |
+| Gleam Pro | taal, nieuw (pas 1 maand oud) | 2026-10 | 86 | 86 |
+
+Ter vergelijking, gratis: Caddyfile support (eerste versie 2025-05) haalt 5.334 per maand.
+
+**Belangrijk (GEZIEN):** de gratis Liquid-plugin (id 14388) is van JetBrains zelf. Mojo Pro, Nix Pro, Gleam Pro, Elixir Pro en Nim Pro zijn allemaal van één maker (`jetplugins`), die in 2026 een hele reeks betaalde taalplugins uitbrengt.
+
+## Tussenstand na deel 2
+- De grote betaalde taalplugins bestaan al lang. Misschien komt hun voorsprong daardoor (GOK). Nieuwe betaalde taalplugins uit 2026 halen 86 tot 567 downloads per maand.
+- Mermaid Studio, uit januari 2026 en van soort C, haalt 1.682 per maand: drie keer de beste nieuwe taalplugin. Eén voorbeeld, dus geen wet.
+- Liquid wordt zwakker: we zouden concurreren met de eigen plugin van JetBrains, en Liquid Hero haalt na 16 maanden maar 208 per maand.
+- **Besluit: geen bouwbesluit. Richting D is niet meer de voorkeur. C en D staan weer naast elkaar.** Reden: het bewijs voor D kwam van oude plugins, en dat voordeel hebben wij niet.
+- Nagekeken door een controleur: akkoord, twee kleine punten verwerkt.
+- Volgende meting: alle betaalde en freemium plugins met een eerste versie in 2025 of 2026, gerangschikt op downloads per maand. Dan zien we welk soort nieuw betaald product nu groeit.

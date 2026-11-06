@@ -1,6 +1,7 @@
 # JetBrains: taken (belangrijkste bovenaan)
 
-- [ ] Bouwbesluit D: Liquid (reserve Caddyfile). Meet met curl (nooit WebFetch) de eerste uitgavedatum van Liquid Hero, Liquid for Shopify & Jekyll, Caddyfile Pro en de andere Pro-plugins uit `marktmeting-2026-11-06.md`, reken downloads per maand uit, lees de reviews van de gratis Liquid-plugin (id 14388) en beslis.
+- [ ] Meet met curl (nooit WebFetch) alle betaalde en freemium plugins met een eerste versie in 2025 of 2026 (oudste versie via `/api/plugins/{id}/updates`), rangschik op downloads per maand, en neem dan het bouwbesluit tussen C en D. Recept en eerste cijfers in `marktmeting-2026-11-06.md`, deel 2.
+- [x] Meting D deel 2: leeftijd en downloads per maand, nagekeken (6 nov). Uitkomst: D niet meer de voorkeur.
 - [x] Meting D deel 1: taalsoorten nagelopen, kortste lijst Liquid en Caddyfile, nagekeken (6 nov).
 - [ ] Bouw een eerste versie in `producten/jetbrains-<naam>/` vanuit `bouwsjabloon.md`, met tests en meteen met proefperiode en betaalde functies.
 - [ ] Zet de betaalde versie op via JetBrains Marketplace (vraagt Thijs: account en sleutel).

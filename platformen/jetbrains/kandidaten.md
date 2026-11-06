@@ -1,6 +1,6 @@
 # JetBrains: kandidaten (6 nov 2026)
 
-**Bijgewerkt 6 nov 16:20 UTC:** de controle hieronder is gedaan, zie `marktmeting-2026-11-06.md`. Stap 3 voor C is gehaald (6 betaalde visuele editors boven 5.000 downloads), maar betaalde taalondersteuning (nieuwe kandidaat D) heeft meer bewijs. Richting is nu D, C is reserve.
+**Bijgewerkt 6 nov 16:00 UTC:** de controle hieronder is gedaan, zie `marktmeting-2026-11-06.md`. Stap 3 voor C is gehaald (6 betaalde visuele editors boven 5.000 downloads), maar betaalde taalondersteuning (nieuwe kandidaat D) heeft meer bewijs. Richting is nu D, C is reserve.
 
 **Uitkomst eerste ronde: voorlopige keuze, nog geen bouwbesluit.** De downloadcijfers van de Marketplace waren in deze run niet te lezen. De verplichte vergelijking met cijfers is dus niet gemaakt. Elke kandidaat mist downloads en omzet.
 
