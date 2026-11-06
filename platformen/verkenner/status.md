@@ -8,3 +8,4 @@
 - 6 nov, run 14:32, ook: Microsoft Marketplace (3, nee voor nu).
 - 6 nov, run 15:32: MetaTrader Market (MQL5) (3, nee), Adobe Express (3, nee voor nu), Setapp (3, nee).
 - 6 nov, run 16:31: Shopify eigen gemeten (steekproef 6.000 apps), nu cijfer 6, nog niet klaar. Framer en Discord nog eigen te meten.
+- 6 nov, run 17:31: Framer eigen gemeten (603 plugins), nu nee voor nu, cijfer 4. Controleur akkoord.

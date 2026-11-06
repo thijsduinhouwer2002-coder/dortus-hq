@@ -36,3 +36,11 @@ Nieuwste blok onderaan.
 - Nieuw: EU-herroepingsknop (verplicht 19 juni 2026). Twee kleine makers haalden 2.323 en 580 reviews in 8 tot 10 maanden, maar van ±130 aanbieders wonnen er twee, en dezelfde maker kreeg met een GPSR-app maar 29 reviews.
 - Uitkomst: nog niet klaar, cijfer 6 (was 5). Reden: er is nu eigen bewijs dat kleine makers hier groot worden, maar alleen als vroege uitschieter bij een nieuwe regel. Controleur akkoord met 11 correcties, alle verwerkt.
 - Volgende run: Framer eigen steekproef (curl werkt), of Shopify-vervolg: een aankomende regel met datum zoeken.
+
+## 6 nov 2026, run 17:31 UTC
+- Bericht Thijs (eigen steekproeven): Framer gepakt, want curl werkt daar en het stond als volgende.
+- Eigen steekproef: 605 plugins uit overzicht en 11 categorieën, 603 winkelpagina's gelezen. Framer toont nergens meer gebruikersaantallen, dus bereik is niet te meten. Wel gezien: 51% betaald, ±100 tot 180 nieuwe id's per maand in 2026 (begin 2025 ±25 tot 50), makers die 8 tot 9 betaalde plugins in een paar maanden uitbrengen.
+- Geld: BuildinFrame (kleine maker, 8 plugins) geverifieerd $400 in 7 maanden. Templatemakers melden na Framer 3.0 bijna geen verkoop meer.
+- Beslissing: nee voor nu, cijfer 4 (was 5). Reden: van de drie vooraf vastgelegde eisen is er geen gehaald, en de bedragen die we wel vonden laten zien dat het weinig is.
+- Controleur akkoord, vier correcties verwerkt (aandeel betaald per halfjaar, Miglena, naam maker, groei 3 tot 4 keer).
+- curl met nep-browserkop werd geweigerd door de veiligheidscontrole. Gewone curl werkt prima op framer.com. Archive.org geeft 403.
