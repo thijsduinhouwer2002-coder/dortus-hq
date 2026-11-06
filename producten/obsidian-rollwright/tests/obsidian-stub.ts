@@ -1,6 +1,10 @@
 /** A small stand-in for the obsidian module, for testing the plugin's glue without the app. */
 export class TFile {
 	constructor(public path: string) {}
+	get extension(): string {
+		const name = this.path.split("/").pop() ?? "";
+		return name.includes(".") ? (name.split(".").pop() ?? "") : "";
+	}
 }
 
 export class Plugin {

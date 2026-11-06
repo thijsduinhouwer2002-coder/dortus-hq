@@ -4,7 +4,7 @@ import { isValidLicenseKey } from "./pro/license";
 import { resolveSkin, SKINS } from "./pro/skins";
 import { replaceCodeInNote } from "./rollers/modify";
 import { rollSpec, type NoteData, type RollContext, type RollOutcome } from "./rollers/run";
-import { CHANGED_NOTICE, ReplaceCodeModal } from "./ui/dice-mod";
+import { CHANGED_NOTICE, NOT_MARKDOWN_NOTICE, ReplaceCodeModal } from "./ui/dice-mod";
 import { HISTORY_VIEW, RollHistoryView } from "./ui/history-view";
 import { rollwrightLivePreview } from "./ui/live-preview";
 import { RollFormulaModal } from "./ui/modal";
@@ -274,6 +274,11 @@ export default class RollwrightPlugin extends Plugin {
 		const file = this.app.vault.getAbstractFileByPath(path);
 		if (!(file instanceof TFile)) {
 			new Notice(CHANGED_NOTICE);
+			return false;
+		}
+		// A canvas or other file can also call the post-processor; only markdown notes are changed.
+		if (file.extension !== "md") {
+			new Notice(NOT_MARKDOWN_NOTICE);
 			return false;
 		}
 		let done = false;

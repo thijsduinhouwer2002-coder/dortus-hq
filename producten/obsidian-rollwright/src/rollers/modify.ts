@@ -33,9 +33,41 @@ export function modifiedText(outcome: RollOutcome, showFormula: boolean): string
 	return oneLine(defuseRolls(parts.join(" -> ")));
 }
 
-/** A table row starts with "|". A "|" in the replacement would then make a new cell. */
-function escapePipes(line: string, text: string): string {
-	return line.trimStart().startsWith("|") ? text.replace(/\\?\|/g, (pipe) => (pipe === "|" ? "\\|" : pipe)) : text;
+/** Puts a backslash before every unescaped character of this kind. An odd run of backslashes before it already escapes it. */
+function escapeAll(text: string, char: "`" | "|"): string {
+	const pattern = char === "`" ? /(\\*)`/g : /(\\*)\|/g;
+	return text.replace(pattern, (whole: string, slashes: string) => (slashes.length % 2 === 0 ? `${slashes}\\${char}` : whole));
+}
+
+/** True when the text has a "|" that no backslash escapes. */
+function hasBarePipe(text: string): boolean {
+	return /(^|[^\\])(\\\\)*\|/.test(text);
+}
+
+/** What can open a block at the start of a line: heading, quote, list, rule, setext line, fence, table, html, link definition. A dice breakdown "[1] -> 1" is none of these. */
+const BLOCK_START = /^(?:[#>\-+*=_~|<]|\[[^\]]*\]:)/;
+
+/**
+ * Makes the replacement safe at its place in the line, so it reads as plain text there:
+ * - every backtick gets a backslash, or it would pair with a backtick later on the line and
+ *   make a new code span, maybe a code that rolls;
+ * - in a table row every "|" gets a backslash, or it would make a new cell. A line is taken as a
+ *   table row when, with quote markers and spaces in front left out, it starts with "|",
+ *   or when it has an unescaped "|" outside the code;
+ * - at the start of a line (after spaces, quote markers and list markers), a first character that would
+ *   start a block, such as "#", "-", ">" or "---", gets a backslash, and so does the dot or
+ *   bracket of "1." or "1)".
+ */
+function fitReplacement(line: string, from: number, to: number, text: string): string {
+	let safe = escapeAll(text, "`");
+	const rest = line.slice(0, from) + line.slice(to);
+	if (rest.replace(/^[\s>]*/, "").startsWith("|") || hasBarePipe(rest)) safe = escapeAll(safe, "|");
+	// Only spaces, quote markers and list markers before the code: the replacement starts the text of a block.
+	if (/^(?:\s|>|[-+*](?=\s)|\d+[.)](?=\s))*$/.test(line.slice(0, from))) {
+		if (BLOCK_START.test(safe)) safe = `\\${safe}`;
+		else safe = safe.replace(/^(\d+)([.)])/, "$1\\$2");
+	}
+	return safe;
 }
 
 /**
@@ -46,7 +78,7 @@ function escapePipes(line: string, text: string): string {
 export function replaceCodeInLine(lineText: string, index: number, formula: string, replacement: string): string | null {
 	const code = findInlineDice(lineText)[index];
 	if (!code || !code.modify || code.formula !== formula) return null;
-	return lineText.slice(0, code.from) + escapePipes(lineText, replacement) + lineText.slice(code.to);
+	return lineText.slice(0, code.from) + fitReplacement(lineText, code.from, code.to, replacement) + lineText.slice(code.to);
 }
 
 /**
@@ -57,7 +89,7 @@ export function replaceCodeInLine(lineText: string, index: number, formula: stri
 export function replacementAt(lineText: string, column: number, formula: string, replacement: string): { from: number; to: number; insert: string } | null {
 	const code = findInlineDice(lineText).find((found) => found.from === column);
 	if (!code || !code.modify || code.formula !== formula) return null;
-	return { from: code.from, to: code.to, insert: escapePipes(lineText, replacement) };
+	return { from: code.from, to: code.to, insert: fitReplacement(lineText, code.from, code.to, replacement) };
 }
 
 /** The same for a whole note, with the line counted from 0. Line endings stay as they are. */
