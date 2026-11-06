@@ -18,9 +18,9 @@ function usableName(name: string): boolean {
 
 /** The number in a field, as formula text, or undefined when it is no finite number. */
 function numberText(value: unknown): string | undefined {
-	if (typeof value === "number") return Number.isFinite(value) ? String(value) : undefined;
-	if (typeof value !== "string") return undefined;
-	const text = value.trim();
+	// A very large or small number prints as "1e+21", which the notation cannot read: skip it too.
+	if (typeof value !== "number" && typeof value !== "string") return undefined;
+	const text = typeof value === "number" ? String(value) : value.trim();
 	return NUMBER_TEXT.test(text) && Number.isFinite(Number(text)) ? text : undefined;
 }
 

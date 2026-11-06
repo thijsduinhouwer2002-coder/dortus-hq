@@ -114,3 +114,9 @@ describe("number fields from the frontmatter of the note itself", () => {
 		expect((await roll(plugin, "str", "Ander.md")).total).toBe(7);
 	});
 });
+
+describe("field numbers that print with an exponent", () => {
+	it("leaves out 1e21 and 0.0000001, so the formula gives the usual unknown name", () => {
+		expect(fieldNames({ big: 1e21, tiny: 0.0000001, ok: 12 })).toEqual({ ok: "12" });
+	});
+});
