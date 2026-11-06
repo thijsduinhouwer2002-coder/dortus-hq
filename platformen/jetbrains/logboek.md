@@ -55,4 +55,7 @@ Nieuwste blok onderaan.
 - **Uitkomst:** afgekeurd op 6 punten. Mijn eerste versie zocht op losse tekst en zei daardoor ten onrechte dat de IDE `.npmrc` en `*.cpuprofile` kent. Deel 8 herschreven: alle vijf soorten zijn geen bestandssoort in IDEA, alleen heapsnapshot is via een menu te laden. Gevolg omgedraaid: spoor (a) en (c) blijven open.
 - **Beslissing:** geen bouwbesluit. Volgende stap is stap 2 (hoe vaak komen deze soorten voor en is er vraag), naast spoor (b). Reden: zonder telling van vraag is een keuze tussen deze vijf niet te onderbouwen.
 - **Misging:** de controle duurde ±15 minuten (IDE downloaden). Les: zoek naar registraties, niet naar tekst.
-- **Afgesloten om 18:11 UTC**, want de volgende stap past niet meer goed in deze run.
+- **Toch nog tijd (18:11 UTC):** deel 9 gedaan, de vijf soorten geteld met GitHub-zoeken en de Marketplace. Podfile komt even vaak voor als `gradlew.bat` maar valt af: CocoaPods gaat op 2 december 2026 op alleen-lezen, dus de soort krimpt. `.npmrc` en `*.webmanifest` veel bestanden maar waarschijnlijk niets om voor te betalen.
+- **Beslissing:** spoor (a) levert geen betaald product, volgende run spoor (b). Reden: geld gaat voor bereik, en alleen bij Jenkinsfile en Procfile is er een betaalde plugin voor een veelvoorkomend bestand.
+- **Nakijken:** controleur kreeg dezelfde getallen, goedgekeurd mits 4 zinnen minder stellig. Verwerkt.
+- **Afgesloten om 18:17 UTC.**
