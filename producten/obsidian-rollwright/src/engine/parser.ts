@@ -6,8 +6,8 @@ const MODIFIER_WORDS = ["kh", "kl", "dh", "dl", "k", "sa", "sd", "s", "u", "r"];
 /** True when the letters after the leading "d" read as a chain of modifiers. */
 function isDiceWord(word: string): boolean {
 	if (word.charAt(0) !== "d" && word.charAt(0) !== "D") return false;
-	let rest = word.slice(1);
-	if (rest.charAt(0) === "F" || rest.charAt(0) === "f") rest = rest.slice(1);
+	let rest = word.slice(1).toLowerCase();
+	if (rest.charAt(0) === "f") rest = rest.slice(1);
 	while (rest.length > 0) {
 		const match = MODIFIER_WORDS.find((m) => rest.startsWith(m));
 		if (!match) return false;
@@ -232,7 +232,8 @@ class Parser {
 			} else if (token.type === "cmp") {
 				modifiers.push(this.countModifier());
 			} else if (token.type === "word") {
-				const match = MODIFIER_WORDS.find((m) => token.value.startsWith(m));
+				const lower = token.value.toLowerCase();
+				const match = MODIFIER_WORDS.find((m) => lower.startsWith(m));
 				if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}`);
 				this.consumeWordPart(token, match.length);
 				modifiers.push(this.wordModifier(match));
@@ -283,7 +284,7 @@ class Parser {
 	/** The number after ! or r, or "i" for the highest allowed. */
 	private repeatCount(): number {
 		const token = this.peek();
-		if (token?.type === "word" && token.value.charAt(0) === "i") {
+		if (token?.type === "word" && token.value.charAt(0).toLowerCase() === "i") {
 			this.consumeWordPart(token, 1);
 			return LIMITS.repeats;
 		}
@@ -322,13 +323,13 @@ class Parser {
 			this.index++;
 			const value = Number(token.value);
 			const next = this.peek();
-			if (next?.type === "word" && next.value.charAt(0) === "d" && next.value.length === 1) {
+			if (next?.type === "word" && next.value.toLowerCase() === "d") {
 				this.index++;
 				return { type: "dice", count: { type: "number", value }, sides: this.sides(), modifiers: [] };
 			}
 			return { type: "number", value };
 		}
-		if (token?.type === "word" && token.value === "d") {
+		if (token?.type === "word" && token.value.toLowerCase() === "d") {
 			this.index++;
 			return { type: "dice", count: null, sides: this.sides(), modifiers: [] };
 		}

@@ -35,7 +35,8 @@ export function tokenize(input: string): Token[] {
 		}
 		if (isLetter(ch)) {
 			const start = i;
-			while (isLetter(input.charAt(i)) || (i > start && isDigit(input.charAt(i)) && !isDiceBoundary(input, start, i))) i++;
+			const afterValue = isAfterValue(tokens);
+			while (isLetter(input.charAt(i)) || (i > start && isDigit(input.charAt(i)) && !isDiceBoundary(input, start, i, afterValue))) i++;
 			tokens.push({ type: "word", value: input.slice(start, i), pos: start });
 			continue;
 		}
@@ -61,8 +62,22 @@ export function tokenize(input: string): Token[] {
 	return tokens;
 }
 
-/** Digits end a word unless the word can only be a name, such as "str2". */
-function isDiceBoundary(input: string, start: number, i: number): boolean {
+/**
+ * True right after a value, where a word can only be a modifier, such as "KH" in
+ * "1D6KH1". At the start of a term a word may be a name, such as "K2".
+ */
+function isAfterValue(tokens: Token[]): boolean {
+	const last = tokens[tokens.length - 1];
+	if (!last) return false;
+	return last.type === "num" || last.type === "word" || last.type === "bang" || (last.type === "sym" && (last.value === ")" || last.value === "]" || last.value === "%"));
+}
+
+/**
+ * Digits end a word unless the word can only be a name, such as "str2".
+ * After a value, modifiers in capitals end it too.
+ */
+function isDiceBoundary(input: string, start: number, i: number, afterValue: boolean): boolean {
 	const word = input.slice(start, i);
-	return /^[dD]?[fF]?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/.test(word);
+	if (/^[dD]?[fF]?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/.test(word)) return true;
+	return afterValue && /^d?f?(kh|kl|dh|dl|k|sa|sd|s|u|r|i)*$/i.test(word);
 }
