@@ -75,7 +75,7 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl versie 6:** supportadres thijs@dortus.com (bericht Thijs 15:45), de regel "Made by Thijs at Dortus", opbouw van een README als winkelpagina.
 - **Gezien:** e2e op main c76d271 (run 42385842375) was rood, de run erna op tak z groen. Voor Olaf, niet van mij (alleen README en plaatjes veranderd).
 
-## 7 nov 2026, run 9 (±16:24 tot 16:50)
+## 7 nov 2026, run 9 (±16:24 tot 17:00)
 
 - **Lokale kopie:** de oude map liep weer uiteen (los van een tak, andere geschiedenis); niets weggegooid, verse kopie van GitHub in een nieuwe map gebruikt.
 - **Bison & Flex, beoordeling 6:** schermen van IDE-run 42390272274 (tak `-l` 8be8190, in main 61d663a). Alleen de balloon bij de eerste klik, daarna een korte hint zonder fout, tekst klopt nu met het gedrag (binnen één bestand gratis), structuur toont calc.l. Uiterlijk goedgekeurd zonder nieuwe eisen.
