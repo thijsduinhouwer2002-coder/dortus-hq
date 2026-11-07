@@ -23,6 +23,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - WooCommerce Marketplace (betaalde extensies op woocommerce.com, Woo verkoopt en betaalt de maker uit; productpagina's tonen installaties en publicatiedatum), zelf toegevoegd 7 nov: klaar 7 nov run 16:33, eigen meting van alle 1.562 productpagina's, nee (cijfer 2), zie voorstellen/woocommerce-marketplace.md. Herhaalmeting met data/woo-haal-script.py en woo-analyse-script.py
 - BigCommerce App Marketplace (betaalde apps), voorwerk 7 nov run 16:33: bereikbaar met curl, sitemap op /apps/sitemap-marketplace-apps.xml, pagina's tonen alleen reviewCount en rating, geen installs en in de lijst geen datum. Eerst uitzoeken of een app-pagina een datum heeft; anders alleen reviews te meten, zoals bij Wix
 - Squarespace Extensions en Ecwid App Market: bereikbaar met curl, nog niet bekeken (Ecwid toont mogelijk installs)
+- Craft CMS Plugin Store (betaalde plugins, Craft verkoopt en betaalt de maker uit, open API met installs), zelf toegevoegd 7 nov: in onderzoek 7 nov 17:32
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
