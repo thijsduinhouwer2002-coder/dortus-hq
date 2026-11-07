@@ -39,6 +39,13 @@ interface StatusBalkOpAfstand {
     fun getInfo(): String?
 }
 
+/** Hulp in de plugin die laat zien wat de IDE bij Shift+F6 ziet in het onderdeel met de focus (`pro/HernoemDiagnose.kt`). */
+@Remote("com.dortus.bisonflex.pro.HernoemDiagnose", plugin = "com.dortus.bisonflex")
+interface HernoemDiagnoseOpAfstand {
+    fun focusInfo(): String
+    fun hernoemMetFocus(): String
+}
+
 private const val HERNOEMEN = "hernoemen"
 
 /** Of er nu een editor-hint in beeld is (onze hint of een fout van de IDE), of een korte fout. */
@@ -140,8 +147,20 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     if (boom != null) withContext(OnDispatcher.EDT) { boom.requestFocusInWindow() }
     Thread.sleep(1_000)
     println("DORTUS-E2E [$naam] structuurboom focus voor Shift+F6 ${boom?.let { b -> withContext(OnDispatcher.EDT) { b.isFocusOwner() } }}")
+    // Run 42418452932: focus op de boom, toch kwam ProHernoemen niet in beeld. Wat ziet de IDE daar bij Shift+F6?
+    val diagnose = service<HernoemDiagnoseOpAfstand>()
+    println("DORTUS-E2E [$naam] structuur toont ${structuurBestand()}, voor Shift+F6: ${withContext(OnDispatcher.EDT) { diagnose.focusInfo() }}")
     toets("shift+F6")
-    val structuur = wacht(10) { melding.aantalHintsZonderEditor() > zonderVoor }
+    var structuur = wacht(6) { melding.aantalHintsZonderEditor() > zonderVoor }
+    println("DORTUS-E2E [$naam] na Shift+F6 (xdotool) in de boom: hint zonder editor $structuur")
+    if (!structuur) {
+        // Echte toets kwam niet aan: de Rename-actie zelf, met de DataContext van de boom (zoals de keymap zou doen).
+        if (boom != null) withContext(OnDispatcher.EDT) { boom.requestFocusInWindow() }
+        Thread.sleep(500)
+        println("DORTUS-E2E [$naam] RenameElement met de boom als context: ${withContext(OnDispatcher.EDT) { diagnose.focusInfo() }}; ${withContext(OnDispatcher.EDT) { diagnose.hernoemMetFocus() }}")
+        structuur = wacht(8) { melding.aantalHintsZonderEditor() > zonderVoor }
+        println("DORTUS-E2E [$naam] na RenameElement (actie, boom als context): hint zonder editor $structuur")
+    }
     Thread.sleep(1_000)
     val balk = statusBalk()
     println("DORTUS-E2E [$naam] Shift+F6 op NUM in de structuurweergave: hint zonder editor $structuur (aantal ${melding.aantalHintsZonderEditor()}), " +
