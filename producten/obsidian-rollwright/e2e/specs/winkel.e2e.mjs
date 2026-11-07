@@ -179,17 +179,43 @@ describe("Rollwright: winkelplaatjes", function () {
 		});
 		await browser.waitUntil(async () => browser.execute(() => document.querySelector('.workspace-leaf-content[data-type="rollwright-history"]') !== null),
 			{ timeout: 5000, timeoutMsg: "het geschiedenispaneel opende niet" });
-		for (const i of [0, 2, 1, 3]) {
-			await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} .markdown-reading-view`, i);
-			await browser.pause(300);
+		// Elke worp één keer aanklikken, zodat alle worpen in de geschiedenis staan (graag-punt Daan). Een klik gooit
+		// opnieuw; is de buit of de tolwachter daarna dubbel, dan geschiedenis leeg en de hele ronde opnieuw, zodat
+		// er geen afgekeurde worpen in het paneel blijven staan.
+		let w = [];
+		for (let ronde = 0; ronde < 40; ronde++) {
+			await browser.executeObsidian(async ({ app }) => app.plugins.plugins.rollwright.clearHistory());
+			for (const i of [TOLWACHTER, LOOT, 1, 3, 2, 0]) {
+				await browser.execute((sel, i) => {
+					const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[i];
+					r?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
+					r?.click();
+				}, `${LEAF} .markdown-reading-view`, i);
+				await browser.pause(150);
+			}
+			// Pas lezen als elke aangeklikte worp een nieuwe uitkomst heeft (het merkteken verdwijnt met de oude).
+			await browser.waitUntil(async () => browser.execute((sel) => document.querySelector(`${sel} [data-e2e-oud]`) === null, `${LEAF} .markdown-reading-view`),
+				{ timeout: 10000, timeoutMsg: "een aangeklikte worp kreeg geen nieuwe uitkomst" });
+			w = await wacht(".markdown-reading-view");
+			const lootGoed = new Set(w[LOOT].tekst.split(",").map((t) => t.trim())).size === 3;
+			if (lootGoed && zinnen(w[TOLWACHTER].tekst) === 2) break;
 		}
+		console.log("WINKEL GESCHIEDENIS NOTITIE:", JSON.stringify(w.map((x) => x.tekst)));
 		let items = 0;
 		await browser.waitUntil(async () => {
 			items = await browser.execute(() => document.querySelectorAll(".rollwright-history-item").length);
-			return items >= 4;
+			return items === 6;
 		}, { timeout: 5000 }).catch(() => {});
 		console.log("WINKEL GESCHIEDENIS ITEMS:", items);
-		expect(items).toBeGreaterThanOrEqual(4);
+		expect(items).toBe(6);
+		expect(new Set(w[LOOT].tekst.split(",").map((t) => t.trim())).size).toBe(3);
+		expect(zinnen(w[TOLWACHTER].tekst)).toBe(2);
+		// De nieuwste staat bovenaan: de geschiedenis toont precies wat de notitie toont.
+		const bovenste = await browser.execute(() => document.querySelector(".rollwright-history-item")?.textContent ?? "");
+		console.log("WINKEL GESCHIEDENIS BOVENSTE:", JSON.stringify(bovenste));
+		const geschiedenisBuit = await browser.execute(() => Array.from(document.querySelectorAll(".rollwright-history-item")).map((e) => e.textContent ?? "").find((t) => t.includes("loot")) ?? "");
+		console.log("WINKEL GESCHIEDENIS BUIT:", JSON.stringify(geschiedenisBuit));
+		expect(geschiedenisBuit).toContain(w[LOOT].tekst);
 		await plaatjes("winkel-3-geschiedenis");
 	});
 });
