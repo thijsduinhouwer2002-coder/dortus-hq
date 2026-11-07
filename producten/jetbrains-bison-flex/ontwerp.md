@@ -151,3 +151,12 @@ Bekeken: `pro/ProHernoemen.kt`, `pro/ProMelding.kt` en `plugin.xml` op tak `clau
 3. **Hernoemen zonder editor geeft na de eerste keer niets.** Bij hernoemen vanuit de structuurweergave of het projectvenster is `editor` null: de tweede keer gebeurt er dan helemaal niets, ook geen hint. Een knop die stil niets doet voelt kapot. Geef dan dezelfde korte tekst op een plek zonder editor (bijvoorbeeld de statusbalk), zonder knop.
 
 **Voor akkoord wil ik in beeld (licht en donker):** Shift+F6 op `NUM` in calc.y zonder licentie (balloon, daarna de hint bij een tweede keer), Shift+F6 op een regel die alleen in calc.y staat (gewoon hernoemen in de editor, geen melding), en het conflictvenster bij een naam die al bestaat.
+
+Nagekeken door een controleur (agent, 18:42): eens met de drie punten. Hij vond meer, en dat neem ik over als moet-punten:
+4. **Onterechte melding tijdens het indexeren.** `Koppeling.gebruiktInScanner` geeft `true` zolang de IDE indexeert (zelf gezien, regel 100). Dan krijgt ook een token dat alleen in calc.y staat de Pro-melding. Liever tijdens indexeren gewoon binnen het bestand laten hernoemen, of een neutrale hint "Indexing, try again in a moment" zonder Pro.
+5. **Eén vlag voor ga-naar en hernoemen samen.** Wie eerst de ga-naar-balloon zag, krijgt bij Shift+F6 alleen de korte hint en hoort nooit dat hernoemen Pro is. Een tekst per actie is dus niet genoeg: de hint bij hernoemen moet zelf duidelijk zijn (punt 2), of de balloon noemt beide functies.
+6. **Shift+F6 op `NUM` in calc.l zonder licentie** geeft volgens de controleur de eigen foutmelding van de IDE ("Cannot perform refactoring"), omdat de verwijzing nergens heen gaat (GOK, nog niet in beeld). Een foutmelding bij een Pro-functie mag niet (stijl). In de IDE-test nagaan.
+
+Correctie op mijn schermenlijst: er is geen hernoemen in de editor zelf (geen `RefactoringSupportProvider`), Shift+F6 opent altijd het hernoemvenster. Dus het scherm wordt "het hernoemvenster bij een regel die alleen in calc.y staat". Erbij: Shift+F6 in calc.l, hernoemen vanuit de structuurweergave, en Shift+F6 nadat de ga-naar-balloon al getoond is.
+
+Kan-punten (niet nodig voor akkoord): hernoemen in de editor zelf binnen één bestand, een korte hint bij Find Usages zonder Pro (nu lijkt het of calc.l het token niet gebruikt), de conflictcontrole ook tegen namen in calc.l.
