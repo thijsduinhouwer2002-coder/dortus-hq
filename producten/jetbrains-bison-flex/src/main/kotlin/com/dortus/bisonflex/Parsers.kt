@@ -9,8 +9,8 @@ import com.dortus.bisonflex.parser.BisonElementen
 import com.dortus.bisonflex.parser.BisonParser
 import com.dortus.bisonflex.parser.FlexElementen
 import com.dortus.bisonflex.parser.FlexParser
+import com.dortus.bisonflex.psi.BisonFlexPsi
 
-import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.extapi.psi.PsiFileBase
 import com.intellij.lang.ASTNode
 import com.intellij.lang.Language
@@ -43,7 +43,8 @@ abstract class TaalParserDefinition(
     override fun getFileNodeType(): IFileElementType = bestand
     override fun getCommentTokens(): TokenSet = types.commentaar
     override fun getStringLiteralElements(): TokenSet = types.strings
-    override fun createElement(node: ASTNode): PsiElement = ASTWrapperPsiElement(node)
+    /** Namen, gebruiken en C-code krijgen eigen klassen voor alle plekken vinden en hernoemen (`psi/`). */
+    override fun createElement(node: ASTNode): PsiElement = BisonFlexPsi.maak(node)
     override fun createFile(viewProvider: FileViewProvider): PsiFile = object : PsiFileBase(viewProvider, taal) {
         override fun getFileType(): FileType = soort()
         override fun toString(): String = "${taal.id}-bestand"

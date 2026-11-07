@@ -29,6 +29,10 @@
         <lang.psiStructureViewFactory language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexStructuur"/>
         <notificationGroup id="Bison &amp; Flex Pro" displayType="BALLOON"/>
         <gotoDeclarationHandler implementation="com.dortus.bisonflex.pro.GaNaarDefinitie"/>
+        <lang.findUsagesProvider language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.psi.BisonAllePlekken"/>
+        <lang.findUsagesProvider language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.psi.FlexAllePlekken"/>
+        <!-- Pro-regel bij hernoemen: niet half hernoemen zonder licentie (ProHernoemen.kt). -->
+        <renamePsiElementProcessor implementation="com.dortus.bisonflex.pro.ProHernoemen" order="first"/>
     </extensions>
     <applicationListeners>
         <!-- Weet of er een echte ga-naar-actie bezig is, zodat Ctrl+zweven geen Pro-melding geeft (GaNaarActie.kt). -->

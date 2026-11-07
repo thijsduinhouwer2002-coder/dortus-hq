@@ -33,10 +33,10 @@ class ProMelding {
         return true
     }
 
-    /** De korte hint [HINT] in [editor] (op de EDT aanroepen). */
-    fun toonHint(editor: Editor) {
+    /** De korte hint [tekst] (standaard [HINT]) in [editor] (op de EDT aanroepen). */
+    fun toonHint(editor: Editor, tekst: String = HINT) {
         hints.incrementAndGet()
-        HintManager.getInstance().showInformationHint(editor, HINT)
+        HintManager.getInstance().showInformationHint(editor, tekst)
     }
 
     /** Of de melding deze sessie al getoond is (ook gelezen door de IDE-test). */
@@ -58,6 +58,8 @@ class ProMelding {
         const val TEKST = "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days."
         /** Korte hint bij latere klikken, zonder knop. */
         const val HINT = "Go to declaration across grammar and scanner is a Pro feature"
+        /** Korte hint bij hernoemen dat ook het andere bestand raakt. */
+        const val HINT_HERNOEMEN = "Rename across grammar and scanner is a Pro feature"
 
         fun getInstance(): ProMelding = ApplicationManager.getApplication().getService(ProMelding::class.java)
     }
