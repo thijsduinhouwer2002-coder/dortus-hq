@@ -217,3 +217,8 @@ Nieuwste blok onderaan.
 - Controleur: nee terecht, maar cijfer 3 te laag. Hij vond samuelreichor (eerste plugin dec 2024, door mijn filter gemist), ±$5.000 per maand bovengrens met AI-plugins, en dat LindemannRock al klanten had van vóór de winkel. Cijfer 4.
 - Beslissing: nee voor nu, cijfer 4. Reden: de mediaan is slecht en de markt klein en krimpend. Wat dit verandert: Craft 6 (±maart 2027), dan herhaalmeting.
 - Les: een filter op "eerste plugin vanaf datum X" mist makers die net daarvoor iets kleins zetten. Kijk ook naar de datum van de beste plugin.
+- Tweede platform: Statamic Marketplace, omdat het lijkt op Craft (PHP-CMS met betaalde addons) en ook een open API heeft. De API geeft geen installs, dus Packagist-downloads erbij gehaald.
+- Gemeten: 645 addons, 523 met Packagist-data. Nieuwe betaalde addons mediaan 3 downloads per maand. ±14.800 sites (BuiltWith).
+- Beslissing: nee, cijfer 2. Reden: nog kleiner dan Craft, geen bedrag van een kleine maker. Controleur akkoord, 3 correcties.
+- Les: kleine CMS'en (Craft, Statamic) hebben eerlijke winkels maar te weinig kopers. Volgende run liever een platform met miljoenen gebruikers en betaling in de winkel.
+- Volgende run: Ecwid of BigCommerce (betaling via de winkel, bereikbaar met curl), of Zotero, Anki, Home Assistant.

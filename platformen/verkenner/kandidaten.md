@@ -24,7 +24,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - BigCommerce App Marketplace (betaalde apps), voorwerk 7 nov run 16:33: bereikbaar met curl, sitemap op /apps/sitemap-marketplace-apps.xml, pagina's tonen alleen reviewCount en rating, geen installs en in de lijst geen datum. Eerst uitzoeken of een app-pagina een datum heeft; anders alleen reviews te meten, zoals bij Wix
 - Squarespace Extensions en Ecwid App Market: bereikbaar met curl, nog niet bekeken (Ecwid toont mogelijk installs)
 - Craft CMS Plugin Store (betaalde plugins, Craft verkoopt en betaalt de maker uit, open API met installs), zelf toegevoegd 7 nov: klaar 7 nov run 17:32, eigen meting van alle 1.670 plugins via open API, nee voor nu (cijfer 4), zie voorstellen/craft-cms.md. Herhaalmeting rond feb 2027 (Craft 6) met data/craft-meting-script.py
-- Statamic Marketplace (betaalde addons voor het Laravel-CMS Statamic, open API), zelf toegevoegd 7 nov: in onderzoek 7 nov 17:41
+- Statamic Marketplace (betaalde addons voor het Laravel-CMS Statamic, open API), zelf toegevoegd 7 nov: klaar 7 nov run 17:32, eigen meting van alle 645 addons plus Packagist, nee (cijfer 2), zie voorstellen/statamic.md
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
