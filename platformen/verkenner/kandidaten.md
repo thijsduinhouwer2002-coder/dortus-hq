@@ -39,7 +39,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - BOOTH (booth.pm, pixiv; digitale spullen voor VRChat: Unity-tools, avatars, kleding; BOOTH rekent af), zelf toegevoegd 7 nov: klaar 7 nov run 22:33, eigen meting van 1.920 tools (alle tools 11 mei t/m 30 sep), nog niet klaar (cijfer 6), zie voorstellen/booth.md. Uitbetaling via PayPal kan, Engelse namen bijna even goed (gedaan run 22:33). Vrij voor de volgende run: verhouding likes en verkoop bij tools, en wat BOOTH vraagt van buitenlandse winkels. Open JSON per item (booth.pm/ja/items/ID.json) met published_at, prijs, categorie en wish_lists_count (likes), geen verkoopteller
 - VRChat Avatar Marketplace en VRChat-winkels in werelden (kopen met VRC-credits in VRChat zelf), zelf toegevoegd 7 nov run 22:33: maker kg13 (note.com, apr 2026) verkocht een avatar van ¥800 op BOOTH 23 keer in 4,5 maand en in de VRChat-markt 85 keer in een maand. Past alleen als we avatars of wereldspullen maken, niet tools. Nog niet onderzocht
 - Zotero (plugins)
-- Anki (add-ons)
+- Anki (add-ons via AnkiWeb, makers verdienen via Patreon en eigen winkels): in onderzoek 7 nov 23:35 UTC (Vera)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
 - Firefox (add-ons): klaar 7 nov run 13:31, eigen steekproef van 6.000, nee (cijfer 1), zie voorstellen/firefox.md
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
