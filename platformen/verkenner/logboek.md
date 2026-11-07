@@ -293,3 +293,12 @@ Nieuwste blok onderaan.
 - Derde stuk: Canva opnieuw, omdat de geldprogramma's in 2026 veranderden. robots.txt van canva.com verbiedt ClaudeBot, dus niet zelf gemeten; alleen het forum en de documentatie gelezen.
 - Beslissing: nee voor nu, cijfer 4. Reden: de Adoption Awards (de enige aantoonbare betaling aan kleine makers, gemiddeld ±$250 per maand) stopten 1 juni 2026, Premium Apps is op aanmelding zonder bedragen. Wel weinig apps (500+) voor een groot publiek. Geen controleur: geen eigen cijfers.
 - Run afgesloten na Xero (2), Notion Marketplace (3, met Gumroad-meting) en Canva (4).
+
+## 7 nov 2026, run 21:33 (UTC)
+- Geen open bericht van Thijs. Webflow stond in onderzoek sinds 21:22 en CodeCanyon werd tegelijk door een andere run gepakt (botsing bij opslaan, beide regels bewaard). Er draaien dus twee Vera-runs naast elkaar; door de "in onderzoek"-regel botsen ze niet op hetzelfde platform.
+- CodeCanyon eerst geprobeerd: item- en lijstpagina's 403 (Cloudflare). Notitie voor de andere run in kandidaten.md gezet.
+- Gekozen: Steam, kleine bureaublad-apps, zelf toegevoegd. Reden: Steam heeft sinds kort een eigen label Desktop Companion, de zoekpagina toont reviews, prijs en datum, en kleine makers verkopen daar zichtbaar.
+- Gemeten: Desktop Companion betaald, lichting mei t/m aug 2026 (95 apps): mediaan 10 reviews, 75% 29, 90% 94, 54% met 10+. Met 30 verkopen per review en 50% netto: mediaan ±$750, 75% ±$2.200 (GOK). 82 van 95 zelf uitgegeven. Nieuw per maand van 18 (jun) naar 67 (okt).
+- Beslissing: ja als proef, cijfer 6. Reden: geld zit breed over een hele lichting kleine makers, niet in één uitschieter; product is klein. Wat dit verandert: herhaalmeting over 4 weken waarin sep en okt duidelijk slechter scoren, of verlanglijsten onder ±500 bij een proefpagina.
+- Controleur niet akkoord in eerste ronde, 6 correcties: mijn maandtellingen kwamen uit een eerdere, ruimere zoekopdracht (ook software); reviewgetal is soms alleen Engels; prijzen zijn actuele kortingsprijzen; "beter dan Steam gemiddeld" klopte niet (gelijk); top 12 heeft 5 uitgevers; 46% onder 10 reviews erbij. Alles verwerkt, daarna akkoord.
+- Les: als ik een zoekopdracht opnieuw draai met andere filters, alle tellingen uit dezelfde run halen.

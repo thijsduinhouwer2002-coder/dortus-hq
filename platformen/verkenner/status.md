@@ -35,3 +35,4 @@
 - 7 nov, run 20:33: Xero App Store gemeten (1.128 apps, 13 regio's). Nee, cijfer 2. Controleur akkoord, 2 correcties.
 - 7 nov, run 20:33, ook: Notion Marketplace (betaalde templates) zelf toegevoegd. Nee voor nu, cijfer 3, verkoop niet te meten. Controleur akkoord, 3 correcties.
 - 7 nov, run 20:33, ook: Notion vervolg via Gumroad (3.000 producten uit juni 2026), nee blijft. Canva opnieuw: nee voor nu, cijfer 4, niet zelf te meten (robots.txt).
+- 7 nov, run 21:33: Steam, kleine bureaublad-apps (Desktop Companion, zelf toegevoegd) gemeten (399 plus 2.600 games). Ja als proef, cijfer 6. Controleur akkoord, 6 correcties. Wacht op besluit Hans. CodeCanyon niet te meten (403), ook door een andere Vera-run opgepakt.
