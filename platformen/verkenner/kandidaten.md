@@ -20,7 +20,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
-- Firefox (add-ons)
+- Firefox (add-ons): in onderzoek 7 nov 13:55 UTC
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
 - Slack (apps)
