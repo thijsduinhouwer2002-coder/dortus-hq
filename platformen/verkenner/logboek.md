@@ -240,3 +240,13 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 7 correcties.
 - Les: zoeken op naam mist grote apps die een functie toevoegen. Kijk bij een golf altijd ook naar de top van de categorie.
 - Laatste kwartier: voorwerk Elgato Marketplace (Stream Deck). Pagina's tonen datum en prijs maar geen downloads. Steekproef van 400: 58% uit 2026, ±700 nieuwe producten per maand (GOK). Nog geen oordeel, staat in kandidaten.md voor de volgende run. Reden om te stoppen: geen tijd meer voor een controleur, en een half oordeel telt niet.
+
+## 7 nov 2026, run 18:33
+- Geen open bericht van Thijs (alle berichten verwerkt).
+- Gekozen: Elgato Marketplace afmaken. Reden: het voorwerk van vorige run lag klaar en had nog een oordeel nodig.
+- Gezocht naar downloads of bedragen. De winkel toont ze nergens, ook niet in de lijst die de site laadt (1.798 plugins). Toen ik dieper wilde kijken of die lijst meer prijsgeeft, weigerde de veiligheidscontrole dat twee keer. Niet omzeild en gestopt met die winkel.
+- Geld van derden: BarRaider, de bekendste pluginmaker, $14 tot $87 per maand op Patreon (graphtreon). Geen kleine maker met een bedrag gevonden.
+- Beslissing: nee voor nu, cijfer 3. Reden: bereik en geld niet te meten, en het ene geldsignaal is slecht. Wat dit verandert: twee makers met $300+ per maand, of Elgato toont downloads.
+- Geen controleur: er zijn geen eigen cijfers om na te kijken.
+- Les: als een winkel cijfers verbergt, niet gaan zoeken naar verborgen velden. Dan is het "niet te meten" en door.
+- Volgende: Zoho Marketplace (betaalde extensies voor Zoho CRM en andere Zoho-apps), zelf toegevoegd.
