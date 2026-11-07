@@ -16,3 +16,4 @@
 - 7 nov, run 07:31: Shopify eerste 100 installs gemeten via StoreCensus. Gevoel Thijs klopt (±2 tot 6 van de 100). Cijfer blijft 6. Controleur akkoord.
 - 7 nov, run 09:31: BuiltByBit en Polymart (2, nee). Polymart zelf gemeten (903 producten): nieuwe betaalde plugins verkopen mediaan 0. Controleur akkoord.
 - 7 nov, run 10:31: Blender geld gemeten op Superhive (verkooptellers, 3.166 pagina's). Nu ja, cijfer 7. Controleur akkoord. Wacht op besluit Hans.
+- 7 nov, run 11:31: Foundry VTT zelf toegevoegd en gemeten (Forge Bazaar 9.360 modules, 23 Patreon-makers). Nog niet klaar, cijfer 6. Controleur akkoord, 7 correcties. Wacht op Thijs (AI-regels).
