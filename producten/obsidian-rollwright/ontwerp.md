@@ -139,3 +139,28 @@ W8. **Voorbeeld in het invoerveld van het paneel** is `2d20kh1 + 3`. Dat is het 
 
 Nagekeken door een controleur (agent, 7 nov 12:45): bekeek alle tien plaatjes, alle punten klopten, akkoord voor de plugin en nee voor de winkelplaatjes terecht. Voegde toe: de goedkope weg voor W1, de buit die niet in de geschiedenis komt, en W8. Hij vond punt 7 het niet waard (de zijbalk van Obsidian is vast); ik laat het staan als klein punt, want een smal paneel komt ook voor bij een gesplitst scherm.
 
+
+## Beoordeling 6, 7 nov 2026 13:45 (winkelplaatjes, tak `claude/obsidian-2026-11-07-r` 408bf69, run 42376919846)
+
+Ik startte de run zelf op tak r (Olafs commit van 13:16 had nog geen run). RUN.txt klopt. Bekeken: `winkel-1-lezen`, `winkel-1-lezen-donker`, `winkel-2-live-preview`, `winkel-3-geschiedenis` en `-donker` in `schermen/rollwright/claude-obsidian-2026-11-07-r/`.
+
+**Goed, afgevinkt:**
+- **W1:** in `winkel-2` staat de Perception-regel als `dice: 1d20 + 4|text(Perception)` tussen de uitkomsten. Je leest "dit typ je, dit krijg je". Goed.
+- **W2:** de tolwachter als blokuitkomst vult de notitie en laat meteen een tweede functie zien. Het onderste derde is nog leeg; dat is goed genoeg. Bijsnijden mag, hoeft niet.
+- **W3:** geen statusbalk, geen rood icoon.
+- **W4:** buit in kleine letters.
+- **W5:** één spatie na de label in Live Preview, gelijk aan lezen.
+
+**Nog nodig voor akkoord (klein werk):**
+- **W6a. Paarse focusrand rond de buit, in `winkel-1` en `winkel-3`, licht en donker.** Dit is het eerste plaatje; de rand oogt als een selectie of een fout, in donker nog meer. Na de laatste klik de focus weghalen (bijvoorbeeld `document.activeElement.blur()` of een klik in de lege kop) voor elke opname.
+- **W8. Placeholder `2d20kh1 + 3` in het paneel** staat groot in `winkel-3`. Wordt `1d20 + 5`. Eén tekst in de code, en het is het eerste wat je in het paneel leest.
+
+**Graag erbij, geen eis:**
+- In `winkel-3` (naast het paneel) loopt de buit over twee regels ("a bottle of / river wine"). Samen met de rand lijkt dat een fout. Een kortere buit (bijvoorbeeld "a rusty key" in plaats van "a map with one road crossed out") houdt hem op één regel.
+- In `winkel-3` staan de buit en de tolwachter niet in de geschiedenis, omdat de test er niet op klikt. Een kijker kan denken dat de geschiedenis worpen mist. Klik ze ook aan (en kijk dan of een blokuitkomst netjes in het paneel staat), of laat het zo; het paneel heet geschiedenis van klikken.
+- De zin van de tolwachter verschilt tussen `winkel-1` en `winkel-2` (opnieuw gegooid). Niet erg, maar dezelfde uitkomst in alle plaatjes oogt rustiger. Kan met een vaste beginwaarde voor het toeval in de demokluis, als dat makkelijk is; anders laten.
+- W7 (plaatje met de skins) blijft een mooie extra.
+
+**Besloten:** winkelplaatjes nog `nee`, alleen om W6a en W8. Waarom: het eerste plaatje bepaalt of iemand installeert, en een rand die op een fout lijkt is precies wat we niet willen; beide zijn één regel werk. Zodra die twee in beeld goed zijn, geef ik akkoord zonder nieuwe eisen. De plugin zelf houdt `Akkoord: ja` voor main 38ef6eb; komt de placeholder op main, dan kijk ik of dat akkoord blijft (alleen tekst, dus naar verwachting ja).
+
+Nagekeken door een controleur (agent, 13:45): bekeek alle plaatjes, eens met elk punt. Voegde toe: de rand zit ook in `winkel-3`, de buit over twee regels, de ontbrekende worpen in de geschiedenis, en de wisselende zin.
