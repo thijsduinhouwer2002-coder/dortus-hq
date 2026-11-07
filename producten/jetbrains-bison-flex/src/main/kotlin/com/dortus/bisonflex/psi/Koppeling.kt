@@ -89,23 +89,34 @@ object Koppeling {
     fun tokensVoorScanner(scanner: PsiFile, naam: String): List<PsiElement> =
         grammaticas(scanner) { bisonToken(it, naam) != null }.mapNotNull { bisonToken(it, naam) }
 
+    /** Uitslag van [scannerGebruik]: niet gebruikt, gebruikt in deze scanners, of nog onbekend (indexeren). */
+    sealed interface ScannerGebruik {
+        data object Nee : ScannerGebruik
+        data class Ja(val scanners: List<PsiFile>) : ScannerGebruik
+        data object Indexeren : ScannerGebruik
+    }
+
     /**
-     * Of een token uit een grammatica ook in een scanner gebruikt wordt (ongeacht de licentie). Dan raakt
-     * hernoemen ook dat andere bestand.
+     * Welke scanners een token uit een grammatica gebruiken (ongeacht de licentie). Dan raakt hernoemen ook die
+     * bestanden. Tijdens het indexeren is dat niet te weten: dan [ScannerGebruik.Indexeren], nooit een gok.
      */
-    fun gebruiktInScanner(token: PsiElement): Boolean {
-        if (token.node.elementType != B.TOKEN_NAME) return false
+    fun scannerGebruik(token: PsiElement): ScannerGebruik {
+        if (token.node.elementType != B.TOKEN_NAME) return ScannerGebruik.Nee
         val naam = token.text
         val project = token.project
-        if (DumbService.isDumb(project)) return true
+        if (DumbService.isDumb(project)) return ScannerGebruik.Indexeren
         val psi = PsiManager.getInstance(project)
-        val grammatica = token.containingFile ?: return false
+        val grammatica = token.containingFile ?: return ScannerGebruik.Nee
         val eerste = bisonToken(grammatica, naam)
-        return FileTypeIndex.getFiles(FlexFileType, GlobalSearchScope.projectScope(project)).any { vf ->
-            val f = psi.findFile(vf) ?: return@any false
-            naam in flex(f).inActies && startConditie(f, naam) == null && eerste in tokensVoorScanner(f, naam)
-        }
+        val scanners = FileTypeIndex.getFiles(FlexFileType, GlobalSearchScope.projectScope(project))
+            .sortedBy { it.path }
+            .mapNotNull { psi.findFile(it) }
+            .filter { f -> naam in flex(f).inActies && startConditie(f, naam) == null && eerste in tokensVoorScanner(f, naam) }
+        return if (scanners.isEmpty()) ScannerGebruik.Nee else ScannerGebruik.Ja(scanners)
     }
+
+    /** Of hernoemen van [token] ook een scanner zou raken; tijdens indexeren voor de zekerheid true. */
+    fun gebruiktInScanner(token: PsiElement): Boolean = scannerGebruik(token) != ScannerGebruik.Nee
 
     /** Vervangt de tekst van een blad, met hetzelfde tokentype (voor hernoemen). */
     fun vervang(blad: ASTNode?, tekst: String) {

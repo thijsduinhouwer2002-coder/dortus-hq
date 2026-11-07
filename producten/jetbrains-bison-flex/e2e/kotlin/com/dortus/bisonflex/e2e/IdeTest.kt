@@ -54,7 +54,11 @@ interface IcoonOpAfstand {
 @Remote("com.dortus.bisonflex.pro.ProMelding", plugin = "com.dortus.bisonflex")
 interface ProMeldingOpAfstand {
     fun isGetoond(): Boolean
+    fun isGetoondVoor(actie: String): Boolean
     fun aantalHints(): Int
+    fun aantalHintsZonderEditor(): Int
+    fun laatsteHint(): String?
+    fun laatsteMelding(): String?
 }
 
 /**
@@ -151,11 +155,13 @@ class IdeTest {
                 structuurBij(naam, "calc.l")
                 scherm("$naam-calc-l.png")
                 proMelding(naam)
+                // Hernoemen na de ga-naar-balloon (Daan, beoordeling 8), in Hernoemen.kt.
+                hernoemen(this, naam)
                 kleurenpagina(naam)
             }
     }
 
-    private fun Driver.pauze() = Thread.sleep(3_000)
+    internal fun Driver.pauze() = Thread.sleep(3_000)
 
     /** Cursor naar het einde van het bestand, zodat er geen geel lampje in beeld staat. */
     private fun Driver.cursorNaarEinde() {
@@ -248,13 +254,13 @@ class IdeTest {
     }
 
     /** Regel (vanaf 0) van de cursor in de open editor, of -1. */
-    private fun Driver.cursorRegel(): Int {
+    internal fun Driver.cursorRegel(): Int {
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return -1
         return withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) { editor.getCaretModel().getLogicalPosition().getLine() }
     }
 
     /** Regel (vanaf 0) waarop [tekst] begint in de open editor. */
-    private fun Driver.regelVan(tekst: String): Int {
+    internal fun Driver.regelVan(tekst: String): Int {
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return -1
         return withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
             val d = editor.getDocument()
@@ -262,13 +268,13 @@ class IdeTest {
         }
     }
 
-    private fun wacht(seconden: Int, klaar: () -> Boolean): Boolean {
+    internal fun wacht(seconden: Int, klaar: () -> Boolean): Boolean {
         repeat(seconden) { if (klaar()) return true; Thread.sleep(1_000) }
         return klaar()
     }
 
     /** Cursor op [tekst] plus [extra] tekens in de open editor. */
-    private fun Driver.cursorOp(tekst: String, extra: Int) {
+    internal fun Driver.cursorOp(tekst: String, extra: Int) {
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return println("DORTUS-E2E geen editor")
         val regel = withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
             val plek = editor.getDocument().getText().indexOf(tekst)
@@ -313,18 +319,18 @@ class IdeTest {
     }
 
     /** Tekst typen in het venster met de focus, via xdotool (los van de Driver, dus ook in een modale dialoog). */
-    private fun typ(tekst: String) {
+    internal fun typ(tekst: String) {
         val code = ProcessBuilder("xdotool", "type", "--delay", "60", tekst).inheritIO().start().waitFor()
         println("DORTUS-E2E xdotool type '$tekst': code $code")
     }
 
-    private fun toets(naam: String) {
+    internal fun toets(naam: String) {
         val code = ProcessBuilder("xdotool", "key", naam).inheritIO().start().waitFor()
         println("DORTUS-E2E xdotool key $naam: code $code")
     }
 
     /** Id van het actieve venster (de IDE of een dialoog), of null. */
-    private fun actiefVenster(): String? = try {
+    internal fun actiefVenster(): String? = try {
         val p = ProcessBuilder("xdotool", "getactivewindow").redirectErrorStream(true).start()
         val uit = p.inputStream.bufferedReader().readText().trim()
         if (p.waitFor() == 0 && uit.isNotEmpty() && uit.all { it.isDigit() }) uit else null
@@ -336,7 +342,7 @@ class IdeTest {
      * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
      * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
      */
-    private fun scherm(bestand: String) {
+    internal fun scherm(bestand: String) {
         val doel = schermen.resolve(bestand)
         val venster = actiefVenster()
         println("DORTUS-E2E $bestand: venster ${venster ?: "geen, heel scherm"}")
