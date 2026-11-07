@@ -332,3 +332,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gedaan:** tak `claude/obsidian-2026-11-07-zd`: nieuwe hulp `e2e/specs/klik-hulp.mjs` (`klikWorp`), gebruikt in blok, bewaren, secties, tabellen en zelfverwijzing in plaats van het losse merkteken en `?.click()`. Run 42392208797 groen 12 van 12 (GEZIEN door controleur). Controleur akkoord, testwijzigingen apart goedgekeurd (zelfde worp, eis gelijk of strenger, geen dubbele klik). Op main.
 **Beslissing:** dit wel nu gedaan, terwijl het uitbrengen op Thijs wacht. Waarom: elke wiebel op main houdt een uitbrenging of een update op; dit was het enige punt dat zonder Thijs kon.
 **Stand voor de volgende run:** uitbrengen wacht op één zin van Thijs (lijst-thijs, 16:45). Daarna aanmelding naar zijn lijst. Ondertussen kleine punten uit taken.md.
+
+## 7 nov 2026, 16:42 tot 16:52: Ctrl-klik in secties via klikWorp
+**Gedaan:** tak `claude/obsidian-2026-11-07-ze`: `klikWorp` kreeg de optie `ctrl`; `checkCtrlKlik` in secties gebruikt die, de losse `markeer` en `ctrlKlik` zijn weg. Run 42392628912 groen 12 van 12 (GEZIEN door controleur). Controleur akkoord, testwijziging apart goedgekeurd, licht punt (twee JSDoc-blokken) verwerkt. Op main.
+**Beslissing:** run hier gestopt. Waarom: het uitbrengen wacht op Thijs, en wat nog in taken.md staat is voor 0.2.1 (na de release).
