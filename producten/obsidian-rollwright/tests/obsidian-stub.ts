@@ -74,24 +74,33 @@ export function requireApiVersion(version: string): boolean {
 	return true;
 }
 
-/** A tiny element: enough for a modal to put text in. */
+/** A tiny element: enough for a modal or a settings row to put text and classes in. */
 export interface FakeEl {
 	tag: string;
 	text: string;
+	cls: string[];
 	children: FakeEl[];
-	createEl(tag: string, options?: { text?: string }): FakeEl;
+	createEl(tag: string, options?: FakeElOptions): FakeEl;
+	createDiv(options?: FakeElOptions): FakeEl;
+	createSpan(options?: FakeElOptions): FakeEl;
 	empty(): void;
 }
-function fakeEl(tag = "div", text = ""): FakeEl {
+type FakeElOptions = { text?: string; cls?: string | string[] };
+export function fakeEl(tag = "div", text = "", cls: string[] = []): FakeEl {
+	const create = (child: string, options?: FakeElOptions) => {
+		const classes = options?.cls === undefined ? [] : ([] as string[]).concat(options.cls);
+		const made = fakeEl(child, options?.text ?? "", classes);
+		el.children.push(made);
+		return made;
+	};
 	const el: FakeEl = {
 		tag,
 		text,
+		cls,
 		children: [],
-		createEl: (child, options) => {
-			const made = fakeEl(child, options?.text ?? "");
-			el.children.push(made);
-			return made;
-		},
+		createEl: create,
+		createDiv: (options) => create("div", options),
+		createSpan: (options) => create("span", options),
 		empty: () => {
 			el.children.length = 0;
 		},
@@ -123,9 +132,10 @@ export class Modal {
 /** Buttons made through Setting.addButton, newest last, so a test can press one. */
 export const buttons: { text: string; press: () => void }[] = [];
 /** Every Setting made, with its name, description and dropdown options, so a test can read a settings tab. */
-export const settingsMade: { name: string; desc: string; options: string[]; texts: ((value: string) => void)[] }[] = [];
+export const settingsMade: { name: string; desc: string; options: string[]; texts: ((value: string) => void)[]; infoEl: FakeEl }[] = [];
 export class Setting {
-	private readonly made = { name: "", desc: "", options: [] as string[], texts: [] as ((value: string) => void)[] };
+	readonly infoEl = fakeEl();
+	private readonly made = { name: "", desc: "", options: [] as string[], texts: [] as ((value: string) => void)[], infoEl: this.infoEl };
 	constructor(_containerEl?: unknown) {
 		settingsMade.push(this.made);
 	}

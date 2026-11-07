@@ -7,6 +7,9 @@
 - The settings of Rollwright can be found with the settings search of Obsidian 1.13 and later. Older versions show the same settings as before.
 - Error messages now say what to type to fix the problem, with an example. For instance `dice: 2d6 +` shows: "The formula ends too early: it ends with +. Add a number or a die after it, like 2d6 + 1."
 - The buy button shows the price: Buy for $6.
+- The Skins settings show a small preview of Classic, Parchment and Arcane with an example result, also before you buy. Choosing a paid skin still needs a key.
+- The Skins settings now read Skin, then Get the paid skins ("Parchment and Arcane. One payment, yours to keep."), then License key.
+- The license key text no longer names Polar: "Paste the key from your purchase email and press Activate. It is checked online at most once every 30 days."
 
 ## 0.2.0
 
