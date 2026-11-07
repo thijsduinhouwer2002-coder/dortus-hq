@@ -14,6 +14,6 @@
 - **E2e main (GEZIEN, 7 nov 11:25):** run 42365261005 op main was rood (blokworp met een getrokken `***`); gerepareerd, `|line` slaat losse lijnen over, run 42367863119 groen 8 van 8, 556 unittests.
 - **Daan punt 6 en 9 (GEZIEN, 7 nov 12:25):** geschiedenis toont nette namen in plaats van flag- en linkcode, run 42371937550 groen, 569 unittests, op main.
 - **Winkelplaatjes (GEZIEN, 7 nov 13:30):** Daan W1 tot W4 op main (code in beeld, tolwachter als blok, geen statusbalk, buit in kleine letters), run 42376919846 groen 11 van 11, controleur akkoord; Daan moet ze nog keuren.
-- **Fout gerepareerd (GEZIEN, 7 nov 14:22):** de eerste worp is nu gelijk in lezen en Live Preview (run 42380865200 groen 11 van 11, 574 unittests). Nog na te kijken: Live Preview kan na een klik in lezen de oude worp tonen.
+- **Fout gerepareerd (GEZIEN, 7 nov 14:22):** de eerste worp is nu gelijk in lezen en Live Preview (run 42380865200 groen 11 van 11, 574 unittests). Sinds 14:50 ook gelijk na een klik in de andere weergave (run 42382637238 groen 12 van 12, 580 unittests).
 - **Winkelplaatjes (GEZIEN, 7 nov 14:35):** Daan W6a en W8 op main (geen hover-rand, placeholder `1d20 + 5`), run 42381445937 groen; Daan gevraagd te keuren.
 - **Volgende:** Daans oordeel over de winkelplaatjes (winkel-3 sinds 14:37 met een nette geschiedenis); lancering voorbereiden (README met plaatje, schermafbeeldingen, lanceerberichten); Handmatige test door Thijs staat nog op de lijst (testpakket vernieuwd 6 nov 21:40); zelf testen in de cloud werd geweigerd door de veiligheidscontrole.

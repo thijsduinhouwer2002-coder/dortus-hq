@@ -1274,6 +1274,36 @@ function replaceCodeInNote(markdown, line, index, formula, replacement) {
   return lines.join("\n");
 }
 
+// src/result-listeners.ts
+var ResultListeners = class {
+  constructor() {
+    this.byKey = /* @__PURE__ */ new Map();
+  }
+  /** Returns the function that stops listening; call it when the widget goes away. */
+  on(key, listener) {
+    let set = this.byKey.get(key);
+    if (!set) {
+      set = /* @__PURE__ */ new Set();
+      this.byKey.set(key, set);
+    }
+    set.add(listener);
+    return () => {
+      const current = this.byKey.get(key);
+      if (!current) return;
+      current.delete(listener);
+      if (current.size === 0) this.byKey.delete(key);
+    };
+  }
+  emit(key, outcome) {
+    var _a;
+    for (const listener of [...(_a = this.byKey.get(key)) != null ? _a : []]) listener(outcome);
+  }
+  /** How many keys have a listener; for tests. */
+  get size() {
+    return this.byKey.size;
+  }
+};
+
 // src/rollers/markdown.ts
 var TRAILING_ID = /\s\^([A-Za-z0-9-]+)\s*$/;
 var ID_ONLY = /^\^([A-Za-z0-9-]+)\s*$/;
@@ -2076,6 +2106,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
   }
   let shown = null;
   const show = async (outcome) => {
+    if (outcome === shown) return;
     shown = outcome;
     await showOutcome(plugin, target, outcome, sourcePath, component);
   };
@@ -2140,6 +2171,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
     else void rerollNow();
   });
   target.addEventListener("mousedown", (event) => event.preventDefault());
+  component.register(plugin.resultListeners.on(key, (outcome) => void show(outcome)));
   if (hideFirst && !plugin.hasResult(key, keep)) {
     showBlank(target, formula);
     return;
@@ -2551,6 +2583,8 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
     this.results = /* @__PURE__ */ new Map();
     /** First rolls still on their way (a table reads a note first), so a second view of the same code waits for it. */
     this.pending = /* @__PURE__ */ new Map();
+    /** Widgets per key, told about every new result so all views of a place show the same. */
+    this.resultListeners = new ResultListeners();
     /** Results of `dice+:`, written to disk with the settings. */
     this.kept = /* @__PURE__ */ new Map();
     this.skinnedDocuments = /* @__PURE__ */ new Set();
@@ -2753,6 +2787,7 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
       if (oldest !== void 0) this.results.delete(oldest);
     }
     this.results.set(key, outcome);
+    this.resultListeners.emit(key, outcome);
   }
   async addToHistory(outcome, formula, sourcePath) {
     this.settings.history.unshift({
