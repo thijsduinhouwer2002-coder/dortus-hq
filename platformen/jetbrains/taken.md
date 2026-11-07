@@ -5,7 +5,9 @@
 - [x] Stappen om verkoper te worden op JetBrains Marketplace op `organisatie/lijst-thijs.md` gezet, nagekeken (7 nov). Geen vaste kosten, 15% afdracht, beoordeling betaalde plugin binnen 2 werkdagen, geen verplichte aankondigingstermijn (DERDEN).
 
 - [x] Bouwbesluit: Yacc/Bison + Lex/Flex, freemium, voor CLion. Scoreschema nagekeken (7 nov), zie `bouwbesluit-2026-11-07.md` en `organisatie/besluiten.md`.
-- [ ] Ontwerp (`producten/jetbrains-bison-flex/ontwerp.md`): wat gratis, wat betaald, toetsbare eisen, prijsvoorstel; keuren door controleur en Daan. Daarna en een IDE-test op GitHub Actions (`.github/workflows/jetbrains-bison-flex-e2e.yml`, UI-test van het IntelliJ Platform Gradle Plugin), met schermafbeeldingen licht en donker naar de tak `schermen` (kopieer die stap uit `rollwright-e2e.yml`). Ook bouwen daar, want in de cloud mocht een Gradle-test met gedownloade plugins op 7 nov niet starten. Indienen pas na groene test en `Akkoord: ja` van Daan.
+- [ ] Vaste set van 10 echte `.y`- en `.l`-bestanden kiezen en vastleggen in `producten/jetbrains-bison-flex/testdata/` met bron en commit per bestand (eis 2 van het ontwerp, vóór het bouwen).
+- [x] Ontwerp `producten/jetbrains-bison-flex/ontwerp.md` geschreven, controleur akkoord na verwerken (7 nov). Oordeel van Daan nog nodig vóór indienen, niet vóór bouwen.
+- [ ] IDE-test opzetten: en een IDE-test op GitHub Actions (`.github/workflows/jetbrains-bison-flex-e2e.yml`, UI-test van het IntelliJ Platform Gradle Plugin), met schermafbeeldingen licht en donker naar de tak `schermen` (kopieer die stap uit `rollwright-e2e.yml`). Ook bouwen daar, want in de cloud mocht een Gradle-test met gedownloade plugins op 7 nov niet starten. Indienen pas na groene test en `Akkoord: ja` van Daan.
 - [x] Meting deel 13: CLion en IDEA 2026.3 kennen `.y`, `.l`, `.tcl` niet; wat Tcl Language Support kan; Bison-plugins nog compatibel volgens gegevens; nagekeken (7 nov).
 - [x] Meting deel 12: YouTrack-vraag Tcl (38 stemmen) en Bison (8), bestaande plugins, nagekeken (6 nov).
 - [x] Meting deel 11: 302 soorten gefilterd, 47 op grootte gemeten, nagekeken (6 nov).
