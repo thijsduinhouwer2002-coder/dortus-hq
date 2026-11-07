@@ -36,6 +36,76 @@
 	margin: 0;
 }
 
+/* A result of more than one line or a block (heading, list, quote, table): a block of its own under
+   the line, same border and background, plain text size, no list bullets. widget.ts sets the class. */
+.rollwright-roll.rollwright-roll-block {
+	display: flex;
+	align-items: flex-start;
+	box-sizing: border-box;
+	width: 100%;
+	margin: var(--size-4-1) 0;
+	padding: var(--size-4-1) var(--size-4-2);
+	border-radius: var(--radius-m);
+	font-weight: var(--font-normal);
+}
+
+.rollwright-roll-block .rollwright-icon {
+	align-self: flex-start;
+	margin-top: 0.3em;
+}
+
+.rollwright-roll-block .rollwright-value {
+	display: block;
+	flex: 1;
+	min-width: 0;
+}
+
+.rollwright-roll-block .rollwright-value :is(p, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, pre) {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.rollwright-roll-block .rollwright-value :is(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, table) + * {
+	margin-top: var(--size-4-1);
+}
+
+.rollwright-roll.rollwright-roll-block .rollwright-value :is(h1, h2, h3, h4, h5, h6) {
+	font-size: inherit;
+	font-family: inherit;
+	font-variant: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+	color: inherit;
+	font-weight: var(--font-bold);
+	border: 0;
+}
+
+.rollwright-roll.rollwright-roll-block .rollwright-value :is(ul, ol, li) {
+	list-style: none;
+}
+
+.rollwright-roll-block .rollwright-value li::marker {
+	content: none;
+}
+
+.rollwright-roll-block .rollwright-value li :is(ul, ol) {
+	padding-inline-start: 1em;
+}
+
+.rollwright-roll-block .rollwright-value :is(.list-bullet, .list-collapse-indicator, .heading-collapse-indicator) {
+	display: none;
+}
+
+.rollwright-roll-block .rollwright-value blockquote {
+	padding-inline-start: var(--size-4-2);
+	border-inline-start: 2px solid var(--rollwright-border);
+}
+
+.rollwright-roll-block .rollwright-value table {
+	margin: 0;
+}
+
 .rollwright-error {
 	color: var(--text-error);
 	background: transparent;

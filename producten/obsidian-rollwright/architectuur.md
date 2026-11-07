@@ -33,7 +33,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `modify.ts`: de tekst waarmee een `dice-mod:` code in de notitie wordt vervangen.
 
 ### src/ui/ (wat de gebruiker ziet)
-- `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview.
+- `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview. Na het renderen bepaalt `isBlockValue` of de uitkomst meer is dan één gewone regel (meer elementen, geen `<p>`, of een `<br>`); dan krijgt het vakje `rollwright-roll-block` (`BLOCK_CLASS`), bij elke nieuwe uitkomst opnieuw bepaald. Dobbelstenen en fouten nooit.
 - `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
 - `live-preview.ts`: hetzelfde in de editor (CodeMirror).
 - `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie.
@@ -46,6 +46,10 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID`, `BUY_URL` en `PRICE_TEXT` (de prijs op de koopknop "Buy for $6"; ingevuld met onze Polar-organisatie, benefit en afrekenpagina; is er één leeg, dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.
 - `pro/skins.ts`: de uiterlijken van de stenen, gratis en betaald.
 - `import/dice-roller-data.ts`: haalt opgeslagen formules uit de data van de plugin Dice Roller.
+
+## styles.css
+
+- `.rollwright-roll`: het vakje in de zin. `.rollwright-roll-block`: dezelfde rand en achtergrond (de variabelen `--rollwright-*`), maar als blok met volle breedte onder de regel, koppen in gewone grootte en vet, lijsten zonder bolletjes. Daarna de skins, het skinvoorbeeld en het zijpaneel.
 
 ## Hoe het samenhangt
 

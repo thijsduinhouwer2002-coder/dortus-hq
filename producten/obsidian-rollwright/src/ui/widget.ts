@@ -8,6 +8,32 @@ import type { ModifyHandler } from "./dice-mod";
 
 export const NO_SOURCE_NOTICE = "This result comes from more than one note, so there is no single note to open.";
 export const SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
+/** On a roll whose rendered result is more than one line or a block: styles.css shows it as a block under the line. */
+export const BLOCK_CLASS = "rollwright-roll-block";
+
+/** The rendered parts of a result, looking through plain wrapper divs. */
+function renderedParts(el: Element): Element[] {
+	const parts: Element[] = [];
+	for (let i = 0; i < el.childElementCount; i++) {
+		const child = el.children.item(i);
+		if (child === null) continue;
+		if (child.tagName === "DIV") parts.push(...renderedParts(child));
+		else parts.push(child);
+	}
+	return parts;
+}
+
+/**
+ * True when a rendered result does not fit in a sentence: more than one part, a part that is not a
+ * paragraph (heading, list, quote, code block, table, line), or a paragraph over more than one line.
+ */
+export function isBlockValue(value: Element): boolean {
+	const parts = renderedParts(value);
+	if (parts.length > 1) return true;
+	const [only] = parts;
+	if (only === undefined) return false;
+	return only.tagName !== "P" || only.querySelector("br") !== null;
+}
 
 function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error);
@@ -21,12 +47,14 @@ function tooltipFor(outcome: RollOutcome): string {
 function showBlank(target: HTMLElement, formula: string): void {
 	target.empty();
 	target.removeClass("rollwright-error");
+	target.removeClass(BLOCK_CLASS);
 	setIcon(target.createSpan({ cls: "rollwright-icon" }), "dices");
 	setTooltip(target, formula);
 }
 
 function showError(target: HTMLElement, formula: string, error: unknown): void {
 	target.empty();
+	target.removeClass(BLOCK_CLASS);
 	target.addClass("rollwright-error");
 	const message = errorMessage(error);
 	target.createSpan({ text: `dice: ${formula}` });
@@ -37,6 +65,7 @@ function showError(target: HTMLElement, formula: string, error: unknown): void {
 async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component): Promise<void> {
 	target.empty();
 	target.removeClass("rollwright-error");
+	target.removeClass(BLOCK_CLASS);
 	const { flags } = outcome;
 	if (!flags.nodice) {
 		setIcon(target.createSpan({ cls: "rollwright-icon" }), "dices");
@@ -49,6 +78,9 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatResult(outcome.total, flags)}`);
 	} else {
 		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
+		// Decided again on every new result, so a click from a block to one line (or back) fits.
+		// A render that finished after a newer result was shown no longer sits in target.
+		if (value.parentElement === target && isBlockValue(value)) target.addClass(BLOCK_CLASS);
 	}
 	setTooltip(target, tooltipFor(outcome));
 }
