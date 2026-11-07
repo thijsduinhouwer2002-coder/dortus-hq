@@ -67,6 +67,11 @@ Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk 
 - **Chrome:** gebruik alleen de browser van Thijs' HP (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0). Kies nooit een andere browser.
 - Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen. Dortus-taken heten Stijn, Hans, Vera, Olaf, Jet (of beginnen met "Dortus").
 
+## Wat je mag lezen en schrijven (besluit Thijs, 7 nov 2026)
+- **Lezen:** alles wat openbaar is. Elke website, openbare API of open data, ook de winkel-API's van bijvoorbeeld SketchUp (extensions.sketchup.com/warehouse/...) en de Autodesk-winkel. Rustig, en bij anderen alleen lezen.
+- **Schrijven en bewerken:** alles in de repo's van thijsduinhouwer2002-coder. De afspraken hieronder over wie waar schrijft blijven gelden, zodat jullie elkaars werk niet overschrijven.
+- Wat nooit mag: inloggen, accounts aanmaken, betalen, gegevens of wachtwoorden invullen, voorwaarden accepteren, andermans spullen verwijderen, posten onder de naam van Thijs.
+
 ## Webpagina's lezen
 - Het netwerk van de cloudomgeving staat open (Full). Lees webpagina's daarom met `curl` in Bash (bijvoorbeeld `curl -sL <url>`), of met een klein script. Dat vraagt geen toestemming.
 - De leestool WebFetch kan per website om toestemming vragen. In een run zit niemand om te antwoorden, dus dan sta je stil. Gebruik WebFetch alleen als `curl` niet werkt (bijvoorbeeld een pagina die alleen in een browser laadt), en stop als er een toestemmingsvraag komt: noteer de site en ga door met ander werk.
