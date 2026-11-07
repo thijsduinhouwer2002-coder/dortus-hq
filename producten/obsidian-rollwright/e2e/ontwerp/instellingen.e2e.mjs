@@ -16,7 +16,17 @@ const toestand = (label) => browser.execute((label) => {
 }, label);
 
 const sluit = async () => {
+	try { await browser.switchToWindow(hoofd); } catch (e) {}
 	await browser.execute(() => { try { window.app.setting.close(); } catch (e) {} document.querySelectorAll(".modal-container").forEach((c) => c.remove()); });
+	await browser.pause(400);
+	try {
+		for (const h of await browser.getWindowHandles()) {
+			if (h === hoofd) continue;
+			await browser.switchToWindow(h);
+			await browser.closeWindow();
+		}
+	} catch (e) { console.log("INSTELLINGEN sluiten", String(e).slice(0, 200)); }
+	await browser.switchToWindow(hoofd);
 	await browser.pause(400);
 };
 
@@ -29,25 +39,62 @@ const naarTab = async () => {
 	return `tab niet gevonden (${items.length} items)`;
 };
 
+let hoofd;
+const vensters = async (label) => {
+	const handles = await browser.getWindowHandles();
+	const uit = [];
+	for (const h of handles) {
+		await browser.switchToWindow(h);
+		const info = await browser.execute(() => `${document.title} | settings=${!!document.querySelector(".vertical-tab-content")} | ${window.innerWidth}x${window.innerHeight}`);
+		uit.push(`${h === hoofd ? "HOOFD" : "ANDER"} ${info}`);
+	}
+	await browser.switchToWindow(hoofd);
+	console.log("INSTELLINGEN vensters", label, JSON.stringify(uit));
+	return handles;
+};
+
+// Zoek het venster met de instellingen (in nieuwe Obsidian een eigen venster) en blijf daar.
+const naarInstellingen = async () => {
+	for (const h of await browser.getWindowHandles()) {
+		await browser.switchToWindow(h);
+		if (await browser.execute(() => !!document.querySelector(".vertical-tab-content, .modal.mod-settings"))) return h;
+	}
+	await browser.switchToWindow(hoofd);
+	return null;
+};
+
 const vastleggen = async (naam) => {
-	await browser.pause(900);
+	await browser.pause(1200);
 	console.log("INSTELLINGEN", await toestand(naam));
-	const open = await browser.execute(() => !!document.querySelector(".modal.mod-settings"));
-	if (!open) return false;
-	console.log("INSTELLINGEN", naam, await naarTab());
-	await browser.pause(700);
+	await vensters(naam);
+	const h = await naarInstellingen();
+	if (!h) return false;
+	console.log("INSTELLINGEN", naam, "venster", h === hoofd ? "hoofd" : "eigen", await naarTab());
+	await browser.pause(800);
 	await shot(`${naam}-boven`);
-	const tekst = await browser.execute(() => document.querySelector(".modal.mod-settings .vertical-tab-content")?.innerText ?? "");
+	const tekst = await browser.execute(() => document.querySelector(".vertical-tab-content")?.innerText ?? "");
 	console.log("INSTELLINGEN TEKST", naam, JSON.stringify(tekst));
-	await browser.execute(() => { const el = document.querySelector(".modal.mod-settings .vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight; });
+	const hoog = await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); return el ? `${el.scrollHeight}/${el.clientHeight}` : "-"; });
+	console.log("INSTELLINGEN hoogte", naam, hoog);
+	await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight / 2; });
+	await browser.pause(400);
+	await shot(`${naam}-midden`);
+	await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight; });
 	await browser.pause(400);
 	await shot(`${naam}-onder`);
+	// Toetsenbord: Tab door de instellingen, kijk waar de focus staat.
+	await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = 0; });
+	for (let i = 0; i < 4; i++) await browser.keys(["Tab"]);
+	await browser.pause(300);
+	await shot(`${naam}-tab-focus`);
+	await browser.switchToWindow(hoofd);
 	return true;
 };
 
 describe("Instellingen van Rollwright in beeld", function () {
 	before(async function () {
 		fs.mkdirSync(SHOTS, { recursive: true });
+		hoofd = await browser.getWindowHandle();
 		// Leg vast wie een venster weghaalt, met de aanroepstapel.
 		await browser.execute(() => {
 			window.__weg = [];
@@ -107,10 +154,15 @@ describe("Instellingen van Rollwright in beeld", function () {
 			if (ok) {
 				await browser.executeObsidian(({ app }) => app.changeTheme("obsidian"));
 				await browser.pause(1200);
-				await shot("tabid-donker-boven");
-				await browser.execute(() => { const el = document.querySelector(".modal.mod-settings .vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight; });
-				await browser.pause(400);
-				await shot("tabid-donker-onder");
+				if (await naarInstellingen()) {
+					await naarTab();
+					await browser.pause(600);
+					await shot("tabid-donker-boven");
+					await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight; });
+					await browser.pause(400);
+					await shot("tabid-donker-onder");
+					await browser.switchToWindow(hoofd);
+				}
 				await browser.executeObsidian(({ app }) => app.changeTheme("moonstone"));
 			} else await shot("tabid-niets");
 		} catch (e) { console.log("INSTELLINGEN tabid fout", String(e).slice(0, 300)); }
