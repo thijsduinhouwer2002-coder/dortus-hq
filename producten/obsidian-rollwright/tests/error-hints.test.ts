@@ -5,6 +5,7 @@ import { rollSpec, type RollContext } from "../src/rollers/run";
 /** Design point 2 (Daan): a message says what is wrong and what to type, with an example. */
 const NOTES: Record<string, string> = {
 	Tables: "| Name | Value |\n| --- | --- |\n| Ann | 1 |\n^people\n",
+	E: "",
 };
 
 const context: RollContext = {
@@ -125,5 +126,23 @@ describe("error messages name a fix", () => {
 		const message = await specMessage("[[Tables^people]]|Age");
 		expect(message).toMatch(/^The table has no column "Age". It has: Name, Value/);
 		expectFix(message, "|Name");
+	});
+
+	it("a number missing after a condition of r, ! or counting has an example of that kind", () => {
+		expect(messageOf("1d6r<")).toBe('A number is missing after "<". Add one, like 1d6r<2.');
+		expect(messageOf("1d6!>=")).toBe('A number is missing after ">=". Add one, like 1d6!>=5.');
+		expect(messageOf("5d10>=")).toBe('A number is missing after ">=". Add one, like 5d10>=8.');
+	});
+
+	it("an unexpected token only gets the + - * / advice after a value", () => {
+		expect(messageOf("2d6 3")).toMatch(/^Unexpected "3" at position 5\. Remove it or put \+ - \* \/ before it, like 2d6 \+ 3\.$/);
+		expect(messageOf("2d6 + *")).toBe('Unexpected "*" at position 7. Remove it, like 2d6 + 3.');
+		expect(messageOf(">=5")).toBe('Unexpected ">=" at position 1. Remove it, like 2d6 + 3.');
+	});
+
+	it("an empty note without block types says there is no text, without advice about |", async () => {
+		const message = await specMessage("[[E]]");
+		expect(message).toBe('"E" has no text to pick from. Add some text to it, like - Goblin.');
+		expect(await specMessage("[[E]]|paragraph")).toMatch(/has no matching blocks\. Check the block types after \|/);
 	});
 });

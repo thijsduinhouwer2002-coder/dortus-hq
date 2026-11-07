@@ -69,7 +69,7 @@ describe("1: when a Polar id is empty", () => {
 		const { plugin } = await load({ ids: EMPTY, stored: { licenseKey: "KEY-1", licenseCheckedAt: START, skin: "arcane" } });
 		expect(plugin.isLicensed).toBe(false);
 		new RollwrightSettingTab(plugin.app, plugin).display();
-		expect(buttons.map((b) => b.text)).not.toContain("Buy for $6");
+		expect(buttons.some((b) => /^Buy/.test(b.text))).toBe(false);
 		expect(buttons.map((b) => b.text)).not.toContain("Activate");
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).toBe(COMING_SOON);

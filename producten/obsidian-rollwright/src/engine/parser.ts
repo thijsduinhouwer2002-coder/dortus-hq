@@ -18,9 +18,12 @@ function isDiceWord(word: string): boolean {
 	return true;
 }
 
-/** For a token that cannot stand where it is. */
-function unexpected(token: Token): DiceError {
-	const fix = token.value === ")" ? "Remove it or add the ( it closes, like (2d6 + 1) * 2." : "Remove it or put + - * / before it, like 2d6 + 3.";
+/** For a token that cannot stand where it is. Only after a value can a missing + - * / be the fix. */
+function unexpected(token: Token, previous: Token | undefined): DiceError {
+	const afterValue = previous !== undefined && previous.type !== "cmp" && !(previous.type === "sym" && "+-*/^(".includes(previous.value));
+	let fix = "Remove it, like 2d6 + 3.";
+	if (token.value === ")") fix = "Remove it or add the ( it closes, like (2d6 + 1) * 2.";
+	else if (afterValue) fix = "Remove it or put + - * / before it, like 2d6 + 3.";
 	return new DiceError(`Unexpected "${token.value}" at position ${token.pos + 1}. ${fix}`);
 }
 
@@ -53,7 +56,7 @@ class Parser {
 		if (this.tokens.length === 0) throw new DiceError("The formula is empty. Write a formula after dice:, like 2d6 + 1.");
 		const node = this.additive();
 		const left = this.peek();
-		if (left) throw unexpected(left);
+		if (left) throw unexpected(left, this.tokens[this.index - 1]);
 		return node;
 	}
 
@@ -154,7 +157,7 @@ class Parser {
 			this.index++;
 			return { type: "name", name: token.value };
 		}
-		throw unexpected(token);
+		throw unexpected(token, this.tokens[this.index - 1]);
 	}
 
 	private dice(count: Node | null): Node {
@@ -246,7 +249,7 @@ class Parser {
 			if (token.type === "bang") {
 				this.index++;
 				const times = this.repeatCount();
-				modifiers.push({ kind: "explode", combine: token.value === "!!", times, conditions: this.conditions() });
+				modifiers.push({ kind: "explode", combine: token.value === "!!", times, conditions: this.conditions("1d6!>=5") });
 			} else if (token.type === "cmp") {
 				modifiers.push(this.countModifier());
 			} else if (token.type === "word") {
@@ -287,7 +290,7 @@ class Parser {
 				return { kind: "unique" };
 			default: {
 				const times = this.repeatCount();
-				return { kind: "reroll", times, conditions: this.conditions() };
+				return { kind: "reroll", times, conditions: this.conditions("1d6r<2") };
 			}
 		}
 	}
@@ -312,7 +315,7 @@ class Parser {
 	}
 
 	/** Conditions right after ! or r belong to that modifier. */
-	private conditions(): Condition[] {
+	private conditions(example: string): Condition[] {
 		const conditions: Condition[] = [];
 		for (;;) {
 			const token = this.peek();
@@ -321,7 +324,7 @@ class Parser {
 			if (score === -1) throw new DiceError(`"${token.value}" only works for counting, not on ! or r. Use it for counting, like 5d10>=8-=1.`);
 			this.index++;
 			const value = this.peek();
-			if (value?.type !== "num") throw new DiceError(`A number is missing after "${token.value}". Add one, like 1d6!>=5.`);
+			if (value?.type !== "num") throw new DiceError(`A number is missing after "${token.value}". Add one, like ${example}.`);
 			this.index++;
 			conditions.push({ op, value: Number(value.value) });
 		}

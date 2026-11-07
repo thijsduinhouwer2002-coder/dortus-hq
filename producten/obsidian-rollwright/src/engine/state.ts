@@ -32,7 +32,7 @@ export function rollDie(faces: Faces, state: State): Die {
 }
 
 export function spendStep(budget: Budget): void {
-	if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out. Make it simpler, with fewer dice and named formulas, like 4d6kh3 + 2.");
+	if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out. Make it simpler, with fewer dice and fewer named formulas, like 4d6kh3 + 2.");
 }
 
 export function makeState(options: RollOptions): State {

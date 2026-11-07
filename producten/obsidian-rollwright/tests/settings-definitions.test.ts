@@ -91,7 +91,7 @@ describe("settings search: getSettingDefinitions()", () => {
 	it("without Polar ids: no Buy, no Activate, no key field, only coming soon", async () => {
 		const { tab } = await load(EMPTY);
 		renderDefinitions(tab.getSettingDefinitions());
-		expect(buttons.map((b) => b.text)).not.toContain("Buy for $6");
+		expect(buttons.some((b) => /^Buy/.test(b.text))).toBe(false);
 		expect(buttons.map((b) => b.text)).not.toContain("Activate");
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).toBe(COMING_SOON);
