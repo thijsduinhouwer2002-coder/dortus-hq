@@ -41,8 +41,10 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: "1"
         run: |
+          # Met een .blend als startbestand toont Blender geen opstartscherm (splash).
+          /tmp/blender/blender -b --factory-startup --python-expr "import bpy; bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
           timeout 180 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
-            /tmp/blender/blender --factory-startup --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
+            /tmp/blender/blender --factory-startup /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
           ls -la e2e/screenshots/${{ matrix.blender }} || true
       - uses: actions/upload-artifact@v4
         if: always()
