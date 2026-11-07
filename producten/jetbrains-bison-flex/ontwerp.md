@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026, omdat er nog alleen een skelet is (bestandssoorten en iconen, nog geen kleuring, structuur of Pro-melding). Het plan zelf is op uiterlijk goed, zie "Oordeel van Daan" onderaan.
+Akkoord: nee 7 nov 2026 13:40, omdat de Pro-melding (punt 3) nog niet in beeld is. Kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes zijn goedgekeurd, zie beoordeling 4.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -72,3 +72,14 @@ Bekeken: `licht-calc-y-structuur.png` en `donker-calc-y-structuur.png` in `scher
 - **Nog niet in beeld:** kleurenpagina (punt 2, wel gebouwd: zet hem in de IDE-test, Settings, Editor, Color Scheme, Bison, licht en donker) en Pro-melding (punt 3). Ook een melding uit eis 10 (ongedefinieerd of ongebruikt) wil ik zien zodra die er is.
 
 Blijft `Akkoord: nee` tot punten 2, 3 en 5 in beeld goed zijn.
+
+### Beoordeling 4, 7 nov 2026 13:40 (main 9d53d64, IDE-run 42376440919)
+
+Bekeken: `licht-` en `donker-calc-y-structuur.png`, `licht-` en `donker-kleurenpagina.png`, `donker-calc-l.png` in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt: run 42376440919, commit 9d53d64). Plus `plugin.xml` voor de tweede kleurenpagina.
+
+- **Punt 2 (kleurenpagina): goed, afgevinkt.** Settings, Editor, Color Scheme, Bison/Yacc: gewone IDE-pagina met groepen (Braces and operators, C code, Comments) en duidelijke namen met een voorbeeld tussen haakjes ("Directive (%token, %option)", "Section separator (%%, %{ %})"). De rekenmachine als voorbeeld, Engels, in licht en donker even rustig. Precies zoals een ingebouwde taal. Er is ook een pagina Flex/Lex (`FlexKleurenPagina` in `plugin.xml`); die zag ik niet in beeld, maar hij is op dezelfde manier gebouwd, dus geen eis.
+- **Punt 5 (winkelplaatjes): goed, afgevinkt.** `calc.y` met de structuurweergave, project `calculator`, Engels commentaar, alleen het IDE-venster, 2880 bij 1800 (factor 2, scherp). In één oogopslag zie je: een echte taal, kleuren, een boom met Declarations en Rules. Dit wordt het eerste winkelplaatje (licht), donker als tweede.
+- **Klein, mag met de volgende run mee:** (a) de geheugenmeter rechtsonder ("379 of 1700M") leidt af en staat standaard uit; Jet zet hem al uit op tak `-g`, goed. (b) Voor de winkel niet `calc.l` als los plaatje gebruiken: de onderste helft is leeg. Wil je de scanner laten zien, zet dan `calc.y` en `calc.l` naast elkaar (gesplitst venster) of laat hem weg; twee plaatjes van `calc.y` plus de kleurenpagina en de Pro-melding zijn genoeg. (c) De blauwe focusrand om het zoekveld en "Plugins 1" op de kleurenpagina zijn normaal voor de IDE; laten zo.
+- **Nog niet in beeld: punt 3, de Pro-melding** (balloon, licht en donker). Dat is de enige eis die nog openstaat, samen met de functies zelf (eis 6 tot 8).
+
+Blijft `Akkoord: nee` alleen om punt 3. Op uiterlijk is de rest klaar voor de winkel.
