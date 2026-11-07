@@ -2,6 +2,7 @@ import { Component, Keymap, MarkdownRenderer, Notice, setIcon, setTooltip, TFile
 import { formatResult } from "../engine";
 import type RollwrightPlugin from "../main";
 import { defuseRolls } from "../rollers/defuse";
+import { stampText, type Extreme } from "../rollers/extreme";
 import { parseSpec } from "../rollers/spec";
 import type { RollOutcome } from "../rollers/run";
 import type { ModifyHandler } from "./dice-mod";
@@ -10,15 +11,34 @@ export const NO_SOURCE_NOTICE = "This result comes from more than one note, so t
 export const SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
 /** On a roll whose rendered result is more than one line or a block: styles.css shows it as a block under the line. */
 export const BLOCK_CLASS = "rollwright-roll-block";
-/** On a roll of dice that is the highest or lowest result of its formula (see rollers/extreme.ts). No style yet. */
+/** On a roll of dice that is the highest or lowest result of its formula (see rollers/extreme.ts). */
 export const MAX_CLASS = "rollwright-roll-max";
 export const MIN_CLASS = "rollwright-roll-min";
+/** The same moment under the names styles.css (Rollwright v2) uses: gold for a crit, red for a fumble. */
+export const CRIT_CLASS = "rollwright-crit";
+export const FUMBLE_CLASS = "rollwright-fumble";
+/** The small "NAT 20", "NAT 1", "MAX" or "MIN" on a crit or fumble. */
+export const STAMP_CLASS = "rollwright-stamp";
+/** On a result from a table, list, section, line or tag: text, not a number. */
+export const TEXT_CLASS = "rollwright-text";
+/** On the roll from its first click on; it stays as long as the element stays. Never on opening. */
+export const ROLLED_CLASS = "rollwright-rolled";
+
+/** The classes for a crit or fumble, for the roll and for an item in the history. */
+export function extremeClasses(extreme: Extreme | undefined): string[] {
+	if (extreme === "max") return [MAX_CLASS, CRIT_CLASS];
+	if (extreme === "min") return [MIN_CLASS, FUMBLE_CLASS];
+	return [];
+}
 
 /** The classes that belong to one result, taken off before anything new is shown. */
 function clearResultClasses(target: HTMLElement): void {
 	target.removeClass(BLOCK_CLASS);
 	target.removeClass(MAX_CLASS);
 	target.removeClass(MIN_CLASS);
+	target.removeClass(CRIT_CLASS);
+	target.removeClass(FUMBLE_CLASS);
+	target.removeClass(TEXT_CLASS);
 }
 
 /** The rendered parts of a result, looking through wrapper divs that hold elements. */
@@ -88,9 +108,10 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 	if (outcome.kind === "dice") {
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatResult(outcome.total, flags)}`);
 		// A kept result of an older version has no extreme: then nothing is added.
-		if (outcome.extreme === "max") target.addClass(MAX_CLASS);
-		else if (outcome.extreme === "min") target.addClass(MIN_CLASS);
+		for (const cls of extremeClasses(outcome.extreme)) target.addClass(cls);
+		if (outcome.extreme !== undefined) target.createSpan({ cls: STAMP_CLASS, text: stampText(outcome.formula, outcome.extreme) });
 	} else {
+		target.addClass(TEXT_CLASS);
 		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
 		// Decided again on every new result, so a click from a block to one line (or back) fits.
 		// A render that finished after a newer result was shown no longer sits in target:
@@ -147,6 +168,8 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	const rerollNow = async (): Promise<void> => {
 		try {
 			if (!modify) {
+				// Before the new result is drawn, so its content comes in with the motion of styles.css.
+				target.addClass(ROLLED_CLASS);
 				await showIfNewest(await plugin.freshResult(key, formula, sourcePath, keep));
 				return;
 			}
@@ -160,6 +183,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	const averageNow = async (): Promise<void> => {
 		try {
+			target.addClass(ROLLED_CLASS);
 			await showIfNewest(await plugin.averageResult(key, formula, sourcePath, keep));
 		} catch (error) {
 			fail(error);
