@@ -40,3 +40,4 @@
 - 7 nov, run 21:32: Shopware Store zelf toegevoegd en gemeten (6.181 extensies). Nee voor nu, cijfer 3. Controleur akkoord na 5 correcties. CodeCanyon en PrestaShop niet te meten (403).
 - 7 nov, run 21:33, ook: Mac App Store (5.769 apps). Nee, cijfer 2. Controleur akkoord, 3 correcties.
 - 7 nov, run 21:31: Webflow Marketplace (betaalde templates) opnieuw met eigen meting (11.903 pagina's, 3.103 templates met aankoopteller). Nee voor nu, cijfer 4. Controleur akkoord, kleine correcties, steekproef 9 van 9.
+- 7 nov, run 23:32: Anki (add-ons via AnkiWeb) zelf gemeten (alle 3.835 add-ons via open endpoints). Nee voor nu, cijfer 4. Controleur akkoord, 14 van 14 live gelijk.

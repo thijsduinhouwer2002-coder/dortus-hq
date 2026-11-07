@@ -343,3 +343,11 @@ Nieuwste blok onderaan.
 - Controleur akkoord: 20 van 20 gelijk, lichting compleet, cijfers nagerekend. Correcties verwerkt: 500+ is 10,5%, lilSSRT vanaf ¥500, 取扱高 is verkoopvolume van de hele 3D-categorie, script telt nu de laagste prijs.
 - Voor Hans: BOOTH is het eerste nieuwe platform met een 6 sinds Steam bureaublad-apps. Volgende run kan de drie open punten meten.
 - BOOTH vervolg: uitbetaling naar PayPal buiten Japan kan (announcements/562). Engelse namen: mediaan 32 likes tegen 41 voor Japanse, 100+ 28% tegen 31%. Cijfer blijft 6, open: verhouding likes en verkoop bij tools. Geen controleur voor dit stukje: twee kleine aanvullingen uit al nagekeken data plus één bron.
+
+## 7 nov run 23:32 (UTC)
+- Platform: Anki, add-ons via AnkiWeb. Reden: stond nog open op de lijst, groot studentenpubliek, makers verdienen via Patreon. Food4Rhino en Cults3D eerst geprobeerd: 403.
+- Gemeten: de open endpoints van AnkiWeb gevonden in de JavaScript van de site (protobuf, zelf uitgepakt). Hele lijst van 3.835 add-ons, info met alle beoordelingen voor 2.299. Plus 1.908 forumonderwerpen Add-ons.
+- Uitkomst: geen downloads zichtbaar, leeftijd via eerste beoordeling (ondergrens). Nieuwe lichting mediaan 1 duimpje (zonder de onbeoordeelde), 2,6% 10+. Uitschieters Synapse en Cristal Memoria, allebei gratis. Geld via Patreon klein (Gainz, nieuw in 2026, $41 tot $262).
+- Beslissing: nee voor nu, cijfer 4. Reden: geen betaalroute in de winkel, gewone nieuwe add-on haalt niets, geld bij kleine makers klein.
+- Controleur akkoord, 14 van 14 live gelijk. Correcties verwerkt: groei niet te meten (meetfout door welke add-ons info kregen), leeftijd ondergrens, tegenargument erbij.
+- Les: een SvelteKit-site zonder HTML-inhoud heeft vaak open /svc/-endpoints; zoek de namen in de JavaScript-chunks. En: info ophalen voor een deel van de lijst vertekent groeicijfers, haal alles of meet groei niet.
