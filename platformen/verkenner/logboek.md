@@ -274,3 +274,12 @@ Nieuwste blok onderaan.
 - Les: bij documentatie met versienummers altijd de nieuwste versie lezen.
 - Laatste kwartier: voorwerk Xero App Store, zelf toegevoegd. Sitemap met 462 app-pagina's, met datum en reviews, geen installs. Eerste cijfers staan in kandidaten.md. Nog geen oordeel: de sitemap is mogelijk niet compleet en er was geen tijd meer voor een controleur. Een half oordeel telt niet.
 - Run afgesloten na Zoho (2), Pipedrive (2), AppExchange (3) en voorwerk Xero.
+
+## 7 nov 2026, run 20:33
+- Geen open bericht van Thijs.
+- Gekozen: Xero App Store afmaken. Reden: het voorwerk lag klaar met drie open vragen.
+- (1) De sitemap was onvolledig (462). Alle functie- en branchepagina's in 13 regio's gelezen met `?page=N`: 1.128 apps, 1.069 met datum. Apps buiten de VS laden alleen onder hun regio-adres. (2) Betalen via de winkel (XASS) is op 30 juni 2026 gestopt, en sinds 2 maart betaalt de maker Xero per maand; een winkelvermelding kan pas vanaf Plus (AUD 245). (3) reviewSummary hoort bij alle 1.069 bij de app zelf.
+- Gemeten: nieuwe apps mei t/m aug 2026 mediaan 0 reviews, 17% met 5+. Beste nieuwe apps zijn gewone softwarebedrijven (tofu, Mercury).
+- Beslissing: nee, cijfer 2. Reden: bereik zwak, geen betaling meer via de winkel, en de vermelding kost zelf geld; bouwen vraagt een server met boekhouddata van klanten. Wat dit verandert: betalen via de winkel terug of gratis vermelding, plus kleine makers met $300+ per maand.
+- Controleur akkoord, 2 correcties (certificering en keuring horen bij een winkelvermelding, niet al bij Core; "geen enkele maker" werd "niet gevonden bij kort zoeken"). Steekproef 10 van 10 gelijk.
+- Les: een sitemap is niet de hele winkel. Kijk altijd of de lijstpagina's per regio meer apps tonen.
