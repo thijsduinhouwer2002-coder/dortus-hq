@@ -1,6 +1,35 @@
 # Rollwright
 
-Roll dice inside your notes. Write a formula in inline code, read the result, click to roll again. Rollwright also draws from tables, lists, sections, lines and tags, and it keeps a history that shows which note each roll came from.
+Roll dice and random tables right inside your notes. Write a formula, read the result, click to roll again.
+
+![A session note in reading view: a Perception check, trap damage, an encounter, the weather, loot and a line from the toll keeper, each rolled in place](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/reading-view.png)
+
+Made for game masters and solo players who keep their sessions in Obsidian. It uses the same `dice:` notation as the Dice Roller plugin.
+
+## What you can do
+
+- **Roll dice in a sentence.** `` `dice: 1d20 + 4` `` becomes a result you can click to roll again. Keep the highest, explode, reroll, count successes, Fudge and narrative dice.
+- **Roll on your own notes.** Pick a random row from a table, an item from a list, a block from a note, a line, or a note with a tag.
+- **Lookup tables.** Put a formula in the first header and Rollwright picks the matching row. Cells can hold rolls too.
+- **Keep or write a result.** `dice+:` keeps a result after a restart, `dice-mod:` writes it into the note after you confirm.
+- **Roll history.** A side panel shows what you rolled, from which note, and lets you roll again.
+- **Works where you write.** Reading view and Live Preview look the same, in light and dark themes.
+
+![Live Preview: the line with the cursor shows the code, the other lines show their results](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/live-preview.png)
+
+![The roll history panel next to the note, with each roll, its formula and its source note](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-history.png)
+
+## Quick start
+
+1. Install Rollwright from Community plugins and turn it on.
+2. In any note, type `` `dice: 2d6 + 3` `` (with the backticks).
+3. Switch to reading view or move the cursor away. Click the result to roll again.
+
+For a table, give it a block id such as `^loot` and write `` `dice: [[Treasure^loot]]` ``.
+
+All rolling is free. Two extra looks, Parchment and Arcane, are a one-time $6 purchase (see [Paid skins](#paid-skins)).
+
+## Reference
 
 Rollwright is at version 0.2.0. Before each release, automated tests run it in the real Obsidian app, in reading view and Live Preview.
 
@@ -128,6 +157,10 @@ Rollwright has no telemetry and needs no account. Its only network connection is
 ## Limits
 
 Up to 1000 dice per group, 10000 dice per formula, 1000000 sides, and 100 repeats per die for `!` and `r`. One roll, nesting included, can use up to 10000 picks from notes. Beyond that you get a message. A broken formula is underlined and the tooltip gives the reason.
+
+## Support
+
+Questions, ideas or a bug? Open an issue on [GitHub](https://github.com/thijsduinhouwer2002-coder/rollwright/issues) or write to thijs@dortus.com.
 
 ## Development
 
