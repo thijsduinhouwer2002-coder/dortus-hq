@@ -39,6 +39,7 @@ async function readRolls(view) {
 			const value = r.querySelector(".rollwright-value");
 			return {
 				value: (value?.textContent ?? "").split(zws).join("").trim(),
+				old: value?.getAttribute("data-e2e-oud") === "1",
 				error: r.getAttribute("data-rollwright-error") ?? "",
 				hr: value?.querySelector("hr") !== null && value !== null,
 				nested: value?.querySelectorAll(".rollwright-roll").length ?? 0,
@@ -76,21 +77,27 @@ function eenBlok(text, toegestaan) {
 
 function checkRegel(r, aantal, wat) {
 	const gezien = woorden(r.value);
-	// "---" is ook een niet-lege regel; dan toont de uitkomst een lijn zonder tekst.
+	// "***" is ook een niet-lege regel; dan toont de uitkomst een lijn zonder tekst.
 	const lijnen = r.hr ? 1 : 0;
 	console.log(`${wat}: woorden ${JSON.stringify(gezien)}, lijnen ${lijnen}`);
 	expect(gezien.length + lijnen).toBe(aantal);
 }
 
+const AANTAL = 10;
+
 function check(rolls) {
-	expect(rolls.length).toBe(7);
-	for (const r of rolls) {
+	expect(rolls.length).toBe(AANTAL);
+	// De laatste worp verwijst naar een block id dat niet bestaat: die moet een fout geven.
+	const fout = rolls[9];
+	console.log("FOUT BIJ ^bestaatniet:", JSON.stringify(fout.error));
+	expect(fout.error).toContain("bestaatniet");
+	for (const r of rolls.slice(0, 9)) {
 		expect(r.error).toBe("");
 		for (const n of NOOIT) expect(r.value.includes(n)).toBe(false);
 		// Een code in een getrokken blok rolt niet opnieuw.
 		expect(r.nested).toBe(0);
 	}
-	const [blok, alinea, kop2, regel, vast, tweeRegels, tweeAlineas] = rolls;
+	const [blok, alinea, kop2, regel, vast, tweeRegels, tweeAlineas, lijstpunt, kop1] = rolls;
 
 	const b = eenBlok(blok.value, Object.keys(BLOKKEN));
 	console.log("BLOK:", b, JSON.stringify(blok.value));
@@ -118,6 +125,79 @@ function check(rolls) {
 	console.log("TWEE ALINEA'S:", JSON.stringify(tw), "p:", tweeAlineas.paragraphs);
 	for (const w of tw) expect(ALINEAS.some((n) => BLOKKEN[n].includes(w))).toBe(true);
 	expect(tweeAlineas.paragraphs).toBe(2);
+
+	// Eén lijstpunt, niet de hele lijst.
+	const lp = woorden(lijstpunt.value);
+	console.log("LIJSTPUNT:", JSON.stringify(lp));
+	expect(lp.length).toBe(1);
+	expect(BLOKKEN.lijst).toContain(lp[0]);
+
+	expect(eenBlok(kop1.value, ["kop1"])).toBe("kop1");
+}
+
+/** Zet een merkteken op de uitkomst van worp i, zodat te zien is wanneer er een nieuwe staat. */
+async function markeer(view, i) {
+	await browser.execute((sel, i) => {
+		document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
+	}, `${LEAF} ${view}`, i);
+}
+
+async function ctrlKlik(view, i) {
+	await browser.execute((sel, i) => {
+		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
+		el?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, ctrlKey: true }));
+	}, `${LEAF} ${view}`, i);
+}
+
+async function markdownTabs() {
+	return browser.executeObsidian(({ app }) => app.workspace.getLeavesOfType("markdown").map((l) => l.view?.file?.path ?? ""));
+}
+
+async function sluitBron() {
+	await browser.executeObsidian(({ app }) => {
+		for (const leaf of app.workspace.getLeavesOfType("markdown")) {
+			if (leaf.view?.file?.path === "Bron.md") leaf.detach();
+		}
+	});
+}
+
+/** Ctrl-klik op worp i: Bron.md opent in een nieuw tabblad en de uitkomst blijft precies gelijk. */
+async function checkCtrlKlik(view, i, shot) {
+	const voor = (await readRolls(view))[i].value;
+	const tabsVoor = await markdownTabs();
+	await markeer(view, i);
+	await ctrlKlik(view, i);
+	let tabs = [];
+	await browser.waitUntil(async () => {
+		tabs = await markdownTabs();
+		return tabs.includes("Bron.md");
+	}, { timeout: 5000, timeoutMsg: "Bron.md ging niet open" }).catch((e) => {
+		console.log("NA CTRL-KLIK:", JSON.stringify(tabs));
+		throw e;
+	});
+	console.log(`NA CTRL-KLIK OP WORP ${i} (${view}):`, JSON.stringify(tabs), "eerst:", JSON.stringify(tabsVoor));
+	expect(tabs.length).toBe(tabsVoor.length + 1);
+	await browser.saveScreenshot(`${SHOTS}/${shot}`);
+	// Het nieuwe tabblad is actief; de oude notitie staat nog open in het eerste tabblad.
+	// Daar moet de uitkomst dezelfde zijn, met het merkteken nog op het oude element.
+	const na = await browser.execute((sel, i, zws) => {
+		const leaves = Array.from(document.querySelectorAll(".workspace-leaf"));
+		for (const leaf of leaves) {
+			// Alleen het tabblad met Sectiewerpen; Bron.md heeft zelf ook een dobbelcode.
+			if (!(leaf.textContent ?? "").includes("Bestaat niet")) continue;
+			const r =leaf.querySelectorAll(`${sel} .rollwright-roll`)[i];
+			if (r) {
+				const v = r.querySelector(".rollwright-value");
+				return { value: (v?.textContent ?? "").split(zws).join("").trim(), old: v?.getAttribute("data-e2e-oud") === "1" };
+			}
+		}
+		return null;
+	}, view, i, ZWS);
+	console.log("UITKOMST VOOR EN NA:", JSON.stringify(voor), JSON.stringify(na));
+	expect(na).not.toBe(null);
+	expect(na.value).toBe(voor);
+	expect(na.old).toBe(true);
+	await sluitBron();
 }
 
 describe("Rollwright: secties en regels in de echte Obsidian", function () {
@@ -127,7 +207,7 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 
 	it("in de leesweergave komt elke worp uit het goede blok of de goede regel", async function () {
 		await openNote("Sectiewerpen.md", "preview");
-		const rolls = await waitForRolls(".markdown-reading-view", 7);
+		const rolls = await waitForRolls(".markdown-reading-view", AANTAL);
 		console.log("SECTIEWERPEN LEZEN:", JSON.stringify(rolls));
 		await browser.saveScreenshot(`${SHOTS}/s1-secties-lezen.png`);
 		check(rolls);
@@ -137,14 +217,15 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 		const seen = new Set();
 		for (let i = 0; i < 15; i++) {
 			const before = (await readRolls(".markdown-reading-view"))[3];
+			await markeer(".markdown-reading-view", 3);
 			await browser.execute((sel) => document.querySelectorAll(`${sel} .rollwright-roll`)[3]?.click(), `${LEAF} .markdown-reading-view`);
 			let rolls = [];
 			await browser.waitUntil(async () => {
 				rolls = await readRolls(".markdown-reading-view");
-				return rolls[3] !== undefined && (rolls[3].value !== "" || rolls[3].hr);
+				return rolls[3] !== undefined && !rolls[3].old && (rolls[3].value !== "" || rolls[3].hr);
 			}, { timeout: 5000, timeoutMsg: "na een klik bleef de regelworp leeg" });
 			checkRegel(rolls[3], 1, `KLIK ${i + 1}`);
-			seen.add(rolls[3].hr ? "---" : woorden(rolls[3].value)[0]);
+			seen.add(rolls[3].hr ? "***" : woorden(rolls[3].value)[0]);
 			if (i === 0) console.log("VOOR DE EERSTE KLIK:", JSON.stringify(before.value));
 		}
 		console.log("REGELS GEZIEN:", JSON.stringify([...seen]));
@@ -154,43 +235,22 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 
 	it("in Live Preview hetzelfde", async function () {
 		await openNote("Sectiewerpen.md", "source");
-		const rolls = await waitForRolls(".markdown-source-view", 7);
+		const rolls = await waitForRolls(".markdown-source-view", AANTAL);
 		console.log("SECTIEWERPEN LIVE PREVIEW:", JSON.stringify(rolls));
 		await browser.saveScreenshot(`${SHOTS}/s2-secties-live-preview.png`);
 		check(rolls);
 	});
 
-	it("Ctrl-klik op het vaste blok opent Bron.md in een nieuw tabblad en rolt niet", async function () {
+	it("Ctrl-klik in lezen opent Bron.md in een nieuw tabblad en rolt niet", async function () {
 		await openNote("Sectiewerpen.md", "preview");
-		await waitForRolls(".markdown-reading-view", 7);
-		const tabsBefore = await browser.executeObsidian(({ app }) => app.workspace.getLeavesOfType("markdown").length);
-		await browser.execute((sel) => {
-			const el = document.querySelectorAll(`${sel} .rollwright-roll`)[4];
-			el?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, ctrlKey: true }));
-		}, `${LEAF} .markdown-reading-view`);
-		let state = null;
-		await browser.waitUntil(async () => {
-			state = await browser.executeObsidian(({ app }) => ({
-				active: app.workspace.getActiveFile()?.path ?? "",
-				tabs: app.workspace.getLeavesOfType("markdown").length,
-				open: app.workspace.getLeavesOfType("markdown").map((l) => l.view?.file?.path ?? ""),
-			}));
-			return state.open.includes("Bron.md");
-		}, { timeout: 5000, timeoutMsg: "Bron.md ging niet open" }).catch((e) => {
-			console.log("NA CTRL-KLIK:", JSON.stringify(state));
-			throw e;
-		});
-		console.log("NA CTRL-KLIK:", JSON.stringify(state), "tabbladen eerst:", tabsBefore);
-		expect(state.tabs).toBe(tabsBefore + 1);
-		await browser.saveScreenshot(`${SHOTS}/s3-ctrl-klik-bron.png`);
-		// Terug naar Sectiewerpen: het vaste blok staat er nog, ongewijzigd.
-		await browser.executeObsidian(async ({ app }) => {
-			for (const leaf of app.workspace.getLeavesOfType("markdown")) {
-				if (leaf.view?.file?.path === "Bron.md") leaf.detach();
-			}
-		});
-		await openNote("Sectiewerpen.md", "preview");
-		const rolls = await waitForRolls(".markdown-reading-view", 7);
-		expect(eenBlok(rolls[4].value, ["alinea2"])).toBe("alinea2");
+		await waitForRolls(".markdown-reading-view", AANTAL);
+		// Worp 0 (een willekeurig blok) heeft meer uitkomsten, dus een nieuwe worp zou te zien zijn.
+		await checkCtrlKlik(".markdown-reading-view", 0, "s3-ctrl-klik-lezen.png");
+	});
+
+	it("Ctrl-klik in Live Preview doet hetzelfde", async function () {
+		await openNote("Sectiewerpen.md", "source");
+		await waitForRolls(".markdown-source-view", AANTAL);
+		await checkCtrlKlik(".markdown-source-view", 3, "s4-ctrl-klik-live-preview.png");
 	});
 });
