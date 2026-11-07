@@ -78,6 +78,7 @@ var import_obsidian = require("obsidian");
 var POLAR_ORG_ID = "5f4a360c-7552-4269-a44a-4311f7f672d6";
 var POLAR_BENEFIT_ID = "344f6030-66ec-437a-8fbb-186b80a98c65";
 var BUY_URL = "https://buy.polar.sh/polar_cl_kJQ6H0U8GSNV0qMQkejM6SY4BYkU9k3SxfApH07ipIP";
+var PRICE_TEXT = "$6";
 var VALIDATE_URL = "https://api.polar.sh/v1/customer-portal/license-keys/validate";
 var RECHECK_INTERVAL_MS = 30 * 24 * 60 * 60 * 1e3;
 var obsidianRequest = async (request) => {
@@ -185,6 +186,11 @@ var LIMITS = {
   /** Picks from tables, lists and notes per roll, nesting included. */
   picksPerRoll: 1e4
 };
+function tooManyDiceMessage(count) {
+  return `At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}. Use a smaller number, like 100d6.`;
+}
+var TOO_MANY_ROLLS_MESSAGE = `This formula rolls more than ${LIMITS.rollsPerFormula} dice. Roll fewer dice, or limit exploding and rerolling, like 10d6!3.`;
+var TOO_LARGE_MESSAGE = "The result is too large to show. Use smaller numbers or fewer dice, like 10d6 * 100.";
 function newBudget() {
   return { rolls: 0, steps: 0, picks: 0 };
 }
@@ -262,7 +268,7 @@ function tokenize(input) {
       i++;
       continue;
     }
-    throw new DiceError(`Unexpected character "${ch}" at position ${i + 1}`);
+    throw new DiceError(`Unexpected character "${ch}" at position ${i + 1}. Remove it and use only numbers, dice and + - * / ( ), like 2d6 + 1.`);
   }
   return tokens;
 }
@@ -291,6 +297,13 @@ function isDiceWord(word) {
   }
   return true;
 }
+function unexpected(token, previous) {
+  const afterValue = previous !== void 0 && previous.type !== "cmp" && !(previous.type === "sym" && "+-*/^(".includes(previous.value));
+  let fix = "Remove it, like 2d6 + 3.";
+  if (token.value === ")") fix = "Remove it or add the ( it closes, like (2d6 + 1) * 2.";
+  else if (afterValue) fix = "Remove it or put + - * / before it, like 2d6 + 3.";
+  return new DiceError(`Unexpected "${token.value}" at position ${token.pos + 1}. ${fix}`);
+}
 function mapComparator(value) {
   switch (value) {
     case "=<":
@@ -314,10 +327,10 @@ var Parser = class {
     this.depth = 0;
   }
   parse() {
-    if (this.tokens.length === 0) throw new DiceError("The formula is empty");
+    if (this.tokens.length === 0) throw new DiceError("The formula is empty. Write a formula after dice:, like 2d6 + 1.");
     const node = this.additive();
     const left = this.peek();
-    if (left) throw new DiceError(`Unexpected "${left.value}" at position ${left.pos + 1}`);
+    if (left) throw unexpected(left, this.tokens[this.index - 1]);
     return node;
   }
   peek() {
@@ -370,15 +383,22 @@ var Parser = class {
     return base;
   }
   enter() {
-    if (++this.depth > LIMITS.parseDepth) throw new DiceError("The formula is nested too deeply");
+    if (++this.depth > LIMITS.parseDepth) throw new DiceError("The formula is nested too deeply. Use fewer brackets, like (2d6 + 1) * 2.");
+  }
+  /** Names the last token, so the message shows where the formula stops. */
+  endsTooEarly() {
+    var _a, _b;
+    const last = (_b = (_a = this.tokens[this.tokens.length - 1]) == null ? void 0 : _a.value) != null ? _b : "";
+    if (last === "") return new DiceError("The formula ends too early. Add a number or a die at the end, like 2d6 + 1.");
+    return new DiceError(`The formula ends too early: it ends with ${last}. Add a number or a die after it, like 2d6 + 1.`);
   }
   primary() {
     const token = this.peek();
-    if (!token) throw new DiceError("The formula ends too early");
+    if (!token) throw this.endsTooEarly();
     if (token.type === "num") {
       this.index++;
       const value = Number(token.value);
-      if (!Number.isSafeInteger(Math.trunc(value))) throw new DiceError(`The number ${token.value} is too large`);
+      if (!Number.isSafeInteger(Math.trunc(value))) throw new DiceError(`The number ${token.value} is too large. Use a number with at most 15 digits, like 1000000.`);
       const next = this.peek();
       if ((next == null ? void 0 : next.type) === "word" && (next.value.charAt(0) === "d" || next.value.charAt(0) === "D") && isDiceWord(next.value)) {
         return this.dice({ type: "number", value });
@@ -390,7 +410,7 @@ var Parser = class {
       this.enter();
       const inner = this.additive();
       this.depth--;
-      if (!this.isSym(")")) throw new DiceError("A closing bracket is missing");
+      if (!this.isSym(")")) throw new DiceError("A closing bracket is missing. Add ) after the group, like (2d6 + 1) * 2.");
       this.index++;
       const next = this.peek();
       if ((next == null ? void 0 : next.type) === "word" && isDiceWord(next.value)) return this.dice(inner);
@@ -405,7 +425,7 @@ var Parser = class {
       this.index++;
       return { type: "name", name: token.value };
     }
-    throw new DiceError(`Unexpected "${token.value}" at position ${token.pos + 1}`);
+    throw unexpected(token, this.tokens[this.index - 1]);
   }
   dice(count) {
     const word = this.peek();
@@ -435,7 +455,7 @@ var Parser = class {
         this.index++;
         if (!/^[0-9]+$/.test(token.value)) throw new DiceError("Digit dice need a whole number, such as d66%");
         const digits = token.value.split("").map(Number);
-        if (digits.includes(0)) throw new DiceError(`d${token.value}% has a die with zero sides`);
+        if (digits.includes(0)) throw new DiceError(`d${token.value}% has a die with zero sides. Use the digits 1 to 9, like d66%.`);
         return { kind: "digits", digits };
       }
       return { kind: "number", sides: this.wholeNumber(token, "The number of sides") };
@@ -476,13 +496,13 @@ var Parser = class {
       throw new DiceError("Write custom dice as d[min, max] or d[a, b, c]");
     }
     const [first, second] = values;
-    if (first === void 0 || second === void 0) throw new DiceError("Custom dice need at least two numbers");
+    if (first === void 0 || second === void 0) throw new DiceError("Custom dice need at least two numbers. Write d[min, max] or d[a, b, c], like d[1, 4].");
     if (values.length === 2) return { kind: "range", min: Math.min(first, second), max: Math.max(first, second) };
     return { kind: "faces", faces: values };
   }
   wholeNumber(token, what) {
     const value = Number(token.value);
-    if (!Number.isInteger(value)) throw new DiceError(`${what} must be a whole number, not ${token.value}`);
+    if (!Number.isInteger(value)) throw new DiceError(`${what} must be a whole number, not ${token.value}. Leave out the decimals, like 2d6 or 4d6kh3.`);
     return value;
   }
   modifiers() {
@@ -493,13 +513,13 @@ var Parser = class {
       if (token.type === "bang") {
         this.index++;
         const times = this.repeatCount();
-        modifiers.push({ kind: "explode", combine: token.value === "!!", times, conditions: this.conditions() });
+        modifiers.push({ kind: "explode", combine: token.value === "!!", times, conditions: this.conditions("1d6!>=5") });
       } else if (token.type === "cmp") {
         modifiers.push(this.countModifier());
       } else if (token.type === "word") {
         const lower = token.value.toLowerCase();
         const match = MODIFIER_WORDS.find((m) => lower.startsWith(m));
-        if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}`);
+        if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}. Use kh, kl, dh, dl, r, u, s or !, like 4d6kh3.`);
         this.consumeWordPart(token, match.length);
         modifiers.push(this.wordModifier(match));
       } else {
@@ -532,7 +552,7 @@ var Parser = class {
         return { kind: "unique" };
       default: {
         const times = this.repeatCount();
-        return { kind: "reroll", times, conditions: this.conditions() };
+        return { kind: "reroll", times, conditions: this.conditions("1d6r<2") };
       }
     }
   }
@@ -550,20 +570,20 @@ var Parser = class {
       return LIMITS.repeats;
     }
     const count = this.optionalCount();
-    if (count > LIMITS.repeats) throw new DiceError(`A die can repeat at most ${LIMITS.repeats} times`);
+    if (count > LIMITS.repeats) throw new DiceError(`A die can repeat at most ${LIMITS.repeats} times. Use a smaller number, like 1d6!10.`);
     return count;
   }
   /** Conditions right after ! or r belong to that modifier. */
-  conditions() {
+  conditions(example) {
     const conditions = [];
     for (; ; ) {
       const token = this.peek();
       if ((token == null ? void 0 : token.type) !== "cmp") return conditions;
       const { op, score } = mapComparator(token.value);
-      if (score === -1) throw new DiceError(`"${token.value}" only works for counting, not on ! or r`);
+      if (score === -1) throw new DiceError(`"${token.value}" only works for counting, not on ! or r. Use it for counting, like 5d10>=8-=1.`);
       this.index++;
       const value = this.peek();
-      if ((value == null ? void 0 : value.type) !== "num") throw new DiceError(`A number is missing after "${token.value}"`);
+      if ((value == null ? void 0 : value.type) !== "num") throw new DiceError(`A number is missing after "${token.value}". Add one, like ${example}.`);
       this.index++;
       conditions.push({ op, value: Number(value.value) });
     }
@@ -591,12 +611,12 @@ var Parser = class {
       this.index++;
       return { type: "dice", count: null, sides: this.sides(), modifiers: [] };
     }
-    throw new DiceError(`A number is missing after "${comparator}"`);
+    throw new DiceError(`A number is missing after "${comparator}". Add one, like 5d10>=8.`);
   }
 };
 function parseFormula(formula, names = []) {
   if (formula.length > LIMITS.formulaLength) {
-    throw new DiceError(`The formula is longer than ${LIMITS.formulaLength} characters`);
+    throw new DiceError(`The formula is longer than ${LIMITS.formulaLength} characters. Save parts of it as named formulas and use their names, like 1d20 + atk.`);
   }
   return new Parser(tokenize(formula), new Set(names)).parse();
 }
@@ -644,6 +664,7 @@ function matchesAny(value, conditions) {
 }
 
 // src/engine/faces.ts
+var TOO_MANY_SIDES = `A die can have at most ${LIMITS.sides} sides. Use a smaller die, like 1d100.`;
 function range(min, max) {
   return { min, max, size: max - min + 1, mean: (min + max) / 2, roll: (random) => ({ value: random(min, max) }) };
 }
@@ -670,7 +691,7 @@ function resolveFaces(sides, state) {
       };
     case "faces": {
       const faces = sides.faces;
-      if (faces.length > LIMITS.diceInGroup) throw new DiceError("A custom die has too many faces");
+      if (faces.length > LIMITS.diceInGroup) throw new DiceError(`A custom die has too many faces. Use at most ${LIMITS.diceInGroup}, or a range, like d[1, 5000].`);
       return {
         min: Math.min(...faces),
         max: Math.max(...faces),
@@ -696,12 +717,12 @@ function resolveFaces(sides, state) {
   }
 }
 function checkedSides(sides) {
-  if (!Number.isInteger(sides) || sides < 1) throw new DiceError(`A die needs at least 1 side, not ${sides}`);
-  if (sides > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
+  if (!Number.isInteger(sides) || sides < 1) throw new DiceError(`A die needs at least 1 side, not ${sides}. Use 1 or more, like 1d6.`);
+  if (sides > LIMITS.sides) throw new DiceError(TOO_MANY_SIDES);
   return range(1, sides);
 }
 function checkedSpan(min, max) {
-  if (max - min + 1 > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
+  if (max - min + 1 > LIMITS.sides) throw new DiceError(TOO_MANY_SIDES);
   return range(min, max);
 }
 
@@ -711,7 +732,7 @@ var defaultRandom = (min, max) => min + Math.floor(Math.random() * (max - min + 
 // src/engine/state.ts
 function spend(state) {
   if (++state.budget.rolls > LIMITS.rollsPerFormula) {
-    throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
+    throw new DiceError(TOO_MANY_ROLLS_MESSAGE);
   }
 }
 function rollDie(faces, state) {
@@ -719,7 +740,7 @@ function rollDie(faces, state) {
   return faces.roll(state.random);
 }
 function spendStep(budget) {
-  if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
+  if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out. Make it simpler, with fewer dice and fewer named formulas, like 4d6kh3 + 2.");
 }
 function makeState(options) {
   var _a, _b, _c, _d, _e;
@@ -781,7 +802,7 @@ function applyReroll(dice, mod, faces, state) {
 function applyUnique(dice, faces, state) {
   const active = dice.filter((d) => !d.dropped);
   if (active.length > faces.size) {
-    throw new DiceError(`${active.length} dice cannot all differ: there are only ${faces.size} results`);
+    throw new DiceError(`${active.length} dice cannot all differ: there are only ${faces.size} results. Roll fewer dice or a bigger die, like 3d6u.`);
   }
   const seen = /* @__PURE__ */ new Set();
   for (const die of active) {
@@ -808,9 +829,9 @@ function showDie(die) {
 // src/engine/evaluate.ts
 function evaluateDice(node, state) {
   const count = node.count ? evaluate(node.count, state).value : state.defaultCount;
-  if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
-  if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count})`);
-  if (count > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}`);
+  if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}. Use a whole number before the d, like 2d6.`);
+  if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count}). Use 0 or more, like 2d6.`);
+  if (count > LIMITS.diceInGroup) throw new DiceError(tooManyDiceMessage(count));
   const faces = resolveFaces(node.sides, state);
   let dice = [];
   for (let i = 0; i < count; i++) dice.push(rollDie(faces, state));
@@ -852,7 +873,7 @@ function evaluateDice(node, state) {
     }, 0);
   } else {
     value = active.reduce((sum, d) => sum + d.value, 0);
-    if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
+    if (!Number.isFinite(value)) throw new DiceError(TOO_LARGE_MESSAGE);
   }
   return { value, text: `[${dice.map(showDie).join(", ")}]` };
 }
@@ -861,9 +882,9 @@ function lookupName(names, name) {
 }
 function insideName(name, state, work) {
   const formula = lookupName(state.names, name);
-  if (formula === void 0) throw new DiceError(`Unknown name "${name}"`);
+  if (formula === void 0) throw new DiceError(`Unknown name "${name}". Check the spelling, or add ${name} to the frontmatter or the saved formulas, like ${name}: 2.`);
   if (state.aliasStack.includes(name) || state.aliasStack.length >= LIMITS.aliasDepth) {
-    throw new DiceError(`The named formula "${name}" refers to itself`);
+    throw new DiceError(`The named formula "${name}" refers to itself. Change that saved formula so it does not use "${name}", like 1d20 + 5.`);
   }
   state.aliasStack.push(name);
   const result = work(parseFormula(formula, Object.keys(state.names)));
@@ -912,13 +933,13 @@ function calculate(op, a, b) {
       value = a * b;
       break;
     case "/":
-      if (b === 0) throw new DiceError("Cannot divide by zero");
+      if (b === 0) throw new DiceError("Cannot divide by zero. Check the number after /, like 10 / 2.");
       value = a / b;
       break;
     default:
       value = Math.pow(a, b);
   }
-  if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
+  if (!Number.isFinite(value)) throw new DiceError(TOO_LARGE_MESSAGE);
   return value;
 }
 function roll(formula, options = {}) {
@@ -1114,9 +1135,9 @@ function summarize(counts) {
 function rollNarrative(formula, random = defaultRandom, budget = newBudget()) {
   var _a;
   const groups = parseNarrative(formula);
-  if (!groups) throw new DiceError(`"${formula.trim()}" is not narrative dice`);
+  if (!groups) throw new DiceError(`"${formula.trim()}" is not narrative dice. Write a number and a letter for each kind, like 3g2d.`);
   const total = groups.reduce((sum, g) => sum + g.count, 0);
-  if (total > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${total}`);
+  if (total > LIMITS.diceInGroup) throw new DiceError(tooManyDiceMessage(total));
   const counts = { S: 0, F: 0, A: 0, T: 0, Tr: 0, De: 0, L: 0, D: 0 };
   const shown = /* @__PURE__ */ new Map();
   for (const { count, kind } of groups) {
@@ -1124,7 +1145,7 @@ function rollNarrative(formula, random = defaultRandom, budget = newBudget()) {
     const list = (_a = shown.get(kind)) != null ? _a : [];
     shown.set(kind, list);
     for (let i = 0; i < count; i++) {
-      if (++budget.rolls > LIMITS.rollsPerFormula) throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
+      if (++budget.rolls > LIMITS.rollsPerFormula) throw new DiceError(TOO_MANY_ROLLS_MESSAGE);
       const face = faces[random(1, faces.length) - 1];
       for (const symbol of face.split(" ")) if (symbol !== "") counts[symbol]++;
       list.push(showFace(face));
@@ -1491,7 +1512,7 @@ function parseSpec(raw, aliases = {}) {
   if (link) return { raw, flags, args, parts, target: { kind: "note", ...link } };
   const tag = /^(.*?)#([^\s#]+)$/.exec(body);
   if (tag) return { raw, flags, args, parts, target: { kind: "tag", prefix: tag[1].trim(), tag: tag[2] } };
-  if (args.length > 0) throw new DiceError(`Unknown flag "${args[0]}"`);
+  if (args.length > 0) throw new DiceError(`Unknown flag "${args[0]}". Check the spelling after |, like 1d20|avg or 1d20|text(Attack).`);
   return { raw, flags, args, parts, target: { kind: "dice", formula: body } };
 }
 
@@ -1586,7 +1607,7 @@ var BLOCK_TYPES = /* @__PURE__ */ new Set([
 ]);
 function spendPick(context) {
   if (context.budget && ++context.budget.picks > LIMITS.picksPerRoll) {
-    throw new DiceError(`This roll picks more than ${LIMITS.picksPerRoll} results`);
+    throw new DiceError(`This roll picks more than ${LIMITS.picksPerRoll} results. Pick fewer, or nest fewer tables, like 2[[Names^first]].`);
   }
 }
 function pick(items, random) {
@@ -1605,8 +1626,8 @@ function diceOptions(context) {
 function pickCount(prefix, context) {
   const plain = /^(\d*)d?$/.exec(prefix);
   const count = plain ? Number(plain[1] || 1) : roll(prefix, diceOptions(context)).total;
-  if (!Number.isInteger(count) || count < 0) throw new DiceError(`Cannot pick ${formatNumber(count)} results`);
-  if (count > MAX_PICKS) throw new DiceError(`At most ${MAX_PICKS} results can be picked at once`);
+  if (!Number.isInteger(count) || count < 0) throw new DiceError(`Cannot pick ${formatNumber(count)} results. Put a whole number of 0 or more before the link, like 2[[Names^first]].`);
+  if (count > MAX_PICKS) throw new DiceError(`At most ${MAX_PICKS} results can be picked at once. Use a smaller number before the link, like 10[[Names^first]].`);
   return count;
 }
 async function resolveNested(text, context, depth) {
@@ -1628,31 +1649,31 @@ async function resolveCells(cells, context, depth) {
   return texts.join(" | ");
 }
 async function pickFromTable(table, column, context, depth) {
-  var _a, _b, _c, _d;
+  var _a, _b, _c, _d, _e;
   const random = (_a = context.random) != null ? _a : defaultRandom;
   spendPick(context);
-  if (table.rows.length === 0) throw new DiceError("The table has no rows");
+  if (table.rows.length === 0) throw new DiceError("The table has no rows. Add a row under the header, like | Goblin |.");
   const formula = lookupFormula(table);
   let columnIndex = -1;
   if (column !== void 0) {
     columnIndex = findColumn(table, column);
     if (columnIndex === -1 && column.toLowerCase() !== "xy") {
-      throw new DiceError(`The table has no column "${column}". It has: ${table.headers.join(", ")}`);
+      throw new DiceError(`The table has no column "${column}". It has: ${table.headers.join(", ")}. Write one of these after |, like |${(_b = table.headers[0]) != null ? _b : ""}.`);
     }
   }
   if (formula !== null) {
     const rolled = roll(formula, diceOptions(context));
     const row2 = findLookupRow(table, rolled.total);
     const shown = formatNumber(rolled.total);
-    if (!row2) throw new DiceError(`The lookup table has no row for ${shown}`);
-    const cells = columnIndex > 0 ? [(_b = row2[columnIndex]) != null ? _b : ""] : row2.slice(1);
+    if (!row2) throw new DiceError(`The lookup table has no row for ${shown}. Add a row that covers it, like | ${shown} | Goblin |.`);
+    const cells = columnIndex > 0 ? [(_c = row2[columnIndex]) != null ? _c : ""] : row2.slice(1);
     return { text: await resolveCells(cells, context, depth), detail: `${formula} = ${shown}` };
   }
   const row = pick(table.rows, random);
-  if (columnIndex >= 0) return { text: await resolveNested((_c = row[columnIndex]) != null ? _c : "", context, depth), detail: column != null ? column : "" };
+  if (columnIndex >= 0) return { text: await resolveNested((_d = row[columnIndex]) != null ? _d : "", context, depth), detail: column != null ? column : "" };
   if (column !== void 0) {
     const from = row.length > 1 ? 1 : 0;
-    return { text: await resolveNested((_d = row[random(from, row.length - 1)]) != null ? _d : "", context, depth), detail: "xy" };
+    return { text: await resolveNested((_e = row[random(from, row.length - 1)]) != null ? _e : "", context, depth), detail: "xy" };
   }
   return { text: await resolveCells(row, context, depth), detail: "" };
 }
@@ -1663,7 +1684,7 @@ function matchesType(block, type) {
 }
 function selectBlocks(blocks, types) {
   for (const type of types) {
-    if (!BLOCK_TYPES.has(type) && !/^heading-[1-6]$/.test(type)) throw new DiceError(`Unknown block type "${type}"`);
+    if (!BLOCK_TYPES.has(type) && !/^heading-[1-6]$/.test(type)) throw new DiceError(`Unknown block type "${type}". Use a type such as paragraph, list, table or heading-2, like [[Note]]|list.`);
   }
   if (types.length === 0) {
     return blocks.filter((b) => b.type !== "thematicBreak" && b.type !== "yaml").map((b) => b.text);
@@ -1694,12 +1715,12 @@ async function rollNote(spec, context, depth) {
   const target = spec.target;
   const random = (_a = context.random) != null ? _a : defaultRandom;
   const note = await context.readNote(target.note, context.sourcePath);
-  if (!note) throw new DiceError(`Note "${target.note}" was not found`);
+  if (!note) throw new DiceError(`Note "${target.note}" was not found. Check the name in the link, or add the folder, like [[Folder/Note]].`);
   const count = pickCount(target.prefix, context);
   const blocks = parseBlocks(note.markdown);
   if (target.blockId !== void 0) {
     const block = blocks.find((b) => b.id === target.blockId);
-    if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}"`);
+    if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}". Check the id, or add ^${target.blockId} on its own line right after that table or list.`);
     if (block.type === "table") {
       const table = parseTable(block.text);
       const column = spec.parts.find((part) => spec.args.includes(part) || findColumn(table, part) !== -1);
@@ -1710,7 +1731,7 @@ async function rollNote(spec, context, depth) {
       return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path, flags };
     }
     if (block.type === "list") {
-      const picks2 = pickMany(listItems(block.text), count, random, "The list is empty", context);
+      const picks2 = pickMany(listItems(block.text), count, random, "The list is empty. Add items to it, like - Goblin.", context);
       const texts = [];
       for (const item of picks2) texts.push(await resolveNested(item, context, depth));
       return { kind: "list", text: texts.join(", "), details: "", source: note.path };
@@ -1718,11 +1739,12 @@ async function rollNote(spec, context, depth) {
     return { kind: "section", text: block.text, details: "", source: note.path };
   }
   if (spec.args.some((arg) => arg.toLowerCase() === "line")) {
-    const picks2 = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines`, context);
+    const picks2 = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines. Add some text to it, or link another note, like [[Names]]|line.`, context);
     return { kind: "line", text: picks2.join("\n"), details: "", source: note.path };
   }
-  const options = selectBlocks(blocks, blockTypes(spec.args));
-  const picks = pickMany(options, count, random, `"${target.note}" has no matching blocks`, context);
+  const types = blockTypes(spec.args);
+  const empty = types.length === 0 ? `"${target.note}" has no text to pick from. Add some text to it, like - Goblin.` : `"${target.note}" has no matching blocks. Check the block types after |, like [[${target.note}]]|paragraph.`;
+  const picks = pickMany(selectBlocks(blocks, types), count, random, empty, context);
   return { kind: "section", text: picks.join("\n\n"), details: "", source: note.path };
 }
 async function rollTag(spec, context) {
@@ -1731,7 +1753,7 @@ async function rollTag(spec, context) {
   const target = spec.target;
   const random = (_a = context.random) != null ? _a : defaultRandom;
   const notes = await context.notesWithTag(target.tag);
-  if (notes.length === 0) throw new DiceError(`No notes have the tag #${target.tag}`);
+  if (notes.length === 0) throw new DiceError(`No notes have the tag #${target.tag}. Check the spelling, or add #${target.tag} to a note, like tags: ${target.tag}.`);
   const modes = spec.args.map((arg) => arg.toLowerCase());
   if (modes.includes("link")) {
     const note = pick(notes, random);
@@ -1745,12 +1767,12 @@ async function rollTag(spec, context) {
     const options = selectBlocks(parseBlocks(note.markdown), types);
     if (options.length > 0) parts.push(...pickMany(options, count, random, "", context));
   }
-  if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}`);
+  if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}. Check the block types after |, like #${target.tag}|paragraph.`);
   return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? (_b = chosen[0]) == null ? void 0 : _b.path : void 0 };
 }
 async function rollSpecAt(raw, context, depth, firstRoll = false, average = false) {
   var _a;
-  if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself");
+  if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself. Check that no cell has a dice: code that points back at its own table.");
   const spec = parseSpec(raw, context.aliases);
   const formula = raw.trim();
   if (spec.target.kind === "dice") {
@@ -2404,7 +2426,7 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
       {
         name: "Get the paid skins",
         build: (setting) => setting.addButton(
-          (button) => button.setButtonText("Buy").onClick(() => {
+          (button) => button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
             activeWindow.open(this.plugin.polarIds.buyUrl);
           })
         )
