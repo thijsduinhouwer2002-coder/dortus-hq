@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 // Worpen op tabellen, lijsten, kolommen en een opzoektabel met een geneste worp,
 // in de echte Obsidian. De notitie Tabelworpen.md rolt op Tabellen.md.
@@ -85,10 +86,7 @@ describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", funct
 		for (let i = 0; i < 10; i++) {
 			// Merkteken op de oude uitkomst, zodat we wachten op de nieuwe en niet de oude lezen
 			// (zelfde aanpak als secties.e2e.mjs).
-			await browser.execute((sel) => {
-				document.querySelector(`${sel} .rollwright-roll`)?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
-			}, `${LEAF} .markdown-reading-view`);
-			await browser.execute((sel) => document.querySelector(`${sel} .rollwright-roll`)?.click(), `${LEAF} .markdown-reading-view`);
+			await klikWorp(`${LEAF} .markdown-reading-view`, 0, { markeer: true });
 			let rolls = [];
 			await browser.waitUntil(async () => {
 				rolls = await readRolls(".markdown-reading-view");

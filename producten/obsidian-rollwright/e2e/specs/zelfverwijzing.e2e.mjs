@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 // Een notitie die op zichzelf rolt mag Obsidian niet laten vastlopen.
 // In een uitkomst wordt geen nieuwe worp gezet (defuseRolls, en apart getest de controle in reading-view.ts),
@@ -94,7 +95,7 @@ async function checkStable(path, mode, view, shot) {
 async function clickFive(view) {
 	const before = await count(view);
 	for (let i = 0; i < 5; i++) {
-		await browser.execute((sel) => document.querySelector(`${sel} .rollwright-roll`)?.click(), `${LEAF} ${view}`);
+		await klikWorp(`${LEAF} ${view}`, 0);
 		await browser.pause(400);
 	}
 	await browser.pause(1000);

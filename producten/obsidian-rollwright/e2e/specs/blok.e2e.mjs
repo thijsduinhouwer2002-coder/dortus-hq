@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 // Daan punt 1: een uitkomst van meer dan één regel of een blok staat als eigen blok onder de regel,
 // met gewone tekstgrootte en zonder lijstbolletjes. Eén regel blijft in de zin.
@@ -167,10 +168,7 @@ async function plaatjes(naam) {
 /** Klik op de kopworp: de klasse wordt opnieuw bepaald en blijft blok (een kop blijft een kop). */
 async function klikKop(view) {
 	// Merkteken op de oude uitkomst, zoals in geschiedenis.e2e.mjs: dan is te zien wanneer de nieuwe staat.
-	await browser.execute((sel, i) => {
-		document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
-	}, `${LEAF} ${view}`, KOP);
-	await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} ${view}`, KOP);
+	await klikWorp(`${LEAF} ${view}`, KOP, { markeer: true });
 	let na = { rolls: [] };
 	await browser.waitUntil(async () => {
 		na = await meet(view);
