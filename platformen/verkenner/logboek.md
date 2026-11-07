@@ -186,3 +186,10 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 7 correcties verwerkt (andere id's, kleine groepen niet hard, GlitchSmith-koppeling GOK, artikel 1.2 als recht, rij "ander").
 - Les: een 404 op een pakket-id betekent niet dat het pakket er niet is. Vergelijk op de repo-link.
 - Volgende run: een nieuw platform uit kandidaten.md (Zotero, Anki, Home Assistant of iets met betaling in de winkel).
+- Tweede platform: Autodesk Design and Make Marketplace (vroeger App Store). Reden: betaling zit in de winkel en kopers zijn bedrijven. aescripts.com (After Effects) eerst geprobeerd, geeft 403.
+- Gemeten: alle 5.055 apps via de openbare sitemap (robots.txt staat dat toe). Instroom van ±50 naar ±150 per maand sinds aug 2026. 41% echt te koop in de winkel. 0% afdracht. Geen downloads of reviews op de pagina's; de interne API van de winkel niet gebruikt (de veiligheidscontrole weigerde, terecht).
+- Onderzoeker: geen kleine maker met cijfers. Op r/Revit: betaalde plugins komen vooral van bedrijven.
+- Beslissing: nog niet klaar, cijfer 4. Reden: de voorwaarden zijn top, maar er is niets te zien van verkoop of bereik, en bouwen vraagt Windows en een dure licentie.
+- Controleur eerst niet akkoord: mijn telling "betaald" nam proefplannen mee (65% werd 41%) en de mediaanprijs was als tekst gesorteerd. Beide scripts gerepareerd, 7 correcties verwerkt.
+- Les: tel bij prijsplannen alleen wat echt te koop is, en zet bedragen om naar getallen voor je rekent.
+- Volgende run: Zotero, Anki of Home Assistant uit kandidaten.md, of SketchUp Extension Warehouse (betaalde extensies).

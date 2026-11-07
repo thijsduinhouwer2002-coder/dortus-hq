@@ -21,3 +21,4 @@
 - 7 nov, run 12:31: Google Workspace Marketplace (5, nee voor nu), eigen meting van 5.865 add-ons.
 - 7 nov, run 12:31, ook: Open VSX (4, nee voor nu), eigen steekproef van 2.500 extensies.
 - 7 nov, run 15:32: Foundry VTT route (c), alleen buiten de officiële lijst (keuze Thijs): nee, cijfer 3. Controleur akkoord, 7 correcties.
+- 7 nov, run 15:32, ook: Autodesk Design and Make Marketplace zelf toegevoegd en gemeten (5.055 apps). Nog niet klaar, cijfer 4. Controleur na correcties akkoord.
