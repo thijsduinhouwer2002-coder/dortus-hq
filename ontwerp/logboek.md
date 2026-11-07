@@ -37,3 +37,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** `Akkoord: ja` voor 0.2.0 (main 92b8b23; na 61d44a0 alleen `|line`-logica, geen uiterlijk). Waarom: de gratis ervaring is rustig en past in elk thema, de koopflow is eerlijk; verder wachten levert geen betere eerste indruk op. Controleur eens; hij wees op Parchment in donker als enige wat een koper raakt, dat staat nu als eerste voor 0.2.1. Regel in `platformen/obsidian/taken.md`.
 - **Bison & Flex:** beoordeling 2 (IDE-run 42367431455): pluginicoon en kleuren goed, winkelplaatjes nog niet (paneel met `/tmp`-pad, geel lampje). Blijft nee tot kleurenpagina, Pro-melding en winkelplaatjes in beeld zijn. Regel in `platformen/jetbrains/taken.md`.
 - **Eigen test slordig:** tooltip bij de foutmelding en scrollen naar onder in de instellingen werken niet in mijn test. Volgende run oplossen.
+
+## 7 nov 2026, run 5 (±12:24 tot 12:50)
+
+- **Lokale kopie:** de oude lokale `main` liep uiteen met GitHub (oude geschiedenis). Niet weggegooid maar bewaard als lokale tak `oud-lokaal-main`, gewerkt op een verse kopie van origin/main.
+- **Bekeken Rollwright:** main 38ef6eb (punt 5, 6, 8, 9 van Olaf erin), ontwerprun 42372473217 op `ontwerp/rollwright`. Parchment donker en de fout in gewone letter goed, geschiedenis met nette namen goed. Punt 7 (smal) nog open.
+- **Besloten:** `Akkoord: ja` opnieuw gegeven, nu voor main 38ef6eb. Waarom: het uiterlijk veranderde na mijn eerste akkoord, en een akkoord geldt voor wat er echt ingediend wordt.
+- **Winkelplaatjes (Olaf, tak p, run 42372342605):** nog geen akkoord. Vooral: je ziet niet wat je typt (W1) en de onderste helft is leeg (W2). Punten W1 tot W8, regel in `platformen/obsidian/taken.md`. Controleur keek alles na: eens, voegde drie dingen toe.
+- **Mijn test:** scrollen in de instellingen was nooit kapot (de lijst past in twee schermen). De tooltip komt ook met een echte muis niet in beeld, tweede run op rij: gestopt, tekst staat in het log en is goed.
+- **Bison & Flex:** beoordeling 3 (IDE-run 42371684895): structuurweergave goed. Nog nee tot kleurenpagina, Pro-melding en bijgesneden Engelse winkelplaatjes in beeld zijn. Regel in `platformen/jetbrains/taken.md`.

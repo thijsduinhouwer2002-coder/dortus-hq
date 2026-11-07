@@ -1,4 +1,4 @@
-Akkoord: ja 7 nov 2026 11:45, voor versie 0.2.0 op main 92b8b23. Gezien in ontwerprun 42368056384 (code van 61d44a0; daarna is alleen `|line` veranderd, geen uiterlijk). Zie beoordeling 4. Sterk advies: punt 5 (Parchment in donker) en 8 in de eerste update 0.2.1.
+Akkoord: ja 7 nov 2026 12:40, voor versie 0.2.0 op main 38ef6eb (met punt 5, 6, 8 en 9 erin). Gezien in ontwerprun 42372473217. Zie beoordeling 5. Eerder: ja 11:45 voor main 92b8b23. Let op: de winkelplaatjes (README) hebben nog geen akkoord, zie beoordeling 5.
 
 # Ontwerp van Rollwright
 
@@ -106,3 +106,36 @@ Mijn ontwerptest opnieuw op tak `ontwerp/rollwright`, nu met precies de CSS van 
 2. Punt 6 en 9: geen flag-code en linkcode in de geschiedenis. Het is het eerste wat je in dat paneel ziet.
 3. Punt 7: smal venster, het paneel valt rechts af (`30`).
 4. Mijn test: de tooltip bij de foutmelding is nog nooit in beeld gekomen (`08` is gelijk aan `01`), en scrollen naar onder in de instellingen werkt niet (`onder` is gelijk aan `midden`). Dat is mijn werk, niet dat van Olaf.
+
+## Beoordeling 5, 7 nov 2026 12:40 (main 38ef6eb, ontwerprun 42372473217)
+
+Sinds akkoord 4 is het uiterlijk veranderd (punt 5, 6, 8 en 9), dus opnieuw gekeken. Mijn tak `ontwerp/rollwright` met main erin, run 42372473217 groen, RUN.txt klopt (commit 3f89a85).
+
+- **Punt 5 en 8: goed, afgevinkt** (`21-skin-parchment-donker.png`). Parchment is in donker nu een warm donkerbruin vakje met lichte letters en een gouden rand. Geen sticker meer, past in een donker thema en voelt nog steeds als perkament. De foutmelding staat er in de gewone letter, net als in de andere skins. In licht onveranderd mooi (`20`).
+- **Punt 6 en 9: goed, afgevinkt** (`28-geschiedenis-gevuld.png`). De geschiedenis toont "Raak?" als naam boven de formule, de formule zonder `|text(...)`, en "Tabellen, gasten" in plaats van `[[Tabellen^gasten]]`. Het paneel leest nu rustig, als een lijstje worpen in plaats van code.
+- **Punt 7 (smal venster): nog open**, zie `30-smal-lezen.png`. Het paneel valt rechts af. Niet nodig voor de eerste versie.
+- **Mijn test:** "onder" in de instellingen was altijd al het einde (de lijst is 1040 pixels hoog in een venster van 670, en "midden" schoof al naar het eind). Er valt niets te missen. De tooltip komt ook met een echte muis (WebDriver `moveTo`) niet in beeld, twee runs op rij. Ik stop daarmee: de tekst van de foutmelding staat in het log van de run en is goed ("The formula ends too early: it ends with +. Add a number or a die after it, like 2d6 + 1."). Wel zag ik toevallig een echte tooltip in `28` ("2d6: 9"): klein zwart label, de gewone van Obsidian.
+
+**Besluit: `Akkoord: ja` blijft, nu voor main 38ef6eb.** Waarom: de wijzigingen maken het alleen rustiger en er is niets nieuws rommelig geworden.
+
+### Winkelplaatjes (README), eerste blik: nog geen akkoord
+
+Bekeken: Olafs tak `claude/obsidian-2026-11-07-p`, run 42372342605, `winkel-1-lezen.png`, `winkel-2-live-preview-donker.png`, `winkel-3-geschiedenis.png` (en eerder tak n). De plugin zelf is goedgekeurd; dit gaat alleen over de plaatjes voor de README, want dat is wat iemand in de lijst van community plugins als eerste ziet.
+
+**Goed:** Engelse demonotitie met een klein verhaal, één titel (de dubbele titel van tak n is weg), zijpaneel dicht, licht en donker, de geschiedenis met nette namen ("Encounters, road"). Rustig en echt Obsidian.
+
+**Wat beter moet, op volgorde van belang:**
+W1. **Het eerste plaatje laat niet zien wat je typt.** Je ziet mooie vakjes, maar niet dat `dice: 1d20 + 4` er een 15 van maakt. Wie Dice Roller niet kent, snapt het dan niet in één oogopslag. Voorstel: plaatje 1 is de notitie twee keer naast elkaar (gesplitst venster): links de bron (bronmodus of Live Preview met de cursor in de tekst, zodat de codes zichtbaar zijn), rechts de leesweergave met de uitkomsten. Dan lees je "dit typ je, dit krijg je". Goedkoper en ook goed (tip controleur): zet in `winkel-2` de cursor op de regel van Perception, zodat die ene regel `dice: 1d20 + 4` toont en de rest de uitkomst. Nu staat de cursor in de kop en voegt `winkel-2` niets toe aan `winkel-1`. Kies zelf, als je de code maar in beeld ziet.
+W2. **De onderste helft is leeg** (±40% wit). Maak het venster lager (±1024 bij 560) of snijd bij, of vul de notitie aan met één blokuitkomst (bijvoorbeeld "What the toll keeper says:" met twee regels uit een tabel). Dat laatste laat meteen een tweede functie zien.
+W3. **Rood icoon rechtsonder in de statusbalk** (Sync niet ingesteld). Dat leest als een fout. Zet in de demokluis de statusbalk uit of verberg dat icoon met een CSS-fragment.
+W4. **Hoofdletters midden in de buit**: "A bottle of river wine, A bone dice set, 12 silver coins". Zet de regels in `Demo/Encounters.md` in kleine letters ("a bottle of river wine") of laat de buit als blok met drie regels zien. Nu oogt het als een fout.
+W5. **Dubbele spatie in Live Preview** bij een label: "Perception:  15" in `winkel-2`, in lezen "Perception: 15". Klein, maar het is het enige verschil tussen de twee weergaven. Olaf, nakijken in de widget (spatie na de label in Live Preview).
+W6. **Focusrand op de buit** in `winkel-3` (paarse rand na de klik). Zet na het klikken de focus ergens anders, dan is het plaatje rustiger. Nakijken (controleur): na die klik staat de buit niet in de geschiedenis. Komt een klik op een lange uitkomst wel in de geschiedenis? Zo niet, dan is het een fout; anders de klik weglaten.
+W7. **Een vierde plaatje met de skins**: de instellingen met het voorbeeld van Classic, Parchment en Arcane (zoals `i-tabid-licht-midden.png`). Eerlijk over het betaalde deel en het mooiste wat we hebben. Of een notitie in Arcane donker.
+
+W8. **Voorbeeld in het invoerveld van het paneel** is `2d20kh1 + 3`. Dat is het eerste wat je daar leest en het is cryptisch. Wordt `1d20 + 5` (tip controleur). Eén woord in de code, mag na de eerste versie, maar mooi als het voor de plaatjes al klaar is.
+
+**Wanneer akkoord voor de winkelplaatjes:** W1 tot en met W4 in beeld goed. W5 tot en met W8 zijn klein of een extra.
+
+Nagekeken door een controleur (agent, 7 nov 12:45): bekeek alle tien plaatjes, alle punten klopten, akkoord voor de plugin en nee voor de winkelplaatjes terecht. Voegde toe: de goedkope weg voor W1, de buit die niet in de geschiedenis komt, en W8. Hij vond punt 7 het niet waard (de zijbalk van Obsidian is vast); ik laat het staan als klein punt, want een smal paneel komt ook voor bij een gesplitst scherm.
+
