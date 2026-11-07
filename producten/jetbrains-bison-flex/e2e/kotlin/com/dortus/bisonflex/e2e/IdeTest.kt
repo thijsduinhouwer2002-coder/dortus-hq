@@ -51,9 +51,14 @@ interface IcoonOpAfstand {
     fun getIconWidth(): Int
 }
 
+@Remote("com.dortus.bisonflex.pro.ProMelding", plugin = "com.dortus.bisonflex")
+interface ProMeldingOpAfstand {
+    fun isGetoond(): Boolean
+}
+
 /**
  * Test in de echte IDE (IDEA Community 2025.2) op GitHub Actions.
- * Eis 1 en eis 10 (eerste deel) uit ontwerp.md: bestandssoorten herkend, schermen licht en donker.
+ * Eis 1, eis 8 (Pro-melding in beeld) en eis 10 (eerste deel) uit ontwerp.md: bestandssoorten herkend, schermen licht en donker.
  */
 class IdeTest {
     companion object {
@@ -108,6 +113,8 @@ class IdeTest {
                     // Factor 2 voor scherpe winkelplaatjes (Xvfb is 2880x1800, de IDE ziet 1440x900).
                     addSystemProperty("sun.java2d.uiScale.enabled", true)
                     addSystemProperty("sun.java2d.uiScale", "2")
+                    // Alleen voor deze test: licentiestand GEEN, anders is de facade null en komt er nooit een Pro-melding.
+                    addSystemProperty("bisonflex.e2e.licentie", "geen")
                 }
             }
             .runIdeWithDriver()
@@ -141,6 +148,7 @@ class IdeTest {
                 cursorNaarEinde()
                 pauze()
                 scherm("$naam-calc-l.png")
+                proMelding(naam)
                 kleurenpagina(naam)
             }
     }
@@ -165,6 +173,47 @@ class IdeTest {
         } catch (e: Exception) {
             println("DORTUS-E2E cursor verzetten mislukt: ${e.message?.take(200)}")
         }
+    }
+
+    /**
+     * Pro-melding (Daan punt 3): cursor op `line` in `input line` van calc.y, GotoDeclaration (stand GEEN via de
+     * systeemeigenschap), wachten tot de melding er is en een scherm maken. Lukt de actie via de Driver niet,
+     * dan nog een keer met Ctrl+B via xdotool.
+     */
+    private fun Driver.proMelding(naam: String) {
+        openFile("calc.y")
+        val melding = service<ProMeldingOpAfstand>()
+        cursorOp("input line", 6)
+        pauze()
+        try { invokeAction("GotoDeclaration") } catch (e: Throwable) {
+            println("DORTUS-E2E [$naam] GotoDeclaration via Driver mislukt: ${e.javaClass.simpleName}: ${e.message?.take(200)}")
+        }
+        var getoond = wacht(10) { melding.isGetoond() }
+        println("DORTUS-E2E [$naam] na GotoDeclaration (Driver): melding getoond $getoond")
+        if (!getoond) {
+            toets("ctrl+b")
+            getoond = wacht(10) { melding.isGetoond() }
+            println("DORTUS-E2E [$naam] na Ctrl+B (xdotool): melding getoond $getoond")
+        }
+        Thread.sleep(2_000)
+        scherm("$naam-pro-melding.png")
+        assertTrue(getoond, "Pro-melding getoond ($naam)")
+    }
+
+    private fun wacht(seconden: Int, klaar: () -> Boolean): Boolean {
+        repeat(seconden) { if (klaar()) return true; Thread.sleep(1_000) }
+        return klaar()
+    }
+
+    /** Cursor op [tekst] plus [extra] tekens in de open editor. */
+    private fun Driver.cursorOp(tekst: String, extra: Int) {
+        val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return println("DORTUS-E2E geen editor")
+        val regel = withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
+            val plek = editor.getDocument().getText().indexOf(tekst)
+            editor.getCaretModel().moveToOffset(plek + extra)
+            editor.getCaretModel().getLogicalPosition().getLine()
+        }
+        println("DORTUS-E2E cursor op '$tekst' +$extra, regel ${regel + 1}")
     }
 
     /**
