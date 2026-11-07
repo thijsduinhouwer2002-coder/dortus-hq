@@ -27,6 +27,7 @@ async function openNote(path, mode) {
 async function readRolls(view) {
 	return browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).map((r) => ({
 		value: (r.querySelector(".rollwright-value")?.textContent ?? "").trim(),
+		old: r.querySelector(".rollwright-value")?.getAttribute("data-e2e-oud") === "1",
 		error: r.getAttribute("data-rollwright-error") ?? "",
 		label: r.getAttribute("aria-label") ?? "",
 	})), `${LEAF} ${view}`);
@@ -80,16 +81,24 @@ describe("Rollwright: tabellen, lijsten en kolommen in de echte Obsidian", funct
 
 	it("tien keer klikken geeft steeds een waarde uit dezelfde tabel", async function () {
 		const seen = new Set();
+		const reeks = [];
 		for (let i = 0; i < 10; i++) {
+			// Merkteken op de oude uitkomst, zodat we wachten op de nieuwe en niet de oude lezen
+			// (zelfde aanpak als secties.e2e.mjs).
+			await browser.execute((sel) => {
+				document.querySelector(`${sel} .rollwright-roll`)?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
+			}, `${LEAF} .markdown-reading-view`);
 			await browser.execute((sel) => document.querySelector(`${sel} .rollwright-roll`)?.click(), `${LEAF} .markdown-reading-view`);
 			let rolls = [];
 			await browser.waitUntil(async () => {
 				rolls = await readRolls(".markdown-reading-view");
-				return rolls[0].value !== "";
-			}, { timeout: 5000, timeoutMsg: "na een klik bleef de worp leeg" });
+				return rolls[0] !== undefined && !rolls[0].old && rolls[0].value !== "";
+			}, { timeout: 5000, timeoutMsg: "na een klik kwam er geen nieuwe worp" });
 			expect(KLEUREN).toContain(rolls[0].value);
 			seen.add(rolls[0].value);
+			reeks.push(rolls[0].value);
 		}
+		console.log("KLEUREN PER KLIK:", JSON.stringify(reeks));
 		console.log("KLEUREN GEZIEN NA TIEN KLIKKEN:", JSON.stringify([...seen]));
 		// Met drie kleuren en elf worpen is maar één kleur zien vrijwel onmogelijk (kans 3 op 3^11).
 		expect(seen.size).toBeGreaterThan(1);
