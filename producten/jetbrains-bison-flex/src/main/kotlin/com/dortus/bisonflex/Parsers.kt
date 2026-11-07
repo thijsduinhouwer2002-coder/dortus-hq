@@ -1,5 +1,6 @@
 package com.dortus.bisonflex
 
+import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.extapi.psi.PsiFileBase
 import com.intellij.lang.ASTNode
 import com.intellij.lang.Language
@@ -13,7 +14,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
@@ -41,12 +41,23 @@ class HeleTekstLexer(private val token: IElementType) : LexerBase() {
     override fun getBufferEnd(): Int = end
 }
 
+/** Vaste elementtypes per taal (ze komen in een globaal register, dus één keer maken). */
+object BisonTypes {
+    @JvmField val TEKST = IElementType("BISON_TEKST", BisonLanguage)
+    @JvmField val BESTAND = IFileElementType(BisonLanguage)
+}
+
+object FlexTypes {
+    @JvmField val TEKST = IElementType("FLEX_TEKST", FlexLanguage)
+    @JvmField val BESTAND = IFileElementType(FlexLanguage)
+}
+
 abstract class SkeletParserDefinition(
     private val taal: Language,
     private val soort: () -> FileType,
+    private val tekst: IElementType,
+    private val bestand: IFileElementType,
 ) : ParserDefinition {
-    private val tekst = IElementType("TEKST", taal)
-    private val bestand = IFileElementType(taal)
 
     override fun createLexer(project: Project?): Lexer = HeleTekstLexer(tekst)
     override fun createParser(project: Project?): PsiParser = PsiParser { root, builder: PsiBuilder ->
@@ -58,12 +69,12 @@ abstract class SkeletParserDefinition(
     override fun getFileNodeType(): IFileElementType = bestand
     override fun getCommentTokens(): TokenSet = TokenSet.EMPTY
     override fun getStringLiteralElements(): TokenSet = TokenSet.EMPTY
-    override fun createElement(node: ASTNode): PsiElement = LeafPsiElement(node.elementType, node.text)
+    override fun createElement(node: ASTNode): PsiElement = ASTWrapperPsiElement(node)
     override fun createFile(viewProvider: FileViewProvider): PsiFile = object : PsiFileBase(viewProvider, taal) {
         override fun getFileType(): FileType = soort()
         override fun toString(): String = "${taal.id}-bestand"
     }
 }
 
-class BisonParserDefinition : SkeletParserDefinition(BisonLanguage, { BisonFileType })
-class FlexParserDefinition : SkeletParserDefinition(FlexLanguage, { FlexFileType })
+class BisonParserDefinition : SkeletParserDefinition(BisonLanguage, { BisonFileType }, BisonTypes.TEKST, BisonTypes.BESTAND)
+class FlexParserDefinition : SkeletParserDefinition(FlexLanguage, { FlexFileType }, FlexTypes.TEKST, FlexTypes.BESTAND)

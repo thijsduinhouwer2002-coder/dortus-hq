@@ -15,6 +15,7 @@ import com.intellij.ide.starter.plugins.PluginConfigurator
 import com.intellij.ide.starter.project.LocalProjectInfo
 import com.intellij.ide.starter.runner.Starter
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
 import org.kodein.di.DI
@@ -33,6 +34,12 @@ interface FileTypeManagerOpAfstand {
 @Remote("com.intellij.openapi.fileTypes.FileType")
 interface FileTypeOpAfstand {
     fun getName(): String
+    fun getIcon(): IcoonOpAfstand?
+}
+
+@Remote("javax.swing.Icon")
+interface IcoonOpAfstand {
+    fun getIconWidth(): Int
 }
 
 /**
@@ -40,6 +47,11 @@ interface FileTypeOpAfstand {
  * Eis 1 en eis 10 (eerste deel) uit ontwerp.md: bestandssoorten herkend, schermen licht en donker.
  */
 class IdeTest {
+    companion object {
+        /** Vast, zodat de test niet stilletjes naar een nieuwere IDE schuift (build 252.28539.149). */
+        const val IDE_VERSIE = "2025.2.6.4"
+    }
+
     init {
         di = DI {
             extend(di)
@@ -65,7 +77,7 @@ class IdeTest {
         val project = Files.createTempDirectory("bisonflex-$naam")
         Path.of(System.getProperty("dortus.e2e.project")).toFile().copyRecursively(project.toFile())
 
-        Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)))
+        Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
             .apply {
                 PluginConfigurator(this).installPluginFromPath(Path.of(System.getProperty("path.to.build.plugin")))
                 // Thema vooraf vastzetten (GOK: zo werkt het in een verse config, de schermen laten het zien).
@@ -86,9 +98,13 @@ class IdeTest {
                 waitForIndicators(5.minutes)
                 val ftm = service<FileTypeManagerOpAfstand>()
                 for ((bestand, soort) in listOf("calc.y" to "Bison", "calc.yy" to "Bison", "calc.l" to "Flex", "calc.ll" to "Flex")) {
-                    val gevonden = ftm.getFileTypeByFileName(bestand).getName()
-                    println("DORTUS-E2E [$naam] $bestand -> soort $gevonden")
+                    val ft = ftm.getFileTypeByFileName(bestand)
+                    val gevonden = ft.getName()
+                    val breedte = ft.getIcon()?.getIconWidth() ?: 0
+                    val icoon = breedte == 16
+                    println("DORTUS-E2E [$naam] $bestand -> soort $gevonden, icoon $breedte px")
                     assertEquals(soort, gevonden, "soort van $bestand")
+                    assertTrue(icoon, "icoon van $bestand")
                 }
                 openFile("calc.y")
                 pauze()
@@ -106,6 +122,9 @@ class IdeTest {
         val doel = schermen.resolve(bestand)
         val p = ProcessBuilder("import", "-window", "root", doel.toString()).inheritIO().start()
         val code = p.waitFor()
-        println("DORTUS-E2E schermafbeelding $bestand: code $code, ${if (Files.exists(doel)) Files.size(doel) else 0} bytes")
+        val grootte = if (Files.exists(doel)) Files.size(doel) else 0
+        println("DORTUS-E2E schermafbeelding $bestand: code $code, $grootte bytes")
+        assertEquals(0, code, "import voor $bestand")
+        assertTrue(grootte > 10_000, "schermafbeelding $bestand is te klein ($grootte bytes)")
     }
 }

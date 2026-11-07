@@ -1,5 +1,6 @@
 package com.dortus.bisonflex
 
+import com.intellij.openapi.util.IconLoader
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import java.io.File
 
@@ -16,8 +17,17 @@ class BestandssoortTest : BasePlatformTestCase() {
         }
     }
 
-    // In de testomgeving laadt IconLoader geen echte iconen (breedte 1), dus hier alleen
-    // of de bestanden er zijn; hoe ze eruitzien laten de schermen uit de IDE-test zien.
+    // In lichte tests staat IconLoader uit (dan breedte 1); hier zetten we hem even aan.
+    fun testIconenLadenEchtOp16() {
+        IconLoader.activate()
+        try {
+            assertEquals(16, BisonFileType.icon.iconWidth)
+            assertEquals(16, FlexFileType.icon.iconWidth)
+        } finally {
+            IconLoader.deactivate()
+        }
+    }
+
     fun testIconenBestaanInLichtEnDonker() {
         for (naam in listOf("bison", "bison_dark", "flex", "flex_dark")) {
             val tekst = javaClass.getResource("/icons/$naam.svg")?.readText()
