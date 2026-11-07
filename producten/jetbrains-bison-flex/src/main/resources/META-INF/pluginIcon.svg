@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Achter: grammatica (oranje, vertakking zoals een regel met alternatieven). Voor: scanner (blauw, tekenreeks in stukken). Geen tekst. -->
+  <rect x="3" y="3" width="23" height="23" rx="4" fill="#FFF4EB" stroke="#E66D17" stroke-width="2"/>
+  <path d="M7.5 8L12 12.5L16.5 8M12 12.5V20" fill="none" stroke="#E66D17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="14" y="14" width="23" height="23" rx="4" fill="#EDF3FF" stroke="#3574F0" stroke-width="2"/>
+  <path d="M19 22H23M26 22H32M19 26.5H25M28 26.5H32M19 31H22M25 31H30" fill="none" stroke="#3574F0" stroke-width="2" stroke-linecap="round"/>
+</svg>
