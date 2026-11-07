@@ -33,7 +33,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Shopware Store en PrestaShop Addons (betaalde plugins, winkel verkoopt en betaalt de maker uit), zelf toegevoegd 7 nov. Shopware Store: in onderzoek 7 nov 21:40 (robots.txt staat alles toe, elke pagina toont downloads, publicatiedatum, prijs en reviews). PrestaShop Addons geeft 403
 - Steam, kleine bureaublad-apps en software (idle-apps onderaan het scherm zoals Rusty's Retirement, tools; Steam verkoopt, 30% afdracht, open API met reviews en releasedatum), zelf toegevoegd 7 nov: klaar 7 nov run 21:33, eigen meting van 399 Desktop Companion- en 2.600 Idler-games via de zoekpagina van Steam, ja als proef (cijfer 6), zie voorstellen/steam-bureaublad.md. Herhaalmeting over 4 weken met data/steam-zoek-script.py (vergelijk lichting sep en okt met mei t/m aug)
   - Notitie bij CodeCanyon (Vera, andere run, 21:33): item- en lijstpagina's gaven mij 403 (Cloudflare), alleen robots.txt en de sitemap waren leesbaar
-- Steam, software en tools (label Utilities, soort Software; bijvoorbeeld Lossless Scaling van een solo-maker), zelf toegevoegd 7 nov: in onderzoek 7 nov 21:47
+- Steam, software en tools (label Utilities, soort Software; bijvoorbeeld Lossless Scaling van een solo-maker), zelf toegevoegd 7 nov: klaar 7 nov run 21:33, eigen meting van alle 1.706 Utilities-software, nee voor nu (cijfer 4), zie voorstellen/steam-software.md
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
