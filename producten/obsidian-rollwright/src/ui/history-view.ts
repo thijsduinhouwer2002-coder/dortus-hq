@@ -1,5 +1,6 @@
 import { ItemView, Notice, setIcon, type WorkspaceLeaf } from "obsidian";
 import type RollwrightPlugin from "../main";
+import { historyLabel } from "./history-label";
 
 export const HISTORY_VIEW = "rollwright-history";
 
@@ -71,7 +72,11 @@ export class RollHistoryView extends ItemView {
 		for (const entry of history) {
 			const item = list.createDiv({ cls: "rollwright-history-item" });
 			item.createDiv({ cls: "rollwright-history-result", text: entry.result });
-			item.createDiv({ cls: "rollwright-history-formula", text: entry.formula });
+			const label = historyLabel(entry.formula);
+			if (label.name !== "") item.createDiv({ cls: "rollwright-history-name", text: label.name });
+			// The tidy text is only for showing; the raw formula stays in the title so nothing is lost.
+			const formula = item.createDiv({ cls: "rollwright-history-formula", text: label.formula });
+			formula.setAttribute("title", entry.formula);
 			if (entry.details !== "") item.createDiv({ cls: "rollwright-history-details", text: entry.details });
 			const meta = item.createDiv({ cls: "rollwright-history-meta" });
 			meta.createSpan({ text: new Date(entry.time).toLocaleTimeString() });
