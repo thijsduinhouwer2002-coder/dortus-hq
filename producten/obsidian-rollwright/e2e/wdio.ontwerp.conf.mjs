@@ -14,10 +14,11 @@ export const config = {
 			installerVersion: "earliest",
 			plugins: [".."],
 			themes: [
+				// Blue Topaz valt af: zijn versienummer (2026110301) kan de launcher niet lezen.
 				{ name: "Minimal", enabled: false },
 				{ name: "AnuPpuccin", enabled: false },
 				{ name: "Things", enabled: false },
-				{ name: "Blue Topaz", enabled: false },
+				{ name: "Border", enabled: false },
 			],
 			vault: "vaults/ontwerp",
 		},

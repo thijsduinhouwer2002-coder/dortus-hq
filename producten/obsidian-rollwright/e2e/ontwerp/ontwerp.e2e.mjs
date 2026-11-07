@@ -99,7 +99,7 @@ describe("Ontwerp van Rollwright", function () {
 	});
 
 	it("populaire thema's", async function () {
-		for (const naam of ["Minimal", "AnuPpuccin", "Things", "Blue Topaz"]) {
+		for (const naam of ["Minimal", "AnuPpuccin", "Things", "Border"]) {
 			for (const licht of [true, false]) {
 				await stap(`${naam} ${licht}`, async () => {
 					await thema(naam, licht);
