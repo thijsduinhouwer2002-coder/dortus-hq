@@ -1,6 +1,6 @@
 # Architectuur: Bison & Flex (JetBrains-plugin)
 
-Stand 7 nov 2026: versie 0.2. Bestandssoorten, echte lexer met kleuren, kleurenpagina's, commentaar een echte parser per taal (boom met regels, tokens en foutmeldingen), folding en structuurweergave.
+Stand 7 nov 2026: versie 0.2. Bestandssoorten, echte lexer met kleuren, kleurenpagina's, commentaar, een echte parser per taal (boom met regels, tokens en foutmeldingen), folding en structuurweergave.
 
 ## Onderdelen
 - `src/main/kotlin/com/dortus/bisonflex/Talen.kt`: de twee talen, `BisonLanguage` en `FlexLanguage`.
