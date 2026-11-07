@@ -85,7 +85,7 @@ class IdeTest {
     private fun draai(naam: String, themaId: String, kleurenschema: String) {
         // Engels winkelproject met een vaste mapnaam, zodat titelbalk en code op de schermen netjes zijn (Daan, beoordeling 3).
         val project = Files.createTempDirectory("bisonflex-$naam").resolve("calculator").createDirectories()
-        Path.of(System.getProperty("dortus.e2e.project")).resolveSibling("calculator").toFile().copyRecursively(project.toFile())
+        Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
 
         Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
             .apply {
@@ -134,6 +134,7 @@ class IdeTest {
                 assertFalse(projectOpen, "Project-venster dicht")
                 scherm("$naam-calc-y-structuur.png")
                 openFile("calc.l")
+                cursorNaarEinde()
                 pauze()
                 scherm("$naam-calc-l.png")
                 kleurenpagina(naam)
@@ -168,9 +169,21 @@ class IdeTest {
      * want de bestandssoorten en de andere schermen zijn dan al getoetst.
      */
     private fun Driver.kleurenpagina(naam: String) {
+        val ideVenster = actiefVenster()
+        var dialoog: String? = null
         try {
             invokeAction("ShowSettings", now = false)
-            Thread.sleep(5_000)
+            // Wachten tot er een ander venster actief is dan de IDE (de Settings-dialoog), hoogstens 20 seconden.
+            for (i in 1..20) {
+                Thread.sleep(1_000)
+                val nu = actiefVenster()
+                if (nu != null && nu != ideVenster) { dialoog = nu; break }
+            }
+            if (dialoog == null) {
+                println("DORTUS-E2E [$naam] kleurenpagina mislukt: Settings-dialoog niet actief na 20 s, niets getypt")
+                return
+            }
+            Thread.sleep(2_000)
             typ("Bison/Yacc")
             Thread.sleep(3_000)
             scherm("$naam-kleurenpagina.png")
@@ -178,6 +191,9 @@ class IdeTest {
             println("DORTUS-E2E [$naam] kleurenpagina: scherm gemaakt")
         } catch (e: Throwable) {
             println("DORTUS-E2E [$naam] kleurenpagina mislukt: ${e.javaClass.simpleName}: ${e.message?.take(300)}")
+        } finally {
+            // Daan wil deze pagina zien: is hij niet gelukt, dan faalt de test (na de andere schermen).
+            assertTrue(dialoog != null && Files.exists(schermen.resolve("$naam-kleurenpagina.png")), "kleurenpagina in beeld ($naam)")
         }
     }
 
