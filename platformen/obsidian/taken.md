@@ -1,11 +1,14 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] E2e-tests uitbreiden (bericht Thijs 23:45), nog te doen: sectie en regel, `dice+:` (ook na herstart), `dice-mod:` met Replace, zoekbare instellingen (punt 20 in OPEN.md), klik in Live Preview. Eén spec per onderwerp, groen op Actions voor indienen.
+- [ ] E2e-tests uitbreiden (bericht Thijs 23:45), nog te doen: `dice+:` (ook na herstart), `dice-mod:` met Replace, zoekbare instellingen (punt 20 in OPEN.md), klik in Live Preview op een dobbelworp. Eén spec per onderwerp, groen op Actions voor indienen.
+- [ ] Wachten op Daan (ontwerper): Rollwright gaat pas naar indienen bij `Akkoord: ja` bovenaan `producten/obsidian-rollwright/ontwerp.md`. Zijn punten gaan voor zodra hij ze geeft (bericht Thijs 7 nov 08:30).
+- [ ] Beslissen: `[[Note]]|line` kan een losse lijn (`***` of `---`) trekken, die toont dan een lege uitkomst met alleen een streep (GEZIEN in de echte Obsidian, 7 nov). Waarschijnlijk lijnen overslaan zoals bij blokken; eerst kort ontwerp, dan unittest en e2e.
 - [ ] Proef: `closest`-regel in reading-view.ts tijdelijk weg op een eigen tak en de html-test draaien (verwacht rood), zodat bewezen is welk slot werkt. Niet samenvoegen.
 - [ ] Eén echte sleutel testen (na de handmatige test of een aankoop), dan versie 0.3.0.
 - [ ] Bereid de lancering voor: README met bewegend plaatje, schermafbeeldingen, lanceerberichten voor forum (Share & showcase), r/ObsidianMD en Discord.
 - [ ] Indienen via community.obsidian.md (vraagt Thijs' GitHub-login: op de lijst voor Thijs).
 - [ ] Meten op dag 7 en dag 30.
+- [x] E2e secties en regels (7 nov 07:40, tak claude/obsidian-2026-11-07): blok, alinea, kop 1 en 2, regel, twee regels, twee alinea's, lijstpunt, vast blok met code die niet rolt, fout bij onbekend id, vijftien klikken, Ctrl-klik in lezen en Live Preview; 5 tests groen op Actions (run 42351255401), controleur akkoord, op main.
 - [x] E2e tabellen (6 nov 23:16, tak r): tabel, lijst, kolom Naam en Geluid, opzoektabel (rij past bij de worp), vaste opzoektabel met geneste cel, 3 trekkingen, lezen en Live Preview; 8 tests groen op Actions, controleur akkoord met punten (verwerkt), op main.
 - [x] E2e-test zelfverwijzing (6 nov 23:05, tak q): zes tests groen in de echte Obsidian op Actions, controleur akkoord, op main. Lint slaat e2e/ nu over (gaf al 2 fouten).
 - [x] Instellingen vindbaar in de zoekfunctie van 1.13+ (6 nov 21:47, tak p): 506 tests groen, lint 0 waarschuwingen, controleur akkoord, op main. Handmatig punt 20 in OPEN.md.
