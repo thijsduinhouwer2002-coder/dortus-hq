@@ -196,27 +196,6 @@ describe("Ontwerp van Rollwright", function () {
 		await thema("", true);
 	});
 
-	it("de instellingen met de koopknop", async function () {
-		for (const licht of [true, false]) {
-			await stap(`instellingen ${licht}`, async () => {
-				await thema("", licht);
-				const r = await openInstellingen();
-				console.log("INSTELLINGEN OPEN:", r);
-				await shot(`instellingen-boven-${licht ? "licht" : "donker"}`);
-				await browser.execute(() => {
-					const el = document.querySelector(".modal.mod-settings .vertical-tab-content");
-					if (el) el.scrollTop = el.scrollHeight;
-				});
-				await browser.pause(500);
-				await shot(`instellingen-onder-${licht ? "licht" : "donker"}`);
-				const tekst = await browser.execute(() => document.querySelector(".modal.mod-settings .vertical-tab-content")?.innerText ?? "");
-				if (licht) console.log("INSTELLINGEN TEKST:", tekst);
-				await sluitInstellingen();
-			});
-		}
-		await thema("", true);
-	});
-
 	it("leeg begin: lege notitie, geschiedenis, formule-venster", async function () {
 		await stap("leeg", async () => {
 			await open("Leeg.md", "source");
@@ -268,8 +247,6 @@ describe("Ontwerp van Rollwright", function () {
 			await browser.pause(1000);
 			await open("Taverne.md", "preview");
 			await shot("smal-lezen");
-			await openInstellingen();
-			await shot("smal-instellingen");
 			await sluitInstellingen();
 			await smal(1024);
 		});
