@@ -42,6 +42,7 @@ async function meet(view) {
 				const rect = r.getBoundingClientRect();
 				return {
 					tekst: (r.textContent ?? "").trim(),
+					oud: value?.getAttribute("data-e2e-oud") === "1",
 					blok: r.classList.contains("rollwright-roll-block"),
 					fout: r.getAttribute("data-rollwright-error") ?? "",
 					display: getComputedStyle(r).display,
@@ -152,9 +153,20 @@ async function plaatjes(naam) {
 
 /** Klik op de kopworp: de klasse wordt opnieuw bepaald en blijft blok (een kop blijft een kop). */
 async function klikKop(view) {
+	// Merkteken op de oude uitkomst, zoals in geschiedenis.e2e.mjs: dan is te zien wanneer de nieuwe staat.
+	await browser.execute((sel, i) => {
+		document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
+	}, `${LEAF} ${view}`, KOP);
 	await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} ${view}`, KOP);
-	await browser.pause(500);
-	const na = await meet(view);
+	let na = { rolls: [] };
+	await browser.waitUntil(async () => {
+		na = await meet(view);
+		const kop = na.rolls[KOP];
+		return kop !== undefined && !kop.oud && kop.tekst !== "" && kop.blok;
+	}, { timeout: 5000, timeoutMsg: "na een klik op de kop kwam er geen nieuwe uitkomst als blok" }).catch((e) => {
+		console.log("NA KLIK OP KOP TOT NU:", JSON.stringify(na.rolls[KOP]));
+		throw e;
+	});
 	console.log("NA KLIK OP KOP:", JSON.stringify(na.rolls[KOP]));
 	expect(na.rolls[KOP].blok).toBe(true);
 	expect(na.rolls[GEWOON].blok).toBe(false);
