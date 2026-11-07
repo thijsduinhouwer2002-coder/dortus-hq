@@ -206,3 +206,4 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 8 correcties verwerkt (1.216 plugins in plaats van 1.154, de 186 gratis vermeldingen, leeftijd en lichting, andere maten bij vergelijking, prijs per jaar, 100+ is 100 tot 199, externe licenties, drempel afgeleid).
 - Les: een productpagina met de data in de HTML is beter dan een API; zoek eerst daarnaar.
 - Volgende run: Zotero, Anki, Home Assistant, of een winkel met betaling waar de pagina's installs of verkopen tonen (BigCommerce, Squarespace Extensions, Ecwid zijn bereikbaar met curl).
+- Voorwerk voor de volgende run: BigCommerce (alleen reviews zichtbaar, geen installs), Squarespace en Ecwid staan in kandidaten.md. Niet meer aan begonnen: te weinig tijd over voor een grondige meting met controleur, en haast hoort niet.

@@ -21,6 +21,8 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - aescripts.com (scripts voor After Effects, kleine makers verkopen): zelf toegevoegd 7 nov, geeft 403 op curl, niet te meten zonder browser
 - SketchUp Extension Warehouse (betaalde extensies van kleine makers, ook via SketchUcation), zelf toegevoegd 7 nov: 7 nov run 16:33 niet zelf te meten. De winkel is een app in de browser die zijn cijfers (met downloads en datum per extensie, 1.429 stuks) uit een interne API haalt; die API lezen weigerde de veiligheidscontrole, net als bij Autodesk. SketchUcation verbiedt ClaudeBot in robots.txt. Toestemming gevraagd op lijst Thijs
 - WooCommerce Marketplace (betaalde extensies op woocommerce.com, Woo verkoopt en betaalt de maker uit; productpagina's tonen installaties en publicatiedatum), zelf toegevoegd 7 nov: klaar 7 nov run 16:33, eigen meting van alle 1.562 productpagina's, nee (cijfer 2), zie voorstellen/woocommerce-marketplace.md. Herhaalmeting met data/woo-haal-script.py en woo-analyse-script.py
+- BigCommerce App Marketplace (betaalde apps), voorwerk 7 nov run 16:33: bereikbaar met curl, sitemap op /apps/sitemap-marketplace-apps.xml, pagina's tonen alleen reviewCount en rating, geen installs en in de lijst geen datum. Eerst uitzoeken of een app-pagina een datum heeft; anders alleen reviews te meten, zoals bij Wix
+- Squarespace Extensions en Ecwid App Market: bereikbaar met curl, nog niet bekeken (Ecwid toont mogelijk installs)
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
