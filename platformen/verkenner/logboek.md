@@ -272,3 +272,5 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: bereik gemeten zwak en geld loopt via verkoopgesprekken en een betaalde security review ($999 per poging). Wat dit verandert: installcijfers, of twee kleine makers sinds 2024 met $1.000+ per maand.
 - Controleur akkoord, 6 correcties. Belangrijkste: de review-kosten haalde ik uit een oude versie van de documentatie ($2.550); nu $999 per poging. En de prijs is gemengd per maand en per jaar.
 - Les: bij documentatie met versienummers altijd de nieuwste versie lezen.
+- Laatste kwartier: voorwerk Xero App Store, zelf toegevoegd. Sitemap met 462 app-pagina's, met datum en reviews, geen installs. Eerste cijfers staan in kandidaten.md. Nog geen oordeel: de sitemap is mogelijk niet compleet en er was geen tijd meer voor een controleur. Een half oordeel telt niet.
+- Run afgesloten na Zoho (2), Pipedrive (2), AppExchange (3) en voorwerk Xero.

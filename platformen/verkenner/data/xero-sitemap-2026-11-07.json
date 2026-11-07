@@ -1,0 +1,3698 @@
+[
+{
+"url": "https://apps.xero.com/app/tradify",
+"listed": "2013-10-08T11:00:00Z",
+"rev": "187",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/radiuscore",
+"listed": "2020-06-30T12:00:00Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/shopify",
+"listed": null,
+"rev": "80",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/expensify",
+"listed": "2014-04-08T12:00:00Z",
+"rev": "505",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/etsy",
+"listed": "2025-08-26T22:36:15Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/synder",
+"listed": "2021-11-15T16:31:59Z",
+"rev": "147",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pulsify",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xelation",
+"listed": "2022-06-14T11:12:13Z",
+"rev": "18",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/vinyl",
+"listed": "2025-06-30T00:30:00+00:00",
+"rev": "41",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hubdoc",
+"listed": "2014-02-03T11:00:00Z",
+"rev": "232",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/syft",
+"listed": "2018-02-18T12:00:00Z",
+"rev": "477",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dext",
+"listed": "2011-03-05T11:00:00Z",
+"rev": "1119",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/stripe",
+"listed": "2015-02-04T11:00:00Z",
+"rev": "384",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fathom",
+"listed": "2012-07-01T12:00:00Z",
+"rev": "625",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/spotlight-reporting",
+"listed": "2011-01-01T11:00:00Z",
+"rev": "341",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/joiin",
+"listed": "2018-12-17T11:00:00Z",
+"rev": "494",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/silverfin",
+"listed": "2019-11-08T00:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/approvalmax",
+"listed": "2016-11-30T11:00:00Z",
+"rev": "671",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/paypal",
+"listed": "2015-06-06T12:00:00Z",
+"rev": "136",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/airwallex",
+"listed": "2022-04-14T03:17:31Z",
+"rev": "13",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/servicem8",
+"listed": "2015-07-31T12:00:00Z",
+"rev": "352",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xero-expenses",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mayday",
+"listed": "2022-04-14T07:29:27Z",
+"rev": "308",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/rechargly",
+"listed": "2024-05-02T06:36:58Z",
+"rev": "17",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/deputy",
+"listed": "2016-05-04T12:00:00Z",
+"rev": "148",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zapier",
+"listed": "2012-03-11T11:00:00Z",
+"rev": "23",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zap-data-hub",
+"listed": "2020-05-11T06:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/autoentry",
+"listed": "2017-05-31T12:00:00Z",
+"rev": "465",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/translucent-multi-entity",
+"listed": "2023-05-30T07:46:14Z",
+"rev": "20",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/double",
+"listed": "2022-09-19T07:01:17Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/simpro",
+"listed": "2010-05-02T12:00:00Z",
+"rev": "69",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/make",
+"listed": "2018-03-07T11:00:00Z",
+"rev": "15",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/a2x",
+"listed": "2014-12-10T11:00:00Z",
+"rev": "950",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ezzybills",
+"listed": "2015-01-11T11:00:00Z",
+"rev": "205",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/g-accon-for-xero",
+"listed": "2018-02-03T11:00:00Z",
+"rev": "213",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/re-leased",
+"listed": "2014-02-01T11:00:00Z",
+"rev": "77",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/draftworx",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/link-my-books",
+"listed": "2019-03-12T11:00:00Z",
+"rev": "613",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workflowmax",
+"listed": "2023-09-18T01:52:45Z",
+"rev": "201",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clarity-hq",
+"listed": "2019-07-17T23:00:00Z",
+"rev": "86",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/lightyear",
+"listed": "2018-09-03T12:00:00Z",
+"rev": "146",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/unleashed-software",
+"listed": "2011-02-06T11:00:00Z",
+"rev": "394",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/data-sync-by-hubspot",
+"listed": "2017-12-04T11:00:00Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ignition",
+"listed": "2013-09-06T12:00:00Z",
+"rev": "556",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/datamolino",
+"listed": "2014-01-11T11:00:00Z",
+"rev": "418",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cin7-core",
+"listed": "2015-05-03T12:00:00Z",
+"rev": "224",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/datasights",
+"listed": "2021-03-11T07:00:00Z",
+"rev": "93",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xero-compliance",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dytto",
+"listed": "2026-09-01T08:59:34Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/soldo",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/lightspeed-retail-pos-x-series",
+"listed": "2011-05-07T12:00:00Z",
+"rev": "127",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/parex-bridge",
+"listed": "2019-06-25T14:00:00Z",
+"rev": "269",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tofu",
+"listed": "2025-09-17T02:30:00Z",
+"rev": "149",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/flex-financial-reporting",
+"listed": "2014-05-08T12:00:00Z",
+"rev": "140",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/harvest",
+"listed": "2013-02-28T11:00:00Z",
+"rev": "43",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/calxa",
+"listed": "2014-05-02T12:00:00Z",
+"rev": "144",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/controlc",
+"listed": "2017-05-20T12:00:00Z",
+"rev": "34",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/amaka",
+"listed": "2021-03-08T13:00:00Z",
+"rev": "1404",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/futrli",
+"listed": "2015-02-04T11:00:00Z",
+"rev": "140",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/float-cashflow-forecasting",
+"listed": "2014-12-08T11:00:00Z",
+"rev": "345",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/aspire",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/aroflo",
+"listed": "2012-05-09T12:00:00Z",
+"rev": "17",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/senta",
+"listed": "2019-10-10T23:00:00+00:00",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/quotient",
+"listed": "2013-11-01T11:00:00Z",
+"rev": "148",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/lightspeed-kounta-pos",
+"listed": "2015-04-04T11:00:00Z",
+"rev": "22",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/capsule-crm",
+"listed": "2010-08-03T12:00:00Z",
+"rev": "64",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/odatalink",
+"listed": null,
+"rev": "46",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sharesight",
+"listed": "2026-08-25T03:15:50Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dext-commerce",
+"listed": "2019-02-12T11:00:00Z",
+"rev": "78",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/rippling",
+"listed": "2019-02-12T11:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cin7-omni",
+"listed": "2012-11-01T11:00:00Z",
+"rev": "273",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/studio-ninja",
+"listed": "2017-08-01T12:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/timely",
+"listed": "2014-07-06T12:00:00Z",
+"rev": "22",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/generatetax",
+"listed": "2023-10-10T12:06:47Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/paidnice",
+"listed": "2021-12-02T02:15:45Z",
+"rev": "85",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/parolla-plugins",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/scotts-add-ins",
+"listed": "2019-06-09T12:00:00Z",
+"rev": "59",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/modano",
+"listed": "2021-07-30T00:00:00Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/chaser",
+"listed": "2015-05-08T12:00:00Z",
+"rev": "374",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/windsorai",
+"listed": "2025-08-28T11:11:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/backupmybooks",
+"listed": "2017-11-15T11:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/halopsa",
+"listed": "2021-08-22T23:00:00Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/invoice2go",
+"listed": "2018-09-30T11:00:00Z",
+"rev": "10",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workshop-software",
+"listed": "2016-05-06T12:00:00Z",
+"rev": "25",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/epos-now",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/reach-reporting",
+"listed": "2020-07-09T06:00:00Z",
+"rev": "95",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fileai",
+"listed": "2020-08-03T14:00:00Z",
+"rev": "37",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pylon",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fusesign",
+"listed": "2021-11-19T04:39:13Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/minutedock",
+"listed": "2010-07-10T12:00:00Z",
+"rev": "153",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/jibble",
+"listed": "2023-12-22T03:45:00Z",
+"rev": "118",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/suitefiles",
+"listed": "2016-05-31T12:00:00Z",
+"rev": "53",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xpna",
+"listed": "2023-05-26T01:28:40Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/projectworks",
+"listed": "2019-11-26T11:00:00Z",
+"rev": "73",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/streamtime",
+"listed": "2011-02-10T11:00:00Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/current-rms",
+"listed": "2017-01-31T11:00:00Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/couplerio",
+"listed": "2020-05-29T06:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/formitize",
+"listed": "2016-09-03T12:00:00Z",
+"rev": "6",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/annature",
+"listed": "2021-03-14T13:00:00Z",
+"rev": "357",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/statey",
+"listed": "2022-05-26T15:04:33Z",
+"rev": "20",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/castaway-cloud",
+"listed": "2023-08-09T01:02:35Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ascora",
+"listed": "2018-05-07T07:20:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/exl-cloud-by-xlc",
+"listed": "2022-03-28T11:10:57Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/myworks-sync",
+"listed": null,
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/synergy",
+"listed": "2014-09-04T12:00:00Z",
+"rev": "12",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/rechound",
+"listed": "2023-05-24T14:19:09Z",
+"rev": "24",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/shogo",
+"listed": "2015-06-30T12:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/chargebee",
+"listed": "2016-06-01T12:00:00Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mrpeasy",
+"listed": "2015-05-04T12:00:00Z",
+"rev": "78",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cloud-depot",
+"listed": "2012-11-03T11:00:00Z",
+"rev": "12",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bold-commerce",
+"listed": "2016-08-08T12:00:00Z",
+"rev": "80",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/payhawk",
+"listed": "2021-02-26T07:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/prism-pay",
+"listed": "2018-10-11T11:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/creditorwatch-collect",
+"listed": "2012-12-05T11:00:00Z",
+"rev": "91",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/productive",
+"listed": "2019-03-11T11:00:00Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/omniboost",
+"listed": "2021-05-05T23:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/scoro",
+"listed": "2025-06-13T07:43:00+00:00",
+"rev": "13",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cash-flow-frog",
+"listed": "2021-02-01T07:00:00Z",
+"rev": "39",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cloudify",
+"listed": "2025-02-12T13:42:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/assetaccountant",
+"listed": "2021-03-23T12:00:00Z",
+"rev": "17",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/easy-month-end",
+"listed": "2023-09-12T01:41:37Z",
+"rev": "17",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/skyvia",
+"listed": "2023-09-19T08:17:37Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/prospect-crm",
+"listed": "2018-11-07T11:00:00Z",
+"rev": "21",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ucollect",
+"listed": "2016-07-01T12:00:00Z",
+"rev": "31",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/scalexp",
+"listed": "2021-05-27T23:00:00Z",
+"rev": "91",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/memtime",
+"listed": "2024-08-01T14:57:26Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/karbon",
+"listed": "2025-05-08T00:15:00Z",
+"rev": "31",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/w2x",
+"listed": "2021-11-12T16:32:19Z",
+"rev": "15",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/acterys",
+"listed": "2022-03-21T23:46:49Z",
+"rev": "28",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/infoodle",
+"listed": "2015-05-08T12:00:00Z",
+"rev": "21",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fishbowl-manufacturing-and-warehouse",
+"listed": "2016-09-04T12:00:00Z",
+"rev": "125",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/simpleai-books",
+"listed": "2024-12-09T19:45:00Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/preno",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/saasant-transactions",
+"listed": "2021-07-01T05:30:00Z",
+"rev": "37",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/numerintbackup",
+"listed": "2023-06-24T12:45:45Z",
+"rev": "24",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cdata-connector",
+"listed": "2024-05-08T17:14:08Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/liveplan",
+"listed": "2015-08-31T12:00:00Z",
+"rev": "10",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zenoti",
+"listed": "2023-08-31T13:59:35Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workguru",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/marketman",
+"listed": "2020-04-03T06:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/beanbox",
+"listed": "2017-08-10T12:00:00Z",
+"rev": "81",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/traild",
+"listed": "2024-04-23T00:00:00Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/post-from-shopify-by-hyve",
+"listed": "2023-11-15T05:01:15Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/semble",
+"listed": "2020-01-21T00:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/invoice-stack-for-hubspot",
+"listed": "2021-06-22T23:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/breadwinner",
+"listed": "2026-06-23T18:55:40Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hreasily",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/groundplan",
+"listed": "2020-11-26T13:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/agicap",
+"listed": null,
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/appventory",
+"listed": "2025-02-20T01:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/wellybox",
+"listed": "2025-08-15T09:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/floqast",
+"listed": "2024-12-10T00:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/supy-accounting-integration",
+"listed": "2025-04-07T08:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/redcat",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/verifyiq",
+"listed": "2020-03-16T06:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xo-report",
+"listed": "2026-05-13T17:00:00Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/itrade",
+"listed": "2013-11-11T11:00:00Z",
+"rev": "24",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/accelo",
+"listed": "2013-03-08T11:00:00Z",
+"rev": "14",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/connectorly-for-powerbi",
+"listed": "2023-10-16T09:13:05Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ezycollect",
+"listed": "2015-04-10T12:00:00Z",
+"rev": "35",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/subsync-by-finlert",
+"listed": "2023-10-25T13:30:00Z",
+"rev": "14",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/roll",
+"listed": "2016-03-05T11:00:00Z",
+"rev": "65",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/reconcilely",
+"listed": "2021-11-18T03:05:09Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tabology",
+"listed": "2015-04-30T12:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/carry-the-one",
+"listed": "2011-01-01T00:00:00Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/wink-reports",
+"listed": "2017-04-04T12:00:00Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hoopscrm",
+"listed": null,
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zoho-flow",
+"listed": "2026-03-06T07:00:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/satago",
+"listed": "2014-02-08T11:00:00Z",
+"rev": "92",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/boxkitebackup",
+"listed": "2015-11-05T11:00:00Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/nume",
+"listed": "2025-12-05T13:58:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workshop-mate",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/orderspace",
+"listed": "2022-08-07T12:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/billbjorn",
+"listed": "2020-08-05T14:00:00Z",
+"rev": "24",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/causal",
+"listed": "2020-11-04T00:00:00Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/gojee",
+"listed": "2019-08-29T14:00:00Z",
+"rev": "54",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/content-snare",
+"listed": "2023-05-16T07:16:21Z",
+"rev": "73",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xportmydata",
+"listed": "2020-10-21T11:00:00Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/katana-cloud-inventory",
+"listed": "2020-01-16T00:00:00Z",
+"rev": "72",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/paystack",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/standard-metrics",
+"listed": "2022-10-18T13:08:26Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fiscalharmony",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/programa",
+"listed": "2022-10-12T01:12:50Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/quick-consols",
+"listed": "2021-01-22T07:00:00Z",
+"rev": "6",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/receipt-bot",
+"listed": "2018-12-09T11:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/livecostscom",
+"listed": "2020-07-07T23:00:00Z",
+"rev": "34",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/synchub",
+"listed": "2020-04-19T12:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/buildern",
+"listed": "2023-11-22T13:19:23Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/thaitax",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fresh-projects",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dokka",
+"listed": "2019-04-28T12:00:00Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/breezing",
+"listed": "2024-12-04T13:15:00Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/flowrev",
+"listed": "2015-10-08T06:00:00Z",
+"rev": "13",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sonovate",
+"listed": "2023-07-07T09:52:01Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/jobadder",
+"listed": "2015-01-08T11:00:00Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/lucida",
+"listed": "2021-03-07T07:00:00Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clarity-go",
+"listed": "2020-05-03T23:00:00+00:00",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hesaab",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mmc-convert",
+"listed": "2023-05-12T11:00:00+00:00",
+"rev": "293",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/allocat",
+"listed": "2020-08-04T06:00:00Z",
+"rev": "12",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pry",
+"listed": "2021-04-29T06:00:00Z",
+"rev": "8",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/payreq",
+"listed": "2022-08-01T00:57:15Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/brightanalytics",
+"listed": "2026-08-07T06:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sterling",
+"listed": "2026-04-29T06:30:00Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/enrolmy",
+"listed": "2021-03-30T11:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/identitycheck",
+"listed": "2022-12-16T00:29:05Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/qoblex",
+"listed": "2016-05-31T12:00:00Z",
+"rev": "28",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/nexudus",
+"listed": "2021-05-20T06:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tidystock",
+"listed": "2014-06-01T12:00:00Z",
+"rev": "43",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/checkfront",
+"listed": "2025-07-03T15:13:23Z",
+"rev": "5",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/shopvox",
+"listed": "2020-08-24T06:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/checkeeper",
+"listed": "2015-03-01T11:00:00Z",
+"rev": "13",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/inflow-inventory",
+"listed": "2022-01-11T16:19:49Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/yourtradebase",
+"listed": "2019-03-26T11:00:00Z",
+"rev": "10",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/eworks-manager",
+"listed": "2020-02-28T00:00:00+00:00",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/superops",
+"listed": "2022-11-22T09:52:17Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hirehop-equipment-rental-software",
+"listed": "2020-06-03T06:00:00Z",
+"rev": "8",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/uncat",
+"listed": "2021-11-03T11:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sync-by-boost-plugins",
+"listed": "2025-11-05T22:30:52Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mintsoft",
+"listed": "2024-11-21T12:36:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workever",
+"listed": "2019-06-12T12:00:00Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/boma",
+"listed": "2017-09-03T12:00:00Z",
+"rev": "16",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/batchpay",
+"listed": "2023-03-08T00:44:05Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bookkeepcom",
+"listed": "2021-10-29T15:34:26Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/timedock",
+"listed": "2021-03-03T13:00:00Z",
+"rev": "29",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tugger",
+"listed": "2023-12-30T19:21:51Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/starshipit",
+"listed": "2013-07-02T12:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/karmly",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/numeric",
+"listed": "2022-06-09T16:09:48Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sfx-connect",
+"listed": "2020-11-08T11:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/avaza",
+"listed": "2021-08-19T12:00:00+00:00",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/constant-contact",
+"listed": "2025-05-13T20:21:45Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ag-drive",
+"listed": "2024-10-28T19:57:53Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/gennaiio",
+"listed": "2026-06-04T07:00:00+00:00",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/splynx",
+"listed": "2020-11-13T07:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dentally",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tres-finance-web3-accounting",
+"listed": "2024-11-24T08:06:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/glue-up",
+"listed": "2020-04-02T06:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/magnetism-solutions-power-platform-connector",
+"listed": "2025-10-21T05:15:00Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pemo",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/insightly-crm",
+"listed": "2015-11-07T11:00:00Z",
+"rev": "124",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/client-hub",
+"listed": "2026-08-21T17:11:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/magmanager",
+"listed": "2020-06-02T23:00:00+00:00",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fooman-connect",
+"listed": "2022-09-30T04:06:00Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/precoro",
+"listed": "2022-09-22T14:31:11Z",
+"rev": "12",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/veryfi-receipts-expenses-and-projects",
+"listed": "2014-10-06T11:00:00Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/business-importer",
+"listed": "2016-07-25T12:00:00Z",
+"rev": "30",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pabbly-connect",
+"listed": "2022-09-21T07:30:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mixed-analytics-api-client-for-sheets",
+"listed": "2021-04-27T06:00:00+00:00",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/brewman",
+"listed": "2023-06-27T13:02:03Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ocerli",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tallybreeze",
+"listed": "2021-04-19T06:00:00Z",
+"rev": "10",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/receiptor-ai",
+"listed": "2024-11-05T12:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/jirav",
+"listed": "2019-02-12T11:00:00Z",
+"rev": "8",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/booqable",
+"listed": "2026-05-01T00:00:00+00:00",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/planyard",
+"listed": "2021-09-09T16:17:27Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/open-payout",
+"listed": "2021-11-17T07:03:56Z",
+"rev": "14",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/konsolidator---financial-consolidation--reporting",
+"listed": "2022-10-10T12:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/membershipworks",
+"listed": "2017-04-10T12:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/taxomate",
+"listed": "2019-02-10T11:00:00Z",
+"rev": "88",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/assetguru",
+"listed": "2014-09-10T12:00:00Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/planergy-p2p",
+"listed": "2021-05-11T23:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/spread",
+"listed": "2026-03-27T21:57:00Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ruddr",
+"listed": "2025-01-22T14:50:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/semper",
+"listed": "2021-07-12T23:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/abacumio-connector",
+"listed": "2024-10-22T12:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/easycsv",
+"listed": "2025-02-28T14:07:00Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/the-portal-genie",
+"listed": "2026-02-02T07:30:00Z",
+"rev": "8",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pet-manager",
+"listed": "2021-03-05T07:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/runway-financial-inc",
+"listed": "2024-07-09T14:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/batch2sepa",
+"listed": "2021-04-28T06:00:00Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/emasphere",
+"listed": "2024-03-22T11:00:43Z",
+"rev": "6",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/aleph",
+"listed": null,
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/klipfolio-dashboard",
+"listed": "2016-07-06T12:00:00Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/flow",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/gini",
+"listed": "2022-12-15T08:33:08Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hello-club",
+"listed": "2019-06-03T12:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clickpos",
+"listed": "2012-10-09T21:50:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cleancloud-dry-cleaning-and-laundry",
+"listed": "2025-09-26T15:44:20Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/buddy",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/quaderno",
+"listed": "2019-03-07T11:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/salesin",
+"listed": "2015-11-08T11:00:00Z",
+"rev": "17",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/emerge-app",
+"listed": "2018-11-27T11:00:00Z",
+"rev": "30",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/landlord-studio",
+"listed": "2022-05-11T01:32:18Z",
+"rev": "6",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/twocanconnect",
+"listed": "2020-04-06T14:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workhorse-order--inventory-management",
+"listed": "2020-02-14T00:00:00Z",
+"rev": "35",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/payaca",
+"listed": "2020-12-08T00:00:00Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/costtracker",
+"listed": "2022-09-20T13:42:56Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/onepagecrm",
+"listed": "2026-09-01T15:06:24Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/kolleno",
+"listed": "2022-04-22T09:35:08Z",
+"rev": "18",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cryptio",
+"listed": "2021-12-27T13:48:41Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zeemart",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sumday",
+"listed": "2023-07-20T04:45:52Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zigaflow",
+"listed": "2019-07-25T14:00:00Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/remote",
+"listed": "2024-05-09T11:28:00+00:00",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tailride",
+"listed": "2025-10-03T07:09:54Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/magnetic",
+"listed": "2026-01-12T15:30:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/paytraqer",
+"listed": "2022-09-29T07:12:54Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/linnworks-xero-connector-synctools",
+"listed": "2021-07-06T06:00:00Z",
+"rev": "23",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/link",
+"listed": null,
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/rocketspark",
+"listed": "2015-04-10T12:00:00Z",
+"rev": "17",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/datagate",
+"listed": "2022-08-05T01:39:18Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/signwell",
+"listed": "2026-06-18T23:20:42Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/airsquare",
+"listed": "2015-04-30T12:00:00Z",
+"rev": "74",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/klipboard",
+"listed": "2020-04-19T23:00:00+00:00",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/repairdesk",
+"listed": "2020-06-09T06:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/viberent",
+"listed": "2025-02-11T23:22:11Z",
+"rev": "34",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/triplog",
+"listed": "2019-06-12T12:00:00Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/fawtarra",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/stockunify",
+"listed": "2023-06-29T23:51:01Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/quickb2b-order-management-system",
+"listed": "2019-02-17T11:00:00Z",
+"rev": "28",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/payrollmate",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/inbound-accounts",
+"listed": "2020-07-01T14:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tidywork",
+"listed": "2011-01-10T11:00:00Z",
+"rev": "23",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/wave",
+"listed": "2026-02-19T05:17:37Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/revelation-pets",
+"listed": "2026-08-10T08:30:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cheetah",
+"listed": "2026-10-28T02:30:00Z",
+"rev": "6",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/drivetrain",
+"listed": "2025-06-06T06:35:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/qssconnect",
+"listed": "2014-04-11T12:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/nagging-panda",
+"listed": "2022-08-05T12:25:13Z",
+"rev": "7",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/trelica",
+"listed": "2025-02-10T14:45:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/entryrocket",
+"listed": "2022-11-11T02:00:00Z",
+"rev": "11",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/qvinci",
+"listed": "2014-10-01T11:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/accountingbi",
+"listed": "2022-09-02T09:51:31Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/airpurchase",
+"listed": "2026-02-13T14:00:00+00:00",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/oysterhr",
+"listed": "2023-01-11T15:40:35Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/erpag",
+"listed": "2022-07-22T10:38:14Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/synctools-app",
+"listed": "2026-02-27T02:15:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/evopos",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/vxt",
+"listed": "2025-08-25T04:30:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/anrok",
+"listed": "2025-06-25T13:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/capture-expense",
+"listed": "2024-05-08T11:24:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/posttrans-for-xl",
+"listed": null,
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/expenseondemand",
+"listed": "2019-03-27T11:00:00Z",
+"rev": "62",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/oncord",
+"listed": "2023-09-18T04:03:53Z",
+"rev": "13",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/modlr---the-corporate-performance-cloud",
+"listed": "2022-03-20T23:47:43Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/budget-consolidator",
+"listed": null,
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/foodrazor",
+"listed": "2019-06-19T14:00:00+00:00",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clockwork-ai",
+"listed": "2019-07-24T07:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/connectorly",
+"listed": "2018-09-20T12:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/shiptheory",
+"listed": "2025-01-13T10:43:00+00:00",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sps-commerce",
+"listed": "2020-12-15T13:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tempus-tools",
+"listed": "2025-11-11T02:47:14Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/briohr",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/billdu",
+"listed": "2022-05-24T09:27:33Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/the-percentage-app",
+"listed": "2019-12-03T13:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hedgeflows",
+"listed": "2022-04-19T07:13:58Z",
+"rev": "24",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/subscript",
+"listed": "2025-07-23T16:13:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/profitkeeper",
+"listed": "2024-12-10T00:23:49Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pluto",
+"listed": "2024-05-02T00:15:02Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pikohana-dashboard",
+"listed": "2022-11-01T11:47:48Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/website-builder",
+"listed": "2010-01-04T11:00:00Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/approveit",
+"listed": "2022-06-25T11:42:18Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/saasgrid",
+"listed": "2024-11-27T14:20:53Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cryptoworth",
+"listed": "2023-02-10T00:46:18Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/vendoralert",
+"listed": "2026-07-29T15:45:23Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/budgee",
+"listed": "2025-11-28T06:30:00Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/francis",
+"listed": null,
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/kudwa",
+"listed": "2026-03-10T12:00:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pipedrive-advanced-automation---syncq",
+"listed": "2023-02-25T03:59:52Z",
+"rev": "4",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/easyinterest",
+"listed": "2025-04-29T18:16:24Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/brixx",
+"listed": "2021-02-08T00:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/coreclose",
+"listed": "2026-08-19T07:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/syncpenguin",
+"listed": "2026-09-14T00:45:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/nicejob",
+"listed": "2022-12-20T19:47:34Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/chargeover",
+"listed": "2020-01-24T07:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ilglu",
+"listed": "2025-03-25T17:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/logicglue",
+"listed": "2025-09-17T03:42:28Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/magnetism-solutions-dynamics-365-integration",
+"listed": "2023-08-10T04:55:53Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/wbsync",
+"listed": "2021-01-14T07:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bi4cloud",
+"listed": "2019-08-13T14:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/inview",
+"listed": "2018-06-04T12:00:00Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/vwork",
+"listed": "2014-09-10T12:00:00Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/brieff",
+"listed": "2026-02-27T04:30:00Z",
+"rev": "14",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/envoice",
+"listed": "2020-02-14T00:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/easyaccrue",
+"listed": "2026-02-25T13:29:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/paperless",
+"listed": "2026-07-01T12:44:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/labelconnector",
+"listed": "2024-02-06T23:07:08Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/stayonhire",
+"listed": "2025-10-02T03:04:43Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/peakflo",
+"listed": "2021-12-08T12:37:45Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/specifi",
+"listed": "2025-03-10T13:39:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clevero",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/field-ascend",
+"listed": "2026-06-17T12:47:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/pbsapos-accounting-export",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tax-star",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/eviivo-suite",
+"listed": "2021-11-26T09:46:02Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/beds24-channel-manager-pms",
+"listed": "2023-05-16T03:32:09Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/maus-business-systems",
+"listed": "2025-04-10T23:12:55Z",
+"rev": "14",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bulk-contact-manager",
+"listed": "2026-10-13T05:45:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/qurk",
+"listed": "2025-10-16T16:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/autohive",
+"listed": "2026-06-19T01:40:40Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/see-my-bills",
+"listed": "2025-09-05T06:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/easy-insight",
+"listed": "2019-06-09T12:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/really-simple-systems",
+"listed": "2017-06-02T12:00:00Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/vtiger-crm",
+"listed": "2018-11-27T11:00:00Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/clearspend-ai",
+"listed": "2026-10-09T05:30:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/kim",
+"listed": "2020-11-26T13:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/greenly",
+"listed": "2023-08-07T12:23:38Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/marmin",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zeevou",
+"listed": "2024-11-23T10:46:54Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/envy-analytics",
+"listed": "2024-09-03T16:44:40Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/senomix-timesheets",
+"listed": "2023-02-14T22:26:44Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/orderez",
+"listed": null,
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/ebg-linnworks-adaptor",
+"listed": "2017-07-27T12:00:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/manu-online-ltd",
+"listed": "2014-05-03T12:00:00Z",
+"rev": "9",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tomahawk--resbook",
+"listed": "2013-06-04T12:00:00Z",
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/digintu",
+"listed": "2023-09-27T17:56:50Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/apptivo",
+"listed": "2021-11-29T11:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/planright",
+"listed": "2020-11-26T11:00:00Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tahua",
+"listed": "2023-01-18T21:42:40Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/boostsync-for-clickup",
+"listed": "2026-10-21T21:32:24Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hotelogix",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/setyl",
+"listed": "2023-04-03T09:37:08Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/lumin",
+"listed": "2026-03-10T13:00:00+00:00",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/redware-power-bi-connector",
+"listed": null,
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bedful-booking-system",
+"listed": "2021-09-02T16:11:21Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zetpy",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/time-tracker-by-ebillity",
+"listed": "2015-08-07T12:00:00Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/finnex-ai-assistant",
+"listed": "2025-06-25T03:52:45Z",
+"rev": "3",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/invoice-tracker",
+"listed": "2022-12-06T11:05:45Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/amlcc",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/stocktrim",
+"listed": "2021-08-24T12:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/psohub",
+"listed": "2021-09-24T21:16:10Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/aem-journaler",
+"listed": "2021-06-02T04:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bluefolder-by-accountsinsync",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/assist",
+"listed": "2023-02-08T07:43:49Z",
+"rev": "12",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workstem",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/powdr",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/appy-pie-connect",
+"listed": "2021-07-13T06:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/salesroller",
+"listed": "2021-07-07T06:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/compare-your-footprint",
+"listed": "2023-01-03T13:53:44Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/loc8",
+"listed": "2018-03-26T11:00:00Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/evalue8",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/circlr",
+"listed": "2025-10-07T17:56:24Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/chidesk",
+"listed": "2021-05-17T23:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xlreporting",
+"listed": "2020-12-15T07:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/jebra",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/bitwave",
+"listed": "2022-07-19T16:18:19Z",
+"rev": "2",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/rubli",
+"listed": "2026-02-11T11:39:00+00:00",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mmc-receipt",
+"listed": null,
+"rev": "3",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/neoeco",
+"listed": "2023-07-07T11:05:27Z",
+"rev": "1",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/sme-snapshot",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/jivrus-data-studio-connector",
+"listed": "2023-04-18T10:06:59Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/dryrun",
+"listed": "2016-04-30T12:00:00Z",
+"rev": "6",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/cloudfuse",
+"listed": "2025-07-07T10:30:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tidybuild",
+"listed": "2016-03-03T11:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/homebozz",
+"listed": "2022-07-25T10:12:42Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/tidyclinic",
+"listed": "2024-07-23T00:00:00+00:00",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/mydocsafe",
+"listed": "2021-01-12T07:00:00Z",
+"rev": "2",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/maralytics",
+"listed": "2021-10-14T13:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/workxflow-planner",
+"listed": null,
+"rev": null,
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/remitclear",
+"listed": "2026-06-23T23:01:00Z",
+"rev": "13",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/top-5",
+"listed": "2019-06-27T14:00:00+00:00",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/deel",
+"listed": "2021-02-11T07:00:00Z",
+"rev": "8",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/idu",
+"listed": "2022-01-12T12:47:23Z",
+"rev": "1",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/hike-pos",
+"listed": "2016-02-04T11:00:00Z",
+"rev": "7",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xero-practice-manager",
+"listed": "2018-08-26T12:00:00Z",
+"rev": "4",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/xero-projects",
+"listed": null,
+"rev": null,
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/zenflow",
+"listed": "2019-01-29T11:00:00Z",
+"rev": "5",
+"trial": "true",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/omnipresent",
+"listed": "2025-02-25T10:31:31Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/uber",
+"listed": "2026-09-17T09:07:00Z",
+"rev": "0",
+"trial": "false",
+"xbilling": null,
+"ok": true
+},
+{
+"url": "https://apps.xero.com/app/basecom",
+"listed": "2026-11-04T01:00:00Z",
+"rev": "0",
+"trial": "true",
+"xbilling": null,
+"ok": true
+}
+]
