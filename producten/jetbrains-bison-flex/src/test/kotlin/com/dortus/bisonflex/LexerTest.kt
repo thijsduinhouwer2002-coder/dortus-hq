@@ -65,6 +65,10 @@ class LexerTest : BasePlatformTestCase() {
             toks.filter { it.type == TokenType.BAD_CHARACTER.toString() }.forEach {
                 problemen += "${f.name}: onbekend teken '${tekst.substring(it.start, it.einde)}' op ${plek(tekst, it.start)}"
             }
+            // Vlak voor een `%%` moet elk `<SC>{`-blok dicht zijn (anders zet `%%` het stilletjes recht).
+            if (!isBison(f.name)) toks.filter { tekst.startsWith("%%", it.start) && it.type == "FLEX_SCHEIDING" }
+                .filter { FlexScanner.scope(it.toestand) != 0 }
+                .forEach { problemen += "${f.name}: <SC>{-blok nog open voor %% op ${plek(tekst, it.start)}" }
             val eind = eindToestand(lexerVoor(f.name), tekst)
             if (isBison(f.name)) {
                 if (BisonScanner.deel(eind) == BisonScanner.DECLARATIES || BisonScanner.stand(eind) == BisonScanner.BLOK ||
@@ -121,6 +125,42 @@ class LexerTest : BasePlatformTestCase() {
             if (!verwacht.exists()) { verwacht.parentFile.mkdirs(); verwacht.writeText(gekregen); fail("${verwacht.name} gemaakt, nakijken") }
             assertEquals("kleuren van $naam", verwacht.readText(), gekregen)
         }
+    }
+
+    /** Eis 4 en 5: ook de voorbeelden van de kleurenpagina (start-condities, `<SC>{`, `<<EOF>>`, `@1`, `$<veld>1`). */
+    fun testKleurPerTokenVoorbeelden() {
+        val verwachtMap = File(System.getProperty("dortus.testdata"), "verwacht")
+        for ((naam, tekst) in listOf("voorbeeld.y" to Voorbeelden.BISON, "voorbeeld.l" to Voorbeelden.FLEX)) {
+            val gekregen = kleurenlijst(naam, tekst)
+            val verwacht = File(verwachtMap, "$naam.kleuren")
+            if (!verwacht.exists()) { verwacht.parentFile.mkdirs(); verwacht.writeText(gekregen); fail("${verwacht.name} gemaakt, nakijken") }
+            assertEquals("kleuren van $naam", verwacht.readText(), gekregen)
+        }
+    }
+
+    /** Lastige stukjes die de controleur vond (7 nov). */
+    fun testLastigeStukjes() {
+        fun kleur(naam: String, tekst: String, stuk: String): String {
+            val regel = kleurenlijst(naam, tekst).lines().firstOrNull { it.startsWith("$stuk -> ") } ?: return "niet gevonden"
+            return regel.substringAfter(" -> ")
+        }
+        // Streepje in een Bison-naam, geen foutkleur.
+        val y = "%define lr.default-reduction accepting\n%%\nif-stmt /* c */ : IF ;\n"
+        assertEquals("BISON_IDENTIFIER", kleur("a.y", y, "lr.default-reduction"))
+        assertEquals("BISON_DEFINITION", kleur("a.y", y, "if-stmt"))
+        // `%}` in een string in de proloog sluit het blok niet.
+        val p = "%{\nchar *k = \"%}\";\n%}\n%%\na: ;\n"
+        assertEquals("BISON_STRING", kleur("a.y", p, "\"%}\""))
+        assertEquals("BISON_DEFINITION", kleur("a.y", p, "a"))
+        // `} /* ... */` sluit een <SC>{-blok, en BEGIN(SC) is een start-conditie.
+        val l = "%x SC\n%%\n<SC>{ /* open */\n  \"x\" BEGIN(INITIAL);\n} /* SC */\n\"a\" BEGIN(SC);\n%%\n"
+        val toks = lex(flexLexer(), l)
+        val sluit = toks.first { l.startsWith("} /* SC", it.start) }
+        assertEquals("FLEX_ACCOLADE", sluit.type)
+        val na = toks.first { l.startsWith("\"a\"", it.start) }
+        assertEquals("scope na het blok", 0, FlexScanner.scope(na.toestand))
+        // De laatste `SC` staat in `BEGIN(SC);`.
+        assertEquals("FLEX_START_CONDITION", kleurenlijst("a.l", l).lines().last { it.startsWith("SC -> ") }.substringAfter(" -> "))
     }
 
     /** Elke kleur valt terug op een standaardkleur van de IDE en heeft zelf geen vaste kleur. */

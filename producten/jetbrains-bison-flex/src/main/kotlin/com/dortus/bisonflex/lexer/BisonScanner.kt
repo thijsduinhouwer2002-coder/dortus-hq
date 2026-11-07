@@ -21,8 +21,9 @@ class BisonScanner : Scanner() {
             PROLOOG -> {
                 if (begintMet(pos, "%}")) { klaar(Soort.SCHEIDING, pos + 2, maak(deel, GEWOON, 0)); return }
                 val (s, e) = leesC(pos, bison = true)
-                // Een C-token mag niet over `%}` heen lezen.
-                klaar(s, kapAfBij(pos, e, "%}"), toestand)
+                // Een C-token mag niet over `%}` heen lezen, behalve strings en commentaar (die slaat Bison over).
+                val heel = s == Soort.C_STRING || s == Soort.C_TEKEN || s == Soort.BLOKCOMMENTAAR || s == Soort.REGELCOMMENTAAR
+                klaar(s, if (heel) e else kapAfBij(pos, e, "%}"), toestand)
             }
             EPILOOG -> { val (s, e) = leesC(pos, bison = true); klaar(s, e, toestand) }
             else -> leesGewoon(pos, deel)
@@ -57,7 +58,8 @@ class BisonScanner : Scanner() {
                 klaar(Soort.GETAL, j, gewoon)
             }
             isNaamBegin(ch) || ch == '.' -> {
-                val e = eindeNaam(pos, ".")
+                // Bison staat `.` en `-` toe in namen (`lr.default-reduction`, `if-stmt`).
+                val e = eindeNaam(pos, ".-")
                 klaar(soortVanNaam(pos, e, deel), e, gewoon)
             }
             ch == ':' -> klaar(Soort.DUBBELEPUNT, pos + 1, gewoon)
@@ -75,8 +77,8 @@ class BisonScanner : Scanner() {
     /** Regelnaam bij de definitie (`exp:` of `exp[alias]:`), token (hoofdletters) of gewone naam. */
     private fun soortVanNaam(start: Int, e: Int, deel: Int): Soort {
         if (deel == REGELS) {
-            var j = eindeWit(e)
-            if (c(j) == '[') { while (j < einde && buf[j] != ']' && buf[j] != '\n') j++; j = eindeWit(j + 1) }
+            var j = eindeWitEnCommentaar(e)
+            if (c(j) == '[') { while (j < einde && buf[j] != ']' && buf[j] != '\n') j++; j = eindeWitEnCommentaar(j + 1) }
             if (c(j) == ':' && c(j + 1) != ':') return Soort.DEFINITIE
         }
         var letter = false

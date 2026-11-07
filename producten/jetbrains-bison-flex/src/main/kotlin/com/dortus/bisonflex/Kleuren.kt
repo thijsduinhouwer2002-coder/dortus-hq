@@ -162,6 +162,7 @@ class FlexKleurenPagina : KleurenPagina(
     "Flex/Lex", BisonIconen.FLEX, ::flexHighlighter,
     (gedeeld(FlexKleuren.SLEUTELS) + listOf(
         AttributesDescriptor("Definition name", FlexKleuren.SLEUTELS.definitie),
+        AttributesDescriptor("Token (upper-case name in actions)", FlexKleuren.SLEUTELS.token),
         AttributesDescriptor("Start condition", FlexKleuren.SLEUTELS.startconditie),
         AttributesDescriptor("Regular expression//Character class", FlexKleuren.SLEUTELS.reKlasse),
         AttributesDescriptor("Regular expression//Escape", FlexKleuren.SLEUTELS.reEscape),

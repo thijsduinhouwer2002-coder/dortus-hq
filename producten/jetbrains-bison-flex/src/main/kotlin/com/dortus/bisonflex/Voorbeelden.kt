@@ -25,14 +25,14 @@ object Voorbeelden {
 
         line:
             '\n'
-          | exp '\n'      { printf("%.10g\n", $1); }
+          | exp '\n'      { printf("%.10g\n", $<double>1); }
           ;
 
         exp:
             NUM
           | exp '+' exp   { $$ = $1 + $3; }
           | exp '-' exp   { $$ = $1 - $3; }
-          | '(' exp ')'   { $$ = $2; @$ = @2; }
+          | '(' exp ')'   { $$ = $2; @$ = @2; /* keep the inner location */ }
           ;
 
         %%
@@ -61,7 +61,7 @@ object Voorbeelden {
         <COMMENT>{
           "*/"                         BEGIN(INITIAL);
           .|\n                         ;
-        }
+        } /* COMMENT */
         [ \t]+                         ; /* skip blanks */
         <<EOF>>                        { return 0; }
         .                              { fprintf(stderr, "unknown: %s\n", yytext); }

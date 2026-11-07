@@ -20,5 +20,7 @@ Stand 7 nov 2026: versie 0.1. Bestandssoorten, echte lexer met kleuren, kleurenp
 `./gradlew test` (unittests), `./gradlew integrationTest` (echte IDE, alleen op GitHub Actions), `./gradlew buildPlugin` (zip in `build/distributions/`). Gradle 9.8.2 via de wrapper, Java 21. Zie `platformen/jetbrains/bouwsjabloon.md`.
 
 ## Open
+- De editor van de IDE begint na een wijziging opnieuw bij een token in toestand 0 (GOK, volgens de controleur). Het regeldeel is nooit toestand 0, dus bij elke toetsaanslag wordt vanaf `%%` opnieuw gelext. Met ±10 ms per 10.000 regels (GEZIEN, `testSnelGenoeg`) is dat nu geen probleem; later eventueel `RestartableLexer`.
+- Tokenkleur in acties is een gok op hoofdletters (`NUM`); tokens zoals `tINTEGER` (Ruby) krijgen die pas als de parser weet wat een token is.
 - Eis 1 vraagt ook CLion. De IDE-test draait nu alleen IDEA Community 2025.2.6.4 (vast). CLion vraagt in Starter waarschijnlijk een licentie (GOK); volgende stap: proberen met `IdeProductProvider.CL` en een vaste versie.
 - Taal-ID's zijn `BisonFlex.Bison` en `BisonFlex.Flex`, uniek naast de gratis Bison-plugin. Niet meer veranderen na de lancering.

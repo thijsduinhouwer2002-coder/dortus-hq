@@ -55,6 +55,23 @@ abstract class Scanner {
     }
     /** Alleen spaties tot het einde van de regel (of het bestand)? */
     protected fun restVanRegelLeeg(i: Int): Boolean { val j = eindeSpaties(i); return j >= einde || buf[j] == '\n' }
+    /** Alleen spaties en eventueel `/* ... */` tot het einde van de regel? */
+    protected fun restLeegOfCommentaar(i: Int): Boolean {
+        var j = eindeSpaties(i)
+        if (begintMet(j, "/*")) j = eindeSpaties(eindeBlokcommentaar(j))
+        return j >= einde || buf[j] == '\n'
+    }
+    /** Einde van witruimte en commentaar. */
+    protected fun eindeWitEnCommentaar(i: Int): Int {
+        var j = eindeWit(i)
+        while (true) {
+            j = when {
+                begintMet(j, "/*") -> eindeWit(eindeBlokcommentaar(j))
+                begintMet(j, "//") -> eindeWit(eindeRegel(j))
+                else -> return j
+            }
+        }
+    }
     protected fun eindeRegel(i: Int): Int { var j = i; while (j < einde && buf[j] != '\n') j++; return j }
 
     protected fun eindeBlokcommentaar(i: Int): Int {
@@ -125,6 +142,7 @@ abstract class Scanner {
                 val s = when {
                     woord in C_SLEUTELWOORDEN -> Soort.C_SLEUTELWOORD
                     !bison && (woord in FLEX_NAMEN || woord.startsWith("YY_")) -> Soort.C_FLEXMACRO
+                    !bison && naBegin(pos) -> Soort.STARTCONDITIE
                     // Namen in hoofdletters zijn in C macro's of constanten, en in acties meestal tokens.
                     woord.count { it.isLetter() } >= 2 && woord.none { it.isLowerCase() } -> Soort.TOKEN
                     else -> Soort.C_NAAM
@@ -133,6 +151,18 @@ abstract class Scanner {
             }
             else -> return Soort.C_OPERATOR to pos + 1
         }
+    }
+
+    /** Staat er `BEGIN(` of `BEGIN ` (of `yy_push_state(`) direct voor [pos]? */
+    private fun naBegin(pos: Int): Boolean {
+        var j = pos - 1
+        while (j >= 0 && isSpatie(buf[j])) j--
+        if (j >= 0 && buf[j] == '(') j--
+        while (j >= 0 && isSpatie(buf[j])) j--
+        val eind = j + 1
+        while (j >= 0 && isNaamTeken(buf[j])) j--
+        val w = buf.subSequence(j + 1, eind).toString()
+        return w == "BEGIN" || w == "yy_push_state"
     }
 
     /** Staat er op deze regel alleen `#include` voor [pos]? Dan is `<...>` een bestandsnaam. */

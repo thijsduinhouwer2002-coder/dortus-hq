@@ -21,11 +21,10 @@ class FlexScanner : Scanner() {
 
         when (stand) {
             PROLOOG -> {
-                if (begintMet(pos, "%}")) { klaar(Soort.SCHEIDING, pos + 2, t(GEWOON)); return }
+                // Flex ziet `%}` alleen vooraan de regel (eventueel na spaties).
+                if (begintMet(pos, "%}") && alleenSpatiesErvoor(pos)) { klaar(Soort.SCHEIDING, pos + 2, t(GEWOON)); return }
                 val (s, e) = leesC(pos, bison = false)
-                var eind = e
-                for (k in pos + 1 until e) if (begintMet(k, "%}")) { eind = k; break }
-                klaar(s, eind, toestand)
+                klaar(s, e, toestand)
             }
             TOP -> {
                 val (s, e) = leesC(pos, bison = false)
@@ -76,7 +75,7 @@ class FlexScanner : Scanner() {
                 else -> klaar(Soort.FOUT, pos + 1, t(REGELRE))
             }
             NASC -> when {
-                ch == '{' && restVanRegelLeeg(pos + 1) -> klaar(Soort.ACCOLADE, pos + 1, t(GEWOON, sc = minOf(15, scope + 1)))
+                ch == '{' && restLeegOfCommentaar(pos + 1) -> klaar(Soort.ACCOLADE, pos + 1, t(GEWOON, sc = minOf(15, scope + 1)))
                 ch == '<' && begintMet(pos, "<<EOF>>") -> klaar(Soort.RE_EOF, pos + 7, t(REGELRE))
                 ch == '<' -> klaar(Soort.RE_OPERATOR, pos + 1, t(SCLIJST))
                 else -> leesRegex(pos, t(REGELRE))
@@ -130,7 +129,7 @@ class FlexScanner : Scanner() {
             }
             ch == '/' && c(pos + 1) == '*' && (!begin || scope > 0) ->
                 klaar(Soort.BLOKCOMMENTAAR, eindeBlokcommentaar(pos), gewoon)
-            regelStart && scope > 0 && ch == '}' && restVanRegelLeeg(pos + 1) ->
+            regelStart && scope > 0 && ch == '}' && restLeegOfCommentaar(pos + 1) ->
                 klaar(Soort.ACCOLADE, pos + 1, maak(REGELS, GEWOON, scope - 1, 0))
             regelStart && begintMet(pos, "<<EOF>>") -> klaar(Soort.RE_EOF, pos + 7, maak(REGELS, REGELRE, scope, 0))
             regelStart && ch == '<' -> klaar(Soort.RE_OPERATOR, pos + 1, maak(REGELS, SCLIJST, scope, 0))
