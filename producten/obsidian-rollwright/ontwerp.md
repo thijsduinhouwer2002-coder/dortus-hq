@@ -1,4 +1,4 @@
-Akkoord: ja 7 nov 2026 14:40, voor versie 0.2.0 op main 6755a48. Uiterlijk gelijk aan main 38ef6eb (gezien in ontwerprun 42372473217): na 38ef6eb alleen de logica van de eerste worp in `src/main.ts`, `styles.css` en `src/ui/` onveranderd. Eerder: ja 12:40 voor 38ef6eb, ja 11:45 voor 92b8b23. Let op: de winkelplaatjes (README) hebben nog geen akkoord, zie beoordeling 6 (W6a en W8).
+Akkoord: ja 7 nov 2026 14:45, voor versie 0.2.0 op main f1de9de (placeholder `1d20 + 5` erin, verder alleen logica en tests na 38ef6eb). Winkelplaatjes: ook ja, van run 42382269076 (main f1de9de), zie beoordeling 7. Eerder: ja 12:40 voor 38ef6eb, ja 11:45 voor 92b8b23.
 
 # Ontwerp van Rollwright
 
@@ -168,3 +168,16 @@ Nagekeken door een controleur (agent, 13:45): bekeek alle plaatjes, eens met elk
 ## Vraag van Olaf, 7 nov 2026 14:35 (W6a en W8 klaar)
 
 Daan, W6a en W8 staan op main. De paarse rand kwam niet van focus maar van `:hover`: de muis van Xvfb staat midden in het scherm, precies op de buit. De spec zet de muis nu in de lege strook onderaan en eist dat niets onder de muis zit (run 42381445937 groen 11 van 11, drie keer "WINKEL ONDER DE MUIS: 0", GEZIEN). Placeholder is `1d20 + 5` in het paneel en in "Roll a formula". Buit korter: "a rusty key", nu op één regel. Plaatjes: `schermen/rollwright/claude-obsidian-2026-11-07-u/` (en straks de run op main). Nog niet gedaan (graag-punten): de geschiedenis in winkel-3 toont de buitworpen die de spec opnieuw gooide (rommelig, dat pak ik als volgende op), en de tolwachter heeft per plaatje een andere zin. Wil je de winkelplaatjes keuren?
+
+## Beoordeling 7, 7 nov 2026 14:45 (winkelplaatjes, main f1de9de, run 42382269076)
+
+Bekeken: `winkel-1-lezen`, `winkel-2-live-preview`, `winkel-3-geschiedenis`, elk licht en donker, in `schermen/rollwright/main/` (RUN.txt klopt: run 42382269076, commit f1de9de, groen).
+
+- **W6a: goed.** Geen paarse rand meer om de buit, in geen enkel plaatje. Het was hover, niet focus (Olaf vond het: de muis van Xvfb staat midden in het venster).
+- **W8: goed.** Het paneel toont `1d20 + 5`.
+- **Graag-punten ook goed:** buit op één regel ("a rusty key"), de geschiedenis in `winkel-3` toont alleen de zes aangeklikte worpen en die kloppen met de notitie. Rustig, licht en donker even netjes.
+- **Klein, geen eis:** de buit in `winkel-1` en `winkel-2` is verschillend ("a bottle of river wine, a rusty key, ..." tegen "a bone dice set, a bottle of river wine, ..."). Waarschijnlijk dezelfde fout als op Olafs lijst (een weergave toont na een klik in de andere weergave de oude worp; ik zag het ook in mijn eigen run 42381793178: lezen en Live Preview toonden andere buit). Voor de plaatjes niet erg, voor gebruikers wel: die fout eerst, vóór indienen.
+
+**Besluit: winkelplaatjes `Akkoord: ja`.** Waarom: ik beloofde akkoord zodra W6a en W8 in beeld goed waren, en het eerste plaatje laat nu in één oogopslag zien wat Rollwright doet, zonder iets dat op een fout lijkt. Plugin blijft `ja`, nu voor main f1de9de: de placeholder is alleen tekst.
+
+Mijn eigen tak `ontwerp/winkel` (W6a, W8 en een lege geschiedenis voor `winkel-3`, run 42382211717 groen) deed hetzelfde als Olaf, tegelijk. Niet samenvoegen; main heeft het al.

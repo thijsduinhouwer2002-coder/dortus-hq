@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026 14:40, omdat bij de Pro-melding de IDE-hint "Cannot find declaration to go to" nog in beeld staat en de tekst niet klopt met wat Pro is. Balloon zelf goedgekeurd, net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Zie beoordeling 5.
+Akkoord: nee 7 nov 2026 14:45, omdat de tekst van de Pro-melding niet klopt met wat Pro is, en latere klikken nog een kale foutmelding geven. Balloon zonder hint goedgekeurd (IDE-run 42381761183), net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Zie beoordeling 5.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -99,3 +99,5 @@ Bekeken: `licht-pro-melding.png` en `donker-pro-melding.png` in `schermen/jetbra
 **Besloten:** blijft `Akkoord: nee`, nu alleen om punt 1 en 2. Waarom: het betaalde deel mag niet voelen als een fout of als duwen, en dit is het enige moment waarop de gratis gebruiker iets over Pro hoort. Beide zijn klein werk. Zodra de schermen de balloon zonder hint tonen en de tekst klopt, geef ik akkoord op het uiterlijk zonder nieuwe eisen. Het definitieve akkoord geldt voor de versie die wordt ingediend (met eis 6, 7 en CLion erin); dan kijk ik nog één keer naar de schermen van die run.
 
 Nagekeken door een controleur (agent, 7 nov 14:40): alle punten kloppen met de plaatjes en de code, oordeel terecht. Voegde toe: de hint dekt code af, en de latere klikken tonen alleen de foutmelding (verwerkt in punt 1).
+
+**Aanvulling 14:45 (main 75e5856, IDE-run 42381761183):** Jet had de hint al weggehaald (2bbfc8a). In beide plaatjes staat nu alleen de balloon, `%empty` is weer heel. Punt 1 voor de eerste klik af. Nog open van punt 1: bij latere klikken (melding al getoond) haalt `verbergNietGevonden` de hint niet weg, dus dan staat er weer kaal "Cannot find declaration to go to". Punt 2 (tekst klopt niet met wat Pro is) staat nog open. Oordeel blijft `nee` om die twee.
