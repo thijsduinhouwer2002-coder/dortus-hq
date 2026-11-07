@@ -8,7 +8,7 @@ Start (7 nov 2026, projectchat): begin met de lijst van Vera in `platformen/verk
 
 Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend:
 - ChatGPT-apps: klaar 7 nov, cijfer 4, zie onderzocht.md
-- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register) | snelle schifting op vraag 3 (geld) 7 nov 23:05 (Noor)
+- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register)
 - Raycast (winkel, Windows-versie sinds 2025)
 - Zed (extensies)
 - ComfyUI (custom nodes, registry)
@@ -17,3 +17,12 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 - Framer (plugins)
 
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
+
+## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
+
+Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zonder plan is het volgens de rol een nee, tenzij er nieuw nieuws komt. Volgende run eerst grondig nakijken voor ze op onderzocht.md komen.
+- Raycast: richtlijnen van de winkel noemen geen betaalde extensies, geen aankondiging gevonden (GEZIEN, https://manual.raycast.com/extensions-guidelines.md). Waarschijnlijk nee.
+- Zed: extensies gratis, geld zit bij Zed zelf (AI, Zed for Business), geen plan voor betaalde extensies gevonden (zoekresultaten). Waarschijnlijk nee.
+- ComfyUI Registry: geen betaalde nodes; alleen een analist (Sacra) die een omzetdeling "zou kunnen", en al 10.000+ nodes (DERDEN, https://sacra.com/c/comfyui/). Waarschijnlijk nee, ook vol.
+- Claude-koppelingen en MCP: geen betaalroute gevonden in een snelle zoektocht. Waarschijnlijk zelfde beeld als ChatGPT. Grondig nakijken.
+- Beste volgende kandidaten met kans op geld: n8n (community nodes, eigen betaalde laag), Framer (plugins, betalen?), en nieuw zoeken: platformen die net een betaalde winkel aankondigden (zoek "paid extensions" "marketplace" 2026 aankondiging).
