@@ -162,4 +162,10 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: bereik niet te meten en reviews wijzen op bijna niets, en geen enkel geldbewijs, terwijl er sinds de AI-keuring waarschijnlijk een vloed van nieuwe apps is.
 - Controleur akkoord, 8 correcties verwerkt (schatting ±3.200 want 8 collecties telden dubbel, stijging eerste reviews deels meeteffect, PURPLE-groep weegt zwaar, bronnen vindbaarheid en bouwtijd, Harmony één bron, script repareren).
 - Les: als een winkel alleen reviews toont, is een lijst "nieuwste" met allemaal 0 reviews al een sterk signaal.
+- Daarna TradingView geprobeerd (makers verkopen scripts): robots.txt verbiedt AI-agents uitdrukkelijk /scripts/ en /u/. Beslissing: niet scrapen, platform als niet te meten genoteerd. Reden: die regel is duidelijk bedoeld voor ons.
+- Tweede platform: Thunderbird. Open API met aanmaakdatum en gebruikers per dag: alle 2.282 extensies in een minuut.
+- Gemeten: nieuwe extensies mei t/m aug 2026 mediaan 16 per dag, 18% 100+; nieuwe betaalde (n=33) mediaan 7. Owl for Exchange (2018) 41.817 per dag en ±€10 per jaar, maar oud, en Exchange zit sinds Thunderbird 145 ingebouwd.
+- Beslissing: nee, cijfer 3. Reden: bereik ver onder JetBrains en Obsidian, en geld alleen bij makers van 8 tot 16 jaar oud.
+- Controleur akkoord, 8 correcties verwerkt (grootste extensie, Exchange ingebouwd, maandtellingen, overlappende groepen, TrustMRR doorzocht, gebruikersbron).
+- Volgende run: Zotero of Anki uit kandidaten.md, of een nieuw platform met betaling in de winkel.
 

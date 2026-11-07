@@ -19,7 +19,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - TradingView (Pine Script-indicatoren, makers verkopen invite-only scripts), zelf toegevoegd 7 nov 13:52: niet zelf te meten, robots.txt van TradingView verbiedt AI-agents (ClaudeBot, ChatGPT-User) /scripts/ en /u/. Alleen met bronnen van derden te doen, of met toestemming
 - Zotero (plugins)
 - Anki (add-ons)
-- Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): in onderzoek 7 nov 13:54 UTC
+- Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
 - Firefox (add-ons)
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
