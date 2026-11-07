@@ -93,6 +93,13 @@ async function thema(donker) {
 async function plaatjes(naam, { focusWeg = true } = {}) {
 	// Geen focusrand of cursor in beeld, behalve waar de cursor juist de code moet tonen.
 	if (focusWeg) await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
+	// De muis van Xvfb staat midden in het scherm, precies op de buit, en :hover gaf een paarse rand (Daan W6a).
+	// Zet hem in de lege strook onderaan en eis dat geen worp of geschiedenisregel meer onder de muis zit.
+	await browser.action("pointer").move({ x: 300, y: 790, origin: "viewport" }).perform();
+	await browser.pause(200);
+	const onderMuis = await browser.execute(() => Array.from(document.querySelectorAll(".rollwright-roll:hover, .rollwright-history-item:hover")).length);
+	console.log(`WINKEL ONDER DE MUIS (${naam}):`, onderMuis);
+	expect(onderMuis).toBe(0);
 	await thema(false);
 	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
 	await thema(true);

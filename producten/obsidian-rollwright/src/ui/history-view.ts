@@ -42,7 +42,7 @@ export class RollHistoryView extends ItemView {
 		root.addClass("rollwright-history");
 
 		const form = root.createEl("form", { cls: "rollwright-history-form" });
-		const input = form.createEl("input", { type: "text", placeholder: "2d20kh1 + 3" });
+		const input = form.createEl("input", { type: "text", placeholder: "1d20 + 5" });
 		input.setAttribute("aria-label", "Formula");
 		form.createEl("button", { text: "Roll", type: "submit" });
 		form.addEventListener("submit", (event) => {

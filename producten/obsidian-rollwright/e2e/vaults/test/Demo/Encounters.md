@@ -15,6 +15,6 @@
 
 - 12 silver coins
 - a bone dice set
-- a map with one road crossed out
+- a rusty key
 - a bottle of river wine
 ^loot

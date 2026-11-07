@@ -1945,7 +1945,7 @@ var RollHistoryView = class extends import_obsidian3.ItemView {
     root.empty();
     root.addClass("rollwright-history");
     const form = root.createEl("form", { cls: "rollwright-history-form" });
-    const input = form.createEl("input", { type: "text", placeholder: "2d20kh1 + 3" });
+    const input = form.createEl("input", { type: "text", placeholder: "1d20 + 5" });
     input.setAttribute("aria-label", "Formula");
     form.createEl("button", { text: "Roll", type: "submit" });
     form.addEventListener("submit", (event) => {
@@ -2245,7 +2245,7 @@ var RollFormulaModal = class extends import_obsidian6.Modal {
       }
     };
     new import_obsidian6.Setting(this.contentEl).setName("Formula").addText((text) => {
-      text.setPlaceholder("2d20kh1 + 3").onChange((value) => {
+      text.setPlaceholder("1d20 + 5").onChange((value) => {
         formula = value;
       });
       text.inputEl.addEventListener("keydown", (event) => {
@@ -2549,6 +2549,8 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
     super(...arguments);
     this.settings = { ...DEFAULT_SETTINGS };
     this.results = /* @__PURE__ */ new Map();
+    /** First rolls still on their way (a table reads a note first), so a second view of the same code waits for it. */
+    this.pending = /* @__PURE__ */ new Map();
     /** Results of `dice+:`, written to disk with the settings. */
     this.kept = /* @__PURE__ */ new Map();
     this.skinnedDocuments = /* @__PURE__ */ new Set();
@@ -2683,10 +2685,24 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
       if (keep && !this.kept.has(key)) await this.keep(key, known);
       return known;
     }
-    const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
-    this.remember(key, outcome);
-    if (keep) await this.keep(key, outcome);
-    return outcome;
+    const running = this.pending.get(key);
+    if (running) return running;
+    let roll2 = void 0;
+    roll2 = (async () => {
+      try {
+        const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
+        if (this.pending.get(key) !== roll2) return outcome;
+        const newer = this.results.get(key);
+        if (newer) return newer;
+        this.remember(key, outcome);
+        if (keep) await this.keep(key, outcome);
+        return outcome;
+      } finally {
+        if (this.pending.get(key) === roll2) this.pending.delete(key);
+      }
+    })();
+    this.pending.set(key, roll2);
+    return roll2;
   }
   /** A roll someone asked for. Only these go into the history. With keep, the new result replaces the kept one. */
   async freshResult(key, formula, sourcePath, keep = false) {
@@ -2711,6 +2727,7 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
   /** Ctrl-click on a |none code: forgets its result, also the kept one, so it stays empty. */
   async forgetResult(key) {
     this.results.delete(key);
+    this.pending.delete(key);
     if (this.kept.delete(key)) await this.saveSettings();
   }
   /** Puts a result at the newest end of the kept results, dropping the oldest over the limit. */
