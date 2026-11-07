@@ -80,5 +80,11 @@ Tegen:
 
 Wat er nog gemeten kan worden: exacte reviewaantallen in alle talen (Steam-API `appreviews` vanaf een andere plek, of SteamDB), en verlanglijst-cijfers van kleine makers (sommigen delen die op Reddit of in postmortems). Wat dit verandert naar nee: als de lichting sep en okt 2026 bij herhaalmeting over 4 weken duidelijk slechter scoort dan mei t/m aug (teken dat het vol raakt). Herhaalmeting: `python3 data/steam-zoek-script.py 1320952 uit.json 3000` en dan `steam-analyse-script.py` met nieuwe datums.
 
+## Vervolg 7 nov 22:00 UTC: Engels of totaal (GEZIEN)
+- Geprobeerd het totaal in alle talen op te halen via de open appdetails-API (veld `recommendations.total`), ook om het gat onder de 10 reviews te vullen. Script `data/steam-totaal-script.py`, data `data/steam-companion-totaal-2026-11-07.json`.
+- Het veld staat maar bij 10 van de 111 apps uit de lichting, ook niet bij apps met 25 of 71 reviews. Het gat onder de 10 blijft dus open.
+- Bij 8 van de 9 betaalde apps waar het wel staat, is het zoekgetal gelijk aan het totaal. Alleen The NOexistenceN of Lilith wijkt af (767 tegen 2.842). De betaalde cijfers in de tabel zijn dus vrijwel totalen, met een enkele uitzondering naar boven.
+- Bij de gratis TBH: Task Bar Hero geeft de zoekpagina 8.795 en appdetails 298. Onduidelijk welk getal klopt; het raakt alleen de gratis rij, niet het advies.
+
 ## Nakijken
 Controleur 7 nov run 21:33: tabel, mediaanprijs, geldsommen, bronnen en 82 van 95 kloppen; steekproef van 9 app-pagina's gelijk (reviews, datum, prijs). Gecorrigeerd: maandtellingen (eerste versie kwam uit een ruimere zoekopdracht), Engels of totaal per app, kortingsprijzen, de vergelijking met Steam gemiddeld (gelijk, niet beter), top 12 met 5 uitgevers, en de 46% onder de 10 reviews. Controleur gaf 5 tot 6; ik houd 6 omdat het geld breed over een hele lichting kleine makers zit, wat ik op geen ander platform buiten Blender zag. Akkoord na correcties.
