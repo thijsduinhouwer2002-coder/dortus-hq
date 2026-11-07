@@ -103,7 +103,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Bram - Blender-manager (elk uur), nog niet aangemaakt
+## Bram - Blender-manager (elk uur), aangemaakt 7 nov 21:44, `trig_01U988qZAiyERjYi6DWEayfw`
 
 Schema: `CRON_TZ=Europe/Amsterdam 7 8-19 * * *`. Melding: nee. Hans probeerde hem 7 nov aan te maken, geweigerd (zie lijst Thijs).
 
@@ -137,7 +137,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` hebt
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes. Kort: Thijs moet het in 3 minuten gelezen hebben.
 ```
 
-## Sjabloon: Chris - Commercieel manager (elk uur), nog niet aangemaakt (aanmaken mislukte 7 nov, op lijst Thijs)
+## Chris - Commercieel manager (elk uur), aangemaakt 7 nov 21:44, `trig_018P1UU92oKaFFSBao5KRhQf` (opdracht plus de curl-zin)
 
 Schema: `CRON_TZ=Europe/Amsterdam 41 8-19 * * *`. Melding: nee. Hans maakt deze taak aan bij de eerste lancering.
 
