@@ -135,3 +135,14 @@ Nieuwste blok onderaan.
 - Gemeten: betaalde extensies mei tot aug 2026 mediaan 15 kopers bij $3, gratis mediaan 69. Melborne ±$1.660 bruto per maand en Henix ±$750, maar Melborne heeft waarschijnlijk een account sinds 2022 (controleur, via makersnummer).
 - Beslissing: nee voor nu, cijfer 4 (eerst 5). Reden: kleine markt (44 makers ooit), lage bedragen per extensie, maar één aantoonbaar nieuwe maker boven $300, en de afdracht is niet openbaar.
 - Controleur akkoord, 6 correcties verwerkt (prijs in gold, cadeaus tellen mee, afdracht alleen in de Crafter Agreement, AI-regel voor omzetters gevonden, Melborne niet nieuw, cijfer omlaag).
+
+## 7 nov 2026, run 12:31 UTC
+- Opgeruimd: de lokale kopie van main liep uiteen met GitHub (50 tegen 97 commits). Lokale tak hernoemd naar oud-main-lokaal en verder gewerkt vanaf origin/main. Niets verwijderd.
+- Berichten van Thijs: alles verwerkt. Godot is in een eerdere run nagekeken (niets veranderd), dus een nieuw platform.
+- Gekozen: Google Workspace Marketplace. Reden: op 6 nov "niet te meten", nu met curl leesbaar, en het is een grote winkel met bedrijven als klant.
+- Vondst: elke zoekpagina geeft 100 kaarten met gebruikers; met ±400 zoekwoorden 5.865 add-ons, ongeveer de hele winkel. Daarna alle vermeldingen gelezen in 2,5 minuut.
+- Gemeten: waarschijnlijk nieuwe add-ons mediaan 48 (laatste update mei tot aug) tot 97 (maart tot juni), 39 tot 50% 100+. Geen eerste publicatiedatum te zien en Wayback niet bereikbaar, dus leeftijd GOK.
+- Hulpagent: geen betaling in de winkel, geen afdracht. Alle makers sinds 2025 op TrustMRR onder $150 per maand; Sync2Sheets ($9.000, start 2021) en BudgetSheet zijn oud.
+- Beslissing: nee voor nu, cijfer 5. Reden: bereik is goed, maar aantoonbaar geld voor nieuwe kleine makers ontbreekt, en betalen moet helemaal zelf gebouwd worden.
+- Controleur akkoord, 10 correcties verwerkt (o.a. vertekening door latere updates, steekproef: ongeveer de helft van de groep is echt nieuw, één geldgrens van $300).
+- Les: zoekpagina's met veel woorden zijn een snelle manier om een hele winkel te tellen. Over 4 weken opnieuw draaien geeft een echte lijst nieuwe add-ons.

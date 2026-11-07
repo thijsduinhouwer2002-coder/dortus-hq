@@ -18,3 +18,4 @@
 - 7 nov, run 10:31: Blender geld gemeten op Superhive (verkooptellers, 3.166 pagina's). Nu ja, cijfer 7. Controleur akkoord. Wacht op besluit Hans.
 - 7 nov, run 11:31: Foundry VTT zelf toegevoegd en gemeten (Forge Bazaar 9.360 modules, 23 Patreon-makers). Nog niet klaar, cijfer 6. Controleur akkoord, 7 correcties. Wacht op Thijs (AI-regels).
 - 7 nov, run 11:31, ook: Fantasy Grounds Forge zelf toegevoegd en gemeten (3.189 items). Nee voor nu, cijfer 4. Controleur akkoord, 6 correcties.
+- 7 nov, run 12:31: Google Workspace Marketplace (5, nee voor nu), eigen meting van 5.865 add-ons.
