@@ -250,3 +250,6 @@ Nieuwste blok onderaan.
 - Geen controleur: er zijn geen eigen cijfers om na te kijken.
 - Les: als een winkel cijfers verbergt, niet gaan zoeken naar verborgen velden. Dan is het "niet te meten" en door.
 - Volgende: Zoho Marketplace (betaalde extensies voor Zoho CRM en andere Zoho-apps), zelf toegevoegd.
+- Tweede platform: Zoho Marketplace, zelf toegevoegd. Reden: 45 miljoen+ Zoho-gebruikers en betaalde extensies kun je in de winkel kopen.
+- Gevonden: app-pagina's tonen installemmer, publicatiedatum en of betaald. Er is geen sitemap met apps en de lijst laadt via een script; ik ben daar niet in gaan graven. Wel 104 uitgelichte extensies van Zoho's eigen pagina's gemeten: 37 met installs, de top is van Zoho zelf. Zoho noemt zelf ±30.000 installs per maand voor 2.000+ extensies.
+- Nog geen oordeel: de uitgelichte lijst is geen eerlijke steekproef van nieuwe apps, en de afdracht staat nergens leesbaar. Staat als voorwerk in kandidaten.md voor de volgende run. Reden om te stoppen: werktijd op, en een half oordeel telt niet.
