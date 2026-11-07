@@ -4,7 +4,7 @@ Onderzocht: 7 nov 2026, run 22:33 UTC, door Vera. Controleur akkoord, kleine cor
 
 ## Advies: nog niet klaar. Cijfer 6.
 
-Het sterkste signaal tot nu toe dat kleine makers met **code** (Unity-editortools en avatarsystemen voor VRChat) aandacht én geld halen. Bereik is gemeten (likes), verkoop alleen geschat. Twee dingen moeten nog gemeten worden voor een ja (zie onderaan).
+Het sterkste signaal tot nu toe dat kleine makers met **code** (Unity-editortools en avatarsystemen voor VRChat) aandacht én geld halen. Bereik is gemeten (likes), verkoop alleen geschat. Uitbetaling buiten Japan kan (PayPal) en Engelse namen doen het bijna even goed. Wat nog ontbreekt: een betere verhouding tussen likes en verkoop bij tools (zie onderaan).
 
 ## Wat het is
 BOOTH is de winkel van pixiv (Japan). De categorie 3Dモデル (avatars, kleding, tools voor VRChat) groeit hard. In de subcategorie 3Dツール・システム verkopen kleine makers Unity-scripts, editortools, shaders en avatarsystemen, meestal ¥500 tot ¥3.000. BOOTH rekent af.
@@ -41,7 +41,9 @@ BOOTH is de winkel van pixiv (Japan). De categorie 3Dモデル (avatars, kleding
 ## Wat we zouden bouwen (eerste idee)
 Een kleine Unity-editortool voor VRChat-avatars, niet-destructief en werkend met Modular Avatar, in het Japans en Engels, ¥500 tot ¥1.000. Bijvoorbeeld een helper die een veelgevraagde handeling in één klik doet (de toppers zijn precies dat: menu's ordenen, botten selecteren, vormen passend maken).
 
+## Vervolg in dezelfde run (22:57)
+- **Uitbetaling buiten Japan:** GEZIEN (booth.pm/announcements/562): BOOTH betaalt winkels uit naar een PayPal-account als uitbetaaladres, ook buiten Japan (de melding gaat over winkels met een Thaise PayPal). Een buitenlandse maker kan dus uitbetaald krijgen. Nodig voor Thijs, als Hans ja zegt: een pixiv-account, een BOOTH-winkel en een PayPal-account koppelen (inloggen en gegevens invullen doet hij zelf). Wat BOOTH verder vraagt (adres, belasting) is nog niet gelezen; de hulppagina's laden via JavaScript.
+- **Engelse namen:** GEZIEN uit dezelfde data: betaalde tools met een naam zonder Japanse tekens (129) mediaan 32 likes, 28% 100+, 10% 500+; met Japanse tekens (641) mediaan 41, 31% 100+, 11% 500+. Engelse namen doen het dus bijna even goed (lilSSRT, RQIConverter, Facial State Editor). Let op: veel van die makers zijn wel Japans en schrijven hun beschrijving in het Japans.
+
 ## Wat nog gemeten moet worden voor een ja
-1. **Uitbetaling buiten Japan:** kan een maker in Nederland een BOOTH-winkel openen en uitbetaald krijgen (pixiv-account, bank of PayPal)? Wat moet Thijs zelf doen?
-2. **Engelstalige makers:** hoeveel likes halen tools met een Engelse naam en beschrijving tegenover Japanse (uit dezelfde data te halen).
-3. **Verhouding likes en verkoop bij tools:** meer makers zoeken die cijfers delen (note.com, X, Fanbox).
+1. **Verhouding likes en verkoop bij tools:** meer makers zoeken die cijfers delen (note.com, X, Fanbox).

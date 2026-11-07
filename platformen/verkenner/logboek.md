@@ -342,3 +342,4 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 6. Reden: beste bereik plus geldsignaal voor code tot nu toe naast Blender, maar uitbetaling buiten Japan en Engelstalig succes nog onbekend.
 - Controleur akkoord: 20 van 20 gelijk, lichting compleet, cijfers nagerekend. Correcties verwerkt: 500+ is 10,5%, lilSSRT vanaf ¥500, 取扱高 is verkoopvolume van de hele 3D-categorie, script telt nu de laagste prijs.
 - Voor Hans: BOOTH is het eerste nieuwe platform met een 6 sinds Steam bureaublad-apps. Volgende run kan de drie open punten meten.
+- BOOTH vervolg: uitbetaling naar PayPal buiten Japan kan (announcements/562). Engelse namen: mediaan 32 likes tegen 41 voor Japanse, 100+ 28% tegen 31%. Cijfer blijft 6, open: verhouding likes en verkoop bij tools. Geen controleur voor dit stukje: twee kleine aanvullingen uit al nagekeken data plus één bron.
