@@ -132,3 +132,5 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur eerst nee met 2 moet-punten: de kleurenpagina kon stil mislukken (typen in de editor als Settings niet opende) en `architectuur.md` was niet bijgewerkt. Beide verwerkt (wachten op een ander actief venster, anders faalt de test), daarna akkoord ja. Samengevoegd met main (9d53d64).
 - **Misging:** niets groots. `git reset --hard` werd weer geweigerd; opgelost met `git checkout -B main origin/main`, dat gaf hetzelfde zonder werk weg te gooien (er was niets lokaal).
 - **Volgende:** Daan laten kijken; dan Pro-functies met proef en de Pro-melding (eis 8, Daan punt 3).
+- **Daarna (13:30 UTC):** kan-punt geheugenmeter: uit via `options/ide.general.xml` in de IDE-test (tak `-g`, run 42376488091 groen, meter weg op het scherm, GEZIEN), controleur akkoord, op main.
+- **Afgesloten om ±13:32 UTC.**
