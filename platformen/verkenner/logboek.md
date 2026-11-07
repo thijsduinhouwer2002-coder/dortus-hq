@@ -222,3 +222,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: nog kleiner dan Craft, geen bedrag van een kleine maker. Controleur akkoord, 3 correcties.
 - Les: kleine CMS'en (Craft, Statamic) hebben eerlijke winkels maar te weinig kopers. Volgende run liever een platform met miljoenen gebruikers en betaling in de winkel.
 - Volgende run: Ecwid of BigCommerce (betaling via de winkel, bereikbaar met curl), of Zotero, Anki, Home Assistant.
+- Derde platform: eerst Ecwid, niet te meten (474 apps zonder installs, datum of reviews in de pagina). Daarna BigCommerce: de app-pagina's hebben createdOn en reviews in de ingebedde JSON, sitemap toegestaan.
+- Gemeten: alle 1.469 pagina's. Betaalde apps sinds 2025 mediaan 0 reviews, niemand 20+. ±41.000 winkels, krimpend.
+- Beslissing: nee, cijfer 2. Reden: geen bereik en geen bedrag van een kleine maker. Alleen nuttig als tweede winkel naast een Shopify-app. Controleur akkoord.
+- Les: createdOn bij BigCommerce is de registerdatum, niet de livegang. Check bij elke winkel wat een datumveld echt betekent.
+- Run afgesloten na drie platforms. Volgende run: een platform met veel gebruikers en betaling in de winkel; Zotero, Anki en Home Assistant hebben geen betaling en wachten.

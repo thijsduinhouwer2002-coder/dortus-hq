@@ -26,3 +26,4 @@
 - 7 nov, run 16:33, ook: WooCommerce Marketplace zelf toegevoegd en gemeten (1.562 pagina's). Nee, cijfer 2. Controleur akkoord, 8 correcties.
 - 7 nov, run 17:32: Craft CMS Plugin Store zelf toegevoegd en gemeten (1.670 plugins via open API). Nee voor nu, cijfer 4. Controleur akkoord met nee, cijfer 3 werd 4.
 - 7 nov, run 17:32, ook: Statamic Marketplace zelf toegevoegd en gemeten (645 addons plus Packagist). Nee, cijfer 2. Controleur akkoord, 3 correcties.
+- 7 nov, run 17:32, ook: BigCommerce App Marketplace gemeten (1.469 pagina's). Nee, cijfer 2. Controleur akkoord. Ecwid niet te meten.
