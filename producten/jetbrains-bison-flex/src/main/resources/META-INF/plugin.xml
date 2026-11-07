@@ -6,6 +6,9 @@
     Language support for Bison/Yacc grammars (<code>.y</code>, <code>.yy</code>) and
     Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early version: file types and syntax highlighting with your color scheme.
     ]]></description>
+    <!-- Freemium: zonder licentie werkt het gratis deel, Pro vraagt PBISONFLEX (ontwerp.md, eis 8).
+         release-date is voorlopig; die wordt op de lanceerdag gezet (architectuur.md). -->
+    <product-descriptor code="PBISONFLEX" release-date="20261215" release-version="20261" optional="true"/>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Bison" implementationClass="com.dortus.bisonflex.BisonFileType" fieldName="INSTANCE"
@@ -24,5 +27,7 @@
         <lang.foldingBuilder language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexFolding"/>
         <lang.psiStructureViewFactory language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonStructuur"/>
         <lang.psiStructureViewFactory language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexStructuur"/>
+        <notificationGroup id="Bison &amp; Flex Pro" displayType="BALLOON"/>
+        <gotoDeclarationHandler implementation="com.dortus.bisonflex.pro.GaNaarDefinitie"/>
     </extensions>
 </idea-plugin>
