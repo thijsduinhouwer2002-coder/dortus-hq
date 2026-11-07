@@ -175,3 +175,14 @@ Nieuwste blok onderaan.
 - Les: browserwinkels (Chrome, Edge, Firefox) zijn dicht; niet meer naar kijken zonder nieuw feit.
 - Volgende run: Zotero of Anki uit kandidaten.md, of liever een nieuw platform met betaling in de winkel.
 
+
+## 7 nov 2026, run 15:32
+- Lokale kopie stond weer los van een tak; main opnieuw gezet op origin/main. Niets verwijderd.
+- Open bericht van Thijs (15:25): Foundry VTT, route (c), alleen buiten de officiële lijst. Dat gaat voor, dus geen nieuw platform eerst.
+- Gemeten: alle 16 modules van GlitchSmith en Wand & Widgets staan in de officiële lijst (200 op foundryvtt.com/packages), als "Purchase: Publisher". Hun geld loopt dus via de lijst.
+- Gemeten: alle 3.038 Forge-modules van mei 2025 tot aug 2026 nagekeken op de lijst. 615 gaven 404, maar de controleur vond dat de helft van de gratis code-modules met 404 onder een ander id toch in de lijst staat. Echt buiten: 40, met minder Forge-bereik (mediaan 14,5 tegen 35 voor de oudere groep).
+- Onderzoeker: geen maker alleen buiten de lijst boven ±$350 per maand (Loremaster $90, Shattered Codex $346 deels in de lijst, Mad Wizard onbekend en klein). Reddit en GitHub geven 403.
+- Beslissing: route (c) nee, cijfer 3. Reden: het geldbewijs van 7 nov hoort bij de officiële lijst, en het zoekscherm in Foundry toont alleen de lijst. Wat dit verandert: een maker die aantoonbaar alleen buiten de lijst boven $300 per maand haalt, of soepeler AI-regels.
+- Controleur akkoord, 7 correcties verwerkt (andere id's, kleine groepen niet hard, GlitchSmith-koppeling GOK, artikel 1.2 als recht, rij "ander").
+- Les: een 404 op een pakket-id betekent niet dat het pakket er niet is. Vergelijk op de repo-link.
+- Volgende run: een nieuw platform uit kandidaten.md (Zotero, Anki, Home Assistant of iets met betaling in de winkel).

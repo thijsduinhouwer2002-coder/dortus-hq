@@ -1,5 +1,59 @@
 # Voorstel: Foundry VTT (modules)
 
+## Update 7 nov 2026 run 15:32: route (c), alleen buiten de officiële lijst
+
+**Advies voor route (c): nee.** Cijfer 3. Het geld en bijna al het bereik lopen via de officiële lijst. Buiten de lijst vond ik geen maker die aantoonbaar meer dan een paar honderd dollar per maand haalt, en gratis modules buiten de lijst halen op de Forge minder bereik dan modules in de lijst (met weinig modules, dus niet hard), terwijl de Forge juist de plek is waar ze even goed te vinden zijn. Nagekeken door de controleur, akkoord, 7 correcties verwerkt. Thijs koos (c) na de AI-regels (bericht 7 nov 15:25). Hieronder de drie vragen.
+
+### 1. Staan de twee grote makers in de officiële lijst? Ja, allebei.
+- Alle 8 gecontroleerde modules van GlitchSmith (Cinematic Cut-ins, Landing Page Maker, Visual Novel Maker, Smartphone Widget, Stylish Action HUD, Stylish Shop, Unboxing the Mystery, GlitchSmith Library) en alle 8 van Wand & Widgets (MapForge, Exalted Scenes, Heavy Lore, Narrator's Jukebox, SessionFlow, The Stockpile, Mortal Needs, Your Flavor) geven 200 op foundryvtt.com/packages/<id> (GEZIEN, 16 van 16, ook 2 gratis modules van W&W).
+- De pagina's staan als "Purchase: Publisher" en leggen uit hoe je installeert: "Link Patreon to your Foundry account, install MapForge from Add-on Modules" (GEZIEN, https://foundryvtt.com/packages/mapforge) en "a premium module available through GlitchSmith's Patreon" (GEZIEN, https://foundryvtt.com/packages/landing-page-maker). Bij Wand & Widgets is het dus de Patreon-koppeling van Foundry (GEZIEN). GlitchSmith verwijst voor installeren naar een eigen gids op Patreon; of dat de koppeling is, staat er niet (GOK), maar ook hij verkoopt als "Publisher" in de officiële lijst (GEZIEN). Hun geld loopt dus via de lijst.
+- Ook de grootste verdieners theripper93 ($43.233), Moulinette ($8.337), MrPrimate en Baileywiki staan in de lijst (GEZIEN door de onderzoeker).
+
+### 2. Makers alleen buiten de lijst die aantoonbaar verdienen? Bijna geen.
+Gevonden door de onderzoeker (graphtreon, itch.io, Forge Bazaar):
+- Loremaster (AI-spelleider, Jerry Chan): $90 per maand, 9 leden, sinds 17 dec 2025 (GEZIEN, https://graphtreon.com/creator/loremastervtt). Niet in de lijst (404, GEZIEN; stond er waarschijnlijk eerder in, GOK). Installeren met een GitHub-manifestlink. 19 Forge-gebruikers (GEZIEN).
+- Mad Wizard (elizeuangelo): betaalde codemodules op de Forge Bazaar en itch.io (NPC Generator $7,99, Hero Points $3,99, Computers $7,99), niet in de lijst. NPC Generator: 294 Forge-gebruikers sinds mei 2024 (GEZIEN). Omzet onbekend, ruwe schatting honderden dollars per jaar (GOK). Let op: dezelfde maker heeft oudere gratis modules met duizenden gebruikers (Narrator Tools 2.656, Combat Music Master 1.215), dus hij had al publiek.
+- Shattered Codex: $346 per maand, 92 leden, sinds okt 2025 (GEZIEN, https://graphtreon.com/creator/shatteredcodex). Betaalde modules via een eigen Download Hub met manifestlink, en zegt openlijk met AI te werken (GEZIEN, https://shattered-codex-wiki.pages.dev/ai-policy). Maar zijn gratis modules staan wel in de lijst (5 van 6 in de Forge-data geven 200, GEZIEN), dus geen zuiver geval van buiten de lijst.
+- Blyghtmare (itch.io, $9,99, "AI Assisted, Code"): verkoopcijfers niet te zien.
+- **Conclusie (GEZIEN, met beperking):** geen maker gevonden die alleen buiten de lijst zit en boven ±$300 per maand komt. Itch.io en Ko-fi tonen geen omzet, dus er kunnen er zijn die we niet zien.
+
+**Eigen meting bereik (GEZIEN):** alle 3.038 modules uit de Forge-data met een eerste publicatie tussen mei 2025 en aug 2026 nagekeken op foundryvtt.com/packages/<id>: 2.422 in de lijst, 615 niet (404), 1 doorverwijzing. Forge-gebruikers (1 = 0,00136%):
+
+| Groep | n | mediaan | 100+ |
+|---|---|---|---|
+| Gratis code (GitHub/GitLab), mei tot aug 2026, in lijst | 446 | 15 | 6% |
+| idem, NIET in lijst | 23 | 9 | 4% |
+| Gratis code, mei 2025 tot apr 2026, in lijst | 823 | 35 | 23% |
+| idem, NIET in lijst | 63 | 18 | 10% |
+| Betaald (Patreon of winkel-link), mei 2025 tot apr 2026, NIET in lijst | 236 | 1 | 0% (hoogste 12) |
+
+- **Correctie controleur (belangrijk):** de tabel telt een 404 als "niet in lijst". Van de 86 gratis code-modules met 404 staan er 46 toch in de lijst onder een ander id (zelfde GitHub-repo, bijvoorbeeld deltagreen-ui als delta-green-player-ui, segue als foundry-vtt-segue; GEZIEN door de controleur, lijst in `data/foundry-404-ander-id-2026-11-07.tsv`). Echt buiten de lijst: 40. Daarvan mei tot aug 2026: n=6, mediaan 10,5, niemand 100+. Mei 2025 tot apr 2026: n=34, mediaan 14,5, 9% 100+ (GEZIEN, tegen 35 en 23% in de lijst). Ook de rij "ander" (kaarten, pakketten) wijst dezelfde kant op: niet in lijst n=208, mediaan 1, 1% 100+ (GEZIEN).
+- Op de Forge zijn modules buiten de lijst even goed te vinden (de Bazaar toont ze gewoon), en toch halen ze minder. Met 6 en 34 modules is het verschil niet hard te maken, de richting wel. Dat er zo weinig echt buiten de lijst zitten (40 van ±900 gratis code-modules in anderhalf jaar) zegt zelf ook iets: bijna iedereen kiest de lijst (GEZIEN). Bij de ±85 tot 90% van de gebruikers die niet op de Forge zitten is het gat veel groter: het zoekscherm "Install Module" in Foundry toont alleen modules uit de officiële lijst, daarbuiten moet de gebruiker zelf een manifestlink plakken (DERDEN, https://foundryvtt.com/article/modules/: "a list of all available modules hosted on or approved to be part of the official Foundry VTT repository", anders "use the Manifest URL box"). Mijn schatting: buiten de Forge haalt een module buiten de lijst een fractie van het bereik (GOK, niet te meten zonder downloadtellers van GitHub, die hier 403 geven).
+- Beperking: de groep "niet in lijst" is klein (23 en 63) en kan modules bevatten die er eerder in stonden en zijn weggehaald, of die minder goed zijn. De hoogste: art-for-daggerheart 464, phils-day-night-cycle 314 (GEZIEN).
+- Betaald buiten de lijst op de Forge Bazaar: vrijwel niets, mediaan 1 gebruiker (vaak de maker zelf, GOK). Wel moet gezegd: betaalde modules via Patreon worden ook in de lijst op de Forge bijna niet geteld (98% nul), dus deze rij zegt vooral iets over Bazaar-verkoop.
+
+### 3. Hoe reageert de gemeenschap op AI-modules?
+- Zelf niet goed te meten: Reddit geeft vanuit deze omgeving 403, dus geen draadjes of scores (GEZIEN, onderzoeker).
+- Foundry zelf koos de strengste regel van alle platformen die we bekeken: geen AI-tekst, beeld of "vibe coding" in de lijst, met permanente ban bij misleiden (GEZIEN, https://foundryvtt.com/article/ai-policy/). De Forge keurt sinds april 2023 geen AI-beelden meer goed voor verkoop; over AI-code zegt hij niets (GEZIEN, https://blog.forge-vtt.com/ai-and-the-forge/).
+- Breder in de modwereld: oude makers noemen vibe-coded mods een "bullshit trend" (DERDEN, Eurogamer 4 okt 2026, via https://news.tyber.io/en/ai-models/vibe-coded-game-mods-go-viral-and-veteran-modders-are-fed-up/).
+- Wie het openlijk doet, blijft klein: Shattered Codex ($346), Loremaster ($90), itch-items met "AI Assisted" (GEZIEN). Of dat door AI komt of door iets anders, weet ik niet.
+- Als we het zouden doen, zetten we het open op de pagina (zoals Thijs vraagt). Dan verwacht ik dat een deel van de gebruikers, en mogelijk de Discord en Reddit, ons links laat liggen (GOK).
+
+### Nog iets wat meetelt
+- Artikel 1.2 geeft licentiehouders het recht om zelf te verspreiden ("As a Foundry VTT license holder, you retain the right..."), buiten de "official listing and marketplace", dus ook buiten de officiële winkel. Zelf uitgegeven werk moet wel aan de Foundry VTT Limited License for Package Development voldoen (GEZIEN, AI-regels). Een licentie kost $50 eenmalig (DERDEN); om te testen hebben we er toch een nodig.
+- Op de Forge Bazaar verkopen kan zonder de officiële lijst: Creator worden per mail met bestaand werk, alleen eenmalige aankopen, 25% afdracht vanaf $3 (GEZIEN onderzoeker, https://forums.forge-vtt.com/t/getting-started-as-a-bazaar-creator/13205). Of AI-code daar mag, staat nergens.
+
+### Cijfer route (c): 3, advies nee
+- Geld: het bewijs van 7 nov (GlitchSmith, Wand & Widgets) gaat niet op voor route (c), want die makers verkopen via de officiële Patreon-koppeling. Buiten de lijst hoogstens een paar honderd dollar per maand.
+- Bereik: bijna al het bereik loopt via de lijst. Het zoekscherm in Foundry toont alleen de lijst, bijna alle makers kiezen de lijst, en zelfs op de Forge halen modules buiten de lijst minder (kleine groep).
+- Daarbij een gemeenschap die AI-werk wantrouwt. Dat maakt een open "met AI gemaakt" product nog zwaarder.
+- Wat dit zou veranderen: een maker die aantoonbaar alleen buiten de lijst boven $300 per maand verdient (zoeken via itch.io-makers met graphtreon), of Foundry dat zijn AI-regels versoepelt. Tot dan Foundry op nee.
+
+### Herhaalmeting
+`data/foundry-lijst-analyse-script.py` met `data/foundry-forge-modules-2026-11-07.json` en `data/foundry-in-lijst-2026-11-07.txt` (per module de HTTP-code van foundryvtt.com/packages/<id>). Let op: vergelijk bij een herhaling op GitHub-repo, niet op id (zie `data/foundry-404-ander-id-2026-11-07.tsv`).
+
+## Eerste meting 7 nov run 11:31 (route via de officiële lijst)
+
 **Advies: nog niet klaar.** Cijfer 6. Onderzocht 7 nov 2026 run 11:31, eigen meting via de open API van de Forge Bazaar (9.360 modules) en graphtreon (23 Patreon-makers). Controleur akkoord, 7 correcties verwerkt.
 
 Kort: het beste geldbewijs voor kleine makers van code tot nu toe, redelijk bereik, maar de AI-regels van Foundry botsen met hoe Dortus werkt. Of dat op te lossen is, kan alleen Thijs zeggen (zie lijst Thijs).
