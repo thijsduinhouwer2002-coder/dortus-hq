@@ -13,7 +13,7 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 - Zed (extensies)
 - ComfyUI (custom nodes, registry)
 - n8n (community nodes, sinds 2025 te verifiëren)
-- Godot Asset Store (betaald komt eraan) | in onderzoek 7 nov 2026 22:50 UTC (Noor)
+- Godot Asset Store: klaar 7 nov, cijfer 6 (ja, kleine inzet), zie onderzocht.md
 - Framer (plugins)
 
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
