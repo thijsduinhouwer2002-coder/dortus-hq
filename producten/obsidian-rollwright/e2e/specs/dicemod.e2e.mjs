@@ -212,6 +212,8 @@ async function vervang(view, path, shot, vorm = VORM) {
 	expect(na[0].value).toBe(rolls[0].value);
 	const totaal = checkVorm(venster.tekst, vorm);
 	expect(String(totaal)).toBe(rolls[0].value);
+	// Staat dezelfde worp (met merkteken) er nog vlak voor Replace? Zo niet, dan tekende de editor hem opnieuw.
+	console.log("ZELFDE WORP VOOR REPLACE:", await browser.execute(() => document.querySelector(".workspace-leaf.mod-active [data-e2e-oud]") !== null));
 	await knop("Replace");
 	// Meldingen verdwijnen na een paar seconden, dus meteen na Replace lezen.
 	await browser.waitUntil(async () => (await readVenster()) === null, { timeout: 5000 }).catch(() => {});
