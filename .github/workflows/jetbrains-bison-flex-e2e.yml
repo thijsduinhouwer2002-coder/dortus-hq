@@ -26,9 +26,14 @@ jobs:
       - name: Scherm (Xvfb), vensterbeheer en ImageMagick
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q xvfb fluxbox x11-utils imagemagick
-          Xvfb :99 -screen 0 1600x1000x24 &
+          sudo apt-get install -y -q xvfb fluxbox x11-utils imagemagick xdotool
+          # Factor 2: 2880x1800 pixels, de IDE schaalt zelf naar 1440x900 (uiScale 2 in de test).
+          Xvfb :99 -screen 0 2880x1800x24 &
           sleep 2
+          # Geen balk van fluxbox in beeld, en de IDE altijd schermvullend (Daan, beoordeling 3).
+          mkdir -p ~/.fluxbox
+          printf 'session.screen0.toolbar.visible: false\n' > ~/.fluxbox/init
+          printf '[app] (class=jetbrains-.*)\n  [Maximized] {yes}\n  [Deco] {NONE}\n[end]\n' > ~/.fluxbox/apps
           DISPLAY=:99 fluxbox >/dev/null 2>&1 &
           echo "DISPLAY=:99" >> "$GITHUB_ENV"
       - name: Unittests

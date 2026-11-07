@@ -8,6 +8,7 @@ import com.intellij.driver.model.OnDispatcher
 import com.intellij.driver.sdk.FileEditorManager
 import com.intellij.driver.sdk.closeToolWindow
 import com.intellij.driver.sdk.getToolWindow
+import com.intellij.driver.sdk.invokeAction
 import com.intellij.driver.sdk.openFile
 import com.intellij.driver.sdk.openToolWindow
 import com.intellij.driver.sdk.singleProject
@@ -22,6 +23,7 @@ import com.intellij.ide.starter.plugins.PluginConfigurator
 import com.intellij.ide.starter.project.LocalProjectInfo
 import com.intellij.ide.starter.runner.Starter
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
@@ -81,9 +83,9 @@ class IdeTest {
     fun donkerThema() = draai("donker", "ExperimentalDark", "Dark")
 
     private fun draai(naam: String, themaId: String, kleurenschema: String) {
-        // Vaste mapnaam, zodat de projectnaam op de schermen netjes is.
-        val project = Files.createTempDirectory("bisonflex-$naam").resolve("rekenmachine").createDirectories()
-        Path.of(System.getProperty("dortus.e2e.project")).toFile().copyRecursively(project.toFile())
+        // Engels winkelproject met een vaste mapnaam, zodat titelbalk en code op de schermen netjes zijn (Daan, beoordeling 3).
+        val project = Files.createTempDirectory("bisonflex-$naam").resolve("calculator").createDirectories()
+        Path.of(System.getProperty("dortus.e2e.project")).resolveSibling("calculator").toFile().copyRecursively(project.toFile())
 
         Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
             .apply {
@@ -99,6 +101,9 @@ class IdeTest {
                 applyVMOptionsPatch {
                     addSystemProperty("idea.trust.all.projects", true)
                     addSystemProperty("ide.show.tips.on.startup.default.value", false)
+                    // Factor 2 voor scherpe winkelplaatjes (Xvfb is 2880x1800, de IDE ziet 1440x900).
+                    addSystemProperty("sun.java2d.uiScale.enabled", true)
+                    addSystemProperty("sun.java2d.uiScale", "2")
                 }
             }
             .runIdeWithDriver()
@@ -126,10 +131,12 @@ class IdeTest {
                 val structuurOpen = getToolWindow("Structure").isVisible()
                 println("DORTUS-E2E [$naam] Project-venster zichtbaar: $projectOpen, Structure-venster zichtbaar: $structuurOpen")
                 assertTrue(structuurOpen, "Structure-venster zichtbaar")
+                assertFalse(projectOpen, "Project-venster dicht")
                 scherm("$naam-calc-y-structuur.png")
                 openFile("calc.l")
                 pauze()
                 scherm("$naam-calc-l.png")
+                kleurenpagina(naam)
             }
     }
 
@@ -155,13 +162,58 @@ class IdeTest {
         }
     }
 
-    /** Schermafbeelding van het hele (virtuele) scherm met ImageMagick. */
+    /**
+     * Kleurenpagina (Daan punt 2): Settings openen zonder te wachten (een modale dialoog blokkeert anders de Driver),
+     * zoeken op "Bison/Yacc" en een scherm maken. Mislukt het, dan staat dat in het log en gaat de test door,
+     * want de bestandssoorten en de andere schermen zijn dan al getoetst.
+     */
+    private fun Driver.kleurenpagina(naam: String) {
+        try {
+            invokeAction("ShowSettings", now = false)
+            Thread.sleep(5_000)
+            typ("Bison/Yacc")
+            Thread.sleep(3_000)
+            scherm("$naam-kleurenpagina.png")
+            toets("Escape")
+            println("DORTUS-E2E [$naam] kleurenpagina: scherm gemaakt")
+        } catch (e: Throwable) {
+            println("DORTUS-E2E [$naam] kleurenpagina mislukt: ${e.javaClass.simpleName}: ${e.message?.take(300)}")
+        }
+    }
+
+    /** Tekst typen in het venster met de focus, via xdotool (los van de Driver, dus ook in een modale dialoog). */
+    private fun typ(tekst: String) {
+        val code = ProcessBuilder("xdotool", "type", "--delay", "60", tekst).inheritIO().start().waitFor()
+        println("DORTUS-E2E xdotool type '$tekst': code $code")
+    }
+
+    private fun toets(naam: String) {
+        val code = ProcessBuilder("xdotool", "key", naam).inheritIO().start().waitFor()
+        println("DORTUS-E2E xdotool key $naam: code $code")
+    }
+
+    /** Id van het actieve venster (de IDE of een dialoog), of null. */
+    private fun actiefVenster(): String? = try {
+        val p = ProcessBuilder("xdotool", "getactivewindow").redirectErrorStream(true).start()
+        val uit = p.inputStream.bufferedReader().readText().trim()
+        if (p.waitFor() == 0 && uit.isNotEmpty() && uit.all { it.isDigit() }) uit else null
+    } catch (e: Exception) {
+        null
+    }
+
+    /**
+     * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
+     * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
+     */
     private fun scherm(bestand: String) {
         val doel = schermen.resolve(bestand)
-        val p = ProcessBuilder("import", "-window", "root", doel.toString()).inheritIO().start()
+        val venster = actiefVenster()
+        println("DORTUS-E2E $bestand: venster ${venster ?: "geen, heel scherm"}")
+        val p = ProcessBuilder("import", "-window", venster ?: "root", doel.toString()).inheritIO().start()
         val code = p.waitFor()
         val grootte = if (Files.exists(doel)) Files.size(doel) else 0
-        println("DORTUS-E2E schermafbeelding $bestand: code $code, $grootte bytes")
+        val maat = ProcessBuilder("identify", "-format", "%wx%h", doel.toString()).start().let { it.inputStream.bufferedReader().readText().also { _ -> it.waitFor() } }
+        println("DORTUS-E2E schermafbeelding $bestand: code $code, $grootte bytes, $maat pixels")
         assertEquals(0, code, "import voor $bestand")
         assertTrue(grootte > 10_000, "schermafbeelding $bestand is te klein ($grootte bytes)")
     }
