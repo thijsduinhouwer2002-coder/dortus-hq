@@ -62,9 +62,9 @@ async function thema(donker) {
 	await browser.pause(300);
 }
 
-async function plaatjes(naam) {
-	// Geen focusrand of cursor in beeld.
-	await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
+async function plaatjes(naam, { focusWeg = true } = {}) {
+	// Geen focusrand of cursor in beeld, behalve waar de cursor juist de code moet tonen.
+	if (focusWeg) await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
 	await thema(false);
 	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
 	await thema(true);
@@ -79,6 +79,14 @@ describe("Rollwright: winkelplaatjes", function () {
 		await browser.executeObsidian(({ app }) => app.workspace.leftSplit?.collapse());
 		// Inline titel uit: anders staat de titel twee keer in beeld (bestandsnaam en de kop in de notitie).
 		await browser.executeObsidian(({ app }) => app.vault.setConfig("showInlineTitle", false));
+		// Statusbalk weg (het rode Sync-icoon leest als een fout) en een lager venster, zodat er weinig leeg wit is (Daan W2, W3).
+		await browser.execute(() => {
+			const s = document.createElement("style");
+			s.id = "winkel-stijl";
+			s.textContent = ".status-bar { display: none !important; }";
+			document.head.appendChild(s);
+		});
+		await browser.setWindowSize(1024, 600);
 	});
 
 	after(async function () {
@@ -102,7 +110,20 @@ describe("Rollwright: winkelplaatjes", function () {
 		const w = await lootVerschillend(".markdown-source-view");
 		console.log("WINKEL LIVE PREVIEW:", JSON.stringify(w));
 		for (const r of w) expect(r.fout).toBe("");
-		await plaatjes("winkel-2-live-preview");
+		// Cursor op de regel van Perception: Live Preview toont daar de code, de rest de uitkomst (Daan W1).
+		const regel = await browser.executeObsidian(({ app }) => {
+			const editor = app.workspace.activeEditor?.editor;
+			const n = editor ? Array.from({ length: editor.lineCount() }, (_, i) => i).find((i) => editor.getLine(i).startsWith("Perception")) : undefined;
+			if (editor === undefined || n === undefined) return "";
+			editor.focus();
+			editor.setCursor({ line: n, ch: editor.getLine(n).length });
+			return editor.getLine(n);
+		});
+		await browser.pause(400);
+		const code = await browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .cm-line`)).map((l) => l.textContent ?? "").find((t) => t.startsWith("Perception")) ?? "", `${LEAF} .markdown-source-view`);
+		console.log("WINKEL CODE IN BEELD:", JSON.stringify(regel), JSON.stringify(code));
+		expect(code).toContain("dice: 1d20 + 4");
+		await plaatjes("winkel-2-live-preview", { focusWeg: false });
 	});
 
 	it("geschiedenis rechts na een paar klikken", async function () {

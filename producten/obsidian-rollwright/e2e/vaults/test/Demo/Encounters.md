@@ -14,7 +14,7 @@
 ^weather
 
 - 12 silver coins
-- A bone dice set
-- A map with one road crossed out
-- A bottle of river wine
+- a bone dice set
+- a map with one road crossed out
+- a bottle of river wine
 ^loot
