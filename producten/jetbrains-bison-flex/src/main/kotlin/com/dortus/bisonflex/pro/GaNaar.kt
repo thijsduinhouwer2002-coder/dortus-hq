@@ -5,7 +5,11 @@ import com.dortus.bisonflex.BisonLanguage
 import com.dortus.bisonflex.FlexLanguage
 import com.dortus.bisonflex.parser.BisonElementen as B
 import com.dortus.bisonflex.parser.FlexElementen as F
+import com.intellij.codeInsight.hint.HintManager
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
+import com.intellij.ide.IdeEventQueue
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.ModalityState
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.DumbService
@@ -15,6 +19,9 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FileTypeIndex
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.tree.IElementType
+import java.awt.AWTEvent
+import java.awt.event.KeyEvent
+import java.awt.event.MouseEvent
 
 /**
  * Ga naar definitie (eis 6, eerste deel; Pro). Geen eigen PSI-klassen: we zoeken in de boom van de parser.
@@ -23,17 +30,32 @@ import com.intellij.psi.tree.IElementType
  * - Flex: een naam in een actie (`return NUM;`) naar `%token NUM` in een `.y`/`.yy` van het project.
  * Bij stand GEEN: geen sprong, wel eenmaal per sessie de Pro-melding (alleen als er een doel was).
  */
-class GaNaarDefinitie : GotoDeclarationHandler {
+class GaNaarDefinitie(
+    /** De gebeurtenis die de vraag veroorzaakt; in tests te vervangen. */
+    private val gebeurtenis: () -> AWTEvent? = { IdeEventQueue.getInstance().trueCurrentEvent },
+) : GotoDeclarationHandler {
 
     override fun getGotoDeclarationTargets(bron: PsiElement?, offset: Int, editor: Editor?): Array<PsiElement>? {
         val blad = bron?.node ?: return null
         val doelen = doelen(blad, bron.containingFile ?: return null)
         if (doelen.isEmpty()) return null
         if (!Licentie.proWerkt()) {
-            ProMelding.getInstance().toonEenmaal(bron.project)
+            // Ctrl/Cmd+zweven vraagt ook om doelen: dan geen sprong en geen melding, alleen bij een echte actie.
+            if (!isZweven(gebeurtenis()) && ProMelding.getInstance().toonEenmaal(bron.project)) verbergNietGevonden()
             return null
         }
         return doelen.toTypedArray()
+    }
+
+    /**
+     * Zonder doel toont de IDE na deze handler de hint "Cannot find declaration to go to". Die hoort niet naast
+     * de Pro-melding. De hint komt op de EDT nadat de actie klaar is; twee keer `invokeLater` (niet-modaal) loopt
+     * daarna en haalt hem weg. De balloon is geen editor-hint en blijft staan.
+     */
+    private fun verbergNietGevonden() {
+        val app = ApplicationManager.getApplication()
+        app.invokeLater({ app.invokeLater({ HintManager.getInstance().hideAllHints() }, ModalityState.nonModal()) },
+            ModalityState.nonModal())
     }
 
     /** De doelen zonder te letten op de licentie (los te testen). */
@@ -75,11 +97,20 @@ class GaNaarDefinitie : GotoDeclarationHandler {
             .flatMap { tokenNamen(it.node, naam) }
     }
 
-    private companion object {
-        val NAAM = Regex("[A-Za-z_][A-Za-z0-9_]*")
+    companion object {
+        /** Muisbeweging of alleen een losse Ctrl/Cmd/Shift/Alt: dat is zweven (navigatie-hint), geen echte actie. */
+        fun isZweven(e: AWTEvent?): Boolean = when (e) {
+            is MouseEvent -> e.id == MouseEvent.MOUSE_MOVED || e.id == MouseEvent.MOUSE_DRAGGED ||
+                e.id == MouseEvent.MOUSE_ENTERED || e.id == MouseEvent.MOUSE_EXITED || e.id == MouseEvent.MOUSE_WHEEL
+            is KeyEvent -> e.keyCode in LOSSE_TOETSEN
+            else -> false
+        }
+
+        private val LOSSE_TOETSEN = setOf(KeyEvent.VK_CONTROL, KeyEvent.VK_META, KeyEvent.VK_SHIFT, KeyEvent.VK_ALT)
+        private val NAAM = Regex("[A-Za-z_][A-Za-z0-9_]*")
 
         /** Alle knopen van [type] onder [n], in volgorde van het bestand. */
-        fun zoek(n: ASTNode, type: IElementType): List<ASTNode> {
+        private fun zoek(n: ASTNode, type: IElementType): List<ASTNode> {
             val uit = ArrayList<ASTNode>()
             fun loop(k: ASTNode) {
                 if (k.elementType == type) uit += k

@@ -114,7 +114,7 @@ class IdeTest {
                     addSystemProperty("sun.java2d.uiScale.enabled", true)
                     addSystemProperty("sun.java2d.uiScale", "2")
                     // Alleen voor deze test: licentiestand GEEN, anders is de facade null en komt er nooit een Pro-melding.
-                    addSystemProperty("bisonflex.e2e.licentie", "geen")
+                    addSystemProperty("bisonflex.internal.e2e.forceNoLicense", true)
                 }
             }
             .runIdeWithDriver()

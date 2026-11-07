@@ -20,14 +20,14 @@ fun interface LicentieBron {
  * De echte bron: `LicensingFacade.getConfirmationStamp`. We kijken alleen of er een stempel is,
  * de handtekening van de stempel controleren we (nog) niet (zie architectuur.md, Open).
  *
- * Alleen voor de IDE-test: `-Dbisonflex.e2e.licentie=geen` zet de stand op GEEN, omdat de facade
+ * Alleen voor de IDE-test: `-Dbisonflex.internal.e2e.forceNoLicense=true` zet de stand op GEEN, omdat de facade
  * in de test-IDE null is en de Pro-melding dan nooit komt.
  */
 object FacadeBron : LicentieBron {
-    const val E2E_EIGENSCHAP = "bisonflex.e2e.licentie"
+    const val E2E_EIGENSCHAP = "bisonflex.internal.e2e.forceNoLicense"
 
     override fun stand(): LicentieStand {
-        if (System.getProperty(E2E_EIGENSCHAP) == "geen") return LicentieStand.GEEN
+        if (System.getProperty(E2E_EIGENSCHAP) == "true") return LicentieStand.GEEN
         val facade = LicensingFacade.getInstance() ?: return LicentieStand.ONBEKEND
         val stempel = facade.getConfirmationStamp(Licentie.PRODUCTCODE)
         return if (stempel.isNullOrBlank()) LicentieStand.GEEN else LicentieStand.GELDIG
