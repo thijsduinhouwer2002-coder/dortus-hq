@@ -1,8 +1,8 @@
 package com.dortus.bisonflex.pro
 
-import com.dortus.bisonflex.BisonFileType
 import com.dortus.bisonflex.BisonLanguage
 import com.dortus.bisonflex.FlexLanguage
+import com.dortus.bisonflex.psi.Koppeling
 import com.dortus.bisonflex.parser.BisonElementen as B
 import com.dortus.bisonflex.parser.FlexElementen as F
 import com.intellij.codeInsight.hint.HintManager
@@ -11,12 +11,8 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ModalityState
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.project.DumbService
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiManager
-import com.intellij.psi.search.FileTypeIndex
-import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.tree.IElementType
 
 /**
@@ -96,12 +92,8 @@ class GaNaarDefinitie(
     }
 
     private fun tokenInGrammatica(flex: PsiFile, naam: String): List<PsiElement> {
-        val project = flex.project
-        if (DumbService.isDumb(project)) return emptyList()
-        val psi = PsiManager.getInstance(project)
-        return FileTypeIndex.getFiles(BisonFileType, GlobalSearchScope.projectScope(project))
-            .sortedBy { it.path }
-            .mapNotNull { psi.findFile(it) }
+        // Een grammatica in dezelfde map gaat voor (Koppeling.grammaticas).
+        return Koppeling.grammaticas(flex) { tokenNamen(it.node, naam).isNotEmpty() }
             .flatMap { tokenNamen(it.node, naam) }
     }
 
