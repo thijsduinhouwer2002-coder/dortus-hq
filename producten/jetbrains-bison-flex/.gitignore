@@ -1,0 +1,6 @@
+build/
+.gradle/
+.kotlin/
+out/
+e2e/screenshots/
+.intellijPlatform/
