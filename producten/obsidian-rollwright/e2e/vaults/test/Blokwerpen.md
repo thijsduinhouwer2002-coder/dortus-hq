@@ -4,7 +4,7 @@ Een gewone alinea om de tekstgrootte mee te vergelijken.
 
 Kop: `dice: [[Bron]]|heading-1`
 
-Twee regels: `dice: 2[[Bron]]|line`
+Twee regels: `dice+: 2[[Bron]]|line`
 
 Een hele lijst: `dice: [[Bron]]|list`
 

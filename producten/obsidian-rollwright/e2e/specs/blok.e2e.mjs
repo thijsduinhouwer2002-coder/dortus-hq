@@ -4,6 +4,8 @@ import * as fs from "fs";
 // Daan punt 1: een uitkomst van meer dan één regel of een blok staat als eigen blok onder de regel,
 // met gewone tekstgrootte en zonder lijstbolletjes. Eén regel blijft in de zin.
 // Blokwerpen.md rolt op Bron.md (zelfde notitie als in secties.e2e.mjs).
+// "Twee regels" trekt willekeurige regels; daarom staat die worp als `dice+:` in Blokwerpen.md,
+// zodat lezen en Live Preview dezelfde uitkomst tonen en de hoogtes te vergelijken zijn.
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
 const AANTAL = 5;
@@ -100,6 +102,7 @@ const px = (s) => parseFloat(s);
 function check(gemeten, wat) {
 	const { rolls, tekst } = gemeten;
 	console.log(`${wat}: gewone tekst ${tekst}, regelbreedte ${gemeten.regelBreedte}`);
+	expect(gemeten.regelBreedte).toBeGreaterThan(0);
 	rolls.forEach((r, i) => console.log(`${wat} WORP ${i}:`, JSON.stringify(r)));
 	expect(rolls.length).toBe(AANTAL);
 	for (const r of rolls) {
