@@ -85,3 +85,4 @@ Nieuwste blok onderaan.
 - **Beslissing:** aanvullen en C-injectie uit versie 1. Reden: sneller lanceren en het grootste technische risico eruit, zonder dat het gratis deel zwakker wordt dan de concurrent.
 - **Daarna (08:17 UTC):** vaste testset van 10 echte Bison- en Flex-bestanden gekozen (PostgreSQL, jq, Ruby, OpenBSD, Apache Thrift; alleen ruime licenties, vast op tag of commit) en op de tak `claude/jetbrains-2026-11-07` gezet. Zelf nagekeken (regels, geen GPL); de controleur doet het de volgende run. Tak gekozen omdat het bij de code van het product hoort.
 - **Afgesloten om ±08:19 UTC.**
+- **Na het afsluiten nog (08:22 UTC):** testset nagekeken, akkoord mits NOTICE van Thrift en een telling; beide verwerkt op de tak. Volgende run: IDE-test en bouwen beginnen op die tak.
