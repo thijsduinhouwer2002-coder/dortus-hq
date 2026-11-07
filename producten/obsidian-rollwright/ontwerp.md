@@ -1,4 +1,4 @@
-Akkoord: ja 7 nov 2026 12:40, voor versie 0.2.0 op main 38ef6eb (met punt 5, 6, 8 en 9 erin). Gezien in ontwerprun 42372473217. Zie beoordeling 5. Eerder: ja 11:45 voor main 92b8b23. Let op: de winkelplaatjes (README) hebben nog geen akkoord, zie beoordeling 5.
+Akkoord: ja 7 nov 2026 14:40, voor versie 0.2.0 op main 6755a48. Uiterlijk gelijk aan main 38ef6eb (gezien in ontwerprun 42372473217): na 38ef6eb alleen de logica van de eerste worp in `src/main.ts`, `styles.css` en `src/ui/` onveranderd. Eerder: ja 12:40 voor 38ef6eb, ja 11:45 voor 92b8b23. Let op: de winkelplaatjes (README) hebben nog geen akkoord, zie beoordeling 6 (W6a en W8).
 
 # Ontwerp van Rollwright
 

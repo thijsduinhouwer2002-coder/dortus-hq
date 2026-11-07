@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 4, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 5, 7 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -42,6 +42,8 @@ Nooit:
 - Je ziet wat je koopt voordat je betaalt: een voorbeeld in de app of een plaatje op de koopknop.
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
+- Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.
+- De tekst over Pro zegt precies wat Pro is. Klopt de tekst niet met wat er gebeurt, dan voelt het als een truc.
 
 ## Winkelpagina's en dortus.com
 

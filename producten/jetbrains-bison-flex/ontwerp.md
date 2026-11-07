@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026 13:40, omdat de Pro-melding (punt 3) nog niet in beeld is. Kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes zijn goedgekeurd, zie beoordeling 4.
+Akkoord: nee 7 nov 2026 14:40, omdat bij de Pro-melding de IDE-hint "Cannot find declaration to go to" nog in beeld staat en de tekst niet klopt met wat Pro is. Balloon zelf goedgekeurd, net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Zie beoordeling 5.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -83,3 +83,19 @@ Bekeken: `licht-` en `donker-calc-y-structuur.png`, `licht-` en `donker-kleurenp
 - **Nog niet in beeld: punt 3, de Pro-melding** (balloon, licht en donker). Dat is de enige eis die nog openstaat, samen met de functies zelf (eis 6 tot 8).
 
 Blijft `Akkoord: nee` alleen om punt 3. Op uiterlijk is de rest klaar voor de winkel.
+
+### Beoordeling 5, 7 nov 2026 14:35 (main d141ce6, IDE-run 42380794961)
+
+Bekeken: `licht-pro-melding.png` en `donker-pro-melding.png` in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt: run 42380794961, commit d141ce6). Plus `pro/ProMelding.kt` en `pro/GaNaar.kt`.
+
+**Goed (laten zo):**
+- **De balloon zelf.** Gewone melding van de IDE rechtsonder, info-icoon, titel "Bison & Flex Pro", één zin uitleg, twee links "Start free trial" en "Not now" in sentence case. Geen dialoog, geen eigen kleuren, één keer per sessie. Hij dekt de code niet af. In licht is de balloon ook donker; dat is de IDE zelf (gewone melding, geen eigen kleur), dus goed. Precies wat punt 3 vroeg.
+
+**Wat beter moet, op volgorde van belang:**
+1. **De IDE-hint "Cannot find declaration to go to" staat naast de balloon** (regel 15 tot 16, beide plaatjes). Zo leest het als: het is mislukt, en betaal maar. Dat voelt als een fout plus een verkooppraatje, en de hint dekt `%empty` op regel 16 half af. Let ook op de klikken daarna (controleur, uit de code): na de eerste keer geeft `GaNaar` `null` en ziet de gebruiker bij elke Ctrl+B alleen "Cannot find declaration to go to", zonder uitleg. Dat oogt als een kapotte plugin. Bij stand GEEN moet de gebruiker de eerste keer alleen de balloon zien, en daarna geen foutmelding (niets doen, of een korte hint in de editor "Pro feature: go to declaration across files" zonder knop). Jet heeft dit al op de lijst; ik wil het opnieuw in beeld zien. **Voor akkoord.**
+2. **De tekst klopt niet met wat er gebeurt.** De balloon zegt "across grammar and scanner", maar de klik in de plaatjes was op `line` in hetzelfde `calc.y`, en ook die sprong is Pro (`GaNaar.kt` vraagt de licentie voor elk doel). Mijn advies: maak springen binnen hetzelfde bestand gratis (regel naar regel, token naar `%token`, start-conditie naar `%x`), en houd springen tussen `.l` en `.y` Pro. Ctrl+B binnen één bestand verwacht elke gebruiker van een taalplugin; een verkoopmelding daar voelt als duwen en kost de goede eerste indruk. De tekst klopt dan precies. Kiest Jet er toch voor dat alles Pro blijft, dan wordt de tekst "Go to declaration is a Pro feature. Try it free for 30 days." **Voor akkoord: de tekst moet kloppen met het gedrag.** Welke van de twee kiest Jet, met reden in zijn logboek.
+3. **"Start free trial" opent nu de algemene Marketplace** (`KOOPPAGINA`). Wie daarop klikt, moet bij de proefperiode van deze plugin uitkomen, niet op een voorpagina. Voor indienen: de pluginpagina, of beter de registratie in de IDE (Help, Register). Staat als open punt in `architectuur.md`; **voor indienen**, niet nu in beeld nodig.
+
+**Besloten:** blijft `Akkoord: nee`, nu alleen om punt 1 en 2. Waarom: het betaalde deel mag niet voelen als een fout of als duwen, en dit is het enige moment waarop de gratis gebruiker iets over Pro hoort. Beide zijn klein werk. Zodra de schermen de balloon zonder hint tonen en de tekst klopt, geef ik akkoord op het uiterlijk zonder nieuwe eisen. Het definitieve akkoord geldt voor de versie die wordt ingediend (met eis 6, 7 en CLion erin); dan kijk ik nog één keer naar de schermen van die run.
+
+Nagekeken door een controleur (agent, 7 nov 14:40): alle punten kloppen met de plaatjes en de code, oordeel terecht. Voegde toe: de hint dekt code af, en de latere klikken tonen alleen de foutmelding (verwerkt in punt 1).
