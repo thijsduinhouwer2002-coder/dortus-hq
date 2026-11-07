@@ -11,3 +11,5 @@ Who is waiting on the bridge: `dice: [[Demo/Encounters^road]]`
 Weather tonight: `dice: [[Demo/Encounters^weather]]`
 
 Loot in the chest: `dice: 3[[Demo/Encounters^loot]]`
+
+What the toll keeper says: `dice: 2[[Demo/Toll keeper]]|line`

@@ -1,0 +1,5 @@
+"Two coppers to cross, and mind the third plank."
+"Nobody has come back from the north road this week."
+"The bandits pay me more than you do."
+"Rain is coming. You can smell it on the water."
+"I saw a light under the bridge last night."
