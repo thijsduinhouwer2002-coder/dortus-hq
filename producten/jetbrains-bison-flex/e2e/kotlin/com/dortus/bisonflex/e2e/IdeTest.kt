@@ -152,6 +152,10 @@ class IdeTest {
                 scherm("$naam-calc-l.png")
                 proMelding(naam)
                 kleurenpagina(naam)
+                // Als laatste, zodat alle schermen er al zijn: Ctrl+zweven over NUM in calc.l (melding al getoond)
+                // geeft geen nieuwe hint, geen balloon en geen sprong.
+                cursorOp("return NUM", 8)
+                ctrlZweven(naam, service<ProMeldingOpAfstand>(), "return NUM", 8, cursorRegel())
             }
     }
 
@@ -202,8 +206,6 @@ class IdeTest {
         structuurBij(naam, "calc.l")
         cursorOp("return NUM", 8)
         val regelL = cursorRegel()
-        // Ctrl+zweven is geen klik: geen melding, geen hint, geen sprong (melding nog niet getoond).
-        ctrlZweven(naam, melding, "return NUM", 8, regelL)
         val getoond = gaNaarDefinitie(naam) { melding.isGetoond() }
         Thread.sleep(2_000)
         println("DORTUS-E2E [$naam] eerste Ctrl+B op NUM in calc.l: melding getoond $getoond, hints ${melding.aantalHints()}, cursor regel ${cursorRegel() + 1} (was ${regelL + 1})")
@@ -220,8 +222,6 @@ class IdeTest {
         assertTrue(hint, "korte Pro-hint getoond bij de tweede klik ($naam)")
         assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l, tweede klik ($naam)")
         assertEquals("calc.l", structuurBestand(), "structuurweergave hoort bij calc.l op pro-hint ($naam)")
-        // Nog eens Ctrl+zweven, nu de melding al getoond is: de hint mag niet opnieuw komen.
-        ctrlZweven(naam, melding, "return NUM", 8, regelL)
     }
 
     /** GotoDeclaration via de Driver; is [klaar] na 10 s niet waar, dan nog eens met Ctrl+B via xdotool. */

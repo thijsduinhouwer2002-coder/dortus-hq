@@ -54,17 +54,6 @@ interface ActiviteitOpAfstand {
     fun inc()
 }
 
-@Remote("java.awt.KeyboardFocusManager")
-interface FocusBeheerOpAfstand {
-    fun getCurrentKeyboardFocusManager(): FocusBeheerOpAfstand
-    fun getFocusOwner(): OnderdeelOpAfstand?
-}
-
-@Remote("java.util.Objects")
-interface ObjectsOpAfstand {
-    fun toString(o: Any?): String
-}
-
 @Remote("java.awt.Component")
 interface OnderdeelOpAfstand {
     fun requestFocusInWindow(): Boolean
@@ -88,14 +77,6 @@ fun Driver.structuurBestand(): String? = try {
     "fout ${e.javaClass.simpleName}: ${e.message?.take(150)}"
 }
 
-/** Korte omschrijving van het onderdeel met de focus (voor het log). */
-fun Driver.focusOmschrijving(): String = try {
-    val eigenaar = utility<FocusBeheerOpAfstand>().getCurrentKeyboardFocusManager().getFocusOwner()
-    if (eigenaar == null) "geen" else utility<ObjectsOpAfstand>().toString(eigenaar).take(120)
-} catch (e: Throwable) {
-    "onbekend (${e.javaClass.simpleName})"
-}
-
 /**
  * Zorgt dat de structuurweergave bij [bestand] hoort (het bestand in de open editor) en controleert dat.
  * Hangt hij nog aan een ander bestand: focus naar de open editor en de ActivityTracker ophogen, zoals een
@@ -103,7 +84,7 @@ fun Driver.focusOmschrijving(): String = try {
  */
 fun Driver.structuurBij(naam: String, bestand: String) {
     val voor = structuurBestand()
-    println("DORTUS-E2E [$naam] structuur na wissel naar $bestand: $voor, focus: ${focusOmschrijving()}")
+    println("DORTUS-E2E [$naam] structuur na wissel naar $bestand: $voor")
     if (voor != bestand) {
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor()
         withContext(OnDispatcher.EDT) {
@@ -117,7 +98,7 @@ fun Driver.structuurBij(naam: String, bestand: String) {
             Thread.sleep(1_000)
             nu = structuurBestand()
         }
-        println("DORTUS-E2E [$naam] structuur na focus: $nu, focus: ${focusOmschrijving()}")
+        println("DORTUS-E2E [$naam] structuur na focus: $nu")
     }
     assertEquals(bestand, structuurBestand(), "structuurweergave hoort bij $bestand ($naam)")
 }
