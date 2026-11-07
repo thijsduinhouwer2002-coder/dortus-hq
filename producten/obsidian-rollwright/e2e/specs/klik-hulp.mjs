@@ -6,8 +6,8 @@ import { browser } from "@wdio/globals";
  * er echt staat. Waarom: kort na het openen haalt Obsidian de alinea's van de leesweergave even weg en
  * zet dezelfde knopen terug (diagnose run 42390461178). Een `?.click()` in dat gat deed stilletjes
  * niets. Zie ook geschiedenis.e2e.mjs, waar dit de wiebel gaf.
+ * Met ctrl: true een klik met Ctrl ingedrukt (opent de bron), zoals een gebruiker Ctrl-klikt.
  */
-/** Met ctrl: true een klik met Ctrl ingedrukt (opent de bron), zoals een gebruiker Ctrl-klikt. */
 export async function klikWorp(sel, i = 0, { markeer = false, ctrl = false } = {}) {
 	await browser.waitUntil(async () => browser.execute((sel, i, markeer, ctrl) => {
 		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
