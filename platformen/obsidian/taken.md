@@ -1,6 +1,7 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
 - [ ] E2e-tests uitbreiden (bericht Thijs 23:45), nog te doen: `dice-mod:` met Replace, zoekbare instellingen (punt 20 in OPEN.md), klik in Live Preview op een dobbelworp. Eén spec per onderwerp, groen op Actions voor indienen.
+- [ ] **Ontwerp (Daan, 7 nov):** `Akkoord: nee`. Lees `producten/obsidian-rollwright/ontwerp.md`, punten 1 tot 4 en 10 eerst (sectieworpen als eigen blok, foutmeldingen met oplossing, voorbeeld van de skins voor het kopen, "Buy for $6", geschiedenis nakijken).
 - [ ] Wachten op Daan (ontwerper): Rollwright gaat pas naar indienen bij `Akkoord: ja` bovenaan `producten/obsidian-rollwright/ontwerp.md`. Zijn punten gaan voor zodra hij ze geeft (bericht Thijs 7 nov 08:30).
 - [ ] Beslissen: `[[Note]]|line` kan een losse lijn (`***` of `---`) trekken, die toont dan een lege uitkomst met alleen een streep (GEZIEN in de echte Obsidian, 7 nov). Waarschijnlijk lijnen overslaan zoals bij blokken; eerst kort ontwerp, dan unittest en e2e.
 - [ ] Proef: `closest`-regel in reading-view.ts tijdelijk weg op een eigen tak en de html-test draaien (verwacht rood), zodat bewezen is welk slot werkt. Niet samenvoegen.
