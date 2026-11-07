@@ -5,10 +5,12 @@ import * as fs from "fs";
 // (src/ui/settings.ts, getSettingDefinitions). Deze spec zoekt zoals een gebruiker: typen in het
 // zoekveld van het instellingenvenster, klikken op wat er gevonden wordt. Hij schrijft op wat hij ziet,
 // zodat het log laat zien hoe Obsidian het zoeken toont.
-// klikWorp uit klik-hulp.mjs past hier niet (die klikt worpen in een notitie); hier klikt wdio echt.
+//
+// Obsidian 1.15 opent de instellingen in een eigen venster (de body heeft is-popout-window, run
+// 42401067049), dus wdio vindt het venster niet in het hoofddocument. Daarom loopt alles via
+// executeObsidian en app.setting.modalEl: typen is de waarde zetten met een input-event, klikken is
+// el.click(), net als klikWorp in klik-hulp.mjs (die hulp zelf zoekt worpen in een notitie, dat past hier niet).
 const SHOTS = "screenshots";
-// Het venster van de instellingen; openInstellingen zet dit merkteken op app.setting.modalEl.
-const MODAL = "[data-e2e-modal]";
 // Per zoekterm een stukje van de uitleg van de regel, zodat we weten dat het de regel van Rollwright is.
 const TERMEN = [
 	{ term: "Default die", uitleg: "number of sides" },
@@ -20,56 +22,88 @@ async function openInstellingen(tab) {
 	const venster = await browser.executeObsidian(({ app }, tab) => {
 		app.setting.open();
 		app.setting.openTabById(tab);
-		const el = app.setting.modalEl ?? app.setting.containerEl;
-		el?.setAttribute("data-e2e-modal", "1");
-		return { klasse: el?.className ?? null, ouder: el?.parentElement?.className ?? null };
+		const el = app.setting.modalEl;
+		return { klasse: el?.className ?? null, body: el?.ownerDocument?.body?.className ?? null, eigenVenster: el?.ownerDocument !== document };
 	}, tab);
 	console.log("INSTELLINGENVENSTER:", JSON.stringify(venster));
-	await browser.$(MODAL).waitForDisplayed({ timeout: 10000, timeoutMsg: "het instellingenvenster ging niet open" });
+	await browser.waitUntil(async () => browser.executeObsidian(({ app }) => !!app.setting.modalEl?.isConnected && app.setting.modalEl.getClientRects().length > 0),
+		{ timeout: 10000, timeoutMsg: "het instellingenvenster ging niet open" });
 }
 
 async function sluitInstellingen() {
 	await browser.executeObsidian(({ app }) => { app.setting.close(); });
-	await browser.waitUntil(async () => !(await browser.$(MODAL).isDisplayed()), { timeout: 10000, timeoutMsg: "het instellingenvenster bleef open" });
+	await browser.waitUntil(async () => browser.executeObsidian(({ app }) => !app.setting.modalEl?.isConnected || app.setting.modalEl.getClientRects().length === 0),
+		{ timeout: 10000, timeoutMsg: "het instellingenvenster bleef open" });
 }
 
 async function actieveTab() {
 	return browser.executeObsidian(({ app }) => app.setting.activeTab?.id ?? null);
 }
 
+/** Een schermafbeelding van het venster van de instellingen, ook als dat een eigen venster is. */
+async function foto(naam) {
+	const hoofd = await browser.getWindowHandle();
+	try {
+		const vensters = await browser.getWindowHandles();
+		for (const h of vensters) {
+			if (h === hoofd) continue;
+			await browser.switchToWindow(h);
+			await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
+			return;
+		}
+		await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
+	} catch (e) {
+		console.log(`FOTO ${naam} LUKTE NIET:`, String(e).slice(0, 200));
+	} finally {
+		await browser.switchToWindow(hoofd);
+	}
+}
+
 /** Het zoekveld van het venster zelf (niet een veld in een tab). Zet er data-e2e-zoek op en beschrijf alle velden. */
 async function vindZoekveld() {
-	return browser.execute((modalSel) => {
-		const modal = document.querySelector(modalSel);
-		if (!modal) return { gevonden: false, velden: [] };
-		const inputs = Array.from(modal.querySelectorAll("input"));
+	return browser.executeObsidian(({ app }) => {
+		const modal = app.setting.modalEl;
+		const inhoud = app.setting.activeTab?.containerEl;
+		const inputs = Array.from(modal?.querySelectorAll("input") ?? []);
 		const velden = inputs.map((i) => ({
 			type: i.type,
 			placeholder: i.placeholder,
 			klasse: i.className,
 			ouder: i.parentElement?.className ?? "",
-			inTab: !!i.closest(".vertical-tab-content"),
+			inTab: !!inhoud?.contains(i),
 			zichtbaar: i.getClientRects().length > 0,
 		}));
-		const zoek = inputs.find((i) => !i.closest(".vertical-tab-content") && i.getClientRects().length > 0 && (i.type === "search" || /search|zoek/i.test(i.placeholder) || i.closest(".search-input-container")));
+		const zoek = inputs.find((i) => !inhoud?.contains(i) && i.getClientRects().length > 0 && (i.type === "search" || /search|zoek/i.test(i.placeholder) || i.closest(".search-input-container")));
 		if (zoek) zoek.setAttribute("data-e2e-zoek", "1");
 		return { gevonden: !!zoek, velden };
-	}, MODAL);
+	});
+}
+
+/** Typ in het zoekveld: de waarde zetten en een input-event, zoals bij typen. */
+async function zoek(term) {
+	return browser.executeObsidian(({ app }, term) => {
+		const i = app.setting.modalEl?.querySelector("[data-e2e-zoek]");
+		if (!i) return false;
+		i.focus();
+		i.value = term;
+		i.dispatchEvent(new InputEvent("input", { bubbles: true, data: term, inputType: "insertText" }));
+		return true;
+	}, term);
 }
 
 /** Zichtbare regels in het venster met de zoekterm in de naam, met hun omgeving als bewijs. Zet data-e2e-hit op elk. */
 async function treffers(term) {
-	return browser.execute((modalSel, term) => {
-		const modal = document.querySelector(modalSel);
+	return browser.executeObsidian(({ app }, term) => {
+		const modal = app.setting.modalEl;
 		if (!modal) return [];
 		for (const el of Array.from(modal.querySelectorAll("[data-e2e-hit]"))) el.removeAttribute("data-e2e-hit");
 		const laag = term.toLowerCase();
+		const heeft = (el) => (el.textContent ?? "").toLowerCase().includes(laag);
 		const zichtbaar = (el) => el.getClientRects().length > 0;
-		let namen = Array.from(modal.querySelectorAll(".setting-item-name")).filter((el) => zichtbaar(el) && (el.textContent ?? "").toLowerCase().includes(laag));
+		let namen = Array.from(modal.querySelectorAll(".setting-item-name")).filter((el) => zichtbaar(el) && heeft(el));
 		if (namen.length === 0) {
 			// Toont Obsidian treffers op een andere manier, pak dan de kleinste zichtbare elementen met de term.
-			namen = Array.from(modal.querySelectorAll("*")).filter((el) => zichtbaar(el) && el.tagName !== "INPUT" && el.children.length <= 2
-				&& (el.textContent ?? "").toLowerCase().includes(laag) && !Array.from(el.children).some((c) => (c.textContent ?? "").toLowerCase().includes(laag)));
+			namen = Array.from(modal.querySelectorAll("*")).filter((el) => zichtbaar(el) && el.tagName !== "INPUT" && heeft(el) && !Array.from(el.children).some(heeft));
 		}
 		return namen.map((el, i) => {
 			el.setAttribute("data-e2e-hit", String(i));
@@ -90,29 +124,24 @@ async function treffers(term) {
 				rollwrightInBuurt: omgeving,
 			};
 		});
-	}, MODAL, term);
+	}, term);
 }
 
-/** Typ in het zoekveld zoals een gebruiker. Leeg maken gaat met een input-event, want setValue("") typt niets. */
-async function zoek(term) {
-	const veld = browser.$("[data-e2e-zoek]");
-	if (term === "") {
-		await browser.execute(() => {
-			const i = document.querySelector("[data-e2e-zoek]");
-			if (!i) return;
-			i.value = "";
-			i.dispatchEvent(new Event("input", { bubbles: true }));
-		});
-		return;
-	}
-	await veld.setValue(term);
+/** Klik op het eerste element in het venster dat bij de selector past. */
+async function klik(sel, laatste = false) {
+	return browser.executeObsidian(({ app }, sel, laatste) => {
+		const alle = Array.from(app.setting.modalEl?.querySelectorAll(sel) ?? []);
+		const el = laatste ? alle[alle.length - 1] : alle[0];
+		if (!el) return false;
+		el.click();
+		return true;
+	}, sel, laatste);
 }
 
 /** De Rollwright-tab: aantal formulerijen, en hoe vaak een naam of uitleg er staat. */
 async function tabStaat(naam, uitleg) {
 	return browser.executeObsidian(({ app }, naam, uitleg) => {
-		const tab = app.setting.pluginTabs.find((t) => t.id === "rollwright");
-		const el = tab?.containerEl;
+		const el = app.setting.pluginTabs.find((t) => t.id === "rollwright")?.containerEl;
 		if (!el) return null;
 		const items = Array.from(el.querySelectorAll(".setting-item"));
 		return {
@@ -124,18 +153,29 @@ async function tabStaat(naam, uitleg) {
 	}, naam, uitleg);
 }
 
-/** Zet data-e2e-veld op het tekstveld van de regel met deze naam in de Rollwright-tab. */
-async function markeerVeld(naam) {
-	await browser.waitUntil(async () => browser.executeObsidian(({ app }, naam) => {
-		const el = app.setting.pluginTabs.find((t) => t.id === "rollwright")?.containerEl;
-		const rij = Array.from(el?.querySelectorAll(".setting-item") ?? []).find((it) => (it.querySelector(".setting-item-name")?.textContent ?? "").trim() === naam);
-		const input = rij?.querySelector("input[type=text], input:not([type])");
-		if (!input || input.getClientRects().length === 0) return false;
-		for (const oud of Array.from(document.querySelectorAll("[data-e2e-veld]"))) oud.removeAttribute("data-e2e-veld");
-		input.setAttribute("data-e2e-veld", "1");
-		return true;
-	}, naam), { timeout: 10000, timeoutMsg: `geen tekstveld bij ${naam} in de Rollwright-tab` });
-	return browser.$("[data-e2e-veld]");
+/** Het tekstveld van de regel met deze naam in de Rollwright-tab: lezen, of typen (waarde plus input-event). */
+async function veld(naam, typ) {
+	let uit = null;
+	await browser.waitUntil(async () => {
+		uit = await browser.executeObsidian(({ app }, naam, typ) => {
+			const el = app.setting.pluginTabs.find((t) => t.id === "rollwright")?.containerEl;
+			const rij = Array.from(el?.querySelectorAll(".setting-item") ?? []).find((it) => (it.querySelector(".setting-item-name")?.textContent ?? "").trim() === naam);
+			const input = rij?.querySelector("input[type=text], input:not([type])");
+			if (!input || input.getClientRects().length === 0) return null;
+			if (typ !== null) {
+				input.focus();
+				input.value = typ;
+				input.dispatchEvent(new InputEvent("input", { bubbles: true, data: typ, inputType: "insertText" }));
+			}
+			return input.value;
+		}, naam, typ);
+		return uit !== null;
+	}, { timeout: 10000, timeoutMsg: `geen tekstveld bij ${naam} in de Rollwright-tab` });
+	return uit;
+}
+
+async function opgeslagenZijden() {
+	return browser.executeObsidian(async ({ app }) => (await app.plugins.plugins.rollwright.loadData())?.defaultSides);
 }
 
 describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () {
@@ -151,13 +191,13 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 
 	it("typen in het zoekveld vindt Default die, Skin en License key van Rollwright", async function () {
 		await openInstellingen("editor");
-		const veld = await vindZoekveld();
-		console.log("VELDEN IN HET VENSTER:", JSON.stringify(veld.velden));
-		expect(veld.gevonden).toBe(true);
+		const zoekveld = await vindZoekveld();
+		console.log("VELDEN IN HET VENSTER:", JSON.stringify(zoekveld.velden));
+		expect(zoekveld.gevonden).toBe(true);
 		expect(await treffers("Default die")).toEqual([]);
 
 		for (const [n, { term, uitleg }] of TERMEN.entries()) {
-			await zoek(term);
+			expect(await zoek(term)).toBe(true);
 			let hits = [];
 			const vanRollwright = (h) => h.rij.includes(uitleg) || h.rollwrightInBuurt !== "";
 			await browser.waitUntil(async () => {
@@ -165,13 +205,13 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 				return hits.some(vanRollwright);
 			}, { timeout: 10000, timeoutMsg: `zoeken op "${term}" vond de regel van Rollwright niet` }).catch(async (e) => {
 				console.log(`ZOEK "${term}" TREFFERS TOT NU:`, JSON.stringify(hits, null, 1));
-				console.log("VENSTER TEKST:", JSON.stringify((await browser.$(MODAL).getText()).slice(0, 1500)));
+				console.log("VENSTER TEKST:", JSON.stringify(await browser.executeObsidian(({ app }) => (app.setting.modalEl?.innerText ?? "").slice(0, 1500))));
 				throw e;
 			});
 			console.log(`ZOEK "${term}": met de uitleg van Rollwright in de regel: ${hits.some((h) => h.rij.includes(uitleg))}`);
 			console.log(`ZOEK "${term}": ${hits.length} treffers:`, JSON.stringify(hits, null, 1));
 			console.log(`ZOEK "${term}": actieve tab ${await actieveTab()}`);
-			await browser.saveScreenshot(`${SHOTS}/zoek-${n + 1}-${term.replace(/ /g, "-").toLowerCase()}.png`);
+			await foto(`zoek-${n + 1}-${term.replace(/ /g, "-").toLowerCase()}`);
 		}
 	});
 
@@ -185,32 +225,31 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		const i = hits.findIndex((h) => h.rij.includes("number of sides"));
 		console.log("KLIK OP TREFFER:", JSON.stringify(hits[i]));
 
-		// Eerst de naam, dan de hele regel, dan een zichtbare kop of link met Rollwright erin: wat Obsidian ook klikbaar maakt.
+		// Eerst de naam, dan de hele regel, dan een kop met Rollwright erin: wat Obsidian ook klikbaar maakt.
 		const pogingen = [
 			["naam", `[data-e2e-hit="${i}"]`],
 			["regel", `.setting-item:has([data-e2e-hit="${i}"])`],
 		];
 		let geopend = false;
 		for (const [wat, sel] of pogingen) {
-			const el = browser.$(sel);
-			if (!(await el.isExisting())) { console.log(`KLIK ${wat}: niet gevonden`); continue; }
-			await el.click();
+			if (!(await klik(sel))) { console.log(`KLIK ${wat}: niet gevonden`); continue; }
 			geopend = await browser.waitUntil(async () => (await actieveTab()) === "rollwright", { timeout: 4000 }).catch(() => false);
-			const zoektekst = await browser.execute(() => document.querySelector("[data-e2e-zoek]")?.value ?? "(zoekveld weg)");
+			const zoektekst = await browser.executeObsidian(({ app }) => app.setting.modalEl?.querySelector("[data-e2e-zoek]")?.value ?? "(zoekveld weg)");
 			console.log(`KLIK ${wat}: actieve tab ${await actieveTab()}, zoekveld "${zoektekst}", geopend ${geopend}`);
 			if (geopend) break;
 		}
 		if (!geopend) {
-			const kop = await browser.execute((modalSel) => {
-				const modal = document.querySelector(modalSel);
-				const el = Array.from(modal?.querySelectorAll("*") ?? []).find((e) => e.getClientRects().length > 0 && e.children.length === 0 && /^rollwright$/i.test((e.textContent ?? "").trim()) && !e.closest(".vertical-tab-header"));
+			const kop = await browser.executeObsidian(({ app }) => {
+				const modal = app.setting.modalEl;
+				const el = Array.from(modal?.querySelectorAll("*") ?? []).find((e) => e.getClientRects().length > 0 && e.children.length === 0
+					&& /^rollwright$/i.test((e.textContent ?? "").trim()) && !e.closest(".vertical-tab-header"));
 				if (!el) return null;
 				el.setAttribute("data-e2e-kop", "1");
 				return `${el.tagName.toLowerCase()}.${el.className} in ${el.parentElement?.className ?? ""}`;
-			}, MODAL);
+			});
 			console.log("KOP MET ROLLWRIGHT IN DE ZOEKUITSLAG:", kop);
 			if (kop) {
-				await browser.$("[data-e2e-kop]").click();
+				await klik("[data-e2e-kop]");
 				geopend = await browser.waitUntil(async () => (await actieveTab()) === "rollwright", { timeout: 4000 }).catch(() => false);
 				console.log(`KLIK kop: actieve tab ${await actieveTab()}, geopend ${geopend}`);
 			}
@@ -221,11 +260,11 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 			const rij = Array.from(el?.querySelectorAll(".setting-item") ?? []).find((it) => (it.querySelector(".setting-item-name")?.textContent ?? "").trim() === "Default die");
 			if (!rij) return null;
 			const r = rij.getBoundingClientRect();
-			const vak = el.getBoundingClientRect();
+			const vak = (el.closest(".vertical-tab-content-container") ?? el).getBoundingClientRect();
 			return { klasse: rij.className, zichtbaar: rij.getClientRects().length > 0 && r.top >= vak.top - 1 && r.bottom <= vak.bottom + 1, actieveTab: app.setting.activeTab?.id ?? null };
 		});
 		console.log("NA DE KLIK, REGEL DEFAULT DIE IN DE TAB:", JSON.stringify(plek));
-		await browser.saveScreenshot(`${SHOTS}/zoek-4-na-klik.png`);
+		await foto("zoek-4-na-klik");
 		if (!geopend) {
 			console.log("OBSIDIAN OPENT GEEN TAB BIJ EEN KLIK OP EEN TREFFER; zie de treffers en klikken hierboven.");
 			this.skip();
@@ -237,20 +276,26 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		await vindZoekveld();
 		await zoek("");
 		await browser.executeObsidian(({ app }) => { app.setting.openTabById("rollwright"); });
-		await markeerVeld("Default die");
+		await veld("Default die", null);
 		for (const [naam, uitleg] of [["Default die", "number of sides"], ["Skin", "All rolling is free"], ["License key", "once every 30 days"]]) {
 			const s = await tabStaat(naam, uitleg);
 			console.log(`DUBBEL? ${naam}: ${s.namen} keer de naam, ${s.uitleg} keer de uitleg`);
 			expect(s.namen).toBe(1);
 			expect(s.uitleg).toBe(1);
 		}
-		await browser.saveScreenshot(`${SHOTS}/zoek-5-tab.png`);
+		await foto("zoek-5-tab");
 	});
 
 	it("Add en de prullenbak tekenen de tab opnieuw", async function () {
 		const voor = await tabStaat("Default die", "number of sides");
 		console.log("FORMULES VOOR ADD:", JSON.stringify(voor));
-		await browser.$(MODAL).$("button=Add").click();
+		const knop = await browser.executeObsidian(({ app }) => {
+			const el = app.setting.pluginTabs.find((t) => t.id === "rollwright")?.containerEl;
+			const b = Array.from(el?.querySelectorAll("button") ?? []).find((x) => (x.textContent ?? "").trim() === "Add");
+			b?.click();
+			return !!b;
+		});
+		expect(knop).toBe(true);
 		let na = voor;
 		await browser.waitUntil(async () => {
 			na = await tabStaat("Default die", "number of sides");
@@ -261,11 +306,9 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		});
 		console.log("FORMULES NA ADD:", JSON.stringify(na));
 		expect(na.opgeslagen).toBe(voor.opgeslagen + 1);
-		await browser.saveScreenshot(`${SHOTS}/zoek-6-na-add.png`);
+		await foto("zoek-6-na-add");
 
-		const prullenbakken = await browser.$(MODAL).$$('.clickable-icon[aria-label="Remove"]');
-		console.log("PRULLENBAKKEN:", prullenbakken.length);
-		await prullenbakken[prullenbakken.length - 1].click();
+		expect(await klik('.clickable-icon[aria-label="Remove"]', true)).toBe(true);
 		await browser.waitUntil(async () => {
 			na = await tabStaat("Default die", "number of sides");
 			return na.formulerijen === voor.formulerijen;
@@ -279,19 +322,17 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 
 	it("een waarde blijft bewaard na sluiten en weer openen", async function () {
 		const oud = await browser.executeObsidian(({ app }) => app.plugins.plugins.rollwright.settings.defaultSides);
-		await (await markeerVeld("Default die")).setValue("12");
-		await browser.waitUntil(async () => (await browser.executeObsidian(async ({ app }) => (await app.plugins.plugins.rollwright.loadData())?.defaultSides)) === 12,
-			{ timeout: 10000, timeoutMsg: "12 werd niet opgeslagen" });
+		await veld("Default die", "12");
+		await browser.waitUntil(async () => (await opgeslagenZijden()) === 12, { timeout: 10000, timeoutMsg: "12 werd niet opgeslagen" });
 		await sluitInstellingen();
 		await openInstellingen("rollwright");
-		const waarde = await (await markeerVeld("Default die")).getValue();
-		const opgeslagen = await browser.executeObsidian(async ({ app }) => (await app.plugins.plugins.rollwright.loadData())?.defaultSides);
+		const waarde = await veld("Default die", null);
+		const opgeslagen = await opgeslagenZijden();
 		console.log(`BEWAARD: was ${oud}, getypt 12, na weer openen staat er "${waarde}", in data.json ${opgeslagen}`);
 		expect(waarde).toBe("12");
 		expect(opgeslagen).toBe(12);
 
-		await (await markeerVeld("Default die")).setValue(String(oud));
-		await browser.waitUntil(async () => (await browser.executeObsidian(({ app }) => app.plugins.plugins.rollwright.settings.defaultSides)) === oud,
-			{ timeout: 10000, timeoutMsg: "de oude waarde kwam niet terug" });
+		await veld("Default die", String(oud));
+		await browser.waitUntil(async () => (await opgeslagenZijden()) === oud, { timeout: 10000, timeoutMsg: "de oude waarde kwam niet terug" });
 	});
 });
