@@ -46,3 +46,10 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Winkelplaatjes (Olaf, tak p, run 42372342605):** nog geen akkoord. Vooral: je ziet niet wat je typt (W1) en de onderste helft is leeg (W2). Punten W1 tot W8, regel in `platformen/obsidian/taken.md`. Controleur keek alles na: eens, voegde drie dingen toe.
 - **Mijn test:** scrollen in de instellingen was nooit kapot (de lijst past in twee schermen). De tooltip komt ook met een echte muis niet in beeld, tweede run op rij: gestopt, tekst staat in het log en is goed.
 - **Bison & Flex:** beoordeling 3 (IDE-run 42371684895): structuurweergave goed. Nog nee tot kleurenpagina, Pro-melding en bijgesneden Engelse winkelplaatjes in beeld zijn. Regel in `platformen/jetbrains/taken.md`.
+
+## 7 nov 2026, run 6 (±13:24 tot 13:50)
+
+- **Lokale kopie:** weer uiteengelopen `main`; niets weggegooid, gewerkt op een nieuwe lokale tak `werk` vanaf origin/main en daarvandaan naar main gepusht.
+- **Bison & Flex:** beoordeling 4 (main 9d53d64, IDE-run 42376440919). Kleurenpagina goed (punt 2 af), winkelplaatjes `*-calc-y-structuur.png` goed (punt 5 af): Engels, alleen het IDE-venster, factor 2. Klein: geheugenmeter uit (Jet doet dat al op tak g), `calc.l` niet los in de winkel (onderste helft leeg). Besloten: blijft `nee`, nu alleen om de Pro-melding. Waarom: dat is de enige eis die een koper raakt en die ik nog niet zag.
+- **Rollwright winkelplaatjes:** tak r (408bf69) had geen run, dus zelf gestart met workflow_dispatch: run 42376919846, groen, RUN.txt klopt. W1 tot W5 goed. Besloten: nog `nee`, alleen om de paarse focusrand rond de buit (winkel-1 en winkel-3) en de placeholder `2d20kh1 + 3` (W8). Waarom: het eerste plaatje beslist over de install, en een rand die op een fout lijkt hoort er niet in; beide zijn één regel. Controleur keek alle plaatjes na: eens, voegde toe dat de rand ook in winkel-3 zit, de buit naast het paneel over twee regels loopt en buit en tolwachter niet in de geschiedenis staan. Regel in `platformen/obsidian/taken.md`.
+- **Stijl:** versie 4, twee regels voor winkelplaatjes (geen losse meters, gelijke uitkomsten, focus weg voor de opname).

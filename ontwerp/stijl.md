@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 3, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 4, 7 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -50,6 +50,8 @@ Nooit:
 - Het eerste plaatje toont ook wat je typt, niet alleen de uitkomst: "dit typ je, dit krijg je" (bijvoorbeeld één regel met de code naast regels met de uitkomst).
 - Geen lege helft: venster laag genoeg of bijsnijden tot de inhoud. Geen rand of balk van het testscherm in beeld.
 - Niets in beeld dat op een fout lijkt: geen rode statusiconen, geen gele lampjes, geen focusrand, geen hoofdletters midden in een zin.
+- Geen meters of tellers die niets met het product te maken hebben (geheugenmeter, klok, testbalk). Uitkomsten die in meer plaatjes staan, zijn in elk plaatje gelijk, en een uitkomst blijft op één regel waar dat kan.
+- Na een klik in de test eerst de focus weghalen, dan pas de opname maken.
 - Taal van de winkel (Engels), ook in projectnamen, bestandsnamen en commentaar in de voorbeeldcode.
 - Eerste zin van de pagina: wat het doet, in maximaal 15 woorden. Daarna een korte lijst, daarna details.
 - Eerlijk: geen functies beloven die er nog niet zijn, geen nep-reviews of nep-cijfers.
