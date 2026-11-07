@@ -269,3 +269,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Wat misging:** er kwam geen e2e-run voor tak s. De workflow start alleen bij een push naar main (of met de hand). Op tak q en r kwamen wel runs, dus dat is kort geleden veranderd of de runs kwamen anders tot stand; nakijken.
 **Beslissing:** niet samengevoegd. Waarom: regel 2, code is pas klaar als de test in de echte app groen is, en het gaat juist om wat de echte app doet.
 **Beslissing:** run gestopt om ±13:52. Waarom: ±45 minuten werktijd op.
+
+## 7 nov 2026, 14:15 tot 14:24: fout eerste worp naar main
+**Gedaan:** nieuwe tak `claude/obsidian-2026-11-07-t` vanaf main met de reparatie van tak s (b060ddd) erop, zodat de e2e ook alles van main meetest. De lichte punten van de controleur in de nieuwe test verwerkt: na een worp en na een fout moet `pending` leeg zijn, `dice+:` moet één uitkomst op schijf zetten. 574 tests, tsc en lints 0 (GEZIEN). E2e met de hand gestart (workflow_dispatch via de GitHub-koppeling), run 42380865200 groen 11 van 11; in het log zijn road en weather in WINKEL LEZEN en WINKEL LIVE PREVIEW gelijk (GEZIEN). Controleur: akkoord, geen bestaande test veranderd, proef zonder opruimen gaf 3 van 5 rood. Op main gezet.
+**Waarom de workflow niet vanzelf startte:** hij start alleen bij een push naar main of met de hand (`on: push: branches: [main]` en `workflow_dispatch`). Voor een tak start ik hem voortaan met de hand.
+**Beslissing:** de twee eisen die ook zonder reparatie slagen ("keeps the click", de eerste helft van "failed first roll") laten staan. Waarom: ze toetsen gewenst gedrag en schaden niet; de fout zelf wordt gevangen door de andere drie.
+**Gevonden:** in dezelfde run toonde Live Preview een andere buit dan lezen, nadat de spec in lezen op de buit had geklikt. Niet de eerste worp, maar een klik die de andere weergave niet bijwerkt. Als nieuwe taak gezet, na Daans W6a en W8.
+**Beslissing:** Daan W6a en W8 eerst, daarna de klik in de andere weergave. Waarom: met die twee kleine punten krijgen de winkelplaatjes akkoord en kan de lancering verder; de kliksituatie zie je alleen als je in beide weergaven tegelijk kijkt.
