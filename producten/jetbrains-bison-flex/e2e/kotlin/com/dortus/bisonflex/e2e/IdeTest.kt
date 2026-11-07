@@ -148,9 +148,12 @@ class IdeTest {
                 openFile("calc.l")
                 cursorNaarEinde()
                 pauze()
+                structuurBij(naam, "calc.l")
                 scherm("$naam-calc-l.png")
                 proMelding(naam)
                 kleurenpagina(naam)
+                // Ctrl+zweven (ctrlZweven in StructuurEnZweven.kt) staat hier bewust niet: na de kleurenpagina
+                // bewees de stap niets, en de fout in de plugin is nog open (zie architectuur.md, Open).
             }
     }
 
@@ -197,12 +200,15 @@ class IdeTest {
 
         openFile("calc.l")
         pauze()
+        // Alleen van tab wisselen liet de structuurweergave bij calc.y staan (schermen pro-melding en pro-hint).
+        structuurBij(naam, "calc.l")
         cursorOp("return NUM", 8)
         val regelL = cursorRegel()
         val getoond = gaNaarDefinitie(naam) { melding.isGetoond() }
         Thread.sleep(2_000)
         println("DORTUS-E2E [$naam] eerste Ctrl+B op NUM in calc.l: melding getoond $getoond, hints ${melding.aantalHints()}, cursor regel ${cursorRegel() + 1} (was ${regelL + 1})")
         scherm("$naam-pro-melding.png")
+        assertEquals("calc.l", structuurBestand(), "structuurweergave hoort bij calc.l op pro-melding ($naam)")
         assertTrue(getoond, "Pro-melding getoond ($naam)")
         assertEquals(0, melding.aantalHints(), "geen hint bij de eerste klik ($naam)")
         assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l ($naam)")
@@ -213,6 +219,7 @@ class IdeTest {
         scherm("$naam-pro-hint.png")
         assertTrue(hint, "korte Pro-hint getoond bij de tweede klik ($naam)")
         assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l, tweede klik ($naam)")
+        assertEquals("calc.l", structuurBestand(), "structuurweergave hoort bij calc.l op pro-hint ($naam)")
     }
 
     /** GotoDeclaration via de Driver; is [klaar] na 10 s niet waar, dan nog eens met Ctrl+B via xdotool. */
