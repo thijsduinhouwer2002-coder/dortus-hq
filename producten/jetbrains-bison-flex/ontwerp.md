@@ -29,6 +29,29 @@ Kotlin-plugin vanuit `platformen/jetbrains/bouwsjabloon.md`. Twee talen met elk 
 ## Nakijken
 - 7 nov 08:25 UTC, controleur (niet de maker): akkoord mits (a) geen C-injectie als eis, eigen eenvoudige kleuring; (b) syntaxfouten gratis; (c) product-descriptor en versie concreet; (d) eisen aanscherpen (vaste set van 10 bestanden, verwachte uitvoer, één melding per sessie, test voor de `null`-stand, C-code als eis); (e) aanvullen naar 1.1. Alles verwerkt in deze versie. Nog nodig: oordeel van Daan.
 
+## Grens van versie 1.0 (Jet, 7 nov 22:15 UTC, op vraag van Hans)
+
+Waarom deze lijst: elke nieuwe functie vraagt een nieuwe ronde van Daan. Vanaf nu bouw ik alleen wat hieronder bij "Moet in 1.0" staat, en zet daarna het indienen klaar. Alles wat niet onder een toetsbare eis valt of geen gebruiker hindert, schuift naar "Na 1.0".
+
+**Moet in 1.0**
+1. Hernoemen vanuit de structuurweergave geeft de hint in de statusbalk, bewezen in de echte IDE (tak `claude/jetbrains-2026-11-07-o`, eis 6, Daan punt 3).
+2. Meldingen ongedefinieerd en ongebruikt (eis 7), met de snelle oplossing om een ongebruikte regel of token weg te halen, geen valse meldingen op de 10 echte bestanden. Schermen licht en donker voor Daan.
+3. CLion in de IDE-test (eis 1). Lukt het niet zonder licentie, dan een andere weg zoeken of op de lijst voor Thijs; zonder CLion-bewijs niet indienen, want CLion is de doelgroep.
+4. Schermen licht en donker van alles wat nieuw zichtbaar is (eis 10): hernoemen, eis 7, en het registratievenster na "Start free trial" (Daan beoordeling 7).
+5. Uiterlijk op de nieuwe lat van Thijs (7 nov 22:05): het moet opvallen en mooi zijn, niet alleen netjes. Zie de vraag aan Daan hieronder.
+6. Vóór indienen: handtekening van de licentiestempel controleren met het certificaat van JetBrains; Plugin Verifier draaien (`SimpleDataContext` zit in een impl-pakket); naam, winkeltekst en prijs vast; verkoper-account (lijst Thijs); Daan `Akkoord: ja` voor de versie die wordt ingediend; Thijs ziet de lijstplaatjes eerst.
+
+**Na 1.0**
+- Tekstnaam van een token (`"number"`) en Flex-naamdefinities `{DIGIT}` in hernoemen en alle plekken.
+- Aanvullen van regel- en tokennamen (al gepland voor 1.1).
+- Hernoemen in de editor zelf binnen één bestand, hint bij Find Usages zonder Pro, conflictcontrole ook tegen namen in de `.l`.
+- Kan-punten controleur 18:20: commentaar in `.l` bij "zoeken in commentaar", token en regel met dezelfde naam, twee `.y` in verschillende mappen, `gebruiktInScanner` met voortgang, NamesValidator.
+- Kleine parser-punten (tokens in acties via de PSI kleuren, commentaar achter een Flex-actie, `a: b ; | c`, tokens alleen in `%left`/`%right` in de structuur), tenzij een ervan een valse fout geeft op echte bestanden; dan schuift dat punt naar "Moet".
+- Echte Ctrl+klik in de IDE-test, gemengde doelen bij ga naar definitie, terugval naar de eigen pluginpagina.
+- Gedeelde basis eruit halen en soort 2 en 3 kiezen (advies 2 van Stijn).
+
+**Vraag aan Daan (nieuwe lat van Thijs, 7 nov 22:05):** het ontwerp zegt nu "geen eigen kleuren of eigen vensters, alles via de IDE". Dat past in elk thema, maar valt het op? Mijn voorstel om over te oordelen: het eigen gezicht zit niet in de editor (daar wil een programmeur zijn eigen kleurschema), maar in (1) een opvallend pluginicoon en een echt posterplaatje als eerste winkelplaatje (kop, de grammatica en scanner naast elkaar, de pijl van `return NUM` naar `%token NUM` groot in beeld, want dat kan geen andere plugin), (2) een korte GIF van Ctrl+klik van `.l` naar `.y` en hernoemen over beide bestanden, en (3) de Pro-balloon en hint met een eigen klein icoon. Zeg welke van deze in 1.0 moeten, of wat je anders wilt. Dit blokkeert het bouwen van punt 1 tot 4 niet.
+
 ## Oordeel van Daan
 
 ### Beoordeling 1, 7 nov 2026 (skelet, commit 4840419 op tak `claude/jetbrains-2026-11-07`)

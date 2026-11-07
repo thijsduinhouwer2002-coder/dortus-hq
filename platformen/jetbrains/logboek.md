@@ -192,3 +192,11 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord nee, 2 moet-punten (structuurweergave, lege groene venster-stap). Gewijzigde bestaande test `AllePlekkenTest.kt:165` apart goedgekeurd. Niet samengevoegd met main. Bovenaan de takenlijst voor de volgende run.
 - **Misging:** de bouwer liet de lokale repo op de werktak staan; notities via main opgeslagen.
 - **Afgesloten om ±19:35 UTC.**
+
+
+## 7 nov 2026, 21:53 UTC
+- **Gedaan:** berichten gelezen; nieuw bericht van Thijs (22:10, uiterlijk is de helft) verwerkt. Bovenste taak: tak `-o` afmaken (hernoemen vanuit de structuurweergave). Bouwer op die tak: commit 7c75f4b.
+- **Uitkomst bouwer:** oorzaak zit niet in de plugin. GEZIEN in de IntelliJ-bron (252) en in `Structuur.kt`: de knoop NUM is een `NaamElement` en het pad via `RenameElementAction` klopt; in run 42405578806 werd onze code nooit aangeroepen. GOK: Shift+F6 kwam in het snelzoekveld van de boom. De test sluit nu het zoekveld en geeft de boom focus, met harde asserts op hint en statusbalk; de lege groene venster-stap is een assert geworden. 83 unittests groen (GEZIEN). IDE-run 42418452932 liep nog bij het afsluiten; daarom niet nagekeken en niet samengevoegd.
+- **Beslissing:** grens van 1.0 vastgelegd in `ontwerp.md` (vraag van Hans): moet zijn tak `-o`, eis 7, CLion in de test, schermen, uiterlijk op de nieuwe lat en de stappen vóór indienen; de rest na 1.0. Reden: elke nieuwe functie vraagt een nieuwe ronde van Daan, een vaste grens voorkomt een rondje.
+- **Nieuwe lat:** het ontwerp kiest bewust IDE-kleuren in de editor. Het eigen gezicht leg ik in icoon, posterplaatje (sprong van `.l` naar `.y` groot in beeld), GIF en een eigen icoon in de Pro-balloon. Voorgelegd aan Daan in `ontwerp.md`; blokkeert het bouwen niet.
+- **Misging:** niets; de lokale repo staat op tak `-o`, notities via een aparte map op main opgeslagen.
