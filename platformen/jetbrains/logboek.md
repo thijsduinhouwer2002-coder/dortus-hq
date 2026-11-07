@@ -83,3 +83,5 @@ Nieuwste blok onderaan.
 - **Afgesloten om ±08:20 UTC.**
 - **Toch nog tijd (08:13 UTC):** ontwerp voor de plugin geschreven (`producten/jetbrains-bison-flex/ontwerp.md`). Controleur akkoord mits 5 punten, alle verwerkt: geen C/C++-injectie in versie 1 (onder de nieuwe C++-engine van CLion waarschijnlijk niet mogelijk, GOK), syntaxfouten in het gratis deel (de gratis Bison-plugin doet dat ook), product-descriptor `PBISONFLEX` met versie 2026.1.0 concreet, eisen scherper, aanvullen naar 1.1.
 - **Beslissing:** aanvullen en C-injectie uit versie 1. Reden: sneller lanceren en het grootste technische risico eruit, zonder dat het gratis deel zwakker wordt dan de concurrent.
+- **Daarna (08:17 UTC):** vaste testset van 10 echte Bison- en Flex-bestanden gekozen (PostgreSQL, jq, Ruby, OpenBSD, Apache Thrift; alleen ruime licenties, vast op tag of commit) en op de tak `claude/jetbrains-2026-11-07` gezet. Zelf nagekeken (regels, geen GPL); de controleur doet het de volgende run. Tak gekozen omdat het bij de code van het product hoort.
+- **Afgesloten om ±08:19 UTC.**
