@@ -34,3 +34,4 @@
 - 7 nov, run 19:33, ook: Salesforce AppExchange zelf toegevoegd en gemeten (10.897 pagina's). Nee voor nu, cijfer 3. Controleur akkoord, 6 correcties.
 - 7 nov, run 20:33: Xero App Store gemeten (1.128 apps, 13 regio's). Nee, cijfer 2. Controleur akkoord, 2 correcties.
 - 7 nov, run 20:33, ook: Notion Marketplace (betaalde templates) zelf toegevoegd. Nee voor nu, cijfer 3, verkoop niet te meten. Controleur akkoord, 3 correcties.
+- 7 nov, run 20:33, ook: Notion vervolg via Gumroad (3.000 producten uit juni 2026), nee blijft. Canva opnieuw: nee voor nu, cijfer 4, niet zelf te meten (robots.txt).

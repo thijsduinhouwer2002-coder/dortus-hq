@@ -290,3 +290,6 @@ Nieuwste blok onderaan.
 - Run afgesloten na Xero (2) en Notion Marketplace (3).
 - Na afsluiten nog tijd: Notion vervolg via Gumroad. Gumroad heeft openbare maandsitemaps met nieuwe producten. Steekproef van 3.000 uit juni 2026 (1.710 nog online): 2,6% heeft een rating, 97 betaalde met teller mediaan 0, 3 met 10+. Notion: 27 templates, 1 rating, 2 tellers op 0. Nee blijft, cijfer 3. Controleur akkoord, 3 correcties (top 3 was 414, 18, 10; Notion-prijzen; conclusie voorzichtiger, het Notion-deel is klein).
 - Les: Gumroad is een goede plek om geld van kleine makers te meten voor elk platform waarvan de makers via Gumroad verkopen. Script staat klaar.
+- Derde stuk: Canva opnieuw, omdat de geldprogramma's in 2026 veranderden. robots.txt van canva.com verbiedt ClaudeBot, dus niet zelf gemeten; alleen het forum en de documentatie gelezen.
+- Beslissing: nee voor nu, cijfer 4. Reden: de Adoption Awards (de enige aantoonbare betaling aan kleine makers, gemiddeld ±$250 per maand) stopten 1 juni 2026, Premium Apps is op aanmelding zonder bedragen. Wel weinig apps (500+) voor een groot publiek. Geen controleur: geen eigen cijfers.
+- Run afgesloten na Xero (2), Notion Marketplace (3, met Gumroad-meting) en Canva (4).
