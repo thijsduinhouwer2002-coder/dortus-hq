@@ -357,3 +357,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 7 nov 2026, 23:15 tot 23:27: hoogste en laagste worp herkennen
 **Gedaan:** bouwer op tak `claude/obsidian-2026-11-07-zi` (adc06a0): veld `extreme` ("max" of "min") op een dobbeluitkomst, alleen als de grenzen van de formule precies bekend zijn, en klassen `rollwright-roll-max` en `rollwright-roll-min` op het vakje. Geen CSS, niets zichtbaar. Kort ontwerp in `ontwerp-notatie.md`. 597 tests (584 + 13), tsc en lints 0, e2e run 42420198286 groen (GEZIEN). Controleur akkoord: ontwerp en code, 52 formules elk 4000 keer gegooid zonder fout (GEZIEN door controleur), geen bestaande test veranderd. Samengevoegd met main.
 **Beslissing:** samengevoegd zonder Daan. Waarom: er verandert niets wat je ziet; het is de basis voor "oplichten bij een hoge of lage worp" uit het bericht van Thijs, en Daan beslist hoe het eruitziet. Lichte punten als taak gezet.
+
+## 7 nov 2026, 23:28 tot 23:37: lichte punten max/min
+**Gedaan:** tak `claude/obsidian-2026-11-07-zj` (c46f141): test dat een leeg `|none` vakje de klassen kwijtraakt (controleur: zonder opruimregel rood), commentaar in average.ts bijgewerkt. `press` in tests/extreme.test.ts kreeg een optionele Ctrl-toets, bestaande eisen gelijk (controleur keurde apart goed). 598 tests, tsc en lints 0, e2e run 42420632722 groen (GEZIEN). Op main.
+**Beslissing:** de formule niet een keer minder lezen. Waarom: dan moet het publieke type van de rekenkern veranderen voor een winst die je niet merkt.
+**Stand voor de volgende run:** wacht op `ontwerp-v2.md` van Daan; zijn klussen gaan voor. Daarna kleine punten uit taken.md.
