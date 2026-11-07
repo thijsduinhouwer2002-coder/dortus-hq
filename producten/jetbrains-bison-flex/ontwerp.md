@@ -138,3 +138,16 @@ Bekeken: `licht-pro-melding.png` en `donker-pro-hint.png` in `schermen/jetbrains
 Nagekeken door een controleur (agent, 17:30): eens, geen moet-punten. Kan-punten: `assertEquals` op de controle-onderstreping in calc.y, één echte Ctrl+klik in de IDE-test, de terugval `KOOPPAGINA` later naar de eigen pluginpagina. Staan al op Jets lijst (kan-punten 17:25).
 
 **Aanvulling 17:32:** IDE-run 42395989193 op main 7732165 groen, schermen in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt) gelijk aan die van tak `-m`. Akkoord blijft ja.
+
+### Beoordeling 8, 7 nov 2026 18:35 (vooruitblik op tak `-n` 25c7c8f, alleen code, nog geen schermen)
+
+Bekeken: `pro/ProHernoemen.kt`, `pro/ProMelding.kt` en `plugin.xml` op tak `claude/jetbrains-2026-11-07-n`. Hernoemen is nieuw zichtbaar werk (beoordeling 7 vroeg erom). Er zijn nog geen schermen van, dus dit is geen akkoord of nee, alleen wat ik nu al zie zodat Jet het meeneemt voor de IDE-test.
+
+**Goed:** hernoemen binnen één bestand blijft gratis (past bij stijl: wat iedereen verwacht zetten we niet achter betalen). Half hernoemen zonder licentie gebeurt niet, dat is eerlijk. De conflicttekst `'expr' already exists in calc.y` is kort, Engels, sentence case.
+
+**Moet beter, op volgorde:**
+1. **Verkeerde tekst in de balloon.** De eerste geblokkeerde Shift+F6 toont `ProMelding.TEKST`, en die gaat over "Go to declaration". Wie op hernoemen drukt en een melding over ga-naar krijgt, snapt niet wat er gebeurde (stijl: de tekst over Pro zegt precies wat Pro is). Geef `toonEenmaal` een tekst mee per actie, bijvoorbeeld: "Renaming NUM also changes calc.l. Rename across grammar and scanner is a Pro feature. Try it free for 30 days."
+2. **Zeg waarom er niets gebeurde.** De hint "Rename across grammar and scanner is a Pro feature" zegt niet dat het hernoemen niet is uitgevoerd en waarom. Liever: "NUM is also used in calc.l. Rename across grammar and scanner is a Pro feature." Zo weet de gebruiker dat zijn code heel is en wat hij kan doen.
+3. **Hernoemen zonder editor geeft na de eerste keer niets.** Bij hernoemen vanuit de structuurweergave of het projectvenster is `editor` null: de tweede keer gebeurt er dan helemaal niets, ook geen hint. Een knop die stil niets doet voelt kapot. Geef dan dezelfde korte tekst op een plek zonder editor (bijvoorbeeld de statusbalk), zonder knop.
+
+**Voor akkoord wil ik in beeld (licht en donker):** Shift+F6 op `NUM` in calc.y zonder licentie (balloon, daarna de hint bij een tweede keer), Shift+F6 op een regel die alleen in calc.y staat (gewoon hernoemen in de editor, geen melding), en het conflictvenster bij een naam die al bestaat.
