@@ -98,7 +98,7 @@ class IdeTest {
                 opties.resolve("colors.scheme.xml").writeText(
                     """<application><component name="EditorColorsManagerImpl"><global_color_scheme name="$kleurenschema"/></component></application>"""
                 )
-                // Geheugenmeter rechtsonder uit, hoort niet op een winkelplaatje (kan-punt controleur; GOK op de opslagplek).
+                // Geheugenmeter rechtsonder uit, hoort niet op een winkelplaatje (kan-punt controleur; werkt, run 42376488091).
                 opties.resolve("ide.general.xml").writeText(
                     """<application><component name="StatusBarWidgetSettings"><option name="widgets"><map><entry key="Memory" value="false"/></map></option></component></application>"""
                 )
