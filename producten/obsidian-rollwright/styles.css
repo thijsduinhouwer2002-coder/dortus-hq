@@ -47,6 +47,9 @@
 	padding: var(--size-4-1) var(--size-4-2);
 	border-radius: var(--radius-m);
 	font-weight: var(--font-normal);
+	/* Live Preview puts the widget in a .cm-line with white-space: pre-wrap. The rendered markdown has
+	   newlines between its elements (after <br>, between <li>), which then show as empty lines. */
+	white-space: normal;
 }
 
 .rollwright-roll-block .rollwright-icon {

@@ -40,6 +40,13 @@ async function meet(view) {
 				const kop = value?.querySelector("h1, h2, h3, h4, h5, h6");
 				const lis = Array.from(value?.querySelectorAll("li") ?? []);
 				const rect = r.getBoundingClientRect();
+				const icoon = r.querySelector(".rollwright-icon")?.getBoundingClientRect();
+				// De eerstvolgende tekstregel onder het blok, buiten elke worp.
+				const volgende = Array.from(root.querySelectorAll("p, .cm-line"))
+					.filter((el) => !el.closest(".rollwright-roll") && !el.querySelector(".rollwright-roll") && (el.textContent ?? "").trim() !== "")
+					.map((el) => el.getBoundingClientRect().top)
+					.filter((top) => top >= rect.bottom - 2)
+					.sort((a, b) => a - b)[0];
 				return {
 					tekst: (r.textContent ?? "").trim(),
 					oud: value?.getAttribute("data-e2e-oud") === "1",
@@ -50,6 +57,8 @@ async function meet(view) {
 					tabindex: r.getAttribute("tabindex"),
 					breedte: Math.round(rect.width),
 					hoogte: Math.round(rect.height),
+					icoonBoven: icoon ? Math.round(icoon.top - rect.top) : null,
+					ruimteOnder: volgende === undefined ? null : Math.round(volgende - rect.bottom),
 					kop: kop ? { grootte: getComputedStyle(kop).fontSize, gewicht: getComputedStyle(kop).fontWeight, margeBoven: getComputedStyle(kop).marginTop } : null,
 					lijst: lis.map((li) => ({
 						stijl: getComputedStyle(li).listStyleType,
@@ -172,6 +181,34 @@ async function klikKop(view) {
 	expect(na.rolls[GEWOON].blok).toBe(false);
 }
 
+const BLOKKEN = [KOP, TWEE_REGELS, LIJST];
+
+/** Het icoon staat naast de eerste regel van elk blok, niet erboven. */
+function checkIcoon(gemeten, wat) {
+	for (const i of BLOKKEN) {
+		const r = gemeten.rolls[i];
+		console.log(`${wat} BLOK ${i}: hoogte ${r.hoogte}, icoon ${r.icoonBoven} px onder de bovenkant, ruimte onder ${r.ruimteOnder} px`);
+		expect(r.icoonBoven).not.toBe(null);
+		expect(r.icoonBoven).toBeLessThan(20);
+	}
+}
+
+/** Live Preview ziet eruit als lezen: zelfde hoogte (hoogstens 4 px verschil), hoogstens 8 px meer ruimte onder. */
+function vergelijk(lezen, live) {
+	for (const i of BLOKKEN) {
+		const a = lezen.rolls[i];
+		const b = live.rolls[i];
+		console.log(`BLOK ${i} LEZEN TEGEN LIVE PREVIEW: hoogte ${a.hoogte} / ${b.hoogte}, ruimte onder ${a.ruimteOnder} / ${b.ruimteOnder}, tekst ${JSON.stringify(a.tekst)} / ${JSON.stringify(b.tekst)}`);
+		expect(Math.abs(a.hoogte - b.hoogte)).toBeLessThanOrEqual(4);
+		expect(a.ruimteOnder).not.toBe(null);
+		expect(b.ruimteOnder).not.toBe(null);
+		expect(b.ruimteOnder - a.ruimteOnder).toBeLessThanOrEqual(8);
+	}
+}
+
+/** De metingen in lezen na de klik, om Live Preview mee te vergelijken. */
+let inLezen = null;
+
 describe("Rollwright: uitkomst als blok (Daan punt 1)", function () {
 	before(async function () {
 		fs.mkdirSync(SHOTS, { recursive: true });
@@ -182,7 +219,9 @@ describe("Rollwright: uitkomst als blok (Daan punt 1)", function () {
 		const gemeten = await wachtOpWorpen(".markdown-reading-view");
 		await plaatjes("blok-lezen");
 		check(gemeten, "LEZEN");
+		checkIcoon(gemeten, "LEZEN");
 		await klikKop(".markdown-reading-view");
+		inLezen = await meet(".markdown-reading-view");
 	});
 
 	it("in Live Preview hetzelfde", async function () {
@@ -190,6 +229,9 @@ describe("Rollwright: uitkomst als blok (Daan punt 1)", function () {
 		const gemeten = await wachtOpWorpen(".markdown-source-view");
 		await plaatjes("blok-live-preview");
 		check(gemeten, "LIVE PREVIEW");
+		checkIcoon(gemeten, "LIVE PREVIEW");
+		expect(inLezen).not.toBe(null);
+		vergelijk(inLezen, gemeten);
 		await klikKop(".markdown-source-view");
 	});
 });
