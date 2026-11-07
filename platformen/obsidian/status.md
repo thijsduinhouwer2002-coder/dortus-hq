@@ -13,4 +13,5 @@
 - **Fout gerepareerd (GEZIEN, 7 nov 10:45):** `dice-mod:` Replace werkt nu ook in Live Preview van de echte Obsidian, en Enter opent het venster (run 42365032526, 8 van 8 specs groen, 553 unittests).
 - **E2e main (GEZIEN, 7 nov 11:25):** run 42365261005 op main was rood (blokworp met een getrokken `***`); gerepareerd, `|line` slaat losse lijnen over, run 42367863119 groen 8 van 8, 556 unittests.
 - **Daan punt 6 en 9 (GEZIEN, 7 nov 12:25):** geschiedenis toont nette namen in plaats van flag- en linkcode, run 42371937550 groen, 569 unittests, op main.
-- **Volgende:** winkelplaatjes opnieuw vanaf main (tak n), Daan laten keuren; lancering voorbereiden (README met plaatje, schermafbeeldingen, lanceerberichten); Handmatige test door Thijs staat nog op de lijst (testpakket vernieuwd 6 nov 21:40); zelf testen in de cloud werd geweigerd door de veiligheidscontrole.
+- **Winkelplaatjes (GEZIEN, 7 nov 12:40):** `winkel.e2e.mjs` op main, run 42373088677 groen 11 van 11; Daan gevraagd ze te keuren.
+- **Volgende:** Daans oordeel over de winkelplaatjes; lancering voorbereiden (README met plaatje, schermafbeeldingen, lanceerberichten); Handmatige test door Thijs staat nog op de lijst (testpakket vernieuwd 6 nov 21:40); zelf testen in de cloud werd geweigerd door de veiligheidscontrole.
