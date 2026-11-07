@@ -362,3 +362,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gedaan:** tak `claude/obsidian-2026-11-07-zj` (c46f141): test dat een leeg `|none` vakje de klassen kwijtraakt (controleur: zonder opruimregel rood), commentaar in average.ts bijgewerkt. `press` in tests/extreme.test.ts kreeg een optionele Ctrl-toets, bestaande eisen gelijk (controleur keurde apart goed). 598 tests, tsc en lints 0, e2e run 42420632722 groen (GEZIEN). Op main.
 **Beslissing:** de formule niet een keer minder lezen. Waarom: dan moet het publieke type van de rekenkern veranderen voor een winst die je niet merkt.
 **Stand voor de volgende run:** wacht op `ontwerp-v2.md` van Daan; zijn klussen gaan voor. Daarna kleine punten uit taken.md.
+
+## 7 nov 2026, 23:38 tot 23:46: zoek-instellingen e2e strenger
+**Gedaan:** tak `claude/obsidian-2026-11-07-zk` (8b64c4b): in `zoek-instellingen.e2e.mjs` geen `this.skip()` en geen terugval-klik op de groepskop meer, nieuwe eis dat de tab rollwright actief is, een treffer telt alleen bij precies de naam en precies de groepskop Rollwright, veld `uitleg` weg. Run 42421032723 groen 13 van 13 (GEZIEN door controleur). Controleur keurde de testwijziging regel voor regel: alleen strenger. Op main.
+**Beslissing:** run hier afgesloten. Waarom: het belangrijkste werk (0.3.0) wacht op het ontwerp van Daan; de overige punten in taken.md zijn klein of veranderen het uiterlijk, en dat hoort bij v2.
