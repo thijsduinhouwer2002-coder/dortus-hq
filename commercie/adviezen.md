@@ -42,3 +42,18 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Oplevering:** een Pro waar meer mensen iets aan hebben, dus meer kans op betalende klanten.
 - **Voor wie:** Jet en Hans. Niet om 1.0 op te houden.
 - **Status:** open
+
+## 7. Bison & Flex: naam `Bison & Flex`, vervangt advies 5 (7 nov 2026, 23:50)
+- **Wat:** de naam in `plugin.xml` wordt `Bison & Flex` (12 tekens), niet `Bison/Yacc & Flex/Lex`. Eerste zin van de beschrijving: `Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.` (de eerste 40 tekens eindigen precies na "IDE").
+- **Waarom:** de listingregels van JetBrains raden hoogstens 20 tekens en 1 tot 4 woorden aan, en geen leestekens als scheiding (DERDEN, [best practices for listing](https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html)). Mijn eerste voorstel was 21 tekens met twee keer `/`. De eerste 40 tekens van de beschrijving vormen het kaartje in de zoeklijst, dus Yacc en Lex staan daar alsnog. Zie `commercie/jetbrains-bison-flex/winkeltekst.md`, bijwerking run 3.
+- **Ook:** in de listing hoort een License-link (verplicht) naar onze eigen EULA: https://dortus.com/bison-flex/eula.html, zodra Thijs die gelezen heeft (lijst-thijs). Productpagina voor de website-link: https://dortus.com/bison-flex/.
+- **Risico:** "Flex" is ook de naam van Apache Flex; JetBrains weigert namen met merken van derden zonder toestemming (approval guidelines 1.2c). Klein risico, omdat de eerste zin duidelijk over Flex/Lex-scanners gaat (GOK). Wordt de naam geweigerd: `Yacc & Lex` of een eigen naam.
+- **Voor wie:** Jet, vóór indienen (taak "Indienen helemaal klaarzetten").
+- **Status:** open
+
+## 8. Bison & Flex: het aanraden door de IDE is niet zeker, claim `.ll` en `.yy` daarom voorzichtig (7 nov 2026, 23:50)
+- **Wat:** (a) reken de eerste weken niet op installs via het aanraden door de IDE; (b) weeg advies 4 (niet blind `.ll` en `.yy` claimen) mede om deze reden zwaarder; (c) de lanceerberichten (`commercie/jetbrains-bison-flex/lancering.md`) zijn daardoor belangrijker dan ik in run 2 dacht.
+- **Waarom:** JetBrains keurt het aanraden bij een bestandssoort apart goed. De regels: de suggestie "must not appear for unrelated project types or for an unnecessarily broad audience", en "We may decline to approve newly submitted plugins that do not yet have any history on our platform" (DERDEN, [approval guidelines](https://plugins.jetbrains.com/docs/marketplace/jetbrains-marketplace-approval-guidelines.html), Approval Criteria for Features). Een nieuwe plugin die ook `.ll` (LLVM IR) en `.yy` (GameMaker JSON) claimt, loopt daarmee twee risico's: geen goedkeuring voor het aanraden, en verkeerde gebruikers (GOK).
+- **Oplevering:** een eerlijker verwachting van de eerste installs, en meer kans dat JetBrains het aanraden bij `*.l` en `*.y` goedkeurt.
+- **Voor wie:** Jet en Hans.
+- **Status:** open

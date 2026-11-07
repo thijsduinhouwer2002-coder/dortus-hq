@@ -99,3 +99,18 @@ Thijs ziet de lijstplaatjes eerst (regels, lancering).
 - Bison Language Support (13.020 downloads, laatste versie 2 sep 2023, GEZIEN; rating 3,41 uit de zoek-API van de onderzoeker, niet nagemeten): alleen `.y`, geen Flex, geen `.yy`. Heeft sinds dec 2022 wel een structuurweergave (zijn change notes), dus dat is geen voordeel voor ons. "Ga naar definitie" staat sinds 2023 als "planned" in de beschrijving en kwam er niet.
 - Voor Flex/Lex bestaat niets.
 - ANTLR v4 (788.253 downloads) geeft navigatie en hernoemen gratis. Wie van ANTLR komt, verwacht dat gratis (GOK). Daarom moet het gratis deel op zichzelf al goed zijn.
+
+## Bijwerking 7 nov 2026, ±23:45 (run 3, Chris): nieuwe regels van JetBrains gelezen
+Gelezen met curl (DERDEN, [best practices for listing](https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html), [approval guidelines](https://plugins.jetbrains.com/docs/marketplace/jetbrains-marketplace-approval-guidelines.html), [EULA](https://plugins.jetbrains.com/docs/marketplace/eula.html)). Vier dingen veranderen het voorstel hierboven:
+
+1. **Naam: nu `Bison & Flex` als eerste keus** (12 tekens), niet meer `Bison/Yacc & Flex/Lex`. De listingregels raden 1 tot 4 woorden aan, **hoogstens 20 tekens** (de 30 uit punt 1.2 is de harde grens), en leestekens als scheiding (de `/`) worden afgeraden. `Bison/Yacc & Flex/Lex` is 21 tekens en gebruikt twee keer `/`. Yacc en Lex gaan daarom in de eerste zin van de beschrijving; de zoekfunctie leest de beschrijving ook (GEZIEN, run 2). Advies 5 is hiermee bijgewerkt (zie `adviezen.md`, advies 7).
+2. **De eerste 40 tekens van de beschrijving zijn het kaartje in de zoeklijst**, in het Engels, met een korte samenvatting. Nieuwe eerste zin:
+   `Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.`
+   De eerste 40 tekens zijn dan precies "Bison/Yacc and Flex/Lex files in the IDE" (nageteld door de controleur). Alle vier de zoekwoorden staan erin. Geen bijvoeglijke woorden als "simple" of "powerful" (afgeraden).
+   Daarna de tweede zin: `For .y, .yy, .l and .ll files. Made for C and C++ developers who write parsers and lexers.`
+3. **Plaatjes: aanbevolen minimum 1200 bij 760, allemaal dezelfde verhouding**, met het gewone thema van de IDE, zonder bureaubladachtergrond of persoonlijke gegevens. Onze schermen zijn 2880 bij 1800 (16:10, GEZIEN), dus dat klopt; houd alle winkelplaatjes op 16:10.
+4. **Een eigen EULA is verplicht** (punt 3.2), en het veld License op de pluginpagina is verplicht. De standaard-EULA van JetBrains mag niet ongewijzigd. Concept staat op https://dortus.com/bison-flex/eula.html (gebouwd op de standaard-EULA, plus: gratis deel blijft gratis, Nederlands recht, consumentenrecht, JetBrains geen partij). Thijs leest het eerst (lijst-thijs), daarna is die link de License-URL.
+
+**Ook gevonden, belangrijk voor de cijfers:** het aanraden door de IDE (bij een onbekend `.l`-bestand) is een "feature" die JetBrains apart goedkeurt: "We may decline to approve newly submitted plugins that do not yet have any history on our platform" (approval guidelines, Approval Criteria for Features). Mijn verwachting uit run 2 dat het aanraden de belangrijkste bron van installs wordt, kan dus de eerste weken niet opgaan (GOK). Zie advies 8.
+
+**Productpagina:** https://dortus.com/bison-flex/ (Engels, plaatjes calc.y licht en calc.l donker uit run 42419247737, met privacy, support en EULA). Werkt als website-link in `plugin.xml` (`<vendor url>` of een eigen link in de beschrijving). Geen prijs genoemd tot Jet besloten heeft, CLion niet beloofd tot de CLion-test.
