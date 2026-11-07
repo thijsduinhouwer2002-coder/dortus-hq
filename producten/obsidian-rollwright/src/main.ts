@@ -212,6 +212,11 @@ export default class RollwrightPlugin extends Plugin {
 		return notes;
 	}
 
+	/** The newest result remembered for a place, if any. */
+	latestResult(key: string): RollOutcome | undefined {
+		return this.results.get(key);
+	}
+
 	hasResult(key: string, keep = false): boolean {
 		return this.results.has(key) || (keep && this.kept.has(key));
 	}

@@ -2110,6 +2110,11 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
     shown = outcome;
     await showOutcome(plugin, target, outcome, sourcePath, component);
   };
+  const showIfNewest = async (outcome) => {
+    const newest = plugin.latestResult(key);
+    if (newest !== void 0 && newest !== outcome) return;
+    await show(outcome);
+  };
   const fail = (error) => {
     shown = null;
     showError(target, formula, error);
@@ -2117,7 +2122,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
   const rerollNow = async () => {
     try {
       if (!modify) {
-        await show(await plugin.freshResult(key, formula, sourcePath, keep));
+        await showIfNewest(await plugin.freshResult(key, formula, sourcePath, keep));
         return;
       }
       if (shown === null) await show(await plugin.firstResult(key, formula, sourcePath));
@@ -2128,7 +2133,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
   };
   const averageNow = async () => {
     try {
-      await show(await plugin.averageResult(key, formula, sourcePath, keep));
+      await showIfNewest(await plugin.averageResult(key, formula, sourcePath, keep));
     } catch (error) {
       fail(error);
     }
@@ -2704,6 +2709,10 @@ var RollwrightPlugin = class extends import_obsidian10.Plugin {
       }
     }
     return notes;
+  }
+  /** The newest result remembered for a place, if any. */
+  latestResult(key) {
+    return this.results.get(key);
   }
   hasResult(key, keep = false) {
     return this.results.has(key) || keep && this.kept.has(key);
