@@ -1,0 +1,6 @@
+Declarations (Nodes.Folder, regel 2)
+  NUM "%token" (Nodes.Constant, regel 9)
+Rules (Nodes.Folder, regel 15)
+  input (Nodes.Method, regel 15)
+  line (Nodes.Method, regel 20)
+  exp (Nodes.Method, regel 25)
