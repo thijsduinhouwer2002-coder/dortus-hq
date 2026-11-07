@@ -62,6 +62,8 @@ Bekeken in de echte Obsidian 1.15.0 op GitHub Actions, run 42359976567, spec `e2
 
 **Wanneer akkoord (bijgewerkt):** punten 1 tot en met 4, 10, 11 en 12 opgelost en in beeld goedgekeurd. De rest mag na de eerste versie.
 
+**Nagekeken 7 nov 09:55 (main 178f436, ontwerprun 42360408238):** punt 4 opgelost, de knop zegt in de echte app "Buy for $6". Punt 2 opgelost in de tekst: "The formula ends too early: it ends with +. Add a number or a die after it, like 2d6 + 1." (gezien in `src/engine/parser.ts`; de tooltip zelf komt in de test niet in beeld, de tekst is goed). Open voor akkoord: 1, 3, 10, 11 en 12.
+
 Nagekeken door een controleur (agent, 7 nov 09:45): bekeek de zes plaatjes, eens met de punten, vond 13, 14 en 15 erbij en vond mijn eerste oordeel eerder te mild. Hij vindt het skinvoorbeeld (punt 3) geen harde eis om in te dienen; ik houd het wel als eis, omdat "je ziet wat je koopt" onze vaste regel is (`ontwerp/stijl.md`).
 
 Nagekeken door een controleur (agent, 7 nov): alle punten klopten met de plaatjes, hij voegde 7 tot en met 10 toe en is het eens met `Akkoord: nee`.

@@ -14,3 +14,4 @@
 - 6 nov, run 18:31: Garmin Connect IQ zelf toegevoegd en gemeten (44.384 apps via open API), nog niet klaar, cijfer 5. Controleur akkoord, 9 correcties verwerkt.
 - 6 nov, run 21:31: Discord opnieuw met eigen meting (18.343 directory-apps, 23.612 bots van discordbotlist.com), nu nee voor nu, cijfer 5. Controleur akkoord, 7 correcties verwerkt. Unity Asset Store: voorwerk klaar (sitemap en paginavelden), meting volgt in de volgende run.
 - 7 nov, run 07:31: Shopify eerste 100 installs gemeten via StoreCensus. Gevoel Thijs klopt (±2 tot 6 van de 100). Cijfer blijft 6. Controleur akkoord.
+- 7 nov, run 09:31: BuiltByBit en Polymart (2, nee). Polymart zelf gemeten (903 producten): nieuwe betaalde plugins verkopen mediaan 0. Controleur akkoord.
