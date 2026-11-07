@@ -7,8 +7,9 @@ import { browser } from "@wdio/globals";
  * zet dezelfde knopen terug (diagnose run 42390461178). Een `?.click()` in dat gat deed stilletjes
  * niets. Zie ook geschiedenis.e2e.mjs, waar dit de wiebel gaf.
  */
-export async function klikWorp(sel, i = 0, { markeer = false } = {}) {
-	await browser.waitUntil(async () => browser.execute((sel, i, markeer) => {
+/** Met ctrl: true een klik met Ctrl ingedrukt (opent de bron), zoals een gebruiker Ctrl-klikt. */
+export async function klikWorp(sel, i = 0, { markeer = false, ctrl = false } = {}) {
+	await browser.waitUntil(async () => browser.execute((sel, i, markeer, ctrl) => {
 		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
 		if (!el) return false;
 		if (markeer) {
@@ -16,7 +17,8 @@ export async function klikWorp(sel, i = 0, { markeer = false } = {}) {
 			if (!value) return false;
 			value.setAttribute("data-e2e-oud", "1");
 		}
-		el.click();
+		if (ctrl) el.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, ctrlKey: true }));
+		else el.click();
 		return true;
-	}, sel, i, markeer), { timeout: 5000, timeoutMsg: `worp ${i} in ${sel} stond er niet om op te klikken` });
+	}, sel, i, markeer, ctrl), { timeout: 5000, timeoutMsg: `worp ${i} in ${sel} stond er niet om op te klikken` });
 }

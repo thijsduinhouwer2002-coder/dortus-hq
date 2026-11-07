@@ -141,20 +141,6 @@ function check(rolls) {
 	expect(eenBlok(kop1.value, ["kop1"])).toBe("kop1");
 }
 
-/** Zet een merkteken op de uitkomst van worp i, zodat te zien is wanneer er een nieuwe staat. */
-async function markeer(view, i) {
-	await browser.execute((sel, i) => {
-		document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
-	}, `${LEAF} ${view}`, i);
-}
-
-async function ctrlKlik(view, i) {
-	await browser.execute((sel, i) => {
-		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
-		el?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, ctrlKey: true }));
-	}, `${LEAF} ${view}`, i);
-}
-
 async function markdownTabs() {
 	return browser.executeObsidian(({ app }) => app.workspace.getLeavesOfType("markdown").map((l) => l.view?.file?.path ?? ""));
 }
@@ -177,8 +163,7 @@ async function checkCtrlKlik(view, i, shot) {
 		for (const el of document.querySelectorAll("[data-e2e-tab]")) el.removeAttribute("data-e2e-tab");
 		app.workspace.getMostRecentLeaf()?.view?.containerEl.setAttribute("data-e2e-tab", "1");
 	});
-	await markeer(view, i);
-	await ctrlKlik(view, i);
+	await klikWorp(`${LEAF} ${view}`, i, { markeer: true, ctrl: true });
 	let tabs = [];
 	await browser.waitUntil(async () => {
 		tabs = await markdownTabs();
