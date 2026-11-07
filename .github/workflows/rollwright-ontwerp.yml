@@ -1,0 +1,55 @@
+name: Rollwright ontwerptest (Daan)
+
+# Alleen schermafbeeldingen voor het oordeel van Daan. Start bij een push naar een tak ontwerp/...
+on:
+  push:
+    branches: ["ontwerp/**"]
+    paths: ["producten/obsidian-rollwright/**", ".github/workflows/rollwright-ontwerp.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ontwerp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: producten/obsidian-rollwright
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run build
+      - run: npm install
+        working-directory: producten/obsidian-rollwright/e2e
+      - run: xvfb-run --auto-servernum -s "-screen 0 1400x900x24" npx wdio run ./wdio.ontwerp.conf.mjs
+        working-directory: producten/obsidian-rollwright/e2e
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/obsidian-rollwright/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM="ontwerp-$(echo "$TAK" | tr '/' '-')"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            D="/tmp/s/rollwright/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen rollwright/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/rollwright/$NAAM"
+          ls "$SRC"
