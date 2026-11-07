@@ -14,6 +14,8 @@ Altijd:
 - Getest in licht, donker en minstens 3 populaire thema's (Minimal, AnuPpuccin, Things, Border) en in een smal venster.
 - Eén accentkleur, die van het platform. Een icoon mag die kleur hebben, tekst niet.
 - Alles werkt met alleen het toetsenbord, en elke knop zonder tekst heeft een naam (tooltip of `aria-label`).
+- In Obsidian zowel de leesweergave als Live Preview bekijken. Ze moeten er hetzelfde uitzien. Live Preview zet `white-space: pre-wrap` op de regel: wat je erin rendert krijgt `white-space: normal`, anders worden regeleinden lege regels.
+- Een knop om te kopen is een gewone knop met de prijs erop ("Buy for $6"), geen opvallende accentknop.
 
 Nooit:
 - Vaste kleuren in de gratis versie. Vaste kleuren mogen alleen in een betaalde skin die de gebruiker zelf kiest, en die moet in licht en donker leesbaar zijn.
