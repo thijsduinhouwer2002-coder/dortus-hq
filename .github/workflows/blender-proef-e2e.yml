@@ -1,0 +1,78 @@
+name: Blender proef e2e (echte Blender)
+
+on:
+  push:
+    branches: [main, "claude/blender-*"]
+    paths: ["producten/blender-proef/**", ".github/workflows/blender-proef-e2e.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3"]
+    defaults:
+      run:
+        working-directory: producten/blender-proef
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (Xvfb en software-OpenGL)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          curl -sSL -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          /tmp/blender/blender --version | head -1
+      - name: Add-on inpakken
+        run: bash e2e/maak_zip.sh
+      - name: Test zonder scherm (laden, aanzetten, knop)
+        run: /tmp/blender/blender -b --factory-startup --python e2e/test_achtergrond.py -- /tmp/dortus_proef.zip
+      - name: Schermafbeeldingen met de echte interface
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+        run: |
+          timeout 180 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
+            /tmp/blender/blender --factory-startup --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
+          ls -la e2e/screenshots/${{ matrix.blender }} || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blender-proef-screenshots-${{ matrix.blender }}
+          path: producten/blender-proef/e2e/screenshots
+          if-no-files-found: warn
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/blender-proef/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/blender-proef/$NAAM/${{ matrix.blender }}"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC/${{ matrix.blender }}"/. "$D"/ 2>/dev/null || true
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen blender-proef/$NAAM/${{ matrix.blender }} run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; git -C /tmp/s fetch -q origin schermen 2>/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/blender-proef/$NAAM"
