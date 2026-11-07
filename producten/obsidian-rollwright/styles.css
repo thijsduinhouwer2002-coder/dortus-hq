@@ -249,6 +249,11 @@ body.rollwright-skin-arcane .rollwright-roll:hover {
 	white-space: pre-wrap;
 }
 
+.rollwright-history-name {
+	font-size: var(--font-ui-smaller);
+	overflow-wrap: anywhere;
+}
+
 .rollwright-history-formula,
 .rollwright-history-details,
 .rollwright-history-meta {
