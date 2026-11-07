@@ -165,6 +165,11 @@ async function sluitBron() {
 async function checkCtrlKlik(view, i, shot) {
 	const voor = (await readRolls(view))[i].value;
 	const tabsVoor = await markdownTabs();
+	// Merk het tabblad waarin geklikt wordt, zodat het na het openen van Bron.md terug te vinden is.
+	await browser.executeObsidian(({ app }) => {
+		for (const el of document.querySelectorAll("[data-e2e-tab]")) el.removeAttribute("data-e2e-tab");
+		app.workspace.getMostRecentLeaf()?.view?.containerEl.setAttribute("data-e2e-tab", "1");
+	});
 	await markeer(view, i);
 	await ctrlKlik(view, i);
 	let tabs = [];
@@ -181,17 +186,10 @@ async function checkCtrlKlik(view, i, shot) {
 	// Het nieuwe tabblad is actief; de oude notitie staat nog open in het eerste tabblad.
 	// Daar moet de uitkomst dezelfde zijn, met het merkteken nog op het oude element.
 	const na = await browser.execute((sel, i, zws) => {
-		const leaves = Array.from(document.querySelectorAll(".workspace-leaf"));
-		for (const leaf of leaves) {
-			// Alleen het tabblad met Sectiewerpen; Bron.md heeft zelf ook een dobbelcode.
-			if (!(leaf.textContent ?? "").includes("Bestaat niet")) continue;
-			const r =leaf.querySelectorAll(`${sel} .rollwright-roll`)[i];
-			if (r) {
-				const v = r.querySelector(".rollwright-value");
-				return { value: (v?.textContent ?? "").split(zws).join("").trim(), old: v?.getAttribute("data-e2e-oud") === "1" };
-			}
-		}
-		return null;
+		const r = document.querySelectorAll(`[data-e2e-tab] ${sel} .rollwright-roll`)[i];
+		if (!r) return null;
+		const v = r.querySelector(".rollwright-value");
+		return { value: (v?.textContent ?? "").split(zws).join("").trim(), old: v?.getAttribute("data-e2e-oud") === "1" };
 	}, view, i, ZWS);
 	console.log("UITKOMST VOOR EN NA:", JSON.stringify(voor), JSON.stringify(na));
 	expect(na).not.toBe(null);
