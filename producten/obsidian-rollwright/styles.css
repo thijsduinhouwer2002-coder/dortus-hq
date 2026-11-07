@@ -49,6 +49,19 @@
 	padding: var(--size-4-1) var(--size-4-2);
 	border-radius: var(--radius-m);
 	font-weight: var(--font-normal);
+	/* Live Preview puts the widget in a .cm-line with white-space: pre-wrap. The rendered markdown has
+	   newlines between its elements (after <br>, between <li>), which then show as empty lines. */
+	white-space: normal;
+}
+
+/* In Live Preview zet CodeMirror na de widget nog een leeg img.cm-widgetBuffer in dezelfde .cm-line.
+   Na een blok (display: flex) komt dat op een eigen regel, een lege regel onder het blok. Als
+   inline-flex net iets smaller dan de regel past de buffer (0 breed) ernaast en is er geen extra
+   regel. Lezen blijft flex. */
+.cm-line .rollwright-roll.rollwright-roll-block {
+	display: inline-flex;
+	width: calc(100% - 2px);
+	vertical-align: top;
 }
 
 .rollwright-roll-block .rollwright-icon {

@@ -210,7 +210,7 @@ describe("dice-mod: in reading view, with a stand-in for the app", () => {
 		plugin.settings.diceModFormula = false;
 		const spans = draw(plugin, files["A.md"], 0);
 		await wait();
-		spans[0]?.listeners.keydown?.({ key: "Enter" });
+		spans[0]?.listeners.keydown?.({ key: "Enter", preventDefault() {} });
 		await wait();
 		expect(files["A.md"]).toBe("[1] -> 1");
 	});
@@ -331,7 +331,7 @@ describe("dice-mod: in Live Preview, through the editor", () => {
 		const { plugin } = await load({});
 		const view = fakeView("a `dice-mod: 1d1` b `dice-mod: 1d1`", 20);
 		const outcome = await rolled("1d1");
-		editorModifier(plugin, view as never, widget as never, "1d1")(outcome);
+		editorModifier(plugin, view as never, widget as never, "1d1", 0, 1)(outcome);
 		await wait();
 		expect(view.state.doc.toString()).toBe("a `dice-mod: 1d1` b 1d1 -> [1] -> 1");
 	});
@@ -339,7 +339,7 @@ describe("dice-mod: in Live Preview, through the editor", () => {
 	it("does nothing when the text there is no longer the code", async () => {
 		const { plugin } = await load({});
 		const view = fakeView("a `dice-mod: 1d2`", 2);
-		editorModifier(plugin, view as never, widget as never, "1d1")(await rolled("1d1"));
+		editorModifier(plugin, view as never, widget as never, "1d1", 0, 0)(await rolled("1d1"));
 		await wait();
 		expect(view.state.doc.toString()).toBe("a `dice-mod: 1d2`");
 		expect(notices).toContain(CHANGED_NOTICE);
@@ -350,14 +350,64 @@ describe("dice-mod: in Live Preview, through the editor", () => {
 		const outcome = await rolled("1d1");
 		const gone = { isConnected: false };
 		const detached = fakeView("`dice-mod: 1d1` rest", 0, [gone]);
-		editorModifier(plugin, detached as never, gone as never, "1d1")(outcome);
+		editorModifier(plugin, detached as never, gone as never, "1d1", 0, 0)(outcome);
 		const elsewhere = { isConnected: true };
 		const other = fakeView("`dice-mod: 1d1` rest", 0, []);
-		editorModifier(plugin, other as never, elsewhere as never, "1d1")(outcome);
+		editorModifier(plugin, other as never, elsewhere as never, "1d1", 0, 0)(outcome);
 		await wait();
 		expect(detached.state.doc.toString()).toBe("`dice-mod: 1d1` rest");
 		expect(other.state.doc.toString()).toBe("`dice-mod: 1d1` rest");
 		expect(notices.filter((n) => n === CHANGED_NOTICE)).toHaveLength(2);
+	});
+
+	it("the old fault: posAtDOM gives another place, Replace still writes the code of the widget", async () => {
+		const { plugin } = await load({});
+		// posAtDOM is one off the start of the code, as seen in the real Obsidian; it is not used.
+		const view = fakeView("x\nWorp: `dice-mod: 1d1` en verder", 9);
+		editorModifier(plugin, view as never, widget as never, "1d1", 1, 0)(await rolled("1d1"));
+		await wait();
+		expect(view.state.doc.toString()).toBe("x\nWorp: 1d1 -> [1] -> 1 en verder");
+		expect(notices).not.toContain(CHANGED_NOTICE);
+	});
+
+	it("a changed line gives the notice and writes nothing", async () => {
+		const { plugin } = await load({});
+		const view = fakeView("x\nWorp: `dice-mod: 1d1`", 0);
+		const outcome = await rolled("1d1");
+		// The code is no longer on line 0, and line 5 does not exist.
+		editorModifier(plugin, view as never, widget as never, "1d1", 0, 0)(outcome);
+		editorModifier(plugin, view as never, widget as never, "1d1", 5, 0)(outcome);
+		await wait();
+		expect(view.state.doc.toString()).toBe("x\nWorp: `dice-mod: 1d1`");
+		expect(notices.filter((n) => n === CHANGED_NOTICE)).toHaveLength(2);
+	});
+
+	it("with two codes on one line the index picks the right one, in one undoable change", async () => {
+		const { plugin } = await load({});
+		const view = fakeView("`dice-mod: 1d1` en `dice-mod: 1d1|text(B)`", 0);
+		const dispatch = vi.spyOn(view, "dispatch");
+		editorModifier(plugin, view as never, widget as never, "1d1|text(B)", 0, 1)(await rolled("1d1"));
+		await wait();
+		expect(view.state.doc.toString()).toBe("`dice-mod: 1d1` en 1d1 -> [1] -> 1");
+		expect(dispatch).toHaveBeenCalledTimes(1);
+		expect(dispatch.mock.calls[0]?.[0]).toMatchObject({ userEvent: "input" });
+		// Index 1 with the formula of index 0 is not the same code: nothing is written.
+		editorModifier(plugin, view as never, widget as never, "1d1", 0, 1)(await rolled("1d1"));
+		await wait();
+		expect(view.state.doc.toString()).toBe("`dice-mod: 1d1` en 1d1 -> [1] -> 1");
+		expect(notices).toContain(CHANGED_NOTICE);
+	});
+
+	it("Enter on a dice-mod roll keeps the key press from going on to the window", async () => {
+		const files = { "A.md": "`dice-mod: 1d1`" };
+		const { plugin } = await load(files);
+		const spans = draw(plugin, files["A.md"], 0);
+		await wait();
+		const preventDefault = vi.fn();
+		spans[0]?.listeners.keydown?.({ key: "Enter", preventDefault });
+		spans[0]?.listeners.keydown?.({ key: "a", preventDefault });
+		await wait();
+		expect(preventDefault).toHaveBeenCalledTimes(1);
 	});
 });
 

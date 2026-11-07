@@ -11,13 +11,14 @@ export const SOURCE_GONE_NOTICE = "The note this result came from is no longer t
 /** On a roll whose rendered result is more than one line or a block: styles.css shows it as a block under the line. */
 export const BLOCK_CLASS = "rollwright-roll-block";
 
-/** The rendered parts of a result, looking through plain wrapper divs. */
+/** The rendered parts of a result, looking through wrapper divs that hold elements. */
 function renderedParts(el: Element): Element[] {
 	const parts: Element[] = [];
 	for (let i = 0; i < el.childElementCount; i++) {
 		const child = el.children.item(i);
 		if (child === null) continue;
-		if (child.tagName === "DIV") parts.push(...renderedParts(child));
+		// Only a wrapper div with elements in it is looked through; a div with just text is one part.
+		if (child.tagName === "DIV" && child.childElementCount > 0) parts.push(...renderedParts(child));
 		else parts.push(child);
 	}
 	return parts;
@@ -79,8 +80,10 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 	} else {
 		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
 		// Decided again on every new result, so a click from a block to one line (or back) fits.
-		// A render that finished after a newer result was shown no longer sits in target.
-		if (value.parentElement === target && isBlockValue(value)) target.addClass(BLOCK_CLASS);
+		// A render that finished after a newer result was shown no longer sits in target:
+		// then class and tooltip stay those of the newer result.
+		if (value.parentElement !== target) return;
+		if (isBlockValue(value)) target.addClass(BLOCK_CLASS);
 	}
 	setTooltip(target, tooltipFor(outcome));
 }
@@ -167,7 +170,12 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	target.setAttribute("tabindex", "0");
 	target.addEventListener("keydown", (event) => {
-		if (event.key === "Enter") void rerollNow();
+		if (event.key !== "Enter") return;
+		// Without this the same key press goes on to the window that dice-mod opens, and Enter
+		// there presses its focused button (Cancel) at once. In the editor it also keeps the
+		// key from making a new line.
+		event.preventDefault();
+		void rerollNow();
 	});
 	target.addEventListener("click", (event) => {
 		// A link inside a rendered result keeps working as a link.

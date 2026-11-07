@@ -70,26 +70,32 @@ function fitReplacement(line: string, from: number, to: number, text: string): s
 	return safe;
 }
 
-/**
- * Replaces the code with this number on the line (counted as findInlineDice counts), but
- * only when it is still a dice-mod code with this formula. Null when it is not: then
- * nothing may be written.
- */
-export function replaceCodeInLine(lineText: string, index: number, formula: string, replacement: string): string | null {
-	const code = findInlineDice(lineText)[index];
+type Found = ReturnType<typeof findInlineDice>[number];
+
+/** The change for one found code, or null when it is not a dice-mod code with this formula. */
+function changeFor(lineText: string, code: Found | undefined, formula: string, replacement: string): { from: number; to: number; insert: string } | null {
 	if (!code || !code.modify || code.formula !== formula) return null;
-	return lineText.slice(0, code.from) + fitReplacement(lineText, code.from, code.to, replacement) + lineText.slice(code.to);
+	return { from: code.from, to: code.to, insert: fitReplacement(lineText, code.from, code.to, replacement) };
 }
 
 /**
- * The change for the code that starts at this column of the line, as the editor needs it:
- * from and to within the line and the text to insert. Null when no dice-mod code with
- * this formula starts there any more.
+ * The change for the code with this number on the line (counted as findInlineDice counts), as
+ * the editor needs it: from and to within the line and the text to insert. Null when it is no
+ * longer a dice-mod code with this formula: then nothing may be written.
  */
+export function replacementInLine(lineText: string, index: number, formula: string, replacement: string): { from: number; to: number; insert: string } | null {
+	return changeFor(lineText, findInlineDice(lineText)[index], formula, replacement);
+}
+
+/** The whole line with the code with this number replaced, or null as replacementInLine. */
+export function replaceCodeInLine(lineText: string, index: number, formula: string, replacement: string): string | null {
+	const change = replacementInLine(lineText, index, formula, replacement);
+	return change === null ? null : lineText.slice(0, change.from) + change.insert + lineText.slice(change.to);
+}
+
+/** The same for the code that starts at this column of the line. */
 export function replacementAt(lineText: string, column: number, formula: string, replacement: string): { from: number; to: number; insert: string } | null {
-	const code = findInlineDice(lineText).find((found) => found.from === column);
-	if (!code || !code.modify || code.formula !== formula) return null;
-	return { from: code.from, to: code.to, insert: fitReplacement(lineText, code.from, code.to, replacement) };
+	return changeFor(lineText, findInlineDice(lineText).find((found) => found.from === column), formula, replacement);
 }
 
 /** The same for a whole note, with the line counted from 0. Line endings stay as they are. */

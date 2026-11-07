@@ -1,0 +1,40 @@
+FILE
+  FLEX_BLOKCOMMENTAAR '/* Scanner voor de rekenmachine. */'
+  DEFINITIONS
+    PROLOGUE '%{\n#include "calc.tab.h"\n%}'
+    OPTION
+      FLEX_OPDRACHT '%option'
+      FLEX_NAAM 'noyywrap'
+    NAME_DEF
+      DEFINITION_NAME
+        FLEX_DEFINITIE 'DIGIT'
+      PATTERN
+        FLEX_RE_KLASSE '[0-9]'
+  FLEX_SCHEIDING '%%'
+  RULES
+    FLEX_RULE
+      PATTERN
+        FLEX_RE_VERWIJZING '{DIGIT}'
+        FLEX_RE_OPERATOR '+'
+        FLEX_RE_OPERATOR '('
+        FLEX_STRING '"."'
+        FLEX_RE_VERWIJZING '{DIGIT}'
+        FLEX_RE_OPERATOR '*'
+        FLEX_RE_OPERATOR ')'
+        FLEX_RE_OPERATOR '?'
+      ACTION '{ yylval = atof(yytext); return NUM; }'
+    FLEX_RULE
+      PATTERN
+        FLEX_RE_KLASSE '[-+*/()\n]'
+      ACTION '{ return yytext[0]; }'
+    FLEX_RULE
+      PATTERN
+        FLEX_RE_KLASSE '[ \t]'
+        FLEX_RE_OPERATOR '+'
+      ACTION ';'
+    FLEX_BLOKCOMMENTAAR '/* spaties overslaan */'
+    FLEX_RULE
+      PATTERN
+        FLEX_RE_OPERATOR '.'
+      ACTION '{ fprintf(stderr, "onbekend teken: %s\n", yytext); }'
+  FLEX_SCHEIDING '%%'

@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026, omdat de worpen op secties nog rommelig ogen, de foutmelding niet zegt wat je moet doen, je de betaalde skins niet kunt zien voor je koopt, en de groep Skins in de instellingen in de verkeerde volgorde staat (zie beoordeling 2). De instellingen zijn nu wel in beeld en verder goed.
+Akkoord: nee 7 nov 2026 10:45, omdat main de oplossing voor punt 1 (tak `claude/obsidian-2026-11-07-h`) nog niet bevat. Alle punten voor akkoord zijn nu in beeld goedgekeurd (zie beoordeling 3). Zodra main tak h plus mijn CSS van tak `ontwerp/blok-css` (commit cc0fb33) bevat, kijk ik het een laatste keer na en zet ik hier `Akkoord: ja`.
 
 # Ontwerp van Rollwright
 
@@ -67,3 +67,24 @@ Bekeken in de echte Obsidian 1.15.0 op GitHub Actions, run 42359976567, spec `e2
 Nagekeken door een controleur (agent, 7 nov 09:45): bekeek de zes plaatjes, eens met de punten, vond 13, 14 en 15 erbij en vond mijn eerste oordeel eerder te mild. Hij vindt het skinvoorbeeld (punt 3) geen harde eis om in te dienen; ik houd het wel als eis, omdat "je ziet wat je koopt" onze vaste regel is (`ontwerp/stijl.md`).
 
 Nagekeken door een controleur (agent, 7 nov): alle punten klopten met de plaatjes, hij voegde 7 tot en met 10 toe en is het eens met `Akkoord: nee`.
+
+## Beoordeling 3, 7 nov 2026 10:45 (main b61ae83 met tak h erbij)
+
+Bekeken in de echte Obsidian 1.15.0 op GitHub Actions. Ontwerpruns 42363837554 (main plus tak `claude/obsidian-2026-11-07-h`) en 42364116651 (idem plus mijn CSS), op tak `ontwerp/rollwright`. Ook Olafs run 42363600604 op tak h (plaatjes `blok-*.png`, licht en donker).
+
+**Punt 3, 11 en 12: goed, in beeld goedgekeurd** (plaatjes `i-klik-midden.png`, `i-tabid-donker-onder.png`). Onder Skin drie voorbeeldvakjes (Classic, Parchment, Arcane) met een 17, ook zonder sleutel. Daarna "Get the paid skins" met "Buy for $6" en "Parchment and Arcane. One payment, yours to keep.", dan License key met de nieuwe tekst zonder Polar. Rustig, in licht en donker goed leesbaar. De kooprij leest nu in de volgorde waarin je hem gebruikt: zien, kopen, sleutel plakken.
+
+**Punt 1: goed in de leesweergave, in Live Preview pas goed met twee CSS-regels van mij.** Olafs blok (tak h) ziet er in lezen precies uit zoals ik vroeg: eigen blok onder de regel, zelfde rand en achtergrond, kop in gewone grootte en vet, geen bolletjes, ook in donker (`blok-lezen-donker.png`). Maar in Live Preview stond het icoon op een eigen regel, kwam er een lege regel tussen elke regel van de uitkomst, en een lege regel onder elk blok (`blok-live-preview.png`). Oorzaak: de editor zet `white-space: pre-wrap` op de regel, dus de regeleinden tussen de blokken worden zichtbaar, en een blok met `display: flex` laat er een lege regel achter. Mijn reparatie, alleen CSS in `styles.css`: `white-space: normal` op `.rollwright-roll-block .rollwright-value`, en `display: inline-flex; vertical-align: top` in plaats van `display: flex` op `.rollwright-roll.rollwright-roll-block`. Met die reparatie ziet Live Preview er bijna net zo uit als lezen (`10-secties-live-preview.png` in run 42364116651); onder een blok zit nog ±9 pixels meer ruimte, dat is goed genoeg. Olaf: neem tak `ontwerp/blok-css` (tak h plus die ene commit cc0fb33) over in tak h of voeg hem samen.
+
+**Wat beter kan, na de eerste versie (houdt akkoord niet tegen):**
+
+17. **Een worp in een uitkomst staat er als ruwe code** (`dice: 1d6` in "Een worp dice: 1d6 zegt hoe boos hij is."). Dat is bewust (worpen in worpen rollen niet, tegen eindeloze lussen), maar het oogt als een fout. Voorstel: toon zo'n code als gewone tekst zonder codeletter, of rol hem één laag diep. Gezien door de controleur.
+18. **Een uitkomst die een hele zin is, staat helemaal vet.** Bij een getal mooi, bij een zin zwaar. Voorstel: vet alleen als de uitkomst kort is (een getal of een paar woorden), anders gewone dikte zoals in een blok.
+19. **Het icoon staat bij een uitkomst over twee regels in het midden**, bij een blok bovenaan. Zet het overal bovenaan (`align-self: flex-start` of `vertical-align: top` op het icoon).
+20. **Het voorbeeldvakje van de gekozen skin valt niet op.** Een dunne accentrand om het gekozen vakje helpt. Geen slotje op de betaalde: de tekst eronder zegt het al, en een slotje duwt.
+
+**Bewust niet:** "Buy for $6" blijft een gewone knop, geen opvallende accentknop. Onze stijl is dat het betaalde deel niet duwt (`ontwerp/stijl.md`); in de instellingen van Obsidian zijn knoppen ook gewoon grijs. De controleur stelde een accentknop voor; ik kies rust.
+
+**Wanneer akkoord:** main bevat tak h en mijn CSS (cc0fb33), de tests zijn groen, en een ontwerprun op main laat de secties in Live Preview zien zoals in run 42364116651. Dan `Akkoord: ja`. Punten 5 tot en met 9 en 13 tot en met 20 mogen na de eerste versie.
+
+Nagekeken door een controleur (agent, 7 nov 10:40): bekeek de plaatjes, eens met 3, 11, 12 en met 1 na de reparatie; vond 17, 19 en 20 erbij en de 9 pixels; akkoord terecht zodra main h plus de CSS bevat.

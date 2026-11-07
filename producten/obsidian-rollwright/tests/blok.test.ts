@@ -2,7 +2,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import RollwrightPlugin from "../src/main";
 import type { RollOutcome } from "../src/rollers/run";
 import { BLOCK_CLASS, isBlockValue, mountRoll } from "../src/ui/widget";
+import { setTooltip } from "obsidian";
 import { MarkdownRenderer, TFile } from "./obsidian-stub";
+
+// setTooltip is a no-op in the stub; here it records, so a test sees which tooltip came last.
+vi.mock("obsidian", async (original) => ({ ...(await original<object>()), setTooltip: vi.fn() }));
 
 /** A small element with tag, children and classes, enough for the widget and isBlockValue. */
 class FakeEl {
@@ -68,7 +72,7 @@ function fakeRender(markdown: string, el: FakeEl): void {
 	}
 }
 
-const press = () => ({ target: { instanceOf: () => false }, preventDefault() {}, stopPropagation() {} });
+const press = (keys: { ctrlKey?: boolean } = {}) => ({ target: { instanceOf: () => false }, preventDefault() {}, stopPropagation() {}, ...keys });
 const wait = () => new Promise((resolve) => setTimeout(resolve, 20));
 
 const FILES: Record<string, string> = {
@@ -90,8 +94,8 @@ async function load() {
 	return plugin;
 }
 
-function outcome(text: string, kind: RollOutcome["kind"] = "section"): RollOutcome {
-	return { kind, text, formula: "[[Bron]]", details: "", flags: {} as RollOutcome["flags"], source: "Bron.md" };
+function outcome(text: string, details = ""): RollOutcome {
+	return { kind: "section", text, formula: "[[Bron]]", details, flags: {} as RollOutcome["flags"], source: "Bron.md" };
 }
 
 function mount(plugin: RollwrightPlugin, formula: string) {
@@ -120,7 +124,14 @@ beforeEach(() => {
 
 afterEach(() => {
 	vi.restoreAllMocks();
+	vi.mocked(setTooltip).mockClear();
 });
+
+/** The last tooltip set on this element. */
+const lastTooltip = (span: FakeEl) => {
+	const calls = vi.mocked(setTooltip).mock.calls.filter(([el]) => el === (span as never));
+	return calls[calls.length - 1]?.[1];
+};
 
 describe("a result of more than one line or a block is shown as a block", () => {
 	it.each([
@@ -177,9 +188,54 @@ describe("a result of more than one line or a block is shown as a block", () => 
 	it("from one line to a block on Enter", async () => {
 		const span = await mountWith(["Alinea Bravo.", "Alinea Bravo.\n\nAlinea Delta."]);
 		expect(span.classes.has(BLOCK_CLASS)).toBe(false);
-		span.listeners.keydown?.({ key: "Enter" });
+		span.listeners.keydown?.({ key: "Enter", preventDefault() {} });
 		await wait();
 		expect(span.classes.has(BLOCK_CLASS)).toBe(true);
+	});
+});
+
+describe("the block class follows the shown result, also when results cross", () => {
+	it("a slow render that ends after a newer result leaves class and tooltip of the newer one", async () => {
+		const plugin = await load();
+		const render = vi.spyOn(MarkdownRenderer, "render").mockImplementation(async (_app: unknown, markdown: string, el?: unknown) => {
+			if (markdown.startsWith("# Traag")) await new Promise((resolve) => setTimeout(resolve, 60));
+			fakeRender(markdown, el as FakeEl);
+		});
+		vi.spyOn(plugin, "firstResult").mockResolvedValue(outcome("# Traag", "oud"));
+		vi.spyOn(plugin, "freshResult").mockResolvedValueOnce(outcome("Alinea Bravo.", "nieuw"));
+		const span = mount(plugin, "[[Bron]]");
+		await new Promise((resolve) => setTimeout(resolve, 10));
+		span.listeners.click?.(press());
+		await new Promise((resolve) => setTimeout(resolve, 120));
+		expect(render).toHaveBeenCalledTimes(2);
+		expect(span.classes.has(BLOCK_CLASS)).toBe(false);
+		expect(lastTooltip(span)).toBe("[[Bron]]\nnieuw");
+	});
+
+	it("from a block to an error drops the class", async () => {
+		const plugin = await load();
+		vi.spyOn(plugin, "firstResult").mockResolvedValue(outcome("# Kop Alfa"));
+		vi.spyOn(plugin, "freshResult").mockRejectedValueOnce(new Error("kapot"));
+		const span = mount(plugin, "[[Bron]]");
+		await wait();
+		expect(span.classes.has(BLOCK_CLASS)).toBe(true);
+		span.listeners.click?.(press());
+		await wait();
+		expect(span.classes.has("rollwright-error")).toBe(true);
+		expect(span.classes.has(BLOCK_CLASS)).toBe(false);
+	});
+
+	it("from a block back to an empty |none code drops the class", async () => {
+		const plugin = await load();
+		vi.spyOn(plugin, "hasResult").mockReturnValue(true);
+		vi.spyOn(plugin, "firstResult").mockResolvedValue(outcome("# Kop Alfa"));
+		const span = mount(plugin, "[[Bron]]|none");
+		await wait();
+		expect(span.classes.has(BLOCK_CLASS)).toBe(true);
+		span.listeners.click?.(press({ ctrlKey: true }));
+		await wait();
+		expect(span.classes.has(BLOCK_CLASS)).toBe(false);
+		expect(lastTooltip(span)).toBe("[[Bron]]|none");
 	});
 });
 
@@ -197,6 +253,12 @@ describe("isBlockValue", () => {
 
 	it("a code block, table or line is a block", () => {
 		for (const tag of ["PRE", "TABLE", "HR", "OL"]) expect(isBlockValue(value(tag) as never)).toBe(true);
+	});
+
+	it("a div without elements in it (only text) is one part, not looked through", () => {
+		expect(isBlockValue(value("DIV", "P") as never)).toBe(true);
+		const one = value("DIV");
+		expect(isBlockValue(one as never)).toBe(true);
 	});
 
 	it("looks through a wrapper div", () => {
