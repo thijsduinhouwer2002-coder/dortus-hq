@@ -70,6 +70,8 @@ function isKeptOutcome(value: unknown): value is RollOutcome {
 export default class RollwrightPlugin extends Plugin {
 	settings: RollwrightSettings = { ...DEFAULT_SETTINGS };
 	private readonly results = new Map<string, RollOutcome>();
+	/** First rolls still on their way (a table reads a note first), so a second view of the same code waits for it. */
+	private readonly pending = new Map<string, Promise<RollOutcome>>();
 	/** Results of `dice+:`, written to disk with the settings. */
 	private readonly kept = new Map<string, RollOutcome>();
 	private readonly skinnedDocuments = new Set<Document>();
@@ -221,10 +223,27 @@ export default class RollwrightPlugin extends Plugin {
 			if (keep && !this.kept.has(key)) await this.keep(key, known);
 			return known;
 		}
-		const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
-		this.remember(key, outcome);
-		if (keep) await this.keep(key, outcome);
-		return outcome;
+		const running = this.pending.get(key);
+		if (running) return running;
+		// Compared with what is in pending once the roll is back; assigned before any await finishes.
+		let roll: Promise<RollOutcome> | undefined = undefined;
+		roll = (async (): Promise<RollOutcome> => {
+			try {
+				const outcome = await rollSpec(formula, this.rollContext(sourcePath), { firstRoll: true });
+				// Forgotten (Ctrl-click) while rolling: show it, but do not remember it.
+				if (this.pending.get(key) !== roll) return outcome;
+				// A click or Alt-click came in while rolling: that newer result wins.
+				const newer = this.results.get(key);
+				if (newer) return newer;
+				this.remember(key, outcome);
+				if (keep) await this.keep(key, outcome);
+				return outcome;
+			} finally {
+				if (this.pending.get(key) === roll) this.pending.delete(key);
+			}
+		})();
+		this.pending.set(key, roll);
+		return roll;
 	}
 
 	/** A roll someone asked for. Only these go into the history. With keep, the new result replaces the kept one. */
@@ -252,6 +271,7 @@ export default class RollwrightPlugin extends Plugin {
 	/** Ctrl-click on a |none code: forgets its result, also the kept one, so it stays empty. */
 	async forgetResult(key: string): Promise<void> {
 		this.results.delete(key);
+		this.pending.delete(key);
 		if (this.kept.delete(key)) await this.saveSettings();
 	}
 
