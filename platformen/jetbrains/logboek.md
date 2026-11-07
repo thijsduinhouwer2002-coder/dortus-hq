@@ -164,3 +164,13 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur eerst nee om één moet-punt: de Ctrl+zweven-stap aan het eind van de test was groen maar bewees niets (vals vertrouwen). Zelf weggehaald (291cd4d), e2e compileert, `ctrlZweven` blijft voor straks. Daarna samengevoegd met main (61d663a).
 - **Beslissing:** samengevoegd zonder nieuwe IDE-run af te wachten, omdat alleen een stap van deze tak is weggehaald en de run op main vanzelf start. Kan-punt: het focusverzoek in `structuurBij` doet niets (log false), alleen de teller werkt.
 - **Misging:** de lokale main liep weer uit de pas met origin (`git reset --hard` geweigerd); gewerkt op tak `werk` vanaf origin/main.
+
+
+## 7 nov 2026, 16:53 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Bovenste taak: Daan beoordeling 6, punt 1 (Ctrl+zweven geeft balloon en hints, bewezen fout) en punt 2 ("Start free trial" naar Help > Register). Bouwer op tak `claude/jetbrains-2026-11-07-m` (0f28fc4).
+- **Oorzaak (GEZIEN in de broncode van IntelliJ 252):** bij zweven vraagt `CtrlMouseHandler2` de doelen op een achtergronddraad, buiten elke actie; daar zegt `IdeEventQueue.trueCurrentEvent` niets. Ctrl+B rekent de doelen met `underModalProgress` binnen de actie; Ctrl+klik loopt via de keymap naar dezelfde actie `GotoDeclaration`.
+- **Beslissing:** melding en hint alleen als een ga-naar-actie bezig is (`pro/GaNaarActie.kt`, een `AnActionListener` met een teller). Reden: dat volgt hoe de IDE echt werkt, en als het ooit misgaat komt er geen melding in plaats van een ongevraagde verkoopmelding. `isZweven` weg. Voor de proef het officiële JetBrains-voorbeeld (`RegisterPlugins`, anders `Register`, met code PBISONFLEX), terugval browser.
+- **Uitkomst:** 59 unittests groen (GEZIEN door bouwer en controleur), IDE-run 42394756687 groen in licht en donker. Log: zweven in calc.y geeft de onderstreping van de IDE (zweven komt dus aan), zweven over NUM in calc.l vóór de eerste Ctrl+B en na de balloon: melding false, hints 0; Ctrl+B geeft daarna wel de balloon en de tweede de hint (GEZIEN).
+- **Nakijken:** controleur akkoord ja, geen moet-punten. Gewijzigde bestaande tests (ProTest, ProZwevenTest) apart bekeken: verwachtingen gelijk; `testZwevenHerkend` terecht weg met `isZweven`. Teller kan niet blijven hangen (`fireAfterActionPerformed` komt altijd, GEZIEN in de IDE-bron). Kan-punten op de takenlijst. Samengevoegd met main.
+- **Niet zelf gedaan:** de schermen niet zelf bekeken; de bouwer zag de lichte, het uiterlijk is niet veranderd. Daan kijkt.
+- **Afgesloten om ±17:25 UTC.**
