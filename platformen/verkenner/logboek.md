@@ -131,3 +131,7 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 7 correcties verwerkt (Gambit is geen nieuwe maker, Nox krap, 100+ als GOK erbij, Forge-gebruikers installeren meer, Patreon valt onder de officiële regels, regel geldt bij elke update, ja bij Thijs eerst een 6).
 - GitHub-downloadtellers van modules waren de betere bereikmeting, maar geven hier 403 voor repo's buiten Dortus.
 - Volgende run: een nieuw platform uit kandidaten.md.
+- Tweede platform: Fantasy Grounds Forge, zelf toegevoegd (de andere tafelsoftware naast Foundry, met een eigen betaalde winkel). De winkeltabel is openbaar met een token uit de pagina: alle 3.189 items met prijs, datum en abonnees.
+- Gemeten: betaalde extensies mei tot aug 2026 mediaan 15 kopers bij $3, gratis mediaan 69. Melborne ±$1.660 bruto per maand en Henix ±$750, maar Melborne heeft waarschijnlijk een account sinds 2022 (controleur, via makersnummer).
+- Beslissing: nee voor nu, cijfer 4 (eerst 5). Reden: kleine markt (44 makers ooit), lage bedragen per extensie, maar één aantoonbaar nieuwe maker boven $300, en de afdracht is niet openbaar.
+- Controleur akkoord, 6 correcties verwerkt (prijs in gold, cadeaus tellen mee, afdracht alleen in de Crafter Agreement, AI-regel voor omzetters gevonden, Melborne niet nieuw, cijfer omlaag).
