@@ -14,6 +14,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Blender geld (taak Hans 6 nov): klaar 7 nov run 10:31, eigen meting op Superhive (verkooptellers op 3.166 pagina's), nu ja (cijfer 7), zie voorstellen/blender.md. Herhaalmeting over 4 weken met data/superhive-haal-script.py
 - Foundry VTT (modules, betaald via de Patreon-koppeling van Foundry), zelf toegevoegd 7 nov: klaar 7 nov run 11:31, eigen meting van 9.360 modules via de Forge Bazaar en 23 Patreon-makers, nog niet klaar (cijfer 6), zie voorstellen/foundry-vtt.md. Hangt af van Thijs (AI-regels van Foundry, zie lijst Thijs)
 - Fantasy Grounds Forge (betaalde extensies voor de tafelsoftware Fantasy Grounds), zelf toegevoegd 7 nov: klaar 7 nov run 11:31, eigen meting van 3.189 items, nee voor nu (cijfer 4), zie voorstellen/fantasy-grounds-forge.md. Herhaalmeting met data/fgforge-haal-script.sh
+- Google Workspace Marketplace (add-ons voor Sheets, Docs, Gmail), opnieuw: op 6 nov niet te meten, nu met curl leesbaar. in onderzoek 7 nov 12:40 UTC
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
