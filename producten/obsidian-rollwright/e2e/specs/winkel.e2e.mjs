@@ -79,14 +79,14 @@ describe("Rollwright: winkelplaatjes", function () {
 		await browser.executeObsidian(({ app }) => app.workspace.leftSplit?.collapse());
 		// Inline titel uit: anders staat de titel twee keer in beeld (bestandsnaam en de kop in de notitie).
 		await browser.executeObsidian(({ app }) => app.vault.setConfig("showInlineTitle", false));
-		// Statusbalk weg (het rode Sync-icoon leest als een fout) en een lager venster, zodat er weinig leeg wit is (Daan W2, W3).
+		// Statusbalk weg: het rode Sync-icoon leest als een fout (Daan W3).
+		// browser.setWindowSize werkt niet in Obsidian (Electron: Browser.getWindowForTarget onbekend, run 42373505254).
 		await browser.execute(() => {
 			const s = document.createElement("style");
 			s.id = "winkel-stijl";
 			s.textContent = ".status-bar { display: none !important; }";
 			document.head.appendChild(s);
 		});
-		await browser.setWindowSize(1024, 600);
 	});
 
 	after(async function () {
