@@ -58,6 +58,7 @@ intellijPlatformTesting.testIdeUi.register("integrationTest") {
         dependsOn(tasks.buildPlugin)
         systemProperty("path.to.build.plugin", tasks.buildPlugin.get().archiveFile.get().asFile.absolutePath)
         systemProperty("dortus.e2e.project", layout.projectDirectory.dir("e2e/project").asFile.absolutePath)
+        systemProperty("dortus.e2e.winkelproject", layout.projectDirectory.dir("e2e/calculator").asFile.absolutePath)
         systemProperty("dortus.e2e.screenshots", layout.projectDirectory.dir("e2e/screenshots").asFile.absolutePath)
         testLogging { events("passed", "failed", "skipped", "standard_out", "standard_error"); showStandardStreams = true }
     }
