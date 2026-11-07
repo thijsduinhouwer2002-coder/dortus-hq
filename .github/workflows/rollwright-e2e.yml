@@ -2,7 +2,7 @@ name: Rollwright e2e (echte Obsidian)
 
 on:
   push:
-    branches: [main]
+    branches: [main, "claude/obsidian-*"]
     paths: ["producten/obsidian-rollwright/**", ".github/workflows/rollwright-e2e.yml"]
   workflow_dispatch:
 
