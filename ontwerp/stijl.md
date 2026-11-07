@@ -1,10 +1,18 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 7, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 8, 7 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
-Een Dortus-product voelt alsof het altijd al bij de app hoorde: rustig, duidelijk, en het doet wat je verwacht bij de eerste klik.
+Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopslag herkent, het is leuk om op te klikken, en het werkt in elk thema alsof het er altijd al hoorde. (Versie 8: de oude zin "rustig, past bij de app" was de ondergrens, niet het doel. Zie "De lat" in `organisatie/rollen/ontwerper.md`.)
+
+## Eigen gezicht (sinds versie 8)
+
+- Elk product heeft één sterk eigen element dat overal terugkomt: in de app, in de winkelplaatjes, op de poster. Bij Rollwright het token met de d20.
+- Het eigen gezicht bouwen we op de kleuren van het thema: verloop en randen met `color-mix()` van de accentkleur over de achtergrond, en de kleuren `--color-yellow`, `--color-red` van het thema voor bijzondere momenten. Zo is het eigen, en toch leesbaar in licht, donker en elk thema.
+- Een eigen icoon of teken mag (als CSS-masker of SVG die de themakleur volgt). Een eigen lettertype laden nog steeds niet.
+- Bewegingen: kort (onder de halve seconde), alleen na een klik van de gebruiker, nooit bij openen, nooit herhalend, en uit bij `prefers-reduced-motion`. Een beweging vertelt iets (de worp rolt, een 20 licht op), anders laten we hem weg.
+- De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?
 
 ## Uiterlijk in een app (Obsidian, JetBrains)
 
@@ -12,14 +20,14 @@ Altijd:
 - De kleuren, letters, randen en afstanden van het platform. In Obsidian alleen CSS-variabelen (`--background-secondary`, `--text-normal`, `--interactive-accent`, `--size-4-2`, `--radius-s` en zo). Zo werkt het vanzelf in licht, donker en elk thema.
 - De gewone onderdelen van het platform: `Setting` voor instellingen, `setHeading()` voor kopjes, `Notice` voor korte meldingen, `Modal` voor een vraag, de ingebouwde iconen (Lucide in Obsidian).
 - Getest in licht, donker en minstens 3 populaire thema's (Minimal, AnuPpuccin, Things, Border) en in een smal venster.
-- Eén accentkleur, die van het platform. Een icoon mag die kleur hebben, tekst niet.
+- Eén accentkleur, die van het platform. Een icoon mag die kleur hebben, gewone tekst niet (een korte naam in kleine hoofdletters, zoals in het logboek, mag gemengd met de tekstkleur).
 - Alles werkt met alleen het toetsenbord, en elke knop zonder tekst heeft een naam (tooltip of `aria-label`).
 - In Obsidian zowel de leesweergave als Live Preview bekijken. Ze moeten er hetzelfde uitzien. Live Preview zet `white-space: pre-wrap` op de regel: wat je erin rendert krijgt `white-space: normal`, anders worden regeleinden lege regels.
 - Een knop om te kopen is een gewone knop met de prijs erop ("Buy for $6"), geen opvallende accentknop.
 
 Nooit:
 - Vaste kleuren in de gratis versie. Vaste kleuren mogen alleen in een betaalde skin die de gebruiker zelf kiest, en die moet in licht en donker leesbaar zijn.
-- Eigen lettertypes laden, schaduwen of bewegingen die aandacht trekken.
+- Eigen lettertypes laden. Schaduwen en bewegingen zonder betekenis, of die blijven bewegen (versie 8: korte bewegingen na een klik en een zachte gloed mogen wel, zie "Eigen gezicht").
 - Knipperen of verspringen: een uitkomst die verandert, verandert op zijn plek, de regel eromheen schuift niet.
 
 ## Teksten
@@ -49,7 +57,8 @@ Nooit:
 
 ## Winkelpagina's en dortus.com
 
-- De eerste schermafbeelding laat in één oogopslag zien wat het doet: het product in gebruik, in een gewone notitie of editor, met echte voorbeeldinhoud. Geen logo of tekstplaat als eerste plaatje.
+- Het eerste lijstplaatje is een poster (versie 8, bericht Thijs 22:10): een korte kop van hoogstens zes woorden, het product groot en mooi in beeld in echt gebruik, het eigen teken als enig logo. Geen kale schermafbeelding van een witte notitie, geen tekstplaat zonder product.
+- In de README een korte bewegende GIF (±5 seconden) bovenaan die het mooiste moment laat zien.
 - Schermafbeeldingen in het standaardthema, licht en donker allebei, scherp (factor 2), zonder persoonlijke bestanden in beeld.
 - Het eerste plaatje toont ook wat je typt, niet alleen de uitkomst: "dit typ je, dit krijg je" (bijvoorbeeld één regel met de code naast regels met de uitkomst).
 - Geen lege helft: venster laag genoeg of bijsnijden tot de inhoud. Geen rand of balk van het testscherm in beeld.
@@ -63,7 +72,14 @@ Nooit:
 - Persoonlijk, één keer per pagina: de regel "Made by Thijs at [Dortus](https://dortus.com)" bovenaan de winkelpagina, in de zin over voor wie het is ("Made by Thijs at Dortus for game masters ..."). Niet in de app zelf, geen foto, geen verhaal: één regel is genoeg.
 - Opbouw van een README als winkelpagina: één zin wat het doet, het eerste plaatje, de regel "Made by Thijs ...", "What you can do" (hoogstens zes punten), een tweede plaatje, "Quick start" in drie stappen, de prijs in één zin. Daaronder "Full reference" met kopjes, dan Paid, Privacy, Support, License.
 
-## Voorbeelden die we volgen (best beoordeelde plugins in Obsidian)
+## Voorbeelden die we volgen
+
+Versie 8, wat ik overneem en waarom:
+- **Fantasy Statblocks** (Obsidian, 371.393 downloads, DERDEN): je herkent het meteen aan het monsterblok uit het spelersboek. Overnemen: een eigen herkenbaar teken en kleine hoofdletters voor namen. Waarom: herkenbaar zijn is wat ons nu ontbreekt.
+- **Dice So Nice (Foundry) en D&D Beyond**: rollen voelt echt en een crit is een feestje. Overnemen: het moment, klein en snel in de tekst. Niet: 3D en wachten.
+- **Things 3 en Linear**: elke klik geeft een kleine fijne reactie, niets beweegt zonder reden. Overnemen: indrukken, landen, nooit herhalen.
+
+Eerder:
 
 - **Dice Roller** (de voorganger van Rollwright): een uitkomst staat klein en rustig in de tekst, een klik rolt opnieuw. Dat overnemen: de gebruiker kent het al.
 - **Tasks, Calendar, Style Settings**: gebruiken alleen variabelen van Obsidian en zien er daardoor in elk thema goed uit. Dat is onze norm.
