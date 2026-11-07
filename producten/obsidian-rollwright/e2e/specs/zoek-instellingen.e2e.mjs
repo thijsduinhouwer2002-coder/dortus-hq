@@ -7,7 +7,8 @@ import * as fs from "fs";
 // zodat het log laat zien hoe Obsidian het zoeken toont.
 // klikWorp uit klik-hulp.mjs past hier niet (die klikt worpen in een notitie); hier klikt wdio echt.
 const SHOTS = "screenshots";
-const MODAL = ".modal.mod-settings";
+// Het venster van de instellingen; openInstellingen zet dit merkteken op app.setting.modalEl.
+const MODAL = "[data-e2e-modal]";
 // Per zoekterm een stukje van de uitleg van de regel, zodat we weten dat het de regel van Rollwright is.
 const TERMEN = [
 	{ term: "Default die", uitleg: "number of sides" },
@@ -16,16 +17,20 @@ const TERMEN = [
 ];
 
 async function openInstellingen(tab) {
-	await browser.executeObsidian(({ app }, tab) => {
+	const venster = await browser.executeObsidian(({ app }, tab) => {
 		app.setting.open();
 		app.setting.openTabById(tab);
+		const el = app.setting.modalEl ?? app.setting.containerEl;
+		el?.setAttribute("data-e2e-modal", "1");
+		return { klasse: el?.className ?? null, ouder: el?.parentElement?.className ?? null };
 	}, tab);
+	console.log("INSTELLINGENVENSTER:", JSON.stringify(venster));
 	await browser.$(MODAL).waitForDisplayed({ timeout: 10000, timeoutMsg: "het instellingenvenster ging niet open" });
 }
 
 async function sluitInstellingen() {
-	await browser.executeObsidian(({ app }) => app.setting.close());
-	await browser.waitUntil(async () => !(await browser.$(MODAL).isExisting()), { timeout: 10000, timeoutMsg: "het instellingenvenster bleef open" });
+	await browser.executeObsidian(({ app }) => { app.setting.close(); });
+	await browser.waitUntil(async () => !(await browser.$(MODAL).isDisplayed()), { timeout: 10000, timeoutMsg: "het instellingenvenster bleef open" });
 }
 
 async function actieveTab() {
@@ -141,7 +146,7 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 	});
 
 	after(async function () {
-		await browser.executeObsidian(({ app }) => app.setting.close());
+		await browser.executeObsidian(({ app }) => { app.setting.close(); });
 	});
 
 	it("typen in het zoekveld vindt Default die, Skin en License key van Rollwright", async function () {
@@ -231,7 +236,7 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 	it("naam en uitleg staan er maar één keer in de Rollwright-tab", async function () {
 		await vindZoekveld();
 		await zoek("");
-		await browser.executeObsidian(({ app }) => app.setting.openTabById("rollwright"));
+		await browser.executeObsidian(({ app }) => { app.setting.openTabById("rollwright"); });
 		await markeerVeld("Default die");
 		for (const [naam, uitleg] of [["Default die", "number of sides"], ["Skin", "All rolling is free"], ["License key", "once every 30 days"]]) {
 			const s = await tabStaat(naam, uitleg);
