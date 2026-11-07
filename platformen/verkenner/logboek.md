@@ -337,3 +337,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 1. Reden: geen geld en geen bereik voor betaald, 50% commissie, krimpende markt.
 - Controleur akkoord: steekproef 25 van 25 gelijk, cijfers nagerekend, lichting compleet. Correctie verwerkt: commissie is 50% tot $700 per maand (niet 20%).
 - Les: als ID's oplopen met de datum, kun je een hele lichting compleet ophalen zonder lijst of sitemap. Eerst een probe met grote stap om het bereik te vinden.
+- Tweede stuk: BOOTH (booth.pm), Unity- en VRChat-tools, zelf toegevoegd. Reden: de 3D-categorie van BOOTH groeit hard (¥10,4 miljard in 2025) en kleine makers verkopen er code (editortools). Gemeten: alle 1.920 tools uit de categorielijst van 11 mei t/m 30 sep via de open JSON per item.
+- Uitkomst: betaalde tools mediaan 40 likes, 30% 100+, 10,5% 500+. Geen verkoopteller; via één paper (36% van likes koopt) geschat ±14 verkopen voor de middelste tool.
+- Beslissing: nog niet klaar, cijfer 6. Reden: beste bereik plus geldsignaal voor code tot nu toe naast Blender, maar uitbetaling buiten Japan en Engelstalig succes nog onbekend.
+- Controleur akkoord: 20 van 20 gelijk, lichting compleet, cijfers nagerekend. Correcties verwerkt: 500+ is 10,5%, lilSSRT vanaf ¥500, 取扱高 is verkoopvolume van de hele 3D-categorie, script telt nu de laagste prijs.
+- Voor Hans: BOOTH is het eerste nieuwe platform met een 6 sinds Steam bureaublad-apps. Volgende run kan de drie open punten meten.
