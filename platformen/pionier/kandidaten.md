@@ -16,6 +16,8 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 - Godot Asset Store: klaar 7 nov, cijfer 6 (ja, kleine inzet), zie onderzocht.md
 - Framer (plugins)
 
+- Hytale (mods en serverplugins via CurseForge, early access sinds jan 2026): in onderzoek 7 nov 23:45 UTC (Noor)
+
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
