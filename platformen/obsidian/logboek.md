@@ -233,3 +233,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gevonden:** de plaatjes op tak `schermen` zijn testplaatjes met Nederlandse testnotities en een volle bestandenlijst; niet geschikt voor README of winkel.
 **Beslissing:** winkelplaatjes maken met een eigen e2e-spec met een Engelse demonotitie, als eerste stap van de lancering. Waarom: zo blijven ze bij elke versie vanzelf actueel, en Daan kan ze keuren voordat ze naar buiten gaan.
 **Beslissing:** run gestopt om ±11:47. Waarom: ±45 minuten werktijd op (gestart 11:13).
+
+## 7 nov 2026, 11:40 tot 11:51: winkelplaatjes (eerste versie, op een tak)
+**Let op:** in het blok hierboven staat "11:47"; volgens de klok van de omgeving was dat 11:40. Deze run liep van 11:13 tot ±11:51.
+**Gedaan:** op tak `claude/obsidian-2026-11-07-n` een spec `winkel.e2e.mjs` met een Engelse demonotitie (`Demo/Session 12.md`, tabel, lijsten in `Demo/Encounters.md`), linker zijpaneel dicht, plaatjes in licht en donker van lezen, Live Preview en de geschiedenis. Run 42369215820 rood: na het openen van het paneel was het paneel actief, dus de klikken vonden geen worpen. Gerepareerd (notitie weer actief). Run 42369543807 groen (GEZIEN). Plaatje bekeken: netjes, maar dubbele titel (inline titel en H1) en de geschiedenis toont `1d20 + 4|text(Perception)` en `[[Demo/Encounters^road]]`.
+**Beslissing:** niet samengevoegd. Waarom: geen controleur meer in deze run, en Daan moet de plaatjes eerst zien; ook is het beter eerst Daan punt 6 en 9 te repareren, zodat de geschiedenis op de winkelplaatjes geen ruwe code toont.
+**Beslissing:** run gestopt om ±11:51. Waarom: ±40 minuten werktijd op, volgende run begint schoon.
