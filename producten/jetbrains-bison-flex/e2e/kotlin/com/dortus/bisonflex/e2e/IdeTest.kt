@@ -165,8 +165,8 @@ class IdeTest {
 
     /**
      * Kleurenpagina (Daan punt 2): Settings openen zonder te wachten (een modale dialoog blokkeert anders de Driver),
-     * zoeken op "Bison/Yacc" en een scherm maken. Mislukt het, dan staat dat in het log en gaat de test door,
-     * want de bestandssoorten en de andere schermen zijn dan al getoetst.
+     * wachten tot de dialoog actief is, zoeken op "Bison/Yacc" en een scherm maken. Mislukt het, dan staat de reden
+     * in het log en faalt de test (pas hier, dus de bestandssoorten en de andere schermen zijn dan al getoetst).
      */
     private fun Driver.kleurenpagina(naam: String) {
         val ideVenster = actiefVenster()
