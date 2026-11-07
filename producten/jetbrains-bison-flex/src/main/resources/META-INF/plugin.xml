@@ -4,7 +4,7 @@
     <vendor email="support@dortus.com" url="https://dortus.com">Dortus</vendor>
     <description><![CDATA[
     Language support for Bison/Yacc grammars (<code>.y</code>, <code>.yy</code>) and
-    Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early skeleton: file type recognition.
+    Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early version: file types and syntax highlighting with your color scheme.
     ]]></description>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
@@ -14,5 +14,11 @@
                   language="BisonFlex.Flex" extensions="l;ll"/>
         <lang.parserDefinition language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonParserDefinition"/>
         <lang.parserDefinition language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonHighlighterFactory"/>
+        <lang.syntaxHighlighterFactory language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexHighlighterFactory"/>
+        <colorSettingsPage implementation="com.dortus.bisonflex.BisonKleurenPagina"/>
+        <colorSettingsPage implementation="com.dortus.bisonflex.FlexKleurenPagina"/>
+        <lang.commenter language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonCommenter"/>
+        <lang.commenter language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexCommenter"/>
     </extensions>
 </idea-plugin>
