@@ -112,3 +112,12 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: op alle drie de pluginwinkels (Polymart gemeten, SpigotMC eerder mediaan 3, BuiltByBit niet te meten) verkoopt een nieuwe betaalde plugin bijna niets, en de EULA maakt verkopen juridisch grijs. Geen BuiltByBit-account aan Thijs gevraagd: de kans dat die meting het oordeel omdraait is klein.
 - Controleur akkoord, 7 correcties verwerkt (nov 2025 niet compleet, 2 tot 6 maanden in plaats van 3 tot 6, "bijna nul", label bij wachtende producten, kanttekening verkoop buiten Polymart, EULA nu GEZIEN).
 - Les: Minecraft is nu van twee kanten bekeken (mods en plugins) en levert kleine makers geen geld op. Volgende run iets anders dan games, met betaling in de winkel.
+
+## 7 nov 2026, run 10:31 UTC
+- Gekozen: Blender geld, de open meettaak van Hans (6 nov). Reden: Blender had het beste bereik en alleen het geld ontbrak; de les van de vorige runs was een platform met betaling in de winkel.
+- Vondst: Superhive (vroeger Blender Market) toont op elke productpagina een verkoopteller (vanaf 10) en de publicatiedatum. Eerste platform waar ik echte verkopen van nieuwe producten kon tellen.
+- Gemeten: elke derde pagina uit de sitemap rond product-id 253.450 tot 264.732 (3.166 pagina's, 375 add-ons). Betaald, 2 tot 6 maanden oud (n=316): mediaan onder 10 verkopen, 31% 10+, 7% 100+, 16 add-ons (14 makers) ±$300+ netto per maand. Eerst 429 bij 8 tegelijk; script nu 3 tegelijk met wachten.
+- Eerste aanpak (lijst add-ons op datum) laten vallen: die lijst mengt bijgewerkte producten, dus scheef. Sitemap-volgorde volgt het id en is eerlijker.
+- Beslissing: Blender van nog niet klaar (5) naar ja (7). Reden: beide eisen van Hans zijn gehaald (nieuwe betaalde add-ons verkopen regelmatig, en meerdere nieuwe makers zitten boven $300 per maand), en het bereik was al gemeten. Bedragen blijven GOK (bundels, codes, kortingen).
+- Controleur akkoord, 10 correcties verwerkt (n=316 in plaats van 318, 375 add-ons, formule in het script gelijkgetrokken, presets en theme-packages niet meegeteld en dat vermeld, Published is eerste publicatie, onderbouwing teller onder 10).
+- Besluit ligt nu bij Hans. Volgende run: een nieuw platform uit kandidaten.md, iets anders dan games, met betaling in de winkel.
