@@ -13,12 +13,12 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
 | Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01VP8z743ECxNPJPgtJMVHXv` |
-| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
-| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 8-23 * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
-| Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_01LiHp8xxFjbsBTWLdzuh8Pq` |
-| Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 8-19 * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
-| Bram - Blender-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 7 8-19 * * *` | nee | `trig_014wDJpubVbsB8252j9bGNbR` |
-| Chris - Commercieel manager (elk uur) | `CRON_TZ=Europe/Amsterdam 41 8-19 * * *` | nee | `trig_01W9AGqc6kBY8tGjpW6VJwmz` |
+| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 * * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
+| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 * * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
+| Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 * * * *` | nee | `trig_01LiHp8xxFjbsBTWLdzuh8Pq` |
+| Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 * * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
+| Bram - Blender-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 7 * * * *` | nee | `trig_014wDJpubVbsB8252j9bGNbR` |
+| Chris - Commercieel manager (elk uur) | `CRON_TZ=Europe/Amsterdam 41 * * * *` | nee | `trig_01W9AGqc6kBY8tGjpW6VJwmz` |
 | Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01RYimfyjiEesovpGn7QWTJ6` |
 
 Oude ID's (gedeelde account, uitzetten door Thijs zodra het nieuwe account draait): Stijn `trig_01GVRZ6ps5DDFUnHg5RiGFfx`, Olaf `trig_01T1XNp126J7b2t2yWMuVfFF`, Vera `trig_01PbhUSrzuYkqnrhyERdxanT`, Jet `trig_018F9xQW4CXh94qTuafJRpG1`, Daan `trig_011qyuhTgtDkUtDLmkfqrjGq`, Bram `trig_01U988qZAiyERjYi6DWEayfw`, Chris `trig_018P1UU92oKaFFSBao5KRhQf`, Hans `trig_01D9bZyynavT2KcF1B6pGVs9`.
@@ -41,7 +41,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 
 ## Olaf - Obsidian-manager (elk uur)
 
-Schema: `CRON_TZ=Europe/Amsterdam 13 8-19 * * *`. Melding: nee.
+Schema: `CRON_TZ=Europe/Amsterdam 13 * * * *`. Melding: nee.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus) en voor de openbare plugin-repo rollwright (owner thijsduinhouwer2002-coder, repo rollwright), maar alleen als je ze deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
@@ -57,7 +57,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 
 ## Vera - Verkenner (elk uur, tot middernacht)
 
-Schema: `CRON_TZ=Europe/Amsterdam 31 8-23 * * *`. Melding: nee.
+Schema: `CRON_TZ=Europe/Amsterdam 31 * * * *`. Melding: nee.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
@@ -75,7 +75,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 
 ## Jet - JetBrains-manager (elk uur)
 
-Schema: `CRON_TZ=Europe/Amsterdam 52 8-19 * * *`. Melding: nee.
+Schema: `CRON_TZ=Europe/Amsterdam 52 * * * *`. Melding: nee.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus), maar alleen als je hem deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
@@ -91,7 +91,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 
 ## Daan - Ontwerper (elk uur)
 
-Schema: `CRON_TZ=Europe/Amsterdam 23 8-19 * * *`. Melding: nee.
+Schema: `CRON_TZ=Europe/Amsterdam 23 * * * *`. Melding: nee.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus), maar alleen als je hem deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
@@ -109,7 +109,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 
 ## Bram - Blender-manager (elk uur), aangemaakt 7 nov 21:44, `trig_01U988qZAiyERjYi6DWEayfw`
 
-Schema: `CRON_TZ=Europe/Amsterdam 7 8-19 * * *`. Melding: nee. Hans probeerde hem 7 nov aan te maken, geweigerd (zie lijst Thijs).
+Schema: `CRON_TZ=Europe/Amsterdam 7 * * * *`. Melding: nee. Hans probeerde hem 7 nov aan te maken, geweigerd (zie lijst Thijs).
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus), maar alleen als je hem deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
@@ -130,7 +130,7 @@ Schema: `CRON_TZ=Europe/Amsterdam 44 20 * * *`. Melding: ja, op Thijs' telefoon.
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus) als je moet controleren wat de ploeg daar heeft gezet. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet het volledige rapport in je eindantwoord.
 
-Je bent Hans, de hoofdmanager van Dortus. Je berichtenbestand is berichten/hans.md: lees dat als eerste. Lees in dortus-hq CLAUDE.md, organisatie/doelen.md, organisatie/regels.md en organisatie/rollen/hoofdmanager.md, en volg de rol precies. Je draait aan het eind van de werkdag. Schrijf het dagrapport met de datum van vandaag in rapporten/. Controleer per manager (Obsidian, JetBrains en de verkenner draaien elk uur van 08:00 tot 20:00) of hij vandaag echt iets heeft opgeslagen, met git log en GitHub. De status "geslaagd" van een taak zegt niets. Mist een manager zijn opslag, meld dat dan bovenaan onder Problemen. Kijk ook of managers rondjes draaien: veel runs, weinig vooruitgang. Controleer in de website-repo dat de ploeg alleen in eigen productmappen werkt en niets bestaands heeft veranderd.
+Je bent Hans, de hoofdmanager van Dortus. Je berichtenbestand is berichten/hans.md: lees dat als eerste. Lees in dortus-hq CLAUDE.md, organisatie/doelen.md, organisatie/regels.md en organisatie/rollen/hoofdmanager.md, en volg de rol precies. Je draait aan het eind van de werkdag. Schrijf het dagrapport met de datum van vandaag in rapporten/. Controleer per manager (alle managers draaien sinds 8 nov elk uur, de klok rond) of hij vandaag echt iets heeft opgeslagen, met git log en GitHub. De status "geslaagd" van een taak zegt niets. Mist een manager zijn opslag, meld dat dan bovenaan onder Problemen. Kijk ook of managers rondjes draaien: veel runs, weinig vooruitgang. Controleer in de website-repo dat de ploeg alleen in eigen productmappen werkt en niets bestaands heeft veranderd.
 
 Nieuwe platformen zijn nu de hoofdzaak: de verkenner levert elke dag meerdere voorstellen. Beoordeel ze volgens je rol: een cijfer van 1 tot 10, een 7 is top en een 6 is het serieus waard, een perfect platform bestaat niet, schiet niet te snel af en kom niet zonder nieuw feit terug op een besluit. Is een platform top, zeg dan ja en zet de nieuwe manager op. Zet in het rapport een korte ranglijst van alle onderzochte platformen met hun cijfer. Let ook op voorstellen die al eerder ja kregen van de verkenner maar nog geen besluit hebben, zoals Blender. Vraag Thijs niets, behalve via de regels.
 
@@ -143,7 +143,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes. Kort: Thijs m
 
 ## Chris - Commercieel manager (elk uur), aangemaakt 7 nov 21:44, `trig_018P1UU92oKaFFSBao5KRhQf` (opdracht plus de curl-zin)
 
-Schema: `CRON_TZ=Europe/Amsterdam 41 8-19 * * *`. Melding: nee. Hans maakt deze taak aan bij de eerste lancering.
+Schema: `CRON_TZ=Europe/Amsterdam 41 * * * *`. Melding: nee. Hans maakt deze taak aan bij de eerste lancering.
 
 ```text
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus), maar alleen als je hem deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
