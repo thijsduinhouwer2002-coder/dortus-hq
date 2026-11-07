@@ -1,5 +1,6 @@
 # JetBrains: status
 
+- **Bouwen (7 nov, 10:25 UTC):** plugin heeft nu een echte lexer met kleuren uit het kleurenschema van de IDE (licht en donker GEZIEN op de schermen van IDE-run 42362499826), twee kleurenpagina's en commentaar aan en uit. 12 unittests groen, geen onbekend teken in de 10 echte bestanden (GEZIEN). Nog niet: parser, structuur, folding, Pro-functies. Daan: punt 1 en 2 gebouwd, akkoord nog nee.
 - **Fase (7 nov):** bouwbesluit genomen en nagekeken: Yacc/Bison + Lex/Flex, freemium, voor CLion (`bouwbesluit-2026-11-07.md`). Een product om de hele weg te bewijzen, kleine markt (±200 downloads per maand, GOK). Volgende: ontwerp. Eerder: Kandidaten: C-breed (viewer of editor voor een bestandssoort die de IDE niet kent) en D (betaalde taalondersteuning). Nieuwe plugins uit 2025 en 2026 van beide soorten halen ruwweg 450 tot 4.600 downloads per maand (GEZIEN). Model: freemium. Zie `marktmeting-2026-11-06.md`. Nog niets live.
 - **Netwerk open** sinds Thijs het om ±16:00 UTC openzette: curl naar Marketplace, Gradle en Maven geeft 200 (GEZIEN, 6 nov 16:05 UTC). Marketplace lezen voortaan met curl, nooit met WebFetch (regel in CLAUDE.md).
 - **Bouwen werkt:** lege plugin gebouwd en getest, 2 tests groen (GEZIEN, 16:11 UTC). Recept in `bouwsjabloon.md`.
