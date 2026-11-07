@@ -41,12 +41,8 @@ async function meet(view) {
 				const lis = Array.from(value?.querySelectorAll("li") ?? []);
 				const rect = r.getBoundingClientRect();
 				const icoon = r.querySelector(".rollwright-icon")?.getBoundingClientRect();
-				// De eerstvolgende tekstregel onder het blok, buiten elke worp.
-				const volgende = Array.from(root.querySelectorAll("p, .cm-line"))
-					.filter((el) => !el.closest(".rollwright-roll") && !el.querySelector(".rollwright-roll") && (el.textContent ?? "").trim() !== "")
-					.map((el) => el.getBoundingClientRect().top)
-					.filter((top) => top >= rect.bottom - 2)
-					.sort((a, b) => a - b)[0];
+				// Het ouderelement: in lezen de <p>, in Live Preview de .cm-line.
+				const ouder = r.parentElement?.closest("p, li, .cm-line")?.getBoundingClientRect();
 				return {
 					tekst: (r.textContent ?? "").trim(),
 					oud: value?.getAttribute("data-e2e-oud") === "1",
@@ -58,7 +54,9 @@ async function meet(view) {
 					breedte: Math.round(rect.width),
 					hoogte: Math.round(rect.height),
 					icoonBoven: icoon ? Math.round(icoon.top - rect.top) : null,
-					ruimteOnder: volgende === undefined ? null : Math.round(volgende - rect.bottom),
+					// Ruimte in het ouderelement onder het blok (een label ervoor telt niet mee).
+					ruimteOnder: ouder ? Math.round(ouder.bottom - rect.bottom) : null,
+					ouderHoogte: ouder ? Math.round(ouder.height) : null,
 					kop: kop ? { grootte: getComputedStyle(kop).fontSize, gewicht: getComputedStyle(kop).fontWeight, margeBoven: getComputedStyle(kop).marginTop } : null,
 					lijst: lis.map((li) => ({
 						stijl: getComputedStyle(li).listStyleType,
@@ -112,7 +110,9 @@ function check(gemeten, wat) {
 
 	const kop = rolls[KOP];
 	expect(kop.blok).toBe(true);
-	expect(kop.display).toBe("flex");
+	// In lezen flex, in Live Preview inline-flex (zie styles.css); in beide over de hele breedte.
+	expect(["flex", "inline-flex"]).toContain(kop.display);
+	expect(kop.breedte).toBeGreaterThanOrEqual(gemeten.regelBreedte * 0.9);
 	expect(kop.kop).not.toBe(null);
 	console.log(`${wat}: kop in uitkomst ${kop.kop.grootte} tegen gewone tekst ${tekst}, marge boven ${kop.kop.margeBoven}, gewicht ${kop.kop.gewicht}`);
 	expect(px(kop.kop.grootte)).toBeLessThanOrEqual(px(tekst) + 0.5);
@@ -121,7 +121,8 @@ function check(gemeten, wat) {
 
 	const twee = rolls[TWEE_REGELS];
 	expect(twee.blok).toBe(true);
-	expect(twee.display).toBe("flex");
+	expect(["flex", "inline-flex"]).toContain(twee.display);
+	expect(twee.breedte).toBeGreaterThanOrEqual(gemeten.regelBreedte * 0.9);
 
 	const lijst = rolls[LIJST];
 	expect(lijst.blok).toBe(true);
@@ -193,16 +194,15 @@ function checkIcoon(gemeten, wat) {
 	}
 }
 
-/** Live Preview ziet eruit als lezen: zelfde hoogte (hoogstens 4 px verschil), hoogstens 8 px meer ruimte onder. */
+/** Live Preview ziet eruit als lezen: zelfde hoogte (hoogstens 4 px verschil), en in de .cm-line hoogstens 8 px onder het blok. */
 function vergelijk(lezen, live) {
 	for (const i of BLOKKEN) {
 		const a = lezen.rolls[i];
 		const b = live.rolls[i];
-		console.log(`BLOK ${i} LEZEN TEGEN LIVE PREVIEW: hoogte ${a.hoogte} / ${b.hoogte}, ruimte onder ${a.ruimteOnder} / ${b.ruimteOnder}, tekst ${JSON.stringify(a.tekst)} / ${JSON.stringify(b.tekst)}`);
+		console.log(`BLOK ${i} LEZEN TEGEN LIVE PREVIEW: hoogte ${a.hoogte} / ${b.hoogte}, ouder ${a.ouderHoogte} / ${b.ouderHoogte}, ruimte onder in ouder ${a.ruimteOnder} / ${b.ruimteOnder}, tekst ${JSON.stringify(a.tekst)} / ${JSON.stringify(b.tekst)}`);
 		expect(Math.abs(a.hoogte - b.hoogte)).toBeLessThanOrEqual(4);
-		expect(a.ruimteOnder).not.toBe(null);
 		expect(b.ruimteOnder).not.toBe(null);
-		expect(b.ruimteOnder - a.ruimteOnder).toBeLessThanOrEqual(8);
+		expect(b.ruimteOnder).toBeLessThanOrEqual(8);
 	}
 }
 
