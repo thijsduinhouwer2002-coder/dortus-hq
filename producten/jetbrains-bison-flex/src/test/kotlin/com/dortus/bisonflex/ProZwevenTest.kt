@@ -6,6 +6,7 @@ import com.dortus.bisonflex.pro.LicentieStand
 import com.dortus.bisonflex.pro.ProMelding
 import com.intellij.notification.Notification
 import com.intellij.notification.Notifications
+import com.intellij.testFramework.PlatformTestUtil
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import java.awt.AWTEvent
 import java.awt.event.InputEvent
@@ -30,7 +31,9 @@ class ProZwevenTest : BasePlatformTestCase() {
         })
         Licentie.zetBronVoorTest { LicentieStand.GEEN }
         val map = File(System.getProperty("dortus.testdata")).parentFile.resolve("e2e/project")
-        myFixture.configureByText("calc.y", File(map, "calc.y").readText())
+        // Een doel in een ander bestand (Pro): `return NUM;` in calc.l naar `%token NUM` in calc.y.
+        myFixture.addFileToProject("calc.y", File(map, "calc.y").readText())
+        myFixture.configureByText("calc.l", File(map, "calc.l").readText())
     }
 
     override fun tearDown() {
@@ -45,9 +48,9 @@ class ProZwevenTest : BasePlatformTestCase() {
     private fun muis(id: Int) = MouseEvent(bron, id, 0L, InputEvent.CTRL_DOWN_MASK, 10, 10, 1, false)
     private fun toets(code: Int) = KeyEvent(bron, KeyEvent.KEY_PRESSED, 0L, InputEvent.CTRL_DOWN_MASK, code, KeyEvent.CHAR_UNDEFINED)
 
-    /** Ga naar definitie op `NUM` in `exp: NUM` (een token met een doel), met [e] als huidige gebeurtenis. */
+    /** Ga naar definitie op `NUM` in `return NUM;` (een token in een ander bestand), met [e] als huidige gebeurtenis. */
     private fun probeer(e: AWTEvent?): Int {
-        val offset = myFixture.editor.document.text.indexOf("NUM", myFixture.editor.document.text.indexOf("exp:")) + 1
+        val offset = myFixture.editor.document.text.indexOf("return NUM") + 8
         val doelen = GaNaarDefinitie { e }.getGotoDeclarationTargets(myFixture.file.findElementAt(offset), offset, myFixture.editor)
         return doelen?.size ?: 0
     }
@@ -67,6 +70,15 @@ class ProZwevenTest : BasePlatformTestCase() {
         assertEquals(0, probeer(toets(KeyEvent.VK_CONTROL)))
         assertEquals(0, meldingen.size)
         assertFalse(ProMelding.getInstance().isGetoond())
+    }
+
+    fun testZwevenNaMeldingGeenHint() {
+        assertEquals(0, probeer(toets(KeyEvent.VK_B)))
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertEquals(0, probeer(muis(MouseEvent.MOUSE_MOVED)))
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertEquals(1, meldingen.size)
+        assertEquals(0, ProMelding.getInstance().aantalHints())
     }
 
     fun testNaZwevenGeeftEchteActieWelDeMelding() {

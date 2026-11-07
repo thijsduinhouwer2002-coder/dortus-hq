@@ -10,6 +10,7 @@ import com.intellij.notification.Notification
 import com.intellij.notification.Notifications
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.testFramework.PlatformTestUtil
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import java.io.File
 
@@ -74,14 +75,10 @@ class ProTest : BasePlatformTestCase() {
         assertTrue(f.node.findChildByType(BisonElementen.RULES) != null)
         val bouwer = LanguageFolding.INSTANCE.forLanguage(f.language)
         assertTrue(LanguageFolding.buildFoldingDescriptors(bouwer, f, myFixture.editor.document, false).isNotEmpty())
-        // Twee pogingen: geen sprong, precies één melding.
-        assertEquals(emptyList<PsiElement>(), gaNaar("exp", 0))
-        assertEquals(emptyList<PsiElement>(), gaNaar("NUM", 1))
-        assertEquals(1, meldingen.size)
-        val m = meldingen.single()
-        assertEquals("Bison & Flex Pro", m.title)
-        assertEquals(ProMelding.TEKST, m.content)
-        assertEquals(listOf("Start free trial", "Not now"), m.actions.map { it.templateText })
+        // Twee pogingen binnen hetzelfde bestand: dat is gratis, dus wel een sprong en geen melding.
+        assertEquals(listOf("calc.y:25 RULE_NAME exp"), gaNaar("exp", 0).map(::doel))
+        assertEquals(listOf("calc.y:9 TOKEN_NAME NUM"), gaNaar("NUM", 1).map(::doel))
+        assertEquals(0, meldingen.size)
     }
 
     fun testGeenLicentieOokInFlexEenmaal() {
@@ -90,8 +87,57 @@ class ProTest : BasePlatformTestCase() {
         open("calc.l")
         assertEquals(emptyList<PsiElement>(), gaNaar("NUM"))
         myFixture.configureFromTempProjectFile("calc.y")
-        assertEquals(emptyList<PsiElement>(), gaNaar("exp", 2))
+        assertEquals(listOf("calc.y:25 RULE_NAME exp"), gaNaar("exp", 2).map(::doel))
         assertEquals(1, meldingen.size)
+    }
+
+    // ---- stand GEEN: binnen hetzelfde bestand gratis ----
+
+    fun testGeenSpringtBinnenBestandNaarRegel() {
+        stand(LicentieStand.GEEN)
+        open("calc.y")
+        assertEquals(listOf("calc.y:20 RULE_NAME line"), gaNaar("line", 0).map(::doel))
+        assertEquals(0, meldingen.size)
+        assertFalse(ProMelding.getInstance().isGetoond())
+    }
+
+    fun testGeenSpringtBinnenBestandNaarToken() {
+        stand(LicentieStand.GEEN)
+        open("calc.y")
+        assertEquals(listOf("calc.y:9 TOKEN_NAME NUM"), gaNaar("NUM", 1).map(::doel))
+        assertEquals(0, meldingen.size)
+    }
+
+    fun testGeenSpringtBinnenBestandStartConditie() {
+        stand(LicentieStand.GEEN)
+        myFixture.configureByText("sc.l", START_CONDITIES)
+        assertEquals(listOf("sc.l:1 START_CONDITION_NAME COMMENT"), gaNaar("COMMENT", 2).map(::doel))
+        assertEquals(listOf("sc.l:1 START_CONDITION_NAME STR"), gaNaar("STR", 1).map(::doel))
+        assertEquals(0, meldingen.size)
+    }
+
+    // ---- stand GEEN: tussen bestanden is Pro ----
+
+    fun testGeenTussenBestandenMeldingEenmaalDaarnaHint() {
+        stand(LicentieStand.GEEN)
+        myFixture.addFileToProject("calc.y", File(project, "calc.y").readText())
+        open("calc.l")
+        // Eerste klik: geen sprong, de balloon, geen hint.
+        assertEquals(emptyList<PsiElement>(), gaNaar("NUM"))
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertEquals(1, meldingen.size)
+        val m = meldingen.single()
+        assertEquals("Bison & Flex Pro", m.title)
+        assertEquals(ProMelding.TEKST, m.content)
+        assertEquals(listOf("Start free trial", "Not now"), m.actions.map { it.templateText })
+        assertEquals(0, ProMelding.getInstance().aantalHints())
+        // Tweede en derde klik: geen sprong, geen tweede balloon, wel elke keer de korte hint.
+        assertEquals(emptyList<PsiElement>(), gaNaar("NUM"))
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertEquals(emptyList<PsiElement>(), gaNaar("NUM"))
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertEquals(1, meldingen.size)
+        assertEquals(2, ProMelding.getInstance().aantalHints())
     }
 
     fun testGeenMeldingAlsErGeenDoelIs() {
@@ -129,8 +175,7 @@ class ProTest : BasePlatformTestCase() {
 
     fun testGeldigStartConditie() {
         stand(LicentieStand.GELDIG)
-        val tekst = "%x COMMENT STR\n%%\n\"/*\"  BEGIN(COMMENT);\n<COMMENT>\"*/\"  BEGIN(INITIAL);\n<STR,COMMENT>.  ;\n%%\n"
-        val f = myFixture.configureByText("sc.l", tekst)
+        val f = myFixture.configureByText("sc.l", START_CONDITIES)
         assertNull(com.intellij.psi.util.PsiTreeUtil.findChildOfType(f, com.intellij.psi.PsiErrorElement::class.java))
         assertEquals(listOf("sc.l:1 START_CONDITION_NAME COMMENT"), gaNaar("COMMENT", 2).map(::doel))
         assertEquals(listOf("sc.l:1 START_CONDITION_NAME STR"), gaNaar("STR", 1).map(::doel))
@@ -161,5 +206,10 @@ class ProTest : BasePlatformTestCase() {
         // Zonder nagebootste bron: in de testomgeving is er geen stempel; de stand is ONBEKEND of GEEN, nooit GELDIG.
         Licentie.zetBronVoorTest(null)
         assertTrue(Licentie.stand() != LicentieStand.GELDIG)
+    }
+
+    private companion object {
+        const val START_CONDITIES =
+            "%x COMMENT STR\n%%\n\"/*\"  BEGIN(COMMENT);\n<COMMENT>\"*/\"  BEGIN(INITIAL);\n<STR,COMMENT>.  ;\n%%\n"
     }
 }
