@@ -54,6 +54,7 @@ interface IcoonOpAfstand {
 @Remote("com.dortus.bisonflex.pro.ProMelding", plugin = "com.dortus.bisonflex")
 interface ProMeldingOpAfstand {
     fun isGetoond(): Boolean
+    fun aantalHints(): Int
 }
 
 /**
@@ -176,28 +177,68 @@ class IdeTest {
     }
 
     /**
-     * Pro-melding (Daan punt 3): cursor op `line` in `input line` van calc.y, GotoDeclaration (stand GEEN via de
-     * systeemeigenschap), wachten tot de melding er is en een scherm maken. Lukt de actie via de Driver niet,
-     * dan nog een keer met Ctrl+B via xdotool.
+     * Ga naar definitie in stand GEEN (via de systeemeigenschap), Daan beoordeling 5:
+     * 1. Binnen calc.y is gratis: Ctrl+B op `line` in `input line` springt naar `line:`, zonder melding.
+     * 2. Tussen bestanden is Pro: Ctrl+B op `NUM` in `return NUM;` van calc.l geeft geen sprong maar de balloon
+     *    (scherm `pro-melding`), en een tweede keer de korte hint in de editor (scherm `pro-hint`).
      */
     private fun Driver.proMelding(naam: String) {
-        openFile("calc.y")
         val melding = service<ProMeldingOpAfstand>()
-        cursorOp("input line", 6)
+        openFile("calc.y")
         pauze()
+        val doelRegel = regelVan("\nline:") + 1
+        cursorOp("input line", 6)
+        val voor = cursorRegel()
+        gaNaarDefinitie(naam) { cursorRegel() == doelRegel }
+        val na = cursorRegel()
+        println("DORTUS-E2E [$naam] sprong binnen calc.y: van regel ${voor + 1} naar regel ${na + 1} (verwacht ${doelRegel + 1}, line:), melding getoond ${melding.isGetoond()}")
+        assertEquals(doelRegel, na, "Ctrl+B op line in calc.y springt naar line: ($naam)")
+        assertFalse(melding.isGetoond(), "geen Pro-melding bij een sprong binnen calc.y ($naam)")
+
+        openFile("calc.l")
+        pauze()
+        cursorOp("return NUM", 8)
+        val regelL = cursorRegel()
+        val getoond = gaNaarDefinitie(naam) { melding.isGetoond() }
+        Thread.sleep(2_000)
+        println("DORTUS-E2E [$naam] eerste Ctrl+B op NUM in calc.l: melding getoond $getoond, hints ${melding.aantalHints()}, cursor regel ${cursorRegel() + 1} (was ${regelL + 1})")
+        scherm("$naam-pro-melding.png")
+        assertTrue(getoond, "Pro-melding getoond ($naam)")
+        assertEquals(0, melding.aantalHints(), "geen hint bij de eerste klik ($naam)")
+        assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l ($naam)")
+
+        val hint = gaNaarDefinitie(naam) { melding.aantalHints() >= 1 }
+        Thread.sleep(1_000)
+        println("DORTUS-E2E [$naam] tweede Ctrl+B op NUM in calc.l: hint getoond $hint (hints ${melding.aantalHints()}), cursor regel ${cursorRegel() + 1}")
+        scherm("$naam-pro-hint.png")
+        assertTrue(hint, "korte Pro-hint getoond bij de tweede klik ($naam)")
+        assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l, tweede klik ($naam)")
+    }
+
+    /** GotoDeclaration via de Driver; is [klaar] na 10 s niet waar, dan nog eens met Ctrl+B via xdotool. */
+    private fun Driver.gaNaarDefinitie(naam: String, klaar: () -> Boolean): Boolean {
         try { invokeAction("GotoDeclaration") } catch (e: Throwable) {
             println("DORTUS-E2E [$naam] GotoDeclaration via Driver mislukt: ${e.javaClass.simpleName}: ${e.message?.take(200)}")
         }
-        var getoond = wacht(10) { melding.isGetoond() }
-        println("DORTUS-E2E [$naam] na GotoDeclaration (Driver): melding getoond $getoond")
-        if (!getoond) {
-            toets("ctrl+b")
-            getoond = wacht(10) { melding.isGetoond() }
-            println("DORTUS-E2E [$naam] na Ctrl+B (xdotool): melding getoond $getoond")
+        if (wacht(10) { klaar() }) return true
+        println("DORTUS-E2E [$naam] na GotoDeclaration (Driver) nog niet klaar, nu Ctrl+B (xdotool)")
+        toets("ctrl+b")
+        return wacht(10) { klaar() }
+    }
+
+    /** Regel (vanaf 0) van de cursor in de open editor, of -1. */
+    private fun Driver.cursorRegel(): Int {
+        val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return -1
+        return withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) { editor.getCaretModel().getLogicalPosition().getLine() }
+    }
+
+    /** Regel (vanaf 0) waarop [tekst] begint in de open editor. */
+    private fun Driver.regelVan(tekst: String): Int {
+        val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return -1
+        return withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
+            val d = editor.getDocument()
+            d.getText().substring(0, d.getText().indexOf(tekst)).count { it == '\n' }
         }
-        Thread.sleep(2_000)
-        scherm("$naam-pro-melding.png")
-        assertTrue(getoond, "Pro-melding getoond ($naam)")
     }
 
     private fun wacht(seconden: Int, klaar: () -> Boolean): Boolean {

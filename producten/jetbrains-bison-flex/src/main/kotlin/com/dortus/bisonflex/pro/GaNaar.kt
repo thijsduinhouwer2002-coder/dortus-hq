@@ -28,7 +28,9 @@ import java.awt.event.MouseEvent
  * - Bison: `SYMBOL_REF` naar de `RULE_NAME` van die regel, anders naar de `TOKEN_NAME` (eerst in `%token`).
  * - Flex: `START_CONDITION_REF` naar de `START_CONDITION_NAME` in `%x`/`%s`.
  * - Flex: een naam in een actie (`return NUM;`) naar `%token NUM` in een `.y`/`.yy` van het project.
- * Bij stand GEEN: geen sprong, wel eenmaal per sessie de Pro-melding (alleen als er een doel was).
+ * Springen binnen hetzelfde bestand is gratis (Daan, beoordeling 5 punt 2). Alleen springen naar een ander bestand
+ * (Flex-actie naar `%token` in een `.y`) is Pro. Bij stand GEEN en een doel in een ander bestand: geen sprong,
+ * eenmaal per sessie de Pro-melding, en bij latere klikken een korte hint in de editor in plaats van de IDE-fout.
  */
 class GaNaarDefinitie(
     /** De gebeurtenis die de vraag veroorzaakt; in tests te vervangen. */
@@ -39,23 +41,29 @@ class GaNaarDefinitie(
         val blad = bron?.node ?: return null
         val doelen = doelen(blad, bron.containingFile ?: return null)
         if (doelen.isEmpty()) return null
-        if (!Licentie.proWerkt()) {
-            // Ctrl/Cmd+zweven vraagt ook om doelen: dan geen sprong en geen melding, alleen bij een echte actie.
-            if (!isZweven(gebeurtenis()) && ProMelding.getInstance().toonEenmaal(bron.project)) verbergNietGevonden()
-            return null
-        }
-        return doelen.toTypedArray()
+        val hier = bron.containingFile
+        if (Licentie.proWerkt() || doelen.all { it.containingFile == hier }) return doelen.toTypedArray()
+        // Ctrl/Cmd+zweven vraagt ook om doelen: dan geen sprong en geen melding, alleen bij een echte actie.
+        if (isZweven(gebeurtenis())) return null
+        // Eerste keer de balloon; daarna de korte hint in de editor.
+        verbergNietGevonden(if (ProMelding.getInstance().toonEenmaal(bron.project)) null else editor)
+        return null
     }
 
     /**
      * Zonder doel toont de IDE na deze handler de hint "Cannot find declaration to go to". Die hoort niet naast
      * de Pro-melding. De hint komt op de EDT nadat de actie klaar is; twee keer `invokeLater` (niet-modaal) loopt
-     * daarna en haalt hem weg. De balloon is geen editor-hint en blijft staan.
+     * daarna en haalt hem weg. De balloon is geen editor-hint en blijft staan. Met [hintIn] (latere klikken, balloon
+     * al getoond) komt daarna de korte hint [ProMelding.HINT] in die editor, zodat er nooit een kale fout staat.
      */
-    private fun verbergNietGevonden() {
+    private fun verbergNietGevonden(hintIn: Editor?) {
         val app = ApplicationManager.getApplication()
-        app.invokeLater({ app.invokeLater({ HintManager.getInstance().hideAllHints() }, ModalityState.nonModal()) },
-            ModalityState.nonModal())
+        app.invokeLater({
+            app.invokeLater({
+                HintManager.getInstance().hideAllHints()
+                if (hintIn != null && !hintIn.isDisposed) ProMelding.getInstance().toonHint(hintIn)
+            }, ModalityState.nonModal())
+        }, ModalityState.nonModal())
     }
 
     /** De doelen zonder te letten op de licentie (los te testen). */

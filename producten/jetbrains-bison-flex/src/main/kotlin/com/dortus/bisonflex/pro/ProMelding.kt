@@ -1,22 +1,27 @@
 package com.dortus.bisonflex.pro
 
+import com.intellij.codeInsight.hint.HintManager
 import com.intellij.ide.BrowserUtil
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import org.jetbrains.annotations.TestOnly
 import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * De Pro-melding (Daan punt 3): een gewone balloon, nooit een dialoog, hoogstens één keer per IDE-sessie.
  * De vlag zit in deze application service, dus geldt voor alle projecten samen.
+ * Bij latere klikken (balloon al getoond) een korte informatiehint in de editor, zonder knop.
  */
 @Service(Service.Level.APP)
 class ProMelding {
     private val getoond = AtomicBoolean(false)
+    private val hints = AtomicInteger(0)
 
     /** Toont de melding als dat deze sessie nog niet gebeurd is. Geeft true als hij nu getoond is. */
     fun toonEenmaal(project: Project?): Boolean {
@@ -29,17 +34,31 @@ class ProMelding {
         return true
     }
 
+    /** De korte hint [HINT] in [editor] (op de EDT aanroepen). */
+    fun toonHint(editor: Editor) {
+        hints.incrementAndGet()
+        HintManager.getInstance().showInformationHint(editor, HINT)
+    }
+
     /** Of de melding deze sessie al getoond is (ook gelezen door de IDE-test). */
     fun isGetoond(): Boolean = getoond.get()
 
+    /** Hoe vaak de korte hint deze sessie getoond is (ook gelezen door de IDE-test). */
+    fun aantalHints(): Int = hints.get()
+
     @TestOnly
-    fun opnieuwVoorTest() = getoond.set(false)
+    fun opnieuwVoorTest() {
+        getoond.set(false)
+        hints.set(0)
+    }
 
     companion object {
         /** Zelfde id als `notificationGroup` in plugin.xml. */
         const val GROEP = "Bison & Flex Pro"
         const val TITEL = "Bison & Flex Pro"
         const val TEKST = "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days."
+        /** Korte hint bij latere klikken, zonder knop. */
+        const val HINT = "Go to declaration across grammar and scanner is a Pro feature"
         /** Nog de algemene Marketplace: de id van de pluginpagina is er pas na het indienen (architectuur.md, Open). */
         const val KOOPPAGINA = "https://plugins.jetbrains.com/"
 
