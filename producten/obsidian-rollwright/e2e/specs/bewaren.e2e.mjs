@@ -43,7 +43,7 @@ async function waitForValues(view) {
 async function keptOnDisk() {
 	return browser.executeObsidian(async ({ app }) => {
 		const data = await app.plugins.plugins.rollwright?.loadData();
-		return (data?.keptResults ?? []).length;
+		return (data?.keptResults ?? []).map((k) => (Array.isArray(k) ? String(k[0]) : JSON.stringify(k).slice(0, 80)));
 	});
 }
 
@@ -69,7 +69,10 @@ describe("Rollwright: dice+ bewaart over een herstart in de echte Obsidian", fun
 		await browser.pause(1500);
 		const kept = await keptOnDisk();
 		console.log("BEWAARD OP SCHIJF:", kept);
-		expect(kept).toBeGreaterThanOrEqual(1);
+		// Alleen dice+ (regel 3, index 2) staat op schijf, dice- en dice niet.
+		expect(kept.length).toBe(1);
+		expect(kept[0]).toContain("Bewaren.md");
+		expect(kept[0]).toContain("|2:");
 		await browser.saveScreenshot(`${SHOTS}/b1-bewaren-voor-herstart.png`);
 	});
 
@@ -83,11 +86,12 @@ describe("Rollwright: dice+ bewaart over een herstart in de echte Obsidian", fun
 		expect(na[2]).not.toBe(eerst[2]);
 	});
 
-	it("Live Preview toont dezelfde bewaarde uitkomst", async function () {
-		await openNote("Bewaren.md", "source");
+	it("na een herstart in Live Preview: dezelfde bewaarde uitkomst, van schijf", async function () {
+		await herstart("source");
 		const lp = await waitForValues(".markdown-source-view");
 		console.log("LIVE PREVIEW NA HERSTART:", JSON.stringify(lp));
 		expect(lp[0]).toBe(eerst[0]);
+		expect(lp[2]).not.toBe(eerst[2]);
 	});
 
 	it("een klik op dice+ rolt opnieuw en ook die uitkomst blijft na een herstart", async function () {
