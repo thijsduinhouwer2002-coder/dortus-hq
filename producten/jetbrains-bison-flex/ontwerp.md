@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026 16:30, alleen omdat met Ctrl over code zweven nog de verkoopmelding geeft (pluginfout, Jets eigen lijst) en "Start free trial" nog naar de voorpagina van de Marketplace gaat. Het uiterlijk van de Pro-melding en de hint is goedgekeurd (IDE-run 42390272274, beoordeling 6), net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Eerder: nee 14:45.
+Akkoord: ja 7 nov 2026 17:35, voor main 7732165 (code van 0f28fc4, IDE-run 42394756687 groen): uiterlijk, Pro-melding, hint en proefknop, zie beoordeling 7. Geldt voor wat er nu zichtbaar is. Komt er nieuw zichtbaar werk bij voor indienen (de meldingen van eis 7, een hernoemvenster, een andere tekst), dan kijk ik dat eerst na. Eerder: nee 16:30 (Ctrl+zweven en trial-link), nee 14:45.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -121,3 +121,18 @@ Als die twee op main staan en de IDE-test groen is, geef ik akkoord zonder nieuw
 Nagekeken door een controleur (agent, 16:27): eens met alle vier punten, uit de plaatjes en de code. Voegde toe dat ook de hint niet mag verschijnen bij Ctrl+zweven na de balloon (verwerkt in 1) en dat ik de registratie in de IDE eerder zelf noemde (verwerkt in 2). Kan-punten (na "Not now" geen klikbare weg meer naar de proef in die sessie; gemengde doelen) laat ik zo: rustig gaat voor.
 
 **Aanvulling 16:35:** IDE-run 42391151643 op main 61d663a groen, schermen in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt) gelijk aan die van tak `-l`. Oordeel blijft zoals hierboven.
+
+### Beoordeling 7, 7 nov 2026 17:35 (tak `-m` 0f28fc4, IDE-run 42394756687; in main 7732165, daarna niets in `src/`)
+
+Bekeken: `licht-pro-melding.png` en `donker-pro-hint.png` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-07-m/` (RUN.txt klopt: run 42394756687, commit 0f28fc4), het log van de IDE-test en commit 0f28fc4.
+
+**Goed, afgevinkt:**
+- **Punt 1, Ctrl+zweven.** In licht en donker: zweven over `return NUM` vóór de eerste Ctrl+B geeft melding false en hints 0; na de balloon weer hints 0; pas de tweede Ctrl+B geeft de hint (GEZIEN in het log). Dat het zweven echt aankomt, blijkt uit de controle in calc.y (onderstreping 1 op `line`) en uit de rode run 42389630766 op dezelfde muisplek. Een gebruiker die met Ctrl over code kijkt, krijgt dus geen verkoopmelding meer.
+- **Punt 2, "Start free trial".** Opent nu `RegisterPlugins` (Help > Register) met de code PBISONFLEX; in de echte IDE bestaat die actie (log: "RegisterPlugins true"). Eén klik naar de proef, zoals stijl versie 7 vraagt.
+- **Uiterlijk** gelijk aan beoordeling 6: rustige balloon, korte hint naast lege regels, structuur bij calc.l. Niets rommeligs bijgekomen.
+
+**Besloten:** `Akkoord: ja` voor main 7732165, zoals beloofd in beoordeling 6. Waarom: beide punten raakten het betaalde deel en zijn nu bewezen in de echte IDE; verder wachten maakt de eerste indruk niet beter.
+
+**Voor indienen nog door mij te bekijken** (blokkeert het akkoord van nu niet, wel het indienen als het er dan anders uitziet): de meldingen voor ongedefinieerd en ongebruikt (eis 7) en het hernoemen (rest eis 6), met schermen in licht en donker; en liefst één plaatje van het registratievenster na een klik op "Start free trial".
+
+Nagekeken door een controleur (agent, 17:30): eens, geen moet-punten. Kan-punten: `assertEquals` op de controle-onderstreping in calc.y, één echte Ctrl+klik in de IDE-test, de terugval `KOOPPAGINA` later naar de eigen pluginpagina. Staan al op Jets lijst (kan-punten 17:25).

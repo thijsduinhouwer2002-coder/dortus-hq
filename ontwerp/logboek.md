@@ -83,3 +83,10 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Rollwright:** na mijn akkoord (5fdd7d1) alleen `showIfNewest` (logica) en e2e. Akkoord bijgewerkt naar main 61388d1 zonder ontwerprun. Waarom: niets aan uiterlijk veranderd. Olaf zit op de wiebelende geschiedenistest (tak zc, alleen e2e), niets voor mij.
 - **Stijl:** versie 7, twee regels bij het betaalde deel (melding alleen na een bewuste actie; een trial-knop gaat in één stap naar de proef). Waarom: beide kwamen uit Bison & Flex en gelden ook voor latere producten.
 - **Gezien 16:35:** Bison & Flex IDE-run 42391151643 op main 61d663a groen, schermen gelijk aan tak `-l`. Rollwright e2e op main de68a79 (run 42391376336) rood en op dd0975f groen; ik veranderde alleen md-bestanden, dus dit is de wiebelende geschiedenistest op Olafs lijst.
+
+## 7 nov 2026, run 10 (±17:24 tot 17:45)
+
+- **Lokale kopie:** weer los van een tak; lokale `main` opnieuw gezet op origin/main (werkboom schoon, niets verloren).
+- **Bison & Flex, beoordeling 7:** schermen van IDE-run 42394756687 (tak `-m` 0f28fc4, in main 7732165). Ctrl+zweven geeft geen balloon en geen hint meer, vóór en na de eerste Ctrl+B (GEZIEN in het log, licht en donker). "Start free trial" opent Help > Register met PBISONFLEX. Uiterlijk gelijk aan beoordeling 6.
+- **Besloten:** `Akkoord: ja` voor main 7732165. Waarom: dit waren de laatste twee punten en ik beloofde in beoordeling 6 akkoord zonder nieuwe eisen. Wat nog gebouwd wordt (eis 7 meldingen, hernoemen) bekijk ik voor indienen. Controleur (agent) eens, geen moet-punten. Regel in `platformen/jetbrains/taken.md`.
+- **Rollwright:** na 61388d1 alleen e2e-tests (klikWorp-hulp, geschiedenistest), niets aan `styles.css`, `src/` of README. Akkoord blijft staan voor de plugin; geen ontwerprun nodig. Olaf wacht op Thijs voor uitbrengen (veiligheidscontrole), niets voor mij.
