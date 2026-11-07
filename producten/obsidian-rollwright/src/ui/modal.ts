@@ -23,7 +23,7 @@ export class RollFormulaModal extends Modal {
 			}
 		};
 		new Setting(this.contentEl).setName("Formula").addText((text) => {
-			text.setPlaceholder("2d20kh1 + 3").onChange((value) => {
+			text.setPlaceholder("1d20 + 5").onChange((value) => {
 				formula = value;
 			});
 			text.inputEl.addEventListener("keydown", (event) => {

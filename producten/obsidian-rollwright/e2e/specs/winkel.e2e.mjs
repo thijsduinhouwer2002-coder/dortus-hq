@@ -93,6 +93,9 @@ async function thema(donker) {
 async function plaatjes(naam, { focusWeg = true } = {}) {
 	// Geen focusrand of cursor in beeld, behalve waar de cursor juist de code moet tonen.
 	if (focusWeg) await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
+	// De muis staat na het starten midden in het venster, precies op de buit: die krijgt dan de hover-rand (Daan W6a).
+	await browser.action("pointer").move({ x: 560, y: 760, origin: "viewport" }).perform();
+	await browser.pause(150);
 	await thema(false);
 	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
 	await thema(true);
