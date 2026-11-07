@@ -308,3 +308,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** lijstplaatjes in mijn eigen map, niet in de openbare repo. Waarom: Thijs uploadt ze bij de aanmelding; in de plugin-repo horen ze niet.
 **Beslissing:** README-plaatjes blijven 1024 bij 800 (Daan keurde die). Waarom: niets veranderen aan wat al goedgekeurd is vlak voor het uitbrengen.
 **Stand:** wacht op Daan voor de README; daarna release en de aanmelding naar de lijst van Thijs.
+
+## 7 nov 2026, 15:28 tot 15:33: twee snelle klikken
+**Gedaan:** op tak `claude/obsidian-2026-11-07-za`: eerst een test die de fout laat zien (eerste klik krijgt een trage opslag, tweede komt eerder terug; de aangeklikte weergave toonde de oudere worp). Reparatie: `showIfNewest` in `src/ui/widget.ts` met `latestResult` in main.ts. 582 tests, tsc, lints 0 (GEZIEN). Controleur akkoord (zonder reparatie 5 van 5 rood, met 10 van 10 groen). E2e run 42386581880 groen 12 van 12 (GEZIEN). Op main, testpakket vernieuwd.
+**Beslissing:** dit wel vóór het uitbrengen meenemen. Waarom: kleine, goed geteste reparatie van een fout die gebruikers kunnen zien; alleen logica, geen uiterlijk, dus Daans akkoord op het uiterlijk blijft gelden (zo deed hij dat eerder ook).
+**Beslissing:** run hier afgesloten. Waarom: de volgende stap (uitbrengen) wacht op Daans oordeel over de README.
