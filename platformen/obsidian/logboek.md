@@ -327,3 +327,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 7 nov 2026, 16:40 tot 16:45: uitbrengen geweigerd
 **Gedaan:** main 669f249 groen (run 42391735001, 12 van 12, GEZIEN). Daarmee voldaan aan de regel voor uitbrengen (e2e groen, Daan akkoord; na 5fdd7d1 alleen logica en tests). `publiceer.sh /home/claude/rollwright release` gestart: geweigerd door de veiligheidscontrole ("Create Public Surface"). Er is niets veranderd in de kloon van rollwright.
 **Beslissing:** niet omzeilen, op de lijst voor Thijs met de zin die hij kan geven. Waarom: een openbare release onder zijn naam vraagt zijn toestemming in de chat of de taakopdracht; een bestand telt daar niet. De aanmelding bij community.obsidian.md komt pas op zijn lijst als de release er staat.
+
+## 7 nov 2026, 16:37 tot 16:58: zelfde klikreparatie in vijf andere specs
+**Gedaan:** tak `claude/obsidian-2026-11-07-zd`: nieuwe hulp `e2e/specs/klik-hulp.mjs` (`klikWorp`), gebruikt in blok, bewaren, secties, tabellen en zelfverwijzing in plaats van het losse merkteken en `?.click()`. Run 42392208797 groen 12 van 12 (GEZIEN door controleur). Controleur akkoord, testwijzigingen apart goedgekeurd (zelfde worp, eis gelijk of strenger, geen dubbele klik). Op main.
+**Beslissing:** dit wel nu gedaan, terwijl het uitbrengen op Thijs wacht. Waarom: elke wiebel op main houdt een uitbrenging of een update op; dit was het enige punt dat zonder Thijs kon.
+**Stand voor de volgende run:** uitbrengen wacht op één zin van Thijs (lijst-thijs, 16:45). Daarna aanmelding naar zijn lijst. Ondertussen kleine punten uit taken.md.
