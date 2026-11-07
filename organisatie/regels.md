@@ -79,7 +79,7 @@ Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk 
 - Werk alleen in een eigen map per product: `<productnaam>/` in de repo, dus dortus.com/<productnaam>/. Bijvoorbeeld `dice-roller/index.html`, `dice-roller/privacy.html`, `dice-roller/support.html`.
 - Verander of verwijder niets wat er al staat. Dat geldt voor elke bestaande pagina, `assets/`, `styles.css`, `index.html`, `sitemap.xml` en alle andere bestaande bestanden en mappen.
 - Bekijk de bestaande pagina's alleen om de stijl en de opbouw over te nemen. Linken naar bestaande bestanden (zoals `/styles.css` of `/assets/fonts/`) mag. Wil je iets aanpassen, kopieer het dan naar je eigen productmap.
-- Support op winkelpagina's en productpagina's: **support@dortus.com**.
+- Support op winkelpagina's en productpagina's: **thijs@dortus.com** (sinds 7 nov 2026, keuze van Thijs: persoonlijker). Niet meer support@dortus.com gebruiken in nieuw werk.
 - Opslaan op de site gaat via dezelfde regels: `git pull --rebase`, nooit geforceerd, en afsluiten met `git ls-remote` voor die repo.
 
 ## Afsluiten

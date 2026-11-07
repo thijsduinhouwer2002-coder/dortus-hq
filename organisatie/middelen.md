@@ -28,7 +28,7 @@ Kolom **Inloggen** zegt wie er mag inloggen:
 | [dortus.com](https://dortus.com) | Productpagina's, privacy, support (alleen eigen productmappen, zie `regels.md`) | Geen |
 | Hosting van dortus.com | GOK: GitHub Pages (er staat een CNAME-bestand in de repo). Thijs: bevestig | Alleen Thijs |
 | Domein dortus.com (registratie, DNS) | Waar het domein geregistreerd is: **onbekend, Thijs vult in** | Alleen Thijs |
-| support@dortus.com | Supportadres op alle winkelpagina's. Mailaanbieder: **onbekend, Thijs vult in**. Werkt: bevestigd door Thijs op 7 nov 2026. Thijs heeft ook thijs@dortus.com (alleen voor Thijs zelf, niet op winkelpagina's) | Alleen Thijs |
+| thijs@dortus.com | Supportadres op alle winkelpagina's (sinds 7 nov 2026). Werkt: bevestigd door Thijs. support@dortus.com werkt ook, maar gebruiken we niet meer in nieuw werk. Mailaanbieder: **onbekend, Thijs vult in** | Alleen Thijs |
 | [Google Search Console](https://search.google.com/search-console) | Hoe vaak mensen onze pagina's via Google vinden | Claude (lezen), zodra de eerste productpagina live staat |
 
 ## Platformen
