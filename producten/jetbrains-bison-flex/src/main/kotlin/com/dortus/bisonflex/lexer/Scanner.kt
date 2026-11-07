@@ -215,7 +215,7 @@ abstract class Scanner {
             "constexpr", "noexcept", "auto", "decltype",
         )
         val FLEX_NAMEN = setOf(
-            "BEGIN", "ECHO", "REJECT", "INITIAL", "yytext", "yyleng", "yylval", "yylloc", "yyin", "yyout",
+            "BEGIN", "ECHO", "REJECT", "yytext", "yyleng", "yylval", "yylloc", "yyin", "yyout",
             "yylineno", "yyterminate", "yyless", "yymore", "unput", "input", "yywrap", "yylex",
             "yy_push_state", "yy_pop_state", "yy_top_state", "yyextra", "yyscanner",
         )

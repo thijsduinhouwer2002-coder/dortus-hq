@@ -10,11 +10,11 @@ object Voorbeelden {
         void yyerror(const char *s);
         %}
 
-        %define api.value.type {double}
-        %token NUM
+        %union { double val; }
+        %token <val> NUM
         %left '-' '+'
         %left '*' '/'
-        %type <double> exp
+        %type <val> exp
 
         %%
 
@@ -25,13 +25,15 @@ object Voorbeelden {
 
         line:
             '\n'
-          | exp '\n'      { printf("%.10g\n", $<double>1); }
+          | exp '\n'      { printf("%.10g\n", $<val>1); }
           ;
 
         exp:
             NUM
           | exp '+' exp   { $$ = $1 + $3; }
           | exp '-' exp   { $$ = $1 - $3; }
+          | exp '*' exp   { $$ = $1 * $3; }
+          | exp '/' exp   { $$ = $1 / $3; }
           | '(' exp ')'   { $$ = $2; @$ = @2; /* keep the inner location */ }
           ;
 
