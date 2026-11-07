@@ -2,6 +2,7 @@ import { PluginSettingTab, requireApiVersion, Setting, type App, type SettingDef
 import type RollwrightPlugin from "../main";
 import { LICENSE_MESSAGES, paymentReady, PRICE_TEXT } from "../pro/license";
 import { availableSkins, SKINS } from "../pro/skins";
+import { renderSkinPreview } from "./skin-preview";
 
 /** A whole number of at least min, or null for anything else, an empty field included. */
 export function parseWholeNumber(value: string, min: number): number | null {
@@ -12,12 +13,13 @@ export function parseWholeNumber(value: string, min: number): number | null {
 }
 
 export const COMING_SOON = "Paid skins are coming soon.";
+export const CHECK_NOTE = "It is checked online at most once every 30 days.";
 
 /** The line under the key field: active since a date, or what went wrong, in plain words. */
 export function licenseStatus(active: boolean, checkedAt: number, error: keyof typeof LICENSE_MESSAGES | null): string {
 	if (error !== null) return LICENSE_MESSAGES[error];
 	if (active) return `Active, checked on ${new Date(checkedAt).toLocaleDateString()}.`;
-	return "Paste the license key from your Polar purchase and press Activate.";
+	return "Paste the key from your purchase email and press Activate.";
 }
 
 /** One row of the settings tab: its name, its description and the fields or buttons it adds. */
@@ -188,7 +190,7 @@ export class RollwrightSettingTab extends PluginSettingTab {
 		];
 	}
 
-	/** The skin choice, and the key field with Activate and Buy only when payment is ready. */
+	/** The skin choice with a preview of every skin, then Buy and the key field with Activate only when payment is ready. */
 	private skinRows(): SettingRow[] {
 		const settings = this.plugin.settings;
 		const ready = paymentReady(this.plugin.polarIds);
@@ -207,6 +209,7 @@ export class RollwrightSettingTab extends PluginSettingTab {
 						});
 					}),
 			},
+			{ name: "", build: (setting) => renderSkinPreview(setting.infoEl) },
 		];
 
 		if (!ready) {
@@ -217,8 +220,18 @@ export class RollwrightSettingTab extends PluginSettingTab {
 		const status = licenseStatus(this.plugin.isLicensed, settings.licenseCheckedAt, this.lastError);
 		rows.push(
 			{
+				name: "Get the paid skins",
+				desc: `${paidNames}. One payment, yours to keep.`,
+				build: (setting) =>
+					setting.addButton((button) =>
+						button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
+							activeWindow.open(this.plugin.polarIds.buyUrl);
+						}),
+					),
+			},
+			{
 				name: "License key",
-				desc: `${status} The key is checked with Polar, at most once every 30 days.`,
+				desc: `${status} ${CHECK_NOTE}`,
 				build: (setting) => {
 					// Typing only changes this draft; nothing is saved or unlocked until Activate.
 					let draft = settings.licenseKey;
@@ -237,15 +250,6 @@ export class RollwrightSettingTab extends PluginSettingTab {
 							}),
 						);
 				},
-			},
-			{
-				name: "Get the paid skins",
-				build: (setting) =>
-					setting.addButton((button) =>
-						button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
-							activeWindow.open(this.plugin.polarIds.buyUrl);
-						}),
-					),
 			},
 		);
 		return rows;

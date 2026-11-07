@@ -84,7 +84,7 @@ describe("settings search: getSettingDefinitions()", () => {
 		walk(tab.getSettingDefinitions());
 		expect(names).toEqual([
 			"Default die", "Default number of dice", "Keep the formula when a dice-mod code is replaced",
-			"Add a formula", "Import saved formulas", "Skin", "License key", "Get the paid skins",
+			"Add a formula", "Import saved formulas", "Skin", "Get the paid skins", "License key",
 		]);
 	});
 
