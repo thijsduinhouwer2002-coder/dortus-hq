@@ -78,3 +78,17 @@ Aanpak: per categorie (modeling, rigging, interface, rendering, animation) de ee
 **Les voor de volgende rondes:** een "verlaten bestseller" telt pas als gat nadat we zoeken naar forks en opvolgers (Gumroad, GitHub, het BlenderArtists-draadje van het product, alle pagina's van de ratings). Bij GPL-add-ons is een fork waarschijnlijk.
 
 **Stand na deze run:** vijf ideeën en één gat bekeken, allemaal afgevallen of niet overtuigend. Over: gat 2 (bone-jiggle die goed bakt, kwaliteitsgat bij twee bestsellers met 6.000+ en 1.700+ kopers, maar veel concurrentie) en een eenvoudige pie-editor als gratis lokker (zwak). Geen bouwbesluit.
+
+## 8. Ronde 5 en 6 (7 nov 22:40, twee onderzoekers; nog niet nagekeken)
+**Bone-jiggle (gat 2):** vraag en betaalbewijs zijn er, maar het veld loopt vol. Alles GEZIEN 7 nov op superhivemarket.com/products/<slug> en extensions.blender.org.
+- Betaald: BoneDynamics Pro $15 6.000+ (5 jaar), Swingy $14,79 1.700+ (3 jaar), JiggleMaker $29,99 1.200+ (1 jaar, vangkooi in plaats van botten), Wiggly $8 600+, SquishyFX $15 300+ in 3 maanden, SpringFX $15 100+ in 3 maanden, GOE Jiggle Studio 40+ in 5 maanden. In de laatste maand nieuw zonder teller: Jiggle Wibble $19, Wobble $20,30, SwayMend $19, Inertia Pro $4,99.
+- Gratis en bijgehouden: jiggle-physics 92.415 downloads (5,0), wiggle-bones 30.605, wiggle-2 30.213 (v2.4.0, bijgewerkt voor Blender 5).
+- Klachten bij de groten: bakken werkt niet of geeft elke keer iets anders, niet samen met Auto-Rig Pro, kapot na hernoemen of dupliceren, geheugen en fps, wens om presets per lichaamsdeel (https://superhivemarket.com/products/bonedynamics/ratings?page=5, https://superhivemarket.com/products/swingy-bone-physics/ratings?page=4).
+- Oordeel Bram: vier nieuwe betaalde makers in één maand plus sterke gratis add-ons. We zouden met "betrouwbaar" moeten winnen, en dat is moeilijk te laten zien op een winkelpagina. Niet overtuigend genoeg voor een eerste product. Scores: vraag 4, betaal 4, concurrentie 1, bouwtijd 3, opvallen 3 = 15.
+
+**Verlaten bestsellers verbreed (materials, import-export, vse, asset-management, pagina 2 van modeling en interface, 120 producten):** bijna alle bestsellers ondersteunen al Blender 5. De 8 met 500+ verkopen en Blender 4.2 of lager (DynRemesh, Tesselator, Car-Rig Pro, Layer Painter, Mask Tools, Drag & Drop Import, Sculpt-Paint Wheel, Alt Tab Easy Fog) hebben allemaal een opvolger, een gratis vervanger, of klachten van 3+ jaar oud. Deze aanpak is uitgeput.
+
+## 9. Stand na run 1 en plan voor de volgende run
+Bekeken en afgevallen of te zwak: gewrichten (A), AI naar printklaar (B), CAD (C), laser (D), export (E), Pie Menu Editor-opvolger, pivot, bone-jiggle, verlaten bestsellers. Patroon: waar vraag en betaalbewijs zijn, staan nu al meerdere nieuwe makers per maand. Gaten zoeken in bestaande klachten werkt dus slecht.
+
+Andere aanpak voor run 2 (nog niet geprobeerd): **wat is nieuw in Blender zelf en heeft nog bijna geen add-ons?** Blender 4.2 tot 5.x brachten nieuwe onderdelen (bijvoorbeeld Grease Pencil v3, nieuwe geometry nodes zoals bundels en closures, het nieuwe compositor- en VSE-werk, extensies). Nieuwe functies van Blender trekken nieuwe gebruikers die hulpmiddelen zoeken, terwijl de bestaande makers nog op het oude werk zitten (GOK). Plan: release notes van 4.2 tot 5.2 lezen (developer.blender.org/docs/release_notes), per nieuwe functie tellen hoeveel add-ons er op Superhive en extensions.blender.org zijn, en de vragen op BlenderArtists en StackExchange daarover. Daarnaast ronde 5 en 6 laten nakijken.
