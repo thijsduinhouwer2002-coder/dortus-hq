@@ -13,3 +13,9 @@ Vast blok met een code erin: `dice: [[Bron^delta]]`
 Twee regels: `dice: 2[[Bron]]|line`
 
 Twee alinea's: `dice: 2[[Bron]]|paragraph`
+
+Een lijstpunt: `dice: [[Bron]]|listItem`
+
+Kop van niveau 1: `dice: [[Bron]]|heading-1`
+
+Bestaat niet: `dice: [[Bron^bestaatniet]]`
