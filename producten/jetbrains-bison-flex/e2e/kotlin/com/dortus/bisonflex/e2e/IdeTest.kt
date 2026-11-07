@@ -3,6 +3,7 @@ package com.dortus.bisonflex.e2e
 import com.intellij.driver.client.Driver
 import com.intellij.driver.client.Remote
 import com.intellij.driver.client.service
+import com.intellij.driver.model.LockSemantics
 import com.intellij.driver.model.OnDispatcher
 import com.intellij.driver.sdk.FileEditorManager
 import com.intellij.driver.sdk.closeToolWindow
@@ -141,10 +142,17 @@ class IdeTest {
             println("DORTUS-E2E geen open editor gevonden voor de cursor")
             return
         }
-        val lengte = editor.getDocument().getText().length
-        withContext(OnDispatcher.EDT) { editor.getCaretModel().moveToOffset(lengte) }
-        val regel = editor.getCaretModel().getLogicalPosition().getLine()
-        println("DORTUS-E2E cursor op offset $lengte, regel ${regel + 1}")
+        // Een cursor verzetten mag alleen op de EDT binnen een read-action (anders ThreadingAssertions-fout).
+        try {
+            val regel = withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
+                val lengte = editor.getDocument().getText().length
+                editor.getCaretModel().moveToOffset(lengte)
+                editor.getCaretModel().getLogicalPosition().getLine()
+            }
+            println("DORTUS-E2E cursor op regel ${regel + 1} (einde bestand)")
+        } catch (e: Exception) {
+            println("DORTUS-E2E cursor verzetten mislukt: ${e.message?.take(200)}")
+        }
     }
 
     /** Schermafbeelding van het hele (virtuele) scherm met ImageMagick. */
