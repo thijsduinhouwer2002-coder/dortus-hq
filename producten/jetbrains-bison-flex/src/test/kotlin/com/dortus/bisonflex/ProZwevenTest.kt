@@ -88,6 +88,19 @@ class ProZwevenTest : BasePlatformTestCase() {
         assertEquals(1, meldingen.size)
     }
 
+    /** Binnen hetzelfde bestand is gratis: zweven op `exp` in `| exp '\n'` van calc.y geeft doelen, zonder melding of hint. */
+    fun testGeenLicentieZwevenBinnenBestandGeeftDoelenZonderMelding() {
+        myFixture.openFileInEditor(myFixture.findFileInTempDir("calc.y"))
+        val offset = myFixture.editor.document.text.indexOf("| exp '") + 2
+        val doelen = GaNaarDefinitie { muis(MouseEvent.MOUSE_MOVED) }
+            .getGotoDeclarationTargets(myFixture.file.findElementAt(offset), offset, myFixture.editor)
+        PlatformTestUtil.dispatchAllInvocationEventsInIdeEventQueue()
+        assertTrue((doelen?.size ?: 0) >= 1)
+        assertEquals(0, meldingen.size)
+        assertFalse(ProMelding.getInstance().isGetoond())
+        assertEquals(0, ProMelding.getInstance().aantalHints())
+    }
+
     fun testMetLicentieSpringtZwevenWel() {
         Licentie.zetBronVoorTest { LicentieStand.GELDIG }
         assertEquals(1, probeer(muis(MouseEvent.MOUSE_MOVED)))
