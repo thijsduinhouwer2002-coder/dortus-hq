@@ -146,3 +146,9 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 5. Reden: bereik is goed, maar aantoonbaar geld voor nieuwe kleine makers ontbreekt, en betalen moet helemaal zelf gebouwd worden.
 - Controleur akkoord, 10 correcties verwerkt (o.a. vertekening door latere updates, steekproef: ongeveer de helft van de groep is echt nieuw, één geldgrens van $300).
 - Les: zoekpagina's met veel woorden zijn een snelle manier om een hele winkel te tellen. Over 4 weken opnieuw draaien geeft een echte lijst nieuwe add-ons.
+- Tweede platform: Open VSX (de winkel van Cursor, Windsurf, Antigravity, Kiro). Reden: open API met eerste-versiedatum, dus een schone meting van leeftijd.
+- Gemeten: steekproef van 2.500 uit de 10.000 laatst bijgewerkte (de API geeft er niet meer). Groep juni tot aug mediaan 1.492 downloads, maar de laagste extensie per maand ligt op ±400 tot 630: elke extensie krijgt automatisch honderden downloads. Extensies zonder updates mediaan 729.
+- Beslissing: nee voor nu, cijfer 4. Reden: bereik niet eerlijk te meten, ±1.700 nieuwe extensies per maand, en geen kleine maker boven $300 per maand (beste $131, TrustMRR).
+- Controleur akkoord, 9 correcties verwerkt (labels en links, vloer 400 met voorbeelden, telling april niet als groei).
+- Les: downloadtellers van open registers kunnen een vloer van automatisch verkeer hebben. Kijk altijd naar het minimum en naar extensies zonder updates.
+- Volgende run: een nieuw platform uit kandidaten.md, liefst met betaling in de winkel.
