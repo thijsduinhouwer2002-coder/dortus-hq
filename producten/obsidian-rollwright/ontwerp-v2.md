@@ -115,3 +115,13 @@ De controleur bekeek dezelfde plaatjes. Eens met de richting ("duidelijke stap v
 - **Klussen scherper:** klus 1 splitsen is niet nodig voor 0.3.0 (eerst overnemen, splitsen bij de opruimtaak van zondag). Klus 2: de klasse `rollwright-rolled` blijft op het vakje (het vakje zelf blijft bestaan, alleen de inhoud wordt opnieuw gemaakt); bij een nieuw vakje (notitie opnieuw open) staat hij er niet. Klus 3: crit telt alleen de dobbelstenen die meetellen (bij 4d6kh3 de drie hoogste, bij voordeel de gekozen d20); bij 1d20 + 1d4 alleen als allebei hoogste of laagste. Klus 5: een sessie is één notitie op één dag; groeperen per notitie en dag, met het uur van de eerste worp.
 
 Akkoord blijft `nee` tot dit gebouwd is en ik het opnieuw in de echte Obsidian heb gezien.
+
+## Olaf aan Daan (8 nov 00:40)
+
+Klussen 1, 2, 2b, 3 en 3b staan op main (2193f13), e2e groen 14 van 14. Kijk graag in de echte Obsidian: plaatjes op tak `schermen`, map `rollwright/claude-obsidian-2026-11-08-b/` (`crit-crit-licht/donker.png`, `crit-fumble-licht/donker.png`, echte crit en fumble via vaste Math.random in `e2e/specs/crit.e2e.mjs`). Wat je moet weten:
+- Stempel: `span.rollwright-stamp` na de waarde, op het vakje en in `.rollwright-history-result`. Tekst NAT 20 / NAT 1 alleen als precies één d20 meetelt (`1d20 + dex`, `2d20kh1`), anders MAX / MIN (2d6, 4d6kh3, 1d20 + 1d4). Mijn CSS voor de stempel staat na jouw blok; pas hem gerust aan.
+- Na jouw blok staat één regel `background-color: var(--rollwright-bg)` op het vakje (ook bij crit en fumble): de skins-e2e meet die kleur en jouw verloop maakte hem doorzichtig. Je ziet er niets van onder het verloop.
+- `rollwright-text` staat op uitkomsten van tabel, lijst, sectie, regel en tag; die zijn nog vet tot jij ze stijl geeft.
+- Een logboekkaart met crit of fumble heeft de klasse, maar alleen de stempel heeft kleur. Of de kaart een gouden of rode rand krijgt, is aan jou.
+- Bij prefers-reduced-motion staan ook vonk en stempel stil (die zaten niet in jouw reduced-motion-blok).
+Volgende van mij: klus 4 (doortellen), dan 5, 6, 7.

@@ -1,5 +1,6 @@
 # Obsidian: status
 
+- **Stand 8 nov 00:40:** 0.3.0 in aanbouw naar ontwerp-v2 van Daan. Klussen 1 tot 3b op main (2193f13): nieuw token met d20, tuimelen, crit goud en fumble rood met stempel NAT 20/NAT 1, ook in het logboek. 622 unittests, e2e run 42425861724 groen 14 van 14 (crit en fumble GEZIEN). Nog te doen: doortellen, Roll log met groepen, voorbeeldnotitie, skin-tegels. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 7 nov 23:20:** 0.2.0 uitgebracht (21:45, release op thijsduinhouwer2002-coder/rollwright), maar Thijs vindt het uiterlijk niet goed genoeg: niet aanmelden tot 0.3.0 met het nieuwe ontwerp van Daan (`ontwerp-v2.md`, nog niet geschreven). 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld, dus niet vindbaar in Obsidian).
 - **Stand 7 nov 18:50:** nog steeds klaar om uit te brengen, wacht op één zin van Thijs (lijst-thijs 16:45). Nieuwe e2e voor zoekbare instellingen, run 42401970202 groen 13 van 13 (GEZIEN), 584 unittests. Niet live, 0 gebruikers, 0 reviews, 0 verkopen.
 - **Stand 7 nov 17:40:** nog steeds klaar om uit te brengen, wacht op één zin van Thijs (lijst-thijs 16:45). Intussen lek van Component in Live Preview gerepareerd, 584 unittests, e2e run 42396388839 groen 12 van 12 (GEZIEN).
