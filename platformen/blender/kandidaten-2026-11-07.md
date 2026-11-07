@@ -1,6 +1,6 @@
 # Blender: wat bouwen we? Kandidaten (7 nov 2026, Bram)
 
-Status: concept, wacht op de controleur. Nog geen bouwbesluit.
+Status: nagekeken door de controleur (akkoord met correcties, verwerkt). Nog geen bouwbesluit: A valt af, B en C worden eerst verder uitgezocht.
 
 ## 1. Eigen meting per categorie (GEZIEN, data van Vera)
 Bron: `platformen/verkenner/data/superhive-steekproef-2026-11-07.jsonl`, alleen betaalde add-ons van 2 tot 6 maanden oud (n=316). Netto per maand = teller (ondergrens) x (65% van de prijs min $0,49) / leeftijd, dus GOK op GEZIEN.
@@ -15,6 +15,7 @@ Bron: `platformen/verkenner/data/superhive-steekproef-2026-11-07.jsonl`, alleen 
 | materials | 31 | 23% | 2 | ±$560 | $12 |
 | animation | 12 | 17% | 0 | ±$210 | $20 |
 | asset-management | 23 | 13% | 0 | ±$90 | $12 |
+| vse | 5 | 20% | 0 | ±$230 | $14 |
 
 Modelleren levert het meeste geld. Binnen modelleren vallen drie groepen op: opschonen van AI- en scanmeshes (Smart Remesh $17 2.500+, Nitro Retopo $25 300+, Smart Segmentation $12 300+, BWrap $30 200+), voorbereiden voor 3D-printen (Dovetail Key $18 800+ in 4 maanden) en precisie/CAD (Forge CAD $49 300+, JointLab $65 20+). Allemaal GEZIEN teller.
 
@@ -30,21 +31,29 @@ Vraag = bewijs dat mensen het willen. Betaalbewijs = vergelijkbare betaalde add-
 
 | | Vraag | Betaal | Concurrentie | Bouwtijd | Opvallen | Totaal |
 |---|---|---|---|---|---|---|
-| **A. Gewrichten voor printbare figuren** (kogel, pen, draaipen, met speling per printer) | 3 | 4 | 3 | 3 | 5 | **18** |
+| A. Gewrichten voor printbare figuren (kogel, pen, draaipen, met speling per printer) | 3 | 4 | 1 | 3 | 5 | 16 (was 18) |
 | **B. AI-model naar printklaar in één paneel** (samenvoegen, waterdicht, mm, wanddikte, splitsen) | 4 | 4 | 2 | 3 | 3 | **16** |
 | **C. Precies modelleren voor SketchUp-overstappers** (push/pull, maten intypen) | 4 | 5 | 2 | 1 | 4 | **16** |
 | D. 3D naar vlakke onderdelen voor laser/CNC | 3 | 1 | 2 | 5 | 2 | 13 |
 | E. Export naar spelmotoren | 2 | 3 | 1 | 4 | 1 | 11 |
 
 Onderbouwing per kandidaat (cijfers GEZIEN door de onderzoeker op superhivemarket.com en extensions.blender.org, 7 nov):
-- **A:** JointLab $65 20+ (1 ster: dwingt een eigen server af), Cleave $23 90+ (belooft ook kogelgewrichten). Splitsers verkopen goed maar dat hoekje is vol: Dovetail Key 800+, CatPin $24 400+, Split-3DPrint $22 400+. Gratis: Easy-Print 7K, EasySlice 6K downloads. Gat: een stabiel, goedkoop hulpmiddel alleen voor gewrichten. Visueel sterk: een poseerbare figuur in de lijstplaatjes, gewricht dat in de voorbeeldweergave meedraait.
+- **A:** JointLab $65 20+ (1 ster: dwingt een eigen server af), Cleave $23 90+ (belooft ook kogelgewrichten). Splitsers verkopen goed maar dat hoekje is vol: Dovetail Key 800+, CatPin $24 400+, Split-3DPrint $22 400+. Gratis: Easy-Print 7K, EasySlice 6K downloads. **Correctie controleur: het gat is er niet.** Cleave ($23 tot $28, 90+ in ±2 maanden, ±45 per maand GOK op GEZIEN) heeft sinds v1.6 kogelgewrichten voor poseerbare figuren, aanpasbare snijlijnen en controle per printer: precies de wensen van de Dovetail-kopers (https://superhivemarket.com/products/cleave). Verder Cut Flex ($34,99, 10+ in 17 dagen, 15 gewrichtsoorten, https://superhivemarket.com/products/cut-flex), ARTICULATOR ($1, 30+ in 3 maanden, https://superhivemarket.com/products/articulator---easy-figure-joint-generator), LayerMechanic ($25, 26 dagen, nog geen teller) en Fit & Tolerance Test Generator ($7, 13 dagen). Alles GEZIEN 7 nov. Op extensions.blender.org geen gratis gewrichten-add-on gevonden, wel gratis splitsers met verbinders. Visueel sterk blijft waar (GOK), maar vier betaalde makers, twee in de laatste maand erbij.
 - **B:** sterke vraag, maar de gratis 3D Print Toolbox (680K downloads) doet de controles al en Smart Remesh (2.500+) en OkTopo ($24, 700+) zitten op het opschonen. Verschil maken is lastig (GOK).
 - **C:** grootste geld (Construction Lines $11 7.400+, Design Magic $29 2.600+, Seamless CAD $14,90 300+ in 3 maanden), maar groot en moeilijk stabiel te krijgen. Te groot als eerste product.
 - **D:** betaald verkoopt weinig (Cross Section Maker $2,50 200+ in 5 jaar), veel gratis. Hooguit gratis lokmiddel.
 - **E:** vol, niets duidelijks dat ontbreekt.
 
-## 4. Voorlopige keus (na de controleur definitief)
-A, met B als reserve. Reden: past bij wensen die kopers zelf opschrijven, ligt in de groeiende hoek (3D-printen van AI- en eigen figuren), middelgroot, en het kan opvallen. Risico: de markt voor alleen gewrichten is kleiner dan die voor splitsen (JointLab 20+, Cleave 90+). Voordat we bouwen nog nagaan: hoeveel verkoopt Cleave per maand, en zijn er gratis gewrichten-add-ons op extensions.blender.org.
+## 4. Keus
+Eerste voorlopige keus was A. Na de controle valt A af: de wensen die we zagen zijn al vervuld door Cleave, en er komen elke maand nieuwe gewrichtenmakers bij. Daarmee staan B en C gelijk (16) en is er geen duidelijke winnaar. Ik neem nu geen bouwbesluit (geen haast, besluit Thijs 6 nov). Volgende stap: B en C verder uitzoeken (wat doet het gratis 3D Print Toolbox niet, waar klagen kopers van Construction Lines en Seamless CAD over, kan een kleiner deel van C als eerste product), en kijken of er in modelleren nog een kandidaat is die we missen.
 
 ## Nakijken
-(controleur vult in)
+- 7 nov 22:20, controleur (agent, niet de maker): akkoord met correcties. Tabel klopt (n=316, elke rij nagerekend; vse ontbrak, toegevoegd). Zes+ cijfers tegen de bron gecontroleerd, alles klopt. Gat voor A bestaat niet (zie A). Labels per cijfer beter maken bij de volgende versie.
+
+## 5. Ronde 2: B en C verder uitgezocht (7 nov 22:25, onderzoeker; nog niet apart nagekeken)
+Alle tellers GEZIEN 7 nov op superhivemarket.com en extensions.blender.org.
+- **B:** de gratis 3D Print Toolbox (679.674 downloads, v1.5.0 van 19 okt 2026, https://extensions.blender.org/add-ons/print3d-toolbox/) doet al controleren, Make Manifold, uithollen, schalen en exporteren. Niet op de pagina: polycount naar een doel, losse delen samenvoegen, splitsen op printbedmaat, 3MF, afvoergaten (GOK dat het echt ontbreekt). Betaalde add-ons die op AI-mesh naar print mikken verkopen zwak: Mesh Prep Studio $22 30+ in 7 maanden, Quadify Bridge $19 10 in 6 maanden, QuadMend $15 geen teller. Oudere printhulpen: Clean Mesh $5 300+, Ultimate STL Export $10 100+, Print Support Pro $30 70+, 3D Print Toolbox 4 $9 70+ (allemaal ±2 jaar). Het geld in AI-meshes opschonen zit bij games (Smart Remesh 2.500+, OkTopo $24 700+), niet bij printen.
+- **C:** Construction Lines ($11, 7.400+, gemiddeld 4 uit 56) doet maten intypen en push/pull al goedkoop en wordt bijgehouden. Maatvoering is bezet door Snap Measure ($25, 200+, 5 sterren) en Dimensions and Lines ($18, 200+, 5 sterren). Seamless CAD ($14,90, 300+ in 3 maanden) draait alleen goed op Windows. Geen klein deel van C met zwakke concurrentie gevonden.
+- **Derde kandidaat:** AI-mesh in onderdelen splitsen (MK Smart Segmentation, 300+ in 3 maanden), maar die maker zit er al sterk.
+
+**Mijn oordeel (Bram):** nog steeds geen kandidaat die alle vier tegelijk haalt (vraag, betaalbewijs, zwakke concurrentie, haalbaar). B smal heeft zwakke concurrentie maar ook zwak betaalbewijs: printhulpen verkopen slecht. Ik besluit nog niet. Volgende run: niet verder op deze drie ideeën, maar systematisch zoeken naar gaten. Aanpak: per tag in modelleren en rigging de best verkochte add-ons van het afgelopen jaar, en per stuk de klachten in ratings waar nog niemand iets voor maakte. Daarnaast de geldhoek AI-mesh opschonen voor games bekijken (sterk betaalbewijs, maar sterke spelers).
