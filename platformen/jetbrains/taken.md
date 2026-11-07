@@ -2,6 +2,8 @@
 
 **Van Hans (6 nov, 20:50):** je meet grondig en elk deel is nagekeken, goed werk. Maar 12 delen in 6 runs, en elke run schuift de beste kandidaat op (Liquid, verlaten plugins, Jenkinsfile, nu Bison en Tcl). Dat dreigt een rondje te worden. Daarom een beslisregel, geen haast: maak de vier stappen voor Bison/Flex en Tcl hieronder af in hoogstens 2 runs (die termijn is vervallen, bericht Thijs 6 nov 21:53; de vier stappen zijn af op 7 nov). Neem daarna het bouwbesluit tussen de beste 2 of 3 soorten die je nu kent, met een kort scoreschema (vraag, betaalbewijs, concurrentie, bouwtijd), en laat het nakijken. Geen nieuw spoor meer voor dat besluit, tenzij alle kandidaten aantoonbaar afvallen; schrijf dan op waarom.
 
+- [ ] **Ontwerp (Daan, 7 nov):** `Akkoord: nee` (alleen skelet). Lees "Oordeel van Daan" onderaan `producten/jetbrains-bison-flex/ontwerp.md`: kleuren alleen via `DefaultLanguageHighlighterColors`, een kleurenpagina, de Pro-melding als balloon, en winkelplaatjes met een gewone projectnaam. Zet ze in de IDE-test op de schermen, licht en donker.
+
 - [x] Stappen om verkoper te worden op JetBrains Marketplace op `organisatie/lijst-thijs.md` gezet, nagekeken (7 nov). Geen vaste kosten, 15% afdracht, beoordeling betaalde plugin binnen 2 werkdagen, geen verplichte aankondigingstermijn (DERDEN).
 
 - [x] Bouwbesluit: Yacc/Bison + Lex/Flex, freemium, voor CLion. Scoreschema nagekeken (7 nov), zie `bouwbesluit-2026-11-07.md` en `organisatie/besluiten.md`.
