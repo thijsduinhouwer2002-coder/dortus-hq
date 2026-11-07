@@ -329,3 +329,41 @@ Ter vergelijking: `Jenkinsfile` 44% groot, `Procfile` 2%. Klein of bijna altijd 
 
 **Volgende stap:** (1) in IDEA en CLion testen of ze Tcl, `*.y` en `*.l` kennen, (2) Tcl Language Support installeren en bekijken wat hij wel en niet kan, (3) bij Bison Language Support testen of hij in 2026.2 nog werkt, (4) laten nakijken. Geen bouwbesluit.
 - **Nakijken:** controleur deed YouTrack en de drie plugins opnieuw met curl. Akkoord mits: GoYacc had twee versies, niet één; FL-29031 is open; RIDER-64097 is dicht; Jenkins-verzoeken zonder het woord in de titel ontbraken; "groeiend" en "nog steeds geïnstalleerd" te stellig; gemiddelde Bison is een GOK. Alles verwerkt.
+
+## Meting deel 13: kennen CLion en IDEA ze, wat kan Tcl Language Support, werken de Bison-plugins nog (7 nov 08:00 tot 08:10 UTC, met curl, alleen gelezen)
+**Hoe:** de nieuwste IDE-archieven gedownload. Let op: sinds 5 november is **2026.3** de nieuwste versie (CLion build 263.7307.209, IDEA Ultimate 263.7307.200, GEZIEN in de releases-API), dus 2026.3 nagelopen en niet 2026.2. Alleen uitgepakt en gelezen: alle xml in de jars van `lib/` en `plugins/` op echte `<fileType>`-registraties en FileTypeFactory, plus de 60 TextMate-bundels. Van de plugins de zip uitgepakt, `plugin.xml`, klassenlijst en Marketplace-gegevens gelezen. Niets gestart: een Gradle-test met de plugins mocht in deze run niet (de beveiliging weigerde het starten van gedownloade code), dus "werkt nog" is alleen afgeleid uit de gegevens, niet getest.
+
+**Stap 1, kent de IDE de soort zelf (GEZIEN):**
+
+| Soort | CLion 2026.3 | IDEA Ultimate 2026.3 |
+|---|---|---|
+| `*.y`, `*.yy` | nee | nee |
+| `*.l`, `*.ll` | nee | nee |
+| `*.tcl` | nee | nee |
+
+Geen `<fileType>` noemt deze extensies, geen TextMate-bundel voor Tcl, Yacc of Lex. Alleen losse tekst: "bison" in de emoji-lijst, `database.console.tx.handle.tcl` (een instelling, transaction control) en `yacc.linux` in een pom.xml van IDEA. CLion heeft wel CMake-hulpteksten voor `FindBISON`, `FindFLEX` en `FindTCL`, maar dat is uitleg bij CMake-commando's, geen taalondersteuning.
+
+**Stap 2, Tcl Language Support (id 31801, versie 2.2.5 van 10 sept 2026, GEZIEN):**
+- Maker tcl-lsp (bitwisecook), open bron onder AGPL-3.0. Een dun omhulsel om een eigen taalserver in Rust (LSP), zip van 108 MB. Kleuren via TextMate, geen eigen parser.
+- Kan veel via de taalserver (volgens de beschrijving, DERDEN): aanvullen, ga naar definitie, hernoemen, formatter, diagnoses, structuur, hover, folding. Ook veel voor F5 iRules en chipontwerp (`.sdc`, `.xdc`, `.qsf`).
+- Mist (niet geregistreerd): run-configuratie, debugger, console, eigen inspecties.
+- **Werkt alleen in IDE's met `com.intellij.modules.ultimate`** (`<depends>` in plugin.xml): IDEA Ultimate, CLion en dergelijke, niet in IDEA Community of PyCharm Community. CLion is gratis voor niet-commercieel gebruik, dus ook gratis gebruikers kunnen hem hebben (gevonden door de controleur).
+- **Nog niet geschikt voor 2026.3:** until-build is `262.*` volgens de Marketplace (de plugin.xml zelf noemt geen bovengrens). Sinds versie 2.2.4 is since-build 253. Sinds 10 september geen nieuwe versie.
+- 2.737 downloads, waarvan 682 op de laatste versie. In de wijzigingen van 2.2.4 staat dat de plugin daarvoor "largely unusable" was.
+- Repo-cijfers (sterren, issues) niet gemeten: api.github.com gaf 403 in deze run.
+- HDL and Vivado + MCP Support (id 30907, MIT, 1.946 downloads): eigen soort "Tcl" voor `.tcl` en `.xdc`, eigen parser, gericht op Vivado (console naar Vivado, MCP). Geen ga-naar-definitie of formatter. Claimt dezelfde soort als de LSP-plugin, samen botsen ze waarschijnlijk (GOK).
+
+**Stap 3, werken de Bison-plugins nog (GEZIEN voor de gegevens, werken zelf is GOK):**
+- Bison Language Support (id 16595, versie 20230902.02): since-build 223, geen bovengrens, Marketplace zegt IDEA en CLion 2023.1 en nieuwer, ook Community. Alle 56 platformklassen die hij gebruikt bestaan nog in 2026.3 (methoden niet gecontroleerd). Kent alleen `*.y`, niet `.yy`, `.l` of `.ll`. Doet kleuren, folding en structuur; ga naar definitie staat sinds 2021 op "gepland".
+- GoYacc Support (id 11444, versie 0.1.0 uit 2020): since 193, geen bovengrens, 87 platformklassen, alle nog in 2026.3. Alleen `*.y` voor de Go-variant.
+- Beide claimen `*.y`, dus samen botsen ze (GOK).
+- Een plugin voor Lex/Flex (`*.l`, `*.ll`) bestaat niet op de Marketplace (zoeken op flex, lex, lexer; Grammar-Kit is voor JFlex `.flex`).
+
+**Wat dit zegt (GOK):**
+- Yacc/Bison met Flex is open terrein: geen IDE kent de soorten, de gratis plugins zijn oud, doen alleen `.y` en weinig meer dan kleuren. Een plugin voor `.y`, `.yy`, `.l` en `.ll` samen, met ga naar definitie, hernoemen, C/C++ in de acties en een koppeling tussen tokens in `.y` en `.l`, heeft een duidelijk voordeel. Maar de groep is klein: Bison Language Support 13.020 downloads sinds mei 2021, en 8 stemmen in YouTrack. GoYacc (21.167 sinds december 2018) is de Go-variant en telt nauwelijks mee voor Bison/Flex in C/C++.
+- Tcl heeft meer vraag (38 stemmen) en een uitgebreide gratis concurrent, die werkt in CLion en de Ultimate-IDE's, is nog niet klaar voor 2026.3 en staat twee maanden stil. Op functies winnen van een volledige taalserver is moeilijk; de markt is versnipperd (chipontwerp, F5, Expect).
+- Bijvangst: een uitgever brengt een reeks betaalde "Flexible"-taalplugins uit (Julia, Haskell, COBOL en meer, van een paar honderd tot ±13.000 downloads). Betaalde niche-taalplugins bestaan dus (GEZIEN als zoekresultaat, niet verder gemeten).
+
+- **Nakijken (08:15 UTC):** controleur deed stap 1 tot 4 opnieuw (eigen zoekopdracht in de jars, Marketplace-gegevens, zoeken naar Lex/Flex-plugins): getallen gelijk. Akkoord mits 4 punten (downloads Bison overschat, Tcl werkt ook in gratis CLion, until-build is de Marketplace-waarde, CMake-hulpteksten noemen). Alle 4 verwerkt.
+
+**Volgende stap:** het bouwbesluit met een scoreschema (vraag, betaalbewijs, concurrentie, bouwtijd) tussen Bison/Flex, Tcl en Jenkinsfile-achtig als maat.

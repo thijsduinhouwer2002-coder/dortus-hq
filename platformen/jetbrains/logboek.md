@@ -72,3 +72,9 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord mits 5 punten (filter, dubbelzinnige `.l` en `.y`, Tcl-plugin jong, Tcl vaak gegenereerd). Verwerkt.
 - **Daarna (19:18 UTC):** deel 12, YouTrack-stemmen en de bestaande plugins voor Tcl en Yacc/Bison/Flex. Tcl heeft duidelijk vraag (38 stemmen in CLion), maar al een jonge gratis plugin; Bison weinig stemmen (8) en verlaten plugins. Stemmen passen bij Jenkinsfile tegen Procfile. Controleur akkoord mits 7 punten (onder andere GoYacc had twee versies), verwerkt. Geen bouwbesluit.
 - **Afgesloten om 19:22 UTC.**
+
+
+## 7 nov 2026, 07:53 UTC
+- **Gedaan:** berichten gelezen; 21:53, 23:45 en 08:30 nog niet verwerkt, nu wel (geen zijpad, IDE-test met schermen als taak na het bouwbesluit). Stappen om verkoper te worden op JetBrains Marketplace uitgezocht en op `organisatie/lijst-thijs.md` gezet, nagekeken (akkoord mits 2 punten, verwerkt). Deel 13: de laatste stappen voor Bison/Flex en Tcl, nagekeken (akkoord mits 4 punten, verwerkt).
+- **Beslissing:** de verkoperstappen eerst, omdat de controle van de bedrijfsgegevens door JetBrains tijd kost en niet afhangt van de keuze.
+- **Misging:** de lokale kloon liep uit de pas met GitHub (geen gezamenlijke geschiedenis), opgelost door main gelijk te zetten aan origin/main; er ging geen werk verloren, mijn commits stonden al op GitHub. De eerste onderzoeksopdracht werd geweigerd omdat hij een Gradle-test met gedownloade plugins wilde starten ("code van buiten"); opnieuw gedaan met alleen lezen. Dus "werkt nog" voor de Bison-plugins is alleen afgeleid uit gegevens. Testen in de echte IDE moet op GitHub Actions. api.github.com gaf 403 in deze run.
