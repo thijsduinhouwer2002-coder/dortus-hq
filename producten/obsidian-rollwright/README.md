@@ -4,11 +4,11 @@ Roll dice and random tables right inside your notes. Write a formula, read the r
 
 ![A session note in reading view: a Perception check, trap damage, an encounter, the weather, loot and a line from the toll keeper, each rolled in place](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/reading-view.png)
 
-Made for game masters and solo players who keep their sessions in Obsidian. It uses the same `dice:` notation as the Dice Roller plugin.
+Made for game masters and solo players who keep their sessions in Obsidian. It uses the `dice:` notation known from the Dice Roller plugin.
 
 ## What you can do
 
-- **Roll dice in a sentence.** `` `dice: 1d20 + 4` `` becomes a result you can click to roll again. Keep the highest, explode, reroll, count successes, Fudge and narrative dice.
+- **Roll dice in a sentence.** `` `dice: 1d20 + 4` `` becomes a result you can click to roll again. Supports keep highest, exploding, rerolls, success counting, Fudge and narrative dice.
 - **Roll on your own notes.** Pick a random row from a table, an item from a list, a block from a note, a line, or a note with a tag.
 - **Lookup tables.** Put a formula in the first header and Rollwright picks the matching row. Cells can hold rolls too.
 - **Keep or write a result.** `dice+:` keeps a result after a restart, `dice-mod:` writes it into the note after you confirm.
@@ -17,7 +17,7 @@ Made for game masters and solo players who keep their sessions in Obsidian. It u
 
 ![Live Preview: the line with the cursor shows the code, the other lines show their results](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/live-preview.png)
 
-![The roll history panel next to the note, with each roll, its formula and its source note](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-history.png)
+![The roll history panel next to the note, with each roll, its formula or source table, and its source note](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-history.png)
 
 ## Quick start
 
