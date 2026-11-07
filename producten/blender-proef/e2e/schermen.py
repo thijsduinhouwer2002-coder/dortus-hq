@@ -1,6 +1,7 @@
 """Draait met de interface onder Xvfb: blender --factory-startup --python e2e/schermen.py -- <map> <zip>
 Zet het Dortus-paneel open, maakt schermafbeeldingen en sluit Blender af."""
 import os
+import subprocess
 import sys
 import bpy
 
@@ -30,6 +31,10 @@ def schiet(naam):
     with bpy.context.temp_override(window=venster):
         bpy.ops.screen.screenshot(filepath=pad)
     print(f"[dortus-e2e] schermafbeelding {pad} {os.path.exists(pad)}")
+    # Blender leest onder Xvfb met software-OpenGL soms een zwart beeld uit; pak daarom ook het hele X-scherm.
+    x_pad = pad.replace(".png", "-x.png")
+    r = subprocess.run(["import", "-window", "root", x_pad], capture_output=True, text=True)
+    print(f"[dortus-e2e] X-scherm {x_pad} {os.path.exists(x_pad)} {r.stderr.strip()}")
 
 
 def stap():

@@ -25,7 +25,7 @@ jobs:
       - name: Systeempakketten (Xvfb en software-OpenGL)
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick
       - name: Blender ${{ matrix.blender }} ophalen
         run: |
           V="${{ matrix.blender }}"; KORT="${V%.*}"
