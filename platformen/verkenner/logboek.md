@@ -328,3 +328,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 4. Reden: geld per klant goed (95%, ±$75 per verkoop) maar de middelste nieuwe template verkoopt 1 keer in een half jaar, nieuwe makers mogen maar één template tegelijk indienen, en het wordt snel drukker. Wat dit verandert: een niche waar nieuwe templates aantoonbaar 10+ aankopen halen.
 - Controleur akkoord, correcties verwerkt (3 templates met prijs 0 eruit: 357, 303, 404). Steekproef 9 van 9 gelijk. Nieuw: uniqueViewers staat sinds juli op 0.
 - Les: kaartjes van "andere templates" op detailpagina's kunnen cijfers tonen die de lijst zelf verbergt. Kijk daar ook bij andere winkels naar.
+- 7 nov, testrun nieuw account: curl example.com gaf 200, opslaan werkt.
