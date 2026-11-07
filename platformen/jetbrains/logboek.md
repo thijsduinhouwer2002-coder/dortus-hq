@@ -87,3 +87,11 @@ Nieuwste blok onderaan.
 - **Afgesloten om ±08:19 UTC.**
 - **Na het afsluiten nog (08:22 UTC):** testset nagekeken, akkoord mits NOTICE van Thrift en een telling; beide verwerkt op de tak. Volgende run: IDE-test en bouwen beginnen op die tak.
 - **Laatste (08:25 UTC):** plan voor de IDE-test uitgezocht (Starter + Driver op GitHub Actions, IDEA Community omdat CLion een licentie vraagt), in `ide-test-plan.md`. Niet nagekeken; de eerste run op GitHub Actions is de toets. Volgende run: plugin-skelet met bestandssoorten en deze test op de tak.
+
+
+## 7 nov 2026, 08:52 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Taak "IDE-test opzetten" gedaan: plugin-skelet (twee talen, bestandssoorten `.y`, `.yy`, `.l`, `.ll`, iconen licht en donker, tijdelijke parser), 3 unittests, en een test in de echte IDE met Starter + Driver op GitHub Actions die per thema IDEA opent, de soorten en iconen controleert en schermafbeeldingen maakt. API's opgezocht in de bronnen en jars van JetBrains (curl, javap).
+- **Uitkomst:** run 42358929005 groen. Log: "calc.y -> soort Bison, icoon 16 px" en gelijk voor `.yy`, `.l`, `.ll`, in licht en donker; schermen 95 tot 120 kB op de tak `schermen`, map `jetbrains-bison-flex/claude-jetbrains-2026-11-07/` (GEZIEN, zelf bekeken). Bouwen en unittests werkten deze keer ook in de cloud.
+- **Misging:** eerste run faalde: Starter zocht zonder versie een EAP van IC. Opgelost met een vaste versie 2025.2.6.4. Gradle 9.8.2 weigert `by configurations.getting` en `registering` (verouderd), herschreven.
+- **Nakijken:** controleur eerst nee met 9 punten; de belangrijkste: taal-ID "Bison" botst met de gratis Bison-plugin (zelfde ID), iconen niet in de stijl van de nieuwe UI, IDE-versie niet vast, mislukte schermafbeelding liet de test niet falen. Alles verwerkt, daarna akkoord ja. CLion in de test staat open (moet vóór indienen).
+- **Beslissing:** samengevoegd met main, want controleur akkoord en tests groen. Taal-ID's `BisonFlex.Bison` en `BisonFlex.Flex`, omdat een gedeelde ID met een andere plugin hun parser op onze bestanden kan zetten. IDEA Community in de test, CLion als aparte taak, omdat CLion waarschijnlijk een licentie vraagt.

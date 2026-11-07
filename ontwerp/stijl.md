@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 1, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 2, 7 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -24,6 +24,7 @@ Nooit:
 
 - Engels in de producten (de markt is wereldwijd), Nederlands in de repo.
 - Sentence case op knoppen en kopjes: "Get the paid skins", niet "Get The Paid Skins". Dat is ook de regel van Obsidian.
+- Altijd de hoofdletterregel van het platform. Obsidian: overal sentence case. JetBrains: Title Case op knoppen, menu's, tooltips van acties en kopjes van dialogen; sentence case voor links, snelle oplossingen, meldingen (kopje en acties) en gewone zinnen ([Capitalization](https://plugins.jetbrains.com/docs/intellij/capitalization.html)).
 - Kort. Een omschrijving onder een instelling is één zin. Lange uitleg hoort in de README, niet in de app.
 - Een knop zegt wat er gebeurt: "Roll", "Replace", "Activate". Niet "OK" of "Submit".
 - Foutmeldingen zeggen wat er mis is en wat je kunt doen, in gewone woorden: "This formula ends with +. Add a number or a die after it." Nooit een technische melding of een stack.
@@ -52,4 +53,5 @@ Nooit:
 
 - **Dice Roller** (de voorganger van Rollwright): een uitkomst staat klein en rustig in de tekst, een klik rolt opnieuw. Dat overnemen: de gebruiker kent het al.
 - **Tasks, Calendar, Style Settings**: gebruiken alleen variabelen van Obsidian en zien er daardoor in elk thema goed uit. Dat is onze norm.
+- **JetBrains, ingebouwde talen**: kleuren alleen via `DefaultLanguageHighlighterColors` en een eigen kleurenpagina in Color Scheme, iconen in de lijnstijl van de nieuwe UI met een donkere versie, meldingen als balloon, nooit een dialoog. Zo ziet een plugin er in elk thema uit als een ingebouwde taal.
 - **De ingebouwde instellingen van Obsidian**: korte namen, één zin uitleg, kopjes met `setHeading()`. Zo moeten onze instellingen ook lezen.

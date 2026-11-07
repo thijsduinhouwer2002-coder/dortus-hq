@@ -1,4 +1,4 @@
-Akkoord: nog niet beoordeeld
+Akkoord: nee 7 nov 2026, omdat er nog alleen een skelet is (bestandssoorten en iconen, nog geen kleuring, structuur of Pro-melding). Het plan zelf is op uiterlijk goed, zie "Oordeel van Daan" onderaan.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -28,3 +28,25 @@ Kotlin-plugin vanuit `platformen/jetbrains/bouwsjabloon.md`. Twee talen met elk 
 
 ## Nakijken
 - 7 nov 08:25 UTC, controleur (niet de maker): akkoord mits (a) geen C-injectie als eis, eigen eenvoudige kleuring; (b) syntaxfouten gratis; (c) product-descriptor en versie concreet; (d) eisen aanscherpen (vaste set van 10 bestanden, verwachte uitvoer, één melding per sessie, test voor de `null`-stand, C-code als eis); (e) aanvullen naar 1.1. Alles verwerkt in deze versie. Nog nodig: oordeel van Daan.
+
+## Oordeel van Daan
+
+### Beoordeling 1, 7 nov 2026 (skelet, commit 4840419 op tak `claude/jetbrains-2026-11-07`)
+
+Bekeken: de vier schermafbeeldingen van IDE-run 42358929005 (tak `schermen`, map `jetbrains-bison-flex/claude-jetbrains-2026-11-07/`): `calc.y` en `calc.l` in licht en donker, IDEA 2025.2.6.4. Plus dit ontwerp.
+
+**Goed (laten zo):**
+1. **De iconen** (een Y en een L in een rond kader, oranje en blauw) passen bij de nieuwe UI van JetBrains: dunne lijn, zelfde maat als de ingebouwde iconen, een eigen versie voor donker. Ik zag ze uitvergroot in de projectboom en in de tabbladen. Goed.
+2. **Het plan:** geen eigen kleuren, geen eigen vensters, geen nag-schermen, één rustige melding bij een Pro-functie. Precies onze stijl (`ontwerp/stijl.md`).
+
+**Wat er moet komen, op volgorde van belang (voor akkoord):**
+1. **Kleuren alleen via de standaardkleuren van de IDE.** Koppel elk soort token aan een `DefaultLanguageHighlighterColors`-sleutel, dan klopt het vanzelf in licht, donker en elk thema: `%`-opdrachten als `KEYWORD`, tokens als `CONSTANT`, regelnaam bij de definitie als `FUNCTION_DECLARATION` en bij gebruik als `IDENTIFIER`, strings en tekens als `STRING`, commentaar als `LINE_COMMENT`/`BLOCK_COMMENT`, `%%` en `%{ %}` als `METADATA`, `$$`/`$1`/`@1` als `INSTANCE_FIELD` of `LOCAL_VARIABLE`, haken als `BRACES`/`PARENTHESES`. Geen enkele vaste kleur in de code.
+2. **Een kleurenpagina** (`ColorSettingsPage`) met de rekenmachine als voorbeeld, zodat je de kleuren kunt aanpassen in Settings, Editor, Color Scheme, net als bij de ingebouwde talen. Ook dit hoort bij "past bij de IDE".
+3. **De Pro-melding**: een gewone balloon-melding (`NotificationGroup`, type `BALLOON`), nooit een dialoog. Tekst kort en eerlijk, bijvoorbeeld titel "Bison & Flex Pro", tekst "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days.", acties "Start free trial" en "Not now" (in een melding zijn acties links, dus sentence case). Hoogstens één keer per sessie (staat al in eis 8). Ik wil hem in beeld zien, licht en donker.
+4. **Structuurweergave met de ingebouwde iconen** van de IDE (`AllIcons.Nodes...`), geen eigen plaatjes, en de volgorde zoals in het bestand.
+5. **Schermafbeeldingen voor de winkel**: een gewone projectnaam (bijvoorbeeld `calculator`, niet `bisonflex-licht1440...` in titelbalk en boom), het projectpaneel smaller of dicht zodat de code groot in beeld staat, en het eerste plaatje een `.y`-bestand mét kleuring en structuurweergave. Factor 2 als dat kan. Nu zijn ze goed genoeg als test, nog niet voor de winkel.
+6. **Pluginicoon voor de Marketplace** (`META-INF/pluginIcon.svg`, 40 bij 40, plus `pluginIcon_dark.svg`): rustig, in dezelfde lijn als de bestandsiconen, geen tekst erin.
+
+**Let op, JetBrains-regel:** op JetBrains krijgen knoppen, menu's, tooltips van acties en kopjes van dialogen Title Case ("Compare With..."). Sentence case voor links, snelle oplossingen (Alt+Enter), kopjes en acties in meldingen, en gewone zinnen. Dat is de regel van het platform (DERDEN: [IntelliJ Platform UI Guidelines, Capitalization](https://plugins.jetbrains.com/docs/intellij/capitalization.html)) en die gaat voor. Staat nu ook in `ontwerp/stijl.md`.
+
+**Wanneer akkoord:** punten 1 tot en met 3 in beeld goedgekeurd (licht en donker, op de schermen van de IDE-test), plus de winkelplaatjes uit punt 5. Punten 4 en 6 klein.
