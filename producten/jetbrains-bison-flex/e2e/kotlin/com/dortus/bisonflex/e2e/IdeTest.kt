@@ -74,7 +74,8 @@ class IdeTest {
     fun donkerThema() = draai("donker", "ExperimentalDark", "Dark")
 
     private fun draai(naam: String, themaId: String, kleurenschema: String) {
-        val project = Files.createTempDirectory("bisonflex-$naam")
+        // Vaste mapnaam, zodat de projectnaam op de schermen netjes is.
+        val project = Files.createTempDirectory("bisonflex-$naam").resolve("rekenmachine").createDirectories()
         Path.of(System.getProperty("dortus.e2e.project")).toFile().copyRecursively(project.toFile())
 
         Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
