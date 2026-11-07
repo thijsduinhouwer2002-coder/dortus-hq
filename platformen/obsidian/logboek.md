@@ -302,3 +302,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** plaatjes in de repo zelf (map `images/`) en absolute links. Waarom: de tak `schermen` van dortus-hq wordt telkens overschreven, en Obsidian toont relatieve plaatjes in de plugin-weergave niet altijd.
 **Beslissing:** nog niet uitbrengen. Waarom: regel en bericht Thijs 15:40, Daan keurt eerst de README.
 **Gezien (controleur), voor Hans:** het oude adres staat nog als geldende regel in `ontwerp/stijl.md` regel 60 en `organisatie/overdracht.md` regel 9. Niet mijn bestanden, dus niet aangepast.
+
+## 7 nov 2026, 15:20 tot 15:30: aanmelding klaargezet en lijstplaatjes 1200 bij 800
+**Gedaan:** de docs van Obsidian gelezen (curl, GEZIEN): aanmelden gaat via community.obsidian.md met Obsidian-account en gekoppelde GitHub, betaalsoort "Optional payment", plaatjes voor de lijst 1200 bij 800 (maximaal 5). Klaargezet in `aanmelding-community.md`. Op tak `claude/obsidian-2026-11-07-z` maakt de winkelspec extra plaatjes `lijst-*.png` van 1200 bij 800 via Chrome DevTools-emulatie (`Emulation.setDeviceMetricsOverride` via chromedriver), want setWindowSize werkt niet in Obsidian. Run 42386024452 met de hand gestart: groen 12 van 12, zes keer "WINKEL LIJST MAAT 1200x800", lezen en Live Preview tonen dezelfde worpen (GEZIEN). Controleur akkoord, op main; vijf plaatjes in `lijst-plaatjes/`.
+**Beslissing:** lijstplaatjes in mijn eigen map, niet in de openbare repo. Waarom: Thijs uploadt ze bij de aanmelding; in de plugin-repo horen ze niet.
+**Beslissing:** README-plaatjes blijven 1024 bij 800 (Daan keurde die). Waarom: niets veranderen aan wat al goedgekeurd is vlak voor het uitbrengen.
+**Stand:** wacht op Daan voor de README; daarna release en de aanmelding naar de lijst van Thijs.

@@ -13,7 +13,7 @@ Bron (GEZIEN 7 nov, gelezen met curl): docs "Submit your plugin" en "Manage your
    - **Short description:** Roll dice inside your notes with a full formula notation, draw from tables, lists, sections and tags, and keep a history of every roll.
    - **Long description:** Roll dice and random tables right inside your notes. Write a formula, read the result, click to roll again. Made for game masters and solo players who keep their sessions in Obsidian. Uses the `dice:` notation known from the Dice Roller plugin. All rolling is free; two extra skins are a one-time $6 purchase.
    - **Categories:** Editing en Visualization (GOK; kies wat het dichtst bij dobbelen en tabellen komt).
-   - **Screenshots:** de site wil 1200 bij 800 pixels. Olaf zet die klaar in `producten/obsidian-rollwright/images/listing/` (nog te maken).
+   - **Screenshots:** de site wil 1200 bij 800 pixels. upload de vijf plaatjes uit `platformen/obsidian/lijst-plaatjes/` (1200 bij 800, uit de echte Obsidian, run 42386024452), in deze volgorde: lijst-1-lezen, lijst-2-live-preview, lijst-3-geschiedenis, lijst-1-lezen-donker, lijst-3-geschiedenis-donker. Te downloaden via https://github.com/thijsduinhouwer2002-coder/dortus-hq/tree/main/platformen/obsidian/lijst-plaatjes
 5. Kies Publish. De site keurt automatisch; staat er een fout, zeg het in de projectchat, dan repareert Olaf het met een nieuwe release.
 
 Daarna doet Olaf de rest: nakijken met "Review branch", lanceerberichten klaarzetten (forum Share & showcase, Discord #updates, r/ObsidianMD), meten op dag 7 en dag 30.
