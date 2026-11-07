@@ -1,6 +1,6 @@
 # Voorstel: Autodesk Design and Make Marketplace (vroeger Autodesk App Store)
 
-**Advies: nog niet klaar.** Cijfer 4 (de controleur vond 3 ook verdedigbaar). Onderzocht 7 nov 2026 run 15:32, eigen meting van alle 5.055 apps uit de openbare sitemap (marketplace.autodesk.com, robots.txt staat dat toe) plus een onderzoeker voor het geld. Controleur: eerst niet akkoord (betaald-telling en prijzen fout), 7 correcties verwerkt.
+**Advies: nog niet klaar.** Cijfer 4 (de controleur vond 3 ook verdedigbaar). Onderzocht 7 nov 2026 run 15:32, eigen meting van alle 5.055 apps uit de openbare sitemap (marketplace.autodesk.com, robots.txt staat dat toe) plus een onderzoeker voor het geld. Controleur: eerst niet akkoord (betaald-telling en prijzen fout), na 7 correcties akkoord bij herkeuring.
 
 Kort: de voorwaarden zijn de beste die we tot nu toe zagen (0% afdracht, kopers zijn bedrijven, 41% van de apps vraagt in de winkel geld), maar bereik en verkoop zijn van buitenaf niet te zien, en ik vond geen enkele kleine maker die aantoonbaar via deze winkel verdient.
 
@@ -12,7 +12,7 @@ De winkel voor uitbreidingen op AutoCAD, Revit, Fusion, Civil 3D, Inventor en me
 ### Drukte (GEZIEN, eigen meting)
 - 5.055 apps in de sitemap (3 pagina's gaven een fout). Eerste uitgave per jaar: 2023 458, 2024 513, 2025 651, 2026 tot nu 979.
 - Nieuwe apps per maand: 2025 ±40 tot 90, 2026 eerste helft 55 tot 90, daarna 130 (aug), 139 (sep), 158 (okt); nov tot nu 50 (een week). Snelle groei sinds de nieuwe winkel en, denk ik, AI-hulp bij bouwen (GOK).
-- Van aug tot nu: 477 nieuwe apps van 251 makers, 185 makers met precies 1 app. Veel kleine makers dus. Maar ook bedrijven met reeksen (Todor Latev 52 sinds nov 2025, Piping Content 25, ProtoTech 24).
+- Van aug tot nu: 477 nieuwe apps van 251 makers, 185 makers met precies 1 app. Veel makers met 1 app. Maar ook bedrijven met reeksen (Todor Latev 52 sinds nov 2025, Piping Content 25, ProtoTech 24).
 - Producten bij nieuwe apps sinds nov 2025 (n=1.070): Revit 435, Fusion 205, Civil 3D 159, Plant 3D 151, AutoCAD 133.
 - Nieuw: 10 apps van de soort "MCP" sinds aug (GEZIEN).
 - Let op: de sitemap toont alleen apps die nu online staan. Weggehaalde apps tellen niet mee, dus oude jaren lijken kleiner (GOK).
