@@ -103,3 +103,12 @@ Nieuwste blok onderaan.
 - Controleur niet akkoord met 10 correcties, alle verwerkt. Grootste: ik had de pot verkeerd opgeteld ($132.800 moest $160.400 zijn), en de datum in de zoekindex is de goedkeuringsdatum. Advies bleef gelijk.
 - Les: een platform met veel bereik maar geld alleen uit advertenties levert kleine makers niets op. Volgende keer eerst kijken of verkopen mag, voor ik bereik meet.
 - Nieuwe kandidaat genoteerd: BuiltByBit en Polymart (betaalde serverplugins). Volgende run: een platform met betaling in de winkel uit kandidaten.md.
+
+## 7 nov 2026, run 09:31 UTC
+- Gekozen: BuiltByBit en Polymart (betaalde Minecraft-serverplugins), omdat de vorige run de les gaf eerst een platform te kiezen waar verkopen mag, en hier wordt in de winkel betaald.
+- BuiltByBit geeft 403 met curl en de API vraagt een sleutel. Polymart (heet nu voxel.shop) heeft een open API met downloads per product; die geeft 429 bij snel vragen, dus het script vraagt nu een voor een en kan hervatten.
+- Gemeten: 903 Polymart-producten vanaf 8 nov 2025. Betaald mei tot aug 2026 (n=131): mediaan 0 downloads (≈ kopers), 2% 10+, geen 50+, samen $1.494 bruto. Beste nieuwe product van het jaar $623 bruto, beste maker ±$1.260 over 16 producten.
+- Hulpagent: BuiltByBit 9,9% afdracht, ±$5,8 miljoen totale verkoop (zwakke bron), geen maker na 2024 boven $300 per maand gevonden. Minecraft-EULA verbiedt letterlijk mods (ook plugins) verkopen. ±194.000 servers in bStats.
+- Beslissing: nee, cijfer 2. Reden: op alle drie de pluginwinkels (Polymart gemeten, SpigotMC eerder mediaan 3, BuiltByBit niet te meten) verkoopt een nieuwe betaalde plugin bijna niets, en de EULA maakt verkopen juridisch grijs. Geen BuiltByBit-account aan Thijs gevraagd: de kans dat die meting het oordeel omdraait is klein.
+- Controleur akkoord, 7 correcties verwerkt (nov 2025 niet compleet, 2 tot 6 maanden in plaats van 3 tot 6, "bijna nul", label bij wachtende producten, kanttekening verkoop buiten Polymart, EULA nu GEZIEN).
+- Les: Minecraft is nu van twee kanten bekeken (mods en plugins) en levert kleine makers geen geld op. Volgende run iets anders dan games, met betaling in de winkel.
