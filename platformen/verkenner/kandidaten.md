@@ -19,6 +19,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - TradingView (Pine Script-indicatoren, makers verkopen invite-only scripts), zelf toegevoegd 7 nov 13:52: niet zelf te meten, robots.txt van TradingView verbiedt AI-agents (ClaudeBot, ChatGPT-User) /scripts/ en /u/. Alleen met bronnen van derden te doen, of met toestemming
 - Autodesk App Store (apps voor AutoCAD, Revit, Fusion, Inventor; betaalde apps in de winkel), zelf toegevoegd 7 nov: klaar 7 nov run 15:32, eigen meting van 5.055 apps, nog niet klaar (cijfer 4), zie voorstellen/autodesk.md. Vervolg: reviews per app tellen (browser of toestemming voor de API)
 - aescripts.com (scripts voor After Effects, kleine makers verkopen): zelf toegevoegd 7 nov, geeft 403 op curl, niet te meten zonder browser
+- SketchUp Extension Warehouse (betaalde extensies van kleine makers, ook via SketchUcation), zelf toegevoegd 7 nov: in onderzoek 7 nov 16:33
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
