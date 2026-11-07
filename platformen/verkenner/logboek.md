@@ -168,4 +168,10 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 3. Reden: bereik ver onder JetBrains en Obsidian, en geld alleen bij makers van 8 tot 16 jaar oud.
 - Controleur akkoord, 8 correcties verwerkt (grootste extensie, Exchange ingebouwd, maandtellingen, overlappende groepen, TrustMRR doorzocht, gebruikersbron).
 - Volgende run: Zotero of Anki uit kandidaten.md, of een nieuw platform met betaling in de winkel.
+- Derde platform: Firefox (zelfde soort open API). De API toont maar de 30.000 nieuwste, en die gaan terug tot ±8 juni: ±5.000 tot 10.000 nieuwe extensies per maand. Elke 5e pagina genomen (6.000).
+- Gemeten: nieuw jun t/m aug mediaan 1 gebruiker per dag, 2% 100+, betaald ook mediaan 1.
+- Beslissing: nee, cijfer 1. Reden: laagste bereik van alles wat we maten, en geen betaling.
+- Controleur akkoord, 6 correcties verwerkt (venster ±8 juni tot 5 nov, totaal 116.388, overleving maakt oude maanden te laag, onzekerheid per maand).
+- Les: browserwinkels (Chrome, Edge, Firefox) zijn dicht; niet meer naar kijken zonder nieuw feit.
+- Volgende run: Zotero of Anki uit kandidaten.md, of liever een nieuw platform met betaling in de winkel.
 
