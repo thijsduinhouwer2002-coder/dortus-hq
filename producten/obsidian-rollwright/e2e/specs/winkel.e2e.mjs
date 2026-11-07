@@ -210,7 +210,7 @@ describe("Rollwright: winkelplaatjes", function () {
 		expect(items).toBe(6);
 		expect(new Set(w[LOOT].tekst.split(",").map((t) => t.trim())).size).toBe(3);
 		expect(zinnen(w[TOLWACHTER].tekst)).toBe(2);
-		// De nieuwste staat bovenaan: de geschiedenis toont precies wat de notitie toont.
+		// De nieuwste staat bovenaan (alleen gelogd); de buit in de geschiedenis moet gelijk zijn aan de notitie.
 		const bovenste = await browser.execute(() => document.querySelector(".rollwright-history-item")?.textContent ?? "");
 		console.log("WINKEL GESCHIEDENIS BOVENSTE:", JSON.stringify(bovenste));
 		const geschiedenisBuit = await browser.execute(() => Array.from(document.querySelectorAll(".rollwright-history-item")).map((e) => e.textContent ?? "").find((t) => t.includes("loot")) ?? "");
