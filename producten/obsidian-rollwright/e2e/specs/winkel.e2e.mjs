@@ -6,7 +6,18 @@ import * as fs from "fs";
 const SHOTS = "screenshots";
 const NOTE = "Demo/Session 12.md";
 const LEAF = ".workspace-leaf.mod-active";
-const AANTAL = 5;
+const AANTAL = 6;
+// Volgorde van de worpen in Demo/Session 12.md.
+const LOOT = 4;
+const TOLWACHTER = 5;
+// De regels van Demo/Toll keeper.md (|line trekt er twee, met teruglegging).
+const ZINNEN = [
+	"Two coppers to cross, and mind the third plank.",
+	"Nobody has come back from the north road this week.",
+	"The bandits pay me more than you do.",
+	"Rain is coming. You can smell it on the water.",
+	"I saw a light under the bridge last night.",
+];
 
 async function open(mode) {
 	await browser.executeObsidian(async ({ app }, path, mode) => {
@@ -37,21 +48,38 @@ async function wacht(view) {
 	return w;
 }
 
-/** Loot trekt met teruglegging; voor een winkelplaatje willen we drie verschillende dingen. Klik tot dat zo is. */
+/** Hoeveel verschillende zinnen van de tolwachter in een uitkomst staan. */
+function zinnen(tekst) {
+	return ZINNEN.filter((z) => tekst.includes(z)).length;
+}
+
+/**
+ * Loot en de tolwachter trekken met teruglegging; voor een winkelplaatje willen we drie verschillende
+ * dingen en twee verschillende zinnen. Klik op de worp die nog dubbel is, tot beide kloppen.
+ */
 async function lootVerschillend(view) {
 	const sel = `${LEAF} ${view}`;
-	for (let poging = 0; poging < 30; poging++) {
+	for (let poging = 0; poging < 40; poging++) {
 		const w = await wacht(view);
-		const delen = w[4].tekst.split(",").map((s) => s.trim());
-		if (new Set(delen).size === 3) return w;
-		await browser.execute((sel) => {
-			const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[4];
+		const lootGoed = new Set(w[LOOT].tekst.split(",").map((s) => s.trim())).size === 3;
+		const zinnenGoed = zinnen(w[TOLWACHTER].tekst) === 2;
+		if (lootGoed && zinnenGoed) return w;
+		await browser.execute((sel, i) => {
+			const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[i];
 			r?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
 			r?.click();
-		}, sel);
+		}, sel, lootGoed ? TOLWACHTER : LOOT);
 		await browser.pause(300);
 	}
-	throw new Error("loot bleef dubbele dingen tonen");
+	throw new Error("loot of de tolwachter bleef dubbel");
+}
+
+/** De tolwachter staat als blok onder de regel (Daan punt 1), zodat het plaatje ook een blokuitkomst laat zien (Daan W2). */
+async function tolwachterIsBlok(view) {
+	return browser.execute((sel, i) => {
+		const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[i];
+		return r?.classList.contains("rollwright-roll-block") ?? false;
+	}, `${LEAF} ${view}`, TOLWACHTER);
 }
 
 async function thema(donker) {
@@ -101,7 +129,11 @@ describe("Rollwright: winkelplaatjes", function () {
 		console.log("WINKEL INLINE TITELS ZICHTBAAR:", titels);
 		expect(titels).toBe(0);
 		for (const r of w) expect(r.fout).toBe("");
-		expect(w[4].tekst.split(",").length).toBe(3);
+		expect(w[LOOT].tekst.split(",").length).toBe(3);
+		expect(zinnen(w[TOLWACHTER].tekst)).toBe(2);
+		const blok = await tolwachterIsBlok(".markdown-reading-view");
+		console.log("WINKEL TOLWACHTER ALS BLOK (LEZEN):", blok);
+		expect(blok).toBe(true);
 		await plaatjes("winkel-1-lezen");
 	});
 
@@ -110,6 +142,9 @@ describe("Rollwright: winkelplaatjes", function () {
 		const w = await lootVerschillend(".markdown-source-view");
 		console.log("WINKEL LIVE PREVIEW:", JSON.stringify(w));
 		for (const r of w) expect(r.fout).toBe("");
+		const blok = await tolwachterIsBlok(".markdown-source-view");
+		console.log("WINKEL TOLWACHTER ALS BLOK (LIVE PREVIEW):", blok);
+		expect(blok).toBe(true);
 		// Cursor op de regel van Perception: Live Preview toont daar de code, de rest de uitkomst (Daan W1).
 		const regel = await browser.executeObsidian(({ app }) => {
 			const editor = app.workspace.activeEditor?.editor;
