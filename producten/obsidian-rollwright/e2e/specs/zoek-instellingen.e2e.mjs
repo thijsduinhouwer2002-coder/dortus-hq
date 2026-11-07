@@ -11,12 +11,12 @@ import * as fs from "fs";
 // executeObsidian en app.setting.modalEl: typen is de waarde zetten met een input-event, klikken is
 // el.click(), net als klikWorp in klik-hulp.mjs (die hulp zelf zoekt worpen in een notitie, dat past hier niet).
 const SHOTS = "screenshots";
-// Per zoekterm een stukje van de uitleg van de regel, zodat we weten dat het de regel van Rollwright is.
-const TERMEN = [
-	{ term: "Default die", uitleg: "number of sides" },
-	{ term: "Skin", uitleg: "All rolling is free" },
-	{ term: "License key", uitleg: "once every 30 days" },
-];
+// De namen van regels van Rollwright om op te zoeken. Obsidian 1.15 toont in een treffer alleen de naam,
+// geen uitleg (run 42401543789); dat een treffer van Rollwright is, blijkt uit de kop van zijn groep.
+const TERMEN = ["Default die", "Skin", "License key"];
+
+/** Een treffer van Rollwright: een gevonden regel met precies deze naam, onder de groepskop "Rollwright". */
+const vanRollwright = (h, term) => h.groep === "Rollwright" && h.titel === term;
 
 async function openInstellingen(tab) {
 	const venster = await browser.executeObsidian(({ app }, tab) => {
@@ -108,6 +108,11 @@ async function treffers(term) {
 		return namen.map((el, i) => {
 			el.setAttribute("data-e2e-hit", String(i));
 			const rij = el.closest(".setting-item") ?? el.parentElement;
+			// In de zoekuitslag: de naam van de gevonden regel en de kop van zijn groep (het kind van de
+			// groep dat niet de lijst met treffers is).
+			const item = el.closest(".setting-search-result-item");
+			const groep = el.closest(".setting-search-result-group");
+			const kop = groep ? Array.from(groep.children).find((c) => !c.classList.contains("setting-search-result-group-items")) : null;
 			const voorouders = [];
 			for (let a = el.parentElement, n = 0; a && a !== modal && n < 7; a = a.parentElement, n++) voorouders.push(`${a.tagName.toLowerCase()}.${a.className}`);
 			let omgeving = "";
@@ -115,6 +120,9 @@ async function treffers(term) {
 				if (/rollwright/i.test(a.textContent ?? "")) { omgeving = (a.textContent ?? "").slice(0, 200); break; }
 			}
 			return {
+				titel: (item?.querySelector(".vertical-tab-nav-item-title")?.textContent ?? "").trim(),
+				groep: (kop?.textContent ?? "").trim(),
+				groepKlasse: kop ? `${kop.tagName.toLowerCase()}.${kop.className}` : "",
 				tekst: (el.textContent ?? "").trim(),
 				klasse: el.className,
 				html: el.innerHTML.slice(0, 200),
@@ -196,19 +204,18 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		expect(zoekveld.gevonden).toBe(true);
 		expect(await treffers("Default die")).toEqual([]);
 
-		for (const [n, { term, uitleg }] of TERMEN.entries()) {
+		for (const [n, term] of TERMEN.entries()) {
 			expect(await zoek(term)).toBe(true);
 			let hits = [];
-			const vanRollwright = (h) => h.rij.includes(uitleg) || h.rollwrightInBuurt !== "";
 			await browser.waitUntil(async () => {
 				hits = await treffers(term);
-				return hits.some(vanRollwright);
+				return hits.some((h) => vanRollwright(h, term));
 			}, { timeout: 10000, timeoutMsg: `zoeken op "${term}" vond de regel van Rollwright niet` }).catch(async (e) => {
 				console.log(`ZOEK "${term}" TREFFERS TOT NU:`, JSON.stringify(hits, null, 1));
 				console.log("VENSTER TEKST:", JSON.stringify(await browser.executeObsidian(({ app }) => (app.setting.modalEl?.innerText ?? "").slice(0, 1500))));
 				throw e;
 			});
-			console.log(`ZOEK "${term}": met de uitleg van Rollwright in de regel: ${hits.some((h) => h.rij.includes(uitleg))}`);
+			console.log(`ZOEK "${term}": treffers onder de kop Rollwright: ${hits.filter((h) => vanRollwright(h, term)).length}`);
 			console.log(`ZOEK "${term}": ${hits.length} treffers:`, JSON.stringify(hits, null, 1));
 			console.log(`ZOEK "${term}": actieve tab ${await actieveTab()}`);
 			await foto(`zoek-${n + 1}-${term.replace(/ /g, "-").toLowerCase()}`);
@@ -220,14 +227,14 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		let hits = [];
 		await browser.waitUntil(async () => {
 			hits = await treffers("Default die");
-			return hits.some((h) => h.rollwrightInBuurt !== "");
-		}, { timeout: 10000, timeoutMsg: "Default die werd niet weer gevonden" });
+			return hits.some((h) => vanRollwright(h, "Default die"));
+		}, { timeout: 10000, timeoutMsg: "Default die werd niet weer gevonden onder de kop Rollwright" });
 		// Obsidian 1.15 toont een treffer als .setting-search-result-item in de zijbalk, onder een groep met de
 		// naam van de tab (Rollwright), zonder de uitleg (run 42401543789).
-		const i = hits.findIndex((h) => h.rollwrightInBuurt !== "");
+		const i = hits.findIndex((h) => vanRollwright(h, "Default die"));
 		console.log("KLIK OP TREFFER:", JSON.stringify(hits[i]));
 
-		// Eerst de naam, dan de hele treffer, dan een kop met Rollwright erin: wat Obsidian ook klikbaar maakt.
+		// Eerst de naam, dan de hele treffer. Allebei de gevonden regel zelf; een klik op de groepskop telt niet.
 		const pogingen = [
 			["naam", `[data-e2e-hit="${i}"]`],
 			["treffer", `.setting-search-result-item:has([data-e2e-hit="${i}"])`],
@@ -240,23 +247,6 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 			console.log(`KLIK ${wat}: actieve tab ${await actieveTab()}, zoekveld "${zoektekst}", geopend ${geopend}`);
 			if (geopend) break;
 		}
-		if (!geopend) {
-			const kop = await browser.executeObsidian(({ app }) => {
-				const modal = app.setting.modalEl;
-				const el = Array.from(modal?.querySelectorAll("*") ?? []).find((e) => e.getClientRects().length > 0 && e.children.length === 0
-					&& /^rollwright$/i.test((e.textContent ?? "").trim()) && !e.closest(".vertical-tab-header"));
-				if (!el) return null;
-				el.setAttribute("data-e2e-kop", "1");
-				return `${el.tagName.toLowerCase()}.${el.className} in ${el.parentElement?.className ?? ""}`;
-			});
-			console.log("KOP MET ROLLWRIGHT IN DE ZOEKUITSLAG:", kop);
-			if (kop) {
-				await klik("[data-e2e-kop]");
-				geopend = await browser.waitUntil(async () => (await actieveTab()) === "rollwright", { timeout: 4000 }).catch(() => false);
-				console.log(`KLIK kop: actieve tab ${await actieveTab()}, geopend ${geopend}`);
-			}
-		}
-
 		const plek = await browser.executeObsidian(({ app }) => {
 			const el = app.setting.pluginTabs.find((t) => t.id === "rollwright")?.containerEl;
 			const rij = Array.from(el?.querySelectorAll(".setting-item") ?? []).find((it) => (it.querySelector(".setting-item-name")?.textContent ?? "").trim() === "Default die");
@@ -267,10 +257,9 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		});
 		console.log("NA DE KLIK, REGEL DEFAULT DIE IN DE TAB:", JSON.stringify(plek));
 		await foto("zoek-4-na-klik");
-		if (!geopend) {
-			console.log("OBSIDIAN OPENT GEEN TAB BIJ EEN KLIK OP EEN TREFFER; zie de treffers en klikken hierboven.");
-			this.skip();
-		}
+		// Obsidian 1.15 opent bij deze klik altijd de tab (run 42420553342), dus geen tab is een fout, geen reden om over te slaan.
+		if (!geopend) throw new Error(`een klik op de treffer Default die opende de Rollwright-tab niet (actieve tab ${plek?.actieveTab ?? "onbekend"}); zie KLIK hierboven`);
+		expect(plek?.actieveTab).toBe("rollwright");
 		expect(plek?.zichtbaar).toBe(true);
 	});
 

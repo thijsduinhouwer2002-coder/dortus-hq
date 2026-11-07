@@ -63,6 +63,7 @@ Een code zoals `` `dice: 2d6+3` `` staat in een notitie. `ui/reading-view.ts` (l
 
 - `tests/` (vitest, `tests/**/*.test.ts`): de nep-Obsidian staat in `tests/obsidian-stub.ts`. Voor `dice-mod:`: `dice-mod.test.ts` (lezen van de code, `modifiedText`, defuse), `dice-mod-plugin.test.ts` (leesweergave, Live Preview met een nep-`EditorView`, het venster), `dice-mod-replace.test.ts` (`rollers/modify.ts`), met gedeelde hulp in `dice-mod-helpers.ts`.
 - `e2e/specs/` (de echte Obsidian op GitHub Actions): wdio draait elk `*.e2e.mjs` bestand als spec (`e2e/wdio.conf.mjs`). Gedeelde hulp heet daarom anders, zoals `dicemod-hulp.mjs` voor `dicemod-live.e2e.mjs` (Live Preview) en `dicemod-lezen.e2e.mjs` (leesweergave en Enter).
+- `e2e/specs/zoek-instellingen.e2e.mjs`: de instellingen in de zoekfunctie van Obsidian 1.13 en later (`getSettingDefinitions` in `ui/settings.ts`). Obsidian 1.15 opent de instellingen in een eigen venster, dus de spec werkt via `executeObsidian` en `app.setting.modalEl`. Hij zoekt Default die, Skin en License key en eist een treffer met precies die naam onder de groepskop "Rollwright" (1.15 toont in een treffer geen uitleg). Een klik op die treffer moet de Rollwright-tab openen met de regel in beeld; lukt dat niet, dan faalt de test. Verder: naam en uitleg één keer in de tab, Add en de prullenbak tekenen opnieuw, een waarde blijft bewaard.
 
 ## Lint
 
