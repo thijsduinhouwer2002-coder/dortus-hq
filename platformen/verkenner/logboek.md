@@ -91,4 +91,5 @@ Nieuwste blok onderaan.
 - Beslissing: gevoel van Thijs klopt, Shopify blijft nog niet klaar met cijfer 6, alleen vanwege de route via een nieuwe verplichting. Reden: een gewone app haalt hier geen bereik, dat is nu ook in installs gemeten, niet alleen in reviews.
 - Controleur akkoord, 8 correcties verwerkt (Revoq 4.196 en 582, Appio 846 en 122, advertentieclaim kleiner, bovengrens ruimer: ±2 tot 6 in plaats van 1 tot 4, labels aangevuld).
 - Arrears van Thijs niet gevonden in de winkel met curl; niet verder gezocht.
-- Volgende: Shopify vervolg B (regel met datum). Vindt die niets sterks, dan Shopify naar 5.
+- Volgende: Shopify vervolg B (regel met datum). Vindt die niets sterks, dan Shopify naar 5.- Daarna Shopify vervolg B begonnen. Deel 1: de garantielabel-golf (EmpCo, plicht 27 sep 2026) gemeten als tweede toets van de golf-route. 54 apps, mediaan 0 reviews, top 50. Veel kleiner dan de herroepingsknop (2.323). Data in `data/shopify-garan-golf-2026-11-07.json`. Nog niet nagekeken, want de tijd was op. Volgende run: controleur op deel 1, dan e-facturen Duitsland en scripttags.
+- Nieuw feit: Shopify gaat apps zonder installs na zes maanden verwijderen (Partner Town Hall 5 nov, via Sicard).

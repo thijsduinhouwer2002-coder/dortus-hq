@@ -1,5 +1,15 @@
 # Voorstel: Shopify (apps)
 
+## Vervolg B, deel 1 (7 nov 2026, 08:15): de tweede golf, garantielabel EmpCo (Vera, NOG NIET NAGEKEKEN)
+
+Vraag: werkt de route "vroeg bij een nieuwe verplichting" vaker dan één keer? Getoetst op de golf ná de herroepingsknop: de verplichte EU-garantiemelding en het GARAN-label (richtlijn EmpCo, verplicht vanaf 27 sep 2026, DERDEN: [nuonic](https://nuonic.de/en/insights/e-commerce-deadlines-2026-27)).
+- Gemeten (GEZIEN): in de Shopify-sitemap 54 apps met garantie, GARAN, Gewährleistung, green claims of EmpCo in de naam (namen gezocht, dus eerder te weinig dan te veel). Gelanceerd tussen mei en 6 nov 2026, de meeste in juli tot oktober.
+- Reviews op 7 nov: mediaan 0, 38 van de 54 hebben er nul, samen 198. Top: 50 (5 aug), 49 (26 aug), 37 (24 jun), 14, 13. Ter vergelijking de herroepingsknop: winnaars 2.323 en 580.
+- De winnaars kwamen 4 tot 13 weken voor de deadline, net als bij de herroepingsknop, maar halen een fractie. Binnen 4 maanden waren er al 54 aanbieders, ook na de deadline komen er elke week bij.
+- Shopify zei op 5 nov dat apps zonder installs na zes maanden uit de winkel gaan (DERDEN: [Sicard, tracker](https://taylorsicard.com/the-index/shopify-platform-deadlines-tracker-2026), nog zonder datum).
+- Voorlopige les (GOK): de golf-route werkt wel, maar elke nieuwe golf trekt meteen tientallen makers, en de opbrengst per golf hangt af van hoe zwaar de plicht is. Een knop die elke webwinkel moet hebben gaf duizenden winkels, een label dat veel winkels zelf in het thema zetten veel minder.
+- Nog te meten in deel 2 (volgende run): (1) e-facturen in Duitsland (plicht om te versturen vanaf 1 jan 2027 boven €800.000 omzet, 1 jan 2028 voor iedereen, DERDEN: [xictron](https://www.xictron.com/en/blog/legal-changes-2027-deadline-calendar-online-shops/)): er zijn nu maar een handvol Shopify-apps met XRechnung of ZUGFeRD in de naam (GEZIEN: 4); (2) scripttags stoppen op 1 maart 2027 (DERDEN: Sicard): welke oude apps breken en laten winkels zonder vervanger; (3) daarna een oordeel: blijft het 6 of wordt het 5.
+
 ## Update 7 nov 2026, ochtend: hoe haalt een gewone nieuwe app zijn eerste 100 installs? (Vera, bericht Thijs 6 nov 20:32)
 
 **Kort antwoord: het gevoel van Thijs klopt.** Een gewone nieuwe app haalt in 2 tot 6 maanden bijna nooit 100 installs: naar schatting ±2 tot 6 van de 100 apps (GOK op basis van GEZIEN, uitleg hieronder; uiterste bovengrens ±11). Na 6 tot 12 maanden zijn het er ±7 tot 15 van de 100 (GOK). Ter vergelijking: bij Obsidian haalt 68 tot 88% de 100 gebruikers, bij JetBrains 54%. In de ±15 gelezen forumdraden liet geen enkele kleine maker zonder eigen publiek in 2025 of 2026 aantoonbaar zien hoe hij de 100 haalde (DERDEN, alleen binnen die draden). **Advies blijft: nog niet klaar, cijfer 6.** Het cijfer rust alleen nog op de route "vroeg zijn bij een nieuwe verplichting of functie" (zie update 6 nov). Een gewone app in een gewone categorie is hier geen optie.
