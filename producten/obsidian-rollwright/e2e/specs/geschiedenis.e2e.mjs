@@ -93,11 +93,17 @@ async function klik(view, i) {
 		return rolls[i] !== undefined && !rolls[i].old && rolls[i].value !== "";
 	}, { timeout: 5000, timeoutMsg: `na een klik op worp ${i} kwam er geen nieuwe uitkomst` });
 	// De geschiedenis wordt na de worp bewaard; wacht tot de nieuwe regel er is en het paneel hem toont.
+	// Bij een time-out de lengtes in het log, zodat een wiebel te begrijpen is (run 42372342605). Eis gelijk.
+	let lengtes = "";
 	await browser.waitUntil(async () => {
 		const h = await history();
 		const p = await paneel();
+		lengtes = `geschiedenis ${h.length}, paneel ${p.length}, voor de klik ${aantalVoor}`;
 		return h.length === aantalVoor + 1 && p.length === h.length;
-	}, { timeout: 5000, timeoutMsg: `na een klik op worp ${i} kwam er geen nieuwe regel in de geschiedenis` });
+	}, { timeout: 5000, timeoutMsg: `na een klik op worp ${i} kwam er geen nieuwe regel in de geschiedenis` }).catch((e) => {
+		console.log(`GESCHIEDENIS LENGTES BIJ TIME-OUT (worp ${i}, ${view}): ${lengtes}`);
+		throw e;
+	});
 	expect(rolls[i].error).toBe("");
 	return rolls[i];
 }
