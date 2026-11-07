@@ -1,10 +1,12 @@
 package com.dortus.bisonflex.pro
 
+import com.dortus.bisonflex.BisonLanguage
 import com.dortus.bisonflex.psi.Koppeling
 import com.dortus.bisonflex.psi.NaamElement
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.refactoring.rename.RenamePsiElementProcessor
+import com.intellij.util.containers.MultiMap
 
 /**
  * Hernoemen (Shift+F6) met de Pro-regel (eis 6, besluit van Jet). Binnen één bestand is hernoemen gratis.
@@ -18,6 +20,14 @@ import com.intellij.refactoring.rename.RenamePsiElementProcessor
 class ProHernoemen : RenamePsiElementProcessor() {
 
     override fun canProcessElement(element: PsiElement): Boolean = element is NaamElement
+
+    /** Een naam die al bestaat zou regels of tokens stil samenvoegen: dat wordt een conflict in het venster. */
+    override fun findExistingNameConflicts(element: PsiElement, newName: String, conflicts: MultiMap<PsiElement, String>) {
+        val f = element.containingFile ?: return
+        if (element !is NaamElement || newName == element.name) return
+        val bestaat = if (f.language == BisonLanguage) Koppeling.bisonDoel(f, newName) else Koppeling.startConditie(f, newName)
+        if (bestaat != null) conflicts.putValue(element, "'$newName' already exists in ${f.name}")
+    }
 
     override fun substituteElementToRename(element: PsiElement, editor: Editor?): PsiElement? {
         if (Licentie.proWerkt() || !Koppeling.gebruiktInScanner(element)) return element

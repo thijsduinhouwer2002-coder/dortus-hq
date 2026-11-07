@@ -191,6 +191,53 @@ class AllePlekkenTest : BasePlatformTestCase() {
         assertEquals(listOf("calc.y:26"), plekken(b, "NUM"))
     }
 
+    // ---- C-code buiten acties: proloog en user code ----
+
+    fun testZonderLicentieTokenInUserCodeVanScannerGeeftMelding() {
+        stand(LicentieStand.GEEN)
+        myFixture.addFileToProject("s.l", "%%\n[0-9]+  ;\n%%\nint lees(void) { return NUM; }\n")
+        myFixture.configureByText("calc.y", tekst("calc.y"))
+        cursorOp("NUM")
+        myFixture.renameElementAtCaret("GETAL")
+        assertEquals(tekst("calc.y"), inhoud("calc.y"))
+        assertEquals(1, meldingen.size)
+    }
+
+    fun testMetLicentieTokenInProloogEnUserCode() {
+        stand(LicentieStand.GELDIG)
+        val scanner = "%{\nstatic int eerste = NUM;\n%}\n%%\n[0-9]+  ;\n%%\nint lees(void) { return NUM; }\n"
+        myFixture.addFileToProject("s.l", scanner)
+        val f = myFixture.configureByText("calc.y", tekst("calc.y"))
+        assertEquals(listOf("calc.y:26", "s.l:2", "s.l:7"), plekken(f, "NUM"))
+        cursorOp("NUM")
+        myFixture.renameElementAtCaret("GETAL")
+        assertEquals(hernoemd(scanner, "NUM", "GETAL"), inhoud("s.l"))
+    }
+
+    fun testStartConditieInUserCodeJq() {
+        stand(LicentieStand.GEEN)
+        val jq = File(System.getProperty("dortus.testdata"), "jq-lexer.l").readText()
+        val f = myFixture.configureByText("jq-lexer.l", jq)
+        assertEquals(listOf("jq-lexer.l:142", "jq-lexer.l:168"), plekken(f, "IN_PAREN"))
+        cursorOp("IN_PAREN")
+        myFixture.renameElementAtCaret("IN_HAAKJE")
+        assertEquals(hernoemd(jq, "IN_PAREN", "IN_HAAKJE"), myFixture.editor.document.text)
+        assertEquals(0, meldingen.size)
+    }
+
+    fun testHernoemenNaarBestaandeNaamWordtGeweigerd() {
+        stand(LicentieStand.GELDIG)
+        myFixture.configureByText("calc.y", tekst("calc.y"))
+        cursorOp("exp:")
+        try {
+            myFixture.renameElementAtCaret("line")
+            fail("geen conflict")
+        } catch (e: com.intellij.refactoring.BaseRefactoringProcessor.ConflictsInTestsException) {
+            assertTrue(e.messages.joinToString(), e.messages.any { "'line' already exists" in it })
+        }
+        assertEquals(tekst("calc.y"), myFixture.editor.document.text)
+    }
+
     // ---- de 10 echte bestanden ----
 
     fun testEchteBestandenGeenValsePlekken() {

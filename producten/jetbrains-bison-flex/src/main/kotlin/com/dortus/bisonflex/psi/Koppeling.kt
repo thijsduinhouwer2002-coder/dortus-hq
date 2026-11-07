@@ -22,6 +22,10 @@ import com.intellij.psi.util.PsiModificationTracker
  * dat doen de verwijzingen ([CodeVerwijzing]) en het hernoemen (`pro/ProHernoemen.kt`).
  */
 object Koppeling {
+    /** Knopen met C-code. Een naam erin kan een token of start-conditie zijn (`BEGIN(C)` in de user code). */
+    val BISON_CODE: Set<IElementType> = setOf(B.ACTION, B.CODE_BLOCK, B.PROLOGUE, B.EPILOGUE)
+    val FLEX_CODE: Set<IElementType> = setOf(F.ACTION, F.PROLOGUE, F.TOP_BLOCK, F.CODE, F.USER_CODE)
+
     private val NAAM = Regex("[A-Za-z_][A-Za-z0-9_]*")
     fun isNaam(t: CharSequence) = NAAM.matches(t)
 
@@ -51,7 +55,7 @@ object Koppeling {
         val condities = LinkedHashMap<String, MutableList<PsiElement>>()
         for (k in zoek(f.node, setOf(F.START_CONDITION_NAME))) condities.getOrPut(k.text) { ArrayList() } += k.psi
         val inActies = HashSet<String>()
-        for (a in zoek(f.node, setOf(F.ACTION))) bladeren(a).filter { isNaam(it.text) }.forEach { inActies += it.text }
+        for (a in zoek(f.node, FLEX_CODE)) bladeren(a).filter { isNaam(it.text) }.forEach { inActies += it.text }
         CachedValueProvider.Result.create(FlexNamen(condities, inActies), PsiModificationTracker.MODIFICATION_COUNT)
     }
 

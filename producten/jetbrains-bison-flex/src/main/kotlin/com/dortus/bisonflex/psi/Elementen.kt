@@ -17,7 +17,7 @@ object BisonFlexPsi {
     fun maak(node: ASTNode): PsiElement = when (node.elementType) {
         B.RULE_NAME, B.TOKEN_NAME, F.START_CONDITION_NAME -> NaamElement(node)
         B.SYMBOL_REF, F.START_CONDITION_REF -> SymboolElement(node)
-        B.ACTION, B.CODE_BLOCK, B.PROLOGUE, B.EPILOGUE, F.ACTION -> CodeElement(node)
+        in Koppeling.BISON_CODE, in Koppeling.FLEX_CODE -> CodeElement(node)
         else -> ASTWrapperPsiElement(node)
     }
 }
@@ -60,7 +60,7 @@ class SymboolElement(node: ASTNode) : ASTWrapperPsiElement(node) {
 }
 
 /**
- * C-code: een actie, `%code {}`, proloog of epiloog. Elke naam erin kan een verwijzing zijn. In Bison naar een token
+ * C-code: een actie, `%code {}`, proloog of epiloog; in Flex ook `%top{}`, ingesprongen code en de user code. Elke naam erin kan een verwijzing zijn. In Bison naar een token
  * van hetzelfde bestand (`return NUM;` in de epiloog). In Flex naar een start-conditie (`BEGIN(COMMENT)`) of naar
  * een token in de grammatica (`return NUM;`, Pro).
  */
