@@ -1874,6 +1874,46 @@ function replaceInEditor(view, target, formula, lineNumber, index, text) {
 
 // src/ui/history-view.ts
 var import_obsidian3 = require("obsidian");
+
+// src/ui/history-label.ts
+function fileName(path) {
+  var _a;
+  const last = (_a = path.split("/").pop()) != null ? _a : path;
+  return last.replace(/\.md$/i, "").trim();
+}
+function aliasOf(raw) {
+  var _a, _b;
+  const head = (_a = splitPipes(raw)[0]) != null ? _a : "";
+  const wiki = /\[\[[^\]]*?\|([^\]]*)\]\]\s*$/.exec(head);
+  return ((_b = wiki == null ? void 0 : wiki[1]) != null ? _b : "").trim();
+}
+function countText(prefix) {
+  return prefix === "" ? "" : `${prefix}\xD7 `;
+}
+function targetText(target, raw) {
+  var _a;
+  if (target.kind === "dice") return target.formula.trim();
+  if (target.kind === "tag") return `${countText(target.prefix)}#${target.tag}`;
+  const [note = "", ...headings] = target.note.split("#");
+  const alias = aliasOf(raw);
+  const place = [(_a = target.blockId) != null ? _a : "", ...headings].map((part) => part.trim()).filter((part) => part !== "");
+  const name = alias !== "" ? alias : [fileName(note), ...place].filter((part) => part !== "").join(", ");
+  return name === "" ? "" : `${countText(target.prefix)}${name}`;
+}
+function historyLabel(formula) {
+  var _a;
+  const raw = typeof formula === "string" ? formula : String(formula != null ? formula : "");
+  try {
+    const spec = parseSpec(raw);
+    const shown = targetText(spec.target, raw);
+    if (shown === "") return { name: "", formula: raw };
+    return { name: ((_a = spec.flags.text) != null ? _a : "").trim(), formula: shown };
+  } catch (e) {
+    return { name: "", formula: raw };
+  }
+}
+
+// src/ui/history-view.ts
 var HISTORY_VIEW = "rollwright-history";
 var RollHistoryView = class extends import_obsidian3.ItemView {
   constructor(leaf, plugin) {
@@ -1932,7 +1972,10 @@ var RollHistoryView = class extends import_obsidian3.ItemView {
     for (const entry of history) {
       const item = list.createDiv({ cls: "rollwright-history-item" });
       item.createDiv({ cls: "rollwright-history-result", text: entry.result });
-      item.createDiv({ cls: "rollwright-history-formula", text: entry.formula });
+      const label = historyLabel(entry.formula);
+      if (label.name !== "") item.createDiv({ cls: "rollwright-history-name", text: label.name });
+      const formula = item.createDiv({ cls: "rollwright-history-formula", text: label.formula });
+      formula.setAttribute("title", entry.formula);
       if (entry.details !== "") item.createDiv({ cls: "rollwright-history-details", text: entry.details });
       const meta = item.createDiv({ cls: "rollwright-history-meta" });
       meta.createSpan({ text: new Date(entry.time).toLocaleTimeString() });
