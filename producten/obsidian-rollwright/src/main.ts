@@ -324,7 +324,7 @@ export default class RollwrightPlugin extends Plugin {
 			result: outcome.text,
 			details: outcome.details,
 			source: sourcePath,
-			...(outcome.kind === "dice" && outcome.extreme !== undefined ? { extreme: outcome.extreme, stamp: stampText(outcome.formula, outcome.extreme) } : {}),
+			...(outcome.kind === "dice" && outcome.extreme !== undefined ? { extreme: outcome.extreme, stamp: outcome.stamp ?? stampText(outcome.formula, outcome.extreme) } : {}),
 		});
 		this.settings.history.length = Math.min(this.settings.history.length, HISTORY_LIMIT);
 		await this.saveSettings();

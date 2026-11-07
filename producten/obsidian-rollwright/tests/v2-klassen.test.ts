@@ -303,3 +303,42 @@ describe("crit and fumble in the history (klus 3 and 3b)", () => {
 		expect(all(plain as Node).some((n) => n.cls.includes("rollwright-stamp"))).toBe(false);
 	});
 });
+
+describe("the stamp with names filled in, and other ways to write advantage (controleur, ronde 2)", () => {
+	const ctx = (random: RandomInt, aliases: Record<string, string>) => ({ sourcePath: "Here.md", random, aliases, readNote: async () => null, notesWithTag: async () => [] });
+
+	it("1d20 + dex (a note field) and a saved formula save = 1d20+4 say NAT 20 and NAT 1, not MAX and MIN", async () => {
+		const { rollSpec } = await import("../src/rollers/run");
+		expect(await rollSpec("1d20 + dex", ctx(highest, { dex: "3" }))).toMatchObject({ extreme: "max", stamp: "NAT 20" });
+		expect(await rollSpec("1d20 + dex", ctx(lowest, { dex: "3" }))).toMatchObject({ extreme: "min", stamp: "NAT 1" });
+		expect(await rollSpec("save", ctx(highest, { save: "1d20+4" }))).toMatchObject({ extreme: "max", stamp: "NAT 20" });
+		expect(await rollSpec("save + 1", ctx(lowest, { save: "1d20+4" }))).toMatchObject({ extreme: "min", stamp: "NAT 1" });
+		// A name that hides a second die is no natural 20.
+		expect(await rollSpec("1d20 + bless", ctx(highest, { bless: "1d4" }))).toMatchObject({ extreme: "max", stamp: "MAX" });
+	});
+
+	it("the roll and the history show that stamp for a saved formula", async () => {
+		const { plugin } = await load();
+		plugin.settings.formulas.push({ name: "save", formula: "4" } as never);
+		const span = fakeSpan();
+		mountRoll(plugin, span as never, "1d20 + save", "named", "A.md", { register() {} } as never);
+		await wait();
+		expect(stamps(span)).toEqual(["NAT 20"]);
+		await plugin.freshResult(null, "1d20 + save - 4", "A.md");
+		expect(plugin.settings.history[0]).toMatchObject({ extreme: "max", stamp: "NAT 20" });
+	});
+
+	it("2d20k1 and 2d20dl1 (advantage) and 2d20dh1 (disadvantage) count one d20", () => {
+		expect(stampText("2d20k1", "max")).toBe("NAT 20");
+		expect(stampText("2d20dl1 + 5", "min")).toBe("NAT 1");
+		expect(stampText("2d20dh1", "max")).toBe("NAT 20");
+		expect(stampText("2d20dh1-2", "min")).toBe("NAT 1");
+		expect(stampText("1d20kh1", "max")).toBe("NAT 20");
+		// Not one d20 that counts, or not the face itself.
+		expect(stampText("3d20kh1", "max")).toBe("MAX");
+		expect(stampText("2d20", "max")).toBe("MAX");
+		expect(stampText("1d20*2", "max")).toBe("MAX");
+		// 10 - 1d20 is highest when the die shows 1.
+		expect(stampText("10 - 1d20", "max")).toBe("NAT 1");
+	});
+});

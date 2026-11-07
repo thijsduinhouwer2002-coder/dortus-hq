@@ -109,7 +109,7 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatResult(outcome.total, flags)}`);
 		// A kept result of an older version has no extreme: then nothing is added.
 		for (const cls of extremeClasses(outcome.extreme)) target.addClass(cls);
-		if (outcome.extreme !== undefined) target.createSpan({ cls: STAMP_CLASS, text: stampText(outcome.formula, outcome.extreme) });
+		if (outcome.extreme !== undefined) target.createSpan({ cls: STAMP_CLASS, text: outcome.stamp ?? stampText(outcome.formula, outcome.extreme) });
 	} else {
 		target.addClass(TEXT_CLASS);
 		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
