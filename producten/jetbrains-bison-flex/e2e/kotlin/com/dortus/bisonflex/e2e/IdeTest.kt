@@ -3,7 +3,14 @@ package com.dortus.bisonflex.e2e
 import com.intellij.driver.client.Driver
 import com.intellij.driver.client.Remote
 import com.intellij.driver.client.service
+import com.intellij.driver.model.LockSemantics
+import com.intellij.driver.model.OnDispatcher
+import com.intellij.driver.sdk.FileEditorManager
+import com.intellij.driver.sdk.closeToolWindow
+import com.intellij.driver.sdk.getToolWindow
 import com.intellij.driver.sdk.openFile
+import com.intellij.driver.sdk.openToolWindow
+import com.intellij.driver.sdk.singleProject
 import com.intellij.driver.sdk.waitForIndicators
 import com.intellij.ide.starter.ci.CIServer
 import com.intellij.ide.starter.ci.NoCIServer
@@ -110,6 +117,16 @@ class IdeTest {
                 openFile("calc.y")
                 pauze()
                 scherm("$naam-calc-y.png")
+                // Voor Daan: projectpaneel dicht, structuurweergave open, cursor op de laatste (lege) regel.
+                closeToolWindow("Project")
+                openToolWindow("Structure")
+                cursorNaarEinde()
+                pauze()
+                val projectOpen = getToolWindow("Project").isVisible()
+                val structuurOpen = getToolWindow("Structure").isVisible()
+                println("DORTUS-E2E [$naam] Project-venster zichtbaar: $projectOpen, Structure-venster zichtbaar: $structuurOpen")
+                assertTrue(structuurOpen, "Structure-venster zichtbaar")
+                scherm("$naam-calc-y-structuur.png")
                 openFile("calc.l")
                 pauze()
                 scherm("$naam-calc-l.png")
@@ -117,6 +134,26 @@ class IdeTest {
     }
 
     private fun Driver.pauze() = Thread.sleep(3_000)
+
+    /** Cursor naar het einde van het bestand, zodat er geen geel lampje in beeld staat. */
+    private fun Driver.cursorNaarEinde() {
+        val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor()
+        if (editor == null) {
+            println("DORTUS-E2E geen open editor gevonden voor de cursor")
+            return
+        }
+        // Een cursor verzetten mag alleen op de EDT binnen een read-action (anders ThreadingAssertions-fout).
+        try {
+            val regel = withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
+                val lengte = editor.getDocument().getText().length
+                editor.getCaretModel().moveToOffset(lengte)
+                editor.getCaretModel().getLogicalPosition().getLine()
+            }
+            println("DORTUS-E2E cursor op regel ${regel + 1} (einde bestand)")
+        } catch (e: Exception) {
+            println("DORTUS-E2E cursor verzetten mislukt: ${e.message?.take(200)}")
+        }
+    }
 
     /** Schermafbeelding van het hele (virtuele) scherm met ImageMagick. */
     private fun scherm(bestand: String) {
