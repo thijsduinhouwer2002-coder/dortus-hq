@@ -54,7 +54,7 @@ export function applyReroll(dice: Die[], mod: Extract<Modifier, { kind: "reroll"
 export function applyUnique(dice: Die[], faces: Faces, state: State): void {
 	const active = dice.filter((d) => !d.dropped);
 	if (active.length > faces.size) {
-		throw new DiceError(`${active.length} dice cannot all differ: there are only ${faces.size} results`);
+		throw new DiceError(`${active.length} dice cannot all differ: there are only ${faces.size} results. Roll fewer dice or a bigger die, like 3d6u.`);
 	}
 	const seen = new Set<number>();
 	for (const die of active) {

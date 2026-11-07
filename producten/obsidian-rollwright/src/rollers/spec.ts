@@ -128,6 +128,6 @@ export function parseSpec(raw: string, aliases: Record<string, string> = {}): Sp
 	if (link) return { raw, flags, args, parts, target: { kind: "note", ...link } };
 	const tag = /^(.*?)#([^\s#]+)$/.exec(body);
 	if (tag) return { raw, flags, args, parts, target: { kind: "tag", prefix: (tag[1] as string).trim(), tag: tag[2] as string } };
-	if (args.length > 0) throw new DiceError(`Unknown flag "${args[0] as string}"`);
+	if (args.length > 0) throw new DiceError(`Unknown flag "${args[0] as string}". Check the spelling after |, like 1d20|avg or 1d20|text(Attack).`);
 	return { raw, flags, args, parts, target: { kind: "dice", formula: body } };
 }

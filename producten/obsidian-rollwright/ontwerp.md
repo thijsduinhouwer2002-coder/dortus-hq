@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026, omdat de worpen op secties nog rommelig ogen, de foutmelding niet zegt wat je moet doen, je de betaalde skins niet kunt zien voor je koopt, en ik de instellingen met de koopknop nog niet in beeld heb gekregen.
+Akkoord: nee 7 nov 2026, omdat de worpen op secties nog rommelig ogen, de foutmelding niet zegt wat je moet doen, je de betaalde skins niet kunt zien voor je koopt, en de groep Skins in de instellingen in de verkeerde volgorde staat (zie beoordeling 2). De instellingen zijn nu wel in beeld en verder goed.
 
 # Ontwerp van Rollwright
 
@@ -35,12 +35,33 @@ Bekeken in de echte Obsidian op GitHub Actions, ontwerptest `e2e/ontwerp/ontwerp
 
 ### Nog niet bekeken (volgende run)
 
-- **De instellingen met de koopknop.** In de test opent het instellingenvenster niet in beeld (`app.setting.open()` en het commando geven geen venster, ook mijn noodweg met een eigen venster niet). Uit de tekst in Olafs test weet ik dat Buy en Activate er staan, maar ik keur niets goed wat ik niet gezien heb.
+- **De instellingen met de koopknop.** In de test opent het instellingenvenster niet in beeld (`app.setting.open()` en het commando geven geen venster, ook mijn noodweg met een eigen venster niet). Uit de tekst in Olafs test weet ik dat Buy en Activate er staan, maar ik keur niets goed wat ik niet gezien heb. **Gedaan in beoordeling 2.**
 - **De tooltip bij zweven.** Nagebootst zweven toont geen tooltip in de schermafbeelding. De naam staat wel goed op de knop.
 - **Een echt smal venster** (telefoonbreedte). Het venster laat zich in de test niet kleiner maken.
 
 ### Wanneer akkoord
 
 Punten 1 tot en met 4 en 10 opgelost en de instellingen in beeld goedgekeurd. Punten 5 tot en met 9 mogen ook na de eerste versie, maar zijn klein.
+
+## Beoordeling 2, 7 nov 2026 (instellingen, zelfde versie 0.2.0)
+
+Bekeken in de echte Obsidian 1.15.0 op GitHub Actions, run 42359976567, spec `e2e/ontwerp/instellingen.e2e.mjs` op tak `ontwerp/rollwright`. Plaatjes: tak `schermen`, map `rollwright/ontwerp-ontwerp-rollwright/`, bestanden `i-klik-*.png` en `i-tabid-donker-*.png`.
+
+**Waarom het eerst niet lukte:** Obsidian 1.15 opent de instellingen in een eigen venster, niet meer als venster in de app. De test wisselt nu met WebDriver naar dat venster (`getWindowHandles`). Andere tests die naar `.modal.mod-settings` zoeken, vinden niets meer; Olaf, let daarop.
+
+**Goed (laten zo):** gewone Obsidian-instellingen: rijen met naam en één zin uitleg, kopjes Saved formulas en Skins, de kaartjes van 1.15. Rustig, in licht en donker goed leesbaar, niets afgebroken of scheef. Alles past op één scherm. Knoppen zeggen wat ze doen (Add, Import, Activate).
+
+**Wat beter moet, op volgorde van belang:**
+
+11. **Volgorde in de groep Skins** (voor akkoord). Nu: Skin, License key, Get the paid skins. Wie nog niet kocht, leest eerst over een sleutel die hij niet heeft. Wordt: Skin (met het voorbeeld uit punt 3), dan "Get the paid skins" met knop "Buy for $6" en één zin, bijvoorbeeld "Parchment and Arcane. One payment, yours to keep.", dan License key.
+12. **License key zonder het woord Polar** (voor akkoord, alleen tekst). Wordt: "Paste the key from your purchase email and press Activate. It is checked online at most once every 30 days." Nu wordt de lange zin in een smalle kolom van vier regels geperst.
+13. **Laat zien of de sleutel actief is.** Nu staat er alleen een leeg veld. Na Activate: "Active" of een vinkje in de omschrijving, en een `Notice` bij een foute sleutel ("This key was not accepted. Check that you copied all of it."). Mag na de eerste versie als het niet snel kan.
+14. **Naam van de schakelaar.** "Keep the formula when a dice-mod code is replaced" is lang en vaktaal. Wordt: "Show the formula after replacing", met als uitleg "On: 3d6 → [2, 5, 4] → 11. Off: [2, 5, 4] → 11." (echte pijlen, niet `->`).
+15. **Default die staat op 100.** Dat volgt Dice Roller, dus goed voor overstappers, maar zeg het: "The number of sides when a formula leaves it out, so 3d means 3d100."
+16. **Focusrand** bij Tab is de gewone van Obsidian (grijs, iets dikker). Goed genoeg, niets aan doen.
+
+**Wanneer akkoord (bijgewerkt):** punten 1 tot en met 4, 10, 11 en 12 opgelost en in beeld goedgekeurd. De rest mag na de eerste versie.
+
+Nagekeken door een controleur (agent, 7 nov 09:45): bekeek de zes plaatjes, eens met de punten, vond 13, 14 en 15 erbij en vond mijn eerste oordeel eerder te mild. Hij vindt het skinvoorbeeld (punt 3) geen harde eis om in te dienen; ik houd het wel als eis, omdat "je ziet wat je koopt" onze vaste regel is (`ontwerp/stijl.md`).
 
 Nagekeken door een controleur (agent, 7 nov): alle punten klopten met de plaatjes, hij voegde 7 tot en met 10 toe en is het eens met `Akkoord: nee`.

@@ -8,7 +8,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 
 ### src/engine/ (rekenkern, zonder Obsidian)
 - `index.ts`: de ingang; de rest van de plugin importeert de kern alleen hiervandaan.
-- `types.ts`: gedeelde typen (tokens, knopen, modifiers), `DiceError`, de grenzen `LIMITS` en het budget per worp.
+- `types.ts`: gedeelde typen (tokens, knopen, modifiers), `DiceError`, de grenzen `LIMITS`, de foutmeldingen die op meer plekken nodig zijn en het budget per worp. Elke foutmelding zegt wat er mis is en wat je typt, met een voorbeeld (getest in `tests/error-hints.test.ts`).
 - `tokenizer.ts`: knipt een formule in tokens.
 - `parser.ts`: maakt van de tokens een boom (`parseFormula`), met dobbelstenen, modifiers en namen.
 - `evaluate.ts`: rekent een boom uit tot totaal en uitsplitsing (`roll`), inclusief namen en rekenkunde.
@@ -42,7 +42,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `settings.ts`: het instellingenscherm. Eén lijst van rijen (`sections()`: naam, uitleg en de velden en knoppen met hun opslaan) is de enige bron. `display()` tekent die rijen voor Obsidian onder 1.13; `getSettingDefinitions()` geeft dezelfde rijen als definities met `render`, zodat ze in de zoekfunctie van Obsidian 1.13 en later staan. Na toevoegen, weghalen, importeren of Activate tekent de tab opnieuw met `update()` (1.13 en later) of `display()` (ouder), gekozen met `requireApiVersion`.
 
 ### src/pro/ en src/import/
-- `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID` en `BUY_URL` (ingevuld met onze Polar-organisatie, benefit en afrekenpagina; is er één leeg, dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.
+- `pro/license.ts`: de licentiesleutel van Polar. De constanten `POLAR_ORG_ID`, `POLAR_BENEFIT_ID`, `BUY_URL` en `PRICE_TEXT` (de prijs op de koopknop "Buy for $6"; ingevuld met onze Polar-organisatie, benefit en afrekenpagina; is er één leeg, dan "coming soon", geen koopknop en geen sleutelveld), `validateLicense` (vraagt Polar en geeft geldig, ongeldig, onze fout of geen verbinding), `activateLicense` (alleen geldig bewaart sleutel en datum), `recheckLicense` (stil, hoogstens eens per 30 dagen, alleen ongeldig sluit) en `obsidianRequest`, de enige plek in `src/` die `requestUrl` aanroept. De request-functie, de klok en de ids worden meegegeven, zodat tests geen netwerk nodig hebben.
 - `pro/skins.ts`: de uiterlijken van de stenen, gratis en betaald.
 - `import/dice-roller-data.ts`: haalt opgeslagen formules uit de data van de plugin Dice Roller.
 
