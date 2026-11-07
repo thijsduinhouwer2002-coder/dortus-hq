@@ -7,7 +7,10 @@
 - [x] Bouwbesluit: Yacc/Bison + Lex/Flex, freemium, voor CLion. Scoreschema nagekeken (7 nov), zie `bouwbesluit-2026-11-07.md` en `organisatie/besluiten.md`.
 - [x] Vaste testset van 10 echte bestanden (PostgreSQL, jq, Ruby, OpenBSD, Thrift), nagekeken (7 nov), op de tak `claude/jetbrains-2026-11-07`. Ontbreekt nog: een echte C++-grammatica met ruime licentie.
 - [x] Ontwerp `producten/jetbrains-bison-flex/ontwerp.md` geschreven, controleur akkoord na verwerken (7 nov). Oordeel van Daan nog nodig vóór indienen, niet vóór bouwen.
-- [ ] IDE-test opzetten (plan in `ide-test-plan.md`, nog niet nagekeken: Starter + Driver, IDEA Community, thema via laf.xml): en een IDE-test op GitHub Actions (`.github/workflows/jetbrains-bison-flex-e2e.yml`, UI-test van het IntelliJ Platform Gradle Plugin), met schermafbeeldingen licht en donker naar de tak `schermen` (kopieer die stap uit `rollwright-e2e.yml`). Ook bouwen daar, want in de cloud mocht een Gradle-test met gedownloade plugins op 7 nov niet starten. Indienen pas na groene test en `Akkoord: ja` van Daan.
+- [x] Plugin-skelet (bestandssoorten `.y`, `.yy`, `.l`, `.ll` met iconen) en IDE-test op GitHub Actions (`.github/workflows/jetbrains-bison-flex-e2e.yml`, Starter + Driver, IDEA Community 2025.2.6.4 vast), schermen licht en donker op de tak `schermen`. 4 unittests en 2 IDE-tests groen (run 42358929005), controleur akkoord, op main (7 nov).
+- [ ] Echte lexer en parser voor Bison en Flex (JFlex + Grammar-Kit, of handgeschreven), met kleuren, en eis 2 en 3 uit het ontwerp: de 10 echte bestanden zonder foutmelding, verwachte syntaxfout op de verwachte plek. Op een nieuwe tak `claude/jetbrains-<datum>`.
+- [ ] CLion in de IDE-test (eis 1): `IdeProductProvider.CL` met vaste versie proberen; vraagt waarschijnlijk een licentie (GOK). Lukt het niet, zoek een andere weg of zet het op de lijst voor Thijs. Moet af vóór indienen.
+- [ ] Daan vragen om een eerste blik op de schermen zodra er kleuren zijn (nu alleen soort en icoon). Let op: in het lichte thema blijft de bovenbalk donker; nagaan of dat de standaard is.
 - [x] Meting deel 13: CLion en IDEA 2026.3 kennen `.y`, `.l`, `.tcl` niet; wat Tcl Language Support kan; Bison-plugins nog compatibel volgens gegevens; nagekeken (7 nov).
 - [x] Meting deel 12: YouTrack-vraag Tcl (38 stemmen) en Bison (8), bestaande plugins, nagekeken (6 nov).
 - [x] Meting deel 11: 302 soorten gefilterd, 47 op grootte gemeten, nagekeken (6 nov).
@@ -19,7 +22,7 @@
 - [x] Meting D deel 2: leeftijd en downloads per maand, nagekeken (6 nov). Uitkomst: D niet meer de voorkeur.
 - [x] Meting D deel 1: taalsoorten nagelopen, kortste lijst Liquid en Caddyfile, nagekeken (6 nov).
 - [ ] Tweede, grotere kandidaat zoeken binnen wat al gemeten is (Tcl met een kleinere insteek, soorten zoals Jenkinsfile), zodat er na de eerste lancering een tweede product klaarligt. Geen nieuwe zijpaden vóór het eerste product loopt.
-- [ ] Bouw een eerste versie in `producten/jetbrains-bison-flex/` vanuit `bouwsjabloon.md`, met tests en meteen met proefperiode en betaalde functies.
+- [ ] Bouw de rest van versie 1 in `producten/jetbrains-bison-flex/` (folding, structuur, commentaar, Pro-functies met proefperiode en licentiecontrole), volgens `ontwerp.md`.
 - [ ] Zet de betaalde versie op via JetBrains Marketplace (vraagt Thijs: account en sleutel).
 - [ ] Lanceren en meten op dag 7 en dag 30.
 - [x] Gradle-build van een lege plugin, 2 tests groen (6 nov), zie `bouwsjabloon.md`.

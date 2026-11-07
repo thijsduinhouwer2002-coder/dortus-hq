@@ -49,3 +49,11 @@ intellijPlatform {
 
 ## Test
 Testen met `BasePlatformTestCase` (JUnit 4) werken: een test die een bestand opent via `myFixture.configureByText` slaagt.
+
+## IDE-test en Gradle 9.8 (7 nov 2026, werkt)
+- Voorbeeld met Starter + Driver: `producten/jetbrains-bison-flex/build.gradle.kts`, `e2e/kotlin/.../IdeTest.kt` en `.github/workflows/jetbrains-bison-flex-e2e.yml` (groen, run 42358929005).
+- Gradle 9.8.2 geeft een fout op `val x by configurations.getting` en `by ...registering`: gebruik `configurations.getByName(...)` en `intellijPlatformTesting.testIdeUi.register("integrationTest") { }`.
+- Starter zonder versie zoekt een EAP en faalt voor IC: zet `TestCase(...).useRelease("2025.2.6.4")`.
+- Thema: `options/laf.xml` met `themeId` `ExperimentalLight`/`ExperimentalDark` en `options/colors.scheme.xml` met `Light`/`Dark` in `paths.configDir` werkt (GEZIEN op de schermen).
+- Schermafbeelding: workflow zet Xvfb op `DISPLAY=:99`, dan gebruikt Starter dat scherm en maakt `import -window root` de foto.
+- In unittests staat IconLoader uit (breedte 1): `IconLoader.activate()` in een try/finally.
