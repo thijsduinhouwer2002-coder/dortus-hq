@@ -82,11 +82,24 @@ async function maakLeegEnOpenPaneel() {
 
 /** Klik op worp i zoals de andere specs, en wacht tot er een nieuwe uitkomst staat. */
 async function klik(view, i) {
-	await browser.execute((sel, i) => {
-		document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
-	}, `${LEAF} ${view}`, i);
 	const aantalVoor = (await history()).length;
-	await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} ${view}`, i);
+	// Merkteken en klik in één stap, en alleen op een worp die er echt staat. Kort na het openen
+	// haalt Obsidian alle alinea's van de leesweergave even weg en zet dezelfde knopen terug
+	// (diagnose run 42390461178: "weg" en "erbij" van 4 DIV.el-p binnen ±10 ms, de worpen zelf
+	// blijven gelijk). Viel de klik in dat gat, dan deed `?.click()` op niets stilletjes niets.
+	// Eis gelijk: na een echte klik moet er een nieuwe uitkomst en een nieuwe regel komen.
+	let geklikt = false;
+	await browser.waitUntil(async () => {
+		geklikt = await browser.execute((sel, i) => {
+			const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
+			const value = el?.querySelector(".rollwright-value");
+			if (!el || !el.isConnected || !value) return false;
+			value.setAttribute("data-e2e-oud", "1");
+			el.click();
+			return true;
+		}, `${LEAF} ${view}`, i);
+		return geklikt;
+	}, { timeout: 5000, timeoutMsg: `worp ${i} stond er niet om op te klikken` });
 	let rolls = [];
 	await browser.waitUntil(async () => {
 		rolls = await readRolls(view);
