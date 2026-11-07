@@ -121,3 +121,17 @@ Nieuwste blok onderaan.
 - Beslissing: Blender van nog niet klaar (5) naar ja (7). Reden: beide eisen van Hans zijn gehaald (nieuwe betaalde add-ons verkopen regelmatig, en meerdere nieuwe makers zitten boven $300 per maand), en het bereik was al gemeten. Bedragen blijven GOK (bundels, codes, kortingen).
 - Controleur akkoord, 10 correcties verwerkt (n=316 in plaats van 318, 375 add-ons, formule in het script gelijkgetrokken, presets en theme-packages niet meegeteld en dat vermeld, Published is eerste publicatie, onderbouwing teller onder 10).
 - Besluit ligt nu bij Hans. Volgende run: een nieuw platform uit kandidaten.md, iets anders dan games, met betaling in de winkel.
+
+## 7 nov 2026, run 11:31 UTC
+- Gekozen: Foundry VTT, zelf toegevoegd. Reden: CodeCanyon geeft 403, en bij Foundry verdienen makers van code-modules zichtbaar geld via Patreon, met open tellingen (Forge Bazaar API, graphtreon).
+- Vondst: de Forge Bazaar API (`forge-vtt.com/api/bazaar/modules`) geeft alle 9.360 modules met datum en installs als percentage van ±73.500 Forge-gebruikers (kleinste stap = 1 gebruiker). Graphtreon toont Patreon-leden en bedragen; patreon.com zelf geeft 403.
+- Gemeten: gratis code-modules van mei tot aug 2026 mediaan 14 Forge-gebruikers (±70 tot 140 totaal, GOK), 65% 10+. Van 9 nieuwe code-makers op Patreon zitten er 4 boven $300 per maand, 2 boven $3.000.
+- Belangrijk: de AI-regels van Foundry (18 mrt 2026) eisen menselijke tekst, ook UI-labels, en een maker die alle code kan uitleggen, bij elke update. Dat botst met hoe Dortus werkt.
+- Beslissing: nog niet klaar, cijfer 6. Reden: geld en bereik zijn goed genoeg voor een ja, maar alleen als Thijs de maker wil zijn volgens die regels; dat is een risico voor zijn account, dus zijn keuze. Vraag op lijst Thijs gezet.
+- Controleur akkoord, 7 correcties verwerkt (Gambit is geen nieuwe maker, Nox krap, 100+ als GOK erbij, Forge-gebruikers installeren meer, Patreon valt onder de officiële regels, regel geldt bij elke update, ja bij Thijs eerst een 6).
+- GitHub-downloadtellers van modules waren de betere bereikmeting, maar geven hier 403 voor repo's buiten Dortus.
+- Volgende run: een nieuw platform uit kandidaten.md.
+- Tweede platform: Fantasy Grounds Forge, zelf toegevoegd (de andere tafelsoftware naast Foundry, met een eigen betaalde winkel). De winkeltabel is openbaar met een token uit de pagina: alle 3.189 items met prijs, datum en abonnees.
+- Gemeten: betaalde extensies mei tot aug 2026 mediaan 15 kopers bij $3, gratis mediaan 69. Melborne ±$1.660 bruto per maand en Henix ±$750, maar Melborne heeft waarschijnlijk een account sinds 2022 (controleur, via makersnummer).
+- Beslissing: nee voor nu, cijfer 4 (eerst 5). Reden: kleine markt (44 makers ooit), lage bedragen per extensie, maar één aantoonbaar nieuwe maker boven $300, en de afdracht is niet openbaar.
+- Controleur akkoord, 6 correcties verwerkt (prijs in gold, cadeaus tellen mee, afdracht alleen in de Crafter Agreement, AI-regel voor omzetters gevonden, Melborne niet nieuw, cijfer omlaag).

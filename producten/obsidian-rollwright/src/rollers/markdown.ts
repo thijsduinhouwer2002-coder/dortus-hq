@@ -179,7 +179,10 @@ export function listItems(listText: string): string[] {
 	return items.map((item) => item.join("\n").replace(LIST_ITEM, "").trim());
 }
 
-/** Non-empty lines of a note, without its frontmatter. */
+/** A line that is only a horizontal rule (***, ---, ___, also with spaces) has no text, so |line skips it. */
+const THEMATIC_BREAK = /^ {0,3}([-*_])(?:[ \t]*\1){2,}[ \t]*$/;
+
+/** Non-empty lines of a note, without its frontmatter and without lines that are only a horizontal rule. */
 export function noteLines(markdown: string): string[] {
 	const lines = markdown.replace(/\r\n/g, "\n").split("\n");
 	let start = 0;
@@ -187,5 +190,6 @@ export function noteLines(markdown: string): string[] {
 		const end = lines.findIndex((line, index) => index > 0 && line.trim() === "---");
 		if (end > 0) start = end + 1;
 	}
-	return lines.slice(start).filter((line) => line.trim() !== "");
+	return lines.slice(start).filter((line) => line.trim() !== "" && !THEMATIC_BREAK.test(line));
 }
+

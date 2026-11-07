@@ -1253,15 +1253,16 @@ function fitReplacement(line, from, to, text) {
   }
   return safe;
 }
-function replaceCodeInLine(lineText, index, formula, replacement) {
-  const code = findInlineDice(lineText)[index];
-  if (!code || !code.modify || code.formula !== formula) return null;
-  return lineText.slice(0, code.from) + fitReplacement(lineText, code.from, code.to, replacement) + lineText.slice(code.to);
-}
-function replacementAt(lineText, column, formula, replacement) {
-  const code = findInlineDice(lineText).find((found) => found.from === column);
+function changeFor(lineText, code, formula, replacement) {
   if (!code || !code.modify || code.formula !== formula) return null;
   return { from: code.from, to: code.to, insert: fitReplacement(lineText, code.from, code.to, replacement) };
+}
+function replacementInLine(lineText, index, formula, replacement) {
+  return changeFor(lineText, findInlineDice(lineText)[index], formula, replacement);
+}
+function replaceCodeInLine(lineText, index, formula, replacement) {
+  const change = replacementInLine(lineText, index, formula, replacement);
+  return change === null ? null : lineText.slice(0, change.from) + change.insert + lineText.slice(change.to);
 }
 function replaceCodeInNote(markdown, line, index, formula, replacement) {
   const lines = markdown.split("\n");
@@ -1414,6 +1415,7 @@ function listItems(listText) {
   }
   return items.map((item) => item.join("\n").replace(LIST_ITEM, "").trim());
 }
+var THEMATIC_BREAK = /^ {0,3}([-*_])(?:[ \t]*\1){2,}[ \t]*$/;
 function noteLines(markdown) {
   var _a;
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
@@ -1422,7 +1424,7 @@ function noteLines(markdown) {
     const end = lines.findIndex((line, index) => index > 0 && line.trim() === "---");
     if (end > 0) start = end + 1;
   }
-  return lines.slice(start).filter((line) => line.trim() !== "");
+  return lines.slice(start).filter((line) => line.trim() !== "" && !THEMATIC_BREAK.test(line));
 }
 
 // src/rollers/spec.ts
@@ -1847,27 +1849,22 @@ function readingModifier(plugin, target, sourcePath, position, formula) {
     void plugin.confirmReplace(text).then((replace) => replace ? plugin.replaceInNote(sourcePath, position.line, position.index, formula, text) : false);
   };
 }
-function editorModifier(plugin, view, target, formula) {
+function editorModifier(plugin, view, target, formula, line, index) {
   return (outcome) => {
     const text = modifiedText(outcome, plugin.settings.diceModFormula);
     void plugin.confirmReplace(text).then((replace) => {
-      if (replace) replaceInEditor(view, target, formula, text);
+      if (replace) replaceInEditor(view, target, formula, line, index, text);
     });
   };
 }
-function replaceInEditor(view, target, formula, text) {
+function replaceInEditor(view, target, formula, lineNumber, index, text) {
   if (!target.isConnected || !view.contentDOM.contains(target)) {
     new import_obsidian2.Notice(CHANGED_NOTICE);
     return;
   }
-  let at = -1;
-  try {
-    at = view.posAtDOM(target);
-  } catch (e) {
-    at = -1;
-  }
-  const line = at >= 0 && at <= view.state.doc.length ? view.state.doc.lineAt(at) : null;
-  const change = line ? replacementAt(line.text, at - line.from, formula, text) : null;
+  const doc = view.state.doc;
+  const line = lineNumber >= 0 && lineNumber < doc.lines ? doc.line(lineNumber + 1) : null;
+  const change = line ? replacementInLine(line.text, index, formula, text) : null;
   if (!line || !change) {
     new import_obsidian2.Notice(CHANGED_NOTICE);
     return;
@@ -1877,6 +1874,46 @@ function replaceInEditor(view, target, formula, text) {
 
 // src/ui/history-view.ts
 var import_obsidian3 = require("obsidian");
+
+// src/ui/history-label.ts
+function fileName(path) {
+  var _a;
+  const last = (_a = path.split("/").pop()) != null ? _a : path;
+  return last.replace(/\.md$/i, "").trim();
+}
+function aliasOf(raw) {
+  var _a, _b;
+  const head = (_a = splitPipes(raw)[0]) != null ? _a : "";
+  const wiki = /\[\[[^\]]*?\|([^\]]*)\]\]\s*$/.exec(head);
+  return ((_b = wiki == null ? void 0 : wiki[1]) != null ? _b : "").trim();
+}
+function countText(prefix) {
+  return prefix === "" ? "" : `${prefix}\xD7 `;
+}
+function targetText(target, raw) {
+  var _a;
+  if (target.kind === "dice") return target.formula.trim();
+  if (target.kind === "tag") return `${countText(target.prefix)}#${target.tag}`;
+  const [note = "", ...headings] = target.note.split("#");
+  const alias = aliasOf(raw);
+  const place = [(_a = target.blockId) != null ? _a : "", ...headings].map((part) => part.trim()).filter((part) => part !== "");
+  const name = alias !== "" ? alias : [fileName(note), ...place].filter((part) => part !== "").join(", ");
+  return name === "" ? "" : `${countText(target.prefix)}${name}`;
+}
+function historyLabel(formula) {
+  var _a;
+  const raw = typeof formula === "string" ? formula : String(formula != null ? formula : "");
+  try {
+    const spec = parseSpec(raw);
+    const shown = targetText(spec.target, raw);
+    if (shown === "") return { name: "", formula: raw };
+    return { name: ((_a = spec.flags.text) != null ? _a : "").trim(), formula: shown };
+  } catch (e) {
+    return { name: "", formula: raw };
+  }
+}
+
+// src/ui/history-view.ts
 var HISTORY_VIEW = "rollwright-history";
 var RollHistoryView = class extends import_obsidian3.ItemView {
   constructor(leaf, plugin) {
@@ -1935,7 +1972,10 @@ var RollHistoryView = class extends import_obsidian3.ItemView {
     for (const entry of history) {
       const item = list.createDiv({ cls: "rollwright-history-item" });
       item.createDiv({ cls: "rollwright-history-result", text: entry.result });
-      item.createDiv({ cls: "rollwright-history-formula", text: entry.formula });
+      const label = historyLabel(entry.formula);
+      if (label.name !== "") item.createDiv({ cls: "rollwright-history-name", text: label.name });
+      const formula = item.createDiv({ cls: "rollwright-history-formula", text: label.formula });
+      formula.setAttribute("title", entry.formula);
       if (entry.details !== "") item.createDiv({ cls: "rollwright-history-details", text: entry.details });
       const meta = item.createDiv({ cls: "rollwright-history-meta" });
       meta.createSpan({ text: new Date(entry.time).toLocaleTimeString() });
@@ -1964,6 +2004,24 @@ var import_obsidian5 = require("obsidian");
 var import_obsidian4 = require("obsidian");
 var NO_SOURCE_NOTICE = "This result comes from more than one note, so there is no single note to open.";
 var SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
+var BLOCK_CLASS = "rollwright-roll-block";
+function renderedParts(el) {
+  const parts = [];
+  for (let i = 0; i < el.childElementCount; i++) {
+    const child = el.children.item(i);
+    if (child === null) continue;
+    if (child.tagName === "DIV" && child.childElementCount > 0) parts.push(...renderedParts(child));
+    else parts.push(child);
+  }
+  return parts;
+}
+function isBlockValue(value) {
+  const parts = renderedParts(value);
+  if (parts.length > 1) return true;
+  const [only] = parts;
+  if (only === void 0) return false;
+  return only.tagName !== "P" || only.querySelector("br") !== null;
+}
 function errorMessage(error) {
   return error instanceof Error ? error.message : String(error);
 }
@@ -1974,11 +2032,13 @@ ${outcome.details}`;
 function showBlank(target, formula) {
   target.empty();
   target.removeClass("rollwright-error");
+  target.removeClass(BLOCK_CLASS);
   (0, import_obsidian4.setIcon)(target.createSpan({ cls: "rollwright-icon" }), "dices");
   (0, import_obsidian4.setTooltip)(target, formula);
 }
 function showError(target, formula, error) {
   target.empty();
+  target.removeClass(BLOCK_CLASS);
   target.addClass("rollwright-error");
   const message = errorMessage(error);
   target.createSpan({ text: `dice: ${formula}` });
@@ -1988,6 +2048,7 @@ function showError(target, formula, error) {
 async function showOutcome(plugin, target, outcome, sourcePath, component) {
   target.empty();
   target.removeClass("rollwright-error");
+  target.removeClass(BLOCK_CLASS);
   const { flags } = outcome;
   if (!flags.nodice) {
     (0, import_obsidian4.setIcon)(target.createSpan({ cls: "rollwright-icon" }), "dices");
@@ -1999,6 +2060,8 @@ async function showOutcome(plugin, target, outcome, sourcePath, component) {
     value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === void 0 ? outcome.text : formatResult(outcome.total, flags)}`);
   } else {
     await import_obsidian4.MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
+    if (value.parentElement !== target) return;
+    if (isBlockValue(value)) target.addClass(BLOCK_CLASS);
   }
   (0, import_obsidian4.setTooltip)(target, tooltipFor(outcome));
 }
@@ -2063,7 +2126,9 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
   };
   target.setAttribute("tabindex", "0");
   target.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") void rerollNow();
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    void rerollNow();
   });
   target.addEventListener("click", (event) => {
     if (event.target.instanceOf(Element) && event.target.closest("a")) return;
@@ -2084,7 +2149,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
 
 // src/ui/live-preview.ts
 var RollWidget = class extends import_view.WidgetType {
-  constructor(plugin, formula, key, sourcePath, keep, modify) {
+  constructor(plugin, formula, key, sourcePath, keep, modify, line, index) {
     super();
     this.plugin = plugin;
     this.formula = formula;
@@ -2092,8 +2157,11 @@ var RollWidget = class extends import_view.WidgetType {
     this.sourcePath = sourcePath;
     this.keep = keep;
     this.modify = modify;
+    this.line = line;
+    this.index = index;
     this.component = null;
   }
+  // The key holds line and index, so a code on another line or place gets a new widget with the right line and index.
   eq(other) {
     return other.key === this.key && other.keep === this.keep && other.modify === this.modify;
   }
@@ -2101,7 +2169,7 @@ var RollWidget = class extends import_view.WidgetType {
     const span = activeDocument.createElement("span");
     this.component = new import_obsidian5.Component();
     this.component.load();
-    const modify = this.modify ? editorModifier(this.plugin, view, span, this.formula) : void 0;
+    const modify = this.modify ? editorModifier(this.plugin, view, span, this.formula, this.line, this.index) : void 0;
     mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component, this.keep, modify);
     return span;
   }
@@ -2131,7 +2199,7 @@ function build(plugin, view) {
         if (selection.some((range2) => range2.from <= end && range2.to >= start)) return;
         if (tree.resolveInner(start + 1, 1).name.includes("codeblock")) return;
         const key = `${sourcePath}|${line.number - 1}:${index}|${found.formula}`;
-        builder.add(start, end, import_view.Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep, found.modify) }));
+        builder.add(start, end, import_view.Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep, found.modify, line.number - 1, index) }));
       });
       if (line.to >= to || line.number >= state.doc.lines) break;
       line = state.doc.line(line.number + 1);

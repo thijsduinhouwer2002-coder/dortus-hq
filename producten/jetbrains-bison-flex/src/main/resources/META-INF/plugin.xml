@@ -20,5 +20,9 @@
         <colorSettingsPage implementation="com.dortus.bisonflex.FlexKleurenPagina"/>
         <lang.commenter language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonCommenter"/>
         <lang.commenter language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexCommenter"/>
+        <lang.foldingBuilder language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonFolding"/>
+        <lang.foldingBuilder language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexFolding"/>
+        <lang.psiStructureViewFactory language="BisonFlex.Bison" implementationClass="com.dortus.bisonflex.BisonStructuur"/>
+        <lang.psiStructureViewFactory language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.FlexStructuur"/>
     </extensions>
 </idea-plugin>

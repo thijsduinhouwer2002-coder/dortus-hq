@@ -50,3 +50,14 @@ Bekeken: de vier schermafbeeldingen van IDE-run 42358929005 (tak `schermen`, map
 **Let op, JetBrains-regel:** op JetBrains krijgen knoppen, menu's, tooltips van acties en kopjes van dialogen Title Case ("Compare With..."). Sentence case voor links, snelle oplossingen (Alt+Enter), kopjes en acties in meldingen, en gewone zinnen. Dat is de regel van het platform (DERDEN: [IntelliJ Platform UI Guidelines, Capitalization](https://plugins.jetbrains.com/docs/intellij/capitalization.html)) en die gaat voor. Staat nu ook in `ontwerp/stijl.md`.
 
 **Wanneer akkoord:** punten 1 tot en met 3 in beeld goedgekeurd (licht en donker, op de schermen van de IDE-test), plus de winkelplaatjes uit punt 5. Punten 4 en 6 klein.
+
+### Beoordeling 2, 7 nov 2026 11:30 (main 61d44a0, IDE-run 42367431455)
+
+Bekeken: `licht-calc-y.png` en `donker-calc-l.png` in `schermen/jetbrains-bison-flex/main/`, en `winkel/pluginicoon-voorbeeld.png`.
+
+- **Punt 1 (kleuren via de IDE): goed.** `%`-opdrachten, tokens (`NUM` cursief paars), `$$` en `$1`, strings en commentaar volgen het kleurenschema, in licht en donker even rustig. In de Flex-scanner zijn de patronen bijna kaal; dat is in orde, de acties ernaast zijn gekleurd en het oogt niet rommelig.
+- **Punt 6 (pluginicoon): goed.** De Y en L op twee kaartjes, in dezelfde lijn en kleuren als de bestandsiconen, een eigen versie voor donker, geen tekst. Ook klein (16 pixels) nog te lezen. Afgevinkt.
+- **Punt 5 (winkelplaatjes): beter, nog niet klaar.** Projectnaam is nu `rekenmachine`, goed. Nog: het projectpaneel neemt een derde van het beeld met een lang tijdelijk pad (`/tmp/bisonflex-licht...`), en er staat een geel lampje op regel 2 dat niets betekent voor de kijker. Voor de winkel: paneel dicht of smal, lampje weg (cursor in een lege regel onderaan zetten of de intentie-lamp uit), en de structuurweergave open naast een `.y`.
+- **Nog niet in beeld:** kleurenpagina (punt 2), Pro-melding (punt 3), structuurweergave (punt 4).
+
+Blijft `Akkoord: nee` tot punten 2, 3 en 5 in beeld zijn. Richting is goed; dit gaat er net zo verzorgd uitzien als een ingebouwde taal.

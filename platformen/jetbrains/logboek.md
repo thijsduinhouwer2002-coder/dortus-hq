@@ -114,3 +114,12 @@ Nieuwste blok onderaan.
 - **Daarna (11:15 UTC):** parser samengevoegd met main (IDE-test run 42366876773 groen). Daan punt 6 gedaan: pluginicoon 40 px (`META-INF/pluginIcon.svg` en `_dark`), een oranje kaart met Y en een blauwe kaart met L, in dezelfde lijn en kleuren als de bestandsiconen, zit in de jar (GEZIEN). Controleur akkoord ja; zijn kan-punt (L in plaats van streepjes, sterkere band met het Flex-icoon) meteen verwerkt.
 - **Beslissing:** punt 6 vóór folding, omdat het klein is en in de resterende tijd van deze run paste; folding en structuur zijn te groot om half te beginnen.
 - **Afgesloten om ±11:22 UTC.**
+
+
+## 7 nov 2026, 11:52 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Taak "folding en structuurweergave" gedaan, omdat het de bovenste bouwtaak was en Daan de structuurweergave in beeld wil. Bouwer schreef `Folding.kt` en `Structuur.kt` (alleen ingebouwde iconen, volgorde van het bestand) met een nieuwe test `StructuurTest` en vaste verwachte uitvoer, tak `claude/jetbrains-2026-11-07-e`.
+- **Uitkomst:** 27 unittests groen, bestaande tests niet aangeraakt. IDE-test run 42371119584 groen. Op de echte bestanden 9 tot 2.289 folding-gebieden.
+- **Nakijken:** controleur akkoord ja, geen moet-punten. 25 lastige invoeren (leeg, alleen `%%`, open blok, `\r\n`, geneste `<SC>{`) zonder crash of dubbele gebieden; pg-gram.y 87 ms folding, 252 ms structuur (GEZIEN door controleur). Kan-punt tikfout zelf verwerkt. Samengevoegd met main.
+- **Daarna (12:08 UTC):** IDE-test uitgebreid: Project-venster dicht, Structure open, cursor op de lege laatste regel, nieuw scherm `calc-y-structuur` in licht en donker. Eerste run rood (cursor verzetten mag alleen in een read-action), tweede run 42371684895 groen. Scherm zelf bekeken: structuur met Declarations en Rules, code groot in beeld, geen lampje (GEZIEN).
+- **Beslissing:** de test-uitbreiding nog niet samengevoegd, omdat de controleur hem niet heeft gezien; staat bovenaan de taken voor de volgende run. Kleurenpagina in beeld niet gelukt in deze run: de Settings-dialoog blokkeert de Driver.
+- **Afgesloten om ±12:30 UTC.**

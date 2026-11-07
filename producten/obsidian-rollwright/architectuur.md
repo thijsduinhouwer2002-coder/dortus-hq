@@ -37,7 +37,8 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
 - `live-preview.ts`: hetzelfde in de editor (CodeMirror).
 - `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie. In Live Preview krijgt de widget zijn regel en nummer op de regel mee (zoals in de sleutel) en schrijft met `replacementInLine` uit `rollers/modify.ts` in één `view.dispatch`; geen `posAtDOM`.
-- `history-view.ts`: het zijpaneel met de geschiedenis van worpen.
+- `history-view.ts`: het zijpaneel met de geschiedenis van worpen. Toont elke worp via `historyLabel`; de ruwe formule staat in de `title` en blijft de formule voor "Roll again".
+- `history-label.ts`: `historyLabel`, een pure functie die van een opgeslagen formule een naam (de `text(...)` label) en een nette formule maakt: zonder flags, en bij een verwijzing de bestandsnaam met tabel of kop ("Tabellen, gasten", "2× Bron", een alias als naam). Gebruikt `parseSpec` en `splitPipes` uit `rollers/spec.ts`; valt bij onleesbare tekst terug op de ruwe formule.
 - `modal.ts`: venster om snel een formule te gooien.
 - `settings.ts`: het instellingenscherm. Eén lijst van rijen (`sections()`: naam, uitleg en de velden en knoppen met hun opslaan) is de enige bron. `display()` tekent die rijen voor Obsidian onder 1.13; `getSettingDefinitions()` geeft dezelfde rijen als definities met `render`, zodat ze in de zoekfunctie van Obsidian 1.13 en later staan. Na toevoegen, weghalen, importeren of Activate tekent de tab opnieuw met `update()` (1.13 en later) of `display()` (ouder), gekozen met `requireApiVersion`. De groep Skins is: Skin, een rij zonder naam met het voorbeeld van de skins, Get the paid skins, License key (zonder Polar-ids alleen Skin, voorbeeld en "coming soon").
 - `skin-preview.ts`: het voorbeeld onder de keuze Skin: drie vakjes met een voorbeelduitkomst, elk met de klasse van zijn skin. `styles.css` zet de kleuren van een skin op `body.<skin>` en ook op `.rollwright-skin-preview-tile.<skin>`, zodat een vakje zijn eigen skin toont, los van de skin op body.
@@ -54,6 +55,11 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 ## Hoe het samenhangt
 
 Een code zoals `` `dice: 2d6+3` `` staat in een notitie. `ui/reading-view.ts` (leesweergave) of `ui/live-preview.ts` (editor) vindt hem met `rollers/inline.ts` en zet er een widget uit `ui/widget.ts` neer. De widget vraagt `main.ts` om de uitkomst; die geeft een vastgehouden of bewaard resultaat terug, of laat `rollers/run.ts` gooien. `run.ts` leest de code met `spec.ts`, haalt waar nodig tabellen, blokken of frontmatter uit de kluis via de `RollContext` die `main.ts` aanlevert, en laat formules uitrekenen door de rekenkern in `engine/` (`roll` of `averageOf`, via `engine/index.ts`). In de kern gaat een formule van `tokenizer` naar `parser` naar `evaluate`, met `faces`, `modifiers` en `state` als hulp. De uitkomst gaat terug naar de widget, wordt veilig gemaakt met `defuse.ts` en getoond. Een worp waar iemand om vroeg komt in de geschiedenis (`history-view.ts`). Skins: `main.ts` heeft `isLicensed` als enige vraag (sleutel met `licenseCheckedAt`, en betaling klaar), `activateLicense` voor de knop in `ui/settings.ts` en `recheckLicense` na `onLayoutReady`; beide roepen `pro/license.ts` aan met `licenseRequest`, `now` en `polarIds` van de plugin. `main.ts` slaat instellingen, formules, geschiedenis en `dice+:` resultaten op met `saveData`. Bij `dice-mod:` schrijft `ui/dice-mod.ts` met `rollers/modify.ts` de uitkomst terug in de notitie.
+
+## Tests
+
+- `tests/` (vitest, `tests/**/*.test.ts`): de nep-Obsidian staat in `tests/obsidian-stub.ts`. Voor `dice-mod:`: `dice-mod.test.ts` (lezen van de code, `modifiedText`, defuse), `dice-mod-plugin.test.ts` (leesweergave, Live Preview met een nep-`EditorView`, het venster), `dice-mod-replace.test.ts` (`rollers/modify.ts`), met gedeelde hulp in `dice-mod-helpers.ts`.
+- `e2e/specs/` (de echte Obsidian op GitHub Actions): wdio draait elk `*.e2e.mjs` bestand als spec (`e2e/wdio.conf.mjs`). Gedeelde hulp heet daarom anders, zoals `dicemod-hulp.mjs` voor `dicemod-live.e2e.mjs` (Live Preview) en `dicemod-lezen.e2e.mjs` (leesweergave en Enter).
 
 ## Lint
 

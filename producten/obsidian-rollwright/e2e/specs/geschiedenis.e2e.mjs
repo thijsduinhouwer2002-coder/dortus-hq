@@ -54,11 +54,17 @@ async function history() {
 	return browser.executeObsidian(({ app }) => (app.plugins.plugins.rollwright?.settings?.history ?? []).map((h) => ({ result: h.result, formula: h.formula, source: h.source })));
 }
 
-/** Wat het geschiedenispaneel toont, nieuwste eerst. */
+/**
+ * Wat het geschiedenispaneel toont, nieuwste eerst. Sinds Daan punt 6 en 9 toont het paneel een nette
+ * formule (zonder flags en zonder [[ ]]); de ruwe formule staat in de title van dat element. `formula`
+ * is daarom de ruwe formule uit de title, `getoond` en `naam` zijn wat de gebruiker ziet.
+ */
 async function paneel() {
 	return browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .rollwright-history-item`)).map((item) => ({
 		result: (item.querySelector(".rollwright-history-result")?.textContent ?? "").trim(),
-		formula: (item.querySelector(".rollwright-history-formula")?.textContent ?? "").trim(),
+		formula: (item.querySelector(".rollwright-history-formula")?.getAttribute("title") ?? "").trim(),
+		getoond: (item.querySelector(".rollwright-history-formula")?.textContent ?? "").trim(),
+		naam: (item.querySelector(".rollwright-history-name")?.textContent ?? "").trim(),
 	})), PANEEL);
 }
 
@@ -117,6 +123,19 @@ async function vergelijk(view, wat) {
 	// Na vier klikken staan de vier worpen in de geschiedenis, nieuwste boven.
 	const h = await history();
 	expect(h.map((x) => x.formula).reverse()).toEqual(formules);
+	// Daan punt 6 en 9: het paneel toont de label als naam, de formule zonder | en een tabel zonder [[ ]].
+	const netjes = (await paneel()).slice(0, AANTAL).reverse();
+	console.log(`GESCHIEDENIS NETJES (${wat}):`, JSON.stringify(netjes.map((x) => ({ naam: x.naam, getoond: x.getoond, ruw: x.formula }))));
+	expect(netjes.map((x) => x.formula)).toEqual(formules);
+	expect(netjes[0].naam).toBe("");
+	expect(netjes[0].getoond).toBe("1d1000000");
+	expect(netjes[1].naam).toBe("Raak?");
+	expect(netjes[1].getoond).toBe("1d20 + 5");
+	expect(netjes[1].getoond).not.toContain("|");
+	expect(netjes[2].naam).toBe("");
+	expect(netjes[2].getoond).toBe("Namen, namen");
+	expect(netjes[2].getoond).not.toContain("[[");
+	expect(netjes[3].getoond).toBe("2d6 + 3");
 }
 
 async function vierKeer(view, wat) {

@@ -1,0 +1,7 @@
+Definitions (Nodes.Folder, regel 2)
+  DIGIT "[0-9]" (Nodes.Variable, regel 7)
+Rules (Nodes.Folder, regel 11)
+  {DIGIT}+("."{DIGIT}*)? (Nodes.Method, regel 11)
+  [-+*/()\n] (Nodes.Method, regel 12)
+  [ \t]+ (Nodes.Method, regel 13)
+  . (Nodes.Method, regel 14)
