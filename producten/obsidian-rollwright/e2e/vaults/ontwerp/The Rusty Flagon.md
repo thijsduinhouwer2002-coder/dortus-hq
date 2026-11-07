@@ -1,5 +1,3 @@
-# The Rusty Flagon
-
 > [!tip] Every roll in this note is live
 > Click one to roll it again. Your rolls are kept in the roll log.
 

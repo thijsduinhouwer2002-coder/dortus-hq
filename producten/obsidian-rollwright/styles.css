@@ -460,9 +460,10 @@ body.theme-dark {
 
 .rollwright-history-item {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 0.1em;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 0.6em;
+	align-items: baseline;
 	margin-bottom: var(--size-4-2);
 	padding: var(--size-4-2) var(--size-4-3);
 	border: 1px solid var(--background-modifier-border);
@@ -497,7 +498,8 @@ body.theme-dark {
 }
 
 .rollwright-history-name {
-	order: -1;
+	grid-column: 1 / -1;
+	padding-right: 2em;
 	font-size: var(--font-ui-smaller);
 	font-weight: var(--font-semibold);
 	letter-spacing: 0.06em;
@@ -512,6 +514,36 @@ body.theme-dark {
 	font-variant-numeric: tabular-nums;
 }
 
+.rollwright-history-result {
+	grid-column: 1;
+}
+
+.rollwright-history-formula {
+	grid-column: 2;
+}
+
+.rollwright-history-details,
 .rollwright-history-meta {
-	margin-top: 0.2em;
+	grid-column: 1 / -1;
+}
+
+.rollwright-history-meta {
+	margin-top: 0.15em;
+}
+
+/* Opnieuw rollen rechtsboven op de kaart, niet op een eigen regel. */
+.rollwright-history-meta .clickable-icon {
+	position: absolute;
+	top: var(--size-4-1);
+	right: var(--size-4-1);
+}
+
+/* Wissen is geen hoofdactie: klein en rustig rechts. */
+.rollwright-history-clear {
+	display: block;
+	margin-left: auto;
+	background: transparent;
+	box-shadow: none;
+	color: var(--text-faint);
+	font-size: var(--font-ui-smaller);
 }

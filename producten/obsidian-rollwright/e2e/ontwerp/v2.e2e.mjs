@@ -36,7 +36,7 @@ const skin = async (s) => {
 // Zet de klasse die Olaf straks na een klik zet, en markeer de saving throw als 20 en de schade als 1-1 (nagebootst).
 const markeer = async () => {
 	await browser.execute(() => {
-		const rolls = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")];
+		const rolls = [...new Set(document.querySelectorAll(".mod-root .workspace-leaf.mod-active .rollwright-roll, .mod-root .rollwright-roll"))];
 		for (const r of rolls) r.classList.add("rollwright-rolled");
 		const save = rolls.find((r) => r.textContent.includes("Wisdom"));
 		if (save) { save.classList.add("rollwright-crit"); save.querySelector(".rollwright-value").textContent = "20"; }
@@ -46,7 +46,7 @@ const markeer = async () => {
 };
 const klik = async (woord) => {
 	await browser.execute((w) => {
-		const r = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].find((x) => x.textContent.includes(w));
+		const r = [...document.querySelectorAll(".mod-root .workspace-leaf.mod-active .rollwright-roll, .mod-root .rollwright-roll")].find((x) => x.textContent.includes(w));
 		r?.click();
 	}, woord);
 };
@@ -71,11 +71,14 @@ describe("Rollwright v2 voorstel", function () {
 			await stap(`notitie ${kant}`, async () => {
 				await thema("", licht);
 				await open(NOTE, "preview");
-				await markeer();
 				await browser.pause(2500);
+				await markeer();
+				await browser.pause(300);
 				await browser.execute(() => document.activeElement?.blur());
 				await shot(`notitie-${kant}`);
 				await zoom(2);
+				await browser.execute(() => document.querySelector(".mod-root .rollwright-roll")?.scrollIntoView({ block: "start" }));
+				await browser.pause(300);
 				await shot(`notitie-${kant}-zoom`);
 				await zoom(1);
 			});
@@ -83,8 +86,9 @@ describe("Rollwright v2 voorstel", function () {
 		await stap("live preview", async () => {
 			await thema("", true);
 			await open(NOTE, "source");
-			await markeer();
 			await browser.pause(2500);
+			await markeer();
+			await browser.pause(300);
 			await shot("live-preview-licht");
 		});
 	});
@@ -96,13 +100,20 @@ describe("Rollwright v2 voorstel", function () {
 				await open(NOTE, "preview");
 				await zoom(2.5);
 				await markeer();
+				await browser.execute((w) => {
+					const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].find((x) => x.textContent.includes(w));
+					r?.scrollIntoView({ block: "center" });
+				}, woord);
+				await browser.pause(300);
 				await browser.execute(() => document.body.style.setProperty("--rw-slow", "8"));
 				await klik(woord);
 				// Na de klik tekent de widget opnieuw; zet crit of fumble weer zoals Olaf dat straks doet.
 				await browser.pause(60);
 				await markeer();
-				for (const ms of [250, 900, 1800, 4500, 8000]) {
-					await browser.pause(ms === 250 ? 250 : ms - [250, 900, 1800, 4500, 8000][[250, 900, 1800, 4500, 8000].indexOf(ms) - 1]);
+				let vorige = 60;
+				for (const ms of [250, 900, 1800, 3500, 8000]) {
+					await browser.pause(ms - vorige);
+					vorige = ms;
 					await shot(`rol-${naam}-${ms}ms`);
 				}
 				await browser.execute(() => document.body.style.setProperty("--rw-slow", "1"));
@@ -136,8 +147,9 @@ describe("Rollwright v2 voorstel", function () {
 			await stap(`thema ${t}`, async () => {
 				await thema(t, licht);
 				await open(NOTE, "preview");
-				await markeer();
 				await browser.pause(1500);
+				await markeer();
+				await browser.pause(300);
 				await shot(`thema-${t}-${licht ? "licht" : "donker"}`);
 			});
 		}
@@ -148,8 +160,9 @@ describe("Rollwright v2 voorstel", function () {
 					await thema("", licht);
 					await open(NOTE, "preview");
 					await skin(s);
-					await markeer();
 					await browser.pause(1500);
+					await markeer();
+					await browser.pause(300);
 					await shot(`skin-${s}-${licht ? "licht" : "donker"}`);
 				});
 			}
