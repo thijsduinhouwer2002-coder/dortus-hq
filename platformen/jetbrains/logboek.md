@@ -86,3 +86,4 @@ Nieuwste blok onderaan.
 - **Daarna (08:17 UTC):** vaste testset van 10 echte Bison- en Flex-bestanden gekozen (PostgreSQL, jq, Ruby, OpenBSD, Apache Thrift; alleen ruime licenties, vast op tag of commit) en op de tak `claude/jetbrains-2026-11-07` gezet. Zelf nagekeken (regels, geen GPL); de controleur doet het de volgende run. Tak gekozen omdat het bij de code van het product hoort.
 - **Afgesloten om ±08:19 UTC.**
 - **Na het afsluiten nog (08:22 UTC):** testset nagekeken, akkoord mits NOTICE van Thrift en een telling; beide verwerkt op de tak. Volgende run: IDE-test en bouwen beginnen op die tak.
+- **Laatste (08:25 UTC):** plan voor de IDE-test uitgezocht (Starter + Driver op GitHub Actions, IDEA Community omdat CLion een licentie vraagt), in `ide-test-plan.md`. Niet nagekeken; de eerste run op GitHub Actions is de toets. Volgende run: plugin-skelet met bestandssoorten en deze test op de tak.
