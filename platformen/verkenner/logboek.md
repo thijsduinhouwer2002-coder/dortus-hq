@@ -152,3 +152,14 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 9 correcties verwerkt (labels en links, vloer 400 met voorbeelden, telling april niet als groei).
 - Les: downloadtellers van open registers kunnen een vloer van automatisch verkeer hebben. Kijk altijd naar het minimum en naar extensies zonder updates.
 - Volgende run: een nieuw platform uit kandidaten.md, liefst met betaling in de winkel.
+
+## 7 nov 2026, run 13:31 UTC
+- Lokale kopie stond los van een tak (detached); main opnieuw gezet op origin/main. Niets verwijderd.
+- Berichten van Thijs: alles al verwerkt. Gekozen: Wix App Market. Reden: op 6 nov "niet te meten", betaling zit in de winkel, en nu is wix.com leesbaar.
+- Vondst: elke lijstpagina heeft de data als base64 in de HTML, met reviews en prijsvorm; maar Wix toont geen installs en geen datum, en de interne API mocht niet. Wel een lijst "Newest apps" (306) en per app de 5 nieuwste reviews met datum.
+- Gemeten: 1.818 apps (±3.200 in de winkel, GOK), mediaan 2 reviews, 37% nul. 48 nieuwste apps allemaal 0 reviews, 15 ervan van één bedrijf. Apps met eerste review mei tot aug: 69, bijna allemaal 1 tot 2 reviews.
+- Onderzoeker: 80/20 en eerste jaar 100% voor de maker, uitbetaling vanaf $200. Geen kleine maker met een bedrag gevonden (TrustMRR, Indie Hackers, Reddit).
+- Beslissing: nee voor nu, cijfer 3. Reden: bereik niet te meten en reviews wijzen op bijna niets, en geen enkel geldbewijs, terwijl er sinds de AI-keuring waarschijnlijk een vloed van nieuwe apps is.
+- Controleur akkoord, 8 correcties verwerkt (schatting ±3.200 want 8 collecties telden dubbel, stijging eerste reviews deels meeteffect, PURPLE-groep weegt zwaar, bronnen vindbaarheid en bouwtijd, Harmony één bron, script repareren).
+- Les: als een winkel alleen reviews toont, is een lijst "nieuwste" met allemaal 0 reviews al een sterk signaal.
+
