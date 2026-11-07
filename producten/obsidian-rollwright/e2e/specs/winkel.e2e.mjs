@@ -58,12 +58,21 @@ describe("Rollwright: winkelplaatjes", function () {
 		fs.mkdirSync(SHOTS, { recursive: true });
 		// Linker zijpaneel dicht: dan staan de testnotities niet in beeld.
 		await browser.executeObsidian(({ app }) => app.workspace.leftSplit?.collapse());
+		// Inline titel uit: anders staat de titel twee keer in beeld (bestandsnaam en de kop in de notitie).
+		await browser.executeObsidian(({ app }) => app.vault.setConfig("showInlineTitle", false));
+	});
+
+	after(async function () {
+		await browser.executeObsidian(({ app }) => app.vault.setConfig("showInlineTitle", true));
 	});
 
 	it("leesweergave met worpen, tabel en lijst", async function () {
 		await open("preview");
 		const w = await wacht(".markdown-reading-view");
 		console.log("WINKEL LEZEN:", JSON.stringify(w));
+		const titels = await browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .inline-title`)).filter((e) => e.offsetParent !== null).length, LEAF);
+		console.log("WINKEL INLINE TITELS ZICHTBAAR:", titels);
+		expect(titels).toBe(0);
 		for (const r of w) expect(r.fout).toBe("");
 		expect(w[4].tekst.split(",").length).toBe(3);
 		await plaatjes("winkel-1-lezen");
