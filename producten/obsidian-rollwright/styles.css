@@ -755,21 +755,107 @@ body.rollwright-skin-arcane .rollwright-roll,
 	filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rollwright-accent) 55%, transparent));
 }
 
-/* De onthulling: tijdens het rollen staat een crit of fumble nog kleurloos, het goud of rood komt pas
-   als het getal landt (±480 ms). Anders verklapt de kleur de uitkomst voordat de steen stilligt. */
-@keyframes rw-reveal {
-	0%, 72% { filter: grayscale(1); }
-	100% { filter: none; }
+/* Het moment van de crit (ronde 4, na de controleur): geen grijze fase meer (die verklapte juist de
+   crit), maar een klap als het getal landt: het token springt even op en de golf gaat wijd.
+   Dat goud en rood pas bij het landen komen, regelt de code (klus 2d: klasse na ±480 ms). */
+@keyframes rw-punch {
+	0% { transform: scale(1); }
+	35% { transform: scale(1.16) rotate(-2deg); }
+	65% { transform: scale(0.97) rotate(1deg); }
+	100% { transform: none; }
 }
 
-.rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error),
+@keyframes rw-thud {
+	0% { transform: none; }
+	30% { transform: translateY(0.12em) scale(0.95); }
+	100% { transform: none; }
+}
+
+.rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error) {
+	animation: rw-punch calc(420ms * var(--rw-slow)) calc(460ms * var(--rw-slow)) cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+
 .rollwright-roll.rollwright-rolled.rollwright-fumble:not(.rollwright-error) {
-	animation: rw-reveal calc(660ms * var(--rw-slow)) ease-out both;
+	animation: rw-thud calc(360ms * var(--rw-slow)) calc(460ms * var(--rw-slow)) ease-out both;
+}
+
+@keyframes rw-wave-wide {
+	0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--rw-hi) 85%, transparent), 0 0 0 0 color-mix(in srgb, var(--rw-hi) 50%, transparent); }
+	100% { box-shadow: 0 0 0 1.1em color-mix(in srgb, var(--rw-hi) 0%, transparent), 0 0 1.6em 0.6em color-mix(in srgb, var(--rw-hi) 0%, transparent); }
+}
+
+.rollwright-roll.rollwright-rolled.rollwright-crit::before {
+	animation: rw-wave-wide calc(800ms * var(--rw-slow)) calc(480ms * var(--rw-slow)) ease-out both;
+}
+
+/* Rijker goud en rood: meer kleur in het verloop, vooral in donker (was khaki). */
+.rollwright-roll.rollwright-crit:not(.rollwright-error) {
+	background: linear-gradient(180deg,
+		color-mix(in srgb, var(--rw-hi) 52%, var(--rollwright-bg)),
+		color-mix(in srgb, var(--rw-hi) 22%, var(--rollwright-bg)));
+	border-color: var(--rw-hi);
+}
+
+body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
+	background: linear-gradient(180deg,
+		color-mix(in srgb, var(--rw-hi) 62%, var(--rollwright-bg)),
+		color-mix(in srgb, var(--rw-hi) 30%, var(--rollwright-bg)));
+	color: color-mix(in srgb, var(--rw-hi) 25%, #fff);
+}
+
+.rollwright-roll.rollwright-fumble:not(.rollwright-error) {
+	border-color: color-mix(in srgb, var(--rw-lo) 80%, var(--rollwright-bg));
+}
+
+/* De stempel houdt geen plek vrij terwijl het getal nog rolt: hij groeit pas uit het niets. */
+@keyframes rw-stamp {
+	0% { font-size: 0; padding: 0; margin-left: 0; opacity: 0; }
+	1% { font-size: 0.68em; padding: 0 0.35em; margin-left: 0.4em; opacity: 0; transform: scale(1.8); }
+	100% { opacity: 1; transform: none; }
+}
+
+.rollwright-roll.rollwright-rolled .rollwright-stamp {
+	animation: rw-stamp calc(260ms * var(--rw-slow)) calc(500ms * var(--rw-slow)) cubic-bezier(0.3, 1.5, 0.5, 1) both;
+}
+
+/* Logboek: naam en d20 in de kleur van de kaart, niet paars op goud of rood. */
+.rollwright-history-item.rollwright-crit .rollwright-history-name {
+	color: color-mix(in srgb, var(--rw-hi) 60%, var(--text-normal));
+}
+
+.rollwright-history-item.rollwright-fumble .rollwright-history-name {
+	color: color-mix(in srgb, var(--rw-lo) 70%, var(--text-normal));
+}
+
+.rollwright-history-item.rollwright-crit {
+	background: linear-gradient(180deg, color-mix(in srgb, var(--rw-hi) 20%, var(--background-primary)), var(--background-primary) 80%);
+	box-shadow: 0 2px 12px color-mix(in srgb, var(--rw-hi) 22%, transparent);
+}
+
+.rollwright-history-item:first-child.rollwright-crit::before {
+	filter: drop-shadow(0 0 6px color-mix(in srgb, var(--rw-hi) 80%, transparent));
+}
+
+.rollwright-history-item:first-child.rollwright-fumble::before {
+	filter: drop-shadow(0 0 5px color-mix(in srgb, var(--rw-lo) 60%, transparent));
+}
+
+.rollwright-history-item:first-child:not(.rollwright-crit):not(.rollwright-fumble)::before {
+	filter: drop-shadow(0 0 6px color-mix(in srgb, var(--rollwright-accent) 80%, transparent));
+}
+
+/* Tabeluitkomsten: ook geen rand rondom en geen pil, alleen een stippellijn eronder en het teken. */
+.rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) {
+	border-color: transparent;
+	border-bottom: 1px dashed color-mix(in srgb, var(--rollwright-accent) 55%, transparent);
+	border-radius: 0.3em;
+	background: color-mix(in srgb, var(--rollwright-accent) 5%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.rollwright-roll.rollwright-rolled.rollwright-crit,
-	.rollwright-roll.rollwright-rolled.rollwright-fumble {
+	.rollwright-roll.rollwright-rolled.rollwright-fumble,
+	.rollwright-roll.rollwright-rolled .rollwright-stamp {
 		animation: none !important;
 	}
 }

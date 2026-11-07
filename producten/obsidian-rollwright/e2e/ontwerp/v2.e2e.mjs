@@ -54,6 +54,10 @@ const markeer = async () => {
 	const s = await browser.execute(() => [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).map((x) => `${x.textContent.trim()} [${[...x.classList].filter((c) => c !== "rollwright-roll").join(" ")}]`));
 	console.log("WORPEN NA FORCEREN:", JSON.stringify(s));
 };
+const muisWeg = async () => {
+	try { await browser.$(".view-header-title-container, .view-header").moveTo(); } catch (e) {}
+	await browser.execute(() => document.querySelectorAll(".tooltip").forEach((t) => t.remove()));
+};
 const zoom = async (f) => {
 	await browser.execute((f) => { try { window.require("electron").webFrame.setZoomFactor(f); } catch (e) { document.body.style.zoom = String(f); } }, f);
 	await browser.pause(600);
@@ -134,7 +138,7 @@ describe("Rollwright v2 voorstel", function () {
 	});
 
 	it("de worp rolt, vertraagd 8 keer", async function () {
-		for (const [woord, naam] of [["Initiative", "gewoon"], ["Wisdom", "crit"], ["Damage", "fumble"]]) {
+		for (const [woord, naam] of [["Hit", "gewoon"], ["Wisdom", "crit"], ["Damage", "fumble"]]) {
 			await stap(`rollen ${naam}`, async () => {
 				await thema("", true);
 				await open(NOTE, "preview");
@@ -190,6 +194,7 @@ describe("Rollwright v2 voorstel", function () {
 				await browser.pause(1500);
 				await markeer();
 				await browser.pause(1300);
+				await muisWeg();
 				await shot(`thema-${t}-${licht ? "licht" : "donker"}`);
 			});
 		}
@@ -203,6 +208,7 @@ describe("Rollwright v2 voorstel", function () {
 					await browser.pause(1500);
 					await markeer();
 					await browser.pause(1300);
+					await muisWeg();
 					await shot(`skin-${s}-${licht ? "licht" : "donker"}`);
 				});
 			}
