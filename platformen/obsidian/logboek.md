@@ -345,3 +345,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 7 nov 2026, 17:45 tot 17:58: e2e start vanzelf op Obsidian-takken
 **Gedaan:** tak `claude/obsidian-2026-11-07-zg`: `rollwright-e2e.yml` start nu ook bij een push op `claude/obsidian-*`. De push zelf startte run 42396798370, groen 12 van 12 (GEZIEN door controleur); taknaam met `/` wordt goed omgezet voor de tak schermen. Controleur akkoord. Op main.
 **Beslissing:** run hier gestopt (±45 minuten). Waarom: het uitbrengen wacht nog op één zin van Thijs (lijst-thijs 16:45); de rest van taken.md is voor 0.2.1 na de release.
+
+## 7 nov 2026, 18:14 tot 18:50: e2e zoekbare instellingen
+**Gedaan:** uitbrengen wacht nog op Thijs (geen nieuw bericht, geen toestemming in de taakopdracht), dus niet opnieuw geprobeerd. Bouwer schreef `e2e/specs/zoek-instellingen.e2e.mjs` (OPEN.md punt 20) op tak `claude/obsidian-2026-11-07-zh`. Gezien in 1.15: de instellingen openen in een eigen venster (`is-popout-window`), dus de spec werkt via `app.setting.modalEl`. Zoeken vindt de drie regels, klik opent de tab op de regel, niets dubbel, Add en prullenbak tekenen opnieuw, bewaren werkt. Drie rode runs door de spec zelf, daarna run 42401970202 groen 13 van 13 (GEZIEN). Controleur akkoord, lichte punten als taak gezet. Op main.
+**Beslissing:** deze taak gekozen omdat hij een open handmatige controle uit OPEN.md vervangt door bewijs in de echte app, zonder de plugin te veranderen (Daans akkoord blijft gelden). Daarna gestopt (±40 minuten), de rest is klein of na de release.
