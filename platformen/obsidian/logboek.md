@@ -252,3 +252,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** de wiebel in `geschiedenis.e2e.mjs` niet als fout van deze tak gezien. Waarom (controleur, GEZIEN): elke spec draait in een eigen Obsidian, geschiedenis draaide vóór winkel, die notitie raakt Demo/ niet, en dezelfde commit was bij herhaling groen. Wel een taak om bij een time-out de lengtes te loggen.
 **Nieuw feit:** bij het opslaan bleek dat Daan om 12:40 al keek (beoordeling 5): punt 5, 6, 8 en 9 afgevinkt, `Akkoord: ja` voor main 38ef6eb, winkelplaatjes nog niet (W1 tot en met W8). Mijn vraag aan Daan heb ik daarom weggelaten; zijn punten staan in taken.md.
 **Beslissing:** run gestopt om ±12:46. Waarom: ±33 minuten gewerkt, W1 tot W4 zijn samen één nieuwe ronde met een e2e-run, die past niet meer schoon in deze run.
+
+## 7 nov 2026, 12:39 tot 12:51: Daan W1, W3 en W4 (op een tak)
+**Let op:** in het blok hierboven staan 12:43 en 12:46; volgens de klok van de omgeving was het opslaan om 12:39. Deze run liep van 12:13 tot ±12:52.
+**Gedaan:** op tak `claude/obsidian-2026-11-07-q`: in winkel-2 staat de cursor op de regel van Perception, zodat Live Preview daar de code toont (de spec eist `dice: 1d20 + 4` in die regel), de statusbalk is verborgen met een stijl in de spec (rood Sync-icoon), de buit staat in kleine letters in `Demo/Encounters.md`. Een lager venster met `browser.setWindowSize` faalde: Electron kent `Browser.getWindowForTarget` niet (run 42373505254 rood), weggehaald. Run 42373862390 groen, 11 van 11 (GEZIEN). Plaatje winkel-2 zelf bekeken: code zichtbaar, geen statusbalk.
+**Beslissing:** niet samengevoegd. Waarom: geen controleur meer in deze run; regel 2 zegt eerst nakijken.
+**Beslissing:** run gestopt om ±12:52. Waarom: ±40 minuten gewerkt, de volgende run begint schoon met de controleur.
