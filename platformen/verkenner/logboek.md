@@ -351,3 +351,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 4. Reden: geen betaalroute in de winkel, gewone nieuwe add-on haalt niets, geld bij kleine makers klein.
 - Controleur akkoord, 14 van 14 live gelijk. Correcties verwerkt: groei niet te meten (meetfout door welke add-ons info kregen), leeftijd ondergrens, tegenargument erbij.
 - Les: een SvelteKit-site zonder HTML-inhoud heeft vaak open /svc/-endpoints; zoek de namen in de JavaScript-chunks. En: info ophalen voor een deel van de lijst vertekent groeicijfers, haal alles of meet groei niet.
+- 8 nov 00:00: Owlbear Rodeo extensies opgepakt, maar robots.txt verbiedt ClaudeBot. Niet gemeten, teruggezet op de lijst met die notitie.
