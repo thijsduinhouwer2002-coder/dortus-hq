@@ -217,7 +217,8 @@ describe("Ontwerp van Rollwright", function () {
 		});
 		await stap("geschiedenis gevuld", async () => {
 			await open("Taverne.md", "preview");
-			const rolls = await browser.$$(".workspace-leaf.mod-active .rollwright-roll");
+			// Alleen de worpen in de leesweergave (tip Olaf): anders klikt de test ook de verborgen bronweergave.
+			const rolls = await browser.$$(".workspace-leaf.mod-active .markdown-reading-view .rollwright-roll");
 			for (const r of rolls.slice(0, 4)) await browser.execute((el) => el.click(), r);
 			await browser.pause(800);
 			await shot("geschiedenis-gevuld");
