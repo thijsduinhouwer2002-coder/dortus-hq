@@ -1,23 +1,27 @@
 # Geplande taken
 
-Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt kunnen worden als er een verloren gaat. Bijgewerkt op 6 nov 2026.
+Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt kunnen worden als er een verloren gaat. Bijgewerkt op 7 nov 2026 (overstap naar het eigen account van Thijs).
 
 ## Belangrijk bij opnieuw aanmaken
-- Een geplande taak krijgt alleen de repo-toegang die de chat had toen hij werd aangemaakt. Maak taken dus aan vanuit een chat die **dortus-hq en dortus allebei met push** heeft gekoppeld (add_repo, access push).
+- Een geplande taak krijgt alleen de repo-toegang die de chat had toen hij werd aangemaakt. Maak taken dus aan vanuit een chat die **dortus-hq, dortus en rollwright met push** heeft gekoppeld (add_repo, access push).
 - Instellingen voor alle taken: model Opus 5.5 (claude-opus-5-5), Auto (geen goedkeuring per stap), draaien in de cloud (niet aan een computer gekoppeld).
 - Wijzig je een opdracht in Claude, werk dan ook dit bestand bij.
+- **Koppelingen (7 nov):** op het nieuwe account hangen er bij het aanmaken vanzelf koppelingen aan (Trello, Claude Docs, Atlassian, Search1API, Gmail, Claude Code Remote). Dat kan niet uit vanuit een chat, alleen Thijs kan ze in de app weghalen. Daarom staat in elke opdracht de zin "Gebruik nooit de koppelingen Gmail, Trello, Atlassian, Claude Docs of Search1API, ook niet als ze in je run beschikbaar zijn." Die zin hoort bij de opdracht, ook als hij hieronder in een blok ontbreekt. Claude Code Remote blijft, die is nodig voor add_repo.
 
-## Overzicht
+## Overzicht (nieuw account, aangemaakt 7 nov 22:19 tot 22:20)
 
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
-| Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01GVRZ6ps5DDFUnHg5RiGFfx` |
-| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01T1XNp126J7b2t2yWMuVfFF` (sinds 7 nov, met de repo rollwright; de oude `trig_01VYVqEqFZ8wVhUAjzSjJv5A` staat uit) |
-| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 8-23 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
-| Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_018F9xQW4CXh94qTuafJRpG1` |
-| Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 8-19 * * *` | nee | `trig_011qyuhTgtDkUtDLmkfqrjGq` |
-| Bram - Blender-manager (elk uur), nog niet aangemaakt | `CRON_TZ=Europe/Amsterdam 7 8-19 * * *` | nee | aanmaken mislukte 7 nov, op lijst Thijs |
-| Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01D9bZyynavT2KcF1B6pGVs9` |
+| Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01VP8z743ECxNPJPgtJMVHXv` |
+| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
+| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 8-23 * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
+| Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_01LiHp8xxFjbsBTWLdzuh8Pq` |
+| Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 8-19 * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
+| Bram - Blender-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 7 8-19 * * *` | nee | `trig_014wDJpubVbsB8252j9bGNbR` |
+| Chris - Commercieel manager (elk uur) | `CRON_TZ=Europe/Amsterdam 41 8-19 * * *` | nee | `trig_01W9AGqc6kBY8tGjpW6VJwmz` |
+| Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01RYimfyjiEesovpGn7QWTJ6` |
+
+Oude ID's (gedeelde account, uitzetten door Thijs zodra het nieuwe account draait): Stijn `trig_01GVRZ6ps5DDFUnHg5RiGFfx`, Olaf `trig_01T1XNp126J7b2t2yWMuVfFF`, Vera `trig_01PbhUSrzuYkqnrhyERdxanT`, Jet `trig_018F9xQW4CXh94qTuafJRpG1`, Daan `trig_011qyuhTgtDkUtDLmkfqrjGq`, Bram `trig_01U988qZAiyERjYi6DWEayfw`, Chris `trig_018P1UU92oKaFFSBao5KRhQf`, Hans `trig_01D9bZyynavT2KcF1B6pGVs9`.
 
 ## Stijn - Strateeg (07:44)
 
