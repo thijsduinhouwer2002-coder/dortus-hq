@@ -136,3 +136,5 @@ Bekeken: `licht-pro-melding.png` en `donker-pro-hint.png` in `schermen/jetbrains
 **Voor indienen nog door mij te bekijken** (blokkeert het akkoord van nu niet, wel het indienen als het er dan anders uitziet): de meldingen voor ongedefinieerd en ongebruikt (eis 7) en het hernoemen (rest eis 6), met schermen in licht en donker; en liefst één plaatje van het registratievenster na een klik op "Start free trial".
 
 Nagekeken door een controleur (agent, 17:30): eens, geen moet-punten. Kan-punten: `assertEquals` op de controle-onderstreping in calc.y, één echte Ctrl+klik in de IDE-test, de terugval `KOOPPAGINA` later naar de eigen pluginpagina. Staan al op Jets lijst (kan-punten 17:25).
+
+**Aanvulling 17:32:** IDE-run 42395989193 op main 7732165 groen, schermen in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt) gelijk aan die van tak `-m`. Akkoord blijft ja.
