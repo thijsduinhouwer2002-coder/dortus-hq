@@ -1,0 +1,101 @@
+# Bison & Flex (JetBrains): winkeltekst
+
+Door Chris, 7 nov 2026 (eerste versie). Voor Jet (platformmanager) bij het indienen op de JetBrains Marketplace. De naam, de beschrijving in `plugin.xml` en de plaatjes zijn samen de winkelpagina. Daan keurt wat zichtbaar is, Jet beslist over de naam.
+
+## Wat ik gemeten heb (7 nov 2026, met curl, GEZIEN)
+- **De zoekfunctie van de Marketplace leest ook de beschrijving**, niet alleen de naam. Zoeken op "Prologue" vindt Bison Language Support, omdat dat woord in zijn beschrijving staat (`https://plugins.jetbrains.com/api/searchPlugins?search=Prologue`).
+- **Zoeken op "yacc" vindt Bison Language Support niet** (alleen GoYacc Support 21.167 en een lambda-plugin), want "yacc" staat niet in zijn tekst. Zoeken op "flex" of "lex" geeft niets over Flex of Lex. Wie op die woorden zoekt, vindt nu niets bruikbaars. Dat is onze kans: alle vier de woorden (Bison, Yacc, Flex, Lex) moeten in naam of beschrijving.
+- **De IDE raadt zelf plugins aan** bij een onbekend bestand, op grond van de bestandssoorten in `plugin.xml` (`https://plugins.jetbrains.com/feature/getImplementations?featureType=com.intellij.fileTypeFactory&implementationName=*.l`):
+  - `*.l`: **geen enkele plugin**. Na de lancering zijn wij de enige die CLion aanraadt bij een `.l`-bestand.
+  - `*.y`: GoYacc Support en Bison Language Support. Wij komen er als derde bij.
+  - `*.yy`: GameMaker Tools (bij GameMaker is `.yy` een JSON-bestand, zie advies 4).
+  - `*.ll`: LLVM en NPCoding Compiler IR Files (bij LLVM is `.ll` een IR-bestand, zie advies 4).
+- Dit aanraden was bij BatchCraft waarschijnlijk de motor van de groei (`platformen/jetbrains/marktmeting-2026-11-06.md` deel 6). Voor ons is het waarschijnlijk de belangrijkste bron van installs (GOK).
+
+## Naam (voorstel, Jet beslist)
+Regels van JetBrains (DERDEN, [approval guidelines](https://plugins.jetbrains.com/docs/marketplace/jetbrains-marketplace-approval-guidelines.html), punt 1.2): hoogstens **30 tekens**, woorden als "Support" worden afgeraden, geen naam van een JetBrains-product (dus geen "CLion" in de naam), geen "Plugin" of "IntelliJ".
+
+De huidige werknaam in `plugin.xml` is `Bison & Flex Support`: bevat "Support" (afgeraden) en mist "Yacc" en "Lex".
+
+**Voorstel: `Bison/Yacc & Flex/Lex`** (21 tekens).
+- Waarom: de naam weegt bij zoeken het zwaarst (GOK), en zo staan alle vier de zoekwoorden er in, ook "yacc" en "lex" waarop nu niets te vinden is. Het zegt meteen wat het is.
+- Tweede keus: `Bison & Flex` (12 tekens), rustiger, maar dan moeten Yacc en Lex in de eerste zin van de beschrijving.
+- Geen officiële indruk: Bison en Flex zijn namen van open-bronprogramma's (GNU Bison, Flex). De beschrijving zegt "for Bison and Flex files" en niet dat het van GNU is. Een plugin met "Bison" in de naam bestaat al (Bison Language Support), dus JetBrains staat zo'n naam toe (GEZIEN). Of dit juridisch helemaal vrij is, weet ik niet (GOK). Risico bij de beoordeling: regel 1.2c ("Must not use famous or trademarked names of third parties without their authorization"). Wijst JetBrains de naam daarom af, dan terugvallen op `Bison & Flex`, en anders op een eigen naam met Bison, Yacc, Flex en Lex alleen in de beschrijving.
+- Let op: de zoekfunctie vergelijkt stukjes woord. "flex" geeft nu 20 treffers vol "Flexible ..."-plugins, "lex" vindt thema's als Solarized (nagekeken door de controleur, GEZIEN). Bovenaan staan op "flex" of "lex" is dus niet zeker; op "yacc" en "bison" waarschijnlijk wel (GOK).
+
+## Beschrijving voor `plugin.xml` (Engels, eerste zin is de preview in de zoeklijst)
+Alleen dingen die nu gebouwd en getest zijn. Regels met **[pas na eis 7]** of **[pas na CLion-test]** alleen houden als dat af is voor het indienen.
+
+```html
+<p>Bison/Yacc grammars (<code>.y</code>, <code>.yy</code>) and Flex/Lex scanners
+(<code>.l</code>, <code>.ll</code>) as real languages in CLion and other JetBrains IDEs.
+Made for C and C++ developers who write parsers and lexers.</p>
+
+<p><b>Free</b></p>
+<ul>
+  <li>Recognizes Bison, Yacc, Flex and Lex files, with their own icons</li>
+  <li>Syntax highlighting for directives, tokens, rules, start conditions and regular expressions,
+      using your color scheme (light, dark and any theme)</li>
+  <li>C code in actions highlighted: keywords, strings, comments and
+      <code>$$</code>, <code>$1</code>, <code>@1</code></li>
+  <li>Syntax errors in the grammar and the scanner</li>
+  <li>Folding of rules and code blocks, a Structure view with rules and tokens</li>
+  <li>Comment and uncomment with the usual shortcut</li>
+  <li>Go to definition, find usages and rename within a file</li>
+</ul>
+
+<p><b>Pro</b> (30-day free trial, then a paid license)</p>
+<ul>
+  <li>Jump from a token in the <code>.l</code> scanner to its <code>%token</code>
+      in the <code>.y</code> grammar</li>
+  <li>Find usages and rename tokens across grammar and scanner at once</li>
+  <li>[pas na eis 7] Warnings for undefined and unused rules and tokens, with a quick fix</li>
+</ul>
+
+<p>The free features keep working after the trial. No sign-up with us, no telemetry.</p>
+
+<p>Another plugin for <code>.y</code> files installed? Disable it, so the IDE uses this one.</p>
+
+<p>Questions or a bug: <a href="mailto:thijs@dortus.com">thijs@dortus.com</a></p>
+```
+
+Waarom zo:
+- De eerste zin bevat de zes zoekwoorden (Bison, Yacc, Flex, Lex, CLion, parsers/lexers) en de vier bestandssoorten. Die zin is wat mensen in de zoeklijst zien.
+- "CLion" mag in de beschrijving, niet in de naam (regel 1.2h).
+- Gratis en Pro staan los, zodat niemand zich na de proef bedrogen voelt. Springen, alle plekken en hernoemen binnen één bestand zijn gratis (`pro/GaNaar.kt`, `psi/Verwijzingen.kt`, `pro/ProHernoemen.kt`, keuze van Jet en Daan); alleen het werk tussen `.l` en `.y` is Pro. Dat kan in de praktijk alleen bij tokens, want regels staan alleen in `.y` en start-condities alleen in `.l`. Daarom zegt de tekst "tokens".
+- "No sign-up with us" in plaats van "No account": een proef of licentie loopt via een JetBrains-account (Help > Register). De zin "free features keep working" haalt de grootste angst weg bij freemium (GOK).
+- Geen naam van de concurrent (regel van mijn rol); alleen een algemene zin over "another plugin".
+- Niet beloofd: echte C/C++-hulp in acties (alleen kleuren), shift/reduce-uitleg, Bison draaien. Dat zit niet in 1.0 (`producten/jetbrains-bison-flex/ontwerp.md`).
+- Haakjes paren staat in het ontwerp, maar ik vond geen BraceMatcher in de code (GEZIEN, `src/main`), dus niet beloofd.
+- **[pas na CLion-test]:** "in CLion" alleen houden als CLion in de IDE-test zit (Moet in 1.0, punt 3). Lukt dat niet, dan "in IntelliJ IDEA and other JetBrains IDEs" en CLion pas noemen na een echte test.
+
+## Change notes voor 1.0 (`<change-notes>`)
+```html
+<p>First release: Bison/Yacc and Flex/Lex file types, highlighting, syntax errors,
+folding and Structure view, go to definition, find usages and rename within a file.
+Pro: navigation, find usages and rename of tokens across grammar and scanner.</p>
+```
+
+## Tags op de Marketplace
+`Programming Language` (zo staat Bison Language Support, GEZIEN) en `Code Tools` als die er nog bij mag (GOK).
+
+## Zoekwoorden (waarop mensen zoeken)
+GOK, op grond van de zoekproeven hierboven en de woorden in de beschrijvingen van verwante plugins:
+- bison, yacc, flex, lex, lexer, scanner, grammar, parser generator, `.y`, `.l`
+- CLion, C, C++, compiler
+Allemaal in naam of beschrijving, behalve "parser generator" en "compiler". Die laat ik weg uit de tekst: de plugin genereert geen parser, en "parser generator" als los woord trekt ANTLR-gebruikers die hier niet zoeken.
+
+## Plaatjes (lijst voor Jet en Daan)
+De schermen bestaan al op de tak `schermen` (map `jetbrains-bison-flex/`), licht en donker. Voor de winkel adviseer ik deze volgorde, 1280 bij 800 of groter in 16:10 (GOK; JetBrains noemt die maat alleen voor kleurschema's en thema's, punt 1.6 van de approval guidelines):
+1. `calc.y` open met kleuren en structuurweergave (licht). Eerste plaatje = wat je krijgt.
+2. `calc.l` open met kleuren (donker). Laat zien dat Flex er ook is, daarin zijn we de enige.
+3. Ga naar definitie van `.l` naar `.y` (een token in de scanner, sprong naar `%token` in de grammatica). Dit is de Pro-functie die niemand anders heeft.
+4. Een token hernoemen in beide bestanden tegelijk.
+5. [pas na eis 7] Melding van een ongebruikte regel met de snelle oplossing.
+Geen plaatje van de koopmelding: die hoort bij het product, niet bij de etalage.
+Thijs ziet de lijstplaatjes eerst (regels, lancering).
+
+## Wat de concurrent mist en wij hebben (alleen voor intern gebruik, niet in de tekst)
+- Bison Language Support (13.020 downloads, laatste versie 2 sep 2023, GEZIEN; rating 3,41 uit de zoek-API van de onderzoeker, niet nagemeten): alleen `.y`, geen Flex, geen `.yy`. Heeft sinds dec 2022 wel een structuurweergave (zijn change notes), dus dat is geen voordeel voor ons. "Ga naar definitie" staat sinds 2023 als "planned" in de beschrijving en kwam er niet.
+- Voor Flex/Lex bestaat niets.
+- ANTLR v4 (788.253 downloads) geeft navigatie en hernoemen gratis. Wie van ANTLR komt, verwacht dat gratis (GOK). Daarom moet het gratis deel op zichzelf al goed zijn.

@@ -20,3 +20,25 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Wat:** bij Edit listing de lange beschrijving uit `commercie/rollwright/winkeltekst.md` nemen in plaats van die in `aanmelding-community.md`.
 - **Waarom:** noemt de dingen waarin we verschillen van de twee nieuwe gelijksoortige plugins (Dice Tray, Dice Rolls): frontmatter, `dice-mod:`, lookup-tabellen, tags. Nagekeken door een controleur tegen de README.
 - **Status:** open
+
+## 4. Bison & Flex: botsing met LLVM (`.ll`) en GameMaker (`.yy`) (7 nov 2026)
+- **Wat:** voor het indienen nagaan wat er gebeurt als een gebruiker een LLVM-IR-bestand (`.ll`) of een GameMaker-bestand (`.yy`, JSON) opent terwijl onze plugin aan staat. Oplossingen om te wegen: (a) bij `.ll` en `.yy` naar de inhoud kijken (staat er `%%` in, dan Flex of Bison; anders niet claimen), (b) `.ll` en `.yy` niet claimen en alleen `.y` en `.l`, (c) in de beschrijving zeggen hoe je het terugzet.
+- **Waarom:** `.ll` is bij GitHub Linguist alleen LLVM (GEZIEN in `languages.yml` van github-linguist), en de IDE raadt voor `*.ll` nu de plugins LLVM en NPCoding Compiler IR Files aan (GEZIEN, feature-API van de Marketplace). LLVM-IR zit veel in de wereld van CLion (compilerbouwers, GOK). `.yy` is bij GameMaker een JSON-projectbestand (GameMaker Tools claimt `*.yy`, GEZIEN). Wie zo'n bestand ineens vol rode syntaxfouten ziet, geeft een slechte review en verwijdert de plugin (GOK). Tegelijk gebruikt het C++-voorbeeld uit de Bison-handleiding wel `.ll` en `.yy` (DERDEN, calc++ in de Bison-handleiding), dus helemaal weglaten kost ook iets.
+- **Ook:** Linguist kent voor Lex ook `.lex` en voor Yacc ook `.yacc` (GEZIEN). Die erbij nemen kost weinig en geen andere plugin claimt ze (GEZIEN, feature-API: 0 plugins voor `*.lex` en `*.yacc`).
+- **Ook:** GoYacc gebruikt ook `.y`, met Go-code in de acties; die kleurt bij ons als C. In de beschrijving of de hulp noemen dat je onder Settings > Editor > File Types een extensie terugzet.
+- **Oplevering:** geen boze eerste reviews van mensen die de plugin niet zochten.
+- **Voor wie:** Jet, vóór indienen.
+- **Status:** open
+
+## 5. Bison & Flex: naam zonder "Support", met Yacc en Lex (7 nov 2026)
+- **Wat:** de naam in `plugin.xml` van `Bison & Flex Support` naar `Bison/Yacc & Flex/Lex` (21 tekens), of tweede keus `Bison & Flex`.
+- **Waarom:** JetBrains raadt "Support" af en staat hoogstens 30 tekens toe (DERDEN, approval guidelines punt 1.2). Zoeken op "yacc", "flex" of "lex" vindt nu niets bruikbaars op de Marketplace (GEZIEN); met alle vier de woorden in de naam worden we gevonden, zeker op "yacc" en "bison"; op "flex" en "lex" concurreren we met Flexible-plugins en thema's, want de zoekfunctie vergelijkt stukjes woord (GOK op GEZIEN). Zie `commercie/jetbrains-bison-flex/winkeltekst.md`.
+- **Voor wie:** Jet, vóór indienen (naam staat in zijn lijst "Moet in 1.0", punt 6).
+- **Status:** open
+
+## 6. Bison & Flex: Pro is smal, houd de meldingen van eis 7 in Pro en plan 1.1 voor Pro (7 nov 2026)
+- **Wat:** (a) de meldingen ongedefinieerd en ongebruikt (eis 7, met snelle oplossing) in Pro houden, zoals in het ontwerp; (b) voor 1.1 de volgende Pro-functie kiezen op wat tijd bespaart bij grote grammatica's, bijvoorbeeld aanvullen van regel- en tokennamen (staat al voor 1.1) en later uitleg bij shift/reduce-conflicten.
+- **Waarom:** springen, alle plekken en hernoemen binnen één bestand zijn gratis (goede keuze van Daan en Jet, nagekeken in `pro/GaNaar.kt`, `psi/Verwijzingen.kt`, `pro/ProHernoemen.kt`). Dan blijft voor Pro nu alleen het werk met tokens tussen `.l` en `.y` over. Wie alleen een grammatica schrijft, heeft geen reden om te betalen. De enige betaalde grammatica-plugin, ANTLR4 Helper ($20/$40), heeft 269 downloads (GEZIEN), en ANTLR v4 geeft navigatie gratis.
+- **Oplevering:** een Pro waar meer mensen iets aan hebben, dus meer kans op betalende klanten.
+- **Voor wie:** Jet en Hans. Niet om 1.0 op te houden.
+- **Status:** open
