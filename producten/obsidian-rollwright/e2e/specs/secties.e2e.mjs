@@ -75,12 +75,17 @@ function eenBlok(text, toegestaan) {
 	});
 }
 
+/** Hoe vaak elk woord voorkomt: twee keer dezelfde regel trekken mag (met teruglegging, zoals bij tabellen). */
+function woordenGeteld(text) {
+	return ALLE_WOORDEN.flatMap((w) => Array(text.split(w).length - 1).fill(w));
+}
+
 function checkRegel(r, aantal, wat) {
-	const gezien = woorden(r.value);
-	// "***" is ook een niet-lege regel; dan toont de uitkomst een lijn zonder tekst.
-	const lijnen = r.hr ? 1 : 0;
-	console.log(`${wat}: woorden ${JSON.stringify(gezien)}, lijnen ${lijnen}`);
-	expect(gezien.length + lijnen).toBe(aantal);
+	const gezien = woordenGeteld(r.value);
+	// Een losse lijn (***) telt sinds 7 nov niet meer als regel: een regelworp toont nooit een lijn.
+	console.log(`${wat}: woorden ${JSON.stringify(gezien)}, lijn ${r.hr}`);
+	expect(r.hr).toBe(false);
+	expect(gezien.length).toBe(aantal);
 }
 
 const AANTAL = 10;
@@ -229,11 +234,11 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 				return rolls[3] !== undefined && !rolls[3].old && (rolls[3].value !== "" || rolls[3].hr);
 			}, { timeout: 5000, timeoutMsg: "na een klik bleef de regelworp leeg" });
 			checkRegel(rolls[3], 1, `KLIK ${i + 1}`);
-			seen.add(rolls[3].hr ? "***" : woorden(rolls[3].value)[0]);
+			seen.add(woorden(rolls[3].value)[0]);
 			if (i === 0) console.log("VOOR DE EERSTE KLIK:", JSON.stringify(before.value));
 		}
 		console.log("REGELS GEZIEN:", JSON.stringify([...seen]));
-		// Negen regels en zestien worpen: steeds dezelfde regel is vrijwel onmogelijk.
+		// Acht regels (de lijn telt niet) en zestien worpen: steeds dezelfde regel is vrijwel onmogelijk.
 		expect(seen.size).toBeGreaterThan(1);
 	});
 
