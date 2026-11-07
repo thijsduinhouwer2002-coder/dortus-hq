@@ -365,5 +365,6 @@ Geen `<fileType>` noemt deze extensies, geen TextMate-bundel voor Tcl, Yacc of L
 - Bijvangst: een uitgever brengt een reeks betaalde "Flexible"-taalplugins uit (Julia, Haskell, COBOL en meer, van een paar honderd tot ±13.000 downloads). Betaalde niche-taalplugins bestaan dus (GEZIEN als zoekresultaat, niet verder gemeten).
 
 - **Nakijken (08:15 UTC):** controleur deed stap 1 tot 4 opnieuw (eigen zoekopdracht in de jars, Marketplace-gegevens, zoeken naar Lex/Flex-plugins): getallen gelijk. Akkoord mits 4 punten (downloads Bison overschat, Tcl werkt ook in gratis CLion, until-build is de Marketplace-waarde, CMake-hulpteksten noemen). Alle 4 verwerkt.
+- **Verbetering op deel 11 (gevonden bij het nakijken van het bouwbesluit):** daar staat bij Tcl Language Support "±1.300 per maand". Dat klopt niet: 1.381 is het aantal downloads op versies uit de laatste 90 dagen (deel 12). Sinds de eerste versie van 18 mei 2026 is het ±450 tot 480 per maand (GEZIEN).
 
 **Volgende stap:** het bouwbesluit met een scoreschema (vraag, betaalbewijs, concurrentie, bouwtijd) tussen Bison/Flex, Tcl en Jenkinsfile-achtig als maat.
