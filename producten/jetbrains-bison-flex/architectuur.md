@@ -1,6 +1,6 @@
 # Architectuur: Bison & Flex (JetBrains-plugin)
 
-Stand 7 nov 2026: versie 0.1. Bestandssoorten, echte lexer met kleuren, kleurenpagina's en commentaar. Parser nog plat.
+Stand 7 nov 2026: versie 0.2. Bestandssoorten, echte lexer met kleuren, kleurenpagina's, commentaar en een echte parser per taal (boom met regels, tokens en foutmeldingen).
 
 ## Onderdelen
 - `src/main/kotlin/com/dortus/bisonflex/Talen.kt`: de twee talen, `BisonLanguage` en `FlexLanguage`.
@@ -8,11 +8,17 @@ Stand 7 nov 2026: versie 0.1. Bestandssoorten, echte lexer met kleuren, kleurenp
 - `lexer/`: handgeschreven lexers, los van de IDE te testen. `Soort.kt` (alle tokensoorten), `Scanner.kt` (gedeelde basis plus de eenvoudige C-kleuring voor acties, proloog en epiloog), `BisonScanner.kt`, `FlexScanner.kt`, en `Tokens.kt` (koppeling naar IElementTypes per taal en de `ScannerLexer` voor de IDE). Alle context zit in de toestand (een getal), zodat de IDE midden in een bestand opnieuw kan beginnen; de test `testOpnieuwBeginnenMiddenInGeeftHetzelfde` bewaakt dat. Gekozen voor handgeschreven in plaats van JFlex: Flex hangt sterk af van de plek op de regel, dat is met de hand overzichtelijker, en er hoeft geen generator in de build.
 - `Kleuren.kt`: kleursleutels per taal (`BISON_*`, `FLEX_*`), elk met een standaardkleur van de IDE als terugval (`DefaultLanguageHighlighterColors`), geen vaste kleuren. Highlighter, factory's en de kleurenpagina's (Settings, Editor, Color Scheme, "Bison/Yacc" en "Flex/Lex"). `Voorbeelden.kt` bevat de voorbeeldtekst van die pagina's.
 - `Commentaar.kt`: commentaar aan en uit (Bison `//` en `/* */`, Flex alleen `/* */`).
-- `Parsers.kt`: `SkeletParserDefinition` met de echte lexer, maar nog een platte boom (alle tokens onder het bestand). Wordt vervangen door een echte parser per taal.
+- `Parsers.kt`: `TaalParserDefinition` per taal: koppelt lexer, parser en elementtypes.
+- `parser/`: handgeschreven parsers met `PsiBuilder` bovenop de lexer (geen Grammar-Kit, geen generator; de lexer is er niet voor veranderd).
+  - `Elementen.kt`: de knopen van de boom. Bison: `DECLARATIONS` (met `PROLOGUE`, `CODE_DECL`, `TOKEN_DECL`, `NTERM_DECL`, `TYPE_DECL`, `UNION`, `DEFINE`, `START`, `LEFT`, `RIGHT`, `NONASSOC`, `PRECEDENCE`, `DIRECTIVE`, `CODE_BLOCK`, `TOKEN_NAME`), `RULES` met per regel `RULE` (`RULE_NAME`, `:`, `ALTERNATIVES` met `ALTERNATIVE`s, `;`), in een alternatief `SYMBOL_REF`, `ACTION`, `PREC`, `RULE_DIRECTIVE` (`%empty`, `%dprec`, `%merge`, `%expect`, `%?{}`), `NAMED_REF` (`[naam]`), en `EPILOGUE`. Flex: `DEFINITIONS` (met `PROLOGUE`, `TOP_BLOCK`, `CODE`, `NAME_DEF` met `DEFINITION_NAME` en `PATTERN`, `OPTION`, `START_CONDITION_DECL` met `START_CONDITION_NAME`, `DIRECTIVE`), `RULES` met `FLEX_RULE` (`SC_LIST` met `START_CONDITION_REF`, `PATTERN`, `ACTION`) en `SC_BLOCK` voor `<SC>{ ... }`, en `USER_CODE`. Namen zijn vast: structuurweergave, folding en referenties komen hierop.
+  - `Basis.kt`: gedeelde hulpjes (accoladeblok lezen op de diepte van de lexer, overslaan na een fout, "eerste token op de regel", "spatie ervoor").
+  - `BisonParser.kt`: volgt Bison. De `;` na een regel mag weg als daarna `naam :`, een `%`-opdracht of `%%` komt (de lexer merkt `naam :` al als `DEFINITIE`); anders `'|' or ';' expected, got 'x'` en verder lezen vanaf de volgende `;` of regel. Een `%`-opdracht in het regeldeel vraagt een `;`.
+  - `FlexParser.kt`: Flex hangt af van de regel; de parser kijkt in de oorspronkelijke tekst of een token vooraan de regel staat en of er een spatie voor staat (een patroon loopt tot de eerste spatie, een actie tot het eind van de regel of de sluitende `}`).
+  - Foutteksten Engels in IDE-stijl: `';' expected`, `':' expected`, `'%}' expected`, `'}' expected`, `'%%' expected`, `Rule expected`, enz. Een "expected"-fout staat zoals gewoon in de IDE direct achter het laatste goede token. Na een open `{` of `%{` leest de lexer (net als Bison en Flex) alles als code, dus die fout staat aan het eind van het bestand.
 - `src/main/resources/META-INF/plugin.xml`: registratie van soorten en parsers. Alleen `com.intellij.modules.platform`, dus werkt in elke IDE.
 
 ## Tests
-- `src/test/kotlin/`: unittests (`BasePlatformTestCase`, JUnit 4). Lezen de vaste testset in `testdata/` (10 echte bestanden, bronnen in `testdata/BRONNEN.md`). `LexerTest`: geen onbekende tekens en alle blokken dicht op de 10 bestanden, opnieuw beginnen geeft hetzelfde, vaste kleur per token voor de rekenmachine (`testdata/verwacht/*.kleuren`), geen vaste kleuren, snelheid.
+- `src/test/kotlin/`: unittests (`BasePlatformTestCase`, JUnit 4). Lezen de vaste testset in `testdata/` (10 echte bestanden, bronnen in `testdata/BRONNEN.md`). `LexerTest`: geen onbekende tekens en alle blokken dicht op de 10 bestanden, opnieuw beginnen geeft hetzelfde, vaste kleur per token voor de rekenmachine (`testdata/verwacht/*.kleuren`), geen vaste kleuren, snelheid. `ParserTest`: nul fouten op de 10 bestanden, de vier rekenmachines in `e2e/project/` en de voorbeelden (met de plek van de eerste fout als het misgaat), en elke regelnaam is een `RULE`; vaste boom voor `calc.y` en `calc.l` (`testdata/verwacht/*.boom`, eigen korte vorm); zeven foutgevallen met tekst en offset; snelheid (5.000 regels per taal).
 - `e2e/kotlin/`: test in de echte IDE (Starter + Driver, JUnit 5), Gradle-taak `integrationTest`. Opent `e2e/project/` in IDEA Community 2025.2.6.4 (vaste versie), één keer licht en één keer donker thema, en maakt schermafbeeldingen in `e2e/screenshots/`.
 - `.github/workflows/jetbrains-bison-flex-e2e.yml`: draait beide op GitHub Actions bij elke wijziging (main en `claude/jetbrains-*`), en zet de schermen op de tak `schermen`, map `jetbrains-bison-flex/<tak>/`.
 
@@ -21,6 +27,7 @@ Stand 7 nov 2026: versie 0.1. Bestandssoorten, echte lexer met kleuren, kleurenp
 
 ## Open
 - De editor van de IDE begint na een wijziging opnieuw bij een token in toestand 0 (GOK, volgens de controleur). Het regeldeel is nooit toestand 0, dus bij elke toetsaanslag wordt vanaf `%%` opnieuw gelext. Met ±10 ms per 10.000 regels (GEZIEN, `testSnelGenoeg`) is dat nu geen probleem; later eventueel `RestartableLexer`.
-- Tokenkleur in acties is een gok op hoofdletters (`NUM`); tokens zoals `tINTEGER` (Ruby) krijgen die pas als de parser weet wat een token is.
+- Tokenkleur in acties is een gok op hoofdletters (`NUM`); tokens zoals `tINTEGER` (Ruby) krijgen die pas als de parser weet wat een token is. De parser weet dat nu (`TOKEN_NAME`), maar de kleur is nog niet omgezet (volgende taak).
+- Bewust soepel (GOK dat dit genoeg is): in het Bison-declaratiedeel loopt een opdracht tot de volgende `%`-opdracht en wordt de inhoud niet nagekeken; een `|` na een `;` (`a: b ; | c`, mag in Bison) geeft bij ons `Rule expected`. Flex: een regel zonder actie is goed (Flex gooit de tekst dan weg).
 - Eis 1 vraagt ook CLion. De IDE-test draait nu alleen IDEA Community 2025.2.6.4 (vast). CLion vraagt in Starter waarschijnlijk een licentie (GOK); volgende stap: proberen met `IdeProductProvider.CL` en een vaste versie.
 - Taal-ID's zijn `BisonFlex.Bison` en `BisonFlex.Flex`, uniek naast de gratis Bison-plugin. Niet meer veranderen na de lancering.

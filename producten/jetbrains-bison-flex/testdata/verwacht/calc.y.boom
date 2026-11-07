@@ -1,0 +1,101 @@
+FILE
+  BISON_BLOKCOMMENTAAR '/* Rekenmachine, naar het voorbeeld uit de Bison-handleid...'
+  DECLARATIONS
+    PROLOGUE '%{\n#include <stdio.h>\nint yylex(void);\nvoid yyerror(co...'
+    DEFINE
+      BISON_OPDRACHT '%define'
+      BISON_NAAM 'api.value.type'
+      CODE_BLOCK '{double}'
+    TOKEN_DECL
+      BISON_OPDRACHT '%token'
+      TOKEN_NAME
+        BISON_TOKEN 'NUM'
+    LEFT
+      BISON_OPDRACHT '%left'
+      BISON_TEKEN ''-''
+      BISON_TEKEN ''+''
+    LEFT
+      BISON_OPDRACHT '%left'
+      BISON_TEKEN ''*''
+      BISON_TEKEN ''/''
+  BISON_SCHEIDING '%%'
+  RULES
+    RULE
+      RULE_NAME
+        BISON_DEFINITIE 'input'
+      BISON_DUBBELEPUNT ':'
+      ALTERNATIVES
+        ALTERNATIVE
+          RULE_DIRECTIVE
+            BISON_OPDRACHT '%empty'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'input'
+          SYMBOL_REF
+            BISON_NAAM 'line'
+      BISON_PUNTKOMMA ';'
+    RULE
+      RULE_NAME
+        BISON_DEFINITIE 'line'
+      BISON_DUBBELEPUNT ':'
+      ALTERNATIVES
+        ALTERNATIVE
+          BISON_TEKEN ''\n''
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN ''\n''
+          ACTION '{ printf ("%.10g\n", $1); }'
+      BISON_PUNTKOMMA ';'
+    RULE
+      RULE_NAME
+        BISON_DEFINITIE 'exp'
+      BISON_DUBBELEPUNT ':'
+      ALTERNATIVES
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_TOKEN 'NUM'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN ''+''
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          ACTION '{ $$ = $1 + $3; }'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN ''-''
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          ACTION '{ $$ = $1 - $3; }'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN ''*''
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          ACTION '{ $$ = $1 * $3; }'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN ''/''
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          ACTION '{ $$ = $1 / $3; }'
+        BISON_STREEP '|'
+        ALTERNATIVE
+          BISON_TEKEN ''(''
+          SYMBOL_REF
+            BISON_NAAM 'exp'
+          BISON_TEKEN '')''
+          ACTION '{ $$ = $2; }'
+      BISON_PUNTKOMMA ';'
+  BISON_SCHEIDING '%%'
+  EPILOGUE 'void yyerror(const char *s) { fprintf(stderr, "%s\n", s); }'
