@@ -80,12 +80,23 @@ describe("Rollwright: winkelplaatjes", function () {
 	it("geschiedenis rechts na een paar klikken", async function () {
 		await open("preview");
 		await wacht(".markdown-reading-view");
-		await browser.executeObsidian(({ app }) => app.commands.executeCommandById("rollwright:open-history"));
+		// Het paneel openen maakt het paneel actief; daarna de notitie weer actief, anders vindt LEAF geen worpen.
+		await browser.executeObsidian(async ({ app }) => {
+			const note = app.workspace.getMostRecentLeaf();
+			await app.plugins.plugins.rollwright.openHistory();
+			if (note) app.workspace.setActiveLeaf(note, { focus: true });
+		});
+		await browser.waitUntil(async () => browser.execute(() => document.querySelector('.workspace-leaf-content[data-type="rollwright-history"]') !== null),
+			{ timeout: 5000, timeoutMsg: "het geschiedenispaneel opende niet" });
 		for (const i of [0, 2, 1, 3]) {
 			await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} .markdown-reading-view`, i);
 			await browser.pause(300);
 		}
-		const items = await browser.execute(() => document.querySelectorAll(".rollwright-history-item").length);
+		let items = 0;
+		await browser.waitUntil(async () => {
+			items = await browser.execute(() => document.querySelectorAll(".rollwright-history-item").length);
+			return items >= 4;
+		}, { timeout: 5000 }).catch(() => {});
 		console.log("WINKEL GESCHIEDENIS ITEMS:", items);
 		expect(items).toBeGreaterThanOrEqual(4);
 		await plaatjes("winkel-3-geschiedenis");
