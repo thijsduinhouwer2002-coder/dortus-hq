@@ -24,7 +24,7 @@ __export(main_exports, {
   default: () => RollwrightPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 
 // src/import/dice-roller-data.ts
 var NAME_KEYS = ["alias", "name", "title", "label"];
@@ -2236,7 +2236,23 @@ function processReadingView(plugin, el, ctx) {
 }
 
 // src/ui/settings.ts
+var import_obsidian9 = require("obsidian");
+
+// src/ui/skin-preview.ts
 var import_obsidian8 = require("obsidian");
+var PREVIEW_RESULT = "17";
+function renderSkinPreview(parent) {
+  const preview = parent.createDiv({ cls: "rollwright-skin-preview" });
+  for (const skin of SKINS) {
+    const tile = preview.createDiv({ cls: ["rollwright-skin-preview-tile", skin.cssClass] });
+    const roll2 = tile.createSpan({ cls: ["rollwright-roll", "rollwright-skin-preview-roll"] });
+    (0, import_obsidian8.setIcon)(roll2.createSpan({ cls: "rollwright-icon" }), "dices");
+    roll2.createSpan({ cls: "rollwright-value", text: PREVIEW_RESULT });
+    tile.createDiv({ cls: "rollwright-skin-preview-name", text: skin.name });
+  }
+}
+
+// src/ui/settings.ts
 function parseWholeNumber(value, min) {
   const text = value.trim();
   if (!/^\d+$/.test(text)) return null;
@@ -2244,10 +2260,11 @@ function parseWholeNumber(value, min) {
   return Number.isSafeInteger(number) && number >= min ? number : null;
 }
 var COMING_SOON = "Paid skins are coming soon.";
+var CHECK_NOTE = "It is checked online at most once every 30 days.";
 function licenseStatus(active, checkedAt, error) {
   if (error !== null) return LICENSE_MESSAGES[error];
   if (active) return `Active, checked on ${new Date(checkedAt).toLocaleDateString()}.`;
-  return "Paste the license key from your Polar purchase and press Activate.";
+  return "Paste the key from your purchase email and press Activate.";
 }
 function renderRow(setting, row) {
   var _a;
@@ -2263,7 +2280,7 @@ function toDefinition(row) {
     render: (setting) => renderRow(setting, row)
   };
 }
-var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
+var RollwrightSettingTab = class extends import_obsidian9.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -2275,8 +2292,8 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     for (const section of this.sections()) {
-      if (section.heading !== void 0) new import_obsidian8.Setting(containerEl).setName(section.heading).setHeading();
-      for (const row of section.rows) renderRow(new import_obsidian8.Setting(containerEl), row);
+      if (section.heading !== void 0) new import_obsidian9.Setting(containerEl).setName(section.heading).setHeading();
+      for (const row of section.rows) renderRow(new import_obsidian9.Setting(containerEl), row);
     }
   }
   /** The same rows as display(), so they show up in the settings search of Obsidian 1.13 and later. */
@@ -2287,7 +2304,7 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
   }
   /** Draw the tab again after a row was added, removed or changed. */
   redraw() {
-    if ((0, import_obsidian8.requireApiVersion)("1.13.0")) this.update();
+    if ((0, import_obsidian9.requireApiVersion)("1.13.0")) this.update();
     else this.display();
   }
   /** Every row of the tab, built from the current settings. The one source for both ways of drawing. */
@@ -2379,7 +2396,7 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
       { heading: "Skins", rows: this.skinRows() }
     ];
   }
-  /** The skin choice, and the key field with Activate and Buy only when payment is ready. */
+  /** The skin choice with a preview of every skin, then Buy and the key field with Activate only when payment is ready. */
   skinRows() {
     const settings = this.plugin.settings;
     const ready = paymentReady(this.plugin.polarIds);
@@ -2396,7 +2413,8 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
             this.plugin.applySkin();
           });
         })
-      }
+      },
+      { name: "", build: (setting) => renderSkinPreview(setting.infoEl) }
     ];
     if (!ready) {
       rows.push({ name: "License key", desc: COMING_SOON });
@@ -2405,8 +2423,17 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
     const status = licenseStatus(this.plugin.isLicensed, settings.licenseCheckedAt, this.lastError);
     rows.push(
       {
+        name: "Get the paid skins",
+        desc: `${paidNames}. One payment, yours to keep.`,
+        build: (setting) => setting.addButton(
+          (button) => button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
+            activeWindow.open(this.plugin.polarIds.buyUrl);
+          })
+        )
+      },
+      {
         name: "License key",
-        desc: `${status} The key is checked with Polar, at most once every 30 days.`,
+        desc: `${status} ${CHECK_NOTE}`,
         build: (setting) => {
           let draft = settings.licenseKey;
           setting.addText(
@@ -2422,14 +2449,6 @@ var RollwrightSettingTab = class extends import_obsidian8.PluginSettingTab {
             })
           );
         }
-      },
-      {
-        name: "Get the paid skins",
-        build: (setting) => setting.addButton(
-          (button) => button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
-            activeWindow.open(this.plugin.polarIds.buyUrl);
-          })
-        )
       }
     );
     return rows;
@@ -2457,7 +2476,7 @@ function isKeptOutcome(value) {
   const o = value;
   return typeof o.kind === "string" && OUTCOME_KINDS.has(o.kind) && typeof o.text === "string" && typeof o.formula === "string" && typeof o.details === "string" && typeof o.flags === "object" && o.flags !== null && !Array.isArray(o.flags) && (o.total === void 0 || typeof o.total === "number");
 }
-var RollwrightPlugin = class extends import_obsidian9.Plugin {
+var RollwrightPlugin = class extends import_obsidian10.Plugin {
   constructor() {
     super(...arguments);
     this.settings = { ...DEFAULT_SETTINGS };
@@ -2559,7 +2578,7 @@ var RollwrightPlugin = class extends import_obsidian9.Plugin {
     var _a;
     try {
       const file = this.app.vault.getAbstractFileByPath(sourcePath);
-      if (!(file instanceof import_obsidian9.TFile)) return {};
+      if (!(file instanceof import_obsidian10.TFile)) return {};
       return fieldNames((_a = this.app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter);
     } catch (e) {
       return {};
@@ -2567,7 +2586,7 @@ var RollwrightPlugin = class extends import_obsidian9.Plugin {
   }
   async readNote(link, sourcePath) {
     const file = this.app.metadataCache.getFirstLinkpathDest(link, sourcePath);
-    if (!(file instanceof import_obsidian9.TFile)) return null;
+    if (!(file instanceof import_obsidian10.TFile)) return null;
     return { path: file.path, markdown: await this.app.vault.cachedRead(file) };
   }
   async notesWithTag(tag) {
@@ -2575,7 +2594,7 @@ var RollwrightPlugin = class extends import_obsidian9.Plugin {
     const notes = [];
     for (const file of this.app.vault.getMarkdownFiles()) {
       const cache = this.app.metadataCache.getFileCache(file);
-      const tags = cache ? (0, import_obsidian9.getAllTags)(cache) : null;
+      const tags = cache ? (0, import_obsidian10.getAllTags)(cache) : null;
       if (tags == null ? void 0 : tags.some((t) => t.toLowerCase() === wanted || t.toLowerCase().startsWith(`${wanted}/`))) {
         notes.push({ path: file.path, markdown: await this.app.vault.cachedRead(file) });
       }
@@ -2693,12 +2712,12 @@ var RollwrightPlugin = class extends import_obsidian9.Plugin {
    */
   async replaceInNote(path, line, index, formula, replacement) {
     const file = this.app.vault.getAbstractFileByPath(path);
-    if (!(file instanceof import_obsidian9.TFile)) {
-      new import_obsidian9.Notice(CHANGED_NOTICE);
+    if (!(file instanceof import_obsidian10.TFile)) {
+      new import_obsidian10.Notice(CHANGED_NOTICE);
       return false;
     }
     if (file.extension !== "md") {
-      new import_obsidian9.Notice(NOT_MARKDOWN_NOTICE);
+      new import_obsidian10.Notice(NOT_MARKDOWN_NOTICE);
       return false;
     }
     let done = false;
@@ -2707,25 +2726,25 @@ var RollwrightPlugin = class extends import_obsidian9.Plugin {
       done = next !== null;
       return next != null ? next : data;
     });
-    if (!done) new import_obsidian9.Notice(CHANGED_NOTICE);
+    if (!done) new import_obsidian10.Notice(CHANGED_NOTICE);
     return done;
   }
   currentNotePath() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.app.workspace.getActiveViewOfType(import_obsidian9.MarkdownView)) == null ? void 0 : _a.file) == null ? void 0 : _b.path) != null ? _c : "";
+    return (_c = (_b = (_a = this.app.workspace.getActiveViewOfType(import_obsidian10.MarkdownView)) == null ? void 0 : _a.file) == null ? void 0 : _b.path) != null ? _c : "";
   }
   /** Reads the named formulas of the other plugin. Reads only; its file stays as it is. */
   async importSavedFormulas() {
     const path = `${this.app.vault.configDir}/plugins/obsidian-dice-roller/data.json`;
     const adapter = this.app.vault.adapter;
     if (!await adapter.exists(path)) {
-      new import_obsidian9.Notice("No saved formulas found to import.");
+      new import_obsidian10.Notice("No saved formulas found to import.");
       return;
     }
     const found = extractSavedFormulas(await adapter.read(path));
     const { merged, added } = mergeFormulas(this.settings.formulas, found);
     this.settings.formulas = merged;
     await this.saveSettings();
-    new import_obsidian9.Notice(`Imported ${added} of ${found.length} saved formulas.`);
+    new import_obsidian10.Notice(`Imported ${added} of ${found.length} saved formulas.`);
   }
 };
