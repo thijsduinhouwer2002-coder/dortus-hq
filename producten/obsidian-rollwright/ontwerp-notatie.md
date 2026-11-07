@@ -78,3 +78,9 @@ Wat: lezen en Live Preview vragen bij het openen soms tegelijk de eerste worp vo
 Bewust niet: klikken (`freshResult`) en Alt-klikken wachten niet op elkaar; elke klik is een nieuwe worp, en de laatste wint zoals eerst.
 
 Af als: een unittest met twee en drie gelijktijdige aanroepen voor dezelfde sleutel geeft één uitkomst (ook met `dice+:`), de test faalt zonder de reparatie, alle tests groen, lints 0, e2e groen.
+
+## Een klik is ook in de andere weergave te zien (7 nov, Olaf)
+
+Lezen en Live Preview van dezelfde notitie delen per plek één sleutel, maar elke weergave tekent zijn eigen widget en vraagt de uitkomst maar één keer. Na een klik in lezen toonde Live Preview, die al getekend was, nog de oude worp (run 42380865200). Nu meldt de plugin elke nieuwe uitkomst per sleutel (`src/result-listeners.ts`, aangeroepen in `remember`), en elke widget luistert naar zijn eigen sleutel en toont die uitkomst. De widget stopt met luisteren als zijn component wordt opgeruimd (`component.register`). Is de uitkomst dezelfde als wat er al staat (de klik zelf), dan tekent hij niet nog een keer.
+
+Bewust niet: geen melding voor `|none` die met Ctrl-klik leeg wordt (die blijft alleen in de aangeklikte weergave leeg, zoals nu), geen geschiedenis of opslag erbij, geen verandering aan sleutels. Af als: unittests tonen dat een klik in de ene widget de andere met dezelfde sleutel bijwerkt, een andere plek niet raakt, de aangeklikte widget één keer tekent en een opgeruimde widget niet meer luistert; `e2e/specs/andere-weergave.e2e.mjs` is in de echte Obsidian groen (klik in lezen, dan Live Preview gelijk, en andersom) en zonder reparatie rood; bestaande tests blijven groen.

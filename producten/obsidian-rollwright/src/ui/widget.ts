@@ -114,6 +114,8 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	let shown: RollOutcome | null = null;
 	const show = async (outcome: RollOutcome): Promise<void> => {
+		// The listener below and the click itself both hand over the same result: draw it once.
+		if (outcome === shown) return;
 		shown = outcome;
 		await showOutcome(plugin, target, outcome, sourcePath, component);
 	};
@@ -189,6 +191,9 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	});
 	// Keep the editor from moving the cursor into the code on a click.
 	target.addEventListener("mousedown", (event) => event.preventDefault());
+
+	// A new result for this place from another view (or this one) shows here too.
+	component.register(plugin.resultListeners.on(key, (outcome) => void show(outcome)));
 
 	if (hideFirst && !plugin.hasResult(key, keep)) {
 		showBlank(target, formula);
