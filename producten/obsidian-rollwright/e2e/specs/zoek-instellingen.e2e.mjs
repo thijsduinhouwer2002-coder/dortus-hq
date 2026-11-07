@@ -220,15 +220,17 @@ describe("Rollwright: zoeken in de instellingen (OPEN.md punt 20)", function () 
 		let hits = [];
 		await browser.waitUntil(async () => {
 			hits = await treffers("Default die");
-			return hits.some((h) => h.rij.includes("number of sides"));
+			return hits.some((h) => h.rollwrightInBuurt !== "");
 		}, { timeout: 10000, timeoutMsg: "Default die werd niet weer gevonden" });
-		const i = hits.findIndex((h) => h.rij.includes("number of sides"));
+		// Obsidian 1.15 toont een treffer als .setting-search-result-item in de zijbalk, onder een groep met de
+		// naam van de tab (Rollwright), zonder de uitleg (run 42401543789).
+		const i = hits.findIndex((h) => h.rollwrightInBuurt !== "");
 		console.log("KLIK OP TREFFER:", JSON.stringify(hits[i]));
 
-		// Eerst de naam, dan de hele regel, dan een kop met Rollwright erin: wat Obsidian ook klikbaar maakt.
+		// Eerst de naam, dan de hele treffer, dan een kop met Rollwright erin: wat Obsidian ook klikbaar maakt.
 		const pogingen = [
 			["naam", `[data-e2e-hit="${i}"]`],
-			["regel", `.setting-item:has([data-e2e-hit="${i}"])`],
+			["treffer", `.setting-search-result-item:has([data-e2e-hit="${i}"])`],
 		];
 		let geopend = false;
 		for (const [wat, sel] of pogingen) {
