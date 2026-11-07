@@ -6,6 +6,9 @@ on:
     paths: ["producten/obsidian-rollwright/**", ".github/workflows/rollwright-e2e.yml"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   e2e:
     runs-on: ubuntu-latest
@@ -30,3 +33,30 @@ jobs:
           name: rollwright-screenshots
           path: producten/obsidian-rollwright/e2e/screenshots
           if-no-files-found: warn
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/obsidian-rollwright/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/rollwright/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen rollwright/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/rollwright/$NAAM"
+          ls "$SRC"
