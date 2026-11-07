@@ -283,3 +283,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: bereik zwak, geen betaling meer via de winkel, en de vermelding kost zelf geld; bouwen vraagt een server met boekhouddata van klanten. Wat dit verandert: betalen via de winkel terug of gratis vermelding, plus kleine makers met $300+ per maand.
 - Controleur akkoord, 2 correcties (certificering en keuring horen bij een winkelvermelding, niet al bij Core; "geen enkele maker" werd "niet gevonden bij kort zoeken"). Steekproef 10 van 10 gelijk.
 - Les: een sitemap is niet de hele winkel. Kijk altijd of de lijstpagina's per regio meer apps tonen.
+- Tweede platform: Notion Marketplace (betaalde templates), zelf toegevoegd. Reden: Notion rekent zelf af en templates zijn zonder programmeren te maken; eerder alleen integraties bekeken.
+- Gemeten: sitemap 99.667 templates (65.007 Engels), steekproef 240: 38% betaald, mediaan $9,99. Verkoop staat verborgen (number_of_duplicates -1), geen startdatum. Fee 8% plus $0,40, wachtlijst van mogelijk maanden.
+- Beslissing: nee voor nu, cijfer 3. Reden: niet te meten en heel vol; aantoonbaar geld alleen bij makers met groot eigen publiek. Wat dit verandert: een meting via Gumroad- of Etsy-tellers met mediaan 10+ verkopen in 3 maanden zonder eigen publiek.
+- Controleur akkoord, 3 kleine correcties (veldnaam, andere datums op de pagina, reviews als zwakke aanwijzing: 13 van 60 met reviews).
+- Run afgesloten na Xero (2) en Notion Marketplace (3).

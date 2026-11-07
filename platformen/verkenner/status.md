@@ -32,3 +32,5 @@
 - 7 nov, run 19:33: Zoho Marketplace gemeten via de openbare maandlijsten (±400 nieuwe extensies). Nee, cijfer 2. Controleur akkoord, 6 correcties.
 - 7 nov, run 19:33, ook: Pipedrive Marketplace voorwerk. Nee voor nu, cijfer 2: geen datums, geen betaling via de winkel.
 - 7 nov, run 19:33, ook: Salesforce AppExchange zelf toegevoegd en gemeten (10.897 pagina's). Nee voor nu, cijfer 3. Controleur akkoord, 6 correcties.
+- 7 nov, run 20:33: Xero App Store gemeten (1.128 apps, 13 regio's). Nee, cijfer 2. Controleur akkoord, 2 correcties.
+- 7 nov, run 20:33, ook: Notion Marketplace (betaalde templates) zelf toegevoegd. Nee voor nu, cijfer 3, verkoop niet te meten. Controleur akkoord, 3 correcties.
