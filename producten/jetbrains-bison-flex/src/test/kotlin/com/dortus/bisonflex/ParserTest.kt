@@ -129,6 +129,14 @@ class ParserTest : BasePlatformTestCase() {
         assertEquals("line: exp ;", typesIn(f, "RULE").last())
     }
 
+    /** Geneste C++-typetags (controleur 7 nov): geen valse fout, de hele tag is een TYPE. */
+    fun testBisonGenesteTypetag() {
+        val t = "%define api.value.type variant\n%type <std::vector<int>> lst\n%nterm <std::map<int,std::string>> m\n%%\nlst: %empty ;\nm: %empty ;\n"
+        assertEquals(emptyList<String>(), foutlijst(t, parse("a.yy", t)))
+        val open = "%type <std::vector<int> lst\n%%\nlst: %empty ;\n"
+        assertFalse(foutlijst(open, parse("a.yy", open)).isEmpty())
+    }
+
     fun testBisonOpenProloog() {
         val t = "%{\nint x;\n%%\nexp: NUM ;\n"
         assertEquals(listOf("'%}' expected @ ${t.trimEnd().length} (regel 4)"), foutlijst(t, parse("a.y", t)))

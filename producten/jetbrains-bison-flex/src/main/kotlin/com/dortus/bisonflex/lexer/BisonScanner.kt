@@ -46,9 +46,15 @@ class BisonScanner : Scanner() {
             ch == '%' && isNaamBegin(c(pos + 1)) -> klaar(Soort.OPDRACHT, eindeNaam(pos + 1, "-"), gewoon)
             ch == '{' -> klaar(Soort.ACCOLADE, pos + 1, maak(deel, BLOK, 1))
             ch == '<' -> {
+                // Geneste tags zoals <std::vector<int>> (C++, api.value.type variant): tel < en >.
                 var j = pos + 1
-                while (j < einde && buf[j] != '>' && buf[j] != '\n') j++
-                if (c(j) == '>') klaar(Soort.TYPE, j + 1, gewoon) else klaar(Soort.FOUT, pos + 1, gewoon)
+                var diepte = 1
+                while (j < einde && buf[j] != '\n') {
+                    if (buf[j] == '<') diepte++
+                    if (buf[j] == '>') { diepte--; if (diepte == 0) break }
+                    j++
+                }
+                if (diepte == 0) klaar(Soort.TYPE, j + 1, gewoon) else klaar(Soort.FOUT, pos + 1, gewoon)
             }
             ch == '"' -> klaar(Soort.STRING, eindeAanhaling(pos, '"'), gewoon)
             ch == '\'' -> klaar(Soort.TEKEN, eindeAanhaling(pos, '\''), gewoon)
