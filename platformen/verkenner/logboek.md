@@ -313,3 +313,5 @@ Nieuwste blok onderaan.
 - Controleur akkoord na 5 correcties. Belangrijkste: mijn filter op Shopware zelf werkte niet (hoofdletter Swag, de id's zijn klein), dus 330 in plaats van 335; Fishnet is partner sinds 2021, niet 2014 tot 2017.
 - Les: filters op id's altijd eerst klein maken (lower) en tellen hoeveel er wegvallen; 0 weggevallen is een rood lampje.
 - Les: de wetgolf-route uit Shopify werkt hier ook. Een gezamenlijke wetgevingskalender voor Shopify en Shopware is het onderzoeken waard (taak staat al in taken.md).
+- Laatste minuten: voorwerk OpenCart Marketplace, zelf toegevoegd. Elke pagina toont een openbare verkoopteller (Sales) en de aanmaakdatum, dus geld van kleine makers is hier direct te meten. Geen oordeel: geen tijd meer voor meting en controleur. Staat klaar in kandidaten.md.
+- Run afgesloten na Shopware Store (3) en voorwerk OpenCart.
