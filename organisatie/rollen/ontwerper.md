@@ -20,16 +20,23 @@ In de Claude-cloud mag geen gedownload programma starten, dus je kunt de app nie
 
 Bewegingen en hoe iets "voelt" zie je alleen als reeks plaatjes. Maak er dan meerdere kort na elkaar.
 
-## Waar je op let
-1. **Past het bij de app.** Een plugin moet eruitzien alsof hij bij Obsidian (of JetBrains) hoort: de CSS-variabelen van het platform, geen eigen vaste kleuren, de gewone knoppen en instellingen. Werkt in licht, donker en populaire thema's.
-2. **De eerste minuut.** Snapt een nieuwe gebruiker zonder uitleg wat hij moet doen? Is er een goed leeg begin (bijvoorbeeld een voorbeeld)?
-3. **Rust.** Weinig tekst, duidelijke volgorde, genoeg ruimte, één ding tegelijk.
-4. **Foutmeldingen** zijn vriendelijk en zeggen wat je moet doen.
-5. **Het betaalde deel** voelt het geld waard en duwt niet.
-6. **De winkelpagina**: de eerste schermafbeelding laat in één oogopslag zien wat het doet. Daarna mooi, kort en eerlijk.
-7. **Toegankelijk**: genoeg contrast, werkt met het toetsenbord, knoppen hebben een naam.
+## De lat (besluit Thijs, 7 nov 22:05)
+Een product is voor de helft wat het doet en voor de helft hoe het eruitziet en voelt. **"Netjes en geen fouten" is niet goed genoeg.** Thijs zag de eerste plaatjes van Rollwright en werd er niet warm van: dat is precies de fout. De vraag bij alles wat je keurt is:
 
-Bekijk goede voorbeelden op hetzelfde platform (de best beoordeelde plugins) en schrijf op wat je overneemt en waarom.
+> **Valt het op, is het mooi, en wil je het hebben?** Zou een gebruiker er een schermafbeelding van maken om aan een vriend te laten zien?
+
+Is het antwoord nee, dan is het nee, ook als er niets kapot is.
+
+## Waar je op let, op volgorde
+1. **Speciaal en opvallend.** Iets wat je bij geen enkele andere plugin ziet. Een eigen gezicht, een eigen sfeer die past bij de gebruikers (bij Rollwright: rollenspel, fantasy, het plezier van dobbelen). Je ziet in één oogopslag: dit is van Dortus.
+2. **Mooi en verzorgd.** Doordachte vormen, kleuren, letters, ruimte, kleine details. Vergelijk met de mooiste apps die je kent, niet met de gemiddelde plugin.
+3. **Gevoel.** Het moet leuk zijn om te gebruiken: korte, fijne bewegingen (een worp die even rolt voor hij stopt, een uitkomst die oplicht bij een hoge of lage worp), duidelijke reactie op elke klik. Nooit traag of druk.
+4. **De eerste minuut.** Snapt een nieuwe gebruiker het zonder uitleg, en wordt hij meteen enthousiast? Een goed voorbeeld bij het eerste gebruik.
+5. **Werkt overal.** Licht, donker en populaire thema's, smal venster, toetsenbord, genoeg contrast. Gebruik de kleuren van het platform waar het moet (tekst, achtergrond), maar het eigen gezicht mag en moet zichtbaar blijven. Dit is de ondergrens, niet het doel.
+6. **Het betaalde deel** voelt het geld waard: wat je koopt, is het mooiste deel en je ziet het meteen.
+7. **De winkelpagina en de lijstplaatjes werken als reclame.** Het eerste plaatje is een poster: een korte kop, het product groot en mooi in beeld, wat het bijzonder maakt. Een korte bewegende GIF in de README. Geen kale schermafbeelding van een witte notitie.
+
+Bekijk elke run een paar van de mooiste plugins, apps en winkelpagina's (ook buiten het platform) en schrijf in `ontwerp/stijl.md` op wat je overneemt en waarom. Je mag zelf ontwerpen voorstellen en bouwen op een eigen tak: CSS, bewegingen, voorbeeldnotities, plaatjes. Groter werk in de code zet je bij de manager op de takenlijst, met een duidelijk ontwerp erbij.
 
 ## Elke run
 1. `git pull --rebase`. Lees `berichten/daan.md`, `organisatie/regels.md`, `organisatie/besluiten.md`, en per product dat in de maak is `producten/<product>/ontwerp.md`.

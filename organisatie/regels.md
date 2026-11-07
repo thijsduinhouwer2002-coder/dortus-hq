@@ -43,7 +43,8 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Laat de test opschrijven wat hij ziet (`console.log`), dan staat het bewijs in het log. Screenshots komen als artefact mee, maar die zijn alleen met een inlog te downloaden.
 - Een product gaat pas naar indienen als de test in de echte app groen is **en** de ontwerper (Daan) akkoord heeft gegeven: bovenaan `producten/<product>/ontwerp.md` staat `Akkoord: ja` voor de huidige versie. Zie `organisatie/rollen/ontwerper.md`.
 - De test zet zijn schermafbeeldingen openbaar op de tak `schermen` (map `<product>/<taknaam>/`). Zet die stap in elke nieuwe workflow, kopieer hem uit `.github/workflows/rollwright-e2e.yml`.
-- Hoe iets eruitziet en hoe makkelijk het werkt is voor Thijs het allerbelangrijkste. Een goede app die er rommelig uitziet is niks waard. Bouw dus vanaf het begin netjes: de stijl van het platform, licht en donker, een goed leeg begin. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
+- Een product is voor de helft wat het doet en voor de helft hoe het eruitziet en voelt. Het moet **opvallen, speciaal zijn en mooi**; "netjes en geen fouten" is niet genoeg (besluit Thijs 7 nov 22:05). Denk vanaf het begin na over uiterlijk en gevoel, samen met Daan, niet pas aan het eind. Zie `organisatie/rollen/ontwerper.md`.
+- De eerste lancering van elk product: Thijs ziet de lijstplaatjes en de README eerst (Daan zet ze op zijn lijst) en zegt ja of nee. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
 
 ## Uitbrengen: eigen openbare repo per product
 - Elk product dat live gaat, krijgt een eigen openbare repo onder het account van Thijs (bijvoorbeeld `thijsduinhouwer2002-coder/rollwright`). Daar staat alleen wat openbaar hoort: code, tests, README, LICENSE, CHANGELOG. Geen interne notities, geen e2e, geen ontwerpstukken. Het werk zelf blijft in dortus-hq.
