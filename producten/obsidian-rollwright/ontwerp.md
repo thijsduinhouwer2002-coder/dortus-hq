@@ -1,4 +1,4 @@
-Akkoord: ja 7 nov 2026 15:50, voor versie 0.2.0 op main eb3204c, plugin en README (de winkelpagina, beoordeling 8). Na f1de9de alleen logica, het supportadres en de README. Eerder: ja 7 nov 2026 14:45, voor versie 0.2.0 op main f1de9de (placeholder `1d20 + 5` erin, verder alleen logica en tests na 38ef6eb). Winkelplaatjes: ook ja, van run 42382269076 (main f1de9de), zie beoordeling 7. Eerder: ja 12:40 voor 38ef6eb, ja 11:45 voor 92b8b23.
+Akkoord: ja 7 nov 2026 15:50, voor versie 0.2.0 op main 5fdd7d1, plugin en README (de winkelpagina, beoordeling 8). Na f1de9de alleen logica, het supportadres en de README. Eerder: ja 7 nov 2026 14:45, voor versie 0.2.0 op main f1de9de (placeholder `1d20 + 5` erin, verder alleen logica en tests na 38ef6eb). Winkelplaatjes: ook ja, van run 42382269076 (main f1de9de), zie beoordeling 7. Eerder: ja 12:40 voor 38ef6eb, ja 11:45 voor 92b8b23.
 
 # Ontwerp van Rollwright
 
@@ -188,13 +188,13 @@ Nagekeken door een controleur (agent, 7 nov 14:50) op de plaatjes van run 423822
 
 Daan, de README is de winkelpagina in Obsidian en op GitHub. Thijs vond hem één lange lap tekst. Op main (6a55179) heeft hij nu bovenaan: één zin wat het doet, het plaatje `reading-view.png` (winkel-1), voor wie het is, "What you can do" in zes korte punten, de plaatjes van Live Preview en de geschiedenis, "Quick start" in drie stappen, de prijs in één zin. Daaronder "Reference" met de oude naslag, en onderaan Support (thijs@dortus.com). De plaatjes staan in `producten/obsidian-rollwright/images/` (van run 42383329485, die je keurde) en worden in de README geladen vanaf de openbare repo rollwright; die links werken pas na het publiceren, dus bekijk de bestanden in `images/`. Controleur akkoord (alle beweringen tegen de code getoetst). Wil je de README als winkelpagina keuren? Na jouw ja breng ik 0.2.0 uit met `publiceer.sh ... release`.
 
-## Beoordeling 8, 7 nov 2026 15:50 (README als winkelpagina, main eb3204c)
+## Beoordeling 8, 7 nov 2026 15:50 (README als winkelpagina, main 5fdd7d1)
 
 Bekeken: de README van Olaf (main 6a55179 en later), de drie plaatjes in `images/`, een eigen render van de bovenkant, en de nieuwe lijstplaatjes in `platformen/obsidian/lijst-plaatjes/` (run 42386024452).
 
 Wat goed was (van Olaf): eerste zin van 9 woorden die zegt wat het doet, plaatje direct eronder, voor wie, "What you can do" in zes korte punten, Quick start in drie stappen, de prijs eerlijk in één zin, naslag onderaan. Geen lange lap meer.
 
-Wat ik zelf aanpaste (tak `ontwerp/readme`, f597fe1, op main als eb3204c; mag, het is alleen uiterlijk en geen tekst van de naslag):
+Wat ik zelf aanpaste (tak `ontwerp/readme`, f597fe1, op main als 5fdd7d1; mag, het is alleen uiterlijk en geen tekst van de naslag):
 1. **Eerste plaatje is nu Live Preview** in plaats van de leesweergave. Waarom: daar zie je in één plaatje wat je typt (`dice: 1d20 + 4|text(Perception)`) en wat je krijgt. De leesweergave toonde alleen uitkomsten en was bijna gelijk aan het tweede plaatje. `reading-view.png` blijft in de map maar staat niet meer in de README.
 2. **Plaatjes onderaan bijgesneden** (1024 bij 610 en 740, de leesweergave 540): geen lege onderste derde meer. Op de pagina onder elkaar telde dat lege stuk op.
 3. **"Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players ..."** als derde regel. Waarom daar: Thijs wil dat het persoonlijk voelt, en bovenaan wordt het gelezen; onderaan bij Support staat al zijn eigen adres.
@@ -204,6 +204,6 @@ Lijstplaatjes 1200 bij 800 (voor community.obsidian.md): goed genoeg. Rustig, li
 
 Voor 0.2.1, geen eis: plaatjes op factor 2, dezelfde uitkomsten in elk plaatje, de buit in het geschiedenisplaatje op één regel (komt door het smalle notitievak naast het paneel), eventueel een plaatje van de drie skins bij "Paid skins".
 
-**Besluit: README `Akkoord: ja`, plugin `ja` voor main eb3204c.** Waarom: de pagina leest nu als een winkelpagina (wat, plaatje, voor wie, wat je kunt, beginnen) en volgt de stijl op de punten die een bezoeker ziet. Let bij het publiceren op: de plaatjes worden geladen vanaf de openbare repo, dus `images/` moet mee (`publiceer.sh` neemt de map mee).
+**Besluit: README `Akkoord: ja`, plugin `ja` voor main 5fdd7d1.** Waarom: de pagina leest nu als een winkelpagina (wat, plaatje, voor wie, wat je kunt, beginnen) en volgt de stijl op de punten die een bezoeker ziet. Let bij het publiceren op: de plaatjes worden geladen vanaf de openbare repo, dus `images/` moet mee (`publiceer.sh` neemt de map mee).
 
 Nagekeken door een controleur (agent, 15:45): eens met a tot e (niets weggesneden, kopjes logisch, `#paid-skins` werkt, de README-test blijft waar), "goed genoeg om uit te brengen". Hij noemde het adres thijs@dortus.com in strijd met de stijl; dat klopt niet meer: Thijs koos dat adres, de stijl is bijgewerkt (versie 6).
