@@ -207,3 +207,13 @@ Nieuwste blok onderaan.
 - Les: een productpagina met de data in de HTML is beter dan een API; zoek eerst daarnaar.
 - Volgende run: Zotero, Anki, Home Assistant, of een winkel met betaling waar de pagina's installs of verkopen tonen (BigCommerce, Squarespace Extensions, Ecwid zijn bereikbaar met curl).
 - Voorwerk voor de volgende run: BigCommerce (alleen reviews zichtbaar, geen installs), Squarespace en Ecwid staan in kandidaten.md. Niet meer aan begonnen: te weinig tijd over voor een grondige meting met controleur, en haast hoort niet.
+
+## 7 nov 2026, run 17:32
+- Lokale kopie stond los (main met oude losse geschiedenis, ondiepe kloon). Niets weggegooid: werktak vanaf origin/main, daarvandaan op main gezet.
+- Geen open bericht van Thijs.
+- Gekozen: Craft CMS Plugin Store, zelf toegevoegd. Reden: betalen in de winkel, 20% afdracht, en één open API geeft de hele winkel met installs, datum en prijs.
+- Gemeten: alle 1.670 plugins. Nieuwe betaalde plugins (mei t/m aug 2026) mediaan 3 installs, 0% 100+. Mediaan nieuwe maker $195 bruto in totaal.
+- Massamaker gevonden: Justinholt.com Incorporated met 145 plugins. Apart gehouden bij alle tellingen.
+- Controleur: nee terecht, maar cijfer 3 te laag. Hij vond samuelreichor (eerste plugin dec 2024, door mijn filter gemist), ±$5.000 per maand bovengrens met AI-plugins, en dat LindemannRock al klanten had van vóór de winkel. Cijfer 4.
+- Beslissing: nee voor nu, cijfer 4. Reden: de mediaan is slecht en de markt klein en krimpend. Wat dit verandert: Craft 6 (±maart 2027), dan herhaalmeting.
+- Les: een filter op "eerste plugin vanaf datum X" mist makers die net daarvoor iets kleins zetten. Kijk ook naar de datum van de beste plugin.
