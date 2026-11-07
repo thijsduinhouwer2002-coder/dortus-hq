@@ -10,3 +10,4 @@
 - **22:45:** bone-jiggle te vol (4 nieuwe betaalde makers in een maand, gratis 92K downloads), verlaten bestsellers allemaal al opgevolgd. Patroon: waar geld is, komen elke maand nieuwe makers bij.
 - **23:30 (run 2):** nieuwkomers winnen in een volle markt alleen met lagere prijs plus nieuwe aanpak, nooit met alleen mooier (sectie 11). Vroeg zijn loont bij grote nieuwe functies (Cell Fluids 4.500+), maar de physics van 5.2 is experimenteel en Blender levert de presets zelf: valt af. UV-naadtool valt af (UV Flow 3.900+ doet het al). Nog geen bouwbesluit; over: node-previews en topologie wrappen.
 - **Volgende:** node-previews doorlichten met een bouwproef, wrap-richting doorlichten, dan kiezen. Intussen de test in de echte Blender opzetten (los van het product).
+- **23:40:** test in de echte Blender werkt (4.2 LTS en 5.2 LTS, GitHub Actions, achtergrondtest groen, interface-schermafbeeldingen via Xvfb). Nog op een tak, nog niet nagekeken.
