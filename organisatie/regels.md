@@ -45,6 +45,13 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - De test zet zijn schermafbeeldingen openbaar op de tak `schermen` (map `<product>/<taknaam>/`). Zet die stap in elke nieuwe workflow, kopieer hem uit `.github/workflows/rollwright-e2e.yml`.
 - Hoe iets eruitziet en hoe makkelijk het werkt is voor Thijs het allerbelangrijkste. Een goede app die er rommelig uitziet is niks waard. Bouw dus vanaf het begin netjes: de stijl van het platform, licht en donker, een goed leeg begin. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
 
+## Uitbrengen: eigen openbare repo per product
+- Elk product dat live gaat, krijgt een eigen openbare repo onder het account van Thijs (bijvoorbeeld `thijsduinhouwer2002-coder/rollwright`). Daar staat alleen wat openbaar hoort: code, tests, README, LICENSE, CHANGELOG. Geen interne notities, geen e2e, geen ontwerpstukken. Het werk zelf blijft in dortus-hq.
+- Zo'n repo maakt Thijs aan (één klik, het systeem staat het ons niet toe). Daarna maakt de projectchat de geplande taak van de manager opnieuw aan, zodat die in de repo mag pushen.
+- Uitbrengen gaat zonder Thijs: het script `producten/<product>/publiceer.sh` zet de openbare bestanden in die repo. Met `release` als tweede woord maakt de workflow daar vanzelf een release met de versie uit `manifest.json` (sjabloon: `organisatie/sjablonen/obsidian-release.yml`). Updates pikt Obsidian daarna zelf op.
+- Alleen uitbrengen als de e2e-test groen is en Daan akkoord gaf, ook voor de README (dat is de winkelpagina).
+- De allereerste aanmelding bij een platform (bijvoorbeeld Obsidian via community.obsidian.md) doet Thijs één keer met zijn eigen login. Zet die klaar op zijn lijst met precies wat hij moet invullen.
+
 ## Opslaan
 - Begin met `git pull --rebase`.
 - Je mag alleen schrijven in je eigen map in `platformen/` (de strateeg in `strategie/`, Chris in `commercie/`), in je eigen bestand in `berichten/` (alleen "verwerkt" erachter zetten), een regel bovenaan in `organisatie/besluiten.md`, de code van je eigen product in `producten/`, en een regel toevoegen aan `organisatie/lijst-thijs.md`. Alleen de hoofdmanager schrijft in `organisatie/bord.md` en `rapporten/`.

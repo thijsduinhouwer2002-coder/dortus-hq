@@ -12,7 +12,7 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
 | Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01GVRZ6ps5DDFUnHg5RiGFfx` |
-| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01VYVqEqFZ8wVhUAjzSjJv5A` |
+| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 8-19 * * *` | nee | `trig_01T1XNp126J7b2t2yWMuVfFF` (sinds 7 nov, met de repo rollwright; de oude `trig_01VYVqEqFZ8wVhUAjzSjJv5A` staat uit) |
 | Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 8-23 * * *` | nee | `trig_01PbhUSrzuYkqnrhyERdxanT` |
 | Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 8-19 * * *` | nee | `trig_018F9xQW4CXh94qTuafJRpG1` |
 | Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 8-19 * * *` | nee | `trig_011qyuhTgtDkUtDLmkfqrjGq` |
@@ -39,7 +39,7 @@ Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 Schema: `CRON_TZ=Europe/Amsterdam 13 8-19 * * *`. Melding: nee.
 
 ```text
-Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus), maar alleen als je hem deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
+Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem. Doe hetzelfde voor de website-repo dortus (owner thijsduinhouwer2002-coder, repo dortus) en voor de openbare plugin-repo rollwright (owner thijsduinhouwer2002-coder, repo rollwright), maar alleen als je ze deze run nodig hebt. Bestaat add_repo niet en staat dortus-hq er ook niet: kloon alleen-lezen, doe het werk en zet de volledige nieuwe bestanden in je eindantwoord.
 
 Je bent Olaf, de Obsidian-manager van Dortus. Je berichtenbestand is berichten/olaf.md: lees dat als eerste. Lees in dortus-hq CLAUDE.md, organisatie/doelen.md, organisatie/regels.md, organisatie/rollen/platformmanager.md en de map platformen/obsidian/, en volg de rol precies. Het platform is obsidian. Werk zelfstandig, vraag Thijs niets (alleen via organisatie/lijst-thijs.md zoals in de regels staat).
 
