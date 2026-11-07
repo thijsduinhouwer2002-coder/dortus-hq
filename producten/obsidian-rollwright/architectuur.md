@@ -6,6 +6,8 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 
 - `main.ts`: de plugin zelf. Laadt en bewaart instellingen, opgeslagen formules, geschiedenis en bewaarde resultaten (`dice+:`), houdt resultaten per plek in de notitie vast zodat scrollen niet opnieuw gooit, en meldt weergave, Live Preview, geschiedenisvenster, opdrachten en instellingen aan bij Obsidian.
 
+- `result-listeners.ts`: per sleutel de widgets die een plek tonen; `remember` in `main.ts` meldt elke nieuwe uitkomst, zodat lezen en Live Preview na een klik gelijk blijven. Een widget meldt zich af via `component.register`.
+
 ### src/engine/ (rekenkern, zonder Obsidian)
 - `index.ts`: de ingang; de rest van de plugin importeert de kern alleen hiervandaan.
 - `types.ts`: gedeelde typen (tokens, knopen, modifiers), `DiceError`, de grenzen `LIMITS`, de foutmeldingen die op meer plekken nodig zijn en het budget per worp. Elke foutmelding zegt wat er mis is en wat je typt, met een voorbeeld (getest in `tests/error-hints.test.ts`).
