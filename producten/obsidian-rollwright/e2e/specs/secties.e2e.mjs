@@ -75,12 +75,17 @@ function eenBlok(text, toegestaan) {
 	});
 }
 
+/** Hoe vaak elk woord voorkomt: twee keer dezelfde regel trekken mag (met teruglegging, zoals bij tabellen). */
+function woordenGeteld(text) {
+	return ALLE_WOORDEN.flatMap((w) => Array(text.split(w).length - 1).fill(w));
+}
+
 function checkRegel(r, aantal, wat) {
-	const gezien = woorden(r.value);
-	// "***" is ook een niet-lege regel; dan toont de uitkomst een lijn zonder tekst.
-	const lijnen = r.hr ? 1 : 0;
-	console.log(`${wat}: woorden ${JSON.stringify(gezien)}, lijnen ${lijnen}`);
-	expect(gezien.length + lijnen).toBe(aantal);
+	const gezien = woordenGeteld(r.value);
+	// Een losse lijn (***) telt sinds 7 nov niet meer als regel: een regelworp toont nooit een lijn.
+	console.log(`${wat}: woorden ${JSON.stringify(gezien)}, lijn ${r.hr}`);
+	expect(r.hr).toBe(false);
+	expect(gezien.length).toBe(aantal);
 }
 
 const AANTAL = 10;

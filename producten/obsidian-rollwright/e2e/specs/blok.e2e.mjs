@@ -4,8 +4,8 @@ import * as fs from "fs";
 // Daan punt 1: een uitkomst van meer dan één regel of een blok staat als eigen blok onder de regel,
 // met gewone tekstgrootte en zonder lijstbolletjes. Eén regel blijft in de zin.
 // Blokwerpen.md rolt op Bron.md (zelfde notitie als in secties.e2e.mjs).
-// "Twee regels" trekt willekeurige regels; daarom staat die worp als `dice+:` in Blokwerpen.md,
-// zodat lezen en Live Preview dezelfde uitkomst tonen en de hoogtes te vergelijken zijn.
+// "Twee regels" trekt willekeurige regels uit Bron.md, maar lezen en Live Preview delen de worp (zelfde sleutel).
+// Een losse lijn (***) telt niet als regel: die was in lezen 64 px hoger dan in Live Preview (run 42365261005).
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
 const AANTAL = 5;
