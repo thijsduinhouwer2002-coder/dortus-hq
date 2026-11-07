@@ -2,7 +2,8 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
-- Shopify vervolg: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md)
+- Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). in onderzoek 7 nov 07:33 UTC
+- Shopify vervolg B: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md)
 - Framer: klaar 6 nov, nee voor nu (cijfer 4), zie onderzocht.md
 - Discord: klaar 6 nov run 21:31, eigen meting via de open API van de App Directory, nee voor nu (cijfer 5), zie onderzocht.md. Herhaalmeting kan over 4 weken met data/discord-haal-script.py
 
