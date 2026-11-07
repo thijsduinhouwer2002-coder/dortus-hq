@@ -93,11 +93,6 @@ export function replaceCodeInLine(lineText: string, index: number, formula: stri
 	return change === null ? null : lineText.slice(0, change.from) + change.insert + lineText.slice(change.to);
 }
 
-/** The same for the code that starts at this column of the line. */
-export function replacementAt(lineText: string, column: number, formula: string, replacement: string): { from: number; to: number; insert: string } | null {
-	return changeFor(lineText, findInlineDice(lineText).find((found) => found.from === column), formula, replacement);
-}
-
 /** The same for a whole note, with the line counted from 0. Line endings stay as they are. */
 export function replaceCodeInNote(markdown: string, line: number, index: number, formula: string, replacement: string): string | null {
 	const lines = markdown.split("\n");
