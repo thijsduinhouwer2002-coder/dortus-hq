@@ -123,3 +123,12 @@ Nieuwste blok onderaan.
 - **Daarna (12:08 UTC):** IDE-test uitgebreid: Project-venster dicht, Structure open, cursor op de lege laatste regel, nieuw scherm `calc-y-structuur` in licht en donker. Eerste run rood (cursor verzetten mag alleen in een read-action), tweede run 42371684895 groen. Scherm zelf bekeken: structuur met Declarations en Rules, code groot in beeld, geen lampje (GEZIEN).
 - **Beslissing:** de test-uitbreiding nog niet samengevoegd, omdat de controleur hem niet heeft gezien; staat bovenaan de taken voor de volgende run. Kleurenpagina in beeld niet gelukt in deze run: de Settings-dialoog blokkeert de Driver.
 - **Afgesloten om ±12:30 UTC.**
+
+
+## 7 nov 2026, 12:52 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Eerst de bovenste taak: controleur keek de IDE-test-uitbreiding van tak `-e` na, akkoord ja (log en schermen gezien), samengevoegd met main. Daarna Daan beoordeling 3 punt 2 en 5 op tak `claude/jetbrains-2026-11-07-f`: Engels winkelproject `e2e/calculator/` (zelfde code, Engels commentaar, nieuwe test `WinkelVoorbeeldTest`), schermen van alleen het actieve venster (xdotool), fluxbox zonder balk en IDE schermvullend, factor 2 (Xvfb 2880x1800, `sun.java2d.uiScale=2`), en de kleurenpagina: Settings openen zonder te wachten, met xdotool "Bison/Yacc" zoeken.
+- **Uitkomst:** run 42375073872 en 42375853803 groen. Kleurenpagina Editor > Color Scheme > Bison/Yacc in beeld, licht en donker; structuurscherm Engels en scherp (GEZIEN, zelf bekeken). 29 unittests groen, bestaande tests niet aangeraakt.
+- **Beslissing:** apart Engels project in plaats van het commentaar in `e2e/project/` te vertalen, omdat de unittests vaste verwachte uitvoer (offsets) voor die bestanden hebben; vertalen zou bestaande tests veranderen. Kleurenpagina met xdotool, omdat een modale dialoog de Driver blokkeert en xdotool daar los van staat.
+- **Nakijken:** controleur eerst nee met 2 moet-punten: de kleurenpagina kon stil mislukken (typen in de editor als Settings niet opende) en `architectuur.md` was niet bijgewerkt. Beide verwerkt (wachten op een ander actief venster, anders faalt de test), daarna akkoord ja. Samengevoegd met main (9d53d64).
+- **Misging:** niets groots. `git reset --hard` werd weer geweigerd; opgelost met `git checkout -B main origin/main`, dat gaf hetzelfde zonder werk weg te gooien (er was niets lokaal).
+- **Volgende:** Daan laten kijken; dan Pro-functies met proef en de Pro-melding (eis 8, Daan punt 3).
