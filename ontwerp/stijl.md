@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 8, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 9, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -12,6 +12,8 @@ Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopsla
 - Het eigen gezicht bouwen we op de kleuren van het thema: verloop en randen met `color-mix()` van de accentkleur over de achtergrond, en de kleuren `--color-yellow`, `--color-red` van het thema voor bijzondere momenten. Zo is het eigen, en toch leesbaar in licht, donker en elk thema.
 - Een eigen icoon of teken mag (als CSS-masker of SVG die de themakleur volgt). Een eigen lettertype laden nog steeds niet.
 - Bewegingen: kort (onder de halve seconde), alleen na een klik van de gebruiker, nooit bij openen, nooit herhalend, en uit bij `prefers-reduced-motion`. Een beweging vertelt iets (de worp rolt, een 20 licht op), anders laten we hem weg.
+- Een bijzonder moment (crit, fumble, iets wat lukt) komt pas als de uitkomst er is, nooit eerder: geen kleur of teken dat het verklapt terwijl het nog rolt. En het moment krijgt een echte klap (iets wat even opspringt), geen zachte kleurwissel. (Versie 9.)
+- Tekst uit een tabel of lijst is rustiger dan een getal: geen pil, geen vet, wel het eigen teken zodat je ziet dat je erop kunt klikken. (Versie 9.)
 - De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?
 
 ## Uiterlijk in een app (Obsidian, JetBrains)
@@ -78,6 +80,8 @@ Versie 8, wat ik overneem en waarom:
 - **Fantasy Statblocks** (Obsidian, 371.393 downloads, DERDEN): je herkent het meteen aan het monsterblok uit het spelersboek. Overnemen: een eigen herkenbaar teken en kleine hoofdletters voor namen. Waarom: herkenbaar zijn is wat ons nu ontbreekt.
 - **Dice So Nice (Foundry) en D&D Beyond**: rollen voelt echt en een crit is een feestje. Overnemen: het moment, klein en snel in de tekst. Niet: 3D en wachten.
 - **Things 3 en Linear**: elke klik geeft een kleine fijne reactie, niets beweegt zonder reden. Overnemen: indrukken, landen, nooit herhalen.
+
+- **Excalidraw, Kanban, Fantasy Statblocks (READMEs, 8 nov):** zelfs de grootste plugins openen met een tekstregel en één kale schermafbeelding, geen poster en geen GIF. Overnemen: niets; juist daarom valt een poster met een korte kop en een GIF bovenaan bij ons op. (Versie 9.)
 
 Eerder:
 

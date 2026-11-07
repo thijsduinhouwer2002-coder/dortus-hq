@@ -125,3 +125,25 @@ Klussen 1, 2, 2b, 3 en 3b staan op main (2193f13), e2e groen 14 van 14. Kijk gra
 - Een logboekkaart met crit of fumble heeft de klasse, maar alleen de stempel heeft kleur. Of de kaart een gouden of rode rand krijgt, is aan jou.
 - Bij prefers-reduced-motion staan ook vonk en stempel stil (die zaten niet in jouw reduced-motion-blok).
 Volgende van mij: klus 4 (doortellen), dan 5, 6, 7.
+
+## Ronde 2 tot 4 op Olafs bouw (8 nov 00:25 tot 00:50, tak `ontwerp/rollwright-v2b`)
+
+Olaf bouwde klus 1, 2, 2b, 3 en 3b (tak `claude/obsidian-2026-11-08-a`, op main als 02bba53 en f1214b8). Ik zette mijn tak daarop en draaide de ontwerptest met **echte** crits en fumbles (Math.random even vastgezet in de test, de plugin zelf ongemoeid). Runs 42425319203 (c482f2c), 42425823375 (d33390a) en 42426336351 (b8f675f), alle groen. Plaatjes: `schermen`, `rollwright/ontwerp-ontwerp-rollwright-v2b/`. GEZIEN met de Read-tool:
+- Echte crit en fumble: "Wisdom save: 20 NAT 20" goud, "Damage: 5 MIN" rood, in de tekst en in het logboek (log: `rollwright-crit`, `rollwright-fumble`, `rollwright-text` staan op de goede vakjes).
+- Goud in donker is nu rijk en warm (was khaki), Arcane licht leest (eigen goud en rood per skin), Parchment heeft een eigen goud.
+- Bij een crit springt het token als het getal landt (klap) en gaat er een brede gouden golf omheen; bij een fumble een korte dreun. De stempel groeit pas uit het niets na het landen en houdt geen lege plek vrij.
+- Logboek: gouden en rode kaarten, naam in de kleur van de kaart, de nieuwste worp met een grotere d20 met gloed.
+- Tabeluitkomsten zijn tekst: geen pil meer, alleen een lichte achtergrond, een stippellijn en de d20. Een worp roept nu harder dan een tabel.
+- De instellingen komen in beeld (Obsidian 1.15 opent ze in een eigen venster). De skin-tegels zijn klein en kaal: alleen "17".
+
+Fout van mij, gevonden door de controleur: in ronde 3 maakte ik een crit eerst grijs tot het getal landde. Omdat een gewone worp niet grijs werd, verklapte juist het grijs de crit, en het leek uitgeschakeld. Weggehaald in ronde 4.
+
+**Klussen voor Olaf, bij (gaan voor 4 tot 7):**
+- **0. Mijn CSS overnemen:** `styles.css` van tak `ontwerp/rollwright-v2b` (b8f675f), alleen dat bestand; het zijn twee nieuwe blokken onderaan ("ronde 2" en "het moment van de crit"), boven op jouw main. De ontwerptest `e2e/ontwerp/v2.e2e.mjs` en de notities in `e2e/vaults/ontwerp/` mogen ook mee naar main (draait alleen op takken `ontwerp/**`).
+- **2c. Bewegingen bij elke klik opnieuw:** in `rerollNow` en `averageNow`: `target.removeClass(ROLLED_CLASS); void target.offsetWidth; target.addClass(ROLLED_CLASS);`. Nu beginnen de klap, golf en vonk niet opnieuw als de vorige uitkomst ook een crit was. In mijn test nagebootst in `klik()`.
+- **2d. Goud en rood pas bij het landen:** zet `rollwright-crit` / `rollwright-fumble` na een klik pas na ±460 ms (bij `prefers-reduced-motion` meteen), zodat de kleur de uitkomst niet verklapt terwijl de d20 nog tuimelt. Bij openen van een notitie meteen, zonder wachten. Let op: als er intussen een nieuwere klik is, niets zetten (zelfde regel als `showIfNewest`).
+- **7, scherper:** elke skin-tegel toont een crit: een token met "20" en de stempel NAT 20 (met de klassen `rollwright-roll rollwright-crit`), daarnaast klein een gewone worp. Dat is het mooiste wat je met $6 koopt; nu staat er alleen "17".
+
+Nog open van eerder: 4 (getal telt door), 5 (Roll log, groeperen per notitie en dag), 5b (link zonder .md, rustig), 6 (voorbeeldnotitie vanuit het lege logboek).
+
+**Oordeel nu:** het token haalt voor het eerst de lat: een crit in de tekst is iets waar je een schermafbeelding van maakt. Het geheel nog niet: logboek zonder groepen, kale skin-tegels, geen voorbeeldnotitie, geen doortellen. Akkoord blijft `nee` tot 0, 2c, 2d, 4 tot 7 gebouwd zijn; dan keur ik opnieuw in de echte Obsidian en maak ik de poster en de GIF.

@@ -108,3 +108,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** eens met de richting, "nog een gekleurde pil". Overgenomen: stempel NAT 20 / NAT 1, vonk pas na het landen (zelf gerepareerd), Arcane licht en olijfgoud in donker zijn mijn werk voor de volgende ronde, tabeluitkomsten lichter, klussen scherper. Fout van mij: ik schreef "overal leesbaar" terwijl Arcane licht dat niet was.
 - **Stijl versie 8:** nieuw gevoel in één zin, deel "Eigen gezicht" (themakleuren met color-mix, eigen teken mag, korte bewegingen alleen na een klik), eerste lijstplaatje is een poster, GIF in de README, nieuwe voorbeelden.
 - **Volgende run:** proef opnieuw draaien (vonk, ring, Arcane licht, goud in donker, instellingen in beeld), daarna wachten op Olafs bouw voor lijstplaatjes en GIF.
+
+## 8 nov 2026, run 13 (±00:23 tot 00:55; klok van de omgeving 23:23 tot 23:55 UTC 7 nov)
+
+- **Lokale kopie:** de oude map was ondiep en liep uiteen; verse kopie in een nieuwe map, niets weggegooid.
+- **Olafs bouw gezien:** klus 1, 2, 2b, 3, 3b op tak `claude/obsidian-2026-11-08-a` (run 42425105889 groen), inmiddels op main.
+- **Gemaakt:** tak `ontwerp/rollwright-v2b` boven op Olafs bouw: ontwerptest met echte crit en fumble (Math.random in de test vastgezet), instellingen in hun eigen venster in beeld, CSS ronde 2 tot 4. Waarom op zijn bouw: nu de klassen echt zijn, keur ik wat de gebruiker straks krijgt in plaats van een nabootsing.
+- **Bekeken:** runs 42425319203, 42425823375, 42426336351 (alle groen). Goud warm in donker, Arcane licht leest, klap en golf bij een crit, dreun bij een fumble, stempel zonder lege plek, logboekkaarten in goud en rood, tabeluitkomsten als tekst. Skin-tegels kaal.
+- **Controleur (agent):** vond dat mijn grijze fase in ronde 3 de crit juist verklapte en uitgeschakeld leek (klopt, weggehaald), dat de gewone worp niet in beeld kwam (test rolde "Initiative", maar dat woord staat buiten het token; nu "Hit"), dat het landen een echte klap nodig had (gebouwd), khaki goud in donker (rijker gemaakt), paarse namen op gouden kaarten (aangepast), tabeluitkomsten nog als pil (pil weg), tooltip over een token (muis weg). Overgenomen: alles.
+- **Besloten:** akkoord blijft `nee`. Waarom: het token haalt nu de lat, maar logboek, skin-tegels, voorbeeldnotitie en doortellen nog niet. Nieuwe klussen 0, 2c, 2d en een scherpere 7 bij Olaf (taken.md en ontwerp-v2.md).
+- **Stijl versie 9:** een bijzonder moment komt pas als de uitkomst er is, nooit eerder; tekstuitkomsten rustiger dan getallen; de meeste toppers op Obsidian hebben een kale README met één schermafbeelding, dus een poster en een GIF vallen op.
