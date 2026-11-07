@@ -24,3 +24,6 @@ Wat **niet** vanzelf meegaat: geplande taken, gekoppelde repo's, de netwerkinste
 ## Na de overstap
 - Kijk na een dag hoeveel van de limiet op is. Te veel: Vera en Daan om de twee uur, of runs korter dan 45 minuten. Dat beslist Thijs.
 - De connectors van het gedeelde account (Gmail, Shopify, Trello, Kondo) horen niet bij de taken; op het nieuwe account niet toevoegen.
+
+## Afgerond (7 nov 2026, 23:06)
+Alle taken draaien op het eigen account van Thijs (ID's in `organisatie/geplande-taken.md`), plus Noor (pionier). De taken op het oude account staan uit (bevestigd door Thijs). Opslaan vanuit de runs werkt.
