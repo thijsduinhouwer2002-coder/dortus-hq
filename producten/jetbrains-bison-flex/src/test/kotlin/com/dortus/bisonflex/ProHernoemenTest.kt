@@ -130,6 +130,17 @@ class ProHernoemenTest : BasePlatformTestCase() {
         assertEquals(listOf("calc.l"), (Koppeling.scannerGebruik(num) as Koppeling.ScannerGebruik.Ja).scanners.map { it.name })
     }
 
+    fun testMeerScannersInDeTekst() {
+        stand(LicentieStand.GEEN)
+        myFixture.addFileToProject("calc.l", tekst("calc.l"))
+        myFixture.addFileToProject("calc.ll", tekst("calc.l"))
+        myFixture.configureByText("calc.y", tekst("calc.y"))
+        cursorOp("NUM")
+        myFixture.renameElementAtCaret("GETAL")
+        assertTrue(meldingen[0].content, meldingen[0].content.startsWith("Renaming NUM also changes calc.l and calc.ll. "))
+        assertEquals("a.l, b.l and c.l", ProHernoemen.opsomming(listOf("a.l", "b.l", "c.l")))
+    }
+
     fun testEigenVlagPerActie() {
         grammaticaOpen()
         // Eerst de ga-naar-balloon (zoals na Ctrl+B in calc.l).

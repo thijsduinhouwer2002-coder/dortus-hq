@@ -43,7 +43,7 @@ class ProHernoemenScanner : RenameHandler {
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?, dataContext: DataContext?) {
         val g = geval(editor, file) ?: return
         if (g.indexeren) ProMelding.getInstance().toonHint(editor, ProMelding.HINT_INDEXEREN, project)
-        else ProHernoemen.meldGeblokkeerd(project, editor, g.naam, g.grammaticas.joinToString { it.name })
+        else ProHernoemen.meldGeblokkeerd(project, editor, g.naam, ProHernoemen.opsomming(g.grammaticas.map { it.name }))
     }
 
     /** Zonder editor (structuurweergave) komt deze handler niet in beeld: daar staan geen namen uit C-code. */

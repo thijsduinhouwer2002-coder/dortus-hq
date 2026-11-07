@@ -45,12 +45,16 @@ class ProHernoemen : RenamePsiElementProcessor() {
                 null
             }
             is ScannerGebruik.Ja -> if (Licentie.proWerkt()) element else {
-                meldGeblokkeerd(element.project, editor, element.text, gebruik.scanners.joinToString { it.name })
+                meldGeblokkeerd(element.project, editor, element.text, opsomming(gebruik.scanners.map { it.name }))
                 null
             }
         }
 
     companion object {
+        /** Bestandsnamen als "calc.l" of "calc.l and calc.ll" of "a.l, b.l and c.l" (Engels, zoals de melding). */
+        fun opsomming(namen: List<String>): String =
+            if (namen.size <= 1) namen.joinToString() else namen.dropLast(1).joinToString() + " and " + namen.last()
+
         /**
          * Hernoemen van [naam] is tegengehouden omdat het ook [ander] raakt: de eerste keer per sessie de balloon
          * over hernoemen, daarna de korte hint (in [editor], of zonder editor in de statusbalk).

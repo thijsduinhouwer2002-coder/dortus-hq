@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 
 /*
+ * Het winkelproject heeft calc.y en calc.yy, calc.l en calc.ll in één map: NUM in calc.y raakt dus calc.l en calc.ll.
  * Hernoemen (Shift+F6) in de echte IDE, stand GEEN (Daan, beoordeling 8). Loopt na IdeTest.proMelding, dus de
  * ga-naar-balloon is dan al getoond. Schermen: hernoem-melding, hernoem-hint, hernoem-scanner, hernoem-structuur,
  * hernoem-venster en hernoem-conflict. Elke stap zet in het log welke melding er kwam, hoeveel hints, en of er
@@ -104,11 +105,11 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     cursorOp("%token NUM", 8)
     val balloon = geblokkeerd(d, naam, "eerste Shift+F6 op NUM in calc.y", melding, "hernoem-melding")
     assertTrue(balloon, "balloon over hernoemen na de ga-naar-balloon ($naam)")
-    assertEquals("Renaming NUM also changes calc.l. Rename across grammar and scanner is a Pro feature. Try it free for 30 days.", melding.laatsteMelding())
+    assertEquals("Renaming NUM also changes calc.l and calc.ll. Rename across grammar and scanner is a Pro feature. Try it free for 30 days.", melding.laatsteMelding())
 
     // 2. Nog eens: de hint zegt waarom er niets gebeurde.
     geblokkeerd(d, naam, "tweede Shift+F6 op NUM in calc.y", melding, "hernoem-hint")
-    assertEquals("NUM is also used in calc.l. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
+    assertEquals("NUM is also used in calc.l and calc.ll. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
 
     // 3. Shift+F6 op NUM in return NUM; van calc.l: dezelfde hint, geen "Cannot perform refactoring".
     openFile("calc.l")
@@ -116,7 +117,7 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     structuurBij(naam, "calc.l")
     cursorOp("return NUM", 8)
     geblokkeerd(d, naam, "Shift+F6 op NUM in calc.l", melding, "hernoem-scanner")
-    assertEquals("NUM is also used in calc.y. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
+    assertEquals("NUM is also used in calc.y and calc.yy. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
 
     // 4. Vanuit de structuurweergave (geen editor): de hint in de statusbalk.
     openFile("calc.y")
