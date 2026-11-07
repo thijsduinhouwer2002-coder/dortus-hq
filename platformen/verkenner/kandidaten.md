@@ -16,6 +16,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Fantasy Grounds Forge (betaalde extensies voor de tafelsoftware Fantasy Grounds), zelf toegevoegd 7 nov: klaar 7 nov run 11:31, eigen meting van 3.189 items, nee voor nu (cijfer 4), zie voorstellen/fantasy-grounds-forge.md. Herhaalmeting met data/fgforge-haal-script.sh
 - Google Workspace Marketplace (add-ons voor Sheets, Docs, Gmail), opnieuw: klaar 7 nov run 12:31, eigen meting van 5.865 add-ons, nee voor nu (cijfer 5), zie voorstellen/google-workspace.md. Herhaalmeting over 4 weken met data/gwm-zoek-script.py geeft een echte lijst nieuwe add-ons
 - Wix App Market (betaalde apps via Wix, op 6 nov niet te meten, nu leesbaar): klaar 7 nov run 13:31, eigen meting van 1.818 apps, nee voor nu (cijfer 3), zie voorstellen/wix.md. Herhaalmeting met data/wix-haal-script.py en wix-reviewdata-script.py
+- TradingView (Pine Script-indicatoren, makers verkopen invite-only scripts), zelf toegevoegd: in onderzoek 7 nov 13:52 UTC
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
