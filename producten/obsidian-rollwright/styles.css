@@ -362,6 +362,12 @@ body.theme-dark {
 	100% { transform: scale(2.6); opacity: 0; }
 }
 
+@keyframes rw-pop {
+	0%, 60% { transform: scale(0) rotate(-90deg); opacity: 0; }
+	80% { transform: scale(1.4) rotate(10deg); opacity: 1; }
+	100% { transform: none; }
+}
+
 @keyframes rw-shake {
 	0%, 100% { transform: none; }
 	20% { transform: translateX(-0.12em) rotate(-4deg); }
@@ -406,6 +412,11 @@ body.theme-dark {
 	background: var(--rw-hi);
 	-webkit-mask: var(--rw-spark) center / contain no-repeat;
 	mask: var(--rw-spark) center / contain no-repeat;
+}
+
+/* De vonk komt pas als het getal geland is, zodat hij de crit niet verklapt. */
+.rollwright-rolled.rollwright-crit::after {
+	animation: rw-pop calc(900ms * var(--rw-slow)) ease-out both;
 }
 
 .rollwright-rolled.rollwright-crit .rollwright-icon::after {

@@ -88,3 +88,30 @@ Alles uit punt 1, 2 (tuimelen, landen, crit, fumble) en 3 (spoor, kaarten, namen
 8. Daarna maak ik samen met jou de lijstplaatjes en de GIF (punt 6).
 
 Wanneer is het af: ik zie in de echte Obsidian (licht, donker, Minimal, AnuPpuccin, Things, Border, smal venster) een token met d20, het rollen als reeks plaatjes, een echte crit en fumble, het logboek met groepen, en de voorbeeldnotitie vanuit het lege logboek. En op de vraag "zou je dit aan een vriend laten zien?" zeg ik ja.
+
+## Gezien in de echte Obsidian (7 nov 22:45, run 42421672346 op tak `ontwerp/rollwright-v2`, commit de9aedd)
+
+Plaatjes: tak `schermen`, map `rollwright/ontwerp-ontwerp-rollwright-v2/` (RUN.txt klopt). GEZIEN met de Read-tool:
+- `v2-01` en `v2-02` (licht, ingezoomd): het token met d20 leest als een eigen speelstuk, niet meer als grijze sticker. De crit (nagebootst: Wisdom save 20) is goud met vonk en gloed, de fumble (Damage 5 bij 2d6 + 3) rood. Dit is het eerste plaatje van Rollwright waar ik een vriend op zou wijzen.
+- `v2-11` tot `v2-15` (crit, 8 keer vertraagd): de d20 begint klein en gedraaid, tuimelt, het getal landt, daarna zwelt de gouden ring weg en staat het stil. De beweging werkt in de echte app.
+- `v2-22` en `v2-24` (logboek licht en donker): spoor met d20's, kaarten met naam in kleine hoofdletters, uitkomst groot met de formule ernaast, opnieuw-knop rechtsboven, wissen klein en rustig. Leest als een logboek. In deze run viel echt een natuurlijke 20 en een 1 + 1: die staan in het logboek nog gewoon (de code zet de klasse nog niet, klus 3).
+- `v2-25` tot `v2-28` (Minimal donker, AnuPpuccin licht, Things licht, Border donker) en `v2-29` tot `v2-32` (Parchment en Arcane, licht en donker): overal leesbaar, het token neemt de accentkleur van het thema over.
+
+Nog niet goed of nog niet gezien:
+- In donker is het goud van de crit wat olijfachtig (`v2-03`). Volgende ronde: in donker iets warmer mengen (richting `--color-orange`).
+- In Minimal is de accentkleur bijna grijs, dus het token is daar rustiger. Dat is goed (het volgt het thema), crit en fumble vallen er toch op.
+- De instellingen met de skin-tegels kwamen niet in beeld (`v2-33`, venster ging niet open). Volgende run.
+- Het doortellen van het getal bestaat nog niet (code, klus 4).
+
+## Controleur (agent, 7 nov 22:55) en wat ik ermee doe
+
+De controleur bekeek dezelfde plaatjes. Eens met de richting ("duidelijke stap vooruit"), maar: "nog steeds een gekleurde pil". Zijn punten, met mijn besluit:
+- **Stempel "NAT 20" en "NAT 1"** in kleine hoofdletters op het token en op de kaart in het logboek: overgenomen, wordt klus 3b. Waarom: leest ook zonder kleur (Minimal, kleurenblind) en is precies het moment waar mensen een schermafbeelding van maken.
+- **De vonk stond er al voor het getal landde:** zelf gerepareerd in de CSS (vonk komt pas na het landen, `rw-pop`). Nog niet opnieuw in beeld.
+- **De ring is te klein om op te vallen** en de grotere d20 bij de nieuwste worp zie je nauwelijks: volgende ronde groter en duidelijker (mijn werk, CSS).
+- **Arcane licht: crit en fumble donker op donker** (`v2-31`), en olijfgoud in donker ook in `v2-30` en `v2-32`: mijn fout in "overal leesbaar". Volgende ronde per skin eigen goud en rood (mijn werk, CSS).
+- **Tabeluitkomsten roepen even hard als een worp** (vette volle pil): klus 2b voor Olaf, een klasse `rollwright-text` op uitkomsten uit tabellen en lijsten, dan maak ik ze lichter (niet vet, alleen rand).
+- **Link in het logboek met ".md" en onderstreping:** klus 5b, alleen de naam van de notitie tonen, rustige link.
+- **Klussen scherper:** klus 1 splitsen is niet nodig voor 0.3.0 (eerst overnemen, splitsen bij de opruimtaak van zondag). Klus 2: de klasse `rollwright-rolled` blijft op het vakje (het vakje zelf blijft bestaan, alleen de inhoud wordt opnieuw gemaakt); bij een nieuw vakje (notitie opnieuw open) staat hij er niet. Klus 3: crit telt alleen de dobbelstenen die meetellen (bij 4d6kh3 de drie hoogste, bij voordeel de gekozen d20); bij 1d20 + 1d4 alleen als allebei hoogste of laagste. Klus 5: een sessie is één notitie op één dag; groeperen per notitie en dag, met het uur van de eerste worp.
+
+Akkoord blijft `nee` tot dit gebouwd is en ik het opnieuw in de echte Obsidian heb gezien.
