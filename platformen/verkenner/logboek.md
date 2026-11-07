@@ -93,3 +93,13 @@ Nieuwste blok onderaan.
 - Arrears van Thijs niet gevonden in de winkel met curl; niet verder gezocht.
 - Volgende: Shopify vervolg B (regel met datum). Vindt die niets sterks, dan Shopify naar 5.- Daarna Shopify vervolg B begonnen. Deel 1: de garantielabel-golf (EmpCo, plicht 27 sep 2026) gemeten als tweede toets van de golf-route. 54 apps, mediaan 0 reviews, top 50. Veel kleiner dan de herroepingsknop (2.323). Data in `data/shopify-garan-golf-2026-11-07.json`. Controleur akkoord met 5 correcties, verwerkt: minstens 6 gemiste apps (±60 in totaal, top 7 nu 50 tot 12), twee soorten apps apart genoemd, e-facturen Duitsland alleen B2B, les voorzichtiger verwoord. Volgende run: e-facturen Duitsland en scripttags, dan oordeel 6 of 5.
 - Nieuw feit: Shopify gaat apps zonder installs na zes maanden verwijderen (Partner Town Hall 5 nov, via Sicard).
+
+## 7 nov 2026, run 08:31 UTC
+- Lokale kopie had een andere geschiedenis dan GitHub; vers gekloond en daarop gewerkt.
+- Gekozen: Modrinth (Minecraft-mods), zelf aan de lijst toegevoegd omdat het de enige grote modsite is die makers per dag uit een openbare pot betaalt, met open API. Shopify vervolg B deel 2 laten liggen: Thijs vraagt nieuwe platformen.
+- Gemeten: 23.600 mods sinds april. Goedgekeurd mei tot aug: mediaan 371 downloads, 88% 100+, 6,3% 10.000+. Maar mediaan 1 volger, downloads zijn geen spelers. ±4.000 nieuwe mods per maand.
+- Geld: pot voor makers openbaar via de API (gemiddeld ±$150.000 per maand). Rond $0,15 per 1.000 downloads als alles telde. Voor €350 per maand een plek in de top ±100 tot 300 nodig. Verkopen verbiedt de EULA.
+- Beslissing: nee, cijfer 3. Reden: doelen laten geld voor bereik gaan, en hier is geld voor een kleine maker niet haalbaar; ook NET 60 vertraagt alles 2 maanden.
+- Controleur niet akkoord met 10 correcties, alle verwerkt. Grootste: ik had de pot verkeerd opgeteld ($132.800 moest $160.400 zijn), en de datum in de zoekindex is de goedkeuringsdatum. Advies bleef gelijk.
+- Les: een platform met veel bereik maar geld alleen uit advertenties levert kleine makers niets op. Volgende keer eerst kijken of verkopen mag, voor ik bereik meet.
+- Nieuwe kandidaat genoteerd: BuiltByBit en Polymart (betaalde serverplugins). Volgende run: een platform met betaling in de winkel uit kandidaten.md.

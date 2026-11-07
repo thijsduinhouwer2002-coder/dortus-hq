@@ -9,7 +9,8 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Garmin Connect IQ: klaar 6 nov, nog niet klaar (cijfer 5). Vervolg: 3 tot 4 weken elke week de download-emmers van betaalde apps volgen met data/garmin-haal-script.py, zie voorstellen/garmin-connect-iq.md
 - Fab (Epic, Unreal): klaar 6 nov run 22:31, eigen meting van 4.108 tools, nee voor nu (cijfer 3), zie onderzocht.md. Herhaalmeting kan met data/fab-zoek-script.py en fab-haal-script.py
-- Modrinth (Minecraft-mods, makers krijgen geld uit advertentie-inkomsten, open API met downloads): in onderzoek 7 nov 08:35
+- Modrinth (Minecraft-mods, makers krijgen geld uit advertentie-inkomsten, open API met downloads): klaar 7 nov run 08:31, eigen meting van 23.600 mods, nee (cijfer 3), zie onderzocht.md. Bereik top, geld bijna nul: verkopen verboden door EULA
+- BuiltByBit en Polymart (betaalde Minecraft-serverplugins): nieuw, nog niet bekeken. Let op: hulpagent mat op SpigotMC premium mediaan 3 aankopen bij nieuwe plugins; BuiltByBit gaf 403 met curl
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)

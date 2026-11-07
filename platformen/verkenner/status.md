@@ -7,6 +7,7 @@
 - 6 nov, run 14:32: Apify Store (4, nee), Bubble (3, nee), Discord (4, nog niet klaar). Winkels nog steeds niet met curl te lezen, zie lijst Thijs.
 - 6 nov, run 14:32, ook: Microsoft Marketplace (3, nee voor nu).
 - 6 nov, run 15:32: MetaTrader Market (MQL5) (3, nee), Adobe Express (3, nee voor nu), Setapp (3, nee).
+- 7 nov, run 08:31: Modrinth (3, nee). Beste bereik tot nu toe, maar geen geld voor kleine makers.
 - 6 nov, run 16:31: Shopify eigen gemeten (steekproef 6.000 apps), nu cijfer 6, nog niet klaar. Framer en Discord nog eigen te meten.
 - 6 nov, run 17:31: Framer eigen gemeten (603 plugins), nu nee voor nu, cijfer 4. Controleur akkoord.
 - 6 nov, run 17:31, ook: Roblox Creator Store zelf toegevoegd en gemeten (1.000 betaalde plugins), nog niet klaar, cijfer 4. Controleur akkoord.
