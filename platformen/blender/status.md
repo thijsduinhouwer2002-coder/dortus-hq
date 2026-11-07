@@ -5,4 +5,5 @@
 - **Twee routes:** gratis versie op extensions.blender.org voor bereik (±1.000 tot 1.500 downloads per nieuwe add-on, GEZIEN 6 nov; geen betaald en geen reclame voor betaald in Blender toegestaan), betaalde versie op Superhive voor geld (maker 70% op het gratis plan, plus $0,49 per verkoop, DERDEN).
 - **Risico's:** mediaan onder 10 verkopen, markt vlak of krimpend sinds 2022, tellers misschien met bundels of gratis codes. Makeraccount en uitbetaling op Superhive zijn een stap voor Thijs.
 - **7 nov 22:30 (Bram):** eerste ronde wat we bouwen, zie `kandidaten-2026-11-07.md`. Modelleren levert het meeste geld (104 add-ons, 37% 10+, ±$22.000 netto per maand samen, GOK op GEZIEN). Gewrichten voor printbare figuren viel af (Cleave en 3 anderen doen het al), CAD-overstappers te vol (Construction Lines $11, 7.400+), AI naar printklaar heeft zwak betaalbewijs. Nog geen bouwbesluit.
-- **Volgende:** systematisch gaten zoeken in klachten van kopers (zie `taken.md`).
+- **22:45:** systematisch zoeken leverde een sterke kandidaat op: opvolger van Pie Menu Editor (2.400+ kopers, maker gestopt voor Blender 5, kopers willen betalen). Nog na te kijken.
+- **Volgende:** PieMaster en de PME-fork uitzoeken, dan bouwbesluit (zie `taken.md`).
