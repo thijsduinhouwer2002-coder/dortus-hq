@@ -134,3 +134,12 @@ Nieuwste blok onderaan.
 - **Volgende:** Daan laten kijken; dan Pro-functies met proef en de Pro-melding (eis 8, Daan punt 3).
 - **Daarna (13:30 UTC):** kan-punt geheugenmeter: uit via `options/ide.general.xml` in de IDE-test (tak `-g`, run 42376488091 groen, meter weg op het scherm, GEZIEN), controleur akkoord, op main.
 - **Afgesloten om ±13:32 UTC.**
+
+
+## 7 nov 2026, 13:52 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Bovenste bouwtaak gedaan: Pro-functies met licentiecontrole, omdat Daans akkoord alleen nog aan de Pro-melding hangt. Bouwer maakte op tak `claude/jetbrains-2026-11-07-h` de map `pro/` (Licentie, ProMelding, GaNaar), de product-descriptor en `notificationGroup` in plugin.xml, `ProTest` (10 tests) en een IDE-scherm `pro-melding` in licht en donker.
+- **Uitkomst:** 39 unittests groen (GEZIEN door bouwer en controleur), IDE-test run 42379635206 groen, log zegt "melding getoond true" in beide thema's; balloon rechtsonder met titel, tekst en twee links (GEZIEN op de schermen).
+- **Beslissingen:** ga naar definitie als eerste Pro-functie, omdat Daans voorbeeldtekst daarover gaat en hij het kleinst is. In de IDE-test zet een systeemeigenschap de stand op GEEN, omdat de facade daar null is (dan komt er terecht geen melding); de eigenschap kan nooit Pro geven. Stempel zonder handtekeningcontrole voorlopig als geldig, vóór indienen nog af.
+- **Nakijken:** controleur akkoord ja, geen moet-punten; eigen lastige gevallen (naam die regel en token is, onbekende namen, lege bestanden, pg-gram.y in 3 ms) zonder valse sprong of melding. Kan-punten op de takenlijst (hint "Cannot find declaration" naast de balloon, melding bij Ctrl+zweven, handtekening). Samengevoegd met main (930b4fc).
+- **Misging:** de lokale main liep weer uit de pas; opgelost met `git checkout -B main origin/main`.
+- **Afgesloten om ±14:20 UTC.**
