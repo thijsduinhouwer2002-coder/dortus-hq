@@ -86,13 +86,25 @@ const openInstellingen = async () => {
 };
 
 const zweef = async (selector) => {
-	await browser.execute((sel) => {
-		const el = document.querySelector(sel);
-		if (!el) return;
-		el.scrollIntoView({ block: "center" });
-		for (const t of ["mouseover", "mouseenter", "mousemove"]) el.dispatchEvent(new MouseEvent(t, { bubbles: true, clientX: el.getBoundingClientRect().x + 5, clientY: el.getBoundingClientRect().y + 5 }));
-	}, selector);
+	// Echte muis via WebDriver: Obsidian toont een tooltip alleen bij een echte mouseover.
+	await browser.execute((sel) => document.querySelector(sel)?.scrollIntoView({ block: "center" }), selector);
+	const el = await browser.$(selector);
+	if (!(await el.isExisting())) return;
+	try {
+		await el.moveTo({ xOffset: 0, yOffset: 0 });
+	} catch (e) {
+		console.log("ZWEEF moveTo mislukt:", String(e).slice(0, 200));
+	}
+	await browser.pause(300);
+	try {
+		await el.moveTo({ xOffset: 2, yOffset: 1 });
+	} catch (e) {}
 	await browser.pause(1200);
+	const tip = await browser.execute(() => {
+		const t = document.querySelector(".tooltip");
+		return t ? t.textContent : "(geen .tooltip)";
+	});
+	console.log("TOOLTIP", selector, JSON.stringify(tip));
 };
 
 const smal = async (breed) => {

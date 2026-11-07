@@ -79,7 +79,17 @@ const vastleggen = async (naam) => {
 	await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight / 2; });
 	await browser.pause(400);
 	await shot(`${naam}-midden`);
-	await browser.execute(() => { const el = document.querySelector(".vertical-tab-content"); if (el) el.scrollTop = el.scrollHeight; });
+	// Naar onder: de laatste rij in beeld schuiven, wie er ook scrollt.
+	const sc = await browser.execute(() => {
+		const rijen = document.querySelectorAll(".vertical-tab-content .setting-item");
+		const laatste = rijen[rijen.length - 1];
+		if (!laatste) return "geen rijen";
+		laatste.scrollIntoView({ block: "end" });
+		let p = laatste.parentElement, uit = [];
+		while (p) { if (p.scrollHeight > p.clientHeight + 2) uit.push(`${p.className || p.tagName}:${p.scrollTop}/${p.scrollHeight}/${p.clientHeight}`); p = p.parentElement; }
+		return `${rijen.length} rijen; scrollers ${uit.join(" ; ")}`;
+	});
+	console.log("INSTELLINGEN onder", naam, sc);
 	await browser.pause(400);
 	await shot(`${naam}-onder`);
 	// Toetsenbord: Tab door de instellingen, kijk waar de focus staat.
