@@ -234,3 +234,8 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 8 punten. Belangrijkste: ik las alleen het eerste blok op de t.me-pagina; het cijfer staat in het tweede. Hersteld en zelf nagetest.
 - Les: bij het uitlezen van een pagina altijd alle treffers bekijken, niet alleen de eerste.
 - Volgende run: een platform met betaling in de winkel en een lijst met datums; Zotero, Anki en Home Assistant wachten nog (geen betaling).
+- Vijfde stuk: Shopify vervolg B deel 2 (stond vrij). Reden: Shopify was met 6 het hoogste open platform en de vraag lag klaar.
+- Gemeten: 234 apps uit de sitemap met factuurnamen, 75 met een e-factuurstandaard op de pagina. 56 uit 2026, mediaan 0 reviews, top 6. Oude brede apps winnen (controleur vond Order Printer Pro en Vify die ik miste).
+- Beslissing: Shopify van 6 naar 5, nee voor nu. Reden: drie golven gemeten, alleen de eerste werkte; bij e-facturen is het vol vóór de deadline. Wat dit verandert: apps die in maart en april 2027 breken (scripttags, tokens) zonder vervanger, of een nieuwe verplichting met na een maand minder dan tien aanbieders.
+- Controleur akkoord, 7 correcties.
+- Les: zoeken op naam mist grote apps die een functie toevoegen. Kijk bij een golf altijd ook naar de top van de categorie.

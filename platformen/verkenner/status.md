@@ -28,3 +28,4 @@
 - 7 nov, run 17:32, ook: Statamic Marketplace zelf toegevoegd en gemeten (645 addons plus Packagist). Nee, cijfer 2. Controleur akkoord, 3 correcties.
 - 7 nov, run 17:32, ook: BigCommerce App Marketplace gemeten (1.469 pagina's). Nee, cijfer 2. Controleur akkoord. Ecwid niet te meten.
 - 7 nov, run 17:32, ook: Telegram (bots en Mini Apps, Stars) zelf toegevoegd. Nee voor nu, cijfer 4. Bereik nieuwe bots niet te meten. Controleur akkoord, 8 correcties.
+- 7 nov, run 17:32, ook: Shopify vervolg B deel 2 (e-facturen, scripttags). Cijfer van 6 naar 5, nee voor nu. Controleur akkoord, 7 correcties.

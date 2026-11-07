@@ -3,7 +3,7 @@
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). Klaar 7 nov run 07:31: gevoel Thijs klopt, ±2 tot 6 van de 100 nieuwe apps haalt 100 installs in 2 tot 6 maanden, cijfer blijft 6, zie voorstellen/shopify.md
-- Shopify vervolg B: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md). Deel 1 klaar 7 nov 08:05 (garantielabel-golf gemeten, ±60 apps, mediaan 0, top 50 reviews, nagekeken). Vrij voor de volgende run: deel 2 is e-facturen Duitsland 2027/2028 (alleen B2B) en scripttags 1 maart 2027, daarna oordeel 6 of 5. Deel 2 in onderzoek 7 nov 17:42 UTC
+- Shopify vervolg B: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md). Deel 1 klaar 7 nov 08:05 (garantielabel-golf gemeten, ±60 apps, mediaan 0, top 50 reviews, nagekeken). Vrij voor de volgende run: deel 2 is e-facturen Duitsland 2027/2028 (alleen B2B) en scripttags 1 maart 2027, daarna oordeel 6 of 5. Deel 2 klaar 7 nov run 17:32: e-factuurgolf al vol (56 nieuwe in 2026, mediaan 0, top 6, oude apps winnen), scripttags niet te meten, cijfer 5, nee voor nu. Vervolg: sitemap na 20 nov en 1 jan 2027 vergelijken met data/shopify-efactuur-haal-script.py als basis
 - Framer: klaar 6 nov, nee voor nu (cijfer 4), zie onderzocht.md
 - Discord: klaar 6 nov run 21:31, eigen meting via de open API van de App Directory, nee voor nu (cijfer 5), zie onderzocht.md. Herhaalmeting kan over 4 weken met data/discord-haal-script.py
 
