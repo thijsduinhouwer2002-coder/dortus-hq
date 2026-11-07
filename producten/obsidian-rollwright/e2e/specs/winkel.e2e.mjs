@@ -90,7 +90,36 @@ async function thema(donker) {
 	await browser.pause(300);
 }
 
-async function plaatjes(naam, { focusWeg = true } = {}) {
+
+// Plaatjes voor de lijst op community.obsidian.md: die wil 1200 bij 800 pixels.
+// browser.setWindowSize werkt niet in Obsidian, dus via Chrome DevTools (Emulation) een venster van 1200 bij 800 nabootsen.
+async function cdp(cmd, params) {
+	const o = browser.options;
+	const basis = `${o.protocol ?? "http"}://${o.hostname ?? "localhost"}:${o.port}${(o.path ?? "/").replace(/\/?$/, "/")}`;
+	const res = await fetch(`${basis}session/${browser.sessionId}/goog/cdp/execute`, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({ cmd, params }),
+	});
+	const tekst = await res.text();
+	if (!res.ok) throw new Error(`cdp ${cmd}: ${res.status} ${tekst.slice(0, 300)}`);
+	return tekst;
+}
+
+async function lijstPlaatje(naam) {
+	await cdp("Emulation.setDeviceMetricsOverride", { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
+	await browser.pause(500);
+	const maat = await browser.execute(() => `${window.innerWidth}x${window.innerHeight}`);
+	console.log(`WINKEL LIJST MAAT (${naam}):`, maat);
+	expect(maat).toBe("1200x800");
+	await browser.action("pointer").move({ x: 300, y: 790, origin: "viewport" }).perform();
+	await browser.pause(200);
+	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
+	await cdp("Emulation.clearDeviceMetricsOverride", {});
+	await browser.pause(300);
+}
+
+async function plaatjes(naam, { focusWeg = true, lijst = true } = {}) {
 	// Geen focusrand of cursor in beeld, behalve waar de cursor juist de code moet tonen.
 	if (focusWeg) await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
 	// De muis van Xvfb staat midden in het scherm, precies op de buit, en :hover gaf een paarse rand (Daan W6a).
@@ -104,7 +133,9 @@ async function plaatjes(naam, { focusWeg = true } = {}) {
 	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
 	await thema(true);
 	await browser.saveScreenshot(`${SHOTS}/${naam}-donker.png`);
+	if (lijst) await lijstPlaatje(`lijst-${naam.replace(/^winkel-/, "")}-donker`);
 	await thema(false);
+	if (lijst) await lijstPlaatje(`lijst-${naam.replace(/^winkel-/, "")}`);
 }
 
 describe("Rollwright: winkelplaatjes", function () {
