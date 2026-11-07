@@ -1,4 +1,5 @@
 import { browser } from "@wdio/globals";
+import * as fs from "fs";
 
 // Ontwerptest v2 van Daan: plaatjes van het voorstel in ontwerp-v2.md. Elke stap vangt zijn eigen fout.
 const SHOTS = "screenshots";
@@ -59,6 +60,7 @@ const zijpaneelDicht = async () => {
 
 describe("Rollwright v2 voorstel", function () {
 	before(async function () {
+		fs.mkdirSync(SHOTS, { recursive: true });
 		await browser.setWindowSize(1280, 820).catch(() => {});
 		await zijpaneelDicht();
 	});
