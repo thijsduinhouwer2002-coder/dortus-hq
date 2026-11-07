@@ -28,6 +28,15 @@ Categorieën, collecties van Notion en zoeken (DERDEN, eigen bezoek). Verkoop ko
 ## Past het bij ons
 Bouwen wel: een goede template is in dagen klaar en Thijs hoeft niet te programmeren. Maar Dortus heeft geen publiek, en dat lijkt hier de sleutel. Thijs moet zich ook aanmelden voor de wachtlijst (stap voor Thijs).
 
+## Vervolg 7 nov: Gumroad als meetpunt (GEZIEN)
+Veel Notion-templates worden via Gumroad verkocht. Gumroad zet per maand een openbare sitemap met nieuwe producten (robots.txt staat dat toe) en de productpagina bevat aantal ratings (alleen kopers kunnen raten) en soms een verkoopteller (alleen als de maker die aanzet).
+- Sitemap juni 2026: 20.856 producten. Willekeurige steekproef van 3.000 (seed 7) gelezen met gewone curl: 1.710 nog online (43% gaf geen pagina; meest 404, ook een paar time-outs, dus een bovengrens).
+- Van de 1.710: 1.568 betaald, mediaanprijs $10. **44 (2,6%) hebben minstens één rating.** 97 betaalde tonen een verkoopteller: mediaan **0**, 3 met 10+ (de top: 414, 18, 10); 11 van de 97 boven 0. Makers die de teller tonen zijn eerder de betere verkopers, dus dit is eerder te mooi dan te somber (GOK).
+- Notion-templates in de steekproef (naam bevat "notion"): **27**: 26 betaald ($5 tot $599) en 1 gratis. Eén heeft 1 rating, twee tonen een teller en die staat op 0.
+- Data: `data/gumroad-juni2026-steekproef-2026-11-07.json`, script `data/gumroad-haal-script.py` (sitemap: public-files.gumroad.com/sitemap/products/monthly/2026/6/sitemap.xml.gz).
+- Betekenis: een nieuw Gumroad-product (alle soorten) verkoopt na 5 maanden mediaan 0. Bij Notion zijn maar 2 tellers zichtbaar (beide 0) en 1 rating op 27. Dat past bij het nee, maar het is geen harde meting voor Notion, en of de maker een eigen publiek heeft is niet gemeten.
+- Nagekeken door een controleur: getallen opnieuw uitgerekend, 6 pagina's zelf gelezen (alle gelijk), sitemap 20.856 klopt. 3 correcties verwerkt (top 3, Notion-prijzen, voorzichtiger conclusie).
+
 ## Nagekeken
 Controleur 7 nov: akkoord. Sitemap (99.667, 65.007 Engels), steekproef (91 van 240 betaald, mediaan $9,99) en fee opnieuw gemeten: klopt. Correcties verwerkt: veldnaam `number_of_duplicates`, uitleg over andere datums op de pagina, reviews als zwakke aanwijzing toegevoegd. Nederland staat in de lijst van landen die direct mogen verkopen.
 

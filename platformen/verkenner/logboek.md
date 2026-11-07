@@ -288,3 +288,5 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: niet te meten en heel vol; aantoonbaar geld alleen bij makers met groot eigen publiek. Wat dit verandert: een meting via Gumroad- of Etsy-tellers met mediaan 10+ verkopen in 3 maanden zonder eigen publiek.
 - Controleur akkoord, 3 kleine correcties (veldnaam, andere datums op de pagina, reviews als zwakke aanwijzing: 13 van 60 met reviews).
 - Run afgesloten na Xero (2) en Notion Marketplace (3).
+- Na afsluiten nog tijd: Notion vervolg via Gumroad. Gumroad heeft openbare maandsitemaps met nieuwe producten. Steekproef van 3.000 uit juni 2026 (1.710 nog online): 2,6% heeft een rating, 97 betaalde met teller mediaan 0, 3 met 10+. Notion: 27 templates, 1 rating, 2 tellers op 0. Nee blijft, cijfer 3. Controleur akkoord, 3 correcties (top 3 was 414, 18, 10; Notion-prijzen; conclusie voorzichtiger, het Notion-deel is klein).
+- Les: Gumroad is een goede plek om geld van kleine makers te meten voor elk platform waarvan de makers via Gumroad verkopen. Script staat klaar.
