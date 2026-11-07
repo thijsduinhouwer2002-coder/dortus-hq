@@ -170,7 +170,12 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	target.setAttribute("tabindex", "0");
 	target.addEventListener("keydown", (event) => {
-		if (event.key === "Enter") void rerollNow();
+		if (event.key !== "Enter") return;
+		// Without this the same key press goes on to the window that dice-mod opens, and Enter
+		// there presses its focused button (Cancel) at once. In the editor it also keeps the
+		// key from making a new line.
+		event.preventDefault();
+		void rerollNow();
 	});
 	target.addEventListener("click", (event) => {
 		// A link inside a rendered result keeps working as a link.

@@ -17,10 +17,14 @@ class RollWidget extends WidgetType {
 		private readonly sourcePath: string,
 		private readonly keep: boolean,
 		private readonly modify: boolean,
+		/** The line (from 0) and the number of the code on it, the same as in the key. */
+		private readonly line: number,
+		private readonly index: number,
 	) {
 		super();
 	}
 
+	// The key holds line and index, so a code on another line or place gets a new widget with the right line and index.
 	eq(other: RollWidget): boolean {
 		return other.key === this.key && other.keep === this.keep && other.modify === this.modify;
 	}
@@ -30,7 +34,7 @@ class RollWidget extends WidgetType {
 		this.component = new Component();
 		this.component.load();
 		// dice-mod: writes only into this editor's own note, through the view, so undo works.
-		const modify = this.modify ? editorModifier(this.plugin, view, span, this.formula) : undefined;
+		const modify = this.modify ? editorModifier(this.plugin, view, span, this.formula, this.line, this.index) : undefined;
 		mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component, this.keep, modify);
 		return span;
 	}
@@ -63,7 +67,7 @@ function build(plugin: RollwrightPlugin, view: EditorView): DecorationSet {
 				if (selection.some((range) => range.from <= end && range.to >= start)) return;
 				if (tree.resolveInner(start + 1, 1).name.includes("codeblock")) return;
 				const key = `${sourcePath}|${line.number - 1}:${index}|${found.formula}`;
-				builder.add(start, end, Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep, found.modify) }));
+				builder.add(start, end, Decoration.replace({ widget: new RollWidget(plugin, found.formula, key, sourcePath, found.keep, found.modify, line.number - 1, index) }));
 			});
 			if (line.to >= to || line.number >= state.doc.lines) break;
 			line = state.doc.line(line.number + 1);

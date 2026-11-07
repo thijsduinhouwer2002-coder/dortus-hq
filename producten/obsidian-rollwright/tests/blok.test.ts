@@ -188,7 +188,7 @@ describe("a result of more than one line or a block is shown as a block", () => 
 	it("from one line to a block on Enter", async () => {
 		const span = await mountWith(["Alinea Bravo.", "Alinea Bravo.\n\nAlinea Delta."]);
 		expect(span.classes.has(BLOCK_CLASS)).toBe(false);
-		span.listeners.keydown?.({ key: "Enter" });
+		span.listeners.keydown?.({ key: "Enter", preventDefault() {} });
 		await wait();
 		expect(span.classes.has(BLOCK_CLASS)).toBe(true);
 	});

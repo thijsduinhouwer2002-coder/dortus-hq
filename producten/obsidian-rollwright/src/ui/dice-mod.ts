@@ -1,7 +1,7 @@
 import type { EditorView } from "@codemirror/view";
 import { Modal, Notice, Setting, type App } from "obsidian";
 import type RollwrightPlugin from "../main";
-import { modifiedText, replacementAt } from "../rollers/modify";
+import { modifiedText, replacementInLine } from "../rollers/modify";
 import type { RollOutcome } from "../rollers/run";
 
 /** What a click on a dice-mod code does with the result it shows. */
@@ -72,32 +72,29 @@ export function readingModifier(plugin: RollwrightPlugin, target: HTMLElement, s
 }
 
 /**
- * Live Preview. Writes through the editor in one change, so undo takes it back. Right
- * before writing it checks that the same dice-mod code still starts where the widget is.
+ * Live Preview. Writes through the editor in one change, so undo takes it back. The widget
+ * knows its line (from 0) and its number on that line, as the key has them; right before
+ * writing it checks that the same dice-mod code is still there, as the reading view does.
+ * posAtDOM is not used: in Obsidian it does not always give the exact start of the code.
  */
-export function editorModifier(plugin: RollwrightPlugin, view: EditorView, target: HTMLElement, formula: string): ModifyHandler {
+export function editorModifier(plugin: RollwrightPlugin, view: EditorView, target: HTMLElement, formula: string, line: number, index: number): ModifyHandler {
 	return (outcome) => {
 		const text = modifiedText(outcome, plugin.settings.diceModFormula);
 		void plugin.confirmReplace(text).then((replace) => {
-			if (replace) replaceInEditor(view, target, formula, text);
+			if (replace) replaceInEditor(view, target, formula, line, index, text);
 		});
 	};
 }
 
-function replaceInEditor(view: EditorView, target: HTMLElement, formula: string, text: string): void {
-	// A widget that left the editor (redrawn, note closed) gives posAtDOM 0 or the end of the note.
+function replaceInEditor(view: EditorView, target: HTMLElement, formula: string, lineNumber: number, index: number, text: string): void {
+	// A widget that left the editor (note closed, other editor) writes nothing.
 	if (!target.isConnected || !view.contentDOM.contains(target)) {
 		new Notice(CHANGED_NOTICE);
 		return;
 	}
-	let at = -1;
-	try {
-		at = view.posAtDOM(target);
-	} catch {
-		at = -1;
-	}
-	const line = at >= 0 && at <= view.state.doc.length ? view.state.doc.lineAt(at) : null;
-	const change = line ? replacementAt(line.text, at - line.from, formula, text) : null;
+	const doc = view.state.doc;
+	const line = lineNumber >= 0 && lineNumber < doc.lines ? doc.line(lineNumber + 1) : null;
+	const change = line ? replacementInLine(line.text, index, formula, text) : null;
 	if (!line || !change) {
 		new Notice(CHANGED_NOTICE);
 		return;
