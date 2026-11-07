@@ -119,3 +119,5 @@ Bekeken: `licht-` en `donker-pro-melding.png` en `licht-` en `donker-pro-hint.pn
 Als die twee op main staan en de IDE-test groen is, geef ik akkoord zonder nieuwe ronde plaatjes, tenzij er iets aan het uiterlijk verandert. Het definitieve akkoord geldt voor de versie die wordt ingediend.
 
 Nagekeken door een controleur (agent, 16:27): eens met alle vier punten, uit de plaatjes en de code. Voegde toe dat ook de hint niet mag verschijnen bij Ctrl+zweven na de balloon (verwerkt in 1) en dat ik de registratie in de IDE eerder zelf noemde (verwerkt in 2). Kan-punten (na "Not now" geen klikbare weg meer naar de proef in die sessie; gemengde doelen) laat ik zo: rustig gaat voor.
+
+**Aanvulling 16:35:** IDE-run 42391151643 op main 61d663a groen, schermen in `schermen/jetbrains-bison-flex/main/` (RUN.txt klopt) gelijk aan die van tak `-l`. Oordeel blijft zoals hierboven.
