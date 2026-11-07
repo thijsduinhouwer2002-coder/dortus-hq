@@ -37,3 +37,4 @@
 - 7 nov, run 20:33, ook: Notion vervolg via Gumroad (3.000 producten uit juni 2026), nee blijft. Canva opnieuw: nee voor nu, cijfer 4, niet zelf te meten (robots.txt).
 - 7 nov, run 21:33: Steam, kleine bureaublad-apps (Desktop Companion, zelf toegevoegd) gemeten (399 plus 2.600 games). Ja als proef, cijfer 6. Controleur akkoord, 6 correcties. Wacht op besluit Hans. CodeCanyon niet te meten (403), ook door een andere Vera-run opgepakt.
 - 7 nov, run 21:33, ook: Steam software en tools (Utilities) gemeten (1.706). Nee voor nu, cijfer 4: veel zwakker dan bureaublad-apps. Controleur akkoord, 3 correcties.
+- 7 nov, run 21:32: Shopware Store zelf toegevoegd en gemeten (6.181 extensies). Nee voor nu, cijfer 3. Controleur akkoord na 5 correcties. CodeCanyon en PrestaShop niet te meten (403).
