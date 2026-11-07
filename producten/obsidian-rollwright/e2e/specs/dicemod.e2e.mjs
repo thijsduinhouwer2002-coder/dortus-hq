@@ -89,7 +89,12 @@ async function waitForVenster() {
 	await browser.waitUntil(async () => {
 		venster = await readVenster();
 		return venster !== null && venster.tekst !== null;
-	}, { timeout: 10000, timeoutMsg: "het vervangvenster ging niet open" });
+	}, { timeout: 10000, timeoutMsg: "het vervangvenster ging niet open" }).catch(async (e) => {
+		const meldingen = await browser.execute(() => Array.from(document.querySelectorAll(".notice")).map((n) => (n.textContent ?? "").trim()));
+		const focus = await browser.execute(() => `${document.activeElement?.tagName}.${document.activeElement?.className}`);
+		console.log("GEEN VENSTER. MELDINGEN:", JSON.stringify(meldingen), "FOCUS:", focus);
+		throw e;
+	});
 	console.log("VENSTER:", JSON.stringify(venster));
 	expect(venster.knoppen).toContain("Cancel");
 	expect(venster.knoppen).toContain("Replace");
@@ -133,9 +138,16 @@ async function waitForBestand(path, verwacht, wat, bewaar = true) {
 	await browser.waitUntil(async () => {
 		last = await leesBestand(path);
 		return last === verwacht;
-	}, { timeout: 15000, timeoutMsg: `${path} kreeg niet de verwachte inhoud (${wat})` }).catch((e) => {
+	}, { timeout: 15000, timeoutMsg: `${path} kreeg niet de verwachte inhoud (${wat})` }).catch(async (e) => {
 		console.log(`${path} NU:`, JSON.stringify(last));
 		console.log(`${path} VERWACHT:`, JSON.stringify(verwacht));
+		// Om te zien waar het misgaat: staat de wijziging wel in de editor, en welke melding gaf de plugin?
+		const extra = await browser.executeObsidian(({ app }) => ({
+			editor: app.workspace.activeEditor?.editor?.getValue() ?? null,
+			meldingen: Array.from(document.querySelectorAll(".notice")).map((n) => (n.textContent ?? "").trim()),
+			worpen: document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll").length,
+		}));
+		console.log(`${path} EDITOR EN MELDINGEN:`, JSON.stringify(extra));
 		throw e;
 	});
 	return last;
