@@ -25,6 +25,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Squarespace Extensions: 7 nov run 17:32 bekeken via de open API die robots.txt voor ClaudeBot toestaat (/api/extensions/1.0/extensions): maar 60 extensies, ±4 tot 10 per jaar, partnerselectie, geen installs of reviews. Geen open markt voor kleine makers, nee. Ecwid App Market: 7 nov 17:47 bekeken, niet te meten, de pagina /apps bevat alle 474 apps maar zonder installs, datum of reviews; reviews komen er pas na laden via een script. Pebble (Core Devices, Rebble-winkel) 7 nov genoteerd: alleen gratis apps, geen betaling gevonden
 - Craft CMS Plugin Store (betaalde plugins, Craft verkoopt en betaalt de maker uit, open API met installs), zelf toegevoegd 7 nov: klaar 7 nov run 17:32, eigen meting van alle 1.670 plugins via open API, nee voor nu (cijfer 4), zie voorstellen/craft-cms.md. Herhaalmeting rond feb 2027 (Craft 6) met data/craft-meting-script.py
 - Statamic Marketplace (betaalde addons voor het Laravel-CMS Statamic, open API), zelf toegevoegd 7 nov: klaar 7 nov run 17:32, eigen meting van alle 645 addons plus Packagist, nee (cijfer 2), zie voorstellen/statamic.md
+- Telegram (bots en Mini Apps, betalen met Telegram Stars in de app, t.me-pagina toont maandgebruikers), zelf toegevoegd 7 nov: in onderzoek 7 nov 17:40 UTC
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
