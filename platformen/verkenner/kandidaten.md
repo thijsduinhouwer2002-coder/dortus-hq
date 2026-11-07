@@ -25,7 +25,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Sketch (plugins)
 - Zapier en Make (integraties)
 - Neovim (plugins)
-- Open VSX (Cursor, Windsurf)
+- Open VSX (Cursor, Windsurf). in onderzoek 7 nov 12:50 UTC
 - Trello (opnieuw: bereik was onbekend)
 - Roblox Creator Store: klaar 6 nov, nog niet klaar (cijfer 4), zie onderzocht.md
 - Unity Asset Store: klaar 6 nov run 22:31, eigen meting, nee voor nu (cijfer 3), zie onderzocht.md. Herhaalmeting kan met data/unity-haal-script.py
