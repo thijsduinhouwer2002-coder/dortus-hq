@@ -39,9 +39,7 @@
 /* A result of more than one line or a block (heading, list, quote, table): a block of its own under
    the line, same border and background, plain text size, no list bullets. widget.ts sets the class. */
 .rollwright-roll.rollwright-roll-block {
-	/* inline-flex met volle breedte: valt zelf onder de regel, maar laat in Live Preview geen lege regel achter. */
-	display: inline-flex;
-	vertical-align: top;
+	display: flex;
 	align-items: flex-start;
 	box-sizing: border-box;
 	width: 100%;
@@ -73,8 +71,6 @@
 	display: block;
 	flex: 1;
 	min-width: 0;
-	/* Live Preview zet pre-wrap op de regel; dan worden de regeleinden tussen de blokken lege regels. */
-	white-space: normal;
 }
 
 .rollwright-roll-block .rollwright-value :is(p, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, pre) {
