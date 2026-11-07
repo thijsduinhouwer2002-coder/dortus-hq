@@ -164,6 +164,7 @@ async function sluitBron() {
 /** Ctrl-klik op worp i: Bron.md opent in een nieuw tabblad en de uitkomst blijft precies gelijk. */
 async function checkCtrlKlik(view, i, shot) {
 	const voor = (await readRolls(view))[i].value;
+	const historieVoor = await laatsteWorp();
 	const tabsVoor = await markdownTabs();
 	// Merk het tabblad waarin geklikt wordt, zodat het na het openen van Bron.md terug te vinden is.
 	await browser.executeObsidian(({ app }) => {
@@ -183,19 +184,24 @@ async function checkCtrlKlik(view, i, shot) {
 	console.log(`NA CTRL-KLIK OP WORP ${i} (${view}):`, JSON.stringify(tabs), "eerst:", JSON.stringify(tabsVoor));
 	expect(tabs.length).toBe(tabsVoor.length + 1);
 	await browser.saveScreenshot(`${SHOTS}/${shot}`);
-	// Het nieuwe tabblad is actief; de oude notitie staat nog open in het eerste tabblad.
-	// Daar moet de uitkomst dezelfde zijn, met het merkteken nog op het oude element.
-	const na = await browser.execute((sel, i, zws) => {
-		const r = document.querySelectorAll(`[data-e2e-tab] ${sel} .rollwright-roll`)[i];
-		if (!r) return null;
-		const v = r.querySelector(".rollwright-value");
-		return { value: (v?.textContent ?? "").split(zws).join("").trim(), old: v?.getAttribute("data-e2e-oud") === "1" };
-	}, view, i, ZWS);
-	console.log("UITKOMST VOOR EN NA:", JSON.stringify(voor), JSON.stringify(na));
-	expect(na).not.toBe(null);
-	expect(na.value).toBe(voor);
-	expect(na.old).toBe(true);
+	// Geen nieuwe worp: de laatste regel in de geschiedenis is dezelfde als voor de klik.
+	const historieNa = await laatsteWorp();
+	console.log("LAATSTE WORP IN GESCHIEDENIS VOOR EN NA:", historieVoor, historieNa);
+	expect(historieNa).toBe(historieVoor);
+	// Terug naar het tabblad waarin geklikt werd: de uitkomst is dezelfde.
 	await sluitBron();
+	await browser.executeObsidian(({ app }) => {
+		const leaf = app.workspace.getLeavesOfType("markdown").find((l) => l.view?.containerEl.hasAttribute("data-e2e-tab"));
+		if (leaf) app.workspace.setActiveLeaf(leaf, { focus: true });
+	});
+	const rolls = await waitForRolls(view, AANTAL);
+	console.log("UITKOMST VOOR EN NA:", JSON.stringify(voor), JSON.stringify(rolls[i].value), "zelfde element:", rolls[i].old);
+	expect(rolls[i].value).toBe(voor);
+}
+
+/** De laatste worp in de geschiedenis van Rollwright, als tekst. */
+async function laatsteWorp() {
+	return browser.executeObsidian(({ app }) => JSON.stringify(app.plugins.plugins.rollwright?.settings?.history?.[0] ?? null));
 }
 
 describe("Rollwright: secties en regels in de echte Obsidian", function () {
