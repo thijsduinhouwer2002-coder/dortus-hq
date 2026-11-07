@@ -94,7 +94,7 @@ var obsidianRequest = async (request) => {
 var LICENSE_MESSAGES = {
   invalid: "This key is not valid. If you rotated it, paste the new key from your Polar purchases.",
   "no-connection": "Could not reach Polar, try again.",
-  "our-error": "Something is wrong on our side, please contact support@dortus.com."
+  "our-error": "Something is wrong on our side, please contact thijs@dortus.com."
 };
 var POLAR_IDS = { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL };
 function paymentReady(ids = POLAR_IDS) {
