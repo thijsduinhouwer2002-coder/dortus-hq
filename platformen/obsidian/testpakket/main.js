@@ -2185,6 +2185,7 @@ function mountRoll(plugin, target, formula, key, sourcePath, component, keep = f
 }
 
 // src/ui/live-preview.ts
+var components = /* @__PURE__ */ new WeakMap();
 var RollWidget = class extends import_view.WidgetType {
   constructor(plugin, formula, key, sourcePath, keep, modify, line, index) {
     super();
@@ -2196,7 +2197,6 @@ var RollWidget = class extends import_view.WidgetType {
     this.modify = modify;
     this.line = line;
     this.index = index;
-    this.component = null;
   }
   // The key holds line and index, so a code on another line or place gets a new widget with the right line and index.
   eq(other) {
@@ -2204,16 +2204,17 @@ var RollWidget = class extends import_view.WidgetType {
   }
   toDOM(view) {
     const span = activeDocument.createElement("span");
-    this.component = new import_obsidian5.Component();
-    this.component.load();
+    const component = new import_obsidian5.Component();
+    component.load();
+    components.set(span, component);
     const modify = this.modify ? editorModifier(this.plugin, view, span, this.formula, this.line, this.index) : void 0;
-    mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, this.component, this.keep, modify);
+    mountRoll(this.plugin, span, this.formula, this.key, this.sourcePath, component, this.keep, modify);
     return span;
   }
-  destroy() {
+  destroy(dom) {
     var _a;
-    (_a = this.component) == null ? void 0 : _a.unload();
-    this.component = null;
+    (_a = components.get(dom)) == null ? void 0 : _a.unload();
+    components.delete(dom);
   }
   ignoreEvent() {
     return true;
