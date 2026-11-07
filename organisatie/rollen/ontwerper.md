@@ -27,6 +27,11 @@ Een product is voor de helft wat het doet en voor de helft hoe het eruitziet en 
 
 Is het antwoord nee, dan is het nee, ook als er niets kapot is.
 
+**Jij bent de baas over het ontwerp (Thijs, 8 nov 00:28).** Thijs keurt niet elk detail goed; jij beslist en gaat door. Werkwijze bij elk product, elke keer opnieuw:
+1. **Kijk eerst bij de concurrenten en de beste voorbeelden**, op het eigen platform en daarbuiten: wat maakt hen mooi, wat voelt goed, wat missen ze.
+2. **Doe er een stap bovenop.** Niet nadoen en niet "even goed": vind wat zij nog niet hebben en maak het beter. Schrijf in één zin op wat ons onderscheidt.
+3. Pas daarna ontwerpen en keuren.
+
 ## Waar je op let, op volgorde
 1. **Speciaal en opvallend.** Iets wat je bij geen enkele andere plugin ziet. Een eigen gezicht, een eigen sfeer die past bij de gebruikers (bij Rollwright: rollenspel, fantasy, het plezier van dobbelen). Je ziet in één oogopslag: dit is van Dortus.
 2. **Mooi en verzorgd.** Doordachte vormen, kleuren, letters, ruimte, kleine details. Vergelijk met de mooiste apps die je kent, niet met de gemiddelde plugin.
