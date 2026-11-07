@@ -241,7 +241,7 @@ describe("plain click and Enter are unchanged", () => {
 		await wait();
 		span.listeners.click?.(press());
 		dice.listeners.click?.(press());
-		dice.listeners.keydown?.({ key: "Enter", ctrlKey: true });
+		dice.listeners.keydown?.({ key: "Enter", ctrlKey: true, preventDefault() {} });
 		await wait();
 		expect(fresh).toHaveBeenCalledTimes(3);
 		expect(app.opened).toEqual([]);

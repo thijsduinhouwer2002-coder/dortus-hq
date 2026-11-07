@@ -36,7 +36,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview. Na het renderen bepaalt `isBlockValue` of de uitkomst meer is dan één gewone regel (meer elementen, geen `<p>`, of een `<br>`); dan krijgt het vakje `rollwright-roll-block` (`BLOCK_CLASS`), bij elke nieuwe uitkomst opnieuw bepaald. Dobbelstenen en fouten nooit.
 - `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
 - `live-preview.ts`: hetzelfde in de editor (CodeMirror).
-- `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie.
+- `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie. In Live Preview krijgt de widget zijn regel en nummer op de regel mee (zoals in de sleutel) en schrijft met `replacementInLine` uit `rollers/modify.ts` in één `view.dispatch`; geen `posAtDOM`.
 - `history-view.ts`: het zijpaneel met de geschiedenis van worpen.
 - `modal.ts`: venster om snel een formule te gooien.
 - `settings.ts`: het instellingenscherm. Eén lijst van rijen (`sections()`: naam, uitleg en de velden en knoppen met hun opslaan) is de enige bron. `display()` tekent die rijen voor Obsidian onder 1.13; `getSettingDefinitions()` geeft dezelfde rijen als definities met `render`, zodat ze in de zoekfunctie van Obsidian 1.13 en later staan. Na toevoegen, weghalen, importeren of Activate tekent de tab opnieuw met `update()` (1.13 en later) of `display()` (ouder), gekozen met `requireApiVersion`. De groep Skins is: Skin, een rij zonder naam met het voorbeeld van de skins, Get the paid skins, License key (zonder Polar-ids alleen Skin, voorbeeld en "coming soon").
