@@ -616,3 +616,30 @@ button.rollwright-history-clear:not(.clickable-icon) {
 		animation: none !important;
 	}
 }
+
+/* Doortellen na een klik (ontwerp-v2 punt 2.1, klus 4). De echte uitkomst blijft als tekst staan en
+   houdt de ruimte vast; het getelde getal ligt er bovenop, dus niets eromheen schuift. */
+.rollwright-value[data-rollwright-tick] {
+	position: relative;
+	-webkit-text-fill-color: transparent;
+}
+
+.rollwright-value[data-rollwright-tick]::after {
+	content: attr(data-rollwright-tick);
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	-webkit-text-fill-color: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rollwright-value[data-rollwright-tick] {
+		-webkit-text-fill-color: currentColor;
+	}
+
+	.rollwright-value[data-rollwright-tick]::after {
+		content: none;
+	}
+}

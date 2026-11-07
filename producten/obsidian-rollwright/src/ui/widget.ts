@@ -1,5 +1,5 @@
 import { Component, Keymap, MarkdownRenderer, Notice, setIcon, setTooltip, TFile, type PaneType } from "obsidian";
-import { formatResult } from "../engine";
+import { formatResult, rangeOf } from "../engine";
 import type RollwrightPlugin from "../main";
 import { defuseRolls } from "../rollers/defuse";
 import { stampText, type Extreme } from "../rollers/extreme";
@@ -93,7 +93,49 @@ function showError(target: HTMLElement, formula: string, error: unknown): void {
 	target.setAttribute("data-rollwright-error", message);
 }
 
-async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component): Promise<void> {
+/** Pauses between the counted numbers: 6 steps, slower each time, ±300 ms in all. */
+export const TICK_STEPS = [25, 35, 45, 55, 65, 75];
+/** On the value while it counts: the number shown on top of the real one (styles.css). */
+export const TICK_ATTR = "data-rollwright-tick";
+
+/** The window to count in, or null when there is none with matchMedia (tests, odd hosts): then nothing counts. */
+function motionWindow(): Window | null {
+	if (typeof activeWindow === "undefined" || typeof activeWindow.matchMedia !== "function") return null;
+	return activeWindow.matchMedia("(prefers-reduced-motion: reduce)").matches ? null : activeWindow;
+}
+
+/**
+ * Ontwerp-v2 punt 2.1: after a click the number counts through a few random values within the
+ * range of the formula and lands on the real result. Only visual: the real text stays in the
+ * element all the time (the counted number is an attribute that styles.css shows on top of it),
+ * so anyone reading the page, the history or the stamp sees the real result at once.
+ * Gives back a function that stops it, or null when nothing counts.
+ */
+export function startTicking(value: HTMLElement, range: { min: number; max: number } | null, random: () => number = Math.random): (() => void) | null {
+	const win = range === null ? null : motionWindow();
+	if (range === null || win === null) return null;
+	const span = range.max - range.min;
+	if (!Number.isFinite(span) || span < 1) return null;
+	let timer: number | null = null;
+	let step = 0;
+	const stop = (): void => {
+		if (timer !== null) win.clearTimeout(timer);
+		timer = null;
+		value.removeAttribute(TICK_ATTR);
+	};
+	const next = (): void => {
+		if (step >= TICK_STEPS.length) {
+			stop();
+			return;
+		}
+		value.setAttribute(TICK_ATTR, String(range.min + Math.floor(random() * (span + 1))));
+		timer = win.setTimeout(next, TICK_STEPS[step++]);
+	};
+	next();
+	return stop;
+}
+
+async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component): Promise<HTMLElement | null> {
 	target.empty();
 	target.removeClass("rollwright-error");
 	clearResultClasses(target);
@@ -116,10 +158,11 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 		// Decided again on every new result, so a click from a block to one line (or back) fits.
 		// A render that finished after a newer result was shown no longer sits in target:
 		// then class and tooltip stay those of the newer result.
-		if (value.parentElement !== target) return;
+		if (value.parentElement !== target) return null;
 		if (isBlockValue(value)) target.addClass(BLOCK_CLASS);
 	}
 	setTooltip(target, tooltipFor(outcome));
+	return value;
 }
 
 /**
@@ -147,11 +190,25 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	}
 
 	let shown: RollOutcome | null = null;
+	// Set by a click just before it rolls: the next result drawn counts up to its number.
+	let tickNext = false;
+	let stopTick: (() => void) | null = null;
+	const stopTicking = (): void => {
+		stopTick?.();
+		stopTick = null;
+	};
+	component.register(stopTicking);
 	const show = async (outcome: RollOutcome): Promise<void> => {
 		// The listener below and the click itself both hand over the same result: draw it once.
 		if (outcome === shown) return;
 		shown = outcome;
-		await showOutcome(plugin, target, outcome, sourcePath, component);
+		stopTicking();
+		const tick = tickNext;
+		tickNext = false;
+		const value = await showOutcome(plugin, target, outcome, sourcePath, component);
+		if (!tick || value === null || shown !== outcome || outcome.kind !== "dice" || outcome.total === undefined || outcome.estimated || outcome.average) return;
+		const context = plugin.rollContext(sourcePath);
+		stopTick = startTicking(value, rangeOf(outcome.formula, { names: context.aliases, defaultSides: context.defaultSides, defaultCount: context.defaultCount }));
 	};
 	// A click hands back its result only after the history is saved. When two clicks come back in
 	// reverse order, the older one must not cover the newer one, which the listener already drew.
@@ -162,6 +219,8 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	};
 	const fail = (error: unknown): void => {
 		shown = null;
+		tickNext = false;
+		stopTicking();
 		showError(target, formula, error);
 	};
 
@@ -170,6 +229,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 			if (!modify) {
 				// Before the new result is drawn, so its content comes in with the motion of styles.css.
 				target.addClass(ROLLED_CLASS);
+				tickNext = true;
 				await showIfNewest(await plugin.freshResult(key, formula, sourcePath, keep));
 				return;
 			}
