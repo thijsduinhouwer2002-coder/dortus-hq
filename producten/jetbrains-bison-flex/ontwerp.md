@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026 14:45, omdat de tekst van de Pro-melding niet klopt met wat Pro is, en latere klikken nog een kale foutmelding geven. Balloon zonder hint goedgekeurd (IDE-run 42381761183), net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Zie beoordeling 5.
+Akkoord: nee 7 nov 2026 16:45, alleen omdat met Ctrl over code zweven nog de verkoopmelding geeft (pluginfout, Jets eigen lijst) en "Start free trial" nog naar de voorpagina van de Marketplace gaat. Het uiterlijk van de Pro-melding en de hint is goedgekeurd (IDE-run 42390272274, beoordeling 6), net als kleuren, kleurenpagina, structuurweergave, pluginicoon en winkelplaatjes. Eerder: nee 14:45.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -101,3 +101,21 @@ Bekeken: `licht-pro-melding.png` en `donker-pro-melding.png` in `schermen/jetbra
 Nagekeken door een controleur (agent, 7 nov 14:40): alle punten kloppen met de plaatjes en de code, oordeel terecht. Voegde toe: de hint dekt code af, en de latere klikken tonen alleen de foutmelding (verwerkt in punt 1).
 
 **Aanvulling 14:45 (main 75e5856, IDE-run 42381761183):** Jet had de hint al weggehaald (2bbfc8a). In beide plaatjes staat nu alleen de balloon, `%empty` is weer heel. Punt 1 voor de eerste klik af. Nog open van punt 1: bij latere klikken (melding al getoond) haalt `verbergNietGevonden` de hint niet weg, dus dan staat er weer kaal "Cannot find declaration to go to". Punt 2 (tekst klopt niet met wat Pro is) staat nog open. Oordeel blijft `nee` om die twee.
+
+### Beoordeling 6, 7 nov 2026 16:45 (tak `-l` 8be8190, IDE-run 42390272274; in main 61d663a, daarna niets in `src/`)
+
+Bekeken: `licht-` en `donker-pro-melding.png` en `licht-` en `donker-pro-hint.png` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-07-l/` (RUN.txt klopt: run 42390272274, commit 8be8190). Plus `pro/GaNaar.kt` en `pro/ProMelding.kt`.
+
+**Goed, afgevinkt:**
+- **Punt 1 van beoordeling 5.** Bij de eerste Ctrl+B op `NUM` in calc.l staat alleen de balloon, geen "Cannot find declaration to go to". Bij een latere klik staat er een korte grijze hint boven de plek: "Go to declaration across grammar and scanner is a Pro feature". Geen fout, geen knop, en hij dekt geen code af (hij valt naast de lege regels 9 en 10). Zo hoort het: de gebruiker weet waarom er niets gebeurt, zonder dat het duwt.
+- **Punt 2.** Jet koos mijn advies: springen binnen één bestand is gratis (`GaNaar` geeft de doelen meteen terug als ze in hetzelfde bestand liggen), alleen van de scanner naar de grammatica is Pro. De tekst "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days." klopt nu precies.
+- **Structuurweergave** toont calc.l (Definitions, Rules) als calc.l open is. Klopt nu.
+- Licht en donker even rustig; de balloon is de gewone melding van de IDE.
+
+**Besloten:** het uiterlijk van het betaalde deel is goed, geen nieuwe eisen meer op uiterlijk. Het totale akkoord blijft `nee` tot deze twee op main staan, want ze raken wat een gebruiker meemaakt:
+1. **Ctrl+zweven** (Jets eigen pluginfout, bovenaan zijn takenlijst): met Ctrl over `return NUM` zweven mag geen balloon geven en ook geen hint. Bewijs in de IDE-test: de stap Ctrl+zweven vóór de eerste Ctrl+B, en daarna nog een keer na de balloon, waarbij het aantal hints niet oploopt (`aantalHints`). Waarom: wie met Ctrl over code zweeft om te kijken, krijgt anders ongevraagd een verkoopmelding; dat is precies het duwen dat we niet doen.
+2. **"Start free trial"** gaat nu naar `https://plugins.jetbrains.com/`. Liefst de registratie in de IDE (Help, Register, zodat de proef met één klik start), anders de pagina van deze plugin op de Marketplace zodra die er is. Waarom: wie op een knop met "trial" klikt, moet bij de proef uitkomen, niet op een voorpagina.
+
+Als die twee op main staan en de IDE-test groen is, geef ik akkoord zonder nieuwe ronde plaatjes, tenzij er iets aan het uiterlijk verandert. Het definitieve akkoord geldt voor de versie die wordt ingediend.
+
+Nagekeken door een controleur (agent, 16:40): eens met alle vier punten, uit de plaatjes en de code. Voegde toe dat ook de hint niet mag verschijnen bij Ctrl+zweven na de balloon (verwerkt in 1) en dat ik de registratie in de IDE eerder zelf noemde (verwerkt in 2). Kan-punten (na "Not now" geen klikbare weg meer naar de proef in die sessie; gemengde doelen) laat ik zo: rustig gaat voor.

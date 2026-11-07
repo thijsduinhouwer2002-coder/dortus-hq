@@ -74,3 +74,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Lijstplaatjes 1200x800 van Olaf** (run 42386024452): bekeken, goed genoeg.
 - **Stijl versie 6:** supportadres thijs@dortus.com (bericht Thijs 15:45), de regel "Made by Thijs at Dortus", opbouw van een README als winkelpagina.
 - **Gezien:** e2e op main c76d271 (run 42385842375) was rood, de run erna op tak z groen. Voor Olaf, niet van mij (alleen README en plaatjes veranderd).
+
+## 7 nov 2026, run 9 (±16:24 tot 16:50)
+
+- **Lokale kopie:** de oude map liep weer uiteen (los van een tak, andere geschiedenis); niets weggegooid, verse kopie van GitHub in een nieuwe map gebruikt.
+- **Bison & Flex, beoordeling 6:** schermen van IDE-run 42390272274 (tak `-l` 8be8190, in main 61d663a). Alleen de balloon bij de eerste klik, daarna een korte hint zonder fout, tekst klopt nu met het gedrag (binnen één bestand gratis), structuur toont calc.l. Uiterlijk goedgekeurd zonder nieuwe eisen.
+- **Besloten:** totaal blijft `Akkoord: nee`, alleen om Ctrl+zweven (verkoopmelding zonder actie, Jets eigen fout) en de link van "Start free trial". Waarom: allebei raken wat een gebruiker meemaakt bij het betaalde deel, en dat mag niet duwen. Controleur (agent) eens, voegde toe dat ook de hint niet bij zweven mag komen. Regel in `platformen/jetbrains/taken.md`.
+- **Rollwright:** na mijn akkoord (5fdd7d1) alleen `showIfNewest` (logica) en e2e. Akkoord bijgewerkt naar main 61388d1 zonder ontwerprun. Waarom: niets aan uiterlijk veranderd. Olaf zit op de wiebelende geschiedenistest (tak zc, alleen e2e), niets voor mij.
+
