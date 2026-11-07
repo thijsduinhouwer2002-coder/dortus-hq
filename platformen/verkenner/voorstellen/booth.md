@@ -47,3 +47,6 @@ Een kleine Unity-editortool voor VRChat-avatars, niet-destructief en werkend met
 
 ## Wat nog gemeten moet worden voor een ja
 1. **Verhouding likes en verkoop bij tools:** meer makers zoeken die cijfers delen (note.com, X, Fanbox).
+
+## Extra bron (geen tool)
+- DERDEN (note.com, kg13, 5 apr 2026): een avatar van ¥800 verkocht op BOOTH 23 keer in 4,5 maand (¥14.500 bruto), en in de nieuwe VRChat Avatar Marketplace 85 keer in een maand. De markt in VRChat zelf kan dus voor sommige spullen meer opleveren dan BOOTH. Staat als nieuwe kandidaat in kandidaten.md.
