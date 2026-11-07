@@ -91,7 +91,7 @@ describe("settings search: getSettingDefinitions()", () => {
 	it("without Polar ids: no Buy, no Activate, no key field, only coming soon", async () => {
 		const { tab } = await load(EMPTY);
 		renderDefinitions(tab.getSettingDefinitions());
-		expect(buttons.map((b) => b.text)).not.toContain("Buy");
+		expect(buttons.map((b) => b.text)).not.toContain("Buy for $6");
 		expect(buttons.map((b) => b.text)).not.toContain("Activate");
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).toBe(COMING_SOON);
@@ -101,7 +101,7 @@ describe("settings search: getSettingDefinitions()", () => {
 	it("with Polar ids: typing unlocks nothing, Activate does and redraws with update()", async () => {
 		const { plugin, tab, stub } = await load(IDS, granted());
 		renderDefinitions(tab.getSettingDefinitions());
-		expect(buttons.map((b) => b.text)).toContain("Buy");
+		expect(buttons.map((b) => b.text)).toContain("Buy for $6");
 		settingsMade.find((s) => s.name === "License key")?.texts[0]?.("KEY-1");
 		expect(plugin.isLicensed).toBe(false);
 		expect(plugin.settings.licenseKey).toBe("");

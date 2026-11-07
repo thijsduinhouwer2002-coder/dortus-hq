@@ -18,6 +18,12 @@ function isDiceWord(word: string): boolean {
 	return true;
 }
 
+/** For a token that cannot stand where it is. */
+function unexpected(token: Token): DiceError {
+	const fix = token.value === ")" ? "Remove it or add the ( it closes, like (2d6 + 1) * 2." : "Remove it or put + - * / before it, like 2d6 + 3.";
+	return new DiceError(`Unexpected "${token.value}" at position ${token.pos + 1}. ${fix}`);
+}
+
 function mapComparator(value: string): { op: CompareOp; score: 1 | -1 } {
 	switch (value) {
 		case "=<":
@@ -44,10 +50,10 @@ class Parser {
 	) {}
 
 	parse(): Node {
-		if (this.tokens.length === 0) throw new DiceError("The formula is empty");
+		if (this.tokens.length === 0) throw new DiceError("The formula is empty. Write a formula after dice:, like 2d6 + 1.");
 		const node = this.additive();
 		const left = this.peek();
-		if (left) throw new DiceError(`Unexpected "${left.value}" at position ${left.pos + 1}`);
+		if (left) throw unexpected(left);
 		return node;
 	}
 
@@ -105,16 +111,23 @@ class Parser {
 	}
 
 	private enter(): void {
-		if (++this.depth > LIMITS.parseDepth) throw new DiceError("The formula is nested too deeply");
+		if (++this.depth > LIMITS.parseDepth) throw new DiceError("The formula is nested too deeply. Use fewer brackets, like (2d6 + 1) * 2.");
+	}
+
+	/** Names the last token, so the message shows where the formula stops. */
+	private endsTooEarly(): DiceError {
+		const last = this.tokens[this.tokens.length - 1]?.value ?? "";
+		if (last === "") return new DiceError("The formula ends too early. Add a number or a die at the end, like 2d6 + 1.");
+		return new DiceError(`The formula ends too early: it ends with ${last}. Add a number or a die after it, like 2d6 + 1.`);
 	}
 
 	private primary(): Node {
 		const token = this.peek();
-		if (!token) throw new DiceError("The formula ends too early");
+		if (!token) throw this.endsTooEarly();
 		if (token.type === "num") {
 			this.index++;
 			const value = Number(token.value);
-			if (!Number.isSafeInteger(Math.trunc(value))) throw new DiceError(`The number ${token.value} is too large`);
+			if (!Number.isSafeInteger(Math.trunc(value))) throw new DiceError(`The number ${token.value} is too large. Use a number with at most 15 digits, like 1000000.`);
 			const next = this.peek();
 			if (next?.type === "word" && (next.value.charAt(0) === "d" || next.value.charAt(0) === "D") && isDiceWord(next.value)) {
 				return this.dice({ type: "number", value });
@@ -126,7 +139,7 @@ class Parser {
 			this.enter();
 			const inner = this.additive();
 			this.depth--;
-			if (!this.isSym(")")) throw new DiceError("A closing bracket is missing");
+			if (!this.isSym(")")) throw new DiceError("A closing bracket is missing. Add ) after the group, like (2d6 + 1) * 2.");
 			this.index++;
 			const next = this.peek();
 			if (next?.type === "word" && isDiceWord(next.value)) return this.dice(inner);
@@ -141,7 +154,7 @@ class Parser {
 			this.index++;
 			return { type: "name", name: token.value };
 		}
-		throw new DiceError(`Unexpected "${token.value}" at position ${token.pos + 1}`);
+		throw unexpected(token);
 	}
 
 	private dice(count: Node | null): Node {
@@ -173,7 +186,7 @@ class Parser {
 				this.index++;
 				if (!/^[0-9]+$/.test(token.value)) throw new DiceError("Digit dice need a whole number, such as d66%");
 				const digits = token.value.split("").map(Number);
-				if (digits.includes(0)) throw new DiceError(`d${token.value}% has a die with zero sides`);
+				if (digits.includes(0)) throw new DiceError(`d${token.value}% has a die with zero sides. Use the digits 1 to 9, like d66%.`);
 				return { kind: "digits", digits };
 			}
 			return { kind: "number", sides: this.wholeNumber(token, "The number of sides") };
@@ -214,14 +227,14 @@ class Parser {
 			throw new DiceError("Write custom dice as d[min, max] or d[a, b, c]");
 		}
 		const [first, second] = values;
-		if (first === undefined || second === undefined) throw new DiceError("Custom dice need at least two numbers");
+		if (first === undefined || second === undefined) throw new DiceError("Custom dice need at least two numbers. Write d[min, max] or d[a, b, c], like d[1, 4].");
 		if (values.length === 2) return { kind: "range", min: Math.min(first, second), max: Math.max(first, second) };
 		return { kind: "faces", faces: values };
 	}
 
 	private wholeNumber(token: Token, what: string): number {
 		const value = Number(token.value);
-		if (!Number.isInteger(value)) throw new DiceError(`${what} must be a whole number, not ${token.value}`);
+		if (!Number.isInteger(value)) throw new DiceError(`${what} must be a whole number, not ${token.value}. Leave out the decimals, like 2d6 or 4d6kh3.`);
 		return value;
 	}
 
@@ -239,7 +252,7 @@ class Parser {
 			} else if (token.type === "word") {
 				const lower = token.value.toLowerCase();
 				const match = MODIFIER_WORDS.find((m) => lower.startsWith(m));
-				if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}`);
+				if (!match) throw new DiceError(`Unknown modifier "${token.value}" at position ${token.pos + 1}. Use kh, kl, dh, dl, r, u, s or !, like 4d6kh3.`);
 				this.consumeWordPart(token, match.length);
 				modifiers.push(this.wordModifier(match));
 			} else {
@@ -294,7 +307,7 @@ class Parser {
 			return LIMITS.repeats;
 		}
 		const count = this.optionalCount();
-		if (count > LIMITS.repeats) throw new DiceError(`A die can repeat at most ${LIMITS.repeats} times`);
+		if (count > LIMITS.repeats) throw new DiceError(`A die can repeat at most ${LIMITS.repeats} times. Use a smaller number, like 1d6!10.`);
 		return count;
 	}
 
@@ -305,10 +318,10 @@ class Parser {
 			const token = this.peek();
 			if (token?.type !== "cmp") return conditions;
 			const { op, score } = mapComparator(token.value);
-			if (score === -1) throw new DiceError(`"${token.value}" only works for counting, not on ! or r`);
+			if (score === -1) throw new DiceError(`"${token.value}" only works for counting, not on ! or r. Use it for counting, like 5d10>=8-=1.`);
 			this.index++;
 			const value = this.peek();
-			if (value?.type !== "num") throw new DiceError(`A number is missing after "${token.value}"`);
+			if (value?.type !== "num") throw new DiceError(`A number is missing after "${token.value}". Add one, like 1d6!>=5.`);
 			this.index++;
 			conditions.push({ op, value: Number(value.value) });
 		}
@@ -338,13 +351,13 @@ class Parser {
 			this.index++;
 			return { type: "dice", count: null, sides: this.sides(), modifiers: [] };
 		}
-		throw new DiceError(`A number is missing after "${comparator}"`);
+		throw new DiceError(`A number is missing after "${comparator}". Add one, like 5d10>=8.`);
 	}
 }
 
 export function parseFormula(formula: string, names: Iterable<string> = []): Node {
 	if (formula.length > LIMITS.formulaLength) {
-		throw new DiceError(`The formula is longer than ${LIMITS.formulaLength} characters`);
+		throw new DiceError(`The formula is longer than ${LIMITS.formulaLength} characters. Save parts of it as named formulas and use their names, like 1d20 + atk.`);
 	}
 	return new Parser(tokenize(formula), new Set(names)).parse();
 }

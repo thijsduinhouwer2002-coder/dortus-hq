@@ -69,7 +69,7 @@ describe("1: when a Polar id is empty", () => {
 		const { plugin } = await load({ ids: EMPTY, stored: { licenseKey: "KEY-1", licenseCheckedAt: START, skin: "arcane" } });
 		expect(plugin.isLicensed).toBe(false);
 		new RollwrightSettingTab(plugin.app, plugin).display();
-		expect(buttons.map((b) => b.text)).not.toContain("Buy");
+		expect(buttons.map((b) => b.text)).not.toContain("Buy for $6");
 		expect(buttons.map((b) => b.text)).not.toContain("Activate");
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).toBe(COMING_SOON);
@@ -92,7 +92,7 @@ describe("1b: the shipped Polar constants", () => {
 	it("show the buy button and the key field with an Activate button", async () => {
 		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL } });
 		new RollwrightSettingTab(plugin.app, plugin).display();
-		expect(buttons.map((b) => b.text)).toContain("Buy");
+		expect(buttons.map((b) => b.text)).toContain("Buy for $6");
 		expect(buttons.map((b) => b.text)).toContain("Activate");
 		const key = settingsMade.find((s) => s.name === "License key");
 		expect(key?.desc).not.toBe(COMING_SOON);
@@ -104,7 +104,7 @@ describe("1b: the shipped Polar constants", () => {
 		vi.stubGlobal("activeWindow", { open });
 		const { plugin } = await load({ ids: { organizationId: POLAR_ORG_ID, benefitId: POLAR_BENEFIT_ID, buyUrl: BUY_URL } });
 		new RollwrightSettingTab(plugin.app, plugin).display();
-		buttons.find((b) => b.text === "Buy")?.press();
+		buttons.find((b) => b.text === "Buy for $6")?.press();
 		expect(open).toHaveBeenCalledWith(BUY_URL);
 	});
 });
@@ -140,7 +140,7 @@ describe("2: a valid key", () => {
 		expect(plugin.settings.licenseKey).toBe("");
 		buttons.find((b) => b.text === "Activate")?.press();
 		await vi.waitFor(() => expect(plugin.isLicensed).toBe(true));
-		expect(buttons.map((b) => b.text)).toContain("Buy");
+		expect(buttons.map((b) => b.text)).toContain("Buy for $6");
 	});
 
 	it("pressing Activate twice quickly asks Polar once", async () => {
@@ -160,7 +160,7 @@ describe("2: a valid key", () => {
 		vi.stubGlobal("activeWindow", { open });
 		const { plugin } = await load();
 		new RollwrightSettingTab(plugin.app, plugin).display();
-		buttons.find((b) => b.text === "Buy")?.press();
+		buttons.find((b) => b.text === "Buy for $6")?.press();
 		expect(open).toHaveBeenCalledWith(IDS.buyUrl);
 	});
 

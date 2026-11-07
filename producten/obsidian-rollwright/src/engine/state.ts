@@ -1,6 +1,6 @@
 import { defaultRandom } from "./random";
 import type { Faces } from "./faces";
-import { DiceError, LIMITS, newBudget, type Budget, type RandomInt, type RollOptions } from "./types";
+import { DiceError, LIMITS, newBudget, TOO_MANY_ROLLS_MESSAGE, type Budget, type RandomInt, type RollOptions } from "./types";
 
 export interface Die {
 	value: number;
@@ -22,7 +22,7 @@ export interface State {
 
 function spend(state: State): void {
 	if (++state.budget.rolls > LIMITS.rollsPerFormula) {
-		throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
+		throw new DiceError(TOO_MANY_ROLLS_MESSAGE);
 	}
 }
 
@@ -32,7 +32,7 @@ export function rollDie(faces: Faces, state: State): Die {
 }
 
 export function spendStep(budget: Budget): void {
-	if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out");
+	if (++budget.steps > LIMITS.stepsPerRoll) throw new DiceError("This formula is too complex to work out. Make it simpler, with fewer dice and named formulas, like 4d6kh3 + 2.");
 }
 
 export function makeState(options: RollOptions): State {

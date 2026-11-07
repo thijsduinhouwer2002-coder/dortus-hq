@@ -24,6 +24,13 @@ export const LIMITS = {
 	picksPerRoll: 10000,
 } as const;
 
+/** Messages for limits that are checked in more than one place. */
+export function tooManyDiceMessage(count: number): string {
+	return `At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}. Use a smaller number, like 100d6.`;
+}
+export const TOO_MANY_ROLLS_MESSAGE = `This formula rolls more than ${LIMITS.rollsPerFormula} dice. Roll fewer dice, or limit exploding and rerolling, like 10d6!3.`;
+export const TOO_LARGE_MESSAGE = "The result is too large to show. Use smaller numbers or fewer dice, like 10d6 * 100.";
+
 export interface Token {
 	type: "num" | "word" | "cmp" | "bang" | "sym";
 	value: string;

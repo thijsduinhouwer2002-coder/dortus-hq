@@ -49,7 +49,7 @@ const BLOCK_TYPES = new Set([
 
 function spendPick(context: RollContext): void {
 	if (context.budget && ++context.budget.picks > LIMITS.picksPerRoll) {
-		throw new DiceError(`This roll picks more than ${LIMITS.picksPerRoll} results`);
+		throw new DiceError(`This roll picks more than ${LIMITS.picksPerRoll} results. Pick fewer, or nest fewer tables, like 2[[Names^first]].`);
 	}
 }
 
@@ -71,8 +71,8 @@ function diceOptions(context: RollContext) {
 function pickCount(prefix: string, context: RollContext): number {
 	const plain = /^(\d*)d?$/.exec(prefix);
 	const count = plain ? Number(plain[1] || 1) : roll(prefix, diceOptions(context)).total;
-	if (!Number.isInteger(count) || count < 0) throw new DiceError(`Cannot pick ${formatNumber(count)} results`);
-	if (count > MAX_PICKS) throw new DiceError(`At most ${MAX_PICKS} results can be picked at once`);
+	if (!Number.isInteger(count) || count < 0) throw new DiceError(`Cannot pick ${formatNumber(count)} results. Put a whole number of 0 or more before the link, like 2[[Names^first]].`);
+	if (count > MAX_PICKS) throw new DiceError(`At most ${MAX_PICKS} results can be picked at once. Use a smaller number before the link, like 10[[Names^first]].`);
 	return count;
 }
 
@@ -105,13 +105,13 @@ async function resolveCells(cells: string[], context: RollContext, depth: number
 async function pickFromTable(table: Table, column: string | undefined, context: RollContext, depth: number): Promise<{ text: string; detail: string }> {
 	const random = context.random ?? defaultRandom;
 	spendPick(context);
-	if (table.rows.length === 0) throw new DiceError("The table has no rows");
+	if (table.rows.length === 0) throw new DiceError("The table has no rows. Add a row under the header, like | Goblin |.");
 	const formula = lookupFormula(table);
 	let columnIndex = -1;
 	if (column !== undefined) {
 		columnIndex = findColumn(table, column);
 		if (columnIndex === -1 && column.toLowerCase() !== "xy") {
-			throw new DiceError(`The table has no column "${column}". It has: ${table.headers.join(", ")}`);
+			throw new DiceError(`The table has no column "${column}". It has: ${table.headers.join(", ")}. Write one of these after |, like |${table.headers[0] ?? ""}.`);
 		}
 	}
 
@@ -119,7 +119,7 @@ async function pickFromTable(table: Table, column: string | undefined, context: 
 		const rolled = roll(formula, diceOptions(context));
 		const row = findLookupRow(table, rolled.total);
 		const shown = formatNumber(rolled.total);
-		if (!row) throw new DiceError(`The lookup table has no row for ${shown}`);
+		if (!row) throw new DiceError(`The lookup table has no row for ${shown}. Add a row that covers it, like | ${shown} | Goblin |.`);
 		const cells = columnIndex > 0 ? [row[columnIndex] ?? ""] : row.slice(1);
 		return { text: await resolveCells(cells, context, depth), detail: `${formula} = ${shown}` };
 	}
@@ -142,7 +142,7 @@ function matchesType(block: Block, type: string): boolean {
 
 function selectBlocks(blocks: Block[], types: string[]): string[] {
 	for (const type of types) {
-		if (!BLOCK_TYPES.has(type) && !/^heading-[1-6]$/.test(type)) throw new DiceError(`Unknown block type "${type}"`);
+		if (!BLOCK_TYPES.has(type) && !/^heading-[1-6]$/.test(type)) throw new DiceError(`Unknown block type "${type}". Use a type such as paragraph, list, table or heading-2, like [[Note]]|list.`);
 	}
 	if (types.length === 0) {
 		return blocks.filter((b) => b.type !== "thematicBreak" && b.type !== "yaml").map((b) => b.text);
@@ -175,13 +175,13 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 	const target = spec.target;
 	const random = context.random ?? defaultRandom;
 	const note = await context.readNote(target.note, context.sourcePath);
-	if (!note) throw new DiceError(`Note "${target.note}" was not found`);
+	if (!note) throw new DiceError(`Note "${target.note}" was not found. Check the name in the link, or add the folder, like [[Folder/Note]].`);
 	const count = pickCount(target.prefix, context);
 	const blocks = parseBlocks(note.markdown);
 
 	if (target.blockId !== undefined) {
 		const block = blocks.find((b) => b.id === target.blockId);
-		if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}"`);
+		if (!block) throw new DiceError(`Block ^${target.blockId} was not found in "${target.note}". Check the id, or add ^${target.blockId} on its own line right after that table or list.`);
 		if (block.type === "table") {
 			const table = parseTable(block.text);
 			// A word that is both a flag and a column of this table means the column.
@@ -193,7 +193,7 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 			return { kind: "table", text: results.map((r) => r.text).join(", "), details: detail, source: note.path, flags };
 		}
 		if (block.type === "list") {
-			const picks = pickMany(listItems(block.text), count, random, "The list is empty", context);
+			const picks = pickMany(listItems(block.text), count, random, "The list is empty. Add items to it, like - Goblin.", context);
 			const texts: string[] = [];
 			for (const item of picks) texts.push(await resolveNested(item, context, depth));
 			return { kind: "list", text: texts.join(", "), details: "", source: note.path };
@@ -202,12 +202,12 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 	}
 
 	if (spec.args.some((arg) => arg.toLowerCase() === "line")) {
-		const picks = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines`, context);
+		const picks = pickMany(noteLines(note.markdown), count, random, `"${target.note}" has no lines. Add some text to it, or link another note, like [[Names]]|line.`, context);
 		return { kind: "line", text: picks.join("\n"), details: "", source: note.path };
 	}
 
 	const options = selectBlocks(blocks, blockTypes(spec.args));
-	const picks = pickMany(options, count, random, `"${target.note}" has no matching blocks`, context);
+	const picks = pickMany(options, count, random, `"${target.note}" has no matching blocks. Check the block types after |, like [[${target.note}]]|paragraph.`, context);
 	return { kind: "section", text: picks.join("\n\n"), details: "", source: note.path };
 }
 
@@ -216,7 +216,7 @@ async function rollTag(spec: Spec, context: RollContext): Promise<Omit<RollOutco
 	const target = spec.target;
 	const random = context.random ?? defaultRandom;
 	const notes = await context.notesWithTag(target.tag);
-	if (notes.length === 0) throw new DiceError(`No notes have the tag #${target.tag}`);
+	if (notes.length === 0) throw new DiceError(`No notes have the tag #${target.tag}. Check the spelling, or add #${target.tag} to a note, like tags: ${target.tag}.`);
 
 	const modes = spec.args.map((arg) => arg.toLowerCase());
 	if (modes.includes("link")) {
@@ -231,12 +231,12 @@ async function rollTag(spec: Spec, context: RollContext): Promise<Omit<RollOutco
 		const options = selectBlocks(parseBlocks(note.markdown), types);
 		if (options.length > 0) parts.push(...pickMany(options, count, random, "", context));
 	}
-	if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}`);
+	if (parts.length === 0 && count > 0) throw new DiceError(`No matching blocks in notes with #${target.tag}. Check the block types after |, like #${target.tag}|paragraph.`);
 	return { kind: "tag", text: parts.join("\n\n"), details: `#${target.tag}: ${chosen.length} note(s)`, source: chosen.length === 1 ? chosen[0]?.path : undefined };
 }
 
 async function rollSpecAt(raw: string, context: RollContext, depth: number, firstRoll = false, average = false): Promise<RollOutcome> {
-	if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself");
+	if (depth > MAX_NESTING) throw new DiceError("Rollers are nested too deeply, or a table points at itself. Check that no cell has a dice: code that points back at its own table.");
 	const spec = parseSpec(raw, context.aliases);
 	const formula = raw.trim();
 
