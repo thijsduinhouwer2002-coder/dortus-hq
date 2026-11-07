@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 const SHOTS = "screenshots";
 
@@ -31,6 +32,12 @@ describe("Rollwright in de echte Obsidian", function () {
 		await browser.saveScreenshot(`${SHOTS}/1-leesweergave.png`);
 	});
 
+	it("bij openen heeft geen worp de klasse rollwright-rolled", async function () {
+		const rolled = await browser.execute(() => document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll.rollwright-rolled").length);
+		console.log("ROLLED NA OPENEN:", rolled);
+		expect(rolled).toBe(0);
+	});
+
 	it("klikken rolt opnieuw", async function () {
 		const roll = browser.$(".workspace-leaf.mod-active .rollwright-roll");
 		const label = async () => `${await roll.getAttribute("aria-label")}|${await roll.getProperty("textContent")}`;
@@ -44,6 +51,16 @@ describe("Rollwright in de echte Obsidian", function () {
 		console.log("VOOR:", before, "NA:", await label());
 		console.log("KLIKKEN VERANDERDE DE UITKOMST:", changed);
 		expect(changed).toBe(true);
+	});
+
+	it("na een klik heeft het vakje de klasse rollwright-rolled", async function () {
+		await klikWorp(".workspace-leaf.mod-active", 0);
+		await browser.waitUntil(
+			async () => browser.execute(() => document.querySelector(".workspace-leaf.mod-active .rollwright-roll")?.classList.contains("rollwright-rolled") === true),
+			{ timeout: 5000, timeoutMsg: "na een klik kreeg het vakje geen rollwright-rolled" },
+		);
+		const classes = await browser.execute(() => document.querySelector(".workspace-leaf.mod-active .rollwright-roll")?.className);
+		console.log("KLASSEN NA KLIK:", classes);
 	});
 
 	it("de instellingen tonen het betaalde deel", async function () {

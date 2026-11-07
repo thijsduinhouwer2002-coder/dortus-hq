@@ -3,6 +3,7 @@ import { extractSavedFormulas, mergeFormulas, type SavedFormula } from "./import
 import { activateLicense, isLicenseActive, obsidianRequest, paymentReady, POLAR_IDS, recheckLicense, type LicenseOutcome, type PolarIds, type RequestFunction } from "./pro/license";
 import { resolveSkin, SKINS } from "./pro/skins";
 import { fieldNames } from "./rollers/fields";
+import { stampText, type Extreme } from "./rollers/extreme";
 import { replaceCodeInNote } from "./rollers/modify";
 import { ResultListeners } from "./result-listeners";
 import { rollSpec, type NoteData, type RollContext, type RollOutcome } from "./rollers/run";
@@ -19,6 +20,10 @@ export interface HistoryEntry {
 	result: string;
 	details: string;
 	source: string;
+	/** A crit or fumble (see rollers/extreme.ts). Missing on other rolls and in entries of 0.2.x and older. */
+	extreme?: Extreme;
+	/** What the stamp says on a crit or fumble: "NAT 20", "NAT 1", "MAX" or "MIN". */
+	stamp?: string;
 }
 
 export interface RollwrightSettings {
@@ -319,6 +324,7 @@ export default class RollwrightPlugin extends Plugin {
 			result: outcome.text,
 			details: outcome.details,
 			source: sourcePath,
+			...(outcome.kind === "dice" && outcome.extreme !== undefined ? { extreme: outcome.extreme, stamp: stampText(outcome.formula, outcome.extreme) } : {}),
 		});
 		this.settings.history.length = Math.min(this.settings.history.length, HISTORY_LIMIT);
 		await this.saveSettings();
