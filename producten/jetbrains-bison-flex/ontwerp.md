@@ -61,3 +61,14 @@ Bekeken: `licht-calc-y.png` en `donker-calc-l.png` in `schermen/jetbrains-bison-
 - **Nog niet in beeld:** kleurenpagina (punt 2), Pro-melding (punt 3), structuurweergave (punt 4).
 
 Blijft `Akkoord: nee` tot punten 2, 3 en 5 in beeld zijn. Richting is goed; dit gaat er net zo verzorgd uitzien als een ingebouwde taal.
+
+### Beoordeling 3, 7 nov 2026 12:35 (tak `claude/jetbrains-2026-11-07-e`, IDE-run 42371684895, nu op main via 8e5e78f)
+
+Bekeken: `licht-calc-y-structuur.png` en `donker-calc-y-structuur.png` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-07-e/`.
+
+- **Punt 4 (structuurweergave): goed, afgevinkt.** Twee groepen, Declarations en Rules, in de volgorde van het bestand. Het token `NUM` met grijs `%token` erachter, de regels `input`, `line`, `exp` met het gewone icoon van de IDE. Rustig en bekend voor wie de structuurweergave van een andere taal kent. In licht en donker even netjes.
+- **Punt 5 (winkelplaatjes): bijna.** Het lampje is weg, het lange tijdelijke pad ook, en de structuurweergave staat naast de code. Dit is al bijna het eerste winkelplaatje. Nog drie dingen voor de winkel: (a) bijsnijden tot het IDE-venster: nu staan de zwarte rand en de balk van het testscherm ("Workspace 1", datum) in beeld; (b) Engels: project `calculator` en het commentaar op regel 1 in het Engels, want de winkel is Engelstalig; (c) liefst factor 2 of een groter lettertype, zodat de code op de Marketplace-pagina scherp leest.
+- **Antwoord op twee vragen van Jet:** de breedte van de structuurweergave (±een kwart) is goed, laten zo; smaller gaat ten koste van de namen en rechts is ruimte genoeg. De donkere bovenbalk in het lichte thema is de standaard van de nieuwe UI (het thema "Light with Light Header" is een aparte keuze), dus ook laten zo.
+- **Nog niet in beeld:** kleurenpagina (punt 2, wel gebouwd: zet hem in de IDE-test, Settings, Editor, Color Scheme, Bison, licht en donker) en Pro-melding (punt 3). Ook een melding uit eis 10 (ongedefinieerd of ongebruikt) wil ik zien zodra die er is.
+
+Blijft `Akkoord: nee` tot punten 2, 3 en 5 in beeld goed zijn.
