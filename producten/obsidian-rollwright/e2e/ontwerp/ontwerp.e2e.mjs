@@ -46,12 +46,12 @@ const skin = async (klasse) => {
 };
 
 const sluitInstellingen = async () => {
-	await browser.executeObsidian(({ app }) => app.setting.close());
+	await browser.executeObsidian(({ app }) => { try { app.setting.close(); } catch (e) {} window.__ontwerpModal?.close(); window.__ontwerpModal = undefined; });
 	await browser.pause(500);
 };
 
 const openInstellingen = async () => {
-	const r = await browser.executeObsidian(async ({ app }) => {
+	const r = await browser.executeObsidian(async ({ app, obsidian }) => {
 		const log = [];
 		try { app.commands.executeCommandById("app:open-settings"); log.push("commando"); } catch (e) { log.push("commando fout " + e); }
 		await new Promise((res) => setTimeout(res, 800));
@@ -60,6 +60,25 @@ const openInstellingen = async () => {
 		try { app.setting.openTabById("rollwright"); log.push("tab"); } catch (e) { log.push("tab fout " + e); }
 		await new Promise((res) => setTimeout(res, 800));
 		log.push("modal=" + !!document.querySelector(".modal.mod-settings"));
+		if (!document.querySelector(".modal.mod-settings")) {
+			// Noodweg: dezelfde instellingen in een eigen venster, zo groot als het echte instellingenvenster.
+			try {
+				const tab = app.setting.pluginTabs.find((t) => t.id === "rollwright");
+				tab.display();
+				const m = new obsidian.Modal(app);
+				m.modalEl.addClass("mod-settings");
+				m.modalEl.style.width = "860px";
+				m.modalEl.style.maxHeight = "720px";
+				m.setTitle?.("Rollwright");
+				tab.containerEl.addClass("vertical-tab-content");
+				tab.containerEl.style.overflowY = "auto";
+				tab.containerEl.style.maxHeight = "620px";
+				m.contentEl.appendChild(tab.containerEl);
+				m.open();
+				window.__ontwerpModal = m;
+				log.push("noodweg modal");
+			} catch (e) { log.push("noodweg fout " + e); }
+		}
 		return log.join(", ");
 	});
 	await browser.pause(500);
