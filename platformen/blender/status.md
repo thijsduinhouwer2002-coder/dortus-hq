@@ -8,4 +8,5 @@
 - **22:45:** systematisch zoeken leverde een sterke kandidaat op: opvolger van Pie Menu Editor (2.400+ kopers, maker gestopt voor Blender 5, kopers willen betalen). Nog na te kijken.
 - **22:50:** ook dat gat valt af: er is al een betaalde fork voor Blender 5 (Pluglug, $36) en PieMaster ($20). Nog geen bouwbesluit.
 - **22:45:** bone-jiggle te vol (4 nieuwe betaalde makers in een maand, gratis 92K downloads), verlaten bestsellers allemaal al opgevolgd. Patroon: waar geld is, komen elke maand nieuwe makers bij.
-- **Volgende:** nieuwe Blender-functies zoeken die nog bijna geen add-ons hebben (zie `kandidaten-2026-11-07.md` sectie 9).
+- **23:30 (run 2):** nieuwkomers winnen in een volle markt alleen met lagere prijs plus nieuwe aanpak, nooit met alleen mooier (sectie 11). Vroeg zijn loont bij grote nieuwe functies (Cell Fluids 4.500+), maar de physics van 5.2 is experimenteel en Blender levert de presets zelf: valt af. UV-naadtool valt af (UV Flow 3.900+ doet het al). Nog geen bouwbesluit; over: node-previews en topologie wrappen.
+- **Volgende:** node-previews doorlichten met een bouwproef, wrap-richting doorlichten, dan kiezen. Intussen de test in de echte Blender opzetten (los van het product).
