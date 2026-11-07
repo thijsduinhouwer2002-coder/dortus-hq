@@ -262,3 +262,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: bereik en geld allebei gemeten slecht; de winkel werkt voor Zoho zelf en voor partnerbureaus. Wat dit verandert: openbare afdracht zonder listing fee en twee kleine makers met $300+ per maand.
 - Controleur akkoord, 6 correcties. Belangrijkste: okt, nov en dec 2025 bestonden wel (okt onder een ander adres, nov en dec mislukten bij mij). Bijgeteld: 27 betaalde extra, geen enkele boven 100. Makertelling 217 werd 190 (rommel achter de naam).
 - Les: als een maandpagina 0 links geeft, check of het een foutpagina is en zoek het overzicht van alle artikelen, in plaats van aan te nemen dat hij niet bestaat.
+- Tweede platform: Pipedrive Marketplace, zelf toegevoegd. Reden: CRM met veel kleine bedrijven, nog niet bekeken, sitemap toegestaan.
+- Gevonden: 530 apps, geen publicatiedatum (alleen updated_at), en de maker rekent zelf af (Pipedrive-forum 2022). Een installveld bestaat, maar de pagina bevat ook andere apps en mijn uitlezing was niet betrouwbaar; die cijfers gebruik ik niet.
+- Beslissing: nee voor nu, cijfer 2, zonder controleur omdat er geen eigen cijfers in het oordeel zitten. Reden: geen lichting nieuwe apps te meten en geen betaling via de winkel, net als HubSpot en monday eerder. Wat dit verandert: datums op de pagina's of eigen betaling door Pipedrive.
+- Les: bij ingebedde JSON eerst kijken of een veld bij de app zelf hoort of bij een lijst "vergelijkbare apps" op dezelfde pagina.
+- Volgende run: een platform met betaling in de winkel en datums. Nog open: Zapier en Make, Miro, Slack, Sketch, Neovim; Zotero, Anki en Home Assistant hebben geen betaling.
