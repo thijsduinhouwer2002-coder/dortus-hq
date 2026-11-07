@@ -2,7 +2,7 @@
 
 Roll dice inside your notes. Write a formula in inline code, read the result, click to roll again. Rollwright also draws from tables, lists, sections, lines and tags, and it keeps a history that shows which note each roll came from.
 
-Rollwright is at version 0.2.0. Every change is tested automatically in the real Obsidian app (1.15), in reading view and Live Preview, light and dark.
+Rollwright is at version 0.2.0. Before each release, automated tests run it in the real Obsidian app, in reading view and Live Preview.
 
 ## Rolling dice
 
