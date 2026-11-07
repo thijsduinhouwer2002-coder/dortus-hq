@@ -5,7 +5,11 @@ import { makeState, spendStep, type State } from "./state";
 import { STUNT_SPREAD } from "./stunt";
 import { LIMITS, newBudget, type Modifier, type Node, type RollOptions } from "./types";
 
-/** What is known for sure about a part of a formula that has no modifiers. */
+/**
+ * What is known for sure about a part of a formula: its mean, lowest and highest result, and
+ * whether it is always whole. Exact for parts without modifiers. For rangeOf (see keptRange) dice
+ * that keep, drop or sort also get a Spread: then min and max are exact, but mean is not.
+ */
 interface Spread {
 	mean: number;
 	min: number;

@@ -113,7 +113,7 @@ function fakeSpan() {
 	return el;
 }
 
-const press = () => ({ target: { instanceOf: () => false }, preventDefault() {}, stopPropagation() {} });
+const press = (keys: { ctrlKey?: boolean } = {}) => ({ target: { instanceOf: () => false }, preventDefault() {}, stopPropagation() {}, ...keys });
 const wait = () => new Promise((resolve) => setTimeout(resolve, 20));
 
 function fakeApp() {
@@ -178,6 +178,24 @@ describe("the max and min class on the roll", () => {
 		expect(span.classes.has("rollwright-error")).toBe(true);
 		expect(span.classes.has(MAX_CLASS)).toBe(false);
 		expect(span.classes.has(MIN_CLASS)).toBe(false);
+	});
+
+	it("goes away when Ctrl-click makes a |none code empty again", async () => {
+		const { plugin, dice } = await load();
+		for (const [random, cls] of [[highest, MAX_CLASS], [lowest, MIN_CLASS]] as const) {
+			dice.random = random;
+			const span = fakeSpan();
+			mountRoll(plugin, span as never, "2d6|none", `none-${cls}`, "A.md", { register() {} } as never);
+			await wait();
+			expect(span.classes.has(cls)).toBe(false);
+			span.listeners.click?.(press());
+			await wait();
+			expect(span.classes.has(cls)).toBe(true);
+			span.listeners.click?.(press({ ctrlKey: true }));
+			await wait();
+			expect(span.classes.has(MAX_CLASS)).toBe(false);
+			expect(span.classes.has(MIN_CLASS)).toBe(false);
+		}
 	});
 
 	it("stays after a restart for dice+, and an older kept result without the field adds nothing", async () => {
