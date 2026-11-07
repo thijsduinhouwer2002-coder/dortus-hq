@@ -23,7 +23,7 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 | Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 * * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
 | Bram - Blender-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 7 * * * *` | nee | `trig_014wDJpubVbsB8252j9bGNbR` |
 | Chris - Commercieel manager (elk uur) | `CRON_TZ=Europe/Amsterdam 41 * * * *` | nee | `trig_01W9AGqc6kBY8tGjpW6VJwmz` |
-| Noor - Pionier (elk uur) | `CRON_TZ=Europe/Amsterdam 37 * * * *` | nee | nog niet aangemaakt (7 nov 23:00 geweigerd, wacht op Thijs) |
+| Noor - Pionier (elk uur) | `CRON_TZ=Europe/Amsterdam 37 * * * *` | nee | `trig_01NEuGwogoUaD8qVJx8yWVJj` |
 | Hans - Hoofdmanager (20:44) | `CRON_TZ=Europe/Amsterdam 44 20 * * *` | ja, op Thijs' telefoon | `trig_01RYimfyjiEesovpGn7QWTJ6` |
 
 Oude ID's (gedeelde account, uitzetten door Thijs zodra het nieuwe account draait): Stijn `trig_01GVRZ6ps5DDFUnHg5RiGFfx`, Olaf `trig_01T1XNp126J7b2t2yWMuVfFF`, Vera `trig_01PbhUSrzuYkqnrhyERdxanT`, Jet `trig_018F9xQW4CXh94qTuafJRpG1`, Daan `trig_011qyuhTgtDkUtDLmkfqrjGq`, Bram `trig_01U988qZAiyERjYi6DWEayfw`, Chris `trig_018P1UU92oKaFFSBao5KRhQf`, Hans `trig_01D9bZyynavT2KcF1B6pGVs9`.
@@ -160,7 +160,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` in e
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Noor - Pionier (elk uur), nog niet aangemaakt
+## Noor - Pionier (elk uur), aangemaakt 7 nov 22:56, `trig_01NEuGwogoUaD8qVJx8yWVJj`
 
 Schema: `CRON_TZ=Europe/Amsterdam 37 * * * *`. Melding: nee. Opdracht begint met de vaste toestemming (zie boven).
 
