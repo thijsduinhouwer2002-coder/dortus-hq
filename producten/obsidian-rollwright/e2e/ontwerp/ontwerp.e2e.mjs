@@ -50,6 +50,41 @@ const sluitInstellingen = async () => {
 	await browser.pause(500);
 };
 
+const openInstellingen = async () => {
+	const r = await browser.executeObsidian(async ({ app }) => {
+		const log = [];
+		try { app.commands.executeCommandById("app:open-settings"); log.push("commando"); } catch (e) { log.push("commando fout " + e); }
+		await new Promise((res) => setTimeout(res, 800));
+		try { if (!document.querySelector(".modal.mod-settings")) { app.setting.open(); log.push("open()"); } } catch (e) { log.push("open fout " + e); }
+		await new Promise((res) => setTimeout(res, 500));
+		try { app.setting.openTabById("rollwright"); log.push("tab"); } catch (e) { log.push("tab fout " + e); }
+		await new Promise((res) => setTimeout(res, 800));
+		log.push("modal=" + !!document.querySelector(".modal.mod-settings"));
+		return log.join(", ");
+	});
+	await browser.pause(500);
+	return r;
+};
+
+const zweef = async (selector) => {
+	await browser.execute((sel) => {
+		const el = document.querySelector(sel);
+		if (!el) return;
+		el.scrollIntoView({ block: "center" });
+		for (const t of ["mouseover", "mouseenter", "mousemove"]) el.dispatchEvent(new MouseEvent(t, { bubbles: true, clientX: el.getBoundingClientRect().x + 5, clientY: el.getBoundingClientRect().y + 5 }));
+	}, selector);
+	await browser.pause(1200);
+};
+
+const smal = async (breed) => {
+	return browser.execute((breed) => {
+		const tries = [];
+		try { const w = require("@electron/remote").getCurrentWindow(); w.setSize(breed, 820); tries.push("@electron/remote"); } catch (e) { tries.push("remote fout"); }
+		try { const w = require("electron").remote.getCurrentWindow(); w.setSize(breed, 820); tries.push("electron.remote"); } catch (e) { tries.push("electron.remote fout"); }
+		return tries.join(", ") + " breedte=" + window.innerWidth;
+	}, breed);
+};
+
 describe("Ontwerp van Rollwright", function () {
 	before(async function () {
 		fs.mkdirSync(SHOTS, { recursive: true });
@@ -73,11 +108,10 @@ describe("Ontwerp van Rollwright", function () {
 		await stap("tooltip", async () => {
 			await thema("", true);
 			await open("Taverne.md", "preview");
-			const roll = await browser.$(".workspace-leaf.mod-active .rollwright-roll");
-			await roll.moveTo();
-			await browser.pause(1200);
+			await zweef(".workspace-leaf.mod-active .rollwright-roll");
 			await shot("tooltip-zweven");
-			await roll.click();
+			const roll = await browser.$(".workspace-leaf.mod-active .rollwright-roll");
+			await browser.execute((el) => el.click(), roll);
 			await browser.pause(150);
 			await shot("klik-direct");
 			await browser.pause(600);
@@ -89,12 +123,29 @@ describe("Ontwerp van Rollwright", function () {
 		await stap("fout", async () => {
 			const fout = await browser.$(".workspace-leaf.mod-active .rollwright-error");
 			if (await fout.isExisting()) {
-				await fout.scrollIntoView();
-				await fout.moveTo();
-				await browser.pause(1200);
+				await zweef(".workspace-leaf.mod-active .rollwright-error");
 				console.log("FOUTTEKST:", await fout.getAttribute("aria-label"), "|", await fout.getProperty("textContent"));
 			} else console.log("FOUT: geen .rollwright-error gevonden");
 			await shot("foutmelding-zweven");
+		});
+	});
+
+	it("worpen op secties en dice-mod", async function () {
+		await stap("secties", async () => {
+			await open("Secties.md", "preview");
+			await shot("secties-lezen");
+			await open("Secties.md", "source");
+			await shot("secties-live-preview");
+		});
+		await stap("dice-mod", async () => {
+			await open("Secties.md", "preview");
+			await browser.execute(() => {
+				const all = Array.from(document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll"));
+				all[all.length - 1]?.click();
+			});
+			await browser.pause(800);
+			await shot("dice-mod-venster");
+			await browser.keys(["Escape"]);
 		});
 	});
 
@@ -130,11 +181,8 @@ describe("Ontwerp van Rollwright", function () {
 		for (const licht of [true, false]) {
 			await stap(`instellingen ${licht}`, async () => {
 				await thema("", licht);
-				await browser.executeObsidian(({ app }) => {
-					app.setting.open();
-					app.setting.openTabById("rollwright");
-				});
-				await browser.pause(1200);
+				const r = await openInstellingen();
+				console.log("INSTELLINGEN OPEN:", r);
 				await shot(`instellingen-boven-${licht ? "licht" : "donker"}`);
 				await browser.execute(() => {
 					const el = document.querySelector(".modal.mod-settings .vertical-tab-content");
@@ -197,18 +245,14 @@ describe("Ontwerp van Rollwright", function () {
 
 	it("smal venster", async function () {
 		await stap("smal", async () => {
-			await browser.setWindowSize(480, 820);
+			console.log("SMAL:", await smal(480));
 			await browser.pause(1000);
 			await open("Taverne.md", "preview");
 			await shot("smal-lezen");
-			await browser.executeObsidian(({ app }) => {
-				app.setting.open();
-				app.setting.openTabById("rollwright");
-			});
-			await browser.pause(1000);
+			await openInstellingen();
 			await shot("smal-instellingen");
 			await sluitInstellingen();
-			await browser.setWindowSize(1280, 820);
+			await smal(1024);
 		});
 	});
 });
