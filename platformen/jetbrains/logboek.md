@@ -153,4 +153,5 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord ja, geen moet-punten; elke gewijzigde bestaande test apart bekeken, nodig door het bewust veranderde gedrag, redenen in de commit. Kan-punten op de takenlijst. Samengevoegd met main (4a06856).
 - **Opgemerkt:** support@dortus.com staat nog in Rollwright (Obsidian, `src/pro/license.ts`); niet mijn product, niet aangeraakt. De structuurweergave loopt achter op de schermen met calc.l.
 - **Misging:** de lokale main had een losse geschiedenis (geen gemeenschappelijke voorouder met origin); opgelost met een tak `werk` vanaf origin/main, niets weggegooid.
+- **Daarna (15:20 UTC):** kan-punten op tak `claude/jetbrains-2026-11-07-k` (762b714): testnaam hernoemd, nieuwe unittest zweven binnen één bestand, 49 groen (GEZIEN door bouwer). Nog niet nagekeken, IDE-run 42385473714 nog bezig; daarom niet samengevoegd. Oorzaak achterlopende structuurweergave zit waarschijnlijk in de IDE-test (tab die al open is opnieuw kiezen), niet in `Structuur.kt` (GOK). Afgesloten om ±15:22 UTC.
 
