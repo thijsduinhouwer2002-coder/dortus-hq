@@ -2,7 +2,7 @@
 
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
-- Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). in onderzoek 7 nov 07:33 UTC
+- Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). Klaar 7 nov run 07:31: gevoel Thijs klopt, ±2 tot 6 van de 100 nieuwe apps haalt 100 installs in 2 tot 6 maanden, cijfer blijft 6, zie voorstellen/shopify.md
 - Shopify vervolg B: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md)
 - Framer: klaar 6 nov, nee voor nu (cijfer 4), zie onderzocht.md
 - Discord: klaar 6 nov run 21:31, eigen meting via de open API van de App Directory, nee voor nu (cijfer 5), zie onderzocht.md. Herhaalmeting kan over 4 weken met data/discord-haal-script.py

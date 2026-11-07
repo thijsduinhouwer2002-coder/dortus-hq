@@ -82,3 +82,13 @@ Nieuwste blok onderaan.
 - Fab daarna toch gemeten (tijd over). Open zoek-API en product-JSON, geen sleutel. 4.108 tools: betaalde tools van 3 tot 6 maanden oud mediaan 0 beoordelingen, 15% 1+, 2% 5+. Aanbod 893 nieuwe tools in okt 2026.
 - Beslissing Fab: nee voor nu, cijfer 3. Reden: zelfde beeld als Unity; goed geldmodel (88%) maar geen bereik voor nieuwe makers, en gemiddeld ±$1.200 per verkoper per jaar. Controleur akkoord, 6 kleine correcties verwerkt.
 - Les: game-engine-winkels (Unity, Fab, eerder Godot en Roblox) laten allemaal hetzelfde zien: veel aanbod, winst bij gevestigde namen. Volgende runs liever een ander soort platform met betaling in de winkel.
+
+## 7 nov 2026, run 07:31 UTC
+- Open bericht Thijs 6 nov 20:32 over Shopify eerst gedaan: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat.
+- Vondst: StoreCensus heeft openbare pagina's per app met actieve installs (storefront-detectie), leesbaar met curl, met een sitemap van 2.369 apps. Gekoppeld aan 2.184 Shopify-pagina's.
+- Gemeten: ±7 actieve installs per review (alle apps), ±13 bij jonge apps met 100 tot 300 installs. Toegepast op de steekproef van 6 nov: ±2 tot 6 van de 100 apps uit mei tot aug 2026 haalt 100 installs, alleen betaald nog minder.
+- Hulpagent las ±20 forumverslagen uit 2026: bijna allemaal 0 of een handvol installs, advertenties zonder reviews leveren niets op, handwerk (winkels persoonlijk benaderen) werkt het best.
+- Beslissing: gevoel van Thijs klopt, Shopify blijft nog niet klaar met cijfer 6, alleen vanwege de route via een nieuwe verplichting. Reden: een gewone app haalt hier geen bereik, dat is nu ook in installs gemeten, niet alleen in reviews.
+- Controleur akkoord, 8 correcties verwerkt (Revoq 4.196 en 582, Appio 846 en 122, advertentieclaim kleiner, bovengrens ruimer: ±2 tot 6 in plaats van 1 tot 4, labels aangevuld).
+- Arrears van Thijs niet gevonden in de winkel met curl; niet verder gezocht.
+- Volgende: Shopify vervolg B (regel met datum). Vindt die niets sterks, dan Shopify naar 5.

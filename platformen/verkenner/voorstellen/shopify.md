@@ -2,15 +2,17 @@
 
 ## Update 7 nov 2026, ochtend: hoe haalt een gewone nieuwe app zijn eerste 100 installs? (Vera, bericht Thijs 6 nov 20:32)
 
-**Kort antwoord: het gevoel van Thijs klopt.** Een gewone nieuwe app haalt in 2 tot 6 maanden bijna nooit 100 installs: naar schatting 1 tot 4 van de 100 apps (GOK op basis van GEZIEN, uitleg hieronder). Na 6 tot 12 maanden zijn het er ±4 tot 15 van de 100. Ter vergelijking: bij Obsidian haalt 68 tot 88% de 100 gebruikers, bij JetBrains 54%. Geen enkele kleine maker zonder eigen publiek liet in 2025 of 2026 aantoonbaar zien hoe hij de 100 haalde. **Advies blijft: nog niet klaar, cijfer 6.** Het cijfer rust alleen nog op de route "vroeg zijn bij een nieuwe verplichting of functie" (zie update 6 nov). Een gewone app in een gewone categorie is hier geen optie.
+**Kort antwoord: het gevoel van Thijs klopt.** Een gewone nieuwe app haalt in 2 tot 6 maanden bijna nooit 100 installs: naar schatting ±2 tot 6 van de 100 apps (GOK op basis van GEZIEN, uitleg hieronder; uiterste bovengrens ±11). Na 6 tot 12 maanden zijn het er ±7 tot 15 van de 100 (GOK). Ter vergelijking: bij Obsidian haalt 68 tot 88% de 100 gebruikers, bij JetBrains 54%. In de ±15 gelezen forumdraden liet geen enkele kleine maker zonder eigen publiek in 2025 of 2026 aantoonbaar zien hoe hij de 100 haalde (DERDEN, alleen binnen die draden). **Advies blijft: nog niet klaar, cijfer 6.** Het cijfer rust alleen nog op de route "vroeg zijn bij een nieuwe verplichting of functie" (zie update 6 nov). Een gewone app in een gewone categorie is hier geen optie.
 
 ### Nieuwe meting 1: hoeveel installs horen bij een review (GEZIEN)
 - StoreCensus telt per app op hoeveel winkels de app aan de voorkant zichtbaar is (actieve installs, alleen apps die je op de winkelpagina kunt zien). Hun openbare pagina's (`storecensus.com/stats/app/<naam>`) zijn met curl leesbaar. Ik las alle 2.369 pagina's uit hun sitemap, koppelde 2.184 aan de Shopify-pagina (lanceerdatum en reviews) en rekende uit hoeveel actieve installs er per review zijn.
 - Uitkomst, alle 2.184 apps: mediaan **7 actieve installs per review**, de middelste helft tussen 4 en 18.
 - Apps van 2025 en later met 100 tot 300 installs (n=11): mediaan 13, middelste helft 6 tot 27. Met 24 tot 100 installs (n=8): mediaan 27.
-- Voorbeelden: Revoq 4.038 winkels en 580 reviews (±7), Appio Amazon Reviews 821 en 30. Eén maker op het forum noemt ±500 installs en 17 reviews in 14 maanden (±29 per review, DERDEN: [forum](https://community.shopify.com/t/675500)).
-- Vertaling: **100 actieve installs komt overeen met ±4 tot 16 reviews, midden ±8.** Bij nieuwe apps eerder aan de lage kant (meer installs per review), want reviews komen langzaam en makers melden dat de reviewpopup bijna niets oplevert.
+- Voorbeelden: Revoq 4.196 winkels en 582 reviews (±7), Appio Amazon Reviews 846 en 122 (±7). Eén maker op het forum noemt ±500 installs en 17 reviews in 14 maanden (±29 per review, DERDEN: [forum](https://community.shopify.com/t/675500)).
+- Vertaling (GOK): **100 actieve installs komt overeen met ±4 tot 16 reviews, midden ±8.** Dat komt van de jonge apps (2025 en later, 100 tot 300 installs): 100 gedeeld door 27, 13 en 6. Met de mediaan van alle apps (7 per review) zou het ±14 reviews zijn. Bij nieuwe apps ligt het eerder aan de lage kant (meer installs per review), want reviews komen langzaam en makers melden dat de reviewpopup bijna niets oplevert (DERDEN: [forum 39325](https://community.shopify.dev/t/39325), 50 tevreden betalende klanten sloten de popup allemaal zonder review).
 - Grenzen: StoreCensus ziet alleen apps met iets op de winkelpagina (apps die alleen in het beheer werken telt het niet), toont pas pagina's vanaf ±24 installs, en heeft bijna alleen oude apps (maar 6 uit 2026). De verhouding komt dus vooral van oudere apps. Actieve installs zijn ook minder dan alle installs ooit (verwijderingen tellen niet mee), dus de echte verhouding ligt nog iets hoger.
+- Ook met weinig reviews haal je soms de 100: van de 62 apps uit 2025 en later met 100+ installs bij StoreCensus hebben er 10 minder dan 4 reviews, waarvan 7 nul (vooral merkbedrijven zoals Fullstory en Airwallex). Rekenen met die kansen voor de 292 apps met 1 tot 3 reviews en de 45 met 4 tot 7 geeft een uiterste bovengrens van ±11% in mei tot aug 2026 (nagerekend door de controleur). Die ligt te hoog, omdat StoreCensus pas vanaf ±24 installs telt. Daarom ±2 tot 6 van de 100 als beste schatting; de kolom 8+ is waarschijnlijk te streng. Alleen gekochte reviews werken de andere kant op.
+- De koppeling gaat ervan uit dat de naam in de link op StoreCensus en Shopify gelijk is (StoreCensus linkt niet door). Bij 11 van 11 nagekeken apps klopte dat.
 
 ### Nieuwe meting 2: hoe vaak lukt de 100 (GEZIEN reviews, GOK vertaling)
 Toegepast op de willekeurige steekproef van 6.000 apps van 6 nov:
@@ -22,20 +24,22 @@ Toegepast op de willekeurige steekproef van 6.000 apps van 6 nov:
 | jan tot okt 2025 | 712 | 23,2% | 13,9% | 8,3% |
 | 2024 | 543 | 31,1% | 24,3% | 16,9% |
 
-- Naar prijs, mei tot aug 2026, 8+ reviews: alleen betaald 0,6% (n=514), gratis plan met betaalde lagen 1,4% (n=714), helemaal gratis 1,9% (n=270). **Een app die vanaf dag één geld vraagt haalt de 100 dus het minst vaak:** ±1 op de 40 met de ruime grens, ±1 op de 170 met het midden.
+- Naar prijs, mei tot aug 2026, 8+ reviews: alleen betaald 0,6% (n=514), gratis plan met betaalde lagen 1,4% (n=714), helemaal gratis 1,9% (n=270), gratis te installeren met kosten later 3,0% (n=100). **Een app die vanaf dag één geld vraagt haalt de 100 dus het minst vaak:** ±1 op de 40 met de ruime grens, ±1 op de 170 met het midden.
 - Wie haalt het wel? De 21 apps van mei tot aug 2026 met 8+ reviews: 4 zijn herroepingsknoppen (de EU-golf), een deel komt van grote makers met veel apps (Avada, Globo, Loox, ShopiDevs), en maar 2 zijn alleen betaald. Bijna allemaal gratis of met gratis plan.
 
 ### Wat makers zelf zeggen (DERDEN, forumdraden 2026, door een hulpagent gelezen en op 7 nov nagekeken in de winkel)
 - Van ±15 nieuwe apps uit 2026 die op de Shopify-fora hun begin beschreven, meldt bijna elke maker 0 of een handvol installs. Van 8 nagekeken apps hadden er 3 tot 10 maanden later 6 nog 0 reviews en 2 er 1 (Livy Loyalty, Store Analytics, LogX, LinkGuard, Purser, StoreVault; Stock Near Me en SuggestIF AI). Draden: [37237](https://community.shopify.dev/t/got-approved-3-weeks-ago-what-actually-worked-for-your-first-50-installs/37237), [643974](https://community.shopify.com/t/643974), [675500](https://community.shopify.com/t/675500), [654059](https://community.shopify.com/t/654059), [708775](https://community.shopify.com/t/708775).
-- Advertenties in de App Store bij 0 reviews: 5 makers kregen voor ±$7 per klik 0 installs ([675500](https://community.shopify.com/t/675500)).
+- Advertenties in de App Store bij 0 reviews: 5 vermeldingen in 5 categorieën, van ±3 makers, kregen bij ±$7 per klik 0 installs ([675500](https://community.shopify.com/t/675500)).
 - Wat volgens makers wel werkt: persoonlijk benaderen van winkels die het probleem al hebben (bijvoorbeeld winkels die een concurrent 1 ster gaven) en aanbieden de app gratis voor ze in te stellen; echt helpen op fora; een gratis plan. Allemaal handwerk onder iemands naam, dus voor ons via Thijs.
 - Eén app haalde ±2.000 installs in 2 maanden, maar gratis, zonder omzet en zonder genoemd kanaal ([699068](https://community.shopify.com/t/699068)).
 - Let op: veel forumposts lezen gepolijst, sommige mogelijk met een verkoopdoel. Reddit en Indie Hackers waren niet leesbaar met curl.
 
 ### Wat dit betekent
 - Thijs heeft gelijk: bereik krijgen is hier heel moeilijk, en voor een betaalde app nog moeilijker. Mijn meting van 6 nov liet dat al zien; nu is ook de vertaling van reviews naar installs gemeten, en die maakt het beeld niet mooier.
-- Alleen de route "vroeg bij een verplichting met datum" laat kleine makers snel groot worden (Revoq: 4.038 winkels binnen 8 maanden, GEZIEN via StoreCensus). Ook daar wint maar een klein deel. Die route blijft het enige waarom Shopify een 6 houdt.
+- Alleen de route "vroeg bij een verplichting met datum" laat kleine makers snel groot worden (Revoq: 4.196 winkels binnen 8 maanden, GEZIEN via StoreCensus). Ook daar wint maar een klein deel. Die route blijft het enige waarom Shopify een 6 houdt.
 - Volgende stap blijft vervolg B: een aankomende regel of functie met datum zoeken. Vindt die run niets sterks, dan zakt Shopify naar 5.
+
+Nagekeken door een controleur (akkoord met 8 correcties, alle verwerkt: Revoq en Appio goed gezet, advertentieclaim kleiner, bovengrens ruimer, labels en grenzen aangevuld).
 
 Data en scripts: `data/shopify-storecensus-*` (haal-, koppel- en analysescript, ruwe pagina's en de gekoppelde tabel). Het analysescript draait vanuit de hoofdmap van de repo.
 

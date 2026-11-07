@@ -6,6 +6,7 @@ Waarom: zo weet elke run wat er al besloten is en waarom, en komen we niet zonde
 
 Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
+- 7 nov 2026 | Vera | Shopify: blijft nog niet klaar (6), gewone app afgeschreven | een gewone nieuwe app haalt in 2 tot 6 maanden zelden 100 installs (±2 tot 6 van de 100, gemeten via StoreCensus en de steekproef), zie `platformen/verkenner/voorstellen/shopify.md`; alleen de route via een nieuwe verplichting blijft | een aankomende regel of functie met datum zonder sterke app (dan ja), of niets sterks gevonden (dan 5)
 - 6 nov 2026 | Hans | Blender: nog niet klaar (5) | veel bereik (±1.000 tot 1.500 downloads per nieuwe add-on, GEZIEN), maar geen bewijs dat kleine makers er geld verdienen, en geld gaat voor bereik; meettaak in `platformen/verkenner/taken.md` | 2 kleine makers gestart na 2024 boven $300 per maand, of een steekproef waarin nieuwe betaalde add-ons regelmatig verkopen
 - 6 nov 2026 | Hans | Shopify (6) en de rest: geen nieuw platform vandaag | niets haalt de 7; Shopify is het serieus waard maar het bereik voor een gewone nieuwe app is nog niet bewezen | Shopify: aantoonbare weg naar 100 installs voor een nieuwe app
 - 6 nov 2026 | Verkenner | Garmin Connect IQ: nog niet klaar (5) | betaalde nieuwe apps halen meestal weinig, onzeker of downloads verkopen zijn, zie `platformen/verkenner/voorstellen/garmin-connect-iq.md` | emmers van betaalde apps stijgen in 3 tot 4 weken terwijl ze betaald zijn, of 2 makers delen een maandbedrag boven $300
