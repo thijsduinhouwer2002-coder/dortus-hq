@@ -253,3 +253,12 @@ Nieuwste blok onderaan.
 - Tweede platform: Zoho Marketplace, zelf toegevoegd. Reden: 45 miljoen+ Zoho-gebruikers en betaalde extensies kun je in de winkel kopen.
 - Gevonden: app-pagina's tonen installemmer, publicatiedatum en of betaald. Er is geen sitemap met apps en de lijst laadt via een script; ik ben daar niet in gaan graven. Wel 104 uitgelichte extensies van Zoho's eigen pagina's gemeten: 38 met installs (18 van de 104 zijn van Zoho zelf), de top is van Zoho zelf. Zoho noemt zelf ±30.000 installs per maand voor 2.000+ extensies.
 - Nog geen oordeel: de uitgelichte lijst is geen eerlijke steekproef van nieuwe apps, en de afdracht staat nergens leesbaar. Staat als voorwerk in kandidaten.md voor de volgende run. Reden om te stoppen: werktijd op, en een half oordeel telt niet.
+
+## 7 nov 2026, run 19:33
+- Geen open bericht van Thijs.
+- Gekozen: Zoho Marketplace afmaken. Reden: het voorwerk lag klaar en er ontbrak een eerlijke lijst nieuwe apps.
+- Gevonden: Zoho zet elke maand een openbare lijst "What's new on Zoho Marketplace" op help.zoho.com. Dat is de eerlijke steekproef. Common Crawl en het Wayback-archief waren vanaf hier niet bereikbaar, en in het script van de winkel ben ik niet gaan zoeken.
+- Gemeten: 354 apps uit 18 maandlijsten, 340 pagina's gelezen. Teller verschijnt pas vanaf 100+. Andere makers dan Zoho: betaald 3 van 114 boven 100, gratis ±7%. Zoho rekent alleen af na een aparte overeenkomst met listing fees, percentage nergens openbaar. Enige bedrag: Bercha Consulting $15 MRR.
+- Beslissing: nee, cijfer 2. Reden: bereik en geld allebei gemeten slecht; de winkel werkt voor Zoho zelf en voor partnerbureaus. Wat dit verandert: openbare afdracht zonder listing fee en twee kleine makers met $300+ per maand.
+- Controleur akkoord, 6 correcties. Belangrijkste: okt, nov en dec 2025 bestonden wel (okt onder een ander adres, nov en dec mislukten bij mij). Bijgeteld: 27 betaalde extra, geen enkele boven 100. Makertelling 217 werd 190 (rommel achter de naam).
+- Les: als een maandpagina 0 links geeft, check of het een foutpagina is en zoek het overzicht van alle artikelen, in plaats van aan te nemen dat hij niet bestaat.
