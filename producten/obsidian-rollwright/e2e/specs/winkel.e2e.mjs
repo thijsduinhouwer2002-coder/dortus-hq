@@ -37,6 +37,23 @@ async function wacht(view) {
 	return w;
 }
 
+/** Loot trekt met teruglegging; voor een winkelplaatje willen we drie verschillende dingen. Klik tot dat zo is. */
+async function lootVerschillend(view) {
+	const sel = `${LEAF} ${view}`;
+	for (let poging = 0; poging < 30; poging++) {
+		const w = await wacht(view);
+		const delen = w[4].tekst.split(",").map((s) => s.trim());
+		if (new Set(delen).size === 3) return w;
+		await browser.execute((sel) => {
+			const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[4];
+			r?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
+			r?.click();
+		}, sel);
+		await browser.pause(300);
+	}
+	throw new Error("loot bleef dubbele dingen tonen");
+}
+
 async function thema(donker) {
 	await browser.execute((donker) => {
 		document.body.classList.toggle("theme-dark", donker);
@@ -46,6 +63,8 @@ async function thema(donker) {
 }
 
 async function plaatjes(naam) {
+	// Geen focusrand of cursor in beeld.
+	await browser.execute(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
 	await thema(false);
 	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
 	await thema(true);
@@ -68,7 +87,7 @@ describe("Rollwright: winkelplaatjes", function () {
 
 	it("leesweergave met worpen, tabel en lijst", async function () {
 		await open("preview");
-		const w = await wacht(".markdown-reading-view");
+		const w = await lootVerschillend(".markdown-reading-view");
 		console.log("WINKEL LEZEN:", JSON.stringify(w));
 		const titels = await browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .inline-title`)).filter((e) => e.offsetParent !== null).length, LEAF);
 		console.log("WINKEL INLINE TITELS ZICHTBAAR:", titels);
@@ -80,7 +99,7 @@ describe("Rollwright: winkelplaatjes", function () {
 
 	it("Live Preview hetzelfde", async function () {
 		await open("source");
-		const w = await wacht(".markdown-source-view");
+		const w = await lootVerschillend(".markdown-source-view");
 		console.log("WINKEL LIVE PREVIEW:", JSON.stringify(w));
 		for (const r of w) expect(r.fout).toBe("");
 		await plaatjes("winkel-2-live-preview");
@@ -88,7 +107,7 @@ describe("Rollwright: winkelplaatjes", function () {
 
 	it("geschiedenis rechts na een paar klikken", async function () {
 		await open("preview");
-		await wacht(".markdown-reading-view");
+		await lootVerschillend(".markdown-reading-view");
 		// Het paneel openen maakt het paneel actief; daarna de notitie weer actief, anders vindt LEAF geen worpen.
 		await browser.executeObsidian(async ({ app }) => {
 			const note = app.workspace.getMostRecentLeaf();
