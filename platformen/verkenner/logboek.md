@@ -228,3 +228,9 @@ Nieuwste blok onderaan.
 - Les: createdOn bij BigCommerce is de registerdatum, niet de livegang. Check bij elke winkel wat een datumveld echt betekent.
 - Run afgesloten na drie platforms. Volgende run: een platform met veel gebruikers en betaling in de winkel; Zotero, Anki en Home Assistant hebben geen betaling en wachten.
 - Nagekomen: Squarespace Extensions kort bekeken via de open API. Maar 60 extensies van gekozen partners, ±8 per jaar. Nee, geen open winkel. Geen controleur nodig: het is een telling van 60 regels uit één bron.
+- Vierde platform: Telegram (bots en Mini Apps, betalen met Stars), zelf toegevoegd. Reden: ruim 1 miljard gebruikers en betalen zit in de app, het grotere broertje van Discord.
+- Gemeten: voorwaarden zelf gelezen ($0,013 per Star, 21 dagen, Fragment). Nieuwe bots niet te meten: geen lijst met startdatum (tapps.center zonder datum, findmini.app verbiedt ClaudeBot), cijfers pas boven 10.000. Een poging de JavaScript van tapps.center te lezen werd door de veiligheidscontrole geweigerd; niet omzeild.
+- Beslissing: nee voor nu, cijfer 4. Reden: geen bereik te meten en geen kleine maker met een controleerbaar bedrag, terwijl het zeer druk is en een bot een eigen server nodig heeft. Wat dit verandert: twee kleine makers sinds 2025 boven $300 per maand in Stars, of maandrapporten met nieuwe bots.
+- Controleur akkoord, 8 punten. Belangrijkste: ik las alleen het eerste blok op de t.me-pagina; het cijfer staat in het tweede. Hersteld en zelf nagetest.
+- Les: bij het uitlezen van een pagina altijd alle treffers bekijken, niet alleen de eerste.
+- Volgende run: een platform met betaling in de winkel en een lijst met datums; Zotero, Anki en Home Assistant wachten nog (geen betaling).
