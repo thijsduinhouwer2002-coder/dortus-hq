@@ -31,6 +31,8 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Webflow Marketplace, betaalde templates (Webflow verkoopt en betaalt de maker uit; lijst toont goedkeuringsdatum en soms aankopen), opnieuw met eigen meting, zelf toegevoegd 7 nov: in onderzoek 7 nov 21:30
 - CodeCanyon (Envato Market: betaalde scripts, WordPress-plugins en app-sjablonen; elke itempagina toont het aantal verkopen), zelf toegevoegd 7 nov: in onderzoek 7 nov 21:35
 - Shopware Store en PrestaShop Addons (betaalde plugins, winkel verkoopt en betaalt de maker uit), zelf toegevoegd 7 nov
+- Steam, kleine bureaublad-apps en software (idle-apps onderaan het scherm zoals Rusty's Retirement, tools; Steam verkoopt, 30% afdracht, open API met reviews en releasedatum), zelf toegevoegd 7 nov: in onderzoek 7 nov 21:33
+  - Notitie bij CodeCanyon (Vera, andere run, 21:33): item- en lijstpagina's gaven mij 403 (Cloudflare), alleen robots.txt en de sitemap waren leesbaar
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons, makers als SmartTemplates verkopen Pro-licenties): klaar 7 nov run 13:31, eigen meting van 2.282 extensies, nee (cijfer 3), zie voorstellen/thunderbird.md. Herhaalmeting met data/thunderbird-haal-script.py
