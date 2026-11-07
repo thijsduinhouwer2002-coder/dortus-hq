@@ -55,6 +55,11 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 
 Een code zoals `` `dice: 2d6+3` `` staat in een notitie. `ui/reading-view.ts` (leesweergave) of `ui/live-preview.ts` (editor) vindt hem met `rollers/inline.ts` en zet er een widget uit `ui/widget.ts` neer. De widget vraagt `main.ts` om de uitkomst; die geeft een vastgehouden of bewaard resultaat terug, of laat `rollers/run.ts` gooien. `run.ts` leest de code met `spec.ts`, haalt waar nodig tabellen, blokken of frontmatter uit de kluis via de `RollContext` die `main.ts` aanlevert, en laat formules uitrekenen door de rekenkern in `engine/` (`roll` of `averageOf`, via `engine/index.ts`). In de kern gaat een formule van `tokenizer` naar `parser` naar `evaluate`, met `faces`, `modifiers` en `state` als hulp. De uitkomst gaat terug naar de widget, wordt veilig gemaakt met `defuse.ts` en getoond. Een worp waar iemand om vroeg komt in de geschiedenis (`history-view.ts`). Skins: `main.ts` heeft `isLicensed` als enige vraag (sleutel met `licenseCheckedAt`, en betaling klaar), `activateLicense` voor de knop in `ui/settings.ts` en `recheckLicense` na `onLayoutReady`; beide roepen `pro/license.ts` aan met `licenseRequest`, `now` en `polarIds` van de plugin. `main.ts` slaat instellingen, formules, geschiedenis en `dice+:` resultaten op met `saveData`. Bij `dice-mod:` schrijft `ui/dice-mod.ts` met `rollers/modify.ts` de uitkomst terug in de notitie.
 
+## Tests
+
+- `tests/` (vitest, `tests/**/*.test.ts`): de nep-Obsidian staat in `tests/obsidian-stub.ts`. Voor `dice-mod:`: `dice-mod.test.ts` (lezen van de code, `modifiedText`, defuse), `dice-mod-plugin.test.ts` (leesweergave, Live Preview met een nep-`EditorView`, het venster), `dice-mod-replace.test.ts` (`rollers/modify.ts`), met gedeelde hulp in `dice-mod-helpers.ts`.
+- `e2e/specs/` (de echte Obsidian op GitHub Actions): wdio draait elk `*.e2e.mjs` bestand als spec (`e2e/wdio.conf.mjs`). Gedeelde hulp heet daarom anders, zoals `dicemod-hulp.mjs` voor `dicemod-live.e2e.mjs` (Live Preview) en `dicemod-lezen.e2e.mjs` (leesweergave en Enter).
+
 ## Lint
 
 - `eslint.config.mjs` (`npm run lint`): de `recommended`-instelling van `eslint-plugin-obsidianmd`.

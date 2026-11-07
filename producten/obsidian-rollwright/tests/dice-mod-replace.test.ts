@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { findInlineDice } from "../src/rollers/inline";
-import { replaceCodeInLine, replaceCodeInNote, replacementAt } from "../src/rollers/modify";
+import { replaceCodeInLine, replaceCodeInNote, replacementInLine } from "../src/rollers/modify";
 
 describe("replacing the code", () => {
 	const line = "Hit `dice-mod: 1d6` and `dice-mod: 1d6` and `dice: 2d6`";
@@ -26,8 +26,11 @@ describe("replacing the code", () => {
 
 	it("keeps a table row whole", () => {
 		expect(replaceCodeInLine("| a | `dice-mod: [[T^t]]` |", 0, "[[T^t]]", "x | y")).toBe("| a | x \\| y |");
-		expect(replacementAt("| a | `dice-mod: 1d6` |", 6, "1d6", "p|q")).toEqual({ from: 6, to: 21, insert: "p\\|q" });
-		expect(replacementAt("| a | `dice-mod: 1d6` |", 5, "1d6", "x")).toBeNull();
+	});
+
+	it("gives the change for the editor by the number of the code on the line", () => {
+		expect(replacementInLine("| a | `dice-mod: 1d6` |", 0, "1d6", "p|q")).toEqual({ from: 6, to: 21, insert: "p\\|q" });
+		expect(replacementInLine("| a | `dice-mod: 1d6` |", 1, "1d6", "x")).toBeNull();
 	});
 });
 
