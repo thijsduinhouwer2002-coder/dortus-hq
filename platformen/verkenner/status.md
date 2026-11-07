@@ -31,3 +31,4 @@
 - 7 nov, run 17:32, ook: Shopify vervolg B deel 2 (e-facturen, scripttags). Cijfer van 6 naar 5, nee voor nu. Controleur akkoord, 7 correcties.
 - 7 nov, run 19:33: Zoho Marketplace gemeten via de openbare maandlijsten (±400 nieuwe extensies). Nee, cijfer 2. Controleur akkoord, 6 correcties.
 - 7 nov, run 19:33, ook: Pipedrive Marketplace voorwerk. Nee voor nu, cijfer 2: geen datums, geen betaling via de winkel.
+- 7 nov, run 19:33, ook: Salesforce AppExchange zelf toegevoegd en gemeten (10.897 pagina's). Nee voor nu, cijfer 3. Controleur akkoord, 6 correcties.

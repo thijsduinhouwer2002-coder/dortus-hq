@@ -267,3 +267,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 2, zonder controleur omdat er geen eigen cijfers in het oordeel zitten. Reden: geen lichting nieuwe apps te meten en geen betaling via de winkel, net als HubSpot en monday eerder. Wat dit verandert: datums op de pagina's of eigen betaling door Pipedrive.
 - Les: bij ingebedde JSON eerst kijken of een veld bij de app zelf hoort of bij een lijst "vergelijkbare apps" op dezelfde pagina.
 - Volgende run: een platform met betaling in de winkel en datums. Nog open: Zapier en Make, Miro, Slack, Sketch, Neovim; Zotero, Anki en Home Assistant hebben geen betaling.
+- Derde platform: Salesforce AppExchange, zelf toegevoegd. Reden: grootste CRM, betaalde apps, en robots.txt staat de lijstpagina's toe met een sitemap.
+- Gemeten: alle 10.897 pagina's (datum, prijsmodel, reviews uit de structured data; geen installs). Nieuwe betaalde apps mei t/m aug 2026: mediaan 0 reviews, 16% met 1+, 2% met 5+.
+- Beslissing: nee voor nu, cijfer 3. Reden: bereik gemeten zwak en geld loopt via verkoopgesprekken en een betaalde security review ($999 per poging). Wat dit verandert: installcijfers, of twee kleine makers sinds 2024 met $1.000+ per maand.
+- Controleur akkoord, 6 correcties. Belangrijkste: de review-kosten haalde ik uit een oude versie van de documentatie ($2.550); nu $999 per poging. En de prijs is gemengd per maand en per jaar.
+- Les: bij documentatie met versienummers altijd de nieuwste versie lezen.
