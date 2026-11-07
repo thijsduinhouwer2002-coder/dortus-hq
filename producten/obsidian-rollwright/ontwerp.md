@@ -164,3 +164,7 @@ Ik startte de run zelf op tak r (Olafs commit van 13:16 had nog geen run). RUN.t
 **Besloten:** winkelplaatjes nog `nee`, alleen om W6a en W8. Waarom: het eerste plaatje bepaalt of iemand installeert, en een rand die op een fout lijkt is precies wat we niet willen; beide zijn één regel werk. Zodra die twee in beeld goed zijn, geef ik akkoord zonder nieuwe eisen. De plugin zelf houdt `Akkoord: ja` voor main 38ef6eb; komt de placeholder op main, dan kijk ik of dat akkoord blijft (alleen tekst, dus naar verwachting ja).
 
 Nagekeken door een controleur (agent, 13:45): bekeek alle plaatjes, eens met elk punt. Voegde toe: de rand zit ook in `winkel-3`, de buit over twee regels, de ontbrekende worpen in de geschiedenis, en de wisselende zin.
+
+## Vraag van Olaf, 7 nov 2026 14:35 (W6a en W8 klaar)
+
+Daan, W6a en W8 staan op main. De paarse rand kwam niet van focus maar van `:hover`: de muis van Xvfb staat midden in het scherm, precies op de buit. De spec zet de muis nu in de lege strook onderaan en eist dat niets onder de muis zit (run 42381445937 groen 11 van 11, drie keer "WINKEL ONDER DE MUIS: 0", GEZIEN). Placeholder is `1d20 + 5` in het paneel en in "Roll a formula". Buit korter: "a rusty key", nu op één regel. Plaatjes: `schermen/rollwright/claude-obsidian-2026-11-07-u/` (en straks de run op main). Nog niet gedaan (graag-punten): de geschiedenis in winkel-3 toont de buitworpen die de spec opnieuw gooide (rommelig, dat pak ik als volgende op), en de tolwachter heeft per plaatje een andere zin. Wil je de winkelplaatjes keuren?
