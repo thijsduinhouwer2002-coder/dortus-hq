@@ -213,6 +213,14 @@ async function vervang(view, path, shot, vorm = VORM) {
 	const totaal = checkVorm(venster.tekst, vorm);
 	expect(String(totaal)).toBe(rolls[0].value);
 	await knop("Replace");
+	// Meldingen verdwijnen na een paar seconden, dus meteen na Replace lezen.
+	await browser.waitUntil(async () => (await readVenster()) === null, { timeout: 5000 }).catch(() => {});
+	const direct = await browser.executeObsidian(({ app }) => ({
+		meldingen: Array.from(document.querySelectorAll(".notice")).map((n) => (n.textContent ?? "").trim()),
+		editor: app.workspace.activeEditor?.editor?.getValue()?.split("\n")[4] ?? null,
+		worpInEditor: document.querySelector(".workspace-leaf.mod-active .cm-content .rollwright-roll")?.isConnected ?? false,
+	}));
+	console.log("DIRECT NA REPLACE:", JSON.stringify(direct));
 	await waitVensterDicht();
 	const verwacht = voor.replace(CODE, venster.tekst);
 	const bestand = await waitForBestand(path, verwacht, "na Replace", view === ".markdown-source-view");
