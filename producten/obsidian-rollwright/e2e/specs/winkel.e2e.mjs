@@ -90,7 +90,6 @@ async function thema(donker) {
 	await browser.pause(300);
 }
 
-
 // Plaatjes voor de lijst op community.obsidian.md: die wil 1200 bij 800 pixels.
 // browser.setWindowSize werkt niet in Obsidian, dus via Chrome DevTools (Emulation) een venster van 1200 bij 800 nabootsen.
 async function cdp(cmd, params) {
@@ -108,15 +107,22 @@ async function cdp(cmd, params) {
 
 async function lijstPlaatje(naam) {
 	await cdp("Emulation.setDeviceMetricsOverride", { width: 1200, height: 800, deviceScaleFactor: 1, mobile: false });
-	await browser.pause(500);
-	const maat = await browser.execute(() => `${window.innerWidth}x${window.innerHeight}`);
-	console.log(`WINKEL LIJST MAAT (${naam}):`, maat);
-	expect(maat).toBe("1200x800");
-	await browser.action("pointer").move({ x: 300, y: 790, origin: "viewport" }).perform();
-	await browser.pause(200);
-	await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
-	await cdp("Emulation.clearDeviceMetricsOverride", {});
-	await browser.pause(300);
+	try {
+		await browser.pause(500);
+		const maat = await browser.execute(() => `${window.innerWidth}x${window.innerHeight}`);
+		console.log(`WINKEL LIJST MAAT (${naam}):`, maat);
+		expect(maat).toBe("1200x800");
+		await browser.action("pointer").move({ x: 300, y: 790, origin: "viewport" }).perform();
+		await browser.pause(200);
+		const onderMuis = await browser.execute(() => Array.from(document.querySelectorAll(".rollwright-roll:hover, .rollwright-history-item:hover")).length);
+		console.log(`WINKEL LIJST ONDER DE MUIS (${naam}):`, onderMuis);
+		expect(onderMuis).toBe(0);
+		await browser.saveScreenshot(`${SHOTS}/${naam}.png`);
+	} finally {
+		// Altijd terug naar het gewone venster, ook als een eis hierboven faalt.
+		await cdp("Emulation.clearDeviceMetricsOverride", {});
+		await browser.pause(300);
+	}
 }
 
 async function plaatjes(naam, { focusWeg = true, lijst = true } = {}) {
