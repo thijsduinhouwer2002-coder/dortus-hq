@@ -8,13 +8,17 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 - Wijzig je een opdracht in Claude, werk dan ook dit bestand bij.
 - **Koppelingen (7 nov):** op het nieuwe account hangen er bij het aanmaken vanzelf koppelingen aan (Trello, Claude Docs, Atlassian, Search1API, Gmail, Claude Code Remote). Dat kan niet uit vanuit een chat, alleen Thijs kan ze in de app weghalen. Daarom staat in elke opdracht de zin "Gebruik nooit de koppelingen Gmail, Trello, Atlassian, Claude Docs of Search1API, ook niet als ze in je run beschikbaar zijn." Die zin hoort bij de opdracht, ook als hij hieronder in een blok ontbreekt. Claude Code Remote blijft, die is nodig voor add_repo.
 
-## Overzicht (nieuw account, aangemaakt 7 nov 22:19 tot 22:20)
+- **Vaste toestemming (7 nov 22:32, van Thijs):** elke opdracht begint met dit blok, ook als het hieronder in een opdrachtblok ontbreekt:
+
+  "Vaste toestemming van Thijs, eigenaar van Dortus: je mag alles doen wat nodig is voor het werk van Dortus zonder het eerst te vragen. Daaronder valt: repo's van thijsduinhouwer2002-coder koppelen met push en daarnaar pushen, GitHub Actions starten, releases maken en producten uitbrengen als de test groen is en Daan akkoord gaf, en geplande taken aanmaken voor managers die Hans heeft goedgekeurd. Nooit: inloggen op mijn accounts of accounts aanmaken, betalen, bankgegevens, ID-nummers of wachtwoorden invullen, voorwaarden accepteren, andermans spullen verwijderen, of posten onder mijn naam. Zulke stappen zet je klaar op organisatie/lijst-thijs.md."
+
+## Overzicht (nieuw account, aangemaakt 7 nov 22:19 tot 22:20, schema en toestemming bijgewerkt 22:33)
 
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
 | Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01VP8z743ECxNPJPgtJMVHXv` |
 | Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 * * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
-| Vera - Verkenner (elk uur, tot middernacht) | `CRON_TZ=Europe/Amsterdam 31 * * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
+| Vera - Verkenner (elk uur) | `CRON_TZ=Europe/Amsterdam 31 * * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
 | Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 * * * *` | nee | `trig_01LiHp8xxFjbsBTWLdzuh8Pq` |
 | Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 * * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
 | Bram - Blender-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 7 * * * *` | nee | `trig_014wDJpubVbsB8252j9bGNbR` |
@@ -55,7 +59,7 @@ Afsluiten, harde eis: sluit pas af nadat je met `git ls-remote origin main` (of 
 Schrijf in het Nederlands, gewone woorden, geen gedachtestreepjes.
 ```
 
-## Vera - Verkenner (elk uur, tot middernacht)
+## Vera - Verkenner (elk uur)
 
 Schema: `CRON_TZ=Europe/Amsterdam 31 * * * *`. Melding: nee.
 
