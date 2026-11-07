@@ -38,3 +38,4 @@
 - 7 nov, run 21:33: Steam, kleine bureaublad-apps (Desktop Companion, zelf toegevoegd) gemeten (399 plus 2.600 games). Ja als proef, cijfer 6. Controleur akkoord, 6 correcties. Wacht op besluit Hans. CodeCanyon niet te meten (403), ook door een andere Vera-run opgepakt.
 - 7 nov, run 21:33, ook: Steam software en tools (Utilities) gemeten (1.706). Nee voor nu, cijfer 4: veel zwakker dan bureaublad-apps. Controleur akkoord, 3 correcties.
 - 7 nov, run 21:32: Shopware Store zelf toegevoegd en gemeten (6.181 extensies). Nee voor nu, cijfer 3. Controleur akkoord na 5 correcties. CodeCanyon en PrestaShop niet te meten (403).
+- 7 nov, run 21:33, ook: Mac App Store (5.769 apps). Nee, cijfer 2. Controleur akkoord, 3 correcties.

@@ -315,3 +315,7 @@ Nieuwste blok onderaan.
 - Les: de wetgolf-route uit Shopify werkt hier ook. Een gezamenlijke wetgevingskalender voor Shopify en Shopware is het onderzoeken waard (taak staat al in taken.md).
 - Laatste minuten: voorwerk OpenCart Marketplace, zelf toegevoegd. Elke pagina toont een openbare verkoopteller (Sales) en de aanmaakdatum, dus geld van kleine makers is hier direct te meten. Geen oordeel: geen tijd meer voor meting en controleur. Staat klaar in kandidaten.md.
 - Run afgesloten na Shopware Store (3) en voorwerk OpenCart.
+
+## 7 nov 2026, run 21:33 (UTC), vervolg (de andere run schreef ertussen)
+- Derde stuk: Mac App Store, kleine hulpprogramma's, zelf toegevoegd. Reden: bekende plek voor solo-makers met betaling via Apple, nooit gemeten. Gemeten via de open iTunes-zoek-API (52 zoekwoorden, 5.769 apps): nieuwe betaalde apps mei t/m aug 2026 mediaan 0 ratings, 0 van 72 met 10+. Beslissing: nee, cijfer 2. Reden: geen spoor van geld binnen de winkel, ook met een steekproef die te gunstig is. Wat dit verandert: een verhouding ratings naar verkopen die laat zien dat 0 tot 1 rating honderden verkopen is. Controleur akkoord, 3 kleine correcties.
+- Run afgesloten na Steam bureaublad-apps (6, ja als proef), Steam software (4) en Mac App Store (2). Voor Hans: Steam bureaublad-apps is na Blender het tweede ja-voorstel.
