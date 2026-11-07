@@ -130,14 +130,28 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     Thread.sleep(1_500)
     typ("NUM")
     Thread.sleep(1_000)
+    // Run 42405578806: na het typen kwam Shift+F6 niet bij de Rename-actie van de boom (geen hint, geen venster).
+    // Het snelzoekveld met "NUM" sluiten (de keuze blijft op NUM) en de boom zelf de focus geven, zoals een
+    // gebruiker die op de knoop klikt. In het log staat of de boom voor en na de focus had.
+    val boom = structuurBoom()
+    println("DORTUS-E2E [$naam] structuurboom gevonden ${boom != null}, focus na typen ${boom?.let { b -> withContext(OnDispatcher.EDT) { b.isFocusOwner() } }}")
+    toets("Escape")
+    Thread.sleep(500)
+    if (boom != null) withContext(OnDispatcher.EDT) { boom.requestFocusInWindow() }
+    Thread.sleep(1_000)
+    println("DORTUS-E2E [$naam] structuurboom focus voor Shift+F6 ${boom?.let { b -> withContext(OnDispatcher.EDT) { b.isFocusOwner() } }}")
     toets("shift+F6")
     val structuur = wacht(10) { melding.aantalHintsZonderEditor() > zonderVoor }
     Thread.sleep(1_000)
+    val balk = statusBalk()
     println("DORTUS-E2E [$naam] Shift+F6 op NUM in de structuurweergave: hint zonder editor $structuur (aantal ${melding.aantalHintsZonderEditor()}), " +
-        "laatste hint '${melding.laatsteHint()}', statusbalk '${statusBalk()}'")
+        "laatste hint '${melding.laatsteHint()}', statusbalk '$balk'")
     scherm("$naam-hernoem-structuur.png")
     toets("Escape")
     assertTrue(structuur, "hint in de statusbalk bij hernoemen vanuit de structuurweergave ($naam)")
+    val verwacht = "NUM is also used in calc.l and calc.ll. Rename across grammar and scanner is a Pro feature."
+    assertEquals(verwacht, melding.laatsteHint(), "hint bij hernoemen vanuit de structuurweergave ($naam)")
+    assertEquals(verwacht, balk, "tekst in de statusbalk bij hernoemen vanuit de structuurweergave ($naam)")
 
     // 5. Een regel die alleen in calc.y staat: het hernoemvenster, en het conflictvenster bij een bestaande naam.
     hernoemvenster(d, naam, melding)
@@ -156,7 +170,8 @@ private fun IdeTest.hernoemvenster(d: Driver, naam: String, melding: ProMeldingO
     try {
         shiftF6(d, naam) { actiefVenster().let { it != null && it != ide }.also { if (it) venster = actiefVenster() } }
         println("DORTUS-E2E [$naam] Shift+F6 op exp in calc.y: hernoemvenster ${venster ?: "niet gezien"}, hints ${melding.aantalHints()} (was $hintsVoor), laatste melding '${melding.laatsteMelding()}'")
-        if (venster == null) return@with
+        // Geen venster: hier falen met een duidelijke tekst, niet stil verder (dan was de stap leeg groen).
+        assertTrue(venster != null, "hernoemvenster bij exp: na Shift+F6 op exp: in calc.y kwam geen venster ($naam)")
         Thread.sleep(2_000)
         scherm("$naam-hernoem-venster.png")
         toets("ctrl+a")

@@ -9,7 +9,12 @@ import com.dortus.bisonflex.psi.Koppeling
 import com.dortus.bisonflex.psi.NaamElement
 import com.intellij.notification.Notification
 import com.intellij.notification.Notifications
+import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.IdeActions
+import com.intellij.refactoring.actions.RenameElementAction
+import com.intellij.refactoring.rename.PsiElementRenameHandler
+import com.intellij.testFramework.TestActionEvent
 import com.intellij.openapi.actionSystem.impl.SimpleDataContext
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiFile
@@ -106,6 +111,29 @@ class ProHernoemenTest : BasePlatformTestCase() {
         assertEquals(1, melding.aantalHints())
         assertEquals(1, melding.aantalHintsZonderEditor())
         assertEquals("NUM is also used in calc.l. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
+    }
+
+    /**
+     * Het echte pad vanuit de structuurweergave: de actie RenameElement (Shift+F6) met een DataContext zoals de boom
+     * die geeft (het gekozen element als PSI_ELEMENT, geen editor). De IDE kiest dan zelf de handler en de processor.
+     */
+    fun testRenameActieZonderEditorGeeftHintInDeStatusbalk() {
+        val f = grammaticaOpen()
+        val num = definitie(f, "NUM")
+        val boom = SimpleDataContext.builder()
+            .add(CommonDataKeys.PROJECT, project)
+            .add(CommonDataKeys.PSI_ELEMENT, num)
+            .add(PsiElementRenameHandler.DEFAULT_NAME, "GETAL")
+            .build()
+        val actie = ActionManager.getInstance().getAction(IdeActions.ACTION_RENAME)
+        assertTrue(actie is RenameElementAction)
+        assertTrue((actie as RenameElementAction).isAvailable(boom))
+        actie.actionPerformed(TestActionEvent.createTestEvent(actie, boom))
+        actie.actionPerformed(TestActionEvent.createTestEvent(actie, boom))
+        assertEquals(1, meldingen.size)
+        assertEquals(1, melding.aantalHintsZonderEditor())
+        assertEquals("NUM is also used in calc.l. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
+        assertEquals(tekst("calc.y"), inhoud("calc.y"))
     }
 
     fun testTijdensIndexerenGeenProMeldingEnNietHalf() {
