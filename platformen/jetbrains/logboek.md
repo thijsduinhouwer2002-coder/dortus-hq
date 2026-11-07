@@ -183,3 +183,12 @@ Nieuwste blok onderaan.
 - **Intussen:** Daan schreef beoordeling 8 op de code van tak `-n` (6 punten over teksten, indexeren en calc.l, plus de schermen die hij wil zien). Bovenaan de takenlijst gezet voor de volgende run.
 - **Misging:** twee commits van de bouwer hebben de slotregels zonder lege regel ervoor; niet hersteld, want dat vraagt geforceerd pushen.
 - **Afgesloten om ±18:35 UTC.**
+
+
+## 7 nov 2026, 18:53 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Bovenste taak: Daan beoordeling 8 (6 punten hernoemen). Bouwer op tak `claude/jetbrains-2026-11-07-o` (9b78397, af58e7a): tekst per actie (`toonEenmaal(project, tekst, actie)`), hint met reden, statusbalk zonder editor, `Koppeling.scannerGebruik` met stand Indexeren (neutrale hint, nooit half hernoemen, ook met licentie), aparte vlag per actie, nieuwe `RenameHandler` `ProHernoemenScanner` voor Shift+F6 in calc.l. Nieuwe IDE-stappen in `e2e/.../Hernoemen.kt`.
+- **Beslissingen:** zonder editor naar de statusbalk en niet een tweede balloon, omdat we hoogstens één verkoopballoon per actie per sessie tonen. Tijdens indexeren geen hernoeming van een token, want dan zijn de plekken in de scanner niet te vinden en zou het half gaan.
+- **Uitkomst:** 82 unittests groen (GEZIEN door bouwer en controleur). IDE-run 42404410609 rood op een te strenge verwachting in onze eigen test (tekst noemt terecht calc.l en calc.ll), gerepareerd. IDE-run 42405578806 rood op de structuurweergave: Shift+F6 daar geeft niets (GEZIEN in log en op `donker-hernoem-structuur.png` door de controleur). Balloon, hint, aparte vlag en calc.l werken in de echte IDE (GEZIEN in het log).
+- **Nakijken:** controleur akkoord nee, 2 moet-punten (structuurweergave, lege groene venster-stap). Gewijzigde bestaande test `AllePlekkenTest.kt:165` apart goedgekeurd. Niet samengevoegd met main. Bovenaan de takenlijst voor de volgende run.
+- **Misging:** de bouwer liet de lokale repo op de werktak staan; notities via main opgeslagen.
+- **Afgesloten om ±19:35 UTC.**
