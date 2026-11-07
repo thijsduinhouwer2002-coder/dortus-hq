@@ -1,7 +1,6 @@
 package com.dortus.bisonflex.pro
 
 import com.intellij.codeInsight.hint.HintManager
-import com.intellij.ide.BrowserUtil
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -28,7 +27,7 @@ class ProMelding {
         if (!getoond.compareAndSet(false, true)) return false
         NotificationGroupManager.getInstance().getNotificationGroup(GROEP)
             .createNotification(TITEL, TEKST, NotificationType.INFORMATION)
-            .addAction(NotificationAction.createSimpleExpiring("Start free trial") { BrowserUtil.browse(KOOPPAGINA) })
+            .addAction(NotificationAction.createSimpleExpiring("Start free trial") { Proef.start() })
             .addAction(NotificationAction.createSimpleExpiring("Not now") {})
             .notify(project)
         return true
@@ -59,8 +58,6 @@ class ProMelding {
         const val TEKST = "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days."
         /** Korte hint bij latere klikken, zonder knop. */
         const val HINT = "Go to declaration across grammar and scanner is a Pro feature"
-        /** Nog de algemene Marketplace: de id van de pluginpagina is er pas na het indienen (architectuur.md, Open). */
-        const val KOOPPAGINA = "https://plugins.jetbrains.com/"
 
         fun getInstance(): ProMelding = ApplicationManager.getApplication().getService(ProMelding::class.java)
     }

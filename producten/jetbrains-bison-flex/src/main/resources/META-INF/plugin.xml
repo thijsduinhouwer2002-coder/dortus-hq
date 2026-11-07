@@ -30,4 +30,8 @@
         <notificationGroup id="Bison &amp; Flex Pro" displayType="BALLOON"/>
         <gotoDeclarationHandler implementation="com.dortus.bisonflex.pro.GaNaarDefinitie"/>
     </extensions>
+    <applicationListeners>
+        <!-- Weet of er een echte ga-naar-actie bezig is, zodat Ctrl+zweven geen Pro-melding geeft (GaNaarActie.kt). -->
+        <listener class="com.dortus.bisonflex.pro.GaNaarActie" topic="com.intellij.openapi.actionSystem.ex.AnActionListener"/>
+    </applicationListeners>
 </idea-plugin>

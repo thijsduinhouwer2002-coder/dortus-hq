@@ -47,7 +47,10 @@ class ProTest : BasePlatformTestCase() {
 
     private fun open(naam: String): PsiFile = myFixture.configureByText(naam, File(project, naam).readText())
 
-    /** Ga naar definitie op het [n]-de voorkomen (vanaf 0) van [tekst], met de cursor in het midden van het woord. */
+    /**
+     * Ga naar definitie op het [n]-de voorkomen (vanaf 0) van [tekst], met de cursor in het midden van het woord,
+     * zoals bij een echte ga-naar-actie (Ctrl+B). Zweven zonder actie staat in ProZwevenTest en GaNaarActieTest.
+     */
     private fun gaNaar(tekst: String, n: Int = 0): List<PsiElement> {
         val inhoud = myFixture.editor.document.text
         var plek = -1
@@ -55,7 +58,7 @@ class ProTest : BasePlatformTestCase() {
         assertTrue("'$tekst' (#$n) niet gevonden", plek >= 0)
         val offset = plek + tekst.length / 2
         val blad = myFixture.file.findElementAt(offset)
-        return GaNaarDefinitie().getGotoDeclarationTargets(blad, offset, myFixture.editor)?.toList() ?: emptyList()
+        return GaNaarDefinitie { true }.getGotoDeclarationTargets(blad, offset, myFixture.editor)?.toList() ?: emptyList()
     }
 
     /** Korte vorm van een doel: type, tekst en regel (vanaf 1). */

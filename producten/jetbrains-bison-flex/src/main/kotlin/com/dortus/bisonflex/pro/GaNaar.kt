@@ -7,7 +7,6 @@ import com.dortus.bisonflex.parser.BisonElementen as B
 import com.dortus.bisonflex.parser.FlexElementen as F
 import com.intellij.codeInsight.hint.HintManager
 import com.intellij.codeInsight.navigation.actions.GotoDeclarationHandler
-import com.intellij.ide.IdeEventQueue
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ModalityState
 import com.intellij.lang.ASTNode
@@ -19,9 +18,6 @@ import com.intellij.psi.PsiManager
 import com.intellij.psi.search.FileTypeIndex
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.tree.IElementType
-import java.awt.AWTEvent
-import java.awt.event.KeyEvent
-import java.awt.event.MouseEvent
 
 /**
  * Ga naar definitie (eis 6, eerste deel; Pro). Geen eigen PSI-klassen: we zoeken in de boom van de parser.
@@ -31,10 +27,14 @@ import java.awt.event.MouseEvent
  * Springen binnen hetzelfde bestand is gratis (Daan, beoordeling 5 punt 2). Alleen springen naar een ander bestand
  * (Flex-actie naar `%token` in een `.y`) is Pro. Bij stand GEEN en een doel in een ander bestand: geen sprong,
  * eenmaal per sessie de Pro-melding, en bij latere klikken een korte hint in de editor in plaats van de IDE-fout.
+ *
+ * Melding en hint komen alleen als er een echte ga-naar-actie bezig is ([GaNaarActie]). Zonder actie (Ctrl+zweven,
+ * de IDE vraagt dan op een achtergronddraad om doelen) geeft de handler null terug, zonder melding en zonder hint.
+ * Waarom een actie-luisteraar en niet de huidige gebeurtenis: zie de uitleg bij [GaNaarActie].
  */
 class GaNaarDefinitie(
-    /** De gebeurtenis die de vraag veroorzaakt; in tests te vervangen. */
-    private val gebeurtenis: () -> AWTEvent? = { IdeEventQueue.getInstance().trueCurrentEvent },
+    /** Of er nu een ga-naar-actie bezig is; in tests te vervangen. */
+    private val actieBezig: () -> Boolean = GaNaarActie::isBezig,
 ) : GotoDeclarationHandler {
 
     override fun getGotoDeclarationTargets(bron: PsiElement?, offset: Int, editor: Editor?): Array<PsiElement>? {
@@ -44,7 +44,7 @@ class GaNaarDefinitie(
         val hier = bron.containingFile
         if (Licentie.proWerkt() || doelen.all { it.containingFile == hier }) return doelen.toTypedArray()
         // Ctrl/Cmd+zweven vraagt ook om doelen: dan geen sprong en geen melding, alleen bij een echte actie.
-        if (isZweven(gebeurtenis())) return null
+        if (!actieBezig()) return null
         // Eerste keer de balloon; daarna de korte hint in de editor.
         verbergNietGevonden(if (ProMelding.getInstance().toonEenmaal(bron.project)) null else editor)
         return null
@@ -106,15 +106,6 @@ class GaNaarDefinitie(
     }
 
     companion object {
-        /** Muisbeweging of alleen een losse Ctrl/Cmd/Shift/Alt: dat is zweven (navigatie-hint), geen echte actie. */
-        fun isZweven(e: AWTEvent?): Boolean = when (e) {
-            is MouseEvent -> e.id == MouseEvent.MOUSE_MOVED || e.id == MouseEvent.MOUSE_DRAGGED ||
-                e.id == MouseEvent.MOUSE_ENTERED || e.id == MouseEvent.MOUSE_EXITED || e.id == MouseEvent.MOUSE_WHEEL
-            is KeyEvent -> e.keyCode in LOSSE_TOETSEN
-            else -> false
-        }
-
-        private val LOSSE_TOETSEN = setOf(KeyEvent.VK_CONTROL, KeyEvent.VK_META, KeyEvent.VK_SHIFT, KeyEvent.VK_ALT)
         private val NAAM = Regex("[A-Za-z_][A-Za-z0-9_]*")
 
         /** Alle knopen van [type] onder [n], in volgorde van het bestand. */

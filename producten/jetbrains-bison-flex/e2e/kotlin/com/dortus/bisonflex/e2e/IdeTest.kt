@@ -152,8 +152,6 @@ class IdeTest {
                 scherm("$naam-calc-l.png")
                 proMelding(naam)
                 kleurenpagina(naam)
-                // Ctrl+zweven (ctrlZweven in StructuurEnZweven.kt) staat hier bewust niet: na de kleurenpagina
-                // bewees de stap niets, en de fout in de plugin is nog open (zie architectuur.md, Open).
             }
     }
 
@@ -184,9 +182,15 @@ class IdeTest {
      * 1. Binnen calc.y is gratis: Ctrl+B op `line` in `input line` springt naar `line:`, zonder melding.
      * 2. Tussen bestanden is Pro: Ctrl+B op `NUM` in `return NUM;` van calc.l geeft geen sprong maar de balloon
      *    (scherm `pro-melding`), en een tweede keer de korte hint in de editor (scherm `pro-hint`).
+     * 3. Ctrl+zweven (Daan, beoordeling 6 punt 1): over `line` in calc.y als controle (daar hoort de IDE te
+     *    onderstrepen), over `NUM` in calc.l vóór de eerste Ctrl+B (geen balloon, geen hint) en na de balloon
+     *    (het aantal hints loopt niet op).
      */
     private fun Driver.proMelding(naam: String) {
         val melding = service<ProMeldingOpAfstand>()
+        // "Start free trial" roept de registratie van de IDE aan (Proef.kt); hier alleen kijken welke actie er is.
+        val acties = service<com.intellij.driver.sdk.ActionManager>()
+        println("DORTUS-E2E [$naam] registratie-acties: RegisterPlugins ${acties.getAction("RegisterPlugins") != null}, Register ${acties.getAction("Register") != null}")
         openFile("calc.y")
         pauze()
         val doelRegel = regelVan("\nline:") + 1
@@ -197,6 +201,8 @@ class IdeTest {
         println("DORTUS-E2E [$naam] sprong binnen calc.y: van regel ${voor + 1} naar regel ${na + 1} (verwacht ${doelRegel + 1}, line:), melding getoond ${melding.isGetoond()}")
         assertEquals(doelRegel, na, "Ctrl+B op line in calc.y springt naar line: ($naam)")
         assertFalse(melding.isGetoond(), "geen Pro-melding bij een sprong binnen calc.y ($naam)")
+        val controle = ctrlZweven("$naam calc.y", melding, "input line", 6, na)
+        println("DORTUS-E2E [$naam] controle Ctrl+zweven op line in calc.y: $controle onderstreping(en)")
 
         openFile("calc.l")
         pauze()
@@ -204,6 +210,10 @@ class IdeTest {
         structuurBij(naam, "calc.l")
         cursorOp("return NUM", 8)
         val regelL = cursorRegel()
+        ctrlZweven("$naam voor Ctrl+B", melding, "return NUM", 8, regelL)
+        println("DORTUS-E2E [$naam] na Ctrl+zweven voor de eerste Ctrl+B: melding getoond ${melding.isGetoond()}, hints ${melding.aantalHints()}")
+        assertFalse(melding.isGetoond(), "geen balloon door Ctrl+zweven voor de eerste Ctrl+B ($naam)")
+        assertEquals(0, melding.aantalHints(), "geen hint door Ctrl+zweven voor de eerste Ctrl+B ($naam)")
         val getoond = gaNaarDefinitie(naam) { melding.isGetoond() }
         Thread.sleep(2_000)
         println("DORTUS-E2E [$naam] eerste Ctrl+B op NUM in calc.l: melding getoond $getoond, hints ${melding.aantalHints()}, cursor regel ${cursorRegel() + 1} (was ${regelL + 1})")
@@ -212,6 +222,10 @@ class IdeTest {
         assertTrue(getoond, "Pro-melding getoond ($naam)")
         assertEquals(0, melding.aantalHints(), "geen hint bij de eerste klik ($naam)")
         assertEquals(regelL, cursorRegel(), "geen sprong vanuit calc.l ($naam)")
+
+        ctrlZweven("$naam na balloon", melding, "return NUM", 8, regelL)
+        println("DORTUS-E2E [$naam] na Ctrl+zweven na de balloon: hints ${melding.aantalHints()} (moet 0 blijven)")
+        assertEquals(0, melding.aantalHints(), "geen hint door Ctrl+zweven na de balloon ($naam)")
 
         val hint = gaNaarDefinitie(naam) { melding.aantalHints() >= 1 }
         Thread.sleep(1_000)

@@ -66,7 +66,23 @@ interface EditorMetOnderdeel {
     fun getContentComponent(): OnderdeelOpAfstand
     fun offsetToXY(offset: Int): Point
     fun getLineHeight(): Int
+    fun getMarkupModel(): MarkeringenOpAfstand
 }
+
+@Remote("com.intellij.openapi.editor.markup.MarkupModel")
+interface MarkeringenOpAfstand {
+    fun getAllHighlighters(): Array<MarkeringOpAfstand>
+}
+
+@Remote("com.intellij.openapi.editor.markup.RangeHighlighter")
+interface MarkeringOpAfstand {
+    fun getLayer(): Int
+    fun getStartOffset(): Int
+    fun getEndOffset(): Int
+}
+
+/** `HighlighterLayer.HYPERLINK`: de laag van de navigatie-onderstreping bij Ctrl+zweven (CtrlMouseHandler2). */
+private const val LAAG_ONDERSTREPING = 5900
 
 /** Naam van het bestand dat de structuurweergave nu toont, of een korte foutomschrijving. */
 fun Driver.structuurBestand(): String? = try {
@@ -106,8 +122,10 @@ fun Driver.structuurBij(naam: String, bestand: String) {
 /**
  * Ctrl ingedrukt houden en met de muis over [tekst] plus [extra] tekens in de open editor bewegen (xdotool),
  * daarna de muis weg naar een leeg stuk editor. Eis (stand GEEN): geen nieuwe hint, geen balloon, geen sprong.
+ * Terwijl Ctrl nog ingedrukt is, telt de stap de navigatie-onderstrepingen van de IDE (laag HYPERLINK in de
+ * markeringen van de editor) en zet ze in het log: zo is te zien dat de IDE het zweven echt zag. Geeft dat aantal.
  */
-fun Driver.ctrlZweven(naam: String, melding: ProMeldingOpAfstand, tekst: String, extra: Int, regelVoor: Int) {
+fun Driver.ctrlZweven(naam: String, melding: ProMeldingOpAfstand, tekst: String, extra: Int, regelVoor: Int): Int {
     val getoondVoor = melding.isGetoond()
     val hintsVoor = melding.aantalHints()
     val editor = cast(service<FileEditorManager>(singleProject()).getSelectedTextEditor()!!, EditorMetOnderdeel::class)
@@ -120,16 +138,21 @@ fun Driver.ctrlZweven(naam: String, melding: ProMeldingOpAfstand, tekst: String,
     }
     println("DORTUS-E2E [$naam] Ctrl+zweven op '$tekst' +$extra: muis naar ${plek.x},${plek.y} (pixels)")
     xdotool("mousemove", "${plek.x}", "${plek.y}")
+    var onderstreping = listOf<String>()
     xdotool("keydown", "ctrl")
     try {
         for (dx in listOf(2, 4, 6)) {
             Thread.sleep(500)
             xdotool("mousemove", "${plek.x + dx}", "${plek.y}")
         }
-        Thread.sleep(3_000)
+        Thread.sleep(2_000)
+        println("DORTUS-E2E [$naam] muis tijdens Ctrl: ${muisPlek()}")
+        onderstreping = onderstrepingen(editor)
+        Thread.sleep(1_000)
     } finally {
         xdotool("keyup", "ctrl")
     }
+    println("DORTUS-E2E [$naam] navigatie-onderstreping van de IDE tijdens Ctrl+zweven: ${onderstreping.size} $onderstreping")
     xdotool("mousemove", "${leeg.x}", "${leeg.y}")
     Thread.sleep(1_000)
     val regelNa = withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) { cast(editor, com.intellij.driver.sdk.Editor::class).getCaretModel().getLogicalPosition().getLine() }
@@ -137,6 +160,26 @@ fun Driver.ctrlZweven(naam: String, melding: ProMeldingOpAfstand, tekst: String,
     assertEquals(getoondVoor, melding.isGetoond(), "geen balloon door Ctrl+zweven ($naam)")
     assertEquals(hintsVoor, melding.aantalHints(), "geen hint door Ctrl+zweven ($naam)")
     assertEquals(regelVoor, regelNa, "geen sprong door Ctrl+zweven ($naam)")
+    return onderstreping.size
+}
+
+/** De navigatie-onderstrepingen (laag HYPERLINK) in [editor], als "begin-eind: tekst", of een korte fout. */
+private fun Driver.onderstrepingen(editor: EditorMetOnderdeel): List<String> = try {
+    withContext(OnDispatcher.EDT, LockSemantics.READ_ACTION) {
+        val tekst = editor.getDocument().getText()
+        editor.getMarkupModel().getAllHighlighters().filter { it.getLayer() == LAAG_ONDERSTREPING }
+            .map { "${it.getStartOffset()}-${it.getEndOffset()}: ${tekst.substring(it.getStartOffset(), it.getEndOffset())}" }
+    }
+} catch (e: Throwable) {
+    listOf("fout ${e.javaClass.simpleName}: ${e.message?.take(150)}")
+}
+
+/** Waar de muis nu is volgens xdotool (echte pixels). */
+private fun muisPlek(): String = try {
+    val p = ProcessBuilder("xdotool", "getmouselocation").redirectErrorStream(true).start()
+    p.inputStream.bufferedReader().readText().trim().also { p.waitFor() }
+} catch (e: Exception) {
+    "onbekend (${e.message})"
 }
 
 private fun xdotool(vararg args: String) {
