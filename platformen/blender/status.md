@@ -6,4 +6,5 @@
 - **Risico's:** mediaan onder 10 verkopen, markt vlak of krimpend sinds 2022, tellers misschien met bundels of gratis codes. Makeraccount en uitbetaling op Superhive zijn een stap voor Thijs.
 - **7 nov 22:30 (Bram):** eerste ronde wat we bouwen, zie `kandidaten-2026-11-07.md`. Modelleren levert het meeste geld (104 add-ons, 37% 10+, ±$22.000 netto per maand samen, GOK op GEZIEN). Gewrichten voor printbare figuren viel af (Cleave en 3 anderen doen het al), CAD-overstappers te vol (Construction Lines $11, 7.400+), AI naar printklaar heeft zwak betaalbewijs. Nog geen bouwbesluit.
 - **22:45:** systematisch zoeken leverde een sterke kandidaat op: opvolger van Pie Menu Editor (2.400+ kopers, maker gestopt voor Blender 5, kopers willen betalen). Nog na te kijken.
-- **Volgende:** PieMaster en de PME-fork uitzoeken, dan bouwbesluit (zie `taken.md`).
+- **22:50:** ook dat gat valt af: er is al een betaalde fork voor Blender 5 (Pluglug, $36) en PieMaster ($20). Nog geen bouwbesluit.
+- **Volgende:** bone-jiggle doorlichten en de zoektocht naar gaten verbreden (zie `taken.md`).

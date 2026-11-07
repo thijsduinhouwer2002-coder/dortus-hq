@@ -58,7 +58,7 @@ Alle tellers GEZIEN 7 nov op superhivemarket.com en extensions.blender.org.
 
 **Mijn oordeel (Bram):** nog steeds geen kandidaat die alle vier tegelijk haalt (vraag, betaalbewijs, zwakke concurrentie, haalbaar). B smal heeft zwakke concurrentie maar ook zwak betaalbewijs: printhulpen verkopen slecht. Ik besluit nog niet. Volgende run: niet verder op deze drie ideeën, maar systematisch zoeken naar gaten. Aanpak: per tag in modelleren en rigging de best verkochte add-ons van het afgelopen jaar, en per stuk de klachten in ratings waar nog niemand iets voor maakte. Daarnaast de geldhoek AI-mesh opschonen voor games bekijken (sterk betaalbewijs, maar sterke spelers).
 
-## 6. Ronde 3: systematisch gaten zoeken (7 nov 22:40, onderzoeker; nog niet nagekeken)
+## 6. Ronde 3: systematisch gaten zoeken (7 nov 22:40, onderzoeker; nagekeken 22:50, akkoord met correcties, zie sectie 7)
 Aanpak: per categorie (modeling, rigging, interface, rendering, animation) de eerste pagina gesorteerd op verkoop (/categories/<cat>/browse?sort_sales=desc), 78 producten, van 18 de ratings gelezen. Let op: de ratingspagina toont eerst de beste sterren, klachten staan op de laatste pagina. Alles GEZIEN 7 nov.
 
 - **Gat 1 (sterkst): opvolger van Pie Menu Editor voor Blender 5.** Pie Menu Editor ($16, 2.400+, ruim 4 jaar, ondersteunt tot Blender 4.3, https://superhivemarket.com/products/pie-menu-editor). De tien nieuwste reviews gaan over Blender 5: "please make it work on 5.2!", "Can't upgrade to Blender 5 without this", "happy to pay for the update"; 1 ster: "Stopped development for 5.0+. Messaged him, no response" (https://superhivemarket.com/products/pie-menu-editor/ratings). Volgens een review bestaat er een goedgekeurde fork alleen voor kopers (niet gevonden). Concurrentie: PieMaster $20, 100+, 5 maanden, 9 beoordelingen; Quick Pie & Favorites $2, 10+; Flick Pie $4,99, 10, 1 maand. Op extensions.blender.org alleen kleine losse pies. Bouwtijd middel tot groot (GOK). Past bij een verlaten bestseller met kopers die zeggen te willen betalen.
@@ -67,3 +67,14 @@ Aanpak: per categorie (modeling, rigging, interface, rendering, animation) de ee
 - Verworpen: Layer Painter (verlaten, maar gratis Paint System bestaat), DynRemesh (remeshen al bezet), Human Generator (te groot).
 
 **Oordeel Bram:** Gat 1 is de eerste kandidaat die vraag, betaalbewijs (2.400+ kopers van een product dat stopt) en een zichtbaar gat combineert. Het is ook een product waar uiterlijk telt: een pie menu ís interface, dus Daan kan er echt het verschil maken (GOK). Nog geen besluit: eerst nakijken, en uitzoeken of PieMaster het gat al vult (functies, ratings, verkopen per maand) en of de fork van PME bestaat en voor iedereen te koop is.
+
+## 7. Controle ronde 3 en doorlichting gat 1 (7 nov 22:50)
+**Gat 1 valt af.** Twee agents (controleur en onderzoeker, los van elkaar) vonden hetzelfde:
+- Er is al een opvolger van PME voor Blender 5: Pie Menu Editor Fork van Pluglug, $36, 30 reviews gemiddeld 5,0, "Blender 5.0 and later" (GEZIEN, https://pluglug.gumroad.com/l/pie-menu-editor-fork). Versie 2.1.0 van 3 okt 2026 als Blender Extension, leest PME-menu's in via JSON (GEZIEN, https://blenderartists.org/t/pie-menu-editor-v2/662456/6100). Pluglug houdt het officiële PME-draadje bij (6.000+ posts, actief tot 6 nov 2026). PME is GPL, dus de fork is legaal. De link stond gewoon in een review op ratings ?page=6.
+- PieMaster van Pitiwazou ($20, Pro $80, 100+, 5 maanden, 9 ratings gemiddeld 5,0, Blender 4.2 tot 5.2) dekt de moderne kant: pies, dropdowns, zwevende panelen, knoppen per modus, GPU-getekend (GEZIEN, https://superhivemarket.com/products/piemaster/faq). Enige klacht: groot en lastig te leren.
+- Correcties op de citaten: "happy to pay for the update" en "Can't upgrade to Blender 5 without this" zijn 11 en 12 maanden oud, "Stopped development" 7 maanden. Niet "de tien nieuwste".
+- Gat 2 klopt in grote lijnen (BoneDynamics $15 6.000+, Blender 4.2 tot 5.2; "baking doesn't work" gaat over de gratis versie; Swingy "geen linken" is twijfelachtig, een andere review zegt dat linken werkt). Gat 3: Pivot Transform $14,99, 2.600+, klacht bestaat.
+
+**Les voor de volgende rondes:** een "verlaten bestseller" telt pas als gat nadat we zoeken naar forks en opvolgers (Gumroad, GitHub, het BlenderArtists-draadje van het product, alle pagina's van de ratings). Bij GPL-add-ons is een fork waarschijnlijk.
+
+**Stand na deze run:** vijf ideeën en één gat bekeken, allemaal afgevallen of niet overtuigend. Over: gat 2 (bone-jiggle die goed bakt, kwaliteitsgat bij twee bestsellers met 6.000+ en 1.700+ kopers, maar veel concurrentie) en een eenvoudige pie-editor als gratis lokker (zwak). Geen bouwbesluit.
