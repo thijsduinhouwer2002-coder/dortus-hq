@@ -119,6 +119,13 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		shown = outcome;
 		await showOutcome(plugin, target, outcome, sourcePath, component);
 	};
+	// A click hands back its result only after the history is saved. When two clicks come back in
+	// reverse order, the older one must not cover the newer one, which the listener already drew.
+	const showIfNewest = async (outcome: RollOutcome): Promise<void> => {
+		const newest = plugin.latestResult(key);
+		if (newest !== undefined && newest !== outcome) return;
+		await show(outcome);
+	};
 	const fail = (error: unknown): void => {
 		shown = null;
 		showError(target, formula, error);
@@ -127,7 +134,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	const rerollNow = async (): Promise<void> => {
 		try {
 			if (!modify) {
-				await show(await plugin.freshResult(key, formula, sourcePath, keep));
+				await showIfNewest(await plugin.freshResult(key, formula, sourcePath, keep));
 				return;
 			}
 			// dice-mod: write what is shown. Hidden by |none, it is rolled and shown first.
@@ -140,7 +147,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	const averageNow = async (): Promise<void> => {
 		try {
-			await show(await plugin.averageResult(key, formula, sourcePath, keep));
+			await showIfNewest(await plugin.averageResult(key, formula, sourcePath, keep));
 		} catch (error) {
 			fail(error);
 		}
