@@ -175,6 +175,10 @@ describe("Rollwright: winkelplaatjes", function () {
 		});
 		await browser.waitUntil(async () => browser.execute(() => document.querySelector('.workspace-leaf-content[data-type="rollwright-history"]') !== null),
 			{ timeout: 5000, timeoutMsg: "het geschiedenispaneel opende niet" });
+		// Alleen de klikken van dit plaatje in de geschiedenis: anders staan de trekkingen van lootVerschillend
+		// er ook in, met dubbele buit en uitkomsten die niet in de notitie staan (Daan, run 42381793178).
+		await browser.executeObsidian(async ({ app }) => app.plugins.plugins.rollwright.clearHistory());
+		await browser.pause(300);
 		for (const i of [0, 2, 1, 3]) {
 			await browser.execute((sel, i) => document.querySelectorAll(`${sel} .rollwright-roll`)[i]?.click(), `${LEAF} .markdown-reading-view`, i);
 			await browser.pause(300);
