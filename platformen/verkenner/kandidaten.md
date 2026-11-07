@@ -12,6 +12,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Modrinth (Minecraft-mods, makers krijgen geld uit advertentie-inkomsten, open API met downloads): klaar 7 nov run 08:31, eigen meting van 23.600 mods, nee (cijfer 3), zie onderzocht.md. Bereik top, geld bijna nul: verkopen verboden door EULA
 - BuiltByBit en Polymart (betaalde Minecraft-serverplugins): klaar 7 nov run 09:31, eigen meting van 903 Polymart-producten via open API, nee (cijfer 2), zie voorstellen/builtbybit-polymart.md. BuiltByBit zelf alleen te meten met een account en API-sleutel
 - Blender geld (taak Hans 6 nov): klaar 7 nov run 10:31, eigen meting op Superhive (verkooptellers op 3.166 pagina's), nu ja (cijfer 7), zie voorstellen/blender.md. Herhaalmeting over 4 weken met data/superhive-haal-script.py
+- Foundry VTT (modules, betaald via eigen marktplaats en Patreon), zelf toegevoegd 7 nov: in onderzoek 7 nov 11:36 UTC
 - Zotero (plugins)
 - Anki (add-ons)
 - Thunderbird (add-ons)
