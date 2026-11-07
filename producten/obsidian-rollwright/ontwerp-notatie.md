@@ -58,3 +58,9 @@ Wat: `[[Note]]|line` kiest nooit meer een regel die alleen een horizontale lijn 
 Bewust niet: trekken blijft met teruglegging, zoals bij tabellen en lijsten (twee keer dezelfde regel mag). Een lijn binnen een sectie of blok (`|paragraph`, `[[Note]]`) blijft gewoon staan. Regels met tekst die op een lijn lijken (`***tekst`, `--`) blijven kiesbaar.
 
 Af als: unittest `tests/regels-lijn.test.ts` (alle soorten lijnen weg, bijna-lijnen blijven, 9 trekkingen zonder lijn); `e2e/specs/secties.e2e.mjs` eist dat een regelworp nooit een lijn toont en telt dubbele regels mee; `e2e/specs/blok.e2e.mjs` groen in lezen en Live Preview; build en beide lints 0.
+
+## Parchment in donker en fout in gewone letter (Daan punt 5 en 8, 7 nov, Olaf)
+
+Wat: in een donker thema (`body.theme-dark`) krijgt Parchment Daans donkere perkamentkleuren (achtergrond `#3a2f1e`, letters `#f0e2c0`, rand `#8a6d3b`), ook in het voorbeeldvakje in de instellingen. De accentkleur (icoon) wordt daar `#e0a060`, omdat het donkerrood `#8c2f1b` op donker perkament niet te zien is; dat is een eigen keuze, Daan noemde geen accent. Een worp met een fout (`.rollwright-error`) houdt in Parchment de letter van de tekst (`font-family: inherit`), zoals in Classic. Alleen CSS in `styles.css`.
+
+Bewust niet: licht Parchment en Arcane blijven gelijk. Af als: `e2e/specs/skins.e2e.mjs` in de echte Obsidian meet licht Parchment `rgb(239, 226, 192)`, donker Parchment `rgb(58, 47, 30)` met letters `rgb(240, 226, 192)` en nog steeds Georgia, en een fout in Parchment met dezelfde letter als in Classic, in licht en donker; plaatjes `skins-parchment-licht.png` en `skins-parchment-donker.png`.
