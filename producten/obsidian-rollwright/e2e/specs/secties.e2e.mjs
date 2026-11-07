@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 // Worpen op blokken (secties) en regels van een andere notitie, in de echte Obsidian.
 // Sectiewerpen.md rolt op Bron.md. Elk blok in Bron.md heeft een eigen woord, zodat te zien is
@@ -226,8 +227,7 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 		const seen = new Set();
 		for (let i = 0; i < 15; i++) {
 			const before = (await readRolls(".markdown-reading-view"))[3];
-			await markeer(".markdown-reading-view", 3);
-			await browser.execute((sel) => document.querySelectorAll(`${sel} .rollwright-roll`)[3]?.click(), `${LEAF} .markdown-reading-view`);
+			await klikWorp(`${LEAF} .markdown-reading-view`, 3, { markeer: true });
 			let rolls = [];
 			await browser.waitUntil(async () => {
 				rolls = await readRolls(".markdown-reading-view");

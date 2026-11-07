@@ -1,5 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
+import { klikWorp } from "./klik-hulp.mjs";
 
 // dice+: bewaart de uitkomst over een herstart van Obsidian, dice-: en dice: niet.
 // Bewaren.md heeft drie worpen van 1d1000000, zodat een toevallig gelijke nieuwe worp vrijwel onmogelijk is.
@@ -97,11 +98,7 @@ describe("Rollwright: dice+ bewaart over een herstart in de echte Obsidian", fun
 	it("een klik op dice+ rolt opnieuw en ook die uitkomst blijft na een herstart", async function () {
 		await openNote("Bewaren.md", "preview");
 		await waitForValues(".markdown-reading-view");
-		await browser.execute((sel) => {
-			const v = document.querySelector(`${sel} .rollwright-roll .rollwright-value`);
-			v?.setAttribute("data-e2e-oud", "1");
-			document.querySelector(`${sel} .rollwright-roll`)?.click();
-		}, `${LEAF} .markdown-reading-view`);
+		await klikWorp(`${LEAF} .markdown-reading-view`, 0, { markeer: true });
 		const geklikt = await waitForValues(".markdown-reading-view");
 		console.log("NA KLIK:", JSON.stringify(geklikt));
 		expect(geklikt[0]).not.toBe(eerst[0]);
