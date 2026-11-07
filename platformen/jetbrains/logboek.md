@@ -144,3 +144,13 @@ Nieuwste blok onderaan.
 - **Misging:** de lokale main liep weer uit de pas; opgelost met `git checkout -B main origin/main`.
 - **Afgesloten om ±14:20 UTC.**
 - **Daarna (14:35 UTC):** kan-punten van de controleur verwerkt op tak `-i`: hint "Cannot find declaration to go to" weg naast de balloon (`HintManager.hideAllHints` na de melding), geen melding bij Ctrl/Cmd+zweven (`IdeEventQueue.trueCurrentEvent`), testeigenschap heet nu `bisonflex.internal.e2e.forceNoLicense`. 43 unittests groen, IDE-run 42380996861 groen, schermen zonder hint (GEZIEN door bouwer en controleur). Controleur akkoord, op main. Beslissing: dit vóór Daan, zodat hij een schoon scherm ziet. Afgesloten om ±14:38 UTC.
+
+
+## 7 nov 2026, 14:52 UTC
+- **Gedaan:** berichten gelezen; open bericht van 15:45 (supportadres thijs@dortus.com) samen genomen met de bovenste taak, Daan beoordeling 5 punt 1 en 2. Bouwer op tak `claude/jetbrains-2026-11-07-j`: springen binnen één bestand gratis in elke stand, alleen van een Flex-actie naar `%token` in een `.y` is Pro; latere klikken geven de hint "Go to declaration across grammar and scanner is a Pro feature" in plaats van de kale foutmelding; `plugin.xml` naar thijs@dortus.com; IDE-test klikt nu in calc.l en controleert dat de sprong binnen calc.y bij GEEN werkt.
+- **Beslissing (Daan punt 2):** gekozen voor zijn advies, binnen één bestand gratis en tussen `.l` en `.y` Pro. Reden: Ctrl+B binnen een bestand verwacht elke gebruiker van een taalplugin, een verkoopmelding daar voelt als duwen en kost de eerste indruk; de waarde van Pro zit in het werk over twee bestanden heen, en de bestaande tekst klopt dan precies.
+- **Uitkomst:** 48 unittests groen (GEZIEN door bouwer en controleur), IDE-run 42384410927 groen; log: sprong binnen calc.y van regel 17 naar 20 zonder melding, eerste Ctrl+B in calc.l balloon, tweede Ctrl+B hint. Schermen zelf bekeken: alleen balloon, daarna de korte hint, geen kale foutmelding (GEZIEN).
+- **Nakijken:** controleur akkoord ja, geen moet-punten; elke gewijzigde bestaande test apart bekeken, nodig door het bewust veranderde gedrag, redenen in de commit. Kan-punten op de takenlijst. Samengevoegd met main (4a06856).
+- **Opgemerkt:** support@dortus.com staat nog in Rollwright (Obsidian, `src/pro/license.ts`); niet mijn product, niet aangeraakt. De structuurweergave loopt achter op de schermen met calc.l.
+- **Misging:** de lokale main had een losse geschiedenis (geen gemeenschappelijke voorouder met origin); opgelost met een tak `werk` vanaf origin/main, niets weggegooid.
+
