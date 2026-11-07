@@ -1,0 +1,18 @@
+<idea-plugin>
+    <id>com.dortus.bisonflex</id>
+    <name>Bison &amp; Flex Support</name>
+    <vendor email="support@dortus.com" url="https://dortus.com">Dortus</vendor>
+    <description><![CDATA[
+    Language support for Bison/Yacc grammars (<code>.y</code>, <code>.yy</code>) and
+    Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early skeleton: file type recognition.
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Bison" implementationClass="com.dortus.bisonflex.BisonFileType" fieldName="INSTANCE"
+                  language="Bison" extensions="y;yy"/>
+        <fileType name="Flex" implementationClass="com.dortus.bisonflex.FlexFileType" fieldName="INSTANCE"
+                  language="Flex" extensions="l;ll"/>
+        <lang.parserDefinition language="Bison" implementationClass="com.dortus.bisonflex.BisonParserDefinition"/>
+        <lang.parserDefinition language="Flex" implementationClass="com.dortus.bisonflex.FlexParserDefinition"/>
+    </extensions>
+</idea-plugin>
