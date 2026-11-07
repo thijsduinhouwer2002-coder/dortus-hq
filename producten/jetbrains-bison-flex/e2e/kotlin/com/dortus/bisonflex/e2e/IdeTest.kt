@@ -98,6 +98,10 @@ class IdeTest {
                 opties.resolve("colors.scheme.xml").writeText(
                     """<application><component name="EditorColorsManagerImpl"><global_color_scheme name="$kleurenschema"/></component></application>"""
                 )
+                // Geheugenmeter rechtsonder uit, hoort niet op een winkelplaatje (kan-punt controleur; GOK op de opslagplek).
+                opties.resolve("ide.general.xml").writeText(
+                    """<application><component name="StatusBarWidgetSettings"><option name="widgets"><map><entry key="Memory" value="false"/></map></option></component></application>"""
+                )
                 applyVMOptionsPatch {
                     addSystemProperty("idea.trust.all.projects", true)
                     addSystemProperty("ide.show.tips.on.startup.default.value", false)
