@@ -12,6 +12,12 @@ const ZWS = String.fromCharCode(0x200b);
 const TITEL = "Replace the dice code?";
 const CODE = "`dice-mod: 3d100 + 12`";
 const VORM = /^3d100 \+ 12 -> \[(\d+), (\d+), (\d+)\] \+ 12 -> (\d+)$/;
+// Met de instelling diceModFormula uit (src/main.ts, RollwrightSettings) valt de formule weg.
+const VORM_ZONDER = /^\[(\d+), (\d+), (\d+)\] \+ 12 -> (\d+)$/;
+// De codes en de notities staan bewust zo dat de vervangtekst geen backslash krijgt
+// (src/rollers/modify.ts, fitReplacement): geen backtick of | in de uitkomst, geen tabelregel,
+// en "Worp: " of "Kleur: " voor de code, zodat hij niet aan het begin van een regel staat.
+// Zo is de tekst in het bestand precies de tekst uit het venster.
 
 async function openNote(path, mode) {
 	await browser.executeObsidian(async ({ app }, path, mode) => {
@@ -136,8 +142,8 @@ async function waitForBestand(path, verwacht, wat, bewaar = true) {
 }
 
 /** Controleert de vorm van de tekst en dat het totaal de som plus 12 is. */
-function checkVorm(tekst) {
-	const m = VORM.exec(tekst);
+function checkVorm(tekst, vorm = VORM) {
+	const m = vorm.exec(tekst);
 	console.log("VORM:", JSON.stringify(tekst), "past:", m !== null);
 	expect(m).not.toBe(null);
 	const stenen = [m[1], m[2], m[3]].map(Number);
@@ -156,8 +162,29 @@ async function laatsteWorp() {
 	return browser.executeObsidian(({ app }) => JSON.stringify(app.plugins.plugins.rollwright?.settings?.history?.[0] ?? null));
 }
 
+/**
+ * Leest het bestand steeds opnieuw, zo lang als ms, en eist dat het gelijk blijft.
+ * Zo valt ook een schrijfactie op die pas even later komt.
+ */
+async function blijftGelijk(path, voor, ms = 1000) {
+	const start = Date.now();
+	let afwijking = null;
+	let keer = 0;
+	await browser.waitUntil(async () => {
+		const nu = await leesBestand(path);
+		keer++;
+		if (nu !== voor) {
+			afwijking = nu;
+			return true;
+		}
+		return Date.now() - start >= ms;
+	}, { timeout: ms + 10000, interval: 100, timeoutMsg: `${path} kon niet gelezen worden` });
+	console.log(`${path} ${keer} keer gelezen in ${Date.now() - start} ms, afwijking:`, JSON.stringify(afwijking));
+	expect(afwijking).toBe(null);
+}
+
 /** Klikt op de enige worp, kiest Replace en geeft de tekst uit het venster terug. */
-async function vervang(view, path, shot) {
+async function vervang(view, path, shot, vorm = VORM) {
 	const voor = await leesBestand(path);
 	console.log(`${path} VOOR:`, JSON.stringify(voor));
 	expect(voor).toContain(CODE);
@@ -171,7 +198,7 @@ async function vervang(view, path, shot) {
 	const na = await readRolls(view);
 	expect(na[0].old).toBe(true);
 	expect(na[0].value).toBe(rolls[0].value);
-	const totaal = checkVorm(venster.tekst);
+	const totaal = checkVorm(venster.tekst, vorm);
 	expect(String(totaal)).toBe(rolls[0].value);
 	await knop("Replace");
 	await waitVensterDicht();
@@ -210,7 +237,14 @@ describe("Rollwright: dice-mod met Replace in de echte Obsidian", function () {
 	it("Live Preview: Ctrl-Z zet de code terug", async function () {
 		await openNote("Ongedaan.md", "source");
 		const { voor } = await vervang(".markdown-source-view", "Ongedaan.md", "m3-venster-ongedaan.png");
-		await browser.executeObsidian(({ app }) => app.workspace.activeEditor?.editor?.undo());
+		// Een echte toets: de editor krijgt de focus en Obsidian moet Ctrl-Z zelf als ongedaan maken lezen.
+		const gefocust = await browser.executeObsidian(({ app }, sel) => {
+			app.workspace.activeEditor?.editor?.focus();
+			return document.activeElement?.closest(`${sel} .cm-content`) !== null && document.activeElement !== null;
+		}, LEAF);
+		console.log("EDITOR GEFOCUST:", gefocust, "EDITOR NU:", JSON.stringify(await browser.executeObsidian(({ app }) => app.workspace.activeEditor?.editor?.getValue() ?? null)));
+		expect(gefocust).toBe(true);
+		await browser.keys(["Control", "z"]);
 		const terug = await waitForBestand("Ongedaan.md", voor, "na Ctrl-Z");
 		console.log("Ongedaan.md NA CTRL-Z:", JSON.stringify(terug));
 		expect(terug).toContain(CODE);
@@ -223,7 +257,9 @@ describe("Rollwright: dice-mod met Replace in de echte Obsidian", function () {
 		await openNote("Annuleren.md", "source");
 		const voor = await leesBestand("Annuleren.md");
 		console.log("Annuleren.md VOOR:", JSON.stringify(voor));
-		await waitForRolls(".markdown-source-view", 1);
+		const rolls = await waitForRolls(".markdown-source-view", 1);
+		const historieVoor = await laatsteWorp();
+		await markeer(".markdown-source-view", 0);
 
 		await klik(".markdown-source-view", 0);
 		await waitForVenster();
@@ -234,19 +270,50 @@ describe("Rollwright: dice-mod met Replace in de echte Obsidian", function () {
 		await waitForVenster();
 		await browser.saveScreenshot(`${SHOTS}/m5-venster-voor-escape.png`);
 		await browser.keys(["Escape"]);
-		await browser.pause(300);
 		await waitVensterDicht();
 
-		// Geef een eventuele (foute) schrijfactie de kans, en kijk dan of alles gelijk is.
+		// Bewaar wat de editor heeft, en lees dan een seconde lang steeds het bestand: het blijft gelijk.
 		await browser.executeObsidian(async ({ app }) => {
 			await app.workspace.activeLeaf?.view?.save?.();
 		});
+		await blijftGelijk("Annuleren.md", voor);
 		const na = await leesBestand("Annuleren.md");
 		console.log("Annuleren.md NA:", JSON.stringify(na));
 		expect(na).toBe(voor);
+		// Geen nieuwe worp: hetzelfde element met merkteken, dezelfde uitkomst, niets nieuws in de geschiedenis.
+		const rollsNa = await readRolls(".markdown-source-view");
+		console.log("WORP VOOR EN NA:", JSON.stringify(rolls[0]), JSON.stringify(rollsNa[0]));
+		expect(rollsNa.length).toBe(1);
+		expect(rollsNa[0].old).toBe(true);
+		expect(rollsNa[0].value).toBe(rolls[0].value);
+		const historieNa = await laatsteWorp();
+		console.log("LAATSTE WORP IN GESCHIEDENIS VOOR EN NA:", historieVoor, historieNa);
+		expect(historieNa).toBe(historieVoor);
 		const editor = await browser.executeObsidian(({ app }) => app.workspace.activeEditor?.editor?.getValue() ?? null);
 		expect(editor).toBe(voor);
 		await waitForRolls(".markdown-source-view", 1);
+	});
+
+	it("Live Preview zonder formule: Replace schrijft alleen uitkomst en totaal", async function () {
+		// De instelling heet diceModFormula (src/main.ts, regel 35; src/ui/settings.ts, regel 126-127).
+		// Alleen in het geheugen uit, niet op schijf; de plugin leest hem bij de klik (src/ui/dice-mod.ts).
+		const eerst = await browser.executeObsidian(({ app }) => {
+			const plugin = app.plugins.plugins.rollwright;
+			const oud = plugin.settings.diceModFormula;
+			plugin.settings.diceModFormula = false;
+			return oud;
+		});
+		console.log("diceModFormula WAS:", eerst);
+		try {
+			await openNote("Zonder formule.md", "source");
+			const { na, tekst } = await vervang(".markdown-source-view", "Zonder formule.md", "m10-venster-zonder-formule.png", VORM_ZONDER);
+			expect(na).toContain(`Worp: ${tekst} en dan verder.`);
+			expect(na.includes("3d100")).toBe(false);
+		} finally {
+			await browser.executeObsidian(({ app }, oud) => {
+				app.plugins.plugins.rollwright.settings.diceModFormula = oud;
+			}, eerst);
+		}
 	});
 
 	it("Leesweergave: Replace verandert het bestand direct", async function () {
