@@ -36,6 +36,8 @@ const skin = async (s) => {
 const klik = async (woord) => {
 	await browser.execute((w) => {
 		const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
+		// Nagebootst tot Olaf het bouwt (klus 2c): bewegingen op het token zelf beginnen bij elke klik opnieuw.
+		if (r) { r.classList.remove("rollwright-rolled", "rollwright-crit", "rollwright-fumble"); void r.offsetWidth; }
 		r?.click();
 	}, woord);
 };
@@ -214,9 +216,17 @@ describe("Rollwright v2 voorstel", function () {
 			await stap(`instellingen ${licht}`, async () => {
 				await thema("", licht);
 				console.log("INSTELLINGEN OPEN:", await openInstellingen());
-				await browser.execute(() => document.querySelector(".rollwright-skin-preview")?.scrollIntoView({ block: "center" }));
+				await browser.executeObsidian(({ app }) => app.setting.modalEl?.querySelector(".rollwright-skin-preview")?.scrollIntoView({ block: "center" }));
 				await browser.pause(500);
-				await shot(`instellingen-skins-${licht ? "licht" : "donker"}`);
+				const hoofd = await browser.getWindowHandle();
+				const ander = (await browser.getWindowHandles()).find((h) => h !== hoofd);
+				console.log("VENSTERS:", ander ? "eigen venster" : "alleen hoofdvenster");
+				try {
+					if (ander) await browser.switchToWindow(ander);
+					await shot(`instellingen-skins-${licht ? "licht" : "donker"}`);
+				} finally {
+					await browser.switchToWindow(hoofd);
+				}
 				await sluitInstellingen();
 			});
 		}

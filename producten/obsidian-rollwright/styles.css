@@ -754,3 +754,22 @@ body.rollwright-skin-arcane .rollwright-roll,
 	top: 0.55em;
 	filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rollwright-accent) 55%, transparent));
 }
+
+/* De onthulling: tijdens het rollen staat een crit of fumble nog kleurloos, het goud of rood komt pas
+   als het getal landt (±480 ms). Anders verklapt de kleur de uitkomst voordat de steen stilligt. */
+@keyframes rw-reveal {
+	0%, 72% { filter: grayscale(1); }
+	100% { filter: none; }
+}
+
+.rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error),
+.rollwright-roll.rollwright-rolled.rollwright-fumble:not(.rollwright-error) {
+	animation: rw-reveal calc(660ms * var(--rw-slow)) ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.rollwright-roll.rollwright-rolled.rollwright-crit,
+	.rollwright-roll.rollwright-rolled.rollwright-fumble {
+		animation: none !important;
+	}
+}
