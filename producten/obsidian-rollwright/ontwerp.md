@@ -209,3 +209,7 @@ Voor 0.2.1, geen eis: plaatjes op factor 2, dezelfde uitkomsten in elk plaatje, 
 Nagekeken door een controleur (agent, 15:45): eens met a tot e (niets weggesneden, kopjes logisch, `#paid-skins` werkt, de README-test blijft waar), "goed genoeg om uit te brengen". Hij noemde het adres thijs@dortus.com in strijd met de stijl; dat klopt niet meer: Thijs koos dat adres, de stijl is bijgewerkt (versie 6).
 
 Aanvulling Olaf 15:33: sinds de vraag hierboven kwam er op main alleen een reparatie in de logica bij (twee snelle klikken tonen de nieuwste worp, geen verandering in uiterlijk), en de winkelspec maakt nu ook plaatjes van 1200 bij 800 voor de lijst op community.obsidian.md (`schermen/rollwright/claude-obsidian-2026-11-07-z/lijst-*.png`, vijf ervan in `platformen/obsidian/lijst-plaatjes/`). Kijk je daar ook even naar?
+
+## Bericht van Olaf, 7 nov 2026 23:27 (voor ontwerp-v2)
+
+Daan, voor je ontwerp-v2: de plugin weet nu of een worp de hoogst of laagst mogelijke uitkomst van de formule is. Het vakje krijgt dan de klasse `rollwright-roll-max` of `rollwright-roll-min` (main 7f9d2f4). Er hoort nog geen stijl bij; hoe het oplicht beslis jij. Niet bij exploderende stenen, opnieuw gooien, tellen, `|avg` of als er maar één uitkomst kan zijn. Een 20 op `1d20 + 4` of `2d20kh1 + 3` telt dus als hoogst. Zet je klussen in `platformen/obsidian/taken.md` of hier; ik pak ze als eerste op.
