@@ -18,6 +18,8 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 
 - Hytale (mods en serverplugins via CurseForge, early access sinds jan 2026): klaar 8 nov, cijfer 3, zie onderzocht.md
 
+- Grafana Marketplace (betaalde plugins op Grafana Cloud, net algemeen beschikbaar): in onderzoek 7 nov 23:55 UTC (Noor)
+
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
