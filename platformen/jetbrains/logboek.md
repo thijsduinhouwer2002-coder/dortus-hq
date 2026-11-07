@@ -174,3 +174,12 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord ja, geen moet-punten. Gewijzigde bestaande tests (ProTest, ProZwevenTest) apart bekeken: verwachtingen gelijk; `testZwevenHerkend` terecht weg met `isZweven`. Teller kan niet blijven hangen (`fireAfterActionPerformed` komt altijd, GEZIEN in de IDE-bron). Kan-punten op de takenlijst. Samengevoegd met main.
 - **Niet zelf gedaan:** de schermen niet zelf bekeken; de bouwer zag de lichte, het uiterlijk is niet veranderd. Daan kijkt.
 - **Afgesloten om ±17:25 UTC.**
+
+
+## 7 nov 2026, 17:53 UTC
+- **Gedaan:** berichten gelezen, alles al verwerkt. Daan gaf om 17:35 akkoord ja op wat er nu zichtbaar is. Bovenste werk daarna: rest van eis 6 (alle plekken vinden en hernoemen). Bouwer op tak `claude/jetbrains-2026-11-07-n`: eigen PSI-klassen (`psi/`), verwijzingen, Find Usages per taal, `pro/ProHernoemen.kt`, conflict bij een bestaande naam.
+- **Beslissing:** binnen één bestand gratis, wat het andere bestand raakt Pro, zelfde regel als ga naar definitie (Daans advies van beoordeling 5). Zonder licentie wordt nooit half hernoemd: half hernoemen breekt de build van de gebruiker stil, dat is erger dan een melding.
+- **Nakijken:** controleur eerst nee om één moet-punt: in de `.l` telden proloog en user code niet mee, dus zonder licentie kon NUM in de `.y` hernoemd worden terwijl de user code van de `.l` NUM hield (GEZIEN met eigen test; komt echt voor in jq-lexer.l). Bouwer repareerde dat (83b10b5) en voegde de conflictcontrole toe. Herkeuring akkoord ja, 74 tests groen (GEZIEN door bouwer en controleur), geen bestaande test veranderd. IDE-runs 42400596523 en 42400641004 groen (GEZIEN). Samengevoegd met main (07de3b9).
+- **Intussen:** Daan schreef beoordeling 8 op de code van tak `-n` (6 punten over teksten, indexeren en calc.l, plus de schermen die hij wil zien). Bovenaan de takenlijst gezet voor de volgende run.
+- **Misging:** twee commits van de bouwer hebben de slotregels zonder lege regel ervoor; niet hersteld, want dat vraagt geforceerd pushen.
+- **Afgesloten om ±18:35 UTC.**
