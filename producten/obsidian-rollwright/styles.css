@@ -567,6 +567,15 @@ button.rollwright-history-clear:not(.clickable-icon) {
 	font-size: var(--font-ui-smaller);
 }
 
+/* De verloop-achtergrond van v2 zet background-color op doorzichtig. Daaronder de skinkleur, zodat
+   de achtergrondkleur van het vakje die van de skin blijft (e2e skins); zichtbaar verandert er niets,
+   het verloop dekt hem helemaal. */
+.rollwright-roll:not(.rollwright-error),
+.rollwright-roll.rollwright-crit:not(.rollwright-error),
+.rollwright-roll.rollwright-fumble:not(.rollwright-error) {
+	background-color: var(--rollwright-bg);
+}
+
 /* Stempel bij crit en fumble (klus 3b): "NAT 20" / "NAT 1", bij andere formules "MAX" / "MIN".
    Leest ook zonder kleur. Komt pas na het landen van het getal, net als de vonk. */
 .rollwright-stamp {
