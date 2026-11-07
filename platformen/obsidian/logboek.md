@@ -313,3 +313,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Gedaan:** op tak `claude/obsidian-2026-11-07-za`: eerst een test die de fout laat zien (eerste klik krijgt een trage opslag, tweede komt eerder terug; de aangeklikte weergave toonde de oudere worp). Reparatie: `showIfNewest` in `src/ui/widget.ts` met `latestResult` in main.ts. 582 tests, tsc, lints 0 (GEZIEN). Controleur akkoord (zonder reparatie 5 van 5 rood, met 10 van 10 groen). E2e run 42386581880 groen 12 van 12 (GEZIEN). Op main, testpakket vernieuwd.
 **Beslissing:** dit wel vóór het uitbrengen meenemen. Waarom: kleine, goed geteste reparatie van een fout die gebruikers kunnen zien; alleen logica, geen uiterlijk, dus Daans akkoord op het uiterlijk blijft gelden (zo deed hij dat eerder ook).
 **Beslissing:** run hier afgesloten. Waarom: de volgende stap (uitbrengen) wacht op Daans oordeel over de README.
+
+## 7 nov 2026, 15:34 tot 15:43: lijstplaatjes netter, wiebel gezien
+**Gedaan:** tak `claude/obsidian-2026-11-07-zb`: `lijstPlaatje` heft de emulatie altijd op (try/finally) en eist ook in 1200x800 niets onder de muis. Run 42386873466: poging 1 rood op `geschiedenis.e2e.mjs` (worp 1 kreeg geen nieuwe uitkomst), poging 2 groen 12 van 12 (GEZIEN). Controleur akkoord; de tak raakt alleen de winkelspec. Op main.
+**Gevonden:** dezelfde wiebel stond al op main c76d271 (run 42385842375, worp 2), dus van vóór de reparatie van de snelle klikken, en die reparatie lost hem niet op. Main 874ccbe was groen (run 42386850567). Als taak bovenaan gezet, nog vóór het uitbrengen nakijken.
+**Beslissing:** geen poging tot reparatie meer in deze run. Waarom: zonder logregels is de oorzaak een gok, en de ±45 minuten zijn op.
