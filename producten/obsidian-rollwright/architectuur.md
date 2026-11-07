@@ -17,7 +17,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `modifiers.ts`: houden en weggooien, ontploffen, opnieuw gooien, uniek, en hoe een losse steen getoond wordt.
 - `faces.ts`: welke zijden een steen heeft (getal, procent, bereik, Fudge, eigen zijden, cijfers).
 - `state.ts`: de toestand tijdens een worp, een steen gooien en het budget aftellen.
-- `average.ts`: het gemiddelde (`averageOf`): precies waar het kan, anders een schatting uit gesimuleerde worpen.
+- `average.ts`: het gemiddelde (`averageOf`): precies waar het kan, anders een schatting uit gesimuleerde worpen. Ook `rangeOf`: de laagste en hoogste uitkomst van een formule met dezelfde precieze regels, plus houden, weggooien en sorteren uit een vast aantal stenen; `null` als dat niet zeker is (exploderen, opnieuw gooien, schatting).
 - `compare.ts`: vergelijkingen zoals `>=5` voor modifiers en tellen.
 - `format.ts`: getallen tonen en afronden.
 - `random.ts`: de standaard toevalsbron.
@@ -27,7 +27,8 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 ### src/rollers/ (van tekst in de notitie naar een uitkomst)
 - `inline.ts`: vindt `dice:`, `dice+:`, `dice-:` en `dice-mod:` in een regel of codeblok.
 - `spec.ts`: leest wat na `dice:` staat: formule of verwijzing plus vlaggen achter `|`.
-- `run.ts`: gooit een spec (`rollSpec`): formules, tabellen, blokken en regels uit andere notities, geneste worpen.
+- `run.ts`: gooit een spec (`rollSpec`): formules, tabellen, blokken en regels uit andere notities, geneste worpen. Een echte dobbelworp krijgt `extreme` (`"max"` of `"min"`) als hij de hoogst of laagst mogelijke uitkomst is.
+- `extreme.ts`: `extremeOf(total, formule)`, met `rangeOf` uit de kern; niets bij onzekere grenzen of als min gelijk is aan max. Het veld reist mee in de bewaarde uitkomst (`dice+:` en per plek), dus `main.ts` doet er niets voor.
 - `markdown.ts`: een klein blokmodel van een notitie om uit te kiezen.
 - `table.ts`: markdowntabellen lezen en opzoektabellen (`1-2 | ...`).
 - `fields.ts`: getallen uit de frontmatter als namen voor formules.
@@ -35,7 +36,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 - `modify.ts`: de tekst waarmee een `dice-mod:` code in de notitie wordt vervangen.
 
 ### src/ui/ (wat de gebruiker ziet)
-- `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview. Na het renderen bepaalt `isBlockValue` of de uitkomst meer is dan één gewone regel (meer elementen, geen `<p>`, of een `<br>`); dan krijgt het vakje `rollwright-roll-block` (`BLOCK_CLASS`), bij elke nieuwe uitkomst opnieuw bepaald. Dobbelstenen en fouten nooit.
+- `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview. Na het renderen bepaalt `isBlockValue` of de uitkomst meer is dan één gewone regel (meer elementen, geen `<p>`, of een `<br>`); dan krijgt het vakje `rollwright-roll-block` (`BLOCK_CLASS`), bij elke nieuwe uitkomst opnieuw bepaald. Dobbelstenen en fouten nooit. Een dobbelworp met `extreme` krijgt `rollwright-roll-max` (`MAX_CLASS`) of `rollwright-roll-min` (`MIN_CLASS`); `clearResultClasses` haalt deze drie klassen weg bij elke nieuwe uitkomst, fout of leeg vakje. Er is nog geen stijl voor max en min.
 - `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
 - `live-preview.ts`: hetzelfde in de editor (CodeMirror). Het `Component` van een widget hoort bij zijn DOM-element (een `WeakMap`), niet bij de widget: CodeMirror geeft bij een gelijke (`eq`) widget de oude DOM aan de nieuwe widget en roept `destroy(dom)` alleen daarop aan (getest in `tests/live-preview-lek.test.ts`, met jsdom).
 - `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie. In Live Preview krijgt de widget zijn regel en nummer op de regel mee (zoals in de sleutel) en schrijft met `replacementInLine` uit `rollers/modify.ts` in één `view.dispatch`; geen `posAtDOM`.

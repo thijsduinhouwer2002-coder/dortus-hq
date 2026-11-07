@@ -10,6 +10,16 @@ export const NO_SOURCE_NOTICE = "This result comes from more than one note, so t
 export const SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
 /** On a roll whose rendered result is more than one line or a block: styles.css shows it as a block under the line. */
 export const BLOCK_CLASS = "rollwright-roll-block";
+/** On a roll of dice that is the highest or lowest result of its formula (see rollers/extreme.ts). No style yet. */
+export const MAX_CLASS = "rollwright-roll-max";
+export const MIN_CLASS = "rollwright-roll-min";
+
+/** The classes that belong to one result, taken off before anything new is shown. */
+function clearResultClasses(target: HTMLElement): void {
+	target.removeClass(BLOCK_CLASS);
+	target.removeClass(MAX_CLASS);
+	target.removeClass(MIN_CLASS);
+}
 
 /** The rendered parts of a result, looking through wrapper divs that hold elements. */
 function renderedParts(el: Element): Element[] {
@@ -48,14 +58,14 @@ function tooltipFor(outcome: RollOutcome): string {
 function showBlank(target: HTMLElement, formula: string): void {
 	target.empty();
 	target.removeClass("rollwright-error");
-	target.removeClass(BLOCK_CLASS);
+	clearResultClasses(target);
 	setIcon(target.createSpan({ cls: "rollwright-icon" }), "dices");
 	setTooltip(target, formula);
 }
 
 function showError(target: HTMLElement, formula: string, error: unknown): void {
 	target.empty();
-	target.removeClass(BLOCK_CLASS);
+	clearResultClasses(target);
 	target.addClass("rollwright-error");
 	const message = errorMessage(error);
 	target.createSpan({ text: `dice: ${formula}` });
@@ -66,7 +76,7 @@ function showError(target: HTMLElement, formula: string, error: unknown): void {
 async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component): Promise<void> {
 	target.empty();
 	target.removeClass("rollwright-error");
-	target.removeClass(BLOCK_CLASS);
+	clearResultClasses(target);
 	const { flags } = outcome;
 	if (!flags.nodice) {
 		setIcon(target.createSpan({ cls: "rollwright-icon" }), "dices");
@@ -77,6 +87,9 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 	const value = target.createSpan({ cls: "rollwright-value" });
 	if (outcome.kind === "dice") {
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatResult(outcome.total, flags)}`);
+		// A kept result of an older version has no extreme: then nothing is added.
+		if (outcome.extreme === "max") target.addClass(MAX_CLASS);
+		else if (outcome.extreme === "min") target.addClass(MIN_CLASS);
 	} else {
 		await MarkdownRenderer.render(plugin.app, defuseRolls(outcome.text), value, sourcePath, component);
 		// Decided again on every new result, so a click from a block to one line (or back) fits.
