@@ -25,6 +25,7 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 2. **Nakijken voor het telt:** werk is pas klaar als een controleur het heeft nagekeken. Code is pas klaar als de tests groen zijn.
 3. **Eén taak tegelijk** per manager. Liever één ding af dan drie half.
 4. **Stopregel:** op dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing.
+4b. **Stopregel jonge platformen (pionier):** een manager op een platform dat via de pionier is gekozen, telt niet alleen zijn eigen gebruikers maar ook de groei van het platform zelf (het bewijs uit het voorstel van Noor). Groeit het platform 2 maanden op rij niet meer, of verdwijnt het plan om te kunnen betalen: stoppen of veranderen, met onderbouwing. Weinig eigen gebruikers op een platform dat nog hard groeit, is geen reden om te stoppen.
 5. **Geen herhaling zonder resultaat:** lukt een taak twee runs op rij niet, zet hem op de lijst voor Thijs en pak iets anders.
 
 ## Codekwaliteit (zodat een product heel blijft als het groeit)

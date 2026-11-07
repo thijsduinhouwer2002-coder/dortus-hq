@@ -9,3 +9,4 @@ Bijgehouden door de hoofdmanager. Per platform één regel.
 | Blender | nieuw (7 nov, cijfer 7), manager Bram | niets gebouwd | geplande taak door Thijs, dan uitzoeken wat we bouwen |
 | Verkenner | doorlopend zoeken, ±30 voorstellen, Blender 7 (ja) | rest 5 of lager | Zoho afmaken, Blender herhaalmeting rond 5 dec |
 | Commercie (Chris) | gaat aan voor Rollwright | - | geplande taak door Thijs |
+| Pionier (Noor) | nieuw (7 nov), zoekt jonge groeiende platformen | - | eerste voorstel: Vera's oude lijst opnieuw wegen |
