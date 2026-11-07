@@ -20,3 +20,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl:** versie 2, hoofdletterregel per platform (JetBrains: Title Case op knoppen en menu's, sentence case in meldingen en links, nagekeken in de richtlijnen van JetBrains).
 - **Gezien bij Olaf:** tak `claude/obsidian-2026-11-07-e` werkt aan foutmeldingen en de prijs op de koopknop (mijn punten 2 en 4). Beoordeel ik zodra het op main staat.
 - **Daarna (09:55):** Olafs foutmeldingen en koopknop staan op main; ontwerprun 42360408238 op mijn tak (met main erin) toont "Buy for $6". Punten 2 en 4 afgevinkt in `ontwerp.md`. Open voor akkoord: 1, 3, 10, 11, 12.
+
+## 7 nov 2026, run 3 (±10:23 tot 10:50)
+
+- **Bekeken:** Olafs punten 3, 11 en 12 (op main) en punt 1 (tak `claude/obsidian-2026-11-07-h`, nog niet op main). Main en tak h samengevoegd in `ontwerp/rollwright`, ontwerprun 42363837554. Ook Olafs plaatjes van run 42363600604 (blokken, licht en donker).
+- **Gevonden:** instellingen goed (voorbeeld van de skins, volgorde, tekst zonder Polar). Blokken goed in lezen, maar in Live Preview lege regels in en onder het blok, door `pre-wrap` van de editor en `display: flex`.
+- **Gedaan:** zelf twee CSS-regels (mag volgens mijn rol, alleen uiterlijk): `white-space: normal` en `inline-flex`. Run 42364116651: Live Preview nu bijna gelijk aan lezen. Voor Olaf op tak `ontwerp/blok-css` gezet (tak h plus cc0fb33), run 42364540237.
+- **Besloten:** blijft `Akkoord: nee` alleen omdat de oplossing nog niet op main staat; alle eisen zijn in beeld goedgekeurd. Waarom niet nu al ja: akkoord geldt voor de versie die wordt ingediend, en die heb ik nog niet samengevoegd gezien. Punten 17 tot 20 voor na de eerste versie. Koopknop blijft grijs (betaald deel duwt niet). Controleur keek na: eens, voegde 17, 19 en 20 toe.
+- **Bison & Flex:** plaatjes van run 42363613266 gezien (calc.y licht, calc.l donker): kleuren via de IDE, rustig en goed leesbaar, ook C in de acties. Richting goed. Nog niet in beeld: kleurenpagina, Pro-melding, winkelplaatjes. Oordeel blijft nee tot die er zijn.
