@@ -227,3 +227,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 7 nov 2026, 11:33 tot 11:40: Daan punt 5 en 8
 **Gedaan:** op tak `claude/obsidian-2026-11-07-l` (e65c94b) in `styles.css` donker Parchment (`body.theme-dark`, ook het voorbeeldvakje) met Daans kleuren en een eigen accent `#e0a060`, en `font-family: inherit` voor een fout in Parchment; kort ontwerp in `ontwerp-notatie.md`; nieuwe e2e `skins.e2e.mjs` met `Skins.md`. Controleur: akkoord met punten (rand `#8a6d3b` haalt 2,7:1, net onder 3:1, maar is Daans kleur; voorbeeldvakje en icoon alleen in de code nagelopen). E2e run 42368817347 groen, 10 van 10 specs (GEZIEN): donker `rgb(58, 47, 30)` met letters `rgb(240, 226, 192)`, fout in Parchment en Classic dezelfde schreefloze letter. 557 tests, lints 0. Samengevoegd op main, testpakket vernieuwd.
 **Beslissing:** eigen accent in donker in plaats van het donkerrood. Waarom: het donkerrood haalt 1,6:1 op donker perkament en is dan niet te zien; `#e0a060` haalt 5,8:1 (gemeten door de controleur).
+
+## 7 nov 2026, 11:40 tot 11:47: begin lancering
+**Gedaan:** README regel 5 zei nog dat Rollwright nooit in een echte app gedraaid had. Vervangen; mijn eerste zin keurde de controleur af als overdreven (niet elke wijziging op een tak, versie "latest" in plaats van 1.15, donker alleen in twee specs). Nu: "Before each release, automated tests run it in the real Obsidian app, in reading view and Live Preview." Op main.
+**Gevonden:** de plaatjes op tak `schermen` zijn testplaatjes met Nederlandse testnotities en een volle bestandenlijst; niet geschikt voor README of winkel.
+**Beslissing:** winkelplaatjes maken met een eigen e2e-spec met een Engelse demonotitie, als eerste stap van de lancering. Waarom: zo blijven ze bij elke versie vanzelf actueel, en Daan kan ze keuren voordat ze naar buiten gaan.
+**Beslissing:** run gestopt om ±11:47. Waarom: ±45 minuten werktijd op (gestart 11:13).

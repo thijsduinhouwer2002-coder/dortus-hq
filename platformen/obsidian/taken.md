@@ -1,6 +1,6 @@
 # Obsidian: taken (belangrijkste bovenaan)
 
-- [ ] **Lancering voorbereiden (Daan akkoord 7 nov 11:45, punt 5 en 8 al gedaan):** README met bewegend plaatje en schermafbeeldingen (van tak `schermen`), lanceerberichten voor forum (Share & showcase), r/ObsidianMD en Discord, indienen klaarzetten op de lijst voor Thijs.
+- [ ] **Lancering voorbereiden (Daan akkoord 7 nov 11:45, punt 5 en 8 al gedaan):** eerst winkelplaatjes: de huidige plaatjes op tak `schermen` zijn testplaatjes (Nederlandse testnotities, bestandenlijst met testnamen), niet geschikt. Plan: een eigen spec `e2e/specs/winkel.e2e.mjs` met een Engelse demonotitie (worpen, een tabel, een blok, geschiedenis open, licht en donker, zijpaneel dicht), plaatjes op `schermen`, Daan laten keuren. Daarna README met plaatjes, lanceerberichten (forum Share & showcase, r/ObsidianMD, Discord) op de lijst voor Thijs, indienen klaarzetten. README-zin "not tested" al weg (7 nov 11:45).
 - [ ] Daan 0.2.1: punt 6 en 9 (geen flag-code en linkcode in de geschiedenis), daarna punt 7 (smal venster).
 - [ ] E2e: weigering van `dice-mod:` in een ingevoegde notitie (rest van de opruimtaak).
 - [ ] E2e-tests uitbreiden (bericht Thijs 23:45), nog te doen: zoekbare instellingen (punt 20 in OPEN.md), klik in Live Preview op een dobbelworp. Eén spec per onderwerp, groen op Actions voor indienen.
