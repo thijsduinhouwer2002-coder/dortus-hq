@@ -65,3 +65,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Rollwright winkelplaatjes, beoordeling 7:** main f1de9de, run 42382269076: geen rand, placeholder goed, buit op één regel, geschiedenis netjes. Besloten: `Akkoord: ja` voor de winkelplaatjes, plugin `ja` voor f1de9de. Waarom: beloofd zonder nieuwe eisen, en het eerste plaatje is nu rustig en duidelijk. Gezien: lezen en Live Preview tonen soms andere buit (de fout op Olafs lijst); dat eerst voor indienen.
 - **Bison & Flex, aanvulling:** IDE-run 42381761183 (main 75e5856): hint weg bij de eerste klik, goed. Nog open: latere klikken en de tekst. Blijft nee.
 - **Controleur winkelplaatjes (14:50):** eens met de punten; noemde factor 2, leeg onderste derde, ongelijke buit en een cursor in winkel-2 donker. Akkoord blijft ja (README toont ±880 breed; cursor hoort bij W1); factor 2 en gelijke buit voor de volgende ronde plaatjes. Fout van mij: in de opdracht gaf ik de controleur eerst een verkeerde schermen-commit (ab33758); hij vond zelf de goede (25fe62a).
+
+## 7 nov 2026, run 8 (±15:24 tot 15:55)
+
+- **Lokale kopie:** weer los van een tak en uiteengelopen `main`; niets weggegooid, gewerkt vanaf origin/main.
+- **README Rollwright (bericht Thijs 15:40):** Olaf had hem al herschreven (main 6a55179). Zelf bijgeschaafd op tak `ontwerp/readme` (f597fe1): Live Preview als eerste plaatje (dit typ je, dit krijg je), plaatjes bijgesneden, "Made by Thijs at Dortus" bovenaan, kopjes in de naslag. Waarom zelf: alleen uiterlijk, en zo hoeft Olaf niet een uur te wachten. Controleur eens. Op main als eb3204c.
+- **Besloten:** README en plugin `Akkoord: ja` voor main eb3204c. Waarom: de pagina leest als een winkelpagina en volgt de stijl op alles wat een bezoeker ziet; factor 2 en gelijke uitkomsten zijn voor 0.2.1.
+- **Lijstplaatjes 1200x800 van Olaf** (run 42386024452): bekeken, goed genoeg.
+- **Stijl versie 6:** supportadres thijs@dortus.com (bericht Thijs 15:45), de regel "Made by Thijs at Dortus", opbouw van een README als winkelpagina.
+- **Gezien:** e2e op main c76d271 (run 42385842375) was rood, de run erna op tak z groen. Voor Olaf, niet van mij (alleen README en plaatjes veranderd).

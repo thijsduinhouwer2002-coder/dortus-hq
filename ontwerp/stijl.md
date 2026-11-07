@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 5, 7 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 6, 7 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -57,7 +57,9 @@ Nooit:
 - Taal van de winkel (Engels), ook in projectnamen, bestandsnamen en commentaar in de voorbeeldcode.
 - Eerste zin van de pagina: wat het doet, in maximaal 15 woorden. Daarna een korte lijst, daarna details.
 - Eerlijk: geen functies beloven die er nog niet zijn, geen nep-reviews of nep-cijfers.
-- Support altijd via support@dortus.com.
+- Support via **thijs@dortus.com** (keuze van Thijs, 7 nov 2026: persoonlijker). In de app, de README en op dortus.com. Niet meer support@dortus.com.
+- Persoonlijk, één keer per pagina: de regel "Made by Thijs at [Dortus](https://dortus.com)" bovenaan de winkelpagina, in de zin over voor wie het is ("Made by Thijs at Dortus for game masters ..."). Niet in de app zelf, geen foto, geen verhaal: één regel is genoeg.
+- Opbouw van een README als winkelpagina: één zin wat het doet, het eerste plaatje, de regel "Made by Thijs ...", "What you can do" (hoogstens zes punten), een tweede plaatje, "Quick start" in drie stappen, de prijs in één zin. Daaronder "Full reference" met kopjes, dan Paid, Privacy, Support, License.
 
 ## Voorbeelden die we volgen (best beoordeelde plugins in Obsidian)
 
