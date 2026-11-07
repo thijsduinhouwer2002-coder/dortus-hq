@@ -329,3 +329,11 @@ Nieuwste blok onderaan.
 - Controleur akkoord, correcties verwerkt (3 templates met prijs 0 eruit: 357, 303, 404). Steekproef 9 van 9 gelijk. Nieuw: uniqueViewers staat sinds juli op 0.
 - Les: kaartjes van "andere templates" op detailpagina's kunnen cijfers tonen die de lijst zelf verbergt. Kijk daar ook bij andere winkels naar.
 - 7 nov, testrun nieuw account: curl example.com gaf 200, opslaan werkt.
+
+## 7 nov run 22:33 (UTC)
+- Platform: OpenCart Marketplace, betaalde extensies. Reden: voorwerk van run 21:32 lag klaar, openbare Sales-teller per extensie.
+- Gemeten: alle 1.300 extensiepagina's ID 48300 t/m 49599 (mei t/m aug 2026 is ID 48447 t/m 49537) plus 450 pagina's uit 2025 ter vergelijking.
+- Uitkomst: betaald 2026 mediaan 0 sales, 88% nul, top 16, samen 92 verkopen. Lichting 2025 na 14 tot 18 maanden ook mediaan 0, top 48. Gratis mediaan 3 downloads (2025: 34).
+- Beslissing: nee, cijfer 1. Reden: geen geld en geen bereik voor betaald, 50% commissie, krimpende markt.
+- Controleur akkoord: steekproef 25 van 25 gelijk, cijfers nagerekend, lichting compleet. Correctie verwerkt: commissie is 50% tot $700 per maand (niet 20%).
+- Les: als ID's oplopen met de datum, kun je een hele lichting compleet ophalen zonder lijst of sitemap. Eerst een probe met grote stap om het bereik te vinden.
