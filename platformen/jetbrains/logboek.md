@@ -154,4 +154,4 @@ Nieuwste blok onderaan.
 - **Opgemerkt:** support@dortus.com staat nog in Rollwright (Obsidian, `src/pro/license.ts`); niet mijn product, niet aangeraakt. De structuurweergave loopt achter op de schermen met calc.l.
 - **Misging:** de lokale main had een losse geschiedenis (geen gemeenschappelijke voorouder met origin); opgelost met een tak `werk` vanaf origin/main, niets weggegooid.
 - **Daarna (15:20 UTC):** kan-punten op tak `claude/jetbrains-2026-11-07-k` (762b714): testnaam hernoemd, nieuwe unittest zweven binnen één bestand, 49 groen (GEZIEN door bouwer). Nog niet nagekeken, IDE-run 42385473714 nog bezig; daarom niet samengevoegd. Oorzaak achterlopende structuurweergave zit waarschijnlijk in de IDE-test (tab die al open is opnieuw kiezen), niet in `Structuur.kt` (GOK). Afgesloten om ±15:22 UTC.
-
+- **Daarna (15:26 UTC):** controleur keek tak `-k` na: akkoord ja, alleen een naam veranderd in een bestaande test, 49 unittests groen, IDE-run 42385473714 groen. Samengevoegd met main. Afgesloten om ±15:27 UTC.
