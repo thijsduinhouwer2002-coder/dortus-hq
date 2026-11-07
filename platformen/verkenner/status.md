@@ -22,3 +22,5 @@
 - 7 nov, run 12:31, ook: Open VSX (4, nee voor nu), eigen steekproef van 2.500 extensies.
 - 7 nov, run 15:32: Foundry VTT route (c), alleen buiten de officiële lijst (keuze Thijs): nee, cijfer 3. Controleur akkoord, 7 correcties.
 - 7 nov, run 15:32, ook: Autodesk Design and Make Marketplace zelf toegevoegd en gemeten (5.055 apps). Nog niet klaar, cijfer 4. Controleur na correcties akkoord.
+- 7 nov, run 16:33: SketchUp Extension Warehouse niet te meten (interne API geweigerd door veiligheidscontrole, SketchUcation verbiedt ClaudeBot), toestemming gevraagd op lijst Thijs.
+- 7 nov, run 16:33, ook: WooCommerce Marketplace zelf toegevoegd en gemeten (1.562 pagina's). Nee, cijfer 2. Controleur akkoord, 8 correcties.

@@ -193,3 +193,16 @@ Nieuwste blok onderaan.
 - Controleur eerst niet akkoord: mijn telling "betaald" nam proefplannen mee (65% werd 41%) en de mediaanprijs was als tekst gesorteerd. Beide scripts gerepareerd, 7 correcties verwerkt.
 - Les: tel bij prijsplannen alleen wat echt te koop is, en zet bedragen om naar getallen voor je rekent.
 - Volgende run: Zotero, Anki of Home Assistant uit kandidaten.md, of SketchUp Extension Warehouse (betaalde extensies).
+
+
+## 7 nov 2026, run 16:33
+- Lokale kopie stond los (main had een oude, losse geschiedenis). Niets weggegooid: nieuwe werktak gemaakt vanaf origin/main en daarvandaan op main gezet.
+- Geen open bericht van Thijs (Foundry van 15:25 al verwerkt).
+- Eerst: SketchUp Extension Warehouse. De winkel haalt alles uit een interne API zonder inlog (1.429 extensies met downloads en datum). Alles ophalen weigerde de veiligheidscontrole, net als bij Autodesk; niet omzeild. SketchUcation verbiedt ClaudeBot in robots.txt, dus ook niet. Toestemming gevraagd op lijst Thijs (in de chat of de taakopdracht, niet in een bestand).
+- Geprobeerd en afgevallen: CodeCanyon (Cloudflare-controle), food4rhino en maxforlive.com (403).
+- Daarna: WooCommerce Marketplace. Reden: geld loopt via de winkel (70% voor de maker) en elke productpagina toont actieve installs en publicatiedatum, met een gewone pagina en een sitemap die robots.txt toestaat.
+- Gemeten: alle 1.562 pagina's. Plugins van mei t/m aug 2026 (n=85): 1% haalt 100+ actieve installs; van 459 sinds jan 2025 maar 9, geen enkele 200+. Oud (voor 2024) mediaan 200.
+- Beslissing: nee, cijfer 2. Reden: in het eerste jaar komt bijna niemand boven de 100 actieve installs, en geen nieuwe maker met een aantoonbaar bedrag. Wat dit verandert: een nieuwe verplichting voor webwinkels zonder goede extensie, of bewijs dat Woo nieuwe extensies naar voren haalt.
+- Controleur akkoord, 8 correcties verwerkt (1.216 plugins in plaats van 1.154, de 186 gratis vermeldingen, leeftijd en lichting, andere maten bij vergelijking, prijs per jaar, 100+ is 100 tot 199, externe licenties, drempel afgeleid).
+- Les: een productpagina met de data in de HTML is beter dan een API; zoek eerst daarnaar.
+- Volgende run: Zotero, Anki, Home Assistant, of een winkel met betaling waar de pagina's installs of verkopen tonen (BigCommerce, Squarespace Extensions, Ecwid zijn bereikbaar met curl).
