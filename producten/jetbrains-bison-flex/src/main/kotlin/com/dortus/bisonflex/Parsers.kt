@@ -1,5 +1,11 @@
 package com.dortus.bisonflex
 
+import com.dortus.bisonflex.lexer.BisonTokens
+import com.dortus.bisonflex.lexer.FlexTokens
+import com.dortus.bisonflex.lexer.TokenTypes
+import com.dortus.bisonflex.lexer.bisonLexer
+import com.dortus.bisonflex.lexer.flexLexer
+
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.extapi.psi.PsiFileBase
 import com.intellij.lang.ASTNode
@@ -8,58 +14,36 @@ import com.intellij.lang.ParserDefinition
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.PsiParser
 import com.intellij.lexer.Lexer
-import com.intellij.lexer.LexerBase
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 
 /**
- * Skelet (versie 0): de hele tekst is één token. Zo herkent de IDE de soort en
- * is er een geldige PSI-boom. De echte lexer (JFlex) en parser (Grammar-Kit)
- * komen hierna, zie ontwerp.md.
+ * Versie 0.1: echte lexer (zie `lexer/`), nog een platte parser: alle tokens direct onder
+ * het bestand. De echte parser met regels, tokens en meldingen komt hierna, zie ontwerp.md.
+ * Hieronder de vaste elementtypes per taal (globaal register, dus één keer maken).
  */
-class HeleTekstLexer(private val token: IElementType) : LexerBase() {
-    private var buffer: CharSequence = ""
-    private var start = 0
-    private var end = 0
-    private var pos = 0
-
-    override fun start(buffer: CharSequence, startOffset: Int, endOffset: Int, initialState: Int) {
-        this.buffer = buffer; start = startOffset; end = endOffset; pos = startOffset
-    }
-    override fun getState(): Int = 0
-    override fun getTokenType(): IElementType? = if (pos < end) token else null
-    override fun getTokenStart(): Int = pos
-    override fun getTokenEnd(): Int = end
-    override fun advance() { pos = end }
-    override fun getBufferSequence(): CharSequence = buffer
-    override fun getBufferEnd(): Int = end
-}
-
-/** Vaste elementtypes per taal (ze komen in een globaal register, dus één keer maken). */
 object BisonTypes {
-    @JvmField val TEKST = IElementType("BISON_TEKST", BisonLanguage)
     @JvmField val BESTAND = IFileElementType(BisonLanguage)
 }
 
 object FlexTypes {
-    @JvmField val TEKST = IElementType("FLEX_TEKST", FlexLanguage)
     @JvmField val BESTAND = IFileElementType(FlexLanguage)
 }
 
 abstract class SkeletParserDefinition(
     private val taal: Language,
     private val soort: () -> FileType,
-    private val tekst: IElementType,
+    private val maakLexer: () -> Lexer,
+    private val types: TokenTypes,
     private val bestand: IFileElementType,
 ) : ParserDefinition {
 
-    override fun createLexer(project: Project?): Lexer = HeleTekstLexer(tekst)
+    override fun createLexer(project: Project?): Lexer = maakLexer()
     override fun createParser(project: Project?): PsiParser = PsiParser { root, builder: PsiBuilder ->
         val m = builder.mark()
         while (!builder.eof()) builder.advanceLexer()
@@ -67,8 +51,8 @@ abstract class SkeletParserDefinition(
         builder.treeBuilt
     }
     override fun getFileNodeType(): IFileElementType = bestand
-    override fun getCommentTokens(): TokenSet = TokenSet.EMPTY
-    override fun getStringLiteralElements(): TokenSet = TokenSet.EMPTY
+    override fun getCommentTokens(): TokenSet = types.commentaar
+    override fun getStringLiteralElements(): TokenSet = types.strings
     override fun createElement(node: ASTNode): PsiElement = ASTWrapperPsiElement(node)
     override fun createFile(viewProvider: FileViewProvider): PsiFile = object : PsiFileBase(viewProvider, taal) {
         override fun getFileType(): FileType = soort()
@@ -76,5 +60,5 @@ abstract class SkeletParserDefinition(
     }
 }
 
-class BisonParserDefinition : SkeletParserDefinition(BisonLanguage, { BisonFileType }, BisonTypes.TEKST, BisonTypes.BESTAND)
-class FlexParserDefinition : SkeletParserDefinition(FlexLanguage, { FlexFileType }, FlexTypes.TEKST, FlexTypes.BESTAND)
+class BisonParserDefinition : SkeletParserDefinition(BisonLanguage, { BisonFileType }, ::bisonLexer, BisonTokens.TYPES, BisonTypes.BESTAND)
+class FlexParserDefinition : SkeletParserDefinition(FlexLanguage, { FlexFileType }, ::flexLexer, FlexTokens.TYPES, FlexTypes.BESTAND)
