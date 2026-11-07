@@ -1,4 +1,4 @@
-Akkoord: nee 7 nov 2026 10:45, omdat main de oplossing voor punt 1 (tak `claude/obsidian-2026-11-07-h`) nog niet bevat. Alle punten voor akkoord zijn nu in beeld goedgekeurd (zie beoordeling 3). Zodra main tak h plus mijn CSS van tak `ontwerp/blok-css` (commit cc0fb33) bevat, kijk ik het een laatste keer na en zet ik hier `Akkoord: ja`.
+Akkoord: ja 7 nov 2026 11:45, voor versie 0.2.0 op main 92b8b23. Gezien in ontwerprun 42368056384 (code van 61d44a0; daarna is alleen `|line` veranderd, geen uiterlijk). Zie beoordeling 4. Sterk advies: punt 5 (Parchment in donker) en 8 in de eerste update 0.2.1.
 
 # Ontwerp van Rollwright
 
@@ -88,3 +88,21 @@ Bekeken in de echte Obsidian 1.15.0 op GitHub Actions. Ontwerpruns 42363837554 (
 **Wanneer akkoord:** main bevat tak h en mijn CSS (cc0fb33), de tests zijn groen, en een ontwerprun op main laat de secties in Live Preview zien zoals in run 42364116651. Dan `Akkoord: ja`. Punten 5 tot en met 9 en 13 tot en met 20 mogen na de eerste versie.
 
 Nagekeken door een controleur (agent, 7 nov 10:40): bekeek de plaatjes, eens met 3, 11, 12 en met 1 na de reparatie; vond 17, 19 en 20 erbij en de 9 pixels; akkoord terecht zodra main h plus de CSS bevat.
+
+## Beoordeling 4, 7 nov 2026 11:45 (main 61d44a0, ontwerprun 42368056384)
+
+Mijn ontwerptest opnieuw op tak `ontwerp/rollwright`, nu met precies de CSS van main (Olafs eigen reparatie voor Live Preview, niet mijn cc0fb33). De test klikt in "geschiedenis gevuld" nu alleen worpen in de leesweergave (tip Olaf).
+
+- **Punt 1, secties: goed.** Blok, alinea, twee regels en kop staan elk als eigen blok onder de regel, kop in gewone grootte en vet, geen bolletjes (`09`). Live Preview (`10`) ziet er bijna hetzelfde uit; onder een blok iets meer ruimte dan in lezen, geen lege regels. Goed genoeg.
+- **Punten 3, 11, 12, instellingen: goed** (`i-tabid-licht-midden`): Skin, voorbeeld van de drie skins, "Buy for $6" met "One payment, yours to keep.", License key zonder Polar.
+- **Punt 10: goed** (`28`): de geschiedenis toont dezelfde worpen als de notitie.
+- Thema's, licht en donker, Arcane: netjes zoals eerder.
+- Na 61d44a0 is op main alleen `noteLines` veranderd (een losse lijn overslaan bij `|line`). Geen CSS of UI, dus dit akkoord geldt ook voor main 92b8b23.
+
+**Besluit: `Akkoord: ja`.** Waarom: alle punten voor akkoord zijn in beeld goed, in licht, donker en vijf thema's. De gratis ervaring is rustig en hoort bij Obsidian, de koopflow is eerlijk en duwt niet. Controleur (agent, niet ik) keek de plaatjes en dit oordeel na: eens.
+
+**Voor 0.2.1, op volgorde:**
+1. **Punt 5 en 8: Parchment in donker en de foutmelding in de gewone letter.** Dit is het enige wat een betalende klant echt slecht raakt: wie $6 betaalt en donker werkt, krijgt felle beige vakjes (`21`). Drie regels CSS. Mag ik zelf doen; ik zet het op een eigen tak als Olaf er niet aan toe komt.
+2. Punt 6 en 9: geen flag-code en linkcode in de geschiedenis. Het is het eerste wat je in dat paneel ziet.
+3. Punt 7: smal venster, het paneel valt rechts af (`30`).
+4. Mijn test: de tooltip bij de foutmelding is nog nooit in beeld gekomen (`08` is gelijk aan `01`), en scrollen naar onder in de instellingen werkt niet (`onder` is gelijk aan `midden`). Dat is mijn werk, niet dat van Olaf.
