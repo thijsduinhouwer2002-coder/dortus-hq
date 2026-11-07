@@ -5,7 +5,7 @@ import { rollStunt } from "./stunt";
 import { range, resolveFaces } from "./faces";
 import { applyExplode, applyKeepDrop, applyReroll, applyUnique, showDie } from "./modifiers";
 import { makeState, rollDie, spendStep, type Die, type State } from "./state";
-import { DiceError, LIMITS, type Modifier, type Node, type RollOptions, type RollResult } from "./types";
+import { DiceError, LIMITS, tooManyDiceMessage, TOO_LARGE_MESSAGE, type Modifier, type Node, type RollOptions, type RollResult } from "./types";
 
 export interface Evaluated {
 	value: number;
@@ -14,9 +14,9 @@ export interface Evaluated {
 
 function evaluateDice(node: Extract<Node, { type: "dice" }>, state: State): Evaluated {
 	const count = node.count ? evaluate(node.count, state).value : state.defaultCount;
-	if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}`);
-	if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count})`);
-	if (count > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${count}`);
+	if (!Number.isInteger(count)) throw new DiceError(`The number of dice must be whole, not ${formatNumber(count)}. Use a whole number before the d, like 2d6.`);
+	if (count < 0) throw new DiceError(`The number of dice cannot be negative (${count}). Use 0 or more, like 2d6.`);
+	if (count > LIMITS.diceInGroup) throw new DiceError(tooManyDiceMessage(count));
 	const faces = resolveFaces(node.sides, state);
 
 	let dice: Die[] = [];
@@ -58,7 +58,7 @@ function evaluateDice(node: Extract<Node, { type: "dice" }>, state: State): Eval
 		value = active.reduce((sum, d) => sum + (d.score ?? 0), 0);
 	} else {
 		value = active.reduce((sum, d) => sum + d.value, 0);
-		if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
+		if (!Number.isFinite(value)) throw new DiceError(TOO_LARGE_MESSAGE);
 	}
 	return { value, text: `[${dice.map(showDie).join(", ")}]` };
 }
@@ -71,9 +71,9 @@ function lookupName(names: Record<string, string> | undefined, name: string): st
 /** Runs work on the formula behind a name, and guards against names that refer to themselves. */
 export function insideName<T>(name: string, state: State, work: (node: Node) => T): T {
 	const formula = lookupName(state.names, name);
-	if (formula === undefined) throw new DiceError(`Unknown name "${name}"`);
+	if (formula === undefined) throw new DiceError(`Unknown name "${name}". Check the spelling, or add ${name} to the frontmatter or the saved formulas, like ${name}: 2.`);
 	if (state.aliasStack.includes(name) || state.aliasStack.length >= LIMITS.aliasDepth) {
-		throw new DiceError(`The named formula "${name}" refers to itself`);
+		throw new DiceError(`The named formula "${name}" refers to itself. Change that saved formula so it does not use "${name}", like 1d20 + 5.`);
 	}
 	state.aliasStack.push(name);
 	const result = work(parseFormula(formula, Object.keys(state.names)));
@@ -125,13 +125,13 @@ export function calculate(op: string, a: number, b: number): number {
 			value = a * b;
 			break;
 		case "/":
-			if (b === 0) throw new DiceError("Cannot divide by zero");
+			if (b === 0) throw new DiceError("Cannot divide by zero. Check the number after /, like 10 / 2.");
 			value = a / b;
 			break;
 		default:
 			value = Math.pow(a, b);
 	}
-	if (!Number.isFinite(value)) throw new DiceError("The result is too large to show");
+	if (!Number.isFinite(value)) throw new DiceError(TOO_LARGE_MESSAGE);
 	return value;
 }
 

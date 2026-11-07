@@ -1,5 +1,7 @@
 import { DiceError, LIMITS, type RandomInt, type Sides } from "./types";
 
+const TOO_MANY_SIDES = `A die can have at most ${LIMITS.sides} sides. Use a smaller die, like 1d100.`;
+
 export interface Faces {
 	min: number;
 	max: number;
@@ -37,7 +39,7 @@ export function resolveFaces(sides: Sides, state: { defaultSides: number }): Fac
 			};
 		case "faces": {
 			const faces = sides.faces;
-			if (faces.length > LIMITS.diceInGroup) throw new DiceError("A custom die has too many faces");
+			if (faces.length > LIMITS.diceInGroup) throw new DiceError(`A custom die has too many faces. Use at most ${LIMITS.diceInGroup}, or a range, like d[1, 5000].`);
 			return {
 				min: Math.min(...faces),
 				max: Math.max(...faces),
@@ -64,12 +66,12 @@ export function resolveFaces(sides: Sides, state: { defaultSides: number }): Fac
 }
 
 function checkedSides(sides: number): Faces {
-	if (!Number.isInteger(sides) || sides < 1) throw new DiceError(`A die needs at least 1 side, not ${sides}`);
-	if (sides > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
+	if (!Number.isInteger(sides) || sides < 1) throw new DiceError(`A die needs at least 1 side, not ${sides}. Use 1 or more, like 1d6.`);
+	if (sides > LIMITS.sides) throw new DiceError(TOO_MANY_SIDES);
 	return range(1, sides);
 }
 
 function checkedSpan(min: number, max: number): Faces {
-	if (max - min + 1 > LIMITS.sides) throw new DiceError(`A die can have at most ${LIMITS.sides} sides`);
+	if (max - min + 1 > LIMITS.sides) throw new DiceError(TOO_MANY_SIDES);
 	return range(min, max);
 }

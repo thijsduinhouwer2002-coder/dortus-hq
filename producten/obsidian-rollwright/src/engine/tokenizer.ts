@@ -57,7 +57,7 @@ export function tokenize(input: string): Token[] {
 			i++;
 			continue;
 		}
-		throw new DiceError(`Unexpected character "${ch}" at position ${i + 1}`);
+		throw new DiceError(`Unexpected character "${ch}" at position ${i + 1}. Remove it and use only numbers, dice and + - * / ( ), like 2d6 + 1.`);
 	}
 	return tokens;
 }

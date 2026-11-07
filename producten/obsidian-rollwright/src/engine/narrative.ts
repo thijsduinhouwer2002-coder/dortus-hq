@@ -1,6 +1,6 @@
 import { parseFormula } from "./parser";
 import { defaultRandom } from "./random";
-import { DiceError, LIMITS, newBudget, type Budget, type RandomInt } from "./types";
+import { DiceError, LIMITS, newBudget, tooManyDiceMessage, TOO_MANY_ROLLS_MESSAGE, type Budget, type RandomInt } from "./types";
 
 /**
  * Narrative dice of Genesys and the Star Wars roleplaying games, written like 3g2d.
@@ -165,9 +165,9 @@ export function summarize(counts: Record<Mark, number>): string {
 /** Rolls narrative dice. Throws DiceError when the formula is not narrative or too large. */
 export function rollNarrative(formula: string, random: RandomInt = defaultRandom, budget: Budget = newBudget()): NarrativeResult {
 	const groups = parseNarrative(formula);
-	if (!groups) throw new DiceError(`"${formula.trim()}" is not narrative dice`);
+	if (!groups) throw new DiceError(`"${formula.trim()}" is not narrative dice. Write a number and a letter for each kind, like 3g2d.`);
 	const total = groups.reduce((sum, g) => sum + g.count, 0);
-	if (total > LIMITS.diceInGroup) throw new DiceError(`At most ${LIMITS.diceInGroup} dice can be rolled at once, not ${total}`);
+	if (total > LIMITS.diceInGroup) throw new DiceError(tooManyDiceMessage(total));
 	const counts: Record<Mark, number> = { S: 0, F: 0, A: 0, T: 0, Tr: 0, De: 0, L: 0, D: 0 };
 	// Dice of one kind are shown together, in the order the kinds first appear.
 	const shown = new Map<NarrativeKind, string[]>();
@@ -176,7 +176,7 @@ export function rollNarrative(formula: string, random: RandomInt = defaultRandom
 		const list = shown.get(kind) ?? [];
 		shown.set(kind, list);
 		for (let i = 0; i < count; i++) {
-			if (++budget.rolls > LIMITS.rollsPerFormula) throw new DiceError(`This formula rolls more than ${LIMITS.rollsPerFormula} dice`);
+			if (++budget.rolls > LIMITS.rollsPerFormula) throw new DiceError(TOO_MANY_ROLLS_MESSAGE);
 			const face = faces[random(1, faces.length) - 1] as string;
 			for (const symbol of face.split(" ")) if (symbol !== "") counts[symbol as Mark]++;
 			list.push(showFace(face));

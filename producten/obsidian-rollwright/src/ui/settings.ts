@@ -1,6 +1,6 @@
 import { PluginSettingTab, requireApiVersion, Setting, type App, type SettingDefinition, type SettingDefinitionItem } from "obsidian";
 import type RollwrightPlugin from "../main";
-import { LICENSE_MESSAGES, paymentReady } from "../pro/license";
+import { LICENSE_MESSAGES, paymentReady, PRICE_TEXT } from "../pro/license";
 import { availableSkins, SKINS } from "../pro/skins";
 
 /** A whole number of at least min, or null for anything else, an empty field included. */
@@ -242,7 +242,7 @@ export class RollwrightSettingTab extends PluginSettingTab {
 				name: "Get the paid skins",
 				build: (setting) =>
 					setting.addButton((button) =>
-						button.setButtonText("Buy").onClick(() => {
+						button.setButtonText(`Buy for ${PRICE_TEXT}`).onClick(() => {
 							activeWindow.open(this.plugin.polarIds.buyUrl);
 						}),
 					),
