@@ -234,11 +234,11 @@ describe("Rollwright: secties en regels in de echte Obsidian", function () {
 				return rolls[3] !== undefined && !rolls[3].old && (rolls[3].value !== "" || rolls[3].hr);
 			}, { timeout: 5000, timeoutMsg: "na een klik bleef de regelworp leeg" });
 			checkRegel(rolls[3], 1, `KLIK ${i + 1}`);
-			seen.add(rolls[3].hr ? "***" : woorden(rolls[3].value)[0]);
+			seen.add(woorden(rolls[3].value)[0]);
 			if (i === 0) console.log("VOOR DE EERSTE KLIK:", JSON.stringify(before.value));
 		}
 		console.log("REGELS GEZIEN:", JSON.stringify([...seen]));
-		// Negen regels en zestien worpen: steeds dezelfde regel is vrijwel onmogelijk.
+		// Acht regels (de lijn telt niet) en zestien worpen: steeds dezelfde regel is vrijwel onmogelijk.
 		expect(seen.size).toBeGreaterThan(1);
 	});
 
