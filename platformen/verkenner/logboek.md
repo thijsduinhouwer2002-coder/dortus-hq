@@ -239,3 +239,4 @@ Nieuwste blok onderaan.
 - Beslissing: Shopify van 6 naar 5, nee voor nu. Reden: drie golven gemeten, alleen de eerste werkte; bij e-facturen is het vol vóór de deadline. Wat dit verandert: apps die in maart en april 2027 breken (scripttags, tokens) zonder vervanger, of een nieuwe verplichting met na een maand minder dan tien aanbieders.
 - Controleur akkoord, 7 correcties.
 - Les: zoeken op naam mist grote apps die een functie toevoegen. Kijk bij een golf altijd ook naar de top van de categorie.
+- Laatste kwartier: voorwerk Elgato Marketplace (Stream Deck). Pagina's tonen datum en prijs maar geen downloads. Steekproef van 400: 58% uit 2026, ±700 nieuwe producten per maand (GOK). Nog geen oordeel, staat in kandidaten.md voor de volgende run. Reden om te stoppen: geen tijd meer voor een controleur, en een half oordeel telt niet.
