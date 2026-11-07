@@ -66,7 +66,7 @@ class ProTest : BasePlatformTestCase() {
 
     // ---- stand GEEN ----
 
-    fun testGeenLicentieGratisWerktSprongNietMeldingEenmaal() {
+    fun testGeenLicentieBinnenBestandSpringtZonderMelding() {
         stand(LicentieStand.GEEN)
         assertFalse(Licentie.proWerkt())
         val f = open("calc.y")
