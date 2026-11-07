@@ -227,3 +227,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: geen bereik en geen bedrag van een kleine maker. Alleen nuttig als tweede winkel naast een Shopify-app. Controleur akkoord.
 - Les: createdOn bij BigCommerce is de registerdatum, niet de livegang. Check bij elke winkel wat een datumveld echt betekent.
 - Run afgesloten na drie platforms. Volgende run: een platform met veel gebruikers en betaling in de winkel; Zotero, Anki en Home Assistant hebben geen betaling en wachten.
+- Nagekomen: Squarespace Extensions kort bekeken via de open API. Maar 60 extensies van gekozen partners, ±8 per jaar. Nee, geen open winkel. Geen controleur nodig: het is een telling van 60 regels uit één bron.
