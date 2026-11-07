@@ -79,7 +79,7 @@ Aanpak: per categorie (modeling, rigging, interface, rendering, animation) de ee
 
 **Stand na deze run:** vijf ideeën en één gat bekeken, allemaal afgevallen of niet overtuigend. Over: gat 2 (bone-jiggle die goed bakt, kwaliteitsgat bij twee bestsellers met 6.000+ en 1.700+ kopers, maar veel concurrentie) en een eenvoudige pie-editor als gratis lokker (zwak). Geen bouwbesluit.
 
-## 8. Ronde 5 en 6 (7 nov 22:40, twee onderzoekers; nog niet nagekeken)
+## 8. Ronde 5 en 6 (7 nov 22:40, twee onderzoekers; nagekeken 22:45, akkoord)
 **Bone-jiggle (gat 2):** vraag en betaalbewijs zijn er, maar het veld loopt vol. Alles GEZIEN 7 nov op superhivemarket.com/products/<slug> en extensions.blender.org.
 - Betaald: BoneDynamics Pro $15 6.000+ (5 jaar), Swingy $14,79 1.700+ (3 jaar), JiggleMaker $29,99 1.200+ (1 jaar, vangkooi in plaats van botten), Wiggly $8 600+, SquishyFX $15 300+ in 3 maanden, SpringFX $15 100+ in 3 maanden, GOE Jiggle Studio 40+ in 5 maanden. In de laatste maand nieuw zonder teller: Jiggle Wibble $19, Wobble $20,30, SwayMend $19, Inertia Pro $4,99.
 - Gratis en bijgehouden: jiggle-physics 92.415 downloads (5,0), wiggle-bones 30.605, wiggle-2 30.213 (v2.4.0, bijgewerkt voor Blender 5).
@@ -93,10 +93,12 @@ Bekeken en afgevallen of te zwak: gewrichten (A), AI naar printklaar (B), CAD (C
 
 Andere aanpak voor run 2 (nog niet geprobeerd): **wat is nieuw in Blender zelf en heeft nog bijna geen add-ons?** Blender 4.2 tot 5.x brachten nieuwe onderdelen (bijvoorbeeld Grease Pencil v3, nieuwe geometry nodes zoals bundels en closures, het nieuwe compositor- en VSE-werk, extensies). Nieuwe functies van Blender trekken nieuwe gebruikers die hulpmiddelen zoeken, terwijl de bestaande makers nog op het oude werk zitten (GOK). Plan: release notes van 4.2 tot 5.2 lezen (developer.blender.org/docs/release_notes), per nieuwe functie tellen hoeveel add-ons er op Superhive en extensions.blender.org zijn, en de vragen op BlenderArtists en StackExchange daarover. Daarnaast ronde 5 en 6 laten nakijken.
 
-## 10. Ronde 7: nieuwe Blender-functies (7 nov 22:45, onderzoeker; eerste verkenning, nog niet nagekeken)
+## 10. Ronde 7: nieuwe Blender-functies (7 nov 22:45, onderzoeker; eerste verkenning, nagekeken 22:45, akkoord)
 Bron release notes: https://developer.blender.org/docs/release_notes/ (GEZIEN). Grote nieuwe functies: Grease Pencil v3 (4.3), Slotted Actions (4.4), Bundles en Closures in geometry nodes (5.0), vernieuwde compositor en VSE (5.0), Physics en Lists in geometry nodes (5.2).
 - Aanbod (GEZIEN, Superhive-tagpagina's van ±24 kaartjes): geometry-nodes ±37 pagina's (vol), compositor 6, grease-pencil 3, vse 2, action-slots leeg (op extensions.blender.org alleen slot-link echt over slots).
 - Vraag (GEZIEN): klein. Action Slots 14 vragen op StackExchange, de grootste 851 views (https://blender.stackexchange.com/questions/339852). VSE 5.0: modifiers kopiëren naar andere strips (https://blender.stackexchange.com/questions/344510), keyframes meeschuiven (https://blender.stackexchange.com/questions/342735).
 - Productideeën: Action Slot Manager (klein tot middel) en VSE Strip Modifier Kit (middel). Geen verkoopbewijs, vraag klein (GOK dat het genoeg oplevert).
 
 **Oordeel Bram:** deze aanpak vindt lege plekken, maar met kleine vraag. Dat is het omgekeerde van de rondes hiervoor (grote vraag, vol). Volgende run eerst controleren en dieper: hoe verkochten add-ons die vroeg op een nieuwe Blender-functie inspeelden (bijvoorbeeld de eerste geometry-nodes- en EEVEE Next-hulpmiddelen), want dat zegt of zo'n gok loont. Daarnaast de lijst toppers uit de steekproef van Vera opnieuw lezen op het patroon "nieuwkomer wint ondanks gevestigde concurrent" (Smart Remesh 2.500+ in 3 maanden tegen bestaande remeshers): misschien is beter en mooier maken in een volle markt juist onze weg, en dan past het bij de lat van Thijs dat uiterlijk de helft is.
+
+- 7 nov 22:45, controleur: sectie 8 en 10 akkoord, 16 punten tegen de bron gelegd, geen fouten. Niet nagekeken: Wiggly, GOE Jiggle Studio, wiggle-bones, Inertia Pro.
