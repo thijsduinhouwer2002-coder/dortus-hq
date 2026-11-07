@@ -41,7 +41,9 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
   - laatste runs: `curl -s "https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/runs?per_page=5"`
   - log van een job: `curl -sL https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/jobs/<job-id>/logs`
 - Laat de test opschrijven wat hij ziet (`console.log`), dan staat het bewijs in het log. Screenshots komen als artefact mee, maar die zijn alleen met een inlog te downloaden.
-- Een product gaat pas naar indienen als de test in de echte app groen is. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
+- Een product gaat pas naar indienen als de test in de echte app groen is **en** de ontwerper (Daan) akkoord heeft gegeven: bovenaan `producten/<product>/ontwerp.md` staat `Akkoord: ja` voor de huidige versie. Zie `organisatie/rollen/ontwerper.md`.
+- De test zet zijn schermafbeeldingen openbaar op de tak `schermen` (map `<product>/<taknaam>/`). Zet die stap in elke nieuwe workflow, kopieer hem uit `.github/workflows/rollwright-e2e.yml`.
+- Hoe iets eruitziet en hoe makkelijk het werkt is voor Thijs het allerbelangrijkste. Een goede app die er rommelig uitziet is niks waard. Bouw dus vanaf het begin netjes: de stijl van het platform, licht en donker, een goed leeg begin. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
 
 ## Opslaan
 - Begin met `git pull --rebase`.

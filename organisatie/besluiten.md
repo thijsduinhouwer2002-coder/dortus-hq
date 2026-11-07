@@ -24,3 +24,4 @@ Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 - 6 nov 2026 | Thijs | ploeg werkt elk uur van 08:00 tot 20:00 in de cloud, niet in vaste chats | vaste chats worden te lang en kunnen stil vallen | -
 - 6 nov 2026 | Olaf | Obsidian: opvolger van Dice Roller | grootste aantoonbare vraag, Obsidian bouwt het niet zelf | het gat blijkt dicht of de licentie verbiedt het
 - 6 nov 2026 | Vera | Shopify, Unity Asset Store, Framer: nog niet klaar. Godot: nee nu, wachtlijst | zie `platformen/verkenner/onderzocht.md` | eigen metingen in de winkel (kan nu het netwerk open staat)
+- 7 nov 2026 | Thijs | Daan (ontwerper) erbij: elk uur van 08:00 tot 20:00, test zelf het uiterlijk in de echte app via GitHub Actions, niets wordt ingediend zonder zijn akkoord | Thijs vindt uiterlijk en gebruiksgemak het allerbelangrijkste, en de bouwer moet zijn eigen werk niet keuren | -
