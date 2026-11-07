@@ -499,6 +499,7 @@ body.theme-dark {
 
 .rollwright-history-name {
 	grid-column: 1 / -1;
+	grid-row: 1;
 	padding-right: 2em;
 	font-size: var(--font-ui-smaller);
 	font-weight: var(--font-semibold);
@@ -516,15 +517,22 @@ body.theme-dark {
 
 .rollwright-history-result {
 	grid-column: 1;
+	grid-row: 2;
 }
 
 .rollwright-history-formula {
 	grid-column: 2;
+	grid-row: 2;
 }
 
-.rollwright-history-details,
+.rollwright-history-details {
+	grid-column: 1 / -1;
+	grid-row: 3;
+}
+
 .rollwright-history-meta {
 	grid-column: 1 / -1;
+	grid-row: 4;
 }
 
 .rollwright-history-meta {
@@ -539,7 +547,7 @@ body.theme-dark {
 }
 
 /* Wissen is geen hoofdactie: klein en rustig rechts. */
-.rollwright-history-clear {
+button.rollwright-history-clear:not(.clickable-icon) {
 	display: block;
 	margin-left: auto;
 	background: transparent;

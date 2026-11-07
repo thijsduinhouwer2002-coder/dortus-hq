@@ -36,7 +36,7 @@ const skin = async (s) => {
 // Zet de klasse die Olaf straks na een klik zet, en markeer de saving throw als 20 en de schade als 1-1 (nagebootst).
 const markeer = async () => {
 	await browser.execute(() => {
-		const rolls = [...new Set(document.querySelectorAll(".mod-root .workspace-leaf.mod-active .rollwright-roll, .mod-root .rollwright-roll"))];
+		const rolls = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null);
 		for (const r of rolls) r.classList.add("rollwright-rolled");
 		const save = rolls.find((r) => r.textContent.includes("Wisdom"));
 		if (save) { save.classList.add("rollwright-crit"); save.querySelector(".rollwright-value").textContent = "20"; }
@@ -46,7 +46,7 @@ const markeer = async () => {
 };
 const klik = async (woord) => {
 	await browser.execute((w) => {
-		const r = [...document.querySelectorAll(".mod-root .workspace-leaf.mod-active .rollwright-roll, .mod-root .rollwright-roll")].find((x) => x.textContent.includes(w));
+		const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
 		r?.click();
 	}, woord);
 };
@@ -56,6 +56,65 @@ const zoom = async (f) => {
 };
 const zijpaneelDicht = async () => {
 	await browser.executeObsidian(({ app }) => { app.workspace.leftSplit?.collapse(); app.workspace.rightSplit?.collapse(); });
+};
+
+const sluitInstellingen = async () => {
+	await browser.executeObsidian(({ app }) => { try { app.setting.close(); } catch (e) {} window.__ontwerpModal?.close(); window.__ontwerpModal = undefined; });
+	await browser.pause(500);
+};
+
+const openInstellingen = async () => {
+	const r = await browser.executeObsidian(async ({ app, obsidian }) => {
+		const log = [];
+		try { app.commands.executeCommandById("app:open-settings"); log.push("commando"); } catch (e) { log.push("commando fout " + e); }
+		await new Promise((res) => setTimeout(res, 800));
+		try { if (!document.querySelector(".modal.mod-settings")) { app.setting.open(); log.push("open()"); } } catch (e) { log.push("open fout " + e); }
+		await new Promise((res) => setTimeout(res, 500));
+		try { app.setting.openTabById("rollwright"); log.push("tab"); } catch (e) { log.push("tab fout " + e); }
+		await new Promise((res) => setTimeout(res, 800));
+		log.push("modal=" + !!document.querySelector(".modal.mod-settings"));
+		if (!document.querySelector(".modal.mod-settings")) {
+			// Noodweg: dezelfde instellingen in een eigen venster, zo groot als het echte instellingenvenster.
+			try {
+				const tab = app.setting.pluginTabs.find((t) => t.id === "rollwright");
+				tab.display();
+				const m = new obsidian.Modal(app);
+				m.modalEl.addClass("mod-settings");
+				m.modalEl.style.width = "860px";
+				m.modalEl.style.maxHeight = "720px";
+				m.setTitle?.("Rollwright");
+				tab.containerEl.addClass("vertical-tab-content");
+				tab.containerEl.style.overflowY = "auto";
+				tab.containerEl.style.maxHeight = "620px";
+				m.contentEl.appendChild(tab.containerEl);
+				m.open();
+				window.__ontwerpModal = m;
+				log.push("noodweg modal");
+			} catch (e) { log.push("noodweg fout " + e); }
+		}
+		return log.join(", ");
+	});
+	await browser.pause(500);
+	return r;
+};
+
+const zweef = async (selector) => {
+	await browser.execute((sel) => {
+		const el = document.querySelector(sel);
+		if (!el) return;
+		el.scrollIntoView({ block: "center" });
+		for (const t of ["mouseover", "mouseenter", "mousemove"]) el.dispatchEvent(new MouseEvent(t, { bubbles: true, clientX: el.getBoundingClientRect().x + 5, clientY: el.getBoundingClientRect().y + 5 }));
+	}, selector);
+	await browser.pause(1200);
+};
+
+const smal = async (breed) => {
+	return browser.execute((breed) => {
+		const tries = [];
+		try { const w = require("@electron/remote").getCurrentWindow(); w.setSize(breed, 820); tries.push("@electron/remote"); } catch (e) { tries.push("remote fout"); }
+		try { const w = require("electron").remote.getCurrentWindow(); w.setSize(breed, 820); tries.push("electron.remote"); } catch (e) { tries.push("electron.remote fout"); }
+		return tries.join(", ") + " breedte=" + window.innerWidth;
+	}, breed);
 };
 
 describe("Rollwright v2 voorstel", function () {
@@ -73,11 +132,11 @@ describe("Rollwright v2 voorstel", function () {
 				await open(NOTE, "preview");
 				await browser.pause(2500);
 				await markeer();
-				await browser.pause(300);
+				await browser.pause(1300);
 				await browser.execute(() => document.activeElement?.blur());
 				await shot(`notitie-${kant}`);
 				await zoom(2);
-				await browser.execute(() => document.querySelector(".mod-root .rollwright-roll")?.scrollIntoView({ block: "start" }));
+				await browser.execute(() => [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null)[0]?.scrollIntoView({ block: "start" }));
 				await browser.pause(300);
 				await shot(`notitie-${kant}-zoom`);
 				await zoom(1);
@@ -88,7 +147,7 @@ describe("Rollwright v2 voorstel", function () {
 			await open(NOTE, "source");
 			await browser.pause(2500);
 			await markeer();
-			await browser.pause(300);
+			await browser.pause(1300);
 			await shot("live-preview-licht");
 		});
 	});
@@ -101,7 +160,7 @@ describe("Rollwright v2 voorstel", function () {
 				await zoom(2.5);
 				await markeer();
 				await browser.execute((w) => {
-					const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].find((x) => x.textContent.includes(w));
+					const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
 					r?.scrollIntoView({ block: "center" });
 				}, woord);
 				await browser.pause(300);
@@ -149,7 +208,7 @@ describe("Rollwright v2 voorstel", function () {
 				await open(NOTE, "preview");
 				await browser.pause(1500);
 				await markeer();
-				await browser.pause(300);
+				await browser.pause(1300);
 				await shot(`thema-${t}-${licht ? "licht" : "donker"}`);
 			});
 		}
@@ -162,7 +221,7 @@ describe("Rollwright v2 voorstel", function () {
 					await skin(s);
 					await browser.pause(1500);
 					await markeer();
-					await browser.pause(300);
+					await browser.pause(1300);
 					await shot(`skin-${s}-${licht ? "licht" : "donker"}`);
 				});
 			}
@@ -172,20 +231,16 @@ describe("Rollwright v2 voorstel", function () {
 	});
 
 	it("skins in de instellingen", async function () {
-		await stap("instellingen", async () => {
-			await browser.executeObsidian(async ({ app }) => {
-				app.setting.open();
-				await new Promise((r) => setTimeout(r, 600));
-				app.setting.openTabById("rollwright");
+		for (const licht of [true, false]) {
+			await stap(`instellingen ${licht}`, async () => {
+				await thema("", licht);
+				console.log("INSTELLINGEN OPEN:", await openInstellingen());
+				await browser.execute(() => document.querySelector(".rollwright-skin-preview")?.scrollIntoView({ block: "center" }));
+				await browser.pause(500);
+				await shot(`instellingen-skins-${licht ? "licht" : "donker"}`);
+				await sluitInstellingen();
 			});
-			await browser.pause(1200);
-			await browser.execute(() => {
-				const tegel = document.querySelector(".rollwright-skin-preview");
-				tegel?.scrollIntoView({ block: "center" });
-			});
-			await browser.pause(500);
-			await shot("instellingen-skins");
-			await browser.executeObsidian(({ app }) => app.setting.close());
-		});
+		}
+		await thema("", true);
 	});
 });
