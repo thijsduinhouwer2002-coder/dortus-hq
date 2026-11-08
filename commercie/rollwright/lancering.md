@@ -173,3 +173,98 @@ Door Chris. Skins v2 mogen mee in 0.3.1 (Thijs 12:33), maar hij vindt het versch
 **Moment 1 verandert niet.** De zin `All rolling is free. There are optional paid skins, which is how we hope to keep working on it.` blijft. Plaatje bij het bericht: GIF, dan poster. Geen skins-plaatje: het bericht gaat over het gratis deel. Wie de plugin opent, ziet de skins in de instellingen.
 
 **Gelijktrekken met de vaste vorm (regel "Elk product"):** in concept 1 tot 4 van 0.3.0 wordt "lights up gold" overal "lands in gold", zoals in README, manifest en productpagina. In concept 4 (Discord) wordt "Rollwright 0.3.0 is in Community plugins" gewoon "Rollwright is in Community plugins", zonder versie. `[[#^id]]` uit 0.3.1 zet ik er niet bij: de berichten zijn al lang genoeg en het is geen reden om te klikken.
+
+## Bijwerking 8 nov 2026 (run 8): Rollwright staat live, de berichten van moment 1 zijn klaar om te plakken
+
+Door Chris. Aanleiding: Thijs 8 nov 13:04: Rollwright staat live op https://community.obsidian.md/plugins/rollwright (GEZIEN 8 nov: pagina laadt, 4 downloads, versie 0.3.0, knop "Add to Obsidian" opent `obsidian://show-plugin?id=rollwright`). Hij vraagt de berichten voor het forum, een dag later r/ObsidianMD, en Discord.
+
+**Dit deel vervangt alle concepten hierboven voor moment 1.** De teksten hieronder zijn af: alle wijzigingen van run 6 en 7 zitten erin, Thijs hoeft niets meer samen te voegen. De oude concepten blijven staan voor de geschiedenis.
+
+### Wat er veranderd is ten opzichte van de concepten
+- **Discord gaat mee in moment 1**, op dag 3. Thijs noemt het zelf in zijn bericht; dat gaat voor mijn plan uit run 6 (Discord pas bij moment 2). Het verhaal blijft het gratis deel. r/Solo_Roleplaying blijft bij moment 2 (run 7).
+- **Installeren via de link**, niet alleen "zoek in Community plugins". Rollwright staat (nog) niet in het oude bestand `community-plugins.json` van obsidian-releases (GEZIEN 8 nov: 10.096 plugins, Rollwright er niet bij). Of het zoekvak in de app al uit de nieuwe directory leest, kon ik niet nagaan (GOK). De link met de knop "Add to Obsidian" werkt in elk geval, dus die staat vooraan.
+- **Eerlijk over AI (keuring controleur).** "Built with the help of AI tools" was te zacht: de code is geschreven door Claude-agents, niet door Thijs met hulp. Andere makers op het forum zeggen het ook zo (topic 121684: "An AI coding agent wrote much of it under my direction"). Daarom staat er nu op alle drie de plekken dat AI-agents de code schrijven en dat Thijs stuurt en test. Klopt "I direct and test" niet voor Thijs, dan past hij het aan; zachter maken mag niet.
+- **Het blok "Disclaimer" van het forum.** Berichten in Share & showcase beginnen met drie vaste vragen (GEZIEN in twee recente berichten, 117125 en 118862; vermoedelijk het sjabloon van het forum): open bron, helemaal gratis, en "vibe-coded beyond the author's ability to comprehend how it works?". Ik heb ze ingevuld; de derde vraag gaat over Thijs als maker, dus hij leest die extra goed na.
+- **Dezelfde woorden als README en listing:** "A natural 20 lands in gold", "Roll log", "Optional skins are a one-time purchase".
+- Geen versienummer in de berichten: 0.3.1 kan elk moment komen, dan klopt een getal niet meer.
+
+### Dag 1: forum, categorie Share & showcase (forum.obsidian.md)
+
+**Titel:** `Rollwright: roll dice and random tables in your notes, where a natural 20 lands in gold`
+
+**Tekst:**
+```
+Disclaimer
+Is this plugin open source? Yes (MIT)
+Is this plugin completely free? All rolling is free. Optional skins are a one-time purchase.
+Is this plugin vibe-coded beyond the author's ability to comprehend how it works? No. The code is written by AI agents that our small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, in reading view and Live Preview, and the full source is on GitHub.
+Community Directory: https://community.obsidian.md/plugins/rollwright
+
+Hi all,
+
+Rollwright is a dice roller for people who run or play tabletop games in Obsidian. You write a formula in a note, read the result, and click it to roll again.
+
+[GIF]
+
+What we cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened. Roll animations turn off if your system asks for reduced motion.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins, which is how we hope to keep working on it. No account and no telemetry.
+
+Install: open https://community.obsidian.md/plugins/rollwright and choose "Add to Obsidian".
+Source and full reference: https://github.com/thijsduinhouwer2002-coder/rollwright
+Page: https://dortus.com/rollwright/
+
+I'd love to hear what you roll on and what is missing. Bugs and ideas are welcome here or on GitHub.
+```
+
+**Plaatjes:** sleep op de plek van `[GIF]` de GIF in het bericht: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif (eerst opslaan, dan slepen). Onderaan mag de poster: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png . Geen skins-plaatje (run 7).
+
+### Dag 2: r/ObsidianMD
+
+**Titel:** `A dice roller plugin where a natural 20 lands in gold, and every roll you click goes into a Roll log`
+
+**Tekst:**
+```
+Rollwright is now in Obsidian's community directory. It is a dice roller for people who run or play tabletop games in Obsidian: you write a formula in a note, read the result, and click it to roll again.
+
+What we cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins, which is how we hope to keep working on it. No account and no telemetry. The code is written by AI agents that our small studio, Dortus, runs; I direct and test it. Every release is tested in the real Obsidian app.
+
+Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
+Source: https://github.com/thijsduinhouwer2002-coder/rollwright
+
+Happy to answer questions here.
+```
+
+**Plaatje:** maak er een post met media van en zet de GIF als eerste (zelfde link als dag 1). Op Reddit stemmen mensen op wat ze zien (GOK). Lees vóór het posten de regels in de zijbalk (zelfpromotie, flair, AI). Reddit gaf curl geen antwoord, dus die regels heb ik niet kunnen lezen (GOK). Vraagt de subreddit een flair, kies iets als "Plugins" of "Showcase".
+
+### Dag 3: Obsidian Discord
+
+**Kanaal:** het kanaal waar makers nieuwe plugins mogen tonen. Ik kan Discord niet lezen; mijn eerdere aanname was `#updates` (GOK). Lees de beschrijving bovenaan het kanaal; staat er niet dat nieuwe plugins welkom zijn, sla Discord dan over.
+
+**Tekst:**
+```
+Rollwright is now in the community directory: roll dice and random tables inside your notes. Click a result to roll again, a natural 20 lands in gold, and every roll you click goes into a Roll log by note and session. Uses the `dice:` notation, rolls on your tables, lists, sections and tags, reads numbers from frontmatter. All rolling is free, with optional paid skins. Code written by AI agents at our studio Dortus, tested in the real Obsidian app.
+https://community.obsidian.md/plugins/rollwright
+```
+(Plak de GIF erbij als dat in het kanaal mag.)
+
+### Na het posten
+- Reageer binnen een dag op vragen. Een bug: open een issue op GitHub of zet het in `berichten/olaf.md`, dan pakt Olaf hem op.
+- Chris meet op dag 1, dag 7 en dag 30 de downloads (listing en `community-plugin-stats.json`) en kijkt of er een sprong zit op de dag van elk bericht (`cijfers.md`).
+- Moment 2 (r/Solo_Roleplaying, een update onder het forumbericht) blijft wachten op skins waar Thijs volmondig ja op zegt, uiterlijk ±22 nov (twee weken na de aanmelding); dan gaat het toch door met het gratis deel als verhaal (run 6 en 7).

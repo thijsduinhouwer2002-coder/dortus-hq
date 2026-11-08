@@ -86,3 +86,14 @@ Lezing: Dice Roller groeit nog met ±120 downloads per dag (GEZIEN, verschil tus
 | Verkopen skins | 0 (geen gebruikers) | GOK |
 
 Concurrenten (GEZIEN, community-plugin-stats.json; tussen haakjes 7 nov): obsidian-dice-roller 289.111 (289.005), dice-rolls 366 (343), dice-tray 100 (97). Dice Roller groeit nog ±100 per dag, de twee nieuwkomers samen ±25 per dag (afgeleid uit twee metingen een dag uit elkaar, grof). Geen nieuwe concurrent bekeken deze run. Volgende meting: dag 1 en dag 7 na de aanmelding.
+
+## Meting 8 nov 2026, ±14:30 UTC (run 8, dag 0: live sinds 13:04)
+| Wat | Stand | Bron |
+|---|---|---|
+| Downloads op de listing community.obsidian.md | 4 | GEZIEN |
+| Versie op de listing | 0.3.0 | GEZIEN |
+| Rollwright in community-plugin-stats.json en community-plugins.json | niet aanwezig (oude bestanden, de nieuwe directory telt apart) | GEZIEN |
+| Lanceerberichten geplaatst | nog geen | GEZIEN (lijst-thijs) |
+| Verkopen skins | onbekend, Polar alleen met inlog | GOK: 0 |
+
+Let op voor volgende metingen: de downloads staan nu op de listing, niet meer in `community-plugin-stats.json`. Meet daar (curl op de listing, zoek "downloads"). Concurrenten blijven in de oude stats staan zolang ze daar staan.
