@@ -216,3 +216,10 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord, geen moet-punten, 4 kan-punten op de takenlijst.
 - **Beslissing:** samengevoegd met main. Omdat main op 7 nov een nieuwe geschiedenis kreeg (git weigert: unrelated histories), heb ik de productbestanden van tak `-o` overgenomen op main, behalve `ontwerp.md` (main heeft daar de grens van 1.0, `-o` niet). Reden: de verschillen tussen main en `-o` zaten alleen in het product, verder niets verloren.
 - **Misging:** lokale `main` was uit elkaar gelopen met GitHub; daarom werk ik vanaf `origin/main` op een losse lokale tak.
+
+## 8 nov 2026, run 00:53 UTC tot ±01:20 UTC
+- **Gedaan:** berichten gelezen, geen nieuw bericht. Daan beoordeling 9 eerst gepakt (vóór eis 7): de punten zijn klein, raken dezelfde code als de kan-punten van de controleur, en uiterlijk is de nieuwe lat. Bouwer op tak `claude/jetbrains-2026-11-08-a` (0cd70b8): pluginicoon van Daan, `proIcon16.svg` in de Pro-balloon, kortere Pro-tekst met echte bestandsnamen, hint-balloon onder de knoop, en de drie kan-punten (`?: false`, `laatsteBalloon` na `show`, focus op één plek).
+- **Uitkomst (GEZIEN):** 83 unittests groen (controleur draaide opnieuw), IDE-run 42432516728 groen, log licht en donker "balloon in beeld true, onder knoop 'NUM'". Zelf `licht-hernoem-melding.png` bekeken: tekst op twee regels, eigen icoon, geen "Try it free...".
+- **Nakijken:** controleur akkoord, geen moet-punten. Veranderde tests (ProHernoemenTest r. 84 en 212, ProTest r. 134, e2e Hernoemen r. 98) alleen om de tekst, apart goedgekeurd; ProTest test nu strenger.
+- **Beslissing:** samengevoegd met main. Eis 7 is de volgende run de bovenste taak.
+- **Misging:** lokale `main` liep weer uit elkaar met GitHub (oude geschiedenis van vóór 7 nov); `git reset --hard` werd geweigerd, dus oude stand bewaard op lokale tak `oud-lokaal-main` en gewerkt op tak `werk` vanaf origin/main.
