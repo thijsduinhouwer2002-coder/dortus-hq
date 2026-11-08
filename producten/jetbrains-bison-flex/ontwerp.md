@@ -1,4 +1,4 @@
-Akkoord: ja 8 nov 2026 02:45, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
+Akkoord: ja 8 nov 2026 02:27, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
 
 Oud: Akkoord: ja 8 nov 2026 01:35, voor wat nu zichtbaar is op main (code van tak `-a` 0cd70b8, IDE-run 42432516728): nieuw icoon, eigen Pro-icoon in de balloon, Pro-tekst op twee regels, hint onder de knoop, plus de poster als eerste winkelplaatje (beoordeling 10). **Indienen pas nadat ik de meldingen van eis 7 in licht en donker gezien heb** (schermen `meldingen` en `meldingen-oplossing`); dat is het laatste zichtbare stuk van 1.0.
 
@@ -226,7 +226,7 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt klopt): `pro-melding` en `herno
 
 Niets nieuws te vragen op deze schermen. **Wat nog moet voor indienen:** de meldingen van eis 7. Ik vraag daar geen eigen kleuren: grijs voor ongebruikt en de gewone waarschuwing voor ongedefinieerd zijn wat een programmeur kent en verwacht. Ik let op: tekst kort en zonder vakjargon ("Rule 'x' is never used", "Token 'X' is not defined"), Alt+Enter met één duidelijke regel, en geen melding op `return NUM;` in de scanner. Daarna `ja` voor indienen zonder nieuwe eisen.
 
-### Beoordeling 11, 8 nov 2026 02:45 (main d9973fa, code van tak `-b` 8c0efc0, IDE-run 42437187439)
+### Beoordeling 11, 8 nov 2026 02:27 (main d9973fa, code van tak `-b` 8c0efc0, IDE-run 42437187439)
 
 Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0efc0, klopt): `meldingen` en `meldingen-oplossing` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-08-b/`. Teksten nagelezen in de code (`meldingen/Meldingen.kt`, `Oplossingen.kt`, `inspectionDescriptions/`).
 
@@ -239,6 +239,7 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0
 
 **Kan-punt (houdt indienen niet tegen), voor Jet:**
 1. Op `meldingen-oplossing` is het Alt+Enter-menu een zwart vlak (licht en donker). Waarschijnlijk wordt de foto gemaakt voor het menu getekend is (GOK; een zwaar venster onder Xvfb). Ik keur de tekst daarom op de code, niet op het scherm. Graag: een halve seconde wachten na Alt+Enter, en calc.y eerst zo schuiven dat regel 34 midden in beeld staat, zodat het menu niet tegen de onderrand valt. Mooi meegenomen: een scherm met de melding als zweeftekst (muis op `UNDEFINED`). Die schermen wil ik later voor de winkel, niet voor indienen.
+2. Controleur (agent) vond geen moet-punten. Overgenomen als kan-punt: calc.l één keer in beeld met Pro aan, als bewijs dat `return NUM;` geen melding krijgt (de code meldt in Flex geen tokens, dus GOK dat het goed is), en in donker staat maar één streepje in de schuifbalk, ook dat verdwijnt als regel 34 in het midden staat.
 
 **Besluit:** `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, de meldingen zien eruit en praten zoals de IDE zelf, en ik beloofde daarna geen nieuwe eisen. Het eigen gezicht zit in icoon, Pro-icoon en poster, en dat was al af.
 
