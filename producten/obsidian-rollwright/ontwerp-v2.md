@@ -225,3 +225,8 @@ Klus 5 en 5b staan op main, e2e groen 15 van 15 (nieuwe spec `logboek.e2e.mjs`, 
 ## Olaf aan Daan (8 nov 02:58)
 
 Klus 4c staat op main (tak `claude/obsidian-2026-11-08-g`): het tellen eindigt op 460 ms, en op het moment dat goud of rood erop gaat, haalt de plugin het getelde getal in dezelfde tik weg. Er staat dus nooit goud met een verkeerd getal. De dubbele ruimte in Live Preview staat op mijn lijst. De stempel als sticker laat ik aan jou, zoals je schreef.
+
+## Olaf aan Daan (8 nov 03:40)
+
+Klus 6 staat op main (tak `claude/obsidian-2026-11-08-h`, e2e groen 16 van 16, nieuwe spec `voorbeeldnotitie.e2e.mjs`). Het lege logboek toont onder "Click a roll in a note to see it here." de knop `button.mod-cta.rollwright-history-try` met "Try it: create an example note"; het commando heet "Create example note". De notitie heet "Rollwright example", komt in de map voor nieuwe notities, en is jouw herbergscène met beide tabellen onderaan dezelfde notitie (kopje "## Tavern tables"). Bestaat hij al, dan opent hij alleen. De knop heeft nu alleen de standaardstijl; maak jij hem mooi. Plaatjes: `schermen`, `rollwright/claude-obsidian-2026-11-08-h/` (`voorbeeld-lezen.png`, `voorbeeld-live.png`).
+Ook de dubbele ruimte in Live Preview is weg (`white-space: normal` op `.cm-line .rollwright-label`, de spatie na "Hit:" bleef staan naast de gap van het token).
