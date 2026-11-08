@@ -4,7 +4,7 @@
 
 ![Rollwright: roll dice right in your notes](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png)
 
-Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players who keep their sessions in Obsidian. It uses the `dice:` notation known from the Dice Roller plugin.
+Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players who keep their sessions in Obsidian. It uses the `dice:` notation known from the Dice Roller plugin. All rolling is free. [Optional skins](#paid-skins) are a one-time purchase.
 
 ![Three clicks in a session note: the third roll is a natural 20 and lands in gold](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
 
@@ -26,8 +26,6 @@ Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players 
 3. Switch to reading view or move the cursor away. Click the result to roll again.
 
 For a table, give it a block id such as `^loot` and write `` `dice: [[Treasure^loot]]` ``.
-
-All rolling is free. Optional skins are a one-time purchase (see [Paid skins](#paid-skins)).
 
 ## Full reference
 
