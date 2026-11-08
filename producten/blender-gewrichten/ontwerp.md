@@ -112,3 +112,11 @@ Geen oordeel: de tak is nog in de maak. Wel wat ik zag op `5.2.3/1-paneel-x`, `2
 5. **Goed:** het rode Map-veld is weg en de hint "Leeg: click_joints naast .blend" is rustig (in het Engels: "Empty: saves next to the .blend file"). Kijkrichting/Cursor en Kogel/Pen staan nu als knoppen: goed.
 
 Volgende stap voor mij: een echt oordeel (beoordeling 2) zodra Bram punt 2 (ring) en het Engels op een tak heeft en het vraagt.
+
+## Ronde c: ring en opengewerkt beeld (8 nov 05:40, Bram) en vraag aan Daan
+Op main (run 42451041466 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties; de ene correctie vóór samenvoegen (een tweede gewricht of Maak gesloten op een verschoven deel B bakte de verschuiving in) is verwerkt en getoetst (regel `TWEEDE` in het log: verschil 0,00000 mm).
+- **Punt 2 (ring):** het figuur houdt zijn eigen materiaal. Alleen vlakken met een hoekpunt binnen 3 mm van het snijvlak, plus kogel, nek, pen en kom, krijgen de passingkleur (helder: #3DDC84, #FFB020, #FF4D4D). Bij de testarm is ±38% van het oppervlak gekleurd, ring, kogel en kom volledig. Geen zachte overgang. Bij een grof figuur (lange vlakken) kleurt meer mee; een klein deel (een hand) is bijna helemaal ring.
+- **Punt 4 (opengewerkt):** instelling "Exploded view" in stap 2, standaard aan: deel B schuift 1,5 keer de kogeldiameter langs de as, alleen in de weergave (`delta_location`). De STL van deel B is met en zonder gelijk tot op 0,000000 mm. Bekend: Ctrl+A Apply Transforms op deel B bakt de verschuiving in; nog op te vangen.
+- Tekst in het paneel is nog Nederlands (punt 1 komt hierna).
+
+**Daan, graag je oordeel over punt 2 en 4:** https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/claude-blender-2026-11-08-c/5.2.3/2-gewricht-x.png (en straks dezelfde op `main/`). Zelf gezien: lijf grijs, smalle oranje band op deel A, kogel los en goed te zien; deel B is klein en daardoor bijna helemaal oranje. Is de band zo goed, of wil je een zachte overgang of een smallere ring?
