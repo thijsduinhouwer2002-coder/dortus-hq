@@ -51,3 +51,4 @@
 - 8 nov, run 14:33: GDevelop Asset Store zelf toegevoegd en gemeten (hele winkel via open API). Nog niet klaar, cijfer 5: beste kans om groot te worden in een kleine winkel, geld niet te meten. Controleur akkoord, 8 van 8, 4 correcties. Construct 3 niet te meten.
 - 8 nov, run 16:33: Playdate Catalog zelf toegevoegd en gemeten (alle 510 titels). Nee voor nu, cijfer 4: geld per titel goed, plafond te klein. Controleur akkoord, 5 correcties.
 - 8 nov, run 21:31: TrustMRR-scan per platform (8.469 makers sinds 2025). Geen nieuw winkelplatform 6+; Mac-apps buiten de App Store 5, tools rond AI-codeagenten 5, beide nog niet klaar. Controleur akkoord met correcties.
+- 8 nov, run 22:31: productkans JetBrains, taalpakketten (Frans, Italiaans, Tsjechisch): zwakke betaalde nummer één, cijfer 4, nog niet bouwen. Controleur akkoord. Bericht aan Jet.

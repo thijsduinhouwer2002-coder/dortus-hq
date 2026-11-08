@@ -1,0 +1,959 @@
+[
+ {
+  "id": "25810",
+  "naam": "Chinese (Traditional) Language Pack / IDE 本地化為繁體中文",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 150097,
+  "eerste": "2024-11-12",
+  "versies": 12,
+  "laatste": "2026-11-08",
+  "dl90": 11165,
+  "dl365": 56598,
+  "stemmen": 2,
+  "gem": 5.0,
+  "votes": {
+   "5": 2
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 5,
+    "dt": "2026-06-12",
+    "t": "<p>翻譯完整，專有名詞有到位，不會有機器翻譯的感覺\n年費價位我也覺得很合理</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-02-13",
+    "t": "<p>那啥，有简体中文吗？</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "24541",
+  "naam": "Spanish Language Pack / Paquete De Idioma Español",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 94106,
+  "eerste": "2024-05-30",
+  "versies": 16,
+  "laatste": "2026-11-06",
+  "dl90": 8335,
+  "dl365": 39788,
+  "stemmen": 3,
+  "gem": 4.33,
+  "votes": {
+   "5": 2,
+   "3": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 0,
+    "dt": "2026-08-14",
+    "t": "<p>la verdad es injusto que toque pagar por esto</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-10-05",
+    "t": "<p>Hola chicos, gracias por el excelente plugin.</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-08-27",
+    "t": "<p>Seria genial que haya una versión para estudiantes</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2025-07-29",
+    "t": "<p>Tengo problemas cuando lo uso, no me aparece el icono de Maven ni la opción Maven, en inglés si aparece pero en este pack en español no y no puedo compilar proyectos con Maven, podrían indicarme como solucionarlo por favor? seguí unos pasos de la IA pero no sirvieron...</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-04-17",
+    "t": "<p>Excelente plugin que le da soporte a mi idoma al IDE, ya que nativamente este no lo soporta, funciona de 100 excelente, filia vuelvo a reportar que ya nsoquedamos sin actualizacion salió la versión de IntelliJ IDEA 2025.1, muchas gracias!!</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-03-19",
+    "t": "<p>Porque no tiene una versión para estudiantes ?</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-02-25",
+    "t": "<p>Muy bueno el plugins, lastima que deberia estar integrado al ide</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2024-11-19",
+    "t": "<p>su actualizacion?</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2024-11-17",
+    "t": "<p>Vamos chicos ya salió la versión IntelliJ IDEA 2024.3 (Ultimate Edition) actualicen el plugin quedo desactivado y no lo veo en la tienda de idea</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2024-11-17",
+    "t": "<p>Excelente muy bueno español por fin en idea</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2024-09-25",
+    "t": "<p>En qué momento va a salir la nueva actualización ya van varias personas nuevas y no puedo actualizar</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "27449",
+  "naam": "Russian Language Pack — Языковой Пакет для Русских",
+  "maker": "5fef5185-529b-465a-9461-c1376169421f",
+  "model": "FREE",
+  "dl": 86609,
+  "eerste": "2025-06-02",
+  "versies": 2,
+  "laatste": "2025-11-22",
+  "dl90": 0,
+  "dl365": 65241,
+  "stemmen": 17,
+  "gem": 4.35,
+  "votes": {
+   "5": 13,
+   "1": 2,
+   "3": 1,
+   "4": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 1,
+    "dt": "2026-06-18",
+    "t": "<p>не работает</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2026-06-08",
+    "t": "<p>перевод корявый, не знаю кто и как его делал, но это шляпа</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2026-05-07",
+    "t": "<p>Тоже перестал работать Ctrl+Tab. Исправьте пожалуйста.\nWebstorm 2026.1</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2026-05-07",
+    "t": "<p>Тоже перестал работать Ctrl+Tab. Исправьте пожалуйста.\nWebstorm 2026.1</p>\n"
+   },
+   {
+    "r": 4,
+    "dt": "2026-04-20",
+    "t": "<p>Как пишут ниже - перестал работать Ctrl + Tab - поправьте пожалуйста</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2026-02-25",
+    "t": "<p>Перевод в целом неплохой: многое переведено хорошо, но некоторые моменты переведены так себе... Но это ладно, с этим можно было бы жить. К сожалению, пользоваться плагином не смогу из-за довольно банальной проблемы: напрочь перестаёт работать сочетание клавиш \"Ctrl + Tab\"!!! Пожалуйста, исправьте ошибку.</p>\n<p>ПС. У меня PhpStorm 2025.3.3.</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-02-04",
+    "t": "<p>Спасибо добрый человек</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-02-01",
+    "t": "<p>Работает! Не всё переведено но круто.</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-01-30",
+    "t": "<p>Спасибо за перевод! Можно ли отключить мнемоники в меню?</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-01-27",
+    "t": "<p>огромное спасибо за перевод!</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2026-01-12",
+    "t": "<p>Спасибо большое! Для меня, как начинающего, возможность разобраться в интерфейсе на понятном языке, просто огромное подспорье. При отсутствии опыта в сфере, очень много ещё не известных английский слов, что сильно усложняет процесс освоение интерфейса IDE.</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-12-14",
+    "t": "<p>Спасибо тебе огромное за твой вклад и твою работу в этом направлении!!! Всё отлично работает!</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-11-13",
+    "t": "<p>Низкий тебе поклон добрый человек! Твой плагин несёт добро в мир разработки и свободного ПО! Всё отлично работает!</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-10-07",
+    "t": "<p>Спасибо, все работает, конечно есть косячки с переводом, но это лучше чем все на  английском.</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-10-07",
+    "t": "<p>Авансом поставил 5 звёзд везде. Спасибо за плагин! Без проблем установился на 2025.2.3 версию. Есть недочёты, но я верю, что перевод будет улучшаться и становится намного более дружественным для понимания. Склоновать - очень непривычно звучит. Я бы предложил не менять похожие команды, которые в том числе отсылают на Git команды. Считаю такие моменты нужно оставить, например, Clone репозиторий и"
+   },
+   {
+    "r": 1,
+    "dt": "2025-10-04",
+    "t": "<p>File '~\\AppData\\Roaming\\JetBrains\\PyCharmCE2023.1\\plugins\\rus-lang-pack.jar' contains invalid plugin descriptor\nПлагин устанавливается но после перезагрузки возникает эта ошибка!</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-10-04",
+    "t": "<p>File '~\\AppData\\Roaming\\JetBrains\\PyCharmCE2023.1\\plugins\\rus-lang-pack.jar' contains invalid plugin descriptor\nА что проблему решать не планируйте?</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-08-24",
+    "t": "<p>решил проблему сбросом настроек программы . верхнем левом углу жмем шесть полосок ...  из выпадающего списка снизу отчитываем 6 пункт icp ... в правом окне всплывающем выбираем нижний пункт их три .. сбрасываем и переустанавливаем . далее заходим в прогу и заново устанавливаем плагин  ... пользуюсь последней версией ..</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-08-24",
+    "t": "<p>было все хорошо .. что натворил с этими переустановками стал выдавать ошибку. пытаюсь скачать последнею версию с новыми дровами под чистую установку . думаю проблема уйдет</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-08-02",
+    "t": "<p>К сожалению также выдает ошибку</p>\n<p>File '~\\AppData\\Roaming\\JetBrains\\IntelliJIdea2024.2\\plugins\\rus-lang-pack.jar' contains invalid plugin descriptor</p>\n<p>в файле поковырялся, как писали выше, но там вроде все ок.\nКак можно решить?</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "24542",
+  "naam": "Portuguese Language Pack / Pacote De Idioma Português",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 71821,
+  "eerste": "2024-05-30",
+  "versies": 17,
+  "laatste": "2026-11-06",
+  "dl90": 5779,
+  "dl365": 29358,
+  "stemmen": 2,
+  "gem": 4.5,
+  "votes": {
+   "4": 1,
+   "5": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 5,
+    "dt": "2026-03-31",
+    "t": "<p>Achei ótimo, recomendo, o valor cobrado mensal é bem baixo e ajuda os desenvolvedores!</p>\n"
+   },
+   {
+    "r": 4,
+    "dt": "2025-09-16",
+    "t": "<p>A proposta é interessante, mas a mensalidade torna inviável no momento. Optei por realizar minha própria tradução.</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-07-17",
+    "t": "<p>Muito bom, seria melhor ainda se fosse de graça...</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "24544",
+  "naam": "Russian Language Pack / Локализация IDE На Русский Язык",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 42246,
+  "eerste": "2024-05-30",
+  "versies": 16,
+  "laatste": "2026-11-06",
+  "dl90": 1240,
+  "dl365": 6668,
+  "stemmen": 4,
+  "gem": 2.5,
+  "votes": {
+   "1": 2,
+   "5": 1,
+   "3": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 1,
+    "dt": "2025-04-15",
+    "t": "<p>Still the same machine translation without any adequacy.</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-04-10",
+    "t": "<p>Подскажите как установить на удаленную IDE ?</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2025-01-20",
+    "t": "<p>Машинный перевод. Но хоть что то...</p>\n<p>хотя \"кнопка отмены\" при окне обновления очень смущает...</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-01-17",
+    "t": "<p>Было бы вообще замечательно если бы была возможность оставить интиервейс общий на английском а текст трэйсбака и подсказок перевести на русский</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-01-13",
+    "t": "<p>Хочу поддержать авторов плагина. Давно хотел русский интерфейс. Данные плагин сделал именно то, что я и хотел. Перевод более менее качественный, но стоит еще чутка над ним поработать. То что плагин платный, это немного напрягает. Но с учетом того, что его делает не команда JetBrains, то разработчику плагина тоже хочется кушать. Любая работа должна быть оплачена. Если не нравится то, что плагин "
+   },
+   {
+    "r": 1,
+    "dt": "2025-01-04",
+    "t": "<p>Machine translation</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2024-12-19",
+    "t": "<p>3 dollars a transfer, soon they'll be selling water. I'm not too impressed with the translation, either.\nThe machine translation itself is done through AI and looks absolutely horrible</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "24539",
+  "naam": "French Language Pack / Pack De Langue Français",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 32808,
+  "eerste": "2024-05-30",
+  "versies": 17,
+  "laatste": "2026-11-06",
+  "dl90": 2356,
+  "dl365": 12453,
+  "stemmen": 4,
+  "gem": 1.75,
+  "votes": {
+   "4": 1,
+   "1": 3
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 1,
+    "dt": "2026-07-22",
+    "t": "<p>The price definitely not worth it. Bad quality and missing text</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-08-07",
+    "t": "<p>Vous auriez gagné plus a partager votre plugin et vous faire une renommée positive que vendre un outil bancale. Finalement la version anglaise c'est pas si mal !</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-04-21",
+    "t": "<p>Too many missing texts, not updated quickly even though the plugin is paid. Is this a feature, or just a contender for the worst extension on PHPStorm?</p>\n"
+   },
+   {
+    "r": 4,
+    "dt": "2025-01-24",
+    "t": "<p>Super plug-in ! Dommage qu'il ne soit pas inclus gratuitement dans l'ide, PyCharm étant déjà payant.</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "26495",
+  "naam": "Russian Language Pack for IDEs & Plugins",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 27275,
+  "eerste": "2025-02-07",
+  "versies": 7,
+  "laatste": "2026-07-07",
+  "dl90": 0,
+  "dl365": 4069,
+  "stemmen": 7,
+  "gem": 3.86,
+  "votes": {
+   "5": 4,
+   "3": 2,
+   "1": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 5,
+    "dt": "2025-10-08",
+    "t": "<p>Finally, a real plugin with human translation, not MTL.\nThank you.</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-10-07",
+    "t": "<p>И хочется попробовать, но есть \"удобная\" оплата для РФ. Было бы что-то как для WinRar - купил бы не задумываясь. Очень не удобная схема оплаты = плагин не существует...</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2025-09-17",
+    "t": "<p>Not compatible with the version of your running IDE (WebStorm 2025.3 EAP)</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2025-09-06",
+    "t": "<p>Сделайте (включите) поддержку локализации для самой последней версии беты WebStorm! На данный момент самая последняя версия WebStorm 2025.2.2 на Build #WS-252.26199.11, built on September 3, 2025</p>\n<p>Enable localization support for the latest beta version of WebStorm! Currently, the latest version of WebStorm is 2025.2.2 on Build #WS-252.26199.11, built on September 3, 2025.</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-04-15",
+    "t": "<p>Что могу сказать, наконец то не просто машинный перевод без редакции, а человек явно постарался привести перевод в божеский вид. Не то что его собрат по соседнему плагину выпустив свое поделие машинного перевода на 4 бакса</p>\n"
+   },
+   {
+    "r": 0,
+    "dt": "2025-04-10",
+    "t": "<p>Подскажите как установить её на удаленyую IDE ?</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-04-09",
+    "t": "<p>Прекрасное расширение. Спасибо разработчику. Практически все (99%) переведено, качество - перевода отличное. Да, приходится заплатить, но это разовая покупка, а не лицензия.</p>\n"
+   },
+   {
+    "r": 3,
+    "dt": "2025-04-08",
+    "t": "<p>К сожалению совершенно не понятно как пользоваться расширением без возможности купить его в России. Еще много китайских иероглифов</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-03-11",
+    "t": "<p>Шикарное расширение, низкий поклон разработчику!!! Особенно спасибо за перевод подсказок/советов и отсутствие подписок, лучший!</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2025-03-01",
+    "t": "<p>Anton Shuvaev JETBRAINS Marketplace February 15, 2025\nRussian Language Pack – Русский Язык\nGreat Product! I highly recommend it!!! I would give it 10 stars if it were possible!\nAnton Shuvaev is a fantastic Programmer of a wonderful place JETBRAINS Marketplace.\nI thought I’d start by sharing a little story about me.\nI’m a Master of Engineering! I also did three years of the Engineering Doctorate"
+   }
+  ]
+ },
+ {
+  "id": "24543",
+  "naam": "Deutsch (German) Language Pack / Deutsches Sprachpaket",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 25588,
+  "eerste": "2024-05-30",
+  "versies": 16,
+  "laatste": "2026-11-06",
+  "dl90": 2331,
+  "dl365": 10749,
+  "stemmen": 5,
+  "gem": 4.2,
+  "votes": {
+   "4": 2,
+   "5": 2,
+   "3": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 3,
+    "dt": "2025-05-21",
+    "t": "<p>Leider scheinen die KEYMAP-Menüs  nicht berücksichtigt zu werden; diese sind dann bei Deutsch verschwunden; bitte dringend FIXIEREN.</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2024-11-25",
+    "t": "<p>Super Plugin, die Übersetzung ist sehr gut umgesetzt worden, wenn auch irgendwann mal die Java Bibliothek auf Deutsch verfügbar ist, dann eine 6/5 :)</p>\n"
+   },
+   {
+    "r": 5,
+    "dt": "2024-10-15",
+    "t": "<p>Super Plugin, Fehler werden vom Entwickler zeitnah behoben und sind sehr bemüht.\nFunktioniert mit dem neuen Update ohne Fehler.</p>\n<p>Sehr zu empfehlen!</p>\n"
+   },
+   {
+    "r": 4,
+    "dt": "2024-10-15",
+    "t": "<p>At this point I would like to correct my rating to be positive! The problem with the AI ​​assistant was solved quickly and the translations turned out very well. If such errors are corrected as quickly as possible in the future, then the plugin will be great! Perhaps we are judging too quickly. Good plugins are perhaps judged more strictly.</p>\n"
+   },
+   {
+    "r": 4,
+    "dt": "2024-10-05",
+    "t": "<p>AI assistant does not work if language German has been activated</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2024-09-24",
+    "t": "<p>For the money, I expect that the plugin will be quickly adapted to new versions. I will definitely not buy it again! I was very annoyed!</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "27352",
+  "naam": "Spanish Language Localization / Paquete De Idioma Español",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 22675,
+  "eerste": "2025-05-13",
+  "versies": 4,
+  "laatste": "2026-08-20",
+  "dl90": 1954,
+  "dl365": 9906,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "26581",
+  "naam": "Spanish Language Pack for IDEs & Plugins",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 16556,
+  "eerste": "2025-02-20",
+  "versies": 5,
+  "laatste": "2026-03-01",
+  "dl90": 0,
+  "dl365": 5697,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "26724",
+  "naam": "Portuguese Language Pack for IDEs & Plugins",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 15352,
+  "eerste": "2025-03-03",
+  "versies": 5,
+  "laatste": "2026-03-01",
+  "dl90": 0,
+  "dl365": 5038,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "27354",
+  "naam": "Portuguese Language Localization / Pacote De Idioma Português",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 13517,
+  "eerste": "2025-05-13",
+  "versies": 4,
+  "laatste": "2026-08-20",
+  "dl90": 987,
+  "dl365": 5044,
+  "stemmen": 1,
+  "gem": 4.0,
+  "votes": {
+   "4": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 4,
+    "dt": "2026-08-15",
+    "t": "<p>Pretty good!</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "24494",
+  "naam": "Italian Language Pack / Pacchetto Lingua Italiano",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 11158,
+  "eerste": "2024-05-24",
+  "versies": 13,
+  "laatste": "2026-11-06",
+  "dl90": 1038,
+  "dl365": 4387,
+  "stemmen": 1,
+  "gem": 2.0,
+  "votes": {
+   "2": 1
+  },
+  "prijs": "29.00/59.00",
+  "comments": [
+   {
+    "r": 2,
+    "dt": "2025-04-22",
+    "t": "<p>Plugin not compatible with current versions!</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "25813",
+  "naam": "Turkish Language Pack / IDE'nin Türkçe'ye Yerelleştirilmesi",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 10345,
+  "eerste": "2024-11-12",
+  "versies": 11,
+  "laatste": "2026-11-06",
+  "dl90": 910,
+  "dl365": 4706,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "39.00/79.00",
+  "comments": []
+ },
+ {
+  "id": "27351",
+  "naam": "French Language Localization / Pack De Langue Français",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 8250,
+  "eerste": "2025-05-13",
+  "versies": 4,
+  "laatste": "2026-08-20",
+  "dl90": 1050,
+  "dl365": 4132,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "25812",
+  "naam": "Polish Language Pack / Lokalizacja IDE Na Język Polski",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 7431,
+  "eerste": "2024-11-12",
+  "versies": 11,
+  "laatste": "2026-11-06",
+  "dl90": 805,
+  "dl365": 3265,
+  "stemmen": 1,
+  "gem": 5.0,
+  "votes": {
+   "5": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": []
+ },
+ {
+  "id": "27350",
+  "naam": "Russian Language Localization / Локализация На Русский Язык",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 6690,
+  "eerste": "2025-05-13",
+  "versies": 4,
+  "laatste": "2026-08-20",
+  "dl90": 723,
+  "dl365": 2456,
+  "stemmen": 2,
+  "gem": 2.5,
+  "votes": {
+   "1": 1,
+   "4": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 4,
+    "dt": "2026-01-23",
+    "t": "<p>Не полный перевод, установил на Android Studio Otter 3 2025.2.3.9.   Установить получилось только через VPN.</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-07-31",
+    "t": "<p>К сожалению не работает. Выдаёт ошибку(</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "27355",
+  "naam": "Deutsch (German) Language Localization / Deutsches Sprachpaket",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 6383,
+  "eerste": "2025-05-13",
+  "versies": 4,
+  "laatste": "2026-08-20",
+  "dl90": 534,
+  "dl365": 2402,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "26734",
+  "naam": "French Language Pack for IDEs & Plugins",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 5858,
+  "eerste": "2025-03-04",
+  "versies": 5,
+  "laatste": "2026-03-01",
+  "dl90": 0,
+  "dl365": 1826,
+  "stemmen": 3,
+  "gem": 1.0,
+  "votes": {
+   "1": 3
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 1,
+    "dt": "2026-02-26",
+    "t": "<p>ne fonctionne pas pas</p>\n"
+   },
+   {
+    "r": 1,
+    "dt": "2025-11-15",
+    "t": "<p>I would also like to point out that I fully share jeromelacroix75’s assessment. As someone who has been using your tools for many years, I consider it perfectly legitimate to pay an annual license fee for IDEs as advanced, powerful and well-designed as yours, and I would like to thank your teams for the quality of the work they deliver.</p>\n<p>However, in 2025, I find it very hard to accept tha"
+   },
+   {
+    "r": 1,
+    "dt": "2025-05-19",
+    "t": "<p>Critical review of JetBrains and translation plugin management</p>\n<p>As a long-time user of JetBrains solutions, it's disappointing to find serious shortcomings in their marketplace management and language support policy. These shortcomings undermine the overall quality of the user experience and raise questions about the company's commitment to its customers.</p>\n<p>Firstly, plugin management"
+   }
+  ]
+ },
+ {
+  "id": "26792",
+  "naam": "German Language Pack for IDEs & Plugins",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 5017,
+  "eerste": "2025-03-10",
+  "versies": 6,
+  "laatste": "2026-07-09",
+  "dl90": 0,
+  "dl365": 1813,
+  "stemmen": 1,
+  "gem": 2.0,
+  "votes": {
+   "2": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 2,
+    "dt": "2026-09-22",
+    "t": "<p>Wenn man sich die Dokumentation zu den verschiedenen Methoden anschaut, dann fehlt in der Tiefe die Übersetzung. Als Beginner ist das Plugin sehr hilfreich bei der Konsole und bei den Fehlermeldungen. Die eigentliche interne Dokumentation ist aber weiter auf englisch. Oder habe ich etwas falsch gemacht?</p>\n<p>\"Breit in gängigen Browsern verfügbar</p>\n<p>Chrome 1, Chrome Android 18, Edge 12, Fi"
+   },
+   {
+    "r": 0,
+    "dt": "2025-05-28",
+    "t": "<p>Works as expected</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "29935",
+  "naam": "Russian Language Pack (igalexor Edition)",
+  "maker": "igalexor",
+  "model": "FREE",
+  "dl": 3438,
+  "eerste": "2026-01-26",
+  "versies": 1,
+  "laatste": "2026-01-26",
+  "dl90": 0,
+  "dl365": 3438,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "30652",
+  "naam": "All Languages Localization Pack",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 2758,
+  "eerste": "2026-03-16",
+  "versies": 4,
+  "laatste": "2026-04-14",
+  "dl90": 0,
+  "dl365": 2756,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "79.00/199.00",
+  "comments": []
+ },
+ {
+  "id": "25811",
+  "naam": "Czech Language Pack / Lokalizace IDE Do Češtiny",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 2328,
+  "eerste": "2024-11-12",
+  "versies": 9,
+  "laatste": "2026-11-06",
+  "dl90": 194,
+  "dl365": 804,
+  "stemmen": 1,
+  "gem": 1.0,
+  "votes": {
+   "1": 1
+  },
+  "prijs": "39.00/79.00",
+  "comments": [
+   {
+    "r": 1,
+    "dt": "2026-05-19",
+    "t": "<p>Zkusil jsem tento plugin a doufal, že se třeba v JetBarins pochlapili a pomocí tohoto pluginu dostaly český jazyk konečně mezi \"Natural Languages\". Vidím, že je pořád ani sídlo v české republice nepřimělo s tím něco dělat. Přeložené položky IDE je to poslední, co by mohl chtít programátor potřebovat. Takže holt smůla, plugin si zase odinstaluji. A vážně znovu zvážím, zda stojí za to si za IDE o"
+   }
+  ]
+ },
+ {
+  "id": "27353",
+  "naam": "Italian Language Localization / Pacchetto Lingua Italiano",
+  "maker": "code",
+  "model": "FREE",
+  "dl": 2025,
+  "eerste": "2025-05-13",
+  "versies": 2,
+  "laatste": "2025-08-13",
+  "dl90": 0,
+  "dl365": 0,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "32785",
+  "naam": "German Language Pack",
+  "maker": "pcornelissen",
+  "model": "FREE",
+  "dl": 1937,
+  "eerste": "2026-07-07",
+  "versies": 7,
+  "laatste": "2026-10-31",
+  "dl90": 1240,
+  "dl365": 1935,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "25814",
+  "naam": "Hungarian Language Pack / Magyar Nyelvi Csomag",
+  "maker": "code",
+  "model": "PAID",
+  "dl": 1489,
+  "eerste": "2024-11-12",
+  "versies": 10,
+  "laatste": "2026-11-06",
+  "dl90": 118,
+  "dl365": 437,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "39.00/79.00",
+  "comments": []
+ },
+ {
+  "id": "32881",
+  "naam": "Traditional Chinese Language Pack for IDEs",
+  "maker": "Anton_Shuvaev",
+  "model": "PAID",
+  "dl": 1102,
+  "eerste": "2026-07-13",
+  "versies": 1,
+  "laatste": "2026-07-13",
+  "dl90": 0,
+  "dl365": 1102,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "28908",
+  "naam": "Indonesian Language Pack / Paket Bahasa Indonesia",
+  "maker": "eastgatedev",
+  "model": "FREEMIUM",
+  "dl": 974,
+  "eerste": "2025-11-02",
+  "versies": 3,
+  "laatste": "2025-11-18",
+  "dl90": 0,
+  "dl365": 892,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "32512",
+  "naam": "Portuguese (Brazil) Language Pack",
+  "maker": "quadros-f",
+  "model": "FREE",
+  "dl": 198,
+  "eerste": "2026-06-27",
+  "versies": 5,
+  "laatste": "2026-09-08",
+  "dl90": 133,
+  "dl365": 198,
+  "stemmen": 1,
+  "gem": 5.0,
+  "votes": {
+   "5": 1
+  },
+  "prijs": "-",
+  "comments": [
+   {
+    "r": 5,
+    "dt": "2026-07-18",
+    "t": "<p>Excelente tradução! Ela facilita bastante a utilização da ferramenta. Meus parabéns ao desenvolvedor pela iniciativa de disponibilizar esse trabalho gratuitamente para a comunidade. É uma contribuição de grande valor e muito apreciada.</p>\n"
+   }
+  ]
+ },
+ {
+  "id": "28739",
+  "naam": "Belarusian Language Pack",
+  "maker": "krp",
+  "model": "FREE",
+  "dl": 103,
+  "eerste": "2025-10-16",
+  "versies": 2,
+  "laatste": "2025-10-18",
+  "dl90": 0,
+  "dl365": 0,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ },
+ {
+  "id": "35192",
+  "naam": "IDE Localization: Spanish",
+  "maker": "devcairn",
+  "model": "FREE",
+  "dl": 301,
+  "eerste": "2026-10-16",
+  "versies": 1,
+  "laatste": "2026-10-16",
+  "dl90": 301,
+  "dl365": 301,
+  "stemmen": 0,
+  "gem": null,
+  "votes": {},
+  "prijs": "-",
+  "comments": []
+ }
+]

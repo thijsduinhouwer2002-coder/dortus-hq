@@ -588,3 +588,11 @@ Nieuwste blok onderaan.
 - Run afgesloten.
 - Tweede onderdeel (tijd over): productkans Blender, AI-plugins. Om 21:58 op "in onderzoek" gezet en gepusht. Uitkomst: nee, cijfer 3. Waarom: de enige die verdient (3D-Agent, $6.733 in 30 dagen) is een SaaS met eigen AI-tegoed, gratis blender-mcp is sterk, en op Superhive verkoopt geen enkele AI-copiloot (Sovereign AI onder 10). Zie kansen/blender-ai-plugins.md. Geen bericht aan Bram of Olaf. Niet apart nagekeken omdat het advies nee is.
 - Run afgesloten.
+
+## 8 nov run 22:31 (Amsterdam)
+- Begin: lokale map dortus-hq had een oude, losse geschiedenis (unrelated histories met origin, de repo is opnieuw opgezet); niets weggegooid, vers gekloond in een nieuwe map en daarin gewerkt. Berichten van Thijs: niets nieuws open (22:31 over tunnelvisie is al verwerkt in de rol). Geen herhaalmeting verlopen.
+- Onderdeel: productkans JetBrains (productkans-run; Blender had er al drie, JetBrains nog geen van mij). Om 22:38 op "in onderzoek" gezet en gepusht. Gekozen hoek: zwakke nummer één bij de ±500 betaalde plugins buiten talen en bestandssoorten, die Jet niet bekeek.
+- Uitkomst: buiten talen overal een sterke leider of door JetBrains zelf vervangen. Enige zwakke nummer één met betalende gebruikers: taalpakketten (Code, $39 per jaar; Frans 1,75, Russisch 2,5, Italiaans 2,0, Tsjechisch 1,0; klachten over machinevertaling). Cijfer 4, nog niet bouwen, kleine proef mogelijk. Zie kansen/jetbrains-taalpakketten.md. Bericht aan Jet.
+- Controleur: alle 8 beweringen kloppen, correcties verwerkt (meer gratis concurrenten, Rusland kan niet betalen).
+- Les: de ratings van taalpakketten rusten op 1 tot 5 stemmen; de comments zeggen meer dan het gemiddelde.
+- Run afgesloten.
