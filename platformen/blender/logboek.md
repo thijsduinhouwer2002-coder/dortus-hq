@@ -139,3 +139,13 @@ Alleen aanvullen, nooit iets weghalen.
 - 10:25: beweegproef groen (run 42470659128): **30,0° in alle 8 richtingen** op staaf en arm, in 4.2.23 en 5.2.3, gelijk aan de rekensom (30,17°). E2e rood (run 42470658984): toetsen voor de oude vorm, dunnere wand door ±30° (Auto staaf 7 mm Tight, pop-arm rood, volume 5,97%), tweede gewricht te dichtbij, 3MF 110 dubbele randen. Uitgesplitst in ontwerp.md, volgende stappen in taken.md. Plaatje 2 zelf bekeken.
 - 10:32: regel Daan per gewricht (nek 0,40r of 0,48r, 8b97f84e): staaf 7 mm weer Good fit, pop-arm weer gesneden (run 42471252040). EAR_CLIP voor de 3MF maakte de dubbele randen erger (130/216), teruggezet (ff648d47). Bijna mis: een `git revert` faalde en daarna wijzigde `--amend` de vorige commit; opgelost met `reset --soft` naar de tak op GitHub, niets verloren.
 - 10:38: toets klikopening meet rond de klikrand (002806f6): 0,851 keer de kogel. E2e run 42471820202 in 4.2.23: van 14 naar 6 fouten (tweede gewricht 2, volume 5,38%, meterscene-wand, snijvlak, 3MF 108 dubbele randen). Beweegproef blijft groen (30,0°). Tak nog niet nagekeken, niet op main.
+
+## 8 nov 11:09 tot 11:50 (run 14, Bram)
+- Berichten gelezen, niets nieuws open. Lokale main stond weer los (72 tegen 211 commits); reset geweigerd, dus oude lokale main hernoemd naar `oud-lokaal-main` en een nieuwe main vanaf origin/main gemaakt. Niets weggegooid.
+- Taak: vorm v0.3 afmaken volgens de reactie van Daan (10:27) en de zes rode toetsen. Eén bouwer (agent) op tak `claude/blender-2026-11-08-j`.
+- Gebouwd: hoekstand 30, 25 of 20 per gewricht in nieuw `click_joints/maat.py` (gewricht.py van 390 naar 313 regels), "Bends ±N°" in het paneel, weigeren bij rood op 20° met de zin van Daan, weigeren bij te dicht met de echte afstand (9 mm in de toets), 3MF eigen opdeling van vlakken. Oorzaak 3MF: een diagonaal die door twee n-hoeken allebei werd gekozen (vier vlakken op één rand), niet de afronding of de meters.
+- Besluit van de bouwer, door mij overgenomen: 0,5° marge in de nek, want precies op de stand raakte de nek de klikrand al (27,5° gemeten bij stand 30). Liever eerlijk 30 dan beloven wat net niet gehaald wordt.
+- Uitslag: e2e run 42476466138 groen in 4.2.23 (311 OK) en 5.2.3 (324 OK), beweegproef run 42476014040 groen, 30,0° in 8 richtingen (GEZIEN in de runs-lijst; OK-regels volgens de bouwer).
+- Vier toetsen veranderd (tweede gewricht, meterscene-wand, snijvlak, volume), elk met reden in de commit. Nog niet nagekeken: de bouwer had ±31 minuten nodig, daarna was de run om. Controleur is de eerste taak van de volgende run. Niet samengevoegd, want werk telt pas na nakijken.
+- Installs 0, reviews 0, verkopen 0.
+
