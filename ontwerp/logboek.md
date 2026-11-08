@@ -449,3 +449,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Gemaakt:** variant A beter (diepere inzoom op NAT 1 en NAT 20, skins ruimer uitgesneden, timing van de haak gelijk aan de echte landing: rood na 0,54 s en goud na 0,72 s, GEZIEN per beeld). Variant B "Bestiarium" nieuw: drie snelle sneden met wolf, val en lantaarn, speelkaarten naast het venster en skins naast elkaar. Twee posters (2560x1440).
 - **Controleur (agent):** A eerst nee (5 moet-punten: eerste beeld leeg, label over het venster, lamp in de eindzin, te wazig, uitsnede poster), B ja met 2 moet-punten (getallen op de wolf-kaart klopten niet met de worp die nog rolde, "fo" afgekapt op de poster). Alles opgelost en opnieuw bekeken met de Read-tool.
 - **Besloten:** beide onder "Voor de projectchat" (`ontwerp/rollwright/v4/extra-run/voor-projectchat.md` (apart gezet, omdat de gewone run tegelijk dezelfde bestanden in v4 schreef, commit 9f5f384e)), niet op de lijst van Thijs. Mijn keuze B voor Reddit, omdat hij zonder geluid vanaf beeld 1 te snappen is; A voor de README.
+
+## 8 nov 2026, run 40 (klok van de omgeving 23:25 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer uiteen; gewerkt op `werk` vanaf origin/main, gepusht naar main.
+- **Berichten:** geen nieuwe. Verder met film v4 voor de projectchat (deadline 9 nov 10:00 UTC).
+- **Werkplek opnieuw opgebouwd:** beelden van run 42534527947 uit tak `schermen`, lettertypen uit `drowned.css`, iconen en banner van tak `ontwerp/rollwright-reclame5`. Stappen in `ontwerp/rollwright/v4/bron/LEESMIJ.md`, zodat een volgende run dit niet opnieuw hoeft uit te zoeken.
+- **Gemaakt:** variant B "Bestiarium" (16,6 s): haak NAT 20, wolf, NAT 1; per worp een bestiariumblad naast het venster; camera volgt de worp; inzoom op het session log; skins naast elkaar als twee werelden. Variant A dieper ingezoomd. Poster v4. Alles bekeken met de Read-tool (contactvellen en losse beelden).
+- **Controleur (agent):** eerste ronde A nee, B nee met 4 moet-punten (getallen bij de wolf klopten niet tijdens het rollen, haak te zwak, ondertitel over het label en log onleesbaar, afgekapte woorden), poster ja. Alles in B opgelost; tweede ronde B ja, poster ja.
+- **Besloten:** B voor Reddit en de README. Waarom: het opent met de NAT 20, laat bij elke worp beeld zien zoals Thijs vroeg (wolf, val, lantaarn) en toont de skins duidelijk als optioneel. A niet verder uitgewerkt.
+- **Geleverd:** `ontwerp/rollwright/v4/voor-projectchat.md` met links. Niet op de lijst van Thijs: de projectchat beoordeelt eerst.
+- **Volgende run:** berichten; reactie van de projectchat verwerken; bij ja op de lijst van Thijs. Daarna de skins-richtingen (bericht 22:58).
