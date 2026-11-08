@@ -34,6 +34,15 @@ def bij_wissel(inst, context):
     zet_alle(context.scene)
 
 
+def echte_matrix(ob):
+    """matrix_world zonder de weergaveverschuiving (delta_location telt bij de translatie op, zonder ouder).
+    Gebruik dit overal waar een deel naar wereldcoördinaten wordt omgerekend, anders bakt de verschuiving in."""
+    m = ob.matrix_world.copy()
+    if ob.parent is None:
+        m.translation -= ob.delta_location
+    return m
+
+
 @contextmanager
 def echte_plek(delen):
     """Alle delen even zonder weergaveverschuiving, daarna weer terug."""

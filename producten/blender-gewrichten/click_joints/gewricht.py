@@ -186,7 +186,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         hulp = bpy.data.collections.new("cj_hulp")
         context.scene.collection.children.link(hulp)
         me = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))
-        me.transform(bron.matrix_world)
+        me.transform(uit_elkaar.echte_matrix(bron))  # zonder Exploded view, anders bakt die in
         werk = bpy.data.objects.new("cj_werk", me)
         hulp.objects.link(werk)
         bm = bmesh.new()

@@ -75,6 +75,10 @@ def pop(solver):
                                     ("been_r", 3.0, 18.0, Matrix(), (3.2, 0, -10.0))):
         bm = bmesh.new()
         bmesh.ops.create_cone(bm, cap_ends=True, segments=48, radius1=r, radius2=r, depth=lengte)
+        for i in range(1, int(lengte / 2)):  # lusjes om de 2 mm, zodat de passingring smal blijft op plaatje 2
+            z = -lengte / 2 + 2.0 * i + 0.5  # niet precies op de plek van een snede in de tests (x = 11, z = -14)
+            geom = bm.verts[:] + bm.edges[:] + bm.faces[:]
+            bmesh.ops.bisect_plane(bm, geom=geom, plane_co=(0, 0, z), plane_no=(0, 0, 1))
         bm.transform(Matrix.Translation(c) @ rot)
         vorm(naam, bm)
     basis = delen[0]
