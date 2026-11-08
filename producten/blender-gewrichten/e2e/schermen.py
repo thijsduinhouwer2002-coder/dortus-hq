@@ -16,7 +16,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scherm_basis import (DOEL, close_up, kijk, log, maak_pop, open_paneel, plaats, schiet,  # noqa: E402
                           toestand, weergave, wiel_naar_tabblad, zijbalk, zip_pad)
 from scherm_kleur import meet_strook, proefstrook  # noqa: E402
-from scherm_beweeg import boog_verslag, plat_lid, voorbij_grens, waaier, winkel  # noqa: E402
+from scherm_beweeg import (boog_verslag, paneel_verslag, plat_lid, voorbij_grens, waaier, winkel,  # noqa: E402
+                           winkel_paneel)
 
 
 def stap():
@@ -93,6 +94,20 @@ def stap():
     if n == 19:
         schiet("9-winkel-rood.png")
         boog_verslag("winkel-rood", voorbij=True)
+        return 0.5
+    if n == 20:
+        winkel_paneel()  # winkelscherm 10: zelfde als 8, zijbalk open op Click Joints
+        toestand["pogingen"] = 0
+        return 1.5
+    if n == 21:
+        if not wiel_naar_tabblad() and toestand["pogingen"] < 14:
+            toestand["n"] = 20  # deze stap nog eens (zijbalk in het volle scherm kan een ander tabblad hebben)
+            return 0.6
+        return 1.0
+    if n == 22:
+        schiet("10-winkel-paneel.png")
+        boog_verslag("winkel-paneel", voorbij=False)
+        paneel_verslag()
         return 0.5
     bpy.ops.wm.quit_blender()
     return None

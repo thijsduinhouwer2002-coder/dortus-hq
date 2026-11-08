@@ -65,7 +65,9 @@ jobs:
           # Winkelschermen (lanceerlijst Daan): gradenboog binnen en voorbij de grens, hele venster.
           grep -q "BOOG OK winkel " /tmp/schermen.log || { echo "FOUT: winkelscherm 8 niet goed"; exit 1; }
           grep -q "BOOG OK winkel-rood" /tmp/schermen.log || { echo "FOUT: winkelscherm 9 niet goed"; exit 1; }
-          for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+          grep -q "BOOG OK winkel-paneel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 boog niet goed"; exit 1; }
+          grep -q "PANEEL OK winkel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 paneel niet goed"; exit 1; }
+          for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png 10-winkel-paneel-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

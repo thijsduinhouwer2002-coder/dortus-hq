@@ -163,6 +163,42 @@ def winkel(pose):
     rv3d.view_perspective = "PERSP"
     rv3d.view_rotation = kijk_r.to_track_quat("-Z", "Y")
     rv3d.view_distance = 11.0 * a["cj_kogel_r"]
-    rv3d.view_location = Vector(a["cj_centrum"]) + as_ * (1.6 * a["cj_kogel_r"]) + rich * (1.2 * a["cj_kogel_r"])
+    rv3d.view_location = Vector(a["cj_centrum"])  # het gewricht in het midden (Daan, lanceerlijst punt 2)
     gebied.tag_redraw()
     log(f"WINKEL pose={inst.pose_graden} uit_elkaar={inst.uit_elkaar} gebied={gebied.width}x{gebied.height}")
+
+
+def winkel_paneel():
+    """Winkelscherm 10 (lanceerlijst Daan): zelfde beeld als 8-winkel (pose 15), met de zijbalk open op Click Joints.
+    Deel A is actief maar niet geselecteerd, zodat het paneel Good fit, Bends en Bend toont zonder oranje rand."""
+    inst = bpy.context.scene.click_joints
+    inst.pose_graden = 15.0
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if a is not None:
+        for o in bpy.context.selected_objects:
+            o.select_set(False)
+        bpy.context.view_layer.objects.active = a
+    venster, gebied, _ = zijbalk()
+    if gebied:
+        gebied.spaces.active.show_region_ui = True
+        gebied.tag_redraw()
+
+
+def paneel_verslag():
+    """Na schermafbeelding 10: staat het paneel echt open op Click Joints, met Good fit en Bends? Regel "PANEEL OK"
+    is wat de workflow eist."""
+    paneel = importlib.import_module(f"{_mod()}.paneel")
+    _, gebied, regio = zijbalk()
+    ob = bpy.context.active_object
+    eisen = {
+        "zijbalk open": bool(gebied and gebied.spaces.active.show_region_ui and regio and regio.width > 50),
+        "tabblad Click Joints": bool(regio and regio.active_panel_category == "Click Joints"),
+        "deel A actief": bool(ob and ob.get("cj_deel") == "A"),
+        "Good fit": bool(ob and ob.get("cj_passing") == "groen"),
+        "Bends in paneel": bool(ob and (paneel.buig_tekst(ob) or "").startswith("Bends")),
+        "niets geselecteerd": not bpy.context.selected_objects,
+        "pose 15": abs(bpy.context.scene.click_joints.pose_graden - 15.0) < 1e-6,
+    }
+    mis = [k for k, ok in eisen.items() if not ok]
+    tekst = paneel.buig_tekst(ob) if ob else None
+    log(f"PANEEL {'OK' if not mis else 'FOUT'} winkel tekst={tekst} breed={regio.width if regio else 0} mis={mis}")
