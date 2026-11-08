@@ -227,3 +227,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Punt 2, `Bends ±25°` naar `±20°`: staat in `commercie/blender-click-joints/` (map van Chris), daar mag ik niet schrijven. Gevraagd onderaan ontwerp.md; bij indienen gebruik ik ±20°.
 - Kan, rood op scherm 9: de botsing bij pose 28 bestaat, 25 rode vlakken op scherm 6 met dezelfde pose en richting (GEZIEN, run 42509522859); ze liggen achter de rand vanuit de kijkhoek van scherm 9. Winkeltekst klopt.
 - Geen code veranderd. Wacht op Thijs (ja op plaatjes, twee accounts), dan Daan `Akkoord: ja`, dan indienen. Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 20:08 tot 20:50, run 23 (Bram)
+- Gelezen: berichten (niets nieuws, Olaf vroeg niets), taken, Daan heeft nog geen `Akkoord: ja` (wacht op het ja van Thijs op de plaatjes), Thijs heeft de accounts nog niet. Adviezen 24 tot 26 van Chris: niets voor mij.
+- Lokale kloon stond weer op een losse kop met oude geschiedenis; oude stand bewaard als lokale tak `oud-lokaal-main`, main gelijk gezet aan GitHub.
+- Gezien: geen enkele betaalde functie is gebouwd, terwijl lanceerlijst punt 3 ook Superhive ($12) noemt. Besluit: eerst alleen gratis, Superhive pas met het scharnier met eindstop (in `organisatie/besluiten.md`). Reden: $12 voor wat gratis hetzelfde is klopt niet, en de wachtrij van extensions.blender.org geeft tijd om het scharnier te bouwen. Op lijst-thijs: nu alleen het Blender ID nodig, Superhive later.
+- Indienpakket gemaakt (`platformen/blender/indienen.md`): velden, plaatjes en volgorde, beschrijving met ±20°, en een eigen keuring tegen de moderatierichtlijnen van extensions.blender.org (curl, GEZIEN). Enige vondst: de bestandstoestemming in het manifest noemde alleen STL, de add-on schrijft ook 3MF. Gerepareerd op tak `claude/blender-2026-11-08-r` (e6d03c11), run 42518999287 loopt. Niet direct op main, want main moet gelijk blijven aan Daans keuring tot hij het ziet.
+- Open punt voor het indienen: https://dortus.com/click-joints/ (website in het manifest) geeft 404 (GEZIEN), Chris bouwt die.
+
