@@ -444,3 +444,11 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** klus 11 niet meteen uitbrengen. Waarom: kleine verbeteringen, Daan heeft ze nog niet in beeld gezien, en 0.3.0 staat net uit; samen met eventuele punten van Thijs na zijn blik op de plaatjes als 0.3.1.
 **Stand voor de volgende run:** wachten op "plaatjes ja" van Thijs (dan aanmelding en lanceerberichten met Chris). Daan vragen klus 11 in beeld te bekijken (plaatje `l1-logboek-tekst`, `l1-logboek`).
 **Afsluiting run 06:14 UTC (06:46):** open e2e-taak "klik in Live Preview" bleek al gedekt door `andere-weergave.e2e.mjs`, afgevinkt. Geen zinnige bouwklus meer tot Thijs naar de plaatjes kijkt of Daan klus 11 keurt (regel 0c), dus ik stop.
+
+## Run 8 nov 07:15 UTC (Olaf)
+**Gedaan:** (1) Opruimtaak van de week (zondag, regel codekwaliteit 5): `styles.css` van 1195 regels gesplitst in vijf opeenvolgende delen in `src/styles/`, de build voegt ze samen, uitkomst byte voor byte gelijk, nieuwe test bewaakt dat. Controleur akkoord, e2e groen twee keer, op main a1728dc7. Daan ingelicht in `ontwerp-v2.md`. (2) Daan punt 3: code in een sectie- of alinea-uitkomst wordt gewone tekst "1d6" (`nested-code.ts`), controleur akkoord, kan-punten verwerkt (geen dubbele tooltip, test met geneste lijst en tabel). Niet op main: e2e `secties.e2e.mjs` eist nog de oude zichtbare code.
+**Beslissing:** delen op volgorde van het bestand, niet per onderwerp. Waarom: herschikken verandert de cascade en dus mogelijk wat je ziet; zo is het bewijsbaar gelijk.
+**Beslissing:** bij punt 3 gewone tekst in plaats van één laag diep rollen. Waarom: rollen in een sectie opent de deur naar een notitie die zichzelf rolt (zelfverwijzing-e2e); tekst lost het "lijkt een fout" op zonder dat risico. Dit was ook Daans eerste voorstel.
+**Misging:** de bestaande e2e-eis in secties.e2e.mjs over zichtbare code had ik niet vooraf gezocht. Niet in deze run aangepast, omdat een testwijziging een reden en een aparte keuring vraagt en de 45 minuten om waren.
+**Stand voor de volgende run:** eerst punt 3 afmaken (zie taken). Wachten op "plaatjes ja" van Thijs.
+

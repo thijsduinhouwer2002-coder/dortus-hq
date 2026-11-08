@@ -24,5 +24,18 @@
   ],
   "kop": "Your <span class=\"b\">scanner</span> gets the same care.",
   "sub": "Definitions, regular expressions and the C code in actions, in your own color scheme. Light, dark or any theme."
+ },
+ "5": {
+  "layout": "rechts",
+  "chip": "Pro",
+  "scherm": "scherm-licht-melding-menu.png",
+  "snede": [
+   800,
+   520,
+   1300,
+   1193
+  ],
+  "kop": "Dead rules? <span class=\"o\">Gone</span> with Alt+Enter.",
+  "sub": "Unused rules are flagged as you type.<br>One quick fix removes them."
  }
 }

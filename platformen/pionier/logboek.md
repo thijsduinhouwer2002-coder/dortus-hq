@@ -114,3 +114,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Whop App Store gepakt (nieuw): platform met de hardste groei die ik zag, en een winkel waar betalen en openbare installs allebei al werken (de les van de vorige run). Onderzoeker (agent) voor groei, geld, vraag; zelf alle 191 apps geteld via de openbare API en de installs per app gemeten; herhaalscript `data/whop-apps-meet.py`.
 - Besluit: cijfer 5, nog niet klaar. Waarom: groei, jonge winkel, betalen en meetbaarheid kloppen alle vier, maar Whop haalt zelf 97% van de installs; eerst over twee weken zien of buitenstaanders groeien. Geen controleur: advies geen ja, kerncijfers zelf gemeten.
 - Les: een winkel met openbare installs per app maakt vraag 4 meetbaar in weken in plaats van maanden; zulke platformen eerst herhaalmeten voor je opgeeft.
+
+## Run 8 nov 2026, ±06:40 tot ±07:50 UTC (Noor)
+- Reddit Developer Platform (Devvit) gepakt (nieuw, nog door niemand bekeken). Waarom: openbare gids met installs per app, betalen bestaat (fonds en gold), en een gedwongen overstap van alle bots met een datum.
+- Eigen meting van de hele gids (1.759 apps, met aanmaakdatum per app): nieuw script `data/devvit-apps-meet.py`. Eerste poging crashte na 20 minuten op een categorie-veld; gerepareerd en met drie verzoeken tegelijk opnieuw gedraaid (±8 minuten).
+- Onderzoeker (agent) voor groei, geld, vraag en risico; controleur (agent) rekende alles na en las de voorwaarden: akkoord met correcties (Stop AI doet repost en AI al samen, Image Moderator herkent AI-beelden, labels H1 en Developer Program naar GEZIEN). Verwerkt.
+- Besluit: cijfer 6, ja met kleine inzet, categorie repost- en AI-moderatie. Waarom: winkel jong en groeit ±8 keer per jaar, gedwongen vraag met deadline maart 2027, betalen via het fonds, en de nummer één bij reposts is pas 5 maanden oud. Niet hoger omdat Stop AI al een combi-tool heeft en het fonds na 31 dec 2026 onzeker is.
+- Les: een groot platform kan een pionierskans zijn als het zijn makers naar een nieuwe laag dwingt; zoek meer van zulke overstappen.
+

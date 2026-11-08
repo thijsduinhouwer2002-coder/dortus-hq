@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
+Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
+
+Oud: Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
 
 # Blender-gewrichten (werktitel "Click Joints"): ontwerp v1
 
@@ -127,6 +129,40 @@ Nog geen beoordeling 2: ronde e staat op een tak. Wel wat ik zag op `5.2.3/1-pan
 **Kan:** de regel "Empty: click_joints folder / next to the .blend" staat over twee rijen met een gat ertussen; korter maken tot "Saves next to the .blend" past op één rij.
 
 Volgende stap voor mij: beoordeling 2 zodra punt 1 tot 3 op een tak staan en Bram het vraagt; de proefstrook kijk ik zo snel mogelijk na.
+
+## Beoordeling 2 van Daan (8 nov 07:35, main c26267b4 en tak `claude/blender-2026-11-08-g`)
+
+Bekeken: main run 42455734989 (`5.2.3/1-paneel-x`, `2-gewricht-x`, `3-kijkrichting-x`), tak g run 42458223828 (`2-gewricht-x`, `4-geeltinten-x`) en mijn eigen proefstrook op tak `ontwerp/blender-geel` (run 42458842877, `proef-geel.png` en `proef-geel-standard.png`, Blender 5.2.3, gladde cilinders, Studio-licht Default, kleur volgens Material).
+
+### Wat goed is (afgevinkt uit beoordeling 1)
+Punt 1 (Engels), 2 (ring in plaats van hele arm), 3 (geen rood veld), 4 (opengewerkt beeld, kijk in de kom), 6 (keuzes naast elkaar), 7 (zeg waarom), 8 (knopnamen) en 9 (maat schaalt mee) zijn gedaan en in de echte Blender gezien. Op tak g ook mijn tussenreactie 2 punt 2 en 3: Auto kiest 3.0 mm met Good fit, wand 1.55 mm, en het hoofdplaatje is groen. De korte map-hint "Saves next to the .blend" past op één regel. Het paneel is rustig en duidelijk; dit is een goede basis.
+
+### De geelkeuze: `#FFEA00`
+Gemeten in mijn proefstrook (GEZIEN, pixels op de belichte kant, midden):
+
+| stof | op het scherm |
+|---|---|
+| groen nu | `#3B945F` |
+| `#FFD23F` (nu) | `#A88D3C` mosterd |
+| `#FFE45C` | `#A89848` vaal |
+| `#FFF06A` | `#A8A04F` olijf |
+| `#FFC400` | `#A78428` oker |
+| `#FFEA00` | `#A79C25` geel |
+| rood nu | `#A73C3C` |
+
+Wat ik leerde: in Solid met Studio-licht komt **geen enkele kleur boven ±`#AE`** per kanaal; groen en rood ook niet. Mijn eis "belicht boven `#E0C040`" uit tussenreactie 2 kan dus niet, die vervalt. De kleurweergave (AgX of Standard) maakt hier niets uit: beide schermen zijn pixel voor pixel gelijk (GEZIEN). Wat wel uitmaakt is de tint: hoe minder wit erin, hoe meer het geel blijft. `#FFEA00` (verzadigd citroengeel, lineair 1,0 / 0,823 / 0,0) leest als geel en staat duidelijk los van groen en rood; `#FFD23F` en de lichtere tinten worden mosterd of olijf. **Besloten: Tight wordt `#FFEA00`.** Waarom niet oker `#FFC400`: dat leest als amber, maar staat dichter bij de oranje selectierand en bij rood.
+
+Bijvangst: op gladde vlakken (smooth shading) oogt de kleur veel mooier dan op de platte vlakken van de testpop. Dat is aan het figuur van de gebruiker, niet aan ons; voor de lijstplaatjes gebruiken we een glad figuur.
+
+### Wat er nog moet voor akkoord, op volgorde
+1. **Tight `#FFEA00`** in `passing.KLEUREN` (één regel), en de proefstrook uit de gewone test laten zodra de keuze erin staat (scheelt tijd per run).
+2. **3MF** naast STL (punt 5 uit beoordeling 1, eis 7). Printers van nu (Bambu, Prusa) werken liefst met 3MF.
+3. **Het eigen gezicht: de beweegproef.** Nu doet Click Joints wat Cleave en Cut Flex ook doen, alleen netter. Het moment waar iemand een schermafbeelding van maakt, is: het ledemaat rondtrekken en zien waar het botst en hoe ver het buigt ("Bends 0 to 115°"). Bram: zoek eerst uit of Cleave, Cut Flex of FigureCut dit hebben (productpagina en video's), en schrijf dan een kort ontwerp (5 tot 10 regels) hieronder: hoe je het start, wat je ziet, hoe je stopt. Ik reageer de run daarna. Is het te groot voor de eerste versie, zeg dat dan met reden; dan zoeken we samen een kleiner eigen gezicht.
+4. **Icoon en lijstplaatjes** maak ik zelf zodra 1 en 2 op main staan: poster "See if it clicks before you print" met een gladde figuur, ring in groen en het opengewerkte gewricht groot.
+
+**Controleur (agent):** eens met `#FFEA00`, de volgorde en de beweegproef eerst onderzoeken. Overgenomen: (a) bij punt 2 hoort ook de knop: "Export STL" wordt een keuze STL of 3MF (of "Export" met een keuze); (b) voor de lijstplaatjes overlays uit (rode as en 3D-cursor lopen nu over de ring op `2-gewricht-x`), kogel duidelijk los, en een figuur waar de ring echt een ring is (nu is het hele zichtbare deel A groen); (c) de kleurweergave maakt alleen in Solid niets uit, in Material Preview kan fel geel bleker worden: Bram, maak bij punt 1 ook één scherm in Material Preview. Kan-punt, houdt akkoord niet tegen: voor mensen zonder groen zien worden ons groen en rood allebei donker olijf (omgerekend door de controleur); een groen met iets meer blauw (richting `#00C389`) helpt. Bram, neem dat mee in dezelfde regel als het geel, dan kijk ik het na in de volgende proefstrook.
+
+Valt het nu op? Nog niet: het is verzorgd, maar nog niet speciaal. Met de beweegproef en een goede poster kan het dat wel worden.
 
 ## Ronde c: ring en opengewerkt beeld (8 nov 05:40, Bram) en vraag aan Daan
 Op main (run 42451041466 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties; de ene correctie vóór samenvoegen (een tweede gewricht of Maak gesloten op een verschoven deel B bakte de verschuiving in) is verwerkt en getoetst (regel `TWEEDE` in het log: verschil 0,00000 mm).
