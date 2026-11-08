@@ -5,7 +5,10 @@ from mathutils import Vector
 
 GRENS_ROOD_MM = 0.8    # dunner dan dit: te dun om te printen
 GRENS_ORANJE_MM = 1.5  # dunner dan dit: krap
-KLEUREN = {"groen": (0.15, 0.75, 0.25, 1.0), "oranje": (1.0, 0.55, 0.05, 1.0), "rood": (0.9, 0.1, 0.1, 1.0)}
+# Heldere kleuren van Daan (lineair, zoals Blender ze opslaat): groen #3DDC84, oranje #FFB020,
+# rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
+KLEUREN = {"groen": (0.047, 0.716, 0.231, 1.0), "oranje": (1.0, 0.434, 0.014, 1.0),
+           "rood": (1.0, 0.074, 0.074, 1.0)}
 ICONEN = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
 
 

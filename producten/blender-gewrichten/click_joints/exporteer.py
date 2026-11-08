@@ -7,11 +7,23 @@ import bpy
 from .eigenschappen import eenheid_per_mm
 
 
+STANDAARD = "//click_joints/"
+
+
 def exportmap(scene):
-    pad = scene.click_joints.exportmap or "//click_joints/"
+    pad = scene.click_joints.exportmap or STANDAARD
     if pad.startswith("//") and not bpy.data.filepath:
         return os.path.join(tempfile.gettempdir(), "click_joints")
     return bpy.path.abspath(pad)
+
+
+def hint(scene):
+    """Korte tekst voor het paneel: waar de STL-bestanden heen gaan als de map leeg is."""
+    if scene.click_joints.exportmap:
+        return None
+    if bpy.data.filepath:
+        return "Leeg: click_joints naast .blend"
+    return "Leeg: tijdelijke map (niet opgeslagen)"
 
 
 def delen(context):

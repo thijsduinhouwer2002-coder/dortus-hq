@@ -1,9 +1,9 @@
 """Click Joints: snijdt een figuur in twee printbare delen met een kogel- of pengewricht."""
 import bpy
 
-from . import eigenschappen, exporteer, gesloten, gewricht, paneel
+from . import eigenschappen, exporteer, gesloten, gewricht, paneel, schaal
 
-MODULES = (eigenschappen, gesloten, gewricht, exporteer, paneel)
+MODULES = (eigenschappen, gesloten, gewricht, exporteer, schaal, paneel)
 
 
 def register():

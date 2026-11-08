@@ -13,8 +13,9 @@ import figuren  # noqa: E402
 
 zip_pad = sys.argv[sys.argv.index("--") + 1]
 from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
-                  toets_opening, toets_stl, weg)
+                  toets_materiaal, toets_opening, toets_stl, weg)
 import toetsen_correcties  # noqa: E402
+import toetsen_schaal  # noqa: E402
 
 
 def main():
@@ -25,6 +26,7 @@ def main():
     for op in ("plaats", "controleer", "maak_gesloten", "exporteer"):
         stap(f"operator click_joints.{op} bestaat", op in dir(bpy.ops.click_joints))
     stap("paneel geregistreerd", hasattr(bpy.types, "CLICK_JOINTS_PT_paneel"))
+    toetsen_schaal.alles()  # schaalwaarschuwing en lege exportmap, eindigt in de mm-scene
     figuren.mm_scene()
 
     # 1. Groot figuur: speling 0,1 / 0,2 / 0,3 mm, elk precies twee gesloten delen.
@@ -46,6 +48,8 @@ def main():
     rood = [o for o in bpy.context.scene.objects if o.get("cj_passing") == "rood"]
     log(f"DUN: delen={len(lijst)} rode_gewrichten={[o.name for o in rood]} wand={[o.get('cj_wand_mm') for o in rood]}")
     stap("dunne plek: cj_passing == rood", len(rood) == 1)
+    for o in rood:
+        toets_materiaal("dunne plek", o)
     stap("dunne plek: niet gesneden", len(lijst) == 0)
     fout, vol = meting(arm)
     stap(f"dunne plek: origineel heel en zichtbaar (foute_randen={fout})", fout == 0 and vol > 0 and arm.visible_get())
