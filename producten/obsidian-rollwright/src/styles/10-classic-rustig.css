@@ -11,7 +11,7 @@
    in 02 tot 06 zonder important-vlag; de betaalde skins raakt het niet.
    ========================================================================================== */
 
-:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error) {
+:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block) {
 	padding: 0.02em 0.45em 0.02em 0.36em;
 	border: 1px solid color-mix(in srgb, var(--rollwright-accent) 32%, var(--background-modifier-border));
 	border-radius: 0.45em;
@@ -20,14 +20,14 @@
 	transition: border-color 120ms ease, background-color 120ms ease;
 }
 
-:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error):hover {
+:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block):hover {
 	transform: none;
 	box-shadow: none;
 	border-color: color-mix(in srgb, var(--rollwright-accent) 60%, transparent);
 	background: color-mix(in srgb, var(--rollwright-accent) 14%, var(--background-primary));
 }
 
-:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error):active {
+:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll):not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block):active {
 	transform: scale(0.97);
 }
 
@@ -46,7 +46,11 @@ body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwrigh
 }
 
 :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit .rollwright-icon::before {
-	background: currentColor;
+	background: color-mix(in srgb, var(--rw-hi) 58%, var(--text-normal));
+}
+
+body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit .rollwright-icon::before {
+	background: color-mix(in srgb, var(--rw-hi) 80%, var(--text-normal));
 }
 
 /* Laagste worp: rood als rand en kleur. Geen dreun, geen schudden. */
@@ -59,7 +63,7 @@ body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwrigh
 }
 
 :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-fumble .rollwright-icon::before {
-	background: currentColor;
+	background: color-mix(in srgb, var(--rw-lo) 70%, var(--text-normal));
 }
 
 /* Geen vonk (::after), geen golf (::before), geen ring om de d20. */
