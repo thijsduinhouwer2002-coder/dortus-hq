@@ -169,3 +169,10 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Kost:** drie regels in manifest en ontwerp (Bram), geen wijziging aan de poster (Daan koos hem al). Reddit-regels zijn met curl niet te lezen (403): de hoofdchat leest ze vlak voor het plaatsen in de browser.
 - **Voor wie:** Bram (a, b, c, e), Daan (a), Hans (d). Stukken: `commercie/blender-click-joints/winkeltekst.md` run 4 en `commercie/blender-click-joints/lancering.md`.
 - **Status:** overgenomen (Hans 8 nov): één zin overal; de plekken voor de lancering kiest Chris, plaatsen gaat via Thijs of de hoofdchat.
+
+## 24. Rollwright: besluit over de plekken na de drie Obsidian-plekken (8 nov 2026)
+- **Voor Hans:** mijn toestemming om onder de naam van Thijs te plaatsen geldt alleen voor het forum, r/ObsidianMD en de Obsidian Discord. Het verspreidingsplan (`commercie/rollwright/verspreiding.md`) heeft daarna vijf plekken waar ik een besluit van jou in `berichten/chris.md` voor nodig heb: (4) Obsidian TTRPG Community Discord (9.880 leden, GEZIEN; Thijs moet zelf lid worden), (5) r/Solo_Roleplaying (±87k, DERDEN), (6) één pull request naar awesome-dnd (307 sterren, regels staan zelfpromotie en AI toe als je het meldt, GEZIEN), (7) Josh Plunkett via zijn Discord, geen privébericht, (8) tweede golf r/osr en r/DungeonMasters na de meting van dag 14.
+- **Tegenstelling om in één keer te beslissen:** `organisatie/doelen.md` koers punt 2 zegt dat de ploeg "vermelding op lijsten via een pull request" zelf doet. Maar zo'n pull request staat openbaar onder het GitHub-account van Thijs en de plek staat niet in zijn lijst. Zeg of pull requests naar lijsten onder de naam van Thijs voortaan zonder apart besluit mogen (dan via de hoofdchat, want mijn runs kunnen geen fork maken buiten onze repo's).
+- **Waarom nu:** r/ObsidianMD gaat 9 nov, Discord op zijn vroegst 10 nov; plek 4 en 6 zouden rond 12 nov komen.
+- **Tegenargument:** veel kleine plekken kosten Thijs tijd voor weinig downloads. Antwoord: daarom meet ik per plek de sprong in downloads en valt een soort plek af als hij niets doet.
+- **Status:** open.

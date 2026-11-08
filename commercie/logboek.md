@@ -187,3 +187,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN, curl):** BlenderArtists: één eigen bericht per week, nieuw account kan niet in Released Add-ons; print-add-on daar 88 keer bekeken, 0 likes. BlenderNation: € 25 voor commercieel. Manifest, ontwerp en poster gebruiken drie verschillende beloftes. Reddit-regels 403, niet omzeild.
 **Controleur:** akkoord mits. Moet: Auto kiest de beste passing, niet altijd Good fit; "I direct and test" werd "I direct the work", want testen doet de automatische test; wie print is open. Alles verwerkt, kan-punten ook.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads dag 1, Reddit klaarzetten voor de hoofdchat); Bison & Flex dag 0 zodra Hidden uit is; Click Joints: teksten bijwerken na de gradenboog en het akkoord van Daan.
+
+## 8 nov 2026, ±17:40 tot 18:15 UTC: Rollwright, run 11 (verspreidingsplan)
+**Gelezen:** berichten (nieuw open: 18:33 verspreiding is hoofdtaak, eerst Rollwright), doelen (koers 8 nov), regels, besluiten, rol. Forumdraad: 12 keer bekeken, 0 reacties (GEZIEN 17:52). Rollwright nog niet in community-plugin-stats.json (GEZIEN).
+**Opgemerkt:** lokale main van dortus-hq had weer een andere geschiedenis dan GitHub; oude stand bewaard als tak `oud-main-backup`, main op origin/main gezet.
+**Beslissing:** deze run het verspreidingsplan van Rollwright. Waarom: open bericht van Thijs gaat voor, en hij noemde Rollwright eerst.
+**Gedaan:** `commercie/rollwright/verspreiding.md` (onderzoeker plus controleur, akkoord mits, alle moet-punten verwerkt), met een nieuwe Discord-tekst voor `#content-update`. Advies 24 aan Hans.
+**Gevonden (GEZIEN):** de gedragscode van Obsidian geldt ook voor Reddit en zegt "paid content will always receive additional scrutiny" en eerst meedoen, dan promoten; de officiële Discord laat eigen werk alleen toe in `#content-update` (194.970 leden); de TTRPG-Discord van Josh Plunkett heeft 9.880 leden; awesome-dnd staat zelfpromotie en AI toe mits gemeld; Obsidian Roundup is gestopt (domein is een casinosite); geen open feature request op het forum dat Rollwright oplost. Reddit-regels weer 403, niet omzeild.
+**Beslissing:** de pull request naar awesome-dnd niet zelf doen. Waarom: hij staat onder de naam van Thijs op een plek buiten zijn lijst; de koers en mijn opdracht spreken elkaar daar tegen, dus Hans beslist.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat met flair plugins); daarvoor het verspreidingsplan van Bison & Flex.
