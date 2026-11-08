@@ -352,3 +352,11 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 14 van 14 live gelijk. Correcties verwerkt: groei niet te meten (meetfout door welke add-ons info kregen), leeftijd ondergrens, tegenargument erbij.
 - Les: een SvelteKit-site zonder HTML-inhoud heeft vaak open /svc/-endpoints; zoek de namen in de JavaScript-chunks. En: info ophalen voor een deel van de lijst vertekent groeicijfers, haal alles of meet groei niet.
 - 8 nov 00:00: Owlbear Rodeo extensies opgepakt, maar robots.txt verbiedt ClaudeBot. Niet gemeten, teruggezet op de lijst met die notitie.
+
+## 8 nov run 00:32 (UTC)
+- Platform: itch.io, betaalde tools en code-assets. Reden: nieuw, open winkel zonder keuring, maker kiest de afdracht, en in de bestsellerlijst van tools komen 93 van de 180 uit 2026.
+- Gemeten: RSS-lijst nieuwste betaalde tools helemaal doorgelopen (6.012), van alle 1.266 tools uit mei t/m jul de pagina met ratings en AI-melding, plus de top 180. Een onderzoeker zocht geldbewijs (Sang Hendrix, ratings-naar-kopers-factor, uitbetaling en AI-regels).
+- Uitkomst: 97,6% minder dan 3 zichtbare ratings, 2,4% 3+, 0,3% 10+. Nieuwe betaalde tools per maand 389 (mei) tot 2.043 (okt), aandeel met AI-melding stijgt naar ±68%. Bestsellerlijst weegt recente verkoop, dus zegt weinig.
+- Beslissing: nee voor nu, cijfer 4. Reden: geld bestaat bij een paar makers, maar een gewone nieuwe tool haalt bijna niets en wij zouden in de groeiende AI-vloed zitten.
+- Controleur akkoord, 20 van 20 live gelijk, lijst compleet, geen dubbelen. Correcties verwerkt: "minder dan 3 zichtbare ratings" in plaats van 0, drempel van 3 is een aanwijzing, AI-verschil onzeker (5 tools), maart, april en november onvolledig, bestsellerlijst is recente verkoop.
+- Les: itch.io heeft open RSS per lijst met publicatiedatum (`/<categorie>/newest/store.xml?page=N`), handig voor elke itch-categorie (game-assets kan zo ook).
