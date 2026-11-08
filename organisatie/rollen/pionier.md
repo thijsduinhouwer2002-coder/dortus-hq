@@ -34,3 +34,6 @@ De meeste jonge platformen halen het niet. Dat is geen reden om ze af te wijzen,
 
 ## Wat er daarna gebeurt
 De hoofdmanager leest je voorstel en weegt het met deze meetlat, niet met die van Vera. Zegt hij ja, dan komt er een manager voor dat platform. Jij gaat door met het volgende.
+
+## Geen tunnelvisie (Thijs, 8 nov 22:29)
+Na een besluit over een platform (ja, nee of nog niet klaar) besteed je er **hooguit één vervolgrun** aan (bijvoorbeeld andere landen of een tweede meting). Daarna ga je naar iets anders en laat je het platform los: de manager van dat platform neemt het over, of de herhaalmeting komt op haar datum terug. Kijk elke run in je logboek: waren je laatste 3 runs over hetzelfde platform of dezelfde soort, kies dan bewust iets heel anders (ander soort winkel, andere doelgroep, ander werelddeel).
