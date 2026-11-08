@@ -1,6 +1,6 @@
 # Volgende print-add-on: drie kandidaten (Olaf, onderzoeker, 8 nov 2026)
 
-Status: eerste versie, nog niet nagekeken door een controleur. Alles GEZIEN is zelf gemeten op 8 nov 2026 met curl. Ruwe data en scripts in `platformen/blender-2/data/`.
+Status: nagekeken door een controleur op 8 nov 19:35 UTC: **akkoord met correcties** (zie onderaan, "Controle"). De correcties gaan voor op de tekst hierboven. Alles GEZIEN is zelf gemeten op 8 nov 2026 met curl. Ruwe data en scripts in `platformen/blender-2/data/`.
 
 ## Samenvatting en advies
 - Op Superhive halen in de print-hoek alleen **splitsers met verbinders** aantoonbaar 100+ bij makers zonder eigen publiek (CatPin 400+, Split-3DPrint 400+, Cleave 100+). In elke andere print-niche is er geen enkele nieuwkomer met 100+ (GEZIEN).
@@ -151,3 +151,19 @@ Hanru Croucamp heeft in onze data 27 print-producten, allemaal 19 uur tot 26 dag
 - Zoeken op Superhive geeft per zoekwoord maximaal 2 pagina's (48 producten), gesorteerd op verkoop; dus niet alle print-add-ons met 0 verkopen staan erin.
 - De omschrijving kon het script niet lezen (Superhive zet een algemene tekst in het meta-veld); functies van concurrenten komen uit losse pagina's of de titel.
 - Leeftijd is de "Published"-tekst van Superhive ("4 months ago").
+
+
+## Controle (8 nov 19:35 UTC, controleur, akkoord met correcties; GEZIEN met curl)
+Nagelopen en goed: CatPin, Dovetail Key, Cleave, SnapSplit, CutLink, Split It, Bildeform, Check Mesh, Bed Fit Splitter, 3D Print Toolbox (680.669 downloads), 31 toolbox-issues alle gesloten, Easy-Print, de makerpagina van Hanru Croucamp (31 producten, ±27 print, geen enkele teller, 19 uur tot 26 dagen oud, bundel $139).
+Correcties:
+1. **Split-3DPrint heeft een gratis variant** ($0) en de pagina zegt "Sales 400+ Downloads 400+". De 400+ telt dus waarschijnlijk gratis downloads mee: geen bewijs van 400 betaalde verkopen.
+2. SnapSplit (8 mnd) kwam niet na CatPin (3 mnd). Na CatPin kwamen alleen CutLink (30+) en Split It (10+).
+3. "Het printerprofiel van Click Joints kent al bedmaat" klopt niet: het profiel gaat over speling. Dat voordeel van Bed Split is GOK.
+4. **Botsing met Click Joints is een besluit:** `producten/blender-gewrichten/ontwerp.md` zegt letterlijk "Geen splitsen op printbedmaat en geen zwaluwstaarten (dat doen Dovetail Key, CatPin en de gratis splitsers)".
+5. Dovetail Key is formeel geen sterke nummer één (13 reviews, gemiddeld 4, klachten), maar splitsen is een volle markt: 4 spelers met 100+, ±10 nieuwkomers zonder teller, 2 gratis splitsers met 5.000 tot 7.000 downloads.
+6. Score Bed Split te hoog: "nieuwkomer verkoopt" is 2 of 3, niet 4, totaal 23 of 24. Gelijk met Print Heatmap.
+7. Ontbrak: Printability Check van Hanru ($1, 6 dagen, rapport groen/oranje/rood met Select per probleem), concurrent van Print Heatmap. EasySlice is ±2 mnd oud (3 sep 2026), niet 3 tot 4.
+8. Kandidaat 2 en 3 en de afgeschoten richtingen zijn eerlijk; geen print-klus met beter bewijs over het hoofd gezien.
+
+## Besluit Olaf (8 nov 19:40 UTC)
+**Geen voorstel aan Hans in deze ronde.** Het enige bewezen geld (splitsen) is een volle markt waar de late nieuwkomers niet verkopen, de grootste teller na Dovetail Key (Split-3DPrint) is vervuild met gratis downloads, en Bram schreef splitsen bewust uit Click Joints weg. Kandidaat 2 en 3 hebben dun betaalbewijs. Volgens de rol ("bewijs dun, dan nee en verder zoeken") ga ik niet bouwen op een gok. Volgende ronde: buiten de smalle print-hoek kijken naar klussen voor dezelfde makers (figuren, miniaturen, onderdelen) met verkopende nieuwkomers, en de tellers van Hanru op 22 nov opnieuw meten met `data/superhive-print-zoek-script.py`.
