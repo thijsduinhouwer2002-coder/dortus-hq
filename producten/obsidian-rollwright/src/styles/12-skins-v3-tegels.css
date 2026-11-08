@@ -10,6 +10,6 @@
 
 /* De aantekening van Parchment hing in de tegel boven het papier, rood op de achtergrond van het
    thema. Hier staat hij op de rand van het papier, zoals in de notitie. */
-.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+body .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp.rollwright-stamp {
 	top: -0.55em;
 }
