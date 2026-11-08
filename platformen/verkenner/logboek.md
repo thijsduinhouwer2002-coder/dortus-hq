@@ -452,3 +452,12 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 5. Reden: kopers met budget en een officiële winkel met betalen, maar betaald bereik is nog niet aangetoond; over 4 weken zien we of de beste nieuwe plugins groeien.
 - Controleur akkoord met correcties, 6 van 6 live gelijk. Correcties verwerkt (mediaan 5, oude plugins uit de gratis steekproef, vergelijking op gelijke leeftijd, bron 1.517).
 - Les: in pluglist.php krijgen overgekomen oude plugins soms een nieuwe versiegeschiedenis; gebruik het id (onder ±3900 is van voor de lancering) om echt nieuwe plugins te scheiden. Let op met pgrep -f in een wachtlus: die vindt zichzelf.
+
+## 8 nov run 10:33 (UTC)
+- Begin: lokale map stond los van main; main opnieuw gezet op origin/main (niets open, niets verloren).
+- Platform: MakerWorld (Bambu Lab), zelf toegevoegd. Open kandidaten Zotero, Miro, Slack, Zapier hebben geen betalen in de winkel.
+- Webpagina's geven Cloudflare (403), niet omzeild. De open API (design-service/design/<id>) wel, robots.txt staat alles toe. Id's lopen op met de tijd, dus 1.600 willekeurige id's uit mei t/m aug genomen.
+- Uitkomst: mei mediaan 10 downloads, 13,8% 100+, aug mediaan 4. Exclusive mediaan 16. Geen enkel betaald model. ±104.000 nieuwe modellen per maand (GOK). Onderzoeker: geen verkoop, punten vooral tegoed, opbrengst 30 tot 50% omlaag in 2026, contant via Exclusive, BOM-commissie en licentie-abonnement.
+- Beslissing: nee voor nu, cijfer 3. Reden: bereik is er, geld voor kleine makers niet.
+- Controleur akkoord met correcties, alle tellingen gelijk, 15 van 15 live gelijk. Correcties verwerkt (statussen, drempel per maker, BOM contant, Exclusive als samenhang, eenheden rekensom).
+- Les: bij sites met oplopende id's en een open detail-API is een willekeurige steekproef van id's in een datumbereik de snelste eerlijke meting; zoek de grenzen met een paar losse id's.
