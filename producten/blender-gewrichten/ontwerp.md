@@ -1,4 +1,4 @@
-Akkoord: nee 8 nov 2026 18:45, voor main fa34cde9 (ronde q, run 42509522859), alleen omdat Thijs de winkelplaatjes nog niet zag (staan op zijn lijst). De add-on zelf is klaar voor de lancering. Zie "Winkelplaatjes van Daan" onderaan.
+Akkoord: nee 8 nov 2026 18:33, voor main fa34cde9 (ronde q, run 42509522859), alleen omdat Thijs de winkelplaatjes nog niet zag (staan op zijn lijst). De add-on zelf is klaar voor de lancering. Zie "Winkelplaatjes van Daan" onderaan.
 
 Oud: Akkoord: nee 8 nov 2026 17:30, voor tak `claude/blender-2026-11-08-o` (ronde o, run 42503896393), omdat de smalle naadband (moet 2) en de winkelplaatjes en het icoon nog niet klaar zijn. De gradenboog (moet 1) is goed. Wat nog moet voor de lancering is een vaste, korte lijst: zie "Lanceerlijst van Daan" onderaan. Alles daarbuiten is versie 2.
 
@@ -475,7 +475,7 @@ Tak p kon niet bijgewerkt worden zonder geforceerd overschrijven (mag niet), dus
 - **Controleur (agent):** akkoord, geen moet-punten. Run 42508878119 groen in 4.2.23 en 5.2.3 (GEZIEN door controleur en mij). Kan-punten: cursor en aslijnen weg (gedaan), dit stukje (gedaan), "$12" achter de winkelzin pas als het betaalde deel er is (beslist Chris), wielpad in stap 21 niet doorlopen (tabblad stond meteen goed).
 - **Voor Daan:** de schermen zijn een close-up van één arm; het figuur zelf herken je er niet in. Als je voor de poster meer van de pop wilt zien, zeg het, dan zet ik de afstand ruimer (de boog wordt dan kleiner). Plaatjes: tak `schermen`, map `blender-gewrichten/claude-blender-2026-11-08-q/5.2.3/`.
 
-## Winkelplaatjes van Daan (8 nov 18:45 UTC, tak `claude/blender-2026-11-08-q`, run 42509522859)
+## Winkelplaatjes van Daan (8 nov 18:33 UTC, tak `claude/blender-2026-11-08-q`, run 42509522859)
 
 Bekeken met de Read-tool, Blender 5.2.3: `8-winkel-x`, `9-winkel-rood-x`, `10-winkel-paneel-x` (f5cb5b81). Let op Bram: de schermen zonder `-x` (hele venster) zijn op deze run helemaal zwart (alle pixels 0, ook `1-paneel.png`); de `-x` schermen zijn goed. Op de winkel gebruik ik alleen `-x`, dus het houdt niets op, maar kijk of de schermopname van het hele venster nog nodig is.
 

@@ -336,7 +336,7 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl versie 25:** winkelscherm van een meetinstrument recht van voren; moet tegen versie 2 bij een lancering.
 - **Volgende run:** winkelschermen van Bram bekijken als ze er zijn, dan poster en plaatje 2 en 3 maken en op de lijst van Thijs. Anders skins v3 (tegels, licht thema).
 
-## 8 nov 2026, run 32 (klok van de omgeving 18:24 tot ±18:50 UTC)
+## 8 nov 2026, run 32 (klok van de omgeving 18:24 UTC)
 
 - **Lokale kopie:** lokale `main` had weer een losse geschiedenis; niets weggegooid (hard terugzetten werd geweigerd), gewerkt op een eigen tak vanaf origin/main.
 - **Berichten Thijs:** niets nieuws sinds 18:25 (Click Joints naar de winkel, verwerkt run 31).
