@@ -608,3 +608,11 @@ Nieuwste blok onderaan.
 - Run afgesloten.
 - Na afsluiten nog tijd: PDF++ toegevoegd aan de Obsidian-kans (cijfer 2, een onafhankelijke voortzetting is al aangevraagd). Platformrun: Twitch Extensions voorwerk, niet te meten zonder account.
 - Roll20 Marketplace voorwerk: niet te meten (lijst via /api/, verboden in robots.txt), vooral kunst. Run nu echt afgesloten.
+
+## 9 nov run 00:31 (Amsterdam)
+- Begin: lokale main stond los, opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Onderdeel: platformrun (de twee runs hiervoor waren productkansen). TRMNL zelf gevonden (hardware met een winkel voor plugins en een maandelijks Creator Fund). Om 00:35 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 1.237 recipes via de open Recipes API (recipes.json, met publicatiedatum en installs) en alle 12 maandposts van het Creator Fund.
+- Uitkomst: nee voor nu, cijfer 3. Geld gaat aantoonbaar naar kleine makers, maar de pot is sinds april vlak ±$3.900 per maand voor alle makers samen; nieuwe recipes halen mediaan 14 connections, geen eigen prijs mogelijk. Zie voorstellen/trmnl.md.
+- Controleur: alle getallen kloppen; vier toevoegingen verwerkt.
+- Les: zoek eerst in de documentatie naar een open JSON-ingang (hier `.json` achter de lijst-URL) voor je pagina's gaat schrapen; dat scheelde ±15 minuten en gaf datums die op de pagina's ontbraken.
