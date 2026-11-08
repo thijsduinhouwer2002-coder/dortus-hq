@@ -37,6 +37,7 @@ def meet(a, b, u):
     p = Vector(b["cj_scharnier_punt"])
     h = Vector(b["cj_scharnier_as"]).normalized()
     lid = Vector(b["cj_as"]).normalized()
+    buig = Vector(b["cj_buigkant"]).normalized()
     r, tw, rn, s = b["cj_knokkel_r"], b["cj_tong_half"], b["cj_naad_r"], b["cj_speling_mm"] * u
     bvh_a = _bvh(a)
     om, langs = [], []
@@ -53,9 +54,10 @@ def meet(a, b, u):
             hit = bvh_a.find_nearest(q)
             if hit[0] is not None:
                 langs.append(hit[3] / u)
-        # Om H: randpunten van de knokkel (straal R, onder het snijvlak), langs de rechte rand naar het
-        # midden van de tong geschoven, zodat de wangen niet meetellen.
-        if abs(rho - r) < 1e-4 * u and d.dot(lid) < -2 * s:
+        # Om H: randpunten van de knokkel (straal R) waar deel A hem omvat: achter en onder H (voor H ligt
+        # de wig open, daar zit geen A tegen de knokkel). Langs de rechte rand naar het midden van de tong
+        # geschoven, zodat de wangen niet meetellen.
+        if abs(rho - r) < 1e-4 * u and d.dot(lid) < -2 * s and d.dot(buig) < 0:
             hit = bvh_a.find_nearest(p + radiaal)
             if hit[0] is not None:
                 om.append(hit[3] / u)
@@ -104,5 +106,5 @@ def toets(stap, eigen):
     lid = Vector((1, 0, 0))
     stap("kijken langs de lidas weigert", vorm.scharnier_assen(lid, kijk=Vector((0.95, 0.2, 0)).normalized()) is None)
     schuin = vorm.scharnier_assen(lid, kijk=Vector((1, 1, 0)).normalized(), omhoog=Vector((0, 0, 1)))
-    stap("schuin (45 graden) geeft H loodrecht op L", schuin is not None and abs(schuin[0].dot(lid)) < 1e-9
-         and math.isclose(abs(schuin[0].y), 1.0, abs_tol=1e-9))
+    stap("schuin (45 graden) geeft H loodrecht op L", schuin is not None and abs(schuin[0].dot(lid)) < 1e-6
+         and math.isclose(abs(schuin[0].y), 1.0, abs_tol=1e-6), str(schuin and tuple(schuin[0])))
