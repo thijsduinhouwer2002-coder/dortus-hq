@@ -19,6 +19,9 @@ KOGEL_R = 2.5
 KOGEL_C = Vector((3.0, 0.0, 0.0))
 NEK_R = 1.2
 SEGMENTEN = 64
+# Snijvlak net naast x=0: de testarm heeft een ring punten precies op x=0, en Exact liet
+# daar 14 open randen achter (Manifold niet). Probleem 1 voor het product: punten precies op het vlak.
+SNIJ_X = 0.0137
 
 
 def leeg():
@@ -131,8 +134,8 @@ def meet_speling(deel_a, deel_b):
 def proef(solver):
     leeg()
     arm = ledemaat()
-    links = blok("links", -100, 0)
-    rechts = blok("rechts", 0, 100)
+    links = blok("links", -100, SNIJ_X)
+    rechts = blok("rechts", SNIJ_X, 100)
     kogel = bol("kogel", KOGEL_R, KOGEL_C)
     nek = cilinder_x("nek", NEK_R, -1.0, KOGEL_C.x)
     kom = bol("kom", KOGEL_R + SPELING, KOGEL_C)
