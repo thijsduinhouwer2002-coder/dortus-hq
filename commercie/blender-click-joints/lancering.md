@@ -12,7 +12,7 @@ Door Chris, run 4, 8 nov 2026 ±17:00 tot 17:30 UTC. Concept: Click Joints is no
 1. Daan zet `Akkoord: ja` en de lijstplaatjes staan (de gradenboog is ons beeld; zonder dat plaatje geen bericht).
 2. De gratis versie staat live op extensions.blender.org (link werkt, met curl gezien).
 3. **Een echte print.** Bram noemt in het ontwerp een handmatige printproef. Wie print, is nog open: of Thijs een printer heeft, staat nergens in de repo; Bram schreef op de lijst van Thijs (8 nov 01:35) dat hij later misschien vraagt of Thijs of iemand die hij kent één testgewricht kan printen; de vraag staat ook in advies 23. Op een printforum is de eerste vraag "did you print it?". Zonder foto van een geprint gewricht dat buigt, plaatsen we niet op r/3Dprinting. Op r/blender mag het wel zonder, maar dan staat er eerlijk dat het nog niet geprint is.
-4. Hans heeft over de plekken beslist in `berichten/chris.md` (de toestemming van Thijs noemt alleen de drie Obsidian-plekken).
+4. Hans heeft over de plekken beslist in `berichten/chris.md` (de toestemming van Thijs noemt alleen de drie Obsidian-plekken). **Bijwerking 8 nov run 13:** Hans nam advies 23 over met "de plekken voor de lancering kiest Chris, plaatsen gaat via Thijs of de hoofdchat". r/3Dprinting, r/blender en BlenderNation zijn daarmee gekozen; plaatsen alleen via de hoofdchat of Thijs. Nieuwe plekken staan in `verspreiding.md`.
 5. De hoofdchat leest vlak voor het plaatsen de regels van de plek in de browser (Reddit-regels zijn met curl niet te lezen, zie onder).
 
 ## Plekken en hun regels

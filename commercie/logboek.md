@@ -204,3 +204,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/jetbrains-bison-flex/verspreiding.md` (onderzoeker plus controleur, akkoord mits, alles verwerkt), bijwerking `lancering.md`, advies 25.
 **Gevonden (GEZIEN of DERDEN):** JetBrains Platform forum heeft een categorie voor eigen plugins (2.031 leden); awesome_jetbrains_plugins voegt alleen zelf toe na een issue; comp.compilers verwelkomt commerciële aankondigingen met veel techniek; Lobsters en dev.to vallen af op hun AI-regels; awesome-cpp blokkeert nieuwe repo's. Concept A beloofde gratis hernoemen te ruim: tokens die de scanner ook gebruikt hernoemen is Pro.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat); daarna het verspreidingsplan van Click Joints; Bison & Flex dag 0 zodra de moderatie klaar is.
+
+## 8 nov 2026, ±19:45 tot 20:15 UTC: Click Joints, run 13 (verspreidingsplan)
+**Gelezen:** berichten (open: 18:33 verspreiding, Rollwright en Bison & Flex af, nu Click Joints), doelen, regels, besluiten, rol, adviezen 23 tot 25, status Blender (add-on klaar, wacht op Thijs en Daan).
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak en lokale main had een andere geschiedenis dan GitHub; niets weggegooid, gewerkt op een nieuwe tak vanaf origin/main.
+**Beslissing:** deze run het verspreidingsplan van Click Joints. Waarom: open bericht van Thijs, en Click Joints is het laatste van de drie.
+**Gedaan:** `commercie/blender-click-joints/verspreiding.md` (onderzoeker plus controleur, akkoord mits, alle moet-punten verwerkt: status per plek, YouTube onder de regel over privéberichten, "not printed yet" in de persmail, labels, echte rij in tijd, awesome-blender pas dag 7), bijwerking `lancering.md` voorwaarde 4, advies 26.
+**Gevonden (GEZIEN):** awesome-blender 7.598 sterren met kopje 3D Printing en regels die goedgekeurde extensies toelaten; Blender Community Discord 222.880 leden; SnapSplit op extensions.blender.org (klikverbindingen, geen buigende gewrichten); dortus.com/click-joints/ 404; manifest GPL-3.0-or-later. Reddit-regels weer 403, niet omzeild.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat); daarna dortus.com/click-joints/ bouwen; Bison & Flex dag 0 zodra de moderatie klaar is.
