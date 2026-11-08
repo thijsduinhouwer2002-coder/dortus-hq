@@ -13,7 +13,7 @@ import figuren  # noqa: E402
 
 zip_pad = sys.argv[sys.argv.index("--") + 1]
 from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
-                  toets_opening, toets_stl, weg)
+                  toets_materiaal, toets_opening, toets_stl, weg)
 import toetsen_correcties  # noqa: E402
 
 
@@ -46,6 +46,8 @@ def main():
     rood = [o for o in bpy.context.scene.objects if o.get("cj_passing") == "rood"]
     log(f"DUN: delen={len(lijst)} rode_gewrichten={[o.name for o in rood]} wand={[o.get('cj_wand_mm') for o in rood]}")
     stap("dunne plek: cj_passing == rood", len(rood) == 1)
+    for o in rood:
+        toets_materiaal("dunne plek", o)
     stap("dunne plek: niet gesneden", len(lijst) == 0)
     fout, vol = meting(arm)
     stap(f"dunne plek: origineel heel en zichtbaar (foute_randen={fout})", fout == 0 and vol > 0 and arm.visible_get())

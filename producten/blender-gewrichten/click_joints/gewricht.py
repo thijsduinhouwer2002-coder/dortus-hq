@@ -11,7 +11,7 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-from . import passing, vormen
+from . import kleur as kleuren, passing, vormen
 from .eigenschappen import eenheid_per_mm
 from .gesloten import gespiegeld, is_gesloten
 
@@ -147,7 +147,7 @@ def markeer(ob, kleur, gegevens):
     ob["cj_passing"] = kleur
     for k, v in gegevens.items():
         ob[k] = v
-    ob.color = passing.KLEUREN[kleur]
+    kleuren.kleur_deel(ob, kleur)
 
 
 class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
@@ -242,9 +242,6 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         deel_a.select_set(True)
         deel_b.select_set(True)
         context.view_layer.objects.active = deel_a
-        ruimte = getattr(context, "space_data", None)
-        if ruimte is not None and ruimte.type == "VIEW_3D":
-            ruimte.shading.color_type = "OBJECT"
         extra = " (as langs de cursor: geen 3D-weergave)" if terugval else ""
         self.report({"INFO"}, f"Gewricht geplaatst, passing {kleur} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")
         return {"FINISHED"}

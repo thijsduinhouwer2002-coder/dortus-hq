@@ -60,6 +60,20 @@ def gesloten_delen(label, lijst):
         log(f"{label}: deel {d.name} foute_randen={fout} volume={vol:.2f}mm3 passing={d.get('cj_passing')} "
             f"wand={d.get('cj_wand_mm')}mm")
         stap(f"{label}: {d.name} gesloten", fout == 0 and vol > 0)
+        toets_materiaal(label, d)
+
+
+def toets_materiaal(label, d):
+    """Passingkleur in de standaard Solid-weergave: elk materiaalvak heeft het materiaal van cj_passing,
+    met diffuse_color gelijk aan de passingkleur."""
+    verwacht = addon("passing").KLEUREN.get(d.get("cj_passing"))
+    mats = [v.material for v in d.material_slots]
+    kleuren = [tuple(round(c, 3) for c in m.diffuse_color) if m else None for m in mats]
+    log(f"KLEUR {label}: {d.name} passing={d.get('cj_passing')} materialen={[m.name if m else None for m in mats]} "
+        f"diffuse={kleuren}")
+    ok = bool(mats) and verwacht is not None and all(
+        m is not None and all(abs(a - b) < 1e-3 for a, b in zip(m.diffuse_color, verwacht)) for m in mats)
+    stap(f"{label}: {d.name} materiaal in passingkleur {d.get('cj_passing')}", ok)
 
 
 def weg(lijst):
