@@ -99,3 +99,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit: Auto als knop die de maat in het veld zet (niet verborgen), zodat de gebruiker altijd de echte maat ziet.
 - Zelf gezien op plaatje 2 (5.2.3): kijk in de holte van de kom, kogel ervoor, amber band, geen selectierand, paneel Engels en niets afgekapt. Op de 5 mm dunne testpop wordt het Tight (wand 0,89 mm); gevraagd aan Daan of het hoofdplaatje een dikkere arm moet hebben.
 - Installs 0, reviews 0, verkopen 0.
+- 06:36 tot 06:45, zelfde run: tak `claude/blender-2026-11-08-f` (24cf35f0, a00b1c88): materiaalnamen Engels ("Click Joints Good fit/Tight/Too thin"), objectnaam "_joint_too_thin", meldingen via fit_tekst (geen haakjes in haakjes, geen dubbel "too thin"), melding als Auto geen breedte vindt. Controleur akkoord, geen toets gewijzigd; run 42455315135 groen in 4.2.23 en 5.2.3. Samengevoegd met main. Open: toetsen voor fit_tekst en Auto zonder breedte, 3MF.
