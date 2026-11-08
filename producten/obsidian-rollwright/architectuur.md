@@ -38,6 +38,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 ### src/ui/ (wat de gebruiker ziet)
 - `widget.ts`: toont een uitkomst als klikbaar blokje; gebruikt door leesweergave en Live Preview. Na het renderen bepaalt `isBlockValue` of de uitkomst meer is dan één gewone regel (meer elementen, geen `<p>`, of een `<br>`); dan krijgt het vakje `rollwright-roll-block` (`BLOCK_CLASS`), bij elke nieuwe uitkomst opnieuw bepaald. Dobbelstenen en fouten nooit. Een dobbelworp met `extreme` krijgt `rollwright-roll-max` (`MAX_CLASS`) of `rollwright-roll-min` (`MIN_CLASS`); `clearResultClasses` haalt deze drie klassen weg bij elke nieuwe uitkomst, fout of leeg vakje. Er is nog geen stijl voor max en min.
 - `reading-view.ts`: zoekt codes in de leesweergave en zet er widgets in.
+- `motion.ts`: de bewegingen na een klik (ontwerp-v2 klus 2c en 2d). `ROLLED_CLASS`, `motionWindow` (null bij reduced motion of zonder `matchMedia`), `restartRolled` (klasse eraf, reflow, klasse erop, zodat de CSS-bewegingen opnieuw beginnen) en `Landing`: zet na een klik de crit- en fumble-klassen pas na `LAND_MS` (460 ms), met één timer per vakje die opgeruimd wordt bij een nieuwe uitkomst, fout of unload, en niets zet als de uitkomst niet meer de nieuwste is of het vakje weg is. Bij openen, uit een andere weergave en bij reduced motion meteen. Het logboek krijgt de klasse meteen.
 - `live-preview.ts`: hetzelfde in de editor (CodeMirror). Het `Component` van een widget hoort bij zijn DOM-element (een `WeakMap`), niet bij de widget: CodeMirror geeft bij een gelijke (`eq`) widget de oude DOM aan de nieuwe widget en roept `destroy(dom)` alleen daarop aan (getest in `tests/live-preview-lek.test.ts`, met jsdom).
 - `dice-mod.ts`: vraagt bevestiging en vervangt een `dice-mod:` code in de notitie. In Live Preview krijgt de widget zijn regel en nummer op de regel mee (zoals in de sleutel) en schrijft met `replacementInLine` uit `rollers/modify.ts` in één `view.dispatch`; geen `posAtDOM`.
 - `history-view.ts`: het zijpaneel met de geschiedenis van worpen. Toont elke worp via `historyLabel`; de ruwe formule staat in de `title` en blijft de formule voor "Roll again".
@@ -53,7 +54,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 
 ## styles.css
 
-- `.rollwright-roll`: het vakje in de zin. `.rollwright-roll-block`: dezelfde rand en achtergrond (de variabelen `--rollwright-*`), maar als blok met volle breedte onder de regel, koppen in gewone grootte en vet, lijsten zonder bolletjes. Daarna de skins, het skinvoorbeeld en het zijpaneel.
+- `.rollwright-roll`: het vakje in de zin. `.rollwright-roll-block`: dezelfde rand en achtergrond (de variabelen `--rollwright-*`), maar als blok met volle breedte onder de regel, koppen in gewone grootte en vet, lijsten zonder bolletjes. Daarna de skins, het skinvoorbeeld en het zijpaneel. Onderaan de v2-blokken van Daan (ronde 1, 2 en het moment van de crit) en een klein blok voor klus 2d: omdat de code crit en fumble pas bij het landen zet, beginnen klap, dreun, golf, ring en schudden zonder vertraging, en een crit houdt `background-color: var(--rollwright-bg)` onder zijn verloop (e2e skins).
 
 ## Hoe het samenhangt
 

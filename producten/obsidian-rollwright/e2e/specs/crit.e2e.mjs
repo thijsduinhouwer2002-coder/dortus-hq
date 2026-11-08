@@ -23,7 +23,8 @@ async function zetThema(donker) {
 	}, donker);
 }
 
-/** Klikt worp i en wacht tot het vakje de verwachte klasse heeft. */
+/** Klikt worp i en wacht tot het vakje de verwachte klasse heeft. De klasse komt ±460 ms na de klik
+ *  (klus 2d), dus tussen twee pogingen zit ruim meer, anders klikt hij steeds net voor het landen. */
 async function klikTot(i, klasse) {
 	await browser.waitUntil(async () => browser.execute((sel, i, klasse) => {
 		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
@@ -31,7 +32,7 @@ async function klikTot(i, klasse) {
 		if (el.classList.contains("rollwright-rolled") && el.classList.contains(klasse)) return true;
 		el.click();
 		return false;
-	}, LEAF, i, klasse), { timeout: 8000, interval: 500, timeoutMsg: `worp ${i} kreeg geen ${klasse}` });
+	}, LEAF, i, klasse), { timeout: 8000, interval: 1000, timeoutMsg: `worp ${i} kreeg geen ${klasse}` });
 }
 
 async function lees(i) {

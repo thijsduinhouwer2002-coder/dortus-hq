@@ -6,6 +6,9 @@ import { stampText, type Extreme } from "../rollers/extreme";
 import { parseSpec } from "../rollers/spec";
 import type { RollOutcome } from "../rollers/run";
 import type { ModifyHandler } from "./dice-mod";
+import { Landing, motionWindow, restartRolled } from "./motion";
+
+export { ROLLED_CLASS } from "./motion";
 
 export const NO_SOURCE_NOTICE = "This result comes from more than one note, so there is no single note to open.";
 export const SOURCE_GONE_NOTICE = "The note this result came from is no longer there.";
@@ -21,8 +24,6 @@ export const FUMBLE_CLASS = "rollwright-fumble";
 export const STAMP_CLASS = "rollwright-stamp";
 /** On a result from a table, list, section, line or tag: text, not a number. */
 export const TEXT_CLASS = "rollwright-text";
-/** On the roll from its first click on; it stays as long as the element stays. Never on opening. */
-export const ROLLED_CLASS = "rollwright-rolled";
 
 /** The classes for a crit or fumble, for the roll and for an item in the history. */
 export function extremeClasses(extreme: Extreme | undefined): string[] {
@@ -98,12 +99,6 @@ export const TICK_STEPS = [25, 35, 45, 55, 65, 75];
 /** On the value while it counts: the number shown on top of the real one (styles.css). */
 export const TICK_ATTR = "data-rollwright-tick";
 
-/** The window to count in, or null when there is none with matchMedia (tests, odd hosts): then nothing counts. */
-function motionWindow(): Window | null {
-	if (typeof activeWindow === "undefined" || typeof activeWindow.matchMedia !== "function") return null;
-	return activeWindow.matchMedia("(prefers-reduced-motion: reduce)").matches ? null : activeWindow;
-}
-
 /**
  * Ontwerp-v2 punt 2.1: after a click the number counts through a few random values within the
  * range of the formula and lands on the real result. Only visual: the real text stays in the
@@ -135,7 +130,8 @@ export function startTicking(value: HTMLElement, range: { min: number; max: numb
 	return stop;
 }
 
-async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component): Promise<HTMLElement | null> {
+/** With holdExtreme the crit or fumble classes are left off: the caller puts them on when the number lands. */
+async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcome: RollOutcome, sourcePath: string, component: Component, holdExtreme = false): Promise<HTMLElement | null> {
 	target.empty();
 	target.removeClass("rollwright-error");
 	clearResultClasses(target);
@@ -150,7 +146,8 @@ async function showOutcome(plugin: RollwrightPlugin, target: HTMLElement, outcom
 	if (outcome.kind === "dice") {
 		value.setText(`${outcome.estimated ? "~" : ""}${outcome.total === undefined ? outcome.text : formatResult(outcome.total, flags)}`);
 		// A kept result of an older version has no extreme: then nothing is added.
-		for (const cls of extremeClasses(outcome.extreme)) target.addClass(cls);
+		if (!holdExtreme) for (const cls of extremeClasses(outcome.extreme)) target.addClass(cls);
+		// The stamp is there at once (for reading and the history); styles.css lets it grow only after the landing.
 		if (outcome.extreme !== undefined) target.createSpan({ cls: STAMP_CLASS, text: outcome.stamp ?? stampText(outcome.formula, outcome.extreme) });
 	} else {
 		target.addClass(TEXT_CLASS);
@@ -198,14 +195,24 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		stopTick = null;
 	};
 	component.register(stopTicking);
+	// Set by a click (and Alt-click): the next result drawn gets its gold or red only when it lands.
+	let landNext = false;
+	const landing = new Landing(target, component);
 	const show = async (outcome: RollOutcome): Promise<void> => {
 		// The listener below and the click itself both hand over the same result: draw it once.
 		if (outcome === shown) return;
 		shown = outcome;
 		stopTicking();
+		landing.cancel();
 		const tick = tickNext;
 		tickNext = false;
-		const value = await showOutcome(plugin, target, outcome, sourcePath, component);
+		// Opening a note (no click) or reduced motion: no window, so the colour comes at once.
+		const landWin = landNext ? motionWindow() : null;
+		landNext = false;
+		const value = await showOutcome(plugin, target, outcome, sourcePath, component, landWin !== null);
+		if (landWin !== null && value !== null && shown === outcome && outcome.kind === "dice") {
+			landing.later(landWin, extremeClasses(outcome.extreme), () => shown === outcome);
+		}
 		if (!tick || value === null || shown !== outcome || outcome.kind !== "dice" || outcome.total === undefined || outcome.estimated || outcome.average) return;
 		const context = plugin.rollContext(sourcePath);
 		stopTick = startTicking(value, rangeOf(outcome.formula, { names: context.aliases, defaultSides: context.defaultSides, defaultCount: context.defaultCount }));
@@ -220,15 +227,25 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 	const fail = (error: unknown): void => {
 		shown = null;
 		tickNext = false;
+		landNext = false;
 		stopTicking();
+		landing.cancel();
 		showError(target, formula, error);
+	};
+
+	// Before the new result is drawn, so its content comes in with the motion of styles.css (klus 2c),
+	// and the old gold or red goes at once, not after the d20 tumbled (klus 2d).
+	const startClick = (): void => {
+		landing.cancel();
+		for (const cls of [MAX_CLASS, MIN_CLASS, CRIT_CLASS, FUMBLE_CLASS]) target.removeClass(cls);
+		restartRolled(target);
+		landNext = true;
 	};
 
 	const rerollNow = async (): Promise<void> => {
 		try {
 			if (!modify) {
-				// Before the new result is drawn, so its content comes in with the motion of styles.css.
-				target.addClass(ROLLED_CLASS);
+				startClick();
 				tickNext = true;
 				await showIfNewest(await plugin.freshResult(key, formula, sourcePath, keep));
 				return;
@@ -243,7 +260,7 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 
 	const averageNow = async (): Promise<void> => {
 		try {
-			target.addClass(ROLLED_CLASS);
+			startClick();
 			await showIfNewest(await plugin.averageResult(key, formula, sourcePath, keep));
 		} catch (error) {
 			fail(error);
