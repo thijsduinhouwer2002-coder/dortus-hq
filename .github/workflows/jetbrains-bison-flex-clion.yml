@@ -46,7 +46,7 @@ jobs:
       - name: Platform-informatie (welke IDE was het)
         if: always()
         run: find ~/.gradle/caches -maxdepth 6 -type d -iname '*clion*' 2>/dev/null | head -5 || true
-      - name: Plugin Verifier (CLion 2025.2 en IDEA Community 2025.2)
+      - name: Plugin Verifier (CLion 2025.2 en 2026.2, IDEA 2025.2, 2025.3 en 2026.2)
         if: always()
         run: ./gradlew --no-daemon verifyPlugin
       - name: Samenvatting Plugin Verifier
@@ -57,7 +57,8 @@ jobs:
           find "$R" \( -name 'verification-verdict.txt' -o -name '*.md' -o -name 'deprecated-usages.txt' \) | head -20 | while read -r f; do
             echo "== $f"; head -60 "$f"
           done
-          grep -rl "SimpleDataContext" "$R" 2>/dev/null | head -5 | while read -r f; do echo "== SimpleDataContext in $f"; grep -n -B2 -A4 "SimpleDataContext" "$f" | head -30; done
+          echo "== alle meldingen over verouderde of interne API"
+          grep -rhiE "deprecated|internal|experimental|scheduled for removal" "$R" 2>/dev/null | sort | uniq -c | head -60 || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
