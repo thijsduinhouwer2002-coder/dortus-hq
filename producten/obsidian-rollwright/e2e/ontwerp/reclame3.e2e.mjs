@@ -4,7 +4,7 @@ import * as fs from "fs";
 // Ontwerptest van Daan (run 38): ruwe beelden voor GIF en poster v3, in een rijke sessienotitie
 // met kaart, en het logboek rechts dat live vult. Daarna dezelfde NAT 20 in de optionele skins.
 const SHOTS = "screenshots";
-const NOTE = "Session 12.md";
+const NOTE = "The Drowned Lantern.md";
 const stap = async (naam, fn) => { try { await fn(); } catch (e) { console.log("STAP MISLUKT:", naam, String(e).slice(0, 300)); } };
 const save = async (naam) => { await browser.saveScreenshot(`${SHOTS}/${naam}.png`); };
 const zetVast = async (v) => browser.execute((v) => { if (!window.__rwRandom) window.__rwRandom = Math.random; Math.random = () => v; }, v);
@@ -50,7 +50,10 @@ describe("Rollwright reclame 3", function () {
 		await browser.pause(1200);
 		// Het logboek opent rechts; de notitie weer actief maken zodat de klikken in de notitie landen.
 		await browser.executeObsidian(({ app }) => { const l = app.workspace.getLeavesOfType("markdown")[0]; if (l) app.workspace.setActiveLeaf(l, { focus: true }); });
-		await zoom(1.2);
+		await zoom(1.1);
+		// Kaart half in beeld, alle worpen in beeld.
+		await browser.execute(() => { const el = [...document.querySelectorAll(".workspace-leaf.mod-active .markdown-preview-view p")].find((p) => p.textContent.startsWith("Fog")); const sc = document.querySelector(".workspace-leaf.mod-active .markdown-preview-view"); if (el && sc) sc.scrollTop += el.getBoundingClientRect().top - 330; });
+		await browser.pause(500);
 		await muisWeg();
 	});
 
