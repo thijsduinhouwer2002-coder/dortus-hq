@@ -14,7 +14,7 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 - ComfyUI (custom nodes, registry)
 - n8n (community nodes, sinds 2025 te verifiëren)
 - Godot Asset Store: klaar 7 nov, cijfer 6 (ja, kleine inzet), zie onderzocht.md
-- Framer (plugins)
+- Framer (plugins): in onderzoek 8 nov 04:49 UTC (Noor)
 
 - Hytale (mods en serverplugins via CurseForge, early access sinds jan 2026): klaar 8 nov, cijfer 3, zie onderzocht.md
 
