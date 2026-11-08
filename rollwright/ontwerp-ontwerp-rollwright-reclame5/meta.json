@@ -1,42 +1,24 @@
 {
  "scroll": {
-  "beast": null,
-  "trap": null,
-  "ini": null,
-  "per": null
+  "beast": 854,
+  "trap": 1078,
+  "ini": 810,
+  "per": 1277
  },
  "venster": "remote",
  "files": [
-  "Zonder formule.md",
-  "Zichzelf.md",
-  "Zichzelf ingevoegd.md",
-  "Zichzelf html.md",
-  "Vervangen.md",
-  "Vervangen lezen.md",
-  "Tabelworpen.md",
+  "wolf-head.svg",
+  "jaw-trap.svg",
+  "drowned-banner.png",
+  "Verhaal.md",
+  "The Rusty Flagon.md",
+  "The Drowned Lantern.md",
+  "Taverne.md",
+  "Tavern tables.md",
   "Tabellen.md",
-  "Tabel vervangen.md",
-  "Skins.md",
-  "Sectiewerpen.md",
-  "Rollen.md",
-  "Ongedaan.md",
-  "Npc.md",
-  "Narratief.md",
-  "Namen.md",
-  "Met invoeging dicemod.md",
-  "Ingevoegd dicemod.md",
-  "Geschiedenis.md",
-  "Enter.md",
-  "Demo/Toll keeper.md",
-  "Demo/Session 12.md",
-  "Demo/Encounters.md",
-  "Crit.md",
-  "Campagne/De Roestige Kroes.md",
-  "Bron.md",
-  "Blokwerpen.md",
-  "Bewaren.md",
-  "Annuleren.md",
-  "Andere weergave.md"
+  "Secties.md",
+  "Leeg.md",
+  "Dock encounters.md"
  ],
  "leaves": [
   "file-explorer:workspace-leaf-content",
@@ -50,16 +32,621 @@
   "outline:workspace-leaf-content",
   "rollwright-history:workspace-leaf-content"
  ],
- "top": [],
- "ini": [],
- "att": [],
- "dmg": [],
- "dex": [],
- "per": [],
- "tab": [],
- "held": [],
- "heldA": [],
- "skin-parchment": [],
- "skin-arcane": [],
+ "top": [
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 0,
+   "t": "5",
+   "w": 42,
+   "x": 325,
+   "y": 889
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 19",
+   "w": 101,
+   "x": 351,
+   "y": 1070
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 7",
+   "w": 107,
+   "x": 479,
+   "y": 1070
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 20",
+   "w": 118,
+   "x": 388,
+   "y": 1269
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 1396
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 1440
+  }
+ ],
+ "ini": [
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 0,
+   "t": "5",
+   "w": 42,
+   "x": 325,
+   "y": 339
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 19",
+   "w": 101,
+   "x": 351,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 7",
+   "w": 107,
+   "x": 479,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 20",
+   "w": 118,
+   "x": 388,
+   "y": 719
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 846
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 890
+  }
+ ],
+ "att": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 339
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 19",
+   "w": 101,
+   "x": 351,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 7",
+   "w": 107,
+   "x": 479,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 20",
+   "w": 118,
+   "x": 388,
+   "y": 719
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 846
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 890
+  }
+ ],
+ "dmg": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 339
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 7",
+   "w": 107,
+   "x": 480,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 20",
+   "w": 118,
+   "x": 388,
+   "y": 719
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 846
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 890
+  }
+ ],
+ "dex": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 194
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 111,
+   "x": 480,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 20",
+   "w": 118,
+   "x": 388,
+   "y": 574
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 701
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 745
+  }
+ ],
+ "per": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 194
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 111,
+   "x": 480,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 110,
+   "x": 388,
+   "y": 574
+  },
+  {
+   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 701
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 745
+  }
+ ],
+ "tab": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 194
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 111,
+   "x": 480,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 110,
+   "x": 388,
+   "y": 574
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 701
+  },
+  {
+   "cls": "rollwright-roll rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 745
+  }
+ ],
+ "held": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 194
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 111,
+   "x": 480,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 110,
+   "x": 388,
+   "y": 574
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 701
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 745
+  }
+ ],
+ "heldA": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 48,
+   "x": 325,
+   "y": 339
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 102,
+   "x": 351,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 111,
+   "x": 480,
+   "y": 520
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 110,
+   "x": 388,
+   "y": 719
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 131,
+   "x": 339,
+   "y": 846
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 890
+  }
+ ],
+ "skin-parchment": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 25,
+   "i": 0,
+   "t": "16",
+   "w": 51,
+   "x": 325,
+   "y": 201
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 25,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 103,
+   "x": 351,
+   "y": 380
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 115,
+   "x": 481,
+   "y": 380
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 25,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 112,
+   "x": 388,
+   "y": 578
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
+   "h": 25,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 132,
+   "x": 339,
+   "y": 704
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-text",
+   "h": 25,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 746
+  }
+ ],
+ "skin-arcane": [
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 0,
+   "t": "16",
+   "w": 50,
+   "x": 325,
+   "y": 194
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 1,
+   "t": "Attack: 23",
+   "w": 103,
+   "x": 351,
+   "y": 375
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled",
+   "h": 27,
+   "i": 2,
+   "t": "Damage: 11",
+   "w": 112,
+   "x": 481,
+   "y": 374
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
+   "h": 27,
+   "i": 3,
+   "t": "Dex save: 2, NAT 1",
+   "w": 111,
+   "x": 388,
+   "y": 574
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
+   "h": 27,
+   "i": 4,
+   "t": "Perception: 22, NAT 20",
+   "w": 132,
+   "x": 339,
+   "y": 701
+  },
+  {
+   "cls": "rollwright-roll rollwright-rolled rollwright-text",
+   "h": 27,
+   "i": 5,
+   "t": "Three crabs the size of carts",
+   "w": 220,
+   "x": 442,
+   "y": 745
+  }
+ ],
  "groot": null
 }
