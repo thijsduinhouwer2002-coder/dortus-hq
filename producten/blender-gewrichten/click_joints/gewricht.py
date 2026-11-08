@@ -200,6 +200,9 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         breedte = passing.smalste_breedte(bvh, frame)
         if inst.kogel_auto and breedte is not None:
             zet_auto_diameter(inst, passing.auto_diameter(breedte / u))
+        # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
+        auto_noot = (f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
+                     if inst.kogel_auto and breedte is None else "")
         maat = maten(inst, u)
         kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
@@ -216,7 +219,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             markeer(teken, kleur, gegevens)
             teken.display_type = "WIRE"
             self.report({"WARNING"}, f"{passing.fit_tekst(kleur, wand)}. Nothing was cut; pick a thicker spot or a "
-                                     "smaller diameter.")
+                                     "smaller diameter." + auto_noot)
             return {"FINISHED"}
 
         deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
@@ -252,7 +255,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
         extra = " (axis along the cursor: no 3D viewport)" if terugval else ""
-        self.report({"INFO"}, f"Joint placed. {passing.fit_tekst(kleur, wand)}. {gegevens['cj_duur_s']} s{extra}")
+        self.report({"INFO"}, f"Joint placed. {passing.fit_tekst(kleur, wand)}. {gegevens['cj_duur_s']} s{extra}.{auto_noot}")
         return {"FINISHED"}
 
 
