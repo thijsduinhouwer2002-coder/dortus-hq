@@ -62,9 +62,14 @@ class HernoemDiagnose {
 
     /** Start de Rename-actie later op de EDT met de DataContext van de focus (het venster kan modaal zijn). */
     fun hernoemMetFocus(): String {
-        val ctx = context()
-        val actie = ActionManager.getInstance().getAction(IdeActions.ACTION_RENAME)
-        ApplicationManager.getApplication().invokeLater { ActionUtil.invokeAction(actie, ctx, "e2e", null, null) }
-        return "gestart met focus ${focus()?.javaClass?.simpleName}"
+        // tryToExecute haalt de DataContext uit het onderdeel met de focus, net als de keymap. Niet het
+        // verouderde ActionUtil.invokeAction (Plugin Verifier: "1 usage of deprecated API", 8 nov).
+        val doel = focus()
+        val am = ActionManager.getInstance()
+        val actie = am.getAction(IdeActions.ACTION_RENAME)
+        ApplicationManager.getApplication().invokeLater { am.tryToExecute(actie, null, doel, "e2e", true)
+                .doWhenRejected(Runnable { println("DORTUS-E2E RenameElement via tryToExecute afgewezen (actie stond uit of was niet beschikbaar)") })
+        }
+        return "gestart met focus ${doel?.javaClass?.simpleName}"
     }
 }

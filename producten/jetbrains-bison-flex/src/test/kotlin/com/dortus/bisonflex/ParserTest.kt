@@ -144,6 +144,32 @@ class ParserTest : BasePlatformTestCase() {
         assertEquals(listOf("b", "c", "a", "d", "a"), typesIn(f, "ALTERNATIVE"))
     }
 
+    /**
+     * Randgevallen bij `;` (kan-punten controleur 8 nov 12:15): commentaar tussen `;` en `|`,
+     * `;` vlak voor de tweede `%%` met een epiloog erna, en een leeg alternatief vooraan (`a: ; | b ;`).
+     */
+    fun testBisonPuntkommaRandgevallen() {
+        val commentaar = "%token b c\n%%\na: b ; /* nog een */ | c ;\n"
+        val f1 = parse("a.y", commentaar)
+        assertEquals(emptyList<String>(), foutlijst(commentaar, f1))
+        assertEquals(listOf("a"), typesIn(f1, "RULE_NAME"))
+        assertEquals(listOf("b", "c"), typesIn(f1, "ALTERNATIVE"))
+
+        val epiloog = "%token b\n%%\na: b ;\n%%\nint main(void) { return yyparse(); }\n"
+        val f2 = parse("a.y", epiloog)
+        assertEquals(emptyList<String>(), foutlijst(epiloog, f2))
+        assertEquals(listOf("a: b ;"), typesIn(f2, "RULE"))
+        assertEquals(1, typesIn(f2, "EPILOGUE").size)
+        assertTrue(typesIn(f2, "EPILOGUE").single().contains("yyparse"))
+
+        val leegVooraan = "%token b\n%%\na: ; | b ;\nc: a ;\n"
+        val f3 = parse("a.y", leegVooraan)
+        assertEquals(emptyList<String>(), foutlijst(leegVooraan, f3))
+        assertEquals(listOf("a", "c"), typesIn(f3, "RULE_NAME"))
+        assertEquals(listOf("; | b", "a"), typesIn(f3, "ALTERNATIVES"))
+        assertEquals(listOf("", "b", "a"), typesIn(f3, "ALTERNATIVE"))
+    }
+
     /** Geneste C++-typetags (controleur 7 nov): geen valse fout, de hele tag is een TYPE. */
     fun testBisonGenesteTypetag() {
         val t = "%define api.value.type variant\n%type <std::vector<int>> lst\n%nterm <std::map<int,std::string>> m\n%%\nlst: %empty ;\nm: %empty ;\n"
