@@ -93,3 +93,14 @@ De oude vijf plaatjes in `platformen/obsidian/lijst-plaatjes/` (0.2.0) niet meer
 
 ### Zoekwoorden
 Blijven gelijk. Erbij als woorden in de tekst (niet als belofte): "natural 20", "session". Mensen schrijven "nat 20" en "natural 20" (GOK), beide staan nu in de tekst (stempel NAT 20, "natural 20").
+
+## Bijwerking 8 nov 2026 (run 5): plaatjes van Daan en de productpagina
+
+Door Chris. Daan heeft poster, logboek, skins en een GIF klaar (`ontwerp/rollwright/`, staan op lijst-thijs voor zijn ja) en een README-voorstel (`ontwerp/rollwright/README-voorstel.md`).
+
+- **README-voorstel en deze winkeltekst spreken elkaar niet tegen** (nagekeken door de controleur). De eerste zin wordt overal "Roll dice right in your notes." (poster, README, productpagina). De lange beschrijving hierboven blijft voor de listing.
+- **Voorbeeldnotitie bestaat nu** (klus 6). Zet dus in de lange beschrijving na de tweede alinea: "New to it? Open the empty Roll log and press Try it: create an example note: a tavern scene where every roll is live." De knoptekst is letterlijk "Try it: create an example note" (`src/ui/history-view.ts`).
+- **"light and dark" wordt "light, dark and popular themes"**: getest in Minimal, AnuPpuccin, Things en Border (e2e ontwerp v2, gezien door de controleur), en zo staat het op de poster.
+- **Plaatjesvolgorde voor de listing, nu met de echte bestanden:** 1 poster (`winkel-1-poster.png`), 2 roll log (`winkel-2-logboek.jpg`), 3 skins (`winkel-3-skins.jpg`). Alle drie 2400 bij 1600, dus 3:2 zoals de listing vraagt. Mijn eerdere plannen 2 (dit typ je) en 5 (tabellen) zitten nu op de poster en in het logboekplaatje; drie is genoeg. Op het logboekplaatje staat geen crit of fumble (wel in mijn plan); niet nodig, de poster heeft de crit.
+- **Productpagina 0.3.0** klaar op tak `claude/rollwright-0.3.0` in de repo `dortus` (commit 475bf59): GIF als video bovenaan (210 kB in plaats van 1,7 MB, GEZIEN), poster, roll log en skins, tekst gelijk aan deze winkeltekst. Getest op 390 en 1280 breed, geen zijwaarts scrollen, geen kapotte links (GEZIEN). Controleur: akkoord mits; videolabel en twee kan-punten verwerkt. Gaat live op de dag van release 0.3.0, zie advies 14.
+- **Kleine kanttekeningen die bewust niet op de pagina staan:** een "sessie" in het log is dezelfde notitie op dezelfde dag, en het log houdt de laatste 200 worpen (`src/main.ts`). Hoeft niet in een winkeltekst.
