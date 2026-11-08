@@ -16,7 +16,8 @@ OPENING = 0.85
 # straal van het figuur rond de as plus NAAD_MARGE_MM).
 # Regel Daan (8 nov, ronde j): drie vaste hoekstanden per gewricht, 30, 25 of 20 graden. Per stand rekenen we
 # de nek uit zodat de grens (nek tegen klikrand) precies die hoek is: t = acos(n/(r+s)) - atan2(d, a), dus
-# n = (r+s) * cos(t + atan2(d, a)). Bij r 2,5 en s 0,2 is dat 0,40r (30), 0,49r (25) en 0,57r (20).
+# n = (r+s) * cos(t + atan2(d, a)). Bij r 2,5 en s 0,2 is dat zonder marge 0,40r (30), 0,49r (25) en 0,57r (20);
+# met de marge van 0,5 graad (zie onder) 0,39r, 0,48r en 0,56r.
 HOEKEN = (30, 25, 20)
 NEK_PEN = 0.40
 RANG = {"groen": 2, "oranje": 1, "rood": 0}

@@ -73,9 +73,9 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
             if reden:  # op een eigen regel, anders kapt Blender de tekst af
                 stap.label(text=reden.rstrip(")").capitalize(), icon="BLANK1")
             if ob.get("cj_wand_mm", -1.0) >= 0 and not reden:  # bij Tight staat de wand al in de reden
-                stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm")
+                stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm", icon="BLANK1")
             if "cj_speling_gemeten_mm" in ob:
-                stap.label(text=f"Clearance measured: {ob['cj_speling_gemeten_mm']:.3f} mm")
+                stap.label(text=f"Clearance: {ob['cj_speling_gemeten_mm']:.2f} mm (measured)", icon="BLANK1")
         else:
             stap.label(text="No joint yet")
         stap.prop(inst, "exportmap")
