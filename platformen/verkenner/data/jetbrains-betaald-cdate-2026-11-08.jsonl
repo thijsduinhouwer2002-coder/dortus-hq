@@ -1,0 +1,897 @@
+{"id": "22282", "naam": "JetBrains AI Assistant", "model": "FREEMIUM", "cdate": 1794123530000, "downloads": 253286171, "maker": "JetBrains s.r.o.", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "7499", "naam": "GitToolBox", "model": "FREEMIUM", "cdate": 1793877928000, "downloads": 10755782, "maker": "\u0141ukasz Zieli\u0144ski", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "8006", "naam": "Material Theme UI", "model": "FREEMIUM", "cdate": 1792670377000, "downloads": 19008998, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "10080", "naam": "Rainbow Brackets", "model": "FREEMIUM", "cdate": 1788932700000, "downloads": 25173064, "maker": "Zhihao Zhang", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "7219", "naam": "Symfony Plugin", "model": "FREEMIUM", "cdate": 1793181396000, "downloads": 8701946, "maker": "Daniel Espendiller", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "19347", "naam": "GitHub Actions Manager", "model": "FREEMIUM", "cdate": 1791982513000, "downloads": 824314, "maker": "D Software Inc", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "22150", "naam": "Noctule, the Swift IDE", "model": "FREEMIUM", "cdate": 1793724929000, "downloads": 436293, "maker": "Joachim Ansorg", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33623", "naam": "Agents Deck (Claude/Codex)", "model": "FREEMIUM", "cdate": 1791364146000, "downloads": 42222, "maker": "Agents Deck", "maker_type": "Organization", "verified": true, "land": "NL"}
+{"id": "13643", "naam": "Monokai Pro", "model": "FREEMIUM", "cdate": 1788874909000, "downloads": 2521126, "maker": "Monokai", "maker_type": "Organization", "verified": true, "land": "NL"}
+{"id": "16604", "naam": "Extra ToolWindow Colorful Icons", "model": "FREEMIUM", "cdate": 1792507830000, "downloads": 1883139, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "28550", "naam": "Omni Viewer", "model": "FREEMIUM", "cdate": 1794096145000, "downloads": 62779, "maker": "battlecook", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "27750", "naam": "Awesome Log Viewer", "model": "FREEMIUM", "cdate": 1791044673000, "downloads": 95928, "maker": "Socolin", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "8286", "naam": "SequenceDiagram Core", "model": "FREEMIUM", "cdate": 1786704344000, "downloads": 1572173, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "14522", "naam": "MyBatisCodeHelperPro (Marketplace Edition)", "model": "PAID", "cdate": 1793085124000, "downloads": 235349, "maker": "bruce ge", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "15673", "naam": "AsyncAPI", "model": "FREEMIUM", "cdate": 1793705260000, "downloads": 63951, "maker": "Pavel Bodiachevskii IE", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "25810", "naam": "Chinese (Traditional) Language Pack / IDE \u672c\u5730\u5316\u70ba\u7e41\u9ad4\u4e2d\u6587", "model": "PAID", "cdate": 1794141243000, "downloads": 150097, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "23813", "naam": "Git Worktree", "model": "FREEMIUM", "cdate": 1793053055000, "downloads": 168251, "maker": "\u0141ukasz Zieli\u0144ski", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "30883", "naam": "Mermaid Studio Core", "model": "FREEMIUM", "cdate": 1794030704000, "downloads": 26831, "maker": "Tachi Labs", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "28521", "naam": "Hex Editor", "model": "FREEMIUM", "cdate": 1793871039000, "downloads": 47982, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "22319", "naam": "Azd", "model": "PAID", "cdate": 1794126847000, "downloads": 68669, "maker": "Dorkag", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "31217", "naam": "EnvY", "model": "FREEMIUM", "cdate": 1793635988000, "downloads": 48232, "maker": "Hoteira", "maker_type": "Organization", "verified": true, "land": "IT"}
+{"id": "34804", "naam": "BatchCraft: Batch & CMD", "model": "PAID", "cdate": 1791666811000, "downloads": 9585, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "18280", "naam": "Nginx Configuration Pro", "model": "PAID", "cdate": 1793873970000, "downloads": 269056, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "13538", "naam": "Bitbucket Integration Pro", "model": "PAID", "cdate": 1791805674000, "downloads": 276493, "maker": "Majera Software", "maker_type": "Organization", "verified": true, "land": "UZ"}
+{"id": "24541", "naam": "Spanish Language Pack / Paquete De Idioma Espa\u00f1ol", "model": "PAID", "cdate": 1793968195000, "downloads": 94106, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "28301", "naam": "Google Apps Script Support", "model": "FREEMIUM", "cdate": 1793860792000, "downloads": 14613, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "16988", "naam": "Fast Request \u2013 API Buddy(HTTP client)", "model": "PAID", "cdate": 1793687370000, "downloads": 316766, "maker": "DKingSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26270", "naam": "Jenkinsfile", "model": "PAID", "cdate": 1789130976000, "downloads": 162715, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "31027", "naam": "Flexible For Arduino", "model": "FREEMIUM", "cdate": 1794116697000, "downloads": 13463, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "29886", "naam": "Kronk CMS", "model": "FREEMIUM", "cdate": 1794115828000, "downloads": 31135, "maker": "AIVory, Inc.", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "11058", "naam": "Extra Icons", "model": "PAID", "cdate": 1792507851000, "downloads": 1404239, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30373", "naam": "Ayu Islands", "model": "FREEMIUM", "cdate": 1793274574000, "downloads": 20568, "maker": "Ayu Islands", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "13499", "naam": "Odoo IDE", "model": "PAID", "cdate": 1793633274000, "downloads": 183027, "maker": "Tr\u1ecbnh Anh Ng\u1ecdc", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "24542", "naam": "Portuguese Language Pack / Pacote De Idioma Portugu\u00eas", "model": "PAID", "cdate": 1793968816000, "downloads": 71821, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "26227", "naam": "MicroPython Tools", "model": "FREEMIUM", "cdate": 1791361950000, "downloads": 53505, "maker": "Lukas Kremla", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "33684", "naam": "SQLite Lens: SQLite Database File Viewer", "model": "FREEMIUM", "cdate": 1792263990000, "downloads": 5289, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "31023", "naam": "Flexible Swift", "model": "PAID", "cdate": 1794116984000, "downloads": 13730, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "19668", "naam": "Gerry Themes Pro", "model": "PAID", "cdate": 1792814093000, "downloads": 554831, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18286", "naam": "KS-Explorer", "model": "PAID", "cdate": 1790952667000, "downloads": 316792, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "29996", "naam": "shadcn Helper", "model": "PAID", "cdate": 1793609166000, "downloads": 18032, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33721", "naam": "XLSX Lens: Excel XLSX Spreadsheet Viewer", "model": "FREEMIUM", "cdate": 1793133678000, "downloads": 3664, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "29870", "naam": "Mermaid Studio", "model": "PAID", "cdate": 1794030715000, "downloads": 15593, "maker": "Tachi Labs", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "18689", "naam": "JetLab \u2014 Integration for GitLab", "model": "PAID", "cdate": 1791812433000, "downloads": 201082, "maker": "Majera Software", "maker_type": "Organization", "verified": true, "land": "UZ"}
+{"id": "28071", "naam": "MCP Servers for AI Assistants", "model": "FREEMIUM", "cdate": 1793879579000, "downloads": 16260, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "12626", "naam": "OrchidE - Ansible Language Support", "model": "PAID", "cdate": 1788453248000, "downloads": 355579, "maker": "Thomas Fr\u00f6scher", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "12820", "naam": "Redis", "model": "PAID", "cdate": 1794045850000, "downloads": 229427, "maker": "bruce ge", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29804", "naam": "Jinja2 Enhanced Support", "model": "PAID", "cdate": 1793468692000, "downloads": 10112, "maker": "SomeBlackMagic", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "32157", "naam": "Key Explorer", "model": "FREEMIUM", "cdate": 1793685815000, "downloads": 16718, "maker": "xkrypt Security", "maker_type": "Organization", "verified": true, "land": "AE"}
+{"id": "31743", "naam": "Ansible Pro", "model": "FREEMIUM", "cdate": 1794050477000, "downloads": 4582, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "24539", "naam": "French Language Pack / Pack De Langue Fran\u00e7ais", "model": "PAID", "cdate": 1793964159000, "downloads": 32808, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "33811", "naam": "Notebook Lens: Jupyter ipynb Viewer", "model": "FREEMIUM", "cdate": 1793145938000, "downloads": 2335, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "24543", "naam": "Deutsch (German) Language Pack / Deutsches Sprachpaket", "model": "PAID", "cdate": 1793964111000, "downloads": 25588, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "28946", "naam": "Serena", "model": "PAID", "cdate": 1789121974000, "downloads": 20264, "maker": "Oraios Software", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30001", "naam": "Bearded Theme: Dark & Light", "model": "FREEMIUM", "cdate": 1788522002000, "downloads": 7193, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "13841", "naam": "BashSupport Pro Shell & Zsh", "model": "PAID", "cdate": 1793994900000, "downloads": 621716, "maker": "Joachim Ansorg", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33154", "naam": "LaTeX Pro", "model": "PAID", "cdate": 1793880154000, "downloads": 2680, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "29356", "naam": "Flexible Julia", "model": "PAID", "cdate": 1794116954000, "downloads": 9119, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33397", "naam": "JSONL Lens: JSON Lines / NDJSON Viewer", "model": "FREEMIUM", "cdate": 1793228297000, "downloads": 1893, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "13834", "naam": "Django command runner", "model": "FREEMIUM", "cdate": 1793876813000, "downloads": 33969, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "24559", "naam": "Extra Tools Pack", "model": "PAID", "cdate": 1792507868000, "downloads": 96261, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "23937", "naam": "Tailwind Fold", "model": "FREEMIUM", "cdate": 1791727316000, "downloads": 43858, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "30551", "naam": "Compose HotSwan", "model": "FREEMIUM", "cdate": 1791030690000, "downloads": 8681, "maker": "skydoves", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "19161", "naam": "Databee: Database Client & SQL", "model": "PAID", "cdate": 1794121783000, "downloads": 142130, "maker": "LeJiu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "33908", "naam": "Heap Dump Lens: JVM Heap Dump, Thread Dump & GC Log Viewer", "model": "FREEMIUM", "cdate": 1792958452000, "downloads": 1666, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "25943", "naam": "BitBucket Pull Requests", "model": "FREEMIUM", "cdate": 1793548055000, "downloads": 3783, "maker": "Efe-Egbevwie", "maker_type": "Organization", "verified": true, "land": "NG"}
+{"id": "32155", "naam": "Pascal Flow", "model": "FREEMIUM", "cdate": 1793973498000, "downloads": 2515, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "28734", "naam": "Monokai Pro Lifetime", "model": "PAID", "cdate": 1788874927000, "downloads": 9782, "maker": "Monokai", "maker_type": "Organization", "verified": true, "land": "NL"}
+{"id": "21289", "naam": "AICommit", "model": "PAID", "cdate": 1792330130000, "downloads": 24956, "maker": "AICommit", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "21263", "naam": "AI Coding", "model": "PAID", "cdate": 1786529539000, "downloads": 48427, "maker": "YinZhengFei", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "27023", "naam": "Django PowerTools", "model": "FREEMIUM", "cdate": 1793860791000, "downloads": 8874, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "29351", "naam": "Structurizr DSL", "model": "FREEMIUM", "cdate": 1791828848000, "downloads": 5791, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "26998", "naam": "GitHub Actions Helper", "model": "FREEMIUM", "cdate": 1792155156000, "downloads": 10562, "maker": "Artsiom Chapialiou", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "33510", "naam": "Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer", "model": "FREEMIUM", "cdate": 1792683287000, "downloads": 1436, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "33853", "naam": "DuckDB Lens: DuckDB Database File Viewer", "model": "FREEMIUM", "cdate": 1793143099000, "downloads": 1397, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "32995", "naam": "PRISM Log Viewer", "model": "FREEMIUM", "cdate": 1787794828000, "downloads": 1526, "maker": "Telemark Digital", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "22685", "naam": "TamaCat Web Browser", "model": "FREEMIUM", "cdate": 1788830124000, "downloads": 21048, "maker": "Samuraism Inc.", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "25828", "naam": ".log", "model": "PAID", "cdate": 1792924678000, "downloads": 17589, "maker": "WeirdDev", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "26404", "naam": "Extra ToolWindow Colorful Icons Lifetime", "model": "PAID", "cdate": 1792507927000, "downloads": 22165, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30132", "naam": "All In One Themes", "model": "PAID", "cdate": 1793804695000, "downloads": 3621, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "33416", "naam": "Log Lens: Large & Structured Log Viewer (JSONL, logfmt, ANSI)", "model": "FREEMIUM", "cdate": 1793228163000, "downloads": 1363, "maker": "Twilight Ventures", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "30142", "naam": "AsciiDoc Pro", "model": "PAID", "cdate": 1794094838000, "downloads": 5298, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33400", "naam": "Markdown Pro", "model": "PAID", "cdate": 1792495715000, "downloads": 1761, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "24544", "naam": "Russian Language Pack / \u041b\u043e\u043a\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f IDE \u041d\u0430 \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u042f\u0437\u044b\u043a", "model": "PAID", "cdate": 1793969093000, "downloads": 42246, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34843", "naam": "Azure DevOps Pull Requests", "model": "FREEMIUM", "cdate": 1793878222000, "downloads": 1219, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "29096", "naam": "GitLab Pipeline Monitor - Action & Log & Deployment & Schedule", "model": "FREEMIUM", "cdate": 1793945295000, "downloads": 3875, "maker": "DogDrinkWater", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32133", "naam": "Vue.js Pro", "model": "PAID", "cdate": 1792582541000, "downloads": 2975, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33340", "naam": "Mermaid Companion", "model": "FREEMIUM", "cdate": 1793571608000, "downloads": 1305, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "27659", "naam": "Kubernetes Control Center", "model": "FREEMIUM", "cdate": 1793871618000, "downloads": 4706, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "30630", "naam": "Flexible Haskell", "model": "PAID", "cdate": 1794116576000, "downloads": 2706, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "24494", "naam": "Italian Language Pack / Pacchetto Lingua Italiano", "model": "PAID", "cdate": 1793968509000, "downloads": 11158, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "22087", "naam": "JMeter Viewer", "model": "FREEMIUM", "cdate": 1792896585000, "downloads": 101015, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "13838", "naam": "RDF and SPARQL", "model": "PAID", "cdate": 1791138859000, "downloads": 37445, "maker": "Sharedvocabs Ltd.", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "31590", "naam": "Docker Manager", "model": "PAID", "cdate": 1793878988000, "downloads": 2871, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "22713", "naam": "SSH Workbench", "model": "PAID", "cdate": 1794067468000, "downloads": 28662, "maker": "LeJiu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25813", "naam": "Turkish Language Pack / IDE'nin T\u00fcrk\u00e7e'ye Yerelle\u015ftirilmesi", "model": "PAID", "cdate": 1793969236000, "downloads": 10345, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "31647", "naam": "Obfuscation Pro", "model": "PAID", "cdate": 1788522798000, "downloads": 2739, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "25812", "naam": "Polish Language Pack / Lokalizacja IDE Na J\u0119zyk Polski", "model": "PAID", "cdate": 1793968664000, "downloads": 7431, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "30043", "naam": "Flexible Elixir", "model": "PAID", "cdate": 1794116598000, "downloads": 3522, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "28971", "naam": "LookML Support", "model": "FREEMIUM", "cdate": 1786445849000, "downloads": 2897, "maker": "Andrii Kobtsev", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34993", "naam": "Pull Request Inbox for Bitbucket", "model": "FREEMIUM", "cdate": 1793878305000, "downloads": 749, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "18425", "naam": "XSD / WSDL Visualizer", "model": "FREEMIUM", "cdate": 1793331648000, "downloads": 37941, "maker": "FLUXparticle", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "29116", "naam": "Image Editor", "model": "FREEMIUM", "cdate": 1794042569000, "downloads": 1746, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "29404", "naam": "AEM Integration", "model": "PAID", "cdate": 1793609295000, "downloads": 4109, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "16935", "naam": "Php Inspections (EA Ultimate)", "model": "PAID", "cdate": 1787940612000, "downloads": 20867, "maker": "EA Inspections Team", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "16141", "naam": "k6", "model": "FREEMIUM", "cdate": 1792060420000, "downloads": 85909, "maker": "Mikhail Bolotov", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "18857", "naam": "Terminal Pro", "model": "FREEMIUM", "cdate": 1790532123000, "downloads": 47779, "maker": "Module-E", "maker_type": "Organization", "verified": true, "land": "RS"}
+{"id": "30488", "naam": "Flexible ABAP", "model": "PAID", "cdate": 1793810427000, "downloads": 1568, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "31703", "naam": "Trier - Tailwind CSS Toolkit", "model": "FREEMIUM", "cdate": 1793636030000, "downloads": 1761, "maker": "Serhii Kulchytskyi", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34547", "naam": "Model File Inspector", "model": "FREEMIUM", "cdate": 1790360924000, "downloads": 687, "maker": "Damian Boni", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "30290", "naam": "Astro Pro", "model": "PAID", "cdate": 1793714655000, "downloads": 3136, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "23146", "naam": "Feign-Helper", "model": "PAID", "cdate": 1789036735000, "downloads": 9283, "maker": "aboat365", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34544", "naam": "TFState Viewer", "model": "FREEMIUM", "cdate": 1790360176000, "downloads": 640, "maker": "Damian Boni", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "18663", "naam": "ExcelEditor", "model": "FREEMIUM", "cdate": 1793433416000, "downloads": 316316, "maker": "Observer & Creator", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31943", "naam": "Mojo Pro", "model": "PAID", "cdate": 1792929620000, "downloads": 3028, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "9707", "naam": "ANSI Highlighter Premium", "model": "PAID", "cdate": 1792184338000, "downloads": 1554429, "maker": "Ahmed Layouni", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "19205", "naam": "Ngrok", "model": "FREEMIUM", "cdate": 1791590556000, "downloads": 18147, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "17501", "naam": "Agent Code Notes", "model": "PAID", "cdate": 1788813556000, "downloads": 52474, "maker": "BeanSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31786", "naam": "KMP Project Wizard", "model": "FREEMIUM", "cdate": 1792736304000, "downloads": 1221, "maker": "Atanas Oreshkov", "maker_type": "Organization", "verified": true, "land": "BG"}
+{"id": "31300", "naam": "GitHub PRs Monitor", "model": "FREEMIUM", "cdate": 1792153932000, "downloads": 2725, "maker": "Artsiom Chapialiou", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "28744", "naam": "Flexible Solidity", "model": "PAID", "cdate": 1794116409000, "downloads": 3478, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "28937", "naam": "Firebase Pro", "model": "PAID", "cdate": 1793541407000, "downloads": 12889, "maker": "JHTech Labs", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "31649", "naam": "Nix Pro", "model": "PAID", "cdate": 1792977456000, "downloads": 1481, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "26472", "naam": "Gerry Themes Pro (Lifetime)", "model": "PAID", "cdate": 1792814094000, "downloads": 16344, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34126", "naam": "Keystore Inspector", "model": "FREEMIUM", "cdate": 1790308136000, "downloads": 506, "maker": "renhongtao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "35381", "naam": "Pull Request Inbox for GitHub", "model": "FREEMIUM", "cdate": 1794157822000, "downloads": 506, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "15640", "naam": "Python Bytecode", "model": "FREEMIUM", "cdate": 1793860789000, "downloads": 9412, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "31004", "naam": "Extra Tools Pack Lifetime", "model": "PAID", "cdate": 1792507961000, "downloads": 2555, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "27843", "naam": "All Icons Pack", "model": "PAID", "cdate": 1791727013000, "downloads": 7871, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "33073", "naam": "Liquid for Shopify & Jekyll", "model": "PAID", "cdate": 1793507207000, "downloads": 610, "maker": "Obra Studio", "maker_type": "Organization", "verified": true, "land": "BE"}
+{"id": "31546", "naam": "Svelte Hero", "model": "PAID", "cdate": 1791118290000, "downloads": 2310, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "31650", "naam": "Nuxt Pro", "model": "PAID", "cdate": 1787903212000, "downloads": 2539, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "20243", "naam": "Skol - Calm Semantic Themes", "model": "PAID", "cdate": 1793801666000, "downloads": 16033, "maker": "kreuzercode", "maker_type": "Organization", "verified": true, "land": "CH"}
+{"id": "21173", "naam": "JetClient - The Ultimate REST Client", "model": "PAID", "cdate": 1793693866000, "downloads": 141421, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "23685", "naam": "Flexible Freemarker", "model": "PAID", "cdate": 1793605055000, "downloads": 19560, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30208", "naam": "Tokyo Night Dark Theme", "model": "PAID", "cdate": 1788526061000, "downloads": 1251, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "30153", "naam": "Flexible Tailwind", "model": "FREEMIUM", "cdate": 1793609311000, "downloads": 2009, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34870", "naam": "Rolewise for Ansible", "model": "PAID", "cdate": 1791460965000, "downloads": 395, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "9269", "naam": "AEM IDE", "model": "PAID", "cdate": 1793038814000, "downloads": 96352, "maker": "Nums", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "34606", "naam": "XLSX Viewer & Editor for Excel", "model": "PAID", "cdate": 1794072224000, "downloads": 379, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "23694", "naam": "Smart Hugo", "model": "PAID", "cdate": 1792758317000, "downloads": 6885, "maker": "Exprun", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "34429", "naam": "Flexible Sim", "model": "FREEMIUM", "cdate": 1794117856000, "downloads": 360, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30799", "naam": "Toolkit for Cloudflare", "model": "PAID", "cdate": 1791181410000, "downloads": 1452, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "31005", "naam": "Extra Icons Lifetime", "model": "PAID", "cdate": 1792507976000, "downloads": 1955, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30231", "naam": "Scribe Pro", "model": "PAID", "cdate": 1792921911000, "downloads": 2229, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "22472", "naam": "DataGraph", "model": "FREEMIUM", "cdate": 1793950402000, "downloads": 42783, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "34037", "naam": "Flexible COBOL", "model": "PAID", "cdate": 1794116617000, "downloads": 352, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33578", "naam": "S3 Browser", "model": "FREEMIUM", "cdate": 1791239652000, "downloads": 337, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "14203", "naam": "SystemVerilog Studio", "model": "PAID", "cdate": 1792762691000, "downloads": 13047, "maker": "Levses Limited", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "35232", "naam": "Pipeline Inbox for GitLab CI", "model": "FREEMIUM", "cdate": 1794157864000, "downloads": 330, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "33624", "naam": "Azure Blob Browser", "model": "FREEMIUM", "cdate": 1789804143000, "downloads": 328, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "33588", "naam": "dbt Navigator", "model": "FREEMIUM", "cdate": 1792053922000, "downloads": 325, "maker": "VadimToptunov", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "35215", "naam": "Pull Request Inbox for Forgejo and Gitea", "model": "FREEMIUM", "cdate": 1794157783000, "downloads": 319, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "29361", "naam": "Code Review Plus", "model": "FREEMIUM", "cdate": 1793374920000, "downloads": 1574, "maker": "Zero", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "21361", "naam": "PolyBPMN visualizer", "model": "PAID", "cdate": 1791188945000, "downloads": 65542, "maker": "GD Next GmbH", "maker_type": "Organization", "verified": true, "land": "CH"}
+{"id": "31306", "naam": "Angular Architect", "model": "FREEMIUM", "cdate": 1793953300000, "downloads": 5365, "maker": "Adib Boutros", "maker_type": "Organization", "verified": true, "land": "LB"}
+{"id": "34930", "naam": "Flexible Delphi", "model": "PAID", "cdate": 1794157551000, "downloads": 299, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "13819", "naam": "Cypresso", "model": "FREEMIUM", "cdate": 1793035643000, "downloads": 150217, "maker": "Mikhail Bolotov", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "34045", "naam": "Markdown Preview Plus", "model": "FREEMIUM", "cdate": 1789804866000, "downloads": 279, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34135", "naam": "Supabase Toolkit", "model": "FREEMIUM", "cdate": 1790278730000, "downloads": 278, "maker": "Damian Boni", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "35207", "naam": "Merge Request Inbox for GitLab", "model": "FREEMIUM", "cdate": 1794157733000, "downloads": 276, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "33404", "naam": "InfiniTint Theme Tuner", "model": "FREEMIUM", "cdate": 1786862759000, "downloads": 318, "maker": "Tachi Labs", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "17166", "naam": "leetcode-editor-pro", "model": "PAID", "cdate": 1786600845000, "downloads": 26574, "maker": "shuzijun", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34182", "naam": "Flexible For Schematics", "model": "PAID", "cdate": 1793811019000, "downloads": 268, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34504", "naam": "CertLens - Certificates and Keystores", "model": "FREEMIUM", "cdate": 1790277264000, "downloads": 266, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "31592", "naam": "Nunjucks", "model": "PAID", "cdate": 1788280726000, "downloads": 827, "maker": "Obra Studio", "maker_type": "Organization", "verified": true, "land": "BE"}
+{"id": "35517", "naam": "NPCoding MDC Rule Files", "model": "PAID", "cdate": 1793046648000, "downloads": 256, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "24154", "naam": "GitAssistant", "model": "FREEMIUM", "cdate": 1793521669000, "downloads": 13625, "maker": "Lei Zhang", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "23556", "naam": "Magnolia CMS Integration", "model": "PAID", "cdate": 1794003937000, "downloads": 1783, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33349", "naam": "OpenAPI Companion", "model": "PAID", "cdate": 1793587412000, "downloads": 290, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "33082", "naam": "Ansible Companion", "model": "FREEMIUM", "cdate": 1792440728000, "downloads": 371, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "33088", "naam": "Sheets - XLSX Editor", "model": "PAID", "cdate": 1787032951000, "downloads": 308, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "22202", "naam": "GitLab CICD - Pipelines & Jobs, Builds Run Cancel Retry View Log", "model": "PAID", "cdate": 1791977965000, "downloads": 28856, "maker": "ideguru", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "18896", "naam": "DynamoDB", "model": "PAID", "cdate": 1793565150000, "downloads": 224206, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "32913", "naam": "Slint Pro", "model": "PAID", "cdate": 1793885294000, "downloads": 432, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "32247", "naam": "Elixir Pro", "model": "PAID", "cdate": 1792811621000, "downloads": 491, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "32015", "naam": "Flexible For OpenSCAD", "model": "PAID", "cdate": 1794117613000, "downloads": 591, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "26583", "naam": "Jenkinsfile Pro", "model": "PAID", "cdate": 1790954886000, "downloads": 30630, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "29567", "naam": "Nunjucks Hero", "model": "PAID", "cdate": 1791119912000, "downloads": 2665, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "33195", "naam": "API Security Companion", "model": "FREEMIUM", "cdate": 1792429715000, "downloads": 307, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "29536", "naam": "PyUI Helper", "model": "PAID", "cdate": 1793610637000, "downloads": 2189, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30130", "naam": "Konfigomatik Settings Sync", "model": "PAID", "cdate": 1792954320000, "downloads": 359, "maker": "Konfigomatik", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "26344", "naam": "Buggregator", "model": "FREEMIUM", "cdate": 1788774954000, "downloads": 2823, "maker": "xepozz", "maker_type": "Organization", "verified": true, "land": "TJ"}
+{"id": "33263", "naam": "LogLens", "model": "FREEMIUM", "cdate": 1792168638000, "downloads": 294, "maker": "Veryation", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "30291", "naam": "SaltStack", "model": "PAID", "cdate": 1793530159000, "downloads": 471, "maker": "SomeBlackMagic", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "15064", "naam": "JSON Key Finder", "model": "PAID", "cdate": 1791028444000, "downloads": 6847, "maker": "FilieraFusion", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "25896", "naam": "Base64 File", "model": "FREEMIUM", "cdate": 1790799116000, "downloads": 3011, "maker": "Vaclav Tolar", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "33330", "naam": "Firestore Companion", "model": "FREEMIUM", "cdate": 1792455426000, "downloads": 232, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34273", "naam": "Fuji Theme", "model": "PAID", "cdate": 1793315413000, "downloads": 209, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "34120", "naam": "Fast Excel Viewer", "model": "FREEMIUM", "cdate": 1789865941000, "downloads": 212, "maker": "renhongtao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29979", "naam": "reStructuredText Pro", "model": "PAID", "cdate": 1793150589000, "downloads": 1274, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "31304", "naam": "Llamatik Code", "model": "FREEMIUM", "cdate": 1792509638000, "downloads": 1589, "maker": "Llamatik AI", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "30422", "naam": "Andromeda Dark Theme", "model": "PAID", "cdate": 1788528498000, "downloads": 936, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "14512", "naam": "Elasticsearch", "model": "PAID", "cdate": 1793995622000, "downloads": 155979, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "34234", "naam": "ArchVerity - Spring Microservice Contract Checker", "model": "PAID", "cdate": 1794144041000, "downloads": 487, "maker": "ArchVerity", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "33899", "naam": "Parquet, Avro & ORC Viewer", "model": "FREEMIUM", "cdate": 1789673291000, "downloads": 199, "maker": "Vetro", "maker_type": "Organization", "verified": true, "land": "IT"}
+{"id": "35379", "naam": "Pipeline Inbox for GitHub Actions Workflows", "model": "FREEMIUM", "cdate": 1793891681000, "downloads": 197, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "25811", "naam": "Czech Language Pack / Lokalizace IDE Do \u010ce\u0161tiny", "model": "PAID", "cdate": 1793967988000, "downloads": 2328, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34272", "naam": "Etna Theme", "model": "PAID", "cdate": 1793315376000, "downloads": 189, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "33204", "naam": "Refactor Simulator", "model": "FREEMIUM", "cdate": 1792427884000, "downloads": 228, "maker": "Gap Hunter Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "30218", "naam": "Noctis Theme: Dark & Light", "model": "PAID", "cdate": 1788528294000, "downloads": 804, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33740", "naam": "DBML Pro", "model": "PAID", "cdate": 1791757168000, "downloads": 185, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "34274", "naam": "London Theme", "model": "PAID", "cdate": 1793315453000, "downloads": 183, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "34257", "naam": "Ocean Theme", "model": "PAID", "cdate": 1793315511000, "downloads": 182, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "31400", "naam": "Gruvbox Dark", "model": "PAID", "cdate": 1788526582000, "downloads": 384, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "34268", "naam": "Reynisfjara Theme", "model": "PAID", "cdate": 1793315569000, "downloads": 179, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "33475", "naam": "Docker Compose Visualizer", "model": "FREEMIUM", "cdate": 1791284114000, "downloads": 247, "maker": "grs", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "23927", "naam": "Extra IDE Tweaks", "model": "PAID", "cdate": 1792507906000, "downloads": 10360, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "33575", "naam": "CloudWatch Logs Viewer", "model": "FREEMIUM", "cdate": 1789804188000, "downloads": 176, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35189", "naam": "Gridline: XLSX and CSV Viewer", "model": "FREEMIUM", "cdate": 1793997563000, "downloads": 175, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "30216", "naam": "ePaper Theme", "model": "PAID", "cdate": 1788526016000, "downloads": 631, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33419", "naam": "ISO 8583 Inspector", "model": "PAID", "cdate": 1791967481000, "downloads": 186, "maker": "VadimToptunov", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "35378", "naam": "Pipeline Inbox for Jenkins", "model": "FREEMIUM", "cdate": 1793880510000, "downloads": 172, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "28020", "naam": "i18n Translate Pro: Web", "model": "FREEMIUM", "cdate": 1789871325000, "downloads": 1501, "maker": "Eastgate Development", "maker_type": "Organization", "verified": true, "land": "MY"}
+{"id": "28622", "naam": "PyArchInit DocuGenius - AI Documentation Generator", "model": "PAID", "cdate": 1788544302000, "downloads": 941, "maker": "Enzo Cocca", "maker_type": "Organization", "verified": true, "land": "IT"}
+{"id": "34265", "naam": "Salda Theme", "model": "PAID", "cdate": 1793315651000, "downloads": 168, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "34269", "naam": "Spring Theme", "model": "PAID", "cdate": 1793315691000, "downloads": 168, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "27856", "naam": "i18n Translate Pro: JVM", "model": "FREEMIUM", "cdate": 1789871299000, "downloads": 1077, "maker": "Eastgate Development", "maker_type": "Organization", "verified": true, "land": "MY"}
+{"id": "23390", "naam": "Codecov", "model": "PAID", "cdate": 1792841217000, "downloads": 4152, "maker": "Dorkag", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "27826", "naam": "Liquid Hero", "model": "PAID", "cdate": 1791115131000, "downloads": 3376, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "34054", "naam": "DataStore Inspector", "model": "FREEMIUM", "cdate": 1790929504000, "downloads": 165, "maker": "masaibar", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "35008", "naam": "Orbit for Cosmos DB", "model": "FREEMIUM", "cdate": 1793526030000, "downloads": 164, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "32116", "naam": "Agent Guard - Security Scanner", "model": "PAID", "cdate": 1794145311000, "downloads": 278, "maker": "entet", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34267", "naam": "Sydney Theme", "model": "PAID", "cdate": 1793315711000, "downloads": 157, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "34271", "naam": "Madrid Theme", "model": "PAID", "cdate": 1793315471000, "downloads": 157, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "27596", "naam": "SmartChangelist AI", "model": "PAID", "cdate": 1793973505000, "downloads": 666, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "34266", "naam": "Prague Theme", "model": "PAID", "cdate": 1793315551000, "downloads": 154, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "35124", "naam": "Oskuvi KV Language", "model": "PAID", "cdate": 1793039730000, "downloads": 154, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "28407", "naam": "Qdrant", "model": "PAID", "cdate": 1793876071000, "downloads": 776, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "34536", "naam": "Keystore View", "model": "FREEMIUM", "cdate": 1792460324000, "downloads": 156, "maker": "Brain Grain", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "34605", "naam": "Gitea & Forgejo Pull Requests", "model": "PAID", "cdate": 1793639380000, "downloads": 152, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "32363", "naam": "Mermaid Editor Pro", "model": "FREEMIUM", "cdate": 1787990476000, "downloads": 341, "maker": "Haizy Labs", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "35125", "naam": "Oskuvi MKO Templates", "model": "PAID", "cdate": 1793039733000, "downloads": 149, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35527", "naam": "NPCoding Datapack Functions", "model": "PAID", "cdate": 1793048451000, "downloads": 149, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34270", "naam": "Vienna Theme", "model": "PAID", "cdate": 1793315774000, "downloads": 148, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "32549", "naam": "Advanced Magento Support", "model": "PAID", "cdate": 1793457470000, "downloads": 199, "maker": "Felix Astner Software", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "15189", "naam": "Firebase Rules", "model": "PAID", "cdate": 1788554991000, "downloads": 130017, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34200", "naam": "Python Environments", "model": "PAID", "cdate": 1789037165000, "downloads": 144, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35722", "naam": "Rust Pro", "model": "PAID", "cdate": 1794041986000, "downloads": 142, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "28063", "naam": "Serverless Insight", "model": "PAID", "cdate": 1788706207000, "downloads": 11433, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "31472", "naam": "Visual GitHub Actions", "model": "PAID", "cdate": 1793881572000, "downloads": 273, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35020", "naam": "Swift Pro", "model": "PAID", "cdate": 1793838720000, "downloads": 142, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33849", "naam": "Flaky Test Linter", "model": "FREEMIUM", "cdate": 1791881812000, "downloads": 141, "maker": "VadimToptunov", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "21833", "naam": "NoSQL Navigator", "model": "PAID", "cdate": 1788887923000, "downloads": 5564, "maker": "Reveal Sound LTD", "maker_type": "Organization", "verified": true, "land": "ZA"}
+{"id": "33723", "naam": "Client for Trino and Athena", "model": "FREEMIUM", "cdate": 1789851213000, "downloads": 138, "maker": "Rollup Apps", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35251", "naam": "Strata: Rainbow Indents", "model": "FREEMIUM", "cdate": 1793997569000, "downloads": 137, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34503", "naam": "Agent Eyes: MCP Tools for AI", "model": "PAID", "cdate": 1793843666000, "downloads": 135, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "30492", "naam": "Panda Theme", "model": "PAID", "cdate": 1787403526000, "downloads": 430, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "31928", "naam": "Pull Request Viewer for Bitbucket, GitHub & Azure DevOps", "model": "PAID", "cdate": 1792051999000, "downloads": 551, "maker": "Ngaio", "maker_type": "Organization", "verified": true, "land": "NZ"}
+{"id": "32553", "naam": "Solidity Pro", "model": "PAID", "cdate": 1793426828000, "downloads": 272, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33580", "naam": "CloudFormation Deploy Watcher", "model": "FREEMIUM", "cdate": 1789804241000, "downloads": 130, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "32123", "naam": "AppleScript Toolkit", "model": "PAID", "cdate": 1786787644000, "downloads": 277, "maker": "barad1tos software", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "28974", "naam": "Accessibility Compliance Helper Pro", "model": "PAID", "cdate": 1789246730000, "downloads": 658, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "33583", "naam": "Step Functions Execution Viewer", "model": "FREEMIUM", "cdate": 1789804289000, "downloads": 128, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34484", "naam": "Oracle JDK License Check and Temurin Fixer", "model": "FREEMIUM", "cdate": 1791722203000, "downloads": 123, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "24625", "naam": "SSHMatrix", "model": "PAID", "cdate": 1789571245000, "downloads": 2420, "maker": "Linindoo", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "33836", "naam": "SWIFT MT & ISO 20022 Validator", "model": "PAID", "cdate": 1793176589000, "downloads": 119, "maker": "VadimToptunov", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "25814", "naam": "Hungarian Language Pack / Magyar Nyelvi Csomag", "model": "PAID", "cdate": 1793968352000, "downloads": 1489, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "20554", "naam": "Magento and Adobe Commerce PhpStorm by Atwix", "model": "FREEMIUM", "cdate": 1793911909000, "downloads": 22012, "maker": "Atwix", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35264", "naam": "Java 17 to JDK 25 Migration Fixer", "model": "FREEMIUM", "cdate": 1792730740000, "downloads": 113, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34454", "naam": "Queue Studio for RabbitMQ", "model": "PAID", "cdate": 1791373623000, "downloads": 111, "maker": "Factodus", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "35448", "naam": "Kvasar: KV Language Tools", "model": "FREEMIUM", "cdate": 1793727057000, "downloads": 111, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "29778", "naam": "ImageEdit Pro", "model": "PAID", "cdate": 1788526407000, "downloads": 822, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "32758", "naam": "Database Plus", "model": "PAID", "cdate": 1786876168000, "downloads": 297, "maker": "Hanghang", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34127", "naam": "Redis Inspector", "model": "FREEMIUM", "cdate": 1790327206000, "downloads": 106, "maker": "renhongtao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "33512", "naam": "Columns - Parquet and Avro Editor", "model": "PAID", "cdate": 1787034213000, "downloads": 121, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "22884", "naam": "DryPush: AWS | GCP | Alibaba Deploy & Upload", "model": "PAID", "cdate": 1787664542000, "downloads": 2320, "maker": "Implemica", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "31106", "naam": "Nu LSP", "model": "PAID", "cdate": 1792509722000, "downloads": 479, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "27808", "naam": "Extra IDE Tweaks Lifetime", "model": "PAID", "cdate": 1792507947000, "downloads": 2412, "maker": "Jonathan Lermitage", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30491", "naam": "Bluloco Dark Theme", "model": "PAID", "cdate": 1788521699000, "downloads": 284, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35721", "naam": "Lua Pro", "model": "PAID", "cdate": 1794003281000, "downloads": 100, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35308", "naam": "Orbit for Neo4j", "model": "FREEMIUM", "cdate": 1793526064000, "downloads": 100, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "30004", "naam": "Flexible Nuxt.js", "model": "PAID", "cdate": 1791912152000, "downloads": 404, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34441", "naam": "Secret Scanner for Git", "model": "PAID", "cdate": 1791943156000, "downloads": 101, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "31281", "naam": "AI String Translator for Android", "model": "FREEMIUM", "cdate": 1787050003000, "downloads": 327, "maker": "codemagic", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "34969", "naam": "PyMuPDF (fitz) to pypdf Migration Fixer", "model": "FREEMIUM", "cdate": 1791639088000, "downloads": 98, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "31488", "naam": "FoxMock \u2014 REST, gRPC, SMTP & SFTP Mock Server", "model": "FREEMIUM", "cdate": 1789364826000, "downloads": 344, "maker": "CellOps", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "34546", "naam": "Profile Viewer: CPU & Heap Profiles, Flame Graphs", "model": "FREEMIUM", "cdate": 1790360689000, "downloads": 95, "maker": "Damian Boni", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "34439", "naam": "Copy Files for AI Prompts", "model": "PAID", "cdate": 1791943117000, "downloads": 96, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34794", "naam": "Copy Leftover Finder", "model": "PAID", "cdate": 1791947220000, "downloads": 94, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "28726", "naam": "Armada Dark Purple Theme", "model": "PAID", "cdate": 1790343605000, "downloads": 999, "maker": "Tachi Labs", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "33618", "naam": "Spaceflow", "model": "FREEMIUM", "cdate": 1791107953000, "downloads": 122, "maker": "momomo", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "34044", "naam": "Cosmos DB Explorer", "model": "PAID", "cdate": 1789804908000, "downloads": 91, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34500", "naam": "Dotenv Guard", "model": "PAID", "cdate": 1791943184000, "downloads": 91, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34607", "naam": "Test Run Verdict", "model": "PAID", "cdate": 1793657969000, "downloads": 91, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34513", "naam": "France E-Invoice Reception", "model": "FREEMIUM", "cdate": 1790946071000, "downloads": 91, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "33994", "naam": "Workspace Desk", "model": "FREEMIUM", "cdate": 1788770193000, "downloads": 90, "maker": "Mateusz Ciosek", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "31165", "naam": "Nu Lint", "model": "PAID", "cdate": 1792437001000, "downloads": 365, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "31564", "naam": "Easely", "model": "PAID", "cdate": 1787950081000, "downloads": 233, "maker": "Amplify Human", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "34642", "naam": "Dublin Theme", "model": "PAID", "cdate": 1793315361000, "downloads": 88, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "32537", "naam": "Architecture Analysis", "model": "FREEMIUM", "cdate": 1789496031000, "downloads": 156, "maker": "SMS Murilo - Softwares Inteligentes", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "34107", "naam": "MigrationGuard", "model": "FREEMIUM", "cdate": 1793285226000, "downloads": 88, "maker": "TechnofyStore", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "34326", "naam": "Kubernetes Removed API Lint", "model": "FREEMIUM", "cdate": 1790945949000, "downloads": 88, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35558", "naam": "Pipeline Inbox for Bitbucket Pipelines", "model": "FREEMIUM", "cdate": 1793884500000, "downloads": 88, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "35519", "naam": "NPCoding Robot Interfaces", "model": "PAID", "cdate": 1793047076000, "downloads": 87, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "31171", "naam": "EggShell", "model": "PAID", "cdate": 1786380936000, "downloads": 217, "maker": "Best Practice", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "33587", "naam": "CrateScope", "model": "FREEMIUM", "cdate": 1788542465000, "downloads": 86, "maker": "Godwin Joseph", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "34596", "naam": "Invisible Notes", "model": "PAID", "cdate": 1791899634000, "downloads": 83, "maker": "Selfcloud", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "31844", "naam": "HTTP Request Generator", "model": "FREEMIUM", "cdate": 1787559060000, "downloads": 142, "maker": "umarmuhendis", "maker_type": "Organization", "verified": true, "land": "UZ"}
+{"id": "34414", "naam": "Playbook Navigator", "model": "FREEMIUM", "cdate": 1793284169000, "downloads": 82, "maker": "TechnofyStore", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "34056", "naam": "Latte+", "model": "PAID", "cdate": 1792742535000, "downloads": 81, "maker": "zipper", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "35523", "naam": "NPCoding Installer Scripts", "model": "PAID", "cdate": 1793048265000, "downloads": 79, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "31868", "naam": "BookmarkAI", "model": "FREEMIUM", "cdate": 1793329581000, "downloads": 265, "maker": "Dylan OY", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34486", "naam": "Firmware Release Gate", "model": "FREEMIUM", "cdate": 1790946041000, "downloads": 78, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35351", "naam": "Orbit for InfluxDB", "model": "FREEMIUM", "cdate": 1793526088000, "downloads": 78, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "34917", "naam": "SQL Migration Risk Guard", "model": "PAID", "cdate": 1793666188000, "downloads": 76, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "28580", "naam": "Ad Integration Pro", "model": "FREEMIUM", "cdate": 1787991227000, "downloads": 366, "maker": "Santosh kumar Chaudhary", "maker_type": "Organization", "verified": true, "land": "NP"}
+{"id": "34241", "naam": "IDE Agent", "model": "PAID", "cdate": 1792345380000, "downloads": 122, "maker": "IDEAgent", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34694", "naam": "ChatAssistantX", "model": "PAID", "cdate": 1793002423000, "downloads": 90, "maker": "Developing Future & Solutions", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "33832", "naam": "Flexible for Spryker", "model": "PAID", "cdate": 1793611013000, "downloads": 76, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33640", "naam": "Open Image Debugger", "model": "PAID", "cdate": 1789991972000, "downloads": 93, "maker": "OpenImageDebugger", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "34131", "naam": "QueryGuard", "model": "FREEMIUM", "cdate": 1793284060000, "downloads": 74, "maker": "TechnofyStore", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "35220", "naam": "NeoCatcher", "model": "FREEMIUM", "cdate": 1793363753000, "downloads": 74, "maker": "Maksim Voronchikhin", "maker_type": "Organization", "verified": true, "land": "RS"}
+{"id": "13668", "naam": "Salesforce B2C Commerce (SFCC)", "model": "PAID", "cdate": 1794097079000, "downloads": 14913, "maker": "Sergey Bevzuk", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "33365", "naam": "Logs - Large Log Viewer", "model": "PAID", "cdate": 1787034125000, "downloads": 89, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "35120", "naam": "Oskuvi VTL Templates", "model": "PAID", "cdate": 1793039717000, "downloads": 71, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34399", "naam": "Templ Hero", "model": "PAID", "cdate": 1789973258000, "downloads": 70, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "35450", "naam": "Odoo DevKit Pro", "model": "PAID", "cdate": 1793506975000, "downloads": 70, "maker": "OdoNexus", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "35687", "naam": "Aurora Brackets", "model": "FREEMIUM", "cdate": 1793943511000, "downloads": 71, "maker": "Sunfolia Labs", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "12869", "naam": "CMake Plus", "model": "PAID", "cdate": 1789898182000, "downloads": 58933, "maker": "Artsiom Chapialiou", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35256", "naam": "SCons Workbench", "model": "FREEMIUM", "cdate": 1792655754000, "downloads": 71, "maker": "BrisaWorks", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "32524", "naam": "TanStack Pro", "model": "PAID", "cdate": 1788531526000, "downloads": 318, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33572", "naam": "Flatpak DevTools", "model": "FREEMIUM", "cdate": 1787327352000, "downloads": 69, "maker": "Andr\u00e9 Paul Grandsire", "maker_type": "Organization", "verified": true, "land": "AR"}
+{"id": "31941", "naam": "EnvSwitch", "model": "PAID", "cdate": 1791661817000, "downloads": 147, "maker": "luyiming", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26785", "naam": "IReport 6", "model": "PAID", "cdate": 1788712783000, "downloads": 7450, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "12108", "naam": "Scipio ERP Integration", "model": "PAID", "cdate": 1793609409000, "downloads": 5840, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34495", "naam": "Queue Studio for Amazon SQS", "model": "PAID", "cdate": 1791373733000, "downloads": 65, "maker": "Factodus", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "28727", "naam": "Armada Deep Theme", "model": "PAID", "cdate": 1790343570000, "downloads": 618, "maker": "Tachi Labs", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "34413", "naam": "LogHue", "model": "FREEMIUM", "cdate": 1793284429000, "downloads": 63, "maker": "TechnofyStore", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "33567", "naam": "SuiteScript Pro", "model": "PAID", "cdate": 1788948038000, "downloads": 62, "maker": "Ngaio", "maker_type": "Organization", "verified": true, "land": "NZ"}
+{"id": "34323", "naam": "CodeSpotlight", "model": "FREEMIUM", "cdate": 1789985870000, "downloads": 62, "maker": "CodeSpotlight", "maker_type": "Organization", "verified": true, "land": "NP"}
+{"id": "35383", "naam": "Orbit for Gremlin", "model": "FREEMIUM", "cdate": 1793526113000, "downloads": 62, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "35539", "naam": "Nim Pro", "model": "PAID", "cdate": 1794146483000, "downloads": 62, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "34796", "naam": "Mutation Spot Check", "model": "PAID", "cdate": 1791943268000, "downloads": 60, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "35631", "naam": "Sharpcast: VB.NET to C#", "model": "FREEMIUM", "cdate": 1793727068000, "downloads": 60, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34721", "naam": "Logline Inline", "model": "FREEMIUM", "cdate": 1793036672000, "downloads": 61, "maker": "Factodus", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "34086", "naam": "Run Configuration Doctor", "model": "FREEMIUM", "cdate": 1793109658000, "downloads": 59, "maker": "misteriosojo", "maker_type": "Organization", "verified": true, "land": "CH"}
+{"id": "34412", "naam": "IconDeck", "model": "FREEMIUM", "cdate": 1793284093000, "downloads": 58, "maker": "TechnofyStore", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "20061", "naam": "Brew Bundle", "model": "PAID", "cdate": 1788697889000, "downloads": 19722, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "35145", "naam": "ASL State Machine Graph", "model": "PAID", "cdate": 1793416436000, "downloads": 57, "maker": "Madrasco", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "30984", "naam": "Notification Bridge", "model": "FREEMIUM", "cdate": 1787575201000, "downloads": 240, "maker": "LLITD LLC", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35148", "naam": "Config Toolbox: Config Diff & Secret Scanner", "model": "FREEMIUM", "cdate": 1792810682000, "downloads": 62, "maker": "HSY317", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "35447", "naam": "PackPrune: Unused Packages", "model": "FREEMIUM", "cdate": 1793642372000, "downloads": 57, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "29099", "naam": "Gradle With Me Pro(GPVP)", "model": "PAID", "cdate": 1793714694000, "downloads": 425, "maker": "\u65b0\u7a0b\u5feb\u5496\u5458", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "33973", "naam": "Compose Accessibility Inspector", "model": "PAID", "cdate": 1788954506000, "downloads": 63, "maker": "codemagic", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "33958", "naam": "ChangeRail", "model": "PAID", "cdate": 1789483282000, "downloads": 56, "maker": "Avenrail Labs", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34649", "naam": "Root Groups", "model": "FREEMIUM", "cdate": 1791899345000, "downloads": 56, "maker": "Muhammad Uzair", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "19661", "naam": "Latte Pro", "model": "PAID", "cdate": 1794008836000, "downloads": 8689, "maker": "Mesour plugins", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "34813", "naam": "Local Path Leak Finder", "model": "PAID", "cdate": 1791943302000, "downloads": 55, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34816", "naam": "Mojibake Finder", "model": "PAID", "cdate": 1791943330000, "downloads": 55, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "35134", "naam": "Oskuvi Server Launcher", "model": "PAID", "cdate": 1793039768000, "downloads": 55, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35617", "naam": "Warren: AMQP Queue Browser", "model": "FREEMIUM", "cdate": 1793727071000, "downloads": 55, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "18269", "naam": "QueryFlag", "model": "PAID", "cdate": 1792844817000, "downloads": 2017, "maker": "Dorkag", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "25496", "naam": "DocGenie", "model": "PAID", "cdate": 1788202856000, "downloads": 626, "maker": "DrCode", "maker_type": "Organization", "verified": true, "land": "IE"}
+{"id": "30719", "naam": "GitOps Cockpit for Argo CD", "model": "FREEMIUM", "cdate": 1791660842000, "downloads": 450, "maker": "Michael Latta Software", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "32875", "naam": "MyBatisCodeAssistant", "model": "FREEMIUM", "cdate": 1788315797000, "downloads": 121, "maker": "MyBatisCodeAssistant", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "29467", "naam": "LogZen", "model": "PAID", "cdate": 1793716796000, "downloads": 158, "maker": "Luk\u00e1\u0161 Vokr\u00e1\u010dko", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "32391", "naam": "Procfile", "model": "PAID", "cdate": 1791001920000, "downloads": 1522, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "22035", "naam": "GPT Assistant", "model": "PAID", "cdate": 1790776377000, "downloads": 1345, "maker": "Firesource UG(haftungsbeschr\u00e4nkt)", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33949", "naam": "Tables - SQLite Database Editor", "model": "PAID", "cdate": 1792131888000, "downloads": 141, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "34892", "naam": "Agent Guard Lite - Scanner", "model": "FREEMIUM", "cdate": 1794145312000, "downloads": 52, "maker": "entet", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "35614", "naam": "Scovery: Scoverage Coverage", "model": "FREEMIUM", "cdate": 1793955652000, "downloads": 52, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "23812", "naam": "JMeter Manager", "model": "PAID", "cdate": 1788713964000, "downloads": 4190, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34444", "naam": "Android AI Color-Kit", "model": "PAID", "cdate": 1791610252000, "downloads": 56, "maker": "codemagic", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "35019", "naam": "Python 3.10 End of Life Pin Check and Fix", "model": "FREEMIUM", "cdate": 1791778362000, "downloads": 51, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "31388", "naam": "Flexible for Flox", "model": "PAID", "cdate": 1793609153000, "downloads": 170, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "32216", "naam": "Flexible For Daisy UI", "model": "PAID", "cdate": 1793609355000, "downloads": 135, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "33852", "naam": "Bun Test Runner", "model": "PAID", "cdate": 1789098923000, "downloads": 55, "maker": "Friday 5PM", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35133", "naam": "Oskuvi Runner for Jetty", "model": "PAID", "cdate": 1793039764000, "downloads": 50, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35518", "naam": "NPCoding Support for LDIF", "model": "PAID", "cdate": 1793046984000, "downloads": 50, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34555", "naam": "Maven Central Publish Gate - OSSRH to Central Portal Fixer", "model": "FREEMIUM", "cdate": 1792815384000, "downloads": 50, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35610", "naam": "Exeforge: Executable Builder", "model": "FREEMIUM", "cdate": 1793881889000, "downloads": 50, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34912", "naam": "GitHub Actions Supply Chain Guard", "model": "PAID", "cdate": 1793666483000, "downloads": 49, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35623", "naam": "Topiary: MQTT Client", "model": "FREEMIUM", "cdate": 1793881899000, "downloads": 49, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34871", "naam": "Stratolog for CloudWatch", "model": "PAID", "cdate": 1791537575000, "downloads": 48, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34971", "naam": "Ultralytics YOLO (AGPL) to RF-DETR Migration Fixer", "model": "FREEMIUM", "cdate": 1791640448000, "downloads": 48, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35156", "naam": "Pinwise: Python Requirements", "model": "FREEMIUM", "cdate": 1792066880000, "downloads": 48, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34913", "naam": "Kubernetes Release Guard", "model": "PAID", "cdate": 1791815206000, "downloads": 47, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35121", "naam": "Oskuvi TH Expressions", "model": "PAID", "cdate": 1793039720000, "downloads": 47, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35392", "naam": "Orbit for Consul", "model": "FREEMIUM", "cdate": 1793526141000, "downloads": 47, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "23855", "naam": "JMeter Runner", "model": "PAID", "cdate": 1788713882000, "downloads": 6997, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "33637", "naam": "Cells - Notebook Viewer and Editor", "model": "PAID", "cdate": 1788175993000, "downloads": 76, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "34362", "naam": "Cloud Debug Pack", "model": "FREEMIUM", "cdate": 1789805002000, "downloads": 46, "maker": "sellerkit", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34496", "naam": "Driver's Seat", "model": "FREEMIUM", "cdate": 1790259998000, "downloads": 46, "maker": "Damian Boni", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "35268", "naam": "Postman Migration Assistant", "model": "FREEMIUM", "cdate": 1793508771000, "downloads": 46, "maker": "Shadowmoon6868", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "30909", "naam": "Lnr", "model": "PAID", "cdate": 1790096168000, "downloads": 183, "maker": "Artem Bear", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35123", "naam": "Oskuvi Metric Queries", "model": "PAID", "cdate": 1793039726000, "downloads": 45, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "26365", "naam": "Actionate", "model": "PAID", "cdate": 1789826912000, "downloads": 901, "maker": "Revenate", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35520", "naam": "NPCoding CAN Database Files", "model": "PAID", "cdate": 1793047123000, "downloads": 44, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34557", "naam": "Model Card Lint - Hugging Face model card and EU GPAI (Art. 53)", "model": "FREEMIUM", "cdate": 1792988336000, "downloads": 44, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35269", "naam": "Anaconda to Miniforge Migration Fixer: Docker, CI", "model": "FREEMIUM", "cdate": 1792383325000, "downloads": 44, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35159", "naam": "QueryScope for SQL Server", "model": "PAID", "cdate": 1793736522000, "downloads": 44, "maker": "Karelia Labs", "maker_type": "Organization", "verified": true, "land": "SE"}
+{"id": "34826", "naam": "Flexible for Penpot", "model": "PAID", "cdate": 1791910812000, "downloads": 43, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35122", "naam": "Oskuvi PYX Language", "model": "PAID", "cdate": 1793039723000, "downloads": 43, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "30680", "naam": "Lucide Dark Theme", "model": "PAID", "cdate": 1788526864000, "downloads": 239, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "33647", "naam": "CodeBecause", "model": "PAID", "cdate": 1787736390000, "downloads": 61, "maker": "CodeBecause", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "35132", "naam": "Oskuvi Flow for Git", "model": "PAID", "cdate": 1793039761000, "downloads": 42, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35522", "naam": "NPCoding Compiler IR Files", "model": "PAID", "cdate": 1793047311000, "downloads": 42, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34991", "naam": "Docker Desktop to Podman Migration Fixer", "model": "FREEMIUM", "cdate": 1791691880000, "downloads": 42, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35003", "naam": "Vbaforge for VBA", "model": "FREEMIUM", "cdate": 1791729963000, "downloads": 42, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35611", "naam": "Coverlay: LCOV Coverage", "model": "FREEMIUM", "cdate": 1793800872000, "downloads": 42, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "9863", "naam": "AEM Support", "model": "PAID", "cdate": 1793972513000, "downloads": 200639, "maker": "Victor Saar", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34697", "naam": "Git Untracked", "model": "FREEMIUM", "cdate": 1790943449000, "downloads": 53, "maker": "Toby Tan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34620", "naam": "Firestore Security Rules Lint and Fix", "model": "FREEMIUM", "cdate": 1792817731000, "downloads": 41, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34964", "naam": "Spring Boot 4 Migration Fixer", "model": "FREEMIUM", "cdate": 1791637101000, "downloads": 41, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35677", "naam": "Zig Pro", "model": "PAID", "cdate": 1793830793000, "downloads": 41, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35119", "naam": "Oskuvi Template Tags", "model": "PAID", "cdate": 1793039712000, "downloads": 40, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35127", "naam": "Oskuvi Class Diagrams", "model": "PAID", "cdate": 1793039741000, "downloads": 40, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34571", "naam": "TLS Cert Lifetime Lint - SC-081v3 Renewal Check", "model": "FREEMIUM", "cdate": 1792816940000, "downloads": 40, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34952", "naam": "Julimate for Julia", "model": "FREEMIUM", "cdate": 1791586434000, "downloads": 40, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35255", "naam": "Ansible Workbench", "model": "FREEMIUM", "cdate": 1792655704000, "downloads": 40, "maker": "BrisaWorks", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "35131", "naam": "Oskuvi Coordination Browser", "model": "PAID", "cdate": 1793039758000, "downloads": 39, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35153", "naam": "Modsight: Dependency Graph", "model": "FREEMIUM", "cdate": 1792061446000, "downloads": 39, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "22223", "naam": "LocalStack Toolkit", "model": "PAID", "cdate": 1791919947000, "downloads": 9943, "maker": "Dmytro Kozhanov", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "28160", "naam": "DirEnv Pro", "model": "PAID", "cdate": 1790959291000, "downloads": 2569, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34769", "naam": "Git Crypt Guard", "model": "PAID", "cdate": 1793873229000, "downloads": 38, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35126", "naam": "Oskuvi DB Changelogs", "model": "PAID", "cdate": 1793039738000, "downloads": 38, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35175", "naam": "MCP Server 2026 Spec Migration Check", "model": "FREEMIUM", "cdate": 1792124085000, "downloads": 38, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35556", "naam": "Pipeline Inbox for Forgejo and Gitea", "model": "FREEMIUM", "cdate": 1794157901000, "downloads": 38, "maker": "Lesstep", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "33935", "naam": "Gleam Pro", "model": "PAID", "cdate": 1792764946000, "downloads": 87, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "34232", "naam": "LogQuarry Log Viewer", "model": "PAID", "cdate": 1789199398000, "downloads": 37, "maker": "DevCairn Labs", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35128", "naam": "Oskuvi Classes from JSON", "model": "PAID", "cdate": 1793039744000, "downloads": 37, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35168", "naam": "Java Architecture Regression Guard", "model": "PAID", "cdate": 1793666628000, "downloads": 37, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "34973", "naam": "Cobolwise: COBOL & Copybooks", "model": "FREEMIUM", "cdate": 1791645318000, "downloads": 37, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34996", "naam": "Rungwise: Structured Text", "model": "FREEMIUM", "cdate": 1791718454000, "downloads": 37, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "7525", "naam": "Hybris Integration", "model": "PAID", "cdate": 1793892970000, "downloads": 317477, "maker": "Hybris Integration", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "32195", "naam": "Flexible For Base UI", "model": "PAID", "cdate": 1793609471000, "downloads": 76, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "29269", "naam": "Maven With Me Pro(MPVP)", "model": "FREEMIUM", "cdate": 1792066733000, "downloads": 521, "maker": "\u65b0\u7a0b\u5feb\u5496\u5458", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28530", "naam": "KYAML", "model": "FREEMIUM", "cdate": 1793860793000, "downloads": 213, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35149", "naam": "Code2Graph", "model": "FREEMIUM", "cdate": 1793119055000, "downloads": 38, "maker": "Luka", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34313", "naam": "FlagScope", "model": "FREEMIUM", "cdate": 1790145157000, "downloads": 36, "maker": "Magika", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "34810", "naam": "WP Review Gate - Readme Check", "model": "FREEMIUM", "cdate": 1792816190000, "downloads": 36, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34997", "naam": "Siemwise: KQL, SPL & YARA", "model": "FREEMIUM", "cdate": 1791720079000, "downloads": 36, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34900", "naam": "XSDeck for XSD & WSDL", "model": "FREEMIUM", "cdate": 1791489233000, "downloads": 35, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "31421", "naam": "CodeLens UML", "model": "PAID", "cdate": 1787213523000, "downloads": 43, "maker": "Adam Nashar", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35279", "naam": "SQLJ Language Support", "model": "PAID", "cdate": 1792482571000, "downloads": 36, "maker": "Danny Reinhold", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34998", "naam": "Lost Code Finder", "model": "PAID", "cdate": 1791942741000, "downloads": 34, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "34966", "naam": "Jackson 3 Migration Fixer", "model": "FREEMIUM", "cdate": 1791637102000, "downloads": 34, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "32232", "naam": "Flexible For Mantine", "model": "PAID", "cdate": 1793609151000, "downloads": 75, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35524", "naam": "NPCoding Registry Files", "model": "PAID", "cdate": 1793048309000, "downloads": 33, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "34907", "naam": "Pasforge: Pascal Build & Run", "model": "FREEMIUM", "cdate": 1791500297000, "downloads": 33, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34943", "naam": "Romsight: Linker Map Analyzer", "model": "FREEMIUM", "cdate": 1791575575000, "downloads": 33, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34944", "naam": "Hdlwise: Verilog & VHDL", "model": "FREEMIUM", "cdate": 1791578778000, "downloads": 33, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "34953", "naam": "Hotkeycraft: AutoHotkey v2", "model": "FREEMIUM", "cdate": 1791589947000, "downloads": 33, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35048", "naam": "iText to OpenPDF Migration Fixer: AGPL Check", "model": "FREEMIUM", "cdate": 1791864989000, "downloads": 33, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35240", "naam": "Xcode 26 SDK Gate and Fixer for GitHub Actions", "model": "FREEMIUM", "cdate": 1792297061000, "downloads": 33, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35625", "naam": "Breakdeck: Breakpoint Profiles", "model": "FREEMIUM", "cdate": 1793955661000, "downloads": 33, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "31614", "naam": "FeatureFlagPro", "model": "PAID", "cdate": 1791608510000, "downloads": 64, "maker": "Moon Laboratories", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35129", "naam": "Oskuvi JSON from Classes", "model": "PAID", "cdate": 1793039748000, "downloads": 32, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35130", "naam": "Oskuvi Code Metrics", "model": "PAID", "cdate": 1793039751000, "downloads": 32, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35391", "naam": "HL7 v2 Validator", "model": "PAID", "cdate": 1792755833000, "downloads": 31, "maker": "VadimToptunov", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "35642", "naam": "Bioluminescence Theme", "model": "PAID", "cdate": 1793315341000, "downloads": 31, "maker": "Codigrate", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "33972", "naam": "Coharyn Impact", "model": "FREEMIUM", "cdate": 1788241176000, "downloads": 31, "maker": "Coharyn", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35147", "naam": "Docker Desktop to Rancher Desktop Migration Fixer", "model": "FREEMIUM", "cdate": 1792037666000, "downloads": 31, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "31108", "naam": "Gruvppuccin Theme", "model": "PAID", "cdate": 1793598801000, "downloads": 496, "maker": "Ahmed Elhossaini", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "28356", "naam": "Shopware 6 Toolkit", "model": "PAID", "cdate": 1793455271000, "downloads": 160, "maker": "Felix Astner Software", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "24958", "naam": "CodeQL", "model": "PAID", "cdate": 1788711222000, "downloads": 3949, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34401", "naam": "Sectionary", "model": "PAID", "cdate": 1790667658000, "downloads": 30, "maker": "Gunblade Games GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35521", "naam": "NPCoding Support for ASN.1", "model": "PAID", "cdate": 1793047273000, "downloads": 29, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "29271", "naam": "Maven Update Pro(MPVP)", "model": "FREEMIUM", "cdate": 1792066761000, "downloads": 429, "maker": "\u65b0\u7a0b\u5feb\u5496\u5458", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "35188", "naam": "Pourwise: Liquid & Shopify", "model": "FREEMIUM", "cdate": 1792154683000, "downloads": 31, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35135", "naam": "Celldeck: Excel Editor", "model": "FREEMIUM", "cdate": 1792324148000, "downloads": 30, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35167", "naam": "Graphlume: DOT Graph Editor", "model": "FREEMIUM", "cdate": 1792323840000, "downloads": 30, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35210", "naam": "Docker Desktop to Podman Desktop: Brewfile, winget, choco Fixer", "model": "FREEMIUM", "cdate": 1792211124000, "downloads": 29, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34380", "naam": "TailScope: Log Viewer, Filter & Follow", "model": "PAID", "cdate": 1789901841000, "downloads": 28, "maker": "Vaultworks Apps", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "35526", "naam": "NPCoding Security Policy Files", "model": "PAID", "cdate": 1793048414000, "downloads": 28, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "29270", "naam": "Maven Search Pro(MPVP)", "model": "FREEMIUM", "cdate": 1792066747000, "downloads": 494, "maker": "\u65b0\u7a0b\u5feb\u5496\u5458", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34505", "naam": "SqlLogLens - Restore SQL from Logs", "model": "FREEMIUM", "cdate": 1790277528000, "downloads": 28, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "35303", "naam": "SBOM Field Check for CRA (CycloneDX, SPDX)", "model": "FREEMIUM", "cdate": 1792469893000, "downloads": 28, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "28202", "naam": "API Blueprint (Lifetime)", "model": "PAID", "cdate": 1788715764000, "downloads": 1084, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "29845", "naam": "DoneIt", "model": "PAID", "cdate": 1788499124000, "downloads": 115, "maker": "DoneIt", "maker_type": "Organization", "verified": true, "land": "KG"}
+{"id": "33706", "naam": "LinearPilot", "model": "PAID", "cdate": 1787289777000, "downloads": 27, "maker": "Jiezan Tech", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34914", "naam": "Spring Boot Production Guard", "model": "PAID", "cdate": 1791576634000, "downloads": 27, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35382", "naam": "Resource Bundle Pro", "model": "PAID", "cdate": 1793879504000, "downloads": 27, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35241", "naam": "PySimpleGUI Licence Check: FreeSimpleGUI / NiceGUI Migration", "model": "FREEMIUM", "cdate": 1792297709000, "downloads": 27, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35634", "naam": "MockSnap", "model": "FREEMIUM", "cdate": 1793667041000, "downloads": 27, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35748", "naam": "Reportly: RDL Reports", "model": "FREEMIUM", "cdate": 1793800880000, "downloads": 27, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34916", "naam": "Impact Graph", "model": "PAID", "cdate": 1791530784000, "downloads": 26, "maker": "LeJiu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34974", "naam": "Daxwise: DAX, TMDL & M", "model": "FREEMIUM", "cdate": 1791645906000, "downloads": 26, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35111", "naam": "Logstanza: Log File Viewer", "model": "FREEMIUM", "cdate": 1791990363000, "downloads": 26, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35115", "naam": "Sqmcraft: SQLDelight Tools", "model": "FREEMIUM", "cdate": 1791997515000, "downloads": 26, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35304", "naam": "npm publish package.json Gate - Node 20 EOL and SPDX", "model": "FREEMIUM", "cdate": 1792470572000, "downloads": 26, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35605", "naam": "Vulngrep", "model": "FREEMIUM", "cdate": 1793688939000, "downloads": 26, "maker": "Vulngrep", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "34972", "naam": "Netstanza: Network Configs", "model": "FREEMIUM", "cdate": 1791642941000, "downloads": 25, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35086", "naam": "NuGet Pack Fixer: csproj License, Icon, TFM", "model": "FREEMIUM", "cdate": 1791951316000, "downloads": 25, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35187", "naam": "Ejsforge: EJS Templates", "model": "FREEMIUM", "cdate": 1792153390000, "downloads": 25, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35745", "naam": "Edmira: EDMX Models", "model": "FREEMIUM", "cdate": 1793881876000, "downloads": 25, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35421", "naam": "ReferenceFlow for SQL Server", "model": "PAID", "cdate": 1793736589000, "downloads": 24, "maker": "Karelia Labs", "maker_type": "Organization", "verified": true, "land": "SE"}
+{"id": "35529", "naam": "NPCoding Health Messages", "model": "PAID", "cdate": 1793048501000, "downloads": 24, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "35114", "naam": "Dinowise: Deno", "model": "FREEMIUM", "cdate": 1791992499000, "downloads": 24, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35141", "naam": "Runewise: Svelte 5", "model": "FREEMIUM", "cdate": 1792017921000, "downloads": 24, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35176", "naam": "composer.json Validate - PHP EOL Release Gate", "model": "FREEMIUM", "cdate": 1792124666000, "downloads": 24, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35270", "naam": "SQL Server Standard to Express Downgrade Check", "model": "FREEMIUM", "cdate": 1792384012000, "downloads": 24, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35356", "naam": "LogGuard Compliance", "model": "FREEMIUM", "cdate": 1793666744000, "downloads": 24, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35530", "naam": "TerraCost Inline", "model": "FREEMIUM", "cdate": 1793666894000, "downloads": 24, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35697", "naam": "Longday Code Theme", "model": "FREEMIUM", "cdate": 1793504384000, "downloads": 24, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "20761", "naam": "MongoExpert", "model": "PAID", "cdate": 1793539228000, "downloads": 6768, "maker": "Expert Plugins", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30145", "naam": "Faker Quick", "model": "PAID", "cdate": 1792416128000, "downloads": 182, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "33939", "naam": "KitchenCI", "model": "FREEMIUM", "cdate": 1788103738000, "downloads": 22, "maker": "SomeBlackMagic", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34979", "naam": "Hieracraft for Puppet", "model": "FREEMIUM", "cdate": 1791668383000, "downloads": 22, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35374", "naam": "ImageSharp to SkiaSharp Migration and License Check", "model": "FREEMIUM", "cdate": 1792645163000, "downloads": 22, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35629", "naam": "Setupwright: MSI Installers", "model": "FREEMIUM", "cdate": 1793271864000, "downloads": 22, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35688", "naam": "Algo Lens: Coding Test Judge", "model": "PAID", "cdate": 1793755813000, "downloads": 23, "maker": "boki", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "32152", "naam": "SQLLens for MyBatis", "model": "FREEMIUM", "cdate": 1789272176000, "downloads": 24, "maker": "longjianghu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "34824", "naam": "WebhookMon - Webhook Inspector & Replay", "model": "FREEMIUM", "cdate": 1791296368000, "downloads": 21, "maker": "Uresk Networks", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "34848", "naam": "Flyway Migration Guard", "model": "FREEMIUM", "cdate": 1792625270000, "downloads": 21, "maker": "Moon Laboratories", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35371", "naam": "Liquibase to Flyway Migration - FSL Licence Check", "model": "FREEMIUM", "cdate": 1792642515000, "downloads": 21, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "34915", "naam": "MCP Agent Security Auditor", "model": "PAID", "cdate": 1792095899000, "downloads": 22, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "34032", "naam": "EF Log2SQL", "model": "PAID", "cdate": 1788356251000, "downloads": 20, "maker": "AYB Tools", "maker_type": "Organization", "verified": true, "land": "JO"}
+{"id": "35525", "naam": "NPCoding CLI Parse Templates", "model": "PAID", "cdate": 1793048355000, "downloads": 20, "maker": "Oskuvi", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "29206", "naam": "AIVory Architect", "model": "FREEMIUM", "cdate": 1793604430000, "downloads": 410, "maker": "AIVory, Inc.", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35372", "naam": "Puppet to OpenVox Migration Fixer", "model": "FREEMIUM", "cdate": 1792643548000, "downloads": 20, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35411", "naam": "Redis to Valkey Migration Fixer (ElastiCache)", "model": "FREEMIUM", "cdate": 1792729511000, "downloads": 20, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35619", "naam": "Tessera: Easy Coding Standard", "model": "FREEMIUM", "cdate": 1793637977000, "downloads": 20, "maker": "KOT&CO", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "34761", "naam": "DBT Guard", "model": "PAID", "cdate": 1792845610000, "downloads": 48, "maker": "NIXO Solutions LLC", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "35165", "naam": "Java Dependency Upgrade Impact", "model": "PAID", "cdate": 1792098631000, "downloads": 19, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35377", "naam": "GroupedTabs", "model": "PAID", "cdate": 1792665864000, "downloads": 19, "maker": "strohmw", "maker_type": "Organization", "verified": true, "land": "ZA"}
+{"id": "35775", "naam": "WHMCS Toolkit", "model": "PAID", "cdate": 1794160243000, "downloads": 19, "maker": "Design Master", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "34771", "naam": "Localization QA", "model": "FREEMIUM", "cdate": 1791135855000, "downloads": 19, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35636", "naam": "PipelineDoctor", "model": "FREEMIUM", "cdate": 1793312752000, "downloads": 19, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "34845", "naam": "Runcradle - Run GitHub Actions Locally", "model": "PAID", "cdate": 1792130767000, "downloads": 31, "maker": "Zuhaib", "maker_type": "Organization", "verified": true, "land": "PK"}
+{"id": "35765", "naam": "EDIFACT Inspector", "model": "PAID", "cdate": 1793803407000, "downloads": 20, "maker": "Devora", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "35635", "naam": "Toolkit for DuckDB", "model": "PAID", "cdate": 1794060222000, "downloads": 19, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35749", "naam": "Gruvppuccin Lifetime Edition", "model": "PAID", "cdate": 1793657016000, "downloads": 19, "maker": "Ahmed Elhossaini", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "34775", "naam": "OpenAPI Contract Auditor", "model": "FREEMIUM", "cdate": 1791143364000, "downloads": 18, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35209", "naam": "Highcharts License Check: Apache ECharts Migration", "model": "FREEMIUM", "cdate": 1792210521000, "downloads": 18, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35373", "naam": "CentOS to AlmaLinux Migration Fixer", "model": "FREEMIUM", "cdate": 1792644376000, "downloads": 18, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "29883", "naam": "OFBiz Integration", "model": "PAID", "cdate": 1793609216000, "downloads": 256, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "34650", "naam": "Diff Notes", "model": "PAID", "cdate": 1790765483000, "downloads": 19, "maker": "Magika", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "35243", "naam": "Compose Config Inspector", "model": "PAID", "cdate": 1792304190000, "downloads": 17, "maker": "Ortanca Studio", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35169", "naam": "Islandwise: Astro", "model": "FREEMIUM", "cdate": 1792103722000, "downloads": 17, "maker": "KITSS TECH", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "35412", "naam": "Arbeitsvertrag NachwG Check: German Employment Contract Lint", "model": "FREEMIUM", "cdate": 1792730117000, "downloads": 17, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35531", "naam": "EventPulse", "model": "FREEMIUM", "cdate": 1793051241000, "downloads": 17, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "24142", "naam": "RustX", "model": "PAID", "cdate": 1793674564000, "downloads": 1829, "maker": "\u6881\u5178\u5178", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28392", "naam": "System Notifier", "model": "PAID", "cdate": 1788716961000, "downloads": 293, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "35217", "naam": "DownTheRabbitHole", "model": "PAID", "cdate": 1792237000000, "downloads": 17, "maker": "nitro8985", "maker_type": "Organization", "verified": true, "land": "KZ"}
+{"id": "34641", "naam": "Source to Design", "model": "PAID", "cdate": 1790684390000, "downloads": 16, "maker": "Source to Design", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35538", "naam": "go.mod Release Gate", "model": "FREEMIUM", "cdate": 1793206886000, "downloads": 16, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "35769", "naam": "DataPulse Viewer: Parquet, Avro, Delta Lake and SQL", "model": "FREEMIUM", "cdate": 1793730638000, "downloads": 16, "maker": "PuzariCloud", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "35813", "naam": "AI Silenced Check Finder", "model": "FREEMIUM", "cdate": 1793861438000, "downloads": 16, "maker": "GRAMSHIFT", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "20534", "naam": "SQLFluff Linter (Ultimate Edition)", "model": "PAID", "cdate": 1788713873000, "downloads": 4227, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "26405", "naam": "Jenkinsfile Linter Offline", "model": "PAID", "cdate": 1788715227000, "downloads": 1306, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34874", "naam": "AgentRules Doctor", "model": "FREEMIUM", "cdate": 1791409058000, "downloads": 15, "maker": "Moon Laboratories", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35410", "naam": "Neo4j to ArangoDB Migration - End-of-Life Check", "model": "FREEMIUM", "cdate": 1792728973000, "downloads": 15, "maker": "ReadyStack", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "32977", "naam": "Marko Pro", "model": "PAID", "cdate": 1793109711000, "downloads": 80, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "35250", "naam": "Helm Override Explorer", "model": "PAID", "cdate": 1792768905000, "downloads": 18, "maker": "Ortanca Studio", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "35658", "naam": "Htaccess Lint", "model": "FREEMIUM", "cdate": 1793365974000, "downloads": 14, "maker": "timaub", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "29479", "naam": "API Blueprint Viewer (Lifetime)", "model": "PAID", "cdate": 1788717164000, "downloads": 173, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "32519", "naam": "YMM Structured AI Assistant", "model": "PAID", "cdate": 1794001983000, "downloads": 145, "maker": "You, Me & Myself", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "35443", "naam": "Ansible Studio", "model": "FREEMIUM", "cdate": 1793637561000, "downloads": 15, "maker": "PuzariCloud", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "34617", "naam": "Card Message Toolkit", "model": "FREEMIUM", "cdate": 1790634942000, "downloads": 13, "maker": "Mouad EL MRABATE", "maker_type": "Organization", "verified": true, "land": "MA"}
+{"id": "35768", "naam": "MarkdownPulse", "model": "FREEMIUM", "cdate": 1793734008000, "downloads": 13, "maker": "PuzariCloud", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "35444", "naam": "IssuePulse for Jira", "model": "FREEMIUM", "cdate": 1793630017000, "downloads": 13, "maker": "PuzariCloud", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "35837", "naam": "Bundle Impact Lens", "model": "FREEMIUM", "cdate": 1793906984000, "downloads": 12, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "29739", "naam": "Close Without Breakpoints (Lifetime)", "model": "PAID", "cdate": 1788716782000, "downloads": 167, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "35694", "naam": "Config Drift Matrix", "model": "PAID", "cdate": 1793497083000, "downloads": 11, "maker": "Ouyang Matters", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "35441", "naam": "Git Flow Pro", "model": "FREEMIUM", "cdate": 1793686548000, "downloads": 14, "maker": "PuzariCloud", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "35633", "naam": "i18n Matrix Pro", "model": "FREEMIUM", "cdate": 1793280171000, "downloads": 11, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "31238", "naam": "Nushell Object Notation", "model": "PAID", "cdate": 1788718244000, "downloads": 117, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "35613", "naam": "FixtureForge", "model": "PAID", "cdate": 1793235690000, "downloads": 10, "maker": "Ouyang Matters", "maker_type": "Organization", "verified": true, "land": "CA"}
+{"id": "35790", "naam": "Json POJO King", "model": "PAID", "cdate": 1793795442000, "downloads": 10, "maker": "Fedos Tech", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "35798", "naam": "Orbit for Apache Solr", "model": "PAID", "cdate": 1793815552000, "downloads": 10, "maker": "Jim Apps", "maker_type": "Organization", "verified": true, "land": "GE"}
+{"id": "35825", "naam": "PL/SQL Lint", "model": "FREEMIUM", "cdate": 1793884832000, "downloads": 10, "maker": "Catalonec Tools", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "32235", "naam": "Unicode Guard", "model": "PAID", "cdate": 1788716441000, "downloads": 78, "maker": "Anbora Labs", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "34178", "naam": "Remote .NET Launch", "model": "PAID", "cdate": 1788942040000, "downloads": 13, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "35839", "naam": "Playwright Failure Diff", "model": "FREEMIUM", "cdate": 1793907416000, "downloads": 9, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "33932", "naam": "Pysar Designer", "model": "PAID", "cdate": 1793636458000, "downloads": 34, "maker": "Mriya Lab", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35841", "naam": "Design Token Guard", "model": "FREEMIUM", "cdate": 1794000463000, "downloads": 8, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "28577", "naam": "Logger Auto Folding", "model": "PAID", "cdate": 1793271077000, "downloads": 85, "maker": "Enco", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "35838", "naam": "Timezone Test Studio", "model": "FREEMIUM", "cdate": 1793907233000, "downloads": 7, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "35842", "naam": "Monorepo Release Guard", "model": "FREEMIUM", "cdate": 1793910260000, "downloads": 4, "maker": "AFK Mesh", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "18860", "naam": "WireMocha", "model": "PAID", "cdate": 1794092517000, "downloads": 3919, "maker": "Tam\u00e1s Balog", "maker_type": "Organization", "verified": true, "land": "HU"}
+{"id": "18622", "naam": "Spring Boot Helper", "model": "PAID", "cdate": 1783746577000, "downloads": 988980, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "13905", "naam": "MyBatis Log", "model": "PAID", "cdate": 1781197499000, "downloads": 633545, "maker": "obroom", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "9564", "naam": "React Native Console", "model": "PAID", "cdate": 1774504562000, "downloads": 435882, "maker": "BeanSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "9238", "naam": "JetForcer | The Smartest Force.com IDE", "model": "PAID", "cdate": 1751743802000, "downloads": 342094, "maker": "JetForcer", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "7232", "naam": "Wolfram Language", "model": "PAID", "cdate": 1775094647000, "downloads": 132479, "maker": "Hal's Corner", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "9739", "naam": "Yaoqiang BPMN Editor", "model": "PAID", "cdate": 1748959726000, "downloads": 89166, "maker": "Yaoqiang", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "12621", "naam": "JFormDesigner (Marketplace Edition)", "model": "PAID", "cdate": 1785951701000, "downloads": 52472, "maker": "FormDev Software", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "12887", "naam": "OpenAPI Editor", "model": "PAID", "cdate": 1769629501000, "downloads": 47803, "maker": "Sebastian Monte", "maker_type": "Organization", "verified": true, "land": "FI"}
+{"id": "15722", "naam": "Redis Manager", "model": "PAID", "cdate": 1672117667000, "downloads": 45124, "maker": "hongjinfeng", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "22429", "naam": "Polaris Tomcat Server", "model": "PAID", "cdate": 1749913189000, "downloads": 44018, "maker": "YingXingGuiHai", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "14718", "naam": "Flutter Storm", "model": "PAID", "cdate": 1713194215000, "downloads": 42361, "maker": "BeanSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "10811", "naam": "CodeMR", "model": "PAID", "cdate": 1723415410000, "downloads": 41474, "maker": "CodeMR", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "16405", "naam": "Qt Style Sheets Editor", "model": "PAID", "cdate": 1657224562000, "downloads": 39727, "maker": "Quick Turn Studio", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "14437", "naam": "Shared Project Indexes", "model": "PAID", "cdate": 1764347505000, "downloads": 35109, "maker": "JetBrains s.r.o.", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "22742", "naam": "SQLFormatter", "model": "PAID", "cdate": 1784708306000, "downloads": 35101, "maker": "delicacy", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20347", "naam": "MerryLab \u2014 Integration for GitLab", "model": "PAID", "cdate": 1785855847000, "downloads": 33982, "maker": "panghu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18151", "naam": "Simple Object Copy", "model": "PAID", "cdate": 1652169037000, "downloads": 33595, "maker": "com-cs-org", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18387", "naam": "NEON Nette Support", "model": "PAID", "cdate": 1778539331000, "downloads": 33409, "maker": "Mesour plugins", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "14434", "naam": "QmlEditor", "model": "PAID", "cdate": 1680248622000, "downloads": 31346, "maker": "Quick Turn Studio", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "26495", "naam": "Russian Language Pack for IDEs & Plugins", "model": "PAID", "cdate": 1783429787000, "downloads": 27275, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "16361", "naam": "Generator Crud", "model": "PAID", "cdate": 1732112279000, "downloads": 22831, "maker": "GuoGuang", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24816", "naam": "VSCode Icons", "model": "PAID", "cdate": 1785207627000, "downloads": 22398, "maker": "JTracker", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "22284", "naam": "Kafka Client", "model": "PAID", "cdate": 1759363299000, "downloads": 21020, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "14742", "naam": "AWS Lambda Deployer", "model": "PAID", "cdate": 1775904321000, "downloads": 20767, "maker": "theRDnotes", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "19660", "naam": "SQL Optimizer,Index Advisor MySQL/Postgre/Oracle, Tune by PawSQL", "model": "PAID", "cdate": 1762510738000, "downloads": 19228, "maker": "PawSQL", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "19360", "naam": "Redis Client", "model": "PAID", "cdate": 1756016407000, "downloads": 19016, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "10828", "naam": "JavaDoc Clean Read", "model": "PAID", "cdate": 1759063138000, "downloads": 18880, "maker": "Artsiom Chapialiou", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "17456", "naam": "Material Theme UI High Contrast", "model": "PAID", "cdate": 1754664451000, "downloads": 18683, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "26581", "naam": "Spanish Language Pack for IDEs & Plugins", "model": "PAID", "cdate": 1772385857000, "downloads": 16556, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "23115", "naam": "SequenceDiagram.org", "model": "PAID", "cdate": 1755419016000, "downloads": 15847, "maker": "SequenceDiagram.org", "maker_type": "Organization", "verified": true, "land": "SE"}
+{"id": "26724", "naam": "Portuguese Language Pack for IDEs & Plugins", "model": "PAID", "cdate": 1772385865000, "downloads": 15352, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "23609", "naam": "Firebase Firestore", "model": "PAID", "cdate": 1784292387000, "downloads": 15214, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "16160", "naam": "Redis-Cli", "model": "PAID", "cdate": 1773650961000, "downloads": 13569, "maker": "lpflpf", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "19114", "naam": "CIclone", "model": "PAID", "cdate": 1784272256000, "downloads": 13294, "maker": "Samuraism Inc.", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "23999", "naam": "Mongo DB", "model": "PAID", "cdate": 1756023898000, "downloads": 12880, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "11560", "naam": "Java Antidecompiler", "model": "PAID", "cdate": 1690094803000, "downloads": 11567, "maker": "BIS Guard & Co.", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "14053", "naam": "Smart Jump", "model": "PAID", "cdate": 1775894480000, "downloads": 11537, "maker": "obroom", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "21314", "naam": "CodeMate", "model": "PAID", "cdate": 1739761716000, "downloads": 11464, "maker": "\u5c0f\u767d\u83dc", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20297", "naam": "JSON-YAML-XML Converter", "model": "PAID", "cdate": 1730990713000, "downloads": 10215, "maker": "Syncro Soft", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "19027", "naam": "Quarkus Assistant", "model": "PAID", "cdate": 1706597564000, "downloads": 9930, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "19309", "naam": "Material Theme UI Language Additions", "model": "PAID", "cdate": 1693251504000, "downloads": 9886, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "26716", "naam": "CSV Color Pro", "model": "PAID", "cdate": 1746369124000, "downloads": 9623, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "19250", "naam": "Material Theme UI Extras", "model": "PAID", "cdate": 1693251658000, "downloads": 9436, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "22232", "naam": "Sentry", "model": "PAID", "cdate": 1784292245000, "downloads": 8661, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "19308", "naam": "Material Theme UI Custom Theme", "model": "PAID", "cdate": 1693251673000, "downloads": 8520, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "23693", "naam": "Yii2 Framework Support", "model": "PAID", "cdate": 1794141086000, "downloads": 8496, "maker": "Insperedia", "maker_type": "Organization", "verified": true, "land": "SE"}
+{"id": "20049", "naam": "Gerry Cyberpunk Theme", "model": "PAID", "cdate": 1777535219000, "downloads": 8479, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20565", "naam": "Snippet Toolkit for Tailwind CSS", "model": "PAID", "cdate": 1775046189000, "downloads": 8460, "maker": "Sparkweb Cloud", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "19310", "naam": "Material Theme UI Project Frame", "model": "PAID", "cdate": 1693459587000, "downloads": 6936, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "19556", "naam": "ScreenCodePro", "model": "PAID", "cdate": 1658338628000, "downloads": 6732, "maker": "KikiManjaro", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "22428", "naam": "RustTool", "model": "PAID", "cdate": 1731723383000, "downloads": 6168, "maker": "AiWan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26734", "naam": "French Language Pack for IDEs & Plugins", "model": "PAID", "cdate": 1772385854000, "downloads": 5858, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "16861", "naam": "Database Helper", "model": "PAID", "cdate": 1727416078000, "downloads": 5666, "maker": "YinZhengFei", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20246", "naam": "Gerry Cherry Theme", "model": "PAID", "cdate": 1777535215000, "downloads": 5428, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20238", "naam": "Extensions Manager", "model": "PAID", "cdate": 1679136348000, "downloads": 5339, "maker": "BeanSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "13086", "naam": "Generate Document", "model": "PAID", "cdate": 1784433222000, "downloads": 5318, "maker": "YinZhengFei", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "21813", "naam": "Verilog Language Support", "model": "PAID", "cdate": 1774682003000, "downloads": 5017, "maker": "WJCDX", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26792", "naam": "German Language Pack for IDEs & Plugins", "model": "PAID", "cdate": 1783575098000, "downloads": 5017, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "20075", "naam": "Gerry Space Theme", "model": "PAID", "cdate": 1777535238000, "downloads": 4899, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26550", "naam": "Mybatis Log Ultra", "model": "PAID", "cdate": 1779690793000, "downloads": 4887, "maker": "yalonglee", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "19316", "naam": "Rancher", "model": "PAID", "cdate": 1785396841000, "downloads": 4717, "maker": "HUC", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "17465", "naam": "MQTT Client", "model": "PAID", "cdate": 1763639996000, "downloads": 4680, "maker": "casm", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20013", "naam": "JSON Browser", "model": "PAID", "cdate": 1766913388000, "downloads": 4534, "maker": "Side Hustle Solutions", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "20111", "naam": "Kafkaide", "model": "PAID", "cdate": 1698247279000, "downloads": 4459, "maker": "zzccctv", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "22597", "naam": "JSON Schema Generator", "model": "PAID", "cdate": 1730466328000, "downloads": 4300, "maker": "Syncro Soft", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "23360", "naam": "jqExpress AI", "model": "PAID", "cdate": 1784805820000, "downloads": 4238, "maker": "CODE MINDS Kft.", "maker_type": "Organization", "verified": true, "land": "HU"}
+{"id": "23859", "naam": "IntelliPHP - AI Autocomplete for PHP", "model": "PAID", "cdate": 1727009914000, "downloads": 4178, "maker": "DEVSENSE", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "24844", "naam": "HTMX Pro", "model": "PAID", "cdate": 1784563511000, "downloads": 4164, "maker": "honkanen.dev", "maker_type": "Organization", "verified": true, "land": "FI"}
+{"id": "19727", "naam": "SequenceOutline", "model": "PAID", "cdate": 1778037605000, "downloads": 4157, "maker": "moorror", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25063", "naam": "Auto API Generator", "model": "PAID", "cdate": 1764863644000, "downloads": 4051, "maker": "Musa Nabiyev", "maker_type": "Organization", "verified": true, "land": "AZ"}
+{"id": "16217", "naam": "Find In Files (Favorites)", "model": "PAID", "cdate": 1744888831000, "downloads": 3836, "maker": "Martin Kadlec", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "24973", "naam": "SequenceDiagram JS", "model": "PAID", "cdate": 1781767976000, "downloads": 3611, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20411", "naam": "Gorm", "model": "PAID", "cdate": 1744880158000, "downloads": 3567, "maker": "AiWan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24111", "naam": "MavenSearcher", "model": "PAID", "cdate": 1739187486000, "downloads": 3553, "maker": "Arek", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "23554", "naam": "JSON Schema Visualizer/Editor", "model": "PAID", "cdate": 1730899767000, "downloads": 3446, "maker": "Syncro Soft", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "24753", "naam": "Combine and Copy Files to Clipboard For AI and LLM", "model": "PAID", "cdate": 1783321531000, "downloads": 3405, "maker": "Jure Stepisnik", "maker_type": "Organization", "verified": true, "land": "SI"}
+{"id": "20319", "naam": "Gerry Aurora Theme", "model": "PAID", "cdate": 1777535210000, "downloads": 3322, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25978", "naam": "SequenceDiagram Python", "model": "PAID", "cdate": 1781762894000, "downloads": 3296, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20236", "naam": "Gerry Nature Theme", "model": "PAID", "cdate": 1777535233000, "downloads": 3249, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "15405", "naam": "LedgerPlugin", "model": "PAID", "cdate": 1757492009000, "downloads": 3242, "maker": "Solvesall d.o.o.", "maker_type": "Organization", "verified": true, "land": "SI"}
+{"id": "26436", "naam": "HTMX Pro (Lifetime)", "model": "PAID", "cdate": 1784564198000, "downloads": 3147, "maker": "honkanen.dev", "maker_type": "Organization", "verified": true, "land": "FI"}
+{"id": "14104", "naam": "commit-template", "model": "PAID", "cdate": 1668426435000, "downloads": 2855, "maker": "YinZhengFei", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30652", "naam": "All Languages Localization Pack", "model": "PAID", "cdate": 1776181980000, "downloads": 2758, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "17699", "naam": "AStock", "model": "PAID", "cdate": 1784569719000, "downloads": 2706, "maker": "agenthun", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18357", "naam": "API Runner", "model": "PAID", "cdate": 1763692200000, "downloads": 2550, "maker": "casm", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20247", "naam": "Gerry Coffee Theme", "model": "PAID", "cdate": 1777535217000, "downloads": 2541, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24889", "naam": "Snapshots for AI", "model": "PAID", "cdate": 1746138746000, "downloads": 2517, "maker": "GBTI Network", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "27118", "naam": "OpenAPI GUI Editor", "model": "PAID", "cdate": 1783613668000, "downloads": 2276, "maker": "Anton Okolelov", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "14338", "naam": "SPARQL", "model": "PAID", "cdate": 1648880315000, "downloads": 2167, "maker": "BorderCloud", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "25623", "naam": "SequenceDiagram Go", "model": "PAID", "cdate": 1781762596000, "downloads": 2143, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29044", "naam": "GPU Dev Accelerator Ultimate", "model": "PAID", "cdate": 1785444990000, "downloads": 2086, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "26079", "naam": "Spark SQL Helper", "model": "PAID", "cdate": 1758087724000, "downloads": 1986, "maker": "DogeKingStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24396", "naam": "Editor Assist For Code", "model": "PAID", "cdate": 1775490753000, "downloads": 1925, "maker": "LJYXP", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25912", "naam": "Flink SQL Helper", "model": "PAID", "cdate": 1753422652000, "downloads": 1899, "maker": "DogeKingStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24205", "naam": "SQLDebugger", "model": "PAID", "cdate": 1774876220000, "downloads": 1707, "maker": "delicacy", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25807", "naam": "SequenceDiagram C/C++", "model": "PAID", "cdate": 1781778131000, "downloads": 1574, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25376", "naam": "SequenceDiagram Rust", "model": "PAID", "cdate": 1784529697000, "downloads": 1537, "maker": "VanStudio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20526", "naam": "IoGame", "model": "PAID", "cdate": 1705402036000, "downloads": 1498, "maker": "AiWan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "22318", "naam": "Source Synchronizer Pro", "model": "PAID", "cdate": 1710540989000, "downloads": 1465, "maker": "Ioan Faur", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "23687", "naam": "Micronaut Launch", "model": "PAID", "cdate": 1706736943000, "downloads": 1459, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "22194", "naam": "Azure Coding", "model": "PAID", "cdate": 1688454348000, "downloads": 1453, "maker": "\u5c0f\u767d\u83dc", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26761", "naam": "TimeTracker X", "model": "PAID", "cdate": 1783942736000, "downloads": 1440, "maker": "Vasylenko Denys", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "22726", "naam": "Retrofit Assistant", "model": "PAID", "cdate": 1759818594000, "downloads": 1411, "maker": "xndSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26267", "naam": "VHDL Language Support", "model": "PAID", "cdate": 1775309570000, "downloads": 1398, "maker": "WJCDX", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32461", "naam": "Thrift Hero", "model": "PAID", "cdate": 1782344054000, "downloads": 1387, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "29475", "naam": "Tom cat Progress", "model": "PAID", "cdate": 1767321007000, "downloads": 1354, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "26514", "naam": "SystemVerilog Language Support", "model": "PAID", "cdate": 1775298195000, "downloads": 1335, "maker": "WJCDX", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30022", "naam": "Matrix Hero - MATLAB IDE", "model": "PAID", "cdate": 1782739421000, "downloads": 1224, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "24568", "naam": "Camunda Starter", "model": "PAID", "cdate": 1717527761000, "downloads": 1219, "maker": "eltonsandre", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "20888", "naam": "JavaKit", "model": "PAID", "cdate": 1745919262000, "downloads": 1111, "maker": "AiWan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32881", "naam": "Traditional Chinese Language Pack for IDEs", "model": "PAID", "cdate": 1783922668000, "downloads": 1102, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "24593", "naam": "DaoGenerator", "model": "PAID", "cdate": 1766407072000, "downloads": 1096, "maker": "delicacy", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25250", "naam": "Manage Projects", "model": "PAID", "cdate": 1772110280000, "downloads": 1087, "maker": "HUC", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18981", "naam": "PHP Houdini", "model": "PAID", "cdate": 1776465646000, "downloads": 1068, "maker": "Profound Inventions", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "24053", "naam": "IDE Plug DevKit Maven", "model": "PAID", "cdate": 1772421717000, "downloads": 1068, "maker": "HUC", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26854", "naam": "Spring Navigator", "model": "PAID", "cdate": 1770270550000, "downloads": 1050, "maker": "Leo", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25737", "naam": "Backlog Integration", "model": "PAID", "cdate": 1776648415000, "downloads": 989, "maker": "Samuraism Inc.", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "23743", "naam": "Soteri Secret Scanner", "model": "PAID", "cdate": 1723649148000, "downloads": 969, "maker": "Soteri", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "26223", "naam": "AWS CodePipeline Dashboard - Execute & Monitor Pipelines", "model": "PAID", "cdate": 1764147817000, "downloads": 913, "maker": "ideguru", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "25083", "naam": "kotlin-parameter-object", "model": "PAID", "cdate": 1753879347000, "downloads": 861, "maker": "NandoSoft", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "32813", "naam": "Caddyfile Pro", "model": "PAID", "cdate": 1783591645000, "downloads": 780, "maker": "FOR2NA", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "26476", "naam": "Dsl", "model": "PAID", "cdate": 1751802982000, "downloads": 747, "maker": "tortoise", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25549", "naam": "MybatisTools", "model": "PAID", "cdate": 1770199328000, "downloads": 715, "maker": "BYS", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29637", "naam": "Pikachu Progressbar", "model": "PAID", "cdate": 1767624896000, "downloads": 692, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "31556", "naam": "Forgejo", "model": "PAID", "cdate": 1784279882000, "downloads": 692, "maker": "JKamsker", "maker_type": "Organization", "verified": true, "land": "AT"}
+{"id": "25259", "naam": "MyBatis Dao Generator", "model": "PAID", "cdate": 1766409884000, "downloads": 689, "maker": "delicacy", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29683", "naam": "Mario Progressbar", "model": "PAID", "cdate": 1767891069000, "downloads": 686, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "30168", "naam": "Gemini Context Packer", "model": "PAID", "cdate": 1771336658000, "downloads": 685, "maker": "triangcircularmedia", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "29556", "naam": "Luffy Progressbar", "model": "PAID", "cdate": 1767269314000, "downloads": 679, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "30284", "naam": "Lucide Icons", "model": "PAID", "cdate": 1774437749000, "downloads": 653, "maker": "Modibo Sissoko", "maker_type": "Organization", "verified": true, "land": "ML"}
+{"id": "29420", "naam": "Doraemon Progress", "model": "PAID", "cdate": 1767320088000, "downloads": 641, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "22748", "naam": "Schema Registry Viewer", "model": "PAID", "cdate": 1709207776000, "downloads": 635, "maker": "Supernova", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "29587", "naam": "Messi Progressbar", "model": "PAID", "cdate": 1767354337000, "downloads": 633, "maker": "NTT Soft", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "29583", "naam": "Mickey Progressbar", "model": "PAID", "cdate": 1767326095000, "downloads": 606, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "29710", "naam": "Sonic Progressbar", "model": "PAID", "cdate": 1768123350000, "downloads": 573, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "29863", "naam": "Iron Man Progress", "model": "PAID", "cdate": 1769009417000, "downloads": 558, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "27570", "naam": "YmlHelper", "model": "PAID", "cdate": 1763899077000, "downloads": 555, "maker": "\u5176\u5b9e\u662f\u767d\u7f8a", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29755", "naam": "Kaito Kid Progressbar", "model": "PAID", "cdate": 1768317494000, "downloads": 547, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "26218", "naam": "rch-spring-code-generation", "model": "PAID", "cdate": 1785383338000, "downloads": 546, "maker": "Roberto Chasipanta", "maker_type": "Organization", "verified": true, "land": "EC"}
+{"id": "27283", "naam": "KarateGen", "model": "PAID", "cdate": 1776029812000, "downloads": 538, "maker": "sercheo", "maker_type": "Organization", "verified": true, "land": "EC"}
+{"id": "28680", "naam": "Jinja2 Custom Delimiters", "model": "PAID", "cdate": 1764756425000, "downloads": 518, "maker": "Wedgwood Web Works", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "29915", "naam": "Soap Desk", "model": "PAID", "cdate": 1778693220000, "downloads": 514, "maker": "ROUTE.MD", "maker_type": "Organization", "verified": true, "land": "MD"}
+{"id": "30109", "naam": "EJS Hero", "model": "PAID", "cdate": 1771739593000, "downloads": 510, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "29862", "naam": "Captain America Progress", "model": "PAID", "cdate": 1769004634000, "downloads": 507, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "29309", "naam": "AI Token Counter", "model": "PAID", "cdate": 1770221324000, "downloads": 503, "maker": "triangcircularmedia", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "27654", "naam": "HubL Hero", "model": "PAID", "cdate": 1774181889000, "downloads": 492, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "30892", "naam": "Absolutely Theme: Dark & Light", "model": "PAID", "cdate": 1775257981000, "downloads": 490, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "25582", "naam": "PR-FlowTracker", "model": "PAID", "cdate": 1784471323000, "downloads": 489, "maker": "itRunFenix", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "27279", "naam": "StackTrace", "model": "PAID", "cdate": 1747613306000, "downloads": 470, "maker": "Michael Leitsin", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "28878", "naam": "Android Localization", "model": "PAID", "cdate": 1773322922000, "downloads": 456, "maker": "NTMSoftware", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "27209", "naam": "Code Portal", "model": "PAID", "cdate": 1765606868000, "downloads": 450, "maker": "jellynugget", "maker_type": "Organization", "verified": true, "land": "SG"}
+{"id": "28880", "naam": "Git Remote Actions", "model": "PAID", "cdate": 1773904783000, "downloads": 450, "maker": "Jackson Chen", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "27681", "naam": "Files Manager for Claude", "model": "PAID", "cdate": 1750673451000, "downloads": 437, "maker": "Martin \u010cerman", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "28145", "naam": "Json Log Viewer", "model": "PAID", "cdate": 1781468315000, "downloads": 417, "maker": "InceptionApp", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "30757", "naam": "Http Server", "model": "PAID", "cdate": 1777766708000, "downloads": 414, "maker": "Alexandre Pontes", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "29705", "naam": "Yara Hero", "model": "PAID", "cdate": 1768169783000, "downloads": 396, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "23458", "naam": "SwissKit Converter", "model": "PAID", "cdate": 1715804009000, "downloads": 382, "maker": "CODE MINDS Kft.", "maker_type": "Organization", "verified": true, "land": "HU"}
+{"id": "30798", "naam": "Git Worktree Toolbox", "model": "PAID", "cdate": 1784439433000, "downloads": 382, "maker": "BalaKumar.dev", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "27802", "naam": "AEM Repository Tools", "model": "PAID", "cdate": 1776324754000, "downloads": 360, "maker": "javasin", "maker_type": "Organization", "verified": true, "land": "KR"}
+{"id": "27756", "naam": "Source Code Doc Generation", "model": "PAID", "cdate": 1775640261000, "downloads": 350, "maker": "\u6bdb\u8774\u8776", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26519", "naam": "Cognitive Editor", "model": "PAID", "cdate": 1776956318000, "downloads": 343, "maker": "monochromata UG", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "29311", "naam": "Kitty Progress", "model": "PAID", "cdate": 1767274966000, "downloads": 343, "maker": "DPT Software", "maker_type": "Organization", "verified": true, "land": "VN"}
+{"id": "12408", "naam": "Android Antidecompiler", "model": "PAID", "cdate": 1664376428000, "downloads": 341, "maker": "BIS Guard & Co.", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "29982", "naam": "Git Insight", "model": "PAID", "cdate": 1785330139000, "downloads": 329, "maker": "makcbrain", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "26478", "naam": "AnNote", "model": "PAID", "cdate": 1742051469000, "downloads": 320, "maker": "anan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28142", "naam": "Material Theme UI Islands", "model": "PAID", "cdate": 1754664936000, "downloads": 313, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "28143", "naam": "Material Theme UI Theme Randomizer", "model": "PAID", "cdate": 1754665023000, "downloads": 291, "maker": "Atom Material Themes & Plugins", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "32100", "naam": "ADB Pro", "model": "PAID", "cdate": 1784994101000, "downloads": 291, "maker": "Codetroupe", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "25326", "naam": "PR-SnapView", "model": "PAID", "cdate": 1726660636000, "downloads": 275, "maker": "itRunFenix", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "32227", "naam": "ANTLR4 Helper", "model": "PAID", "cdate": 1782790942000, "downloads": 272, "maker": "maien", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31830", "naam": "Modelica Hero", "model": "PAID", "cdate": 1779146559000, "downloads": 270, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "27936", "naam": "Save", "model": "PAID", "cdate": 1758450276000, "downloads": 255, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "29515", "naam": "Appearance Controls", "model": "PAID", "cdate": 1778594082000, "downloads": 237, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "32146", "naam": "Kusto Hero", "model": "PAID", "cdate": 1780797113000, "downloads": 235, "maker": "Language Heroes", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "28365", "naam": "MockGen Server", "model": "PAID", "cdate": 1760569133000, "downloads": 220, "maker": "codebodhi", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "29112", "naam": "AI Diff Review", "model": "PAID", "cdate": 1764232533000, "downloads": 220, "maker": "ContentaSoft", "maker_type": "Organization", "verified": true, "land": "SE"}
+{"id": "28261", "naam": "NetLinx Tools", "model": "PAID", "cdate": 1756140868000, "downloads": 208, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "29518", "naam": "Git Desk", "model": "PAID", "cdate": 1772229032000, "downloads": 206, "maker": "ROUTE.MD", "maker_type": "Organization", "verified": true, "land": "MD"}
+{"id": "29341", "naam": "LocalDevTools", "model": "PAID", "cdate": 1781462163000, "downloads": 200, "maker": "Baretto", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "27953", "naam": "EnvCLI", "model": "PAID", "cdate": 1753855504000, "downloads": 192, "maker": "EnvCLI Team", "maker_type": "Organization", "verified": true, "land": "BR"}
+{"id": "31208", "naam": "Madock Integration", "model": "PAID", "cdate": 1784299961000, "downloads": 192, "maker": "faradey", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "32392", "naam": "SSH Plus", "model": "PAID", "cdate": 1785065472000, "downloads": 189, "maker": "Hanghang", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28535", "naam": "yqExpress", "model": "PAID", "cdate": 1764233572000, "downloads": 185, "maker": "CODE MINDS Kft.", "maker_type": "Organization", "verified": true, "land": "HU"}
+{"id": "29133", "naam": "Elasticsearch Log", "model": "PAID", "cdate": 1768658393000, "downloads": 184, "maker": "\u8212\u4e00\u7b11\u4e0d\u79c3\u5934", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28584", "naam": "CodeLens", "model": "PAID", "cdate": 1760114749000, "downloads": 181, "maker": "Pedro Dias", "maker_type": "Organization", "verified": true, "land": "PT"}
+{"id": "29617", "naam": "SmartIgnoreGenerator", "model": "PAID", "cdate": 1767538304000, "downloads": 170, "maker": "Side Hustle Solutions", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "28259", "naam": "Pomodoro Healthy Exercise Timer", "model": "PAID", "cdate": 1755885354000, "downloads": 166, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "30471", "naam": "Flexible Gutenberg", "model": "PAID", "cdate": 1772556585000, "downloads": 163, "maker": "Ilscipio GmbH", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "28201", "naam": "Simpli Forge Manifest Validator", "model": "PAID", "cdate": 1765874672000, "downloads": 156, "maker": "simpli.fyi", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "28413", "naam": "Xross Tools Extension", "model": "PAID", "cdate": 1776140616000, "downloads": 154, "maker": "XrossTools", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "23577", "naam": "AutoLog", "model": "PAID", "cdate": 1706153372000, "downloads": 152, "maker": "mkSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29224", "naam": "IDE Workflows (Beta)", "model": "PAID", "cdate": 1764612395000, "downloads": 151, "maker": "meanmail.dev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "31471", "naam": "Screenshot+", "model": "PAID", "cdate": 1778926108000, "downloads": 143, "maker": "\u7532\u6728\u5e9a\u91d1", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28171", "naam": "ReDoSChecker", "model": "PAID", "cdate": 1755018863000, "downloads": 140, "maker": "MyBread", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30326", "naam": "ElasticSearcher", "model": "PAID", "cdate": 1772350005000, "downloads": 138, "maker": "goldentapstudio", "maker_type": "Organization", "verified": true, "land": "KZ"}
+{"id": "29615", "naam": "ClipboardToSelectionDiff", "model": "PAID", "cdate": 1767536560000, "downloads": 137, "maker": "Side Hustle Solutions", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "28593", "naam": "CodeGenByVelocity", "model": "PAID", "cdate": 1769312258000, "downloads": 134, "maker": "moorror", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32441", "naam": "APICue", "model": "PAID", "cdate": 1785726353000, "downloads": 134, "maker": "Anreen", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30733", "naam": "Gerry Candyland Theme", "model": "PAID", "cdate": 1777535212000, "downloads": 119, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30735", "naam": "Gerry Komorebi Theme", "model": "PAID", "cdate": 1777535224000, "downloads": 119, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30737", "naam": "Gerry Skyline Theme", "model": "PAID", "cdate": 1777535236000, "downloads": 117, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29923", "naam": "API Explorer", "model": "PAID", "cdate": 1769410894000, "downloads": 116, "maker": "codebodhi", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "30738", "naam": "Gerry Stardream Theme", "model": "PAID", "cdate": 1777535241000, "downloads": 116, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30736", "naam": "Gerry Lavender Theme", "model": "PAID", "cdate": 1777535230000, "downloads": 115, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32467", "naam": "ScriptDock", "model": "PAID", "cdate": 1785692093000, "downloads": 111, "maker": "luyiming", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32541", "naam": "AWS Cognito Quick-Admin", "model": "PAID", "cdate": 1784782874000, "downloads": 111, "maker": "Francisco Ballina", "maker_type": "Organization", "verified": true, "land": "MX"}
+{"id": "29546", "naam": "StickyNotes", "model": "PAID", "cdate": 1766921309000, "downloads": 107, "maker": "Side Hustle Solutions", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "30734", "naam": "Gerry Icescape Theme", "model": "PAID", "cdate": 1777535222000, "downloads": 106, "maker": "Gerry Themes", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31399", "naam": "Mythos Theme", "model": "PAID", "cdate": 1776956561000, "downloads": 103, "maker": "Jetplugins", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "32358", "naam": "Secret Bridge for AWS", "model": "PAID", "cdate": 1783597572000, "downloads": 96, "maker": "supercolo123", "maker_type": "Organization", "verified": true, "land": "PL"}
+{"id": "28985", "naam": "Symfony API 4 Postman", "model": "PAID", "cdate": 1762927996000, "downloads": 88, "maker": "\u6bdb\u8774\u8776", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30759", "naam": "Minimalist Sudoku", "model": "PAID", "cdate": 1774413610000, "downloads": 87, "maker": "leeucob", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32547", "naam": "HTTP Client Companion", "model": "PAID", "cdate": 1784292552000, "downloads": 86, "maker": "Anton Shuvaev", "maker_type": "Organization", "verified": true, "land": "AM"}
+{"id": "33443", "naam": "Islux VillAge Studio - Theme Collection", "model": "PAID", "cdate": 1786314573000, "downloads": 85, "maker": "Islux VillAge Studio", "maker_type": "Organization", "verified": true, "land": "CO"}
+{"id": "30870", "naam": "YAML Key Finder", "model": "PAID", "cdate": 1774648493000, "downloads": 84, "maker": "FilieraFusion", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "32930", "naam": "Happy Read book", "model": "PAID", "cdate": 1784184611000, "downloads": 84, "maker": "XieX Studio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32647", "naam": "NATS Toolbox", "model": "PAID", "cdate": 1783075467000, "downloads": 83, "maker": "Anton Okolelov", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30358", "naam": "Env Desk", "model": "PAID", "cdate": 1772558231000, "downloads": 79, "maker": "ROUTE.MD", "maker_type": "Organization", "verified": true, "land": "MD"}
+{"id": "31084", "naam": "I18n Navigator", "model": "PAID", "cdate": 1775243715000, "downloads": 74, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "30459", "naam": "SuperVisor", "model": "PAID", "cdate": 1772596166000, "downloads": 72, "maker": "goldentapstudio", "maker_type": "Organization", "verified": true, "land": "KZ"}
+{"id": "30801", "naam": "Collision Challenge", "model": "PAID", "cdate": 1774413101000, "downloads": 72, "maker": "leeucob", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "33379", "naam": "Bezyan Glow", "model": "PAID", "cdate": 1786275862000, "downloads": 71, "maker": "Bezyan", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30675", "naam": "Rich Markdown Code Comments", "model": "PAID", "cdate": 1776904614000, "downloads": 69, "maker": "RichComments", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "32610", "naam": "WorkTracker", "model": "PAID", "cdate": 1785333507000, "downloads": 69, "maker": "Forgentia", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "30758", "naam": "InvestHabits", "model": "PAID", "cdate": 1774354695000, "downloads": 62, "maker": "leeucob", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31529", "naam": "GraphQL PHP Bridge", "model": "PAID", "cdate": 1777552788000, "downloads": 52, "maker": "iNET", "maker_type": "Organization", "verified": true, "land": "LV"}
+{"id": "28859", "naam": "Test Progress Bar", "model": "PAID", "cdate": 1762521928000, "downloads": 49, "maker": "Code Mine", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "33322", "naam": "AWS Desk", "model": "PAID", "cdate": 1785969561000, "downloads": 39, "maker": "ROUTE.MD", "maker_type": "Organization", "verified": true, "land": "MD"}
+{"id": "32140", "naam": "GitStratum", "model": "PAID", "cdate": 1780772782000, "downloads": 29, "maker": "GitStratum", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "30964", "naam": "XML Key Finder", "model": "PAID", "cdate": 1775326321000, "downloads": 23, "maker": "FilieraFusion", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "10650", "naam": "Advanced JSON Studio", "model": "FREEMIUM", "cdate": 1781461992000, "downloads": 1461449, "maker": "Godwin Joseph", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "16136", "naam": "Grazie Pro", "model": "FREEMIUM", "cdate": 1768420342000, "downloads": 1181655, "maker": "JetBrains s.r.o.", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "12895", "naam": "Better Highlights", "model": "FREEMIUM", "cdate": 1782405221000, "downloads": 1037375, "maker": "Igor Zarvanskyi", "maker_type": "Organization", "verified": true, "land": "ES"}
+{"id": "14371", "naam": "Debug Image Viewer", "model": "FREEMIUM", "cdate": 1774629076000, "downloads": 213239, "maker": "JetBrains s.r.o.", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "13847", "naam": "EasyCode Plus", "model": "FREEMIUM", "cdate": 1784731378000, "downloads": 151519, "maker": "bruce ge", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "7410", "naam": "Shopware", "model": "FREEMIUM", "cdate": 1784450299000, "downloads": 111884, "maker": "Daniel Espendiller", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "14557", "naam": "JDK VisualGC", "model": "FREEMIUM", "cdate": 1741920543000, "downloads": 104089, "maker": "BeanSoft", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "14384", "naam": "Toolset", "model": "FREEMIUM", "cdate": 1776001818000, "downloads": 103514, "maker": "obroom", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "22931", "naam": "AndroidSupportFramework", "model": "FREEMIUM", "cdate": 1782462940000, "downloads": 79954, "maker": "supportForAndroidFramework", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "12449", "naam": "MyBatis Builder", "model": "FREEMIUM", "cdate": 1784337511000, "downloads": 79035, "maker": "Chuntung Ho", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "18389", "naam": "Mybatis Smart Code Help Pro", "model": "FREEMIUM", "cdate": 1759046924000, "downloads": 73524, "maker": "LeJiu", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "12437", "naam": "ZenUML Support", "model": "FREEMIUM", "cdate": 1748588427000, "downloads": 41627, "maker": "ZenUML", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "16682", "naam": "Applet Runner", "model": "FREEMIUM", "cdate": 1770234138000, "downloads": 29453, "maker": "Japplis", "maker_type": "Organization", "verified": true, "land": "NL"}
+{"id": "24555", "naam": "SmartTomcat Pro", "model": "FREEMIUM", "cdate": 1794116088000, "downloads": 25087, "maker": "Smart Tomcat", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "14056", "naam": "GitFlowPlus", "model": "FREEMIUM", "cdate": 1774858055000, "downloads": 24569, "maker": "WangYuHao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "15242", "naam": "JPA SQL", "model": "FREEMIUM", "cdate": 1713172861000, "downloads": 24330, "maker": "obroom", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "13587", "naam": "Gist Snippet", "model": "FREEMIUM", "cdate": 1780552945000, "downloads": 22707, "maker": "Chuntung Ho", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "19024", "naam": "XSD to JSON Schema", "model": "FREEMIUM", "cdate": 1730463557000, "downloads": 16297, "maker": "Syncro Soft", "maker_type": "Organization", "verified": true, "land": "RO"}
+{"id": "21410", "naam": "Onegai Copilot", "model": "FREEMIUM", "cdate": 1781762575000, "downloads": 15031, "maker": "asusual", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "19297", "naam": "JsonToAnyLanguage", "model": "FREEMIUM", "cdate": 1746684673000, "downloads": 9533, "maker": "\u90ed\u7ff0\u6797", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26760", "naam": "YamlHelper", "model": "FREEMIUM", "cdate": 1747677247000, "downloads": 8408, "maker": "MicroLight", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "26139", "naam": "Maven Plug-in Extensions", "model": "FREEMIUM", "cdate": 1794163203000, "downloads": 8329, "maker": "Oleksandr Zhelezniak", "maker_type": "Organization", "verified": true, "land": "UA"}
+{"id": "29046", "naam": "Robot Framework Professional", "model": "FREEMIUM", "cdate": 1785822705000, "downloads": 6978, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "25751", "naam": "Smart Input Pro (Japan, South Korea, Russia & more)", "model": "FREEMIUM", "cdate": 1757084808000, "downloads": 4751, "maker": "xiaolvpuzi", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "17440", "naam": "PHP Data Object Generator", "model": "FREEMIUM", "cdate": 1703468086000, "downloads": 4348, "maker": "SourceLab.Org", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "21353", "naam": "OWASP IDE-VulScanner", "model": "FREEMIUM", "cdate": 1774550117000, "downloads": 3707, "maker": "DestinJiDee", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "28485", "naam": "Neumorphism Theme Collection", "model": "FREEMIUM", "cdate": 1781353870000, "downloads": 3139, "maker": "Eastgate Development", "maker_type": "Organization", "verified": true, "land": "MY"}
+{"id": "29050", "naam": "LogParser Pro", "model": "FREEMIUM", "cdate": 1781438490000, "downloads": 2980, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "25716", "naam": "Compose Preview Generator", "model": "FREEMIUM", "cdate": 1770638556000, "downloads": 2722, "maker": "Alessandro Mautone", "maker_type": "Organization", "verified": true, "land": "NL"}
+{"id": "24694", "naam": "JTracker: MyBatis Log & JPA Log", "model": "FREEMIUM", "cdate": 1720236381000, "downloads": 2430, "maker": "JTracker", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24979", "naam": "Locale Sphere", "model": "FREEMIUM", "cdate": 1780306824000, "downloads": 2107, "maker": "Laravel Idea", "maker_type": "Organization", "verified": true, "land": "AE"}
+{"id": "20293", "naam": "Connect Api", "model": "FREEMIUM", "cdate": 1702273942000, "downloads": 1977, "maker": "SourceLab.Org", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "18971", "naam": "FastShell", "model": "FREEMIUM", "cdate": 1658880838000, "downloads": 1858, "maker": "Observer & Creator", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "20985", "naam": "Build Monitor", "model": "FREEMIUM", "cdate": 1702276541000, "downloads": 1806, "maker": "SourceLab.Org", "maker_type": "Organization", "verified": true, "land": "JP"}
+{"id": "29049", "naam": "SeleniumIQ - AI-Powered Test Automation", "model": "FREEMIUM", "cdate": 1779189028000, "downloads": 1696, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30093", "naam": "Jakarta Migration (javax to jakarta)", "model": "FREEMIUM", "cdate": 1786286617000, "downloads": 1653, "maker": "Adrian M", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "14482", "naam": "Stryker", "model": "FREEMIUM", "cdate": 1630433650000, "downloads": 1584, "maker": "Garethp", "maker_type": "Organization", "verified": true, "land": "GB"}
+{"id": "29001", "naam": "VulnSpeed - GPU-Accelerated SAST", "model": "FREEMIUM", "cdate": 1782066089000, "downloads": 1575, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "29008", "naam": "ANSI Log Viewer", "model": "FREEMIUM", "cdate": 1763975281000, "downloads": 1549, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "26463", "naam": "Yimi Crud Generator", "model": "FREEMIUM", "cdate": 1785762082000, "downloads": 1299, "maker": "DeepBlue", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30234", "naam": "ObfuscateGuard", "model": "FREEMIUM", "cdate": 1781102940000, "downloads": 1283, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30304", "naam": "Obsidian IDE Bridge", "model": "FREEMIUM", "cdate": 1775591704000, "downloads": 1249, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "25388", "naam": "Yiisoft Framework", "model": "FREEMIUM", "cdate": 1768908349000, "downloads": 1210, "maker": "xepozz", "maker_type": "Organization", "verified": true, "land": "TJ"}
+{"id": "26736", "naam": "Console Log Pro", "model": "FREEMIUM", "cdate": 1774549500000, "downloads": 1190, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "29038", "naam": "Metal Shader Support", "model": "FREEMIUM", "cdate": 1781105695000, "downloads": 1175, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "29606", "naam": "Ultimate Progress Bar", "model": "FREEMIUM", "cdate": 1767678153000, "downloads": 1164, "maker": "Side Hustle Solutions", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "31231", "naam": "FreeMarker Support", "model": "FREEMIUM", "cdate": 1782644674000, "downloads": 1130, "maker": "Toby Tan", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "24505", "naam": "JeKa", "model": "FREEMIUM", "cdate": 1776523509000, "downloads": 1077, "maker": "Jerome Angibaud SPRL", "maker_type": "Organization", "verified": true, "land": "BE"}
+{"id": "28908", "naam": "Indonesian Language Pack / Paket Bahasa Indonesia", "model": "FREEMIUM", "cdate": 1763446225000, "downloads": 974, "maker": "Eastgate Development", "maker_type": "Organization", "verified": true, "land": "MY"}
+{"id": "29401", "naam": "JBL Themes", "model": "FREEMIUM", "cdate": 1775049106000, "downloads": 836, "maker": "Jebe Liao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29115", "naam": "MyBatis Log Panda", "model": "FREEMIUM", "cdate": 1769586236000, "downloads": 789, "maker": "\u8212\u4e00\u7b11\u4e0d\u79c3\u5934", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28840", "naam": "Text Highlighter", "model": "FREEMIUM", "cdate": 1783034980000, "downloads": 724, "maker": "Samuel Lastrina", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "30189", "naam": "ADR Companion", "model": "FREEMIUM", "cdate": 1786170776000, "downloads": 680, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "31226", "naam": "Data Preprocessor", "model": "FREEMIUM", "cdate": 1781275847000, "downloads": 675, "maker": "Keencodelabs", "maker_type": "Organization", "verified": true, "land": "NG"}
+{"id": "30317", "naam": "CodeRef - Smart Java & Kotlin Analyzer with ML Engine", "model": "FREEMIUM", "cdate": 1784263318000, "downloads": 582, "maker": "Netbrain Intergrated Solutions", "maker_type": "Organization", "verified": true, "land": "ZA"}
+{"id": "30212", "naam": "Spring Property Navigator", "model": "FREEMIUM", "cdate": 1779265706000, "downloads": 581, "maker": "NovaIntelix", "maker_type": "Organization", "verified": true, "land": "LK"}
+{"id": "30842", "naam": "Run Configuration Bridge", "model": "FREEMIUM", "cdate": 1784761792000, "downloads": 574, "maker": "LLITD LLC", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "27573", "naam": "AI CodeEye", "model": "FREEMIUM", "cdate": 1753156340000, "downloads": 570, "maker": "AI CodeEye", "maker_type": "Organization", "verified": true, "land": "MX"}
+{"id": "30660", "naam": "Terminal Bridge", "model": "FREEMIUM", "cdate": 1784293720000, "downloads": 566, "maker": "LLITD LLC", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "30203", "naam": "Terminal Safety Rails", "model": "FREEMIUM", "cdate": 1781202467000, "downloads": 539, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "31107", "naam": "Database MCP Server", "model": "FREEMIUM", "cdate": 1775895516000, "downloads": 535, "maker": "ZhangHK", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "28076", "naam": "CSS Class Attributes Fold", "model": "FREEMIUM", "cdate": 1772472560000, "downloads": 487, "maker": "Vladislav Ogorodnik", "maker_type": "Organization", "verified": true, "land": "EE"}
+{"id": "31163", "naam": "JBL SSH Terminal", "model": "FREEMIUM", "cdate": 1777120476000, "downloads": 454, "maker": "Jebe Liao", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "27684", "naam": "Thrift Request", "model": "FREEMIUM", "cdate": 1755567079000, "downloads": 422, "maker": "zjay", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "29795", "naam": "Service Links", "model": "FREEMIUM", "cdate": 1770115002000, "downloads": 417, "maker": "Chris Binder", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "30903", "naam": "Restful-all", "model": "FREEMIUM", "cdate": 1777284034000, "downloads": 399, "maker": "liuchunchi", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "21566", "naam": "Armadillo-new", "model": "FREEMIUM", "cdate": 1773819920000, "downloads": 350, "maker": "Armadillo Org", "maker_type": "Organization", "verified": true, "land": "CY"}
+{"id": "30202", "naam": "Technical Debt Accountant", "model": "FREEMIUM", "cdate": 1781202566000, "downloads": 350, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30194", "naam": "Dependency License Lens", "model": "FREEMIUM", "cdate": 1773209800000, "downloads": 341, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "29249", "naam": "Reclaim", "model": "FREEMIUM", "cdate": 1768217902000, "downloads": 331, "maker": "sysrq associates", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "31940", "naam": "CodeQL Pro", "model": "FREEMIUM", "cdate": 1781100878000, "downloads": 305, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "30507", "naam": "JsonPathEditor", "model": "FREEMIUM", "cdate": 1773479230000, "downloads": 287, "maker": "FTNL", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30519", "naam": "Tab Group Manager", "model": "FREEMIUM", "cdate": 1776364598000, "downloads": 262, "maker": "Myako", "maker_type": "Organization", "verified": true, "land": "FR"}
+{"id": "30199", "naam": "Local Secrets Tripwire", "model": "FREEMIUM", "cdate": 1781040342000, "downloads": 242, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30895", "naam": "Project Intelligence Bridge", "model": "FREEMIUM", "cdate": 1784294032000, "downloads": 238, "maker": "LLITD LLC", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "29067", "naam": "Kei - API Contract Testing", "model": "FREEMIUM", "cdate": 1781103433000, "downloads": 237, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "32389", "naam": "Recap - AI Agent Sessions", "model": "FREEMIUM", "cdate": 1782057866000, "downloads": 226, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "30376", "naam": "API First & Mocking Studio", "model": "FREEMIUM", "cdate": 1776494966000, "downloads": 200, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30200", "naam": "Run Config Drift Detector", "model": "FREEMIUM", "cdate": 1776451988000, "downloads": 199, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "29213", "naam": "Safely Obfuscate Source", "model": "FREEMIUM", "cdate": 1767474832000, "downloads": 191, "maker": "BHT", "maker_type": "Organization", "verified": true, "land": "AE"}
+{"id": "32022", "naam": "JSON Schema Explorer", "model": "FREEMIUM", "cdate": 1785931092000, "downloads": 190, "maker": "FLUXparticle", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "31464", "naam": "Java ADK Assistant", "model": "FREEMIUM", "cdate": 1779033832000, "downloads": 189, "maker": "Java ADK Assistant", "maker_type": "Organization", "verified": true, "land": "NG"}
+{"id": "31227", "naam": "SlopGuard [formerly EntropyGuard]", "model": "FREEMIUM", "cdate": 1778929476000, "downloads": 183, "maker": "Adrian M", "maker_type": "Organization", "verified": true, "land": "AU"}
+{"id": "29045", "naam": "Intel DPC++ Support", "model": "FREEMIUM", "cdate": 1772877294000, "downloads": 170, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30196", "naam": "Git-Aware Dev Journal", "model": "FREEMIUM", "cdate": 1773209954000, "downloads": 158, "maker": "Jakub Jir\u00e1k", "maker_type": "Organization", "verified": true, "land": "CZ"}
+{"id": "30805", "naam": "KChang Azure Deploy", "model": "FREEMIUM", "cdate": 1782766405000, "downloads": 146, "maker": "Ken Chang", "maker_type": "Organization", "verified": true, "land": "US"}
+{"id": "32642", "naam": "COBOL", "model": "FREEMIUM", "cdate": 1783463178000, "downloads": 142, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "32028", "naam": "AI Review and Commit", "model": "FREEMIUM", "cdate": 1780593297000, "downloads": 138, "maker": "\u7532\u6728\u5e9a\u91d1", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "31523", "naam": "Extract Hardcoded Strings Only", "model": "FREEMIUM", "cdate": 1784282264000, "downloads": 124, "maker": "codemagic", "maker_type": "Organization", "verified": true, "land": "IN"}
+{"id": "31859", "naam": "AI Context Prompt", "model": "FREEMIUM", "cdate": 1779260750000, "downloads": 100, "maker": "\u7532\u6728\u5e9a\u91d1", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "32992", "naam": "Frappe Inspector", "model": "FREEMIUM", "cdate": 1784683700000, "downloads": 94, "maker": "Mohamed Tazi Hnyine", "maker_type": "Organization", "verified": true, "land": "MA"}
+{"id": "31126", "naam": "Package Dependency Explorer", "model": "FREEMIUM", "cdate": 1775635691000, "downloads": 88, "maker": "sirius", "maker_type": "Organization", "verified": true, "land": "TR"}
+{"id": "32088", "naam": "Glowtrace for Python", "model": "FREEMIUM", "cdate": 1780606872000, "downloads": 71, "maker": "Code", "maker_type": "Organization", "verified": true, "land": "IL"}
+{"id": "32058", "naam": "Sonarwhale", "model": "FREEMIUM", "cdate": 1780476747000, "downloads": 67, "maker": "Yannik K\u00f6llmann", "maker_type": "Organization", "verified": true, "land": "DE"}
+{"id": "32883", "naam": "Workday Pocket", "model": "FREEMIUM", "cdate": 1784193718000, "downloads": 66, "maker": "XieX Studio", "maker_type": "Organization", "verified": true, "land": "CN"}
+{"id": "30513", "naam": "xmCode Generator", "model": "FREEMIUM", "cdate": 1772794192000, "downloads": 23, "maker": "XiaoMaTools", "maker_type": "Organization", "verified": true, "land": "CN"}

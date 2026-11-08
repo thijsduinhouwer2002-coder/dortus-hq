@@ -549,3 +549,14 @@ Nieuwste blok onderaan.
 - Controleur vond een fout in mijn script (appKey van letters viel weg, 53 apps gemist). Gerepareerd en opnieuw geteld; oordeel blijft 3.
 - Les: test een regex op de hele pagina door het aantal treffers te vergelijken met een ruwe telling (bijvoorbeeld het aantal keer "usageCount").
 - Run afgesloten.
+
+## 8 nov run 19:31 (Amsterdam)
+- Begin: lokale main stond los, main opnieuw op origin/main. Open bericht van Thijs (19:22): eigen platformen officieel scoren, vóór de volgende productkans. Om 19:34 op "in onderzoek" gezet en gepusht.
+- Eigen meting JetBrains: alle 897 betaalde en freemium plugins, leeftijd uit de oudste versie (het veld cdate van de plugin bleek geen eerste publicatie). 3 tot 6 maanden oud: n=86, mediaan 272 downloads, 81% 100+. Oktober: 182 nieuwe betaalde plugins, bijna de helft van 3 reeksmakers.
+- Eigen meting Obsidian: README's van de 600 nieuwste plugins; 3 van 599 bij anderen verkopen echt een licentie.
+- Onderzoeker: geen enkel omzetbedrag van een kleine maker op Obsidian of JetBrains te vinden (TrustMRR-sitemap, prijspagina's, Buy Me a Coffee). De Obsidian-labels Paid/Optional payment zijn alleen via de zoekfunctie van de site te tellen; dat niet gedaan.
+- Beslissing: Blender 7, JetBrains 5, Obsidian 4. Waarom: alleen op Blender is geld van nieuwe kleine makers gezien; JetBrains past het best bij de koers maar bedragen zijn onzichtbaar; Obsidian heeft bereik maar bijna geen geld.
+- Controleur: JetBrains-cijfers kloppen precies; 12 correcties verwerkt (Obsidian-treffers per README gelezen, oktobergolf komt van weinig makers, labels).
+- Les: bij een API-veld met een datum altijd nagaan of het de eerste publicatie is, met een plugin waarvan je de leeftijd kent.
+- Volgende run: productkans op Blender (twee van de drie runs productkansen).
+
