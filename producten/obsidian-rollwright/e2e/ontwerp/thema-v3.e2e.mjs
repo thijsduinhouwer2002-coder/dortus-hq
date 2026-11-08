@@ -35,7 +35,7 @@ describe("Daan: skins v3 in thema's", function () {
 		await browser.pause(2500);
 		await browser.execute(() => { try { require("electron").webFrame.setZoomFactor(1.5); } catch (e) {} });
 		await browser.pause(800);
-		await browser.$(".workspace-ribbon").moveTo().catch(() => {});
+		await browser.$(".view-header-title").moveTo().catch(() => {});
 	});
 
 	for (const skin of ["parchment", "arcane"]) {

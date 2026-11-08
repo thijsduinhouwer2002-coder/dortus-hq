@@ -51,7 +51,7 @@
 
 body.theme-dark.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-roll) > .rollwright-stamp,
 body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
-	color: #e0473c;
+	color: #f26b5e; /* controleur 8 nov 19:50: #e0473c haalde 3,6 tot 4,2:1 in donker, dit 4,9 tot 5,7:1 */
 	text-shadow: 0 0 1px rgba(40, 5, 5, 0.9), 0 0 0.12em rgba(0, 0, 0, 0.5);
 }
 
@@ -166,3 +166,11 @@ body.theme-light .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwrigh
 
 
 /* Minder beweging: 99-rustig zet alle animaties al uit (afspraak keuring 0.3.0). */
+
+/* Licht thema: de ijsster was #e6fbff op wit (1,07:1) en dus weg (controleur 8 nov 19:50).
+   Zelfde blauw als de lichtletters, met een smalle lichte gloed, zodat het eigen teken van Arcane blijft. */
+body.theme-light.rollwright-skin-arcane .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-roll)::after,
+body.theme-light .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
+	background: #0b5a85;
+	filter: drop-shadow(0 0 0.12em rgba(90, 200, 255, 0.9));
+}
