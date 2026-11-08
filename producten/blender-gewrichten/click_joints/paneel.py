@@ -46,6 +46,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap.prop(inst, "kogel_mm")
         stap.prop(inst, "speling_mm", slider=True)
         grote_knop(stap, "click_joints.plaats", "Plaats gewricht", "MOD_BOOLEAN")
+        stap.prop(inst, "uit_elkaar", icon="MOD_EXPLODE")
 
         stap = layout.box()
         stap.label(text="3  Controleer en exporteer", icon="EXPORT")

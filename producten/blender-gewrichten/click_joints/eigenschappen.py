@@ -1,6 +1,8 @@
 """Instellingen van Click Joints, per scene opgeslagen (scene.click_joints)."""
 import bpy
-from bpy.props import EnumProperty, FloatProperty, PointerProperty, StringProperty
+from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty, StringProperty
+
+from . import uit_elkaar as _uit
 
 
 class ClickJointsInstellingen(bpy.types.PropertyGroup):
@@ -24,6 +26,10 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
     exportmap: StringProperty(
         name="Map", description="Map voor de STL-bestanden. Leeg: map click_joints naast het .blend-bestand",
         default="", subtype="DIR_PATH")  # leeg, want Blender kleurt een pad dat (nog) niet bestaat rood
+    uit_elkaar: BoolProperty(
+        name="Exploded view", description="Show part B a little apart along the joint axis, so you see the "
+        "ball. Only in the viewport: the STL export uses the real position",
+        default=True, update=_uit.bij_wissel)
 
 
 KLASSEN = (ClickJointsInstellingen,)

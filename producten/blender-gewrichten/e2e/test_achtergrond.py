@@ -13,7 +13,7 @@ import figuren  # noqa: E402
 
 zip_pad = sys.argv[sys.argv.index("--") + 1]
 from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
-                  toets_materiaal, toets_opening, toets_stl, weg)
+                  toets_materiaal, toets_opening, toets_stl, toets_uit_elkaar, weg)
 import toetsen_correcties  # noqa: E402
 import toetsen_schaal  # noqa: E402
 
@@ -41,6 +41,7 @@ def main():
             log(f"PASSING arm {s}: {lijst[0].get('cj_passing')}")
         if s == 0.3 and len(lijst) == 2:
             toets_stl(lijst)
+            toets_uit_elkaar(lijst)
         weg(lijst)
 
     # 2. Te dunne plek: rood, geen snede, origineel heel.

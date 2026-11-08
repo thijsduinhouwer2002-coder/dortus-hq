@@ -5,6 +5,7 @@ import tempfile
 import bpy
 
 from .eigenschappen import eenheid_per_mm
+from .uit_elkaar import echte_plek
 
 
 STANDAARD = "//click_joints/"
@@ -47,6 +48,16 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         os.makedirs(map_, exist_ok=True)
         schaal = 1.0 / eenheid_per_mm(context.scene)  # Blender-eenheden naar mm
         actief = context.view_layer.objects.active
+        with echte_plek(lijst):  # opengewerkt beeld even uit: de STL krijgt de echte plek
+            geschreven = self.schrijf(context, lijst, map_, schaal)
+        context.view_layer.update()
+        context.view_layer.objects.active = actief
+        context.scene["cj_laatste_export"] = geschreven
+        self.report({"INFO"}, f"{len(geschreven)} STL-bestanden in {map_}")
+        return {"FINISHED"}
+
+    @staticmethod
+    def schrijf(context, lijst, map_, schaal):
         geschreven = []
         for deel in lijst:
             context.view_layer.update()
@@ -60,10 +71,7 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
                                   use_scene_unit=False, ascii_format=False, apply_modifiers=True)
             deel["cj_stl"] = pad
             geschreven.append(pad)
-        context.view_layer.objects.active = actief
-        context.scene["cj_laatste_export"] = geschreven
-        self.report({"INFO"}, f"{len(geschreven)} STL-bestanden in {map_}")
-        return {"FINISHED"}
+        return geschreven
 
 
 KLASSEN = (CLICK_JOINTS_OT_exporteer,)
