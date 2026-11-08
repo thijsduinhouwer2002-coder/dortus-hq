@@ -261,3 +261,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Snelheid: 435 beelden op één runner zou uren duren, dus een matrix van 20 runners die elk elk twintigste beeld renderen, daarna een job die alles samenvoegt tot MP4.
 - Lokaal Blender draaien werd door de veiligheidscontrole geweigerd; getest wordt alleen in GitHub Actions.
 - Run 42534204523 liep na 15 min nog (geen scherf mislukt, dus het script werkt tot het renderen); uitkomst leest de volgende run.
+- 23:45: eerste stukken van run 1 binnen en bekeken met de Read-tool. Techniek werkt (alles echte add-on, getallen gelijk aan de winkel), beeld nog niet: camera te dichtbij, hout blauw, ring rafelig. Les: in een mm-scene met 85 mm lens en 26 keer de kogelstraal zie je maar 2 cm onderarm; reken de beelduitsnede vooraf uit. Ronde 2 gepusht (ec6996e5).
