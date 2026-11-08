@@ -9,10 +9,9 @@
 }
 
 /* De aantekening van Parchment hing in de tegel boven het papier, rood op de achtergrond van het
-   thema; op -0.55em liep hij over de gescheurde rand (run 42511234264). Hier staat hij helemaal op het
-   papier, kleiner, boven de rechterkant van het getal, zoals in de notitie. */
+   thema; op -0.55em liep hij over de gescheurde rand (run 42511234264). Helemaal op het
+   papier, kleiner (run 42511624655): onleesbaar en over het getal. Dus -0.55em: de aantekening mag
+   over de rand lopen, het is handschrift in de kantlijn. */
 body .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp.rollwright-stamp {
-	top: -0.12em;
-	right: 0.25em;
-	font-size: 0.62em;
+	top: -0.55em;
 }
