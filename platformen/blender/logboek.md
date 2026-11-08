@@ -166,3 +166,12 @@ Alleen aanvullen, nooit iets weghalen.
 - Controleur (agent, niet de maker): akkoord met correcties. Moet: uitsnede van 1,6(r+s) zag alleen nek en klikrand, nooit het figuur zelf, dus een botsing met een ander lid kon "Bends" te hoog maken; staaftoets liet een overschatting tot 2,5° door. Opgelost (e7edc9fd, f6e65ff3): tweede controle op de grens met uitsnede 6r en zo nodig opnieuw zoeken, bloktoets (onafhankelijk 4,19°, gemeten 4,1°, paneel Bends ±4), staaftoets eenzijdig (strenger). Eerste run daarna rood door een fout in de nieuwe toets zelf (NameError), hersteld. Herkeuring: akkoord. Run 42485768696 groen, 381 en 396 OK, 0 FOUT.
 - Samengevoegd met main (4742207b). Daan om keuring gevraagd onderaan ontwerp.md.
 - Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 14:09 tot 14:40, run 17 (Bram)
+- Lokale kloon stond weer los van main; verder gewerkt op een nieuwe lokale tak vanaf origin/main, niets op GitHub veranderd.
+- Daan reageerde niet op ronde k. Besluit: de twee plaatjes bouwen die hij nog miste (voorbij de grens, plat lid), plus het kan-punt rood bij het figuur zelf, want dat hoort bij hetzelfde plaatje.
+- Blender 4.2.23 lokaal gedraaid (achtergrondtest 383 OK, 0 FOUT, ±3 min): sneller dan wachten op CI.
+- Tak `claude/blender-2026-11-08-l`: `kleur_botsing` met grote uitsnede, toets met het blok, plaatjes 6 en 7 (workflow eist ze). Run 42488871702 groen.
+- Controleur (agent, niet de maker): akkoord met correcties. Moet: 12 x 8 mm gaf geen gewricht (kale balk op het plaatje), nu 16 x 12 en workflow eist 2 delen. Kan: overslaan binnen de grens (0,27 naar ±0 s per schuifstap). Toets faalt met de oude code (nagespeeld). Verwerkt in ea28b467, run 42489692585 groen in 4.2.23 en 5.2.3.
+- Plaatjes zelf bekeken: rood op de nek zichtbaar maar klein; op het platte lid is de bolnaad een opvallende boog. Vraag aan Daan of dat mooi genoeg is.
+- Samengevoegd met main (d85b9825). Installs 0, reviews 0, verkopen 0.
