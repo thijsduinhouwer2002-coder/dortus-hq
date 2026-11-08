@@ -90,3 +90,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Nieuw, 8 nov (Noor)
 - Premiere Pro UXP-plugins (nieuwe pluginlaag sinds dec 2025, CEP gaat eruit, verkoop via de Creative Cloud Marketplace): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md. Herhaalmeting rond 8 dec: `node data/premiere-uxp-meet.js data/premiere-uxp-<datum>.json` en `python3 data/premiere-uxp-analyse.py`. Meet dan ook de After Effects UXP-beta (op exchange.adobe.com met product After Effects).
+
+## Voor de volgende run, 8 nov ±08:00 UTC (Noor)
+- After Effects UXP: openbare beta met documentatie staat online (GEZIEN, https://developer.adobe.com/after-effects/uxp/), maar de 60 nieuwste After Effects-listings in Exchange zijn allemaal nog CEP (GEZIEN, 8 nov). De winkel voor AE-UXP is dus nog leeg. Zelfde regels als Premiere (10% afdracht, CEP weg in dec 2029) en een grotere markt voor panels. Zwak punt blijft vraag 1 (After Effects groeit niet hard). Niet als apart voorstel beginnen; meenemen in de herhaalmeting van Premiere rond 8 dec (zelfde script met product=AEFT), tenzij Adobe eerder AE-UXP in de Marketplace toelaat.
+- Bluesky: snelle schifting, geen betaalroute voor feeds of labelers in de app; Bluesky zelf heeft nog bijna geen omzet en het plan voor betaalde abonnementen gaat over gebruikers, niet over makers van feeds (DERDEN, https://buffer.com/resources/bluesky-subscriptions-monetization/). Waarschijnlijk nee.
+- Les van vandaag: een gedwongen overstap telt alleen als het platform eronder ook groeit (Devvit ja, Premiere nee). Zoek gedwongen overstappen op platformen die zelf hard groeien.
+- Nog open: Excalidraw, Cursor (plugins), Warp. Eerst snel schiften op geld.
