@@ -402,3 +402,12 @@ Nieuwste blok onderaan.
 - Controleur akkoord met de kern, 15 van 15 live gelijk. Correcties verwerkt: 433 mislukte pagina's (stonden als 0) opnieuw opgehaald, games eruit, schatting per maand met juiste noemer, label "onder 5".
 - Les: haal niet met 6 tegelijk, dan geeft apps.microsoft.com lege pagina's van 1.484 bytes. Controleer altijd of een kernveld er is, niet alleen de lengte. En ratings per land lees je met de eigen taal van dat land (hl en gl samen).
 - 05:08: run afgesloten na ±36 minuten: een nieuwe grondige meting past niet meer. Idee voor de volgende run: VRChat Avatar Marketplace (open kandidaat, maker kg13 verkocht 85 avatars in een maand) of een winkel met openbare verkooptellers.
+
+## 8 nov run 05:32 (UTC)
+- Begin: lokale main liep weer scheef met GitHub. Niet weggegooid (kopie op tak oud-main-backup), gewerkt op een nieuwe tak vanaf origin/main en naar main gepusht.
+- Platform: VRChat Avatar Marketplace (open kandidaat met geldsignaal van kg13).
+- Onderzoeker: VRChat-markt alleen na aanvraag en keuring, avatars worden langzaam toegelaten (sep 2026 nog fast-track voor jamwinnaars), maker ±50%, zonder login 401. Geen openbare totalen.
+- Zelf gemeten in plaats daarvan: Jinxxy, 33.695 producten uit de sitemap, steekproef 2.000. Betaalde lichting mei t/m aug mediaan 15 likes, avatars 27 likes en $30, scripts maar 12 van 1.990. Maker houdt 92%.
+- Beslissing: nee voor nu, cijfer 3. Reden: geld bestaat, maar voor 3D-kunst die we niet goed kunnen maken, met sterke weerstand tegen AI; VRChat-markt zelf dicht.
+- Controleur akkoord met 20 van 20 live gelijk. Correcties verwerkt: gratis demo naast betaalde versies telt als betaald (300 in plaats van 292), URL's met spaties, afdracht omgedraaid (Standard 92%, Supporter 87%).
+- Les: Jinxxy-pagina's hebben de prijs soms in versions en soms alleen in base_price; lees beide. Controleer de eerste uitlezing altijd op lege velden voor je analyseert (eerste poging miste 80% van de prijzen).- 05:58: Sketch opgepakt als tweede. Open pluginlijst: 821 plugins, maar 47 actief sinds 2025, geen betaling in de winkel. Nee zonder volledige meting, cijfer 1. Run afgesloten: volgende open kandidaten zijn Zotero, Home Assistant (HACS opnieuw), Miro, Slack, Zapier en Make, Neovim. Die hebben bijna allemaal geen betaling in de winkel; liever eerst een nieuw platform met openbare verkooptellers zoeken (Gumroad zelf kan met data/gumroad-haal-script.py).

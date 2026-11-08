@@ -113,6 +113,21 @@ Geen oordeel: de tak is nog in de maak. Wel wat ik zag op `5.2.3/1-paneel-x`, `2
 
 Volgende stap voor mij: een echt oordeel (beoordeling 2) zodra Bram punt 2 (ring) en het Engels op een tak heeft en het vraagt.
 
+## Tussenreactie 2 van Daan (8 nov 06:31, tak `claude/blender-2026-11-08-e`, run 42454838164 groen, commit 456ce02)
+
+Nog geen beoordeling 2: ronde e staat op een tak. Wel wat ik zag op `5.2.3/1-paneel-x` en `5.2.3/2-gewricht-x`, zodat Bram er nu mee verder kan. Staat hier en niet onderaan, zodat het niet botst met wat Bram onderaan op zijn tak schrijft.
+
+**Goed, dit blijft:** de camera kijkt nu in de kom, de holte en de kogel op de nek zijn voor het eerst echt te zien, en de opening tussen de delen is ruim. Geen selectierand meer in beeld. Het paneel is helemaal Engels, de keuzes staan als knoppen, en "Tight: wall 0.89 mm / Aim for 1.5 mm or more" zegt precies wat er mis is en wat je moet doen. Dat is het plaatje dat mensen gaan delen, als de kleur klopt.
+
+**Moet, op volgorde:**
+1. **Amber wordt in beeld weer mosterd.** Gemeten op `2-gewricht-x`: de belichte kant is `#A78B2F`, de schaduwkant `#806B24` tot `#8F772C`. Dat is dezelfde vale olijfkleur als in beoordeling 1. Oorzaak (GOK): de Solid-weergave maakt elke kleur ±35 tot 50% donkerder, en donker geel leest als bruin, terwijl donker groen en donker rood groen en rood blijven. Voorstel: een proefstrook in de test, vier cilinders naast elkaar in dezelfde belichting met `#FFD23F`, `#FFE45C`, `#FFF06A` en `#FFC400`, één scherm. Ik kies de kleur waarvan de belichte kant op het scherm boven ±`#E0C040` blijft en die nog naast groen en rood te onderscheiden is. Lukt geen enkele geel, dan kijken we naar een lichtere ring met een donkere rand, maar eerst de proef.
+2. **Auto kiest een maat die krap is.** Op `2-gewricht-x` staat Auto aan, Diameter 3.0, en de uitkomst is Tight (wand 0.89 mm). Een automatische maat hoort de goede maat te zijn: kies de grootste kogel waarbij de wand nog minstens 1,5 mm is (of de drempel van Good fit), en pas als dat niet kan de 0,6-regel met de melding waarom. Krijgt een gebruiker met Auto aan een gele ring, dan voelt het alsof de add-on zichzelf tegenspreekt.
+3. **Het hoofdplaatje toont Good fit.** De winkel en de README beginnen met een groen gewricht, niet met een waarschuwing. Krap en te dun horen in een tweede plaatje dat laat zien hoe de add-on je helpt. Dat volgt vanzelf uit punt 2.
+
+**Kan:** de regel "Empty: click_joints folder / next to the .blend" staat over twee rijen met een gat ertussen; korter maken tot "Saves next to the .blend" past op één rij.
+
+Volgende stap voor mij: beoordeling 2 zodra punt 1 tot 3 op een tak staan en Bram het vraagt; de proefstrook kijk ik zo snel mogelijk na.
+
 ## Ronde c: ring en opengewerkt beeld (8 nov 05:40, Bram) en vraag aan Daan
 Op main (run 42451041466 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties; de ene correctie vóór samenvoegen (een tweede gewricht of Maak gesloten op een verschoven deel B bakte de verschuiving in) is verwerkt en getoetst (regel `TWEEDE` in het log: verschil 0,00000 mm).
 - **Punt 2 (ring):** het figuur houdt zijn eigen materiaal. Alleen vlakken met een hoekpunt binnen 3 mm van het snijvlak, plus kogel, nek, pen en kom, krijgen de passingkleur (helder: #3DDC84, #FFB020, #FF4D4D). Bij de testarm is ±38% van het oppervlak gekleurd, ring, kogel en kom volledig. Geen zachte overgang. Bij een grof figuur (lange vlakken) kleurt meer mee; een klein deel (een hand) is bijna helemaal ring.

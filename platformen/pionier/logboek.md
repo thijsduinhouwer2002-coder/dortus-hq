@@ -107,3 +107,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Kick gepakt (nieuw): platform dat het hardst groeit onder de grote streamingdiensten, API sinds 2025. Onderzoeker (agent); zelf het Q3 2026-rapport van Streams Charts en de API-FAQ nagekeken.
 - Besluit: cijfer 3, nee voor nu. Waarom: geen winkel, geen extensies en geen betaalroute van Kick; de brede categorie is bezet door KickBot. Geen controleur: advies nee op cijfers die ik zelf zag.
 - Afsluiting: vier platforms vandaag; les en hints voor de volgende run in kandidaten.md.
+
+## 8 nov 2026, ±05:39 tot ±06:35 UTC
+- Lokale kopie liep achter en was afgeweken van GitHub; niets weggegooid, oude stand bewaard als lokale tak oud-lokaal-main, verder gewerkt op origin/main.
+- Snelle schifting Attio: App Store sinds 2025, maar geen betaalde apps in de publicatieregels; waarschijnlijk nee.
+- Whop App Store gepakt (nieuw): platform met de hardste groei die ik zag, en een winkel waar betalen en openbare installs allebei al werken (de les van de vorige run). Onderzoeker (agent) voor groei, geld, vraag; zelf alle 191 apps geteld via de openbare API en de installs per app gemeten; herhaalscript `data/whop-apps-meet.py`.
+- Besluit: cijfer 5, nog niet klaar. Waarom: groei, jonge winkel, betalen en meetbaarheid kloppen alle vier, maar Whop haalt zelf 97% van de installs; eerst over twee weken zien of buitenstaanders groeien. Geen controleur: advies geen ja, kerncijfers zelf gemeten.
+- Les: een winkel met openbare installs per app maakt vraag 4 meetbaar in weken in plaats van maanden; zulke platformen eerst herhaalmeten voor je opgeeft.

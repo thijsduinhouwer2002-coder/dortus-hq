@@ -67,18 +67,31 @@ intellijPlatform {
     }
 }
 
+// Twee IDE-tests met dezelfde instellingen: IDEA Community (integrationTest) en CLion EAP (clionTest, ClionTest.kt).
+fun Test.ideTestInstellingen() {
+    val src = sourceSets.getByName("integrationTest")
+    testClassesDirs = src.output.classesDirs
+    classpath = src.runtimeClasspath
+    useJUnitPlatform()
+    dependsOn(tasks.buildPlugin)
+    systemProperty("path.to.build.plugin", tasks.buildPlugin.get().archiveFile.get().asFile.absolutePath)
+    systemProperty("dortus.e2e.project", layout.projectDirectory.dir("e2e/project").asFile.absolutePath)
+    systemProperty("dortus.e2e.winkelproject", layout.projectDirectory.dir("e2e/calculator").asFile.absolutePath)
+    systemProperty("dortus.e2e.screenshots", layout.projectDirectory.dir("e2e/screenshots").asFile.absolutePath)
+    testLogging { events("passed", "failed", "skipped", "standard_out", "standard_error"); showStandardStreams = true }
+}
+
 intellijPlatformTesting.testIdeUi.register("integrationTest") {
     task {
-        val src = sourceSets.getByName("integrationTest")
-        testClassesDirs = src.output.classesDirs
-        classpath = src.runtimeClasspath
-        useJUnitPlatform()
-        dependsOn(tasks.buildPlugin)
-        systemProperty("path.to.build.plugin", tasks.buildPlugin.get().archiveFile.get().asFile.absolutePath)
-        systemProperty("dortus.e2e.project", layout.projectDirectory.dir("e2e/project").asFile.absolutePath)
-        systemProperty("dortus.e2e.winkelproject", layout.projectDirectory.dir("e2e/calculator").asFile.absolutePath)
-        systemProperty("dortus.e2e.screenshots", layout.projectDirectory.dir("e2e/screenshots").asFile.absolutePath)
-        testLogging { events("passed", "failed", "skipped", "standard_out", "standard_error"); showStandardStreams = true }
+        ideTestInstellingen()
+        filter { excludeTestsMatching("*.ClionTest") }
+    }
+}
+
+intellijPlatformTesting.testIdeUi.register("clionTest") {
+    task {
+        ideTestInstellingen()
+        filter { includeTestsMatching("*.ClionTest") }
     }
 }
 
