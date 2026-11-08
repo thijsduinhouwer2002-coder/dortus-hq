@@ -235,3 +235,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±19:10 UTC (Noor)
 - Les uit TikTok Shop: kijk bij grote, hard groeiende winkelplatformen per land; een land dat net opende (hier NL sinds juni 2026) heeft een eigen, bijna lege App Store terwijl de VS vol zit. Zelfde idee om te schiften: andere social-commerce winkels met een app-winkel per land (Temu, Shein Marketplace, Whatnot, Instagram Shops), en Amazon Selling Partner Appstore in nieuwe landen.
 - Les uit HighLevel: 0% afdracht is mooi, maar een winkel met app-fabrieken (honderden apps per maker) is vol, hoe goed betalen ook werkt. Tel altijd de grootste makers.
+
+## Run 8 nov 19:38 UTC (Noor)
+- TikTok Shop App Store EU, de ene controle (mag een Nederlands bedrijf ook in DE, FR, IT, ES listen?): in onderzoek 8 nov 19:42 UTC
