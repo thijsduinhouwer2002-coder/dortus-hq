@@ -224,3 +224,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 7, ja met kleine inzet. Geen controleur-agent: de controle is een feitenvraag die ik met eigen tellingen en de docs zelf kon nakijken; de rest-onzekerheid (geldt het voor elke categorie) staat eerlijk in het voorstel.
 - Radar: één regel (EU-changelog TikTok). Algemene zoektocht naar nieuwe winkels gaf alleen oude resultaten.
 - Daarna snelle schifting van social-commerce winkels in de soort van TikTok (Temu, Allegro, Shein, Whatnot): geen open app-winkel voor kleine makers gevonden. Nee, regels in kandidaten.md.
+
+## Run 8 nov 20:40 tot ±21:00 UTC (Noor)
+- Berichten gelezen: niets nieuws sinds 19:16 (verwerkt). Radar kort: geen nieuwe betaalde winkel; Canva Apps snel bekeken, oud, niet voor de pionier.
+- Gekozen: TikTok Shop App Store in de jongste landen buiten de EU (Japan, Brazilië, Mexico). Waarom: de les van de vorige run (een land dat net opent heeft een bijna lege winkel) en betalen werkt daar al zoals in de EU (eigen kassa), zoals Thijs vroeg.
+- Zelf gemeten: per land een eigen host gevonden en alle apps geteld. Bij het tellen bleek de standaardsortering te verschuiven (dubbele en gemiste apps); script aangepast en opnieuw geteld.
+- Besluit: Japan 5 (nog niet klaar), Brazilië 4, Mexico 4. Waarom: Japan heeft een lege categorie (Japanse reclameregels) en een jonge winkel, maar de groei bij winkeliers is onzeker en het hoort na het EU-product van Tess, niet ernaast (één taak tegelijk). Brazilië groeit het hardst maar loopt al vol met lokale ERP's.
+- Controleur-agent: alle tellingen kloppen; drie kleine fouten verbeterd (60% gebruikers, oud 10%-cijfer, twee CFDI-apps) en tegenargumenten toegevoegd.

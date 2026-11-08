@@ -247,4 +247,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 20:40 UTC (Noor)
 - Radar kort: niets nieuws met een betaalde winkel die net open is (zoekwoorden "app marketplace launch paid apps developers November 2026", "app store opens third-party developers revenue share November 2026"). Canva Apps snel bekeken: betalen kan via eigen links en het Premium Apps Program, maar de winkel bestaat sinds 2023 en Vera kon hem niet meten (GEZIEN, https://www.canva.dev/docs/apps/monetization/ en https://community.canva.dev/t/updates-to-our-monetization-programs-for-canva-developers/8673). Niet voor de pionier.
-- TikTok Shop App Store in de jongste landen buiten de EU (Japan sinds juni 2025, Brazilië sinds mei 2025, Mexico; zelfde portal-API, eigen kassa): in onderzoek 8 nov 20:52 UTC
+- TikTok Shop App Store in de jongste landen buiten de EU (Japan sinds juni 2025, Brazilië sinds mei 2025, Mexico; zelfde portal-API, eigen kassa): in onderzoek 8 nov 20:52 UTC; klaar ±21:00, Japan 5, Brazilië 4, Mexico 4, zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±21:00 UTC (Noor)
+- Les: de standaardsortering (field 3) van de TikTok-portal-API verschuift tijdens het bladeren; tel altijd uniek op service_id. Script aangepast. De EU- en VS-tellingen van 8 nov kunnen een paar dubbele bevatten (VS 714 uniek van 721); bij de herhaalmeting rond 8 dec opnieuw tellen.
+- Snel nakijken: Brazilië, regels voor cosmetica en gezondheid (ANVISA) en INMETRO op TikTok Shop; nu geen enkele app die ze noemt. Als verkopers daar aantoonbaar op vastlopen (geweigerde listings), kan Brazilië hoger.
+- Andere jonge TikTok Shop-landen zoeken (gaat TikTok Shop in 2026 of 2027 nog open in nieuwe landen, bijvoorbeeld Zweden, Portugal, Tsjechië, Korea, Canada?). Een land dat net opent, heeft een bijna lege winkel.
