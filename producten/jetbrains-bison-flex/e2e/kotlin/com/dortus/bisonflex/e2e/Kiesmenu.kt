@@ -26,6 +26,23 @@ interface FocusOnderdeelOpAfstand
 interface LijstOpAfstand {
     fun getSelectedIndex(): Int
     fun getModel(): LijstModelOpAfstand
+    fun getCellRenderer(): CelTekenaarOpAfstand
+}
+
+/** De tekst die de gebruiker ziet: de regel laten tekenen en de toegankelijke naam lezen (run 42473572181: geen PsiElement). */
+@Remote("javax.swing.ListCellRenderer")
+interface CelTekenaarOpAfstand {
+    fun getListCellRendererComponent(list: LijstOpAfstand, value: IetsOpAfstand?, index: Int, isSelected: Boolean, cellHasFocus: Boolean): GetekendeCelOpAfstand?
+}
+
+@Remote("java.awt.Component")
+interface GetekendeCelOpAfstand {
+    fun getAccessibleContext(): ToegankelijkOpAfstand?
+}
+
+@Remote("javax.accessibility.AccessibleContext")
+interface ToegankelijkOpAfstand {
+    fun getAccessibleName(): String?
 }
 
 @Remote("javax.swing.ListModel")
@@ -73,7 +90,15 @@ internal fun Driver.kiesmenuKeuze(): String = try {
             return@withContext "focus ligt niet op een lijst (${t.javaClass.simpleName})"
         }
         val model = lijst.getModel()
-        val regels = (0 until minOf(model.getSize(), 10)).map { i -> "[${i + 1}] ${beschrijf(model.getElementAt(i))}" }
+        val regels = (0 until minOf(model.getSize(), 10)).map { i ->
+            val ding = model.getElementAt(i)
+            val zichtbaar = try {
+                lijst.getCellRenderer().getListCellRendererComponent(lijst, ding, i, false, false)?.getAccessibleContext()?.getAccessibleName()
+            } catch (t: Throwable) {
+                "niet te tekenen (${t.javaClass.simpleName})"
+            }
+            "[${i + 1}] '$zichtbaar' ${beschrijf(ding)}"
+        }
         "regel ${lijst.getSelectedIndex() + 1} van ${model.getSize()} gekozen: ${regels.joinToString("; ")}"
     }
 } catch (t: Throwable) {
