@@ -58,6 +58,11 @@ intellijPlatform {
         ideaVersion { sinceBuild = "252" }
     }
     buildSearchableOptions = false
+    // Uploaden van updates (taak publishPlugin), alleen vanuit de workflow
+    // jetbrains-bison-flex-upload.yml met het secret JETBRAINS_MARKETPLACE_TOKEN.
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
+    }
     // Plugin Verifier (taak verifyPlugin) tegen de doelgroep CLion en tegen IDEA Community.
     pluginVerification {
         ides {
