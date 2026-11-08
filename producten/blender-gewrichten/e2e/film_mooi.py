@@ -223,9 +223,9 @@ def licht_en_wereld():
         sc.collection.objects.link(ob)
         ob.rotation_euler = (-Vector(richting)).normalized().to_track_quat("-Z", "Y").to_euler()
 
-    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFE6C4", 3.2, 6)   # warm, links voor boven
-    zon("Randlicht", (0.7, 1.0, 0.45), "#7FD8FF", 6.5, 3)     # koel, van achteren: lichte rand om de pop
-    zon("Vullicht", (0.9, -0.6, 0.2), "#C8D0FF", 0.5, 20)
+    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFE2B8", 4.0, 6)   # warm, links voor boven
+    zon("Randlicht", (0.7, 1.0, 0.45), "#CFEAFF", 2.2, 3)     # koel, van achteren: lichte rand om de pop
+    zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.3, 20)
     # Vloer: donker, licht glanzend, zodat de pop een zachte spiegeling en schaduw heeft
     bm = bmesh.new()
     bmesh.ops.create_circle(bm, cap_ends=True, segments=96, radius=900)
@@ -385,8 +385,8 @@ def zet_beeld(cam, naam, i, n):
     z = Vector((0, 0, 1))
     if naam == "held":  # langzaam om de pop heen, laag standpunt, de pop groot en heldhaftig
         r = draai(BASIS_RICHTING, z, -28 + 30 * glad(a))
-        oog = POP_MIDDEN + r * 270 + Vector((0, 0, -18 + 10 * a))
-        kijk(cam, oog, POP_MIDDEN + Vector((0, 0, 6)), lens=65)
+        oog = POP_MIDDEN + r * 430 + Vector((0, 0, -25 + 12 * a))
+        kijk(cam, oog, POP_MIDDEN + Vector((0, 0, 2)), lens=50)
         return
     c, rr, kr = staat["c"], staat["r"], staat["kijk_r"]
     if naam == "gewricht":  # rijdt naar de elleboog; de groene ring gloeit op en zakt naar een rustige gloed
@@ -394,8 +394,8 @@ def zet_beeld(cam, naam, i, n):
         r0 = draai(BASIS_RICHTING, z, 2)
         rich = r0.slerp(kr, p) if hasattr(r0, "slerp") else r0.lerp(kr, p).normalized()
         doel = POP_MIDDEN.lerp(c + staat["as_"] * 3, p) + Vector((0, 0, 6)) * (1 - p)
-        afst = 270 + (26 * rr - 270) * p
-        kijk(cam, doel + rich * afst, doel, lens=65 + 20 * p)
+        afst = 430 + (75 * rr - 430) * p
+        kijk(cam, doel + rich * afst, doel, lens=50 + 10 * p)
         piek = math.exp(-((t - 1.1) ** 2) / 0.18)
         gloed(mat_naam("groen"), GROEN, 0.6 + 7.0 * piek if t > 0.4 else 0.0)
         return
@@ -404,7 +404,7 @@ def zet_beeld(cam, naam, i, n):
         inst.pose_graden = round(g, 2)
         rich = draai(kr, staat["as_"].cross(kr).normalized(), -6 + 10 * a)
         doel = c + staat["as_"] * 7
-        kijk(cam, doel + rich * (34 * rr), doel, lens=85)
+        kijk(cam, doel + rich * (85 * rr), doel, lens=60)
         gloed(mat_naam("groen"), GROEN, 0.6)
         voorbij = max(0.0, g - staat["grens"])
         gloed(mat_naam("rood"), ROOD, (3.0 + 2.0 * math.sin(t * 11)) * min(1.0, voorbij / 3.0))
@@ -418,7 +418,7 @@ def zet_beeld(cam, naam, i, n):
         as_ = staat["as_"]
         rich = (kr * math.cos(math.radians(50 * glad(t / 3.0))) + as_ * math.sin(math.radians(50 * glad(t / 3.0))))
         doel = c + as_ * (staat["los"].length * 0.6 * p)
-        kijk(cam, doel + rich.normalized() * (30 * rr), doel, lens=85)
+        kijk(cam, doel + rich.normalized() * (70 * rr), doel, lens=60)
         gloed(mat_naam("groen"), GROEN, 0.6 + 1.5 * math.exp(-((t - 1.3) ** 2) / 0.1))
         gloed(mat_naam("rood"), ROOD, 0.0)
 
