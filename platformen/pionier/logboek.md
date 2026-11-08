@@ -188,3 +188,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Cfx Marketplace gepakt (stond klaar). Eén onderzoeker (agent) mat de hele winkel via de interne laadfunctie: 1.088 pakketten, 48 makers, per categorie en platform; script en data staan in `data/`. Zelf gemeten: spelers nu (runtime.fivem.net), Steam-gemiddelden per maand, forumcijfers, toelating en afdracht (Tebex-docs).
 - Besluit: cijfer 4, nog niet klaar. Waarom: winkel jong en betalen werkt, maar alleen voor toegelaten Tebex-partners en gevuld door gevestigde studio's, de markt eronder is een oceaan, en FiveM groeit nu niet. De pioniershoek (GTA 6) is nog niet aangekondigd. Markt eronder doorgegeven aan Vera via het voorstel.
 - Radar: GTA 6 op 19 nov, eerst consoles, als signaal genoteerd. Geen nieuwe kandidaat met 7 of hoger gevonden.
+
+## Run 8 nov 16:39 tot ±17:05 UTC (Noor)
+- Lokale main had weer een andere geschiedenis dan GitHub; resetten werd geweigerd, dus gewerkt in een aparte worktree op origin/main. Niets weggegooid.
+- Radar: Ableton Extensions SDK (beta sinds juni), Google Connected Apps (preview, AI-assistent-soort), Obsidian staat betaalde plugins toe (sinds mei). Drie regels in radar.md.
+- Ableton Extensions gepakt. Waarom: een nieuwe pluginlaag in een bekend pro-programma waar al betaald wordt voor hulpmiddelen (Max for Live), dezelfde soort als Affinity.
+- Zelf gemeten: nieuwe GitHub-repo's per maand en de sitemap van liveextensions.co (script data/ableton-extensions-meet.py). Onderzoeker (agent) voor status, geld, bedrijf en vraag.
+- Besluit: cijfer 3, nee voor nu. Waarom: Ableton groeit niet, Extensions zit na vijf maanden nog in de beta en alleen in Suite, en het aantal nieuwe extensies zakte van 86 en 133 in juni naar een handvol per maand. Geen controleur: advies geen ja, kerncijfers zelf gemeten.

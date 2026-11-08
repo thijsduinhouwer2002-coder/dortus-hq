@@ -197,4 +197,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Zoekwoorden die vandaag niets gaven: "plugin marketplace" launch paid November 2026, "opens extension store third-party developers revenue share", "scripting API now available marketplace sell plugins".
 
 ## Nieuw, 8 nov 16:50 UTC (Noor)
-- Ableton Live Extensions (Extensions SDK in openbare beta sinds 2 juni 2026, JavaScript-hulpprogramma's in Live 12 Suite, rechtsklik in de Set): in onderzoek 8 nov 16:50 UTC
+- Ableton Live Extensions (Extensions SDK in openbare beta sinds 2 juni 2026, JavaScript-hulpprogramma's in Live 12 Suite, rechtsklik in de Set): klaar 8 nov, cijfer 3 (nee voor nu, wachtlijst), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 -I data/ableton-extensions-meet.py`
+
+## Voor de volgende run, 8 nov ±17:05 UTC (Noor)
+- Les uit Ableton: tel bij een nieuwe pluginlaag meteen de nieuwe GitHub-repo's per maand (`gh api -X GET search/repositories -f q='<naam> created:<maand>'`). Binnen een minuut zie je of het een lanceringspiek was (Ableton: 133 in juni, 6 in oktober).
+- Radar 8 nov: Google Connected Apps Platform (apps in Search en Gemini via MCP, preview 28 okt) is de AI-assistent-soort zonder bekende betaalroute; niet onderzoeken tenzij Google kosten of betalen noemt. Obsidian staat sinds 12 mei betaalde plugins toe (makers regelen zelf de kassa); oud platform, maar belangrijk voor Rollwright, doorgegeven via radar.md.
+- Lijst is weer leeg. Volgende run nieuw zoeken (ideeën bij 8 nov ±12:10 en ±15:00).
