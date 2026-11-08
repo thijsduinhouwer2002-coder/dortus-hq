@@ -59,3 +59,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - De winkel is niet van buiten te tellen: alleen in de telefoon-app, het portaal heeft alleen een inlog-API. Eerlijk opgeschreven in het voorstel.
 - Besluit: cijfer 4, nee voor nu. Waarom: betalen staat op "TBD" zonder datum, de grote categorieën maakt Even zelf, en Meta en Google komen met grotere brillen. Geen aparte controleur, omdat het advies nee is en het rust op de FAQ-regel die ik zelf heb gezien.
 - Les: een sprong in npm-downloads van 6.000 naar 107.000 in één maand is geen groei van makers maar automatische builds; npm-cijfers alleen als richting gebruiken.
+
+## 8 nov 2026, 01:59 tot ±02:10 UTC (zelfde run, derde platform)
+- MakerWorld (Bambu Lab) gepakt met de vraag of parametrische modellen in OpenSCAD een jonge hoek zijn waar wij met code vooraan kunnen staan. Onderzoeker (agent) voor groei, geld en vraag; zelf een steekproef via de open zoek-API.
+- Besluit: cijfer 4, nee voor de pionier. Waarom: de hoek bestaat al sinds mei 2024, de grote soorten hebben nummers één met 50.000 tot 85.000 downloads, en verkopen kan niet, alleen punten. Doorgeven aan Vera via deze regel, niet zelf in haar map geschreven.
+- Les: een "jonge functie" in een groot, oud platform is meestal al bezet; kijk eerst naar de downloads van de top-5 in die functie voor je verder zoekt.
