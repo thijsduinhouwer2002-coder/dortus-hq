@@ -50,3 +50,11 @@ def frame_voor(punt, as_richting):
     """Matrix met oorsprong op het punt en Z langs de as."""
     rot = as_richting.normalized().to_track_quat("Z", "Y").to_matrix().to_4x4()
     return Matrix.Translation(punt) @ rot
+
+
+def kegel(naam, r0, r1, z0, z1, frame, collectie):
+    """Afgeknotte kegel langs Z: straal r0 op hoogte z0, straal r1 op hoogte z1."""
+    bm = bmesh.new()
+    bmesh.ops.create_cone(bm, cap_ends=True, segments=SEGMENTEN, radius1=r0, radius2=r1, depth=z1 - z0)
+    bm.transform(frame @ Matrix.Translation((0, 0, (z0 + z1) / 2)) @ _HALF)
+    return _object(naam, bm, collectie)

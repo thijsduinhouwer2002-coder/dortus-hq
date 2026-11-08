@@ -1,4 +1,6 @@
 """Zijbalk (N), tabblad Click Joints: drie genummerde stappen met elk één grote knop."""
+import math
+
 import bpy
 
 from . import exporteer, passing, schaal
@@ -8,6 +10,15 @@ def grote_knop(layout, idname, tekst, icoon):
     rij = layout.row()
     rij.scale_y = 1.6
     rij.operator(idname, text=tekst, icon=icoon)
+
+
+def buig_graden(ob):
+    """Hoek voor "Bends ±N°": de gekozen stand (30, 25 of 20), nooit meer dan de berekende grens, naar
+    beneden afgerond op hele graden. None als er geen kogelgewricht met stand is."""
+    stand, grens = ob.get("cj_hoek", -1), ob.get("cj_grens_graden", -1.0)
+    if stand is None or stand <= 0 or grens is None or grens <= 0:
+        return None
+    return int(math.floor(min(stand, grens) + 1e-6))
 
 
 class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
@@ -56,12 +67,15 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         if kleur:
             hoofd, _, reden = passing.fit_tekst(kleur, ob.get("cj_wand_mm", -1.0)).partition(" (")
             stap.label(text=hoofd, icon=passing.ICONEN[kleur])
+            hoek = buig_graden(ob)
+            if hoek is not None and kleur != "rood":  # regel Daan: nooit meer graden dan berekend
+                stap.label(text=f"Bends \u00b1{hoek}\u00b0", icon="BLANK1")
             if reden:  # op een eigen regel, anders kapt Blender de tekst af
                 stap.label(text=reden.rstrip(")").capitalize(), icon="BLANK1")
             if ob.get("cj_wand_mm", -1.0) >= 0 and not reden:  # bij Tight staat de wand al in de reden
-                stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm")
+                stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm", icon="BLANK1")
             if "cj_speling_gemeten_mm" in ob:
-                stap.label(text=f"Clearance measured: {ob['cj_speling_gemeten_mm']:.3f} mm")
+                stap.label(text=f"Clearance: {ob['cj_speling_gemeten_mm']:.2f} mm (measured)", icon="BLANK1")
         else:
             stap.label(text="No joint yet")
         stap.prop(inst, "exportmap")

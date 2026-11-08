@@ -7,9 +7,9 @@ de geëvalueerde mesh (modifiers toegepast) in wereldcoördinaten, keer `schaal`
 import zipfile
 from xml.sax.saxutils import escape
 
-import bmesh
 import bpy
-from mathutils import Matrix
+from mathutils import Matrix, Vector
+from mathutils.geometry import tessellate_polygon
 
 TYPES = ('<?xml version="1.0" encoding="UTF-8"?>\n'
          '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
@@ -23,31 +23,84 @@ RELS = ('<?xml version="1.0" encoding="UTF-8"?>\n'
         '</Relationships>')
 
 
+def _diagonalen(vs, stel):
+    n = len(vs)
+    return {tuple(sorted((vs[t[i]], vs[t[j]]))) for t in stel for i, j in ((0, 1), (1, 2), (0, 2))
+            if (t[j] - t[i]) % n not in (1, n - 1)}
+
+
+def _eerste(vs, co):
+    """Gewone opdeling van één vlak (indexen in vs, elke driehoek oplopend: zelfde draairichting als het vlak)."""
+    n = len(vs)
+    if n == 3:
+        return [(0, 1, 2)]
+    if n > 4:
+        try:
+            stel = [tuple(sorted(t)) for t in tessellate_polygon([[co[v] for v in vs]])]
+        except Exception:
+            stel = []
+        if len(stel) == n - 2 and len(_diagonalen(vs, stel)) == n - 3:
+            return stel
+    return _waaier(n, 0)
+
+
+def _waaier(n, k):
+    return [tuple(sorted((k, (k + i) % n, (k + i + 1) % n))) for i in range(1, n - 1)]
+
+
+def _opdeling(polys, co, randen):
+    """Driehoeken per vlak. Eerst de gewone opdeling; valt een nieuwe diagonaal samen met een rand of met een
+    diagonaal van een ander vlak (ronde j, meterscene: een vijfhoek en een 23-hoek met dezelfde diagonaal, vier
+    vlakken op een rand), dan krijgt het kleinste van die vlakken een waaier vanuit een ander punt."""
+    stellen = [_eerste(vs, co) for vs in polys]
+    diags = [_diagonalen(vs, st) for vs, st in zip(polys, stellen)]
+    telling = {}
+    for ds in diags:
+        for d in ds:
+            telling[d] = telling.get(d, 0) + 1
+
+    def botst(ds, eigen):
+        return any(d in randen or telling.get(d, 0) - (1 if d in eigen else 0) > 0 for d in ds)
+
+    fout = [i for i, ds in enumerate(diags) if any(d in randen or telling[d] > 1 for d in ds)]
+    for i in sorted(fout, key=lambda i: len(polys[i])):
+        vs, ds = polys[i], diags[i]
+        if not any(d in randen or telling[d] > 1 for d in ds):
+            continue
+        for k in range(len(vs)):
+            st = _waaier(len(vs), k)
+            nieuw = _diagonalen(vs, st)
+            if not botst(nieuw, ds):
+                for d in ds:
+                    telling[d] -= 1
+                for d in nieuw:
+                    telling[d] = telling.get(d, 0) + 1
+                stellen[i], diags[i] = st, nieuw
+                break
+    return stellen
+
+
 def driehoeken(ob, schaal):
     """(hoekpunten in mm, driehoeken als drietallen indexen) van de geëvalueerde mesh in wereldcoördinaten.
-    Driehoeken via bmesh.ops.triangulate (BEAUTY): de loop_triangles van Blender gaven bij de holle n-hoeken
-    uit de Boolean 8 tot 52 randen die twee keer dezelfde kant op liepen (ronde h, GEZIEN in de test).
+    Eigen opdeling per vlak (`_opdeling`): de loop_triangles van Blender en bmesh.ops.triangulate (BEAUTY en
+    EAR_CLIP) gaven bij de holle n-hoeken uit de Boolean randen die dubbel liepen (ronde h en j).
     Bij een gespiegeld object (negatieve schaal) draait de volgorde om, zodat de normalen naar buiten wijzen."""
     graaf = bpy.context.evaluated_depsgraph_get()
     ev = ob.evaluated_get(graaf)
     me = ev.to_mesh()
-    bm = bmesh.new()
     try:
-        bm.from_mesh(me)
-        m = ob.matrix_world
-        # Eerst naar mm, dan pas driehoeken: in een scene in meters zijn de vlakken 1000 keer kleiner en gaf
-        # BEAUTY nog 8 dubbele randen (vaste kleine grenzen in Blender); in mm 0 (GEZIEN, ronde h).
-        bm.transform(Matrix.Scale(schaal, 4) @ m)
-        bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="BEAUTY")
-        bm.verts.index_update()
-        punten = [tuple(v.co) for v in bm.verts]
-        om = m.determinant() < 0
+        m = Matrix.Scale(schaal, 4) @ ob.matrix_world
+        punten = [tuple(m @ v.co) for v in me.vertices]
+        co = [Vector(p) for p in punten]
+        randen = {tuple(sorted(e.vertices)) for e in me.edges}
+        polys = [list(p.vertices) for p in me.polygons]
+        om = ob.matrix_world.determinant() < 0
         lijst = []
-        for f in bm.faces:
-            t = tuple(v.index for v in f.verts)
-            lijst.append(t[::-1] if om else t)
+        for vs, stel in zip(polys, _opdeling(polys, co, randen)):
+            for t in stel:
+                d = (vs[t[0]], vs[t[1]], vs[t[2]])
+                lijst.append(d[::-1] if om else d)
     finally:
-        bm.free()
         ev.to_mesh_clear()
     return punten, lijst
 

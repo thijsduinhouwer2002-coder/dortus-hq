@@ -84,7 +84,7 @@ def main():
     pop = figuren.pop(lijst_solver())
     fout, vol = meting(pop)
     log(f"POP: driehoeken={sum(len(p.vertices) - 2 for p in pop.data.polygons)} foute_randen={fout} volume={vol:.1f}")
-    lijst = plaats("pop arm", pop, (11, 0, 3), (1, 0, 0), kogel=3.0)
+    lijst = plaats("pop arm", pop, (11, 0, 3), (1, 0, 0), kogel=2.0)  # ronde j: 3,0 in een arm van 5,2 mm is eerlijk te dun
     gesloten_delen("pop", lijst)
     weg(lijst)
     lijst = plaats("pop pen", pop, (-11, 0, 3), (-1, 0, 0), kogel=2.0, soort="PEN")

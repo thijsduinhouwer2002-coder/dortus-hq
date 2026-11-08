@@ -39,6 +39,22 @@ def smalste_breedte(bvh, frame, n=36):
     return kleinste
 
 
+def grootste_straal(bvh, frame, hoogtes, n=36):
+    """Grootste afstand van de as tot de huid (eerste treffer per richting) op de gegeven hoogtes in het
+    gewrichtsframe, in Blender-eenheden; None als een straal niets raakt."""
+    rot = frame.to_3x3()
+    grootste = 0.0
+    for z in hoogtes:
+        o = frame @ Vector((0, 0, z))
+        for i in range(n):
+            hoek = 2 * math.pi * i / n
+            hit = bvh.ray_cast(o, (rot @ Vector((math.cos(hoek), math.sin(hoek), 0))).normalized())
+            if hit[0] is None:
+                return None
+            grootste = max(grootste, hit[3])
+    return grootste
+
+
 def auto_diameter(breedte_mm):
     """0,6 keer de breedte, afgerond op 0,5 mm, tussen 2 en 50 mm."""
     d = round(AUTO_FACTOR * breedte_mm / AUTO_STAP_MM) * AUTO_STAP_MM
@@ -86,8 +102,11 @@ def monsters(maat, soort):
 
 
 def bodem(maat):
-    """Dikte van de rand van deel B tussen snijvlak en kom, net naast de klikopening."""
+    """Dikte van de rand van deel B tussen snijvlak en kom, net naast de klikopening.
+    Vorm v0.3 (met bolnaad): de schil van deel B tussen kom en bolnaad."""
     rk = maat["r"] + maat["s"]
+    if "naad_r" in maat:
+        return maat["naad_r"] - maat["s"] / 2 - rk
     return maat["midden_z"] - math.sqrt(max(rk * rk - maat["open_r"] ** 2, 0.0)) - maat["schuif"]
 
 
@@ -104,17 +123,59 @@ def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
             uit = o + d * nodig
             if math.hypot(uit.x, uit.y) < opening:
                 continue  # deze straal gaat door de klikopening
-            afstand = (o.z - maat["schuif"]) / -d.z  # tot het snijvlak: de bodem van deel B
+            if "naad_r" in maat:
+                afstand = maat["naad_r"] - maat["s"] / 2  # tot de bolnaad: daar eindigt deel B
+            else:
+                afstand = (o.z - maat["schuif"]) / -d.z  # tot het snijvlak: de bodem van deel B
         hit = bvh.ray_cast(frame @ o, (rot @ d).normalized())
         if hit[0] is None:
             return "rood", -1.0, "the joint sticks out of the mesh"
         kleinste = min(kleinste, min(hit[3], afstand) - nodig)
+    if soort == "KOGEL" and "naad_r" in maat:
+        kleinste = min(kleinste, trechter_wand(bvh, frame, maat))
     wand = kleinste / eenheid_per_mm
     if wand < GRENS_ROOD_MM:
         return "rood", wand, f"wall {wand:.2f} mm is too thin (minimum {GRENS_ROOD_MM} mm)"
     if wand < GRENS_ORANJE_MM:
         return "oranje", wand, f"wall {wand:.2f} mm is tight (aim for {GRENS_ORANJE_MM} mm or more)"
     return "groen", wand, f"wall {wand:.2f} mm"
+
+
+def trechter_eind(open_r, lip, tan_a, grens):
+    """Afstand t langs de trechter (vanaf de klikrand) waar de trechter de bolnaad raakt:
+    (open_r + t tan a)^2 + (lip + t)^2 = grens^2, de positieve wortel."""
+    qa = tan_a * tan_a + 1.0
+    qb = 2.0 * (open_r * tan_a + lip)
+    qc = open_r * open_r + lip * lip - grens * grens
+    D = qb * qb - 4.0 * qa * qc
+    if D < 0:
+        return 0.0
+    return max(0.0, (-qb + math.sqrt(D)) / (2.0 * qa))
+
+
+def trechter_wand(bvh, frame, maat, n=48):
+    """Vorm v0.3: wand van deel B tussen de trechter (onder de klikrand) en de huid, loodrecht op de
+    trechterwand gemeten, van de klikrand tot en met het punt waar de trechter de bolnaad raakt.
+    Daar is de wand vaak het dunst, dus dat eindpunt wordt altijd gemeten (controleur ronde j)."""
+    rot = frame.to_3x3()
+    a = math.radians(maat["trechter_graden"])
+    mz, open_r, lip = maat["midden_z"], maat["open_r"], maat["lip_d"]
+    grens = maat["naad_r"] - maat["s"] / 2
+    eind = trechter_eind(open_r, lip, math.tan(a), grens)
+    stappen = max(1, math.ceil(eind / (maat["r"] * 0.05)))
+    kleinste = math.inf
+    for k in range(stappen + 1):
+        t = eind * k / stappen
+        z = mz - lip - t
+        x = open_r + t * math.tan(a)
+        for d in ring(n):
+            p = Vector((d.x * x, d.y * x, z))
+            normaal = Vector((d.x * math.cos(a), d.y * math.cos(a), math.sin(a)))
+            hit = bvh.ray_cast(frame @ p, (rot @ normaal).normalized())
+            if hit[0] is None:
+                return -1.0
+            kleinste = min(kleinste, hit[3])
+    return kleinste
 
 
 def fit_tekst(kleur, wand):
