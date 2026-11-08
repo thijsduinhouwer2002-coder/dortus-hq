@@ -142,7 +142,7 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 ### Side panel, commands and settings
 
 - **Roll log** shows rolls you clicked or typed, grouped under the note and the time the session began, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The history is stored in the plugin's data file.
-- **Commands:** "Open roll history" and "Roll a formula".
+- **Commands:** "Open roll log" and "Roll a formula".
 - **Settings:** default die, default number of dice, whether `dice-mod:` keeps the formula, and saved formulas. A saved formula works by name in any roll, such as `` `dice: attack` `` or `1d6 + bonus`. A number in the frontmatter of the note works the same way: with `str: 3` in the note, `` `dice: 1d20 + str` `` adds 3. A saved formula with the same name goes first. Only the note's own frontmatter counts, also for a code inside a table or section drawn from another note; inline fields such as `str:: 3` and text that is not a number do not. Names that read as dice notation, such as `d`, `dh`, `k`, `s` or `F`, stay notation.
 - **Import:** a button copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read. Existing names are kept. The layout of that file was not verified, so an import may find nothing.
 
