@@ -411,3 +411,12 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: geld bestaat, maar voor 3D-kunst die we niet goed kunnen maken, met sterke weerstand tegen AI; VRChat-markt zelf dicht.
 - Controleur akkoord met 20 van 20 live gelijk. Correcties verwerkt: gratis demo naast betaalde versies telt als betaald (300 in plaats van 292), URL's met spaties, afdracht omgedraaid (Standard 92%, Supporter 87%).
 - Les: Jinxxy-pagina's hebben de prijs soms in versions en soms alleen in base_price; lees beide. Controleer de eerste uitlezing altijd op lege velden voor je analyseert (eerste poging miste 80% van de prijzen).- 05:58: Sketch opgepakt als tweede. Open pluginlijst: 821 plugins, maar 47 actief sinds 2025, geen betaling in de winkel. Nee zonder volledige meting, cijfer 1. Run afgesloten: volgende open kandidaten zijn Zotero, Home Assistant (HACS opnieuw), Miro, Slack, Zapier en Make, Neovim. Die hebben bijna allemaal geen betaling in de winkel; liever eerst een nieuw platform met openbare verkooptellers zoeken (Gumroad zelf kan met data/gumroad-haal-script.py).
+
+## 8 nov run 06:32 (UTC)
+- Begin: lokale main liep weer scheef met GitHub. Niets weggegooid, gewerkt op tak vera-werk vanaf origin/main en naar main gepusht.
+- Platform: Pebble (Core Devices), zelf toegevoegd. Reden: jong platform met nieuwe horloges, open API, past bij de vraag van Thijs naar plekken waar Dortus groot kan worden.
+- Gemeten: alle 3.785 apps en 4.327 wijzerplaten via appstore-api.repebble.com (hearts, eerste versie, beschrijving) plus de lijst meest gebruikt. Een onderzoeker zocht geld, groei en regels.
+- Uitkomst: nieuwe uitgaven mrt t/m jun 2026 mediaan 16 tot 18 hearts, 10% haalt 100+; 33 van de 50 meest gebruikte wijzerplaten zijn uit 2026. Geen betalen in de winkel, KiezelPay werkt nog (Flights $5,99, 414 hearts), maar geen enkel bedrag van een maker gevonden. ±40.000 nieuwe horloges (GOK).
+- Beslissing: nee voor nu, cijfer 4. Reden: bereik voor nieuwe makers is goed, maar de markt is te klein en geld is niet aangetoond.
+- Controleur akkoord, 20 van 20 live gelijk. Correcties verwerkt: wijzerplaten in plaats van makers bovenaan, Round 2-voorbestellingen zonder bron, top 200 per soort, extra tabelrij.
+- Les: de Pebble-API heeft verborgen collecties (top-used, top-picks); zoek in de HTML van de winkel naar "collections/" om ze te vinden.
