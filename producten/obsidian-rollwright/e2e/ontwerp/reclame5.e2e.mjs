@@ -17,12 +17,12 @@ const muisWeg = async () => {
 	try { await browser.$(".view-header-title-container, .view-header").moveTo(); } catch (e) {}
 	await browser.execute(() => { document.querySelectorAll(".tooltip").forEach((t) => t.remove()); document.activeElement?.blur(); });
 };
-const tokens = () => browser.execute(() => [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null)
+const tokens = () => browser.execute(() => [...document.querySelectorAll(".workspace-leaf-content[data-type=\"markdown\"] .rollwright-roll")].filter((x) => x.offsetParent !== null)
 	.map((x, i) => { const b = x.getBoundingClientRect(); const z = window.devicePixelRatio; return { i, t: x.textContent.trim().slice(0, 40), cls: x.className, x: Math.round(b.x * z), y: Math.round(b.y * z), w: Math.round(b.width * z), h: Math.round(b.height * z) }; }));
-const klik = (i) => browser.execute((i) => { const a = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null); a[i]?.click(); return a.length; }, i);
+const klik = (i) => browser.execute((i) => { const a = [...document.querySelectorAll(".workspace-leaf-content[data-type=\"markdown\"] .rollwright-roll")].filter((x) => x.offsetParent !== null); a[i]?.click(); return a.length; }, i);
 const skin = (s) => browser.execute((s) => { for (const c of Array.from(document.body.classList)) if (c.startsWith("rollwright-skin-")) document.body.classList.remove(c); document.body.classList.add(`rollwright-skin-${s}`); }, s);
-const scrollTo = (y) => browser.execute((y) => { const sc = document.querySelector(".workspace-leaf.mod-active .markdown-preview-view"); if (sc) sc.scrollTop = y; return sc?.scrollTop; }, y);
-const plek = (tekst) => browser.execute((t) => { const sc = document.querySelector(".workspace-leaf.mod-active .markdown-preview-view"); const el = [...sc.querySelectorAll("p, .callout")].find((p) => p.textContent.includes(t)); return el ? Math.round(el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop) : null; }, tekst);
+const scrollTo = (y) => browser.execute((y) => { const sc = document.querySelector(".workspace-leaf-content[data-type=\"markdown\"] .markdown-preview-view"); if (sc) sc.scrollTop = y; return sc?.scrollTop; }, y);
+const plek = (tekst) => browser.execute((t) => { const sc = document.querySelector(".workspace-leaf-content[data-type=\"markdown\"] .markdown-preview-view"); if (!sc) return null; const el = [...sc.querySelectorAll("p, .callout")].find((p) => p.textContent.includes(t)); return el ? Math.round(el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop) : null; }, tekst);
 const meta = { scroll: {} };
 let f = 0;
 const frame = async (wat) => { f += 1; const n = `f-${String(f).padStart(3, "0")}-${wat}`; await save(n); return n; };
@@ -73,10 +73,12 @@ describe("Rollwright reclame 5 (film v4)", function () {
 		await browser.executeObsidian(({ app }) => { const l = app.workspace.getLeavesOfType("markdown")[0]; if (l) app.workspace.setActiveLeaf(l, { focus: true }); });
 		await browser.pause(1500);
 		await muisWeg();
-		meta.scroll.beast = await plek("Dire wolf");
+		await save("debug-start");
+		await stap("plek", async () => { meta.scroll.beast = await plek("Dire wolf");
 		meta.scroll.trap = await plek("Rusted jaw");
 		meta.scroll.ini = await plek("Initiative");
-		meta.scroll.per = await plek("The lantern flickers");
+		meta.scroll.per = await plek("The lantern flickers"); });
+		meta.leaves = await browser.execute(() => [...document.querySelectorAll(".workspace-leaf-content")].map((l) => l.dataset.type + ":" + l.className));
 		console.log("PLEK:", JSON.stringify(meta.scroll));
 	});
 
@@ -109,7 +111,7 @@ describe("Rollwright reclame 5 (film v4)", function () {
 		await stap("groot", async () => {
 			await skin("classic");
 			await zoom(2);
-			const r = await browser.execute(() => { const t = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null)[4]; t?.scrollIntoView({ block: "center" }); const b = t?.getBoundingClientRect(); const z = window.devicePixelRatio; return b ? { x: Math.round(b.x * z), y: Math.round(b.y * z), w: Math.round(b.width * z), h: Math.round(b.height * z) } : null; });
+			const r = await browser.execute(() => { const t = [...document.querySelectorAll(".workspace-leaf-content[data-type=\"markdown\"] .rollwright-roll")].filter((x) => x.offsetParent !== null)[4]; t?.scrollIntoView({ block: "center" }); const b = t?.getBoundingClientRect(); const z = window.devicePixelRatio; return b ? { x: Math.round(b.x * z), y: Math.round(b.y * z), w: Math.round(b.width * z), h: Math.round(b.height * z) } : null; });
 			await browser.pause(400); await muisWeg();
 			meta.groot = r; await save("groot-nat20");
 			await zoom(1);
