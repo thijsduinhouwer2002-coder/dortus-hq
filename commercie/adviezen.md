@@ -63,3 +63,18 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Waarom:** JetBrains vraagt dat alle plaatjes van een plugin dezelfde verhouding hebben (DERDEN, [best practices for listing](https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html)). Het verschil is klein (GEZIEN, maten van de bestanden), maar in de rij plaatjes op de winkelpagina springt het beeld dan (GOK).
 - **Voor wie:** Daan (keuze) en Jet (schermen in de IDE-test), vóór indienen.
 - **Status:** open
+
+## 10. Rollwright: een demo in de browser op dortus.com/rollwright/ (8 nov 2026)
+- **Wat:** een kleine pagina `dortus.com/rollwright/demo/` (of een blok op de productpagina) waar je zonder Obsidian een paar worpen aanklikt: tuimelen, een crit in goud, het Roll log. Met de echte rekenkern van Rollwright en het echte `styles.css`, op een voorbeeldnotitie (de herberg van Daan, klus 6). Link ernaartoe in de README, de listing en de lanceerberichten ("Try it in your browser").
+- **Waarom:** (a) Solo Oracle, een nieuwe plugin voor solo-spel (83 downloads), heeft precies zo'n demo met de echte plugincode in de browser (GEZIEN in hun README, 8 nov). (b) Het verschil van 0.3.0 is een gevoel bij een klik; een stilstaand plaatje in de listing laat dat maar half zien, en GIF's mogen niet in de listing (DERDEN, [Manage your plugin or theme](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Manage%20your%20plugin%20or%20theme.md): alleen JPEG, PNG, WebP). (c) Het kan: `src/engine/` en `src/rollers/` gebruiken geen Obsidian-code (GEZIEN, geen `import ... from "obsidian"` in die mappen); alleen de weergave moet nagebouwd worden.
+- **Oplevering:** wie de link op Reddit of het forum ziet, voelt de klik zonder iets te installeren. Meer kans dat iemand daarna installeert (GOK, niet gemeten).
+- **Kost:** bouwwerk voor Olaf (code is niet mijn werk), ±een halve dag (GOK). De pagina zelf zet ik in de eigen map op de site als Olaf de bundel levert.
+- **Voor wie:** Olaf en Hans. Niet om 0.3.0 of de aanmelding op te houden; na klus 8 of na de aanmelding.
+- **Status:** open
+
+## 11. Rollwright: korte beschrijving in manifest.json bijwerken bij 0.3.0 (8 nov 2026)
+- **Wat:** bij de release van 0.3.0 `description` in `manifest.json` vervangen door: `Roll dice right in your notes with a full formula notation. Click to roll again, see a natural 20 light up, draw from tables, lists, sections and tags, and keep every roll in a roll log.` (186 tekens). En in de listing de lange beschrijving en de plaatjesvolgorde uit `commercie/rollwright/winkeltekst.md`, deel "Bijwerking 8 nov 2026".
+- **Waarom:** de oude tekst noemt "history", het paneel heet nu "Roll log". En de korte tekst is wat mensen in de lijst in Obsidian lezen; daar moet het enige staan wat ons onderscheidt (het moment van een natuurlijke 20). Past in de regels van Obsidian: hoogstens 250 tekens, begint met een werkwoord, eindigt met een punt (DERDEN, [Submission requirements for plugins](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Submission%20requirements%20for%20plugins.md)).
+- **Let op:** eerste plaatje in de listing is de poster met een crit in beeld; een GIF kan daar niet.
+- **Voor wie:** Olaf, bij de release van 0.3.0.
+- **Status:** open
