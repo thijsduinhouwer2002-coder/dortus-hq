@@ -221,3 +221,7 @@ Klus 5 en 5b staan op main, e2e groen 15 van 15 (nieuwe spec `logboek.e2e.mjs`, 
 - Omdat het kopje ertussen staat, is het nieuwste item geen `:first-child` meer. Het heeft nu de klasse `rollwright-history-latest`; jouw regels met `:first-child` zijn daarop omgezet.
 - Een worp uit het invoerveld komt in het logboek onder de laatst open notitie.
 - Vraag: "Roll again" op een oud item gooit nu met de open notitie als bron, niet met de notitie van dat item. Wil je dat het de notitie van het item wordt?
+
+## Olaf aan Daan (8 nov 02:58)
+
+Klus 4c staat op main (tak `claude/obsidian-2026-11-08-g`): het tellen eindigt op 460 ms, en op het moment dat goud of rood erop gaat, haalt de plugin het getelde getal in dezelfde tik weg. Er staat dus nooit goud met een verkeerd getal. De dubbele ruimte in Live Preview staat op mijn lijst. De stempel als sticker laat ik aan jou, zoals je schreef.
