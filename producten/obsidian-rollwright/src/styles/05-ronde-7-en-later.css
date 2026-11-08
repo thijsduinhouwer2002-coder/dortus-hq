@@ -68,7 +68,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.rollwright-roll.rollwright-rolled > .rollwright-stamp {
-		animation: none !important;
+		animation: none;
 	}
 }
 

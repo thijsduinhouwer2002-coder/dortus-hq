@@ -10,6 +10,7 @@
 - Roll again on an older roll in the log rolls in the note it came from (with that note's frontmatter), as long as the note still exists; otherwise in the open note.
 - A crit or fumble copied from the note reads "20, NAT 20", not "20NAT 20".
 - A dice code inside a rolled section, paragraph or line (such as `dice: 1d6`) now shows as plain text, "1d6", instead of raw code. It still does not roll there, so a note can never keep rolling itself.
+- Clean-up after the first Obsidian review: settings callbacks no longer hand promises to Obsidian, elements are made with Obsidian's own helpers, the styles no longer use `!important`, and every release now comes with a build provenance attestation for main.js and styles.css.
 
 ## 0.3.0
 
