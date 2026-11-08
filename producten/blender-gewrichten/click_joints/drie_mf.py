@@ -23,47 +23,66 @@ RELS = ('<?xml version="1.0" encoding="UTF-8"?>\n'
         '</Relationships>')
 
 
-def _veelhoek(vs, co, gebruikt):
-    """Driehoeken (indexen in vs) voor één vlak. Elke driehoek staat in oplopende volgorde van de punten in het
-    vlak: bij een opdeling langs diagonalen heeft elke driehoek dan dezelfde draairichting als het vlak, ook
-    als hij plat is. Probeert elk beginpunt tot geen nieuwe diagonaal een rand is die al bestaat (ronde j:
-    in de meterscene liepen 108 randen dubbel, een diagonaal viel samen met een rand elders)."""
+def _diagonalen(vs, stel):
+    n = len(vs)
+    return {tuple(sorted((vs[t[i]], vs[t[j]]))) for t in stel for i, j in ((0, 1), (1, 2), (0, 2))
+            if (t[j] - t[i]) % n not in (1, n - 1)}
+
+
+def _eerste(vs, co):
+    """Gewone opdeling van één vlak (indexen in vs, elke driehoek oplopend: zelfde draairichting als het vlak)."""
     n = len(vs)
     if n == 3:
         return [(0, 1, 2)]
-    eerste = None
-    for start in range(n):
-        if n == 4:
-            stel = [(start % 4, (start + 1) % 4, (start + 2) % 4), (start % 4, (start + 2) % 4, (start + 3) % 4)] if start < 2 else None
-            if stel is None:
-                break
-        else:
-            rot = [(start + i) % n for i in range(n)]
-            try:
-                ruw = tessellate_polygon([[co[vs[i]] for i in rot]])
-            except Exception:
-                ruw = []
-            stel = [tuple(rot[i] for i in t) for t in ruw]
-            if len(stel) != n - 2:
-                continue
-        stel = [tuple(sorted(t)) for t in stel]
-        diag = {tuple(sorted((vs[t[i]], vs[t[j]]))) for t in stel for i, j in ((0, 1), (1, 2), (0, 2))
-                if (t[j] - t[i]) % n not in (1, n - 1)}
-        if eerste is None:
-            eerste = (stel, diag)
-        if not diag & gebruikt:
-            gebruikt |= diag
+    if n > 4:
+        try:
+            stel = [tuple(sorted(t)) for t in tessellate_polygon([[co[v] for v in vs]])]
+        except Exception:
+            stel = []
+        if len(stel) == n - 2 and len(_diagonalen(vs, stel)) == n - 3:
             return stel
-    if eerste is None:  # geen opdeling gevonden: waaier vanaf punt 0 (topologisch altijd goed)
-        stel = [(0, i, i + 1) for i in range(1, n - 1)]
-        eerste = (stel, {tuple(sorted((vs[0], vs[i]))) for i in range(2, n - 1)})
-    gebruikt |= eerste[1]
-    return eerste[0]
+    return _waaier(n, 0)
+
+
+def _waaier(n, k):
+    return [tuple(sorted((k, (k + i) % n, (k + i + 1) % n))) for i in range(1, n - 1)]
+
+
+def _opdeling(polys, co, randen):
+    """Driehoeken per vlak. Eerst de gewone opdeling; valt een nieuwe diagonaal samen met een rand of met een
+    diagonaal van een ander vlak (ronde j, meterscene: een vijfhoek en een 23-hoek met dezelfde diagonaal, vier
+    vlakken op een rand), dan krijgt het kleinste van die vlakken een waaier vanuit een ander punt."""
+    stellen = [_eerste(vs, co) for vs in polys]
+    diags = [_diagonalen(vs, st) for vs, st in zip(polys, stellen)]
+    telling = {}
+    for ds in diags:
+        for d in ds:
+            telling[d] = telling.get(d, 0) + 1
+
+    def botst(ds, eigen):
+        return any(d in randen or telling.get(d, 0) - (1 if d in eigen else 0) > 0 for d in ds)
+
+    fout = [i for i, ds in enumerate(diags) if any(d in randen or telling[d] > 1 for d in ds)]
+    for i in sorted(fout, key=lambda i: len(polys[i])):
+        vs, ds = polys[i], diags[i]
+        if not any(d in randen or telling[d] > 1 for d in ds):
+            continue
+        for k in range(len(vs)):
+            st = _waaier(len(vs), k)
+            nieuw = _diagonalen(vs, st)
+            if not botst(nieuw, ds):
+                for d in ds:
+                    telling[d] -= 1
+                for d in nieuw:
+                    telling[d] = telling.get(d, 0) + 1
+                stellen[i], diags[i] = st, nieuw
+                break
+    return stellen
 
 
 def driehoeken(ob, schaal):
     """(hoekpunten in mm, driehoeken als drietallen indexen) van de geëvalueerde mesh in wereldcoördinaten.
-    Eigen opdeling per vlak (`_veelhoek`): de loop_triangles van Blender en bmesh.ops.triangulate (BEAUTY en
+    Eigen opdeling per vlak (`_opdeling`): de loop_triangles van Blender en bmesh.ops.triangulate (BEAUTY en
     EAR_CLIP) gaven bij de holle n-hoeken uit de Boolean randen die dubbel liepen (ronde h en j).
     Bij een gespiegeld object (negatieve schaal) draait de volgorde om, zodat de normalen naar buiten wijzen."""
     graaf = bpy.context.evaluated_depsgraph_get()
@@ -73,12 +92,12 @@ def driehoeken(ob, schaal):
         m = Matrix.Scale(schaal, 4) @ ob.matrix_world
         punten = [tuple(m @ v.co) for v in me.vertices]
         co = [Vector(p) for p in punten]
-        gebruikt = {tuple(sorted(e.vertices)) for e in me.edges}
+        randen = {tuple(sorted(e.vertices)) for e in me.edges}
+        polys = [list(p.vertices) for p in me.polygons]
         om = ob.matrix_world.determinant() < 0
         lijst = []
-        for p in me.polygons:
-            vs = list(p.vertices)
-            for t in _veelhoek(vs, co, gebruikt):
+        for vs, stel in zip(polys, _opdeling(polys, co, randen)):
+            for t in stel:
                 d = (vs[t[0]], vs[t[1]], vs[t[2]])
                 lijst.append(d[::-1] if om else d)
     finally:

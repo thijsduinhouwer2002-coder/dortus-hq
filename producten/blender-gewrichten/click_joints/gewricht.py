@@ -251,7 +251,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                     "cj_grens_graden": round(maat.get("grens_graden", -1.0), 2), "cj_solver": solver,
                     "cj_hoek": maat.get("hoek", -1), "cj_kogel_auto": inst.kogel_auto, "cj_auto_keuze": keuze, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
 
-        nodig = te_dicht(bron, centrum, richting, maat, u) if kleur != "rood" else None
+        nodig = te_dicht(bron, centrum, richting, maat, u)  # ook bij rood: te dicht is dan de echte reden
         if nodig is not None:
             # Regel Daan (ronde j): de bolnaad mag niet in kom of trechter van een ander gewricht komen.
             ruim_op(hulp)
