@@ -438,3 +438,8 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 4. Reden: het geld zit in 3D-spellen die we zonder headset en zonder echte test niet goed kunnen maken; het deel dat bij ons past doet het slecht.
 - Controleur akkoord, alle tellingen gelijk, 15 van 15 live gelijk. Correcties verwerkt: makers op id, auteur en spreiding van de vuistregel, beperking bij GameDiscoverCo, vertekening door de prijs van nu, drukte als piek.
 - Les: vrdb.app heeft per lijstpagina een __data.json (SvelteKit, devalue-formaat) met alle velden; 50 per pagina, ±1,5 s ertussen gaat goed. Zelfde aanpak werkt waarschijnlijk voor andere SvelteKit-sites.
+- 08:50: tweede platform: Rhino en Grasshopper, zelf toegevoegd. Food4Rhino geeft 403 (niet omzeild), maar de package-API van McNeel (yak.rhino3d.com) is open met downloads en versiedatums. Alle 1.395 pakketten opgehaald.
+- Uitkomst: golf sinds maart 2026 (okt 131 nieuwe), nieuwe pakketten mei t/m aug mediaan 57,5 downloads, 6,9% haalt 1.000+; AI-pakketten doen het beter. Geen betalen in de winkel, geen verkoopaantallen gevonden, alleen Patreon-bedragen.
+- Beslissing: nog niet klaar, cijfer 4. Reden: past bij ons en de gebruikers betalen voor software, maar geld voor kleine makers is niet aangetoond.
+- Controleur akkoord, 8 van 8 live gelijk. Correcties verwerkt (betaalwoorden ±14 tot 25, schrijver AI-voorbeeld werkt bij McNeel, uitspraak McNeel preciezer).
+- Run afgesloten na ±45 minuten.
