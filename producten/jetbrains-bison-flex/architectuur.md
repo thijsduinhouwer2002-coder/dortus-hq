@@ -52,7 +52,7 @@ Stand 8 nov 2026: versie 0.2. Bestandssoorten, echte lexer met kleuren, kleurenp
 `./gradlew test` (unittests), `./gradlew integrationTest` (echte IDE, alleen op GitHub Actions), `./gradlew buildPlugin` (zip in `build/distributions/`). Gradle 9.8.2 via de wrapper, Java 21. Zie `platformen/jetbrains/bouwsjabloon.md`.
 
 ## Open
-- `release-date="20261215"` in de `product-descriptor` is voorlopig; die wordt op de lanceerdag gezet (JJJJMMDD).
+- `release-date="20261108"` in de `product-descriptor` is voorlopig; die wordt op de lanceerdag gezet (JJJJMMDD). Nooit meer dan 5 dagen vooruit: dan noemt Plugin Verifier de plugin ongeldig ("The <release-date> parameter must be set to a date that is no more than five days in the future", GEZIEN in de CLion-workflow, 8 nov 2026), en de Marketplace weigert de upload dan ook (GOK).
 - De licentiecontrole kijkt alleen of er een stempel is, niet naar de handtekening ervan (de controle met het certificaat van JetBrains uit het voorbeeld CheckLicense past niet klein; later toevoegen).
 - "Start free trial" opent de registratie van de IDE (`Proef.kt`). Alleen als die actie ontbreekt valt hij terug op https://plugins.jetbrains.com/: na het indienen die terugval veranderen in de pagina van de plugin. Het klikken op de knop zit niet in de IDE-test (dan komt er een dialoog).
 - Ga naar definitie: het wegdrukken van de hint "Cannot find declaration to go to" hangt af van de volgorde op de EDT (GOK dat die vast is; de IDE-schermen tonen het). `hideAllHints` haalt ook andere editor-hints weg die op dat moment open zijn.
