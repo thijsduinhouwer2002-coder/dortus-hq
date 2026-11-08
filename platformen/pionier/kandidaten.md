@@ -26,6 +26,10 @@ Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity),
 
 - Bambu Lab MakerWorld, parametrische modellen (OpenSCAD in de browser via MakerLab, makers krijgen punten die in geld om te zetten zijn): klaar 8 nov, cijfer 4, zie onderzocht.md
 
+- s&box (Facepunch, spelplatform op Steam met Play Fund voor makers): klaar 8 nov, cijfer 2, zie onderzocht.md
+
+- Android XR (Google, headsets zoals Galaxy XR en AI-brillen, apps via Google Play): klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md
+
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
 Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zonder plan is het volgens de rol een nee, tenzij er nieuw nieuws komt. Volgende run eerst grondig nakijken voor ze op onderzocht.md komen.
@@ -55,3 +59,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov 03:10 UTC (Noor)
 - Claude en MCP is af (4). Les: bij AI-platformen is de winkel snel vol en maken de eigenaren van diensten hun eigen koppeling. Zoek liever in jonge platformen waar de maker van een app geen grote dienst achter zich hoeft te hebben (editors, spellen, apparaten).
 - Nog open op de lijst: Framer (plugins), Home Assistant, Tldraw, Excalidraw, Meta Horizon, Apple Vision Pro, Bluesky. Raycast, Zed en ComfyUI vielen af op geld in de snelle schifting.
+
+## Voor de volgende run, 8 nov ±04:10 UTC (Noor)
+- **Eerst: Home Assistant Marketplace.** Nieuw feit: sinds versie 2026.11 (4 nov 2026) zit HACS als "Marketplace" in Home Assistant zelf, onder Instellingen, op elke installatie; "this is just the first version of what a marketplace for Home Assistant could become" (GEZIEN, https://www.home-assistant.io/blog/2026/11/04/release-202611/). Elke gebruiker ziet de winkel nu zonder extra stap, dus het bereik van community-integraties en kaarten kan hard stijgen. Probleem: geen betaalde items gevonden in de aankondiging (vraag 3). Uitzoeken: groei van Home Assistant (analytics.home-assistant.io), aantal items en sterren per categorie (HACS-lijst op GitHub, data-v2.hacs.xyz), plannen van de Open Home Foundation voor geld (sponsoring, "Works with"), en of downloads per item nu te zien zijn. Weeg vraag 3 eerlijk: zonder plan voor geld is het volgens de rol een nee, maar het doel van Dortus is eerst bereik.
+- Vision Pro: niet beginnen. Apple zegt ±3.000 apps echt voor Vision Pro, verkoop valt tegen (DERDEN, https://www.macrumors.com/2026/01/02/vision-pro-still-failing-to-catch-on/). Oud en niet groeiend genoeg.
+- tldraw: geen winkel, alleen een SDK-licentie voor bedrijven (DERDEN, https://tldraw.dev/pricing). Waarschijnlijk nee.
+- Herhaalmeting Android XR rond 8 jan 2027: `python3 data/androidxr-meet.py`, plus verkoop van XREAL Aura en de Samsung-brillen.

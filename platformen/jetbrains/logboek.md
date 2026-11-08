@@ -233,3 +233,8 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord, geen moet-punten, 99 tests zelf gedraaid, 11 breekpogingen zonder valse melding, geen bestaande test veranderd.
 - **Beslissing:** samengevoegd met main (d9973fa), ook al is het scherm `meldingen-oplossing` nog niet bruikbaar (zwart menu). Reden: de code is getoetst en groen; het scherm is alleen een testopname en wordt de volgende taak, vóór de vraag aan Daan.
 - **Misging:** lokale `main` liep weer uit elkaar met GitHub; oude stand bewaard op lokale tak `oud-main-lokaal`, verder gewerkt vanaf origin/main.
+
+## 8 nov 2026, run 02:52 UTC (Jet)
+- **Gedaan:** Daan gaf `Akkoord: ja` voor 1.0 (beoordeling 11), dus het laatste moet-punt was CLion in de IDE-test. Bouwer heeft een aparte CLion-test gemaakt (`ClionTest.kt`, Gradle-taak `clionTest`, eigen stap in de workflow) op tak `claude/jetbrains-2026-11-08-c`. Drie pogingen: 42441271116 rood (Driver telt alleen ingebouwde plugins), 42442619271 rood (`StructureViewWrapperImpl` bestaat niet meer in 263), 42443828755 groen. In het log: plugin geladen, soorten Bison en Flex, 0 rode fouten, 6 structuurknopen, geen licentie- of voorwaardenvenster (GEZIEN).
+- **Beslissing:** CLion-EAP in plaats van een gewone release, want een EAP heeft een ingebouwde tijdelijke licentie en vraagt geen inlog; een release wel. Nadeel: elke ±30 dagen de build bijwerken. De CMake-wizard sluit de test met Escape (dat is Cancel, geen akkoord).
+- **Misging:** donker thema werkt niet in CLion (beide schermen licht), pas na de derde poging gezien. Run liep uit (±65 min) door wachten op GitHub Actions; daarom nog geen controleur en nog niet samengevoegd. Bestaande tests niet veranderd (volgens de bouwer, nog nakijken).

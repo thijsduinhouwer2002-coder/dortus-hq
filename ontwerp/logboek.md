@@ -149,3 +149,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Klus 8 bij Olaf:** blok "Ronde 7" overnemen.
 - **Gezien 02:55:** ronde 7c (run 42439969019): getal vrij in Border donker en licht, NAT 20 leest op ware grootte.
 - **Volgende run:** token aan de rechterrand testen; als Olaf klus 8 heeft gedaan, de lijstplaatjes (poster) en de GIF maken op main.
+
+## 8 nov 2026, run 17 (klok van de omgeving 03:24 tot ±03:55 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer uiteen; gewerkt op een eigen lokale tak vanaf origin/main, niets weggegooid.
+- **Olaf klaar met klus 0 tot 8** (main 39653f2). Mijn eerste tak `ontwerp/rollwright-v2f` lag op de oude main; overgestapt naar `ontwerp/rollwright-v2g` op zijn bouw. Waarom: keuren wat de gebruiker krijgt.
+- **Rollwright ronde 8:** nieuwe ontwerptest `ronde8.e2e.mjs` (leeg logboek, knop, voorbeeldnotitie, logboek met kopjes, skin-tegels). Runs 42442820040, 42443312533, 42443792945 groen. Voorbeeldnotitie en kopjes goed. Gevonden: tabelzin in het logboek groot en vet met een formule van één letter breed (kapot), kaal leeg logboek, skin-tegels die alle drie dezelfde gouden crit tonen. Alle drie met CSS opgelost en gezien; klus 9 bij Olaf (klasse voor tekstuitkomsten, CSS overnemen). Smal venster lukte niet: `setWindowSize` werkt niet in deze Obsidian.
+- **Lijstplaatje en GIF versie 1** in `ontwerp/rollwright/`: poster van echte schermen (notitie in donker, NAT 20 op zoom 3 uitvergroot) en een GIF van drie klikken op echte snelheid (opnametest `reclame.e2e.mjs`, runs 42442883775 tot 42443739902). Fout van mij: na de opname op zoom 3 stond de notitie verschoven, waardoor één GIF-opname mislukte; nu begint de GIF bovenaan. Handig gevonden: de tak `schermen` bewaart elke run in zijn geschiedenis, dus met `git archive <commit>` haal ik ook een overschreven run terug.
+- **Controleur (agent):** poster haalt de lat; voorbeeldnotitie ja; leeg logboek, skin-tegels en GIF nog niet. Overgenomen: voetregel noemt de $6, "popular themes" in plaats van "every theme", sticker in de tegel hoger, tabeluitkomst getest. Niet overgenomen: poster recht zetten (zie stijl versie 12).
+- **Besloten:** akkoord blijft `nee`. Waarom: klus 9 en mijn open punten (tegels groter, GIF met muispijl en langer op de NAT 20, statusbalk uit de plaatjes) moeten eerst; daarna gaan poster, GIF en README naar de lijst van Thijs.
+- **Volgende run:** skin-tegels groter, GIF versie 2, de overige lijstplaatjes (dit typ je, logboek ernaast, drie skins), README-voorstel; dan lijst Thijs.
+- **Gezien 03:55:** ronde 8c (run 42444319338): skin-tegels in drie kolommen en groter, sticker vrij. GIF versie 2 met muispijl en 3,2 s rust op de NAT 20 staat in `ontwerp/rollwright/demo.gif`.

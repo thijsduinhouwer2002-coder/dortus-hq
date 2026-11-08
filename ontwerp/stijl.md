@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 11, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 12, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -48,11 +48,13 @@ Nooit:
 ## Leeg begin
 
 - Een nieuwe gebruiker ziet binnen een minuut iets werken. Een leeg paneel zegt in één zin wat je moet doen, liefst met een voorbeeld dat je kunt aanklikken.
+- Een leeg paneel is ook een eerste indruk: het eigen teken groot, één korte zin, de knop eronder, in het midden. Nooit een losse grijze zin met een knop eraan vast. (Versie 12.)
 
 ## Het betaalde deel
 
 - Gratis is compleet: alles wat je nodig hebt werkt zonder te betalen. Betalen is voor wie meer wil (mooier, sneller, extra).
 - Je ziet wat je koopt voordat je betaalt: een voorbeeld in de app of een plaatje op de koopknop.
+- Een voorbeeld van een skin toont groot wat per skin anders is, niet wat in elke skin hetzelfde is. (Versie 12, Rollwright: de gouden crit is overal gelijk, dus de gewone worp staat voorop.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.
@@ -64,7 +66,7 @@ Nooit:
 
 - Het eerste lijstplaatje is een poster (versie 8, bericht Thijs 22:10): een korte kop van hoogstens zes woorden, het product groot en mooi in beeld in echt gebruik, het eigen teken als enig logo. Geen kale schermafbeelding van een witte notitie, geen tekstplaat zonder product.
 - Toont de poster een betaalde functie, dan staat dat op de poster zelf, leesbaar op 900 breed (een PRO-label bij die functie en een regel wat gratis is). Niet alleen in een kleine grijze voetregel. (Versie 10.)
-- Een poster is gemaakt van echte schermen uit de test, alleen bijgesneden; daaromheen mag een eigen achtergrond, kop en pijl. Geen vensterknoppen van een ander systeem dan de toetsen die we noemen (Ctrl, dan geen Mac-stippen). (Versie 10.)
+- Een poster is gemaakt van echte schermen uit de test, alleen bijgesneden; daaromheen mag een eigen achtergrond, kop en pijl. Een scherm mag licht gedraaid staan, en een uitvergroting van één detail mag als die op hoge zoom echt is opgenomen (scherp, geen opgeblazen pixels). Elke tekst op de poster klopt met de prijs: noemt hij "free", dan staat de betaalde optie ernaast. (Versie 12.) Geen vensterknoppen van een ander systeem dan de toetsen die we noemen (Ctrl, dan geen Mac-stippen). (Versie 10.)
 - In de README een korte bewegende GIF (±5 seconden) bovenaan die het mooiste moment laat zien.
 - Schermafbeeldingen in het standaardthema, licht en donker allebei, scherp (factor 2), zonder persoonlijke bestanden in beeld.
 - Het eerste plaatje toont ook wat je typt, niet alleen de uitkomst: "dit typ je, dit krijg je" (bijvoorbeeld één regel met de code naast regels met de uitkomst).
