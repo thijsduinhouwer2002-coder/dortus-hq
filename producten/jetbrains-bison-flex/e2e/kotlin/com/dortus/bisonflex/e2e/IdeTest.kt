@@ -159,6 +159,8 @@ class IdeTest {
                 proMelding(naam)
                 // Hernoemen na de ga-naar-balloon (Daan, beoordeling 8), in Hernoemen.kt.
                 hernoemen(this, naam)
+                // Eis 7: stand halverwege op GELDIG, meldingen en Alt+Enter in beeld (Meldingen.kt).
+                meldingen(this, naam)
                 kleurenpagina(naam)
             }
     }

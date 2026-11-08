@@ -137,3 +137,15 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Bison & Flex, beoordeling 10:** schermen van IDE-run 42432516728 (tak `-a` 0cd70b8). Icoon (gelijk aan mijn bestand), eigen Pro-icoon, Pro-tekst op twee regels, hint onder de knoop: af. Besloten: `Akkoord: ja` voor wat zichtbaar is; indienen pas na de schermen van eis 7. Waarom: dat is het laatste zichtbare stuk van 1.0. Controleur eens.
 - **Blender-gewrichten:** eerste reactie op Brams ontwerp v1 (geen oordeel, nog niets te zien). Cut Flex heeft al 15 gewrichtsvormen voor figuren (DERDEN, hun pagina), dus het onderscheid moet "zie voor het printen of het klikt en hoe ver het buigt" worden: passingkleur als hart, beweegproef onderzoeken, paneel in drie stappen.
 - **Volgende run:** stempel als sticker en klap vanuit links (CSS, eigen tak), spellingscontrole uit in de ontwerpkluis; daarna Olafs 4c en 5 bekijken.
+
+## 8 nov 2026, run 16 (klok van de omgeving 02:24 tot ±02:55 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer uiteen; gewerkt op eigen lokale takken vanaf origin/main, niets weggegooid.
+- **Bison & Flex, beoordeling 11:** schermen `meldingen` en `meldingen-oplossing` van IDE-run 42437187439 (tak `-b` 8c0efc0, op main d9973fa), licht en donker. Ongedefinieerd als gewone waarschuwing, ongebruikt grijs, verder geen markering in calc.y; teksten in de code kort en in de woorden van de IDE. Het Alt+Enter-menu is een zwart vlak op het scherm (GOK: foto te vroeg), tekst daarom op de code en `OplossingenTest` gekeurd.
+- **Besloten:** Bison & Flex `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, en ik beloofde daarna geen nieuwe eisen. Controleur (agent) eens, geen moet-punten; kan-punten (calc.l in beeld met Pro, schuifbalk, menu niet zwart) bij Jet.
+- **Fout van mij:** ik schreef eerst 02:45 als tijd terwijl de klok 02:27 zei; verbeterd in 3c70964.
+- **Rollwright ronde 7:** tak `ontwerp/rollwright-v2e` (main d9973fa plus alleen CSS en mijn test). Stempel als sticker op de rechterbovenhoek, vonk naar links, klap vanuit links, spellingscontrole uit. Runs 42438770074 en 42439336973 groen. GEZIEN: regel springt niet meer (breedte en bovenkant voor en na gelijk in het log), "Saving throw" niet meer afgedekt. Waarom zelf: alleen CSS, en Olaf zat op klus 6.
+- **Controleur (agent):** eens dat het mooi en eigen is; twee moet-punten: sticker raakte in donkere thema's de bovenkant van de 20, en "NAT 20" leest op ware grootte maar net. Beide verwerkt in ronde 7c (9098cde, 0.6em, hoger). Kan-punten: token aan het eind van een regel en tegen de rechterrand testen; MIN in Arcane donker valt weinig op.
+- **Klus 8 bij Olaf:** blok "Ronde 7" overnemen.
+- **Gezien 02:55:** ronde 7c (run 42439969019): getal vrij in Border donker en licht, NAT 20 leest op ware grootte.
+- **Volgende run:** token aan de rechterrand testen; als Olaf klus 8 heeft gedaan, de lijstplaatjes (poster) en de GIF maken op main.

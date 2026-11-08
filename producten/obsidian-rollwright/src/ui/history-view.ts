@@ -1,6 +1,7 @@
 import { ItemView, Notice, setIcon, type WorkspaceLeaf } from "obsidian";
 import type RollwrightPlugin from "../main";
 import type { HistoryEntry } from "../main";
+import { showExampleNote } from "./example-note";
 import { groupHistory, noteName } from "./history-groups";
 import { historyLabel } from "./history-label";
 import { extremeClasses, STAMP_CLASS } from "./widget";
@@ -77,7 +78,10 @@ export class RollHistoryView extends ItemView {
 
 		const history = this.plugin.settings.history;
 		if (history.length === 0) {
-			root.createDiv({ cls: "rollwright-history-empty", text: "Click a roll in a note to see it here." });
+			const empty = root.createDiv({ cls: "rollwright-history-empty", text: "Click a roll in a note to see it here." });
+			// The first minute (ontwerp-v2 point 5): one button to a note full of live rolls, never made unasked.
+			const tryIt = empty.createEl("button", { cls: ["mod-cta", "rollwright-history-try"], text: "Try it: create an example note" });
+			tryIt.addEventListener("click", () => void showExampleNote(this.app));
 			return;
 		}
 		const clear = root.createEl("button", { cls: "rollwright-history-clear", text: "Clear log" });

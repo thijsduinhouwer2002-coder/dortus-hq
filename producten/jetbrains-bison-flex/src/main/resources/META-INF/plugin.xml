@@ -35,6 +35,16 @@
         <renamePsiElementProcessor implementation="com.dortus.bisonflex.pro.ProHernoemen" order="first"/>
         <!-- Shift+F6 op een token in scannercode zonder licentie: melding in plaats van de IDE-fout (ProHernoemenScanner.kt). -->
         <renameHandler implementation="com.dortus.bisonflex.pro.ProHernoemenScanner" order="first"/>
+        <!-- Eis 7 (Pro): ongedefinieerd en ongebruikt (meldingen/Meldingen.kt). -->
+        <localInspection language="BisonFlex.Bison" shortName="BisonOngedefinieerd" displayName="Undefined symbol" groupName="Bison &amp; Flex"
+                         enabledByDefault="true" level="WARNING" implementationClass="com.dortus.bisonflex.meldingen.BisonOngedefinieerd"/>
+        <localInspection language="BisonFlex.Bison" shortName="BisonOngebruikt" displayName="Unused rule or token" groupName="Bison &amp; Flex"
+                         enabledByDefault="true" level="WEAK WARNING" implementationClass="com.dortus.bisonflex.meldingen.BisonOngebruikt"/>
+        <localInspection language="BisonFlex.Flex" shortName="FlexOngedefinieerd" displayName="Undefined start condition" groupName="Bison &amp; Flex"
+                         enabledByDefault="true" level="WARNING" implementationClass="com.dortus.bisonflex.meldingen.FlexOngedefinieerd"/>
+        <localInspection language="BisonFlex.Flex" shortName="FlexOngebruikt" displayName="Unused start condition" groupName="Bison &amp; Flex"
+                         enabledByDefault="true" level="WEAK WARNING" implementationClass="com.dortus.bisonflex.meldingen.FlexOngebruikt"/>
+        <postStartupActivity implementation="com.dortus.bisonflex.meldingen.StandLuisteraar"/>
     </extensions>
     <applicationListeners>
         <!-- Weet of er een echte ga-naar-actie bezig is, zodat Ctrl+zweven geen Pro-melding geeft (GaNaarActie.kt). -->

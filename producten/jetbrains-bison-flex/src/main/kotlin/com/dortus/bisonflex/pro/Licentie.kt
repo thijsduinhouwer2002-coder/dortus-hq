@@ -26,8 +26,20 @@ fun interface LicentieBron {
 object FacadeBron : LicentieBron {
     const val E2E_EIGENSCHAP = "bisonflex.internal.e2e.forceNoLicense"
 
+    @Volatile
+    private var e2eStand: LicentieStand? = null
+
+    /**
+     * Alleen voor de IDE-test (via de Driver): zet halverwege de test een andere stand, bijvoorbeeld GELDIG voor de
+     * meldingen van eis 7. Werkt alleen als [E2E_EIGENSCHAP] gezet is, dus nooit bij een gebruiker.
+     */
+    @JvmStatic
+    fun zetE2eStand(stand: String) {
+        if (System.getProperty(E2E_EIGENSCHAP) == "true") e2eStand = LicentieStand.valueOf(stand)
+    }
+
     override fun stand(): LicentieStand {
-        if (System.getProperty(E2E_EIGENSCHAP) == "true") return LicentieStand.GEEN
+        if (System.getProperty(E2E_EIGENSCHAP) == "true") return e2eStand ?: LicentieStand.GEEN
         val facade = LicensingFacade.getInstance() ?: return LicentieStand.ONBEKEND
         val stempel = facade.getConfirmationStamp(Licentie.PRODUCTCODE)
         return if (stempel.isNullOrBlank()) LicentieStand.GEEN else LicentieStand.GELDIG

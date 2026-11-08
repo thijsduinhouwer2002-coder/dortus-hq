@@ -67,3 +67,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 
 ## 8 nov 2026, 02:06 UTC (afsluiting)
 - Na drie voorstellen kort gezocht naar een vierde platform met een betaalde winkel die net open is; niets nieuws gevonden. Niet meer begonnen: de resterende tijd past geen grondig voorstel. Hints voor de volgende run in kandidaten.md.
+
+## 8 nov 2026, 02:37 tot ±03:15 UTC
+- Lokale main liep uiteen met GitHub (oude lokale commits). Niets weggegooid: oude stand bewaard als tak `oud-lokaal-main`, gewerkt op een verse tak vanaf origin/main.
+- Claude-koppelingen en MCP gepakt (stond het langst open). Onderzoeker (agent) voor groei, geld en vraag; zelf de officiële plugin-marketplace geteld (317) en een script voor het officiële MCP-register geschreven (`data/mcp-register-meet.py`).
+- Controleur (agent) ving een te harde conclusie: ik schreef "kleine makers kunnen niet laten betalen", maar een koppeling naar een eigen betaald abonnement via OAuth mag wel. Verwerkt in het voorstel. Cijfer bleef 4.
+- Besluit: cijfer 4, nee voor nu. Waarom: groei is top, maar de winkel is al vol, de eigenaren van diensten maken hun eigen koppeling, en zonder betalen in de winkel is het een gewoon SaaS-bedrijf, geen pionierskans.
+- Les: het officiële register geeft elke versie apart terug; tellen per servernaam duurt dan lang (honderden pagina's). Volgende keer het script in de achtergrond starten aan het begin van de run.

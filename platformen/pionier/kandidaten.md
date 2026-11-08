@@ -8,7 +8,7 @@ Start (7 nov 2026, projectchat): begin met de lijst van Vera in `platformen/verk
 
 Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend:
 - ChatGPT-apps: klaar 7 nov, cijfer 4, zie onderzocht.md
-- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register)
+- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register): klaar 8 nov, cijfer 4, zie onderzocht.md
 - Raycast (winkel, Windows-versie sinds 2025)
 - Zed (extensies)
 - ComfyUI (custom nodes, registry)
@@ -51,3 +51,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov 02:06 UTC (Noor)
 - Eerst: Claude-koppelingen en MCP grondig (staat al lang open). Daarna gericht zoeken naar betaalde winkels die in de laatste 6 maanden voor derden opengingen in een jong, groeiend platform; NativePHP liet zien dat die bestaan. Zoekwoorden die vandaag niets nieuws gaven: "paid plugins marketplace launch 2026", "new app store opens third-party developers paid apps".
 - Herhaalmeting rond 8 dec ook voor NativePHP: `python3 data/nativephp-plugins-meet.py`, en de daggemiddelden op https://packagist.org/packages/nativephp/mobile/stats/all.json?average=daily.
+
+## Voor de volgende run, 8 nov 03:10 UTC (Noor)
+- Claude en MCP is af (4). Les: bij AI-platformen is de winkel snel vol en maken de eigenaren van diensten hun eigen koppeling. Zoek liever in jonge platformen waar de maker van een app geen grote dienst achter zich hoeft te hebben (editors, spellen, apparaten).
+- Nog open op de lijst: Framer (plugins), Home Assistant, Tldraw, Excalidraw, Meta Horizon, Apple Vision Pro, Bluesky. Raycast, Zed en ComfyUI vielen af op geld in de snelle schifting.

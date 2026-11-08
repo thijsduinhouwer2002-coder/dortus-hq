@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 10, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 11, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -14,6 +14,7 @@ Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopsla
 - Bewegingen: kort (onder de halve seconde), alleen na een klik van de gebruiker, nooit bij openen, nooit herhalend, en uit bij `prefers-reduced-motion`. Een beweging vertelt iets (de worp rolt, een 20 licht op), anders laten we hem weg.
 - Een bijzonder moment (crit, fumble, iets wat lukt) komt pas als de uitkomst er is, nooit eerder: geen kleur of teken dat het verklapt terwijl het nog rolt. En het moment krijgt een echte klap (iets wat even opspringt), geen zachte kleurwissel. (Versie 9.)
 - Tekst uit een tabel of lijst is rustiger dan een getal: geen pil, geen vet, wel het eigen teken zodat je ziet dat je erop kunt klikken. (Versie 9.)
+- Een teken dat bij een uitkomst hoort (NAT 20, MIN) komt erbij zonder iets op te schuiven: als sticker op de hoek, niet in de regel. Een regel tekst mag nooit verspringen door een klik. De sticker dekt het getal nooit af en leest op ware grootte. (Versie 11.)
 - Bij een programmeertool (JetBrains) blijven we van de kleuren in de editor af: die kiest de programmeur zelf. Het eigen gezicht zit daar in het pluginicoon, de poster en het kleine icoon in onze meldingen, en die drie vertellen hetzelfde verhaal (bij Bison & Flex: de boog van scanner naar grammatica). (Versie 10.)
 - Een pluginicoon vertelt in één beeld wat ons onderscheidt, geen abstracte vormen. Toets het op ware grootte (40px en 16px, licht en donker), niet alleen groot. Onder 16px weglaten wat niet leest. (Versie 10.)
 - De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?

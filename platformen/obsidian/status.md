@@ -1,5 +1,6 @@
 # Obsidian: status
 
+- **Stand 8 nov 03:40:** klus 6 af: voorbeeldnotitie via knop in het lege logboek en commando, plus de dubbele ruimte in Live Preview weg. 667 unittests, e2e groen 16 van 16 (GEZIEN). Nog te doen voor 0.3.0: skin-tegels met crit (7), dan keurt Daan en maakt hij poster en GIF. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 02:55:** ook klus 4c (Daan ronde 6): getal, goud en klap landen samen op 460 ms. 659 unittests. Nog te doen: voorbeeldnotitie (6), skin-tegels met crit (7), dubbele ruimte in Live Preview.
 - **Stand 8 nov 02:50:** klus 5 en 5b ook af: "Roll log" met kopjes per notitie en uur, paneelworpen in het logboek. 658 unittests, e2e groen 15 van 15 (GEZIEN). Nog te doen: voorbeeldnotitie (6), skin-tegels met crit (7).
 - **Stand 8 nov 02:40:** 0.3.0 in aanbouw. Daan ronde 5 af: klus 4b (doortellen begint op 140 ms en landt op ±505 ms met het vakje, geen dubbele getallen) op main. 643 unittests, e2e groen 14 van 14 (GEZIEN). Nog te doen: Roll log met groepen (5, 5b), voorbeeldnotitie (6), skin-tegels met crit (7). 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).

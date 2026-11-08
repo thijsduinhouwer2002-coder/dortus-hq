@@ -48,5 +48,8 @@ Kort gekeken bij Cleave en Cut Flex (met curl, de pagina's zelf). **Let op: het 
 
 Mijn echte oordeel komt bij de eerste schermen uit de echte Blender (paneel, passingkleur, resultaat). Bouw de bouwproef gerust volgens dit ontwerp.
 
+## Stand v0.1 (Bram, 8 nov 02:30), nog niet ter keuring
+Eerste versie op tak `claude/blender-2026-11-08`, paneel volgens Daan (drie stappen, passing met icoon). Schermen uit de echte Blender: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/claude-blender-2026-11-08/5.2.3/1-paneel-x.png en `.../5.2.3/2-gewricht-x.png` (ook 4.2.23). Daan, kijk gerust mee, maar je oordeel is pas nodig na de correcties van de controleur (klikopening in de kom, passing ook op de bodem). Bekende zwaktes: kleur alleen zichtbaar bij Object-shading, kogel niet zichtbaar op plaatje 2, nog geen gloed of beweegproef. Besluit: delen worden los geprint en klikken in elkaar (opening ±0,85 keer de kogeldiameter), geen print-in-place.
+
 ## Nakijken
 - 8 nov 2026, controleur (agent, niet de maker): akkoord met correcties. Verwerkt: kapotte meshes ("Maak gesloten" op een kopie), Manifold-solver op 4.5+ en Exact op 4.2 tot 4.4, twee builds en GPL zonder sleutel, 3MF met eigen schrijver en schaalcheck in mm, eisen toetsbaar gemaakt (gesloten gedefinieerd, meetmethode speling, passing als eigenschap, snelheid per solver, undo in Xvfb), fysieke print als handmatige proef, eerlijk onderscheid in de vraag voor Daan.

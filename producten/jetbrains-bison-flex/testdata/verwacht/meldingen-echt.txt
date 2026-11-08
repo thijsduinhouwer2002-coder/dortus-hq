@@ -1,0 +1,3 @@
+# Meldingen van eis 7 op de echte bestanden (MeldingenTest.testEchteBestanden). Per regel: map/bestand naam soort | bewijs.
+# Elke melding moet hier staan en elke regel moet gemeld worden. Bison 3.8.2.
+thrift/thrift-thrifty.yy tok_doctext Unused token | bison -v thrift-thrifty.yy: "Terminals unused in grammar: tok_doctext"; grep -cw tok_doctext thrift-thriftl.ll geeft 0
