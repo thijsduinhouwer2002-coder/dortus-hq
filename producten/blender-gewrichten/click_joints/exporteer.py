@@ -48,9 +48,13 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         os.makedirs(map_, exist_ok=True)
         schaal = 1.0 / eenheid_per_mm(context.scene)  # Blender-eenheden naar mm
         actief = context.view_layer.objects.active
+        gekozen = [o for o in context.view_layer.objects if o is not None and o.select_get()]
         with echte_plek(lijst):  # opengewerkt beeld even uit: de STL krijgt de echte plek
             geschreven = self.schrijf(context, lijst, map_, schaal)
         context.view_layer.update()
+        for o in context.view_layer.objects:  # selectie terug zoals hij was (na Place joint: niets)
+            if o is not None:
+                o.select_set(o in gekozen)
         context.view_layer.objects.active = actief
         context.scene["cj_laatste_export"] = geschreven
         self.report({"INFO"}, f"{len(geschreven)} STL files in {map_}")

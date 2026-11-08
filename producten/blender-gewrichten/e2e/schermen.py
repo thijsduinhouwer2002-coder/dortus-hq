@@ -130,8 +130,9 @@ def plaats():
 
 
 def close_up():
-    """Kijk schuin van voren op het gewricht, zodat de kogel in de opening tussen A en B te zien is.
-    Het midden schuift wat naar rechts, want de zijbalk ligt over het rechterdeel van de weergave."""
+    """Kijk driekwart van voren op het gewricht, schuin langs de as, zodat je in de kom van deel B kijkt
+    en de kogel op deel A ernaast ziet (punt 4 van Daan, ronde e). Het midden schuift wat naar rechts,
+    want de zijbalk ligt over het rechterdeel van de weergave."""
     venster, gebied, _ = zijbalk()
     a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A"), None)
     if not gebied or a is None:
@@ -140,7 +141,7 @@ def close_up():
     rv3d = gebied.spaces.active.region_3d
     as_ = Vector(a["cj_as"]).normalized()
     midden = Vector(a["cj_centrum"]) + as_ * (1.5 * a["cj_kogel_r"])  # half de verschuiving van de add-on
-    richting = Vector((0.25, 1.0, -0.45)).normalized()  # van voren, iets van boven en rechts
+    richting = Vector((0.8, 0.6, -0.3)).normalized()  # kijkt langs +X (de as) de kom in, van voren en iets van boven
     rv3d.view_perspective = "PERSP"
     rv3d.view_rotation = richting.to_track_quat("-Z", "Y")
     rv3d.view_distance = 48.0

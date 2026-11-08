@@ -12,7 +12,7 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 from . import kleur as kleuren, passing, uit_elkaar, vormen
-from .eigenschappen import eenheid_per_mm
+from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
 SCHUIF_MM = 0.0137
@@ -174,7 +174,6 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                                    "2 faces). Click Make watertight first.")
             return {"CANCELLED"}
         u = eenheid_per_mm(context.scene)
-        maat = maten(inst, u)
         punt, richting, as_bron = as_en_punt(context, inst)
         terugval = inst.as_bron == "KIJK" and as_bron != "KIJK"
         if terugval:
@@ -198,12 +197,17 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             bm.to_mesh(me)
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
+        breedte = passing.smalste_breedte(bvh, frame)
+        if inst.kogel_auto and breedte is not None:
+            zet_auto_diameter(inst, passing.auto_diameter(breedte / u))
+        maat = maten(inst, u)
         kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_snijpunt": list(frame @ Vector((0, 0, maat["schuif"]))),
-                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver}
+                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver,
+                    "cj_kogel_auto": inst.kogel_auto, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
 
         if kleur == "rood":
             ruim_op(hulp)
@@ -240,11 +244,12 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             uit_elkaar.zet(deel, inst.uit_elkaar)
         bron.hide_set(True)
         context.view_layer.update()
+        # Niets geselecteerd (punt 2 van Daan): zo staat de passingkleur nooit naast de oranje selectierand.
+        # Deel A blijft actief (zonder selectie geen rand), zodat het paneel de passing blijft tonen.
+        # Export en Exploded view zoeken de delen op cj_deel, niet op selectie.
         for o in context.view_layer.objects:
             if o is not None:
                 o.select_set(False)
-        deel_a.select_set(True)
-        deel_b.select_set(True)
         context.view_layer.objects.active = deel_a
         extra = " (axis along the cursor: no 3D viewport)" if terugval else ""
         self.report({"INFO"}, f"Joint placed, {passing.fit_tekst(kleur, wand).split(':')[0]} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")

@@ -43,7 +43,9 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap = layout.box()
         stap.label(text="2  Joint", icon="MESH_UVSPHERE")
         stap.row(align=True).prop(inst, "soort", expand=True)
-        stap.prop(inst, "kogel_mm")
+        rij = stap.row(align=True)
+        rij.prop(inst, "kogel_mm")
+        rij.prop(inst, "kogel_auto", toggle=True)
         stap.prop(inst, "speling_mm", slider=True)
         grote_knop(stap, "click_joints.plaats", "Place joint", "MOD_BOOLEAN")
         stap.prop(inst, "uit_elkaar", icon="MOD_EXPLODE")
@@ -56,7 +58,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
             stap.label(text=hoofd, icon=passing.ICONEN[kleur])
             if reden:  # op een eigen regel, anders kapt Blender de tekst af
                 stap.label(text=reden.rstrip(")").capitalize(), icon="BLANK1")
-            if ob.get("cj_wand_mm", -1.0) >= 0:
+            if ob.get("cj_wand_mm", -1.0) >= 0 and not reden:  # bij Tight staat de wand al in de reden
                 stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm")
             if "cj_speling_gemeten_mm" in ob:
                 stap.label(text=f"Clearance measured: {ob['cj_speling_gemeten_mm']:.3f} mm")

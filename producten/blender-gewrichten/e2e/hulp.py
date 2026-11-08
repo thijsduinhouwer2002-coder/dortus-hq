@@ -153,12 +153,15 @@ def weg(lijst):
 def plaats(label, ob, punt, as_richting, speling=0.2, kogel=5.0, soort="KOGEL", as_bron="CURSOR"):
     inst = bpy.context.scene.click_joints
     inst.speling_mm, inst.kogel_mm, inst.soort, inst.as_bron = speling, kogel, soort, as_bron
+    inst.kogel_auto = False  # deze toetsen kiezen de diameter zelf (Auto staat in toetsen_auto.py)
     figuren.zet_cursor(punt, as_richting)
     figuren.maak_actief(ob)
     t0 = time.perf_counter()
     uitslag = bpy.ops.click_joints.plaats()
     duur = time.perf_counter() - t0
     lijst = delen()
+    if lijst:
+        stap(f"{label}: na plaatsen niets geselecteerd", not any(o.select_get() for o in bpy.context.view_layer.objects))
     solver = lijst[0].get("cj_solver") if lijst else "-"
     if solver == "MANIFOLD":
         stap(f"{label}: Manifold onder 5 s ({duur:.2f}s)", duur < 5.0)

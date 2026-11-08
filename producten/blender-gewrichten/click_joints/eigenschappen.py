@@ -4,6 +4,23 @@ from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty
 
 from . import uit_elkaar as _uit
 
+_zelf = [False]  # True terwijl Place joint de diameter zelf invult: dan blijft Auto aan
+
+
+def _handmatig(inst, context):
+    """Update van kogel_mm: de gebruiker koos zelf een maat, dus Auto gaat uit."""
+    if not _zelf[0]:
+        inst.kogel_auto = False
+
+
+def zet_auto_diameter(inst, mm):
+    """Vult de automatische diameter in zonder Auto uit te zetten."""
+    _zelf[0] = True
+    try:
+        inst.kogel_mm = mm
+    finally:
+        _zelf[0] = False
+
 
 class ClickJointsInstellingen(bpy.types.PropertyGroup):
     speling_mm: FloatProperty(
@@ -11,7 +28,10 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         default=0.2, min=0.05, max=1.0, step=1, precision=2)
     kogel_mm: FloatProperty(
         name="Diameter (mm)", description="Diameter of the ball or pin in millimeters",
-        default=5.0, min=1.0, max=50.0, step=10, precision=1)
+        default=5.0, min=1.0, max=50.0, step=10, precision=1, update=_handmatig)
+    kogel_auto: BoolProperty(
+        name="Auto", description="Pick the diameter for you at Place joint: 60% of the thickness of the mesh "
+        "at the cut. Typing a diameter turns this off", default=True)
     soort: EnumProperty(
         name="Type", items=(("KOGEL", "Ball", "Ball and socket, turns in every direction"),
                              ("PEN", "Pin", "Pin and hole, turns around one axis")),

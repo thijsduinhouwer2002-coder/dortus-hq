@@ -5,11 +5,41 @@ from mathutils import Vector
 
 GRENS_ROOD_MM = 0.8    # dunner dan dit: te dun om te printen
 GRENS_ORANJE_MM = 1.5  # dunner dan dit: krap
-# Heldere kleuren van Daan (lineair, zoals Blender ze opslaat): groen #3DDC84, oranje #FFB020,
-# rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
-KLEUREN = {"groen": (0.047, 0.716, 0.231, 1.0), "oranje": (1.0, 0.434, 0.014, 1.0),
+# Heldere kleuren van Daan (lineair, zoals Blender ze opslaat): groen #3DDC84, oranje (Tight) amber geel
+# #FFD23F, zodat het niet op de oranje selectierand van Blender lijkt, rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
+KLEUREN = {"groen": (0.047, 0.716, 0.231, 1.0), "oranje": (1.0, 0.644, 0.05, 1.0),
            "rood": (1.0, 0.074, 0.074, 1.0)}
 ICONEN = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
+
+
+AUTO_FACTOR = 0.6     # standaard kogelmaat: 60% van de smalste breedte op de snede (punt 9 van Daan)
+AUTO_STAP_MM = 0.5
+AUTO_MIN_MM = 2.0
+AUTO_MAX_MM = 50.0    # gelijk aan het maximum van de instelling Diameter
+
+
+def smalste_breedte(bvh, frame, n=36):
+    """Smalste breedte van het figuur in het snijvlak (Blender-eenheden), of None als het punt buiten
+    het figuur ligt. Per richting in het vlak: afstand naar voren plus afstand naar achteren."""
+    o = frame.translation
+    if not binnen(bvh, o):
+        return None
+    rot = frame.to_3x3()
+    kleinste = math.inf
+    for i in range(n):
+        hoek = math.pi * i / n  # halve cirkel: elke richting telt met zijn tegenovergestelde
+        d = (rot @ Vector((math.cos(hoek), math.sin(hoek), 0))).normalized()
+        voor, achter = bvh.ray_cast(o, d), bvh.ray_cast(o, -d)
+        if voor[0] is None or achter[0] is None:
+            return None
+        kleinste = min(kleinste, voor[3] + achter[3])
+    return kleinste
+
+
+def auto_diameter(breedte_mm):
+    """0,6 keer de breedte, afgerond op 0,5 mm, tussen 2 en 50 mm."""
+    d = round(AUTO_FACTOR * breedte_mm / AUTO_STAP_MM) * AUTO_STAP_MM
+    return min(max(d, AUTO_MIN_MM), AUTO_MAX_MM)
 
 
 def richtingen(n):

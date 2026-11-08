@@ -14,6 +14,7 @@ import figuren  # noqa: E402
 zip_pad = sys.argv[sys.argv.index("--") + 1]
 from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
                   toets_materiaal, toets_opening, toets_stl, toets_uit_elkaar, weg)
+import toetsen_auto  # noqa: E402
 import toetsen_correcties  # noqa: E402
 import toetsen_schaal  # noqa: E402
 import toetsen_uit_elkaar  # noqa: E402
@@ -45,6 +46,9 @@ def main():
             toets_uit_elkaar(lijst)
             toetsen_uit_elkaar.tweede_gewricht(lijst)
         weg(lijst)
+
+    # 1b. Ronde e: automatische kogelmaat en geen selectie na Place joint.
+    toetsen_auto.alles(arm)
 
     # 2. Te dunne plek: rood, geen snede, origineel heel.
     lijst = plaats("arm dunne plek", arm, (15, 0, 0), (1, 0, 0))
