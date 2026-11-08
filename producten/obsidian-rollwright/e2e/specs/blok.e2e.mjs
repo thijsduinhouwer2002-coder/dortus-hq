@@ -48,6 +48,9 @@ async function meet(view) {
 				const ouder = r.parentElement?.closest("p, li, .cm-line")?.getBoundingClientRect();
 				return {
 					tekst: (r.textContent ?? "").trim(),
+					// Daan punt 3: een worp in de uitkomst is gewone tekst, geen code.
+					codes: value?.querySelectorAll("code").length ?? 0,
+					stil: Array.from(value?.querySelectorAll(".rollwright-nested") ?? []).map((n) => n.textContent),
 					oud: value?.getAttribute("data-e2e-oud") === "1",
 					blok: r.classList.contains("rollwright-roll-block"),
 					fout: r.getAttribute("data-rollwright-error") ?? "",
@@ -146,6 +149,11 @@ function check(gemeten, wat) {
 	const alinea = rolls[EEN_ALINEA];
 	expect(alinea.blok).toBe(false);
 	expect(alinea.display).toBe("inline-flex");
+	// Daan punt 3: "Alinea Delta met een worp `dice: 1d6` erin." toont 1d6 als gewone tekst.
+	console.log(`punt 3: ${JSON.stringify({ tekst: alinea.tekst, codes: alinea.codes, stil: alinea.stil })}`);
+	expect(alinea.codes).toBe(0);
+	expect(alinea.stil).toEqual(["1d6"]);
+	expect(alinea.tekst).toContain("worp 1d6 erin");
 }
 
 /** Zet het thema licht of donker zoals Obsidian dat doet, via de klassen op body. */
