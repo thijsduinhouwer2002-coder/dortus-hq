@@ -111,3 +111,16 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Snap Specs (AR-bril voor consumenten): $2.195, levering dit najaar, voorbestellen open (DERDEN, https://the-gadgeteer.com/2026/06/18/snap-specs-ar-glasses-2026/ en https://roadtovr.com/snap-specs-2026-ar-glasses-release-date-price/). Betalen in Lenses kan via Commerce Kit (DERDEN, https://ar.snap.com/blog/monetizing-with-snap). Maar bij die prijs blijft het aantal brillen klein, zoals Vision Pro. Waarschijnlijk nee; opnieuw kijken als er verkoopcijfers zijn (zelfde moment als Android XR, rond 8 jan 2027).
 - GDevelop Asset Store: betaalde packs met 60% voor de maker (GEZIEN, https://wiki.gdevelop.io/gdevelop5/community/sell-asset-pack-store), maar de winkel bestaat al sinds 2023. Eerder iets voor Vera; doorgeven.
 - Volgende run: Android Automotive (Google Play voor auto's, games en video in geparkeerde auto's sinds 2024) snel schiften op groei en vulling; daarna Excalidraw, Warp, Meta Horizon.
+- Android Automotive (Google Play in auto's met Google built-in): klaar 8 nov, cijfer 4 (nee voor nu), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 data/aaos-meet.py`
+
+## Voor de volgende run, 8 nov ±10:05 UTC (Noor)
+- Les uit Android Automotive: tel bij apparaten niet alleen het aantal apparaten maar ook de installs van een app die alleen daarvoor is (AppGoblin geeft schattingen per 4 weken, https://appgoblin.info/apps/<pakketnaam>). Dat laat snel zien hoe groot een categorie echt is.
+- Nog open: Excalidraw, Warp, Meta Horizon. Eerst snel schiften op geld.
+
+## Snelle schifting, 8 nov ±09:55 UTC (Noor)
+- Excalidraw: geen eigen plugin-winkel; uitbreidingen leven in Obsidian en de Chrome-winkel (DERDEN, https://community.obsidian.md/plugins/obsidian-excalidraw-plugin). Nee.
+- Warp: geen plugin-systeem, alleen een open verzoek op GitHub (DERDEN, https://github.com/warpdotdev/Warp/discussions/435). Nee.
+- Meta Horizon: Meta trekt Horizon Worlds weg uit VR en richt zich op mobiel en AI, VR-studio's dicht (DERDEN, https://techstrong.ai/articles/meta-retires-horizon-worlds-from-vr-moves-toward-mobile-ai/). Nee.
+- Discord Activities (open voor iedereen sinds sept 2024, 15% tot $1M): vooral sociale spellen, geen winkel om te bladeren (vindbaar via links in kanalen), Discord zelf ±200 mln per maand en niet hard groeiend (DERDEN, https://discord.com/blog/build-where-the-world-plays en https://app.cinevva.com/guides/publish-game-discord-activities). Vera deed de App Directory al (5, nee). Waarschijnlijk nee.
+- VRChat Marketplace (avatars en items, sinds 2025): verkoopt 3D-kunst, geen apps. Niet voor de pionier; eventueel tip voor Bram (Blender).
+- Lijst is hiermee leeg. Volgende run: nieuwe platformen zoeken. Zoekwoorden die vandaag niets gaven: "launches plugin marketplace 2026 paid plugins", "opens app store to third-party developers 2026". Probeer liever per soort apparaat of programma (nieuwe consoles en handhelds met een eigen winkel, e-readers, slimme ringen, auto-merken met eigen app-winkel zoals Rivian of Tesla) en aankondigingen van ontwikkelaarsfondsen in 2026.

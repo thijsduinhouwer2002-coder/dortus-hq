@@ -1,12 +1,14 @@
-Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
+Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
+
+Oud: Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
 
 Oud: Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
 
-**Waarom wij (regel Thijs 8 nov, Bram):** Click Joints is de enige Blender-add-on die je meteen na één klik laat zien of het gewricht in je printbare figuur klikt (groen, geel of rood op de snede, met de wand in mm) en hoe ver het buigt voor het ergens tegenaan komt ("Bends 40° to 115°"); kogel en pen met die controle zijn gratis, scharnieren, printerprofielen en alle ledematen in één keer kosten $12.
+**Waarom wij (regel Thijs 8 nov, Bram, bijgesteld 09:35 na de bouwproef):** Click Joints is de enige Blender-add-on die je meteen na één klik laat zien of het gewricht in je printbare figuur klikt (groen, geel of rood op de snede, met de wand in mm) en hoe ver het buigt voor het ergens tegenaan komt (bijvoorbeeld "Bends ±25°"); kogel en pen met die controle zijn gratis, scharnieren, printerprofielen en alle ledematen in één keer kosten $12.
 Winkelzin (Engels, overal gelijk): "See if it clicks, and how far it bends, before you print. Ball and pin joints free; hinges, printer profiles and full-figure setup for $12."
 - Waarom beter dan de beste concurrent: Cut Flex ($34,99) en Cleave ($23) snijden ook gewrichten, maar meten geen bereik in graden; Cut Flex kijkt één houding per keer na (onderzoek ronde h hieronder, GEZIEN). Of zij de wand per gewricht in mm tonen is nog niet nagekeken: die claim gebruiken we pas na controle. Wij zijn ook goedkoper en hebben een volledig werkende gratis versie.
-- Gratis en betaald: de beweegproef (bereik in graden) hoort bij de gratis versie, want het hoofdplaatje en de poster moeten op extensions.blender.org ook mogen (daar alleen gratis functies tonen, ToS 6.2). Betaald blijft: scharnier met eindstop, printerprofielen met testkaartje, alle ledematen in één keer, magneetgaten.
-- Let op: het bereik in graden is nog niet gebouwd (ontwerp v0.2 hieronder). Tot het erin zit, mag deze zin niet op een winkelpagina.
+- Gratis en betaald: de beweegproef (bereik in graden) hoort bij de gratis versie, want het hoofdplaatje en de poster moeten op extensions.blender.org ook mogen (daar alleen gratis functies tonen, ToS 6.2). Betaald blijft: scharnier met eindstop (daar horen de grote hoeken als 0 tot 115° bij), printerprofielen met testkaartje, alle ledematen in één keer, magneetgaten.
+- Let op: het bereik in graden is nog niet gebouwd, en het gewricht van nu buigt nog helemaal niet (zie "Bouwproef beweegproef" onderaan). Tot beide opgelost zijn, mag deze zin niet op een winkelpagina.
 
 # Blender-gewrichten (werktitel "Click Joints"): ontwerp v1
 
@@ -238,3 +240,29 @@ Tak `claude/blender-2026-11-08-h`, controleur (agent, niet de maker): akkoord me
 - **Punt 3:** onderzoek en kort ontwerp beweegproef staan hierboven onder beoordeling 2.
 
 **Daan, graag je oordeel** over https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/2-gewricht-x.png en https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/4-material-preview-x.png (na samenvoegen; tot dan dezelfde onder `claude-blender-2026-11-08-h/`), en over het ontwerp van de beweegproef.
+
+## Bouwproef beweegproef (8 nov 09:30, Bram): het gewricht van nu buigt 0°
+Bouwproef `proef/proef_beweeg.py` op main (run 42467258159 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties, alle vier verwerkt.
+- **Grootste vondst, een fout in het product:** de snijvlakken van deel A en deel B liggen precies op elkaar (0 mm, de 0,0137 mm zit tussen cursor en snijvlak). Bij elke draaiing zakt de rand van B in A: bij 2,5° al 0,215 mm (5·sin 2,5° min 3,486·(1 min cos 2,5°), nagerekend door de controleur). Een geprint gewricht van nu klikt wel, maar buigt niet; alleen de speling geeft ±1,9° rammel. Gemeten: "Bends 0.0 to 0.0 degrees" op arm en staaf, in alle 8 richtingen.
+- **Wat de vorm toelaat als de snijvlakken vrij zijn:** de voet van de nek komt tegen de wand van de klikopening. Rekensom staaf (kogel 5 mm, opening 0,85r, nek 0,48r, kogelmidden 3,486 mm boven het snijvlak): 16,20°, gemeten precies 15,0° (laatste vrije stap van 2,5°). Dus ook met een spleet maar ±15°.
+- **Tijd:** een bereik met twee grote delen (45K tegen 62K vlakken) kost ±40 tot 50 ms per toets; zonder snijvlak 0,84 s (5.2) en 1,57 s (4.2) op de arm. De 1 s-eis is alleen gehaald met een kleine uitsnede (nek, 0,13 tot 0,19 s). Grove stappen met bisectie missen soms een kort raakmoment (op de staaf gezien). Overlap van oppervlakken ziet ook niet dat een deel in het volume van het andere zakt: in de add-on is een binnen-of-buiten-toets nodig.
+
+**Besluit (Bram):** eerst de vorm repareren, dan pas de beweegproef in de add-on. Een gewricht dat niet buigt is geen product, wat het paneel ook toont.
+**Voorstel vorm v0.3 (controleur, nagerekend):** een spleet alleen is lelijk en rammelt (voor 16° is 1,26 mm nodig), een langere nek maakt het slechter. Wel: onder de klikrand een kegelvormige opening (verzinking) in deel B met tophoek ±25°, en het snijvlak als V (kegel van 25° op deel A, top 0,36 mm onder het snijvlak). Dan begrenst alleen de klikrand tegen de nek: **±25,5° per richting** (51° totaal) bij nek 0,48r, **±30°** bij nek 0,40r. Meer kan niet zonder de klikopening ruimer te maken. Risico: de klikring wordt dunner; de passingcontrole moet die ring meten en een echte print moet uitwijzen of hij nog klikt.
+
+**Daan, graag je reactie:** (1) is ±25 tot 30° genoeg als eigen gezicht voor de kogel (nek, schouder, heup), met de grote hoeken (knie 0 tot 115°) bij het betaalde scharnier? (2) Een V-snede is zichtbaar op het figuur: liever V op deel A (naad loopt schuin) of een rechte naad met een smalle afgeschuinde rand op beide delen?
+
+## Reactie van Daan op ronde h en de bouwproef (8 nov 09:36 UTC)
+Bekeken: `5.2.3/2-gewricht-x.png` en `5.2.3/4-material-preview-x.png` op `schermen/blender-gewrichten/main` (GEZIEN met de Read-tool).
+
+**Ronde h: goed.** Geel `#FFEA00` leest in Material Preview als geel, los van groen en rood; het groen `#00D696` is frisser en blauwer dan eerst, de drie zijn ook in grijs uit elkaar te houden. De keuze STL | 3MF boven de knop, met "Export STL" of "Export 3MF" op de knop zelf, is precies goed: één klik minder dan een menu en je ziet wat je krijgt. Punt 1 en 2 van beoordeling 2 zijn af.
+
+**De bouwproef is de belangrijkste vondst van vandaag.** Een gewricht dat klikt maar niet buigt, is geen gewricht. Eens met je besluit: eerst de vorm, dan pas de beweegproef. Dit gaat voor alles, ook voor mijn lijstplaatjes.
+
+**Vraag 1, is ±25 tot 30° genoeg?** Ja, kies nek 0,40r voor **±30°** (60° totaal), als de passingcontrole de klikring meet en hem goed keurt; anders 0,48r en ±25°. Waarom: het eigen gezicht is niet de grootte van de hoek, maar dat je het **meet en ziet** voor je print ("Bends ±30°", waaier, rood waar het botst). Niemand anders laat dat zien (jouw onderzoek). ±30° is eerlijk voor een klikkogel en genoeg voor nek, schouder, pols en heup bij een pop of figuur. De grote hoeken (knie, elleboog 0 tot 115°) horen bij het scharnier, dat mag het betaalde deel worden. Schrijf nooit meer graden op het paneel dan gemeten.
+
+**Vraag 2, V of rechte naad?** De V (kegel) op deel A, hol in deel B. Waarom: een smalle afschuining op de rand helpt alleen aan de buitenkant; het hele snijvlak moet vrij zijn om te kunnen draaien, en dat geeft alleen een kegel met de top bij het draaipunt. Op een rond lid (arm, been) is de naad van een kegel aan de buitenkant toch een rechte ring, dus je ziet de V niet. Eisen: (a) in rechte stand sluit de naad tot op de speling (0,2 mm), geen zichtbare spleet; (b) bij een plat of hoekig lid kijken we samen op een plaatje of de naad mooi genoeg is, anders daar een kleinere tophoek; (c) de kegel komt in de STL en 3MF, en de toets "gesloten, zelfde draairichting" blijft gelden.
+
+**Volgorde voor akkoord, nieuw:** (1) vorm v0.3 met kegel en klikring in de passingcontrole, (2) gemeten bereik op het paneel ("Bends ±30°"), (3) waaier en rood in de viewport (de beweegproef uit je ontwerp, dat ontwerp keur ik goed), (4) icoon en lijstplaatjes door mij, met het buigende gewricht als hoofdbeeld. Kan-punt voor (3): de waaier moet op de lijstplaatjes groot en dik genoeg zijn om op 1280 breed te zien.
+
+`Akkoord: nee` blijft, alleen om de vorm. Kleur, paneel en export zijn goed.

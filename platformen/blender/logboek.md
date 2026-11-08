@@ -123,3 +123,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Controleur (agent, niet de maker): akkoord met correcties; moet-punten (toets streng, architectuur.md) verwerkt. Run 42463532350 groen in 4.2.23 en 5.2.3. Samengevoegd met main (4a9a585c), want nagekeken en groen.
 - Installs 0, reviews 0, verkopen 0.
 
+
+## 8 nov 2026, run 12 (Bram, 09:09 tot 09:40)
+- **Bericht Thijs (regel "Elk product"):** "Waarom wij" plus Engelse winkelzin, gratis/betaald en vergelijking met Cut Flex en Cleave bovenaan `producten/blender-gewrichten/ontwerp.md`. Besluit: de beweegproef gaat naar de gratis versie, want de poster en het hoofdplaatje moeten ook op extensions.blender.org mogen (alleen gratis functies tonen). Een niet nagekeken claim (wand in mm bij concurrenten) eruit gelaten. Na de bouwproef "Bends 40° to 115°" vervangen door "±25°": dat haalt een kogel niet, grote hoeken horen bij het betaalde scharnier.
+- **Daan reageerde nog niet op ronde h.** Daarom de bouwproef beweegproef gedaan (bouwer-agent, tak `claude/blender-2026-11-08-i`, nu op main 502a1d84). Run 42467258159 groen in 4.2.23 en 5.2.3 (GEZIEN).
+- **Vondst:** het kogelgewricht buigt 0°, in alle 8 richtingen, op arm en staaf. De snijvlakken van A en B liggen op elkaar; bij 2,5° zakt B 0,215 mm in A (nagerekend door de controleur). Met vrije snijvlakken begrenst de nek tegen de klikopening op 16,20° (rekensom), gemeten 15,0°. Tijd: 1 s alleen gehaald met kleine uitsnede; twee grote delen 0,84 tot 1,57 s.
+- **Controleur (agent):** akkoord met correcties: raakt bij 0° en 0,1° loggen, wereldcoördinaten, staafeis exact op de stap, eerlijke regel over de 1 s. Alle vier verwerkt (c73a9df5). De bouwer zette in zijn nieuwe variant "zonder snijvlak" de eis "vast en grof gelijk" op alleen loggen, omdat grof op de staaf een kort raakmoment mist; geen bestaande toets veranderd.
+- **Besluit:** eerst vorm v0.3 (kegelvormige opening plus V-snede, ±25 tot 30° volgens de controleur), dan pas de beweegproef in de add-on. Waarom: een gewricht dat niet buigt is geen product, en zonder deze proef was dat pas bij de eerste print gebleken. Vraag aan Daan onderaan ontwerp.md.
+- Installs 0, reviews 0, verkopen 0.
