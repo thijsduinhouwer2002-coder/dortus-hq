@@ -20,9 +20,10 @@ SCHUIF_MM = 0.0137
 # in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
 # Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
 OPENING = 0.85
-# Exact-solver met Self Intersection aan (ontwerp: "Exact met Self Intersection aan en Hole Tolerant uit").
-# De test meet Exact met en zonder; die tijden staan in het log en in ontwerp.md.
-EXACT_ZELF = True
+# Exact-solver: Self Intersection uit. Afwijking van het ontwerp, gemeten 8 nov in 4.2.23 en 5.2.3:
+# met use_self aan gaf dezelfde snede op de arm van 261K driehoeken open delen (zie ontwerp.md).
+# De test meet beide standen elke run opnieuw (regel EXACT_ZELF in het log).
+EXACT_ZELF = False
 # Alleen voor de test: een vaste solver ("EXACT" of "MANIFOLD") in plaats van de keuze per versie.
 FORCEER_SOLVER = None
 
@@ -212,10 +213,11 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             return {"FINISHED"}
 
         deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
-        goed = all(is_gesloten(d.data)[0] for d in (deel_a, deel_b))
-        if not goed:
+        uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
+        if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)
-            self.report({"ERROR"}, "Het snijden gaf geen gesloten delen; het figuur is niet veranderd.")
+            self.report({"ERROR"}, "Het snijden gaf geen gesloten delen (foute randen: deel A "
+                                   f"{uitslag[0][1]}, deel B {uitslag[1][1]}); het figuur is niet veranderd.")
             return {"CANCELLED"}
         for deel, letter in ((deel_a, "A"), (deel_b, "B")):
             verhuis(deel, f"{bron.name}_{letter}", bron)

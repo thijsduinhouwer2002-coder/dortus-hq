@@ -4,6 +4,8 @@
 8: is_gesloten kijkt naar de geëvalueerde mesh (modifiers) en telt een gespiegeld object als gesloten.
 6: as op kijkrichting zonder 3D-venster valt terug op de cursor-as, met een melding en een eigenschap.
 7: één ronde in de standaardscene (1 eenheid = 1 m), maten in mm."""
+import time
+
 import bpy
 from mathutils import Vector
 
@@ -13,28 +15,44 @@ from hulp import (addon, delen, gesloten_delen, log, meting, plaats, speling_met
 
 
 def exact_zelf(arm):
-    """5. Dezelfde snede op de grote arm met de Exact-solver, Self Intersection uit en aan."""
+    """5. Dezelfde snede op de grote arm met de Exact-solver, Self Intersection uit en aan.
+    Uit (de standaard) moet twee gesloten delen geven. Aan geeft open delen (gemeten 8 nov); dan moet
+    de operator netjes weigeren en het figuur heel laten. Beide tijden staan in het log."""
     gw = addon("gewricht")
     oud = gw.EXACT_ZELF
-    tijden = {}
+    stap("Exact: Self Intersection staat standaard uit (afwijking, zie ontwerp.md)", oud is False)
+    tijden, uitslagen = {}, {}
     try:
         gw.FORCEER_SOLVER = "EXACT"
         for zelf in (False, True):
             gw.EXACT_ZELF = zelf
             label = f"exact zelf {'aan' if zelf else 'uit'}"
-            lijst = plaats(label, arm, (0, 0, 0), (1, 0, 0))
-            gesloten_delen(label, lijst)
-            if len(lijst) == 2:
-                tijden[zelf] = lijst[0].get("cj_duur_s")
-                stap(f"{label}: solver EXACT", lijst[0].get("cj_solver") == "EXACT")
-                speling_meten(lijst, 0.2, f"SPELING {label}")
+            figuren.zet_cursor((0, 0, 0), (1, 0, 0))
+            bpy.context.scene.click_joints.as_bron = "CURSOR"
+            t0 = time.perf_counter()
+            uitslag, melding = probeer_plaats(arm)
+            tijden[zelf] = round(time.perf_counter() - t0, 2)
+            lijst = delen()
+            uitslagen[zelf] = "gesloten" if len(lijst) == 2 else f"geweigerd: {melding}"
+            log(f"TIJD {label}: {tijden[zelf]}s uitslag={uitslag} delen={len(lijst)} melding={melding}")
+            if not zelf:
+                gesloten_delen(label, lijst)
+                if len(lijst) == 2:
+                    stap(f"{label}: solver EXACT", lijst[0].get("cj_solver") == "EXACT")
+                    speling_meten(lijst, 0.2, f"SPELING {label}")
+            elif lijst:
+                gesloten_delen(label, lijst)
+            else:
+                fout, vol = meting(arm)
+                stap(f"{label}: geweigerd met nette melding, figuur heel en zichtbaar",
+                     bool(melding) and fout == 0 and vol > 0 and arm.visible_get())
             weg(lijst)
     finally:
         gw.FORCEER_SOLVER = None
         gw.EXACT_ZELF = oud
     uit, aan = tijden.get(False), tijden.get(True)
-    factor = f"{aan / uit:.2f}" if uit and aan else "-"
-    log(f"EXACT_ZELF driehoeken=261120 tijd_uit={uit}s tijd_aan={aan}s factor={factor} standaard={oud}")
+    log(f"EXACT_ZELF driehoeken=261120 tijd_uit={uit}s ({uitslagen.get(False)}) "
+        f"tijd_aan={aan}s ({uitslagen.get(True)})")
     arm.hide_set(True)
 
 

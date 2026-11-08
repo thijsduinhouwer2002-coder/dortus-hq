@@ -146,17 +146,20 @@ def kijk():
         bpy.data.objects.remove(o)
     venster, gebied, regio_ui = zijbalk()
     rv3d = gebied.spaces.active.region_3d
-    doel = Vector((1.0, 0.06, 0.04)).normalized()
+    doel = Vector((1.0, 0.03, 0.02)).normalized()
     rv3d.view_rotation = doel.to_track_quat("-Z", "Y")
     gebied.tag_redraw()
     verwacht = (rv3d.view_rotation @ Vector((0, 0, -1))).normalized()
     figuren.zet_cursor((11, 0, 3), (0, 0, 1))
     inst = bpy.context.scene.click_joints
-    inst.kogel_mm, inst.speling_mm, inst.as_bron = 2.5, 0.2, "KIJK"
+    inst.kogel_mm, inst.speling_mm, inst.as_bron = 2.0, 0.2, "KIJK"
     figuren.maak_actief(staat["pop"])
     with bpy.context.temp_override(window=venster, area=gebied, region=regio_ui):
         log(f"kijk: context regio={bpy.context.region.type} region_data={bpy.context.region_data}")
         uitslag = bpy.ops.click_joints.plaats()
+    for o in bpy.context.scene.objects:
+        if o.get("cj_passing") == "rood" and "cj_as" in o:
+            log(f"kijk: rood teken, as={tuple(round(x, 4) for x in o['cj_as'])} as_bron={o.get('cj_as_bron')}")
     delen = [o for o in bpy.context.scene.objects if o.get("cj_deel")]
     ok = len(delen) == 2
     hoek = None
