@@ -141,6 +141,15 @@ class StructuurTest : BasePlatformTestCase() {
             "Declarations (Nodes.Folder, regel 1)\n  A \"%token\" (Nodes.Constant, regel 4)\n  B \"%token\" (Nodes.Constant, regel 4)\n" +
                 "  s \"%start\" (Nodes.EntryPoints, regel 5)\nRules (Nodes.Folder, regel 7)\n  s (Nodes.Method, regel 7)\n  t (Nodes.Method, regel 8)\n",
             structuurTekst(f, document()))
+        // Tokens die alleen in een voorrangsopdracht staan; geen tekenliteralen, en NUM niet dubbel.
+        val p = "%token NUM\n%left '+' PLUS\n%right <i> POW NUM\n%nonassoc LT\n%precedence NEG\n%%\ns: NUM ;\n"
+        val h = open("p.y", p)
+        assertEquals(
+            "Declarations (Nodes.Folder, regel 1)\n  NUM \"%token\" (Nodes.Constant, regel 1)\n" +
+                "  PLUS \"%left\" (Nodes.Constant, regel 2)\n  POW \"%right\" (Nodes.Constant, regel 3)\n" +
+                "  LT \"%nonassoc\" (Nodes.Constant, regel 4)\n  NEG \"%precedence\" (Nodes.Constant, regel 5)\n" +
+                "Rules (Nodes.Folder, regel 7)\n  s (Nodes.Method, regel 7)\n",
+            structuurTekst(h, document()))
         val l = "%x STR\n%%\n<STR>{\n\"x\"  { a(); }\n}\n\"y\"  ;\n"
         val g = open("a.l", l)
         assertEquals("10..32 (regel 3-5) <STR>{…}\n", foldingTekst(document(), folding(g, document())))

@@ -99,15 +99,30 @@ class BisonStructuur : TaalStructuur() {
         )
     }
 
-    private fun declaraties(decl: ASTNode): List<StructureViewTreeElement> =
-        zoek(decl, setOf(B.TOKEN_DECL, B.TYPE_DECL, B.NTERM_DECL, B.START)).flatMap { d ->
+    /**
+     * Namen uit `%token`, `%type`/`%nterm` en `%start`, plus tokennamen die alleen in
+     * `%left`/`%right`/`%nonassoc`/`%precedence` staan (tekenliteralen zoals `'+'` zijn geen
+     * TOKEN_NAME en vallen dus weg). Een naam die al in een `%token` staat komt één keer, op die plek.
+     */
+    private fun declaraties(decl: ASTNode): List<StructureViewTreeElement> {
+        val alle = zoek(decl, setOf(B.TOKEN_DECL, B.TYPE_DECL, B.NTERM_DECL, B.START) + VOORRANG)
+        val gezien = alle.filter { it.elementType == B.TOKEN_DECL }
+            .flatMap { zoek(it, setOf(B.TOKEN_NAME)) }.mapTo(HashSet()) { it.text }
+        return alle.flatMap { d ->
             val opdracht = d.firstChildNode?.text
             when (d.elementType) {
                 B.TOKEN_DECL -> zoek(d, setOf(B.TOKEN_NAME)).map { Knoop(it.psi, it.text, opdracht, AllIcons.Nodes.Constant) }
+                in VOORRANG -> zoek(d, setOf(B.TOKEN_NAME)).filter { gezien.add(it.text) }
+                    .map { Knoop(it.psi, it.text, opdracht, AllIcons.Nodes.Constant) }
                 B.START -> zoek(d, setOf(B.SYMBOL_REF)).map { Knoop(it.psi, it.text, opdracht, AllIcons.Nodes.EntryPoints) }
                 else -> zoek(d, setOf(B.SYMBOL_REF)).map { Knoop(it.psi, it.text, opdracht, AllIcons.Nodes.Type) }
             }
         }
+    }
+
+    private companion object {
+        val VOORRANG = setOf(B.LEFT, B.RIGHT, B.NONASSOC, B.PRECEDENCE)
+    }
 
     private fun regels(regels: ASTNode): List<StructureViewTreeElement> =
         zoek(regels, setOf(B.RULE)).map { r ->

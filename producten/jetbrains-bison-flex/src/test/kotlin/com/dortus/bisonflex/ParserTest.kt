@@ -129,6 +129,21 @@ class ParserTest : BasePlatformTestCase() {
         assertEquals("line: exp ;", typesIn(f, "RULE").last())
     }
 
+    /**
+     * Bison `parse-gram.y`: `rhses.1: rhs | rhses.1 "|" rhs | rhses.1 ";"`. Na `;` mag dus nog `|`
+     * met een alternatief van dezelfde regel komen, en `;;` mag ook.
+     */
+    fun testBisonPuntkommaDanStreep() {
+        val t = "%token b c d\n%%\na: b ; | c ;\ne: a ;; | d ;;\nf: a ;;\n"
+        val f = parse("a.y", t)
+        assertEquals(emptyList<String>(), foutlijst(t, f))
+        assertEquals(listOf("a", "e", "f"), typesIn(f, "RULE_NAME"))
+        assertEquals(3, typesIn(f, "RULE").size)
+        // Het alternatief na `; |` hoort onder ALTERNATIVES van dezelfde regel, net als een gewoon `|`.
+        assertEquals(listOf("b ; | c", "a ;; | d", "a"), typesIn(f, "ALTERNATIVES"))
+        assertEquals(listOf("b", "c", "a", "d", "a"), typesIn(f, "ALTERNATIVE"))
+    }
+
     /** Geneste C++-typetags (controleur 7 nov): geen valse fout, de hele tag is een TYPE. */
     fun testBisonGenesteTypetag() {
         val t = "%define api.value.type variant\n%type <std::vector<int>> lst\n%nterm <std::map<int,std::string>> m\n%%\nlst: %empty ;\nm: %empty ;\n"
