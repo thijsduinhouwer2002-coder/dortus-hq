@@ -198,8 +198,14 @@ Bekeken (licht en donker, 2880 bij 1800): `hernoem-structuur`, `hernoem-melding`
 
 1. **Moet: een poster als eerste winkelplaatje.** Een korte kop, calc.l en calc.y naast elkaar, en een duidelijke boog van `return NUM;` naar `%token NUM`. Dit maak ik zelf (ontwerpwerk, geen code), van de echte schermen uit de IDE-test. Jet hoeft er niets voor te bouwen, behalve als ik om een extra scherm vraag.
 2. **Moet: een pluginicoon dat opvalt.** Het huidige icoon (twee overlappende vierkanten, oranje en blauw) is netjes maar zegt niets en verdwijnt tussen de andere in de lijst. Ik lever een nieuw `pluginIcon.svg` en `pluginIcon_dark.svg` aan (zelfde bestandsnamen, 40 bij 40); Jet hoeft ze alleen te laten staan als ik ze op een tak zet.
-3. **Moet: een eigen klein icoon in de Pro-balloon,** in plaats van het blauwe i-tje: het pluginicoon op 13 bij 13 (`NotificationGroup` met eigen icoon, of `Notification.setIcon`). Klein werk, maar zo zie je dat de melding van ons komt en niet van de IDE. Dit is code, dus voor Jet.
+3. **Moet: een eigen klein icoon in de Pro-balloon,** in plaats van het blauwe i-tje: `ontwerp/bison-flex/proIcon16.svg` (16 bij 16, `Notification.setIcon` met `IconLoader.getIcon`). Klein werk, maar zo zie je dat de melding van ons komt en niet van de IDE. Dit is code, dus voor Jet.
 4. **Mag, niet nodig voor 1.0:** een korte GIF van Ctrl+klik van `.l` naar `.y`. De winkel van JetBrains toont plaatjes en video's; een GIF in de beschrijving is een bonus. Ik maak hem als de IDE-test een reeks plaatjes van die klik maakt (vijf kort na elkaar), dat kan later.
 
-Meer vraag ik niet voor 1.0 op uiterlijk. Zijn 1 tot 3 klaar en zien de meldingen van eis 7 er netjes uit in licht en donker, dan is het `ja`.
+5. **Moet (gevonden door de controleur): de Pro-balloon wordt afgekapt.** In alle meldingsschermen eindigt de tekst op "Try it free..." met een uitklappijltje; "30 days" valt weg. Dat had ik onder "Goed" moeten missen niet. Maak de tekst korter zodat hij op twee regels past, bijvoorbeeld: "Renaming NUM also changes calc.l. That is a Pro feature, free to try for 30 days." (en voor ga-naar net zo kort).
+
+Poster en icoon staan in `ontwerp/bison-flex/` (zie de README daar). De poster is gemaakt van de echte schermen van IDE-run 42429131027 en zegt onderaan wat gratis is en wat Pro (kleuren, structuur en syntaxfouten gratis; springen en hernoemen tussen bestanden Pro), met een PRO-label bij Ctrl+Click.
+
+Nagekeken door een controleur (agent, 8 nov): eens met `nee`. Overgenomen: het afgekapte balloon (punt 5), Pro duidelijker op de poster (label en grotere voetregel; "checks free" klopte niet, de meldingen van eis 7 zijn Pro), Mac-stippen weg (er staat Ctrl), kader om `NUM` niet meer door de letters, 13px-icoon vervangen door 16px met pijlpunt. Niet overgenomen: het lege vlak rechtsonder op de poster (geeft rust aan de pijl) en de hint die regel 8 half afdekt (verdwijnt bij de volgende toets, IDE-gedrag).
+
+Meer vraag ik niet voor 1.0 op uiterlijk. Zijn 3 en 5 klaar, staat het nieuwe icoon erin (punt 2, alleen kopiëren) en zien de meldingen van eis 7 er netjes uit in licht en donker, dan is het `ja`.
 

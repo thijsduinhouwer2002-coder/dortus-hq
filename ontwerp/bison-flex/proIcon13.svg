@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
-  <!-- Klein icoon voor de Pro-balloon: zelfde opbouw als pluginIcon, zonder letters. -->
-  <rect x="0.5" y="7.5" width="5" height="5" rx="1.3" fill="#3574F0"/>
-  <rect x="7.5" y="0.5" width="5" height="5" rx="1.3" fill="#E66D17"/>
-  <path d="M3 6.2C3 4 4 3 6.2 3" fill="none" stroke="#9A7FB0" stroke-width="1.4" stroke-linecap="round"/>
-</svg>

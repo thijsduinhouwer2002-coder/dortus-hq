@@ -23,6 +23,7 @@ h1 .o{color:#FF8A3D}h1 .b{color:#6E9BFF}
 .ft{font:700 11px 'JetBrains Mono';width:16px;height:16px;border-radius:3px;display:grid;place-items:center;color:#fff}
 .ft.y{background:#E66D17}.ft.l{background:#3574F0}
 .card img.code{display:block}
+.card .pad{height:12px;background:#1E1F22}
 #cl{left:64px;top:400px;width:720px}
 #cl img.code{width:720px}
 #cy{left:616px;top:236px;width:520px}
@@ -31,7 +32,8 @@ h1 .o{color:#FF8A3D}h1 .b{color:#6E9BFF}
 svg.arc{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .key{position:absolute;display:flex;gap:6px;align-items:center;font:600 14px Inter;color:#fff}
 .key b{font:700 13px 'JetBrains Mono';background:#F3F4F8;color:#151826;border-radius:6px;padding:5px 9px;box-shadow:0 2px 0 #9AA0B4}
-.foot{position:absolute;left:64px;bottom:34px;font-size:15px;color:#8C92A6}
+.pro{margin-left:6px;font:800 11px Inter;letter-spacing:.08em;color:#1A1206;background:linear-gradient(90deg,#FFB067,#FF8A3D);border-radius:5px;padding:4px 7px}
+.foot{position:absolute;left:64px;bottom:30px;font-size:18px;font-weight:500;color:#C4C8D6}
 </style></head>
 <body>
 <div class="grain"></div>
@@ -42,11 +44,11 @@ svg.arc{position:absolute;inset:0;pointer-events:none;overflow:visible}
 </div>
 
 <div class="card" id="cy">
-  <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="ft y">Y</span>calc.y</div>
-  <img class="code" src="CODE_Y">
+  <div class="bar"><span class="ft y">Y</span>calc.y</div>
+  <img class="code" src="CODE_Y"><div class="pad"></div>
 </div>
 <div class="card" id="cl">
-  <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="ft l">L</span>calc.l</div>
+  <div class="bar"><span class="ft l">L</span>calc.l</div>
   <img class="code" src="CODE_L">
 </div>
 <div class="hl" id="hy"></div><div class="hl" id="hl2"></div>
@@ -55,16 +57,16 @@ svg.arc{position:absolute;inset:0;pointer-events:none;overflow:visible}
  <marker id="m" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF8A3D"/></marker>
  <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 </defs><path id="p" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" marker-end="url(#m)" filter="url(#glow)"/></svg>
-<div class="key" id="k"><b>Ctrl</b>+<b>Click</b></div>
-<div class="foot">Works in CLion, IntelliJ IDEA and every JetBrains IDE &nbsp;·&nbsp; Colors, structure and checks free &nbsp;·&nbsp; Cross-file jump and rename in Pro</div>
+<div class="key" id="k"><b>Ctrl</b>+<b>Click</b><span class="pro">PRO</span></div>
+<div class="foot">Free: colors, structure and syntax errors &nbsp;·&nbsp; Pro: jump and rename across files</div>
 <script>
 // NUM-posities in de bijsnijdingen (pixels van het origineel)
 const sl=720/1170, sy=520/920;
 const cl=document.getElementById('cl').getBoundingClientRect(), cy=document.getElementById('cy').getBoundingClientRect();
-function box(el,r,s,x0,x1,yc){const h=34*s*1.25;el.style.left=(r.left+x0*s-3)+'px';el.style.top=(r.top+34+yc*s-h/2)+'px';el.style.width=((x1-x0)*s+5)+'px';el.style.height=h+'px';
+function box(el,r,s,x0,x1,yc){const h=34*s*1.25;el.style.left=(r.left+x0*s-5)+'px';el.style.top=(r.top+34+yc*s-h/2)+'px';el.style.width=((x1-x0)*s+8)+'px';el.style.height=h+'px';
  return {x:r.left+(x0+x1)/2*s, top:r.top+34+yc*s-h/2, bot:r.top+34+yc*s+h/2};}
-const a=box(document.getElementById('hl2'),cl,sl,1048,1096,242);
-const b=box(document.getElementById('hy'),cy,sy,248,296,199);
+const a=box(document.getElementById('hl2'),cl,sl,1046,1100,242);
+const b=box(document.getElementById('hy'),cy,sy,246,300,199);
 const sx=a.x, sy0=a.top-4, ex=b.x+2, ey=b.bot+6;
 document.getElementById('p').setAttribute('d',`M${sx} ${sy0} C ${sx} ${sy0-70}, ${ex} ${ey+90}, ${ex} ${ey}`);
 const k=document.getElementById('k');k.style.left=((sx+ex)/2+18)+'px';k.style.top=((sy0+ey)/2-14)+'px';
