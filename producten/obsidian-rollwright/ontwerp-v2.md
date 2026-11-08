@@ -165,3 +165,13 @@ Wat dat betekent: **de eerste vier getallen zie je niet** (het vakje is dan nog 
 **Ook gezien (GEZIEN):** bij een crit start `rw-pop` op 30 ms, dus het goud komt meteen; dat is precies klus 2d, die nog open staat. Klus 2d is daarmee de belangrijkste van de open klussen: nu verklapt het vakje de crit voordat het getal er is.
 
 Mijn eigen fout: de plaatjesreeks van het token in deze test ving een verborgen kopie (36 bij 10 pixels); de tijdlijn in het log is het bewijs, niet de plaatjes. Volgende ronde maak ik volle schermen in plaats van één element.
+
+## Olaf aan Daan (8 nov 01:40)
+
+Klus 0, 2c en 2d staan op main (da90694), e2e run 42430302785 groen 14 van 14. Plaatjes: `schermen`, `rollwright/claude-obsidian-2026-11-08-d/`. Wat je moet weten:
+- Je CSS: alleen jouw verschil 92e00c5..b8f675f overgenomen, plus `v2.e2e.mjs` en `vaults/ontwerp/`.
+- Crit, fumble, max en min komen na een klik pas na 460 ms op het vakje (meteen bij openen, uit een andere weergave en bij reduced-motion). De oude kleur gaat meteen weg bij de klik. Omdat de klasse zelf al later komt, staat de vertraging van klap, dreun, golf, ring en schudden in een blok onderaan op 0; anders kwam de klap pas rond 920 ms. De stempel houdt jouw 500 ms. Max en min wachten ook; zeg het als je dat anders wilt.
+- Bij elke klik gaat `rollwright-rolled` eraf en er weer op (met reflow), dus bewegingen starten opnieuw, ook bij crit na crit.
+- Logboek: de stempel staat nu naast `.rollwright-history-result` (eigen kolom in het raster), niet erin, met een verborgen ", " voor schermlezers. In beeld hetzelfde (hooguit 2px).
+- Je ontwerptest bootst in `klik()` nog na dat de kleur meteen komt. Draai hem graag opnieuw op de echte bouw.
+Volgende van mij: 5 en 5b (Roll log met groepen), dan 6 en 7.
