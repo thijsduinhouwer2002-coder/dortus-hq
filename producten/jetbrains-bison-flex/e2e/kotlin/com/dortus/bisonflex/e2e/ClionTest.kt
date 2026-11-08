@@ -5,7 +5,7 @@ import com.intellij.driver.client.Remote
 import com.intellij.driver.client.service
 import com.intellij.driver.model.OnDispatcher
 import com.intellij.driver.sdk.FileEditorManager
-import com.intellij.driver.sdk.getEnabledPluginsIds
+import com.intellij.driver.sdk.getEnabledPlugins
 import com.intellij.driver.sdk.getHighlights
 import com.intellij.driver.sdk.getPlugin
 import com.intellij.driver.sdk.openFile
@@ -108,10 +108,13 @@ class ClionTest {
         waitForIndicators(5.minutes)
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
 
-        val ids = getEnabledPluginsIds()
+        sluitWizard(naam)
+        // getEnabledPluginsIds() van de Driver telt alleen ingebouwde plugins (run 42441271116), dus zelf zoeken.
+        val aan = getEnabledPlugins()
+        val geladen = aan.any { it.getPluginId().getIdString() == PLUGIN_ID }
         val plugin = getPlugin(PLUGIN_ID)
-        println("DORTUS-E2E [clion-$naam] plugin $PLUGIN_ID geladen: ${PLUGIN_ID in ids}, naam '${plugin?.getName()}', aan ${plugin?.isEnabled()}, plugins totaal ${ids.size}")
-        assertTrue(PLUGIN_ID in ids, "plugin staat in de geladen plugins van CLion ($naam)")
+        println("DORTUS-E2E [clion-$naam] plugin $PLUGIN_ID in geladen plugins: $geladen, naam '${plugin?.getName()}', aan ${plugin?.isEnabled()}, plugins aan ${aan.size}")
+        assertTrue(geladen && plugin?.isEnabled() == true, "plugin staat in de geladen plugins van CLion ($naam)")
 
         val ftm = service<FileTypeManagerOpAfstand>()
         for ((bestand, soort) in listOf("calc.y" to "Bison", "calc.l" to "Flex")) {
@@ -140,6 +143,20 @@ class ClionTest {
         with(ide) { pauze() }
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
         ide.scherm("clion-$naam-calc-y.png")
+    }
+
+    /**
+     * CLion opent een map zonder CMakeLists.txt met de "Open Project Wizard" (CMake-profielen, run 42441271116).
+     * Dat is geen licentie of voorwaarden: Escape sluit hem zonder CMake-model, zoals een gebruiker met Cancel.
+     */
+    private fun sluitWizard(naam: String) {
+        val wizard = vensters().firstOrNull { it.second == "Open Project Wizard" } ?: return
+        ProcessBuilder("xdotool", "windowactivate", "--sync", wizard.first).inheritIO().start().waitFor()
+        Thread.sleep(1_000)
+        ide.toets("Escape")
+        val weg = ide.wacht(15) { vensters().none { it.second == "Open Project Wizard" } }
+        println("DORTUS-E2E [clion-$naam] Open Project Wizard met Escape gesloten: $weg")
+        assertTrue(weg, "Open Project Wizard dicht ($naam)")
     }
 
     /** Tekst van de zichtbare rijen in de structuurweergave (een paar keer proberen, de boom bouwt traag op). */
@@ -184,15 +201,16 @@ class ClionTest {
         }
 
         fun klaar() { door = false; interrupt() }
-
-        private fun vensters(): List<Pair<String, String>> = try {
-            val p = ProcessBuilder("bash", "-c", "for w in \$(xdotool search --onlyvisible --name . 2>/dev/null); do printf '%s\\t%s\\n' \"\$w\" \"\$(xdotool getwindowname \$w)\"; done")
-                .redirectErrorStream(true).start()
-            val uit = p.inputStream.bufferedReader().readLines()
-            p.waitFor()
-            uit.mapNotNull { r -> r.split('\t', limit = 2).takeIf { it.size == 2 && it[1].isNotBlank() }?.let { it[0] to it[1] } }
-        } catch (e: Exception) {
-            emptyList()
-        }
     }
+}
+
+/** Zichtbare vensters met titel (xdotool): id en titel. */
+private fun vensters(): List<Pair<String, String>> = try {
+    val p = ProcessBuilder("bash", "-c", "for w in \$(xdotool search --onlyvisible --name . 2>/dev/null); do printf '%s\\t%s\\n' \"\$w\" \"\$(xdotool getwindowname \$w)\"; done")
+        .redirectErrorStream(true).start()
+    val uit = p.inputStream.bufferedReader().readLines()
+    p.waitFor()
+    uit.mapNotNull { r -> r.split('\t', limit = 2).takeIf { it.size == 2 && it[1].isNotBlank() }?.let { it[0] to it[1] } }
+} catch (e: Exception) {
+    emptyList()
 }
