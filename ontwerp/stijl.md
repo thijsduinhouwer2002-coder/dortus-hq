@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 22, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 25, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -71,6 +71,8 @@ Nooit:
 - Reclame toont precies wat de gebruiker krijgt. Verandert het uiterlijk van het gratis deel, dan maken we poster en GIF opnieuw van echte schermen van die versie, in dezelfde release. Aankleding van de poster (lijst, schaduw om een uitvergroting) mag, maar nooit een effect dat op het product zelf lijkt te zitten. Gekleurde tekst haalt 4,5:1 tegen zijn eigen vulling, ook in een licht thema; meet het, schat het niet. (Versie 22, Rollwright 0.3.2.)
 - In betaalde skins deelt het moment van de crit (het slot van de worp) niets met elkaar of met gratis: eigen teken, eigen beweging, eigen kleine effect. Daar kijkt de gebruiker naar, dus daar zit het verschil. (Versie 24, Rollwright.)
 - Een meetwaarde (graden, mm) staat op het model of het scherm zelf waar het over gaat, in wit met een donkere schaduw, als een meetinstrument met streepjes. Het getal is altijd hetzelfde als in het paneel. Overlays in een 3D-programma zijn wit of neutraal, nooit in de kleur die de delen al dragen. (Versie 23, Click Joints.)
+- Een winkelscherm van een meetinstrument maken we recht van voren: de kijker loodrecht op het vlak van wat je meet (de boog, de maat). Van opzij wordt een gradenboog een streep. Een icoon van een meetproduct is het meetinstrument zelf, groot genoeg om op 32 px nog te lezen. (Versie 25, Click Joints.)
+- Bij een lancering scheiden we "moet" (de belofte klopt niet, of de winkelpagina schaadt) van "versie 2" (mooier). Wat mooier kan maar de belofte houdt, wacht. Een moet-punt dat geen beeld verbetert, krijgt één ronde en anders een vaste terugval. (Versie 25, besluit Thijs 8 nov.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.

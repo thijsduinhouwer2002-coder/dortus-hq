@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#F1F3F7;position:relative;
+ background:radial-gradient(900px 700px at 78% 45%, rgba(0,195,137,.20), transparent 70%),
+            radial-gradient(700px 500px at 5% 100%, rgba(255,255,255,.05), transparent 70%),
+            linear-gradient(160deg,#23262D 0%,#121317 100%);}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1.2px,transparent 1.2px);background-size:28px 28px}
+.left{position:absolute;left:110px;top:150px;width:640px}
+.brand{display:flex;align-items:center;gap:16px;font-weight:600;font-size:26px;color:#C9CDD8}
+.brand img{width:64px;height:64px}
+h1{margin-top:44px;font-weight:800;font-size:88px;line-height:1.02;letter-spacing:-.03em}
+h1 em{font-style:normal;color:#3BE6B0}
+.sub{margin-top:30px;font-size:28px;line-height:1.45;color:#AEB3C2}
+.chips{margin-top:46px;display:flex;flex-direction:column;gap:16px}
+.chip{display:flex;align-items:center;gap:16px;font-size:25px;font-weight:500;color:#E3E6EC}
+.chip b{display:inline-grid;place-items:center;min-width:150px;height:46px;padding:0 16px;border-radius:10px;font-weight:600;font-size:22px}
+.g{background:rgba(0,195,137,.18);color:#5BF0C0;box-shadow:inset 0 0 0 1.5px rgba(59,230,176,.5)}
+.w{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)}
+.r{background:rgba(255,77,77,.16);color:#FF7A7A;box-shadow:inset 0 0 0 1.5px rgba(255,77,77,.5)}
+.shot{position:absolute;right:90px;top:120px;width:1000px;height:760px;border-radius:22px;overflow:hidden;
+ box-shadow:0 50px 100px -30px rgba(0,0,0,.8),0 0 0 1.5px rgba(255,255,255,.10);background:#3D3D3D}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:35% 40%}
+.foot{position:absolute;left:110px;bottom:70px;font-size:24px;color:#9DA2B0}
+.foot b{color:#E3E6EC;font-weight:600}
+.tag{position:absolute;right:90px;bottom:70px;font-size:24px;color:#9DA2B0}
+</style></head><body>
+<div class="dots"></div>
+<div class="left">
+ <div class="brand"><img src="../icoon.png">Click Joints for Blender</div>
+ <h1>See how far it <em>bends</em>, before you print.</h1>
+ <p class="sub">Cut a ball joint into your figure. Click Joints measures the bend in 8 directions and shows it on the model.</p>
+ <div class="chips">
+  <div class="chip"><b class="w">±20°</b>measured bend range</div>
+  <div class="chip"><b class="g">Good fit</b>wall and clearance in mm</div>
+  <div class="chip"><b class="r">+8°</b>red where it collides</div>
+ </div>
+</div>
+<div class="shot"><img src="SCHERM"></div>
+<div class="foot"><b>Free</b> on Blender Extensions · STL and 3MF · Blender 4.2 to 5.2</div>
+<div class="tag">Made by Thijs at Dortus</div>
+</body></html>
