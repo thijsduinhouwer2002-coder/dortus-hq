@@ -22,7 +22,7 @@ TE_DUN = "Too thin here for a ball joint. Try a thicker spot."
 @contextlib.contextmanager
 def vang(uit):
     """Vangt alles wat er tijdens het blok naar de uitvoer gaat in de lijst `uit` (één tekst)."""
-    libc = ctypes.CDLL(None)
+    libc = ctypes.CDLL(None)  # libc van het proces zelf; werkt op Linux (CI) en macOS, niet op Windows
     sys.stdout.flush()
     libc.fflush(None)
     oud = os.dup(1)
@@ -62,27 +62,31 @@ def bends():
 
 
 def te_dicht(b):
-    """Tweede gewricht 8 mm verder op deel B: te dicht, melding met de afstand uit cj_te_dicht_mm."""
+    """Tweede gewricht 8 mm verder op deel B: te dicht. Afstand zelf gerekend (controleur): bolnaad nieuw
+    straal 5 + marge 0,5 + speling 0,2 = 5,7, plus nek 0,4r = 1,0 is 6,7; kom oud r + s = 2,7; samen 9,4,
+    naar boven afgerond 10 mm."""
     inst = bpy.context.scene.click_joints
     inst.uit_elkaar = False
     inst.speling_mm, inst.kogel_mm, inst.soort, inst.as_bron, inst.kogel_auto = 0.2, 5.0, "KOGEL", "CURSOR", False
     figuren.zet_cursor((8, 0, 0), (1, 0, 0))
     figuren.maak_actief(b)
     uit = []
-    with vang(uit):
-        try:
-            uitslag = bpy.ops.click_joints.plaats()
-        except RuntimeError as fout:
-            uitslag = {"FOUT: " + str(fout)}
-    nodig = b.get("cj_te_dicht_mm")
-    nieuw = [d for d in delen() if d.get("cj_bron") == b.name]
-    verwacht = f"Too close to another joint (keep {nodig} mm apart)."
-    log(f"TEKST te dicht: uitslag={uitslag}, cj_te_dicht_mm={nodig}, nieuwe delen={len(nieuw)}")
-    stap(f"TEKST te dicht: geweigerd met afstand ({nodig} mm)",
-         uitslag == {"CANCELLED"} and isinstance(nodig, int) and nodig > 0 and not nieuw)
-    stap(f"TEKST te dicht: melding precies '{verwacht}'", f"Warning: {verwacht}" in uit[0])
-    weg(nieuw)
-    inst.uit_elkaar = True
+    try:
+        with vang(uit):
+            try:
+                uitslag = bpy.ops.click_joints.plaats()
+            except RuntimeError as fout:
+                uitslag = {"FOUT: " + str(fout)}
+        nodig = b.get("cj_te_dicht_mm")
+        nieuw = [d for d in delen() if d.get("cj_bron") == b.name]
+        verwacht = "Too close to another joint (keep 10 mm apart)."
+        log(f"TEKST te dicht: uitslag={uitslag}, cj_te_dicht_mm={nodig}, nieuwe delen={len(nieuw)}")
+        stap(f"TEKST te dicht: geweigerd met afstand 10 mm (kreeg {nodig})",
+             uitslag == {"CANCELLED"} and nodig == 10 and not nieuw)
+        stap(f"TEKST te dicht: melding precies '{verwacht}'", f"Warning: {verwacht}" in uit[0])
+        weg(nieuw)
+    finally:
+        inst.uit_elkaar = True
 
 
 def te_dun():
