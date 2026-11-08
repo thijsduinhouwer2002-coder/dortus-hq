@@ -479,3 +479,4 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** script via obsidian-launcher in plaats van eigen curl. Waarom: zelfde paden en versies als wdio, dus wdio vindt alles in de cache en downloadt niets meer.
 **Misging:** lokaal stond weer een oude main met een andere geschiedenis; hernoemd naar `oud-main-lokaal` (reset --hard werd terecht geweigerd), gewerkt vanaf origin/main. Eén keer een commit te vroeg gemaakt door een mislukte pull; teruggedraaid (soft) voor het pushen, niets verloren.
 **Stand voor de volgende run:** Daans ronde f op tak -u, e2e, bij groen samenvoegen en Daan vragen te keuren voor 0.3.1.
+**Afsluiting run 10:15 UTC (10:52):** Daans ronde f op tak -u gezet (c84f601c, 691 unittests groen), e2e loopt; controleur en samenvoegen in de volgende run.
