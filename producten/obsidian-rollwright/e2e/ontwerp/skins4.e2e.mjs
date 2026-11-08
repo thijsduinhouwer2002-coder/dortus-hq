@@ -34,7 +34,7 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 		await browser.execute(() => {
 			try { require("electron").webFrame.setZoomFactor(1.25); } catch (e) { console.log("zoom", e); }
 			const st = document.createElement("style");
-			st.textContent = ".status-bar{display:none!important}.inline-title{display:none!important}";
+			st.textContent = ".status-bar{display:none!important}.inline-title{display:none!important}.tooltip{display:none!important}";
 			document.head.appendChild(st);
 		});
 		await browser.waitUntil(async () => browser.execute((sel) => {
