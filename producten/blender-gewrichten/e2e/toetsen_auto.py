@@ -28,8 +28,11 @@ def alles(arm):
         f"passing={passing} wand={a.get('cj_wand_mm') if a else None}mm auto_na={inst.kogel_auto}")
     stap("auto: Auto blijft aan na Place joint", inst.kogel_auto)
     stap(f"auto: breedte gemeten 9,4 tot 10,4 mm ({breedte})", breedte is not None and 9.4 <= breedte <= 10.4)
-    stap(f"auto: diameter 0,6 x breedte afgerond op 0,5 mm ({d})",
-         breedte is not None and abs(d - round(0.6 * breedte * 2) / 2) < 1e-6)
+    # Ronde j: de trechterwand wordt nu tot op de bolnaad gemeten, dus de bovengrens (0,6 x breedte) is niet
+    # altijd meer Good fit. Auto kiest de grootste Good fit vanaf die bovengrens in stappen van 0,5 mm omlaag.
+    boven = round(0.6 * breedte * 2) / 2 if breedte is not None else None
+    stap(f"auto: diameter hoogstens 0,6 x breedte afgerond op 0,5 mm ({d}, bovengrens {boven}) en Good fit",
+         boven is not None and boven - 0.5 - 1e-6 <= d <= boven + 1e-6 and passing == "groen")
     stap(f"auto: diameter 55 tot 65% van de armdikte ({d})", 5.5 <= d <= 6.5)
     stap(f"auto: kogel in de delen is {d} mm", a is not None and abs(2 * a["cj_kogel_r"] - d) < 1e-6)
     stap(f"auto: passing Good fit of Tight ({passing})", passing in ("groen", "oranje"))
