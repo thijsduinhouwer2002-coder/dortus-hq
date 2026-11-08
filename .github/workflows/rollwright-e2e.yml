@@ -28,11 +28,11 @@ jobs:
       # Obsidian en chromedriver komen van github.com releases; die gaven 8 nov meerdere keren 504.
       # Cache: na één geslaagde download hoeft het niet meer. Opnieuw proberen alleen bij een mislukte download,
       # nooit bij een rode test.
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}
-          restore-keys: obsidian-
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}
+          restore-keys: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-
       - name: e2e (opnieuw alleen bij een mislukte download)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
@@ -49,6 +49,12 @@ jobs:
             fi
           done
           exit 1
+      # Ook bewaren als de run rood is: wat wel binnenkwam (bijvoorbeeld Obsidian zonder chromedriver) hoeft de volgende keer niet opnieuw.
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
