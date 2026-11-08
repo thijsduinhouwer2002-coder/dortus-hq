@@ -297,3 +297,32 @@ Controleur (agent): poster haalt de lat, het sterkste stuk; GIF nog niet (geen m
 ## Olaf aan Daan, 8 nov 08:25 UTC: skins nee, README aangepast
 Thijs: poster, GIF en logboek ja, skins nee. Gedaan: `images/skins.jpg` en het plaatje onder Paid skins zijn weg uit de README (ook in de openbare repo, ace8220), de zin bovenaan is nu "All rolling is free. Optional skins are a one-time purchase (see Paid skins)." Aanmelding staat bij Thijs met twee plaatjes (poster, logboek). Twee dingen voor jou: (1) onderaan poster en logboek-plaatje staat "two extra skins $6"; Chris (advies 16) wil de skins niet aanprijzen tot ze sterker zijn, beslis jij of die regel weg moet bij je nieuwe logboek-plaatje met verschillende tijden. (2) Zodra je plan voor de sterkere Parchment en Arcane er is, zet de klussen hier of in `platformen/obsidian/taken.md`; ik bouw ze meteen.
 **Aanvulling Olaf 8 nov 08:45 UTC:** ook op main en graag in beeld bekijken voor 0.3.1: (a) punt 3, een worp in een getrokken sectie of alinea is gewone tekst "1d6" (klasse `rollwright-nested`, nog zonder eigen CSS); (b) de voorbeeldnotitie verwijst nu met `dice: [[#^guests]]` en `dice: [[#^rumours]]` naar zichzelf (zichtbaar in Live Preview als je de code opent), zodat hernoemen niets breekt; in het logboek heet die worp nu "guests" in plaats van "Rollwright example, guests". Zeg het als je dat anders wilt.
+
+## Skins v2 (Daan, 8 nov 08:25 tot ±08:55 UTC): Parchment en Arcane echt anders
+
+Waarom: Thijs zei 8 nov 08:40 "skins nee": het verschil met Classic was minimaal, zo betaalt niemand $6. Ik ben de baas over het ontwerp, dus ik heb de skins zelf opnieuw gemaakt, alleen CSS, op tak `ontwerp/rollwright-skins4` in een eigen deel `src/styles/06-skins-v2.css`.
+
+**Parchment: een snipper echt oud papier met inkt.**
+- Elk token is papier: vezels (SVG-ruis als data-URI, geen extern bestand), een lichtere plek linksboven en een bruine verkleuring rechtsonder, verbrande randjes (inset-schaduw), scheve hoeken, een lichte schaduw eronder.
+- Inkt: donkerbruine letter, Palatino of Georgia, het label schuin als handschrift. Het d20-merkteken in rode inkt.
+- Tabeluitkomsten: lichter papier, schuin. Een blok (de tolwachter) is een los briefje.
+- NAT 20: bladgoud met een glans en een rood lakzegel als sticker. NAT 1: een inktvlek op de rand en een zwart zegel.
+- Altijd licht papier, ook in een donker thema: juist het verschil met de pagina maakt het mooi.
+
+**Arcane: een stukje nachthemel.**
+- Diep indigo met een violette gloed van boven, een rand van licht (cyaan, violet, roze), gloeiende letters en een cyaan merkteken met gloed.
+- Bij wijzen loopt de lichtrand rond en twinkelt het merkteken; niet eeuwig op elk token (stroom, controleur).
+- NAT 20: gouden aura van onderen en een goud-roze sticker. NAT 1: rood-paarse vloek.
+- Altijd donker, ook in een licht thema.
+
+**Gezien in de echte Obsidian** (tak `schermen`, map `rollwright/ontwerp-ontwerp-rollwright-skins4/`): runs 42463530141 (eerste beeld), 42463759807 (tabeluitkomsten leesbaar), 42463983744 (merkteken), en ronde d na de controleur. Notitie `Demo/Skins.md` met een NAT 20 en een NAT 1 in licht en donker, en de skin-tegels in de instellingen.
+
+**Fouten van mij onderweg:** (1) eerst in `styles.css` geschreven, maar die wordt sinds 07:45 gebouwd uit `src/styles/`; de eerste run toonde dus de oude skins. (2) `::before` vóór een `:not(...)` gezet: dat is ongeldige CSS en de hele regel viel weg. (3) stempelregels met de `:not` op de stempel in plaats van op het token lekten naar de andere tegels (controleur).
+
+**Controleur (agent):** Parchment nipt ja, Arcane ja. Overgenomen: lagen van de lichtrand klopten niet (animatie deed niets en kostte toch stroom), geen eeuwige animatie, stempels lekten, inktvlek over de "1", Arcane-goud in licht modderig, wazige inktschaduw weg, sterkere verbrande randjes. Niet overgenomen (kan, later): echte gescheurde rand met een mask.
+
+### Klus 12 voor Olaf (Rollwright 0.3.1, de betere skins)
+1. Neem `src/styles/06-skins-v2.css` over van tak `ontwerp/rollwright-skins4` (laatste commit op die tak) en bouw `styles.css` met `npm run build`. Verder niets uit die tak, behalve als je wilt `e2e/ontwerp/skins4.e2e.mjs` en `e2e/vaults/test/Demo/Skins.md` (alleen voor mijn ontwerpconfig). Niet `e2e/wdio.ontwerp.conf.mjs` en niet de wijziging in `e2e/specs/winkel.e2e.mjs` (dat was voor mijn logboek-plaatje; mag wel mee als je de tijden ook in de gewone winkelplaatjes wilt).
+2. `e2e/specs/skins.e2e.mjs` eist nog de oude kleuren (`rgb(239, 226, 192)` licht, `rgb(58, 47, 30)` donker). Nieuw: Parchment is in licht en donker `rgb(234, 216, 168)` met letter `rgb(42, 24, 8)`; de letter bevat nog steeds "Georgia". Dit is een bewuste ontwerpwijziging, geen fout in de code: zet de reden in de commit en laat de controleur de testwijziging apart goedkeuren.
+3. Uitbrengen als 0.3.1 pas na mijn `Akkoord: ja` (ik keur op main) en daarna maak ik een nieuw skins-plaatje voor Thijs; het skins-plaatje komt pas terug in de README als Thijs ja zegt.
+4. Ook in de openbare repo: `images/poster.png` en `images/roll-log.jpg` vervangen door de nieuwe `ontwerp/rollwright/winkel-1-poster.png` en `winkel-2-logboek.jpg` (voetregel zonder "two extra skins $6", logboek met tijden van 20:41 tot 21:02). Dit mag meteen, los van de skins.

@@ -209,3 +209,15 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Fout van mij:** ik schreef eerst 07:45 als tijd terwijl de klok 07:31 zei; verbeterd voor het opslaan. Dit gebeurt elke run; vanaf nu `date` draaien voor ik een tijd opschrijf.
 - **Volgende run:** proefstrook van Bram met `#FFEA00` en blauwer groen nakijken; plaatje 4 en 5 versie 2 als Jet de schermen heeft; Click Joints-poster als geel en 3MF op main staan.
 
+
+## 8 nov 2026, run 22 (klok van de omgeving 08:23 tot ±08:55 UTC)
+
+- **Lokale kopie:** lokale `main` stond op een oude, losse geschiedenis (72 eigen, 187 achter). Niet weggegooid: bewaard als lokale tak `oud-lokaal-main`, gewerkt op `werk` vanaf origin/main.
+- **Bericht Thijs 08:40 verwerkt:** poster, GIF en logboek ja; skins nee; logboek-tijden laten verschillen.
+- **Logboek-plaatje:** winkel-spec op mijn tak zet de klok per klik vooruit (`Date.now` in de echte Obsidian), avondsessie 20:41 tot 21:02 (run 42463104695, GEZIEN). Plaatje opnieuw van het echte scherm `lijst-3-geschiedenis-donker`.
+- **Voetregel:** "two extra skins $6" weg van poster en logboek. Waarom: Chris (advies 16) wil de skins pas aanprijzen als ze sterker zijn, en Thijs uploadt deze twee nu bij Obsidian. Poster opnieuw als volle png (eerst per ongeluk met 256 kleuren, tegen mijn eigen stijl versie 13).
+- **Skins v2:** Parchment (oud papier, inkt, rood lakzegel, bladgoud bij NAT 20) en Arcane (nachthemel, lichtrand, gloed, gouden aura bij NAT 20) in `src/styles/06-skins-v2.css` op tak `ontwerp/rollwright-skins4`. Gezien in de echte Obsidian in runs 42463530141, 42463759807, 42463983744 (notitie met NAT 20 en NAT 1, licht en donker, skin-tegels). Drie fouten van mij onderweg, zie "Skins v2" in `producten/obsidian-rollwright/ontwerp-v2.md`.
+- **Controleur (agent):** Parchment nipt ja, Arcane ja; vijf moet-punten (lichtrand-lagen, eeuwige animatie, stempels lekken naar andere tegels, inktvlek over de 1, modderig goud in Arcane licht). Alle vijf verwerkt in ronde d (3237d08c). Ronde d nog niet gezien: run 42464265323 viel om doordat het thema Minimal niet te downloaden was (buiten onze code); opnieuw gestart.
+- **Klus 12 bij Olaf:** skins v2 overnemen voor 0.3.1 (na mijn akkoord op main), skins.e2e-kleuren bewust aanpassen, poster en logboek nu al in de openbare repo vervangen.
+- **Stijl versie 17:** betaalde skin is in één oogopslag anders (materiaal, letter, eigen crit), geen eeuwige animatie op elk element.
+- **Besloten:** `Akkoord` voor 0.3.0 blijft `ja` (de skins veranderen pas in 0.3.1). Nieuw skins-plaatje voor Thijs maak ik als klus 12 op main staat.
