@@ -1,12 +1,15 @@
 """Betaalde functies van Click Joints (alleen in de betaalde build, zie e2e/maak_zip.sh).
 
-Nog leeg: het scharnier met eindstop komt hier (ontwerp betaald v1.1 in ontwerp.md). Wel al de
+Het scharnier met eindstop (ontwerp betaald v1.1 in ontwerp.md): vorm in scharnier_vorm.py, operator en
+paneelknoppen in scharnier.py. Ook de
 weigering als de gratis versie uit een andere repository ook aan staat: zelfde id, dus anders botsen
 operators, panelen en scene.click_joints."""
 import bpy
 
+from . import scharnier
+
 ACTIEF = True
-KLASSEN = ()
+KLASSEN = scharnier.KLASSEN
 MELDING = "Disable the free Click Joints first. Your settings stay in the .blend file."
 
 
@@ -24,8 +27,14 @@ def weiger_dubbel(eigen):
 def register():
     for k in KLASSEN:
         bpy.utils.register_class(k)
+    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
+    if paneel is not None:
+        paneel.append(scharnier.teken_knop)
 
 
 def unregister():
+    paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
+    if paneel is not None:
+        paneel.remove(scharnier.teken_knop)
     for k in reversed(KLASSEN):
         bpy.utils.unregister_class(k)

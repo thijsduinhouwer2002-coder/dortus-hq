@@ -3,11 +3,15 @@ Betaalde build (ontwerp betaald v1.1): installeren en aanzetten werkt, het betaa
 kern doet het nog (operators, paneel). Daarna de weigering bij dubbel aanstaan: de gratis zip in een tweede
 repository erbij; aanzetten van de betaalde naast de gratis moet weigeren met de melding.
 Regels met [cj-betaald] in het log. Exit 1 bij elke fout."""
+import os
 import sys
 import traceback
 
 import addon_utils
 import bpy
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import toetsen_scharnier  # noqa: E402
 
 args = sys.argv[sys.argv.index("--") + 1:]
 zip_betaald, zip_gratis = args[0], args[1]
@@ -37,6 +41,12 @@ def main():
     stap("paneel geregistreerd", hasattr(bpy.types, "CLICK_JOINTS_PT_paneel"))
     if betaald is None:
         return
+    stap("operator click_joints.plaats_scharnier bestaat", "plaats_scharnier" in dir(bpy.ops.click_joints))
+    try:
+        toetsen_scharnier.toets(stap, eigen)  # eis 1 van het scharnier (ontwerp betaald v1.1)
+    except Exception:
+        traceback.print_exc()
+        stap("toetsen scharnier liepen zonder fout", False)
     # Rekentoets van de weigering zelf.
     stap("andere_versies ziet gratis naast betaald",
          betaald.andere_versies(["bl_ext.blender_org.click_joints", eigen], eigen) == ["bl_ext.blender_org.click_joints"])
