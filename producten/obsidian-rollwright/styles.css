@@ -2337,12 +2337,13 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 	box-shadow: none;
 }
 /* Skins v3 ronde g (Daan, 8 nov): elke betaalde skin een eigen slot bij de crit.
-/* Specificiteit: .rollwright-crit staat er drie keer in, zodat deze regels winnen van 08-skins-v3 (die heeft :not(.rollwright-skin-preview-tile .rollwright-roll)). */
+   Specificiteit: .rollwright-crit staat er drie keer in, zodat deze regels winnen van 08-skins-v3
+   (die heeft :not(.rollwright-skin-preview-tile .rollwright-roll)).
    Gezien in run 42500320809: Parchment en Arcane deelden rw-punch, de schuine sticker en het gouden
    sterretje, dus het moment waar je naar kijkt was in beide hetzelfde. Nu:
    Parchment "geschreven": papier landt, "nat 20" als rode aantekening in de kantlijn, inktspatjes.
    Arcane "ijs en licht": kleine kanteling, "NAT 20" als lichtblauwe lichtletters, een lichtstreep, een ijsster.
-   Goud blijft het getal van de hoogste worp (belofte). Alleen CSS. */
+   De belofte (goud en NAT 20) geldt voor het gratis Classic en verandert hier niet; Arcane houdt het gouden getal. Alleen CSS. */
 
 /* ---------- Parchment ---------- */
 @keyframes rw-p-land {
@@ -2352,8 +2353,8 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 }
 
 @keyframes rw-p-write {
-	0% { opacity: 1; clip-path: inset(0 100% 0 0); }
-	100% { opacity: 1; clip-path: inset(0 0 0 0); }
+	0% { opacity: 1; clip-path: inset(-0.4em 100% -0.4em -0.3em); }
+	100% { opacity: 1; clip-path: inset(-0.4em -0.6em -0.4em -0.3em); }
 }
 
 @keyframes rw-p-drops {
@@ -2367,8 +2368,8 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 }
 
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
-	top: -1.05em;
-	right: -0.6em;
+	top: -0.9em;
+	right: 0.15em;
 	padding: 0;
 	border: 0;
 	border-radius: 0;
@@ -2388,20 +2389,20 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 
 body.theme-dark.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-roll) > .rollwright-stamp,
 body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
-	color: #ff6a5c;
-	text-shadow: 0 0 0.1em rgba(0, 0, 0, 0.6);
+	color: #e0473c;
+	text-shadow: 0 0 1px rgba(40, 5, 5, 0.9), 0 0 0.12em rgba(0, 0, 0, 0.5);
 }
 
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
 	animation: rw-p-write calc(380ms * var(--rw-slow)) calc(560ms * var(--rw-slow)) steps(9, end) both;
 }
 
-/* Inktspatjes op de plek van het oude sterretje. */
+/* Inktspatjes op het papier, bij de lakzegel (controleur: buiten het papier oogde het als een vlek). */
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
 	-webkit-mask: none;
 	mask: none;
-	top: -0.35em;
-	left: -0.5em;
+	top: -0.2em;
+	left: 1.15em;
 	width: 0.9em;
 	height: 0.9em;
 	background:
@@ -2438,7 +2439,7 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 	100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
-/* Het kristal kantelt nog maar 3 graden (was rw-a-spin en rw-punch: stak buiten de regel). */
+/* Het kristal kantelt nog maar 3 graden (was rw-punch, dat stak buiten de regel; rw-a-spin op het icoon blijft). */
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) {
 	animation: rw-a-tilt calc(360ms * var(--rw-slow)) calc(420ms * var(--rw-slow)) ease-out both;
 }
@@ -2501,17 +2502,8 @@ body.theme-light .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwrigh
 	animation: rw-a-star calc(420ms * var(--rw-slow)) calc(700ms * var(--rw-slow)) cubic-bezier(0.3, 1.4, 0.5, 1) both;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	body.rollwright-skin-parchment .rollwright-roll,
-	body.rollwright-skin-parchment .rollwright-roll > .rollwright-stamp,
-	body.rollwright-skin-parchment .rollwright-roll::after,
-	body.rollwright-skin-arcane .rollwright-roll,
-	body.rollwright-skin-arcane .rollwright-roll::before,
-	body.rollwright-skin-arcane .rollwright-roll::after,
-	body.rollwright-skin-arcane .rollwright-roll > .rollwright-stamp {
-		animation: none !important;
-	}
-}
+
+/* Minder beweging: 99-rustig zet alle animaties al uit (afspraak keuring 0.3.0). */
 
 /* Minder beweging (prefers-reduced-motion): nergens in Rollwright een animatie.
    Zonder important-vlag (keuring 0.3.0): :is(body, #rollwright-rustig) telt als een id, dus deze regel wint
