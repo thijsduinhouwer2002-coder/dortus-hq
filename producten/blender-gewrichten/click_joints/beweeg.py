@@ -11,7 +11,9 @@ richting op de gevonden grens één controle met een grote uitsnede (BEREIK_GROO
 kogel en kom); botst het daar, dan opnieuw zoeken met de grote uitsnede.
 
 Ook hier: de pose (deel B alleen in de weergave gedraaid, zie `uit_elkaar.zet`) en de botsende vlakken van
-deel A in het rode passingmateriaal, gezocht in de grote uitsnede (ronde l)."""
+deel A in het rode passingmateriaal, gezocht in de grote uitsnede (ronde l).
+Ronde n (sneller, zelfde uitkomst): de grote uitsnede laat vlakken weg die bij de geteste hoek bewijsbaar nooit
+kunnen botsen (`snoei_maskers`, met bewijs), en `cj_buig_tijden` toont waar de tijd zit."""
 import math
 import time
 
@@ -148,7 +150,7 @@ def _u(a):
 class Meter:
     def __init__(self, a, b, groot=False, meshes=None, hoek=None):
         """Met hoek (graden): deze meter toetst nooit verder dan die hoek, dus vlakken die daar nooit kunnen
-        botsen vallen weg (`snoei_masker`). Alleen voor de grote uitsnede; zonder hoek alles zoals eerst."""
+        botsen vallen weg (`snoei_maskers`). Alleen voor de grote uitsnede; zonder hoek alles zoals eerst."""
         self.c = np.array(a["cj_centrum"])
         self.as_ = Vector(a["cj_as"]).normalized()
         self.hoek = hoek
@@ -156,6 +158,9 @@ class Meter:
         r_uit = BEREIK_GROOT * a["cj_kogel_r"] if groot else BEREIK * (a["cj_kogel_r"] + a["cj_speling_mm"] * _u(a))
         ma, mb = meshes if meshes else (mesh_np(a), mesh_np(b))
         wa, wb = self.snoei(a, ma, mb) if (SNOEI and groot and hoek is not None) else (None, None)
+        self.gesnoeid = wa is not None
+        self._vol = None
+        self._maak_vol = lambda: Meter(a, b, groot=groot, meshes=(ma, mb))  # zonder snoei, voor verder dan hoek
         self.a = uitsnede(ma, self.c, r_uit, r_in, wa)
         self.b = uitsnede(mb, self.c, r_uit, r_in, wb)
         self.bvh_a = BVHTree.FromPolygons(self.a[0].tolist(), self.a[1]) if self.a[1] else None
@@ -193,6 +198,11 @@ class Meter:
     def raakt(self, k, hoek, paren=False):
         """Raakt deel B (gedraaid over hoek graden richting k) deel A? Met paren: de lijst botsende paren."""
         self.toetsen += 1
+        if self.gesnoeid and hoek > self.hoek + 1e-9:
+            # Verder dan de snoeihoek (controleur ronde n): dan geldt het snoeien niet, dus de volle uitsnede.
+            if self._vol is None:
+                self._vol = self._maak_vol()
+            return self._vol.raakt(k, hoek, paren)
         if self.bvh_a is None or not self.b[1]:
             return [] if paren else False
         pb = self.draai(k, hoek)
@@ -210,31 +220,22 @@ class Meter:
                 return True
         return False
 
-    def grens(self, k, tot=None):
-        """Grens in richting k. Met tot: bij die hoek raakt het zeker (al getoetst), dus nooit verder zoeken;
-        vindt de grove stap tot daar niets, dan bisectie tussen de laatste vrije stap en tot."""
+    def grens(self, k):
         if self.raakt(k, 0.0):
             return 0.0
-        eind = MAX_HOEK if tot is None else min(MAX_HOEK, tot)
-        vrij, raak = 0.0, None
         hoek = GROF
-        while hoek <= eind + 1e-9:
+        while hoek <= MAX_HOEK + 1e-9:
             if self.raakt(k, hoek):
-                raak = hoek
-                break
-            vrij = hoek
+                vrij, raak = hoek - GROF, hoek
+                while raak - vrij > FIJN + 1e-9:
+                    mid = (vrij + raak) / 2
+                    if self.raakt(k, mid):
+                        raak = mid
+                    else:
+                        vrij = mid
+                return math.floor(vrij / FIJN + 1e-6) * FIJN
             hoek += GROF
-        if raak is None:
-            if tot is None:
-                return MAX_HOEK
-            raak = tot
-        while raak - vrij > FIJN + 1e-9:
-            mid = (vrij + raak) / 2
-            if self.raakt(k, mid):
-                raak = mid
-            else:
-                vrij = mid
-        return math.floor(vrij / FIJN + 1e-6) * FIJN
+        return MAX_HOEK
 
 
 def paar(scene, b):
@@ -249,8 +250,9 @@ def paar(scene, b):
 def meet(a, b, u):
     """Meet het bereik in 8 richtingen en zet cj_buig_graden en cj_buig_duur_s op beide delen.
 
-    Ronde n (sneller, zelfde meting): eerst alle grenzen met de kleine uitsnede; de grote uitsnede toetst daarna
-    nooit verder dan de grootste daarvan, dus mag hij snoeien wat bij die hoek nooit kan botsen."""
+    Ronde n (sneller, zelfde meting): eerst alle grenzen met de kleine uitsnede; de grote uitsnede snoeit daarna
+    wat tot de grootste daarvan plus één grove stap nooit kan botsen (`snoei_maskers`), met de volle uitsnede als
+    terugval voorbij die hoek. Zelfde zoektocht als zonder snoei, dus dezelfde grenzen."""
     t0 = time.perf_counter()
     for d in (a, b):
         d["cj_eenheid_per_mm"] = u
@@ -259,12 +261,14 @@ def meet(a, b, u):
     meter = Meter(a, b, meshes=meshes)
     klein = [meter.grens(k) for k in range(len(meter.richtingen))]
     t2 = time.perf_counter()
-    groot = Meter(a, b, groot=True, meshes=meshes, hoek=max(klein))
+    # De grote meter zoekt zo nodig tot de volgende grove stap (zelfde zoektocht als altijd): snoeien tot daar;
+    # komt hij toch verder, dan neemt hij vanzelf de volle uitsnede (Meter.raakt).
+    groot = Meter(a, b, groot=True, meshes=meshes, hoek=min(MAX_HOEK, max(klein) + GROF))
     t3 = time.perf_counter()
     grenzen, opnieuw = [], 0
     for k, g in enumerate(klein):
         if groot.raakt(k, g):  # de rest van het figuur botst eerder: opnieuw zoeken met de grote uitsnede
-            g = groot.grens(k, tot=g)
+            g = groot.grens(k)
             opnieuw += 1
         grenzen.append(round(g, 2))
     t4 = time.perf_counter()
