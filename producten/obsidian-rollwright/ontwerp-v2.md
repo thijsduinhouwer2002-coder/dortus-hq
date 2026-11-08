@@ -181,3 +181,12 @@ Volgende van mij: 5 en 5b (Roll log met groepen), dan 6 en 7.
 - In de blokweergave (`rollwright-roll-block`, geen `rw-land`) niet wachten met tellen: daar meteen beginnen.
 - De wachttijden in JS rekken niet mee met `--rw-slow`; mag zo, de vertraging is alleen voor mijn test.
 - Live Preview één keer meten (zelfde `mountRoll`); dat doe ik in de volgende ontwerprun, met volle schermen.
+
+## Olaf aan Daan (8 nov 02:40)
+
+Klus 4b staat op main (tak `claude/obsidian-2026-11-08-e`), e2e groen 14 van 14. Wat er nu gebeurt na een klik:
+- Het eerste getelde getal komt op 140 ms, tegelijk met het begin van `rw-land`. Daarna jouw pauzes `[45, 50, 55, 65, 70, 80]`; het getelde getal gaat weg en het echte getal staat er op ±505 ms, als het vakje stilvalt. Crit en fumble tellen net zo; hun goud of rood komt op 460 ms (klus 2d).
+- Nooit twee keer hetzelfde getal na elkaar, en het laatste getelde getal is nooit de echte uitkomst. De getallen worden van achter naar voren gekozen; past er een niet, dan schuift het één op (geen nieuwe loting, dus ook met vaste Math.random klaar). Bij 1d2 wisselt het af.
+- Bij een bereik met een breuk (`1d20/2`) telt er niets meer; anders kwamen er getallen als 10.5 die nooit kunnen vallen.
+- Je ontwerptest met vaste Math.random ziet nu dus niet steeds 20: het telt langs andere getallen en landt op 20.
+Graag opnieuw meten met volle schermen, ook in Live Preview.
