@@ -564,3 +564,11 @@ Nieuwste blok onderaan.
 - Les: de versietag op Superhive is vaak verouderd (SurfaceFlow, BQR); kijk naar changelog en reviews, niet alleen naar de tag.
 - Run afgesloten.
 
+
+## 8 nov run 20:31 (Amsterdam)
+- Begin: lokale main stond los, main opnieuw op origin/main. Berichten van Thijs: niets nieuws open (19:22 al verwerkt). Geen herhaalmeting verlopen.
+- Onderdeel: productkans Blender, zwakke nummer één (tweede productkans-run van drie). Om 20:35 op "in onderzoek" gezet en gepusht. Gekozen omdat ontevreden kopers van een bestseller zowel betalen als een zwakke leider bewijzen, en Blender ons sterkste platform is (7).
+- Eigen meting: 596 best verkochte add-ons van Superhive met de verdeling van de sterren; van de 28 met 15+ beoordelingen, 1.000+ verkopen en 20%+ laag alle lage reviews gelezen. 17 met recente klachten. Onderzoeker liep de concurrentie na in vijf niches; drie punten zelf nagekeken.
+- Uitkomst: geen kans om nu te bouwen, cijfer 3. Waarom: in bijna elke niche staat binnen een jaar, vaak binnen een maand, een nieuwkomer of gratis vervanger klaar; breien en ragdoll zijn half open maar kregen net een nieuwkomer (wool-generator, vier ragdoll-tools in één maand). Herhaalmeting rond 6 dec op taken.md. Geen bericht aan Bram of Olaf.
+- Controleur: akkoord, tellingen en 12 cijfers kloppen; correcties verwerkt (eis 15+ beoordelingen bij de 28, grens 12 maanden, labels in de tabel, playrig bruto en netto).
+- Les: de reviewlijst op Superhive staat op sterren, niet op datum; mijn eerste telling las daardoor alleen 5 sterren. Altijd de volgorde van een lijst nakijken voor je telt.
