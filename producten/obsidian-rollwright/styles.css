@@ -619,13 +619,15 @@ button.rollwright-history-clear:not(.clickable-icon) {
 	color: var(--text-muted);
 }
 
-/* Klus 5b: de notitie in een item als rustige link, zonder onderstreping. */
-.rollwright-history-meta .rollwright-history-note {
-	color: var(--text-muted);
-	text-decoration: none;
+/* Klus 5b en 9c: het kopje is de link naar de notitie (de kaarten noemen hem niet meer). Rustig, pas bij
+   wijzen of met het toetsenbord zie je dat het een link is. */
+.rollwright-history-group-title.rollwright-history-note {
+	cursor: pointer;
+	border-radius: var(--radius-s);
 }
 
-.rollwright-history-meta .rollwright-history-note:hover {
+.rollwright-history-group-title.rollwright-history-note:hover,
+.rollwright-history-group-title.rollwright-history-note:focus-visible {
 	color: var(--text-accent);
 	text-decoration: underline;
 }
@@ -1063,4 +1065,113 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	.rollwright-roll.rollwright-rolled > .rollwright-stamp {
 		animation: none !important;
 	}
+}
+
+/* Ronde 8 (Daan, 8 nov): drie dingen uit de echte Obsidian (run 42442820040).
+   1. Een tabeluitkomst in het logboek ("A dwarf counting her coins twice") stond groot en vet in de
+      eerste kolom, en de formule ernaast werd een kolom van één letter breed (r8-12). Vangnet: de
+      uitkomst krijgt hoogstens 70% van de breedte, de formule altijd minstens 6em. Met de klasse
+      rollwright-history-text (klus 9, Olaf) wordt tekst rustig en staat de bron eronder (stijl v9). */
+.rollwright-history-item {
+	grid-template-columns: fit-content(70%) auto minmax(6em, 1fr);
+}
+
+.rollwright-history-item.rollwright-history-text .rollwright-history-result {
+	grid-column: 1 / -1;
+	padding-right: 1.8em;
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-medium);
+	line-height: 1.35;
+	font-variant-numeric: normal;
+}
+
+.rollwright-history-item.rollwright-history-text .rollwright-history-formula {
+	grid-column: 1 / -1;
+	grid-row: 3;
+	margin-left: 0;
+}
+
+.rollwright-history-item.rollwright-history-text .rollwright-history-details {
+	grid-row: 4;
+}
+
+.rollwright-history-item.rollwright-history-text .rollwright-history-meta {
+	grid-row: 5;
+}
+
+/* 2. Het lege logboek is de eerste minuut: een groot d20-teken, één zin, de knop eronder, in het midden.
+      Niet meer een losse grijze zin met een knop die eraan vastplakt (r8-01). */
+.rollwright-history-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-4-3);
+	margin-top: var(--size-4-6);
+	padding: var(--size-4-6) var(--size-4-4);
+	border: 1px dashed color-mix(in srgb, var(--rollwright-accent) 35%, var(--background-modifier-border));
+	border-radius: var(--radius-l);
+	background: color-mix(in srgb, var(--rollwright-accent) 5%, transparent);
+	text-align: center;
+	line-height: 1.45;
+}
+
+.rollwright-history-empty::before {
+	content: "";
+	width: 2.6em;
+	height: 2.6em;
+	background: var(--rollwright-accent);
+	-webkit-mask: var(--rw-d20) center / contain no-repeat;
+	mask: var(--rw-d20) center / contain no-repeat;
+}
+
+.rollwright-history-empty .rollwright-history-try {
+	margin-top: var(--size-4-1);
+}
+
+/* 3. Skin-tegels: alle drie toonden groot dezelfde gouden crit, dus je zag niet wat je koopt (r8-17).
+      Nu staat de gewone worp groot voorop, in de kleuren van de skin; de crit klein ernaast. */
+.rollwright-skin-preview-tile {
+	min-width: 8.5em;
+	padding: var(--size-4-3) var(--size-4-4) var(--size-4-2);
+}
+
+.rollwright-skin-preview-rolls .rollwright-skin-preview-small {
+	order: 1;
+	font-size: 1.15em;
+}
+
+.rollwright-skin-preview-rolls .rollwright-roll.rollwright-crit {
+	order: 2;
+	font-size: 1em;
+}
+
+/* Ronde 8b: in de tegel dekte de sticker de bovenkant van de 20 (r8-17, run 42443312533); hier staat
+   hij hoger en verder naar rechts, met ruimte in de tegel. */
+.rollwright-skin-preview-rolls {
+	padding: 1.1em 1.3em 0 0;
+}
+
+.rollwright-skin-preview-rolls .rollwright-roll > .rollwright-stamp {
+	top: -1.35em;
+	right: -1.7em;
+}
+
+/* Ronde 8c: de tegels waren op ware grootte klein en de derde viel op een tweede rij (run 42443792945).
+   Drie even brede kolommen over de hele breedte, de worpen groter. */
+.rollwright-skin-preview {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+.rollwright-skin-preview-tile {
+	min-width: 0;
+	font-size: 1.12em;
+}
+
+.rollwright-skin-preview-rolls {
+	gap: 0.7em;
+}
+
+.rollwright-skin-preview-tile .rollwright-skin-preview-name {
+	font-size: var(--font-ui-small);
 }

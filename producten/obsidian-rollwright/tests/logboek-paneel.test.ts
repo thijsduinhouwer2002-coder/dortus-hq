@@ -77,12 +77,35 @@ describe("the roll log panel", () => {
 		expect(items.map((i) => i.cls.includes("rollwright-history-latest"))).toEqual([true, false, false]);
 	});
 
-	it("shows the note in an item by name, without folder and .md, with the full path in the title", () => {
-		const { root } = viewFor({ settings: { formulas: [], history: [entry("Camp/The Rusty Flagon.md", 1)] } });
-		const [link] = withClass(root, "rollwright-history-note");
-		expect(link?.tag).toBe("a");
-		expect(link?.text).toBe("The Rusty Flagon");
-		expect(link?.attrs.title).toBe("Camp/The Rusty Flagon.md");
+	it("makes the heading the link to the note and keeps the card free of name and seconds (klus 9c)", () => {
+		const time = new Date(2026, 10, 8, 3, 44, 38).getTime();
+		const { view, root } = viewFor({ settings: { formulas: [], history: [entry("Camp/The Rusty Flagon.md", time)] } });
+		const [title] = withClass(root, "rollwright-history-group-title");
+		expect(title?.cls).toContain("rollwright-history-note");
+		expect(title?.attrs.role).toBe("link");
+		expect(title?.attrs.title).toBe("Camp/The Rusty Flagon.md");
+		title?.listeners.click?.({ preventDefault: () => {} });
+		const open = (view as unknown as { app: { workspace: { openLinkText: ReturnType<typeof vi.fn> } } }).app.workspace.openLinkText;
+		expect(open).toHaveBeenCalledWith("Camp/The Rusty Flagon.md", "");
+		const [meta] = withClass(root, "rollwright-history-meta");
+		expect(all(meta!).some((n) => n.text.includes("Rusty Flagon"))).toBe(false);
+		const [shown] = withClass(root, "rollwright-history-time");
+		expect(shown?.text).not.toContain("38");
+		expect(shown?.text).toMatch(/44/);
+	});
+
+	it("gives a heading without a note no link", () => {
+		const { root } = viewFor({ settings: { formulas: [], history: [entry("", 1)] } });
+		const [title] = withClass(root, "rollwright-history-group-title");
+		expect(title?.cls).not.toContain("rollwright-history-note");
+		expect(title?.attrs.role).toBeUndefined();
+	});
+
+	it("marks results that are no number as text (klus 9a)", () => {
+		const history = [entry("A.md", 5, "17"), entry("A.md", 4, "A dwarf counting her coins twice"), entry("A.md", 3, "-2"), entry("A.md", 2, "4, 6, 1"), entry("A.md", 1, "3.5")];
+		const { root } = viewFor({ settings: { formulas: [], history } });
+		const items = withClass(root, "rollwright-history-item");
+		expect(items.map((i) => i.cls.includes("rollwright-history-text"))).toEqual([false, true, false, true, false]);
 	});
 });
 
