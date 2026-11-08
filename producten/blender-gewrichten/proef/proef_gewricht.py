@@ -144,10 +144,14 @@ def proef(solver):
     boolean(a, kogel, "UNION", solver)
     boolean(a, nek, "UNION", solver)
     deel_a = bak(a, "deel_a")
+    # Kom en nekgat eerst samen tot één gesloten snijvorm: twee losse
+    # verschillen na elkaar lieten in 4.2 (Exact) 14 open randen achter.
+    boolean(kom, nekgat, "UNION", solver)
+    snij = bak(kom, "snijvorm")
+    snij.hide_set(True)
     b = bak(arm, "arm_b_bron")
     boolean(b, links, "DIFFERENCE", solver)
-    boolean(b, kom, "DIFFERENCE", solver)
-    boolean(b, nekgat, "DIFFERENCE", solver)
+    boolean(b, snij, "DIFFERENCE", solver)
     deel_b = bak(b, "deel_b")
     duur = time.perf_counter() - t0
 

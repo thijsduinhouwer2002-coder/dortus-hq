@@ -26,7 +26,7 @@ jobs:
       - name: Blender ${{ matrix.blender }} ophalen
         run: |
           V="${{ matrix.blender }}"; KORT="${V%.*}"
-          curl -sSL -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
           mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
           /tmp/blender/blender --version | head -1
       - name: Bouwproef één kogelgewricht
