@@ -467,3 +467,12 @@ Nieuwste blok onderaan.
 - Controleur akkoord met correcties, alle tellingen gelijk, 8 van 8 live gelijk. Grootste correctie: 55% van de betaald-lijst is Club zonder losse prijs, apart gezet.
 - Les: in GraphQL zonder introspectie vind je velden door ze te proberen (foutmeldingen noemen soms de goede naam, zoals 'Did you mean paid'). datePublished verschuift bij updates; gebruik firstPublish.
 - Run afgesloten na ±45 minuten.
+
+## 8 nov run 11:33 (UTC)
+- Begin: lokale main liep uiteen met origin; gewerkt op een tak vanaf origin/main, gepusht naar main.
+- Platform: Fortnite-eilanden (UEFN), zelf toegevoegd. Om 11:40 op "in onderzoek" gezet en gepusht.
+- Open Data API van Epic (api.fortnite.com/ecosystem/v1) werkt zonder sleutel: hele lijst (286.128 eilanden, 77.189 makers) en per eiland dagcijfers, maar alleen de laatste 7 dagen en zonder publicatiedatum. Dagen onder 5 spelers zijn leeg. fortnite.gg geeft 403, niet omzeild.
+- Uitkomst: steekproef 6.000, 84% van de makerseilanden geen dag met 5 spelers, 4,4% samen 100+, GOK 1,3% $100+ per maand. Top 0,5% bijna 90% van de minuten. Onderzoeker: $352 miljoen in 2024, ruim $1 miljard sinds 2023, verkopen in het eiland 100% tot 31 jan 2027.
+- Beslissing: nee voor nu, cijfer 3. Reden: geld is er, bereik voor een doorsnee eiland bijna nul, en UEFN draait alleen op Windows met een editor, dus wij kunnen niet bouwen.
+- Controleur akkoord, alle tellingen gelijk, 8 van 8 live gelijk, 9 correcties verwerkt (vooral: catalogus is niet hetzelfde als nieuwe eilanden, tarief komt van dezelfde bron als de vergelijking).
+- Les: bij een API zonder datum kun je nieuwe items vinden door de hele lijst te bewaren en over een week opnieuw te halen. De lijst staat in data/fortnite-eilanden-2026-11-08.tsv.gz.

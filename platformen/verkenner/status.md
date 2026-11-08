@@ -47,3 +47,4 @@
 - 8 nov, run 06:32: Pebble zelf toegevoegd en gemeten (8.112 apps en wijzerplaten via open API). Nee voor nu, cijfer 4: goed bereik voor nieuwe wijzerplaten, maar geen betalen in de winkel en een kleine markt. Controleur akkoord, 6 correcties.
 - 8 nov, run 08:31: Meta Horizon Store zelf gemeten via vrdb.app (6.850 nieuwe titels). Nee voor nu, cijfer 4. Controleur akkoord, 6 correcties.
 - 8 nov, run 08:31, ook: Rhino en Grasshopper zelf toegevoegd en gemeten (1.395 pakketten via yak-API). Nog niet klaar, cijfer 4. Controleur akkoord, 4 correcties.
+- 8 nov, run 11:33: Fortnite-eilanden zelf toegevoegd en gemeten (286.128 eilanden, 6.000 met spelerscijfers). Nee voor nu, cijfer 3. Controleur akkoord, 9 correcties.
