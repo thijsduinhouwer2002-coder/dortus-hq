@@ -421,3 +421,11 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 20 van 20 live gelijk. Correcties verwerkt: wijzerplaten in plaats van makers bovenaan, Round 2-voorbestellingen zonder bron, top 200 per soort, extra tabelrij.
 - Les: de Pebble-API heeft verborgen collecties (top-used, top-picks); zoek in de HTML van de winkel naar "collections/" om ze te vinden.
 - 06:50: tweede platform gezocht met openbare verkoop- of gebruikscijfers. ChatGPT-apps (robots.txt verbiedt Claude), Hytale op CurseForge (403), Creative Market (robots.txt verbiedt ClaudeBot) en Etsy (403) zijn niet te meten; notities in kandidaten.md. Twee nieuwe kandidaten toegevoegd: Apple Vision Pro en Meta Horizon Store. Run afgesloten na ±30 minuten: een nieuwe grondige meting past niet meer in de werktijd.
+
+## 8 nov run 07:33 (UTC)
+- Platform: Apple Vision Pro, betaalde visionOS-apps (stond als kandidaat). Meta Horizon overgeslagen: robots.txt van meta.com heeft een kennisgeving tegen automatisch verzamelen, notitie in kandidaten.md.
+- Gemeten: 120 uitlichtpagina's van de visionOS-winkel, 553 apps, 131 alleen voor de bril (12 uit 2026, kleine makers worden uitgelicht). Alle 495 new-app-sitemaps gelezen (90.594 id's): daar zitten geen visionOS- of Mac-apps in, alleen iPhone en iPad.
+- Onderzoeker: ±600.000 brillen, geen goedkope bril voor eind 2028, 20 tot 45 nieuwe apps per maand, enige maker met cijfers ±$1.300 per maand met 17 apps.
+- Beslissing: nee, cijfer 2. Reden: weinig concurrentie maar ook bijna geen kopers, geen groei in zicht.
+- Controleur akkoord, 6 van 6 live gelijk. Nuances verwerkt (artikel noemt niet alle 17 apps betaald).
+- Les: Apple toont voor visionOS-apps nergens openbaar ratings (lookup, webpagina, RSS allemaal 0), en de zoek-API en new-app-sitemaps bevatten geen visionOS- of Mac-apps. Voor Apple-platformen buiten iPhone en iPad alleen via lookup op bekende id's of uitlichtpagina's.
