@@ -26,8 +26,55 @@ jobs:
       - run: npm run build
       - run: npm install
         working-directory: producten/obsidian-rollwright/e2e
-      - run: xvfb-run --auto-servernum -s "-screen 0 1400x900x24" npx wdio run ./wdio.ontwerp.conf.mjs
+      # Obsidian en chromedriver komen van GitHub-releases; die gaven op 8 nov vaak 504.
+      # Daarom: download bewaren tussen runs (ook als de test faalt), vooraf downloaden met
+      # tot acht pogingen, en de test zelf tot drie keer opnieuw bij een downloadfout.
+      - uses: actions/cache/restore@v4
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-cache-${{ github.run_id }}
+          restore-keys: obsidian-cache-
+      - name: Obsidian en chromedriver vooraf downloaden (tot acht pogingen)
         working-directory: producten/obsidian-rollwright/e2e
+        run: |
+          cat > ./vooraf.tmp.mjs <<'JS'
+          import ObsidianLauncher from "obsidian-launcher";
+          const l = new ObsidianLauncher({ cacheDir: process.cwd() + "/.obsidian-cache" });
+          const [app, installer] = await l.resolveVersion("latest", "latest");
+          console.log("installer", await l.downloadInstaller(installer));
+          console.log("app", await l.downloadApp(app));
+          console.log("chromedriver", await l.downloadChromedriver(installer));
+          JS
+          for poging in 1 2 3 4 5 6 7 8; do
+            if timeout 600 node ./vooraf.tmp.mjs; then echo "IN CACHE (poging $poging)"; rm -f ./vooraf.tmp.mjs; exit 0; fi
+            [ "$poging" -lt 8 ] && { echo "downloadfout, poging $poging"; sleep $((poging * 20)); }
+          done
+          rm -f ./vooraf.tmp.mjs
+          echo "vooraf downloaden lukte niet; de test probeert het zelf nog"
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-cache-${{ github.run_id }}
+      - name: Ontwerptest (tot drie keer bij een downloadfout)
+        working-directory: producten/obsidian-rollwright/e2e
+        run: |
+          for poging in 1 2 3; do
+            set +e
+            xvfb-run --auto-servernum -s "-screen 0 1400x900x24" npx wdio run ./wdio.ontwerp.conf.mjs 2>&1 | tee /tmp/wdio.log
+            code=${PIPESTATUS[0]}
+            set -e
+            [ "$code" = 0 ] && exit 0
+            grep -q "Failed to download" /tmp/wdio.log || exit "$code"
+            echo "downloadfout, poging $poging; even wachten"; sleep $((poging * 45))
+          done
+          exit 1
+      # Ook na de test bewaren: chromedriver haalt de test zelf op, en die moet de volgende run er al zijn.
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-cache-${{ github.run_id }}-na
       - name: Schermafbeeldingen openbaar zetten (tak schermen)
         if: always()
         working-directory: .

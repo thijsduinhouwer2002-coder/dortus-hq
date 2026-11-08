@@ -5,22 +5,16 @@ import * as path from "path";
 export const config = {
 	runner: "local",
 	framework: "mocha",
-	specs: ["./ontwerp/ronde8.e2e.mjs"],
+	specs: ["./ontwerp/reclame.e2e.mjs"],
 	maxInstances: 1,
 	capabilities: [{
 		browserName: "obsidian",
 		browserVersion: "latest",
 		"wdio:obsidianOptions": {
-			installerVersion: "earliest",
+			installerVersion: "latest", // 8 nov: de AppImage van 1.5.8 (earliest) gaf op GitHub steeds 504
 			plugins: [".."],
-			themes: [
-				// Blue Topaz valt af: zijn versienummer (2026110301) kan de launcher niet lezen.
-				{ name: "Minimal", enabled: false },
-				{ name: "AnuPpuccin", enabled: false },
-				{ name: "Things", enabled: false },
-				{ name: "Border", enabled: false },
-			],
-			vault: "vaults/ontwerp",
+			// Geen thema's: deze test gebruikt ze niet, en Minimal was 8 nov 08:46 niet te downloaden.
+			vault: "vaults/test",
 		},
 	}],
 	services: ["obsidian"],
