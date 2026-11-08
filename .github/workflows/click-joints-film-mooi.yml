@@ -1,0 +1,113 @@
+name: Click Joints filmpje filmisch (echte Blender, Cycles, in stukken)
+
+on:
+  push:
+    branches: ["claude/blender-film-*"]
+    paths: ["producten/blender-gewrichten/e2e/film_mooi.py", ".github/workflows/click-joints-film-mooi.yml"]
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "Cycles samples per beeld"
+        default: "64"
+
+permissions:
+  contents: write
+
+env:
+  SCHERVEN: 20
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        scherf: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip
+      - name: Blender 5.2.3 ophalen
+        run: |
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Add-on inpakken (gratis zip, gelijk aan de winkel)
+        run: bash e2e/maak_zip.sh
+      - name: Beelden renderen (Cycles)
+        env:
+          BLENDER_USER_RESOURCES: /tmp/bu
+          BLENDER_USER_CONFIG: /tmp/bu/config
+          MOOI_SAMPLES: ${{ github.event.inputs.samples || '64' }}
+        run: |
+          /tmp/blender/blender -b --python e2e/film_mooi.py -- /tmp/mooi /tmp/click_joints.zip ${{ matrix.scherf }} $SCHERVEN 2>&1 \
+            | grep -v "^Fra:\|| Sample\|Updating\|Synchroniz\|Loading\|Waiting" | tee /tmp/render.log
+          grep -q "MOOI KLAAR" /tmp/mooi/log-*.txt || { echo "FOUT: render niet af"; cat /tmp/mooi/log-*.txt; exit 1; }
+          echo "$(ls /tmp/mooi/beelden | wc -l) beelden"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mooi-${{ matrix.scherf }}
+          path: /tmp/mooi
+          if-no-files-found: warn
+
+  film:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: ffmpeg
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg imagemagick
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mooi-*
+          path: /tmp/stukken
+      - name: Beelden samenvoegen en MP4 maken
+        run: |
+          mkdir -p /tmp/alles /tmp/uit/keur
+          cp /tmp/stukken/*/beelden/*.png /tmp/alles/ 2>/dev/null || true
+          cat /tmp/stukken/*/log-*.txt | grep -v "^beeld " | sort -u > /tmp/uit/log.txt || true
+          N=$(ls /tmp/alles | wc -l); echo "beelden: $N (verwacht 435)"; echo "beelden: $N" >> /tmp/uit/log.txt
+          # ontbrekende beelden melden
+          for i in $(seq 1 435); do f=$(printf "%04d" $i); [ -f /tmp/alles/$f.png ] || echo "ONTBREEKT $f" | tee -a /tmp/uit/log.txt; done | head -20
+          ffmpeg -v error -y -framerate 30 -start_number 1 -i /tmp/alles/%04d.png -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart /tmp/uit/click-joints-filmisch-ruw.mp4
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size -of default=nw=1 /tmp/uit/click-joints-filmisch-ruw.mp4
+          # keurbeelden: held, ring op zijn felst, 15 graden, 28 graden rood, uit elkaar
+          for f in 0001 0060 0123 0215 0291 0320 0380 0435; do
+            [ -f /tmp/alles/$f.png ] && convert /tmp/alles/$f.png -resize 1280x720 /tmp/uit/keur/$f.jpg
+          done
+          montage /tmp/uit/keur/*.jpg -tile 4x -geometry 480x270+4+4 -background '#111' /tmp/uit/keur/overzicht.jpg || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: filmisch-film
+          path: /tmp/uit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: filmisch-alle-beelden
+          path: /tmp/alles
+          retention-days: 30
+      - name: Openbaar zetten (tak schermen)
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s
+            D="/tmp/s/blender-gewrichten/film-filmisch/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Filmisch filmpje Click Joints $NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/blender-gewrichten/film-filmisch/$NAAM"
