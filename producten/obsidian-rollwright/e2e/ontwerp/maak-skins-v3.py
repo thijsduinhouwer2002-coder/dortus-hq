@@ -88,12 +88,12 @@ rule("parchment", "font-family: \"Rollwright Fell\", Georgia, serif; font-weight
 rule("parchment", "color: #6a4220; opacity: 1;", tail=" .rollwright-label")
 # lakzegel met de d20 erin gedrukt
 rule("parchment", """
-width: 1.12em;
-height: 1.12em;
+width: 1.22em;
+height: 1.22em;
 background: radial-gradient(circle at 35% 30%, #e0503f, #a8261a 55%, #6a0f08);
--webkit-mask: var(--rw-d20) center / 64% no-repeat, radial-gradient(circle, #000 64%, transparent 67%);
+-webkit-mask: var(--rw-d20) center / 72% no-repeat, radial-gradient(circle, #000 64%, transparent 67%);
 -webkit-mask-composite: xor;
-mask: var(--rw-d20) center / 64% no-repeat exclude, radial-gradient(circle, #000 64%, transparent 67%);
+mask: var(--rw-d20) center / 72% no-repeat exclude, radial-gradient(circle, #000 64%, transparent 67%);
 filter: drop-shadow(0 0.6px 0.4px rgba(40, 0, 0, 0.6));
 """, tail=" .rollwright-icon::before")
 # tekst uit een tabel: een lichtere snipper
@@ -121,7 +121,7 @@ border: 0;
 """, extra=ex)
 rule("parchment", f"""
 background:
-	linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.8) 45%, transparent 60%),
+	linear-gradient(115deg, transparent 35%, rgba(255, 236, 170, 0.45) 48%, transparent 60%),
 	{NOISE},
 	linear-gradient(180deg, #f8dc82, #d9a531 60%, #b47c18);
 box-shadow: inset 0 0 0.45em rgba(120, 70, 0, 0.55);
@@ -136,7 +136,6 @@ rule("parchment", f"""
 background:
 	radial-gradient(ellipse 26% 70% at 100% 55%, rgba(25, 10, 5, 0.65), transparent 100%),
 	radial-gradient(circle 0.13em at 84% 16%, rgba(25, 10, 5, 0.6), transparent 100%),
-	radial-gradient(circle 0.08em at 76% 86%, rgba(25, 10, 5, 0.55), transparent 100%),
 	{NOISE},
 	linear-gradient(180deg, #e7d39d, #d3b77c);
 animation: none;
@@ -193,8 +192,8 @@ rule("arcane", """
 font-family: "Rollwright Cinzel", "Trajan Pro", "Cinzel", Georgia, serif;
 font-weight: 700;
 font-size: 0.94em;
-letter-spacing: 0.07em;
-color: #f3eeff;
+letter-spacing: 0.035em;
+color: #effdff;
 background: transparent;
 background-color: transparent;
 border: 0;
@@ -202,8 +201,8 @@ border-radius: 0;
 box-shadow: none;
 isolation: isolate;
 padding: 0.16em 0.95em 0.1em 0.85em;
-filter: drop-shadow(0 0 0.6px #9ff3ff) drop-shadow(0 0 0.6px #b48cff) drop-shadow(0 0 0.45em rgba(140, 95, 255, 0.7));
-text-shadow: 0 0 0.4em rgba(190, 160, 255, 0.95);
+filter: drop-shadow(0 0 0.6px #d8fbff) drop-shadow(0 0 0.6px #7fe3f5) drop-shadow(0 0 0.35em rgba(90, 220, 245, 0.55));
+text-shadow: 0 0 0.35em rgba(160, 240, 255, 0.85);
 """)
 rule("arcane", f"""
 content: "";
@@ -214,26 +213,22 @@ border-radius: 0;
 pointer-events: none;
 clip-path: {HEX};
 background:
-	radial-gradient(circle 0.06em at 3.5% 22%, rgba(255, 255, 255, 0.95) 80%, transparent),
-	radial-gradient(circle 0.05em at 2.5% 80%, rgba(200, 240, 255, 0.85) 80%, transparent),
-	radial-gradient(circle 0.04em at 97% 76%, rgba(255, 220, 255, 0.8) 80%, transparent),
-	radial-gradient(circle 0.05em at 96.5% 24%, rgba(255, 255, 255, 0.7) 80%, transparent),
-	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.75), transparent 70%),
-	linear-gradient(90deg, rgba(111, 231, 245, 0.25), transparent 22%, transparent 78%, rgba(255, 138, 226, 0.25)),
-	linear-gradient(170deg, #2a1a5e, #0f0926);
+	linear-gradient(180deg, rgba(220, 250, 255, 0.35), transparent 38%),
+	conic-gradient(from 90deg at 50% 55%, #0d3550, #145a78 12%, #0a2a40 25%, #1b6f8f 37%, #0b2f47 50%, #12506d 62%, #082236 75%, #17627f 87%, #0d3550),
+	linear-gradient(170deg, #0f3d57, #061826);
 box-shadow: none;
 animation: none;
 """, tail="::before")
 rule("arcane", """
-filter: drop-shadow(0 0 0.8px #c9fbff) drop-shadow(0 0 0.8px #c9a8ff) drop-shadow(0 0 0.8em rgba(140, 95, 255, 0.95));
+filter: drop-shadow(0 0 0.8px #ffffff) drop-shadow(0 0 0.8px #9ff3ff) drop-shadow(0 0 0.6em rgba(90, 220, 245, 0.8));
 box-shadow: none;
 """, tail=":hover")
 rule("arcane", "font-weight: 700;", tail=" .rollwright-value")
-rule("arcane", "color: #c9b8ff; opacity: 1; letter-spacing: 0.09em;", tail=" .rollwright-label")
+rule("arcane", "color: #a9e9f5; opacity: 1; letter-spacing: 0.04em;", tail=" .rollwright-label")
 rule("arcane", f"""
 background:
-	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.55), transparent 70%),
-	linear-gradient(170deg, #24164f, #120b2d);
+	linear-gradient(180deg, rgba(220, 250, 255, 0.28), transparent 40%),
+	linear-gradient(100deg, #0f3d57, #0a2a40 30%, #145a78 55%, #0a2a40 80%, #12506d);
 """, extra=".rollwright-text", tail="::before")
 for ex in (".rollwright-crit", ".rollwright-fumble"):
     rule("arcane", """
@@ -244,9 +239,9 @@ border: 0;
 """, extra=ex)
 rule("arcane", f"""
 background:
-	linear-gradient(180deg, rgba(255, 228, 140, 0.55), transparent 22%),
-	radial-gradient(ellipse at 50% 120%, rgba(255, 200, 80, 0.45), transparent 65%),
-	linear-gradient(170deg, #2f1a5c, #170c33);
+	linear-gradient(180deg, rgba(255, 228, 140, 0.5), transparent 24%),
+	conic-gradient(from 90deg at 50% 55%, #10304a, #1b4a66 25%, #0c2538 50%, #1a4560 75%, #10304a),
+	linear-gradient(170deg, #12354f, #071a29);
 animation: none;
 """, extra=".rollwright-crit", tail="::before")
 rule("arcane", """
@@ -256,8 +251,8 @@ filter: drop-shadow(0 0 0.8px #ffe9a8) drop-shadow(0 0 0.8px #ffc94a) drop-shado
 """, extra=".rollwright-crit")
 rule("arcane", f"""
 background:
-	radial-gradient(ellipse at 50% 120%, rgba(255, 60, 110, 0.45), transparent 65%),
-	linear-gradient(170deg, #2a0f2e, #12061a);
+	radial-gradient(ellipse at 50% 120%, rgba(255, 70, 110, 0.4), transparent 65%),
+	conic-gradient(from 90deg at 50% 55%, #2a1020, #3d1830 25%, #1d0a16 50%, #36152a 75%, #2a1020);
 animation: none;
 """, extra=".rollwright-fumble", tail="::before")
 rule("arcane", """
@@ -266,6 +261,26 @@ text-shadow: 0 0 0.35em rgba(255, 60, 110, 0.8);
 filter: drop-shadow(0 0 0.7px #ff7aa8) drop-shadow(0 0 0.5em rgba(255, 40, 100, 0.6));
 """, extra=".rollwright-fumble")
 
+rule("arcane", """
+color: #2a1c00;
+background: #ffd45e;
+background-image: none;
+border-color: #0a2a40;
+font-family: "Rollwright Cinzel", Georgia, serif;
+""", extra=".rollwright-crit", tail=" > .rollwright-stamp")
+rule("arcane", """
+color: #ffffff;
+background: #b3204e;
+background-image: none;
+border-color: #0a2a40;
+font-family: "Rollwright Cinzel", Georgia, serif;
+""", extra=".rollwright-fumble", tail=" > .rollwright-stamp")
+raw("""
+/* Arcane in een licht thema: geen waas om elk token, alleen de lichtrand (controleur run 26). */
+body.theme-light.rollwright-skin-arcane .rollwright-roll:not(.rollwright-crit):not(.rollwright-fumble):not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) {
+	filter: drop-shadow(0 0 0.6px #0a2a40) drop-shadow(0 0 0.6px #5fc9e0) drop-shadow(0 1px 1.5px rgba(5, 30, 45, 0.35));
+}
+""")
 raw("""
 @keyframes rw-a-spin {
 	0% { transform: rotate(-720deg) scale(0.3); opacity: 0; }

@@ -1615,12 +1615,12 @@ body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.roll
 
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-icon::before,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-icon::before {
-	width: 1.12em;
-	height: 1.12em;
+	width: 1.22em;
+	height: 1.22em;
 	background: radial-gradient(circle at 35% 30%, #e0503f, #a8261a 55%, #6a0f08);
-	-webkit-mask: var(--rw-d20) center / 64% no-repeat, radial-gradient(circle, #000 64%, transparent 67%);
+	-webkit-mask: var(--rw-d20) center / 72% no-repeat, radial-gradient(circle, #000 64%, transparent 67%);
 	-webkit-mask-composite: xor;
-	mask: var(--rw-d20) center / 64% no-repeat exclude, radial-gradient(circle, #000 64%, transparent 67%);
+	mask: var(--rw-d20) center / 72% no-repeat exclude, radial-gradient(circle, #000 64%, transparent 67%);
 	filter: drop-shadow(0 0.6px 0.4px rgba(40, 0, 0, 0.6));
 }
 
@@ -1670,7 +1670,7 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwrigh
 body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll)::before,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error)::before {
 	background:
-	linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.8) 45%, transparent 60%),
+	linear-gradient(115deg, transparent 35%, rgba(255, 236, 170, 0.45) 48%, transparent 60%),
 	var(--rw-paper-noise),
 	linear-gradient(180deg, #f8dc82, #d9a531 60%, #b47c18);
 	box-shadow: inset 0 0 0.45em rgba(120, 70, 0, 0.55);
@@ -1689,7 +1689,6 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwrigh
 	background:
 	radial-gradient(ellipse 26% 70% at 100% 55%, rgba(25, 10, 5, 0.65), transparent 100%),
 	radial-gradient(circle 0.13em at 84% 16%, rgba(25, 10, 5, 0.6), transparent 100%),
-	radial-gradient(circle 0.08em at 76% 86%, rgba(25, 10, 5, 0.55), transparent 100%),
 	var(--rw-paper-noise),
 	linear-gradient(180deg, #e7d39d, #d3b77c);
 	animation: none;
@@ -1756,8 +1755,8 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 	font-family: "Rollwright Cinzel", "Trajan Pro", "Cinzel", Georgia, serif;
 	font-weight: 700;
 	font-size: 0.94em;
-	letter-spacing: 0.07em;
-	color: #f3eeff;
+	letter-spacing: 0.035em;
+	color: #effdff;
 	background: transparent;
 	background-color: transparent;
 	border: 0;
@@ -1765,8 +1764,8 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 	box-shadow: none;
 	isolation: isolate;
 	padding: 0.16em 0.95em 0.1em 0.85em;
-	filter: drop-shadow(0 0 0.6px #9ff3ff) drop-shadow(0 0 0.6px #b48cff) drop-shadow(0 0 0.45em rgba(140, 95, 255, 0.7));
-	text-shadow: 0 0 0.4em rgba(190, 160, 255, 0.95);
+	filter: drop-shadow(0 0 0.6px #d8fbff) drop-shadow(0 0 0.6px #7fe3f5) drop-shadow(0 0 0.35em rgba(90, 220, 245, 0.55));
+	text-shadow: 0 0 0.35em rgba(160, 240, 255, 0.85);
 }
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll)::before,
@@ -1779,20 +1778,16 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 	pointer-events: none;
 	clip-path: polygon(0.6em 0, calc(100% - 0.6em) 0, 100% 50%, calc(100% - 0.6em) 100%, 0.6em 100%, 0 50%);
 	background:
-	radial-gradient(circle 0.06em at 3.5% 22%, rgba(255, 255, 255, 0.95) 80%, transparent),
-	radial-gradient(circle 0.05em at 2.5% 80%, rgba(200, 240, 255, 0.85) 80%, transparent),
-	radial-gradient(circle 0.04em at 97% 76%, rgba(255, 220, 255, 0.8) 80%, transparent),
-	radial-gradient(circle 0.05em at 96.5% 24%, rgba(255, 255, 255, 0.7) 80%, transparent),
-	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.75), transparent 70%),
-	linear-gradient(90deg, rgba(111, 231, 245, 0.25), transparent 22%, transparent 78%, rgba(255, 138, 226, 0.25)),
-	linear-gradient(170deg, #2a1a5e, #0f0926);
+	linear-gradient(180deg, rgba(220, 250, 255, 0.35), transparent 38%),
+	conic-gradient(from 90deg at 50% 55%, #0d3550, #145a78 12%, #0a2a40 25%, #1b6f8f 37%, #0b2f47 50%, #12506d 62%, #082236 75%, #17627f 87%, #0d3550),
+	linear-gradient(170deg, #0f3d57, #061826);
 	box-shadow: none;
 	animation: none;
 }
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):hover {
-	filter: drop-shadow(0 0 0.8px #c9fbff) drop-shadow(0 0 0.8px #c9a8ff) drop-shadow(0 0 0.8em rgba(140, 95, 255, 0.95));
+	filter: drop-shadow(0 0 0.8px #ffffff) drop-shadow(0 0 0.8px #9ff3ff) drop-shadow(0 0 0.6em rgba(90, 220, 245, 0.8));
 	box-shadow: none;
 }
 
@@ -1803,14 +1798,14 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-label,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-label {
-	color: #c9b8ff; opacity: 1; letter-spacing: 0.09em;
+	color: #a9e9f5; opacity: 1; letter-spacing: 0.04em;
 }
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll)::before,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error)::before {
 	background:
-	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.55), transparent 70%),
-	linear-gradient(170deg, #24164f, #120b2d);
+	linear-gradient(180deg, rgba(220, 250, 255, 0.28), transparent 40%),
+	linear-gradient(100deg, #0f3d57, #0a2a40 30%, #145a78 55%, #0a2a40 80%, #12506d);
 }
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
@@ -1832,9 +1827,9 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-e
 body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll)::before,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error)::before {
 	background:
-	linear-gradient(180deg, rgba(255, 228, 140, 0.55), transparent 22%),
-	radial-gradient(ellipse at 50% 120%, rgba(255, 200, 80, 0.45), transparent 65%),
-	linear-gradient(170deg, #2f1a5c, #170c33);
+	linear-gradient(180deg, rgba(255, 228, 140, 0.5), transparent 24%),
+	conic-gradient(from 90deg at 50% 55%, #10304a, #1b4a66 25%, #0c2538 50%, #1a4560 75%, #10304a),
+	linear-gradient(170deg, #12354f, #071a29);
 	animation: none;
 }
 
@@ -1848,8 +1843,8 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-err
 body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll)::before,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error)::before {
 	background:
-	radial-gradient(ellipse at 50% 120%, rgba(255, 60, 110, 0.45), transparent 65%),
-	linear-gradient(170deg, #2a0f2e, #12061a);
+	radial-gradient(ellipse at 50% 120%, rgba(255, 70, 110, 0.4), transparent 65%),
+	conic-gradient(from 90deg at 50% 55%, #2a1020, #3d1830 25%, #1d0a16 50%, #36152a 75%, #2a1020);
 	animation: none;
 }
 
@@ -1858,6 +1853,29 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-e
 	color: #ff9ab8;
 	text-shadow: 0 0 0.35em rgba(255, 60, 110, 0.8);
 	filter: drop-shadow(0 0 0.7px #ff7aa8) drop-shadow(0 0 0.5em rgba(255, 40, 100, 0.6));
+}
+
+body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	color: #2a1c00;
+	background: #ffd45e;
+	background-image: none;
+	border-color: #0a2a40;
+	font-family: "Rollwright Cinzel", Georgia, serif;
+}
+
+body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error) > .rollwright-stamp {
+	color: #ffffff;
+	background: #b3204e;
+	background-image: none;
+	border-color: #0a2a40;
+	font-family: "Rollwright Cinzel", Georgia, serif;
+}
+
+/* Arcane in een licht thema: geen waas om elk token, alleen de lichtrand (controleur run 26). */
+body.theme-light.rollwright-skin-arcane .rollwright-roll:not(.rollwright-crit):not(.rollwright-fumble):not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) {
+	filter: drop-shadow(0 0 0.6px #0a2a40) drop-shadow(0 0 0.6px #5fc9e0) drop-shadow(0 1px 1.5px rgba(5, 30, 45, 0.35));
 }
 
 @keyframes rw-a-spin {
@@ -2041,17 +2059,17 @@ body.rollwright-skin-parchment [data-type="rollwright-history"] .rollwright-hist
 body.rollwright-skin-arcane .workspace-leaf-content[data-type="rollwright-history"] .view-content {
 	color: #f3eeff;
 	background:
-		radial-gradient(circle 1px at 12% 8%, #ffffff 90%, transparent),
-		radial-gradient(circle 1px at 78% 14%, #c9fbff 90%, transparent),
-		radial-gradient(circle 1.5px at 40% 30%, #ffffff 90%, transparent),
-		radial-gradient(circle 1px at 88% 46%, #ffd6f5 90%, transparent),
-		radial-gradient(circle 1px at 22% 58%, #ffffff 90%, transparent),
-		radial-gradient(circle 1.5px at 64% 72%, #c9fbff 90%, transparent),
-		radial-gradient(circle 1px at 8% 88%, #ffffff 90%, transparent),
-		radial-gradient(circle 1px at 92% 92%, #ffffff 90%, transparent),
-		radial-gradient(ellipse at 80% 0%, rgba(160, 110, 255, 0.45), transparent 60%),
+		radial-gradient(circle 1px at 12% 8%, rgba(255, 255, 255, 0.55) 90%, transparent),
+		radial-gradient(circle 1px at 78% 14%, rgba(201, 251, 255, 0.5) 90%, transparent),
+		radial-gradient(circle 1px at 40% 30%, rgba(255, 255, 255, 0.55) 90%, transparent),
+		radial-gradient(circle 1px at 88% 46%, rgba(255, 214, 245, 0.45) 90%, transparent),
+		radial-gradient(circle 1px at 22% 58%, rgba(255, 255, 255, 0.55) 90%, transparent),
+		radial-gradient(circle 1px at 64% 72%, rgba(201, 251, 255, 0.5) 90%, transparent),
+		radial-gradient(circle 1px at 8% 88%, rgba(255, 255, 255, 0.55) 90%, transparent),
+		radial-gradient(circle 1px at 92% 92%, rgba(255, 255, 255, 0.55) 90%, transparent),
+		radial-gradient(ellipse at 80% 0%, rgba(90, 200, 235, 0.3), transparent 60%),
 		radial-gradient(ellipse at 0% 100%, rgba(80, 200, 230, 0.22), transparent 55%),
-		linear-gradient(180deg, #1b1240, #0b0720);
+		linear-gradient(180deg, #0c2a3e, #050f1a);
 	background-size: 260px 300px, 260px 300px, 260px 300px, 260px 300px, 260px 300px, 260px 300px, 260px 300px, 260px 300px, auto, auto, auto;
 }
 
@@ -2063,16 +2081,16 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-item {
-	border: 1px solid rgba(167, 123, 255, 0.45);
+	border: 1px solid rgba(127, 227, 245, 0.35);
 	border-radius: 0.5em;
-	background: linear-gradient(170deg, rgba(60, 40, 130, 0.55), rgba(20, 12, 50, 0.6));
+	background: linear-gradient(170deg, rgba(25, 90, 120, 0.45), rgba(6, 26, 40, 0.6));
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 	color: #f3eeff;
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-item.rollwright-history-latest {
 	border-color: rgba(159, 243, 255, 0.8);
-	box-shadow: 0 0 0.9em rgba(140, 95, 255, 0.6), inset 0 0 0.8em rgba(120, 80, 255, 0.3);
+	box-shadow: 0 0 0.8em rgba(90, 220, 245, 0.45), inset 0 0 0.8em rgba(90, 220, 245, 0.18);
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-item::before {
@@ -2092,21 +2110,21 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-result {
 	font-family: "Rollwright Cinzel", Georgia, serif;
 	color: #ffffff;
-	text-shadow: 0 0 0.45em rgba(190, 160, 255, 0.95);
+	text-shadow: 0 0 0.4em rgba(160, 240, 255, 0.8);
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-formula,
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-details,
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-meta,
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-meta .clickable-icon {
-	color: #b9a8ee;
+	color: #9fcfdc;
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-group-title {
 	font-family: "Rollwright Cinzel", Georgia, serif;
 	font-variant: normal;
 	letter-spacing: 0.12em;
-	color: #c9b8ff;
+	color: #a9e9f5;
 }
 
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-group-title::before {
@@ -2118,4 +2136,25 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-crit .r
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-history-item.rollwright-crit .rollwright-history-result {
 	color: #ffd45e;
 	text-shadow: 0 0 0.45em rgba(255, 200, 80, 0.8);
+}
+
+/* Stempels in de Roll log per skin (controleur run 26: NAT 1 slecht leesbaar). */
+body.rollwright-skin-parchment [data-type="rollwright-history"] .rollwright-crit .rollwright-stamp {
+	color: #fbe9c8;
+	background: #9a1f14;
+}
+
+body.rollwright-skin-parchment [data-type="rollwright-history"] .rollwright-fumble .rollwright-stamp {
+	color: #f3e2bf;
+	background: #2a1808;
+}
+
+body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-crit .rollwright-stamp {
+	color: #2a1c00;
+	background: #ffd45e;
+}
+
+body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-fumble .rollwright-stamp {
+	color: #ffffff;
+	background: #b3204e;
 }
