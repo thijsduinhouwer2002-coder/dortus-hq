@@ -87,8 +87,8 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	color: #3b2400;
 	background:
-		var(--rw-paper-noise),
 		linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.75) 45%, transparent 60%),
+		var(--rw-paper-noise),
 		linear-gradient(180deg, #f6d77a, #d9a531 60%, #b9831c);
 	background-color: var(--rollwright-bg);
 	box-shadow:
@@ -285,4 +285,25 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 }
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover .rollwright-icon::before {
 	animation: rw-arcane-twinkle 1.6s ease-in-out infinite;
+}
+
+/* Ronde f (Daan, 8 nov 10:45, controleur M1 en M2).
+   Arcane crit: donkerpaars vlak, goudrand, gouden cijfers. Geen goudgloed meer achter de cijfers
+   (crème op goud gaf contrast 1,7). Alleen een smalle gouden glans langs de bovenrand, de aura blijft buiten. */
+body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) {
+	color: #ffd45e;
+	background:
+		radial-gradient(ellipse 70% 45% at 50% -10%, rgba(255, 212, 94, 0.35), transparent 100%) padding-box,
+		linear-gradient(160deg, #3d1d72, #1e0c44) padding-box,
+		linear-gradient(90deg, #ffd45e, #fff3b0, #ff9de2, #ffd45e, #fff3b0, #ff9de2, #ffd45e) border-box;
+	background-size: auto, auto, 300% 100%;
+	background-color: var(--rollwright-bg);
+	text-shadow: 0 0 0.35em rgba(255, 212, 94, 0.55), 0 1px 0 #12062a;
+}
+
+/* Parchment NAT 1: inktzegel met een rand van perkament, zodat de vorm ook op een donkere pagina te zien is. */
+body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble > .rollwright-stamp {
+	box-shadow: 0 0 0 0.1em #d9bf86, 0 1px 3px rgba(0, 0, 0, 0.5);
 }
