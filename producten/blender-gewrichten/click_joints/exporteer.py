@@ -23,8 +23,8 @@ def hint(scene):
     if scene.click_joints.exportmap:
         return None
     if bpy.data.filepath:
-        return "Leeg: click_joints naast .blend"
-    return "Leeg: tijdelijke map (niet opgeslagen)"
+        return "Empty: click_joints folder next to the .blend"
+    return "Empty: temporary folder (file not saved)"
 
 
 def delen(context):
@@ -33,16 +33,16 @@ def delen(context):
 
 class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
     bl_idname = "click_joints.exporteer"
-    bl_label = "Exporteer STL"
-    bl_description = "Schrijf elk zichtbaar gewrichtsdeel als STL-bestand in millimeter"
+    bl_label = "Export STL"
+    bl_description = "Write every visible joint part as an STL file in millimeters"
 
     def execute(self, context):
         if "stl_export" not in dir(bpy.ops.wm):
-            self.report({"ERROR"}, "Deze Blender heeft geen STL-export (nodig: 4.2 of nieuwer)")
+            self.report({"ERROR"}, "This Blender has no STL export (needs 4.2 or newer)")
             return {"CANCELLED"}
         lijst = delen(context)
         if not lijst:
-            self.report({"WARNING"}, "Er zijn nog geen gewrichtsdelen om te exporteren")
+            self.report({"WARNING"}, "There are no joint parts to export yet")
             return {"CANCELLED"}
         map_ = exportmap(context.scene)
         os.makedirs(map_, exist_ok=True)
@@ -53,7 +53,7 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         context.view_layer.update()
         context.view_layer.objects.active = actief
         context.scene["cj_laatste_export"] = geschreven
-        self.report({"INFO"}, f"{len(geschreven)} STL-bestanden in {map_}")
+        self.report({"INFO"}, f"{len(geschreven)} STL files in {map_}")
         return {"FINISHED"}
 
     @staticmethod

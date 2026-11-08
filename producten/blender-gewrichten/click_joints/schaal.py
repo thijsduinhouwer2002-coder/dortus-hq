@@ -38,9 +38,9 @@ def beste_keuze(ob):
 
 class CLICK_JOINTS_OT_zet_om_mm(bpy.types.Operator):
     bl_idname = "click_joints.zet_om_mm"
-    bl_label = "Zet om naar mm"
-    bl_description = ("Zet de eenheidschaal van de scene zo dat het figuur tussen 5 en 500 mm meet. "
-                      "Het figuur zelf verandert niet")
+    bl_label = "Convert to mm"
+    bl_description = ("Set the scene unit scale so the mesh measures between 5 and 500 mm. "
+                      "The mesh itself does not change")
     bl_options = {"REGISTER", "UNDO"}
 
     @classmethod
@@ -52,15 +52,15 @@ class CLICK_JOINTS_OT_zet_om_mm(bpy.types.Operator):
         oud = maat_mm(ob, context.scene)
         keuze = beste_keuze(ob)
         if keuze is None:
-            self.report({"WARNING"}, f"Geen eenheid (mm, cm of m) geeft een maat tussen 5 en 500 mm "
-                                     f"(nu {oud:.4g} mm). Schaal het figuur zelf.")
+            self.report({"WARNING"}, f"No unit (mm, cm or m) gives a size between 5 and 500 mm "
+                                     f"(now {oud:.4g} mm). Scale the mesh yourself.")
             return {"CANCELLED"}
         us = context.scene.unit_settings
         us.system = "METRIC"
         us.scale_length, us.length_unit = keuze
         nieuw = maat_mm(ob, context.scene)
         context.scene["cj_schaal_omgezet"] = [oud, nieuw]
-        self.report({"INFO"}, f"Eenheidschaal {keuze[0]:g}: het figuur meet nu {nieuw:.1f} mm "
+        self.report({"INFO"}, f"Unit scale {keuze[0]:g}: the mesh now measures {nieuw:.1f} mm "
                               f"(was {oud:.4g} mm)")
         return {"FINISHED"}
 

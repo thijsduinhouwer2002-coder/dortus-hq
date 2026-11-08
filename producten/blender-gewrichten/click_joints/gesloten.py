@@ -51,8 +51,8 @@ def is_gesloten(bron, depsgraph=None):
 
 class CLICK_JOINTS_OT_controleer(bpy.types.Operator):
     bl_idname = "click_joints.controleer"
-    bl_label = "Controleer figuur"
-    bl_description = "Kijk of het figuur gesloten is (elke rand precies 2 vlakken)"
+    bl_label = "Check mesh"
+    bl_description = "Check if the mesh is watertight (every edge has exactly 2 faces)"
 
     @classmethod
     def poll(cls, context):
@@ -63,17 +63,17 @@ class CLICK_JOINTS_OT_controleer(bpy.types.Operator):
         ok, fout = is_gesloten(ob)
         ob["cj_gesloten"] = ok
         if ok:
-            self.report({"INFO"}, f"{ob.name} is gesloten")
+            self.report({"INFO"}, f"{ob.name} is watertight")
         else:
-            self.report({"WARNING"}, f"{ob.name} is niet gesloten: {fout} randen zonder precies 2 vlakken. "
-                                     "Gebruik Maak gesloten.")
+            self.report({"WARNING"}, f"{ob.name} is not watertight: {fout} edges without exactly 2 faces. "
+                                     "Use Make watertight.")
         return {"FINISHED"}
 
 
 class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
     bl_idname = "click_joints.maak_gesloten"
-    bl_label = "Maak gesloten"
-    bl_description = "Maak een gesloten kopie met een voxel-remesh. Het origineel blijft verborgen bewaard"
+    bl_label = "Make watertight"
+    bl_description = "Make a watertight copy with a voxel remesh. The original is kept, hidden"
     bl_options = {"REGISTER", "UNDO"}
 
     @classmethod
@@ -104,7 +104,7 @@ class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         if not ok:
             bpy.data.objects.remove(kopie)
             bpy.data.meshes.remove(me)
-            self.report({"ERROR"}, f"Maak gesloten lukte niet ({fout} foute randen). Probeer een grotere voxel.")
+            self.report({"ERROR"}, f"Make watertight failed ({fout} bad edges). Try a larger voxel size.")
             return {"CANCELLED"}
         kopie["cj_gesloten"] = True
         kopie["cj_bron"] = bron.name
@@ -115,7 +115,7 @@ class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
                 o.select_set(False)
         kopie.select_set(True)
         context.view_layer.objects.active = kopie
-        self.report({"INFO"}, f"Gesloten kopie {kopie.name} gemaakt ({len(me.polygons)} vlakken)")
+        self.report({"INFO"}, f"Watertight copy {kopie.name} made ({len(me.polygons)} faces)")
         return {"FINISHED"}
 
 

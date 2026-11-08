@@ -155,8 +155,8 @@ def markeer(ob, kleur, gegevens, maat=None, u=1.0):
 
 class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
     bl_idname = "click_joints.plaats"
-    bl_label = "Plaats gewricht"
-    bl_description = "Snijd het figuur op de 3D-cursor in twee gesloten delen met een gewricht"
+    bl_label = "Place joint"
+    bl_description = "Cut the mesh at the 3D cursor into two watertight parts with a joint"
     bl_options = {"REGISTER", "UNDO"}
 
     @classmethod
@@ -170,16 +170,16 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         dg = context.evaluated_depsgraph_get()
         ok, fout = is_gesloten(bron, dg)  # geëvalueerd: niet toegepaste modifiers tellen mee
         if not ok:
-            self.report({"ERROR"}, f"Het figuur {bron.name} is niet gesloten ({fout} randen zonder precies "
-                                   "2 vlakken). Klik eerst op Maak gesloten.")
+            self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
+                                   "2 faces). Click Make watertight first.")
             return {"CANCELLED"}
         u = eenheid_per_mm(context.scene)
         maat = maten(inst, u)
         punt, richting, as_bron = as_en_punt(context, inst)
         terugval = inst.as_bron == "KIJK" and as_bron != "KIJK"
         if terugval:
-            self.report({"WARNING"}, "Geen 3D-weergave gevonden voor de kijkrichting; de as volgt nu de "
-                                     "Z-as van de 3D-cursor. Klik op Plaats gewricht in de 3D-weergave.")
+            self.report({"WARNING"}, "No 3D viewport found for the view direction; the axis now follows the "
+                                     "Z axis of the 3D cursor. Click Place joint in the 3D viewport.")
         frame = vormen.frame_voor(punt, richting)
         solver = solver_naam()
 
@@ -211,16 +211,16 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                                bron.users_collection[0])
             markeer(teken, kleur, gegevens)
             teken.display_type = "WIRE"
-            self.report({"WARNING"}, f"Rood: {uitleg}. Er is niet gesneden; kies een dikkere plek of een "
-                                     "kleinere diameter.")
+            self.report({"WARNING"}, f"Too thin: {uitleg}. Nothing was cut; pick a thicker spot or a "
+                                     "smaller diameter.")
             return {"FINISHED"}
 
         deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)
         uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
         if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)
-            self.report({"ERROR"}, "Het snijden gaf geen gesloten delen (foute randen: deel A "
-                                   f"{uitslag[0][1]}, deel B {uitslag[1][1]}); het figuur is niet veranderd.")
+            self.report({"ERROR"}, "The cut gave no watertight parts (bad edges: part A "
+                                   f"{uitslag[0][1]}, part B {uitslag[1][1]}); the mesh is unchanged.")
             return {"CANCELLED"}
         for deel, letter in ((deel_a, "A"), (deel_b, "B")):
             verhuis(deel, f"{bron.name}_{letter}", bron)
@@ -246,8 +246,8 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         deel_a.select_set(True)
         deel_b.select_set(True)
         context.view_layer.objects.active = deel_a
-        extra = " (as langs de cursor: geen 3D-weergave)" if terugval else ""
-        self.report({"INFO"}, f"Gewricht geplaatst, passing {kleur} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")
+        extra = " (axis along the cursor: no 3D viewport)" if terugval else ""
+        self.report({"INFO"}, f"Joint placed, {passing.fit_tekst(kleur, wand).split(':')[0]} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")
         return {"FINISHED"}
 
 

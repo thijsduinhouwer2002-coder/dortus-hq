@@ -7,24 +7,24 @@ from . import uit_elkaar as _uit
 
 class ClickJointsInstellingen(bpy.types.PropertyGroup):
     speling_mm: FloatProperty(
-        name="Speling (mm)", description="Ruimte tussen kogel en kom in millimeter",
+        name="Clearance (mm)", description="Gap between ball and socket in millimeters",
         default=0.2, min=0.05, max=1.0, step=1, precision=2)
     kogel_mm: FloatProperty(
-        name="Diameter (mm)", description="Diameter van de kogel of pen in millimeter",
+        name="Diameter (mm)", description="Diameter of the ball or pin in millimeters",
         default=5.0, min=1.0, max=50.0, step=10, precision=1)
     soort: EnumProperty(
-        name="Soort", items=(("KOGEL", "Kogel", "Kogel en kom, draait alle kanten op"),
-                             ("PEN", "Pen", "Pen en gat, draait om één as")),
+        name="Type", items=(("KOGEL", "Ball", "Ball and socket, turns in every direction"),
+                             ("PEN", "Pin", "Pin and hole, turns around one axis")),
         default="KOGEL")
     as_bron: EnumProperty(
-        name="As", items=(("KIJK", "Kijkrichting", "As langs de kijkrichting van de 3D-weergave"),
-                          ("CURSOR", "Cursor", "As langs de Z-as van de 3D-cursor")),
+        name="Axis", items=(("KIJK", "View direction", "Axis along the view direction of the 3D viewport"),
+                          ("CURSOR", "3D cursor", "Axis along the Z axis of the 3D cursor")),
         default="KIJK")
     voxel_mm: FloatProperty(
-        name="Voxel (mm)", description="Voxelgrootte voor Maak gesloten in millimeter",
+        name="Voxel (mm)", description="Voxel size for Make watertight in millimeters",
         default=0.5, min=0.05, max=10.0, step=5, precision=2)
     exportmap: StringProperty(
-        name="Map", description="Map voor de STL-bestanden. Leeg: map click_joints naast het .blend-bestand",
+        name="Folder", description="Folder for the STL files. Empty: click_joints folder next to the .blend file",
         default="", subtype="DIR_PATH")  # leeg, want Blender kleurt een pad dat (nog) niet bestaat rood
     uit_elkaar: BoolProperty(
         name="Exploded view", description="Show part B a little apart along the joint axis, so you see the "

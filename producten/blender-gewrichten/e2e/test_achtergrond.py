@@ -99,7 +99,7 @@ def main():
     except RuntimeError as e:
         melding = str(e).strip()
     log(f"OPEN: melding: {melding}")
-    stap("open figuur: nette melding", bool(melding) and "niet gesloten" in melding)
+    stap("open figuur: nette melding", bool(melding) and "not watertight" in melding)
     stap("open figuur: geen delen", len(delen()) == 0)
     bpy.context.scene.click_joints.voxel_mm = 0.4
     bpy.ops.click_joints.maak_gesloten()

@@ -81,7 +81,7 @@ def modifiers():
     figuren.zet_cursor((0, 0, 0), (1, 0, 0))
     uitslag, melding = probeer_plaats(ob)
     log(f"MODIFIER opent: uitslag={uitslag} melding={melding}")
-    stap("modifier opent: nette melding niet gesloten", bool(melding) and "niet gesloten" in melding)
+    stap("modifier opent: nette melding niet gesloten", bool(melding) and "not watertight" in melding)
     stap("modifier opent: geen delen", len(delen()) == 0)
     weg([ob])
 

@@ -63,7 +63,7 @@ def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
     rot = frame.to_3x3()
     for o in ((0, 0, maat["schuif"] * 2), (0, 0, maat["midden_z"])):
         if not binnen(bvh, frame @ Vector(o)):
-            return "rood", -1.0, "het gewricht steekt uit het figuur"
+            return "rood", -1.0, "the joint sticks out of the mesh"
     kleinste = bodem(maat) if soort == "KOGEL" else math.inf
     for o, d, nodig, opening in monsters(maat, soort):
         afstand = math.inf
@@ -74,14 +74,25 @@ def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
             afstand = (o.z - maat["schuif"]) / -d.z  # tot het snijvlak: de bodem van deel B
         hit = bvh.ray_cast(frame @ o, (rot @ d).normalized())
         if hit[0] is None:
-            return "rood", -1.0, "het gewricht steekt uit het figuur"
+            return "rood", -1.0, "the joint sticks out of the mesh"
         kleinste = min(kleinste, min(hit[3], afstand) - nodig)
     wand = kleinste / eenheid_per_mm
     if wand < GRENS_ROOD_MM:
-        return "rood", wand, f"wand {wand:.2f} mm is te dun (minstens {GRENS_ROOD_MM} mm)"
+        return "rood", wand, f"wall {wand:.2f} mm is too thin (minimum {GRENS_ROOD_MM} mm)"
     if wand < GRENS_ORANJE_MM:
-        return "oranje", wand, f"wand {wand:.2f} mm is krap"
-    return "groen", wand, f"wand {wand:.2f} mm"
+        return "oranje", wand, f"wall {wand:.2f} mm is tight (aim for {GRENS_ORANJE_MM} mm or more)"
+    return "groen", wand, f"wall {wand:.2f} mm"
+
+
+def fit_tekst(kleur, wand):
+    """Engelse passingtekst voor het paneel, met de oorzaak bij Tight en Too thin."""
+    if kleur == "groen":
+        return "Good fit"
+    if kleur == "oranje":
+        return f"Tight: wall {wand:.1f} mm (aim for {GRENS_ORANJE_MM} mm or more)"
+    if wand < 0:
+        return "Too thin: joint sticks out of the mesh"
+    return f"Too thin: wall {wand:.1f} mm (minimum {GRENS_ROOD_MM} mm)"
 
 
 def meet_speling(deel_kogel, bvh_kom, centrum, r, as_richting, tol):

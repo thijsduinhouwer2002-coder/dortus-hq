@@ -23,48 +23,47 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         layout = self.layout
 
         stap = layout.box()
-        stap.label(text="1  Plek", icon="PIVOT_CURSOR")
-        stap.label(text=f"Figuur: {ob.name if ob else 'kies een figuur'}")
+        stap.label(text="1  Place", icon="PIVOT_CURSOR")
+        stap.label(text=f"Mesh: {ob.name if ob else 'select a mesh'}")
         if schaal.buiten_bereik(ob, context.scene):
             let = stap.box()
             let.alert = True
-            let.label(text=f"Figuur is {schaal.maat_mm(ob, context.scene):.4g} mm groot", icon="ERROR")
-            let.label(text="Verwacht tussen 5 en 500 mm: klopt de eenheid?")
-            grote_knop(let, "click_joints.zet_om_mm", "Zet om naar mm", "DRIVER_DISTANCE")
-        stap.label(text="Shift + rechtsklik zet de 3D-cursor")
-        stap.prop(inst, "as_bron", expand=True)
+            let.label(text=f"Mesh is {schaal.maat_mm(ob, context.scene):.4g} mm in size", icon="ERROR")
+            let.label(text="Expected 5 to 500 mm: is the unit right?")
+            grote_knop(let, "click_joints.zet_om_mm", "Convert to mm", "DRIVER_DISTANCE")
+        stap.label(text="Shift + right click sets the 3D cursor")
+        stap.row(align=True).prop(inst, "as_bron", expand=True)
         if ob is not None and "cj_gesloten" in ob and not ob["cj_gesloten"]:
-            stap.label(text="Figuur is niet gesloten", icon="ERROR")
+            stap.label(text="Mesh is not watertight", icon="ERROR")
             stap.prop(inst, "voxel_mm")
-            grote_knop(stap, "click_joints.maak_gesloten", "Maak gesloten", "MOD_REMESH")
+            grote_knop(stap, "click_joints.maak_gesloten", "Make watertight", "MOD_REMESH")
         else:
-            grote_knop(stap, "click_joints.controleer", "Controleer figuur", "VIEWZOOM")
+            grote_knop(stap, "click_joints.controleer", "Check mesh", "VIEWZOOM")
 
         stap = layout.box()
-        stap.label(text="2  Gewricht", icon="MESH_UVSPHERE")
-        stap.prop(inst, "soort", expand=True)
+        stap.label(text="2  Joint", icon="MESH_UVSPHERE")
+        stap.row(align=True).prop(inst, "soort", expand=True)
         stap.prop(inst, "kogel_mm")
         stap.prop(inst, "speling_mm", slider=True)
-        grote_knop(stap, "click_joints.plaats", "Plaats gewricht", "MOD_BOOLEAN")
+        grote_knop(stap, "click_joints.plaats", "Place joint", "MOD_BOOLEAN")
         stap.prop(inst, "uit_elkaar", icon="MOD_EXPLODE")
 
         stap = layout.box()
-        stap.label(text="3  Controleer en exporteer", icon="EXPORT")
+        stap.label(text="3  Fit and export", icon="EXPORT")
         kleur = ob.get("cj_passing") if ob else None
         if kleur:
-            tekst = {"groen": "Past", "oranje": "Krap", "rood": "Te dun"}[kleur]
-            stap.label(text=f"Passing: {tekst} ({kleur})", icon=passing.ICONEN[kleur])
-            if "cj_wand_mm" in ob:
-                stap.label(text=f"Wand: {ob['cj_wand_mm']:.2f} mm")
+            stap.label(text=passing.fit_tekst(kleur, ob.get("cj_wand_mm", -1.0)), icon=passing.ICONEN[kleur])
+            if ob.get("cj_wand_mm", -1.0) >= 0:
+                stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm")
             if "cj_speling_gemeten_mm" in ob:
-                stap.label(text=f"Speling gemeten: {ob['cj_speling_gemeten_mm']:.3f} mm")
+                stap.label(text=f"Clearance measured: {ob['cj_speling_gemeten_mm']:.3f} mm")
         else:
-            stap.label(text="Nog geen gewricht")
+            stap.label(text="No joint yet")
         stap.prop(inst, "exportmap")
         tip = exporteer.hint(context.scene)
         if tip:
             stap.label(text=tip, icon="INFO")
-        grote_knop(stap, "click_joints.exporteer", "Exporteer STL", "FILE_3D")
+        grote_knop(stap, "click_joints.exporteer", "Export STL", "FILE_3D")
 
 
 KLASSEN = (CLICK_JOINTS_PT_paneel,)
