@@ -103,7 +103,7 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			await browser.pause(400);
 			const p = await browser.execute((sel) => {
 				const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[3];
-				r?.closest("p")?.setAttribute("data-daan", "regel");
+				(r?.closest("p") ?? r?.parentElement)?.setAttribute("data-daan", "regel");
 				r?.click();
 				return !!r;
 			}, LEAF);
@@ -111,7 +111,7 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			for (const ms of [500, 1300, 2200, 3200, 5000, 9000]) {
 				const wacht = ms - (Date.now() - t0);
 				if (wacht > 0) await browser.pause(wacht);
-				await browser.$(`${LEAF} p[data-daan="regel"]`).saveScreenshot(`${SHOTS}/skins5-beweging-${skin}-${ms}.png`).catch((e) => console.log("beweging", e));
+				await browser.$(`${LEAF} [data-daan="regel"]`).saveScreenshot(`${SHOTS}/skins5-beweging-${skin}-${ms}.png`).catch((e) => console.log("beweging", e));
 			}
 			console.log(`SKINS5 beweging ${skin}: token gevonden ${p}`);
 			await browser.execute(() => document.body.style.removeProperty("--rw-slow"));

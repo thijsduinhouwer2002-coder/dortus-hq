@@ -1,0 +1,338 @@
+#!/usr/bin/env python3
+# Daan: maakt src/styles/08-skins-v3.css. Elke regel geldt voor het token in de notitie en voor de tegel in de instellingen.
+import sys
+
+def sel(skin, extra="", tail="", block=True):
+    nb = "" if block else ":not(.rollwright-roll-block)"
+    a = f"body.rollwright-skin-{skin} .rollwright-roll{extra}:not(.rollwright-error){nb}:not(.rollwright-skin-preview-tile .rollwright-roll){tail}"
+    b = f".rollwright-skin-preview-tile.rollwright-skin-{skin} .rollwright-roll{extra}:not(.rollwright-error){nb}{tail}"
+    return f"{a},\n{b}"
+
+out = []
+def rule(skin, body, extra="", tail=""):
+    out.append(f"{sel(skin, extra, tail)} {{\n" + "\n".join("\t" + l.strip() for l in body.strip().splitlines()) + "\n}\n")
+
+def raw(s):
+    out.append(s.strip("\n") + "\n")
+
+raw("""
+/* ==========================================================================================
+   Skins v3 (Daan, 8 nov 12:30, na Thijs 12:33 en 12:34): een skin is een eigen wereld, niet
+   hetzelfde token in een andere kleur. Elke skin krijgt nu een eigen VORM, een eigen LETTER,
+   een eigen MERKTEKEN en een eigen BEWEGING bij het rollen.
+   Parchment, "het scriptorium": een gescheurde strook oud papier, geschreven in een letter uit
+   de 17e eeuw. Het merkteken is een rood lakzegel met de d20 erin gedrukt. Bij een worp drukt het
+   zegel neer en schrijft de inkt het getal van links naar rechts, met een paar spatjes inkt.
+   Arcane, "de sterrenkaart": een kristal met punten aan beide kanten en een rand van licht,
+   in Romeinse kapitalen. Bij een worp draait de d20 twee keer rond in een cirkel van runen en
+   verschijnt het getal uit het licht, met een wolkje sterrenstof.
+   Hoe: het lichaam van het token is ::before met een clip-path (de vorm), het token zelf is
+   doorzichtig en isoleert (isolation), zodat ::before achter de tekst blijft maar voor de
+   pagina. De rand en schaduw komen van filter: drop-shadow op het token, dat volgt de vorm.
+   De sticker (NAT 20, NAT 1) staat er boven (z-index 1) en wordt niet afgeknipt.
+   Blokken (tabel, sectie) krijgen dezelfde vorm.
+   ========================================================================================== */
+""")
+
+# ---------------------------------------------------------------- PARCHMENT
+TORN = ("polygon(0 12%, 5% 2%, 12% 7%, 19% 0, 27% 6%, 36% 1%, 45% 5%, 53% 0, 61% 6%, 70% 2%, 78% 7%, 86% 0, 93% 5%, "
+        "100% 1%, calc(100% - 0.14em) 28%, 100% 50%, calc(100% - 0.1em) 74%, 100% 97%, 92% 100%, 84% 94%, 75% 99%, "
+        "66% 93%, 57% 100%, 48% 95%, 39% 100%, 30% 94%, 21% 99%, 13% 93%, 6% 100%, 0 95%, 0.12em 70%, 0 46%, 0.1em 24%)")
+NOISE = "var(--rw-paper-noise)"
+
+rule("parchment", f"""
+font-family: "Rollwright Fell", "Palatino Linotype", Palatino, Georgia, serif;
+font-style: italic;
+font-size: 1.08em;
+letter-spacing: 0;
+color: #2a1808;
+background: transparent;
+background-color: transparent;
+border: 0;
+border-radius: 0;
+box-shadow: none;
+isolation: isolate;
+padding: 0.04em 0.62em 0.02em 0.5em;
+filter: drop-shadow(0 1px 1px rgba(60, 35, 5, 0.45)) drop-shadow(0 0 0.5px rgba(90, 55, 15, 0.6));
+transform: rotate(-0.4deg);
+""")
+rule("parchment", f"""
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+border-radius: 0;
+pointer-events: none;
+clip-path: {TORN};
+background:
+	{NOISE},
+	radial-gradient(ellipse at 18% 25%, rgba(255, 249, 225, 0.85), transparent 55%),
+	radial-gradient(ellipse at 88% 85%, rgba(140, 85, 30, 0.38), transparent 62%),
+	linear-gradient(180deg, #f2e3b8, #e0c78d);
+box-shadow: inset 0 0 0.5em rgba(110, 60, 15, 0.55);
+animation: none;
+""", tail="::before")
+rule("parchment", """
+transform: rotate(-1.2deg) translateY(-1px);
+box-shadow: none;
+filter: drop-shadow(0 3px 3px rgba(60, 35, 5, 0.4)) drop-shadow(0 0 0.5px rgba(90, 55, 15, 0.6));
+""", tail=":hover")
+rule("parchment", """
+font-family: "Palatino Linotype", Palatino, "URW Palladio L", "P052", "Book Antiqua", serif;
+font-weight: 700;
+font-size: 1.02em;
+font-variant-numeric: lining-nums tabular-nums;
+""", tail=" .rollwright-value")
+# tekst uit een tabel blijft in de oude letter
+rule("parchment", "font-family: \"Rollwright Fell\", Georgia, serif; font-weight: 400; font-size: 1em;", extra=".rollwright-text", tail=" .rollwright-value")
+rule("parchment", "color: #6a4220; opacity: 1;", tail=" .rollwright-label")
+# lakzegel met de d20 erin gedrukt
+rule("parchment", """
+width: 1.12em;
+height: 1.12em;
+background: radial-gradient(circle at 35% 30%, #e0503f, #a8261a 55%, #6a0f08);
+-webkit-mask: var(--rw-d20) center / 64% no-repeat, radial-gradient(circle, #000 64%, transparent 67%);
+-webkit-mask-composite: xor;
+mask: var(--rw-d20) center / 64% no-repeat exclude, radial-gradient(circle, #000 64%, transparent 67%);
+filter: drop-shadow(0 0.6px 0.4px rgba(40, 0, 0, 0.6));
+""", tail=" .rollwright-icon::before")
+# tekst uit een tabel: een lichtere snipper
+rule("parchment", f"""
+background:
+	{NOISE},
+	linear-gradient(180deg, #f5e9c8, #e9d6a6);
+""", extra=".rollwright-text", tail="::before")
+# crit: bladgoud
+for ex in (".rollwright-crit", ".rollwright-fumble"):
+    rule("parchment", """
+background: transparent;
+background-color: transparent;
+box-shadow: none;
+border: 0;
+""", extra=ex)
+rule("parchment", f"""
+background:
+	linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.8) 45%, transparent 60%),
+	{NOISE},
+	linear-gradient(180deg, #f8dc82, #d9a531 60%, #b47c18);
+box-shadow: inset 0 0 0.45em rgba(120, 70, 0, 0.55);
+animation: none;
+""", extra=".rollwright-crit", tail="::before")
+rule("parchment", """
+color: #3b2000;
+text-shadow: 0 1px 0 rgba(255, 240, 190, 0.7);
+filter: drop-shadow(0 0 0.35em rgba(230, 170, 40, 0.7)) drop-shadow(0 1px 1px rgba(60, 35, 5, 0.45));
+""", extra=".rollwright-crit")
+rule("parchment", f"""
+background:
+	radial-gradient(ellipse 26% 70% at 100% 55%, rgba(25, 10, 5, 0.65), transparent 100%),
+	radial-gradient(circle 0.13em at 84% 16%, rgba(25, 10, 5, 0.6), transparent 100%),
+	radial-gradient(circle 0.08em at 76% 86%, rgba(25, 10, 5, 0.55), transparent 100%),
+	{NOISE},
+	linear-gradient(180deg, #e7d39d, #d3b77c);
+animation: none;
+""", extra=".rollwright-fumble", tail="::before")
+rule("parchment", "color: #5e0d07;", extra=".rollwright-fumble")
+
+raw("""
+@keyframes rw-p-seal {
+	0% { transform: scale(2.6) rotate(-40deg); opacity: 0; }
+	50% { transform: scale(0.82) rotate(6deg); opacity: 1; }
+	72% { transform: scale(1.1) rotate(-2deg); }
+	100% { transform: none; }
+}
+
+@keyframes rw-p-ink {
+	0% { clip-path: inset(-0.2em 100% -0.2em 0); filter: blur(1.2px); opacity: 0.5; }
+	70% { filter: blur(0.3px); opacity: 1; }
+	100% { clip-path: inset(-0.2em -0.2em -0.2em -0.2em); filter: none; opacity: 1; }
+}
+
+@keyframes rw-p-splat {
+	0% { transform: scale(0.3); opacity: 0; }
+	30% { transform: scale(1.05); opacity: 0.9; }
+	100% { transform: scale(1.15); opacity: 0; }
+}
+""")
+rule("parchment", "animation: rw-p-seal calc(520ms * var(--rw-slow)) cubic-bezier(0.3, 1.3, 0.5, 1) both;", extra=".rollwright-rolled", tail=" .rollwright-icon")
+rule("parchment", """
+display: inline-block;
+animation: rw-p-ink calc(440ms * var(--rw-slow)) calc(200ms * var(--rw-slow)) cubic-bezier(0.4, 0, 0.3, 1) both;
+""", extra=".rollwright-rolled", tail=" .rollwright-value")
+rule("parchment", """
+animation: rw-p-ink calc(440ms * var(--rw-slow)) calc(200ms * var(--rw-slow)) cubic-bezier(0.4, 0, 0.3, 1) both, rw-shake calc(420ms * var(--rw-slow)) calc(700ms * var(--rw-slow)) ease-in-out;
+""", extra=".rollwright-rolled.rollwright-fumble", tail=" .rollwright-value")
+# spatjes inkt na de worp (niet bij crit: daar is ::after de vonk)
+rule("parchment", """
+content: "";
+position: absolute;
+inset: -0.35em -0.5em;
+z-index: -2;
+pointer-events: none;
+background:
+	radial-gradient(circle 0.09em at 4% 20%, #2a1808 90%, transparent),
+	radial-gradient(circle 0.06em at 9% 88%, #2a1808 90%, transparent),
+	radial-gradient(circle 0.07em at 97% 12%, #2a1808 90%, transparent),
+	radial-gradient(circle 0.05em at 93% 92%, #2a1808 90%, transparent),
+	radial-gradient(circle 0.04em at 50% 2%, #2a1808 90%, transparent);
+animation: rw-p-splat calc(900ms * var(--rw-slow)) calc(260ms * var(--rw-slow)) ease-out both;
+""", extra=".rollwright-rolled:not(.rollwright-crit)", tail="::after")
+
+# ---------------------------------------------------------------- ARCANE
+HEX = "polygon(0.6em 0, calc(100% - 0.6em) 0, 100% 50%, calc(100% - 0.6em) 100%, 0.6em 100%, 0 50%)"
+rule("arcane", """
+font-family: "Rollwright Cinzel", "Trajan Pro", "Cinzel", Georgia, serif;
+font-weight: 700;
+font-size: 0.94em;
+letter-spacing: 0.07em;
+color: #f3eeff;
+background: transparent;
+background-color: transparent;
+border: 0;
+border-radius: 0;
+box-shadow: none;
+isolation: isolate;
+padding: 0.16em 0.95em 0.1em 0.85em;
+filter: drop-shadow(0 0 0.6px #9ff3ff) drop-shadow(0 0 0.6px #b48cff) drop-shadow(0 0 0.45em rgba(140, 95, 255, 0.7));
+text-shadow: 0 0 0.4em rgba(190, 160, 255, 0.95);
+""")
+rule("arcane", f"""
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+border-radius: 0;
+pointer-events: none;
+clip-path: {HEX};
+background:
+	radial-gradient(circle 0.06em at 3.5% 22%, rgba(255, 255, 255, 0.95) 80%, transparent),
+	radial-gradient(circle 0.05em at 2.5% 80%, rgba(200, 240, 255, 0.85) 80%, transparent),
+	radial-gradient(circle 0.04em at 97% 76%, rgba(255, 220, 255, 0.8) 80%, transparent),
+	radial-gradient(circle 0.05em at 96.5% 24%, rgba(255, 255, 255, 0.7) 80%, transparent),
+	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.75), transparent 70%),
+	linear-gradient(90deg, rgba(111, 231, 245, 0.25), transparent 22%, transparent 78%, rgba(255, 138, 226, 0.25)),
+	linear-gradient(170deg, #2a1a5e, #0f0926);
+box-shadow: none;
+animation: none;
+""", tail="::before")
+rule("arcane", """
+filter: drop-shadow(0 0 0.8px #c9fbff) drop-shadow(0 0 0.8px #c9a8ff) drop-shadow(0 0 0.8em rgba(140, 95, 255, 0.95));
+box-shadow: none;
+""", tail=":hover")
+rule("arcane", "font-weight: 700;", tail=" .rollwright-value")
+rule("arcane", "color: #c9b8ff; opacity: 1; letter-spacing: 0.09em;", tail=" .rollwright-label")
+rule("arcane", f"""
+background:
+	radial-gradient(ellipse at 50% -20%, rgba(160, 110, 255, 0.55), transparent 70%),
+	linear-gradient(170deg, #24164f, #120b2d);
+""", extra=".rollwright-text", tail="::before")
+for ex in (".rollwright-crit", ".rollwright-fumble"):
+    rule("arcane", """
+background: transparent;
+background-color: transparent;
+box-shadow: none;
+border: 0;
+""", extra=ex)
+rule("arcane", f"""
+background:
+	linear-gradient(180deg, rgba(255, 228, 140, 0.55), transparent 22%),
+	radial-gradient(ellipse at 50% 120%, rgba(255, 200, 80, 0.45), transparent 65%),
+	linear-gradient(170deg, #2f1a5c, #170c33);
+animation: none;
+""", extra=".rollwright-crit", tail="::before")
+rule("arcane", """
+color: #ffd45e;
+text-shadow: 0 0 0.35em rgba(255, 200, 80, 0.8);
+filter: drop-shadow(0 0 0.8px #ffe9a8) drop-shadow(0 0 0.8px #ffc94a) drop-shadow(0 0 0.7em rgba(255, 190, 60, 0.85));
+""", extra=".rollwright-crit")
+rule("arcane", f"""
+background:
+	radial-gradient(ellipse at 50% 120%, rgba(255, 60, 110, 0.45), transparent 65%),
+	linear-gradient(170deg, #2a0f2e, #12061a);
+animation: none;
+""", extra=".rollwright-fumble", tail="::before")
+rule("arcane", """
+color: #ff9ab8;
+text-shadow: 0 0 0.35em rgba(255, 60, 110, 0.8);
+filter: drop-shadow(0 0 0.7px #ff7aa8) drop-shadow(0 0 0.5em rgba(255, 40, 100, 0.6));
+""", extra=".rollwright-fumble")
+
+raw("""
+@keyframes rw-a-spin {
+	0% { transform: rotate(-720deg) scale(0.3); opacity: 0; }
+	70% { transform: rotate(10deg) scale(1.25); opacity: 1; }
+	100% { transform: none; }
+}
+
+@keyframes rw-a-form {
+	0% { transform: scale(1.7); opacity: 0; filter: blur(5px) brightness(2.2); }
+	60% { transform: scale(0.94); opacity: 1; filter: blur(0) brightness(1.5); }
+	100% { transform: none; filter: none; }
+}
+
+@keyframes rw-a-runes {
+	0% { transform: rotate(0) scale(0.4); opacity: 0; }
+	25% { opacity: 1; }
+	100% { transform: rotate(200deg) scale(1.5); opacity: 0; }
+}
+
+@keyframes rw-a-dust {
+	0% { transform: scale(0.5); opacity: 0; }
+	30% { opacity: 1; }
+	100% { transform: scale(1.35) translateY(-0.2em); opacity: 0; }
+}
+""")
+rule("arcane", "position: relative; animation: rw-a-spin calc(560ms * var(--rw-slow)) cubic-bezier(0.2, 0.8, 0.3, 1.2) both;", extra=".rollwright-rolled", tail=" .rollwright-icon")
+rule("arcane", """
+display: inline-block;
+animation: rw-a-form calc(420ms * var(--rw-slow)) calc(180ms * var(--rw-slow)) cubic-bezier(0.2, 0.8, 0.3, 1.1) both;
+""", extra=".rollwright-rolled", tail=" .rollwright-value")
+rule("arcane", """
+animation: rw-a-form calc(420ms * var(--rw-slow)) calc(180ms * var(--rw-slow)) ease-out both, rw-shake calc(420ms * var(--rw-slow)) calc(620ms * var(--rw-slow)) ease-in-out;
+""", extra=".rollwright-rolled.rollwright-fumble", tail=" .rollwright-value")
+# cirkel van runen om de d20 (niet bij crit: daar is icon::after de gouden ring)
+rule("arcane", """
+content: "";
+position: absolute;
+inset: -0.32em;
+border-radius: 50%;
+border: 1.5px dashed #9ff3ff;
+box-shadow: 0 0 6px #9ff3ff;
+pointer-events: none;
+animation: rw-a-runes calc(900ms * var(--rw-slow)) calc(60ms * var(--rw-slow)) ease-out both;
+""", extra=".rollwright-rolled:not(.rollwright-crit)", tail=" .rollwright-icon::after")
+rule("arcane", """
+content: "";
+position: absolute;
+inset: -0.45em -0.4em;
+z-index: -2;
+pointer-events: none;
+background:
+	radial-gradient(circle 0.07em at 6% 30%, #ffffff 80%, transparent),
+	radial-gradient(circle 0.05em at 14% 90%, #9ff3ff 80%, transparent),
+	radial-gradient(circle 0.06em at 96% 18%, #ffb8f0 80%, transparent),
+	radial-gradient(circle 0.05em at 90% 94%, #ffffff 80%, transparent),
+	radial-gradient(circle 0.05em at 44% 0%, #9ff3ff 80%, transparent),
+	radial-gradient(circle 0.04em at 62% 100%, #ffffff 80%, transparent);
+animation: rw-a-dust calc(1000ms * var(--rw-slow)) calc(300ms * var(--rw-slow)) ease-out both;
+""", extra=".rollwright-rolled:not(.rollwright-crit)", tail="::after")
+
+raw("""
+@media (prefers-reduced-motion: reduce) {
+	body.rollwright-skin-parchment .rollwright-roll .rollwright-icon,
+	body.rollwright-skin-parchment .rollwright-roll .rollwright-value,
+	body.rollwright-skin-arcane .rollwright-roll .rollwright-icon,
+	body.rollwright-skin-arcane .rollwright-roll .rollwright-value {
+		animation: none !important;
+	}
+
+	body.rollwright-skin-parchment .rollwright-roll::after,
+	body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-crit)::after,
+	body.rollwright-skin-arcane .rollwright-roll .rollwright-icon::after {
+		display: none;
+	}
+}
+""")
+
+open(sys.argv[1], "w").write("\n".join(out))
+print(len(out), "blokken")
