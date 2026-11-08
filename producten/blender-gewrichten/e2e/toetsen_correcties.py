@@ -234,17 +234,24 @@ def meterscene():
     log(f"METER: passing={a.get('cj_passing')} wand={wand}mm verwacht={verwacht:.3f}mm kogel_r={a['cj_kogel_r']}m")
     stap("meterscene: passing groen, wand gelijk aan de kleinste van schil en trechterwand in mm (+- 0,02)",
          a.get("cj_passing") == "groen" and abs(wand - verwacht) < 0.02)
-    # Vorm v0.3: binnen de bolnaad is er geen vlakke snede meer; buiten de bol loopt de vlakke snede door het
-    # kogelmidden, 0,0137 mm verder langs de as, ook in meters. Laagste punt van deel B langs de as, alleen
-    # over de punten buiten de bolnaad (zelfde precisie als de oude toets).
+    # Vorm v0.3: de naad tussen A en B is een bol om het kogelmidden (deel B tot naad_r - s/2), en buiten die bol
+    # loopt de vlakke snede door het kogelmidden, 0,0137 mm verder langs de as. Bij deze arm is de bol breder dan
+    # de arm (naad_r = grootste straal + marge), dus er is buiten de bol geen vlak stuk: daar eisen we dat geen
+    # punt van B buiten de bol onder dat vlak ligt. De bol zelf toetsen we met de oude precisie (0,001 mm): het
+    # verste punt van B onder het vlak ligt op naad_r - s/2 van het kogelmidden.
     as_r, c = Vector(b["cj_as"]), Vector(b["cj_centrum"])
-    naad = b.get("cj_naad_r", -1.0)
-    buiten = [v.co for v in b.data.vertices if (v.co - c).length > naad + 0.05 * u()]
-    schuif = (min(p.dot(as_r) for p in buiten) - c.dot(as_r)) / u() if buiten and naad > 0 else 99.0
-    log(f"METER: snijvlak buiten de bolnaad {schuif:.5f} mm voorbij het kogelmidden ({len(buiten)} punten, "
-        f"naad_r {naad / u():.3f} mm)")
-    stap("meterscene: snijvlak buiten de bol door het kogelmidden, 0,0137 mm verder (+- 0,001)",
-         abs(schuif - 0.0137) < 0.001)
+    naad, s_e = b.get("cj_naad_r", -1.0), b["cj_speling_mm"] * u()
+    vlak = c.dot(as_r) + 0.0137 * u()
+    rb = naad - s_e / 2
+    onder = [(v.co - c).length for v in b.data.vertices if v.co.dot(as_r) < vlak - 0.001 * u()]
+    verst = max(onder) / u() if onder else -1.0
+    buiten_onder = [v for v in b.data.vertices if (v.co - c).length > rb + 0.001 * u() and v.co.dot(as_r) < vlak - 0.001 * u()]
+    log(f"METER: bolnaad deel B verst {verst:.5f} mm van het kogelmidden, verwacht {rb / u():.5f} mm; "
+        f"punten buiten de bol onder het vlak door het kogelmidden: {len(buiten_onder)}")
+    stap("meterscene: naad van deel B is de bol naad_r - s/2 om het kogelmidden (+- 0,001 mm)",
+         naad > 0 and abs(verst - rb / u()) < 0.001)
+    stap("meterscene: buiten de bol ligt deel B boven het vlak door het kogelmidden + 0,0137 mm",
+         naad > 0 and not buiten_onder)
     hoek, grens = a.get("cj_hoek"), a.get("cj_grens_graden", -1.0)
     log(f"METER: hoekstand {hoek} graden, berekende grens {grens} graden, nek_r {a['cj_nek_r'] / u():.3f} mm")
     stap("meterscene: hoekstand 30, 25 of 20 en berekende grens minstens die stand",
