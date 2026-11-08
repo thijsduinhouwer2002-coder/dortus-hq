@@ -157,7 +157,7 @@ def meet(figuur, a_deel, b_deel):
     t_np = time.perf_counter() - t0
     uitslag = {}
     vlak = (np.array(a_deel["cj_snijpunt"]), 0.05 * hulp.u())
-    for variant, nek, vl in (("volledig", None, None), ("zonder_snijvlak", None, vlak), ("nek", 0.48 * r, None)):
+    for variant, nek, vl in (("volledig", None, None), ("zonder_snijvlak", None, vlak), ("nek", a_deel.get("cj_nek_r", 0.48 * r), None)):
         t0 = time.perf_counter()
         a = uitsnede(ma, np.array(c), np.array(as_r), r_uit, r_in, nek, vl)
         b = uitsnede(mb, np.array(c), np.array(as_r), r_uit, r_in, None, vl)
@@ -194,27 +194,22 @@ def meet(figuur, a_deel, b_deel):
 
 
 def rekensom(a_deel):
-    """Verwachte grens uit de vorm van het gewricht (zie maten() in click_joints/gewricht.py).
-    Frame met het kogelmidden C in de oorsprong, as naar deel B. Het snijvlak ligt op afstand h onder C.
-    1. volledig: de snijvlakken van A en B vallen samen (A eindigt waar B begint). Bij elke draaiing > 0
-       zakt de buitenrand van het snijvlak van B (straal rho) rho*sin(t) - h*(1 - cos(t)) > 0 in deel A,
-       dus de grens is 0 graden.
-    2. nek: de nek (straal n = 0,48 r) bestaat alleen boven het snijvlak van A, van -h tot de kogel. De wand
-       van de klikopening (x = a = 0,85 r, z van -h tot de kom) draait naar de nek: een wandpunt (a, z) komt op
-       x' = a*cos(t) + z*sin(t), z' = z*cos(t) - a*sin(t). De onderrand zelf zakt onder het snijvlak (z' < -h),
-       daar is geen nek. Het eerste raakpunt is de voet van de nek (straal n op het snijvlak van A) tegen de
-       wand: met z' = -h volgt x' = (a - h*sin(t)) / cos(t) = n, dus h*sin(t) + n*cos(t) = a,
-       t = asin(a / wortel(h^2 + n^2)) - atan2(n, h). In het draaivlak ligt de wand het dichtst bij de nek.
-       (Eerste rekensom, de onderrand tegen de nek, gaf acos(n / wortel(a^2 + h^2)) - atan2(h, a): fout, want
-       dat raakpunt ligt onder het snijvlak.)"""
+    """Verwachte grens uit de vorm v0.3 (zie maten() in click_joints/maat.py).
+    Frame met het kogelmidden C in de oorsprong. De naad tussen A en B is een bol om C, dus die botst nooit.
+    De nek (straal n) raakt als eerste de klikrand: de ring met straal a (opening) op afstand d onder C,
+    met d = wortel((r + s)^2 - a^2), want daar snijdt de trechter de kom. Een randpunt (a, -d) gedraaid over t
+    ligt op afstand a*cos(t) - d*sin(t) van de as van de nek; raken als dat n is:
+    (r + s)*cos(t + atan2(d, a)) = n, dus t = acos(n / (r + s)) - atan2(d, a).
+    Onder de klikrand wordt de trechter wijder met een halve tophoek van t + 3 graden, dus daar raakt de nek niet.
+    Geldt voor volledig, zonder_snijvlak en nek."""
     r = a_deel["cj_kogel_r"]
-    a, n = a_deel["cj_open_r"], 0.48 * r
-    h = (Vector(a_deel["cj_centrum"]) - Vector(a_deel["cj_snijpunt"])).dot(Vector(a_deel["cj_as"]).normalized())
-    nek = math.degrees(math.asin(a / math.hypot(h, n)) - math.atan2(n, h))
-    oud = math.degrees(math.acos(n / math.hypot(a, h)) - math.atan2(h, a))
-    log(f"staaf rekensom r={r:.3f} opening_r={a:.3f} nek_r={n:.3f} h={h:.4f} (kogelmidden boven snijvlak) "
-        f"volledig=0.0 nek={nek:.2f} graden (eerste, foute rekensom onderrand: {oud:.2f})")
-    return {"volledig": 0.0, "nek": nek}  # zonder_snijvlak: geen rekensom, alleen gelogd
+    s = a_deel["cj_speling_mm"] * hulp.u()
+    a, n = a_deel["cj_open_r"], a_deel["cj_nek_r"]
+    d = math.sqrt((r + s) ** 2 - a * a)
+    t = math.degrees(math.acos(n / (r + s)) - math.atan2(d, a))
+    log(f"staaf rekensom r={r:.3f} s={s:.3f} opening_r={a:.3f} nek_r={n:.3f} klikrand_d={d:.4f} "
+        f"naad_r={a_deel.get('cj_naad_r', -1):.3f} grens={t:.2f} graden (add-on: {a_deel.get('cj_grens_graden')})")
+    return {"volledig": t, "zonder_snijvlak": t, "nek": t}
 
 
 def figuur_meten(naam, ob):

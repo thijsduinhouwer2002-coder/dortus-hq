@@ -141,3 +141,9 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **(d) Voor Chris zelf:** productpagina-tak `claude/rollwright-0.3.1` in `dortus` naar main op de dag van release 0.3.1.
 - **Tegenargument:** "nothing else" is gewone reclametaal. Antwoord: de regel "Elk product" vraagt een belofte die overal hetzelfde en waar is; een zachtere zin kost niets.
 - **Status:** open
+
+## 20. Rollwright live: installeren via de directory-link in de README (8 nov 2026)
+- **Voor Olaf, bij 0.3.1:** de Quick start in de README zegt "Install Rollwright from Community plugins". Rollwright staat niet in het oude `community-plugins.json` van obsidian-releases (GEZIEN 8 nov, 10.096 plugins), en of het zoekvak in de app al uit de nieuwe directory leest, weten we niet (GOK). Zet er de link bij: `https://community.obsidian.md/plugins/rollwright` (knop "Add to Obsidian" opent `obsidian://show-plugin?id=rollwright`, GEZIEN). Dan werkt installeren zeker voor wie via de lanceerberichten of de README komt.
+- **Waarom nu:** de lanceerberichten gaan deze dagen uit; daarin staat de link al vooraan.
+- **Tegenargument:** misschien vindt de app hem allang. Antwoord: een link erbij kost niets en schaadt niet.
+- **Status:** open

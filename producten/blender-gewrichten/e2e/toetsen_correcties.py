@@ -119,11 +119,75 @@ def gespiegeld():
         stap("gespiegeld: cj_gespiegeld staat op de delen", bool(lijst[0].get("cj_gespiegeld")))
         stap(f"gespiegeld: passing niet rood ({lijst[0].get('cj_passing')})", lijst[0].get("cj_passing") != "rood")
         som = sum(meting(d)[1] for d in lijst)
-        verschil = abs(som - vol_eigen) / vol_eigen
-        log(f"SPIEGEL: volume delen samen={som:.1f}mm3 figuur={vol_eigen:.1f}mm3 verschil={verschil:.3%}")
-        stap("gespiegeld: volume van de delen samen binnen 5% van het figuur", verschil < 0.05)
+        # Ronde j (Daan akkoord): vorm v0.3 neemt bewust ruimte weg (kom min kogel, trechter min nek, de spleet
+        # van s langs de bolnaad). Die ruimte meten we los uit de vorm (steekproef in het originele figuur)
+        # en tellen hem mee; de grens van 5% blijft voor de rest.
+        a = next(d for d in lijst if d["cj_deel"] == "A")
+        weg_mm3 = bewust_weg(ob, a)
+        verschil = abs(som + weg_mm3 - vol_eigen) / vol_eigen
+        log(f"SPIEGEL: volume delen samen={som:.1f}mm3 bewust weg={weg_mm3:.1f}mm3 figuur={vol_eigen:.1f}mm3 "
+            f"verschil={verschil:.3%} (zonder de weggenomen ruimte {abs(som - vol_eigen) / vol_eigen:.3%})")
+        stap("gespiegeld: volume van de delen samen plus de bewust weggenomen ruimte binnen 5% van het figuur",
+             weg_mm3 > 0 and verschil < 0.05)
         speling_meten(lijst, 0.2, "SPELING gespiegeld")
     weg(lijst + [ob])
+
+
+def bewust_weg(ob, a, n=200000):
+    """Volume in mm3 van de ruimte die vorm v0.3 bewust weghaalt binnen het figuur, als steekproef:
+    binnen het figuur, niet in het gebied van deel A (onder het vlak door het kogelmidden en buiten de bol
+    naad_r + s/2), niet in kogel of nek, en ofwel buiten het gebied van deel B (de spleet langs de bolnaad)
+    ofwel in kom (r + s) of trechter. Alle vormen zijn rond om de as, dus alleen afstand tot de as telt."""
+    import math
+    import random
+    import bmesh
+    from mathutils.bvhtree import BVHTree
+    r, s = a["cj_kogel_r"], a["cj_speling_mm"] * u()
+    naad, open_r, lip, nek = a["cj_naad_r"], a["cj_open_r"], a["cj_lip_d"], a["cj_nek_r"]
+    schuif = 0.0137 * u()
+    as_r = Vector(a["cj_as"]).normalized()
+    c = Vector(a["cj_centrum"])
+    cursor = Vector(a["cj_snijpunt"]) - as_r * schuif
+    mz = (c - cursor).dot(as_r)
+    vlak = mz + schuif
+    tan = math.tan(math.radians(a["cj_grens_graden"] + 3.0))
+    z_lip = mz - lip
+    z_top, z_bodem = z_lip + 0.25 * r, mz - naad - s - 0.5 * r
+    onder = min(-0.4 * r, mz - naad - 0.4 * r)
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bm.transform(ob.matrix_world)
+    if ob.matrix_world.determinant() < 0:
+        bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
+    bvh = BVHTree.FromBMesh(bm)
+    bm.free()
+    h = naad + s
+    rng = random.Random(7)
+    # twee loodrechte richtingen op de as
+    e1 = as_r.orthogonal().normalized()
+    e2 = as_r.cross(e1).normalized()
+    raak = 0
+    for _ in range(n):
+        x, y, z = (rng.uniform(-h, h) for _ in range(3))
+        zc = mz + z  # hoogte in het frame (0 = cursor)
+        d2 = x * x + y * y + z * z
+        rho = math.sqrt(x * x + y * y)
+        if d2 < r * r or (rho < nek and onder <= zc <= mz):
+            continue  # kogel of nek (deel A)
+        if zc < vlak and d2 > (naad + s / 2) ** 2:
+            continue  # gebied van deel A
+        in_b = zc >= vlak or d2 < (naad - s / 2) ** 2
+        kom = d2 < (r + s) ** 2
+        trechter = z_bodem <= zc <= z_top and rho <= open_r + (z_lip - zc) * tan
+        if in_b and not kom and not trechter:
+            continue  # gewoon deel B
+        p = c + as_r * z + e1 * x + e2 * y
+        loc, nor, _, _ = bvh.find_nearest(p)
+        if loc is not None and (p - loc).dot(nor) < 0:
+            raak += 1
+    weg = raak / n * (2 * h) ** 3 / u() ** 3
+    log(f"SPIEGEL: steekproef bewust weg {raak}/{n} punten, kubus {2 * h / u():.2f} mm, {weg:.1f} mm3")
+    return weg
 
 
 def kijk_zonder_venster():
@@ -161,21 +225,85 @@ def meterscene():
     stap(f"meterscene: speling van de add-on {addon_mm} mm (0,2 +- 0,02)", abs(addon_mm - 0.2) < 0.02)
     kogel_d = toets_opening(lijst, "meter")
     stap(f"meterscene: kogeldiameter {kogel_d} mm (5 +- 0,01)", kogel_d is not None and abs(kogel_d - 5.0) < 0.01)
-    # De kleinste wand is hier de bodem van deel B naast de klikopening: 1,4r - wortel((r+s)^2 - (0,85r)^2)
-    # - 0,0137 = 1,821 mm bij r = 2,5 mm en s = 0,2 mm. In meters gerekend zou dat 0,0018 of 1821 worden.
+    # Vorm v0.3 (ronde j): de bodem van deel B bestaat niet meer. De kleinste wand is nu de kleinste van
+    # (1) de schil van deel B tussen kom en bolnaad: naad_r - s/2 - (r + s), en (2) de trechterwand: van de
+    # klikrand langs de trechter tot de bolnaad, loodrecht op de trechter tot de huid van het originele figuur.
+    # Hier zelf nagerekend op het origineel; in meters gerekend zou het 1000 keer te klein of te groot zijn.
     wand = a.get("cj_wand_mm")
-    verwacht = 3.5 - ((2.7 ** 2 - 2.125 ** 2) ** 0.5) - 0.0137
+    verwacht = verwachte_wand(ob, a)
     log(f"METER: passing={a.get('cj_passing')} wand={wand}mm verwacht={verwacht:.3f}mm kogel_r={a['cj_kogel_r']}m")
-    stap("meterscene: passing groen, wand gelijk aan de bodem in mm (+- 0,02)",
+    stap("meterscene: passing groen, wand gelijk aan de kleinste van schil en trechterwand in mm (+- 0,02)",
          a.get("cj_passing") == "groen" and abs(wand - verwacht) < 0.02)
-    # Het snijvlak ligt 0,0137 mm naast de cursor, ook in meters: laagste punt van deel B langs de as.
-    as_r = Vector(b["cj_as"])
-    schuif = min(v.co.dot(as_r) for v in b.data.vertices) / u()
-    log(f"METER: snijvlak {schuif:.5f} mm naast de cursor")
-    stap("meterscene: snijvlak 0,0137 mm naast de cursor (+- 0,001)", abs(schuif - 0.0137) < 0.001)
+    # Vorm v0.3: de naad tussen A en B is een bol om het kogelmidden (deel B tot naad_r - s/2), en buiten die bol
+    # loopt de vlakke snede door het kogelmidden, 0,0137 mm verder langs de as. Bij deze arm is de bol breder dan
+    # de arm (naad_r = grootste straal + marge), dus er is buiten de bol geen vlak stuk: daar eisen we dat geen
+    # punt van B buiten de bol onder dat vlak ligt. De bol zelf toetsen we met de oude precisie (0,001 mm): het
+    # verste punt van B onder het vlak ligt op naad_r - s/2 van het kogelmidden.
+    as_r, c = Vector(b["cj_as"]), Vector(b["cj_centrum"])
+    naad, s_e = b.get("cj_naad_r", -1.0), b["cj_speling_mm"] * u()
+    vlak = c.dot(as_r) + 0.0137 * u()
+    rb = naad - s_e / 2
+    onder = [(v.co - c).length for v in b.data.vertices if v.co.dot(as_r) < vlak - 0.001 * u()]
+    verst = max(onder) / u() if onder else -1.0
+    buiten_onder = [v for v in b.data.vertices if (v.co - c).length > rb + 0.001 * u() and v.co.dot(as_r) < vlak - 0.001 * u()]
+    log(f"METER: bolnaad deel B verst {verst:.5f} mm van het kogelmidden, verwacht {rb / u():.5f} mm; "
+        f"punten buiten de bol onder het vlak door het kogelmidden: {len(buiten_onder)}")
+    stap("meterscene: naad van deel B is de bol naad_r - s/2 om het kogelmidden (+- 0,001 mm)",
+         naad > 0 and abs(verst - rb / u()) < 0.001)
+    stap("meterscene: buiten de bol ligt deel B boven het vlak door het kogelmidden + 0,0137 mm",
+         naad > 0 and not buiten_onder)
+    hoek, grens = a.get("cj_hoek"), a.get("cj_grens_graden", -1.0)
+    log(f"METER: hoekstand {hoek} graden, berekende grens {grens} graden, nek_r {a['cj_nek_r'] / u():.3f} mm")
+    stap("meterscene: hoekstand 30, 25 of 20 en berekende grens minstens die stand",
+         hoek in (30, 25, 20) and grens >= hoek - 1e-6)
     toets_stl(lijst, "STL meter")
     toetsen_3mf.toets(lijst, "3MF meter")  # ronde h: ook in meters komt de 3MF in mm
     weg(lijst + [ob])
+
+
+def verwachte_wand(ob, a):
+    """Kleinste van schil (kom tot bolnaad) en trechterwand in mm, gemeten op het originele figuur `ob`."""
+    import math
+    from mathutils import Matrix
+    from mathutils.bvhtree import BVHTree
+    import bmesh
+    r, s = a["cj_kogel_r"], a["cj_speling_mm"] * u()
+    naad, open_r, lip = a["cj_naad_r"], a["cj_open_r"], a["cj_lip_d"]
+    as_r = Vector(a["cj_as"]).normalized()
+    punt = Vector(a["cj_snijpunt"]) - as_r * (0.0137 * u())  # de cursor
+    mz = (Vector(a["cj_centrum"]) - punt).dot(as_r)
+    schil = (naad - s / 2 - (r + s)) / u()
+    frame = Matrix.Translation(punt) @ as_r.to_track_quat("Z", "Y").to_matrix().to_4x4()
+    rot = frame.to_3x3()
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bm.transform(ob.matrix_world)
+    bvh = BVHTree.FromBMesh(bm)
+    bm.free()
+    # Onafhankelijk van de add-on (controleur ronde j): dichte bemonstering, stap 0,01r en 120 richtingen,
+    # tot en met het eindpunt op de bolnaad, dat hier met bisectie wordt gezocht in plaats van met de formule.
+    hoek = math.radians(a["cj_grens_graden"] + 3.0)
+    grens, kleinste = naad - s / 2, math.inf
+    def buiten(t):
+        return math.hypot(open_r + t * math.tan(hoek), lip + t) > grens
+    lo, hi = 0.0, 10.0 * r
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        lo, hi = (lo, mid) if buiten(mid) else (mid, hi)
+    eind = lo
+    stappen = max(1, math.ceil(eind / (0.01 * r)))
+    for k in range(stappen + 1):
+        t = eind * k / stappen
+        z, x = mz - lip - t, open_r + t * math.tan(hoek)
+        for i in range(120):
+            ca, sa = math.cos(2 * math.pi * i / 120), math.sin(2 * math.pi * i / 120)
+            p = Vector((ca * x, sa * x, z))
+            n = Vector((ca * math.cos(hoek), sa * math.cos(hoek), math.sin(hoek)))
+            hit = bvh.ray_cast(frame @ p, (rot @ n).normalized())
+            if hit[0] is not None:
+                kleinste = min(kleinste, hit[3])
+    log(f"METER: schil {schil:.3f} mm, trechterwand {kleinste / u():.3f} mm")
+    return min(schil, kleinste / u())
 
 
 def alles(arm):

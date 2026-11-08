@@ -8,6 +8,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 import bpy
+from mathutils import Vector
 
 from hulp import log, meting, stap, u
 
@@ -33,6 +34,38 @@ def foute_randen(vlakken):
     open_ = sum(1 for (a, b) in randen if (b, a) not in randen)
     fout = sum(1 for (a, b), n in randen.items() if n != 1 or randen.get((b, a), 0) != 1)
     return fout, {"dubbel": dubbel, "open": open_}
+
+
+def diagnose(d, drie, punten, label, n=8):
+    """Ronde j: welke randen zijn fout? Per foute rand: tellingen heen/terug, of de rand in de mesh bestaat,
+    lengte in mm, en de vlakken van de mesh die beide punten hebben (grootte, punten dubbel in het vlak)."""
+    randen = {}
+    for t in drie:
+        for i in range(3):
+            e = (t[i], t[(i + 1) % 3])
+            randen[e] = randen.get(e, 0) + 1
+    mesh_randen = {tuple(sorted(e.vertices)) for e in d.data.edges}
+    per_punt = {}
+    for p in d.data.polygons:
+        for v in p.vertices:
+            per_punt.setdefault(v, []).append(p)
+    soorten = {}
+    voorbeelden = 0
+    for (a, b), k in randen.items():
+        terug = randen.get((b, a), 0)
+        if k == 1 and terug == 1:
+            continue
+        in_mesh = tuple(sorted((a, b))) in mesh_randen
+        soort = f"heen{k}_terug{terug}_{'meshrand' if in_mesh else 'diagonaal'}"
+        soorten[soort] = soorten.get(soort, 0) + 1
+        if voorbeelden < n:
+            voorbeelden += 1
+            pa, pb = Vector(punten[a]), Vector(punten[b])
+            vl = [p for p in per_punt.get(a, []) if b in p.vertices]
+            info = [(len(p.vertices), len(set(p.vertices)), round(p.area / u() ** 2, 6)) for p in vl]
+            log(f"{label} DIAGNOSE {d.name}: rand {a}-{b} {soort} lengte {(pa - pb).length:.6f} mm "
+                f"punt {tuple(round(x, 4) for x in pa)} vlakken met beide punten (n, uniek, opp mm2) {info}")
+    log(f"{label} DIAGNOSE {d.name}: soorten {soorten}")
 
 
 def toets(lijst, label="3MF"):
@@ -66,6 +99,8 @@ def toets(lijst, label="3MF"):
         fout, soort = foute_randen(drie)
         bron, bron_soort = foute_randen([tuple(p.vertices) for p in d.data.polygons])
         log(f"3MF {d.name}: foute randen in 3MF {fout} {soort}, in de mesh zelf {bron} {bron_soort}")
+        if fout:
+            diagnose(d, drie, punten, label)
         stap(f"{label} {d.name}: gesloten en dezelfde draairichting (foute randen 3MF {fout}, mesh {bron})", fout == 0)
         vol = 0.0
         for a, b, c in drie:

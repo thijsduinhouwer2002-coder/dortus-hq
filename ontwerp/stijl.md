@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 18, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 19, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -65,6 +65,8 @@ Nooit:
 - Een uitkomst zonder eigen vlak (tabel, lijst) neemt de letter van het thema, niet van de skin. Test elke skin ook in het andere thema. (Versie 13, Arcane licht.)
 - Een betaalde skin is in één oogopslag anders dan de gratis, ook op een klein token: eigen materiaal (papier, licht, metaal), eigen letter, eigen vorm van crit en fumble. Alleen andere kleuren is niet genoeg om voor te betalen. Een skin houdt zijn eigen uiterlijk in licht en donker thema; het verschil met de pagina maakt hem juist mooi. (Versie 17, Thijs "skins nee" 8 nov.)
 - Geen animatie die eeuwig loopt op elk element: alleen bij wijzen of op het moment zelf (stroom, rust). (Versie 17.)
+- Een betaalde skin is een eigen wereld: een eigen **vorm** (niet alleen een afgeronde pil), een eigen **letter**, een eigen **merkteken**, een eigen **beweging** bij het rollen en een eigen plek die helemaal van de skin is (bij Rollwright de Roll log). Twee betaalde skins mogen nooit in dezelfde kleurfamilie zitten als elkaar of als de gratis skin. Toets: zet ze naast elkaar in grijs; zie je dan nog drie verschillende dingen, dan klopt het. (Versie 19, Thijs 8 nov 12:34.)
+- Een eigen letter mag ingebakken worden als kleine woff2 met alleen de tekens die nodig zijn, met een open licentie (SIL OFL) en de licentietekst erbij. Cijfers altijd recht (lining), ook in een oude letter: een 1 mag nooit op een I lijken. (Versie 19.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.
@@ -99,6 +101,7 @@ Versie 8, wat ik overneem en waarom:
 - **Dice So Nice (Foundry) en D&D Beyond**: rollen voelt echt en een crit is een feestje. Overnemen: het moment, klein en snel in de tekst. Niet: 3D en wachten.
 - **Things 3 en Linear**: elke klik geeft een kleine fijne reactie, niets beweegt zonder reden. Overnemen: indrukken, landen, nooit herhalen.
 
+- **Foundry VTT, betaalde dobbelsets (8 nov):** The Rollsmith en Norse Foundry verkopen digitale sets als "Enchanted Parchment" en "Arcane Trap", en Dice VFX is een betaalde module die alleen sporen en een landingseffect toevoegt. Overnemen: een skin is materiaal plus beweging plus landingsmoment. Wat zij missen en wij doen: het gebeurt in je notitie zelf, niet op een 3D-tafel. (Versie 19.)
 - **Excalidraw, Kanban, Fantasy Statblocks (READMEs, 8 nov):** zelfs de grootste plugins openen met een tekstregel en één kale schermafbeelding, geen poster en geen GIF. Overnemen: niets; juist daarom valt een poster met een korte kop en een GIF bovenaan bij ons op. (Versie 9.)
 
 Eerder:

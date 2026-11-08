@@ -157,3 +157,46 @@ Blijft die van run 6, maar de slotzin wordt de vaste vorm van README en ontwerp:
 
 ### Wat ik bewust niet schrijf
 "Look like nothing else in Obsidian" (staat op het plaatje van Daan) neem ik niet over in eigen tekst: dat is een bewering over alle andere plugins en thema's die we niet nagekeken hebben, en Thijs zelf vindt de twee skins nog op elkaar lijken. Via het plaatje staat de zin wel op de productpagina; dat accepteer ik bewust tot Daans volgende versie, want Thijs keurde dit plaatje. Advies 19 (b).
+
+## Bijwerking 8 nov 2026 (run 8): de listing staat live, dit is nu de tekst
+
+Door Chris. Aanleiding: Thijs 8 nov 13:04: Rollwright staat live op https://community.obsidian.md/plugins/rollwright . De lange beschrijving mocht hoogstens 1000 tekens; mijn tekst (run 6 en 7, met de alinea over de voorbeeldnotitie) was langer, en de projectchat kortte hem in tot 877 tekens.
+
+### De lange beschrijving zoals hij nu live staat (GEZIEN 8 nov met curl op de listing, 877 tekens)
+```
+Roll dice and random tables right inside your notes. Write a formula, read the result, click to roll again. Made for game masters and solo players who keep their sessions in Obsidian.
+
+Every roll is a small game piece: click it and it tumbles and lands. A natural 20 lights up gold, a natural 1 turns red. Every click goes into a Roll log, grouped by note and session, so a session reads back like a story.
+
+- Uses the `dice:` notation from Dice Roller, so most existing notes keep working.
+- Roll on your own tables, lists, sections, lines and tagged notes.
+- Keep a result with `dice+:`, or write it into the note with `dice-mod:`.
+- Keep highest, exploding, rerolls, success counting, Fudge and Genesys dice.
+- Same look in Reading view and Live Preview, in light and dark themes.
+
+All rolling is free. Optional extra skins are a one-time purchase. No account, no telemetry.
+```
+**Dit is vanaf nu de lange beschrijving.** De versies hierboven (0.2.0, run 3, run 5, run 6, run 7) zijn geschiedenis. Een nieuwe versie moet onder de 1000 tekens blijven; houd ±100 tekens ruimte voor één zin bij de nieuwe skins.
+
+### Wat de inkorting wegliet, en of dat erg is
+- De alinea over de voorbeeldnotitie ("New to it? ... Try it: create an example note ..."). Niet erg: wie de plugin opent, ziet de knop in het lege Roll log.
+- Frontmatter (`dice: 1d20 + str`) en lookup-tabellen. Jammer, want dat zijn twee echte verschillen met de kleine concurrenten (zie de tabel bovenaan), maar ze staan direct eronder in de README op dezelfde pagina. Niet de moeite van een nieuwe inlog van Thijs waard.
+- "Reduced motion" en "popular themes". Prima, details.
+
+### Drie kleine verschillen met de vaste vorm (regel "Elk product": overal hetzelfde)
+| In de listing | Vaste vorm (README, manifest 0.3.1, productpagina, lanceerberichten) |
+|---|---|
+| A natural 20 **lights up** gold, a natural 1 turns red. | A natural 20 **lands in** gold. |
+| Optional **extra** skins are a one-time purchase. | Optional skins are a one-time purchase. |
+| Korte tekst bovenaan: "... keep a history of every roll." | Manifest 0.3.1: "... keep your rolls in a Roll log." |
+
+Het derde lost zichzelf op: de korte tekst komt uit `manifest.json`, en die van 0.3.1 heeft de vaste vorm (GEZIEN in `producten/obsidian-rollwright/manifest.json`). Zodra 0.3.1 uit is en de directory de release heeft opgepikt, staat het goed. De eerste twee kan alleen Thijs veranderen met zijn login. De betekenis is gelijk (niemand wordt misleid), dus ik vraag hem dat niet apart: het staat als klein extra punt bij de lanceerberichten op zijn lijst, voor als hij toch de listing opent, bijvoorbeeld als de nieuwe skins er zijn.
+
+Voorstel, 870 tekens (de alinea's 1, 3 en 4 blijven gelijk aan wat live staat):
+- tweede alinea: `Every roll is a small game piece: click it and it tumbles and lands. A natural 20 lands in gold, a natural 1 turns red. Every click goes into a Roll log, grouped by note and session, so a session reads back like a story.`
+- slotzin: `All rolling is free. Optional skins are a one-time purchase. No account, no telemetry.`
+
+### Categorieën en plaatjes (GEZIEN op de listing en in lijst-thijs)
+- Categorieën: TTRPG, Tables, Sidebar. TTRPG staat erbij, zoals advies 1 vroeg.
+- Plaatjes: Daans poster en logboek (2400 bij 1600). Geen skins-plaatje, zoals in run 7.
+- Betaaltype: Optional payment. Klopt met de koopknop in de plugin.

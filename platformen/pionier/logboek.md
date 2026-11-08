@@ -156,3 +156,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 5, nog niet klaar. Waarom: vraag 1, 2 en 5 zijn sterk, maar betalen kan alleen buiten Canva om, de voorwaarden zijn onbekend, het scriptpubliek is nog klein (±11k) en de ingebouwde AI maakt eenvoudige scripts waardeloos. Geen controleur: advies geen ja, kerncijfers zelf gezien.
 - Les: zoek meer programma's die net gratis werden of hard groeiden en daarna een script-API openden.
 - Correctie run hierboven: de eindtijd ±12:10 was te ruim; het voorstel stond om 11:47 UTC op GitHub. Daarna snelle schifting van DeepSeek Harness en DaVinci Resolve 21.1 (beide nee). Geen tweede volledig onderzoek begonnen: geen sterke kandidaat gevonden die in de resterende tijd grondig kon (regel 0c).
+
+## Run 8 nov 2026, ±12:40 tot ±13:05 UTC (Noor)
+- Lijst was leeg; nieuw gezocht en World App mini apps gepakt. Waarom: jonge winkel (eind 2024) in een app met miljoenen gebruikers, met een makersfonds en betalen ingebouwd; leek een pionierssoort.
+- Onderzoeker (agent) vond de openbare teller van World zelf (metrics.worldcoin.org) en de lijst miniapps.world met gebruikers per app. Zelf nagekeken: stand dec 2025 en jun 2026 via het Wayback-archief en de stand van vandaag. Nieuw script `data/worldapp-meet.py`, uitkomst `data/worldapp-2026-11-08.json`.
+- Besluit: cijfer 2, nee. Waarom: het platform krimpt hard (actief per maand 7,84M naar 2,21M sinds dec 2025, verificaties staan stil, aantal mini apps daalt) en het makersgeld lijkt gestopt. Geen controleur: advies is nee en de kerncijfers zelf gezien.
+- Les: eerst zoeken naar een openbare teller van de eigenaar plus oude standen in het archief; dat schift binnen vijf minuten.
+- Aanvulling run 8 nov ±12:40: na World App snelle schifting van Supernote, TikTok Minis, Railway-templates en Antigravity (zie kandidaten.md). Geen tweede volledig onderzoek begonnen: geen sterke kandidaat die in de resterende tijd grondig kon (regel 0c). Railway doorgegeven als tip voor Vera.

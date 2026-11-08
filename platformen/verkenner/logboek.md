@@ -479,3 +479,14 @@ Nieuwste blok onderaan.
 - 11:53: tweede platform Poe (botmakers verdienen per bericht). Niet te meten: explore toont alleen officiële modellen, /search en /api/ verboden in robots.txt, geen sitemap, botpagina's tonen alleen volgers. Programma bestaat nog. Geen oordeel, in kandidaten.md gezet.
 - 11:58: derde poging CGTrader (3D-modellen). Sitemaps werken, maar elke pagina geeft 202 zonder inhoud (botuitdaging). Niet omzeild, in kandidaten.md gezet.
 - Run afgesloten.
+
+## 8 nov run 13:33 (Amsterdam)
+- Begin: lokale map stond los van een tak; main opnieuw gezet op origin/main. Berichten van Thijs: niets nieuws open.
+- Platform: CLIP STUDIO ASSETS, zelf toegevoegd. Om 13:40 op "in onderzoek" gezet en gepusht.
+- Open zoek-API gevonden in site.js (/en-us/search/ajax met published_from/to, pay en cursor). Alles opgehaald: 20.707 materialen mei t/m aug, 3.129 GOLD-items mrt t/m okt, per verkoper de geschiedenis.
+- Uitkomst: bereik het beste tot nu toe (gratis mediaan ±100, GOLD 86), maar de teller is downloads. Bruto 1,28 miljard GOLD past niet bij de jaarrekening van Celsys. GOLD alleen na screening en contract, ±65 verkopers, geen nieuwe in mei t/m aug.
+- Beslissing: nog niet klaar, cijfer 5. Controleur akkoord met de cijfers, correctie: downloads zijn geen verkopen, GOK 10 tot 50%.
+- Les: bij een winkel met eigen punten (GOLD, Clippy) altijd nagaan of de teller verkopen of downloads telt, en het bruto naast de jaarrekening van het bedrijf leggen.
+- 13:58: Max for Live (maxforlive.com) niet te meten, Cloudflare-uitdaging op elke pagina. In kandidaten.md gezet.
+- 14:00: tweede platform DLsite (alle leeftijden). Open productinfo geeft per 100 werken verkopen, prijs, datum en soort; robots.txt vraagt 10 s. 2.477 werken opgehaald. Uitkomst: nee voor nu, cijfer 3; wat wij kunnen maken (tools, materiaal) verkoopt niet, stemwerk wel. Geen controleur, tijd op; zelf nagekeken dat de teller verkopen zijn.
+- Run afgesloten.

@@ -16,12 +16,8 @@ from . import kleur as kleuren, passing, uit_elkaar, vormen
 from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
-SCHUIF_MM = 0.0137
-BODEM_MM = 1.55  # minimale bodem van deel B naast de klikopening: net boven de grens van Good fit (1,5 mm)
-# Klikopening van de kom: 0,85 keer de kogeldiameter, zodat twee los geprinte delen met wat druk
-# in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
-# Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
-OPENING = 0.85
+from .maat import SCHUIF_MM, TE_DUN, beste_maat, kies_auto, te_dicht  # noqa: F401  (maten en hoeken: maat.py)
+
 # Exact-solver: Self Intersection uit. Afwijking van het ontwerp, gemeten 8 nov in 4.2.23 en 5.2.3:
 # met use_self aan gaf dezelfde snede op de arm van 261K driehoeken open delen (zie ontwerp.md).
 # De test meet beide standen elke run opnieuw (regel EXACT_ZELF in het log).
@@ -37,48 +33,6 @@ def solver_naam():
     if bpy.app.version >= (4, 5, 0) and "MANIFOLD" in solvers:
         return "MANIFOLD"
     return "EXACT"
-
-
-def maten(inst, u, kogel_mm=None):
-    r = (inst.kogel_mm if kogel_mm is None else kogel_mm) / 2 * u
-    s = inst.speling_mm * u
-    maat = {"r": r, "s": s, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
-            "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
-    if inst.soort == "PEN":
-        maat["midden_z"] = maat["top_z"] / 2
-    else:
-        # Ronde g: bij kleine kogels (onder ±4,5 mm) was de bodem van deel B naast de klikopening altijd
-        # dunner dan 1,5 mm, dus nooit Good fit, hoe dik het figuur ook was. Zet het kogelmidden dan zo
-        # hoog dat die bodem BODEM_MM is (de nek wordt iets langer). Grote kogels blijven gelijk.
-        rk, open_r = r + s, maat["open_r"]
-        nodig = math.sqrt(max(rk * rk - open_r * open_r, 0.0)) + maat["schuif"] + BODEM_MM * u
-        maat["midden_z"] = max(maat["midden_z"], nodig)
-    return maat
-
-
-def kies_auto(inst, u, bvh, frame, breedte_mm):
-    """Automatische diameter (Daan, tussenreactie 2): de grootste kogel met Good fit.
-
-    Begint bij 0,6 keer de smalste breedte (afgerond op 0,5 mm, de bovengrens) en zakt in stappen van
-    0,5 mm tot 2 mm, tot de passing groen is (wand minstens 1,5 mm). Lukt groen nergens, dan de grootste
-    met Tight; is ook dat er niet, dan de 0,6-regel (die geeft rood en er wordt niet gesneden).
-    Geeft (diameter in mm, keuze): keuze is "goed", "krap" of "regel"."""
-    boven = passing.auto_diameter(breedte_mm)
-    kandidaten = []
-    d = boven
-    while d >= passing.AUTO_MIN_MM - 1e-9:
-        kandidaten.append(round(d, 3))
-        d -= passing.AUTO_STAP_MM
-    eerste_krap = None
-    for d in kandidaten:
-        kleur, _, _ = passing.beoordeel(bvh, frame, maten(inst, u, d), inst.soort, u)
-        if kleur == "groen":
-            return d, "goed"
-        if kleur == "oranje" and eerste_krap is None:
-            eerste_krap = d
-    if eerste_krap is not None:
-        return eerste_krap, "krap"
-    return boven, "regel"
 
 
 def kijk_regio(context):
@@ -139,6 +93,8 @@ def snij(hulp, werk, frame, maat, soort, solver):
     """Maakt deel A (met kogel of pen) en deel B (met kom of gat) in de hulpcollectie."""
     groot = max(werk.dimensions) * 2 + 20 * maat["r"]
     s = maat["s"]
+    if soort == "KOGEL" and "naad_r" in maat:
+        return snij_kogel(hulp, werk, frame, maat, solver, groot)
     boven = vormen.doos("cj_boven", groot, maat["schuif"], groot, frame, hulp)
     onder = vormen.doos("cj_onder", groot, -groot, maat["schuif"], frame, hulp)
     if soort == "KOGEL":
@@ -164,6 +120,48 @@ def snij(hulp, werk, frame, maat, soort, solver):
         kom.hide_set(True)
     b = bak(werk, "cj_b_bron", hulp)
     boolean(b, onder, "DIFFERENCE", solver)
+    boolean(b, kom, "DIFFERENCE", solver)
+    deel_b = bak(b, "cj_deel_b", hulp)
+    return deel_a, deel_b
+
+
+def snij_kogel(hulp, werk, frame, maat, solver, groot):
+    """Vorm v0.3: bolnaad om het kogelmidden, nek 0,40r, trechter onder de klikrand.
+
+    Deel A = figuur zonder (alles boven het kogelmidden en de bol naad_r + s/2), plus kogel en nek.
+    Deel B = figuur binnen (alles boven het kogelmidden of de bol naad_r - s/2), zonder kom en trechter.
+    Zo zit er in rechte stand precies de speling s tussen A en B, en draait B om het kogelmidden vrij
+    tot de nek tegen de klikrand komt."""
+    s, mz, r = maat["s"], maat["midden_z"], maat["r"]
+    vlak = mz + maat["schuif"]  # vlakke snede alleen nog buiten de bol, door het kogelmidden
+    boven = vormen.doos("cj_boven", groot, vlak, groot, frame, hulp)
+    onder = vormen.doos("cj_onder", groot, -groot, vlak, frame, hulp)
+    bol_a = vormen.bol("cj_naad_a", maat["naad_r"] + s / 2, mz, frame, hulp)
+    bol_b = vormen.bol("cj_naad_b", maat["naad_r"] - s / 2, mz, frame, hulp)
+    kogel = vormen.bol("cj_kogel", r, mz, frame, hulp)
+    nek = vormen.cilinder("cj_nek", maat["nek_r"], maat["onder_z"], mz, frame, hulp)
+    kom = vormen.bol("cj_kom", r + s, mz, frame, hulp)
+    tan = math.tan(math.radians(maat["trechter_graden"]))
+    z_lip = mz - maat["lip_d"]
+    z_top = z_lip + 0.25 * r
+    z_bodem = mz - maat["naad_r"] - s - 0.5 * r
+    trechter = vormen.kegel("cj_trechter", maat["open_r"] + (z_lip - z_bodem) * tan, maat["open_r"] - 0.25 * r * tan,
+                            z_bodem, z_top, frame, hulp)
+    a = bak(werk, "cj_a_bron", hulp)
+    boolean(a, boven, "DIFFERENCE", solver)
+    boolean(a, bol_a, "DIFFERENCE", solver)
+    boolean(a, kogel, "UNION", solver)
+    boolean(a, nek, "UNION", solver)
+    deel_a = bak(a, "cj_deel_a", hulp)
+    # Snijvormen eerst los tot één gesloten vorm (les uit de bouwproef op 4.2).
+    boolean(onder, bol_b, "DIFFERENCE", solver)
+    snij_b = bak(onder, "cj_snij_b", hulp)
+    snij_b.hide_set(True)
+    boolean(kom, trechter, "UNION", solver)
+    kom = bak(kom, "cj_snijvorm", hulp)
+    kom.hide_set(True)
+    b = bak(werk, "cj_b_bron", hulp)
+    boolean(b, snij_b, "DIFFERENCE", solver)
     boolean(b, kom, "DIFFERENCE", solver)
     deel_b = bak(b, "cj_deel_b", hulp)
     return deel_a, deel_b
@@ -243,23 +241,36 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         elif inst.kogel_auto:
             # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
             auto_noot = f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
-        maat = maten(inst, u)
-        kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
+        maat, kleur, wand, uitleg = beste_maat(inst, u, bvh, frame)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_snijpunt": list(frame @ Vector((0, 0, maat["schuif"]))),
-                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver,
-                    "cj_kogel_auto": inst.kogel_auto, "cj_auto_keuze": keuze, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
+                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_nek_r": maat["nek_r"],
+                    "cj_naad_r": maat.get("naad_r", -1.0), "cj_lip_d": maat.get("lip_d", -1.0),
+                    "cj_grens_graden": round(maat.get("grens_graden", -1.0), 2), "cj_solver": solver,
+                    "cj_hoek": maat.get("hoek", -1), "cj_kogel_auto": inst.kogel_auto, "cj_auto_keuze": keuze, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
 
+        nodig = te_dicht(bron, centrum, richting, maat, u)  # ook bij rood: te dicht is dan de echte reden
+        if nodig is not None:
+            # Regel Daan (ronde j): de bolnaad mag niet in kom of trechter van een ander gewricht komen.
+            ruim_op(hulp)
+            bron["cj_te_dicht_mm"] = nodig
+            self.report({"WARNING"}, f"Too close to another joint (keep {nodig} mm apart).")
+            return {"CANCELLED"}
         if kleur == "rood":
             ruim_op(hulp)
             teken = vormen.bol(f"{bron.name}_joint_too_thin", maat["r"] + maat["s"], maat["midden_z"], frame,
                                bron.users_collection[0])
             markeer(teken, kleur, gegevens)
             teken.display_type = "WIRE"
-            self.report({"WARNING"}, f"{passing.fit_tekst(kleur, wand)}. Nothing was cut; pick a thicker spot or a "
-                                     "smaller diameter." + auto_noot)
+            if inst.soort == "KOGEL":
+                # Regel Daan (ronde j): haalt zelfs de stand 20 graden geen Good fit en is hij rood (Too thin),
+                # dan niet snijden; Tight blijft Tight. Het rode draadteken blijft als plek-aanwijzing.
+                self.report({"WARNING"}, TE_DUN)
+            else:
+                self.report({"WARNING"}, f"{passing.fit_tekst(kleur, wand)}. Nothing was cut; pick a thicker spot "
+                                         "or a smaller diameter." + auto_noot)
             return {"FINISHED"}
 
         deel_a, deel_b = snij(hulp, werk, frame, maat, inst.soort, solver)

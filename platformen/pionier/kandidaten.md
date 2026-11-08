@@ -149,6 +149,16 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Affinity: een gratis pro-programma met miljoenen nieuwe gebruikers dat **net scripting of plugins opent** is een goede pionierssoort. Zoek meer van die soort: programma's die in 2025 of 2026 gratis werden of hard groeiden en daarna een script- of plugin-API openden (bijvoorbeeld DaVinci Resolve-scripts, Krita, Inkscape 1.4+, Penpot sloot al af, Figma Make, CapCut desktop).
 - Let bij scripting met ingebouwde AI op het risico dat eenvoudige scripts niets meer waard zijn; alleen grote, verzorgde hulpprogramma's houden waarde.
 
+## Nieuw, 8 nov 12:50 UTC (Noor)
+- World App mini apps (Tools for Humanity, mini apps in World App met World ID, betalen in WLD/USDC, Developer Rewards sinds april 2025): klaar 8 nov, cijfer 2 (nee, platform krimpt), zie onderzocht.md. Herhaalmeting hooguit per kwartaal: `python3 data/worldapp-meet.py`
+- Les: kijk bij een platform eerst of de eigenaar een openbare teller heeft (hier metrics.worldcoin.org) en haal oude standen uit het Wayback-archief (`web.archive.org/web/<datum>id_/<url>`). Dat laat binnen vijf minuten zien of het groeit of krimpt.
+
 ## Snelle schifting, 8 nov ±11:55 UTC (Noor)
 - DeepSeek Harness (AI-werkomgeving): officiële pluginwinkel en makersprogramma met tokens aangekondigd, maar er zijn al ±35.000 plugins en 1,54 miljoen dagelijkse gebruikers (DERDEN, https://technode.com/2026/11/06/deepseek-plans-official-plugin-marketplace-as-harness-daily-users-reach-1-54-million/). Al vol, AI-assistent-soort, Chinees. Nee voor de pionier.
 - DaVinci Resolve 21.1 (sept 2026): Python-scripting gaat naar de betaalde Studio-versie, AI-assistent via MCP erbij (DERDEN, https://alternativeto.net/news/2026/9/davinci-resolve-21-1-changes-scripting-and-editing-tools/). Het scriptpubliek wordt kleiner en het platform is oud. Nee.
+
+## Snelle schifting, 8 nov ±13:05 UTC (Noor)
+- Supernote (Ratta, e-ink): sinds 2026 een plugin-systeem op React Native met officiële docs (GEZIEN, https://docs.supernote.com/llms.txt), maar geen winkel, geen verspreiding en geen betalen in de docs; plugins installeer je zelf. Klein apparaat, groei onbekend. Nee voor nu; opnieuw als Ratta een pluginwinkel met betalen aankondigt.
+- TikTok Minis (mini games en mini dramas in TikTok): in-app aankopen, abonnementen en advertenties met uitbetaling, wel eerst bedrijfsverificatie (GEZIEN, https://developers.tiktok.com/docs/en/monetization-overview, bijgewerkt 25 aug 2026). Maar Minis is voor spellen en series, niet voor hulpapps, en de spelhoek is een oceaan van studio's die al mini games voor WeChat en Douyin maken. Niet voor de pionier; eventueel voor Vera als spelkanaal.
+- Railway-templates (Template Kickback: makers krijgen een deel van het gebruik van hun template; Railway meldt $1M+ uitbetaald, DERDEN, https://www.plushcap.com/content/railway/blog/railway-1-million-paid-to-developers-who-built-railway-templates): makers verdienen nu al en de winkel bestaat sinds 2023. Iets voor Vera, doorgeven.
+- Antigravity (Google, AI-editor) kreeg een pluginwinkel (DERDEN, https://antigravity.google/blog/plugin-marketplace-in-antigravity/). AI-gereedschap, zelfde soort als Cursor en Claude: waarschijnlijk vol en zonder betaalroute. Snel nakijken op betalen voor je er tijd in steekt.

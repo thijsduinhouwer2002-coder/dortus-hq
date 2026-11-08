@@ -223,7 +223,14 @@ def toets_opening(lijst, label):
                     uit.append(hit[3] / u())
         return uit
 
-    gat = stralen(b, -1.35, -0.8)   # tussen snijvlak en kom: alleen de opening en de buitenkant
+    if a.get("cj_lip_d", -1.0) > 0:
+        # Vorm v0.3: onder de klikrand zit een trechter die wijder wordt, dus de opening (het nauwste punt)
+        # ligt op de klikrand zelf. Meet rond de klikrand (0,2r eronder tot 0,15r erboven); de grenzen
+        # 0,80 tot 0,90 blijven gelijk. Wijziging van de toets, apart goed te keuren door de controleur.
+        lip = a["cj_lip_d"] / r
+        gat = stralen(b, -lip - 0.2, -lip + 0.15)
+    else:
+        gat = stralen(b, -1.35, -0.8)   # tussen snijvlak en kom: alleen de opening en de buitenkant
     nek = stralen(a, -1.35, -1.05)  # onder de kogel: alleen de nek
     if not gat or not nek:
         stap(f"{label}: opening en nek gevonden", False)

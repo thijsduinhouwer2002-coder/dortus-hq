@@ -130,7 +130,9 @@
 	background: transparent;
 	border: 0;
 	font-weight: var(--font-normal);
-	text-decoration: underline wavy var(--text-error);
+	text-decoration-line: underline;
+	text-decoration-style: wavy;
+	text-decoration-color: var(--text-error);
 }
 
 /* Free skin */
@@ -480,7 +482,7 @@ body.theme-dark {
 	.rollwright-rolled .rollwright-icon,
 	.rollwright-rolled .rollwright-value,
 	.rollwright-rolled .rollwright-icon::after {
-		animation: none !important;
+		animation: none;
 	}
 }
 
@@ -505,7 +507,7 @@ body.theme-dark {
 	position: relative;
 	display: grid;
 	grid-template-columns: auto 1fr;
-	column-gap: 0.6em;
+	gap: 0 0.6em;
 	align-items: baseline;
 	margin-bottom: var(--size-4-2);
 	padding: var(--size-4-2) var(--size-4-3);
@@ -572,7 +574,7 @@ body.theme-dark {
    een lege stempelkolom geen extra ruimte geeft; de formule houdt zelf zijn 0.6em afstand. */
 .rollwright-history-item {
 	grid-template-columns: auto auto 1fr;
-	column-gap: 0;
+	gap: 0;
 }
 
 .rollwright-history-formula {
@@ -691,7 +693,7 @@ button.rollwright-history-clear:not(.clickable-icon) {
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
-	clip-path: inset(50%);
+	opacity: 0;
 	white-space: nowrap;
 }
 
@@ -702,7 +704,7 @@ button.rollwright-history-clear:not(.clickable-icon) {
 @media (prefers-reduced-motion: reduce) {
 	.rollwright-rolled .rollwright-stamp,
 	.rollwright-rolled.rollwright-crit::after {
-		animation: none !important;
+		animation: none;
 	}
 }
 
@@ -817,7 +819,7 @@ body.rollwright-skin-arcane .rollwright-roll,
 
 @media (prefers-reduced-motion: reduce) {
 	.rollwright-roll.rollwright-rolled.rollwright-crit::before {
-		animation: none !important;
+		animation: none;
 		box-shadow: none;
 	}
 }
@@ -972,7 +974,7 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	.rollwright-roll.rollwright-rolled.rollwright-crit,
 	.rollwright-roll.rollwright-rolled.rollwright-fumble,
 	.rollwright-roll.rollwright-rolled .rollwright-stamp {
-		animation: none !important;
+		animation: none;
 	}
 }
 
@@ -1069,7 +1071,7 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 
 @media (prefers-reduced-motion: reduce) {
 	.rollwright-roll.rollwright-rolled > .rollwright-stamp {
-		animation: none !important;
+		animation: none;
 	}
 }
 
@@ -1444,7 +1446,7 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-s
 	body.rollwright-skin-arcane .rollwright-icon::before,
 	.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll,
 	.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-icon::before {
-		animation: none !important;
+		animation: none;
 	}
 }
 
@@ -2164,4 +2166,15 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-crit .r
 body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-fumble .rollwright-stamp {
 	color: #ffffff;
 	background: #b3204e;
+}
+
+/* Minder beweging (prefers-reduced-motion): nergens in Rollwright een animatie.
+   Zonder important-vlag (keuring 0.3.0): :is(body, #rollwright-rustig) telt als een id, dus deze regel wint
+   van elke regel met alleen klassen, ook van de skins. Het id hoeft niet te bestaan; body matcht. */
+@media (prefers-reduced-motion: reduce) {
+	:is(body, #rollwright-rustig) [class*="rollwright-"],
+	:is(body, #rollwright-rustig) [class*="rollwright-"]::before,
+	:is(body, #rollwright-rustig) [class*="rollwright-"]::after {
+		animation: none;
+	}
 }
