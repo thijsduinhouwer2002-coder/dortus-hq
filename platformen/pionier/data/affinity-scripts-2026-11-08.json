@@ -1,0 +1,109 @@
+{
+ "datum": "2026-11-08",
+ "registry_last_updated": "2026-11-02",
+ "scripts": 185,
+ "makers": 76,
+ "categorieen": [
+  [
+   "Object",
+   77
+  ],
+  [
+   "Text",
+   20
+  ],
+  [
+   "Effect",
+   16
+  ],
+  [
+   "Color",
+   15
+  ],
+  [
+   "Artboards",
+   11
+  ],
+  [
+   "Layer",
+   11
+  ],
+  [
+   "Export",
+   10
+  ],
+  [
+   "Generator",
+   10
+  ],
+  [
+   "Layout",
+   5
+  ],
+  [
+   "Print",
+   4
+  ],
+  [
+   "Other",
+   2
+  ],
+  [
+   "Path",
+   2
+  ],
+  [
+   "Utility",
+   1
+  ],
+  [
+   "color",
+   1
+  ]
+ ],
+ "top_makers": [
+  [
+   "Erhard Otto",
+   27
+  ],
+  [
+   "BlackMortimer-13",
+   23
+  ],
+  [
+   "WaveF",
+   12
+  ],
+  [
+   "JiriKrblich",
+   10
+  ],
+  [
+   "Nic Kraneis",
+   6
+  ],
+  [
+   "hellsfaun",
+   6
+  ],
+  [
+   "rbonelli",
+   4
+  ],
+  [
+   "Victor Crespo (3dvic · github.com/vicc3d)",
+   4
+  ],
+  [
+   "olliollio",
+   4
+  ],
+  [
+   "wcpone",
+   4
+  ]
+ ],
+ "manager_sterren": "288",
+ "manager_downloads": "11k",
+ "registry_sterren": "74"
+}

@@ -143,4 +143,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Tips om te schiften in een volgende run (nieuws okt 2026, zoekresultaten, niet gelezen): Apple opende de nieuwe Siri-AI voor ontwikkelaars, apps mogen het pas in het voorjaar uitbrengen (DERDEN, https://www.eweek.com/news/apple-siri-ai-developer-preview/); iPhone Duo (vouwbaar, nieuwe schermvorm, https://www.apple.com/newsroom/2026/10/developers-bring-incredible-new-app-experiences-to-iphone-duo/). Beide liggen in de oceaan van iOS; alleen interessant als er een aparte, nieuwe plek is om gevonden te worden (zoals een Siri-gallery).
 
 ## Nieuw, 8 nov 11:45 UTC (Noor)
-- Affinity by Canva, scripts (Scripting Studio sinds Affinity 3.3, sept 2026; Affinity zelf gratis sinds okt 2025): in onderzoek 8 nov 11:45 UTC
+- Affinity by Canva, scripts (Scripting Studio sinds Affinity 3.3, sept 2026; Affinity zelf gratis sinds okt 2025): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md. Herhaalmeting rond 8 dec: `python3 data/affinity-scripts-meet.py`
+
+## Voor de volgende run, 8 nov ±12:10 UTC (Noor)
+- Les uit Affinity: een gratis pro-programma met miljoenen nieuwe gebruikers dat **net scripting of plugins opent** is een goede pionierssoort. Zoek meer van die soort: programma's die in 2025 of 2026 gratis werden of hard groeiden en daarna een script- of plugin-API openden (bijvoorbeeld DaVinci Resolve-scripts, Krita, Inkscape 1.4+, Penpot sloot al af, Figma Make, CapCut desktop).
+- Let bij scripting met ingebouwde AI op het risico dat eenvoudige scripts niets meer waard zijn; alleen grote, verzorgde hulpprogramma's houden waarde.
