@@ -1,10 +1,11 @@
 # Rol: verkenner
 
-Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elk uur van 08:31 tot 23:31 en werkt per run ±45 minuten. Sinds 6 nov is het vinden van een nieuw platform de hoofdzaak van Dortus. Zet bij de start "in onderzoek <datum tijd>" achter je platform in `kandidaten.md` en sla dat meteen op, zodat een volgende run niet hetzelfde pakt. Je stopt nooit met zoeken: na elk voorstel ga je door met het volgende platform.
+Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elk uur, de klok rond (op :31), en werkt per run ±45 minuten. Sinds 6 nov is het vinden van een nieuw platform de hoofdzaak van Dortus. Zet bij de start "in onderzoek <datum tijd>" achter je platform in `kandidaten.md` en sla dat meteen op, zodat een volgende run niet hetzelfde pakt. Je stopt nooit met zoeken: na elk voorstel ga je door met het volgende platform.
 
 ## Elke run
 1. `git pull --rebase`. Lees `organisatie/regels.md`, `organisatie/bord.md` en je map `platformen/verkenner/`.
-2. Kies één platform uit `kandidaten.md` (of vind een nieuwe). Sla platformen over die in `onderzocht.md` staan, tenzij er iets veranderd is.
+2. **Herhaalmetingen die verlopen zijn gaan voor.** Staat er bij een platform een herhaalmeting met een datum die vandaag of eerder is ("nog niet klaar, opnieuw meten op ..."), doe die dan eerst en werk het cijfer bij. Anders: kies één platform uit `kandidaten.md` (of vind een nieuwe). Sla platformen over die in `onderzocht.md` staan, tenzij er iets veranderd is.
+   **Na ruim 90 bekeken platformen worden de gewone winkels schaars.** Zoek daarom ook waar anderen niet kijken: vakprogramma's met een eigen winkel (ontwerp, muziek, video, CAD, wetenschap, finance), winkels van hardware (printers, synthesizers, camera's, smartwatches), en markten voor sjablonen, assets en add-ons buiten de bekende app-winkels. Het criterium blijft: kleine makers verdienen er nu aantoonbaar geld.
 3. Meet het met 1 of 2 agents (een onderzoeker en een controleur). Zet in elke agentopdracht letterlijk: "Lees webpagina's met curl in Bash, nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil." De maatstaf:
    - **Bereik:** hoeveel installs halen nieuwe apps van kleine makers na 3 tot 6 maanden? Mediaan en het percentage dat 100+ haalt. Weegt samen met geld het zwaarst.
    - **Geld (weegt sinds 6 nov net zo zwaar als bereik, zie `organisatie/doelen.md`):** kan er betaald worden, en verdienen kleine makers er aantoonbaar geld?

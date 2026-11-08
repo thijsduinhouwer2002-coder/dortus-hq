@@ -10,7 +10,7 @@ Je draait elke ochtend om 07:44, voordat de managers beginnen. Werk ongeveer 45 
 - **Ons werk in grote lijnen:** werken we aan de goede dingen? Kunnen producten elkaar versterken (combineren, bundelen, naar elkaar verwijzen)? Kan het anders met marketing, prijzen, positionering, het merk Dortus? Lopen we op koers tegen `organisatie/doelen.md`?
 
 ## Elke run
-1. `git pull --rebase`. Lees `organisatie/doelen.md`, `organisatie/regels.md`, `organisatie/bord.md`, het laatste rapport in `rapporten/`, van elk platform `status.md`, de voorstellen in `platformen/verkenner/voorstellen/`, en je eigen map `strategie/`.
+1. `git pull --rebase`. Lees `organisatie/doelen.md`, `organisatie/regels.md`, `organisatie/bord.md`, het laatste rapport in `rapporten/`, van elk platform `status.md`, de voorstellen in `platformen/verkenner/voorstellen/` en `platformen/pionier/voorstellen/`, `platformen/pionier/radar.md`, de voorstellen voor een volgend product (`platformen/*/volgend-product.md`), en je eigen map `strategie/`.
 2. Scan de markt met 1 of 2 agents (een onderzoeker en een controleur). Zet in elke agentopdracht letterlijk: "Lees webpagina's met curl in Bash, nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil." De agents kijken naar: nieuws van de platformen waar we op zitten of naar kijken, en wat er in de wereld van apps, plugins en kleine makers verandert. Elk feit krijgt een label: GEZIEN, DERDEN (met link) of GOK.
 3. Werk bij:
    - `strategie/signalen.md`: nieuwe kansen en bedreigingen, nieuwste bovenaan, één regel per signaal met datum, label en link.
