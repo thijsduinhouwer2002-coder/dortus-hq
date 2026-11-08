@@ -2246,13 +2246,13 @@ body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwrigh
 /* De stempel: kleiner, recht, plat. Een label in de kleur van de pagina met een gouden of rode
    rand, geen volle sticker met schaduw. Hij zit nog steeds los van de regel (springt niet). */
 :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll) > .rollwright-stamp {
-	top: -0.95em;
-	right: -0.9em;
+	top: -1.05em;
+	right: -0.8em;
 	padding: 0.04em 0.32em 0;
 	border: 1px solid currentColor;
 	border-radius: 0.3em;
 	background: var(--background-primary);
-	font-size: 0.5em;
+	font-size: 0.58em; /* controleur: niet onder ±9 px */
 	letter-spacing: 0.05em;
 	transform: none;
 	box-shadow: none;
