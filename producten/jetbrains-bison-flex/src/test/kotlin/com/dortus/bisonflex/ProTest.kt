@@ -131,7 +131,7 @@ class ProTest : BasePlatformTestCase() {
         assertEquals(1, meldingen.size)
         val m = meldingen.single()
         assertEquals("Bison & Flex Pro", m.title)
-        assertEquals(ProMelding.TEKST, m.content)
+        assertEquals("Jumping from calc.l to calc.y is a Pro feature, free to try for 30 days.", m.content)
         assertEquals(listOf("Start free trial", "Not now"), m.actions.map { it.templateText })
         assertEquals(0, ProMelding.getInstance().aantalHints())
         // Tweede en derde klik: geen sprong, geen tweede balloon, wel elke keer de korte hint.
