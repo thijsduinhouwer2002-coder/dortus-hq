@@ -34,6 +34,8 @@ jobs:
           /tmp/blender/blender --version | head -1
       - name: Add-on inpakken
         run: bash e2e/maak_zip.sh
+      - name: Extensie-zip valideren (zoals extensions.blender.org)
+        run: /tmp/blender/blender --command extension validate /tmp/dortus_proef.zip
       - name: Test zonder scherm (laden, aanzetten, knop)
         run: /tmp/blender/blender -b --factory-startup --python e2e/test_achtergrond.py -- /tmp/dortus_proef.zip
       - name: Schermafbeeldingen met de echte interface
@@ -49,8 +51,11 @@ jobs:
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
           ls -la /tmp/bu/config || true
           timeout 180 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
-            /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
+            /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip 2>&1 | tee /tmp/schermen.log || true
           ls -la e2e/screenshots/${{ matrix.blender }} || true
+          # Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
+          grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Dortus niet actief"; exit 1; }
+          for f in 1-paneel-x.png 2-na-klik-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

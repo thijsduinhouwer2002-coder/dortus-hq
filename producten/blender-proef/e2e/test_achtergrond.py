@@ -20,7 +20,7 @@ try:
     namen = [a.module for a in bpy.context.preferences.addons]
     print(f"[dortus-e2e] aan: {namen}")
     stap("add-on staat aan", any(n.endswith("dortus_proef") for n in namen))
-    stap("operator bestaat", hasattr(bpy.ops.dortus, "hallo"))
+    stap("operator bestaat", "hallo" in dir(bpy.ops.dortus))
     stap("paneel geregistreerd", hasattr(bpy.types, "DORTUS_PT_paneel"))
     bpy.ops.dortus.hallo()
     stap("knop zet vlag", bool(bpy.context.scene.get("dortus_hallo")))

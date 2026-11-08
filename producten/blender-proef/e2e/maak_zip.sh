@@ -3,5 +3,5 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -f /tmp/dortus_proef.zip
-(cd dortus_proef && zip -qr /tmp/dortus_proef.zip . -x '__pycache__/*')
+(cd dortus_proef && zip -qr /tmp/dortus_proef.zip . -x '*__pycache__*')
 echo /tmp/dortus_proef.zip
