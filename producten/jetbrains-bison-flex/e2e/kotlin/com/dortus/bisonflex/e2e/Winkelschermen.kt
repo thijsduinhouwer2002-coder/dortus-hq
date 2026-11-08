@@ -168,7 +168,7 @@ private fun IdeTest.winkelHernoemen(d: Driver, naam: String, diagnose: Meldingen
     println("DORTUS-E2E [$naam] winkel: calc.l na hernoemen (${tekstL.length} tekens): ${tekstL.lines().filter { "NUM" in it }.map { it.trim() }}")
     assertTrue("return NUMBER;" in tekstL, "return NUMBER; in calc.l na hernoemen met Pro ($naam)")
 
-    // calc.l links, calc.y rechts.
+    // calc.l en calc.y naast elkaar (welke links staat maakt voor Daan niet uit, beoordeling 13).
     var gesplitst = false
     try {
         invokeAction("SplitVertically")
@@ -184,21 +184,21 @@ private fun IdeTest.winkelHernoemen(d: Driver, naam: String, diagnose: Meldingen
         beeld.forEach { println("DORTUS-E2E [$naam] winkel in beeld: $it") }
         val l = beeld.firstOrNull { it.startsWith("calc.l ") && "return NUMBER;" in it }
         val y = beeld.firstOrNull { it.startsWith("calc.y ") && "'%token NUMBER'" in it && "'NUMBER'" in it }
-        gesplitst = l != null && y != null && xVan(l) < xVan(y)
-        println("DORTUS-E2E [$naam] winkel: calc.l links en calc.y rechts met de drie regels in beeld: $gesplitst")
+        gesplitst = l != null && y != null && xVan(l) != xVan(y)
+        println("DORTUS-E2E [$naam] winkel: calc.l en calc.y naast elkaar met de drie regels in beeld: $gesplitst (calc.l x=${l?.let { xVan(it) }}, calc.y x=${y?.let { xVan(it) }})")
         scherm("winkel-hernoemd.png")
     } catch (e: Throwable) {
         println("DORTUS-E2E [$naam] winkel: splitsen mislukt: ${e.javaClass.simpleName}: ${e.message?.take(300)}")
     } finally {
         try { invokeAction("UnsplitAll") } catch (e: Throwable) { println("DORTUS-E2E [$naam] winkel: UnsplitAll: ${e.javaClass.simpleName}") }
         Thread.sleep(1_000)
-        for (b in listOf("calc.l", "calc.y")) {
+        for (b in listOf("calc.l", "calc.ll", "calc.y")) {
             openFile(b)
             Thread.sleep(1_000)
             println("DORTUS-E2E [$naam] winkel: $b terug naar NUM (${herstel(diagnose)} keer vervangen)")
         }
     }
-    assertTrue(gesplitst, "calc.l links en calc.y rechts met return NUMBER;, %token NUMBER en NUMBER in beeld ($naam)")
+    assertTrue(gesplitst, "calc.l en calc.y naast elkaar met return NUMBER;, %token NUMBER en NUMBER in beeld ($naam)")
 }
 
 private fun IdeTest.winkelMelding(d: Driver, naam: String, diagnose: MeldingenDiagnoseOpAfstand) = with(d) {
