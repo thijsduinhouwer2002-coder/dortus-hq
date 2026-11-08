@@ -11,6 +11,7 @@ const LIVE = ".markdown-source-view";
 const ZWS = String.fromCharCode(0x200b);
 // Zelfde vorm als SUMMARY in tests/narrative-widget.test.ts.
 const SAMENVATTING = /^(No result|((\d+ (Success|Failure|Advantage|Threat|Triumph|Despair|Light|Dark))(, )?)+)$/;
+// Leest de worpen op volgorde (w[0] tot w[4]); de volgorde in Narratief.md dus niet veranderen.
 const AANTAL = 5;
 
 async function open(mode) {
@@ -67,6 +68,7 @@ for (const [naam, mode, view] of [["lezen", "preview", LEZEN], ["Live Preview", 
 			const w = await wacht(view);
 			console.log(`${naam}: ${JSON.stringify(w)}`);
 			expect(w[2].tekst).toMatch(/^(No result|((\d+ (Light|Dark))(, )?)+)$/);
+			expect(w[1].tekst).not.toMatch(/Light|Dark/);
 			expect(w[3].reden).toContain("P is ambiguous");
 			expect(Number(w[4].tekst)).toBeGreaterThanOrEqual(2);
 			expect(Number(w[4].tekst)).toBeLessThanOrEqual(12);
