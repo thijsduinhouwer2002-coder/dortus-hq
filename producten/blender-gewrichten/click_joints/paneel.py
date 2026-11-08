@@ -52,7 +52,10 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap.label(text="3  Fit and export", icon="EXPORT")
         kleur = ob.get("cj_passing") if ob else None
         if kleur:
-            stap.label(text=passing.fit_tekst(kleur, ob.get("cj_wand_mm", -1.0)), icon=passing.ICONEN[kleur])
+            hoofd, _, reden = passing.fit_tekst(kleur, ob.get("cj_wand_mm", -1.0)).partition(" (")
+            stap.label(text=hoofd, icon=passing.ICONEN[kleur])
+            if reden:  # op een eigen regel, anders kapt Blender de tekst af
+                stap.label(text=reden.rstrip(")").capitalize(), icon="BLANK1")
             if ob.get("cj_wand_mm", -1.0) >= 0:
                 stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm")
             if "cj_speling_gemeten_mm" in ob:
@@ -62,7 +65,8 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap.prop(inst, "exportmap")
         tip = exporteer.hint(context.scene)
         if tip:
-            stap.label(text=tip, icon="INFO")
+            for i, regel in enumerate(tip.split(" next to ")):
+                stap.label(text=regel if i == 0 else "next to " + regel, icon="INFO" if i == 0 else "BLANK1")
         grote_knop(stap, "click_joints.exporteer", "Export STL", "FILE_3D")
 
 
