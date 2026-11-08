@@ -90,3 +90,7 @@ Tak `ontwerp/rollwright-skins7` = `ontwerp/rollwright-skins6` plus `src/styles/1
 - **Gebouwd:** bij de betaalde tegels geen ruimte meer voor een sticker, worpen 0,9 keer zo groot en dichter bij elkaar; aantekening op het papier. Run 42511234264: alles binnen de tegel, in licht en donker; aantekening liep nog over de gescheurde rand. Kleiner en lager geprobeerd (run 42511624655): onleesbaar en over het getal, dus teruggezet naar de stand van run 42511234264 (8a54566d). Besloten: de aantekening mag over de rand lopen, het is handschrift in de kantlijn.
 - **Rood in de test is verwacht:** `skin-tegels.e2e.mjs` eist nog een sticker "NAT 20" in een vak bij elke skin; in skins v3 hebben de betaalde skins hun eigen slot. Die toets past Olaf aan als hij skins v3 bouwt (niet nu).
 - **Nog open:** licht thema en populaire thema's van beide skins, gouden ring om het icoon per skin (kan), Classic-stempel na het getal (Olaf 0.3.3), daarna het plaatje voor Thijs. Geen haast: gebruikers eerst (Thijs 14:58).
+
+## Thema's (Daan, 8 nov 19:55 UTC, tak `ontwerp/rollwright-skins8`)
+
+Spec `e2e/ontwerp/thema-v3.e2e.mjs`, run 42516007213 (GEZIEN): Parchment en Arcane werken in standaard licht en donker, Minimal, AnuPpuccin, Things en Border. Na de controleur twee CSS-fixes in `11-skins-v3-slot.css` (f5546894): rode aantekening in donker `#f26b5e`, ijsster in licht `#0b5a85`. Open: eigen fumble-slot per betaalde skin (NAT 1 is nog de gedeelde pil), worp midden in een lange alinea testen, dan plaatje voor Thijs en klus bij Olaf.
