@@ -46,6 +46,22 @@ function check(rolls, view) {
 	expect(GERUCHTEN).toContain(rolls[5].value);
 }
 
+/**
+ * Hoeveel breder het label "Wisdom save: " is dan zijn tekst zonder de spatie aan het eind. Rond 0 als de
+ * spatie wegvalt (lezen); een spatiebreedte als hij blijft staan naast de gap (de dubbele ruimte, Daan ronde 6).
+ */
+async function spatieNaLabel(view) {
+	return browser.execute((sel) => {
+		const label = Array.from(document.querySelectorAll(`${sel} .rollwright-label`)).find((l) => (l.textContent ?? "").startsWith("Wisdom save"));
+		const node = label?.firstChild;
+		if (!label || !node) return -1;
+		const range = document.createRange();
+		range.setStart(node, 0);
+		range.setEnd(node, (node.textContent ?? "").trimEnd().length);
+		return label.getBoundingClientRect().width - range.getBoundingClientRect().width;
+	}, `${LEAF} ${view}`);
+}
+
 async function actieveNotitie() {
 	return browser.executeObsidian(({ app }) => app.workspace.getActiveFile()?.path ?? "");
 }
@@ -81,6 +97,9 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 			await leaf.setViewState({ ...leaf.getViewState(), state: { ...leaf.getViewState().state, mode: "preview" } });
 		});
 		check(await waitForRolls(".markdown-reading-view", 6), "lezen");
+		const spatie = await spatieNaLabel(".markdown-reading-view");
+		console.log("SPATIE NA LABEL lezen:", spatie);
+		expect(spatie >= 0 && spatie < 1.5).toBe(true);
 		const tip = await browser.execute((sel) => document.querySelector(`${sel} .markdown-reading-view .callout[data-callout="tip"]`) !== null, LEAF);
 		expect(tip).toBe(true);
 		await browser.saveScreenshot(`${SHOTS}/voorbeeld-lezen.png`);
@@ -92,6 +111,9 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 			await leaf.setViewState({ ...leaf.getViewState(), state: { ...leaf.getViewState().state, mode: "source", source: false } });
 		});
 		check(await waitForRolls(".markdown-source-view.is-live-preview", 6), "Live Preview");
+		const spatie = await spatieNaLabel(".markdown-source-view.is-live-preview");
+		console.log("SPATIE NA LABEL Live Preview:", spatie);
+		expect(spatie >= 0 && spatie < 1.5).toBe(true);
 		await browser.saveScreenshot(`${SHOTS}/voorbeeld-live.png`);
 	});
 

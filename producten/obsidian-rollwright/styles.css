@@ -31,6 +31,12 @@
 	font-weight: var(--font-normal);
 }
 
+/* Live Preview: .cm-line has white-space: pre-wrap, so the space after "Hit:" stayed next to the gap of
+   the token and showed double ("Hit:  9"). With normal it falls away at the end of the item, as in reading. */
+.cm-line .rollwright-roll .rollwright-label {
+	white-space: normal;
+}
+
 .rollwright-value p {
 	display: inline;
 	margin: 0;
