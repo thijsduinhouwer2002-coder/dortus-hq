@@ -24,3 +24,7 @@
 - Obsidian eerst: bericht Thijs 23:03 (rustige poster en GIF in de README) uitgevoerd en scan 0.3.2 gelezen; zie het logboek van Obsidian.
 - Ronde 4 Resin2FDM met onderzoeker. Betaalbewijs zwak: volledige versie klein eenmalig bedrag (vanaf $2, GOK) en daarna altijd bijgewerkt (FAQ, zelf nagelezen), TrestleFDM 3 reviews (zelf nagemeten). Reddit, Patreon, MyMiniFactory, Cults3D gaven 403; niet omzeild.
 - Besluit: geen voorstel aan Hans. Waarom: het geld zit in modellen en in een maker met eigen publiek, en tegen gratis plus een klein eenmalig bedrag maakt een betaalde add-on geen kans.
+
+## 8 nov 23:14 tot 23:58 UTC (Olaf)
+- Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron (wachten op 22 nov en ±6 dec). Niets zinvols op Blender deze run (regel 0c); tijd naar Rollwright (kan-punt van Daan).
+
