@@ -544,3 +544,8 @@ Nieuwste blok onderaan.
 - Uitkomst: nog niet klaar, cijfer 5. Waarom: beste pasvorm met de koers (abonnement, geen afdracht, solo-maker $4.091 MRR), maar bereik niet te meten en de weg naar de Marketplace duurt maanden; haalt het tussendoel van 20 dec niet.
 - Controleur: tellingen kloppen; 2 correcties verwerkt (drempel 10 werkruimtes of 20 gebruikers; rate limit alleen voor apps die berichten lezen).
 - Run afgesloten.
+- Na afsluiten toch nog tijd over (run duurde pas ±20 minuten), dus derde platform: Miro (apps), om 18:53 op "in onderzoek" gezet en gepusht.
+- Eigen meting: de marketplace-pagina bevat alle 224 apps met gebruikersteller, betaaltype en maker. Uitkomst: nee, cijfer 3. Waarom: nieuwe apps van andere makers halen mediaan 19 gebruikers, Miro's eigen apps nemen 93% van het bereik, geen kassa en geen bedrag van een maker.
+- Controleur vond een fout in mijn script (appKey van letters viel weg, 53 apps gemist). Gerepareerd en opnieuw geteld; oordeel blijft 3.
+- Les: test een regex op de hele pagina door het aantal treffers te vergelijken met een ruwe telling (bijvoorbeeld het aantal keer "usageCount").
+- Run afgesloten.
