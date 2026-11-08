@@ -1,4 +1,6 @@
-Akkoord: ja 8 nov 2026 05:27, voor versie 0.3.0 (plugin) op main 34fb94d, en voor de README met het nieuwe begin uit `ontwerp/rollwright/README-voorstel.md` en de vier plaatjes uit `ontwerp/rollwright/`. Uitbrengen in de eigen repo mag; **aanmelden bij community.obsidian.md pas als Thijs "plaatjes ja" heeft gezegd** (besluit Thijs 7 nov, zijn punt staat op `organisatie/lijst-thijs.md`). Zegt hij nee, dan pas ik README en plaatjes aan voor de aanmelding. Zie beoordeling 9.
+Akkoord: ja 8 nov 2026 11:40, voor versie 0.3.1 (plugin, skins v2 ronde f, README en manifest) op main 370d8942 en c5f33c5d (daarna alleen e2e-tests en OPEN.md). Gezien in de echte Obsidian: e2e main run 42475293918 (ff3f5e09, zelfde src) en mijn ontwerptest run 42475770304 op tak `ontwerp/rollwright-031`. Uitbrengen mag. Zie beoordeling 10.
+
+Oud: Akkoord: ja 8 nov 2026 05:27, voor versie 0.3.0 (plugin) op main 34fb94d, en voor de README met het nieuwe begin uit `ontwerp/rollwright/README-voorstel.md` en de vier plaatjes uit `ontwerp/rollwright/`. Uitbrengen in de eigen repo mag; **aanmelden bij community.obsidian.md pas als Thijs "plaatjes ja" heeft gezegd** (besluit Thijs 7 nov, zijn punt staat op `organisatie/lijst-thijs.md`). Zegt hij nee, dan pas ik README en plaatjes aan voor de aanmelding. Zie beoordeling 9.
 
 Oud: Akkoord: nee 8 nov 2026 04:45 (stand: klus 0 tot 9 gekeurd en goed, wacht op klus 10 en de afgemaakte GIF; plaatjes en README bij Thijs). Eerder: nee 7 nov 2026 22:40, voor de aanmelding bij community.obsidian.md en voor 0.3.0, omdat het niet opvalt: netjes maar zonder eigen gezicht, geen gevoel bij een klik, de geschiedenis een grijze lijst (de nieuwe lat van Thijs, 7 nov 22:05). Plan en klussen in `ontwerp-v2.md`. Versie 0.2.0 staat al uit; dat laat ik zo, het werkt en heeft geen fouten.
 
@@ -234,3 +236,18 @@ Controleur (agent): eens, geen moet-punten. Kan-punten, die ik als klus 11 bij O
 Antwoord op Olafs vraag over "Roll again" op een oud logboekitem: gooi met `entry.source` (de notitie waar de worp vandaan kwam, met haar frontmatter), als die notitie nog bestaat; anders met de open notitie. Waarom: de kaart staat onder de naam van die notitie, dus de gebruiker verwacht dat hij daar opnieuw gooit.
 
 **Olaf, 8 nov 06:42 UTC:** klus 11 op main (e2e groen 18 van 18). Vaste waarde toont het getal een keer; "Roll again" gooit met `entry.source` zolang die notitie bestaat. Jouw punt 1 kwam uit nep-invoer in `logboek.e2e.mjs` (`dice: [[Herberg]]^tabel`, een vorm die de plugin nooit opslaat); die is nu `[[Herberg^tabel]]` en de kaart toont "Herberg, tabel". Wil je `l1-logboek` en `l1-logboek-tekst` van de volgende main-run bekijken? Punt 3 (worp binnen een tabeluitkomst) staat nog open. 0.3.0 is uitgebracht om 06:25 UTC.
+
+## Beoordeling 10, 8 nov 2026 11:40 (versie 0.3.1, main 370d8942, runs 42475293918 en 42475770304)
+
+Bekeken in de echte Obsidian: de schermen van main (voorbeeldnotitie, secties, crit en fumble, skin-tegels licht en donker) en mijn eigen ontwerptest `e2e/ontwerp/skins4.e2e.mjs` op 0.3.1 (alle drie de skins, licht en donker, notitie, vol en zoom 2.0). Controleur (agent) keek dezelfde plaatjes en de verschillen na: ja, geen moet-punten.
+
+### Wat goed is
+1. **De skins zijn letterlijk ronde f.** `styles.css` en `src/styles/` zijn gelijk aan 1bea07c2. Parchment (oud papier, rode inkt, lakzegel) en Arcane (nachthemel, lichtrand, gouden 20 op paars) zijn in één oogopslag anders dan Classic, in notitie en tegels.
+2. **Punt 3 van beoordeling 9 is opgelost.** Een dice-code in een getrokken sectie staat nu als gewone tekst ("met een worp 1d6 erin"), geen ruwe code meer die op een fout lijkt. In lezen en Live Preview.
+3. **Voorbeeldnotitie** rolt met `[[#^guests]]` en `[[#^rumours]]`; blijft werken als je de notitie hernoemt.
+4. **Gratis en betaald overal gelijk:** README regel 7 ("All rolling is free. Optional skins are a one-time purchase."), Paid skins onderaan, instellingen ("One payment, yours to keep"). De korte tekst in manifest.json noemt geen geld; goed zo.
+
+### Kan beter (geen voorwaarde, voor Olaf in 0.3.x)
+1. README regel 127 zegt nog "it shows as plain code". Wordt: "it shows as plain text, like 1d6."
+2. Het zijpaneel toont "Try it: create an example note" terwijl de voorbeeldnotitie al bestaat en open is. Als de notitie bestaat: knop "Open the example note".
+

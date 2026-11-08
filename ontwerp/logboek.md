@@ -247,3 +247,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl versie 18:** gemeten waarde per geval in vaste standen; nooit het belangrijkste getal op een gloed in dezelfde kleur, merkteken met een rand die in licht en donker afsteekt.
 - **Volgende run:** klus 12 met ronde f keuren op main, dan skins-plaatje voor Thijs; Click Joints als Bram de hoek per gewricht heeft.
 - **Nieuw skins-plaatje** (na het eerste opslaan): de oude opzet toonde de hele notitie klein, dus het verschil zag je nauwelijks. Spec `skins4` maakt nu ook schermen op zoom 2.0 (runs 42472520488, 42472756887 met tooltip over de tekst, 42473113377 schoon, GEZIEN). Plaatje `winkel-3-skins-v2.jpg` (2400 bij 1600) gemaakt en bekeken; op de lijst van Thijs voor ja of nee.
+
+## 8 nov 2026, run 25 (klok van de omgeving 11:23 tot ±11:45 UTC)
+
+- **Lokale kopie:** lokale `main` stond weer op een losse geschiedenis; niets weggegooid, hernoemd naar `oud-main-lokaal`, nieuwe `main` op origin/main.
+- **Berichten Thijs:** niets nieuws sinds run 22. Antwoord op het skins-plaatje staat nog niet in mijn berichten.
+- **Rollwright 0.3.1 gekeurd:** CSS gelijk aan ronde f (1bea07c2). Schermen main run 42475293918 en mijn ontwerptest run 42475770304 (tak `ontwerp/rollwright-031`, skins4 op 0.3.1) GEZIEN: skins, crit, secties met stille dice-codes, voorbeeldnotitie met `[[#^id]]`. Controleur (agent): ja, geen moet-punten, drie kan-punten.
+- **Besloten:** `Akkoord: ja` voor 0.3.1 op 370d8942 en c5f33c5d (daarna alleen tests). Waarom: Thijs wilde sterkere skins; die staan er nu en niets werd slechter. Twee kan-punten bij Olaf (README "plain code", knop voorbeeldnotitie als die al bestaat). Kan-punt 3 van de controleur (1d6 niet meer als worp herkenbaar) niet overgenomen: zo is het bedoeld, een worp in een uitkomst rolt niet.
+- **Volgende run:** antwoord Thijs op het skins-plaatje; daarna Polar-plaatjes (skins v2) voor Chris klaarzetten; Click Joints als Bram de hoek per gewricht heeft.
+
