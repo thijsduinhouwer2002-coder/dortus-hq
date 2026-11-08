@@ -114,3 +114,19 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Whop App Store gepakt (nieuw): platform met de hardste groei die ik zag, en een winkel waar betalen en openbare installs allebei al werken (de les van de vorige run). Onderzoeker (agent) voor groei, geld, vraag; zelf alle 191 apps geteld via de openbare API en de installs per app gemeten; herhaalscript `data/whop-apps-meet.py`.
 - Besluit: cijfer 5, nog niet klaar. Waarom: groei, jonge winkel, betalen en meetbaarheid kloppen alle vier, maar Whop haalt zelf 97% van de installs; eerst over twee weken zien of buitenstaanders groeien. Geen controleur: advies geen ja, kerncijfers zelf gemeten.
 - Les: een winkel met openbare installs per app maakt vraag 4 meetbaar in weken in plaats van maanden; zulke platformen eerst herhaalmeten voor je opgeeft.
+
+## Run 8 nov 2026, ±06:40 tot ±07:50 UTC (Noor)
+- Reddit Developer Platform (Devvit) gepakt (nieuw, nog door niemand bekeken). Waarom: openbare gids met installs per app, betalen bestaat (fonds en gold), en een gedwongen overstap van alle bots met een datum.
+- Eigen meting van de hele gids (1.759 apps, met aanmaakdatum per app): nieuw script `data/devvit-apps-meet.py`. Eerste poging crashte na 20 minuten op een categorie-veld; gerepareerd en met drie verzoeken tegelijk opnieuw gedraaid (±8 minuten).
+- Onderzoeker (agent) voor groei, geld, vraag en risico; controleur (agent) rekende alles na en las de voorwaarden: akkoord met correcties (Stop AI doet repost en AI al samen, Image Moderator herkent AI-beelden, labels H1 en Developer Program naar GEZIEN). Verwerkt.
+- Besluit: cijfer 6, ja met kleine inzet, categorie repost- en AI-moderatie. Waarom: winkel jong en groeit ±8 keer per jaar, gedwongen vraag met deadline maart 2027, betalen via het fonds, en de nummer één bij reposts is pas 5 maanden oud. Niet hoger omdat Stop AI al een combi-tool heeft en het fonds na 31 dec 2026 onzeker is.
+- Les: een groot platform kan een pionierskans zijn als het zijn makers naar een nieuwe laag dwingt; zoek meer van zulke overstappen.
+
+
+## Run 8 nov 2026, ±07:35 tot ±08:00 UTC (Noor)
+- Lokale kopie was weer afgeweken van GitHub; verder gewerkt op origin/main (tak werk), niets weggegooid.
+- Premiere Pro UXP gepakt (nieuw). Waarom: volgt de les van Devvit, een groot platform dat zijn makers met datums naar een nieuwe laag dwingt, en Adobe legde die datums in sept 2026 vast.
+- Zelf de hele Premiere-lijst van Adobe Exchange gemeten (1.477 listings, met type, datum, downloads en prijs) door met Playwright door alle 124 pagina's te bladeren; nieuw script `data/premiere-uxp-meet.js` en `data/premiere-uxp-analyse.py`. Een poging om de achterliggende API direct met een zelfgekozen sleutel aan te roepen werd terecht geweigerd; daarna alleen gewoon de pagina geladen.
+- Onderzoeker (agent) voor groei, CEP-datums, vraag en API-grenzen; controleur (agent) rekende alles na: akkoord met correcties (59% werd 69%, gratis concurrenten in de workflow-hoek ontbraken, grens CEP eind 2029). Verwerkt.
+- Besluit: cijfer 5, nog niet klaar. Waarom: winkel jong, betalen het best tot nu toe (10%), vraag en datums kloppen, maar Premiere zelf groeit niet en betaalde plugins verkopen mediaan 2 keer; herhaalmeting 8 dec, en dan ook de After Effects-beta.
+- Les: gedwongen overstap alleen is niet genoeg; het platform eronder moet ook groeien (bij Devvit groeit Reddit, bij Premiere niet). Tip voor Vera: Mask To Motion, ±1.228 kopers van $19,99 in drie maanden.

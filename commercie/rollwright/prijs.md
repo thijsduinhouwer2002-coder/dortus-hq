@@ -54,3 +54,19 @@ Gemiddeld ±$4,60 per verkoop als de helft uit de VS komt (GOK, de verdeling van
 **Waarom de prijs toch niet omhoog:** bij $8 zou Dortus per verkoop ±$5,59 (NL) tot ±$7,10 (VS) houden (berekend), maar er zijn nog 0 gebruikers en dus geen enkel gegeven over hoeveel mensen bij welke prijs kopen. De vaste $0,50 weegt bij een lage prijs zwaar; dat is een reden om bij de meting op dag 30 eerder een duurder extra (bundel, derde skin, tabellenpakket) te overwegen dan een lagere prijs.
 
 **Wat de US-belasting betekent voor de knop:** in de plugin staat "Buy for $6". Een Amerikaanse koper ziet op de afrekenpagina $6 plus sales tax, apart vermeld. Dat is in de VS gewoon en geen misleiding; geen aanpassing nodig.
+
+## Bijwerking 8 nov 2026 (run 6): nieuw feit, Thijs vindt de skins hun $6 niet waard
+
+Door Chris. Thijs, 8 nov 08:40: het verschil tussen Classic, Parchment en Arcane is minimaal, "zo betaalt niemand $6". Daan maakt ze veel sterker voor een 0.3.x. Aanmelden mag nu met het gratis deel.
+
+**Wat dit is:** het eerste echte oordeel over het betaalde deel, van iemand die het product en de prijs ziet. Eén persoon, dus geen meting, maar wel de eigenaar en precies het moment waarop een koper beslist (GEZIEN, zijn bericht). Het bevestigt het risico dat ik op 7 nov al noemde: "alleen het uiterlijk is betaald, dan koopt meestal maar een klein deel".
+
+**Voorstel (besluit blijft van Olaf):**
+1. **De prijs blijft $6.** Het probleem is de waarde, niet het bedrag. Bij $3 houdt Dortus per Nederlandse koper ±$1,78 over (berekend zoals de tabel hierboven: $3 zonder de 21% btw erin is $2,48 ($3 / 1,21), min 5% + $0,50 + 1,5% over $3 is $0,70), en een skin die niemand wil, verkoopt ook voor $3 niet. Liever de skins de $6 waard maken, zoals Thijs vraagt.
+2. **Niet verkopen zonder plaatje, wel eerlijk melden.** De koopknop in de plugin mag blijven: wie de skins in de instellingen ziet (de skin-tegels tonen de skin, volgens `platformen/obsidian/status.md`, klus 7) en ze toch wil, mag ze kopen, en een sleutel blijft geldig voor de nieuwe versie zolang Olaf dezelfde benefit in Polar houdt (GOK, de plugin controleert alleen die benefit-id). Maar in listing, lanceerberichten en productpagina geen reclame voor de skins tot de nieuwe er zijn. Zie winkeltekst (run 6) en lancering (run 6).
+3. **De lanceerpiek niet verspillen.** De meeste aandacht komt in de eerste dagen na de aanmelding en de berichten (GOK, zo werkt elke lancering). Het betaalde deel is dan nog zwak. Daarom: de berichten verdelen over twee momenten, zie `lancering.md` (run 6): eerst het gratis deel (bereik), en de nieuwe skins als tweede bericht (geld). Advies 16.
+4. **Wat de nieuwe skins moeten halen om $6 waard te zijn** (meetlat voor Daan, GOK op basis van wat spelers elders betalen): op één blik verschillend van Classic, ook in een klein lijstplaatje; elk een eigen gevoel bij de worp zelf (de crit en de fumble anders, niet alleen andere kleuren); en vergelijkbaar met een betaald dobbelpakket bij D&D Beyond ($1,99 per kleur tot $7,92 per set, DERDEN, zie hierboven), waar je ook voor een eigen uiterlijk betaalt. Twee skins voor $6 is dan $3 per stuk, in die band.
+
+**Verwachting (GOK, bijgesteld):** in de eerste weken bijna geen verkopen (0 tot 5), want de skins zijn zwak en we maken er geen reclame voor. Daarna hangt het af van de nieuwe skins. De jaarverwachting van run 4 (±60 tot 700 verkopen) blijft de gok voor ná de nieuwe skins.
+
+**Wat het meten verandert:** de meting op dag 30 (verkopen gedeeld door actieve gebruikers) zegt weinig als de nieuwe skins dan pas net uit zijn. Ik meet daarom ook vanaf de dag dat de nieuwe skins uitkomen: dag 7 en dag 30 na die update.

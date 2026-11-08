@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 15, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 16, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -17,6 +17,8 @@ Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopsla
 - Een teken dat bij een uitkomst hoort (NAT 20, MIN) komt erbij zonder iets op te schuiven: als sticker op de hoek, niet in de regel. Een regel tekst mag nooit verspringen door een klik. De sticker dekt het getal nooit af en leest op ware grootte. (Versie 11.)
 - Bij een programmeertool (JetBrains) blijven we van de kleuren in de editor af: die kiest de programmeur zelf. Het eigen gezicht zit daar in het pluginicoon, de poster en het kleine icoon in onze meldingen, en die drie vertellen hetzelfde verhaal (bij Bison & Flex: de boog van scanner naar grammatica). (Versie 10.)
 - Een signaalkleur (goed, krap, fout) mag nooit lijken op een kleur die het platform zelf al gebruikt voor iets anders. Blender tekent een selectie oranje, dus daar is krap amber geel, niet oranje. Kijk bij elk nieuw platform eerst welke kleuren al een betekenis hebben. (Versie 14, Click Joints.)
+- Meet een signaalkleur in de echte weergave van het platform, niet op de kleurkiezer. In Blender Solid komt geen kleur boven ±`#AE` per kanaal; geel met wit erin wordt daar mosterd, verzadigd citroengeel (`#FFEA00`) blijft geel. Kies daarom verzadigde tinten zonder wit, en toets rood, groen en geel ook zoals iemand zonder groen zien ze ziet. (Versie 16, proefstrook Click Joints.)
+- Een functie die iets weghaalt of verandert, toon je op een winkelplaatje als voor en na, niet alleen als menu. (Versie 16, Bison & Flex plaatje 5.)
 - Een pluginicoon vertelt in één beeld wat ons onderscheidt, geen abstracte vormen. Toets het op ware grootte (40px en 16px, licht en donker), niet alleen groot. Onder 16px weglaten wat niet leest. (Versie 10.)
 - De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?
 
