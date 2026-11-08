@@ -393,6 +393,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Stand voor de volgende run:** klus 6 (voorbeeldnotitie via knop in leeg logboek en commando), dan 7 (skin-tegels). Daan gevraagd naar klus 4b en 5 te kijken.
 
 ## 8 nov 2026, 02:50 tot 03:00: klus 4c
-**Gedaan:** Daan mat in ronde 6 dat er ±46 ms een gouden token met een verkeerd geteld getal stond. Zelf gebouwd op tak `claude/obsidian-2026-11-08-g`: pauzes [40, 45, 50, 55, 60, 70] zodat tellen op 460 ms (`LAND_MS`) eindigt, en `Landing.later` stopt het tellen vlak voor het goud. 659 tests, tsc en lints 0. Controleur akkoord, proef rood zonder reparatie, testwijziging apart goedgekeurd. Op main na groene e2e.
+**Gedaan:** Daan mat in ronde 6 dat er ±46 ms een gouden token met een verkeerd geteld getal stond. Zelf gebouwd op tak `claude/obsidian-2026-11-08-g`: pauzes [40, 45, 50, 55, 60, 70] zodat tellen op 460 ms (`LAND_MS`) eindigt, en `Landing.later` stopt het tellen vlak voor het goud. 659 tests, tsc en lints 0, e2e run 42435335987 groen 15 van 15 (GEZIEN). Controleur akkoord, proef rood zonder reparatie, testwijziging apart goedgekeurd. Op main.
 **Beslissing:** beide oplossingen van Daan tegelijk (tijden gelijk en stoppen in dezelfde tik). Waarom: alleen gelijke tijden is niet zeker, timers na elkaar kunnen een paar ms uitlopen.
 **Stand voor de volgende run:** klus 6 (voorbeeldnotitie), dan 7, en de dubbele ruimte in Live Preview.
