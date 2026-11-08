@@ -1,5 +1,6 @@
 # Obsidian: status
 
+- **Stand 8 nov 06:25 UTC:** Rollwright 0.3.0 uitgebracht (release op thijsduinhouwer2002-coder/rollwright, workflow groen, GEZIEN), met Daans README-begin, poster, GIF en plaatjes. E2e groen 18 van 18, 672 unittests. Aanmelden wacht alleen op "plaatjes ja" van Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 05:35 UTC:** klus 10 op main, plus e2e voor dice-mod in een ingevoegde notitie: e2e groen 18 van 18 (run 42450467889, GEZIEN), 672 unittests. Wacht op Daans keuring, GIF en plaatjes, dan Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 05:25 UTC:** Daans klus 10 op main 34fb94d: tabeluitkomst leesbaar in Arcane licht, lege logboekzin gebalanceerd. 672 unittests, e2e groen 17 van 17 (run 42450085287, GEZIEN). Alle ontwerpklussen af; wacht op Daans keuring, GIF en plaatjes, dan Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 04:40 UTC:** ook Daans klus 9 op main: tabelzin in het logboek als rustige tekstkaart, zijn CSS ronde 8 tot 8c (leeg logboek met d20, skin-tegels tonen de skin), kaart zonder dubbele tijd en notitie, kopje is de link. 672 unittests, e2e groen 17 van 17 (run 42446695388, GEZIEN). Wacht op Daan: poster, GIF en keuring, daarna Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
