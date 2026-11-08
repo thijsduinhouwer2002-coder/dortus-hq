@@ -1,0 +1,220 @@
+groei_2d	id	naam	laatste	since	until	dl_laatste	tags
+985	14838	ChinesePinyin-CodeCompletionHelper	2023-06	221		1311256	Completion
+785	265	Batch Scripts Support	2021-12	201.6668		1167697	Administration Tools
+603	5834	CMD Support	2015-03	135.1230		2133443	Programming Language
+483	12334	Gradianto	2023-10	191.0		608791	Theme,Editor Color Schemes
+364	13308	Indent Rainbow	2023-07	232.0		454831	Editor,Fun Stuff,Productivity,User Interface
+324	9471	TestMe	2024-09	232.0		44971	Code Quality,Code Tools,Testing
+320	13106	Xcode-Dark Theme	2021-07	191.0		918701	Theme,User Interface
+259	14799	Atom One Theme	2022-05	191.0		882779	Theme,User Interface
+256	12255	Visual Studio Code Dark Plus Theme	2024-08	191.0		322763	Theme,User Interface
+224	10321	Nord	2020-10	191.0		687381	Theme,User Interface
+214	15418	GitHub Theme	2024-08	191.0		248499	Theme,Editor Color Schemes
+213	12163	Monocai Color Theme	2019-11	191.0		481603	Theme,Editor Color Schemes
+196	12896	Rainbow CSV	2022-05	221.0		561303	Editor
+179	4230	BashSupport	2020-07	202.0	202.*	414192	Programming Language
+176	6546	Adapter for Eclipse Code Formatter	2024-09	241.0		131226	Formatting
+158	12692	Darcula Darker Theme	2019-09	191.0		542278	Theme,User Interface
+149	12226	Vuesion Theme	2021-01	192.0		312206	Theme,Editor Color Schemes
+132	18161	Android SDK Source	2022-03	192.0		129648	Android,Code Tools,Viewer
+132	12670	MyBatisPlus	2022-07	192.0		318568	Code Tools
+120	10233	Discord Integration	2023-10	223.0		252071	Fun Stuff
+118	12103	Gray Theme	2022-02	191.0		151636	Theme,User Interface
+116	12118	Hiberbee Theme	2024-02	231.7665		175035	Theme,Editor Color Schemes,User Interface
+111	7115	VisualVM Launcher	2024-01	233.0		117608	Tools Integration
+110	12122	Spacegray Theme	2022-11	191.0		60482	Theme,User Interface
+109	6149	Shifter	2019-01	13.17		94286	Code Tools
+109	12041	Maven Dependency Helper	2022-03	173.0		282704	Maven
+108	14969	ADB Wi-Fi	2024-06	223.0		118762	Android
+99	14321	BlackConnect	2024-04	222.4554.11		48055	Code Quality,Formatting,Tools Integration
+99	11940	File Expander	2024-04	223.0		120348	Miscellaneous
+97	8634	RoboPOJOGenerator	2024-09	241.0		52994	Code Tools
+95	18617	Free MyBatis Tool	2024-02	222.0		140925	Code Editing,Code Tools,Tools Integration
+92	14708	Mario Progress Bar	2024-01	193.0		139923	Editor Color Schemes,Fun Stuff,Graphics,User Interface
+88	8320	UUID Generator	2021-10	211.0		77542	Editor
+88	12778	Quick File Preview	2020-09	183.5353.1		76984	Editor
+87	14280	RESTFul-Tool	2024-05	233.0	241.*	68825	Code Tools
+85	6585	Builder Generator	2024-02	212.4746.92		39320	Code Tools
+85	16721	Cute Pink Light Theme	2024-02	202.0		55696	Theme,User Interface
+85	15563	Cyberpunk Theme	2023-06	173.0		92184	Theme,Editor,User Interface
+84	7248	Multirun	2024-02	233.0		33571	Build,Miscellaneous
+82	7505	IDEA Jetty Runner	2024-03	231.0	241.*	7907	Build,Cloud,JEE,Productivity,Tools Integration,Web
+80	7364	ZooKeeper	2018-04	181.0		97034	Miscellaneous
+79	13598	ptg	2020-01	135.0		292728	Code Tools
+73	93	MetricsReloaded	2022-02	201.0		87294	Code Tools
+72	14965	Visual Studio 2019 Dark Theme	2024-03	191.0		109147	Theme,Editor Color Schemes
+71	7389	Floobits	2020-10	193.0		24039	TeamWork
+69	13666	Flutter Intl	2024-10	242.0		161267	Tools Integration
+68	4415	nginx Support	2019-10	142.3304		127317	Tools Integration
+68	185	GenerateSerialVersionUID	2015-06	123.0		380605	Editor
+65	17170	maven-search	2024-01	172.0		152010	Code Tools,Maven
+65	15524	PlantUML Parser	2024-02	163.0		115932	Code Tools
+64	12839	Minecraft NBT Support	2022-12	223.7571	223.*	8306	Editor
+63	14949	GsonFormatPlus	2021-04	135.121		492802	Code Tools
+55	1545	WicketForge	2024-09	232.0	283.*	3994	Framework
+51	8502	Background Image Plus	2017-05	162.0		461995	User Interface
+51	8352	C/C++ Single File Execution	2016-06	141.0		157589	Code Tools
+51	5047	Go language (golang.org) support plugin	2017-03	163.7743	163.*	87295	Programming Language
+51	17017	CodeGlance3	2021-08	211.*		176619	Code Editing,Viewer
+49	12348	Flutter Snippets	2022-06	202.0	221.*	67208	Code Tools
+47	16544	chapter_reader	2024-01	203.5981.155		74375	Viewer
+44	4428	Scratch	2024-04	241.14494		6551	Miscellaneous
+44	13559	Chinese Converter	2021-10	93.0	212.0	239131	Code Tools
+43	12131	One Dark Native	2019-12	191.0		120893	Theme,User Interface
+41	5007	SBT	2015-12	143.381	171.0	209114	Build
+41	14162	any-rule	2023-11	173.0		84145	Code Tools
+41	11946	Kafkalytic	2023-07	231.9011	231.*	6628	Tools Integration
+40	23564	Spring Initializr Helper	2024-09	233.0		58485	Framework,Productivity
+39	15991	PlantUML Diagram Generator	2022-02	211.0		142397	Code Tools,Modeling and CASE tools,Reporting
+39	12280	Carbon	2020-01	191.0		112389	Theme,User Interface
+38	17542	SonarAnalyzer	2022-01	191.0		103445	Code Tools,Inspection
+37	11084	Pylint	2024-10	233.15325		52608	Inspection
+36	14059	Darcula Pitch Black	2020-04	191.0		122272	Theme,User Interface
+34	3064	JUnitGenerator V2.0	2015-05	80.8000	212.*	407525	Testing
+34	12693	Flutter Enhancement Suite	2023-12	223.0	240.0	25238	Code Tools,Inspection,Snippets
+34	12400	Flutter Pub Version Checker	2022-05	200.*	300.0	97015	Code Tools
+33	13372	Simplify,Traditional Chinese Converter(简繁转换)	2019-11	173.0		145364	Tools Integration
+31	7578	AdbCommander for Android	2016-02	123.72		94513	Tools Integration
+31	12078	New Executable C/C++	2019-09	183.0		147639	Code Tools
+29	20603	ChatGPT - EasyCode	2023-03	202.6397.94	202.*	460	Code Editing,Code Tools,Fun Stuff,Inspection,Web
+28	7100	Java Decompiler	2021-06	211.6693		171283	Code Tools
+28	12833	JUnit 5 Mockito Code Generator	2023-04	231.0		63423	Testing
+27	4597	QAPlug - FindBugs	2021-11	203.7148		127555	Tools Integration
+27	16086	Robot Framework Language Server	2023-06	203.0	290.*	137350	Editor,Framework
+27	12134	Material Design Dark-Theme	2019-12	191.8026.42		148440	Theme,User Interface
+26	10941	Matlab Support	2023-06	231.0		31529	Code Editing
+25	14149	Json Viewer	2023-11	223.7571		41432	Code Tools
+25	13529	dart.extensions	2019-12	141.0		148022	Code Tools
+25	10312	DOT Language	2024-08	222.0		39833	Programming Language
+24	11512	Java Visualizer	2022-04	193.0		94199	Debugging
+23	15234	Tailwind CSS Smart Completions	2023-08	232.0		66308	Framework
+23	14641	Flutter Riverpod Snippets	2023-06	203.0		54843	Code Tools
+23	10841	Run Configuration for TypeScript	2024-08	193.4932.9		61723	JavaScript
+22	5919	Lines Sorter	2013-06	90.10000		162866	Editor
+22	20094	Gsonformat	2022-10	135.121		129109	Android,Formatting
+22	10949	Jms Messenger	2022-01	162.*		28679	Administration Tools
+22	10210	Nested Brackets Colorer	2023-12	202.0		34709	User Interface
+21	11247	Background Image Plus +	2020-09	162.0		172298	User Interface
+20	9615	IdeaVimExtension	2024-02	231.0		41041	Editor
+20	10113	React snippets	2022-09	202.6397.94		167453	JavaScript
+19	7247	SBT Executor	2021-12	211.0		77107	Build
+19	19184	Cap-Basic-BigData	2022-05	211.0		108745	Administration Tools
+19	15699	Jenkins Pipeline Linter	2022-06	201.0		92076	Tools Integration
+18	13920	Darcula Solid Theme	2020-10	191.0		122382	Theme,User Interface
+17	7937	Gradle Dependencies Formatter	2021-09	193.0		61362	Formatting
+17	10700	IntelliBot @SeleniumLibrary Patched	2018-05	143.381		341930	Programming Language
+16	7896	Markdown Navigator Enhanced	2023-05	213.7172.25	231.8770.65	37877	Programming Language
+16	6167	PHPUnit code coverage	2014-08	107.120	233	151572	PHP,Testing
+16	14809	Casbin	2023-12	213.*		35651	Code Tools
+16	14239	Spring & Java Tools	2024-06	201.*		58075	Code Tools
+16	10524	element	2018-05	173.0		203947	Web
+15	9556	Create TestNG XML	2017-03	141.0		198396	Notification and Visualizers
+15	7353	JS Toolbox	2020-08	107.105		167339	JavaScript
+15	7114	Spock Framework Enhancements	2020-03	182.0		30653	Framework
+15	6725	iBATIS/MyBatis mini-plugin	2013-08	103.255		102759	Framework
+14	9334	Translate	2016-12	141.0		170125	Tools Integration
+14	9275	React CSS Modules	2016-12	163.0		163168	Web
+14	7450	Emmet Everywhere	2021-05	202.0	203.*	5488	Code Tools
+14	15562	CodeGlance2	2020-12	107.105		142209	User Interface
+14	13609	Python Security	2023-08	231.0		44582	Security
+13	9341	Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro live templates/snippets	2019-03	107.105		142680	Code Editing
+13	8533	Json2Pojo	2018-05	141.0		149331	Code Tools
+13	7374	Source Synchronizer	2023-12	232.0		11391	Tools Integration
+13	228	SQL Query Plugin	2006-11	40.3436	242.*	117708	Database
+13	15124	UML Generator	2021-04	141.0		143116	Code Tools
+13	10046	Alibaba Java Coding Guidelines	2021-07	183.4284	231	899417	Code Tools
+12	7677	Awesome Console	2022-04	212.5080		49844	Miscellaneous
+12	7529	JMH Java Microbenchmark Harness	2024-09	241.0		19384	Profiling
+12	7369	Android ButterKnife Zelezny	2017-03	123.72		673327	Code Tools
+12	14119	ESLint Restart Service Action	2020-07	193.0		208363	Formatting,JavaScript,Miscellaneous
+12	11443	Vue Component Creator	2021-06	173.0		82589	JavaScript
+11	8433	OpenAPI Generator	2020-07	193.4778.7	201.*	10932	Code Tools
+11	7354	InnerBuilder	2022-10	193.0		27379	Code Editing,Code Tools
+11	7299	Gradle Dependencies Helper	2020-02	201.0		65514	Code Editing
+11	17691	Cap-Basic	2022-07	211.0		99138	Administration Tools
+10	7276	PHP Advanced AutoComplete	2019-04	182.0		104181	Code Editing,PHP
+10	19186	Cap-Hadoop	2022-06	211.0	242.*	98279	Administration Tools
+10	17424	IntelliBot #patched	2023-03	192		108413	Programming Language
+10	13396	Wechat mini program support	2024-09	241.0	242.*	6172	Framework
+10	10730	Android Drawable Preview	2022-06	191.0		56853	Graphics
+9	9927	deep-assoc-completion	2022-08	221.1.1		21750	Code Tools,PHP
+9	8103	SVG2VectorDrawable	2024-01	131.0		8962	Code Tools
+9	7983	Android WiFi ADB	2016-08	131.0		617212	Tools Integration
+9	7345	Presentation Assistant for 2023.2	2023-12	221.0	232.*	17869	User Interface
+9	4596	QAPlug - PMD	2024-01	232.10227		12500	Tools Integration
+9	4595	QAPlug - Checkstyle	2021-02	203.7148		40966	Tools Integration
+8	9630	A8Translate	2019-02	145.0		129336	Miscellaneous
+8	8002	Fabric for Android Studio	2019-07	130.677	181.*	71120	Framework
+8	7351	Dash	2017-12	123.72		141339	Tools Integration
+8	7275	CodeGlance	2018-03	107.105	201	1277168	Editor
+8	7150	Gradle View	2019-11	162.0		69097	Build
+8	13459	Flutter Plugins	2021-11	173.0		33446	Framework
+8	10292	RestfulToolkit	2019-04	145.0	211.*	471679	Code Tools
+8	10196	idea-mybatis-generator	2020-01	115.0		84489	Code Tools
+8	10162	Context Free Grammar	2017-11	145.0		261839	Programming Language
+8	10121	GoogleTranslation	2020-12	203.0		79817	Code Tools
+7	8347	Zalando OpenAPI Editor	2023-10	221.5080	242.*	48537	Code Editing
+7	7734	Anko Support	2018-10	171.1	183.*	23957	Programming Language
+7	4946	simpleUMLCE	2010-04	80.8000	201.0	136591	Modeling and CASE tools
+7	18320	Git Flow Integration Plus	2023-07	222.3739.54	241.*	61366	VCS
+6	8330	activate-power-mode	2018-01	141.0		247464	Code Editing
+6	3847	FindBugs-IDEA	2016-10	143.0	181.*	543070	Tools Integration
+6	10387	Sketch It!	2019-09	173.0		89146	Miscellaneous
+5	7930	Angular Templates	2016-10	138.1029		76951	Code Editing
+5	7838	JSONOnlineViewer	2015-07	123.72		104868	Viewer
+5	7532	Laravel	2019-05	173.0	222	720972	Framework,PHP
+5	7059	LESS CSS Compiler	2014-01	107.105	145.0	160209	Build
+5	14698	Luanalysis	2023-01	221.0	233.*	57505	Programming Language
+4	8266	Tomcat runner	2021-06	211.0		68406	Build,JEE,Maven,Web
+4	8261	FindViewByMe	2020-10	93.13		57865	Code Tools
+4	7998	ChroMATERIAL	2018-01	131.0		74899	Editor Color Schemes
+4	7340	I-Pascal	2020-06	130.2	222	20588	Programming Language
+4	1373	C/C++	2015-04	139.1	142.0	76669	Programming Language
+4	13576	D8gerAutoCode	2022-03	193.0		1666	Code Tools
+4	10837	Requirements	2022-12	222.0	223.*	416883	Inspection,Navigation,Programming Language
+4	10465	HighlightBracketPair	2018-05	162.0	201	180647	Editor
+3	7792	YAML/Ansible support	2020-10	183.0	222	178751	Programming Language
+3	7654	GsonFormat	2017-01	107.121	201.0	816726	Code Tools
+3	7429	actiBPM	2014-11	123.1	192.0	249393	Framework
+3	7386	IntelliBot	2016-05	143.381	222.*	507419	Programming Language
+3	7153	Eclipser	2024-06	241.0	241.*	4714	Tools Integration
+3	13107	GDScript	2023-07	211.1777	242	31416	Programming Language
+2	8395	Angular 2 TypeScript Live Templates	2017-05	143.0	201.0	109346	Code Editing
+2	8142	SnakeYAML plugin	2016-03	134.625	223	206273	Programming Language
+2	7831	Illuminated Cloud	2020-07	192.0	193.*	3965	Programming Language
+2	7530	scss-lint	2019-08	145.0	261	50887	Web
+2	7494	ESLint	2019-05	139.0	181.0	118624	JavaScript
+2	7415	Robot Framework Support	2022-01	211.0	213.*	35791	Tools Integration
+2	7331	Thrift Support	2022-05	212.4746.92	221.*	29562	Programming Language
+2	7089	Magicento	2014-12	117.105	181	41992	Framework,PHP
+2	4468	JSTestDriver Plugin	2020-09	202.1	252.*	21039	Testing
+2	15071	Flutter Snippets	2021-09	211.7628	211.*	6624	Code Tools
+2	13971	FlutterAssetAutoCompletion	2022-09	222.3244.4	222.*	24744	Code Editing
+2	12310	Gruvbox Theme	2022-07	191.0	222.*	106516	Theme,User Interface
+1	9861	Git Commit Template	2020-11	145.0	191.*	200227	VCS
+1	9717	ADB WiFi Connect	2017-08	131.0		195836	Tools Integration
+1	9567	Request mapper	2020-05	201.7000	211.*	49215	Navigation
+1	9413	Substeps IntelliJ Plugin	2017-12	173.0	182.*	112993	Testing
+1	8236	Scalafmt	2018-04	141.0	203	60286	Formatting
+1	8049	Ember.js	2024-04	241.14494	241.*	5505	Framework
+1	8000	Properties to YAML Converter	2016-03	141.0	233	135170	Code Tools
+1	7856	ADB WIFI	2016-05	143.1184	201.0	287189	Tools Integration
+1	7834	DTO generator	2018-09	172.*	223.*	170443	Code Tools
+1	7658	Android Drawable Importer	2016-11	139.1603	191.*	333125	Code Tools
+1	7648	React-Templates	2017-09	143.0	211	99830	Web
+1	7647	Android Material Design Icon Generator	2016-09	131.0	201.0	130298	User Interface
+1	7631	PHP composer.json support	2020-02	201.0	202.0	53269	Code Editing,PHP
+1	7595	Android Code Generator	2016-02	131.0	201.*	93438	Code Tools
+1	7409	Maven Runner	2018-08	181.0	191.*	77697	Maven
+1	7332	Android Parcelable code generator	2016-05	123.72	201.0	253482	Code Tools
+1	7315	Git Flow Integration	2021-08	212.0	212.*	29403	VCS
+1	7238	SonarQube Analyzer	2021-08	212.4746	212.*	40675	Tools Integration
+1	15101	Nx Console Idea	2023-12	233.0	233.*	30692	Tools Integration
+1	14307	Poetry	2021-09	212.4746.13	212.*	20073	Tools Integration
+1	12241	Catdea	2020-03	182.0	202	138545	Viewer
+1	12012	Android ButterKnife Injections (Support Kotlin)	2019-03	173.0		145918	Code Tools
+1	10936	Night Owl Theme	2022-12	211.0	223.*	7556	User Interface
+1	10698	Google Sceneform Tools (Beta)	2020-02	173.4301		81803	Code Tools
+1	10550	Add to gitignore	2019-07	143.0	193.*	101241	VCS
+1	10267	Rainglow Color Schemes	2018-01	131.0	201.0	263072	Editor Color Schemes
+1	10155	ReactPropTypes	2019-04	143.0	223.*	68077	Web

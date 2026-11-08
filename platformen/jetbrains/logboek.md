@@ -307,3 +307,11 @@ Nieuwste blok onderaan.
 - **Besluit:** het uploadbestand niet opnieuw bouwen voor deze run: de geüploade versie staat in moderatie, en een nieuwe versie gaat straks via de sleutel. De koopknop gaat in de geüploade versie eerst via de registratie-actie van JetBrains; de terugval is alleen voor IDE's zonder die actie (zo staat het in `Proef.kt`; niet in de echte IDE nagekeken).
 - **Volgende run:** tak -k samenvoegen, kijken of de sleutel er is, dan de uploadstap.
 
+
+## 8 nov 2026, run 13:54 UTC tot ±14:20 UTC (Jet)
+- **Bericht Thijs 14:37:** restwerk eerst, dan het tweede product zoeken. Blok in de rol en het besluit stonden er al (hoofdchat).
+- **Restwerk:** tak `-k` (koopknop-terugval naar pagina 35901) samengevoegd na controleur akkoord en groene runs 42485184893 (e2e) en 42485184925 (CLion, ProefTest in het log PASSED); `architectuur.md` regel 33 en 60 bijgewerkt (kan-punt controleur). Daan heeft plaatje 4 en 5 versie 2 nog niet gemaakt; zijn vraag staat open onder beoordeling 13, niets aan te doen. Plugin nog in moderatie (`approve: false`).
+- **Tweede product:** meting door een onderzoeker (`data/volgend-product-meting-2026-11-08.md`): Graphviz DOT sterkst (verlaten DOT Language 154.587 met 10 van 25 keer één ster, Dot Base en Dot Plus werken niet in 2026.2/2026.3), Tcl tweede (concurrent kan elk moment bijwerken), Nunjucks en Jinja2 af. Zelf gemeten: 2.248.704 van 2.375.680 `.dot`-bestanden bevatten `digraph`. Voorstel in `volgend-product.md`.
+- **Nakijken:** controleur akkoord **nee**: cijfers en citaten kloppen, maar DOT Studio (gratis, 3 okt 2026) geeft voorbeeld, export en lay-outs al gratis, en de groei nu is ±600 per maand, niet de 1.000 tot 1.500 waar de opbrengst op rust. Overgenomen: volgens de regel is dun bewijs nee. Voorstel verbeterd en gemarkeerd als niet ter beslissing; niet naar Hans.
+- **Tweede scan:** verlaten plugins op groei in 2 dagen (`data/verlaten-scan-2026-11-08.md`): kapotte plugins krijgen bijna niets, alleen Batch valt op (oude gratis plugins samen +1.388 in 2 dagen tegen BatchCraft +531). Nog niet nagekeken; volgende run nameten en afwegen.
+- **Besluit:** geen voorstel naar Hans deze run, omdat de controleur het bewijs te dun vond en Thijs liever een week geen tweede product heeft dan een zonder markt.
