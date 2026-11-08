@@ -13,13 +13,7 @@ export const config = {
 		"wdio:obsidianOptions": {
 			installerVersion: "earliest",
 			plugins: [".."],
-			themes: [
-				// Blue Topaz valt af: zijn versienummer (2026110301) kan de launcher niet lezen.
-				{ name: "Minimal", enabled: false },
-				{ name: "AnuPpuccin", enabled: false },
-				{ name: "Things", enabled: false },
-				{ name: "Border", enabled: false },
-			],
+			// Geen thema's: deze test gebruikt ze niet, en Minimal was 8 nov 08:46 niet te downloaden.
 			vault: "vaults/test",
 		},
 	}],
