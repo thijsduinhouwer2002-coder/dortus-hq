@@ -1947,6 +1947,13 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-rolled:not(.rollwright-c
 	animation: rw-a-dust calc(1000ms * var(--rw-slow)) calc(300ms * var(--rw-slow)) ease-out both;
 }
 
+/* Tegels in de instellingen: de vonk van de crit staat links op het token en de nieuwe vormen zijn
+   breder, dus meer ruimte tussen de gewone worp en de crit (controleur run 26: 17 en 20 raakten). */
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-skin-preview-rolls,
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-skin-preview-rolls {
+	gap: 1.6em;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	body.rollwright-skin-parchment .rollwright-roll .rollwright-icon,
 	body.rollwright-skin-parchment .rollwright-roll .rollwright-value,
