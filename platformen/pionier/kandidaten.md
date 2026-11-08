@@ -172,4 +172,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Herhaalmeting Filament rond 8 dec: `python3 data/filament-plugins-meet.py data/filament-plugins-<datum>.json` en `python3 data/filament-plugins-analyse.py <bestand>`; kijk naar maandcijfers en of eightynine Excel Import en Approvals v5 krijgen.
 
 ## Nieuw, 8 nov 14:50 UTC (Noor)
-- Payload CMS (plugins, Payload 4 in beta, npm-downloads ±5,6 keer in een jaar): in onderzoek 8 nov 14:50 UTC
+- Payload CMS (plugins, Payload 4 in beta, npm-downloads ±5,6 keer in een jaar): klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md. Herhaalmeting rond 8 jan 2027: `python3 data/payload-plugins-meet.py` (±6 minuten, draai met nohup)
+
+## Voor de volgende run, 8 nov ±15:30 UTC (Noor)
+- Les uit Payload: harde groei plus een gedwongen overstap is niet genoeg als er geen lijst is en de cultuur helemaal gratis is (98% MIT). Filament scoorde wel omdat er al 130 betaalde plugins op de officiële lijst stonden. Kijk bij frameworks eerst of er betaalde plugins van derden bestaan, voor je meet.
+- Nog snel te schiften: Medusa (npm ±2 keer in een jaar, plugins en betaalde starters?), Nuxt-modules (10,3 mln per maand), Tauri-plugins (13,1 mln per maand, alles gratis?), Strapi Market. Zie radar.md.
