@@ -51,10 +51,27 @@ object FacadeBron : LicentieBron {
         if (System.getProperty(E2E_EIGENSCHAP) == "true") e2eStand = LicentieStand.valueOf(stand)
     }
 
+    /** Alleen voor unittests: doet alsof de facade er wel of niet is, met deze stempel. `null` gebruikt de echte facade. */
+    @Volatile
+    private var testFacade: Pair<Boolean, String?>? = null
+
+    @TestOnly
+    fun zetFacadeVoorTest(aanwezig: Boolean, stempel: String?) {
+        testFacade = aanwezig to stempel
+    }
+
+    @TestOnly
+    fun wisFacadeVoorTest() {
+        testFacade = null
+    }
+
     override fun stand(): LicentieStand {
         if (System.getProperty(E2E_EIGENSCHAP) == "true") return e2eStand ?: LicentieStand.GEEN
-        val facade = LicensingFacade.getInstance() ?: return LicentieStand.ONBEKEND
-        val stempel = facade.getConfirmationStamp(Licentie.PRODUCTCODE)
+        val (aanwezig, stempel) = testFacade ?: LicensingFacade.getInstance().let { facade ->
+            (facade != null) to facade?.getConfirmationStamp(Licentie.PRODUCTCODE)
+        }
+        // nog geen facade (licentiedeel van de IDE nog niet geladen): ONBEKEND, Pro blijft werken (ontwerp.md)
+        if (!aanwezig) return LicentieStand.ONBEKEND
         return if (StempelControle.isGeldig(stempel)) LicentieStand.GELDIG else LicentieStand.GEEN
     }
 }
@@ -73,6 +90,13 @@ object StempelControle {
 
     /** Hoe lang een stempel van de licentieserver geldt, zoals in het voorbeeld. */
     const val TIJDSTEMPEL_GELDIG_MS = 60L * 60 * 1000
+
+    /**
+     * Hoe lang een afgekeurde stempel afgekeurd blijft voor we hem opnieuw controleren. Niet voor altijd: een eenmalige
+     * fout (klok van de licentieserver net verkeerd, een storing in de cryptografie) mag een betalende klant niet tot de
+     * volgende herstart blokkeren. Eén controle per minuut kost niets merkbaars.
+     */
+    const val AFGEKEURD_OPNIEUW_MS = 60L * 1000
 
     /** Publieke root-certificaten van JetBrains, letterlijk uit het voorbeeld CheckLicense. */
     private val ROOT_CERTIFICATEN = arrayOf(
@@ -173,22 +197,25 @@ object StempelControle {
         return geldig
     }
 
-    /** Uitkomst en tot wanneer die uitkomst mag blijven staan. */
-    private fun controleer(stempel: String, nu: Long): Pair<Boolean, Long> = when {
-        // licentie via JetBrains Account of ingevoerd als activeringscode
-        stempel.startsWith(KEY_VOORVOEGSEL) ->
-            isSleutelGeldig(stempel.substring(KEY_VOORVOEGSEL.length)) to Long.MAX_VALUE
-        // licentie via een ticket van de JetBrains Floating License Server
-        stempel.startsWith(STAMP_VOORVOEGSEL) -> {
-            val tijd = isServerStempelGeldig(stempel.substring(STAMP_VOORVOEGSEL.length), nu)
-            if (tijd != null) true to tijd + TIJDSTEMPEL_GELDIG_MS else false to Long.MAX_VALUE
+    /** Uitkomst en tot wanneer die uitkomst mag blijven staan. Afgekeurd blijft hoogstens [AFGEKEURD_OPNIEUW_MS] staan. */
+    private fun controleer(stempel: String, nu: Long): Pair<Boolean, Long> {
+        val afgekeurd = false to nu + AFGEKEURD_OPNIEUW_MS
+        return when {
+            // licentie via JetBrains Account of ingevoerd als activeringscode
+            stempel.startsWith(KEY_VOORVOEGSEL) ->
+                if (isSleutelGeldig(stempel.substring(KEY_VOORVOEGSEL.length))) true to Long.MAX_VALUE else afgekeurd
+            // licentie via een ticket van de JetBrains Floating License Server
+            stempel.startsWith(STAMP_VOORVOEGSEL) -> {
+                val tijd = isServerStempelGeldig(stempel.substring(STAMP_VOORVOEGSEL.length), nu)
+                if (tijd != null) true to tijd + TIJDSTEMPEL_GELDIG_MS else afgekeurd
+            }
+            // proef, zoals het voorbeeld voor 2024.2
+            stempel.startsWith(EVAL_VOORVOEGSEL) -> {
+                val verval = stempel.substring(EVAL_VOORVOEGSEL.length).toLongOrNull()
+                if (verval != null && nu < verval) true to verval else afgekeurd
+            }
+            else -> afgekeurd
         }
-        // proef, zoals het voorbeeld voor 2024.2
-        stempel.startsWith(EVAL_VOORVOEGSEL) -> {
-            val verval = stempel.substring(EVAL_VOORVOEGSEL.length).toLongOrNull()
-            if (verval != null && nu < verval) true to verval else false to Long.MAX_VALUE
-        }
-        else -> false to Long.MAX_VALUE
     }
 
     private fun isSleutelGeldig(sleutel: String): Boolean {
