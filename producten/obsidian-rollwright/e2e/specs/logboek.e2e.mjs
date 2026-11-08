@@ -132,7 +132,7 @@ describe("Rollwright: het logboek (ontwerp-v2 klus 5 en 5b)", function () {
 		const zin = "A dwarf counting her coins twice";
 		await browser.executeObsidian(async ({ app }, args) => {
 			const plugin = app.plugins.plugins.rollwright;
-			plugin.settings.history.unshift({ time: Date.now(), formula: "dice: [[Herberg]]^tabel", result: args.zin, details: "", source: args.notitie });
+			plugin.settings.history.unshift({ time: Date.now(), formula: "[[Herberg^tabel]]", result: args.zin, details: "", source: args.notitie });
 			for (const leaf of app.workspace.getLeavesOfType("rollwright-history")) leaf.view.refresh();
 		}, { zin, notitie: NOTITIE });
 		await browser.waitUntil(async () => (await paneel()).tekstkaarten.length === 1, { timeout: 5000, timeoutMsg: "geen tekstkaart" });
