@@ -167,7 +167,7 @@ class AllePlekkenTest : BasePlatformTestCase() {
         assertEquals(tekst("calc.y"), inhoud("calc.y"))
         assertEquals(tekst("calc.l"), inhoud("calc.l"))
         assertEquals(1, meldingen.size)
-        assertEquals(ProMelding.TEKST, meldingen[0].content)
+        assertEquals(ProMelding.tekstHernoemen("NUM", "calc.l"), meldingen[0].content)
         assertEquals(0, ProMelding.getInstance().aantalHints())
         // Tweede keer: geen tweede balloon, wel de korte hint; nog steeds niets veranderd.
         myFixture.renameElementAtCaret("GETAL")

@@ -34,7 +34,7 @@ Kotlin-plugin vanuit `platformen/jetbrains/bouwsjabloon.md`. Twee talen met elk 
 Waarom deze lijst: elke nieuwe functie vraagt een nieuwe ronde van Daan. Vanaf nu bouw ik alleen wat hieronder bij "Moet in 1.0" staat, en zet daarna het indienen klaar. Alles wat niet onder een toetsbare eis valt of geen gebruiker hindert, schuift naar "Na 1.0".
 
 **Moet in 1.0**
-1. Hernoemen vanuit de structuurweergave geeft de hint in de statusbalk, bewezen in de echte IDE (tak `claude/jetbrains-2026-11-07-o`, eis 6, Daan punt 3).
+1. (af 8 nov 00:30 UTC) Hernoemen vanuit de structuurweergave geeft de hint, bewezen in de echte IDE (eis 6, Daan punt 3). De statusbalk toont die tekst niet in de nieuwe UI, daarom nu een kleine balloon zonder knoppen bij de gekozen knoop (f1a1f06, IDE-run 42427906937 groen, schermen `licht-hernoem-structuur.png` en `donker-hernoem-structuur.png` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-07-o/`). Daan: graag kijken; de balloon staat boven de knoop en bedekt de kop "Declarations".
 2. Meldingen ongedefinieerd en ongebruikt (eis 7), met de snelle oplossing om een ongebruikte regel of token weg te halen, geen valse meldingen op de 10 echte bestanden. Schermen licht en donker voor Daan.
 3. CLion in de IDE-test (eis 1). Lukt het niet zonder licentie, dan een andere weg zoeken of op de lijst voor Thijs; zonder CLion-bewijs niet indienen, want CLion is de doelgroep.
 4. Schermen licht en donker van alles wat nieuw zichtbaar is (eis 10): hernoemen, eis 7, en het registratievenster na "Start free trial" (Daan beoordeling 7).

@@ -209,3 +209,10 @@ Nieuwste blok onderaan.
 - **Beslissing:** niet nog eens dezelfde stap proberen, want de oorzaak is nu bekend; de volgende run een andere aanpak: hint als balloon naast de knoop in de boom. Reden: een stille knop voelt kapot (Daan punt 3), en de statusbalk is in de nieuwe UI geen plek die iemand ziet. Lukt dat ook niet in één run, dan stap uit de IDE-test en door met eis 7.
 - **Nakijken:** niet nagekeken en niet samengevoegd, want de IDE-test is rood; `HernoemDiagnose.kt` hoort bij het werk van de volgende run en gaat dan mee naar de controleur.
 - **Misging:** de ronde kostte ±23 minuten, te weinig tijd over voor een tweede IDE-run deze run. Afgesloten om ±23:22 UTC.
+
+## 8 nov 2026, run 23:54 UTC (7 nov) tot ±00:35 UTC
+- **Gedaan:** berichten gelezen, geen nieuw bericht. Bovenste taak: hint zonder editor zichtbaar maken. Bouwer verving `StatusBar.Info.set` door een kleine balloon zonder knoppen (JBPopupFactory) boven de gekozen knoop in de boom, met terugval naar het IDE-frame; IDE-test beweert nu dat de balloon in beeld is (f1a1f06 op tak `-o`).
+- **Uitkomst (GEZIEN):** 83 unittests groen (controleur draaide opnieuw met `--rerun`), IDE-run 42427906937 groen, log licht en donker: "balloon in beeld true, plek 'boom MyTree, knoop 'NUM''". Schermen tonen de balloon met pijltje naar `NUM %token`.
+- **Nakijken:** controleur akkoord, geen moet-punten, 4 kan-punten op de takenlijst.
+- **Beslissing:** samengevoegd met main. Omdat main op 7 nov een nieuwe geschiedenis kreeg (git weigert: unrelated histories), heb ik de productbestanden van tak `-o` overgenomen op main, behalve `ontwerp.md` (main heeft daar de grens van 1.0, `-o` niet). Reden: de verschillen tussen main en `-o` zaten alleen in het product, verder niets verloren.
+- **Misging:** lokale `main` was uit elkaar gelopen met GitHub; daarom werk ik vanaf `origin/main` op een losse lokale tak.

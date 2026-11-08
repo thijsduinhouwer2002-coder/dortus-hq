@@ -36,6 +36,7 @@ interface StructuurWrapperOpAfstand {
 @Remote("com.intellij.ide.structureView.newStructureView.StructureViewComponent")
 interface StructuurComponentOpAfstand {
     fun getFileEditor(): BestandEditorOpAfstand?
+    fun getTree(): OnderdeelOpAfstand?
 }
 
 @Remote("com.intellij.openapi.fileEditor.FileEditor")
@@ -57,6 +58,7 @@ interface ActiviteitOpAfstand {
 @Remote("java.awt.Component")
 interface OnderdeelOpAfstand {
     fun requestFocusInWindow(): Boolean
+    fun isFocusOwner(): Boolean
     fun getLocationOnScreen(): Point
 }
 
@@ -91,6 +93,16 @@ fun Driver.structuurBestand(): String? = try {
     view?.let { v -> withContext(OnDispatcher.EDT) { cast(v, StructuurComponentOpAfstand::class).getFileEditor()?.getFile()?.getName() } }
 } catch (e: Throwable) {
     "fout ${e.javaClass.simpleName}: ${e.message?.take(150)}"
+}
+
+/** De boom (JTree) van de structuurweergave, of null (dan staat de reden in het log). */
+fun Driver.structuurBoom(): OnderdeelOpAfstand? = try {
+    val wrapper = utility<StructuurFabriekOpAfstand>().getInstanceEx(singleProject()).getStructureViewWrapper()
+    val view = wrapper?.let { cast(it, StructuurWrapperOpAfstand::class).getStructureView() }
+    view?.let { v -> withContext(OnDispatcher.EDT) { cast(v, StructuurComponentOpAfstand::class).getTree() } }
+} catch (e: Throwable) {
+    println("DORTUS-E2E structuurboom niet gevonden: ${e.javaClass.simpleName}: ${e.message?.take(150)}")
+    null
 }
 
 /**

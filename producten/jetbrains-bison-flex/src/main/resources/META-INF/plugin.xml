@@ -33,6 +33,8 @@
         <lang.findUsagesProvider language="BisonFlex.Flex" implementationClass="com.dortus.bisonflex.psi.FlexAllePlekken"/>
         <!-- Pro-regel bij hernoemen: niet half hernoemen zonder licentie (ProHernoemen.kt). -->
         <renamePsiElementProcessor implementation="com.dortus.bisonflex.pro.ProHernoemen" order="first"/>
+        <!-- Shift+F6 op een token in scannercode zonder licentie: melding in plaats van de IDE-fout (ProHernoemenScanner.kt). -->
+        <renameHandler implementation="com.dortus.bisonflex.pro.ProHernoemenScanner" order="first"/>
     </extensions>
     <applicationListeners>
         <!-- Weet of er een echte ga-naar-actie bezig is, zodat Ctrl+zweven geen Pro-melding geeft (GaNaarActie.kt). -->
