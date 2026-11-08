@@ -10,4 +10,4 @@ Damage from the trap: `dice: 2d6 + 1`
 
 Who is waiting on the bridge: `dice: [[Demo/Encounters^road]]`
 
-What the toll keeper says: `dice: 2[[Demo/Toll keeper]]|line`
+What the toll keeper says: `dice: [[Demo/Toll keeper]]|line`

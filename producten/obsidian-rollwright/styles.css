@@ -1282,8 +1282,8 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	color: #3b2400;
 	background:
-		var(--rw-paper-noise),
 		linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.75) 45%, transparent 60%),
+		var(--rw-paper-noise),
 		linear-gradient(180deg, #f6d77a, #d9a531 60%, #b9831c);
 	background-color: var(--rollwright-bg);
 	box-shadow:
