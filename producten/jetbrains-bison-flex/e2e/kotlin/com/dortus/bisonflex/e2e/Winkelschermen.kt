@@ -106,7 +106,7 @@ internal fun IdeTest.winkelschermen(d: Driver, naam: String) = with(d) {
     for (b in listOf("calc.ll", "calc.yy", "calc.l", "calc.y")) {
         openFile(b)
         Thread.sleep(1_000)
-        val n = herstel(diagnose)
+        val n = herstel(diagnose, "$naam $b")
         println("DORTUS-E2E [$naam] winkel: $b terug naar NUM ($n keer vervangen), NUMBER nog ${"NUMBER" in tekstOpen()}")
     }
     diagnose.zetStand("GEEN")
@@ -197,7 +197,7 @@ private fun IdeTest.winkelHernoemen(d: Driver, naam: String, diagnose: Meldingen
         for (b in listOf("calc.l", "calc.ll", "calc.y")) {
             openFile(b)
             Thread.sleep(1_000)
-            println("DORTUS-E2E [$naam] winkel: $b terug naar NUM (${herstel(diagnose)} keer vervangen)")
+            println("DORTUS-E2E [$naam] winkel: $b terug naar NUM (${herstel(diagnose, "$naam $b")} keer vervangen)")
         }
     }
     assertTrue(gesplitst, "calc.l en calc.y naast elkaar met return NUMBER;, %token NUMBER en NUMBER in beeld ($naam)")
@@ -353,10 +353,10 @@ private fun Driver.editorFocus() {
  * Alle NUMBER in de open editor terug naar NUM; geeft het aantal. Stopt vanzelf (NUM bevat geen NUMBER);
  * de grens van 100 is alleen een vangnet en wordt in het log gemeld als hij geraakt wordt.
  */
-private fun herstel(diagnose: MeldingenDiagnoseOpAfstand): Int {
+private fun herstel(diagnose: MeldingenDiagnoseOpAfstand, waar: String): Int {
     var n = 0
     while (n < HERSTEL_GRENS && diagnose.vervang("NUMBER", "NUM")) n++
-    if (n == HERSTEL_GRENS) println("DORTUS-E2E winkel: herstel stopte op de grens van $HERSTEL_GRENS, er kan nog NUMBER staan")
+    if (n == HERSTEL_GRENS) println("DORTUS-E2E [$waar] winkel: herstel stopte op de grens van $HERSTEL_GRENS, er kan nog NUMBER staan")
     return n
 }
 
