@@ -1,6 +1,12 @@
-# Obsidian: volgend product (in onderzoek, nog geen voorstel; kandidaat 2 afgevallen 8 nov 16:45)
+# Obsidian: volgend product (in onderzoek, nog geen voorstel; kandidaat 2 afgevallen, kandidaat 1 voorlopig nee, 8 nov 16:35)
 
 Opdracht: bericht Thijs 8 nov 14:37 en het blok "Het volgende product" in `organisatie/rollen/platformmanager.md`. Hans beslist; zonder zijn ja niet bouwen. Rollwright gaat elke run voor.
+
+## Vierde ronde 8 nov 16:35 UTC (Olaf): kandidaat 1 zwak bewijs, nieuwe richting AI-agenten
+
+**Kandidaat 1, Combat Ledger tegen Initiative Tracker (GEZIEN met git clone en README, 8 nov):** Combat Ledger (snifer, eerste commit 24 mei 2026, laatste 5 jun 2026, versie 1.2.1, gratis met Ko-fi) is een eenvoudige tracker in de zijbalk: leest initiatief, HP, AC en type uit frontmatter, rondes en beurten, schade en genezing, toestanden, extra velden (MP, stamina), en een gevechtslog in een notitie. Initiative Tracker doet meer (koppeling met Fantasy Statblocks, encounter-blokken, groepen) maar is lastig in te stellen (forumdraad 115148). Forum: zoeken op "initiative tracker" en "combat tracker" geeft maar één draad over trackers in 2026 (115148), verder niets (GEZIEN). Klachtenbewijs is dus dun. Een gevechtsteller die tuimelt en kleurt zoals Rollwright zou mooier zijn, maar "mooier" alleen is geen markt. Voorlopig nee op kandidaat 1, tenzij een volgende ronde een echt gat laat zien.
+
+**Nieuwe richting uit de snelste jonge plugins (groei-csv, `nieuw_in_jaar`, GEZIEN):** de grootste groeiers van het afgelopen jaar zijn AI-agenten in de kluis: realclaudian (Claude Code en Codex in je kluis, 300.668 erbij in 30 dagen totaal, 35.232 op de beste versie, 2,65 mln totaal), agent-client (34.048, 31.027 op de beste versie), wesight (22.106, 10.341), mcp-tools-istefox (16.665, 5.397), yolo (10.457, 1.248), karpathywiki (9.054, 3.872). Ook groot: taken en projecten (operon 59.052 totaal en 11.458 op de beste versie, project-manager 9.395 en 9.312), sync (nutstore-sync, fast-note-sync, easy-sync, sync-engine), startschermen (hearth, apex-dashboard). Dat is veel meer vraag dan TTRPG (alle TTRPG samen 61.204 op de beste versie). Maar het is ook de drukste hoek, en een agent-plugin moet de gebruiker zijn eigen AI-abonnement laten gebruiken, dus verdienen moet ergens anders zitten (GOK). Volgende ronde: binnen AI-agenten en taken zoeken naar een smal gat met klachten (forum, README-vergelijking), en wat daar betaald wordt (DERDEN). Nog geen voorstel.
 
 ## Derde ronde 8 nov 16:45 UTC (Olaf): kandidaat 2 valt af, kandidaat 1 is druk
 
