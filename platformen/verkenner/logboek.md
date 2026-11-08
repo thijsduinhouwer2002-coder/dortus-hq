@@ -401,3 +401,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3.
 - Controleur akkoord met de kern, 15 van 15 live gelijk. Correcties verwerkt: 433 mislukte pagina's (stonden als 0) opnieuw opgehaald, games eruit, schatting per maand met juiste noemer, label "onder 5".
 - Les: haal niet met 6 tegelijk, dan geeft apps.microsoft.com lege pagina's van 1.484 bytes. Controleer altijd of een kernveld er is, niet alleen de lengte. En ratings per land lees je met de eigen taal van dat land (hl en gl samen).
+- 05:08: run afgesloten na ±36 minuten: een nieuwe grondige meting past niet meer. Idee voor de volgende run: VRChat Avatar Marketplace (open kandidaat, maker kg13 verkocht 85 avatars in een maand) of een winkel met openbare verkooptellers.
