@@ -39,13 +39,14 @@ Made for C and C++ developers who write parsers and lexers.</p>
 More at <a href="https://dortus.com/bison-flex/">dortus.com/bison-flex</a>.</p>
     ]]></description>
     <change-notes><![CDATA[
-<p>First release. Bison/Yacc and Flex/Lex file types, highlighting, syntax errors,
+<p>2026.1.1: when the IDE has no Register dialog, "Start free trial" in the Pro notification now opens the Bison &amp; Flex page on JetBrains Marketplace.</p>
+<p>2026.1.0: first release. Bison/Yacc and Flex/Lex file types, highlighting, syntax errors,
 folding, Structure view, and go to definition, find usages and rename within a file.
 Pro: navigation, find usages and rename of tokens across grammar and scanner,
 and warnings for undefined and unused names, with a quick fix to remove unused ones.</p>
     ]]></change-notes>
     <!-- Freemium: zonder licentie werkt het gratis deel, Pro vraagt PBISONFLEX (ontwerp.md, eis 8).
-         release-date is voorlopig (vandaag of eerder: Plugin Verifier en Marketplace weigeren meer dan 5 dagen vooruit); op de lanceerdag zetten (architectuur.md). -->
+         release-date 20261108 en release-version 20261 blijven vast voor alle 2026.1.x (regel JetBrains: anders telt het als nieuwe hoofdversie en worden proeven gereset). -->
     <product-descriptor code="PBISONFLEX" release-date="20261108" release-version="20261" optional="true"/>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
