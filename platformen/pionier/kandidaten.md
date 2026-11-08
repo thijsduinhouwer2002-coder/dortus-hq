@@ -96,3 +96,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Bluesky: snelle schifting, geen betaalroute voor feeds of labelers in de app; Bluesky zelf heeft nog bijna geen omzet en het plan voor betaalde abonnementen gaat over gebruikers, niet over makers van feeds (DERDEN, https://buffer.com/resources/bluesky-subscriptions-monetization/). Waarschijnlijk nee.
 - Les van vandaag: een gedwongen overstap telt alleen als het platform eronder ook groeit (Devvit ja, Premiere nee). Zoek gedwongen overstappen op platformen die zelf hard groeien.
 - Nog open: Excalidraw, Cursor (plugins), Warp. Eerst snel schiften op geld.
+
+## Nieuw, 8 nov 08:45 UTC (Noor)
+- Superhuman-plugins (vroeger Coda Packs; sinds 2026 ook als koppeling en agent in Superhuman Go, de AI-laag van Grammarly en Superhuman Mail): in onderzoek 2026-11-08 08:45 UTC
+- Rive Marketplace: snelle schifting, alles onder CC BY, geen verkoop (GEZIEN, https://rive.app/docs/community/marketplace-overview.md). Nee.
+- Cursor Marketplace: gratis vermelden, geen manier om te laten betalen (DERDEN, https://www.buildmvpfast.com/blog/cursor-origin-app-marketplace-dev-tools-2026). Waarschijnlijk nee.
