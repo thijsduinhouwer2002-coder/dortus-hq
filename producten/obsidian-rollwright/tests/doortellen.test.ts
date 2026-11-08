@@ -1,10 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { RandomInt } from "../src/engine";
 import RollwrightPlugin from "../src/main";
+import { LAND_MS } from "../src/ui/motion";
 import { mountRoll, startTicking, TICK_ATTR, TICK_START_MS, TICK_STEPS, tickNumber, tickSequence } from "../src/ui/widget";
 
-// Ontwerp-v2 klus 4 en 4b: het getal telt na een klik door vanaf ±140 ms (als het vakje in beeld komt)
-// en landt op ±505 ms op de echte uitkomst, tegelijk met het vakje.
+// Ontwerp-v2 klus 4, 4b en 4c: het getal telt na een klik door vanaf ±140 ms (als het vakje in beeld komt)
+// en landt op LAND_MS (460 ms) op de echte uitkomst, op hetzelfde moment als goud of rood.
 const LAND = TICK_START_MS + TICK_STEPS.reduce((a, b) => a + b, 0);
 
 /** A value element that remembers its attribute, and every number it showed. */
@@ -45,6 +46,7 @@ function fakeRoll() {
 		},
 		addEventListener: (name: string, listener: (event: unknown) => void) => (listeners[name] = listener),
 		closest: () => null,
+		isConnected: true,
 	};
 	return el;
 }
@@ -68,14 +70,13 @@ afterEach(() => {
 });
 
 describe("startTicking", () => {
-	it("waits ±140 ms, shows 6 numbers within the range, slower each time, lands at ±500 ms, then takes the attribute away", () => {
+	it("waits ±140 ms, shows 6 numbers within the range, slower each time, lands at LAND_MS, then takes the attribute away", () => {
 		const value = fakeValue();
 		const stop = startTicking(value as never, { min: 1, max: 20 });
 		expect(stop).not.toBeNull();
 		expect(TICK_STEPS).toHaveLength(6);
 		expect(TICK_START_MS).toBe(140);
-		expect(LAND).toBeGreaterThanOrEqual(480);
-		expect(LAND).toBeLessThanOrEqual(510);
+		expect(LAND).toBe(LAND_MS);
 		for (let i = 1; i < TICK_STEPS.length; i++) expect(TICK_STEPS[i]).toBeGreaterThan(TICK_STEPS[i - 1] as number);
 		vi.advanceTimersByTime(TICK_START_MS - 1);
 		expect(value.seen).toEqual([]);
@@ -204,6 +205,31 @@ describe("counting on the roll", () => {
 		expect(value?.seen[5]).not.toBe("24");
 		expect(value?.text).toBe("24");
 		// 24 is a crit: its gold came with a timer of its own at 460 ms (klus 2d); now nothing runs.
+		expect(vi.getTimerCount()).toBe(0);
+	});
+
+	it("klus 4c: when the gold of a crit comes, the counted number is gone in that same moment", async () => {
+		const plugin = await load();
+		const roll = fakeRoll();
+		mountRoll(plugin, roll as never, "1d20+4", "k4", "A.md", { register() {} } as never);
+		await settle();
+		roll.listeners.click?.(press());
+		await settle();
+		const value = roll.values[roll.values.length - 1];
+		// What the counted number was at the very moment the gold went on.
+		let tickAtGold: string | undefined = "never";
+		const addClass = roll.addClass;
+		roll.addClass = (cls: string) => {
+			if (cls === "rollwright-crit") tickAtGold = value?.attrs.get(TICK_ATTR);
+			return addClass(cls);
+		};
+		vi.advanceTimersByTime(LAND_MS - 1);
+		expect(roll.classes.has("rollwright-crit")).toBe(false);
+		expect(value?.attrs.has(TICK_ATTR)).toBe(true);
+		vi.advanceTimersByTime(1);
+		expect(roll.classes.has("rollwright-crit")).toBe(true);
+		expect(tickAtGold).toBeUndefined();
+		expect(value?.attrs.has(TICK_ATTR)).toBe(false);
 		expect(vi.getTimerCount()).toBe(0);
 	});
 

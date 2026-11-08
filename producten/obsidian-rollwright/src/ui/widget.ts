@@ -99,8 +99,11 @@ function showError(target: HTMLElement, formula: string, error: unknown): void {
  * waits 140 ms), so none of them is counted while it is still invisible.
  */
 export const TICK_START_MS = 140;
-/** Pauses between the counted numbers: 6 steps, slower each time; with the start the real number lands at ±505 ms, with the value. */
-export const TICK_STEPS = [45, 50, 55, 65, 70, 80];
+/**
+ * Pauses between the counted numbers: 6 steps, slower each time. With the start they add up to
+ * LAND_MS (460 ms, klus 4c), so the real number lands at the moment the gold or red comes.
+ */
+export const TICK_STEPS = [40, 45, 50, 55, 60, 70];
 /** On the value while it counts: the number shown on top of the real one (styles.css). */
 export const TICK_ATTR = "data-rollwright-tick";
 
@@ -255,7 +258,8 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		landNext = false;
 		const value = await showOutcome(plugin, target, outcome, sourcePath, component, landWin !== null);
 		if (landWin !== null && value !== null && shown === outcome && outcome.kind === "dice") {
-			landing.later(landWin, extremeClasses(outcome.extreme), () => shown === outcome);
+			// Klus 4c: the counting stops in the same tick the colour comes, so gold never shows a counted number.
+			landing.later(landWin, extremeClasses(outcome.extreme), () => shown === outcome, stopTicking);
 		}
 		if (!tick || value === null || shown !== outcome || outcome.kind !== "dice" || outcome.total === undefined || outcome.estimated || outcome.average) return;
 		const context = plugin.rollContext(sourcePath);
