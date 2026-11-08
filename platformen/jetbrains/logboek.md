@@ -360,3 +360,10 @@ Nieuwste blok onderaan.
 - **Nieuwe taak:** de CLion-EAP in de test verloopt rond 22 nov; rond 18 nov een nieuwere build kiezen.
 - **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten. Tot dan korte runs (weekbesluit Hans, regel 0c).
 
+## 8 nov 2026, 20:55 tot 21:35 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, 0 downloads, Versions-API `[]`, GEZIEN 20:55).
+- **Taak CLion-EAP verloopt (naar voren gehaald):** CLion 2026.3 is sinds 5 nov uit (263.7307.209, releases-API, GEZIEN). Geprobeerd de CLion-test naar de RC 263.7307.108 (30 okt) te zetten, tak `claude/jetbrains-2026-11-08-p` (6c8b2a3), om een week langer te kunnen testen. Starter kiest de build goed (GEZIEN in het log en door de controleur in de jar), maar run 42523071000 is rood: in de RC gaat het venster "Open Project Wizard" niet dicht met Escape (ClionTest.kt:280), terwijl dat in de EAP wel lukt. IDEA-stap groen.
+- **Controleur:** akkoord nee. JetBrains schrijft bij eerdere CLion-RC's "You need an active subscription or a trial license" (blog 2024.3 en 2024.2 RC, GEZIEN). Een RC heeft dus geen ingebouwde licentie zoals een EAP; dat het venster in de RC bleef hangen past daarbij (GOK). De release vraagt ook een licentie.
+- **Besluit:** tak `-p` niet samenvoegen, de test blijft op EAP 263.7307.35. Waarom: de RC werkt niet en een licentie kan de ploeg niet zelf regelen.
+- **Gevolg (nagekeken):** de EAP verloopt ±22 nov (23 okt + 30 dagen). De volgende EAP (2027.1) komt vermoedelijk rond half januari 2027 (DERDEN: CLion-EAP 2025.1 op 15 jan 2025, IDEA-EAP 2026.1 op 20 jan 2026). Tussen ±22 nov en half januari kan de echte-CLion-test dus niet draaien. Unittests tegen CLion 2025.2, Plugin Verifier tegen CL-252 en CL-262 en de e2e in IDEA blijven wel. Taak in `taken.md` herschreven met de keuze voor ±18 nov.
+- **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.
