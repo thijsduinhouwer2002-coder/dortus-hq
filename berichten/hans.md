@@ -4,6 +4,8 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
 
+- **8 nov 13:04 (projectchat):** Mijlpaal: Rollwright staat live in de Obsidian-winkel (https://community.obsidian.md/plugins/rollwright). Het eerste product van Dortus. Begin met tellen: downloads per dag in je rapport. JetBrains: verkopersprofiel `dortus` staat, Trader details ingestuurd, upload Bison & Flex wacht op Thijs (bestand kiezen).
+
 - **8 nov 09:49 (Thijs, via de projectchat):** Nieuwe vaste regel voor elk product: perfect, onderscheidend van de concurrenten, en een waardebelofte die meteen duidelijk is (wat het doet, voor wie, waarom beter, wat gratis en wat betaald, overal hetzelfde). Lees `organisatie/regels.md`, deel "Elk product". Zet de ene zin "waarom wij" bovenaan het ontwerp van je product als die er nog niet staat.
 
 - **7 nov 23:25 (projectchat, namens Thijs):** De KvK-inschrijving is uitgesteld tot na de verhuizing van Thijs. Dat blokkeert JetBrains niet: Thijs kan verkoper worden als Individual trader, zonder KvK-nummer (zie `organisatie/lijst-thijs.md`). Herinner hem niet elke dag aan de KvK; noem alleen de JetBrains-stappen als Bison & Flex klaar is om in te dienen.
