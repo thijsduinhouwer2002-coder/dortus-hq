@@ -3,6 +3,7 @@
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Eigen platformen officieel scoren (Obsidian, JetBrains, Blender; bericht Thijs 8 nov 19:22): klaar 8 nov run 19:31, Blender 7, JetBrains 5, Obsidian 4, zie eigen-platformen.md
+- Productkans Blender: zwakke nummer één, betaalde add-ons uit de top 500 van Superhive met lage beoordelingen of klachten (ontevreden betalende kopers), zelf toegevoegd: in onderzoek 8 nov 20:35 (Amsterdam)
 - Productkans Blender: best verkochte add-ons op Superhive zonder Blender 5-ondersteuning (verlaten bestsellers), zelf toegevoegd: klaar 8 nov run 19:31, geen kans (cijfer 2), zie kansen/blender-verlaten-bestsellers.md
 
 - Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). Klaar 7 nov run 07:31: gevoel Thijs klopt, ±2 tot 6 van de 100 nieuwe apps haalt 100 installs in 2 tot 6 maanden, cijfer blijft 6, zie voorstellen/shopify.md
