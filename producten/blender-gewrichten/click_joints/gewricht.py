@@ -16,7 +16,7 @@ from . import beweeg, kleur as kleuren, passing, uit_elkaar, vormen
 from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
-from .maat import SCHUIF_MM, TE_DUN, beste_maat, kies_auto, te_dicht  # noqa: F401  (maten en hoeken: maat.py)
+from .maat import TE_DUN, beste_maat, kies_auto, te_dicht  # maten en hoeken: maat.py
 
 # Exact-solver: Self Intersection uit. Afwijking van het ontwerp, gemeten 8 nov in 4.2.23 en 5.2.3:
 # met use_self aan gaf dezelfde snede op de arm van 261K driehoeken open delen (zie ontwerp.md).
