@@ -4,7 +4,7 @@ import bpy
 from mathutils import Vector
 
 import figuren
-from hulp import log, plaats, stap, u, weg
+from hulp import delen, log, plaats, stap, u, weg
 
 
 def grenzen(obs):
@@ -22,7 +22,25 @@ def tweede_gewricht(lijst):
     inst.uit_elkaar = True
     bpy.context.view_layer.update()
     log(f"TWEEDE: deel B verschoven {b.delta_location.length / u():.3f} mm voor het tweede gewricht")
-    alle = plaats("tweede gewricht op verschoven B", b, (8, 0, 0), (1, 0, 0), kogel=3.0)
+    # Ronde j (regel Daan): 8 mm verder reikt de bolnaad van het tweede gewricht tot in kom en trechter van het
+    # eerste (run 42471820202: 0 delen). Daar moet de add-on weigeren met de afstand uit de rekensom.
+    # Direct aanroepen (niet via hulp.plaats): bij weigeren blijft deel B geselecteerd zoals de gebruiker het had.
+    inst.speling_mm, inst.kogel_mm, inst.soort, inst.as_bron, inst.kogel_auto = 0.2, 3.0, "KOGEL", "CURSOR", False
+    figuren.zet_cursor((8, 0, 0), (1, 0, 0))
+    figuren.maak_actief(b)
+    uitslag = bpy.ops.click_joints.plaats()
+    nieuw = [d for d in delen() if d.get("cj_bron") == b.name]
+    nodig = b.get("cj_te_dicht_mm")
+    log(f"TWEEDE: op 8 mm uitslag={uitslag}, {len(nieuw)} nieuwe delen, cj_te_dicht_mm={nodig}, "
+        f"deel B zichtbaar={b.visible_get()}")
+    stap("tweede gewricht te dicht (8 mm): geweigerd, geen nieuwe delen, afstand gemeld",
+         uitslag == {"CANCELLED"} and len(nieuw) == 0 and isinstance(nodig, int) and nodig > 0 and b.visible_get())
+    weg(nieuw)
+    # Op een plek ver genoeg weg (kogelmiddens minstens de gemelde afstand uit elkaar) moet het wel lukken.
+    oud_c = Vector(b["cj_centrum"]) / u()
+    x = oud_c.x + (nodig or 8)
+    log(f"TWEEDE: oud kogelmidden x={oud_c.x:.3f} mm, tweede gewricht op x={x:.3f} mm")
+    alle = plaats("tweede gewricht op verschoven B", b, (x, 0, 0), (1, 0, 0), kogel=3.0)
     nieuw = [d for d in alle if d.get("cj_bron") == b.name]
     stap(f"tweede gewricht: twee nieuwe delen (gevonden {len(nieuw)})", len(nieuw) == 2)
     inst.uit_elkaar = False
@@ -30,12 +48,12 @@ def tweede_gewricht(lijst):
     if len(nieuw) == 2:
         snij = Vector(nieuw[0]["cj_snijpunt"]) / u()
         mn, mx = grenzen(nieuw)
-        verschil = max(abs(x - y) for x, y in zip(mn + mx, oud[0] + oud[1]))
-        log(f"TWEEDE: na uitzetten grenzen nieuwe delen {[round(x, 3) for x in mn]}..{[round(x, 3) for x in mx]} mm, "
-            f"deel B {[round(x, 3) for x in oud[0]]}..{[round(x, 3) for x in oud[1]]} mm, verschil {verschil:.5f} mm, "
-            f"snijpunt x={snij.x:.4f} mm (cursor 8)")
+        verschil = max(abs(p - q) for p, q in zip(mn + mx, oud[0] + oud[1]))
+        log(f"TWEEDE: na uitzetten grenzen nieuwe delen {[round(p, 3) for p in mn]}..{[round(p, 3) for p in mx]} mm, "
+            f"deel B {[round(p, 3) for p in oud[0]]}..{[round(p, 3) for p in oud[1]]} mm, verschil {verschil:.5f} mm, "
+            f"snijpunt x={snij.x:.4f} mm (cursor {x:.4f})")
         stap("tweede gewricht: delen sluiten aan op de echte plek van deel B (binnen 0,01 mm)", verschil < 0.01)
-        stap("tweede gewricht: snijvlak op de cursor in echte coördinaten", abs(snij.x - 8.0) < 0.02)
+        stap("tweede gewricht: snijvlak op de cursor in echte coördinaten", abs(snij.x - x) < 0.02)
     # Maak gesloten op het verschoven deel B: de kopie hoort op de echte plek.
     inst.uit_elkaar = True
     figuren.maak_actief(b)

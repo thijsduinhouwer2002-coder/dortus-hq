@@ -161,21 +161,70 @@ def meterscene():
     stap(f"meterscene: speling van de add-on {addon_mm} mm (0,2 +- 0,02)", abs(addon_mm - 0.2) < 0.02)
     kogel_d = toets_opening(lijst, "meter")
     stap(f"meterscene: kogeldiameter {kogel_d} mm (5 +- 0,01)", kogel_d is not None and abs(kogel_d - 5.0) < 0.01)
-    # De kleinste wand is hier de bodem van deel B naast de klikopening: 1,4r - wortel((r+s)^2 - (0,85r)^2)
-    # - 0,0137 = 1,821 mm bij r = 2,5 mm en s = 0,2 mm. In meters gerekend zou dat 0,0018 of 1821 worden.
+    # Vorm v0.3 (ronde j): de bodem van deel B bestaat niet meer. De kleinste wand is nu de kleinste van
+    # (1) de schil van deel B tussen kom en bolnaad: naad_r - s/2 - (r + s), en (2) de trechterwand: van de
+    # klikrand langs de trechter tot de bolnaad, loodrecht op de trechter tot de huid van het originele figuur.
+    # Hier zelf nagerekend op het origineel; in meters gerekend zou het 1000 keer te klein of te groot zijn.
     wand = a.get("cj_wand_mm")
-    verwacht = 3.5 - ((2.7 ** 2 - 2.125 ** 2) ** 0.5) - 0.0137
+    verwacht = verwachte_wand(ob, a)
     log(f"METER: passing={a.get('cj_passing')} wand={wand}mm verwacht={verwacht:.3f}mm kogel_r={a['cj_kogel_r']}m")
-    stap("meterscene: passing groen, wand gelijk aan de bodem in mm (+- 0,02)",
+    stap("meterscene: passing groen, wand gelijk aan de kleinste van schil en trechterwand in mm (+- 0,02)",
          a.get("cj_passing") == "groen" and abs(wand - verwacht) < 0.02)
-    # Het snijvlak ligt 0,0137 mm naast de cursor, ook in meters: laagste punt van deel B langs de as.
-    as_r = Vector(b["cj_as"])
-    schuif = min(v.co.dot(as_r) for v in b.data.vertices) / u()
-    log(f"METER: snijvlak {schuif:.5f} mm naast de cursor")
-    stap("meterscene: snijvlak 0,0137 mm naast de cursor (+- 0,001)", abs(schuif - 0.0137) < 0.001)
+    # Vorm v0.3: binnen de bolnaad is er geen vlakke snede meer; buiten de bol loopt de vlakke snede door het
+    # kogelmidden, 0,0137 mm verder langs de as, ook in meters. Laagste punt van deel B langs de as, alleen
+    # over de punten buiten de bolnaad (zelfde precisie als de oude toets).
+    as_r, c = Vector(b["cj_as"]), Vector(b["cj_centrum"])
+    naad = b.get("cj_naad_r", -1.0)
+    buiten = [v.co for v in b.data.vertices if (v.co - c).length > naad + 0.05 * u()]
+    schuif = (min(p.dot(as_r) for p in buiten) - c.dot(as_r)) / u() if buiten and naad > 0 else 99.0
+    log(f"METER: snijvlak buiten de bolnaad {schuif:.5f} mm voorbij het kogelmidden ({len(buiten)} punten, "
+        f"naad_r {naad / u():.3f} mm)")
+    stap("meterscene: snijvlak buiten de bol door het kogelmidden, 0,0137 mm verder (+- 0,001)",
+         abs(schuif - 0.0137) < 0.001)
+    hoek, grens = a.get("cj_hoek"), a.get("cj_grens_graden", -1.0)
+    log(f"METER: hoekstand {hoek} graden, berekende grens {grens} graden, nek_r {a['cj_nek_r'] / u():.3f} mm")
+    stap("meterscene: hoekstand 30, 25 of 20 en berekende grens minstens die stand",
+         hoek in (30, 25, 20) and grens >= hoek - 1e-6)
     toets_stl(lijst, "STL meter")
     toetsen_3mf.toets(lijst, "3MF meter")  # ronde h: ook in meters komt de 3MF in mm
     weg(lijst + [ob])
+
+
+def verwachte_wand(ob, a):
+    """Kleinste van schil (kom tot bolnaad) en trechterwand in mm, gemeten op het originele figuur `ob`."""
+    import math
+    from mathutils import Matrix
+    from mathutils.bvhtree import BVHTree
+    import bmesh
+    r, s = a["cj_kogel_r"], a["cj_speling_mm"] * u()
+    naad, open_r, lip = a["cj_naad_r"], a["cj_open_r"], a["cj_lip_d"]
+    as_r = Vector(a["cj_as"]).normalized()
+    punt = Vector(a["cj_snijpunt"]) - as_r * (0.0137 * u())  # de cursor
+    mz = (Vector(a["cj_centrum"]) - punt).dot(as_r)
+    schil = (naad - s / 2 - (r + s)) / u()
+    frame = Matrix.Translation(punt) @ as_r.to_track_quat("Z", "Y").to_matrix().to_4x4()
+    rot = frame.to_3x3()
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bm.transform(ob.matrix_world)
+    bvh = BVHTree.FromBMesh(bm)
+    bm.free()
+    hoek = math.radians(a["cj_grens_graden"] + 3.0)
+    grens, kleinste, t = naad - s / 2, math.inf, 0.0
+    for _ in range(64):
+        z, x = mz - lip - t, open_r + t * math.tan(hoek)
+        if math.hypot(x, z - mz) > grens:
+            break
+        for i in range(24):
+            ca, sa = math.cos(2 * math.pi * i / 24), math.sin(2 * math.pi * i / 24)
+            p = Vector((ca * x, sa * x, z))
+            n = Vector((ca * math.cos(hoek), sa * math.cos(hoek), math.sin(hoek)))
+            hit = bvh.ray_cast(frame @ p, (rot @ n).normalized())
+            if hit[0] is not None:
+                kleinste = min(kleinste, hit[3])
+        t += 0.25 * r
+    log(f"METER: schil {schil:.3f} mm, trechterwand {kleinste / u():.3f} mm")
+    return min(schil, kleinste / u())
 
 
 def alles(arm):
