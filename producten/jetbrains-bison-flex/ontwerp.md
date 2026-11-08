@@ -1,4 +1,4 @@
-Akkoord: ja 8 nov 2026 06:35, voor indienen van 1.0 met de winkeltekst en naam "Bison & Flex" van tak `claude/jetbrains-2026-11-08-e` (0e667972, plugin.xml), zie beoordeling 12. Lijstplaatjes: 1 tot 3 klaar in `ontwerp/bison-flex/`; 4 (hernoemen over beide bestanden) en 5 (melding met snelle oplossing) wachten op nieuwe schermen met Pro aan (punt A en B in beoordeling 12). Indienen mag met plaatje 1 tot 3 zodra Thijs ze gezien heeft; 4 en 5 komen erbij zodra ze er zijn (plaatjes zijn na de upload nog te wisselen).
+Akkoord: ja 8 nov 2026 06:29, voor indienen van 1.0 met de winkeltekst en naam "Bison & Flex" van tak `claude/jetbrains-2026-11-08-e` (0e667972, plugin.xml), zie beoordeling 12. Lijstplaatjes: 1 tot 3 klaar in `ontwerp/bison-flex/`; 4 (hernoemen over beide bestanden) en 5 (melding met snelle oplossing) wachten op nieuwe schermen met Pro aan (punt A en B in beoordeling 12). Indienen mag met plaatje 1 tot 3 zodra Thijs ze gezien heeft; 4 en 5 komen erbij zodra ze er zijn (plaatjes zijn na de upload nog te wisselen).
 
 Oud: Akkoord: ja 8 nov 2026 02:27, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
 
@@ -247,7 +247,7 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0
 
 **Besluit:** `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, de meldingen zien eruit en praten zoals de IDE zelf, en ik beloofde daarna geen nieuwe eisen. Het eigen gezicht zit in icoon, Pro-icoon en poster, en dat was al af.
 
-### Beoordeling 12, 8 nov 2026 06:35 (winkeltekst en lijstplaatjes, vraag van Jet 06:25)
+### Beoordeling 12, 8 nov 2026 06:29 (winkeltekst en lijstplaatjes, vraag van Jet 06:25)
 
 Bekeken: `<description>` en `<change-notes>` in plugin.xml op tak `claude/jetbrains-2026-11-08-e` (0e667972, kop a0289c58); `commercie/jetbrains-bison-flex/indienen.md` deel 1 en 4; schermen van IDE-run 42453419735 (tak `-e`, RUN.txt klopt) in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-08-e/`: `licht-calc-y-structuur`, `donker-calc-l`, `licht-hernoem-scanner`, `licht-hernoem-venster`, `licht-meldingen`, `licht-meldingen-oplossing`.
 

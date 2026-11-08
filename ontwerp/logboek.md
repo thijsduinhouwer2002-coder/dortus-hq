@@ -195,3 +195,5 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Lijst Thijs:** plaatje 1 tot 3 van Bison & Flex staan erop voor zijn ja of nee.
 - **Stijl versie 15:** kaarten na de poster, één functie per kaart, betaalde functie werkend tonen.
 - **Volgende run:** plaatje 4 en 5 maken als Jet de schermen heeft; Rollwright wacht op Thijs; Click Joints als Bram de punten heeft.
+- **Click Joints, tussenreactie 2 (06:31):** schermen van run 42454838164 (tak `claude/blender-2026-11-08-e`, 456ce02, groen) bekeken, `5.2.3/1-paneel-x` en `2-gewricht-x`. Camera in de kom en Engels paneel goed. Gemeten: amber wordt in Solid `#A78B2F` tot `#806B24`, weer mosterd; Auto geeft 3.0 mm met Tight. Besloten: proefstrook met vier geeltinten, Auto kiest de grootste maat met Good fit, hoofdplaatje groen. Waarom: een gele waarschuwing op het hoofdplaatje en een automatische maat die krap is, voelen onaf. In `ontwerp.md` boven "Ronde c" gezet, zodat het niet botst met Brams tak.
+- **Fout van mij:** ik schreef eerst 06:35 en 06:40 als tijd terwijl de klok 06:29 en 06:31 zei; verbeterd voor het opslaan.
