@@ -348,13 +348,13 @@ def voorbij_grens():
 
 
 def plat_lid():
-    """Plaatje 7 (ronde l, eis b van Daan): plat, hoekig lid (12 x 8 mm, afgeschuinde hoeken) met een
+    """Plaatje 7 (ronde l, eis b van Daan): plat, hoekig lid (16 x 12 mm; 12 x 8 is te dun voor een kogel, afgeschuinde hoeken) met een
     kogelgewricht in rechte stand, opengewerkt beeld uit, zodat je de naad over vlakke zijden en hoeken ziet."""
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     bpy.context.view_layer.update()
     figuren.mm_scene()
-    lid = figuren.balk("plat_lid", 12.0, 8.0, lengte=40.0)
+    lid = figuren.balk("plat_lid", 16.0, 12.0, lengte=40.0)
     lid.color = (0.8, 0.8, 0.8, 1.0)
     figuren.maak_actief(lid)
     figuren.zet_cursor((0, 0, 0), (1, 0, 0))

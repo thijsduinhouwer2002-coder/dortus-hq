@@ -57,6 +57,8 @@ jobs:
           grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
           # As langs de kijkrichting vanuit de zijbalk: gewricht geplaatst, as gelijk aan de kijkrichting, delen gesloten.
           grep -q "KIJK OK" /tmp/schermen.log || { echo "FOUT: as langs de kijkrichting niet goed"; exit 1; }
+          # Plaatje 7 moet echt een gewricht op het platte lid tonen (controleur ronde l).
+          grep -q "PLAT plaats: .*, 2 delen" /tmp/schermen.log || { echo "FOUT: geen gewricht op het platte lid"; exit 1; }
           for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - uses: actions/upload-artifact@v4
         if: always()

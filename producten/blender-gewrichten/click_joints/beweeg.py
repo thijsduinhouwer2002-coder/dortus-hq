@@ -185,13 +185,16 @@ def kleur_botsing(scene, b):
             me.polygons[oud[i]].material_index = oud[i + 1]
     a["cj_rood_vlakken"] = []
     g = float(b.get("cj_pose_graden", 0.0))
-    if g <= 0.0 or "cj_buig_graden" not in a:
+    k = int(b.get("cj_pose_richting", 0))
+    grenzen = list(a.get("cj_buig_graden", []))
+    # Binnen de gemeten grens kan niets botsen (zo is de grens gemeten): niet meten, de schuif blijft vlot.
+    if g <= 0.0 or k >= len(grenzen) or g <= grenzen[k]:
         me.update()
         return 0
     # Grote uitsnede (controleur ronde k): ook een botsing met de rest van het figuur (schouder, kraag) wordt rood,
     # niet alleen nek en klikrand. De grote uitsnede bevat de kleine (6r > 1,6 (r + s)).
     meter = Meter(a, b, groot=True)
-    paren = meter.raakt(int(b.get("cj_pose_richting", 0)), g, paren=True)
+    paren = meter.raakt(k, g, paren=True)
     vlakken = sorted({int(meter.a[2][i]) for i, _ in paren})
     if vlakken:
         mat = kleuren.materiaal("rood")
