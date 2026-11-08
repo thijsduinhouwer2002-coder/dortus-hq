@@ -181,3 +181,5 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Daarna snelle schifting Medusa, Strapi, Nuxt, Tauri, Statamic en Flux (allemaal nee voor de pionier, zie kandidaten.md).
 - Radar vond RuneScape 3 Plugin Hub (live 19 okt 2026). Meteen onderzocht met een onderzoeker (agent); de beslissende regel zelf gelezen: EULA Schedule 4, 3.2 verbiedt geld verdienen met plugins. Besluit: cijfer 2, nee. Waarom: geen enkele betaalroute en RS3 krimpt licht; de vraag is er wel, dus opnieuw als Jagex dat ooit verandert.
 - Les: bij spelplatformen eerst de EULA lezen op "commercial"; dat schift in één minuut.
+- Radar vond daarna de Cfx Marketplace van Rockstar (FiveM en RedM, sinds jan 2026). Voorwerk gedaan (winkel, kassa Tebex, grote verkopers op de voorpagina) en als eerste klaargezet voor de volgende run; geen half voorstel geschreven (liever één platform goed). Run gestopt om ±15:10 UTC.
+
