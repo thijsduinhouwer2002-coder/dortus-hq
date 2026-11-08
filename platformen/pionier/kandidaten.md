@@ -272,4 +272,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Snelle manier gevonden: de paginadata van een winkel bevat vaak per item een goedkeurings- of aanmaakdatum (hier approvedAt). Tel die per maand om in één minuut te zien hoe snel een winkel vult.
 - Snelle schifting 8 nov ±22:49 UTC: Directus Marketplace (extensies via npm, beta sinds 10.10 in 2024): geen betaalde extensies, npm `@directus/sdk` 370.876 naar 643.765 per maand in een jaar (x1,7, GEZIEN api.npmjs.org), groeit ongeveer mee met de markt. Nee.
 - Herhaalchecks van Hans (Devvit fondsen, Godot betaalde items) gedaan, niets nieuws; zie taken.md.
-- Microsoft Flight Simulator 2024, EFB-apps (Electronic Flight Bag API, nieuwe app-laag in de tablet in de cockpit; verkoop via de Marketplace in de sim, simMarket, Orbx en flightsim.to): in onderzoek 8 nov 22:50 UTC
+- Microsoft Flight Simulator 2024, EFB-apps (Electronic Flight Bag API, nieuwe app-laag in de tablet in de cockpit; verkoop via de Marketplace in de sim, simMarket, Orbx en flightsim.to): in onderzoek 8 nov 22:50 UTC; klaar 22:55, cijfer 5 (nog niet klaar), zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±22:55 UTC (Noor)
+- Les uit MSFS: een nieuwe app-laag in een bestaand groot programma waar consoles alleen via de eigen winkel iets kunnen toevoegen, geeft een hoek die op pc vol is maar op console leeg. Zoek meer van die soort: spellen en programma's op pc en console met een winkel in het spel (bijvoorbeeld Farming Simulator 25 ModHub, Cities Skylines 2 Paradox Mods op console, Euro Truck Simulator) en kijk of betaalde items van kleine makers mogen.
+- simMarket zet prijs en soms datePublished in de productdata (JSON-LD); handig om nieuwe betaalde items per maand te tellen.

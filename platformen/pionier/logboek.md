@@ -242,9 +242,13 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 4, nee voor de pionier. Waarom: instroom van makers zakt hard (57 naar 10 per maand), alle verkopers samen maar 6.192 verkopen in twee jaar, hulpmiddel-hoeken al vol, platform klein naast MetaTrader. Doorgegeven aan Vera via status.md, want verkopen per verkoper zijn hier openbaar.
 - Geen aparte controleur-agent: alle kerncijfers komen uit mijn eigen volledige meting en zijn met een tweede telling nagekeken (betaalde producten met 1, 10, 50, 100 gebruikers; status actief, gearchiveerd, inactief). De achtergrondcijfers van de hulpagent zijn DERDEN met link.
 
-## Run 8 nov 22:39 tot ±23:00 UTC (Noor)
+## Run 8 nov 22:39 tot ±22:55 UTC (Noor)
 - Berichten gelezen: niets nieuws sinds 22:31 en 19:16 (verwerkt). Lokale main liep weer niet gelijk met GitHub; op een eigen tak vanaf origin/main gewerkt en naar main gepusht.
 - Radar kort: geen nieuwe betaalde winkel in de zoekresultaten.
 - Gekozen: Vercel Marketplace. Waarom: betalen werkt al via de Vercel-rekening (zoals Thijs vroeg), winkel sinds aug 2024, en Vercel groeit heel hard.
 - Zelf gemeten: alle 76 producten met goedkeuringsdatum uit de paginadata (script data/vercel-marketplace-meet.py). Hulpagent voor groei (npm, Sacra), regels en vraag.
 - Besluit: cijfer 4, nee voor de pionier. Waarom: gecureerd en gevuld met merken (AWS, Stripe, Shopify), installs onzichtbaar, afdracht niet openbaar, en een product moet een gehoste dienst met support zijn. Niet voor Vera.
+- Daarna herhaalchecks van Hans: Devvit-fondsen (geen aankondiging na 31 dec; voorwaarden H2 2026 bijgewerkt op 4 nov) en Godot betaalde items (nog geen datum). Directus snel geschift: nee. Radar: Apple EU-voorwaarden (5% voor alternatieve iOS-winkels sinds 1 okt).
+- Gekozen: MSFS 2024 EFB-apps. Waarom: betalen werkt al, nieuwe app-laag met alleen kleine makers, past bij ons werk (TypeScript), en console-spelers kunnen alleen via de Marketplace iets toevoegen.
+- Zelf gemeten: Steam-spelers per maand (steamcharts) en de betaalde EFB-apps op simMarket met prijs. Hulpagent voor groei, regels, forumvraag en bestaande apps.
+- Besluit: cijfer 5, nog niet klaar. Waarom: groei is vooral herstel in een niche, verkopen onzichtbaar, en de console-hoek hangt aan goedkeuring door Microsoft. Herhaalmeting 8 jan 2027.
