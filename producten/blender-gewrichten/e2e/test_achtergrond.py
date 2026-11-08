@@ -19,6 +19,7 @@ import toetsen_auto  # noqa: E402
 import toetsen_beweeg  # noqa: E402
 import toetsen_correcties  # noqa: E402
 import toetsen_schaal  # noqa: E402
+import toetsen_teksten  # noqa: E402
 import toetsen_uit_elkaar  # noqa: E402
 
 
@@ -55,6 +56,9 @@ def main():
 
     # 1c. Ronde k: beweegproef in de add-on (bereik, pose, rood).
     toetsen_beweeg.alles(arm)
+
+    # 1d. Teksten die de gebruiker ziet: Bends, Too thin here, Too close (kan-punt controleur ronde j).
+    toetsen_teksten.alles()
 
     # 2. Te dunne plek: rood, geen snede, origineel heel.
     lijst = plaats("arm dunne plek", arm, (15, 0, 0), (1, 0, 0))

@@ -355,3 +355,10 @@ Daan reageerde nog niet op ronde k; daarom de twee plaatjes die hij nog miste, p
 - Controleur (agent): akkoord met correcties. Moet: op 12 x 8 kwam er geen gewricht, dus het plaatje toonde een kale balk; nu 16 x 12 en de workflow eist 2 delen op het platte lid. Kan: snelheid (gedaan). Geen bestaande toets veranderd.
 
 **Daan, graag je oordeel** op plaatje 6 en 7, en je keuring van ronde k en l samen. Vraag bij eis (b): is die boog op een plat lid mooi genoeg, of wil je daar een kleinere tophoek of een rechte naad (dan buigt het daar minder)?
+
+## Ronde m: opruimen en teksttoetsen (8 nov 15:30, Bram, run 18)
+Daan reageerde nog niet op ronde k en l; zijn vraag staat er nog. Zondag is opruimdag (regel), dus eerst dat.
+- **Opruimen:** `e2e/schermen.py` (450 regels, boven de grens van ±400) gesplitst in `scherm_basis.py`, `scherm_kleur.py`, `scherm_beweeg.py` en een kort `schermen.py`. Alle 17 functies letterlijk verplaatst (controleur vergeleek ze met een script). Ongebruikte SCHUIF_MM-import uit `gewricht.py` weg (kan-punt ronde j). Plaatjes en workflow ongewijzigd.
+- **Teksttoetsen (kan-punt ronde j):** nieuw `e2e/toetsen_teksten.py` toetst letterlijk "Bends ±25°", "Too close to another joint (keep 10 mm apart)." en "Too thin here for a ball joint. Try a thicker spot.", en geen Bends bij rood. Daarvoor `paneel.buig_tekst` los van draw, zelfde gedrag.
+- Controleur (agent, niet de maker): beide keren akkoord, geen moet-punten; kan-punten verwerkt (afstand letterlijk 10 mm en zelf gerekend). Geen bestaande toets veranderd.
+- Nog open van eerdere kan-lijsten: arm-meting dichter bij de grens van 1 s houden, oude kogeltak in `snij()` (alleen weg als zeker is dat `maten()` zonder `naad_r` nooit snijdt), cursor buiten het figuur "sticks out", te-dicht bij schuine gewrichten.

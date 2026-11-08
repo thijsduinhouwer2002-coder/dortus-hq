@@ -24,6 +24,15 @@ def buig_graden(ob):
     return int(math.floor(min(stand, grens) + 1e-6))
 
 
+def buig_tekst(ob):
+    """Regel "Bends ±N°" in stap 3, of None: niet bij rood en niet zonder stand (regel Daan: nooit meer graden
+    dan berekend). Los van draw, zodat de achtergrondtest de tekst kan toetsen."""
+    hoek = buig_graden(ob)
+    if hoek is None or ob.get("cj_passing") == "rood":
+        return None
+    return f"Bends \u00b1{hoek}\u00b0"
+
+
 class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
     bl_label = "Click Joints"
     bl_idname = "CLICK_JOINTS_PT_paneel"
@@ -70,9 +79,9 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         if kleur:
             hoofd, _, reden = passing.fit_tekst(kleur, ob.get("cj_wand_mm", -1.0)).partition(" (")
             stap.label(text=hoofd, icon=passing.ICONEN[kleur])
-            hoek = buig_graden(ob)
-            if hoek is not None and kleur != "rood":  # regel Daan: nooit meer graden dan berekend
-                stap.label(text=f"Bends \u00b1{hoek}\u00b0", icon="BLANK1")
+            buig = buig_tekst(ob)
+            if buig:
+                stap.label(text=buig, icon="BLANK1")
             if reden:  # op een eigen regel, anders kapt Blender de tekst af
                 stap.label(text=reden.rstrip(")").capitalize(), icon="BLANK1")
             if ob.get("cj_wand_mm", -1.0) >= 0 and not reden:  # bij Tight staat de wand al in de reden
