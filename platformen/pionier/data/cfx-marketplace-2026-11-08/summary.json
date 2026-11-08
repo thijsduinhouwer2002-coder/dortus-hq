@@ -1,0 +1,21 @@
+{
+ "measured_at": "2026-11-08T15:49:11.910564Z",
+ "items": 1088,
+ "creators_with_items": 48,
+ "creators_in_sitemap": 0,
+ "per_category_from_items": {
+  "Maps": 230,
+  "Vehicles": 221,
+  "Character": 128,
+  "Scripts": 476,
+  "Clothing": 20,
+  "Weapons": 7,
+  "Misc": 2,
+  "Animations": 4
+ },
+ "platform_counts": {
+  "fivem": 959,
+  "redm": 129
+ },
+ "sum_downloads": 3093865
+}

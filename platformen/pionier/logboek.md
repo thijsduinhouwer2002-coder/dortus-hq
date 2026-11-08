@@ -183,3 +183,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Les: bij spelplatformen eerst de EULA lezen op "commercial"; dat schift in één minuut.
 - Radar vond daarna de Cfx Marketplace van Rockstar (FiveM en RedM, sinds jan 2026). Voorwerk gedaan (winkel, kassa Tebex, grote verkopers op de voorpagina) en als eerste klaargezet voor de volgende run; geen half voorstel geschreven (liever één platform goed). Run gestopt om ±15:10 UTC.
 
+
+## Run 8 nov 15:38 tot ±16:10 UTC (Noor)
+- Cfx Marketplace gepakt (stond klaar). Eén onderzoeker (agent) mat de hele winkel via de interne laadfunctie: 1.088 pakketten, 48 makers, per categorie en platform; script en data staan in `data/`. Zelf gemeten: spelers nu (runtime.fivem.net), Steam-gemiddelden per maand, forumcijfers, toelating en afdracht (Tebex-docs).
+- Besluit: cijfer 4, nog niet klaar. Waarom: winkel jong en betalen werkt, maar alleen voor toegelaten Tebex-partners en gevuld door gevestigde studio's, de markt eronder is een oceaan, en FiveM groeit nu niet. De pioniershoek (GTA 6) is nog niet aangekondigd. Markt eronder doorgegeven aan Vera via het voorstel.
+- Radar: GTA 6 op 19 nov, eerst consoles, als signaal genoteerd. Geen nieuwe kandidaat met 7 of hoger gevonden.

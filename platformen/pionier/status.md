@@ -30,6 +30,7 @@ Aangemaakt 7 nov 2026 door de projectchat.
 | Payload CMS (plugins) | 8 nov 2026 | 4 | nog niet klaar (herhaalmeting 8 jan 2027; ja als er een plugin-lijst of betaalde plugins komen, categorie rollen en rechten voor v4) |
 | RuneScape-plugins (RS3 Plugin Hub) | 8 nov 2026 | 2 | nee (EULA verbiedt geld verdienen met plugins, RS3 krimpt licht) |
 | Affinity-scripts (Canva) | 8 nov 2026 | 5 | nog niet klaar (herhaalmeting 8 dec; ja als voorwaarden verkoop toestaan en scripts en downloads doorgroeien, categorie kalenders en drukwerk) |
+| Cfx Marketplace (FiveM en RedM) | 8 nov 2026 | 4 | nog niet klaar (herhaalmeting 8 dec; opnieuw als Rockstar makers of servers voor GTA 6 aankondigt) |
 
 Volgende: nieuwe platformen met een betaalde winkel die net open is (zoals NativePHP). Zed, Raycast en ComfyUI vielen in de snelle schifting al af op geld. Herhaalmetingen rond 5 dec: `data/godot-store-meet.py` en `data/chatgpt-plugins-meet.py` `data/hytale-curseforge-meet.py` en `data/grafana-plugins-meet.py` en `data/trmnl-recipes-meet.py` en `data/pebble-appstore-meet.py` en `data/nativephp-plugins-meet.py` en `data/mcp-register-meet.py` en `data/ha-marketplace-meet.py` en `data/framer-plugins-meet.py`. Elke paar weken: `data/meta-brillen-meet.py`. Rond 8 dec ook `data/devvit-apps-meet.py`. Rond 8 dec ook `node data/premiere-uxp-meet.js` (Playwright, ±6 minuten). Rond 8 dec ook `data/superhuman-go-meet.py` (meldt als verkopen weer open is). Rond 8 dec ook `data/affinity-scripts-meet.py`. Rond 22 nov: `data/whop-apps-meet.py` (vergelijk met whop-apps-2026-11-08.json).
 Voor Hans: Godot is het eerste voorstel van de pionier dat de moeite waard is; het weegt met de pionier-meetlat (regel 4b), niet met die van Vera.
@@ -38,3 +39,4 @@ Voor Hans (8 nov 07:45): Reddit Devvit is het tweede voorstel met een 6, na Godo
 
 Voor Hans (8 nov 15:00): Filament is het derde voorstel met een 6, na Godot en Reddit Devvit. Sterkste groei tot nu toe, betalen kan al (makers houden bijna alles via eigen kassa), en bereik voor nieuwkomers is gemeten (mediaan duizenden downloads, wel opgeblazen door CI). Zwak punt: verkopen zijn niet te zien. Herhaalmeting rond 8 dec: `data/filament-plugins-meet.py`.
 Rond 8 jan 2027 ook `data/payload-plugins-meet.py` (vergelijk met payload-plugins-2026-11-08.json).
+Rond 8 dec ook `python3 -I data/cfx-marketplace-meet.py` (±4 minuten, vergelijk met data/cfx-marketplace-2026-11-08/).

@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 8 nov 2026 | GTA 6 uit op 19 nov 2026, eerst op consoles; nog geen woord over mods of servers | https://www.gamesradar.com/games/grand-theft-auto/gta-6-delayed-6-more-months-as-rockstar-commits-to-november-2026-and-says-sorry | DERDEN | volgen: als Rockstar makers of servers aankondigt, Cfx opnieuw wegen
 - 8 nov 2026 | Cfx Marketplace van Rockstar (FiveM en RedM): officiële winkel voor betaalde server-scripts en mods sinds jan 2026, gezien als opstap naar UGC in GTA 6 | https://www.gtaboom.com/what-the-future-of-gta-modding-looks-like-after-gta-6-e87a.md | DERDEN | mogelijke 6 of 7: volgende run eerst onderzoeken
 - 8 nov 2026 | RuneScape 3 opent plugins: Plugin Hub in de client, plugins in Lua via mod.io, met downloads per plugin; beta 6 okt, live 19 okt 2026 | https://runescape.wiki/w/Plugin en https://secure.runescape.com/m=news/runescape-plugins-officially-available-now | DERDEN | mogelijke 7: deze run onderzoeken
 - 8 nov 2026 | Grok Build Plugin Marketplace (xAI), open catalogus via pull request, partners MongoDB, Vercel, Sentry; geen betalen | https://x.ai/news/grok-plugin-marketplace (11 jun 2026) | GEZIEN | nee: AI-gereedschap zonder betaalroute, zelfde soort als Cursor en Claude
