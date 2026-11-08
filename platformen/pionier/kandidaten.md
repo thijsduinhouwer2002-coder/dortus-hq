@@ -240,6 +240,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - TikTok Shop App Store EU, de ene controle (mag een Nederlands bedrijf ook in DE, FR, IT, ES listen?): in onderzoek 8 nov 19:42 UTC; klaar 19:50, ja (Nederlandse BV's staan in alle negen landen), cijfer nu 7, productidee naar Europese productregels, zie voorstellen/tiktok-shop-app-store.md
 
 ## Voor de volgende run, 8 nov ±19:55 UTC (Noor)
+- Snelle schifting social-commerce winkels met app-winkel (Temu, Shein, Allegro, Whatnot): in onderzoek 8 nov 19:56 UTC
 - Les uit de TikTok-controle: kijk bij een winkel met landen meteen of dezelfde partner_id en service_id in meerdere landen staan, en zoek op de site van die maker het adres of KVK-nummer. Dat beantwoordt "mag een buitenlands bedrijf hier listen" in tien minuten zonder in te loggen.
 - Les: een lege categorie kan in vijf maanden vollopen (winstanalyse TikTok EU: 3 nieuwe apps sinds juni). Tel bij elk idee ook de aanmaakdatums in de categorie, niet alleen het aantal.
 - Ideeën om snel te schiften (zelfde soort als TikTok: groot winkelplatform dat net in een nieuw land opent, eigen app-winkel per land, betalen via eigen kassa): Temu en Shein marketplace voor lokale verkopers in de EU (app-winkels?), Whatnot (EU-uitbreiding), Amazon Selling Partner Appstore in nieuwe landen, Allegro (opent in meer landen, heeft een app-lijst?), bol.com partnerplatform.
