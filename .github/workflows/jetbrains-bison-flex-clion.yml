@@ -1,0 +1,68 @@
+name: Bison & Flex tegen CLion (unittests en Plugin Verifier)
+
+on:
+  push:
+    branches: [main, "claude/jetbrains-*"]
+    paths: ["producten/jetbrains-bison-flex/**", ".github/workflows/jetbrains-bison-flex-clion.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  clion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: producten/jetbrains-bison-flex
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ruimte maken (CLion en IDEA zijn groot)
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+      - name: Unittests met CLion 2025.2 als platform
+        run: ./gradlew --no-daemon test -PdoelIde=CL
+      - name: Telling unittests (CLion)
+        if: always()
+        run: |
+          D=build/test-results/test
+          [ -d "$D" ] || { echo "geen testuitvoer"; exit 0; }
+          T=0; F=0; E=0; S=0
+          for x in "$D"/*.xml; do
+            kop=$(grep -m1 '<testsuite ' "$x")
+            t=$(echo "$kop" | sed -E 's/.* tests="([0-9]+)".*/\1/')
+            f=$(echo "$kop" | sed -E 's/.* failures="([0-9]+)".*/\1/')
+            e=$(echo "$kop" | sed -E 's/.* errors="([0-9]+)".*/\1/')
+            s=$(echo "$kop" | sed -E 's/.* skipped="([0-9]+)".*/\1/')
+            T=$((T+t)); F=$((F+f)); E=$((E+e)); S=$((S+s))
+          done
+          echo "CLION UNITTESTS: totaal=$T geslaagd=$((T-F-E-S)) mislukt=$F fout=$E overgeslagen=$S"
+          echo "### CLion unittests: $((T-F-E-S)) van $T geslaagd" >> "$GITHUB_STEP_SUMMARY"
+      - name: Platform-informatie (welke IDE was het)
+        if: always()
+        run: find ~/.gradle/caches -maxdepth 6 -type d -iname '*clion*' 2>/dev/null | head -5 || true
+      - name: Plugin Verifier (CLion 2025.2 en IDEA Community 2025.2)
+        if: always()
+        run: ./gradlew --no-daemon verifyPlugin
+      - name: Samenvatting Plugin Verifier
+        if: always()
+        run: |
+          R=build/reports/pluginVerifier
+          [ -d "$R" ] || { echo "geen verifier-rapport"; exit 0; }
+          find "$R" \( -name 'verification-verdict.txt' -o -name '*.md' \) | head -20 | while read -r f; do
+            echo "== $f"; head -60 "$f"
+          done
+          grep -rl "SimpleDataContext" "$R" 2>/dev/null | head -5 | while read -r f; do echo "== SimpleDataContext in $f"; grep -n -B2 -A4 "SimpleDataContext" "$f" | head -30; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bison-flex-clion
+          path: |
+            producten/jetbrains-bison-flex/build/reports
+            producten/jetbrains-bison-flex/build/test-results
+          if-no-files-found: warn
