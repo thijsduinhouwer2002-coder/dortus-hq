@@ -606,3 +606,4 @@ Nieuwste blok onderaan.
 - Uitkomst: veel verlaten reuzen, maar Kanban is nu een weergave van Obsidian zelf (1.14), Zotero Integration (archief, stuk door Zotero 9) heeft ZotLit als actieve opvolger, Remotely Save heeft vijf groeiende gratis opvolgers. Nergens wordt betaald. Cijfer 3, nee. Controleur akkoord, 5 correcties.
 - Les: `community-archive` op GitHub is een goede bron voor verlaten Obsidian-plugins; ook nuttig om bij andere platformen naar zo'n archief-org te zoeken.
 - Run afgesloten.
+- Na afsluiten nog tijd: PDF++ toegevoegd aan de Obsidian-kans (cijfer 2, een onafhankelijke voortzetting is al aangevraagd). Platformrun: Twitch Extensions voorwerk, niet te meten zonder account.

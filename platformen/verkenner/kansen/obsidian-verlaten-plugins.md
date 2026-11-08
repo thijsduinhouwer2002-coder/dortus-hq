@@ -53,8 +53,13 @@ Een productkans moet een markt zijn waar al betaald wordt. Op Obsidian is dat bi
 
 **Cijfer 3. Advies: nee, nu niet bouwen.** Voor bereik alleen (zoals Rollwright) is een Zotero-opvolger het beste wat hier ligt, maar zonder geld past het niet bij de lat van nu.
 
+### 5. PDF++ (aanvulling na de controle, zelfde run): nee (cijfer 2)
+- 883.122 downloads, 54.808 per maand (32.678 op de nieuwste versie), laatste versie 434 dagen oud, 155 open issues, 23 nieuwe sinds juni zonder reactie van de maker (GEZIEN, zoek-API GitHub).
+- Op 19 okt 2026 vroeg iemand al toestemming om "an independently maintained PDF++ continuation" in de lijst te zetten (GEZIEN, issue-titel). Een opvolger is dus al onderweg.
+- Andere spelers groeien: MarkMind (12.197 per maand, versie van 4 dagen oud, gesloten code), Elton Reader (7.016, nieuw dit jaar), Handwriting (6.150, nieuw) (GEZIEN). Geen van de zichtbare PDF-plugins vraagt geld (niet alle README's gelezen; MarkMind niet nagegaan).
+- Niet nagekeken door de controleur (na zijn ronde toegevoegd).
+
 ## Wat nog open is
-- PDF++ (54.808 per maand, laatste versie 434 dagen oud, laatste push aug 2025, 168 open issues) heb ik niet uitgewerkt. Volgende stap als iemand dit oppakt: kijken of er een actieve opvolger is en of PDF-gebruikers ergens betalen.
 - Remotely Save: in januari 2027 remotelysave.com opnieuw lezen.
 - Hoe vaak Zotero-gebruikers in Obsidian zouden betalen is niet te meten zonder een proef.
 
