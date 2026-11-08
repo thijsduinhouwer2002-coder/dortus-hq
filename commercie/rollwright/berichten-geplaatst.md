@@ -33,3 +33,6 @@ Wat er gebeurde, precies:
 Waar het vastzit: **een geplande taak in de cloud heeft nooit Claude in Chrome**, hoe vaak hij ook draait. Oplossing (alleen Thijs kan dit, op de HP):
 - Open in de Claude desktop-app op de HP de geplande taak "Chris - Commercieel manager" en zet **"Require this computer"** aan (als zijn account dat aanbiedt). Dan draaien de runs met de HP erbij en is Claude in Chrome er, mits de HP aanstaat en Chrome open is met de extensie.
 - Of: Thijs plakt dit ene bericht zelf (titel, tekst en tags staan in `lancering.md`, run 9), of laat de projectchat (die wel bij de browser kan) het plaatsen. Daarna leg ik de link hier vast en ga ik verder met reageren en de volgende plekken, zodra ik bij de browser kan.
+
+## Poging 3, 8 nov 2026 (extra run op verzoek van Thijs, ±13:00 UTC): niet geplaatst
+Vastgelopen bij stap 1: verbinden met de browser. ToolSearch op "chrome" gaf "No matching deferred tools found". Ook deze run draaide in de cloud zonder koppeling met de HP. Eén keer geprobeerd, niet herhaald. Oplossing blijft dezelfde als bij poging 2.
