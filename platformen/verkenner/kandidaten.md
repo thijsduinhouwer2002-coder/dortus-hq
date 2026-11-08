@@ -3,6 +3,7 @@
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Eigen platformen officieel scoren (Obsidian, JetBrains, Blender; bericht Thijs 8 nov 19:22): klaar 8 nov run 19:31, Blender 7, JetBrains 5, Obsidian 4, zie eigen-platformen.md
+- Productkans Obsidian: veelgebruikte plugins die al lang niet zijn bijgewerkt (verlaten, met open issues), plus waar Obsidian-gebruikers al betalen (betaalde lagen, sync en publiceren), zelf toegevoegd: in onderzoek 8 nov 23:35 (Amsterdam)
 - Productkans Blender: zwakke nummer één, betaalde add-ons uit de top 500 van Superhive met lage beoordelingen of klachten (ontevreden betalende kopers), zelf toegevoegd: klaar 8 nov run 20:31, geen kans om nu te bouwen (cijfer 3), breien en ragdoll half open, herhaalmeting rond 6 dec, zie kansen/blender-zwakke-nummer-een.md
 - Productkans JetBrains: zwakke nummer één bij betaalde en freemium plugins buiten talen en bestandssoorten (tools, frameworks, database, VCS, testen; de ±590 die Jet in zijn betaalbereidheid-scan niet bekeek), zelf toegevoegd: in onderzoek 8 nov 22:38 (Amsterdam). Klaar 8 nov run 22:31: buiten talen overal een sterke leider; enige zwakke nummer één met betalende gebruikers zijn de taalpakketten (Frans 1,75, Italiaans 2,0, Tsjechisch 1,0). Cijfer 4, nog niet bouwen, kleine proef mogelijk, zie kansen/jetbrains-taalpakketten.md
 - Productkans Blender: best verkochte add-ons op Superhive zonder Blender 5-ondersteuning (verlaten bestsellers), zelf toegevoegd: klaar 8 nov run 19:31, geen kans (cijfer 2), zie kansen/blender-verlaten-bestsellers.md
