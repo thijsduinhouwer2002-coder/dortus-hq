@@ -34,13 +34,22 @@ jobs:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
           key: obsidian-cache-${{ github.run_id }}
           restore-keys: obsidian-cache-
-      - name: Obsidian vooraf downloaden (tot acht pogingen)
+      - name: Obsidian en chromedriver vooraf downloaden (tot acht pogingen)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
+          cat > ./vooraf.tmp.mjs <<'JS'
+          import ObsidianLauncher from "obsidian-launcher";
+          const l = new ObsidianLauncher({ cacheDir: process.cwd() + "/.obsidian-cache" });
+          const [app, installer] = await l.resolveVersion("latest", "latest");
+          console.log("installer", await l.downloadInstaller(installer));
+          console.log("app", await l.downloadApp(app));
+          console.log("chromedriver", await l.downloadChromedriver(installer));
+          JS
           for poging in 1 2 3 4 5 6 7 8; do
-            npx obsidian-launcher download desktop -v latest -i latest -c .obsidian-cache && exit 0
-            echo "downloadfout, poging $poging"; sleep $((poging * 10))
+            if timeout 600 node ./vooraf.tmp.mjs; then echo "IN CACHE (poging $poging)"; rm -f ./vooraf.tmp.mjs; exit 0; fi
+            [ "$poging" -lt 8 ] && { echo "downloadfout, poging $poging"; sleep $((poging * 20)); }
           done
+          rm -f ./vooraf.tmp.mjs
           echo "vooraf downloaden lukte niet; de test probeert het zelf nog"
       - uses: actions/cache/save@v4
         if: always()
