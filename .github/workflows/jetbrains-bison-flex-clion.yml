@@ -54,7 +54,7 @@ jobs:
         run: |
           R=build/reports/pluginVerifier
           [ -d "$R" ] || { echo "geen verifier-rapport"; exit 0; }
-          find "$R" \( -name 'verification-verdict.txt' -o -name '*.md' \) | head -20 | while read -r f; do
+          find "$R" \( -name 'verification-verdict.txt' -o -name '*.md' -o -name 'deprecated-usages.txt' \) | head -20 | while read -r f; do
             echo "== $f"; head -60 "$f"
           done
           grep -rl "SimpleDataContext" "$R" 2>/dev/null | head -5 | while read -r f; do echo "== SimpleDataContext in $f"; grep -n -B2 -A4 "SimpleDataContext" "$f" | head -30; done
