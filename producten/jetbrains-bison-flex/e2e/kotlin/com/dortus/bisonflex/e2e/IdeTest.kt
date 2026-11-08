@@ -162,6 +162,8 @@ class IdeTest {
                 // Eis 7: stand halverwege op GELDIG, meldingen en Alt+Enter in beeld (Meldingen.kt).
                 meldingen(this, naam)
                 kleurenpagina(naam)
+                // Schermen voor winkelplaatje 4 en 5, alleen licht, als laatste stap (Winkelschermen.kt).
+                if (naam == "licht") winkelschermen(this, naam)
             }
     }
 
