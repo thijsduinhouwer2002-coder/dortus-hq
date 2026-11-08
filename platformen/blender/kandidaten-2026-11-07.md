@@ -155,3 +155,30 @@ Doorlichting B (UV-naadtool): **valt ook af.** UV Flow ($24,99, 3.900+, Blender 
 - Meshwright heeft 10 producten voor personages en VRChat, nog geen lichaam-wrap, maar het past in hun lijn.
 
 **Gevolg:** node-previews valt af (bevestigd). Lichaam-wrap is geen leeg gat maar een smal wedje (meegeleverde basismesh met UV, Mac, iets goedkoper), tegenover BWrap met een gratis versie. Volgens sectie 11 wint een nieuwkomer met lagere prijs plus nieuwe aanpak; hier is de aanpak niet nieuw genoeg. **Oordeel Bram: wrap valt af als eerste product.** Beide overgebleven richtingen zijn nu doorgelicht en afgevallen. Volgende run, zoals afgesproken na run 2: kiezen uit wat we al bekeken hebben op bouwtijd en opvallen (geen nieuwe zoektocht), met een kort scoreschema over alle richtingen uit sectie 3 tot 15, en dat besluit in `organisatie/besluiten.md`.
+
+## 17. Scoreschema over alle richtingen en keus (8 nov 01:20, Bram, run 4; nog na te kijken)
+Geen nieuwe zoektocht, alleen kiezen uit sectie 3 tot 16. Nieuwe kolom **nieuwkomer verkoopt**: haalt een add-on van een maker zonder eigen publiek in dit hoekje binnen een paar maanden 100+? Dat is volgens sectie 11 het beste voorspellende bewijs voor ons. Scores 1 tot 5, hoger is beter (concurrentie 5 = weinig, bouwtijd 5 = klein).
+
+| Richting (sectie) | Vraag | Betaal | Nieuwkomer verkoopt | Concurrentie | Bouwtijd | Opvallen | Totaal |
+|---|---|---|---|---|---|---|---|
+| **Bone-jiggle (6, 8)** | 4 | 4 | 4 | 1 | 3 | 5 | **21** |
+| UV-naadtool (11, 13) | 4 | 5 | 4 | 1 | 3 | 4 | 21 |
+| Gewrichten printfiguren (3) | 3 | 4 | 4 | 1 | 3 | 5 | 20 |
+| CAD voor SketchUp-overstappers (3, 5) | 4 | 5 | 4 | 2 | 1 | 4 | 20 |
+| PME-opvolger (6, 7) | 4 | 4 | 3 | 1 | 2 | 4 | 18 |
+| AI-model naar printklaar (3, 5) | 4 | 2 | 1 | 3 | 3 | 3 | 16 |
+| Node-previews (14) | 2 | 3 | 3 | 1 | 2 | 5 | 16 |
+| Lichaam-wrap (15, 16) | 3 | 3 | 3 | 2 | 1 | 4 | 16 |
+| Physics-kit 5.2 (12, 13) | 2 | 2 | 2 | 3 | 2 | 4 | 15 |
+| Laser/CNC (3) | 3 | 1 | 1 | 2 | 5 | 2 | 14 |
+| Action Slots / VSE-kit (10) | 1 | 1 | 1 | 5 | 4 | 2 | 14 |
+| Export spelmotoren (3) | 2 | 3 | 2 | 1 | 4 | 1 | 13 |
+| Pivot-tool (6) | 2 | 3 | 1 | 1 | 4 | 2 | 13 |
+
+Bewijs nieuwkomers bone-jiggle, zelf opnieuw gemeten 8 nov 01:15 (GEZIEN, superhivemarket.com/products/<slug>): SquishyFX $15 300+ in 3 maanden (zachte vervorming), SpringFX $15 100+ in 3 maanden (botten, gewonnen op "makkelijk voor beginners"), JiggleMaker $29,99 1.200+ in ±1 jaar. Oudere: BoneDynamics Pro $15 6.000+, Swingy $14,79 1.700+, Wiggly 600+. Geen teller (dus onder 10): Inertia Pro $4,99 na 3 maanden, Wobble $20,30 en SwayMend $19 (23 dagen). Rigging heeft in de steekproef het hoogste aandeel nieuwe add-ons met 10+ verkopen: 52%, mediaanprijs $20 (sectie 1, GOK op GEZIEN).
+
+**Waarom bone-jiggle boven de UV-naadtool (gelijk op 21):** bij UV bestaat al precies onze werkwijze (UV Flow) en is een nieuwkomer al goedkoper dan ons plan (Easeam 2, $9,99); bij jiggle zijn de klachten over de groten nog niet opgelost door één product (bakken onbetrouwbaar of elke keer anders, niet samen met Auto-Rig Pro, kapot na hernoemen of dupliceren, geheugen, wens om presets per lichaamsdeel, sectie 8). En beweging is het sterkst te laten zien: een winkelpagina met bewegende voorbeelden, het past bij de lat van Thijs dat uiterlijk de helft is. Gewrichten en CAD vallen af om redenen uit sectie 3 en 5 (Cleave dekt de wensen, CAD te groot als eerste product).
+
+**Voorlopige keus: bone-jiggle, smal en anders.** Werktitel "Jiggle". Aanpak (GOK, na controle te scherpen): botten kiezen, een preset per lichaamsdeel kiezen (haar, staart, oren, buik, borst, cape, antenne) met bewegende voorbeeldkaartjes, live meekijken bij afspelen, en een **bak die elke keer precies hetzelfde geeft** (vaste stap, frame voor frame vanaf het begin), die werkt op een rig van Auto-Rig Pro en Rigify zonder iets te breken en die hernoemen overleeft (botten bewaren op naam plus vaste sleutel). Viewport-overlay die laat zien hoe slap of stijf elk bot staat. Prijs $12 (onder de $15 van het veld), lanceerprijs $9. Gratis versie op extensions.blender.org: één keten, live, zonder bakken en presets (GOK, de regels daar nog nalezen). Bouwtijd GOK 2 tot 3 weken in pure Python met numpy.
+
+**Wat dit besluit zou veranderen:** een concurrent die al deterministisch bakken plus presets per lichaamsdeel plus Auto-Rig Pro biedt voor $15 of minder; of de bak in Python is te traag voor een gewone rig (proef in de echte Blender).
