@@ -117,4 +117,24 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			await browser.execute(() => document.body.style.removeProperty("--rw-slow"));
 		}
 	});
+
+	// Daan, run 26: de Roll log als eigen wereld per skin.
+	it("roll log per skin", async function () {
+		await browser.execute(() => { try { require("electron").webFrame.setZoomFactor(1.25); } catch (e) { console.log("zoom", e); } });
+		await browser.executeObsidian(async ({ app }) => {
+			const note = app.workspace.getMostRecentLeaf();
+			await app.plugins.plugins.rollwright.openHistory();
+			app.workspace.rightSplit?.expand();
+			if (note) app.workspace.setActiveLeaf(note, { focus: true });
+		});
+		await browser.pause(1200);
+		for (const donker of [true, false]) {
+			for (const skin of ["classic", "parchment", "arcane"]) {
+				await zet(skin, donker);
+				const naam = `skins5-log-${skin}-${donker ? "donker" : "licht"}`;
+				await browser.saveScreenshot(`${SHOTS}/${naam}-vol.png`);
+				await browser.$('.workspace-leaf-content[data-type="rollwright-history"]').saveScreenshot(`${SHOTS}/${naam}.png`).catch((e) => console.log("log", e));
+			}
+		}
+	});
 });
