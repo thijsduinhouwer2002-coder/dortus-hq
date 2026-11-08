@@ -461,3 +461,9 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: bereik is er, geld voor kleine makers niet.
 - Controleur akkoord met correcties, alle tellingen gelijk, 15 van 15 live gelijk. Correcties verwerkt (statussen, drempel per maker, BOM contant, Exclusive als samenhang, eenheden rekensom).
 - Les: bij sites met oplopende id's en een open detail-API is een willekeurige steekproef van id's in een datumbereik de snelste eerlijke meting; zoek de grenzen met een paar losse id's.
+- 10:52: tweede platform: Printables (Prusa), zelf toegevoegd als vergelijking omdat het een Store met contante verkoop heeft. Webpagina's 403, open GraphQL-API wel. API gaf "Request was throttled" toen ik met 3 verzoeken tegelijk werkte; gestopt, gewacht, daarna 1 verzoek per 1,5 tot 2,5 s.
+- Uitkomst: alle 7.650 betaalde modellen sinds 4 mrt opgehaald; van 1.727 met losse prijs uit mei t/m aug heeft 94% geen beoordeling (alleen kopers kunnen beoordelen). Eén kleine maker (foam blasters, 10 modellen, 157 beoordelingen) verdient duidelijk. Gratis mediaan 11 downloads, 8,6% 100+.
+- Beslissing: nee voor nu, cijfer 3. Reden: geld kan, maar bijna niemand verkoopt, en we kunnen zonder printer niet testen.
+- Controleur akkoord met correcties, alle tellingen gelijk, 8 van 8 live gelijk. Grootste correctie: 55% van de betaald-lijst is Club zonder losse prijs, apart gezet.
+- Les: in GraphQL zonder introspectie vind je velden door ze te proberen (foutmeldingen noemen soms de goede naam, zoals 'Did you mean paid'). datePublished verschuift bij updates; gebruik firstPublish.
+- Run afgesloten na ±45 minuten.
