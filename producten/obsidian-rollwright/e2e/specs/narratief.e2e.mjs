@@ -11,8 +11,9 @@ const LIVE = ".markdown-source-view";
 const ZWS = String.fromCharCode(0x200b);
 // Zelfde vorm als SUMMARY in tests/narrative-widget.test.ts.
 const SAMENVATTING = /^(No result|((\d+ (Success|Failure|Advantage|Threat|Triumph|Despair|Light|Dark))(, )?)+)$/;
-// Leest de worpen op volgorde (w[0] tot w[4]); de volgorde in Narratief.md dus niet veranderen.
-const AANTAL = 5;
+// Leest de worpen op volgorde (w[0] tot w[7]); de volgorde in Narratief.md dus niet veranderen.
+const AANTAL = 8;
+const PANEEL = '.workspace-leaf-content[data-type="rollwright-history"]';
 
 async function open(mode) {
 	await browser.executeObsidian(async ({ app }, path, mode) => {
@@ -44,7 +45,8 @@ async function wacht(view) {
 	let w = [];
 	await browser.waitUntil(async () => {
 		w = await lees(view);
-		return w.length === AANTAL && [0, 1, 2].every((i) => SAMENVATTING.test(w[i].tekst)) && w[3].fout && /^\d+$/.test(w[4].tekst);
+		return w.length === AANTAL && [0, 1, 2].every((i) => SAMENVATTING.test(w[i].tekst)) && w[3].fout && /^\d+$/.test(w[4].tekst)
+			&& w[5].fout && /^\d+$/.test(w[6].tekst) && /^-?\d+$/.test(w[7].tekst);
 	}, { timeout: 20000, interval: 300, timeoutMsg: `de worpen in ${view} kwamen niet goed` }).catch((e) => {
 		console.log("GEZIEN TOT NU:", JSON.stringify(w));
 		throw e;
@@ -60,7 +62,10 @@ for (const [naam, mode, view] of [["lezen", "preview", LEZEN], ["Live Preview", 
 	describe(`Rollwright: narratieve dobbelstenen in ${naam}`, function () {
 		before(async function () {
 			// Het logboek houdt de laatste 200 worpen; leeg beginnen, anders kan het niet groeien.
-			await browser.executeObsidian(async ({ app }) => app.plugins.plugins.rollwright.clearHistory());
+			await browser.executeObsidian(async ({ app }) => {
+				await app.plugins.plugins.rollwright.clearHistory();
+				await app.plugins.plugins.rollwright.openHistory();
+			});
 			await open(mode);
 		});
 
@@ -72,6 +77,11 @@ for (const [naam, mode, view] of [["lezen", "preview", LEZEN], ["Live Preview", 
 			expect(w[3].reden).toContain("P is ambiguous");
 			expect(Number(w[4].tekst)).toBeGreaterThanOrEqual(2);
 			expect(Number(w[4].tekst)).toBeLessThanOrEqual(12);
+			expect(w[5].reden).toBe("Narrative dice have no average");
+			expect(Number(w[6].tekst)).toBeGreaterThanOrEqual(1);
+			expect(Number(w[6].tekst)).toBeLessThanOrEqual(6);
+			expect(Number(w[7].tekst)).toBeGreaterThanOrEqual(-4);
+			expect(Number(w[7].tekst)).toBeLessThanOrEqual(4);
 		});
 
 		it("een klik op 3g4d rolt opnieuw en komt in het logboek", async function () {
@@ -87,6 +97,16 @@ for (const [naam, mode, view] of [["lezen", "preview", LEZEN], ["Live Preview", 
 			console.log(`${naam} na klik: "${na[0].tekst}", logboek ${voor} -> ${lengte}`);
 			expect(na[0].tekst).toMatch(SAMENVATTING);
 			expect(lengte).toBeGreaterThan(voor);
+			// Het logboek toont een worp zonder getal als dezelfde tekst (OPEN.md punt 19).
+			let log = "";
+			await browser.waitUntil(async () => {
+				log = await browser.execute((p) => document.querySelector(`${p} .rollwright-history-item .rollwright-history-result`)?.textContent ?? "", PANEEL);
+				return log.includes(na[0].tekst);
+			}, { timeout: 5000, timeoutMsg: "het logboek toonde de narratieve worp niet" }).catch((e) => {
+				console.log(`${naam} LOGBOEK: "${log}"`);
+				throw e;
+			});
+			console.log(`${naam} logboek: "${log}"`);
 		});
 	});
 }

@@ -9,3 +9,9 @@ Kracht: `dice: 2w`
 Fout: `dice: 3g2p`
 
 Gewoon: `dice: 2d6`
+
+Gemiddelde: `dice: 3g4d|avg`
+
+Hoogste: `dice: 1D6KH1`
+
+Fudge: `dice: 4dF`
