@@ -531,3 +531,11 @@ Nieuwste blok onderaan.
 - Uitkomst: nee voor nu, cijfer 3. Waarom: extreem druk, bestsellers oud werk, centen per verkoop, ID van Thijs nodig, en het is 3D-mode in plaats van software. Controleur akkoord, 4 correcties verwerkt (cohort is ondergrens door afkapping op 480, lijst niet schoon op datum, mediaanprijs betaald 90, voorschot niet terugbetaalbaar).
 - Les: bij een script met een maximum aantal pagina's altijd nagaan wie dat maximum raakt voor je telt.
 - Run afgesloten.
+
+## 8 nov run 18:33 (Amsterdam)
+- Begin: lokale main stond los (detached), main opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Platform: shadcn-registry's, doorgegeven door Noor met de vraag of kleine premium-registry's nu verkopen. Om 18:35 op "in onderzoek" gezet en gepusht. Gekozen omdat het het enige open doorgegeven platform was en ontwikkelaars professionals zijn.
+- Eigen meting via TrustMRR (omzet rechtstreeks uit Stripe of Polar, robots.txt staat het toe): 502 profielen, 30 over UI-kits. Onderzoeker vond Obra, Aceternity, 21st.dev en Gumroad. Tellers Shadcnblocks en Cult UI zelf gecontroleerd.
+- Uitkomst: geld aangetoond voor vroege spelers, nieuwkomers mediaan ±$485 totaal, eenmalige verkoop. Beslissing: nee voor nu, cijfer 4. Waarom: de koers vraagt terugkerend geld en de motor hier is een eigen publiek dat we niet hebben.
+- Controleur: tabel en tellers kloppen; correcties verwerkt (QuasarUI is Vue, RareUI miste door lege datum, som 30 dagen ±$2.620). Oordeel 4 redelijk.
+- Les: TrustMRR is een goede bron voor echte bedragen van kleine makers op elk platform; let op profielen zonder startdatum bij het filteren.
