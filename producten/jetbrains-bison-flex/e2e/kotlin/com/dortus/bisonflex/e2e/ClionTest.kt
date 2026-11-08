@@ -113,15 +113,20 @@ interface RegistryOpAfstand {
 
 /**
  * Eis 1 in de echte CLion (de doelgroep van de plugin), los van IdeTest: een eigen Gradle-taak `clionTest`.
- * Gebruikt de EAP-build van CLion, want die heeft een ingebouwde tijdelijke licentie (30 dagen na de builddatum,
- * Starter weigert een verlopen EAP zelf). Is de build verlopen, kies dan de nieuwste EAP en pas [CLION_BUILD] aan.
+ * Gebruikt een RC- of EAP-build van CLion, want die heeft een ingebouwde tijdelijke licentie (±30 dagen na de
+ * builddatum). De release (2026.3, 263.7307.209, 5 nov) vraagt een licentie of inlog en kan hier dus niet.
+ * Starter weigert alleen een verlopen EAP zelf; bij een verlopen RC verschijnt het licentievenster en faalt de test
+ * met die reden. Verlopen: kies de nieuwste RC of EAP (data.services.jetbrains.com/products/releases?code=CL&type=rc,eap)
+ * en pas [CLION_BUILD] en [CLION_SOORT] aan.
  * Verschijnt er toch een licentie- of voorwaardenvenster, dan klikt de test niets weg: schermafbeelding, titel in
  * het log, en de test faalt met die reden.
  */
 class ClionTest {
     companion object {
-        /** CLion 2026.3 EAP van 23 okt 2026, geldig tot ongeveer 22 nov 2026. */
-        const val CLION_BUILD = "263.7307.35"
+        /** CLion 2026.3 RC van 30 okt 2026, geldig tot ongeveer 29 nov 2026 (was EAP 263.7307.35, tot ±22 nov). */
+        const val CLION_BUILD = "263.7307.108"
+        /** "rc" of "eap", zoals het veld `type` in de releases-API van JetBrains. */
+        const val CLION_SOORT = "rc"
         private const val PLUGIN_ID = "com.dortus.bisonflex"
         private val VERDACHT = Regex("licen|activat|agreement|terms|eula|register|subscription|trial|log ?in|sign ?in|evaluat|privacy|data sharing|expired", RegexOption.IGNORE_CASE)
     }
@@ -141,11 +146,17 @@ class ClionTest {
     @Test
     fun donkerThema() = draai("donker", "Islands Dark", "Islands Dark", donker = true)
 
+    /** useEAP(build) zoekt alleen in type "eap"; voor een RC zet useRC() de soort en vullen we het buildnummer zelf in. */
+    private fun clionTestCase(project: java.nio.file.Path) = TestCase(IdeProductProvider.CL, LocalProjectInfo(project)).let { tc ->
+        if (CLION_SOORT == "eap") tc.useEAP(CLION_BUILD)
+        else tc.useRC().let { it.copy(ideInfo = it.ideInfo.copy(buildNumber = CLION_BUILD)) }
+    }
+
     private fun draai(naam: String, themaId: String, kleurenschema: String, donker: Boolean) {
         val project = winkelproject("clion-$naam")
         val wachter = Vensterwachter(naam).also { it.start() }
         try {
-            Starter.newContext("clion-$naam", TestCase(IdeProductProvider.CL, LocalProjectInfo(project)).useEAP(CLION_BUILD))
+            Starter.newContext("clion-$naam", clionTestCase(project))
                 .apply {
                     richIn(themaId, kleurenschema) {
                         // "Cannot update plugin: Unable to identify where ... was installed from" komt van
