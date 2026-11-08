@@ -64,6 +64,7 @@ beforeEach(() => {
 afterEach(() => {
 	vi.useRealTimers();
 	vi.unstubAllGlobals();
+	vi.restoreAllMocks();
 });
 
 describe("startTicking", () => {
@@ -138,8 +139,9 @@ describe("startTicking", () => {
 		expect(tickSequence({ min: 1, max: 2 }, 2, () => 0.9)).toEqual([2, 1, 2, 1, 2, 1]);
 	});
 
-	it("does nothing without a known range, for a fixed result, or with reduced motion", () => {
+	it("does nothing without a known range, for a fixed result, a range with a fraction, or with reduced motion", () => {
 		expect(startTicking(fakeValue() as never, null)).toBeNull();
+		expect(startTicking(fakeValue() as never, { min: 0.5, max: 10 })).toBeNull();
 		expect(startTicking(fakeValue() as never, { min: 7, max: 7 })).toBeNull();
 		reduce = true;
 		const value = fakeValue();
@@ -151,7 +153,8 @@ describe("startTicking", () => {
 	it("stops at once: no timer keeps running", () => {
 		const value = fakeValue();
 		const stop = startTicking(value as never, { min: 2, max: 12 });
-		vi.advanceTimersByTime(50);
+		vi.advanceTimersByTime(200);
+		expect(value.attrs.has(TICK_ATTR)).toBe(true);
 		stop?.();
 		expect(vi.getTimerCount()).toBe(0);
 		expect(value.attrs.has(TICK_ATTR)).toBe(false);
@@ -182,6 +185,8 @@ describe("counting on the roll", () => {
 		const plugin = await load();
 		const roll = fakeRoll();
 		const cleanups: (() => void)[] = [];
+		// A fixed Math.random at the top: without the real result handed over, the last number would be 24.
+		vi.spyOn(Math, "random").mockReturnValue(0.999);
 		mountRoll(plugin, roll as never, "1d20+4", "k", "A.md", { register: (fn: () => void) => cleanups.push(fn) } as never);
 		await settle();
 		expect(roll.values[0]?.seen).toEqual([]);
@@ -211,7 +216,8 @@ describe("counting on the roll", () => {
 		roll.listeners.click?.(press());
 		await settle();
 		const first = roll.values[roll.values.length - 1];
-		vi.advanceTimersByTime(60);
+		vi.advanceTimersByTime(200);
+		expect(first?.attrs.has(TICK_ATTR)).toBe(true);
 		roll.listeners.click?.(press());
 		await settle();
 		expect(first?.attrs.has(TICK_ATTR)).toBe(false);

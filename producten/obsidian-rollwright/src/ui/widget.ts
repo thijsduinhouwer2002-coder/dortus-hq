@@ -149,7 +149,8 @@ export function startTicking(value: HTMLElement, range: { min: number; max: numb
 	const win = range === null ? null : motionWindow();
 	if (range === null || win === null) return null;
 	const span = range.max - range.min;
-	if (!Number.isFinite(span) || span < 1) return null;
+	// A range with a fraction (1d20/2) would count numbers that can never come out: then nothing counts.
+	if (!Number.isFinite(span) || span < 1 || !Number.isInteger(range.min) || !Number.isInteger(range.max)) return null;
 	const actual = options.actual !== undefined && Number.isFinite(options.actual) ? options.actual : null;
 	let timer: number | null = null;
 	let step = 0;
