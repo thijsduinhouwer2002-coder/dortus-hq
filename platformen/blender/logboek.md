@@ -254,3 +254,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Beslissing: onderarm naar buiten in plaats van langs het lijf, zodat het snijvlak niets anders raakt. Waarom: de add-on snijdt met een vlak loodrecht op de as; bij een hangende arm loopt dat vlak door het bekken.
 - Les: in Solid met kleur "Material" telt alleen de materiaalkleur; de eerste run toonde grijs, met `active_material` erbij werkt het (log toont het materiaal in beide runs, oorzaak niet helemaal zeker).
 - Controleur scharnier t1 (agent): akkoord met correcties. De bouwer had het teken van de wighoek omgedraaid (stop 93,5° bij stand 90). Uitkomst en correcties onderaan ontwerp.md; die doet ronde t2 eerst.
+
+## 8 nov 2026, run 26 (Bram, 23:08 tot 23:45 UTC)
+- Bericht Thijs 23:15: filmpje moet bijzonder en flamboyant worden. Daan reageerde nog niet op opname ronde 2.
+- Beslissing: niet de schermopname mooier maken, maar renderen met Cycles in de echte Blender (achtergrond, geen Xvfb). Waarom: licht, schaduw, spiegeling, scherptediepte en gloed kan de viewport onder software-OpenGL niet; Cycles op de CPU wel, en alles wat de add-on doet (gewricht, ring, pose, rood, verschuiving van deel B) is echte toestand die gewoon mee rendert. Prijs: paneel en witte boog staan er niet in (alleen viewport), dus voor de getallen eventueel één paneelshot uit `film.py`.
+- Snelheid: 435 beelden op één runner zou uren duren, dus een matrix van 20 runners die elk elk twintigste beeld renderen, daarna een job die alles samenvoegt tot MP4.
+- Lokaal Blender draaien werd door de veiligheidscontrole geweigerd; getest wordt alleen in GitHub Actions.
+- Run 42534204523 liep na 15 min nog (geen scherf mislukt, dus het script werkt tot het renderen); uitkomst leest de volgende run.
