@@ -1,0 +1,487 @@
+{
+ "datum": "2026-11-08",
+ "items": [
+  {
+   "slug": "sentry",
+   "naam": "Sentry",
+   "goedgekeurd": "2020-07-21"
+  },
+  {
+   "slug": "upstash",
+   "naam": "Upstash",
+   "goedgekeurd": "2021-02-16"
+  },
+  {
+   "slug": "checkly",
+   "naam": "Checkly",
+   "goedgekeurd": "2021-03-04"
+  },
+  {
+   "slug": "clerk",
+   "naam": "Clerk",
+   "goedgekeurd": "2021-06-29"
+  },
+  {
+   "slug": "sanity",
+   "naam": "Sanity",
+   "goedgekeurd": "2021-06-29"
+  },
+  {
+   "slug": "mongodbatlas",
+   "naam": "MongoDB Atlas",
+   "goedgekeurd": "2022-06-07"
+  },
+  {
+   "slug": "inngest",
+   "naam": "Inngest",
+   "goedgekeurd": "2022-10-18"
+  },
+  {
+   "slug": "statsig",
+   "naam": "Statsig",
+   "goedgekeurd": "2022-12-15"
+  },
+  {
+   "slug": "neon",
+   "naam": "Neon",
+   "goedgekeurd": "2023-02-08"
+  },
+  {
+   "slug": "launchdarkly",
+   "naam": "LaunchDarkly",
+   "goedgekeurd": "2023-06-20"
+  },
+  {
+   "slug": "fal",
+   "naam": "fal",
+   "goedgekeurd": "2024-02-08"
+  },
+  {
+   "slug": "auth0",
+   "naam": "Auth0",
+   "goedgekeurd": "2024-07-17"
+  },
+  {
+   "slug": "resend",
+   "naam": "Resend",
+   "goedgekeurd": "2024-08-19"
+  },
+  {
+   "slug": "supabase",
+   "naam": "Supabase",
+   "goedgekeurd": "2024-08-28"
+  },
+  {
+   "slug": "redis",
+   "naam": "Redis",
+   "goedgekeurd": "2024-08-28"
+  },
+  {
+   "slug": "upstash-kv",
+   "naam": "Upstash for Redis",
+   "goedgekeurd": "2024-10-22"
+  },
+  {
+   "slug": "upstash-vector",
+   "naam": "Upstash Vector",
+   "goedgekeurd": "2024-10-22"
+  },
+  {
+   "slug": "upstash-qstash",
+   "naam": "Upstash QStash/Workflow",
+   "goedgekeurd": "2024-10-22"
+  },
+  {
+   "slug": "nile",
+   "naam": "Nile",
+   "goedgekeurd": "2024-12-09"
+  },
+  {
+   "slug": "motherduck",
+   "naam": "MotherDuck",
+   "goedgekeurd": "2024-12-09"
+  },
+  {
+   "slug": "dash0",
+   "naam": "Dash0",
+   "goedgekeurd": "2025-02-06"
+  },
+  {
+   "slug": "api-token",
+   "naam": "Deep Infra",
+   "goedgekeurd": "2025-03-18"
+  },
+  {
+   "slug": "dash0-subscription",
+   "naam": "Dash0",
+   "goedgekeurd": "2025-04-08"
+  },
+  {
+   "slug": "prisma-postgres",
+   "naam": "Prisma Postgres",
+   "goedgekeurd": "2025-04-23"
+  },
+  {
+   "slug": "tursocloud",
+   "naam": "Turso Cloud",
+   "goedgekeurd": "2025-06-20"
+  },
+  {
+   "slug": "database",
+   "naam": "Turso",
+   "goedgekeurd": "2025-06-20"
+  },
+  {
+   "slug": "upstash-search",
+   "naam": "Upstash Search",
+   "goedgekeurd": "2025-06-23"
+  },
+  {
+   "slug": "account",
+   "naam": "Inngest",
+   "goedgekeurd": "2025-07-08"
+  },
+  {
+   "slug": "growthbook",
+   "naam": "GrowthBook",
+   "goedgekeurd": "2025-07-24"
+  },
+  {
+   "slug": "deepinfra",
+   "naam": "Deep Infra",
+   "goedgekeurd": "2025-08-04"
+  },
+  {
+   "slug": "prisma",
+   "naam": "Prisma Postgres",
+   "goedgekeurd": "2025-08-04"
+  },
+  {
+   "slug": "mux",
+   "naam": "Mux",
+   "goedgekeurd": "2025-08-04"
+  },
+  {
+   "slug": "atlas",
+   "naam": "MongoDB Atlas",
+   "goedgekeurd": "2025-09-10"
+  },
+  {
+   "slug": "braintrust",
+   "naam": "Braintrust",
+   "goedgekeurd": "2025-10-16"
+  },
+  {
+   "slug": "search",
+   "naam": "Mixedbread Search",
+   "goedgekeurd": "2025-10-22"
+  },
+  {
+   "slug": "corridor",
+   "naam": "Corridor",
+   "goedgekeurd": "2025-10-22"
+  },
+  {
+   "slug": "kernel",
+   "naam": "KERNEL",
+   "goedgekeurd": "2025-10-22"
+  },
+  {
+   "slug": "chatbase",
+   "naam": "Chatbase",
+   "goedgekeurd": "2025-10-22"
+  },
+  {
+   "slug": "chatbot",
+   "naam": "Chatbase",
+   "goedgekeurd": "2025-10-22"
+  },
+  {
+   "slug": "ui-testing",
+   "naam": "Autonoma UI testing",
+   "goedgekeurd": "2025-10-23"
+  },
+  {
+   "slug": "autonoma-ai",
+   "naam": "Autonoma AI",
+   "goedgekeurd": "2025-10-24"
+  },
+  {
+   "slug": "mixedbread",
+   "naam": "Mixedbread",
+   "goedgekeurd": "2025-10-27"
+  },
+  {
+   "slug": "coderabbit",
+   "naam": "CodeRabbit",
+   "goedgekeurd": "2025-10-27"
+  },
+  {
+   "slug": "sourcery",
+   "naam": "Sourcery",
+   "goedgekeurd": "2025-10-27"
+  },
+  {
+   "slug": "rollbar",
+   "naam": "Rollbar",
+   "goedgekeurd": "2025-11-06"
+  },
+  {
+   "slug": "error-tracking",
+   "naam": "Rollbar",
+   "goedgekeurd": "2025-11-06"
+  },
+  {
+   "slug": "aws",
+   "naam": "AWS",
+   "goedgekeurd": "2025-11-10"
+  },
+  {
+   "slug": "convex",
+   "naam": "Convex",
+   "goedgekeurd": "2025-11-24"
+  },
+  {
+   "slug": "descope",
+   "naam": "Descope",
+   "goedgekeurd": "2025-12-04"
+  },
+  {
+   "slug": "mcp-auth",
+   "naam": "Descope MCP Auth",
+   "goedgekeurd": "2025-12-04"
+  },
+  {
+   "slug": "user-auth",
+   "naam": "Descope User Auth",
+   "goedgekeurd": "2025-12-04"
+  },
+  {
+   "slug": "aws-apg",
+   "naam": "Amazon Aurora PostgreSQL",
+   "goedgekeurd": "2025-12-17"
+  },
+  {
+   "slug": "aws-dsql",
+   "naam": "Amazon Aurora DSQL",
+   "goedgekeurd": "2025-12-17"
+  },
+  {
+   "slug": "aws-dynamodb",
+   "naam": "Amazon DynamoDB",
+   "goedgekeurd": "2025-12-17"
+  },
+  {
+   "slug": "assistloop",
+   "naam": "AssistLoop",
+   "goedgekeurd": "2026-01-28"
+  },
+  {
+   "slug": "cubic",
+   "naam": "cubic",
+   "goedgekeurd": "2026-01-29"
+  },
+  {
+   "slug": "project",
+   "naam": "Sanity",
+   "goedgekeurd": "2026-01-30"
+  },
+  {
+   "slug": "parallel",
+   "naam": "Parallel Web Systems",
+   "goedgekeurd": "2026-02-04"
+  },
+  {
+   "slug": "browserbase",
+   "naam": "Browserbase",
+   "goedgekeurd": "2026-02-12"
+  },
+  {
+   "slug": "stripe",
+   "naam": "Stripe",
+   "goedgekeurd": "2026-03-05"
+  },
+  {
+   "slug": "posthog",
+   "naam": "PostHog",
+   "goedgekeurd": "2026-05-01"
+  },
+  {
+   "slug": "firecrawl",
+   "naam": "Firecrawl",
+   "goedgekeurd": "2026-05-26"
+  },
+  {
+   "slug": "opensearch",
+   "naam": "Amazon OpenSearch Serverless ",
+   "goedgekeurd": "2026-05-28"
+  },
+  {
+   "slug": "shopify",
+   "naam": "Shopify",
+   "goedgekeurd": "2026-06-04"
+  },
+  {
+   "slug": "client",
+   "naam": "Auth0",
+   "goedgekeurd": "2026-06-05"
+  },
+  {
+   "slug": "resend-email",
+   "naam": "Resend email",
+   "goedgekeurd": "2026-06-29"
+  },
+  {
+   "slug": "agentmail",
+   "naam": "AgentMail",
+   "goedgekeurd": "2026-07-02"
+  },
+  {
+   "slug": "application",
+   "naam": "Algolia",
+   "goedgekeurd": "2026-07-10"
+  },
+  {
+   "slug": "exa",
+   "naam": "Exa",
+   "goedgekeurd": "2026-07-13"
+  },
+  {
+   "slug": "exa-search-api",
+   "naam": "Exa Search API",
+   "goedgekeurd": "2026-07-13"
+  },
+  {
+   "slug": "endform",
+   "naam": "Endform",
+   "goedgekeurd": "2026-07-13"
+  },
+  {
+   "slug": "algolia",
+   "naam": "Algolia",
+   "goedgekeurd": "2026-07-29"
+  },
+  {
+   "slug": "mem0",
+   "naam": "Mem0",
+   "goedgekeurd": "2026-09-14"
+  },
+  {
+   "slug": "aws-s3",
+   "naam": "Amazon S3 - Object storage",
+   "goedgekeurd": "2026-10-13"
+  },
+  {
+   "slug": "aws-s3-tables",
+   "naam": "Amazon S3 Tables",
+   "goedgekeurd": "2026-10-13"
+  },
+  {
+   "slug": "aws-s3-vectors",
+   "naam": "Amazon S3 Vectors",
+   "goedgekeurd": "2026-10-13"
+  }
+ ],
+ "tags": [
+  [
+   "tag_databases",
+   29
+  ],
+  [
+   "tag_agents",
+   17
+  ],
+  [
+   "tag_observability",
+   16
+  ],
+  [
+   "tag_cms",
+   11
+  ],
+  [
+   "tag_searching",
+   9
+  ],
+  [
+   "tag_dev_tools",
+   9
+  ],
+  [
+   "tag_authentication",
+   8
+  ],
+  [
+   "tag_ai",
+   8
+  ],
+  [
+   "tag_analytics",
+   8
+  ],
+  [
+   "tag_logging",
+   8
+  ],
+  [
+   "tag_commerce",
+   7
+  ],
+  [
+   "tag_experimentation",
+   7
+  ],
+  [
+   "tag_flags",
+   7
+  ],
+  [
+   "tag_messaging",
+   5
+  ],
+  [
+   "tag_workflow",
+   4
+  ],
+  [
+   "tag_monitoring",
+   4
+  ],
+  [
+   "tag_web_automation",
+   3
+  ],
+  [
+   "tag_code_review",
+   3
+  ],
+  [
+   "tag_testing",
+   3
+  ],
+  [
+   "tag_security",
+   3
+  ],
+  [
+   "tag_productivity",
+   3
+  ],
+  [
+   "tag_support_agent",
+   2
+  ],
+  [
+   "tag_code_security",
+   2
+  ],
+  [
+   "tag_payments",
+   1
+  ],
+  [
+   "tag_video",
+   1
+  ]
+ ]
+}

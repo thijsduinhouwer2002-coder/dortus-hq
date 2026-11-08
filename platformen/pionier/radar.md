@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 8 nov 2026 | Vercel Marketplace: 76 producten, ±12 nieuwe aanbieders in 2026, laatste AWS S3 (13 okt 2026); betalen via de Vercel-rekening | https://vercel.com/marketplace | GEZIEN | onderzocht: cijfer 4, nee (gecureerd, merken)
 - 8 nov 2026 | cTrader Store (Spotware): abonnementen sinds aug 2026, brokers mogen eigen plugins in de winkel sinds okt 2026, in-app aankopen op mobiel aangekondigd | https://www.spotware.com/news/ctrader-store-subscriptions/ | DERDEN | onderzocht: cijfer 4; opnieuw als mobiel kopen live gaat en de verkopen zichtbaar stijgen
 - 8 nov 2026 | TikTok Shop `shop_region=AU`: nog fout (niet open) | seller-us.tiktok.com portal-API | GEZIEN | elke run opnieuw proberen
 - 8 nov 2026 | TikTok Shop: Ebrun meldt (anonieme bronnen, schrijfrobot) Saudi-Arabië, Zuid-Korea en Australië in Q1 2027; niet bevestigd door TikTok, Money Today zegt Korea in 2026 onwaarschijnlijk. In de portal-API bestaat regio SA al (via seller-us, 0 apps), AU en KR geven een fout | https://english.ebrun.com/20260811/693887.shtml en https://synlighetsverket.se/en/insights/tiktok-shop-lander | DERDEN (plan), GEZIEN (API) | volgen: zodra AU opent (Engelstalig, winkel leeg) meteen tellen en doorgeven aan Tess; elke run `shop_region=AU` proberen

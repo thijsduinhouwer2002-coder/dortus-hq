@@ -265,4 +265,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 22:39 UTC (Noor)
 - Radar kort: niets nieuws met een betaalde winkel die net open is (zoekwoorden "new plugin marketplace developers sell paid plugins launched November 2026", "app store opens to developers revenue share 2026").
-- Vercel Marketplace (native integraties: klant installeert en betaalt via de Vercel-rekening, billing plans in de Partner API, Pro-team nodig): in onderzoek 8 nov 22:50 UTC
+- Vercel Marketplace (native integraties: klant installeert en betaalt via de Vercel-rekening, billing plans in de Partner API, Pro-team nodig): in onderzoek 8 nov 22:50 UTC; klaar ±23:00, cijfer 4 (nee), zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±23:00 UTC (Noor)
+- Les uit Vercel: ook bij het hardst groeiende platform is de winkel geen pionierskans als een product daar een **gehoste dienst met support** moet zijn en de eigenaar zelf kiest wie erin mag. Zoek winkels waar een klein product (plugin, script, app die bij de klant draait) mag staan.
+- Snelle manier gevonden: de paginadata van een winkel bevat vaak per item een goedkeurings- of aanmaakdatum (hier approvedAt). Tel die per maand om in één minuut te zien hoe snel een winkel vult.
