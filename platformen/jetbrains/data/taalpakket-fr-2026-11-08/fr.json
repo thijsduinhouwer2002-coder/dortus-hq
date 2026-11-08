@@ -1,0 +1,471 @@
+{
+"missing": [
+[
+"ActionsBundle.properties",
+"action.ResetPluginPermissions.text",
+"Reset Plugin Permissions…"
+],
+[
+"ActionsBundle.properties",
+"action.ResetPluginPermissions.description",
+"Remove all \"Allow Always\" decisions for plugin permission requests, such as Enable/Disable/Install a plugin"
+],
+[
+"ActionsBundle.properties",
+"action.IdeUpdateToolbarWidget.WhatsNew.text",
+"What's New…"
+],
+[
+"ActionsBundle.properties",
+"group.IdeUpdateToolbarWidget.Options.text",
+"Options"
+],
+[
+"ActionsBundle.properties",
+"action.IdeUpdateToolbarWidget.SkipThisUpdate.text",
+"Skip This Update"
+],
+[
+"ActionsBundle.properties",
+"action.IdeUpdateToolbarWidget.ConfigureUpdates.text",
+"Configure Updates…"
+],
+[
+"ActionsBundle.properties",
+"action.IdeUpdateToolbarWidget.RemindMeLater.text",
+"Remind Me Later"
+],
+[
+"IdeBundle.properties",
+"updates.incompatible.plugins.found.and.more",
+"{0}, and {1} more"
+],
+[
+"IdeBundle.properties",
+"updates.incompatible.plugins.show.plugins",
+"Show plugins…"
+],
+[
+"IdeBundle.properties",
+"updates.incompatible.plugins.dialog.title",
+"Incompatible Plugins"
+],
+[
+"IdeBundle.properties",
+"updates.incompatible.plugins.dialog.banner",
+"{0} {0,choice,1#plugin is|2#plugins are} incompatible with the new version {1}"
+],
+[
+"IdeBundle.properties",
+"updates.download.patch.button",
+"Down&load Update"
+],
+[
+"IdeBundle.properties",
+"updates.download.manual.button",
+"Down&load Update…"
+],
+[
+"IdeBundle.properties",
+"updates.skip.update.button",
+"&Skip This Update"
+],
+[
+"IdeBundle.properties",
+"updates.new.title",
+"New in {0}"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.text",
+"Update {0}"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.tooltip",
+"Show update options"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.downloading.text",
+"Downloading…"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.restart.text",
+"Restart to Update"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.restart.tooltip",
+"Restart to update"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.accessible.name",
+"IDE update available"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.accessible.action.click",
+"Show update actions"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.accessible.action.restart",
+"Restart to apply the downloaded update"
+],
+[
+"IdeBundle.properties",
+"update.toolbar.widget.download.versions",
+"{0} → {1}"
+],
+[
+"IdeBundle.properties",
+"plugins.configurable.additional.info.plugin.id.label",
+"Plugin ID: {0}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.dialog.title",
+"Plugin Permission Request"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.install.message",
+"Plugin ''{0}'' requests to install plugin ''{1}'' (ID: {2}).\n\n{3}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.install.unknown.message",
+"Plugin ''{0}'' requests to install the plugin with ID {1}. The IDE cannot find the name of this plugin.\n\n{2}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.install.progress.title",
+"Searching for plugin {0}…"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.enable.message",
+"Plugin ''{0}'' requests to enable plugin ''{1}''.\n\n{2}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.disable.message",
+"Plugin ''{0}'' requests to disable plugin ''{1}''.\n\n{2}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.access.class.loaders.message",
+"Plugin ''{0}'' requests access to all installed plugins and their class loaders.\nThis access lets the plugin read and run the code of other plugins. Allow it only if you trust this plugin.\n\n{1}"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.button.allow",
+"&Allow"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.button.allow.always",
+"Allow A&lways"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.button.deny",
+"&Deny"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.title",
+"Reset Plugin Permissions"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.nothing.message",
+"No plugin has an \"Allow Always\" permission."
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.confirmation.message",
+"Remove {0} \"Allow Always\" {0,choice,1#decision|2#decisions}?\nPlugins then ask for these permissions again."
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.button",
+"&Reset"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.done.title",
+"Plugin permissions reset"
+],
+[
+"IdeBundle.properties",
+"plugin.permission.reset.done.message",
+"The IDE removed {0} \"Allow Always\" {0,choice,1#decision|2#decisions}. Plugins now ask for these permissions again."
+],
+[
+"IdeBundle.properties",
+"subscription.dialog.activate.button.pro",
+"Activate a Pro subscription"
+],
+[
+"IdeBundle.properties",
+"subscription.dialog.activate.button.ultimate",
+"Activate an Ultimate subscription"
+],
+[
+"JavaBundle.properties",
+"inspection.convert.to.local.family.name",
+"Convert to local variables"
+],
+[
+"JavaBundle.properties",
+"inspection.field.can.be.local.quickfix",
+"Convert field to local variable"
+],
+[
+"JavaBundle.properties",
+"inspection.incorrect.lazy.constant.usage.lazy.collection.message",
+"Lazy collection field should be 'final'"
+],
+[
+"JavaBundle.properties",
+"inspection.parameter.can.be.local.quickfix",
+"Convert parameter to local variable"
+],
+[
+"JavaBundle.properties",
+"intention.family.put.array.initializer.expressions.on.one.line",
+"Put array elements on one line"
+],
+[
+"JavaBundle.properties",
+"intention.family.put.array.initializer.expressions.on.separate.lines",
+"Put array elements on separate lines"
+],
+[
+"JavaBundle.properties",
+"intention.family.put.annotation.attributes.on.one.line",
+"Put annotation attributes on one line"
+],
+[
+"JavaBundle.properties",
+"intention.family.put.annotation.attributes.on.separate.lines",
+"Put annotation attributes on separate lines"
+],
+[
+"JavaBundle.properties",
+"node.hierarchy.locationPath",
+" ({0})"
+],
+[
+"JavaBundle.properties",
+"nullable.notnull.annotation.used.label.description",
+"This annotation can be used when: <ul><li>none of the annotations from the list above is available;<li>there is no context module, like for inferred or external nullability.</ul>"
+],
+[
+"JavaBundle.properties",
+"unwrap.type.parameter",
+"Unwrap type parameter"
+],
+[
+"JavaBundle.properties",
+"live.template.context.statement.java.structured.concurrency.static.factory.methods.with.exec.exception",
+"Statement with available StructuredTaskScope with ExecutionException"
+],
+[
+"JavaBundle.properties",
+"class.can.be.record.record.highlight.when.semantics.change.fix.name",
+"Suppress record conversion if members become more accessible"
+],
+[
+"JavaBundle.properties",
+"external.java.configuration.download.in.ide",
+"Download JDK…"
+],
+[
+"JavaBundle.properties",
+"external.java.configuration.download.in.ide.unavailable",
+"Unavailable in the JDK Downloader"
+],
+[
+"JavaBundle.properties",
+"advanced.setting.java.suggest.creating.java.sources.in.irrelevant.source.roots",
+"Suggest creating Java sources in irrelevant source roots"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.current.method",
+"initialize in current method"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.field.declaration",
+"initialize in field declaration"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.constructor",
+"initialize in constructor"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.setup.method",
+"initialize in setup method"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialize.in.scope",
+"Scope to Initialize:"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.current.method.short",
+"current method"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.field.declaration.short",
+"field declaration"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.constructor.short",
+"constructor"
+],
+[
+"JavaBundle.properties",
+"introduce.field.initialization.place.setup.method.short",
+"setup method"
+]
+],
+"same_zin": [
+[
+"JavaBundle.properties",
+"surround.with.not.instanceof.template",
+"!(expr instanceof Type)"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.short.static.psvm",
+"static void main()"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.short.static.psvma",
+"static void main(String[] args)"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.short.psvm",
+"void main()"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.short.psvma",
+"void main(String[] args)"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.psf",
+"public static final"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.prsf",
+"private static final"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.psfi",
+"public static final int"
+],
+[
+"JavaBundle.properties",
+"livetemplate.description.psfs",
+"public static final String"
+],
+[
+"JavaBundle.properties",
+"postfix.template.condition.non.void.name",
+"non void"
+],
+[
+"RefactoringBundle.properties",
+"visibility.package.local",
+"Pac&kage local"
+]
+],
+"ph_set": [
+[
+"IdeBundle.properties",
+"updates.incompatible.plugins.found",
+"{0} {0,choice,1#plugin is|2#plugins are} incompatible with the new version {1}: {2}",
+"{0,choice,1#Plugin|2#Plugins} incompatible(s) avec la nouvelle version trouvé(s) :{0,choice,1#'' ''|2#'<br/>'} {1}"
+],
+[
+"IdeBundle.properties",
+"updates.from.to",
+"{0} → {1}",
+"Mise à jour de {0} vers {1} ({2})."
+],
+[
+"IdeBundle.properties",
+"updates.from.to.size",
+"{0} → {1}, {2} MB",
+"Mise à jour de {0} vers {1} ({2}). La taille du correctif est de {3} Mo."
+],
+[
+"JavaBundle.properties",
+"button.base.method",
+"&Base Method{0, choice, 1#|1<s}",
+"Méthode de &base"
+],
+[
+"JavaBundle.properties",
+"label.implements.method.of_class_or_interface.name",
+"implements method of {0}.",
+"implémente la méthode de {0, choice, 0#l''interface|1#la classe} ''{1}''."
+],
+[
+"JavaBundle.properties",
+"label.implements.method.of_interfaces",
+"{0, choice, 1#implements|2#overrides} methods of:",
+"implémente les méthodes des classes/interfaces suivantes :"
+],
+[
+"JavaBundle.properties",
+"label.overrides.method.of_class_or_interface.name",
+"overrides method of {0}.",
+"redéfinit la méthode de {0, choice, 0#l''interface|1#la classe} ''{1}''."
+],
+[
+"JavaBundle.properties",
+"rename.super.methods.chooser.popup.title",
+"Method {0}() has {1} super methods",
+"{0} possède des méthodes parentes"
+]
+],
+"mnem": [
+[
+"ApplicationBundle.properties",
+"checkbox.spaces.logical.operators",
+"Logical operators (\\&\\&, ||)",
+"Opérateurs logiques (&&, ||)"
+],
+[
+"CodeInsightBundle.properties",
+"progress.text.searching.for.additional.intention.actions.quick.fixes",
+"Searching for additional intention actions \\& quick-fixes",
+"Recherche d'actions d'intention et de corrections rapides supplémentaires"
+],
+[
+"XDebuggerBundle.properties",
+"xdebugger.threads.vars.tab.title",
+"Threads \\& Variables",
+"Threads et variables"
+]
+]
+}

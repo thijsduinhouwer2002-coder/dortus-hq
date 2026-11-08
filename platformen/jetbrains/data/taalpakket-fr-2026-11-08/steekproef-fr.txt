@@ -1,0 +1,480 @@
+IdeBundle.properties | encoding.do.not.convert.message
+EN: Please do not convert to ''{0}''.
+FR: Veuillez ne pas convertir en ''{0}''.
+
+IdeBundle.properties | collect.local.logs.progress.title
+EN: Collecting local logs
+FR: Collecte des logs locaux
+
+RefactoringBundle.properties | label.change.signature.in.all.calls.to.this.method.leave.the.parameter.blank
+EN: In all calls to this method leave the parameter blank
+FR: Dans tous les appels à cette méthode, laisser le paramètre vide
+
+InspectionsBundle.properties | set.project.encoding.family.name
+EN: Set project encoding to ''{0}''
+FR: Définir l''encodage du projet sur ''{0}''
+
+ActionsBundle.properties | action.XcodeBuildSwiftDocumentationAction.description
+EN: Build documentation for all targets
+FR: Générer la documentation pour toutes les cibles
+
+AnalysisBundle.properties | inspection.dead.code.comment
+EN: // --Commented out by Inspection
+FR: // --Commenté par l'inspection
+
+IdeBundle.properties | checkbox.customfiletype.support.paired.brackets
+EN: Support paired bra&ckets
+FR: Prendre en charge les cro&chets appariés
+
+IdeBundle.properties | dialog.message.specified.path.cannot.be.found
+EN: Specified path cannot be found
+FR: Le chemin spécifié est introuvable
+
+JavaBundle.properties | java.terms.of.annotation.type
+EN: {0} of annotation type {1}
+FR: {0} du type d''annotation {1}
+
+JavaBundle.properties | tooltip.overrides.method
+EN: Overrides method
+FR: Redéfinit la méthode
+
+VcsBundle.properties | settings.filter.update.project.info.by.scope
+EN: Filter Update Project information by scope
+FR: Filtrer les informations de mise à jour du projet par portée
+
+ActionsBundle.properties | action.PinActiveTab.description
+EN: Pin active editor or tool window tab
+FR: Épingler l'onglet actif de l'éditeur ou de la fenêtre d'outil
+
+RefactoringBundle.properties | refactoring.introduce.parameter.incomplete.call.less.params
+EN: Incomplete call({0}): {1} parameters expected but only {2} found
+FR: Appel incomplet({0}) : {1} paramètres attendus, mais seulement {2} trouvés
+
+AnalysisBundle.properties | scope.display.name.deny.scope
+EN: Deny usages of scope ''{0}'' in scope ''{1}''
+FR: Interdire les utilisations du scope ''{0}'' dans le scope ''{1}''
+
+JavaBundle.properties | inspection.input.stream.constructor.message
+EN: 'InputStream' can be constructed using 'Files.newInputStream()'
+FR: 'InputStream' peut être construit à l'aide de 'Files.newInputStream()'
+
+CodeInsightBundle.properties | actions.on.save.page.link.configure.scope
+EN: Configure scope\u2026
+FR: Configurer la portée…
+
+JavaBundle.properties | checkbox.collapse.anonymous.classes
+EN: Anonymous classes
+FR: Classes anonymes
+
+ActionsBundle.properties | action.ToggleLineBreakpoint.description
+EN: Toggle line breakpoint at caret
+FR: Basculer le point d'arrêt de ligne au niveau du curseur
+
+IdeBundle.properties | checkbox.remote.sdk.run.as.root.via.sudo
+EN: Run as root via sudo
+FR: Exécuter en tant que root via sudo
+
+ActionsBundle.properties | action.ProblemsView.AutoscrollToSource.text
+EN: Open Files with Single Click
+FR: Ouvrir les fichiers d'un simple clic
+
+ActionsBundle.properties | action.InvalidateCaches.description
+EN: Force rebuild of all caches and indexes on the next startup
+FR: Forcer la reconstruction de tous les caches et index lors du prochain démarrage
+
+ApplicationBundle.properties | editbox.indent.generic.type
+EN: Generic type parameter indent:
+FR: Retrait du paramètre de type générique :
+
+JavaBundle.properties | intention.name.collapse.into.loop
+EN: Collapse into loop
+FR: Réduire dans une boucle
+
+ActionsBundle.properties | action.Tree-selectParentExtendSelection.description
+EN: Scroll to the parent node and add corresponding nodes to the selection
+FR: Faire défiler jusqu'au nœud parent et ajouter les nœuds correspondants à la sélection
+
+VcsBundle.properties | saved.patch.changes.empty
+EN: Select stash or shelf to view files
+FR: Sélectionnez un stash ou une tablette pour afficher les fichiers
+
+AnalysisBundle.properties | inspections.settings.show.modified.text
+EN: Show only modified inspections
+FR: Afficher uniquement les inspections modifiées
+
+JavaBundle.properties | pull.up.concrete.inherit.abstract.method.conflict
+EN: Concrete {0} will inherit a new abstract method
+FR: {0} concret héritera d''une nouvelle méthode abstraite
+
+JavaBundle.properties | unwrap.array.initializer
+EN: Unwrap array initializer
+FR: Désenvelopper l'initialiseur de tableau
+
+JavaBundle.properties | inspection.notnull.field.not.initialized.option.setup
+EN: Ignore fields initialized in setUp() method
+FR: Ignorer les champs initialisés dans la méthode setUp()
+
+IdeBundle.properties | preferred.theme.and.editor.color.scheme.text
+EN: Preferred Theme and Editor Color Scheme
+FR: Thème et schéma de couleurs de l'éditeur préférés
+
+JavaBundle.properties | module.type.java.description
+EN: Java modules are used for developing <b>JVM-based</b> desktop and web applications, including applications that use <b>Java EE</b> and other enterprise development frameworks.
+FR: Les modules Java sont utilisés pour développer des applications de bureau et web <b>basées sur la JVM</b>, y compris les applications utilisant <b>Java EE</b> et d'autres frameworks de développement d'entreprise.
+
+IdeBundle.properties | dialog.message.please.enter.credentials.for
+EN: Please enter credentials for: {0}
+FR: Veuillez saisir les identifiants pour : {0}
+
+VcsBundle.properties | roots.notification.content.directory.registered.as.root.but.no.repositories.were.found.there
+EN: The directory {0} is registered as a {1} root, but no {1} repositories were found there.
+FR: Le répertoire {0} est enregistré en tant que racine {1}, mais aucun dépôt {1} n''y a été trouvé.
+
+IdeBundle.properties | notification.group.too.many.carets
+EN: Maximum number of editor carets reached
+FR: Nombre maximal de curseurs de l'éditeur atteint
+
+VcsBundle.properties | vcs.preview.panel.modified.line
+EN: Modified line
+FR: Ligne modifiée
+
+IdeBundle.properties | plugin.has.ultimate.features.text
+EN: This plugin provides more features with {0} subscription
+FR: Ce plugin propose plus de fonctionnalités avec un abonnement {0}
+
+JavaBundle.properties | inspection.reflection.member.access.cannot.resolve.field
+EN: Cannot resolve field ''{0}''
+FR: Impossible de résoudre le champ ''{0}''
+
+ApplicationBundle.properties | editor.options.whitespace.line.color
+EN: Highlight lines with whitespace-only modifications with a different color
+FR: Mettre en évidence les lignes comportant uniquement des modifications d'espaces avec une couleur différente
+
+ApplicationBundle.properties | checkbox.show.only.monospaced.fonts
+EN: Show only monospaced fonts
+FR: Afficher uniquement les polices à chasse fixe
+
+ApplicationBundle.properties | checkbox.use.fully.qualified.class.names.in.javadoc
+EN: Use fully qualified class names in javadoc
+FR: Utiliser les noms de classe pleinement qualifiés dans javadoc
+
+IdeBundle.properties | checkbox.show.tool.window.names
+EN: Show tool window names
+FR: Afficher les noms des fenêtres d'outils
+
+JavaBundle.properties | intention.family.make.inferred.annotations.explicit
+EN: Make inferred annotations explicit
+FR: Rendre les annotations inférées explicites
+
+IdeBundle.properties | wsl.no.rsync
+EN: Please install rsync on your {0} WSL
+FR: Veuillez installer rsync sur votre {0} WSL
+
+ApplicationBundle.properties | wrapping.fields.annotation
+EN: Field annotations
+FR: Annotations de champ
+
+VcsBundle.properties | advanced.setting.vcs.commit.tool.window.description
+EN: Show the Local Changes and Shelf tabs in the separate Commit tool window
+FR: Afficher les onglets Modifications locales et Tablette dans la fenêtre d'outil Commit séparée
+
+RefactoringBundle.properties | 0.is.already.defined.in.1
+EN: {0} is already defined in {1}
+FR: {0} est déjà défini dans {1}
+
+JavaBundle.properties | intention.error.make.sealed.class.interface.has.no.inheritors
+EN: Interface has no inheritors
+FR: L'interface n'a pas d'héritiers
+
+VcsBundle.properties | notification.showDetailsInConsole
+EN: Show details in console
+FR: Afficher les détails dans la console
+
+ActionsBundle.properties | action.Diff.ShowDiff.description
+EN: Compare files or revisions
+FR: Comparer les fichiers ou les révisions
+
+JavaBundle.properties | intention.text.replace.static.import.with.qualified.access.to.0
+EN: Replace static import with qualified access to {0}
+FR: Remplacer l''import statique par un accès qualifié à {0}
+
+VcsBundle.properties | patch.missing.after.hunk
+EN: Missing after chunk
+FR: Tronçon après manquant
+
+ActionsBundle.properties | action.CommittedChanges.Clear.description
+EN: Clears cached revisions
+FR: Efface les révisions mises en cache
+
+JavaBundle.properties | inspection.data.flow.nullable.quickfix.option
+EN: Suggest @Nullable annotation for methods/fields/parameters where nullable values are used
+FR: Suggérer l'annotation @Nullable pour les méthodes/champs/paramètres où des valeurs nullables sont utilisées
+
+RefactoringBundle.properties | no.interface.name.specified
+EN: No interface name specified
+FR: Aucun nom d'interface spécifié
+
+IdeBundle.properties | run.anything.console.process.finished
+EN: \nProcess finished with exit code {0}.
+FR: \nProcessus terminé avec le code de sortie {0}.
+
+IdeBundle.properties | dumb.mode.results.might.be.incomplete
+EN: Analyzing project\u2026
+FR: Analyse du projet…
+
+UIBundle.properties | toolbar.split.button.accessible.description.expand
+EN: Press Down arrow to expand
+FR: Appuyez sur la flèche vers le bas pour développer
+
+ExecutionBundle.properties | run.configuration.storage.folder.path.expected
+EN: Folder path expected
+FR: Chemin du dossier attendu
+
+JavaBundle.properties | node.hierarchy.java.lang.object
+EN: All classes are derived from java.lang.Object
+FR: Toutes les classes sont dérivées de java.lang.Object
+
+ActionsBundle.properties | action.Diff.ApplyNonConflicts.Right.text
+EN: Apply Non-Conflicting Changes from the Right Side
+FR: Appliquer les modifications sans conflit du côté droit
+
+JavaBundle.properties | separator.mark.field.as.implicitly.written.if.annotated.by
+EN: Mark field as implicitly written if annotated by:
+FR: Marquer le champ comme écrit implicitement si annoté par :
+
+ApplicationBundle.properties | checkbox.collapse.method.bodies
+EN: Method bodies
+FR: Corps des méthodes
+
+IdeBundle.properties | before.run.component.accessible.name
+EN: Before launch options
+FR: Options avant le lancement
+
+JavaBundle.properties | introduce.variable.change.type.adv
+EN: Press {0} to change type
+FR: Appuyez sur {0} pour modifier le type
+
+RefactoringBundle.properties | progress.text
+EN: Looking for Usages
+FR: Recherche des utilisations…
+
+ApplicationBundle.properties | settings.export.inspection.profile.xml
+EN: IntelliJ IDEA inspection profile XML
+FR: Profil d'inspection XML IntelliJ IDEA
+
+IdeBundle.properties | error.filter.with.the.same.name.already.exists
+EN: Filter with the same name already exists
+FR: Un filtre avec le même nom existe déjà
+
+JavaBundle.properties | generate.tostring.already.exist.border
+EN: When method already exists
+FR: Lorsque la méthode existe déjà
+
+JavaBundle.properties | loading.additional.annotations
+EN: Loading additional annotations\u2026
+FR: Chargement des annotations supplémentaires…
+
+ExecutionBundle.properties | run.all.configurations.available.in.this.context
+EN: Run all configurations available in this context
+FR: Exécuter toutes les configurations disponibles dans ce contexte
+
+RefactoringBundle.properties | no.target.directory.specified
+EN: No target directory specified
+FR: Aucun répertoire cible spécifié
+
+JavaBundle.properties | intention.compose.function.family
+EN: Replace nested function call with composition
+FR: Remplacer l'appel de fonction imbriquée par une composition
+
+RefactoringBundle.properties | dialog.message.file.already.exists.in.directory
+EN: File ''{0}'' already exists in directory ''{1}''
+FR: Le fichier ''{0}'' existe déjà dans le répertoire ''{1}''
+
+IdeBundle.properties | jb.protocol.navigate.no.project
+EN: Cannot find or open the specified project
+FR: Impossible de trouver ou d'ouvrir le projet spécifié
+
+JavaBundle.properties | options.java.attribute.descriptor.static.field
+EN: Class Fields//Static field
+FR: Champs de classe//Champ statique
+
+IdeBundle.properties | notification.content.plugin.update.sources.are.reset
+EN: Plugin update sources are reset
+FR: Les sources de mise à jour des plugins ont été réinitialisées
+
+VcsBundle.properties | ignoreTokenType.BRACKET_LEFT
+EN: <left bracket>
+FR: <crochet gauche>
+
+XDebuggerBundle.properties | xbreakpoints.remove.once.hit.label
+EN: &Remove once hit
+FR: Supprime&r une fois atteint
+
+IdeBundle.properties | small.labels.in.editor.tabs
+EN: Small labels in editor tabs
+FR: Petites étiquettes dans les onglets de l'éditeur
+
+ActionsBundle.properties | action.TW.CloseAllTabs.description
+EN: Close all tabs in the active tool window tabs group
+FR: Fermer tous les onglets du groupe d'onglets de la fenêtre d'outil active
+
+JavaBundle.properties | inspection.text.block.migration.concatenation.message
+EN: Concatenation can be replaced with text block
+FR: La concaténation peut être remplacée par un bloc de texte
+
+XDebuggerBundle.properties | settings.confirm.breakpoint.removal
+EN: Confirm removal of conditional or logging breakpoints
+FR: Confirmer la suppression des points d'arrêt conditionnels ou de journalisation
+
+AnalysisBundle.properties | modcommand.result.conflict
+EN: There are conflicts; user interaction required
+FR: Il y a des conflits ; une intervention de l'utilisateur est requise
+
+VcsBundle.properties | ignore.codeInspection.duplicateEntry
+EN: Ignore file duplicates
+FR: Ignorer les doublons de fichiers
+
+IdeBundle.properties | notification.content.cannot.find.parent.keymap
+EN: Cannot find parent keymap "{0}" for "{1}"
+FR: Impossible de trouver le keymap parent "{0}" pour "{1}"
+
+CodeInsightBundle.properties | show.siblings.choose.super.method.title
+EN: Choose super method
+FR: Choisir la méthode parente
+
+RefactoringBundle.properties | move.directory.0
+EN: Move directory {0}
+FR: Déplacer le répertoire {0}
+
+RefactoringBundle.properties | the.language.for.selected.elements.has.no.associated.file.type
+EN: The language for selected elements has no associated file type
+FR: Le langage pour les éléments sélectionnés n'est associé à aucun type de fichier
+
+IdeBundle.properties | dialog.message.conversions.will.be.performed
+EN: <html>The following conversions will be performed:<br>{0}</html>
+FR: <html>Les conversions suivantes seront effectuées :<br>{0}</html>
+
+VcsBundle.properties | changes.error.refreshing.vcs.history
+EN: Error refreshing VCS history
+FR: Erreur lors de l'actualisation de l'historique VCS
+
+IdeBundle.properties | icon.modules.unloadedModule.tooltip
+EN: unloaded module
+FR: module déchargé
+
+ApplicationBundle.properties | wrapping.method.arguments
+EN: Method call arguments
+FR: Arguments de l'appel de méthode
+
+RefactoringBundle.properties | there.is.already.a.0.in.the.1.it.will.conflict.with.the.renamed.parameter
+EN: There is already a {0} in the {1}. It will conflict with the renamed parameter.
+FR: Il existe déjà un {0} dans {1}. Cela entrera en conflit avec le paramètre renommé.
+
+ApplicationBundle.properties | settings.hints.group.code.author.description
+EN: Show the author of the code according to the records in the VCS.<br><br>The author is whoever last edited the class, method, or function. If there are multiple commits from different authors, the one who owns the most lines is considered the author.
+FR: Affiche l'auteur du code selon les enregistrements du VCS.<br><br>L'auteur est la dernière personne à avoir modifié la classe, la méthode ou la fonction. S'il y a plusieurs commits de différents auteurs, celui qui possède le plus grand nombre de lignes est considéré comme l'auteur.
+
+ActionsBundle.properties | action.RecentChangedFiles.description
+EN: Show the list of recently changed files
+FR: Afficher la liste des fichiers récemment modifiés
+
+ActionsBundle.properties | action.ProblemsView.SortBySeverity.description
+EN: Allows sorting problems by severity
+FR: Permet de trier les problèmes par sévérité
+
+IdeBundle.properties | presentation.assistant.quick.settings.ad
+EN: Drag the popup to\n customize the position
+FR: Faites glisser la fenêtre pour\n personnaliser la position
+
+ApplicationBundle.properties | settings.editor.console.font.overwritten
+EN: Configure console font at
+FR: Configurer la police de la console sous
+
+ActionsBundle.properties | action.StepInto.description
+EN: Step to the next line executed
+FR: Avancer à la ligne suivante exécutée
+
+VcsBundle.properties | shelve.changes.only.directories
+EN: The selected changes affect only directories and no files, so they cannot be shelved
+FR: Les modifications sélectionnées n'affectent que des répertoires et aucun fichier, elles ne peuvent donc pas être mises en réserve
+
+ApplicationBundle.properties | edit.code.folding.options
+EN: Open code folding options
+FR: Ouvrir les options de pliage du code
+
+ApplicationBundle.properties | advanced.setting.localHistory.daysToKeep
+EN: Duration of storing changes in Local History
+FR: Durée de conservation des modifications dans l'historique local
+
+JavaBundle.properties | label.ignored.exceptions
+EN: Ignored exceptions:
+FR: Exceptions ignorées :
+
+IdeBundle.properties | update.plugins.help
+EN: Prepares (but not installs) plugin updates.\nUsage: update [plugin-id] ...\nTo install prepared updates, run the command again: `<ide> -Didea.force.plugin.updates=true update`
+FR: Prépare les mises à jour des plugins (mais ne les installe pas).\nUtilisation : update [plugin-id] …\nPour installer les mises à jour préparées, exécutez à nouveau la commande : `<ide> -Didea.force.plugin.updates=true update`
+
+JavaBundle.properties | tooltip.is.overridden.in.several.subclasses
+EN: Is overridden in several subclasses
+FR: Est redéfinie dans plusieurs sous-classes
+
+CodeInsightBundle.properties | actions.on.save.page.checkbox.run.code.cleanup
+EN: Run code cleanup
+FR: Lancer le nettoyage du code
+
+ApplicationBundle.properties | wrapping.comments.wrap.at.right.margin
+EN: Wrap at right margin
+FR: Retour à la ligne à la marge droite
+
+VcsBundle.properties | patch.apply.file.type.directory.error
+EN: Cannot apply content for {0} file from patch because it is directory.
+FR: Impossible d''appliquer le contenu du fichier {0} depuis le patch car il s''agit d''un répertoire.
+
+JavaBundle.properties | notification.content.was.set.up
+EN: JDK ''{0}'' was set up for the project
+FR: Le JDK ''{0}'' a été configuré pour le projet
+
+IdeBundle.properties | code.cache.warn.message
+EN: Code cache size of {0} MB is not enough. Please increase ''-XX:ReservedCodeCacheSize'' to {1} MB or more to avoid performance issues.
+FR: La taille du cache de code de {0} Mo est insuffisante. Veuillez augmenter ''-XX:ReservedCodeCacheSize'' à {1} Mo ou plus pour éviter des problèmes de performance.
+
+IdeBundle.properties | warning.delete.all.files.and.subdirectories.in.the.selected.directory
+EN: \nAll files and subdirectories in the selected directory(s) will be deleted.\nYou might not be able to fully undo this operation!
+FR: \nTous les fichiers et sous-répertoires du ou des répertoires sélectionnés seront supprimés.\nIl se peut que vous ne puissiez pas annuler complètement cette opération !
+
+JavaBundle.properties | validator.text.class.not.found
+EN: Class not found
+FR: Classe introuvable
+
+ActionsBundle.properties | action.CloseOtherProjects.description
+EN: Close other projects
+FR: Fermer les autres projets
+
+JavaBundle.properties | inspection.duplicate.expressions.reuse.variable.fix.name
+EN: Reuse variable ''{0}'' for ''{1}''
+FR: Réutiliser la variable ''{0}'' pour ''{1}''
+
+RefactoringBundle.properties | text.occurrences
+EN: &Text occurrences
+FR: Occurrences de &texte
+
+IdeBundle.properties | label.install.paid.with.trial.or
+EN: Start the {0}-day trial or
+FR: Commencer l''essai de {0} jours ou
+
+RefactoringBundle.properties | idea.has.found.fragments.that.can.be.replaced.with.include.directive
+EN: {0} has found fragments that can be replaced with include directive\nDo you want to review them?
+FR: {0} a trouvé des fragments pouvant être remplacés par une directive include\nSouhaitez-vous les examiner ?
+
+ActionsBundle.properties | action.StepOut.description
+EN: Step to the first line executed after returning from this method
+FR: Avancer jusqu'à la première ligne exécutée après le retour de cette méthode
+
+ActionsBundle.properties | action.MinimizeCurrentWindow.description
+EN: Minimize current window
+FR: Réduire la fenêtre actuelle
+
+CodeInsightBundle.properties | intention.intercept.ejb.method.or.class.class.text
+EN: Add interceptor for EJB class ''{0}''
+FR: Ajouter un intercepteur pour la classe EJB ''{0}''
+
