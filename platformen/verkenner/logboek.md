@@ -490,3 +490,12 @@ Nieuwste blok onderaan.
 - 13:58: Max for Live (maxforlive.com) niet te meten, Cloudflare-uitdaging op elke pagina. In kandidaten.md gezet.
 - 14:00: tweede platform DLsite (alle leeftijden). Open productinfo geeft per 100 werken verkopen, prijs, datum en soort; robots.txt vraagt 10 s. 2.477 werken opgehaald. Uitkomst: nee voor nu, cijfer 3; wat wij kunnen maken (tools, materiaal) verkoopt niet, stemwerk wel. Geen controleur, tijd op; zelf nagekeken dat de teller verkopen zijn.
 - Run afgesloten.
+
+## 8 nov run 14:33 (Amsterdam)
+- Begin: main opnieuw gezet op origin/main. Berichten van Thijs: niets nieuws open.
+- Platform: Construct 3 en GDevelop (kleine game-engines met eigen winkel), zelf toegevoegd. Om 14:36 op "in onderzoek" gezet en gepusht.
+- Construct 3: elke pagina, ook robots.txt, geeft een Cloudflare-uitdaging. Niet omzeild.
+- GDevelop: robots.txt staat alles toe. Open shop-API gevonden (api.gdevelop.io/shop/asset-pack, game-template, bundle) met maker, datum en prijs, geen verkopen. Hele winkel opgehaald: 274 packs, 79 sjablonen, 46 makers van derden. Wiki: 60/40, selectie met de hand, Nederland via Tremendous. Blog: VegeTato leeft ervan. itch.io-vergelijking: zijn sjablonen daar 0 tot 8 ratings.
+- Beslissing: nog niet klaar, cijfer 5. Controleur akkoord, 8 van 8, correcties verwerkt (bundels, concentratie, concurrentie groeit).
+- Les: een winkel zonder tellers is alleen eerlijk te meten met een proef; zeg dat meteen in het advies.
+- Run afgesloten.
