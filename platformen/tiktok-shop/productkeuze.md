@@ -32,5 +32,15 @@ Een smallere versie van A: "zie welke listings TikTok binnenkort deactiveert en 
 
 Breder zoeken in plaats van één idee forceren: welke categorieën in de VS-winkel hebben veel apps met een vaste maandprijs, en zijn in de EU leeg of bijna leeg? Uit de data van Noor (GEZIEN): creator-samenwerking NL 6 tegen VS 82 (VS-mediaan $149), video shopping NL 3 tegen 36, reviews NL 1 tegen 14 (mediaan $49), klantenservice (mediaan $89). Per categorie meten: EU-aantal per land, aanmaakdatum (groei), prijzen, en of TikTok het zelf al gratis doet. Zie `taken.md`.
 
+## Tussenstand bredere zoektocht (8 nov 23:30 UTC, nog geen keuze)
+
+Onderzoek: `onderzoek/2026-11-08-categorieen-vs-eu.md` (nagekeken, correcties onderaan verwerkt). Per categorie betaalde VS-apps tegen EU-apps (GEZIEN, data 8 nov):
+- **Reviews** (VS 10 betaald, EU 2): valt af. Alle apps zetten reviews van een bestaand reviewplatform over (Judge.me, Yotpo); de klant betaalt voor dat platform. Wij hebben geen reviews om over te zetten.
+- **LIVE Shopping** (VS 5 betaald, EU en GB 0): echt leeg, maar in de VS een kleine nis (geen LIVE-app in de top 60) en vraag in de EU niet gemeten.
+- **Boekhoudkoppeling per land** (VS 18 betaald, mediaan $27; EU 10, vooral Duitse DATEV-exporten): geen enkele listing noemt Moneybird, Exact, e-Boekhouden, SnelStart, Pennylane of Holded (GEZIEN). Betaalbewijs redelijk voor de VS, dun voor NL: op Shopify halen de Moneybird-koppelingen 30 en 7 reviews ($18 tot $36, en $15,95) (GEZIEN). Prijs dicht bij onze ondergrens. Open voorwaarde: geeft TikTok in de EU een API voor uitbetalingen en kosten?
+- **Creator-samenwerking** is in de EU niet leeg: 17 apps, 13 nieuw in 2026 (GEZIEN).
+
+Volgende metingen voor een keuze: (1) Finance/settlement-API in de partner-docs voor de EU; (2) wat Seller Center zelf aan rapporten en exports geeft; (3) LIVE-verkoop in de EU: veilingen, aantallen sessies, wat er na de uitzending misgaat; (4) verkopers per land voor NL en FR. Kiezen pas met gemeten betaalbewijs en een "waarom wij".
+
 ## Nagekeken
 Controleur (agent, 8 nov 23:15 UTC): akkoord na verbeteringen. Seller University-artikel, GCM (prijzen, 29 reviews, 26 van 29 tussen okt 2024 en juni 2025), nul compliance-apps in 13 EU-landen en GB, en prijzen Nexium Hub en SellerGoo zelf tegen de bron nagekeken. Verbeteringen (woordkeus Qualifizierungszentrum, SellerGoo jaar/maand, prijsrange, 13 landen, gratis plan GCM) zijn verwerkt. Changelog-data niet apart nagekeken.
