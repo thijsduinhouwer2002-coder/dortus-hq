@@ -88,7 +88,7 @@ My small studio, Dortus, made Rollwright: a dice roller for people who run or pl
 
 [GIF]
 
-What we cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lights up gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll goes into a Roll log, grouped by note and hour, so after a session you can read back what happened. Motion turns off if your system asks for reduced motion.
+What we cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lights up gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened. Roll animations turn off if your system asks for reduced motion.
 
 It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
 
@@ -107,7 +107,7 @@ I'd love to hear what you roll on and what is missing. Bugs and ideas are welcom
 
 ### 2. r/ObsidianMD
 
-**Titel:** A dice roller plugin where a natural 20 actually lights up, and every roll goes into a session log
+**Titel:** A dice roller plugin where a natural 20 actually lights up, and every roll you click goes into a Roll log
 
 **Tekst:** zelfde als het forumbericht, zonder "Hi all". Eerste zin: "Rollwright is now in Community plugins." GIF bovenaan als het plaatje van de post. Waarom deze titel: op Reddit stemmen mensen op wat ze zien; de oude titel ging over frontmatter, dat zie je niet (GOK).
 
@@ -116,11 +116,11 @@ I'd love to hear what you roll on and what is missing. Bugs and ideas are welcom
 **Titel:** For solo players who journal in Obsidian: roll dice and oracle tables in your notes, with a log of every roll
 
 **Tekst:**
-Many solo players keep their session logs in Obsidian, so my small studio made a plugin for it: Rollwright.
+Many solo players keep their session logs in Obsidian, so my small studio, Dortus, made a plugin for it: Rollwright.
 
 You keep your oracles and random tables as normal notes. Then, in your journal, `dice: [[Oracles^yesno]]` picks a row, and a click rolls again. A lookup table can have a formula in its header (`dice: 1d20`) and Rollwright finds the matching row. You can roll a random line from a list, a block from a note, or a note with a tag.
 
-Every roll lands in a Roll log, grouped by note and hour, with where it came from, so the log reads like the session. A natural 20 lights up gold, a 1 turns red.
+Every roll you click lands in a Roll log, grouped by note and session, with where it came from, so the log reads like the session. A natural 20 lights up gold, a 1 turns red.
 
 It is free (two optional skins cost $6 once) and needs no account. It is in Obsidian's Community plugins as "Rollwright". Built with the help of AI tools, tested in the real Obsidian app before every release.
 
@@ -131,7 +131,7 @@ More: https://dortus.com/rollwright/
 Let op: in deze subreddit zijn eerder plugins voor solo-spel getoond (Solo RPG Toolkit 39.327 downloads, Lonelog 6.196, Solo Oracle 83, GEZIEN in community-plugin-stats.json 8 nov). Rollwright is geen oracle of GM-emulator; de tekst zegt daarom alleen wat het doet: dobbelen en tabellen, met een logboek.
 
 ### 4. Discord #updates (kort)
-Rollwright 0.3.0 is in Community plugins: roll dice and random tables inside your notes. Click to roll again, a natural 20 lights up gold, every roll goes into a Roll log by note and hour. Uses the `dice:` notation, rolls on your tables, lists, sections and tags, reads numbers from frontmatter. Free, two optional $6 skins. https://github.com/thijsduinhouwer2002-coder/rollwright
+Rollwright 0.3.0 is in Community plugins: roll dice and random tables inside your notes. Click to roll again, a natural 20 lights up gold, every roll you click goes into a Roll log by note and session. Uses the `dice:` notation, rolls on your tables, lists, sections and tags, reads numbers from frontmatter. Free, two optional $6 skins. Made by Dortus with the help of AI tools. https://github.com/thijsduinhouwer2002-coder/rollwright
 
 ### Wat Thijs nodig heeft om te posten (komt op lijst-thijs na de aanmelding)
 1. Rollwright staat in Community plugins (aanmelding door Thijs).

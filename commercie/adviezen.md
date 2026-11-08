@@ -73,7 +73,7 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Status:** open
 
 ## 11. Rollwright: korte beschrijving in manifest.json bijwerken bij 0.3.0 (8 nov 2026)
-- **Wat:** bij de release van 0.3.0 `description` in `manifest.json` vervangen door: `Roll dice right in your notes with a full formula notation. Click to roll again, see a natural 20 light up, draw from tables, lists, sections and tags, and keep every roll in a roll log.` (186 tekens). En in de listing de lange beschrijving en de plaatjesvolgorde uit `commercie/rollwright/winkeltekst.md`, deel "Bijwerking 8 nov 2026".
+- **Wat:** bij de release van 0.3.0 `description` in `manifest.json` vervangen door: `Roll dice right in your notes with a full formula notation. Click to roll again, see a natural 20 light up, draw from tables, lists, sections and tags, and keep your rolls in a Roll log.` (186 tekens). En in de listing de lange beschrijving en de plaatjesvolgorde uit `commercie/rollwright/winkeltekst.md`, deel "Bijwerking 8 nov 2026".
 - **Waarom:** de oude tekst noemt "history", het paneel heet nu "Roll log". En de korte tekst is wat mensen in de lijst in Obsidian lezen; daar moet het enige staan wat ons onderscheidt (het moment van een natuurlijke 20). Past in de regels van Obsidian: hoogstens 250 tekens, begint met een werkwoord, eindigt met een punt (DERDEN, [Submission requirements for plugins](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Submission%20requirements%20for%20plugins.md)).
 - **Let op:** eerste plaatje in de listing is de poster met een crit in beeld; een GIF kan daar niet.
 - **Voor wie:** Olaf, bij de release van 0.3.0.
