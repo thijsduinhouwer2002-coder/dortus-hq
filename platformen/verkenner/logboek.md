@@ -576,3 +576,13 @@ Nieuwste blok onderaan.
 - Alle 12.304 profielen opgehaald (robots.txt staat .md toe, 4 tegelijk met pauze, in delen van ±9 minuten). Data en hervatbaar script staan in data/. Eerste ruwe telling op trefwoorden in kandidaten.md, nog niet nagekeken en nog geen oordeel.
 - Volgende run: analyse per platform, per treffer nalezen of het product echt op dat platform draait, controleur erbij.
 - Run afgesloten.
+
+## 8 nov run 21:31 (Amsterdam)
+- Begin: lokale main stond los, main opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Onderdeel: analyse van de TrustMRR-scan (vervolg op run 20:31, platformrun). Om 21:34 op "in onderzoek" gezet en gepusht. Gekozen omdat de data klaarlag en dit in één keer laat zien op welke platformen nieuwe kleine makers echt geld halen.
+- Eigen meting: 8.469 makers sinds 2025 per platform ingedeeld op domein en vaste zinnen (script data/trustmrr-platform-analyse.py).
+- Uitkomst: geen nieuw winkelplatform met cijfer 6+. Mac-apps buiten de App Store (20% haalt $300+) en tools rond AI-codeagenten krijgen 5, nog niet klaar: geld aangetoond, maar geen winkel, dus eigen verspreiding nodig die we niet hebben. Zie voorstellen/trustmrr-scan-per-platform.md.
+- Controleur: klopt met correcties, verwerkt (Mac-groep groter door "macOS", Claude/MCP 11 echte in plaats van 21, Discord, Figma en Blender wel echte plugins, Pastel uitgesloten, startdatum onbetrouwbaar).
+- Bijvangst: 3D-Agent (AI-plugin voor Blender, $6.733 in 30 dagen) en Discord-bots met geld. Beide op taken.md voor volgende runs.
+- Les: een trefwoord zegt niet of een product óp een platform draait; laat de controleur per treffer met geld nalezen.
+- Run afgesloten.
