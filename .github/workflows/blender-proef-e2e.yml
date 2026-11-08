@@ -25,7 +25,7 @@ jobs:
       - name: Systeempakketten (Xvfb en software-OpenGL)
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool
       - name: Blender ${{ matrix.blender }} ophalen
         run: |
           V="${{ matrix.blender }}"; KORT="${V%.*}"
@@ -40,11 +40,16 @@ jobs:
         if: always()
         env:
           LIBGL_ALWAYS_SOFTWARE: "1"
+          # Eigen lege voorkeurenmap: zo kunnen we vooraf voorkeuren opslaan zonder splash.
+          BLENDER_USER_RESOURCES: /tmp/bu
+          BLENDER_USER_CONFIG: /tmp/bu/config
         run: |
-          # Met een .blend als startbestand toont Blender geen opstartscherm (splash).
-          /tmp/blender/blender -b --factory-startup --python-expr "import bpy; bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          # Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+          # met het opstartscherm uit, en start de interface zonder --factory-startup.
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          ls -la /tmp/bu/config || true
           timeout 180 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
-            /tmp/blender/blender --factory-startup /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
+            /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/dortus_proef.zip || echo "schermen: exit $?"
           ls -la e2e/screenshots/${{ matrix.blender }} || true
       - uses: actions/upload-artifact@v4
         if: always()
