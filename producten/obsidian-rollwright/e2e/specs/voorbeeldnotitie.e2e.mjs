@@ -91,6 +91,18 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 		expect(tekst.startsWith("> [!tip] Every roll in this note is live")).toBe(true);
 	});
 
+	it("daarna heet de knop in het lege logboek \"Open the example note\" (Daan, beoordeling 10)", async function () {
+		let tekst = "";
+		await browser.waitUntil(async () => {
+			tekst = await browser.execute((p) => document.querySelector(`${p} .rollwright-history-empty button.rollwright-history-try`)?.textContent ?? "", PANEEL);
+			return tekst === "Open the example note";
+		}, { timeout: 8000, timeoutMsg: "de knop kreeg geen nieuwe naam" }).catch((e) => {
+			console.log(`KNOP: "${tekst}"`);
+			throw e;
+		});
+		console.log(`KNOP na het maken: "${tekst}"`);
+	});
+
 	it("rolt alle zes worpen zonder fout in lezen", async function () {
 		await browser.executeObsidian(async ({ app }) => {
 			const leaf = app.workspace.getLeaf(false);
