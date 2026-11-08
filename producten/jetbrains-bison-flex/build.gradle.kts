@@ -68,6 +68,11 @@ intellijPlatform {
         ides {
             create(IntelliJPlatformType.CLion, "2025.2")
             create(IntelliJPlatformType.IntellijIdeaCommunity, "2025.2")
+            // Nieuwere IDE's, zoals de keuring van de Marketplace (mail 8 nov: 1 tot 2 keer
+            // verouderde API in 2026.1.1 tegen IDEA 2025.3 tot 2026.3).
+            create(IntelliJPlatformType.IntellijIdea, "2025.3")
+            create(IntelliJPlatformType.IntellijIdea, "2026.2")
+            create(IntelliJPlatformType.CLion, "2026.2")
         }
     }
 }
