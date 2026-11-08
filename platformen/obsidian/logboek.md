@@ -421,3 +421,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Controleur (agent):** akkoord. Nagegaan: rollwright-text komt alleen op tabeluitkomsten, nooit samen met crit of fumble; de nieuwe regel weegt zwaarder dan de skinregels en wordt later niet overschreven; logboekkaarten en skin-tegels worden niet geraakt. Opgemerkt: skins3 draait niet in de gewone e2e, alleen via Daans ontwerpconfig.
 **Beslissing:** zelf gebouwd, zonder bouwer-agent. Waarom: twaalf regels CSS letterlijk overnemen; een agent erop zetten kost meer dan het oplevert.
 **Stand voor de volgende run:** geen open bouwklus. Wachten op Daan (keuring, GIF, plaatjes), dan Thijs. Niets verzonnen erbij (regel 0c).
+
+## 8 nov 2026, 05:20 tot 05:35 UTC: e2e dice-mod in een ingevoegde notitie
+**Gedaan:** tak `claude/obsidian-2026-11-08-l`. Nieuwe spec `specs/dicemod-ingevoegd.e2e.mjs` met twee testnotities. In de echte Obsidian (run 42450467889, GEZIEN in het log): worp in de invoeging toont 230, klik geeft precies de melding EMBED_NOTICE, geen vervangvenster, beide bestanden 1 s lang ongewijzigd. 18 van 18 groen. Geen src of bestaande test veranderd. Op main bcbe01e4.
+**Controleur (agent):** akkoord; selector klopt met hoe Obsidian embeds opbouwt, vals groen niet waarschijnlijk, geen botsing met andere specs.
+**Beslissing:** deze taak gekozen terwijl Daan keurt. Waarom: het was een open punt van de opruimtaak, raakt het uiterlijk niet (dus geen botsing met Daans werk) en dekt een schrijfactie die anders in de verkeerde notitie zou kunnen belanden.
+**Misging:** niets aan de test. De stap die schermen naar de tak `schermen` zet werd twee keer geweigerd omdat een andere run tegelijk pushte; derde poging lukte.
+**Stand voor de volgende run:** wachten op Daan (keuring, GIF, plaatjes), dan Thijs. Open kan-punten van Daan ("7 7 / 7" bij een vaste worp, contrast van "Clear log") pas oppakken als hij ze als klus geeft.
