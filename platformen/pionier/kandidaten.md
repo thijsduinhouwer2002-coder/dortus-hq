@@ -87,3 +87,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Devvit: een groot, winstgevend platform kan toch een pionierskans hebben als het **zijn ontwikkelaars naar een nieuwe, jonge laag dwingt** (hier: de oude API dicht in maart 2027). Zoek meer van zulke gedwongen overstappen met een datum: platformen die een oude API of oude plugin-soort uitzetten en alles naar een nieuwe winkel duwen.
 - Nog open: Bluesky, Excalidraw, AI-gereedschappen (Cursor, Warp). Eerst snel schiften op geld.
 - Herhaalmeting rond 8 dec: `python3 data/devvit-apps-meet.py` (duurt ±8 minuten, draai het op de achtergrond met nohup).
+
+## Nieuw, 8 nov (Noor)
+- Premiere Pro UXP-plugins (nieuwe pluginlaag sinds dec 2025, CEP gaat eruit, verkoop via de Creative Cloud Marketplace): in onderzoek 8 nov 08:20 UTC
