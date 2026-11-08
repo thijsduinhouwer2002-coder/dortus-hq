@@ -5,10 +5,10 @@ from mathutils import Vector
 
 GRENS_ROOD_MM = 0.8    # dunner dan dit: te dun om te printen
 GRENS_ORANJE_MM = 1.5  # dunner dan dit: krap
-# Rustige kleuren (lineair, zoals Blender ze opslaat): zacht groen #6FAF7E, warm oranje #E8913A,
-# diep rood #B23A3A. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
-KLEUREN = {"groen": (0.159, 0.429, 0.209, 1.0), "oranje": (0.807, 0.283, 0.042, 1.0),
-           "rood": (0.445, 0.042, 0.042, 1.0)}
+# Heldere kleuren van Daan (lineair, zoals Blender ze opslaat): groen #3DDC84, oranje #FFB020,
+# rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
+KLEUREN = {"groen": (0.047, 0.716, 0.231, 1.0), "oranje": (1.0, 0.434, 0.014, 1.0),
+           "rood": (1.0, 0.074, 0.074, 1.0)}
 ICONEN = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
 
 
