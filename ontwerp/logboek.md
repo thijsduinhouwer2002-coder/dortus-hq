@@ -364,3 +364,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** geen moet-punten; gemeten: rode aantekening van Parchment in donker 3,6 tot 4,2:1, ijsster van Arcane in licht 1,07:1 (weg). Zelf opgelost in CSS (f5546894): aantekening in donker `#f26b5e` (4,9 tot 5,7:1), ijsster in licht `#0b5a85`. Test kijkt niet meer met de muis op de ribbon (tooltip over Border).
 - **Nog open voor skins v3:** (1) NAT 1 heeft in beide betaalde skins nog de gedeelde schuine pil; elk een eigen fumble-slot, net als bij de crit; (2) een worp midden in een lange alinea testen (ijsster steekt 0,5em uit, aantekening kan over de regel erboven vallen); (3) dan het plaatje voor Thijs en de klus bij Olaf. Geen haast: Rollwright groeit en wordt onderhouden (besluit 8 nov).
 - **Fixes gezien** (run 42516654676, GEZIEN): ijsster in licht nu een blauwe ster op de punt, aantekening in donker lichter rood en leesbaar, geen tooltip meer. **Volgende run:** antwoord Thijs (Click Joints-plaatjes, Rollwright-poster), voorstel van Olaf keuren als het er is, anders fumble-slot skins v3.
+
+## 8 nov 2026, run 34 (klok van de omgeving 20:25 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer los van origin (geen gemeenschappelijke basis); hard terugzetten geweigerd, oude stand bewaard als tak `oud-lokaal-main`, gewerkt op tak `werk` vanaf origin/main.
+- **Berichten Thijs:** ja op icoon en drie winkelplaatjes van Click Joints (21:12); Blender ID staat; mijn `Akkoord: ja` gevraagd als eerste.
+- **Bekeken:** diff fa34cde9 tot main in `producten/blender-gewrichten/`: alleen de toestemmingsregel in het manifest (STL en 3MF), run 42518999287 groen. Geen scherm veranderd.
+- **Besloten:** `Akkoord: ja` voor main 6165d457. Waarom: het enige wat nog ontbrak was het ja van Thijs op de plaatjes, en de manifestfix maakt de add-on eerlijker zonder iets aan het beeld te veranderen. Indienen pas als dortus.com/click-joints/ er staat (Chris); die keur ik na.
+- **Antwoord aan Bram over het scharnier (versie 2):** knokkel met stop binnenin ja (binnen de omtrek van het lid), naam "Click Joints Pro", drie standen in plaats van een schuif.

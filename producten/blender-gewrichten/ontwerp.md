@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 18:33, voor main fa34cde9 (ronde q, run 42509522859), alleen omdat Thijs de winkelplaatjes nog niet zag (staan op zijn lijst). De add-on zelf is klaar voor de lancering. Zie "Winkelplaatjes van Daan" onderaan.
+Akkoord: ja 8 nov 2026 20:35 UTC, voor main 6165d457 (ronde q plus de manifestfix van tak -r: bestandstoestemming "Export the joint parts as STL or 3MF files", run 42518999287 groen in 4.2.23 en 5.2.3). Thijs zei ja op icoon en de drie winkelplaatjes (21:12). Tussen fa34cde9 en 6165d457 veranderde in de add-on alleen die ene regel in `blender_manifest.toml` (GEZIEN, git diff). Geldt voor de gratis zip op extensions.blender.org. Indienen mag zodra dortus.com/click-joints/ er staat (het manifest linkt erheen; Chris maakt hem, ik kijk hem na).
+
+Oud: Akkoord: nee 8 nov 2026 18:33, voor main fa34cde9 (ronde q, run 42509522859), alleen omdat Thijs de winkelplaatjes nog niet zag (staan op zijn lijst). De add-on zelf is klaar voor de lancering. Zie "Winkelplaatjes van Daan" onderaan.
 
 Oud: Akkoord: nee 8 nov 2026 17:30, voor tak `claude/blender-2026-11-08-o` (ronde o, run 42503896393), omdat de smalle naadband (moet 2) en de winkelplaatjes en het icoon nog niet klaar zijn. De gradenboog (moet 1) is goed. Wat nog moet voor de lancering is een vaste, korte lijst: zie "Lanceerlijst van Daan" onderaan. Alles daarbuiten is versie 2.
 
@@ -535,3 +537,12 @@ Bekeken met de Read-tool, Blender 5.2.3: `8-winkel-x`, `9-winkel-rood-x`, `10-wi
 
 Main is niet meer fa34cde9: bij mijn eigen keuring tegen de richtlijnen van de moderatoren van extensions.blender.org (`platformen/blender/indienen.md`) bleek de bestandstoestemming in het manifest alleen STL te noemen, terwijl de add-on ook 3MF schrijft. Die regel is nu "Export the joint parts as STL or 3MF files" (tak -r, run 42518999287 groen in 4.2.23 en 5.2.3, controleur akkoord, samengevoegd). Geen code, geen toets en geen scherm veranderd. Wie de extensie installeert ziet die zin bij de toestemmingen. Geef je `Akkoord: ja`, zet het dan voor de main met deze regel. Verder: de gratis versie gaat eerst alleen naar extensions.blender.org, Superhive pas met het scharnier (besluit run 23); het ontwerp daarvan staat hierboven met drie vragen aan jou.
 
+
+## Daan: akkoord ja en antwoord op de drie vragen over het scharnier (8 nov 20:35 UTC)
+
+**Akkoord: ja** voor main 6165d457, zie bovenaan. Ik keek de diff na tegen fa34cde9: in `click_joints/` alleen de toestemmingsregel, die nu klopt met wat de add-on doet (STL en 3MF) en kort genoeg is voor het installatievenster. Geen scherm veranderd, dus de plaatjes waar Thijs ja op zei blijven gelden. Eén ding moet nog voor het indienen, en dat is niet van Bram: dortus.com/click-joints/ moet er staan (Chris). Ik kijk die pagina na zodra hij er is; hij moet dezelfde winkelzin, dezelfde ±20° en dezelfde poster hebben als de winkel.
+
+**Vragen over ontwerp betaald v1.1 (geen lancering, versie 2):**
+1. **Vorm: ja**, zichtbare knokkel met de stop aan de binnenkant van de knie. Zo zien de mooiste geprinte poppen (ball-jointed dolls, articulated dragons) eruit, en het laat in één oogopslag zien dat het een scharnier is. Eis van mij: de knokkel blijft binnen de omtrek van het lid (afgerond, geen dikke bult die uitsteekt), en de zaagsnede in de wang zit aan de achterkant, niet aan de zichtkant van het figuur.
+2. **Naam: "Click Joints Pro".** Dan zie je op Superhive meteen dat het de grote versie van de gratis add-on is, en een koper weet wat hij al kent. De gratis code noemt het nergens (blijft zoals jouw eis 7).
+3. **Drie standen (90, 115, 135), geen schuif.** Drie knoppen met een plaatje (elleboog, knie, ver) zijn sneller en kunnen niet fout. Een schuif is versie 2, als iemand erom vraagt.
