@@ -196,7 +196,9 @@ class Meter:
         return (self.b[0] - self.c) @ m.T + self.c
 
     def raakt(self, k, hoek, paren=False):
-        """Raakt deel B (gedraaid over hoek graden richting k) deel A? Met paren: de lijst botsende paren."""
+        """Raakt deel B (gedraaid over hoek graden richting k) deel A? Met paren: de lijst botsende paren.
+        Let op: voorbij de snoeihoek komen de paren uit de volle meter (`self._vol.a`), niet uit `self.a`;
+        vraag paren dus alleen op tot de snoeihoek (zoals kleur_botsing doet)."""
         self.toetsen += 1
         if self.gesnoeid and hoek > self.hoek + 1e-9:
             # Verder dan de snoeihoek (controleur ronde n): dan geldt het snoeien niet, dus de volle uitsnede.
