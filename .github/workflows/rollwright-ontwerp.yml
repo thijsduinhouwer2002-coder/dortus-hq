@@ -57,9 +57,15 @@ jobs:
             set -e
             [ "$code" = 0 ] && exit 0
             grep -q "Failed to download" /tmp/wdio.log || exit "$code"
-            echo "downloadfout, poging $poging; even wachten"; sleep $((poging * 30))
+            echo "downloadfout, poging $poging; even wachten"; sleep $((poging * 45))
           done
           exit 1
+      # Ook na de test bewaren: chromedriver haalt de test zelf op, en die moet de volgende run er al zijn.
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-cache-${{ github.run_id }}-na
       - name: Schermafbeeldingen openbaar zetten (tak schermen)
         if: always()
         working-directory: .
