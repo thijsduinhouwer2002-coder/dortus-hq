@@ -144,3 +144,15 @@ Verwerkt uit de tussenreactie van Daan (8 nov 05:28). Runs 42453798012 en 424542
 - **Plaatje 2:** camera driekwart van voren, langs de as (kijkrichting 0,8 / 0,6 / -0,3), afstand 24. Je kijkt in de opening van de kom van deel B en ziet de holte, met de kogel op de nek van deel A ervoor. Zelf bekeken in 4.2.23 en 5.2.3. Geen oranje selectierand meer in beeld.
 - **Paneel stap 3:** de regel "Wall: ..." staat er alleen nog bij Good fit; bij Tight en Too thin staat de wand al in de reden. Veld "Diameter (mm)" is breder gemaakt naast Auto (werd afgekapt).
 - Geen bestaande toets zwakker of gewijzigd in verwachting. `hulp.plaats` zet Auto uit, want die toetsen kiezen de diameter zelf. Nog open: de paneeltekst zelf wordt niet automatisch getoetst (alleen op de plaatjes gezien).
+
+## Ronde d en e nagekeken en op main (8 nov 06:40, Bram) en vraag aan Daan: beoordeling 2
+Controleur op tak d (Engels): akkoord met correcties; de wand in de passingtekst staat nu op twee decimalen (anders "wall 1.5 mm (aim for 1.5 mm)" bij 1,46), de dubbele regel "Wall:" is weg. Testwijziging "niet gesloten" naar "not watertight" apart goedgekeurd. Controleur op tak e: akkoord met één tekstcorrectie (verwerkt). Run 42454838164 groen in 4.2.23 en 5.2.3 (GEZIEN).
+- Tight is nu amber geel #FFD23F, groen en rood bleven.
+- Na Place joint is niets geselecteerd (deel A blijft actief), dus geen oranje selectierand naast de passingkleur.
+- Knop **Auto** naast Diameter, standaard aan: 0,6 keer de smalste breedte op de snede, afgerond op 0,5 mm (arm van 10 mm: kogel 6,0 mm, Good fit, wand 1,56 mm, GEZIEN). Zelf typen zet Auto uit.
+- Plaatje 2 kijkt driekwart in de kom; je ziet de holte en de kogel ervoor.
+- Alle zichtbare tekst in het paneel is Engels (materiaalnamen in de Outliner nog niet, volgt).
+
+Bekend en open: de arm van de testpop is maar 5 mm dik, dus Auto geeft daar 3,0 mm en Tight (wand 0,89 mm). De wand is ongeveer 0,2 keer de dikte; onder ±5 mm dikte wordt het rood. Nog geen melding als Auto geen breedte vindt.
+
+**Daan, graag beoordeling 2** van wat nu op main staat: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/1-paneel-x.png en https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/2-gewricht-x.png (zelfde als https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/claude-blender-2026-11-08-e/5.2.3/2-gewricht-x.png). Vraag erbij: op het plaatje is de pop dun, dus staat er Tight in amber; wil je voor het hoofdplaatje een dikkere arm zodat het Good fit (groen) toont, of juist Tight met uitleg omdat dat laat zien wat de add-on doet?

@@ -89,3 +89,13 @@ Alleen aanvullen, nooit iets weghalen.
 - Wat misging: push naar main twee keer geweigerd doordat anderen tegelijk opsloegen; opgelost met fetch en merge, niets geforceerd.
 - Installs 0, reviews 0, verkopen 0.
 - 05:40 tot 05:50: taak 3 gestart, bouwer op tak `claude/blender-2026-11-08-d`: Engels in paneel en meldingen, reden bij Tight, keuzes naast elkaar. Runs 42451554636 en 42451878277 groen in 4.2.23 en 5.2.3. Zelf plaatje 2 bekeken: geen Nederlands meer, wel twee afgekapte regels (tweede commit zet ze op twee regels, nog niet gezien). Niet nagekeken en niet samengevoegd, want de run is om; eerste taak volgende run.
+
+## 8 nov 2026, 06:08 tot ±06:45, Bram (run 9)
+- Berichten gelezen, niets nieuws. Lokale main stond los; opnieuw gezet op origin/main (reset geweigerd, checkout -B werkte).
+- Taak 1: controleur (agent, niet de maker) op tak d (Engels). Akkoord met correcties: wand op twee decimalen in de passingtekst (vóór samenvoegen), dubbele regel "Wall:", Outliner-namen en meldingen nog rommelig (later). Testwijziging "niet gesloten" naar "not watertight" goedgekeurd. Runs 42451554636 en 42451878277 groen.
+- Taak 2, tegelijk: bouwer op tak `claude/blender-2026-11-08-e` vanaf d met de tussenreactie van Daan: amber #FFD23F, geen selectie na plaatsen, Auto-kogelmaat 0,6 keer de smalste breedte, camera driekwart in de kom, geen dubbele wandregel. Commits c5fa2337, 6a08a8e2, e8c553c8; runs 42453798012, 42454200676, 42454528181 groen. Zelf gedaan: twee decimalen (correctie tak d) en plaatje 2 met Auto (456ce027), run 42454838164 groen in 4.2.23 en 5.2.3.
+- Controleur op tak e: akkoord met één tekstcorrectie in architectuur.md (verwerkt). Geen toets zwakker; hulp.plaats zet Auto uit omdat die toetsen hun maat zelf kiezen, en toetst nu bij elke plaatsing dat niets geselecteerd is.
+- Besluit: d en e samen naar main, want beide nagekeken en groen, en Daan wil beoordeling 2 pas op een tak met ring en Engels; dat staat er nu. Daan gevraagd onderaan ontwerp.md.
+- Besluit: Auto als knop die de maat in het veld zet (niet verborgen), zodat de gebruiker altijd de echte maat ziet.
+- Zelf gezien op plaatje 2 (5.2.3): kijk in de holte van de kom, kogel ervoor, amber band, geen selectierand, paneel Engels en niets afgekapt. Op de 5 mm dunne testpop wordt het Tight (wand 0,89 mm); gevraagd aan Daan of het hoofdplaatje een dikkere arm moet hebben.
+- Installs 0, reviews 0, verkopen 0.
