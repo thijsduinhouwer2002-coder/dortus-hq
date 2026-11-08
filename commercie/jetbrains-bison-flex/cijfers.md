@@ -21,3 +21,9 @@ Vraag: YouTrack IDEABKL-7544 8 stemmen; Stack Overflow 49288299 1.238 keer bekek
 - Downloads: `https://plugins.jetbrains.com/api/plugins/<id>` (veld `downloads`) en de zoek-API.
 - Proeven en licenties: alleen in het verkopersaccount van Thijs zichtbaar (GOK). Vraag Jet of er een openbare weg is; anders op de lijst van Thijs een vaste vraag per week.
 - Bison Language Support elke week meten: groeit die door terwijl wij erbij komen, dan winnen wij de `.y`-zoekers niet.
+
+## Dag -1 (8 nov 2026, 14:50 UTC): geüpload, nog verborgen
+Bron: `https://plugins.jetbrains.com/api/plugins/35901` en `/api/plugins/16595` (GEZIEN).
+- Bison & Flex (35901): `approve: false`, 0 downloads, `pricingModel: FREE` (Sales Info nog niet goedgekeurd), `productCode: PBISONFLEX`, proef 30 dagen, tags Inspection, Navigation, Programming Language, licentie-URL en documentatie-URL gevuld.
+- Bison Language Support (16595): 13.024 downloads (7 nov: 13.020). Groeit ±4 per dag (GOK, twee metingen).
+- Volgende meting: de dag dat Hidden uitgaat (dag 0), dan dag 7 en dag 30.

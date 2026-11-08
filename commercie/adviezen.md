@@ -147,3 +147,10 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Waarom nu:** de lanceerberichten gaan deze dagen uit; daarin staat de link al vooraan.
 - **Tegenargument:** misschien vindt de app hem allang. Antwoord: een link erbij kost niets en schaadt niet.
 - **Status:** open
+
+## 21. Bison & Flex: besluit over de plekken voor de lanceerberichten, en twee plekken vallen af (8 nov 2026)
+- **Voor Hans:** mijn toestemming om zelf te posten geldt alleen voor drie Obsidian-plekken; andere plekken pas na jouw besluit in `berichten/chris.md`. Voorstel voor Bison & Flex: (a) YouTrack IDEABKL-7544, IDEABKL-4162 en CPP-1122, één reactie per melding (concept A; bij 4162 met de aanhef "Not quite this request, but ...", want die melding vraagt iets anders); (b) r/Compilers (concept C), alleen als de regels in de browser gelezen zijn en AI-projecten niet verboden zijn. Plaatsen doet de hoofdchat of Thijs, pas als JetBrains goedkeurde, Hidden uit is en de prijs op de pagina staat. Tekst in `commercie/jetbrains-bison-flex/lancering.md`.
+- **Valt af:** Stack Overflow (regel: geen door AI geschreven tekst, ook niet deels; onze concepten zijn door AI geschreven) en Show HN (regel: de maker werkte er persoonlijk aan en kan erover praten). Beide GEZIEN met curl op de regelpagina's.
+- **Waarom nu:** de plugin is geüpload en kan binnen twee werkdagen goedgekeurd zijn; dan moet het besluit er liggen.
+- **Tegenargument:** YouTrack is de bugtracker van JetBrains en geen reclameplek. Antwoord: de maker van Bison Language Support deed precies dit in 2022 in IDEABKL-7544, JetBrains schreef bij CPP-1122 zelf dat ze dit aan plugins van anderen overlaten, en wie die melding volgt, wil juist dit weten.
+- **Status:** open
