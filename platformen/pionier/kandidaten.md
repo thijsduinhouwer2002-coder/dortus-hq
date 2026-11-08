@@ -270,3 +270,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±23:00 UTC (Noor)
 - Les uit Vercel: ook bij het hardst groeiende platform is de winkel geen pionierskans als een product daar een **gehoste dienst met support** moet zijn en de eigenaar zelf kiest wie erin mag. Zoek winkels waar een klein product (plugin, script, app die bij de klant draait) mag staan.
 - Snelle manier gevonden: de paginadata van een winkel bevat vaak per item een goedkeurings- of aanmaakdatum (hier approvedAt). Tel die per maand om in één minuut te zien hoe snel een winkel vult.
+- Snelle schifting 8 nov ±22:49 UTC: Directus Marketplace (extensies via npm, beta sinds 10.10 in 2024): geen betaalde extensies, npm `@directus/sdk` 370.876 naar 643.765 per maand in een jaar (x1,7, GEZIEN api.npmjs.org), groeit ongeveer mee met de markt. Nee.
+- Herhaalchecks van Hans (Devvit fondsen, Godot betaalde items) gedaan, niets nieuws; zie taken.md.
+- Microsoft Flight Simulator 2024, EFB-apps (Electronic Flight Bag API, nieuwe app-laag in de tablet in de cockpit; verkoop via de Marketplace in de sim, simMarket, Orbx en flightsim.to): in onderzoek 8 nov 22:50 UTC
