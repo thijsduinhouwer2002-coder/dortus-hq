@@ -94,7 +94,11 @@ describe("Rollwright: Classic rustig (0.3.2)", function () {
 				await browser.saveScreenshot(`${SHOTS}/classic-rustig-${naam}-${donker ? "donker" : "licht"}.png`);
 				expect(m.klassen).toContain(klasse);
 				expect(m.stempel).toBe(stempel);
-				expect(m.rand).toBe("1.5px");
+				// 1.5px wordt op schaal 1 door Chromium afgerond naar 1px (controleur), dus toets de dikte ruim en de kleur echt.
+				expect(parseFloat(m.rand)).toBeGreaterThanOrEqual(1);
+				const [r, g, b] = (m.randKleur.match(/[\d.]+/g) ?? []).map(Number);
+				if (naam === "crit") expect(r > b + 40 && g > b + 20).toBe(true); // goud: veel rood en groen, weinig blauw
+				else expect(r > g + 40 && r > b + 40).toBe(true); // rood
 				expect(m.schaduw).toBe("none");
 				expect(m.verloop).toBe("none");
 				expect(m.vonk).toBe("none");

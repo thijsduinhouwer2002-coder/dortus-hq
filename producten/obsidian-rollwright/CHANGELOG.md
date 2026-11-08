@@ -2,7 +2,7 @@
 
 ## 0.3.2
 
-- Classic, the free look, is calmer. Results are flat tokens in your theme's colours, with no shine, glow or sparkle. A natural 20 still lands in gold (gold border, gold number, a small straight NAT 20 label) and a natural 1 in red. The d20 turns a quarter and the number fades in, about a third of a second.
+- Classic, the free look, is calmer. Results are flat tokens in your theme's colours, with no shine, glow or sparkle. A natural 20 still lands in gold (gold border, gold number, a small straight NAT 20 label) and a natural 1 in red. The d20 makes a quarter turn and the number fades in, in about a quarter of a second.
 - The paid skins Parchment and Arcane keep all their effects. The Classic tile in the settings shows the new calm look.
 
 ## 0.3.1
