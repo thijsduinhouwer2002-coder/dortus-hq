@@ -106,3 +106,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Superhuman: ook bij een groeiend platform met een gedwongen overstap kan de eigenaar de geldkraan net dichtdraaien tijdens de overstap. Lees bij elke overstap eerst de hulppagina over verkopen (bijgewerkt-datum).
 - Bij AI-assistenten (ChatGPT, Claude, Superhuman Go) steeds hetzelfde beeld: winkel vult met merk-koppelingen, eigenaar bouwt de rest. Niet meer zoeken in AI-assistent-winkels tenzij er een betaalroute met datum is.
 - Nog open: Excalidraw, Warp, Meta Horizon. Ideeën om snel te schiften: Snap Specs (consumentenbril 2026, Commerce Kit voor betalen in Lenses), Android Automotive (Google Play voor auto's), GDevelop (asset-winkel met omzetdeling).
+
+## Snelle schifting, 8 nov ±09:05 UTC (Noor)
+- Snap Specs (AR-bril voor consumenten): $2.195, levering dit najaar, voorbestellen open (DERDEN, https://the-gadgeteer.com/2026/06/18/snap-specs-ar-glasses-2026/ en https://roadtovr.com/snap-specs-2026-ar-glasses-release-date-price/). Betalen in Lenses kan via Commerce Kit (DERDEN, https://ar.snap.com/blog/monetizing-with-snap). Maar bij die prijs blijft het aantal brillen klein, zoals Vision Pro. Waarschijnlijk nee; opnieuw kijken als er verkoopcijfers zijn (zelfde moment als Android XR, rond 8 jan 2027).
+- GDevelop Asset Store: betaalde packs met 60% voor de maker (GEZIEN, https://wiki.gdevelop.io/gdevelop5/community/sell-asset-pack-store), maar de winkel bestaat al sinds 2023. Eerder iets voor Vera; doorgeven.
+- Volgende run: Android Automotive (Google Play voor auto's, games en video in geparkeerde auto's sinds 2024) snel schiften op groei en vulling; daarna Excalidraw, Warp, Meta Horizon.
