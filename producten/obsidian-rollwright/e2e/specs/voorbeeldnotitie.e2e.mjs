@@ -141,6 +141,29 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 		expect(na.tekst).toBe(eigen);
 	});
 
+	it("blijft rollen na hernoemen: de tabellen verwijzen met [[#^id]] naar de notitie zelf", async function () {
+		const NIEUW = "Mijn herberg.md";
+		await browser.executeObsidian(async ({ app }, [pad, nieuw]) => {
+			await app.fileManager.renameFile(app.vault.getAbstractFileByPath(pad), nieuw);
+			// Eerst een andere notitie, dan de hernoemde: zo tekent de leesweergave alles opnieuw.
+			const leaf = app.workspace.getLeaf(false);
+			await leaf.openFile(app.vault.getAbstractFileByPath("Tabellen.md"));
+			await leaf.openFile(app.vault.getAbstractFileByPath(nieuw), { state: { mode: "preview" } });
+			app.workspace.setActiveLeaf(leaf, { focus: true });
+		}, [PAD, NIEUW]);
+		await browser.waitUntil(async () => (await actieveNotitie()) === NIEUW, { timeout: 8000, timeoutMsg: "hernoemde notitie niet actief" });
+		try {
+			const rolls = await waitForRolls(".markdown-reading-view", 6);
+			console.log("NA HERNOEMEN:", JSON.stringify(rolls.map((r) => ({ v: r.value, e: r.error }))));
+			check(rolls, "na hernoemen");
+		} finally {
+			await browser.executeObsidian(async ({ app }, [pad, nieuw]) => {
+				const file = app.vault.getAbstractFileByPath(nieuw);
+				if (file) await app.fileManager.renameFile(file, pad);
+			}, [PAD, NIEUW]);
+		}
+	});
+
 	after(async function () {
 		await browser.executeObsidian(async ({ app }, pad) => {
 			const file = app.vault.getAbstractFileByPath(pad);
