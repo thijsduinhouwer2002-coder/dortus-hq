@@ -158,3 +158,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Run 42480217864 groen (311 en 324 OK, 0 FOUT). Samengevoegd met main (d3c31ecb), conflict in ontwerp.md opgelost door beide delen te houden. Daan om keuring gevraagd onderaan ontwerp.md.
 - Niet begonnen aan de waaier: past niet meer in deze run, liever schoon beginnen.
 - Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 13:10 tot 13:45, run 16 (Bram)
+- Daan had nog niet gereageerd op de keuring van ronde j. Besluit: toch door met de waaier, want dat is volgens Daan zelf de volgende stap voor akkoord en hij keurt het geheel straks op main.
+- Lokale kloon stond los van main (72 commits voor, 148 achter, oud werk van eerdere sessies). Bewaard als lokale tak `oud-lokaal`, verder gewerkt vanaf origin/main. Niets op GitHub veranderd.
+- Bouwer (agent) bouwde ronde k op tak `claude/blender-2026-11-08-k`: `beweeg.py` (bereik in 8 richtingen, bisectie), `waaier.py` (gpu-handler, overslaan in achtergrondmodus), Pose-schuif en Reset pose, rood op deel A voorbij de grens, `echte_matrix` neemt ook de draaiing weg, `toetsen_beweeg.py`, plaatje 5-waaier-x.png (workflow eist het). Run 42484244635 groen.
+- Controleur (agent, niet de maker): akkoord met correcties. Moet: uitsnede van 1,6(r+s) zag alleen nek en klikrand, nooit het figuur zelf, dus een botsing met een ander lid kon "Bends" te hoog maken; staaftoets liet een overschatting tot 2,5° door. Opgelost (e7edc9fd, f6e65ff3): tweede controle op de grens met uitsnede 6r en zo nodig opnieuw zoeken, bloktoets (onafhankelijk 4,19°, gemeten 4,1°, paneel Bends ±4), staaftoets eenzijdig (strenger). Eerste run daarna rood door een fout in de nieuwe toets zelf (NameError), hersteld. Herkeuring: akkoord. Run 42485768696 groen, 381 en 396 OK, 0 FOUT.
+- Samengevoegd met main (4742207b). Daan om keuring gevraagd onderaan ontwerp.md.
+- Installs 0, reviews 0, verkopen 0.
