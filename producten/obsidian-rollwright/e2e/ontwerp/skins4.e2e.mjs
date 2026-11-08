@@ -77,4 +77,16 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			});
 		}
 	}
+
+	// Daan, run 24: groot voor het skins-plaatje. Zoom 2.6, alleen de eerste regels (crit, fumble), scherp genoeg om groot te tonen.
+	it("groot voor het skins-plaatje", async function () {
+		await browser.execute(() => { try { require("electron").webFrame.setZoomFactor(2.6); } catch (e) { console.log("zoom", e); } });
+		await browser.pause(1200);
+		for (const donker of [true, false]) {
+			for (const skin of ["classic", "parchment", "arcane"]) {
+				await zet(skin, donker);
+				await browser.saveScreenshot(`${SHOTS}/skins4-${skin}-${donker ? "donker" : "licht"}-groot.png`);
+			}
+		}
+	});
 });
