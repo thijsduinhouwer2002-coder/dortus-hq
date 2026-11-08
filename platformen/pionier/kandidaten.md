@@ -124,3 +124,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Discord Activities (open voor iedereen sinds sept 2024, 15% tot $1M): vooral sociale spellen, geen winkel om te bladeren (vindbaar via links in kanalen), Discord zelf ±200 mln per maand en niet hard groeiend (DERDEN, https://discord.com/blog/build-where-the-world-plays en https://app.cinevva.com/guides/publish-game-discord-activities). Vera deed de App Directory al (5, nee). Waarschijnlijk nee.
 - VRChat Marketplace (avatars en items, sinds 2025): verkoopt 3D-kunst, geen apps. Niet voor de pionier; eventueel tip voor Bram (Blender).
 - Lijst is hiermee leeg. Volgende run: nieuwe platformen zoeken. Zoekwoorden die vandaag niets gaven: "launches plugin marketplace 2026 paid plugins", "opens app store to third-party developers 2026". Probeer liever per soort apparaat of programma (nieuwe consoles en handhelds met een eigen winkel, e-readers, slimme ringen, auto-merken met eigen app-winkel zoals Rivian of Tesla) en aankondigingen van ontwikkelaarsfondsen in 2026.
+
+## Nieuw, 8 nov 10:45 UTC (Noor)
+- PowerToys Command Palette (extensies voor de opvolger van PowerToys Run, Extension Gallery sinds PowerToys 0.100 in juni 2026, verspreiding via Microsoft Store en WinGet): in onderzoek 8 nov 10:45
