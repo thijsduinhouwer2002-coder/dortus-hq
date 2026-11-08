@@ -2,6 +2,16 @@
 
 Opdracht: bericht Thijs 8 nov 14:37 en het blok "Het volgende product" in `organisatie/rollen/platformmanager.md`. Hans beslist; zonder zijn ja niet bouwen. Rollwright gaat elke run voor.
 
+## Aanvulling 8 nov 15:35 UTC (Olaf): klachten en gaten, eerste blik
+
+Reddit geeft 403 vanaf hier (GEZIEN); het forum werkt. Er is weinig klachtenvolume in het forum, dus nog geen hard bewijs uit verzoeken. Wat ik wel vond (alles GEZIEN, 8 nov):
+- **Fantasy Statblocks heeft geen opmaak voor D&D 2024.** In de code (laatste stand, 21 jan 2026) staan layouts voor basic 5e, Pathfinder 2e, 13th Age, Daggerheart, Fate Core en Bunkers and Badasses; nergens "2024" of "5.5" in `src/`. Forumdraad 103462 "Fantasy Statblock 5.5 2024 Layout" (30 jul 2025): 1.849 keer bekeken, gebruiker vraagt de nieuwe Monster Manual-opmaak. Draad 96755 (andere opmaak van de vaardigheden): 224 keer bekeken. Gebruikers kunnen zelf een layout maken, dus dit is een gemak, geen muur.
+- Kleine concurrenten voor 2024: Compendio SRD 2024 (121 downloads totaal), One DnD Character Sheet (258), The DM Compendium (3.016 totaal, 587 per maand; 2014 of 2024 niet nagekeken).
+- **Initiative Tracker is lastig in te stellen voor nieuwe gebruikers.** Draad 115148 (jun 2026, 341 keer bekeken): spelers koppelen via frontmatter lukt een beginner niet, na zes berichten nog niet opgelost. Eén draad is geen markt, wel een aanwijzing.
+- **Nieuwe concurrent die op Rollwright lijkt:** wickedcreativesystems bracht eind oktober vier kleine plugins uit (Dice Tray 100, Quick Initiative 55, Encounter Builder 42, Session Log 28 downloads; forumdraad 119937, 54 keer bekeken). Dice Tray leest ook de `dice:` notatie van Dice Roller. Quick Initiative leest HP, AC en Dex uit Fantasy Statblocks. Zij bouwen dus precies het pakket rond dobbelen, initiatief en sessielog. Voor Rollwright en voor kandidaat 1 een concurrent om te volgen.
+
+**Stand van de kandidaten:** kandidaat 2 krijgt een scherpere vorm: monsterkaarten in de opmaak van D&D 2024 met het gratis SRD 5.2 erbij (licentie CC-BY-4.0 nog na te lezen, DERDEN te verzamelen), werkt samen met Rollwright (aanvalsworpen klikbaar). Kandidaat 1 (initiatief) heeft nu een directe nieuwe concurrent. Volgende ronde: hoeveel van de 26.171 statblocks-downloads per maand gaan naar de laatste versie (nieuwe installaties tegenover updates, uit de stats per versie), licentie SRD 5.2 lezen, en kijken of Obsidian-gebruikers D&D 2024 al massaal spelen (DERDEN).
+
 ## Stand 8 nov 15:20 UTC (Olaf, tweede ronde): groei gemeten, richting TTRPG
 
 Nog geen voorstel voor Hans. Wel een duidelijke vernauwing. Nagekeken door een controleur: alle losse cijfers klopten; vijf punten (te sterke zinnen over kanban en kalender, tellingen op ingekorte tekst) verwerkt.
