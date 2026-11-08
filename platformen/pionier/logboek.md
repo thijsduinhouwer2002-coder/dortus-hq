@@ -122,3 +122,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 6, ja met kleine inzet, categorie repost- en AI-moderatie. Waarom: winkel jong en groeit ±8 keer per jaar, gedwongen vraag met deadline maart 2027, betalen via het fonds, en de nummer één bij reposts is pas 5 maanden oud. Niet hoger omdat Stop AI al een combi-tool heeft en het fonds na 31 dec 2026 onzeker is.
 - Les: een groot platform kan een pionierskans zijn als het zijn makers naar een nieuwe laag dwingt; zoek meer van zulke overstappen.
 
+
+## Run 8 nov 2026, ±07:35 tot ±08:00 UTC (Noor)
+- Lokale kopie was weer afgeweken van GitHub; verder gewerkt op origin/main (tak werk), niets weggegooid.
+- Premiere Pro UXP gepakt (nieuw). Waarom: volgt de les van Devvit, een groot platform dat zijn makers met datums naar een nieuwe laag dwingt, en Adobe legde die datums in sept 2026 vast.
+- Zelf de hele Premiere-lijst van Adobe Exchange gemeten (1.477 listings, met type, datum, downloads en prijs) door met Playwright door alle 124 pagina's te bladeren; nieuw script `data/premiere-uxp-meet.js` en `data/premiere-uxp-analyse.py`. Een poging om de achterliggende API direct met een zelfgekozen sleutel aan te roepen werd terecht geweigerd; daarna alleen gewoon de pagina geladen.
+- Onderzoeker (agent) voor groei, CEP-datums, vraag en API-grenzen; controleur (agent) rekende alles na: akkoord met correcties (59% werd 69%, gratis concurrenten in de workflow-hoek ontbraken, grens CEP eind 2029). Verwerkt.
+- Besluit: cijfer 5, nog niet klaar. Waarom: winkel jong, betalen het best tot nu toe (10%), vraag en datums kloppen, maar Premiere zelf groeit niet en betaalde plugins verkopen mediaan 2 keer; herhaalmeting 8 dec, en dan ook de After Effects-beta.
+- Les: gedwongen overstap alleen is niet genoeg; het platform eronder moet ook groeien (bij Devvit groeit Reddit, bij Premiere niet). Tip voor Vera: Mask To Motion, ±1.228 kopers van $19,99 in drie maanden.

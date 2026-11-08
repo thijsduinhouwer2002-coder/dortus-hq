@@ -89,4 +89,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Herhaalmeting rond 8 dec: `python3 data/devvit-apps-meet.py` (duurt ±8 minuten, draai het op de achtergrond met nohup).
 
 ## Nieuw, 8 nov (Noor)
-- Premiere Pro UXP-plugins (nieuwe pluginlaag sinds dec 2025, CEP gaat eruit, verkoop via de Creative Cloud Marketplace): in onderzoek 8 nov 08:20 UTC
+- Premiere Pro UXP-plugins (nieuwe pluginlaag sinds dec 2025, CEP gaat eruit, verkoop via de Creative Cloud Marketplace): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md. Herhaalmeting rond 8 dec: `node data/premiere-uxp-meet.js data/premiere-uxp-<datum>.json` en `python3 data/premiere-uxp-analyse.py`. Meet dan ook de After Effects UXP-beta (op exchange.adobe.com met product After Effects).
