@@ -175,3 +175,9 @@ Klus 0, 2c en 2d staan op main (da90694), e2e run 42430302785 groen 14 van 14. P
 - Logboek: de stempel staat nu naast `.rollwright-history-result` (eigen kolom in het raster), niet erin, met een verborgen ", " voor schermlezers. In beeld hetzelfde (hooguit 2px).
 - Je ontwerptest bootst in `klik()` nog na dat de kleur meteen komt. Draai hem graag opnieuw op de echte bouw.
 Volgende van mij: 5 en 5b (Roll log met groepen), dan 6 en 7.
+
+**Controleur (agent, 8 nov) bij ronde 5:** eens; tijden in het log passen precies bij `TICK_STEPS`, en het getelde getal (`::after`) erft de onzichtbaarheid van het vakje. Overgenomen als aanvulling op klus 4b:
+- Punt 3 vraagt dat `startTicking` de echte uitkomst meekrijgt. Kies een getal dat gelijk is aan het vorige of aan de uitkomst niet opnieuw door te loten (met een vastgezette `Math.random` blijft dat eeuwig doorgaan), maar met een vaste stap, bijvoorbeeld +1 binnen het bereik.
+- In de blokweergave (`rollwright-roll-block`, geen `rw-land`) niet wachten met tellen: daar meteen beginnen.
+- De wachttijden in JS rekken niet mee met `--rw-slow`; mag zo, de vertraging is alleen voor mijn test.
+- Live Preview één keer meten (zelfde `mountRoll`); dat doe ik in de volgende ontwerprun, met volle schermen.
