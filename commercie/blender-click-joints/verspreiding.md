@@ -12,6 +12,8 @@ Door Chris, 8 nov 2026 (run 13), op opdracht van Thijs (8 nov 18:33). Gemeten me
 - dortus.com/click-joints/ geeft 404: de productpagina bestaat nog niet.
 - Nog geen echte print. Wie print is open (advies 23 punt e).
 
+**Bijwerking 8 nov ±22:15 UTC (run 16, GEZIEN):** ingediend bij extensions.blender.org (Thijs met de hoofdchat, 8 nov 22:18 zijn tijd), status "Awaiting Review", nog niet in de API. Daan `Akkoord: ja` (main 920dc77f). dortus.com/click-joints/ staat (200). Filmpje in de maak bij Bram (ontwerp Daan). Nog geen echte print, dus r/blender wordt het eerste Reddit-bericht. **Het draaiboek voor de dag van goedkeuring staat in `lancering.md`, deel run 16:** seintje met curl, dag 0 zonder Thijs (nulmeting, productpagina bijwerken, lijst), dag 1 r/blender (B16), dag 3 tot 5 BlenderNation (C16), dag 7 awesome-blender, en klaargezette antwoorden. Twee correcties op dit plan: (1) de downloads staan niet in de API maar op de listingpagina (`<dt> Downloads </dt>`), (2) teksten zeggen overal ±20°, niet ±25°. Nieuw: een listing kan een MP4 als preview tonen (17 van 29 in een steekproef), advies 27.
+
 **Niets plaatsen voordat:** de listing op extensions.blender.org live is (link met curl gezien) en Daan `Akkoord: ja` zette. Voor printplekken (r/3Dprinting, r/PrintedMinis, Printables) ook een foto van een echt geprint gewricht dat buigt.
 
 ## Drie vaste regels voor alle plekken
@@ -23,8 +25,8 @@ Door Chris, 8 nov 2026 (run 13), op opdracht van Thijs (8 nov 18:33). Gemeten me
 
 | # | Plek | Grootte | Wanneer | Wie | Mag het al? |
 |---|---|---|---|---|---|
-| 1 | Listing op extensions.blender.org (zoeken op de site en in Blender zelf) | ±1.000 tot 1.500 downloads per nieuwe add-on (GEZIEN 6 nov, Vera) | dag 0, na goedkeuring | Bram dient in (account Thijs nodig) | ja, de lancering zelf |
-| 2 | dortus.com/click-joints/ | pagina bestaat nog niet (404, GEZIEN) | vóór dag 0 | Chris | ja, zonder Thijs |
+| 1 | Listing op extensions.blender.org (zoeken op de site en in Blender zelf) | ±1.000 tot 1.500 downloads per nieuwe add-on (GEZIEN 6 nov, Vera) | dag 0, na goedkeuring | ingediend 8 nov (run 16) | ja, de lancering zelf |
+| 2 | dortus.com/click-joints/ | staat sinds 8 nov (200, GEZIEN run 16); op dag 0 knop naar de listing erbij | vóór dag 0 | Chris | ja, zonder Thijs |
 | 3 | awesome-blender (GitHub), kopje "3D Printing" | 7.598 sterren (GEZIEN, zoek-API van GitHub, via onderzoeker) | op zijn vroegst dag 7, na eerste downloads en reacties | pull request onder het GitHub-account van Thijs, via de hoofdchat | ja: Hans besloot 8 nov 20:44 (advies 24) dat lijsten geen apart besluit nodig hebben, altijd via de hoofdchat of Thijs |
 | 4 | r/blender | groot (GOK, geen eigen meting) | dag 1 (zonder print) of een dag na r/3Dprinting | hoofdchat of Thijs | ja: Hans liet de keus van de lanceerplekken aan Chris (advies 23, status overgenomen); plaatsen alleen via hoofdchat of Thijs, regels eerst in de browser |
 | 5 | r/3Dprinting | eerder bericht over gewrichten-snijders 314 punten (GEZIEN, lancering.md) | pas met echte print | hoofdchat of Thijs | ja (advies 23, zie rij 4), alleen met print |
@@ -36,7 +38,7 @@ Door Chris, 8 nov 2026 (run 13), op opdracht van Thijs (8 nov 18:33). Gemeten me
 
 **De rij in tijd:** dag 0 listing live; dag 1 Reddit (r/blender zonder print, r/3Dprinting met print); dag 3 meting (sprong in downloads, reacties); dag 3 tot 5 BlenderNation en CG Channel; dag 7 of later awesome-blender; dag 14 meting en besluit over de rest. De keuring op extensions.blender.org kan dagen tot weken duren (Hans, lijst-thijs 18:45), dus dag 0 ligt niet vast. Tegen het tussendoel van 20 december (1.000+ gebruikers) is Click Joints geen kandidaat: ±1.000 tot 1.500 downloads per add-on is het gemiddelde over de hele levensduur (GOK op GEZIEN van Vera).
 
-Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is en er geen klacht of verwijdering kwam. Wordt een bericht verwijderd of komt er een waarschuwing: overal stoppen (regel 7). Per plek meet ik de sprong in downloads (API van extensions.blender.org, veld met downloads per extensie) twee dagen erna; een soort plek die niets doet valt af.
+Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is en er geen klacht of verwijdering kwam. Wordt een bericht verwijderd of komt er een waarschuwing: overal stoppen (regel 7). Per plek meet ik de sprong in downloads (het getal onder Downloads op de listingpagina; de API heeft dat veld niet, gecorrigeerd in run 16) twee dagen erna; een soort plek die niets doet valt af.
 
 ### 1. Listing op extensions.blender.org (zonder Thijs, behalve het account)
 - Dit is de grootste bron: zoeken op de site en in Blender (Get Extensions). Tagline en beschrijving staan in `winkeltekst.md` run 4: `Ball joints for 3D printed figures that show their bend range` (61 tekens), en de beschrijving noemt articulated, poseable, ball joint, pin, clearance, STL en 3MF.
@@ -69,7 +71,7 @@ Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is 
 > Hi, I made Click Joints, a free Blender add-on on the Blender Extensions platform: <link>.
 > It cuts a ball joint (or a pin) into a sculpted figure for 3D printing, with the clearance you set in mm, and right after the cut it shows how far the joint bends before the parts collide ("Bends ±20°"); past that limit the collision turns red. Export is STL or 3MF, one file per part. Blender 4.2 LTS and 5.2 LTS.
 > Images: <link naar poster en winkelplaatjes op dortus.com/click-joints/>
-> I haven't printed a full figure with it yet; fit and bend are measured in Blender. (Weglaten zodra er een echte print is, en dan de foto meesturen.)
+> I haven't printed a joint with it yet; fit and bend are measured in Blender. (Weglaten zodra er een echte print is, en dan de foto meesturen.)
 > Honest note: the code is written by AI agents that my small studio Dortus runs; I direct the work and every version is tested automatically in real Blender.
 > Thijs Duinhouwer, Dortus, https://dortus.com/click-joints/
 

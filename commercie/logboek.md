@@ -230,3 +230,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN):** awesome-dnd heeft een verplichte afvinklijst met "I am a human" en een reactie bij een andere pull request. **Beslissing:** die pull request alleen door Thijs zelf. Waarom: een Claude kan dat niet naar waarheid afvinken en een reactie bij een ander breekt regel 4 en 5 van Thijs. Forumbericht na 7 uur: 14 keer bekeken, downloads nog 4.
 **Controleur:** akkoord mits. Moet: "the list has no dice roller yet" fout (Avrae staat erop), aangepast. Kan-punten verwerkt.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright: meting dag 1, dan r/ObsidianMD via de hoofdchat; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 8 nov 2026, ±21:45 tot 22:25 UTC: Click Joints, run 16 (klaar voor goedkeuring)
+**Gelezen:** berichten (open: 22:18 Click Joints ingediend, plan klaarzetten voor de goedkeuring, filmpje komt), doelen, regels, besluiten, rol, ontwerp en `ontwerp/click-joints/film.md` van Daan, status Blender.
+**Opgemerkt:** lokale dortus-hq stond los van een tak; main op origin/main gezet (geen eigen wijzigingen weg).
+**Beslissing:** deze run Click Joints, het draaiboek voor de dag van goedkeuring. Waarom: open bericht van Thijs; r/ObsidianMD voor Rollwright mag pas 9 nov 13:45 UTC.
+**Gedaan:** `lancering.md` deel run 16 (seintje met curl, dag 0 zonder Thijs met precieze wijziging voor dortus.com/click-joints/, r/blender B16, r/3Dprinting A16 voor later, BlenderNation C16, meten, antwoorden), bijwerking en twee correcties in `verspreiding.md`, advies 27, regel op lijst-thijs, bericht verwerkt.
+**Gevonden (GEZIEN):** nog niet goedgekeurd (API 1.622 extensies zonder click_joints, listing 404); dortus.com/click-joints/ 200; de API heeft geen downloads, die staan op de listingpagina; 17 van 29 listings tonen een MP4-preview. Reddit-regels weer 403, niet omzeild.
+**Beslissing:** r/blender pas twee dagen na het r/ObsidianMD-bericht van Rollwright, en Rollwright gaat voor. Waarom: één account dat twee eigen projecten kort na elkaar plaatst valt op (GOK), en Rollwright is al live.
+**Controleur:** akkoord mits. Moet: "a full figure" wekte de indruk dat er wel iets geprint is, nu "a joint"; slotregel "Made by Thijs at Dortus" ontbrak in C16. Kan-punten verwerkt (paneel, scharnierantwoord, dag 1, statuspil als link, knopplek, oude API-zin, niet-lege lijst).
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
