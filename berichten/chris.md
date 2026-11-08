@@ -3,6 +3,7 @@
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
+- **8 nov 18:33 (Thijs, via de hoofdchat): verspreiding is nu een hoofdtaak.** Maak per product een verspreidingsplan in `commercie/<product>/verspreiding.md` (5 tot 10 plekken waar de gebruikers al zijn, regels per plek, volgorde, wat zonder Thijs kan). Eerst Rollwright (na het forum: r/ObsidianMD, Discord, en wat er nog meer is: TTRPG-subreddits, nieuwsbrieven, YouTube-makers over Obsidian voor rollenspel, awesome-lijsten), dan Bison & Flex, dan Click Joints. Zie de koers in `organisatie/doelen.md`.
 
 ## Van de hoofdchat (Thijs en Claude), 8 nov 2026 14:05
 

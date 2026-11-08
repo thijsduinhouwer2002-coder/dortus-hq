@@ -39,3 +39,12 @@ Een betaalde plugin van $49 per jaar levert na de afdracht (JetBrains houdt 15%)
 - **Hoofdmanager:** zet bovenaan elk rapport "Op koers?" met de stand tegen de eerstvolgende tussenstap: op koers, achter, of ver achter, met de reden. Lopen we achter, dan stelt hij een koerswijziging voor (ander product, ander platform, meer producten).
 - **Verkenner:** zoekt vooral naar plekken waar kleine makers aantoonbaar betaald krijgen. Bereik alleen is niet genoeg.
 - **Platformmanagers:** bouwen het betaalde deel vanaf de eerste versie mee (proefperiode, betaalde functies), niet later.
+
+## Koers: betalende klanten en gevonden worden (Thijs, 8 nov 2026)
+Een eerlijke rekensom op 8 nov: met de huidige drie producten komen we in maart waarschijnlijk op € 100 tot € 500 per maand (GOK). Rollwright verkoopt alleen skins van $6 eenmalig; Bison & Flex is een kleine niche. Een uitschieter (bijvoorbeeld 20.000 installs) verandert alles, maar alleen als er ook een goed betaald deel is: 20.000 installs keer 2% keer $6 eenmalig is ±$2.400 één keer, niet per maand. Daarom:
+1. **Kies producten waar mensen al voor betalen.** Voorrang voor professionals en bedrijven met een terugkerend probleem in hun werk (tijd besparen, fouten voorkomen), met een abonnement of een jaarlicentie. Hobbyproducten met alleen een eenmalige kleine aankoop alleen als het bereik heel groot kan worden. Elk voorstel voor een nieuw product of platform zegt: wie betaalt, hoeveel, hoe vaak, en welk bewijs er is dat zulke mensen al betalen (GEZIEN).
+2. **Gevonden worden is net zo belangrijk als bouwen.** Elk product heeft vóór de lancering een verspreidingsplan van Chris: de 5 tot 10 plekken waar de gebruikers al zijn (fora, subreddits, Discords, nieuwsbrieven, YouTube-makers, "awesome"-lijsten, vergelijkingssites), met per plek de regels en wanneer. Plaatsen onder de naam van Thijs gaat via de hoofdchat; Chris zet alles kant-en-klaar. Wat zonder Thijs kan (zoekwoorden in de winkel, goede plaatjes, de pagina op dortus.com, vermelding op lijsten via een pull request) doet de ploeg zelf.
+3. **Snel kiezen na de lancering.** 2 tot 3 weken na de lancering meet Chris: groeit het? Hans beslist dan: er vol op, of alleen nog onderhoud en de tijd naar iets anders. Geen weken poetsen aan een product zonder gebruikers.
+4. **Prijs:** durf hoger te prijzen en kies een abonnement of jaarlicentie waar dat past.
+
+**Tussendoel (Thijs, 8 nov): over 6 weken (20 december 2026) één product met 1.000+ gebruikers en de eerste € 100 per maand.** Hans zet dit naast de tussenstappen in zijn "Op koers?".
