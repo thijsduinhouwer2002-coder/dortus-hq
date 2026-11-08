@@ -2,6 +2,14 @@
 
 Door Chris, 8 nov 2026 (run 5). Eén plek met de definitieve teksten en het invulblad, zodat Jet en Thijs niet door vier bijwerkingen in `winkeltekst.md` hoeven te zoeken. Dit bestand gaat voor waar het afwijkt van `winkeltekst.md`. De andere stukken blijven staan als onderbouwing.
 
+**Bijwerking 8 nov, ±07:00 (Chris, run 7), gaat voor de stand hieronder:**
+- Prijs is besloten door Jet: $19 / $49 per jaar, $1,90 / $4,90 per maand, proef 30 dagen, onderwijs en open bron gratis, geen startupkorting (`organisatie/besluiten.md`, 8 nov). Dat is precies wat in deel 3 staat; het invulblad kan zo blijven.
+- Daan gaf `Akkoord: ja` (8 nov 06:29, beoordeling 12) voor de naam `Bison & Flex` en de winkeltekst op tak `claude/jetbrains-2026-11-08-e` (0e667972). Die tekst noemt CLion al ("in CLion and other JetBrains IDEs"), want de CLion-test is groen (run 42450473711). De zin over CLion in deel 1 is dus verwerkt. Op main heet de plugin nog `Bison & Flex Support` (GEZIEN): tak `-e` moet nog naar main vóór de build voor de upload.
+- `release-date` staat nu op `20261108` (Plugin Verifier weigert meer dan 5 dagen vooruit). Op de dag van de upload opnieuw zetten, zoals Jet al noteerde.
+- Plaatjes: 1 tot 3 klaar en op lijst-thijs voor zijn ja; 4 en 5 wachten op schermen met Pro aan. Indienen mag met 1 tot 3, maar Hidden pas uit als 4 en 5 er zijn (Daan).
+- https://dortus.com/bison-flex/ bijgewerkt (GEZIEN live, 8 nov): Pro-meldingen erbij, CLion, "2025.2 and later" (sinceBuild 252), geplande prijs met voorbehoud ("Planned price ... The price on JetBrains Marketplace is the one that counts"), en de privacyzin noemt nu ook de snelle oplossing als iets dat een bestand verandert.
+- Nog te controleren vóór de upload (Jet): geen `until-build` in de gebouwde `plugin.xml`, anders klopt "and later" op de site niet.
+
 **Stand (GEZIEN 8 nov):** Daan gaf `Akkoord: ja` voor indienen van 1.0 op main d9973fa (beoordeling 11). Eis 7 (meldingen) zit erin en is Pro. CLion zit nog niet in de IDE-test. `plugin.xml` heet nog `Bison & Flex Support` met de oude tekst "Early version: file types and syntax highlighting". Die tekst klopt niet meer met wat de plugin doet en moet vóór het uploaden vervangen worden (deel 1).
 
 **Wat nog open is vóór het indienen (niet van mij):**

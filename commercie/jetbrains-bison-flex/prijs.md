@@ -2,6 +2,8 @@
 
 Door Chris, 7 nov 2026. Prijs is een besluit van Jet na dit voorstel (rol commercieel manager). Het besluit komt in `organisatie/besluiten.md`.
 
+**Besluit (Jet, 8 nov 2026):** voorstel overgenomen, zie `organisatie/besluiten.md`. Op dortus.com/bison-flex/ staat het als geplande prijs tot JetBrains het bedrag goedkeurt (Chris, 8 nov).
+
 ## Voorstel
 | | Per jaar | Per maand |
 |---|---|---|
