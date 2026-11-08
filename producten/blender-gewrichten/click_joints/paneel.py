@@ -68,7 +68,9 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         tip = exporteer.hint(context.scene)
         if tip:
             stap.label(text=tip, icon="INFO")  # één korte regel (Daan, tussenreactie 2)
-        grote_knop(stap, "click_joints.exporteer", "Export STL", "FILE_3D")
+        rij = stap.row(align=True)
+        rij.prop(inst, "formaat", expand=True)  # keuze STL of 3MF als twee knoppen (Daan, beoordeling 2)
+        grote_knop(stap, "click_joints.exporteer", f"Export {inst.formaat}", "FILE_3D")
 
 
 KLASSEN = (CLICK_JOINTS_PT_paneel,)

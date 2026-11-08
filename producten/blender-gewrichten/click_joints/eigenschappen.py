@@ -43,12 +43,16 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
     voxel_mm: FloatProperty(
         name="Voxel (mm)", description="Voxel size for Make watertight in millimeters",
         default=0.5, min=0.05, max=10.0, step=5, precision=2)
+    formaat: EnumProperty(
+        name="Format", items=(("STL", "STL", "One binary STL file per part, in millimeters"),
+                              ("3MF", "3MF", "One 3MF file per part, in millimeters (Bambu Studio, PrusaSlicer, Cura)")),
+        default="STL")
     exportmap: StringProperty(
-        name="Folder", description="Folder for the STL files. Empty: click_joints folder next to the .blend file",
+        name="Folder", description="Folder for the exported files. Empty: click_joints folder next to the .blend file",
         default="", subtype="DIR_PATH")  # leeg, want Blender kleurt een pad dat (nog) niet bestaat rood
     uit_elkaar: BoolProperty(
         name="Exploded view", description="Show part B a little apart along the joint axis, so you see the "
-        "ball. Only in the viewport: the STL export uses the real position",
+        "ball. Only in the viewport: the export uses the real position",
         default=True, update=_uit.bij_wissel)
 
 
