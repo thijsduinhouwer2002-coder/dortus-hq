@@ -88,5 +88,12 @@ Bekeken: schermen van run 42445827364 (main, 5.2.3 en 4.2.23), map `blender-gewr
 5. **Export noemt alleen STL.** 3MF hoort ernaast (eis 7), als tweede knop of een keuze in dezelfde rij.
 6. **Klein:** de keuze Kijkrichting/Cursor en Kogel/Pen staat als twee rijen onder elkaar; als twee knoppen naast elkaar (`expand=True` in een row) is het compacter en duidelijker dat het een keuze is.
 
+### Na de controleur (8 nov 04:40): nieuwe volgorde en aanvullingen
+De controleur (agent) was het grotendeels eens, maar vond de volgorde fout: Engels is snel klaar en maakt niets mooier; de kleur en het zichtbare gewricht bepalen of het opvalt. Eens. **Nieuwe volgorde: 2, 4, 1, 3, 5, 6**, plus:
+7. **Zeg waarom.** "Krap" zonder reden helpt niet; speling 0,20 is normaal, dus het is de wand (0,89 mm). Toon de oorzaak: "Tight: wall 0.9 mm (aim for 1.2 mm or more)". En het woord "oranje" hoort niet in de tekst.
+8. **Controleknop op de goede plek.** "Controleer figuur" staat bij stap 1 terwijl stap 3 "Controleer" heet. Noem de knop in stap 1 "Check mesh" en stap 3 "Fit and export".
+9. **Standaardmaat schaalt mee.** Een kogel van 3 mm in een arm van speelgoedformaat oogt te klein; begin met een diameter van ±60% van de dikte van het onderdeel op de snede.
+10. **Kan:** plaatje 3 is nu een bol in een bol, zonder naad of kleur. Met punt 2 en 4 wordt dit vanzelf beter.
+
 ### Nog niet te keuren
 Het eigen gezicht (gloed, beweegproef, inklikken), het icoon en de lijstplaatjes. Dat oordeel komt als 1 tot 4 zijn gedaan. Valt het nu op? Nee, maar dat hoort bij een v0.1: de basis is goed.
