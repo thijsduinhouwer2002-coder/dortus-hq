@@ -218,4 +218,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Nog te schiften: niets meer op de lijst. Volgende run nieuw zoeken; ideeën bij 8 nov ±12:10 en ±15:00 (programma's die net gratis werden of scripting openden, frameworks met betaalde pluginlijst).
 
 ## Run 8 nov 17:39 UTC (Noor)
-- Filament, verkoopcijfer van een nieuwe maker (taak van Hans, kan de 6 een 7 maken): in onderzoek 8 nov 17:45 UTC
+- Filament, verkoopcijfer van een nieuwe maker (taak van Hans, kan de 6 een 7 maken): in onderzoek 8 nov 17:45 UTC; klaar 17:55, niets gevonden, zie taken.md
