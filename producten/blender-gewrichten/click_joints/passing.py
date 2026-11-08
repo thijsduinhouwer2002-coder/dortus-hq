@@ -30,23 +30,29 @@ def binnen(bvh, p):
 
 
 def monsters(maat, soort):
-    """Lijst (oorsprong, richting, nodige afstand) in het gewrichtsframe."""
+    """Lijst (oorsprong, richting, nodige afstand, opening) in het gewrichtsframe.
+    Een monster met opening houdt ook rekening met het snijvlak (de bodem van deel B)."""
     lijst = []
     if soort == "KOGEL":
         c = Vector((0, 0, maat["midden_z"]))
-        for d in richtingen(300):
-            if d.z > -0.5:
-                lijst.append((c, d, maat["r"] + maat["s"]))
+        for d in richtingen(400):
+            lijst.append((c, d, maat["r"] + maat["s"], maat["open_r"]))
         for d in ring():
-            lijst.append((Vector((0, 0, maat["schuif"] * 2)), d, maat["nek_r"] + maat["s"]))
+            lijst.append((Vector((0, 0, maat["schuif"] * 2)), d, maat["open_r"], None))
     else:
         top = maat["top_z"]
         for i in range(6):
             o = Vector((0, 0, top * i / 5))
             for d in ring():
-                lijst.append((o, d, maat["r"] + maat["s"]))
-        lijst.append((Vector((0, 0, top)), Vector((0, 0, 1)), maat["s"]))
+                lijst.append((o, d, maat["r"] + maat["s"], None))
+        lijst.append((Vector((0, 0, top)), Vector((0, 0, 1)), maat["s"], None))
     return lijst
+
+
+def bodem(maat):
+    """Dikte van de rand van deel B tussen snijvlak en kom, net naast de klikopening."""
+    rk = maat["r"] + maat["s"]
+    return maat["midden_z"] - math.sqrt(max(rk * rk - maat["open_r"] ** 2, 0.0)) - maat["schuif"]
 
 
 def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
@@ -55,12 +61,18 @@ def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
     for o in ((0, 0, maat["schuif"] * 2), (0, 0, maat["midden_z"])):
         if not binnen(bvh, frame @ Vector(o)):
             return "rood", -1.0, "het gewricht steekt uit het figuur"
-    kleinste = math.inf
-    for o, d, nodig in monsters(maat, soort):
+    kleinste = bodem(maat) if soort == "KOGEL" else math.inf
+    for o, d, nodig, opening in monsters(maat, soort):
+        afstand = math.inf
+        if opening is not None and d.z < 0:
+            uit = o + d * nodig
+            if math.hypot(uit.x, uit.y) < opening:
+                continue  # deze straal gaat door de klikopening
+            afstand = (o.z - maat["schuif"]) / -d.z  # tot het snijvlak: de bodem van deel B
         hit = bvh.ray_cast(frame @ o, (rot @ d).normalized())
         if hit[0] is None:
             return "rood", -1.0, "het gewricht steekt uit het figuur"
-        kleinste = min(kleinste, hit[3] - nodig)
+        kleinste = min(kleinste, min(hit[3], afstand) - nodig)
     wand = kleinste / eenheid_per_mm
     if wand < GRENS_ROOD_MM:
         return "rood", wand, f"wand {wand:.2f} mm is te dun (minstens {GRENS_ROOD_MM} mm)"

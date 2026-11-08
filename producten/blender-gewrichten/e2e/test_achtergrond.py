@@ -69,6 +69,8 @@ def plaats(label, ob, punt, as_richting, speling=0.2, kogel=5.0, soort="KOGEL"):
     duur = time.perf_counter() - t0
     lijst = delen()
     solver = lijst[0].get("cj_solver") if lijst else "-"
+    if solver == "MANIFOLD":
+        stap(f"{label}: Manifold onder 5 s ({duur:.2f}s)", duur < 5.0)
     log(f"TIJD {label}: {duur:.2f}s solver={solver} driehoeken_bron={sum(len(p.vertices) - 2 for p in ob.data.polygons)} "
         f"uitslag={uitslag}")
     return lijst
@@ -98,6 +100,33 @@ def speling_meten(lijst, ingesteld):
         f"max={max(afst):.4f} min={min(afst):.4f} punten={len(afst)} addon_meting={a.get('cj_speling_gemeten_mm')}")
     stap(f"speling {ingesteld}: minstens 500 punten", len(afst) >= 500)
     stap(f"speling {ingesteld}: gemiddelde afwijking < 0,02 mm", afw < 0.02)
+
+
+def toets_opening(lijst, label):
+    """Klikopening gemeten in de mesh: tussen 0,80 en 0,90 keer de kogeldiameter, en de nek past erdoor."""
+    a = next(d for d in lijst if d["cj_deel"] == "A")
+    b = next(d for d in lijst if d["cj_deel"] == "B")
+    c, as_r, r = Vector(a["cj_centrum"]), Vector(a["cj_as"]).normalized(), a["cj_kogel_r"]
+
+    def stralen(ob, z0, z1):
+        uit = []
+        for v in ob.data.vertices:
+            rel = v.co - c
+            z = rel.dot(as_r) / r
+            if z0 < z < z1:
+                uit.append((rel - as_r * rel.dot(as_r)).length)
+        return uit
+
+    gat = stralen(b, -1.35, -0.8)   # tussen snijvlak en kom: alleen de opening en de buitenkant
+    nek = stralen(a, -1.35, -1.05)  # onder de kogel: alleen de nek
+    if not gat or not nek:
+        stap(f"{label}: opening en nek gevonden", False)
+        return
+    opening, nek_d, kogel_d = 2 * min(gat), 2 * max(nek), 2 * r
+    log(f"OPENING {label}: opening={opening:.3f}mm ({opening / kogel_d:.3f} x kogel) nek={nek_d:.3f}mm "
+        f"kogel={kogel_d:.3f}mm")
+    stap(f"{label}: opening tussen 0,80 en 0,90 x kogeldiameter", 0.80 <= opening / kogel_d <= 0.90)
+    stap(f"{label}: nek past door de opening", nek_d < opening)
 
 
 def toets_stl(lijst):
@@ -138,6 +167,7 @@ def main():
         stap(f"arm {s}: origineel verborgen bewaard", arm.name in bpy.data.objects and not arm.visible_get())
         if len(lijst) == 2:
             speling_meten(lijst, s)
+            toets_opening(lijst, f"arm {s}")
             log(f"PASSING arm {s}: {lijst[0].get('cj_passing')}")
         if s == 0.3 and len(lijst) == 2:
             toets_stl(lijst)
@@ -153,6 +183,21 @@ def main():
     stap(f"dunne plek: origineel heel en zichtbaar (foute_randen={fout})", fout == 0 and vol > 0 and arm.visible_get())
     weg(rood)
     arm.hide_set(True)
+
+    # 2b. Echt dunne wand (staaf van 3,1 mm straal: wand 0,4 mm) moet rood, 1,1 mm moet oranje.
+    for straal, verwacht in ((3.1, "rood"), (3.8, "oranje")):
+        st = figuren.staaf(f"staaf_{straal}", straal)
+        lijst = plaats(f"staaf {straal}", st, (0, 0, 0), (1, 0, 0))
+        tekens = [o for o in bpy.context.scene.objects if o.get("cj_passing") and o.get("cj_bron") == st.name]
+        kleur = tekens[0].get("cj_passing") if tekens else None
+        wand = tekens[0].get("cj_wand_mm") if tekens else None
+        log(f"WAND staaf straal {straal}: passing={kleur} wand={wand}mm delen={len(lijst)}")
+        stap(f"staaf {straal}: passing {verwacht}", kleur == verwacht)
+        if verwacht == "rood":
+            stap(f"staaf {straal}: niet gesneden, origineel zichtbaar", len(lijst) == 0 and st.visible_get())
+        else:
+            gesloten_delen(f"staaf {straal}", lijst)
+        weg([o for o in bpy.context.scene.objects if o.get("cj_bron") == st.name] + [st])
 
     # 3. Pop van bollen en cilinders.
     pop = figuren.pop(lijst_solver())

@@ -16,6 +16,10 @@ from .eigenschappen import eenheid_per_mm
 from .gesloten import is_gesloten
 
 SCHUIF_MM = 0.0137
+# Klikopening van de kom: 0,85 keer de kogeldiameter, zodat twee los geprinte delen met wat druk
+# in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
+# Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
+OPENING = 0.85
 
 
 def solver_naam():
@@ -27,8 +31,8 @@ def solver_naam():
 
 def maten(inst, u):
     r = inst.kogel_mm / 2 * u
-    maat = {"r": r, "s": inst.speling_mm * u, "nek_r": 0.48 * r, "schuif": SCHUIF_MM * u,
-            "onder_z": -0.4 * r, "midden_z": 1.2 * r, "top_z": 2.2 * r}
+    maat = {"r": r, "s": inst.speling_mm * u, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
+            "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
     if inst.soort == "PEN":
         maat["midden_z"] = maat["top_z"] / 2
     return maat
@@ -83,7 +87,7 @@ def snij(hulp, werk, frame, maat, soort, solver):
         kogel = vormen.bol("cj_kogel", maat["r"], maat["midden_z"], frame, hulp)
         nek = vormen.cilinder("cj_nek", maat["nek_r"], maat["onder_z"], maat["midden_z"], frame, hulp)
         kom = vormen.bol("cj_kom", maat["r"] + s, maat["midden_z"], frame, hulp)
-        gat = vormen.cilinder("cj_nekgat", maat["nek_r"] + s, maat["onder_z"], maat["midden_z"], frame, hulp)
+        gat = vormen.cilinder("cj_opening", maat["open_r"], maat["onder_z"], maat["midden_z"], frame, hulp)
         uitsteek = [kogel, nek]
     else:
         pen = vormen.cilinder("cj_pen", maat["r"], maat["onder_z"], maat["top_z"], frame, hulp)
@@ -163,7 +167,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting),
-                    "cj_kogel_r": maat["r"], "cj_solver": solver}
+                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver}
 
         if kleur == "rood":
             ruim_op(hulp)

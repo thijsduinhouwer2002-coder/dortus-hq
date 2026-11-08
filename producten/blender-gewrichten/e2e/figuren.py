@@ -84,6 +84,14 @@ def pop(solver):
     return ob
 
 
+def staaf(naam, straal, lengte=40.0):
+    """Rechte staaf langs X met een vaste straal: de wanddikte rond de kom is dan precies te kiezen."""
+    bm = bmesh.new()
+    bmesh.ops.create_cone(bm, cap_ends=True, segments=128, radius1=straal, radius2=straal, depth=lengte)
+    bm.transform(Matrix.Rotation(math.pi / 2, 4, "Y"))
+    return _object(naam, bm)
+
+
 def zet_cursor(punt, as_richting):
     """3D-cursor op het punt, met de Z-as van de cursor langs de gegeven richting."""
     c = bpy.context.scene.cursor
