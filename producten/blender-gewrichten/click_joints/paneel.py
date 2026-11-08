@@ -67,8 +67,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap.prop(inst, "exportmap")
         tip = exporteer.hint(context.scene)
         if tip:
-            for i, regel in enumerate(tip.split(" next to ")):
-                stap.label(text=regel if i == 0 else "next to " + regel, icon="INFO" if i == 0 else "BLANK1")
+            stap.label(text=tip, icon="INFO")  # één korte regel (Daan, tussenreactie 2)
         grote_knop(stap, "click_joints.exporteer", "Export STL", "FILE_3D")
 
 

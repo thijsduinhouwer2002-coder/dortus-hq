@@ -30,8 +30,8 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         name="Diameter (mm)", description="Diameter of the ball or pin in millimeters",
         default=5.0, min=1.0, max=50.0, step=10, precision=1, update=_handmatig)
     kogel_auto: BoolProperty(
-        name="Auto", description="Pick the diameter for you at Place joint: 60% of the thickness of the mesh "
-        "at the cut. Typing a diameter turns this off", default=True)
+        name="Auto", description="Pick the diameter for you at Place joint: the largest ball with a good fit "
+        "(wall 1.5 mm or more), at most 60% of the thickness of the mesh at the cut. Typing a diameter turns this off", default=True)
     soort: EnumProperty(
         name="Type", items=(("KOGEL", "Ball", "Ball and socket, turns in every direction"),
                              ("PEN", "Pin", "Pin and hole, turns around one axis")),
