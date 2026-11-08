@@ -57,6 +57,8 @@ interface ProMeldingOpAfstand {
     fun isGetoondVoor(actie: String): Boolean
     fun aantalHints(): Int
     fun aantalHintsZonderEditor(): Int
+    fun balloonZonderEditorInBeeld(): Boolean
+    fun laatstePlekZonderEditor(): String?
     fun laatsteHint(): String?
     fun laatsteMelding(): String?
 }

@@ -27,7 +27,7 @@ import java.io.File
 /**
  * Daan, beoordeling 8: de meldingen bij geblokkeerd hernoemen (zonder licentie, token ook in de scanner).
  * 1. de balloon gaat over hernoemen en noemt naam en ander bestand; 2. de hint zegt waarom er niets gebeurde;
- * 3. zonder editor (structuurweergave) komt de hint in de statusbalk; 4. tijdens indexeren nooit de Pro-melding en
+ * 3. zonder editor (structuurweergave) komt de hint als kleine balloon (in deze test zonder scherm alleen geteld); 4. tijdens indexeren nooit de Pro-melding en
  * nooit half hernoemen; 5. een eigen vlag per actie; 6. Shift+F6 in de scanner geeft de melding, geen IDE-fout.
  */
 class ProHernoemenTest : BasePlatformTestCase() {
@@ -100,7 +100,7 @@ class ProHernoemenTest : BasePlatformTestCase() {
         assertEquals(tekst("calc.l"), inhoud("calc.l"))
     }
 
-    fun testZonderEditorHintInDeStatusbalk() {
+    fun testZonderEditorHintAlsBalloon() {
         val f = grammaticaOpen()
         val num = definitie(f, "NUM")
         // Zoals de structuurweergave: hernoemen zonder editor.
@@ -111,13 +111,16 @@ class ProHernoemenTest : BasePlatformTestCase() {
         assertEquals(1, melding.aantalHints())
         assertEquals(1, melding.aantalHintsZonderEditor())
         assertEquals("NUM is also used in calc.l. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
+        // Zonder scherm geen echte balloon: wel geteld, niets in beeld, en geen fout bij het zoeken van een plek.
+        assertEquals("headless", melding.laatstePlekZonderEditor())
+        assertFalse(melding.balloonZonderEditorInBeeld())
     }
 
     /**
      * Het echte pad vanuit de structuurweergave: de actie RenameElement (Shift+F6) met een DataContext zoals de boom
      * die geeft (het gekozen element als PSI_ELEMENT, geen editor). De IDE kiest dan zelf de handler en de processor.
      */
-    fun testRenameActieZonderEditorGeeftHintInDeStatusbalk() {
+    fun testRenameActieZonderEditorGeeftHintAlsBalloon() {
         val f = grammaticaOpen()
         val num = definitie(f, "NUM")
         val boom = SimpleDataContext.builder()

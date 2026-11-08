@@ -8,6 +8,7 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.actionSystem.IdeActions
 import com.intellij.openapi.actionSystem.LangDataKeys
+import com.intellij.openapi.actionSystem.PlatformCoreDataKeys
 import com.intellij.openapi.actionSystem.ex.ActionUtil
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service
@@ -43,6 +44,7 @@ class HernoemDiagnose {
             probeer("psi") { psi?.let { "${it.javaClass.simpleName} '$it' in ${it.containingFile?.name}" } },
             probeer("psi-rij") { LangDataKeys.PSI_ELEMENT_ARRAY.getData(ctx)?.size },
             probeer("psi-bestand") { CommonDataKeys.PSI_FILE.getData(ctx)?.name },
+            probeer("context-onderdeel") { PlatformCoreDataKeys.CONTEXT_COMPONENT.getData(ctx)?.javaClass?.simpleName },
             probeer("editor") { CommonDataKeys.EDITOR.getData(ctx) != null },
             probeer("veto") { psi?.let { PsiElementRenameHandler.isVetoed(it) } },
             probeer("processor") { psi?.let { RenamePsiElementProcessor.forElement(it).javaClass.simpleName } },

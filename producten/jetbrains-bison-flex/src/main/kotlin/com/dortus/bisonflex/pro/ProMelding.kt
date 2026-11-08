@@ -8,8 +8,20 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.wm.StatusBar
+import com.intellij.openapi.ui.MessageType
+import com.intellij.openapi.ui.popup.Balloon
+import com.intellij.openapi.ui.popup.JBPopupFactory
+import com.intellij.openapi.wm.IdeFocusManager
+import com.intellij.openapi.wm.WindowManager
+import com.intellij.ui.BalloonImpl
+import com.intellij.ui.awt.RelativePoint
 import org.jetbrains.annotations.TestOnly
+import java.awt.Component
+import java.awt.KeyboardFocusManager
+import java.awt.Point
+import javax.swing.JComponent
+import javax.swing.JTree
+import javax.swing.SwingUtilities
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -17,8 +29,8 @@ import java.util.concurrent.atomic.AtomicInteger
  * De Pro-melding (Daan punt 3): een gewone balloon, nooit een dialoog, hoogstens één keer per IDE-sessie per actie.
  * Een vlag per actie ([GA_NAAR], [HERNOEMEN]; Daan, beoordeling 8 punt 5): wie eerst de ga-naar-balloon zag,
  * hoort bij Shift+F6 toch één keer dat hernoemen Pro is. De vlaggen zitten in deze application service, dus gelden
- * voor alle projecten samen. Bij latere keren een korte hint zonder knop: in de editor, of zonder editor in de
- * statusbalk ([toonHint]).
+ * voor alle projecten samen. Bij latere keren een korte hint zonder knop: in de editor, of zonder editor als
+ * kleine balloon bij de gekozen knoop ([toonHint]).
  */
 @Service(Service.Level.APP)
 class ProMelding {
@@ -27,6 +39,8 @@ class ProMelding {
     private val hintsZonderEditor = AtomicInteger(0)
     @Volatile private var laatsteHint: String? = null
     @Volatile private var laatsteMelding: String? = null
+    @Volatile private var laatsteBalloon: Balloon? = null
+    @Volatile private var laatstePlek: String? = null
 
     /**
      * Toont de balloon met [tekst] als dat deze sessie voor [actie] nog niet gebeurd is.
@@ -45,20 +59,85 @@ class ProMelding {
 
     /**
      * De korte hint [tekst] (standaard [HINT]) zonder knop (op de EDT aanroepen). Met [editor] als informatiehint
-     * in die editor. Zonder editor (hernoemen vanuit de structuurweergave of het projectvenster) in de statusbalk
-     * van [project]: daar staat geen editor om een hint aan te hangen, en een tweede balloon zou de verkooptekst
-     * herhalen (hoogstens één balloon per sessie per actie).
+     * in die editor. Zonder editor (hernoemen vanuit de structuurweergave of het projectvenster) een kleine balloon
+     * zonder knoppen ([toonBalloonZonderEditor]) bij [component] (het onderdeel waar Shift+F6 vandaan kwam, meestal
+     * de boom met de focus). Eerst stond die tekst in de statusbalk (`StatusBar.Info.set`), maar de nieuwe UI toont
+     * die tekst niet (IDE-run 42423551917): de gebruiker zag niets. Geen notificatie: een tweede balloon met knoppen
+     * zou de verkooptekst herhalen (hoogstens één per sessie per actie).
      */
-    fun toonHint(editor: Editor?, tekst: String = HINT, project: Project? = editor?.project) {
+    fun toonHint(editor: Editor?, tekst: String = HINT, project: Project? = editor?.project, component: Component? = null) {
         hints.incrementAndGet()
         laatsteHint = tekst
         if (editor != null) {
             HintManager.getInstance().showInformationHint(editor, tekst)
         } else {
             hintsZonderEditor.incrementAndGet()
-            StatusBar.Info.set(tekst, project)
+            val bron = component ?: focusOnderdeel(project)
+            val app = ApplicationManager.getApplication()
+            if (app.isDispatchThread) toonBalloonZonderEditor(tekst, project, bron)
+            else app.invokeLater { toonBalloonZonderEditor(tekst, project, bron) }
         }
     }
+
+    /**
+     * Zet de kleine balloon (`createHtmlTextBalloonBuilder`, soort INFO, geen knoppen, weg na 8 s, bij een klik of
+     * toets ernaast). Plek: is [bron] een JTree met een gekozen knoop (de structuurweergave, het projectvenster), dan
+     * boven die knoop; anders boven het midden van [bron]; zonder bron onderaan in het midden van het IDE-frame.
+     * In een test zonder scherm (headless) wordt er niets getoond, alleen geteld.
+     */
+    private fun toonBalloonZonderEditor(tekst: String, project: Project?, bron: Component?) {
+        if (ApplicationManager.getApplication().isHeadlessEnvironment) { laatstePlek = "headless"; return }
+        try {
+            val plek = plekVoor(project, bron) ?: run { laatstePlek = "geen plek"; return }
+            laatsteBalloon?.let { if (!it.isDisposed) it.hide() }
+            val b = JBPopupFactory.getInstance().createHtmlTextBalloonBuilder(tekst, MessageType.INFO, null)
+                .setFadeoutTime(8_000)
+                .setHideOnClickOutside(true)
+                .setHideOnKeyOutside(true)
+                .createBalloon()
+            laatsteBalloon = b
+            b.show(plek, Balloon.Position.above)
+        } catch (e: Throwable) {
+            laatstePlek = "fout ${e.javaClass.simpleName}: ${e.message?.take(120)}"
+        }
+    }
+
+    private fun plekVoor(project: Project?, bron: Component?): RelativePoint? {
+        if (bron is JTree && bron.isShowing) {
+            val pad = bron.selectionPath
+            val vak = pad?.let { bron.getPathBounds(it) }
+            if (vak != null) {
+                val zicht = bron.visibleRect
+                val x = (vak.x + minOf(vak.width, 200) / 2).coerceIn(zicht.x, zicht.x + zicht.width)
+                val y = vak.y.coerceIn(zicht.y, zicht.y + zicht.height)
+                laatstePlek = "boom ${bron.javaClass.simpleName}, knoop '${pad.lastPathComponent}'"
+                return RelativePoint(bron, Point(x, y))
+            }
+        }
+        if (bron is JComponent && bron.isShowing && bron.width > 0) {
+            laatstePlek = "onderdeel ${bron.javaClass.simpleName}"
+            return RelativePoint(bron, Point(bron.width / 2, minOf(bron.height / 2, 40)))
+        }
+        val frame = project?.let { WindowManager.getInstance().getIdeFrame(it) }?.component
+            ?: bron?.let { SwingUtilities.getRootPane(it) }
+            ?: return null
+        laatstePlek = "frame"
+        return RelativePoint(frame, Point(frame.width / 2, frame.height - 60))
+    }
+
+    private fun focusOnderdeel(project: Project?): Component? =
+        project?.let { IdeFocusManager.getInstance(it).focusOwner }
+            ?: KeyboardFocusManager.getCurrentKeyboardFocusManager().let { it.focusOwner ?: it.permanentFocusOwner }
+
+    /** Of de laatste balloon zonder editor nu echt op het scherm staat (ook gelezen door de IDE-test). */
+    fun balloonZonderEditorInBeeld(): Boolean {
+        val b = laatsteBalloon ?: return false
+        if (b.isDisposed) return false
+        return (b as? BalloonImpl)?.isVisible ?: true
+    }
+
+    /** Waar de laatste balloon zonder editor kwam ("boom ...", "onderdeel ...", "frame", "headless" of een fout), voor het log. */
+    fun laatstePlekZonderEditor(): String? = laatstePlek
 
     /** Of er deze sessie al een Pro-balloon getoond is, voor welke actie ook (ook gelezen door de IDE-test). */
     fun isGetoond(): Boolean = getoond.isNotEmpty()
@@ -66,10 +145,10 @@ class ProMelding {
     /** Of de balloon voor [actie] deze sessie al getoond is (ook gelezen door de IDE-test). */
     fun isGetoondVoor(actie: String): Boolean = actie in getoond
 
-    /** Hoe vaak de korte hint deze sessie getoond is, in de editor en in de statusbalk samen (ook voor de IDE-test). */
+    /** Hoe vaak de korte hint deze sessie getoond is, met en zonder editor samen (ook voor de IDE-test). */
     fun aantalHints(): Int = hints.get()
 
-    /** Hoe vaak de korte hint in de statusbalk kwam, omdat er geen editor was. */
+    /** Hoe vaak de korte hint zonder editor kwam (als kleine balloon, zie [toonHint]). */
     fun aantalHintsZonderEditor(): Int = hintsZonderEditor.get()
 
     /** Tekst van de laatste hint en van de laatste balloon, of null (voor het log van de IDE-test). */
@@ -83,6 +162,9 @@ class ProMelding {
         hintsZonderEditor.set(0)
         laatsteHint = null
         laatsteMelding = null
+        laatsteBalloon?.let { if (!it.isDisposed) it.hide() }
+        laatsteBalloon = null
+        laatstePlek = null
     }
 
     companion object {

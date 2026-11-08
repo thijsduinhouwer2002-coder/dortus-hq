@@ -6,16 +6,19 @@ import com.dortus.bisonflex.psi.Koppeling.ScannerGebruik
 import com.dortus.bisonflex.psi.NaamElement
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.wm.IdeFocusManager
 import com.intellij.psi.PsiElement
 import com.intellij.refactoring.rename.RenamePsiElementProcessor
 import com.intellij.util.containers.MultiMap
+import java.awt.Component
 
 /**
  * Hernoemen (Shift+F6) met de Pro-regel (eis 6, besluit van Jet). Binnen één bestand is hernoemen gratis.
  * Wordt een token uit de grammatica ook in een scanner gebruikt en is er geen licentie (stand GEEN), dan
  * gebeurt er niets: half hernoemen breekt stil de build. In plaats daarvan eenmaal per sessie de balloon over
  * hernoemen ([ProMelding.tekstHernoemen]), daarna de hint die zegt waarom er niets gebeurde
- * ([ProMelding.hintHernoemen]); zonder editor (structuurweergave, projectvenster) in de statusbalk.
+ * ([ProMelding.hintHernoemen]); zonder editor (structuurweergave, projectvenster) als kleine balloon bij de gekozen
+ * knoop: we geven het onderdeel met de focus mee (de boom), want deze processor krijgt geen DataContext.
  * Bij ONBEKEND en GELDIG werkt alles, zonder melding.
  *
  * Tijdens het indexeren is niet te weten of een scanner het token gebruikt (Daan, beoordeling 8 punt 4). Dan
@@ -41,7 +44,7 @@ class ProHernoemen : RenamePsiElementProcessor() {
         when (val gebruik = Koppeling.scannerGebruik(element)) {
             ScannerGebruik.Nee -> element
             ScannerGebruik.Indexeren -> {
-                ProMelding.getInstance().toonHint(editor, ProMelding.HINT_INDEXEREN, element.project)
+                ProMelding.getInstance().toonHint(editor, ProMelding.HINT_INDEXEREN, element.project, bron(element.project, editor))
                 null
             }
             is ScannerGebruik.Ja -> if (Licentie.proWerkt()) element else {
@@ -57,13 +60,17 @@ class ProHernoemen : RenamePsiElementProcessor() {
 
         /**
          * Hernoemen van [naam] is tegengehouden omdat het ook [ander] raakt: de eerste keer per sessie de balloon
-         * over hernoemen, daarna de korte hint (in [editor], of zonder editor in de statusbalk).
+         * over hernoemen, daarna de korte hint (in [editor], of zonder editor als kleine balloon bij [bron]).
          */
-        fun meldGeblokkeerd(project: Project, editor: Editor?, naam: String, ander: String) {
+        fun meldGeblokkeerd(project: Project, editor: Editor?, naam: String, ander: String, bron: Component? = bron(project, editor)) {
             val m = ProMelding.getInstance()
             if (!m.toonEenmaal(project, ProMelding.tekstHernoemen(naam, ander), ProMelding.HERNOEMEN)) {
-                m.toonHint(editor, ProMelding.hintHernoemen(naam, ander), project)
+                m.toonHint(editor, ProMelding.hintHernoemen(naam, ander), project, bron)
             }
         }
+
+        /** Zonder editor: het onderdeel met de focus (bij Shift+F6 in de structuurweergave de boom), anders null. */
+        fun bron(project: Project, editor: Editor?): Component? =
+            if (editor != null) null else IdeFocusManager.getInstance(project).focusOwner
     }
 }

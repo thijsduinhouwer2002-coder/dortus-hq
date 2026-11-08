@@ -7,7 +7,6 @@ import com.intellij.driver.client.utility
 import com.intellij.driver.model.LockSemantics
 import com.intellij.driver.model.OnDispatcher
 import com.intellij.driver.sdk.FileEditorManager
-import com.intellij.driver.sdk.Project
 import com.intellij.driver.sdk.invokeAction
 import com.intellij.driver.sdk.openFile
 import com.intellij.driver.sdk.singleProject
@@ -18,7 +17,8 @@ import org.junit.jupiter.api.Assertions.assertTrue
  * Het winkelproject heeft calc.y en calc.yy, calc.l en calc.ll in één map: NUM in calc.y raakt dus calc.l en calc.ll.
  * Hernoemen (Shift+F6) in de echte IDE, stand GEEN (Daan, beoordeling 8). Loopt na IdeTest.proMelding, dus de
  * ga-naar-balloon is dan al getoond. Schermen: hernoem-melding, hernoem-hint, hernoem-scanner, hernoem-structuur,
- * hernoem-venster en hernoem-conflict. Elke stap zet in het log welke melding er kwam, hoeveel hints, en of er
+ * hernoem-venster en hernoem-conflict. Zonder editor (structuurweergave) is de hint een kleine balloon
+ * bij de knoop; de test leest via de plugin of die echt in beeld staat. Elke stap zet in het log welke melding er kwam, hoeveel hints, en of er
  * een vreemde editor-hint stond (een IDE-fout zoals "Cannot perform refactoring" is ook een editor-hint).
  */
 
@@ -26,17 +26,6 @@ import org.junit.jupiter.api.Assertions.assertTrue
 interface HintBeheerOpAfstand {
     fun getInstance(): HintBeheerOpAfstand
     fun hasShownHintsThatWillHideByOtherHint(onlyFocused: Boolean): Boolean
-}
-
-@Remote("com.intellij.openapi.wm.WindowManager")
-interface VensterBeheerOpAfstand {
-    fun getInstance(): VensterBeheerOpAfstand
-    fun getStatusBar(project: Project): StatusBalkOpAfstand?
-}
-
-@Remote("com.intellij.openapi.wm.StatusBar")
-interface StatusBalkOpAfstand {
-    fun getInfo(): String?
 }
 
 /** Hulp in de plugin die laat zien wat de IDE bij Shift+F6 ziet in het onderdeel met de focus (`pro/HernoemDiagnose.kt`). */
@@ -53,12 +42,6 @@ private fun Driver.hintInBeeld(): String = try {
     withContext(OnDispatcher.EDT) { utility<HintBeheerOpAfstand>().getInstance().hasShownHintsThatWillHideByOtherHint(false) }.toString()
 } catch (e: Throwable) {
     "onbekend (${e.javaClass.simpleName})"
-}
-
-private fun Driver.statusBalk(): String? = try {
-    withContext(OnDispatcher.EDT) { utility<VensterBeheerOpAfstand>().getInstance().getStatusBar(singleProject())?.getInfo() }
-} catch (e: Throwable) {
-    "fout ${e.javaClass.simpleName}: ${e.message?.take(150)}"
 }
 
 private fun Driver.tekstEditor(): String = service<FileEditorManager>(singleProject()).getSelectedTextEditor()?.let { e ->
@@ -126,7 +109,8 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     geblokkeerd(d, naam, "Shift+F6 op NUM in calc.l", melding, "hernoem-scanner")
     assertEquals("NUM is also used in calc.y and calc.yy. Rename across grammar and scanner is a Pro feature.", melding.laatsteHint())
 
-    // 4. Vanuit de structuurweergave (geen editor): de hint in de statusbalk.
+    // 4. Vanuit de structuurweergave (geen editor): de hint als kleine balloon bij de knoop NUM.
+    // Run 42423551917: de hint stond toen in de statusbalk (StatusBar.Info), maar de nieuwe UI toont die tekst niet.
     openFile("calc.y")
     pauze()
     structuurBij(naam, "calc.y")
@@ -152,7 +136,8 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     println("DORTUS-E2E [$naam] structuur toont ${structuurBestand()}, voor Shift+F6: ${withContext(OnDispatcher.EDT) { diagnose.focusInfo() }}")
     toets("shift+F6")
     var structuur = wacht(6) { melding.aantalHintsZonderEditor() > zonderVoor }
-    println("DORTUS-E2E [$naam] na Shift+F6 (xdotool) in de boom: hint zonder editor $structuur")
+    println("DORTUS-E2E [$naam] na Shift+F6 (xdotool) in de boom: hint zonder editor $structuur" +
+        if (structuur) "" else " (Shift+F6 via xdotool komt in de boom niet aan, eerder ook al in run 42405578806 en 42418452932)")
     if (!structuur) {
         // Echte toets kwam niet aan: de Rename-actie zelf, met de DataContext van de boom (zoals de keymap zou doen).
         if (boom != null) withContext(OnDispatcher.EDT) { boom.requestFocusInWindow() }
@@ -161,16 +146,16 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
         structuur = wacht(8) { melding.aantalHintsZonderEditor() > zonderVoor }
         println("DORTUS-E2E [$naam] na RenameElement (actie, boom als context): hint zonder editor $structuur")
     }
-    Thread.sleep(1_000)
-    val balk = statusBalk()
+    val inBeeld = wacht(3) { withContext(OnDispatcher.EDT) { melding.balloonZonderEditorInBeeld() } }
     println("DORTUS-E2E [$naam] Shift+F6 op NUM in de structuurweergave: hint zonder editor $structuur (aantal ${melding.aantalHintsZonderEditor()}), " +
-        "laatste hint '${melding.laatsteHint()}', statusbalk '$balk'")
+        "laatste hint '${melding.laatsteHint()}', balloon in beeld $inBeeld, plek '${melding.laatstePlekZonderEditor()}'")
+    // Het scherm meteen, de balloon gaat na 8 s vanzelf weg.
     scherm("$naam-hernoem-structuur.png")
     toets("Escape")
-    assertTrue(structuur, "hint in de statusbalk bij hernoemen vanuit de structuurweergave ($naam)")
+    assertTrue(structuur, "hint zonder editor bij hernoemen vanuit de structuurweergave ($naam)")
     val verwacht = "NUM is also used in calc.l and calc.ll. Rename across grammar and scanner is a Pro feature."
     assertEquals(verwacht, melding.laatsteHint(), "hint bij hernoemen vanuit de structuurweergave ($naam)")
-    assertEquals(verwacht, balk, "tekst in de statusbalk bij hernoemen vanuit de structuurweergave ($naam)")
+    assertTrue(inBeeld, "balloon met de hint in beeld bij hernoemen vanuit de structuurweergave ($naam), plek '${melding.laatstePlekZonderEditor()}'")
 
     // 5. Een regel die alleen in calc.y staat: het hernoemvenster, en het conflictvenster bij een bestaande naam.
     hernoemvenster(d, naam, melding)
