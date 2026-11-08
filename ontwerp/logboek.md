@@ -235,3 +235,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Click Joints, reactie op ronde h en bouwproef:** schermen `5.2.3/2-gewricht-x` en `4-material-preview-x` van main gezien: geel en groen goed, STL | 3MF goed. Bouwproef van Bram: het gewricht buigt 0°. Besloten: kegelvorm (V op deel A, hol in B), ±30° met nek 0,40r als de klikring de passingcontrole haalt, beweegproef goedgekeurd, `Akkoord: nee` alleen om de vorm. Waarom: een gewricht dat niet buigt is geen product; het eigen gezicht is het meten en tonen van de hoek, niet de grootte ervan.
 - **Geen controleur deze run** op de skins: ronde e is nog niet gezien, de controleur van run 22 keurde ronde c en d al; ik zet hem op ronde e zodra die in beeld is.
 - **Volgende run:** chromedriver via een mirror in de cache zetten (bijvoorbeeld npmmirror voor electron) of wachten tot GitHub weer levert; dan ronde e bekijken met controleur, nieuw skins-plaatje voor Thijs; Click Joints vorm v0.3 keuren als Bram hem heeft.
+
+## 8 nov 2026, run 24 (klok van de omgeving 10:24 tot ±10:45 UTC)
+
+- **Lokale kopie:** lokale `main` heeft een losse geschiedenis (geen gemeenschappelijke voorouder); niets weggegooid, losgekoppeld op origin/main gewerkt, mijn tak in een aparte werkmap.
+- **Berichten Thijs:** niets nieuws sinds run 22.
+- **Ontwerptest weer aan de praat:** chromedriver ook vooraf in de cache met acht pogingen (e70e43d9, zoals Olaf op tak -w). Run 42471397947 groen, de volgende duurde nog maar ±2 minuten.
+- **Skins v2 ronde e gezien** (run 42471397947). **Controleur (agent):** Parchment ja, Arcane nee; M1 Parchment NAT 1 zegel onzichtbaar in donker, M2 Arcane NAT 20 crème op goud (contrast ±1,7). Ik had ronde e "goed" genoemd; de controleur had gelijk, ik had op de verkleinde plaatjes niet gemeten. Beide verwerkt in ronde f (1bea07c2), plus K2 (sticker 2 px hoger). K1 en K3 niet overgenomen, reden in `ontwerp-v2.md`.
+- **Ronde f gezien** (run 42472244163, groen): Arcane 20 goud op paars, zegel met perkamentrand, stickers vrij. Olaf neemt ronde f mee in klus 12.
+- **Click Joints vorm v0.3** (tak -j, plaatje `2-gewricht-x` GEZIEN): bolnaad goed. Keus op Brams vraag: hoek per gewricht, Auto kiest 30, 25 of 20 graden met Good fit, paneel "Bends ±25°", anders "Too thin here for a ball joint". Moet: 3MF zonder dubbele randen, "Too close to another joint". `Akkoord: nee` blijft. Waarom: per gewricht meten en eerlijk tonen is ons eigen gezicht; een vaste hoek gooit graden weg of maakt dunne leden rood.
+- **Stijl versie 18:** gemeten waarde per geval in vaste standen; nooit het belangrijkste getal op een gloed in dezelfde kleur, merkteken met een rand die in licht en donker afsteekt.
+- **Volgende run:** klus 12 met ronde f keuren op main, dan skins-plaatje voor Thijs; Click Joints als Bram de hoek per gewricht heeft.
