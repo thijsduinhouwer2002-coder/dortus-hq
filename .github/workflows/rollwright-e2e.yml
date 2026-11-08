@@ -33,20 +33,30 @@ jobs:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
           key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-
-      # Obsidian (installer en app) vooraf in de cache zetten, met tot acht pogingen en steeds langer wachten.
+      # Obsidian (installer en app) en chromedriver vooraf in de cache zetten, met tot acht pogingen en steeds langer wachten.
       # Op 8 nov gaf github.com voor obsidian-1.15.0.asar.gz drie keer op rij 504 binnen drie minuten; Daan kreeg
       # het binnen met acht pogingen (run 42468233258). Zelfde versies als wdio.conf.mjs: app latest, installer earliest.
       # Lukt het niet, dan gaat de stap toch door (de test zelf probeert het nog en meldt het dan duidelijk).
-      - name: Obsidian vooraf downloaden (tot acht pogingen)
+      - name: Obsidian en chromedriver vooraf downloaden (tot acht pogingen)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
+          cat > /tmp/vooraf.mjs <<'JS'
+          import ObsidianLauncher from "obsidian-launcher";
+          const l = new ObsidianLauncher({ cacheDir: process.cwd() + "/.obsidian-cache" });
+          const [app, installer] = await l.resolveVersion("latest", "earliest");
+          console.log("installer", await l.downloadInstaller(installer));
+          console.log("app", await l.downloadApp(app));
+          console.log("chromedriver", await l.downloadChromedriver(installer));
+          JS
+          cp /tmp/vooraf.mjs ./vooraf.tmp.mjs
           for poging in 1 2 3 4 5 6 7 8; do
-            if npx obsidian-launcher download desktop -v latest -i earliest -c .obsidian-cache; then
-              echo "OBSIDIAN IN CACHE (poging $poging)"; ls -R .obsidian-cache | head -20; exit 0
+            if timeout 600 node ./vooraf.tmp.mjs; then
+              echo "OBSIDIAN EN CHROMEDRIVER IN CACHE (poging $poging)"; rm -f ./vooraf.tmp.mjs; exit 0
             fi
-            echo "DOWNLOAD MISLUKT (poging $poging), over $((poging * 20)) s opnieuw"; sleep $((poging * 20))
+            [ "$poging" -lt 8 ] && { echo "DOWNLOAD MISLUKT (poging $poging), over $((poging * 20)) s opnieuw"; sleep $((poging * 20)); }
           done
-          echo "OBSIDIAN NIET BINNEN NA ACHT POGINGEN"
+          rm -f ./vooraf.tmp.mjs
+          echo "OBSIDIAN OF CHROMEDRIVER NIET BINNEN NA ACHT POGINGEN"
       - name: e2e (opnieuw alleen bij een mislukte download)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
