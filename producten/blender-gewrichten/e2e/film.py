@@ -252,7 +252,7 @@ def kijk_buig():
     if kijk_r.dot(BASIS_RICHTING) < 0:
         kijk_r = -kijk_r  # van de voorkant van de pop, niet van achteren
     # ronde 2: verder weg (was 16 r), zodat je de hele arm met hand en schouder ziet buigen
-    return kijk_r, staat["c"] + staat["as_"] * 4.0, 36.0 * staat["r"]
+    return kijk_r, staat["c"] + staat["as_"] * 4.0, 40.0 * staat["r"]
 
 
 def zet_beeld(sc, i):
@@ -311,7 +311,7 @@ def rol_paneel():
     x = venster.x + regio.x + regio.width // 2
     y = venster.y + venster.height - (regio.y + regio.height // 2)
     xdo("mousemove", str(x), str(y))
-    for _ in range(12):
+    for _ in range(26):
         xdo("click", "5")
     xdo("mousemove", "5", "5")
     log(f"FILM paneel gerold bij ({x}, {y})")
