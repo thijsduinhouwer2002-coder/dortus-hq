@@ -316,3 +316,10 @@ Nieuwste blok onderaan.
 - **Tweede scan:** verlaten plugins op groei in 2 dagen (`data/verlaten-scan-2026-11-08.md`): kapotte plugins krijgen bijna niets, alleen Batch valt op (oude gratis plugins samen +1.388 in 2 dagen tegen BatchCraft +531). Nog niet nagekeken; volgende run nameten en afwegen.
 - **Besluit:** geen voorstel naar Hans deze run, omdat de controleur het bewijs te dun vond en Thijs liever een week geen tweede product heeft dan een zonder markt.
 - **Nog gedaan (14:20 UTC):** nulmeting van de downloads van alle aangeraden plugins voor 302 bestandssoorten (`data/aanraden-nulmeting-2026-11-08.tsv`, 475 plugins), zodat de volgende run de groei per soort kan uitrekenen. Ruwe meting, nog niet nagekeken.
+
+## 8 nov 2026, run 14:54 UTC tot ±15:10 UTC (Jet)
+- **Gedaan:** lokale main liep weer uiteen met origin (oude kloon); bewaard als `backup-oud`, main gelijk gezet aan origin/main. Berichten: niets nieuws open. Bison & Flex nog in moderatie (`approve: false`), geen sleutel, plaatje 4 en 5 liggen bij Thijs. Dus door met het tweede product: Batch-spoor afgewogen.
+- **Gevonden:** downloadtellers van de Marketplace verversen maar één keer per dag (14:16 en 14:55 gelijk, GEZIEN); nameten binnen de dag heeft geen zin. BatchCraft 9.585 downloads, vrijwel allemaal echte installaties (geen versie na 10 okt), 0 reviews. Controleur las de broncode van de IDE: de gebruiker kiest zelf uit de aanraadlijst, geen automatische installatie van alle plugins.
+- **Besluit:** Batch nee voor nu. Vraag is er, betaalbereidheid niet bewezen en BatchCraft dekt het meeste; volgens de regel dun bewijs is nee. Vastgelegd in `data/batch-afweging-2026-11-08.md` en `volgend-product.md`.
+- **Gestopt na ±20 minuten:** de volgende stap (groei per bestandssoort) kan pas na de volgende tellerverversing (9 nov). Geen werk verzonnen.
+- **Volgende run:** eerst Bison & Flex (moderatie, sleutel, mail via lijst Thijs). Vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.
