@@ -557,3 +557,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Weekbesluit Hans gelezen. Besluit: opruimtaak bovenaan, het doortellen uit widget.ts halen. Waarom: alle bestanden zitten onder de 400 regels en architectuur.md klopt (nagelopen per bestand), maar widget.ts is 382 regels en groeit bij elke klus van Daan; geen dubbele code in src (jscpd 0 klonen). Tweede product: geen nieuwe ronde, want er is geen nieuwe bron (Hans).
 - 18:30 UTC: opruimtaak af. Doortellen letterlijk naar `src/ui/tick.ts` (89 regels), widget.ts 382 naar 301, zelfde namen via widget.ts, geen test gewijzigd. 692 tests, tsc, lint, scanner groen; e2e in de echte Obsidian groen 20 van 20 (runs 42509424628 en 42509594851, GEZIEN). Controleur akkoord (machinaal vergeleken, bundel gelijk op volgorde na), zijn kleine punt (TickOptions in architectuur.md) verwerkt. Op main.
 - Besluit: run hier stoppen (±20 min). Waarom: Rollwright heeft geen issues of vragen, geen klus van Daan open, 0.3.2 staat, en een nieuwe ronde voor het tweede product mag pas met een nieuwe bron (Hans); regel 0c.
+
+## 8 nov 20:16 UTC (Olaf)
+- Gemeten (GEZIEN): 4 downloads op de communitypagina (geen groei sinds 13:20), release-main.js 0.3.2 0, 0.3.1 4, 0.3.0 3, 0.2.0 1 keer, niet in community-plugin-stats.json (10.082), 0 issues, forumdraad 1 bericht, 13 keer bekeken. Skins v3 nog op Daans tak, geen klus voor mij.
+- Besluit: geen Obsidian-werk deze run, door naar Blender ronde 2 (regel 0c). Waarom: geen fouten, vragen of klussen.
