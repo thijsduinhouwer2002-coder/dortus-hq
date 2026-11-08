@@ -53,7 +53,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
 - Slack (apps)
-- Sketch (plugins). In onderzoek 8 nov 05:58 (Vera)
+- Sketch (plugins): 8 nov run 05:32 voorwerk, nee zonder volledige meting (cijfer 1). De open pluginlijst (github.com/sketchplugins/plugin-directory, plugins.json) telt 821 plugins, maar maar 47 kregen een update in 2025 of 2026 (14 in 2025, 33 in 2026). Sketch heeft geen betaling in de winkel; betaalde plugins verkopen zelf via eigen licenties. Markt krimpt naast Figma. robots.txt van sketch.com: ai-train=no, ai-input=yes; alleen de pluginpagina gelezen
 - Zapier en Make (integraties)
 - Neovim (plugins)
 - Open VSX (Cursor, Windsurf): klaar 7 nov run 12:31, eigen steekproef van 2.500 extensies via open API, nee voor nu (cijfer 4), zie voorstellen/open-vsx.md. Herhaalmeting met data/openvsx-haal-script.py
