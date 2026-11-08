@@ -41,6 +41,20 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 			const m = await meet();
 			return m.gewoon !== null && m.fout !== null;
 		}, { timeout: 15000, timeoutMsg: "geen gewone worp en geen fout in Skins.md" });
+		// Daans ontwerp geeft een crit (in donker) bewust een eigen letterkleur, en een crit of fumble een eigen
+		// achtergrond. Deze spec meet de skin, dus gooit hij opnieuw tot de gewone worp echt gewoon is.
+		for (let poging = 0; poging < 20; poging++) {
+			const bijzonder = await browser.execute((sel) => {
+				const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).find((x) => !x.classList.contains("rollwright-error"));
+				const klassen = ["rollwright-crit", "rollwright-fumble", "rollwright-roll-max", "rollwright-roll-min"];
+				if (!r || !klassen.some((k) => r.classList.contains(k))) return false;
+				r.click();
+				return true;
+			}, LEAF);
+			if (!bijzonder) break;
+			console.log(`SKINS: gewone worp was een crit of fumble, opnieuw gegooid (poging ${poging + 1})`);
+			await browser.pause(700);
+		}
 	});
 
 	after(async function () {

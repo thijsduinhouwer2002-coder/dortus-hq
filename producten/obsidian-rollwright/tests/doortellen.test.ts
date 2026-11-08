@@ -139,6 +139,8 @@ describe("counting on the roll", () => {
 		expect(value?.attrs.has(TICK_ATTR)).toBe(false);
 		expect(value?.seen.length).toBe(6);
 		expect(value?.text).toBe("24");
+		// 24 is a crit: its gold comes with a timer of its own at 460 ms (klus 2d), then nothing runs.
+		vi.advanceTimersByTime(160);
 		expect(vi.getTimerCount()).toBe(0);
 	});
 
@@ -155,7 +157,8 @@ describe("counting on the roll", () => {
 		roll.listeners.click?.(press());
 		await settle();
 		expect(first?.attrs.has(TICK_ATTR)).toBe(false);
-		expect(vi.getTimerCount()).toBe(1);
+		// The new counting, and the landing of its gold (12 is a crit, klus 2d); the old ones are gone.
+		expect(vi.getTimerCount()).toBe(2);
 		for (const fn of cleanups) fn();
 		expect(vi.getTimerCount()).toBe(0);
 	});
