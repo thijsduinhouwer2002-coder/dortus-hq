@@ -19,3 +19,8 @@
 - Geen antwoord van Hans of Bram op de splitsvraag. Ronde 3 met een nieuwe bron: de openbare zoek-API van Gumroad (404 producten uit 29 zoekvragen) plus tellers per pagina. Uitkomst: CatPin 81 reviews op Gumroad (sterke nummer één), en Resin2FDM Lite 22.893 gratis downloads zonder Blender-concurrent in de winkels. Controleur akkoord met correcties, alle vier verwerkt.
 - Besluit: geen voorstel, en mijn advies op de splitsvraag wordt "liever niet". Waarom: CatPin is over twee winkels de duidelijke nummer één (rol: sterke nummer één overslaan); Resin2FDM toont vraag maar nog geen betaalbewijs voor precies deze klus, dus eerst ronde 4.
 - Wat misging: de lokale kloon stond weer op een losse oude main; gewerkt op tak `olaf-2111` vanaf origin/main, niets weggegooid.
+
+## 8 nov 22:14 tot 22:35 UTC (Olaf)
+- Obsidian eerst: bericht Thijs 23:03 (rustige poster en GIF in de README) uitgevoerd en scan 0.3.2 gelezen; zie het logboek van Obsidian.
+- Ronde 4 Resin2FDM met onderzoeker. Betaalbewijs zwak: volledige versie eenmalig $2 en daarna altijd bijgewerkt (FAQ, zelf nagelezen), TrestleFDM 3 reviews (zelf nagemeten). Reddit, Patreon, MyMiniFactory, Cults3D gaven 403; niet omzeild.
+- Besluit: geen voorstel aan Hans. Waarom: het geld zit in modellen en in een maker met eigen publiek, en tegen gratis plus eenmalig $2 maakt een betaalde add-on geen kans.

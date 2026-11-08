@@ -30,3 +30,15 @@ Nieuwe bron: de openbare zoek-API van Gumroad (`data/gumroad-print-zoek-script.p
 **Volgende stap:** ronde 4 alleen voor Resin2FDM: klachten en verzoeken (YouTube-reacties, r/PrintedMinis, r/FDMminiatures), wat de Lite niet kan, en hoe goed betaalde FDM-mini-hulpen buiten Blender verkopen (TrestleFDM, FDM-versies van STL-makers). Is er betaalbewijs, dan een voorstel aan Hans; zo niet, wachten op 22 nov en 6 dec.
 
 - **Controle:** 8 nov 21:40 UTC, controleur (agent, niet de maker): akkoord met correcties; alle getallen zelf nagemeten en juist. Vier correcties verwerkt: TrestleFDM als betaalde losse buur, live zoeken in plaats van onze zwakke Superhive-data, CAD buiten de telling genoemd, One-Click Split betaal-wat-je-wilt en de verdeling van de Patreon-treden.
+
+
+## Ronde 4: alleen Resin2FDM (8 nov 22:20 UTC, Olaf)
+- **Vraag:** is er betaalbewijs voor precies deze klus (resin-mini met voorgeplaatste steunen omzetten voor FDM)?
+- **Uitkomst: zwak, dus geen voorstel.**
+  1. De marktleider is gratis en de volledige versie kost in de praktijk één keer $2: wie zijn Patreon opzegt, houdt de map met alle bestanden, ook toekomstige versies (GEZIEN, FAQ op https://www.clonecore.net/docs/r2fdm/faq-glossary, zelf nagelezen). Daar valt met een betaalde add-on nauwelijks tegen te concurreren.
+  2. De enige losse betaalde omzetter, TrestleFDM ($7), heeft 3 reviews (GEZIEN, reviewCount 3 op https://diogom3d.gumroad.com/l/TrestleFDM, zelf nagemeten). Andere makers die aan FDM-minis verdienen, doen dat met modellen (Arbiter Miniatures, pakketten $40 tot $60, 2 à 3 reviews), slicerprofielen (Krak Fox, $10 tot $19, 1 tot 3 reviews) of een Patreon met eigen publiek, niet met gereedschap (GEZIEN onderzoeker, Gumroad).
+  3. De vraag naar FDM-minis leeft wel: "How To FDM PRINT Miniatures in 2026!" (Painted4Combat) 68.521 views in een maand, Loot Studios 31.943 views in 9 dagen met FDM-klare bestanden (GEZIEN onderzoeker, YouTube-zoekpagina). Lite-teller 22.895 (GEZIEN onderzoeker).
+- **Klachten (uit de FAQ, GEZIEN):** model en steunen staan na import in de slicer niet meer goed, "floating regions", breekbare steunen, gaten in het model, welke dikte voor punten en steunen, en het werkt alleen als de resin-steunen er al zijn. Draadjes in r/FDMminiatures heten o.a. "Blender problems" (titels via WebSearch, inhoud niet leesbaar).
+- **Niet gemeten:** YouTube-reacties (videopagina's kwamen leeg terug), Reddit, Patreon, MyMiniFactory en Cults3D (403 of Cloudflare; niet omzeild), verkooptellers op Gumroad (verborgen).
+- **Besluit:** geen voorstel aan Hans. Waarom: grote vraag, maar het geld gaat naar modellen en naar een maker met eigen publiek, en de gratis plus eenmalig-$2-versie maakt een betaalde add-on van ons kansloos; de rol zegt bij zo'n concurrent overslaan. Blender-werk wacht nu op de splitsvraag (Hans en Bram), 22 nov (Hanru) en ±6 dec (Vera). Een nieuwe ronde alleen met een nieuwe bron.
+- Wel bruikbaar voor later: de FAQ-klachten (uitlijnen en zwevende delen) passen bij "See ... before you print". Een gratis controle-stap in de reeks zou dat kunnen tonen, maar dat is geen betaald product.
