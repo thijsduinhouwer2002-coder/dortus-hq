@@ -9,8 +9,8 @@
 /* ---------- Parchment ---------- */
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) .rollwright-value {
 	text-decoration: underline wavy #8f1418;
-	text-decoration-thickness: 0.06em;
-	text-underline-offset: 0.18em;
+	text-decoration-thickness: 0.07em;
+	text-underline-offset: 0.06em; /* controleur: 0.18em hing over de rand van het papier */
 }
 
 /* De grote inktvlek uit 08 lag precies onder het getal (run 42520997339: de 1 werd een kruis). Nu een kleine vlek
@@ -39,6 +39,7 @@
 	letter-spacing: 0.02em;
 	text-transform: lowercase;
 	font-variant: normal;
+	font-variant-numeric: lining-nums; /* anders leest de 1 als I in Fell */
 	text-shadow: none;
 	transform: rotate(4deg);
 }
@@ -75,7 +76,7 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 }
 
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) {
-	color: #ff8f9f;
+	color: #ff6b7a;
 	text-shadow: none;
 	/* Gedoofd kristal viel weg op een donkere achtergrond (run 42521377005): een doffe roze rand houdt de vorm. */
 	filter: drop-shadow(0 0 0.7px rgba(255, 143, 159, 0.75));
@@ -89,7 +90,7 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 	border-radius: 0;
 	background: none;
 	box-shadow: none;
-	color: #ff8f9f;
+	color: #ff6b7a;
 	font-family: "Rollwright Cinzel", Georgia, serif;
 	font-weight: 700;
 	font-size: 0.62em;
@@ -105,4 +106,9 @@ body.theme-light .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwrigh
 
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) > .rollwright-stamp {
 	animation: rw-a-light calc(420ms * var(--rw-slow)) calc(1000ms * var(--rw-slow)) ease-out both;
+}
+
+/* Controleur: de rand overschreef de hover-gloed; bij zweven een iets sterkere rand. */
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error):hover {
+	filter: drop-shadow(0 0 1px rgba(255, 107, 122, 0.95)) drop-shadow(0 0 0.3em rgba(255, 107, 122, 0.4));
 }
