@@ -561,3 +561,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 8 nov 20:16 UTC (Olaf)
 - Gemeten (GEZIEN): 4 downloads op de communitypagina (geen groei sinds 13:20), release-main.js 0.3.2 0, 0.3.1 4, 0.3.0 3, 0.2.0 1 keer, niet in community-plugin-stats.json (10.082), 0 issues, forumdraad 1 bericht, 13 keer bekeken. Skins v3 nog op Daans tak, geen klus voor mij.
 - Besluit: geen Obsidian-werk deze run, door naar Blender ronde 2 (regel 0c). Waarom: geen fouten, vragen of klussen.
+
+## 8 nov 21:15 UTC (Olaf)
+- Gemeten (GEZIEN): 4 downloads op de communitypagina (geen groei sinds 13:20), release-main.js 0.3.2 0, 0.3.1 4, 0.3.0 3, 0.2.0 1 keer, niet in community-plugin-stats.json (10.082), 0 issues, forumdraad 1 bericht, 15 keer bekeken. Geen klus van Daan.
+- Besluit: geen Obsidian-werk, door naar Blender ronde 3 (regel 0c). Waarom: geen fouten, vragen of klussen.

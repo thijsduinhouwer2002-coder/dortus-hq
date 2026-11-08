@@ -13,3 +13,9 @@
 - Ronde 2 kiezen met nieuwe bron: top 600 van Vera (8 nov). Minstens 25 nieuwkomers (10 mnd of jonger) in de top 600; voor printen alleen splitsers en Forge CAD ($49 300+ in 4 mnd, maker zonder publiek). Forge CAD valt af: Construction Lines 7.400+, Grid Modeler 7.600+ en gratis CAD Sketcher 8.037 (GEZIEN), en geen "See ... before you print". Controleur akkoord met correcties, alle zes verwerkt (o.a. 137 lege rijen, dus 25 is een ondergrens; Split-3DPrint deels gratis).
 - Besluit: geen voorstel, maar de splitsvraag aan Hans en Bram bovenaan status.md. Waarom: twee rondes wijzen naar dezelfde plek, en splitsen mag alleen met hun uitdrukkelijk ja; een derde ronde op dezelfde winkel levert weinig nieuws.
 - Wat misging: ik wilde de vraag in berichten/hans.md en bram.md zetten, maar daar schrijf ik volgens de regels niet; staat nu in mijn status.md.
+
+## 8 nov 21:13 tot 21:45 UTC (Olaf)
+- Obsidian eerst (GEZIEN 21:15 UTC): 4 downloads op de communitypagina, release-main.js 0.3.2 0, 0.3.1 4 keer, niet in community-plugin-stats.json (10.082), 0 issues, forumdraad 1 bericht 15 keer bekeken. Skins v3 nog niet als klus voor mij (Daan: na de lancering van het gratis deel). Niets dringends.
+- Geen antwoord van Hans of Bram op de splitsvraag. Ronde 3 met een nieuwe bron: de openbare zoek-API van Gumroad (404 producten uit 29 zoekvragen) plus tellers per pagina. Uitkomst: CatPin 81 reviews op Gumroad (sterke nummer één), en Resin2FDM Lite 22.893 gratis downloads zonder Blender-concurrent in de winkels. Controleur akkoord met correcties, alle vier verwerkt.
+- Besluit: geen voorstel, en mijn advies op de splitsvraag wordt "liever niet". Waarom: CatPin is over twee winkels de duidelijke nummer één (rol: sterke nummer één overslaan); Resin2FDM toont vraag maar nog geen betaalbewijs voor precies deze klus, dus eerst ronde 4.
+- Wat misging: de lokale kloon stond weer op een losse oude main; gewerkt op tak `olaf-2111` vanaf origin/main, niets weggegooid.
