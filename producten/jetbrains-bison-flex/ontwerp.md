@@ -201,7 +201,7 @@ Bekeken (licht en donker, 2880 bij 1800): `hernoem-structuur`, `hernoem-melding`
 3. **Moet: een eigen klein icoon in de Pro-balloon,** in plaats van het blauwe i-tje: `ontwerp/bison-flex/proIcon16.svg` (16 bij 16, `Notification.setIcon` met `IconLoader.getIcon`). Klein werk, maar zo zie je dat de melding van ons komt en niet van de IDE. Dit is code, dus voor Jet.
 4. **Mag, niet nodig voor 1.0:** een korte GIF van Ctrl+klik van `.l` naar `.y`. De winkel van JetBrains toont plaatjes en video's; een GIF in de beschrijving is een bonus. Ik maak hem als de IDE-test een reeks plaatjes van die klik maakt (vijf kort na elkaar), dat kan later.
 
-5. **Moet (gevonden door de controleur): de Pro-balloon wordt afgekapt.** In alle meldingsschermen eindigt de tekst op "Try it free..." met een uitklappijltje; "30 days" valt weg. Dat had ik onder "Goed" moeten missen niet. Maak de tekst korter zodat hij op twee regels past, bijvoorbeeld: "Renaming NUM also changes calc.l. That is a Pro feature, free to try for 30 days." (en voor ga-naar net zo kort).
+5. **Moet (gevonden door de controleur): de Pro-balloon wordt afgekapt.** In alle meldingsschermen eindigt de tekst op "Try it free..." met een uitklappijltje; "30 days" valt weg. Dat miste ik in mijn eerste oordeel. Maak de tekst korter zodat hij op twee regels past, bijvoorbeeld: "Renaming NUM also changes calc.l. That is a Pro feature, free to try for 30 days." (en voor ga-naar net zo kort).
 
 Poster en icoon staan in `ontwerp/bison-flex/` (zie de README daar). De poster is gemaakt van de echte schermen van IDE-run 42429131027 en zegt onderaan wat gratis is en wat Pro (kleuren, structuur en syntaxfouten gratis; springen en hernoemen tussen bestanden Pro), met een PRO-label bij Ctrl+Click.
 
