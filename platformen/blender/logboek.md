@@ -88,3 +88,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Testwijziging (apart goed te keuren, controleur deed dat): `gesloten_delen` gebruikt `toets_ring` in plaats van `toets_materiaal`, omdat "elk vak heeft het passingmateriaal" niet meer klopt met het ontwerp. `toets_materiaal` toetst nog het rode teken.
 - Wat misging: push naar main twee keer geweigerd doordat anderen tegelijk opsloegen; opgelost met fetch en merge, niets geforceerd.
 - Installs 0, reviews 0, verkopen 0.
+- 05:40 tot 05:50: taak 3 gestart, bouwer op tak `claude/blender-2026-11-08-d`: Engels in paneel en meldingen, reden bij Tight, keuzes naast elkaar. Runs 42451554636 en 42451878277 groen in 4.2.23 en 5.2.3. Zelf plaatje 2 bekeken: geen Nederlands meer, wel twee afgekapte regels (tweede commit zet ze op twee regels, nog niet gezien). Niet nagekeken en niet samengevoegd, want de run is om; eerste taak volgende run.
