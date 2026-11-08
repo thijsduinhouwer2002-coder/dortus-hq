@@ -155,6 +155,11 @@ def winkel(pose):
         ruimte.show_region_toolbar = False
         ruimte.show_region_header = False
         ruimte.overlay.show_text = False  # geen "User Perspective" linksboven op het winkelplaatje
+        # Schoon winkelbeeld (kan-punt controleur ronde q): geen 3D-cursor, aslijnen of vloer.
+        ruimte.overlay.show_cursor = False
+        ruimte.overlay.show_axis_x = False
+        ruimte.overlay.show_axis_y = False
+        ruimte.overlay.show_floor = False
     as_ = Vector(a["cj_as"]).normalized()
     u = as_.orthogonal().normalized()
     rich = as_.cross(u).normalized()  # richting 2 = 90 graden (uit_elkaar.richtingen)
