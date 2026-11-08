@@ -15,14 +15,21 @@ import java.util.concurrent.TimeUnit
  */
 class StandLuisteraar : ProjectActivity {
     override suspend fun execute(project: Project) {
-        var laatste = Licentie.proWerkt()
-        val taak = AppExecutorUtil.getAppScheduledExecutorService().scheduleWithFixedDelay({
-            val nu = Licentie.proWerkt()
-            if (nu != laatste && !project.isDisposed) {
-                laatste = nu
-                DaemonCodeAnalyzer.getInstance(project).restart()
-            }
-        }, 2, 2, TimeUnit.SECONDS)
+        val wacht = StandWacht { if (!project.isDisposed) DaemonCodeAnalyzer.getInstance(project).restart() }
+        val taak = AppExecutorUtil.getAppScheduledExecutorService().scheduleWithFixedDelay({ wacht.kijk() }, 2, 2, TimeUnit.SECONDS)
         Disposer.register(project) { taak.cancel(false) }
+    }
+}
+
+/** Het denkwerk van [StandLuisteraar], los te toetsen: [herstart] alleen als Pro aan of uit gaat. */
+class StandWacht(private val herstart: () -> Unit) {
+    @Volatile private var laatste = Licentie.proWerkt()
+
+    fun kijk() {
+        val nu = Licentie.proWerkt()
+        if (nu != laatste) {
+            laatste = nu
+            herstart()
+        }
     }
 }
