@@ -127,11 +127,11 @@ def teken_een(regio, rv3d, a, b, schaal):
         if v["voorbij"]:
             _waaiervlak(vlak, q["centrum"], q["rood_vlak"], (*ROOD, 0.30))
         _lijn(dik, regio, [q["centrum"], q["pose_eind"]], (*(ROOD if v["voorbij"] else WIT), 1.0), 4.0 * schaal)
-        if v["voorbij"] and hoek >= SCHUIN_MIN and q["pose_eind"] is not None:
+        if v["voorbij"] and hoek >= SCHUIN_MIN:
             from mathutils import Vector
             plek = q["pose_eind"] + Vector((0.0, 18.0 * schaal))
             rood_tekst = _tekst(0, plek, v["voorbij_tekst"], ROOD, int(16 * schaal))
-    return {"getal": v["tekst"], "getal_getekend": getal, "streepjes": len(streep), "kijkhoek": round(hoek, 1),
+    return {"pose": round(float(b.get("cj_pose_graden", 0.0)), 3), "richting": k, "getal": v["tekst"], "getal_getekend": getal, "streepjes": len(streep), "kijkhoek": round(hoek, 1),
             "omtrek": sum(1 for x in q["omtrek"] if x is not None), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None, "label_px": tuple(q["label"]) if q["label"] else None}
 

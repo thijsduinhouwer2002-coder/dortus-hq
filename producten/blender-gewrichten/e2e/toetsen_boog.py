@@ -68,6 +68,9 @@ def pose_toetsen(a):
     binnen = boog_m.vorm(a, 0, float(n))
     stap(f"BOOG pose {n} (grens {grens:.2f}): wit, niet voorbij", binnen["pose_eind"] is not None and not binnen["voorbij"]
          and binnen["voorbij_tekst"] is None)
+    half = boog_m.vorm(a, 0, n + 0.5)  # controleur ronde o: voorbij de boog van het getal is al rood
+    stap(f"BOOG pose {n + 0.5}: voorbij de boog van {n} graden, tekst {half['voorbij_tekst']!r}",
+         half["voorbij"] and half["voorbij_tekst"] == "+1\u00b0 past limit")
     pose = float(n + 5)
     voor = boog_m.vorm(a, 0, pose)
     stap(f"BOOG pose {pose:.0f}: voorbij, tekst {voor['voorbij_tekst']!r}",
@@ -83,12 +86,14 @@ def pose_toetsen(a):
 def ongelijk(a):
     """Bereik dat per richting verschilt (zoals bij een schouder): elk getal volgt zijn eigen richting."""
     oud = list(a["cj_buig_graden"])
+    plafond = min(float(a["cj_hoek"]), float(a["cj_grens_graden"]))  # onder het plafond, anders worden ze gelijk
     try:
-        a["cj_buig_graden"] = [oud[0] - 9.6, oud[1], oud[2] - 3.2, oud[3], oud[4], oud[5] - 14.9, oud[6], oud[7]]
+        a["cj_buig_graden"] = [plafond - 9.6, oud[1], plafond - 3.2, oud[3], oud[4], plafond - 14.9, oud[6], oud[7]]
         vorm_toetsen(a, "ongelijk")
         getallen = [addon("gradenboog").vorm(a, k, 0.0)["getal"] for k in range(8)]
         log(f"BOOG ongelijk: bereik {[round(x, 2) for x in a['cj_buig_graden']]}, getallen {getallen}, "
             f"paneel Bends ±{addon('paneel').buig_graden(a)}")
+        stap(f"BOOG ongelijk: getallen verschillen ({sorted(set(getallen))})", len(set(getallen)) >= 3)
         stap("BOOG ongelijk: paneel Bends is de kleinste boog", addon("paneel").buig_graden(a) == min(getallen))
     finally:
         a["cj_buig_graden"] = oud

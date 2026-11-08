@@ -1,5 +1,7 @@
 """Plaatjes 5, 6 en 7 van de schermtest: waaier van het gemeten bereik, pose voorbij de grens (rood)
 en het platte lid (eis b). Opgesplitst uit schermen.py (opruimen 8 nov)."""
+import importlib
+
 import bpy
 from mathutils import Vector
 
@@ -42,13 +44,15 @@ def waaier():
         f"delta_rot_B={tuple(round(x, 4) for x in b.delta_rotation_euler) if b else None}")
 
 
+def _mod():
+    return next(m.module for m in bpy.context.preferences.addons if m.module.endswith("click_joints"))
+
+
 def boog_verslag(naam, voorbij):
     """Na de schermafbeelding: wat de handler echt tekende (waaier.laatst), met eigen eisen. Regel "BOOG OK"
     is wat de workflow eist (Daan, beoordeling 3: getal gelijk aan het paneel, streepjes, rood voorbij)."""
-    import importlib
-    mod = next(m.module for m in bpy.context.preferences.addons if m.module.endswith("click_joints"))
-    waaier = importlib.import_module(f"{mod}.waaier")
-    paneel = importlib.import_module(f"{mod}.paneel")
+    waaier = importlib.import_module(f"{_mod()}.waaier")
+    paneel = importlib.import_module(f"{_mod()}.paneel")
     inst = bpy.context.scene.click_joints
     a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
     bogen = waaier.laatst.get("bogen", [])
@@ -58,8 +62,11 @@ def boog_verslag(naam, voorbij):
         return
     n = paneel.richting_graden(a, int(inst.pose_richting))
     b = bogen[0]
+    bends = paneel.buig_tekst(a)  # "Bends ±20°": bij de pop is het bereik rondom gelijk, dus hetzelfde getal
     eisen = {
-        "getal gelijk aan paneel": b["getal"] == f"{n}\u00b0",
+        "tekenbeurt hoort bij deze pose": b["pose"] == round(float(inst.pose_graden), 3)
+        and b["richting"] == int(inst.pose_richting),
+        "getal gelijk aan paneel": b["getal"] == f"{n}\u00b0" and bends == f"Bends \u00b1{n}\u00b0",
         "getal getekend": b["getal_getekend"],
         "streepjes elke 5 graden": b["streepjes"] == n // 5 + 1,
         "gesloten lijn 48 punten": b["omtrek"] == 48,
@@ -78,8 +85,9 @@ def voorbij_grens():
     if a is None:
         log("ROOD: geen deel A met bereik")
         return
-    grens = a["cj_buig_graden"][int(inst.pose_richting)]
-    inst.pose_graden = min(45.0, round(grens + 8.0))
+    paneel = importlib.import_module(f"{_mod()}.paneel")
+    grens = paneel.richting_graden(a, int(inst.pose_richting))  # het getal op de boog, dan zeker "+8° past limit"
+    inst.pose_graden = min(45.0, grens + 8.0)
     log(f"ROOD grens={grens} pose={inst.pose_graden} rood={len(a.get('cj_rood_vlakken', [])) // 2} vlakken")
 
 

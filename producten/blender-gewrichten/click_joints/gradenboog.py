@@ -49,7 +49,7 @@ def vorm(a, k, pose):
     r_k = rich[k % len(rich)]
     R = STRAAL * a["cj_kogel_r"]
     gr = grenzen(a)
-    boog = [_punt(c, as_, r_k, R, n * i / max(1, n)) for i in range(max(1, n) + 1)] if n > 0 else [_punt(c, as_, r_k, R, 0)]
+    boog = [_punt(c, as_, r_k, R, i) for i in range(n + 1)]  # één punt per graad
     # streepjes: (graden, punt op de boog, punt iets naar buiten voor de richting in pixels)
     streep = [(g, _punt(c, as_, r_k, R, g), _punt(c, as_, r_k, R * 1.1, g)) for g in range(0, n + 1, STREEP)]
     u, w = rich[0], rich[len(rich) // 4]
@@ -58,7 +58,7 @@ def vorm(a, k, pose):
         phi = 360.0 * i / OMTREK_PUNTEN
         d = u * math.cos(math.radians(phi)) + w * math.sin(math.radians(phi))
         omtrek.append(_punt(c, as_, d, R, omtrek_graden(gr, phi)))
-    voorbij = pose > gr[k % len(gr)] + 1e-6
+    voorbij = pose > n + 1e-6  # zelfde grens als het getal: een pose voorbij de boog van "20°" is rood
     pose_eind = _punt(c, as_, r_k, R * POSE_LANG, pose) if pose > 0 else None
     rood_vlak = []
     if voorbij:
@@ -68,6 +68,6 @@ def vorm(a, k, pose):
         "getal": n, "tekst": f"{n}°", "centrum": c, "as": as_, "richting": r_k, "normaal": as_.cross(r_k),
         "boog": boog, "as_eind": _punt(c, as_, r_k, R, 0), "grens_eind": boog[-1],
         "label": _punt(c, as_, r_k, R * 1.22, n), "streepjes": streep, "omtrek": omtrek,
-        "pose": pose, "pose_eind": pose_eind, "voorbij": voorbij, "rood_vlak": rood_vlak,
+        "pose_eind": pose_eind, "voorbij": voorbij, "rood_vlak": rood_vlak,
         "voorbij_tekst": f"+{max(1, int(round(pose - n)))}° past limit" if voorbij else None,
     }
