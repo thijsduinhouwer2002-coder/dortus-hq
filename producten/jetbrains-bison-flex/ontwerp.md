@@ -1,4 +1,6 @@
-Akkoord: ja 7 nov 2026 17:35, voor main 7732165 (code van 0f28fc4, IDE-run 42394756687 groen): uiterlijk, Pro-melding, hint en proefknop, zie beoordeling 7. Geldt voor wat er nu zichtbaar is. Komt er nieuw zichtbaar werk bij voor indienen (de meldingen van eis 7, een hernoemvenster, een andere tekst), dan kijk ik dat eerst na. Eerder: nee 16:30 (Ctrl+zweven en trial-link), nee 14:45.
+Akkoord: nee 8 nov 2026 00:50, voor indienen, omdat de winkel nog geen eigen gezicht heeft: geen poster als eerste plaatje en een pluginicoon dat niet opvalt (nieuwe lat van Thijs, 7 nov 22:05). Het hernoemen op main c0562da is in beeld goed, op één kleinigheid na. Wat er precies moet staat in beoordeling 9; de poster maak ik zelf. Code bouwen gaat gewoon door.
+
+Oud: Akkoord: ja 7 nov 2026 17:35, voor main 7732165 (code van 0f28fc4, IDE-run 42394756687 groen): uiterlijk, Pro-melding, hint en proefknop, zie beoordeling 7. Geldt voor wat er nu zichtbaar is. Komt er nieuw zichtbaar werk bij voor indienen (de meldingen van eis 7, een hernoemvenster, een andere tekst), dan kijk ik dat eerst na. Eerder: nee 16:30 (Ctrl+zweven en trial-link), nee 14:45.
 
 # Ontwerp: Bison & Flex (werknaam), JetBrains-plugin
 
@@ -183,3 +185,21 @@ Nagekeken door een controleur (agent, 18:42): eens met de drie punten. Hij vond 
 Correctie op mijn schermenlijst: er is geen hernoemen in de editor zelf (geen `RefactoringSupportProvider`), Shift+F6 opent altijd het hernoemvenster. Dus het scherm wordt "het hernoemvenster bij een regel die alleen in calc.y staat". Erbij: Shift+F6 in calc.l, hernoemen vanuit de structuurweergave, en Shift+F6 nadat de ga-naar-balloon al getoond is.
 
 Kan-punten (niet nodig voor akkoord): hernoemen in de editor zelf binnen één bestand, een korte hint bij Find Usages zonder Pro (nu lijkt het of calc.l het token niet gebruikt), de conflictcontrole ook tegen namen in calc.l.
+
+### Beoordeling 9, 8 nov 2026 00:50 (main c0562da, code van tak `-o` f1a1f06, IDE-run 42427906937)
+
+Bekeken (licht en donker, 2880 bij 1800): `hernoem-structuur`, `hernoem-melding`, `hernoem-hint`, `hernoem-scanner`, `hernoem-venster`, `hernoem-conflict` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-07-o/` (RUN.txt klopt).
+
+**Goed (laten zo):** de balloon bij de eerste Shift+F6 noemt nu hernoemen en zegt wat Pro doet; de hint in de editor zegt waarom er niets gebeurde ("NUM is also used in calc.l and calc.ll. Rename across grammar and scanner is a Pro feature."); vanuit calc.l dezelfde hint, geen IDE-fout; het hernoemvenster en het conflictvenster zijn de gewone vensters van de IDE met een korte, eerlijke tekst. Punten 1 tot 6 van beoordeling 8 zijn daarmee af.
+
+**Klein (mag met de volgende tak mee):** de balloon in de structuurweergave staat boven `NUM` en bedekt de kop "Declarations", een stuk van de tabbalk en regel 1. Zet hem **onder** de knoop (`Balloon.Position.below`), met de punt omhoog naar `NUM`. Waarom onder: de kop zegt wat je net koos, die moet zichtbaar blijven; dat "Rules" er even onder verdwijnt is niet erg, de balloon gaat weg bij de volgende klik. Antwoord op Jets vraag in de kan-punten van 00:25.
+
+**Antwoord op de vraag over de nieuwe lat:** Jet heeft gelijk dat het eigen gezicht niet in de editor zit. Een programmeur kiest zijn eigen kleurschema; daar blijven we af. Wat ons onderscheidt, in één zin: *de enige plugin waarin grammatica en scanner elkaar kennen: klik van `return NUM;` in de scanner naar `%token NUM` in de grammatica.* Dat moet de winkel in één oogopslag laten zien. Besluit, wat in 1.0 moet:
+
+1. **Moet: een poster als eerste winkelplaatje.** Een korte kop, calc.l en calc.y naast elkaar, en een duidelijke boog van `return NUM;` naar `%token NUM`. Dit maak ik zelf (ontwerpwerk, geen code), van de echte schermen uit de IDE-test. Jet hoeft er niets voor te bouwen, behalve als ik om een extra scherm vraag.
+2. **Moet: een pluginicoon dat opvalt.** Het huidige icoon (twee overlappende vierkanten, oranje en blauw) is netjes maar zegt niets en verdwijnt tussen de andere in de lijst. Ik lever een nieuw `pluginIcon.svg` en `pluginIcon_dark.svg` aan (zelfde bestandsnamen, 40 bij 40); Jet hoeft ze alleen te laten staan als ik ze op een tak zet.
+3. **Moet: een eigen klein icoon in de Pro-balloon,** in plaats van het blauwe i-tje: het pluginicoon op 13 bij 13 (`NotificationGroup` met eigen icoon, of `Notification.setIcon`). Klein werk, maar zo zie je dat de melding van ons komt en niet van de IDE. Dit is code, dus voor Jet.
+4. **Mag, niet nodig voor 1.0:** een korte GIF van Ctrl+klik van `.l` naar `.y`. De winkel van JetBrains toont plaatjes en video's; een GIF in de beschrijving is een bonus. Ik maak hem als de IDE-test een reeks plaatjes van die klik maakt (vijf kort na elkaar), dat kan later.
+
+Meer vraag ik niet voor 1.0 op uiterlijk. Zijn 1 tot 3 klaar en zien de meldingen van eis 7 er netjes uit in licht en donker, dan is het `ja`.
+
