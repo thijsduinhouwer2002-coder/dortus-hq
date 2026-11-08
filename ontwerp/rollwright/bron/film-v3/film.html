@@ -26,9 +26,9 @@ canvas{position:absolute;inset:0}
 #end .logo{font:700 30px Cinzel;letter-spacing:.3em;color:#e9b949}
 #end{position:absolute;inset:0;opacity:0}
 #end .big{position:absolute;top:250px;left:0;right:0;text-align:center;font:600 76px Fraunces;color:#f6efe2}
-#end .row{position:absolute;top:372px;left:0;right:0;text-align:center;font:500 24px Inter;color:#cfc4de}
-#end .pill{display:inline-block;margin-top:34px;padding:14px 26px;border:1.5px solid #e9b949;border-radius:999px;font:700 22px Inter;color:#f2c14e}
-#end .made{position:absolute;bottom:46px;left:0;right:0;text-align:center;font:500 18px Inter;color:#8f86a3}
+#end .row{position:absolute;top:366px;left:0;right:0;text-align:center;font:500 30px Inter;color:#e2d9ee}
+#end .pill{display:inline-block;margin-top:34px;padding:16px 30px;border:2px solid #e9b949;border-radius:999px;font:700 28px Inter;color:#f2c14e}
+#end .made{position:absolute;bottom:50px;left:0;right:0;text-align:center;font:500 24px Inter;color:#b3a9c6}
 #lift{position:absolute;left:0;top:0;width:584px;height:142px;border-radius:22px;overflow:hidden;opacity:0;z-index:4;
  box-shadow:0 30px 80px rgba(0,0,0,.8),0 0 0 1px rgba(233,185,73,.25);transform-origin:50% 50%}
 #lift img{width:584px;height:142px;display:block}
@@ -50,8 +50,8 @@ canvas{position:absolute;inset:0}
  <div id="titlebox"><div class="t" id="kicker">ROLLWRIGHT</div>
  <div class="t" id="title">Roll dice <b>right</b><br>in your notes.</div>
  <div class="t" id="sub">A dice roller for Obsidian, built for tabletop players.</div></div>
- <div id="win"><img id="frame"><img id="logimg" src="fr/poster-ruw-logboek-donker.png" style="opacity:0">
-  <div id="logmask" style="position:absolute;left:649px;top:140px;width:247px;height:560px;background:#262626;opacity:0"></div>
+ <div id="win"><img id="frame"><img id="logimg" src="fr/gif-064-logboek.png" style="opacity:0">
+  <div id="logmask" style="position:absolute;left:548px;top:172px;width:348px;height:528px;background:#282828;opacity:0"></div>
   <svg id="cursor" viewBox="0 0 12 20"><path d="M0 0 L0 17 L4 13 L7 20 L10 19 L7 12 L12 12 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div>
 </div>
 <svg id="rays" viewBox="-50 -50 100 100"><defs><radialGradient id="rg"><stop offset="0" stop-color="#ffd680" stop-opacity=".55"/><stop offset=".6" stop-color="#ff9a3c" stop-opacity=".12"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient></defs><g id="rayg" fill="url(#rg)"></g></svg>
@@ -66,7 +66,7 @@ canvas{position:absolute;inset:0}
 <script>
 (()=>{const g=document.getElementById('rayg');let h='';for(let i=0;i<18;i++){const a=i*20*Math.PI/180,w=(i%2?3.2:5.5)*Math.PI/180;
 h+=`<path d="M0 0 L${50*Math.cos(a-w)} ${50*Math.sin(a-w)} L${50*Math.cos(a+w)} ${50*Math.sin(a+w)} Z"/>`}g.innerHTML=h})();
-const FR={"Initiative": [[6, "gif-003-Initiative-6ms.png"], [80, "gif-004-Initiative-80ms.png"], [146, "gif-005-Initiative-146ms.png"], [215, "gif-006-Initiative-215ms.png"], [280, "gif-007-Initiative-280ms.png"], [329, "gif-008-Initiative-329ms.png"], [379, "gif-009-Initiative-379ms.png"], [447, "gif-010-Initiative-447ms.png"], [512, "gif-011-Initiative-512ms.png"], [561, "gif-012-Initiative-561ms.png"], [612, "gif-013-Initiative-612ms.png"], [645, "gif-014-Initiative-645ms.png"], [700, "gif-015-Initiative-700ms.png"], [749, "gif-016-Initiative-749ms.png"], [801, "gif-017-Initiative-801ms.png"], [845, "gif-018-Initiative-845ms.png"], [896, "gif-019-Initiative-896ms.png"], [928, "gif-020-Initiative-928ms.png"], [979, "gif-021-Initiative-979ms.png"], [1029, "gif-022-Initiative-1029ms.png"], [1078, "gif-023-Initiative-1078ms.png"], [1250, "gif-024-Initiative-rust.png"]], "Damage": [[5, "gif-026-Damage-5ms.png"], [78, "gif-027-Damage-78ms.png"], [144, "gif-028-Damage-144ms.png"], [211, "gif-029-Damage-211ms.png"], [277, "gif-030-Damage-277ms.png"], [326, "gif-031-Damage-326ms.png"], [393, "gif-032-Damage-393ms.png"], [442, "gif-033-Damage-442ms.png"], [509, "gif-034-Damage-509ms.png"], [560, "gif-035-Damage-560ms.png"], [593, "gif-036-Damage-593ms.png"], [648, "gif-037-Damage-648ms.png"], [693, "gif-038-Damage-693ms.png"], [744, "gif-039-Damage-744ms.png"], [793, "gif-040-Damage-793ms.png"], [826, "gif-041-Damage-826ms.png"], [878, "gif-042-Damage-878ms.png"], [926, "gif-043-Damage-926ms.png"], [963, "gif-044-Damage-963ms.png"], [1009, "gif-045-Damage-1009ms.png"], [1060, "gif-046-Damage-1060ms.png"], [1250, "gif-047-Damage-rust.png"]], "Wisdom": [[5, "gif-049-Wisdom-5ms.png"], [81, "gif-050-Wisdom-81ms.png"], [148, "gif-051-Wisdom-148ms.png"], [214, "gif-052-Wisdom-214ms.png"], [282, "gif-053-Wisdom-282ms.png"], [329, "gif-054-Wisdom-329ms.png"], [380, "gif-055-Wisdom-380ms.png"], [446, "gif-056-Wisdom-446ms.png"], [515, "gif-057-Wisdom-515ms.png"], [581, "gif-058-Wisdom-581ms.png"], [646, "gif-059-Wisdom-646ms.png"], [679, "gif-060-Wisdom-679ms.png"], [729, "gif-061-Wisdom-729ms.png"], [779, "gif-062-Wisdom-779ms.png"], [829, "gif-063-Wisdom-829ms.png"], [879, "gif-064-Wisdom-879ms.png"], [929, "gif-065-Wisdom-929ms.png"], [966, "gif-066-Wisdom-966ms.png"], [1029, "gif-067-Wisdom-1029ms.png"], [1062, "gif-068-Wisdom-1062ms.png"], [1250, "gif-069-Wisdom-rust.png"]]};
+const FR={"Initiative": [[8, "gif-003-Initiative-8ms.png"], [97, "gif-004-Initiative-97ms.png"], [179, "gif-005-Initiative-179ms.png"], [264, "gif-006-Initiative-264ms.png"], [346, "gif-007-Initiative-346ms.png"], [412, "gif-008-Initiative-412ms.png"], [478, "gif-009-Initiative-478ms.png"], [544, "gif-010-Initiative-544ms.png"], [595, "gif-011-Initiative-595ms.png"], [644, "gif-012-Initiative-644ms.png"], [695, "gif-013-Initiative-695ms.png"], [745, "gif-014-Initiative-745ms.png"], [795, "gif-015-Initiative-795ms.png"], [845, "gif-016-Initiative-845ms.png"], [895, "gif-017-Initiative-895ms.png"], [945, "gif-018-Initiative-945ms.png"], [995, "gif-019-Initiative-995ms.png"], [1045, "gif-020-Initiative-1045ms.png"], [1095, "gif-021-Initiative-1095ms.png"], [1250, "gif-022-Initiative-rust.png"]], "Damage": [[6, "gif-024-Damage-6ms.png"], [80, "gif-025-Damage-80ms.png"], [163, "gif-026-Damage-163ms.png"], [246, "gif-027-Damage-246ms.png"], [312, "gif-028-Damage-312ms.png"], [363, "gif-029-Damage-363ms.png"], [429, "gif-030-Damage-429ms.png"], [495, "gif-031-Damage-495ms.png"], [562, "gif-032-Damage-562ms.png"], [615, "gif-033-Damage-615ms.png"], [662, "gif-034-Damage-662ms.png"], [712, "gif-035-Damage-712ms.png"], [762, "gif-036-Damage-762ms.png"], [816, "gif-037-Damage-816ms.png"], [879, "gif-038-Damage-879ms.png"], [929, "gif-039-Damage-929ms.png"], [979, "gif-040-Damage-979ms.png"], [1029, "gif-041-Damage-1029ms.png"], [1079, "gif-042-Damage-1079ms.png"], [1250, "gif-043-Damage-rust.png"]], "Wisdom": [[7, "gif-045-Wisdom-7ms.png"], [98, "gif-046-Wisdom-98ms.png"], [182, "gif-047-Wisdom-182ms.png"], [272, "gif-048-Wisdom-272ms.png"], [346, "gif-049-Wisdom-346ms.png"], [401, "gif-050-Wisdom-401ms.png"], [463, "gif-051-Wisdom-463ms.png"], [547, "gif-052-Wisdom-547ms.png"], [630, "gif-053-Wisdom-630ms.png"], [680, "gif-054-Wisdom-680ms.png"], [730, "gif-055-Wisdom-730ms.png"], [780, "gif-056-Wisdom-780ms.png"], [829, "gif-057-Wisdom-829ms.png"], [886, "gif-058-Wisdom-886ms.png"], [947, "gif-059-Wisdom-947ms.png"], [996, "gif-060-Wisdom-996ms.png"], [1045, "gif-061-Wisdom-1045ms.png"], [1097, "gif-062-Wisdom-1097ms.png"], [1250, "gif-063-Wisdom-rust.png"]]};
 const $=id=>document.getElementById(id);
 const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const ease=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
@@ -79,7 +79,7 @@ const B=[...Array(46)].map(()=>({ang:rnd()*6.28,sp:180+rnd()*420,s:1+rnd()*2.6})
 function frameAt(name,ms){const L=FR[name];let f=L[0][1];for(const [m,n] of L){if(m<=ms)f=n}return 'fr/'+f}
 const POS={Initiative:[262,440],Damage:[500,496],Wisdom:[395,553]};
 // timeline (s)
-const T={title:[0,2.2],winIn:[1.7,2.9],ini:3.1,dmg:4.7,wis:6.1,zoomIn:[7.25,7.9],hold:9.6,zoomOut:[9.6,10.3],log:[10.1,12.6],end:[12.9,13.6],loop:15};
+const T={title:[0,2.2],winIn:[1.7,2.9],ini:3.1,dmg:4.7,wis:6.1,zoomIn:[7.25,7.9],hold:9.6,zoomOut:[9.6,10.3],log:[10.1,12.6],end:[13.9,14.6],loop:15};
 window.render=function(t){
  // title
  const ti=out(ph(t,.15,1)), to=ease(ph(t,1.7,2.5));
@@ -115,18 +115,18 @@ window.render=function(t){
  $('tag').style.opacity=out(ph(t,7.6,8.0))*(1-ph(t,9.0,9.3)); $('tag').style.letterSpacing=(.8-.3*out(ph(t,7.6,8.3)))+'em';
  const burst=ph(t,7.15,7.5);
  $('warm').style.opacity=(t>7.1&&t<10.4)?(.35+.65*Math.exp(-3*(t-7.2))+.08*Math.sin(t*3))*(1-mo):0;
- $('band').style.opacity=Math.max(out(ph(t,7.6,8.1))*(1-ph(t,9.0,9.35)),out(ph(t,10.6,11.1))*(1-ph(t,12.5,12.8)));$('cap1').style.opacity=out(ph(t,7.7,8.2))*(1-ph(t,9.0,9.3));
+ $('band').style.opacity=Math.max(out(ph(t,7.6,8.1))*(1-ph(t,9.0,9.35)),out(ph(t,10.4,10.9))*(1-ph(t,13.2,13.5)));$('cap1').style.opacity=out(ph(t,7.7,8.2))*(1-ph(t,9.0,9.3));
  $('cap1').style.transform=`translateY(${(1-out(ph(t,7.7,8.2)))*24}px)`;
  // log
- const li=ease(ph(t,10.1,10.6));$('logimg').style.opacity=li*(1-ph(t,12.6,13.0));
- const reveal=ease(ph(t,10.6,11.9));const lm=$('logmask');lm.style.opacity=li>0?1:0;
- lm.style.top=(140+560*reveal)+'px';lm.style.height=(560*(1-reveal))+'px';
+ const li=t>=10.0?1:0;$('logimg').style.opacity=li;
+ const reveal=ease(ph(t,10.3,12.2));const lm=$('logmask');lm.style.opacity=li>0?1:0;
+ lm.style.top=(172+528*reveal)+'px';lm.style.height=(528*(1-reveal))+'px';
  if(li<=0)lm.style.opacity=0;
- $('cap2').style.opacity=out(ph(t,10.7,11.2))*(1-ph(t,12.5,12.8));
+ $('cap2').style.opacity=out(ph(t,10.5,11.0))*(1-ph(t,13.2,13.5));
  // end card
  const en=out(ph(t,...T.end));
- if(t>12.6){win.style.opacity=wi*(1-ease(ph(t,12.6,13.1)));win.style.transform+=` scale(${1-.12*ease(ph(t,12.6,13.1))})`}
- $('end').style.opacity=en*(1-ph(t,14.6,15));
+ if(t>13.4){win.style.opacity=wi*(1-ease(ph(t,13.4,13.85)));win.style.transform+=` scale(${1-.12*ease(ph(t,13.4,13.85))})`}
+ $('end').style.opacity=en*(1-ph(t,15.6,16));
  $('end').style.transform=`translateY(${(1-en)*20}px)`;
  // embers
  const c=$('emb').getContext('2d');c.clearRect(0,0,1280,720);
