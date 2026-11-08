@@ -2,6 +2,12 @@ Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11
 
 Oud: Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
 
+**Waarom wij (regel Thijs 8 nov, Bram):** Click Joints is de enige Blender-add-on die je meteen na één klik laat zien of het gewricht in je printbare figuur klikt (groen, geel of rood op de snede, met de wand in mm) en hoe ver het buigt voor het ergens tegenaan komt ("Bends 40° to 115°"); kogel en pen met die controle zijn gratis, scharnieren, printerprofielen en alle ledematen in één keer kosten $12.
+Winkelzin (Engels, overal gelijk): "See if it clicks, and how far it bends, before you print. Ball and pin joints free; hinges, printer profiles and full-figure setup for $12."
+- Waarom beter dan de beste concurrent: Cut Flex ($34,99) en Cleave ($23) snijden ook gewrichten, maar meten geen bereik in graden; Cut Flex kijkt één houding per keer na (onderzoek ronde h hieronder, GEZIEN). Of zij de wand per gewricht in mm tonen is nog niet nagekeken: die claim gebruiken we pas na controle. Wij zijn ook goedkoper en hebben een volledig werkende gratis versie.
+- Gratis en betaald: de beweegproef (bereik in graden) hoort bij de gratis versie, want het hoofdplaatje en de poster moeten op extensions.blender.org ook mogen (daar alleen gratis functies tonen, ToS 6.2). Betaald blijft: scharnier met eindstop, printerprofielen met testkaartje, alle ledematen in één keer, magneetgaten.
+- Let op: het bereik in graden is nog niet gebouwd (ontwerp v0.2 hieronder). Tot het erin zit, mag deze zin niet op een winkelpagina.
+
 # Blender-gewrichten (werktitel "Click Joints"): ontwerp v1
 
 Bouwbesluit: `organisatie/besluiten.md` (8 nov, Bram) en `platformen/blender/kandidaten-2026-11-07.md` sectie 19. Bewijsproduct: het moet de hele weg leren, niet het meeste geld opleveren. Status: v1.2. Controleur 8 nov: akkoord met correcties, alle tien verwerkt, daarna correcties 5 tot 8 van de tweede ronde (zie onderaan). Nog niet beoordeeld door Daan.
