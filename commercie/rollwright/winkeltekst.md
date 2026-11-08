@@ -51,3 +51,45 @@ Al aanwezig in korte tekst, lange tekst of README: dice, roll, tables, game mast
 | Getest in de echte app | onbekend | onbekend | onbekend | ja, elke release |
 
 "Onbekend" betekent: niet nagekeken in hun code. Niet gebruiken in openbare tekst. In de openbare tekst noemen we alleen wat wij doen, niet wat een ander niet doet.
+
+## Bijwerking 8 nov 2026: versie 0.3.0 (nieuw uiterlijk)
+
+Door Chris, run 3 voor Rollwright. Aanleiding: 0.3.0 is bijna af (klus 1 tot 5b van Daan op main, klus 6 voorbeeldnotitie en 7 skin-tegels nog niet, zie `platformen/obsidian/taken.md`). Rollwright wordt pas aangemeld met 0.3.0 (bericht Thijs 7 nov 22:10). De tekst hierboven gaat over 0.2.0; dit deel vervangt de korte en lange beschrijving zodra 0.3.0 uitkomt. De README houdt Olaf zelf bij (heeft "Roll log" al).
+
+### Wat er voor de koper verandert
+In 0.2.0 was Rollwright "Dice Roller, maar strakker". In 0.3.0 is het verschil iets wat je ziet in de eerste tien seconden: een worp tuimelt als je klikt, een hoogste worp licht goud op (stempel NAT 20 bij een natuurlijke 20 op één d20), een laagste worp wordt rood, en elke worp die je aanklikt komt in een Roll log, gegroepeerd per notitie en sessie. Geen andere dobbelplugin in de lijst doet dat (GOK: niet in hun code nagekeken, wel in hun README's en beschrijvingen gezocht, zie `cijfers.md`). Dat moment moet daarom vooraan in elke tekst, vóór de lijst met notatie.
+
+### Korte beschrijving (voorstel voor manifest.json bij 0.3.0, 186 tekens)
+`Roll dice right in your notes with a full formula notation. Click to roll again, see a natural 20 light up, draw from tables, lists, sections and tags, and keep your rolls in a Roll log.`
+
+Waarom: de regels van Obsidian vragen hoogstens 250 tekens, beginnen met een werkwoord, eindigen met een punt, geen emoji (DERDEN, [Submission requirements for plugins](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Submission%20requirements%20for%20plugins.md)). Alle zoekwoorden van de oude tekst blijven staan (dice, roll, tables, lists, sections, tags), "history" wordt "roll log" omdat het paneel nu zo heet. Nieuw is het enige wat ons onderscheidt: het moment van de natuurlijke 20. Advies 11 in `commercie/adviezen.md`.
+
+### Lange beschrijving voor de listing (vervangt die hierboven bij 0.3.0)
+Roll dice and random tables right inside your notes. Write a formula, read the result, click to roll again. Made for game masters and solo players who keep their sessions in Obsidian.
+
+Every roll is a small game piece. Click it and it tumbles and lands in about half a second. The highest possible roll lights up gold, with a NAT 20 stamp on a natural 20; the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so a session reads back like a story.
+
+- Uses the `dice:` notation known from the Dice Roller plugin, so most of your existing notes should keep working.
+- Roll on your own tables, lists, sections, lines and tagged notes. Lookup tables pick the matching row.
+- Keep a result after a restart with `dice+:`, or write it into the note with `dice-mod:`.
+- Use numbers from your frontmatter: `dice: 1d20 + str`.
+- Keep highest, exploding, rerolls, success counting, Fudge and Genesys narrative dice.
+- Reading view and Live Preview look the same, in light and dark. Roll animations are off when your system asks for reduced motion.
+
+All rolling is free. Two extra skins, Parchment and Arcane, are a one-time $6 purchase. No account, no telemetry.
+
+Pas aan als klus 6 af is: voeg na de tweede alinea toe "New to it? Open the empty Roll log and create an example note: a tavern scene with live rolls." Niet eerder, want het bestaat nog niet.
+
+Wat ik bewust weglaat: "3D", "animated dice" (het is geen 3D-steen, het is een token dat beweegt), mobiel (niet getest), en elke vergelijking met wat een concurrent niet kan.
+
+### Plaatjes voor de listing (volgorde, sluit aan op Daan, ontwerp-v2 punt 6)
+De listing neemt alleen JPEG, PNG of WebP, tot 5 bureaubladplaatjes van 1200 bij 800 (DERDEN, [Manage your plugin or theme](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Manage%20your%20plugin%20or%20theme.md)). Een GIF kan dus niet in de listing, alleen in de README. Of een bewegende WebP werkt, zegt de pagina niet (GOK, alleen te testen door wie inlogt). Daarom moet het moment in een stilstaand plaatje zichtbaar zijn:
+1. **Poster** met een crit in beeld (NAT 20 in goud). Dit is het plaatje in de zoeklijst en het belangrijkste.
+2. Dit typ je, dit krijg je (Live Preview, code naast uitkomst).
+3. Roll log naast de notitie, met kopjes per notitie en sessie, één crit en één fumble zichtbaar.
+4. De drie skins naast elkaar, elk met een crit (klus 7).
+5. Tabellen en lijsten (gasten, geruchten, buit).
+De oude vijf plaatjes in `platformen/obsidian/lijst-plaatjes/` (0.2.0) niet meer gebruiken als de nieuwe er zijn.
+
+### Zoekwoorden
+Blijven gelijk. Erbij als woorden in de tekst (niet als belofte): "natural 20", "session". Mensen schrijven "nat 20" en "natural 20" (GOK), beide staan nu in de tekst (stempel NAT 20, "natural 20").

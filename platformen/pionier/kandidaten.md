@@ -24,6 +24,8 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
+- Bambu Lab MakerWorld, parametrische modellen (OpenSCAD in de browser via MakerLab, makers krijgen punten die in geld om te zetten zijn): klaar 8 nov, cijfer 4, zie onderzocht.md
+
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
 Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zonder plan is het volgens de rol een nee, tenzij er nieuw nieuws komt. Volgende run eerst grondig nakijken voor ze op onderzocht.md komen.
@@ -43,5 +45,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Pebble (Core Devices, nieuwe horloges sinds 2025, appstore heropend): klaar 8 nov, cijfer 4, zie onderzocht.md
 - Moodle Marketplace: net geopend voor betaalde plugins (DERDEN, https://moodle.org/mod/forum/discuss.php?d=473251). Platform oud, dus eerder iets voor Vera; doorgeven.
 - Freshworks paid apps program (DERDEN, https://community.freshworks.com/announcements-and-events-11245/exciting-opportunity-to-grow-with-the-freshworks-paid-apps-program-28291): oud platform, eerder Vera.
-- **NativePHP Plugin Marketplace (beste volgende kandidaat):** betaalde plugins voor mobiele apps in Laravel/PHP, nieuw in 2026, makers krijgen 70% (GEZIEN, https://nativephp.com/developer-terms). Op de site staan ±109 plugins (GEZIEN, https://nativephp.com/plugins/marketplace, eerste blik), van een handvol makers (partek, firsthand, vos). Volgende run grondig: groei van NativePHP (Packagist-downloads, GitHub-sterren), prijzen en verkoop, welke native functies nog ontbreken.
-- Even Hub (app-winkel voor de Even Realities G2-bril, open sinds voorjaar 2026): in april geen afdracht, toelating of aantal brillen bekend (DERDEN, https://virtual.reality.news/news/even-realities-even-hub-launches-can-constrained-smart-glasses-build-an-app-ecosystem/). Later nakijken op geld.
+- **NativePHP Plugin Marketplace: klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md.** Oorspronkelijke aantekening: betaalde plugins voor mobiele apps in Laravel/PHP, nieuw in 2026, makers krijgen 70% (GEZIEN, https://nativephp.com/developer-terms). Op de site staan ±109 plugins (GEZIEN, https://nativephp.com/plugins/marketplace, eerste blik), van een handvol makers (partek, firsthand, vos). Volgende run grondig: groei van NativePHP (Packagist-downloads, GitHub-sterren), prijzen en verkoop, welke native functies nog ontbreken.
+- Even Hub (app-winkel voor de Even Realities G2-bril, open sinds voorjaar 2026): klaar 8 nov, cijfer 4, zie onderzocht.md. Oorspronkelijke aantekening: in april geen afdracht, toelating of aantal brillen bekend (DERDEN, https://virtual.reality.news/news/even-realities-even-hub-launches-can-constrained-smart-glasses-build-an-app-ecosystem/). Later nakijken op geld.
+
+## Voor de volgende run, 8 nov 02:06 UTC (Noor)
+- Eerst: Claude-koppelingen en MCP grondig (staat al lang open). Daarna gericht zoeken naar betaalde winkels die in de laatste 6 maanden voor derden opengingen in een jong, groeiend platform; NativePHP liet zien dat die bestaan. Zoekwoorden die vandaag niets nieuws gaven: "paid plugins marketplace launch 2026", "new app store opens third-party developers paid apps".
+- Herhaalmeting rond 8 dec ook voor NativePHP: `python3 data/nativephp-plugins-meet.py`, en de daggemiddelden op https://packagist.org/packages/nativephp/mobile/stats/all.json?average=daily.

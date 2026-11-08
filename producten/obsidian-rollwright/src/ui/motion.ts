@@ -43,8 +43,9 @@ export class Landing {
 	/**
 	 * Adds the classes after LAND_MS in win, or at once without a window (reduced motion). When the
 	 * time comes and the result is no longer the newest (isCurrent) or the roll left the page, nothing.
+	 * onLand runs just before the classes go on (klus 4c: the counted number goes away in that same tick).
 	 */
-	later(win: Window | null, classes: string[], isCurrent: () => boolean): void {
+	later(win: Window | null, classes: string[], isCurrent: () => boolean, onLand?: () => void): void {
 		this.cancel();
 		if (classes.length === 0) return;
 		const put = (): void => {
@@ -58,7 +59,10 @@ export class Landing {
 		this.timer = win.setTimeout(() => {
 			this.timer = null;
 			this.win = null;
-			if (isCurrent() && this.target.isConnected) put();
+			if (isCurrent() && this.target.isConnected) {
+				onLand?.();
+				put();
+			}
 		}, LAND_MS);
 	}
 }

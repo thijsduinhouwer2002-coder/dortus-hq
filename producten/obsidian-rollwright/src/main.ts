@@ -98,7 +98,7 @@ export default class RollwrightPlugin extends Plugin {
 
 		this.addCommand({
 			id: "open-history",
-			name: "Open roll history",
+			name: "Open roll log",
 			callback: () => void this.openHistory(),
 		});
 		this.addCommand({

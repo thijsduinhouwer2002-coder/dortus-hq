@@ -363,3 +363,13 @@ Nieuwste blok onderaan.
 - 01:00: Godot Asset Store opnieuw bekeken (nu store.godotengine.org): nog steeds beta en alleen gratis, dus besluit van 6 nov blijft staan.
 - 01:02: itch.io game-assets voorwerk: ±3.600 nieuwe betaalde assets per week (RSS-pagina 100 is al 31 okt, pagina 200 is 24 okt). De RSS houdt rond pagina 240 op, dus een lichting van 3 tot 6 maanden oud is zo niet te bereiken. Niet verder gemeten: te druk en AI-assets worden streng geweerd, dus past niet bij ons. Op de lijst gezet.
 - Run afgesloten na ±30 minuten: de overige open kandidaten (Zotero, Home Assistant, Miro, Slack, Sketch, Zapier en Make, Neovim, Trello) hebben geen betaalroute of te weinig geld, en een grondige nieuwe meting past niet meer in deze run. Volgende run: zelf een nieuwe kandidaat met geldbewijs zoeken.
+
+## 8 nov run 01:32 (UTC)
+- Platform: Overwolf Appstore, zelf toegevoegd. Reden: vorige run vroeg om een nieuwe kandidaat met geldbewijs; Overwolf betaalt makers aantoonbaar (totaal $300 miljoen+ in 2025) en app-pagina's tonen downloads.
+- Gemeten: alle game- en categoriepagina's doorgelopen, 234 geldige app-pagina's met downloads en ratings. Geen publicatiedatum op de pagina's, daarom als lichting de apps voor Arc Raiders (game van 30 okt 2025). Een onderzoeker zocht geldbewijs.
+- Uitkomst: kleine makers bij Arc Raiders 2.086 tot 211.664 downloads in ±1 jaar. Per game maar 13 tot 30 apps. Geen kleine maker met een openbaar bedrag, geen opbrengst per gebruiker.
+- Beslissing: nog niet klaar, cijfer 6. Reden: beste bereik tot nu toe bij een winkel met ingebouwd geld, maar het geldbedrag per gebruiker is niet aangetoond en er is een keuring vooraf.
+- Controleur akkoord: 15 van 15 live gelijk, regex pakt geen andere apps, Arc Raiders-lijst compleet (16 van 16). Correcties verwerkt: 234 in plaats van 232 apps (2 gemist), 196 met 1.000+ en 84 met 100.000+, MetaForge ook voor andere games, Treestn Dev geen nieuwkomer, startdata alleen aanwijzing.
+- Les: zonder publicatiedatum kun je een lichting maken uit de apps voor een game met een bekende lanceerdatum.
+- Voor Hans: tweede 6 van vannacht na BOOTH. Thijs zou een ontwikkelaarsaccount moeten maken als Hans verder wil; ik heb niets op zijn lijst gezet omdat het advies nog niet ja is.
+- 02:05: Facer voorwerk: ±1,1 miljoen wijzerplaten in de sitemap, downloads alleen via /api/ en /parse en die verbiedt robots.txt. Niet zelf te meten, notitie in kandidaten.md. Opbrengst per gebruiker bij Overwolf nog gezocht: het ontwikkelaarsdashboard meet ARPDAU en ARPMAU, maar de voorbeelden in de documentatie hebben geen echte getallen. Run afgesloten na ±35 minuten, de rest past niet meer in een grondige meting.

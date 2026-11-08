@@ -496,12 +496,12 @@ body.theme-dark {
 	mask: var(--rw-d20) center / contain no-repeat;
 }
 
-.rollwright-history-item:first-child {
+.rollwright-history-item.rollwright-history-latest {
 	border-color: color-mix(in srgb, var(--rollwright-accent) 50%, var(--background-modifier-border));
 	box-shadow: 0 2px 10px color-mix(in srgb, var(--rollwright-accent) 14%, transparent);
 }
 
-.rollwright-history-item:first-child::before {
+.rollwright-history-item.rollwright-history-latest::before {
 	width: 1.3em;
 	height: 1.3em;
 	left: -1.68em;
@@ -576,6 +576,26 @@ button.rollwright-history-clear:not(.clickable-icon) {
 	box-shadow: none;
 	color: var(--text-faint);
 	font-size: var(--font-ui-smaller);
+}
+
+/* Klus 5: een kopje per sessie (notitie en uur). Eenvoudig; Daan maakt het mooi. */
+.rollwright-history-group-title {
+	margin: var(--size-4-3) 0 var(--size-4-2) -1.7em;
+	font-size: var(--font-ui-smaller);
+	font-variant: small-caps;
+	letter-spacing: 0.04em;
+	color: var(--text-muted);
+}
+
+/* Klus 5b: de notitie in een item als rustige link, zonder onderstreping. */
+.rollwright-history-meta .rollwright-history-note {
+	color: var(--text-muted);
+	text-decoration: none;
+}
+
+.rollwright-history-meta .rollwright-history-note:hover {
+	color: var(--text-accent);
+	text-decoration: underline;
 }
 
 /* De verloop-achtergrond van v2 zet background-color op doorzichtig. Daaronder de skinkleur, zodat
@@ -803,7 +823,7 @@ body.rollwright-skin-arcane .rollwright-roll,
 }
 
 /* De nieuwste worp: een duidelijk grotere d20 met een gloed, zodat je ziet waar het verslag begint. */
-.rollwright-history-item:first-child::before {
+.rollwright-history-item.rollwright-history-latest::before {
 	width: 1.55em;
 	height: 1.55em;
 	left: -1.8em;
@@ -888,15 +908,15 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	box-shadow: 0 2px 12px color-mix(in srgb, var(--rw-hi) 22%, transparent);
 }
 
-.rollwright-history-item:first-child.rollwright-crit::before {
+.rollwright-history-item.rollwright-history-latest.rollwright-crit::before {
 	filter: drop-shadow(0 0 6px color-mix(in srgb, var(--rw-hi) 80%, transparent));
 }
 
-.rollwright-history-item:first-child.rollwright-fumble::before {
+.rollwright-history-item.rollwright-history-latest.rollwright-fumble::before {
 	filter: drop-shadow(0 0 5px color-mix(in srgb, var(--rw-lo) 60%, transparent));
 }
 
-.rollwright-history-item:first-child:not(.rollwright-crit):not(.rollwright-fumble)::before {
+.rollwright-history-item.rollwright-history-latest:not(.rollwright-crit):not(.rollwright-fumble)::before {
 	filter: drop-shadow(0 0 6px color-mix(in srgb, var(--rollwright-accent) 80%, transparent));
 }
 

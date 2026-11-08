@@ -12,7 +12,7 @@ Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players 
 - **Roll on your own notes.** Pick a random row from a table, an item from a list, a block from a note, a line, or a note with a tag.
 - **Lookup tables.** Put a formula in the first header and Rollwright picks the matching row. Cells can hold rolls too.
 - **Keep or write a result.** `dice+:` keeps a result after a restart, `dice-mod:` writes it into the note after you confirm.
-- **Roll history.** A side panel shows what you rolled, from which note, and lets you roll again.
+- **Roll log.** A side panel shows what you rolled, grouped by note and session, and lets you roll again.
 - **Works where you write.** Reading view and Live Preview look the same, in light and dark themes.
 
 ![The roll history panel next to the note, with each roll, its formula or source table, and its source note](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-history.png)
@@ -141,8 +141,8 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 ### Side panel, commands and settings
 
-- **Roll history** shows rolls you clicked or typed, with the source note, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The history is stored in the plugin's data file.
-- **Commands:** "Open roll history" and "Roll a formula".
+- **Roll log** shows rolls you clicked or typed, grouped under the note and the time the session began, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The history is stored in the plugin's data file.
+- **Commands:** "Open roll log" and "Roll a formula".
 - **Settings:** default die, default number of dice, whether `dice-mod:` keeps the formula, and saved formulas. A saved formula works by name in any roll, such as `` `dice: attack` `` or `1d6 + bonus`. A number in the frontmatter of the note works the same way: with `str: 3` in the note, `` `dice: 1d20 + str` `` adds 3. A saved formula with the same name goes first. Only the note's own frontmatter counts, also for a code inside a table or section drawn from another note; inline fields such as `str:: 3` and text that is not a number do not. Names that read as dice notation, such as `d`, `dh`, `k`, `s` or `F`, stay notation.
 - **Import:** a button copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read. Existing names are kept. The layout of that file was not verified, so an import may find nothing.
 
