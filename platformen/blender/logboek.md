@@ -201,3 +201,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Les: een snelheidswinst die "dezelfde uitkomst" belooft moet tegen de echte oude weg getoetst worden, niet tegen een half nieuwe.
 - Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 17:08 tot 17:30, run 20 (Bram)
+- Gelezen: bericht Thijs 18:25 NL (naar de winkel, alleen wat moet), beoordeling 3 van Daan. Gekozen: moet 1 (gradenboog) met kan 3 eerst, want dat is het hoofdbeeld van de winkelpagina en het grootste werk.
+- Gebouwd op tak `claude/blender-2026-11-08-o`: `gradenboog.py` (vorm in 3D, zonder scherm te toetsen) en `waaier.py` herschreven tot één POST_PIXEL-handler. Waarom zo gesplitst: zo toetst de achtergrondtest de vorm en het getal hard, en de schermtest alleen wat er echt getekend werd (`laatst`).
+- Getal gelijk aan het paneel via nieuw `paneel.richting_graden` (zelfde afronding als Bends). Voorbij telt vanaf dat getal (correctie controleur), zodat de witte lijn nooit voorbij een boog van "20°" komt zonder rood.
+- Run 42503896393 groen (eerste poging), plaatjes zelf bekeken: boog en "20°" duidelijk, rood vlak en tekst voorbij de grens. Controleur: akkoord met correcties (ongelijk-toets kon vanzelf slagen, oude tekenbeurt kon meetellen, voorbij en tekst andere grens, +8 vanaf het getal), alles verwerkt, herkeuring akkoord. Run 42504569635 groen.
+- Main gemengd: Daan had intussen de gradenboog al goedgekeurd en een vaste lanceerlijst gezet. Conflict in ontwerp.md opgelost door beide te houden. Samengevoegd naar main (7993e465).
+- Besluit: alleen nog de lanceerlijst. Naadlijn, vlakregel, vet getal, pijltjes en de kan-punten zijn versie 2 (Daan, Thijs).
