@@ -1219,7 +1219,7 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment {
 
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) {
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", Georgia, serif;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", Georgia, serif;
 	color: #2a1808;
 	background:
 		var(--rw-paper-noise),
@@ -1239,35 +1239,28 @@ font-family: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", Ge
 
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):hover {
-transform: rotate(-0.6deg);
+	transform: rotate(-0.6deg);
 	box-shadow:
 		inset 0 0 0.55em rgba(120, 70, 20, 0.45),
 		inset 0 0 0.12em rgba(90, 50, 10, 0.5),
 		0 3px 6px rgba(50, 30, 5, 0.35);
 }
 
-body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-label:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-label,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-label {
-font-style: italic;
+	font-style: italic;
 	color: #5a3a1a;
 }
 
-body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-icon::before:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-icon::before,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-icon::before {
--webkit-mask: none;
-	mask: none;
-	width: 1.05em;
-	height: 1.05em;
-	border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%;
-	background:
-		radial-gradient(circle at 50% 50%, transparent 0.16em, rgba(60, 0, 0, 0.35) 0.17em, transparent 0.24em),
-		radial-gradient(circle at 35% 30%, #d9483a, #9a1f14 55%, #5e0d07);
-	box-shadow: 0 0.5px 1.5px rgba(40, 0, 0, 0.55), inset 0 -1px 1px rgba(0, 0, 0, 0.25);
+	background: linear-gradient(160deg, #c23a2c, #8a1a10 60%, #5e0d07);
+	filter: drop-shadow(0 0.5px 0.5px rgba(40, 0, 0, 0.45));
 }
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) {
-border: 0;
+	border: 0;
 	border-bottom: 0;
 	background:
 		var(--rw-paper-noise),
@@ -1278,7 +1271,7 @@ border: 0;
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-roll-block:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-roll-block:not(.rollwright-error) {
-padding: 0.45em 0.8em;
+	padding: 0.45em 0.8em;
 	border-radius: 3px 10px 4px 12px / 12px 4px 10px 3px;
 	box-shadow:
 		inset 0 0 1.4em rgba(120, 70, 20, 0.45),
@@ -1288,7 +1281,7 @@ padding: 0.45em 0.8em;
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error) {
-color: #3b2400;
+	color: #3b2400;
 	background:
 		var(--rw-paper-noise),
 		linear-gradient(115deg, transparent 30%, rgba(255, 252, 220, 0.75) 45%, transparent 60%),
@@ -1301,18 +1294,16 @@ color: #3b2400;
 	text-shadow: 0 1px 0 rgba(255, 240, 190, 0.6);
 }
 
-body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error) .rollwright-icon::before:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-icon::before,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error) .rollwright-icon::before {
-background:
-		radial-gradient(circle at 50% 50%, transparent 0.16em, rgba(60, 0, 0, 0.35) 0.17em, transparent 0.24em),
-		radial-gradient(circle at 35% 30%, #e0574a, #a3231a 55%, #5e0d07);
+	background: linear-gradient(160deg, #b02a1e, #6e1209);
 }
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwright-error) {
-color: #5e0d07;
+	color: #5e0d07;
 	background:
-		radial-gradient(ellipse 40% 55% at 78% 60%, rgba(25, 10, 5, 0.38), transparent 70%),
+		radial-gradient(ellipse 45% 70% at 80% 60%, rgba(25, 10, 5, 0.55), transparent 72%),
 		radial-gradient(circle 0.18em at 90% 25%, rgba(25, 10, 5, 0.5), transparent 100%),
 		var(--rw-paper-noise),
 		linear-gradient(180deg, #e9d6a2, #d7bd84);
@@ -1321,7 +1312,7 @@ color: #5e0d07;
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-crit > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit > .rollwright-stamp {
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 	color: #fbe9c8;
 	background: radial-gradient(circle at 35% 30%, #d9483a, #9a1f14 60%, #6a0f08);
 	border: 0;
@@ -1333,7 +1324,7 @@ font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble > .rollwright-stamp {
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 	color: #f3e2bf;
 	background: #2a1808;
 	border: 0;
@@ -1361,7 +1352,7 @@ body.rollwright-skin-arcane,
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) {
-color: #f3eeff;
+	color: #f3eeff;
 	border: 1px solid transparent;
 	background:
 		radial-gradient(1px 1px at 18% 30%, rgba(255,255,255,0.9), transparent 60%), radial-gradient(1px 1px at 72% 22%, rgba(190,240,255,0.8), transparent 60%), radial-gradient(1.2px 1.2px at 46% 78%, rgba(255,220,255,0.75), transparent 60%), radial-gradient(1px 1px at 88% 70%, rgba(255,255,255,0.6), transparent 60%) padding-box,
@@ -1377,24 +1368,24 @@ color: #f3eeff;
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):hover {
-box-shadow: 0 0 0.9em rgba(140, 95, 255, 0.85), 0 0 0.25em rgba(111, 231, 245, 0.8), inset 0 0 0.6em rgba(120, 80, 255, 0.45);
+	box-shadow: 0 0 0.9em rgba(140, 95, 255, 0.85), 0 0 0.25em rgba(111, 231, 245, 0.8), inset 0 0 0.6em rgba(120, 80, 255, 0.45);
 }
 
-body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-icon::before:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-icon::before,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-icon::before {
-background: linear-gradient(180deg, #c9fbff, #6fe7f5);
+	background: linear-gradient(180deg, #c9fbff, #6fe7f5);
 	filter: drop-shadow(0 0 3px #6fe7f5);
 	animation: rw-arcane-twinkle 3.2s ease-in-out infinite;
 }
 
-body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-label:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-label,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-label {
-color: #c9b8ff;
+	color: #c9b8ff;
 }
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) {
-border: 1px solid transparent;
+	border: 1px solid transparent;
 	border-bottom: 1px solid transparent;
 	background:
 		radial-gradient(1px 1px at 18% 30%, rgba(255,255,255,0.9), transparent 60%), radial-gradient(1px 1px at 72% 22%, rgba(190,240,255,0.8), transparent 60%), radial-gradient(1.2px 1.2px at 46% 78%, rgba(255,220,255,0.75), transparent 60%), radial-gradient(1px 1px at 88% 70%, rgba(255,255,255,0.6), transparent 60%) padding-box,
@@ -1407,10 +1398,10 @@ border: 1px solid transparent;
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) {
-color: #fff6d6;
+	color: #fff6d6;
 	background:
-		radial-gradient(ellipse at 50% 120%, rgba(255, 212, 94, 0.55), transparent 70%) padding-box,
-		linear-gradient(160deg, #3a2266, #1c1040) padding-box,
+		radial-gradient(ellipse at 50% 115%, rgba(255, 212, 94, 0.85), transparent 75%) padding-box,
+		linear-gradient(160deg, #4a2a6e, #24124a) padding-box,
 		linear-gradient(90deg, #ffd45e, #fff3b0, #ff9de2, #ffd45e, #fff3b0, #ff9de2, #ffd45e) border-box;
 	background-size: auto, auto, 300% 100%;
 	background-color: var(--rollwright-bg);
@@ -1418,15 +1409,15 @@ color: #fff6d6;
 	text-shadow: 0 0 0.4em rgba(255, 212, 94, 1), 0 0 0.1em #fff;
 }
 
-body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) .rollwright-icon::before:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-icon::before,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) .rollwright-icon::before {
-background: linear-gradient(180deg, #fff3b0, #ffd45e);
+	background: linear-gradient(180deg, #fff3b0, #ffd45e);
 	filter: drop-shadow(0 0 4px #ffd45e);
 }
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-error) {
-color: #ffd9e1;
+	color: #ffd9e1;
 	background:
 		radial-gradient(ellipse at 50% 120%, rgba(255, 60, 100, 0.45), transparent 70%) padding-box,
 		linear-gradient(160deg, #2a0f2e, #14081c) padding-box,
@@ -1439,7 +1430,7 @@ color: #ffd9e1;
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-crit > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit > .rollwright-stamp {
-color: #2a1500;
+	color: #2a1500;
 	background: linear-gradient(135deg, #fff3b0, #ffd45e 45%, #ff9de2);
 	border-color: #1a1236;
 	box-shadow: 0 0 0.6em rgba(255, 212, 94, 0.9), 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -1447,7 +1438,7 @@ color: #2a1500;
 
 body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-fumble > .rollwright-stamp {
-color: #fff;
+	color: #fff;
 	background: linear-gradient(135deg, #ff4f7a, #7a2cff);
 	border-color: #1a1236;
 	box-shadow: 0 0 0.6em rgba(255, 60, 100, 0.8);
