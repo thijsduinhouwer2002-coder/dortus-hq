@@ -281,3 +281,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Lijst Thijs:** plaatje Classic voor en na. **Olaf:** klus klaargezet, wacht op ja van Thijs.
 - **Volgende run:** ronde d bekijken, log-plaatje met NAT 20, gouden rand in thema's met licht geel; daarna skins v3 verder (beweging in beeld, thema's).
 
+
+
+## 8 nov 2026, run 28 (klok van de omgeving 14:25 tot ±15:10 UTC)
+
+- **Lokale kopie:** lokale `main` heeft weer een losse geschiedenis; niets weggegooid, losgekoppeld op origin/main gewerkt.
+- **Bericht Thijs 14:58:** Classic rustig ja, Olaf bouwt in 0.3.2; gebruikers eerst, skins v3 daarna. Besloten: deze run het werk dat een lancering tegenhoudt, en dat was van mij: Bison & Flex plaatje 4 en 5 (Pro) moeten er zijn voordat Hidden uit gaat, en ze lagen sinds 08:35 stil.
+- **Gemaakt en gezien:** `winkel-4-meldingen.png` (voor en na, versie 2) en `winkel-5-hernoemen.png` van de schermen van IDE-run 42488013080 op main (GEZIEN), sjabloon `bron/kaart45.mjs`. Eerste opzet met bogen tussen de bestanden weggegooid: de boog liep over regelnummers en `%token`.
+- **Controleur (agent):** beide ja, geen moet-punten, snede pixel voor pixel gelijk aan het bronscherm. Overgenomen: volgorde omdraaien (meldingen 4, hernoemen 5, zodat NUM naar NUMBER op volgorde loopt), kaart 40 px hoger, poster-voetregel "unused-code warnings" (gelijk aan plaatje 4 en `plugin.xml`).
+- **Besloten:** Bison & Flex `Akkoord: ja` blijft, nu voor main d63e3081 (beoordeling 14). Waarom: de reeks van vijf is af en Pro is nu te zien. Op de lijst van Thijs gezet om te kijken en op de pluginpagina te zetten; regel bij Jet.
+- **Stijl versie 21:** een reeks lijstplaatjes loopt in de tijd op volgorde; een boog alleen als hij geen code kruist.
+- **Volgende run:** ronde d van Classic is door Thijs goedgekeurd, Olaf bouwt; daarna lanceerwerk Rollwright (productpagina dortus.com/rollwright nakijken als die er is), dan skins v3.

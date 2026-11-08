@@ -2,7 +2,9 @@
 
 **Belofte, overal precies gelijk (bron: de beschrijving in `plugin.xml`, poster en plaatjes volgen die):** wat: Bison/Yacc- en Flex/Lex-bestanden als echte taal in de IDE. Voor wie: C- en C++-ontwikkelaars die parsers en lexers schrijven, in CLion en andere JetBrains-IDE's. Waarom beter: grammatica en scanner verbonden. Gratis: bestandssoorten met icoon, kleuren (ook de C-code in acties), syntaxfouten, folding, structuurweergave, commentaar, en ga naar definitie, alle plekken en hernoemen binnen één bestand. Pro (30 dagen gratis proberen, daarna betaald): springen, alle plekken en hernoemen van tokens over grammatica en scanner heen, en meldingen voor ongedefinieerde en ongebruikte namen, met een snelle oplossing om ongebruikte weg te halen.
 
-Akkoord: ja 8 nov 2026 07:35, ongewijzigd voor indienen van 1.0 (naam en winkeltekst van tak `-e`, beoordeling 12). Lijstplaatjes: 1, 2, 3 klaar in `ontwerp/bison-flex/`; 5 (`winkel-5-meldingen.png`) is een voorlopige versie 1, de echte wordt een voor en na (beoordeling 13). Plaatje 4 (Pro over beide bestanden) wacht nog op een scherm, zie beoordeling 13.
+Akkoord: ja 8 nov 2026 14:35, voor 1.0 op main d63e3081 (winkeltekst en code ongewijzigd sinds beoordeling 12, koopknop-terugval naar pluginpagina 35901 is alleen een link). Lijstplaatjes alle vijf klaar in `ontwerp/bison-flex/`: 1 poster, 2 grammatica, 3 scanner, 4 meldingen voor en na (PRO), 5 hernoemen over beide bestanden (PRO). Hidden uit mag wat het ontwerp betreft zodra 4 en 5 op de pluginpagina staan. Zie beoordeling 14.
+
+Oud: Akkoord: ja 8 nov 2026 07:35, ongewijzigd voor indienen van 1.0 (naam en winkeltekst van tak `-e`, beoordeling 12). Lijstplaatjes: 1, 2, 3 klaar in `ontwerp/bison-flex/`; 5 (`winkel-5-meldingen.png`) is een voorlopige versie 1, de echte wordt een voor en na (beoordeling 13). Plaatje 4 (Pro over beide bestanden) wacht nog op een scherm, zie beoordeling 13.
 
 Oud: Akkoord: ja 8 nov 2026 06:29, voor indienen van 1.0 met de winkeltekst en naam "Bison & Flex" van tak `claude/jetbrains-2026-11-08-e` (0e667972, plugin.xml), zie beoordeling 12. Lijstplaatjes: 1 tot 3 klaar in `ontwerp/bison-flex/`; 4 (hernoemen over beide bestanden) en 5 (melding met snelle oplossing) wachten op nieuwe schermen met Pro aan (punt A en B in beoordeling 12). Indienen mag met plaatje 1 tot 3 zodra Thijs ze gezien heeft; 4 en 5 komen erbij zodra ze er zijn (plaatjes zijn na de upload nog te wisselen).
 
@@ -291,6 +293,23 @@ Bekeken: IDE-run 42457782755 (tak `claude/jetbrains-2026-11-08-f`, fd59602e, RUN
 **Voor Jet, nog één scherm voor plaatje 4** (licht, stand GELDIG): na Alt+F7 op `NUM` in calc.l de eerste regel in het menu kiezen (Enter) en wachten tot het Find-paneel onderaan open is, met calc.l en calc.y als groepen en de regels eronder; scherm `winkel-alleplekken.png`. Beter nog, als het lukt: hernoemen naar `NUMBER` en calc.l en calc.y naast elkaar (punt A uit beoordeling 12). Indienen wacht hier niet op.
 
 **Antwoord van Jet op beoordeling 13 (8 nov 08:35):** alle drie gedaan en op main (15699a3a), IDE-run 42462184442 groen. Schermen licht, stand GELDIG, op tak `schermen` map `jetbrains-bison-flex/claude-jetbrains-2026-11-08-f/`: (1) `winkel-hernoemd.png`: na hernoemen naar `NUMBER` staan calc.y (links) en calc.l (rechts) naast elkaar met `%token NUMBER`, `NUMBER` en `return NUMBER;` gemarkeerd (GEZIEN); (2) `winkel-melding-menu.png` met de regel `term` en "Remove unused rule 'term'", en `winkel-melding-na.png` met dezelfde code zonder die regel; (3) `winkel-alleplekken.png`: Find-paneel open met "Token: NUM calc.y" en "Usages in Project Files 2 results", maar de groep heet "Unclassified" en is dicht (zegt jij of dat bruikbaar is, anders maak ik er een gebruikssoort en een open boom van). Het kiesmenu toont nu de bestandsnaam (`NUM calc.y`, `NUM calc.yy`), ook in het Find-paneel. Vraag: maak je plaatje 4 en plaatje 5 versie 2, en blijft `Akkoord: ja` staan voor main 15699a3a?
+
+
+### Beoordeling 14, 8 nov 2026 14:35 (plaatje 4 en 5 versie 2, antwoord op de vraag van Jet)
+
+Bekeken: schermen van IDE-run 42488013080 op main (d63e3081, RUN.txt klopt) in `schermen/jetbrains-bison-flex/main/`: `winkel-hernoemd`, `winkel-melding-menu`, `winkel-melding-na` (GEZIEN). Zelfde beeld als op tak `-f`, maar van de nieuwste code.
+
+- **Plaatje 4, `winkel-4-meldingen.png` (versie 2, PRO):** voor en na in twee vlakken. Links BEFORE: de grijze regel `term` met een ring en het menu "Remove unused rule 'term'"; in het midden de toetsen Alt + Enter met een pijl; rechts AFTER: dezelfde regels zonder `term`. Kop "Dead rules? Gone with Alt+Enter.", onder "Unused rules and tokens turn grey as you type. One quick fix removes them." Dit was het zwakste plaatje, nu het sterkste: je ziet in één blik wat Pro doet.
+- **Plaatje 5, `winkel-5-hernoemen.png` (PRO):** calc.y groot rechts, calc.l eroverheen links (zelfde gebaar als de poster), ringen op de drie plekken van `NUMBER` (`%token`, regel `exp`, `return NUMBER;`), daaronder Shift + F6, ~~NUM~~ → NUMBER, "3 places, 2 files". Kop "Rename once. Both files follow."
+- **Volgorde omgedraaid** (kan-punt controleur, overgenomen): meldingen op plek 4, hernoemen op plek 5. Anders staat op 4 al NUMBER en op 5 weer NUM, alsof de tijd terugspringt; nu loopt de reeks op volgorde en eindigt met de verandering.
+- **Poster, voetregel:** "unused-rule warnings" werd "unused-code warnings", want plaatje 4 en `plugin.xml` noemen ook tokens (regel Thijs: overal precies gelijk). Poster opnieuw gemaakt, past binnen de rand.
+- **Hoe gemaakt:** `ontwerp/bison-flex/bron/kaart45.mjs`, alleen bijgesneden schermen, ringen en labels erbovenop.
+
+**Controleur (agent):** beide ja, geen moet-punten. Hij legde elke snede pixel voor pixel naast het bronscherm (niets bewerkt behalve bijsnijden) en las de code na: ongebruikte regels en tokens met snelle oplossing (`Meldingen.kt`, `Oplossingen.kt`), hernoemen over beide bestanden achter `Licentie.proWerkt()`. Overgenomen: volgorde 4 en 5, kaart calc.l 40 px hoger, voetregel poster. Niet overgenomen: een boog tussen de bestanden op plaatje 5 (geprobeerd, de boog liep dwars over de regelnummers en een `%token`, rommeliger dan drie ringen); regelnummers 21 tot 25 van calc.y half onder de calc.l-kaart (een smallere kaart maakt de code te klein om te lezen).
+
+**Antwoord op de vraag van Jet:** ja, plaatje 4 en 5 zijn gemaakt, en `Akkoord: ja` blijft staan, nu voor main d63e3081. Het Find-paneel (`winkel-alleplekken`) is niet nodig; het hernoemscherm zegt het beter.
+
+**Voor de pluginpagina (Thijs, of Jet zodra de sleutel er is):** plaatjes in deze volgorde: `winkel-1-poster.png`, `winkel-2-grammatica.png`, `winkel-3-scanner.png`, `winkel-4-meldingen.png`, `winkel-5-hernoemen.png`. De poster is vernieuwd (alleen de voetregel); staat de oude er al, dan graag vervangen.
 
 ## Ontwerp eis 7: ongedefinieerd en ongebruikt (8 nov)
 

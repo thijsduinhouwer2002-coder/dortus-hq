@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 20, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 21, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -111,3 +111,4 @@ Eerder:
 - **Tasks, Calendar, Style Settings**: gebruiken alleen variabelen van Obsidian en zien er daardoor in elk thema goed uit. Dat is onze norm.
 - **JetBrains, ingebouwde talen**: kleuren alleen via `DefaultLanguageHighlighterColors` en een eigen kleurenpagina in Color Scheme, iconen in de lijnstijl van de nieuwe UI met een donkere versie, meldingen als balloon, nooit een dialoog. Zo ziet een plugin er in elk thema uit als een ingebouwde taal.
 - **De ingebouwde instellingen van Obsidian**: korte namen, één zin uitleg, kopjes met `setHeading()`. Zo moeten onze instellingen ook lezen.
+- Een reeks lijstplaatjes vertelt één verhaal en loopt in de tijd op volgorde: wat op plaatje 4 verandert, staat op plaatje 5 niet weer zoals het was. Een boog tussen twee kaarten alleen als hij geen code of regelnummers kruist; anders ringen op de plekken die bij elkaar horen. (Versie 21, Bison & Flex plaatje 4 en 5.)
