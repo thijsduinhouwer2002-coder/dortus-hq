@@ -2336,6 +2336,181 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 	background: transparent;
 	box-shadow: none;
 }
+/* Skins v3 ronde g (Daan, 8 nov): elke betaalde skin een eigen slot bij de crit.
+/* Specificiteit: .rollwright-crit staat er drie keer in, zodat deze regels winnen van 08-skins-v3 (die heeft :not(.rollwright-skin-preview-tile .rollwright-roll)). */
+   Gezien in run 42500320809: Parchment en Arcane deelden rw-punch, de schuine sticker en het gouden
+   sterretje, dus het moment waar je naar kijkt was in beide hetzelfde. Nu:
+   Parchment "geschreven": papier landt, "nat 20" als rode aantekening in de kantlijn, inktspatjes.
+   Arcane "ijs en licht": kleine kanteling, "NAT 20" als lichtblauwe lichtletters, een lichtstreep, een ijsster.
+   Goud blijft het getal van de hoogste worp (belofte). Alleen CSS. */
+
+/* ---------- Parchment ---------- */
+@keyframes rw-p-land {
+	0% { transform: translateY(-0.14em) rotate(-1deg); }
+	60% { transform: translateY(0.03em) rotate(0.3deg); }
+	100% { transform: none; }
+}
+
+@keyframes rw-p-write {
+	0% { opacity: 1; clip-path: inset(0 100% 0 0); }
+	100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes rw-p-drops {
+	0% { opacity: 0; transform: scale(0.4); }
+	40% { opacity: 1; transform: scale(1.08); }
+	100% { opacity: 1; transform: scale(1); }
+}
+
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) {
+	animation: rw-p-land calc(360ms * var(--rw-slow)) calc(420ms * var(--rw-slow)) ease-out both;
+}
+
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	top: -1.05em;
+	right: -0.6em;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: #a3161a;
+	font-family: "Rollwright Fell", Georgia, serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 0.78em;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	text-shadow: 0 0 0.08em rgba(163, 22, 26, 0.35);
+	transform: rotate(-6deg);
+}
+
+body.theme-dark.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-roll) > .rollwright-stamp,
+body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	color: #ff6a5c;
+	text-shadow: 0 0 0.1em rgba(0, 0, 0, 0.6);
+}
+
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	animation: rw-p-write calc(380ms * var(--rw-slow)) calc(560ms * var(--rw-slow)) steps(9, end) both;
+}
+
+/* Inktspatjes op de plek van het oude sterretje. */
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
+	-webkit-mask: none;
+	mask: none;
+	top: -0.35em;
+	left: -0.5em;
+	width: 0.9em;
+	height: 0.9em;
+	background:
+	radial-gradient(circle 0.13em at 30% 35%, #8f1418 95%, transparent 100%),
+	radial-gradient(circle 0.07em at 70% 20%, #8f1418 95%, transparent 100%),
+	radial-gradient(circle 0.05em at 15% 80%, #8f1418 95%, transparent 100%),
+	radial-gradient(circle 0.04em at 80% 65%, #8f1418 95%, transparent 100%);
+}
+
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
+	animation: rw-p-drops calc(300ms * var(--rw-slow)) calc(520ms * var(--rw-slow)) ease-out both;
+}
+
+/* ---------- Arcane ---------- */
+@keyframes rw-a-tilt {
+	0% { transform: scale(1); }
+	40% { transform: scale(1.05) rotate(-3deg); }
+	100% { transform: none; }
+}
+
+@keyframes rw-a-streak {
+	0% { background-position: 130% 0, 0 0, 0 0, 0 0; }
+	100% { background-position: -40% 0, 0 0, 0 0, 0 0; }
+}
+
+@keyframes rw-a-light {
+	0% { opacity: 0; transform: translateY(0.25em); filter: blur(3px); }
+	100% { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes rw-a-star {
+	0% { opacity: 0; transform: scale(0.2) rotate(-45deg); }
+	50% { opacity: 1; transform: scale(1.25) rotate(10deg); }
+	100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Het kristal kantelt nog maar 3 graden (was rw-a-spin en rw-punch: stak buiten de regel). */
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) {
+	animation: rw-a-tilt calc(360ms * var(--rw-slow)) calc(420ms * var(--rw-slow)) ease-out both;
+}
+
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::before {
+	background:
+	linear-gradient(105deg, transparent 42%, rgba(225, 250, 255, 0.75) 50%, transparent 58%),
+	linear-gradient(180deg, rgba(255, 228, 140, 0.5), transparent 24%),
+	conic-gradient(from 90deg at 50% 55%, #10304a, #1b4a66 25%, #0c2538 50%, #1a4560 75%, #10304a),
+	linear-gradient(170deg, #12354f, #071a29);
+	background-size: 260% 100%, auto, auto, auto;
+	background-repeat: no-repeat;
+	background-position: -40% 0, 0 0, 0 0, 0 0;
+}
+
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::before {
+	animation: rw-a-streak calc(560ms * var(--rw-slow)) calc(600ms * var(--rw-slow)) ease-in-out both;
+}
+
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	top: -1.25em;
+	right: -0.2em;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: #d9f6ff;
+	font-family: "Rollwright Cinzel", Georgia, serif;
+	font-weight: 700;
+	font-size: 0.62em;
+	letter-spacing: 0.14em;
+	text-shadow: 0 0 0.3em rgba(120, 220, 255, 0.95), 0 0 0.8em rgba(80, 190, 255, 0.6);
+	transform: none;
+}
+
+body.theme-light.rollwright-skin-arcane .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-roll) > .rollwright-stamp,
+body.theme-light .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	color: #0b5a85;
+	text-shadow: 0 0 0.35em rgba(90, 200, 255, 0.7);
+}
+
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error) > .rollwright-stamp {
+	animation: rw-a-light calc(420ms * var(--rw-slow)) calc(560ms * var(--rw-slow)) ease-out both;
+}
+
+/* IJsster rechts op de punt van het kristal, in plaats van het gouden sterretje links. */
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
+	left: auto;
+	right: -0.5em;
+	top: 50%;
+	margin-top: -0.45em;
+	width: 0.9em;
+	height: 0.9em;
+	background: #e6fbff;
+	filter: drop-shadow(0 0 0.15em #7fdcff) drop-shadow(0 0 0.35em rgba(80, 190, 255, 0.8));
+}
+
+:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-crit.rollwright-crit.rollwright-crit:not(.rollwright-error)::after {
+	animation: rw-a-star calc(420ms * var(--rw-slow)) calc(700ms * var(--rw-slow)) cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.rollwright-skin-parchment .rollwright-roll,
+	body.rollwright-skin-parchment .rollwright-roll > .rollwright-stamp,
+	body.rollwright-skin-parchment .rollwright-roll::after,
+	body.rollwright-skin-arcane .rollwright-roll,
+	body.rollwright-skin-arcane .rollwright-roll::before,
+	body.rollwright-skin-arcane .rollwright-roll::after,
+	body.rollwright-skin-arcane .rollwright-roll > .rollwright-stamp {
+		animation: none !important;
+	}
+}
 
 /* Minder beweging (prefers-reduced-motion): nergens in Rollwright een animatie.
    Zonder important-vlag (keuring 0.3.0): :is(body, #rollwright-rustig) telt als een id, dus deze regel wint
