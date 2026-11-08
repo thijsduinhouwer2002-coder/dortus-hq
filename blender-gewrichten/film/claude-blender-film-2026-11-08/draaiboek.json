@@ -1,0 +1,59 @@
+{
+ "fps": 30,
+ "lagen": "/home/runner/work/dortus-hq/dortus-hq/ontwerp/click-joints/film",
+ "scenes": [
+  {
+   "beeld": "scene1",
+   "duur": 3.0,
+   "kop": "kop1",
+   "uitsnede": [
+    0,
+    98,
+    1920,
+    983
+   ],
+   "klik": [
+    555,
+    408,
+    2.0
+   ]
+  },
+  {
+   "beeld": "scene2",
+   "duur": 3.5,
+   "kop": "kop2",
+   "uitsnede": [
+    0,
+    98,
+    1920,
+    983
+   ]
+  },
+  {
+   "beeld": "scene3",
+   "duur": 5.0,
+   "kop": "kop3",
+   "uitsnede": [
+    0,
+    98,
+    1920,
+    983
+   ]
+  },
+  {
+   "beeld": "scene4",
+   "duur": 3.5,
+   "kop": "kop4",
+   "uitsnede": [
+    0,
+    98,
+    1920,
+    983
+   ]
+  },
+  {
+   "eind": true,
+   "duur": 3.5
+  }
+ ]
+}
