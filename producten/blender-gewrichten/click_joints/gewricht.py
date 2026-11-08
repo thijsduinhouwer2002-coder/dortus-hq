@@ -4,6 +4,7 @@ Werkt op kopieën in wereldcoördinaten; het origineel blijft verborgen staan zo
 Booleans: Manifold-solver op Blender 4.5+, anders Exact. Het snijvlak ligt een fractie naast de
 3D-cursor, want een snijvlak precies door bestaande punten gaf in 4.2 open randen.
 """
+import math
 import time
 
 import bmesh
@@ -16,6 +17,7 @@ from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
 SCHUIF_MM = 0.0137
+BODEM_MM = 1.55  # minimale bodem van deel B naast de klikopening: net boven de grens van Good fit (1,5 mm)
 # Klikopening van de kom: 0,85 keer de kogeldiameter, zodat twee los geprinte delen met wat druk
 # in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
 # Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
@@ -39,10 +41,18 @@ def solver_naam():
 
 def maten(inst, u, kogel_mm=None):
     r = (inst.kogel_mm if kogel_mm is None else kogel_mm) / 2 * u
-    maat = {"r": r, "s": inst.speling_mm * u, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
+    s = inst.speling_mm * u
+    maat = {"r": r, "s": s, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
             "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
     if inst.soort == "PEN":
         maat["midden_z"] = maat["top_z"] / 2
+    else:
+        # Ronde g: bij kleine kogels (onder ±4,5 mm) was de bodem van deel B naast de klikopening altijd
+        # dunner dan 1,5 mm, dus nooit Good fit, hoe dik het figuur ook was. Zet het kogelmidden dan zo
+        # hoog dat die bodem BODEM_MM is (de nek wordt iets langer). Grote kogels blijven gelijk.
+        rk, open_r = r + s, maat["open_r"]
+        nodig = math.sqrt(max(rk * rk - open_r * open_r, 0.0)) + maat["schuif"] + BODEM_MM * u
+        maat["midden_z"] = max(maat["midden_z"], nodig)
     return maat
 
 
