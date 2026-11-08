@@ -38,8 +38,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 5, nee voor nu. Waarom: groei en jonge winkel goed, maar pot ±$3.800 per maand voor alle makers samen en geen betaalde recipes; de grote categorieën bezet TRMNL zelf met officiële plugins.
 - Les: als het platform zelf de populairste plugins maakt, is de eerste plek in de community-lijst weinig waard. Kijk altijd naar het bereik van de officiële plugins naast dat van de community.
 
-## 8 nov 2026, 00:47 tot ±01:15 UTC (zelfde run, tweede platform)
+## 8 nov 2026, 00:47 tot 01:01 UTC (zelfde run, tweede platform)
 - Pebble gepakt: nieuwe horloges van Core Devices, winkel herboren. Onderzoeker (agent) voor groei, geld en vraag; zelf de hele winkel geteld via de open API (3.785 apps, 4.325 watchfaces), herhaalscript `data/pebble-appstore-meet.py`.
 - Controleur (agent) ving een fout van mij: ik telde "nieuw" op de datum van de laatste update, waardoor oktober 248 leek in plaats van 157. Script en voorstel verbeterd naar `created_at`. Ook een vaag plan voor geld (Eric, nov 2025) en KiezelPay toegevoegd.
 - Besluit: cijfer 4, nee voor nu. Waarom: echte jonge winkel met zwakke nummers één, maar ±40.000 horloges, instroom vlak sinds juni, geen installs zichtbaar en geen betalen in de winkel.
 - Les: bij een winkel-API altijd nagaan welk datumveld de eerste upload is; een update-datum laat een vlakke winkel groeien.
+
+## 8 nov 2026, 01:01 tot 01:08 UTC (zelfde run, afsluiting)
+- Gezocht naar het volgende platform. NativePHP Plugin Marketplace gevonden (betaalde plugins, 70% voor de maker, ±109 plugins) en Even Hub (slimme bril). Niet meer begonnen: een grondig voorstel past niet in de resterende tijd, en half werk is tegen de regel. NativePHP staat bovenaan in kandidaten.md voor de volgende run.
