@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:800px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#F1ECF7;position:relative;
+ background:
+  radial-gradient(520px 380px at 74% 60%, rgba(232,184,74,.22), transparent 70%),
+  radial-gradient(600px 460px at 0% 100%, rgba(124,92,230,.30), transparent 70%),
+  radial-gradient(500px 300px at 100% 0%, rgba(124,92,230,.18), transparent 70%),
+  linear-gradient(155deg,#1A1626 0%,#0E0C15 100%);}
+.dice{position:absolute;inset:0;opacity:.032;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.2' stroke-linejoin='round'><g transform='translate(6 6) scale(.5)'><path d='M12 2 21 7v10l-9 5-9-5V7z'/><path d='M12 8 16.6 15.6H7.4z'/></g></svg>");background-size:72px 72px}
+.left{position:absolute;left:64px;top:60px;width:470px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;color:#CFC6E2;letter-spacing:.01em}
+.mark{width:34px;height:34px;background:linear-gradient(135deg,#B79BFF,#7C5CE6);
+ -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round'><path d='M12 2 21 7v10l-9 5-9-5V7z'/><path d='M12 8 16.6 15.6H7.4z'/><path d='M12 2v6M21 7l-4.4 8.6M3 7l4.4 8.6M3 17l4.4-1.4M21 17l-4.4-1.4M12 22l-4.6-6.4M12 22l4.6-6.4'/></svg>") center/contain no-repeat}
+h1{margin-top:34px;font-family:Fraunces,serif;font-weight:700;font-size:66px;line-height:1.02;letter-spacing:-.02em}
+h1 .g{background:linear-gradient(180deg,#FFE29A,#E8B84A);-webkit-background-clip:text;color:transparent}
+.sub{margin-top:22px;font-size:20px;line-height:1.45;color:#BDB4D0}
+.type{margin-top:30px;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#9F96B5}
+.type code{font:500 15px 'JetBrains Mono',monospace;color:#F1ECF7;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:5px 9px}
+.row{display:flex;align-items:center;gap:12px}
+.row .lab{width:68px;text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;font-weight:600;color:#8E85A6}
+.tok{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:#E9E4F2;background:rgba(124,92,230,.22);border:1px solid rgba(160,130,255,.45);border-radius:8px;padding:4px 10px}
+.tok b{font-weight:700}
+.tok i{width:16px;height:16px;background:#9C7CFF;-webkit-mask:inherit}
+.feat{margin-top:34px;display:flex;flex-direction:column;gap:11px;font-size:16.5px;color:#D9D2E8}
+.feat div{display:flex;gap:10px;align-items:center}
+.feat div::before{content:"";width:7px;height:7px;border-radius:2px;transform:rotate(45deg);background:#E8B84A}
+.card{position:absolute;left:590px;top:96px;width:660px;border-radius:16px;overflow:hidden;background:#1C1C1C;
+ box-shadow:0 40px 80px -24px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.09);transform:rotate(-1.2deg)}
+.bar{height:36px;display:flex;align-items:center;gap:10px;padding:0 16px;background:#262626;font:500 13px Inter;color:#CFCFCF;border-bottom:1px solid rgba(255,255,255,.06)}
+.bar .mk{width:15px;height:15px;background:#9C7CFF;-webkit-mask:inherit}
+.card img{display:block;width:660px}
+.glow{position:absolute;border-radius:12px;box-shadow:0 0 0 2px rgba(255,214,120,.0),0 0 40px 10px rgba(232,184,74,.35);pointer-events:none}
+.lens{position:absolute;left:548px;top:540px;width:430px;border-radius:18px;overflow:hidden;background:#1C1C1C;transform:rotate(1.5deg);box-shadow:0 0 0 2px rgba(255,214,120,.75),0 0 60px 6px rgba(232,184,74,.35),0 30px 60px -20px rgba(0,0,0,.8)}
+.lens img{display:block;width:430px}
+.lenslab{position:absolute;left:968px;top:600px;font:600 12px Inter;letter-spacing:.12em;text-transform:uppercase;color:#E8B84A;transform:rotate(1.5deg)}
+.foot{position:absolute;left:64px;bottom:40px;font-size:16px;color:#A79FBC}
+.foot b{color:#F1ECF7;font-weight:600}
+
+.top{position:absolute;left:64px;top:56px;right:64px}
+.top h1{margin-top:22px;font-size:54px}
+.top .sub{margin-top:12px;font-size:19px;max-width:820px}
+.row3{position:absolute;left:64px;right:64px;top:300px;display:flex;gap:22px}
+.sk{flex:1;border-radius:14px;overflow:hidden;background:#1C1C1C;box-shadow:0 30px 60px -24px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.09)}
+.sk img{display:block;width:100%;padding:12px 16px 10px;background:#1c1c1c}
+.sk img+img{background:#ffffff}
+.sk .bar{justify-content:flex-start}
+.tag{margin-left:auto;font:600 11px Inter;letter-spacing:.1em;text-transform:uppercase;color:#E8B84A}
+.sk:nth-child(1) .tag{color:#9FE3B0}
+.foot{bottom:34px}
+</style></head><body>
+<div class="dice"></div>
+<div class="top">
+  <div class="brand"><span class="mark"></span>Rollwright for Obsidian</div>
+  <h1>Three skins for your <span class="g">table</span>.</h1>
+  <p class="sub">The same session note in each skin, in a dark and a light theme. Classic follows your theme; Parchment and Arcane are yours for $6, once.</p>
+</div>
+<div class="row3"><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Classic<span class="tag">Free</span></div>
+<img src="skin-classic-donker.png"><img src="skin-classic-licht.png"></div><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Parchment<span class="tag">$6</span></div>
+<img src="skin-parchment-donker.png"><img src="skin-parchment-licht.png"></div><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Arcane<span class="tag">$6</span></div>
+<img src="skin-arcane-donker.png"><img src="skin-arcane-licht.png"></div></div>
+<div class="foot"><b>Free</b> to roll &nbsp;·&nbsp; two extra skins $6 &nbsp;·&nbsp; Made by Thijs at Dortus</div>
+</body></html>

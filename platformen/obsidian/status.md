@@ -1,5 +1,7 @@
 # Obsidian: status
 
+- **Stand 8 nov 04:40 UTC:** ook Daans klus 9 op main: tabelzin in het logboek als rustige tekstkaart, zijn CSS ronde 8 tot 8c (leeg logboek met d20, skin-tegels tonen de skin), kaart zonder dubbele tijd en notitie, kopje is de link. 672 unittests, e2e groen 17 van 17 (run 42446695388, GEZIEN). Wacht op Daan: poster, GIF en keuring, daarna Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
+- **Stand 8 nov 03:30 UTC:** alle klussen van ontwerp-v2 op main: ook klus 8 (stempel als sticker, Daans CSS) en klus 7 (skin-tegels met crit en slotje). 670 unittests, e2e groen 17 van 17 (GEZIEN). Nu keurt Daan het geheel en maakt hij poster en GIF; daarna Thijs. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 03:40:** klus 6 af: voorbeeldnotitie via knop in het lege logboek en commando, plus de dubbele ruimte in Live Preview weg. 667 unittests, e2e groen 16 van 16 (GEZIEN). Nog te doen voor 0.3.0: skin-tegels met crit (7), dan keurt Daan en maakt hij poster en GIF. 0 gebruikers, 0 reviews, 0 verkopen (niet aangemeld).
 - **Stand 8 nov 02:55:** ook klus 4c (Daan ronde 6): getal, goud en klap landen samen op 460 ms. 659 unittests. Nog te doen: voorbeeldnotitie (6), skin-tegels met crit (7), dubbele ruimte in Live Preview.
 - **Stand 8 nov 02:50:** klus 5 en 5b ook af: "Roll log" met kopjes per notitie en uur, paneelworpen in het logboek. 658 unittests, e2e groen 15 van 15 (GEZIEN). Nog te doen: voorbeeldnotitie (6), skin-tegels met crit (7).

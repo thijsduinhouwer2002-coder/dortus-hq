@@ -5,7 +5,7 @@ import * as path from "path";
 export const config = {
 	runner: "local",
 	framework: "mocha",
-	specs: ["./ontwerp/v2.e2e.mjs"],
+	specs: ["./ontwerp/ronde8.e2e.mjs"],
 	maxInstances: 1,
 	capabilities: [{
 		browserName: "obsidian",

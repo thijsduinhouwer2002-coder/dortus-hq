@@ -1,3 +1,4 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 
 plugins {
@@ -29,9 +30,19 @@ configurations.getByName("integrationTestImplementation") {
     extendsFrom(configurations.getByName("testImplementation"))
 }
 
+// Doel-IDE voor de unittests: standaard IDEA Community (IC). Met -PdoelIde=CL draaien
+// dezelfde unittests tegen CLion 2025.2, de doelgroep (eis 1). De IDE-test (integrationTest)
+// draait alleen met IC, zie .github/workflows/jetbrains-bison-flex-e2e.yml en -clion.yml.
+val doelIde = (findProperty("doelIde") as String?)?.uppercase() ?: "IC"
+
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity("2025.2")
+        when (doelIde) {
+            "IC" -> intellijIdeaCommunity("2025.2")
+            "CL" -> clion("2025.2")
+            else -> error("Onbekende doelIde '$doelIde', kies IC of CL")
+        }
+        pluginVerifier()
         testFramework(TestFrameworkType.Platform)
         testFramework(TestFrameworkType.Starter, configurationName = "integrationTestImplementation")
     }
@@ -47,6 +58,13 @@ intellijPlatform {
         ideaVersion { sinceBuild = "252" }
     }
     buildSearchableOptions = false
+    // Plugin Verifier (taak verifyPlugin) tegen de doelgroep CLion en tegen IDEA Community.
+    pluginVerification {
+        ides {
+            create(IntelliJPlatformType.CLion, "2025.2")
+            create(IntelliJPlatformType.IntellijIdeaCommunity, "2025.2")
+        }
+    }
 }
 
 // Twee IDE-tests met dezelfde instellingen: IDEA Community (integrationTest) en CLion EAP (clionTest, ClionTest.kt).

@@ -5,6 +5,8 @@ import { klikWorp } from "./klik-hulp.mjs";
 // Ontwerp-v2 klus 5 en 5b in de echte Obsidian: het paneel heet "Roll log", worpen staan onder een
 // kopje met de notitienaam (zonder map en zonder .md) en het uur, de link in een item toont alleen de
 // naam, en een worp uit het invoerveld van het paneel komt in het logboek (niet alleen als melding).
+// Klus 9: het kopje is de link naar de notitie, de kaart toont alleen uur en minuten, en een uitkomst
+// die geen getal is (een tabelzin) krijgt de klasse rollwright-history-text.
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
 const PANEEL = '.workspace-leaf-content[data-type="rollwright-history"]';
@@ -23,11 +25,14 @@ async function paneel() {
 			kopjes: Array.from(root?.querySelectorAll(".rollwright-history-group") ?? []).map((g) => ({
 				titel: (g.querySelector(".rollwright-history-group-title")?.textContent ?? "").trim(),
 				pad: g.querySelector(".rollwright-history-group-title")?.getAttribute("title") ?? "",
+				rol: g.querySelector(".rollwright-history-group-title")?.getAttribute("role") ?? "",
 				items: Array.from(g.querySelectorAll(".rollwright-history-item")).map((i) => (i.querySelector(".rollwright-history-result")?.textContent ?? "").trim()),
 			})),
 			items: root?.querySelectorAll(".rollwright-history-item").length ?? 0,
 			nieuwste: root?.querySelector(".rollwright-history-item")?.className ?? "",
 			links: Array.from(root?.querySelectorAll(".rollwright-history-meta a") ?? []).map((a) => ({ tekst: (a.textContent ?? "").trim(), title: a.getAttribute("title") ?? "" })),
+			meta: Array.from(root?.querySelectorAll(".rollwright-history-meta") ?? []).map((m) => (m.textContent ?? "").trim()),
+			tekstkaarten: Array.from(root?.querySelectorAll(".rollwright-history-item.rollwright-history-text .rollwright-history-result") ?? []).map((r) => (r.textContent ?? "").trim()),
 			wissen: (root?.querySelector(".rollwright-history-clear")?.textContent ?? "").trim(),
 		};
 	}, PANEEL);
@@ -94,8 +99,12 @@ describe("Rollwright: het logboek (ontwerp-v2 klus 5 en 5b)", function () {
 		expect(p.kopjes[0].titel).not.toContain(".md");
 		expect(p.kopjes[0].titel).not.toContain("Campagne");
 		expect(p.kopjes[0].pad).toBe(NOTITIE);
-		expect(p.links[0].tekst).toBe(NAAM);
-		expect(p.links[0].title).toBe(NOTITIE);
+		// Klus 9c: het kopje opent de notitie; de kaart noemt de notitie niet nog eens en toont geen seconden.
+		expect(p.kopjes[0].rol).toBe("link");
+		expect(p.links.length).toBe(0);
+		expect(p.meta[0]).not.toContain(NAAM);
+		expect(/\d:\d\d:\d\d/.test(p.meta[0])).toBe(false);
+		expect(p.tekstkaarten.length).toBe(0);
 		expect(p.wissen).toBe("Clear log");
 		expect(p.nieuwste).toContain("rollwright-history-latest");
 	});
@@ -117,5 +126,26 @@ describe("Rollwright: het logboek (ontwerp-v2 klus 5 en 5b)", function () {
 		expect(p.kopjes[0].titel.startsWith(`${NAAM} · `)).toBe(true);
 		expect(melding.some((m) => m.includes("7: 7"))).toBe(true);
 		await browser.saveScreenshot(`${SHOTS}/l1-logboek.png`);
+	});
+
+	it("toont een tabelzin als tekstkaart en een getal niet (klus 9a)", async function () {
+		const zin = "A dwarf counting her coins twice";
+		await browser.executeObsidian(async ({ app }, args) => {
+			const plugin = app.plugins.plugins.rollwright;
+			plugin.settings.history.unshift({ time: Date.now(), formula: "dice: [[Herberg]]^tabel", result: args.zin, details: "", source: args.notitie });
+			for (const leaf of app.workspace.getLeavesOfType("rollwright-history")) leaf.view.refresh();
+		}, { zin, notitie: NOTITIE });
+		await browser.waitUntil(async () => (await paneel()).tekstkaarten.length === 1, { timeout: 5000, timeoutMsg: "geen tekstkaart" });
+		const p = await paneel();
+		const vorm = await browser.execute((sel) => {
+			const r = document.querySelector(`${sel} .rollwright-history-text .rollwright-history-result`);
+			const f = document.querySelector(`${sel} .rollwright-history-text .rollwright-history-formula`);
+			return { resultaatBreed: r?.getBoundingClientRect().width ?? 0, formuleBreed: f?.getBoundingClientRect().width ?? 0, letter: r ? getComputedStyle(r).fontSize : "" };
+		}, PANEEL);
+		console.log("LOGBOEK TEKSTKAART:", JSON.stringify({ tekstkaarten: p.tekstkaarten, items: p.kopjes[0].items, vorm }));
+		expect(p.tekstkaarten).toEqual([zin]);
+		// De formule is geen kolom van één letter meer (run 42442820040).
+		expect(vorm.formuleBreed).toBeGreaterThan(60);
+		await browser.saveScreenshot(`${SHOTS}/l1-logboek-tekst.png`);
 	});
 });

@@ -67,3 +67,31 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 
 ## 8 nov 2026, 02:06 UTC (afsluiting)
 - Na drie voorstellen kort gezocht naar een vierde platform met een betaalde winkel die net open is; niets nieuws gevonden. Niet meer begonnen: de resterende tijd past geen grondig voorstel. Hints voor de volgende run in kandidaten.md.
+
+## 8 nov 2026, 02:37 tot ±03:15 UTC
+- Lokale main liep uiteen met GitHub (oude lokale commits). Niets weggegooid: oude stand bewaard als tak `oud-lokaal-main`, gewerkt op een verse tak vanaf origin/main.
+- Claude-koppelingen en MCP gepakt (stond het langst open). Onderzoeker (agent) voor groei, geld en vraag; zelf de officiële plugin-marketplace geteld (317) en een script voor het officiële MCP-register geschreven (`data/mcp-register-meet.py`).
+- Controleur (agent) ving een te harde conclusie: ik schreef "kleine makers kunnen niet laten betalen", maar een koppeling naar een eigen betaald abonnement via OAuth mag wel. Verwerkt in het voorstel. Cijfer bleef 4.
+- Besluit: cijfer 4, nee voor nu. Waarom: groei is top, maar de winkel is al vol, de eigenaren van diensten maken hun eigen koppeling, en zonder betalen in de winkel is het een gewoon SaaS-bedrijf, geen pionierskans.
+- Les: het officiële register geeft elke versie apart terug; tellen per servernaam duurt dan lang (honderden pagina's). Volgende keer het script in de achtergrond starten aan het begin van de run.
+
+## 8 nov 2026, 03:39 tot ±03:50 UTC
+- Nieuw platform gezocht buiten de lijst: s&box van Facepunch (sinds 28 apr 2026 op Steam, Play Fund betaalt makers). Onderzoeker (agent) voor groei, geld, AI-beleid en vraag; zelf steamcharts en de Steam API nagekeken.
+- Besluit: cijfer 2, nee. Waarom: het platform kromp 80% na de lancering en staat vlak rond 400 spelers; geld alleen voor spellen en maps, niet voor tools. Geen controleur, advies nee op eigen geziene cijfers.
+- Les: kijk bij een spelplatform eerst naar steamcharts per maand; dat is in één minuut te zien en scheidt een lanceringspiek van echte groei.
+
+## 8 nov 2026, ±03:52 tot ±04:05 UTC (zelfde run, tweede platform)
+- Android XR gepakt (nieuw, Google en Samsung, brillen komen nu uit). Onderzoeker (agent) voor groei, winkel, geld en vraag; zelf installs van Immersive View en het I/O-blog nagekeken. Herhaalscript `data/androidxr-meet.py`, eerste regel in `data/androidxr.csv`.
+- Besluit: cijfer 4, nog niet klaar. Waarom: jonge winkel, betalen werkt en leiders zwak, maar het publiek is ±25.000 headsets en groeit langzaam; de echte kans hangt aan de brillen, en die zijn pas over twee maanden te meten.
+- Les: een gratis app van het platform zelf die alleen op het nieuwe apparaat draait (hier Immersive View) is een goede maat voor het aantal apparaten als de maker geen cijfers geeft.
+- Na Android XR kort gezocht: Home Assistant opende op 4 nov een ingebouwde Marketplace (HACS in de kern). Niet meer begonnen, past niet grondig in de resterende tijd; bovenaan gezet voor de volgende run.
+
+## 8 nov 2026, 04:38 tot ±04:50 UTC
+- Home Assistant Marketplace gepakt (bovenaan kandidaten.md). Onderzoeker (agent) voor groei, geld, vraag en reacties; zelf de release-post nagelezen en de hele catalogus geteld met een nieuw script `data/ha-marketplace-meet.py` (eerste regel in `data/ha-marketplace.csv`).
+- Besluit: cijfer 2, nee. Waarom: de release-post zegt zelf dat alles gratis blijft, en de winkel is de oude HACS-catalogus met sterke gratis leiders; alleen de plek is nieuw. Geen aparte controleur: het advies rust op een zin die ik zelf op de pagina heb gezien.
+- Les: een nieuwe plek voor een oude winkel is geen jonge winkel. Lees eerst de aankondiging op een zin over geld voor je een agent inzet. Ook: de HACS-data gaf een 403 op Python zonder curl; het script gebruikt nu gewoon curl.
+
+## 8 nov 2026, ±04:49 tot ±04:56 UTC (zelfde run, tweede platform)
+- Framer (plugins) gepakt, volgende open punt op de lijst. Onderzoeker (agent) telde alle 1.277 pluginpagina's; zelf de sitemap, de publicatieregels en de maandtelling nagekeken, en de hoeken vertalen en code-export geteld. Herhaalscript `data/framer-plugins-meet.py`.
+- Besluit: cijfer 4, nee voor de pionier, doorgeven aan Vera. Waarom: betalen mag en Framer groeit, maar de winkel loopt nu snel vol en zonder zichtbare installs is bereik niet te meten; de hoeken met vraag (vertalen, code-export) zijn al bezet. Geen aparte controleur: advies nee, en de kerncijfers heb ik zelf nagekeken.
+- Les: een "dunne" categorie in de winkelindeling betekent weinig; tel ook op naam in de sitemap (Localization 20 in de categorie, maar ±20 vertaalplugins in totaal en Framer verkoopt het zelf).

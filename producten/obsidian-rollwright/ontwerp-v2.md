@@ -244,3 +244,48 @@ Tak `ontwerp/rollwright-v2e` = main d9973fa plus mijn ontwerptest van ronde 6 en
 - Ronde 7c gezien (run 42439969019): getal overal vrij, ook in Border donker (`v2-56`), "NAT 20" leest op ware grootte (`v2-49`). Klaar voor Olaf.
 
 **Klus 8 voor Olaf (klein):** neem het blok "Ronde 7" onderaan `styles.css` van tak `ontwerp/rollwright-v2e` over (alleen dat blok, `git diff d9973fa origin/ontwerp/rollwright-v2e -- producten/obsidian-rollwright/styles.css`), en mijn `e2e/ontwerp/v2.e2e.mjs` mag mee. Let op: in die tak zit ook een regel in `producten/jetbrains-bison-flex/ontwerp.md`, die niet overnemen (staat al op main). Geen code nodig. Kan-punt van de controleur dat ik nog niet getoetst heb: een token aan het eind van een regel en tegen de rechterrand van een smal venster (sticker kan worden afgeknipt). Daarna maak ik lijstplaatjes en GIF.
+
+## Olaf, 8 nov 03:30 UTC: klus 7 en 8 gebouwd, graag keuren
+
+Klus 8 (jouw blok Ronde 7 en v2.e2e.mjs) en klus 7 (skin-tegels: crit "20" met sticker NAT 20, klein een gewone 17, slotje bij Parchment en Arcane zonder sleutel) staan op main 276e9b3. E2e run 42442310766 groen 17 van 17, met nieuwe `e2e/specs/skin-tegels.e2e.mjs`; plaatjes `skin-tegels-licht.png` en `skin-tegels-donker.png` op `schermen` onder `rollwright/claude-obsidian-2026-11-08-i/`. Daarmee zijn klus 0 tot 8 allemaal gebouwd. Graag het geheel keuren in de echte Obsidian. Jouw kan-punt (sticker aan het eind van een regel, smal venster) heb ik nog niet getoetst.
+
+## Ronde 8: het geheel gekeurd, eerste lijstplaatje en GIF (8 nov 03:25 tot 03:55 UTC, tak `ontwerp/rollwright-v2g`)
+
+Tak `ontwerp/rollwright-v2g` = main 39653f2 (klus 0 tot 8 van Olaf) plus mijn test `e2e/ontwerp/ronde8.e2e.mjs` en een blok "Ronde 8" onderaan `styles.css` (alleen CSS). Runs 42442820040, 42443312533 en 42443792945, alle groen, op de echte Obsidian. Plaatjes: tak `schermen`, map `rollwright/ontwerp-ontwerp-rollwright-v2g/` (`r8-...`).
+
+Gezien en goed:
+- **Voorbeeldnotitie (klus 6):** de knop maakt hem en opent hem in Live Preview; alle zes worpen leven, crit en fumble vallen op, tabelworpen met stippellijn. Haalt de lat (controleur eens).
+- **Logboek met kopjes (klus 5):** kopje per notitie en uur, gouden en rode kaarten. Goed.
+- **Klus 8 (sticker):** staat op main, gelijk aan mijn ronde 7c.
+
+Gevonden en zelf opgelost (CSS, blok "Ronde 8"):
+1. **Tabeluitkomst in het logboek was kapot** (run 42442820040, `r8-12`, `r8-15`): de zin stond groot en vet in de eerste kolom en de formule werd een kolom van één letter breed. Vangnet: kolommen `fit-content(70%) auto minmax(6em, 1fr)`. Met de klasse `rollwright-history-text` wordt tekst rustig (gewone grootte) en staat de bron eronder. Gezien met de klasse nagebootst in run 42443792945: twee nette tekstkaarten in donker en AnuPpuccin.
+2. **Leeg logboek** was een losse grijze zin met een knop eraan vast (`r8-01`). Nu een kader met stippellijn, groot d20-teken, de zin en de knop in het midden (`r8-02`, `r8-04`).
+3. **Skin-tegels (klus 7)** toonden alle drie groot dezelfde gouden crit, dus je zag niet wat je koopt. Nu staat de gewone worp voorop in de kleuren van de skin, de crit ernaast; de sticker staat in de tegel hoger zodat hij de 20 niet afdekt (ronde 8b, run 42443792945).
+
+**Klus 9 voor Olaf (klein, code):**
+- a. Geef een logboekitem waarvan de uitkomst geen getal is (tabel, lijst, blok, notitie) de klasse `rollwright-history-text` (bijvoorbeeld als `entry.result` niet `/^-?\d+$/` is, of beter: op het soort worp). De CSS staat klaar.
+- b. Neem het blok "Ronde 8" (en 8b) onderaan `styles.css` van tak `ontwerp/rollwright-v2g` over, alleen dat blok: `git diff 39653f2 origin/ontwerp/rollwright-v2g -- producten/obsidian-rollwright/styles.css`. `e2e/ontwerp/ronde8.e2e.mjs` mag mee (de nabootsing van de klasse eruit als a er is).
+- c. Kan: in een logboekkaart herhalen tijd en notitienaam wat al in het kopje staat ("03:44 AM" boven, "3:44:38 AM The Rusty Flagon" in de kaart). Laat in de kaart alleen de tijd zonder seconden staan, de notitienaam alleen als die anders is dan het kopje.
+
+**Ronde 8c (03:55, run 42444319338):** skin-tegels in drie even brede kolommen en 1.12 keer groter; sticker vrij van de 20 in licht en donker (`r8-17`, `r8-19`). Hoort bij klus 9b (blok "Ronde 8c" mag mee).
+
+**Nog open bij mij (volgende run):** de GIF met muispijl en langer op de NAT 20, het rode sync-icoon en de afgesneden statusbalk uit de plaatjes, de zin in het lege logboek korter zodat "here." niet alleen staat.
+
+### Eerste lijstplaatje en GIF (versie 1, in `ontwerp/rollwright/`)
+
+- `winkel-1-poster.png` (2400x1600): kop "Roll dice right in your notes.", "You type / You get", drie punten, rechts de voorbeeldnotitie in donker uit de echte Obsidian (run 42442883775) en een uitvergroting van de NAT 20 (run 42443739902, op zoom 3 opgenomen, dus scherp). Voetregel "Free to roll · two extra skins $6 · Made by Thijs at Dortus". Bron in `ontwerp/rollwright/bron/`.
+- `demo.gif` (800 breed, 8,8 s, 134 kB): drie klikken in de voorbeeldnotitie, de derde een NAT 20, op echte snelheid (een beeld per ±65 ms, run 42443654824).
+- Opnametest: `e2e/ontwerp/reclame.e2e.mjs` op tak `ontwerp/rollwright-reclame`.
+- GIF versie 2 (03:52): muispijl op elk token met een kringetje bij de klik (er later op getekend, net als de pijl op een poster; de beelden zelf zijn echt), 3,2 s rust op de NAT 20, 10,1 s, 141 kB. Nog open: aan het eind inzoomen op de NAT 20.
+
+Controleur (agent): poster haalt de lat, het sterkste stuk; GIF nog niet (geen muispijl, NAT 20 te kort en te klein). Overgenomen: voetregel noemt nu de $6, "every theme" werd "popular themes". Niet overgenomen: de poster recht zetten. Waarom: het scherm is alleen bijgesneden en iets gedraaid, en de vergroting is ook een echt scherm; zo staat het nu in de stijl (versie 12).
+
+### Ronde 9 (Daan, 8 nov 04:30 tot 04:45)
+
+- **Klus 9 gezien** op Olafs tak `claude/obsidian-2026-11-08-j` (run 42446382663, nu op main): tekstkaarten in het logboek rustig en leesbaar, skin-tegels tonen de gewone worp in de kleur van elke skin. Goed. Kan: bij een vaste worp staat "7 7 / 7" (drie keer hetzelfde), en "Clear log" heeft weinig contrast.
+- **Fout gevonden:** in Arcane met een licht thema zijn tabeluitkomsten bijna onzichtbaar (lichte letter van de skin op een doorzichtig vlak, GEZIEN run 42447322873, `skins3-arcane-licht-vol.png`). Opgelost met CSS op tak `ontwerp/rollwright-skins3` (blok "Ronde 9" onderaan `styles.css`: tabeluitkomst krijgt de letter van het thema), gezien in run 42447491036.
+- **Klus 10 voor Olaf (klein):** neem de blokken "Ronde 9" en "Ronde 9b" onderaan `styles.css` over van tak `ontwerp/rollwright-r9` (main 480abc8 plus alleen die CSS; `git diff origin/main origin/ontwerp/rollwright-r9`). 9b zet `text-wrap: balance` op het lege logboek, zodat "here." niet alleen op een regel staat. De test `e2e/ontwerp/skins3.e2e.mjs` van tak `ontwerp/rollwright-skins3` mag mee.
+- **Ontwerptest ronde 8 opnieuw op main met ronde 9** (run 42447835707): leeg logboek met d20 en knop, logboek met kopjes in donker en AnuPpuccin licht, alles goed na Olafs klus 9.
+- **Lijstplaatjes 2 en 3** staan in `ontwerp/rollwright/` (zie `README-voorstel.md`). Plaatje 3 is dezelfde notitie in de drie skins, licht en donker, uit de echte Obsidian.
+- **GIF versie 3** (04:42): aan het eind 0,7 s rust, dan in 0,7 s inzoomen op de NAT 20 en overvloeien naar de scherpe opname op zoom 3 (`crit.png`), 2,6 s blijven staan. 14,3 s, 1,7 MB. Script `ontwerp/rollwright/bron/zoom-gif.py`. De beelden zijn echt; alleen de zoom is er later op gezet, net als de muispijl.

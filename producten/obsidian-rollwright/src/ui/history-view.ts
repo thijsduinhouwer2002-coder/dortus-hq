@@ -2,8 +2,8 @@ import { ItemView, Notice, setIcon, type WorkspaceLeaf } from "obsidian";
 import type RollwrightPlugin from "../main";
 import type { HistoryEntry } from "../main";
 import { showExampleNote } from "./example-note";
-import { groupHistory, noteName } from "./history-groups";
-import { historyLabel } from "./history-label";
+import { groupHistory, shortTime } from "./history-groups";
+import { historyLabel, isNumberResult } from "./history-label";
 import { extremeClasses, STAMP_CLASS } from "./widget";
 
 /** The view type id stays "rollwright-history" so layouts saved before the rename to "Roll log" keep working. */
@@ -92,15 +92,41 @@ export class RollHistoryView extends ItemView {
 		for (const group of groupHistory(history)) {
 			const section = list.createDiv({ cls: "rollwright-history-group" });
 			const title = section.createDiv({ cls: "rollwright-history-group-title", text: group.title });
-			if (group.source !== "") title.setAttribute("title", group.source);
+			if (group.source !== "") this.linkToNote(title, group.source, group.title);
 			for (const entry of group.entries) this.renderItem(section, entry, entry === history[0]);
 		}
+	}
+
+	/**
+	 * Makes a group heading open its note. All rolls of a group come from that one note, so the heading
+	 * is the link and the cards stay free of the name. The full path is in the title.
+	 */
+	private linkToNote(title: HTMLElement, source: string, text: string): void {
+		title.setAttribute("title", source);
+		// A screen reader says what a click does, not only the name and the hour.
+		title.setAttribute("aria-label", `${text}, open note`);
+		title.setAttribute("role", "link");
+		title.setAttribute("tabindex", "0");
+		title.addClass("rollwright-history-note");
+		const open = (): void => void this.app.workspace.openLinkText(source, "");
+		title.addEventListener("click", (event) => {
+			event.preventDefault();
+			open();
+		});
+		title.addEventListener("keydown", (event) => {
+			if (event.key === "Enter" || event.key === " ") {
+				event.preventDefault();
+				open();
+			}
+		});
 	}
 
 	private renderItem(parent: HTMLElement, entry: HistoryEntry, latest: boolean): void {
 		const cls = ["rollwright-history-item", ...extremeClasses(entry.extreme)];
 		// The newest roll gets the big d20; a class, because the group heading means it is no first child.
 		if (latest) cls.push("rollwright-history-latest");
+		// A table line or a list is text, not a number: quiet size, with the formula under it (klus 9a).
+		if (!isNumberResult(entry.result)) cls.push("rollwright-history-text");
 		const item = parent.createDiv({ cls });
 		item.createDiv({ cls: "rollwright-history-result", text: entry.result });
 		// The stamp sits next to the result, not in it, so the result is just the number. The hidden comma
@@ -116,16 +142,8 @@ export class RollHistoryView extends ItemView {
 		formula.setAttribute("title", entry.formula);
 		if (entry.details !== "") item.createDiv({ cls: "rollwright-history-details", text: entry.details });
 		const meta = item.createDiv({ cls: "rollwright-history-meta" });
-		meta.createSpan({ text: new Date(entry.time).toLocaleTimeString() });
-		if (entry.source !== "") {
-			// Just the note name; the full path is in the title.
-			const link = meta.createEl("a", { cls: "rollwright-history-note", text: noteName(entry.source) });
-			link.setAttribute("title", entry.source);
-			link.addEventListener("click", (event) => {
-				event.preventDefault();
-				void this.app.workspace.openLinkText(entry.source, "");
-			});
-		}
+		// Hours and minutes only; the note is in the heading above, so the card does not say it again (klus 9c).
+		meta.createSpan({ cls: "rollwright-history-time", text: shortTime(entry.time) });
 		const again = meta.createEl("button", { cls: "clickable-icon" });
 		again.setAttribute("aria-label", "Roll again");
 		setIcon(again, "refresh-cw");

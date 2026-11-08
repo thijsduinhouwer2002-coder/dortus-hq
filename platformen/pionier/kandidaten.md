@@ -8,13 +8,13 @@ Start (7 nov 2026, projectchat): begin met de lijst van Vera in `platformen/verk
 
 Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend:
 - ChatGPT-apps: klaar 7 nov, cijfer 4, zie onderzocht.md
-- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register): in onderzoek 8 nov 02:40 UTC (Noor)
+- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register): klaar 8 nov, cijfer 4, zie onderzocht.md
 - Raycast (winkel, Windows-versie sinds 2025)
 - Zed (extensies)
 - ComfyUI (custom nodes, registry)
 - n8n (community nodes, sinds 2025 te verifiëren)
 - Godot Asset Store: klaar 7 nov, cijfer 6 (ja, kleine inzet), zie onderzocht.md
-- Framer (plugins)
+- Framer (plugins): klaar 8 nov, cijfer 4, zie onderzocht.md
 
 - Hytale (mods en serverplugins via CurseForge, early access sinds jan 2026): klaar 8 nov, cijfer 3, zie onderzocht.md
 
@@ -25,6 +25,10 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
 - Bambu Lab MakerWorld, parametrische modellen (OpenSCAD in de browser via MakerLab, makers krijgen punten die in geld om te zetten zijn): klaar 8 nov, cijfer 4, zie onderzocht.md
+
+- s&box (Facepunch, spelplatform op Steam met Play Fund voor makers): klaar 8 nov, cijfer 2, zie onderzocht.md
+
+- Android XR (Google, headsets zoals Galaxy XR en AI-brillen, apps via Google Play): klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md
 
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
@@ -51,3 +55,17 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov 02:06 UTC (Noor)
 - Eerst: Claude-koppelingen en MCP grondig (staat al lang open). Daarna gericht zoeken naar betaalde winkels die in de laatste 6 maanden voor derden opengingen in een jong, groeiend platform; NativePHP liet zien dat die bestaan. Zoekwoorden die vandaag niets nieuws gaven: "paid plugins marketplace launch 2026", "new app store opens third-party developers paid apps".
 - Herhaalmeting rond 8 dec ook voor NativePHP: `python3 data/nativephp-plugins-meet.py`, en de daggemiddelden op https://packagist.org/packages/nativephp/mobile/stats/all.json?average=daily.
+
+## Voor de volgende run, 8 nov 03:10 UTC (Noor)
+- Claude en MCP is af (4). Les: bij AI-platformen is de winkel snel vol en maken de eigenaren van diensten hun eigen koppeling. Zoek liever in jonge platformen waar de maker van een app geen grote dienst achter zich hoeft te hebben (editors, spellen, apparaten).
+- Nog open op de lijst: Framer (plugins), Home Assistant, Tldraw, Excalidraw, Meta Horizon, Apple Vision Pro, Bluesky. Raycast, Zed en ComfyUI vielen af op geld in de snelle schifting.
+
+## Voor de volgende run, 8 nov ±04:10 UTC (Noor)
+- **Home Assistant Marketplace: klaar 8 nov, cijfer 2 (nee, alles blijft gratis), zie onderzocht.md.** Oorspronkelijke aantekening: Nieuw feit: sinds versie 2026.11 (4 nov 2026) zit HACS als "Marketplace" in Home Assistant zelf, onder Instellingen, op elke installatie; "this is just the first version of what a marketplace for Home Assistant could become" (GEZIEN, https://www.home-assistant.io/blog/2026/11/04/release-202611/). Elke gebruiker ziet de winkel nu zonder extra stap, dus het bereik van community-integraties en kaarten kan hard stijgen. Probleem: geen betaalde items gevonden in de aankondiging (vraag 3). Uitzoeken: groei van Home Assistant (analytics.home-assistant.io), aantal items en sterren per categorie (HACS-lijst op GitHub, data-v2.hacs.xyz), plannen van de Open Home Foundation voor geld (sponsoring, "Works with"), en of downloads per item nu te zien zijn. Weeg vraag 3 eerlijk: zonder plan voor geld is het volgens de rol een nee, maar het doel van Dortus is eerst bereik.
+- Vision Pro: niet beginnen. Apple zegt ±3.000 apps echt voor Vision Pro, verkoop valt tegen (DERDEN, https://www.macrumors.com/2026/01/02/vision-pro-still-failing-to-catch-on/). Oud en niet groeiend genoeg.
+- tldraw: geen winkel, alleen een SDK-licentie voor bedrijven (DERDEN, https://tldraw.dev/pricing). Waarschijnlijk nee.
+- Herhaalmeting Android XR rond 8 jan 2027: `python3 data/androidxr-meet.py`, plus verkoop van XREAL Aura en de Samsung-brillen.
+
+## Nieuw, 8 nov 04:52 UTC (Noor)
+- Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: in onderzoek 8 nov 04:52 UTC (Noor)
+- Logi Marketplace (Logi Actions SDK, plugins voor MX Creative Console, MX Keypad en MX Master 4): snelle schifting, geen regel over betaalde plugins gevonden in de richtlijnen en de ontwikkelaarsovereenkomst (GEZIEN, https://logitech.github.io/actions-sdk-docs/marketplace-approval-guidelines/ en https://www.logitech.com/en-us/software/marketplace/developer-agreement.html). Waarschijnlijk nee op geld; nakijken als Logitech betaalde plugins aankondigt.

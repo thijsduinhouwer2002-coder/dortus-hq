@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+id = "click_joints"
+version = "0.1.0"
+name = "Click Joints"
+tagline = "Cut a figure into two printable parts with a ball joint"
+maintainer = "Dortus <thijs@dortus.com>"
+type = "add-on"
+website = "https://dortus.com/click-joints/"
+tags = ["Mesh", "Modeling", "Import-Export"]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]
+
+[permissions]
+files = "Export the joint parts as STL files"
