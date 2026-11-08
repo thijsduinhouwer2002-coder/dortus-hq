@@ -148,13 +148,13 @@ export class RollHistoryView extends ItemView {
 		const label = historyLabel(entry.formula);
 		if (label.name !== "") item.createDiv({ cls: "rollwright-history-name", text: label.name });
 		// A fixed value (dice: 7) would say 7 three times: formula and working only when they add something (klus 11).
-		const result = entry.result.trim();
+		const result = String(entry.result ?? "").trim();
 		if (label.formula.trim() !== result) {
 			// The tidy text is only for showing; the raw formula stays in the title so nothing is lost.
 			const formula = item.createDiv({ cls: "rollwright-history-formula", text: label.formula });
 			formula.setAttribute("title", entry.formula);
 		}
-		const details = entry.details.trim();
+		const details = String(entry.details ?? "").trim();
 		if (details !== "" && details !== result && details !== label.formula.trim()) {
 			item.createDiv({ cls: "rollwright-history-details", text: entry.details });
 		}

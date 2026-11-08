@@ -2,9 +2,9 @@
 
 ## Unreleased
 
-- Roll log: a fixed value such as `dice: 7` shows 7 once, without a formula and working that repeat it. A formula saved with its prefix (`dice: ...`) shows without it, so a table roll reads as the table's name.
+- Roll log: a fixed value such as `dice: 7` shows 7 once, without a formula and working that repeat it.
 - Roll again on an older roll in the log rolls in the note it came from (with that note's frontmatter), as long as the note still exists; otherwise in the open note.
-- Screen readers hear "20, NAT 20" in the note too, not "20NAT 20".
+- A crit or fumble copied from the note reads "20, NAT 20", not "20NAT 20".
 
 ## 0.3.0
 
