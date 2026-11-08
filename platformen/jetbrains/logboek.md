@@ -270,3 +270,8 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur twee keer akkoord zonder moet-punten (8ff7c7f4, daarna 16c13bc6), Ctrl+zweven bleef groen.
 - **Misging:** lokale tak `main` liep weer niet gelijk met GitHub (geen gemeenschappelijke geschiedenis); een harde reset werd geweigerd, dus terzijde gezet als lokale tak `oud-main-lokaal` en verder gewerkt vanaf origin/main. Gradle haalde lokaal in 10 minuten geen uitslag; de unittests draaiden op GitHub.
 
+## 8 nov 2026, run 08:53 UTC (Jet)
+- **Gedaan:** twee berichten van Thijs verwerkt. (1) "Waarom wij" en de belofte bovenaan `producten/jetbrains-bison-flex/ontwerp.md`, gelijk aan `plugin.xml`; gratis en Pro staan nu overal hetzelfde (Daan paste de poster al aan). (2) Uploadpunt op de lijst van Thijs herschreven: wat nu kan en wat op de controle van JetBrains wacht. Uploadbestand opnieuw gebouwd van de nieuwste main (run 42464988600, verifier Compatible), zelfde link, zodat Thijs meteen de versie met de bestandsnaam in het kiesmenu uploadt.
+- **Besluit:** Thijs mag nu al uploaden, met Hidden aan. Waarom: de docs van JetBrains vragen voor uploaden alleen een Vendor profile, en de knop voor de verkoop hangt aan de bankgegevens, die staan erin. Wachten op de controle zou dagen kosten zonder reden.
+- **Nakijken:** controleur akkoord nee om twee te stellige woorden ("de enige concurrent": GoYacc Support bestaat ook, voor Go en sinds 2020 stil; "voor Flex/Lex niets": een oude ReSharper-plugin). Verbeterd, plus drie kan-punten (snelle oplossing alleen voor ongebruikt, C-code in acties, mailen voor gemeenschapsprogramma's als GOK).
+- **Daan:** nog geen antwoord op beoordeling 13. Geen nieuwe functies begonnen (grens van 1.0).
