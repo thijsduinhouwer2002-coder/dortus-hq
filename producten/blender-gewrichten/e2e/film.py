@@ -132,6 +132,7 @@ def tekenpop(solver):
     ob = bpy.data.objects.new("Mannequin", me)
     bpy.context.scene.collection.objects.link(ob)
     ob.color = (*kleur(HOUT), 1.0)
+    ob.active_material = hout
     return ob
 
 
@@ -250,7 +251,8 @@ def kijk_buig():
     kijk_r = staat["as_"].cross(staat["rich"]).normalized()
     if kijk_r.dot(BASIS_RICHTING) < 0:
         kijk_r = -kijk_r  # van de voorkant van de pop, niet van achteren
-    return kijk_r, staat["c"] + staat["as_"] * 6.0, 16.0 * staat["r"]
+    # ronde 2: verder weg (was 16 r), zodat je de hele arm met hand en schouder ziet buigen
+    return kijk_r, staat["c"] + staat["as_"] * 4.0, 36.0 * staat["r"]
 
 
 def zet_beeld(sc, i):
@@ -298,6 +300,32 @@ def zet_beeld(sc, i):
         schuin = (kijk_r * math.cos(math.radians(35)) + staat["as_"] * math.sin(math.radians(35))).normalized()
         zet_kijk(kijk_r.lerp(schuin, glad(t / 1.0)), doel, afst * 1.05, 0.17)
         b.delta_location = staat["los"] * glad(t / 1.0)  # deel B schuift in 1 s van de kogel af
+        if i == 45:
+            rol_paneel()  # draaiboek: daarna kort het paneel met STL / 3MF en "Export STL"
+
+
+def rol_paneel():
+    """Rol de zijbalk omlaag (gewoon muiswiel, zonder Ctrl) zodat stap 3 met STL / 3MF en Export STL in beeld komt."""
+    from scherm_basis import xdo
+    venster, _, regio = zijbalk()
+    x = venster.x + regio.x + regio.width // 2
+    y = venster.y + venster.height - (regio.y + regio.height // 2)
+    xdo("mousemove", str(x), str(y))
+    for _ in range(12):
+        xdo("click", "5")
+    xdo("mousemove", "5", "5")
+    log(f"FILM paneel gerold bij ({x}, {y})")
+
+
+def kleur_verslag(naam):
+    _, _, ruimte, _ = ruimte_regio()
+    pop = staat.get("pop")
+    a = deel("A")
+    ob = a or pop
+    mats = [(m.name, tuple(round(c, 3) for c in m.diffuse_color)) if m else None for m in ob.data.materials] if ob else []
+    idx = sorted({p.material_index for p in ob.data.polygons}) if ob else []
+    log(f"FILM kleur {naam}: color_type={ruimte.shading.color_type} light={ruimte.shading.light} "
+        f"object={ob.name if ob else None} materialen={mats} indexen={idx[:8]}")
 
 
 def klik_plek():
@@ -327,6 +355,8 @@ def leg_vast():
     r = subprocess.run(["import", "-window", "root", pad], capture_output=True, text=True)
     if r.returncode or not os.path.exists(pad):
         log(f"FILM FOUT vastleggen {pad}: {r.stderr.strip()}")
+    if i == 0:
+        kleur_verslag(f"scene{sc}")
     if sc == 1 and i == int(KLIK_T * FPS):
         staat["klik"] = klik_plek()
         log(f"FILM klik op {staat['klik']}")
