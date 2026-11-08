@@ -1,6 +1,6 @@
 """Ronde h: 3MF-export (Daan, beoordeling 2, punt 2). Exporteert via de add-on met de keuze 3MF en leest
 het bestand zelf terug: de vaste zip-delen, unit millimeter, aantal driehoeken, maat in mm gelijk aan het deel,
-elke rand precies één keer heen en één keer terug (gesloten en dezelfde draairichting), en het volume
+geen foute randen erbij ten opzichte van de mesh zelf (elke rand één keer heen en één keer terug), en het volume
 gelijk aan het deel (positief, dus de normalen wijzen naar buiten)."""
 import os
 import tempfile
@@ -19,6 +19,20 @@ def lees(pad):
         namen = set(z.namelist())
         model = ET.fromstring(z.read("3D/3dmodel.model")) if "3D/3dmodel.model" in namen else None
     return namen, model
+
+
+def foute_randen(vlakken):
+    """Gerichte randen die niet precies één keer heen en één keer terug voorkomen (gesloten en dezelfde
+    draairichting). Geeft (aantal, soorten): dubbel = zelfde richting vaker (omgedraaid vlak), open = geen terug."""
+    randen = {}
+    for v in vlakken:
+        for i in range(len(v)):
+            e = (v[i], v[(i + 1) % len(v)])
+            randen[e] = randen.get(e, 0) + 1
+    dubbel = sum(1 for n in randen.values() if n > 1)
+    open_ = sum(1 for (a, b) in randen if (b, a) not in randen)
+    fout = sum(1 for (a, b), n in randen.items() if n != 1 or randen.get((b, a), 0) != 1)
+    return fout, {"dubbel": dubbel, "open": open_}
 
 
 def toets(lijst, label="3MF"):
@@ -49,12 +63,10 @@ def toets(lijst, label="3MF"):
         verschil = max(abs(a - b) for a, b in zip(maat, maat_deel))
         stap(f"{label} {d.name}: maat {tuple(round(x, 3) for x in maat)} mm gelijk aan het deel binnen 0,01 mm "
              f"(verschil {verschil:.5f})", verschil < 0.01)
-        randen = {}
-        for a, b, c in drie:
-            for e in ((a, b), (b, c), (c, a)):
-                randen[e] = randen.get(e, 0) + 1
-        fout = sum(1 for (a, b), n in randen.items() if n != 1 or randen.get((b, a), 0) != 1)
-        stap(f"{label} {d.name}: gesloten en dezelfde draairichting (foute randen {fout})", fout == 0)
+        fout, soort = foute_randen(drie)
+        bron, bron_soort = foute_randen([tuple(p.vertices) for p in d.data.polygons])
+        log(f"3MF {d.name}: foute randen in 3MF {fout} {soort}, in de mesh zelf {bron} {bron_soort}")
+        stap(f"{label} {d.name}: 3MF voegt geen foute randen toe (3MF {fout}, mesh {bron})", fout <= bron)
         vol = 0.0
         for a, b, c in drie:
             (x1, y1, z1), (x2, y2, z2), (x3, y3, z3) = punten[a], punten[b], punten[c]

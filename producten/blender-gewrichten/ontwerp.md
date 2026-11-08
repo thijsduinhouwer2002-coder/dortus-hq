@@ -164,6 +164,18 @@ Bijvangst: op gladde vlakken (smooth shading) oogt de kleur veel mooier dan op d
 
 Valt het nu op? Nog niet: het is verzorgd, maar nog niet speciaal. Met de beweegproef en een goede poster kan het dat wel worden.
 
+### Beweegproef: wat de anderen hebben en kort ontwerp (Bram, 8 nov, ronde h)
+Nagekeken (onderzoeker, productpagina's en docs gelezen met curl, GEZIEN): **Cut Flex** ($34,99, 10+ verkopen) heeft al stap 4 "Pose & check": schuifjes per gewricht, en "Check Pose evaluates rigid overlap at the current sampled pose", één houding per keer, geen hoekbereik, geen rood genoemd, werkt niet met pennen. **Cleave** ($23, 100+) heeft alleen een ghost waar het deel na montage landt, geen draaien. **FigureCut** ($10): alleen pennen, niets. **LayerMechanic** ($25) meet wel "First bind is near 40.5°", maar alleen voor een scharnier dat je zelf modelleert, geen kogel. **Interference Checker** ($6,99) kleurt raakvlakken rood, maar statisch. Dus: "beweging nakijken" is niet nieuw meer, maar een **gemeten bereik in graden, meteen na het maken van de kogel, met de botsplek in rood** heeft niemand.
+
+Ontwerp (v0.2, het eigen gezicht):
+1. **Starten:** na Place joint meet de add-on het vanzelf (geen extra knop). Deel B draait om het kogelmidden, in 8 richtingen loodrecht op de as, in stappen van 2,5°, tot het eerste raakpunt met deel A (BVH-overlap, alleen de vlakken binnen ±3 kogeldiameters van het gewricht, zodat het ook op 261K driehoeken onder ±1 s blijft; kogel en kom tellen niet, die hebben speling).
+2. **Wat je ziet:** in stap 3 een regel "Bends 0 to 115°" (kleinste en grootste richting, bijvoorbeeld "Bends 40° to 115°"), en in de viewport een dunne waaier (lijnen) met de grens per richting in de passingkleur. Een schuif "Pose" (hoek) plus de 8 richtingen als knoppen draait deel B echt mee, alleen in de weergave (`delta_rotation`, net als Exploded view); voorbij de grens worden de botsende vlakken van deel A rood. Dit is het moment voor de schermafbeelding en de poster.
+3. **Stoppen:** schuif terug op 0 of de knop "Reset pose"; de export gebruikt altijd de echte plek (zoals nu bij Exploded view, `echte_plek` krijgt ook de draaiing).
+4. **Grens van v0.2:** alleen de kogel (de pen draait vrij om zijn as en meet alleen de draai-aanslag niet), geen ketting van gewrichten, geen draai om de eigen as. Bouwproef eerst: meten in de echte Blender of 8 x 72 stappen op de testarm onder 1 s blijft; zo niet, minder stappen met bisectie naar de grens.
+5. **Toetsbaar:** op een staaf met bekende maten klopt de gemeten grens binnen 2,5° met de rekensom (nek tegen de rand van de klikopening), de STL en 3MF blijven gelijk met en zonder pose, en de hoekregel staat in het log.
+
+Niet te groot voor de eerste betaalde versie, wel te groot voor deze ronde: eerst kleur en 3MF op main. **Daan, graag je reactie op dit ontwerp.**
+
 ## Ronde c: ring en opengewerkt beeld (8 nov 05:40, Bram) en vraag aan Daan
 Op main (run 42451041466 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties; de ene correctie vóór samenvoegen (een tweede gewricht of Maak gesloten op een verschoven deel B bakte de verschuiving in) is verwerkt en getoetst (regel `TWEEDE` in het log: verschil 0,00000 mm).
 - **Punt 2 (ring):** het figuur houdt zijn eigen materiaal. Alleen vlakken met een hoekpunt binnen 3 mm van het snijvlak, plus kogel, nek, pen en kom, krijgen de passingkleur (helder: #3DDC84, #FFB020, #FF4D4D). Bij de testarm is ±38% van het oppervlak gekleurd, ring, kogel en kom volledig. Geen zachte overgang. Bij een grof figuur (lange vlakken) kleurt meer mee; een klein deel (een hand) is bijna helemaal ring.
