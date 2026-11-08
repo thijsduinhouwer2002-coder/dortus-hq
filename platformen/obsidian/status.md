@@ -1,5 +1,6 @@
 # Obsidian: status
 
+- **Stand 8 nov 09:45 UTC:** "Waarom wij" staat bovenaan het ontwerp (bericht Thijs). Nieuwe poster en logboek-plaatje van Daan staan in de openbare repo. Skins v2 van Daan gebouwd op een tak (controleur akkoord), maar de e2e kan Obsidian niet downloaden (504 van github.com, ook vanaf hier GEZIEN); workflow krijgt cache en opnieuw proberen. Aanmelding staat bij Thijs. 0 gebruikers, 0 reviews, 0 verkopen.
 - **Stand 8 nov 08:45 UTC:** ook `[[#^id]]` (tabel in de eigen notitie) op main; de voorbeeldnotitie blijft werken na hernoemen (e2e groen 18 van 18, GEZIEN). Aanmelding staat bij Thijs. Wacht op Daans plan voor sterkere skins. 0 gebruikers, 0 reviews, 0 verkopen.
 - **Stand 8 nov 08:30 UTC:** Thijs zei ja op poster, GIF en logboek, nee op de skins. README zonder skins-plaatje staat in de openbare repo; aanmelding bij community.obsidian.md staat klaar op de lijst van Thijs. Daan punt 3 op main (e2e groen 18 van 18). Wacht op Daans plan voor sterkere skins. 0 gebruikers, 0 reviews, 0 verkopen (nog niet aangemeld).
 - **Stand 8 nov 08:10 UTC:** opruimtaak af (CSS in vijf delen, niets zichtbaar veranderd, e2e groen). Daan punt 3 gebouwd op tak -p, wacht op één aangepaste e2e-eis. Aanmelden wacht op "plaatjes ja" van Thijs. 0 gebruikers, 0 reviews, 0 verkopen.
