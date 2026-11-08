@@ -223,3 +223,4 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Bij het nakijken gevonden: de categorie winstanalyse is sinds juni gevuld met drie nieuwe apps (Nexium, NorthProfit, SellerGoo). Daarom het eerste product veranderd naar Europese productregels (GPSR, Responsible Person, CLP, Pfand), waar TikTok steeds nieuwe verplichte velden toevoegt en nog geen enkele app voor is.
 - Besluit: cijfer 7, ja met kleine inzet. Geen controleur-agent: de controle is een feitenvraag die ik met eigen tellingen en de docs zelf kon nakijken; de rest-onzekerheid (geldt het voor elke categorie) staat eerlijk in het voorstel.
 - Radar: één regel (EU-changelog TikTok). Algemene zoektocht naar nieuwe winkels gaf alleen oude resultaten.
+- Daarna snelle schifting van social-commerce winkels in de soort van TikTok (Temu, Allegro, Shein, Whatnot): geen open app-winkel voor kleine makers gevonden. Nee, regels in kandidaten.md.
