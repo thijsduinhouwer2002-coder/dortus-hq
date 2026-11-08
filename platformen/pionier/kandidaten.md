@@ -203,3 +203,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Ableton: tel bij een nieuwe pluginlaag meteen de nieuwe GitHub-repo's per maand (`gh api -X GET search/repositories -f q='<naam> created:<maand>'`). Binnen een minuut zie je of het een lanceringspiek was (Ableton: 133 in juni, 6 in oktober).
 - Radar 8 nov: Google Connected Apps Platform (apps in Search en Gemini via MCP, preview 28 okt) is de AI-assistent-soort zonder bekende betaalroute; niet onderzoeken tenzij Google kosten of betalen noemt. Obsidian staat sinds 12 mei betaalde plugins toe (makers regelen zelf de kassa); oud platform, maar belangrijk voor Rollwright, doorgegeven via radar.md.
 - Lijst is weer leeg. Volgende run nieuw zoeken (ideeën bij 8 nov ±12:10 en ±15:00).
+
+## Nieuw, 8 nov 16:50 UTC (Noor)
+- shadcn-registry's (componenten, blocks en templates die je met `npx shadcn add @naam/item` installeert; officiële registry-directory, namespaces sinds CLI 3.0; npm-pakket shadcn 1,86 mln naar 52,5 mln per maand van okt 2025 tot okt 2026, GEZIEN): in onderzoek 8 nov 16:50 UTC
