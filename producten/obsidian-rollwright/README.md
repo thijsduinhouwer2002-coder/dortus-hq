@@ -47,7 +47,7 @@ To write a roll into the note for good, use `` `dice-mod: 3d100 + 12` ``. It sho
 
 #### Clicks with Ctrl or Alt
 
-Ctrl-click (Cmd-click on a Mac) on a result from a table, list, section, line or tag opens the note it came from, in a new tab, without rolling. A tag roll over several notes has no single note to open, so it only says so. On a dice roll, Ctrl-click rolls again like a plain click. Alt-click (Option-click on a Mac) on a dice roll shows its average, as `|avg` does; it is not added to the history. Ctrl-click on a code with `|none` hides its result again and forgets it, also for `dice+:`. On `dice-mod:`, Ctrl-click opens the source of a table or section result; any other click opens the replace window. Phones have no Ctrl or Alt key, so there only a plain tap works.
+Ctrl-click (Cmd-click on a Mac) on a result from a table, list, section, line or tag opens the note it came from, in a new tab, without rolling. A tag roll over several notes has no single note to open, so it only says so. On a dice roll, Ctrl-click rolls again like a plain click. Alt-click (Option-click on a Mac) on a dice roll shows its average, as `|avg` does; it is not added to the roll log. Ctrl-click on a code with `|none` hides its result again and forgets it, also for `dice+:`. On `dice-mod:`, Ctrl-click opens the source of a table or section result; any other click opens the replace window. Phones have no Ctrl or Alt key, so there only a plain tap works.
 
 #### Dice notation
 
@@ -143,7 +143,7 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 ### Side panel, commands and settings
 
-- **Roll log** shows rolls you clicked or typed, grouped under the note and the time the session began, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The history is stored in the plugin's data file.
+- **Roll log** shows rolls you clicked or typed, grouped under the note and the time the session began, and lets you roll again. Rolls that happen by themselves when a note opens are not listed. The log is stored in the plugin's data file.
 - **Commands:** "Open roll log" and "Roll a formula".
 - **Settings:** default die, default number of dice, whether `dice-mod:` keeps the formula, and saved formulas. A saved formula works by name in any roll, such as `` `dice: attack` `` or `1d6 + bonus`. A number in the frontmatter of the note works the same way: with `str: 3` in the note, `` `dice: 1d20 + str` `` adds 3. A saved formula with the same name goes first. Only the note's own frontmatter counts, also for a code inside a table or section drawn from another note; inline fields such as `str:: 3` and text that is not a number do not. Names that read as dice notation, such as `d`, `dh`, `k`, `s` or `F`, stay notation.
 - **Import:** a button copies named formulas from the data file of the Dice Roller plugin, if you have it. That file is only read. Existing names are kept. The layout of that file was not verified, so an import may find nothing.

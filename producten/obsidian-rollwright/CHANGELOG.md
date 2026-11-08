@@ -4,12 +4,12 @@
 
 A new look. Rolling should feel like rolling.
 
-- Every result is a small token with a d20 mark. When you click it, it tumbles and the number counts up for half a second before it lands.
+- Every result is a small token with a d20 mark. When you click it, it tumbles and the number flickers through a few values for half a second before it lands.
 - A natural 20 lands in gold with a NAT 20 sticker, a natural 1 in red with NAT 1. Other rolls at the highest or lowest possible result get MAX or MIN. Screen readers hear the result first, then the sticker.
-- The roll history is now the **Roll log**: rolls are grouped under their note and the time the session began, newest on top. Natural 20s and 1s show as gold and red cards, table and list results as text cards. Click a heading to open the note. The command is now "Open roll log"; the button "Clear log" empties it.
+- The roll history is now the **Roll log**: rolls are grouped under their note and the time the session began, newest on top. Natural 20s and 1s, and other highest or lowest rolls, show as gold and red cards; table and list results show as text cards. Click a heading to open the note. The command is now "Open roll log"; the button "Clear log" empties it.
 - New: an empty Roll log offers "Try it: create an example note". The command "Create example note" does the same. It writes one tavern scene with dice and tables, never overwrites a note and is never created by itself.
 - The skin previews in the settings show a natural 20 and a normal roll in each skin, with a lock on the paid skins until you activate a key.
-- With "reduce motion" turned on in your system, results do not tumble or count up.
+- With "reduce motion" turned on in your system, results do not tumble or flicker.
 - Fixed: Live Preview showed two spaces after a label such as "Perception:".
 
 ## 0.2.0
