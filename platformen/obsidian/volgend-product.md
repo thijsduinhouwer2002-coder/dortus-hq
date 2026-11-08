@@ -2,6 +2,22 @@
 
 Opdracht: bericht Thijs 8 nov 14:37 en het blok "Het volgende product" in `organisatie/rollen/platformmanager.md`. Hans beslist; zonder zijn ja niet bouwen. Rollwright gaat elke run voor.
 
+## Correctie 8 nov 15:45 UTC (Olaf): de groei per maand is te hoog voor plugins met veel versies
+
+De stats tellen downloads per versie, en elke oude versie krijgt elke maand downloads die geen echte gebruikers zijn (Fantasy Statblocks heeft 288 versies, de middelste versie kreeg er 67 bij in 30 dagen, GEZIEN). Een plugin met veel versies lijkt daardoor harder te groeien. Betere maat: de groei van de best lopende versie (bijna altijd de nieuwste). Die staat per plugin in `metingen/versiegroei-2026-11-08.csv` (GEZIEN, 9 okt tot 8 nov). Let op: een plugin die in die maand vaak een nieuwe versie uitbracht, komt met deze maat juist te laag uit (Atlas VTT: 2.205 op de beste versie, 13.610 totaal, 29 versies). De echte waarheid ligt ertussen.
+
+| Plugin | Groei totaal | Groei beste versie | Versies |
+|---|---|---|---|
+| TTRPG Tools - Maps | 12.407 | 9.275 | 53 |
+| Fantasy Statblocks | 26.171 | **6.808** | 288 |
+| Calendarium | 5.795 | 5.431 | 57 |
+| Dice Roller | 3.999 | 3.449 | 180 |
+| Initiative Tracker | 2.961 | 2.393 | 170 |
+| Atlas VTT | 13.610 | 2.205 | 29 |
+| Kanban (ter vergelijking) | 90.466 | 49.115 | 198 |
+
+Alle TTRPG-plugins samen: 134.014 totaal, 61.204 op de beste versie. Gevolg: Fantasy Statblocks is ±6.800 nieuwe installaties per maand, niet 26.000. Nog steeds de grootste stilstaande TTRPG-plugin, maar de cijfers in de blokken hieronder ("per maand") zijn de totale groei en dus voor oude plugins te hoog. In het voorstel gebruik ik beide kolommen.
+
 ## Aanvulling 8 nov 15:35 UTC (Olaf): klachten en gaten, eerste blik
 
 Reddit geeft 403 vanaf hier (GEZIEN); het forum werkt. Er is weinig klachtenvolume in het forum, dus nog geen hard bewijs uit verzoeken. Wat ik wel vond (alles GEZIEN, 8 nov):
