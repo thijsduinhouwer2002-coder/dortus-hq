@@ -47,6 +47,13 @@ Zet zo'n vraag of stap in `organisatie/lijst-thijs.md`: wat, waarom, een link, e
 - Een product is voor de helft wat het doet en voor de helft hoe het eruitziet en voelt. Het moet **opvallen, speciaal zijn en mooi**; "netjes en geen fouten" is niet genoeg (besluit Thijs 7 nov 22:05). Denk vanaf het begin na over uiterlijk en gevoel, samen met Daan, niet pas aan het eind. Zie `organisatie/rollen/ontwerper.md`.
 - De eerste lancering van elk product: Thijs ziet de lijstplaatjes en de README eerst (Daan zet ze op zijn lijst) en zegt ja of nee. Wordt de repo ooit privé, controleer dan of het lezen van de uitslag nog werkt.
 
+## Elk product: perfect, onderscheidend en een duidelijke belofte (Thijs, 8 nov 2026)
+Dit geldt voor iedereen, bij elk product, vanaf het eerste ontwerp tot de winkelpagina:
+1. **Perfect, niet "goed genoeg".** Geen losse eindjes, geen tegenstrijdigheden, niets wat half af voelt.
+2. **Onderscheidend van de concurrenten.** Kijk eerst wat zij doen, en doe er een stap bovenop. Kun je niet in één zin zeggen waarom iemand ons kiest in plaats van de beste concurrent, dan is het product nog niet klaar.
+3. **De waardebelofte is meteen duidelijk.** Op elke winkelpagina, poster en README ziet een bezoeker in een paar seconden: wat het doet, voor wie, waarom het beter is, en wat gratis is en wat betaald. Dat moet overal precies hetzelfde zijn.
+Schrijf die ene zin (waarom wij) bovenaan `producten/<product>/ontwerp.md`. Daan toetst erop bij zijn akkoord, Chris bij de winkeltekst, Hans bij elk lanceerbesluit.
+
 ## Uitbrengen: eigen openbare repo per product
 - Elk product dat live gaat, krijgt een eigen openbare repo onder het account van Thijs (bijvoorbeeld `thijsduinhouwer2002-coder/rollwright`). Daar staat alleen wat openbaar hoort: code, tests, README, LICENSE, CHANGELOG. Geen interne notities, geen e2e, geen ontwerpstukken. Het werk zelf blijft in dortus-hq.
 - Zo'n repo maakt Thijs aan (één klik, het systeem staat het ons niet toe). Daarna maakt de projectchat de geplande taak van de manager opnieuw aan, zodat die in de repo mag pushen.

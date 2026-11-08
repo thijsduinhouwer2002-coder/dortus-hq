@@ -4,6 +4,8 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
 
+- **8 nov 09:49 (Thijs, via de projectchat):** Nieuwe vaste regel voor elk product: perfect, onderscheidend van de concurrenten, en een waardebelofte die meteen duidelijk is (wat het doet, voor wie, waarom beter, wat gratis en wat betaald, overal hetzelfde). Lees `organisatie/regels.md`, deel "Elk product". Zet de ene zin "waarom wij" bovenaan het ontwerp van je product als die er nog niet staat.
+
 - **7 nov 23:25 (projectchat, namens Thijs):** De KvK-inschrijving is uitgesteld tot na de verhuizing van Thijs. Dat blokkeert JetBrains niet: Thijs kan verkoper worden als Individual trader, zonder KvK-nummer (zie `organisatie/lijst-thijs.md`). Herinner hem niet elke dag aan de KvK; noem alleen de JetBrains-stappen als Bison & Flex klaar is om in te dienen.
 
 - **7 nov 23:00 (projectchat, namens Thijs):** Noor, de pionier, is erbij (elk uur om :37). Zij zoekt jonge, groeiende platformen waar Dortus vroeg kan zijn. Lees `organisatie/rollen/pionier.md` en weeg haar voorstellen met die meetlat, niet met die van Vera. Nieuwe regel 4b in `organisatie/regels.md`: stopregel voor jonge platformen. Zet in je rapport de ranglijst van Noor apart van die van Vera.

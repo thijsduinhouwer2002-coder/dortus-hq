@@ -1,0 +1,1728 @@
+[
+ {
+  "packId": 57252,
+  "name": "ACRONYM",
+  "makers": [
+   {
+    "name": "ACRONYM Team"
+   }
+  ],
+  "supportEmail": "integration@goacronym.com",
+  "agentShortDescription": "The GTM context layer for the entire customer lifecycle",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 11262,
+  "name": "Airtable",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Work smarter with your Airtable data, anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56421,
+  "name": "Amplitude",
+  "makers": [
+   {
+    "name": "Amplitude",
+    "pictureLink": "https://codaio.imgix.net/users/58398202/blobs/pictures/bl-J3TBuNw8pL?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "partners@amplitude.com",
+  "agentShortDescription": "Access your product intelligence and user behavior graph",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56732,
+  "name": "Apollo",
+  "makers": [
+   {
+    "name": "Apollo",
+    "pictureLink": "https://codaio.imgix.net/users/57878246/blobs/pictures/bl-OusHkt6mUs?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@apollo.io",
+  "agentShortDescription": "Find buyers. Book more meetings. Close more deals. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 11512,
+  "name": "Asana",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Manage and track your work with Asana, right where you need it.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 48391,
+  "name": "Ashby",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Your recruiting pipeline, live.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 53840,
+  "name": "Atlassian",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Turn Jira tickets and Confluence docs into answers.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1053,
+  "name": "Barcode",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Generate QR codes with ease.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 11975,
+  "name": "Bitly",
+  "makers": [
+   {
+    "name": "Simpladocs",
+    "pictureLink": "https://codaio.imgix.net/users/2921815/blobs/pictures/bl-vJpFTLCkkm?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "scott@simpladocs.com",
+  "agentShortDescription": "Automate campaign and link intelligence",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 70186,
+  "name": "Bitly",
+  "makers": [
+   {
+    "name": "Bitly"
+   }
+  ],
+  "supportEmail": "community@bitly.com",
+  "agentShortDescription": "Create, share and track your Bitly links, QR Codes and Pages from everywhere you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 47078,
+  "name": "Box",
+  "makers": [
+   {
+    "name": "Box, Inc."
+   }
+  ],
+  "supportEmail": "integrate@box.com",
+  "agentShortDescription": "Search, access and get insights on your Box content ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 58006,
+  "name": "BrightHire",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Read hiring and interview data from BrightHire through its official MCP server.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 69440,
+  "name": "CallRail",
+  "makers": [
+   {
+    "name": "CallRail",
+    "pictureLink": "https://codaio.imgix.net/users/73957864/blobs/pictures/bl-RrbWaTLh3U?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@callrail.com",
+  "agentShortDescription": "Provides access to your CallRail data, including calls and more",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 47083,
+  "name": "Canva",
+  "makers": [
+   {
+    "name": "Canva Developers",
+    "pictureLink": "https://codaio.imgix.net/users/46736995/blobs/pictures/bl-GIbU_7WlRh?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "developer-community@canva.com",
+  "agentShortDescription": "Search, read, create, and export Canva designs.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 51655,
+  "name": "Canvas LMS",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Stay on top of your courses, anywhere you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56932,
+  "name": "Canvas LMS (personal)",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Stay on top of your courses, right from your browser.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 77678,
+  "name": "Chili Piper",
+  "makers": [
+   {
+    "name": "Tristen Sleeper"
+   }
+  ],
+  "supportEmail": "support@chilipiper.com",
+  "agentShortDescription": "Book and route meetings with Chili Piper: find booking links and live bookable times, manage meetings, and inspect routing.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 54768,
+  "name": "ClickUp",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Move ClickUp tasks forward without missing a beat.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 59113,
+  "name": "Commerce Layer",
+  "makers": [
+   {
+    "name": "Aionic Digital",
+    "pictureLink": "https://codaio.imgix.net/users/47244830/blobs/pictures/bl-q-Eov6NTaK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "yaron@aionicdigital.com",
+  "agentShortDescription": "Live product, pricing, and inventory answers from your Commerce Layer storefront - including ready-to-send quotes.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 52011,
+  "name": "Common Room",
+  "makers": [
+   {
+    "name": "Common Room",
+    "pictureLink": "https://codaio.imgix.net/users/28768727/blobs/pictures/bl-U7foiCcfo7?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@commonroom.io",
+  "agentShortDescription": "Helping you reach the right person, at the right time, with the right message, no matter wherever you work ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 31997,
+  "name": "Confluence",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Bring your company knowledge into any app.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 51480,
+  "name": "Crossbeam",
+  "makers": [
+   {
+    "name": "Crossbeam Product"
+   }
+  ],
+  "supportEmail": "support@crossbeam.com",
+  "agentShortDescription": "Turn partner overlaps into pipeline, wherever you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1069,
+  "name": "Cryptography",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Verify and secure information using trusted cryptographic tools.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 26326,
+  "name": "Databricks",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Enterprise-grade data, accessible directly from Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 72269,
+  "name": "Deel",
+  "makers": [
+   {
+    "name": "Deel",
+    "pictureLink": "https://codaio.imgix.net/users/75728008/blobs/pictures/bl-h5eoHkcmxi?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "integrations@letsdeel.com",
+  "agentShortDescription": "Deel helps you hire, pay, and manage people in 150+ countries. Now use Deel right where you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56603,
+  "name": "DeepL",
+  "makers": [
+   {
+    "name": "DeepL"
+   }
+  ],
+  "supportEmail": "support@deepl.com",
+  "agentShortDescription": "Translate emails and documents in 100+ languages — with your team's glossaries, style rules, and tone applied automatically.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56263,
+  "name": "Demio",
+  "makers": [
+   {
+    "name": "SimplaDocs",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocJA5Qu3JZ1WRQVa1DXZ8GQN5-cVm6qDoxpB1yGhXBrJkhXcjV8%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=c41d2a77715ebd4861ba4aa818e08a82"
+   }
+  ],
+  "supportEmail": "scott@simpladocs.com",
+  "agentShortDescription": "Get quick data on your webinars, events, and attendees",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 15468,
+  "name": "DHL",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Stay on top of every delivery with the DHL Agent.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56337,
+  "name": "Dropbox",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "support@coda.io",
+  "agentShortDescription": "Find and share Dropbox files wherever you go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 70948,
+  "name": "Etropo",
+  "makers": [
+   {
+    "name": "Etropo",
+    "pictureLink": "https://codaio.imgix.net/users/74878030/blobs/pictures/bl-oJq_xvTt28?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@etropo.com",
+  "agentShortDescription": "Your marketing budget, in conversation: see what's over budget, update spend, and tap your team's marketing knowledge. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 61239,
+  "name": "EULER",
+  "makers": [
+   {
+    "name": "Euler"
+   }
+  ],
+  "supportEmail": "help@eulerapp.com",
+  "agentShortDescription": "Partner data, referrals, deals, and commissions from your PRM — surfaced where you're already writing.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 53017,
+  "name": "Fathom",
+  "makers": [
+   {
+    "name": "Fathom AI"
+   }
+  ],
+  "supportEmail": "help@fathom.video",
+  "agentShortDescription": "Ask Fathom about any past call and drop the answer straight into your draft, without leaving Superhuman Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1070,
+  "name": "FedEx",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Your express lane to reliable package updates and streamlined logistics.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 45517,
+  "name": "Fireflies.ai",
+  "makers": [
+   {
+    "name": "Fireflies AI Corp"
+   }
+  ],
+  "supportEmail": "app-connectors@fireflies.ai",
+  "agentShortDescription": "Get summaries, action items, and answers from your meetings instantly. Your meeting insights, now at your fingertips while you work. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 47462,
+  "name": "Gamma",
+  "makers": [
+   {
+    "name": "Gamma Developer",
+    "pictureLink": "https://codaio.imgix.net/users/39257228/blobs/pictures/bl-jpyHIS2Fw_?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@gamma.app",
+  "agentShortDescription": "Transform a single idea or pages of content into polished presentations, documents, socials, and webpages",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1013,
+  "name": "GitHub",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Work smarter by answering GitHub questions anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1083,
+  "name": "GitLab",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Keep your GitLab work moving, wherever you are.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 11867,
+  "name": "GitLab Self-Managed",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Manage your self-hosted GitLab issues and merge requests anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 58311,
+  "name": "Glean",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search everything your company knows.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1004,
+  "name": "Gmail",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Get quick access to emails, anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 53884,
+  "name": "Gong",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Turn Gong calls into account and deal insights.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 15020,
+  "name": "Google Analytics",
+  "makers": [
+   {
+    "name": "Pack Whale",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocLX9TjUiPRUO_645Q_6st5JV1msnrqC7TNYz9k1dK9xy6X5r3w%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=b7671de7c32a6c0fbec137ff081cf32b",
+    "employer": "packwhale.io",
+    "slug": "packwhale"
+   }
+  ],
+  "supportEmail": "support@packwhale.io",
+  "agentShortDescription": "Chat with your Google Analytics data",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1003,
+  "name": "Google Calendar",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Access your calendar while staying in flow.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1011,
+  "name": "Google Contacts",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Access, organize, and update your Google Contacts from anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 68620,
+  "name": "Google Docs",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Read Google Docs, find answers, and create documents with Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1059,
+  "name": "Google Drive",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search and read Google Drive files.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 22507,
+  "name": "Google Sheets",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Streamline your data management and analysis.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 70652,
+  "name": "Google Slides",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Summarize your Google Slides presentations and get answers with links to the right slides.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1063,
+  "name": "Google Translate",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Fast, accurate translations using Google’s world-class language support.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1075,
+  "name": "Google Workspace Directory",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Quickly search and access your organization’s directory details.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 49503,
+  "name": "Granola",
+  "makers": [
+   {
+    "name": "Developer Granola",
+    "pictureLink": "https://codaio.imgix.net/users/45520465/blobs/pictures/bl-2dfxUk3H6J?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "hey@granola.so",
+  "agentShortDescription": "The AI notepad that helps you get the doing done.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 73469,
+  "name": "Guru",
+  "makers": [
+   {
+    "name": "Guru",
+    "pictureLink": "https://codaio.imgix.net/users/4950974/blobs/pictures/bl-2MU6aa2Qt8?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@getguru.com",
+  "agentShortDescription": "Ground Go in your company's verified knowledge from Guru.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 49494,
+  "name": "HeyGen",
+  "makers": [
+   {
+    "name": "HeyGen Integrations"
+   }
+  ],
+  "supportEmail": "support@heygen.com",
+  "agentShortDescription": "Turn ideas into professional videos in minutes. Free your story",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 22009,
+  "name": "Holidays",
+  "makers": [
+   {
+    "name": "Eric Koleda",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocJYa8nknu-CdeUwswBMRrDPKyLXdwzRPhMFuTodG063315NF-Xe%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=3883cf143fc4db7e36979789fddc045e",
+    "employer": "Coda",
+    "jobTitle": "Developer Advocate",
+    "slug": "eric-koleda"
+   }
+  ],
+  "supportEmail": "packs@erickoleda.com",
+  "agentShortDescription": "Determine which holidays fall on a date, and list all of the holidays for the year.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 12912,
+  "name": "HubSpot",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Pull HubSpot info into any conversation.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 75344,
+  "name": "Hugging Face",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search Hugging Face models, datasets, Spaces, and docs.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1002,
+  "name": "Intercom",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Bring your Intercom conversations, contacts, and help center into Superhuman.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 75378,
+  "name": "Ivo",
+  "makers": [
+   {
+    "name": "Ivo"
+   }
+  ],
+  "supportEmail": "support@ivo.ai",
+  "agentShortDescription": "Ask questions about your contracts and get answers with quotes from the source, straight from your Ivo repository.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1052,
+  "name": "Jira",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Stay on top of your projects, wherever you are.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 74608,
+  "name": "Jotform",
+  "makers": [
+   {
+    "name": "Jotform"
+   }
+  ],
+  "supportEmail": "product-partnerships@jotform.com",
+  "agentShortDescription": "Connects Superhuman Go to Jotform through the official hosted MCP service.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1058,
+  "name": "LaTeX",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Make LaTeX easy. Get instant help with formatting, equations, and more.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 45523,
+  "name": "Latimer",
+  "makers": [
+   {
+    "name": "Latimer Information",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocJCualTLTl-mrwirjbJvodYY89kK01VY8Hwq0YKphCu7GSfJA%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=2d17acef52b389c25f9ab6575d0eaa11"
+   }
+  ],
+  "supportEmail": "support@latimer.ai",
+  "agentShortDescription": "Detect Bias, Encourage Inclusion.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 50867,
+  "name": "Lenny's Data",
+  "makers": [
+   {
+    "name": "Hector Reyes",
+    "pictureLink": "https://codaio.imgix.net/users/984445/blobs/pictures/bl-8uKSzvOV0Y?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "employer": "Superhuman",
+    "jobTitle": "Partnerships",
+    "slug": "hector"
+   }
+  ],
+  "supportEmail": "hector.reyes@grammarly.com",
+  "agentShortDescription": "Product wisdom from Lenny's Newsletter and Podcast, right when you need it.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10813,
+  "name": "Linear",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Streamline issue tracking and project updates with ease.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 75356,
+  "name": "Lucid",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Turn your notes into Lucid diagrams.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 49964,
+  "name": "Luthor",
+  "makers": [
+   {
+    "name": "Luthor Technology Team",
+    "pictureLink": "https://codaio.imgix.net/users/47046703/blobs/pictures/bl-4gLZA_DAR2?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "tech@luthor.ai",
+  "agentShortDescription": "AI-powered compliance review for your marketing copy — catch violations and fix them without leaving your workflow.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 64280,
+  "name": "MakeForms",
+  "makers": [
+   {
+    "name": "MakeStories Developers",
+    "pictureLink": "https://codaio.imgix.net/users/69898652/blobs/pictures/bl-yR5VUGmPnk?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@makeforms.io",
+  "agentShortDescription": "Search, summarize, and analyze your MakeForms submissions with Superhuman Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10537,
+  "name": "Mermaid",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Effortlessly turn text into clear, beautiful diagrams. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 61259,
+  "name": "Microsoft Dynamics 365",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Find & update deals, cases, contacts and more in Dynamics 365.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 63035,
+  "name": "Microsoft Excel",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Ask questions, explore data, and update your Excel spreadsheets in OneDrive or SharePoint.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10591,
+  "name": "Microsoft Teams",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Send chats, create posts, tag your teammates, automate your workflow, and eliminate duplicating work. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 51873,
+  "name": "Miro",
+  "makers": [
+   {
+    "name": "Miro Developers"
+   }
+  ],
+  "supportEmail": "devrel@miro.com",
+  "agentShortDescription": "Search, collaborate, and create on your Miro boards.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 71793,
+  "name": "Mixpanel MCP (EU)",
+  "makers": [
+   {
+    "name": "Mixpanel"
+   }
+  ],
+  "supportEmail": "support@mixpanel.com",
+  "agentShortDescription": "Query and analyze Mixpanel data in Superhuman Go. Run funnels, retention and segmentation, explore events and get answers where you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 71794,
+  "name": "Mixpanel MCP (India)",
+  "makers": [
+   {
+    "name": "Mixpanel"
+   }
+  ],
+  "supportEmail": "support@mixpanel.com",
+  "agentShortDescription": "Query and analyze Mixpanel data in Superhuman Go. Run funnels, retention and segmentation, explore events and get answers where you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 70198,
+  "name": "Mixpanel (US)",
+  "makers": [
+   {
+    "name": "Mixpanel"
+   }
+  ],
+  "supportEmail": "support@mixpanel.com",
+  "agentShortDescription": "Query and analyze Mixpanel data in Superhuman Go. Run funnels, retention and segmentation, explore events and get answers where you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 36746,
+  "name": "Monday",
+  "makers": [
+   {
+    "name": "Simpladocs",
+    "pictureLink": "https://codaio.imgix.net/users/2921815/blobs/pictures/bl-vJpFTLCkkm?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "packs@simpladocs.com",
+  "agentShortDescription": "Instant clarity across all your Monday.com boards - track, understand, and find your records effortlessly.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 43557,
+  "name": "Napkin AI",
+  "makers": [
+   {
+    "name": "Napkin AI",
+    "pictureLink": "https://codaio.imgix.net/users/40913192/blobs/pictures/bl-S7JQ9tCZad?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "api@napkin.ai",
+  "agentShortDescription": "Turn any text into clear, professional visuals instantly.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 47572,
+  "name": "Navan",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Company travel bookings, searchable by anyone on the team.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 46936,
+  "name": "Notetaker",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search and query your meeting transcripts. Find discussions, decisions, and action items across all your recorded meetings.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 46992,
+  "name": "Notion",
+  "makers": [
+   {
+    "name": "SimplaDocs",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocJA5Qu3JZ1WRQVa1DXZ8GQN5-cVm6qDoxpB1yGhXBrJkhXcjV8%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=c41d2a77715ebd4861ba4aa818e08a82"
+   }
+  ],
+  "supportEmail": "packs@simpladocs.com",
+  "agentShortDescription": "Query your knowledge base, add new pages, callouts, databases and more",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 63592,
+  "name": "OnePageCRM",
+  "makers": [
+   {
+    "name": "OnePageCRM",
+    "pictureLink": "https://codaio.imgix.net/users/72698632/blobs/pictures/bl-mgOArbcnxe?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "employer": "OnePageCRM",
+    "slug": "onepagecrm"
+   }
+  ],
+  "supportEmail": "support@onepagecrm.com",
+  "agentShortDescription": "Create, search, update, and manage data in OnePageCRM.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 42226,
+  "name": "Outlook Calendar",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "support@coda.io",
+  "agentShortDescription": "Instantly sync, manage, and schedule with Microsoft Outlook Calendar.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 13529,
+  "name": "Outlook Contacts",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search, access, and update your Outlook Contacts.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 41577,
+  "name": "Outlook Mail",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search, send, and manage your Outlook emails, right when you need them.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 57318,
+  "name": "Outreach",
+  "makers": [
+   {
+    "name": "Outreach"
+   }
+  ],
+  "supportEmail": "support@outreach.io",
+  "agentShortDescription": "Bring Outreach AI Revenue Platform knowledge and actions into Superhuman Go so teams can find information and combine insights",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 75357,
+  "name": "PandaDoc",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Manage proposals, contracts, and signatures with less back-and-forth.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 45397,
+  "name": "Parallel Web Intelligence",
+  "makers": [
+   {
+    "name": "Parallel Web Systems",
+    "pictureLink": "https://codaio.imgix.net/users/28294402/blobs/pictures/bl-kZMb49RivN?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@parallel.ai",
+  "agentShortDescription": "Verify facts, generate citations, and gather information from the open web.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 22579,
+  "name": "Pipedrive",
+  "makers": [
+   {
+    "name": "tools4coda Packs",
+    "pictureLink": "https://codaio.imgix.net/users/3189447/blobs/pictures/bl-t_0NRO_EWY?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "description": "Premium Coda Templates & Packs",
+    "slug": "t4c"
+   }
+  ],
+  "supportEmail": "support@tools4coda.io",
+  "agentShortDescription": "Draft sales emails with deal and contact context with your Go agent.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 72401,
+  "name": "Postman MCP Server",
+  "makers": [
+   {
+    "name": "Jake Morgen",
+    "slug": "jake-morgen"
+   }
+  ],
+  "supportEmail": "jake.morgen@postman.com",
+  "agentShortDescription": "Create collections and specs, keep them in sync, and run your API tests without the overhead.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 73466,
+  "name": "Power BI",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Get answers from your Power BI data—find reports, explore trends, and uncover insights in Superhuman Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 13443,
+  "name": "Qualtrics",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Get survey insights from Qualtrics, right in Go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10759,
+  "name": "QuickBooks",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Access and control your QuickBooks data from anywhere. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 45186,
+  "name": "Quizlet",
+  "makers": [
+   {
+    "name": "Quizlet",
+    "pictureLink": "https://codaio.imgix.net/users/32549742/blobs/pictures/bl-yHfpxwwwnc?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@quizlet.com",
+  "agentShortDescription": "Turn notes into flashcards instantly — get to studying, faster.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 43271,
+  "name": "Radical Candor",
+  "makers": [
+   {
+    "name": "Radical Candor",
+    "pictureLink": "https://codaio.imgix.net/users/31056407/blobs/pictures/bl-bxbWznPyC9?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@radicalcandor.com",
+  "agentShortDescription": "Get advice on your tough work situations and write in a more Radically Candid way.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 49156,
+  "name": "Recital Contract Search",
+  "makers": [
+   {
+    "name": "Recital Software Corp"
+   }
+  ],
+  "supportEmail": "support@recitalapp.com",
+  "agentShortDescription": "Get answers from your contracts—renewals, payments, etc—immediately.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 45541,
+  "name": "Saifr Communication Compliance",
+  "makers": [
+   {
+    "name": "Saifr Development"
+   }
+  ],
+  "supportEmail": "contact@saifr.ai",
+  "agentShortDescription": "Harness the power of AI to quickly detect and correct potential regulatory compliance risks in marketing content for financial services.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1090,
+  "name": "Salesforce",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search and update Salesforce from anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 41648,
+  "name": "SharePoint & OneDrive",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Reach your Microsoft SharePoint & OneDrive files, no tab switching required.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1000,
+  "name": "Slack",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Find messages and send replies.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 24936,
+  "name": "Snowflake",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Ask questions and get answers from your Snowflake data.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 44343,
+  "name": "Speechify Text to Speech",
+  "makers": [
+   {
+    "name": "Speechify Text to Speech",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocL1qtgUfuyPaPuv-rK_QTknWAeG5h78SiUWlLXOX7ROhtEewAs=s96-c"
+   }
+  ],
+  "supportEmail": "grammarly@speechify.com",
+  "agentShortDescription": "Save time by listening instead of reading.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1018,
+  "name": "Spotify",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Play, organize, and discover Spotify tracks, albums, and playlists.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 58429,
+  "name": "Statsig",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Your experiments and metrics, one question away.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 12258,
+  "name": "Stripe",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Stay on top of your Stripe transactions anytime, anywhere.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 68688,
+  "name": "Survicate: Surveys & Feedback Insights",
+  "makers": [
+   {
+    "name": "Olga Padulosi"
+   }
+  ],
+  "supportEmail": "partners@survicate.com",
+  "agentShortDescription": "Bring Survicate feedback into Superhuman Go to explore survey results, spot themes in NPS, CSAT, and open responses, and draft new surveys—all in plain language. No API key needed.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 54058,
+  "name": "Swiss Trust Layer",
+  "makers": [
+   {
+    "name": "Artus Guenes"
+   }
+  ],
+  "supportEmail": "artus@swisstrustlayer.com",
+  "agentShortDescription": "Seal your documents on the go.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 48335,
+  "name": "Swoop",
+  "makers": [
+   {
+    "name": "Prezi Inc.",
+    "pictureLink": "https://codaio.imgix.net/users/42389119/blobs/pictures/bl-FjSCkrFxhR?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "help@swoop.it",
+  "agentShortDescription": "Built by Prezi, Swoop is the AI agent taking your ideas from rough sketch to room-ready—with the creative clarity to make them land.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10087,
+  "name": "Tally Forms",
+  "makers": [
+   {
+    "name": "Tally Forms",
+    "pictureLink": "https://codaio.imgix.net/users/54967751/blobs/pictures/bl-sSC06iRH-g?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "hello@tally.so",
+  "agentShortDescription": "Build forms, check responses, and get insights without switching tabs.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 48345,
+  "name": "Todoist",
+  "makers": [
+   {
+    "name": "SimplaDocs",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocJA5Qu3JZ1WRQVa1DXZ8GQN5-cVm6qDoxpB1yGhXBrJkhXcjV8%3Ds96-c?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=c41d2a77715ebd4861ba4aa818e08a82"
+   }
+  ],
+  "supportEmail": "packs@simpladocs.com",
+  "agentShortDescription": "Create tasks from wherever you work",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 10697,
+  "name": "Toggl Track",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Seamless time tracking, project management, and productivity insights.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1006,
+  "name": "Trigonometry",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "From sines to solutions, get step-by-step clarity.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56549,
+  "name": "Typedesk",
+  "makers": [
+   {
+    "name": "Typedesk",
+    "pictureLink": "https://codaio.imgix.net/users/60462088/blobs/pictures/bl-HlGYHEPzKj?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@typedesk.com",
+  "agentShortDescription": "Search your Typedesk templates without leaving your inbox. Read-only access to every approved snippet, so nothing gets changed.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 56610,
+  "name": "Typeform",
+  "makers": [
+   {
+    "name": "Typeform"
+   }
+  ],
+  "supportEmail": "support@typeform.com",
+  "agentShortDescription": "Create forms, analyze responses, and automate workflows.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1061,
+  "name": "Unsplash",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Find high-quality, royalty-free images in seconds. ",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1071,
+  "name": "UPS",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Get fast answers for all your UPS tracking and support needs.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 47744,
+  "name": "Wayground",
+  "makers": [
+   {
+    "name": "Wayground",
+    "pictureLink": "https://codaio.imgix.net/users/40804026/blobs/pictures/bl-FcUev4gxPW?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "support@quizizz.com",
+  "agentShortDescription": "Wayground Agent quickly transforms teaching materials into quizzes and flashcards, saving teachers time and enhancing student learning.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1015,
+  "name": "Weather",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Check the latest weather updates for any city, anytime.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 11293,
+  "name": "Webflow",
+  "makers": [
+   {
+    "name": "Skilled Agents",
+    "pictureLink": "https://codaio.imgix.net/users/31295952/blobs/pictures/bl-sTap2mWfwK?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces",
+    "slug": "skilled-agents"
+   }
+  ],
+  "supportEmail": "support@skilledagents.ai",
+  "agentShortDescription": "Keep your Webflow website, content, and updates at your fingertips, wherever you work.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1031,
+  "name": "Wikipedia",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "From facts to context: your specialist in Wikipedia insight",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 75354,
+  "name": "Wix",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Search Wix docs and manage sites from your workflow.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 35934,
+  "name": "Wrike",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Create and update Wrike tasks on the spot.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 57247,
+  "name": "Zapier",
+  "makers": [
+   {
+    "name": "Zapier",
+    "pictureLink": "https://images-codaio.imgix.net/https%3A%2F%2Fwww.gravatar.com%2Favatar%2Fc85dd7d3403c3a7659c1af380f1ba670.jpg%3Fd%3Dretro?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces&s=18bd4eca194caa5e5b76b7f49cdcb9c3"
+   }
+  ],
+  "supportEmail": "contact@zapier.com",
+  "agentShortDescription": "Connect Go to 9,000+ apps to automate workflows and take actions across your tools.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 1017,
+  "name": "Zoom",
+  "makers": [
+   {
+    "name": "Superhuman",
+    "pictureLink": "https://lh3.googleusercontent.com/a/ACg8ocLM21RL5uJhxj03XUpw7GAYgZiVg6qsFnRa07dj-VOpasojRdG7=s96-c",
+    "description": "Stories, insights, and diversions from the Coda team.",
+    "slug": "coda"
+   }
+  ],
+  "supportEmail": "care@superhuman.com",
+  "agentShortDescription": "Your expert resource for Zoom meetings, recordings, and smart summaries.",
+  "distributionMode": "installOnly"
+ },
+ {
+  "packId": 55877,
+  "name": "ZoomInfo",
+  "makers": [
+   {
+    "name": "ZoomInfo",
+    "pictureLink": "https://codaio.imgix.net/users/58027802/blobs/pictures/bl-YjV8l8dN5q?auto=format%2Ccompress&fit=crop&w=360&h=360&crop=faces"
+   }
+  ],
+  "supportEmail": "integrationapps@zoominfo.com",
+  "agentShortDescription": "Search verified companies, contacts, and buyer intent with ZoomInfo.",
+  "distributionMode": "installOnly"
+ }
+]

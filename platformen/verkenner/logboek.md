@@ -429,3 +429,17 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 2. Reden: weinig concurrentie maar ook bijna geen kopers, geen groei in zicht.
 - Controleur akkoord, 6 van 6 live gelijk. Nuances verwerkt (artikel noemt niet alle 17 apps betaald).
 - Les: Apple toont voor visionOS-apps nergens openbaar ratings (lookup, webpagina, RSS allemaal 0), en de zoek-API en new-app-sitemaps bevatten geen visionOS- of Mac-apps. Voor Apple-platformen buiten iPhone en iPad alleen via lookup op bekende id's of uitlichtpagina's.
+
+## 8 nov run 08:31 (UTC)
+- Begin: lokale main liep scheef met GitHub. Niets weggegooid, main opnieuw gezet op origin/main zonder eigen werk te verliezen (er stond niets open).
+- Platform: Meta Horizon Store (open kandidaat). Apple Vision Pro was door de vorige run al gedaan.
+- meta.com zelf blokkeert automatische lezers (sitemaps 403, foutpagina). Niet omzeild. In plaats daarvan vrdb.app gemeten (robots.txt staat het toe): alle 6.850 nieuwe titels van eind sep 2025 t/m 7 nov 2026, met beoordelingen, prijs en datum. Een onderzoeker zocht regels, markt en geld.
+- Uitkomst: betaald mei t/m aug mediaan 1 beoordeling, 14% 10+, 2% 100+; betaalde Apps mediaan 0. Vuistregel 110 verkocht per beoordeling (DERDEN). Headsetverkoop daalt, winkelomzet staat stil.
+- Beslissing: nee voor nu, cijfer 4. Reden: het geld zit in 3D-spellen die we zonder headset en zonder echte test niet goed kunnen maken; het deel dat bij ons past doet het slecht.
+- Controleur akkoord, alle tellingen gelijk, 15 van 15 live gelijk. Correcties verwerkt: makers op id, auteur en spreiding van de vuistregel, beperking bij GameDiscoverCo, vertekening door de prijs van nu, drukte als piek.
+- Les: vrdb.app heeft per lijstpagina een __data.json (SvelteKit, devalue-formaat) met alle velden; 50 per pagina, ±1,5 s ertussen gaat goed. Zelfde aanpak werkt waarschijnlijk voor andere SvelteKit-sites.
+- 08:50: tweede platform: Rhino en Grasshopper, zelf toegevoegd. Food4Rhino geeft 403 (niet omzeild), maar de package-API van McNeel (yak.rhino3d.com) is open met downloads en versiedatums. Alle 1.395 pakketten opgehaald.
+- Uitkomst: golf sinds maart 2026 (okt 131 nieuwe), nieuwe pakketten mei t/m aug mediaan 57,5 downloads, 6,9% haalt 1.000+; AI-pakketten doen het beter. Geen betalen in de winkel, geen verkoopaantallen gevonden, alleen Patreon-bedragen.
+- Beslissing: nog niet klaar, cijfer 4. Reden: past bij ons en de gebruikers betalen voor software, maar geld voor kleine makers is niet aangetoond.
+- Controleur akkoord, 8 van 8 live gelijk. Correcties verwerkt (betaalwoorden ±14 tot 25, schrijver AI-voorbeeld werkt bij McNeel, uitspraak McNeel preciezer).
+- Run afgesloten na ±45 minuten.
