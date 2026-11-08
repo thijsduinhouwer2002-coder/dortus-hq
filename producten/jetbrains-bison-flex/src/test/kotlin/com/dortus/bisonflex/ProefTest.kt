@@ -50,6 +50,7 @@ class ProefTest : BasePlatformTestCase() {
     fun testZonderRegistratieDeMarketplace() {
         start(emptyMap())
         assertEquals(listOf(Proef.KOOPPAGINA), geopend)
+        assertEquals("https://plugins.jetbrains.com/plugin/35901-bison--flex", Proef.KOOPPAGINA)
     }
 
     /** Niet meteen: pas op de EDT na invokeLater (niet-modaal), zoals het voorbeeld van JetBrains. */
