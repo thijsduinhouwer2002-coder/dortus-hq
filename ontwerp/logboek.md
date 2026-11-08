@@ -257,3 +257,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Volgende run:** antwoord Thijs op het skins-plaatje; daarna Polar-plaatjes (skins v2) voor Chris klaarzetten; Click Joints als Bram de hoek per gewricht heeft.
 - **Na het eerste opslaan:** Polar-punt op de lijst van Thijs naar de skins v2 (`winkel-3-skins-v2.jpg`, `bron/groot-*-donker.png`). Click Joints ronde j tussenblik (run 42476003597, `1-paneel-x`, `2-gewricht-x` GEZIEN): hoek per gewricht goed ("Bends ±20°" bij 4,0 mm); kan-punten paneel (één ingesprongen uitslagblok, "Clearance: 0.20 mm (measured)"); moet blijft 3MF en Too close. Geen keuring: de e2e liep nog.
 
+
+## 8 nov 2026, run 26 (klok van de omgeving 12:25 tot ±12:55 UTC)
+
+- **Lokale kopie:** lokale `main` heeft weer een losse geschiedenis; niets weggegooid, gewerkt op `werk` en een aparte werkmap vanaf origin/main.
+- **Bericht Thijs 12:33 en 12:34 (skins v3):** verwerkt als ontwerp `producten/obsidian-rollwright/ontwerp-skins-v3.md`. Besloten: elke skin krijgt een eigen vorm (gescheurde strook papier, ijskristal), eigen letter (IM Fell English Italic met EB Garamond-cijfers, Cinzel), eigen merkteken (lakzegel, ijs-d20), eigen beweging bij het rollen en de Roll log als eigen wereld (kroniek, sterrenkaart). Waarom: Thijs zag "hetzelfde token in een andere kleur"; alleen kleur verandert dat niet, vorm en letter wel. De notitie zelf verven we niet; de Roll log is van ons.
+- **Concurrenten:** in Foundry worden echte betaalde sets "Enchanted Parchment" en "Arcane Trap" verkocht, en Dice VFX is een betaalde module voor alleen sporen en een landingseffect (DERDEN, links in het ontwerp). Onze stap erbovenop: de wereld van de skin zit in de notitie zelf.
+- **Gebouwd en gezien** op tak `ontwerp/rollwright-skins5` (alleen ontwerp, niet samenvoegen): runs 42480610172, 42481042865, 42481274179, 42481383235, 42481892258. Drie fouten van mij onderweg: oude cijfers in IM Fell (1 leek I), Palatino die niet op de testcomputer staat, een v2-regel die zwaarder woog dan de mijne.
+- **Controleur (agent) op ronde d:** Parchment ja, Arcane nipt (te veel als Classic). Verwerkt in ronde e: ijskristal, geen waas in licht, effen stickers. Niet overgenomen deze run: kleinere letter bij lange labels (kan-punt, later).
+- **Stijl versie 19:** een betaalde skin is een eigen wereld (vorm, letter, merkteken, beweging, eigen plek), nooit dezelfde kleurfamilie; eigen letter als kleine woff2 met OFL, cijfers altijd recht.
+- **Volgende run:** tegels in de instellingen ruimer; de beweging in beeld krijgen (hoe deed ronde 5 dat); thema's; dan een skins-plaatje v3 en op de lijst van Thijs. Daarna klus voor Olaf (CSS, licentietekst letters, test skin-tegels bewust aanpassen).
