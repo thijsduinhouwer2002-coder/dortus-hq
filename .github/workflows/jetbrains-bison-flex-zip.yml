@@ -1,0 +1,94 @@
+name: Bison & Flex uploadbestand (zip voor de Marketplace)
+
+# Bouwt het zip-bestand dat Thijs op plugins.jetbrains.com uploadt, en zet het
+# als pre-release in deze repo, zodat het zonder inlog te downloaden is.
+# Alleen met de hand te starten (Jet, via de Actions-knop of de API).
+# release-date in plugin.xml wordt hier gezet, niet in de code: de Marketplace
+# weigert een datum meer dan 5 dagen vooruit, dus bouwen op (of vlak voor) de dag
+# van uploaden.
+
+on:
+  workflow_dispatch:
+    inputs:
+      releasedatum:
+        description: "release-date voor plugin.xml (JJJJMMDD), leeg = vandaag (UTC)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: producten/jetbrains-bison-flex
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ruimte maken (IDEA en CLion zijn groot)
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+      - name: release-date zetten
+        env:
+          INVOER: ${{ inputs.releasedatum }}
+        run: |
+          VANDAAG=$(date -u +%Y%m%d)
+          DATUM="${INVOER:-$VANDAAG}"
+          echo "$DATUM" | grep -Eq '^20[0-9]{6}$' || { echo "FOUT: datum '$DATUM' is geen JJJJMMDD"; exit 1; }
+          date -u -d "$DATUM" +%Y%m%d >/dev/null 2>&1 || { echo "FOUT: $DATUM is geen bestaande datum"; exit 1; }
+          GRENS=$(date -u -d "+5 days" +%Y%m%d)
+          [ "$DATUM" -le "$GRENS" ] || { echo "FOUT: $DATUM ligt meer dan 5 dagen vooruit, de Marketplace weigert dat"; exit 1; }
+          P=src/main/resources/META-INF/plugin.xml
+          grep -q 'code="PBISONFLEX" release-date="[0-9]\{8\}"' "$P" || { echo "FOUT: product-descriptor niet gevonden"; exit 1; }
+          sed -i -E "s/(code=\"PBISONFLEX\" release-date=\")[0-9]{8}\"/\1$DATUM\"/" "$P"
+          grep -n 'product-descriptor' "$P"
+          echo "DATUM=$DATUM" >> "$GITHUB_ENV"
+      - name: Unittests
+        run: ./gradlew --no-daemon test
+      - name: Zip bouwen
+        run: ./gradlew --no-daemon buildPlugin
+      - name: Plugin Verifier (CLion 2025.2 en IDEA Community 2025.2)
+        run: ./gradlew --no-daemon verifyPlugin
+      - name: Verifier moet Compatible zeggen
+        run: |
+          R=build/reports/pluginVerifier
+          V=$(find "$R" -name 'verification-verdict.txt')
+          [ -n "$V" ] || { echo "FOUT: geen verifier-uitslag"; exit 1; }
+          for f in $V; do echo "== $f"; cat "$f"; grep -q '^Compatible' "$f" || { echo "FOUT: niet Compatible"; exit 1; }; done
+      - name: Zip nakijken
+        run: |
+          ls -l build/distributions
+          Z=$(ls build/distributions/*.zip | head -1)
+          [ -n "$Z" ] || { echo "FOUT: geen zip"; exit 1; }
+          unzip -l "$Z"
+          # release-date in de jar in de zip moet de gekozen datum zijn
+          mkdir -p /tmp/zipcheck && unzip -q -o "$Z" -d /tmp/zipcheck
+          J=$(find /tmp/zipcheck -name '*.jar' | xargs -I{} sh -c 'unzip -l "{}" | grep -q META-INF/plugin.xml && echo "{}"' | head -1)
+          [ -n "$J" ] || { echo "FOUT: geen jar met META-INF/plugin.xml in de zip"; exit 1; }
+          unzip -p "$J" META-INF/plugin.xml | grep -o 'release-date="[0-9]*"' | tee /tmp/datum.txt
+          grep -q "release-date=\"$DATUM\"" /tmp/datum.txt || { echo "FOUT: datum niet in de zip"; exit 1; }
+          VERSIE=$(grep -E '^version *=' build.gradle.kts | sed -E 's/.*"(.*)".*/\1/')
+          echo "VERSIE=$VERSIE" >> "$GITHUB_ENV"
+          echo "ZIP=$Z" >> "$GITHUB_ENV"
+          (cd build/distributions && sha256sum "$(basename "$Z")" | tee "$(basename "$Z").sha256")
+      - name: Pre-release maken met de zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="bison-flex-$VERSIE-$DATUM"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ZIP" "$ZIP.sha256" --clobber
+            gh release edit "$TAG" --notes "Uploadbestand voor plugins.jetbrains.com. Niet zelf installeren. Opnieuw gebouwd van $GITHUB_SHA (de tag wijst naar een oudere commit), unittests groen, Plugin Verifier Compatible voor CL-252 en IC-252."
+          else
+            gh release create "$TAG" "$ZIP" "$ZIP.sha256" --prerelease --target "$GITHUB_SHA" \
+              --title "Bison & Flex $VERSIE (uploadbestand, release-date $DATUM)" \
+              --notes "Uploadbestand voor plugins.jetbrains.com. Niet zelf installeren. Gebouwd van $GITHUB_SHA, unittests groen, Plugin Verifier Compatible voor CL-252 en IC-252."
+          fi
+          echo "UPLOADBESTAND: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$(basename "$ZIP")"
+          echo "### Uploadbestand: https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$(basename "$ZIP")" >> "$GITHUB_STEP_SUMMARY"
