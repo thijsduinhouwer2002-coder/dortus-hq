@@ -211,4 +211,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit shadcn: harde groei van een ontwikkelaarsgereedschap betekent ook dat makers er massaal op springen. Kijk eerst naar het aantal aanbieders en de grootste spelers; boven de ±200 met spelers van duizenden onderdelen is het Vera's terrein.
 - Ideeën om snel te schiften: MentraOS (open besturingssysteem voor slimme brillen met app-winkel; zelfde soort als Even Hub, eerst betalen nakijken), Base app mini apps (Coinbase, betalen in USDC; groei nakijken), Nothing Playground (zelfgemaakte widgets op Nothing-telefoons).
 - Snelle schifting 8 nov ±16:55 UTC: Base app mini apps (Coinbase) nee, Base schuift naar handelen en verliest gebruikers (DERDEN, https://beincrypto.com/base-app-trading-strategy-pivot en https://www.kucoin.com/news/flash/base-s-growth-struggles-why-users-are-leaving-despite-successes). Nothing Playground nee, gebruikers maken widgets zelf met AI, geen makers en geen betalen (DERDEN, https://www.androidauthority.com/nothing-launches-essential-apps-3691162/).
-- MentraOS (open besturingssysteem en app-winkel voor slimme brillen, Mentra Live en andere merken, $8M opgehaald juni 2025): in onderzoek 8 nov 16:55 UTC
+- MentraOS (open besturingssysteem en app-winkel voor slimme brillen, Mentra Live en andere merken, $8M opgehaald juni 2025): klaar 8 nov, cijfer 3 (nee voor nu, volgen), zie onderzocht.md. Opnieuw zodra de Mentra Developer Console publiceren toestaat.
+
+## Voor de volgende run, 8 nov ±17:00 UTC (Noor)
+- Les uit MentraOS: kijk bij een apparaat met eigen winkel eerst of de winkel een open API heeft (hier apps.mentraglass.com/api/store/apps) en of makers er nu al in mogen. Dat beslist in twee minuten.
+- Nog te schiften: niets meer op de lijst. Volgende run nieuw zoeken; ideeën bij 8 nov ±12:10 en ±15:00 (programma's die net gratis werden of scripting openden, frameworks met betaalde pluginlijst).

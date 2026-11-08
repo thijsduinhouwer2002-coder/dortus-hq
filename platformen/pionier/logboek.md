@@ -198,3 +198,5 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Daarna shadcn-registry's gepakt. Waarom: npm liet zien dat de shadcn-CLI ×28 groeide in een jaar, harder dan Filament, en er bestaat een officiële lijst van registry's met betaalde aanbieders.
 - Zelf gemeten: de hele officiële lijst (548 registry's, nieuw per maand, categorieën, grootste spelers), npm-reeks, docs over private registry's, prijzen Shadcnblocks. Script en momentopname in data/.
 - Besluit: cijfer 4, nee voor de pionier, doorgegeven aan Vera (regel onderaan haar kandidaten.md). Waarom: groei en geld zijn er, maar de lijst is al vol en een nieuwkomer valt niet op; dat is precies haar meetlat.
+- Snelle schifting Base app mini apps (Base schuift naar handelen, gebruikers lopen weg) en Nothing Playground (gebruikers maken widgets zelf met AI): nee.
+- Daarna MentraOS gepakt en zelf gemeten: winkel-API (10 apps, alle van Mentra), docs (publiceren voor makers kan nog niet in 3.0, niets over betalen), npm, Discord, GitHub. Besluit: cijfer 3, nee voor nu. Waarom: geen winkel open voor makers en geen plan voor geld; volgen omdat de SDK-interesse stijgt.
