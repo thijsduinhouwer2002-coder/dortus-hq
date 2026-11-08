@@ -148,3 +148,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±12:10 UTC (Noor)
 - Les uit Affinity: een gratis pro-programma met miljoenen nieuwe gebruikers dat **net scripting of plugins opent** is een goede pionierssoort. Zoek meer van die soort: programma's die in 2025 of 2026 gratis werden of hard groeiden en daarna een script- of plugin-API openden (bijvoorbeeld DaVinci Resolve-scripts, Krita, Inkscape 1.4+, Penpot sloot al af, Figma Make, CapCut desktop).
 - Let bij scripting met ingebouwde AI op het risico dat eenvoudige scripts niets meer waard zijn; alleen grote, verzorgde hulpprogramma's houden waarde.
+
+## Snelle schifting, 8 nov ±11:55 UTC (Noor)
+- DeepSeek Harness (AI-werkomgeving): officiële pluginwinkel en makersprogramma met tokens aangekondigd, maar er zijn al ±35.000 plugins en 1,54 miljoen dagelijkse gebruikers (DERDEN, https://technode.com/2026/11/06/deepseek-plans-official-plugin-marketplace-as-harness-daily-users-reach-1-54-million/). Al vol, AI-assistent-soort, Chinees. Nee voor de pionier.
+- DaVinci Resolve 21.1 (sept 2026): Python-scripting gaat naar de betaalde Studio-versie, AI-assistent via MCP erbij (DERDEN, https://alternativeto.net/news/2026/9/davinci-resolve-21-1-changes-scripting-and-editing-tools/). Het scriptpubliek wordt kleiner en het platform is oud. Nee.
