@@ -29,6 +29,10 @@ OPENING = 0.85
 # een bol om het draaipunt is de enige naad die dicht kan zijn in rechte stand en toch vrij draait.
 # Een kegel (V) met de top bij het draaipunt botst aan de kant die zakt (rekensom in ontwerp.md).
 NEK = 0.40
+# Regel Daan (8 nov 09:36): ±30 graden met nek 0,40r als de passing dat toelaat, anders nek 0,48r (±25 graden).
+# Per gewricht: valt de passing met 0,40 slechter uit dan met 0,48, dan wordt het 0,48.
+NEK_RUIM = 0.48
+RANG = {"groen": 2, "oranje": 1, "rood": 0}
 MARGE_HOEK = 3.0
 NAAD_MARGE_MM = 0.5
 # Exact-solver: Self Intersection uit. Afwijking van het ontwerp, gemeten 8 nov in 4.2.23 en 5.2.3:
@@ -48,10 +52,10 @@ def solver_naam():
     return "EXACT"
 
 
-def maten(inst, u, kogel_mm=None):
+def maten(inst, u, kogel_mm=None, nek=NEK):
     r = (inst.kogel_mm if kogel_mm is None else kogel_mm) / 2 * u
     s = inst.speling_mm * u
-    maat = {"r": r, "s": s, "nek_r": NEK * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
+    maat = {"r": r, "s": s, "nek_r": nek * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
             "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
     if inst.soort == "PEN":
         maat["midden_z"] = maat["top_z"] / 2
@@ -81,6 +85,20 @@ def zet_naad(maat, bvh, frame, u):
     return maat
 
 
+def beste_maat(inst, u, bvh, frame, kogel_mm=None):
+    """(maat, kleur, wand, uitleg). Kogel: nek 0,40 (±30 graden), of 0,48 (±25) als dat een betere passing geeft."""
+    keuzes = []
+    for nek in ((NEK, NEK_RUIM) if inst.soort == "KOGEL" else (NEK,)):
+        m = maten(inst, u, kogel_mm, nek)
+        if inst.soort == "KOGEL":
+            zet_naad(m, bvh, frame, u)
+        kleur, wand, uitleg = passing.beoordeel(bvh, frame, m, inst.soort, u)
+        keuzes.append((m, kleur, wand, uitleg))
+    if len(keuzes) == 2 and RANG[keuzes[1][1]] > RANG[keuzes[0][1]]:
+        return keuzes[1]
+    return keuzes[0]
+
+
 def kies_auto(inst, u, bvh, frame, breedte_mm):
     """Automatische diameter (Daan, tussenreactie 2): de grootste kogel met Good fit.
 
@@ -96,10 +114,7 @@ def kies_auto(inst, u, bvh, frame, breedte_mm):
         d -= passing.AUTO_STAP_MM
     eerste_krap = None
     for d in kandidaten:
-        m = maten(inst, u, d)
-        if inst.soort == "KOGEL":
-            zet_naad(m, bvh, frame, u)
-        kleur, _, _ = passing.beoordeel(bvh, frame, m, inst.soort, u)
+        _, kleur, _, _ = beste_maat(inst, u, bvh, frame, d)
         if kleur == "groen":
             return d, "goed"
         if kleur == "oranje" and eerste_krap is None:
@@ -315,10 +330,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         elif inst.kogel_auto:
             # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
             auto_noot = f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
-        maat = maten(inst, u)
-        if inst.soort == "KOGEL":
-            zet_naad(maat, bvh, frame, u)
-        kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
+        maat, kleur, wand, uitleg = beste_maat(inst, u, bvh, frame)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
