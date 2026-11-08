@@ -1230,10 +1230,9 @@ body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.roll
 	border: 0;
 	border-radius: 2px 7px 3px 8px / 7px 3px 8px 2px;
 	box-shadow:
-		inset 0 0 0.55em rgba(120, 70, 20, 0.45),
-		inset 0 0 0.12em rgba(90, 50, 10, 0.5),
+		inset 0 0 0.45em rgba(110, 60, 15, 0.6),
+		inset 0 0 0.1em rgba(80, 40, 5, 0.75),
 		0 1px 2px rgba(50, 30, 5, 0.35);
-	text-shadow: 0 0 0.6px rgba(42, 24, 8, 0.55);
 	letter-spacing: 0.01em;
 }
 
@@ -1241,8 +1240,8 @@ body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.roll
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):hover {
 	transform: rotate(-0.6deg);
 	box-shadow:
-		inset 0 0 0.55em rgba(120, 70, 20, 0.45),
-		inset 0 0 0.12em rgba(90, 50, 10, 0.5),
+		inset 0 0 0.45em rgba(110, 60, 15, 0.6),
+		inset 0 0 0.1em rgba(80, 40, 5, 0.75),
 		0 3px 6px rgba(50, 30, 5, 0.35);
 }
 
@@ -1303,14 +1302,14 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwrigh
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwright-error) {
 	color: #5e0d07;
 	background:
-		radial-gradient(ellipse 45% 70% at 80% 60%, rgba(25, 10, 5, 0.55), transparent 72%),
-		radial-gradient(circle 0.18em at 90% 25%, rgba(25, 10, 5, 0.5), transparent 100%),
+		radial-gradient(ellipse 22% 60% at 100% 55%, rgba(25, 10, 5, 0.6), transparent 100%),
+		radial-gradient(circle 0.14em at 88% 18%, rgba(25, 10, 5, 0.55), transparent 100%),
 		var(--rw-paper-noise),
 		linear-gradient(180deg, #e9d6a2, #d7bd84);
 	background-color: var(--rollwright-bg);
 }
 
-body.rollwright-skin-parchment .rollwright-roll.rollwright-crit > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit > .rollwright-stamp {
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 	color: #fbe9c8;
@@ -1322,7 +1321,7 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-crit > .rollwright-st
 	text-shadow: 0 -1px 0 rgba(60, 0, 0, 0.6);
 }
 
-body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-parchment .rollwright-roll.rollwright-fumble:not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble > .rollwright-stamp {
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 	color: #f3e2bf;
@@ -1341,8 +1340,8 @@ body.rollwright-skin-arcane,
 }
 
 @keyframes rw-arcane-flow {
-	0% { background-position: 0 0, 0 0, 0 0, 0% 50%; }
-	100% { background-position: 0 0, 0 0, 0 0, 300% 50%; }
+	0% { background-position: 0 0, 0 0, 0% 50%; }
+	100% { background-position: 0 0, 0 0, 300% 50%; }
 }
 
 @keyframes rw-arcane-twinkle {
@@ -1355,15 +1354,13 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 	color: #f3eeff;
 	border: 1px solid transparent;
 	background:
-		radial-gradient(1px 1px at 18% 30%, rgba(255,255,255,0.9), transparent 60%), radial-gradient(1px 1px at 72% 22%, rgba(190,240,255,0.8), transparent 60%), radial-gradient(1.2px 1.2px at 46% 78%, rgba(255,220,255,0.75), transparent 60%), radial-gradient(1px 1px at 88% 70%, rgba(255,255,255,0.6), transparent 60%) padding-box,
 		radial-gradient(ellipse at 20% 0%, rgba(150, 100, 255, 0.55), transparent 65%) padding-box,
 		linear-gradient(160deg, #241653, #120b2b) padding-box,
 		linear-gradient(90deg, #6fe7f5, #a77bff, #ff8ae2, #6fe7f5, #a77bff, #ff8ae2, #6fe7f5) border-box;
-	background-size: auto, auto, auto, 300% 100%;
+	background-size: auto, auto, 300% 100%;
 	background-color: var(--rollwright-bg);
 	box-shadow: 0 0 0.55em rgba(140, 95, 255, 0.55), inset 0 0 0.6em rgba(120, 80, 255, 0.35);
 	text-shadow: 0 0 0.35em rgba(190, 160, 255, 0.95), 0 0 0.1em rgba(255, 255, 255, 0.6);
-	animation: rw-arcane-flow 9s linear infinite;
 }
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover,
@@ -1375,7 +1372,6 @@ body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwri
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error) .rollwright-icon::before {
 	background: linear-gradient(180deg, #c9fbff, #6fe7f5);
 	filter: drop-shadow(0 0 3px #6fe7f5);
-	animation: rw-arcane-twinkle 3.2s ease-in-out infinite;
 }
 
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-label,
@@ -1388,7 +1384,6 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-err
 	border: 1px solid transparent;
 	border-bottom: 1px solid transparent;
 	background:
-		radial-gradient(1px 1px at 18% 30%, rgba(255,255,255,0.9), transparent 60%), radial-gradient(1px 1px at 72% 22%, rgba(190,240,255,0.8), transparent 60%), radial-gradient(1.2px 1.2px at 46% 78%, rgba(255,220,255,0.75), transparent 60%), radial-gradient(1px 1px at 88% 70%, rgba(255,255,255,0.6), transparent 60%) padding-box,
 		linear-gradient(160deg, #22164d, #150d31) padding-box,
 		linear-gradient(90deg, rgba(111, 231, 245, 0.7), rgba(167, 123, 255, 0.7), rgba(255, 138, 226, 0.7), rgba(111, 231, 245, 0.7)) border-box;
 	background-color: var(--rollwright-bg);
@@ -1400,8 +1395,8 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-err
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	color: #fff6d6;
 	background:
-		radial-gradient(ellipse at 50% 115%, rgba(255, 212, 94, 0.85), transparent 75%) padding-box,
-		linear-gradient(160deg, #4a2a6e, #24124a) padding-box,
+		radial-gradient(ellipse at 50% 110%, rgba(255, 220, 110, 1), rgba(255, 190, 80, 0.5) 45%, transparent 80%) padding-box,
+		linear-gradient(160deg, #6a3f9a, #3a1d6a) padding-box,
 		linear-gradient(90deg, #ffd45e, #fff3b0, #ff9de2, #ffd45e, #fff3b0, #ff9de2, #ffd45e) border-box;
 	background-size: auto, auto, 300% 100%;
 	background-color: var(--rollwright-bg);
@@ -1428,7 +1423,7 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-e
 	text-shadow: 0 0 0.35em rgba(255, 80, 120, 0.9);
 }
 
-body.rollwright-skin-arcane .rollwright-roll.rollwright-crit > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-arcane .rollwright-roll.rollwright-crit:not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit > .rollwright-stamp {
 	color: #2a1500;
 	background: linear-gradient(135deg, #fff3b0, #ffd45e 45%, #ff9de2);
@@ -1436,7 +1431,7 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-crit > .rollwright-stamp
 	box-shadow: 0 0 0.6em rgba(255, 212, 94, 0.9), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble > .rollwright-stamp:not(.rollwright-skin-preview-tile .rollwright-roll),
+body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-skin-preview-tile .rollwright-roll) > .rollwright-stamp,
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-fumble > .rollwright-stamp {
 	color: #fff;
 	background: linear-gradient(135deg, #ff4f7a, #7a2cff);
@@ -1456,11 +1451,11 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble > .rollwright-sta
 /* Arcane houdt bij een crit of fumble de klap en de dreun van het token, met de lichtrand erbij. */
 body.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error) {
-	animation: rw-punch calc(420ms * var(--rw-slow)) 0s cubic-bezier(0.3, 1.6, 0.5, 1) both, rw-arcane-flow 9s linear infinite;
+	animation: rw-punch calc(420ms * var(--rw-slow)) 0s cubic-bezier(0.3, 1.6, 0.5, 1) both;
 }
 body.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-fumble:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-fumble:not(.rollwright-error) {
-	animation: rw-thud calc(360ms * var(--rw-slow)) 0s ease-out both, rw-arcane-flow 9s linear infinite;
+	animation: rw-thud calc(360ms * var(--rw-slow)) 0s ease-out both;
 }
 /* Ronde 9 zette de letter van tabeluitkomsten op die van het thema (ze hadden geen eigen vlak). In
    skins v2 hebben ze wel een eigen vlak, dus de letter komt weer van de skin (GEZIEN run 42463530141:
@@ -1476,4 +1471,13 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-err
 body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error) {
 	color: #f3eeff;
+}
+
+/* Na de controleur (run 42463983744): de lichtrand loopt alleen als je eroverheen gaat en bij een
+   verse crit, niet eeuwig op elk token (stroom); het merkteken twinkelt alleen bij wijzen. */
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover {
+	animation: rw-arcane-flow 3s linear infinite;
+}
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll):hover .rollwright-icon::before {
+	animation: rw-arcane-twinkle 1.6s ease-in-out infinite;
 }
