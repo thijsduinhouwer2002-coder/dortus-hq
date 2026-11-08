@@ -5,7 +5,7 @@ import * as path from "path";
 export const config = {
 	runner: "local",
 	framework: "mocha",
-	specs: ["./ontwerp/ronde8.e2e.mjs"],
+	specs: ["./ontwerp/skins3.e2e.mjs"],
 	maxInstances: 1,
 	capabilities: [{
 		browserName: "obsidian",
@@ -20,7 +20,7 @@ export const config = {
 				{ name: "Things", enabled: false },
 				{ name: "Border", enabled: false },
 			],
-			vault: "vaults/ontwerp",
+			vault: "vaults/test",
 		},
 	}],
 	services: ["obsidian"],
