@@ -79,3 +79,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Nieuw, 8 nov 05:50 UTC (Noor)
 - Whop App Store (apps die in de communities van Whop-makers draaien, Whop rekent af; Whop groeit hard, omzet ±$142M volgens Sacra): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md. Herhaalmeting rond 22 nov: `python3 data/whop-apps-meet.py`
 - Attio (CRM, App SDK en App Store sinds 2025): snelle schifting, publicatieregels noemen geen betaalde apps (GEZIEN, https://docs.attio.com/share/publishing-to-the-app-store.md). Waarschijnlijk nee op geld.
+
+## Nieuw, 8 nov 06:45 UTC (Noor)
+- Reddit Developer Platform (Devvit: apps en spellen in subreddits, Reddit Developer Funds betaalt makers op betrokkenheid, betalen met Reddit Gold in apps): in onderzoek 8 nov 06:45 UTC
