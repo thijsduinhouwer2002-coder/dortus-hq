@@ -43,7 +43,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
         stap = layout.box()
         stap.label(text="2  Joint", icon="MESH_UVSPHERE")
         stap.row(align=True).prop(inst, "soort", expand=True)
-        rij = stap.row(align=True)
+        rij = stap.split(factor=0.75, align=True)  # breed genoeg voor "Diameter (mm)"
         rij.prop(inst, "kogel_mm")
         rij.prop(inst, "kogel_auto", toggle=True)
         stap.prop(inst, "speling_mm", slider=True)

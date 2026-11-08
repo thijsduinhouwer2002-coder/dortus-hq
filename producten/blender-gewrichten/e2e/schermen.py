@@ -144,10 +144,11 @@ def close_up():
     richting = Vector((0.8, 0.6, -0.3)).normalized()  # kijkt langs +X (de as) de kom in, van voren en iets van boven
     rv3d.view_perspective = "PERSP"
     rv3d.view_rotation = richting.to_track_quat("-Z", "Y")
-    rv3d.view_distance = 48.0
-    rv3d.view_location = midden + Vector((4.0, 0, 0))
+    rv3d.view_distance = 24.0
+    rechts = rv3d.view_rotation @ Vector((1.0, 0, 0))
+    rv3d.view_location = midden + rechts * 2.5
     gebied.tag_redraw()
-    log(f"close-up: midden={tuple(round(x, 2) for x in midden)} afstand=48 kogel_r={a.get('cj_kogel_r')}")
+    log(f"close-up: midden={tuple(round(x, 2) for x in midden)} afstand=24 kogel_r={a.get('cj_kogel_r')}")
 
 
 def gesloten(ob):
