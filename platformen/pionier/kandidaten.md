@@ -30,3 +30,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - ComfyUI Registry: geen betaalde nodes; alleen een analist (Sacra) die een omzetdeling "zou kunnen", en al 10.000+ nodes (DERDEN, https://sacra.com/c/comfyui/). Waarschijnlijk nee, ook vol.
 - Claude-koppelingen en MCP: geen betaalroute gevonden in een snelle zoektocht. Waarschijnlijk zelfde beeld als ChatGPT. Grondig nakijken.
 - Beste volgende kandidaten met kans op geld: n8n (community nodes, eigen betaalde laag), Framer (plugins, betalen?), en nieuw zoeken: platformen die net een betaalde winkel aankondigden (zoek "paid extensions" "marketplace" 2026 aankondiging).
+
+## Snelle schifting op vraag 3 (geld), 8 nov 00:05 UTC (Noor)
+- n8n: geen betaalde winkel voor nodes of templates; makers vragen op het forum zelf waar ze kunnen verkopen "not the Creator Hub" (DERDEN, https://community.n8n.io/t/where-can-i-sell-my-n8n-workflow-i-am-looking-for-marketplaces-not-the-creator-hub/212963). Waarschijnlijk nee, tenzij n8n een betaalde laag aankondigt.
+- Penpot (plugins sinds 2024): plugin-lijst op penpot.app/penpothub/plugins, geen betaalde plugins gevonden, alleen een wedstrijd (DERDEN, https://korben.info/creez-vos-propres-plugins-pour-penpot-et-gagnez-jusqua-1000.html). Waarschijnlijk nee.
+- Les uit Grafana: de beste pionierskansen zijn winkels die **net een betaalde laag openden** in een platform dat al groot is en groeit. Volgende runs zoeken gericht op aankondigingen "commercial plugins", "paid listings", "marketplace general availability" van de laatste 6 maanden, en herhaalmetingen Godot, Grafana en Hytale rond 5 tot 8 dec.
+
