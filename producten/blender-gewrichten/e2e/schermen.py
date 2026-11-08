@@ -299,6 +299,41 @@ def meet_strook(naam="4-material-preview-x.png"):
         log(f"KLEUR {hx}: belicht #{licht} schaduw #{donker} monsters={len(punten)}")
 
 
+def waaier():
+    """Plaatje 5 (ronde k): pop met gewricht, de waaier van het gemeten bereik en een pose van 20 graden,
+    van opzij op het buigvlak, zodat waaier en buigen groot in beeld zijn."""
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    maak_pop()
+    plaats()
+    inst = bpy.context.scene.click_joints
+    inst.toon_bereik = True
+    inst.pose_richting = "2"
+    inst.pose_graden = 20.0
+    weergave()
+    venster, gebied, _ = zijbalk()
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if not gebied or a is None:
+        log("WAAIER: geen weergave of geen deel A met bereik")
+        return
+    as_ = Vector(a["cj_as"]).normalized()
+    u = as_.orthogonal().normalized()
+    w = as_.cross(u).normalized()
+    rich = w  # richting 2 = 90 graden (uit_elkaar.richtingen)
+    kijk_r = as_.cross(rich).normalized()  # loodrecht op het buigvlak
+    rv3d = gebied.spaces.active.region_3d
+    rv3d.view_perspective = "PERSP"
+    rv3d.view_rotation = kijk_r.to_track_quat("-Z", "Y")
+    rv3d.view_distance = 14.0 * a["cj_kogel_r"]
+    rechts = rv3d.view_rotation @ Vector((1.0, 0, 0))
+    rv3d.view_location = Vector(a["cj_centrum"]) + as_ * (2.0 * a["cj_kogel_r"]) + rechts * (1.5 * a["cj_kogel_r"])
+    gebied.tag_redraw()
+    b = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "B" and "cj_buig_graden" in o), None)
+    log(f"WAAIER bereik={list(a['cj_buig_graden'])} tijd={a.get('cj_buig_duur_s')} s pose={inst.pose_graden} "
+        f"richting={inst.pose_richting} rood={len(a.get('cj_rood_vlakken', [])) // 2} "
+        f"delta_rot_B={tuple(round(x, 4) for x in b.delta_rotation_euler) if b else None}")
+
+
 def stap():
     toestand["n"] += 1
     n = toestand["n"]
@@ -339,6 +374,12 @@ def stap():
     if n == 9:
         schiet("4-material-preview.png")
         meet_strook()
+        return 0.5
+    if n == 10:
+        waaier()
+        return 1.5
+    if n == 11:
+        schiet("5-waaier.png")
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
