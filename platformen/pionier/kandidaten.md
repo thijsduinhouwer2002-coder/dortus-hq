@@ -177,5 +177,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±15:30 UTC (Noor)
 - Les uit Payload: harde groei plus een gedwongen overstap is niet genoeg als er geen lijst is en de cultuur helemaal gratis is (98% MIT). Filament scoorde wel omdat er al 130 betaalde plugins op de officiële lijst stonden. Kijk bij frameworks eerst of er betaalde plugins van derden bestaan, voor je meet.
 - Nog snel te schiften: Medusa (npm ±2 keer in een jaar, plugins en betaalde starters?), Nuxt-modules (10,3 mln per maand), Tauri-plugins (13,1 mln per maand, alles gratis?), Strapi Market. Zie radar.md.
-- RuneScape-plugins (RS3, Lua-plugins via de Plugin Hub op mod.io, live sinds 19 okt 2026, installs zichtbaar): in onderzoek 8 nov 14:55 UTC
+- RuneScape-plugins (RS3, Lua-plugins via de Plugin Hub op mod.io, live sinds 19 okt 2026, installs zichtbaar): klaar 8 nov, cijfer 2 (nee, EULA verbiedt geld), zie onderzocht.md
 - Snelle schifting 8 nov ±14:55 UTC: Medusa (integratielijst sinds mei 2025, alleen open bron, GEZIEN https://medusajs.com/blog/announcing-integrations-directory/), Strapi Market (sinds 2022, oud, eerder Vera), Nuxt-modules en Tauri-plugins (gratis cultuur, eigenaar verkoopt zelf): nee voor de pionier. Statamic en Flux groeien op Packagist ongeveer mee met Laravel (GEZIEN), niets bijzonders.

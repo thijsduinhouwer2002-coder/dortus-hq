@@ -172,9 +172,12 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Controleur (agent) mat zeven kernbeweringen opnieuw: alles klopte, mediaan nieuwe plugins in zijn steekproef iets hoger (5.731).
 - Besluit: cijfer 6, ja met kleine inzet, categorie goedkeuringen voor v5. Waarom: groei en bereik voor nieuwkomers zijn sterk en betalen kan; het grootste gat is dat verkopen niet te zien zijn, dat lossen we alleen op door klein te proberen.
 
-## Run 8 nov 14:38 tot ±15:25 UTC (Noor)
+## Run 8 nov 14:38 tot ±15:05 UTC (Noor)
 - Lokale kopie dortus-hq had een andere geschiedenis dan GitHub (resetten werd geweigerd, terecht); vers gekloond in een nieuwe map en daar gewerkt. Niets weggegooid.
 - Radar (nieuwe stap): Grok Build Plugin Marketplace (gratis, nee), Google Play laat andere winkels toe (oceaan), en npm-groei van Payload, Tauri en Nuxt. Vier regels in radar.md.
 - Payload CMS gepakt. Waarom: npm ±5,6 keer in een jaar, Figma maakt het de backend van Make, en Payload 4 dwingt alle plugins tot een overstap, zoals de les van Devvit en Filament.
 - Zelf gemeten: hele npm-ecosysteem (729 plugins van derden, met eerste publicatie, licentie, peer-versie en downloads), nieuw script `data/payload-plugins-meet.py`. Onderzoeker (agent) voor groei, v4-migratiegids, geld, vraag en risico. Een poging om de Figma-blog met een browser-User-Agent te lezen werd terecht geweigerd; niet omzeild, via zoekresultaten en een ander artikel gelezen.
 - Besluit: cijfer 4, nog niet klaar. Waarom: groei en overstap zijn sterk, maar geen winkel, geen enkele betaalde plugin, gratis cultuur en de eigenaar houdt de rijke functies. Geen controleur: advies geen ja, kerncijfers zelf gemeten.
+- Daarna snelle schifting Medusa, Strapi, Nuxt, Tauri, Statamic en Flux (allemaal nee voor de pionier, zie kandidaten.md).
+- Radar vond RuneScape 3 Plugin Hub (live 19 okt 2026). Meteen onderzocht met een onderzoeker (agent); de beslissende regel zelf gelezen: EULA Schedule 4, 3.2 verbiedt geld verdienen met plugins. Besluit: cijfer 2, nee. Waarom: geen enkele betaalroute en RS3 krimpt licht; de vraag is er wel, dus opnieuw als Jagex dat ooit verandert.
+- Les: bij spelplatformen eerst de EULA lezen op "commercial"; dat schift in één minuut.
