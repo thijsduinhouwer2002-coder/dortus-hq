@@ -1,0 +1,28 @@
+{
+ "2": {
+  "layout": "rechts",
+  "chip": "Free",
+  "scherm": "scherm-licht-calc-y-structuur.png",
+  "snede": [
+   84,
+   80,
+   1810,
+   1662
+  ],
+  "kop": "Grammars that read like <span class=\"o\">code</span>.",
+  "sub": "Colors for tokens, rules and <code>%directives</code>.<br>Every rule in the Structure view.<br>Syntax errors as you type."
+ },
+ "3": {
+  "layout": "onder",
+  "chip": "Free",
+  "scherm": "scherm-donker-calc-l.png",
+  "snede": [
+   84,
+   80,
+   2141,
+   800
+  ],
+  "kop": "Your <span class=\"b\">scanner</span> gets the same care.",
+  "sub": "Definitions, regular expressions and the C code in actions, in your own color scheme. Light, dark or any theme."
+ }
+}

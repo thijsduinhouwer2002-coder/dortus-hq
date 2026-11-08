@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:760px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#EEF0F6;position:relative;
+ background:
+  radial-gradient(620px 420px at 8% 92%, rgba(53,116,240,.30), transparent 70%),
+  radial-gradient(560px 380px at 96% 6%, rgba(230,109,23,.30), transparent 70%),
+  linear-gradient(160deg,#151826 0%,#0D0F18 100%);}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;letter-spacing:.02em;color:#C9CDDA}
+.brand img{width:34px;height:34px}
+.chip{display:inline-block;margin-top:26px;font:800 12px Inter;letter-spacing:.1em;border-radius:6px;padding:5px 9px}
+.chip.free{color:#0D1A12;background:linear-gradient(90deg,#8FE3A8,#5CC98A)}
+.chip.pro{color:#1A1206;background:linear-gradient(90deg,#FFB067,#FF8A3D)}
+h1{margin-top:14px;font-weight:800;font-size:46px;line-height:1.06;letter-spacing:-.025em}
+h1 .o{color:#FF8A3D}h1 .b{color:#6E9BFF}
+.sub{margin-top:18px;font-size:19px;color:#AEB3C4;line-height:1.45}
+.sub code{font-family:'JetBrains Mono';color:#fff;font-size:17px}
+.card{position:absolute;border-radius:14px;overflow:hidden;
+ box-shadow:0 30px 60px -20px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.10)}
+.card img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top}
+/* lay-out rechts: tekst links, hoog scherm rechts */
+body.rechts .tekst{position:absolute;left:64px;top:56px;width:330px}
+body.rechts .card{left:430px;top:56px;width:706px;height:648px}
+/* lay-out onder: tekst boven, breed scherm onder */
+body.onder .tekst{position:absolute;left:64px;top:56px;width:1072px}
+body.onder h1{font-size:46px}
+body.onder .sub{max-width:760px}
+body.onder .card{left:64px;top:318px;width:1072px;height:400px}
+</style></head>
+<body class="LAYOUT">
+<div class="grain"></div>
+<div class="tekst">
+  <div class="brand"><img src="icon.svg">Bison &amp; Flex</div>
+  <span class="chip CHIPKLASSE">CHIPTEKST</span>
+  <h1>KOP</h1>
+  <p class="sub">SUB</p>
+</div>
+<div class="card"><img src="SCHERM"></div>
+</body></html>
