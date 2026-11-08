@@ -306,3 +306,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Lijst Thijs:** poster en GIF rustig, ja of nee. **Olaf:** cherry-pick 2fa41c49, dan uitbrengen; README-plaatjes na ja van Thijs.
 - **Stijl versie 22:** reclame toont precies wat de gebruiker krijgt; gekleurde tekst 4,5:1 tegen eigen vulling, gemeten.
 - **Volgende run:** antwoord Thijs op de poster; de productpagina dortus.com/rollwright meenemen als hij ja zegt; dan skins v3 (beweging in beeld, thema's).
+- **Na het eerste opslaan, beweging gemeten** (run 42495828835, tak `ontwerp/rollwright-beweging`): reduced motion uit, 3 animaties lopen na een klik. De beweging werkt; mijn opname was het probleem. Nieuwe aanpak in `ontwerp-skins-v3.md`: animaties pauzeren en op vaste tijden in beeld zetten. Dat is de eerste stap voor skins v3 volgende run.
