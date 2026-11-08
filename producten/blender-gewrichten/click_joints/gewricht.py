@@ -22,6 +22,15 @@ BODEM_MM = 1.55  # minimale bodem van deel B naast de klikopening: net boven de 
 # in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
 # Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
 OPENING = 0.85
+# Vorm v0.3 (8 nov, Bram): het gewricht moet buigen. Nek 0,40 keer de kogel (keus Daan: ±30 graden als de
+# klikring de passingcontrole haalt). Onder de klikrand een trechter (kegel die naar beneden wijder wordt,
+# halve tophoek = gemeten grens + MARGE_HOEK), zodat de nek over het hele bereik vrij blijft. De naad tussen
+# deel A en B is een bol om het kogelmidden (straal: grootste straal van het figuur rond de as plus NAAD_MARGE_MM):
+# een bol om het draaipunt is de enige naad die dicht kan zijn in rechte stand en toch vrij draait.
+# Een kegel (V) met de top bij het draaipunt botst aan de kant die zakt (rekensom in ontwerp.md).
+NEK = 0.40
+MARGE_HOEK = 3.0
+NAAD_MARGE_MM = 0.5
 # Exact-solver: Self Intersection uit. Afwijking van het ontwerp, gemeten 8 nov in 4.2.23 en 5.2.3:
 # met use_self aan gaf dezelfde snede op de arm van 261K driehoeken open delen (zie ontwerp.md).
 # De test meet beide standen elke run opnieuw (regel EXACT_ZELF in het log).
@@ -42,7 +51,7 @@ def solver_naam():
 def maten(inst, u, kogel_mm=None):
     r = (inst.kogel_mm if kogel_mm is None else kogel_mm) / 2 * u
     s = inst.speling_mm * u
-    maat = {"r": r, "s": s, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
+    maat = {"r": r, "s": s, "nek_r": NEK * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
             "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
     if inst.soort == "PEN":
         maat["midden_z"] = maat["top_z"] / 2
@@ -53,6 +62,22 @@ def maten(inst, u, kogel_mm=None):
         rk, open_r = r + s, maat["open_r"]
         nodig = math.sqrt(max(rk * rk - open_r * open_r, 0.0)) + maat["schuif"] + BODEM_MM * u
         maat["midden_z"] = max(maat["midden_z"], nodig)
+        d_lip = math.sqrt(max(rk * rk - open_r * open_r, 0.0))
+        grens = math.degrees(math.acos(min(maat["nek_r"] / rk, 1.0)) - math.atan2(d_lip, open_r))
+        maat["lip_d"] = d_lip            # klikrand: zo ver onder het kogelmidden
+        maat["grens_graden"] = grens     # rekensom: nek tegen klikrand
+        maat["trechter_graden"] = grens + MARGE_HOEK
+    return maat
+
+
+def zet_naad(maat, bvh, frame, u):
+    """Straal van de bolnaad: grootste afstand van de as tot de huid (snijvlak en kogelmidden) plus marge.
+    Zonder treffer (punt buiten het figuur) blijft de naad weg; de passing geeft dan toch rood."""
+    straal = passing.grootste_straal(bvh, frame, (maat["schuif"] * 2, maat["midden_z"]))
+    if straal is None:
+        return maat
+    maat["naad_r"] = max(straal + (NAAD_MARGE_MM * u) + maat["s"], maat["r"] + maat["s"] + 1.0 * u)
+    maat["onder_z"] = min(maat["onder_z"], maat["midden_z"] - maat["naad_r"] - 0.4 * maat["r"])
     return maat
 
 
@@ -71,7 +96,10 @@ def kies_auto(inst, u, bvh, frame, breedte_mm):
         d -= passing.AUTO_STAP_MM
     eerste_krap = None
     for d in kandidaten:
-        kleur, _, _ = passing.beoordeel(bvh, frame, maten(inst, u, d), inst.soort, u)
+        m = maten(inst, u, d)
+        if inst.soort == "KOGEL":
+            zet_naad(m, bvh, frame, u)
+        kleur, _, _ = passing.beoordeel(bvh, frame, m, inst.soort, u)
         if kleur == "groen":
             return d, "goed"
         if kleur == "oranje" and eerste_krap is None:
@@ -139,6 +167,8 @@ def snij(hulp, werk, frame, maat, soort, solver):
     """Maakt deel A (met kogel of pen) en deel B (met kom of gat) in de hulpcollectie."""
     groot = max(werk.dimensions) * 2 + 20 * maat["r"]
     s = maat["s"]
+    if soort == "KOGEL" and "naad_r" in maat:
+        return snij_kogel(hulp, werk, frame, maat, solver, groot)
     boven = vormen.doos("cj_boven", groot, maat["schuif"], groot, frame, hulp)
     onder = vormen.doos("cj_onder", groot, -groot, maat["schuif"], frame, hulp)
     if soort == "KOGEL":
@@ -164,6 +194,48 @@ def snij(hulp, werk, frame, maat, soort, solver):
         kom.hide_set(True)
     b = bak(werk, "cj_b_bron", hulp)
     boolean(b, onder, "DIFFERENCE", solver)
+    boolean(b, kom, "DIFFERENCE", solver)
+    deel_b = bak(b, "cj_deel_b", hulp)
+    return deel_a, deel_b
+
+
+def snij_kogel(hulp, werk, frame, maat, solver, groot):
+    """Vorm v0.3: bolnaad om het kogelmidden, nek 0,40r, trechter onder de klikrand.
+
+    Deel A = figuur zonder (alles boven het kogelmidden en de bol naad_r + s/2), plus kogel en nek.
+    Deel B = figuur binnen (alles boven het kogelmidden of de bol naad_r - s/2), zonder kom en trechter.
+    Zo zit er in rechte stand precies de speling s tussen A en B, en draait B om het kogelmidden vrij
+    tot de nek tegen de klikrand komt."""
+    s, mz, r = maat["s"], maat["midden_z"], maat["r"]
+    vlak = mz + maat["schuif"]  # vlakke snede alleen nog buiten de bol, door het kogelmidden
+    boven = vormen.doos("cj_boven", groot, vlak, groot, frame, hulp)
+    onder = vormen.doos("cj_onder", groot, -groot, vlak, frame, hulp)
+    bol_a = vormen.bol("cj_naad_a", maat["naad_r"] + s / 2, mz, frame, hulp)
+    bol_b = vormen.bol("cj_naad_b", maat["naad_r"] - s / 2, mz, frame, hulp)
+    kogel = vormen.bol("cj_kogel", r, mz, frame, hulp)
+    nek = vormen.cilinder("cj_nek", maat["nek_r"], maat["onder_z"], mz, frame, hulp)
+    kom = vormen.bol("cj_kom", r + s, mz, frame, hulp)
+    tan = math.tan(math.radians(maat["trechter_graden"]))
+    z_lip = mz - maat["lip_d"]
+    z_top = z_lip + 0.25 * r
+    z_bodem = mz - maat["naad_r"] - s - 0.5 * r
+    trechter = vormen.kegel("cj_trechter", maat["open_r"] + (z_lip - z_bodem) * tan, maat["open_r"] - 0.25 * r * tan,
+                            z_bodem, z_top, frame, hulp)
+    a = bak(werk, "cj_a_bron", hulp)
+    boolean(a, boven, "DIFFERENCE", solver)
+    boolean(a, bol_a, "DIFFERENCE", solver)
+    boolean(a, kogel, "UNION", solver)
+    boolean(a, nek, "UNION", solver)
+    deel_a = bak(a, "cj_deel_a", hulp)
+    # Snijvormen eerst los tot één gesloten vorm (les uit de bouwproef op 4.2).
+    boolean(onder, bol_b, "DIFFERENCE", solver)
+    snij_b = bak(onder, "cj_snij_b", hulp)
+    snij_b.hide_set(True)
+    boolean(kom, trechter, "UNION", solver)
+    kom = bak(kom, "cj_snijvorm", hulp)
+    kom.hide_set(True)
+    b = bak(werk, "cj_b_bron", hulp)
+    boolean(b, snij_b, "DIFFERENCE", solver)
     boolean(b, kom, "DIFFERENCE", solver)
     deel_b = bak(b, "cj_deel_b", hulp)
     return deel_a, deel_b
@@ -244,12 +316,16 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
             auto_noot = f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
         maat = maten(inst, u)
+        if inst.soort == "KOGEL":
+            zet_naad(maat, bvh, frame, u)
         kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_snijpunt": list(frame @ Vector((0, 0, maat["schuif"]))),
-                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver,
+                    "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_nek_r": maat["nek_r"],
+                    "cj_naad_r": maat.get("naad_r", -1.0), "cj_lip_d": maat.get("lip_d", -1.0),
+                    "cj_grens_graden": round(maat.get("grens_graden", -1.0), 2), "cj_solver": solver,
                     "cj_kogel_auto": inst.kogel_auto, "cj_auto_keuze": keuze, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
 
         if kleur == "rood":
