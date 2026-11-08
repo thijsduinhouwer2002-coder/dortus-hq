@@ -268,3 +268,60 @@ https://community.obsidian.md/plugins/rollwright
 - Reageer binnen een dag op vragen. Een bug: open een issue op GitHub of zet het in `berichten/olaf.md`, dan pakt Olaf hem op.
 - Chris meet op dag 1, dag 7 en dag 30 de downloads (listing en `community-plugin-stats.json`) en kijkt of er een sprong zit op de dag van elk bericht (`cijfers.md`).
 - Moment 2 (r/Solo_Roleplaying, een update onder het forumbericht) blijft wachten op skins waar Thijs volmondig ja op zegt, uiterlijk ±22 nov (twee weken na de aanmelding); dan gaat het toch door met het gratis deel als verhaal (run 6 en 7).
+
+## Bijwerking 8 nov 2026 (run 9): forumregels gelezen, forumtekst volgens de regels van Thijs van 13:47
+
+Door Chris. Aanleiding: Thijs mag (13:47) de lanceerberichten nu door mij laten plaatsen, met vaste regels. Twee daarvan raken de tekst: lees eerst de regels van de plek, en zeg eerlijk dat Thijs de maker is ("I made this" en "Made by Thijs at Dortus").
+
+### Regels van het forum (GEZIEN met curl, 8 nov ±12:45 UTC)
+- Categorie Share & showcase (id 9): "Showcase your plugins, themes, CSS snippets, workflows, templates, and nifty hacks." Een nieuwe plugin tonen is dus precies waar de categorie voor is.
+- De forumrichtlijnen (forum.obsidian.md/guidelines) zijn de gewone Discourse-richtlijnen: geen spam, niet dubbel posten, bijdragen aan het gesprek. Geen aparte regel tegen zelfpromotie, geen regel over AI, geen verplichte vermelding gevonden. Ook in de gebruiksvoorwaarden (forum.obsidian.md/tos) niets over reclame voor eigen plugins.
+- Tags zijn niet verplicht, maar gebruikelijk: `plugin-release` (982 berichten) en `ttrpg` (4) bestaan. Kies die twee.
+- Het blok "Disclaimer" bovenaan (drie vragen) staat in recente berichten in de categorie (run 8); we vullen het in.
+- Dubbel posten: er is nog geen bericht over Rollwright in de categorie (GEZIEN, laatste 30 onderwerpen).
+
+### Wat er verandert in de forumtekst van run 8
+- Eerste zin wordt "I made Rollwright" en onderaan staat "Made by Thijs at Dortus", zoals Thijs eist. Om eerlijk te blijven over de code staat er direct bij dat AI-agents de code schrijven en dat Thijs stuurt en test (dat stond er al in de Disclaimer). Dit vervangt mijn besluit uit de bijwerking voor 0.3.0 (logboek 8 nov 00:40) dat Thijs geen "I made" zegt: de eigenaar heeft het nu zelf zo bepaald, en met de zin over AI is het waar.
+- Verder ongewijzigd. Dit is de tekst die geplaatst wordt, door mij of door Thijs.
+
+### Dag 1: forum, Share & showcase, tags `plugin-release` en `ttrpg`
+
+**Titel:** `Rollwright: roll dice and random tables in your notes, where a natural 20 lands in gold`
+
+**Tekst:**
+```
+Disclaimer
+Is this plugin open source? Yes (MIT)
+Is this plugin completely free? All rolling is free. Optional skins are a one-time purchase.
+Is this plugin vibe-coded beyond the author's ability to comprehend how it works? No. The code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, in reading view and Live Preview, and the full source is on GitHub.
+Community Directory: https://community.obsidian.md/plugins/rollwright
+
+Hi all,
+
+I made Rollwright, a dice roller for people who run or play tabletop games in Obsidian. You write a formula in a note, read the result, and click it to roll again.
+
+[GIF]
+
+What I cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened. Roll animations turn off if your system asks for reduced motion.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins, which is how I hope to keep working on it. No account and no telemetry.
+
+Install: open https://community.obsidian.md/plugins/rollwright and choose "Add to Obsidian".
+Source and full reference: https://github.com/thijsduinhouwer2002-coder/rollwright
+Page: https://dortus.com/rollwright/
+
+I'd love to hear what you roll on and what is missing. Bugs and ideas are welcome here or on GitHub.
+
+Made by Thijs at Dortus
+```
+
+**Plaatjes:** op de plek van `[GIF]` de GIF: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif (bestaat, GEZIEN in de README). Onderaan mag de poster: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png .
+
+**Dag 2 en 3 (r/ObsidianMD, Discord):** zelfde aanpassing als hierboven toepassen voordat ze geplaatst worden: "I made Rollwright" vooraan, "our small studio" wordt "my small studio", en de regel "Made by Thijs at Dortus" onderaan. Pas na minstens één dag en alleen als het forumbericht goed ging (regel 2 van Thijs).
