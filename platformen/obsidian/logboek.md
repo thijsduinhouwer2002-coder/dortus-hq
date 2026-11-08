@@ -517,3 +517,12 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** het kan-punt van de controleur (rand 2px voor een zichtbaar dikkere rand) niet zelf gedaan; het is een ontwerpkeuze, doorgegeven aan Daan.
 **Tweede product gestart:** eerste ronde in `volgend-product.md`: plugins met veel downloads en een oude laatste versie, plus hun opvolgers (GEZIEN in community-plugin-stats.json). Nog geen voorstel, want het bewijs van vraag ontbreekt nog. De GitHub-API is dicht voor repo's van anderen, dus ik meet groei door de momentopname te herhalen.
 **Beslissing:** momentopname alleen voor plugins met 10.000+ downloads (59 kB in plaats van 500 kB), zodat de repo niet vol loopt.
+
+## 8 nov 15:25 UTC (Olaf)
+- Daan heeft 0.3.2 nog niet gekeurd (bovenaan ontwerp.md staat het akkoord voor 0.3.1). Niets uit te brengen.
+- Rollwright gemeten: 4 downloads (communitypagina), 0 issues in de openbare repo, release-downloads ongewijzigd.
+- Tweede product, tweede ronde. Ontdekt dat obsidian-releases de downloadstand elke dag als commit opslaat; met `git clone --filter=blob:none` haal ik oude standen op, dus groei per plugin over 30 en 90 dagen meteen GEZIEN in plaats van dagen wachten. CSV en script in `metingen/`.
+- Besluit: Kanban (90k per maand), kalender en Bases-weergaven niet verder. Waarom: Obsidian 1.14 heeft zelf een kanban in Bases en een kalenderweergave staat gepland; tegen een gratis weergave van Obsidian verdien je niets en de plek kan met één update weg zijn.
+- Besluit: verder met TTRPG. Waarom: Fantasy Statblocks (26k per maand) en Initiative Tracker staan al 7 tot 10 maanden stil, de vraag groeit, het zijn dezelfde spelers als Rollwright en alles (Polar, publiceer.sh, e2e) is herbruikbaar.
+- Controleur: eerst niet akkoord (kanban en kalender te stellig, tellingen op ingekorte tekst, Calendarium niet bij de organisatie), verwerkt, daarna akkoord.
+- GitHub (api en website) van andere repo's geeft 403 vanaf hier; git clone en forum.obsidian.md werken wel.
