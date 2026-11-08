@@ -156,3 +156,23 @@ Controleur op tak d (Engels): akkoord met correcties; de wand in de passingtekst
 Bekend en open: de arm van de testpop is maar 5 mm dik, dus Auto geeft daar 3,0 mm en Tight (wand 0,89 mm). De wand is ongeveer 0,2 keer de dikte; onder ±5 mm dikte wordt het rood. Nog geen melding als Auto geen breedte vindt.
 
 **Daan, graag beoordeling 2** van wat nu op main staat: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/1-paneel-x.png en https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/2-gewricht-x.png (zelfde als https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/claude-blender-2026-11-08-e/5.2.3/2-gewricht-x.png). Vraag erbij: op het plaatje is de pop dun, dus staat er Tight in amber; wil je voor het hoofdplaatje een dikkere arm zodat het Good fit (groen) toont, of juist Tight met uitleg omdat dat laat zien wat de add-on doet?
+
+## Ronde g: tussenreactie 2 van Daan verwerkt (8 nov 07:30, Bram), tak `claude/blender-2026-11-08-g`
+Runs 42458761523 en 42459047164 (laatste commit 6c9ef28) groen in 4.2.23 en 5.2.3 (GEZIEN). Controleur: akkoord met correcties (alleen tekst, verwerkt).
+1. **Proefstrook (moet 1):** plaatje `4-geeltinten-x.png`: zes cilinders in dezelfde kijkrichting en Solid-belichting als plaatje 2 (#FFD23F, #FFE45C, #FFF06A, #FFC400, en groen en rood ter vergelijking), kleurcode eronder. De test meet per cilinder de kleur op het scherm (17 punten langs het midden, regels `GEEL` in het log). Uitslag (GEZIEN, 5.2.3 met AgX; in 4.2.23 belicht gelijk op 1 tot 2 eenheden na, schaduw tot 5 eenheden):
+
+   | kleur | belicht | schaduw |
+   |---|---|---|
+   | #FFD23F | #A78C33 | #443513 |
+   | #FFE45C | #A89843 | #423717 |
+   | #FFF06A | #A9A14C | #504A20 |
+   | #FFC400 | #A98524 | #624A09 |
+   | groen #3DDC84 | #37955E | #19643B |
+   | rood #FF4D4D | #AA4040 | #822525 |
+
+   Geen enkele geel komt boven #E0C040: elke kleur, ook groen en rood, komt uit op ±0,66 keer de opgegeven waarde. Het ligt niet aan de kleurweergave: met View Transform "Standard" in plaats van AgX (plaatje `5-geeltinten-standard-x.png`) zijn de getallen gelijk. Het ligt dus aan de Solid-weergave zelf (waarschijnlijk de belichting, GOK), en dat is wat een gebruiker in Solid ziet. Dus de grens #E0C040 haalt geen enkele kleur in dit beeld. Wat wel verschilt is hoe geel hij blijft: #FFF06A houdt groen/rood 0,95 (leest als geel), #FFD23F maar 0,84 (leest als mosterd), #FFC400 0,79 (oker). Mijn voorstel: **#FFF06A**, of de lichtere ring met donkere rand die je noemde. Daan kiest.
+2. **Auto kiest de grootste Good fit (moet 2):** vanaf 0,6 keer de breedte (bovengrens) in stappen van 0,5 mm omlaag tot de passing groen is; lukt groen nergens, dan de grootste Tight met de melding "Auto: no size gives a good fit here (mesh X mm thick at the cut)"; ook geen Tight, dan rood en niet snijden. Getoetst (GEZIEN): staaf 7 mm: 3,5 mm Good fit (wand 1,55), 4,0 mm zou Tight zijn; staaf 5 mm: 2,5 mm Tight met melding; arm 10 mm: 6,0 mm Good fit zoals eerst.
+   Daarbij gevonden en gerepareerd: een kogel onder ±4,5 mm kon nooit Good fit zijn, hoe dik het figuur ook was, want de bodem van deel B naast de klikopening bleef onder 1,5 mm. Het kogelmidden komt bij kleine kogels nu zo hoog dat die bodem 1,55 mm is (de nek wordt iets langer, grote kogels blijven gelijk). De ring kleurt tot de echte bovenkant van de kom.
+3. **Hoofdplaatje Good fit (moet 3):** de pop op de plaatjes heeft dikkere en langere armen (8 mm dik, 40 mm lang); regel `HOOFDPLAATJE passing=groen keuze=goed`: Auto koos 4,5 mm, wand 1,54 mm (net boven de grens). Tight en Too thin blijven in de achtergrondtest (dunne pop) voor het tweede plaatje later.
+- **Kan:** de map-hint is één regel: "Saves next to the .blend" (of "Saves to a temporary folder" als het bestand nog niet is opgeslagen).
+- Testwijziging (apart goedgekeurd door de controleur bij de herkeuring van ronde g, zie logboek): de kijktoets in `schermen.py` staat 2 mm hoger in het been (z = -12), omdat het gewricht van 3 mm nu langer is; drempels gelijk.
