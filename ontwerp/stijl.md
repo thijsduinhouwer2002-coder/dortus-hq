@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 9, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 10, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -14,6 +14,8 @@ Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopsla
 - Bewegingen: kort (onder de halve seconde), alleen na een klik van de gebruiker, nooit bij openen, nooit herhalend, en uit bij `prefers-reduced-motion`. Een beweging vertelt iets (de worp rolt, een 20 licht op), anders laten we hem weg.
 - Een bijzonder moment (crit, fumble, iets wat lukt) komt pas als de uitkomst er is, nooit eerder: geen kleur of teken dat het verklapt terwijl het nog rolt. En het moment krijgt een echte klap (iets wat even opspringt), geen zachte kleurwissel. (Versie 9.)
 - Tekst uit een tabel of lijst is rustiger dan een getal: geen pil, geen vet, wel het eigen teken zodat je ziet dat je erop kunt klikken. (Versie 9.)
+- Bij een programmeertool (JetBrains) blijven we van de kleuren in de editor af: die kiest de programmeur zelf. Het eigen gezicht zit daar in het pluginicoon, de poster en het kleine icoon in onze meldingen, en die drie vertellen hetzelfde verhaal (bij Bison & Flex: de boog van scanner naar grammatica). (Versie 10.)
+- Een pluginicoon vertelt in één beeld wat ons onderscheidt, geen abstracte vormen. Toets het op ware grootte (40px en 16px, licht en donker), niet alleen groot. Onder 16px weglaten wat niet leest. (Versie 10.)
 - De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?
 
 ## Uiterlijk in een app (Obsidian, JetBrains)
@@ -60,6 +62,8 @@ Nooit:
 ## Winkelpagina's en dortus.com
 
 - Het eerste lijstplaatje is een poster (versie 8, bericht Thijs 22:10): een korte kop van hoogstens zes woorden, het product groot en mooi in beeld in echt gebruik, het eigen teken als enig logo. Geen kale schermafbeelding van een witte notitie, geen tekstplaat zonder product.
+- Toont de poster een betaalde functie, dan staat dat op de poster zelf, leesbaar op 900 breed (een PRO-label bij die functie en een regel wat gratis is). Niet alleen in een kleine grijze voetregel. (Versie 10.)
+- Een poster is gemaakt van echte schermen uit de test, alleen bijgesneden; daaromheen mag een eigen achtergrond, kop en pijl. Geen vensterknoppen van een ander systeem dan de toetsen die we noemen (Ctrl, dan geen Mac-stippen). (Versie 10.)
 - In de README een korte bewegende GIF (±5 seconden) bovenaan die het mooiste moment laat zien.
 - Schermafbeeldingen in het standaardthema, licht en donker allebei, scherp (factor 2), zonder persoonlijke bestanden in beeld.
 - Het eerste plaatje toont ook wat je typt, niet alleen de uitkomst: "dit typ je, dit krijg je" (bijvoorbeeld één regel met de code naast regels met de uitkomst).
