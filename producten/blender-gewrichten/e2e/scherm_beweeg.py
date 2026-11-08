@@ -126,3 +126,43 @@ def plat_lid():
     rechts = rv3d.view_rotation @ Vector((1.0, 0, 0))
     rv3d.view_location = Vector(a["cj_centrum"]) + rechts * 3.0
     gebied.tag_redraw()
+
+
+def winkel(pose):
+    """Winkelschermen 8 en 9 (lanceerlijst Daan, 8 nov 17:30): pop met kogel, gradenboog aan, Exploded view uit,
+    de 3D-weergave over het hele venster (geen zijbalk, geen gereedschap), kijker loodrecht op het vlak van de
+    boog in richting 90 (langs de draaias), het gewricht in het midden. Pose 15 (binnen) of 28 (voorbij)."""
+    if pose < 20.0:
+        maak_pop()
+        plaats()
+    inst = bpy.context.scene.click_joints
+    inst.uit_elkaar = False
+    inst.toon_bereik = True
+    inst.pose_richting = "2"
+    inst.pose_graden = float(pose)
+    venster, gebied, _ = zijbalk()
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if not gebied or a is None:
+        log("WINKEL: geen weergave of geen deel A met bereik")
+        return
+    if pose < 20.0:
+        weergave()
+        with bpy.context.temp_override(window=venster, area=gebied):
+            bpy.ops.screen.screen_full_area(use_hide_panels=True)
+        venster, gebied, _ = zijbalk()
+        ruimte = gebied.spaces.active
+        ruimte.show_region_ui = False
+        ruimte.show_region_toolbar = False
+        ruimte.show_region_header = False
+        ruimte.overlay.show_text = False  # geen "User Perspective" linksboven op het winkelplaatje
+    as_ = Vector(a["cj_as"]).normalized()
+    u = as_.orthogonal().normalized()
+    rich = as_.cross(u).normalized()  # richting 2 = 90 graden (uit_elkaar.richtingen)
+    kijk_r = as_.cross(rich).normalized()  # draaias van richting 2: loodrecht op het vlak van de boog
+    rv3d = gebied.spaces.active.region_3d
+    rv3d.view_perspective = "PERSP"
+    rv3d.view_rotation = kijk_r.to_track_quat("-Z", "Y")
+    rv3d.view_distance = 11.0 * a["cj_kogel_r"]
+    rv3d.view_location = Vector(a["cj_centrum"]) + as_ * (1.6 * a["cj_kogel_r"]) + rich * (1.2 * a["cj_kogel_r"])
+    gebied.tag_redraw()
+    log(f"WINKEL pose={inst.pose_graden} uit_elkaar={inst.uit_elkaar} gebied={gebied.width}x{gebied.height}")
