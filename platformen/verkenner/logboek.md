@@ -595,4 +595,5 @@ Nieuwste blok onderaan.
 - Uitkomst: buiten talen overal een sterke leider of door JetBrains zelf vervangen. Enige zwakke nummer één met betalende gebruikers: taalpakketten (Code, $39 per jaar; Frans 1,75, Russisch 2,5, Italiaans 2,0, Tsjechisch 1,0; klachten over machinevertaling). Cijfer 4, nog niet bouwen, kleine proef mogelijk. Zie kansen/jetbrains-taalpakketten.md. Bericht aan Jet.
 - Controleur: alle 8 beweringen kloppen, correcties verwerkt (meer gratis concurrenten, Rusland kan niet betalen).
 - Les: de ratings van taalpakketten rusten op 1 tot 5 stemmen; de comments zeggen meer dan het gemiddelde.
+- Tweede onderdeel (tijd over, platformrun): Coda Packs, zelf toegevoegd. 150 nieuwste packs uit de sitemap gemeten: ±11 nieuw per maand, 5 van 89 betaald, geen installaties zichtbaar, geen maker met bedrag (ook niet op TrustMRR). Nee, cijfer 2, zie voorstellen/coda.md. Niet apart nagekeken omdat het advies nee is.
 - Run afgesloten.
