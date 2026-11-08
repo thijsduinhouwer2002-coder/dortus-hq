@@ -616,3 +616,6 @@ Nieuwste blok onderaan.
 - Uitkomst: nee voor nu, cijfer 3. Geld gaat aantoonbaar naar kleine makers, maar de pot is sinds april vlak ±$3.900 per maand voor alle makers samen; nieuwe recipes halen mediaan 14 connections, geen eigen prijs mogelijk. Zie voorstellen/trmnl.md.
 - Controleur: alle getallen kloppen; vier toevoegingen verwerkt.
 - Les: zoek eerst in de documentatie naar een open JSON-ingang (hier `.json` achter de lijst-URL) voor je pagina's gaat schrapen; dat scheelde ±15 minuten en gaf datums die op de pagina's ontbraken.
+- Tweede onderdeel (tijd over): taak Mac-apps buiten de App Store, haalt een maker zonder publiek het? X-volgers van alle 190 oprichters gelezen op TrustMRR. Van de oprichters met 1 tot 999 volgers haalt 15% $300+ in 30 dagen, zonder X-account niemand. Cijfer blijft 5 (wij hebben geen publiek en posten niet onder de naam van Thijs). Controleur: rekensom klopt, correcties verwerkt.
+- Voorwerk zonder meting: Homey (geen betaalde apps) en flightsim.to (botbescherming) in kandidaten.md.
+- Run afgesloten.
