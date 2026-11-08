@@ -516,3 +516,5 @@ Nieuwste blok onderaan.
 - Uitkomst: geld per titel het beste tot nu toe naast Blender, maar alle makers samen ±$36.000 per maand en het apparaat groeit niet. AI-regel sinds april 2026: geen AI-art, geluid of tekst.
 - Beslissing: nee voor nu, cijfer 4. Waarom: Thijs zoekt een plek om groot te worden, het plafond is hier te laag. Controleur akkoord (4 tot 5), 5 correcties verwerkt.
 - Les: wacht tot het ophaalscript klaar is voor je telt (ik telde 496 van 510); en lees bij een sale de normale prijs.
+- 16:58 tot 17:05: korte schifting voor de volgende run. Cults3D niet te meten (Cloudflare). Reason Shop zonder tellers, lage prioriteit. Reallusion Marketplace heeft een interne API met datum en downloads in app.js, staat klaar als voorwerk. Daarna gestopt: geen tijd meer voor een grondige meting met controleur.
+- Run afgesloten.
