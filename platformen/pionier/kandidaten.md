@@ -262,3 +262,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±22:25 UTC (Noor)
 - Les uit cTrader: kijk bij een winkel of er een verkoperskaart met totalen is (hier sellerCard met totalSales en lid-sinds). De lid-sinds-datums per maand laten in één meting zien of een winkel nog makers trekt of al over zijn top is.
 - Volgende run eerst radar, daarna nieuw zoeken (ideeën bij 8 nov ±12:10, ±15:00 en ±19:55).
+
+## Run 8 nov 22:39 UTC (Noor)
+- Radar kort: niets nieuws met een betaalde winkel die net open is (zoekwoorden "new plugin marketplace developers sell paid plugins launched November 2026", "app store opens to developers revenue share 2026").
+- Vercel Marketplace (native integraties: klant installeert en betaalt via de Vercel-rekening, billing plans in de Partner API, Pro-team nodig): in onderzoek 8 nov 22:50 UTC
