@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Cinzel;src:url(f/1.ttf)}@font-face{font-family:Fraunces;src:url(f/2.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(f/3.ttf)}@font-face{font-family:Inter;font-weight:700;src:url(f/4.ttf)}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#0c0814}
+#st{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 50%,#2a1640,#0c0814 70%)}
+#rays{position:absolute;left:640px;top:360px;width:2400px;height:2400px;margin:-1200px 0 0 -1200px;opacity:0;
+ background:repeating-conic-gradient(from 0deg,rgba(242,193,78,.22) 0deg 6deg,transparent 6deg 18deg);-webkit-mask:radial-gradient(circle,#000 0,#000 18%,transparent 55%)}
+#flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,226,150,.95),rgba(242,170,60,.35) 40%,transparent 70%);opacity:0}
+canvas{position:absolute;inset:0}
+#word{position:absolute;left:0;right:0;top:70px;text-align:center;font:700 150px Cinzel;color:#f6efe2;letter-spacing:.06em;opacity:0;white-space:nowrap}
+#word.g{color:#f2c14e;text-shadow:0 0 60px rgba(242,193,78,.5)}
+.card{position:absolute;overflow:hidden;border-radius:18px;box-shadow:0 40px 90px rgba(0,0,0,.8),0 0 0 2px rgba(255,255,255,.12);background:#1e1e1e}
+.card img{position:absolute;transform-origin:0 0}
+#card{left:140px;top:300px;width:1000px;height:250px}
+#wide{left:200px;top:40px;width:880px;height:688px;opacity:0}
+#wide img{width:880px;height:688px}
+#tag{position:absolute;left:28px;bottom:24px;font:700 14px Inter;letter-spacing:.12em;color:#bfb3d6;opacity:.85}
+#tag i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e5484d;margin-right:8px;vertical-align:1px;font-style:normal}
+.cap{position:absolute;left:0;right:0;text-align:center;font:600 50px Fraunces;color:#fbf6ec;text-shadow:0 4px 24px #000;opacity:0}
+.cap b{color:#f2c14e;font-weight:600}
+#trio{position:absolute;inset:0;opacity:0}
+.sk{position:absolute;top:250px;width:380px;height:150px}
+.sk img{left:0;top:0}
+.lab{position:absolute;top:420px;width:380px;text-align:center;font:700 16px Inter;letter-spacing:.14em;color:#cfc4e2}
+.lab b{display:block;font:600 34px Fraunces;letter-spacing:0;color:#fbf6ec;margin-bottom:6px}
+#end{position:absolute;inset:0;opacity:0}
+#end .k{position:absolute;top:190px;left:0;right:0;text-align:center;font:700 30px Cinzel;letter-spacing:.32em;color:#f2c14e}
+#end .b{position:absolute;top:238px;left:0;right:0;text-align:center;font:600 82px Fraunces;color:#f8f0e0}
+#end .r{position:absolute;top:368px;left:0;right:0;text-align:center;font:500 23px Inter;color:#d6cbe6}
+#end .p{display:inline-block;margin-top:30px;padding:14px 28px;border-radius:999px;background:#f2c14e;color:#241a06;font:700 22px Inter}
+#end .m{position:absolute;bottom:40px;left:0;right:0;text-align:center;font:500 18px Inter;color:#9a90ad}
+</style></head><body><div id="st"><div id="rays"></div><div id="flash"></div><canvas id="c" width="1280" height="720"></canvas>
+<div id="word"></div>
+<div class="card" id="card"><img id="ci"></div>
+<div class="card" id="wide"><img id="wi"></div>
+<div id="bd" style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,rgba(12,8,20,.95) 50%)"></div><div class="cap" id="c1" style="top:600px">A natural 20 lands <b>in gold.</b> Free.</div>
+<div class="cap" id="c2" style="top:606px;font-size:44px">Every throw, kept in your <b>session log.</b></div>
+<div id="trio">
+ <div class="card sk" style="left:40px"><img id="s0"></div><div class="lab" style="left:40px"><b>Classic</b>FREE</div>
+ <div class="card sk" style="left:450px"><img id="s1"></div><div class="lab" style="left:450px"><b>Parchment</b>OPTIONAL SKIN</div>
+ <div class="card sk" style="left:860px"><img id="s2"></div><div class="lab" style="left:860px"><b>Arcane</b>OPTIONAL SKIN</div>
+ <div class="cap" style="top:540px;opacity:1;font-size:40px">Want more drama? <b>Pick a skin.</b></div></div>
+<div id="end"><div class="k">ROLLWRIGHT</div><div class="b">Roll dice right in your notes.</div>
+<div class="r">Live rolls · random tables · a log for every session<br><span class="p">Free in Obsidian Community Plugins</span></div><div class="m">Made by Thijs at Dortus</div></div>
+<div id="tag"><i></i>REAL PLUGIN FOOTAGE · OBSIDIAN</div></div>
+<script src="common.js"></script><script>
+const FR=__FR__, META=__META__;
+const IDX={ini:0,att:1,dmg:2,per:3,tab:4,'skin-parchment':3,'skin-arcane':3};
+const tok=l=>META[l][IDX[l]];
+// crop a frame into a card: center token, scale k
+function crop(img,src,l,cw,ch,k){setImg(img,'fr/'+src);const r=tok(l);const cx=r.x+r.w/2,cy=r.y+r.h/2;
+ img.style.transform=`translate(${cw/2-cx*k}px,${ch/2-cy*k}px) scale(${k})`;img.style.width='1024px';img.style.height='800px'}
+const B=[['ini',.7,'CLICK.'],['att',1.9,'ROLL.'],['dmg',3.0,'LAND.'],['per',4.2,'NAT 20']];
+window.render=function(t){
+ let i=0;for(let j=0;j<B.length;j++)if(t>=B[j][1]-.25)i=j;
+ const [l,s,wd]=B[i];const since=t-s;
+ const cardOn=t<7.0;const crit=l==='per';
+ const k=crit?2.6:2.2;
+ crop($('ci'),fr(l,since),l,1000,250,k);
+ // shake on landing of crit
+ const land=s+ (crit?1.25:1.05);const sh=crit&&t>land&&t<land+.35?Math.sin(t*90)*10*(1-(t-land)/.35):0;
+ const cin=out(ph(t,.2,.6));const cout=ease(ph(t,6.6,7.0));
+ $('card').style.opacity=cin*(1-cout);$('card').style.transform=`translate(${sh}px,${sh*.4}px) scale(${(crit&&t>land?1+.05*Math.exp(-6*(t-land)):1)*(1-.1*cout)})`;
+ // words slam
+ const w=$('word');const ws=(crit?land:s-.25);const wp=ph(t,ws,ws+.18);
+ w.textContent=wd;w.className=crit?'g':'';w.style.fontSize=crit?'190px':'150px';w.style.top=crit?'14px':'70px';
+ w.style.opacity=t<7.0?(crit?(t>=land?1:0):wp*(1-ph(t,s+.9,s+1.1)*(i<3?1:0))):0;
+ w.style.opacity=t>=6.6?Math.min(+w.style.opacity,1-cout):w.style.opacity;
+ w.style.transform=`scale(${1.6-.6*back(wp)})`;
+ if(crit&&t>=land){w.style.transform=`scale(${1.5-.5*back(ph(t,land,land+.22))})`}
+ $('rays').style.opacity=crit&&t>land?Math.min(1,(t-land)*4)*(1-cout):0;$('rays').style.transform=`rotate(${t*14}deg)`;
+ $('flash').style.opacity=crit&&t>land?Math.exp(-5*(t-land))*.9:0;
+ $('c1').style.opacity=out(ph(t,land+.4,land+.8))*(1-cout)*(crit?1:0);
+ // wide: log
+ const wi=out(ph(t,7.0,7.5)),wo=ease(ph(t,9.6,10));$('wide').style.opacity=wi*(1-wo);
+ $('wide').style.transform=`translateY(${(1-wi)*60}px) scale(${.96+.04*wi})`;
+ setImg($('wi'),'fr/'+fr('tab',t-7.6));$('c2').style.opacity=out(ph(t,7.6,8))*(1-wo);
+ // trio
+ const tr=out(ph(t,10,10.4))*(1-ph(t,12.8,13.1));$('trio').style.opacity=tr;
+ const R=[['per',FR.per.at(-1)[1]],['skin-parchment',null],['skin-arcane',null]];
+ [['per',10.1],['skin-parchment',10.4],['skin-arcane',10.7]].forEach(([ll,st],j)=>{crop($('s'+j),ll==='per'?FR.per.at(-1)[1]:fr(ll,t-st),ll,380,150,1.3)});
+ const en=out(ph(t,13.1,13.6));$('end').style.opacity=en*(1-ph(t,15.6,16));$('end').style.transform=`translateY(${(1-en)*20}px)`;
+ $('tag').style.opacity=t<13?.85:0;
+ const c=$('c').getContext('2d');c.clearRect(0,0,1280,720);embers(c,t,.7);burst(c,t,crit?land:-99,640,425);
+};
+</script></body></html>

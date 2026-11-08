@@ -416,3 +416,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Bekeken (GEZIEN, Read-tool):** contactvellen op 0,9 s, 6,4 s, 8,4 s, 11,6 s, 13,2 s en 14 s, en een GIF-beeld op de NAT 20. Opgelost: d20 liep door de titel (groter en vager erachter gezet), kop onder de donkere band (z-index), cursor bedekte het token tijdens de zoom (weg vanaf 7,2 s), venster groter (896 breed).
 - **Nog niet goed genoeg, eigen oordeel:** tijdens de zoom vult het venster bijna het hele beeld, dus het warme licht en de vonken zie je maar aan de randen; het NAT 20-moment mag groter. Nog geen controleur en nog niet bij de projectchat.
 - **Volgende run:** (1) NAT 20-moment sterker (minder diep inzoomen zodat het licht rond het venster te zien is, of een tweede beeld met het token groot los ernaast zoals op de poster), (2) poster v3 in dezelfde stijl, (3) controleur, (4) op de lijst van Thijs met de links, ruim vóór 9 nov 11:00 UTC. Daarna de skins-richtingen.
+
+## 8 nov 2026, extra run 38 (op verzoek van Thijs, alleen GIF en poster Rollwright, 22:13 tot 22:30 UTC)
+
+- **Concurrent bekeken (curl, GEZIEN):** de README van Dice Roller (javalent), de grootste concurrent, heeft geen GIF of filmpje, alleen tekst en een koffieknop. Excalidraw linkt naar YouTube. Met een bewegend NAT 20-moment staan we daar dus duidelijk boven.
+- **Nieuwe opname in de echte Obsidian:** tak `ontwerp/rollwright-reclame3`, spec `reclame3.e2e.mjs`, notitie "The Drowned Lantern" met eigen kaart (`drowned-lantern-map.png`, zelf gemaakt) en tabel "Dock encounters". Run 42529307817 (worpen vielen onder het scherm, dubbele titel), run 42529627328 goed (GEZIEN, Read-tool): log vult live, NAT 20 in Classic, Parchment en Arcane.
+- **Gemaakt:** twee varianten in `ontwerp/rollwright/v3/` (A Campagnetafel, B NAT 20), elk GIF en MP4, poster B. Contactvellen en posters bekeken met de Read-tool. Opgelost: kop onder de band, burst bij elke worp in B (alleen nog bij de NAT 20), NAT 20-woord over de kaart.
+- **Besloten:** de varianten met links in `ontwerp/rollwright/v3/voor-projectchat.md` en een regel in mijn berichtenbestand, niet op de lijst van Thijs (de projectchat beoordeelt eerst). Mijn voorkeur B voor Reddit, A voor de README.
+- **Volgende run:** poster A echt maken, controleur op beide, verwerken wat de projectchat zegt.

@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Cinzel;src:url(f/1.ttf)}@font-face{font-family:Fraunces;src:url(f/2.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(f/3.ttf)}@font-face{font-family:Inter;font-weight:700;src:url(f/4.ttf)}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#0d0a08}
+#st{position:absolute;inset:0;overflow:hidden;background:#0d0a08}
+#map{position:absolute;left:-160px;top:-60px;width:1600px;height:560px;filter:sepia(.5) brightness(.36) contrast(1.1) blur(1.5px);transform-origin:50% 50%}
+#map2{position:absolute;left:-160px;top:500px;width:1600px;height:560px;filter:sepia(.5) brightness(.32) blur(2px);transform:scaleY(-1)}
+#warm{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(255,180,70,.7),rgba(255,120,30,.25) 45%,transparent 75%);opacity:0;mix-blend-mode:screen}
+#cand{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 18% 100%,rgba(255,150,50,.28),transparent 60%),radial-gradient(ellipse 50% 60% at 95% 0%,rgba(120,80,200,.18),transparent 60%)}
+canvas{position:absolute;inset:0}
+#cam{position:absolute;inset:0;transform-origin:0 0}
+#win{position:absolute;left:230px;top:56px;width:819px;height:640px;border-radius:12px;overflow:hidden;background:#1e1e1e;
+ box-shadow:0 50px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,220,160,.14);transform-origin:50% 100%}
+#win img{position:absolute;left:0;top:0;width:819px;height:640px}
+#cur{position:absolute;width:18px;height:28px;left:0;top:0;z-index:3}
+.chip{position:absolute;right:300px;top:20px;padding:7px 14px;border-radius:999px;font:700 15px Inter;letter-spacing:.04em;z-index:4;opacity:0}
+#chipFree{background:rgba(20,18,26,.9);color:#e9e2f5;border:1px solid rgba(255,255,255,.25)}
+#chipSkin{background:#f2c14e;color:#241a06}
+.t{position:absolute;left:0;right:0;text-align:center;color:#f8f0e0;text-shadow:0 4px 30px rgba(0,0,0,.95)}
+#k{top:214px;font:700 22px Cinzel;letter-spacing:.45em;color:#efc35a}
+#h{top:250px;font:600 94px/1.0 Fraunces}#h b{color:#f2c14e;font-weight:600}
+#s{top:470px;font:500 24px Inter;color:#e6dccb}
+#band{position:absolute;left:0;right:0;bottom:0;height:250px;background:linear-gradient(transparent,rgba(8,6,4,.95) 55%);opacity:0;z-index:5}
+.cap{position:absolute;left:0;right:0;text-align:center;font:600 54px Fraunces;color:#fbf6ec;text-shadow:0 4px 30px #000;opacity:0;z-index:6}
+.cap b{color:#f2c14e;font-weight:600}.cap small{display:block;font:500 20px Inter;color:#e0d6c4;margin-top:8px}
+#end{position:absolute;inset:0;opacity:0;z-index:7}
+#end .k{position:absolute;top:196px;left:0;right:0;text-align:center;font:700 30px Cinzel;letter-spacing:.32em;color:#efc35a}
+#end .b{position:absolute;top:244px;left:0;right:0;text-align:center;font:600 80px Fraunces;color:#f8f0e0}
+#end .r{position:absolute;top:372px;left:0;right:0;text-align:center;font:500 23px Inter;color:#e0d6c4}
+#end .p{display:inline-block;margin-top:30px;padding:14px 28px;border-radius:999px;background:#f2c14e;color:#241a06;font:700 22px Inter}
+#end .m{position:absolute;bottom:40px;left:0;right:0;text-align:center;font:500 18px Inter;color:#a99f8c}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7));pointer-events:none;z-index:8}
+</style></head><body><div id="st">
+<img id="map" src="fr/map.png"><img id="map2" src="fr/map.png"><div id="cand"></div><div id="warm"></div><canvas id="c" width="1280" height="720"></canvas>
+<div id="cam"><div id="tb"><div class="t" id="k">ROLLWRIGHT</div><div class="t" id="h">Roll dice <b>right</b><br>in your notes.</div><div class="t" id="s">Live dice rolls for your tabletop notes in Obsidian.</div></div>
+<div id="win"><img id="f0"><img id="f1" style="opacity:0"><div class="chip" id="chipFree">FREE VERSION</div><div class="chip" id="chipSkin">OPTIONAL SKIN</div>
+<svg id="cur" viewBox="0 0 12 20"><path d="M0 0 L0 17 L4 13 L7 20 L10 19 L7 12 L12 12 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div></div>
+<div id="band"></div>
+<div class="cap" id="c1" style="top:560px">A natural 20 lands <b>in gold.</b><small>Every roll in your note is live. Click it to throw again.</small></div>
+<div class="cap" id="c2" style="top:575px;font-size:46px">Random tables from <b>your own notes.</b><small>And every throw is kept in the session log.</small></div>
+<div class="cap" id="c3" style="top:590px;font-size:44px"><span id="c3t">Optional skins</span></div>
+<div id="end"><div class="k">ROLLWRIGHT</div><div class="b">Roll dice right in your notes.</div>
+<div class="r">Live rolls · random tables · a log for every session<br><span class="p">Free in Obsidian Community Plugins</span></div><div class="m">Made by Thijs at Dortus</div></div>
+<div id="vig"></div></div>
+<script src="common.js"></script><script>
+const FR=__FR__, META=__META__;
+const S=819/1024, WX=230, WY=56;
+const cen=l=>{const r=META[l][{ini:0,att:1,dmg:2,per:3,tab:4,'skin-parchment':3,'skin-arcane':3}[l]];return [r.x+r.w*.55,r.y+r.h*.6]};
+const R=[['ini',2.9],['att',4.0],['dmg',5.0],['per',6.2],['tab',9.9]];
+window.render=function(t){
+ $('map').style.transform=`scale(${1.08+t*.006}) translateX(${-t*6}px)`;
+ const ti=out(ph(t,.1,.9)),to=ease(ph(t,1.6,2.3));$('tb').style.opacity=ti*(1-to);$('tb').style.transform=`translateY(${(1-ti)*30-to*120}px)`;
+ const wi=out(ph(t,1.8,2.7));const w=$('win');
+ const endk=ease(ph(t,13.9,14.5));
+ w.style.opacity=wi*(1-endk);w.style.transform=`perspective(1600px) translateY(${(1-wi)*460}px) rotateX(${(1-wi)*26}deg) rotateY(${-4+2*Math.sin(t*.3)}deg) scale(${1-.1*endk})`;
+ // main frames
+ let lab='ini',since=-1;for(const [l,s] of R)if(t>=s-.5){lab=l;since=t-s}
+ let src=t<R[0][1]-.5?FR.ini[0][1]:fr(lab,since);
+ // skins slot
+ const sp=11.6, sa=12.9;
+ let skinSrc=null,skinA=0,skinName='';
+ if(t>=sp-.3&&t<sa-.2){skinSrc=fr('skin-parchment',t-sp);skinName='Parchment';skinA=ease(ph(t,sp-.3,sp))}
+ else if(t>=sa-.2&&t<14.2){skinSrc=fr('skin-arcane',t-sa);skinName='Arcane';skinA=1-ph(t,13.9,14.2)}
+ setImg($('f0'),'fr/'+src);if(skinSrc)setImg($('f1'),'fr/'+skinSrc);$('f1').style.opacity=skinSrc?skinA:0;
+ $('chipFree').style.opacity=t>2.4&&t<11.3?1:0;$('chipSkin').style.opacity=skinSrc?skinA:0;$('chipSkin').textContent='OPTIONAL SKIN · '+skinName.toUpperCase();
+ // cursor
+ let p=[700,980],cx=p[0],cy=p[1];for(const [l,s] of R){const q=cen(l);const g=ease(ph(t,s-.9,s-.35));if(t>=s-.9){cx=p[0]+(q[0]-p[0])*g;cy=p[1]+(q[1]-p[1])*g}p=q}
+ const pr=R.some(([l,s])=>t>s-.3&&t<s-.15)?.82:1;
+ $('cur').style.transform=`translate(${cx*S}px,${cy*S}px) scale(${pr})`;$('cur').style.opacity=(t>2.5&&t<7.3)||(t>9.0&&t<10.6)?1:0;
+ // camera push on crit: frame token + log card
+ const z=ease(ph(t,7.35,7.95))*(1-ease(ph(t,9.2,9.8)));
+ const tk=cen('per');const fx=WX+((tk[0]+780)/2)*S, fy=WY+(tk[1]-120)*S;
+ const Z=1+.42*z;$('cam').style.transform=`translate(${(640-fx*Z)*z+(1-z)*(640-640*Z)}px,${(300-fy*Z)*z+(1-z)*(360-360*Z)}px) scale(${Z})`;
+ $('warm').style.opacity=(t>7.3&&t<10)?(.3+.7*Math.exp(-2.5*(t-7.4))+.07*Math.sin(t*3))*(1-ph(t,9.3,9.9)):0;
+ const a1=out(ph(t,7.8,8.2))*(1-ph(t,9.3,9.6)),a2=out(ph(t,10.4,10.8))*(1-ph(t,11.3,11.6)),a3=out(ph(t,11.7,12))*(1-ph(t,13.9,14.2));
+ $('c1').style.opacity=a1;$('c2').style.opacity=a2;$('c3').style.opacity=a3;$('band').style.opacity=Math.max(a1,a2,a3);
+ $('c3t').innerHTML=t<sa-.2?'Optional skin: <b>Parchment</b>':'Optional skin: <b>Arcane</b>';
+ const en=out(ph(t,14.2,14.8));$('end').style.opacity=en*(1-ph(t,16.6,17));$('end').style.transform=`translateY(${(1-en)*20}px)`;
+ const c=$('c').getContext('2d');c.clearRect(0,0,1280,720);embers(c,t,1);burst(c,t,7.45,640,300);
+};
+</script></body></html>
