@@ -551,3 +551,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Gevonden: tot ±1 nov zaten er veel nepdownloads in de stats (forum 121588); het register kreeg sinds 3 nov 17,5% minder per dag (GEZIEN, zelf nagerekend door onderzoeker en controleur). Besluit: groei voortaan vanaf 3 nov meten. Waarom: de oude groei van kleine plugins is grotendeels ruis, ook bij de kleine TTRPG-concurrenten.
 - Wat misging: ik zette per ongeluk de verouderde lokale tak main in de werkmap (geen gegevens weg, niets gepusht); verder gewerkt op een tak die origin/main volgt.
 - 17:30 UTC: TTRPG opnieuw gemeten vanaf 3 nov (aanvulling in volgend-product.md). Combat Ledger blijkt ±2 tot 5 per dag, niet ±44; Initiative Tracker 63 en Statblocks 156 per dag op de beste versie. Rollwright nog niet in de stats. Daarna gestopt: de volgende stap (gat zoeken met een betaalde laag) is een hele ronde.
+
+## 8 nov 18:15 UTC (Olaf)
+- Bericht Thijs 18:25 verwerkt: 0.3.2 staat (GEZIEN), status bijgewerkt. Gemeten (GEZIEN): 4 downloads op de communitypagina, release-main.js 0.3.1 4 keer, 0.3.2 nog 0, niet in de stats, 0 issues, forumdraad 1 bericht.
+- Weekbesluit Hans gelezen. Besluit: opruimtaak bovenaan, het doortellen uit widget.ts halen. Waarom: alle bestanden zitten onder de 400 regels en architectuur.md klopt (nagelopen per bestand), maar widget.ts is 382 regels en groeit bij elke klus van Daan; geen dubbele code in src (jscpd 0 klonen). Tweede product: geen nieuwe ronde, want er is geen nieuwe bron (Hans).
