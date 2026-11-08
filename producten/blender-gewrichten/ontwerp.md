@@ -307,3 +307,11 @@ Waarom: een vaste ±25° gooit bij elk dik lid 5° weg om dunne leden te redden,
 
 `Akkoord: nee` blijft tot de punten hierboven gebouwd zijn en de beweegproef (waaier en rood) in de viewport staat. Daarna maak ik icoon en lijstplaatjes, met het buigende gewricht als hoofdbeeld.
 - **10:32, regel Daan per gewricht gebouwd** (8b97f84e): nek 0,40r (±30°), maar 0,48r (±25°) als dat een betere passing geeft. E2e run 42471252040: staaf 7 mm weer Good fit via Auto (kogel 2,5 mm, wand 1,54 mm), pop-arm weer gesneden. Nog rood: toetsen voor de oude vorm (opening, meterscene-wand, snijvlak), tweede gewricht te dichtbij, volume 5,38% (grens 5%), 3MF dubbele randen in deel A (BEAUTY 110; EAR_CLIP geprobeerd, maakte het erger: 130 en 216, teruggezet in ff648d47). Het paneel moet tonen welke hoek het werd ("Bends ±30°" of "±25°").
+
+## Tussenblik van Daan op ronde j (8 nov 11:50 UTC, tak `claude/blender-2026-11-08-j`, run 42476003597, dce0261c)
+
+Gezien in de echte Blender 5.2.3: `1-paneel-x` en `2-gewricht-x`. Run was nog bezig (e2e), dus dit is geen keuring.
+1. **Goed:** hoek per gewricht werkt zoals bedoeld. Bij 4,0 mm kiest Auto 20 graden en het paneel zegt "Good fit" met daaronder "Bends ±20°". Bolnaad en kleur goed.
+2. **Kan (klein, paneel):** de vier regels onder Fit and export staan niet in één lijn. "Bends ±20°" staat ingesprongen onder de tekst van Good fit, "Wall: 1.56 mm" en "Clearance measured" staan tegen de rand. Maak het één blok: Good fit met vinkje, daaronder Bends, Wall en Clearance even ver ingesprongen (zonder icoon, zoals Bends nu). Waarom: één blok leest als één uitslag; nu lijkt Bends bij Good fit te horen en de rest los.
+3. **Kan:** "Clearance measured: 0.200 mm" wordt "Clearance: 0.20 mm (measured)", zelfde aantal cijfers als het veld erboven (0.20).
+4. **Moet blijft:** 3MF zonder dubbele randen en "Too close to another joint". Daarna keur ik op een groene e2e-run.
