@@ -180,7 +180,7 @@ def kijk():
     rv3d.view_rotation = doel.to_track_quat("-Z", "Y")
     gebied.tag_redraw()
     verwacht = (rv3d.view_rotation @ Vector((0, 0, -1))).normalized()
-    figuren.zet_cursor((3.2, 0, -14), (1, 0, 0))
+    figuren.zet_cursor((3.2, 0, -12), (1, 0, 0))  # ronde g: 2 mm hoger, het gewricht is bij 3 mm langer
     inst = bpy.context.scene.click_joints
     inst.kogel_mm, inst.speling_mm, inst.as_bron = 3.0, 0.2, "KIJK"
     figuren.maak_actief(staat["pop"])

@@ -185,7 +185,8 @@ def markeer(ob, kleur, gegevens, maat=None, u=1.0):
     if maat is None:
         kleuren.kleur_teken(ob, kleur)
     else:
-        kleuren.kleur_deel(ob, kleur, gegevens["cj_snijpunt"], gegevens["cj_as"], maat["r"], maat["s"], u)
+        kleuren.kleur_deel(ob, kleur, gegevens["cj_snijpunt"], gegevens["cj_as"], maat["r"], maat["s"], u,
+                           maat["midden_z"] - maat["schuif"] + maat["r"] + maat["s"])
 
 
 class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
