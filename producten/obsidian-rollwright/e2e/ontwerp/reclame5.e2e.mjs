@@ -60,11 +60,21 @@ describe("Rollwright reclame 5 (film v4)", function () {
 			return aan ? "snippet" : "style-fallback";
 		}, css);
 		console.log("SNIPPET:", ok);
+		// Venster groter via Electron (setWindowSize faalt op deze Chrome, run 42533443120).
+		meta.venster = await browser.execute(() => { try { const r = window.require("@electron/remote"); const w = r.getCurrentWindow(); w.setSize(1400, 860); w.center?.(); return "remote"; } catch (e) { try { window.resizeTo(1400, 860); return "resizeTo"; } catch (e2) { return String(e2); } } });
+		await browser.pause(800);
+		meta.files = await browser.executeObsidian(async ({ app }, pad) => {
+			for (let i = 0; i < 40 && !app.vault.getAbstractFileByPath(pad); i++) await new Promise((r) => setTimeout(r, 250));
+			return app.vault.getFiles().map((x) => x.path);
+		}, NOTE);
+		console.log("FILES:", JSON.stringify(meta.files), "VENSTER:", meta.venster);
 		await browser.executeObsidian(async ({ app }, pad) => {
 			await app.plugins.plugins.rollwright.clearHistory();
 			app.workspace.leftSplit?.collapse();
 			const leaf = app.workspace.getLeaf(false);
-			await leaf.openFile(app.vault.getAbstractFileByPath(pad), { state: { mode: "preview" } });
+			const file = app.vault.getAbstractFileByPath(pad);
+			if (file) await leaf.openFile(file, { state: { mode: "preview" } });
+			else await app.workspace.openLinkText(pad.replace(/\.md$/, ""), "", false, { state: { mode: "preview" } });
 			app.workspace.setActiveLeaf(leaf, { focus: true });
 		}, NOTE);
 		await browser.pause(1500);
