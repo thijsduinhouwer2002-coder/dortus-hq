@@ -211,3 +211,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit: alleen nog de lanceerlijst. Naadlijn, vlakregel, vet getal, pijltjes en de kan-punten zijn versie 2 (Daan, Thijs).
 - (vervolg run 20) Smalle band naar versie 2 zonder ronde: kleur zit per vlak en de zijvlakken van de pop lopen vele mm langs de naad door, dus (a) kleurt of de hele strook (Daans toets faalt) of niets (terugval = band van nu). Alleen de naadlijn (v2) helpt. Zo valt het binnen Daans eigen grens en houdt de lancering vaart.
 - Winkelschermen 8 en 9 gebouwd op tak `claude/blender-2026-11-08-p` (c0ad8a63), Xvfb naar 1920x1080. Run loopt bij het afsluiten; volgende run lezen, controleur, samenvoegen, Daan.
+
+## 8 nov 2026 18:08 tot 18:35, run 21 (Bram)
+- Gelezen: berichten (niets nieuw open), taken: tak p lezen, controleur, samenvoegen. Hans zette de lanceerlijst vast; Daan vroeg intussen een derde scherm (`10-winkel-paneel`), de tekstrand nakijken en het manifest gelijk aan de winkeltekst (punt 2 en 2b).
+- Tak p (run 42505390026) groen, "BOOG OK winkel" en "BOOG OK winkel-rood" (GEZIEN). Zelf bekeken: boog links van het midden, kijkhoek 79,7.
+- Gebouwd: scherm 10 met paneel plus toets "PANEEL OK winkel", kijkpunt op het kogelmidden, `blf.shadow` 6 (outline) in plaats van 5 (gaf geen zichtbare rand, Blender-docs 4.2 en 5.2 gelezen), manifest-tagline en tags Mesh en Modeling, winkelzin bovenaan het ontwerp. Daarna cursor, aslijnen en vloer uit beeld.
+- Besluit: tak q in plaats van tak p bijwerken, want tak p opnieuw op main zetten vroeg geforceerd pushen (geweigerd, en mag ook niet volgens de regels).
+- Controleur (agent, niet de maker): akkoord, geen moet-punten (run 42508878119). Runs 42508878119 en 42509522859 groen in 4.2.23 en 5.2.3 (GEZIEN). Geen bestaande toets veranderd.
+- Samengevoegd met main. Volgende stap ligt bij Daan (poster en winkelplaatjes uit 8, 9 en 10, `Akkoord: ja`), dan Thijs (accounts, ja op plaatjes). Installs 0, reviews 0, verkopen 0.

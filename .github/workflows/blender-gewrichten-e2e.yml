@@ -50,7 +50,7 @@ jobs:
           # met het opstartscherm uit, en start de interface zonder --factory-startup.
           /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
           ls -la /tmp/bu/config || true
-          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
             /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
           ls -la e2e/screenshots/${{ matrix.blender }} || true
           # Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
@@ -62,7 +62,12 @@ jobs:
           # Gradenboog (Daan, beoordeling 3): getal gelijk aan het paneel, streepjes, rood voorbij de grens.
           grep -q "BOOG OK waaier" /tmp/schermen.log || { echo "FOUT: gradenboog binnen de grens niet goed"; exit 1; }
           grep -q "BOOG OK rood" /tmp/schermen.log || { echo "FOUT: gradenboog voorbij de grens niet goed"; exit 1; }
-          for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+          # Winkelschermen (lanceerlijst Daan): gradenboog binnen en voorbij de grens, hele venster.
+          grep -q "BOOG OK winkel " /tmp/schermen.log || { echo "FOUT: winkelscherm 8 niet goed"; exit 1; }
+          grep -q "BOOG OK winkel-rood" /tmp/schermen.log || { echo "FOUT: winkelscherm 9 niet goed"; exit 1; }
+          grep -q "BOOG OK winkel-paneel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 boog niet goed"; exit 1; }
+          grep -q "PANEEL OK winkel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 paneel niet goed"; exit 1; }
+          for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png 10-winkel-paneel-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

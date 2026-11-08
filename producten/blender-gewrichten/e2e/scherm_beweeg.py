@@ -126,3 +126,84 @@ def plat_lid():
     rechts = rv3d.view_rotation @ Vector((1.0, 0, 0))
     rv3d.view_location = Vector(a["cj_centrum"]) + rechts * 3.0
     gebied.tag_redraw()
+
+
+def winkel(pose):
+    """Winkelschermen 8 en 9 (lanceerlijst Daan, 8 nov 17:30): pop met kogel, gradenboog aan, Exploded view uit,
+    de 3D-weergave over het hele venster (geen zijbalk, geen gereedschap), kijker loodrecht op het vlak van de
+    boog in richting 90 (langs de draaias), het gewricht in het midden. Pose 15 (binnen) of 28 (voorbij)."""
+    if pose < 20.0:
+        maak_pop()
+        plaats()
+    inst = bpy.context.scene.click_joints
+    inst.uit_elkaar = False
+    inst.toon_bereik = True
+    inst.pose_richting = "2"
+    inst.pose_graden = float(pose)
+    venster, gebied, _ = zijbalk()
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if not gebied or a is None:
+        log("WINKEL: geen weergave of geen deel A met bereik")
+        return
+    if pose < 20.0:
+        weergave()
+        with bpy.context.temp_override(window=venster, area=gebied):
+            bpy.ops.screen.screen_full_area(use_hide_panels=True)
+        venster, gebied, _ = zijbalk()
+        ruimte = gebied.spaces.active
+        ruimte.show_region_ui = False
+        ruimte.show_region_toolbar = False
+        ruimte.show_region_header = False
+        ruimte.overlay.show_text = False  # geen "User Perspective" linksboven op het winkelplaatje
+        # Schoon winkelbeeld (kan-punt controleur ronde q): geen 3D-cursor, aslijnen of vloer.
+        ruimte.overlay.show_cursor = False
+        ruimte.overlay.show_axis_x = False
+        ruimte.overlay.show_axis_y = False
+        ruimte.overlay.show_floor = False
+    as_ = Vector(a["cj_as"]).normalized()
+    u = as_.orthogonal().normalized()
+    rich = as_.cross(u).normalized()  # richting 2 = 90 graden (uit_elkaar.richtingen)
+    kijk_r = as_.cross(rich).normalized()  # draaias van richting 2: loodrecht op het vlak van de boog
+    rv3d = gebied.spaces.active.region_3d
+    rv3d.view_perspective = "PERSP"
+    rv3d.view_rotation = kijk_r.to_track_quat("-Z", "Y")
+    rv3d.view_distance = 11.0 * a["cj_kogel_r"]
+    rv3d.view_location = Vector(a["cj_centrum"])  # het gewricht in het midden (Daan, lanceerlijst punt 2)
+    gebied.tag_redraw()
+    log(f"WINKEL pose={inst.pose_graden} uit_elkaar={inst.uit_elkaar} gebied={gebied.width}x{gebied.height}")
+
+
+def winkel_paneel():
+    """Winkelscherm 10 (lanceerlijst Daan): zelfde beeld als 8-winkel (pose 15), met de zijbalk open op Click Joints.
+    Deel A is actief maar niet geselecteerd, zodat het paneel Good fit, Bends en Bend toont zonder oranje rand."""
+    inst = bpy.context.scene.click_joints
+    inst.pose_graden = 15.0
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if a is not None:
+        for o in bpy.context.selected_objects:
+            o.select_set(False)
+        bpy.context.view_layer.objects.active = a
+    venster, gebied, _ = zijbalk()
+    if gebied:
+        gebied.spaces.active.show_region_ui = True
+        gebied.tag_redraw()
+
+
+def paneel_verslag():
+    """Na schermafbeelding 10: staat het paneel echt open op Click Joints, met Good fit en Bends? Regel "PANEEL OK"
+    is wat de workflow eist."""
+    paneel = importlib.import_module(f"{_mod()}.paneel")
+    _, gebied, regio = zijbalk()
+    ob = bpy.context.active_object
+    eisen = {
+        "zijbalk open": bool(gebied and gebied.spaces.active.show_region_ui and regio and regio.width > 50),
+        "tabblad Click Joints": bool(regio and regio.active_panel_category == "Click Joints"),
+        "deel A actief": bool(ob and ob.get("cj_deel") == "A"),
+        "Good fit": bool(ob and ob.get("cj_passing") == "groen"),
+        "Bends in paneel": bool(ob and (paneel.buig_tekst(ob) or "").startswith("Bends")),
+        "niets geselecteerd": not bpy.context.selected_objects,
+        "pose 15": abs(bpy.context.scene.click_joints.pose_graden - 15.0) < 1e-6,
+    }
+    mis = [k for k, ok in eisen.items() if not ok]
+    tekst = paneel.buig_tekst(ob) if ob else None
+    log(f"PANEEL {'OK' if not mis else 'FOUT'} winkel tekst={tekst} breed={regio.width if regio else 0} mis={mis}")

@@ -90,7 +90,7 @@ def _tekst(font, punt, tekst, kleur, px):
         return False
     blf.size(font, px)
     blf.enable(font, blf.SHADOW)
-    blf.shadow(font, 5, 0.0, 0.0, 0.0, 0.8)
+    blf.shadow(font, 6, 0.0, 0.0, 0.0, 0.9)  # 6 = donkere rand (outline), sinds 4.2; 5 was een vage waas (Daan)
     blf.shadow_offset(font, 0, 0)
     blf.color(font, kleur[0], kleur[1], kleur[2], 1.0)
     breed, hoog = blf.dimensions(font, tekst)
