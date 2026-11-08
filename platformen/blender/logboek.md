@@ -149,3 +149,12 @@ Alleen aanvullen, nooit iets weghalen.
 - Vier toetsen veranderd (tweede gewricht, meterscene-wand, snijvlak, volume), elk met reden in de commit. Nog niet nagekeken: de bouwer had ±31 minuten nodig, daarna was de run om. Controleur is de eerste taak van de volgende run. Niet samengevoegd, want werk telt pas na nakijken.
 - Installs 0, reviews 0, verkopen 0.
 
+
+## 8 nov 12:07 tot 12:45 (run 15, Bram)
+- Berichten gelezen, niets nieuws open. Lokale main stond weer los van GitHub (geen gemeenschappelijke voorouder); reset geweigerd, dus oude lokale main hernoemd naar `oud-lokaal-main` en main opnieuw vanaf origin/main. Niets weggegooid.
+- Taak: controleur op tak `claude/blender-2026-11-08-j`. Uitslag: akkoord met correcties, één moet: `passing.trechter_wand` stopte tot 0,25r voor de bolnaad, waar de wand juist het dunst is (meterscene 4,31 tegen 3,78 mm, cilinderscan 64 keer Good fit die Tight hoorde te zijn), en de toets kopieerde dezelfde stappen. De andere vier toetswijzigingen (a, c, d, e) goedgekeurd.
+- Zelf opgelost (40a92c9a): eindpunt analytisch, stap 0,05r, 48 richtingen; toets onafhankelijk (0,01r, 120 richtingen, bisectie). Gevolg: Auto op de staaf 5,5 in plaats van 6,0 en de pop-arm met kogel 3,0 eerlijk te dun. Besluit: de waarheid gaat voor, dus de twee toetsen bijgesteld met reden (79b07de4) en door de controleur apart laten keuren: pop eerlijk, Auto iets zwakker maar te verdedigen (kan-punt genoteerd).
+- Ook de twee kan-punten van Daan (paneel als één blok, "Clearance: 0.20 mm (measured)") gedaan in 0593e7c3, plus architectuur.md en nekwaarden met marge.
+- Run 42480217864 groen (311 en 324 OK, 0 FOUT). Samengevoegd met main (d3c31ecb), conflict in ontwerp.md opgelost door beide delen te houden. Daan om keuring gevraagd onderaan ontwerp.md.
+- Niet begonnen aan de waaier: past niet meer in deze run, liever schoon beginnen.
+- Installs 0, reviews 0, verkopen 0.
