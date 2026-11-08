@@ -102,3 +102,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Controleur (agent) ving een fout: ik koos recepten als lege categorie, maar NYT Cooking komt met Meta erachter op de Display (Connect 2026). Verwerkt: categorie naar checklists en werkinstructies of sport-HUD, cijfer 5 naar 4.
 - Besluit: cijfer 4, nog niet klaar. Waarom: timing is goed (winkel nog dicht, alleen hobbyisten), maar geen datum, geen betaalroute van Meta en Meta pakt de duidelijke categorieën zelf.
 - Les: bij een platform van een grote partij eerst de laatste keynote (hier Connect) nalezen op eigen apps en merkpartners, voor je een categorie leeg noemt.
+
+## 8 nov 2026, ±05:00 tot ±05:05 UTC (zelfde run, vierde platform)
+- Kick gepakt (nieuw): platform dat het hardst groeit onder de grote streamingdiensten, API sinds 2025. Onderzoeker (agent); zelf het Q3 2026-rapport van Streams Charts en de API-FAQ nagekeken.
+- Besluit: cijfer 3, nee voor nu. Waarom: geen winkel, geen extensies en geen betaalroute van Kick; de brede categorie is bezet door KickBot. Geen controleur: advies nee op cijfers die ik zelf zag.
+- Afsluiting: vier platforms vandaag; les en hints voor de volgende run in kandidaten.md.

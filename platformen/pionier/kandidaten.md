@@ -69,4 +69,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Nieuw, 8 nov 04:52 UTC (Noor)
 - Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md. Herhaalmeting `python3 data/meta-brillen-meet.py` elke paar weken; opnieuw wegen zodra indienen opengaat.
 - Logi Marketplace (Logi Actions SDK, plugins voor MX Creative Console, MX Keypad en MX Master 4): snelle schifting, geen regel over betaalde plugins gevonden in de richtlijnen en de ontwikkelaarsovereenkomst (GEZIEN, https://logitech.github.io/actions-sdk-docs/marketplace-approval-guidelines/ en https://www.logitech.com/en-us/software/marketplace/developer-agreement.html). Waarschijnlijk nee op geld; nakijken als Logitech betaalde plugins aankondigt.
-- Kick (streamingplatform, openbare API sinds maart 2025, ontwikkelaarsfonds, tools voor streamers): in onderzoek 8 nov 05:00 UTC (Noor)
+- Kick (streamingplatform, openbare API sinds maart 2025, ontwikkelaarsfonds, tools voor streamers): klaar 8 nov, cijfer 3, zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±05:05 UTC (Noor)
+- Les van vandaag: vier platforms (Home Assistant, Framer, Meta-brillen, Kick) vielen af op dezelfde twee punten: geen winkel of geen betaalroute, of de platformeigenaar pakt de categorie zelf. Zoek gericht naar platformen met **beide**: een winkel met installs zichtbaar en betalen in de winkel, die minder dan een jaar open is.
+- Nog open: Bluesky (feeds, labelers; geld waarschijnlijk nee), Excalidraw (geen winkel bekend), AI-gereedschappen (Cursor, Warp). Snel schiften op geld voor je een agent inzet.
+- Volgen: Meta-brillen (script meldt zodra indienen opengaat), Kick (extensies of app-directory), herhaalmetingen rond 8 dec (zie status.md).
