@@ -572,3 +572,7 @@ Nieuwste blok onderaan.
 - Uitkomst: geen kans om nu te bouwen, cijfer 3. Waarom: in bijna elke niche staat binnen een jaar, vaak binnen een maand, een nieuwkomer of gratis vervanger klaar; breien en ragdoll zijn half open maar kregen net een nieuwkomer (wool-generator, vier ragdoll-tools in één maand). Herhaalmeting rond 6 dec op taken.md. Geen bericht aan Bram of Olaf.
 - Controleur: akkoord, tellingen en 12 cijfers kloppen; correcties verwerkt (eis 15+ beoordelingen bij de 28, grens 12 maanden, labels in de tabel, playrig bruto en netto).
 - Les: de reviewlijst op Superhive staat op sterren, niet op datum; mijn eerste telling las daardoor alleen 5 sterren. Altijd de volgorde van een lijst nakijken voor je telt.
+- Tweede onderdeel (tijd over, platformrun): TrustMRR-scan per platform, het idee uit de run van 18:33. Om 20:52 op "in onderzoek" gezet en gepusht. Gekozen omdat de oude restjes in kandidaten.md geen kassa hebben, en deze scan in één keer laat zien op welke platformen nieuwe kleine makers geverifieerde omzet halen.
+- Alle 12.304 profielen opgehaald (robots.txt staat .md toe, 4 tegelijk met pauze, in delen van ±9 minuten). Data en hervatbaar script staan in data/. Eerste ruwe telling op trefwoorden in kandidaten.md, nog niet nagekeken en nog geen oordeel.
+- Volgende run: analyse per platform, per treffer nalezen of het product echt op dat platform draait, controleur erbij.
+- Run afgesloten.
