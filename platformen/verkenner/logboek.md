@@ -391,3 +391,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee, cijfer 3. Reden: geld bestaat, maar een gewone nieuwe module verkoopt niets, en het is heel druk (±50.000 betaalde modules per versie).
 - Controleur akkoord: 30 van 30 live gelijk plus 80 kaartjes. Correcties verwerkt: groep heet "betaalde modules met een 19.0-versie", aankopen zijn levensduur over alle versies, lichting is 2 tot 5 maanden oud, 1,1% zonder prijs.
 - Les: bij winkels zonder datum op de pagina kan een oplopend intern ID als klok dienen; ijk het met een bron met datum (hier OCA-merges op GitHub). Let op: makers zetten een module vaak tegelijk voor veel versies online, dus kijk naar het laagste ID over alle versies.
+- 04:02: Adobe Exchange opgepakt als volgende, maar robots.txt verbiedt automatisch lezen zonder toestemming van Adobe. Niet gemeten, notitie in kandidaten.md. Run afgesloten na ±30 minuten: een nieuwe grondige meting past niet meer in de werktijd.
