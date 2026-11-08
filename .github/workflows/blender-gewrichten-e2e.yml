@@ -34,6 +34,17 @@ jobs:
           /tmp/blender/blender --version | head -1
       - name: Add-on inpakken
         run: bash e2e/maak_zip.sh
+      - name: Proefstrook geel (Daan, alleen op deze ontwerptak)
+        continue-on-error: true
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/bp
+          BLENDER_USER_CONFIG: /tmp/bp/config
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/proef.blend')"
+          mkdir -p "$PWD/e2e/screenshots/${{ matrix.blender }}"
+          timeout 120 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
+            /tmp/blender/blender /tmp/proef.blend --python e2e/proefstrook.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" 2>&1 | grep "cj-proef" || true
       - name: Extensie-zip valideren (zoals extensions.blender.org)
         run: /tmp/blender/blender --command extension validate /tmp/click_joints.zip
       - name: Test zonder scherm (gewricht, speling, passing, gesloten, STL)
