@@ -85,11 +85,16 @@ def uitsnede(mesh, c, as_r, r_uit, r_in, nek_r=None):
 
 
 class Meter:
-    """BVH van deel A één keer; deel B per hoek gedraaid met numpy en een nieuwe BVH uit de uitsnede."""
+    """BVH van de grootste uitsnede één keer; de kleinste per hoek gedraaid met numpy en een nieuwe BVH.
+    Deel B over +hoek draaien ten opzichte van A is hetzelfde als deel A over -hoek draaien ten opzichte van B,
+    dus we draaien wat het minst kost om opnieuw in een BVH te zetten (bij de variant nek: de 64 nekvlakken)."""
 
     def __init__(self, a, b, c, as_r):
-        self.a, self.b, self.c, self.as_r = a, b, c, as_r
-        self.bvh_a = BVHTree.FromPolygons(a[0].tolist(), a[1])
+        self.c, self.as_r = c, as_r
+        self.teken = 1.0 if len(b[1]) <= len(a[1]) else -1.0
+        vast, self.b = (a, b) if self.teken > 0 else (b, a)
+        self.bvh_a = BVHTree.FromPolygons(vast[0].tolist(), vast[1])
+        self.draaiend = "B" if self.teken > 0 else "A"
         u = as_r.orthogonal().normalized()
         w = as_r.cross(u).normalized()
         self.richtingen = [u * math.cos(2 * math.pi * k / RICHTINGEN) + w * math.sin(2 * math.pi * k / RICHTINGEN)
@@ -99,7 +104,7 @@ class Meter:
     def raakt(self, k, hoek):
         """Raakt deel B, gedraaid over hoek graden met zijn as naar richting k, deel A?"""
         self.toetsen += 1
-        m = np.array(Matrix.Rotation(math.radians(hoek), 3, self.as_r.cross(self.richtingen[k])))
+        m = np.array(Matrix.Rotation(math.radians(self.teken * hoek), 3, self.as_r.cross(self.richtingen[k])))
         pb = (self.b[0] - self.c) @ m.T + self.c
         bvh_b = BVHTree.FromPolygons(pb.tolist(), self.b[1])
         return bool(self.bvh_a.overlap(bvh_b))
@@ -159,6 +164,7 @@ def meet(figuur, a_deel, b_deel):
                 log(f"figuur={figuur} variant={variant} methode={methode} richting={k * 360 // RICHTINGEN} "
                     f"grens={g:.1f} graden")
             log(f"figuur={figuur} variant={variant} methode={methode} tijd={tijd:.3f} s toetsen={meter.toetsen} "
+                f"draaiend_deel={meter.draaiend} per_toets={tijd / max(meter.toetsen, 1) * 1000:.1f} ms "
                 f"(met inlezen en uitsnijden {tijd + t_np + t_snede:.3f} s)")
             log(f"figuur={figuur} variant={variant} methode={methode} Bends {min(grenzen):.1f} to "
                 f"{max(grenzen):.1f} degrees")
@@ -174,17 +180,21 @@ def rekensom(a_deel):
     1. volledig: de snijvlakken van A en B vallen samen (A eindigt waar B begint). Bij elke draaiing > 0
        zakt de buitenrand van het snijvlak van B (straal rho) rho*sin(t) - h*(1 - cos(t)) > 0 in deel A,
        dus de grens is 0 graden.
-    2. nek: de onderrand van de klikopening (straal a = 0,85 r, op hoogte -h) draait naar de nek (straal
-       n = 0,48 r). Dat punt komt op afstand a*cos(t) - h*sin(t) van de as; raak als dat n is:
-       t = acos(n / R) - atan2(h, a), met R = wortel(a^2 + h^2). Het punt van de rand in het draaivlak
-       komt het eerst bij de nek (dichter bij de as dan elk ander punt op de rand)."""
+    2. nek: de nek (straal n = 0,48 r) bestaat alleen boven het snijvlak van A, van -h tot de kogel. De wand
+       van de klikopening (x = a = 0,85 r, z van -h tot de kom) draait naar de nek: een wandpunt (a, z) komt op
+       x' = a*cos(t) + z*sin(t), z' = z*cos(t) - a*sin(t). De onderrand zelf zakt onder het snijvlak (z' < -h),
+       daar is geen nek. Het eerste raakpunt is de voet van de nek (straal n op het snijvlak van A) tegen de
+       wand: met z' = -h volgt x' = (a - h*sin(t)) / cos(t) = n, dus h*sin(t) + n*cos(t) = a,
+       t = asin(a / wortel(h^2 + n^2)) - atan2(n, h). In het draaivlak ligt de wand het dichtst bij de nek.
+       (Eerste rekensom, de onderrand tegen de nek, gaf acos(n / wortel(a^2 + h^2)) - atan2(h, a): fout, want
+       dat raakpunt ligt onder het snijvlak.)"""
     r = a_deel["cj_kogel_r"]
     a, n = a_deel["cj_open_r"], 0.48 * r
     h = (Vector(a_deel["cj_centrum"]) - Vector(a_deel["cj_snijpunt"])).dot(Vector(a_deel["cj_as"]).normalized())
-    rr = math.hypot(a, h)
-    nek = math.degrees(math.acos(n / rr) - math.atan2(h, a))
+    nek = math.degrees(math.asin(a / math.hypot(h, n)) - math.atan2(n, h))
+    oud = math.degrees(math.acos(n / math.hypot(a, h)) - math.atan2(h, a))
     log(f"staaf rekensom r={r:.3f} opening_r={a:.3f} nek_r={n:.3f} h={h:.4f} (kogelmidden boven snijvlak) "
-        f"volledig=0.0 nek={nek:.2f} graden")
+        f"volledig=0.0 nek={nek:.2f} graden (eerste, foute rekensom onderrand: {oud:.2f})")
     return {"volledig": 0.0, "nek": nek}
 
 
@@ -192,12 +202,13 @@ def figuur_meten(naam, ob):
     lijst = hulp.plaats(naam, ob, (0, 0, 0), (1, 0, 0), speling=0.2, kogel=5.0)
     eis(f"{naam}: twee delen geplaatst", len(lijst) == 2)
     if len(lijst) != 2:
-        return None, None
+        return None, None, lijst
     a = next(d for d in lijst if d["cj_deel"] == "A")
     b = next(d for d in lijst if d["cj_deel"] == "B")
     log(f"figuur={naam} passing={a.get('cj_passing')} wand={a.get('cj_wand_mm')} mm centrum="
         f"{tuple(round(x, 4) for x in a['cj_centrum'])}")
-    return meet(naam, a, b), a
+    uitslag = meet(naam, a, b)
+    return uitslag, a, lijst
 
 
 def main():
@@ -207,13 +218,14 @@ def main():
     eis("add-on staat aan", any(a.module.endswith("click_joints") for a in bpy.context.preferences.addons))
     figuren.mm_scene()
 
-    arm, _ = figuur_meten("arm", figuren.arm())
+    arm, _, lijst = figuur_meten("arm", figuren.arm())
+    hulp.weg(lijst)  # anders telt de staaf vier delen
     if arm:
         for variant in arm:
             snelst = min(t for _, t in arm[variant].values())
             eis(f"arm {variant}: hele bereik (8 richtingen) onder 1 s ({snelst:.3f} s)", snelst < 1.0)
 
-    staaf, a = figuur_meten("staaf", figuren.staaf("staaf", 5.0, lengte=40.0))
+    staaf, a, _ = figuur_meten("staaf", figuren.staaf("staaf", 5.0, lengte=40.0))
     if staaf:
         verwacht = rekensom(a)
         for variant, v in verwacht.items():
