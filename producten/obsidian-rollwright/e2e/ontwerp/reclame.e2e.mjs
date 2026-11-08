@@ -86,6 +86,8 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 				const rect = await browser.execute(() => {
 					const r = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll.rollwright-crit")].filter((x) => x.offsetParent !== null)[0];
 					if (!r) return null;
+					// Alleen voor de uitvergroting op de poster: het vette woord ervoor even onzichtbaar.
+					r.parentElement?.querySelectorAll("strong").forEach((e) => { e.style.visibility = "hidden"; });
 					r.scrollIntoView({ block: "center", inline: "center" });
 					const b = r.getBoundingClientRect();
 					const z = window.devicePixelRatio;
@@ -95,6 +97,7 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 				await muisWeg();
 				console.log(`CRIT ${kant}:`, JSON.stringify(rect));
 				console.log("SCHERM:", await save(`poster-ruw-crit-${kant}`));
+				await browser.execute(() => document.querySelectorAll(".workspace-leaf.mod-active strong").forEach((e) => { e.style.visibility = ""; }));
 				await zoom(1);
 			});
 		}
