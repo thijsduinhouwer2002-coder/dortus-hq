@@ -1,0 +1,33 @@
+name: Blender gewrichten bouwproef (echte Blender)
+
+on:
+  push:
+    branches: [main, "claude/blender-*"]
+    paths: ["producten/blender-gewrichten/**", ".github/workflows/blender-gewrichten-proef.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          curl -sSL -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          /tmp/blender/blender --version | head -1
+      - name: Bouwproef één kogelgewricht
+        run: /tmp/blender/blender -b --factory-startup --python producten/blender-gewrichten/proef/proef_gewricht.py
