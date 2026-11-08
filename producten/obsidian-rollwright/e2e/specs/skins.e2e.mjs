@@ -61,22 +61,24 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 		await zet("classic", false);
 	});
 
+	// Skins v2 (Daan klus 12, 8 nov): Parchment is oud papier met donkere inkt, in licht en donker gelijk.
 	it("Parchment in licht blijft licht perkament", async function () {
 		await zet("parchment", false);
 		const m = await meet();
 		console.log("PARCHMENT LICHT:", JSON.stringify(m));
 		await browser.saveScreenshot(`${SHOTS}/skins-parchment-licht.png`);
-		expect(m.gewoon.bg).toBe("rgb(239, 226, 192)");
+		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
+		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
 		expect(m.gewoon.letter).toContain("Georgia");
 	});
 
-	it("Parchment in donker is donker perkament met lichte letters", async function () {
+	it("Parchment in donker blijft licht papier met donkere inkt", async function () {
 		await zet("parchment", true);
 		const m = await meet();
 		console.log("PARCHMENT DONKER:", JSON.stringify(m));
 		await browser.saveScreenshot(`${SHOTS}/skins-parchment-donker.png`);
-		expect(m.gewoon.bg).toBe("rgb(58, 47, 30)");
-		expect(m.gewoon.kleur).toBe("rgb(240, 226, 192)");
+		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
+		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
 		expect(m.gewoon.letter).toContain("Georgia");
 	});
 
