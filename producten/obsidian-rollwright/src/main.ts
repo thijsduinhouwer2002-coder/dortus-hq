@@ -7,6 +7,7 @@ import { stampText, type Extreme } from "./rollers/extreme";
 import { replaceCodeInNote } from "./rollers/modify";
 import { ResultListeners } from "./result-listeners";
 import { rollSpec, type NoteData, type RollContext, type RollOutcome } from "./rollers/run";
+import { showExampleNote } from "./ui/example-note";
 import { CHANGED_NOTICE, NOT_MARKDOWN_NOTICE, ReplaceCodeModal } from "./ui/dice-mod";
 import { HISTORY_VIEW, RollHistoryView } from "./ui/history-view";
 import { rollwrightLivePreview } from "./ui/live-preview";
@@ -100,6 +101,11 @@ export default class RollwrightPlugin extends Plugin {
 			id: "open-history",
 			name: "Open roll log",
 			callback: () => void this.openHistory(),
+		});
+		this.addCommand({
+			id: "create-example-note",
+			name: "Create example note",
+			callback: () => void showExampleNote(this.app),
 		});
 		this.addCommand({
 			id: "roll-formula",
