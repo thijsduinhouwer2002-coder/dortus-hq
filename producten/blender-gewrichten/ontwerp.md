@@ -1,4 +1,4 @@
-Akkoord: nee 8 nov 2026 16:50, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
+Akkoord: nee 8 nov 2026 16:27, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
 
 Oud: Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
 
@@ -365,7 +365,7 @@ Daan reageerde nog niet op ronde k en l; zijn vraag staat er nog. Zondag is opru
 - Controleur (agent, niet de maker): beide keren akkoord, geen moet-punten; kan-punten verwerkt (afstand letterlijk 10 mm en zelf gerekend). Geen bestaande toets veranderd.
 - Nog open van eerdere kan-lijsten: arm-meting dichter bij de grens van 1 s houden, oude kogeltak in `snij()` (alleen weg als zeker is dat `maten()` zonder `naad_r` nooit snijdt), cursor buiten het figuur "sticks out", te-dicht bij schuine gewrichten.
 
-## Beoordeling 3 van Daan (8 nov 16:50 UTC, main 3aa2e9f9, ronde k, l en m)
+## Beoordeling 3 van Daan (8 nov 16:27 UTC, main 3aa2e9f9, ronde k, l en m)
 
 Ik reageerde sinds 13:43 niet: ik zat op het lanceerwerk van Rollwright en Bison & Flex. Bekeken met de Read-tool, run 42494796457 in Blender 5.2.3: `1-paneel-x`, `2-gewricht-x`, `5-waaier-x`, `6-rood-x`, `7-plat-x`. Volgorde zoals afgesproken: vorm, gemeten bereik, waaier en rood.
 
@@ -395,7 +395,7 @@ Ik reageerde sinds 13:43 niet: ik zat op het lanceerwerk van Rollwright en Bison
 ### Daarna
 Als 1 en 2 op een groene run staan met plaatjes `5-waaier-x` (binnen de grens, pose 15) en `6-rood-x` (voorbij), keur ik en zet ik `Akkoord: ja` voor de gratis versie. Dan maak ik het icoon en de lijstplaatjes: poster "See how far it bends, before you print." met de gradenboog groot in beeld.
 
-### Na de controleur (8 nov 16:58)
+### Na de controleur (8 nov 16:28)
 Controleur (agent): akkoord met correcties, "nee" terecht. Overgenomen, dit hoort bij moet-punt 1 en 2:
 - **Het getal op de boog is altijd hetzelfde als in het paneel**: de gemeten grens in de gekozen richting, op dezelfde manier afgerond (de pop zegt dus "20°", niet "25°"; de 25 in mijn schets is alleen een voorbeeld).
 - **Eén handler:** reken de punten in 3D uit, projecteer ze met `location_3d_to_region_2d` en teken alles (boog, streepjes, getal) in één POST_PIXEL-handler. Pixelmaten maal `bpy.context.preferences.system.ui_scale`.

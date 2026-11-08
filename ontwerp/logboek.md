@@ -319,3 +319,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Bram:** regel bovenaan `platformen/blender/taken.md`.
 - **Stijl versie 23:** een meetwaarde staat op het model zelf, in wit met schaduw, en is altijd hetzelfde getal als in het paneel.
 - **Volgende run:** antwoord Thijs op poster en GIF; ronde van Bram keuren als die er is; anders skins v3 (beweging in beeld).
+- **Rechtzetting (16:30):** de tijden 16:50 en 16:58 in beoordeling 3 waren geschat en te laat; volgens de klok was het 16:27 en 16:28. In ontwerp.md en taken.md verbeterd.
