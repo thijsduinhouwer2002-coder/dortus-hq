@@ -57,7 +57,7 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         default=True, update=_uit.bij_wissel)
     # Beweegproef (ronde k): waaier met het gemeten bereik en een pose die deel B alleen in beeld draait.
     toon_bereik: BoolProperty(
-        name="Show bend range", description="Show how far the joint bends in 8 directions, as a fan in the viewport",
+        name="Show bend range", description="Show how far the joint bends, as a protractor in the chosen direction in the viewport",
         default=True)
     pose_graden: FloatProperty(
         name="Bend", description="Tilt part B around the ball, only in the viewport. Past the measured range, "

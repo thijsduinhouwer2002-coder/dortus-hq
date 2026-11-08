@@ -17,6 +17,7 @@ from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_me
 import toetsen_3mf  # noqa: E402
 import toetsen_auto  # noqa: E402
 import toetsen_beweeg  # noqa: E402
+import toetsen_boog  # noqa: E402
 import toetsen_correcties  # noqa: E402
 import toetsen_schaal  # noqa: E402
 import toetsen_teksten  # noqa: E402
@@ -59,6 +60,9 @@ def main():
 
     # 1d. Teksten die de gebruiker ziet: Bends, Too thin here, Too close (kan-punt controleur ronde j).
     toetsen_teksten.alles()
+
+    # 1e. Gradenboog (Daan, beoordeling 3, moet 1): getal gelijk aan het paneel, boog, streepjes, pose.
+    toetsen_boog.alles()
 
     # 2. Te dunne plek: rood, geen snede, origineel heel.
     lijst = plaats("arm dunne plek", arm, (15, 0, 0), (1, 0, 0))

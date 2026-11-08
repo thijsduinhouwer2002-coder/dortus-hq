@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scherm_basis import (DOEL, close_up, kijk, log, maak_pop, open_paneel, plaats, schiet,  # noqa: E402
                           toestand, weergave, wiel_naar_tabblad, zijbalk, zip_pad)
 from scherm_kleur import meet_strook, proefstrook  # noqa: E402
-from scherm_beweeg import plat_lid, voorbij_grens, waaier  # noqa: E402
+from scherm_beweeg import boog_verslag, plat_lid, voorbij_grens, waaier  # noqa: E402
 
 
 def stap():
@@ -65,12 +65,14 @@ def stap():
         return 1.5
     if n == 11:
         schiet("5-waaier.png")
+        boog_verslag("waaier", voorbij=False)
         return 0.5
     if n == 12:
         voorbij_grens()
         return 1.5
     if n == 13:
         schiet("6-rood.png")
+        boog_verslag("rood", voorbij=True)
         return 0.5
     if n == 14:
         plat_lid()

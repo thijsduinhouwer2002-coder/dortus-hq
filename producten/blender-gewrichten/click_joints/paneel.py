@@ -24,6 +24,18 @@ def buig_graden(ob):
     return int(math.floor(min(stand, grens) + 1e-6))
 
 
+def richting_graden(ob, k):
+    """Getal op de gradenboog (Daan, beoordeling 3): de gemeten grens in richting k, op dezelfde manier als
+    buig_graden (nooit meer dan stand en rekensom, naar beneden afgerond). None bij rood of zonder stand."""
+    if buig_graden(ob) is None or ob.get("cj_passing") == "rood":
+        return None
+    gemeten = ob.get("cj_buig_graden")
+    if not gemeten:
+        return None
+    g = min(float(ob["cj_hoek"]), float(ob["cj_grens_graden"]), float(gemeten[k % len(gemeten)]))
+    return int(math.floor(g + 1e-6))
+
+
 def buig_tekst(ob):
     """Regel "Bends ±N°" in stap 3, of None: niet bij rood en niet zonder stand (regel Daan: nooit meer graden
     dan berekend). Los van draw, zodat de achtergrondtest de tekst kan toetsen."""

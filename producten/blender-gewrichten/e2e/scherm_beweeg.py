@@ -8,8 +8,8 @@ from scherm_basis import log, maak_pop, plaats, weergave, zijbalk
 
 
 def waaier():
-    """Plaatje 5 (ronde k): pop met gewricht, de waaier van het gemeten bereik en een pose van 20 graden,
-    van opzij op het buigvlak, zodat waaier en buigen groot in beeld zijn."""
+    """Plaatje 5 (ronde k, gradenboog sinds ronde o): pop met gewricht, de gradenboog in richting 90 en een
+    pose van 15 graden (binnen de grens, wens Daan), loodrecht op het buigvlak."""
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     maak_pop()
@@ -17,7 +17,7 @@ def waaier():
     inst = bpy.context.scene.click_joints
     inst.toon_bereik = True
     inst.pose_richting = "2"
-    inst.pose_graden = 20.0
+    inst.pose_graden = 15.0
     weergave()
     venster, gebied, _ = zijbalk()
     a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
@@ -40,6 +40,34 @@ def waaier():
     log(f"WAAIER bereik={list(a['cj_buig_graden'])} tijd={a.get('cj_buig_duur_s')} s pose={inst.pose_graden} "
         f"richting={inst.pose_richting} rood={len(a.get('cj_rood_vlakken', [])) // 2} "
         f"delta_rot_B={tuple(round(x, 4) for x in b.delta_rotation_euler) if b else None}")
+
+
+def boog_verslag(naam, voorbij):
+    """Na de schermafbeelding: wat de handler echt tekende (waaier.laatst), met eigen eisen. Regel "BOOG OK"
+    is wat de workflow eist (Daan, beoordeling 3: getal gelijk aan het paneel, streepjes, rood voorbij)."""
+    import importlib
+    mod = next(m.module for m in bpy.context.preferences.addons if m.module.endswith("click_joints"))
+    waaier = importlib.import_module(f"{mod}.waaier")
+    paneel = importlib.import_module(f"{mod}.paneel")
+    inst = bpy.context.scene.click_joints
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    bogen = waaier.laatst.get("bogen", [])
+    log(f"BOOG {naam}: {bogen}")
+    if a is None or len(bogen) != 1:
+        log(f"BOOG FOUT {naam}: {len(bogen)} bogen getekend")
+        return
+    n = paneel.richting_graden(a, int(inst.pose_richting))
+    b = bogen[0]
+    eisen = {
+        "getal gelijk aan paneel": b["getal"] == f"{n}\u00b0",
+        "getal getekend": b["getal_getekend"],
+        "streepjes elke 5 graden": b["streepjes"] == n // 5 + 1,
+        "gesloten lijn 48 punten": b["omtrek"] == 48,
+        "voorbij klopt": b["voorbij"] == voorbij,
+        "rode tekst alleen voorbij": (b["voorbij_tekst"] is not None) == voorbij,
+    }
+    mis = [k for k, ok in eisen.items() if not ok]
+    log(f"BOOG {'OK' if not mis else 'FOUT'} {naam} getal={b['getal']} paneel={n} kijkhoek={b['kijkhoek']} mis={mis}")
 
 
 def voorbij_grens():
