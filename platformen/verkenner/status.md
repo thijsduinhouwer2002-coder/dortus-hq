@@ -49,3 +49,4 @@
 - 8 nov, run 08:31, ook: Rhino en Grasshopper zelf toegevoegd en gemeten (1.395 pakketten via yak-API). Nog niet klaar, cijfer 4. Controleur akkoord, 4 correcties.
 - 8 nov, run 11:33: Fortnite-eilanden zelf toegevoegd en gemeten (286.128 eilanden, 6.000 met spelerscijfers). Nee voor nu, cijfer 3. Controleur akkoord, 9 correcties.
 - 8 nov, run 14:33: GDevelop Asset Store zelf toegevoegd en gemeten (hele winkel via open API). Nog niet klaar, cijfer 5: beste kans om groot te worden in een kleine winkel, geld niet te meten. Controleur akkoord, 8 van 8, 4 correcties. Construct 3 niet te meten.
+- 8 nov, run 16:33: Playdate Catalog zelf toegevoegd en gemeten (alle 510 titels). Nee voor nu, cijfer 4: geld per titel goed, plafond te klein. Controleur akkoord, 5 correcties.

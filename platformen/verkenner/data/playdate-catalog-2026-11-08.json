@@ -1,0 +1,4592 @@
+[
+{
+"slug": "10-day-champion",
+"pub": "2024-06-18",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "1more",
+"pub": "2025-01-28",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "a-balanced-brew",
+"pub": "2023-04-25",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "a-dinos-journey",
+"pub": "2024-10-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "a-fools-errand",
+"pub": "2025-11-20",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "a-ghost-in-the-gallery",
+"pub": "2023-12-12",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "a-joke-thats-worth-99c",
+"pub": "2023-01-15",
+"prijs": 1.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "aaoyue-i",
+"pub": "2025-01-14",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "agents-of-groove",
+"pub": "2026-01-06",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "aligned",
+"pub": "2024-06-04",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "along-came-a-spider-valley-of-the-hollow",
+"pub": "2024-10-22",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "along-came-a-spider",
+"pub": "2023-05-23",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "andy-presents-cribbage",
+"pub": "2025-01-28",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "angel-pop",
+"pub": "2024-06-04",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "armada",
+"pub": "2025-09-16",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "art",
+"pub": "2023-04-25",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "artilleroyalty",
+"pub": "2025-09-30",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "astrophidia",
+"pub": "2026-03-31",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "augur",
+"pub": "2026-09-29",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "aurora-oasis-adventure",
+"pub": "2025-10-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ausbruch",
+"pub": "2023-12-12",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "backbeat",
+"pub": "2025-07-22",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "bad-bytes",
+"pub": "2026-02-17",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "baito-fight-part-time-devil-hunter",
+"pub": "2024-07-02",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bayou-boats",
+"pub": "2025-09-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "be-kind-to-yourself",
+"pub": "2024-05-07",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "beampunk",
+"pub": "2026-05-12",
+"prijs": 8.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bear-coin-blitz",
+"pub": "2026-04-28",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bender-2-bend-harder",
+"pub": "2024-10-08",
+"prijs": 12.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "binary-battle",
+"pub": "2026-01-20",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "binary-dungeon",
+"pub": "2025-02-11",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "black-hole-havoc",
+"pub": "2025-07-03",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "blippo",
+"pub": "2025-05-29",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "blob-y",
+"pub": "2024-10-22",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "block-buster",
+"pub": "2023-11-07",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "blocky-balloons",
+"pub": "2023-10-10",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bloom",
+"pub": "2023-01-15",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "blop-your-virtual-buddy",
+"pub": "2026-03-31",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "bloxzy",
+"pub": "2026-02-03",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "bobobird",
+"pub": "2025-09-02",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "bomber-panda",
+"pub": "2023-07-05",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bona-fido",
+"pub": "2025-01-28",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "bonkhope",
+"pub": "2026-10-15",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "boxfight",
+"pub": "2024-10-22",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "brendan-keoghs-putting-land",
+"pub": "2024-10-22",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bub-o-collect",
+"pub": "2023-04-25",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "bunny-buffet",
+"pub": "2025-11-25",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "busy-buddy",
+"pub": "2025-01-21",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "bwirds",
+"pub": "2024-10-26",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cafe-machina",
+"pub": "2026-08-18",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cannonball-kid",
+"pub": "2026-05-12",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "capy-spa",
+"pub": "2025-06-10",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "carte-blanche",
+"pub": "2025-02-25",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "carve-jr",
+"pub": "2023-01-15",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cascada",
+"pub": "2025-06-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "castaway-samurai",
+"pub": "2024-09-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "castle-helios",
+"pub": "2023-05-23",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "castle-kellmore",
+"pub": "2025-05-06",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "castle-tintagel",
+"pub": "2023-09-26",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "catchadiablos",
+"pub": "2025-06-19",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "catchapon",
+"pub": "2026-04-14",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "chances-lucky-escape-2",
+"pub": "2026-10-29",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "chances-lucky-escape",
+"pub": "2025-06-26",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "chaos-studies",
+"pub": "2026-05-12",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "cheese-n-crackers",
+"pub": "2025-09-16",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cherry-hill-a-trucking-adventure-simulator",
+"pub": "2025-09-16",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "chess",
+"pub": "2024-01-30",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "chew-mimic",
+"pub": "2023-11-21",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "chopter-copter",
+"pub": "2024-04-09",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "clash-cards",
+"pub": "2023-07-05",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "claydate",
+"pub": "2026-05-26",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "close-approach",
+"pub": "2025-02-04",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cloudburst",
+"pub": "2025-08-19",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "app"
+},
+{
+"slug": "coda",
+"pub": "2025-04-29",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "codewordplay",
+"pub": "2023-07-18",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "comet",
+"pub": "2024-02-28",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "core-fault",
+"pub": "2023-04-11",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cosmic-cowboy",
+"pub": "2026-08-04",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cra-cra",
+"pub": "2024-11-26",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and Catalog assets",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crank-a-sketch",
+"pub": "2024-05-07",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "crank-casino",
+"pub": "2024-11-26",
+"prijs": 6.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-crawl",
+"pub": "2024-01-16",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-defense-force",
+"pub": "2026-03-24",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crank-it",
+"pub": "2024-06-04",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-shoot",
+"pub": "2023-12-05",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-sudoku",
+"pub": "2026-01-06",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code, game art, Catalog assets, and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-tanks",
+"pub": "2023-08-15",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-the-dead",
+"pub": "2026-06-09",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crank-up",
+"pub": "2025-06-10",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crankboy",
+"pub": "2026-05-07",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "cranknight",
+"pub": "2025-08-05",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crankominoes",
+"pub": "2026-04-28",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crankshaft",
+"pub": "2023-09-26",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crankstone",
+"pub": "2025-08-19",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crankulator",
+"pub": "2023-04-11",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "crankventure-capitalist",
+"pub": "2024-12-10",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crankwords",
+"pub": "2026-05-12",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cranky-bird",
+"pub": "2023-07-05",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cranky-cove",
+"pub": "2025-02-25",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "cranky-cube",
+"pub": "2025-10-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crash-mole",
+"pub": "2023-08-15",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "crazy-sonic",
+"pub": "2026-04-10",
+"prijs": null,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cross-words",
+"pub": "2026-10-22",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "crunky",
+"pub": "2024-03-14",
+"prijs": 1.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cultivator",
+"pub": "2026-01-06",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "cyber-run",
+"pub": "2025-01-21",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dance-break-dance",
+"pub": "2024-06-04",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "dash-arena",
+"pub": "2023-12-19",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "date-night",
+"pub": "2025-02-04",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "day-ticket",
+"pub": "2026-06-23",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dead-in-splundia",
+"pub": "2026-10-13",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "deep-space-dapper-squad",
+"pub": "2024-06-18",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "deja-vu",
+"pub": "2026-03-14",
+"prijs": null,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "delved",
+"pub": "2025-06-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "detective-face",
+"pub": "2024-02-13",
+"prijs": 8.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "devils-on-the-moon-pinball",
+"pub": "2024-10-31",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "dexsweeper",
+"pub": "2025-10-21",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "diamonds-pd",
+"pub": "2026-07-07",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "dice-deluge",
+"pub": "2026-08-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "diction",
+"pub": "2024-01-30",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "dig-dig-dino",
+"pub": "2025-05-29",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dig-pit-runner",
+"pub": "2026-04-14",
+"prijs": 7.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "digdig",
+"pub": "2024-09-10",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "diora",
+"pub": "2025-11-06",
+"prijs": 15.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "direct-drive",
+"pub": "2023-01-15",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dockermaster",
+"pub": "2026-03-24",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "doink",
+"pub": "2023-09-05",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dolphin-splash",
+"pub": "2024-08-13",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "down-the-oubliette",
+"pub": "2023-01-15",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "dyg",
+"pub": "2023-07-05",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "easy-godding",
+"pub": "2024-01-30",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "echo-drop",
+"pub": "2025-11-25",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "echo-the-oracles-scroll",
+"pub": "2024-10-08",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "echoes-of-emergent",
+"pub": "2024-07-02",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "egg-meister",
+"pub": "2025-05-06",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "eggberts-bird-bath",
+"pub": "2026-05-26",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ehs",
+"pub": "2026-02-10",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "eldritch-soul",
+"pub": "2025-02-25",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "electrolight",
+"pub": "2024-07-30",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "elven-forest",
+"pub": "2025-07-22",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "emergencycrank",
+"pub": "2026-07-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "escape-the-arcade",
+"pub": "2024-02-28",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "escape-the-boardgame",
+"pub": "2025-03-25",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "extract",
+"pub": "2026-02-24",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "eye-to-eye",
+"pub": "2026-06-23",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "eyeland",
+"pub": "2022-05-16",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "f-out",
+"pub": "2023-12-05",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "factory-farming",
+"pub": "2023-08-01",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "faraway-fairway",
+"pub": "2023-06-10",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "fathersave",
+"pub": "2026-08-04",
+"prijs": 7.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "fauna",
+"pub": "2026-01-20",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "fbic",
+"pub": "2025-05-06",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "first-in-line",
+"pub": "2024-06-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "fissh",
+"pub": "2025-08-05",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "flight-assist-off-race",
+"pub": "2026-09-15",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "flinger",
+"pub": "2024-01-16",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "flip-flap-crank",
+"pub": "2026-06-09",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "flipdate",
+"pub": "2024-08-13",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "flummox",
+"pub": "2026-06-23",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "for-home",
+"pub": "2024-02-28",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "fore-track",
+"pub": "2023-12-05",
+"prijs": 12.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "fortress",
+"pub": "2024-10-08",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "four-corners-square-off",
+"pub": "2025-12-09",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "four-corners",
+"pub": "2023-09-05",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "frizzle",
+"pub": "2024-09-10",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "froggotten-recipes",
+"pub": "2025-12-09",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "fulcrum-defender",
+"pub": "2025-05-29",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "funny-racer",
+"pub": "2024-04-23",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "further-and-rarer",
+"pub": "2026-02-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "garbage-scow-captain",
+"pub": "2024-09-10",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "generations",
+"pub": "2023-05-23",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "geodate",
+"pub": "2026-04-28",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "gilly-and-the-isle-of-sorrow",
+"pub": "2026-02-10",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "glagstone",
+"pub": "2023-10-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "glidr",
+"pub": "2026-10-27",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "gloom-gate",
+"pub": "2026-09-09",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "go-noodle",
+"pub": "2024-10-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "goblin-village",
+"pub": "2025-07-08",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code, game sound, and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "grand-tour-legends",
+"pub": "2023-01-15",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "gravity-express",
+"pub": "2023-04-11",
+"prijs": 10.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "greed",
+"pub": "2023-06-20",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "grid-glyphs",
+"pub": "2025-01-14",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game sound, game art, and Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "gun-crank",
+"pub": "2026-08-18",
+"prijs": 6.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "gun-trails",
+"pub": "2023-07-18",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "gyrochord",
+"pub": "2026-03-24",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "hablet",
+"pub": "2025-05-20",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hahakigami-sweep",
+"pub": "2026-07-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "halbierung",
+"pub": "2026-06-23",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "halfway-to-dawn",
+"pub": "2023-09-05",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hall-of-the-dwarf-king",
+"pub": "2025-08-05",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hana",
+"pub": "2023-10-24",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hand-of-the-divine",
+"pub": "2024-04-09",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hausbau",
+"pub": "2025-10-14",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hellevator",
+"pub": "2026-05-05",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "helloyellow",
+"pub": "2026-02-03",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "hermit",
+"pub": "2024-01-16",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hexa",
+"pub": "2024-07-30",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hidey-spot",
+"pub": "2023-01-15",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hillslide",
+"pub": "2024-04-09",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hodge-dodge",
+"pub": "2024-03-26",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game art",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "homerun-spin-off-forever",
+"pub": "2025-05-06",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hookshot-runner",
+"pub": "2025-08-05",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hope-lost",
+"pub": "2025-02-11",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "horrified-hector",
+"pub": "2025-03-25",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "houm",
+"pub": "2026-09-09",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "hurry-gaery",
+"pub": "2025-02-04",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hyper-groove-ax",
+"pub": "2026-10-27",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "hyper-vector",
+"pub": "2026-04-14",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "icarus",
+"pub": "2024-02-27",
+"prijs": 10.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "icy-dungeon",
+"pub": "2024-05-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ifo",
+"pub": "2023-09-12",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ikebana-dones-and-the-great-adventure",
+"pub": "2026-09-15",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "initial-daydream",
+"pub": "2024-06-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "inspector-waffles-early-days",
+"pub": "2025-10-21",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "isolates",
+"pub": "2026-10-13",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "izakaya-rush",
+"pub": "2026-09-01",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "jezzak",
+"pub": "2023-11-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "jolly-chimp-champ",
+"pub": "2024-03-14",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "jugglenoid",
+"pub": "2024-07-02",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "juggling-jolt",
+"pub": "2026-09-01",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "jump-rope-star",
+"pub": "2024-05-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "jump-the-crank",
+"pub": "2025-09-02",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "jump-truck",
+"pub": "2025-01-14",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "juxtagram",
+"pub": "2025-01-21",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "kicooya",
+"pub": "2023-07-18",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "kidd-copter",
+"pub": "2025-12-09",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "klorb",
+"pub": "2025-10-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "knoblins",
+"pub": "2024-05-07",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "kosmosis",
+"pub": "2025-07-22",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "krankshot",
+"pub": "2025-07-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "kreatur-bout",
+"pub": "2026-02-17",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code, game sound, and game art",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "kuroobi",
+"pub": "2023-12-19",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "labsylle",
+"pub": "2026-02-17",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "labyrinth",
+"pub": "2024-04-23",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ladeira-abaixo",
+"pub": "2026-05-12",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "laser-sphere",
+"pub": "2024-02-27",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lazy-paper",
+"pub": "2026-09-01",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "legend-of-etad",
+"pub": "2023-05-09",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "les-trucs-qui-tombent",
+"pub": "2026-01-20",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "lexgrid",
+"pub": "2025-09-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lifes-2-short-unhooked",
+"pub": "2023-09-05",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lifes-too-short-a-christmas-spirit",
+"pub": "2023-09-12",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lifes-too-short-on-reflection",
+"pub": "2024-06-10",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lifes-too-short",
+"pub": "2023-04-11",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lillybug",
+"pub": "2023-10-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "little-house",
+"pub": "2025-08-05",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ljudbilden",
+"pub": "2023-11-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lolife",
+"pub": "2025-06-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "long-puppy",
+"pub": "2025-06-12",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "loona-landa",
+"pub": "2023-12-19",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "loopsy",
+"pub": "2023-05-23",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "love-and-hate",
+"pub": "2026-02-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "love-letter-a-playdate-proposal",
+"pub": "2024-07-02",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "lunorbit",
+"pub": "2025-05-06",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "lux",
+"pub": "2025-06-24",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "m3-crank-dice-war",
+"pub": "2026-02-03",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "magic-castle",
+"pub": "2024-08-27",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "mars-after-midnight",
+"pub": "2024-03-12",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "mash-gadget",
+"pub": "2023-07-05",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "match-o-3000",
+"pub": "2025-03-25",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "maybe-monday",
+"pub": "2026-05-26",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "medial",
+"pub": "2024-01-30",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "mega-dystopia-micro-architect",
+"pub": "2023-12-12",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "meltdown-masters",
+"pub": "2026-09-01",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "merry-andrew",
+"pub": "2026-06-09",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "meshchera",
+"pub": "2026-09-01",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "midnight-drift-86",
+"pub": "2025-02-25",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "midnight-raider",
+"pub": "2024-02-28",
+"prijs": null,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "mini-monsters",
+"pub": "2024-07-16",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "minimal-arcade",
+"pub": "2024-07-30",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "mission-lunatrix",
+"pub": "2025-06-24",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "molar-mayhem",
+"pub": "2025-12-16",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "monster-elevator",
+"pub": "2024-07-16",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "mousegun",
+"pub": "2026-01-06",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "move-match",
+"pub": "2024-02-27",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "multitasking",
+"pub": "2025-11-25",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "mystery-scrolls",
+"pub": "2024-07-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "necrocrisis",
+"pub": "2023-05-23",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "neotrick",
+"pub": "2026-09-15",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "nightingale",
+"pub": "2023-11-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "no-caddie-included",
+"pub": "2024-06-04",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and game art",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "oblings",
+"pub": "2026-01-06",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "off-planet-dreams",
+"pub": "2024-09-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "office-chair-curling",
+"pub": "2024-10-31",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "oom",
+"pub": "2023-06-10",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "oquonie",
+"pub": "2025-05-20",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "orbo",
+"pub": "2024-02-13",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "order-up",
+"pub": "2026-03-31",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "orrery",
+"pub": "2024-04-09",
+"prijs": 1.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "ottos-galactic-groove",
+"pub": "2025-06-12",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ouroboros",
+"pub": "2024-08-27",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "outside-parties",
+"pub": "2025-11-18",
+"prijs": 13.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "owlets-embrace",
+"pub": "2024-10-31",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "p-racing",
+"pub": "2023-06-20",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "paco-lily",
+"pub": "2026-03-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "paddle-vs-paddle",
+"pub": "2026-06-09",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pahtkest",
+"pub": "2024-12-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "paper-pilot",
+"pub": "2024-01-16",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pastry-cranker",
+"pub": "2025-07-08",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pdtour",
+"pub": "2025-04-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "peedee-icf-390",
+"pub": "2026-09-15",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "pencilmarks",
+"pub": "2025-09-02",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "penrose",
+"pub": "2024-07-16",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "picotimer",
+"pub": "2026-03-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "picross-date",
+"pub": "2025-11-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pikki-rikki",
+"pub": "2023-09-26",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pin-finger",
+"pub": "2026-04-28",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pina-rollada",
+"pub": "2026-02-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pine",
+"pub": "2025-10-14",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pitch-cranker",
+"pub": "2026-02-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pixel-harvester",
+"pub": "2025-10-07",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pizza-cat-crank-gig",
+"pub": "2026-02-03",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code, Catalog assets, and text or dialog",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pizza-maker",
+"pub": "2025-08-19",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pizza-patrol",
+"pub": "2026-07-07",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "platform-10",
+"pub": "2023-10-10",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "platformer",
+"pub": "2024-09-10",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "playball",
+"pub": "2025-11-25",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "playbook",
+"pub": "2024-03-14",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "playdapon",
+"pub": "2023-06-06",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "playdice",
+"pub": "2023-08-15",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "playmaker",
+"pub": "2023-01-15",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "playtime-weird-alarm-clocks",
+"pub": "2023-06-06",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "ploop",
+"pub": "2026-09-15",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pocket-math",
+"pub": "2024-02-13",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pocket-planner",
+"pub": "2023-06-20",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "pocketbm",
+"pub": "2025-01-14",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "pocketcity",
+"pub": "2026-02-10",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pocos-maze",
+"pub": "2024-02-13",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "poker-poker-magic",
+"pub": "2024-09-10",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "polku",
+"pub": "2025-11-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pomo-post",
+"pub": "2024-09-24",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and text or dialog",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "pongerground",
+"pub": "2026-04-14",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "possessions",
+"pub": "2023-07-18",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "possiblyaxolotls-playpack",
+"pub": "2025-06-24",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "post-hero-2",
+"pub": "2026-09-09",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "post-hero",
+"pub": "2023-05-09",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "propeller-rat",
+"pub": "2024-09-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pullfrog",
+"pub": "2023-11-08",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pulpergeist",
+"pub": "2023-09-26",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pulse",
+"pub": "2023-09-12",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "pup-cup",
+"pub": "2025-02-04",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "pxlsketch",
+"pub": "2024-02-27",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "qrabble",
+"pub": "2025-04-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "quantum-phantom-basketball",
+"pub": "2023-06-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "quest-for-x",
+"pub": "2023-10-24",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "quizzical",
+"pub": "2024-06-18",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rabbit-jumping-dx",
+"pub": "2025-05-20",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "raes-solitaire",
+"pub": "2026-10-27",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rail-gunner",
+"pub": "2026-09-29",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "recommendation-dog",
+"pub": "2023-01-15",
+"prijs": null,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "red-terror",
+"pub": "2025-10-14",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "reel-istic-fishing",
+"pub": "2023-10-10",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "reel-steal",
+"pub": "2023-01-15",
+"prijs": null,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "rendsword",
+"pub": "2024-02-27",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "resonant-tale",
+"pub": "2023-09-12",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "retro-fight-club",
+"pub": "2026-10-27",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ribbit-rabbit",
+"pub": "2023-08-01",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ribbit-rogue",
+"pub": "2025-04-22",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "rock-paper-scissors-boom",
+"pub": "2024-11-26",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rocket-bytes",
+"pub": "2024-05-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "rocketbird-relaunched",
+"pub": "2024-05-21",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rocketpult-mini",
+"pub": "2025-04-08",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rollerblade",
+"pub": "2026-04-28",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "root-bear",
+"pub": "2023-11-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rota",
+"pub": "2024-03-14",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rotocore",
+"pub": "2026-08-18",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "rotolla-mono",
+"pub": "2026-07-21",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rowbot-rally-2",
+"pub": "2026-09-09",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "rowbot-rally",
+"pub": "2024-12-17",
+"prijs": 15.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "rowing-rivals",
+"pub": "2024-10-22",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "runic-rogues",
+"pub": "2026-08-04",
+"prijs": 12.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "satolite",
+"pub": "2024-03-14",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "save-your-chicks",
+"pub": "2024-11-26",
+"prijs": 5.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "say-when",
+"pub": "2025-10-14",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "schrodingers-dungeon",
+"pub": "2025-12-16",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "scope",
+"pub": "2026-05-26",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "scp-d38813",
+"pub": "2024-04-23",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "shadow-gadget",
+"pub": "2023-04-25",
+"prijs": 13.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "shadowgate-pd",
+"pub": "2025-04-29",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "shattered-wilds",
+"pub": "2026-01-20",
+"prijs": 15.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "shift-2",
+"pub": "2024-01-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "shift",
+"pub": "2023-06-06",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "shining-gadget",
+"pub": "2023-04-25",
+"prijs": 13.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ship-happens",
+"pub": "2025-11-18",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "ship-shape",
+"pub": "2023-11-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "shpr",
+"pub": "2025-10-14",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "simple-mind",
+"pub": "2024-04-09",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "sing-song-ding-dong",
+"pub": "2025-12-09",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "sketch-share",
+"pub": "2023-10-24",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "skew",
+"pub": "2023-01-15",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "skwish",
+"pub": "2023-04-25",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "skyward-battles",
+"pub": "2025-01-28",
+"prijs": 7.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "slitherlink-pd",
+"pub": "2023-09-12",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "smolitaire",
+"pub": "2023-08-01",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "snekris",
+"pub": "2024-04-23",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "snoik",
+"pub": "2023-06-06",
+"prijs": 11.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "snow",
+"pub": "2025-02-11",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "soggy-froggy",
+"pub": "2026-09-09",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "soko",
+"pub": "2023-08-15",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "sokodice-go",
+"pub": "2026-09-29",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "solar-descent",
+"pub": "2025-09-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "soliterra",
+"pub": "2024-08-27",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "solo-defender",
+"pub": "2025-12-16",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "sound-mind",
+"pub": "2023-11-08",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "space-mash",
+"pub": "2025-10-14",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "space-master",
+"pub": "2024-02-13",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spacerat",
+"pub": "2023-11-07",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "spaceshipment",
+"pub": "2025-03-25",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spacestation-pheta",
+"pub": "2025-05-20",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "sparrow-solitaire",
+"pub": "2023-04-11",
+"prijs": 10.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spike-ii-the-great-emu-war",
+"pub": "2023-05-09",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "spilled-mushrooms",
+"pub": "2024-09-24",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spinshot",
+"pub": "2026-01-20",
+"prijs": 6.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "spirit-trail",
+"pub": "2025-05-20",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spline-rider",
+"pub": "2026-02-17",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "spooky-squad",
+"pub": "2025-02-11",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "spookyban",
+"pub": "2026-02-03",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "starhack",
+"pub": "2024-03-26",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "stars-of-the-screen",
+"pub": "2023-06-20",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "steamd-roller",
+"pub": "2023-12-05",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "stickyban",
+"pub": "2025-09-16",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "strummer",
+"pub": "2025-03-25",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "subdivision",
+"pub": "2026-01-06",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "suborbital-salvage",
+"pub": "2025-02-11",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "suddenly-bird",
+"pub": "2025-08-19",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "sugar-cookie-mountain",
+"pub": "2026-07-21",
+"prijs": 4.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "summit",
+"pub": "2024-05-21",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "super-agent",
+"pub": "2025-07-08",
+"prijs": 6.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "super-beta-tester",
+"pub": "2024-07-16",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "super-conductor",
+"pub": "2024-08-13",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "super-splash-league",
+"pub": "2025-08-19",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "super-toboggan-3d",
+"pub": "2026-07-07",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "swap-machina",
+"pub": "2023-01-15",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "switchboard-shuffle",
+"pub": "2026-04-14",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "tali",
+"pub": "2025-04-22",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tapeworm-disco-puzzle",
+"pub": "2023-01-15",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "taria-and-como",
+"pub": "2025-04-29",
+"prijs": 12.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tatters-of-the-king",
+"pub": "2025-09-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tau",
+"pub": "2023-10-10",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "taxi-trouble",
+"pub": "2024-01-16",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "teddison-inc",
+"pub": "2025-04-08",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tenebra-2",
+"pub": "2025-07-22",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tenebra",
+"pub": "2025-01-14",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "terratopia",
+"pub": "2024-12-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-barkless-doctrine",
+"pub": "2023-06-06",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-botanist",
+"pub": "2023-01-15",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-crank-gym",
+"pub": "2023-08-01",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-fall-of-elena-temple",
+"pub": "2023-11-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-fall-of-magic-castle",
+"pub": "2026-02-24",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-game-of-the-goose",
+"pub": "2024-08-13",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-keyper",
+"pub": "2023-09-05",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-last-ball",
+"pub": "2026-03-31",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-long-arc",
+"pub": "2025-07-08",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "the-lushes-land",
+"pub": "2023-08-01",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-magician",
+"pub": "2026-05-26",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-moon-is-our-friend",
+"pub": "2025-11-18",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "the-princess-and-the-portals",
+"pub": "2026-06-09",
+"prijs": 6.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "the-scrolling-enigma",
+"pub": "2024-02-28",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-shape-that-waits",
+"pub": "2025-11-25",
+"prijs": 6.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-tartines-show",
+"pub": "2023-08-15",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "the-whiteout",
+"pub": "2025-06-05",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "throne-wars",
+"pub": "2024-07-30",
+"prijs": 6.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game art and text or dialog",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "time-from-earth",
+"pub": "2023-05-09",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tiny-turnip",
+"pub": "2025-06-26",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "tinytester-sp",
+"pub": "2023-12-12",
+"prijs": 5.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "to-dust",
+"pub": "2023-08-01",
+"prijs": 9.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "togglebot",
+"pub": "2025-10-21",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "top-binz",
+"pub": "2025-06-24",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "totally-accurate-kissing-booth-simulator",
+"pub": "2025-10-07",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "totally-safe-enhanced-jump-system",
+"pub": "2024-07-16",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "touch-egg",
+"pub": "2024-05-21",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "trackminia",
+"pub": "2025-01-28",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "traffic-jam",
+"pub": "2025-04-08",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "treasure-chasers",
+"pub": "2023-06-20",
+"prijs": 3.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "treated",
+"pub": "2025-09-02",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "trickle-greenweed",
+"pub": "2023-12-19",
+"prijs": 6.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "triston",
+"pub": "2026-06-23",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "twincle-tarot",
+"pub": "2025-12-09",
+"prijs": 2.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code, Catalog assets, and text or dialog",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "ufo-mayhem",
+"pub": "2026-02-17",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "under-the-castle",
+"pub": "2023-12-05",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "under-the-tree-2",
+"pub": "2025-11-06",
+"prijs": null,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "under-the-tree",
+"pub": "2023-12-12",
+"prijs": 12.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "unicycle-madness",
+"pub": "2026-03-31",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "united-states-the-heist-of-the-argonaut-limited",
+"pub": "2024-05-21",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "unshuffle",
+"pub": "2025-07-22",
+"prijs": 4.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game sound",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "vexbox",
+"pub": "2025-04-22",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "voidblazers",
+"pub": "2024-08-27",
+"prijs": 8.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "vollemental",
+"pub": "2025-01-21",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "waiting-for-odysseus",
+"pub": "2026-07-21",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "warp-defender",
+"pub": "2024-04-23",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "water-flow",
+"pub": "2023-12-19",
+"prijs": 2.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "wee-tarot",
+"pub": "2026-09-15",
+"prijs": 2.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "wegi",
+"pub": "2025-04-22",
+"prijs": 1.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "what-the-crow",
+"pub": "2024-02-28",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "what-time-is-it",
+"pub": "2025-10-07",
+"prijs": 3.0,
+"gratis": false,
+"ai": "The developer used generative AI to create Catalog assets",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "whats-in-the-sky",
+"pub": "2025-09-16",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+},
+{
+"slug": "wheelsprung",
+"pub": "2025-06-05",
+"prijs": 10.0,
+"gratis": false,
+"ai": "The developer used generative AI to create game code and text or dialog",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "wirewalk",
+"pub": "2024-12-10",
+"prijs": 7.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "woah-dave",
+"pub": "2026-09-01",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "word-rocket",
+"pub": "2024-08-13",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "word-trip",
+"pub": "2023-01-15",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ww2-rotary-gun-simulator",
+"pub": "2024-12-10",
+"prijs": 10.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "xeno-escape",
+"pub": "2025-06-10",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "spel"
+},
+{
+"slug": "xorbius",
+"pub": "2026-02-10",
+"prijs": 5.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "xtris",
+"pub": "2025-02-25",
+"prijs": 4.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "ygmtb",
+"pub": "2023-10-10",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "you-cannot-go-back",
+"pub": "2023-09-26",
+"prijs": 1.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "yoyozo",
+"pub": "2023-11-21",
+"prijs": 18.0,
+"gratis": false,
+"ai": "onbekend",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "zero-zero",
+"pub": "2024-08-27",
+"prijs": 6.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": true,
+"soort": "spel"
+},
+{
+"slug": "zzzzen-sleep",
+"pub": "2025-02-04",
+"prijs": 3.0,
+"gratis": false,
+"ai": "This game's developer declares that it was created without the use of generative AI",
+"scoreboard": false,
+"soort": "app"
+}
+]

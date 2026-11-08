@@ -508,3 +508,11 @@ Nieuwste blok onderaan.
 - Controleur: 6 van 6 klopt; correctie: de 0,1 tot 1% van Vult is een ruwe schatting tegen alle Rack-gebruikers. Verwerkt. Afdracht 30% alleen van één maker.
 - Les: een tellende winkel voor gratis plugins zegt niets over betaald; zoek bij gemengde winkels altijd apart naar een verkoopteller.
 - Run afgesloten.
+
+## 8 nov run 16:33 (Amsterdam)
+- Begin: lokale main liep los van origin (andere geschiedenis na de overstap); oude stand bewaard als lokale tak oud-lokaal-main, nieuwe main op origin/main. Berichten van Thijs: niets nieuws open.
+- Platform: Playdate Catalog (Panic), zelf toegevoegd (hardware-winkel). Om 16:40 op "in onderzoek" gezet en gepusht.
+- Alle 510 titelpagina's gelezen: datum, prijs, AI-verklaring. Onderzoeker vond makercijfers op Bluesky en de cijfers van Panic.
+- Uitkomst: geld per titel het beste tot nu toe naast Blender, maar alle makers samen ±$36.000 per maand en het apparaat groeit niet. AI-regel sinds april 2026: geen AI-art, geluid of tekst.
+- Beslissing: nee voor nu, cijfer 4. Waarom: Thijs zoekt een plek om groot te worden, het plafond is hier te laag. Controleur akkoord (4 tot 5), 5 correcties verwerkt.
+- Les: wacht tot het ophaalscript klaar is voor je telt (ik telde 496 van 510); en lees bij een sale de normale prijs.
