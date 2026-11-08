@@ -94,10 +94,49 @@ function showError(target: HTMLElement, formula: string, error: unknown): void {
 	target.setAttribute("data-rollwright-error", message);
 }
 
-/** Pauses between the counted numbers: 6 steps, slower each time, ±300 ms in all. */
-export const TICK_STEPS = [25, 35, 45, 55, 65, 75];
+/**
+ * Klus 4b: the first counted number comes when the value starts to fly in (rw-land in styles.css
+ * waits 140 ms), so none of them is counted while it is still invisible.
+ */
+export const TICK_START_MS = 140;
+/** Pauses between the counted numbers: 6 steps, slower each time; with the start the real number lands at ±505 ms, with the value. */
+export const TICK_STEPS = [45, 50, 55, 65, 70, 80];
 /** On the value while it counts: the number shown on top of the real one (styles.css). */
 export const TICK_ATTR = "data-rollwright-tick";
+
+export interface TickOptions {
+	/** The real result: the last counted number is never this one, or the count would seem to hang one step. */
+	actual?: number;
+	/** Wait before the first number; TICK_START_MS when left out. */
+	delay?: number;
+}
+
+/**
+ * A number in the range that differs from both given numbers (null: none). A number that does not
+ * fit is moved up by one (wrapping round), never drawn again, so a fixed Math.random can not keep
+ * it going forever.
+ */
+export function tickNumber(range: { min: number; max: number }, draw: number, avoid: number | null, avoidToo: number | null): number {
+	const size = range.max - range.min + 1;
+	let n = range.min + (((Math.floor(draw * size) % size) + size) % size);
+	for (let i = 0; i < size && (n === avoid || n === avoidToo); i++) n = n >= range.max ? range.min : n + 1;
+	return n;
+}
+
+/**
+ * The counted numbers, drawn from the last one back: the last differs from the real result (or the
+ * count would seem to hang one step) and each one from the number after it. Drawn backwards, it
+ * also works when the range has only two numbers.
+ */
+export function tickSequence(range: { min: number; max: number }, actual: number | null, random: () => number): number[] {
+	const numbers: number[] = new Array<number>(TICK_STEPS.length);
+	let after = actual;
+	for (let i = TICK_STEPS.length - 1; i >= 0; i--) {
+		after = tickNumber(range, random(), after, null);
+		numbers[i] = after;
+	}
+	return numbers;
+}
 
 /**
  * Ontwerp-v2 punt 2.1: after a click the number counts through a few random values within the
@@ -106,13 +145,15 @@ export const TICK_ATTR = "data-rollwright-tick";
  * so anyone reading the page, the history or the stamp sees the real result at once.
  * Gives back a function that stops it, or null when nothing counts.
  */
-export function startTicking(value: HTMLElement, range: { min: number; max: number } | null, random: () => number = Math.random): (() => void) | null {
+export function startTicking(value: HTMLElement, range: { min: number; max: number } | null, options: TickOptions = {}, random: () => number = Math.random): (() => void) | null {
 	const win = range === null ? null : motionWindow();
 	if (range === null || win === null) return null;
 	const span = range.max - range.min;
 	if (!Number.isFinite(span) || span < 1) return null;
+	const actual = options.actual !== undefined && Number.isFinite(options.actual) ? options.actual : null;
 	let timer: number | null = null;
 	let step = 0;
+	const numbers = tickSequence(range, actual, random);
 	const stop = (): void => {
 		if (timer !== null) win.clearTimeout(timer);
 		timer = null;
@@ -123,10 +164,12 @@ export function startTicking(value: HTMLElement, range: { min: number; max: numb
 			stop();
 			return;
 		}
-		value.setAttribute(TICK_ATTR, String(range.min + Math.floor(random() * (span + 1))));
+		value.setAttribute(TICK_ATTR, String(numbers[step]));
 		timer = win.setTimeout(next, TICK_STEPS[step++]);
 	};
-	next();
+	const delay = options.delay ?? TICK_START_MS;
+	if (delay > 0) timer = win.setTimeout(next, delay);
+	else next();
 	return stop;
 }
 
@@ -215,7 +258,9 @@ export function mountRoll(plugin: RollwrightPlugin, target: HTMLElement, formula
 		}
 		if (!tick || value === null || shown !== outcome || outcome.kind !== "dice" || outcome.total === undefined || outcome.estimated || outcome.average) return;
 		const context = plugin.rollContext(sourcePath);
-		stopTick = startTicking(value, rangeOf(outcome.formula, { names: context.aliases, defaultSides: context.defaultSides, defaultCount: context.defaultCount }));
+		const range = rangeOf(outcome.formula, { names: context.aliases, defaultSides: context.defaultSides, defaultCount: context.defaultCount });
+		// Only dice count, and dice are never a block (only rendered text is), so the value always flies in with rw-land.
+		stopTick = startTicking(value, range, { actual: outcome.total });
 	};
 	// A click hands back its result only after the history is saved. When two clicks come back in
 	// reverse order, the older one must not cover the newer one, which the listener already drew.
