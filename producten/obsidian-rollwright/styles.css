@@ -214,8 +214,34 @@ body.rollwright-skin-arcane .rollwright-roll:hover {
 }
 
 .rollwright-skin-preview-name {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
 	color: var(--text-muted);
 	font-size: var(--font-ui-smaller);
+}
+
+/* Klus 7 (Daan, ontwerp-v2): every tile shows a crit with its NAT 20 sticker and a small ordinary roll.
+   The padding keeps room for the sticker, which sits half outside the top right corner of the token. */
+.rollwright-skin-preview-rolls {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	padding: 0.8em 0.9em 0 0;
+}
+
+.rollwright-skin-preview-small {
+	font-size: 0.8em;
+}
+
+.rollwright-skin-preview-lock {
+	display: inline-flex;
+	color: var(--text-faint);
+}
+
+.rollwright-skin-preview-lock svg {
+	width: var(--icon-xs);
+	height: var(--icon-xs);
 }
 
 /* Side panel */
