@@ -1,10 +1,12 @@
 # Rollwright
 
-Roll dice and random tables right inside your notes. Write a formula, read the result, click to roll again.
+**Roll dice right in your notes.** Write `` `dice: 1d20 + 5` ``, read the result, click to roll again. A natural 20 lands in gold.
 
-![A session note in Live Preview: the Perception line shows the code you type, dice: 1d20 + 4|text(Perception), and the lines around it show rolled results: trap damage, an encounter, the weather, loot and a line from the toll keeper](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/live-preview.png)
+![Rollwright: roll dice right in your notes](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png)
 
 Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players who keep their sessions in Obsidian. It uses the `dice:` notation known from the Dice Roller plugin.
+
+![Three clicks in a session note: the third roll is a natural 20 and lands in gold](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
 
 ## What you can do
 
@@ -15,7 +17,7 @@ Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players 
 - **Roll log.** A side panel shows what you rolled, grouped by note and session, and lets you roll again.
 - **Works where you write.** Reading view and Live Preview look the same, in light and dark themes.
 
-![The roll history panel next to the note, with each roll, its formula or source table, and its source note](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-history.png)
+![The roll log next to a session note: each roll with its dice, table or line, the time, and a button to roll it again](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-log.jpg)
 
 ## Quick start
 
@@ -149,6 +151,8 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 ## Paid skins
 
 **All rolling features are free. Two visual skins, Parchment and Arcane, are paid and need a license key.** The Classic skin is free.
+
+![The same session note in the three skins, Classic, Parchment and Arcane, in a dark and a light theme](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/skins.jpg)
 
 You buy the skins once through Polar: press Buy for $6 in the settings, pay, then paste the license key from your Polar purchases in the settings and press Activate. One key works on all your devices.
 
