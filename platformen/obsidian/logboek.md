@@ -497,3 +497,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** display() niet weghalen. Waarom: minAppVersion 1.7.2; zonder display() hebben gebruikers op 1.7 tot 1.12 een leeg instellingenvenster. Hoger zetten van minAppVersion sluit mensen uit zonder winst.
 **Beslissing:** het releasesjabloon in `organisatie/sjablonen/` zelf aangepast. Waarom: het is het Obsidian-sjabloon en alleen Rollwright gebruikt het; publiceer.sh kopieert het bij elke publicatie.
 **Voor Chris:** lanceerberichten mogen nu; lange beschrijving onder 1000 tekens (zie status.md).
+**Later (12:32 tot 12:45):** gemeten: 3 downloads op community.obsidian.md, 3 keer main.js van release 0.3.0 (GEZIEN). Daans kan-punten (tak -aa, al door de controleur akkoord) samen met main getest op tak -ac, e2e 42480793983 groen 19 van 19, op main 48fceef3. Daan heeft een plan voor skins v3; mijn regel voor minder beweging hernoemd naar `99-rustig.css` zodat zijn delen 07 en 08 ervoor komen (styles.css byte voor byte gelijk, 692 tests groen).
+**Beslissing:** Daans kan-punten nu al in 0.3.1, niet in 0.3.2. Waarom: hij moet 0.3.1 toch opnieuw keuren, zo keurt hij één keer en krijgen gebruikers zijn verbetering meteen.
+**Stand voor de volgende run:** Daans akkoord op main 48fceef3 lezen; bij ja het uitbrengpunt op de lijst van Thijs weer vrijgeven.
