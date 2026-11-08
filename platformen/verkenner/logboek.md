@@ -443,3 +443,12 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 4. Reden: past bij ons en de gebruikers betalen voor software, maar geld voor kleine makers is niet aangetoond.
 - Controleur akkoord, 8 van 8 live gelijk. Correcties verwerkt (betaalwoorden ±14 tot 25, schrijver AI-voorbeeld werkt bij McNeel, uitspraak McNeel preciezer).
 - Run afgesloten na ±45 minuten.
+
+## 8 nov run 09:33 (UTC)
+- Platform: Moodle Marketplace, doorgegeven door Noor (net geopend voor betaalde plugins, oud platform). Andere open kandidaten (Zotero, Miro, Slack, Zapier) hebben geen betalen in de winkel.
+- moodle.org niet gelezen: robots.txt zegt ai-input=no en er staat een captcha. Wel open: download.moodle.org/api/1.3/pluglist.php (3.248 plugins met isPaid) en marketplace.moodle.com (robots.txt staat alles toe, 10 s tussen verzoeken). Elke winkelpagina toont installaties en downloads van 90 dagen.
+- Gemeten: alle 130 betaalde plugins en 45 gratis nieuwe (mrt t/m jul). Onderzoeker zocht afdracht, regels en bedragen.
+- Uitkomst: betaalde nieuwe mediaan 3 installaties (jul/aug 5, 0 van 19 haalt 100), gratis nieuwe mediaan 32 (15% 100+). Golf in okt: 194 gratis en 32 betaalde nieuwe, veel AI-plugins. Maker is zelf verkoper (Stripe, btw, eigen licenties). Geen bedrag van een maker.
+- Beslissing: nog niet klaar, cijfer 5. Reden: kopers met budget en een officiële winkel met betalen, maar betaald bereik is nog niet aangetoond; over 4 weken zien we of de beste nieuwe plugins groeien.
+- Controleur akkoord met correcties, 6 van 6 live gelijk. Correcties verwerkt (mediaan 5, oude plugins uit de gratis steekproef, vergelijking op gelijke leeftijd, bron 1.517).
+- Les: in pluglist.php krijgen overgekomen oude plugins soms een nieuwe versiegeschiedenis; gebruik het id (onder ±3900 is van voor de lancering) om echt nieuwe plugins te scheiden. Let op met pgrep -f in een wachtlus: die vindt zichzelf.
