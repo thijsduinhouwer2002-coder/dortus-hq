@@ -1,7 +1,7 @@
 import { browser, expect } from "@wdio/globals";
 import * as fs from "fs";
 
-// Daan punt 5 en 8: Parchment in donker is donker perkament, en een fout heeft in elke skin de gewone letter.
+// Daan punt 5 en 8, skins v2 (klus 12): Parchment is in licht en donker oud papier met inkt, en een fout heeft in elke skin de gewone letter.
 // De skin is alleen CSS (klasse op body), dus de test zet de klassen zelf, zoals Obsidian en de plugin doen.
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active .markdown-reading-view";
@@ -70,6 +70,7 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
 		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
 		expect(m.gewoon.letter).toContain("Georgia");
+		expect(m.gewoon.letter).toContain("Palatino");
 	});
 
 	it("Parchment in donker blijft licht papier met donkere inkt", async function () {
@@ -80,6 +81,7 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
 		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
 		expect(m.gewoon.letter).toContain("Georgia");
+		expect(m.gewoon.letter).toContain("Palatino");
 	});
 
 	it("een fout heeft in Parchment de letter van de tekst, net als in Classic", async function () {
