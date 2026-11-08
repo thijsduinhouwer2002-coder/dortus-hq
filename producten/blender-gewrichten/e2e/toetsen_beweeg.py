@@ -45,10 +45,49 @@ def staaf():
         f"{a.get('cj_buig_duur_s')} s, {a.get('cj_buig_toetsen')} toetsen, uitsnede {list(a.get('cj_buig_vlakken', []))}")
     stap("BUIG staaf: 8 richtingen gemeten", len(grenzen) == 8)
     for k, g in enumerate(grenzen):
-        stap(f"BUIG staaf richting {k * 45}: {g:.1f} binnen 2,5 graden van de rekensom {som:.2f}", abs(g - som) <= 2.5)
+        # Controleur ronde k: eenzijdig, nooit meer dan de rekensom (plus de afronding van 0,1), hoogstens 1 graad minder.
+        stap(f"BUIG staaf richting {k * 45}: {g:.1f} tussen rekensom - 1,0 en rekensom + 0,1 ({som:.2f})",
+             som - 1.0 <= g <= som + 0.1)
     hoek = addon("paneel").buig_graden(a)
     stap(f"BUIG staaf: paneel Bends ±{hoek} gelijk aan de stand {a.get('cj_hoek')}", hoek == a.get("cj_hoek"))
+    blok(a, next(d for d in lijst if d["cj_deel"] == "B"))
     weg(lijst)
+
+
+def blok(a, b):
+    """Controleur ronde k: een blok aan deel A boven de huid van deel B (richting 0) laat B eerder botsen dan de
+    rekensom; de kleine uitsnede ziet dat niet, de controle met de grote uitsnede wel.
+    Onafhankelijke hoek: de huid van B in het buigvlak is de lijn op afstand R (staafstraal) van het kogelmidden;
+    die draait mee en raakt eerst de hoek (xb, h) van het blok: R = Rc cos(90 + t - θc), dus
+    t = θc + acos(R / Rc) - 90, met Rc = wortel(xb² + h²) en θc = atan2(h, xb)."""
+    import bmesh
+    ue, bw = addon("uit_elkaar"), addon("beweeg")
+    c, as_ = Vector(a["cj_centrum"]), Vector(a["cj_as"]).normalized()
+    d = ue.richtingen(as_)[0]
+    w = as_.cross(d).normalized()
+    R = 5.0 * u()
+    xa, xb, h, dik = 2.0 * u(), 8.0 * u(), 5.6 * u(), 3.0 * u()
+    bm = bmesh.new()
+    bm.from_mesh(a.data)
+    m_inv = ue.echte_matrix(a).inverted()
+    punten = [bm.verts.new(m_inv @ (c + as_ * x + d * y + w * z))
+              for x in (xa, xb) for y in (h, h + dik) for z in (-dik, dik)]
+    for f in ((0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)):
+        bm.faces.new([punten[i] for i in f])
+    bm.to_mesh(a.data)
+    bm.free()
+    a.data.update()
+    rc, tc = math.hypot(xb, h), math.atan2(h, xb)
+    verwacht = math.degrees(tc + math.acos(R / rc)) - 90.0
+    grenzen = bw.meet(a, b, u())
+    hoek = addon("paneel").buig_graden(a)
+    log(f"BUIG blok: verwacht eerste raakpunt {verwacht:.2f} graden in richting 0, gemeten {grenzen}, "
+        f"opnieuw gezocht {a.get('cj_buig_opnieuw')} keer, tijd {a.get('cj_buig_duur_s')} s, Bends ±{hoek}")
+    stap(f"BUIG blok: richting 0 gemeten {grenzen[0]:.1f} <= {verwacht:.2f} (+0,15 voor de facetten)",
+         grenzen[0] <= verwacht + 0.15)
+    stap(f"BUIG blok: richting 0 niet veel te vroeg ({grenzen[0]:.1f} >= {verwacht:.2f} - 1)", grenzen[0] >= verwacht - 1.0)
+    stap(f"BUIG blok: paneel Bends ±{hoek} niet meer dan de kleinste gemeten {min(grenzen):.1f}",
+         hoek is not None and hoek <= min(grenzen))
     st.hide_set(True)
 
 
@@ -63,7 +102,8 @@ def arm_en_pose(arm):
     log(f"BUIG arm: gemeten {list(a.get('cj_buig_graden', []))} graden, rekensom {a.get('cj_grens_graden')}, "
         f"tijd {duur} s, {a.get('cj_buig_toetsen')} toetsen, uitsnede A/B {list(a.get('cj_buig_vlakken', []))} vlakken "
         f"(van {len(a.data.polygons)} en {len(b.data.polygons)})")
-    stap(f"BUIG arm: hele bereik onder 1 s ({duur} s)", duur < 1.0)
+    stap(f"BUIG arm: hele bereik onder 1 s, met de controle op de grote uitsnede ({duur} s, opnieuw gezocht "
+         f"{a.get('cj_buig_opnieuw')} keer)", duur < 1.0)
     stap("BUIG arm: elke richting buigt", all(g > 0 for g in a.get("cj_buig_graden", [0])))
 
     inst = bpy.context.scene.click_joints

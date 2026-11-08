@@ -75,6 +75,10 @@ def echte_matrix(ob):
     rotation en scale zelf. Gebruik dit overal waar een deel naar wereldcoördinaten wordt omgerekend."""
     if ob.parent is not None:
         return ob.matrix_world.copy()
+    if ob.get("cj_deel") != "B":  # alleen deel B krijgt delta's van de add-on; de rest zoals voor ronde k
+        m = ob.matrix_world.copy()
+        m.translation -= ob.delta_location
+        return m
     if ob.rotation_mode == "QUATERNION":
         rot = ob.rotation_quaternion.to_matrix()
     elif ob.rotation_mode == "AXIS_ANGLE":

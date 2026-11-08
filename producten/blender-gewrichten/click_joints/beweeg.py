@@ -3,8 +3,12 @@
 Na een geslaagde kogelplaatsing draait deel B om het kogelmidden in 8 richtingen loodrecht op de as, tot het
 eerste raakpunt met deel A. Aanpak uit de bouwproef (`proef/proef_beweeg.py`): een kleine uitsnede (alleen de
 vlakken rond nek en klikrand, kogel en kom tellen niet), BVH-overlap, en het kleinste deel draaien.
-Grof in stappen van 2,5 graden, dan bisectie tot 0,1 graad, zodat een kort raakmoment niet gemist wordt.
+Grof in stappen van 2,5 graden, dan bisectie tot 0,1 graad. Eerlijk: een raakmoment dat korter is dan één grove
+stap (botsen en weer los tussen twee stappen) kan gemist worden.
 Naast overlap een binnen-of-buiten-toets: zakt een punt van de klikrand helemaal in deel A, dan telt dat ook.
+De kleine uitsnede ziet alleen nek en klikrand, niet de rest van het figuur (controleur ronde k). Daarom per
+richting op de gevonden grens één controle met een grote uitsnede (BEREIK_GROOT keer de kogelstraal, zonder
+kogel en kom); botst het daar, dan opnieuw zoeken met de grote uitsnede.
 
 Ook hier: de pose (deel B alleen in de weergave gedraaid, zie `uit_elkaar.zet`) en de botsende vlakken van
 deel A in het rode passingmateriaal."""
@@ -22,6 +26,7 @@ GROF = 2.5         # graden
 FIJN = 0.1         # graden, nauwkeurigheid van de bisectie
 MAX_HOEK = 60.0    # graden; een klikkogel komt nooit zo ver (standen 30, 25, 20)
 BEREIK = 1.6       # keer (kogelstraal + speling): uitsnede rond nek en klikrand
+BEREIK_GROOT = 6.0  # keer de kogelstraal (3 kogeldiameters): controle op de grens met de rest van het figuur
 MARGE_IN = 0.05    # keer de kogelstraal boven r + s: wat daarbinnen ligt is kogel of kom
 
 
@@ -75,13 +80,14 @@ def _u(a):
 
 
 class Meter:
-    def __init__(self, a, b):
+    def __init__(self, a, b, groot=False, meshes=None):
         self.c = np.array(a["cj_centrum"])
         self.as_ = Vector(a["cj_as"]).normalized()
         r_in = straal_in(a)
-        r_uit = BEREIK * (a["cj_kogel_r"] + a["cj_speling_mm"] * _u(a))
-        self.a = uitsnede(mesh_np(a), self.c, r_uit, r_in)
-        self.b = uitsnede(mesh_np(b), self.c, r_uit, r_in)
+        r_uit = BEREIK_GROOT * a["cj_kogel_r"] if groot else BEREIK * (a["cj_kogel_r"] + a["cj_speling_mm"] * _u(a))
+        ma, mb = meshes if meshes else (mesh_np(a), mesh_np(b))
+        self.a = uitsnede(ma, self.c, r_uit, r_in)
+        self.b = uitsnede(mb, self.c, r_uit, r_in)
         self.bvh_a = BVHTree.FromPolygons(self.a[0].tolist(), self.a[1]) if self.a[1] else None
         self.richtingen = uit_elkaar.richtingen(self.as_)
         self.toetsen = 0
@@ -146,14 +152,23 @@ def meet(a, b, u):
     t0 = time.perf_counter()
     for d in (a, b):
         d["cj_eenheid_per_mm"] = u
-    meter = Meter(a, b)
-    grenzen = [round(meter.grens(k), 2) for k in range(len(meter.richtingen))]
+    meshes = (mesh_np(a), mesh_np(b))
+    meter = Meter(a, b, meshes=meshes)
+    groot = Meter(a, b, groot=True, meshes=meshes)
+    grenzen, opnieuw = [], 0
+    for k in range(len(meter.richtingen)):
+        g = meter.grens(k)
+        if groot.raakt(k, g):  # de rest van het figuur botst eerder: opnieuw zoeken met de grote uitsnede
+            g = groot.grens(k)
+            opnieuw += 1
+        grenzen.append(round(g, 2))
     duur = round(time.perf_counter() - t0, 3)
     for d in (a, b):
         d["cj_buig_graden"] = grenzen
         d["cj_buig_duur_s"] = duur
-        d["cj_buig_toetsen"] = meter.toetsen
-        d["cj_buig_vlakken"] = [len(meter.a[1]), len(meter.b[1])]
+        d["cj_buig_toetsen"] = meter.toetsen + groot.toetsen
+        d["cj_buig_vlakken"] = [len(meter.a[1]), len(meter.b[1]), len(groot.a[1]), len(groot.b[1])]
+        d["cj_buig_opnieuw"] = opnieuw
     return grenzen
 
 
