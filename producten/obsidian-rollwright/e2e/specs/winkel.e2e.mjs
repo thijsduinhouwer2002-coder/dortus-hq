@@ -222,7 +222,16 @@ describe("Rollwright: winkelplaatjes", function () {
 		let w = [];
 		for (let ronde = 0; ronde < 40; ronde++) {
 			await browser.executeObsidian(async ({ app }) => app.plugins.plugins.rollwright.clearHistory());
-			for (const i of [TOLWACHTER, LOOT, 1, 3, 2, 0]) {
+			// Daan (Thijs 8 nov): niet alles op dezelfde minuut, dat oogt nep. Een avondsessie van 20:41 tot 21:02.
+			const minuten = [0, 3, 7, 12, 16, 21];
+			for (const [k, i] of [TOLWACHTER, LOOT, 1, 3, 2, 0].entries()) {
+				await browser.execute((m) => {
+					const w = window;
+					if (!w.__rwEchtNu) w.__rwEchtNu = Date.now;
+					const basis = new Date(); basis.setHours(20, 41, 0, 0);
+					const verschil = basis.getTime() + m * 60000 - w.__rwEchtNu();
+					Date.now = () => w.__rwEchtNu() + verschil;
+				}, minuten[k]);
 				await browser.execute((sel, i) => {
 					const r = Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => !e.parentElement?.closest(".rollwright-roll"))[i];
 					r?.querySelector(".rollwright-value")?.setAttribute("data-e2e-oud", "1");
