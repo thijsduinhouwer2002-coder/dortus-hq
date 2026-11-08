@@ -2,5 +2,5 @@
  {"beeld": "../../bron/scherm-8-winkel.png", "duur": 3.0, "kop": "kop1", "zoom": [1.0, 1.08], "uitsnede": [0, 0, 1620, 1080], "klik": [960, 540, 2.0]},
  {"beeld": "../../bron/scherm-10-winkel-paneel.png", "duur": 3.5, "kop": "kop2", "zoom": [1.0, 1.04], "uitsnede": [0, 0, 1920, 885]},
  {"beeld": "../../bron/scherm-9-winkel-rood.png", "duur": 5.0, "kop": "kop3", "zoom": [1.0, 1.1], "uitsnede": [0, 0, 1620, 1080]},
- {"beeld": "../../bron/scherm-10-winkel-paneel.png", "duur": 3.5, "kop": "kop4", "zoom": [1.15, 1.25], "uitsnede": [0, 0, 1920, 885], "zoompunt": [1760, 760]},
+ {"beeld": "../../bron/scherm-10-winkel-paneel.png", "duur": 3.5, "kop": "kop4", "zoom": [1.15, 1.25], "uitsnede": [0, 0, 1920, 885], "zoompunt": [1760, 600]},
  {"eind": true, "duur": 3.5}]}

@@ -6,7 +6,9 @@ draaiboek.json: {"fps": 30, "lagen": "..", "scenes": [
    "klik": [x, y, t]}   # klik: plek in het Blender-beeld (pixels van de uitsnede) en moment in seconden
   , {"eind": true, "duur": 3.5}]}
 Een map met frames wordt over de duur uitgesmeerd (frame i op tijd i/fps, laatste frame blijft staan).
-Regels (Daan): kop komt in 0,25 s op, scènes lopen 0,3 s in elkaar over, eindkaart komt in 0,4 s op.
+Regels (Daan): kop van de eerste scene staat meteen; bij een wissel (0,3 s) gaat de oude kop in de eerste helft weg
+en komt de nieuwe in de tweede helft op; eindkaart komt in 0,4 s op.
+Let op: het pad bij lagen en de beeldpaden gelden vanaf de map van draaiboek.json.
 """
 import json, os, subprocess, sys, tempfile, pathlib
 from PIL import Image, ImageDraw
@@ -58,31 +60,43 @@ def klikring(beeld, sc, t, geo):
         dr.ellipse((px - r, py - r, px + r, py + r), outline=(59, 230, 176, alfa), width=4)
 
 
-def scene_frame(sc, t, bron):
+def kop_laag(naam, a):
+    k = koppen[naam].copy()
+    if a < 1: k.putalpha(k.getchannel("A").point(lambda v: int(v * a)))
+    return k
+
+
+def scene_frame(sc, s, bron):
+    """Beeld zonder kop (de kop gaat er apart overheen, zodat twee koppen nooit door elkaar lopen)."""
     if sc.get("eind"):
         return eind.copy()
-    i = min(int(t * FPS), len(bron) - 1) if len(bron) > 1 else 0
+    t = s / FPS
+    i = min(s, len(bron) - 1) if len(bron) > 1 else 0
     kb, geo = kaartbeeld(bron[i], sc, t)
     kb = kb.convert("RGBA"); klikring(kb, sc, t, geo)
     f = bg.copy(); f.paste(kb, (KX, KY), masker); f.alpha_composite(rand)
-    if sc.get("kop"):
-        k = koppen[sc["kop"]].copy(); a = min(1, t / 0.25)
-        if a < 1: k.putalpha(k.getchannel("A").point(lambda v: int(v * a)))
-        f.alpha_composite(k)
     return f
 
 
 with tempfile.TemporaryDirectory() as tmp:
-    n = 0; vorige = None
-    for sc in boek["scenes"]:
+    n = 0; vorige = None; vorige_kop = None
+    for nr, sc in enumerate(boek["scenes"]):
         bron = None if sc.get("eind") else bronnen(sc)
         stappen = int(round(sc["duur"] * FPS)); over = 0.4 if sc.get("eind") else 0.3
+        kop = sc.get("kop")
         for s in range(stappen):
-            t = s / FPS; fr = scene_frame(sc, t, bron)
-            if vorige is not None and t < over:
-                fr = Image.blend(vorige, fr, t / over)
+            t = s / FPS; basis_fr = scene_frame(sc, s, bron); fr = basis_fr.copy()
+            overgang = vorige is not None and t < over
+            if overgang:
+                fr = Image.blend(vorige, basis_fr, t / over)
+            # kop: eerste scene staat meteen; bij een wissel eerst de oude weg, dan de nieuwe erin
+            if overgang and t < over / 2:
+                if vorige_kop: fr.alpha_composite(kop_laag(vorige_kop, 1 - t / (over / 2)))
+            elif kop:
+                a = 1.0 if (nr == 0 or not overgang) else (t - over / 2) / (over / 2)
+                fr.alpha_composite(kop_laag(kop, min(1.0, a)))
             fr.convert("RGB").save(f"{tmp}/{n:05d}.png"); n += 1
-        vorige = fr
+        vorige = basis_fr; vorige_kop = kop
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", f"{tmp}/%05d.png",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-movflags", "+faststart", uit], check=True)
 print(f"{uit}: {n} frames, {n / FPS:.1f} s")

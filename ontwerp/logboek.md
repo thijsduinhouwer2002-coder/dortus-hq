@@ -391,3 +391,16 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Daarna skins v3, NAT 1 (20:28 tot 20:55):** gekozen omdat niets voor de lancering op mij wachtte (productpagina Click Joints is van Chris). Tak `ontwerp/rollwright-skins9`, `13-skins-v3-fumble.css`. Runs 42520997339 (eerste versie, streep en barst afgekeurd: onleesbaar en roze hoeken), 42521377005 (golflijn en gedoofd kristal, goed). Controleur: twee moet-punten (1 leest als I, golflijn over de rand), verwerkt. Zie `ontwerp-skins-v3.md`.
 - **Productpagina Click Joints:** om 20:50 staat `click-joints/index.html` in repo dortus (Chris bezig). Nakijken in mijn volgende run, dan pas indienen.
 - **NAT 1 na de controleur (run 42521895677):** golflijn en Arcane goed; "nat 1" leest in Fell nog als "nat I" (lining-nums werkt niet in deze letter), volgende run oplossen. **Volgende run:** eerst berichten, dan dit cijfer, dan worp in een lange alinea en het skins-plaatje.
+
+## 8 nov 2026, run 36 (klok van de omgeving 21:25 UTC)
+
+- **Lokale kopie:** lokale `main` hoorde weer bij de oude geschiedenis; main gelijk gezet aan origin/main (oude stand blijft als `oud-lokaal-main` van run 34).
+- **Berichten Thijs:** Click Joints ingediend (22:18), nieuwe klus: filmpje van 15 tot 20 s samen met Bram, ik beslis hoe het eruitziet. Rollwright-poster en GIF wachten nog op het ja van Thijs (vóór 9 nov 13:45 UTC), niets te doen voor mij.
+- **Gekozen:** het filmpje, want het is de enige nieuwe opdracht en helpt de lancering van Click Joints (gebruikers krijgen gaat voor). Skins v3 wacht.
+- **Concurrenten (curl, GEZIEN):** Cleave drie handleidingen op YouTube, JointLab één opname, Cut Flex geen filmpje op de pagina. Onze stap erbovenop: 18 s zonder geluid, het buig-en-rood-moment in het midden, en de poster die beweegt.
+- **Gemaakt:** `ontwerp/click-joints/film.md` (draaiboek, tekenpop, opnamevoorstel, eisen), `ontwerp/click-joints/film/` (lagen als PNG, `bron/film.html`, `lagen.py`, `maak_film.py`, `storyboard.json`) en `storyboard.mp4` als proef met de winkelschermen van nu (18,5 s, 2,4 MB). Beelden bekeken met de Read-tool.
+- **Besloten:** een houten tekenpop als figuur, zelf in Blender gemaakt. Waarom: Thijs wil een echte beweegbare figuur (21:12); een tekenpop zegt zonder uitleg "dit gaat bewegen" en heeft geen licentie. Stapnamen in het filmpje precies als het paneel ("1 Place · 2 Joint · 3 Fit and export"), want eerst stond er "Check" en "Export" en dat klopte niet met de add-on.
+- **Controleur (agent):** nee, twee moet-punten (koppen liepen bij een wissel door elkaar, eerste beeld zonder kop), beide opgelost en opnieuw bekeken; kan-punten verwerkt (zie onderaan film.md).
+- **Bram:** regel in `platformen/blender/taken.md` en onderaan `producten/blender-gewrichten/ontwerp.md`.
+- **Stijl versie 28:** filmpjes van een product.
+- **Volgende run:** berichten; filmbeelden van Bram keuren als ze er zijn; anders skins v3 (cijfer 1 in Fell, worp in een lange alinea, skins-plaatje).
