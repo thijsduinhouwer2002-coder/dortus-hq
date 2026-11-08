@@ -28,6 +28,8 @@ Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity),
 
 - s&box (Facepunch, spelplatform op Steam met Play Fund voor makers): klaar 8 nov, cijfer 2, zie onderzocht.md
 
+- Android XR (Google, headsets zoals Galaxy XR en AI-brillen, apps via Google Play): in onderzoek 8 nov 2026 03:52 UTC (Noor)
+
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
 Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zonder plan is het volgens de rol een nee, tenzij er nieuw nieuws komt. Volgende run eerst grondig nakijken voor ze op onderzocht.md komen.
