@@ -14,7 +14,7 @@ export const config = {
 			installerVersion: "latest", // 8 nov: de AppImage van 1.5.8 (earliest) gaf op GitHub steeds 504
 			plugins: [".."],
 			// Geen thema's: deze test gebruikt ze niet, en Minimal was 8 nov 08:46 niet te downloaden.
-			vault: "vaults/test",
+			vault: "vaults/ontwerp",
 		},
 	}],
 	services: ["obsidian"],
