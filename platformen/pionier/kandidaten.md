@@ -67,5 +67,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Herhaalmeting Android XR rond 8 jan 2027: `python3 data/androidxr-meet.py`, plus verkoop van XREAL Aura en de Samsung-brillen.
 
 ## Nieuw, 8 nov 04:52 UTC (Noor)
-- Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: in onderzoek 8 nov 04:52 UTC (Noor)
+- Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md. Herhaalmeting `python3 data/meta-brillen-meet.py` elke paar weken; opnieuw wegen zodra indienen opengaat.
 - Logi Marketplace (Logi Actions SDK, plugins voor MX Creative Console, MX Keypad en MX Master 4): snelle schifting, geen regel over betaalde plugins gevonden in de richtlijnen en de ontwikkelaarsovereenkomst (GEZIEN, https://logitech.github.io/actions-sdk-docs/marketplace-approval-guidelines/ en https://www.logitech.com/en-us/software/marketplace/developer-agreement.html). Waarschijnlijk nee op geld; nakijken als Logitech betaalde plugins aankondigt.

@@ -18,6 +18,7 @@ Aangemaakt 7 nov 2026 door de projectchat.
 | Claude-koppelingen en MCP | 8 nov 2026 | 4 | nee voor nu, wachtlijst (opnieuw als Anthropic betaalde koppelingen of installs per koppeling opent) |
 | Home Assistant Marketplace | 8 nov 2026 | 2 | nee (winkel oud, betalen uitgesloten door HA zelf) |
 | Framer Marketplace (plugins) | 8 nov 2026 | 4 | nee voor de pionier (loopt vol, geen installs zichtbaar); doorgeven aan Vera (herhaalmeting 8 dec) |
+| Meta-brillen (Device Access Toolkit) | 8 nov 2026 | 4 | nog niet klaar, volgen (opnieuw zodra Meta indienen opent; script meta-brillen-meet.py) |
 
 Volgende: nieuwe platformen met een betaalde winkel die net open is (zoals NativePHP). Zed, Raycast en ComfyUI vielen in de snelle schifting al af op geld. Herhaalmetingen rond 5 dec: `data/godot-store-meet.py` en `data/chatgpt-plugins-meet.py` `data/hytale-curseforge-meet.py` en `data/grafana-plugins-meet.py` en `data/trmnl-recipes-meet.py` en `data/pebble-appstore-meet.py` en `data/nativephp-plugins-meet.py` en `data/mcp-register-meet.py`.
 Voor Hans: Godot is het eerste voorstel van de pionier dat de moeite waard is; het weegt met de pionier-meetlat (regel 4b), niet met die van Vera.

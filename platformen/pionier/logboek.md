@@ -95,3 +95,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Framer (plugins) gepakt, volgende open punt op de lijst. Onderzoeker (agent) telde alle 1.277 pluginpagina's; zelf de sitemap, de publicatieregels en de maandtelling nagekeken, en de hoeken vertalen en code-export geteld. Herhaalscript `data/framer-plugins-meet.py`.
 - Besluit: cijfer 4, nee voor de pionier, doorgeven aan Vera. Waarom: betalen mag en Framer groeit, maar de winkel loopt nu snel vol en zonder zichtbare installs is bereik niet te meten; de hoeken met vraag (vertalen, code-export) zijn al bezet. Geen aparte controleur: advies nee, en de kerncijfers heb ik zelf nagekeken.
 - Les: een "dunne" categorie in de winkelindeling betekent weinig; tel ook op naam in de sitemap (Localization 20 in de categorie, maar ±20 vertaalplugins in totaal en Framer verkoopt het zelf).
+
+## 8 nov 2026, ±04:51 tot ±05:05 UTC (zelfde run, derde platform)
+- Snelle schifting Logi Marketplace (Logitech Actions SDK): geen regel over betaalde plugins gevonden; in kandidaten.md gezet als waarschijnlijk nee.
+- Meta-brillen gepakt (nieuw, niet op de lijst): grootste nieuwe apparaat waar de app-plekken nog dicht zijn. Onderzoeker (agent) voor groei, toolkit, geld, vraag en wie er bouwt; zelf de FAQ en glassapps.io nagekeken; herhaalscript `data/meta-brillen-meet.py` dat meldt zodra de FAQ niet meer "soon" zegt.
+- Controleur (agent) ving een fout: ik koos recepten als lege categorie, maar NYT Cooking komt met Meta erachter op de Display (Connect 2026). Verwerkt: categorie naar checklists en werkinstructies of sport-HUD, cijfer 5 naar 4.
+- Besluit: cijfer 4, nog niet klaar. Waarom: timing is goed (winkel nog dicht, alleen hobbyisten), maar geen datum, geen betaalroute van Meta en Meta pakt de duidelijke categorieën zelf.
+- Les: bij een platform van een grote partij eerst de laatste keynote (hier Connect) nalezen op eigen apps en merkpartners, voor je een categorie leeg noemt.
