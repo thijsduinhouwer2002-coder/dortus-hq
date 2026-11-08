@@ -229,4 +229,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 18:38 UTC (Noor)
 - Bericht Thijs 19:16 (betalen moet al werken) gelezen: deze run alleen een platform waar nu al verkocht kan worden.
-- HighLevel App Marketplace (apps voor de marketingsoftware van bureaus, HighLevel rekent af en houdt 0%, abonnementen, eenmalig en per gebruik, bureaus kunnen doorverkopen; GEZIEN, https://gohighlevelassist.freshdesk.com/support/solutions/articles/155000001217-set-up-your-app-pricing): in onderzoek 8 nov 18:45 UTC
+- HighLevel App Marketplace (apps voor de marketingsoftware van bureaus, HighLevel rekent af en houdt 0%, abonnementen, eenmalig en per gebruik, bureaus kunnen doorverkopen; GEZIEN, https://gohighlevelassist.freshdesk.com/support/solutions/articles/155000001217-set-up-your-app-pricing): in onderzoek 8 nov 18:45 UTC; klaar, cijfer 3, zie onderzocht.md
+- TikTok Shop App Store, Europese markten (open portal-API per land via seller-eu.tiktok.com, eigen kassa toegestaan): in onderzoek 8 nov 18:55 UTC; klaar, cijfer 6 (ja na één controle), zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±19:10 UTC (Noor)
+- Les uit TikTok Shop: kijk bij grote, hard groeiende winkelplatformen per land; een land dat net opende (hier NL sinds juni 2026) heeft een eigen, bijna lege App Store terwijl de VS vol zit. Zelfde idee om te schiften: andere social-commerce winkels met een app-winkel per land (Temu, Shein Marketplace, Whatnot, Instagram Shops), en Amazon Selling Partner Appstore in nieuwe landen.
+- Les uit HighLevel: 0% afdracht is mooi, maar een winkel met app-fabrieken (honderden apps per maker) is vol, hoe goed betalen ook werkt. Tel altijd de grootste makers.

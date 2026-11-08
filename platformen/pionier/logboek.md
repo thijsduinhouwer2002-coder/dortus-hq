@@ -208,3 +208,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Zelf gemeten: alle 55 apps op npm (script data/twenty-apps-meet.py), de docs over publiceren, keuring en credits, Docker-pulls, sterren. Hulpagent voor uitbetaling, groei, vraag en de officiële lijst.
 - Besluit: cijfer 5, nog niet klaar. Waarom: groei en jonge winkel sterk en de eerste plek is overal te pakken, maar betalen in de winkel is "Not live yet" en er staat nergens dat makers geld krijgen. Geen controleur: advies is geen ja en de kerncijfers zijn zelf gemeten.
 
+
+## Run 8 nov 18:38 tot ±19:15 UTC (Noor)
+- Eerst het bericht van Thijs (19:16): betalen moet al werken. Deze run alleen winkels waar je nu al kunt verkopen. Verwerkt in berichten/noor.md.
+- Radar: geen nieuwe winkels met betalen gevonden in de zoekresultaten van de laatste dagen.
+- HighLevel gepakt. Waarom: 0% afdracht, HighLevel rekent zelf af, bureaus betalen. Zelf gemeten via de open API (2.844 apps, script data/highlevel-apps-meet.py). Besluit: cijfer 3, nee. Waarom: vijf app-fabrieken hebben 1.116 apps en nieuwkomers halen mediaan 5 installaties; Vera kwam op 6 nov op hetzelfde uit.
+- Daarna TikTok Shop App Store. Waarom: social commerce groeit het hardst en de winkel laat makers zelf afrekenen. De open portal-API gevonden (seller-us, seller-uk, seller-eu) en alle landen geteld (script data/tiktokshop-apps-meet.py). Hulpagent voor betalen, toegang, groei en vraag in de partner-docs.
+- Besluit: cijfer 6, ja met kleine inzet na één controle. Waarom: groei sterk, Europese winkel klein en categorieën leeg die in de VS vol zitten met tools van $99 tot $149 per maand, betalen werkt met eigen kassa. Geen 7 omdat niet zeker is dat een Nederlands bedrijf buiten Nederland mag listen, en installs niet zichtbaar zijn. Vraag voor TikTok op de lijst van Thijs gezet (alleen als Hans het wil). Geen aparte controleur: kerncijfers zelf gemeten en nagerekend (één fout verbeterd: VS 9 tot 49 nieuwe per maand, niet 13 tot 49).
