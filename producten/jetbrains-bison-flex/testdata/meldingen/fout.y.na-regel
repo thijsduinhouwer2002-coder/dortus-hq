@@ -1,0 +1,24 @@
+%{
+int yylex(void);
+void yyerror(const char *s);
+%}
+%token NUM
+%token ONGEBRUIKT
+%token IN_SCANNER
+%token MET_TEKST "met tekst"
+%token IN_CODE
+%token tX RUBY_TOKEN(X)
+%token WEG 300
+%left '+' WEG
+%left LINKS
+%nonassoc UMINUS
+%type <int> onbekend_type
+%destructor { } nergens
+%start invoer
+%expect 0
+%%
+invoer: %empty | invoer regel ;
+regel: exp '\n' | error '\n' | ONBEKEND ;
+exp: NUM | tX | exp '+' exp | '-' exp %prec UMINUS | exp '*' exp %prec GEENPREC ;
+%%
+int f(void) { return IN_CODE; }
