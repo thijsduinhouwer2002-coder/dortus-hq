@@ -245,3 +245,9 @@ Nieuwste blok onderaan.
 - **Nakijken:** controleur akkoord, geen moet-punten, geen test gewijzigd, samenvoegen met tak `-c` schoon (merge-tree).
 - **Beslissing:** `-d` samengevoegd met main (16f5570b). Reden: getoetst en groen, en het vangt fouten die de Marketplace bij indienen zou weigeren. Samen met `-c` (echte CLion) is het CLion-bewijs sterk: echte IDE plus volledige testreeks op het CLion-platform.
 - **Misging:** de vorige Jet-run liep uit en deze run begon vanaf een oude lokale stand; daardoor even dubbel werk gestart op dezelfde taaknaam. Bouwer koos zelf een andere tak, niets overschreven.
+
+## 8 nov 2026, run 04:52 UTC tot ±05:30 UTC (Jet)
+- **Gedaan:** berichten gelezen, geen nieuw open bericht. Taak: tak `claude/jetbrains-2026-11-08-c` (echte CLion) afmaken. Bouwer voegde main erin samen (0ccf3620, geen conflict) en repareerde de drie punten in ClionTest.kt (e2e48fe9, b6b94b86).
+- **Uitkomst (GEZIEN):** thema-id in CLion 263 is `Islands Dark`/`Islands Light` (bron intellij-community, `themeProvider id="Islands Dark"`); log run 42449362463: "id 'Islands Dark' ... donker true". Die run was rood door de eigen schemacontrole (de IDE gebruikt een kopie `_@user_Islands Dark`), gerepareerd. Run 42450473711 liep nog bij afsluiten. Unittests lokaal 99/99 groen. Workflow tegen CLion (unittests en verifier) groen in run 42449362525.
+- **Beslissing:** melding "Cannot update plugin" alleen in de test-IDE uitgezet (registry-vlag), niet in de plugin. Reden: die melding komt uit het platform zodra een plugin van schijf is uitgepakt, wat alleen in de test gebeurt; via de Marketplace weet de IDE de bron (GOK).
+- **Misging:** de bouwer had 40 minuten nodig, vooral wachten op Actions; geen tijd meer voor controleur en schermen. Ontdekt: IdeTest zet de geheugenmeter uit met een verkeerde onderdeelnaam (`StatusBarWidgetSettings` in plaats van `StatusBar`), apart afwegen.
