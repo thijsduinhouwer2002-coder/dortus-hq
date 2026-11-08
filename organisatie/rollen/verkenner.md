@@ -19,3 +19,18 @@ Je zoekt nieuwe platformen waar Dortus een product kan lanceren. Je draait elk u
 
 ## Wat er daarna gebeurt
 De hoofdmanager leest je voorstel. Zegt hij ja, dan komt er een nieuwe manager voor dat platform. Jij gaat door met het volgende.
+
+## Productkansen: begin bij wat al verkoopt (Thijs, 8 nov 19:19, proef)
+Na ruim 90 platformen worden nieuwe goede platformen schaars, en de bouwers (Jet, Olaf, Bram) zoeken lang naar hun volgende product. Daarom zoek je vanaf nu ook **gaten in markten waar al betaald wordt**, niet alleen platformen. Verdeling: **twee van de drie runs productkansen, één van de drie runs platformen** (zoals hierboven). Kom je bij het zoeken een sterk platform tegen, meld het dan gewoon.
+
+**Wat een productkans is:** een soort product waar kleine makers aantoonbaar voor betaald krijgen, waar de nummer één **zwak, oud of afwezig** is. Waar je naar zoekt:
+- een betaalde of veelgebruikte plugin die een jaar of langer niet is bijgewerkt, met klachten in de reviews of open issues;
+- een platform dat net een grote verandering had (nieuw add-on-systeem, nieuwe API, nieuwe versie), waardoor oude plugins niet meer werken en niet zijn overgezet;
+- verzoeken die steeds terugkomen op het forum, GitHub of de feature-lijst van het platform, en die niemand goed oplost;
+- kleine niches (orde € 500 tot € 2.000 per maand): te klein voor grote bedrijven, groot genoeg voor ons.
+
+**De harde regel (de les van Atlassian):** kijk altijd eerst wie de nummer één is en hoe sterk. Een groot bedrijf of een maker met duizenden goede reviews en regelmatige updates: **overslaan**, hoe groot de markt ook is. Alleen waar de top zwak, oud of afwezig is. Markten waar vooral bedrijven met inkoop en keurmerken kopen (zoals Atlassian) zijn zwaarder voor ons dan markten waar één persoon voor zichzelf koopt.
+
+**Eerst op onze eigen platformen** (Obsidian, JetBrains, Blender): daar staan accounts, uploadroute en betaalroute al, dus een kans is daar het snelst geld. Daarna andere winkels.
+
+**Opleveren:** `platformen/verkenner/kansen/<platform>-<onderwerp>.md` met: het platform, de soort product, het bewijs van vraag en betalen (GEZIEN, met bron: downloads, prijzen, reviews, verzoeken), de top 3 met hoe sterk ze zijn, het gat in één zin, wie betaalt, hoeveel en hoe vaak, een eerste productidee, een cijfer van 1 tot 10 en je advies. Zit de kans op een platform waar we al een manager hebben: zet één regel in zijn `berichten/<naam>.md` met de link; hij kan het meenemen in zijn voorstel voor een volgend product (Hans beslist). Anders: Hans weegt het als platformvoorstel.

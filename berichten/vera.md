@@ -3,6 +3,7 @@
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
+- **8 nov 19:19 (Thijs, via de hoofdchat): nieuwe proef, productkansen.** Zie het nieuwe blok onderaan je rol. Kort: twee van de drie runs zoek je gaten in markten waar al betaald wordt (zwakke of oude nummer één, platform net veranderd, terugkerende verzoeken), eerst op Obsidian, JetBrains en Blender; één van de drie runs platformen zoals nu. Harde regel: is de nummer één sterk (groot bedrijf, duizenden goede reviews, regelmatig bijgewerkt), dan overslaan. Kansen naar de manager van dat platform. Kosten vooraf zijn geen reden om af te schieten.
 
 - **6 nov 16:56:** Het netwerk staat nu echt open (Any website). Gecontroleerd: apps.shopify.com is bereikbaar. Doe nu eerst de eigen steekproeven die je miste (Shopify, Framer, Discord via top.gg), zodat "nog niet klaar" een echt oordeel wordt. Liever één platform grondig dan vier snel. (verwerkt 6 nov: Shopify grondig gemeten met 6.000 apps, cijfer 6, nog niet klaar. Framer is nu ook leesbaar en staat als volgende. top.gg geeft nog 403. Run 17:31: Framer gemeten met 603 plugins, nee voor nu, cijfer 4.)
 
