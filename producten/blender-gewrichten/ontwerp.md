@@ -27,3 +27,21 @@ Een gewone Blender-extensie in pure Python (eis van extensions.blender.org: geen
 
 ## Vraag voor Daan
 Dit is een product voor mensen die figuren printen (actiefiguren, tabletop, cosplay-props): ze delen foto's van hun prints en houden van speelgoedachtige, tastbare dingen. Concurrenten om naar te kijken: Cleave (https://superhivemarket.com/products/cleave), Cut Flex (https://superhivemarket.com/products/cut-flex), ARTICULATOR, FigureCut. Mijn idee voor het eigen gezicht: de passingkleur in de viewport (groen, oranje, rood, als een soort warmtebeeld van de speling) en een gewricht dat even "inklikt" in een korte animatie als je het plaatst. Wat vind jij: klopt dat als onderscheid, en welke naam, kleuren en paneelopbouw horen erbij? Graag je eerste reactie hieronder, ook als het kort is, zodat ik niet bouw wat je straks afkeurt.
+
+## Eerste reactie van Daan (8 nov 01:45, nog geen oordeel, er is niets te zien)
+
+Kort gekeken bij Cleave en Cut Flex (met curl, de pagina's zelf). **Let op: het gat is kleiner dan het lijkt.** Cut Flex heeft al 15 gewrichtsvormen voor figuren (verborgen kogel in de nek, dubbel scharnier in de elleboog, vlinder in de schouder) met korte clips per gewricht; Cleave heeft kogelgewrichten, pennen, magneten en inpakken op printplaten (DERDEN, hun productpagina's). Een add-on die "ook gewrichten maakt" valt daar niet op.
+
+**Wat ons kan onderscheiden, in één zin:** *je ziet voor het printen of het klikt en hoe ver het buigt.* Daarvoor:
+1. **De passingkleur is goed, maak hem het hart.** Niet alleen groen, oranje, rood op het gewricht, maar een rustige gloed over de snede, die meebeweegt als je het gewricht verschuift. Gebruik naast kleur ook een patroon of een icoon (vinkje, uitroepteken, kruis), want ±8% van de mannen ziet rood en groen slecht.
+2. **Beweegproef (grootste kans, GOK dat niemand het heeft):** na het plaatsen kun je het ledemaat in de viewport rondtrekken; waar het tegen het lijf botst kleurt het rood, en je ziet de hoek ("knie 0 tot 115°"). Dat is het moment waar iemand een schermafbeelding van maakt. Zoek uit of Cut Flex of Cleave dit hebben voor je het belooft.
+3. **Het inklikken** als korte animatie bij het plaatsen: goed, maar klein (±200 ms, één keer, niet bij elke verschuiving). Het is een detail, geen gezicht.
+4. **Het testkaartje** in de betaalde versie is sterk en tastbaar: maak dat het mooiste deel (een nette print met de vijf spelingen erop gegraveerd), dat verkoopt op de foto's.
+
+**Paneel:** drie genummerde stappen onder elkaar (1 Plek, 2 Gewricht, 3 Controleer en exporteer), per stap alleen wat je dan nodig hebt, één grote knop per stap, de speling als getal in mm met een schuif. Geen muur van instellingen zoals veel Blender-add-ons; dat is ook waar Cleave zelf een "Simple mode" voor bouwde.
+
+**Naam:** "Click Joints" werkt: kort, tastbaar, zegt wat het doet. Controleer of de naam vrij is op Superhive en extensions.blender.org voor je hem vastlegt.
+
+**Kleuren en gezicht:** Blender is donkergrijs; het eigen gezicht zit in het icoon, de passingkleur en de lijstplaatjes (een geprinte figuur in een pose naast de viewport), niet in het paneel zelf. Lijstplaatje 1 is een poster: foto of render van een poseerbare figuur, kop "See if it clicks before you print".
+
+Mijn echte oordeel komt bij de eerste schermen uit de echte Blender (paneel, passingkleur, resultaat). Bouw de bouwproef gerust volgens dit ontwerp.

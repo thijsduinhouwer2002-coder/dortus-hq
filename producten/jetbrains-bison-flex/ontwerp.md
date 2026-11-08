@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 00:50, voor indienen, omdat de winkel nog geen eigen gezicht heeft: geen poster als eerste plaatje en een pluginicoon dat niet opvalt (nieuwe lat van Thijs, 7 nov 22:05). Het hernoemen op main c0562da is in beeld goed, op één kleinigheid na. Wat er precies moet staat in beoordeling 9; de poster maak ik zelf. Code bouwen gaat gewoon door.
+Akkoord: ja 8 nov 2026 01:35, voor wat nu zichtbaar is op main (code van tak `-a` 0cd70b8, IDE-run 42432516728): nieuw icoon, eigen Pro-icoon in de balloon, Pro-tekst op twee regels, hint onder de knoop, plus de poster als eerste winkelplaatje (beoordeling 10). **Indienen pas nadat ik de meldingen van eis 7 in licht en donker gezien heb** (schermen `meldingen` en `meldingen-oplossing`); dat is het laatste zichtbare stuk van 1.0.
+
+Oud: Akkoord: nee 8 nov 2026 00:50, voor indienen, omdat de winkel nog geen eigen gezicht heeft: geen poster als eerste plaatje en een pluginicoon dat niet opvalt (nieuwe lat van Thijs, 7 nov 22:05). Het hernoemen op main c0562da is in beeld goed, op één kleinigheid na. Wat er precies moet staat in beoordeling 9; de poster maak ik zelf. Code bouwen gaat gewoon door.
 
 Oud: Akkoord: ja 7 nov 2026 17:35, voor main 7732165 (code van 0f28fc4, IDE-run 42394756687 groen): uiterlijk, Pro-melding, hint en proefknop, zie beoordeling 7. Geldt voor wat er nu zichtbaar is. Komt er nieuw zichtbaar werk bij voor indienen (de meldingen van eis 7, een hernoemvenster, een andere tekst), dan kijk ik dat eerst na. Eerder: nee 16:30 (Ctrl+zweven en trial-link), nee 14:45.
 
@@ -209,6 +211,18 @@ Nagekeken door een controleur (agent, 8 nov): eens met `nee`. Overgenomen: het a
 
 Meer vraag ik niet voor 1.0 op uiterlijk. Zijn 3 en 5 klaar, staat het nieuwe icoon erin (punt 2, alleen kopiëren) en zien de meldingen van eis 7 er netjes uit in licht en donker, dan is het `ja`.
 
+
+### Beoordeling 10, 8 nov 2026 01:35 (main, code van tak `-a` 0cd70b8, IDE-run 42432516728)
+
+Bekeken (licht en donker, 2880 bij 1800, RUN.txt klopt): `pro-melding` en `hernoem-structuur` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-08-a/`, en ingezoomd op balloon en tabbladen.
+
+**Af (punten van beoordeling 9):**
+- Punt 2: `pluginIcon.svg` op main is precies mijn bestand (GEZIEN met `diff`, geen verschil).
+- Punt 3: de Pro-balloon heeft het eigen icoon (blauw blokje met oranje pijl naar oranje blokje), leesbaar op 16 px in licht en donker. Je ziet dat de melding van ons komt.
+- Punt 5: "Jumping from calc.l to calc.y and calc.yy is a Pro feature, free to try for 30 days." staat op twee regels, niets afgekapt, de twee knoppen eronder.
+- Klein punt: de hint in de structuurweergave staat onder `NUM`, met de punt omhoog; de kop "Declarations" blijft vrij.
+
+Niets nieuws te vragen op deze schermen. **Wat nog moet voor indienen:** de meldingen van eis 7. Ik vraag daar geen eigen kleuren: grijs voor ongebruikt en de gewone waarschuwing voor ongedefinieerd zijn wat een programmeur kent en verwacht. Ik let op: tekst kort en zonder vakjargon ("Rule 'x' is never used", "Token 'X' is not defined"), Alt+Enter met één duidelijke regel, en geen melding op `return NUM;` in de scanner. Daarna `ja` voor indienen zonder nieuwe eisen.
 
 ## Ontwerp eis 7: ongedefinieerd en ongebruikt (8 nov)
 
