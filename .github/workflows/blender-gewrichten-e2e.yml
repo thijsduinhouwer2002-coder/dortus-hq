@@ -1,0 +1,90 @@
+name: Blender gewrichten e2e (Click Joints, echte Blender)
+
+on:
+  push:
+    branches: [main, "claude/blender-*"]
+    paths: ["producten/blender-gewrichten/**", ".github/workflows/blender-gewrichten-e2e.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        blender: ["4.2.23", "5.2.3"]
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (Xvfb en software-OpenGL)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool
+      - name: Blender ${{ matrix.blender }} ophalen
+        run: |
+          V="${{ matrix.blender }}"; KORT="${V%.*}"
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender${KORT}/blender-${V}-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          /tmp/blender/blender --version | head -1
+      - name: Add-on inpakken
+        run: bash e2e/maak_zip.sh
+      - name: Extensie-zip valideren (zoals extensions.blender.org)
+        run: /tmp/blender/blender --command extension validate /tmp/click_joints.zip
+      - name: Test zonder scherm (gewricht, speling, passing, gesloten, STL)
+        run: /tmp/blender/blender -b --factory-startup --python e2e/test_achtergrond.py -- /tmp/click_joints.zip
+      - name: Schermafbeeldingen met de echte interface
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          # Eigen lege voorkeurenmap: zo kunnen we vooraf voorkeuren opslaan zonder splash.
+          BLENDER_USER_RESOURCES: /tmp/bu
+          BLENDER_USER_CONFIG: /tmp/bu/config
+        run: |
+          # Quick Setup verschijnt alleen als er nog geen voorkeuren zijn. Sla ze daarom eerst op,
+          # met het opstartscherm uit, en start de interface zonder --factory-startup.
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          ls -la /tmp/bu/config || true
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1600x900x24" \
+            /tmp/blender/blender /tmp/start.blend --python e2e/schermen.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints.zip 2>&1 | tee /tmp/schermen.log || true
+          ls -la e2e/screenshots/${{ matrix.blender }} || true
+          # Rood als het tabblad niet lukte of de plaatjes ontbreken, zodat Daan nooit verkeerde plaatjes krijgt.
+          grep -q "TABBLAD OK" /tmp/schermen.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
+          for f in 1-paneel-x.png 2-gewricht-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blender-gewrichten-screenshots-${{ matrix.blender }}
+          path: producten/blender-gewrichten/e2e/screenshots
+          if-no-files-found: warn
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/blender-gewrichten/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/blender-gewrichten/$NAAM/${{ matrix.blender }}"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC/${{ matrix.blender }}"/. "$D"/ 2>/dev/null || true
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen blender-gewrichten/$NAAM/${{ matrix.blender }} run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; git -C /tmp/s fetch -q origin schermen 2>/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/blender-gewrichten/$NAAM"

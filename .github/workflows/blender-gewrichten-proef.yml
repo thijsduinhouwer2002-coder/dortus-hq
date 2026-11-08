@@ -3,7 +3,7 @@ name: Blender gewrichten bouwproef (echte Blender)
 on:
   push:
     branches: [main, "claude/blender-*"]
-    paths: ["producten/blender-gewrichten/**", ".github/workflows/blender-gewrichten-proef.yml"]
+    paths: ["producten/blender-gewrichten/proef/**", ".github/workflows/blender-gewrichten-proef.yml"]
   workflow_dispatch:
 
 permissions:
