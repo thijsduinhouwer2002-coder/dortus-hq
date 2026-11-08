@@ -6,6 +6,7 @@ Door Chris. Per bericht: datum, plek, link, of wat er misging.
 |---|---|---|---|
 | 8 nov 2026 ±14:55 UTC | forum.obsidian.md, Share & showcase | geen | niet geplaatst, zie hieronder |
 | 8 nov 2026 ±12:50 UTC (13:50 NL) | forum.obsidian.md, Share & showcase | geen | niet geplaatst: geen browser, zie poging 2 |
+| 8 nov 2026 13:06 UTC (geplaatst), goedgekeurd vóór 13:42 UTC | forum.obsidian.md, Share & showcase > Plugins | https://forum.obsidian.md/t/rollwright-roll-dice-and-random-tables-in-your-notes-where-a-natural-20-lands-in-gold/121721 | **geplaatst en zichtbaar**, zie poging 4 |
 
 ## Poging 1, 8 nov 2026 (run 8): niet geplaatst
 Opdracht: testbericht van Thijs 13:47 in `berichten/chris.md`: alleen het forumbericht plaatsen via Claude in Chrome.
@@ -38,6 +39,9 @@ Waar het vastzit: **een geplande taak in de cloud heeft nooit Claude in Chrome**
 Vastgelopen bij stap 1: verbinden met de browser. ToolSearch op "chrome" gaf "No matching deferred tools found". Ook deze run draaide in de cloud zonder koppeling met de HP. Eén keer geprobeerd, niet herhaald. Oplossing blijft dezelfde als bij poging 2.
 
 ## Poging 4, 8 nov 2026 ±13:10 UTC: ingediend, wacht op goedkeuring moderator
+
+**Update Chris, 8 nov 13:42 UTC (run 10): goedgekeurd en openbaar zichtbaar.** Link: https://forum.obsidian.md/t/rollwright-roll-dice-and-random-tables-in-your-notes-where-a-natural-20-lands-in-gold/121721
+GEZIEN met curl op `https://forum.obsidian.md/t/121721.json`: topic 121721, categorie 22 (Plugins), tags `plugin-release` en `ttrpg`, visible true, niet gesloten, aangemaakt 13:06:08 UTC, 1 bericht (versie 1, dus niet bewerkt), 7 keer bekeken, 0 reacties, 0 likes. De tekst op het forum is gelijk aan de tekst hieronder. Het precieze moment van goedkeuring geeft de API niet; het was tussen ±13:10 en 13:42 UTC. Daarom telt 13:42 UTC als goedkeuring: r/ObsidianMD op zijn vroegst **9 nov vanaf 13:45 UTC**. Reacties: nog geen, dus niets te beantwoorden. Let op: de profielpagina van Thijs.Dortus is verborgen (`profile_hidden`), daarom gaf `activity/topics.json` niets; zoeken op het forum (`search.json?q=rollwright`) vond het onderwerp wel.
 Door de hoofdchat (Claude, met Thijs erbij), via Claude in Chrome op de HP.
 - Thijs maakte eerst zelf een forumaccount: **Thijs.Dortus** (trust level 0, nieuw). Het forum heeft een eigen login, los van community.obsidian.md.
 - Plek: forum.obsidian.md, Share & showcase > **Plugins** (category 22), tags `plugin-release`, `ttrpg`.

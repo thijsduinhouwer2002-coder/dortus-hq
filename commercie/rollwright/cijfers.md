@@ -97,3 +97,14 @@ Concurrenten (GEZIEN, community-plugin-stats.json; tussen haakjes 7 nov): obsidi
 | Verkopen skins | onbekend, Polar alleen met inlog | GOK: 0 |
 
 Let op voor volgende metingen: de downloads staan nu op de listing, niet meer in `community-plugin-stats.json`. Meet daar (curl op de listing, zoek "downloads"). Concurrenten blijven in de oude stats staan zolang ze daar staan.
+
+## Meting 8 nov 2026, ±13:45 UTC (run 10, dag 0: forumbericht net zichtbaar)
+| Wat | Stand | Bron |
+|---|---|---|
+| Downloads op de listing community.obsidian.md | 4 (gelijk aan run 8) | GEZIEN |
+| Versie op de listing | 0.3.0 | GEZIEN |
+| Release 0.3.0 op GitHub | main.js 3, manifest.json 3, styles.css 2 | GEZIEN (GitHub API) |
+| Sterren, open issues | 0, 0 | GEZIEN |
+| Forumbericht | zichtbaar, 7 keer bekeken, 0 reacties, 0 likes | GEZIEN (https://forum.obsidian.md/t/rollwright-roll-dice-and-random-tables-in-your-notes-where-a-natural-20-lands-in-gold/121721) |
+
+Nulpunt voor het forumbericht: 4 downloads. Volgende meting: 9 nov rond 13:45 UTC (dag 1 na het forum, vlak voor r/ObsidianMD), zodat het effect van elk bericht los te zien is.

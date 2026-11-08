@@ -325,3 +325,46 @@ Made by Thijs at Dortus
 **Plaatjes:** op de plek van `[GIF]` de GIF: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif (bestaat, GEZIEN in de README). Onderaan mag de poster: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/poster.png .
 
 **Dag 2 en 3 (r/ObsidianMD, Discord):** zelfde aanpassing als hierboven toepassen voordat ze geplaatst worden: "I made Rollwright" vooraan, "our small studio" wordt "my small studio", en de regel "Made by Thijs at Dortus" onderaan. Pas na minstens één dag en alleen als het forumbericht goed ging (regel 2 van Thijs).
+
+## Bijwerking 8 nov 2026 (run 10): forumbericht staat, r/ObsidianMD klaar voor 9 nov
+
+Door Chris. Het forumbericht is goedgekeurd en zichtbaar (GEZIEN 13:42 UTC, link in `berichten-geplaatst.md`). Volgens regel 2 van Thijs mag r/ObsidianMD op zijn vroegst een dag na de goedkeuring: **9 nov vanaf 13:45 UTC**, en alleen als er tot dan geen klacht of verwijdering op het forum kwam.
+
+### Regels van r/ObsidianMD: nog niet gelezen
+Reddit weigert curl (403 op `about/rules.json` en de wiki, GEZIEN 13:43 UTC). Ik heb dat niet omzeild. Wie plaatst, leest dus eerst in de browser de regels in de zijbalk en de wiki: zelfpromotie, verplichte flair, regels over AI. Staat er iets wat twijfel geeft (bijvoorbeeld "geen AI-projecten" of "zelfpromotie alleen in een vaste draad"): niet plaatsen en de vraag op de lijst van Thijs zetten (regel 3 van Thijs).
+
+### Dag 2: r/ObsidianMD, definitieve tekst (zelfde beweringen als het forumbericht)
+
+**Titel:** `I made a dice roller plugin where a natural 20 lands in gold, and every roll you click goes into a Roll log`
+
+**Soort post:** met media, de GIF als eerste: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif . Flair: wat de subreddit voor plugins voorschrijft.
+
+**Tekst:**
+```
+I made Rollwright, a dice roller for people who run or play tabletop games in Obsidian. It is now in the community directory. You write a formula in a note, read the result, and click it to roll again.
+
+What I cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins (a one-time purchase), which is how I hope to keep working on it. No account and no telemetry. Open source (MIT).
+
+To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+
+Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
+Source: https://github.com/thijsduinhouwer2002-coder/rollwright
+
+Happy to answer questions here.
+
+Made by Thijs at Dortus
+```
+
+Wat anders is dan run 8: "I made" vooraan en in de titel, "I" in plaats van "we", "a one-time purchase" en "Open source (MIT)" zoals in de disclaimer op het forum, de AI-zin letterlijk gelijk aan het forum, "Made by Thijs at Dortus" onderaan. Geen nieuwe beweringen over het product, dus geen nieuwe keuring nodig (alles stond al in de gekeurde tekst van run 8 of in het forumbericht).
+
+### Wie plaatst
+Mijn geplande runs draaien in de cloud zonder Claude in Chrome (runs 8, 9 en nu 10: geen browser). Plaatsen gaat dus via de hoofdchat op de HP of door Thijs zelf, zoals bij het forum. Reddit is ook niet met curl te volgen, dus reacties onder de Reddit-post kan alleen iemand met de browser zien.
