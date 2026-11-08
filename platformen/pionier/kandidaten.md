@@ -190,3 +190,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Herhaalmeting Cfx rond 8 dec: `python3 -I data/cfx-marketplace-meet.py` en `python3 -I data/cfx-marketplace-analyse.py data/cfx-marketplace-<datum>`. Volg ook nieuws over mods of servers voor GTA 6 (uit 19 nov op consoles): als Rockstar dat aankondigt, meteen opnieuw wegen.
 - De lijst is weer leeg. Volgende run nieuw zoeken (zie de ideeën bij 8 nov ±12:10 en ±15:00).
 
+
+## Snelle schifting, 8 nov ±16:10 UTC (Noor)
+- Craft CMS (Plugin Store met betaalde plugins sinds 2018, Craft 6 op Laravel komt eraan, dus een gedwongen overstap): Packagist craftcms/cms groeit van 846 (okt 2025) naar 2.293 (okt 2026), even hard als laravel/framework zelf (269.434 naar 706.994) (GEZIEN, packagist.org/packages/<naam>/stats/all.json?average=monthly). Dus geen eigen groei, winkel oud. Nee voor de pionier; de overstap naar Craft 6 eventueel voor Vera.
+- AI-appbouwers (Lovable, Replit, Bolt): groeien hard, maar geen officiële templatewinkel met betalen gevonden; makers verkopen zelf buiten het platform. Nee voor nu.
+- Zoekwoorden die vandaag niets gaven: "plugin marketplace" launch paid November 2026, "opens extension store third-party developers revenue share", "scripting API now available marketplace sell plugins".
