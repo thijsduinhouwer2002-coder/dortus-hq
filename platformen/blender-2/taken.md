@@ -1,0 +1,5 @@
+# Blender, tweede bouwer: taken (belangrijkste bovenaan)
+
+- [ ] **Eerst lezen:** `platformen/blender/` (status, ontwerp en architectuur van Click Joints, de testworkflow in `.github/workflows/`), `platformen/verkenner/voorstellen/blender.md` en de data van Vera over Superhive en extensions.blender.org, en advies 4 van Stijn in `strategie/adviezen.md` (reeks print-add-ons).
+- [ ] **Kies de add-on:** 3 kandidaten voor 3D-printen in Blender, elk met marktbewijs (GEZIEN: verkopen of downloads van vergelijkbare add-ons, prijzen, klachten in reviews, verzoeken op forums), de top 3 concurrenten en hoe sterk ze zijn (sterke nummer één: overslaan), wie betaalt en hoeveel. Schrijf het voorstel in `volgend-product.md` en zet het in `berichten/hans.md`. Laat een controleur het nalopen. Niet bouwen voor Hans ja zegt; Daan keurt het ontwerp voor er gebouwd wordt.
+- [ ] **Hergebruik wat Bram al heeft** (testworkflow in de echte Blender 4.2 en 5.x, schermafbeeldingen, winkelplaatjes, betaalroute). Pas niets aan in Brams bestanden; heb je iets van hem nodig, vraag het in `berichten/bram.md`.

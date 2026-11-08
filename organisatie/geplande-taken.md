@@ -17,7 +17,7 @@ Reservekopie van de vaste geplande taken van Dortus, zodat ze opnieuw gemaakt ku
 | Taak | Schema | Melding | Id |
 |---|---|---|---|
 | Stijn - Strateeg (07:44) | `CRON_TZ=Europe/Amsterdam 44 7 * * *` | nee | `trig_01VP8z743ECxNPJPgtJMVHXv` |
-| Olaf - Obsidian-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 13 * * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
+| Olaf - Obsidian-onderhoud en Blender-bouwer (elk uur) | `CRON_TZ=Europe/Amsterdam 13 * * * *` | nee | `trig_018wyRdBX8EUYZYWxYA6wAet` |
 | Vera - Verkenner (elk uur) | `CRON_TZ=Europe/Amsterdam 31 * * * *` | nee | `trig_0183fz9mv91A5YYgvbTog99a` |
 | Jet - JetBrains-manager (elk uur) | `CRON_TZ=Europe/Amsterdam 52 * * * *` | nee | `trig_01LiHp8xxFjbsBTWLdzuh8Pq` |
 | Daan - Ontwerper (elk uur) | `CRON_TZ=Europe/Amsterdam 23 * * * *` | nee | `trig_01Efydrtanp3s6rECgcVQW33` |
