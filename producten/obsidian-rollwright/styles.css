@@ -2201,7 +2201,7 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-fumble 
 }
 
 /* Hoogste worp: goud als rand en als kleur van cijfer en d20. Geen verloop, geen gloed, geen vonk. */
-:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit:not(.rollwright-error) {
+:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit:not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block) {
 	border: 1.5px solid var(--rw-hi);
 	background: color-mix(in srgb, var(--rw-hi) 10%, var(--background-primary));
 	color: color-mix(in srgb, var(--rw-hi) 58%, var(--text-normal));
@@ -2209,7 +2209,7 @@ body.rollwright-skin-arcane [data-type="rollwright-history"] .rollwright-fumble 
 	animation: none;
 }
 
-body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit:not(.rollwright-error) {
+body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-crit:not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block) {
 	background: color-mix(in srgb, var(--rw-hi) 12%, var(--background-primary));
 	color: color-mix(in srgb, var(--rw-hi) 80%, var(--text-normal));
 }
@@ -2223,7 +2223,7 @@ body.theme-dark :is(body.rollwright-skin-classic .rollwright-roll:not(.rollwrigh
 }
 
 /* Laagste worp: rood als rand en kleur. Geen dreun, geen schudden. */
-:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-fumble:not(.rollwright-error) {
+:is(body.rollwright-skin-classic .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-classic .rollwright-roll).rollwright-fumble:not(.rollwright-error):not(.rollwright-text):not(.rollwright-roll-block) {
 	border: 1.5px solid color-mix(in srgb, var(--rw-lo) 85%, var(--background-primary));
 	background: color-mix(in srgb, var(--rw-lo) 8%, var(--background-primary));
 	color: color-mix(in srgb, var(--rw-lo) 70%, var(--text-normal));
