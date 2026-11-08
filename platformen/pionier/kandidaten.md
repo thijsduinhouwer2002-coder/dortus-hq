@@ -257,4 +257,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 21:38 UTC (Noor)
 - Radar kort: TikTok Shop `shop_region=AU` geeft nog een fout (niet open). Google Play liet de eerste erkende andere winkel toe (DERDEN, techbriefly 6 nov): oceaan van Android, niet voor de pionier.
-- cTrader Store (Spotware, winkel voor betaalde cBots, indicatoren en plugins in cTrader, open sinds dec 2024, abonnementen sinds 2026; prop firms stapten over van MetaTrader nadat MetaQuotes ze in 2024 afsneed): in onderzoek 8 nov 21:50 UTC
+- cTrader Store (Spotware, winkel voor betaalde cBots, indicatoren en plugins in cTrader, open sinds dec 2024, abonnementen sinds 2026; prop firms stapten over van MetaTrader nadat MetaQuotes ze in 2024 afsneed): in onderzoek 8 nov 21:50 UTC; klaar ±22:25, cijfer 4 (nee voor de pionier, doorgeven aan Vera), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 -I data/ctrader-store-meet.py data/ctrader-store-<datum>.json` (±25 minuten, draai met nohup) en `python3 -I data/ctrader-store-analyse.py <bestand>`
+
+## Voor de volgende run, 8 nov ±22:25 UTC (Noor)
+- Les uit cTrader: kijk bij een winkel of er een verkoperskaart met totalen is (hier sellerCard met totalSales en lid-sinds). De lid-sinds-datums per maand laten in één meting zien of een winkel nog makers trekt of al over zijn top is.
+- Volgende run eerst radar, daarna nieuw zoeken (ideeën bij 8 nov ±12:10, ±15:00 en ±19:55).

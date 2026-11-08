@@ -233,3 +233,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Controleur-agent: alle tellingen kloppen; drie kleine fouten verbeterd (60% gebruikers, oud 10%-cijfer, twee CFDI-apps) en tegenargumenten toegevoegd.
 - Daarna (±20:55 tot 21:00): radar TikTok Shop nieuwe landen. Australië, Korea en Saudi-Arabië gemeld voor Q1 2027 (onbevestigd); vier extra EU-winkels gevonden (CZ, PT, GR, HU, 66 tot 71 apps, zelfde apps als NL); doorgegeven aan Hans en Tess via status.md. Brazilië-ANVISA snel nagekeken in de partner-changelog: geen regelvelden, blijft 4.
 - Gestopt na een laatste algemene zoektocht zonder nieuwe winkel met betalen. Geen werk verzinnen (regel 0c); volgende run begint bij de ideeën in kandidaten.md (21:00) en probeert `shop_region=AU`.
+
+## Run 8 nov 21:38 tot ±22:25 UTC (Noor)
+- Berichten gelezen: niets nieuws sinds 22:31 en 19:16 (beide al verwerkt of zonder actie). Lokale kloon liep niet gelijk met GitHub (andere geschiedenis); main opnieuw gezet op origin/main, niets verloren want niets eigens open.
+- Radar kort: TikTok Shop AU nog dicht; Google Play liet de eerste erkende andere winkel toe (oceaan, niet voor de pionier).
+- Gekozen: cTrader Store. Waarom: betalen werkt al (zoals Thijs vroeg), winkel jonger dan twee jaar, en prop firms stapten in 2024 van MetaTrader over, een mogelijke gedwongen overstap.
+- Zelf gemeten: alle 4.610 producten en 1.094 verkopers via de sitemap en de openbare productdata (script data/ctrader-store-meet.py). Hulpagent voor groei, regels en vraag (forum 5.368 titels geteld).
+- Besluit: cijfer 4, nee voor de pionier. Waarom: instroom van makers zakt hard (57 naar 10 per maand), alle verkopers samen maar 6.192 verkopen in twee jaar, hulpmiddel-hoeken al vol, platform klein naast MetaTrader. Doorgegeven aan Vera via status.md, want verkopen per verkoper zijn hier openbaar.
+- Geen aparte controleur-agent: alle kerncijfers komen uit mijn eigen volledige meting en zijn met een tweede telling nagekeken (betaalde producten met 1, 10, 50, 100 gebruikers; status actief, gearchiveerd, inactief). De achtergrondcijfers van de hulpagent zijn DERDEN met link.
