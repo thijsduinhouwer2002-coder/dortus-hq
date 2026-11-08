@@ -139,7 +139,14 @@ private class BisonLezer(b: PsiBuilder) : Basis(b, BisonTokens.TYPES) {
         if (isSoort(Soort.DUBBELEPUNT)) stap() else fout("':' expected")
         val alts = b.mark()
         alternatief()
-        while (isSoort(Soort.STREEP)) { stap(); alternatief() }
+        // Bison (`parse-gram.y`): `rhses.1: rhs | rhses.1 "|" rhs | rhses.1 ";"`. Na een `;` mag dus
+        // nog een `|` met een alternatief van dezelfde regel komen (`a: b ; | c ;`). Die `;` nemen we
+        // alleen mee als er (na eventueel meer `;`) echt een `|` volgt; anders blijft het einde gewoon.
+        while (true) {
+            if (isSoort(Soort.STREEP)) { stap(); alternatief() }
+            else if (isSoort(Soort.PUNTKOMMA) && streepNaPuntkommas()) stap()
+            else break
+        }
         alts.done(E.ALTERNATIVES)
         when {
             isSoort(Soort.PUNTKOMMA) -> stap()
@@ -151,6 +158,13 @@ private class BisonLezer(b: PsiBuilder) : Basis(b, BisonTokens.TYPES) {
             }
         }
         m.done(E.RULE)
+    }
+
+    /** Staat het huidige token op `;` en volgt er na nul of meer `;` een `|`? */
+    private fun streepNaPuntkommas(): Boolean {
+        var i = 1
+        while (types.soort(b.lookAhead(i)) == Soort.PUNTKOMMA) i++
+        return types.soort(b.lookAhead(i)) == Soort.STREEP
     }
 
     /** Eén alternatief: symbolen, acties, `%prec`, `%empty` enzovoort. Mag leeg zijn. */
