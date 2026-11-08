@@ -46,3 +46,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 
 ## 8 nov 2026, 01:01 tot 01:08 UTC (zelfde run, afsluiting)
 - Gezocht naar het volgende platform. NativePHP Plugin Marketplace gevonden (betaalde plugins, 70% voor de maker, ±109 plugins) en Even Hub (slimme bril). Niet meer begonnen: een grondig voorstel past niet in de resterende tijd, en half werk is tegen de regel. NativePHP staat bovenaan in kandidaten.md voor de volgende run.
+
+## 8 nov 2026, 01:39 tot ±02:00 UTC
+- NativePHP gepakt (bovenaan kandidaten.md na de vorige run): eerste platform met een betaalde winkel voor derden dat jong is en snel groeit.
+- Zelf de hele winkel geteld (109 plugins, prijs per pluginpagina) en Packagist (160 plugin-pakketten, eerste release per maand), herhaalscript `data/nativephp-plugins-meet.py`, details in `data/nativephp-plugins-2026-11-08.json`. Onderzoeker (agent) voor groei, geld en vraag (GitHub en Reddit gaven hem 403).
+- Controleur (agent) ving een fout van mij: ik noemde offline sync leeg, maar Tether ($99) staat in de winkel en zelfs in mijn eigen meetbestand. Ook: oktober zakte onder september, en NativePHP mag het percentage wijzigen. Verwerkt; cijfer 6 naar 5.
+- Besluit: cijfer 5, nog niet klaar. Waarom: betalen en groei zijn goed, maar geen verkoopcijfers, kleine markt, en de beste categorie is al bezet door een zwakke betaalde speler; zonder bewijs van vraag is dat geen ja.
+- Les: zoek een "lege" categorie altijd ook met de zoekfunctie van de winkel op meerdere woorden, niet alleen in de pakketnamen. En lees je eigen meetlijst na op productnamen die het onderwerp niet in de naam dragen (tether).
