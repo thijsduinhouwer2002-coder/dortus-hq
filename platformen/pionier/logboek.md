@@ -163,3 +163,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 2, nee. Waarom: het platform krimpt hard (actief per maand 7,84M naar 2,21M sinds dec 2025, verificaties staan stil, aantal mini apps daalt) en het makersgeld lijkt gestopt. Geen controleur: advies is nee en de kerncijfers zelf gezien.
 - Les: eerst zoeken naar een openbare teller van de eigenaar plus oude standen in het archief; dat schift binnen vijf minuten.
 - Aanvulling run 8 nov ±12:40: na World App snelle schifting van Supernote, TikTok Minis, Railway-templates en Antigravity (zie kandidaten.md). Geen tweede volledig onderzoek begonnen: geen sterke kandidaat die in de resterende tijd grondig kon (regel 0c). Railway doorgegeven als tip voor Vera.
+
+## Run 8 nov 13:38 tot ±15:00 UTC (Noor)
+- Lokale kloon liep achter op een herschreven geschiedenis (origin/main los van de oude main). Oude main bewaard als tak oud-main (alleen lokaal), main gelijk gezet met origin/main. Niets van GitHub weggehaald.
+- Snelle schifting Antigravity (gecureerd, geen betalen) en Homey van LG (winkel sinds 2016, geen betaalde apps): nee.
+- Filament gepakt. Waarom: Packagist liet zien dat het pakket in 11 maanden bijna 7 keer zo vaak gedownload wordt, harder dan Laravel zelf, en de pluginlijst heeft betaalde plugins met eigen kassa.
+- Gemeten: alle 1.237 plugins via de open API (filamentphp.com/api/plugins), Packagist-tellers voor 1.088, GitHub-issues over v4/v5-ondersteuning (194). Scripts in data/.
+- Controleur (agent) mat zeven kernbeweringen opnieuw: alles klopte, mediaan nieuwe plugins in zijn steekproef iets hoger (5.731).
+- Besluit: cijfer 6, ja met kleine inzet, categorie goedkeuringen voor v5. Waarom: groei en bereik voor nieuwkomers zijn sterk en betalen kan; het grootste gat is dat verkopen niet te zien zijn, dat lossen we alleen op door klein te proberen.
