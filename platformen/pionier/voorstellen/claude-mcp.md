@@ -42,4 +42,7 @@ Nederlandse bedrijfsdata als koppeling (KvK, BAG, CBS, rechtspraak): gratis basi
 Aantal koppelingen in claude.ai/directory (403), installs per koppeling (niet openbaar), mcp.so en PulseMCP (geblokkeerd), groei van de Glama-telling door de tijd. Herhaalmeting rond 8 dec met `python3 data/mcp-register-meet.py`: groei van het officiële register per maand en van de officiële plugin-marketplace.
 
 ## Officieel MCP-register, eigen telling
-(zie onder, ingevuld na de meting)
+Gemeten 8 nov 03:19 UTC over de hele API (alle versies, per servernaam de eerste publicatie), GEZIEN, https://registry.modelcontextprotocol.io/v0/servers:
+- 58.585 servers onder 36.599 namen van makers, waarvan 39.661 met een server op afstand (zoals de directory eist).
+- Nieuw per maand: sep 2025 456, dec 276, feb 2026 1.154, apr 2.547, jun 3.848, aug 6.519, sep 11.849, okt 16.283, en in de eerste 7 dagen van nov al 4.763.
+- Dit bevestigt het oordeel: het aanbod verdubbelt ongeveer elke twee maanden en loopt nu op ±500 nieuwe servers per dag. Een nieuwe koppeling van ons verdrinkt hier, tenzij hij in een categorie zit die niemand anders kan bedienen.
