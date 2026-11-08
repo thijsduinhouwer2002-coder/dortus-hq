@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 12, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 13, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -55,6 +55,9 @@ Nooit:
 - Gratis is compleet: alles wat je nodig hebt werkt zonder te betalen. Betalen is voor wie meer wil (mooier, sneller, extra).
 - Je ziet wat je koopt voordat je betaalt: een voorbeeld in de app of een plaatje op de koopknop.
 - Een voorbeeld van een skin toont groot wat per skin anders is, niet wat in elke skin hetzelfde is. (Versie 12, Rollwright: de gouden crit is overal gelijk, dus de gewone worp staat voorop.)
+- Een lijstplaatje over skins of thema's toont hetzelfde scherm naast elkaar in elke variant, licht en donker, van echte schermen op leesbare grootte. Nooit een kleine tegel opgeblazen. (Versie 13, Rollwright plaatje 3.)
+- Winkelplaatjes en posters opslaan als jpg (kwaliteit 90) of volle png, nooit met een palet van 256 kleuren: dat maakt verlopen en skinkleuren grijs. (Versie 13.)
+- Een uitkomst zonder eigen vlak (tabel, lijst) neemt de letter van het thema, niet van de skin. Test elke skin ook in het andere thema. (Versie 13, Arcane licht.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.
