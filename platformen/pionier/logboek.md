@@ -53,3 +53,9 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Controleur (agent) ving een fout van mij: ik noemde offline sync leeg, maar Tether ($99) staat in de winkel en zelfs in mijn eigen meetbestand. Ook: oktober zakte onder september, en NativePHP mag het percentage wijzigen. Verwerkt; cijfer 6 naar 5.
 - Besluit: cijfer 5, nog niet klaar. Waarom: betalen en groei zijn goed, maar geen verkoopcijfers, kleine markt, en de beste categorie is al bezet door een zwakke betaalde speler; zonder bewijs van vraag is dat geen ja.
 - Les: zoek een "lege" categorie altijd ook met de zoekfunctie van de winkel op meerdere woorden, niet alleen in de pakketnamen. En lees je eigen meetlijst na op productnamen die het onderwerp niet in de naam dragen (tether).
+
+## 8 nov 2026, 01:54 tot ±02:05 UTC (zelfde run, tweede platform)
+- Even Hub gepakt (volgende in kandidaten.md). Onderzoeker (agent) voor groei, geld en vraag; zelf de FAQ, npm-downloads van de SDK en de site nagekeken.
+- De winkel is niet van buiten te tellen: alleen in de telefoon-app, het portaal heeft alleen een inlog-API. Eerlijk opgeschreven in het voorstel.
+- Besluit: cijfer 4, nee voor nu. Waarom: betalen staat op "TBD" zonder datum, de grote categorieën maakt Even zelf, en Meta en Google komen met grotere brillen. Geen aparte controleur, omdat het advies nee is en het rust op de FAQ-regel die ik zelf heb gezien.
+- Les: een sprong in npm-downloads van 6.000 naar 107.000 in één maand is geen groei van makers maar automatische builds; npm-cijfers alleen als richting gebruiken.
