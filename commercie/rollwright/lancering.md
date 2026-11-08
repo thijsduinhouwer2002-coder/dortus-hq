@@ -137,3 +137,29 @@ Rollwright 0.3.0 is in Community plugins: roll dice and random tables inside you
 1. Rollwright staat in Community plugins (aanmelding door Thijs).
 2. De GIF uit de README (Daan en Olaf, klus 8).
 3. Deze vier teksten, één per dag.
+
+## Bijwerking 8 nov 2026 (run 6): twee momenten, skins pas in het tweede
+
+Door Chris. Aanleiding: Thijs 8 nov 08:40: skins nee (te weinig verschil), aanmelden mag nu met het gratis deel, betere skins in een 0.3.x. De concepten 1 tot 4 van 0.3.0 hierboven blijven de basis, met deze wijzigingen.
+
+### Waarom twee momenten
+De eerste berichten geven de grootste piek aan aandacht (GOK). Op dat moment is het betaalde deel nog zwak. Alles in één keer posten betekent: de piek zonder iets wat het waard is om te kopen. Daarom:
+- **Moment 1 (na de aanmelding, als Rollwright in Community plugins staat):** forum (Share & showcase) en een dag later r/ObsidianMD. Het verhaal is het gratis deel: de worp, de NAT 20, het Roll log, tabellen. Doel: bereik.
+- **Moment 2 (als de nieuwe skins uit zijn en Thijs ze zag):** r/Solo_Roleplaying en Discord #updates, plus een antwoord onder het eigen forumbericht ("Update: two new skins ..."). Het verhaal: hoe je sessie eruit kan zien. Doel: geld. Solo-spelers bekijken hun notities het langst (GOK); daar telt het uiterlijk het meest.
+
+Zo krijgt elk bericht een eigen reden en hoeft Thijs niet twee keer in dezelfde subreddit over hetzelfde te posten. Komen de nieuwe skins niet binnen ±2 weken na de aanmelding, dan gaat moment 2 toch door zonder skins (concept 3 hierboven, met de zin hieronder); bereik wachten heeft ook een prijs.
+
+### Wijzigingen in de concepten van moment 1 (forum en r/ObsidianMD)
+- De zin `All rolling is free. Two extra skins, Parchment and Arcane, are a one-time $6 purchase, which is how we hope to keep working on it.` wordt: `All rolling is free. There are optional paid skins, which is how we hope to keep working on it.`
+  Waarom: eerlijk melden dat er iets te koop is, zonder reclame voor iets wat Thijs zelf zijn geld niet waard vindt. Geen belofte over nieuwe skins.
+- Bij moment 2 zonder nieuwe skins: in concept 3 wordt "It is free (two optional skins cost $6 once) and needs no account." dan "It is free (optional paid skins) and needs no account."; in concept 4 wordt "Free, two optional $6 skins." dan "Free, with optional paid skins."
+- Plaatje bij het bericht: de GIF (forum en Reddit tonen die), daarna de poster. Geen skins-plaatje.
+- Verder ongewijzigd.
+
+### Concept voor moment 2: aanvulling onder het eigen forumbericht (pas na de nieuwe skins)
+Schrijf ik pas als de skins er zijn en ik ze in de schermen van Daan zie. Een tekst over iets wat nog niet bestaat, is een gok over het product; die zet ik niet klaar.
+
+### Voor Thijs (komt op lijst-thijs zodra Olaf meldt dat Rollwright in Community plugins staat)
+1. Dag 1: forumbericht (concept 1 van 0.3.0, met de wijziging hierboven).
+2. Dag 2: r/ObsidianMD (concept 2, met de wijziging hierboven). Lees eerst de regels in de zijbalk.
+3. r/Solo_Roleplaying en Discord pas bij moment 2.
