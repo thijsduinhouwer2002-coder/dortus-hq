@@ -1,0 +1,1976 @@
+{
+ "samenvatting": {
+  "datum": "2026-11-08",
+  "plugins_winkel": 109,
+  "eigen_nativephp": 22,
+  "makers": 37,
+  "betaald": 56,
+  "betaald_derden": 47,
+  "makers_betaald_derden": 18,
+  "prijzen": {
+   "49": 21,
+   "99": 20,
+   "29": 15
+  },
+  "packagist_pakketten": 160,
+  "packagist_nieuw_per_maand": {
+   "2026-01": 9,
+   "2026-02": 6,
+   "2026-03": 11,
+   "2026-04": 17,
+   "2026-05": 14,
+   "2026-06": 7,
+   "2026-07": 12,
+   "2026-08": 29,
+   "2026-09": 15,
+   "2026-10": 37,
+   "2026-11": 3
+  },
+  "packagist_downloads_derden_totaal": 28068
+ },
+ "plugins": [
+  {
+   "slug": "guppylab/routing",
+   "prijs": 49,
+   "maker": "guppylab",
+   "versie": "4.3.2",
+   "bijgewerkt": "3 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "guppylab"
+  },
+  {
+   "slug": "nativephp/mobile-dynamic-notifications",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "0.1.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Shane Rosenthal"
+  },
+  {
+   "slug": "nativephp/mobile-skia",
+   "prijs": 99,
+   "maker": "nativephp",
+   "versie": "1.1.0",
+   "bijgewerkt": "5 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "partek/accessibility",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.0.1",
+   "bijgewerkt": "14 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/document-intelligence",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.1.1",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/native-maps",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.1.3",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/native-translate",
+   "prijs": 49,
+   "maker": "partek",
+   "versie": "1.1.2",
+   "bijgewerkt": "3 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/passkeys",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.1.4",
+   "bijgewerkt": "9 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/print-studio",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.1.4",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/speech-to-text",
+   "prijs": 29,
+   "maker": "partek",
+   "versie": "1.2.0",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 20,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/wallet-passes",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "2.0.0",
+   "bijgewerkt": "13 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "vos/nativephp-live-activities",
+   "prijs": 49,
+   "maker": "vos",
+   "versie": "1.3.0",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Pauline Vos"
+  },
+  {
+   "slug": "codypchristian/nativephp-admob",
+   "prijs": 49,
+   "maker": "codypchristian",
+   "versie": "0.2.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Cody P Christian"
+  },
+  {
+   "slug": "codypchristian/nativephp-iap",
+   "prijs": 49,
+   "maker": "codypchristian",
+   "versie": "0.3.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Cody P Christian"
+  },
+  {
+   "slug": "codypchristian/nativephp-nsfw-checker",
+   "prijs": 49,
+   "maker": "codypchristian",
+   "versie": "0.1.2",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Cody P Christian"
+  },
+  {
+   "slug": "codypchristian/nativephp-stripe",
+   "prijs": 99,
+   "maker": "codypchristian",
+   "versie": "0.4.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Cody P Christian"
+  },
+  {
+   "slug": "nativephp/mobile-ble",
+   "prijs": 49,
+   "maker": "nativephp",
+   "versie": "1.0.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "partek/force-update",
+   "prijs": 29,
+   "maker": "partek",
+   "versie": "1.1.1",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 20,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/home-screen-shortcuts",
+   "prijs": 49,
+   "maker": "partek",
+   "versie": "3.1.0",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/media-pipeline",
+   "prijs": 99,
+   "maker": "partek",
+   "versie": "1.2.0",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 70,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/native-share",
+   "prijs": 29,
+   "maker": "partek",
+   "versie": "2.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": 20,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "partek/text-to-speech",
+   "prijs": 29,
+   "maker": "partek",
+   "versie": "1.2.1",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": 20,
+   "maker_naam": "PARQore"
+  },
+  {
+   "slug": "tether/nativephp-client",
+   "prijs": 99,
+   "maker": "tether",
+   "versie": "1.2.0",
+   "bijgewerkt": "3 weeks ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Lukas Rakauskas"
+  },
+  {
+   "slug": "thelemon2020/nativephp-shazamkit",
+   "prijs": 29,
+   "maker": "thelemon2020",
+   "versie": "1.0.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": 20,
+   "maker_naam": "thelemon2020"
+  },
+  {
+   "slug": "all1web/nativephp-actions-anywhere",
+   "prijs": 29,
+   "maker": "all1web",
+   "versie": "0.4.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Neo Nos"
+  },
+  {
+   "slug": "all1web/nativephp-geofence",
+   "prijs": 49,
+   "maker": "all1web",
+   "versie": "0.2.5",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Neo Nos"
+  },
+  {
+   "slug": "all1web/nativephp-share-target",
+   "prijs": 49,
+   "maker": "all1web",
+   "versie": "0.3.2",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Neo Nos"
+  },
+  {
+   "slug": "all1web/nativephp-widgets",
+   "prijs": 49,
+   "maker": "all1web",
+   "versie": "0.7.2",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Neo Nos"
+  },
+  {
+   "slug": "jvdluk/pro-vibration",
+   "prijs": 49,
+   "maker": "jvdluk",
+   "versie": "1.1.1",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 35,
+   "maker_naam": "JVDLUK"
+  },
+  {
+   "slug": "lrakauskas/nativephp-google-admob",
+   "prijs": 99,
+   "maker": "lrakauskas",
+   "versie": "1.0.0",
+   "bijgewerkt": "4 months ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Lukas Rakauskas"
+  },
+  {
+   "slug": "nativecodeforge/native-code-forge-date-picker",
+   "prijs": 29,
+   "maker": "nativecodeforge",
+   "versie": "2.0.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": 20,
+   "maker_naam": "NativeCodeForge"
+  },
+  {
+   "slug": "nativecodeforge/native-code-forge-time-picker",
+   "prijs": 29,
+   "maker": "nativecodeforge",
+   "versie": "2.0.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": 20,
+   "maker_naam": "NativeCodeForge"
+  },
+  {
+   "slug": "noehassiel/filepicker",
+   "prijs": 49,
+   "maker": "noehassiel",
+   "versie": "0.2.4",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": 35,
+   "maker_naam": "noehassiel"
+  },
+  {
+   "slug": "rubenvdb/nativephp-widgets",
+   "prijs": 99,
+   "maker": "rubenvdb",
+   "versie": "0.9.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Borgman Digital"
+  },
+  {
+   "slug": "weswecan/nativephp-mobile-apple-intelligence-foundation-models",
+   "prijs": 29,
+   "maker": "weswecan",
+   "versie": "V1.0.1",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Context Undefined"
+  },
+  {
+   "slug": "weswecan/nativephp-mobile-osc",
+   "prijs": 29,
+   "maker": "weswecan",
+   "versie": "1.0.1",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Context Undefined"
+  },
+  {
+   "slug": "firsthand/nativephp-app-icons",
+   "prijs": 29,
+   "maker": "firsthand",
+   "versie": "1.0.1",
+   "bijgewerkt": "12 hours ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "firsthand/nativephp-consent",
+   "prijs": 29,
+   "maker": "firsthand",
+   "versie": "1.0.1",
+   "bijgewerkt": "12 hours ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "firsthand/nativephp-health",
+   "prijs": 99,
+   "maker": "firsthand",
+   "versie": "1.0.1",
+   "bijgewerkt": "12 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "firsthand/nativephp-pip",
+   "prijs": 99,
+   "maker": "firsthand",
+   "versie": "1.0.1",
+   "bijgewerkt": "12 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "firsthand/nativephp-rich-push",
+   "prijs": 49,
+   "maker": "firsthand",
+   "versie": "1.1.0",
+   "bijgewerkt": "3 hours ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "firsthand/nativephp-wallet",
+   "prijs": 99,
+   "maker": "firsthand",
+   "versie": "1.0.1",
+   "bijgewerkt": "13 hours ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "kirilldakhnyuk/nativephp-face-tracking",
+   "prijs": 29,
+   "maker": "kirilldakhnyuk",
+   "versie": "1.0.0",
+   "bijgewerkt": "13 hours ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Kirill"
+  },
+  {
+   "slug": "srwiez/nativephp-mobile-calendar",
+   "prijs": 49,
+   "maker": "srwiez",
+   "versie": "2.1.0",
+   "bijgewerkt": "6 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Eser Deniz"
+  },
+  {
+   "slug": "srwiez/nativephp-mobile-contacts",
+   "prijs": 49,
+   "maker": "srwiez",
+   "versie": "2.1.0",
+   "bijgewerkt": "6 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Eser Deniz"
+  },
+  {
+   "slug": "srwiez/nativephp-mobile-screenshots",
+   "prijs": 29,
+   "maker": "srwiez",
+   "versie": "2.1.0",
+   "bijgewerkt": "6 days ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Eser Deniz"
+  },
+  {
+   "slug": "vos/nativephp-live-activities-free",
+   "prijs": 0,
+   "maker": "vos",
+   "versie": "1.0.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Pauline Vos"
+  },
+  {
+   "slug": "weswecan/nfc",
+   "prijs": 99,
+   "maker": "weswecan",
+   "versie": "V1.0.3",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Context Undefined"
+  },
+  {
+   "slug": "codingwithrk/nativephp-datetime-picker",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.0.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "codingwithrk/nativephp-social-auth",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.0.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "firsthand/nativephp-share-sheet",
+   "prijs": 49,
+   "maker": "firsthand",
+   "versie": "1.0.2",
+   "bijgewerkt": "5 days ago",
+   "ultra_prijs": 35,
+   "maker_naam": "Molly Klein"
+  },
+  {
+   "slug": "kevinbatdorf/nativephp-launcher",
+   "prijs": 0,
+   "maker": "kevinbatdorf",
+   "versie": "0.1.0",
+   "bijgewerkt": "2 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Kevin Batdorf"
+  },
+  {
+   "slug": "kevinbatdorf/nativephp-retro-emulator",
+   "prijs": 0,
+   "maker": "kevinbatdorf",
+   "versie": "0.1.4",
+   "bijgewerkt": "7 hours ago",
+   "ultra_prijs": null,
+   "maker_naam": "Kevin Batdorf"
+  },
+  {
+   "slug": "khalidmaquilang/sensors-plus",
+   "prijs": 0,
+   "maker": "khalidmaquilang",
+   "versie": "1.0.2",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "khalidmaquilang"
+  },
+  {
+   "slug": "noehassiel/signature-pad",
+   "prijs": 0,
+   "maker": "noehassiel",
+   "versie": "0.1.3",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "noehassiel"
+  },
+  {
+   "slug": "smronju/nativephp-charts",
+   "prijs": 0,
+   "maker": "smronju",
+   "versie": "1.1.0",
+   "bijgewerkt": "14 hours ago",
+   "ultra_prijs": null,
+   "maker_naam": "Mohammad Shoriful Islam Ronju"
+  },
+  {
+   "slug": "smronju/nativephp-contacts-picker",
+   "prijs": 0,
+   "maker": "smronju",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Mohammad Shoriful Islam Ronju"
+  },
+  {
+   "slug": "smronju/nativephp-google-mobile-ads",
+   "prijs": 0,
+   "maker": "smronju",
+   "versie": "1.2.7",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Mohammad Shoriful Islam Ronju"
+  },
+  {
+   "slug": "stupidbrains/mobile-sfx",
+   "prijs": 0,
+   "maker": "stupidbrains",
+   "versie": "1.0.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Kirill"
+  },
+  {
+   "slug": "vikas5914/fluidaudio",
+   "prijs": 0,
+   "maker": "vikas5914",
+   "versie": "1.1.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Vikas Kapadiya"
+  },
+  {
+   "slug": "all1web/nativephp-wifi-scan",
+   "prijs": 0,
+   "maker": "all1web",
+   "versie": "0.2.4",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Neo Nos"
+  },
+  {
+   "slug": "bhargavdetroja/nativephp-play-games-services",
+   "prijs": 0,
+   "maker": "bhargavdetroja",
+   "versie": "1.1.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bhargav Detroja"
+  },
+  {
+   "slug": "codingwithrk/firebase-crashlytics",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.0.1",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "codypchristian/nativephp-lottie",
+   "prijs": 0,
+   "maker": "codypchristian",
+   "versie": "0.2.5",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Cody P Christian"
+  },
+  {
+   "slug": "nativephp/mobile-clipboard",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.0.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "noehassiel/confetti",
+   "prijs": 0,
+   "maker": "noehassiel",
+   "versie": "1.0.1",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "noehassiel"
+  },
+  {
+   "slug": "smronju/nativephp-document-picker",
+   "prijs": 0,
+   "maker": "smronju",
+   "versie": "1.1.2",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Mohammad Shoriful Islam Ronju"
+  },
+  {
+   "slug": "unloc/nativephp-enhanced-splash",
+   "prijs": 0,
+   "maker": "unloc",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Unloc"
+  },
+  {
+   "slug": "unloc/nativephp-svg-component",
+   "prijs": 0,
+   "maker": "unloc",
+   "versie": "1.1.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Unloc"
+  },
+  {
+   "slug": "victorycodedev/nativephp-fetch",
+   "prijs": 0,
+   "maker": "victorycodedev",
+   "versie": "1.2.0",
+   "bijgewerkt": "5 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Efekpogua Victory"
+  },
+  {
+   "slug": "victorycodedev/toastkit",
+   "prijs": 0,
+   "maker": "victorycodedev",
+   "versie": "1.5.0",
+   "bijgewerkt": "3 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Efekpogua Victory"
+  },
+  {
+   "slug": "vipertecpro/image-cropper",
+   "prijs": 0,
+   "maker": "vipertecpro",
+   "versie": "1.3.0",
+   "bijgewerkt": "3 weeks ago",
+   "ultra_prijs": null,
+   "maker_naam": "Vipul Walia"
+  },
+  {
+   "slug": "bhargavdetroja/nativephp-all-permission-handle",
+   "prijs": 0,
+   "maker": "bhargavdetroja",
+   "versie": "1.0.2",
+   "bijgewerkt": "5 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bhargav Detroja"
+  },
+  {
+   "slug": "bhargavdetroja/nativephp-google-mobile-ads",
+   "prijs": 0,
+   "maker": "bhargavdetroja",
+   "versie": "1.2.0",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bhargav Detroja"
+  },
+  {
+   "slug": "codingwithrk/double-back-to-close",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.1.0",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "developernauts/nativephp-mobile-locales",
+   "prijs": 0,
+   "maker": "developernauts",
+   "versie": "1.0.2",
+   "bijgewerkt": "4 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Developernauts"
+  },
+  {
+   "slug": "fabianpnke/mobile-device-timezone",
+   "prijs": 0,
+   "maker": "fabianpnke",
+   "versie": "2.0.0",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "fabianpnke"
+  },
+  {
+   "slug": "fatlum/nativephp-push",
+   "prijs": 0,
+   "maker": "fatlum",
+   "versie": "0.1.4",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": null,
+   "maker_naam": "Fatlum Gjinofci"
+  },
+  {
+   "slug": "ikromjon/nativephp-mobile-social-auth",
+   "prijs": 29,
+   "maker": "ikromjon",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 month ago",
+   "ultra_prijs": 20,
+   "maker_naam": "Ikromjon Ochilov"
+  },
+  {
+   "slug": "mobikul/mobikul_loader",
+   "prijs": 0,
+   "maker": "mobikul",
+   "versie": "1.0.2",
+   "bijgewerkt": "4 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Mobikul"
+  },
+  {
+   "slug": "nativephp/mobile-media-player",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-vibe",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "2.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "s2br/nativephp-mobile-splashscreen",
+   "prijs": 0,
+   "maker": "s2br",
+   "versie": "1.4.0",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Israel Pereira"
+  },
+  {
+   "slug": "wilsonatb/in-app-update",
+   "prijs": 0,
+   "maker": "wilsonatb",
+   "versie": "1.0.2",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Wilson Tovar"
+  },
+  {
+   "slug": "codingwithrk/no-screenshot",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.1.0",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "codingwithrk/package-info",
+   "prijs": 0,
+   "maker": "codingwithrk",
+   "versie": "1.1.0",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "CodingwithRK"
+  },
+  {
+   "slug": "developernauts/nativephp-inapp-purchases",
+   "prijs": 99,
+   "maker": "developernauts",
+   "versie": "1.4.1",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": 70,
+   "maker_naam": "Developernauts"
+  },
+  {
+   "slug": "djurovicigoor/app-lifecycle",
+   "prijs": 0,
+   "maker": "djurovicigoor",
+   "versie": "1.0.0",
+   "bijgewerkt": "7 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Igor"
+  },
+  {
+   "slug": "geof-dev/nativephp-store-review",
+   "prijs": 0,
+   "maker": "geof-dev",
+   "versie": "1.0.4",
+   "bijgewerkt": "2 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Geof"
+  },
+  {
+   "slug": "kevinbatdorf/nativephp-fullscreen",
+   "prijs": 0,
+   "maker": "kevinbatdorf",
+   "versie": "0.1.1",
+   "bijgewerkt": "1 day ago",
+   "ultra_prijs": null,
+   "maker_naam": "Kevin Batdorf"
+  },
+  {
+   "slug": "nativephp/mobile-background-tasks",
+   "prijs": 99,
+   "maker": "nativephp",
+   "versie": "0.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-dialog",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.0.2",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-local-notifications",
+   "prijs": 99,
+   "maker": "nativephp",
+   "versie": "0.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "srwiez/nativephp-mobile-screen",
+   "prijs": 0,
+   "maker": "srwiez",
+   "versie": "2.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Eser Deniz"
+  },
+  {
+   "slug": "theunwindfront/nativephp-audio",
+   "prijs": 0,
+   "maker": "theunwindfront",
+   "versie": "1.3.1",
+   "bijgewerkt": "4 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Sagar Pansuriya"
+  },
+  {
+   "slug": "wilsonatb/nativephp-in-app-reviews",
+   "prijs": 0,
+   "maker": "wilsonatb",
+   "versie": "1.0.5",
+   "bijgewerkt": "3 months ago",
+   "ultra_prijs": null,
+   "maker_naam": "Wilson Tovar"
+  },
+  {
+   "slug": "nativephp/mobile-biometrics",
+   "prijs": 49,
+   "maker": "nativephp",
+   "versie": "1.0.3",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-browser",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.2.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-camera",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-device",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.0.4",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-file",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.0.4",
+   "bijgewerkt": "2 days ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-firebase",
+   "prijs": 99,
+   "maker": "nativephp",
+   "versie": "1.1.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-microphone",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.2.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-network",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-scanner",
+   "prijs": 49,
+   "maker": "nativephp",
+   "versie": "1.1.1",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-secure-storage",
+   "prijs": 49,
+   "maker": "nativephp",
+   "versie": "1.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-share",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.1.1",
+   "bijgewerkt": "1 day ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-system",
+   "prijs": 0,
+   "maker": "nativephp",
+   "versie": "1.0.3",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  },
+  {
+   "slug": "nativephp/mobile-geolocation",
+   "prijs": 49,
+   "maker": "nativephp",
+   "versie": "2.1.0",
+   "bijgewerkt": "1 week ago",
+   "ultra_prijs": null,
+   "maker_naam": "Bifrost Technology"
+  }
+ ],
+ "packagist": [
+  {
+   "naam": "1338/nativephp-tflite",
+   "eerste": "2026-07",
+   "downloads": 4,
+   "maand": 0
+  },
+  {
+   "naam": "all1web/nativephp-wifi-scan",
+   "eerste": "2026-08",
+   "downloads": 4,
+   "maand": 0
+  },
+  {
+   "naam": "artisan-build/telltale-crashes",
+   "eerste": "2026-10",
+   "downloads": 14,
+   "maand": 14
+  },
+  {
+   "naam": "atendwa/nativephp-sms-reader",
+   "eerste": "2026-02",
+   "downloads": 10,
+   "maand": 0
+  },
+  {
+   "naam": "atum/nativephp-loader",
+   "eerste": "2026-02",
+   "downloads": 140,
+   "maand": 2
+  },
+  {
+   "naam": "basharat78/nativephp-local-notification",
+   "eerste": "2026-04",
+   "downloads": 24,
+   "maand": 0
+  },
+  {
+   "naam": "bhargavdetroja/nativephp-all-permission-handle",
+   "eerste": "2026-04",
+   "downloads": 282,
+   "maand": 11
+  },
+  {
+   "naam": "bhargavdetroja/nativephp-google-mobile-ads",
+   "eerste": "2026-06",
+   "downloads": 8,
+   "maand": 1
+  },
+  {
+   "naam": "bhargavdetroja/nativephp-play-games-services",
+   "eerste": "2026-08",
+   "downloads": 5,
+   "maand": 0
+  },
+  {
+   "naam": "blessedzulu/nativephp-admob",
+   "eerste": "2026-05",
+   "downloads": 29,
+   "maand": 0
+  },
+  {
+   "naam": "blessedzulu/nativephp-deeplinks",
+   "eerste": "2026-06",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "blessedzulu/nativephp-mobile-haptics",
+   "eerste": "2026-06",
+   "downloads": 15,
+   "maand": 0
+  },
+  {
+   "naam": "blutrixx/nativephp-alarms",
+   "eerste": "2026-11",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "blutrixx/nativephp-device-utils",
+   "eerste": "2026-08",
+   "downloads": 25,
+   "maand": 11
+  },
+  {
+   "naam": "blutrixx/nativephp-escpos-printer",
+   "eerste": "2026-08",
+   "downloads": 41,
+   "maand": 4
+  },
+  {
+   "naam": "blutrixx/nativephp-fcm",
+   "eerste": "2026-08",
+   "downloads": 14,
+   "maand": 2
+  },
+  {
+   "naam": "blutrixx/nativephp-geo-location",
+   "eerste": "2026-11",
+   "downloads": 2,
+   "maand": 2
+  },
+  {
+   "naam": "blutrixx/nativephp-mobile-updater",
+   "eerste": "2026-08",
+   "downloads": 15,
+   "maand": 6
+  },
+  {
+   "naam": "blutrixx/nativephp-pdf-renderer",
+   "eerste": "2026-08",
+   "downloads": 10,
+   "maand": 1
+  },
+  {
+   "naam": "blutrixx/nativephp-pdf-viewer",
+   "eerste": "2026-10",
+   "downloads": 10,
+   "maand": 1
+  },
+  {
+   "naam": "blutrixx/nativephp-sms",
+   "eerste": "2026-10",
+   "downloads": 3,
+   "maand": 3
+  },
+  {
+   "naam": "blutrixx/nativephp-telephony-gateway",
+   "eerste": "2026-08",
+   "downloads": 11,
+   "maand": 0
+  },
+  {
+   "naam": "captenmasin/nativephp-health-connect",
+   "eerste": "2026-05",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "codingwithrk/double-back-to-close",
+   "eerste": "2026-04",
+   "downloads": 116,
+   "maand": 4
+  },
+  {
+   "naam": "codingwithrk/firebase-crashlytics",
+   "eerste": "2026-08",
+   "downloads": 587,
+   "maand": 247
+  },
+  {
+   "naam": "codingwithrk/nativephp-datetime-picker",
+   "eerste": "2026-09",
+   "downloads": 24,
+   "maand": 11
+  },
+  {
+   "naam": "codingwithrk/nativephp-social-auth",
+   "eerste": "2026-09",
+   "downloads": 660,
+   "maand": 639
+  },
+  {
+   "naam": "codingwithrk/no-screenshot",
+   "eerste": "2026-03",
+   "downloads": 2030,
+   "maand": 270
+  },
+  {
+   "naam": "codingwithrk/package-info",
+   "eerste": "2026-02",
+   "downloads": 316,
+   "maand": 56
+  },
+  {
+   "naam": "codypchristian/nativephp-lottie",
+   "eerste": "2026-08",
+   "downloads": 26,
+   "maand": 4
+  },
+  {
+   "naam": "coyotito/image-resizer",
+   "eerste": "2026-05",
+   "downloads": 6,
+   "maand": 0
+  },
+  {
+   "naam": "denis156/app-manager",
+   "eerste": "2026-05",
+   "downloads": 48,
+   "maand": 0
+  },
+  {
+   "naam": "denis156/fcm-notification",
+   "eerste": "2026-05",
+   "downloads": 122,
+   "maand": 10
+  },
+  {
+   "naam": "denis156/notification-listener",
+   "eerste": "2026-05",
+   "downloads": 48,
+   "maand": 0
+  },
+  {
+   "naam": "denniskrol/nativephp-background-tasks",
+   "eerste": "2026-08",
+   "downloads": 94,
+   "maand": 18
+  },
+  {
+   "naam": "denniskrol/nativephp-geolocation",
+   "eerste": "2026-08",
+   "downloads": 211,
+   "maand": 17
+  },
+  {
+   "naam": "developernauts/nativephp-mobile-locales",
+   "eerste": "2026-05",
+   "downloads": 1877,
+   "maand": 651
+  },
+  {
+   "naam": "djurovicigoor/app-lifecycle",
+   "eerste": "2026-03",
+   "downloads": 1607,
+   "maand": 103
+  },
+  {
+   "naam": "donmanueldev/nativephp-charts",
+   "eerste": "2026-08",
+   "downloads": 373,
+   "maand": 129
+  },
+  {
+   "naam": "entoknakal/file-picker",
+   "eerste": "2026-09",
+   "downloads": 6,
+   "maand": 3
+  },
+  {
+   "naam": "fabianpnke/mobile-device-timezone",
+   "eerste": "2026-07",
+   "downloads": 1175,
+   "maand": 839
+  },
+  {
+   "naam": "fatlum/nativephp-barcode-reader",
+   "eerste": "2026-10",
+   "downloads": 5,
+   "maand": 5
+  },
+  {
+   "naam": "fatlum/nativephp-push",
+   "eerste": "2026-06",
+   "downloads": 1235,
+   "maand": 718
+  },
+  {
+   "naam": "firstlightui/app-guard",
+   "eerste": "2026-11",
+   "downloads": 50,
+   "maand": 50
+  },
+  {
+   "naam": "firstlightui/local-ai",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "firstlightui/local-ocr",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "firstlightui/nativephp",
+   "eerste": "2026-08",
+   "downloads": 225,
+   "maand": 225
+  },
+  {
+   "naam": "geof-dev/nativephp-store-review",
+   "eerste": "2026-04",
+   "downloads": 1499,
+   "maand": 618
+  },
+  {
+   "naam": "goodm4ven/nativephp-muttasiq-patches",
+   "eerste": "2026-03",
+   "downloads": 295,
+   "maand": 2
+  },
+  {
+   "naam": "gtcrais/nativephp-push-notifications-permission-watcher",
+   "eerste": "2026-03",
+   "downloads": 17,
+   "maand": 0
+  },
+  {
+   "naam": "iamdevroyal/nativephp-mobile-biometrics",
+   "eerste": "2026-08",
+   "downloads": 4,
+   "maand": 0
+  },
+  {
+   "naam": "iamdevroyal/nativephp-push",
+   "eerste": "2026-08",
+   "downloads": 2,
+   "maand": 0
+  },
+  {
+   "naam": "ikromjon/nativephp-mobile-document-scanner",
+   "eerste": "2026-04",
+   "downloads": 4,
+   "maand": 0
+  },
+  {
+   "naam": "ikromjon/nativephp-mobile-local-notifications",
+   "eerste": "2026-03",
+   "downloads": 656,
+   "maand": 59
+  },
+  {
+   "naam": "innerr/plugin-media-permissions",
+   "eerste": "2026-05",
+   "downloads": 0,
+   "maand": 0
+  },
+  {
+   "naam": "kevinbatdorf/nativephp-fullscreen",
+   "eerste": "2026-04",
+   "downloads": 145,
+   "maand": 20
+  },
+  {
+   "naam": "kevinbatdorf/nativephp-launcher",
+   "eerste": "2026-09",
+   "downloads": 6,
+   "maand": 3
+  },
+  {
+   "naam": "kevinbatdorf/nativephp-retro-emulator",
+   "eerste": "2026-08",
+   "downloads": 26,
+   "maand": 2
+  },
+  {
+   "naam": "laratribe/native-datepicker",
+   "eerste": "2026-10",
+   "downloads": 3,
+   "maand": 3
+  },
+  {
+   "naam": "lstables/nativephp-mobile-document-scanner",
+   "eerste": "2026-03",
+   "downloads": 5,
+   "maand": 0
+  },
+  {
+   "naam": "macrotom/screen-privacy",
+   "eerste": "2026-03",
+   "downloads": 1,
+   "maand": 0
+  },
+  {
+   "naam": "mariodevv/nativephp-health-connect",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 2
+  },
+  {
+   "naam": "matildevoldsen/quick-actions",
+   "eerste": "2026-05",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "mobikul/mobikul_loader",
+   "eerste": "2026-05",
+   "downloads": 181,
+   "maand": 5
+  },
+  {
+   "naam": "mobikul/nativephp-mobile-appbar",
+   "eerste": "2026-05",
+   "downloads": 0,
+   "maand": 0
+  },
+  {
+   "naam": "momotombo/nativephp-appearance",
+   "eerste": "2026-10",
+   "downloads": 172,
+   "maand": 165
+  },
+  {
+   "naam": "momotombo/nativephp-pull-to-refresh",
+   "eerste": "2026-10",
+   "downloads": 3,
+   "maand": 3
+  },
+  {
+   "naam": "momotombo/nativephp-settings",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 0
+  },
+  {
+   "naam": "mrpunyapal/nativephp-plugin-impressions",
+   "eerste": "2026-10",
+   "downloads": 40,
+   "maand": 17
+  },
+  {
+   "naam": "nativephp/mobile-browser",
+   "eerste": "2026-01",
+   "downloads": 29540,
+   "maand": 9009
+  },
+  {
+   "naam": "nativephp/mobile-camera",
+   "eerste": "2026-01",
+   "downloads": 31345,
+   "maand": 7468
+  },
+  {
+   "naam": "nativephp/mobile-clipboard",
+   "eerste": "2026-07",
+   "downloads": 2750,
+   "maand": 606
+  },
+  {
+   "naam": "nativephp/mobile-device",
+   "eerste": "2026-01",
+   "downloads": 19374,
+   "maand": 1022
+  },
+  {
+   "naam": "nativephp/mobile-dialog",
+   "eerste": "2026-01",
+   "downloads": 13780,
+   "maand": 647
+  },
+  {
+   "naam": "nativephp/mobile-dynamic-notifications",
+   "eerste": "2026-10",
+   "downloads": 18,
+   "maand": 15
+  },
+  {
+   "naam": "nativephp/mobile-file",
+   "eerste": "2026-01",
+   "downloads": 5355,
+   "maand": 196
+  },
+  {
+   "naam": "nativephp/mobile-media-player",
+   "eerste": "2026-07",
+   "downloads": 1746,
+   "maand": 975
+  },
+  {
+   "naam": "nativephp/mobile-microphone",
+   "eerste": "2026-01",
+   "downloads": 6851,
+   "maand": 1289
+  },
+  {
+   "naam": "nativephp/mobile-network",
+   "eerste": "2026-01",
+   "downloads": 18024,
+   "maand": 2384
+  },
+  {
+   "naam": "nativephp/mobile-ota",
+   "eerste": "2026-09",
+   "downloads": 734,
+   "maand": 474
+  },
+  {
+   "naam": "nativephp/mobile-share",
+   "eerste": "2026-01",
+   "downloads": 20096,
+   "maand": 5271
+  },
+  {
+   "naam": "nativephp/mobile-system",
+   "eerste": "2026-01",
+   "downloads": 11256,
+   "maand": 580
+  },
+  {
+   "naam": "nativephp/mobile-ui",
+   "eerste": "2026-04",
+   "downloads": 48208,
+   "maand": 16017
+  },
+  {
+   "naam": "nativephp/mobile-vibe",
+   "eerste": "2026-07",
+   "downloads": 2958,
+   "maand": 1392
+  },
+  {
+   "naam": "noehassiel/confetti",
+   "eerste": "2026-08",
+   "downloads": 427,
+   "maand": 424
+  },
+  {
+   "naam": "noehassiel/signature-pad",
+   "eerste": "2026-08",
+   "downloads": 605,
+   "maand": 308
+  },
+  {
+   "naam": "phnuestro/local-notifications",
+   "eerste": "2026-09",
+   "downloads": 4,
+   "maand": 1
+  },
+  {
+   "naam": "phnuestro/nativephp-local-notifications",
+   "eerste": "2026-09",
+   "downloads": 23,
+   "maand": 18
+  },
+  {
+   "naam": "projectmata/mobile-background-tasks",
+   "eerste": "2026-04",
+   "downloads": 15,
+   "maand": 0
+  },
+  {
+   "naam": "projectmata/mobile-biometrics",
+   "eerste": "2026-04",
+   "downloads": 75,
+   "maand": 10
+  },
+  {
+   "naam": "projectmata/mobile-device-sensors",
+   "eerste": "2026-04",
+   "downloads": 1,
+   "maand": 0
+  },
+  {
+   "naam": "projectmata/mobile-geolocation",
+   "eerste": "2026-04",
+   "downloads": 60,
+   "maand": 9
+  },
+  {
+   "naam": "projectmata/mobile-openvpn",
+   "eerste": "2026-04",
+   "downloads": 7,
+   "maand": 0
+  },
+  {
+   "naam": "projectmata/mobile-secure-storage",
+   "eerste": "2026-04",
+   "downloads": 138,
+   "maand": 21
+  },
+  {
+   "naam": "protendai/nativephp-billing",
+   "eerste": "2026-10",
+   "downloads": 50,
+   "maand": 50
+  },
+  {
+   "naam": "protendai/nativephp-lan",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "protendai/nativephp-media",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 2
+  },
+  {
+   "naam": "protendai/nativephp-mobile-ocr",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "protendai/nativephp-wifi-direct",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 1
+  },
+  {
+   "naam": "pteal/plugin-pdf-viewer",
+   "eerste": "2026-03",
+   "downloads": 116,
+   "maand": 10
+  },
+  {
+   "naam": "pteal79/geo-map",
+   "eerste": "2026-10",
+   "downloads": 7,
+   "maand": 7
+  },
+  {
+   "naam": "pteal79/image-annotator",
+   "eerste": "2026-09",
+   "downloads": 25,
+   "maand": 5
+  },
+  {
+   "naam": "pteal79/native-notification",
+   "eerste": "2026-04",
+   "downloads": 79,
+   "maand": 2
+  },
+  {
+   "naam": "pteal79/nfc",
+   "eerste": "2026-09",
+   "downloads": 24,
+   "maand": 3
+  },
+  {
+   "naam": "pteal79/otp-code",
+   "eerste": "2026-10",
+   "downloads": 9,
+   "maand": 9
+  },
+  {
+   "naam": "pteal79/plugin-image-lightbox",
+   "eerste": "2026-03",
+   "downloads": 117,
+   "maand": 12
+  },
+  {
+   "naam": "pteal79/rapid-camera-capture",
+   "eerste": "2026-04",
+   "downloads": 11,
+   "maand": 3
+  },
+  {
+   "naam": "pteal79/share-text",
+   "eerste": "2026-09",
+   "downloads": 172,
+   "maand": 151
+  },
+  {
+   "naam": "pteal79/signature-capture",
+   "eerste": "2026-08",
+   "downloads": 33,
+   "maand": 2
+  },
+  {
+   "naam": "pteal79/signature-pad",
+   "eerste": "2026-10",
+   "downloads": 9,
+   "maand": 9
+  },
+  {
+   "naam": "pteal79/wysiwyg-editor",
+   "eerste": "2026-10",
+   "downloads": 6,
+   "maand": 6
+  },
+  {
+   "naam": "rajen/nativephp-url-launcher",
+   "eerste": "2026-02",
+   "downloads": 4,
+   "maand": 0
+  },
+  {
+   "naam": "ruslanshigabutdinov/nativephp-color-scheme",
+   "eerste": "2026-05",
+   "downloads": 54,
+   "maand": 7
+  },
+  {
+   "naam": "s2br/nativephp-mobile-icon",
+   "eerste": "2026-06",
+   "downloads": 18,
+   "maand": 0
+  },
+  {
+   "naam": "s2br/nativephp-mobile-splashscreen",
+   "eerste": "2026-06",
+   "downloads": 2941,
+   "maand": 1603
+  },
+  {
+   "naam": "sghimire/mobile-biometric",
+   "eerste": "2026-07",
+   "downloads": 13,
+   "maand": 1
+  },
+  {
+   "naam": "sghimire/mobile-browser",
+   "eerste": "2026-07",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "sghimire/mobile-file-access",
+   "eerste": "2026-07",
+   "downloads": 7,
+   "maand": 0
+  },
+  {
+   "naam": "sghimire/mobile-scanner",
+   "eerste": "2026-07",
+   "downloads": 24,
+   "maand": 3
+  },
+  {
+   "naam": "sghimire/mobile-secure-storage",
+   "eerste": "2026-07",
+   "downloads": 15,
+   "maand": 1
+  },
+  {
+   "naam": "smronju/nativephp-appearance",
+   "eerste": "2026-08",
+   "downloads": 21,
+   "maand": 3
+  },
+  {
+   "naam": "smronju/nativephp-biometrics",
+   "eerste": "2026-09",
+   "downloads": 46,
+   "maand": 26
+  },
+  {
+   "naam": "smronju/nativephp-charts",
+   "eerste": "2026-09",
+   "downloads": 15,
+   "maand": 0
+  },
+  {
+   "naam": "smronju/nativephp-contacts-picker",
+   "eerste": "2026-08",
+   "downloads": 23,
+   "maand": 1
+  },
+  {
+   "naam": "smronju/nativephp-document-picker",
+   "eerste": "2026-08",
+   "downloads": 522,
+   "maand": 423
+  },
+  {
+   "naam": "smronju/nativephp-firebase-analytics",
+   "eerste": "2026-10",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "smronju/nativephp-google-mobile-ads",
+   "eerste": "2026-08",
+   "downloads": 259,
+   "maand": 18
+  },
+  {
+   "naam": "smronju/nativephp-local-notifications",
+   "eerste": "2026-08",
+   "downloads": 106,
+   "maand": 29
+  },
+  {
+   "naam": "smronju/nativephp-purchases",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 0
+  },
+  {
+   "naam": "smronju/nativephp-secure-storage",
+   "eerste": "2026-09",
+   "downloads": 10,
+   "maand": 5
+  },
+  {
+   "naam": "sparkworldke/nativephp-sms-reader-bridge",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 2
+  },
+  {
+   "naam": "srwiez/nativephp-mobile-screen",
+   "eerste": "2026-02",
+   "downloads": 2195,
+   "maand": 561
+  },
+  {
+   "naam": "stitch-digital/mobile-call-detection",
+   "eerste": "2026-03",
+   "downloads": 1,
+   "maand": 0
+  },
+  {
+   "naam": "studylink/mobile-documents",
+   "eerste": "2026-07",
+   "downloads": 501,
+   "maand": 416
+  },
+  {
+   "naam": "stupidbrains/mobile-sfx",
+   "eerste": "2026-09",
+   "downloads": 20,
+   "maand": 13
+  },
+  {
+   "naam": "tarikmanoar/firebase-pnv",
+   "eerste": "2026-06",
+   "downloads": 2,
+   "maand": 0
+  },
+  {
+   "naam": "techparse/offline-sync",
+   "eerste": "2026-04",
+   "downloads": 2,
+   "maand": 0
+  },
+  {
+   "naam": "theunwindfront/nativephp-audio",
+   "eerste": "2026-03",
+   "downloads": 95,
+   "maand": 5
+  },
+  {
+   "naam": "unloc/nativephp-enhanced-splash",
+   "eerste": "2026-08",
+   "downloads": 642,
+   "maand": 451
+  },
+  {
+   "naam": "unloc/nativephp-svg-component",
+   "eerste": "2026-08",
+   "downloads": 648,
+   "maand": 512
+  },
+  {
+   "naam": "victorycodedev/nativephp-fetch",
+   "eerste": "2026-08",
+   "downloads": 315,
+   "maand": 94
+  },
+  {
+   "naam": "victorycodedev/toastkit",
+   "eerste": "2026-08",
+   "downloads": 575,
+   "maand": 277
+  },
+  {
+   "naam": "vikas5914/fluidaudio",
+   "eerste": "2026-09",
+   "downloads": 3,
+   "maand": 1
+  },
+  {
+   "naam": "vipertecpro/app-analytics",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 0
+  },
+  {
+   "naam": "vipertecpro/consent",
+   "eerste": "2026-10",
+   "downloads": 1,
+   "maand": 0
+  },
+  {
+   "naam": "vipertecpro/image-cropper",
+   "eerste": "2026-07",
+   "downloads": 996,
+   "maand": 657
+  },
+  {
+   "naam": "vipertecpro/message-composer",
+   "eerste": "2026-10",
+   "downloads": 149,
+   "maand": 143
+  },
+  {
+   "naam": "vipertecpro/otp-autofill",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 1
+  },
+  {
+   "naam": "vipertecpro/pausewall-usage",
+   "eerste": "2026-10",
+   "downloads": 3,
+   "maand": 0
+  },
+  {
+   "naam": "vipertecpro/photo-kit",
+   "eerste": "2026-10",
+   "downloads": 172,
+   "maand": 166
+  },
+  {
+   "naam": "vitisstudio/nativephp-firestore",
+   "eerste": "2026-10",
+   "downloads": 2,
+   "maand": 2
+  },
+  {
+   "naam": "voicecode-bv/mobile-photos",
+   "eerste": "2026-05",
+   "downloads": 14,
+   "maand": 0
+  },
+  {
+   "naam": "voicecode-bv/nativephp-badge",
+   "eerste": "2026-05",
+   "downloads": 13,
+   "maand": 0
+  },
+  {
+   "naam": "vos/nativephp-live-activities-free",
+   "eerste": "2026-10",
+   "downloads": 6,
+   "maand": 6
+  },
+  {
+   "naam": "wilsonatb/in-app-update",
+   "eerste": "2026-04",
+   "downloads": 684,
+   "maand": 326
+  },
+  {
+   "naam": "wilsonatb/nativephp-in-app-reviews",
+   "eerste": "2026-02",
+   "downloads": 314,
+   "maand": 145
+  },
+  {
+   "naam": "wuninsu/nativephp-biometrics",
+   "eerste": "2026-10",
+   "downloads": 5,
+   "maand": 5
+  },
+  {
+   "naam": "wuninsu/nativephp-mobile-scanner",
+   "eerste": "2026-10",
+   "downloads": 6,
+   "maand": 6
+  },
+  {
+   "naam": "wuninsu/nativephp-secure-storage",
+   "eerste": "2026-10",
+   "downloads": 4,
+   "maand": 4
+  },
+  {
+   "naam": "zinxan/native-mobile",
+   "eerste": "2026-10",
+   "downloads": 9,
+   "maand": 9
+  }
+ ]
+}
