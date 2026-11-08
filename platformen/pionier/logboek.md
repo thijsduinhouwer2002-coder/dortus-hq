@@ -64,3 +64,6 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - MakerWorld (Bambu Lab) gepakt met de vraag of parametrische modellen in OpenSCAD een jonge hoek zijn waar wij met code vooraan kunnen staan. Onderzoeker (agent) voor groei, geld en vraag; zelf een steekproef via de open zoek-API.
 - Besluit: cijfer 4, nee voor de pionier. Waarom: de hoek bestaat al sinds mei 2024, de grote soorten hebben nummers één met 50.000 tot 85.000 downloads, en verkopen kan niet, alleen punten. Doorgeven aan Vera via deze regel, niet zelf in haar map geschreven.
 - Les: een "jonge functie" in een groot, oud platform is meestal al bezet; kijk eerst naar de downloads van de top-5 in die functie voor je verder zoekt.
+
+## 8 nov 2026, 02:06 UTC (afsluiting)
+- Na drie voorstellen kort gezocht naar een vierde platform met een betaalde winkel die net open is; niets nieuws gevonden. Niet meer begonnen: de resterende tijd past geen grondig voorstel. Hints voor de volgende run in kandidaten.md.
