@@ -12,7 +12,7 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: producten/obsidian-rollwright
@@ -33,6 +33,20 @@ jobs:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
           key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-
+      # Obsidian (installer en app) vooraf in de cache zetten, met tot acht pogingen en steeds langer wachten.
+      # Op 8 nov gaf github.com voor obsidian-1.15.0.asar.gz drie keer op rij 504 binnen drie minuten; Daan kreeg
+      # het binnen met acht pogingen (run 42468233258). Zelfde versies als wdio.conf.mjs: app latest, installer earliest.
+      # Lukt het niet, dan gaat de stap toch door (de test zelf probeert het nog en meldt het dan duidelijk).
+      - name: Obsidian vooraf downloaden (tot acht pogingen)
+        working-directory: producten/obsidian-rollwright/e2e
+        run: |
+          for poging in 1 2 3 4 5 6 7 8; do
+            if npx obsidian-launcher download desktop -v latest -i earliest -c .obsidian-cache; then
+              echo "OBSIDIAN IN CACHE (poging $poging)"; ls -R .obsidian-cache | head -20; exit 0
+            fi
+            echo "DOWNLOAD MISLUKT (poging $poging), over $((poging * 20)) s opnieuw"; sleep $((poging * 20))
+          done
+          echo "OBSIDIAN NIET BINNEN NA ACHT POGINGEN"
       - name: e2e (opnieuw alleen bij een mislukte download)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
