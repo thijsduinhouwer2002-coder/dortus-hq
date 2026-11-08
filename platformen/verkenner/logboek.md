@@ -420,3 +420,4 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 4. Reden: bereik voor nieuwe makers is goed, maar de markt is te klein en geld is niet aangetoond.
 - Controleur akkoord, 20 van 20 live gelijk. Correcties verwerkt: wijzerplaten in plaats van makers bovenaan, Round 2-voorbestellingen zonder bron, top 200 per soort, extra tabelrij.
 - Les: de Pebble-API heeft verborgen collecties (top-used, top-picks); zoek in de HTML van de winkel naar "collections/" om ze te vinden.
+- 06:50: tweede platform gezocht met openbare verkoop- of gebruikscijfers. ChatGPT-apps (robots.txt verbiedt Claude), Hytale op CurseForge (403), Creative Market (robots.txt verbiedt ClaudeBot) en Etsy (403) zijn niet te meten; notities in kandidaten.md. Twee nieuwe kandidaten toegevoegd: Apple Vision Pro en Meta Horizon Store. Run afgesloten na ±30 minuten: een nieuwe grondige meting past niet meer in de werktijd.
