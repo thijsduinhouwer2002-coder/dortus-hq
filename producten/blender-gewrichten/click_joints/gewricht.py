@@ -13,16 +13,23 @@ from mathutils.bvhtree import BVHTree
 
 from . import passing, vormen
 from .eigenschappen import eenheid_per_mm
-from .gesloten import is_gesloten
+from .gesloten import gespiegeld, is_gesloten
 
 SCHUIF_MM = 0.0137
 # Klikopening van de kom: 0,85 keer de kogeldiameter, zodat twee los geprinte delen met wat druk
 # in elkaar klikken. De nek (0,48 keer) is veel dunner dan de opening, dus het gewricht kan bewegen.
 # Zonder extra speling: anders komt de opening bij kleine kogels boven 0,90 keer de diameter.
 OPENING = 0.85
+# Exact-solver met Self Intersection aan (ontwerp: "Exact met Self Intersection aan en Hole Tolerant uit").
+# De test meet Exact met en zonder; die tijden staan in het log en in ontwerp.md.
+EXACT_ZELF = True
+# Alleen voor de test: een vaste solver ("EXACT" of "MANIFOLD") in plaats van de keuze per versie.
+FORCEER_SOLVER = None
 
 
 def solver_naam():
+    if FORCEER_SOLVER:
+        return FORCEER_SOLVER
     solvers = {s.identifier for s in bpy.types.BooleanModifier.bl_rna.properties["solver"].enum_items}
     if bpy.app.version >= (4, 5, 0) and "MANIFOLD" in solvers:
         return "MANIFOLD"
@@ -38,14 +45,29 @@ def maten(inst, u):
     return maat
 
 
-def as_en_punt(context, inst):
-    cursor = context.scene.cursor
+def kijk_regio(context):
+    """RegionView3D van de 3D-weergave waaruit de operator komt, of None.
+
+    Vanuit de knop in de zijbalk is context.region_data leeg (de zijbalk heeft geen eigen
+    3D-beeld); dan nemen we het hoofdbeeld van dezelfde 3D-weergave (space_data.region_3d)."""
     rv3d = getattr(context, "region_data", None)
-    if inst.as_bron == "KIJK" and rv3d is not None and hasattr(rv3d, "view_rotation"):
-        richting = rv3d.view_rotation @ Vector((0, 0, -1))
-    else:
-        richting = cursor.matrix.col[2].xyz
-    return cursor.location.copy(), richting.normalized()
+    if rv3d is not None and hasattr(rv3d, "view_rotation"):
+        return rv3d
+    ruimte = getattr(context, "space_data", None)
+    if ruimte is not None and ruimte.type == "VIEW_3D":
+        return ruimte.region_3d
+    return None
+
+
+def as_en_punt(context, inst):
+    """(punt, as, bron van de as). Bron is "KIJK" of "CURSOR"; zonder 3D-weergave valt KIJK terug op CURSOR."""
+    cursor = context.scene.cursor
+    if inst.as_bron == "KIJK":
+        rv3d = kijk_regio(context)
+        if rv3d is not None:
+            richting = rv3d.view_rotation @ Vector((0, 0, -1))
+            return cursor.location.copy(), richting.normalized(), "KIJK"
+    return cursor.location.copy(), cursor.matrix.col[2].xyz.normalized(), "CURSOR"
 
 
 def boolean(doel, gereedschap, actie, solver):
@@ -54,7 +76,7 @@ def boolean(doel, gereedschap, actie, solver):
     m.object = gereedschap
     m.solver = solver
     if solver == "EXACT":
-        m.use_self = False
+        m.use_self = EXACT_ZELF
         m.use_hole_tolerant = False
     gereedschap.hide_set(True)
 
@@ -141,32 +163,42 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         t0 = time.perf_counter()
         bron = context.active_object
         inst = context.scene.click_joints
-        ok, fout = is_gesloten(bron.data)
+        dg = context.evaluated_depsgraph_get()
+        ok, fout = is_gesloten(bron, dg)  # geëvalueerd: niet toegepaste modifiers tellen mee
         if not ok:
             self.report({"ERROR"}, f"Het figuur {bron.name} is niet gesloten ({fout} randen zonder precies "
                                    "2 vlakken). Klik eerst op Maak gesloten.")
             return {"CANCELLED"}
         u = eenheid_per_mm(context.scene)
         maat = maten(inst, u)
-        punt, richting = as_en_punt(context, inst)
+        punt, richting, as_bron = as_en_punt(context, inst)
+        terugval = inst.as_bron == "KIJK" and as_bron != "KIJK"
+        if terugval:
+            self.report({"WARNING"}, "Geen 3D-weergave gevonden voor de kijkrichting; de as volgt nu de "
+                                     "Z-as van de 3D-cursor. Klik op Plaats gewricht in de 3D-weergave.")
         frame = vormen.frame_voor(punt, richting)
         solver = solver_naam()
 
         hulp = bpy.data.collections.new("cj_hulp")
         context.scene.collection.children.link(hulp)
-        dg = context.evaluated_depsgraph_get()
         me = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))
         me.transform(bron.matrix_world)
         werk = bpy.data.objects.new("cj_werk", me)
         hulp.objects.link(werk)
         bm = bmesh.new()
         bm.from_mesh(me)
+        if gespiegeld(bron):
+            # Negatieve schaal keert de vlakken om bij het omrekenen naar wereldcoördinaten:
+            # draai ze terug, anders wijzen de normalen naar binnen en gaan passing en Booleans mis.
+            bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
+            bm.to_mesh(me)
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
         kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
-        gegevens = {"cj_bron": bron.name, "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
-                    "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting),
+        gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
+                    "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
+                    "cj_as_terugval": terugval,
                     "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver}
 
         if kleur == "rood":
@@ -211,7 +243,8 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         ruimte = getattr(context, "space_data", None)
         if ruimte is not None and ruimte.type == "VIEW_3D":
             ruimte.shading.color_type = "OBJECT"
-        self.report({"INFO"}, f"Gewricht geplaatst, passing {kleur} ({uitleg}), {gegevens['cj_duur_s']} s")
+        extra = " (as langs de cursor: geen 3D-weergave)" if terugval else ""
+        self.report({"INFO"}, f"Gewricht geplaatst, passing {kleur} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")
         return {"FINISHED"}
 
 
