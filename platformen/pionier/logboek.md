@@ -137,3 +137,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Zelf de Go Store geteld via de JSON van de pagina (124 connectors, 59 eigen, allemaal installOnly) en de hulppagina over verkopen gelezen (gepauzeerd sinds 8 juli). Onderzoeker (agent) voor groei, geld, toelating, vraag en de Docs Gallery (1.261 Packs, 237 betaald). Nieuw script `data/superhuman-go-meet.py`.
 - Besluit: cijfer 4, nog niet klaar. Waarom: verkopen is dicht tot er een nieuw verdienmodel is, installs niet zichtbaar, en de eigenaar en de merken pakken de categorieën. Geen controleur: advies geen ja, kerncijfers zelf gezien.
 - Les: lees bij een gedwongen overstap eerst of verkopen open blijft tijdens de overstap.
+
+## Run 8 nov 2026, ±09:39 tot ±10:05 UTC (Noor)
+- Android Automotive gepakt (stond als volgende op de lijst). Onderzoeker (agent) voor groei, winkel, geld, vraag en risico; zelf nagekeken: blog Google okt 2026 (16 merken, 100+ modellen, 700+ apps), Play Billing (aankoop op een ander apparaat), kilometerstand dicht voor Play-apps, en installs van auto-apps via AppGoblin en Play. Nieuw script `data/aaos-meet.py`.
+- Besluit: cijfer 4, nee voor nu. Waarom: groei gestaag maar het publiek per app is klein (Foreca weer ±1.200, Vivaldi ±6.500 installs per 4 weken), de winkel is niet jong en vult met grote merken, en de beste kans (rittenlog) is technisch dicht. Geen controleur: advies geen ja, kerncijfers zelf gezien.
+- Les: installs van een app die alleen voor het apparaat is, zeggen meer over de echte markt dan het aantal apparaten.

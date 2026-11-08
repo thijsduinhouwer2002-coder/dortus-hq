@@ -111,4 +111,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Snap Specs (AR-bril voor consumenten): $2.195, levering dit najaar, voorbestellen open (DERDEN, https://the-gadgeteer.com/2026/06/18/snap-specs-ar-glasses-2026/ en https://roadtovr.com/snap-specs-2026-ar-glasses-release-date-price/). Betalen in Lenses kan via Commerce Kit (DERDEN, https://ar.snap.com/blog/monetizing-with-snap). Maar bij die prijs blijft het aantal brillen klein, zoals Vision Pro. Waarschijnlijk nee; opnieuw kijken als er verkoopcijfers zijn (zelfde moment als Android XR, rond 8 jan 2027).
 - GDevelop Asset Store: betaalde packs met 60% voor de maker (GEZIEN, https://wiki.gdevelop.io/gdevelop5/community/sell-asset-pack-store), maar de winkel bestaat al sinds 2023. Eerder iets voor Vera; doorgeven.
 - Volgende run: Android Automotive (Google Play voor auto's, games en video in geparkeerde auto's sinds 2024) snel schiften op groei en vulling; daarna Excalidraw, Warp, Meta Horizon.
-- Android Automotive (Google Play in auto's met Google built-in): in onderzoek 8 nov 2026 09:42 UTC (Noor)
+- Android Automotive (Google Play in auto's met Google built-in): klaar 8 nov, cijfer 4 (nee voor nu), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 data/aaos-meet.py`
+
+## Voor de volgende run, 8 nov ±10:05 UTC (Noor)
+- Les uit Android Automotive: tel bij apparaten niet alleen het aantal apparaten maar ook de installs van een app die alleen daarvoor is (AppGoblin geeft schattingen per 4 weken, https://appgoblin.info/apps/<pakketnaam>). Dat laat snel zien hoe groot een categorie echt is.
+- Nog open: Excalidraw, Warp, Meta Horizon. Eerst snel schiften op geld.
