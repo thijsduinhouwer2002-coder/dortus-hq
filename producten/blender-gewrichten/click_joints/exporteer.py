@@ -22,8 +22,8 @@ def hint(scene):
     if scene.click_joints.exportmap:
         return None
     if bpy.data.filepath:
-        return "Leeg: map click_joints naast het .blend-bestand"
-    return "Leeg: tijdelijke map (sla het .blend-bestand op)"
+        return "Leeg: click_joints naast .blend"
+    return "Leeg: tijdelijke map (niet opgeslagen)"
 
 
 def delen(context):
