@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scherm_basis import (DOEL, close_up, kijk, log, maak_pop, open_paneel, plaats, schiet,  # noqa: E402
                           toestand, weergave, wiel_naar_tabblad, zijbalk, zip_pad)
 from scherm_kleur import meet_strook, proefstrook  # noqa: E402
-from scherm_beweeg import boog_verslag, plat_lid, voorbij_grens, waaier  # noqa: E402
+from scherm_beweeg import boog_verslag, plat_lid, voorbij_grens, waaier, winkel  # noqa: E402
 
 
 def stap():
@@ -79,6 +79,20 @@ def stap():
         return 1.5
     if n == 15:
         schiet("7-plat.png")
+        return 0.5
+    if n == 16:
+        winkel(15)  # winkelschermen (lanceerlijst Daan): binnen de grens
+        return 2.0
+    if n == 17:
+        schiet("8-winkel.png")
+        boog_verslag("winkel", voorbij=False)
+        return 0.5
+    if n == 18:
+        winkel(28)  # voorbij de grens: rood
+        return 1.5
+    if n == 19:
+        schiet("9-winkel-rood.png")
+        boog_verslag("winkel-rood", voorbij=True)
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
