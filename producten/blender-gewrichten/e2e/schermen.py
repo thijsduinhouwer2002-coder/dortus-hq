@@ -1,5 +1,6 @@
 """Draait met de interface onder Xvfb: blender --python e2e/schermen.py -- <map> <zip>
 Zet het Click Joints-paneel open met een pop, plaatst een gewricht, maakt schermafbeeldingen en sluit af.
+Daarna een gewricht met de as langs de kijkrichting, aangeroepen vanuit de zijbalk (regel "KIJK OK").
 
 Tabblad kiezen: `active_panel_category` is alleen-lezen, daarom draait de test met
 xdotool Ctrl+muiswiel boven de zijbalk (zo wisselt Blender van tabblad) tot het
@@ -127,6 +128,52 @@ def plaats():
     log(f"plaats: {uitslag}, {len(delen)} delen")
 
 
+def gesloten(ob):
+    """Elke rand precies 2 vlakken en volume groter dan 0."""
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    fout = sum(1 for e in bm.edges if len(e.link_faces) != 2)
+    vol = bm.calc_volume(signed=True)
+    bm.free()
+    return fout == 0 and vol > 0, fout, vol
+
+
+def kijk():
+    """As langs de kijkrichting, aangeroepen zoals de knop in de zijbalk (context van de UI-regio).
+    De cursor-as staat rechtop, dus een terugval op de cursor zou een heel ander gewricht geven."""
+    for o in [o for o in bpy.data.objects if o.get("cj_deel")]:
+        bpy.data.objects.remove(o)
+    venster, gebied, regio_ui = zijbalk()
+    rv3d = gebied.spaces.active.region_3d
+    doel = Vector((1.0, 0.06, 0.04)).normalized()
+    rv3d.view_rotation = doel.to_track_quat("-Z", "Y")
+    gebied.tag_redraw()
+    verwacht = (rv3d.view_rotation @ Vector((0, 0, -1))).normalized()
+    figuren.zet_cursor((11, 0, 3), (0, 0, 1))
+    inst = bpy.context.scene.click_joints
+    inst.kogel_mm, inst.speling_mm, inst.as_bron = 2.5, 0.2, "KIJK"
+    figuren.maak_actief(staat["pop"])
+    with bpy.context.temp_override(window=venster, area=gebied, region=regio_ui):
+        log(f"kijk: context regio={bpy.context.region.type} region_data={bpy.context.region_data}")
+        uitslag = bpy.ops.click_joints.plaats()
+    delen = [o for o in bpy.context.scene.objects if o.get("cj_deel")]
+    ok = len(delen) == 2
+    hoek = None
+    for d in delen:
+        dicht, fout, vol = gesloten(d)
+        hoek = Vector(d["cj_as"]).normalized().angle(verwacht)
+        log(f"KIJK deel {d.name}: gesloten={dicht} foute_randen={fout} volume={vol:.2f} as_bron={d.get('cj_as_bron')} "
+            f"as={tuple(round(x, 4) for x in d['cj_as'])} kijkrichting={tuple(round(x, 4) for x in verwacht)} "
+            f"hoek={hoek:.6f}rad passing={d.get('cj_passing')}")
+        ok = ok and dicht and d.get("cj_as_bron") == "KIJK" and hoek < 0.01
+    log(f"kijk: {uitslag}, {len(delen)} delen")
+    log(f"KIJK {'OK' if ok else 'FOUT'} (hoek {hoek} rad, marge 0,01)")
+    for d in delen:
+        if d["cj_deel"] == "B":
+            d.location += Vector(d["cj_as"]) * 4.0
+
+
 def stap():
     toestand["n"] += 1
     n = toestand["n"]
@@ -153,6 +200,12 @@ def stap():
         return 1.5
     if n == 5:
         schiet("2-gewricht.png")
+        return 0.5
+    if n == 6:
+        kijk()
+        return 1.0
+    if n == 7:
+        schiet("3-kijkrichting.png")
         return 0.5
     bpy.ops.wm.quit_blender()
     return None

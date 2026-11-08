@@ -1,163 +1,20 @@
 """Draait met: blender -b --factory-startup --python e2e/test_achtergrond.py -- <pad naar zip>
-Installeert Click Joints als extensie en toetst gewricht, speling, passing, Maak gesloten en STL-export.
+Installeert Click Joints als extensie en toetst gewricht, speling, passing, Maak gesloten en STL-export,
+plus de correcties van de controleur (toetsen_correcties.py). Hulpfuncties staan in hulp.py.
 Alles wat hij meet staat in het log (regels met [cj-e2e]). Exit 1 bij elke fout."""
-import math
 import os
 import sys
-import tempfile
-import time
 import traceback
 
-import bmesh
 import bpy
-from mathutils import Matrix, Vector
-from mathutils.bvhtree import BVHTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import figuren  # noqa: E402
 
 zip_pad = sys.argv[sys.argv.index("--") + 1]
-fouten = []
-
-
-def log(tekst):
-    print(f"[cj-e2e] {tekst}", flush=True)
-
-
-def stap(naam, ok):
-    log(f"{'OK  ' if ok else 'FOUT'} {naam}")
-    if not ok:
-        fouten.append(naam)
-
-
-def meting(ob):
-    """(foute randen, volume) van een object: rand met ander aantal vlakken dan 2 telt als fout."""
-    bm = bmesh.new()
-    bm.from_mesh(ob.data)
-    fout = sum(1 for e in bm.edges if len(e.link_faces) != 2)
-    vol = bm.calc_volume(signed=True)
-    bm.free()
-    return fout, vol
-
-
-def delen():
-    return [o for o in bpy.context.scene.objects if o.get("cj_deel") and o.visible_get()]
-
-
-def gesloten_delen(label, lijst):
-    stap(f"{label}: precies twee delen (gevonden {len(lijst)})", len(lijst) == 2)
-    for d in lijst:
-        fout, vol = meting(d)
-        log(f"{label}: deel {d.name} foute_randen={fout} volume={vol:.2f}mm3 passing={d.get('cj_passing')} "
-            f"wand={d.get('cj_wand_mm')}mm")
-        stap(f"{label}: {d.name} gesloten", fout == 0 and vol > 0)
-
-
-def weg(lijst):
-    for o in lijst:
-        me = o.data
-        bpy.data.objects.remove(o)
-        bpy.data.meshes.remove(me)
-
-
-def plaats(label, ob, punt, as_richting, speling=0.2, kogel=5.0, soort="KOGEL"):
-    inst = bpy.context.scene.click_joints
-    inst.speling_mm, inst.kogel_mm, inst.soort, inst.as_bron = speling, kogel, soort, "CURSOR"
-    figuren.zet_cursor(punt, as_richting)
-    figuren.maak_actief(ob)
-    t0 = time.perf_counter()
-    uitslag = bpy.ops.click_joints.plaats()
-    duur = time.perf_counter() - t0
-    lijst = delen()
-    solver = lijst[0].get("cj_solver") if lijst else "-"
-    if solver == "MANIFOLD":
-        stap(f"{label}: Manifold onder 5 s ({duur:.2f}s)", duur < 5.0)
-    log(f"TIJD {label}: {duur:.2f}s solver={solver} driehoeken_bron={sum(len(p.vertices) - 2 for p in ob.data.polygons)} "
-        f"uitslag={uitslag}")
-    return lijst
-
-
-def speling_meten(lijst, ingesteld):
-    a = next(d for d in lijst if d["cj_deel"] == "A")
-    b = next(d for d in lijst if d["cj_deel"] == "B")
-    c, as_r, r = Vector(a["cj_centrum"]), Vector(a["cj_as"]), a["cj_kogel_r"]
-    bm = bmesh.new()
-    bm.from_mesh(b.data)
-    bvh = BVHTree.FromBMesh(bm)
-    bm.free()
-    afst = []
-    for v in a.data.vertices:
-        rel = v.co - c
-        if abs(rel.length - r) < 1e-3 and rel.dot(as_r) > -0.4 * r:
-            hit = bvh.find_nearest(v.co)
-            if hit[0] is not None:
-                afst.append(hit[3])
-    if not afst:
-        stap(f"speling {ingesteld}: kogelpunten gevonden", False)
-        return
-    gem = sum(afst) / len(afst)
-    afw = abs(gem - ingesteld)
-    log(f"SPELING ingesteld={ingesteld} gemeten_gem={gem:.4f} afwijking={afw:.4f} "
-        f"max={max(afst):.4f} min={min(afst):.4f} punten={len(afst)} addon_meting={a.get('cj_speling_gemeten_mm')}")
-    stap(f"speling {ingesteld}: minstens 500 punten", len(afst) >= 500)
-    stap(f"speling {ingesteld}: gemiddelde afwijking < 0,02 mm", afw < 0.02)
-
-
-def toets_opening(lijst, label):
-    """Klikopening gemeten in de mesh: tussen 0,80 en 0,90 keer de kogeldiameter, en de nek past erdoor."""
-    a = next(d for d in lijst if d["cj_deel"] == "A")
-    b = next(d for d in lijst if d["cj_deel"] == "B")
-    c, as_r, r = Vector(a["cj_centrum"]), Vector(a["cj_as"]).normalized(), a["cj_kogel_r"]
-
-    loodrecht = as_r.orthogonal().normalized()
-
-    def stralen(ob, z0, z1):
-        """Stralen vanaf de as, loodrecht naar buiten, op 8 hoogtes en 32 richtingen: afstand tot de wand.
-        (De cilinderwand heeft alleen punten aan zijn uiteinden, daarom meten met stralen.)"""
-        bm = bmesh.new()
-        bm.from_mesh(ob.data)
-        bvh = BVHTree.FromBMesh(bm)
-        bm.free()
-        uit = []
-        for i in range(8):
-            o = c + as_r * (r * (z0 + (z1 - z0) * (i + 0.5) / 8))
-            for k in range(32):
-                d = Matrix.Rotation(2 * math.pi * k / 32, 3, as_r) @ loodrecht
-                hit = bvh.ray_cast(o, d)
-                if hit[0] is not None:
-                    uit.append(hit[3])
-        return uit
-
-    gat = stralen(b, -1.35, -0.8)   # tussen snijvlak en kom: alleen de opening en de buitenkant
-    nek = stralen(a, -1.35, -1.05)  # onder de kogel: alleen de nek
-    if not gat or not nek:
-        stap(f"{label}: opening en nek gevonden", False)
-        return
-    opening, nek_d, kogel_d = 2 * min(gat), 2 * max(nek), 2 * r
-    log(f"OPENING {label}: opening={opening:.3f}mm ({opening / kogel_d:.3f} x kogel) nek={nek_d:.3f}mm "
-        f"kogel={kogel_d:.3f}mm")
-    stap(f"{label}: opening tussen 0,80 en 0,90 x kogeldiameter", 0.80 <= opening / kogel_d <= 0.90)
-    stap(f"{label}: nek past door de opening", nek_d < opening)
-
-
-def toets_stl(lijst):
-    bpy.context.scene.click_joints.exportmap = os.path.join(tempfile.gettempdir(), "cj_export") + os.sep
-    bpy.ops.click_joints.exporteer()
-    for d in lijst:
-        pad = d.get("cj_stl", "")
-        stap(f"STL {os.path.basename(pad)} bestaat", bool(pad) and os.path.getsize(pad) > 84)
-        voor = set(bpy.context.scene.objects)
-        bpy.ops.wm.stl_import(filepath=pad, global_scale=1.0, use_scene_unit=False)
-        nieuw = [o for o in bpy.context.scene.objects if o not in voor]
-        if len(nieuw) != 1:
-            stap(f"STL {d.name}: opnieuw geïmporteerd", False)
-            continue
-        maat_a, maat_b = d.dimensions, nieuw[0].dimensions
-        verschil = max(abs(x - y) for x, y in zip(maat_a, maat_b))
-        log(f"STL {d.name}: maat {tuple(round(x, 3) for x in maat_a)} mm, terug {tuple(round(x, 3) for x in maat_b)} "
-            f"mm, verschil {verschil:.5f} mm, driehoeken {len(nieuw[0].data.polygons)}")
-        stap(f"STL {d.name}: zelfde maat binnen 0,01 mm", verschil < 0.01)
-        weg(nieuw)
+from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
+                  toets_opening, toets_stl, weg)
+import toetsen_correcties  # noqa: E402
 
 
 def main():
@@ -245,13 +102,18 @@ def main():
     stap("open figuur: kopie is gesloten", fout == 0 and vol > 0 and kopie is not open_ob)
     lijst = plaats("gesloten kopie", kopie, (0, 0, 0), (1, 0, 0))
     gesloten_delen("na maak_gesloten", lijst)
+    weg(lijst)
+    for o in list(bpy.context.scene.objects):
+        o.hide_set(True)
+
+    # 5. Correcties van de controleur: Exact met en zonder Self Intersection, modifiers en spiegeling,
+    #    kijkrichting zonder 3D-venster, en als laatste de scene in meters.
+    toetsen_correcties.alles(arm)
 
 
 def lijst_solver():
-    from importlib import import_module
-    mod = import_module(next(a.module for a in bpy.context.preferences.addons if a.module.endswith("click_joints"))
-                        + ".gewricht")
-    return mod.solver_naam()
+    from hulp import addon
+    return addon("gewricht").solver_naam()
 
 
 try:

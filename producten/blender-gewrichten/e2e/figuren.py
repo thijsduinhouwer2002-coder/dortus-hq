@@ -1,4 +1,4 @@
-"""Testfiguren voor de e2e-test, in een scene waarin 1 Blender-eenheid 1 mm is."""
+"""Testfiguren voor de e2e-test: meestal in een scene waarin 1 Blender-eenheid 1 mm is, één ronde in meters."""
 import math
 
 import bmesh
@@ -13,6 +13,14 @@ def mm_scene():
     us.length_unit = "MILLIMETERS"
 
 
+def meter_scene():
+    """Standaardscene van Blender: 1 eenheid = 1 m, eenheidschaal 1,0, lengte in meters."""
+    us = bpy.context.scene.unit_settings
+    us.system = "METRIC"
+    us.scale_length = 1.0
+    us.length_unit = "METERS"
+
+
 def _object(naam, bm):
     me = bpy.data.meshes.new(naam)
     bm.to_mesh(me)
@@ -22,14 +30,15 @@ def _object(naam, bm):
     return ob
 
 
-def arm(naam="arm", u=512, v=256):
-    """Ellipsoïde arm 40 x 10 x 10 mm met lichte sculptgolven (512x256: ±261K driehoeken)."""
+def arm(naam="arm", u=512, v=256, schaal=1.0):
+    """Ellipsoïde arm 40 x 10 x 10 eenheden met lichte sculptgolven (512x256: ±261K driehoeken).
+    In de mm-scene is dat 40 x 10 x 10 mm; met schaal 0,002 in de meterscene 0,08 x 0,02 x 0,02 m."""
     bm = bmesh.new()
     bmesh.ops.create_uvsphere(bm, u_segments=u, v_segments=v, radius=1.0)
     for p in bm.verts:
         x, y, z = p.co
         golf = 1.0 + 0.03 * math.sin(9 * x) * math.cos(7 * math.atan2(z, y))
-        p.co = Vector((x * 20.0, y * 5.0 * golf, z * 5.0 * golf))
+        p.co = Vector((x * 20.0, y * 5.0 * golf, z * 5.0 * golf)) * schaal
     return _object(naam, bm)
 
 
