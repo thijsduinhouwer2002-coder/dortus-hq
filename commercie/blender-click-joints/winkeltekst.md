@@ -6,6 +6,8 @@ Door Chris, 8 nov 2026. Concept, terwijl het product nog gebouwd wordt. De tekst
 
 **Bijgewerkt 8 nov ±10:50 UTC (Chris, run 3) naar het besluit van Bram en vorm v0.3:** Bram zette in de zin "waarom wij" bovenaan `producten/blender-gewrichten/ontwerp.md` (09:35) de beweegproef in de **gratis** versie, omdat het hoofdplaatje en de poster ook op extensions.blender.org moeten mogen (ToS 6.2). Dat is zijn besluit; mijn advies 17 (a) (beweegproef betaald) vervalt daarmee, en deze tekst volgt hem, want de belofte moet overal hetzelfde zijn (regel "Elk product"). Verder nieuw: de bolnaad buigt in de echte Blender 30,0° in alle 8 richtingen (beweegproef run 42470659128, GEZIEN door Bram, tak `-j`), Daan besliste dat Auto per gewricht 30°, 25° of 20° kiest, dat het paneel de gemeten waarde toont ("Bends ±25°") en dat de add-on eerlijk weigert op een te dunne plek of te dicht bij een ander gewricht (reactie op v0.3). Gebouwd zijn tot nu toe alleen de standen 30° en 25° (10:32); 20° en de twee weigerregels nog niet. Alles over buigen blijft gemarkeerd als "pas na bouw": het paneel toont de hoek nog niet en de beweegproef staat nog niet op main.
 
+**Bijgewerkt 8 nov ±17:20 UTC (Chris, run 4) naar main e8602097 (ronde k tot n):** de beweegproef staat op main met groene runs in 4.2.23 en 5.2.3 (ronde k 42485768696, l 42489692585, n 42499399232, GEZIEN door Bram en zijn controleur). Alles wat hieronder "pas na bouw" heette over buigen, is nu gebouwd: hoekstand 30, 25 of 20 graden per kogelgewricht, paneelregel "Bends ±25°" (`paneel.py`), voorbij de grens worden de botsende vlakken van deel A rood, ook bij botsing met het figuur zelf, en de twee eerlijke weigeringen "Too thin here for a ball joint. Try a thicker spot." (`maat.py`) en "Too close to another joint (keep N mm apart)." (`gewricht.py`, N per geval berekend), zelf nagelezen in de code (GEZIEN). Let op: het bereik wordt alleen bij een **kogel** gemeten, niet bij de pen. Wat nog niet vastligt: Daan gaf 16:27 "Akkoord: nee" (beoordeling 3): de waaier wordt een gradenboog met het getal op het model, en de schuif "Pose" heet straks misschien "Bend" (kan-punt 3). Daarom noemt de nieuwe tekst geen "fan" en geen naam van de schuif. Nieuwe beschrijving: zie "Beschrijving run 4 (geldt)" hieronder. Drie dingen die nu nog niet overal gelijk zijn: zie "Wat nog niet overal hetzelfde is (run 4)" en advies 23.
+
 ## Naam
 - **"Click Joints" is vrij** (GEZIEN 8 nov): geen extensie met die naam of tagline op extensions.blender.org (alle extensies in de [API](https://extensions.blender.org/api/v1/extensions/), 1.622 op 8 nov), `superhivemarket.com/products/click-joints` en varianten bestaan niet (sturen door naar de voorpagina), 0 GitHub-repo's "clickjoint(s)". Dichtstbij: Click Motion (animatie) en Joint Snapping System (game-assets), andere markt.
 - Zwak punt: "click joint" is in de printwereld een beschrijvend woord (flexi-modellen), dus de naam valt in zoekresultaten minder op. Daarom moet de tagline het werk doen. Reserve als Daan toch iets eigens wil: **Socketeer** (geen Blender- of printproduct gevonden, GEZIEN).
@@ -25,7 +27,7 @@ Alleen de gratis functies, geen woord over de betaalde versie (regels 6.1 tot 6.
 - **Naam:** Click Joints
 - **Tagline** (hoogstens 64 tekens, de langste op de site is precies 64, GEZIEN): `Articulated ball and pin joints for 3D printing, with clearance` (63 tekens)
 - **Tags:** Mesh, Modeling
-- **Beschrijving (concept, ronde h):**
+- **Beschrijving (concept, ronde h), vervangen door "Beschrijving run 4 (geldt)" hieronder:**
   > Turn a sculpt into a poseable, printable figure. Click where the joint goes and Click Joints cuts the mesh into two watertight parts with a ball and socket or a pin, sized with the clearance your printer needs, in millimetres.
   >
   > Before you export, a ring on the cut shows the fit: green is a good fit, yellow is tight, red is too thin or breaks through the surface. Each state has its own icon, and the panel tells you why, for example "Tight: wall 0.89 mm (aim for 1.5 mm or more)".
@@ -47,6 +49,38 @@ Alleen de gratis functies, geen woord over de betaalde versie (regels 6.1 tot 6.
   Waarom "for example" en geen vast getal: Auto kiest per gewricht 30°, 25° of 20° (Daan), dus één getal in de tekst zou bij een dun lid niet kloppen. Waarom niet "clicks": de add-on meet wand, speling en hoek, niet of het klikt (zie onder, advies 18).
 
   Waarom zo: "Auto" en "the panel tells you why" laten zien dat het nadenkt voor de gebruiker (dat heeft geen splitter, GEZIEN vanochtend); "0.1 to 0.3 mm is typical" blijft, want mensen zoeken op tolerance en weten niet welke waarde. "Watertight" is het woord dat printers gebruiken en staat zo ook op de knop. Geen woord over beweging zolang de beweegproef niet gebouwd is.
+
+### Beschrijving run 4 (geldt, concept tot Daan akkoord geeft)
+Nagelezen tegen de code op main e8602097 (GEZIEN). Elke bewering staat in de add-on; geen "clicks", geen getal dat bij een dun lid niet klopt.
+- **Tagline** (hoogstens 64 tekens): `Ball joints for 3D printed figures that show their bend range` (61 tekens; de pen staat in de beschrijving, want bij de pen meten we geen bereik). Waarom nieuw: de beweegproef is nu het sterkste wat we hebben en staat bij geen enkele extensie (GEZIEN, API 1.622 extensies, 17:00 UTC: alleen Better Ragdoll noemt "joint", andere markt). "Articulated" en "clearance" staan in de beschrijving, daar zoekt de site ook op (GOK over hoe zwaar de zoekfunctie de beschrijving telt).
+- **Beschrijving:**
+  > Turn a sculpt into a poseable, printable figure. Set the 3D cursor where the joint goes, click Place joint, and Click Joints cuts the mesh into two watertight parts with a ball and socket or a pin, sized with the clearance your printer needs, in millimetres.
+  >
+  > For a ball joint it then measures how far the joint bends before the parts collide, in 8 directions, and shows that range in the viewport. Auto picks the widest bend with the best fit (30°, 25° or 20°), and the panel shows the measured angle, for example "Bends ±25°". Tilt the part past that limit and the spot where it hits turns red.
+  >
+  > A ring on the cut shows the fit: green is a good fit, yellow is tight, red is too thin or breaks through the surface. The panel tells you why, for example "Tight: wall 0.89 mm (aim for 1.5 mm or more)".
+  >
+  > - Range of motion: the measured bend of every ball joint, in degrees, before you print
+  > - Ball and socket, or pin and hole
+  > - Auto size: picks the largest ball with a good fit, or tells you when none fits well
+  > - Clearance in mm (0.1 to 0.3 mm is typical)
+  > - Exploded view, so you see the ball and socket apart; the export stays in place
+  > - "Make watertight" for open or messy meshes, on a copy; your original stays untouched
+  > - Export as STL or 3MF, one file per part, in millimetres
+  > - Honest limits: a spot too thin for a ball joint, or too close to another joint, is refused with a clear message instead of a broken part
+  > - Tested on Blender 4.2 LTS and 5.2 LTS
+  >
+  > Support: thijs@dortus.com
+
+  Waarom zo: het buigen staat nu als tweede alinea, want dat heeft niemand (zie "Wat de concurrent mist"), en Daan wil de gradenboog als hoofdbeeld; tekst en beeld vertellen zo hetzelfde verhaal. "Tilt the part" in plaats van de naam van de schuif, omdat die naam nog kan veranderen. Verandert de stand of de tekst in het paneel nog, dan pas ik deze zinnen aan voor het insturen.
+
+### Wat nog niet overal hetzelfde is (run 4)
+Regel "Elk product": de belofte moet overal precies hetzelfde zijn. Nu (GEZIEN 17:10 UTC):
+1. **Tagline in `click_joints/blender_manifest.toml`:** `Cut a figure into two printable parts with a ball joint`, en tags `Mesh, Modeling, Import-Export`. Mijn tekst: zie hierboven, tags Mesh en Modeling. Het manifest is wat de site toont, dus dat moet gelijk worden (Bram). Import-Export mag blijven als Bram de export als zoekingang wil; ik zie geen bewijs voor of tegen (GOK).
+2. **Winkelzin bovenaan `ontwerp.md`:** nog `See if it clicks, and how far it bends, before you print.` Advies 18 (open) vraagt `See the fit, and how far it bends, before you print.`
+3. **Poster van Daan (beoordeling 3):** `See how far it bends, before you print.` Dat past bij advies 18 (geen klik) en is korter. Voorstel: dit wordt de ene zin overal (poster, winkelzin, eerste regel op Superhive en in de lanceerberichten), met daarachter `Ball and pin joints free; hinges, printer profiles and full-figure setup for $12.` zodra het betaalde deel gebouwd is. Bram en Daan beslissen; zie advies 23.
+4. **Rest van de zin "waarom wij" in `ontwerp.md`:** "de enige Blender-add-on" (niet te bewijzen, we kochten de concurrenten niet) en "kogel en pen met die controle" (bij de pen wordt geen bereik gemeten). Ook advies 18.
+5. **Bestandstoestemming in het manifest** noemt alleen STL, de add-on schrijft ook 3MF (al genoemd als kan-punt in advies 17).
 
 ## Betaalde versie op Superhive
 - **Titel:** Click Joints
