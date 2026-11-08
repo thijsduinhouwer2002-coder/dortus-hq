@@ -45,3 +45,4 @@
 - 8 nov, run 03:33: Odoo Apps Store zelf toegevoegd en gemeten (4.998 betaalde modules, 900 modulepagina's). Nee, cijfer 3. Controleur akkoord, 30 van 30 live gelijk.
 - 8 nov, run 04:32: Microsoft Store (Windows-apps) zelf toegevoegd en gemeten (steekproef 4.000 pagina's). Nee voor nu, cijfer 3. Controleur akkoord met de kern, 4 correcties verwerkt.
 - 8 nov, run 06:32: Pebble zelf toegevoegd en gemeten (8.112 apps en wijzerplaten via open API). Nee voor nu, cijfer 4: goed bereik voor nieuwe wijzerplaten, maar geen betalen in de winkel en een kleine markt. Controleur akkoord, 6 correcties.
+- 8 nov, run 08:31: Meta Horizon Store zelf gemeten via vrdb.app (6.850 nieuwe titels). Nee voor nu, cijfer 4. Controleur akkoord, 6 correcties.
