@@ -111,7 +111,7 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			for (const ms of [500, 1300, 2200, 3200, 5000, 9000]) {
 				const wacht = ms - (Date.now() - t0);
 				if (wacht > 0) await browser.pause(wacht);
-				await browser.$(`${LEAF} [data-daan="regel"]`).saveScreenshot(`${SHOTS}/skins5-beweging-${skin}-${ms}.png`).catch((e) => console.log("beweging", e));
+				await browser.saveScreenshot(`${SHOTS}/skins5-beweging-${skin}-${ms}.png`);
 			}
 			console.log(`SKINS5 beweging ${skin}: token gevonden ${p}`);
 			await browser.execute(() => document.body.style.removeProperty("--rw-slow"));
