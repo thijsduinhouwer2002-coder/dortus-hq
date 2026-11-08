@@ -23,3 +23,34 @@ Door Chris, 7 nov 2026. Het besluit over de prijs is van Olaf (platformmanager);
 ## Wanneer opnieuw kijken
 - Dag 30 na de aanmelding: verkopen gedeeld door actieve gebruikers. Onder 0,3%: voorstel voor iets betaalds dat meer waarde heeft dan uiterlijk (bijvoorbeeld een pakket kant-en-klare tabellen), niet de prijs verlagen. Boven 2%: een derde skin of een bundel overwegen.
 - Hoe meten: verkopen in Polar (alleen Thijs kan inloggen, of de Polar-koppeling als die voor de ploeg mag), downloads in community-plugin-stats.json.
+
+## Bijwerking 8 nov 2026 (run 4): wat er echt overblijft van $6
+
+Nagemeten met curl op de afrekenpagina en in de documentatie van Polar. Het voorstel blijft **$6 eenmalig**, maar de opbrengst per verkoop is lager dan hierboven staat.
+
+**Wat de afrekenpagina nu laat zien (GEZIEN, 8 nov 03:50 UTC):** naam "Rollwright Skins", $6, vast bedrag, kortingscodes toegestaan. Geen beschrijving (`description: null`) en geen plaatje (`medias: []`). Een koper die op Buy drukt ziet dus alleen een naam en een bedrag. Organisatie aangemaakt op 6 nov 2026 (GEZIEN, `created_at`).
+
+**Kosten van Polar (DERDEN, [Fees](https://polar.sh/docs/merchant-of-record/fees)):**
+- Organisaties van na 27 mei 2026 zitten op Starter: 5% + $0,50 per verkoop. Daar komt **1,5% bij voor een kaart van buiten de VS**. De kosten gaan over het totaal inclusief btw.
+- Uitbetalen kost apart (DERDEN, [Pricing](https://polar.sh/resources/pricing)): $2 per maand waarin je uitbetaalt, plus 0,25% + $0,25 per uitbetaling, plus 0,25% omwisselen binnen de EU.
+
+**Btw (DERDEN, [Tax Inclusive Pricing](https://polar.sh/docs/features/tax-inclusive-pricing)):** ons product heeft geen eigen instelling (`tax_behavior: null`, GEZIEN), dus geldt de standaard "location-based": in de VS, Canada en India komt de belasting bovenop de $6, in de rest van de wereld zit de btw er al in.
+
+**Wat Dortus per verkoop overhoudt (berekend uit de regels hierboven):**
+
+| Koper | Koper betaalt | Dortus houdt over |
+|---|---|---|
+| VS, Amerikaanse kaart | $6 plus eventuele sales tax | ±$5,20 |
+| Nederland (21% btw) | $6 | ±$4,07 |
+| Duitsland (19%) | $6 | ±$4,15 |
+| VK of Frankrijk (20%) | $6 | ±$4,11 |
+
+Gemiddeld ±$4,60 per verkoop als de helft uit de VS komt (GOK, de verdeling van Obsidian-gebruikers per land is niet bekend). Hierboven stond ±$5,20: dat geldt alleen voor Amerikaanse kopers.
+
+**Uitbetalen:** bij weinig verkopen eten de vaste uitbetaalkosten flink mee. Voorbeeld: 10 verkopen in een maand (±$46) en die maand uitbetalen kost ±$2,40, dus ±5% (berekend). Advies: handmatig uitbetalen, eens per kwartaal of vanaf ±$200 (zie advies 13 en lijst-thijs).
+
+**Herberekende verwachting (GOK):** ±60 tot 700 verkopen in het eerste jaar (zelfde gok als hierboven) maal ±$4,60 is ±$280 tot $3.200 per jaar, dus ±€20 tot €230 per maand (koers ±1,16 dollar per euro, GOK). Nog steeds een bijzaak; het geld voor de doelen moet van elders komen.
+
+**Waarom de prijs toch niet omhoog:** bij $8 zou Dortus per verkoop ±$5,59 (NL) tot ±$7,10 (VS) houden (berekend), maar er zijn nog 0 gebruikers en dus geen enkel gegeven over hoeveel mensen bij welke prijs kopen. De vaste $0,50 weegt bij een lage prijs zwaar; dat is een reden om bij de meting op dag 30 eerder een duurder extra (bundel, derde skin, tabellenpakket) te overwegen dan een lagere prijs.
+
+**Wat de US-belasting betekent voor de knop:** in de plugin staat "Buy for $6". Een Amerikaanse koper ziet op de afrekenpagina $6 plus sales tax, apart vermeld. Dat is in de VS gewoon en geen misleiding; geen aanpassing nodig.
