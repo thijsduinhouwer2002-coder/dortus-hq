@@ -1,7 +1,6 @@
 package com.dortus.bisonflex.meldingen
 
 import com.dortus.bisonflex.pro.Licentie
-import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.util.Disposer
@@ -15,7 +14,7 @@ import java.util.concurrent.TimeUnit
  */
 class StandLuisteraar : ProjectActivity {
     override suspend fun execute(project: Project) {
-        val wacht = StandWacht { if (!project.isDisposed) DaemonCodeAnalyzer.getInstance(project).restart() }
+        val wacht = StandWacht { HerstartAnalyse.voor(project) }
         val taak = AppExecutorUtil.getAppScheduledExecutorService().scheduleWithFixedDelay({ wacht.kijk() }, 2, 2, TimeUnit.SECONDS)
         Disposer.register(project) { taak.cancel(false) }
     }
