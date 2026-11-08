@@ -39,9 +39,12 @@ jobs:
           [ -n "$TOKEN" ] || { echo "FOUT: secret JETBRAINS_MARKETPLACE_TOKEN ontbreekt (punt op de lijst van Thijs)"; exit 1; }
       - name: Akkoord van Daan
         run: |
-          L=$(grep -E 'Akkoord: (ja|nee)' ontwerp.md | tail -1)
-          echo "Laatste oordeel: $L"
-          echo "$L" | grep -q 'Akkoord: ja' || { echo "FOUT: laatste oordeel van Daan is geen 'Akkoord: ja'"; exit 1; }
+          # Alleen de vaste oordeelregel van Daan bovenaan telt: een regel die
+          # begint met "Akkoord:" (oude oordelen beginnen met "Oud:", vragen van
+          # Jet met "**").
+          L=$(grep -m1 -E '^Akkoord: (ja|nee)' ontwerp.md || true)
+          echo "Oordeel Daan: $L"
+          echo "$L" | grep -q '^Akkoord: ja' || { echo "FOUT: het oordeel van Daan bovenaan ontwerp.md is geen 'Akkoord: ja'"; exit 1; }
       - name: IDE-runs op deze commit groen
         env:
           GH_TOKEN: ${{ github.token }}
