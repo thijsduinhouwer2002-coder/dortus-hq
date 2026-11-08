@@ -91,7 +91,7 @@ def weergave():
         return
     ruimte = gebied.spaces.active
     ruimte.shading.type = "SOLID"
-    ruimte.shading.color_type = "OBJECT"
+    ruimte.shading.color_type = "MATERIAL"  # standaard Solid: de passingkleur moet hier al te zien zijn
     ruimte.clip_start = 0.1
     ruimte.clip_end = 10000
     regio = next(r for r in gebied.regions if r.type == "WINDOW")
@@ -123,9 +123,32 @@ def plaats():
     delen = [o for o in bpy.context.scene.objects if o.get("cj_deel")]
     for d in delen:
         if d["cj_deel"] == "B":
-            d.location += Vector(d["cj_as"]) * 4.0  # een beetje uit elkaar, zodat je de kogel ziet
+            d.location += Vector(d["cj_as"]) * UIT_ELKAAR  # uit elkaar, zodat je de kogel ziet
         log(f"deel {d.name} passing={d.get('cj_passing')} wand={d.get('cj_wand_mm')} kleur={tuple(d.color)}")
     log(f"plaats: {uitslag}, {len(delen)} delen")
+
+
+UIT_ELKAAR = 8.0  # mm dat deel B langs de as opschuift op plaatje 2
+
+
+def close_up():
+    """Kijk schuin van voren op het gewricht, zodat de kogel in de opening tussen A en B te zien is.
+    Het midden schuift wat naar rechts, want de zijbalk ligt over het rechterdeel van de weergave."""
+    venster, gebied, _ = zijbalk()
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A"), None)
+    if not gebied or a is None:
+        log("close-up: geen weergave of geen deel A")
+        return
+    rv3d = gebied.spaces.active.region_3d
+    as_ = Vector(a["cj_as"]).normalized()
+    midden = Vector(a["cj_centrum"]) + as_ * (UIT_ELKAAR / 2)
+    richting = Vector((0.25, 1.0, -0.45)).normalized()  # van voren, iets van boven en rechts
+    rv3d.view_perspective = "PERSP"
+    rv3d.view_rotation = richting.to_track_quat("-Z", "Y")
+    rv3d.view_distance = 48.0
+    rv3d.view_location = midden + Vector((4.0, 0, 0))
+    gebied.tag_redraw()
+    log(f"close-up: midden={tuple(round(x, 2) for x in midden)} afstand=48 kogel_r={a.get('cj_kogel_r')}")
 
 
 def gesloten(ob):
@@ -175,7 +198,7 @@ def kijk():
     log(f"KIJK {'OK' if ok else 'FOUT'} (hoek {hoek} rad, marge 0,01)")
     for d in delen:
         if d["cj_deel"] == "B":
-            d.location += Vector(d["cj_as"]) * 4.0
+            d.location += Vector(d["cj_as"]) * UIT_ELKAAR
 
 
 def stap():
@@ -201,6 +224,7 @@ def stap():
     if n == 4:
         plaats()
         weergave()
+        close_up()
         return 1.5
     if n == 5:
         schiet("2-gewricht.png")
