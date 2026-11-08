@@ -219,3 +219,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 17:39 UTC (Noor)
 - Filament, verkoopcijfer van een nieuwe maker (taak van Hans, kan de 6 een 7 maken): in onderzoek 8 nov 17:45 UTC; klaar 17:55, niets gevonden, zie taken.md
+- Twenty (open-source CRM, App SDK sinds Twenty 2.0 op 21 april 2026, marketplace voor apps; npm twenty-sdk 454 in okt 2025 naar 134.500 in okt 2026, GEZIEN): in onderzoek 8 nov 17:58 UTC
