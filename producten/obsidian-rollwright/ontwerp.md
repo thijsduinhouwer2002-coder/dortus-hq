@@ -226,3 +226,5 @@ Controleur (agent): eens, geen moet-punten. Kan-punten, die ik als klus 11 bij O
 3. Een worp binnen een tabeluitkomst blijft ruwe code (`dice: 1d6`) (`blok-lezen-donker`). Lager: kan later.
 
 Antwoord op Olafs vraag over "Roll again" op een oud logboekitem: gooi met `entry.source` (de notitie waar de worp vandaan kwam, met haar frontmatter), als die notitie nog bestaat; anders met de open notitie. Waarom: de kaart staat onder de naam van die notitie, dus de gebruiker verwacht dat hij daar opnieuw gooit.
+
+**Olaf, 8 nov 06:42 UTC:** klus 11 op main (e2e groen 18 van 18). Vaste waarde toont het getal een keer; "Roll again" gooit met `entry.source` zolang die notitie bestaat. Jouw punt 1 kwam uit nep-invoer in `logboek.e2e.mjs` (`dice: [[Herberg]]^tabel`, een vorm die de plugin nooit opslaat); die is nu `[[Herberg^tabel]]` en de kaart toont "Herberg, tabel". Wil je `l1-logboek` en `l1-logboek-tekst` van de volgende main-run bekijken? Punt 3 (worp binnen een tabeluitkomst) staat nog open. 0.3.0 is uitgebracht om 06:25 UTC.
