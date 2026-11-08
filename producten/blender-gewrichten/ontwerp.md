@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 16:27, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
+Akkoord: nee 8 nov 2026 17:30, voor tak `claude/blender-2026-11-08-o` (ronde o, run 42503896393), omdat de smalle naadband (moet 2) en de winkelplaatjes en het icoon nog niet klaar zijn. De gradenboog (moet 1) is goed. Wat nog moet voor de lancering is een vaste, korte lijst: zie "Lanceerlijst van Daan" onderaan. Alles daarbuiten is versie 2.
+
+Oud: Akkoord: nee 8 nov 2026 16:27, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
 
 Oud: Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
 
@@ -408,3 +410,28 @@ Controleur (agent): akkoord met correcties, "nee" terecht. Overgenomen, dit hoor
 Beoordeling 3 van Daan kwam binnen terwijl deze ronde liep; die werk ik de volgende run af. Dit is werk onder de motorkap, niets aan het beeld veranderd.
 - De beweegproef op de testarm (261K driehoeken) kostte 0,6 tot 0,8 s, bijna allemaal in de controle met de grote uitsnede. Nu laat die uitsnede de vlakken weg die bij de geteste hoek bewijsbaar nooit kunnen botsen (bewijs in `beweeg.snoei_maskers`), met de volle uitsnede als terugval voorbij die hoek. Arm: 0,60 naar 0,32 s (4.2.23), 0,55 naar 0,38 s (5.2.3), run 42499399232 (GEZIEN).
 - Toetsen erbij: met en zonder snoei dezelfde grenzen (arm en blok) en dezelfde rode vlakken bij pose 45. Geen bestaande toets veranderd. Controleur: na één correctie akkoord.
+
+## Lanceerlijst van Daan (8 nov 17:30 UTC, tak `claude/blender-2026-11-08-o`, run 42503896393)
+
+Thijs (18:25 NL-tijd): Click Joints moet naar de winkel, alleen wat echt moet, bij twijfel versie 2. Dit is mijn deel van de vaste lijst voor Hans. Ik voeg hier niets meer aan toe tenzij er iets kapot gaat.
+
+Bekeken met de Read-tool, Blender 5.2.3: `1-paneel-x`, `5-waaier-x`, `6-rood-x`, `7-plat-x` van run 42503896393 (commit b9046ae7).
+
+**Moet 1, gradenboog: goed.** Eén witte boog in de gekozen richting, streepjes, "20°" gelijk aan het paneel, rood vlak en "+8° past limit" voorbij de grens. Dit is wat ik vroeg. Afgevinkt zodra ronde o op main staat met een groene run. Het paneel met "Bend", "Direction" en "Reset bend" is ook goed.
+
+### Moet voor de lancering (vast, niets erbij)
+1. **Bram: smalle naadband, één ronde.** Alleen deel (a) van moet 2: meet de afstand vanaf de naad (bol om het kogelmidden), niet vanaf het platte snijvlak, band hooguit 1,5 mm. Terugval: ligt er geen enkel hoekpunt in de band (grof figuur), kleur dan zoals nu, zodat het nooit grijs blijft. Eén toets op de pop: elk gekleurd hoekpunt binnen 1,6 mm van de naad. Naadlijn (c) en vlakregel (b) gaan naar versie 2. **Grens:** lukt het niet in één ronde met een groene run, dan gaat ook (a) naar versie 2 en lanceren we met de band van nu. Het platte lid (`7-plat-x`) blijft dan zoals het is; dat is een randgeval en het komt niet op de winkelplaatjes.
+2. **Bram: één winkelscherm in de test** (`8-winkel`), op de pop met kogel, pose 15, "Show bend range" aan, Exploded view uit, en de kijker loodrecht op het vlak van de boog (kijkrichting langs de draaias van de gekozen richting, het gewricht in het midden, zijbalk dicht, 1920 x 1080). Nu kijken we bijna langs de boog, dan zie je de vorm van de gradenboog niet. Plus hetzelfde met pose 28 (`9-winkel-rood`). Twee schermen, geen nieuwe functie.
+3. **Daan: icoon en winkelplaatjes**, gemaakt van die twee schermen: (1) poster "See how far it bends, before you print." met de gradenboog groot, (2) rood voorbij de grens, (3) het paneel. Alleen gratis functies in beeld (ToS 6.2 van extensions.blender.org). Uit mijn geheugen (GOK, de hoofdchat kijkt het na bij het uploaden): de site vraagt een icoon van 256 x 256 en een featured image van 1920 x 1080.
+4. **Daan: winkeltekst van Chris nakijken** (`commercie/blender-click-joints/winkeltekst.md`) tegen de plaatjes: overal hetzelfde getal en dezelfde belofte, geen woord over de betaalde versie op extensions.blender.org.
+5. **Thijs: ja of nee** op plaatjes en tekst (ik zet ze op zijn lijst). Daarna `Akkoord: ja` en het mag de winkel in.
+
+### Versie 2 (niet nu bouwen)
+- Naadlijn langs de naad en de vlakregel (moet 2, deel b en c); de band op platte en grove figuren.
+- Getal op de boog groter en vet, met een duidelijkere donkere rand (nu leesbaar, wel dun).
+- Pijltjes in plaats van getallen voor de richting.
+- Het "inklikken" als korte animatie bij het plaatsen.
+- Testkaartje en alles van de betaalde versie.
+- De kan-punten van de controleur (oude kogeltak in `snij()`, cursor buiten het figuur, te dicht bij schuine gewrichten): voor het ontwerp geen van alle nodig voor de lancering. Of ze technisch moeten, beslissen Hans en Bram.
+
+**Waarom zo kort:** het product doet wat de winkelzin belooft (passing en bereik in graden, gemeten en eerlijk) en de gradenboog is ons eigen gezicht. Wat nog ontbreekt zit in de winkelplaatjes, niet in de add-on. Elke extra ronde aan de add-on schuift de eerste gebruikers op.
