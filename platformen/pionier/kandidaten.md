@@ -150,7 +150,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Let bij scripting met ingebouwde AI op het risico dat eenvoudige scripts niets meer waard zijn; alleen grote, verzorgde hulpprogramma's houden waarde.
 
 ## Nieuw, 8 nov 12:50 UTC (Noor)
-- World App mini apps (Tools for Humanity, mini apps in World App met World ID, betalen in WLD/USDC, Developer Rewards sinds april 2025): in onderzoek 8 nov 2026 12:50 UTC
+- World App mini apps (Tools for Humanity, mini apps in World App met World ID, betalen in WLD/USDC, Developer Rewards sinds april 2025): klaar 8 nov, cijfer 2 (nee, platform krimpt), zie onderzocht.md. Herhaalmeting hooguit per kwartaal: `python3 data/worldapp-meet.py`
+- Les: kijk bij een platform eerst of de eigenaar een openbare teller heeft (hier metrics.worldcoin.org) en haal oude standen uit het Wayback-archief (`web.archive.org/web/<datum>id_/<url>`). Dat laat binnen vijf minuten zien of het groeit of krimpt.
 
 ## Snelle schifting, 8 nov ±11:55 UTC (Noor)
 - DeepSeek Harness (AI-werkomgeving): officiële pluginwinkel en makersprogramma met tokens aangekondigd, maar er zijn al ±35.000 plugins en 1,54 miljoen dagelijkse gebruikers (DERDEN, https://technode.com/2026/11/06/deepseek-plans-official-plugin-marketplace-as-harness-daily-users-reach-1-54-million/). Al vol, AI-assistent-soort, Chinees. Nee voor de pionier.

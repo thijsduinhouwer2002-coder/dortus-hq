@@ -1,0 +1,26 @@
+{
+ "datum": "2026-11-08",
+ "snapshot": "2026-11-08 12:04:20.109 Z",
+ "orb_geverifieerd": 18169041,
+ "actief_30d": 2213275,
+ "actief_7d": 814643,
+ "actief_dag": 167836,
+ "nieuwe_accounts_7d": 23893,
+ "mini_apps_goedgekeurd": 586,
+ "mini_apps_in_lijst": 631,
+ "unieke_gebruikers_7d_som": 944878,
+ "mediaan_7d": 77,
+ "apps_1000_plus_7d": 116,
+ "top10_7d": [
+  225437,
+  69635,
+  67931,
+  41165,
+  26735,
+  21887,
+  21580,
+  20806,
+  18657,
+  15649
+ ]
+}
