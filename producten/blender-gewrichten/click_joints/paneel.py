@@ -18,6 +18,9 @@ def buig_graden(ob):
     stand, grens = ob.get("cj_hoek", -1), ob.get("cj_grens_graden", -1.0)
     if stand is None or stand <= 0 or grens is None or grens <= 0:
         return None
+    gemeten = ob.get("cj_buig_graden")  # beweegproef (ronde k): nooit meer dan de kleinste gemeten richting
+    if gemeten:
+        grens = min(grens, min(gemeten))
     return int(math.floor(min(stand, grens) + 1e-6))
 
 
@@ -76,6 +79,13 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
                 stap.label(text=f"Wall: {ob['cj_wand_mm']:.2f} mm", icon="BLANK1")
             if "cj_speling_gemeten_mm" in ob:
                 stap.label(text=f"Clearance: {ob['cj_speling_gemeten_mm']:.2f} mm (measured)", icon="BLANK1")
+            if ob.get("cj_buig_graden") and kleur != "rood":
+                blok = stap.column(align=True)
+                blok.prop(inst, "toon_bereik", icon="LIGHT_SPOT")
+                blok.prop(inst, "pose_graden", slider=True)
+                rij = blok.grid_flow(row_major=True, columns=4, even_columns=True, align=True)
+                rij.prop(inst, "pose_richting", expand=True)
+                blok.operator("click_joints.reset_pose", icon="LOOP_BACK")
         else:
             stap.label(text="No joint yet")
         stap.prop(inst, "exportmap")

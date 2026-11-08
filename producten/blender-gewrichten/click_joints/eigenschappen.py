@@ -2,6 +2,7 @@
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, PointerProperty, StringProperty
 
+from . import beweeg as _beweeg
 from . import uit_elkaar as _uit
 
 _zelf = [False]  # True terwijl Place joint de diameter zelf invult: dan blijft Auto aan
@@ -54,6 +55,19 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         name="Exploded view", description="Show part B a little apart along the joint axis, so you see the "
         "ball. Only in the viewport: the export uses the real position",
         default=True, update=_uit.bij_wissel)
+    # Beweegproef (ronde k): waaier met het gemeten bereik en een pose die deel B alleen in beeld draait.
+    toon_bereik: BoolProperty(
+        name="Show bend range", description="Show how far the joint bends in 8 directions, as a fan in the viewport",
+        default=True)
+    pose_graden: FloatProperty(
+        name="Pose", description="Tilt part B around the ball, only in the viewport. Past the measured range, "
+        "the parts that collide turn red. The export always uses the straight position",
+        default=0.0, min=0.0, max=45.0, step=100, precision=0,
+        update=_beweeg.bij_pose)
+    pose_richting: EnumProperty(
+        name="Direction", items=[(str(k), f"{k * 45}\u00b0", f"Tilt toward {k * 45} degrees around the axis")
+                                 for k in range(8)],
+        default="0", update=_beweeg.bij_pose)
 
 
 KLASSEN = (ClickJointsInstellingen,)

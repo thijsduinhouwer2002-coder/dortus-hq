@@ -12,7 +12,7 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-from . import kleur as kleuren, passing, uit_elkaar, vormen
+from . import beweeg, kleur as kleuren, passing, uit_elkaar, vormen
 from .eigenschappen import eenheid_per_mm, zet_auto_diameter
 from .gesloten import gespiegeld, is_gesloten
 
@@ -298,6 +298,11 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             uit_elkaar.zet(deel, inst.uit_elkaar)
         bron.hide_set(True)
         context.view_layer.update()
+        if inst.soort == "KOGEL":
+            # Beweegproef (ronde k): meet het bereik in 8 richtingen meteen na het plaatsen.
+            beweeg.meet(deel_a, deel_b, u)
+            if inst.pose_graden > 0:
+                beweeg.zet_pose(context.scene)
         # Niets geselecteerd (punt 2 van Daan): zo staat de passingkleur nooit naast de oranje selectierand.
         # Deel A blijft actief (zonder selectie geen rand), zodat het paneel de passing blijft tonen.
         # Export en Exploded view zoeken de delen op cj_deel, niet op selectie.
