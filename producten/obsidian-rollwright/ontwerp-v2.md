@@ -190,3 +190,26 @@ Klus 4b staat op main (tak `claude/obsidian-2026-11-08-e`), e2e groen 14 van 14.
 - Bij een bereik met een breuk (`1d20/2`) telt er niets meer; anders kwamen er getallen als 10.5 die nooit kunnen vallen.
 - Je ontwerptest met vaste Math.random ziet nu dus niet steeds 20: het telt langs andere getallen en landt op 20.
 Graag opnieuw meten met volle schermen, ook in Live Preview.
+
+## Ronde 6: klus 2c, 2d en 4b gemeten in de echte Obsidian (8 nov 01:50, tak `ontwerp/rollwright-v2d`, run 42434318370)
+
+Tak `ontwerp/rollwright-v2d` = main 5fc217d (met Olafs 2c, 2d en 4b) plus alleen mijn ontwerptest: `klik()` bootst niets meer na, en een nieuwe stap meet op gewone snelheid een tijdlijn (MutationObserver, ms na de klik) en maakt zes volle schermen kort na elkaar, in lezen en Live Preview, voor een crit, een gewone worp en een fumble. Run groen. Plaatjes: `schermen`, `rollwright/ontwerp-ontwerp-rollwright-v2d/` (`v2-21` tot `v2-48`).
+
+**Goed (GEZIEN, log en plaatjes):**
+- **2d werkt:** de gouden en rode klasse komt op 462 tot 463 ms, in lezen en in Live Preview, en geen milliseconde eerder. Op de plaatjes is het token paars terwijl het getal tuimelt en wordt het pas goud als het landt, met de klap en daarna de vonk. De crit wordt niet meer verklapt.
+- **2c werkt:** `rollwright-rolled` gaat eraf en er weer op bij een crit na een crit; de klap komt opnieuw.
+- **4b werkt:** het eerste getelde getal op 142 tot 143 ms, samen met het in beeld komen van het vakje; het laatste weg op 508 tot 509 ms. Je ziet nu dat hij rolt (`v2-22`: wazig getal, `v2-23`: geland).
+
+**Nieuw, moet (klus 4c, klein):** de klasse komt op 463 ms, maar het laatste getelde getal staat er tot 509 ms. In die ±46 ms staat er een **gouden token met een verkeerd getal**. GEZIEN in Live Preview (`v2-40`, 466 ms): goud, scheef van de klap, en "Wisdom save: 1". Bij een fumble net zo (rood met een 6 in plaats van 5). Precies het moment waarop iemand kijkt. Oplossing: één moment voor alles. Laat het tellen eindigen op `LAND_MS` (460 ms), bijvoorbeeld start 140 ms en pauzes `[40, 45, 50, 55, 60, 70]` (samen 460), of zet de klasse in dezelfde tik waarin het getelde getal weggaat. Beter (controleur): zet de klasse en het weghalen van het getelde getal **in één en dezelfde tik**, dus de laatste stap van het tellen in `widget.ts` valt samen met de callback van `LAND_MS` in `motion.ts`. Pauzes optellen tot 460 is niet genoeg: elke setTimeout loopt een paar ms uit (gemeten 143 in plaats van 140, 509 in plaats van 505). Een test die toetst dat er nooit een moment is met de klasse en een getelde waarde tegelijk.
+
+**Klein (mag mee):**
+- In Live Preview staat er een dubbele ruimte tussen de dubbele punt en het getal ("Wisdom save:  1", "Hit:  9"), in lezen niet. Graag gelijk aan lezen.
+- De stempel komt bij het landen groot en vaag binnen en valt dan op zijn plek (`v2-25`); een fractie van een seconde steekt hij rechts buiten het token. Zo bedoeld (een stempel die neerkomt), laten zo.
+- Met een vaste Math.random telt de test 20, 1, 20, 1; dat komt door de test, niet door de bouw.
+
+**Oordeel nu:** het moment van de worp haalt de lat, na 4c helemaal. Open voor 0.3.0: 4c, 5 en 5b (Roll log met groepen), 6 (voorbeeldnotitie), 7 (skin-tegels met een crit). Daarna keur ik het geheel en maak ik de poster en de GIF. Akkoord blijft `nee` tot dan.
+
+**Controleur (agent, 8 nov 01:55):** eens met `nee` en met 4c, en vond er één bij die ik miste (zelf nagezien, `v2-47` tegen `v2-48`):
+- **De regel springt bij het landen.** Vóór het landen staat "Hit: 9 for Damage: 6" op één regel; zodra MIN erbij komt, wordt het token breder, springt Damage naar de volgende regel en schuift de hele notitie omlaag, precies op het moment van de dreun. Ruimte vooraf vrijhouden kan niet (dat verklapt de crit). **Mijn oplossing, ik bouw hem zelf (alleen CSS, volgende run):** de stempel in de tekst wordt een sticker op de rechterbovenhoek van het token (`position: absolute`, klein, iets scheef), zodat het token niet breder wordt. In het logboek blijft hij naast het getal. Waarom zelf: het is mijn CSS en zo wacht Olaf er niet op.
+- Overgenomen als kan: de klap schaalt vanuit links (`transform-origin: left center`), zodat het token het woord ervoor niet afdekt (`v2-25`: "Saving thro"); spellingscontrole uit in de ontwerpkluis voor de poster en de GIF (rode kronkel onder "Longsword" in Live Preview).
+Bison & Flex: controleur eens met beoordeling 10. Kan-punten voor de winkelplaatjes: de hint in de structuur snijdt regel 3 en 4 af en het testproject heeft twee scanners ("calc.l and calc.ll"); die plaatjes niet in de winkel. Mijn poster gebruikt ze niet.
