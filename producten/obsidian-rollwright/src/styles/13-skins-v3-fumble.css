@@ -77,7 +77,8 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) {
 	color: #ff8f9f;
 	text-shadow: none;
-	filter: none;
+	/* Gedoofd kristal viel weg op een donkere achtergrond (run 42521377005): een doffe roze rand houdt de vorm. */
+	filter: drop-shadow(0 0 0.7px rgba(255, 143, 159, 0.75));
 }
 
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) > .rollwright-stamp {
