@@ -26,13 +26,27 @@ jobs:
       - run: npm run build
       - run: npm install
         working-directory: producten/obsidian-rollwright/e2e
-      # Obsidian en chromedriver komen van GitHub-releases; die gaven op 8 nov steeds 504.
-      # Daarom bewaren we de download tussen runs en proberen we tot drie keer bij een downloadfout.
-      - uses: actions/cache@v4
+      # Obsidian en chromedriver komen van GitHub-releases; die gaven op 8 nov vaak 504.
+      # Daarom: download bewaren tussen runs (ook als de test faalt), vooraf downloaden met
+      # tot acht pogingen, en de test zelf tot drie keer opnieuw bij een downloadfout.
+      - uses: actions/cache/restore@v4
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-cache-ontwerp-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.ontwerp.conf.mjs') }}
+          key: obsidian-cache-${{ github.run_id }}
           restore-keys: obsidian-cache-
+      - name: Obsidian vooraf downloaden (tot acht pogingen)
+        working-directory: producten/obsidian-rollwright/e2e
+        run: |
+          for poging in 1 2 3 4 5 6 7 8; do
+            npx obsidian-launcher download desktop -v latest -i latest -c .obsidian-cache && exit 0
+            echo "downloadfout, poging $poging"; sleep $((poging * 10))
+          done
+          echo "vooraf downloaden lukte niet; de test probeert het zelf nog"
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: producten/obsidian-rollwright/e2e/.obsidian-cache
+          key: obsidian-cache-${{ github.run_id }}
       - name: Ontwerptest (tot drie keer bij een downloadfout)
         working-directory: producten/obsidian-rollwright/e2e
         run: |
