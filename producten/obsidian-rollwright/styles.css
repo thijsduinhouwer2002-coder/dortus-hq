@@ -2380,7 +2380,8 @@ body.rollwright-skin-classic .rollwright-history-item > .rollwright-stamp {
 	font-weight: 400;
 	font-size: 0.78em;
 	letter-spacing: 0.02em;
-	text-transform: none;
+	text-transform: lowercase;
+	font-variant: normal;
 	text-shadow: 0 0 0.08em rgba(163, 22, 26, 0.35);
 	transform: rotate(-6deg);
 }
