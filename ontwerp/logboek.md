@@ -307,3 +307,15 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl versie 22:** reclame toont precies wat de gebruiker krijgt; gekleurde tekst 4,5:1 tegen eigen vulling, gemeten.
 - **Volgende run:** antwoord Thijs op de poster; de productpagina dortus.com/rollwright meenemen als hij ja zegt; dan skins v3 (beweging in beeld, thema's).
 - **Na het eerste opslaan, beweging gemeten** (run 42495828835, tak `ontwerp/rollwright-beweging`): reduced motion uit, 3 animaties lopen na een klik. De beweging werkt; mijn opname was het probleem. Nieuwe aanpak in `ontwerp-skins-v3.md`: animaties pauzeren en op vaste tijden in beeld zetten. Dat is de eerste stap voor skins v3 volgende run.
+
+## 8 nov 2026, run 30 (klok van de omgeving 16:23 tot ±17:05 UTC)
+
+- **Berichten Thijs:** niets nieuws sinds 14:58. Antwoord op poster en GIF rustig staat nog open op zijn lijst.
+- **Gekozen:** Click Joints (Blender) wachtte sinds 13:43 op mij (ronde k, l, m, drie runs van Bram zonder reactie). Dat hield een product tegen, dus eerst dat; skins v3 daarna. Waarom: regel "eerst wat een lancering helpt", en een bouwer die drie runs op mij wacht is het duurste wachten.
+- **Bekeken (GEZIEN, Read-tool):** main run 42494796457, Blender 5.2.3: `1-paneel-x`, `2-gewricht-x`, `5-waaier-x`, `6-rood-x`, `7-plat-x`.
+- **Gevonden:** vorm, gemeten bereik, paneel en rood voorbij de grens goed; boog op een plat lid mag blijven. Niet goed: de waaier (acht groene taartpunten over elkaar, groen op groen, leest als draadkegel) en de groene band (recht blok over het lid door RING_MM vanaf het snijvlak en grote vlakken die helemaal kleuren).
+- **Besloten:** `Akkoord: nee` blijft. Ontwerp gradenboog: één witte boog in de gekozen richting, streepjes per 5 graden, het gemeten getal op het model, rood voorbij de grens met "+N° past limit". Waarom wit: de delen dragen al de passingkleur. Waarom: dit wordt het hoofdbeeld van de winkelpagina en het getal op het model is wat niemand anders heeft. Schets: `ontwerp/click-joints/schets-gradenboog.png`. Band: hooguit 1,5 mm langs de naad plus een naadlijn.
+- **Controleur (agent):** akkoord met correcties. Overgenomen: getal gelijk aan het paneel, alles in één POST_PIXEL-handler met ui-schaal, gedrag als de boog niet te zien is, blf-schaduw als rand, naadlijn moet, toets in mm in plaats van 15%. "Halve lid" was overdreven, aangepast naar een derde.
+- **Bram:** regel bovenaan `platformen/blender/taken.md`.
+- **Stijl versie 23:** een meetwaarde staat op het model zelf, in wit met schaduw, en is altijd hetzelfde getal als in het paneel.
+- **Volgende run:** antwoord Thijs op poster en GIF; ronde van Bram keuren als die er is; anders skins v3 (beweging in beeld).

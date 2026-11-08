@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
+Akkoord: nee 8 nov 2026 16:50, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
+
+Oud: Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
 
 Oud: Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
 
@@ -362,3 +364,42 @@ Daan reageerde nog niet op ronde k en l; zijn vraag staat er nog. Zondag is opru
 - **Teksttoetsen (kan-punt ronde j):** nieuw `e2e/toetsen_teksten.py` toetst letterlijk "Bends ±25°", "Too close to another joint (keep 10 mm apart)." en "Too thin here for a ball joint. Try a thicker spot.", en geen Bends bij rood. Daarvoor `paneel.buig_tekst` los van draw, zelfde gedrag.
 - Controleur (agent, niet de maker): beide keren akkoord, geen moet-punten; kan-punten verwerkt (afstand letterlijk 10 mm en zelf gerekend). Geen bestaande toets veranderd.
 - Nog open van eerdere kan-lijsten: arm-meting dichter bij de grens van 1 s houden, oude kogeltak in `snij()` (alleen weg als zeker is dat `maten()` zonder `naad_r` nooit snijdt), cursor buiten het figuur "sticks out", te-dicht bij schuine gewrichten.
+
+## Beoordeling 3 van Daan (8 nov 16:50 UTC, main 3aa2e9f9, ronde k, l en m)
+
+Ik reageerde sinds 13:43 niet: ik zat op het lanceerwerk van Rollwright en Bison & Flex. Bekeken met de Read-tool, run 42494796457 in Blender 5.2.3: `1-paneel-x`, `2-gewricht-x`, `5-waaier-x`, `6-rood-x`, `7-plat-x`. Volgorde zoals afgesproken: vorm, gemeten bereik, waaier en rood.
+
+### Goed (afgevinkt)
+1. **Vorm v0.3 en gemeten bereik.** Bolnaad, kogel, trechter: technisch en mooi in Exploded view. "Bends ±20°" is gemeten en eerlijk, de controle op 6 keer de kogelstraal (schouder, kraag) is precies goed.
+2. **Paneel.** Good fit met vinkje en daaronder Bends, Wall en Clearance als één blok: rustig en duidelijk. Dit is het nette deel, laat het zo.
+3. **Rood voorbij de grens** werkt en klopt (rode strook op de nek bij 8 graden te ver). Rood ook op een schouder: goed.
+4. **Plat lid (eis b), jouw vraag:** de boog over de vlakke zijde mag blijven. Geen kleinere tophoek en geen rechte naad: de boog is de vorm die het gewricht laat draaien, en eerlijk tonen hoe het werkt past bij ons. De knik op de afgeschuinde hoek is de bol die de schuine kant snijdt; dat is echt, geen fout.
+
+### Moet voor akkoord, op volgorde
+
+**1. De waaier wordt een gradenboog (ons eigen gezicht).** Nu: acht taartpunten tegelijk, van opzij over elkaar, groen op groen. Het leest als een draadkegel en je ziet niet in één oogopslag "dit buigt 25 graden". Juist dit plaatje moet het hoofdbeeld van de winkelpagina worden, dus het moet in één blik te lezen zijn en eruitzien als een meetinstrument. Schets (ruw over het echte scherm gelegd, de oude waaier staat er nog onder): `ontwerp/click-joints/schets-gradenboog.png`. Ontwerp:
+   - **Eén boog, in de gekozen richting** (de richtingsknop, standaard 0°), niet acht tegelijk. Vlak van as tot grens: wit, 15% dekkend. Booglijn wit, 90%, 3 px. Rechte lijn langs de as wit 55%, 2 px; rechte lijn op de grens wit 90%, 3 px.
+   - **Streepjes elke 5 graden** buiten op de boog (8 px, om de 10 graden 14 px). Dat maakt het een gradenboog.
+   - **Getal aan het eind van de boog:** "25°" in wit, ±20 px, vet, met een donkere rand (blf in een POST_PIXEL-handler, plek via `location_3d_to_region_2d`). Dit is de zin uit de winkeltekst, nu op het model zelf. Niemand anders doet dit.
+   - **De andere zeven richtingen** alleen als één dunne gesloten lijn door de grenspunten (wit 45%, 1,5 px, vloeiend: 48 punten, tussen de richtingen lineair in graden). Dan zie je dat het rondom ±25 is, zonder kegel van vlakken.
+   - **Pose-lijn:** wit, 4 px, iets langer dan de boog. Voorbij de grens wordt hij rood (`#FF4D4D`), het stuk tussen grens en pose krijgt een rood vlak (30%), en naast de lijn staat "+8° past limit" in rood met donkere rand. Samen met het rood op de nek is dat het tweede lijstplaatje.
+   - **Wit, niet de passingkleur:** de delen zijn al groen, geel of rood. Wit leest op alle drie en op de grijze achtergrond. De passingkleur blijft van de delen.
+   - Straal 2 keer de kogeldiameter mag blijven. Zichtbaar alleen met "Show bend range" aan, zoals nu.
+
+**2. De groene band volgt de naad, niet het halve lid.** Op `7-plat-x` is een strook van ±10 mm over de hele breedte groen, en ook op `2-gewricht-x` is de kraag breed. Oorzaak: RING_MM meet vanaf het platte snijvlak (de bolnaad ligt verder weg), en `vlakken_met_hoekpunt_in_ring` verft grote vlakken helemaal. Op een plat of laag-poly figuur wordt de ring zo een verflaag. Wat het moet zijn: in rechte stand een smalle lijn in de passingkleur langs de naad. Voorstel: (a) meet de afstand tot de naad zelf (bol om het kogelmidden, buiten de bol het vlak), band hooguit 1,5 mm; (b) een vlak alleen kleuren als al zijn hoekpunten in de band liggen, of het vlak klein is; (c) teken de naadrand zelf als lijn (3 px, passingkleur) in dezelfde handler als de gradenboog, zodat een grof figuur niet grijs blijft. Kogel, kom en nek houden hun kleur (die zie je in Exploded view). (a) en (c) zijn moet, (b) mag. Toets: (1) elk gekleurd hoekpunt van de buitenkant ligt binnen 1,5 mm plus 0,1 mm marge van de naad (in mm, niet in procenten, anders slaagt een langer lid vanzelf); (2) er is iets te zien: de naadlijn heeft punten, of minstens één vlak is gekleurd.
+
+### Kan (klein)
+3. In het paneel staan "Pose 0" (graden buigen) en "0° 45° 90° ..." (richting) onder elkaar, beide in graden. Zet er "Direction" boven de knoppen en noem de schuif "Bend". Nog beter: pijltjes in plaats van getallen voor de richting.
+4. Voor de lijstplaatjes: kijk loodrecht op het vlak van de boog (de gekozen richting ligt dan plat in beeld), Exploded view uit voor het hoofdbeeld, aan voor het tweede.
+
+### Daarna
+Als 1 en 2 op een groene run staan met plaatjes `5-waaier-x` (binnen de grens, pose 15) en `6-rood-x` (voorbij), keur ik en zet ik `Akkoord: ja` voor de gratis versie. Dan maak ik het icoon en de lijstplaatjes: poster "See how far it bends, before you print." met de gradenboog groot in beeld.
+
+### Na de controleur (8 nov 16:58)
+Controleur (agent): akkoord met correcties, "nee" terecht. Overgenomen, dit hoort bij moet-punt 1 en 2:
+- **Het getal op de boog is altijd hetzelfde als in het paneel**: de gemeten grens in de gekozen richting, op dezelfde manier afgerond (de pop zegt dus "20°", niet "25°"; de 25 in mijn schets is alleen een voorbeeld).
+- **Eén handler:** reken de punten in 3D uit, projecteer ze met `location_3d_to_region_2d` en teken alles (boog, streepjes, getal) in één POST_PIXEL-handler. Pixelmaten maal `bpy.context.preferences.system.ui_scale`.
+- **Niet zichtbaar:** geeft de projectie None (achter de kijker), sla dat punt en het getal over. Kijk je bijna langs het vlak van de boog (hoek tussen kijkrichting en vlak onder 15 graden), laat dan streepjes en getal weg en toon alleen de lijnen. Nooit een fout.
+- **Tekstrand:** blf heeft geen omlijning; gebruik `blf.enable(font, blf.SHADOW)`, `blf.shadow(font, 5, 0, 0, 0, 0.8)`, `blf.shadow_offset(font, 0, 0)`.
+- **Naadlijn is moet** (zie punt 2), want met alleen (b) blijft een grof figuur grijs.
+- Kan-punt 3 (Bend en Direction) graag in dezelfde ronde: de richtingsknop kiest nu welke boog je ziet.
