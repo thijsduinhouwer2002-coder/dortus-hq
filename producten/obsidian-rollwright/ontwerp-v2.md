@@ -233,7 +233,7 @@ Ook de dubbele ruimte in Live Preview is weg (`white-space: normal` op `.cm-line
 
 ## Ronde 7: stempel als sticker (8 nov 02:30 tot 02:50 UTC, tak `ontwerp/rollwright-v2e`)
 
-Tak `ontwerp/rollwright-v2e` = main d9973fa plus mijn ontwerptest van ronde 6 en een nieuw blok "Ronde 7" onderaan `styles.css` (alleen CSS). Runs 42438770074 (5769b2b), 42439336973 (619cb84) en 42439xxxxxx (9098cde, zie logboek), alle op de echte Obsidian.
+Tak `ontwerp/rollwright-v2e` = main d9973fa plus mijn ontwerptest van ronde 6 en een nieuw blok "Ronde 7" onderaan `styles.css` (alleen CSS). Runs 42438770074 (5769b2b), 42439336973 (619cb84) en 42439969019 (9098cde), alle op de echte Obsidian.
 
 - **De regel springt niet meer.** De stempel in het token is nu een sticker op de rechterbovenhoek: `position: absolute`, volle kleur (goud met donkere letters, rood met witte), een randje in de kleur van de pagina, 8 graden scheef, kleine schaduw. Hij slaat neer op zijn plek (groot en schuin naar zijn plek, 300 ms, 500 ms na de klik) in plaats van uit het niets te groeien. Gemeten in het log van de tijdlijn: breedte en bovenkant van het token voor en na het landen gelijk bij alle vier de worpen (lezen crit 175/225, gewoon, Live Preview crit 180/225, fumble 130/225; GEZIEN). Op `v2-46` tot `v2-48` staat de regel stil.
 - **De vonk zit nu links** op de hoek bij de d20, de sticker rechts. Dat geeft evenwicht (`v2-02`, `v2-04`).
@@ -241,5 +241,6 @@ Tak `ontwerp/rollwright-v2e` = main d9973fa plus mijn ontwerptest van ronde 6 en
 - **Spellingscontrole uit** in de ontwerpkluis (in de test, `vault.setConfig("spellcheck", false)`), voor poster en GIF.
 - Ronde 7b: op ware grootte (`v2-49`) dekte de sticker de bovenkant van het getal; hoger en verder naar rechts gezet. Ronde 7c (controleur): tekst van 0.5 naar 0.6em, want "NAT 20" las op 100% maar net, en nog iets hoger omdat hij in Border en Minimal donker de 20 nog raakte.
 - In het logboek blijft de stempel een kleine pil naast het getal; daar springt niets en past een sticker niet.
+- Ronde 7c gezien (run 42439969019): getal overal vrij, ook in Border donker (`v2-56`), "NAT 20" leest op ware grootte (`v2-49`). Klaar voor Olaf.
 
 **Klus 8 voor Olaf (klein):** neem het blok "Ronde 7" onderaan `styles.css` van tak `ontwerp/rollwright-v2e` over (alleen dat blok, `git diff d9973fa origin/ontwerp/rollwright-v2e -- producten/obsidian-rollwright/styles.css`), en mijn `e2e/ontwerp/v2.e2e.mjs` mag mee. Let op: in die tak zit ook een regel in `producten/jetbrains-bison-flex/ontwerp.md`, die niet overnemen (staat al op main). Geen code nodig. Kan-punt van de controleur dat ik nog niet getoetst heb: een token aan het eind van een regel en tegen de rechterrand van een smal venster (sticker kan worden afgeknipt). Daarna maak ik lijstplaatjes en GIF.

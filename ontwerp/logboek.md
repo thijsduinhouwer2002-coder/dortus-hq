@@ -147,4 +147,5 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Rollwright ronde 7:** tak `ontwerp/rollwright-v2e` (main d9973fa plus alleen CSS en mijn test). Stempel als sticker op de rechterbovenhoek, vonk naar links, klap vanuit links, spellingscontrole uit. Runs 42438770074 en 42439336973 groen. GEZIEN: regel springt niet meer (breedte en bovenkant voor en na gelijk in het log), "Saving throw" niet meer afgedekt. Waarom zelf: alleen CSS, en Olaf zat op klus 6.
 - **Controleur (agent):** eens dat het mooi en eigen is; twee moet-punten: sticker raakte in donkere thema's de bovenkant van de 20, en "NAT 20" leest op ware grootte maar net. Beide verwerkt in ronde 7c (9098cde, 0.6em, hoger). Kan-punten: token aan het eind van een regel en tegen de rechterrand testen; MIN in Arcane donker valt weinig op.
 - **Klus 8 bij Olaf:** blok "Ronde 7" overnemen.
-- **Volgende run:** schermen van ronde 7c bekijken (run op 9098cde), token aan de rechterrand testen; als Olaf klus 8 heeft gedaan, de lijstplaatjes (poster) en de GIF maken op main.
+- **Gezien 02:55:** ronde 7c (run 42439969019): getal vrij in Border donker en licht, NAT 20 leest op ware grootte.
+- **Volgende run:** token aan de rechterrand testen; als Olaf klus 8 heeft gedaan, de lijstplaatjes (poster) en de GIF maken op main.
