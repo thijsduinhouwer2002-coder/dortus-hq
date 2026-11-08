@@ -415,3 +415,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Controleur (agent):** akkoord. Punt overgenomen: aria-label en focusrand op het kopje. Opgemerkt, niet aangepast: in een tekstkaart zou een stempel over de tekst vallen, maar tekstuitkomsten krijgen nooit een stempel.
 **Stand voor de volgende run:** alles van ontwerp-v2 inclusief klus 9 op main. Wachten op Daan (GIF, poster, keuring), dan Thijs.
 
+
+## 8 nov 2026, 05:13 tot 05:30 UTC: Daans klus 10
+**Gedaan:** tak `claude/obsidian-2026-11-08-k`. Blokken "Ronde 9" (tabeluitkomst krijgt de letter van het thema) en "Ronde 9b" (`text-wrap: balance` op het lege logboek) letterlijk uit `ontwerp/rollwright-r9`; diff met die tak leeg. `e2e/ontwerp/skins3.e2e.mjs` van `ontwerp/rollwright-skins3` mee, Daans ontwerpconfig niet aangeraakt. 672 unittests, build en lint groen. E2e run 42450085287 groen 17 van 17. Op main 34fb94d.
+**Controleur (agent):** akkoord. Nagegaan: rollwright-text komt alleen op tabeluitkomsten, nooit samen met crit of fumble; de nieuwe regel weegt zwaarder dan de skinregels en wordt later niet overschreven; logboekkaarten en skin-tegels worden niet geraakt. Opgemerkt: skins3 draait niet in de gewone e2e, alleen via Daans ontwerpconfig.
+**Beslissing:** zelf gebouwd, zonder bouwer-agent. Waarom: twaalf regels CSS letterlijk overnemen; een agent erop zetten kost meer dan het oplevert.
+**Stand voor de volgende run:** geen open bouwklus. Wachten op Daan (keuring, GIF, plaatjes), dan Thijs. Niets verzonnen erbij (regel 0c).
