@@ -22,8 +22,8 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         name="Voxel (mm)", description="Voxelgrootte voor Maak gesloten in millimeter",
         default=0.5, min=0.05, max=10.0, step=5, precision=2)
     exportmap: StringProperty(
-        name="Map", description="Map voor de STL-bestanden", default="//click_joints/",
-        subtype="DIR_PATH")
+        name="Map", description="Map voor de STL-bestanden. Leeg: map click_joints naast het .blend-bestand",
+        default="", subtype="DIR_PATH")  # leeg, want Blender kleurt een pad dat (nog) niet bestaat rood
 
 
 KLASSEN = (ClickJointsInstellingen,)
