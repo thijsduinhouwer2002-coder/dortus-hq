@@ -3,6 +3,7 @@ package com.dortus.bisonflex.e2e
 import com.intellij.driver.client.Driver
 import com.intellij.driver.client.Remote
 import com.intellij.driver.client.service
+import com.intellij.driver.client.utility
 import com.intellij.driver.model.LockSemantics
 import com.intellij.driver.model.OnDispatcher
 import com.intellij.driver.sdk.Editor
@@ -15,6 +16,7 @@ import com.intellij.driver.sdk.openFile
 import com.intellij.driver.sdk.openToolWindow
 import com.intellij.driver.sdk.PsiFile
 import com.intellij.driver.sdk.PsiManager
+import com.intellij.driver.sdk.Project
 import com.intellij.driver.sdk.singleProject
 import com.intellij.driver.sdk.VirtualFile
 import com.intellij.driver.sdk.waitForCodeAnalysis
@@ -65,6 +67,55 @@ interface PresentatieOpAfstand {
     fun getPresentableText(): String?
 }
 
+/** Thema van de IDE, om in het log te zetten welk thema echt actief is (en zo nodig te wisselen). */
+@Remote("com.intellij.ide.ui.LafManager")
+interface LafManagerOpAfstand {
+    fun getCurrentUIThemeLookAndFeel(): ThemaOpAfstand?
+    fun findLaf(themeId: String): ThemaOpAfstand?
+    fun setCurrentLookAndFeel(info: ThemaOpAfstand, lockEditorScheme: Boolean)
+    fun updateUI()
+    fun getAutodetect(): Boolean
+}
+
+@Remote("com.intellij.ide.ui.laf.UIThemeLookAndFeelInfo")
+interface ThemaOpAfstand {
+    fun getId(): String
+    fun getName(): String
+    fun isDark(): Boolean
+}
+
+@Remote("com.intellij.openapi.editor.colors.EditorColorsManager")
+interface KleurenOpAfstand {
+    fun getGlobalScheme(): KleurenschemaOpAfstand
+    fun getScheme(name: String): KleurenschemaOpAfstand?
+    fun setGlobalScheme(scheme: KleurenschemaOpAfstand?)
+}
+
+@Remote("com.intellij.openapi.editor.colors.EditorColorsScheme")
+interface KleurenschemaOpAfstand {
+    fun getName(): String
+}
+
+@Remote("com.intellij.openapi.wm.WindowManager")
+interface WindowManagerOpAfstand {
+    fun getStatusBar(project: Project): StatusBalkOpAfstand?
+}
+
+@Remote("com.intellij.openapi.wm.StatusBar")
+interface StatusBalkOpAfstand {
+    fun getWidget(id: String): StatusBalkOnderdeelOpAfstand?
+}
+
+@Remote("com.intellij.openapi.wm.StatusBarWidget")
+interface StatusBalkOnderdeelOpAfstand {
+    fun ID(): String
+}
+
+@Remote("com.intellij.openapi.util.registry.Registry")
+interface RegistryOpAfstand {
+    fun `is`(key: String): Boolean
+}
+
 /**
  * Eis 1 in de echte CLion (de doelgroep van de plugin), los van IdeTest: een eigen Gradle-taak `clionTest`.
  * Gebruikt de EAP-build van CLion, want die heeft een ingebouwde tijdelijke licentie (30 dagen na de builddatum,
@@ -84,13 +135,19 @@ class ClionTest {
     private val ide = IdeTest()
     private val schermen: Path = Path.of(System.getProperty("dortus.e2e.screenshots")).also { it.createDirectories() }
 
+    /*
+     * Thema-ids van 263: "Islands Light" en "Islands Dark" (intellij-community, intellij.platform.ide.impl.xml:
+     * themeProvider id="Islands Dark" path="/themes/islands/ManyIslandsDark.theme.json"). Het editorschema van
+     * Islands Dark heet ook "Islands Dark" (themes/islands/IslandSchemeDark.xml). Met ExperimentalDark bleven beide
+     * CLion-schermen licht (run 42443828755).
+     */
     @Test
-    fun lichtThema() = draai("licht", "ExperimentalLight", "Light")
+    fun lichtThema() = draai("licht", "Islands Light", "Light", donker = false)
 
     @Test
-    fun donkerThema() = draai("donker", "ExperimentalDark", "Dark")
+    fun donkerThema() = draai("donker", "Islands Dark", "Islands Dark", donker = true)
 
-    private fun draai(naam: String, themaId: String, kleurenschema: String) {
+    private fun draai(naam: String, themaId: String, kleurenschema: String, donker: Boolean) {
         val project = Files.createTempDirectory("clion-$naam").resolve("calculator").createDirectories()
         Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
         val wachter = Vensterwachter(naam).also { it.start() }
@@ -105,7 +162,17 @@ class ClionTest {
                     opties.resolve("colors.scheme.xml").writeText(
                         """<application><component name="EditorColorsManagerImpl"><global_color_scheme name="$kleurenschema"/></component></application>"""
                     )
+                    // Geheugenmeter uit. Het onderdeel heet "StatusBar" in ide.general.xml (StatusBarWidgetSettings.kt,
+                    // @State(name = "StatusBar") in 252 tot en met master), de id van de meter is "Memory" (MemoryUsagePanel.WIDGET_ID).
+                    opties.resolve("ide.general.xml").writeText(
+                        """<application><component name="StatusBar"><option name="widgets"><map><entry key="Memory" value="false"/></map></option></component></application>"""
+                    )
                     applyVMOptionsPatch {
+                        // "Cannot update plugin: Unable to identify where ... was installed from" komt van
+                        // PluginsMissingUpdateSourceNotifier (PluginUpdateSourceInitializationActivity.kt): elke plugin zonder
+                        // vastgelegde bron (Marketplace of eigen repository) krijgt die melding. Starter pakt de zip zelf uit in
+                        // de plugins-map, dus er is geen bron. Alleen in deze test-IDE: die functie uit (registry-sleutel).
+                        addSystemProperty("platform.enable.plugin.update.source.feature", false)
                         addSystemProperty("idea.trust.all.projects", true)
                         addSystemProperty("ide.show.tips.on.startup.default.value", false)
                         addSystemProperty("sun.java2d.uiScale.enabled", true)
@@ -115,7 +182,7 @@ class ClionTest {
                 .runIdeWithDriver()
                 .useDriverAndCloseIde {
                     try {
-                        controleer(naam, wachter)
+                        controleer(naam, wachter, themaId, kleurenschema, donker)
                     } catch (e: Throwable) {
                         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it", e) }
                         throw e
@@ -129,11 +196,15 @@ class ClionTest {
         }
     }
 
-    private fun Driver.controleer(naam: String, wachter: Vensterwachter) {
+    private fun Driver.controleer(naam: String, wachter: Vensterwachter, themaId: String, kleurenschema: String, donker: Boolean) {
         waitForIndicators(5.minutes)
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
 
         sluitWizard(naam)
+        thema(naam, themaId, kleurenschema, donker)
+        val bronFunctie = utility<RegistryOpAfstand>().`is`("platform.enable.plugin.update.source.feature")
+        println("DORTUS-E2E [clion-$naam] registry platform.enable.plugin.update.source.feature: $bronFunctie (false = geen melding over de updatebron)")
+        assertTrue(!bronFunctie, "functie updatebron van plugins uit in de test-IDE ($naam)")
         // getEnabledPluginsIds() van de Driver telt alleen ingebouwde plugins (run 42441271116), dus zelf zoeken.
         val aan = getEnabledPlugins()
         val geladen = aan.any { it.getPluginId().getIdString() == PLUGIN_ID }
@@ -169,7 +240,40 @@ class ClionTest {
         assertTrue(regels.size > 1, "structuurweergave toont regels van calc.y ($naam)")
         with(ide) { pauze() }
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
+        val meter = service<WindowManagerOpAfstand>().getStatusBar(singleProject())?.getWidget("Memory")
+        println("DORTUS-E2E [clion-$naam] geheugenmeter in de statusbalk: ${meter != null}")
+        assertTrue(meter == null, "geen geheugenmeter in de statusbalk ($naam)")
         ide.scherm("clion-$naam-calc-y.png")
+    }
+
+    /**
+     * Zet in het log welk thema en editorschema CLion uit de config heeft geladen. Klopt dat niet met [themaId], dan
+     * wisselt de test via LafManager (zoals Settings dat doet) en zegt dat in het log. Daarna moet het thema bij
+     * [donker] passen, anders faalt de test.
+     */
+    private fun Driver.thema(naam: String, themaId: String, kleurenschema: String, donker: Boolean) {
+        val laf = service<LafManagerOpAfstand>()
+        val kleuren = service<KleurenOpAfstand>()
+        val geladen = laf.getCurrentUIThemeLookAndFeel()
+        println("DORTUS-E2E [clion-$naam] thema uit de config: id '${geladen?.getId()}', naam '${geladen?.getName()}', donker ${geladen?.isDark()}, autodetect ${laf.getAutodetect()}, editorschema '${kleuren.getGlobalScheme().getName()}' (gevraagd '$themaId', '$kleurenschema')")
+        if (geladen?.getId() != themaId) {
+            withContext(OnDispatcher.EDT) {
+                val gewenst = laf.findLaf(themaId) ?: fail("thema '$themaId' bestaat niet in CLion ($naam)")
+                laf.setCurrentLookAndFeel(gewenst, true)
+                laf.updateUI()
+            }
+            println("DORTUS-E2E [clion-$naam] thema uit de config klopte niet, gewisseld via LafManager naar '$themaId'")
+        }
+        if (kleuren.getGlobalScheme().getName() != kleurenschema) {
+            withContext(OnDispatcher.EDT) { kleuren.setGlobalScheme(kleuren.getScheme(kleurenschema) ?: fail("editorschema '$kleurenschema' bestaat niet ($naam)")) }
+            println("DORTUS-E2E [clion-$naam] editorschema gewisseld naar '$kleurenschema'")
+        }
+        with(ide) { pauze() }
+        val nu = laf.getCurrentUIThemeLookAndFeel()
+        val schema = kleuren.getGlobalScheme().getName()
+        println("DORTUS-E2E [clion-$naam] actief thema: id '${nu?.getId()}', naam '${nu?.getName()}', donker ${nu?.isDark()}, editorschema '$schema'")
+        assertEquals(donker, nu?.isDark(), "thema van CLion is ${if (donker) "donker" else "licht"} ($naam)")
+        assertEquals(kleurenschema, schema, "editorschema van CLion ($naam)")
     }
 
     /**
