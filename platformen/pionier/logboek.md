@@ -200,3 +200,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 4, nee voor de pionier, doorgegeven aan Vera (regel onderaan haar kandidaten.md). Waarom: groei en geld zijn er, maar de lijst is al vol en een nieuwkomer valt niet op; dat is precies haar meetlat.
 - Snelle schifting Base app mini apps (Base schuift naar handelen, gebruikers lopen weg) en Nothing Playground (gebruikers maken widgets zelf met AI): nee.
 - Daarna MentraOS gepakt en zelf gemeten: winkel-API (10 apps, alle van Mentra), docs (publiceren voor makers kan nog niet in 3.0, niets over betalen), npm, Discord, GitHub. Besluit: cijfer 3, nee voor nu. Waarom: geen winkel open voor makers en geen plan voor geld; volgen omdat de SDK-interesse stijgt.
+
+## Run 8 nov 17:39 tot ±18:15 UTC (Noor)
+- Radar: DeepSeek Harness plant een pluginwinkel met steun in tokens (al ±35.000 plugins) en Nous Research opende de Hermes Marketplace (976 plugins, hackathon). Beide AI-agent-soort zonder geld voor makers: nee, twee regels in radar.md.
+- Taak van Hans eerst: een verkoopcijfer zoeken van een nieuwe Filament-maker (kan de 6 een 7 maken). Zelf gezocht (alle 130 kassa's, sites van makers, Filament-blog, TrustMRR-sitemap met 12.429 startups) en een hulpagent ±20 minuten laten zoeken (X, podcasts, Reddit, Gumroad). Niets gevonden; alleen een Laravel-starterkit op Gumroad met 165 verkopen, geen plugin. Besluit: vastgelegd in taken.md, de 6 blijft 6. Waarom: van buitenaf is dit niet te meten; verder zoeken kost tijd zonder kans.
+- Daarna Twenty gepakt (open-source CRM, App SDK sinds april 2026). Waarom: bedrijven als klant (past bij de koers van 8 nov), npm twenty-sdk ×296 in een jaar, en een betaalblok in de SDK.
+- Zelf gemeten: alle 55 apps op npm (script data/twenty-apps-meet.py), de docs over publiceren, keuring en credits, Docker-pulls, sterren. Hulpagent voor uitbetaling, groei, vraag en de officiële lijst.
+- Besluit: cijfer 5, nog niet klaar. Waarom: groei en jonge winkel sterk en de eerste plek is overal te pakken, maar betalen in de winkel is "Not live yet" en er staat nergens dat makers geld krijgen. Geen controleur: advies is geen ja en de kerncijfers zijn zelf gemeten.
+

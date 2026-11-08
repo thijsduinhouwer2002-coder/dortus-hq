@@ -1,0 +1,497 @@
+[
+ {
+  "name": "@appunite/meta-leads-for-twenty",
+  "created": "2026-09-23",
+  "publisher": "GitHub Actions",
+  "scope": "@appunite",
+  "desc": "Brings leads from Facebook and Instagram instant forms into Twenty as People, in real time, with the full form submissio",
+  "downloads_last_month": 377,
+  "repo": "git+https://github.com/appunite/meta-for-twenty-crm.git"
+ },
+ {
+  "name": "@assinafy/twenty-app",
+  "created": "2026-09-28",
+  "publisher": "GitHub Actions",
+  "scope": "@assinafy",
+  "desc": "Envie documentos para assinatura com a Assinafy e gerencie seus contratos pelo Twenty.",
+  "downloads_last_month": 923,
+  "repo": "git+https://github.com/assinafy/twenty-crm-app.git"
+ },
+ {
+  "name": "@autosignly/twenty",
+  "created": "2026-09-15",
+  "publisher": "GitHub Actions",
+  "scope": "@autosignly",
+  "desc": "Send documents from Twenty CRM for electronic signature with Autosignly.",
+  "downloads_last_month": 356,
+  "repo": "git+https://github.com/16it-pl/autosignly-integrations.git"
+ },
+ {
+  "name": "@callpal/twenty-app",
+  "created": "2026-11-01",
+  "publisher": "GitHub Actions",
+  "scope": "@callpal",
+  "desc": "Click-to-call and power dialing for Twenty, with every call logged back to the person.",
+  "downloads_last_month": 582,
+  "repo": "git+https://github.com/CallPalCo/twenty-app-callpal.git"
+ },
+ {
+  "name": "@crm-nordiv/chats",
+  "created": "2026-10-19",
+  "publisher": "nordiv",
+  "scope": "@crm-nordiv",
+  "desc": "\u0427\u0430\u0442\u044b \u0434\u043b\u044f Twenty: \u043b\u0438\u0447\u043d\u044b\u0435 \u0438 \u0433\u0440\u0443\u043f\u043f\u043e\u0432\u044b\u0435 \u0431\u0435\u0441\u0435\u0434\u044b, \u0447\u0430\u0442\u044b \u0437\u0430\u0434\u0430\u0447",
+  "downloads_last_month": 96,
+  "repo": null
+ },
+ {
+  "name": "@crm-nordiv/docuflow",
+  "created": "2026-10-19",
+  "publisher": "nordiv",
+  "scope": "@crm-nordiv",
+  "desc": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442 \u0434\u043b\u044f Twenty: \u0437\u0430\u0434\u0430\u043d\u0438\u044f \u0438 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b \u043d\u0430 \u0448\u0442\u0430\u0442\u043d\u044b\u0445 \u043e\u0431\u044a\u0435\u043a\u0442\u0430\u0445, \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0441\u043e \u0432\u0441\u0435\u0445 \u0437\u0430\u043f\u0438\u0441\u0435\u0439, \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0411\u0438\u0442\u0440\u0438\u043a\u044124",
+  "downloads_last_month": 74,
+  "repo": null
+ },
+ {
+  "name": "@crove/commerce",
+  "created": "2026-09-01",
+  "publisher": "joy.vn",
+  "scope": "@crove",
+  "desc": "Commerce, Products and Order Management suite for Twenty & Crove CRM",
+  "downloads_last_month": 71,
+  "repo": null
+ },
+ {
+  "name": "@crove/zalo-oa",
+  "created": "2026-09-01",
+  "publisher": "joy.vn",
+  "scope": "@crove",
+  "desc": "Zalo Official Account connector for Twenty & Crove CRM",
+  "downloads_last_month": 69,
+  "repo": null
+ },
+ {
+  "name": "@devwithbobby/timely-app",
+  "created": "2026-04-20",
+  "publisher": "devwithbobby",
+  "scope": "@devwithbobby",
+  "desc": "",
+  "downloads_last_month": 174,
+  "repo": null
+ },
+ {
+  "name": "@emerant/twenty-app-timestopper",
+  "created": "2026-10-07",
+  "publisher": "tsvetant",
+  "scope": "@emerant",
+  "desc": "Timestopper by Emerant: contractor and timesheet management for Twenty CRM. Onboarding, projects, assignments, time trac",
+  "downloads_last_month": 237,
+  "repo": "git+https://github.com/KT-SPARKS/kt-twenty-timestopper.git"
+ },
+ {
+  "name": "@entttom/viginti-mobile-push",
+  "created": "2026-06-22",
+  "publisher": "entttom",
+  "scope": "@entttom",
+  "desc": "Twenty marketplace app that registers iOS push devices for Viginti and relays task events to the Cloudflare push relay (",
+  "downloads_last_month": 125,
+  "repo": null
+ },
+ {
+  "name": "@excelium-tech/apollo",
+  "created": "2026-07-14",
+  "publisher": "excelium-tech",
+  "scope": "@excelium-tech",
+  "desc": "Apollo.io enrichment app for Twenty",
+  "downloads_last_month": 312,
+  "repo": null
+ },
+ {
+  "name": "@excelium-tech/communication-intelligence",
+  "created": "2026-07-12",
+  "publisher": "excelium-tech",
+  "scope": "@excelium-tech",
+  "desc": "**Full relationship intelligence on your People, Companies and Opportunities \u2014 live from your synced email and calendar.",
+  "downloads_last_month": 325,
+  "repo": null
+ },
+ {
+  "name": "@excelium-tech/contract-approval",
+  "created": "2026-07-16",
+  "publisher": "excelium-tech",
+  "scope": "@excelium-tech",
+  "desc": "AI contract review and role-enforced approval workflow for Twenty Opportunities",
+  "downloads_last_month": 193,
+  "repo": null
+ },
+ {
+  "name": "@excelium-tech/granola",
+  "created": "2026-07-14",
+  "publisher": "excelium-tech",
+  "scope": "@excelium-tech",
+  "desc": "Granola meeting-notes connector for Twenty",
+  "downloads_last_month": 329,
+  "repo": null
+ },
+ {
+  "name": "@excelium-tech/opportunity-economics",
+  "created": "2026-08-07",
+  "publisher": "excelium-tech",
+  "scope": "@excelium-tech",
+  "desc": "Cost, margin, deal type and lead origin on Twenty Opportunities, with margin recomputed on write and an observe-only com",
+  "downloads_last_month": 159,
+  "repo": null
+ },
+ {
+  "name": "@generect/generect",
+  "created": "2026-10-07",
+  "publisher": "vokaplok",
+  "scope": "@generect",
+  "desc": "Generect for Twenty CRM: enrich People and Companies with Generect B2B data (LinkedIn, job title, location, industry, he",
+  "downloads_last_month": 250,
+  "repo": "git+https://github.com/generect/twenty-app.git"
+ },
+ {
+  "name": "@haiiro/chats",
+  "created": "2026-10-19",
+  "publisher": "haiiroshi",
+  "scope": "@haiiro",
+  "desc": "NorDiv \u0427\u0430\u0442\u044b: \u043b\u0438\u0447\u043d\u044b\u0435 \u0438 \u0433\u0440\u0443\u043f\u043f\u043e\u0432\u044b\u0435 \u0431\u0435\u0441\u0435\u0434\u044b, \u0447\u0430\u0442\u044b \u0437\u0430\u043f\u0438\u0441\u0435\u0439, \u0437\u0430\u0434\u0430\u0447 \u0438 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0432",
+  "downloads_last_month": 901,
+  "repo": null
+ },
+ {
+  "name": "@haiiro/docuflow",
+  "created": "2026-10-19",
+  "publisher": "haiiroshi",
+  "scope": "@haiiro",
+  "desc": "NorDiv \u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u043e\u0431\u043e\u0440\u043e\u0442: \u0437\u0430\u0434\u0430\u043d\u0438\u044f \u0441 \u043f\u043e\u043b\u044f\u043c\u0438, \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b \u0441 \u0437\u0430\u043f\u0443\u0441\u043a\u043e\u043c \u043f\u043e \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430\u043c, \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0441\u043e \u0432\u0441\u0435\u0445 \u0437\u0430\u043f\u0438\u0441\u0435\u0439, \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0411\u0438\u0442\u0440\u0438",
+  "downloads_last_month": 2584,
+  "repo": null
+ },
+ {
+  "name": "@khoahaha7903/my-tinacrm-app",
+  "created": "2026-11-05",
+  "publisher": "khoahaha7903",
+  "scope": "@khoahaha7903",
+  "desc": "TinaCrm Marketplace dev-channel test app with the tinacrm-app keyword",
+  "downloads_last_month": 870,
+  "repo": null
+ },
+ {
+  "name": "@khoahaha7903/tinacrm-release-test-app",
+  "created": "2026-11-05",
+  "publisher": "khoahaha7903",
+  "scope": "@khoahaha7903",
+  "desc": "TinaCrm Marketplace prerelease channel test app",
+  "downloads_last_month": 703,
+  "repo": null
+ },
+ {
+  "name": "@mailfino/twenty-connector",
+  "created": "2026-10-01",
+  "publisher": "mailfino",
+  "scope": "@mailfino",
+  "desc": "Transfer all or selected Twenty People to mailfino using the existing CRM import profile.",
+  "downloads_last_month": 266,
+  "repo": "git+https://github.com/jvorwerk/mailfino-for-twenty.git"
+ },
+ {
+  "name": "@numaya/greenlight",
+  "created": "2026-08-08",
+  "publisher": "GitHub Actions",
+  "scope": "@numaya",
+  "desc": "Lead quality gate for Twenty CRM. Deterministic scoring plus optional AI and search enrichment.",
+  "downloads_last_month": 156,
+  "repo": "git+https://github.com/rizvi-group/numaya-green-light.git"
+ },
+ {
+  "name": "@pixelinfinito/twenty-app-whatsapp",
+  "created": "2026-08-18",
+  "publisher": "GitHub Actions",
+  "scope": "@pixelinfinito",
+  "desc": "WhatsApp for Twenty CRM \u2014 shared inbox, templates, consent-aware campaigns and delivery health on the Meta WhatsApp Clou",
+  "downloads_last_month": 1964,
+  "repo": "git+https://github.com/pixelinfinito/twenty-app-whatsapp.git"
+ },
+ {
+  "name": "@sajn/twenty-app",
+  "created": "2026-08-21",
+  "publisher": "enemyr",
+  "scope": "@sajn",
+  "desc": "Create and track sajn e-signature documents from Twenty opportunities.",
+  "downloads_last_month": 164,
+  "repo": null
+ },
+ {
+  "name": "@skysay/twenty-skysay",
+  "created": "2026-11-07",
+  "publisher": "GitHub Actions",
+  "scope": "@skysay",
+  "desc": "Bring Skysay call activity into Twenty CRM.",
+  "downloads_last_month": 523,
+  "repo": "git+https://github.com/skysay-ai/twenty-skysay.git"
+ },
+ {
+  "name": "@talqui/twenty-talqui-app",
+  "created": "2026-07-04",
+  "publisher": "talqui-developer",
+  "scope": "@talqui",
+  "desc": "<div align=\"center\">   <img src=\"https://cdn.talqui.chat/static/plugins/urn%3Atalqui%3Acrms%3A0/twenty-extension/logo.sv",
+  "downloads_last_month": 316,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/call-recorder",
+  "created": "2026-06-25",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "**Record, transcribe, and save every meeting \u2014 right inside your CRM.**",
+  "downloads_last_month": 4052,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/exa",
+  "created": "2026-07-27",
+  "publisher": "martmull",
+  "scope": "@twentyhq",
+  "desc": "Structured web search powered by Exa, exposed to Twenty AI agents as a tool.",
+  "downloads_last_month": 5599,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/fathom",
+  "created": "2026-09-08",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "Fathom connector for Twenty: syncs meeting recordings, transcripts, summaries and action items into Call Recordings.",
+  "downloads_last_month": 300,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/granola",
+  "created": "2026-09-21",
+  "publisher": "martmull",
+  "scope": "@twentyhq",
+  "desc": "Sync Granola meeting notes into Twenty Call Recordings",
+  "downloads_last_month": 311,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/hello-world",
+  "created": "2026-03-03",
+  "publisher": "felixmalfait",
+  "scope": "@twentyhq",
+  "desc": "A simple hello world app",
+  "downloads_last_month": 140,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/last-contact",
+  "created": "2026-07-01",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "**Always know where every relationship stands \u2014 live on your People list, straight from your synced email and calendar.*",
+  "downloads_last_month": 7392,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/people-data-labs",
+  "created": "2026-06-25",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "People Data Labs enrichment app for Twenty",
+  "downloads_last_month": 1479,
+  "repo": null
+ },
+ {
+  "name": "@twentyhq/slack",
+  "created": "2026-07-30",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "Slack assistant and workflow steps for Twenty",
+  "downloads_last_month": 705,
+  "repo": "git+https://github.com/twentyhq/twenty.git"
+ },
+ {
+  "name": "@twentyhq/teams",
+  "created": "2026-10-22",
+  "publisher": "GitHub Actions",
+  "scope": "@twentyhq",
+  "desc": "Sync Microsoft Teams meeting transcripts into Twenty Call Recordings, with optional AI summaries.",
+  "downloads_last_month": 814,
+  "repo": "git+https://github.com/twentyhq/twenty.git"
+ },
+ {
+  "name": "@vexaai/twenty-app",
+  "created": "2026-05-10",
+  "publisher": "vexaai",
+  "scope": "@vexaai",
+  "desc": "Auto-capture meetings into the right Opportunity via Vexa. Mirrors your calendar into Twenty Calls and dispatches a Vexa",
+  "downloads_last_month": 143,
+  "repo": "git+https://github.com/vexa-ai/vexa-twenty-app.git"
+ },
+ {
+  "name": "button-fields-app",
+  "created": "2026-04-20",
+  "publisher": "akacores",
+  "scope": "",
+  "desc": "This Twenty CRM app allows users to add configurable button fields to any custom object. Buttons can be configured with ",
+  "downloads_last_month": 226,
+  "repo": null
+ },
+ {
+  "name": "dastyare-social-twenty-crm-app",
+  "created": "2026-06-16",
+  "publisher": "omid_shabab",
+  "scope": "",
+  "desc": "",
+  "downloads_last_month": 220,
+  "repo": null
+ },
+ {
+  "name": "everyday-runtime",
+  "created": "2026-09-26",
+  "publisher": "michael12346",
+  "scope": "",
+  "desc": "Self-hosted shopping assistant for Twenty that infers what a household probably needs, with confidence and a plain-langu",
+  "downloads_last_month": 113,
+  "repo": "git+https://github.com/micha16372/everyday-runtime.git"
+ },
+ {
+  "name": "lead-scoring-agent",
+  "created": "2026-07-27",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "AI lead scoring & enrichment agent for Twenty CRM \u2014 auto-scores People and Opportunities 0-100 with reasoning, on create",
+  "downloads_last_month": 1046,
+  "repo": "git+https://github.com/avisangle/lead-scoring-agent.git"
+ },
+ {
+  "name": "my-twenty-app",
+  "created": "2026-10-28",
+  "publisher": "khoahehe79",
+  "scope": "",
+  "desc": "App th\u1eed nghi\u1ec7m Marketplace: qu\u1ea3n l\u00fd y\u00eau c\u1ea7u demo c\u1ee7a kh\u00e1ch h\u00e0ng.",
+  "downloads_last_month": 1060,
+  "repo": null
+ },
+ {
+  "name": "nodpack-for-twenty",
+  "created": "2026-10-12",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Companion Twenty app for Nodpack: sets up the objects, fields, views and role the Nodpack mobile app needs.",
+  "downloads_last_month": 963,
+  "repo": "git+https://github.com/protomated/nodpack-for-twenty.git"
+ },
+ {
+  "name": "quoteflowin",
+  "created": "2026-11-02",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "QuoteFlowin for Twenty: itemized quotes on your deals. Send a link, the client accepts, the deal is won.",
+  "downloads_last_month": 815,
+  "repo": "git+https://github.com/malvyave/quoteflow.git"
+ },
+ {
+  "name": "twenty-apollo-enrichment",
+  "created": "2026-09-26",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Open-source Apollo.io enrichment for People and Companies in Twenty CRM that behaves/works AS EXPECTED and people can AC",
+  "downloads_last_month": 339,
+  "repo": "git+https://github.com/whrit/twenty-apollo-enrichment.git"
+ },
+ {
+  "name": "twenty-app-asyntai-ai-chatbot",
+  "created": "2026-10-12",
+  "publisher": "asyntai",
+  "scope": "",
+  "desc": "Asyntai AI Chatbot for Twenty: every lead from your website chatbot becomes a person in Twenty, with the full conversati",
+  "downloads_last_month": 695,
+  "repo": "git+https://github.com/asyntai/twenty-ai-chatbot.git"
+ },
+ {
+  "name": "twenty-app-intake",
+  "created": "2026-06-12",
+  "publisher": "mxchina",
+  "scope": "",
+  "desc": "The missing ingestion layer for Twenty CRM. Automatically sync any webhook source \u2014 contact forms, pipeline apps, or any",
+  "downloads_last_month": 208,
+  "repo": "git+https://github.com/FranciscoContreras/twenty-app-intake.git"
+ },
+ {
+  "name": "twenty-app-shuttio",
+  "created": "2026-10-23",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Shuttio for Twenty: import HubSpot data from a page inside your Twenty workspace.",
+  "downloads_last_month": 1579,
+  "repo": "git+https://github.com/gmaramigin/shuttio-twenty-app.git"
+ },
+ {
+  "name": "twenty-app-whatsapp-integration",
+  "created": "2026-09-17",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "- **It automatically creates a Person record** when you message a customer on WhatsApp, or they message you.",
+  "downloads_last_month": 280,
+  "repo": "git+https://github.com/9dots-ventures/twenty-app-whatsapp-integration.git"
+ },
+ {
+  "name": "twenty-bells",
+  "created": "2026-07-26",
+  "publisher": "alkiviad",
+  "scope": "",
+  "desc": "The Bell \u2014 an activity feed for Twenty: what changed in the workspace, team notes with their comments, documents, and th",
+  "downloads_last_month": 300,
+  "repo": "git+https://github.com/frasimah/twenty_bells.git"
+ },
+ {
+  "name": "twenty-linear",
+  "created": "2026-05-13",
+  "publisher": "martmull",
+  "scope": "",
+  "desc": "Linear integration for Twenty. Connect a user's Linear account and create issues from logic functions.",
+  "downloads_last_month": 252,
+  "repo": null
+ },
+ {
+  "name": "twenty-meta-lead-sync",
+  "created": "2026-11-03",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Import Facebook and Instagram Lead Ads into Twenty CRM with form mapping, automatic syncing and deduplication",
+  "downloads_last_month": 1049,
+  "repo": "git+https://github.com/mikiguillamon/twenty-meta-lead-sync.git"
+ },
+ {
+  "name": "twenty-omnichannel-support",
+  "created": "2026-11-03",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Customer support cases, conversations and channel policies for Twenty CRM",
+  "downloads_last_month": 1321,
+  "repo": "git+https://github.com/mikiguillamon/twenty-omnichannel-support.git"
+ },
+ {
+  "name": "twenty-retell-sync",
+  "created": "2026-10-10",
+  "publisher": "GitHub Actions",
+  "scope": "",
+  "desc": "Retell AI calls and SMS chats in sync with Twenty CRM, plus call and text actions for workflows and the AI chat",
+  "downloads_last_month": 1872,
+  "repo": "git+https://github.com/MikiDevStudio/twenty-retell-sync.git"
+ },
+ {
+  "name": "ybh-activity",
+  "created": "2026-04-24",
+  "publisher": "greg_ld",
+  "scope": "",
+  "desc": "Native Twenty app for YBH sales activity tracking and team boards.",
+  "downloads_last_month": 126,
+  "repo": null
+ }
+]

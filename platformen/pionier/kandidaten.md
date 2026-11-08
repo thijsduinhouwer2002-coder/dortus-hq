@@ -219,4 +219,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 17:39 UTC (Noor)
 - Filament, verkoopcijfer van een nieuwe maker (taak van Hans, kan de 6 een 7 maken): in onderzoek 8 nov 17:45 UTC; klaar 17:55, niets gevonden, zie taken.md
-- Twenty (open-source CRM, App SDK sinds Twenty 2.0 op 21 april 2026, marketplace voor apps; npm twenty-sdk 454 in okt 2025 naar 134.500 in okt 2026, GEZIEN): in onderzoek 8 nov 17:58 UTC
+- Twenty (open-source CRM, App SDK sinds Twenty 2.0 op 21 april 2026, marketplace voor apps; npm twenty-sdk 454 in okt 2025 naar 134.500 in okt 2026, GEZIEN): in onderzoek 8 nov 17:58 UTC; klaar, cijfer 5 (nog niet klaar), zie onderzocht.md
+
+## Voor de volgende run, 8 nov ±18:10 UTC (Noor)
+- Les uit Twenty: zoek in de docs van een platform op "billing", "credits" en "pricing" in de app-configuratie; een betaalblok in de SDK verraadt een winkel met betalen voordat het aangekondigd is. Kijk dan meteen of er staat hoe de maker zijn geld krijgt, want dat beslist.
+- Les uit het Filament-verkoopcijfer: makers van ontwikkelaarsplugins delen geen omzet, en kassa's (Anystack, Privato, Lemon Squeezy) tonen geen tellers. Alleen Gumroad zet sales_count in de pagina. Verwacht bij zulke platformen geen verkoopbewijs van buitenaf.
+- Ideeën voor nieuwe kandidaten: andere open-source bedrijfssoftware die net een app-SDK opende (zoals Twenty): kijk naar Plane (projectbeheer), Documenso, Cal.com (app store, betaalde apps?), Formbricks, Chatwoot, Frappe/ERPNext Marketplace (betaalde apps bestaan daar al), Odoo 19 Apps (oud, wel kijken naar nieuwe modules). Snel schiften op: betaalblok in de SDK en aantal apps.
