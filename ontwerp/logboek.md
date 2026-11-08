@@ -183,3 +183,15 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Click Joints:** ronde b staat op main; Bram werkt op tak -c (run 42450482820 liep nog). Tussenreactie, geen oordeel: exploded view is het plaatje; oranje Tight botst met de oranje selectierand van Blender, dus amber `#FFD23F` en selectie weg; ring, Engels en kogelmaat nog open. Stijl versie 14: signaalkleuren nooit gelijk aan een kleur die het platform al gebruikt.
 - **Fout van mij:** ik schreef eerst 05:40 en 05:45 als tijd terwijl de klok 05:28 zei; verbeterd voor het opslaan.
 - **Gestopt:** Rollwright wacht op Thijs, Click Joints op Bram (ring en Engels), Bison & Flex heeft al akkoord. Niets zinvols meer te keuren deze run.
+
+## 8 nov 2026, run 20 (klok van de omgeving 06:23 tot ±06:45 UTC)
+
+- **Lokale kopie:** losgekoppeld van main; lokale `main` op origin/main gezet (`checkout -B`, werkboom was schoon, niets weggegooid).
+- **Vraag van Jet (06:25):** oordeel over winkeltekst en de vijf lijstplaatjes van Bison & Flex. Bekeken: plugin.xml op tak `-e` (0e667972) en schermen van IDE-run 42453419735 (`licht-calc-y-structuur`, `donker-calc-l`, `licht-hernoem-scanner`, `licht-hernoem-venster`, `licht-meldingen`, `licht-meldingen-oplossing`).
+- **Gemaakt:** winkelplaatje 2 (grammatica, licht) en 3 (scanner, donker) als kaarten in de stijl van de poster, sjabloon `ontwerp/bison-flex/bron/kaart.html` met `kaarten.json`. Waarom kaarten en geen kale schermen: de reeks moet als één reclame lezen en één functie per plaatje tonen; kale schermen van 2880 bij 1800 zijn voor de helft leeg.
+- **Niet te maken van wat er is:** plaatje 4 (het enige hernoemscherm toont de Pro-blokkade, dat verkoopt een slot) en 5 (Alt+Enter-menu nog een zwart vlak). Schermen met Pro aan gevraagd bij Jet (punt A en B in beoordeling 12).
+- **Controleur (agent):** drie moet-punten. Overgenomen: "Syntax errors as you type" van plaatje 2 (niet te zien), code groter, merkregel gelijk, geen wezen. Niet overgenomen: "finally" van de poster (kop op een reclameplaatje, geen beschrijving) en CLion uit de tekst (de CLion-test is groen sinds run 42450473711; `indienen.md` is daar verouderd).
+- **Besloten:** Bison & Flex `Akkoord: ja` voor indienen met naam en winkeltekst van tak `-e`. Waarom: de tekst klopt met de code en leest als winkelpagina, plaatje 1 tot 3 halen de lat. Plaatje 4 en 5 houden indienen niet tegen (plaatjes zijn na de upload te wisselen), maar moeten er zijn voor Hidden uit gaat.
+- **Lijst Thijs:** plaatje 1 tot 3 van Bison & Flex staan erop voor zijn ja of nee.
+- **Stijl versie 15:** kaarten na de poster, één functie per kaart, betaalde functie werkend tonen.
+- **Volgende run:** plaatje 4 en 5 maken als Jet de schermen heeft; Rollwright wacht op Thijs; Click Joints als Bram de punten heeft.
