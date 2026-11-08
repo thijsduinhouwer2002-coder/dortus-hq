@@ -249,7 +249,7 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-fumble:not(.rollwright-s
 	body.rollwright-skin-arcane .rollwright-icon::before,
 	.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll,
 	.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-icon::before {
-		animation: none !important;
+		animation: none;
 	}
 }
 
