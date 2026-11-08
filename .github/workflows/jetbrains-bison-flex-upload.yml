@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       releasedatum:
-        description: "release-date voor plugin.xml (JJJJMMDD), leeg = vandaag (UTC)"
+        description: "Alleen bij een nieuwe hoofdversie: nieuwe release-date (JJJJMMDD). Leeg = de datum in plugin.xml blijft (verplicht voor 2026.1.x, anders worden proeflicenties gereset)"
         required: false
         default: ""
       bevestig:
@@ -73,10 +73,15 @@ jobs:
         env:
           INVOER: ${{ inputs.releasedatum }}
         run: |
-          DATUM="${INVOER:-$(date -u +%Y%m%d)}"
+          P=src/main/resources/META-INF/plugin.xml
+          if [ -z "$INVOER" ]; then
+            # Kleine update (bijvoorbeeld 2026.1.1): release-date en release-version moeten gelijk blijven,
+            # anders telt JetBrains het als nieuwe hoofdversie en worden lopende proeven gereset.
+            grep -n 'product-descriptor' "$P"; echo "release-date blijft zoals in plugin.xml"; exit 0
+          fi
+          DATUM="$INVOER"
           echo "$DATUM" | grep -Eq '^20[0-9]{6}$' || { echo "FOUT: datum '$DATUM' is geen JJJJMMDD"; exit 1; }
           [ "$DATUM" -le "$(date -u -d '+5 days' +%Y%m%d)" ] || { echo "FOUT: meer dan 5 dagen vooruit"; exit 1; }
-          P=src/main/resources/META-INF/plugin.xml
           grep -q 'code="PBISONFLEX" release-date="[0-9]\{8\}"' "$P" || { echo "FOUT: product-descriptor niet gevonden"; exit 1; }
           sed -i -E "s/(code=\"PBISONFLEX\" release-date=\")[0-9]{8}\"/\1$DATUM\"/" "$P"
           grep -n 'product-descriptor' "$P"
