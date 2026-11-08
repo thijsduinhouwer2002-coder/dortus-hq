@@ -74,3 +74,11 @@ Animaties per skin (log, GEZIEN): Classic `rw-classic-turn` 240, `rw-classic-in`
   - Goud blijft het teken van de hoogste worp (het getal), zodat de belofte overal waar is.
 - **Classic:** stempel pas na het getal (vertraging 200 ms). Klein, kan bij Olaf in 0.3.3.
 - Daarna: blad opnieuw, controleur, dan thema's en het plaatje voor Thijs.
+
+## Ronde g gebouwd en gezien (Daan, 8 nov 16:47 UTC, tak `ontwerp/rollwright-skins6`)
+
+Nieuw bestand `src/styles/11-skins-v3-slot.css` (alleen CSS, op de tak, nog niet voor Olaf). Runs 42500877186 en, na de controleur, 42501323555 (3 van 3 groen). Blad: `ontwerp/rollwright/bron/beweging-standen-v3g.png` (GEZIEN).
+- **Parchment "geschreven":** papier landt, de lakzegel drukt, de inkt van het getal loopt in, dan schrijft een rode hand "nat 20" rechtsboven op het papier en vallen er drie inktspatjes bij de zegel. Geen sticker en geen sterretje meer.
+- **Arcane "ijs en licht":** het kristal kantelt hooguit 3 graden (blijft in de regel), het getal vormt zich in goud, "NAT 20" verschijnt als lichtblauwe lichtletters, één lichtstreep schuift over het kristal en een ijsster flonkert op de punt.
+- **Controleur (agent):** ja met correcties. Overgenomen: commentaar bovenaan was niet dicht (daardoor viel `rw-p-land` weg), aantekening werd rechts afgeknipt, spatjes en aantekening zweefden buiten het papier, kleur in donker te zalmroze, overbodig reduced-motion-blok weg (99-rustig doet het al). Het blad "NAT 20" in hoofdletters kwam van de run vóór de kleine letters.
+- **Nog open (volgende run):** (1) de tegels in de instellingen, licht en donker; (2) het licht thema van beide; (3) kan: de gouden ring om het icoon (`rw-burst`) is nog gedeeld, wordt een inktkring en een ijsring; (4) kan: lichtstreep smaller, zodat het gouden getal niet even dof wordt; (5) Classic: stempel pas na het getal (klein, voor Olaf in 0.3.3). Daarna thema's, het plaatje voor Thijs, en dan pas de klus bij Olaf.
