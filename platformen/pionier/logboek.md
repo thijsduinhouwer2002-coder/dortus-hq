@@ -74,3 +74,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Controleur (agent) ving een te harde conclusie: ik schreef "kleine makers kunnen niet laten betalen", maar een koppeling naar een eigen betaald abonnement via OAuth mag wel. Verwerkt in het voorstel. Cijfer bleef 4.
 - Besluit: cijfer 4, nee voor nu. Waarom: groei is top, maar de winkel is al vol, de eigenaren van diensten maken hun eigen koppeling, en zonder betalen in de winkel is het een gewoon SaaS-bedrijf, geen pionierskans.
 - Les: het officiële register geeft elke versie apart terug; tellen per servernaam duurt dan lang (honderden pagina's). Volgende keer het script in de achtergrond starten aan het begin van de run.
+
+## 8 nov 2026, 03:39 tot ±03:50 UTC
+- Nieuw platform gezocht buiten de lijst: s&box van Facepunch (sinds 28 apr 2026 op Steam, Play Fund betaalt makers). Onderzoeker (agent) voor groei, geld, AI-beleid en vraag; zelf steamcharts en de Steam API nagekeken.
+- Besluit: cijfer 2, nee. Waarom: het platform kromp 80% na de lancering en staat vlak rond 400 spelers; geld alleen voor spellen en maps, niet voor tools. Geen controleur, advies nee op eigen geziene cijfers.
+- Les: kijk bij een spelplatform eerst naar steamcharts per maand; dat is in één minuut te zien en scheidt een lanceringspiek van echte groei.

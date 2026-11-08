@@ -26,7 +26,7 @@ Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity),
 
 - Bambu Lab MakerWorld, parametrische modellen (OpenSCAD in de browser via MakerLab, makers krijgen punten die in geld om te zetten zijn): klaar 8 nov, cijfer 4, zie onderzocht.md
 
-- s&box (Facepunch, spelplatform op Steam met Play Fund voor makers): in onderzoek 8 nov 2026 03:45 UTC (Noor)
+- s&box (Facepunch, spelplatform op Steam met Play Fund voor makers): klaar 8 nov, cijfer 2, zie onderzocht.md
 
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
