@@ -68,6 +68,17 @@ jobs:
           grep -q "BOOG OK winkel-paneel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 boog niet goed"; exit 1; }
           grep -q "PANEEL OK winkel" /tmp/schermen.log || { echo "FOUT: winkelscherm 10 paneel niet goed"; exit 1; }
           for f in 1-paneel-x.png 2-gewricht-x.png 5-waaier-x.png 6-rood-x.png 7-plat-x.png 8-winkel-x.png 9-winkel-rood-x.png 10-winkel-paneel-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Betaalde build (twee zips uit één bron, weigering naast de gratis)
+        # Ontwerp betaald v1.1: na de gratis toetsen, met eigen lege mappen zodat niets de gratis stappen raakt.
+        env:
+          BLENDER_USER_RESOURCES: /tmp/cj_betaald
+          BLENDER_USER_CONFIG: /tmp/cj_betaald/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_betaald/extensions
+        run: |
+          bash e2e/maak_zip.sh betaald
+          python3 -I e2e/toets_zips.py /tmp/click_joints.zip /tmp/click_joints_betaald.zip
+          /tmp/blender/blender --command extension validate /tmp/click_joints_betaald.zip
+          /tmp/blender/blender -b --factory-startup --python e2e/test_betaald.py -- /tmp/click_joints_betaald.zip /tmp/click_joints.zip
       - uses: actions/upload-artifact@v4
         if: always()
         with:

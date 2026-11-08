@@ -46,3 +46,9 @@ Op elk deel staan eigenschappen: `cj_deel` (A/B), `cj_passing` (groen/oranje/roo
 Plaatje 5 (`5-waaier-x.png`, ronde k, gradenboog sinds ronde o): nieuwe pop met gewricht, gradenboog aan, pose 15 graden richting 2 (na het plaatje eist `boog_verslag` "BOOG OK waaier"; plaatje 6 pose getal + 8 en "BOOG OK rood"), camera loodrecht op het buigvlak; de workflow eist het plaatje.
 
 Niet in v0.1: inklik-animatie, betaalde functies, undo-toets in Xvfb.
+
+## Twee builds uit één bron (ontwerp betaald v1.1, 8 nov run 23)
+- `e2e/maak_zip.sh` (of `gratis`): `/tmp/click_joints.zip` zonder `click_joints/betaald/`, byte voor byte gelijk aan de zip van vóór deze wijziging. `maak_zip.sh betaald`: `/tmp/click_joints_betaald.zip` met `betaald/` en het fragment `e2e/betaald/init_betaald.py` achter `__init__.py`, zodat de gratis code de betaalde versie nergens noemt.
+- `click_joints/betaald/__init__.py`: nog leeg (`KLASSEN = ()`), het scharnier komt hier. `weiger_dubbel` weigert het aanzetten als een andere Click Joints (zelfde id, andere repository, bijvoorbeeld `bl_ext.blender_org.click_joints`) aan staat, vóór er iets geregistreerd is.
+- Toetsen: `e2e/toets_zips.py` (zonder Blender: gratis zip zonder betaald/, geen hele woorden Hinge, Pro, Superhive of betaald, gelijk aan de bron; betaalde zip met registratie) en `e2e/test_betaald.py` (installeren, betaald deel geladen, kern werkt, echte weigering naast de gratis in een tweede repository). Workflowstap "Betaalde build" na alle gratis stappen, met eigen BLENDER_USER_*-mappen.
+- Nog open: de andere volgorde (eerst betaald aan, dan gratis) kan alleen de betaalde opvangen (controle bij laden of timer); tot dan zegt de Superhive-pagina het.
