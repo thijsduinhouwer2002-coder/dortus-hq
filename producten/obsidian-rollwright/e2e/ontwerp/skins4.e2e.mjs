@@ -42,7 +42,7 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 			return r.length >= 5 && r.every((e) => (e.textContent ?? "").trim() !== "");
 		}, LEAF), { timeout: 20000, timeoutMsg: "geen worpen in de demonotitie" });
 		// Gooi de tweede worp tot 20 en de derde tot 1, zodat elke skin een crit en een fumble toont.
-		for (const [i, doel] of [[1, "20"], [2, "1"]]) {
+		for (const [i, doel] of [[0, "17"], [1, "20"], [2, "1"]]) {
 			for (let poging = 0; poging < 200; poging++) {
 				const w = await browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .rollwright-roll`))
 					.filter((r) => !r.parentElement?.closest(".rollwright-roll")).map((r) => (r.querySelector(".rollwright-value")?.textContent ?? "").trim()), LEAF);
@@ -78,9 +78,9 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 		}
 	}
 
-	// Daan, run 24: groot voor het skins-plaatje. Zoom 2.6, alleen de eerste regels (crit, fumble), scherp genoeg om groot te tonen.
+	// Daan, run 24: groot voor het skins-plaatje. Zoom 2.0, alleen de eerste regels (crit, fumble), scherp genoeg om groot te tonen.
 	it("groot voor het skins-plaatje", async function () {
-		await browser.execute(() => { try { require("electron").webFrame.setZoomFactor(2.6); } catch (e) { console.log("zoom", e); } });
+		await browser.execute(() => { try { require("electron").webFrame.setZoomFactor(2.0); } catch (e) { console.log("zoom", e); } });
 		await browser.pause(1200);
 		for (const donker of [true, false]) {
 			for (const skin of ["classic", "parchment", "arcane"]) {
