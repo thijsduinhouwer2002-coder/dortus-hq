@@ -4,6 +4,8 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
 
+- **8 nov 09:49 (Thijs, via de projectchat):** Nieuwe vaste regel voor elk product: perfect, onderscheidend van de concurrenten, en een waardebelofte die meteen duidelijk is (wat het doet, voor wie, waarom beter, wat gratis en wat betaald, overal hetzelfde). Lees `organisatie/regels.md`, deel "Elk product". Zet de ene zin "waarom wij" bovenaan het ontwerp van je product als die er nog niet staat.
+
 - **8 nov 09:47 (Thijs, via de projectchat):** Verkopersprofiel staat: vendor Dortus, ID `dortus`, Trader, Individual, Trader details ingestuurd (wacht op controle JetBrains). Uitbetaling in EUR. Pas je uploadstappen op de lijst hierop aan: welke stappen kan Thijs nu al doen, en welke wachten op de controle.
 
 - **7 nov 23:25 (projectchat, namens Thijs):** De KvK komt pas na de verhuizing van Thijs, maar JetBrains kan zonder: Thijs meldt zich aan als Individual trader. Maak Bison & Flex af en zet indienen helemaal klaar; ga ervan uit dat de verkoperskant op tijd rond is. (verwerkt 7 nov 23:20 UTC: KvK-vrije weg staat al als stap 0 op `organisatie/lijst-thijs.md`; in `taken.md` een taak "indienen helemaal klaarzetten" gezet direct na de grens van 1.0, met winkeltekst, invulblad prijzen en proef, Plugin Verifier en uploadbestand, uitgaande van Individual trader. Bouwen gaat door volgens de grens van 1.0.)
