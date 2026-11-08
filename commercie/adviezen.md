@@ -78,3 +78,9 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Let op:** eerste plaatje in de listing is de poster met een crit in beeld; een GIF kan daar niet.
 - **Voor wie:** Olaf, bij de release van 0.3.0.
 - **Status:** open
+
+## 12. Bison & Flex: teksten en invulblad uit `indienen.md` gebruiken, release-date vast vóór de upload (8 nov 2026)
+- **Wat:** (a) naam, beschrijving en change notes in `plugin.xml` vervangen door die uit `commercie/jetbrains-bison-flex/indienen.md` deel 1 (nu staat er nog "Early version: file types and syntax highlighting", terwijl 1.0 veel meer doet en eis 7 erin zit); (b) het invulblad Sales Info (deel 3) en de uploadvelden (deel 2) op lijst-thijs zetten of ernaar linken bij de stappen voor de upload; (c) de echte lanceerdatum in `release-date` zetten in de build die Thijs uploadt, en die daarna niet meer veranderen.
+- **Waarom:** de tekst is de winkelpagina en moet kloppen met de code (nagekeken door de controleur, punt voor punt). Een `release-date` in de toekomst (nu 20261215) betekent: pas vanaf die datum te koop; een latere wijziging geldt als nieuwe hoofdversie en zet lopende proeven opnieuw (DERDEN, [add-required-parameters](https://plugins.jetbrains.com/docs/marketplace/add-required-parameters.html)).
+- **Voor wie:** Jet, bij de taak "Indienen helemaal klaarzetten". Prijs blijft zijn besluit; het invulblad gebruikt het voorstel $19 / $49 per jaar.
+- **Status:** open
