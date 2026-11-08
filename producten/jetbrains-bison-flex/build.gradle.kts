@@ -31,7 +31,9 @@ configurations.getByName("integrationTestImplementation") {
 }
 
 // Doel-IDE voor de unittests: standaard IDEA Community (IC). Met -PdoelIde=CL draaien
-// dezelfde unittests tegen CLion 2025.2, de doelgroep (eis 1). De IDE-test (integrationTest)
+// dezelfde unittests tegen CLion 2025.2, de doelgroep (eis 1). Met -PdoelIde=IU262 tegen
+// IDEA 2026.2, zodat ook de nieuwe weg (bijvoorbeeld restart(Object) in HerstartAnalyse) getoetst
+// wordt nadat de CLion-EAP in de IDE-test verloopt (±22 nov 2026). De IDE-test (integrationTest)
 // draait alleen met IC, zie .github/workflows/jetbrains-bison-flex-e2e.yml en -clion.yml.
 val doelIde = (findProperty("doelIde") as String?)?.uppercase() ?: "IC"
 
@@ -40,7 +42,8 @@ dependencies {
         when (doelIde) {
             "IC" -> intellijIdeaCommunity("2025.2")
             "CL" -> clion("2025.2")
-            else -> error("Onbekende doelIde '$doelIde', kies IC of CL")
+            "IU262" -> intellijIdea("2026.2")
+            else -> error("Onbekende doelIde '$doelIde', kies IC, CL of IU262")
         }
         pluginVerifier()
         testFramework(TestFrameworkType.Platform)
