@@ -61,9 +61,10 @@ def _bol(r, c, seg=48):
     return tmp
 
 
-def pop(solver, arm_r=2.6):
+def pop(solver, arm_r=2.6, arm_lengte=34.0):
     """Eenvoudige pop: lijf, hoofd, armen en benen (bollen en cilinders), samengevoegd tot één mesh.
-    arm_r: straal van de armen in mm (standaard 2,6; de schermafbeeldingen gebruiken dikkere armen)."""
+    arm_r en arm_lengte: maat van de armen in mm (standaard 2,6 en 34; de schermafbeeldingen gebruiken dikkere,
+    langere armen, zodat er na de kom nog genoeg arm over is)."""
     delen = []
 
     def vorm(naam, bm):
@@ -71,7 +72,7 @@ def pop(solver, arm_r=2.6):
 
     vorm("lijf", _bol(7.0, (0, 0, 0)))
     vorm("hoofd", _bol(4.5, (0, 0, 10.5)))
-    for naam, r, lengte, rot, c in (("armen", arm_r, 34.0, Matrix.Rotation(math.pi / 2, 4, "Y"), (0, 0, 3.0)),
+    for naam, r, lengte, rot, c in (("armen", arm_r, arm_lengte, Matrix.Rotation(math.pi / 2, 4, "Y"), (0, 0, 3.0)),
                                     ("been_l", 3.0, 18.0, Matrix(), (-3.2, 0, -10.0)),
                                     ("been_r", 3.0, 18.0, Matrix(), (3.2, 0, -10.0))):
         bm = bmesh.new()

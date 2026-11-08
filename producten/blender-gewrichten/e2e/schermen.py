@@ -109,7 +109,9 @@ def maak_pop():
     solver = importlib.import_module(naam + ".gewricht").solver_naam()
     # Armen 8 mm dik: het hoofdplaatje toont een Good fit (Daan, tussenreactie 2, punt 3).
     # De dunne armen (5,2 mm) geven altijd Tight; die staan in de achtergrondtest.
-    pop = figuren.pop(solver, arm_r=4.0)
+    # Armen 40 mm lang: bij 34 mm lag het eind van de arm vlak achter de kom, waardoor Auto maar 3,0 mm koos
+    # (wand naar de vlakke kop van de arm). Nu krijgt het plaatje een kogel van ±4,5 mm.
+    pop = figuren.pop(solver, arm_r=4.0, arm_lengte=40.0)
     pop.color = (0.8, 0.8, 0.8, 1.0)
     figuren.maak_actief(pop)
     figuren.zet_cursor((11, 0, 3), (1, 0, 0))
