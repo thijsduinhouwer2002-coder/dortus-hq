@@ -1,0 +1,725 @@
+tijd_utc	soort	xmlId	id	naam	downloads	bundled
+2026-11-08 14:15	*.7z	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:15	*.7z	com.github.camork.fileExpander	11940	File Expander	337262	False
+2026-11-08 14:15	*.7z	com.github.camork.fix.fileExpander	19799	File Expander2	1732	False
+2026-11-08 14:15	*.7z	com.github.dixtdf.archive.manager	23392	ArchiveManager	4757	False
+2026-11-08 14:15	*.7z	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:15	*.aar	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:15	*.aar	io.github.lizhangqu.intellij.plugin.android.bundle	10310	Android Bundle Support	53281	False
+2026-11-08 14:15	*.aar	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:15	*.aar	org.jetbrains.android	22989	Android	1540684	False
+2026-11-08 14:15	*.adoc	org.asciidoctor.intellij.asciidoc	7391	AsciiDoc	3518200	False
+2026-11-08 14:15	*.ahk	de.nordgedanken.auto_hotkey	13945	AutoHotkey	32441	False
+2026-11-08 14:15	*.apk	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:15	*.apk	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:15	*.apk	org.jetbrains.android	22989	Android	1540684	False
+2026-11-08 14:15	*.applescript	com.intellij.plugin.applescript	8149	AppleScript Support	82455	False
+2026-11-08 14:15	*.applescript	software.barad1tos.applescript.toolkit	32123	AppleScript Toolkit	277	False
+2026-11-08 14:15	*.arb	com.localizely.flutter-intl	13666	Flutter Intl	923197	False
+2026-11-08 14:15	*.arb	de.keeyzar.gpt-helper.gpt-helper	21732	gpt-helper	20188	False
+2026-11-08 14:15	*.arb	arbnet	30433	Arb.NET	77	False
+2026-11-08 14:15	*.arb	io.doloc.auto-localizer	27860	Auto Localizer	6752	False
+2026-11-08 14:15	*.asm	com.nasmlanguage	9759	NASM Assembly Language	76061	False
+2026-11-08 14:15	*.asm	com.NASMSupport	9386	NASM Assembly Support	8568	False
+2026-11-08 14:15	*.asm	cn.codetector.lc3.lc3intellij	12052	LC-3 Assembly Support For IntelliJ Platform	3	False
+2026-11-08 14:15	*.asm	de.achimonline.kickassembler-acbg	11988	Kick Assembler (... and chew bubble gum)	6573	False
+2026-11-08 14:15	*.asm	org.ca65	16799	6502 Assembly	15139	False
+2026-11-08 14:15	*.asm	de.platon42.m68k	17268	MC68000 Assembly Language Support	27126	False
+2026-11-08 14:15	*.asm	com.yanncebron.m68kplugin	17712	Motorola 68000 Series Assembler	12525	False
+2026-11-08 14:15	*.asm	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:15	*.asm	com.tasking.winidea	25748	TASKING winIDEA	1094	False
+2026-11-08 14:15	*.asm	dev.agb.nasmplugin	28913	Enhanced NASM Assembly Support	1721	False
+2026-11-08 14:15	*.asm	dev.wavelang.wave	31020	Wave Language	5158	False
+2026-11-08 14:15	*.asm	dev.masmld.core	35737	MASMLD Core	29	False
+2026-11-08 14:15	*.astro	org.jetbrains.plugins.astro	20959	Astro	662375	False
+2026-11-08 14:15	*.astro	com.astroproPlugin	30290	Astro Pro	3136	False
+2026-11-08 14:15	*.avro	com.intellij.bigdatatools	12494	Big Data Tools	3466372	False
+2026-11-08 14:15	*.avro	com.cap.plugin.hadoop	19186	Cap-Hadoop	100430	False
+2026-11-08 14:15	*.avro	com.intellij.bigdatatools.binary.files	21701	Big Data File Viewer	2370137	False
+2026-11-08 14:15	*.avro	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:15	*.avro	com.zuhaibzahid.columns	33512	Columns - Parquet and Avro Editor	121	False
+2026-11-08 14:15	*.avro	com.kitworks.tablekit	33521	TableKit: Excel & Parquet Viewer	402	False
+2026-11-08 14:15	*.avro	com.twilightventures.parquetlens	33510	Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer	1436	False
+2026-11-08 14:16	*.awk	intellij-awk	17037	AWK Support	40322	False
+2026-11-08 14:16	*.bat	CMD Support	5834	CMD Support	2246192	False
+2026-11-08 14:16	*.bat	Batch Scripts Support	265	Batch Scripts Support	2062049	False
+2026-11-08 14:16	*.bat	com.kitsstech.batchcraft	34804	BatchCraft: Batch & CMD	9585	False
+2026-11-08 14:16	*.bazel	org.jetbrains.bazel	22977	Bazel	1968390	False
+2026-11-08 14:16	*.bazel	com.intellij.experimental.bazel-lsp	34170	Bazel LSP	126	False
+2026-11-08 14:16	*.bib	nl.rubensten.texifyidea	9473	TeXiFy-IDEA	900722	False
+2026-11-08 14:16	*.bib	dev.jetplugins.latex	33154	LaTeX Pro	2680	False
+2026-11-08 14:16	*.bicep	com.microsoft.tooling.msservices.intellij.azure	8053	Azure Toolkit for IntelliJ	942464	False
+2026-11-08 14:16	*.bicep	com.intellij.bicep	22913	Bicep	92448	False
+2026-11-08 14:16	*.bicep	com.intellij.resharper.azure	11220	Azure Toolkit for Rider	1816141	False
+2026-11-08 14:16	*.bin	org.exbin.deltahex.intellij	9339	BinEd - Binary/Hex Editor	500180	False
+2026-11-08 14:16	*.bin	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:16	*.bin	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:16	*.bzl	org.jetbrains.bazel	22977	Bazel	1968390	False
+2026-11-08 14:16	*.bzl	com.google.idea.bazel.aswb	9185	Bazel for Android Studio	71143	False
+2026-11-08 14:16	*.bzl	intellij.buck.plugin	7826	Buck for IDEA	48589	False
+2026-11-08 14:16	*.bzl	com.intellij.experimental.bazel-lsp	34170	Bazel LSP	126	False
+2026-11-08 14:16	*.cabal	com.haskforce	7602	HaskForce	61832	False
+2026-11-08 14:16	*.cabal	com.flexible.haskell	30630	Flexible Haskell	2706	False
+2026-11-08 14:16	*.cabal	me.fornever.haskeletor	31233	Haskeletor	306	False
+2026-11-08 14:16	*.cairo	Cairo_Analyze	23671	Cairo Analyzer	882	False
+2026-11-08 14:16	*.cfg	com.demonwav.minecraft-dev	8327	Minecraft Development	2408678	False
+2026-11-08 14:16	*.cfg	Twelf Plugin		Twelf Plugin		False
+2026-11-08 14:16	*.cfg	codes.rudolph.idea.cfg	10162	Context Free Grammar	264490	False
+2026-11-08 14:16	*.cfg	com.jetbrains.plugins.ini4idea	6981	Ini	8768507	False
+2026-11-08 14:16	*.cfg	gdscript	13107	GDScript	111828	False
+2026-11-08 14:16	*.cfg	com.jetbrains.nim	15128	Nim	172488	False
+2026-11-08 14:16	*.cfg	com.jetbrains.writerside	20158	Writerside	319722	False
+2026-11-08 14:16	*.cfg	com.kishmakov.mojo	23371	Mojo	31363	False
+2026-11-08 14:16	*.class	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:16	*.class	com.intellij.kotlinNative.platformDeps	12665	Kotlin/Native Platform Dependencies	39409	False
+2026-11-08 14:16	*.class	com.intellij.java	27368	Java	5017614	False
+2026-11-08 14:16	*.class	com.intellij.java.frontend	27876	Java for JetBrains Client	758	False
+2026-11-08 14:16	*.clj	com.cursiveclojure.cursive	8090	Cursive	691477	False
+2026-11-08 14:16	*.clj	org.jetbrains.idea.clojure	8636	Clojure-Kit	89689	False
+2026-11-08 14:16	*.clj	com.github.clojure-lsp	22489	Clojure LSP	20301	False
+2026-11-08 14:16	*.cls	com.illuminatedcloud.intellij	7831	Illuminated Cloud	166111	False
+2026-11-08 14:16	*.cls	com.jedide.apex	9238	JetForcer | The Smartest Force.com IDE	342094	False
+2026-11-08 14:16	*.cls	nl.rubensten.texifyidea	9473	TeXiFy-IDEA	900722	False
+2026-11-08 14:16	*.cls	com.illuminatedcloud2.intellij	10253	Illuminated Cloud 2	820600	False
+2026-11-08 14:16	*.cmake	com.intellij.cmake	28794	CMake	628746	False
+2026-11-08 14:16	*.cmd	CMD Support	5834	CMD Support	2246192	False
+2026-11-08 14:16	*.cmd	Batch Scripts Support	265	Batch Scripts Support	2062049	False
+2026-11-08 14:16	*.cmd	io.github.chriso345.BatchUI	26308	BatchUI	8702	False
+2026-11-08 14:16	*.cmd	org.epics.workbench	31029	EPICS Workbench	11468	False
+2026-11-08 14:16	*.cmd	com.kitsstech.batchcraft	34804	BatchCraft: Batch & CMD	9585	False
+2026-11-08 14:16	*.cob	com.badahori.creatures.plugins.intellij.agenteering	14660	Creatures CAOS and Agenteering	7116	False
+2026-11-08 14:16	*.cob	com.mituuz.cobolforge	27294	Cobol Forge	2369	False
+2026-11-08 14:16	*.cob	com.flexible.cobol	34037	Flexible COBOL	352	False
+2026-11-08 14:16	*.conf	com.jetbrains.php	6610	PHP	7165985	False
+2026-11-08 14:16	*.conf	com.jetbrains.php	6610	PHP	7165985	True
+2026-11-08 14:16	*.conf	org.jetbrains.plugins.hocon	10481	HOCON	1318910	False
+2026-11-08 14:16	*.conf	com.github.redfoos.logstash-intellij-plugin	12373	logstash-config-files-support	599650	False
+2026-11-08 14:16	*.conf	io.github.will7200.plugins.casbin	14809	Casbin	101849	False
+2026-11-08 14:16	*.conf	dev.meanmail.plugin.nginx-intellij-plugin	15461	Nginx Configuration	2762587	False
+2026-11-08 14:16	*.conf	dev.meanmail.plugin.nginx-intellij-plugin-pro	18280	Nginx Configuration Pro	269056	False
+2026-11-08 14:16	*.conf	net.ishchenko.idea.nginx	26536	nginx-support	27511	False
+2026-11-08 14:16	*.conf	cc.ayakurayuki.nginx-configuration-formatter	30013	Nginx Configuration Formatter	10814	False
+2026-11-08 14:16	*.conf	io.github.l2dy.ide.ic.nginx	31042	NGINX Configuration Language	3270	False
+2026-11-08 14:16	*.conf	com.poeticcoder.pipelinelens	29146	PipelineLens	17431	False
+2026-11-08 14:16	*.conf	com.agomuseum.nginxlens	31537	Nginx Lens	5389	False
+2026-11-08 14:16	*.conf	io.github.dsudomoin.hocon	32969	HOCON Support	1069	False
+2026-11-08 14:16	*.conf	com.jetbrains.smarty	33360	Smarty	53289	False
+2026-11-08 14:16	*.csv	net.seesharpsoft.intellij.plugins.csv	10037	CSV Editor	13826339	False
+2026-11-08 14:16	*.csv	com.andrey4623.rainbowcsv	12896	Rainbow CSV	1836759	False
+2026-11-08 14:16	*.csv	com.intellij.database	10925	Database Tools and SQL for WebStorm	1090397	False
+2026-11-08 14:16	*.csv	com.chesterccw.excelreader	14722	ExcelReader	1242777	False
+2026-11-08 14:16	*.csv	com.github.obiscr.exceleditor	18663	ExcelEditor	316316	False
+2026-11-08 14:16	*.csv	com.cap.plugin.hadoop	19186	Cap-Hadoop	100430	False
+2026-11-08 14:16	*.csv	org.csv-color-pro	26716	CSV Color Pro	9623	False
+2026-11-08 14:16	*.csv	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:16	*.csv	com.veeva.vault.toolbox	31516	Vault Toolbox	826	False
+2026-11-08 14:16	*.cue	dev.monogon.cuelang	16126	CUE	37520	False
+2026-11-08 14:16	*.cue	today.movatech.plugins.cuefy		Cuefy		False
+2026-11-08 14:16	*.dart	Dart	6351	Dart	29396233	False
+2026-11-08 14:16	*.db	com.squareup.sqldelight	8191	SQLDelight	469714	False
+2026-11-08 14:16	*.db	generatedsoft.mps.dbfp		MPS file-DB persistence		False
+2026-11-08 14:16	*.db	com.github.gitofleonardo.simplesqlitebrowser	19797	SimpleSqliteBrowser	488309	False
+2026-11-08 14:16	*.db	co.uk.owenrumney.boltdb-explorer-intellij	28440	BoltDB Explorer	27848	False
+2026-11-08 14:16	*.db	org.epics.workbench	31029	EPICS Workbench	11468	False
+2026-11-08 14:16	*.db	com.protonail.bbolt	32330	bbolt Database	4086	False
+2026-11-08 14:16	*.dbc	com.npcoding.candatabases	35520	NPCoding CAN Database Files	44	False
+2026-11-08 14:16	*.dcm	com.jetmedviewer	31122	DICOM Viewer	239	False
+2026-11-08 14:16	*.dcm	imagevisualizer	34426	Scientific Image Visualizer	757	False
+2026-11-08 14:16	*.dhall	org.intellij.plugins.dhall	13889	Dhall	3735	False
+2026-11-08 14:16	*.diff	de.thomasrosenau.diffplugin	11957	Diff / Patch File Support	14286	False
+2026-11-08 14:16	*.diff	de.femtopedia.diffplugin	18612	Diff / Patch File Support	47105	False
+2026-11-08 14:16	*.dll	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:16	*.dll	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:16	*.docx	org.zhangwenqing.idea.ooxml-tools	26779	OOXml Tools	15076	False
+2026-11-08 14:16	*.docx	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:16	*.docx	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:17	*.dot	org.plugin.dot.id	10312	DOT Language	154587	False
+2026-11-08 14:17	*.dot	com.voc.ide.plugin.tools	17704	DevTools	102	False
+2026-11-08 14:17	*.dot	io.github.abpubli.dot-support	27121	Dot Base	21773	False
+2026-11-08 14:17	*.dot	io.github.abpubli.dot-compat	27597	Dot Compat	191	False
+2026-11-08 14:17	*.dot	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:17	*.dot	org.abpubli.dot	29772	Dot Plus	2290	False
+2026-11-08 14:17	*.drawio	de.docs_as_co.intellij.plugin.diagramsnet	15635	Diagrams.net Integration	500434	False
+2026-11-08 14:17	*.duckdb	com.twilightventures.duckdblens	33853	DuckDB Lens: DuckDB Database File Viewer	1397	False
+2026-11-08 14:17	*.duckdb	dev.jetplugins.duckdb	35635	Toolkit for DuckDB	19	False
+2026-11-08 14:17	*.dylib	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:17	*.dylib	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:17	*.ejs	com.jetbrains.lang.ejs	7296	EJS	1388655	False
+2026-11-08 14:17	*.ejs	com.langheroes.ejs	30109	EJS Hero	510	False
+2026-11-08 14:17	*.elf	Twelf Plugin		Twelf Plugin		False
+2026-11-08 14:17	*.elf	top.xystudio.plugin.idea.LiteFlowX	19145	LiteFlowX	31973	False
+2026-11-08 14:17	*.elf	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:17	*.elf	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:17	*.env	ru.adelf.idea.dotenv	9525	.env files	32830123	False
+2026-11-08 14:17	*.env	net.ashald.envfile	7861	EnvFile	2422775	False
+2026-11-08 14:17	*.env	com.github.mucahitkayadan.envmasker	25857	Env File Masker	40294	False
+2026-11-08 14:17	*.env	com.envforge.ide	31385	EnvForge - AI-Safe Environment Manager	30657	False
+2026-11-08 14:17	*.erb	org.jetbrains.plugins.ruby	1293	Ruby	2818531	False
+2026-11-08 14:17	*.erl	org.jetbrains.erlang	7083	Erlang	745170	False
+2026-11-08 14:17	*.ex	org.elixir_lang	7522	Elixir	507160	False
+2026-11-08 14:17	*.ex	com.flexible.elixir	30043	Flexible Elixir	3522	False
+2026-11-08 14:17	*.ex	dev.murek.elixirij	30071	Elixirij	496	False
+2026-11-08 14:17	*.ex	com.thiromano.exact	30828	Explore: Elixir Support	344	False
+2026-11-08 14:17	*.exe	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:17	*.exe	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:17	*.f90	org.jetbrains.fortran	9699	Fortran	102041	False
+2026-11-08 14:17	*.fbx	de.kleinicke.plyvisualizer	34145	3D Visualizer	775	False
+2026-11-08 14:17	*.feature	cucumber-java	7212	Cucumber for Java	3478384	True
+2026-11-08 14:17	*.feature	gherkin	9164	Gherkin	6239672	False
+2026-11-08 14:17	*.feature	uk.co.itmoore.intellisubsteps	9413	Substeps IntelliJ Plugin	192509	False
+2026-11-08 14:17	*.feature	tag-editor	13227	TAG Editor	67086	False
+2026-11-08 14:17	*.feature	io.karatelabs.intellij	19232	Karate	341754	False
+2026-11-08 14:17	*.feature	net.reqnroll	24012	Reqnroll for Rider	143629	False
+2026-11-08 14:17	*.feature	knopka_ogurec	27779	KnopkaOgurec	36004	False
+2026-11-08 14:17	*.feature	com.mb.mb-plugin	28613	MBKarate For AutoTest	19978	False
+2026-11-08 14:17	*.feature	in.srikanthk.devlabs.karate-chop-debugger	28671	Karate Chop Debugger	17348	False
+2026-11-08 14:17	*.feature	com.j8d.karate-debug	29773	Karate Debug	15732	False
+2026-11-08 14:17	*.feature	dev.specbinder.intellij-plugin	30540	SpecBinder (Beta)	19671	False
+2026-11-08 14:17	*.feature	net.reqnroll.idesupport	35337	Reqnroll Extension (Preview)	76	False
+2026-11-08 14:17	*.fits	imagevisualizer	34426	Scientific Image Visualizer	757	False
+2026-11-08 14:17	*.fs	org.jetbrains.android	22989	Android	1540684	True
+2026-11-08 14:17	*.fs	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:17	*.fs	com.jetbrains.rider.fsharp	14180	F# Support	21790	False
+2026-11-08 14:17	*.fs	org.jetbrains.android	22989	Android	1540684	False
+2026-11-08 14:17	*.ftl	com.intellij.freemarker	27369	FreeMarker	1047440	True
+2026-11-08 14:17	*.ftl	FluentLanguage	18416	Fluent Language	57627	False
+2026-11-08 14:17	*.ftl	com.ilscipio.language	23685	Flexible Freemarker	19560	False
+2026-11-08 14:17	*.ftl	com.intellij.freemarker	27369	FreeMarker	1047440	False
+2026-11-08 14:17	*.ftl	com.ilscipio.magnolia-integration	23556	Magnolia CMS Integration	1783	False
+2026-11-08 14:17	*.ftl	com.ilscipio.aem.integration	29404	AEM Integration	4109	False
+2026-11-08 14:17	*.ftl	com.ilscipio.ofbiz	29883	OFBiz Integration	256	False
+2026-11-08 14:17	*.ftl	foundation.tachyon.freemarker	30924	FreeMarker Templates PRO	522	False
+2026-11-08 14:17	*.ftl	com.ttb.freemarker	31231	FreeMarker Support	1130	False
+2026-11-08 14:17	*.g4	org.antlr.intellij.plugin	7358	ANTLR v4	788366	False
+2026-11-08 14:17	*.g4	com.my.antlr.tool	23446	ANTLR v4 Grammar	44532	False
+2026-11-08 14:17	*.g4	com.antlr4plus	29781	ANTLR4 Plus	2150	False
+2026-11-08 14:17	*.g4	com.antlr4.helper	32227	ANTLR4 Helper	272	False
+2026-11-08 14:17	*.gemspec	org.jetbrains.plugins.ruby	1293	Ruby	2818531	False
+2026-11-08 14:17	*.gemspec	org.jetbrains.plugins.ruby	1293	Ruby	2818531	True
+2026-11-08 14:17	*.gguf	dev.modelinspector	34547	Model File Inspector	687	False
+2026-11-08 14:17	*.gif	dev.meanmail.plugin.image-editor	29116	Image Editor	1746	False
+2026-11-08 14:17	*.gitlab-ci.yml	com.gitlabci.plugin		GitLabCI		False
+2026-11-08 14:17	*.gitlab-ci.yml	com.github.deeepamin.gitlabciaid	25859	CI Aid for GitLab	1731207	False
+2026-11-08 14:17	*.glb	com.github.issaloubani.glbviewer	22024	GLB Viewer	8159	False
+2026-11-08 14:17	*.glb	ke.co.coterie.plugins.model3d-viewer	29933	3D Model Viewer	2817	False
+2026-11-08 14:17	*.glb	de.kleinicke.plyvisualizer	34145	3D Visualizer	775	False
+2026-11-08 14:17	*.gltf	ke.co.coterie.plugins.model3d-viewer	29933	3D Model Viewer	2817	False
+2026-11-08 14:17	*.gltf	de.kleinicke.plyvisualizer	34145	3D Visualizer	775	False
+2026-11-08 14:17	*.go	ro.redeul.google.go	5047	Go language (golang.org) support plugin	922822	False
+2026-11-08 14:17	*.go	org.jetbrains.plugins.go	9568	Go	4928953	False
+2026-11-08 14:17	*.go	org.jetbrains.plugins.go.frontend	27879	Go for JetBrains Client	16234	False
+2026-11-08 14:17	*.gql	com.intellij.lang.graql	10402	Graql	33131	False
+2026-11-08 14:17	*.gql	com.intellij.lang.jsgraphql	8097	GraphQL	6277995	False
+2026-11-08 14:17	*.gql	com.apollographql.ijplugin	20645	Apollo GraphQL	95019	False
+2026-11-08 14:17	*.gql	com.marklogictools.pulse	33387	MarkLogic Pulse	244	False
+2026-11-08 14:17	*.gradle	org.intellij.groovy	1524	Groovy	537636	True
+2026-11-08 14:17	*.gradle	org.jetbrains.plugins.gradle	27367	Gradle for Java	3852580	False
+2026-11-08 14:17	*.graphql	com.intellij.lang.jsgraphql	8097	GraphQL	6277995	False
+2026-11-08 14:17	*.graphql	com.apollographql.ijplugin	20645	Apollo GraphQL	95019	False
+2026-11-08 14:17	*.groovy	org.intellij.groovy	1524	Groovy	537636	True
+2026-11-08 14:17	*.groovy	org.intellij.groovy	1524	Groovy	537636	False
+2026-11-08 14:17	*.gv	org.plugin.dot.id	10312	DOT Language	154587	False
+2026-11-08 14:17	*.gv	io.github.abpubli.dot-support	27121	Dot Base	21773	False
+2026-11-08 14:17	*.gv	io.github.abpubli.dot-compat	27597	Dot Compat	191	False
+2026-11-08 14:17	*.gv	org.abpubli.dot	29772	Dot Plus	2290	False
+2026-11-08 14:17	*.gz	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:17	*.gz	com.github.camork.fileExpander	11940	File Expander	337262	False
+2026-11-08 14:17	*.gz	ai.expert.studio	15289	Expert.ai Studio Core	2087	False
+2026-11-08 14:17	*.gz	com.github.camork.fix.fileExpander	19799	File Expander2	1732	False
+2026-11-08 14:17	*.gz	com.github.dixtdf.archive.manager	23392	ArchiveManager	4757	False
+2026-11-08 14:17	*.gz	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:17	*.gz	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:17	*.h5	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:17	*.haml	org.jetbrains.plugins.haml	13116	Haml	65005	True
+2026-11-08 14:17	*.haml	org.jetbrains.plugins.haml	13116	Haml	65005	False
+2026-11-08 14:17	*.har	com.intellij.modules.json	25364	JSON	4295	False
+2026-11-08 14:17	*.hbs	com.dmarcotte.handlebars	6884	Handlebars/Mustache	5348436	False
+2026-11-08 14:17	*.hcl	org.intellij.plugins.hcl	7808	Terraform and HCL	6176855	False
+2026-11-08 14:17	*.hcl	io.ariga.atlas.hcl	22307	Atlas	42383	False
+2026-11-08 14:17	*.hcl	crossplanecontrib.functionhcl	30965	function-hcl	1416	False
+2026-11-08 14:17	*.hex	com.godwin.json.parser	10650	Advanced JSON Studio	1461449	False
+2026-11-08 14:17	*.hjson	com.zelaux.hjson	22501	HJson	1603	False
+2026-11-08 14:17	*.hprof	JProfiler	253	JProfiler	880152	False
+2026-11-08 14:17	*.hprof	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:17	*.hprof	com.twilightventures.heapdumplens	33908	Heap Dump Lens: JVM Heap Dump, Thread Dump & GC Log Viewer	1666	False
+2026-11-08 14:17	*.hql	com.intellij.javaee	20207	Jakarta EE Platform	3401625	True
+2026-11-08 14:17	*.hql	com.intellij.database	10925	Database Tools and SQL for WebStorm	1090397	False
+2026-11-08 14:17	*.hql	me.hql.linhscript	31347	LinhScript	48	False
+2026-11-08 14:17	*.hs	ideah	6330	Haskell	8753	False
+2026-11-08 14:17	*.hs	com.haskforce	7602	HaskForce	61832	False
+2026-11-08 14:17	*.hs	com.vampire.haskell.language	19322	Haskell Syntax Highlighting	1355	False
+2026-11-08 14:17	*.hs	boo.fox.haskelllsp	24123	Haskell LSP	20430	False
+2026-11-08 14:17	*.hs	aiquant.plugins	26301	CardanoPyC	485	False
+2026-11-08 14:17	*.hs	com.flexible.haskell	30630	Flexible Haskell	2706	False
+2026-11-08 14:17	*.hs	me.fornever.haskeletor	31233	Haskeletor	306	False
+2026-11-08 14:17	*.http	com.jetbrains.restClient	13121	HTTP Client	16612707	True
+2026-11-08 14:17	*.http	com.jetbrains.restClient	13121	HTTP Client	16612707	False
+2026-11-08 14:17	*.ico	dev.meanmail.plugin.image-editor	29116	Image Editor	1746	False
+2026-11-08 14:17	*.img	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:17	*.ini	com.jetbrains.plugins.ini4idea	6981	Ini	8768507	False
+2026-11-08 14:17	*.ini	com.jetbrains.plugins.ini4idea	6981	Ini	8768507	True
+2026-11-08 14:17	*.ini	JASS	23120	JASS	17627	False
+2026-11-08 14:17	*.ipynb	Pythonid	631	Python	12959066	False
+2026-11-08 14:17	*.ipynb	PythonCore	7322	Python Community Edition	13930461	False
+2026-11-08 14:17	*.ipynb	intellij.jupyter	22814	Jupyter	18331675	False
+2026-11-08 14:17	*.ipynb	com.intellij.notebooks.core	24880	Notebook Files	17469144	False
+2026-11-08 14:17	*.ipynb	com.twilightventures.notebooklens	33811	Notebook Lens: Jupyter ipynb Viewer	2335	False
+2026-11-08 14:17	*.iso	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:17	*.iso	com.github.dixtdf.archive.manager	23392	ArchiveManager	4757	False
+2026-11-08 14:17	*.iso	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:17	*.iss	org.pcsoft.ij.plugin.inno-setup	32410	Inno Setup	1054	False
+2026-11-08 14:17	*.j2	com.taff.plugin.orchide	12626	OrchidE - Ansible Language Support	355579	False
+2026-11-08 14:17	*.j2	Pythonid	631	Python	12959066	False
+2026-11-08 14:17	*.j2	com.jinja2enhanced	29804	Jinja2 Enhanced Support	10112	False
+2026-11-08 14:17	*.j2	com.akrikun.saltstack	31655	SaltStack Toolkit	3993	False
+2026-11-08 14:18	*.j2	com.kitsstech.rolewise	34870	Rolewise for Ansible	395	False
+2026-11-08 14:18	*.jfr	me.bechberger.jfrplugin	20937	Java JFR Profiler	36852	False
+2026-11-08 14:18	*.jinja	Pythonid	631	Python	12959066	False
+2026-11-08 14:18	*.jinja	com.jinja2enhanced	29804	Jinja2 Enhanced Support	10112	False
+2026-11-08 14:18	*.jinja	com.akrikun.saltstack	31655	SaltStack Toolkit	3993	False
+2026-11-08 14:18	*.jl	org.ice1000.julia	10413	Julia	78094	False
+2026-11-08 14:18	*.jl	com.flexible.julia	29356	Flexible Julia	9119	False
+2026-11-08 14:18	*.jpg	dev.meanmail.plugin.image-editor	29116	Image Editor	1746	False
+2026-11-08 14:18	*.json5	com.intellij.modules.json	25364	JSON	4295	False
+2026-11-08 14:18	*.jsonc	com.intellij.modules.json	25364	JSON	4295	False
+2026-11-08 14:18	*.jsonnet	com.github.zzehring.intellijjsonnet	18752	Jsonnet Language Server	52022	False
+2026-11-08 14:18	*.jsonnet	today.movatech.plugins.jsonnet		Jsonnet Pro		False
+2026-11-08 14:18	*.jsonnet	com.databricks	10852	Jsonnet	68631	False
+2026-11-08 14:18	*.kdl	dev.kdl	20136	KDL Document Language	3784	False
+2026-11-08 14:18	*.kicad_pcb	com.flexible.schematics	34182	Flexible For Schematics	268	False
+2026-11-08 14:18	*.kql	org.elasticsearch4idea	14512	Elasticsearch	155979	False
+2026-11-08 14:18	*.kql	com.langheroes.kusto	32146	Kusto Hero	235	False
+2026-11-08 14:18	*.kt	org.jetbrains.kotlin	6954	Kotlin	38083108	False
+2026-11-08 14:18	*.kt	org.jetbrains.kotlin.native.clion	10454	Kotlin/Native for CLion	24211	False
+2026-11-08 14:18	*.kt	org.jetbrains.kotlin.native.appcode	10619	Kotlin/Native for AppCode	9373	False
+2026-11-08 14:18	*.kt	arrow-kt.io.keep87	11540	KEEP-87 Kotlin	4	False
+2026-11-08 14:18	*.kt	com.intellij.appcode.kmm	17098	Kotlin Multiplatform Mobile for AppCode	14178	False
+2026-11-08 14:18	*.kt	com.intellij.kotlin.frontend	27875	Kotlin for JetBrains Client	1230	False
+2026-11-08 14:18	*.libsonnet	com.github.zzehring.intellijjsonnet	18752	Jsonnet Language Server	52022	False
+2026-11-08 14:18	*.libsonnet	today.movatech.plugins.jsonnet		Jsonnet Pro		False
+2026-11-08 14:18	*.libsonnet	com.databricks	10852	Jsonnet	68631	False
+2026-11-08 14:18	*.libsonnet	io.portx.datasonnet	23097	DataSonnet Mapper	2848	False
+2026-11-08 14:18	*.liquid	com.intellij.lang.liquid	14388	Liquid	329564	False
+2026-11-08 14:18	*.liquid	dev.liquidhero	27826	Liquid Hero	3376	False
+2026-11-08 14:18	*.liquid	com.obra.liquid	33073	Liquid for Shopify & Jekyll	610	False
+2026-11-08 14:18	*.log	com.intellij.ideolog	9746	Ideolog	13056213	False
+2026-11-08 14:18	*.log	com.cybrosis.catdea	12241	Catdea	275455	False
+2026-11-08 14:18	*.lua	Lua	5055	Lua [Deprecated]	896537	False
+2026-11-08 14:18	*.lua	com.tang	9768	EmmyLua	1014110	False
+2026-11-08 14:18	*.lua	com.williamwen	11382	Luakit	13142	False
+2026-11-08 14:18	*.lua	au.com.glassechidna.luanalysis	14698	Luanalysis	155676	False
+2026-11-08 14:18	*.lua	LuaLegacy	18098	IDLua	435	False
+2026-11-08 14:18	*.lua	com.tarantoollua	19596	Tarantool-EmmyLua	11486	False
+2026-11-08 14:18	*.lua	com.cppcxy.Intellij-SumnekoLua	22315	SumnekoLua	81679	False
+2026-11-08 14:18	*.lua	com.jin_xc	24864	Openresty	8878	False
+2026-11-08 14:18	*.lua	com.github.aleksandrsl.intellijluau	24957	Luau	23773	False
+2026-11-08 14:18	*.lua	com.intellij.lua	34924	Lua	352	False
+2026-11-08 14:18	*.lua	dev.jetplugins.lua	35721	Lua Pro	100	False
+2026-11-08 14:18	*.m	de.halirutan.mathematica	7232	Wolfram Language	132479	False
+2026-11-08 14:18	*.m	MatlabSupport	10941	Matlab Support	138155	False
+2026-11-08 14:18	*.m	dev.adnathanail.mirandaintellijplugin	20871	Miranda Language Support	785	False
+2026-11-08 14:18	*.m	org.jetbrains.plugins.cpp.frontend	28372	C/C++ for JetBrains Client	13215	False
+2026-11-08 14:18	*.m	com.langheroes.matlab	30022	Matrix Hero - MATLAB IDE	1224	False
+2026-11-08 14:18	*.m	org.jetbrains.plugins.clion.radler	28804	CLion C and C++	46107	False
+2026-11-08 14:18	*.m	com.renpe.magma	31798	Magma	3269	False
+2026-11-08 14:18	*.mbtiles	com.twilightventures.sqlitelens	33684	SQLite Lens: SQLite Database File Viewer	5289	False
+2026-11-08 14:18	*.md	org.intellij.plugins.markdown	7793	Markdown	16004486	False
+2026-11-08 14:18	*.md	com.vladsch.idea.multimarkdown	7896	Markdown Navigator Enhanced	5392499	False
+2026-11-08 14:18	*.md	com.illuminatedcloud2.intellij	10253	Illuminated Cloud 2	820600	False
+2026-11-08 14:18	*.md	com.markdown.editor.plugin	28388	mini markdown	2116	False
+2026-11-08 14:18	*.md	com.google.tools.ij.aiplugin	24198	Gemini Code Assist	2230325	False
+2026-11-08 14:18	*.mdf	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.mdx	mdx.js	14944	MDX	957130	False
+2026-11-08 14:18	*.mjml	de.timo_reymann.intellij-mjml-support	16418	MJML Support	198695	False
+2026-11-08 14:18	*.mk	name.kropp.intellij.makefile	9333	Makefile Language	7327875	False
+2026-11-08 14:18	*.mk	com.intuit.intellij.makefile	13740	DockDockBuild	96274	False
+2026-11-08 14:18	*.mk	com.framework.plugin.yisingle	22931	AndroidSupportFramework	79954	False
+2026-11-08 14:18	*.mk	dev.wavelang.wave	31020	Wave Language	5158	False
+2026-11-08 14:18	*.mk	com.moiseskerschner.mkformat	32356	mk-format Highlighter	1143	False
+2026-11-08 14:18	*.ml	reasonml	9440	ReasonML	113441	False
+2026-11-08 14:18	*.ml	com.jetbrains.rider.fsharp	14180	F# Support	21790	False
+2026-11-08 14:18	*.ml	intellij-ocaml	18531	OCaml	5299	False
+2026-11-08 14:18	*.mmd	nb-mind-map-idea	8045	SciaReto Mind Map	208179	False
+2026-11-08 14:18	*.mmd	com.intellij.mermaid	20146	Mermaid	1701619	False
+2026-11-08 14:18	*.mmd	com.nereid.mermaid	29877	Nereid	9457	False
+2026-11-08 14:18	*.mmd	dev.tachilabs.mermaidstudio	29870	Mermaid Studio	15593	False
+2026-11-08 14:18	*.mmd	com.alextdev.MermaidVisualizer	30432	Mermaid Visualizer	46943	False
+2026-11-08 14:18	*.mmd	dev.tachilabs.mermaidstudio.core	30883	Mermaid Studio Core	26831	False
+2026-11-08 14:18	*.mmd	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.mmd	dev.gaphunter.mermaidcompanion	33340	Mermaid Companion	1305	False
+2026-11-08 14:18	*.mod	com.lexastudio	12666	Lexa Studio	2	False
+2026-11-08 14:18	*.mod	com.windea.stellaris	14602	Stellaris Modding Support	3542	False
+2026-11-08 14:18	*.mod	kn.uni.dbis.oberon.lang	18697	Oberon	37	False
+2026-11-08 14:18	*.mod	com.bossymr.intellij-rapid	23764	Rapid	384	False
+2026-11-08 14:18	*.mod	com.github.cplexopl.opl-support	31125	CPLEX OPL	17090	False
+2026-11-08 14:18	*.move	org.move.lang	14721	Move on Aptos	26032	False
+2026-11-08 14:18	*.move	org.sui.lang	23301	Sui Move Language	9672	False
+2026-11-08 14:18	*.move	com.suimove.lang	27656	Move Language for Sui	143	False
+2026-11-08 14:18	*.move	org.endless.move.lang	29574	Move on Endless	64	False
+2026-11-08 14:18	*.move	org.iota.ide	29105	IOTA Move	82	False
+2026-11-08 14:18	*.mp3	org.cce	7563	CocosEditor2.0	2313	False
+2026-11-08 14:18	*.mp3	org.cce.appcode	8451	CocosEditor2.0-AppCode	128	False
+2026-11-08 14:18	*.mp3	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.mp3	com.github.audioplayer	30608	Audio Player	5418	False
+2026-11-08 14:18	*.mp3	dev.twango.jetplay	31014	jetplay	15416	False
+2026-11-08 14:18	*.mp4	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.mp4	dev.twango.jetplay	31014	jetplay	15416	False
+2026-11-08 14:18	*.mustache	com.dmarcotte.handlebars	6884	Handlebars/Mustache	5348436	False
+2026-11-08 14:18	*.nc	com.ncviewer.idea	28995	NC Viewer	1748	False
+2026-11-08 14:18	*.nc	imagevisualizer	34426	Scientific Image Visualizer	757	False
+2026-11-08 14:18	*.nii	com.github.felixstieglitz.niivuejetbrains	32824	Niivue Viewer	1679	False
+2026-11-08 14:18	*.nim	com.deflatedpickle.nim	10383	Nim Language Support	383	False
+2026-11-08 14:18	*.nim	com.tiepy.nimatron	14520	Nimatron	1264	False
+2026-11-08 14:18	*.nim	com.jetbrains.nim	15128	Nim	172488	False
+2026-11-08 14:18	*.nim	com.laamella.nim	31790	Nim using nimlangserver	471	False
+2026-11-08 14:18	*.nim	dev.jetplugins.nim	35539	Nim Pro	62	False
+2026-11-08 14:18	*.nix	nix-idea	8607	NixIDEA	199297	False
+2026-11-08 14:18	*.nix	dev.jetplugins.nix-pro	31649	Nix Pro	1481	False
+2026-11-08 14:18	*.njk	com.langheroes.nunjucks	29567	Nunjucks Hero	2665	False
+2026-11-08 14:18	*.njk	com.obra.nunjucks	31592	Nunjucks	827	False
+2026-11-08 14:18	*.npy	com.github.felixstieglitz.niivuejetbrains	32824	Niivue Viewer	1679	False
+2026-11-08 14:18	*.npy	imagevisualizer	34426	Scientific Image Visualizer	757	False
+2026-11-08 14:18	*.nsi	com.krylysov.nsisplugin	7732	NSIS plugin	26510	False
+2026-11-08 14:18	*.nsi	com.jotc.nsis.plugin.nsis	7886	NSIS Language Support	6294	False
+2026-11-08 14:18	*.nsi	com.npcoding.installerscripts	35523	NPCoding Installer Scripts	79	False
+2026-11-08 14:18	*.o	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:18	*.obj	it.czerwinski.intellij.wavefront	14843	Wavefront OBJ	105238	False
+2026-11-08 14:18	*.obj	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:18	*.obj	de.kleinicke.plyvisualizer	34145	3D Visualizer	775	False
+2026-11-08 14:18	*.obj	app.heckit.ide.scadsphere	35691	SCAD Sphere	44	False
+2026-11-08 14:18	*.onnx	cn.shanghai.oyb.onnx	19368	ONNX4IDEA	224	False
+2026-11-08 14:18	*.org	Org4Idea	7095	Org4Idea	32268	False
+2026-11-08 14:18	*.org	OrgMode	30772	OrgMode	1671	False
+2026-11-08 14:18	*.parquet	com.intellij.bigdatatools	12494	Big Data Tools	3466372	False
+2026-11-08 14:18	*.parquet	com.cap.plugin.hadoop	19186	Cap-Hadoop	100430	False
+2026-11-08 14:18	*.parquet	com.intellij.bigdatatools.binary.files	21701	Big Data File Viewer	2370137	False
+2026-11-08 14:18	*.parquet	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.parquet	com.github.jhordyhuaman.parquetstudio	29009	Parquet Studio	3297	False
+2026-11-08 14:18	*.parquet	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:18	*.parquet	com.zuhaibzahid.columns	33512	Columns - Parquet and Avro Editor	121	False
+2026-11-08 14:18	*.parquet	com.twilightventures.parquetlens	33510	Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer	1436	False
+2026-11-08 14:18	*.parquet	com.kitworks.tablekit	33521	TableKit: Excel & Parquet Viewer	402	False
+2026-11-08 14:18	*.parquet	dev.madrasco.intarsia	34600	Intarsia	99	False
+2026-11-08 14:18	*.pas	com.siberika.idea.pascal	7340	I-Pascal	151912	False
+2026-11-08 14:18	*.pas	dev.meanmail.pascal	32155	Pascal Flow	2515	False
+2026-11-08 14:18	*.pas	com.flexible.delphi	34930	Flexible Delphi	299	False
+2026-11-08 14:18	*.patch	de.thomasrosenau.diffplugin	11957	Diff / Patch File Support	14286	False
+2026-11-08 14:18	*.patch	de.femtopedia.diffplugin	18612	Diff / Patch File Support	47105	False
+2026-11-08 14:18	*.pbf	eu.bradan.purebasic.PureBasic	15422	PureBasic Language	80	False
+2026-11-08 14:18	*.pbxproj	org.moe	8559	Multi-OS Engine	89181	False
+2026-11-08 14:18	*.pbxproj	org.moe.community	12786	Multi-OS Engine Community Edition	30760	False
+2026-11-08 14:18	*.pbxproj	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:18	*.pbxproj	dev.j-a.swift	22150	Noctule, the Swift IDE	436293	False
+2026-11-08 14:18	*.pbxproj	com.flexible.swift	31023	Flexible Swift	13730	False
+2026-11-08 14:18	*.pcap	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:18	*.pcap	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:18	*.pdf	com.firsttimeinforever.intellij.pdf.viewer.intellij-pdf-viewer	14494	PDF Viewer	413752	False
+2026-11-08 14:18	*.pdf	com.jetbrains.restClient	13121	HTTP Client	16612707	False
+2026-11-08 14:19	*.pdf	com.github.wkkya.fusionpdf	26494	FusionPDF	1549	False
+2026-11-08 14:19	*.pdf	org-ryr.reader	27539	Reader	2618	False
+2026-11-08 14:19	*.pdf	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:19	*.pdf	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:19	*.pdf	com.github.haoticdance.bookreaderintellijplugin	32121	R3 Book Reader	323	False
+2026-11-08 14:19	*.plist	org.jetbrains.plugins.ruby.motion	10674	RubyMotion support	2723	False
+2026-11-08 14:19	*.plist	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:19	*.plist	dev.j-a.swift	22150	Noctule, the Swift IDE	436293	False
+2026-11-08 14:19	*.plist	com.flexible.swift	31023	Flexible Swift	13730	False
+2026-11-08 14:19	*.png	dev.meanmail.plugin.image-editor	29116	Image Editor	1746	False
+2026-11-08 14:19	*.po	org.jetbrains.plugins.localization	7123	GNU GetText Files Support (*.po)	431802	False
+2026-11-08 14:19	*.po	org.jetbrains.plugins.localization	7123	GNU GetText Files Support (*.po)	431802	True
+2026-11-08 14:19	*.pom	org.jetbrains.idea.maven	27164	Maven	7367248	True
+2026-11-08 14:19	*.pom	ru.rzn.gmyasoedov.gmaven	22370	Easy Maven	13210	False
+2026-11-08 14:19	*.pom	org.jetbrains.idea.maven	27164	Maven	7367248	False
+2026-11-08 14:19	*.pot	org.jetbrains.plugins.localization	7123	GNU GetText Files Support (*.po)	431802	True
+2026-11-08 14:19	*.pot	org.jetbrains.plugins.localization	7123	GNU GetText Files Support (*.po)	431802	False
+2026-11-08 14:19	*.prefab	com.intellij.resharper.unity	9219	Unity Support	40239	False
+2026-11-08 14:19	*.prisma	fr.gabrielcolson.prisma.prisma-intellij-plugin	14240	Prisma	57321	False
+2026-11-08 14:19	*.prisma	io.techtrails.intellij.prisma	14282	Prisma Support	34151	False
+2026-11-08 14:19	*.prisma	org.intellij.prisma	20686	Prisma ORM	1064187	False
+2026-11-08 14:19	*.prisma	com.alexanderkoch.prismagraph	27817	Prisma Graph Visualizer	23234	False
+2026-11-08 14:19	*.prof	dev.profileviewer	34546	Profile Viewer: CPU & Heap Profiles, Flame Graphs	95	False
+2026-11-08 14:19	*.properties	com.intellij.properties	11594	Properties	13371958	True
+2026-11-08 14:19	*.properties	com.intellij.properties	11594	Properties	13371958	False
+2026-11-08 14:19	*.properties	com.zys.http	22737	ApiTool	7857	False
+2026-11-08 14:19	*.properties	com.bixuebihui.idea-tablegear	29160	TableGear - Yet Another ORM and ElasticSearch Code Generator	731	False
+2026-11-08 14:19	*.properties	com.jasypt.helper.plugin	29560	Jasypt Helper	3314	False
+2026-11-08 14:19	*.proto	idea.plugin.protoeditor	14004	Protocol Buffers	8762007	False
+2026-11-08 14:19	*.proto	com.nmatveev.idea-plugin-protobuf	4942	Google Protocol Buffers support	178675	False
+2026-11-08 14:19	*.proto	io.protostuff.protostuff-jetbrains-plugin	8277	Protobuf Support	763372	False
+2026-11-08 14:19	*.proto	io.kanro.idea.plugin.protobuf	16422	Protobuf	558409	False
+2026-11-08 14:19	*.proto	com.github.bufbuild.intellij	19147	Buf for Protocol Buffers	242453	False
+2026-11-08 14:19	*.proto	cn.bigfire.protosttuff.generate	24392	ProtoStuff Generate	31750	False
+2026-11-08 14:19	*.proto	org.epics.workbench	31029	EPICS Workbench	11468	False
+2026-11-08 14:19	*.ps1	com.intellij.plugin.adernov.powershell	10249	PowerShell	1505949	False
+2026-11-08 14:19	*.ps1	com.github.powershell7	32373	PowerShell 7	809	False
+2026-11-08 14:19	*.pug	com.jetbrains.plugins.jade	7094	Pug (ex-Jade)	2309318	False
+2026-11-08 14:19	*.pug	com.npcoding.pugsupport	35491	NPCoding Support for Pug	18	False
+2026-11-08 14:19	*.puml	PlantUML integration	7017	plantuml4idea	5092275	False
+2026-11-08 14:19	*.puml	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:19	*.r	R4Intellij	6632	R Language	4239040	False
+2026-11-08 14:19	*.rb	org.jetbrains.plugins.ruby	1293	Ruby	2818531	False
+2026-11-08 14:19	*.rb	org.jetbrains.plugins.ruby	1293	Ruby	2818531	True
+2026-11-08 14:19	*.reg	com.npcoding.registryfiles	35524	NPCoding Registry Files	33	False
+2026-11-08 14:19	*.rego	org.openpolicyagent.opa-idea-plugin	14865	Open Policy Agent	87665	False
+2026-11-08 14:19	*.rest	ru.basecode.ide.rest.plugin	9232	Http Editor Client	11682	False
+2026-11-08 14:19	*.rest	cn.vove7.ide.plugin.rest	13075	Retrofit Rest Client	12198	False
+2026-11-08 14:19	*.rest	com.jetbrains.restClient	13121	HTTP Client	16612707	False
+2026-11-08 14:19	*.rkt	org.racket.lang	14752	Racket	6901	False
+2026-11-08 14:19	*.robot	amailp.intellij.robot	7415	Robot Framework Support	405279	False
+2026-11-08 14:19	*.robot	com.millennialmedia.intellibot	7386	IntelliBot	567814	False
+2026-11-08 14:19	*.robot	com.jivesoftware.robot.intellij.plugin	7430	Robot Plugin	60972	False
+2026-11-08 14:19	*.robot	robocorp.lsp.intellij	16086	Robot Framework Language Server	246367	False
+2026-11-08 14:19	*.robot	com.millennialmedia.intellibot@lte2000	17424	IntelliBot #patched	183323	False
+2026-11-08 14:19	*.robot	com.github.jnhyperion.hyperrobotframeworkplugin	16382	Hyper RobotFramework Support	318090	False
+2026-11-08 14:19	*.robot	com.github.nghiatm.robotframeworkplugin	21066	RobotFramework Helper	68534	False
+2026-11-08 14:19	*.robot	net.modulo3.robot	24447	m3 Robot Support	18489	False
+2026-11-08 14:19	*.robot	dev.robotcode.robotcode4ij	26216	RobotCode - Robot Framework Support	41595	False
+2026-11-08 14:19	*.robot	dev.xeonkryptos.xeonrobotframeworkplugin	27395	Xeon RobotFramework Support	11554	False
+2026-11-08 14:19	*.robot	com.jakubjirak.robotframework	29046	Robot Framework Professional	6978	False
+2026-11-08 14:19	*.ron	com.vultix.intellij-ron	12635	RON (Rusty Object Notation)	1369	False
+2026-11-08 14:19	*.ron	org.jonahhenriksson.ron	14897	RON	3037	False
+2026-11-08 14:19	*.ron	com.github.madwareru.intellijronremix	15878	RON Extended Support	8614	False
+2026-11-08 14:19	*.ron	com.github.amondeshir.rustroverronremix	26307	RON Extended Support for Rust Rover	883	False
+2026-11-08 14:19	*.ron	today.jason.ron-lsp-intellij	28862	RON LSP	1194	False
+2026-11-08 14:19	*.ron	com.github.unclepomedev.ronassist	31724	RON Assist	916	False
+2026-11-08 14:19	*.rs	org.jetbrains.android	22989	Android	1540684	True
+2026-11-08 14:19	*.rs	com.jetbrains.rust	22407	Rust	2524061	False
+2026-11-08 14:19	*.rs	dev.jetplugins.rust	35722	Rust Pro	142	False
+2026-11-08 14:19	*.rst	org.jetbrains.plugins.rest	7124	ReStructuredText	1711344	False
+2026-11-08 14:19	*.rst	org.jetbrains.plugins.rest	7124	ReStructuredText	1711344	True
+2026-11-08 14:19	*.rst	Pythonid	631	Python	12959066	False
+2026-11-08 14:19	*.rst	PythonCore	7322	Python Community Edition	13930461	False
+2026-11-08 14:19	*.rst	dev.jetplugins.rstpro	29979	reStructuredText Pro	1274	False
+2026-11-08 14:19	*.s	org.jetbrains.plugins.go	9568	Go	4928953	False
+2026-11-08 14:19	*.s	org.ca65	16799	6502 Assembly	15139	False
+2026-11-08 14:19	*.s	de.platon42.m68k	17268	MC68000 Assembly Language Support	27126	False
+2026-11-08 14:19	*.s	com.yanncebron.m68kplugin	17712	Motorola 68000 Series Assembler	12525	False
+2026-11-08 14:19	*.s	com.tasking.winidea	25748	TASKING winIDEA	1094	False
+2026-11-08 14:19	*.s	dev.wavelang.wave	31020	Wave Language	5158	False
+2026-11-08 14:19	*.s	dev.masmld.core	35737	MASMLD Core	29	False
+2026-11-08 14:19	*.safetensors	dev.modelinspector	34547	Model File Inspector	687	False
+2026-11-08 14:19	*.scm	schemely	5967	Schemely	2828	False
+2026-11-08 14:19	*.scm	intellij-scheme	10171	Scheme	23043	False
+2026-11-08 14:19	*.scpt	com.intellij.plugin.applescript	8149	AppleScript Support	82455	False
+2026-11-08 14:19	*.scpt	software.barad1tos.applescript.toolkit	32123	AppleScript Toolkit	277	False
+2026-11-08 14:19	*.service	net.sjrx.intellij.plugins.systemdunitfiles	11070	Unit File Support (systemd)	1274880	False
+2026-11-08 14:19	*.sh	BashSupport	4230	BashSupport	14499297	False
+2026-11-08 14:19	*.sh	com.jetbrains.sh	13122	Shell Script	5430841	False
+2026-11-08 14:19	*.sh	pro.bashsupport	13841	BashSupport Pro Shell & Zsh	621716	False
+2026-11-08 14:19	*.shp	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:19	*.slim	org.jetbrains.plugins.slim	7128	Slim	216628	False
+2026-11-08 14:19	*.slim	org.jetbrains.plugins.slim	7128	Slim	216628	True
+2026-11-08 14:19	*.sln	dev.twango.jetplay	31014	jetplay	15416	False
+2026-11-08 14:19	*.so	io.github.lizhangqu.intellij.plugin.android.bundle	10310	Android Bundle Support	53281	False
+2026-11-08 14:19	*.so	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:19	*.so	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:19	*.sol	me.serce.solidity	9475	Solidity	454781	False
+2026-11-08 14:19	*.sol	com.flexible.solidity	28744	Flexible Solidity	3478	False
+2026-11-08 14:19	*.sql	com.intellij.database	10925	Database Tools and SQL for WebStorm	1090397	True
+2026-11-08 14:19	*.sql	com.intellij.sql		SQL support		True
+2026-11-08 14:19	*.sql	DBN	1800	Database Navigator	5052149	False
+2026-11-08 14:19	*.sql	SQL	4486	SQL Code Assistant	44742	False
+2026-11-08 14:19	*.sql	OdpsStudio	9193	MaxCompute Studio	931214	False
+2026-11-08 14:19	*.sql	com.intellij.database	10925	Database Tools and SQL for WebStorm	1090397	False
+2026-11-08 14:19	*.sql	com.db.database.tool	19161	Databee: Database Client & SQL	142130	False
+2026-11-08 14:19	*.sql	github.camilesing.sparksqlheler	26079	Spark SQL Helper	1986	False
+2026-11-08 14:19	*.sql	com.marklogictools.pulse	33387	MarkLogic Pulse	244	False
+2026-11-08 14:19	*.sqlite	com.github.gitofleonardo.simplesqlitebrowser	19797	SimpleSqliteBrowser	488309	False
+2026-11-08 14:19	*.sqlite	com.twilightventures.sqlitelens	33684	SQLite Lens: SQLite Database File Viewer	5289	False
+2026-11-08 14:19	*.st	Redline Smalltalk	7227	Redline Smalltalk	3027	False
+2026-11-08 14:19	*.st	org.antlr.jetbrains.st4plugin	8041	StringTemplate v4	54606	False
+2026-11-08 14:19	*.st	org.epics.workbench	31029	EPICS Workbench	11468	False
+2026-11-08 14:19	*.star	org.jetbrains.bazel	22977	Bazel	1968390	False
+2026-11-08 14:19	*.star	com.intellij.experimental.bazel-lsp	34170	Bazel LSP	126	False
+2026-11-08 14:19	*.stl	com.flexible.scad	32015	Flexible For OpenSCAD	591	False
+2026-11-08 14:19	*.stl	de.kleinicke.plyvisualizer	34145	3D Visualizer	775	False
+2026-11-08 14:19	*.stl	app.heckit.ide.scadsphere	35691	SCAD Sphere	44	False
+2026-11-08 14:19	*.storyboard	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:19	*.strings	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:19	*.strings	com.flexible.swift	31023	Flexible Swift	13730	False
+2026-11-08 14:19	*.sv	studio.edaphic.sv		SystemVerilog		False
+2026-11-08 14:19	*.sv	com.levses	14203	SystemVerilog Studio	13047	False
+2026-11-08 14:19	*.sv	com.wjcdx.systemverilog-lang-plugin	26514	SystemVerilog Language Support	1335	False
+2026-11-08 14:19	*.sv	com.github.kalldrexx.jbverilogplugin	27945	basic-verilog-support	992	False
+2026-11-08 14:19	*.sv	com.hdl.verilog-vivado-plugin	30907	HDL and Vivado + MCP Support	1952	False
+2026-11-08 14:19	*.svelte	de.escalon.idea.plugin.svelte	10021	Svelte	20506	False
+2026-11-08 14:19	*.svelte	dev.blachut.svelte.lang	12375	Svelte	1629830	False
+2026-11-08 14:19	*.svelte	com.langheroes.svelte	31546	Svelte Hero	2310	False
+2026-11-08 14:20	*.svg	com.moxun.plugin.s2v	8103	SVG2VectorDrawable	152782	False
+2026-11-08 14:20	*.swift	com.intellij.clion-swift	8240	Swift	330518	False
+2026-11-08 14:20	*.swift	dev.j-a.swift	22150	Noctule, the Swift IDE	436293	False
+2026-11-08 14:20	*.swift	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:20	*.swift	com.flexible.swift	31023	Flexible Swift	13730	False
+2026-11-08 14:20	*.tar	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:20	*.tar	com.github.camork.fileExpander	11940	File Expander	337262	False
+2026-11-08 14:20	*.tar	com.github.camork.fix.fileExpander	19799	File Expander2	1732	False
+2026-11-08 14:20	*.tar	com.github.dixtdf.archive.manager	23392	ArchiveManager	4757	False
+2026-11-08 14:20	*.tar	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:20	*.tar	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:20	*.tcl	com.hdl.verilog-vivado-plugin	30907	HDL and Vivado + MCP Support	1952	False
+2026-11-08 14:20	*.tcl	com.tcllsp.jetbrains	31801	Tcl Language Support	2746	False
+2026-11-08 14:20	*.tex	nl.rubensten.texifyidea	9473	TeXiFy-IDEA	900722	False
+2026-11-08 14:20	*.tex	dev.jetplugins.latex	33154	LaTeX Pro	2680	False
+2026-11-08 14:20	*.tf	org.intellij.plugins.hcl	7808	Terraform and HCL	6176855	False
+2026-11-08 14:20	*.tf	com.stenalpjolly.tfcv	17715	Terraform Code Visualizer	3919	False
+2026-11-08 14:20	*.thrift	com.intellij.plugins.thrift	7331	Thrift Support	361138	False
+2026-11-08 14:20	*.thrift	thrift-syntax-fork	19912	Thrift Support (fork)	199417	False
+2026-11-08 14:20	*.thrift	thriftlabs.thrift-formatter	26050	Thrift-Formatter	4883	False
+2026-11-08 14:20	*.thrift	thrift-assistant	26971	Thrift Assistant	19278	False
+2026-11-08 14:20	*.thrift	com.langheroes.thrift	32461	Thrift Hero	1387	False
+2026-11-08 14:20	*.toml	org.toml.lang	8195	Toml	21174200	False
+2026-11-08 14:20	*.toml	com.github.harleygilpin.gromlsupportplugin	27358	Groml Support	5245	False
+2026-11-08 14:20	*.tpl	com.jetbrains.php	6610	PHP	7165985	False
+2026-11-08 14:20	*.tpl	com.jetbrains.php	6610	PHP	7165985	True
+2026-11-08 14:20	*.tpl	idea.plugins.prado	7805	PRADO Plugin	17836	False
+2026-11-08 14:20	*.tpl	com.voc.ide.plugin.tools	17704	DevTools	102	False
+2026-11-08 14:20	*.tpl	com.jetbrains.smarty	33360	Smarty	53289	False
+2026-11-08 14:20	*.trace	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:20	*.trace	com.jetbrains.appcode.android	18586	Android Tools for AppCode	8276	False
+2026-11-08 14:20	*.trace	org.jetbrains.android	22989	Android	1540684	False
+2026-11-08 14:20	*.tres	gdscript	13107	GDScript	111828	False
+2026-11-08 14:20	*.tres	ice.explosive.gdscript	20123	GdScript	95940	False
+2026-11-08 14:20	*.tscn	gdscript	13107	GDScript	111828	False
+2026-11-08 14:20	*.tscn	com.utopia-rise.godotjvmideaplugin	16505	Godot-JVM	12318	False
+2026-11-08 14:20	*.tscn	ice.explosive.gdscript	20123	GdScript	95940	False
+2026-11-08 14:20	*.tsv	net.seesharpsoft.intellij.plugins.csv	10037	CSV Editor	13826339	False
+2026-11-08 14:20	*.tsv	com.intellij.database	10925	Database Tools and SQL for WebStorm	1090397	False
+2026-11-08 14:20	*.tsv	net.modulo3.robot	24447	m3 Robot Support	18489	False
+2026-11-08 14:20	*.tsv	org.csv-color-pro	26716	CSV Color Pro	9623	False
+2026-11-08 14:20	*.tsv	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:20	*.ttf	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:20	*.ttf	com.jetbrains.appcode.android	18586	Android Tools for AppCode	8276	False
+2026-11-08 14:20	*.ttf	com.github.Joehaivo.icon-font-viewer	19274	Icon Font Viewer	16970	False
+2026-11-08 14:20	*.ttf	org.jetbrains.android	22989	Android	1540684	False
+2026-11-08 14:20	*.ttf	cn.itscloudy.fontviewer	31561	FontViewer	2092	False
+2026-11-08 14:20	*.twig	com.jetbrains.php	6610	PHP	7165985	False
+2026-11-08 14:20	*.twig	com.jetbrains.twig	7303	Twig	3928859	False
+2026-11-08 14:20	*.unity	com.intellij.resharper.unity	9219	Unity Support	40239	False
+2026-11-08 14:20	*.v	studio.edaphic.sv		SystemVerilog		False
+2026-11-08 14:20	*.v	com.levses	14203	SystemVerilog Studio	13047	False
+2026-11-08 14:20	*.v	org.vlang	20287	Vlang	22477	False
+2026-11-08 14:20	*.v	com.wjcdx.verilog-lang-plugin	21813	Verilog Language Support	5017	False
+2026-11-08 14:20	*.v	io.vlang	24183	Vlang	6395	False
+2026-11-08 14:20	*.v	com.github.kalldrexx.jbverilogplugin	27945	basic-verilog-support	992	False
+2026-11-08 14:20	*.v	com.hdl.verilog-vivado-plugin	30907	HDL and Vivado + MCP Support	1952	False
+2026-11-08 14:20	*.vbs	com.karsta26.VBScript	23598	VBScript	28780	False
+2026-11-08 14:20	*.vbs	dvamuch.asp-classic-language-support	34424	ASP Classic Language Support	458	False
+2026-11-08 14:20	*.vhd	com.activemesa.hdline	9399	HDLine	4477	False
+2026-11-08 14:20	*.vhd	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:20	*.vhd	se.ohol.driver	16647	Driver	4175	False
+2026-11-08 14:20	*.vhd	com.github.dixtdf.archive.manager	23392	ArchiveManager	4757	False
+2026-11-08 14:20	*.vhd	com.wjcdx.vhdl-lang-plugin	26267	VHDL Language Support	1398	False
+2026-11-08 14:20	*.vm	com.intellij.velocity	21738	Apache Velocity	6441697	True
+2026-11-08 14:20	*.vm	com.illuminatedcloud2.intellij	10253	Illuminated Cloud 2	820600	False
+2026-11-08 14:20	*.vm	com.intellij.velocity	21738	Apache Velocity	6441697	False
+2026-11-08 14:20	*.vm	com.loklok.confuse.confuse		CodeConfuse		False
+2026-11-08 14:20	*.vue	org.jetbrains.plugins.vue	9442	Vue.js	23040858	False
+2026-11-08 14:20	*.wasm	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:20	*.wasm	dev.meanmail.plugin.hex-editor	28521	Hex Editor	47982	False
+2026-11-08 14:20	*.wat	com.jetbrains.webstorm.web-assembly-plugin	14978	WebAssembly	154349	False
+2026-11-08 14:20	*.wat	org.jetbrains.hexana	29090	Hexana — WebAssembly & Binary Inspector	30200	False
+2026-11-08 14:20	*.wav	org.cce	7563	CocosEditor2.0	2313	False
+2026-11-08 14:20	*.wav	org.cce.appcode	8451	CocosEditor2.0-AppCode	128	False
+2026-11-08 14:20	*.wav	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:20	*.wav	com.github.audioplayer	30608	Audio Player	5418	False
+2026-11-08 14:20	*.wav	dev.twango.jetplay	31014	jetplay	15416	False
+2026-11-08 14:20	*.webp	com.jetbrains.rider.android	12056	Rider Android Support	1547286	False
+2026-11-08 14:20	*.webp	intellij.webp	15037	WebP	1943312	False
+2026-11-08 14:20	*.webp	dev.meanmail.plugin.image-editor	29116	Image Editor	1746	False
+2026-11-08 14:20	*.woff	cn.itscloudy.fontviewer	31561	FontViewer	2092	False
+2026-11-08 14:20	*.xcconfig	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:20	*.xib	com.jetbrains.kmm	14936	Kotlin Multiplatform	2319906	False
+2026-11-08 14:20	*.xliff	de.espend.idea.localization	13673	Localization	49925	False
+2026-11-08 14:20	*.xliff	org.i18nally.jetbrainsideplugin	17212	i18n Ally	65976	False
+2026-11-08 14:20	*.xliff	vette.neos	9362	Neos Support	27216	False
+2026-11-08 14:20	*.xliff	io.doloc.auto-localizer	27860	Auto Localizer	6752	False
+2026-11-08 14:20	*.xlsx	com.centurylink.mdw.studio	11095	MDW Studio	3081	False
+2026-11-08 14:20	*.xlsx	com.chesterccw.excelreader	14722	ExcelReader	1242777	False
+2026-11-08 14:20	*.xlsx	com.github.obiscr.exceleditor	18663	ExcelEditor	316316	False
+2026-11-08 14:20	*.xlsx	com.intechcore.scell.ideaplugin	22729	SCell.Reader	8723	False
+2026-11-08 14:20	*.xlsx	dev.victoryil.lightsheet	25033	Light Sheet	16398	False
+2026-11-08 14:20	*.xlsx	org.zhangwenqing.idea.ooxml-tools	26779	OOXml Tools	15076	False
+2026-11-08 14:20	*.xlsx	com.syncfusion.documentviewer	28456	Document Viewer	36631	False
+2026-11-08 14:20	*.xlsx	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:20	*.xlsx	com.twilightventures.xlsxlens	33721	XLSX Lens: Excel XLSX Spreadsheet Viewer	3664	False
+2026-11-08 14:20	*.xlsx	com.gramshift.xlsxeditor	34606	XLSX Viewer & Editor for Excel	379	False
+2026-11-08 14:20	*.xml	ignaciotcrespo.github.com.vector-drawable-thumbnails	10741	Vector Thumbnails	27374	False
+2026-11-08 14:20	*.xsd	com.fluxparticle.xsdvisualizer	18425	XSD / WSDL Visualizer	37941	False
+2026-11-08 14:20	*.y	idea.goyacc	11444	GoYacc Support	21170	False
+2026-11-08 14:20	*.y	info.fluffos.idea_bison	16595	Bison Language Support	13024	False
+2026-11-08 14:20	*.yaml	org.jetbrains.plugins.yaml	13126	YAML	14743598	True
+2026-11-08 14:20	*.yaml	com.taff.plugin.orchide	12626	OrchidE - Ansible Language Support	355579	False
+2026-11-08 14:20	*.yaml	org.jetbrains.plugins.yaml	13126	YAML	14743598	False
+2026-11-08 14:20	*.yaml	net.offbeatpioneer.intellij.plugins.gravsupport	9971	Grav Support	5709	False
+2026-11-08 14:20	*.yaml	com.alibabacloud.intellij.toolkit-intellij	11386	Alibaba Cloud Toolkit	703399	False
+2026-11-08 14:20	*.yaml	com.jasypt.helper.plugin	29560	Jasypt Helper	3314	False
+2026-11-08 14:20	*.yml	org.jetbrains.plugins.yaml	13126	YAML	14743598	True
+2026-11-08 14:20	*.yml	com.taff.plugin.orchide	12626	OrchidE - Ansible Language Support	355579	False
+2026-11-08 14:20	*.yml	org.jetbrains.plugins.yaml	13126	YAML	14743598	False
+2026-11-08 14:20	*.yml	com.example.demo		simple jump		False
+2026-11-08 14:20	*.yml	com.jasypt.helper.plugin	29560	Jasypt Helper	3314	False
+2026-11-08 14:20	*.zig	org.ziglang	10560	Zig	8272	False
+2026-11-08 14:20	*.zig	org.zig	17143	ZigLang	737	False
+2026-11-08 14:20	*.zig	org.ziglang.jb	18062	Zig Support	10871	False
+2026-11-08 14:20	*.zig	com.falsepattern.zigbrains	22456	ZigBrains	126695	False
+2026-11-08 14:20	*.zig	dev.jetplugins.zig	35677	Zig Pro	41	False
+2026-11-08 14:20	*.zig	io.github.fncontroloption.zj	35763	ZJ	18	False
+2026-11-08 14:20	*.zip	com.github.b3er.idea.plugins.arc.browser	9491	Archive Browser	340343	False
+2026-11-08 14:20	*.zip	com.omniviewer.omni-viewer	28550	Omni Viewer	62779	False
+2026-11-08 14:20	.babelrc	JavaScript	22069	JavaScript and TypeScript	14732068	False
+2026-11-08 14:20	.babelrc	com.intellij.javascript.frontend	27880	JavaScript for JetBrains Client	1266447	False
+2026-11-08 14:20	.editorconfig	org.editorconfig.editorconfigjetbrains	7294	EditorConfig	16288752	False
+2026-11-08 14:20	.eslintrc	com.wix.eslint	7494	ESLint	323798	False
+2026-11-08 14:20	.eslintrc	JavaScript	22069	JavaScript and TypeScript	14732068	False
+2026-11-08 14:20	.eslintrc	com.intellij.javascript.frontend	27880	JavaScript for JetBrains Client	1266447	False
+2026-11-08 14:20	.gitattributes	com.github.xepozz.gitattributes	26477	.gitattributes support	760150	False
+2026-11-08 14:20	.gitignore	Git4Idea	13173	Git	41262	True
+2026-11-08 14:20	.htaccess	com.intellij.apacheConfig	6834	Apache config (.htaccess)	2083223	False
+2026-11-08 14:20	.htaccess	com.intellij.apacheConfig	6834	Apache config (.htaccess)	2083223	True
+2026-11-08 14:20	.nvmrc	io.github.khopland.version-checker	34831	Version Checker	443	False
+2026-11-08 14:20	.prettierrc	intellij.prettierJS	10456	Prettier	8668416	False
+2026-11-08 14:20	.tool-versions	io.github.khopland.version-checker	34831	Version Checker	443	False
+2026-11-08 14:20	BUILD	org.jetbrains.bazel	22977	Bazel	1968390	False
+2026-11-08 14:20	BUILD	com.google.idea.bazel.clwb	9554	Bazel for CLion	224489	False
+2026-11-08 14:20	BUILD	com.google.idea.bazel.aswb	9185	Bazel for Android Studio	71143	False
+2026-11-08 14:20	BUILD	com.intellij.experimental.bazel-lsp	34170	Bazel LSP	126	False
+2026-11-08 14:20	Brewfile	co.anbora.labs.brew-bundle	20061	Brew Bundle	19722	False
+2026-11-08 14:20	CMakeLists.txt	com.intellij.cmake	28794	CMake	628746	False
+2026-11-08 14:20	CODEOWNERS	com.github.xepozz.gitcodeowners	26491	Git Codeowners	466501	False
+2026-11-08 14:20	CODEOWNERS	net.wolfig.codeowls	31794	Codeowls	1812	False
+2026-11-08 14:20	Caddyfile	com.github.xepozz.caddy	27362	Caddyfile support	94460	False
+2026-11-08 14:20	Caddyfile	pro.caddyfile	32813	Caddyfile Pro	780	False
+2026-11-08 14:20	Cargo.lock	org.toml.lang	8195	Toml	21174200	False
+2026-11-08 14:20	Dockerfile	Docker	7724	Docker	33537407	False
+2026-11-08 14:20	Dockerfile	org.jboss.tools.intellij.analytics	12541	Red Hat Dependency Analytics	66605	False
+2026-11-08 14:20	Dockerfile	dev.meanmail.plugin.docker	31590	Docker Manager	2871	False
+2026-11-08 14:21	Earthfile	dev.earthly.earthly-intellij-plugin	20392	Earthly	8899	False
+2026-11-08 14:21	Earthfile	dev.EarthBuild.earthly-intellij-plugin	28062	EarthBuild	1118	False
+2026-11-08 14:21	Gemfile	org.jetbrains.plugins.ruby	1293	Ruby	2818531	False
+2026-11-08 14:21	Gemfile	org.jetbrains.plugins.ruby	1293	Ruby	2818531	True
+2026-11-08 14:21	Jenkinsfile	co.anbora.labs.jenkins.jenkinsFile	26270	Jenkinsfile	162715	False
+2026-11-08 14:21	Jenkinsfile	co.anbora.labs.groovy.jenkinsFile	26583	Jenkinsfile Pro	30630	False
+2026-11-08 14:21	Jenkinsfile	com.shuyixiao.yixiaoPlugins	27533	PandaCoder	2599	False
+2026-11-08 14:21	Jenkinsfile	com.poeticcoder.pipelinelens	29146	PipelineLens	17431	False
+2026-11-08 14:21	Jenkinsfile	com.github.bashtovoi.jenkinsfile-syntax-highlighter	29948	Jenkinsfile Syntax Highlighter	41652	False
+2026-11-08 14:21	Jenkinsfile	io.genai.jenkins	32486	GenAI Jenkinsfile	675	False
+2026-11-08 14:21	Jenkinsfile	io.genai.jenkinsfile	32907	Jenkinsfile Support	6194	False
+2026-11-08 14:21	Justfile	org.mvnsearch.plugins.justPlugin	18658	Just	562688	False
+2026-11-08 14:21	Makefile	name.kropp.intellij.makefile	9333	Makefile Language	7327875	False
+2026-11-08 14:21	Makefile	dev.wavelang.wave	31020	Wave Language	5158	False
+2026-11-08 14:21	Pipfile	org.toml.lang	8195	Toml	21174200	False
+2026-11-08 14:21	Procfile	co.anbora.labs.procfile	32391	Procfile	1522	False
+2026-11-08 14:21	Tiltfile	com.gdelre.tiltfile	29875	Tiltfile Support	1508	False
+2026-11-08 14:21	Vagrantfile	org.jetbrains.plugins.ruby	1293	Ruby	2818531	False
+2026-11-08 14:21	Vagrantfile	org.jetbrains.plugins.ruby	1293	Ruby	2818531	True
+2026-11-08 14:21	Vagrantfile	com.yawl.vagrant	25727	Vagrant Icon	8535	False
+2026-11-08 14:21	WORKSPACE	org.jetbrains.bazel	22977	Bazel	1968390	False
+2026-11-08 14:21	WORKSPACE	com.intellij.experimental.bazel-lsp	34170	Bazel LSP	126	False
+2026-11-08 14:21	go.mod	org.jetbrains.plugins.go	9568	Go	4928953	False
+2026-11-08 14:21	justfile	org.mvnsearch.plugins.justPlugin	18658	Just	562688	False
+2026-11-08 14:21	meson.build	com.intellij.clion.meson	28797	Meson	278241	False
+2026-11-08 14:21	poetry.lock	org.toml.lang	8195	Toml	21174200	False
+2026-11-08 14:21	requirements.txt	Pythonid	631	Python	12959066	False
+2026-11-08 14:21	requirements.txt	PythonCore	7322	Python Community Edition	13930461	False
+2026-11-08 14:21	yarn.lock	JavaScript	22069	JavaScript and TypeScript	14732068	False
+2026-11-08 14:21	yarn.lock	com.intellij.javascript.frontend	27880	JavaScript for JetBrains Client	1266447	False
