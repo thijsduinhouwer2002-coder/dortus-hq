@@ -72,8 +72,13 @@ export class RollHistoryView extends ItemView {
 		const list = root.createDiv({ cls: "rollwright-history-list" });
 		for (const entry of history) {
 			const item = list.createDiv({ cls: ["rollwright-history-item", ...extremeClasses(entry.extreme)] });
-			const result = item.createDiv({ cls: "rollwright-history-result", text: entry.result });
-			if (entry.extreme !== undefined && entry.stamp !== undefined) result.createSpan({ cls: STAMP_CLASS, text: entry.stamp });
+			item.createDiv({ cls: "rollwright-history-result", text: entry.result });
+			// The stamp sits next to the result, not in it, so the result is just the number. The hidden comma
+			// makes a screen reader say "25, NAT 20" and not "25NAT 20".
+			if (entry.extreme !== undefined && entry.stamp !== undefined) {
+				item.createSpan({ cls: "rollwright-history-sep", text: ", " });
+				item.createSpan({ cls: STAMP_CLASS, text: entry.stamp });
+			}
 			const label = historyLabel(entry.formula);
 			if (label.name !== "") item.createDiv({ cls: "rollwright-history-name", text: label.name });
 			// The tidy text is only for showing; the raw formula stays in the title so nothing is lost.

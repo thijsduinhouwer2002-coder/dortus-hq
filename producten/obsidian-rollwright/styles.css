@@ -532,8 +532,19 @@ body.theme-dark {
 }
 
 .rollwright-history-formula {
-	grid-column: 2;
+	grid-column: 3;
 	grid-row: 2;
+}
+
+/* Drie kolommen: getal, stempel (leeg zonder crit of fumble), formule. Zonder kolomafstand, zodat
+   een lege stempelkolom geen extra ruimte geeft; de formule houdt zelf zijn 0.6em afstand. */
+.rollwright-history-item {
+	grid-template-columns: auto auto 1fr;
+	column-gap: 0;
+}
+
+.rollwright-history-formula {
+	margin-left: 0.6em;
 }
 
 .rollwright-history-details {
@@ -602,8 +613,26 @@ button.rollwright-history-clear:not(.clickable-icon) {
 	background: color-mix(in srgb, var(--rw-lo) 14%, transparent);
 }
 
-.rollwright-history-result .rollwright-stamp {
-	font-size: 0.5em;
+/* De stempel staat in het logboek naast het getal, niet erin (dan is het getal alleen het getal).
+   Even groot en even hoog als toen hij in het getal stond: 0.5 van 1.35em, 0.35em omhoog. */
+.rollwright-history-item > .rollwright-stamp {
+	grid-column: 2;
+	grid-row: 2;
+	justify-self: start;
+	position: relative;
+	top: -0.35em;
+	margin-left: 0.4em;
+	font-size: 0.675em;
+}
+
+/* Alleen voor schermlezers: de komma tussen getal en stempel. */
+.rollwright-history-sep {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 .rollwright-rolled .rollwright-stamp {
