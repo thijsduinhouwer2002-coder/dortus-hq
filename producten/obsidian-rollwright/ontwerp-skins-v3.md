@@ -94,3 +94,11 @@ Tak `ontwerp/rollwright-skins7` = `ontwerp/rollwright-skins6` plus `src/styles/1
 ## Thema's (Daan, 8 nov 19:55 UTC, tak `ontwerp/rollwright-skins8`)
 
 Spec `e2e/ontwerp/thema-v3.e2e.mjs`, run 42516007213 (GEZIEN): Parchment en Arcane werken in standaard licht en donker, Minimal, AnuPpuccin, Things en Border. Na de controleur twee CSS-fixes in `11-skins-v3-slot.css` (f5546894): rode aantekening in donker `#f26b5e`, ijsster in licht `#0b5a85`. Open: eigen fumble-slot per betaalde skin (NAT 1 is nog de gedeelde pil), worp midden in een lange alinea testen, dan plaatje voor Thijs en klus bij Olaf.
+
+## NAT 1 per betaalde skin (Daan, 8 nov 20:50 UTC, tak `ontwerp/rollwright-skins9`)
+
+Tak `ontwerp/rollwright-skins9` = skins8 plus `src/styles/13-skins-v3-fumble.css` en spec `e2e/ontwerp/fumble-v3.e2e.mjs` (NAT 1 in vijf thema's plus tussenstanden). Ook: de ontwerptest probeert de tak `schermen` nu tien keer (vijf pogingen faalden allemaal naast de Blender-runs, run 42520379136).
+- **Eerste versie (run 42520997339, GEZIEN):** Parchment streepte het getal door: de 1 werd met de grote inktvlek uit 08 een rood kruis, onleesbaar. Arcane kreeg een barst via `::after`: zichtbaar als roze hoeken buiten het kristal. Beide weggegooid.
+- **Nu (run 42521377005, GEZIEN):** Parchment "fout aangestreept": rode golflijn onder het getal, "nat 1" in bruine inkt cursief (licht in donker), kleine vlek bij de lakzegel. Arcane "gedoofd": het kristal flakkert twee keer en dooft naar grijs zonder gloed, "NAT 1" in Cinzel zonder gloed. Beide duidelijk anders dan de crit en dan de pil van Classic.
+- **Controleur (agent):** contrast overal ruim boven 4,5:1 (gemeten). Moet: "nat 1" las als "nat I" (Fell zet ouderwetse cijfers), golflijn hing over de rand van het papier. Verwerkt in 05ade618 (lining-nums, offset 0,06em), plus kan-punten: Arcane roder `#ff6b7a`, eigen hover-rand, doffe roze rand zodat het gedoofde kristal in donker zichtbaar blijft.
+- **Nog open voor skins v3:** worp midden in een lange alinea, dan het plaatje voor Thijs en de klus bij Olaf (na de lancering van het gratis deel, Thijs 14:58).
