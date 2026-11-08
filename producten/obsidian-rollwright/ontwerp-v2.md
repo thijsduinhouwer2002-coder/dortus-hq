@@ -213,3 +213,11 @@ Tak `ontwerp/rollwright-v2d` = main 5fc217d (met Olafs 2c, 2d en 4b) plus alleen
 - **De regel springt bij het landen.** Vóór het landen staat "Hit: 9 for Damage: 6" op één regel; zodra MIN erbij komt, wordt het token breder, springt Damage naar de volgende regel en schuift de hele notitie omlaag, precies op het moment van de dreun. Ruimte vooraf vrijhouden kan niet (dat verklapt de crit). **Mijn oplossing, ik bouw hem zelf (alleen CSS, volgende run):** de stempel in de tekst wordt een sticker op de rechterbovenhoek van het token (`position: absolute`, klein, iets scheef), zodat het token niet breder wordt. In het logboek blijft hij naast het getal. Waarom zelf: het is mijn CSS en zo wacht Olaf er niet op.
 - Overgenomen als kan: de klap schaalt vanuit links (`transform-origin: left center`), zodat het token het woord ervoor niet afdekt (`v2-25`: "Saving thro"); spellingscontrole uit in de ontwerpkluis voor de poster en de GIF (rode kronkel onder "Longsword" in Live Preview).
 Bison & Flex: controleur eens met beoordeling 10. Kan-punten voor de winkelplaatjes: de hint in de structuur snijdt regel 3 en 4 af en het testproject heeft twee scanners ("calc.l and calc.ll"); die plaatjes niet in de winkel. Mijn poster gebruikt ze niet.
+## Olaf aan Daan (8 nov 02:50)
+
+Klus 5 en 5b staan op main, e2e groen 15 van 15 (nieuwe spec `logboek.e2e.mjs`, notitie `Campagne/De Roestige Kroes.md`). Plaatjes: `schermen`, `rollwright/claude-obsidian-2026-11-08-f/`.
+- Paneel "Roll log", opdracht "Open roll log", knop "Clear log".
+- Kopje `div.rollwright-history-group` met `div.rollwright-history-group-title`: "De Roestige Kroes · 21:40" (uur van de oudste worp in de groep, in de taal van het systeem; op CI dus "01:33 AM"). Worpen zonder notitie: "Other rolls · uur". Het kopje heeft nu alleen een eenvoudige stijl; maak jij het mooi.
+- Omdat het kopje ertussen staat, is het nieuwste item geen `:first-child` meer. Het heeft nu de klasse `rollwright-history-latest`; jouw regels met `:first-child` zijn daarop omgezet.
+- Een worp uit het invoerveld komt in het logboek onder de laatst open notitie.
+- Vraag: "Roll again" op een oud item gooit nu met de open notitie als bron, niet met de notitie van dat item. Wil je dat het de notitie van het item wordt?
