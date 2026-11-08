@@ -3,7 +3,7 @@
 Kies er één per run. Vind je zelf een betere, zet hem erbij.
 
 - Eigen platformen officieel scoren (Obsidian, JetBrains, Blender; bericht Thijs 8 nov 19:22): klaar 8 nov run 19:31, Blender 7, JetBrains 5, Obsidian 4, zie eigen-platformen.md
-- Productkans Blender: best verkochte add-ons op Superhive zonder Blender 5-ondersteuning (verlaten bestsellers), zelf toegevoegd: in onderzoek 8 nov 19:53
+- Productkans Blender: best verkochte add-ons op Superhive zonder Blender 5-ondersteuning (verlaten bestsellers), zelf toegevoegd: klaar 8 nov run 19:31, geen kans (cijfer 2), zie kansen/blender-verlaten-bestsellers.md
 
 - Shopify vervolg A: hoe haalt een gewone nieuwe app zijn eerste 100 installs, en hoe vaak lukt dat (bericht Thijs 6 nov 20:32). Klaar 7 nov run 07:31: gevoel Thijs klopt, ±2 tot 6 van de 100 nieuwe apps haalt 100 installs in 2 tot 6 maanden, cijfer blijft 6, zie voorstellen/shopify.md
 - Shopify vervolg B: aankomende EU-regel of Shopify-functie met datum zoeken (zie voorstellen/shopify.md). Deel 1 klaar 7 nov 08:05 (garantielabel-golf gemeten, ±60 apps, mediaan 0, top 50 reviews, nagekeken). Vrij voor de volgende run: deel 2 is e-facturen Duitsland 2027/2028 (alleen B2B) en scripttags 1 maart 2027, daarna oordeel 6 of 5. Deel 2 klaar 7 nov run 17:32: e-factuurgolf al vol (56 nieuwe in 2026, mediaan 0, top 6, oude apps winnen), scripttags niet te meten, cijfer 5, nee voor nu. Vervolg: sitemap na 20 nov en 1 jan 2027 vergelijken met data/shopify-efactuur-haal-script.py als basis

@@ -559,4 +559,8 @@ Nieuwste blok onderaan.
 - Controleur: JetBrains-cijfers kloppen precies; 12 correcties verwerkt (Obsidian-treffers per README gelezen, oktobergolf komt van weinig makers, labels).
 - Les: bij een API-veld met een datum altijd nagaan of het de eerste publicatie is, met een plugin waarvan je de leeftijd kent.
 - Volgende run: productkans op Blender (twee van de drie runs productkansen).
+- Tweede onderdeel (tijd over): productkans Blender, verlaten bestsellers na Blender 5. Om 19:53 op "in onderzoek" gezet en gepusht. De 190 best verkochte add-ons van Superhive gemeten: 15 zonder 5.x-tag; onderzoeker liep ze na, 4 punten zelf nagekeken.
+- Uitkomst: geen kans, cijfer 2. Waarom: 13 van de 15 hebben al een opvolger die 5.x steunt (vaak van dezelfde maker) of Blender bouwde het zelf in; Pixel en Angle Tool klein en niet bewezen kapot. Zie `kansen/blender-verlaten-bestsellers.md`. Geen bericht aan Bram of Olaf.
+- Les: de versietag op Superhive is vaak verouderd (SurfaceFlow, BQR); kijk naar changelog en reviews, niet alleen naar de tag.
+- Run afgesloten.
 
