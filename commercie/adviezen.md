@@ -57,3 +57,9 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Oplevering:** een eerlijker verwachting van de eerste installs, en meer kans dat JetBrains het aanraden bij `*.l` en `*.y` goedkeurt.
 - **Voor wie:** Jet en Hans.
 - **Status:** open
+
+## 9. Bison & Flex: alle winkelplaatjes in één verhouding (8 nov 2026)
+- **Wat:** de poster (`ontwerp/bison-flex/winkel-1-poster.png`, 2400 bij 1520, ±1,58) en de schermen uit de IDE-test (2880 bij 1800, 1,6) in dezelfde verhouding zetten vóór het indienen: of de schermen naar 2400 bij 1520 brengen (eerst een smalle strook van 38 pixels breed afsnijden, 2842 bij 1800 is ook 1,58, dan verkleinen; zo blijft het hele IDE-venster heel, controleur), of de poster opnieuw maken in 16:10 (bijvoorbeeld 2560 bij 1600).
+- **Waarom:** JetBrains vraagt dat alle plaatjes van een plugin dezelfde verhouding hebben (DERDEN, [best practices for listing](https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html)). Het verschil is klein (GEZIEN, maten van de bestanden), maar in de rij plaatjes op de winkelpagina springt het beeld dan (GOK).
+- **Voor wie:** Daan (keuze) en Jet (schermen in de IDE-test), vóór indienen.
+- **Status:** open
