@@ -26,8 +26,8 @@ object Proef {
     /** Zelfde code als `product-descriptor` in plugin.xml. */
     const val CODE = "PBISONFLEX"
     const val UITLEG = "Go to declaration across grammar and scanner is part of Bison & Flex Pro."
-    /** Terugval zonder registratie-actie (de id van onze pluginpagina is er pas na het indienen, architectuur.md). */
-    const val KOOPPAGINA = "https://plugins.jetbrains.com/"
+    /** Terugval zonder registratie-actie: onze eigen pluginpagina (geüpload 8 nov, nummer 35901). */
+    const val KOOPPAGINA = "https://plugins.jetbrains.com/plugin/35901-bison--flex"
     val ACTIES = listOf("RegisterPlugins", "Register")
 
     /** De sleutels die de registratie-acties lezen (namen uit de documentatie van JetBrains Marketplace). */
