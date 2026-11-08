@@ -1,29 +1,26 @@
 /* Skins v3 ronde h (Daan, 8 nov): elke betaalde skin een eigen slot bij de NAT 1, net als bij de crit.
    Tot nu toe hadden Parchment en Arcane bij een fumble nog de gedeelde schuine pil uit 05 (rood vak, 8 graden).
-   Parchment "doorgestreept": de schrijver streept het getal door met een snelle inktstreep,
+   Parchment "fout aangestreept": een golvende inktlijn onder het getal, zoals een schrijver een fout markeert,
    "nat 1" staat in bruine inkt cursief in de kantlijn, de inktvlek op het papier blijft.
-   Arcane "gedoofd": het kristal flakkert twee keer en dooft, een barst loopt er schuin door,
+   Arcane "gedoofd": het kristal flakkert twee keer en dooft (grijs, zonder gloed),
    "NAT 1" in Cinzel zonder gloed. Rood blijft het teken van de laagste worp, zoals beloofd.
    Specificiteit zoals 11: .rollwright-fumble drie keer. Alleen CSS. */
 
 /* ---------- Parchment ---------- */
-@keyframes rw-p-strike {
-	0% { background-size: 0% 100%; }
-	100% { background-size: 112% 100%; }
-}
-
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) .rollwright-value {
-	padding: 0 0.08em;
-	margin: 0 -0.08em;
-	background-image: linear-gradient(-8deg, transparent 44%, #5e0d07 45%, #5e0d07 55%, transparent 56%);
-	background-repeat: no-repeat;
-	background-position: -6% 58%;
-	background-size: 112% 100%;
+	text-decoration: underline wavy #8f1418;
+	text-decoration-thickness: 0.06em;
+	text-underline-offset: 0.18em;
 }
 
-/* Eerst inkt en schudden (08), dan de streep erdoor, na het landen. */
-:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-rolled.rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) .rollwright-value {
-	animation: rw-p-ink calc(440ms * var(--rw-slow)) calc(200ms * var(--rw-slow)) cubic-bezier(0.4, 0, 0.3, 1) both, rw-shake calc(420ms * var(--rw-slow)) calc(700ms * var(--rw-slow)) ease-in-out, rw-p-strike calc(200ms * var(--rw-slow)) calc(640ms * var(--rw-slow)) ease-out both;
+/* De grote inktvlek uit 08 lag precies onder het getal (run 42520997339: de 1 werd een kruis). Nu een kleine vlek
+   in de hoek bij de lakzegel, zodat het getal leesbaar blijft. */
+:is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error)::before {
+	background:
+	radial-gradient(ellipse 0.5em 0.35em at 1.6em 78%, rgba(25, 10, 5, 0.55), transparent 100%),
+	radial-gradient(circle 0.08em at 2.3em 30%, rgba(25, 10, 5, 0.6), transparent 100%),
+	var(--rw-paper-noise),
+	linear-gradient(180deg, #e7d39d, #d3b77c);
 }
 
 :is(body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) > .rollwright-stamp {
@@ -38,7 +35,7 @@
 	font-family: "Rollwright Fell", Georgia, serif;
 	font-style: italic;
 	font-weight: 400;
-	font-size: 0.78em;
+	font-size: 0.9em;
 	letter-spacing: 0.02em;
 	text-transform: lowercase;
 	font-variant: normal;
@@ -66,11 +63,6 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 	100% { opacity: 1; filter: saturate(0.55) brightness(0.8); }
 }
 
-@keyframes rw-a-crack {
-	0% { clip-path: inset(0 100% 0 0); }
-	100% { clip-path: inset(0 0 0 0); }
-}
-
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error)::before {
 	background:
 	conic-gradient(from 90deg at 50% 55%, #1c1a28, #2a2638 25%, #14121e 50%, #262233 75%, #1c1a28),
@@ -80,29 +72,6 @@ body.theme-dark .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwri
 
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error)::before {
 	animation: rw-a-douse calc(620ms * var(--rw-slow)) calc(460ms * var(--rw-slow)) linear both;
-}
-
-/* De barst: een gebroken lijn schuin door het kristal, van links naar rechts in 260 ms. */
-:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error)::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	left: 0;
-	top: 0;
-	width: auto;
-	height: auto;
-	margin: 0;
-	pointer-events: none;
-	-webkit-mask: none;
-	mask: none;
-	filter: none;
-	opacity: 1;
-	background: linear-gradient(90deg, rgba(255, 120, 140, 0.95), rgba(255, 170, 185, 0.9));
-	clip-path: polygon(8% 30%, 30% 52%, 42% 38%, 62% 70%, 74% 56%, 94% 76%, 94% 82%, 74% 62%, 62% 76%, 42% 44%, 30% 58%, 8% 36%);
-}
-
-:is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-rolled.rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error)::after {
-	animation: rw-a-crack calc(260ms * var(--rw-slow)) calc(900ms * var(--rw-slow)) ease-out both;
 }
 
 :is(body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll), .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll).rollwright-fumble.rollwright-fumble.rollwright-fumble:not(.rollwright-error) {
