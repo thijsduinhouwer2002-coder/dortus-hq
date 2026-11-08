@@ -1,0 +1,1 @@
+Testsleutels voor StempelTest. Ze gelden alleen als de test hun eigen root vertrouwt (zetRootsVoorTest); met de echte roots van JetBrains worden ze afgewezen. Niet geheim, komen niet in de plugin.
