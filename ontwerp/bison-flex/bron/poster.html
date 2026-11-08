@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:760px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#EEF0F6;position:relative;
+ background:
+  radial-gradient(620px 420px at 8% 92%, rgba(53,116,240,.30), transparent 70%),
+  radial-gradient(560px 380px at 96% 6%, rgba(230,109,23,.30), transparent 70%),
+  linear-gradient(160deg,#151826 0%,#0D0F18 100%);}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:22px 22px}
+.top{position:absolute;left:64px;top:56px;width:1072px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;letter-spacing:.02em;color:#C9CDDA}
+.brand img{width:34px;height:34px}
+h1{margin-top:22px;font-weight:800;font-size:56px;line-height:1.04;letter-spacing:-.025em}
+h1 .o{color:#FF8A3D}h1 .b{color:#6E9BFF}
+.sub{margin-top:16px;font-size:20px;color:#AEB3C4;line-height:1.4;max-width:520px}
+.card{position:absolute;border-radius:14px;overflow:hidden;background:#1E1F22;
+ box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
+.bar{height:34px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#2B2D30;font:500 13px Inter;color:#DFE1E5}
+.dots{display:flex;gap:6px;margin-right:8px}.dots i{width:10px;height:10px;border-radius:50%;background:#4E5157;display:block}
+.ft{font:700 11px 'JetBrains Mono';width:16px;height:16px;border-radius:3px;display:grid;place-items:center;color:#fff}
+.ft.y{background:#E66D17}.ft.l{background:#3574F0}
+.card img.code{display:block}
+#cl{left:64px;top:400px;width:720px}
+#cl img.code{width:720px}
+#cy{left:616px;top:236px;width:520px}
+#cy img.code{width:520px}
+.hl{position:absolute;border-radius:5px;box-shadow:0 0 0 2px #FFB067,0 0 22px 4px rgba(255,140,60,.55)}
+svg.arc{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.key{position:absolute;display:flex;gap:6px;align-items:center;font:600 14px Inter;color:#fff}
+.key b{font:700 13px 'JetBrains Mono';background:#F3F4F8;color:#151826;border-radius:6px;padding:5px 9px;box-shadow:0 2px 0 #9AA0B4}
+.foot{position:absolute;left:64px;bottom:34px;font-size:15px;color:#8C92A6}
+</style></head>
+<body>
+<div class="grain"></div>
+<div class="top">
+  <div class="brand"><img src="icon.svg">Bison &amp; Flex for JetBrains IDEs</div>
+  <h1>Your <span class="o">grammar</span> and <span class="b">scanner</span>,<br>finally connected.</h1>
+  <p class="sub">Click from <code style="font-family:'JetBrains Mono';color:#fff">return NUM;</code> straight to its <code style="font-family:'JetBrains Mono';color:#fff">%token</code>. Rename it in both files at once.</p>
+</div>
+
+<div class="card" id="cy">
+  <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="ft y">Y</span>calc.y</div>
+  <img class="code" src="CODE_Y">
+</div>
+<div class="card" id="cl">
+  <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="ft l">L</span>calc.l</div>
+  <img class="code" src="CODE_L">
+</div>
+<div class="hl" id="hy"></div><div class="hl" id="hl2"></div>
+<svg class="arc" width="1200" height="760"><defs>
+ <linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6E9BFF"/><stop offset="1" stop-color="#FF8A3D"/></linearGradient>
+ <marker id="m" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF8A3D"/></marker>
+ <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><path id="p" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" marker-end="url(#m)" filter="url(#glow)"/></svg>
+<div class="key" id="k"><b>Ctrl</b>+<b>Click</b></div>
+<div class="foot">Works in CLion, IntelliJ IDEA and every JetBrains IDE &nbsp;·&nbsp; Colors, structure and checks free &nbsp;·&nbsp; Cross-file jump and rename in Pro</div>
+<script>
+// NUM-posities in de bijsnijdingen (pixels van het origineel)
+const sl=720/1170, sy=520/920;
+const cl=document.getElementById('cl').getBoundingClientRect(), cy=document.getElementById('cy').getBoundingClientRect();
+function box(el,r,s,x0,x1,yc){const h=34*s*1.25;el.style.left=(r.left+x0*s-3)+'px';el.style.top=(r.top+34+yc*s-h/2)+'px';el.style.width=((x1-x0)*s+5)+'px';el.style.height=h+'px';
+ return {x:r.left+(x0+x1)/2*s, top:r.top+34+yc*s-h/2, bot:r.top+34+yc*s+h/2};}
+const a=box(document.getElementById('hl2'),cl,sl,1048,1096,242);
+const b=box(document.getElementById('hy'),cy,sy,248,296,199);
+const sx=a.x, sy0=a.top-4, ex=b.x+2, ey=b.bot+6;
+document.getElementById('p').setAttribute('d',`M${sx} ${sy0} C ${sx} ${sy0-70}, ${ex} ${ey+90}, ${ex} ${ey}`);
+const k=document.getElementById('k');k.style.left=((sx+ex)/2+18)+'px';k.style.top=((sy0+ey)/2-14)+'px';
+</script>
+</body></html>

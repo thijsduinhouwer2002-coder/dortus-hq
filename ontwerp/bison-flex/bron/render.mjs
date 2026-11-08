@@ -1,0 +1,13 @@
+import { createRequire } from 'module'; const require = createRequire(import.meta.url); const { chromium } = require('playwright');
+import fs from 'fs';
+const [,, html, out, theme, scale] = process.argv;
+let s = fs.readFileSync(html,'utf8');
+const d = n => 'data:image/png;base64,'+fs.readFileSync(n).toString('base64');
+s = s.replace('CODE_L', d(`${theme}-crop-l.png`)).replace('CODE_Y', d(`${theme}-crop-y.png`));
+s = s.replace('src="icon.svg"', 'src="data:image/svg+xml;base64,'+fs.readFileSync('icon.svg').toString('base64')+'"');
+const b = await chromium.launch();
+const p = await b.newPage({viewport:{width:1200,height:760},deviceScaleFactor:Number(scale||1)});
+await p.setContent(s,{waitUntil:'networkidle'});
+await p.waitForTimeout(300);
+await p.screenshot({path:out});
+await b.close();
