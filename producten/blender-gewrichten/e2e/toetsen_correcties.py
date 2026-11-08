@@ -280,20 +280,28 @@ def verwachte_wand(ob, a):
     bm.transform(ob.matrix_world)
     bvh = BVHTree.FromBMesh(bm)
     bm.free()
+    # Onafhankelijk van de add-on (controleur ronde j): dichte bemonstering, stap 0,01r en 120 richtingen,
+    # tot en met het eindpunt op de bolnaad, dat hier met bisectie wordt gezocht in plaats van met de formule.
     hoek = math.radians(a["cj_grens_graden"] + 3.0)
-    grens, kleinste, t = naad - s / 2, math.inf, 0.0
-    for _ in range(64):
+    grens, kleinste = naad - s / 2, math.inf
+    def buiten(t):
+        return math.hypot(open_r + t * math.tan(hoek), lip + t) > grens
+    lo, hi = 0.0, 10.0 * r
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        lo, hi = (lo, mid) if buiten(mid) else (mid, hi)
+    eind = lo
+    stappen = max(1, math.ceil(eind / (0.01 * r)))
+    for k in range(stappen + 1):
+        t = eind * k / stappen
         z, x = mz - lip - t, open_r + t * math.tan(hoek)
-        if math.hypot(x, z - mz) > grens:
-            break
-        for i in range(24):
-            ca, sa = math.cos(2 * math.pi * i / 24), math.sin(2 * math.pi * i / 24)
+        for i in range(120):
+            ca, sa = math.cos(2 * math.pi * i / 120), math.sin(2 * math.pi * i / 120)
             p = Vector((ca * x, sa * x, z))
             n = Vector((ca * math.cos(hoek), sa * math.cos(hoek), math.sin(hoek)))
             hit = bvh.ray_cast(frame @ p, (rot @ n).normalized())
             if hit[0] is not None:
                 kleinste = min(kleinste, hit[3])
-        t += 0.25 * r
     log(f"METER: schil {schil:.3f} mm, trechterwand {kleinste / u():.3f} mm")
     return min(schil, kleinste / u())
 

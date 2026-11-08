@@ -141,20 +141,33 @@ def beoordeel(bvh, frame, maat, soort, eenheid_per_mm):
     return "groen", wand, f"wall {wand:.2f} mm"
 
 
-def trechter_wand(bvh, frame, maat, n=24):
+def trechter_eind(open_r, lip, tan_a, grens):
+    """Afstand t langs de trechter (vanaf de klikrand) waar de trechter de bolnaad raakt:
+    (open_r + t tan a)^2 + (lip + t)^2 = grens^2, de positieve wortel."""
+    qa = tan_a * tan_a + 1.0
+    qb = 2.0 * (open_r * tan_a + lip)
+    qc = open_r * open_r + lip * lip - grens * grens
+    D = qb * qb - 4.0 * qa * qc
+    if D < 0:
+        return 0.0
+    return max(0.0, (-qb + math.sqrt(D)) / (2.0 * qa))
+
+
+def trechter_wand(bvh, frame, maat, n=48):
     """Vorm v0.3: wand van deel B tussen de trechter (onder de klikrand) en de huid, loodrecht op de
-    trechterwand gemeten, van de klikrand tot waar de trechter de bolnaad raakt."""
+    trechterwand gemeten, van de klikrand tot en met het punt waar de trechter de bolnaad raakt.
+    Daar is de wand vaak het dunst, dus dat eindpunt wordt altijd gemeten (controleur ronde j)."""
     rot = frame.to_3x3()
     a = math.radians(maat["trechter_graden"])
     mz, open_r, lip = maat["midden_z"], maat["open_r"], maat["lip_d"]
     grens = maat["naad_r"] - maat["s"] / 2
+    eind = trechter_eind(open_r, lip, math.tan(a), grens)
+    stappen = max(1, math.ceil(eind / (maat["r"] * 0.05)))
     kleinste = math.inf
-    t, dt = 0.0, maat["r"] * 0.25
-    for _ in range(64):
+    for k in range(stappen + 1):
+        t = eind * k / stappen
         z = mz - lip - t
         x = open_r + t * math.tan(a)
-        if math.hypot(x, z - mz) > grens:
-            break
         for d in ring(n):
             p = Vector((d.x * x, d.y * x, z))
             normaal = Vector((d.x * math.cos(a), d.y * math.cos(a), math.sin(a)))
@@ -162,7 +175,6 @@ def trechter_wand(bvh, frame, maat, n=24):
             if hit[0] is None:
                 return -1.0
             kleinste = min(kleinste, hit[3])
-        t += dt
     return kleinste
 
 
