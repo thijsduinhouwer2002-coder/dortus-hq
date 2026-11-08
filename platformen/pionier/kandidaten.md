@@ -141,3 +141,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Nog open voor een volgende run: Zepp OS (Amazfit, winkel met mini-apps; groei Amazfit en betalen nakijken). Verder nieuw zoeken per soort apparaat of programma.
 - Zepp OS (Amazfit), snelle schifting 8 nov ±11:05 UTC: betaalde mini-apps en wijzerplaten mogen officieel alleen van gecertificeerde bedrijven uit China; anderen alleen via Kiezelpay of een QR-donatie (GEZIEN, https://docs.huami.com/docs/guides/faq/paid-app/). Winkel bestaat sinds 2022, zelfde opzet als Garmin (Vera: 5). Waarschijnlijk nee.
 - Tips om te schiften in een volgende run (nieuws okt 2026, zoekresultaten, niet gelezen): Apple opende de nieuwe Siri-AI voor ontwikkelaars, apps mogen het pas in het voorjaar uitbrengen (DERDEN, https://www.eweek.com/news/apple-siri-ai-developer-preview/); iPhone Duo (vouwbaar, nieuwe schermvorm, https://www.apple.com/newsroom/2026/10/developers-bring-incredible-new-app-experiences-to-iphone-duo/). Beide liggen in de oceaan van iOS; alleen interessant als er een aparte, nieuwe plek is om gevonden te worden (zoals een Siri-gallery).
+
+## Nieuw, 8 nov 11:45 UTC (Noor)
+- Affinity by Canva, scripts (Scripting Studio sinds Affinity 3.3, sept 2026; Affinity zelf gratis sinds okt 2025): in onderzoek 8 nov 11:45 UTC
