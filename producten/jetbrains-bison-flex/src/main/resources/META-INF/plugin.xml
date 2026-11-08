@@ -7,8 +7,8 @@
     Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early version: file types and syntax highlighting with your color scheme.
     ]]></description>
     <!-- Freemium: zonder licentie werkt het gratis deel, Pro vraagt PBISONFLEX (ontwerp.md, eis 8).
-         release-date is voorlopig; die wordt op de lanceerdag gezet (architectuur.md). -->
-    <product-descriptor code="PBISONFLEX" release-date="20261215" release-version="20261" optional="true"/>
+         release-date is voorlopig (vandaag of eerder: Plugin Verifier en Marketplace weigeren meer dan 5 dagen vooruit); op de lanceerdag zetten (architectuur.md). -->
+    <product-descriptor code="PBISONFLEX" release-date="20261108" release-version="20261" optional="true"/>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Bison" implementationClass="com.dortus.bisonflex.BisonFileType" fieldName="INSTANCE"

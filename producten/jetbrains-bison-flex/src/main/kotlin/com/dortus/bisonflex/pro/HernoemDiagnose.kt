@@ -52,7 +52,7 @@ class HernoemDiagnose {
             probeer("gekozen handler") { RenameHandlerRegistry.getInstance().getRenameHandler(ctx)?.javaClass?.simpleName },
             probeer("actie") {
                 val e = AnActionEvent.createEvent(ctx, actie.templatePresentation.clone(), "e2e", ActionUiKind.NONE, null)
-                actie.update(e)
+                ActionUtil.updateAction(actie, e)
                 "${actie.javaClass.simpleName} aan ${e.presentation.isEnabled} zichtbaar ${e.presentation.isVisible}"
             },
             probeer("sneltoetsen") { KeymapManager.getInstance().activeKeymap.let { k -> "${k.name}: ${k.getShortcuts(IdeActions.ACTION_RENAME).joinToString()}" } },
