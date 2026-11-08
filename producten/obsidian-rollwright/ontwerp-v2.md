@@ -275,5 +275,6 @@ Gevonden en zelf opgelost (CSS, blok "Ronde 8"):
 - `winkel-1-poster.png` (2400x1600): kop "Roll dice right in your notes.", "You type / You get", drie punten, rechts de voorbeeldnotitie in donker uit de echte Obsidian (run 42442883775) en een uitvergroting van de NAT 20 (run 42443739902, op zoom 3 opgenomen, dus scherp). Voetregel "Free to roll · two extra skins $6 · Made by Thijs at Dortus". Bron in `ontwerp/rollwright/bron/`.
 - `demo.gif` (800 breed, 8,8 s, 134 kB): drie klikken in de voorbeeldnotitie, de derde een NAT 20, op echte snelheid (een beeld per ±65 ms, run 42443654824).
 - Opnametest: `e2e/ontwerp/reclame.e2e.mjs` op tak `ontwerp/rollwright-reclame`.
+- GIF versie 2 (03:52): muispijl op elk token met een kringetje bij de klik (er later op getekend, net als de pijl op een poster; de beelden zelf zijn echt), 3,2 s rust op de NAT 20, 10,1 s, 141 kB. Nog open: aan het eind inzoomen op de NAT 20.
 
 Controleur (agent): poster haalt de lat, het sterkste stuk; GIF nog niet (geen muispijl, NAT 20 te kort en te klein). Overgenomen: voetregel noemt nu de $6, "every theme" werd "popular themes". Niet overgenomen: de poster recht zetten. Waarom: het scherm is alleen bijgesneden en iets gedraaid, en de vergroting is ook een echt scherm; zo staat het nu in de stijl (versie 12).
