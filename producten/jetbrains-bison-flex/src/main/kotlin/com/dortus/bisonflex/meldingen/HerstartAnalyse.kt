@@ -1,6 +1,7 @@
 package com.dortus.bisonflex.meldingen
 
 import com.intellij.codeInsight.daemon.DaemonCodeAnalyzer
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
 import java.lang.reflect.Method
 
@@ -22,12 +23,18 @@ object HerstartAnalyse {
     /** Alleen nog nodig in 2025.2. Openbaar voor de unittest. */
     val zonderReden: Method? = runCatching { DaemonCodeAnalyzer::class.java.getMethod("restart") }.getOrNull()
 
+    /** Vangt elke fout en logt die, zodat het kijken van [StandLuisteraar] na één fout niet voorgoed stopt. */
     fun voor(project: Project) {
-        if (project.isDisposed) return
-        val analyse = DaemonCodeAnalyzer.getInstance(project)
-        when {
-            metReden != null -> metReden.invoke(analyse, REDEN)
-            zonderReden != null -> zonderReden.invoke(analyse)
+        try {
+            if (project.isDisposed) return
+            val analyse = DaemonCodeAnalyzer.getInstance(project)
+            when {
+                metReden != null -> metReden.invoke(analyse, REDEN)
+                zonderReden != null -> zonderReden.invoke(analyse)
+                else -> thisLogger().warn("Bison & Flex: geen restart-methode op DaemonCodeAnalyzer gevonden")
+            }
+        } catch (e: Exception) {
+            if (!project.isDisposed) thisLogger().warn("Bison & Flex: analyse herstarten mislukt", e)
         }
     }
 }
