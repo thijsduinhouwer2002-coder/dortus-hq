@@ -1,0 +1,67 @@
+name: Click Joints uitgave (release met zip en winkelplaatjes)
+
+# Zet de gekeurde gratis zip en de winkelplaatjes als release-assets op één plek,
+# zodat het indienen op extensions.blender.org alleen downloaden en uploaden is.
+# Controleert eerst de sha256 van de zip (gelijk aan platformen/blender/indienen.md)
+# en laat de echte Blender de zip valideren, zoals extensions.blender.org dat doet.
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/click-joints-uitgave.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  TAG: click-joints-v0.1.0
+  ZIP: producten/blender-gewrichten/uitgave/click_joints-0.1.0.zip
+  SHA: 6798ce4eda07920c387487faeb38aad0e9718f5819815b9da8e3be5bdb61432a
+
+jobs:
+  uitgave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: sha256 van de zip controleren
+        run: |
+          echo "$SHA  $ZIP" | sha256sum -c -
+          unzip -l "$ZIP"
+          if unzip -l "$ZIP" | grep -q 'betaald/'; then echo "FOUT: betaalde code in de gratis zip"; exit 1; fi
+      - name: Blender 4.2.23 ophalen
+        run: |
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+          /tmp/blender/blender --version | head -1
+      - name: Zip valideren in de echte Blender
+        run: /tmp/blender/blender --command extension validate "$ZIP"
+      - name: Bestanden voor de release klaarzetten
+        run: |
+          mkdir -p /tmp/uit
+          cp "$ZIP" /tmp/uit/click_joints-0.1.0.zip
+          cp ontwerp/click-joints/icoon.png /tmp/uit/1-icoon-256.png
+          cp ontwerp/click-joints/poster-1.png /tmp/uit/2-featured-image-1920x1080.png
+          cp ontwerp/click-joints/winkel-2-buigen.png /tmp/uit/3-preview-buigen.png
+          cp ontwerp/click-joints/winkel-3-paneel.png /tmp/uit/4-preview-paneel.png
+          (cd /tmp/uit && sha256sum * | tee SHA256SUMS.txt)
+      - name: Release maken of bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > /tmp/notes.md <<'EOF'
+          Click Joints 0.1.0, gratis versie voor extensions.blender.org.
+
+          - `click_joints-0.1.0.zip`: de extensie (gekeurd door Daan, e2e groen in Blender 4.2.23 en 5.2.3).
+          - `1-icoon-256.png`: icoon (256 x 256).
+          - `2-featured-image-1920x1080.png`: featured image.
+          - `3-preview-buigen.png` en `4-preview-paneel.png`: previews, in deze volgorde.
+
+          Stappen voor het indienen: `platformen/blender/indienen.md`.
+          EOF
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" /tmp/uit/* --clobber
+          else
+            gh release create "$TAG" /tmp/uit/* --target "$GITHUB_SHA" --title "Click Joints 0.1.0" --notes-file /tmp/notes.md
+          fi
+          gh release view "$TAG" --json url,assets --jq '.url, (.assets[] | .name + " " + (.size|tostring))'
