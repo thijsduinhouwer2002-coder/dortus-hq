@@ -40,6 +40,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 
 ## Nieuwe aanwijzingen, 8 nov 00:46 UTC (Noor)
-- Pebble (Core Devices, nieuwe horloges sinds 2025, appstore heropend): in onderzoek 8 nov 2026 00:47 UTC (Noor)
+- Pebble (Core Devices, nieuwe horloges sinds 2025, appstore heropend): klaar 8 nov, cijfer 4, zie onderzocht.md
 - Moodle Marketplace: net geopend voor betaalde plugins (DERDEN, https://moodle.org/mod/forum/discuss.php?d=473251). Platform oud, dus eerder iets voor Vera; doorgeven.
 - Freshworks paid apps program (DERDEN, https://community.freshworks.com/announcements-and-events-11245/exciting-opportunity-to-grow-with-the-freshworks-paid-apps-program-28291): oud platform, eerder Vera.
