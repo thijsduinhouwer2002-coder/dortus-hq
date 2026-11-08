@@ -117,7 +117,8 @@ def maak_pop():
 
 def plaats():
     inst = bpy.context.scene.click_joints
-    inst.kogel_mm, inst.speling_mm, inst.as_bron = 3.0, 0.2, "CURSOR"
+    inst.speling_mm, inst.as_bron = 0.2, "CURSOR"
+    inst.kogel_auto = True  # plaatje toont de automatische kogelmaat (60% van de dikte), punt 3 van Daan
     inst.uit_elkaar = True  # opengewerkt beeld van de add-on zelf (standaard aan), zo is de kogel te zien
     figuren.maak_actief(staat["pop"])
     uitslag = bpy.ops.click_joints.plaats()
@@ -126,7 +127,7 @@ def plaats():
     for d in delen:
         log(f"deel {d.name} passing={d.get('cj_passing')} wand={d.get('cj_wand_mm')} ring={d.get('cj_ring_deel')} "
             f"weergaveverschuiving={tuple(round(x, 3) for x in d.delta_location)} location={tuple(d.location)}")
-    log(f"plaats: {uitslag}, {len(delen)} delen")
+    log(f"plaats: {uitslag}, {len(delen)} delen, kogel {inst.kogel_mm} mm (auto={inst.kogel_auto})")
 
 
 def close_up():

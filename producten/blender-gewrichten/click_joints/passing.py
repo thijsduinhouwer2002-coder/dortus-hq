@@ -119,10 +119,10 @@ def fit_tekst(kleur, wand):
     if kleur == "groen":
         return "Good fit"
     if kleur == "oranje":
-        return f"Tight: wall {wand:.1f} mm (aim for {GRENS_ORANJE_MM} mm or more)"
+        return f"Tight: wall {wand:.2f} mm (aim for {GRENS_ORANJE_MM} mm or more)"
     if wand < 0:
         return "Too thin: joint sticks out of the mesh"
-    return f"Too thin: wall {wand:.1f} mm (minimum {GRENS_ROOD_MM} mm)"
+    return f"Too thin: wall {wand:.2f} mm (minimum {GRENS_ROOD_MM} mm)"
 
 
 def meet_speling(deel_kogel, bvh_kom, centrum, r, as_richting, tol):
