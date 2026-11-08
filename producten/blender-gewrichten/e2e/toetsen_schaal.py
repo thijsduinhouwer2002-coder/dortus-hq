@@ -30,7 +30,7 @@ def ronde(label, scene_fn, maat_eenheden, verwacht_schaal, verwacht_mm):
     stap(f"schaal {label}: waarschuwing bij {voor:.4g} mm", waarschuw)
     stap(f"schaal {label}: eenheidschaal {verwacht_schaal}", abs(sc.unit_settings.scale_length - verwacht_schaal) < 1e-9)
     stap(f"schaal {label}: figuur nu {verwacht_mm} mm", abs(na - verwacht_mm) < 1e-6 * verwacht_mm)
-    stap(f"schaal {label}: figuur zelf niet veranderd", abs(max(ob.dimensions) - maat_eenheden) < 1e-9 * maat_eenheden)
+    stap(f"schaal {label}: figuur zelf niet veranderd", abs(max(ob.dimensions) - maat_eenheden) < 1e-6 * maat_eenheden)  # float32
     stap(f"schaal {label}: geen waarschuwing meer", not schaal.buiten_bereik(ob, sc))
     weg([ob])
 
