@@ -1,7 +1,7 @@
 """Passingkleur als materiaal, zodat hij te zien is in de standaard Solid-weergave (kleur volgens Material).
 
 Het figuur houdt zijn eigen materiaal (of geen). Alleen een ring rond de snede krijgt de passingkleur:
-de vlakken binnen RING_MM van het snijvlak, plus kogel of pen, nek en kom. Daarvoor komt er één
+de vlakken met een hoekpunt (of hun centrum) binnen RING_MM van het snijvlak, plus kogel of pen, nek en kom. Daarvoor komt er één
 materiaalvak bij met het gedeelde passingmateriaal ("Click Joints groen" enz.), en die vlakken krijgen
 dat vak als material_index. Het rode teken (draadbol) krijgt het materiaal op elk vak, zoals eerst."""
 import bpy
@@ -62,6 +62,20 @@ def vlakcentra(me):
     return c.reshape(n, 3)
 
 
+def vlakken_met_hoekpunt_in_ring(me, snijpunt, as_, r, s, u):
+    """Bool per vlak: minstens één hoekpunt in de ring. Zo kleurt een lang vlak dat de ring raakt helemaal mee
+    en blijven er geen grijze strepen in de ring (een vlakcentrum kan ver buiten de ring liggen)."""
+    nv, nl, n = len(me.vertices), len(me.loops), len(me.polygons)
+    co = np.empty(nv * 3, dtype=np.float64)
+    me.vertices.foreach_get("co", co)
+    punt_in = in_ring(co.reshape(nv, 3), snijpunt, as_, r, s, u)
+    lus = np.empty(nl, dtype=np.int64)
+    me.loops.foreach_get("vertex_index", lus)
+    start = np.empty(n, dtype=np.int64)
+    me.polygons.foreach_get("loop_start", start)
+    return np.logical_or.reduceat(punt_in[lus].astype(np.int8), start).astype(bool)
+
+
 def kleur_deel(ob, kleur, snijpunt, as_, r, s, u):
     """Voegt een vak met het passingmateriaal toe en zet de vlakken in de ring op dat vak.
     Vorm en vlakken veranderen niet, dus het deel blijft gesloten en de STL blijft gelijk."""
@@ -79,6 +93,8 @@ def kleur_deel(ob, kleur, snijpunt, as_, r, s, u):
     idx = np.empty(n, dtype=np.int32)
     me.polygons.foreach_get("material_index", idx)
     ring = in_ring(vlakcentra(me), snijpunt, as_, r, s, u)
+    if n:
+        ring |= vlakken_met_hoekpunt_in_ring(me, snijpunt, as_, r, s, u)
     idx[ring] = index
     me.polygons.foreach_set("material_index", idx)
     me.update()
