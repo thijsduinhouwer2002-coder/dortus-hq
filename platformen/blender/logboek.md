@@ -112,3 +112,14 @@ Alleen aanvullen, nooit iets weghalen.
 - Samengevoegd met main (1fefabe), want controleur akkoord en tests groen. Daarna stond beoordeling 2 van Daan er (akkoord nee: geel #FFEA00, groen blauwer, 3MF, beweegproef). Op taken.md gezet voor de volgende run; niet meer begonnen, want de run is bijna om.
 - Wat misging: de eerste reparatie (hoger kogelmidden) brak twee dingen die ik niet vooraf nalas (ring en kijktoets). Les: bij een wijziging aan de geometrie eerst zoeken wie die maat nog meer gebruikt (`grep midden_z` en de vaste factoren als 2.5 * r).
 - Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026, 08:07 tot ±08:50, Bram (run 11)
+- Berichten gelezen, niets nieuws. Lokale main stond los (72 commits apart); reset geweigerd, dus gewerkt op een nieuwe tak vanaf origin/main.
+- Taak: beoordeling 2 van Daan, punt 1 tot 3, zelf gebouwd op tak `claude/blender-2026-11-08-h` (klein genoeg voor één persoon; controleur apart).
+- Punt 1: Tight #FFEA00 en groen #00D696 in `passing.KLEUREN`. Besluit: niet precies #00C389 maar dezelfde tint zo helder als het oude groen, want Solid maakt alles ±0,66 keer donkerder en #00C389 zou donker worden. Proefstrook weg, nieuw plaatje 4 in Material Preview met de echte materialen. Gemeten in 5.2.3: Tight belicht #C1B35C, iets bleker dan in Solid maar geel.
+- Punt 2: 3MF met eigen schrijver (`drie_mf.py`), keuze STL | 3MF boven de knop. Besluit: standaard STL en één bestand per deel, zoals nu, omdat beide delen in één 3MF op dezelfde plek in elkaar zouden staan in de slicer.
+- Wat misging: de nieuwe 3MF-toets vond 8 tot 52 dubbele gerichte randen. Ik versoepelde de toets eerst naar "niet meer dan de mesh" met een verkeerde gok (dat de mesh het zelf had); het log liet zien dat de mesh 0 had en de fout in loop_triangles zat. Gerepareerd met bmesh BEAUTY, en eerst naar mm (in meters gaf BEAUTY nog 8). Controleur wees de versoepeling terecht af; de toets eist weer 0. Les: eerst meten, dan pas een toets aanpassen.
+- Punt 3: onderzoeker (agent) las de productpagina's. Cut Flex heeft "Pose & check" (één houding, overlap), LayerMechanic meet de eerste klemhoek bij een zelfgemaakt scharnier, Cleave en FigureCut niets. Besluit: beweegproef blijft het eigen gezicht, maar als gemeten bereik in graden direct na het maken van de kogel, met de botsplek rood; kort ontwerp v0.2 in ontwerp.md voor Daan.
+- Controleur (agent, niet de maker): akkoord met correcties; moet-punten (toets streng, architectuur.md) verwerkt. Run 42463532350 groen in 4.2.23 en 5.2.3. Samengevoegd met main (4a9a585c), want nagekeken en groen.
+- Installs 0, reviews 0, verkopen 0.
+
