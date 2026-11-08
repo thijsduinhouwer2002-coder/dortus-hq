@@ -16,7 +16,7 @@ describe("quietNestedCodes (Daan punt 3)", () => {
 		quietNestedCodes(el);
 		expect(el.querySelector("code")).toBeNull();
 		expect(el.textContent).toBe("Alinea Delta met een worp 1d6 erin.");
-		expect(el.querySelector(`.${NESTED_CLASS}`)?.getAttribute("title")).toBe("Rolls in its own note");
+		expect(el.querySelector(`.${NESTED_CLASS}`)?.hasAttribute("title")).toBe(false);
 	});
 
 	it("handles every prefix and a link formula", () => {
@@ -40,5 +40,13 @@ describe("quietNestedCodes (Daan punt 3)", () => {
 		quietNestedCodes(el);
 		expect(el.innerHTML).not.toMatch(/`dice/);
 		expect(el.querySelector("code")).toBeNull();
+	});
+
+	it("also finds codes deeper in a list, quote or table", () => {
+		const el = document.createElement("div");
+		el.innerHTML = defuseRolls("<ul><li>a `dice: 1d4` b `dice: 1d8`</li></ul><blockquote><p><strong>x</strong> `dice: 2d6`</p></blockquote><table><tr><td>`dice: 1d10`</td></tr></table>").replace(/`([^`]+)`/g, (_m, inner: string) => `<code>${inner}</code>`);
+		quietNestedCodes(el);
+		expect(el.querySelector("code")).toBeNull();
+		expect(Array.from(el.querySelectorAll(`.${NESTED_CLASS}`)).map((s) => s.textContent)).toEqual(["1d4", "1d8", "2d6", "1d10"]);
 	});
 });
