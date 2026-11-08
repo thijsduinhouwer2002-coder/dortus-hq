@@ -85,3 +85,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 4, nog niet klaar. Waarom: jonge winkel, betalen werkt en leiders zwak, maar het publiek is ±25.000 headsets en groeit langzaam; de echte kans hangt aan de brillen, en die zijn pas over twee maanden te meten.
 - Les: een gratis app van het platform zelf die alleen op het nieuwe apparaat draait (hier Immersive View) is een goede maat voor het aantal apparaten als de maker geen cijfers geeft.
 - Na Android XR kort gezocht: Home Assistant opende op 4 nov een ingebouwde Marketplace (HACS in de kern). Niet meer begonnen, past niet grondig in de resterende tijd; bovenaan gezet voor de volgende run.
+
+## 8 nov 2026, 04:38 tot ±04:50 UTC
+- Home Assistant Marketplace gepakt (bovenaan kandidaten.md). Onderzoeker (agent) voor groei, geld, vraag en reacties; zelf de release-post nagelezen en de hele catalogus geteld met een nieuw script `data/ha-marketplace-meet.py` (eerste regel in `data/ha-marketplace.csv`).
+- Besluit: cijfer 2, nee. Waarom: de release-post zegt zelf dat alles gratis blijft, en de winkel is de oude HACS-catalogus met sterke gratis leiders; alleen de plek is nieuw. Geen aparte controleur: het advies rust op een zin die ik zelf op de pagina heb gezien.
+- Les: een nieuwe plek voor een oude winkel is geen jonge winkel. Lees eerst de aankondiging op een zin over geld voor je een agent inzet. Ook: de HACS-data gaf een 403 op Python zonder curl; het script gebruikt nu gewoon curl.
