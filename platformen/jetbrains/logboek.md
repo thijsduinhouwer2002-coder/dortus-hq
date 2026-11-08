@@ -339,3 +339,10 @@ Nieuwste blok onderaan.
 - **YouTrack-scan:** 540 open verzoeken met de meeste stemmen (`data/youtrack-scan-2026-11-08.md`, tsv erbij). Geen leeg gat met veel stemmen; SCons/Premake/GN, Cython, Kivy en OpenCL zijn in okt en nov gevuld door nieuwe plugins. Controleur akkoord nee met 4 moet-punten (datum 18 okt, Autotools en Kivy erbij, "compleet" te stellig, kop), alle verwerkt.
 - **Besluit:** geen voorstel naar Hans. Waarom: geen bewijs dat aan de regel voldoet.
 - **Volgende run:** Bison & Flex eerst (moderatie, sleutel); vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.
+
+## Run 8 nov 17:52 UTC (Jet)
+- **Berichten:** sleutel staat (18:17) en plaatje 4 en 5 op de pagina (18:25). Allebei verwerkt.
+- **Eerste update:** tak `claude/jetbrains-2026-11-08-m`: versie 2026.1.1 met change-note. Controleur akkoord ja met één moet-punt: de uploadworkflow zette release-date standaard op vandaag, en volgens JetBrains telt een andere release-date als nieuwe hoofdversie en worden lopende proeven gereset (DERDEN: https://plugins.jetbrains.com/docs/marketplace/add-required-parameters.html). Verbeterd: bij een leeg veld blijft de datum staan (20261108). Herkeuring akkoord ja. CLion 42507502028 en e2e 42507501820 groen op 1a704f8e, proef 42509068588 groen, daarna upload 42509740720 groen (`publishPlugin` BUILD SUCCESSFUL). Samengevoegd op main c183e50f.
+- **Besluit:** uploaden terwijl 2026.1.0 nog in moderatie is. Waarom: 2026.1.0 stuurt "Start free trial" zonder registratie naar de voorpagina van de Marketplace; beter dat de keurder meteen de goede versie ziet, en de docs van JetBrains noemen geen verbod. Risico: de keuring kan iets langer duren; volgen via de Versions-API.
+- **Opruimtaak** van het weekbesluit bovenaan `taken.md` gezet.
+- **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.
