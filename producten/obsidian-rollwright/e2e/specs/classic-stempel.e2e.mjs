@@ -3,7 +3,7 @@ import { browser, expect } from "@wdio/globals";
 // Daan, kan-punt 1 (ontwerp.md, 8 nov): in Classic verscheen de stempel al terwijl het cijfer nog doortelde,
 // dus even stond "NAT 20" boven een 1 (GIF-opname, 446 tot 646 ms). Nu: geen zichtbare stempel zolang er
 // geteld wordt (data-rollwright-tick op het getal), wel een stempel als het getal geland is.
-// De meting gebeurt in de pagina zelf, elk beeld (requestAnimationFrame), vanaf de klik tot 1,1 s erna.
+// De meting gebeurt in de pagina zelf, elk beeld (requestAnimationFrame), vanaf de klik tot 800 ms na de laatste tel.
 // De crit wordt afgedwongen met Math.random, zoals in crit.e2e.mjs en classic-rustig.e2e.mjs.
 const LEAF = ".workspace-leaf.mod-active";
 
@@ -42,7 +42,10 @@ async function klikEnMeet(i, waarde) {
 				stempel: stempel?.textContent ?? "",
 				zicht: st && st.display !== "none" && st.visibility !== "hidden" ? Number(st.opacity) : 0,
 			});
-			if (t < 1100) requestAnimationFrame(kijk);
+			// De uitkomst komt pas na het bewaren van de geschiedenis in beeld (widget.ts, showIfNewest), dus niet
+			// vanaf de klik tellen maar door tot 800 ms na het laatste getelde beeld (stempel 480 + 160 ms), hooguit 4 s.
+			const laatsteTel = beelden.filter((b) => b.telt).at(-1)?.t;
+			if (t < 4000 && (laatsteTel === undefined || t < laatsteTel + 800)) requestAnimationFrame(kijk);
 			else {
 				Math.random = echt;
 				klaar({ beelden, klassen: roll?.className ?? "" });
