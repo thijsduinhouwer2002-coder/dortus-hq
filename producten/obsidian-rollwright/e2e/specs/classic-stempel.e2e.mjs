@@ -41,6 +41,9 @@ async function klikEnMeet(i, waarde) {
 				getal: waardeEl?.getAttribute("data-rollwright-tick") ?? waardeEl?.textContent ?? "",
 				stempel: stempel?.textContent ?? "",
 				zicht: st && st.display !== "none" && st.visibility !== "hidden" ? Number(st.opacity) : 0,
+				// Run 42535424206: de opacity bleef in CI ook na 1,2 s op 0 (beelden maar 15 per seconde, de animatie
+				// liep daar niet zichtbaar door). Daarom ook de animatie zelf: vertraging en of hij nog wacht.
+				anim: (stempel?.getAnimations?.() ?? []).map((a) => ({ naam: a.animationName ?? "", wacht: a.effect?.getComputedTiming().progress === null && (a.currentTime ?? 0) < (a.effect?.getComputedTiming().delay ?? 0), vertraging: a.effect?.getComputedTiming().delay ?? 0, tijd: Math.round(Number(a.currentTime ?? -1)) })),
 			});
 			// De uitkomst komt pas na het bewaren van de geschiedenis in beeld (widget.ts, showIfNewest), dus niet
 			// vanaf de klik tellen maar door tot 800 ms na het laatste getelde beeld (stempel 480 + 160 ms), hooguit 4 s.
@@ -48,7 +51,11 @@ async function klikEnMeet(i, waarde) {
 			if (t < 4000 && (laatsteTel === undefined || t < laatsteTel + 800)) requestAnimationFrame(kijk);
 			else {
 				Math.random = echt;
-				klaar({ beelden, klassen: roll?.className ?? "" });
+				// Laat de animaties van de stempel uitlopen, zodat te zien is waar ze eindigen (zichtbaar of niet).
+				const eindStempel = roll?.querySelector(":scope > .rollwright-stamp");
+				for (const a of eindStempel?.getAnimations?.() ?? []) a.finish();
+				const eindZicht = eindStempel ? Number(getComputedStyle(eindStempel).opacity) : 0;
+				klaar({ beelden, klassen: roll?.className ?? "", eindZicht });
 			}
 		};
 		requestAnimationFrame(kijk);
@@ -89,7 +96,12 @@ describe("Rollwright: stempel in Classic pas na het doortellen (Daan kan-punt 1)
 				const eind = m.beelden.at(-1);
 				expect(eind.telt).toBe(false);
 				expect(eind.stempel).toBe(stempel);
-				expect(eind.zicht).toBeGreaterThan(0.95);
+				console.log(`CLASSIC STEMPEL ${naam} klik ${keer} eind: zicht ${eind.zicht}, na finish ${m.eindZicht}, animaties ${JSON.stringify(eind.anim)}`);
+				// Elk tellend beeld: de stempel-animatie wacht nog (of er is geen zichtbare stempel).
+				expect(tellend.filter((b) => b.zicht > 0.05 && !b.anim.some((a) => a.wacht))).toEqual([]);
+				// De stempel-animatie wacht minstens tot de landing (460 ms) en eindigt zichtbaar.
+				expect(Math.max(0, ...eind.anim.map((a) => a.vertraging))).toBeGreaterThanOrEqual(460);
+				expect(m.eindZicht).toBeGreaterThan(0.95);
 				expect(m.klassen).toContain(klasse);
 				await browser.pause(400);
 			}
