@@ -1,0 +1,102 @@
+name: Bison & Flex update uploaden (Marketplace)
+
+# Zet een nieuwe versie van Bison & Flex op plugins.jetbrains.com (plugin 35901).
+# Alleen met de hand te starten (Jet). Werkt pas als Thijs het secret
+# JETBRAINS_MARKETPLACE_TOKEN heeft gezet (zie organisatie/lijst-thijs.md).
+# Uploadt alleen als: Daan staat op "Akkoord: ja" in ontwerp.md, de CLion- en
+# e2e-run op precies deze commit groen zijn, unittests groen, Plugin Verifier
+# Compatible, en de versie in build.gradle.kts nieuw is.
+
+on:
+  workflow_dispatch:
+    inputs:
+      releasedatum:
+        description: "release-date voor plugin.xml (JJJJMMDD), leeg = vandaag (UTC)"
+        required: false
+        default: ""
+      bevestig:
+        description: "Typ 'uploaden' om echt te uploaden (anders alleen proefdraaien)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: producten/jetbrains-bison-flex
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sleutel aanwezig?
+        env:
+          TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+        run: |
+          [ -n "$TOKEN" ] || { echo "FOUT: secret JETBRAINS_MARKETPLACE_TOKEN ontbreekt (punt op de lijst van Thijs)"; exit 1; }
+      - name: Akkoord van Daan
+        run: |
+          # Alleen de vaste oordeelregel van Daan bovenaan telt: een regel die
+          # begint met "Akkoord:" (oude oordelen beginnen met "Oud:", vragen van
+          # Jet met "**").
+          L=$(grep -m1 -E '^Akkoord: (ja|nee)' ontwerp.md || true)
+          echo "Oordeel Daan: $L"
+          echo "$L" | grep -q '^Akkoord: ja' || { echo "FOUT: het oordeel van Daan bovenaan ontwerp.md is geen 'Akkoord: ja'"; exit 1; }
+      - name: IDE-runs op deze commit groen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for wf in jetbrains-bison-flex-clion.yml jetbrains-bison-flex-e2e.yml; do
+            U=$(gh run list -R "$GITHUB_REPOSITORY" --workflow "$wf" --commit "$GITHUB_SHA" --status success --json databaseId -q '.[0].databaseId')
+            [ -n "$U" ] || { echo "FOUT: geen groene run van $wf op $GITHUB_SHA"; exit 1; }
+            echo "$wf groen: run $U"
+          done
+      - name: Versie nieuw?
+        run: |
+          VERSIE=$(grep -E '^version *=' build.gradle.kts | sed -E 's/.*"(.*)".*/\1/')
+          echo "Versie: $VERSIE"
+          if curl -sfL "https://plugins.jetbrains.com/api/plugins/35901/updates" | grep -q "\"version\":\"$VERSIE\""; then
+            echo "FOUT: versie $VERSIE staat al op de Marketplace, verhoog version in build.gradle.kts"; exit 1
+          fi
+          echo "VERSIE=$VERSIE" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Ruimte maken (IDEA en CLion zijn groot)
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+      - name: release-date zetten
+        env:
+          INVOER: ${{ inputs.releasedatum }}
+        run: |
+          DATUM="${INVOER:-$(date -u +%Y%m%d)}"
+          echo "$DATUM" | grep -Eq '^20[0-9]{6}$' || { echo "FOUT: datum '$DATUM' is geen JJJJMMDD"; exit 1; }
+          [ "$DATUM" -le "$(date -u -d '+5 days' +%Y%m%d)" ] || { echo "FOUT: meer dan 5 dagen vooruit"; exit 1; }
+          P=src/main/resources/META-INF/plugin.xml
+          grep -q 'code="PBISONFLEX" release-date="[0-9]\{8\}"' "$P" || { echo "FOUT: product-descriptor niet gevonden"; exit 1; }
+          sed -i -E "s/(code=\"PBISONFLEX\" release-date=\")[0-9]{8}\"/\1$DATUM\"/" "$P"
+          grep -n 'product-descriptor' "$P"
+      - name: Unittests
+        run: ./gradlew --no-daemon test
+      - name: Zip bouwen en Plugin Verifier
+        run: ./gradlew --no-daemon buildPlugin verifyPlugin
+      - name: Verifier moet Compatible zeggen
+        run: |
+          V=$(find build/reports/pluginVerifier -name 'verification-verdict.txt')
+          [ -n "$V" ] || { echo "FOUT: geen verifier-uitslag"; exit 1; }
+          for f in $V; do cat "$f"; grep -q '^Compatible' "$f" || { echo "FOUT: niet Compatible"; exit 1; }; done
+      - name: Uploaden naar de Marketplace
+        if: ${{ inputs.bevestig == 'uploaden' }}
+        env:
+          PUBLISH_TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+        run: |
+          ./gradlew --no-daemon publishPlugin
+          echo "### Versie $VERSIE geüpload naar plugin 35901 (wacht op keuring JetBrains)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Proefdraaien (niets geüpload)
+        if: ${{ inputs.bevestig != 'uploaden' }}
+        run: |
+          echo "### Proefdraaien: alles groen, niets geüpload. Start opnieuw met bevestig = uploaden." >> "$GITHUB_STEP_SUMMARY"
