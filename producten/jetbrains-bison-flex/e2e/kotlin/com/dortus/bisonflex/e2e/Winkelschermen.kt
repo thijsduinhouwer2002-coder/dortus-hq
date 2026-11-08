@@ -32,7 +32,8 @@ import java.nio.file.Path
  *    (`winkel-melding-zweef.png`) en na Enter op de snelle oplossing dezelfde regels zonder `term`
  *    (`winkel-melding-na.png`).
  * C. Alt+F7 op NUM met Pro: Enter op de eerste regel van het kiesmenu, wachten op het Find-paneel
- *    (`winkel-alleplekken.png`), de reserve als splitsen niet lukt. Structuurpaneel dicht op alle winkelschermen.
+ *    (`winkel-alleplekken.png`), de reserve als splitsen niet lukt. Het log noemt welke regel Enter koos en
+ *    welk tabblad het Find-paneel toont (Kiesmenu.kt). Structuurpaneel dicht op alle winkelschermen.
  * Elke stap zet in het log wat er te zien is (regels in beeld, meldingen, vensters).
  */
 
@@ -77,6 +78,7 @@ interface PanelenOpAfstand {
 @Remote("com.intellij.openapi.wm.ToolWindow")
 interface PaneelOpAfstand {
     fun isVisible(): Boolean
+    fun getContentManager(): InhoudBeheerOpAfstand
 }
 
 private const val NA_INPUT = "  | input line\n  ;\n"
@@ -276,11 +278,13 @@ private fun IdeTest.winkelAllePlekken(d: Driver, naam: String) = with(d) {
         invokeAction("FindUsages", now = false)
         Thread.sleep(4_000)
         // Keuzelijst "Find Usages Of" (calc.y en calc.yy, run 42457782755): Enter kiest de eerste, dan het Find-paneel.
+        println("DORTUS-E2E [$naam] winkel: kiesmenu voor Enter: ${kiesmenuKeuze()}")
         toets("Return")
         val open = wacht(20) { paneelOpen("Find") }
         Thread.sleep(2_000)
         val v = actiefVenster()
         println("DORTUS-E2E [$naam] winkel: na Alt+F7 en Enter Find-paneel open $open, actief venster $v '${vensterNaam(v)}' (IDE $ide)")
+        println("DORTUS-E2E [$naam] winkel: Find-paneel toont ${findTabblad()}")
         schermHeel("winkel-alleplekken.png")
         assertTrue(open, "Find-paneel open na Alt+F7 en Enter op de eerste regel ($naam)")
     } finally {
@@ -345,12 +349,18 @@ private fun Driver.editorFocus() {
     Thread.sleep(500)
 }
 
-/** Alle NUMBER in de open editor terug naar NUM; geeft het aantal. */
+/**
+ * Alle NUMBER in de open editor terug naar NUM; geeft het aantal. Stopt vanzelf (NUM bevat geen NUMBER);
+ * de grens van 100 is alleen een vangnet en wordt in het log gemeld als hij geraakt wordt.
+ */
 private fun herstel(diagnose: MeldingenDiagnoseOpAfstand): Int {
     var n = 0
-    while (n < 10 && diagnose.vervang("NUMBER", "NUM")) n++
+    while (n < HERSTEL_GRENS && diagnose.vervang("NUMBER", "NUM")) n++
+    if (n == HERSTEL_GRENS) println("DORTUS-E2E winkel: herstel stopte op de grens van $HERSTEL_GRENS, er kan nog NUMBER staan")
     return n
 }
+
+private const val HERSTEL_GRENS = 100
 
 private fun vensterNaam(id: String?): String = if (id == null) "" else try {
     val p = ProcessBuilder("xdotool", "getwindowname", id).redirectErrorStream(true).start()
