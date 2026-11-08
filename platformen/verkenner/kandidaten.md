@@ -62,7 +62,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Firefox (add-ons): klaar 7 nov run 13:31, eigen steekproef van 6.000, nee (cijfer 1), zie voorstellen/firefox.md
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
-- Slack (apps): in onderzoek 8 nov 18:46 (Vera)
+- Slack (apps): klaar 8 nov run 18:33, eigen meting (sitemap 2.810 apps, 343 nieuwste pagina's, TrustMRR), nog niet klaar (cijfer 5), zie voorstellen/slack.md. Herhaalmeting 6 dec: sitemap opnieuw halen en vergelijken met data/slack-marketplace-urls-2026-11-08.txt, nieuwe apps volgen
 - Sketch (plugins): 8 nov run 05:32 voorwerk, nee zonder volledige meting (cijfer 1). De open pluginlijst (github.com/sketchplugins/plugin-directory, plugins.json) telt 821 plugins, maar maar 47 kregen een update in 2025 of 2026 (14 in 2025, 33 in 2026). Sketch heeft geen betaling in de winkel; betaalde plugins verkopen zelf via eigen licenties. Markt krimpt naast Figma. robots.txt van sketch.com: ai-train=no, ai-input=yes; alleen de pluginpagina gelezen
 - Zapier en Make (integraties)
 - Neovim (plugins)

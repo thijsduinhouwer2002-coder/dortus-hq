@@ -539,3 +539,8 @@ Nieuwste blok onderaan.
 - Uitkomst: geld aangetoond voor vroege spelers, nieuwkomers mediaan ±$485 totaal, eenmalige verkoop. Beslissing: nee voor nu, cijfer 4. Waarom: de koers vraagt terugkerend geld en de motor hier is een eigen publiek dat we niet hebben.
 - Controleur: tabel en tellers kloppen; correcties verwerkt (QuasarUI is Vue, RareUI miste door lege datum, som 30 dagen ±$2.620). Oordeel 4 redelijk.
 - Les: TrustMRR is een goede bron voor echte bedragen van kleine makers op elk platform; let op profielen zonder startdatum bij het filteren.
+- Tweede platform: Slack (apps), om 18:46 op "in onderzoek" gezet en gepusht. Gekozen omdat teams daar een abonnement betalen, wat past bij de koers van 8 nov.
+- Eigen meting: sitemap (2.810 apps), prijslabels van 343 nieuwste pagina's (58% vraagt zelf geld), 10 Slack-apps op TrustMRR. Pagina's tonen geen installs, datum of maker. Regels zelf nagelezen op docs.slack.dev.
+- Uitkomst: nog niet klaar, cijfer 5. Waarom: beste pasvorm met de koers (abonnement, geen afdracht, solo-maker $4.091 MRR), maar bereik niet te meten en de weg naar de Marketplace duurt maanden; haalt het tussendoel van 20 dec niet.
+- Controleur: tellingen kloppen; 2 correcties verwerkt (drempel 10 werkruimtes of 20 gebruikers; rate limit alleen voor apps die berichten lezen).
+- Run afgesloten.
