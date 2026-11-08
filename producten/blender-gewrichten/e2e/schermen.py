@@ -261,14 +261,15 @@ def proefstrook():
     log(f"proefstrook: {len(TINTEN)} cilinders {TINTEN}")
 
 
-def meet_strook():
+def meet_strook(naam="4-geeltinten-x.png"):
     """Leest per cilinder de kleur op het X-scherm langs een horizontale lijn door het midden:
     de lichtste plek (belichte kant) en de donkerste."""
     from bpy_extras.view3d_utils import location_3d_to_region_2d
     venster, gebied, _ = zijbalk()
     regio = next(r for r in gebied.regions if r.type == "WINDOW")
     rv3d = gebied.spaces.active.region_3d
-    pad = os.path.join(uitmap, "4-geeltinten-x.png")
+    pad = os.path.join(uitmap, naam)
+    log(f"GEEL meting op {naam}, weergave {bpy.context.scene.view_settings.view_transform}")
     if not os.path.exists(pad):
         log("GEEL: geen X-scherm")
         return
@@ -336,6 +337,13 @@ def stap():
     if n == 9:
         schiet("4-geeltinten.png")
         meet_strook()
+        # Zelfde strook met View Transform "Standard" in plaats van de standaard (AgX in 4.x en 5.x):
+        # zo zien we of de kleuren door de kleurweergave donkerder worden of door de belichting.
+        bpy.context.scene.view_settings.view_transform = "Standard"
+        return 1.0
+    if n == 10:
+        schiet("5-geeltinten-standard.png")
+        meet_strook("5-geeltinten-standard-x.png")
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
