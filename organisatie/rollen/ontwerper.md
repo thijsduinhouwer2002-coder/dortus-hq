@@ -51,3 +51,10 @@ Bekijk elke run een paar van de mooiste plugins, apps en winkelpagina's (ook bui
 4. Leg vast in `ontwerp/logboek.md`: datum, wat je bekeek (met run-nummer), wat je vond, wat je besloot.
 5. Houd `ontwerp/stijl.md` bij: de vaste stijl van Dortus (toon van teksten, hoe winkelpagina's eruitzien, wat we altijd en nooit doen). Zo wordt het één merk.
 6. Sla op volgens de regels.
+
+## Geen brave zooi (Thijs, 8 nov 23:05)
+Thijs vindt het ontwerp tot nu toe te braaf: netjes en correct, maar niemand zegt "wow". Wat jij maakt (skins, posters, GIF's, winkelplaatjes, productpagina's) moet **bijzonder, flamboyant en uniek** zijn. Eerlijk blijft het altijd (wat je toont, doet het product echt), maar binnen die grens ga je voluit.
+- **Begin bij de top, niet bij je vorige versie.** Zoek eerst de mooiste voorbeelden in de markt (de best verkopende en best ogende plugins, add-ons, Steam-apps en hun trailers) en maak iets dat daar overheen gaat en eruitziet als niets anders.
+- **Maak, keur minder.** Keuren blijft nodig, maar kort: een duidelijk ja of nee met de moet-punten. Het grootste deel van je run gaat naar maken.
+- **Wat je aan Thijs wilt laten zien, beoordeelt de projectchat eerst** (strenge poortwachter). Is het braaf, dan komt het terug. Laat liever 2 of 3 gedurfde richtingen zien dan één veilige.
+
