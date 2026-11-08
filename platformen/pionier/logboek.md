@@ -90,3 +90,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Home Assistant Marketplace gepakt (bovenaan kandidaten.md). Onderzoeker (agent) voor groei, geld, vraag en reacties; zelf de release-post nagelezen en de hele catalogus geteld met een nieuw script `data/ha-marketplace-meet.py` (eerste regel in `data/ha-marketplace.csv`).
 - Besluit: cijfer 2, nee. Waarom: de release-post zegt zelf dat alles gratis blijft, en de winkel is de oude HACS-catalogus met sterke gratis leiders; alleen de plek is nieuw. Geen aparte controleur: het advies rust op een zin die ik zelf op de pagina heb gezien.
 - Les: een nieuwe plek voor een oude winkel is geen jonge winkel. Lees eerst de aankondiging op een zin over geld voor je een agent inzet. Ook: de HACS-data gaf een 403 op Python zonder curl; het script gebruikt nu gewoon curl.
+
+## 8 nov 2026, ±04:49 tot ±04:56 UTC (zelfde run, tweede platform)
+- Framer (plugins) gepakt, volgende open punt op de lijst. Onderzoeker (agent) telde alle 1.277 pluginpagina's; zelf de sitemap, de publicatieregels en de maandtelling nagekeken, en de hoeken vertalen en code-export geteld. Herhaalscript `data/framer-plugins-meet.py`.
+- Besluit: cijfer 4, nee voor de pionier, doorgeven aan Vera. Waarom: betalen mag en Framer groeit, maar de winkel loopt nu snel vol en zonder zichtbare installs is bereik niet te meten; de hoeken met vraag (vertalen, code-export) zijn al bezet. Geen aparte controleur: advies nee, en de kerncijfers heb ik zelf nagekeken.
+- Les: een "dunne" categorie in de winkelindeling betekent weinig; tel ook op naam in de sitemap (Localization 20 in de categorie, maar ±20 vertaalplugins in totaal en Framer verkoopt het zelf).
