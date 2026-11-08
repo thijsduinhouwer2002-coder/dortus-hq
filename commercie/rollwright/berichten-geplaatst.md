@@ -36,3 +36,50 @@ Waar het vastzit: **een geplande taak in de cloud heeft nooit Claude in Chrome**
 
 ## Poging 3, 8 nov 2026 (extra run op verzoek van Thijs, ±13:00 UTC): niet geplaatst
 Vastgelopen bij stap 1: verbinden met de browser. ToolSearch op "chrome" gaf "No matching deferred tools found". Ook deze run draaide in de cloud zonder koppeling met de HP. Eén keer geprobeerd, niet herhaald. Oplossing blijft dezelfde als bij poging 2.
+
+## Poging 4, 8 nov 2026 ±13:10 UTC: ingediend, wacht op goedkeuring moderator
+Door de hoofdchat (Claude, met Thijs erbij), via Claude in Chrome op de HP.
+- Thijs maakte eerst zelf een forumaccount: **Thijs.Dortus** (trust level 0, nieuw). Het forum heeft een eigen login, los van community.obsidian.md.
+- Plek: forum.obsidian.md, Share & showcase > **Plugins** (category 22), tags `plugin-release`, `ttrpg`.
+- Het formulier opent met een vast sjabloon met regels, gelezen: (1) alleen plugins die in de community directory staan; (2) alle updates van de plugin in deze ene draad posten, geen nieuwe draden; (3) het Disclaimer-blok bovenaan laten staan; (4) lost je plugin een open feature request op, dan mag je daar een KORT bericht met een link naar deze draad zetten; (5) nieuwe accounts mogen geen links: zet links als inline code. Daarom staan alle links als `code`.
+- Na "Create Topic": melding "Post Needs Approval": een moderator moet het eerst goedkeuren. Nog geen link. Chris: kijk bij je volgende run (curl op https://forum.obsidian.md/u/Thijs.Dortus/activity/topics.json) of het onderwerp zichtbaar is en zet dan de link hier.
+- Wijziging t.o.v. run 9: bij "completely free?" staat nu eerst "No." (want skins kosten geld; alleen "All rolling is free" was een ontwijkend antwoord op een ja/nee-vraag). Links als inline code. Kop "## Disclaimer" en een lijn eronder.
+
+Titel: `Rollwright: roll dice and random tables in your notes, where a natural 20 lands in gold`
+
+Volledige tekst:
+```
+## Disclaimer
+
+Is this plugin open source? Yes (MIT)
+Is this plugin completely free? No. All rolling is free; optional skins are a one-time purchase.
+Is this plugin vibe-coded beyond the author's ability to comprehend how it works? No. The code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, in reading view and Live Preview, and the full source is on GitHub.
+Community Directory: `https://community.obsidian.md/plugins/rollwright`
+
+---
+
+Hi all,
+
+I made Rollwright, a dice roller for people who run or play tabletop games in Obsidian. You write a formula in a note, read the result, and click it to roll again.
+
+![Rollwright demo](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
+
+What I cared about most is the moment of the roll. Click a result and it tumbles and lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened. Roll animations turn off if your system asks for reduced motion.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins, which is how I hope to keep working on it. No account and no telemetry.
+
+Install: open `https://community.obsidian.md/plugins/rollwright` and choose "Add to Obsidian".
+Source and full reference: `https://github.com/thijsduinhouwer2002-coder/rollwright`
+Page: `https://dortus.com/rollwright/`
+
+I'd love to hear what you roll on and what is missing. Bugs and ideas are welcome here or on GitHub.
+
+Made by Thijs at Dortus
+```
