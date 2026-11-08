@@ -52,6 +52,7 @@ def staaf():
     stap(f"BUIG staaf: paneel Bends ±{hoek} gelijk aan de stand {a.get('cj_hoek')}", hoek == a.get("cj_hoek"))
     blok(a, next(d for d in lijst if d["cj_deel"] == "B"))
     weg(lijst)
+    st.hide_set(True)
 
 
 def blok(a, b):
@@ -88,7 +89,6 @@ def blok(a, b):
     stap(f"BUIG blok: richting 0 niet veel te vroeg ({grenzen[0]:.1f} >= {verwacht:.2f} - 1)", grenzen[0] >= verwacht - 1.0)
     stap(f"BUIG blok: paneel Bends ±{hoek} niet meer dan de kleinste gemeten {min(grenzen):.1f}",
          hoek is not None and hoek <= min(grenzen))
-    st.hide_set(True)
 
 
 def arm_en_pose(arm):
