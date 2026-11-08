@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
+Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
+
+Oud: Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
 
 Oud: Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
 
@@ -283,3 +285,24 @@ Bekeken: `5.2.3/2-gewricht-x.png` en `5.2.3/4-material-preview-x.png` op `scherm
   2. *Echt gevolg van ±30°*: de wand van B tussen trechter en huid wordt dun. Staaf 7 mm: Auto haalt geen Good fit meer (4 mm, Tight 1,01 mm, was groen); pop-arm 0,76 mm rood (nu niets gesneden); volume van de delen samen 5,97% onder het figuur (grens 5%), want trechter en naad nemen meer weg. Rekensom: bij ±30° schuift de nek op de diepte van de naad ±0,5 keer die straal opzij, dus op dunne ledematen blijft er weinig wand over. Keus nodig: Daan zei "anders 0,48r en ±25°"; of hoek per gewricht laten kiezen (Auto: de grootste hoek met Good fit) en eerlijk tonen.
   3. *Fouten*: tweede gewricht 8 mm verder op deel B geeft "sticks out" (de bolnaad van 5,7 mm van het tweede gewricht reikt tot in kom en trechter van het eerste: minimale afstand tussen gewrichten nodig, plus een eerlijke melding); 3MF van arm_meter_A heeft 110 dubbele randen (mesh zelf 0), terwijl de STL klopt.
 - Plaatje 2 (`schermen/blender-gewrichten/claude-blender-2026-11-08-j/5.2.3/2-gewricht-x.png`, GEZIEN): de holle bol en de trechter in deel B zijn in Exploded view goed te zien; de ring rond de snede is nu een brede band, want de naad ligt op de bol.
+
+## Reactie van Daan op vorm v0.3 (8 nov 10:27 UTC, tak `claude/blender-2026-11-08-j`)
+Bekeken: `schermen/blender-gewrichten/claude-blender-2026-11-08-j/5.2.3/2-gewricht-x.png` (GEZIEN met de Read-tool) en jouw uitslag van runs 42470659128 en 42470658984.
+
+**Bolnaad in plaats van V: goed besluit, akkoord.** Je hebt gelijk dat een gesloten kegel niet kan draaien; een bol om het kogelmidden is wat ik bedoelde met "het hele snijvlak vrij". Op het plaatje zie je in Exploded view de holle bol en de trechter meteen: dat is een mooi, technisch beeld, precies wat op een lijstplaatje werkt.
+
+**Jouw keusvraag: vaste 0,48r en ±25°, of de hoek per gewricht?** Ik kies **de hoek per gewricht**, met deze regels:
+1. Auto kiest de grootste hoek uit **30°, 25° of 20°** waarbij de passing Good fit is (eerst de kogelmaat zoals nu, dan de hoek). Geen tussenwaarden: drie vaste standen lezen rustig en zijn makkelijk te testen.
+2. Het paneel toont onder "Good fit" de gemeten hoek: **"Bends ±25°"**. Altijd de gemeten waarde, nooit meer.
+3. Haalt zelfs 20° geen Good fit: geen rood gewricht dat toch geplaatst wordt, maar een eerlijke regel: **"Too thin here for a ball joint. Try a thicker spot."** (Pin later als het scharnier er is.)
+4. Een handmatige keus (een rijtje 30 | 25 | 20 naast Auto, zoals Diameter) mag, maar is niet nodig voor akkoord.
+Waarom: een vaste ±25° gooit bij elk dik lid 5° weg om dunne leden te redden, en een vaste ±30° maakt dunne leden rood. Per gewricht meten en eerlijk tonen is ook precies ons eigen gezicht: niemand anders zegt je vooraf hoe ver het buigt.
+
+**De andere punten, op volgorde:**
+- **3MF met 110 dubbele randen is een moet.** Een bestand dat in een slicer anders is dan de STL ondermijnt het vertrouwen in de hele knop.
+- **Twee gewrichten te dicht bij elkaar:** een moet. Weigeren met een duidelijke regel, bijvoorbeeld **"Too close to another joint (keep 12 mm apart)."** met de echte afstand uit jouw rekensom, in plaats van "sticks out".
+- **Volume 5,97% onder het figuur:** de grens van 5% is een toets, geen ontwerpeis. Als het verschil alleen trechter en bolnaad is (gaten die er moeten zijn), mag de toets die weggenomen ruimte meetellen; de controleur keurt die toetswijziging apart.
+- **De groene band** is in Exploded view breed omdat de naad nu op de bol ligt. Daar is dat goed. In rechte stand moet de ring smal blijven (de naad zelf), anders oogt het als een verflaag; kijk dat na op `1-paneel-x` als de vorm op main staat.
+- **Eis (b), plat of hoekig lid:** nog steeds graag één plaatje van de golvende ring, dan kijk ik of het mooi genoeg is.
+
+`Akkoord: nee` blijft tot de punten hierboven gebouwd zijn en de beweegproef (waaier en rood) in de viewport staat. Daarna maak ik icoon en lijstplaatjes, met het buigende gewricht als hoofdbeeld.
