@@ -45,6 +45,7 @@ async function readRolls(view) {
 				hr: value?.querySelector("hr") !== null && value !== null,
 				nested: value?.querySelectorAll(".rollwright-roll").length ?? 0,
 				codes: Array.from(value?.querySelectorAll("code") ?? []).map((c) => (c.textContent ?? "").split(zws).join("")),
+				stil: Array.from(value?.querySelectorAll(".rollwright-nested") ?? []).map((n) => n.textContent ?? ""),
 				paragraphs: value?.querySelectorAll("p").length ?? 0,
 			};
 		}), `${LEAF} ${view}`, ZWS);
@@ -121,8 +122,10 @@ function check(rolls) {
 	expect(regel.value.includes("Hotel") && regel.value.includes("India")).toBe(false);
 
 	expect(eenBlok(vast.value, ["alinea2"])).toBe("alinea2");
-	console.log("CODES IN VAST BLOK:", JSON.stringify(vast.codes));
-	expect(vast.codes).toContain("dice: 1d6");
+	// Daan punt 3: de worp in het getrokken blok is gewone tekst "1d6", geen code meer (en rolt niet, zie nested hierboven).
+	console.log("CODES IN VAST BLOK:", JSON.stringify(vast.codes), "STIL:", JSON.stringify(vast.stil));
+	expect(vast.codes.some((c) => c.includes("dice"))).toBe(false);
+	expect(vast.stil).toEqual(["1d6"]);
 
 	checkRegel(tweeRegels, 2, "TWEE REGELS");
 
