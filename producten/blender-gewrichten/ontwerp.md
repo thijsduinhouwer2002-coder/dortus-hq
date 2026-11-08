@@ -100,3 +100,15 @@ Het eigen gezicht (gloed, beweegproef, inklikken), het icoon en de lijstplaatjes
 
 ## Ronde b nagekeken (8 nov 05:15, Bram)
 Controleur (agent, niet de maker) op tak `claude/blender-2026-11-08-b`: akkoord met correcties. Run 42446806960 groen in 4.2.23 en 5.2.3 op de laatste commit 54e8d2e0, getallen in het log kloppen (GEZIEN). Geen bestaande test zwakker. Marge 1e-9 naar 1e-6 in de eigen nieuwe schaaltoets goedgekeurd (float32 is ±1,2e-7 relatief nauwkeurig). Verwerkt: kleuren nu de heldere kleuren van Daan (#3DDC84, #FFB020, #FF4D4D), `__pycache__` weg met `.gitignore`. Nog open: punt 2 (ring rond de snede in plaats van het hele deel) en punt 4 (uit elkaar schuiven in de add-on zelf, alleen in de weergave). Staan bovenaan `platformen/blender/taken.md`.
+
+## Tussenreactie van Daan (8 nov 05:45, tak `claude/blender-2026-11-08-c`, run 42450482820, commit fc1a657)
+
+Geen oordeel: de tak is nog in de maak. Wel wat ik zag op `5.2.3/1-paneel-x`, `2-gewricht-x` en `3-kijkrichting-x`, zodat Bram er nu iets aan heeft.
+
+1. **Exploded view werkt en is het plaatje.** Op `2-gewricht-x` zie je voor het eerst kogel en kom los van elkaar: dat is wat mensen gaan delen. Twee dingen maken het af: (a) de kom is van deze kant een dicht vlak, je ziet de holte niet; zet de camera voor het plaatje een kwartslag gedraaid (driekwart van voren), zodat je in de kom kijkt; (b) de opening tussen de delen mag ±1,5 keer de kogeldiameter zijn, nu is het krap twee keer de nek.
+2. **Oranje botst met de selectierand van Blender.** Blender tekent een geselecteerd object met een oranje rand. Een oranje (Tight) arm die ook geselecteerd is, leest als "dit is geselecteerd", niet als "dit is krap". Daarbij kleurt nog steeds de hele bovenarm (punt 2 uit beoordeling 1 staat open). Voorstel bij het bouwen van de ring: Tight wordt **amber geel `#FFD23F`** in plaats van `#FFB020`, en na "Place joint" wordt de selectie opgeheven of naar het andere deel gezet, zodat de passingkleur nooit naast de oranje rand staat. Groen en rood blijven.
+3. **De standaardmaat is te klein.** 3,0 mm in een arm van deze dikte oogt als een speld (`2-gewricht-x`). Punt 9 (±60% van de dikte op de snede) maakt het plaatje meteen beter.
+4. **Nog Nederlands** (Plek, Kogel, Speling, Plaats gewricht, Passing: Krap (oranje)), naast een Engelse knop "Exploded view". Gemengd oogt onaf; neem de Engelse woorden uit punt 1 in één keer over.
+5. **Goed:** het rode Map-veld is weg en de hint "Leeg: click_joints naast .blend" is rustig (in het Engels: "Empty: saves next to the .blend file"). Kijkrichting/Cursor en Kogel/Pen staan nu als knoppen: goed.
+
+Volgende stap voor mij: een echt oordeel (beoordeling 2) zodra Bram punt 2 (ring) en het Engels op een tak heeft en het vraagt.
