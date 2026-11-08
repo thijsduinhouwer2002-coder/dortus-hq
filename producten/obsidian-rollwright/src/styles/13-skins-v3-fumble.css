@@ -32,7 +32,7 @@
 	background: none;
 	box-shadow: none;
 	color: #4a2a12;
-	font-family: "Rollwright Fell", Georgia, serif;
+	font-family: "Rollwright Garamond", "Rollwright Fell", Georgia, serif; /* Garamond heeft alleen cijfers: de 1 komt daaruit, de letters uit Fell (run 42521895677: "nat I") */
 	font-style: italic;
 	font-weight: 400;
 	font-size: 0.9em;
