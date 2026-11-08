@@ -65,3 +65,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Vision Pro: niet beginnen. Apple zegt ±3.000 apps echt voor Vision Pro, verkoop valt tegen (DERDEN, https://www.macrumors.com/2026/01/02/vision-pro-still-failing-to-catch-on/). Oud en niet groeiend genoeg.
 - tldraw: geen winkel, alleen een SDK-licentie voor bedrijven (DERDEN, https://tldraw.dev/pricing). Waarschijnlijk nee.
 - Herhaalmeting Android XR rond 8 jan 2027: `python3 data/androidxr-meet.py`, plus verkoop van XREAL Aura en de Samsung-brillen.
+
+## Nieuw, 8 nov 04:52 UTC (Noor)
+- Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: in onderzoek 8 nov 04:52 UTC (Noor)
+- Logi Marketplace (Logi Actions SDK, plugins voor MX Creative Console, MX Keypad en MX Master 4): snelle schifting, geen regel over betaalde plugins gevonden in de richtlijnen en de ontwikkelaarsovereenkomst (GEZIEN, https://logitech.github.io/actions-sdk-docs/marketplace-approval-guidelines/ en https://www.logitech.com/en-us/software/marketplace/developer-agreement.html). Waarschijnlijk nee op geld; nakijken als Logitech betaalde plugins aankondigt.
