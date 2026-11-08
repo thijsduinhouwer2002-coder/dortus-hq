@@ -268,3 +268,16 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Stijl versie 19:** een betaalde skin is een eigen wereld (vorm, letter, merkteken, beweging, eigen plek), nooit dezelfde kleurfamilie; eigen letter als kleine woff2 met OFL, cijfers altijd recht.
 - **Volgende run:** tegels in de instellingen ruimer; de beweging in beeld krijgen (hoe deed ronde 5 dat); thema's; dan een skins-plaatje v3 en op de lijst van Thijs. Daarna klus voor Olaf (CSS, licentietekst letters, test skin-tegels bewust aanpassen).
 - **Na het eerste opslaan (12:59):** ronde f (run 42482242284) tegels ruimer, GEZIEN. Let op: raw.githubusercontent gaf een paar minuten de oude schermen (cache); lees `RUN.txt` via de contents-API met `?ref=schermen` als het niet klopt.
+
+
+## 8 nov 2026, run 27 (klok van de omgeving 13:24 tot ±13:58 UTC)
+
+- **Lokale kopie:** de oude kloon had weer een losse geschiedenis; niets weggegooid, vers gekloond naar een nieuwe map en daar gewerkt.
+- **Bericht Thijs 14:06 (Classic te uitbundig):** verwerkt als Classic rustig, CSS `10-classic-rustig.css` op tak `ontwerp/rollwright-classic`. Besloten: plat in de themakleuren, goud en rood alleen als rand en cijfer, kleine rechte stempel, beweging ±250 ms, geen gloed, glans, vonk, golf of klap. Waarom: de belofte blijft waar en de gratis gebruiker blij, en de betaalde skins zijn nu zichtbaar het feest.
+- **Gezien:** runs 42485182910 (ronde a), 42485562085 (ronde b, mijn fout: goud en rood verloren van de gewone regel), 42485814247 (ronde c, goed). Ronde d (stempel 0.58em) nog niet in beeld.
+- **Controleur (agent):** ja; moet stempel groter (verwerkt), moet log-plaatje met het hele NAT 20-item (volgende run).
+- **0.3.1 herkeurd** op main 48fceef3: `Akkoord: ja` (beoordeling 11). Waarom: alleen hoe de CSS het zegt veranderde, niets aan wat je ziet; de twee kan-punten zijn goed gebouwd.
+- **Stijl versie 20:** gratis is rustig, betaald is het feest.
+- **Lijst Thijs:** plaatje Classic voor en na. **Olaf:** klus klaargezet, wacht op ja van Thijs.
+- **Volgende run:** ronde d bekijken, log-plaatje met NAT 20, gouden rand in thema's met licht geel; daarna skins v3 verder (beweging in beeld, thema's).
+

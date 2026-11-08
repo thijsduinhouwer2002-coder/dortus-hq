@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 19, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 20, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -67,6 +67,7 @@ Nooit:
 - Geen animatie die eeuwig loopt op elk element: alleen bij wijzen of op het moment zelf (stroom, rust). (Versie 17.)
 - Een betaalde skin is een eigen wereld: een eigen **vorm** (niet alleen een afgeronde pil), een eigen **letter**, een eigen **merkteken**, een eigen **beweging** bij het rollen en een eigen plek die helemaal van de skin is (bij Rollwright de Roll log). Twee betaalde skins mogen nooit in dezelfde kleurfamilie zitten als elkaar of als de gratis skin. Toets: zet ze naast elkaar in grijs; zie je dan nog drie verschillende dingen, dan klopt het. (Versie 19, Thijs 8 nov 12:34.)
 - Een eigen letter mag ingebakken worden als kleine woff2 met alleen de tekens die nodig zijn, met een open licentie (SIL OFL) en de licentietekst erbij. Cijfers altijd recht (lining), ook in een oude letter: een 1 mag nooit op een I lijken. (Versie 19.)
+- Het gratis deel is rustig, het betaalde deel is het feest. Gratis: platte vlakken in de kleuren van het thema, de belofte (goud bij de hoogste worp, rood bij de laagste, een kleine rechte stempel) alleen als rand en letterkleur, een korte beweging van ±250 ms. Geen gloed, glans, vonk, golf, klap of schaduw: die zijn alleen van de betaalde skins. Rustig is niet kaal: de gratis gebruiker ziet nog steeds meteen dat een 20 een 20 is. (Versie 20, Thijs 8 nov 14:06.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.
