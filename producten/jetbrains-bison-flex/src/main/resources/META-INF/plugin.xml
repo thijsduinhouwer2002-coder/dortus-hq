@@ -1,11 +1,49 @@
 <idea-plugin>
     <id>com.dortus.bisonflex</id>
-    <name>Bison &amp; Flex Support</name>
+    <name>Bison &amp; Flex</name>
     <vendor email="thijs@dortus.com" url="https://dortus.com">Dortus</vendor>
+    <!-- Winkeltekst uit commercie/jetbrains-bison-flex/indienen.md (Chris, 8 nov). CLion staat erin sinds de CLion-test groen is (run 42450473711). -->
     <description><![CDATA[
-    Language support for Bison/Yacc grammars (<code>.y</code>, <code>.yy</code>) and
-    Flex/Lex scanners (<code>.l</code>, <code>.ll</code>). Early version: file types and syntax highlighting with your color scheme.
+<p>Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.
+For <code>.y</code>, <code>.yy</code>, <code>.l</code> and <code>.ll</code> files in CLion and other JetBrains IDEs.
+Made for C and C++ developers who write parsers and lexers.</p>
+
+<p><b>Free</b></p>
+<ul>
+  <li>Bison, Yacc, Flex and Lex file types with their own icons</li>
+  <li>Highlighting for directives, tokens, rules, start conditions and regular expressions,
+      using your color scheme (light, dark and any theme)</li>
+  <li>C code in actions highlighted: keywords, strings, comments and
+      <code>$$</code>, <code>$1</code>, <code>@1</code></li>
+  <li>Syntax errors in the grammar and the scanner</li>
+  <li>Folding and a Structure view with rules, tokens and start conditions</li>
+  <li>Comment and uncomment with the usual shortcut</li>
+  <li>Go to definition, find usages and rename within a file
+      (renaming a token your scanner also uses is Pro)</li>
+</ul>
+
+<p><b>Pro</b> (free 30-day trial, then a paid license): your grammar and scanner, connected.</p>
+<ul>
+  <li>Jump from a token in the scanner (<code>.l</code>) to its <code>%token</code>
+      in the grammar (<code>.y</code>)</li>
+  <li>Find usages and rename tokens across grammar and scanner at once</li>
+  <li>Warnings for undefined symbols and start conditions, and for unused rules,
+      tokens and start conditions, with a quick fix to remove the unused ones</li>
+</ul>
+
+<p>The free features keep working after the trial. No sign-up with us, no telemetry.</p>
+
+<p>Another plugin for <code>.y</code> files installed? Disable it, so the IDE uses this one.</p>
+
+<p>Questions or a bug: <a href="mailto:thijs@dortus.com">thijs@dortus.com</a>.
+More at <a href="https://dortus.com/bison-flex/">dortus.com/bison-flex</a>.</p>
     ]]></description>
+    <change-notes><![CDATA[
+<p>First release. Bison/Yacc and Flex/Lex file types, highlighting, syntax errors,
+folding, Structure view, and go to definition, find usages and rename within a file.
+Pro: navigation, find usages and rename of tokens across grammar and scanner,
+and warnings for undefined and unused names, with a quick fix to remove unused ones.</p>
+    ]]></change-notes>
     <!-- Freemium: zonder licentie werkt het gratis deel, Pro vraagt PBISONFLEX (ontwerp.md, eis 8).
          release-date is voorlopig (vandaag of eerder: Plugin Verifier en Marketplace weigeren meer dan 5 dagen vooruit); op de lanceerdag zetten (architectuur.md). -->
     <product-descriptor code="PBISONFLEX" release-date="20261108" release-version="20261" optional="true"/>
