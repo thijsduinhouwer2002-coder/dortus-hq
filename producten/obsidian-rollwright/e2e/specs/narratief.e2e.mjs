@@ -101,7 +101,7 @@ for (const [naam, mode, view] of [["lezen", "preview", LEZEN], ["Live Preview", 
 			let log = "";
 			await browser.waitUntil(async () => {
 				log = await browser.execute((p) => document.querySelector(`${p} .rollwright-history-item .rollwright-history-result`)?.textContent ?? "", PANEEL);
-				return log.includes(na[0].tekst);
+				return log.trim() === na[0].tekst;
 			}, { timeout: 5000, timeoutMsg: "het logboek toonde de narratieve worp niet" }).catch((e) => {
 				console.log(`${naam} LOGBOEK: "${log}"`);
 				throw e;
