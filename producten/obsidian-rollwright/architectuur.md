@@ -5,6 +5,7 @@ Werk dit bij als je een bestand toevoegt, weghaalt of een taak verplaatst. Elk b
 ## src/
 
 - `main.ts`: de plugin zelf. Laadt en bewaart instellingen, opgeslagen formules, geschiedenis en bewaarde resultaten (`dice+:`), houdt resultaten per plek in de notitie vast zodat scrollen niet opnieuw gooit, en meldt weergave, Live Preview, geschiedenisvenster, opdrachten en instellingen aan bij Obsidian.
+- `plugin-data.ts`: wat in het databestand staat (`RollwrightSettings`, `HistoryEntry`), de standaardwaarden, de grenzen (200 worpen in het logboek, 2000 per plek, 500 `dice+:`) en `isKeptOutcome`, de controle op een bewaarde uitkomst. `main.ts` exporteert de typen en `KEPT_RESULTS_LIMIT` door, zodat niemand zijn import hoeft te veranderen. Afgesplitst op 8 nov (main.ts was 412 regels).
 
 - `result-listeners.ts`: per sleutel de widgets die een plek tonen; `remember` in `main.ts` meldt elke nieuwe uitkomst, zodat lezen en Live Preview na een klik gelijk blijven. Een widget meldt zich af via `component.register`.
 
