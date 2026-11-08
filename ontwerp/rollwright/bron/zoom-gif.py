@@ -7,7 +7,7 @@ frames, durs = [], []
 for i in range(g.n_frames):
     g.seek(i); frames.append(g.convert("RGB")); durs.append(g.info.get("duration", 80))
 last = frames[-1]; W, H = last.size
-S, OX, OY = 2.65, 120, 256
+S, OX, OY = 2.65, 127, 260
 crit = Image.open(crit_p).convert("RGB")
 mask = Image.new("L", crit.size, 0); mask.paste(255, (14, 14, crit.size[0]-14, crit.size[1]-14)); mask = mask.filter(ImageFilter.GaussianBlur(8))
 def zoomed(t):
@@ -15,7 +15,7 @@ def zoomed(t):
     x0 = 0 + (OX-0)*t; y0 = 0 + (OY-0)*t
     x1 = W + (OX+W/S - W)*t; y1 = H + (OY+H/S - H)*t
     return last.crop((round(x0), round(y0), round(x1), round(y1))).resize((W, H), Image.LANCZOS)
-eind = zoomed(1.0).copy(); eind.paste(crit, (round((W-crit.size[0])/2), round((H-crit.size[1])/2)), mask)
+eind = zoomed(1.0).copy(); eind.paste(crit, (round((W-crit.size[0])/2)+10, round((H-crit.size[1])/2)+10), mask)
 durs[-1] = 700  # eerst even rust op de NAT 20, dan inzoomen
 n = 12
 for k in range(1, n+1):
