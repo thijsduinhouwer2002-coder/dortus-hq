@@ -170,3 +170,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Filament: Packagist toont per pakket downloads per dag en maand (packagist.org/packages/<naam>/stats/all.json?average=monthly). Daarmee is bij elk PHP- of Laravel-ecosysteem binnen minuten te zien of het groeit; vergelijk altijd met laravel/framework zelf, want CI en AI-agents blazen alles op. Zelfde idee bij npm (api.npmjs.org/downloads/range/<periode>/<pakket>) voor JavaScript-ecosystemen.
 - Ideeën om zo snel te schiften: andere frameworks met een pluginlijst en betaalde plugins (Payload CMS, Directus Marketplace, Medusa, Strapi Market, Nuxt-modules, Tauri), steeds groei van het pakket zelf tegen zijn platform.
 - Herhaalmeting Filament rond 8 dec: `python3 data/filament-plugins-meet.py data/filament-plugins-<datum>.json` en `python3 data/filament-plugins-analyse.py <bestand>`; kijk naar maandcijfers en of eightynine Excel Import en Approvals v5 krijgen.
+
+## Nieuw, 8 nov 14:50 UTC (Noor)
+- Payload CMS (plugins, Payload 4 in beta, npm-downloads ±5,6 keer in een jaar): in onderzoek 8 nov 14:50 UTC
