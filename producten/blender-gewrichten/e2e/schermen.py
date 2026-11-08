@@ -334,6 +334,56 @@ def waaier():
         f"delta_rot_B={tuple(round(x, 4) for x in b.delta_rotation_euler) if b else None}")
 
 
+def voorbij_grens():
+    """Plaatje 6 (ronde l): zelfde beeld als de waaier, maar de pose 8 graden voorbij de gemeten grens,
+    zodat de botsende vlakken van deel A rood worden (het eigen gezicht van de beweegproef)."""
+    inst = bpy.context.scene.click_joints
+    a = next((o for o in bpy.context.scene.objects if o.get("cj_deel") == "A" and "cj_buig_graden" in o), None)
+    if a is None:
+        log("ROOD: geen deel A met bereik")
+        return
+    grens = a["cj_buig_graden"][int(inst.pose_richting)]
+    inst.pose_graden = min(45.0, round(grens + 8.0))
+    log(f"ROOD grens={grens} pose={inst.pose_graden} rood={len(a.get('cj_rood_vlakken', [])) // 2} vlakken")
+
+
+def plat_lid():
+    """Plaatje 7 (ronde l, eis b van Daan): plat, hoekig lid (16 x 12 mm; 12 x 8 is te dun voor een kogel, afgeschuinde hoeken) met een
+    kogelgewricht in rechte stand, opengewerkt beeld uit, zodat je de naad over vlakke zijden en hoeken ziet."""
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    bpy.context.view_layer.update()
+    figuren.mm_scene()
+    lid = figuren.balk("plat_lid", 16.0, 12.0, lengte=40.0)
+    lid.color = (0.8, 0.8, 0.8, 1.0)
+    figuren.maak_actief(lid)
+    figuren.zet_cursor((0, 0, 0), (1, 0, 0))
+    inst = bpy.context.scene.click_joints
+    inst.pose_graden = 0.0
+    inst.speling_mm, inst.as_bron, inst.kogel_auto = 0.2, "CURSOR", True
+    inst.uit_elkaar = False
+    inst.toon_bereik = False
+    uitslag = bpy.ops.click_joints.plaats()
+    bpy.context.view_layer.update()
+    delen = [o for o in bpy.context.scene.objects if o.get("cj_deel")]
+    a = next((d for d in delen if d.get("cj_deel") == "A"), None)
+    log(f"PLAT plaats: {uitslag}, {len(delen)} delen, kogel {inst.kogel_mm} mm, passing "
+        f"{a.get('cj_passing') if a else None}, wand {a.get('cj_wand_mm') if a else None}, "
+        f"bereik {list(a.get('cj_buig_graden', [])) if a else None}")
+    weergave()
+    venster, gebied, _ = zijbalk()
+    if not gebied or a is None:
+        return
+    rv3d = gebied.spaces.active.region_3d
+    richting = Vector((0.35, 0.75, -0.55)).normalized()  # schuin van boven op de brede zijde en de hoek
+    rv3d.view_perspective = "PERSP"
+    rv3d.view_rotation = richting.to_track_quat("-Z", "Y")
+    rv3d.view_distance = 30.0
+    rechts = rv3d.view_rotation @ Vector((1.0, 0, 0))
+    rv3d.view_location = Vector(a["cj_centrum"]) + rechts * 3.0
+    gebied.tag_redraw()
+
+
 def stap():
     toestand["n"] += 1
     n = toestand["n"]
@@ -380,6 +430,18 @@ def stap():
         return 1.5
     if n == 11:
         schiet("5-waaier.png")
+        return 0.5
+    if n == 12:
+        voorbij_grens()
+        return 1.5
+    if n == 13:
+        schiet("6-rood.png")
+        return 0.5
+    if n == 14:
+        plat_lid()
+        return 1.5
+    if n == 15:
+        schiet("7-plat.png")
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
