@@ -31,7 +31,7 @@ jobs:
       - uses: actions/cache/restore@v4
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-
       - name: e2e (opnieuw alleen bij een mislukte download)
         working-directory: producten/obsidian-rollwright/e2e
@@ -54,7 +54,7 @@ jobs:
         if: always()
         with:
           path: producten/obsidian-rollwright/e2e/.obsidian-cache
-          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}
+          key: obsidian-${{ hashFiles('producten/obsidian-rollwright/e2e/wdio.conf.mjs') }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
