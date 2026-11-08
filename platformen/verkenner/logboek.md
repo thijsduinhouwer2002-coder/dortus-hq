@@ -527,3 +527,7 @@ Nieuwste blok onderaan.
 - Uitkomst: winkel leeft (±450 nieuw per maand, 5% van het nieuwe betaalde werk in de top 300), maar verkoop onzichtbaar, echt geld pas na certificering en het geld zit in 3D-content, niet in software. Pluginmarkt 61 stuks.
 - Beslissing: nee voor nu, cijfer 3. Waarom: geld niet aangetoond en wat wij kunnen bouwen (plugins) heeft hier bijna geen markt. Controleur akkoord, 4 correcties verwerkt (ratings betaald apart, verkoopprijs naast normale prijs, top 300 is geen geld, plugins van maar 6 makers).
 - Les: een veld in de API dat altijd leeg is, is een bewuste keuze van de winkel; noteer het en ga door.
+- Tweede platform: Roblox UGC (avatar-items), zelf toegevoegd, om 17:47 op "in onderzoek" gezet en gepusht. Open catalogus-API met datum, prijs en favorieten, geen verkopen. Lijst nieuwste stopt bij 1.000, daarom 60 willekeurige makers gevolgd.
+- Uitkomst: nee voor nu, cijfer 3. Waarom: extreem druk, bestsellers oud werk, centen per verkoop, ID van Thijs nodig, en het is 3D-mode in plaats van software. Controleur akkoord, 4 correcties verwerkt (cohort is ondergrens door afkapping op 480, lijst niet schoon op datum, mediaanprijs betaald 90, voorschot niet terugbetaalbaar).
+- Les: bij een script met een maximum aantal pagina's altijd nagaan wie dat maximum raakt voor je telt.
+- Run afgesloten.
