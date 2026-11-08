@@ -9,6 +9,7 @@ from xml.sax.saxutils import escape
 
 import bmesh
 import bpy
+from mathutils import Matrix
 
 TYPES = ('<?xml version="1.0" encoding="UTF-8"?>\n'
          '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
@@ -33,10 +34,13 @@ def driehoeken(ob, schaal):
     bm = bmesh.new()
     try:
         bm.from_mesh(me)
+        m = ob.matrix_world
+        # Eerst naar mm, dan pas driehoeken: in een scene in meters zijn de vlakken 1000 keer kleiner en gaf
+        # BEAUTY nog 8 dubbele randen (vaste kleine grenzen in Blender); in mm 0 (GEZIEN, ronde h).
+        bm.transform(Matrix.Scale(schaal, 4) @ m)
         bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="BEAUTY")
         bm.verts.index_update()
-        m = ob.matrix_world
-        punten = [tuple(c * schaal for c in (m @ v.co)) for v in bm.verts]
+        punten = [tuple(v.co) for v in bm.verts]
         om = m.determinant() < 0
         lijst = []
         for f in bm.faces:
