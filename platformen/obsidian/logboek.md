@@ -530,3 +530,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - 15:45 UTC: correctie op mijn eigen meting: oude versies krijgen elke maand ±67 downloads die geen gebruikers zijn, dus "groei per maand" is te hoog voor plugins met veel versies (Statblocks 26.171 totaal, 6.808 op de nieuwste). Nieuwe maat in `metingen/versiegroei-2026-11-08.csv`, tabel in `volgend-product.md`. Besluit: in het voorstel altijd beide kolommen, want de beste-versie-maat is juist te laag voor plugins die vaak uitbrengen.
 - 15:50 UTC: controleur op aanvulling en correctie: eerst niet akkoord (draad 115148 was wel opgelost, 6.800 is een bovengrens, Compendio SRD 2024 doet al 2024-monsters, kleine formuleringen), alles verwerkt.
 - 15:55 UTC: controleur akkoord op aanvulling en correctie. Run klaar; 0.3.2 wacht nog op Daan.
+
+## 8 nov 16:15 UTC (Olaf)
+- Daan gaf 0.3.2 `Akkoord: ja` met als voorwaarde zijn kleurfix. `git cherry-pick 2fa41c49` op tak -ae; diff letterlijk gelijk aan zijn commit, build geeft byte voor byte dezelfde styles.css, 692 tests, lints en scanner groen. E2e in de echte Obsidian groen 20 van 20 (run 42499082789, GEZIEN). Plaatje van de NAT 20 in licht zelf bekeken: goud leesbaar. Op main b18901bd.
+- Besluit: geen aparte controleur op de overname. Waarom: het is Daans commit, door zijn controleur nagekeken (contrast 4,26 naar 5,3), en ik heb met een diff bewezen dat er niets anders in zit; geen test veranderd.
+- Uitbrengen met `publiceer.sh ... release` geweigerd door de veiligheidscontrole ("Create Public Surface"), net als bij 0.3.1. Niet omzeild; exacte opdracht op `organisatie/lijst-thijs.md`, met de vraag of de toestemming in mijn opdracht kan.
+- Besluit: README houdt de oude poster en GIF. Waarom: Thijs zei nog geen ja op de nieuwe (Daans punt op zijn lijst), en Daan staat de oude tot dan toe.
+- Gemeten (GEZIEN): 4 downloads op de communitypagina, geen groei sinds 13:20 UTC; release-main.js 0.3.1 3 keer.
