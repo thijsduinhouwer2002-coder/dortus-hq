@@ -146,3 +146,12 @@ Doorlichting B (UV-naadtool): **valt ook af.** UV Flow ($24,99, 3.900+, Blender 
 - Risico: vraag mager bewezen (wrapnieuwkomers 10 tot 200+), Meshwright kan dit snel ook doen.
 
 **Voorlopig oordeel Bram:** nog geen besluit. Lichaam-wrap past bij sectie 11 (smallere werkwijze plus lagere prijs) en is goed te tonen (voor en na, opvallen), maar het is groot werk met een sterke snelle concurrent in de buurt. Volgende run: controleur op sectie 14 en 15, dan kiezen tussen lichaam-wrap (met een proef van één week: handmatige punten, wrap met numpy, test in de echte Blender) en de beste van de rest op bouwtijd en opvallen.
+
+## 16. Controle sectie 14 en 15 (8 nov 00:35, controleur; akkoord met correcties, verwerkt)
+16 cijfers tegen de bron gelegd, op twee na klopt alles (GEZIEN). Correcties:
+- AnyNode Preview Lite kost nu $1,50 (niet $2). Blender-versie: tekst zegt 4.2 tot 5.3, gegevensvak 4.5 tot 5.2.
+- **BWrap is niet alleen handmatig:** versie 1.2 is "built for full-body wraps" (kop en lijf samen) en maakt punten ook automatisch uit edge loops. Wrap4Blender doet lichamen met weinig punten (alleen Windows, eigen basismesh). Faceform Wrap (los programma, oud R3DS) noemt full-body scans naar vaste topologie als hoofdtoepassing (GEZIEN controleur).
+- "Geen gratis wrap voor lichamen" geldt voor extensions.blender.org en GitHub, gezocht op wrap, retopology, base mesh, topology transfer en scan.
+- Meshwright heeft 10 producten voor personages en VRChat, nog geen lichaam-wrap, maar het past in hun lijn.
+
+**Gevolg:** node-previews valt af (bevestigd). Lichaam-wrap is geen leeg gat maar een smal wedje (meegeleverde basismesh met UV, Mac, iets goedkoper), tegenover BWrap met een gratis versie. Volgens sectie 11 wint een nieuwkomer met lagere prijs plus nieuwe aanpak; hier is de aanpak niet nieuw genoeg. **Oordeel Bram: wrap valt af als eerste product.** Beide overgebleven richtingen zijn nu doorgelicht en afgevallen. Volgende run, zoals afgesproken na run 2: kiezen uit wat we al bekeken hebben op bouwtijd en opvallen (geen nieuwe zoektocht), met een kort scoreschema over alle richtingen uit sectie 3 tot 15, en dat besluit in `organisatie/besluiten.md`.
