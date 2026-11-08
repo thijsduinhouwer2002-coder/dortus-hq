@@ -41,7 +41,7 @@ jobs:
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
-          for poging in 1 2 3 4 5; do
+          for poging in 1 2 3 4 5 6 7 8 9 10; do
             rm -rf /tmp/s
             git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
             D="/tmp/s/rollwright/$NAAM"
@@ -49,7 +49,7 @@ jobs:
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd /tmp/s && git add -A && git commit -q -m "Schermen rollwright/$NAAM run ${GITHUB_RUN_ID}" || exit 0
             if git push -q origin schermen; then cd - >/dev/null; break; fi
-            cd - >/dev/null; sleep $((poging * 3))
+            cd - >/dev/null; sleep $((poging * 3 + RANDOM % 7))
           done
           echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/rollwright/$NAAM"
           ls "$SRC"
