@@ -103,12 +103,16 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 			await thema("", false);
 			await open(NOTE, "preview");
 			await zoom(1.35);
+			// Begin zonder goud: de crit is het slot van de GIF, niet het begin (eerste opname run 42442883775).
+			await zetVast(0.35); await klik("Wisdom"); await browser.pause(800);
+			await zetVast(0.3); await klik("Damage"); await browser.pause(800);
+			await losKans();
 			await muisWeg();
 			console.log("KADER gif:", JSON.stringify(await kader()));
 			let f = 0;
 			const frame = async (wat) => { f += 1; const naam = `gif-${String(f).padStart(3, "0")}-${wat}`; await save(naam); console.log("FRAME", naam, Date.now()); };
 			await frame("start");
-			for (const [woord, kans] of [["Initiative", 0.45], ["Damage", 0.85], ["Wisdom", "crit"]]) {
+			for (const [woord, kans] of [["Initiative", 0.45], ["Damage", 0.7], ["Wisdom", "crit"]]) {
 				// De muis op het token, zoals een echte klik (hover-stijl in beeld).
 				await browser.execute((w) => {
 					const r = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
