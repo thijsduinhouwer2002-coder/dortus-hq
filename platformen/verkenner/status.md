@@ -43,3 +43,4 @@
 - 7 nov, run 23:32: Anki (add-ons via AnkiWeb) zelf gemeten (alle 3.835 add-ons via open endpoints). Nee voor nu, cijfer 4. Controleur akkoord, 14 van 14 live gelijk.
 - 8 nov, run 02:33: Facer (2, nee, verkopen alleen op uitnodiging). Google Play Wear OS-wijzerplaten zelf toegevoegd en gemeten (4.084 wijzerplaten met exacte installs): nee voor nu, cijfer 4; nieuwe makers mediaan ±9 installs per betaalde wijzerplaat. Controleur eerst niet akkoord, correcties verwerkt. Samsung Galaxy Themes voorwerk: nee, makers alleen via een gesloten wervingsronde. Ook icon packs op Google Play gemeten (990 packs): nee, cijfer 3.
 - 8 nov, run 03:33: Odoo Apps Store zelf toegevoegd en gemeten (4.998 betaalde modules, 900 modulepagina's). Nee, cijfer 3. Controleur akkoord, 30 van 30 live gelijk.
+- 8 nov, run 04:32: Microsoft Store (Windows-apps) zelf toegevoegd en gemeten (steekproef 4.000 pagina's). Nee voor nu, cijfer 3. Controleur akkoord met de kern, 4 correcties verwerkt.

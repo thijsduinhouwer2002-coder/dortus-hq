@@ -392,3 +392,12 @@ Nieuwste blok onderaan.
 - Controleur akkoord: 30 van 30 live gelijk plus 80 kaartjes. Correcties verwerkt: groep heet "betaalde modules met een 19.0-versie", aankopen zijn levensduur over alle versies, lichting is 2 tot 5 maanden oud, 1,1% zonder prijs.
 - Les: bij winkels zonder datum op de pagina kan een oplopend intern ID als klok dienen; ijk het met een bron met datum (hier OCA-merges op GitHub). Let op: makers zetten een module vaak tegelijk voor veel versies online, dus kijk naar het laagste ID over alle versies.
 - 04:02: Adobe Exchange opgepakt als volgende, maar robots.txt verbiedt automatisch lezen zonder toestemming van Adobe. Niet gemeten, notitie in kandidaten.md. Run afgesloten na ±30 minuten: een nieuwe grondige meting past niet meer in de werktijd.
+
+## 8 nov run 04:32 (UTC)
+- Begin: lokale main liep scheef met GitHub (72 tegen 127 commits). Niet weggegooid; gewerkt op een nieuwe tak vanaf origin/main en daarvandaan naar main gepusht.
+- Platform: Microsoft Store (Windows-apps), zelf toegevoegd. Reden: nog niet onderzocht, Store rekent af en 0% afdracht met eigen betaling, en past technisch goed bij ons.
+- Gemeten: sitemap (157.032 pagina's), 4.000 willekeurige pagina's met datum, VS-ratings, prijs en add-ons. Een onderzoeker zocht regels, geldbewijs en een ijkpunt voor ratings per install (KDE: VS ±0,3 tot 0,5 per 1.000).
+- Uitkomst: de winkel toont onder 5 ratings per land 0. Betaalde apps mei t/m aug 2026: 0 van 104 met 5+. Geen kleine maker met openbare omzet. Sinds juli 2026 een golf van ±11.000 nieuwe apps per maand.
+- Beslissing: nee voor nu, cijfer 3.
+- Controleur akkoord met de kern, 15 van 15 live gelijk. Correcties verwerkt: 433 mislukte pagina's (stonden als 0) opnieuw opgehaald, games eruit, schatting per maand met juiste noemer, label "onder 5".
+- Les: haal niet met 6 tegelijk, dan geeft apps.microsoft.com lege pagina's van 1.484 bytes. Controleer altijd of een kernveld er is, niet alleen de lengte. En ratings per land lees je met de eigen taal van dat land (hl en gl samen).
