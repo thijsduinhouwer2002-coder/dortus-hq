@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- Lagen voor het filmpje van Click Joints (Daan, 8 nov). Render met lagen.py: ?laag=bg|rand|masker|kop1..kop4|eind -->
+<html><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent}
+body{font-family:Inter,sans-serif;color:#F1F3F7;position:relative}
+.bg{position:absolute;inset:0;
+ background:radial-gradient(900px 700px at 70% 60%, rgba(0,195,137,.14), transparent 70%),
+            radial-gradient(700px 500px at 5% 100%, rgba(255,255,255,.05), transparent 70%),
+            linear-gradient(160deg,#23262D 0%,#121317 100%)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1.2px,transparent 1.2px);background-size:28px 28px}
+/* kaart met het scherm uit Blender: x 110, y 236, 1700 x 784 */
+.kaart{position:absolute;left:110px;top:236px;width:1700px;height:784px;border-radius:22px}
+.schaduw{box-shadow:0 50px 100px -30px rgba(0,0,0,.85);background:#3D3D3D}
+.ring{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12)}
+.masker{background:#fff}
+.brand{position:absolute;left:110px;top:58px;display:flex;align-items:center;gap:14px;font-weight:600;font-size:24px;color:#C9CDD8}
+.brand img{width:44px;height:44px}
+h1{position:absolute;left:110px;top:118px;font-weight:800;font-size:72px;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+em{font-style:normal;color:#3BE6B0} i{font-style:normal;color:#FF6B6B}
+.stap{position:absolute;right:110px;top:140px;font-size:24px;font-weight:600;color:#7F8596;letter-spacing:.02em}
+.stap b{color:#E3E6EC}
+/* eindkaart */
+.eind{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.eind img{width:150px;height:150px;border-radius:32px;box-shadow:0 30px 70px -20px rgba(0,0,0,.8)}
+.eind .naam{margin-top:34px;font-size:40px;font-weight:600;color:#C9CDD8}
+.eind h2{margin-top:22px;font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.03em}
+.eind .knop{margin-top:56px;display:inline-flex;align-items:center;gap:14px;height:76px;padding:0 38px;border-radius:16px;
+ font-size:32px;font-weight:600;color:#06231A;background:#3BE6B0;box-shadow:0 20px 50px -15px rgba(59,230,176,.55)}
+.eind .klein{margin-top:30px;font-size:26px;color:#9DA2B0}
+.tag{position:absolute;right:110px;bottom:58px;font-size:24px;color:#9DA2B0}
+.voet{position:absolute;left:110px;bottom:58px;font-size:24px;color:#9DA2B0}
+</style></head><body>
+<script>
+const laag=new URLSearchParams(location.search).get('laag')||'bg';
+const icoon='../../icoon.png';
+const koppen={
+ kop1:['Click where it <em>should bend</em>.','1'],
+ kop2:['One click. A ball joint that <em>fits</em>.','2'],
+ kop3:['Drag the bend. <i>Red</i> means too far.','3'],
+ kop4:['Watertight parts. <em>STL or 3MF.</em>','3']};
+const stappen=['Place','Joint','Fit and export']; // gelijk aan de kopjes in het paneel
+let h='';
+if(laag==='bg') h='<div class="bg"></div><div class="dots"></div><div class="kaart schaduw"></div>';
+else if(laag==='rand') h='<div class="kaart ring"></div>';
+else if(laag==='masker') h='<div style="position:absolute;inset:0;background:#000"></div><div class="kaart masker"></div>';
+else if(laag==='eind') h='<div class="bg"></div><div class="dots"></div><div class="eind"><img src="'+icoon+'"><div class="naam">Click Joints for Blender</div><h2>See how far it <em>bends</em>,<br>before you print.</h2><div class="knop">Free on Blender Extensions</div><div class="klein">Ball and pin joints · STL and 3MF · Blender 4.2 to 5.2</div></div><div class="tag">Made by Thijs at Dortus</div>';
+else { const [t,s]=koppen[laag];
+ const st=stappen.map((n,k)=> (String(k+1)===s?'<b>'+(k+1)+' '+n+'</b>':(k+1)+' '+n)).join('&nbsp;&nbsp;·&nbsp;&nbsp;');
+ h='<div class="brand"><img src="'+icoon+'">Click Joints</div><h1>'+t+'</h1><div class="stap">'+st+'</div>'; }
+document.body.innerHTML=h;
+</script>
+</body></html>
