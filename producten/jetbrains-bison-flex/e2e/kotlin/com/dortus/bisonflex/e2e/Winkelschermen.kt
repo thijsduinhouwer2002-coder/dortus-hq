@@ -118,9 +118,21 @@ private fun IdeTest.winkelHernoemen(d: Driver, naam: String, diagnose: Meldingen
     }
     val nieuwVenster = { actiefVenster().let { it != null && it != ide }.also { if (it) venster = actiefVenster() } }
     if (!wacht(8, nieuwVenster)) {
-        println("DORTUS-E2E [$naam] winkel: geen hernoemvenster na RenameElement, nu Shift+F6 (xdotool)")
-        toets("shift+F6")
-        wacht(10, nieuwVenster)
+        // Run 42457782755: NUM in calc.l wijst naar calc.y en calc.yy, de IDE toont eerst een keuzelijstje in het
+        // IDE-venster (zelfde als bij Alt+F7). Enter kiest de eerste; anders Shift+F6 op %token NUM in calc.y.
+        println("DORTUS-E2E [$naam] winkel: geen hernoemvenster na RenameElement, keuzelijst? Enter")
+        schermHeel("winkel-hernoem-keuze.png")
+        toets("Return")
+        if (!wacht(10, nieuwVenster)) {
+            println("DORTUS-E2E [$naam] winkel: nog geen venster, nu Shift+F6 op %token NUM in calc.y")
+            toets("Escape")
+            openFile("calc.y")
+            pauze()
+            editorFocus()
+            cursorOp("%token NUM", 8)
+            try { invokeAction("RenameElement", now = false) } catch (e: Throwable) { println("DORTUS-E2E [$naam] winkel: ${e.javaClass.simpleName}") }
+            wacht(10, nieuwVenster)
+        }
     }
     println("DORTUS-E2E [$naam] winkel: hernoemvenster ${venster ?: "niet gezien"} '${vensterNaam(venster)}'")
     assertTrue(venster != null, "hernoemvenster bij Shift+F6 op NUM in calc.l met Pro ($naam)")
@@ -138,6 +150,8 @@ private fun IdeTest.winkelHernoemen(d: Driver, naam: String, diagnose: Meldingen
         for (i in 1..3) { if (actiefVenster() == ide) break; toets("Escape"); Thread.sleep(1_500) }
     }
     Thread.sleep(2_000)
+    openFile("calc.l")
+    Thread.sleep(1_000)
     val tekstL = tekstOpen()
     println("DORTUS-E2E [$naam] winkel: calc.l na hernoemen: ${tekstL.lines().filter { "NUM" in it }.map { it.trim() }}")
     assertTrue("return NUMBER;" in tekstL, "return NUMBER; in calc.l na hernoemen met Pro ($naam)")
@@ -232,6 +246,9 @@ private fun IdeTest.winkelAllePlekken(d: Driver, naam: String) = with(d) {
     val ide = actiefVenster()
     try {
         invokeAction("FindUsages", now = false)
+        Thread.sleep(4_000)
+        // Keuzelijst "Find Usages Of" (calc.y en calc.yy, run 42457782755): Enter kiest de eerste, dan het Find-paneel.
+        toets("Return")
         Thread.sleep(6_000)
         val v = actiefVenster()
         println("DORTUS-E2E [$naam] winkel: na Alt+F7 actief venster $v '${vensterNaam(v)}' (IDE $ide)")
