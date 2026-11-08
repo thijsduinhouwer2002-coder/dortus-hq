@@ -101,10 +101,14 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 			await app.vault.append(file, "\nMy own line.\n");
 			return app.vault.read(file);
 		}, PAD);
+		// Eerst een andere notitie actief, zodat het wachten hieronder echt bewijst dat het commando opent.
 		await browser.executeObsidian(async ({ app }) => {
-			app.workspace.getLeaf("tab");
-			app.commands.executeCommandById("rollwright:create-example-note");
+			const leaf = app.workspace.getLeaf(false);
+			await leaf.openFile(app.vault.getAbstractFileByPath("Tabellen.md"));
+			app.workspace.setActiveLeaf(leaf, { focus: true });
 		});
+		await browser.waitUntil(async () => (await actieveNotitie()) === "Tabellen.md", { timeout: 8000, timeoutMsg: "Tabellen.md niet actief" });
+		await browser.executeObsidian(({ app }) => app.commands.executeCommandById("rollwright:create-example-note"));
 		await browser.waitUntil(async () => (await actieveNotitie()) === PAD, { timeout: 8000, timeoutMsg: "het commando opende de voorbeeldnotitie niet" });
 		const na = await browser.executeObsidian(async ({ app }) => ({
 			tekst: await app.vault.read(app.vault.getAbstractFileByPath("Rollwright example.md")),

@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { EXAMPLE_NOTE_NAME, exampleNoteText, openExampleNote, showExampleNote } from "../src/ui/example-note";
 import { formulaFromCode } from "../src/rollers/inline";
 import { RollHistoryView } from "../src/ui/history-view";
+import { rollSpec } from "../src/rollers/run";
 import { notices } from "./obsidian-stub";
 
 // Ontwerp-v2 klus 6 (Daan, punt 5): een voorbeeldnotitie via een knop in het lege logboek en een commando.
@@ -80,6 +81,23 @@ describe("the example note", () => {
 		expect(text).toContain("[[Rollwright example^rumours]]");
 		expect(text).toMatch(/\n\^guests\n/);
 		expect(text).toMatch(/\n\^rumours\n/);
+	});
+});
+
+describe("the tables in the example note", () => {
+	it("roll on the lists at the bottom of the same note", async () => {
+		const note = { path: "Rollwright example.md", markdown: exampleNoteText() };
+		const context = {
+			readNote: async (link: string) => (link === EXAMPLE_NOTE_NAME ? note : null),
+			notesWithTag: async () => [],
+			sourcePath: note.path,
+		};
+		const guests = await rollSpec("[[Rollwright example^guests]]", context);
+		expect(guests.kind).toBe("list");
+		expect(["A dwarf counting her coins twice", "Two elves arguing over a map", "A bard with one string left", "A sleeping knight in muddy armour"]).toContain(guests.text);
+		const rumours = await rollSpec("[[Rollwright example^rumours]]", context);
+		expect(rumours.kind).toBe("list");
+		expect(rumours.text).toMatch(/^"The (bridge|old mine)|^"Someone/);
 	});
 });
 
