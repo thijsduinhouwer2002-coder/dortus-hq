@@ -586,3 +586,5 @@ Nieuwste blok onderaan.
 - Bijvangst: 3D-Agent (AI-plugin voor Blender, $6.733 in 30 dagen) en Discord-bots met geld. Beide op taken.md voor volgende runs.
 - Les: een trefwoord zegt niet of een product óp een platform draait; laat de controleur per treffer met geld nalezen.
 - Run afgesloten.
+- Tweede onderdeel (tijd over): productkans Blender, AI-plugins. Om 21:58 op "in onderzoek" gezet en gepusht. Uitkomst: nee, cijfer 3. Waarom: de enige die verdient (3D-Agent, $6.733 in 30 dagen) is een SaaS met eigen AI-tegoed, gratis blender-mcp is sterk, en op Superhive verkoopt geen enkele AI-copiloot (Sovereign AI onder 10). Zie kansen/blender-ai-plugins.md. Geen bericht aan Bram of Olaf. Niet apart nagekeken omdat het advies nee is.
+- Run afgesloten.
