@@ -30,7 +30,7 @@ canvas{position:absolute;inset:0}
 #end .s{position:absolute;top:340px;left:0;right:0;font:italic 40px Fell;color:#ecd3a0}
 #end .p{position:absolute;top:420px;left:50%;transform:translateX(-50%);padding:14px 30px;border-radius:999px;background:linear-gradient(#f5cf72,#d9a441);color:#2a1a05;font:800 22px Cin;letter-spacing:.06em;box-shadow:0 10px 30px rgba(0,0,0,.6)}
 #end .m{position:absolute;bottom:44px;left:0;right:0;font:italic 24px Fell;color:#cbb592}
-</style></head><body><div id="st">
+#sk{-webkit-mask:linear-gradient(90deg,#000 80%,transparent 99%)}</style></head><body><div id="st">
 <div id="bg"></div><div id="skinbg"></div><div id="bgv"></div><div id="rays"></div><div id="flash"></div><canvas id="c" width="1280" height="720"></canvas>
 <div class="win" id="hook"><img id="hi"></div>
 <div class="win" id="w"><img id="wi"></div>
@@ -85,9 +85,9 @@ function render(t){
   // camera: base fits window; push in on focus
   let sc=Math.min(1180/IW,640/IH),cx=IW/2,cy=IH/2;
   const f=T.focus.find(q=>t>=q.a&&t<q.b);
-  let z=0;if(f){z=ease(ph(t,f.a,f.a+.5))*(1-ease(ph(t,f.b-.4,f.b)));const k=tok(f.r,f.i);if(k){cx=cx+(k.x/ (window.DPR||1)+k.w/2/(window.DPR||1)-cx)*z;cy=cy+(k.y/(window.DPR||1)-cy)*z*.8}}
+  let z=0;if(f){z=ease(ph(t,f.a,f.a+.5))*(1-ease(ph(t,f.b-.4,f.b)));const k=tok(f.r,f.i);if(k){cx=cx+(k.x/ (window.DPR||1)+k.w/2/(window.DPR||1)-cx)*z;cy=cy+(k.y/(window.DPR||1)-cy)*z}}
   sc=sc*(1+z*(f?f.zoom:0));
-  const vw=Math.min(IW*sc,1180+z*100),vh=Math.min(IH*sc,640+z*80);
+  const vw=Math.min(IW*sc,1180),vh=Math.min(IH*sc,600);
   const sx=cl(cx-vw/sc/2,0,IW-vw/sc),sy=cl(cy-vh/sc/2,0,IH-vh/sc);
   const fly=1-out(a);
   place($('w'),$('wi'),file,640-vw/2,360-vh/2+10+fly*120,vw,vh,sx,sy,sc,a);
