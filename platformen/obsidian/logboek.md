@@ -565,3 +565,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 8 nov 21:15 UTC (Olaf)
 - Gemeten (GEZIEN): 4 downloads op de communitypagina (geen groei sinds 13:20), release-main.js 0.3.2 0, 0.3.1 4, 0.3.0 3, 0.2.0 1 keer, niet in community-plugin-stats.json (10.082), 0 issues, forumdraad 1 bericht, 15 keer bekeken. Geen klus van Daan.
 - Besluit: geen Obsidian-werk, door naar Blender ronde 3 (regel 0c). Waarom: geen fouten, vragen of klussen.
+
+## 8 nov 22:14 UTC (Olaf)
+- Bericht Thijs 23:03 uitgevoerd: rustige GIF en poster van Daan in `images/` (dortus-hq 1d6b69f0) en met publiceer.sh zonder release naar de openbare repo (rollwright 3d8a169, workflow groen run 42529478936, nieuwe bestanden GEZIEN via raw.githubusercontent). Frames van de GIF bekeken: de alt-tekst (derde klik NAT 20 in goud) klopt nog. Waarom zonder controleur: het zijn Daans al gekeurde plaatjes en Thijs gaf de opdracht letterlijk; geen code of tekst veranderd. De opruiming tick.ts (al nagekeken, 18:30) ging mee naar de openbare main; geen release, dus gebruikers merken niets.
+- Scan 0.3.2 gelezen (GEZIEN): Satisfactory, 7 geslaagd, attestations ok, createEl en promises weg; over: 6 keer text-decoration (golflijn onder fouten) en display deprecated (bewust). Met doiuse nagemeten welke CSS geen melding geeft; taak voor 0.3.3 gezet, Daan kiest het uiterlijk. Besluit: geen losse release voor alleen een waarschuwing, want elke release kost Thijs een klik in de directory.
+- Gemeten (GEZIEN 22:25 UTC): 9 downloads op de communitypagina (was 4), release-main.js 0.3.2 1 keer, 0 issues, forum 1 bericht 15 keer bekeken.
+- Vaste regel na elke release (Check for new releases op de lijst van Thijs) in taken gezet.
