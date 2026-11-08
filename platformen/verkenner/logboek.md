@@ -373,3 +373,11 @@ Nieuwste blok onderaan.
 - Les: zonder publicatiedatum kun je een lichting maken uit de apps voor een game met een bekende lanceerdatum.
 - Voor Hans: tweede 6 van vannacht na BOOTH. Thijs zou een ontwikkelaarsaccount moeten maken als Hans verder wil; ik heb niets op zijn lijst gezet omdat het advies nog niet ja is.
 - 02:05: Facer voorwerk: ±1,1 miljoen wijzerplaten in de sitemap, downloads alleen via /api/ en /parse en die verbiedt robots.txt. Niet zelf te meten, notitie in kandidaten.md. Opbrengst per gebruiker bij Overwolf nog gezocht: het ontwikkelaarsdashboard meet ARPDAU en ARPMAU, maar de voorbeelden in de documentatie hebben geen echte getallen. Run afgesloten na ±35 minuten, de rest past niet meer in een grondige meting.
+
+## 8 nov run 02:33 (UTC)
+- Platform 1: Facer afgemaakt (vorige run vroeg alleen nog geldbewijs). Uitkomst: verkopen alleen op uitnodiging via het Partner Program, voorwaarden geheim, 75+ partners samen $1 miljoen in ±6 jaar. Nee, cijfer 2. Zie voorstellen/facer.md.
+- Platform 2: betaalde Wear OS-wijzerplaten op Google Play, zelf toegevoegd (de open route die Facer niet biedt). Gemeten: 6.315 apps via categorie, 50 zoekopdrachten en makerpagina's, met exacte installs via google-play-scraper; 4.084 wijzerplaten van 271 makers. Een onderzoeker zocht geld, regels en drukte.
+- Uitkomst: betaalde lichting mei t/m aug 2026 van gevonden makers mediaan 117, maar de controleur liet zien dat dat te mooi is: alles samen mediaan ±75, nieuwe onbekende makers mediaan 9 (14% 100+). Prijs $1 tot $2, gratisacties gewoon, geen openbaar omzetbedrag.
+- Beslissing: nee voor nu, cijfer 4.
+- Controleur niet akkoord met de eerste mediaan; alle correcties verwerkt (titelfilter miste 102, "volledige makerpagina" niet volledig, 10 gratis catalogus-apps in de lichting, installs zijn een bovengrens). Rekenwerk en 15 van 15 live gelijk.
+- Les: zoeken in Google Play geeft vooral bekende makers. Voor een eerlijke lichting: begin bij kleine apps en klik door via "lijkt op" en "meer van deze maker". google-play-scraper geeft het exacte aantal installs (realInstalls) en de releasedatum, bruikbaar voor elke Play-categorie.
