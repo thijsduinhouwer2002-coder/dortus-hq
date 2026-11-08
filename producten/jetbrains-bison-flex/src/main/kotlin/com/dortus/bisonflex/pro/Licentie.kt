@@ -211,14 +211,13 @@ object StempelControle {
             if (!sig.verify(base64.decode(handtekeningBase64.toByteArray(Charsets.UTF_8)))) return false
             // zoals het voorbeeld: de licentie-id moet in de ondertekende licentie staan ('least-effort', geen JSON-lezer)
             val licentie = String(licentieBytes, Charsets.UTF_8)
-            licentie.contains("\"licenseId\":\"$licentieId\"") && PRODUCTCODE_IN_LICENTIE.containsMatchIn(licentie)
+            // geen eigen eis op de productcode: de IDE geeft de stempel al alleen voor PBISONFLEX, en een extra eis die we niet
+            // met een echte sleutel kunnen toetsen zou een betalende klant kunnen blokkeren (controleur 8 nov)
+            licentie.contains("\"licenseId\":\"$licentieId\"")
         } catch (e: Throwable) {
             false
         }
     }
-
-    /** Eigen toevoeging: de licentie moet voor ons product zijn. */
-    private val PRODUCTCODE_IN_LICENTIE = Regex("\"code\"\\s*:\\s*\"${Licentie.PRODUCTCODE}\"")
 
     /** Geeft het tijdstempel terug als de stempel geldig is, anders null. */
     private fun isServerStempelGeldig(serverStempel: String, nu: Long): Long? {

@@ -83,8 +83,9 @@ class StempelTest : TestCase() {
         assertFalse(StempelControle.isGeldig(keyStempel(handtekening = sig)))
     }
 
-    fun testAndereProductcodeIsGeen() {
-        assertFalse(StempelControle.isGeldig(keyStempel(tekst = licentie(code = "PMAKECOFFEE"))))
+    fun testProductcodeWordtNietApartGeeist() {
+        // zoals het voorbeeld van JetBrains: de IDE geeft de stempel al alleen voor onze code (zie Licentie.kt)
+        assertTrue(StempelControle.isGeldig(keyStempel(tekst = licentie(code = "PMAKECOFFEE"))))
     }
 
     fun testAndereLicentieIdIsGeen() {
