@@ -1,0 +1,86 @@
+name: Click Joints filmpje (echte Blender, beeld voor beeld)
+
+on:
+  push:
+    branches: ["claude/blender-film-*"]
+    paths: ["producten/blender-gewrichten/**", "ontwerp/click-joints/film/**", ".github/workflows/click-joints-film.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  film:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten (Xvfb, software-OpenGL, ffmpeg)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick xdotool ffmpeg
+          python3 -m pip install -q pillow
+      - name: Blender 5.2.3 ophalen
+        run: |
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Add-on inpakken (gratis zip, gelijk aan de winkel)
+        run: bash e2e/maak_zip.sh
+      - name: Beelden opnemen in de echte interface
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/bu
+          BLENDER_USER_CONFIG: /tmp/bu/config
+        run: |
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start.blend')"
+          timeout 1500 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender /tmp/start.blend --python e2e/film.py -- /tmp/film /tmp/click_joints.zip 2>&1 | tee /tmp/film.log || true
+          grep "FILM" /tmp/film.log | grep -v "boog bij" || true
+          grep -q "FILM TABBLAD OK" /tmp/film.log || { echo "FOUT: tabblad Click Joints niet actief"; exit 1; }
+          grep -q "FILM KLAAR" /tmp/film.log || { echo "FOUT: opname niet af"; exit 1; }
+          if grep -q "FILM FOUT" /tmp/film.log; then echo "FOUT: beelden niet vastgelegd"; exit 1; fi
+          for s in 1 2 3 4; do echo "scene$s: $(ls /tmp/film/scene$s | wc -l) beelden"; done
+      - name: Filmpje maken (maak_film.py van Daan)
+        working-directory: .
+        run: |
+          python3 ontwerp/click-joints/film/bron/maak_film.py /tmp/film/draaiboek.json /tmp/click-joints-film.mp4
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size -of default=nw=1 /tmp/click-joints-film.mp4
+          mkdir -p /tmp/uit/beelden
+          cp /tmp/click-joints-film.mp4 /tmp/film/draaiboek.json /tmp/uit/
+          # keurbeelden voor Daan: eerste beeld, klik, 15 graden, 28 graden, exploded, eindkaart
+          for t in 0.0 2.1 5.0 8.3 9.8 14.5 17.5; do
+            ffmpeg -v error -y -ss $t -i /tmp/click-joints-film.mp4 -frames:v 1 /tmp/uit/beelden/film-$t.png
+          done
+          cp /tmp/film/scene3/0057.png /tmp/uit/beelden/ruw-scene3-15graden.png 2>/dev/null || true
+          cp /tmp/film/scene3/0117.png /tmp/uit/beelden/ruw-scene3-28graden.png 2>/dev/null || true
+          cp /tmp/film.log /tmp/uit/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: click-joints-film
+          path: /tmp/uit
+          if-no-files-found: warn
+      - name: Filmpje openbaar zetten (tak schermen)
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s
+            D="/tmp/s/blender-gewrichten/film/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/uit/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Filmpje Click Joints $NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/blender-gewrichten/film/$NAAM"
