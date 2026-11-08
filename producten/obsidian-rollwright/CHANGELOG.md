@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- The empty Roll log says "Open the example note" once that note exists, instead of offering to create it again.
+
 ## 0.3.1
 
 - The two optional skins are redrawn so each one looks like its own thing. Parchment is old paper with ink and a red d20; a natural 20 is gold leaf with a red wax seal, a natural 1 gets a dark ink seal. Arcane is a night sky with a light rim; a natural 20 shows gold numbers on deep purple inside a golden aura.

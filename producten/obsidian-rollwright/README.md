@@ -124,7 +124,7 @@ The number flags only change dice results, not picks from tables, lists or notes
 
 The forms `[[Note#^id]]` and `[text](Note#^id)` also work. For a table in the same note, write `[[#^id]]`; that keeps working when you rename the note.
 
-A roll inside a block or section you draw is not rolled again: it shows as plain code. An embedded note in such a result becomes a link. Embedded images stay.
+A roll inside a block or section you draw is not rolled again: it shows as plain text, like 1d6. An embedded note in such a result becomes a link. Embedded images stay.
 
 #### Lookup tables
 

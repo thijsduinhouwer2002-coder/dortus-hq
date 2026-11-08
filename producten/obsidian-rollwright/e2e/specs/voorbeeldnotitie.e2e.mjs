@@ -4,7 +4,8 @@ import * as fs from "fs";
 // Ontwerp-v2 klus 6 in de echte Obsidian: het lege logboek toont de knop "Try it: create an example note".
 // Die maakt de notitie "Rollwright example" en opent hem; alle zes worpen (vier dobbelworpen en twee
 // tabellen onderaan dezelfde notitie) tonen een uitkomst zonder fout, in lezen en in Live Preview. Een
-// tweede keer (knop of commando) opent dezelfde notitie en overschrijft niets.
+// tweede keer (knop of commando) opent dezelfde notitie en overschrijft niets. Zodra de notitie er is, heet de
+// knop "Open the example note" (Daan, beoordeling 10).
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
 const PANEEL = '.workspace-leaf-content[data-type="rollwright-history"]';
@@ -89,6 +90,18 @@ describe("Rollwright: de voorbeeldnotitie (ontwerp-v2 klus 6)", function () {
 		await browser.waitUntil(async () => (await actieveNotitie()) === PAD, { timeout: 8000, timeoutMsg: "de voorbeeldnotitie is niet geopend" });
 		const tekst = await browser.executeObsidian(async ({ app }, pad) => app.vault.read(app.vault.getAbstractFileByPath(pad)), PAD);
 		expect(tekst.startsWith("> [!tip] Every roll in this note is live")).toBe(true);
+	});
+
+	it("daarna heet de knop in het lege logboek \"Open the example note\" (Daan, beoordeling 10)", async function () {
+		let tekst = "";
+		await browser.waitUntil(async () => {
+			tekst = await browser.execute((p) => document.querySelector(`${p} .rollwright-history-empty button.rollwright-history-try`)?.textContent ?? "", PANEEL);
+			return tekst === "Open the example note";
+		}, { timeout: 8000, timeoutMsg: "de knop kreeg geen nieuwe naam" }).catch((e) => {
+			console.log(`KNOP: "${tekst}"`);
+			throw e;
+		});
+		console.log(`KNOP na het maken: "${tekst}"`);
 	});
 
 	it("rolt alle zes worpen zonder fout in lezen", async function () {
