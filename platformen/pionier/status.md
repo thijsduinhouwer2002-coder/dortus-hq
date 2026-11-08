@@ -13,6 +13,7 @@ Aangemaakt 7 nov 2026 door de projectchat.
 | NativePHP Plugin Marketplace | 8 nov 2026 | 5 | nog niet klaar (herhaalmeting 8 dec; ja als groei doorzet en er verkoop zichtbaar is, categorie offline sync) |
 | Even Hub (G2-bril) | 8 nov 2026 | 4 | nee voor nu, wachtlijst (opnieuw als betalen in de FAQ verandert) |
 | MakerWorld, parametrische modellen | 8 nov 2026 | 4 | nee voor de pionier (al bezet, geen betaalde modellen); misschien iets voor Vera |
+| Android XR (Google Play) | 8 nov 2026 | 4 | nog niet klaar (herhaalmeting 8 jan 2027, na de eerste brillen) |
 | s&box (Facepunch) | 8 nov 2026 | 2 | nee (krimpt, tools krijgen geen geld) |
 | Claude-koppelingen en MCP | 8 nov 2026 | 4 | nee voor nu, wachtlijst (opnieuw als Anthropic betaalde koppelingen of installs per koppeling opent) |
 

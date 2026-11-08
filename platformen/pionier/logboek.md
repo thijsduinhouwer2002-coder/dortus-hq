@@ -79,3 +79,8 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Nieuw platform gezocht buiten de lijst: s&box van Facepunch (sinds 28 apr 2026 op Steam, Play Fund betaalt makers). Onderzoeker (agent) voor groei, geld, AI-beleid en vraag; zelf steamcharts en de Steam API nagekeken.
 - Besluit: cijfer 2, nee. Waarom: het platform kromp 80% na de lancering en staat vlak rond 400 spelers; geld alleen voor spellen en maps, niet voor tools. Geen controleur, advies nee op eigen geziene cijfers.
 - Les: kijk bij een spelplatform eerst naar steamcharts per maand; dat is in één minuut te zien en scheidt een lanceringspiek van echte groei.
+
+## 8 nov 2026, ±03:52 tot ±04:05 UTC (zelfde run, tweede platform)
+- Android XR gepakt (nieuw, Google en Samsung, brillen komen nu uit). Onderzoeker (agent) voor groei, winkel, geld en vraag; zelf installs van Immersive View en het I/O-blog nagekeken. Herhaalscript `data/androidxr-meet.py`, eerste regel in `data/androidxr.csv`.
+- Besluit: cijfer 4, nog niet klaar. Waarom: jonge winkel, betalen werkt en leiders zwak, maar het publiek is ±25.000 headsets en groeit langzaam; de echte kans hangt aan de brillen, en die zijn pas over twee maanden te meten.
+- Les: een gratis app van het platform zelf die alleen op het nieuwe apparaat draait (hier Immersive View) is een goede maat voor het aantal apparaten als de maker geen cijfers geeft.
