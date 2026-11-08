@@ -48,9 +48,10 @@ describe("Daan: skins v3 in thema's", function () {
 					r?.scrollIntoView({ block: "center" });
 				});
 				console.log(`ROL ${naam}:`, await rol("Wisdom", 0.99999), await rol("Damage", 0.5));
-				await browser.pause(400);
+				// Eerst landen (LAND_MS 460, daarna start het slot), dan alles afmaken. Run 42515571099 schoot te vroeg.
+				await browser.pause(2200);
 				await browser.execute(() => document.getAnimations().forEach((a) => { try { a.finish(); } catch (e) {} }));
-				await browser.pause(400);
+				await browser.pause(300);
 				await browser.saveScreenshot(`${SHOTS}/thema-${naam}.png`);
 			});
 		}
