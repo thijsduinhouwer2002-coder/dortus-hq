@@ -36,8 +36,7 @@ const skin = async (s) => {
 const klik = async (woord) => {
 	await browser.execute((w) => {
 		const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
-		// Nagebootst tot Olaf het bouwt (klus 2c): bewegingen op het token zelf beginnen bij elke klik opnieuw.
-		if (r) { r.classList.remove("rollwright-rolled", "rollwright-crit", "rollwright-fumble"); void r.offsetWidth; }
+		// Ronde 6: niets meer nagebootst, de echte bouw (klus 2c en 2d van Olaf) doet het zelf.
 		r?.click();
 	}, woord);
 };
@@ -161,6 +160,61 @@ describe("Rollwright v2 voorstel", function () {
 				}
 				await losKans();
 				await browser.execute(() => document.body.style.setProperty("--rw-slow", "1"));
+				await zoom(1);
+			});
+		}
+	});
+
+	// Ronde 6: tijdlijn op gewone snelheid (geen --rw-slow, want de 460 ms van klus 2d rekt niet mee).
+	// Een MutationObserver schrijft elke verandering aan het vakje in het log, met ms na de klik.
+	// Daarnaast zo snel mogelijk volle schermen, met de echte tijd in de bestandsnaam.
+	it("tijdlijn van een klik, lezen en Live Preview", async function () {
+		for (const [mode, woord, naam] of [["preview", "Wisdom", "crit"], ["preview", "Hit", "gewoon"], ["source", "Wisdom", "crit"], ["source", "Damage", "fumble"]]) {
+			const weergave = mode === "preview" ? "lezen" : "lp";
+			await stap(`tijdlijn ${weergave} ${naam}`, async () => {
+				await thema("", true);
+				await open(NOTE, mode);
+				await browser.pause(1500);
+				await markeer();
+				await zoom(2);
+				await browser.execute((w) => {
+					const r = [...document.querySelectorAll(".mod-root .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
+					r?.scrollIntoView({ block: "center" });
+					window.__rwLog = [];
+					window.__rwObs?.disconnect();
+					if (!r) return;
+					const t0 = { v: 0 };
+					window.__rwT0 = t0;
+					const doel = r;
+					const noteer = (wat) => window.__rwLog.push(`${Math.round(performance.now() - t0.v)}ms ${wat}`);
+					window.__rwObs = new MutationObserver((ms) => {
+						if (!t0.v) return;
+						for (const m of ms) {
+							const el = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+							if (!el || !(doel === el || doel.contains(el) || el.contains(doel))) continue;
+							if (m.type === "attributes" && m.attributeName === "class" && el === doel) noteer(`klassen=[${[...doel.classList].filter((c) => c !== "rollwright-roll").join(" ")}]`);
+							else if (m.type === "attributes" && m.attributeName === "data-rollwright-tick") noteer(`tel=${el.getAttribute("data-rollwright-tick") ?? "weg"}`);
+							else if (m.type !== "attributes") noteer(`tekst=${doel.textContent.trim()}`);
+						}
+					});
+					window.__rwObs.observe(document.querySelector(".mod-root"), { subtree: true, attributes: true, childList: true, characterData: true, attributeFilter: ["class", "data-rollwright-tick"] });
+					window.__rwKlik = () => { t0.v = performance.now(); doel.click(); };
+				}, woord);
+				await browser.pause(300);
+				await muisWeg();
+				if (naam !== "gewoon") await zetKans(naam === "crit");
+				await browser.execute(() => window.__rwKlik?.());
+				const start = Date.now();
+				for (let i = 0; i < 6; i++) {
+					const ms = Date.now() - start;
+					await shot(`tijd-${weergave}-${naam}-${String(ms).padStart(4, "0")}ms`);
+					if (i === 0) await losKans();
+				}
+				await browser.pause(1200);
+				await shot(`tijd-${weergave}-${naam}-eind`);
+				await losKans();
+				const log = await browser.execute(() => { window.__rwObs?.disconnect(); return window.__rwLog; });
+				console.log(`TIJDLIJN ${weergave} ${naam}:`, JSON.stringify(log));
 				await zoom(1);
 			});
 		}
