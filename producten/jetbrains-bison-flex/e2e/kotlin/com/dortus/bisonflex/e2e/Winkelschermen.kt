@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import java.awt.Point
 import java.awt.Rectangle
 import java.nio.file.Files
-import java.nio.file.Path
 
 /*
  * Schermen voor winkelplaatje 4 en 5 (ontwerp.md, beoordeling 12, "Voor Jet, schermen voor plaatje 4 en 5").
@@ -371,7 +370,7 @@ private fun vensterNaam(id: String?): String = if (id == null) "" else try {
 
 /** Het hele scherm (root): een popup of menu is een eigen venster en valt buiten `import -window <IDE>`. */
 private fun schermHeel(bestand: String) {
-    val doel = Path.of(System.getProperty("dortus.e2e.screenshots")).resolve(bestand)
+    val doel = schermen.resolve(bestand)
     val code = ProcessBuilder("import", "-window", "root", doel.toString()).inheritIO().start().waitFor()
     val grootte = if (Files.exists(doel)) Files.size(doel) else 0
     println("DORTUS-E2E schermafbeelding $bestand (heel scherm): code $code, $grootte bytes")
