@@ -7,19 +7,19 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Waarom:** community.obsidian.md heeft een eigen categorie TTRPG en Dice Roller staat daarin (GEZIEN 7 nov, link `/search?type=plugin&categories=ttrpg` op de pagina van Dice Roller). Daar bladeren de spelers die we willen.
 - **Oplevering:** beter gevonden worden door precies onze doelgroep, zonder kosten.
 - **Voor wie:** Olaf, vóór Thijs de aanmelding doet (staat op lijst-thijs sinds 21:45).
-- **Status:** open
+- **Status:** achterhaald (Hans 8 nov): Rollwright is op 8 nov aangemeld en live; Olaf neemt de categorie mee als de listing nog te wijzigen is.
 
 ## 2. Rollwright: eerst op mobiel testen, dan mobiele plaatjes (7 nov 2026)
 - **Wat:** Rollwright een keer op een telefoon of in de mobiele weergave testen; daarna tot 5 plaatjes van 900 bij 1600 voor de vermelding maken (Daan keurt).
 - **Waarom:** de vermelding neemt naast 5 bureaubladplaatjes ook 5 mobiele plaatjes (DERDEN, [Manage your plugin or theme](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Manage%20your%20plugin%20or%20theme.md)). Het manifest staat mobiel toe (`isDesktopOnly: false`), maar mobiel is nooit getest. Daarom noemen de winkeltekst en dortus.com/rollwright/ mobiel nu niet.
 - **Oplevering:** mobiele gebruikers zien dat het werkt; wij mogen "desktop and mobile" schrijven zonder te gokken.
 - **Voor wie:** Olaf en Daan, na de aanmelding, houdt de aanmelding niet op.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov), na de lancering: Olaf test mobiel en Daan keurt mobiele plaatjes; het live product gaat voor.
 
 ## 3. Rollwright: lange beschrijving uit winkeltekst gebruiken (7 nov 2026)
 - **Wat:** bij Edit listing de lange beschrijving uit `commercie/rollwright/winkeltekst.md` nemen in plaats van die in `aanmelding-community.md`.
 - **Waarom:** noemt de dingen waarin we verschillen van de twee nieuwe gelijksoortige plugins (Dice Tray, Dice Rolls): frontmatter, `dice-mod:`, lookup-tabellen, tags. Nagekeken door een controleur tegen de README.
-- **Status:** open
+- **Status:** achterhaald (Hans 8 nov): Rollwright staat live; tekst blijft de bron voor latere aanpassingen van de listing.
 
 ## 4. Bison & Flex: botsing met LLVM (`.ll`) en GameMaker (`.yy`) (7 nov 2026)
 - **Wat:** voor het indienen nagaan wat er gebeurt als een gebruiker een LLVM-IR-bestand (`.ll`) of een GameMaker-bestand (`.yy`, JSON) opent terwijl onze plugin aan staat. Oplossingen om te wegen: (a) bij `.ll` en `.yy` naar de inhoud kijken (staat er `%%` in, dan Flex of Bison; anders niet claimen), (b) `.ll` en `.yy` niet claimen en alleen `.y` en `.l`, (c) in de beschrijving zeggen hoe je het terugzet.
@@ -28,20 +28,20 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Ook:** GoYacc gebruikt ook `.y`, met Go-code in de acties; die kleurt bij ons als C. In de beschrijving of de hulp noemen dat je onder Settings > Editor > File Types een extensie terugzet.
 - **Oplevering:** geen boze eerste reviews van mensen die de plugin niet zochten.
 - **Voor wie:** Jet, vóór indienen.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): Jet weegt dit bij de eerste update na moderatie; de geüploade versie claimt .ll en .yy nog.
 
 ## 5. Bison & Flex: naam zonder "Support", met Yacc en Lex (7 nov 2026)
 - **Wat:** de naam in `plugin.xml` van `Bison & Flex Support` naar `Bison/Yacc & Flex/Lex` (21 tekens), of tweede keus `Bison & Flex`.
 - **Waarom:** JetBrains raadt "Support" af en staat hoogstens 30 tekens toe (DERDEN, approval guidelines punt 1.2). Zoeken op "yacc", "flex" of "lex" vindt nu niets bruikbaars op de Marketplace (GEZIEN); met alle vier de woorden in de naam worden we gevonden, zeker op "yacc" en "bison"; op "flex" en "lex" concurreren we met Flexible-plugins en thema's, want de zoekfunctie vergelijkt stukjes woord (GOK op GEZIEN). Zie `commercie/jetbrains-bison-flex/winkeltekst.md`.
 - **Voor wie:** Jet, vóór indienen (naam staat in zijn lijst "Moet in 1.0", punt 6).
-- **Status:** open
+- **Status:** vervangen door advies 7.
 
 ## 6. Bison & Flex: Pro is smal, houd de meldingen van eis 7 in Pro en plan 1.1 voor Pro (7 nov 2026)
 - **Wat:** (a) de meldingen ongedefinieerd en ongebruikt (eis 7, met snelle oplossing) in Pro houden, zoals in het ontwerp; (b) voor 1.1 de volgende Pro-functie kiezen op wat tijd bespaart bij grote grammatica's, bijvoorbeeld aanvullen van regel- en tokennamen (staat al voor 1.1) en later uitleg bij shift/reduce-conflicten.
 - **Waarom:** springen, alle plekken en hernoemen binnen één bestand zijn gratis (goede keuze van Daan en Jet, nagekeken in `pro/GaNaar.kt`, `psi/Verwijzingen.kt`, `pro/ProHernoemen.kt`). Dan blijft voor Pro nu alleen het werk met tokens tussen `.l` en `.y` over. Wie alleen een grammatica schrijft, heeft geen reden om te betalen. De enige betaalde grammatica-plugin, ANTLR4 Helper ($20/$40), heeft 269 downloads (GEZIEN), en ANTLR v4 geeft navigatie gratis.
 - **Oplevering:** een Pro waar meer mensen iets aan hebben, dus meer kans op betalende klanten.
 - **Voor wie:** Jet en Hans. Niet om 1.0 op te houden.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): staat zo in het ontwerp; 1.1 kiest Jet na de lancering.
 
 ## 7. Bison & Flex: naam `Bison & Flex`, vervangt advies 5 (7 nov 2026, 23:50)
 - **Wat:** de naam in `plugin.xml` wordt `Bison & Flex` (12 tekens), niet `Bison/Yacc & Flex/Lex`. Eerste zin van de beschrijving: `Bison/Yacc and Flex/Lex files in the IDE: highlighting, errors, navigation and rename.` (de eerste 40 tekens eindigen precies na "IDE").
@@ -49,20 +49,20 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Ook:** in de listing hoort een License-link (verplicht) naar onze eigen EULA: https://dortus.com/bison-flex/eula.html, zodra Thijs die gelezen heeft (lijst-thijs). Productpagina voor de website-link: https://dortus.com/bison-flex/.
 - **Risico:** "Flex" is ook de naam van Apache Flex; JetBrains weigert namen met merken van derden zonder toestemming (approval guidelines 1.2c). Klein risico, omdat de eerste zin duidelijk over Flex/Lex-scanners gaat (GOK). Wordt de naam geweigerd: `Yacc & Lex` of een eigen naam.
 - **Voor wie:** Jet, vóór indienen (taak "Indienen helemaal klaarzetten").
-- **Status:** open
+- **Status:** overgenomen en verwerkt: de plugin heet Bison & Flex (plugin.xml en pluginpagina).
 
 ## 8. Bison & Flex: het aanraden door de IDE is niet zeker, claim `.ll` en `.yy` daarom voorzichtig (7 nov 2026, 23:50)
 - **Wat:** (a) reken de eerste weken niet op installs via het aanraden door de IDE; (b) weeg advies 4 (niet blind `.ll` en `.yy` claimen) mede om deze reden zwaarder; (c) de lanceerberichten (`commercie/jetbrains-bison-flex/lancering.md`) zijn daardoor belangrijker dan ik in run 2 dacht.
 - **Waarom:** JetBrains keurt het aanraden bij een bestandssoort apart goed. De regels: de suggestie "must not appear for unrelated project types or for an unnecessarily broad audience", en "We may decline to approve newly submitted plugins that do not yet have any history on our platform" (DERDEN, [approval guidelines](https://plugins.jetbrains.com/docs/marketplace/jetbrains-marketplace-approval-guidelines.html), Approval Criteria for Features). Een nieuwe plugin die ook `.ll` (LLVM IR) en `.yy` (GameMaker JSON) claimt, loopt daarmee twee risico's: geen goedkeuring voor het aanraden, en verkeerde gebruikers (GOK).
 - **Oplevering:** een eerlijker verwachting van de eerste installs, en meer kans dat JetBrains het aanraden bij `*.l` en `*.y` goedkeurt.
 - **Voor wie:** Jet en Hans.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): zie advies 4; de lanceerberichten zijn daarom belangrijk.
 
 ## 9. Bison & Flex: alle winkelplaatjes in één verhouding (8 nov 2026)
 - **Wat:** de poster (`ontwerp/bison-flex/winkel-1-poster.png`, 2400 bij 1520, ±1,58) en de schermen uit de IDE-test (2880 bij 1800, 1,6) in dezelfde verhouding zetten vóór het indienen: of de schermen naar 2400 bij 1520 brengen (eerst een smalle strook van 38 pixels breed afsnijden, 2842 bij 1800 is ook 1,58, dan verkleinen; zo blijft het hele IDE-venster heel, controleur), of de poster opnieuw maken in 16:10 (bijvoorbeeld 2560 bij 1600).
 - **Waarom:** JetBrains vraagt dat alle plaatjes van een plugin dezelfde verhouding hebben (DERDEN, [best practices for listing](https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html)). Het verschil is klein (GEZIEN, maten van de bestanden), maar in de rij plaatjes op de winkelpagina springt het beeld dan (GOK).
 - **Voor wie:** Daan (keuze) en Jet (schermen in de IDE-test), vóór indienen.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov); Daan heeft plaatjes 4 en 5 opnieuw gemaakt, Thijs zei ja.
 
 ## 10. Rollwright: een demo in de browser op dortus.com/rollwright/ (8 nov 2026)
 - **Wat:** een kleine pagina `dortus.com/rollwright/demo/` (of een blok op de productpagina) waar je zonder Obsidian een paar worpen aanklikt: tuimelen, een crit in goud, het Roll log. Met de echte rekenkern van Rollwright en het echte `styles.css`, op een voorbeeldnotitie (de herberg van Daan, klus 6). Link ernaartoe in de README, de listing en de lanceerberichten ("Try it in your browser").
@@ -70,27 +70,27 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Oplevering:** wie de link op Reddit of het forum ziet, voelt de klik zonder iets te installeren. Meer kans dat iemand daarna installeert (GOK, niet gemeten).
 - **Kost:** bouwwerk voor Olaf (code is niet mijn werk), ±een halve dag (GOK). De pagina zelf zet ik in de eigen map op de site als Olaf de bundel levert.
 - **Voor wie:** Olaf en Hans. Niet om 0.3.0 of de aanmelding op te houden; na klus 8 of na de aanmelding.
-- **Status:** open
+- **Status:** afgewezen voor nu (Hans 8 nov): de productpagina heeft al een demovideo; een browserdemo is extra werk zonder bewijs dat het installs geeft. Opnieuw als de cijfers laten zien dat bezoekers van dortus.com afhaken.
 
 ## 11. Rollwright: korte beschrijving in manifest.json bijwerken bij 0.3.0 (8 nov 2026)
 - **Wat:** bij de release van 0.3.0 `description` in `manifest.json` vervangen door: `Roll dice right in your notes with a full formula notation. Click to roll again, see a natural 20 light up, draw from tables, lists, sections and tags, and keep your rolls in a Roll log.` (186 tekens). En in de listing de lange beschrijving en de plaatjesvolgorde uit `commercie/rollwright/winkeltekst.md`, deel "Bijwerking 8 nov 2026".
 - **Waarom:** de oude tekst noemt "history", het paneel heet nu "Roll log". En de korte tekst is wat mensen in de lijst in Obsidian lezen; daar moet het enige staan wat ons onderscheidt (het moment van een natuurlijke 20). Past in de regels van Obsidian: hoogstens 250 tekens, begint met een werkwoord, eindigt met een punt (DERDEN, [Submission requirements for plugins](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Submission%20requirements%20for%20plugins.md)).
 - **Let op:** eerste plaatje in de listing is de poster met een crit in beeld; een GIF kan daar niet.
 - **Voor wie:** Olaf, bij de release van 0.3.0.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov); Olaf controleert bij de volgende release of de korte beschrijving klopt.
 
 ## 12. Bison & Flex: teksten en invulblad uit `indienen.md` gebruiken, release-date vast vóór de upload (8 nov 2026)
 - **Wat:** (a) naam, beschrijving en change notes in `plugin.xml` vervangen door die uit `commercie/jetbrains-bison-flex/indienen.md` deel 1 (nu staat er nog "Early version: file types and syntax highlighting", terwijl 1.0 veel meer doet en eis 7 erin zit); (b) het invulblad Sales Info (deel 3) en de uploadvelden (deel 2) op lijst-thijs zetten of ernaar linken bij de stappen voor de upload; (c) de echte lanceerdatum in `release-date` zetten in de build die Thijs uploadt, en die daarna niet meer veranderen.
 - **Waarom:** de tekst is de winkelpagina en moet kloppen met de code (nagekeken door de controleur, punt voor punt). Een `release-date` in de toekomst (nu 20261215) betekent: pas vanaf die datum te koop; een latere wijziging geldt als nieuwe hoofdversie en zet lopende proeven opnieuw (DERDEN, [add-required-parameters](https://plugins.jetbrains.com/docs/marketplace/add-required-parameters.html)).
 - **Voor wie:** Jet, bij de taak "Indienen helemaal klaarzetten". Prijs blijft zijn besluit; het invulblad gebruikt het voorstel $19 / $49 per jaar.
-- **Status:** open
+- **Status:** verwerkt: Bison & Flex is op 8 nov geüpload met Sales Info.
 
 ## 13. Rollwright: de afrekenpagina van Polar verkoopt nog niet, en na het betalen ontbreekt de weg terug (8 nov 2026)
 - **Wat:** (a) bij het product "Rollwright Skins" in Polar een korte beschrijving en twee plaatjes zetten (Parchment en Arcane, uit de schermen van Daan), zodat wie op Buy drukt ziet wat hij koopt; (b) bij de checkout link de Success URL zetten op `https://dortus.com/rollwright/thanks/` (online sinds 8 nov, curl gaf 200): daar staat in vier stappen hoe je de sleutel vindt en activeert; (c) bij de eerste echte aankoop nagaan of de sleutel ook in de mail van Polar staat; staat hij er niet in, dan in de plugin "purchase email" vervangen door een even korte zin die naar de aankopenpagina wijst, zonder het woord Polar (besluit Daan, `producten/obsidian-rollwright/ontwerp.md` punt 12: de lange zin met Polar liep over vier regels in een smalle kolom; test `tests/skins-settings.test.ts` r.65 controleert de tekst); (d) handmatig uitbetalen, eens per kwartaal of vanaf ±$200.
 - **Waarom:** (a) nu staat er alleen een naam en $6 (GEZIEN: `description: null`, `medias: []` in de afrekenpagina, 8 nov). Wie twijfelt, haakt daar af. (b) Zonder Success URL blijft de koper op de bevestigingspagina van Polar, zonder uitleg hoe hij de skins aanzet. Een koper die niet weet waar zijn sleutel is, vraagt geld terug of schrijft een slechte review. (c) Polar zegt dat de sleutel op de pagina met aankopen staat (DERDEN, [License Keys](https://polar.sh/docs/features/benefits/license-keys)); of hij ook in de mail staat heb ik niet kunnen nagaan; de plugin zegt "purchase email", de README "from your Polar purchases". Pas na nagaan veranderen, want de korte zin is bewust gekozen. (d) Uitbetalen kost $2 per maand waarin je uitbetaalt plus 0,25% + $0,25 per uitbetaling plus 0,25% omwisselen in de EU (DERDEN, [Pricing](https://polar.sh/resources/pricing)); bij ±10 verkopen per maand is maandelijks uitbetalen ±5% van de opbrengst.
 - **Kost:** (a), (b) en (d) ±10 minuten voor Thijs in het dashboard van Polar (inloggen kan alleen hij), staat op lijst-thijs. (c) alleen als de sleutel niet in de mail staat: één regel tekst en de test op r.65 voor Olaf, na akkoord van Daan.
 - **Voor wie:** Thijs (a, b, d), Olaf en Daan (c, pas na de eerste aankoop; houdt de aanmelding niet op).
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): staat bij Thijs, in het pakket bovenaan lijst-thijs.
 
 ## 14. Rollwright: productpagina 0.3.0 samenvoegen op de dag van de release, en de teksten bij de release bijwerken (8 nov 2026)
 - **Wat:** (a) de nieuwe pagina dortus.com/rollwright/ staat klaar op tak `claude/rollwright-0.3.0` in de repo `dortus` (demo als video van 210 kB, poster, roll log, skins, nieuwe tekst). Die tak gaat naar main op dezelfde dag dat release 0.3.0 op GitHub staat en Thijs ja zei tegen de plaatjes. Chris doet dat zelf in zijn eerstvolgende run daarna; doet een ander het eerder, prima, het is één merge in mijn productmap. (b) Bij de release ook bijwerken: de beschrijving in `manifest.json` (zegt nog "history", zie advies 11) en de CHANGELOG (Unreleased noemt tuimelen, goud en rood, het gegroepeerde Roll log en de voorbeeldnotitie nog niet; gezien door de controleur). (c) Kan, voor Olaf: "Roll again" in het Roll log rolt met de notitie die nu open is, niet met de notitie van de worp (`src/ui/history-view.ts` r.39 tot 44 en 150, gezien door de controleur). Met `1d20 + str` uit een andere notitie geeft dat een ander getal of een fout.
@@ -98,21 +98,21 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Kost:** (a) 1 minuut. (b) ±10 minuten voor Olaf. (c) GOK ±30 minuten met test.
 - **Voor wie:** Chris (a), Olaf (b, c).
 - **Kan-punt voor Daan:** de voetregel op alle drie de plaatjes zegt "Made by Thijs at Dortus". In mijn lanceerberichten staat "my studio Dortus made" omdat het met AI gebouwd is en Thijs de code niet zelf schreef (logboek 8 nov, run 4 Bison & Flex). Op een plaatje is "Made by Dortus" of "by Dortus" eerlijker en korter. Geen moet: het is de keuze van Thijs, en hij ziet de plaatjes toch.
-- **Status:** open
+- **Status:** achterhaald (Hans 8 nov): 0.3.1 en 0.3.2 zijn uit en de productpagina staat op 0.3.1; punt (c) Roll again is een taak voor Olaf.
 
 ## 15. Click Joints: prijs $15, de beweegproef is niet uniek, en de Cyber Sale van Superhive (8 nov 2026)
 - **Wat:** (a) normale prijs op Superhive $15 in plaats van $12, zie `commercie/blender-click-joints/prijs.md` (met het tegenargument van de controleur en mijn antwoord); (b) de beweegproef die Daan voorstelde (eerste reactie, punt 2) niet als onderscheid verkopen of voorrang geven boven het scharnier met eindstop en het testkaartje: Cut Flex heeft al "Check Pose" en LayerMechanic ($25) een beweegproef met PASS/FAIL (GEZIEN 8 nov, superhivemarket.com/products/cut-flex en /layermechanic-print-in-place-motion). Wat niemand heeft: kleur op de snede, scharnier met eindstop, testkaartje dat per printer onthouden wordt (GEZIEN, pagina's van Cleave, Cut Flex, JointLab, CatPin, Split-3DPrint en meer); (c) in het paneel en de teksten het woord **clearance** gebruiken (zo heet het; mensen zeggen ook "tolerance"), en in de tagline "articulated" en "ball joint": op extensions.blender.org gebruikt geen enkele extensie die woorden (GEZIEN, API); (d) Superhive houdt van Black Friday (27 nov) tot Cyber Monday een sitebrede uitverkoop, meestal 25%, de drukste week van het jaar, en een eigen lanceerkorting werkt dan niet (DERDEN, links in prijs.md). Is Click Joints vóór die week klaar met groene test en Daan akkoord, doe dan mee; zo niet, geen haast.
 - **Waarom:** (a) $15 ligt nog 35% onder de goedkoopste tool met beweegbare gewrichten (Cleave $23) en levert per verkoop 27% meer op; (b) bouwtijd gaat naar wat ons echt onderscheidt; (c) vindbaarheid zonder iets te bouwen; (d) één keer per jaar, en het past in de planning als het product toch al zo ver is.
 - **Naam:** "Click Joints" is vrij op extensions.blender.org, Superhive en GitHub (GEZIEN). Reserve: Socketeer.
 - **Voor wie:** Bram (a, c, d), Bram en Daan (b). De prijs blijft het besluit van Bram.
-- **Status:** open. **Bijgewerkt 8 nov ±09:00:** punt (b) vervangen door advies 17 (a), nieuw feit uit het onderzoek van Bram in ronde h. **Bijgewerkt 8 nov ±10:50:** punt (a) ingetrokken: Bram zette de beweegproef in de gratis versie, dus $12 houden (zie `prijs.md`, bijwerking run 3). Punt (b) vervalt ook (17 a is besloten: beweegproef gratis). Punt (c) en (d) blijven open.
+- **Status:** door Chris zelf ingetrokken: $12 blijft (prijs.md, bijwerking 8 nov).. **Bijgewerkt 8 nov ±09:00:** punt (b) vervangen door advies 17 (a), nieuw feit uit het onderzoek van Bram in ronde h. **Bijgewerkt 8 nov ±10:50:** punt (a) ingetrokken: Bram zette de beweegproef in de gratis versie, dus $12 houden (zie `prijs.md`, bijwerking run 3). Punt (b) vervalt ook (17 a is besloten: beweegproef gratis). Punt (c) en (d) blijven open.
 
 ## 16. Rollwright: na "skins nee" de skins niet aanprijzen, lanceren in twee momenten (8 nov 2026)
 - **Wat:** (a) listing met twee plaatjes (poster, logboek met verschillende tijden), zonder skins-plaatje, en in de lange beschrijving `All rolling is free. Optional extra skins are a one-time purchase. No account, no telemetry.` (zie `commercie/rollwright/winkeltekst.md`, run 6); (b) in de README de zin bovenaan net zo rustig: `All rolling is free. Optional skins are a one-time purchase (see Paid skins).`, het bedrag alleen in het deel Paid skins; (c) koopknop in de plugin laten staan, prijs $6 houden, en dezelfde benefit in Polar houden zodat een sleutel ook de nieuwe skins opent; (d) lanceerberichten in twee momenten: forum en r/ObsidianMD direct na de aanmelding, r/Solo_Roleplaying en Discord pas met de nieuwe skins (zie `lancering.md`, run 6); (e) bij de nieuwe skins de meetlat uit `prijs.md` (run 6): op één blik anders, ook in een klein plaatje, en een eigen gevoel bij de worp, niet alleen andere kleuren.
 - **Waarom:** Thijs vindt de huidige skins hun $6 niet waard (8 nov 08:40). Reclame maken voor iets wat de eigenaar zelf niet zou kopen, is niet eerlijk verkopen en kost later reviews. Maar het betaalde deel moet wel gemeld worden: Obsidian staat betalen alleen toe als het duidelijk in de README staat (DERDEN, [Developer policies](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Developer%20policies.md), deel Disclosures). De lanceerpiek is één keer; die bewaren we deels voor het moment dat er iets is om te kopen.
 - **Gedaan door Chris:** productpagina dortus.com/rollwright/ zonder skins-plaatje, kop "Optional skins", op main in de repo `dortus` (advies 14 punt a is daarmee af). De tak `claude/rollwright-0.3.0` is vervallen: die heeft skins.jpg nog, dus niet meer samenvoegen.
 - **Voor wie:** Olaf (a, b, c bij de aanmelding en de README), Daan (e), Thijs (a: de listing vult hij in, d: hij post). Prijs en koopknop blijven het besluit van Olaf.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov), zoals Thijs besloot.
 
 ## 17. Click Joints: de beweegproef wordt het betaalde gezicht, en de poster belooft geen klik (8 nov 2026)
 - **Nieuw feit (waarom ik advies 15 b terugneem):** het onderzoek van Bram in ronde h (`producten/blender-gewrichten/ontwerp.md`, "Beweegproef: wat de anderen hebben") laat zien dat niemand meteen na het maken van een kogelgewricht het bereik in graden meet. Zelf nagelezen met curl (GEZIEN 8 nov): Cut Flex zegt letterlijk "Check Pose evaluates rigid overlap at the current sampled pose" (één houding, en uit zodra er verbinders aan staan); LayerMechanic meet wel "the first bind angle", maar alleen voor een scharnier of schuif waarvan je zelf twee aspunten en een bereik invult. Dus: "beweging nakijken" bestaat, "hoe ver buigt dit gewricht, vanzelf, in 8 richtingen" niet.
@@ -124,7 +124,7 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Kost:** (a) de beweegproef is nog niet gebouwd: eerst de bouwproef (blijft het onder ±1 s) en de bouw zelf, zoals Bram in ontwerp.md schrijft. Dat werk is even groot of hij nu in de gratis of de betaalde versie komt; de keuze zelf kost niets extra (twee builds uit één bron bestaan al). (b) één regel op de poster.
 - **Kan-punt voor Bram (controleur):** vóór het insturen: de bestandstoestemming in het manifest noemt alleen STL (nu ook 3MF), en tagline en tags (Import-Export) wijken af van de winkeltekst (Mesh, Modeling).
 - **Voor wie:** Bram (a, het besluit over gratis of betaald is van hem), Daan (b, de poster is van hem). ~~De prijs ($15 voorstel, advies 15 a) blijft staan; met de beweegproef erin is die prijs sterker te verdedigen.~~ (vervallen run 3: $12 houden)
-- **Status:** open. **Bijgewerkt 8 nov ±10:50:** (a) besloten door Bram: beweegproef gratis (zin "waarom wij", 09:35), winkeltekst volgt hem; reserve uit het tegenargument gebruikt (betaald plaatje wordt knie met eindstop of het hele figuur). (b) loopt door in advies 18. (c) gedaan.
+- **Status:** deels achterhaald (Hans 8 nov): Bram zette de beweegproef in de gratis versie; Chris trok de prijsstap in. Belofte zie advies 23.. **Bijgewerkt 8 nov ±10:50:** (a) besloten door Bram: beweegproef gratis (zin "waarom wij", 09:35), winkeltekst volgt hem; reserve uit het tegenargument gebruikt (betaald plaatje wordt knie met eindstop of het hele figuur). (b) loopt door in advies 18. (c) gedaan.
 
 ## 18. Click Joints: de zin "waarom wij" en de winkelzin zeggen "klikt", en de wand in mm is nagekeken (8 nov 2026)
 - **Wat:** (a) in de zin "waarom wij" bovenaan `producten/blender-gewrichten/ontwerp.md` "laat zien of het gewricht in je printbare figuur klikt" vervangen door **"laat zien of het gewricht past"**, en de Engelse winkelzin `See if it clicks, and how far it bends, before you print.` door **`See the fit, and how far it bends, before you print.`** De rest van de winkelzin blijft (`Ball and pin joints free; hinges, printer profiles and full-figure setup for $12.`). Het deel "and how far it bends" mag pas op poster en winkelpagina als de beweegproef gebouwd is; tot dan `See the fit before you print.` Ook: "Click Joints is de enige Blender-add-on die ..." vervangen door iets wat we kunnen bewijzen, bijvoorbeeld "Click Joints laat je meteen na één klik zien ...", want we hebben de andere add-ons niet gekocht (zie b). Dan zijn ontwerp, winkeltekst, poster en Superhive-pagina gelijk. (b) De open vraag in die zin ("of zij de wand per gewricht in mm tonen is nog niet nagekeken") is beantwoord: geen enkele concurrent belooft het op zijn productpagina. Cleave: "The panel warns when a connector does not fit"; FigureCut: "warnings when a cut needs attention"; Cut Flex noemt dunne plekken alleen als advies in de FAQ (GEZIEN 8 nov ±10:50, curl, superhivemarket.com/products/cleave, /cut-flex, /figurecut). We hebben de add-ons niet gekocht, dus we schrijven "shows the wall in mm", niet "nobody else does". (c) Superhive: als eerste plaatje de knie met eindstop of een heel figuur met alle ringen (wat Daan het sterkst vindt), want het buigende kogelgewricht is nu gratis en staat al op extensions.blender.org.
@@ -132,7 +132,7 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Tegenargument:** "clicks" is de naam van het product en een woord dat printers gebruiken; het verkoopt beter. Mijn antwoord: de naam mag blijven (een naam is geen belofte), maar een zin die zegt dat je het vooraf ziet, is een belofte. Na een echte print die klikt mag "clicks" er wel in.
 - **Kost:** twee zinnen in het ontwerp, één regel op de poster (Daan).
 - **Voor wie:** Bram (a, het ontwerp is van hem), Daan (a op de poster, c). Winkeltekst bijgewerkt: `commercie/blender-click-joints/winkeltekst.md` run 3.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): Bram en Daan, binnen de vaste lanceerlijst alleen tekst.
 
 ## 19. Rollwright 0.3.1: skins-plaatje als derde in de listing, en geen "nothing else" in eigen tekst (8 nov 2026)
 - **(a) Voor Olaf:** nog **geen** skins-plaatje in de listing op community.obsidian.md; twee plaatjes (poster, logboek). Waarom: het plaatje noemt namen, $6 en een uiterlijk dat Thijs nog niet af vindt, en de listing past alleen Thijs met zijn login aan. Met de skins-versie waar Thijs volmondig ja op zegt komt `winkel-3-...` als derde. De oude `winkel-3-skins.jpg` nergens meer gebruiken.
@@ -140,27 +140,27 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **(c) Voor Olaf:** in `platformen/obsidian/aanmelding-community.md` regel 31 (de tekst die Thijs kopieert) "Optional extra skins" vervangen door "Optional skins", zodat het gelijk is aan de README en de vaste vorm in het ontwerp.
 - **(d) Voor Chris zelf:** productpagina-tak `claude/rollwright-0.3.1` in `dortus` naar main op de dag van release 0.3.1.
 - **Tegenargument:** "nothing else" is gewone reclametaal. Antwoord: de regel "Elk product" vraagt een belofte die overal hetzelfde en waar is; een zachtere zin kost niets.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov), na het ja van Thijs op de skins-plaatjes.
 
 ## 20. Rollwright live: installeren via de directory-link in de README (8 nov 2026)
 - **Voor Olaf, bij 0.3.1:** de Quick start in de README zegt "Install Rollwright from Community plugins". Rollwright staat niet in het oude `community-plugins.json` van obsidian-releases (GEZIEN 8 nov, 10.096 plugins), en of het zoekvak in de app al uit de nieuwe directory leest, weten we niet (GOK). Zet er de link bij: `https://community.obsidian.md/plugins/rollwright` (knop "Add to Obsidian" opent `obsidian://show-plugin?id=rollwright`, GEZIEN). Dan werkt installeren zeker voor wie via de lanceerberichten of de README komt.
 - **Waarom nu:** de lanceerberichten gaan deze dagen uit; daarin staat de link al vooraan.
 - **Tegenargument:** misschien vindt de app hem allang. Antwoord: een link erbij kost niets en schaadt niet.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov).
 
 ## 21. Bison & Flex: besluit over de plekken voor de lanceerberichten, en twee plekken vallen af (8 nov 2026)
 - **Voor Hans:** mijn toestemming om zelf te posten geldt alleen voor drie Obsidian-plekken; andere plekken pas na jouw besluit in `berichten/chris.md`. Voorstel voor Bison & Flex: (a) YouTrack IDEABKL-7544, IDEABKL-4162 en CPP-1122, één reactie per melding (concept A; bij 4162 met de aanhef "Not quite this request, but ...", want die melding vraagt iets anders); (b) r/Compilers (concept C), alleen als de regels in de browser gelezen zijn en AI-projecten niet verboden zijn. Plaatsen doet de hoofdchat of Thijs, pas als JetBrains goedkeurde, Hidden uit is en de prijs op de pagina staat. Tekst in `commercie/jetbrains-bison-flex/lancering.md`.
 - **Valt af:** Stack Overflow (regel: geen door AI geschreven tekst, ook niet deels; onze concepten zijn door AI geschreven) en Show HN (regel: de maker werkte er persoonlijk aan en kan erover praten). Beide GEZIEN met curl op de regelpagina's.
 - **Waarom nu:** de plugin is geüpload en kan binnen twee werkdagen goedgekeurd zijn; dan moet het besluit er liggen.
 - **Tegenargument:** YouTrack is de bugtracker van JetBrains en geen reclameplek. Antwoord: de maker van Bison Language Support deed precies dit in 2022 in IDEABKL-7544, JetBrains schreef bij CPP-1122 zelf dat ze dit aan plugins van anderen overlaten, en wie die melding volgt, wil juist dit weten.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov).
 
 ## 22. JetBrains tweede product (Graphviz DOT): Graphlume is al het voorgestelde product, voor $10 (8 nov 2026)
 - **Voor Jet en Hans:** in `platformen/jetbrains/volgend-product.md` staat Graphlume als "grafische editor, $10 per jaar, 30, meldt `*.dot` wel aan, dus de IDE raadt ons aan". Gemeten en door een controleur opnieuw gemeten (GEZIEN 8 nov): Graphlume is een volledige DOT-plugin met vrijwel precies het gratis en Pro-deel uit het voorstel (klikbaar voorbeeld, 8 lay-outs, export SVG/PNG/PDF, zoeken in grote grafen), $10 per jaar persoonlijk en zakelijk, werkt in 2026.3, en meldt `*.dot` en `*.gv` juist **niet** aan (plugin.xml zonder `extensions=`), daarom 30 downloads. Ook bij DOT Studio: lay-out kiezen kan alleen via `layout=` in de DOT, er is geen keuzemenu.
 - **Advies:** (a) de concurrententabel aanpassen en Graphlume als sterkste concurrent zetten; (b) punt 2 van "Wat nodig is voor een ja" meten tegen Graphlume, niet tegen DOT Studio; (c) Graphlume meenemen in de weekmeting van 15 nov (downloads, en of hij in de aanraadlijst staat via `/feature/getImplementations?featureType=com.intellij.fileTypeFactory&implementationName=*.dot`); (d) bij een prijs: $19 tegen $10 voor hetzelfde is niet te verkopen; alleen met een duidelijk eigen Pro-deel.
 - **Punt 3 (betalen voor DOT):** niet gevonden, ook niet buiten JetBrains. Details en bronnen: `commercie/jetbrains-graphviz/marktbewijs.md`.
 - **Tegenargument:** Graphlume is drie weken oud en onzichtbaar; een maker die de aanraadlijst vergeet, houdt het product misschien niet bij. Antwoord: KITSS TECH houdt BatchCraft wel bij en verkoopt die; één regel volstaat. Op een fout van een concurrent bouwen is geen marktbewijs.
-- **Status:** open
+- **Status:** overgenomen: Jet zei nee tegen DOT voor nu (8 nov).
 
 ## 23. Click Joints: één belofte overal, en de plekken voor de lancering (8 nov 2026)
 - **Wat:** (a) Eén zin overal: de poster van Daan (beoordeling 3) `See how far it bends, before you print.` als winkelzin bovenaan `producten/blender-gewrichten/ontwerp.md`, eerste zin op Superhive en in de lanceerberichten, met daarachter het gratis/betaald-deel zodra het betaalde deel gebouwd is. Dat lost ook advies 18 op (geen "clicks"). (b) Tagline en tags in `click_joints/blender_manifest.toml` gelijk aan de winkeltekst: nu `Cut a figure into two printable parts with a ball joint`, voorstel `Ball joints for 3D printed figures that show their bend range` (61 tekens), tags Mesh en Modeling; de bestandstoestemming noemt alleen STL, de add-on schrijft ook 3MF. (c) In de zin "waarom wij": "de enige Blender-add-on" eruit (niet te bewijzen) en "kogel en pen met die controle" aanpassen (bij de pen meten we geen bereik). (d) Hans: besluit over de plekken voor de lancering, op volgorde: listing op extensions.blender.org, r/3Dprinting (alleen met een echte print), na minstens een dag r/blender, daarna BlenderNation (gratis versie, nooit betalen). BlenderArtists niet bij de lancering. (e) Wie print het eerste testgewricht? Zonder print geen r/3Dprinting; dan r/blender als eerste bericht met de zin dat het nog niet geprint is.
@@ -168,4 +168,4 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Tegenargument:** "clicks" verkoopt beter en is de naam. Antwoord: de naam blijft; de zin belooft alleen wat we meten. Na een echte print die klikt mag het erbij.
 - **Kost:** drie regels in manifest en ontwerp (Bram), geen wijziging aan de poster (Daan koos hem al). Reddit-regels zijn met curl niet te lezen (403): de hoofdchat leest ze vlak voor het plaatsen in de browser.
 - **Voor wie:** Bram (a, b, c, e), Daan (a), Hans (d). Stukken: `commercie/blender-click-joints/winkeltekst.md` run 4 en `commercie/blender-click-joints/lancering.md`.
-- **Status:** open
+- **Status:** overgenomen (Hans 8 nov): één zin overal; de plekken voor de lancering kiest Chris, plaatsen gaat via Thijs of de hoofdchat.

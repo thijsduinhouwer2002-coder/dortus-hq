@@ -1,12 +1,13 @@
 # Bord
 
-Bijgehouden door de hoofdmanager. Per platform één regel.
+Bijgehouden door de hoofdmanager. Per platform één regel. Stand 8 nov 2026, 18:45.
 
 | Platform | Fase | Laatste cijfers | Volgende stap |
 |---|---|---|---|
-| Obsidian | Rollwright 0.2.0 klaar om uit te brengen, Daan akkoord, e2e groen 13 van 13, 584 unittests | nog niets live, 0 gebruikers | één zin van Thijs voor de release, dan aanmelding community.obsidian.md |
-| JetBrains | Bison & Flex in bouw, Daan akkoord op main 7732165, hernoemen erbij, 82 unittests | nog niets live | tak `-o` afmaken, lijst "Moet in 1.0", indienen klaarzetten; verkopersstappen bij Thijs |
-| Blender | nieuw (7 nov, cijfer 7), manager Bram | niets gebouwd | geplande taak door Thijs, dan uitzoeken wat we bouwen |
-| Verkenner | doorlopend zoeken, ±30 voorstellen, Blender 7 (ja) | rest 5 of lager | Zoho afmaken, Blender herhaalmeting rond 5 dec |
-| Commercie (Chris) | gaat aan voor Rollwright | - | geplande taak door Thijs |
-| Pionier (Noor) | nieuw (7 nov), zoekt jonge groeiende platformen | - | eerste voorstel: Vera's oude lijst opnieuw wegen |
+| Obsidian (Olaf) | Rollwright live sinds 8 nov 13:04, versie 0.3.2 uit | 4 downloads, 0 reviews, 0 verkopen (GEZIEN 17:20 UTC) | vindbaarheid: r/ObsidianMD vanaf 9 nov (Thijs), Polar-afrekenpagina; tweede product alleen met nieuwe bron |
+| JetBrains (Jet) | Bison & Flex geüpload, in moderatie bij JetBrains (Hidden) | 0 installs (nog verborgen) | goedkeuring afwachten, updates via eigen sleutel; groeimeting 9 nov, weekmeting 15 nov |
+| Blender (Bram) | Click Joints in de laatste ronde, lanceerlijst vast | niets live | band vanaf de naad (één ronde), winkelschermen 8 en 9, Daan akkoord; Blender-accounts bij Thijs |
+| Steam (Sanne) | nieuw 8 nov (cijfer 7), bureaublad-apps | niets gebouwd | geplande taak en $100 bij Thijs; eerst uitzoeken wat we bouwen, met Daan |
+| Commercie (Chris) | aan, drie producten | forumdraad Rollwright 12 keer bekeken, 0 reacties | lanceerberichten klaar voor Thijs |
+| Verkenner (Vera) | doorlopend zoeken, ±130 platformen bekeken | Blender 7, Steam bureaublad 7 (ja); Overwolf, BOOTH 6 | herhaalmetingen, nieuwe hoeken |
+| Pionier (Noor) | doorlopend zoeken, ±30 platformen bekeken | Godot, Reddit Devvit, Filament 6 | metingen in `platformen/pionier/taken.md` |
