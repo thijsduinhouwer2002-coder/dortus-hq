@@ -41,31 +41,27 @@ h1 .g{background:linear-gradient(180deg,#FFE29A,#E8B84A);-webkit-background-clip
 .foot{position:absolute;left:64px;bottom:40px;font-size:16px;color:#A79FBC}
 .foot b{color:#F1ECF7;font-weight:600}
 
-.left{width:440px}
-h1{font-size:60px}
-.card{left:560px;top:190px;width:600px;transform:rotate(-1deg)}
-.card img{width:600px}
-.lens{left:540px;top:330px;width:640px;transform:rotate(0deg)}
-.lens img{width:640px}
-.buy{left:600px;top:480px;width:560px;transform:rotate(1deg)}
-.buy img{width:560px}
+.top{position:absolute;left:64px;top:56px;right:64px}
+.top h1{margin-top:22px;font-size:54px}
+.top .sub{margin-top:12px;font-size:19px;max-width:820px}
+.row3{position:absolute;left:64px;right:64px;top:300px;display:flex;gap:22px}
+.sk{flex:1;border-radius:14px;overflow:hidden;background:#1C1C1C;box-shadow:0 30px 60px -24px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.09)}
+.sk img{display:block;width:100%;padding:12px 16px 10px;background:#1c1c1c}
+.sk img+img{background:#ffffff}
+.sk .bar{justify-content:flex-start}
+.tag{margin-left:auto;font:600 11px Inter;letter-spacing:.1em;text-transform:uppercase;color:#E8B84A}
+.sk:nth-child(1) .tag{color:#9FE3B0}
+.foot{bottom:34px}
 </style></head><body>
 <div class="dice"></div>
-<div class="left">
+<div class="top">
   <div class="brand"><span class="mark"></span>Rollwright for Obsidian</div>
   <h1>Three skins for your <span class="g">table</span>.</h1>
-  <p class="sub">Classic is free and follows your theme. Parchment and Arcane are hand made, for light and dark.</p>
-  <div class="feat">
-    <div>See every skin before you buy</div>
-    <div>One payment of $6, yours to keep</div>
-    <div>Works offline after one check</div>
-  </div>
+  <p class="sub">The same session note in each skin, in a dark and a light theme. Classic follows your theme; Parchment and Arcane are yours for $6, once.</p>
 </div>
-<div class="card">
-  <div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Settings · Skins</div>
-  <img src="skins-top.png">
-</div>
-<div class="lens"><img src="tiles.png"></div>
-<div class="card buy"><img src="skins-buy.png"></div>
+<div class="row3"><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Classic<span class="tag">Free</span></div>
+<img src="skin-classic-donker.png"><img src="skin-classic-licht.png"></div><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Parchment<span class="tag">$6</span></div>
+<img src="skin-parchment-donker.png"><img src="skin-parchment-licht.png"></div><div class="sk"><div class="bar"><span class="mark" style="width:15px;height:15px;background:#9C7CFF"></span>Arcane<span class="tag">$6</span></div>
+<img src="skin-arcane-donker.png"><img src="skin-arcane-licht.png"></div></div>
 <div class="foot"><b>Free</b> to roll &nbsp;·&nbsp; two extra skins $6 &nbsp;·&nbsp; Made by Thijs at Dortus</div>
 </body></html>

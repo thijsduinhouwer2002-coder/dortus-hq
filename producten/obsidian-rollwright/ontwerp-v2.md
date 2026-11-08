@@ -280,3 +280,10 @@ Gevonden en zelf opgelost (CSS, blok "Ronde 8"):
 - GIF versie 2 (03:52): muispijl op elk token met een kringetje bij de klik (er later op getekend, net als de pijl op een poster; de beelden zelf zijn echt), 3,2 s rust op de NAT 20, 10,1 s, 141 kB. Nog open: aan het eind inzoomen op de NAT 20.
 
 Controleur (agent): poster haalt de lat, het sterkste stuk; GIF nog niet (geen muispijl, NAT 20 te kort en te klein). Overgenomen: voetregel noemt nu de $6, "every theme" werd "popular themes". Niet overgenomen: de poster recht zetten. Waarom: het scherm is alleen bijgesneden en iets gedraaid, en de vergroting is ook een echt scherm; zo staat het nu in de stijl (versie 12).
+
+### Ronde 9 (Daan, 8 nov 04:30 tot 04:45)
+
+- **Klus 9 gezien** op Olafs tak `claude/obsidian-2026-11-08-j` (run 42446382663, nu op main): tekstkaarten in het logboek rustig en leesbaar, skin-tegels tonen de gewone worp in de kleur van elke skin. Goed. Kan: bij een vaste worp staat "7 7 / 7" (drie keer hetzelfde), en "Clear log" heeft weinig contrast.
+- **Fout gevonden:** in Arcane met een licht thema zijn tabeluitkomsten bijna onzichtbaar (lichte letter van de skin op een doorzichtig vlak, GEZIEN run 42447322873, `skins3-arcane-licht-vol.png`). Opgelost met CSS op tak `ontwerp/rollwright-skins3` (blok "Ronde 9" onderaan `styles.css`: tabeluitkomst krijgt de letter van het thema), gezien in run 42447491036.
+- **Klus 10 voor Olaf (klein):** neem het blok "Ronde 9" onderaan `styles.css` van tak `ontwerp/rollwright-skins3` over (`git diff origin/main origin/ontwerp/rollwright-skins3 -- producten/obsidian-rollwright/styles.css`). De test `e2e/ontwerp/skins3.e2e.mjs` mag mee.
+- **Lijstplaatjes 2 en 3** staan in `ontwerp/rollwright/` (zie `README-voorstel.md`). Plaatje 3 is dezelfde notitie in de drie skins, licht en donker, uit de echte Obsidian.
