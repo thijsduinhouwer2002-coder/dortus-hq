@@ -211,11 +211,11 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
 
         if kleur == "rood":
             ruim_op(hulp)
-            teken = vormen.bol(f"{bron.name}_gewricht_rood", maat["r"] + maat["s"], maat["midden_z"], frame,
+            teken = vormen.bol(f"{bron.name}_joint_too_thin", maat["r"] + maat["s"], maat["midden_z"], frame,
                                bron.users_collection[0])
             markeer(teken, kleur, gegevens)
             teken.display_type = "WIRE"
-            self.report({"WARNING"}, f"Too thin: {uitleg}. Nothing was cut; pick a thicker spot or a "
+            self.report({"WARNING"}, f"{passing.fit_tekst(kleur, wand)}. Nothing was cut; pick a thicker spot or a "
                                      "smaller diameter.")
             return {"FINISHED"}
 
@@ -252,7 +252,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
         extra = " (axis along the cursor: no 3D viewport)" if terugval else ""
-        self.report({"INFO"}, f"Joint placed, {passing.fit_tekst(kleur, wand).split(':')[0]} ({uitleg}), {gegevens['cj_duur_s']} s{extra}")
+        self.report({"INFO"}, f"Joint placed. {passing.fit_tekst(kleur, wand)}. {gegevens['cj_duur_s']} s{extra}")
         return {"FINISHED"}
 
 

@@ -2,7 +2,7 @@
 
 Het figuur houdt zijn eigen materiaal (of geen). Alleen een ring rond de snede krijgt de passingkleur:
 de vlakken met een hoekpunt (of hun centrum) binnen RING_MM van het snijvlak, plus kogel of pen, nek en kom. Daarvoor komt er één
-materiaalvak bij met het gedeelde passingmateriaal ("Click Joints groen" enz.), en die vlakken krijgen
+materiaalvak bij met het gedeelde passingmateriaal ("Click Joints Good fit" enz.), en die vlakken krijgen
 dat vak als material_index. Het rode teken (draadbol) krijgt het materiaal op elk vak, zoals eerst."""
 import bpy
 import numpy as np
@@ -10,13 +10,14 @@ import numpy as np
 from . import passing
 
 PREFIX = "Click Joints "
+NAMEN = {"groen": "Good fit", "oranje": "Tight", "rood": "Too thin"}  # Engelse namen in Outliner en Material-paneel
 RING_MM = 3.0      # zo ver van het snijvlak (langs de as) kleuren de vlakken mee
 RAND_MM = 0.4      # bij de kom en kogel: tot zo ver buiten kom of pen (de wand is altijd dikker, minstens 0,8 mm)
 
 
 def materiaal(kleur):
     """Geeft het gedeelde materiaal voor deze passing, en maakt het als het nog niet bestaat."""
-    naam = PREFIX + kleur
+    naam = PREFIX + NAMEN.get(kleur, kleur)
     mat = bpy.data.materials.get(naam)
     if mat is None:
         mat = bpy.data.materials.new(naam)
