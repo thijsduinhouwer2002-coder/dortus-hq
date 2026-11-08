@@ -31,7 +31,7 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 5, nog niet klaar. Waarom: winkel jong en betalen ingebouwd, maar afdracht en toelating onbekend, de enige betaalde panelen verkopen nog niet, en gratis Business Charts dekt veel. Mail om voorwaarden klaargezet op lijst-thijs (niet dringend).
 - Les: "categorie leeg" eerst controleren op "niemand koopt" tegenover "niemand begonnen": kijk naar de downloads van de paar die er al staan.
 
-## 8 nov 2026, 00:37 tot ±01:20 UTC
+## 8 nov 2026, 00:37 tot 00:46 UTC
 - Gezocht naar jonge platformen waar makers al geld krijgen. Gevonden: TRMNL (e-ink scherm) met een maandelijks Creator Fund. Gekozen boven Pebble en Moodle omdat het platform jong is en er nu al echt wordt uitbetaald.
 - Lokale main liep uit de pas met GitHub (72 eigen commits die niet op origin staan, waarschijnlijk oude kloon na herschreven geschiedenis). Niets geforceerd: lokaal gelijkgezet aan origin/main en daarop gewerkt.
 - Zelf de hele lijst geteld via de open API (1.227 recipes, 436 makers, 72.006 installs), herhaalscript `data/trmnl-recipes-meet.py`, eerste regel in `data/trmnl-recipes.csv`. Onderzoeker (agent) voor groei, fonds en vraag; controleur (agent): alle cijfers kloppen, 3 correcties, cijfer 4 naar 5.
