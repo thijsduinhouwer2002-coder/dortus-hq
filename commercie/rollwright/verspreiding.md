@@ -22,8 +22,8 @@ Gevolg voor ons: (1) elk bericht zegt duidelijk dat alle dobbelen gratis is en d
 | 2 | r/ObsidianMD, flair voor plugins | ±343k tot 377k leden (DERDEN, gummysearch.com/r/ObsidianMD en oneup.today) | 9 nov vanaf 13:45 UTC | hoofdchat of Thijs | ja (regel 2 van Thijs) |
 | 3 | Officiële Obsidian Discord, kanaal `#content-update` | 194.970 leden (GEZIEN) | op zijn vroegst 10 nov, na een goede dag op Reddit | hoofdchat of Thijs | ja (regel 2 van Thijs) |
 | 4 | Obsidian TTRPG Community Discord (van Josh Plunkett) | 9.880 leden (GEZIEN) | ±12 nov, eerst een paar dagen meelezen | Thijs of hoofdchat | **nee, besluit Hans nodig** |
-| 5 | r/Solo_Roleplaying, flair "tool-questions-and-sharing" | ±87k leden (DERDEN) | ±16 nov, een week na r/ObsidianMD | hoofdchat of Thijs | **nee, besluit Hans nodig** |
-| 6 | Lijst awesome-dnd op GitHub, één pull request | 307 sterren (GEZIEN) | ±12 nov | hoofdchat of Thijs (GitHub-account Thijs) | **nee, besluit Hans nodig** |
+| 5 | r/Solo_Roleplaying, flair "tool-questions-and-sharing" | ±87k leden (DERDEN) | ±16 nov, een week na r/ObsidianMD | hoofdchat of Thijs | ja (Hans 8 nov 20:44), tekst klaar in `lancering.md` run 15 |
+| 6 | Lijst awesome-dnd op GitHub, één pull request | 307 sterren (GEZIEN) | ±12 nov | **alleen Thijs zelf** (sjabloon vraagt "I am a human" en een reactie bij een andere pull request) | ja (Hans 8 nov 20:44), tekst klaar in `lancering.md` run 15 |
 | 7 | Josh Plunkett persoonlijk (YouTube 15,6K, zijn pluginlijst) | 15,6K abonnees (GEZIEN) | ±20 nov, als er downloads en eerste reacties zijn | Thijs | **nee, besluit Hans nodig** |
 | 8 | Tweede golf: r/osr ("i made a thing"), r/DungeonMasters ("resource") | 72k en 144k leden (DERDEN) | na de meting van dag 14 (±22 nov), alleen als het groeit | Thijs | **nee, besluit Hans nodig** |
 
@@ -101,3 +101,6 @@ Downloads op de dag voor en twee dagen na elk bericht (`community-plugin-stats.j
 
 ## Keuring
 Controleur (8 nov run 11): akkoord mits. Moet-punten verwerkt: "highest possible roll" letterlijk zoals op het forum; awesome-dnd-regel zonder "Free" en met "every roll you click"; regel (1) bovenaan gelijkgetrokken met wat de teksten echt zeggen; Discord-tekst zegt nu ook dat de skins alleen het uiterlijk veranderen. Kan-punten verwerkt: citaat Josh letterlijk met [sic], bron bij het ledental van r/ObsidianMD, vindplaats van de regels van Thijs, tegenstelling met de koers over pull requests, tweede kop voor awesome-dnd. Niet nagemeten door de controleur: 307 sterren van awesome-dnd (GitHub gaf hem 403); gemeten door de onderzoeker via de zoek-API.
+
+## Bijwerking 8 nov 2026 (run 15)
+Hans nam advies 24 over (8 nov 20:44). Plek 5 en 6 zijn klaar in `lancering.md`, deel "run 15", gekeurd. Nieuw feit bij plek 6: awesome-dnd heeft een verplichte afvinklijst voor pull requests (GEZIEN, `.github/PULL_REQUEST_TEMPLATE.md`) met "I am a human" en "I also made a comment on at least one other pull request". Die pull request kan dus niet via de hoofdchat, alleen Thijs zelf, of overslaan. De tekst van punt 5 en 6 hierboven ("na het besluit van Hans", "Waarom niet zonder besluit") is daarmee achterhaald; de tabel klopt.

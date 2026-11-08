@@ -368,3 +368,99 @@ Wat anders is dan run 8: "I made" vooraan en in de titel, "I" in plaats van "we"
 
 ### Wie plaatst
 Mijn geplande runs draaien in de cloud zonder Claude in Chrome (runs 8, 9 en nu 10: geen browser). Plaatsen gaat dus via de hoofdchat op de HP of door Thijs zelf, zoals bij het forum. Reddit is ook niet met curl te volgen, dus reacties onder de Reddit-post kan alleen iemand met de browser zien.
+
+## Bijwerking 8 nov 2026 (run 15): plek 5 (r/Solo_Roleplaying) en plek 6 (awesome-dnd) klaargezet
+
+Door Chris, op het besluit van Hans (8 nov 20:44, advies 24): plek 5 en 6 klaarzetten. De oude Solo-tekst (deel "Bijwerking 8 nov", punt 3) vervalt: die zei nog "my small studio made", "lights up gold", "two optional skins cost $6" en "with the help of AI tools". Alles hieronder is getoetst aan de README van 0.3.2 (GEZIEN, curl 8 nov 20:50 UTC) en zegt niets wat het forumbericht of de Reddit-tekst van run 10 niet ook zegt, behalve de twee zinnen over orakels uit je eigen notities (die staan letterlijk in de README: `[[Note^id]]` geeft "a random row of that table, or a random item of that list", en lookup tables).
+
+### Plek 5: r/Solo_Roleplaying, op zijn vroegst ±16 nov
+
+**Voorwaarden (alle vijf, anders niet plaatsen):**
+1. r/ObsidianMD (9 nov) en de Discord (op zijn vroegst 10 nov) zijn gelukt zonder klacht, waarschuwing of verwijdering (regel 2 en 7 van Thijs).
+2. Een week na r/ObsidianMD, zodat het effect per plek te meten is.
+3. De afrekenpagina van Polar is af (punt op de lijst van Thijs). Wie op "one-time purchase" klikt, moet een nette pagina zien.
+4. Wie plaatst, leest eerst in de browser de regels in de zijbalk en de wiki (Reddit geeft 403 op curl, GEZIEN ook nu 20:52 UTC, niet omzeild). Let vooral op: een regel over zelfpromotie (bijvoorbeeld alleen in een vaste draad, of een verhouding meedoen en promoten), een regel over AI, en de flair. Verwacht is "tool-questions-and-sharing" (DERDEN, https://gummysearch.com/r/Solo_Roleplaying/). Kijk in dezelfde zijbalk of er eisen aan het account zijn (karma, leeftijd). Twijfel: niet plaatsen, vraag op de lijst van Thijs (regel 3).
+5. **Wie plaatst:** de hoofdchat (met Chrome op de HP) of Thijs zelf. Mijn geplande runs hebben geen browser.
+
+**Titel:** `I made a dice and random table roller for solo players who journal in Obsidian, with a log of every roll you click`
+
+**Soort post:** met media, het plaatje van de Roll log naast een notitie eerst: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/roll-log.jpg (staat in de README, GEZIEN). Flair: wat de subreddit voor tools voorschrijft.
+
+**Tekst:**
+```
+I made Rollwright, a plugin for people who keep their solo sessions in Obsidian. You write a roll in your journal, read the result, and click it to roll again.
+
+For solo play the useful part is that your oracles can just be notes. Keep a yes/no list or a table with a block id, then `dice: [[Oracles^yesno]]` in your journal picks a random row or item. A lookup table can have a roll in its first header, like `dice: 1d20`, and Rollwright picks the matching row. You can also roll a random line, a block from a note, or a note with a tag.
+
+Every roll you click goes into a Roll log, grouped by note and session, so afterwards you can read back how the session went. The highest possible roll lands in gold and the lowest turns red.
+
+It is not an oracle or a GM emulator itself: it rolls dice and your own tables. It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working.
+
+All rolling is free. There are optional paid skins (a one-time purchase) that only change the look. No account and no telemetry. Open source (MIT).
+
+To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+
+Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
+Source: https://github.com/thijsduinhouwer2002-coder/rollwright
+
+Happy to answer questions here.
+
+Made by Thijs at Dortus
+```
+
+Waarom zo: in deze subreddit zijn orakels en tabellen het onderwerp, en er zijn al solo-plugins (Solo RPG Toolkit 39.327 downloads, GEZIEN 8 nov). Daarom zegt de tekst eerlijk wat Rollwright niet is (geen oracle of GM-emulator) en zet hij het rollen op je eigen tabellen vooraan, niet de NAT 20. De AI-zin is letterlijk gelijk aan het forum en r/ObsidianMD.
+
+### Plek 6: awesome-dnd, één pull request, **alleen Thijs zelf**
+
+**Nieuw gevonden (GEZIEN, curl 8 nov 20:50 UTC):** de repo heeft een sjabloon voor pull requests (`.github/PULL_REQUEST_TEMPLATE.md`) met een verplichte afvinklijst. Twee punten daaruit:
+- "I am a human, a good community member, and because of this I also made a comment on at least one other pull request about how the requested resource is awesome or not."
+- "I've visited the link and verify that I think it is totally awesome."
+
+Gevolg: deze pull request kan **niet via de hoofdchat**. Een Claude kan niet naar waarheid "I am a human" afvinken, en een reactie op de pull request van een ander zou een bericht onder de naam van Thijs zijn bij iemand anders, wat regel 4 en 5 van Thijs niet toestaan. Thijs doet hem dus zelf, of slaat hem over. Dat is eerlijk en past bij de beheerder, die precies dit vraagt. Het plan noemde het sjabloon nog niet; aangepast in `verspreiding.md`.
+
+**Overige regels (GEZIEN, CONTRIBUTING.md):** één bron per pull request; "Recommend something you've actually tried"; "Keep it relevant to D&D or system-agnostic tabletop play" (Rollwright is systeemvrij, met D&D-notatie, past); "Disclose your connection to the resource. Self-promotion is welcome; as long as it is made clear."; AI: "Describe any AI features readers will encounter on the requested link". Vorm: `- [Naam](link) - Korte, feitelijke beschrijving met een punt.` Er staat nog geen dobbelsteen-tool en geen Obsidian-plugin op de lijst (alleen Obsidian Portal, een andere site, GEZIEN).
+
+**Waar in de lijst:** onder `## Desktop Applications` ("Things to download and install"), onderaan. Tweede keuze `### Campaign Tracking`; die keuze laten we aan de beheerder.
+
+**De regel (met punt aan het eind, zoals de regels vragen):**
+```
+- [Rollwright](https://community.obsidian.md/plugins/rollwright) - Open source Obsidian plugin that rolls dice and random tables inside your campaign notes and logs every roll you click.
+```
+(Korter dan in run 11: "free" en de skins staan al in de tekst van de pull request, en de regels vragen een korte beschrijving.)
+
+**Titel van de pull request:** `Add Rollwright (dice and random tables in Obsidian notes)`
+
+**Tekst, in het sjabloon:**
+```
+## What's changing?
+
+Adds one resource, Rollwright, under Desktop Applications. Campaign Tracking could also fit; happy to move it.
+
+## New resource
+
+**Resource URL:** https://community.obsidian.md/plugins/rollwright
+
+**Why add it alongside the resources already listed?**
+The list has nothing for Obsidian, which many DMs use for campaign notes, and no dice roller that works inside your notes. Rollwright rolls dice and your own random tables (including lookup tables with a d20 in the header) right inside your notes, and keeps a log of every roll you click per session. It works for D&D and system-agnostic play.
+
+**Are you affiliated with the requested website?**
+Yes. I made it (Thijs, Dortus). All rolling is free and open source (MIT); optional paid skins only change the look.
+
+**AI disclosure:**
+None in the plugin itself: it has no AI features and only goes online to check a skin license key. The code is written by AI agents that my small studio runs; I direct and test it.
+
+## Checklist
+
+- [x] I've visited the link and verify that I think it is totally awesome.
+- [x] I've checked the list and previous issues and PRs for duplicates.
+- [x] This PR adds exactly one resource in the appropriate category, or if it adds an additional category, then the table of contents is also updated.
+- [x] The entry has a short, factual description ending with punctuation.
+- [x] I am a human, a good community member, and because of this I also made a comment on at least one other pull request about how the requested resource is awesome or not. Because I am invested in making this an awesome resource long into the future!
+```
+
+**Wat Thijs zelf eerst doet:** (1) Rollwright zelf een keer gebruiken in een notitie (regel "something you've actually tried"). (2) De open pull requests en issues doorzoeken op "Rollwright" en "dice" (dubbel). (3) Bij één open pull request van een ander een eerlijke reactie zetten over die bron, in zijn eigen woorden; alleen als hij die bron echt bekeek. (4) Pas dan de pull request: fork, de regel onderaan Desktop Applications, de tekst hierboven. Vinkt hij iets niet naar waarheid af: niet indienen.
+
+Waarom het toch de moeite is: klein bereik (307 sterren, GEZIEN run 11), maar het blijft staan en het is de enige plek op dit plan die mensen buiten Obsidian bereikt.
+
+### Keuring run 15
+Controleur (los van mij, curl op README, CONTRIBUTING, sjabloon en lijst): **akkoord mits**. Moet: "the list has no dice roller yet" klopte niet (Avrae, een dobbelbot, staat onder Discord Bots), aangepast naar "nothing for Obsidian ... and no dice roller that works inside your notes". Kan, verwerkt: "row or item" voor lijsten; regel voor de lijst korter; voorwaarde over accounteisen en wie plaatst. Rood voor de laagste worp staat niet in de README maar wel in de code (`src/rollers/extreme.ts`, max en min) en al in het gekeurde forumbericht. Conclusie dat alleen Thijs de pull request kan doen: juist volgens de controleur.

@@ -221,3 +221,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Nagelezen in de code (GEZIEN):** geen netwerk (geen urllib, requests of socket), paneel in de zijbalk tab "Click Joints", Make watertight op een kopie (origineel blijft, verborgen), export standaard naast de .blend, Auto meldt als geen maat goed past. Schermafbeelding op 1366 en 390 px: geen horizontaal scrollen.
 **Controle:** Daan kijkt de pagina na (zijn eigen afspraak in het ontwerp). Live-check direct na het pushen gaf nog 404 (publiceren duurt even); volgende run opnieuw kijken.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat); Bison & Flex dag 0 zodra de moderatie klaar is; dortus.com/click-joints/ live nakijken.
+
+## 8 nov 2026, ±20:44 tot 21:05 UTC: Rollwright, run 15 (plek 5 en 6 klaargezet)
+**Gelezen:** berichten (alles verwerkt; besluit Hans 20:44 over advies 24 nog niet uitgevoerd), doelen, regels, besluiten, rol, adviezen 24 tot 26, verspreidingsplan en lancering van Rollwright.
+**Opgemerkt:** lokale main van dortus-hq had weer een oude geschiedenis (72 voor, 64 achter); oude stand bewaard als tak `backup-oud`, main op origin/main gezet.
+**Beslissing:** deze run Rollwright, plek 5 en 6 uit het verspreidingsplan. Waarom: Hans besloot ze klaar te zetten; r/ObsidianMD mag pas 9 nov 13:45 UTC, Bison & Flex is nog in moderatie (`approve: false`, GEZIEN 20:44), en Click Joints is klaar tot het indienen.
+**Gedaan:** `lancering.md` run 15 (Solo-tekst in de vaste vorm, pull request awesome-dnd in het sjabloon), tabel en bijwerking in `verspreiding.md`, meting in `cijfers.md`, regel op lijst-thijs, bericht 20:44 verwerkt.
+**Gevonden (GEZIEN):** awesome-dnd heeft een verplichte afvinklijst met "I am a human" en een reactie bij een andere pull request. **Beslissing:** die pull request alleen door Thijs zelf. Waarom: een Claude kan dat niet naar waarheid afvinken en een reactie bij een ander breekt regel 4 en 5 van Thijs. Forumbericht na 7 uur: 14 keer bekeken, downloads nog 4.
+**Controleur:** akkoord mits. Moet: "the list has no dice roller yet" fout (Avrae staat erop), aangepast. Kan-punten verwerkt.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright: meting dag 1, dan r/ObsidianMD via de hoofdchat; Bison & Flex dag 0 zodra goedgekeurd.

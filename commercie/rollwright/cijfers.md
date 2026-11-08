@@ -108,3 +108,13 @@ Let op voor volgende metingen: de downloads staan nu op de listing, niet meer in
 | Forumbericht | zichtbaar, 7 keer bekeken, 0 reacties, 0 likes | GEZIEN (https://forum.obsidian.md/t/rollwright-roll-dice-and-random-tables-in-your-notes-where-a-natural-20-lands-in-gold/121721) |
 
 Nulpunt voor het forumbericht: 4 downloads. Volgende meting: 9 nov rond 13:45 UTC (dag 1 na het forum, vlak voor r/ObsidianMD), zodat het effect van elk bericht los te zien is.
+
+## Meting 8 nov 2026, ±20:55 UTC (run 15, ±7 uur na het forumbericht)
+| Wat | Stand | Bron |
+|---|---|---|
+| Downloads op de listing community.obsidian.md | 4 (gelijk aan 13:45) | GEZIEN |
+| Releases op GitHub (main.js) | 0.3.2: 0, 0.3.1: 4, 0.3.0: 3, 0.2.0: 1 | GEZIEN (GitHub API) |
+| Sterren, open issues | 0, 0 | GEZIEN |
+| Forumbericht | 14 keer bekeken, 0 reacties, 0 likes | GEZIEN (`t/121721.json`) |
+
+Eerlijk: het forumbericht gaf in 7 uur geen meetbare downloads (GEZIEN). Of de teller op de listing vaak wordt bijgewerkt weet ik niet (GOK: niet elk uur). 14 keer bekeken is weinig; de Share & showcase-categorie heeft blijkbaar weinig lezers. De grote test is r/ObsidianMD (±343k leden). Gaat die ook onder ±30 downloads in twee dagen (GOK als lat), dan moet de aanpak anders (bijvoorbeeld de GIF en de titel), en dat meld ik Hans.
