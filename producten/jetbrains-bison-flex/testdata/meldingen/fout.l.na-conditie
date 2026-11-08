@@ -1,0 +1,13 @@
+%{
+#include "fout.tab.h"
+%}
+%x GEBRUIKT
+%x IN_CODE_SC
+%%
+"a"             { BEGIN(IN_CODE_SC); return IN_SCANNER; }
+<GEBRUIKT>"b"   { return NUM; }
+<IN_CODE_SC>"c" { BEGIN(INITIAL); }
+<ONBEKEND>"d" { }
+<INITIAL>"e"    { }
+<*>"f"          { }
+%%

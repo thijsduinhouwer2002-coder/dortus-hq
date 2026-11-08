@@ -2,6 +2,8 @@ package com.dortus.bisonflex.meldingen
 
 import com.dortus.bisonflex.parser.BisonElementen as B
 import com.dortus.bisonflex.parser.FlexElementen as F
+import com.dortus.bisonflex.lexer.BisonTokens
+import com.dortus.bisonflex.lexer.Soort
 import com.dortus.bisonflex.psi.Koppeling
 import com.intellij.codeInspection.LocalQuickFix
 import com.intellij.codeInspection.ProblemDescriptor
@@ -38,7 +40,9 @@ private fun uitDeclaraties(f: PsiFile, naam: String, soorten: Set<com.intellij.p
         val namen = Koppeling.zoek(d, soorten)
         val raak = namen.filter { it.text == naam }
         if (raak.isEmpty()) continue
-        if (raak.size == namen.size && d.elementType != B.DIRECTIVE) { uit += metRegeleinde(tekst, d.textRange); continue }
+        // Een teken als '+' in %left houdt de declaratie in leven: dat is ook een token met voorrang.
+        val tekens = Koppeling.bladeren(d).any { BisonTokens.TYPES.soort(it.elementType) == Soort.TEKEN }
+        if (raak.size == namen.size && d.elementType != B.DIRECTIVE && !tekens) { uit += metRegeleinde(tekst, d.textRange); continue }
         for (n in raak) {
             var begin = n.startOffset
             while (begin > 0 && (tekst[begin - 1] == ' ' || tekst[begin - 1] == '\t')) begin--
