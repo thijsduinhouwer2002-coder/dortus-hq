@@ -1,5 +1,7 @@
 package com.dortus.bisonflex
 
+import com.dortus.bisonflex.pro.FacadeBron
+import com.dortus.bisonflex.pro.LicentieStand
 import com.dortus.bisonflex.pro.StempelControle
 import junit.framework.TestCase
 import java.io.File
@@ -14,7 +16,8 @@ import java.util.Base64
 /**
  * Handtekening van de licentiestempel (Moet in 1.0 punt 6, ontwerp.md). Een echte sleutel van JetBrains hebben we niet,
  * dus de positieve gevallen gebruiken een eigen testketen uit `testdata/handtekening/` (test-root ondertekent test-blad;
- * vreemd-blad is ondertekend door een root die niet vertrouwd wordt).
+ * vreemd-blad is ondertekend door een root die niet vertrouwd wordt; verlopen-blad is ondertekend door verlopen-root en
+ * gold alleen in 2020).
  */
 class StempelTest : TestCase() {
 
@@ -48,9 +51,9 @@ class StempelTest : TestCase() {
         return "key:$id-${b64.encodeToString(bytes)}-${b64.encodeToString(sig)}-${b64.encodeToString(c)}"
     }
 
-    private fun stampStempel(tijd: Long, verwacht: String = "M1", machine: String = "M1"): String {
-        val sig = onderteken("$tijd:$machine".toByteArray(), sleutel("test-blad.key"), "SHA256withRSA")
-        val c = cert("test-blad.pem").encoded
+    private fun stampStempel(tijd: Long, verwacht: String = "M1", machine: String = "M1", blad: String = "test"): String {
+        val sig = onderteken("$tijd:$machine".toByteArray(), sleutel("$blad-blad.key"), "SHA256withRSA")
+        val c = cert("$blad-blad.pem").encoded
         return "stamp:$verwacht:$tijd:$machine:SHA256withRSA:${b64.encodeToString(sig)}:${b64.encodeToString(c)}"
     }
 
@@ -61,6 +64,7 @@ class StempelTest : TestCase() {
 
     override fun tearDown() {
         StempelControle.zetRootsVoorTest(null)
+        FacadeBron.wisFacadeVoorTest()
         super.tearDown()
     }
 
@@ -133,5 +137,43 @@ class StempelTest : TestCase() {
         assertEquals(2, StempelControle.aantalControles() - voor)
         assertTrue(StempelControle.isGeldig(s))
         assertEquals(3, StempelControle.aantalControles() - voor)
+    }
+
+    // ---- kan-punten controleur 8 nov 06:15 ----
+
+    fun testServerStempelVanVreemdeRootIsGeen() {
+        val nu = System.currentTimeMillis()
+        assertFalse(StempelControle.isGeldig(stampStempel(nu, blad = "vreemd"), nu))
+    }
+
+    fun testVerlopenCertificaatAlleenGoedVoorSleutel() {
+        // een sleutel mag een blijvende licentie zijn (certificaat op de begindatum gecontroleerd), een serverstempel niet
+        StempelControle.zetRootsVoorTest(listOf(cert("test-root.pem"), cert("verlopen-root.pem")))
+        assertTrue("sleutel met verlopen certificaat", StempelControle.isGeldig(keyStempel(blad = "verlopen")))
+        val nu = System.currentTimeMillis()
+        assertFalse("serverstempel met verlopen certificaat", StempelControle.isGeldig(stampStempel(nu, blad = "verlopen"), nu))
+    }
+
+    fun testAfgekeurdBlijftNietVoorAltijdAfgekeurd() {
+        // klok van de licentieserver 90 minuten voor: nu afgekeurd, maar zodra de tijd klopt wel geldig, zonder herstart
+        val nu = System.currentTimeMillis()
+        val s = stampStempel(nu + 90 * 60_000)
+        val voor = StempelControle.aantalControles()
+        assertFalse(StempelControle.isGeldig(s, nu))
+        assertFalse(StempelControle.isGeldig(s, nu + StempelControle.AFGEKEURD_OPNIEUW_MS - 1))
+        assertEquals("binnen een minuut uit het geheugen", 1, StempelControle.aantalControles() - voor)
+        assertTrue(StempelControle.isGeldig(s, nu + 60 * 60_000))
+        assertEquals(2, StempelControle.aantalControles() - voor)
+    }
+
+    fun testFacadeNullIsOnbekend() {
+        FacadeBron.zetFacadeVoorTest(aanwezig = false, stempel = null)
+        assertEquals(LicentieStand.ONBEKEND, FacadeBron.stand())
+        FacadeBron.zetFacadeVoorTest(aanwezig = true, stempel = null)
+        assertEquals(LicentieStand.GEEN, FacadeBron.stand())
+        FacadeBron.zetFacadeVoorTest(aanwezig = true, stempel = "rommel")
+        assertEquals(LicentieStand.GEEN, FacadeBron.stand())
+        FacadeBron.zetFacadeVoorTest(aanwezig = true, stempel = keyStempel())
+        assertEquals(LicentieStand.GELDIG, FacadeBron.stand())
     }
 }

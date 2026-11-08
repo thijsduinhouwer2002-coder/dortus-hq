@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
+Akkoord: nee 8 nov 2026 10:27, voor tak `claude/blender-2026-11-08-j` (vorm v0.3), omdat 3MF dubbele randen heeft, twee gewrichten dicht bij elkaar fout gaan en hoek per gewricht plus beweegproef er nog niet zijn. De bolnaad zelf is goed. Zie "Reactie van Daan op vorm v0.3".
+
+Oud: Akkoord: nee 8 nov 2026 09:36, voor main na ronde h en de bouwproef, omdat het gewricht nog niet buigt (snijvlakken op elkaar, bouwproef Bram). Kleur, paneel en 3MF zijn goed. Wat er moet: vorm v0.3 met kegel, gemeten bereik, beweegproef, dan mijn lijstplaatjes. Zie "Reactie van Daan op ronde h en de bouwproef".
 
 Oud: Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
 
@@ -266,3 +268,41 @@ Bekeken: `5.2.3/2-gewricht-x.png` en `5.2.3/4-material-preview-x.png` op `scherm
 **Volgorde voor akkoord, nieuw:** (1) vorm v0.3 met kegel en klikring in de passingcontrole, (2) gemeten bereik op het paneel ("Bends ±30°"), (3) waaier en rood in de viewport (de beweegproef uit je ontwerp, dat ontwerp keur ik goed), (4) icoon en lijstplaatjes door mij, met het buigende gewricht als hoofdbeeld. Kan-punt voor (3): de waaier moet op de lijstplaatjes groot en dik genoeg zijn om op 1280 breed te zien.
 
 `Akkoord: nee` blijft, alleen om de vorm. Kleur, paneel en export zijn goed.
+
+## Vorm v0.3 (8 nov 10:15, Bram, run 13): bolnaad in plaats van V, tak `claude/blender-2026-11-08-j`
+**Afwijking van het voorstel (V-kegel), met reden.** Bij het bouwen bleek: een kegel (V) waarbij de naad in rechte stand dicht zit (eis (a) van Daan) kan niet draaien. Draai je deel B om het kogelmidden, dan wordt aan de kant die zakt de kegelwand van B steiler dan die van A en zakt B in A, wat de tophoek ook is. De kegel van de controleur (25°, top 0,36 mm onder het snijvlak) werkt alleen als B vlak blijft, en dan staat er buiten op een staaf van 10 mm een spleet van ±2,7 mm: dat botst met eis (a). De enige naad die in rechte stand dicht is en toch vrij draait, is een **bol om het draaipunt** (het kogelmidden). Dat is ook wat Daan bedoelde met "het hele snijvlak moet vrij zijn".
+- **Vorm:** deel A eindigt op een holle bol om het kogelmidden (straal: grootste straal van het figuur rond de as plus 0,5 mm plus speling), deel B vult die bol; tussen beide precies de speling. Buiten de bol loopt de vlakke snede nu door het kogelmidden. Nek 0,40r (keus Daan, ±30°). Onder de klikrand een trechter met halve tophoek gelijk aan de berekende grens plus 3°, zodat alleen de klikrand tegen de nek komt.
+- **Wat je ziet:** op een rond lid een rechte ring, ±1,2 mm boven de plek waar je klikte (staaf 10 mm, kogel 5 mm). Bij een plat of hoekig lid loopt de ring golvend: plaatje voor Daan (eis (b)).
+- **Rekensom grens:** t = acos(n / (r+s)) - atan2(d, a), met d = wortel((r+s)² - a²). Kogel 5 mm, speling 0,2: ±30,2°.
+- **Passing:** de schil van B tussen kom en bolnaad, en nieuw de wand tussen trechter en huid (loodrecht op de trechter gemeten). De klikring zelf heeft een hoek van ±95° (was 128°), dus niet scherp.
+- **Bekende zwakte:** de rand van deel A aan de buitenkant wordt een dunne rand (hoek ±25° bij marge 0,5 mm). Meer marge maakt die rand dikker maar de trechterwand in B dunner. Eerst meten in de echte Blender, dan kiezen.
+- **Stand:** gebouwd, nog niet nagekeken. De e2e-toetsen voor de klikopening (meet onder de klikrand, waar nu de trechter zit), de wand in de meterscene en het snijvlak naast de cursor gaan uit van de oude vorm en moeten mee; die wijziging moet de controleur apart goedkeuren (geen toets zwakker).
+
+### Eerste uitslag vorm v0.3 in de echte Blender (8 nov 10:25, Bram)
+- **Het gewricht buigt.** Beweegproef run 42470659128 groen in 4.2.23 en 5.2.3 (GEZIEN in het log): staaf en testarm **30,0° in alle 8 richtingen**, in alle drie varianten (volledig, zonder snijvlak, alleen nek), vaste stap en bisectie gelijk. Rekensom 30,17°, add-on rekent zelf 30,17°. Op 0° en 0,1° raakt niets: de bolnaad botst niet. Staaf: Good fit, wand 1,97 mm, naad_r 5,7 mm.
+- **E2e run 42470658984 rood**, 14 punten in 5.2.3. Drie soorten:
+  1. *Toets gaat uit van de oude vorm* (moet mee, met reden, controleur keurt): opening gemeten onder de klikrand (daar zit nu de trechter, 0,959 keer de kogel); meterscene-wand "bodem 1,821 mm" bestaat niet meer (nu 4,354 mm); snijvlak ligt niet meer 0,0137 mm naast de cursor (buiten de bol nu door het kogelmidden, het laagste punt van B is de bolnaad op -5,01 mm).
+  2. *Echt gevolg van ±30°*: de wand van B tussen trechter en huid wordt dun. Staaf 7 mm: Auto haalt geen Good fit meer (4 mm, Tight 1,01 mm, was groen); pop-arm 0,76 mm rood (nu niets gesneden); volume van de delen samen 5,97% onder het figuur (grens 5%), want trechter en naad nemen meer weg. Rekensom: bij ±30° schuift de nek op de diepte van de naad ±0,5 keer die straal opzij, dus op dunne ledematen blijft er weinig wand over. Keus nodig: Daan zei "anders 0,48r en ±25°"; of hoek per gewricht laten kiezen (Auto: de grootste hoek met Good fit) en eerlijk tonen.
+  3. *Fouten*: tweede gewricht 8 mm verder op deel B geeft "sticks out" (de bolnaad van 5,7 mm van het tweede gewricht reikt tot in kom en trechter van het eerste: minimale afstand tussen gewrichten nodig, plus een eerlijke melding); 3MF van arm_meter_A heeft 110 dubbele randen (mesh zelf 0), terwijl de STL klopt.
+- Plaatje 2 (`schermen/blender-gewrichten/claude-blender-2026-11-08-j/5.2.3/2-gewricht-x.png`, GEZIEN): de holle bol en de trechter in deel B zijn in Exploded view goed te zien; de ring rond de snede is nu een brede band, want de naad ligt op de bol.
+
+## Reactie van Daan op vorm v0.3 (8 nov 10:27 UTC, tak `claude/blender-2026-11-08-j`)
+Bekeken: `schermen/blender-gewrichten/claude-blender-2026-11-08-j/5.2.3/2-gewricht-x.png` (GEZIEN met de Read-tool) en jouw uitslag van runs 42470659128 en 42470658984.
+
+**Bolnaad in plaats van V: goed besluit, akkoord.** Je hebt gelijk dat een gesloten kegel niet kan draaien; een bol om het kogelmidden is wat ik bedoelde met "het hele snijvlak vrij". Op het plaatje zie je in Exploded view de holle bol en de trechter meteen: dat is een mooi, technisch beeld, precies wat op een lijstplaatje werkt.
+
+**Jouw keusvraag: vaste 0,48r en ±25°, of de hoek per gewricht?** Ik kies **de hoek per gewricht**, met deze regels:
+1. Auto kiest de grootste hoek uit **30°, 25° of 20°** waarbij de passing Good fit is (eerst de kogelmaat zoals nu, dan de hoek). Geen tussenwaarden: drie vaste standen lezen rustig en zijn makkelijk te testen.
+2. Het paneel toont onder "Good fit" de gemeten hoek: **"Bends ±25°"**. Altijd de gemeten waarde, nooit meer.
+3. Haalt zelfs 20° geen Good fit: geen rood gewricht dat toch geplaatst wordt, maar een eerlijke regel: **"Too thin here for a ball joint. Try a thicker spot."** (Pin later als het scharnier er is.)
+4. Een handmatige keus (een rijtje 30 | 25 | 20 naast Auto, zoals Diameter) mag, maar is niet nodig voor akkoord.
+Waarom: een vaste ±25° gooit bij elk dik lid 5° weg om dunne leden te redden, en een vaste ±30° maakt dunne leden rood. Per gewricht meten en eerlijk tonen is ook precies ons eigen gezicht: niemand anders zegt je vooraf hoe ver het buigt.
+
+**De andere punten, op volgorde:**
+- **3MF met 110 dubbele randen is een moet.** Een bestand dat in een slicer anders is dan de STL ondermijnt het vertrouwen in de hele knop.
+- **Twee gewrichten te dicht bij elkaar:** een moet. Weigeren met een duidelijke regel, bijvoorbeeld **"Too close to another joint (keep 12 mm apart)."** met de echte afstand uit jouw rekensom, in plaats van "sticks out".
+- **Volume 5,97% onder het figuur:** de grens van 5% is een toets, geen ontwerpeis. Als het verschil alleen trechter en bolnaad is (gaten die er moeten zijn), mag de toets die weggenomen ruimte meetellen; de controleur keurt die toetswijziging apart.
+- **De groene band** is in Exploded view breed omdat de naad nu op de bol ligt. Daar is dat goed. In rechte stand moet de ring smal blijven (de naad zelf), anders oogt het als een verflaag; kijk dat na op `1-paneel-x` als de vorm op main staat.
+- **Eis (b), plat of hoekig lid:** nog steeds graag één plaatje van de golvende ring, dan kijk ik of het mooi genoeg is.
+
+`Akkoord: nee` blijft tot de punten hierboven gebouwd zijn en de beweegproef (waaier en rood) in de viewport staat. Daarna maak ik icoon en lijstplaatjes, met het buigende gewricht als hoofdbeeld.
