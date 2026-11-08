@@ -28,7 +28,10 @@ def tweede_gewricht(lijst):
     inst.speling_mm, inst.kogel_mm, inst.soort, inst.as_bron, inst.kogel_auto = 0.2, 3.0, "KOGEL", "CURSOR", False
     figuren.zet_cursor((8, 0, 0), (1, 0, 0))
     figuren.maak_actief(b)
-    uitslag = bpy.ops.click_joints.plaats()
+    try:
+        uitslag = bpy.ops.click_joints.plaats()
+    except RuntimeError as fout:  # een ERROR-melding wordt in een script een uitzondering
+        uitslag = {"FOUT: " + str(fout)}
     nieuw = [d for d in delen() if d.get("cj_bron") == b.name]
     nodig = b.get("cj_te_dicht_mm")
     log(f"TWEEDE: op 8 mm uitslag={uitslag}, {len(nieuw)} nieuwe delen, cj_te_dicht_mm={nodig}, "

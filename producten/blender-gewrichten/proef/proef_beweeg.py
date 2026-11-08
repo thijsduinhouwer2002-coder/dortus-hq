@@ -194,7 +194,7 @@ def meet(figuur, a_deel, b_deel):
 
 
 def rekensom(a_deel):
-    """Verwachte grens uit de vorm v0.3 (zie maten() in click_joints/gewricht.py).
+    """Verwachte grens uit de vorm v0.3 (zie maten() in click_joints/maat.py).
     Frame met het kogelmidden C in de oorsprong. De naad tussen A en B is een bol om C, dus die botst nooit.
     De nek (straal n) raakt als eerste de klikrand: de ring met straal a (opening) op afstand d onder C,
     met d = wortel((r + s)^2 - a^2), want daar snijdt de trechter de kom. Een randpunt (a, -d) gedraaid over t

@@ -119,11 +119,75 @@ def gespiegeld():
         stap("gespiegeld: cj_gespiegeld staat op de delen", bool(lijst[0].get("cj_gespiegeld")))
         stap(f"gespiegeld: passing niet rood ({lijst[0].get('cj_passing')})", lijst[0].get("cj_passing") != "rood")
         som = sum(meting(d)[1] for d in lijst)
-        verschil = abs(som - vol_eigen) / vol_eigen
-        log(f"SPIEGEL: volume delen samen={som:.1f}mm3 figuur={vol_eigen:.1f}mm3 verschil={verschil:.3%}")
-        stap("gespiegeld: volume van de delen samen binnen 5% van het figuur", verschil < 0.05)
+        # Ronde j (Daan akkoord): vorm v0.3 neemt bewust ruimte weg (kom min kogel, trechter min nek, de spleet
+        # van s langs de bolnaad). Die ruimte meten we los uit de vorm (steekproef in het originele figuur)
+        # en tellen hem mee; de grens van 5% blijft voor de rest.
+        a = next(d for d in lijst if d["cj_deel"] == "A")
+        weg_mm3 = bewust_weg(ob, a)
+        verschil = abs(som + weg_mm3 - vol_eigen) / vol_eigen
+        log(f"SPIEGEL: volume delen samen={som:.1f}mm3 bewust weg={weg_mm3:.1f}mm3 figuur={vol_eigen:.1f}mm3 "
+            f"verschil={verschil:.3%} (zonder de weggenomen ruimte {abs(som - vol_eigen) / vol_eigen:.3%})")
+        stap("gespiegeld: volume van de delen samen plus de bewust weggenomen ruimte binnen 5% van het figuur",
+             weg_mm3 > 0 and verschil < 0.05)
         speling_meten(lijst, 0.2, "SPELING gespiegeld")
     weg(lijst + [ob])
+
+
+def bewust_weg(ob, a, n=200000):
+    """Volume in mm3 van de ruimte die vorm v0.3 bewust weghaalt binnen het figuur, als steekproef:
+    binnen het figuur, niet in het gebied van deel A (onder het vlak door het kogelmidden en buiten de bol
+    naad_r + s/2), niet in kogel of nek, en ofwel buiten het gebied van deel B (de spleet langs de bolnaad)
+    ofwel in kom (r + s) of trechter. Alle vormen zijn rond om de as, dus alleen afstand tot de as telt."""
+    import math
+    import random
+    import bmesh
+    from mathutils.bvhtree import BVHTree
+    r, s = a["cj_kogel_r"], a["cj_speling_mm"] * u()
+    naad, open_r, lip, nek = a["cj_naad_r"], a["cj_open_r"], a["cj_lip_d"], a["cj_nek_r"]
+    schuif = 0.0137 * u()
+    as_r = Vector(a["cj_as"]).normalized()
+    c = Vector(a["cj_centrum"])
+    cursor = Vector(a["cj_snijpunt"]) - as_r * schuif
+    mz = (c - cursor).dot(as_r)
+    vlak = mz + schuif
+    tan = math.tan(math.radians(a["cj_grens_graden"] + 3.0))
+    z_lip = mz - lip
+    z_top, z_bodem = z_lip + 0.25 * r, mz - naad - s - 0.5 * r
+    onder = min(-0.4 * r, mz - naad - 0.4 * r)
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    bm.transform(ob.matrix_world)
+    if ob.matrix_world.determinant() < 0:
+        bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
+    bvh = BVHTree.FromBMesh(bm)
+    bm.free()
+    h = naad + s
+    rng = random.Random(7)
+    # twee loodrechte richtingen op de as
+    e1 = as_r.orthogonal().normalized()
+    e2 = as_r.cross(e1).normalized()
+    raak = 0
+    for _ in range(n):
+        x, y, z = (rng.uniform(-h, h) for _ in range(3))
+        zc = mz + z  # hoogte in het frame (0 = cursor)
+        d2 = x * x + y * y + z * z
+        rho = math.sqrt(x * x + y * y)
+        if d2 < r * r or (rho < nek and onder <= zc <= mz):
+            continue  # kogel of nek (deel A)
+        if zc < vlak and d2 > (naad + s / 2) ** 2:
+            continue  # gebied van deel A
+        in_b = zc >= vlak or d2 < (naad - s / 2) ** 2
+        kom = d2 < (r + s) ** 2
+        trechter = z_bodem <= zc <= z_top and rho <= open_r + (z_lip - zc) * tan
+        if in_b and not kom and not trechter:
+            continue  # gewoon deel B
+        p = c + as_r * z + e1 * x + e2 * y
+        loc, nor, _, _ = bvh.find_nearest(p)
+        if loc is not None and (p - loc).dot(nor) < 0:
+            raak += 1
+    weg = raak / n * (2 * h) ** 3 / u() ** 3
+    log(f"SPIEGEL: steekproef bewust weg {raak}/{n} punten, kubus {2 * h / u():.2f} mm, {weg:.1f} mm3")
+    return weg
 
 
 def kijk_zonder_venster():

@@ -256,7 +256,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
             # Regel Daan (ronde j): de bolnaad mag niet in kom of trechter van een ander gewricht komen.
             ruim_op(hulp)
             bron["cj_te_dicht_mm"] = nodig
-            self.report({"ERROR"}, f"Too close to another joint (keep {nodig} mm apart).")
+            self.report({"WARNING"}, f"Too close to another joint (keep {nodig} mm apart).")
             return {"CANCELLED"}
         if kleur == "rood":
             ruim_op(hulp)
