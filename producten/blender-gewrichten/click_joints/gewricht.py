@@ -197,8 +197,10 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         for deel in (deel_a, deel_b):
             markeer(deel, kleur, gegevens)
         bron.hide_set(True)
+        context.view_layer.update()
         for o in context.view_layer.objects:
-            o.select_set(False)
+            if o is not None:
+                o.select_set(False)
         deel_a.select_set(True)
         deel_b.select_set(True)
         context.view_layer.objects.active = deel_a

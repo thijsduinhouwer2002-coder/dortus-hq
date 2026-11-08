@@ -15,7 +15,7 @@ def exportmap(scene):
 
 
 def delen(context):
-    return [o for o in context.view_layer.objects if o.get("cj_deel") and o.visible_get()]
+    return [o for o in context.view_layer.objects if o is not None and o.get("cj_deel") and o.visible_get()]
 
 
 class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
@@ -37,8 +37,10 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         actief = context.view_layer.objects.active
         geschreven = []
         for deel in lijst:
+            context.view_layer.update()
             for o in context.view_layer.objects:
-                o.select_set(False)
+                if o is not None:
+                    o.select_set(False)
             deel.select_set(True)
             context.view_layer.objects.active = deel
             pad = os.path.join(map_, bpy.path.clean_name(deel.name) + ".stl")

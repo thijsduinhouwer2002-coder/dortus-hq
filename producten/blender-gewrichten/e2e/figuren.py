@@ -93,8 +93,10 @@ def zet_cursor(punt, as_richting):
 
 
 def maak_actief(ob):
+    bpy.context.view_layer.update()
     for o in bpy.context.view_layer.objects:
-        o.select_set(False)
+        if o is not None:
+            o.select_set(False)
     ob.hide_set(False)
     ob.select_set(True)
     bpy.context.view_layer.objects.active = ob

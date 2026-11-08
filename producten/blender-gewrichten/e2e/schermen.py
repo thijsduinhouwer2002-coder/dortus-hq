@@ -101,6 +101,7 @@ def weergave():
 def maak_pop():
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
+    bpy.context.view_layer.update()
     figuren.mm_scene()
     import importlib
     naam = next(a.module for a in bpy.context.preferences.addons if a.module.endswith("click_joints"))

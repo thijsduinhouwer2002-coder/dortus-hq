@@ -86,8 +86,10 @@ class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         kopie["cj_gesloten"] = True
         kopie["cj_bron"] = bron.name
         bron.hide_set(True)
+        context.view_layer.update()
         for o in context.view_layer.objects:
-            o.select_set(False)
+            if o is not None:
+                o.select_set(False)
         kopie.select_set(True)
         context.view_layer.objects.active = kopie
         self.report({"INFO"}, f"Gesloten kopie {kopie.name} gemaakt ({len(me.polygons)} vlakken)")
