@@ -499,3 +499,12 @@ Nieuwste blok onderaan.
 - Beslissing: nog niet klaar, cijfer 5. Controleur akkoord, 8 van 8, correcties verwerkt (bundels, concentratie, concurrentie groeit).
 - Les: een winkel zonder tellers is alleen eerlijk te meten met een proef; zeg dat meteen in het advies.
 - Run afgesloten.
+
+## 8 nov run 15:33 (Amsterdam)
+- Begin: main opnieuw gezet op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Platform: VCV Rack Library (muzieksoftware met eigen winkel, past bij "vakprogramma's met een eigen winkel"), zelf toegevoegd. Om 15:38 op "in onderzoek" gezet en gepusht.
+- Open API met alle 602 plugins, premium-vlag, datum en popularity (downloads) voor gratis plugins. Prijzen van alle 116 premiumpagina's gelezen. Forum via Discourse-JSON (robots.txt staat het toe).
+- Uitkomst: bereik gratis het beste tot nu toe (mediaan 2.318, 100% boven 1.000), maar geld onzichtbaar en geen bedrag van een maker. Beslissing: nee voor nu, cijfer 4, omdat geld net zo zwaar weegt als bereik en hier niets aantoonbaar is.
+- Controleur: 6 van 6 klopt; correctie: de 0,1 tot 1% van Vult is een ruwe schatting tegen alle Rack-gebruikers. Verwerkt. Afdracht 30% alleen van één maker.
+- Les: een tellende winkel voor gratis plugins zegt niets over betaald; zoek bij gemengde winkels altijd apart naar een verkoopteller.
+- Run afgesloten.

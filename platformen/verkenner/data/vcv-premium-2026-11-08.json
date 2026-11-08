@@ -1,0 +1,1197 @@
+[
+{
+"slug": "MM_ModelV",
+"brand": "Mockba Modular",
+"created": "2020-01-07",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "ALM018",
+"brand": "ALM Busy Circuits",
+"created": "2025-06-06",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "ML_modules_seq",
+"brand": "ML Modules",
+"created": "2018-06-04",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 4
+},
+{
+"slug": "BakehouseTreats",
+"brand": "Bakehouse",
+"created": "2026-10-26",
+"prices": [
+"5",
+"5",
+"5"
+],
+"modlinks": 2
+},
+{
+"slug": "VenomChaosBoxes",
+"brand": "Venom",
+"created": "2026-04-09",
+"prices": [
+"40",
+"40",
+"40"
+],
+"modlinks": 14
+},
+{
+"slug": "VCV-SoundStage",
+"brand": "VCV",
+"created": "2020-07-09",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "Stoev-Symmetry",
+"brand": "Stoev",
+"created": "2020-12-20",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 2
+},
+{
+"slug": "Synthetic",
+"brand": "SV Modular",
+"created": "2019-08-13",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 14
+},
+{
+"slug": "VCV-Chords",
+"brand": "VCV",
+"created": "2019-09-08",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "ChordSuite",
+"brand": "maglav modular",
+"created": "2021-11-13",
+"prices": [
+"5",
+"5",
+"5"
+],
+"modlinks": 4
+},
+{
+"slug": "ML_modules_QU",
+"brand": "ML Modules",
+"created": "2018-06-04",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "TheyProbablyAlias",
+"brand": "TheyProbablyAlias",
+"created": "2023-11-19",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 6
+},
+{
+"slug": "regen-modular",
+"brand": "Regen Modular",
+"created": "2020-01-02",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 20
+},
+{
+"slug": "VCV-Parametra",
+"brand": "VCV",
+"created": "2018-05-27",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "JPEvo",
+"brand": "JP",
+"created": "2025-02-26",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 10
+},
+{
+"slug": "OmniMango-Subliminal-Messages",
+"brand": "OmniMango",
+"created": "2021-11-02",
+"prices": [],
+"modlinks": 2
+},
+{
+"slug": "HotBunny",
+"brand": "Hot Bunny",
+"created": "2018-02-07",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "Leviathan-Pro",
+"brand": "Leviathan",
+"created": "2026-10-05",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "UnfilteredVolume1",
+"brand": "Unfiltered Audio",
+"created": "2018-02-07",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 12
+},
+{
+"slug": "Polymaths",
+"brand": "Magus Instrumentalis",
+"created": "2020-10-21",
+"prices": [],
+"modlinks": 8
+},
+{
+"slug": "CVfunkModulations",
+"brand": "CV funk",
+"created": "2025-10-13",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 8
+},
+{
+"slug": "MM_Proton",
+"brand": "Mockba Modular",
+"created": "2020-01-31",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "Hora-VCO_VCF_VCA",
+"brand": "Hora",
+"created": "2018-05-21",
+"prices": [
+"24",
+"24",
+"24"
+],
+"modlinks": 10
+},
+{
+"slug": "Prok-Modular",
+"brand": "Prok Modular",
+"created": "2020-07-01",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 32
+},
+{
+"slug": "VultMysteries",
+"brand": "Vult",
+"created": "2019-07-16",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 10
+},
+{
+"slug": "VCV-Drums",
+"brand": "VCV",
+"created": "2021-09-11",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 20
+},
+{
+"slug": "SyntheticFX",
+"brand": "SV Modular",
+"created": "2019-11-10",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 20
+},
+{
+"slug": "DanTPro",
+"brand": "DanT",
+"created": "2026-11-02",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "VCV-Host",
+"brand": "VCV",
+"created": "2018-11-24",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 12
+},
+{
+"slug": "OmniMango-July-Chorus",
+"brand": "OmniMango",
+"created": "2021-08-30",
+"prices": [],
+"modlinks": 2
+},
+{
+"slug": "HappyNerding",
+"brand": "Happy Nerding",
+"created": "2026-11-05",
+"prices": [
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "Autodafe-REDs",
+"brand": "Autodafe",
+"created": "2018-02-07",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 18
+},
+{
+"slug": "PathSet-GlassShard-Premium",
+"brand": "Path Set",
+"created": "2024-05-13",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 4
+},
+{
+"slug": "VCV-Router",
+"brand": "VCV",
+"created": "2018-03-22",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 6
+},
+{
+"slug": "FLAG-Prism-Of-Perception",
+"brand": "FLAG",
+"created": "2023-05-12",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 2
+},
+{
+"slug": "DrumKitPro",
+"brand": "SV Modular",
+"created": "2019-10-24",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 20
+},
+{
+"slug": "ALM034",
+"brand": "ALM Busy Circuits",
+"created": "2023-10-13",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 4
+},
+{
+"slug": "BefacoOneiroi",
+"brand": "Befaco",
+"created": "2024-12-16",
+"prices": [
+"35",
+"35",
+"35"
+],
+"modlinks": 2
+},
+{
+"slug": "Battalion",
+"brand": "Unfiltered Audio",
+"created": "2026-06-04",
+"prices": [
+"60",
+"30",
+"60"
+],
+"modlinks": 10
+},
+{
+"slug": "AlteredLabs",
+"brand": "Altered Labs",
+"created": "2026-11-07",
+"prices": [
+"40",
+"30",
+"10"
+],
+"modlinks": 40
+},
+{
+"slug": "Doepfer",
+"brand": "Doepfer",
+"created": "2022-05-01",
+"prices": [
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "Stoev-Projection",
+"brand": "Stoev",
+"created": "2022-11-24",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 2
+},
+{
+"slug": "OrmerModular",
+"brand": "Ormer Modular",
+"created": "2026-09-14",
+"prices": [
+"30",
+"20",
+"30"
+],
+"modlinks": 6
+},
+{
+"slug": "PathSet-Rainbows",
+"brand": "Path Set",
+"created": "2022-08-05",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 12
+},
+{
+"slug": "Cytomic",
+"brand": "Cytomic",
+"created": "2023-07-07",
+"prices": [
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "Madness",
+"brand": "Magus Instrumentalis",
+"created": "2021-07-09",
+"prices": [],
+"modlinks": 12
+},
+{
+"slug": "Protoseq",
+"brand": "Protoseq",
+"created": "2026-09-07",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 14
+},
+{
+"slug": "Architexture-KI1H",
+"brand": "Architexture Enterprises",
+"created": "2026-10-25",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 14
+},
+{
+"slug": "Geodesics-Vultiverse",
+"brand": "Geodesics+Vult",
+"created": "2020-11-13",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "Entrian-AcousticDrums",
+"brand": "Entrian",
+"created": "2019-10-14",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 4
+},
+{
+"slug": "PathSet-Infinity",
+"brand": "Path Set",
+"created": "2022-04-05",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 8
+},
+{
+"slug": "dbRackXPro",
+"brand": "docB",
+"created": "2026-03-19",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 2
+},
+{
+"slug": "VultModules",
+"brand": "Vult",
+"created": "2018-02-07",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 18
+},
+{
+"slug": "cf_hardware",
+"brand": "cf",
+"created": "2019-11-19",
+"prices": [],
+"modlinks": 4
+},
+{
+"slug": "VCV-Scalar",
+"brand": "VCV",
+"created": "2018-09-06",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "Hora-Processors",
+"brand": "Hora",
+"created": "2018-05-21",
+"prices": [
+"18",
+"18",
+"18"
+],
+"modlinks": 12
+},
+{
+"slug": "AS-Seqs-n-Tools",
+"brand": "AS",
+"created": "2018-04-09",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 26
+},
+{
+"slug": "Hora-AnalogDrums",
+"brand": "Hora",
+"created": "2018-05-21",
+"prices": [
+"24",
+"24",
+"24"
+],
+"modlinks": 32
+},
+{
+"slug": "ZZC-Phaseque",
+"brand": "ZZC",
+"created": "2019-07-30",
+"prices": [],
+"modlinks": 2
+},
+{
+"slug": "ALM046",
+"brand": "ALM Busy Circuits",
+"created": "2024-12-02",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "CVfunkSands",
+"brand": "CV funk",
+"created": "2026-07-30",
+"prices": [
+"40",
+"40",
+"40"
+],
+"modlinks": 18
+},
+{
+"slug": "ALM045",
+"brand": "ALM Busy Circuits",
+"created": "2026-04-01",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "LindenbergResearch",
+"brand": "LindenbergResearch",
+"created": "2018-02-07",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 46
+},
+{
+"slug": "Semiramis",
+"brand": "Sonus Dept.",
+"created": "2019-06-28",
+"prices": [],
+"modlinks": 16
+},
+{
+"slug": "JPLab",
+"brand": "JP",
+"created": "2023-10-10",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 12
+},
+{
+"slug": "Klavis",
+"brand": "Klavis",
+"created": "2025-08-01",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 12
+},
+{
+"slug": "OXIInstruments",
+"brand": "OXI Instruments",
+"created": "2026-10-16",
+"prices": [
+"30",
+"25"
+],
+"modlinks": 4
+},
+{
+"slug": "UnfilteredVolume2",
+"brand": "Unfiltered Audio",
+"created": "2020-01-15",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 4
+},
+{
+"slug": "ALM042",
+"brand": "ALM Busy Circuits",
+"created": "2024-03-15",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "SynthesisTechnology",
+"brand": "Synthesis Technology",
+"created": "2023-06-19",
+"prices": [
+"60",
+"39",
+"15"
+],
+"modlinks": 12
+},
+{
+"slug": "StochasticTelegraphTwixt",
+"brand": "Stochastic Telegraph",
+"created": "2026-08-14",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 4
+},
+{
+"slug": "Hora-Modulation",
+"brand": "Hora",
+"created": "2018-05-21",
+"prices": [
+"18",
+"18",
+"18"
+],
+"modlinks": 4
+},
+{
+"slug": "VCV-Spectra",
+"brand": "VCV",
+"created": "2018-07-25",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "VultCompacts",
+"brand": "Vult",
+"created": "2018-05-23",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 14
+},
+{
+"slug": "ALM031",
+"brand": "ALM Busy Circuits",
+"created": "2022-12-20",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 2
+},
+{
+"slug": "FLAG-Oppressor-Pro",
+"brand": "FLAG",
+"created": "2022-04-04",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 4
+},
+{
+"slug": "PulsumQuadratum-shift",
+"brand": "Rhombic Shift Register",
+"created": "2018-04-18",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "AnimatedCircuits_Cosmic",
+"brand": "Cosmic",
+"created": "2018-07-23",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "AnimatedCircuits_Noises",
+"brand": "Noises",
+"created": "2018-03-22",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "AnimatedCircuits_Sinosc",
+"brand": "Sine Oscillators",
+"created": "2018-03-22",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "ALM032",
+"brand": "ALM Busy Circuits",
+"created": "2022-10-06",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 4
+},
+{
+"slug": "BBModules",
+"brand": "BB Modules",
+"created": "2019-06-13",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 18
+},
+{
+"slug": "Hora-Sequencers",
+"brand": "Hora",
+"created": "2018-05-21",
+"prices": [
+"18",
+"18",
+"18"
+],
+"modlinks": 6
+},
+{
+"slug": "VCV-PulseMatrix",
+"brand": "VCV",
+"created": "2018-02-07",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 4
+},
+{
+"slug": "Soundemote",
+"brand": "Soundemote",
+"created": "2026-11-02",
+"prices": [
+"10"
+],
+"modlinks": 2
+},
+{
+"slug": "K4815-Pattern_Generator",
+"brand": "Kilpatrick Audio",
+"created": "2020-12-27",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 6
+},
+{
+"slug": "Hora-PCMDrum",
+"brand": "Hora",
+"created": "2019-02-13",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 18
+},
+{
+"slug": "AlliewayAudio_Series_I",
+"brand": "AlliewayAudio",
+"created": "2022-02-19",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 6
+},
+{
+"slug": "LoopusModules",
+"brand": "Sonus Dept.",
+"created": "2018-02-07",
+"prices": [],
+"modlinks": 4
+},
+{
+"slug": "CardamomTools",
+"brand": "Cardamom Tools",
+"created": "2026-10-10",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 28
+},
+{
+"slug": "Oxidlab-Entferner",
+"brand": "Oxidlab",
+"created": "2020-06-25",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 8
+},
+{
+"slug": "MindMeld-ShapeMasterPro",
+"brand": "MindMeld",
+"created": "2021-04-21",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 10
+},
+{
+"slug": "TwistedCable",
+"brand": "Twisted Cable",
+"created": "2026-11-07",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 6
+},
+{
+"slug": "ExpertSleepers-SilentWay",
+"brand": "Expert Sleepers",
+"created": "2019-04-04",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 8
+},
+{
+"slug": "AnimatedCircuits_Panimated",
+"brand": "Panimated",
+"created": "2018-03-22",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "MM_ModelX",
+"brand": "Mockba Modular",
+"created": "2020-01-16",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 2
+},
+{
+"slug": "Entrian-Sequencers",
+"brand": "Entrian",
+"created": "2020-03-09",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 8
+},
+{
+"slug": "OmniMango-Hyper",
+"brand": "OmniMango",
+"created": "2021-08-03",
+"prices": [],
+"modlinks": 4
+},
+{
+"slug": "sosci",
+"brand": "jameshball",
+"created": "2026-02-23",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 4
+},
+{
+"slug": "StellareModular-CreativeSuite",
+"brand": "Stellare Modular",
+"created": "2019-06-21",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 24
+},
+{
+"slug": "AS-Drums-n-Filters",
+"brand": "AS",
+"created": "2018-03-22",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 48
+},
+{
+"slug": "SlimeChild-Substation",
+"brand": "Slime Child Audio",
+"created": "2021-01-25",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 22
+},
+{
+"slug": "VCV-Console",
+"brand": "VCV",
+"created": "2018-02-07",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "OmniMango-Hyper-Tune",
+"brand": "OmniMango",
+"created": "2021-09-27",
+"prices": [],
+"modlinks": 2
+},
+{
+"slug": "MM_Oscah",
+"brand": "Mockba Modular",
+"created": "2019-12-18",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 12
+},
+{
+"slug": "Monsuta",
+"brand": "Monsuta",
+"created": "2023-04-21",
+"prices": [
+"5",
+"5",
+"5"
+],
+"modlinks": 2
+},
+{
+"slug": "IvyFunPack",
+"brand": "ivy's stuff",
+"created": "2020-10-30",
+"prices": [],
+"modlinks": 2
+},
+{
+"slug": "OmriCohenPatheros",
+"brand": "Path Set x Omri Cohen",
+"created": "2023-05-22",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 6
+},
+{
+"slug": "Stoev-Interference",
+"brand": "Stoev",
+"created": "2020-07-16",
+"prices": [
+"10",
+"10",
+"10"
+],
+"modlinks": 2
+},
+{
+"slug": "VenomOscillations",
+"brand": "Venom",
+"created": "2025-07-14",
+"prices": [
+"25",
+"25",
+"25"
+],
+"modlinks": 4
+},
+{
+"slug": "PathSet-Grains",
+"brand": "Path Set",
+"created": "2022-05-30",
+"prices": [
+"15",
+"15",
+"15"
+],
+"modlinks": 16
+},
+{
+"slug": "CVfunkChordCaster",
+"brand": "CV funk",
+"created": "2024-12-18",
+"prices": [
+"20",
+"20",
+"20"
+],
+"modlinks": 6
+},
+{
+"slug": "AudibleInstrumentsPreview",
+"brand": "Audible Instruments Preview",
+"created": "2018-05-29",
+"prices": [],
+"modlinks": 0
+},
+{
+"slug": "voxglitch-devices",
+"brand": "Voxglitch",
+"created": "2025-07-18",
+"prices": [
+"20",
+"10",
+"10"
+],
+"modlinks": 22
+},
+{
+"slug": "VCV-Pluck",
+"brand": "VCV",
+"created": "2024-08-21",
+"prices": [
+"30",
+"30",
+"30"
+],
+"modlinks": 2
+},
+{
+"slug": "VCV-Pro",
+"brand": "VCV",
+"created": "2022-10-10",
+"prices": [
+"149",
+"149",
+"149"
+],
+"modlinks": 12
+}
+]
