@@ -24,17 +24,12 @@ import com.intellij.driver.sdk.waitForIndicators
 import com.intellij.ide.starter.driver.engine.runIdeWithDriver
 import com.intellij.ide.starter.ide.IdeProductProvider
 import com.intellij.ide.starter.models.TestCase
-import com.intellij.ide.starter.plugins.PluginConfigurator
 import com.intellij.ide.starter.project.LocalProjectInfo
 import com.intellij.ide.starter.runner.Starter
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
-import java.nio.file.Files
-import java.nio.file.Path
-import kotlin.io.path.createDirectories
-import kotlin.io.path.writeText
 import kotlin.time.Duration.Companion.minutes
 
 /*
@@ -131,9 +126,8 @@ class ClionTest {
         private val VERDACHT = Regex("licen|activat|agreement|terms|eula|register|subscription|trial|log ?in|sign ?in|evaluat|privacy|data sharing|expired", RegexOption.IGNORE_CASE)
     }
 
-    /** Hergebruik van de hulpfuncties (schermafbeelding, pauze, wachten) en de CIServer-instelling van IdeTest. */
-    private val ide = IdeTest()
-    private val schermen: Path = Path.of(System.getProperty("dortus.e2e.screenshots")).also { it.createDirectories() }
+    /** Hulpfuncties (schermafbeelding, pauze, wachten) en de CIServer-instelling staan in Gedeeld.kt. */
+    init { zetCiServer() }
 
     /*
      * Thema-ids van 263: "Islands Light" en "Islands Dark" (intellij-community, intellij.platform.ide.impl.xml:
@@ -148,35 +142,17 @@ class ClionTest {
     fun donkerThema() = draai("donker", "Islands Dark", "Islands Dark", donker = true)
 
     private fun draai(naam: String, themaId: String, kleurenschema: String, donker: Boolean) {
-        val project = Files.createTempDirectory("clion-$naam").resolve("calculator").createDirectories()
-        Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
+        val project = winkelproject("clion-$naam")
         val wachter = Vensterwachter(naam).also { it.start() }
         try {
             Starter.newContext("clion-$naam", TestCase(IdeProductProvider.CL, LocalProjectInfo(project)).useEAP(CLION_BUILD))
                 .apply {
-                    PluginConfigurator(this).installPluginFromPath(Path.of(System.getProperty("path.to.build.plugin")))
-                    val opties = paths.configDir.resolve("options").createDirectories()
-                    opties.resolve("laf.xml").writeText(
-                        """<application><component name="LafManager" autodetect="false"><laf themeId="$themaId"/></component></application>"""
-                    )
-                    opties.resolve("colors.scheme.xml").writeText(
-                        """<application><component name="EditorColorsManagerImpl"><global_color_scheme name="$kleurenschema"/></component></application>"""
-                    )
-                    // Geheugenmeter uit. Het onderdeel heet "StatusBar" in ide.general.xml (StatusBarWidgetSettings.kt,
-                    // @State(name = "StatusBar") in 252 tot en met master), de id van de meter is "Memory" (MemoryUsagePanel.WIDGET_ID).
-                    opties.resolve("ide.general.xml").writeText(
-                        """<application><component name="StatusBar"><option name="widgets"><map><entry key="Memory" value="false"/></map></option></component></application>"""
-                    )
-                    applyVMOptionsPatch {
+                    richIn(themaId, kleurenschema) {
                         // "Cannot update plugin: Unable to identify where ... was installed from" komt van
                         // PluginsMissingUpdateSourceNotifier (PluginUpdateSourceInitializationActivity.kt): elke plugin zonder
                         // vastgelegde bron (Marketplace of eigen repository) krijgt die melding. Starter pakt de zip zelf uit in
                         // de plugins-map, dus er is geen bron. Alleen in deze test-IDE: die functie uit (registry-sleutel).
                         addSystemProperty("platform.enable.plugin.update.source.feature", false)
-                        addSystemProperty("idea.trust.all.projects", true)
-                        addSystemProperty("ide.show.tips.on.startup.default.value", false)
-                        addSystemProperty("sun.java2d.uiScale.enabled", true)
-                        addSystemProperty("sun.java2d.uiScale", "2")
                     }
                 }
                 .runIdeWithDriver()
@@ -220,9 +196,9 @@ class ClionTest {
         }
 
         openFile("calc.l")
-        with(ide) { pauze() }
+        pauze()
         openFile("calc.y")
-        with(ide) { pauze() }
+        pauze()
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: fail("geen editor voor calc.y ($naam)")
         val bestand = editor.getVirtualFile()
         println("DORTUS-E2E [clion-$naam] open editor: ${bestand.getName()}")
@@ -232,18 +208,18 @@ class ClionTest {
         assertEquals(0, fouten.size, "geen rode syntaxfouten in calc.y ($naam)")
 
         openToolWindow("Structure")
-        with(ide) { pauze() }
+        pauze()
         val zichtbaar = getToolWindow("Structure").isVisible()
         val regels = structuurRegels(bestand, editor)
         println("DORTUS-E2E [clion-$naam] Structure-venster zichtbaar: $zichtbaar, structuur calc.y: ${regels.size} regels ${regels.take(10)}")
         assertTrue(zichtbaar, "Structure-venster zichtbaar ($naam)")
         assertTrue(regels.size > 1, "structuurweergave toont regels van calc.y ($naam)")
-        with(ide) { pauze() }
+        pauze()
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
         val meter = service<WindowManagerOpAfstand>().getStatusBar(singleProject())?.getWidget("Memory")
         println("DORTUS-E2E [clion-$naam] geheugenmeter in de statusbalk: ${meter != null}")
         assertTrue(meter == null, "geen geheugenmeter in de statusbalk ($naam)")
-        ide.scherm("clion-$naam-calc-y.png")
+        scherm("clion-$naam-calc-y.png")
     }
 
     /**
@@ -268,7 +244,7 @@ class ClionTest {
             withContext(OnDispatcher.EDT) { kleuren.setGlobalScheme(kleuren.getScheme(kleurenschema) ?: fail("editorschema '$kleurenschema' bestaat niet ($naam)")) }
             println("DORTUS-E2E [clion-$naam] editorschema gewisseld naar '$kleurenschema'")
         }
-        with(ide) { pauze() }
+        pauze()
         val nu = laf.getCurrentUIThemeLookAndFeel()
         val schema = kleuren.getGlobalScheme().getName()
         println("DORTUS-E2E [clion-$naam] actief thema: id '${nu?.getId()}', naam '${nu?.getName()}', donker ${nu?.isDark()}, editorschema '$schema'")
@@ -287,8 +263,8 @@ class ClionTest {
         val wizard = vensters().firstOrNull { it.second == "Open Project Wizard" } ?: return
         ProcessBuilder("xdotool", "windowactivate", "--sync", wizard.first).inheritIO().start().waitFor()
         Thread.sleep(1_000)
-        ide.toets("Escape")
-        val weg = ide.wacht(15) { vensters().none { it.second == "Open Project Wizard" } }
+        toets("Escape")
+        val weg = wacht(15) { vensters().none { it.second == "Open Project Wizard" } }
         println("DORTUS-E2E [clion-$naam] Open Project Wizard met Escape gesloten: $weg")
         assertTrue(weg, "Open Project Wizard dicht ($naam)")
     }
@@ -333,15 +309,4 @@ class ClionTest {
 
         fun klaar() { door = false; interrupt() }
     }
-}
-
-/** Zichtbare vensters met titel (xdotool): id en titel. */
-private fun vensters(): List<Pair<String, String>> = try {
-    val p = ProcessBuilder("bash", "-c", "for w in \$(xdotool search --onlyvisible --name . 2>/dev/null); do printf '%s\\t%s\\n' \"\$w\" \"\$(xdotool getwindowname \$w)\"; done")
-        .redirectErrorStream(true).start()
-    val uit = p.inputStream.bufferedReader().readLines()
-    p.waitFor()
-    uit.mapNotNull { r -> r.split('\t', limit = 2).takeIf { it.size == 2 && it[1].isNotBlank() }?.let { it[0] to it[1] } }
-} catch (e: Exception) {
-    emptyList()
 }

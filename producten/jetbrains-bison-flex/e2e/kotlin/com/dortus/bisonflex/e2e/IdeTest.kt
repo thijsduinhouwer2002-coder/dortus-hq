@@ -13,26 +13,16 @@ import com.intellij.driver.sdk.openFile
 import com.intellij.driver.sdk.openToolWindow
 import com.intellij.driver.sdk.singleProject
 import com.intellij.driver.sdk.waitForIndicators
-import com.intellij.ide.starter.ci.CIServer
-import com.intellij.ide.starter.ci.NoCIServer
-import com.intellij.ide.starter.di.di
 import com.intellij.ide.starter.driver.engine.runIdeWithDriver
 import com.intellij.ide.starter.ide.IdeProductProvider
 import com.intellij.ide.starter.models.TestCase
-import com.intellij.ide.starter.plugins.PluginConfigurator
 import com.intellij.ide.starter.project.LocalProjectInfo
 import com.intellij.ide.starter.runner.Starter
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.fail
-import org.kodein.di.DI
-import org.kodein.di.bindSingleton
 import java.nio.file.Files
-import java.nio.file.Path
-import kotlin.io.path.createDirectories
-import kotlin.io.path.writeText
 import kotlin.time.Duration.Companion.minutes
 
 @Remote("com.intellij.openapi.fileTypes.FileTypeManager")
@@ -73,20 +63,7 @@ class IdeTest {
         const val IDE_VERSIE = "2025.2.6.4"
     }
 
-    init {
-        di = DI {
-            extend(di)
-            bindSingleton<CIServer>(overrides = true) {
-                object : CIServer by NoCIServer {
-                    override fun reportTestFailure(testName: String, message: String, details: String, linkToLogs: String?) {
-                        fail { "$testName faalt: $message\n$details" }
-                    }
-                }
-            }
-        }
-    }
-
-    private val schermen: Path = Path.of(System.getProperty("dortus.e2e.screenshots")).also { it.createDirectories() }
+    init { zetCiServer() }
 
     @Test
     fun lichtThema() = draai("licht", "ExperimentalLight", "Light")
@@ -95,31 +72,11 @@ class IdeTest {
     fun donkerThema() = draai("donker", "ExperimentalDark", "Dark")
 
     private fun draai(naam: String, themaId: String, kleurenschema: String) {
-        // Engels winkelproject met een vaste mapnaam, zodat titelbalk en code op de schermen netjes zijn (Daan, beoordeling 3).
-        val project = Files.createTempDirectory("bisonflex-$naam").resolve("calculator").createDirectories()
-        Path.of(System.getProperty("dortus.e2e.winkelproject")).toFile().copyRecursively(project.toFile())
-
+        val project = winkelproject("bisonflex-$naam")
         Starter.newContext("bisonflex-$naam", TestCase(IdeProductProvider.IC, LocalProjectInfo(project)).useRelease(IDE_VERSIE))
             .apply {
-                PluginConfigurator(this).installPluginFromPath(Path.of(System.getProperty("path.to.build.plugin")))
                 // Thema vooraf vastzetten (GOK: zo werkt het in een verse config, de schermen laten het zien).
-                val opties = paths.configDir.resolve("options").createDirectories()
-                opties.resolve("laf.xml").writeText(
-                    """<application><component name="LafManager" autodetect="false"><laf themeId="$themaId"/></component></application>"""
-                )
-                opties.resolve("colors.scheme.xml").writeText(
-                    """<application><component name="EditorColorsManagerImpl"><global_color_scheme name="$kleurenschema"/></component></application>"""
-                )
-                // Geheugenmeter rechtsonder uit, hoort niet op een winkelplaatje (kan-punt controleur; werkt, run 42376488091).
-                opties.resolve("ide.general.xml").writeText(
-                    """<application><component name="StatusBarWidgetSettings"><option name="widgets"><map><entry key="Memory" value="false"/></map></option></component></application>"""
-                )
-                applyVMOptionsPatch {
-                    addSystemProperty("idea.trust.all.projects", true)
-                    addSystemProperty("ide.show.tips.on.startup.default.value", false)
-                    // Factor 2 voor scherpe winkelplaatjes (Xvfb is 2880x1800, de IDE ziet 1440x900).
-                    addSystemProperty("sun.java2d.uiScale.enabled", true)
-                    addSystemProperty("sun.java2d.uiScale", "2")
+                richIn(themaId, kleurenschema) {
                     // Alleen voor deze test: licentiestand GEEN, anders is de facade null en komt er nooit een Pro-melding.
                     addSystemProperty("bisonflex.internal.e2e.forceNoLicense", true)
                 }
@@ -166,8 +123,6 @@ class IdeTest {
                 if (naam == "licht") winkelschermen(this, naam)
             }
     }
-
-    internal fun Driver.pauze() = Thread.sleep(3_000)
 
     /** Cursor naar het einde van het bestand, zodat er geen geel lampje in beeld staat. */
     private fun Driver.cursorNaarEinde() {
@@ -274,11 +229,6 @@ class IdeTest {
         }
     }
 
-    internal fun wacht(seconden: Int, klaar: () -> Boolean): Boolean {
-        repeat(seconden) { if (klaar()) return true; Thread.sleep(1_000) }
-        return klaar()
-    }
-
     /** Cursor op [tekst] plus [extra] tekens in de open editor. */
     internal fun Driver.cursorOp(tekst: String, extra: Int) {
         val editor = service<FileEditorManager>(singleProject()).getSelectedTextEditor() ?: return println("DORTUS-E2E geen editor")
@@ -322,42 +272,5 @@ class IdeTest {
             // Daan wil deze pagina zien: is hij niet gelukt, dan faalt de test (na de andere schermen).
             assertTrue(dialoog != null && Files.exists(schermen.resolve("$naam-kleurenpagina.png")), "kleurenpagina in beeld ($naam)")
         }
-    }
-
-    /** Tekst typen in het venster met de focus, via xdotool (los van de Driver, dus ook in een modale dialoog). */
-    internal fun typ(tekst: String) {
-        val code = ProcessBuilder("xdotool", "type", "--delay", "60", tekst).inheritIO().start().waitFor()
-        println("DORTUS-E2E xdotool type '$tekst': code $code")
-    }
-
-    internal fun toets(naam: String) {
-        val code = ProcessBuilder("xdotool", "key", naam).inheritIO().start().waitFor()
-        println("DORTUS-E2E xdotool key $naam: code $code")
-    }
-
-    /** Id van het actieve venster (de IDE of een dialoog), of null. */
-    internal fun actiefVenster(): String? = try {
-        val p = ProcessBuilder("xdotool", "getactivewindow").redirectErrorStream(true).start()
-        val uit = p.inputStream.bufferedReader().readText().trim()
-        if (p.waitFor() == 0 && uit.isNotEmpty() && uit.all { it.isDigit() }) uit else null
-    } catch (e: Exception) {
-        null
-    }
-
-    /**
-     * Schermafbeelding met ImageMagick: alleen het actieve venster (de IDE), zodat rand en balk van het testscherm
-     * niet in beeld staan (Daan, beoordeling 3a). Geen actief venster: het hele scherm, en dat staat in het log.
-     */
-    internal fun scherm(bestand: String) {
-        val doel = schermen.resolve(bestand)
-        val venster = actiefVenster()
-        println("DORTUS-E2E $bestand: venster ${venster ?: "geen, heel scherm"}")
-        val p = ProcessBuilder("import", "-window", venster ?: "root", doel.toString()).inheritIO().start()
-        val code = p.waitFor()
-        val grootte = if (Files.exists(doel)) Files.size(doel) else 0
-        val maat = ProcessBuilder("identify", "-format", "%wx%h", doel.toString()).start().let { it.inputStream.bufferedReader().readText().also { _ -> it.waitFor() } }
-        println("DORTUS-E2E schermafbeelding $bestand: code $code, $grootte bytes, $maat pixels")
-        assertEquals(0, code, "import voor $bestand")
-        assertTrue(grootte > 10_000, "schermafbeelding $bestand is te klein ($grootte bytes)")
     }
 }
