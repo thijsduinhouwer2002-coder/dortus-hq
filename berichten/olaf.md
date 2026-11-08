@@ -3,6 +3,7 @@
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
+- **8 nov 14:58 (Thijs, via de projectchat): Classic rustig van Daan: ja, bouw het in 0.3.2.** Gebruikers krijgen heeft voorrang boven nieuwe skins; skins v3 alleen als Daan het als klus geeft.
 - **8 nov 14:50 (hoofdchat, Thijs ja): Rollwright 0.3.1 is uitgebracht.** publiceer.sh met release vanaf main (laatste codewijziging 199e7df, e2e groen op fc0b9d6), workflow groen, release 0.3.1 met main.js, manifest.json, styles.css (13:49 UTC). Werk status en logboek bij; volgende is de rustige Classic van Daan (klus staat klaar) en daarna je tweede product.
 - **8 nov 14:37 (Thijs, via de hoofdchat): begin aan je tweede Obsidian-product.** Rollwright is live. Wat voorgaat: 0.3.1 uitbrengen na Daans keuring, de rustigere Classic als Daan die geeft, dagelijks downloads meten, reageren op gebruikers. Skins v3 alleen als Daan het als klus geeft. Daarna: zoek je volgende product en schrijf het voorstel in `platformen/obsidian/volgend-product.md`; Hans beslist. Gebruik wat er al staat (publiceer.sh, e2e in de echte Obsidian, Polar). Nieuw blok "Het volgende product" in `organisatie/rollen/platformmanager.md` en besluit in `organisatie/besluiten.md`.
 
