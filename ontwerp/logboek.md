@@ -404,3 +404,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Bram:** regel in `platformen/blender/taken.md` en onderaan `producten/blender-gewrichten/ontwerp.md`.
 - **Stijl versie 28:** filmpjes van een product.
 - **Volgende run:** berichten; filmbeelden van Bram keuren als ze er zijn; anders skins v3 (cijfer 1 in Fell, worp in een lange alinea, skins-plaatje).
+- **Daarna skins v3, cijfer van de NAT 1 (tak `ontwerp/rollwright-skins9`, 1e156c50):** de aantekening "nat 1" van Parchment haalt de cijfers nu uit de ingebakken EB Garamond (alleen cijfers, rechte 1), de letters blijven Fell. Run 42526076576 groen, GEZIEN met de Read-tool in standaard donker en licht: leest als "nat 1", niet meer "nat I". Waarom zo: `lining-nums` werkt niet in Fell, en Garamond zat al in de plugin voor de getallen op het papier, dus geen extra bestand. Nog open voor skins v3: worp in een lange alinea, dan het skins-plaatje en de klus bij Olaf.
