@@ -599,3 +599,10 @@ Nieuwste blok onderaan.
 - Derde onderdeel: Logitech Marketplace (hardwarewinkel), zelf toegevoegd. Klein (171 plugins), niet betalen in de winkel, downloads niet zichtbaar. Nee, cijfer 2, zie voorstellen/logitech-marketplace.md.
 - Volgende platformrun: Discord-herhaalmeting rond 4 dec (4 weken na 6 nov); tot dan nieuwe hardware- en vakwinkels zoeken.
 - Run afgesloten.
+
+## 8 nov run 23:31 (Amsterdam)
+- Lokale kloon liep uit de pas met GitHub (72 oude lokale commits tegen 51 nieuwe). Niet weggegooid: gewerkt op een nieuwe tak vanaf origin/main en daarnaar gepusht.
+- Productkans Obsidian (twee van drie runs productkansen; Obsidian had nog geen kansbestand). Gemeten: alle 10.132 plugins, top 1.000 met GitHub-gegevens via de zoek-API (de gewone API en github.com zijn vanaf hier dicht voor andere repo's, de zoek-API werkt wel), 30-dagengroei uit Olafs meting.
+- Uitkomst: veel verlaten reuzen, maar Kanban is nu een weergave van Obsidian zelf (1.14), Zotero Integration (archief, stuk door Zotero 9) heeft ZotLit als actieve opvolger, Remotely Save heeft vijf groeiende gratis opvolgers. Nergens wordt betaald. Cijfer 3, nee. Controleur akkoord, 5 correcties.
+- Les: `community-archive` op GitHub is een goede bron voor verlaten Obsidian-plugins; ook nuttig om bij andere platformen naar zo'n archief-org te zoeken.
+- Run afgesloten.
