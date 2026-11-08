@@ -141,18 +141,19 @@ def gesloten(ob):
 
 def kijk():
     """As langs de kijkrichting, aangeroepen zoals de knop in de zijbalk (context van de UI-regio).
-    De cursor-as staat rechtop, dus een terugval op de cursor zou een heel ander gewricht geven."""
+    Plek: het rechterbeen (straal 3 mm). De cursor-as ligt dwars (X), dus een terugval op de cursor
+    zou uit het been steken en rood geven."""
     for o in [o for o in bpy.data.objects if o.get("cj_deel")]:
         bpy.data.objects.remove(o)
     venster, gebied, regio_ui = zijbalk()
     rv3d = gebied.spaces.active.region_3d
-    doel = Vector((1.0, 0.03, 0.02)).normalized()
+    doel = Vector((0.03, 0.02, -1.0)).normalized()  # bijna recht omlaag, langs het rechterbeen
     rv3d.view_rotation = doel.to_track_quat("-Z", "Y")
     gebied.tag_redraw()
     verwacht = (rv3d.view_rotation @ Vector((0, 0, -1))).normalized()
-    figuren.zet_cursor((11, 0, 3), (0, 0, 1))
+    figuren.zet_cursor((3.2, 0, -14), (1, 0, 0))
     inst = bpy.context.scene.click_joints
-    inst.kogel_mm, inst.speling_mm, inst.as_bron = 2.0, 0.2, "KIJK"
+    inst.kogel_mm, inst.speling_mm, inst.as_bron = 3.0, 0.2, "KIJK"
     figuren.maak_actief(staat["pop"])
     with bpy.context.temp_override(window=venster, area=gebied, region=regio_ui):
         log(f"kijk: context regio={bpy.context.region.type} region_data={bpy.context.region_data}")

@@ -160,9 +160,13 @@ def meterscene():
     stap(f"meterscene: speling van de add-on {addon_mm} mm (0,2 +- 0,02)", abs(addon_mm - 0.2) < 0.02)
     kogel_d = toets_opening(lijst, "meter")
     stap(f"meterscene: kogeldiameter {kogel_d} mm (5 +- 0,01)", kogel_d is not None and abs(kogel_d - 5.0) < 0.01)
+    # De kleinste wand is hier de bodem van deel B naast de klikopening: 1,4r - wortel((r+s)^2 - (0,85r)^2)
+    # - 0,0137 = 1,821 mm bij r = 2,5 mm en s = 0,2 mm. In meters gerekend zou dat 0,0018 of 1821 worden.
     wand = a.get("cj_wand_mm")
-    log(f"METER: passing={a.get('cj_passing')} wand={wand}mm kogel_r={a['cj_kogel_r']}m")
-    stap("meterscene: passing groen, wand tussen 5 en 10 mm", a.get("cj_passing") == "groen" and 5 < wand < 10)
+    verwacht = 3.5 - ((2.7 ** 2 - 2.125 ** 2) ** 0.5) - 0.0137
+    log(f"METER: passing={a.get('cj_passing')} wand={wand}mm verwacht={verwacht:.3f}mm kogel_r={a['cj_kogel_r']}m")
+    stap("meterscene: passing groen, wand gelijk aan de bodem in mm (+- 0,02)",
+         a.get("cj_passing") == "groen" and abs(wand - verwacht) < 0.02)
     # Het snijvlak ligt 0,0137 mm naast de cursor, ook in meters: laagste punt van deel B langs de as.
     as_r = Vector(b["cj_as"])
     schuif = min(v.co.dot(as_r) for v in b.data.vertices) / u()
