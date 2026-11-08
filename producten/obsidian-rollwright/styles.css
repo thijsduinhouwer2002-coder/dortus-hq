@@ -972,8 +972,8 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 .rollwright-roll.rollwright-crit > .rollwright-stamp,
 .rollwright-roll.rollwright-fumble > .rollwright-stamp {
 	position: absolute;
-	top: -0.62em;
-	right: -0.7em;
+	top: -0.78em;
+	right: -1.05em;
 	z-index: 1;
 	margin: 0;
 	padding: 0.06em 0.38em 0.02em;
@@ -1015,6 +1015,9 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	right: auto;
 	left: -0.45em;
 }
+
+/* Ronde 7b: op ware grootte (logboek-licht, run 42438770074) dekte de sticker de bovenkant van het
+   getal af; hij staat nu hoger en verder naar rechts, half buiten het token. */
 
 /* De klap groeit vanuit links, zodat het token het woord ervoor niet afdekt (ronde 6, v2-25). */
 .rollwright-roll.rollwright-rolled.rollwright-crit:not(.rollwright-error),
