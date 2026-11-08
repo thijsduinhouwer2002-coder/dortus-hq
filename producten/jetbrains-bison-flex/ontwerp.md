@@ -1,4 +1,6 @@
-Akkoord: ja 8 nov 2026 01:35, voor wat nu zichtbaar is op main (code van tak `-a` 0cd70b8, IDE-run 42432516728): nieuw icoon, eigen Pro-icoon in de balloon, Pro-tekst op twee regels, hint onder de knoop, plus de poster als eerste winkelplaatje (beoordeling 10). **Indienen pas nadat ik de meldingen van eis 7 in licht en donker gezien heb** (schermen `meldingen` en `meldingen-oplossing`); dat is het laatste zichtbare stuk van 1.0.
+Akkoord: ja 8 nov 2026 02:45, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
+
+Oud: Akkoord: ja 8 nov 2026 01:35, voor wat nu zichtbaar is op main (code van tak `-a` 0cd70b8, IDE-run 42432516728): nieuw icoon, eigen Pro-icoon in de balloon, Pro-tekst op twee regels, hint onder de knoop, plus de poster als eerste winkelplaatje (beoordeling 10). **Indienen pas nadat ik de meldingen van eis 7 in licht en donker gezien heb** (schermen `meldingen` en `meldingen-oplossing`); dat is het laatste zichtbare stuk van 1.0.
 
 Oud: Akkoord: nee 8 nov 2026 00:50, voor indienen, omdat de winkel nog geen eigen gezicht heeft: geen poster als eerste plaatje en een pluginicoon dat niet opvalt (nieuwe lat van Thijs, 7 nov 22:05). Het hernoemen op main c0562da is in beeld goed, op één kleinigheid na. Wat er precies moet staat in beoordeling 9; de poster maak ik zelf. Code bouwen gaat gewoon door.
 
@@ -223,6 +225,22 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt klopt): `pro-melding` en `herno
 - Klein punt: de hint in de structuurweergave staat onder `NUM`, met de punt omhoog; de kop "Declarations" blijft vrij.
 
 Niets nieuws te vragen op deze schermen. **Wat nog moet voor indienen:** de meldingen van eis 7. Ik vraag daar geen eigen kleuren: grijs voor ongebruikt en de gewone waarschuwing voor ongedefinieerd zijn wat een programmeur kent en verwacht. Ik let op: tekst kort en zonder vakjargon ("Rule 'x' is never used", "Token 'X' is not defined"), Alt+Enter met één duidelijke regel, en geen melding op `return NUM;` in de scanner. Daarna `ja` voor indienen zonder nieuwe eisen.
+
+### Beoordeling 11, 8 nov 2026 02:45 (main d9973fa, code van tak `-b` 8c0efc0, IDE-run 42437187439)
+
+Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0efc0, klopt): `meldingen` en `meldingen-oplossing` in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-08-b/`. Teksten nagelezen in de code (`meldingen/Meldingen.kt`, `Oplossingen.kt`, `inspectionDescriptions/`).
+
+**Goed:**
+- Ongedefinieerd (`UNDEFINED` in regel 35) krijgt de gewone waarschuwing: in licht het gele vlak, in donker de gele golflijn. Ongebruikt (`unused:` in regel 34) is grijs zoals ongebruikte code. Precies wat een programmeur kent; geen eigen kleuren, zoals afgesproken in beoordeling 10 (GEZIEN).
+- Rechtsboven staan een waarschuwing en een zwakke waarschuwing (twee tellers met 1), en de streepjes in de schuifbalk. De rest van calc.y blijft schoon, dus geen valse melding op het voorbeeld (GEZIEN).
+- Het lampje verschijnt naast `unused:` (GEZIEN in licht en donker).
+- Teksten kort en gewoon Engels: "Undefined symbol 'X'", "Unused rule 'x'", "Unused token 'X'", "Unused start condition 'x'"; Alt+Enter: "Remove unused rule 'x'" (GEZIEN in de code). Ik vroeg in beoordeling 10 om "Rule 'x' is never used"; "Unused rule 'x'" is net zo duidelijk en volgt de woorden van de IDE zelf ("Unused declaration"), dus goed zo.
+- Zonder Pro geen enkele melding en geen balloon (unittest `testGeenLicentieGeenMelding`, PASSED in het log): de inspecties duwen dus niet. De beschrijving in de instellingen zegt rustig "Pro feature, free to try for 30 days."
+
+**Kan-punt (houdt indienen niet tegen), voor Jet:**
+1. Op `meldingen-oplossing` is het Alt+Enter-menu een zwart vlak (licht en donker). Waarschijnlijk wordt de foto gemaakt voor het menu getekend is (GOK; een zwaar venster onder Xvfb). Ik keur de tekst daarom op de code, niet op het scherm. Graag: een halve seconde wachten na Alt+Enter, en calc.y eerst zo schuiven dat regel 34 midden in beeld staat, zodat het menu niet tegen de onderrand valt. Mooi meegenomen: een scherm met de melding als zweeftekst (muis op `UNDEFINED`). Die schermen wil ik later voor de winkel, niet voor indienen.
+
+**Besluit:** `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, de meldingen zien eruit en praten zoals de IDE zelf, en ik beloofde daarna geen nieuwe eisen. Het eigen gezicht zit in icoon, Pro-icoon en poster, en dat was al af.
 
 ## Ontwerp eis 7: ongedefinieerd en ongebruikt (8 nov)
 
