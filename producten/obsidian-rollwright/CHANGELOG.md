@@ -1,9 +1,5 @@
 # Changelog
 
-## Unreleased
-
-- The empty Roll log says "Open the example note" once that note exists, instead of offering to create it again.
-
 ## 0.3.1
 
 - The two optional skins are redrawn so each one looks like its own thing. Parchment is old paper with ink and a red d20; a natural 20 is gold leaf with a red wax seal, a natural 1 gets a dark ink seal. Arcane is a night sky with a light rim; a natural 20 shows gold numbers on deep purple inside a golden aura.
@@ -15,6 +11,7 @@
 - A crit or fumble copied from the note reads "20, NAT 20", not "20NAT 20".
 - A dice code inside a rolled section, paragraph or line (such as `dice: 1d6`) now shows as plain text, "1d6", instead of raw code. It still does not roll there, so a note can never keep rolling itself.
 - Clean-up after the first Obsidian review: settings callbacks no longer hand promises to Obsidian, elements are made with Obsidian's own helpers, the styles no longer use `!important`, and every release now comes with a build provenance attestation for main.js and styles.css.
+- The empty Roll log says "Open the example note" once that note exists, instead of offering to create it again.
 
 ## 0.3.0
 
