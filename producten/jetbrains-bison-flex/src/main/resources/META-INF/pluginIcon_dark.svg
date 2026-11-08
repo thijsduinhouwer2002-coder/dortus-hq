@@ -1,7 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-  <!-- Achter: grammatica (oranje, vertakking zoals een regel met alternatieven). Voor: scanner (blauw, L zoals het Flex-bestandsicoon). Geen tekst. -->
-  <rect x="3" y="3" width="23" height="23" rx="4" fill="#45322B" stroke="#E08855" stroke-width="2"/>
-  <path d="M7.5 8L12 12.5L16.5 8M12 12.5V20" fill="none" stroke="#E08855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="14" y="14" width="23" height="23" rx="4" fill="#25324D" stroke="#548AF7" stroke-width="2"/>
-  <path d="M22.5 19.5V31.5H29.5" fill="none" stroke="#548AF7" stroke-width="2" stroke-linecap="round"/>
+  <!-- Bison & Flex: de scanner (blauw, L, linksonder) wijst naar de grammatica (oranje, Y, rechtsboven). De boog is wat ons onderscheidt. -->
+  <defs>
+    <linearGradient id="bf" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#3574F0"/>
+      <stop offset="1" stop-color="#E66D17"/>
+    </linearGradient>
+  </defs>
+  <path d="M9.5 20C9.5 13.5 12.5 10.5 19.5 10.5" fill="none" stroke="url(#bf)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M16.6 6.9L20.2 10.5L16.6 14.1" fill="none" stroke="#E66D17" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="2" y="23" width="15" height="15" rx="4" fill="#3574F0"/>
+  <path d="M6.8 26.8V33.4H12.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="23" y="2" width="15" height="15" rx="4" fill="#E66D17"/>
+  <path d="M26.8 5.8L30.5 10L34.2 5.8M30.5 10V13.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

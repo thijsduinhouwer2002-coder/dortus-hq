@@ -7,6 +7,8 @@ import javax.swing.Icon
 object BisonIconen {
     @JvmField val BISON: Icon = IconLoader.getIcon("/icons/bison.svg", BisonIconen::class.java)
     @JvmField val FLEX: Icon = IconLoader.getIcon("/icons/flex.svg", BisonIconen::class.java)
+    /** 16 bij 16 voor de Pro-balloon (Daan, beoordeling 9 punt 3; ontwerp/bison-flex/proIcon16.svg), één voor licht en donker. */
+    @JvmField val PRO: Icon = IconLoader.getIcon("/icons/proIcon16.svg", BisonIconen::class.java)
 }
 
 object BisonFileType : LanguageFileType(BisonLanguage) {

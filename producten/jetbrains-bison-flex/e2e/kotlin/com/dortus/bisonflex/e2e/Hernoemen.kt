@@ -95,7 +95,7 @@ internal fun IdeTest.hernoemen(d: Driver, naam: String) = with(d) {
     cursorOp("%token NUM", 8)
     val balloon = geblokkeerd(d, naam, "eerste Shift+F6 op NUM in calc.y", melding, "hernoem-melding")
     assertTrue(balloon, "balloon over hernoemen na de ga-naar-balloon ($naam)")
-    assertEquals("Renaming NUM also changes calc.l and calc.ll. Rename across grammar and scanner is a Pro feature. Try it free for 30 days.", melding.laatsteMelding())
+    assertEquals("Renaming NUM also changes calc.l and calc.ll. That is a Pro feature, free to try for 30 days.", melding.laatsteMelding())
 
     // 2. Nog eens: de hint zegt waarom er niets gebeurde.
     geblokkeerd(d, naam, "tweede Shift+F6 op NUM in calc.y", melding, "hernoem-hint")

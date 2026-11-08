@@ -6,7 +6,6 @@ import com.dortus.bisonflex.psi.Koppeling.ScannerGebruik
 import com.dortus.bisonflex.psi.NaamElement
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.wm.IdeFocusManager
 import com.intellij.psi.PsiElement
 import com.intellij.refactoring.rename.RenamePsiElementProcessor
 import com.intellij.util.containers.MultiMap
@@ -69,8 +68,8 @@ class ProHernoemen : RenamePsiElementProcessor() {
             }
         }
 
-        /** Zonder editor: het onderdeel met de focus (bij Shift+F6 in de structuurweergave de boom), anders null. */
+        /** Zonder editor: het onderdeel met de focus ([ProMelding.focusOnderdeel]), met editor null. */
         fun bron(project: Project, editor: Editor?): Component? =
-            if (editor != null) null else IdeFocusManager.getInstance(project).focusOwner
+            if (editor != null) null else ProMelding.focusOnderdeel(project)
     }
 }

@@ -1,5 +1,6 @@
 package com.dortus.bisonflex.pro
 
+import com.dortus.bisonflex.BisonIconen
 import com.intellij.codeInsight.hint.HintManager
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
@@ -51,6 +52,7 @@ class ProMelding {
         laatsteMelding = tekst
         NotificationGroupManager.getInstance().getNotificationGroup(GROEP)
             .createNotification(TITEL, tekst, NotificationType.INFORMATION)
+            .setIcon(BisonIconen.PRO)
             .addAction(NotificationAction.createSimpleExpiring("Start free trial") { Proef.start() })
             .addAction(NotificationAction.createSimpleExpiring("Not now") {})
             .notify(project)
@@ -82,58 +84,63 @@ class ProMelding {
     /**
      * Zet de kleine balloon (`createHtmlTextBalloonBuilder`, soort INFO, geen knoppen, weg na 8 s, bij een klik of
      * toets ernaast). Plek: is [bron] een JTree met een gekozen knoop (de structuurweergave, het projectvenster), dan
-     * boven die knoop; anders boven het midden van [bron]; zonder bron onderaan in het midden van het IDE-frame.
-     * In een test zonder scherm (headless) wordt er niets getoond, alleen geteld.
+     * onder die knoop met de punt omhoog (Daan, beoordeling 9: boven bedekte hij de kop "Declarations" en de tabbalk);
+     * anders boven het midden van [bron]; zonder bron onderaan in het midden van het IDE-frame.
+     * [laatsteBalloon] wordt pas gezet als `show` gelukt is. In een test zonder scherm (headless) wordt er niets
+     * getoond, alleen geteld.
      */
     private fun toonBalloonZonderEditor(tekst: String, project: Project?, bron: Component?) {
         if (ApplicationManager.getApplication().isHeadlessEnvironment) { laatstePlek = "headless"; return }
+        var b: Balloon? = null
         try {
-            val plek = plekVoor(project, bron) ?: run { laatstePlek = "geen plek"; return }
+            val (plek, richting) = plekVoor(project, bron) ?: run { laatstePlek = "geen plek"; return }
             laatsteBalloon?.let { if (!it.isDisposed) it.hide() }
-            val b = JBPopupFactory.getInstance().createHtmlTextBalloonBuilder(tekst, MessageType.INFO, null)
+            laatsteBalloon = null
+            b = JBPopupFactory.getInstance().createHtmlTextBalloonBuilder(tekst, MessageType.INFO, null)
                 .setFadeoutTime(8_000)
                 .setHideOnClickOutside(true)
                 .setHideOnKeyOutside(true)
                 .createBalloon()
+            b.show(plek, richting)
             laatsteBalloon = b
-            b.show(plek, Balloon.Position.above)
         } catch (e: Throwable) {
+            b?.let { runCatching { if (!it.isDisposed) it.dispose() } }
             laatstePlek = "fout ${e.javaClass.simpleName}: ${e.message?.take(120)}"
         }
     }
 
-    private fun plekVoor(project: Project?, bron: Component?): RelativePoint? {
+    /** Waar de balloon komt en aan welke kant van dat punt (bij een boomknoop eronder, punt omhoog). */
+    private fun plekVoor(project: Project?, bron: Component?): Pair<RelativePoint, Balloon.Position>? {
         if (bron is JTree && bron.isShowing) {
             val pad = bron.selectionPath
             val vak = pad?.let { bron.getPathBounds(it) }
             if (vak != null) {
                 val zicht = bron.visibleRect
                 val x = (vak.x + minOf(vak.width, 200) / 2).coerceIn(zicht.x, zicht.x + zicht.width)
-                val y = vak.y.coerceIn(zicht.y, zicht.y + zicht.height)
-                laatstePlek = "boom ${bron.javaClass.simpleName}, knoop '${pad.lastPathComponent}'"
-                return RelativePoint(bron, Point(x, y))
+                val y = (vak.y + vak.height).coerceIn(zicht.y, zicht.y + zicht.height)
+                laatstePlek = "boom ${bron.javaClass.simpleName}, onder knoop '${pad.lastPathComponent}'"
+                return RelativePoint(bron, Point(x, y)) to Balloon.Position.below
             }
         }
         if (bron is JComponent && bron.isShowing && bron.width > 0) {
             laatstePlek = "onderdeel ${bron.javaClass.simpleName}"
-            return RelativePoint(bron, Point(bron.width / 2, minOf(bron.height / 2, 40)))
+            return RelativePoint(bron, Point(bron.width / 2, minOf(bron.height / 2, 40))) to Balloon.Position.above
         }
         val frame = project?.let { WindowManager.getInstance().getIdeFrame(it) }?.component
             ?: bron?.let { SwingUtilities.getRootPane(it) }
             ?: return null
         laatstePlek = "frame"
-        return RelativePoint(frame, Point(frame.width / 2, frame.height - 60))
+        return RelativePoint(frame, Point(frame.width / 2, frame.height - 60)) to Balloon.Position.above
     }
 
-    private fun focusOnderdeel(project: Project?): Component? =
-        project?.let { IdeFocusManager.getInstance(it).focusOwner }
-            ?: KeyboardFocusManager.getCurrentKeyboardFocusManager().let { it.focusOwner ?: it.permanentFocusOwner }
-
-    /** Of de laatste balloon zonder editor nu echt op het scherm staat (ook gelezen door de IDE-test). */
+    /**
+     * Of de laatste balloon zonder editor nu echt op het scherm staat (ook gelezen door de IDE-test). Is het geen
+     * [BalloonImpl], dan weten we het niet en zeggen we nee: de IDE-test mag niet slagen op een gok.
+     */
     fun balloonZonderEditorInBeeld(): Boolean {
         val b = laatsteBalloon ?: return false
         if (b.isDisposed) return false
-        return (b as? BalloonImpl)?.isVisible ?: true
+        return (b as? BalloonImpl)?.isVisible ?: false
     }
 
     /** Waar de laatste balloon zonder editor kwam ("boom ...", "onderdeel ...", "frame", "headless" of een fout), voor het log. */
@@ -176,7 +183,13 @@ class ProMelding {
         const val GA_NAAR = "ga-naar"
         const val HERNOEMEN = "hernoemen"
 
-        const val TEKST = "Go to declaration across grammar and scanner is a Pro feature. Try it free for 30 days."
+        /**
+         * Balloon bij de eerste geblokkeerde sprong van [van] naar [naar]. Kort, zodat hij op twee regels past
+         * (Daan, beoordeling 9 punt 5: de oude tekst werd afgekapt bij "Try it free...").
+         */
+        fun tekstGaNaar(van: String, naar: String) = "Jumping from $van to $naar is a Pro feature, free to try for 30 days."
+        /** Zelfde balloon zonder bestandsnamen (standaard van [toonEenmaal]). */
+        const val TEKST = "Jumping between scanner and grammar is a Pro feature, free to try for 30 days."
         /** Korte hint bij latere klikken, zonder knop. */
         const val HINT = "Go to declaration across grammar and scanner is a Pro feature"
         /** Neutrale hint tijdens het indexeren: de IDE weet nog niet welke bestanden een naam gebruiken. Geen Pro. */
@@ -184,11 +197,19 @@ class ProMelding {
 
         /** Balloon bij de eerste geblokkeerde hernoeming van [naam], die ook [ander] zou veranderen. */
         fun tekstHernoemen(naam: String, ander: String) =
-            "Renaming $naam also changes $ander. Rename across grammar and scanner is a Pro feature. Try it free for 30 days."
+            "Renaming $naam also changes $ander. That is a Pro feature, free to try for 30 days."
 
         /** Korte hint bij een latere geblokkeerde hernoeming: zegt waarom er niets veranderd is. */
         fun hintHernoemen(naam: String, ander: String) =
             "$naam is also used in $ander. Rename across grammar and scanner is a Pro feature."
+
+        /**
+         * Het onderdeel met de focus (bij Shift+F6 in de structuurweergave de boom), of null. De enige plek waar dat
+         * bepaald wordt; ook [ProHernoemen.bron] gebruikt dit.
+         */
+        fun focusOnderdeel(project: Project?): Component? =
+            project?.let { IdeFocusManager.getInstance(it).focusOwner }
+                ?: KeyboardFocusManager.getCurrentKeyboardFocusManager().let { it.focusOwner ?: it.permanentFocusOwner }
 
         fun getInstance(): ProMelding = ApplicationManager.getApplication().getService(ProMelding::class.java)
     }

@@ -42,7 +42,9 @@ class GaNaarDefinitie(
         // Ctrl/Cmd+zweven vraagt ook om doelen: dan geen sprong en geen melding, alleen bij een echte actie.
         if (!actieBezig()) return null
         // Eerste keer de balloon; daarna de korte hint in de editor.
-        verbergNietGevonden(if (ProMelding.getInstance().toonEenmaal(bron.project)) null else editor)
+        val naar = ProHernoemen.opsomming(doelen.mapNotNull { it.containingFile?.name }.filter { it != hier.name }.distinct())
+        val tekst = ProMelding.tekstGaNaar(hier.name, naar)
+        verbergNietGevonden(if (ProMelding.getInstance().toonEenmaal(bron.project, tekst)) null else editor)
         return null
     }
 

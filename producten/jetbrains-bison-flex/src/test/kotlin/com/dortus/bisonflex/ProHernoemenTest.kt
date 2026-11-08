@@ -81,7 +81,7 @@ class ProHernoemenTest : BasePlatformTestCase() {
         myFixture.renameElementAtCaret("GETAL")
         assertEquals(1, meldingen.size)
         assertEquals(
-            "Renaming NUM also changes calc.l. Rename across grammar and scanner is a Pro feature. Try it free for 30 days.",
+            "Renaming NUM also changes calc.l. That is a Pro feature, free to try for 30 days.",
             meldingen[0].content,
         )
         assertEquals(0, melding.aantalHints())
@@ -209,7 +209,7 @@ class ProHernoemenTest : BasePlatformTestCase() {
         myFixture.performEditorAction("RenameElement")
         assertEquals(1, meldingen.size)
         assertEquals(
-            "Renaming NUM also changes calc.y. Rename across grammar and scanner is a Pro feature. Try it free for 30 days.",
+            "Renaming NUM also changes calc.y. That is a Pro feature, free to try for 30 days.",
             meldingen[0].content,
         )
         myFixture.performEditorAction("RenameElement")
