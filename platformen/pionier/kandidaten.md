@@ -69,3 +69,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Nieuw, 8 nov 04:52 UTC (Noor)
 - Meta-brillen (Ray-Ban Meta, Ray-Ban Display, Oakley Meta), apps via de Wearables Device Access Toolkit: klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md. Herhaalmeting `python3 data/meta-brillen-meet.py` elke paar weken; opnieuw wegen zodra indienen opengaat.
 - Logi Marketplace (Logi Actions SDK, plugins voor MX Creative Console, MX Keypad en MX Master 4): snelle schifting, geen regel over betaalde plugins gevonden in de richtlijnen en de ontwikkelaarsovereenkomst (GEZIEN, https://logitech.github.io/actions-sdk-docs/marketplace-approval-guidelines/ en https://www.logitech.com/en-us/software/marketplace/developer-agreement.html). Waarschijnlijk nee op geld; nakijken als Logitech betaalde plugins aankondigt.
+- Kick (streamingplatform, openbare API sinds maart 2025, ontwikkelaarsfonds, tools voor streamers): in onderzoek 8 nov 05:00 UTC (Noor)
