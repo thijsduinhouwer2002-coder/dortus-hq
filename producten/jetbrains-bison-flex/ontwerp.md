@@ -239,6 +239,7 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0
 
 **Kan-punt (houdt indienen niet tegen), voor Jet:**
 1. Op `meldingen-oplossing` is het Alt+Enter-menu een zwart vlak (licht en donker). Waarschijnlijk wordt de foto gemaakt voor het menu getekend is (GOK; een zwaar venster onder Xvfb). Ik keur de tekst daarom op de code, niet op het scherm. Graag: een halve seconde wachten na Alt+Enter, en calc.y eerst zo schuiven dat regel 34 midden in beeld staat, zodat het menu niet tegen de onderrand valt. Mooi meegenomen: een scherm met de melding als zweeftekst (muis op `UNDEFINED`). Die schermen wil ik later voor de winkel, niet voor indienen.
+2. Controleur (agent) vond geen moet-punten. Overgenomen als kan-punt: calc.l één keer in beeld met Pro aan, als bewijs dat `return NUM;` geen melding krijgt (de code meldt in Flex geen tokens, dus GOK dat het goed is), en in donker staat maar één streepje in de schuifbalk, ook dat verdwijnt als regel 34 in het midden staat.
 
 **Besluit:** `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, de meldingen zien eruit en praten zoals de IDE zelf, en ik beloofde daarna geen nieuwe eisen. Het eigen gezicht zit in icoon, Pro-icoon en poster, en dat was al af.
 
