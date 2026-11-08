@@ -8,7 +8,7 @@ Start (7 nov 2026, projectchat): begin met de lijst van Vera in `platformen/verk
 
 Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend:
 - ChatGPT-apps: klaar 7 nov, cijfer 4, zie onderzocht.md
-- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register)
+- Claude-koppelingen en MCP-servers (connector-lijst, MCP-register): in onderzoek 8 nov 02:40 UTC (Noor)
 - Raycast (winkel, Windows-versie sinds 2025)
 - Zed (extensies)
 - ComfyUI (custom nodes, registry)
