@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 17:30, voor tak `claude/blender-2026-11-08-o` (ronde o, run 42503896393), omdat de smalle naadband (moet 2) en de winkelplaatjes en het icoon nog niet klaar zijn. De gradenboog (moet 1) is goed. Wat nog moet voor de lancering is een vaste, korte lijst: zie "Lanceerlijst van Daan" onderaan. Alles daarbuiten is versie 2.
+Akkoord: nee 8 nov 2026 18:45, voor main fa34cde9 (ronde q, run 42509522859), alleen omdat Thijs de winkelplaatjes nog niet zag (staan op zijn lijst). De add-on zelf is klaar voor de lancering. Zie "Winkelplaatjes van Daan" onderaan.
+
+Oud: Akkoord: nee 8 nov 2026 17:30, voor tak `claude/blender-2026-11-08-o` (ronde o, run 42503896393), omdat de smalle naadband (moet 2) en de winkelplaatjes en het icoon nog niet klaar zijn. De gradenboog (moet 1) is goed. Wat nog moet voor de lancering is een vaste, korte lijst: zie "Lanceerlijst van Daan" onderaan. Alles daarbuiten is versie 2.
 
 Oud: Akkoord: nee 8 nov 2026 16:27, voor main 3aa2e9f9 (ronde k, l, m, run 42494796457), omdat de waaier nog niet leesbaar en niet mooi is (acht groene taartpunten over elkaar op groene delen) en de groene band op een plat lid als een recht blok over een derde van het lid ligt in plaats van de naad te volgen. Vorm, gemeten bereik, rood voorbij de grens en het paneel zijn goed. Zie "Beoordeling 3 van Daan" onderaan.
 
@@ -472,3 +474,21 @@ Tak p kon niet bijgewerkt worden zonder geforceerd overschrijven (mag niet), dus
 - **Manifest (punt 2b):** tagline `Ball joints for 3D printed figures that show their bend range` (61 tekens), tags Mesh en Modeling, gelijk aan de winkeltekst. Winkelzin bovenaan begint nu met "See how far it bends, before you print."
 - **Controleur (agent):** akkoord, geen moet-punten. Run 42508878119 groen in 4.2.23 en 5.2.3 (GEZIEN door controleur en mij). Kan-punten: cursor en aslijnen weg (gedaan), dit stukje (gedaan), "$12" achter de winkelzin pas als het betaalde deel er is (beslist Chris), wielpad in stap 21 niet doorlopen (tabblad stond meteen goed).
 - **Voor Daan:** de schermen zijn een close-up van één arm; het figuur zelf herken je er niet in. Als je voor de poster meer van de pop wilt zien, zeg het, dan zet ik de afstand ruimer (de boog wordt dan kleiner). Plaatjes: tak `schermen`, map `blender-gewrichten/claude-blender-2026-11-08-q/5.2.3/`.
+
+## Winkelplaatjes van Daan (8 nov 18:45 UTC, tak `claude/blender-2026-11-08-q`, run 42509522859)
+
+Bekeken met de Read-tool, Blender 5.2.3: `8-winkel-x`, `9-winkel-rood-x`, `10-winkel-paneel-x` (f5cb5b81). Let op Bram: de schermen zonder `-x` (hele venster) zijn op deze run helemaal zwart (alle pixels 0, ook `1-paneel.png`); de `-x` schermen zijn goed. Op de winkel gebruik ik alleen `-x`, dus het houdt niets op, maar kijk of de schermopname van het hele venster nog nodig is.
+
+**Winkelschermen (lanceerlijst punt 2): goed.** Loodrecht op de boog, je ziet nu de vorm van de gradenboog, geen 3D-cursor, geen vloer, gewricht in beeld. Tekstrand rond "20°" is dun maar leesbaar.
+
+**Gemaakt (punt 3):** `ontwerp/click-joints/poster-1.png` (featured image, 1920 x 1080, met `9-winkel-rood`: de rode punt trekt het oog en vertelt in één beeld waar de grens zit), `winkel-2-buigen.png` (bend 15 naast bend 28: "Drag the bend. Red means too far."), `winkel-3-paneel.png` (het paneel met Good fit, Bends ±20°, Wall en Clearance gemarkeerd, en de vier stappen). Bronnen in `ontwerp/click-joints/bron/` (`poster.html`, `kaart-2.html`, `kaart-3.html`, `render.py`). Volgorde op de site: poster, buigen, paneel.
+
+**Controleur (agent):** ja, niets onwaars op de plaatjes; alle beweringen nagekeken in de code op tak q. Overgenomen: lichte hoek rechtsonder weggesneden, rand boven het paneel weg, "4 Export" als eigen stap. Niet overgenomen (versie 2): inzetje met de hele figuur (de testpop is een stokpop van buizen, dat maakt de poster niet mooier; liever later een echte sculpt), groot eigen label "+8°" op de poster (het getal moet het echte getal uit Blender blijven).
+
+**Moet voor de winkeltekst (Chris of Bram):** in "Beschrijving run 4 (geldt)" staat `for example "Bends ±25°"`; de plaatjes tonen overal ±20°. Maak het `for example "Bends ±20°"`, zodat het getal overal gelijk is.
+
+**Kan voor Bram (geen lancering):** op scherm 9 (bend 28) zie je alleen het rode stuk van de boog, geen rode vlakken op het model, terwijl de winkeltekst zegt "the spot where it hits turns red". Kijk of de botsing bij 28° binnenin zit; zo ja, klopt de tekst nog, alleen het plaatje laat het niet zien.
+
+**Antwoord op de vraag van Bram (ruimere afstand):** nee, de close-up blijft. Verder weg wordt de boog klein en de testpop is geen mooi figuur. Een plaatje met een echte sculpt is versie 2.
+
+**Stand akkoord:** ronde q staat op main (fa34cde9, run 42509522859 groen, controleur akkoord). De add-on is daarmee wat de lanceerlijst vroeg. Alleen het ja van Thijs op de plaatjes ontbreekt nog (staat op zijn lijst); komt dat, dan zet ik `Akkoord: ja` voor main zonder nieuwe ronde. Indienen kan pas als ook de twee accounts van Thijs er zijn.

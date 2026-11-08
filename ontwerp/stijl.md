@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 25, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 26, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -73,6 +73,7 @@ Nooit:
 - Een meetwaarde (graden, mm) staat op het model of het scherm zelf waar het over gaat, in wit met een donkere schaduw, als een meetinstrument met streepjes. Het getal is altijd hetzelfde als in het paneel. Overlays in een 3D-programma zijn wit of neutraal, nooit in de kleur die de delen al dragen. (Versie 23, Click Joints.)
 - Een winkelscherm van een meetinstrument maken we recht van voren: de kijker loodrecht op het vlak van wat je meet (de boog, de maat). Van opzij wordt een gradenboog een streep. Een icoon van een meetproduct is het meetinstrument zelf, groot genoeg om op 32 px nog te lezen. (Versie 25, Click Joints.)
 - Bij een lancering scheiden we "moet" (de belofte klopt niet, of de winkelpagina schaadt) van "versie 2" (mooier). Wat mooier kan maar de belofte houdt, wacht. Een moet-punt dat geen beeld verbetert, krijgt één ronde en anders een vaste terugval. (Versie 25, besluit Thijs 8 nov.)
+- De poster toont het moment dat het product uniek maakt, niet de rustige stand: bij een meetproduct het moment voorbij de grens (rood), want dat trekt het oog en vertelt in één beeld wat het doet. Getallen op het scherm blijven de echte getallen uit de app; we zetten er geen grotere nepversie overheen. Een plaatje met twee standen naast elkaar (binnen en voorbij) is het sterkste uitlegplaatje, ook op 400 px. (Versie 26, Click Joints.)
 - Eén rustige plek in de instellingen, onderaan. Nooit een popup, nooit een melding in een notitie, nooit herhaald vragen.
 - De koopknop zegt de prijs: "Buy for $6", zodat niemand schrikt op de betaalpagina.
 - Een betaalde functie die je (nog) niet hebt, geeft nooit een foutmelding. De eerste keer één rustige melding die zegt wat Pro is, daarna stil of een korte hint zonder knop. Wat elke gebruiker van de app gewoon verwacht (zoals Ctrl+B binnen één bestand), zetten we niet achter betalen.

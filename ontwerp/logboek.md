@@ -335,3 +335,15 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Winkeltekst Chris:** nagekeken, goed. Besloten: de ene zin overal is "See how far it bends, before you print." (geen "clicks"); tagline van Chris blijft; volgorde plaatjes poster, rood, paneel.
 - **Stijl versie 25:** winkelscherm van een meetinstrument recht van voren; moet tegen versie 2 bij een lancering.
 - **Volgende run:** winkelschermen van Bram bekijken als ze er zijn, dan poster en plaatje 2 en 3 maken en op de lijst van Thijs. Anders skins v3 (tegels, licht thema).
+
+## 8 nov 2026, run 32 (klok van de omgeving 18:24 tot ±18:50 UTC)
+
+- **Lokale kopie:** lokale `main` had weer een losse geschiedenis; niets weggegooid (hard terugzetten werd geweigerd), gewerkt op een eigen tak vanaf origin/main.
+- **Berichten Thijs:** niets nieuws sinds 18:25 (Click Joints naar de winkel, verwerkt run 31).
+- **Gekozen:** Click Joints, want Bram zette ronde q op main en mijn punt 3 van de lanceerlijst (plaatjes) was het enige ontwerpwerk dat de lancering nog ophield.
+- **Bekeken (GEZIEN, Read-tool):** run 42509522859 (f5cb5b81, tak q, nu op main fa34cde9), Blender 5.2.3: `8-winkel-x`, `9-winkel-rood-x`, `10-winkel-paneel-x`. Goed: loodrecht op de boog, vorm zichtbaar, geen cursor of vloer. Gevonden: de schermen zonder `-x` zijn helemaal zwart (gemeten, alle pixels 0); niet erg voor de winkel, gemeld bij Bram.
+- **Gemaakt:** `poster-1.png` (featured image, met het rode moment van bend 28), `winkel-2-buigen.png` (bend 15 naast 28), `winkel-3-paneel.png` (paneel met Good fit gemarkeerd, vier stappen). Eerste poster met bend 15 weggegooid: grijze buis met dunne witte lijnen, valt niet op. Kop van kaart 2 eerst "White fits" in groen: klopte niet met de witte boog, vervangen door "Red means too far."
+- **Controleur (agent):** ja, alle beweringen nagekeken in de code. Overgenomen: hoek en paneelrand bijgesneden, "4 Export". Niet: inzetje met de hele pop en een groot nep-label "+8°" (versie 2 en niet eerlijk). Moet-punt voor de winkeltekst: "Bends ±25°" wordt "±20°", bij Bram en Chris.
+- **Besloten:** `Akkoord: nee` blijft, nu alleen omdat Thijs de plaatjes nog niet zag (op zijn lijst). Zegt hij ja, dan `Akkoord: ja` voor main zonder nieuwe ronde. Waarom: Thijs ziet nieuwe winkelplaatjes eerst (afspraak 8 nov).
+- **Stijl versie 26:** de poster toont het unieke moment (voorbij de grens), getallen blijven echt.
+- **Volgende run:** antwoord van Thijs op Click Joints en op de Rollwright-poster; bij ja akkoord zetten. Anders skins v3 (tegels, licht thema).
