@@ -37,13 +37,38 @@ def solver_naam():
     return "EXACT"
 
 
-def maten(inst, u):
-    r = inst.kogel_mm / 2 * u
+def maten(inst, u, kogel_mm=None):
+    r = (inst.kogel_mm if kogel_mm is None else kogel_mm) / 2 * u
     maat = {"r": r, "s": inst.speling_mm * u, "nek_r": 0.48 * r, "open_r": OPENING * r, "schuif": SCHUIF_MM * u,
             "onder_z": -0.4 * r, "midden_z": 1.4 * r, "top_z": 2.2 * r}
     if inst.soort == "PEN":
         maat["midden_z"] = maat["top_z"] / 2
     return maat
+
+
+def kies_auto(inst, u, bvh, frame, breedte_mm):
+    """Automatische diameter (Daan, tussenreactie 2): de grootste kogel met Good fit.
+
+    Begint bij 0,6 keer de smalste breedte (afgerond op 0,5 mm, de bovengrens) en zakt in stappen van
+    0,5 mm tot 2 mm, tot de passing groen is (wand minstens 1,5 mm). Lukt groen nergens, dan de grootste
+    met Tight; is ook dat er niet, dan de 0,6-regel (die geeft rood en er wordt niet gesneden).
+    Geeft (diameter in mm, keuze): keuze is "goed", "krap" of "regel"."""
+    boven = passing.auto_diameter(breedte_mm)
+    kandidaten = []
+    d = boven
+    while d >= passing.AUTO_MIN_MM - 1e-9:
+        kandidaten.append(round(d, 3))
+        d -= passing.AUTO_STAP_MM
+    eerste_krap = None
+    for d in kandidaten:
+        kleur, _, _ = passing.beoordeel(bvh, frame, maten(inst, u, d), inst.soort, u)
+        if kleur == "groen":
+            return d, "goed"
+        if kleur == "oranje" and eerste_krap is None:
+            eerste_krap = d
+    if eerste_krap is not None:
+        return eerste_krap, "krap"
+    return boven, "regel"
 
 
 def kijk_regio(context):
@@ -198,11 +223,15 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
         breedte = passing.smalste_breedte(bvh, frame)
+        keuze, auto_noot = "", ""
         if inst.kogel_auto and breedte is not None:
-            zet_auto_diameter(inst, passing.auto_diameter(breedte / u))
-        # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
-        auto_noot = (f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
-                     if inst.kogel_auto and breedte is None else "")
+            d, keuze = kies_auto(inst, u, bvh, frame, breedte / u)
+            zet_auto_diameter(inst, d)
+            if keuze != "goed":
+                auto_noot = f" Auto: no size gives a good fit here (mesh {breedte / u:.1f} mm thick at the cut)."
+        elif inst.kogel_auto:
+            # Auto vond geen breedte (cursor buiten het figuur of open snede): oude maat blijft, wel melden.
+            auto_noot = f" Auto found no width at the cut, kept {inst.kogel_mm:.1f} mm."
         maat = maten(inst, u)
         kleur, wand, uitleg = passing.beoordeel(bvh, frame, maat, inst.soort, u)
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
@@ -210,7 +239,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_snijpunt": list(frame @ Vector((0, 0, maat["schuif"]))),
                     "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver,
-                    "cj_kogel_auto": inst.kogel_auto, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
+                    "cj_kogel_auto": inst.kogel_auto, "cj_auto_keuze": keuze, "cj_breedte_mm": round(breedte / u, 3) if breedte else -1.0}
 
         if kleur == "rood":
             ruim_op(hulp)

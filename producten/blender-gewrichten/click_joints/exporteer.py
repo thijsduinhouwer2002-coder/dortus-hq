@@ -23,8 +23,8 @@ def hint(scene):
     if scene.click_joints.exportmap:
         return None
     if bpy.data.filepath:
-        return "Empty: click_joints folder next to the .blend"
-    return "Empty: temporary folder (file not saved)"
+        return "Saves next to the .blend"
+    return "Saves to a temporary folder"
 
 
 def delen(context):
