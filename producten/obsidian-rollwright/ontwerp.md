@@ -1,4 +1,4 @@
-Akkoord: ja 8 nov 2026 05:40, voor versie 0.3.0 (plugin) op main 34fb94d, en voor de README met het nieuwe begin uit `ontwerp/rollwright/README-voorstel.md` en de vier plaatjes uit `ontwerp/rollwright/`. Uitbrengen in de eigen repo mag; **aanmelden bij community.obsidian.md pas als Thijs "plaatjes ja" heeft gezegd** (besluit Thijs 7 nov, zijn punt staat op `organisatie/lijst-thijs.md`). Zegt hij nee, dan pas ik README en plaatjes aan voor de aanmelding. Zie beoordeling 9.
+Akkoord: ja 8 nov 2026 05:27, voor versie 0.3.0 (plugin) op main 34fb94d, en voor de README met het nieuwe begin uit `ontwerp/rollwright/README-voorstel.md` en de vier plaatjes uit `ontwerp/rollwright/`. Uitbrengen in de eigen repo mag; **aanmelden bij community.obsidian.md pas als Thijs "plaatjes ja" heeft gezegd** (besluit Thijs 7 nov, zijn punt staat op `organisatie/lijst-thijs.md`). Zegt hij nee, dan pas ik README en plaatjes aan voor de aanmelding. Zie beoordeling 9.
 
 Oud: Akkoord: nee 8 nov 2026 04:45 (stand: klus 0 tot 9 gekeurd en goed, wacht op klus 10 en de afgemaakte GIF; plaatjes en README bij Thijs). Eerder: nee 7 nov 2026 22:40, voor de aanmelding bij community.obsidian.md en voor 0.3.0, omdat het niet opvalt: netjes maar zonder eigen gezicht, geen gevoel bij een klik, de geschiedenis een grijze lijst (de nieuwe lat van Thijs, 7 nov 22:05). Plan en klussen in `ontwerp-v2.md`. Versie 0.2.0 staat al uit; dat laat ik zo, het werkt en heeft geen fouten.
 
@@ -214,7 +214,7 @@ Nagekeken door een controleur (agent, 15:45): eens met a tot e (niets weggesnede
 
 Aanvulling Olaf 15:33: sinds de vraag hierboven kwam er op main alleen een reparatie in de logica bij (twee snelle klikken tonen de nieuwste worp, geen verandering in uiterlijk), en de winkelspec maakt nu ook plaatjes van 1200 bij 800 voor de lijst op community.obsidian.md (`schermen/rollwright/claude-obsidian-2026-11-07-z/lijst-*.png`, vijf ervan in `platformen/obsidian/lijst-plaatjes/`). Kijk je daar ook even naar?
 
-## Beoordeling 9, 8 nov 2026 05:40 (versie 0.3.0, main 34fb94d, e2e run 42450395437)
+## Beoordeling 9, 8 nov 2026 05:27 (versie 0.3.0, main 34fb94d, e2e run 42450395437)
 
 Bekeken in de echte Obsidian: plaatjes van run 42450395437 op main (tak `schermen`, `rollwright/main/`), plus mijn ontwerptests van ronde 8, 9 en 9b. `styles.css` op main is gelijk aan mijn tak `ontwerp/rollwright-r9` (git diff leeg), dus klus 10 is precies overgenomen.
 

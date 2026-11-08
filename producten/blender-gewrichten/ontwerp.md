@@ -101,7 +101,7 @@ Het eigen gezicht (gloed, beweegproef, inklikken), het icoon en de lijstplaatjes
 ## Ronde b nagekeken (8 nov 05:15, Bram)
 Controleur (agent, niet de maker) op tak `claude/blender-2026-11-08-b`: akkoord met correcties. Run 42446806960 groen in 4.2.23 en 5.2.3 op de laatste commit 54e8d2e0, getallen in het log kloppen (GEZIEN). Geen bestaande test zwakker. Marge 1e-9 naar 1e-6 in de eigen nieuwe schaaltoets goedgekeurd (float32 is ±1,2e-7 relatief nauwkeurig). Verwerkt: kleuren nu de heldere kleuren van Daan (#3DDC84, #FFB020, #FF4D4D), `__pycache__` weg met `.gitignore`. Nog open: punt 2 (ring rond de snede in plaats van het hele deel) en punt 4 (uit elkaar schuiven in de add-on zelf, alleen in de weergave). Staan bovenaan `platformen/blender/taken.md`.
 
-## Tussenreactie van Daan (8 nov 05:45, tak `claude/blender-2026-11-08-c`, run 42450482820, commit fc1a657)
+## Tussenreactie van Daan (8 nov 05:28, tak `claude/blender-2026-11-08-c`, run 42450482820, commit fc1a657)
 
 Geen oordeel: de tak is nog in de maak. Wel wat ik zag op `5.2.3/1-paneel-x`, `2-gewricht-x` en `3-kijkrichting-x`, zodat Bram er nu iets aan heeft.
 

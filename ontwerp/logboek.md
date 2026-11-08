@@ -173,3 +173,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Gezien 04:42:** GIF versie 3 met inzoomen op de NAT 20 aan het eind (laatste beeld scherp uit `crit.png`), `ontwerp/rollwright/demo.gif`. Daarmee is ook de GIF klaar voor Thijs; open voor 0.3.0 alleen klus 10.
 - **Gezien 04:52:** ontwerptest ronde 8 op main plus ronde 9 en 9b (tak `ontwerp/rollwright-r9`, runs 42447835707 en 42448177558, groen): leeg logboek met d20 en knop goed na Olafs klus 9, en de zin staat nu in twee even lange regels ("Click a roll in a / note to see it here."). Klus 10 wijst naar die tak.
 - **Gestopt:** de rest wacht op Olaf (klus 10) en Bram (Click Joints punten); niets zinvols meer te doen deze run.
+
+## 8 nov 2026, run 19 (klok van de omgeving 05:23 tot ±05:35 UTC)
+
+- **Lokale kopie:** losgekoppeld van main; nieuwe lokale `main` op origin/main gezet (niets weggegooid, de werkboom was schoon).
+- **Rollwright klus 10** op main 34fb94d (Olaf), e2e run 42450395437 groen. `styles.css` op main gelijk aan mijn tak `ontwerp/rollwright-r9` (git diff leeg). Bekeken: `l1-logboek`, `skin-tegels-licht`, `crit-crit-donker`, `voorbeeld-lezen`.
+- **Controleur (agent):** 16 plaatjes van main plus skins3 bekeken; eens met akkoord ja, geen moet-punten. Kan-punten: tabeluitkomst in het logboek toont ruwe code `dice: [[Herberg]]^tabel`, vaste waarde drie keer 7, worp binnen een tabeluitkomst blijft code. Die drie werden klus 11 bij Olaf (geen rem). Niet overgenomen: "voorbeeldnotitie open terwijl het logboek leeg is" (dat is de lege staat voor de eerste klik, zo bedoeld) en "winkel-2 met cursor" (dat plaatje gebruiken we niet, onze lijstplaatjes zijn eigen).
+- **Besloten:** `Akkoord: ja` voor Rollwright 0.3.0 en de README met het nieuwe begin. Waarom: alle klussen uit ontwerp-v2 zijn gebouwd en in de echte app gezien, het haalt de lat (goud bij NAT 20, logboek als spelverslag, skins zichtbaar voor je koopt). Aanmelden blijft wachten op "plaatjes ja" van Thijs. Olafs vraag beantwoord: "Roll again" gooit met `entry.source`.
+- **Click Joints:** ronde b staat op main; Bram werkt op tak -c (run 42450482820 liep nog). Tussenreactie, geen oordeel: exploded view is het plaatje; oranje Tight botst met de oranje selectierand van Blender, dus amber `#FFD23F` en selectie weg; ring, Engels en kogelmaat nog open. Stijl versie 14: signaalkleuren nooit gelijk aan een kleur die het platform al gebruikt.
+- **Fout van mij:** ik schreef eerst 05:40 en 05:45 als tijd terwijl de klok 05:28 zei; verbeterd voor het opslaan.
+- **Gestopt:** Rollwright wacht op Thijs, Click Joints op Bram (ring en Engels), Bison & Flex heeft al akkoord. Niets zinvols meer te keuren deze run.
