@@ -133,3 +133,11 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Kost:** twee zinnen in het ontwerp, één regel op de poster (Daan).
 - **Voor wie:** Bram (a, het ontwerp is van hem), Daan (a op de poster, c). Winkeltekst bijgewerkt: `commercie/blender-click-joints/winkeltekst.md` run 3.
 - **Status:** open
+
+## 19. Rollwright 0.3.1: skins-plaatje als derde in de listing, en geen "nothing else" in eigen tekst (8 nov 2026)
+- **(a) Voor Olaf:** nog **geen** skins-plaatje in de listing op community.obsidian.md; twee plaatjes (poster, logboek). Waarom: het plaatje noemt namen, $6 en een uiterlijk dat Thijs nog niet af vindt, en de listing past alleen Thijs met zijn login aan. Met de skins-versie waar Thijs volmondig ja op zegt komt `winkel-3-...` als derde. De oude `winkel-3-skins.jpg` nergens meer gebruiken.
+- **(b) Voor Daan, bij de volgende skins-versie:** het plaatje zegt "Parchment and Arcane look like nothing else in Obsidian". Dat is een bewering over alle plugins en thema's, die we niet nagekeken hebben, en Thijs vindt de twee skins zelf nog op elkaar lijken. Voorstel: iets wat we wel waarmaken, bijvoorbeeld "Two skins with a world of their own, in dark and light." Op de kaarten staat ook "$6" bij elke skin, wat leest als $6 per skin; het is $6 voor beide samen. Geen haast; het huidige plaatje is goedgekeurd, en op de productpagina zegt de alt-tekst nu "come together for $6, once".
+- **(c) Voor Olaf:** in `platformen/obsidian/aanmelding-community.md` regel 31 (de tekst die Thijs kopieert) "Optional extra skins" vervangen door "Optional skins", zodat het gelijk is aan de README en de vaste vorm in het ontwerp.
+- **(d) Voor Chris zelf:** productpagina-tak `claude/rollwright-0.3.1` in `dortus` naar main op de dag van release 0.3.1.
+- **Tegenargument:** "nothing else" is gewone reclametaal. Antwoord: de regel "Elk product" vraagt een belofte die overal hetzelfde en waar is; een zachtere zin kost niets.
+- **Status:** open

@@ -75,3 +75,14 @@ Concurrenten (GEZIEN, community-plugin-stats.json 7 nov; tussen haakjes de stand
 | dice-tray | 97 (95) | zelfde soort plugin als wij |
 
 Lezing: Dice Roller groeit nog met ±120 downloads per dag (GEZIEN, verschil tussen 6 en 7 nov; één dag, dus grof). Dat is de vraag die er nog is. Dice Rolls haalt ±29 per dag als nieuwkomer (één dag, GOK als gemiddelde). Als Rollwright een vergelijkbaar tempo haalt: ±900 downloads in de eerste maand (GOK).
+
+## Meting 8 nov 2026, ±13:30 UTC (run 7, nog niet aangemeld)
+| Wat | Stand | Bron |
+|---|---|---|
+| Rollwright in community-plugin-stats.json | nog niet aanwezig | GEZIEN |
+| Release 0.3.0 | main.js 1, manifest.json 2, styles.css 1 download | GEZIEN |
+| Release 0.3.1 | nog niet uitgebracht | GEZIEN |
+| Sterren, open issues | 0, 0 | GEZIEN |
+| Verkopen skins | 0 (geen gebruikers) | GOK |
+
+Concurrenten (GEZIEN, community-plugin-stats.json; tussen haakjes 7 nov): obsidian-dice-roller 289.111 (289.005), dice-rolls 366 (343), dice-tray 100 (97). Dice Roller groeit nog ±100 per dag, de twee nieuwkomers samen ±25 per dag (afgeleid uit twee metingen een dag uit elkaar, grof). Geen nieuwe concurrent bekeken deze run. Volgende meting: dag 1 en dag 7 na de aanmelding.

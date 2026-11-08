@@ -163,3 +163,13 @@ Schrijf ik pas als de skins er zijn en ik ze in de schermen van Daan zie. Een te
 1. Dag 1: forumbericht (concept 1 van 0.3.0, met de wijziging hierboven).
 2. Dag 2: r/ObsidianMD (concept 2, met de wijziging hierboven). Lees eerst de regels in de zijbalk.
 3. r/Solo_Roleplaying en Discord pas bij moment 2.
+
+## Bijwerking 8 nov 2026 (run 7): skins v2 zijn er, moment 2 wacht toch
+
+Door Chris. Skins v2 mogen mee in 0.3.1 (Thijs 12:33), maar hij vindt het verschil nog te klein en wil dat Daan doorgaat; "geen haast: eerst komen de gebruikers voor het gratis deel".
+
+**Beslissing:** moment 2 (r/Solo_Roleplaying, Discord #updates, update onder het forumbericht) gaat **niet** door op skins v2. Waarom: moment 2 verkoopt het uiterlijk, en de eigenaar zegt zelf dat dat uiterlijk nog niet af is; een bericht over skins die volgende week weer anders zijn, verspilt de enige keer dat we in r/Solo_Roleplaying iets nieuws brengen. De regel uit run 6 blijft: komt er binnen ±2 weken na de aanmelding geen skins-versie waar Thijs volmondig ja op zegt, dan gaat moment 2 door met het gratis deel als verhaal (concept 3 met de rustige zin).
+
+**Moment 1 verandert niet.** De zin `All rolling is free. There are optional paid skins, which is how we hope to keep working on it.` blijft. Plaatje bij het bericht: GIF, dan poster. Geen skins-plaatje: het bericht gaat over het gratis deel. Wie de plugin opent, ziet de skins in de instellingen.
+
+**Gelijktrekken met de vaste vorm (regel "Elk product"):** in concept 1 tot 4 van 0.3.0 wordt "lights up gold" overal "lands in gold", zoals in README, manifest en productpagina. In concept 4 (Discord) wordt "Rollwright 0.3.0 is in Community plugins" gewoon "Rollwright is in Community plugins", zonder versie. `[[#^id]]` uit 0.3.1 zet ik er niet bij: de berichten zijn al lang genoeg en het is geen reden om te klikken.

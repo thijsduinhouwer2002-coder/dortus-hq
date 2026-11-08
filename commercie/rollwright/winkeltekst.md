@@ -133,3 +133,27 @@ Thijs vroeg Olaf het skins-plaatje uit de README te halen. De README moet het be
 
 ### Productpagina dortus.com/rollwright/
 Gedaan deze run (repo `dortus`, op main, samengevoegd vanaf mijn tak met de 0.3.0-pagina plus het weghalen; de oude tak `claude/rollwright-0.3.0` heeft skins.jpg nog en is vervallen): skins-plaatje weg. Het logboek-plaatje (`roll-log.jpg`) vervang ik door Daans versie met verschillende tijden zodra die er is, kop "Paid skins" wordt "Optional skins", tekst blijft feitelijk ($6, Polar, één sleutel voor alle apparaten). Zie `logboek.md`.
+
+## Bijwerking 8 nov 2026 (run 7): versie 0.3.1, skins v2 mogen mee
+
+Door Chris. Aanleiding: Thijs 8 nov 12:33 en 12:34 (`berichten/daan.md`): het skins-plaatje v2 is ja, Parchment en Arcane mogen mee in 0.3.1, maar het verschil is nog niet groot genoeg (zelfde achtergrond, Parchment en Arcane lijken op elkaar); Daan blijft verbeteren, "geen haast: eerst komen de gebruikers voor het gratis deel". Daan gaf `Akkoord: ja` voor 0.3.1; het uitbrengen wacht op één zin van Thijs (lijst-thijs, Olaf 11:50).
+
+### Korte beschrijving
+In `manifest.json` van 0.3.1 staat (GEZIEN): `Roll dice right in your notes with a full formula notation. Click to roll again. A natural 20 lands in gold. Draw from tables, lists, sections and tags, and keep your rolls in a Roll log.` Dat is iets anders dan mijn voorstel uit advies 11 ("see a natural 20 light up"), maar beter: "lands in gold" is dezelfde zin als in de README, het ontwerp en op de productpagina. In de lanceerberichten stond nog "lights up gold"; dat is gelijkgetrokken (`lancering.md`, run 7). **Dit is vanaf nu de korte tekst**, overal. Niets veranderen.
+
+### Plaatjes voor de listing (blijft zoals run 6)
+1. Poster (`winkel-1-poster.png`).
+2. Roll log (`winkel-2-logboek.jpg`, de versie met verschillende tijden van 20:41 tot 21:02).
+3. **Nog geen skins-plaatje in de listing.** Pas met de skins-versie waar Thijs volmondig ja op zegt.
+
+Waarom niet: het plaatje noemt namen, $6 en een uiterlijk dat Thijs zelf nog niet af vindt, en de listing past alleen Thijs met zijn login aan. Dezelfde reden als voor de slotzin hieronder. Het plaatje v2 komt wel op de productpagina (en in README en Polar als Olaf en Daan dat willen), want die passen wij zelf aan. Advies 19 (a).
+
+### Lange beschrijving
+Blijft die van run 6, maar de slotzin wordt de vaste vorm van README en ontwerp: `All rolling is free. Optional skins are a one-time purchase. No account, no telemetry.` (zonder "extra", zie advies 19 (c)). Waarom niet terug naar het bedrag en de namen: Thijs vindt het verschil nog te klein en de skins worden verder verbeterd; namen en uiterlijk kunnen nog veranderen, en de listing past alleen Thijs met zijn login aan. Bedrag en namen staan in de README (deel Paid skins), op het plaatje en op de productpagina.
+
+### Productpagina dortus.com/rollwright/
+- **Op main (nu, repo `dortus`):** het logboek-plaatje is vervangen door Daans versie met verschillende tijden. Thijs vond alles op 04:22 AM nep ogen, en dit plaatje laat alleen gratis functies zien die al in 0.3.0 zitten, dus het hoeft niet op de release te wachten.
+- **Op tak `claude/rollwright-0.3.1` (repo `dortus`):** "Version 0.3.1 is out", `softwareVersion` 0.3.1, en het skins-plaatje v2 onder "Optional skins" met een feitelijk onderschrift ("The same rolls in each skin, in dark and light."). Gaat naar main op de dag dat release 0.3.1 er staat. Getest op 390 en 1280 breed: geen zijwaarts scrollen, geen kapotte plaatjes, geen 404 (GEZIEN).
+
+### Wat ik bewust niet schrijf
+"Look like nothing else in Obsidian" (staat op het plaatje van Daan) neem ik niet over in eigen tekst: dat is een bewering over alle andere plugins en thema's die we niet nagekeken hebben, en Thijs zelf vindt de twee skins nog op elkaar lijken. Via het plaatje staat de zin wel op de productpagina; dat accepteer ik bewust tot Daans volgende versie, want Thijs keurde dit plaatje. Advies 19 (b).

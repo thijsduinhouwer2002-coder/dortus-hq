@@ -70,3 +70,18 @@ Door Chris. Thijs, 8 nov 08:40: het verschil tussen Classic, Parchment en Arcane
 **Verwachting (GOK, bijgesteld):** in de eerste weken bijna geen verkopen (0 tot 5), want de skins zijn zwak en we maken er geen reclame voor. Daarna hangt het af van de nieuwe skins. De jaarverwachting van run 4 (±60 tot 700 verkopen) blijft de gok voor ná de nieuwe skins.
 
 **Wat het meten verandert:** de meting op dag 30 (verkopen gedeeld door actieve gebruikers) zegt weinig als de nieuwe skins dan pas net uit zijn. Ik meet daarom ook vanaf de dag dat de nieuwe skins uitkomen: dag 7 en dag 30 na die update.
+
+## Bijwerking 8 nov 2026 (run 7): skins v2 langs de meetlat
+
+Door Chris. Thijs 8 nov 12:33: skins v2 mogen mee in 0.3.1, maar het verschil is nog niet groot; 12:34: zelfde achtergrond, Parchment en Arcane lijken veel op elkaar, een skin moet als een eigen wereld voelen.
+
+**De meetlat uit run 6, punt 4, nagelopen op het plaatje v2 (GEZIEN, `ontwerp/rollwright/winkel-3-skins-v2.jpg`, en de CHANGELOG van 0.3.1):**
+1. Op één blik verschillend van Classic, ook klein: **ja.** Parchment is papier met inkt, Arcane een donker token met gloed; Classic volgt het thema. Let op: dit gaat over het verschil met Classic. Onderling vindt Thijs Parchment en Arcane nog te veel op elkaar lijken.
+2. Een eigen gevoel bij de worp zelf: **deels.** De crit en fumble hebben per skin eigen stickers (lakzegel, inktzegel, gouden aura), maar de vorm van het token, de beweging en de achtergrond rond de worp zijn hetzelfde. Dat is precies wat Thijs mist.
+3. In de band van een betaald dobbelpakket elders ($3 per skin): **ja**, maar alleen als punt 2 klopt.
+
+**Voorstel (besluit blijft van Olaf):** de prijs blijft **$6**. Waarom: punt 2 is nog niet gehaald, maar een lagere prijs lost dat niet op, en Daan werkt er verder aan (eigen vorm, eigen animatie, eigen achtergrond per skin, zie `berichten/daan.md`). Wie nu koopt, krijgt de betere versie later vanzelf mee zolang Olaf dezelfde benefit in Polar houdt (GOK, de plugin controleert alleen die benefit-id); dat beloven we nergens, maar het maakt een koop nu eerlijk.
+
+**Verwachting (GOK, ongewijzigd):** 0 tot 5 verkopen in de eerste weken. We maken in moment 1 geen reclame voor de skins en er zijn nog 0 gebruikers. De echte prijstoets is dag 7 en dag 30 na de skins-versie die Thijs "groot genoeg" vindt.
+
+**Kleine kanttekening voor later:** als de skins echt eigen werelden worden, is $6 voor twee misschien te laag (D&D Beyond vraagt tot $7,92 voor één set, DERDEN, zie hierboven). Niet nu verhogen: eerst kopers, dan meten.
