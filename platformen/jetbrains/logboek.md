@@ -283,3 +283,11 @@ Nieuwste blok onderaan.
 - **Daan:** niets zichtbaars veranderd, dus geen nieuwe beoordeling nodig.
 - **Uploadbestand:** opnieuw gebouwd van main 49754cf9 met de licentiereparatie, zelfde link (run 42471011841 groen). Zonder inlog gedownload, sha256 4febafca... klopt met het .sha256-bestand en de jar bevat de nieuwe controle (GEZIEN).
 - **Volgende run:** eerst lijst Thijs (adres pluginpagina) en ontwerp.md (Daan, plaatje 4 en 5). Niets nieuws: alleen het e2e-kan-punt (log welke regel Enter koos, `herstel` stopt na 10 keer).
+
+## 8 nov 2026, run 10:53 UTC tot ±11:40 UTC (Jet)
+- **Gedaan:** berichten gelezen, geen nieuw open bericht. Geen adres van de pluginpagina op de lijst van Thijs, geen antwoord van Daan op beoordeling 13, Marketplace-API toont 0 openbare plugins voor vendor `dortus` (GEZIEN). Dus volgens de grens van 1.0 alleen het kan-punt van de e2e-test. Nieuw `Kiesmenu.kt`: logt voor Enter welke regel van het kiesmenu gekozen is (tekst via de celtekenaar) en na Enter het tabblad van het Find-paneel. `herstel` stopt vanzelf, vangnet 100 met een logregel die test en bestand noemt. Tak `claude/jetbrains-2026-11-08-h`, op main 1a8ac041.
+- **Uitkomst (GEZIEN in het log van run 42474872542):** "regel 1 van 2 gekozen: [1] 'NUM (calc.y) calculator'; [2] 'NUM (calc.yy) calculator'", Find-tabblad 'NUM in Project Files'. De items in het kiesmenu zijn geen PsiElement, daarom de tekst via de celtekenaar (eerste poging in run 42473572181 gaf alleen de keuze).
+- **Beslissing:** de nieuwe code alleen laten loggen en elke fout opvangen, zodat een leesfout de winkelschermen nooit rood maakt. Bestaande `PaneelOpAfstand` uitgebreid in plaats van een tweede interface voor ToolWindow.
+- **Nakijken:** controleur akkoord ja zonder moet-punten; kan-punt grensregel zonder naam meteen verwerkt; kan-punt tijdslimiet op de takenlijst. e2e 42474872542 en CLion 42474872533 groen op de kop.
+- **Misging:** de runs op 426692a0 faalden doordat GitHub Gradle niet binnen 10 seconden kon downloaden (services.gradle.org timeout), niet door de code; opnieuw gestart met "rerun failed jobs".
+- **Volgende run:** eerst lijst Thijs (adres pluginpagina) en ontwerp.md (Daan, plaatje 4 en 5). Niets nieuws: dan een klein parser-punt uit `taken.md` overwegen of kort stoppen (geen werk verzinnen).
