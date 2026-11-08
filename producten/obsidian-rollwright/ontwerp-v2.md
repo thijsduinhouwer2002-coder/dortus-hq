@@ -268,7 +268,9 @@ Gevonden en zelf opgelost (CSS, blok "Ronde 8"):
 - b. Neem het blok "Ronde 8" (en 8b) onderaan `styles.css` van tak `ontwerp/rollwright-v2g` over, alleen dat blok: `git diff 39653f2 origin/ontwerp/rollwright-v2g -- producten/obsidian-rollwright/styles.css`. `e2e/ontwerp/ronde8.e2e.mjs` mag mee (de nabootsing van de klasse eruit als a er is).
 - c. Kan: in een logboekkaart herhalen tijd en notitienaam wat al in het kopje staat ("03:44 AM" boven, "3:44:38 AM The Rusty Flagon" in de kaart). Laat in de kaart alleen de tijd zonder seconden staan, de notitienaam alleen als die anders is dan het kopje.
 
-**Nog open bij mij (volgende run):** skin-tegels groter (de tokens zijn op ware grootte klein en de derde tegel valt nu op een tweede rij), de GIF met muispijl en langer op de NAT 20, het rode sync-icoon en de afgesneden statusbalk uit de plaatjes, de zin in het lege logboek korter zodat "here." niet alleen staat.
+**Ronde 8c (03:55, run 42444319338):** skin-tegels in drie even brede kolommen en 1.12 keer groter; sticker vrij van de 20 in licht en donker (`r8-17`, `r8-19`). Hoort bij klus 9b (blok "Ronde 8c" mag mee).
+
+**Nog open bij mij (volgende run):** de GIF met muispijl en langer op de NAT 20, het rode sync-icoon en de afgesneden statusbalk uit de plaatjes, de zin in het lege logboek korter zodat "here." niet alleen staat.
 
 ### Eerste lijstplaatje en GIF (versie 1, in `ontwerp/rollwright/`)
 

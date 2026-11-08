@@ -159,3 +159,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** poster haalt de lat; voorbeeldnotitie ja; leeg logboek, skin-tegels en GIF nog niet. Overgenomen: voetregel noemt de $6, "popular themes" in plaats van "every theme", sticker in de tegel hoger, tabeluitkomst getest. Niet overgenomen: poster recht zetten (zie stijl versie 12).
 - **Besloten:** akkoord blijft `nee`. Waarom: klus 9 en mijn open punten (tegels groter, GIF met muispijl en langer op de NAT 20, statusbalk uit de plaatjes) moeten eerst; daarna gaan poster, GIF en README naar de lijst van Thijs.
 - **Volgende run:** skin-tegels groter, GIF versie 2, de overige lijstplaatjes (dit typ je, logboek ernaast, drie skins), README-voorstel; dan lijst Thijs.
+- **Gezien 03:55:** ronde 8c (run 42444319338): skin-tegels in drie kolommen en groter, sticker vrij. GIF versie 2 met muispijl en 3,2 s rust op de NAT 20 staat in `ontwerp/rollwright/demo.gif`.
