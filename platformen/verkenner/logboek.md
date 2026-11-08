@@ -596,4 +596,6 @@ Nieuwste blok onderaan.
 - Controleur: alle 8 beweringen kloppen, correcties verwerkt (meer gratis concurrenten, Rusland kan niet betalen).
 - Les: de ratings van taalpakketten rusten op 1 tot 5 stemmen; de comments zeggen meer dan het gemiddelde.
 - Tweede onderdeel (tijd over, platformrun): Coda Packs, zelf toegevoegd. 150 nieuwste packs uit de sitemap gemeten: ±11 nieuw per maand, 5 van 89 betaald, geen installaties zichtbaar, geen maker met bedrag (ook niet op TrustMRR). Nee, cijfer 2, zie voorstellen/coda.md. Niet apart nagekeken omdat het advies nee is.
+- Derde onderdeel: Logitech Marketplace (hardwarewinkel), zelf toegevoegd. Klein (171 plugins), niet betalen in de winkel, downloads niet zichtbaar. Nee, cijfer 2, zie voorstellen/logitech-marketplace.md.
+- Volgende platformrun: Discord-herhaalmeting rond 4 dec (4 weken na 6 nov); tot dan nieuwe hardware- en vakwinkels zoeken.
 - Run afgesloten.

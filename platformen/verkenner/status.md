@@ -53,3 +53,4 @@
 - 8 nov, run 21:31: TrustMRR-scan per platform (8.469 makers sinds 2025). Geen nieuw winkelplatform 6+; Mac-apps buiten de App Store 5, tools rond AI-codeagenten 5, beide nog niet klaar. Controleur akkoord met correcties.
 - 8 nov, run 22:31: productkans JetBrains, taalpakketten (Frans, Italiaans, Tsjechisch): zwakke betaalde nummer één, cijfer 4, nog niet bouwen. Controleur akkoord. Bericht aan Jet.
 - 8 nov, run 22:31, ook: Coda Packs zelf toegevoegd en gemeten (150 nieuwste packs). Nee, cijfer 2.
+- 8 nov, run 22:31, ook: Logitech Marketplace zelf toegevoegd. Nee, cijfer 2 (geen betaling, geen downloads zichtbaar).
