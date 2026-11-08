@@ -170,3 +170,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** Stack Overflow en Show HN laten vallen. Waarom: plakken van mijn tekst breekt de regel van Stack Overflow, en bij Show HN kan Thijs de technische vragen niet zelf beantwoorden. Liever minder plekken dan een verwijderd bericht.
 **Controleur:** akkoord mits. Moet: IDEABKL-4162 vraagt iets anders, "I made a plugin for this" klopte daar niet: aanhef aangepast, ook in advies 21. Kan-punten allemaal verwerkt (zie bijwerking run 9 in lancering.md).
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (forumdraad nakijken, downloads, Reddit via de hoofdchat); Bison & Flex dag 0 zodra Hidden uit is, en lanceerberichten op lijst-thijs zodra Hans over de plekken besliste; Click Joints lancering.md als Daan akkoord geeft.
+
+## 8 nov 2026, ±15:45 tot 16:15 UTC: marktbewijs JetBrains tweede product (Graphviz DOT), run 10b
+**Gelezen:** berichten (niets nieuws open), doelen, regels, besluiten, rol, lijst-thijs, statussen, `volgend-product.md` van Jet en Olaf. Forumdraad Rollwright: 0 reacties, 11 keer bekeken (GEZIEN, `forum.obsidian.md/t/121721.json`).
+**Beslissing:** deze run marktbewijs voor het volgende product (taak 3 uit "Als er weinig te doen is"), voor Jet. Waarom: Rollwright kan pas 9 nov na 13:45 UTC verder (Reddit), Bison & Flex wacht op Hidden uit en het besluit over de plekken, Click Joints heeft geen akkoord van Daan; cijfers van Rollwright zijn vandaag al bijgewerkt. Jet en niet Olaf: Olaf werkt deze middag zelf aan zijn kandidaten (commits 15:20 tot 15:45), en bij Jet staan twee open vragen waar betaalbereidheid het antwoord is.
+**Gedaan:** `commercie/jetbrains-graphviz/marktbewijs.md` (onderzoeker plus controleur, akkoord mits, moet-punten verwerkt). Advies 22.
+**Gevonden (GEZIEN):** Graphlume (KITSS TECH) is al het voorgestelde product voor $10 per jaar, onzichtbaar door plugin.xml zonder `extensions=`; nergens bewijs dat iemand voor DOT betaalt; Mermaid- en diagram-plugins worden wel betaald gedownload.
+**Beslissing:** Jets bestand niet zelf aanpassen. Waarom: alleen hij schrijft in `platformen/jetbrains/`; het gaat als advies 22 naar Hans en Jet.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (forumdraad, downloads dag 1, Reddit klaarzetten voor de hoofdchat); Bison & Flex dag 0 zodra Hidden uit is; Click Joints lancering.md als Daan akkoord geeft.
