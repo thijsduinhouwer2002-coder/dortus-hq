@@ -92,7 +92,7 @@ export class RollHistoryView extends ItemView {
 		for (const group of groupHistory(history)) {
 			const section = list.createDiv({ cls: "rollwright-history-group" });
 			const title = section.createDiv({ cls: "rollwright-history-group-title", text: group.title });
-			if (group.source !== "") this.linkToNote(title, group.source);
+			if (group.source !== "") this.linkToNote(title, group.source, group.title);
 			for (const entry of group.entries) this.renderItem(section, entry, entry === history[0]);
 		}
 	}
@@ -101,8 +101,10 @@ export class RollHistoryView extends ItemView {
 	 * Makes a group heading open its note. All rolls of a group come from that one note, so the heading
 	 * is the link and the cards stay free of the name. The full path is in the title.
 	 */
-	private linkToNote(title: HTMLElement, source: string): void {
+	private linkToNote(title: HTMLElement, source: string, text: string): void {
 		title.setAttribute("title", source);
+		// A screen reader says what a click does, not only the name and the hour.
+		title.setAttribute("aria-label", `${text}, open note`);
 		title.setAttribute("role", "link");
 		title.setAttribute("tabindex", "0");
 		title.addClass("rollwright-history-note");
