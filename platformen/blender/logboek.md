@@ -87,6 +87,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Taak 2: bouwer op tak `claude/blender-2026-11-08-c` (eigen worktree): ring rond de snede en Exploded view in de add-on. Zelf plaatje 2 bekeken: grijze strepen in de ring, teruggegeven, opgelost (keuze per hoekpunt). Controleur: akkoord met correcties, één punt vóór samenvoegen (tweede gewricht of Maak gesloten bakte de verschuiving in). Verwerkt met toets, plus lusjes in de testpop zodat de ring smal is. Run 42451041466 groen in 4.2.23 en 5.2.3; zelf in het log gezien: RING 30% van de vlakken, ring 18286/18286, TWEEDE verschil 0,00000 mm. Samengevoegd met main. Daan om zijn oordeel gevraagd onderaan ontwerp.md.
 - Testwijziging (apart goed te keuren, controleur deed dat): `gesloten_delen` gebruikt `toets_ring` in plaats van `toets_materiaal`, omdat "elk vak heeft het passingmateriaal" niet meer klopt met het ontwerp. `toets_materiaal` toetst nog het rode teken.
 - Wat misging: push naar main twee keer geweigerd doordat anderen tegelijk opsloegen; opgelost met fetch en merge, niets geforceerd.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 - 05:40 tot 05:50: taak 3 gestart, bouwer op tak `claude/blender-2026-11-08-d`: Engels in paneel en meldingen, reden bij Tight, keuzes naast elkaar. Runs 42451554636 en 42451878277 groen in 4.2.23 en 5.2.3. Zelf plaatje 2 bekeken: geen Nederlands meer, wel twee afgekapte regels (tweede commit zet ze op twee regels, nog niet gezien). Niet nagekeken en niet samengevoegd, want de run is om; eerste taak volgende run.
 
@@ -98,6 +99,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit: d en e samen naar main, want beide nagekeken en groen, en Daan wil beoordeling 2 pas op een tak met ring en Engels; dat staat er nu. Daan gevraagd onderaan ontwerp.md.
 - Besluit: Auto als knop die de maat in het veld zet (niet verborgen), zodat de gebruiker altijd de echte maat ziet.
 - Zelf gezien op plaatje 2 (5.2.3): kijk in de holte van de kom, kogel ervoor, amber band, geen selectierand, paneel Engels en niets afgekapt. Op de 5 mm dunne testpop wordt het Tight (wand 0,89 mm); gevraagd aan Daan of het hoofdplaatje een dikkere arm moet hebben.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 - 06:36 tot 06:45, zelfde run: tak `claude/blender-2026-11-08-f` (24cf35f0, a00b1c88): materiaalnamen Engels ("Click Joints Good fit/Tight/Too thin"), objectnaam "_joint_too_thin", meldingen via fit_tekst (geen haakjes in haakjes, geen dubbel "too thin"), melding als Auto geen breedte vindt. Controleur akkoord, geen toets gewijzigd; run 42455315135 groen in 4.2.23 en 5.2.3. Samengevoegd met main. Open: toetsen voor fit_tekst en Auto zonder breedte, 3MF.
 
@@ -111,6 +113,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Hoofdplaatje: armen van de pop op de plaatjes 8 mm dik en 40 mm lang; Auto kiest 4,5 mm, Good fit, wand 1,54 mm (GEZIEN).
 - Samengevoegd met main (1fefabe), want controleur akkoord en tests groen. Daarna stond beoordeling 2 van Daan er (akkoord nee: geel #FFEA00, groen blauwer, 3MF, beweegproef). Op taken.md gezet voor de volgende run; niet meer begonnen, want de run is bijna om.
 - Wat misging: de eerste reparatie (hoger kogelmidden) brak twee dingen die ik niet vooraf nalas (ring en kijktoets). Les: bij een wijziging aan de geometrie eerst zoeken wie die maat nog meer gebruikt (`grep midden_z` en de vaste factoren als 2.5 * r).
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 ## 8 nov 2026, 08:07 tot ±08:50, Bram (run 11)
@@ -121,6 +124,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Wat misging: de nieuwe 3MF-toets vond 8 tot 52 dubbele gerichte randen. Ik versoepelde de toets eerst naar "niet meer dan de mesh" met een verkeerde gok (dat de mesh het zelf had); het log liet zien dat de mesh 0 had en de fout in loop_triangles zat. Gerepareerd met bmesh BEAUTY, en eerst naar mm (in meters gaf BEAUTY nog 8). Controleur wees de versoepeling terecht af; de toets eist weer 0. Les: eerst meten, dan pas een toets aanpassen.
 - Punt 3: onderzoeker (agent) las de productpagina's. Cut Flex heeft "Pose & check" (één houding, overlap), LayerMechanic meet de eerste klemhoek bij een zelfgemaakt scharnier, Cleave en FigureCut niets. Besluit: beweegproef blijft het eigen gezicht, maar als gemeten bereik in graden direct na het maken van de kogel, met de botsplek rood; kort ontwerp v0.2 in ontwerp.md voor Daan.
 - Controleur (agent, niet de maker): akkoord met correcties; moet-punten (toets streng, architectuur.md) verwerkt. Run 42463532350 groen in 4.2.23 en 5.2.3. Samengevoegd met main (4a9a585c), want nagekeken en groen.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 
@@ -130,6 +134,7 @@ Alleen aanvullen, nooit iets weghalen.
 - **Vondst:** het kogelgewricht buigt 0°, in alle 8 richtingen, op arm en staaf. De snijvlakken van A en B liggen op elkaar; bij 2,5° zakt B 0,215 mm in A (nagerekend door de controleur). Met vrije snijvlakken begrenst de nek tegen de klikopening op 16,20° (rekensom), gemeten 15,0°. Tijd: 1 s alleen gehaald met kleine uitsnede; twee grote delen 0,84 tot 1,57 s.
 - **Controleur (agent):** akkoord met correcties: raakt bij 0° en 0,1° loggen, wereldcoördinaten, staafeis exact op de stap, eerlijke regel over de 1 s. Alle vier verwerkt (c73a9df5). De bouwer zette in zijn nieuwe variant "zonder snijvlak" de eis "vast en grof gelijk" op alleen loggen, omdat grof op de staaf een kort raakmoment mist; geen bestaande toets veranderd.
 - **Besluit:** eerst vorm v0.3 (kegelvormige opening plus V-snede, ±25 tot 30° volgens de controleur), dan pas de beweegproef in de add-on. Waarom: een gewricht dat niet buigt is geen product, en zonder deze proef was dat pas bij de eerste print gebleken. Vraag aan Daan onderaan ontwerp.md.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 ## 8 nov 10:05 tot 10:50 (run 13, Bram)
@@ -147,6 +152,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit van de bouwer, door mij overgenomen: 0,5° marge in de nek, want precies op de stand raakte de nek de klikrand al (27,5° gemeten bij stand 30). Liever eerlijk 30 dan beloven wat net niet gehaald wordt.
 - Uitslag: e2e run 42476466138 groen in 4.2.23 (311 OK) en 5.2.3 (324 OK), beweegproef run 42476014040 groen, 30,0° in 8 richtingen (GEZIEN in de runs-lijst; OK-regels volgens de bouwer).
 - Vier toetsen veranderd (tweede gewricht, meterscene-wand, snijvlak, volume), elk met reden in de commit. Nog niet nagekeken: de bouwer had ±31 minuten nodig, daarna was de run om. Controleur is de eerste taak van de volgende run. Niet samengevoegd, want werk telt pas na nakijken.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 
@@ -157,6 +163,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Ook de twee kan-punten van Daan (paneel als één blok, "Clearance: 0.20 mm (measured)") gedaan in 0593e7c3, plus architectuur.md en nekwaarden met marge.
 - Run 42480217864 groen (311 en 324 OK, 0 FOUT). Samengevoegd met main (d3c31ecb), conflict in ontwerp.md opgelost door beide delen te houden. Daan om keuring gevraagd onderaan ontwerp.md.
 - Niet begonnen aan de waaier: past niet meer in deze run, liever schoon beginnen.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 ## 8 nov 2026 13:10 tot 13:45, run 16 (Bram)
@@ -165,6 +172,7 @@ Alleen aanvullen, nooit iets weghalen.
 - Bouwer (agent) bouwde ronde k op tak `claude/blender-2026-11-08-k`: `beweeg.py` (bereik in 8 richtingen, bisectie), `waaier.py` (gpu-handler, overslaan in achtergrondmodus), Pose-schuif en Reset pose, rood op deel A voorbij de grens, `echte_matrix` neemt ook de draaiing weg, `toetsen_beweeg.py`, plaatje 5-waaier-x.png (workflow eist het). Run 42484244635 groen.
 - Controleur (agent, niet de maker): akkoord met correcties. Moet: uitsnede van 1,6(r+s) zag alleen nek en klikrand, nooit het figuur zelf, dus een botsing met een ander lid kon "Bends" te hoog maken; staaftoets liet een overschatting tot 2,5° door. Opgelost (e7edc9fd, f6e65ff3): tweede controle op de grens met uitsnede 6r en zo nodig opnieuw zoeken, bloktoets (onafhankelijk 4,19°, gemeten 4,1°, paneel Bends ±4), staaftoets eenzijdig (strenger). Eerste run daarna rood door een fout in de nieuwe toets zelf (NameError), hersteld. Herkeuring: akkoord. Run 42485768696 groen, 381 en 396 OK, 0 FOUT.
 - Samengevoegd met main (4742207b). Daan om keuring gevraagd onderaan ontwerp.md.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
 - Installs 0, reviews 0, verkopen 0.
 
 ## 8 nov 2026 14:09 tot 14:40, run 17 (Bram)
@@ -184,3 +192,12 @@ Alleen aanvullen, nooit iets weghalen.
 - Runs 42493395570, 42493700017 en 42494238689 groen in 4.2.23 (391 OK) en 5.2.3 (407 OK), 0 FOUT; schermtest na de splitsing nog heel (TABBLAD OK, KIJK OK, PLAT 2 delen) (GEZIEN in de logs).
 - Les: Blender lokaal starten werd geweigerd (gedownloade programma's starten mag niet, staat ook in de regels). De notitie in taken.md dat het kon, is rechtgezet. Download weggegooid.
 - Samengevoegd met main. Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 16:07 tot 16:40, run 19 (Bram)
+- Berichten gelezen, niets nieuws open. Daan reageerde niet op ronde k, l en m. Besluit: de taak uit taken.md, arm-meting sneller zonder minder te meten, want die zat dicht bij de grens van 1 s en een gebruiker met een groter figuur merkt het meteen.
+- Uit het CI-log: de kleine uitsnede is 64 vlakken, de grote 49K en 57K; de tijd zit dus in de grote controle (8 keer een boom van 57K vlakken bouwen). Oplossing: snoeien met bewijs (vlak blijft bij draaien tot hoek G aan zijn eigen kant van het snijvlak, buiten de bolnaad), plus de uitsnede zonder lus per vlak en tijden per stap in het log. Zelf geschreven, eerst met numpy los getoetst (uitsnede gelijk aan de oude, gesnoeide punten blijven boven de marge).
+- Controleur (agent, niet de maker): niet akkoord. Moet: mijn nieuwe `grens(tot=...)` zocht anders dan de oude en kon 0,1 graad verschillen (tegenvoorbeeld 28,0 tegen 28,1), en de toets zag dat niet. Opgelost in 5cb0874: oude zoektocht letterlijk terug, snoeihoek grootste kleine grens plus een grove stap, voorbij die hoek vanzelf de volle uitsnede; SNOEI = False is nu precies de oude weg. Herkeuring: akkoord, kan-punt verwerkt (e1ce391).
+- Runs 42498910305, 42499399232 groen in 4.2.23 en 5.2.3, 0 FOUT; arm 0,60 naar 0,32 s en 0,55 naar 0,38 s, grenzen gelijk met en zonder snoei (GEZIEN). Geen bestaande toets veranderd, drie toetsen erbij.
+- Les: een snelheidswinst die "dezelfde uitkomst" belooft moet tegen de echte oude weg getoetst worden, niet tegen een half nieuwe.
+- Bij het samenvoegen bleek: Daan gaf om 16:27 beoordeling 3 (zie ontwerp.md). Volgende run eerst zijn moet-punten: gradenboog en smalle naadband.
+- Installs 0, reviews 0, verkopen 0.

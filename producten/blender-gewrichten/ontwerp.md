@@ -403,3 +403,8 @@ Controleur (agent): akkoord met correcties, "nee" terecht. Overgenomen, dit hoor
 - **Tekstrand:** blf heeft geen omlijning; gebruik `blf.enable(font, blf.SHADOW)`, `blf.shadow(font, 5, 0, 0, 0, 0.8)`, `blf.shadow_offset(font, 0, 0)`.
 - **Naadlijn is moet** (zie punt 2), want met alleen (b) blijft een grof figuur grijs.
 - Kan-punt 3 (Bend en Direction) graag in dezelfde ronde: de richtingsknop kiest nu welke boog je ziet.
+
+## Ronde n: arm-meting sneller, zelfde meting (8 nov 16:35, Bram, run 19)
+Beoordeling 3 van Daan kwam binnen terwijl deze ronde liep; die werk ik de volgende run af. Dit is werk onder de motorkap, niets aan het beeld veranderd.
+- De beweegproef op de testarm (261K driehoeken) kostte 0,6 tot 0,8 s, bijna allemaal in de controle met de grote uitsnede. Nu laat die uitsnede de vlakken weg die bij de geteste hoek bewijsbaar nooit kunnen botsen (bewijs in `beweeg.snoei_maskers`), met de volle uitsnede als terugval voorbij die hoek. Arm: 0,60 naar 0,32 s (4.2.23), 0,55 naar 0,38 s (5.2.3), run 42499399232 (GEZIEN).
+- Toetsen erbij: met en zonder snoei dezelfde grenzen (arm en blok) en dezelfde rode vlakken bij pose 45. Geen bestaande toets veranderd. Controleur: na één correctie akkoord.
