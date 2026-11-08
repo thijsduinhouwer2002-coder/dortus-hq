@@ -424,3 +424,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Gemaakt:** twee varianten in `ontwerp/rollwright/v3/` (A Campagnetafel, B NAT 20), elk GIF en MP4, poster B. Contactvellen en posters bekeken met de Read-tool. Opgelost: kop onder de band, burst bij elke worp in B (alleen nog bij de NAT 20), NAT 20-woord over de kaart.
 - **Besloten:** de varianten met links in `ontwerp/rollwright/v3/voor-projectchat.md` en een regel in mijn berichtenbestand, niet op de lijst van Thijs (de projectchat beoordeelt eerst). Mijn voorkeur B voor Reddit, A voor de README.
 - **Volgende run:** poster A echt maken, controleur op beide, verwerken wat de projectchat zegt.
+
+## 8 nov 2026, run 38 (klok van de omgeving 22:25 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer uiteen; terugzetten geweigerd, oude stand als `oud-lokaal`, gewerkt op `werk` vanaf origin/main.
+- **Berichten Thijs:** geen nieuwe sinds run 37. Gekozen: GIF en poster af, want harde deadline (9 nov 11:00 UTC) en het eerste wat Reddit ziet.
+- **NAT 20-moment sterker (GEZIEN, Read-tool):** niet meer diep inzoomen. Het venster stapt terug en dooft, de echte kaart "Wisdom save: 20 / NAT 20" (uitsnede van de zoom-3-opname) wordt groot uit het venster getild, met zachte gouden stralen, warm licht en vonken erachter en "CRITICAL HIT" erboven. Waarom: bij inzoomen vulde het venster het beeld en zag je het licht niet; zo is het moment groot en blijft wat de plugin doet onveranderd (geen gloed op de kaart zelf).
+- **Poster v3:** zelfde wereld als de film (warm podium, kaartlijnen, vonken), titel links, echt venster rechts, de opgetilde kaart onder de echte regel zodat het kleine token zichtbaar blijft.
+- **Controleur (agent):** eerst nee, twee moet-punten: (1) logboek toonde andere getallen dan de film gooide (oude opname), (2) overvloeier tussen twee vensters bij 10 s en 12,7 s. Opgelost: nieuwe opname op tak `ontwerp/rollwright-reclame4` (spec neemt het logboek op direct na de drie GIF-worpen, run 42530737674, GEZIEN), alle filmbeelden uit die ene opname, harde snede, venster weg voor de eindkaart, logboek 3,3 s, eindkaart groter, film 16 s. Tweede keuring: ja, geen moet-punten. Kan-punt verwerkt: poster nu ook uit de nieuwe opname (Hit 12, zoals de film).
+- **Op de lijst van Thijs:** GIF, mp4 en poster met links, ja of nee vóór 9 nov 11:00 UTC.
+- **Nog kan (versie 2):** krimpende kaart landt één beeldje net boven het echte token (9,75 s).
+- **Volgende run:** berichten; bij ja van Thijs seintje aan Olaf (bestandsnamen staan op de lijst); daarna de 2 of 3 skins-richtingen voor Thijs (bericht 22:58), groot in een echte notitie.
