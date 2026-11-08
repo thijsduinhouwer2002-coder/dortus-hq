@@ -1,7 +1,8 @@
 package com.dortus.bisonflex.meldingen
 
 import com.dortus.bisonflex.pro.FacadeBron
-import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerImpl
+import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
+import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ReadAction
@@ -48,8 +49,10 @@ class MeldingenDiagnose {
             val e = editor() ?: return@invokeAndWait
             val p = e.project ?: return@invokeAndWait
             uit = ReadAction.compute<String, RuntimeException> {
-                DaemonCodeAnalyzerImpl.getHighlights(e.document, HighlightSeverity.INFORMATION, p)
-                    .filter { it.description?.matches(Regex("(Undefined|Unused) .*")) == true }
+                // Openbare API (geen DaemonCodeAnalyzerImpl, die is intern volgens Plugin Verifier).
+                val alle = mutableListOf<HighlightInfo>()
+                DaemonCodeAnalyzerEx.processHighlights(e.document, p, HighlightSeverity.INFORMATION, 0, e.document.textLength) { alle.add(it); true }
+                alle.filter { it.description?.matches(Regex("(Undefined|Unused) .*")) == true }
                     .joinToString(" | ") { "${it.description} @ ${e.document.getLineNumber(it.startOffset) + 1}" }
             }
         }
