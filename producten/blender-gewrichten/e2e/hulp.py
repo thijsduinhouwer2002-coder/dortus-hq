@@ -60,7 +60,73 @@ def gesloten_delen(label, lijst):
         log(f"{label}: deel {d.name} foute_randen={fout} volume={vol:.2f}mm3 passing={d.get('cj_passing')} "
             f"wand={d.get('cj_wand_mm')}mm")
         stap(f"{label}: {d.name} gesloten", fout == 0 and vol > 0)
-        toets_materiaal(label, d)
+        toets_ring(label, d)
+
+
+def toets_ring(label, d):
+    """Passingkleur als ring rond de snede (punt 2 van Daan): het materiaal van cj_passing zit in een eigen
+    vak; elk vlak binnen 2,9 mm van het snijvlak en elk vlak op kogel of kom heeft dat vak, en bij de arm
+    het grootste deel van het oppervlak niet (het figuur houdt zijn eigen materiaal)."""
+    verwacht = addon("passing").KLEUREN.get(d.get("cj_passing"))
+    mats = list(d.data.materials)
+    vak = next((i for i, m in enumerate(mats) if m is not None and m.name.startswith("Click Joints ")), None)
+    kleur_ok = vak is not None and verwacht is not None and all(
+        abs(a - b) < 1e-3 for a, b in zip(mats[vak].diffuse_color, verwacht))
+    as_r = Vector(d["cj_as"]).normalized()
+    p0, c, r = Vector(d["cj_snijpunt"]), Vector(d["cj_centrum"]), d["cj_kogel_r"]
+    s = d.get("cj_speling_mm", 0.0) * u()
+    met = binnen = binnen_met = bol = bol_met = 0
+    opp = opp_met = 0.0
+    for f in d.data.polygons:
+        heeft = f.material_index == vak
+        met += heeft
+        opp += f.area
+        opp_met += f.area if heeft else 0.0
+        if abs((f.center - p0).dot(as_r)) <= 2.9 * u():
+            binnen += 1
+            binnen_met += heeft
+        afst = (f.center - c).length
+        if d.get("cj_soort") == "KOGEL" and min(abs(afst - r), abs(afst - r - s)) < 0.02 * r:
+            bol += 1
+            bol_met += heeft
+    n = len(d.data.polygons)
+    log(f"RING {label}: {d.name} vak={vak} {mats[vak].name if vak is not None else None} met_passing={met}/{n} "
+        f"({100 * met / max(n, 1):.1f}%) ring={binnen_met}/{binnen} kogel_of_kom={bol_met}/{bol} "
+        f"oppervlak_met_passing={100 * opp_met / max(opp, 1e-12):.1f}% addon_deel={d.get('cj_ring_deel')}")
+    stap(f"{label}: {d.name} passingmateriaal in kleur {d.get('cj_passing')}", kleur_ok)
+    if str(d.get("cj_bron", "")).startswith("arm"):  # groot figuur; bij de kleine pop is de ring bijna het hele deel
+        # oppervlak in plaats van aantal: de kogel heeft veel kleine vlakjes, een grove arm weinig grote
+        stap(f"{label}: {d.name} minder dan de helft van het oppervlak in passingkleur", opp_met < 0.5 * opp)
+    stap(f"{label}: {d.name} alle vlakken binnen de ring in passingkleur", binnen > 0 and binnen_met == binnen)
+    stap(f"{label}: {d.name} kogel of kom in passingkleur", bol_met == bol)
+
+
+def toets_uit_elkaar(lijst, label="UIT ELKAAR"):
+    """Opengewerkt beeld (punt 4 van Daan): deel B staat in de weergave 1,5 keer de kogeldiameter langs de as
+    verschoven, de mesh en location niet; de STL van deel B is gelijk met en zonder."""
+    import struct
+    inst = bpy.context.scene.click_joints
+    b = next(d for d in lijst if d["cj_deel"] == "B")
+    bestanden = {}
+    for aan in (True, False):
+        inst.uit_elkaar = aan
+        bpy.context.view_layer.update()
+        verschuiving = (b.matrix_world.translation - b.location).dot(Vector(b["cj_as"]).normalized()) / u()
+        verwacht = 1.5 * 2 * b["cj_kogel_r"] / u() if aan else 0.0
+        log(f"{label} aan={aan}: deel B verschoven {verschuiving:.3f} mm langs de as (verwacht {verwacht:.3f}), "
+            f"location={tuple(round(x, 4) for x in b.location)}")
+        stap(f"{label} aan={aan}: verschuiving klopt", abs(verschuiving - verwacht) < 1e-3)
+        toets_stl(lijst, f"STL uit_elkaar={aan}")
+        with open(b["cj_stl"], "rb") as f:
+            data = f.read()
+        bestanden[aan] = [struct.unpack_from("<12f", data, 84 + 50 * i) for i in range((len(data) - 84) // 50)]
+        stap(f"{label} aan={aan}: na export staat deel B weer zoals ingesteld",
+             abs((b.matrix_world.translation - b.location).length / u() - verwacht) < 1e-3)
+    m, z = bestanden[True], bestanden[False]
+    verschil = max((abs(x - y) for p, q in zip(m, z) for x, y in zip(p[3:], q[3:])), default=1e9)
+    log(f"{label}: STL deel B driehoeken {len(m)} en {len(z)}, grootste verschil {verschil:.6f} mm")
+    stap(f"{label}: STL van deel B gelijk met en zonder opengewerkt beeld", len(m) == len(z) > 0 and verschil < 1e-4)
+    inst.uit_elkaar = True
 
 
 def toets_materiaal(label, d):

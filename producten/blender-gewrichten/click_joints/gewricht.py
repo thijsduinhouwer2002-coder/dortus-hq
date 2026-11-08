@@ -11,7 +11,7 @@ import bpy
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
-from . import kleur as kleuren, passing, vormen
+from . import kleur as kleuren, passing, uit_elkaar, vormen
 from .eigenschappen import eenheid_per_mm
 from .gesloten import gespiegeld, is_gesloten
 
@@ -143,11 +143,14 @@ def verhuis(ob, naam, bron):
     ob.data.name = naam
 
 
-def markeer(ob, kleur, gegevens):
+def markeer(ob, kleur, gegevens, maat=None, u=1.0):
     ob["cj_passing"] = kleur
     for k, v in gegevens.items():
         ob[k] = v
-    kleuren.kleur_deel(ob, kleur)
+    if maat is None:
+        kleuren.kleur_teken(ob, kleur)
+    else:
+        kleuren.kleur_deel(ob, kleur, gegevens["cj_snijpunt"], gegevens["cj_as"], maat["r"], maat["s"], u)
 
 
 class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
@@ -183,7 +186,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         hulp = bpy.data.collections.new("cj_hulp")
         context.scene.collection.children.link(hulp)
         me = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))
-        me.transform(bron.matrix_world)
+        me.transform(uit_elkaar.echte_matrix(bron))  # zonder Exploded view, anders bakt die in
         werk = bpy.data.objects.new("cj_werk", me)
         hulp.objects.link(werk)
         bm = bmesh.new()
@@ -199,7 +202,7 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         centrum = frame @ Vector((0, 0, maat["midden_z"]))
         gegevens = {"cj_bron": bron.name, "cj_gespiegeld": gespiegeld(bron), "cj_soort": inst.soort, "cj_speling_mm": inst.speling_mm,
                     "cj_wand_mm": round(wand, 3), "cj_centrum": list(centrum), "cj_as": list(richting), "cj_as_bron": as_bron,
-                    "cj_as_terugval": terugval,
+                    "cj_as_terugval": terugval, "cj_snijpunt": list(frame @ Vector((0, 0, maat["schuif"]))),
                     "cj_kogel_r": maat["r"], "cj_open_r": maat["open_r"], "cj_solver": solver}
 
         if kleur == "rood":
@@ -233,7 +236,8 @@ class CLICK_JOINTS_OT_plaats(bpy.types.Operator):
         ruim_op(hulp)
         gegevens["cj_duur_s"] = round(time.perf_counter() - t0, 3)
         for deel in (deel_a, deel_b):
-            markeer(deel, kleur, gegevens)
+            markeer(deel, kleur, gegevens, maat, u)
+            uit_elkaar.zet(deel, inst.uit_elkaar)
         bron.hide_set(True)
         context.view_layer.update()
         for o in context.view_layer.objects:

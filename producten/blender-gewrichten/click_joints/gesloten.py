@@ -4,6 +4,7 @@ import bpy
 import numpy as np
 
 from .eigenschappen import eenheid_per_mm
+from .uit_elkaar import echte_matrix
 
 
 def foute_randen(me):
@@ -86,7 +87,7 @@ class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         basis = bpy.data.meshes.new_from_object(bron.evaluated_get(dg))  # met de modifiers van het figuur
         tijdelijk = bpy.data.objects.new(bron.name + "_cj_tmp", basis)
         context.scene.collection.objects.link(tijdelijk)
-        tijdelijk.matrix_world = bron.matrix_world
+        tijdelijk.matrix_world = echte_matrix(bron)  # zonder Exploded view
         mod = tijdelijk.modifiers.new("cj_remesh", "REMESH")
         mod.mode = "VOXEL"
         mod.voxel_size = inst.voxel_mm * eenheid_per_mm(context.scene)
@@ -98,7 +99,7 @@ class CLICK_JOINTS_OT_maak_gesloten(bpy.types.Operator):
         kopie = bpy.data.objects.new(bron.name + "_gesloten", me)
         for c in bron.users_collection:
             c.objects.link(kopie)
-        kopie.matrix_world = bron.matrix_world
+        kopie.matrix_world = echte_matrix(bron)
         ok, fout = is_gesloten(me)
         if not ok:
             bpy.data.objects.remove(kopie)

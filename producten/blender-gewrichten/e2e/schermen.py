@@ -118,17 +118,15 @@ def maak_pop():
 def plaats():
     inst = bpy.context.scene.click_joints
     inst.kogel_mm, inst.speling_mm, inst.as_bron = 3.0, 0.2, "CURSOR"
+    inst.uit_elkaar = True  # opengewerkt beeld van de add-on zelf (standaard aan), zo is de kogel te zien
     figuren.maak_actief(staat["pop"])
     uitslag = bpy.ops.click_joints.plaats()
+    bpy.context.view_layer.update()
     delen = [o for o in bpy.context.scene.objects if o.get("cj_deel")]
     for d in delen:
-        if d["cj_deel"] == "B":
-            d.location += Vector(d["cj_as"]) * UIT_ELKAAR  # uit elkaar, zodat je de kogel ziet
-        log(f"deel {d.name} passing={d.get('cj_passing')} wand={d.get('cj_wand_mm')} kleur={tuple(d.color)}")
+        log(f"deel {d.name} passing={d.get('cj_passing')} wand={d.get('cj_wand_mm')} ring={d.get('cj_ring_deel')} "
+            f"weergaveverschuiving={tuple(round(x, 3) for x in d.delta_location)} location={tuple(d.location)}")
     log(f"plaats: {uitslag}, {len(delen)} delen")
-
-
-UIT_ELKAAR = 8.0  # mm dat deel B langs de as opschuift op plaatje 2
 
 
 def close_up():
@@ -141,7 +139,7 @@ def close_up():
         return
     rv3d = gebied.spaces.active.region_3d
     as_ = Vector(a["cj_as"]).normalized()
-    midden = Vector(a["cj_centrum"]) + as_ * (UIT_ELKAAR / 2)
+    midden = Vector(a["cj_centrum"]) + as_ * (1.5 * a["cj_kogel_r"])  # half de verschuiving van de add-on
     richting = Vector((0.25, 1.0, -0.45)).normalized()  # van voren, iets van boven en rechts
     rv3d.view_perspective = "PERSP"
     rv3d.view_rotation = richting.to_track_quat("-Z", "Y")
@@ -196,9 +194,6 @@ def kijk():
         ok = ok and dicht and d.get("cj_as_bron") == "KIJK" and hoek < 0.01
     log(f"kijk: {uitslag}, {len(delen)} delen")
     log(f"KIJK {'OK' if ok else 'FOUT'} (hoek {hoek} rad, marge 0,01)")
-    for d in delen:
-        if d["cj_deel"] == "B":
-            d.location += Vector(d["cj_as"]) * UIT_ELKAAR
 
 
 def stap():

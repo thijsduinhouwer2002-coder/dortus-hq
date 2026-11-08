@@ -1,13 +1,17 @@
 """Passingkleur als materiaal, zodat hij te zien is in de standaard Solid-weergave (kleur volgens Material).
 
-Elk deel krijgt in al zijn materiaalvakken een materiaal per passing (gedeeld: "Click Joints groen" enz.).
-De vakken staan op Object, dus de materialen van de mesh zelf blijven bewaard: zet een vak terug op
-Data en het eigen materiaal van het figuur is er weer."""
+Het figuur houdt zijn eigen materiaal (of geen). Alleen een ring rond de snede krijgt de passingkleur:
+de vlakken met een hoekpunt (of hun centrum) binnen RING_MM van het snijvlak, plus kogel of pen, nek en kom. Daarvoor komt er één
+materiaalvak bij met het gedeelde passingmateriaal ("Click Joints groen" enz.), en die vlakken krijgen
+dat vak als material_index. Het rode teken (draadbol) krijgt het materiaal op elk vak, zoals eerst."""
 import bpy
+import numpy as np
 
 from . import passing
 
 PREFIX = "Click Joints "
+RING_MM = 3.0      # zo ver van het snijvlak (langs de as) kleuren de vlakken mee
+RAND_MM = 0.4      # bij de kom en kogel: tot zo ver buiten kom of pen (de wand is altijd dikker, minstens 0,8 mm)
 
 
 def materiaal(kleur):
@@ -27,12 +31,72 @@ def materiaal(kleur):
     return mat
 
 
-def kleur_deel(ob, kleur):
-    """Zet het passingmateriaal op elk materiaalvak van het object (gekoppeld aan het object)."""
+def kleur_teken(ob, kleur):
+    """Rode draadbol: het passingmateriaal op elk materiaalvak (gekoppeld aan het object)."""
     mat = materiaal(kleur)
     if ob.data is not None and len(ob.material_slots) == 0:
         ob.data.materials.append(None)
     for vak in ob.material_slots:
         vak.link = "OBJECT"
         vak.material = mat
-    ob.color = passing.KLEUREN[kleur]  # ook bij Viewport Shading op Object
+    ob.color = passing.KLEUREN[kleur]
+
+
+def in_ring(centra, snijpunt, as_, r, s, u):
+    """Bool per vlakcentrum (n x 3, wereld = mesh, want de delen staan in wereldcoördinaten):
+    binnen RING_MM van het snijvlak, of bij kogel, pen, nek of kom (dicht bij de as, tot boven de kom)."""
+    rel = centra - np.asarray(snijpunt, dtype=np.float64)
+    as_ = np.asarray(as_, dtype=np.float64)
+    as_ = as_ / np.linalg.norm(as_)
+    h = rel @ as_
+    radiaal = np.linalg.norm(rel - np.outer(h, as_), axis=1)
+    band = np.abs(h) <= RING_MM * u
+    gewricht = (radiaal <= r + s + RAND_MM * u) & (h >= -RING_MM * u) & (h <= 2.5 * r + s + RAND_MM * u)
+    return band | gewricht
+
+
+def vlakcentra(me):
+    n = len(me.polygons)
+    c = np.empty(n * 3, dtype=np.float64)
+    me.polygons.foreach_get("center", c)
+    return c.reshape(n, 3)
+
+
+def vlakken_met_hoekpunt_in_ring(me, snijpunt, as_, r, s, u):
+    """Bool per vlak: minstens één hoekpunt in de ring. Zo kleurt een lang vlak dat de ring raakt helemaal mee
+    en blijven er geen grijze strepen in de ring (een vlakcentrum kan ver buiten de ring liggen)."""
+    nv, nl, n = len(me.vertices), len(me.loops), len(me.polygons)
+    co = np.empty(nv * 3, dtype=np.float64)
+    me.vertices.foreach_get("co", co)
+    punt_in = in_ring(co.reshape(nv, 3), snijpunt, as_, r, s, u)
+    lus = np.empty(nl, dtype=np.int64)
+    me.loops.foreach_get("vertex_index", lus)
+    start = np.empty(n, dtype=np.int64)
+    me.polygons.foreach_get("loop_start", start)
+    return np.logical_or.reduceat(punt_in[lus].astype(np.int8), start).astype(bool)
+
+
+def kleur_deel(ob, kleur, snijpunt, as_, r, s, u):
+    """Voegt een vak met het passingmateriaal toe en zet de vlakken in de ring op dat vak.
+    Vorm en vlakken veranderen niet, dus het deel blijft gesloten en de STL blijft gelijk."""
+    mat = materiaal(kleur)
+    me = ob.data
+    if len(me.materials) == 0:
+        me.materials.append(None)  # vak 0: het eigen (lege) materiaal van het figuur
+    namen = [m.name if m else None for m in me.materials]
+    if mat.name in namen:
+        index = namen.index(mat.name)
+    else:
+        me.materials.append(mat)
+        index = len(me.materials) - 1
+    n = len(me.polygons)
+    idx = np.empty(n, dtype=np.int32)
+    me.polygons.foreach_get("material_index", idx)
+    ring = in_ring(vlakcentra(me), snijpunt, as_, r, s, u)
+    if n:
+        ring |= vlakken_met_hoekpunt_in_ring(me, snijpunt, as_, r, s, u)
+    idx[ring] = index
+    me.polygons.foreach_set("material_index", idx)
+    me.update()
+    ob["cj_ring_vak"] = index
+    ob["cj_ring_deel"] = round(float(ring.mean()), 4) if n else 0.0
