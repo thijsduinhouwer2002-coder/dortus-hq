@@ -92,6 +92,7 @@ class CLICK_JOINTS_PT_paneel(bpy.types.Panel):
                 blok = stap.column(align=True)
                 blok.prop(inst, "toon_bereik", icon="LIGHT_SPOT")
                 blok.prop(inst, "pose_graden", slider=True)
+                blok.label(text="Direction")  # Daan, beoordeling 3 kan-punt 3: niet twee rijen graden zonder kop
                 rij = blok.grid_flow(row_major=True, columns=4, even_columns=True, align=True)
                 rij.prop(inst, "pose_richting", expand=True)
                 blok.operator("click_joints.reset_pose", icon="LOOP_BACK")

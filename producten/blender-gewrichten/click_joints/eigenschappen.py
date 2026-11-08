@@ -60,7 +60,7 @@ class ClickJointsInstellingen(bpy.types.PropertyGroup):
         name="Show bend range", description="Show how far the joint bends in 8 directions, as a fan in the viewport",
         default=True)
     pose_graden: FloatProperty(
-        name="Pose", description="Tilt part B around the ball, only in the viewport. Past the measured range, "
+        name="Bend", description="Tilt part B around the ball, only in the viewport. Past the measured range, "
         "the parts that collide turn red. The export always uses the straight position",
         default=0.0, min=0.0, max=45.0, step=100, precision=0,
         update=_beweeg.bij_pose)

@@ -90,7 +90,7 @@ def _veilig():
 
 class CLICK_JOINTS_OT_reset_pose(bpy.types.Operator):
     bl_idname = "click_joints.reset_pose"
-    bl_label = "Reset pose"
+    bl_label = "Reset bend"
     bl_description = "Put part B back in the straight position"
     bl_options = {"REGISTER", "UNDO"}
 
