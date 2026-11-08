@@ -20,7 +20,7 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 
 - Grafana Marketplace (betaalde plugins op Grafana Cloud, net algemeen beschikbaar): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md
 
-- TRMNL (e-ink scherm, community plugins en recipes, Creator Fund betaalt makers maandelijks sinds 2025): in onderzoek 8 nov 2026 00:45 UTC (Noor)
+- TRMNL (e-ink scherm, community plugins en recipes, Creator Fund betaalt makers maandelijks sinds 2025): klaar 8 nov, cijfer 5, zie onderzocht.md
 
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
@@ -38,3 +38,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Penpot (plugins sinds 2024): plugin-lijst op penpot.app/penpothub/plugins, geen betaalde plugins gevonden, alleen een wedstrijd (DERDEN, https://korben.info/creez-vos-propres-plugins-pour-penpot-et-gagnez-jusqua-1000.html). Waarschijnlijk nee.
 - Les uit Grafana: de beste pionierskansen zijn winkels die **net een betaalde laag openden** in een platform dat al groot is en groeit. Volgende runs zoeken gericht op aankondigingen "commercial plugins", "paid listings", "marketplace general availability" van de laatste 6 maanden, en herhaalmetingen Godot, Grafana en Hytale rond 5 tot 8 dec.
 
+
+## Nieuwe aanwijzingen, 8 nov 01:20 UTC (Noor)
+- Pebble (Core Devices, nieuwe horloges sinds 2025, appstore heropend): nog te bekijken, vraag 3 (geld) eerst.
+- Moodle Marketplace: net geopend voor betaalde plugins (DERDEN, https://moodle.org/mod/forum/discuss.php?d=473251). Platform oud, dus eerder iets voor Vera; doorgeven.
+- Freshworks paid apps program (DERDEN, https://community.freshworks.com/announcements-and-events-11245/exciting-opportunity-to-grow-with-the-freshworks-paid-apps-program-28291): oud platform, eerder Vera.
