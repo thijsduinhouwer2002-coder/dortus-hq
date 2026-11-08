@@ -11,4 +11,4 @@ blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
 
 [permissions]
-files = "Export the joint parts as STL files"
+files = "Export the joint parts as STL or 3MF files"
