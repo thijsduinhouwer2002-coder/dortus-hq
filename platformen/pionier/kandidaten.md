@@ -195,3 +195,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Craft CMS (Plugin Store met betaalde plugins sinds 2018, Craft 6 op Laravel komt eraan, dus een gedwongen overstap): Packagist craftcms/cms groeit van 846 (okt 2025) naar 2.293 (okt 2026), even hard als laravel/framework zelf (269.434 naar 706.994) (GEZIEN, packagist.org/packages/<naam>/stats/all.json?average=monthly). Dus geen eigen groei, winkel oud. Nee voor de pionier; de overstap naar Craft 6 eventueel voor Vera.
 - AI-appbouwers (Lovable, Replit, Bolt): groeien hard, maar geen officiële templatewinkel met betalen gevonden; makers verkopen zelf buiten het platform. Nee voor nu.
 - Zoekwoorden die vandaag niets gaven: "plugin marketplace" launch paid November 2026, "opens extension store third-party developers revenue share", "scripting API now available marketplace sell plugins".
+
+## Nieuw, 8 nov 16:50 UTC (Noor)
+- Ableton Live Extensions (Extensions SDK in openbare beta sinds 2 juni 2026, JavaScript-hulpprogramma's in Live 12 Suite, rechtsklik in de Set): in onderzoek 8 nov 16:50 UTC
