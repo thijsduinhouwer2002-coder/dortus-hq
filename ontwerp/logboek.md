@@ -435,3 +435,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Op de lijst van Thijs:** GIF, mp4 en poster met links, ja of nee vóór 9 nov 11:00 UTC.
 - **Kan-punt verwerkt:** de terugvliegende kaart dooft nu uit voor hij landt, geen dubbel beeld meer rond 9,75 s (GEZIEN).
 - **Volgende run:** berichten; bij ja van Thijs seintje aan Olaf (bestandsnamen staan op de lijst); daarna de 2 of 3 skins-richtingen voor Thijs (bericht 22:58), groot in een echte notitie.
+
+## 8 nov 2026, run 39 (klok van de omgeving 22:54 UTC)
+
+- **Berichten:** nieuw: poortwachter 23:58 NL, v3 is netjes maar niet flamboyant; ronde met 5 punten, 2 varianten vóór 9 nov 11:00 NL, eerst naar de projectchat. Gekozen: dit, want het is het eerste wat Reddit ziet en heeft een deadline.
+- **Gemaakt, opname:** tak `ontwerp/rollwright-reclame5`, spec `reclame5.e2e.mjs`, notitie "The Drowned Lantern" in de ontwerpkluis met eigen snippet (perkament, hout en leer, Cinzel en IM Fell ingebakken), zelfgetekende banner, wolf en val (game-icons.net, CC BY 3.0). Runs 42533011123 (notitie niet gevonden), 42533443120 (verkeerde kluis: conf stond op `vaults/test`), 42534170685 (mooi, maar tokens onleesbaar licht op het perkament en eigenschappen in beeld), 42534527947 goed (GEZIEN, Read-tool). Venster nu 1400x860 via Electron (setWindowSize faalt op deze Chrome).
+- **Besloten:** het blad krijgt in de snippet de kleuren die Rollwright in een licht thema gebruikt. Waarom: Rollwright leest de themakleuren van de body, dus een licht blad in een donker thema gaf lichte tekst op perkament; zo ziet de gratis Classic eruit zoals hij in licht echt is, zonder de plugin te veranderen.
+- **Gemaakt, film:** variant A versie 1 (`ontwerp/rollwright/v4/demo-v4-a.mp4` en `.gif`), haak met de NAT 20 vóór de titel, NAT 1 in rood met de val, skins groot. Contactvellen bekeken met de Read-tool; hook-timing gecorrigeerd (Classic landt binnen 0,25 s, stralen kwamen eerst te laat).
+- **Nog open:** inzoom dieper, skins-uitsnede, variant B "Bestiarium", poster v4, controleur, dan beide naar de projectchat.

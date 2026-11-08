@@ -1,0 +1,111 @@
+/* Voorbeeld-snippet van een gebruiker (geen deel van Rollwright): warme donkere werkplek en een notitie als oud perkament.
+   Letters: Cinzel, Cinzel Decorative en IM Fell English (SIL Open Font License). */
+@font-face { font-family: "DL Cinzel"; src: url(data:font/woff2;base64,@@cinzel@@) format("woff2"); font-weight: 400 900; }
+@font-face { font-family: "DL Cinzel Deco"; src: url(data:font/woff2;base64,@@cinzeldec@@) format("woff2"); font-weight: 700; }
+@font-face { font-family: "DL Fell"; src: url(data:font/woff2;base64,@@fell@@) format("woff2"); font-style: normal; }
+@font-face { font-family: "DL Fell"; src: url(data:font/woff2;base64,@@felli@@) format("woff2"); font-style: italic; }
+
+/* De werkplek: donker hout en leer in plaats van grijs. */
+.theme-dark {
+	--background-primary: #1a130e;
+	--background-primary-alt: #150f0b;
+	--background-secondary: #120d09;
+	--background-secondary-alt: #0e0a07;
+	--background-modifier-border: #3a2a1d;
+	--text-normal: #eadbc0;
+	--text-muted: #a8927a;
+	--text-faint: #6f5d4b;
+	--interactive-accent: #c08a3e;
+	--titlebar-background: #0e0a07;
+	--tab-container-background: #0e0a07;
+	--font-interface-theme: "DL Fell", Georgia, serif;
+}
+.theme-dark .workspace-leaf-content[data-type="markdown"] .view-content { background:
+	radial-gradient(ellipse at 50% 0%, #2a1c12 0%, #120c08 70%); }
+.theme-dark .workspace-leaf-content[data-type="markdown"] .view-header { background: #120c08; border-bottom: 1px solid #2a1d13; }
+.theme-dark .view-header-title { font-family: "DL Cinzel"; letter-spacing: .06em; color: #c9ad86; }
+
+/* De notitie: een blad perkament met inkt. Alleen bij cssclasses: drowned. */
+.markdown-preview-view.drowned {
+	--background-primary: #ead8b2;
+	--text-normal: #2e1d10;
+	--text-muted: #6b4f35;
+	--text-faint: #8d7356;
+	--background-modifier-border: #b89a6c;
+	--rollwright-accent: #7a3b1f;
+	--h1-font: "DL Cinzel Deco"; --h2-font: "DL Cinzel"; --h3-font: "DL Cinzel";
+	--font-text: "DL Fell", "IM Fell English", Georgia, serif;
+	--font-text-size: 19px;
+	--bold-color: #4a1f0e;
+	--italic-color: #5a3a22;
+	--line-height-normal: 1.55;
+	--file-line-width: 760px;
+	color: var(--text-normal);
+}
+.markdown-preview-view.drowned .markdown-preview-sizer {
+	background: url(data:image/jpeg;base64,@@paper@@);
+	box-shadow: 0 0 0 1px #6b4b2a, 0 0 0 7px #2a1b10, 0 0 0 8px #8a6a3e, 0 30px 80px rgba(0,0,0,.7), inset 0 0 90px rgba(120,72,24,.45);
+	border-radius: 3px;
+	margin-top: 26px !important;
+	padding: 0 56px 40px !important;
+	min-height: auto !important;
+}
+.markdown-preview-view.drowned .inline-title { display: none; }
+.markdown-preview-view.drowned .markdown-preview-sizer > div:first-child + div img,
+.markdown-preview-view.drowned .internal-embed.image-embed[src="drowned-banner.png"] img {
+	width: calc(100% + 112px); max-width: none; margin: 0 -56px; display: block; border-radius: 3px 3px 0 0;
+	-webkit-mask-image: linear-gradient(#000 75%, transparent);
+}
+.markdown-preview-view.drowned h1 {
+	font-family: "DL Cinzel Deco"; font-size: 2.35em; color: #5c1f0f; text-align: center; margin: -.9em 0 0; letter-spacing: .02em;
+	text-shadow: 0 1px 0 rgba(255,240,200,.6);
+}
+.markdown-preview-view.drowned h1 + p { text-align: center; color: #6b4f35; font-style: italic; margin-top: .1em; }
+.markdown-preview-view.drowned h1 + p::after { content: "\2766"; display: block; font-style: normal; color: #8a5a2b; font-size: 1.2em; margin-top: .2em; }
+.markdown-preview-view.drowned p:first-letter { }
+.markdown-preview-view.drowned .drop::first-letter, .markdown-preview-view.drowned blockquote + p::first-letter { }
+.markdown-preview-view.drowned strong { font-family: "DL Cinzel"; font-weight: 700; letter-spacing: .03em; font-size: .9em; color: #4a1f0e; }
+
+/* Callouts als losse stukken in het spel. */
+.markdown-preview-view.drowned .callout {
+	--callout-color: 122, 59, 31; background: rgba(255, 246, 222, .55); border: 1px solid #b08a58; border-radius: 2px;
+	box-shadow: 0 2px 0 rgba(90,55,20,.15), 0 8px 18px -10px rgba(60,30,10,.5); mix-blend-mode: normal; padding: 14px 18px;
+}
+.markdown-preview-view.drowned .callout-title { font-family: "DL Cinzel"; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .78em; color: #7a3b1f; }
+.markdown-preview-view.drowned .callout-icon { display: none; }
+.markdown-preview-view.drowned .callout[data-callout="handout"] {
+	background: #f3e6c4; transform: rotate(-1.1deg); margin: 1.2em 30px; border-color: #c6a774;
+	box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 14px 22px -12px rgba(50,25,5,.55);
+}
+.markdown-preview-view.drowned .callout[data-callout="handout"]::before {
+	content: ""; position: absolute; top: -9px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%;
+	background: radial-gradient(circle at 35% 35%, #c9a46a, #5b3a18 70%); box-shadow: 0 2px 3px rgba(0,0,0,.5);
+}
+.markdown-preview-view.drowned .callout[data-callout="handout"] { position: relative; overflow: visible; }
+.markdown-preview-view.drowned .callout[data-callout="handout"] .callout-content { font-style: italic; font-size: 1.08em; color: #3a2414; }
+.markdown-preview-view.drowned .callout[data-callout="beast"],
+.markdown-preview-view.drowned .callout[data-callout="trap"] { display: flow-root; border-left: 4px solid #7a3b1f; }
+.markdown-preview-view.drowned .callout[data-callout="trap"] { border-left-color: #5d5146; }
+.markdown-preview-view.drowned .callout[data-callout="beast"] .callout-content img,
+.markdown-preview-view.drowned .callout[data-callout="trap"] .callout-content img {
+	float: right; width: 92px; margin: -30px -4px 0 14px; opacity: .88; filter: drop-shadow(0 1px 0 rgba(255,240,210,.7));
+}
+.markdown-preview-view.drowned hr { border: none; height: 18px; background: none; text-align: center; }
+.markdown-preview-view.drowned hr::after { content: "\2042"; color: #8a5a2b; display: block; text-align: center; }
+
+/* Eigenschappen verbergen; de notitie begint bij de banner. */
+.markdown-preview-view.drowned .metadata-container, .markdown-preview-view.drowned .frontmatter-container { display: none; }
+.markdown-preview-view.drowned .callout-content .image-embed + br { display: none; }
+.markdown-preview-view.drowned .callout-content p:first-child { margin-top: 0; }
+/* Rollwright leest de kleuren van het thema. Op dit lichte blad in een donker thema geef je het blad
+   de kleuren van een licht thema, zoals Rollwright ze zelf in licht gebruikt. */
+.markdown-preview-view.drowned {
+	--background-secondary: #e2cc9e;
+	--interactive-accent: #7a3b1f;
+	--rollwright-bg: #e2cc9e;
+	--rollwright-fg: #2e1d10;
+	--rollwright-border: #b89a6c;
+	--rollwright-accent: #7a3b1f;
+	--rw-hi: #a06a00;
+	--rw-lo: #b0281a;
+}
