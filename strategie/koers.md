@@ -1,22 +1,30 @@
 # Koers
 
-Bijgehouden door de strateeg. Maximaal één pagina. Bijgewerkt: 7 nov 2026.
+Bijgehouden door de strateeg. Maximaal één pagina. Bijgewerkt: 8 nov 2026.
 
 ## Waar staan we
-- Dag 2 van de nieuwe doelen. 0 producten live, 0 gebruikers, € 0 (GEZIEN).
-- Obsidian: Rollwright 0.2.0 is af, betaald deel via Polar staat aan, 14 e2e-tests groen in de echte Obsidian (GEZIEN). Er zit geen reviewrij meer tussen indienen en live (GEZIEN, blog 12 mei). Het product wacht dus alleen nog op onszelf.
-- JetBrains: 12 grondige meetdelen, nog geen bouwbesluit. Hier moet het geld vandaan komen, en hier lopen we achter op 6 december.
-- Verkenner: 14 voorstellen, geen 7. Beste spoor Shopify (6), met als echte les: geld zit bij makers die vroeg zijn bij een nieuwe verplichting.
+- Dag 3 van de nieuwe doelen. 0 producten aangemeld, 0 gebruikers, € 0 (GEZIEN).
+- Drie producten, alle drie bijna klaar:
+  - Obsidian: Rollwright 0.3.0 staat uit in de eigen repo, nieuw ontwerp van Daan, e2e groen. Aanmelden wacht op "plaatjes ja" van Thijs.
+  - JetBrains: Bison & Flex is af tot op het indienen, getest in de echte CLion, prijs besloten ($19/$49 per jaar). Wacht op plaatjes ja, de EULA en verkoper worden bij JetBrains (allemaal Thijs).
+  - Blender: Click Joints v0.1 op main in een halve nacht, getest in Blender 4.2 en 5.2. Wacht op Daan, daarna twee accounts van Thijs.
+- Bouwen gaat snel en goed. **De rem zit nu bij de stappen die alleen Thijs kan zetten**, en straks bij de vindbaarheid.
+
+## Op koers?
+- Tussenstap 6 december (beide producten live): op koers, als de stappen van Thijs gezet worden.
+- Geld in maart (€ 300 tot € 400 per maand): **achter**. Alle drie de producten zijn bewust bewijsproducten in kleine markten. Optelsom na een paar maanden, GOK: Rollwright € 30 tot € 120, Bison & Flex € 10 tot € 40, Click Joints € 40 tot € 120 per maand. Samen ±€ 80 tot € 280. De weg ligt open, maar niet met deze drie alleen.
 
 ## Het grote plaatje
-De doelen vragen ±100 betalende gebruikers in maart (GOK, zie doelen.md). Eén gemiddelde plugin haalt dat niet. Dortus wint dus niet met één perfect product, maar met **een reeks kleine betaalde producten op dezelfde basis, die elk een eigen gratis aanvoer hebben**:
-- JetBrains: de IDE raadt zelf plugins aan bij een onbekend bestand (GEZIEN bij BatchCraft). Dat is gratis marketing. Elke bestandssoort die we goed doen is een eigen etalage. Eén gedeelde code-basis, meerdere plugins.
-- Shopify en daarna andere winkels: een wet met een datum maakt in één keer duizenden winkels tot klant. Die datums zijn vooraf bekend, dus we kunnen er voor zijn.
-- Obsidian: bereik, een betaaltest en naamsbekendheid voor het merk Dortus. Geen hoofdbron van geld.
+Dortus wint niet met één perfect product, maar met **reeksen kleine betaalde producten voor één doelgroep per platform**, op een gedeelde basis, die naar elkaar verwijzen. Het eerste product van elk platform is de kop van zo'n reeks:
+- JetBrains: bestandssoorten. De IDE raadt zelf plugins aan bij een onbekend bestand, elke soort is een eigen etalage (advies 2, overgenomen).
+- Blender: 3D-printvoorbereiding. De drukste geldhoek op Superhive, ook voor nieuwkomers zonder publiek (CatPin en Split-3DPrint 400+ in 3 tot 4 maanden, GEZIEN), gedreven door AI-meshes die printklaar moeten. Click Joints is product 1 (advies 4).
+- Obsidian: tafelrollenspel (TTRPG). Een groot, trouw publiek (Statblocks 371k, Leaflet 320k, Dice Roller 289k, GEZIEN) waarvan de oude plugins stil liggen. Rollwright meet eerst of dit publiek betaalt.
+
+Zo heeft elk product een eigen gratis aanvoer, en wie één Dortus-product koopt ziet de volgende. Drie reeksen van drie producten die elk 30 tot 60 betalers halen is ongeveer het maartdoel (GOK).
 
 AI-winkels (ChatGPT, Claude, MCP) betalen kleine makers nu niet. Volgen, niet op bouwen.
 
 ## De drie belangrijkste dingen nu
-1. **Rollwright deze week live.** Niets houdt het nog tegen behalve wachten. Elke dag live is een dag meten.
-2. **JetBrains: binnen 2 runs bouwen, als reeks.** Kies de eerste bestandssoort en bouw meteen een herbruikbare basis, zodat soort 2 en 3 weken kosten, geen maanden.
-3. **Een wetgevingskalender als bron van producten.** De verkenner zoekt niet alleen platformen, maar ook datums waarop een verplichting ingaat, en meet of er al een sterke app voor is.
+1. **De drie producten live krijgen.** De volgende stap ligt bij Thijs: twee keer plaatjes kijken, verkoper worden bij JetBrains (controle duurt dagen) en twee Blender-accounts (de wachtrij van extensions.blender.org duurt dagen tot weken). Zet die als één kort pakket bovenaan (advies 5).
+2. **Na elke lancering meteen product 2 in dezelfde doelgroep**, op de basis van product 1, gekozen op waar nieuwkomers aantoonbaar verkopen.
+3. **Vindbaarheid vanaf dag 1 meten**: installs, proeven en verkopen per product per week, zodat we na 30 dagen op cijfers kiezen welke reeks het meeste krijgt.
