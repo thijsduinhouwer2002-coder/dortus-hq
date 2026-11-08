@@ -37,3 +37,7 @@ Richtlijnen: https://developer.blender.org/docs/features/extensions/moderation/g
 - `bpy.data.objects` alleen voor `new` en `remove` van eigen hulpobjecten, geen opzoeken op naam.
 - ruff 0.16.9, `ruff check --isolated --select E,F --ignore=E402,E741,E731,E501`: 0 fouten, dus geen ongebruikte imports, onbekende namen of foute syntax. Zonder E501 uit te zetten komen er alleen lange regels bij (vooral Nederlandse docstrings); de richtlijn zegt zelf dat waarschuwingen niet nul hoeven te zijn. De standaardset van deze ruff geeft 17 kleine stijlpunten (RUF, I001, BLE001), niets wat de richtlijn noemt.
 - Self-contained: ja, pure Python, geen externe software of server.
+
+## Uitgave 0.1.0 (hoofdchat, 8 nov 21:55, voor main 82c5207, Daan akkoord voor 920dc77f, code gelijk)
+- Zip: `producten/blender-gewrichten/uitgave/click_joints-0.1.0.zip` (gratis build, 17 bestanden, zonder betaald/)
+- sha256: `6798ce4eda07920c387487faeb38aad0e9718f5819815b9da8e3be5bdb61432a`
