@@ -1,6 +1,23 @@
-# Obsidian: volgend product (in onderzoek, nog geen voorstel)
+# Obsidian: volgend product (in onderzoek, nog geen voorstel; kandidaat 2 afgevallen 8 nov 16:45)
 
 Opdracht: bericht Thijs 8 nov 14:37 en het blok "Het volgende product" in `organisatie/rollen/platformmanager.md`. Hans beslist; zonder zijn ja niet bouwen. Rollwright gaat elke run voor.
+
+## Derde ronde 8 nov 16:45 UTC (Olaf): kandidaat 2 valt af, kandidaat 1 is druk
+
+**Kandidaat 2 (monsterkaarten D&D 2024 met SRD 5.2) valt af: het gat is op papier al gevuld, gratis.** Compendio SRD 2024 (`compendio-srd`, 121 downloads, GEZIEN in community-plugin-stats.json; versie 0.1.1, MIT, alle 27 commits van één dag, 13 okt 2026, GEZIEN met git clone) doet bijna alles wat ik wilde: 330 monsters uit SRD 5.2.1 in vijf talen als gelinkte notities, 2024-monsterkaarten in gewone Markdown, een 2024-opmaak als JSON voor Fantasy Statblocks, een ontmoetingsbudget volgens de 2024-regels en een knop naar Initiative Tracker (GEZIEN in zijn README). Alleen klikbare worpen ontbreken (geen dice of roll in README en `src`, GEZIEN); dat verschil is te klein voor een eigen product, want Rollwright kan worpen in elke notitie al klikbaar maken als iemand `dice:` schrijft (GOK dat gebruikers dat genoeg vinden). Kanttekening: het is een heel jonge plugin (121 downloads in minder dan vier weken, groei niet gemeten) waarvan nog niet blijkt dat iemand hem bijhoudt. Een betaalde versie van hetzelfde verkoopt niet naast een gratis plugin die het al doet (GOK); een gratis kopie levert ons niets op. De licentie zou wel kunnen: SRD 5.2 staat onder CC-BY-4.0, met eenvoudige bronvermelding (DERDEN: https://www.dndbeyond.com/srd, "SRD 5.2 (CC)", 5.2.1 gepubliceerd 1 mei 2025); namen en merken van D&D zelf vallen er niet onder. Andere spelers met 2024 erin (GEZIEN): Archivist GG (karakterbladen 2014 en 2024, 1.667 totaal, 259 erbij in 30 dagen), One DnD Character Sheet (258), DnD Character Sheet Helper 5.5e (279); The DM Compendium (monsters invoegen, 3.016 totaal, 587 in 30 dagen, GEZIEN; 2014 of 2024 niet nagekeken). Besluit: nee op kandidaat 2. Komt terug als Compendio stil blijft en Fantasy Statblocks zelf geen 2024 krijgt, en er een duidelijke betaalde meerwaarde te vinden is.
+
+**Kandidaat 1 (gevechtsvolgorde) heeft downloads, maar de hoek loopt vol.** Initiatief- en gevechtsplugins (zoekwoorden initiative, combat, encounter op naam en omschrijving, GEZIEN 8 nov 16:40 UTC; groei 9 okt tot 8 nov uit `metingen/groei-2026-11-08.csv` en `versiegroei-2026-11-08.csv`):
+| Plugin | Totaal | Erbij in 30 dagen (totaal) | Op de beste versie | Dagen sinds update |
+|---|---|---|---|---|
+| Initiative Tracker | 165.736 | 2.961 | 2.393 | 209 |
+| Combat Ledger | 2.572 | 1.312 | 224 | 155 |
+| Generic Initiative Tracker | 10.640 | 1.276 | 257 | 1.743 |
+| Arroweds Adversary Bank (Daggerheart) | 1.468 | 212 | niet gemeten | 105 |
+| Initiative Tracker Plus | 362 | 170 | 116 | niet gemeten |
+Kleinere gevechtsplugins (totaal, GEZIEN): Campaign Codex 669 (campagnebeheer met tracker), Lancer Companion 341 (Lancer), CP Combat Tracker 95 (Cyberpunk 2020), Quick Initiative 55, Encounter Builder 42, Roll for Initiative 42, Ember Vault 19 (Nimble). Wanneer die uitkwamen heb ik niet nagekeken; dat het er veel nieuwe zijn is een GOK, behalve de twee van wickedcreativesystems (eind oktober, zie de aanvulling van 15:35).
+De drie groten samen: 5.549 per maand totaal, 2.874 op de beste versie; de echte waarheid ligt ertussen. Generic Initiative Tracker is al bijna vijf jaar niet bijgewerkt en krijgt nog 257 tot 1.276 per maand. Combat Ledger (leest eigenschappen uit je notities) groeit als enige nieuwe zichtbaar, maar op zijn beste versie maar 224. Er is dus vraag (conclusie uit downloads), vooral nog bij Initiative Tracker. Om erdoor te komen moet het product duidelijk beter zijn dan Initiative Tracker en Combat Ledger, en dat heb ik nog niet in één zin. Nog geen voorstel.
+
+**Volgende ronde:** (1) Combat Ledger en Initiative Tracker naast elkaar: wat doet de één wat de ander niet doet, en wat zeggen gebruikers in het forum (GitHub-issues zijn vanaf hier dicht). Kan ik niet in één zin zeggen waarom iemand ons kiest, dan ook nee op kandidaat 1. (2) Kandidaat 3: verzoeken van spelleiders in het forum zoeken die niemand vervult. (3) Buiten TTRPG kijken naar snelgroeiende jonge plugins met een betaalde kant (groei-csv sorteren op `nieuw_in_jaar` en g30). Liever geen tweede product dan een zonder markt.
 
 ## Correctie 8 nov 15:45 UTC (Olaf): de groei per maand is te hoog voor plugins met veel versies
 
