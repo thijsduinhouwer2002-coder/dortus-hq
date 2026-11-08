@@ -515,3 +515,5 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** geen bestaande test aangepast; de Classic-eisen staan in een nieuwe spec. Waarom: regel codekwaliteit 1, en de oude specs toetsen geen gloed in Classic.
 **Beslissing:** 0.3.2 nog niet uitgebracht. Waarom: de regel vraagt `Akkoord: ja` van Daan voor de huidige versie; hij ontwierp het, maar keurde de build op main nog niet. Gevraagd onderaan `ontwerp-skins-v3.md`.
 **Beslissing:** het kan-punt van de controleur (rand 2px voor een zichtbaar dikkere rand) niet zelf gedaan; het is een ontwerpkeuze, doorgegeven aan Daan.
+**Tweede product gestart:** eerste ronde in `volgend-product.md`: plugins met veel downloads en een oude laatste versie, plus hun opvolgers (GEZIEN in community-plugin-stats.json). Nog geen voorstel, want het bewijs van vraag ontbreekt nog. De GitHub-API is dicht voor repo's van anderen, dus ik meet groei door de momentopname te herhalen.
+**Beslissing:** momentopname alleen voor plugins met 10.000+ downloads (59 kB in plaats van 500 kB), zodat de repo niet vol loopt.
