@@ -4,7 +4,8 @@ import * as fs from "fs";
 // Ontwerp-v2 klus 6 in de echte Obsidian: het lege logboek toont de knop "Try it: create an example note".
 // Die maakt de notitie "Rollwright example" en opent hem; alle zes worpen (vier dobbelworpen en twee
 // tabellen onderaan dezelfde notitie) tonen een uitkomst zonder fout, in lezen en in Live Preview. Een
-// tweede keer (knop of commando) opent dezelfde notitie en overschrijft niets.
+// tweede keer (knop of commando) opent dezelfde notitie en overschrijft niets. Zodra de notitie er is, heet de
+// knop "Open the example note" (Daan, beoordeling 10).
 const SHOTS = "screenshots";
 const LEAF = ".workspace-leaf.mod-active";
 const PANEEL = '.workspace-leaf-content[data-type="rollwright-history"]';
