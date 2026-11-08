@@ -216,3 +216,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 8 nov ±17:00 UTC (Noor)
 - Les uit MentraOS: kijk bij een apparaat met eigen winkel eerst of de winkel een open API heeft (hier apps.mentraglass.com/api/store/apps) en of makers er nu al in mogen. Dat beslist in twee minuten.
 - Nog te schiften: niets meer op de lijst. Volgende run nieuw zoeken; ideeën bij 8 nov ±12:10 en ±15:00 (programma's die net gratis werden of scripting openden, frameworks met betaalde pluginlijst).
+
+## Run 8 nov 17:39 UTC (Noor)
+- Filament, verkoopcijfer van een nieuwe maker (taak van Hans, kan de 6 een 7 maken): in onderzoek 8 nov 17:45 UTC
