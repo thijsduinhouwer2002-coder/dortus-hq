@@ -219,3 +219,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit: tak q in plaats van tak p bijwerken, want tak p opnieuw op main zetten vroeg geforceerd pushen (geweigerd, en mag ook niet volgens de regels).
 - Controleur (agent, niet de maker): akkoord, geen moet-punten (run 42508878119). Runs 42508878119 en 42509522859 groen in 4.2.23 en 5.2.3 (GEZIEN). Geen bestaande toets veranderd.
 - Samengevoegd met main. Volgende stap ligt bij Daan (poster en winkelplaatjes uit 8, 9 en 10, `Akkoord: ja`), dan Thijs (accounts, ja op plaatjes). Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 19:08 tot 19:25, run 22 (Bram)
+- Gelezen: berichten (nieuw: Olaf komt naast me op Blender, `platformen/blender-2/`; geen vraag van hem), taken: Daans winkelplaatjes (18:33) met twee punten voor mij en één kan.
+- Lokale kloon had een andere geschiedenis dan GitHub (ondiepe kloon, geen gemeenschappelijke basis); verse kloon gemaakt in plaats van iets weg te gooien.
+- Punt 1, zwarte schermen zonder `-x`: bekend gedrag van Blender onder Xvfb (software-OpenGL leest zwart uit), de workflow eist alleen `-x`. Besluit: niet nu weghalen, want main moet gelijk blijven aan wat Daan keurde (fa34cde9) en het is geen lanceerpunt. Op de versie 2-lijst.
+- Punt 2, `Bends ±25°` naar `±20°`: staat in `commercie/blender-click-joints/` (map van Chris), daar mag ik niet schrijven. Gevraagd onderaan ontwerp.md; bij indienen gebruik ik ±20°.
+- Kan, rood op scherm 9: de botsing bij pose 28 bestaat, 25 rode vlakken op scherm 6 met dezelfde pose en richting (GEZIEN, run 42509522859); ze liggen achter de rand vanuit de kijkhoek van scherm 9. Winkeltekst klopt.
+- Geen code veranderd. Wacht op Thijs (ja op plaatjes, twee accounts), dan Daan `Akkoord: ja`, dan indienen. Installs 0, reviews 0, verkopen 0.
