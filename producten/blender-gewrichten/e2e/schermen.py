@@ -250,7 +250,7 @@ def proefstrook():
         bpy.context.scene.collection.objects.link(ob)
         me.materials.append(mat)
         tekst = bpy.data.curves.new(f"label_{soort}", "FONT")
-        tekst.body, tekst.size, tekst.align_x = f"{kleur.NAMEN[soort]} {hx}", 1.0, "CENTER"
+        tekst.body, tekst.size, tekst.align_x = f"{kleur.NAMEN[soort]}\n{hx}", 1.0, "CENTER"  # twee regels, anders lopen ze in elkaar
         lab = bpy.data.objects.new(f"label_{soort}", tekst)
         lab.location = plek + Vector((0, 0, -7.5))
         lab.rotation_mode = "QUATERNION"

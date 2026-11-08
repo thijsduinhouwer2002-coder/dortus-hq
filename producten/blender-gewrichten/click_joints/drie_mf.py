@@ -7,6 +7,7 @@ de geëvalueerde mesh (modifiers toegepast) in wereldcoördinaten, keer `schaal`
 import zipfile
 from xml.sax.saxutils import escape
 
+import bmesh
 import bpy
 
 TYPES = ('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -23,17 +24,26 @@ RELS = ('<?xml version="1.0" encoding="UTF-8"?>\n'
 
 def driehoeken(ob, schaal):
     """(hoekpunten in mm, driehoeken als drietallen indexen) van de geëvalueerde mesh in wereldcoördinaten.
+    Driehoeken via bmesh.ops.triangulate (BEAUTY): de loop_triangles van Blender gaven bij de holle n-hoeken
+    uit de Boolean 8 tot 52 randen die twee keer dezelfde kant op liepen (ronde h, GEZIEN in de test).
     Bij een gespiegeld object (negatieve schaal) draait de volgorde om, zodat de normalen naar buiten wijzen."""
     graaf = bpy.context.evaluated_depsgraph_get()
     ev = ob.evaluated_get(graaf)
     me = ev.to_mesh()
+    bm = bmesh.new()
     try:
+        bm.from_mesh(me)
+        bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="BEAUTY")
+        bm.verts.index_update()
         m = ob.matrix_world
-        punten = [tuple(c * schaal for c in (m @ v.co)) for v in me.vertices]
-        me.calc_loop_triangles()
+        punten = [tuple(c * schaal for c in (m @ v.co)) for v in bm.verts]
         om = m.determinant() < 0
-        lijst = [tuple(t.vertices[::-1]) if om else tuple(t.vertices) for t in me.loop_triangles]
+        lijst = []
+        for f in bm.faces:
+            t = tuple(v.index for v in f.verts)
+            lijst.append(t[::-1] if om else t)
     finally:
+        bm.free()
         ev.to_mesh_clear()
     return punten, lijst
 
