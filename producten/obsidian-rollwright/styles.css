@@ -1153,3 +1153,23 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 	top: -1.35em;
 	right: -1.7em;
 }
+
+/* Ronde 8c: de tegels waren op ware grootte klein en de derde viel op een tweede rij (run 42443792945).
+   Drie even brede kolommen over de hele breedte, de worpen groter. */
+.rollwright-skin-preview {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+}
+
+.rollwright-skin-preview-tile {
+	min-width: 0;
+	font-size: 1.12em;
+}
+
+.rollwright-skin-preview-rolls {
+	gap: 0.7em;
+}
+
+.rollwright-skin-preview-tile .rollwright-skin-preview-name {
+	font-size: var(--font-ui-small);
+}
