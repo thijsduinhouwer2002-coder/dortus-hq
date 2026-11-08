@@ -264,7 +264,7 @@ class ClionTest {
             }
             println("DORTUS-E2E [clion-$naam] thema uit de config klopte niet, gewisseld via LafManager naar '$themaId'")
         }
-        if (kleuren.getGlobalScheme().getName() != kleurenschema) {
+        if (!zelfdeSchema(kleuren.getGlobalScheme().getName(), kleurenschema)) {
             withContext(OnDispatcher.EDT) { kleuren.setGlobalScheme(kleuren.getScheme(kleurenschema) ?: fail("editorschema '$kleurenschema' bestaat niet ($naam)")) }
             println("DORTUS-E2E [clion-$naam] editorschema gewisseld naar '$kleurenschema'")
         }
@@ -273,8 +273,11 @@ class ClionTest {
         val schema = kleuren.getGlobalScheme().getName()
         println("DORTUS-E2E [clion-$naam] actief thema: id '${nu?.getId()}', naam '${nu?.getName()}', donker ${nu?.isDark()}, editorschema '$schema'")
         assertEquals(donker, nu?.isDark(), "thema van CLion is ${if (donker) "donker" else "licht"} ($naam)")
-        assertEquals(kleurenschema, schema, "editorschema van CLion ($naam)")
+        assertTrue(zelfdeSchema(schema, kleurenschema), "editorschema van CLion is '$kleurenschema' (of de eigen kopie ervan), niet '$schema' ($naam)")
     }
+
+    /** De IDE werkt met een eigen kopie van het schema, met het voorvoegsel `_@user_` (run 42449362463: '_@user_Islands Dark'). */
+    private fun zelfdeSchema(schema: String, gevraagd: String) = schema == gevraagd || schema == "_@user_$gevraagd"
 
     /**
      * CLion opent een map zonder CMakeLists.txt met de "Open Project Wizard" (CMake-profielen, run 42441271116).
