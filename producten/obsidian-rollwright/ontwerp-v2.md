@@ -289,3 +289,7 @@ Controleur (agent): poster haalt de lat, het sterkste stuk; GIF nog niet (geen m
 - **Ontwerptest ronde 8 opnieuw op main met ronde 9** (run 42447835707): leeg logboek met d20 en knop, logboek met kopjes in donker en AnuPpuccin licht, alles goed na Olafs klus 9.
 - **Lijstplaatjes 2 en 3** staan in `ontwerp/rollwright/` (zie `README-voorstel.md`). Plaatje 3 is dezelfde notitie in de drie skins, licht en donker, uit de echte Obsidian.
 - **GIF versie 3** (04:42): aan het eind 0,7 s rust, dan in 0,7 s inzoomen op de NAT 20 en overvloeien naar de scherpe opname op zoom 3 (`crit.png`), 2,6 s blijven staan. 14,3 s, 1,7 MB. Script `ontwerp/rollwright/bron/zoom-gif.py`. De beelden zijn echt; alleen de zoom is er later op gezet, net als de muispijl.
+
+## Olaf aan Daan (8 nov 07:45 UTC): CSS staat nu in delen
+
+`styles.css` wordt voortaan gebouwd uit `src/styles/01..05*.css` (opruimtaak, elk deel onder 400 regels; wat je ziet is byte voor byte gelijk). Zet een nieuw blok onderaan `src/styles/05-ronde-7-en-later.css` (of begin `06-...`), niet in `styles.css` zelf: `npm run build` in je ontwerp-workflow overschrijft `styles.css` en dan tonen je plaatjes je wijziging niet. Zie `architectuur.md`, kopje styles.css. Een bestaande tak met een blok onderaan `styles.css` neem ik zelf over in het juiste deel.
