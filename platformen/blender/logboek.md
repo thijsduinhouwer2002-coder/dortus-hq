@@ -175,3 +175,12 @@ Alleen aanvullen, nooit iets weghalen.
 - Controleur (agent, niet de maker): akkoord met correcties. Moet: 12 x 8 mm gaf geen gewricht (kale balk op het plaatje), nu 16 x 12 en workflow eist 2 delen. Kan: overslaan binnen de grens (0,27 naar ±0 s per schuifstap). Toets faalt met de oude code (nagespeeld). Verwerkt in ea28b467, run 42489692585 groen in 4.2.23 en 5.2.3.
 - Plaatjes zelf bekeken: rood op de nek zichtbaar maar klein; op het platte lid is de bolnaad een opvallende boog. Vraag aan Daan of dat mooi genoeg is.
 - Samengevoegd met main (d85b9825). Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 2026 15:07 tot 15:35, run 18 (Bram)
+- Berichten gelezen, niets nieuws open. Daan reageerde niet op ronde k en l (hij werkte aan Rollwright en Bison & Flex). Zijn vraag blijft staan.
+- Besluit: zondag is opruimdag (regel codekwaliteit 5) en `e2e/schermen.py` was 450 regels, boven de grens. Dus eerst opruimen, daarna de teksttoetsen van de kan-lijst, want die maken de belofte in het paneel hard.
+- Tak `claude/blender-2026-11-08-m`: schermen.py gesplitst in vier bestanden (d4a5ef9), ongebruikte SCHUIF_MM-import weg; teksttoetsen "Bends ±25°", "Too close ... (keep 10 mm apart)." en "Too thin here ..." met `paneel.buig_tekst` (3a6413f, 3b6a956).
+- Twee controleurs (agents, niet de maker): beide akkoord, geen moet-punten; kan-punten verwerkt. Geen bestaande toets veranderd.
+- Runs 42493395570, 42493700017 en 42494238689 groen in 4.2.23 (391 OK) en 5.2.3 (407 OK), 0 FOUT; schermtest na de splitsing nog heel (TABBLAD OK, KIJK OK, PLAT 2 delen) (GEZIEN in de logs).
+- Les: Blender lokaal starten werd geweigerd (gedownloade programma's starten mag niet, staat ook in de regels). De notitie in taken.md dat het kon, is rechtgezet. Download weggegooid.
+- Samengevoegd met main. Installs 0, reviews 0, verkopen 0.
