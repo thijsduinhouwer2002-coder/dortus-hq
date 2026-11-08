@@ -91,3 +91,20 @@
 }
 .markdown-preview-view.drowned hr { border: none; height: 18px; background: none; text-align: center; }
 .markdown-preview-view.drowned hr::after { content: "\2042"; color: #8a5a2b; display: block; text-align: center; }
+
+/* Eigenschappen verbergen; de notitie begint bij de banner. */
+.markdown-preview-view.drowned .metadata-container, .markdown-preview-view.drowned .frontmatter-container { display: none; }
+.markdown-preview-view.drowned .callout-content .image-embed + br { display: none; }
+.markdown-preview-view.drowned .callout-content p:first-child { margin-top: 0; }
+/* Rollwright leest de kleuren van het thema. Op dit lichte blad in een donker thema geef je het blad
+   de kleuren van een licht thema, zoals Rollwright ze zelf in licht gebruikt. */
+.markdown-preview-view.drowned {
+	--background-secondary: #e2cc9e;
+	--interactive-accent: #7a3b1f;
+	--rollwright-bg: #e2cc9e;
+	--rollwright-fg: #2e1d10;
+	--rollwright-border: #b89a6c;
+	--rollwright-accent: #7a3b1f;
+	--rw-hi: #a06a00;
+	--rw-lo: #b0281a;
+}
