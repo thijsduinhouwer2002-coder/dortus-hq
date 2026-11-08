@@ -1180,3 +1180,15 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 .rollwright-skin-preview-tile .rollwright-skin-preview-name {
 	font-size: var(--font-ui-small);
 }
+
+/* Ronde 9 (Daan): een tabeluitkomst heeft geen eigen vlak meer, dus de letter komt van het thema,
+   niet van de skin. Anders licht op wit bij Arcane in een licht thema (GEZIEN run 42447322873). */
+.rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) .rollwright-value,
+.rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) {
+	color: var(--text-normal);
+}
+
+/* Ronde 9b: de zin in het lege logboek verdeeld over twee even lange regels, geen los "here." */
+.rollwright-history-empty {
+	text-wrap: balance;
+}
