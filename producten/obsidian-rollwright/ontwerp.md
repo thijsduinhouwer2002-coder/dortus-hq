@@ -1,4 +1,6 @@
-Akkoord: ja 8 nov 2026 11:40, voor versie 0.3.1 (plugin, skins v2 ronde f, README en manifest) op main 370d8942 en c5f33c5d (daarna alleen e2e-tests en OPEN.md). Gezien in de echte Obsidian: e2e main run 42475293918 (ff3f5e09, zelfde src) en mijn ontwerptest run 42475770304 op tak `ontwerp/rollwright-031`. Uitbrengen mag. Zie beoordeling 10.
+Akkoord: ja 8 nov 2026 14:50, voor versie 0.3.1 op main 48fceef3 (keuringspunten van 0.3.0 en mijn kan-punten 1 en 2), ook geldig voor origin/main bf4199cf (daarna alleen notities en de hernoeming 07-rustig naar 99-rustig, zelfde inhoud). Gezien in de echte Obsidian: e2e main run 42482744485 (2b7b2fd5, groen). Uitbrengen mag. Zie beoordeling 11.
+
+Oud: Akkoord: ja 8 nov 2026 11:40, voor versie 0.3.1 (plugin, skins v2 ronde f, README en manifest) op main 370d8942 en c5f33c5d (daarna alleen e2e-tests en OPEN.md). Gezien in de echte Obsidian: e2e main run 42475293918 (ff3f5e09, zelfde src) en mijn ontwerptest run 42475770304 op tak `ontwerp/rollwright-031`. Uitbrengen mag. Zie beoordeling 10.
 
 Oud: Akkoord: ja 8 nov 2026 05:27, voor versie 0.3.0 (plugin) op main 34fb94d, en voor de README met het nieuwe begin uit `ontwerp/rollwright/README-voorstel.md` en de vier plaatjes uit `ontwerp/rollwright/`. Uitbrengen in de eigen repo mag; **aanmelden bij community.obsidian.md pas als Thijs "plaatjes ja" heeft gezegd** (besluit Thijs 7 nov, zijn punt staat op `organisatie/lijst-thijs.md`). Zegt hij nee, dan pas ik README en plaatjes aan voor de aanmelding. Zie beoordeling 9.
 
@@ -250,4 +252,10 @@ Bekeken in de echte Obsidian: de schermen van main (voorbeeldnotitie, secties, c
 ### Kan beter (geen voorwaarde, voor Olaf in 0.3.x)
 1. README regel 127 zegt nog "it shows as plain code". Wordt: "it shows as plain text, like 1d6."
 2. Het zijpaneel toont "Try it: create an example note" terwijl de voorbeeldnotitie al bestaat en open is. Als de notitie bestaat: knop "Open the example note".
+
+## Beoordeling 11, 8 nov 2026 14:50 (versie 0.3.1, main 48fceef3, e2e run 42482744485)
+
+Olaf vroeg om herkeuring na de keuringspunten van 0.3.0 en mijn kan-punten. Verschil met 370d8942 in wat je ziet: CSS zonder `!important` (zelfde werking, `:is(body, #rollwright-rustig)` wint nu), `gap` in plaats van `column-gap` (zelfde maat), de komma voor schermlezers met `opacity: 0` in plaats van `clip-path` (1 px, absoluut, niet te zien), README "plain text, like 1d6", en in het lege logboek "Open the example note" als de notitie al bestaat.
+Bekeken (GEZIEN, run 42482744485): `crit-crit-licht`, `winkel-3-geschiedenis`, `voorbeeld-lezen`, lijst van alle 65 schermen. Alles zoals bij beoordeling 10; de knop "Open the example note" staat er en past. Geen controleur deze keer: er veranderde niets aan het uiterlijk, alleen hoe de CSS het zegt (zoals bij de herkeuringen van 0.2.0).
+Besluit: `Akkoord: ja`. Waarom: niets werd slechter, de twee kan-punten zijn goed gebouwd.
 
