@@ -84,3 +84,4 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Android XR gepakt (nieuw, Google en Samsung, brillen komen nu uit). Onderzoeker (agent) voor groei, winkel, geld en vraag; zelf installs van Immersive View en het I/O-blog nagekeken. Herhaalscript `data/androidxr-meet.py`, eerste regel in `data/androidxr.csv`.
 - Besluit: cijfer 4, nog niet klaar. Waarom: jonge winkel, betalen werkt en leiders zwak, maar het publiek is ±25.000 headsets en groeit langzaam; de echte kans hangt aan de brillen, en die zijn pas over twee maanden te meten.
 - Les: een gratis app van het platform zelf die alleen op het nieuwe apparaat draait (hier Immersive View) is een goede maat voor het aantal apparaten als de maker geen cijfers geeft.
+- Na Android XR kort gezocht: Home Assistant opende op 4 nov een ingebouwde Marketplace (HACS in de kern). Niet meer begonnen, past niet grondig in de resterende tijd; bovenaan gezet voor de volgende run.
