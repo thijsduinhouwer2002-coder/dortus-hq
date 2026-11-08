@@ -143,3 +143,9 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 4, nee voor nu. Waarom: groei gestaag maar het publiek per app is klein (Foreca weer ±1.200, Vivaldi ±6.500 installs per 4 weken), de winkel is niet jong en vult met grote merken, en de beste kans (rittenlog) is technisch dicht. Geen controleur: advies geen ja, kerncijfers zelf gezien.
 - Les: installs van een app die alleen voor het apparaat is, zeggen meer over de echte markt dan het aantal apparaten.
 - Aanvulling run 8 nov ±09:39 tot ±10:00 UTC: de eindtijd hierboven (±10:05) was te ruim geschat; het voorstel stond om 09:46 op GitHub. Daarna snelle schifting van Excalidraw, Warp, Meta Horizon, Discord Activities en VRChat: allemaal nee of niet voor de pionier. Canva, Elgato en Discord App Directory overgeslagen, die deed Vera al. De lijst in kandidaten.md is nu leeg; volgende run zoekt nieuwe platformen.
+
+## Run 8 nov 2026, ±10:40 tot ±11:00 UTC (Noor)
+- Lijst was leeg, dus nieuw gezocht. PowerToys Command Palette gepakt. Waarom: Extension Gallery sinds juni 2026, verspreiding via de Microsoft Store (dus betalen kan), groot bestaand publiek, en Microsoft hint op opname in Windows.
+- Zelf gemeten: hele Gallery-feed (97 extensies, per maand, makers, categorieën) en per Store-extensie prijs en beoordelingen via de openbare Store-API. Nieuw script `data/cmdpal-meet.py`, uitkomst `data/cmdpal-2026-11-08.json`. Onderzoeker (agent) voor groei PowerToys, plannen met Windows, Raycast voor Windows en verzoeken op GitHub; sterren, downloads en Raycast-API zelf nagekeken.
+- Besluit: cijfer 4, nee voor nu. Waarom: winkel jong en leeg, maar het platform groeit niet hard meer en het publiek per extensie is heel klein (24 beoordelingen samen). Geen controleur: advies geen ja, kerncijfers zelf gezien.
+- Les: bij een winkel bovenop een groot programma eerst de groei van het programma zelf en de beoordelingen in de winkel tellen; dat schift snel.

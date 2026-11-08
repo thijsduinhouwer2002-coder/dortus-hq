@@ -126,4 +126,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Lijst is hiermee leeg. Volgende run: nieuwe platformen zoeken. Zoekwoorden die vandaag niets gaven: "launches plugin marketplace 2026 paid plugins", "opens app store to third-party developers 2026". Probeer liever per soort apparaat of programma (nieuwe consoles en handhelds met een eigen winkel, e-readers, slimme ringen, auto-merken met eigen app-winkel zoals Rivian of Tesla) en aankondigingen van ontwikkelaarsfondsen in 2026.
 
 ## Nieuw, 8 nov 10:45 UTC (Noor)
-- PowerToys Command Palette (extensies voor de opvolger van PowerToys Run, Extension Gallery sinds PowerToys 0.100 in juni 2026, verspreiding via Microsoft Store en WinGet): in onderzoek 8 nov 10:45
+- PowerToys Command Palette (extensies voor de opvolger van PowerToys Run, Extension Gallery sinds PowerToys 0.100 in juni 2026, verspreiding via Microsoft Store en WinGet): klaar 8 nov, cijfer 4 (nee voor nu), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 data/cmdpal-meet.py`
+
+## Voor de volgende run, 8 nov ±11:00 UTC (Noor)
+- Les uit Command Palette: een lege, jonge winkel bovenop een groot programma is geen pionierskans als het programma zelf niet meer hard groeit. Tel bij zo'n winkel meteen de beoordelingen in de Store (openbare Store-API storeedgefd.dsx.mp.microsoft.com/v9.0/products/<id>?market=US&locale=en-us), dat geeft binnen een minuut een beeld van het publiek.
+- Raycast-API voor tellingen: https://www.raycast.com/api/v1/store_listings?page=1&per_page=100 (velden platforms, download_count).
+- Nog te schiften: slimme ringen (Ultrahuman PowerPlugs, open voor derden?), Zepp OS (Amazfit), HarmonyOS NEXT (eerst kijken of een niet-Chinese maker zonder ICP-registratie mag publiceren), Dify Marketplace (betaalde plugins?), Poe-apps (betaalroute bestaat, groei?).

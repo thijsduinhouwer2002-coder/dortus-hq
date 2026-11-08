@@ -1,0 +1,1702 @@
+{
+ "gemeten": "2026-11-08",
+ "generatedAt": "2026-11-03T19:03:43Z",
+ "rijen": [
+  {
+   "id": "1morr.inkling",
+   "titel": "Inkling Notes",
+   "toegevoegd": "2026-09-04",
+   "cat": [
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-08-25",
+   "iap": true
+  },
+  {
+   "id": "8lwxpg.process-killer",
+   "titel": "Process Killer",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-07",
+   "iap": true
+  },
+  {
+   "id": "8lwxpg.ssh",
+   "titel": "SSH",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-08-25",
+   "iap": true
+  },
+  {
+   "id": "adamduda.tex-snippets",
+   "titel": "Tex Snippets",
+   "toegevoegd": "2026-09-04",
+   "cat": [
+    "productivity",
+    "developer-tools",
+    "education"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-03",
+   "iap": true
+  },
+  {
+   "id": "advaith.currency-converter",
+   "titel": "Currency Converter",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-04-15",
+   "iap": true
+  },
+  {
+   "id": "alexdresko.browser-tabs",
+   "titel": "Browser Tabs",
+   "toegevoegd": "2026-06-04",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-15",
+   "iap": true
+  },
+  {
+   "id": "arechen.linksearch",
+   "titel": "LinkSearch",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-10",
+   "iap": true
+  },
+  {
+   "id": "baldbeardedbuilder.walkthisway",
+   "titel": "Walk This Way",
+   "toegevoegd": "2026-10-23",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-10-16",
+   "iap": true
+  },
+  {
+   "id": "baldbeardedbuilder.weather",
+   "titel": "Weather",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "news-and-weather",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 4.3,
+   "beoordelingen": 7,
+   "release": "2026-03-10",
+   "iap": true
+  },
+  {
+   "id": "bdbai.base64-converter",
+   "titel": "Base64 Converter",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "utilities-and-tools",
+    "developer-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-06",
+   "iap": true
+  },
+  {
+   "id": "brunnobb.change-audio-device",
+   "titel": "Change Audio Device",
+   "toegevoegd": "2026-08-31",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-24",
+   "iap": true
+  },
+  {
+   "id": "brunnobb.hyperkey",
+   "titel": "HyperKey",
+   "toegevoegd": "2026-08-31",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-24",
+   "iap": true
+  },
+  {
+   "id": "caolib.project-opener",
+   "titel": "Project Opener",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "developer-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-11-24",
+   "iap": true
+  },
+  {
+   "id": "chanbeiyu.vault-search",
+   "titel": "Vault Search",
+   "toegevoegd": "2026-06-23",
+   "cat": [
+    "productivity",
+    "education",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-18",
+   "iap": true
+  },
+  {
+   "id": "costafotiadis.adb-extension",
+   "titel": "ADB Extension",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-18",
+   "iap": true
+  },
+  {
+   "id": "costafotiadis.markets-extension",
+   "titel": "Markets Extension",
+   "toegevoegd": "2026-07-23",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-26",
+   "iap": true
+  },
+  {
+   "id": "davidegiacometti.edge-favorites",
+   "titel": "Edge Favorites",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "productivity"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "9998-12-30",
+   "iap": true
+  },
+  {
+   "id": "davidegiacometti.snippets",
+   "titel": "Snippets",
+   "toegevoegd": "2026-11-03",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "9998-12-30",
+   "iap": true
+  },
+  {
+   "id": "davidegiacometti.visual-studio",
+   "titel": "Visual Studio",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "9998-12-30",
+   "iap": true
+  },
+  {
+   "id": "daydreamer-riri.qrcode",
+   "titel": "QR Code",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-09-24",
+   "iap": true
+  },
+  {
+   "id": "daydreamer-riri.web-search-shortcut",
+   "titel": "Web Search Shortcut",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-09",
+   "iap": true
+  },
+  {
+   "id": "dbsgg.redmine",
+   "titel": "Redmine",
+   "toegevoegd": "2026-07-16",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-07-15",
+   "iap": true
+  },
+  {
+   "id": "denniezorg.game-library-dock",
+   "titel": "Game Library Dock",
+   "toegevoegd": "2026-06-23",
+   "cat": [
+    "entertainment",
+    "social"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-22",
+   "iap": true
+  },
+  {
+   "id": "determ1ne.scripter",
+   "titel": "Scripter",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-10",
+   "iap": true
+  },
+  {
+   "id": "everythingpal.everythingpal",
+   "titel": "EverythingPal",
+   "toegevoegd": "2026-10-23",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-10-20",
+   "iap": true
+  },
+  {
+   "id": "fefedu973.universal-search-suggestions",
+   "titel": "Universal Search Suggestions",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-10",
+   "iap": true
+  },
+  {
+   "id": "goucey.everythingextension",
+   "titel": "EverythingExt",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-08",
+   "iap": true
+  },
+  {
+   "id": "hoobio.bitwarden",
+   "titel": "Bitwarden",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-09",
+   "iap": true
+  },
+  {
+   "id": "huoyan1231.tempcleanerforcmdpal",
+   "titel": "Temp file cleaner",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-20",
+   "iap": true
+  },
+  {
+   "id": "illustar0.sourceswitch",
+   "titel": "SourceSwitch",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-07",
+   "iap": true
+  },
+  {
+   "id": "jantezner.audio-status",
+   "titel": "Audio Status",
+   "toegevoegd": "2026-07-03",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-22",
+   "iap": true
+  },
+  {
+   "id": "jantezner.presentation-mode",
+   "titel": "Presentation Mode",
+   "toegevoegd": "2026-07-23",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-07-21",
+   "iap": true
+  },
+  {
+   "id": "jdalley.toggle-hdr",
+   "titel": "Toggle HDR",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-19",
+   "iap": true
+  },
+  {
+   "id": "jestermeijin.power-mode",
+   "titel": "Power Mode",
+   "toegevoegd": "2026-08-02",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-06",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.change-case",
+   "titel": "Change Case",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-06-30",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.colors",
+   "titel": "Colors",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-16",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.dev-numbers",
+   "titel": "Dev Numbers",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-30",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.errors-and-codes",
+   "titel": "Errors and Codes",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-06-23",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.media-controls",
+   "titel": "Media Controls",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "entertainment",
+    "music"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 4.7,
+   "beoordelingen": 6,
+   "release": "2025-05-20",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.qr-codes",
+   "titel": "QR Codes",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-09-18",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.recent-files",
+   "titel": "Recent Files",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-06",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.symbols-and-emojis",
+   "titel": "Symbols and Emojis",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-09-19",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.toggle-dark-mode",
+   "titel": "Toggle Dark Mode",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "personalization"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-07-04",
+   "iap": true
+  },
+  {
+   "id": "jiripolasek.unit-converter",
+   "titel": "Unit Converter",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-09-21",
+   "iap": true
+  },
+  {
+   "id": "joadoumie.nba-command-palette",
+   "titel": "NBA",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "entertainment",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-20",
+   "iap": true
+  },
+  {
+   "id": "joshgoolnik.clipboard-data-inspector",
+   "titel": "Clipboard Data Inspector",
+   "toegevoegd": "2026-10-01",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-28",
+   "iap": true
+  },
+  {
+   "id": "jrscott812.power",
+   "titel": "Power",
+   "toegevoegd": "2026-07-24",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-07-23",
+   "iap": true
+  },
+  {
+   "id": "kawaiizapic.totp",
+   "titel": "TOTP",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-10",
+   "iap": true
+  },
+  {
+   "id": "kobylev.cur-conve",
+   "titel": "Currency Converter",
+   "toegevoegd": "2026-10-23",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-10-19",
+   "iap": true
+  },
+  {
+   "id": "koichi-kobayashi.certificate-search",
+   "titel": "Certificate Search",
+   "toegevoegd": "2026-09-28",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-27",
+   "iap": true
+  },
+  {
+   "id": "koichi-kobayashi.local-security-policy-search",
+   "titel": "Local Security Policy Search",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-23",
+   "iap": true
+  },
+  {
+   "id": "koichi-kobayashi.services-search",
+   "titel": "Services Search",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-23",
+   "iap": true
+  },
+  {
+   "id": "lamteteeow.powertranslate",
+   "titel": "Power Translate",
+   "toegevoegd": "2026-06-04",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-13",
+   "iap": true
+  },
+  {
+   "id": "licon4812.aria2-extension",
+   "titel": "Aria2 Extension",
+   "toegevoegd": "2026-04-28",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-04-10",
+   "iap": true
+  },
+  {
+   "id": "licon4812.nuget-package-search",
+   "titel": "NuGet Package Search",
+   "toegevoegd": "2026-04-28",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-06-11",
+   "iap": true
+  },
+  {
+   "id": "licon4812.timezone-converter",
+   "titel": "Time Zone Converter",
+   "toegevoegd": "2026-04-28",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-04-15",
+   "iap": true
+  },
+  {
+   "id": "linycv.everythingcmdpal",
+   "titel": "EverythingCmdPal",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 4.8,
+   "beoordelingen": 5,
+   "release": "2025-04-08",
+   "iap": true
+  },
+  {
+   "id": "lioqing.llm-extension",
+   "titel": "LLM Extension",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget",
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-05-12",
+   "iap": true
+  },
+  {
+   "id": "manuelcontrera.text-snippets",
+   "titel": "Text Snippets",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "maoyeedy.cmdpal-unity-extension",
+   "titel": "Unity Project Launcher",
+   "toegevoegd": "2026-06-04",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-28",
+   "iap": true
+  },
+  {
+   "id": "maxnevans.command-palette-llm",
+   "titel": "Command Palette LLM",
+   "toegevoegd": "2026-09-25",
+   "cat": [
+    "productivity",
+    "utilities-and-tools",
+    "developer-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-15",
+   "iap": true
+  },
+  {
+   "id": "michaeljolley.random-dad-jokes",
+   "titel": "Random Dad Jokes",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "entertainment"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "michaeljolley.random-facts",
+   "titel": "Random Facts",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "entertainment",
+    "education"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "microsoft.azure-extension",
+   "titel": "Azure DevOps (Preview)",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "microsoft.github-extension",
+   "titel": "GitHub Extension (Preview)",
+   "toegevoegd": "2026-04-12",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "n0i0c0k.powertranslator",
+   "titel": "PowerTranslator",
+   "toegevoegd": "2026-07-03",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-18",
+   "iap": true
+  },
+  {
+   "id": "neilsawhney.powerqalc",
+   "titel": "PowerQalc",
+   "toegevoegd": "2026-07-03",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-07-01",
+   "iap": true
+  },
+  {
+   "id": "nicholasbrantley.bin-meter",
+   "titel": "Bin Meter",
+   "toegevoegd": "2026-08-04",
+   "cat": [
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-25",
+   "iap": true
+  },
+  {
+   "id": "nickknissen.home-assistant-command-palette",
+   "titel": "Home Assistant",
+   "toegevoegd": "2026-08-18",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-19",
+   "iap": true
+  },
+  {
+   "id": "nickknissen.tableplus-command-palette",
+   "titel": "TablePlus",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-29",
+   "iap": true
+  },
+  {
+   "id": "nickknissen.tailscale-command-palette",
+   "titel": "Tailscale Command Palette",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-29",
+   "iap": true
+  },
+  {
+   "id": "nielslaute.event-viewer",
+   "titel": "Event Viewer",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-31",
+   "iap": true
+  },
+  {
+   "id": "nielslaute.git-repositories",
+   "titel": "Git Repositories",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "developer-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-25",
+   "iap": true
+  },
+  {
+   "id": "nielslaute.teams-meeting-control",
+   "titel": "Teams Meeting Control",
+   "toegevoegd": "2026-04-10",
+   "cat": [
+    "social",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-25",
+   "iap": true
+  },
+  {
+   "id": "othmanamor.xrate",
+   "titel": "xRate",
+   "toegevoegd": "2026-05-10",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-05-07",
+   "iap": true
+  },
+  {
+   "id": "paradigmshift.ip-display",
+   "titel": "IP Display",
+   "toegevoegd": "2026-08-04",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-08-03",
+   "iap": true
+  },
+  {
+   "id": "phireforge.paletteshell",
+   "titel": "PaletteShell",
+   "toegevoegd": "2026-07-03",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-30",
+   "iap": true
+  },
+  {
+   "id": "poychang.translator",
+   "titel": "Translator",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-26",
+   "iap": true
+  },
+  {
+   "id": "qqshi13.quick-notes",
+   "titel": "Quick Notes",
+   "toegevoegd": "2026-07-03",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-03-18",
+   "iap": true
+  },
+  {
+   "id": "ruslanlap.definition",
+   "titel": "Definition",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "education",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-02-10",
+   "iap": true
+  },
+  {
+   "id": "tanchekwei.port",
+   "titel": "Port",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-20",
+   "iap": true
+  },
+  {
+   "id": "tanchekwei.scrcpy-launcher",
+   "titel": "scrcpy Launcher",
+   "toegevoegd": "2026-11-03",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-09-25",
+   "iap": true
+  },
+  {
+   "id": "tanchekwei.turn-off-monitor",
+   "titel": "Turn Off Monitor",
+   "toegevoegd": "2026-11-03",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-10-26",
+   "iap": true
+  },
+  {
+   "id": "tanchekwei.visual-studio-code",
+   "titel": "Visual Studio / Code",
+   "toegevoegd": "2026-04-15",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-06-17",
+   "iap": true
+  },
+  {
+   "id": "thestarslayer.define-word-extension",
+   "titel": "Define Word",
+   "toegevoegd": "2026-06-08",
+   "cat": [
+    "productivity",
+    "utilities-and-tools",
+    "education"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-07",
+   "iap": true
+  },
+  {
+   "id": "tonythethompson.quickshell",
+   "titel": "Quick Shell",
+   "toegevoegd": "2026-07-13",
+   "cat": [
+    "developer-tools",
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore",
+    "winget"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-29",
+   "iap": true
+  },
+  {
+   "id": "valleysoft.diskanalyzer",
+   "titel": "ValleySoft Disk Analyzer",
+   "toegevoegd": "2026-06-23",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-06-17",
+   "iap": true
+  },
+  {
+   "id": "vanzue.todo",
+   "titel": "Todo",
+   "toegevoegd": "2026-07-24",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2025-10-23",
+   "iap": true
+  },
+  {
+   "id": "xisage.godot-engine",
+   "titel": "Godot Engine",
+   "toegevoegd": "2026-04-27",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 3.5,
+   "beoordelingen": 6,
+   "release": "2026-01-07",
+   "iap": true
+  },
+  {
+   "id": "zadjii.hacker-news",
+   "titel": "Hacker News",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "news-and-weather"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.mastodon",
+   "titel": "Mastodon",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "social"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.obsidian-notes",
+   "titel": "Obsidian Notes",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "productivity"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.segoe-icons",
+   "titel": "Segoe Icons",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "developer-tools",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.spongebot",
+   "titel": "SpongeBot",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "entertainment",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.tmdb-search",
+   "titel": "TMDB Search",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "entertainment"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  },
+  {
+   "id": "zadjii.virtual-desktops",
+   "titel": "Virtual Desktops",
+   "toegevoegd": "2026-04-21",
+   "cat": [
+    "productivity",
+    "utilities-and-tools"
+   ],
+   "bronnen": [
+    "msstore"
+   ],
+   "prijs": 0.0,
+   "toon": "Free",
+   "sterren": 0.0,
+   "beoordelingen": 0,
+   "release": "2026-04-20",
+   "iap": true
+  },
+  {
+   "id": "zhang-astronaut.hardware-monitor",
+   "titel": "Hardware Monitor",
+   "toegevoegd": "2026-10-12",
+   "cat": [
+    "utilities-and-tools",
+    "productivity"
+   ],
+   "bronnen": [
+    "winget"
+   ]
+  }
+ ]
+}
