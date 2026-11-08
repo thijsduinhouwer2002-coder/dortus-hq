@@ -3,6 +3,7 @@
 - Staaf met bekende maten: elke gemeten grens binnen 2,5 graden van de rekensom (cj_grens_graden uit maat.py),
   en "Bends ±N°" blijft de stand.
 - Testarm (±261K driehoeken): het hele bereik meten (8 richtingen) onder 1 s.
+- Ronde n (snoei): met en zonder snoeien dezelfde grenzen (arm en blok) en dezelfde rode vlakken (pose 45).
 - Pose: echte_matrix klopt met pose, STL en 3MF van deel B gelijk met en zonder pose, voorbij de grens worden
   vlakken van deel A rood, pose 0 haalt het rood weg en zet de oude vakken terug."""
 import math
@@ -81,6 +82,7 @@ def blok(a, b):
     rc, tc = math.hypot(xb, h), math.atan2(h, xb)
     verwacht = math.degrees(tc + math.acos(R / rc)) - 90.0
     grenzen = bw.meet(a, b, u())
+    snoei_gelijk("BUIG blok", a, b)
     hoek = addon("paneel").buig_graden(a)
     log(f"BUIG blok: verwacht eerste raakpunt {verwacht:.2f} graden in richting 0, gemeten {grenzen}, "
         f"opnieuw gezocht {a.get('cj_buig_opnieuw')} keer, tijd {a.get('cj_buig_duur_s')} s, Bends ±{hoek}")
@@ -105,6 +107,30 @@ def blok(a, b):
     stap("BUIG blok rood: pose 0 haalt het rood weg", len(a.get("cj_rood_vlakken", [])) == 0)
 
 
+def snoei_gelijk(label, a, b, moet_snoeien=False):
+    """Ronde n: de grote uitsnede snoeit wat bij de geteste hoek nooit kan botsen. Toets: zonder snoeien precies
+    dezelfde grenzen. Daarna opnieuw met snoeien, zodat de delen weer de gewone uitkomst dragen."""
+    bw = addon("beweeg")
+    met = list(a.get("cj_buig_graden", []))
+    vlakken_met = list(a.get("cj_buig_vlakken", []))
+    tijden = list(a.get("cj_buig_tijden", []))
+    duur_met = a.get("cj_buig_duur_s")
+    bw.SNOEI = False
+    try:
+        zonder = bw.meet(a, b, a.get("cj_eenheid_per_mm", 1.0))
+        vlakken_zonder = list(a.get("cj_buig_vlakken", []))
+        duur_zonder = a.get("cj_buig_duur_s")
+    finally:
+        bw.SNOEI = True
+        bw.meet(a, b, a.get("cj_eenheid_per_mm", 1.0))
+    log(f"{label} snoei: met {met} in {duur_met} s (punten, klein, groot bouwen, groot toetsen: {tijden} s; "
+        f"uitsnede {vlakken_met}), zonder {zonder} in {duur_zonder} s (uitsnede {vlakken_zonder})")
+    stap(f"{label}: met en zonder snoeien dezelfde grenzen", met == list(zonder) and len(met) == 8)
+    if moet_snoeien:
+        stap(f"{label}: snoeien maakt de grote uitsnede kleiner ({vlakken_met[2:]} tegen {vlakken_zonder[2:]})",
+             len(vlakken_met) == 4 and sum(vlakken_met[2:]) < sum(vlakken_zonder[2:]))
+
+
 def arm_en_pose(arm):
     lijst = plaats("BUIG arm", arm, (0, 0, 0), (1, 0, 0), speling=0.2, kogel=5.0)
     stap("BUIG arm: twee delen", len(lijst) == 2)
@@ -119,6 +145,7 @@ def arm_en_pose(arm):
     stap(f"BUIG arm: hele bereik onder 1 s, met de controle op de grote uitsnede ({duur} s, opnieuw gezocht "
          f"{a.get('cj_buig_opnieuw')} keer)", duur < 1.0)
     stap("BUIG arm: elke richting buigt", all(g > 0 for g in a.get("cj_buig_graden", [0])))
+    snoei_gelijk("BUIG arm", a, b, moet_snoeien=True)
 
     inst = bpy.context.scene.click_joints
     ue = addon("uit_elkaar")
@@ -170,6 +197,18 @@ def arm_en_pose(arm):
     log(f"BUIG pose 45 (grens {grens:.1f}): {len(rood) // 2} rode vlakken op deel A, materialen "
         f"{sorted({m.name if m else None for m in vakken}, key=str)}")
     stap("BUIG pose 45: vlakken van deel A rood", len(rood) > 0 and all(m == rood_mat for m in vakken))
+    bw = addon("beweeg")
+    met = {rood[i] for i in range(0, len(rood), 2)}
+    bw.SNOEI = False
+    try:
+        bw.kleur_botsing(bpy.context.scene, b)
+        r2 = a.get("cj_rood_vlakken", [])
+        zonder = {r2[i] for i in range(0, len(r2), 2)}
+    finally:
+        bw.SNOEI = True
+        bw.kleur_botsing(bpy.context.scene, b)
+    log(f"BUIG pose 45 snoei: rode vlakken met {len(met)}, zonder {len(zonder)}")
+    stap("BUIG pose 45: met en zonder snoeien dezelfde rode vlakken", met == zonder and len(met) > 0)
     # Terug op 0: rood weg, oude vakken terug.
     bpy.ops.click_joints.reset_pose()
     terug = [p.material_index for p in a.data.polygons]
