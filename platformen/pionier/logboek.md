@@ -130,3 +130,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Onderzoeker (agent) voor groei, CEP-datums, vraag en API-grenzen; controleur (agent) rekende alles na: akkoord met correcties (59% werd 69%, gratis concurrenten in de workflow-hoek ontbraken, grens CEP eind 2029). Verwerkt.
 - Besluit: cijfer 5, nog niet klaar. Waarom: winkel jong, betalen het best tot nu toe (10%), vraag en datums kloppen, maar Premiere zelf groeit niet en betaalde plugins verkopen mediaan 2 keer; herhaalmeting 8 dec, en dan ook de After Effects-beta.
 - Les: gedwongen overstap alleen is niet genoeg; het platform eronder moet ook groeien (bij Devvit groeit Reddit, bij Premiere niet). Tip voor Vera: Mask To Motion, ±1.228 kopers van $19,99 in drie maanden.
+
+## Run 8 nov 2026, ±08:37 tot ±09:00 UTC (Noor)
+- Snelle schifting Rive (alles CC BY, nee) en Cursor Marketplace (gratis, geen betaalroute, waarschijnlijk nee).
+- Superhuman-plugins gepakt (nieuw). Waarom: groot groeiend platform dat zijn Coda-makers naar een nieuwe laag (Go) duwt, zoals Devvit.
+- Zelf de Go Store geteld via de JSON van de pagina (124 connectors, 59 eigen, allemaal installOnly) en de hulppagina over verkopen gelezen (gepauzeerd sinds 8 juli). Onderzoeker (agent) voor groei, geld, toelating, vraag en de Docs Gallery (1.261 Packs, 237 betaald). Nieuw script `data/superhuman-go-meet.py`.
+- Besluit: cijfer 4, nog niet klaar. Waarom: verkopen is dicht tot er een nieuw verdienmodel is, installs niet zichtbaar, en de eigenaar en de merken pakken de categorieën. Geen controleur: advies geen ja, kerncijfers zelf gezien.
+- Les: lees bij een gedwongen overstap eerst of verkopen open blijft tijdens de overstap.

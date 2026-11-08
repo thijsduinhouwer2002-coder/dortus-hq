@@ -98,6 +98,11 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Nog open: Excalidraw, Cursor (plugins), Warp. Eerst snel schiften op geld.
 
 ## Nieuw, 8 nov 08:45 UTC (Noor)
-- Superhuman-plugins (vroeger Coda Packs; sinds 2026 ook als koppeling en agent in Superhuman Go, de AI-laag van Grammarly en Superhuman Mail): in onderzoek 2026-11-08 08:45 UTC
+- Superhuman-plugins (vroeger Coda Packs; sinds 2026 ook als koppeling en agent in Superhuman Go, de AI-laag van Grammarly en Superhuman Mail): klaar 8 nov, cijfer 4 (nog niet klaar), zie onderzocht.md
 - Rive Marketplace: snelle schifting, alles onder CC BY, geen verkoop (GEZIEN, https://rive.app/docs/community/marketplace-overview.md). Nee.
 - Cursor Marketplace: gratis vermelden, geen manier om te laten betalen (DERDEN, https://www.buildmvpfast.com/blog/cursor-origin-app-marketplace-dev-tools-2026). Waarschijnlijk nee.
+
+## Voor de volgende run, 8 nov ±09:00 UTC (Noor)
+- Les uit Superhuman: ook bij een groeiend platform met een gedwongen overstap kan de eigenaar de geldkraan net dichtdraaien tijdens de overstap. Lees bij elke overstap eerst de hulppagina over verkopen (bijgewerkt-datum).
+- Bij AI-assistenten (ChatGPT, Claude, Superhuman Go) steeds hetzelfde beeld: winkel vult met merk-koppelingen, eigenaar bouwt de rest. Niet meer zoeken in AI-assistent-winkels tenzij er een betaalroute met datum is.
+- Nog open: Excalidraw, Warp, Meta Horizon. Ideeën om snel te schiften: Snap Specs (consumentenbril 2026, Commerce Kit voor betalen in Lenses), Android Automotive (Google Play voor auto's), GDevelop (asset-winkel met omzetdeling).
