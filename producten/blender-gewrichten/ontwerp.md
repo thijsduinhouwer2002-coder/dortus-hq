@@ -1,4 +1,4 @@
-Akkoord: nee 8 nov 2026, nog niet beoordeeld door Daan
+Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
 
 # Blender-gewrichten (werktitel "Click Joints"): ontwerp v1
 
@@ -69,3 +69,24 @@ Aan is dus aantoonbaar fout en 26 tot 27 keer zo traag. Daarom staat het uit (`E
 Controleur (agent, niet de maker) op correcties 1 tot 8 samen: akkoord met correcties, alleen dit bestand moest bij.
 - **Klikrand:** de rand van de kom is nu een dichte ring zonder sleuven. Bij een kogel van 5 mm is hij ±1,8 mm dik en steekt hij ±0,375 mm per kant naar binnen voorbij de kogel (opening 0,85 keer de kogel). De test meet de opening, maar of die ring genoeg buigt om te klikken zonder te breken, blijkt pas uit een echte print (handmatige proef hierboven). Sleuven in de rand blijven een optie als de print te stug is.
 - **Kleine kogels:** de bodem van deel B ligt vast door de vorm (kogelmidden 1,4 keer de straal boven het snijvlak). Met speling 0,2 mm geeft een kogel onder ±2,6 mm daarom altijd rood en onder ±4,3 mm hoogstens oranje, ongeacht het figuur (berekening controleur, gezien bij de kijktoets). Voor kleine figuren (vingers, figuren van 28 tot 32 mm) is dat een echte beperking; staat op `platformen/blender/taken.md`.
+
+## Beoordeling 1 van Daan (8 nov 04:35, v0.1 op main 5928b98)
+
+Bekeken: schermen van run 42445827364 (main, 5.2.3 en 4.2.23), map `blender-gewrichten/main/` op tak `schermen`, plaatjes `1-paneel-x`, `2-gewricht-x`, `3-kijkrichting-x`. De plaatjes zonder `-x` zijn helemaal zwart (eigen screenshot van Blender onder Xvfb); haal die uit de workflow, ze verwarren.
+
+### Wat goed is
+1. **Paneel in drie genummerde stappen** (1 Plek, 2 Gewricht, 3 Controleer en exporteer), met per stap een icoon en één grote knop. Rustig en logisch, geen muur van instellingen. Precies wat ik vroeg.
+2. **Speling als getal in mm met een schuif**, en na het plaatsen "Speling gemeten: 0.200 mm" en "Wand: 0.89 mm". Dat is eerlijk en geeft vertrouwen; laten staan.
+3. **Passing met icoon** (driehoek met uitroepteken bij Krap), dus niet alleen kleur. Goed.
+4. **Plaatje 3** (langs de as) laat de kogel in de kom zien: dat is het eerste plaatje waar je ziet wat de add-on doet.
+
+### Wat beter moet, op volgorde van belang
+1. **Alle tekst in het Engels.** Plek, Gewricht, Kogel, Pen, Speling, Plaats gewricht, Controleer figuur, Exporteer, Krap (oranje), Nog geen gewricht. Kopers op Superhive en extensions.blender.org zijn internationaal. Voorstel: 1 Place, 2 Joint, 3 Check and export; Ball, Pin; Diameter (mm), Clearance (mm); "Place joint", "Check mesh", "Export STL"; passing "Good fit", "Tight", "Too thin"; leeg: "No joint yet". Kijkrichting/Cursor wordt "View direction" en "3D cursor".
+2. **De passingkleur kleurt het hele figuur**, in een doffe mosterdkleur. Zo leest het als "het model is oranje geworden", niet als "dit gewricht is krap", en het is niet mooi. Het hart van het product moet juist hier zitten. Voorstel: het figuur houdt zijn eigen kleur; alleen een ring van ±3 mm rond de snede en de kogel krijgt de passingkleur, helder en verzadigd (groen #3ddc84, oranje #ffb020, rood #ff4d4d), met een zachte overgang naar het figuur. Werkt dat niet zonder Object-shading, gebruik dan een overlay (gpu-module) die in elke shading zichtbaar is. Dat lost ook "kleur alleen bij Object-shading" op.
+3. **Rood veld bij Map** ("//click_joints/" in rood): bij een eerste blik ziet het eruit als een fout. Geen rood tenzij er echt iets mis is; is het bestand nog niet opgeslagen, laat dan de map van het figuur leeg met de tekst "Choose a folder" of exporteer standaard naar de map van het .blend-bestand zodra dat er is.
+4. **Het gewricht is op plaatje 2 niet te zien.** Het hoofdplaatje na "Place joint" moet het resultaat tonen. Voorstel: na het plaatsen de twee delen een paar mm uit elkaar schuiven in de weergave (alleen tonen, niet in de export), zodat je kogel en kom ziet, zoals een opengewerkte tekening. Dat is ook het plaatje dat mensen gaan delen.
+5. **Export noemt alleen STL.** 3MF hoort ernaast (eis 7), als tweede knop of een keuze in dezelfde rij.
+6. **Klein:** de keuze Kijkrichting/Cursor en Kogel/Pen staat als twee rijen onder elkaar; als twee knoppen naast elkaar (`expand=True` in een row) is het compacter en duidelijker dat het een keuze is.
+
+### Nog niet te keuren
+Het eigen gezicht (gloed, beweegproef, inklikken), het icoon en de lijstplaatjes. Dat oordeel komt als 1 tot 4 zijn gedaan. Valt het nu op? Nee, maar dat hoort bij een v0.1: de basis is goed.
