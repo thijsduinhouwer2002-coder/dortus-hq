@@ -41,3 +41,48 @@ Richtlijnen: https://developer.blender.org/docs/features/extensions/moderation/g
 ## Uitgave 0.1.0 (hoofdchat, 8 nov 21:55, voor main 82c5207, Daan akkoord voor 920dc77f, code gelijk)
 - Zip: `producten/blender-gewrichten/uitgave/click_joints-0.1.0.zip` (gratis build, 17 bestanden, zonder betaald/)
 - sha256: `6798ce4eda07920c387487faeb38aad0e9718f5819815b9da8e3be5bdb61432a`
+
+## Stappenlijst uploaden voor de projectchat (Bram, 8 nov run 24, ±5 min, plus ±5 min MFA de eerste keer)
+**Alle drie voorwaarden zijn waar (GEZIEN 21:15 UTC):** Daan `Akkoord: ja` (bevestigd voor main 920dc77f; de add-oncode is sindsdien niet veranderd), e2e groen in 4.2.23 en 5.2.3 op main 01364746 met de uitgavezip erbij (run 42522420691), en het Blender ID van Thijs staat (gebruikersnaam **Thijs-Dortus**). Indienen kan dus nu.
+
+Wie: de projectchat, in Chrome op de HP van Thijs (deviceId 869e8714-0c9c-4923-be63-c9ffa1fecfc0), terwijl Thijs ingelogd is met zijn Blender ID. Inloggen doet Thijs zelf. Het e-mailadres van het Blender ID hoort nergens in de repo, de add-on of de pagina: als contact blijft overal thijs@dortus.com.
+
+1. **Bestanden ophalen (1 min).** Download van de release https://github.com/thijsduinhouwer2002-coder/dortus-hq/releases/tag/click-joints-v0.1.0 deze vijf bestanden naar Downloads: `click_joints-0.1.0.zip`, `1-icoon-256.png`, `2-featured-image-1920x1080.png`, `3-preview-buigen.png`, `4-preview-paneel.png`. Controle zip: sha256 `6798ce4eda07920c387487faeb38aad0e9718f5819815b9da8e3be5bdb61432a` (staat ook in `SHA256SUMS.txt` bij de release).
+1b. **Tweestapsverificatie (MFA), alleen Thijs, ±5 min, één keer.** Het uploadformulier verschijnt pas als het Blender ID MFA aan heeft (GEZIEN in de broncode van de site: `{% mfa_guard 'Upload extensions' %}` in `submit.html`); zonder MFA zie je alleen de knop "Configure MFA". Thijs zet MFA zelf aan op https://id.blender.org (bijvoorbeeld met een authenticator-app) en logt daarna met MFA in. De projectchat vult hier niets in.
+2. **Uploaden.** Open https://extensions.blender.org/submit/ . Vraagt de site om in te loggen: dat doet Thijs (Blender ID Thijs-Dortus). Kies bij **File** `click_joints-0.1.0.zip`.
+3. **Voorwaarden: alleen Thijs.** Het vinkje "You have read and agree with all ... policies and terms of service" is het accepteren van voorwaarden. Dat zet Thijs zelf, of de projectchat alleen als Thijs dat in die chat uitdrukkelijk zegt. Daarna **Upload Extension**.
+4. **Controleer wat het manifest invulde:** naam `Click Joints`, tagline `Ball joints for 3D printed figures that show their bend range`, tags Mesh en Modeling, licentie GPL-3.0-or-later, Blender 4.2.0 en nieuwer, toestemming "Export the joint parts as STL or 3MF files". Wijkt iets af: stoppen en melden in `berichten/bram.md`.
+5. **Pagina "Finalize your new submission" invullen:**
+   - **Team:** leeg laten.
+   - **Description:** de tekst hieronder (blok "Description"), letterlijk plakken.
+   - **Support:** `https://dortus.com/click-joints/` (het veld wil een link; op die pagina staat thijs@dortus.com).
+   - **Release notes (Initial Version):** `First release.`
+   - **Icon:** `1-icoon-256.png`
+   - **Featured image:** `2-featured-image-1920x1080.png`
+   - **Previews, in deze volgorde, met onderschrift:** `3-preview-buigen.png` met "Drag the bend and the measured range stays in view. Past the limit, the extra degrees show in red." en `4-preview-paneel.png` met "Good fit, measured in mm: wall, clearance and bend range for every joint, then one STL or 3MF per part."
+6. **Submit for Approval** (niet Save Draft). De status wordt "Awaiting Review". De wachtrij duurt dagen tot weken.
+7. **Terugmelden:** zet de link van de extensiepagina en de status als regel in `berichten/bram.md` (of in de projectchat), dan houdt Bram de keuring bij en reageert hij op vragen van de moderatoren.
+
+Later, niet nu: voor updates zonder klikken kan Thijs op zijn profielpagina van extensions.blender.org een token maken (API `versions/upload`, zie https://developer.blender.org/docs/features/extensions/ci_cd/). Dat zet Bram pas op de lijst als er een update is.
+
+### Description (plakken bij stap 5)
+```
+Turn a sculpt into a poseable, printable figure. Set the 3D cursor where the joint goes, click Place joint, and Click Joints cuts the mesh into two watertight parts with a ball and socket or a pin, sized with the clearance your printer needs, in millimetres.
+
+For a ball joint it then measures how far the joint bends before the parts collide, in 8 directions, and shows that range in the viewport. Auto picks the widest bend with the best fit (30°, 25° or 20°), and the panel shows the measured angle, for example "Bends ±20°". Tilt the part past that limit and the spot where it hits turns red.
+
+A ring on the cut shows the fit: green is a good fit, yellow is tight, red is too thin or breaks through the surface. The panel tells you why, for example "Tight: wall 0.89 mm (aim for 1.5 mm or more)".
+
+- Range of motion: the measured bend of every ball joint, in degrees, before you print
+- Ball and socket, or pin and hole
+- Auto size: picks the largest ball with a good fit, or tells you when none fits well
+- Clearance in mm (0.1 to 0.3 mm is typical)
+- Exploded view, so you see the ball and socket apart; the export stays in place
+- "Make watertight" for open or messy meshes, on a copy; your original stays untouched
+- Export as STL or 3MF, one file per part, in millimetres
+- Honest limits: a spot too thin for a ball joint, or too close to another joint, is refused with a clear message instead of a broken part
+- Tested on Blender 4.2 LTS and 5.2 LTS
+
+Support: thijs@dortus.com
+```
+Bron: "Beschrijving run 4 (geldt)" in `commercie/blender-click-joints/winkeltekst.md`, met `Bends ±20°` in plaats van ±25° (Daan 18:33, gelijk aan de plaatjes).
