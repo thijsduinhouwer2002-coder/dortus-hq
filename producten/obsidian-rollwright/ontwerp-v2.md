@@ -147,3 +147,21 @@ Fout van mij, gevonden door de controleur: in ronde 3 maakte ik een crit eerst g
 Nog open van eerder: 4 (getal telt door), 5 (Roll log, groeperen per notitie en dag), 5b (link zonder .md, rustig), 6 (voorbeeldnotitie vanuit het lege logboek).
 
 **Oordeel nu:** het token haalt voor het eerst de lat: een crit in de tekst is iets waar je een schermafbeelding van maakt. Het geheel nog niet: logboek zonder groepen, kale skin-tegels, geen voorbeeldnotitie, geen doortellen. Akkoord blijft `nee` tot 0, 2c, 2d, 4 tot 7 gebouwd zijn; dan keur ik opnieuw in de echte Obsidian en maak ik de poster en de GIF.
+
+## Ronde 5: doortellen gemeten in de echte Obsidian (8 nov, tak `ontwerp/rollwright-v2c`, run 42430360190)
+
+Tak `ontwerp/rollwright-v2c` is main ba2fcd5 plus mijn CSS van ronde 2 tot 4 (onderaan `styles.css`, verder niets aan `src/`) en de ontwerptest. **Klus 0 ligt daarmee klaar:** Olaf, neem alleen `styles.css` van die tak over (en mag mee: `e2e/ontwerp/v2.e2e.mjs`, `e2e/vaults/ontwerp/`, `e2e/wdio.ontwerp.conf.mjs`). De plaatjes zijn gelijk aan die van ronde 4 (GEZIEN, `v2-02` en `v2-04`). Let op: `styles.css` is nu 888 regels; splitsen hoort bij de opruimtaak (regel 4 codekwaliteit), niet nu.
+
+**Tijdlijn van één gewone klik** (GEZIEN, in het log met een MutationObserver, ms na de klik): getallen 16, 6, 16, 23, 14, 18 op 1, 26, 61, 112, 167 en 234 ms; het getelde getal weg op 309 ms. Het vakje begint pas op 149 ms in beeld te komen (`rw-land`, vanaf onzichtbaar en wazig) en staat stil op 499 ms; het tokenteken tuimelt tot 532 ms.
+
+Wat dat betekent: **de eerste vier getallen zie je niet** (het vakje is dan nog onzichtbaar), de laatste twee half wazig, en het echte getal staat er al 200 ms voordat het vakje landt. Het doortellen werkt, maar je ziet het bijna niet; het gevoel "de dobbelsteen rolt en valt op 17" ontbreekt.
+
+**Klus 4b voor Olaf (code, klein):**
+1. Begin met tellen als het vakje in beeld komt: eerste getal na ±140 ms, niet meteen.
+2. Laat het echte getal landen tegelijk met het vakje: tellen stopt op ±480 tot 500 ms. Bijvoorbeeld pauzes `[45, 50, 55, 65, 70, 80]` na een start op 140 ms (samen ±505 ms). Langzamer wordend, zoals nu.
+3. Nooit twee keer hetzelfde getal na elkaar (nu 16, 6, 16 is goed, maar 16, 16 kan), en het laatste getelde getal niet gelijk aan de echte uitkomst (anders lijkt het of hij een stap blijft hangen).
+4. Een crit of fumble telt net zo (in de test was Math.random vastgezet, daarom zag ik alleen 20; dat is de test, geen fout). Samen met klus 2d (gouden of rode klasse pas na ±460 ms) landt alles dan op één moment: getal, klap, stempel.
+
+**Ook gezien (GEZIEN):** bij een crit start `rw-pop` op 30 ms, dus het goud komt meteen; dat is precies klus 2d, die nog open staat. Klus 2d is daarmee de belangrijkste van de open klussen: nu verklapt het vakje de crit voordat het getal er is.
+
+Mijn eigen fout: de plaatjesreeks van het token in deze test ving een verborgen kopie (36 bij 10 pixels); de tijdlijn in het log is het bewijs, niet de plaatjes. Volgende ronde maak ik volle schermen in plaats van één element.
