@@ -36,6 +36,9 @@ Freemium zoals Bison & Flex (zelfde betaalroute, licentiecode, proef van 30 dage
 - Twee plugins die allebei `*.dot` aanmelden: bij gebruikers met DOT Language erbij kiest de IDE er één; nagaan in de IDE-test.
 - Nog te meten vóór het bouwbesluit valt (kan parallel aan het ontwerp): groei van DOT Language en Dot Base over een week (15 nov), en in een IDE-test of DOT Language in 2026.3 echt bevriest.
 
+## Betaalbereidheid-scan (8 nov 16:10 UTC)
+Alle 897 betaalde en freemium plugins gemeten (`data/betaalbereidheid-scan-2026-11-08.md`, nagekeken, akkoord ja). Geen niche met sterk bewijs én een open gat. Ansible heeft het sterkste betaalbewijs (OrchidE $59 per jaar, 355.579 downloads, 23 van 54 stemmen 1 of 2 sterren, PY-23226 49 stemmen, GEZIEN), maar er zijn al twee betaalde plugins en het is veel werk: bewaren als grotere kandidaat, niet als snelle tweede. Excel bewerken en HDL: dun. Wolfram, QML, Latte: nee. Wat de scan wel laat zien (GOK): betaald loont waar de IDE een slechte gratis plugin aanraadt. Dat steunt het DOT-spoor; weekmeting 15 nov blijft het beslismoment.
+
 ## Afgevallen
 - **Tcl:** echte vraag (CPP-6388, 38 stemmen), maar de gratis Tcl Language Support met taalserver bestaat, en kan elk moment bijwerken voor 2026.3 (nu until 262.\*, laatste versie 10 sept). Over 2 tot 4 weken opnieuw kijken.
 - **Nunjucks:** klein (twee betaalde plugins samen ±500 per maand) en al verdeeld.

@@ -323,3 +323,10 @@ Nieuwste blok onderaan.
 - **Besluit:** Batch nee voor nu. Vraag is er, betaalbereidheid niet bewezen en BatchCraft dekt het meeste; volgens de regel dun bewijs is nee. Vastgelegd in `data/batch-afweging-2026-11-08.md` en `volgend-product.md`.
 - **Gestopt na ±20 minuten:** de volgende stap (groei per bestandssoort) kan pas na de volgende tellerverversing (9 nov). Geen werk verzonnen.
 - **Volgende run:** eerst Bison & Flex (moderatie, sleutel, mail via lijst Thijs). Vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.
+
+## 8 nov 2026, run 15:52 UTC tot ±16:20 UTC (Jet)
+- **Gedaan:** berichten: niets nieuws open. Bison & Flex nog in moderatie (`approve: false`, Hidden, 0 downloads, GEZIEN), geen sleutel, plaatje 4 en 5 liggen bij Thijs.
+- **Uploadstap klaargezet** zodat een update meteen kan als de sleutel er is: workflow `jetbrains-bison-flex-upload.yml` (alleen met de hand, uploadt pas bij `bevestig = uploaden`, eist secret, oordeelregel van Daan bovenaan `ontwerp.md` op `Akkoord: ja`, groene CLion- en e2e-run op dezelfde commit, unittests en Plugin Verifier Compatible). Controleur akkoord ja met één moet-punt: de grep telde ook vragen van Jet met "Akkoord: ja"; verbeterd, nu telt alleen de regel die begint met `Akkoord:` (getest, ook met een nee eronder). Tak `claude/jetbrains-2026-11-08-l`.
+- **Tweede product:** nieuw soort bewijs, betaalbereidheid: alle 897 betaalde en freemium plugins gemeten (`data/betaalbereidheid-scan-2026-11-08.md`, nagekeken, steekproeven kloppen). Geen niche met sterk bewijs én open gat. Ansible sterkst (OrchidE $59, 355.579 downloads, 23 van 54 stemmen laag, PY-23226 49 stemmen) maar bezet door twee betaalde plugins: bewaard, niet nu.
+- **Besluit:** geen voorstel naar Hans; dun of bezet is nee volgens de regel. DOT-weekmeting 15 nov en de groeimeting van 9 nov blijven de volgende stappen.
+- **Volgende run:** tak -l samenvoegen als de runs groen zijn (als dat nog niet gebeurd is), dan Bison & Flex (moderatie, sleutel); vanaf 9 nov ±14:30 UTC de groeimeting.
