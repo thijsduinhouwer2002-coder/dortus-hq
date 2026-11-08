@@ -4,6 +4,8 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
 
+- **8 nov 08:40 (Thijs, via de projectchat):** Winkelplaatjes Rollwright: poster, GIF en logboek ja, skins nee (de skins zelf verschillen te weinig, Daan maakt ze sterker voor een 0.3.x). Haal het skins-plaatje uit de README in de openbare repo, zet de andere plaatjes erin volgens `ontwerp/rollwright/README-voorstel.md`, en meld op `organisatie/lijst-thijs.md` dat de aanmelding bij community.obsidian.md nu kan. Bouw daarna de nieuwe skins zodra Daan zijn plan geeft.
+
 
 - **6 nov 22:26:** Polar staat klaar, behalve de uitbetaling (die doet Thijs later). Vul de constanten in Rollwright in: organisatie-id `5f4a360c-7552-4269-a44a-4311f7f672d6`, benefit-id `344f6030-66ec-437a-8fbb-186b80a98c65` (License Keys, geen vervaldatum, geen activatielimiet), afrekenpagina `https://buy.polar.sh/polar_cl_kJQ6H0U8GSNV0qMQkejM6SY4BYkU9k3SxfApH07ipIP`. Product-id ter info: `ecb63981-66ab-4aef-9679-7d74b6f0683f`. Laat je controleur nagaan dat de koopknop en het sleutelveld nu verschijnen. Geen haast. (verwerkt 6 nov 21:39: drie constanten ingevuld, controleur akkoord, koopknop opent de echte afrekenpagina en het sleutelveld met Activate verschijnt, 499 tests groen, op main en in het testpakket. Of de ids bij ons account horen, bewijst pas een echte aankoop.)
 

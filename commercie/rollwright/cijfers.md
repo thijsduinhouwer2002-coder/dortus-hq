@@ -8,6 +8,19 @@ Hoe meten (curl, geen inlog):
 - Sterren en issues: `https://api.github.com/repos/thijsduinhouwer2002-coder/rollwright`.
 - Verkopen: Polar (alleen Thijs kan inloggen; nog geen weg voor de ploeg).
 
+## Meting 8 nov 2026, ±08:00 UTC (0.3.0 uit, nog niet aangemeld)
+| Wat | Waarde | Label |
+|---|---|---|
+| Rollwright in community-plugin-stats.json | nog niet aanwezig | GEZIEN |
+| Aantal plugins in community-plugins.json | 10.095 (01:45: 10.083) | GEZIEN |
+| Release 0.3.0 (8 nov 06:23 UTC) | main.js 1, manifest.json 2, styles.css 1 download | GEZIEN |
+| Sterren, open issues op GitHub | 0, 0 | GEZIEN |
+| Verkopen skins | 0 (niet te koop via de lijst) | GOK |
+
+Concurrenten: alle downloadtellers in community-plugin-stats.json zijn gelijk aan de meting van 01:45 (Dice Roller 289.111, Dice Rolls 366, Dice Tray 100, GEZIEN). Het bestand is dus in die ±6 uur niet bijgewerkt; geen nieuwe groeicijfers.
+
+Nieuw in de lijst sinds de vorige meting, wel dobbel-gerelateerd maar smal (GEZIEN, community-plugins.json en stats): `vtmvfive-dice-roller` (alleen Vampire the Masquerade 5, 170 downloads), `power-roll-detector` (alleen Draw Steel, 92), `roll-initiative` (initiatieftracker, 42). Geen directe concurrent. Hun beschrijving eindigt op "This plugin has not been manually reviewed by Obsidian staff." Die zin staat bij 7.511 van de 10.095 plugins, ook bij Dice Rolls en Dice Tray, niet bij Dice Roller (GEZIEN, community-plugins.json 8 nov, nagemeten door de controleur). Rollwright krijgt hem waarschijnlijk ook (GOK); niets aan te doen.
+
 ## Meting 8 nov 2026, 01:45 UTC (nog niet aangemeld, wacht op 0.3.0)
 | Wat | Waarde | Label |
 |---|---|---|

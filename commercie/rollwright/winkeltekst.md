@@ -104,3 +104,32 @@ Door Chris. Daan heeft poster, logboek, skins en een GIF klaar (`ontwerp/rollwri
 - **Plaatjesvolgorde voor de listing, nu met de echte bestanden:** 1 poster (`winkel-1-poster.png`), 2 roll log (`winkel-2-logboek.jpg`), 3 skins (`winkel-3-skins.jpg`). Alle drie 2400 bij 1600, dus 3:2 zoals de listing vraagt. Mijn eerdere plannen 2 (dit typ je) en 5 (tabellen) zitten nu op de poster en in het logboekplaatje; drie is genoeg. Op het logboekplaatje staat geen crit of fumble (wel in mijn plan); niet nodig, de poster heeft de crit.
 - **Productpagina 0.3.0** klaar op tak `claude/rollwright-0.3.0` in de repo `dortus` (commit 475bf59): GIF als video bovenaan (210 kB in plaats van 1,7 MB, GEZIEN), poster, roll log en skins, tekst gelijk aan deze winkeltekst. Getest op 390 en 1280 breed, geen zijwaarts scrollen, geen kapotte links (GEZIEN). Controleur: akkoord mits; videolabel en twee kan-punten verwerkt. Gaat live op de dag van release 0.3.0, zie advies 14.
 - **Kleine kanttekeningen die bewust niet op de pagina staan:** een "sessie" in het log is dezelfde notitie op dezelfde dag, en het log houdt de laatste 200 worpen (`src/main.ts`). Hoeft niet in een winkeltekst.
+
+## Bijwerking 8 nov 2026 (run 6): skins nee, aanmelden met het gratis deel
+
+Door Chris. Aanleiding: oordeel Thijs 8 nov 08:40 (`berichten/daan.md`, `berichten/olaf.md`): poster, GIF en logboek ja; skins nee, want Classic, Parchment en Arcane verschillen te weinig en "zo betaalt niemand $6". Aanmelden mag nu al met het gratis deel; sterkere skins komen in een 0.3.x. Wat dat betekent voor de listing:
+
+### Plaatjes voor de listing (vervangt de volgorde van run 5)
+1. Poster (`winkel-1-poster.png`).
+2. Roll log (`winkel-2-logboek.jpg`), in de nieuwe versie van Daan met verschillende tijden. Thijs: alles op 04:22 AM oogt nep. Zolang die nieuwe versie er niet is, mag de oude mee (Thijs zei ja op het plaatje), maar liever wachten op de nieuwe als die binnen een dag komt.
+3. **Geen skins-plaatje.** Pas terug als de nieuwe skins er zijn en Thijs ze gezien heeft.
+
+Twee plaatjes is weinig maar genoeg: de poster heeft de crit en de notatie, het logboek het verhaal. Een derde plaatje alleen om de rij te vullen verzwakt het geheel (GOK). Mijn vroegere plan 5 (tabellen en lijsten: gasten, geruchten, buit) is de beste kandidaat voor een derde plaatje, als Daan het de moeite waard vindt; geen moet.
+
+### Lange beschrijving: de laatste alinea (vervangt de zin over de skins)
+Oud: `All rolling is free. Two extra skins, Parchment and Arcane, are a one-time $6 purchase. No account, no telemetry.`
+
+Nieuw: `All rolling is free. Optional extra skins are a one-time purchase. No account, no telemetry.`
+
+Waarom: (a) de plugin heeft een koopknop, dus de listing moet zeggen dat er iets te koop is (betaaltype Optional payment, DERDEN, [FAQ](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Frequently%20asked%20questions.md)), en de README zegt het ook (eis van Obsidian voor betaalde delen, DERDEN, [Developer policies](https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Community%20directory/Developer%20policies.md), deel Disclosures: "Payment is required for full access" alleen als het duidelijk in de README staat). Eerlijk blijft eerlijk. (b) Thijs vindt de huidige skins hun $6 niet waard; dan zetten we ze niet als verkoopargument in de eerste tekst die iemand leest. (c) Geen bedrag en geen namen: die veranderen misschien met de nieuwe skins, en de listing past Thijs alleen met zijn login aan. Het bedrag staat in de README en in de plugin, voor wie het zoekt.
+
+Wat ik bewust **niet** schrijf: "new skins coming soon" of "buyers get the redesign for free". Dat is een belofte over iets wat nog niet bestaat. Pas als de nieuwe skins uit zijn, komt er een zin bij.
+
+### Korte beschrijving (manifest.json)
+Blijft het voorstel van advies 11 (noemt geen skins). Goed zo.
+
+### README (Olaf bouwt, ter controle)
+Thijs vroeg Olaf het skins-plaatje uit de README te halen. De README moet het betaalde deel blijven noemen. Advies 16 punt (b): vervang de zin bovenaan ("All rolling is free. Two extra looks, Parchment and Arcane, are a one-time $6 purchase (see Paid skins).") door dezelfde rustige zin als in de listing, met het bedrag pas in het deel Paid skins.
+
+### Productpagina dortus.com/rollwright/
+Gedaan deze run (repo `dortus`, op main, samengevoegd vanaf mijn tak met de 0.3.0-pagina plus het weghalen; de oude tak `claude/rollwright-0.3.0` heeft skins.jpg nog en is vervallen): skins-plaatje weg. Het logboek-plaatje (`roll-log.jpg`) vervang ik door Daans versie met verschillende tijden zodra die er is, kop "Paid skins" wordt "Optional skins", tekst blijft feitelijk ($6, Polar, één sleutel voor alle apparaten). Zie `logboek.md`.

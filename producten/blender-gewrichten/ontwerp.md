@@ -1,4 +1,6 @@
-Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
+Akkoord: nee 8 nov 2026 07:35, voor main c26267b4 en tak `claude/blender-2026-11-08-g`, omdat Tight nog mosterd is (wordt `#FFEA00`), 3MF ontbreekt en het eigen gezicht (beweegproef, icoon, lijstplaatjes) er nog niet is. Paneel, ring, opengewerkt beeld, Engels en Auto met Good fit zijn goed. Zie beoordeling 2.
+
+Oud: Akkoord: nee 8 nov 2026 04:35, voor v0.1 op main 5928b98, omdat het nog niet opvalt en niet af oogt: Nederlandse teksten in het paneel, het hele figuur wordt mosterdbruin in plaats van een gloed op het gewricht, een rood veld bij Map, en het gewricht zelf is op het hoofdplaatje niet te zien. Zie beoordeling 1 onderaan. Voor een v0.1 is het een goede basis.
 
 # Blender-gewrichten (werktitel "Click Joints"): ontwerp v1
 
@@ -128,6 +130,40 @@ Nog geen beoordeling 2: ronde e staat op een tak. Wel wat ik zag op `5.2.3/1-pan
 
 Volgende stap voor mij: beoordeling 2 zodra punt 1 tot 3 op een tak staan en Bram het vraagt; de proefstrook kijk ik zo snel mogelijk na.
 
+## Beoordeling 2 van Daan (8 nov 07:35, main c26267b4 en tak `claude/blender-2026-11-08-g`)
+
+Bekeken: main run 42455734989 (`5.2.3/1-paneel-x`, `2-gewricht-x`, `3-kijkrichting-x`), tak g run 42458223828 (`2-gewricht-x`, `4-geeltinten-x`) en mijn eigen proefstrook op tak `ontwerp/blender-geel` (run 42458842877, `proef-geel.png` en `proef-geel-standard.png`, Blender 5.2.3, gladde cilinders, Studio-licht Default, kleur volgens Material).
+
+### Wat goed is (afgevinkt uit beoordeling 1)
+Punt 1 (Engels), 2 (ring in plaats van hele arm), 3 (geen rood veld), 4 (opengewerkt beeld, kijk in de kom), 6 (keuzes naast elkaar), 7 (zeg waarom), 8 (knopnamen) en 9 (maat schaalt mee) zijn gedaan en in de echte Blender gezien. Op tak g ook mijn tussenreactie 2 punt 2 en 3: Auto kiest 3.0 mm met Good fit, wand 1.55 mm, en het hoofdplaatje is groen. De korte map-hint "Saves next to the .blend" past op één regel. Het paneel is rustig en duidelijk; dit is een goede basis.
+
+### De geelkeuze: `#FFEA00`
+Gemeten in mijn proefstrook (GEZIEN, pixels op de belichte kant, midden):
+
+| stof | op het scherm |
+|---|---|
+| groen nu | `#3B945F` |
+| `#FFD23F` (nu) | `#A88D3C` mosterd |
+| `#FFE45C` | `#A89848` vaal |
+| `#FFF06A` | `#A8A04F` olijf |
+| `#FFC400` | `#A78428` oker |
+| `#FFEA00` | `#A79C25` geel |
+| rood nu | `#A73C3C` |
+
+Wat ik leerde: in Solid met Studio-licht komt **geen enkele kleur boven ±`#AE`** per kanaal; groen en rood ook niet. Mijn eis "belicht boven `#E0C040`" uit tussenreactie 2 kan dus niet, die vervalt. De kleurweergave (AgX of Standard) maakt hier niets uit: beide schermen zijn pixel voor pixel gelijk (GEZIEN). Wat wel uitmaakt is de tint: hoe minder wit erin, hoe meer het geel blijft. `#FFEA00` (verzadigd citroengeel, lineair 1,0 / 0,823 / 0,0) leest als geel en staat duidelijk los van groen en rood; `#FFD23F` en de lichtere tinten worden mosterd of olijf. **Besloten: Tight wordt `#FFEA00`.** Waarom niet oker `#FFC400`: dat leest als amber, maar staat dichter bij de oranje selectierand en bij rood.
+
+Bijvangst: op gladde vlakken (smooth shading) oogt de kleur veel mooier dan op de platte vlakken van de testpop. Dat is aan het figuur van de gebruiker, niet aan ons; voor de lijstplaatjes gebruiken we een glad figuur.
+
+### Wat er nog moet voor akkoord, op volgorde
+1. **Tight `#FFEA00`** in `passing.KLEUREN` (één regel), en de proefstrook uit de gewone test laten zodra de keuze erin staat (scheelt tijd per run).
+2. **3MF** naast STL (punt 5 uit beoordeling 1, eis 7). Printers van nu (Bambu, Prusa) werken liefst met 3MF.
+3. **Het eigen gezicht: de beweegproef.** Nu doet Click Joints wat Cleave en Cut Flex ook doen, alleen netter. Het moment waar iemand een schermafbeelding van maakt, is: het ledemaat rondtrekken en zien waar het botst en hoe ver het buigt ("Bends 0 to 115°"). Bram: zoek eerst uit of Cleave, Cut Flex of FigureCut dit hebben (productpagina en video's), en schrijf dan een kort ontwerp (5 tot 10 regels) hieronder: hoe je het start, wat je ziet, hoe je stopt. Ik reageer de run daarna. Is het te groot voor de eerste versie, zeg dat dan met reden; dan zoeken we samen een kleiner eigen gezicht.
+4. **Icoon en lijstplaatjes** maak ik zelf zodra 1 en 2 op main staan: poster "See if it clicks before you print" met een gladde figuur, ring in groen en het opengewerkte gewricht groot.
+
+**Controleur (agent):** eens met `#FFEA00`, de volgorde en de beweegproef eerst onderzoeken. Overgenomen: (a) bij punt 2 hoort ook de knop: "Export STL" wordt een keuze STL of 3MF (of "Export" met een keuze); (b) voor de lijstplaatjes overlays uit (rode as en 3D-cursor lopen nu over de ring op `2-gewricht-x`), kogel duidelijk los, en een figuur waar de ring echt een ring is (nu is het hele zichtbare deel A groen); (c) de kleurweergave maakt alleen in Solid niets uit, in Material Preview kan fel geel bleker worden: Bram, maak bij punt 1 ook één scherm in Material Preview. Kan-punt, houdt akkoord niet tegen: voor mensen zonder groen zien worden ons groen en rood allebei donker olijf (omgerekend door de controleur); een groen met iets meer blauw (richting `#00C389`) helpt. Bram, neem dat mee in dezelfde regel als het geel, dan kijk ik het na in de volgende proefstrook.
+
+Valt het nu op? Nog niet: het is verzorgd, maar nog niet speciaal. Met de beweegproef en een goede poster kan het dat wel worden.
+
 ## Ronde c: ring en opengewerkt beeld (8 nov 05:40, Bram) en vraag aan Daan
 Op main (run 42451041466 groen in 4.2.23 en 5.2.3, GEZIEN). Controleur (agent, niet de maker): akkoord met correcties; de ene correctie vóór samenvoegen (een tweede gewricht of Maak gesloten op een verschoven deel B bakte de verschuiving in) is verwerkt en getoetst (regel `TWEEDE` in het log: verschil 0,00000 mm).
 - **Punt 2 (ring):** het figuur houdt zijn eigen materiaal. Alleen vlakken met een hoekpunt binnen 3 mm van het snijvlak, plus kogel, nek, pen en kom, krijgen de passingkleur (helder: #3DDC84, #FFB020, #FF4D4D). Bij de testarm is ±38% van het oppervlak gekleurd, ring, kogel en kom volledig. Geen zachte overgang. Bij een grof figuur (lange vlakken) kleurt meer mee; een klein deel (een hand) is bijna helemaal ring.
@@ -156,3 +192,23 @@ Controleur op tak d (Engels): akkoord met correcties; de wand in de passingtekst
 Bekend en open: de arm van de testpop is maar 5 mm dik, dus Auto geeft daar 3,0 mm en Tight (wand 0,89 mm). De wand is ongeveer 0,2 keer de dikte; onder ±5 mm dikte wordt het rood. Nog geen melding als Auto geen breedte vindt.
 
 **Daan, graag beoordeling 2** van wat nu op main staat: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/1-paneel-x.png en https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/main/5.2.3/2-gewricht-x.png (zelfde als https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/schermen/blender-gewrichten/claude-blender-2026-11-08-e/5.2.3/2-gewricht-x.png). Vraag erbij: op het plaatje is de pop dun, dus staat er Tight in amber; wil je voor het hoofdplaatje een dikkere arm zodat het Good fit (groen) toont, of juist Tight met uitleg omdat dat laat zien wat de add-on doet?
+
+## Ronde g: tussenreactie 2 van Daan verwerkt (8 nov 07:30, Bram), tak `claude/blender-2026-11-08-g`
+Runs 42458761523 en 42459047164 (laatste commit 6c9ef28) groen in 4.2.23 en 5.2.3 (GEZIEN). Controleur: akkoord met correcties (alleen tekst, verwerkt).
+1. **Proefstrook (moet 1):** plaatje `4-geeltinten-x.png`: zes cilinders in dezelfde kijkrichting en Solid-belichting als plaatje 2 (#FFD23F, #FFE45C, #FFF06A, #FFC400, en groen en rood ter vergelijking), kleurcode eronder. De test meet per cilinder de kleur op het scherm (17 punten langs het midden, regels `GEEL` in het log). Uitslag (GEZIEN, 5.2.3 met AgX; in 4.2.23 belicht gelijk op 1 tot 2 eenheden na, schaduw tot 5 eenheden):
+
+   | kleur | belicht | schaduw |
+   |---|---|---|
+   | #FFD23F | #A78C33 | #443513 |
+   | #FFE45C | #A89843 | #423717 |
+   | #FFF06A | #A9A14C | #504A20 |
+   | #FFC400 | #A98524 | #624A09 |
+   | groen #3DDC84 | #37955E | #19643B |
+   | rood #FF4D4D | #AA4040 | #822525 |
+
+   Geen enkele geel komt boven #E0C040: elke kleur, ook groen en rood, komt uit op ±0,66 keer de opgegeven waarde. Het ligt niet aan de kleurweergave: met View Transform "Standard" in plaats van AgX (plaatje `5-geeltinten-standard-x.png`) zijn de getallen gelijk. Het ligt dus aan de Solid-weergave zelf (waarschijnlijk de belichting, GOK), en dat is wat een gebruiker in Solid ziet. Dus de grens #E0C040 haalt geen enkele kleur in dit beeld. Wat wel verschilt is hoe geel hij blijft: #FFF06A houdt groen/rood 0,95 (leest als geel), #FFD23F maar 0,84 (leest als mosterd), #FFC400 0,79 (oker). Mijn voorstel: **#FFF06A**, of de lichtere ring met donkere rand die je noemde. Daan kiest.
+2. **Auto kiest de grootste Good fit (moet 2):** vanaf 0,6 keer de breedte (bovengrens) in stappen van 0,5 mm omlaag tot de passing groen is; lukt groen nergens, dan de grootste Tight met de melding "Auto: no size gives a good fit here (mesh X mm thick at the cut)"; ook geen Tight, dan rood en niet snijden. Getoetst (GEZIEN): staaf 7 mm: 3,5 mm Good fit (wand 1,55), 4,0 mm zou Tight zijn; staaf 5 mm: 2,5 mm Tight met melding; arm 10 mm: 6,0 mm Good fit zoals eerst.
+   Daarbij gevonden en gerepareerd: een kogel onder ±4,5 mm kon nooit Good fit zijn, hoe dik het figuur ook was, want de bodem van deel B naast de klikopening bleef onder 1,5 mm. Het kogelmidden komt bij kleine kogels nu zo hoog dat die bodem 1,55 mm is (de nek wordt iets langer, grote kogels blijven gelijk). De ring kleurt tot de echte bovenkant van de kom.
+3. **Hoofdplaatje Good fit (moet 3):** de pop op de plaatjes heeft dikkere en langere armen (8 mm dik, 40 mm lang); regel `HOOFDPLAATJE passing=groen keuze=goed`: Auto koos 4,5 mm, wand 1,54 mm (net boven de grens). Tight en Too thin blijven in de achtergrondtest (dunne pop) voor het tweede plaatje later.
+- **Kan:** de map-hint is één regel: "Saves next to the .blend" (of "Saves to a temporary folder" als het bestand nog niet is opgeslagen).
+- Testwijziging (apart goedgekeurd door de controleur bij de herkeuring van ronde g, zie logboek): de kijktoets in `schermen.py` staat 2 mm hoger in het been (z = -12), omdat het gewricht van 3 mm nu langer is; drempels gelijk.
