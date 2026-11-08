@@ -2,7 +2,9 @@
 
 Noor, 8 nov 2026, run 18:38 UTC. Gekozen na het bericht van Thijs (19:16): alleen nog winkels waar je nu al kunt verkopen.
 
-**Cijfer: 6. Advies: ja met kleine inzet, na één controle bij TikTok (mag een Nederlands bedrijf ook in Duitsland, Frankrijk, Italië en Spanje listen?). Wordt dat ja, dan is het een 7.**
+**Cijfer: 7 (bijgewerkt 8 nov 19:50 UTC, was 6). Advies: ja met kleine inzet. De controle is gedaan: kleine Nederlandse BV's staan met één app in alle negen EU-landen (zie "Controle 8 nov 19:50" onderaan). Let op: het eerste productidee is veranderd van winstanalyse naar Europese productregels, omdat winstanalyse sinds juni vol begint te lopen.**
+
+(Oorspronkelijk, 18:55 UTC: cijfer 6, ja na één controle: mag een Nederlands bedrijf ook in Duitsland, Frankrijk, Italië en Spanje listen?)
 
 In één zin: TikTok Shop groeit het hardst van alle webwinkelplatformen, opende in juni 2026 in Nederland, en de Europese App Store heeft maar 260 apps, met lege categorieën die in de VS al vol zitten met tools van $99 tot $149 per maand.
 
@@ -41,3 +43,37 @@ TikTok Shop is de webwinkel in TikTok (verkopen in video's, LIVE en een winkelta
 
 ## Herhaalmeting
 Rond 8 dec: `for r in US GB DE FR IT ES IE NL BE AT PL; do python3 -I data/tiktokshop-apps-meet.py $r; done` en `python3 -I data/tiktokshop-apps-analyse.py data/tiktokshop-apps-NL-<datum>.json`. Vergelijk het aantal apps en de categorieën met 8 nov.
+
+
+## Controle 8 nov 19:50 UTC (Noor): mag een Nederlands bedrijf buiten Nederland listen?
+
+**Antwoord: ja, in de praktijk wel.** Zelf nagekeken in de tellingen van 8 nov (GEZIEN, `data/tiktokshop-apps-<land>-2026-11-08.json`, per app partner_id en service_id over de landen vergeleken):
+- **Stockhub B.V.** (klein Nederlands WMS, Euregioweg 235 Enschede, GEZIEN op stockhub.nl): één partner, één app, aangemaakt 14 juni 2026 (de dag voor de start van TikTok Shop in Nederland), staat nu in alle negen EU-landen: DE, FR, IT, ES, IE, NL, BE, AT, PL.
+- **Stockpilot** (Jiyu Ninja B.V., KVK 83679723, Utrecht, GEZIEN op stockpilot.com): één app, aangemaakt 12 juni 2026, in BE, DE, ES, FR, NL.
+- **ChannelDock** (Nederlands) en **Monta** (Nederlands) idem: één app in alle negen landen of in vijf.
+- **Sellasist** en **Apilo** (Pools): één app in alle negen landen.
+- De docs zeggen het zo: een ISV kan via "+ Add market (Seller type)" markten aan een bestaande app toevoegen; "the available markets depend on your company's registration region and the app's business category" (GEZIEN, https://partner.tiktokshop.com/docv2/page/developer-onboarding en de pagina Create your App, gelezen met Playwright). De regel "local partners should choose only their local market" geldt voor de eerste registratie; daarna kan er per categorie een kwalificatie per markt bij.
+- Wat nog niet zeker is: of dat voor elke categorie geldt. Alle Nederlandse voorbeelden zitten in orderbeheer en multichannel. Een paar Nederlandse en Poolse apps staan alleen in hun eigen land (ReplyBay, ESS, Stockitup, Selly.pl), maar dat kan een eigen keuze zijn. Kleine rest-onzekerheid; Thijs ziet het bij de registratie meteen in het keuzemenu.
+
+## Bijsturing productidee (8 nov 19:50 UTC)
+Bij het nakijken bleek de categorie winstanalyse in de EU niet meer leeg (GEZIEN, zelfde tellingen, aanmaakdatum uit de service-id):
+- Nexium Hub (26 juni 2026, alle 9 EU-landen): "reale Nettomarge" na provisie, logistiek, btw en retouren.
+- NorthProfit (27 juli 2026, alleen DE): winst per bestelling, servers in Duitsland, DATEV.
+- SellerGoo (27 okt 2026, alle 9 EU-landen): live winst-en-verliesrekening met btw.
+- Dashboardly (sinds okt 2025, 5 landen), Conjura (sinds sept 2025, 3 landen), TrueProfit (IE), plus boekhoudkoppelingen EasyPliant, KudTax en AccountOne (DATEV).
+Drie nieuwe winstapps in vijf maanden, allemaal precies ons oude idee. Geen duidelijke nummer één (installs onzichtbaar), maar een nieuwkomer valt daar niet meer op. **Dit idee valt af als eerste product.**
+
+**Nieuwe categorie: Europese productregels voor listings (GPSR, Responsible Person, CLP, gevaarlijke stoffen, Pfand en verpakking).**
+- TikTok voegde in de partner-changelog voor de EU de laatste maanden achter elkaar verplichte velden toe: "EU GPSR Communication Doc - adding Responsible person, Manufacturer and Safety label information", "EU Markets: Category Rules Update – Responsible Person Attribute Now Mandatory", "EU market: New compliance data required - CLP/Biocides", "EU market: Pfand Fees and Packaging Type Data", "For UK & EU markets: Dangerous Goods (DG) Compliance Requirements", "EU Markets: Introducing VAT Calculation Service" en "Sell Across EU - Global Product APIs (GPA) to Local Replication Architecture" (GEZIEN, https://partner.tiktokshop.com/docv2/changelog, gelezen met Playwright).
+- In de 260 EU-apps staat **geen enkele** app die dit als hoofdtaak heeft (GEZIEN, gezocht op GPSR, EPR, CLP, Responsible Person, Verpackung, Konformität in naam en omschrijving). Alleen de grote koppelingen (M2E, Lengow) vullen de GPSR-velden mee als ze producten overzetten (DERDEN, https://docs-m2.m2epro.com/docs/how-to-set-up-gpsr-compliance-for-tiktok-shop-using-m2e-connect/ en https://help.lengow.com/hc/articles/25473104444060). Wie direct in TikTok Shop verkoopt (geen Shopify, geen koppeling), heeft niets.
+- Bewijs dat verkopers voor zoiets betalen: op Shopify bestaan betaalde GPSR-apps (DERDEN, https://apps.shopify.com/priceproof-gpsr; prijzen en aantallen niet kunnen lezen, de pagina laadt met JavaScript). Op Shopify-forums heet GPSR "Total Nightmare" (DERDEN, https://community.shopify.com/t/eu-ni-general-product-safety-regulations-gpsd-gpsr-total-nightmare/338849/11).
+- Product: "EU-proof voor TikTok Shop". Leest alle listings via de Product API, laat per product zien welke verplichte EU-velden ontbreken (Responsible Person, fabrikant, veiligheidslabel, CLP, Pfand, gevaarlijke stoffen), vult ze in bulk in vanuit één bedrijfsprofiel en kopieert ze bij "Sell Across EU" naar elk land, met de juiste taal. Gratis: scan en lijst van wat ontbreekt. Betaald: bulk invullen en bewaken bij nieuwe regels, €15 tot €29 per maand per winkel, eigen kassa (TikTok houdt 0%).
+- Waarom wij nummer één kunnen worden: niemand doet het nu, de regels veranderen steeds (dus een bewaakfunctie heeft blijvende waarde), en een Nederlands bedrijf in alle negen landen tegelijk is precies wat de lokale tools (alleen DE, alleen IT) niet zijn.
+- Zwak punt, eerlijk: vraag naar een losse app op TikTok zelf is niet gemeten (geen forums te lezen, installs onzichtbaar). De velden zijn verplicht, dus elke verkoper moet ze invullen; de vraag is of ze daar een app voor nemen of het één keer met de hand doen. Teken dat het niet werkt: na lancering minder dan 20 installaties in 6 weken. Dan valt winstanalyse terug als tweede kans, of stoppen.
+
+## Cijfer na de controle: 7
+1 groeit hard (sterk), 2 winkel jong in de EU (260 apps, 2 tot 11 nieuw per maand in DE), 3 betalen werkt nu met eigen kassa en 0% afdracht, 4 vraag redelijk (verplichte velden, maar losse app niet bewezen), 5 categorie Europese regels leeg. De controle is ja, dus het voorstel komt op de afgesproken 7. Kosten vooraf: geen registratiekosten gevonden; wel een eigen kassa (Stripe of Polar) en een keuring van 4 tot 8 weken.
+
+## Wat er nodig is voor de start (na ja van Hans)
+1. Thijs registreert als app-ontwikkelaar (ISV) in het Global Partner Center (partner.tiktokshop.com/account/sign-up): KVK-uittreksel, ID, voorwaarden. Doel: Nederland, daarna via "Add market" DE, FR, IT, ES, BE, AT, PL, IE. Gebruik een e-mailadres dat niet aan een TikTok Shop-verkopersaccount hangt (GEZIEN, docs).
+2. Een ontwikkelwinkel (Seller Center development shop) om tegen te testen; de manager bouwt en Daan keurt.

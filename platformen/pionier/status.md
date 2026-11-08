@@ -36,7 +36,7 @@ Aangemaakt 7 nov 2026 door de projectchat.
 | MentraOS (Miniapp Store) | 8 nov 2026 | 3 | nee voor nu, volgen (opnieuw zodra makers kunnen publiceren of betalen wordt aangekondigd) |
 | Twenty (open-source CRM, App Marketplace) | 8 nov 2026 | 5 | nog niet klaar (herhaalmeting 8 dec; ja als credits live gaan met uitbetaling aan makers, categorie verkoopdoelen en prognose) |
 | HighLevel App Marketplace | 8 nov 2026 | 3 | nee voor de pionier (winkel vol met app-fabrieken, nieuwkomers mediaan 5 installaties) |
-| TikTok Shop App Store (EU) | 8 nov 2026 | 6 | ja met kleine inzet na één controle (mag een NL-bedrijf in DE, FR, IT, ES listen? dan 7); categorie winst en EU-regels voor verkopers; herhaalmeting 8 dec |
+| TikTok Shop App Store (EU) | 8 nov 2026 | 7 | ja met kleine inzet (controle 19:50 gedaan: NL-bedrijf mag in alle negen EU-landen; categorie Europese productregels voor listings, winstanalyse loopt vol; herhaalmeting 8 dec) |
 
 Volgende: nieuwe platformen met een betaalde winkel die net open is (zoals NativePHP). Zed, Raycast en ComfyUI vielen in de snelle schifting al af op geld. Herhaalmetingen rond 5 dec: `data/godot-store-meet.py` en `data/chatgpt-plugins-meet.py` `data/hytale-curseforge-meet.py` en `data/grafana-plugins-meet.py` en `data/trmnl-recipes-meet.py` en `data/pebble-appstore-meet.py` en `data/nativephp-plugins-meet.py` en `data/mcp-register-meet.py` en `data/ha-marketplace-meet.py` en `data/framer-plugins-meet.py`. Elke paar weken: `data/meta-brillen-meet.py`. Rond 8 dec ook `data/devvit-apps-meet.py`. Rond 8 dec ook `node data/premiere-uxp-meet.js` (Playwright, ±6 minuten). Rond 8 dec ook `data/superhuman-go-meet.py` (meldt als verkopen weer open is). Rond 8 dec ook `data/affinity-scripts-meet.py`. Rond 22 nov: `data/whop-apps-meet.py` (vergelijk met whop-apps-2026-11-08.json).
 Voor Hans: Godot is het eerste voorstel van de pionier dat de moeite waard is; het weegt met de pionier-meetlat (regel 4b), niet met die van Vera.
@@ -51,3 +51,6 @@ Rond 8 dec ook `python3 -I data/twenty-apps-meet.py data/twenty-apps-2026-12-08.
 
 Voor Hans (8 nov 19:10): TikTok Shop App Store (EU) is het vierde voorstel met een 6, en het eerste waar betalen nu al werkt (eigen kassa, TikTok houdt 0%), zoals Thijs om 19:16 vroeg. Eén controle maakt het een 7: mag een Nederlands bedrijf ook in Duitsland, Frankrijk, Italië en Spanje listen. Staat op de lijst van Thijs.
 Rond 8 dec ook de TikTok-meting: `for r in US GB DE FR IT ES IE NL BE AT PL; do python3 -I data/tiktokshop-apps-meet.py $r; done`.
+
+
+Voor Hans (8 nov 19:50): de ene controle bij TikTok Shop is gedaan en is ja. Stockhub B.V. (Enschede) en Stockpilot (Utrecht) staan met één app in alle negen EU-landen, dus het voorstel staat nu op 7, het eerste met een 7 waar betalen nu al werkt (eigen kassa, 0% afdracht). Let op: ik heb het eerste product veranderd van winstanalyse (sinds juni drie nieuwe concurrenten) naar Europese productregels (GPSR, Responsible Person, CLP, Pfand; nul apps). Bij ja: Thijs registreert als ISV in het Global Partner Center (KVK, ID, voorwaarden); stap staat klaar in het voorstel, nog niet op lijst-thijs.md zolang er geen ja is.
