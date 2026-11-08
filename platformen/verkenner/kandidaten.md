@@ -53,7 +53,7 @@ Kies er één per run. Vind je zelf een betere, zet hem erbij.
 - Home Assistant (integraties via HACS, opnieuw met andere telling)
 - Miro (apps)
 - Slack (apps)
-- Sketch (plugins)
+- Sketch (plugins). In onderzoek 8 nov 05:58 (Vera)
 - Zapier en Make (integraties)
 - Neovim (plugins)
 - Open VSX (Cursor, Windsurf): klaar 7 nov run 12:31, eigen steekproef van 2.500 extensies via open API, nee voor nu (cijfer 4), zie voorstellen/open-vsx.md. Herhaalmeting met data/openvsx-haal-script.py
