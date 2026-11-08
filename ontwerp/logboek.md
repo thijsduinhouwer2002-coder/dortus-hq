@@ -443,3 +443,9 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** het blad krijgt in de snippet de kleuren die Rollwright in een licht thema gebruikt. Waarom: Rollwright leest de themakleuren van de body, dus een licht blad in een donker thema gaf lichte tekst op perkament; zo ziet de gratis Classic eruit zoals hij in licht echt is, zonder de plugin te veranderen.
 - **Gemaakt, film:** variant A versie 1 (`ontwerp/rollwright/v4/demo-v4-a.mp4` en `.gif`), haak met de NAT 20 vóór de titel, NAT 1 in rood met de val, skins groot. Contactvellen bekeken met de Read-tool; hook-timing gecorrigeerd (Classic landt binnen 0,25 s, stralen kwamen eerst te laat).
 - **Nog open:** inzoom dieper, skins-uitsnede, variant B "Bestiarium", poster v4, controleur, dan beide naar de projectchat.
+
+## 8 nov 2026, extra run 40 (op verzoek van de projectchat, alleen film en poster v4, 23:25 tot 23:36 UTC)
+
+- **Gemaakt:** variant A beter (diepere inzoom op NAT 1 en NAT 20, skins ruimer uitgesneden, timing van de haak gelijk aan de echte landing: rood na 0,54 s en goud na 0,72 s, GEZIEN per beeld). Variant B "Bestiarium" nieuw: drie snelle sneden met wolf, val en lantaarn, speelkaarten naast het venster en skins naast elkaar. Twee posters (2560x1440).
+- **Controleur (agent):** A eerst nee (5 moet-punten: eerste beeld leeg, label over het venster, lamp in de eindzin, te wazig, uitsnede poster), B ja met 2 moet-punten (getallen op de wolf-kaart klopten niet met de worp die nog rolde, "fo" afgekapt op de poster). Alles opgelost en opnieuw bekeken met de Read-tool.
+- **Besloten:** beide onder "Voor de projectchat" (`ontwerp/rollwright/v4/extra-run/voor-projectchat.md` (apart gezet, omdat de gewone run tegelijk dezelfde bestanden in v4 schreef, commit 9f5f384e)), niet op de lijst van Thijs. Mijn keuze B voor Reddit, omdat hij zonder geluid vanaf beeld 1 te snappen is; A voor de README.

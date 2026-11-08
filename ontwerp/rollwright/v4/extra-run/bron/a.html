@@ -1,0 +1,122 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Deco;src:url(f/cinzeldec.woff2)}@font-face{font-family:Cin;src:url(f/cinzel.woff2);font-weight:400 900}
+@font-face{font-family:Fell;src:url(f/fell.woff2)}@font-face{font-family:Fell;font-style:italic;src:url(f/felli.woff2)}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#07090d}
+#st{position:absolute;inset:0;overflow:hidden}
+#bg{position:absolute;left:-40px;top:-40px;width:1360px;height:800px;background:url(banner.png) center/cover;filter:saturate(1.1)}
+#bgv{position:absolute;inset:0;background:radial-gradient(ellipse 75% 70% at 50% 50%,rgba(0,0,0,.15),rgba(0,0,0,.85))}
+#skinbg{position:absolute;inset:0;opacity:0}
+#rays{position:absolute;left:640px;top:360px;width:2600px;height:2600px;margin:-1300px 0 0 -1300px;opacity:0;
+ background:repeating-conic-gradient(from 0deg,rgba(255,206,110,.26) 0deg 5deg,transparent 5deg 15deg);-webkit-mask:radial-gradient(circle,#000 0,#000 14%,transparent 52%)}
+#flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,232,170,.95),rgba(242,170,60,.35) 38%,transparent 70%);opacity:0}
+canvas{position:absolute;inset:0}
+.win{position:absolute;overflow:hidden;border-radius:12px;box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,220,160,.18);opacity:0}
+.win img{position:absolute;left:0;top:0;transform-origin:0 0}
+#word{position:absolute;left:0;right:0;text-align:center;font:700 170px Deco;color:#ffd77a;letter-spacing:.04em;opacity:0;white-space:nowrap;text-shadow:0 0 50px rgba(255,190,80,.55),0 6px 0 #6b3b0c}
+#title{position:absolute;left:0;right:0;top:250px;text-align:center;opacity:0}
+#title .t{font:700 128px Deco;color:#f6e7c6;letter-spacing:.03em;text-shadow:0 8px 40px #000}
+#title .s{font:italic 40px Fell;color:#e8cf9c;margin-top:4px;text-shadow:0 3px 18px #000}
+.cap{position:absolute;font:italic 46px Fell;color:#fbf1dc;text-shadow:0 3px 20px #000,0 0 2px #000;opacity:0;white-space:nowrap}
+.cap b{font:700 .8em Cin;letter-spacing:.06em;font-style:normal}
+.gold{color:#ffd06a}.red{color:#ff6b5a}
+.ill{position:absolute;width:200px;height:200px;opacity:0;filter:drop-shadow(0 8px 20px #000)}
+#tag{position:absolute;right:26px;top:18px;font:700 13px Cin;letter-spacing:.18em;color:#d9c39b;opacity:.9}
+#tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e5484d;margin-right:8px;vertical-align:1px}
+#sklab{position:absolute;left:0;right:0;top:62px;text-align:center;opacity:0}
+#sklab .k{font:800 22px Cin;letter-spacing:.4em;color:#f0dcb4}
+#sklab .n{font:700 76px Deco;color:#fff3da;text-shadow:0 6px 30px #000}
+#end{position:absolute;inset:0;opacity:0;text-align:center}
+#end .t{position:absolute;top:200px;left:0;right:0;font:700 112px Deco;color:#f6e7c6;text-shadow:0 8px 40px #000}
+#end .s{position:absolute;top:340px;left:0;right:0;font:italic 40px Fell;color:#ecd3a0}
+#end .p{position:absolute;top:420px;left:50%;transform:translateX(-50%);padding:14px 30px;border-radius:999px;background:linear-gradient(#f5cf72,#d9a441);color:#2a1a05;font:800 22px Cin;letter-spacing:.06em;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+#end .m{position:absolute;bottom:44px;left:0;right:0;font:italic 24px Fell;color:#cbb592}
+</style></head><body><div id="st">
+<div id="bg"></div><div id="skinbg"></div><div id="bgv"></div><div id="rays"></div><div id="flash"></div><canvas id="c" width="1280" height="720"></canvas>
+<div class="win" id="hook"><img id="hi"></div>
+<div class="win" id="w"><img id="wi"></div>
+<div class="win" id="sk" style="-webkit-mask:linear-gradient(transparent 0,#000 30%,#000 72%,transparent 100%);box-shadow:none;border-radius:0"><img id="ski"></div>
+<img class="ill" id="trap" src="lorc_wolf-trap.svg"><img class="ill" id="wolf" src="wolf-head.svg">
+<div id="word">NAT 20</div>
+<div id="title"><div class="t">Rollwright</div><div class="s">Dice that roll inside your notes</div></div>
+<div id="band" style="position:absolute;left:0;right:0;bottom:0;height:190px;background:linear-gradient(transparent,rgba(6,4,2,.92) 55%);opacity:0"></div><div class="cap" id="c1"></div>
+<div id="sklab"><div class="k">OPTIONAL SKIN</div><div class="n" id="skn"></div></div>
+<div id="enddark" style="position:absolute;inset:0;opacity:0;background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(4,5,8,.85),rgba(4,5,8,.35) 80%)"></div><div id="end"><div class="t">Rollwright</div><div class="s">A natural 20 lands in gold. Every throw, kept.</div><div class="p">FREE IN OBSIDIAN COMMUNITY PLUGINS</div><div class="m">Made by Thijs at Dortus</div></div>
+<div id="tag"><i></i>REAL PLUGIN FOOTAGE · OBSIDIAN</div>
+</div>
+<script src="common.js"></script>
+<script>
+const D=__DATA__, META=__META__;
+const FR=D.FR, GL=D.GL;
+// window image size (CSS px of the screenshot)
+const IW=__IW__, IH=__IH__;
+function fr(label,since){const L=FR[label];if(!L)return null;if(since<0)return L[0][1];let f=L[0][1];for(const [m,n] of L){if(m>=0&&m<=since*1000)f=n}return f}
+function src(n){return 'fr/'+n}
+const T=__TIMES__;
+function place(el,img,file,x,y,w,h,sx,sy,sc,op){ // show region (sx,sy) of screenshot at scale sc, in box x,y,w,h
+ el.style.left=x+'px';el.style.top=y+'px';el.style.width=w+'px';el.style.height=h+'px';el.style.opacity=op;
+ if(file)setImg(img,src(file));img.style.width=IW*sc+'px';img.style.transform=`translate(${-sx*sc}px,${-sy*sc}px)`}
+function tok(label,i){const m=META[label];return m&&m[i]}
+const cap=(html,x,y,op,cls)=>{const c=$('c1');c.innerHTML=html;c.style.left='0px';c.style.right='0px';c.style.textAlign='center';c.style.top=(y+8)+'px';c.style.opacity=op;$('band').style.opacity=Math.max(+$('band').style.opacity||0,op)}
+function render(t){
+ const c=$('c').getContext('2d');c.clearRect(0,0,1280,720);
+ ['hook','w','sk'].forEach(i=>$(i).style.opacity=0);['enddark','word','title','sklab','end','trap','wolf','c1','band'].forEach(i=>$(i).style.opacity=0);
+ $('rays').style.opacity=0;$('flash').style.opacity=0;$('skinbg').style.opacity=0;
+ $('bg').style.transform=`scale(${1.04+t*.004}) translate(${-t*3}px,0)`;
+ embers(c,t,.55);
+ // ---- HOOK: the NAT 20 token big
+ if(t<T.hookEnd){
+  const per=tok('per',4)||tok('per',0);const since=t-0.15;const f=fr('per',since);
+  const k0=per?per:{x:500,y:400,w:200,h:40};const k={x:k0.x-110,y:k0.y,w:k0.w+110,h:k0.h};const pad=22;const bw=k.w+pad*2,bh=k.h+pad*2;const sc=Math.min(1100/bw,3.4);
+  const land=T.hookLand; const pop=1+.06*Math.exp(-Math.pow((t-land)*8,2));
+  const x=640-bw*sc/2,y=360-bh*sc/2+40;
+  place($('hook'),$('hi'),f,x,y,bw*sc,bh*sc,k.x-pad,k.y-pad,sc,(1-ph(t,T.hookEnd-.2,T.hookEnd)));
+  $('hook').style.transform=`scale(${pop})`;
+  if(t>land){const d=t-land;$('rays').style.opacity=cl(d*4)*.95*(1-ph(t,T.hookEnd-.25,T.hookEnd));$('rays').style.transform=`rotate(${d*14}deg)`;
+   $('flash').style.opacity=Math.max(0,.9-d*2.2);burst(c,t,land,640,400);
+   const w=$('word');w.style.top='70px';w.style.opacity=cl(d*6)*(1-ph(t,T.hookEnd-.2,T.hookEnd));w.style.transform=`scale(${1+.5*Math.exp(-d*9)})`}
+ }
+ // ---- TITLE
+ if(t>=T.hookEnd&&t<T.titleEnd){const a=ph(t,T.hookEnd,T.hookEnd+.25)*(1-ph(t,T.titleEnd-.25,T.titleEnd));const e=$('title');e.style.opacity=a;e.style.transform=`scale(${1.08-.08*out(ph(t,T.hookEnd,T.titleEnd))})`}
+ // ---- WINDOW
+ if(t>=T.titleEnd-.15&&t<T.skinStart){
+  const a=ph(t,T.titleEnd-.15,T.titleEnd+.35);
+  let file=null,label=null,since=0;
+  for(const s of T.seq){if(t>=s.a&&t<s.b){if(s.glide){const L=GL[s.glide];file=L[Math.min(L.length-1,Math.floor(ph(t,s.a,s.b)*L.length))]}else if(s.still){file=s.still}else{label=s.r;since=t-s.a-s.pre;file=fr(s.r,since)}}}
+  // camera: base fits window; push in on focus
+  let sc=Math.min(1180/IW,640/IH),cx=IW/2,cy=IH/2;
+  const f=T.focus.find(q=>t>=q.a&&t<q.b);
+  let z=0;if(f){z=ease(ph(t,f.a,f.a+.5))*(1-ease(ph(t,f.b-.4,f.b)));const k=tok(f.r,f.i);if(k){cx=cx+(k.x/ (window.DPR||1)+k.w/2/(window.DPR||1)-cx)*z;cy=cy+(k.y/(window.DPR||1)-cy)*z*.8}}
+  sc=sc*(1+z*(f?f.zoom:0));
+  const vw=Math.min(IW*sc,1180+z*100),vh=Math.min(IH*sc,640+z*80);
+  const sx=cl(cx-vw/sc/2,0,IW-vw/sc),sy=cl(cy-vh/sc/2,0,IH-vh/sc);
+  const fly=1-out(a);
+  place($('w'),$('wi'),file,640-vw/2,360-vh/2+10+fly*120,vw,vh,sx,sy,sc,a);
+  $('w').style.transform=`perspective(1400px) rotateX(${fly*18}deg) scale(${.92+.08*out(a)})`;
+  // NAT 1 moment
+  if(t>=T.nat1&&t<T.nat1+1.5){const d=t-T.nat1;const o=cl(d*4)*(1-ph(t,T.nat1+1.2,T.nat1+1.5));
+   cap('A natural 1 lands <b class="red">in red.</b>',70,620,o);const tr=$('trap');tr.style.left=(-40+out(cl(d*3))*70)+'px';tr.style.top='330px';tr.style.opacity=o*.9;tr.style.transform=`rotate(${-12+d*4}deg)`}
+  if(t>=T.nat20&&t<T.nat20+2){const d=t-T.nat20;const o=cl(d*4)*(1-ph(t,T.nat20+1.7,T.nat20+2));
+   cap('A natural 20 lands <b class="gold">in gold.</b>',380,630,o);burst(c,t,T.nat20,640,360);
+   c.save();c.globalCompositeOperation='lighter';const g=c.createRadialGradient(640,360,0,640,360,700);g.addColorStop(0,`rgba(255,180,70,${.0})`);g.addColorStop(.6,`rgba(255,170,60,${.28*o})`);g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.fillRect(0,0,1280,720);c.restore()}
+  if(t>=T.logCap&&t<T.skinStart){const o=cl((t-T.logCap)*4)*(1-ph(t,T.skinStart-.3,T.skinStart));cap('Every throw, kept in your <b class="gold">session log.</b>',300,636,o)}
+ }
+ // ---- SKINS
+ if(t>=T.skinStart&&t<T.endStart){
+  const half=(T.endStart-T.skinStart)/2;const i=t<T.skinStart+half?0:1;const s0=T.skinStart+i*half;const name=['parchment','arcane'][i];
+  const bg=$('skinbg');bg.style.opacity=1;bg.style.background=i?'radial-gradient(ellipse at 50% 40%,#1b3a5c,#050a18 70%)':'radial-gradient(ellipse at 50% 40%,#7a4a1c,#1a0d05 72%)';
+  $('bgv').style.opacity=.6;
+  const lab=`skin-${name}`;const k=tok(lab,4)||{x:400,y:400,w:200,h:40};const since=t-s0-.1;const f=fr(lab,since);
+  const kk={x:k.x-120,y:k.y,w:k.w+120,h:k.h};const pad=26;const bw=kk.w+pad*2,bh=kk.h+pad*2.2;const sc=Math.min(1060/bw,2.9);
+  const a=cl((t-s0)*6)*(1-ph(t,s0+half-.15,s0+half));
+  place($('sk'),$('ski'),f,640-bw*sc/2,400-bh*sc/2,bw*sc,bh*sc,kk.x-pad,kk.y-pad*1.3,sc,a);
+  $('sklab').style.opacity=a;$('skn').textContent=i?'Arcane':'Parchment';
+  const land=s0+.1+(T.skinLand||.9);if(t>land){const d=t-land;$('flash').style.opacity=Math.max(0,.6-d*2)*a;burst(c,t,land,640,400)}
+  embers(c,t,i?.0:.9);
+  if(i){c.fillStyle='rgba(190,225,255,.8)';for(let n=0;n<90;n++){const x=(n*137.5%1280),y=(n*71.3+t*30*(1+n%3))%720;c.globalAlpha=.3+.5*Math.abs(Math.sin(t*2+n));c.fillRect(x,y,1.6,1.6)}c.globalAlpha=1}
+ }
+ // ---- END
+ if(t>=T.endStart){const a=ph(t,T.endStart,T.endStart+.4);$('enddark').style.opacity=a;$('end').style.opacity=a;$('end').style.transform=`scale(${1.04-.04*out(a)})`;$('bgv').style.opacity=1}
+ else $('bgv').style.opacity=1;
+ $('tag').style.opacity=(t>=T.hookEnd&&t<T.titleEnd)||t>=T.endStart?0:.9;
+}
+</script></body></html>

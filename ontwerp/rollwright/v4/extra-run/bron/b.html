@@ -1,0 +1,98 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="paper.css"><style>
+@font-face{font-family:Deco;src:url(f/cinzeldec.woff2)}@font-face{font-family:Cin;src:url(f/cinzel.woff2);font-weight:400 900}
+@font-face{font-family:Fell;src:url(f/fell.woff2)}@font-face{font-family:Fell;font-style:italic;src:url(f/felli.woff2)}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#0b0705}
+#st{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse 70% 80% at 30% 45%,#4a2c14,#140b05 65%,#070403)}
+#wood{position:absolute;inset:0;opacity:.35;background:repeating-linear-gradient(92deg,rgba(0,0,0,.25) 0 2px,transparent 2px 9px,rgba(255,200,140,.04) 9px 11px,transparent 11px 23px)}
+canvas{position:absolute;inset:0}
+#flash{position:absolute;inset:0;opacity:0}
+#rays{position:absolute;left:880px;top:380px;width:2600px;height:2600px;margin:-1300px 0 0 -1300px;opacity:0;
+ background:repeating-conic-gradient(from 0deg,rgba(255,206,110,.24) 0deg 5deg,transparent 5deg 15deg);-webkit-mask:radial-gradient(circle,#000 0,#000 12%,transparent 50%)}
+.panel{position:absolute;left:0;top:0;width:560px;height:720px;opacity:0;box-shadow:20px 0 60px rgba(0,0,0,.7);overflow:hidden}
+.panel img{position:absolute;left:90px;top:120px;width:380px;height:380px;opacity:.92}
+.panel .w{position:absolute;left:0;right:0;bottom:92px;text-align:center;font:800 54px Cin;letter-spacing:.1em;color:#5c1f0f}
+.panel .k{position:absolute;left:0;right:0;bottom:58px;text-align:center;font:italic 26px Fell;color:#6b4f35}
+.win{position:absolute;overflow:hidden;border-radius:12px;box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,220,160,.18);opacity:0}
+.win img{position:absolute;left:0;top:0;transform-origin:0 0}
+#title{position:absolute;left:0;right:0;top:240px;text-align:center;opacity:0}
+#title .t{font:700 128px Deco;color:#f6e7c6;text-shadow:0 8px 40px #000}
+#title .s{font:italic 40px Fell;color:#e8cf9c;margin-top:4px}
+.stamp{position:absolute;left:30px;width:244px;height:300px;opacity:0;text-align:center}
+.stamp .pp{position:absolute;inset:0;border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.6);border:1px solid #b08a58}
+.stamp img{position:absolute;left:42px;top:28px;width:160px;height:160px}
+.stamp .w{position:absolute;left:0;right:0;top:202px;font:800 26px Cin;letter-spacing:.08em;color:#5c1f0f}
+.stamp .k{position:absolute;left:0;right:0;top:244px;font:italic 21px Fell;color:#6b4f35}
+.half{position:absolute;top:0;width:640px;height:720px;overflow:hidden;opacity:0}
+.half .lab{position:absolute;left:0;right:0;top:120px;text-align:center}
+.half .lab .k{font:800 18px Cin;letter-spacing:.4em;color:#f0dcb4}
+.half .lab .n{font:700 64px Deco;color:#fff3da;text-shadow:0 6px 30px #000}
+.half .card{position:absolute;left:40px;top:300px;width:560px;height:150px;overflow:hidden;-webkit-mask:linear-gradient(transparent 0,#000 25%,#000 75%,transparent)}
+.half .card img{position:absolute;transform-origin:0 0}
+#end{position:absolute;inset:0;opacity:0;text-align:center}
+#end .t{position:absolute;top:190px;left:0;right:0;font:700 112px Deco;color:#f6e7c6;text-shadow:0 8px 40px #000}
+#end .s{position:absolute;top:330px;left:0;right:0;font:italic 40px Fell;color:#ecd3a0}
+#end .p{position:absolute;top:410px;left:50%;transform:translateX(-50%);padding:14px 30px;border-radius:999px;background:linear-gradient(#f5cf72,#d9a441);color:#2a1a05;font:800 22px Cin;letter-spacing:.06em;box-shadow:0 10px 30px rgba(0,0,0,.6);white-space:nowrap}
+#end .m{position:absolute;bottom:44px;left:0;right:0;font:italic 24px Fell;color:#cbb592}
+#tag{position:absolute;right:26px;bottom:20px;font:700 13px Cin;letter-spacing:.18em;color:#d9c39b;opacity:.9;z-index:9}
+#tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e5484d;margin-right:8px;vertical-align:1px}
+</style></head><body><div id="st"><div id="wood"></div><div id="rays"></div><div id="flash"></div><canvas id="c" width="1280" height="720"></canvas>
+<div class="panel paper" id="pn"><img id="pi"><div class="w" id="pw"></div><div class="k" id="pk"></div></div>
+<div class="win" id="hk"><img id="hki"></div>
+<div id="title"><div class="t">Rollwright</div><div class="s">Every roll tells the story</div></div>
+<div class="win" id="w"><img id="wi"></div>
+<div class="stamp" id="s1"><div class="pp paper"></div><img src="wolf-ink.svg"><div class="w">The wolf</div><div class="k">attack and damage</div></div>
+<div class="stamp" id="s2"><div class="pp paper"></div><img src="trap-ink.svg"><div class="w">The trap</div><div class="k" style="color:#9a2414">a natural 1, in red</div></div>
+<div class="stamp" id="s3"><div class="pp paper"></div><img src="lantern-ink.svg"><div class="w">The lantern</div><div class="k" style="color:#8a5a00">a natural 20, in gold</div></div>
+<div class="half" id="h1" style="left:0;background:radial-gradient(ellipse at 50% 55%,#8a5420,#1c0e05 72%)"><div class="lab"><div class="k">OPTIONAL SKIN</div><div class="n">Parchment</div></div><div class="card"><img id="h1i"></div></div>
+<div class="half" id="h2" style="left:640px;background:radial-gradient(ellipse at 50% 55%,#1d4470,#040915 72%)"><div class="lab"><div class="k">OPTIONAL SKIN</div><div class="n">Arcane</div></div><div class="card"><img id="h2i"></div></div>
+<div id="end"><div class="t">Rollwright</div><div class="s">Your session, rolled and remembered.</div><div class="p">FREE IN OBSIDIAN COMMUNITY PLUGINS</div><div class="m">Made by Thijs at Dortus</div></div>
+<div id="tag"><i></i>REAL PLUGIN FOOTAGE · OBSIDIAN</div>
+</div>
+<script src="common.js"></script>
+<script>
+const D=__DATA__, META=__META__;const FR=D.FR, GL=D.GL;const IW=__IW__, IH=__IH__;const T=__TIMES__;
+function fr(label,since){const L=FR[label];if(!L)return null;if(since<0)return L[0][1];let f=L[0][1];for(const [m,n] of L){if(m>=0&&m<=since*1000)f=n}return f}
+const tok=(l,i)=>META[l]&&META[l][i];
+function crop(img,file,k,boxW,boxH,lead){ // k token rect; fit region (k.x-lead .. k.x+k.w+pad) into box
+ const pad=24;const rw=k.w+lead+pad*2;const sc=Math.min(boxW/rw,4.2);const rh=boxH/sc;
+ if(file)setImg(img,'fr/'+file);img.style.width=IW*sc+'px';img.style.transform=`translate(${-(k.x-lead-pad)*sc+(boxW-rw*sc)/2}px,${-(k.y+k.h/2-rh/2)*sc}px)`}
+function render(t){
+ const c=$('c').getContext('2d');c.clearRect(0,0,1280,720);
+ ['pn','hk','title','w','s1','s2','s3','h1','h2','end'].forEach(i=>$(i).style.opacity=0);$('rays').style.opacity=0;$('flash').style.opacity=0;
+ embers(c,t,.7);
+ // ---- HOOK triple cut
+ const H=T.hook; // [[a,b,label,i,img,word,sub,kind]]
+ for(const h of H){if(t>=h.a&&t<h.b){const d=t-h.a;
+  $('pn').style.opacity=1;setImg($('pi'),h.img);$('pw').textContent=h.word;$('pk').textContent=h.sub;
+  $('pi').style.transform=`scale(${1.12-.12*out(cl(d*5))}) rotate(${(1-out(cl(d*5)))*-6}deg)`;
+  $('pn').style.transform=`translateX(${-(1-out(cl(d*7)))*80}px)`;
+  const k=tok(h.r,h.i);const hk=$('hk');hk.style.opacity=1;hk.style.left='600px';hk.style.top='290px';hk.style.width='640px';hk.style.height='170px';
+  hk.style.transform=`scale(${1+.08*Math.exp(-d*10)})`;hk.className='win paper';
+  crop($('hki'),fr(h.r,h.since+d),k,640,170,110);
+  if(h.kind==='gold'&&d>h.land){const e=d-h.land;$('rays').style.opacity=cl(e*5)*.9;$('rays').style.transform=`rotate(${e*16}deg)`;$('flash').style.background='radial-gradient(circle at 70% 52%,rgba(255,230,160,.9),transparent 60%)';$('flash').style.opacity=Math.max(0,.8-e*2.5);burst(c,t,h.a+h.land,920,375)}
+  if(h.kind==='red'&&d>h.land){const e=d-h.land;$('flash').style.background='radial-gradient(circle at 70% 52%,rgba(220,40,30,.55),transparent 60%)';$('flash').style.opacity=Math.max(0,.9-e*3)}
+ }}
+ // ---- TITLE
+ if(t>=T.titleA&&t<T.titleB){const a=ph(t,T.titleA,T.titleA+.25)*(1-ph(t,T.titleB-.25,T.titleB));$('title').style.opacity=a;$('title').style.transform=`scale(${1.06-.06*out(ph(t,T.titleA,T.titleB))})`}
+ // ---- WINDOW with stamps
+ if(t>=T.titleB-.2&&t<T.splitA){
+  const a=ph(t,T.titleB-.2,T.titleB+.3)*(1-ph(t,T.splitA-.25,T.splitA));let file=null;
+  for(const s of T.seq){if(t>=s.a&&t<s.b){if(s.glide){const L=GL[s.glide];file=L[Math.min(L.length-1,Math.floor(ph(t,s.a,s.b)*L.length))]}else if(s.still)file=s.still;else file=fr(s.r,t-s.a-s.pre)}}
+  const sc=960/IW;const w=$('w');w.style.left='296px';w.style.top=(360-IH*sc/2)+'px';w.style.width=IW*sc+'px';w.style.height=IH*sc+'px';w.style.opacity=a;
+  w.style.transform=`perspective(1600px) rotateY(${-6+4*ease(ph(t,T.titleB,T.splitA))}deg) translateX(${(1-out(a))*200}px)`;
+  setImg($('wi'),'fr/'+file);$('wi').style.width=IW*sc+'px';$('wi').style.transform='none';
+  for(const s of T.stamps){if(t>=s.a&&t<s.b){const d=t-s.a;const el=$(s.id);el.style.opacity=cl(d*6)*(1-ph(t,s.b-.2,s.b));el.style.top='200px';
+   el.style.transform=`rotate(${s.rot}deg) scale(${1+.35*Math.exp(-d*9)})`;
+   if(s.id==='s3'&&d>.25)burst(c,t,s.a+.25,150,330);}}
+ }
+ // ---- SPLIT skins
+ if(t>=T.splitA&&t<T.endA){const a=ph(t,T.splitA,T.splitA+.3)*(1-ph(t,T.endA-.2,T.endA));
+  [['h1','h1i','skin-parchment',0],['h2','h2i','skin-arcane',.25]].forEach(([id,im,l,off])=>{const el=$(id);el.style.opacity=a;el.style.transform=`translateY(${(1-out(cl((t-T.splitA-off)*3)))*(id==='h1'?-60:60)}px)`;
+   const k=tok(l,4);crop($(im),fr(l,t-T.splitA-off-.2),k,560,150,120);
+   const land=T.splitA+off+.2+T.skinLand;if(t>land)burst(c,t,land,id==='h1'?320:960,375)});
+  c.fillStyle='rgba(190,225,255,.8)';for(let n=0;n<70;n++){const x=640+(n*97.3%640),y=(n*71.3+t*30*(1+n%3))%720;c.globalAlpha=(.3+.5*Math.abs(Math.sin(t*2+n)))*a;c.fillRect(x,y,1.6,1.6)}c.globalAlpha=1;
+ }
+ if(t>=T.endA){const a=ph(t,T.endA,T.endA+.4);$('end').style.opacity=a;$('end').style.transform=`scale(${1.04-.04*out(a)})`}
+ $('tag').style.opacity=(t>=T.titleA&&t<T.titleB)||t>=T.endA?0:.9;
+}
+</script></body></html>
