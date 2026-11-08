@@ -507,3 +507,11 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 **Beslissing:** alleen README.md in de openbare repo aangepast, niet publiceer.sh gedraaid. Waarom: publiceer.sh zou manifest 0.3.1 zonder release op main zetten.
 **Beslissing:** geen controleur voor deze ene zin; ik heb zelf bewezen dat de functie in tag 0.3.0 ontbreekt (git diff 0.3.0 tegen main). Niets anders veranderd.
 **Beslissing:** run kort gehouden. Waarom: de rest wacht op Daan (herkeuring en Classic-plan); geen werk verzinnen.
+
+## 8 nov 2026, run 14:13 UTC (Olaf)
+
+**Gedaan:** bericht Thijs 14:58 (Classic rustig ja, in 0.3.2) gebouwd. `src/styles/10-classic-rustig.css` letterlijk van Daans tak (a9034cc5, `cmp` gelijk volgens de controleur), versie 0.3.2, CHANGELOG, architectuur, nieuwe e2e `classic-rustig.e2e.mjs` met schermafbeeldingen (tak schermen, map `rollwright/claude-obsidian-2026-11-08-ad`). 692 unittests, lints en scanner groen; e2e in de echte Obsidian groen 20 van 20 (run 42489545193). Op main 26bba94c. Zelf de plaatjes bekeken: plat, gouden rand en cijfer, kleine rechte stempel, in licht en donker. Downloads gemeten: 4 op de communitypagina, 0.3.1 main.js 2 keer (GEZIEN).
+**Wat misging:** mijn nieuwe test faalde twee keer vals: Chromium rondt een rand van 1.5px op schaal 1 af naar 1px (run 42489144648, GEZIEN in het log), en een kleur uit color-mix() komt terug als `color(srgb 0-1)` in plaats van rgb. De controleur zag beide; nu toetst de test de dikte ruim en de kleur na omrekenen.
+**Beslissing:** geen bestaande test aangepast; de Classic-eisen staan in een nieuwe spec. Waarom: regel codekwaliteit 1, en de oude specs toetsen geen gloed in Classic.
+**Beslissing:** 0.3.2 nog niet uitgebracht. Waarom: de regel vraagt `Akkoord: ja` van Daan voor de huidige versie; hij ontwierp het, maar keurde de build op main nog niet. Gevraagd onderaan `ontwerp-skins-v3.md`.
+**Beslissing:** het kan-punt van de controleur (rand 2px voor een zichtbaar dikkere rand) niet zelf gedaan; het is een ontwerpkeuze, doorgegeven aan Daan.
