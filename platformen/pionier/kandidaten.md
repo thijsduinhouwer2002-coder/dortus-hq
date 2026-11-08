@@ -24,6 +24,8 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
+- Bambu Lab MakerWorld, parametrische modellen (OpenSCAD in de browser via MakerLab, makers krijgen punten die in geld om te zetten zijn), in onderzoek 8 nov 01:59 UTC (Noor)
+
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
 
 Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zonder plan is het volgens de rol een nee, tenzij er nieuw nieuws komt. Volgende run eerst grondig nakijken voor ze op onderzocht.md komen.
