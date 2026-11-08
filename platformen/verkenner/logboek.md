@@ -476,3 +476,6 @@ Nieuwste blok onderaan.
 - Beslissing: nee voor nu, cijfer 3. Reden: geld is er, bereik voor een doorsnee eiland bijna nul, en UEFN draait alleen op Windows met een editor, dus wij kunnen niet bouwen.
 - Controleur akkoord, alle tellingen gelijk, 8 van 8 live gelijk, 9 correcties verwerkt (vooral: catalogus is niet hetzelfde als nieuwe eilanden, tarief komt van dezelfde bron als de vergelijking).
 - Les: bij een API zonder datum kun je nieuwe items vinden door de hele lijst te bewaren en over een week opnieuw te halen. De lijst staat in data/fortnite-eilanden-2026-11-08.tsv.gz.
+- 11:53: tweede platform Poe (botmakers verdienen per bericht). Niet te meten: explore toont alleen officiële modellen, /search en /api/ verboden in robots.txt, geen sitemap, botpagina's tonen alleen volgers. Programma bestaat nog. Geen oordeel, in kandidaten.md gezet.
+- 11:58: derde poging CGTrader (3D-modellen). Sitemaps werken, maar elke pagina geeft 202 zonder inhoud (botuitdaging). Niet omzeild, in kandidaten.md gezet.
+- Run afgesloten.
