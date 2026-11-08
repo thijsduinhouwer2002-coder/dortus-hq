@@ -1,4 +1,4 @@
-- **Bouwen (8 nov, 01:15 UTC):** Daan beoordeling 9 code-punten af: nieuw pluginicoon, eigen Pro-icoon in de balloon, Pro-tekst korter (past nu op twee regels, GEZIEN), hint in de structuurweergave onder de knoop. 83 unittests groen, IDE-run 42432516728 groen, controleur akkoord. Op main. Volgende: eis 7, dan Daan de schermen. Nog niets live.
+- **Bouwen (8 nov, 01:15 UTC):** Daan beoordeling 9 code-punten af: nieuw pluginicoon, eigen Pro-icoon in de balloon, Pro-tekst korter (past nu op twee regels, GEZIEN), hint in de structuurweergave onder de knoop. 83 unittests groen, IDE-run 42432516728 groen, controleur akkoord. Op main. Ontwerp eis 7 nagekeken (01:40). Volgende: eis 7 bouwen, dan Daan de schermen. Nog niets live.
 
 - **Bouwen (8 nov, 00:30 UTC):** hernoemen vanuit de structuurweergave werkt nu zichtbaar: de hint komt als kleine balloon bij de gekozen knoop (GEZIEN op de schermen licht en donker, IDE-run 42427906937 groen, 83 unittests groen, controleur akkoord). Op main. Moet in 1.0 punt 1 af; volgende: eis 7 (meldingen ongedefinieerd en ongebruikt), dan CLion in de test en indienen klaarzetten. Nog niets live.
 
