@@ -1,6 +1,6 @@
 """Ronde h: 3MF-export (Daan, beoordeling 2, punt 2). Exporteert via de add-on met de keuze 3MF en leest
 het bestand zelf terug: de vaste zip-delen, unit millimeter, aantal driehoeken, maat in mm gelijk aan het deel,
-geen foute randen erbij ten opzichte van de mesh zelf (elke rand één keer heen en één keer terug), en het volume
+elke rand precies één keer heen en één keer terug (gesloten en dezelfde draairichting), en het volume
 gelijk aan het deel (positief, dus de normalen wijzen naar buiten)."""
 import os
 import tempfile
@@ -66,7 +66,7 @@ def toets(lijst, label="3MF"):
         fout, soort = foute_randen(drie)
         bron, bron_soort = foute_randen([tuple(p.vertices) for p in d.data.polygons])
         log(f"3MF {d.name}: foute randen in 3MF {fout} {soort}, in de mesh zelf {bron} {bron_soort}")
-        stap(f"{label} {d.name}: 3MF voegt geen foute randen toe (3MF {fout}, mesh {bron})", fout <= bron)
+        stap(f"{label} {d.name}: gesloten en dezelfde draairichting (foute randen 3MF {fout}, mesh {bron})", fout == 0)
         vol = 0.0
         for a, b, c in drie:
             (x1, y1, z1), (x2, y2, z2), (x3, y3, z3) = punten[a], punten[b], punten[c]

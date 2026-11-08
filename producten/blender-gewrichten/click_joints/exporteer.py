@@ -51,7 +51,7 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         schaal = 1.0 / eenheid_per_mm(context.scene)  # Blender-eenheden naar mm
         actief = context.view_layer.objects.active
         gekozen = [o for o in context.view_layer.objects if o is not None and o.select_get()]
-        with echte_plek(lijst):  # opengewerkt beeld even uit: de STL krijgt de echte plek
+        with echte_plek(lijst):  # opengewerkt beeld even uit: het bestand krijgt de echte plek
             if formaat == "3MF":
                 geschreven = self.schrijf_3mf(context, lijst, map_, schaal)
             else:
