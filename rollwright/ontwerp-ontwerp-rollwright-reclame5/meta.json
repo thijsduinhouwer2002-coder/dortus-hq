@@ -1,3 +1,32 @@
 {
- "scroll": {}
+ "scroll": {
+  "beast": null,
+  "trap": null,
+  "ini": null,
+  "per": null
+ },
+ "leaves": [
+  "file-explorer:workspace-leaf-content",
+  "search:workspace-leaf-content",
+  "bookmarks:workspace-leaf-content",
+  "empty:workspace-leaf-content",
+  "backlink:workspace-leaf-content",
+  "outgoing-link:workspace-leaf-content",
+  "tag:workspace-leaf-content",
+  "all-properties:workspace-leaf-content",
+  "outline:workspace-leaf-content",
+  "rollwright-history:workspace-leaf-content"
+ ],
+ "top": [],
+ "ini": [],
+ "att": [],
+ "dmg": [],
+ "dex": [],
+ "per": [],
+ "tab": [],
+ "held": [],
+ "heldA": [],
+ "skin-parchment": [],
+ "skin-arcane": [],
+ "groot": null
 }
