@@ -29,6 +29,11 @@ canvas{position:absolute;inset:0}
 #end .row{position:absolute;top:372px;left:0;right:0;text-align:center;font:500 24px Inter;color:#cfc4de}
 #end .pill{display:inline-block;margin-top:34px;padding:14px 26px;border:1.5px solid #e9b949;border-radius:999px;font:700 22px Inter;color:#f2c14e}
 #end .made{position:absolute;bottom:46px;left:0;right:0;text-align:center;font:500 18px Inter;color:#8f86a3}
+#lift{position:absolute;left:0;top:0;width:584px;height:142px;border-radius:22px;overflow:hidden;opacity:0;z-index:4;
+ box-shadow:0 30px 80px rgba(0,0,0,.8),0 0 0 1px rgba(233,185,73,.25);transform-origin:50% 50%}
+#lift img{width:584px;height:142px;display:block}
+#rays{filter:blur(7px);position:absolute;left:140px;top:-200px;width:1000px;height:1000px;opacity:0;z-index:3}
+#tag{position:absolute;left:0;right:0;top:120px;text-align:center;font:700 20px Cinzel;letter-spacing:.5em;color:#f2c14e;opacity:0;z-index:5;text-shadow:0 2px 20px rgba(0,0,0,.8)}
 #vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.6));pointer-events:none}
 </style></head><body><div id="stage">
 <svg id="map" width="1360" height="800" viewBox="0 0 1360 800"><g fill="none" stroke="#e9c27a" stroke-width="1.2">
@@ -49,7 +54,9 @@ canvas{position:absolute;inset:0}
   <div id="logmask" style="position:absolute;left:649px;top:140px;width:247px;height:560px;background:#262626;opacity:0"></div>
   <svg id="cursor" viewBox="0 0 12 20"><path d="M0 0 L0 17 L4 13 L7 20 L10 19 L7 12 L12 12 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div>
 </div>
-<div class="cap" id="cap1" style="top:560px">A natural 20 lands <b>in gold.</b><small>Free. Click any roll in your note to throw it again.</small></div>
+<svg id="rays" viewBox="-50 -50 100 100"><defs><radialGradient id="rg"><stop offset="0" stop-color="#ffd680" stop-opacity=".55"/><stop offset=".6" stop-color="#ff9a3c" stop-opacity=".12"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient></defs><g id="rayg" fill="url(#rg)"></g></svg>
+<div id="lift"><img src="fr/lift.png"></div><div id="tag">CRITICAL HIT</div>
+<div class="cap" id="cap1" style="top:520px">A natural 20 lands <b>in gold.</b><small>Free. Click any roll in your note to throw it again.</small></div>
 <div class="cap" id="cap2" style="top:590px;font-size:44px">Every throw, kept in a <b>session log.</b></div>
 <div id="end"><div class="t logo" style="top:200px">ROLLWRIGHT</div>
  <div class="big">Roll dice right in your notes.</div>
@@ -57,6 +64,8 @@ canvas{position:absolute;inset:0}
  <div class="made">Made by Thijs at Dortus</div></div>
 <div id="band" style="position:absolute;left:0;right:0;bottom:0;height:280px;background:linear-gradient(transparent,rgba(8,6,12,.96) 55%);opacity:0"></div><div id="vig"></div></div>
 <script>
+(()=>{const g=document.getElementById('rayg');let h='';for(let i=0;i<18;i++){const a=i*20*Math.PI/180,w=(i%2?3.2:5.5)*Math.PI/180;
+h+=`<path d="M0 0 L${50*Math.cos(a-w)} ${50*Math.sin(a-w)} L${50*Math.cos(a+w)} ${50*Math.sin(a+w)} Z"/>`}g.innerHTML=h})();
 const FR={"Initiative": [[6, "gif-003-Initiative-6ms.png"], [80, "gif-004-Initiative-80ms.png"], [146, "gif-005-Initiative-146ms.png"], [215, "gif-006-Initiative-215ms.png"], [280, "gif-007-Initiative-280ms.png"], [329, "gif-008-Initiative-329ms.png"], [379, "gif-009-Initiative-379ms.png"], [447, "gif-010-Initiative-447ms.png"], [512, "gif-011-Initiative-512ms.png"], [561, "gif-012-Initiative-561ms.png"], [612, "gif-013-Initiative-612ms.png"], [645, "gif-014-Initiative-645ms.png"], [700, "gif-015-Initiative-700ms.png"], [749, "gif-016-Initiative-749ms.png"], [801, "gif-017-Initiative-801ms.png"], [845, "gif-018-Initiative-845ms.png"], [896, "gif-019-Initiative-896ms.png"], [928, "gif-020-Initiative-928ms.png"], [979, "gif-021-Initiative-979ms.png"], [1029, "gif-022-Initiative-1029ms.png"], [1078, "gif-023-Initiative-1078ms.png"], [1250, "gif-024-Initiative-rust.png"]], "Damage": [[5, "gif-026-Damage-5ms.png"], [78, "gif-027-Damage-78ms.png"], [144, "gif-028-Damage-144ms.png"], [211, "gif-029-Damage-211ms.png"], [277, "gif-030-Damage-277ms.png"], [326, "gif-031-Damage-326ms.png"], [393, "gif-032-Damage-393ms.png"], [442, "gif-033-Damage-442ms.png"], [509, "gif-034-Damage-509ms.png"], [560, "gif-035-Damage-560ms.png"], [593, "gif-036-Damage-593ms.png"], [648, "gif-037-Damage-648ms.png"], [693, "gif-038-Damage-693ms.png"], [744, "gif-039-Damage-744ms.png"], [793, "gif-040-Damage-793ms.png"], [826, "gif-041-Damage-826ms.png"], [878, "gif-042-Damage-878ms.png"], [926, "gif-043-Damage-926ms.png"], [963, "gif-044-Damage-963ms.png"], [1009, "gif-045-Damage-1009ms.png"], [1060, "gif-046-Damage-1060ms.png"], [1250, "gif-047-Damage-rust.png"]], "Wisdom": [[5, "gif-049-Wisdom-5ms.png"], [81, "gif-050-Wisdom-81ms.png"], [148, "gif-051-Wisdom-148ms.png"], [214, "gif-052-Wisdom-214ms.png"], [282, "gif-053-Wisdom-282ms.png"], [329, "gif-054-Wisdom-329ms.png"], [380, "gif-055-Wisdom-380ms.png"], [446, "gif-056-Wisdom-446ms.png"], [515, "gif-057-Wisdom-515ms.png"], [581, "gif-058-Wisdom-581ms.png"], [646, "gif-059-Wisdom-646ms.png"], [679, "gif-060-Wisdom-679ms.png"], [729, "gif-061-Wisdom-729ms.png"], [779, "gif-062-Wisdom-779ms.png"], [829, "gif-063-Wisdom-829ms.png"], [879, "gif-064-Wisdom-879ms.png"], [929, "gif-065-Wisdom-929ms.png"], [966, "gif-066-Wisdom-966ms.png"], [1029, "gif-067-Wisdom-1029ms.png"], [1062, "gif-068-Wisdom-1062ms.png"], [1250, "gif-069-Wisdom-rust.png"]]};
 const $=id=>document.getElementById(id);
 const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
@@ -94,16 +103,19 @@ window.render=function(t){
  const press=(()=>{for(const [k,st] of order){const d=t-(st-.38);if(d>0&&d<.12)return .85}return 1})();
  $('cursor').style.transform=`translate(${cx*.875}px,${cy*.875}px) scale(${press})`;
  $('cursor').style.opacity=t>2.6&&t<7.2?1:0;
- // camera zoom on NAT 20
- const zi=ease(ph(t,...T.zoomIn)), zo=ease(ph(t,...T.zoomOut));const z=zi*(1-zo);
- const tx=192+395*.875, ty=92+553*.875; // token center on stage
- const S=1+.38*z+.015*z*Math.sin(t*1.3);
- const fx=640, fy=300; // where token should sit
- $('cam').style.transform=`translate(${(fx-tx*S)*z+(1-z)*(640-640*S)}px,${(fy-ty*S)*z+(1-z)*(360-360*S)}px) scale(${S})`;
- // warm light (scene lighting, outside the app)
+ // NAT 20 moment: window steps back and dims, the real token is lifted out large (magnified real screenshot)
+ const mi=ease(ph(t,7.2,7.75)), mo=ease(ph(t,9.35,9.9)); const m=mi*(1-mo);
+ $('cam').style.transform=`translateY(${m*40}px) scale(${1-.06*m})`;$('cam').style.transformOrigin='640px 600px';
+ win.style.filter=`brightness(${1-.55*m}) blur(${m*1.5}px)`;
+ const tx=192+395*.875, ty=92+553*.875, s0=.36; // token on stage, small scale
+ const L=$('lift'); const lx=640-292, ly=250-71;
+ const px=tx-292+(lx-(tx-292))*m, py=ty-71+(ly-(ty-71))*m, sc=s0+(1.18-s0)*m+.012*m*Math.sin(t*2.2);
+ L.style.opacity=t>7.18&&t<9.95?cl(m*3):0; L.style.transform=`translate(${px}px,${py}px) scale(${sc})`;
+ const R=$('rays');R.style.opacity=m*(.5+.15*Math.sin(t*2.6));R.style.transform=`rotate(${t*9}deg) scale(${.6+.5*mi})`;
+ $('tag').style.opacity=out(ph(t,7.6,8.0))*(1-ph(t,9.0,9.3)); $('tag').style.letterSpacing=(.8-.3*out(ph(t,7.6,8.3)))+'em';
  const burst=ph(t,7.15,7.5);
- $('warm').style.opacity=(t>7.1&&t<10.4)?(.35+.65*Math.exp(-3*(t-7.2))+.08*Math.sin(t*3))*(1-zo):0;
- $('band').style.opacity=Math.max(out(ph(t,7.6,8.1))*(1-ph(t,9.4,9.7)),out(ph(t,10.6,11.1))*(1-ph(t,12.5,12.8)));$('cap1').style.opacity=out(ph(t,7.7,8.2))*(1-ph(t,9.4,9.7));
+ $('warm').style.opacity=(t>7.1&&t<10.4)?(.35+.65*Math.exp(-3*(t-7.2))+.08*Math.sin(t*3))*(1-mo):0;
+ $('band').style.opacity=Math.max(out(ph(t,7.6,8.1))*(1-ph(t,9.0,9.35)),out(ph(t,10.6,11.1))*(1-ph(t,12.5,12.8)));$('cap1').style.opacity=out(ph(t,7.7,8.2))*(1-ph(t,9.0,9.3));
  $('cap1').style.transform=`translateY(${(1-out(ph(t,7.7,8.2)))*24}px)`;
  // log
  const li=ease(ph(t,10.1,10.6));$('logimg').style.opacity=li*(1-ph(t,12.6,13.0));
@@ -120,7 +132,7 @@ window.render=function(t){
  const c=$('emb').getContext('2d');c.clearRect(0,0,1280,720);
  for(const e of E){const y=((e.y-e.v*t*1.4)%760+760)%760-20;const x=e.x+Math.sin(t*.8+e.w)*14;
   c.fillStyle=`rgba(255,${170+e.s*20|0},90,${e.a*(.6+.4*Math.sin(t*3+e.w))})`;c.beginPath();c.arc(x,y,e.s,0,7);c.fill()}
- if(t>7.2&&t<9.5){const d=t-7.2;for(const b of B){const r=b.sp*d*(1-d*.18);const x=640+Math.cos(b.ang)*r*1.6,y=300+Math.sin(b.ang)*r*.8;
+ if(t>7.2&&t<9.5){const d=t-7.2;for(const b of B){const r=b.sp*d*(1-d*.18);const x=640+Math.cos(b.ang)*r*1.6,y=250+Math.sin(b.ang)*r*.8;
   c.fillStyle=`rgba(255,${200+b.s*15|0},110,${cl(1-d/2.3)})`;c.beginPath();c.arc(x,y,b.s*(1.2-d*.3),0,7);c.fill()}}
 };
 </script></body></html>

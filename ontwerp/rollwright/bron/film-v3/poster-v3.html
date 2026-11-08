@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Cinzel;src:url(f/1.ttf)}@font-face{font-family:Fraunces;src:url(f/2.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(f/3.ttf)}@font-face{font-family:Inter;font-weight:700;src:url(f/4.ttf)}
+html,body{margin:0;width:1200px;height:800px;overflow:hidden}
+#s{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 74% 62%,#4a2c10 0%,#22161f 48%,#0b0a12 85%)}
+#map{position:absolute;inset:0;opacity:.14}
+#rays{position:absolute;left:390px;top:110px;width:900px;height:900px;filter:blur(8px);opacity:.55}
+canvas{position:absolute;inset:0}
+#win{position:absolute;left:640px;top:170px;width:640px;height:500px;border-radius:14px;overflow:hidden;
+ box-shadow:0 40px 90px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);transform:perspective(1600px) rotateY(-9deg) rotateX(3deg);transform-origin:0 50%;filter:brightness(.8)}
+#win img{width:640px;height:500px;display:block}
+#lift{position:absolute;left:590px;top:500px;width:500px;border-radius:20px;overflow:hidden;
+ box-shadow:0 30px 80px rgba(0,0,0,.85),0 0 0 1px rgba(233,185,73,.3)}
+#lift img{width:500px;display:block}
+.k{position:absolute;left:84px;top:118px;font:700 18px Cinzel;letter-spacing:.42em;color:#e9b949}
+h1{position:absolute;left:80px;top:150px;margin:0;font:600 76px/1.02 Fraunces;color:#f6efe2;letter-spacing:-.01em}
+h1 b{color:#f2c14e;font-weight:600}
+.sub{position:absolute;left:84px;top:335px;width:440px;font:500 23px/1.45 Inter;color:#d3c8de}
+.sub b{color:#f2c14e;font-weight:700}
+ul{position:absolute;left:84px;top:470px;margin:0;padding:0;list-style:none;font:500 20px/1.0 Inter;color:#e8e0f0}
+li{margin:0 0 20px;padding-left:28px;position:relative}
+li:before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;background:#e9b949;transform:rotate(45deg)}
+.foot{position:absolute;left:84px;bottom:56px;font:500 18px Inter;color:#9a90ad}
+.foot b{color:#f6efe2}.pill{display:inline-block;padding:9px 18px;border:1.5px solid #e9b949;border-radius:999px;color:#f2c14e;font-weight:700;margin-right:16px}
+.tag{position:absolute;left:560px;top:446px;width:500px;text-align:center;font:700 14px Cinzel;letter-spacing:.5em;color:#f2c14e}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 60%,rgba(0,0,0,.55))}
+</style></head><body><div id="s">
+<svg id="map" width="1200" height="800"><g fill="none" stroke="#e9c27a" stroke-width="1.2">
+<path d="M0 700 C200 620 300 760 480 660 S760 580 900 670 1100 620 1200 650"/>
+<path d="M0 60 C160 110 260 20 420 60 S700 140 860 50 1100 100 1200 40" stroke-dasharray="6 8"/>
+<circle cx="1110" cy="90" r="56"/><circle cx="1110" cy="90" r="42" stroke-dasharray="2 6"/>
+<path d="M1110 24 L1110 156 M1044 90 L1176 90"/></g></svg>
+<svg id="rays" viewBox="-50 -50 100 100"><defs><radialGradient id="rg"><stop offset="0" stop-color="#ffd680" stop-opacity=".6"/><stop offset=".6" stop-color="#ff9a3c" stop-opacity=".12"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient></defs><g id="rayg" fill="url(#rg)"></g></svg>
+<canvas id="c" width="1200" height="800"></canvas>
+<div id="win"><img src="fr/gif-069-Wisdom-rust.png"></div>
+<div id="lift"><img src="fr/lift.png"></div>
+<div class="k">ROLLWRIGHT · FOR OBSIDIAN</div>
+<h1>Roll dice <b>right</b><br>in your notes.</h1>
+<div class="sub">Click any roll to throw it again. A natural 20 lands <b>in gold.</b></div>
+<ul><li>Random tables from your own notes</li><li>A roll log for every session</li><li>Looks right in light, dark and popular themes</li></ul>
+<div class="foot"><span class="pill">Free in Community Plugins</span>Made by Thijs at Dortus</div>
+<div id="vig"></div></div>
+<script>
+const g=document.getElementById('rayg');let h='';for(let i=0;i<18;i++){const a=i*20*Math.PI/180+.1,w=(i%2?3.2:5.5)*Math.PI/180;
+h+=`<path d="M0 0 L${50*Math.cos(a-w)} ${50*Math.sin(a-w)} L${50*Math.cos(a+w)} ${50*Math.sin(a+w)} Z"/>`}g.innerHTML=h;
+let seed=11;const r=()=>(seed=(seed*16807)%2147483647)/2147483647;const c=document.getElementById('c').getContext('2d');
+for(let i=0;i<90;i++){const x=r()*1200,y=r()*800,s=.6+r()*2.2;const near=Math.hypot(x-810,y-520)<380;if(x<560&&r()<.7)continue;
+c.fillStyle=`rgba(255,${170+s*25|0},90,${(near?.5:.25)+r()*.4})`;c.beginPath();c.arc(x,y,s,0,7);c.fill()}
+</script></body></html>
