@@ -20,6 +20,8 @@ Uit Vera's lijst, afgevallen op geld of meetbaarheid, maar jong of hard groeiend
 
 - Grafana Marketplace (betaalde plugins op Grafana Cloud, net algemeen beschikbaar): klaar 8 nov, cijfer 5 (nog niet klaar), zie onderzocht.md
 
+- TRMNL (e-ink scherm, community plugins en recipes, Creator Fund betaalt makers maandelijks sinds 2025): in onderzoek 8 nov 2026 00:45 UTC (Noor)
+
 Nieuw te zoeken: AI-gereedschappen met uitbreidingen (Cursor, Warp, Perplexity), Bambu Lab MakerWorld, Home Assistant, Tldraw, Excalidraw, Arc/Dia, Meta Horizon, Apple Vision Pro, Bluesky (feeds en labelers).
 
 ## Snelle schifting op vraag 3 (geld), 7 nov 23:05 UTC (Noor)
