@@ -118,3 +118,80 @@ Op extensions.blender.org 4 (zodra gebouwd), 1, 2, 3. Op Superhive 7 of 6 als ee
 
 ## Naam van concurrenten
 Niet in titel of tagline (rol). Ook niet in de beschrijving op extensions.blender.org.
+
+## Superhive-pagina "Click Joints Pro", run 17 (Chris, 8 nov ±22:45 tot 23:30 UTC)
+Waarom nu: de gratis versie staat in de wachtrij van extensions.blender.org (dagen tot weken) en Bram bouwt het betaalde deel (scharnier t1 op tak `claude/blender-2026-11-08-t`, nog niet op main; in `click_joints/betaald/` op main staat alleen `__init__.py`, GEZIEN). Superhive is waar het geld vandaan komt, dus de pagina moet klaar zijn als het betaalde deel af is. Naam "Click Joints Pro" is het voorstel van Daan (onderaan `producten/blender-gewrichten/ontwerp.md`); Bram beslist.
+
+**Regel voor deze tekst:** alles tussen [haken] komt er pas in als die functie op main staat met een groene test. Wat niet gebouwd wordt, gaat eruit, niet "coming soon".
+
+### Eisen van Superhive aan de pagina (GEZIEN 8 nov, support.superhivemarket.com, onderzoeker; controleur kijkt de links na)
+- Minstens 5 beelden, 2:1, minstens 1200 px breed, PNG of JPG; ze moeten functies tonen. Een GIF mag in de tekst, niet als hoofdbeeld. Video optioneel.
+- **Geen Blender-logo en het woord "Blender" niet als ontwerpelement in de beelden** (directe afwijzing). Let op voor Daan: onze poster en plaatjes van extensions.blender.org nakijken voor ze hierheen gaan.
+- GPL of MIT met broncode erbij; installatiestappen en geschreven documentatie of FAQ **op de pagina zelf** (alleen een link naar elders wordt afgewezen). Support binnen 72 uur.
+- Elders verkopen en links naar eigen site of YouTube in de beschrijving mogen. Klanten in berichten naar een andere kassa sturen mag niet.
+- Opbouw van de bestverkopers (Dovetail Key 800+, CatPin 400+, Split-3DPrint 400+, Cleave 100+, GEZIEN): video of GIF bovenaan, 5 tot 12 beelden, tabs About, FAQ, Documentation, beschrijving ±1.000 tot 1.450 woorden met kopjes (wat het doet, wat je krijgt, compatibiliteit, wat het níet kan, installeren, support). Hieronder korter (±600 woorden): wij beloven minder en tonen meer.
+
+### Titel en korte regel
+- **Titel:** Click Joints Pro
+- **Korte regel:** `See how far it bends, before you print. Hinges with a real stop, your printer's clearance, a whole figure in one go.`
+  Waarom: de ene zin overal is van Daan (`See how far it bends, before you print.`). Op Superhive is die zin wel een onderscheid: Cut Flex toetst één houding ("Check Pose"), LayerMechanic meet een scharnier dat je zelf modelleert, niemand meet het bereik meteen na het maken (GEZIEN, run 3 en onderzoek Bram). De tweede helft zegt wat Pro erbij doet. Vervangt de oude korte regel van run 3.
+
+### Beschrijving (Engels, tab About)
+> **See how far it bends, before you print.**
+>
+> Cutting a figure into parts is easy. Getting a figure that moves, holds a pose and doesn't snap on the first print is not. Click Joints Pro places joints that move, colours every cut by how well it will fit, and tells you how far each ball joint bends, before you send anything to the printer.
+>
+> **What Pro adds**
+> [- **Hinges with an end stop** for knees and elbows. Pick 90°, 115° or 135°: the hinge bends from straight to that angle and stops there, like a real knee. The panel shows the range it measured.]
+> [- **Your printer's clearance.** Print one small test card with five clearances, pick the one that clicks, and Click Joints remembers it for that printer.]
+> [- **A whole figure in one go.** Place every limb joint at once, each with its own fit colour and bend range.]
+> [- **Magnet holes and friction ribs**, so parts hold a pose or swap out.]
+>
+> **Also in every version**
+> - Ball and pin joints with clearance in mm.
+> - Fit colour on every cut: green Good fit, yellow Tight (with the reason, for example "wall 0.89 mm, aim for 1.5 mm or more"), red Too thin.
+> - Bend range in degrees for ball joints, measured right after placing, with the spot that collides shown in red.
+> - Make watertight works on a copy, your original stays.
+> - Exploded view, export to STL or 3MF in millimetres.
+>
+> **What it does not do**
+> - It does not split a model to fit your print bed. Use your favourite splitter for that, then add joints here.
+> - It measures the shape, not your filament. A Good fit is a strong hint, not a promise.[ Print the test card once per printer.]
+> [- Hinges bend one way only; for shoulders and hips use the ball joint.]
+>
+> **Compatibility:** Blender 4.2 or newer, tested in Blender 4.2 LTS and 5.2 LTS, Windows, macOS and Linux. Pure Python, no internet connection, no account.
+>
+> **What you get:** the extension as a .zip (GPL-3.0-or-later, full source), free updates and support by e-mail within 72 hours (thijs@dortus.com) for [12 months, of wat Bram als support-periode in Superhive kiest].
+>
+> **Install:** Edit > Preferences > Get Extensions > the arrow at the top right > Install from Disk, pick the .zip. Open the side panel (N) and the tab Click Joints. If the free Click Joints is installed, turn it off first; Pro includes everything it does.
+>
+> [Eén eerlijke zin over hoe het gemaakt is, te kiezen door Bram en Daan, zie hieronder.] Made by Thijs at Dortus.
+
+Waarom zo:
+- Eerste alinea gelijk aan run 3, alleen met "joints that move" (advies 26: SnapSplit maakt ook klikverbindingen die niet buigen).
+- "What it does not do" volgt CatPin, dat zijn grens eerlijk noemt; het voorkomt teleurgestelde reviews. Splitsen noemen we als grens omdat Click Joints het bewust niet doet (ontwerp).
+- "Turn off the free one first": de betaalde zip weigert naast de gratis (Bram run 23, GEZIEN in status). De tekst klopt pas als die melding zo blijft.
+- **De regel over AI is open (moet-punt controleur):** mijn eerste zin "AI-assisted build and test pipeline" maakte de rol van AI kleiner dan hij is (Claudes bouwen het product), dus die is eruit. Elders zeggen we "I direct the work" (run 4). Voorstel om uit te kiezen: `I direct the work; Claude (an AI) writes and tests the code in real Blender 4.2 and 5.2 on every change.` Bram en Daan kiezen één zin en die komt overal. Superhive heeft geen regel over AI gevonden (onderzoeker, GOK op wat niet gevonden is).
+- Geen concurrent bij naam (rol).
+
+### FAQ (tab FAQ, kort)
+- **Is there a free version?** Yes, Click Joints on Blender Extensions has ball and pin joints, fit colour and bend range. Pro adds [hinges with a stop, printer profiles, whole-figure setup and magnet holes].
+  (Mag op Superhive: links naar eigen spullen zijn normaal. Andersom niet: de gratis versie noemt Pro nergens, regel 6.1 van extensions.blender.org.)
+- **Which printers?** Any FDM or resin printer; you set the clearance in mm.[ The clearance you pick on the test card is stored per printer.]
+- **Will my print click?** The colour tells you the walls and clearance are right for the size you chose. Plastic and printers differ, so print one joint first[, or the test card].
+- **Can I use it for figures I sell?** Yes. The add-on is GPL; what you make with it is yours.
+- **What is the Studio licence?** The same add-on for a team of up to 5 people. Under the GPL it is a way to support the work and buy for a business, not a lock.
+- **Refunds?** Contact thijs@dortus.com; we follow Superhive's refund policy.
+  (Thijs: vragen over terugbetalen beantwoordt de ploeg niet zelf, die komen op zijn lijst. Deze FAQ-regel verwijst alleen.)
+
+### Beelden voor Superhive (voorstel voor Daan, hij beslist; 2:1, 1200 px of breder, zonder Blender-logo)
+1. Hoofdbeeld: knie met eindstop, gebogen tot de stop, hoek in beeld [na bouw scharnier]. Tot dan kan Superhive niet open.
+2. Het hele figuur met alle ledematen in één keer, elk met zijn ring [na bouw].
+3. Het buigende kogelgewricht met de gradenboog (bestaat al, van extensions.blender.org).
+Let op: **alle** bestaande plaatjes zijn 1920 x 1080 (16:9) en moeten naar 2:1; Superhive noemt 16:9 letterlijk een verkeerde verhouding (controleur, GEZIEN).
+4. Groen, geel, rood naast elkaar met de regel uit het paneel (bestaat al).
+5. Testkaartje, echt geprint, met de vijf spelingen [na bouw en na een echte print; geen render die voor een print doorgaat].
+6. Exploded view met maten, STL | 3MF.
+Plus het filmpje van Daan als video bovenaan, als het alleen echte beelden uit Blender toont.
+
+- **Controle:** 8 nov ±23:25 UTC, controleur (agent, niet de maker): akkoord mits; verkopersregels, afdracht, drie concurrentprijzen, meldingen, kleuren en de weigering naast de gratis zip zelf nagekeken en juist. Drie moet-punten verwerkt: testkaartje op drie plekken buiten de haken (nu tussen haken), buigbereik alleen voor kogelgewrichten, AI-zin eruit en open. Kan-punten verwerkt: "(yet)" weg, alle beelden naar 2:1, compatibiliteit als getest, support-periode, Studio eerlijk uitgelegd.

@@ -2,6 +2,24 @@
 
 Door Chris, 8 nov 2026. Het besluit over de prijs is van Bram (platformmanager); dit is mijn voorstel en een toets van wat er al besloten is. Vroeg gemaakt, terwijl het product nog gebouwd wordt, omdat de verdeling gratis en betaald nu in de code komt.
 
+## Bijwerking 8 nov ±23:15 UTC (Chris, run 17): voorstel $19, lanceerprijs $15, plus een Studio-licentie
+Twee nieuwe feiten sinds run 3 (10:50), daarom kom ik terug op $12:
+1. **De koers van Thijs (8 nov 18:33, `organisatie/doelen.md` punt 4): "durf hoger te prijzen".** Die kwam na mijn intrekking van $15.
+2. **De afdracht is hoger dan we rekenden.** Superhive rekent (prijs min 5,5% min $0,49) keer 70% op het gratis plan (GEZIEN door de onderzoeker op support.superhivemarket.com, controleur kijkt de link na). Bij $12 houdt Dortus **±$7,60** (precies 7,595), niet $7,91; bij $9 $5,61; bij $9 in een sitewide sale van 25% maar **$4,12** (eigen rekensom).
+
+**Markt nu (GEZIEN 8 nov ±22:50, superhivemarket.com/products/<slug>, onderzoeker):** Dovetail Key $18 (800+), CatPin $24 (actieprijs, normaal $30; 400+), Split-3DPrint $22 (400+), Cleave $23 (100+), SnapSplit $20 (30+), JointLab $65 (20+), **Cut Flex $34,99** (10+, 18 dagen, de directe concurrent met scharnieren zonder stop), Articulator $1 (30+). Mediaan van de eerste 22 add-ons voor "3d print": ±$17,50, meeste $9 tot $25. Nieuw deze week, nog zonder teller: Easy Slice $14 (nu $11,20), FigureCut $10, Printwright $19.
+
+**Voorstel aan Bram (hij beslist, advies 28):**
+- **Normaal $19.** Dortus houdt $12,23 per verkoop, 61% meer dan bij $12. Nog steeds onder Cleave, CatPin en Split-3DPrint en ver onder Cut Flex, dus Brams eis "duidelijk lager dan het veld" blijft overeind tegen de echte concurrenten met beweging. Wat het rechtvaardigt: het enige scharnier met eindstop en het enige testkaartje per printer (GEZIEN op de pagina's, op trefwoorden gezocht, dus GOK dat het echt nergens zit).
+- **Lanceerprijs $15 (21% korting) met een eigen sale-campagne, 2 tot 3 weken.** Superhive noemt een lanceerkorting letterlijk als voorbeeld van een campagne (GEZIEN). Dortus houdt $9,58.
+- **Studio-licentie, tot 5 personen, $49** (Dortus $32,07). Zoals CatPin ($80) en Split-3DPrint ($59): kleine printwinkels die figuren verkopen. Kost niets extra te bouwen (GOK: alleen een extra variant op de pagina).
+- **Sitewide sale (±25%, opt-in):** doe mee vanaf $19 (koper betaalt $14,25, Dortus $9,08), niet vanaf $15. Een eigen campagne staat uit zolang een sitewide sale loopt, dus plan de lanceerweken buiten een kwartaalsale (controleur, GEZIEN /315).
+- **Stopregel van Bram (onder 10 betaalde verkopen in 6 weken) houden.** Bij $19 is 10 verkopen ±$122 netto. Zakt het onder die regel, dan eerst $15 proberen voor we stoppen, want dan weten we of het de prijs was of de vraag.
+- **Tegenargument:** het zichtbaarste deel (kleur en buigbereik) is gratis, dus waarom $19 voor de rest? Antwoord: wie een heel figuur print, heeft knieën en ellebogen en een printer; dat zijn precies de Pro-delen. En de koper op Superhive vergelijkt met $20 tot $35 voor tools die niet buigen of niet stoppen, niet met de gratis versie. Bewijs of $19 werkt hebben we niet (GOK); daarom de lanceerprijs en de stopregel.
+- **Studio eerlijk:** onder de GPL is een Studio-licentie geen slot, maar steun en een factuur voor een bedrijf; zo staat het ook in de FAQ.
+- **Controle:** controleur akkoord mits (alle rekensommen nagerekend en juist); kan-punten over sale, CatPin en Studio verwerkt.
+- **Overal hetzelfde:** zodra Bram kiest, pas ik de winkelzin ("... for $12") in ontwerp en winkeltekst aan. Op dortus.com/click-joints/ staat nu geen prijs (alleen "Free"), dus daar niets.
+
 ## Bijwerking 8 nov ±10:50 UTC (Chris, run 3): $12 houden, mijn voorstel $15 trek ik in
 - **Nieuw feit:** Bram zette de beweegproef in de gratis versie (zin "waarom wij" bovenaan `producten/blender-gewrichten/ontwerp.md`, 09:35). Daar staat ook al de winkelzin met **$12**.
 - **Waarom ik $15 intrek:** mijn argument voor $15 rustte op het betaalde pakket als geheel, en in advies 17 schreef ik dat de beweegproef erin die prijs "sterker te verdedigen" maakte. Nu de passingkleur en de beweegproef allebei gratis zijn, blijft er betaald over: scharnier met eindstop, printerprofielen met testkaartje, alle ledematen in één keer, magneetgaten. Dat is nuttig voor wie een heel figuur maakt, maar het zichtbaarste deel van het product zit in de gratis versie. Dan past $12 beter bij Brams eigen eis (duidelijk lager dan het veld: Cleave $23, Cut Flex $34,99, GEZIEN vandaag opnieuw) en bij de stopregel (10 verkopen in 6 weken). Per verkoop houdt Dortus ±$7,91 over (eigen rekensom: 70% van $12 min $0,49).

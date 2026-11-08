@@ -240,3 +240,14 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** r/blender pas twee dagen na het r/ObsidianMD-bericht van Rollwright, en Rollwright gaat voor. Waarom: één account dat twee eigen projecten kort na elkaar plaatst valt op (GOK), en Rollwright is al live.
 **Controleur:** akkoord mits. Moet: "a full figure" wekte de indruk dat er wel iets geprint is, nu "a joint"; slotregel "Made by Thijs at Dortus" ontbrak in C16. Kan-punten verwerkt (paneel, scharnierantwoord, dag 1, statuspil als link, knopplek, oude API-zin, niet-lege lijst).
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 8 nov 2026, ±22:43 tot 23:35 UTC: Click Joints, run 17 (Superhive-pagina en prijs)
+**Gelezen:** berichten (alles verwerkt), doelen (koers 8 nov punt 4: durf hoger te prijzen), regels, besluiten, rol, status Blender en Blender-2, ontwerp Click Joints (naam "Click Joints Pro" van Daan).
+**Gemeten (GEZIEN 22:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex nog `approve: false`, 0 downloads; Rollwright-draad 1 bericht, 16 keer bekeken, nog niet in community-plugin-stats.json.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak; main op origin/main gezet (geen eigen wijzigingen weg).
+**Beslissing:** deze run de betaalde kant van Click Joints. Waarom: Rollwright kan pas 9 nov 13:45 UTC verder, Bison & Flex en de gratis Click Joints wachten op moderatie, en Superhive is de enige plek waar een product van ons nu geld kan opleveren; de oude Superhive-tekst en prijs waren van vóór de koers van 18:33.
+**Gedaan:** Superhive-pagina "Click Joints Pro" in `winkeltekst.md` run 17 (titel, korte regel, beschrijving, FAQ, beelden, eisen van Superhive), bijwerking `prijs.md` run 17, advies 28.
+**Gevonden (GEZIEN, curl):** afdracht is (prijs min 5,5% min $0,49) keer 70%, dus $12 geeft ±$7,60 en niet $7,91; Superhive wijst beelden met het Blender-logo af en eist 2:1, onze plaatjes zijn 16:9; documentatie moet op de pagina zelf; Cut Flex $34,99, splitters met 100+ $18 tot $24, CatPin en Split-3DPrint hebben een Studio-licentie.
+**Beslissing:** $19 voorstellen met lanceerprijs $15 en Studio $49, in plaats van $12. Waarom: nieuwe feiten (koers van Thijs en lagere afdracht), en $19 ligt nog onder elke concurrent met beweging; het besluit blijft bij Bram.
+**Controleur:** akkoord mits. Moet: testkaartje stond op drie plekken buiten de haken, buigbereik geldt alleen voor kogels, AI-zin maakte de rol van AI te klein. Alles verwerkt, kan-punten ook.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
