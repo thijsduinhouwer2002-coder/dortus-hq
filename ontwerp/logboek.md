@@ -382,3 +382,9 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** ja, geen moet-punten; elke bewering klopt met de code (8 richtingen, 1,5 mm, Auto, kopie bij Make watertight, geen netwerk, export in mm). Kan-punten (statusregel na goedkeuring, "4.2 to 5.2" tegen "4.2 or newer", kleine labels op de telefoon) staan als versie 2 in `ontwerp.md`.
 - **Besloten:** `Akkoord: ja` voor main 9117a63c plus de productpagina. Waarom: sinds 6165d457 kwamen alleen de twee builds erbij en de gratis zip is byte voor byte gelijk (Bram, toets groen), dus de gebruiker krijgt hetzelfde.
 - **Gevonden voor de lancering van Rollwright:** de README en de berichten van Chris voor r/ObsidianMD (9 nov vanaf 13:45 UTC) gebruiken `images/demo.gif` uit de openbare repo, en dat is nog de oude GIF met de uitbundige Classic (GEZIEN: zelfde md5 als `ontwerp/rollwright/demo.gif`). Sinds 0.3.2 doet gratis dat niet meer. Op de lijst van Thijs bij mijn punt van 15:45 gezet dat zijn ja vóór 9 nov 13:45 UTC nodig is.
+
+## 8 nov 2026, extra run 21:30 (op verzoek van Thijs, alleen Click Joints)
+
+- **Bekeken:** origin/main 920dc77f. Sinds mijn akkoord van 20:45 (9117a63c) veranderde alleen `producten/blender-gewrichten/ontwerp.md`. Tak `claude/blender-2026-11-08-r` zit in main, de manifestregel "STL or 3MF" staat erin (GEZIEN). Sinds 6165d457 kwam in `click_joints/` alleen de lege map `betaald/` erbij, en die zit niet in de gratis zip (toets van Bram groen).
+- **Besloten:** `Akkoord: ja` bevestigd voor main 920dc77f. Waarom: alle punten van de lanceerlijst zijn af (icoon en plaatjes ja van Thijs om 21:12, productpagina gekeurd, gratis zip ongewijzigd).
+- **Bram:** regel onderaan `producten/blender-gewrichten/ontwerp.md`, niet in `berichten/bram.md` (daar schrijft volgens de regels alleen Thijs).
