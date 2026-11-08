@@ -1,4 +1,6 @@
-Akkoord: ja 8 nov 2026 02:27, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
+Akkoord: ja 8 nov 2026 06:35, voor indienen van 1.0 met de winkeltekst en naam "Bison & Flex" van tak `claude/jetbrains-2026-11-08-e` (0e667972, plugin.xml), zie beoordeling 12. Lijstplaatjes: 1 tot 3 klaar in `ontwerp/bison-flex/`; 4 (hernoemen over beide bestanden) en 5 (melding met snelle oplossing) wachten op nieuwe schermen met Pro aan (punt A en B in beoordeling 12). Indienen mag met plaatje 1 tot 3 zodra Thijs ze gezien heeft; 4 en 5 komen erbij zodra ze er zijn (plaatjes zijn na de upload nog te wisselen).
+
+Oud: Akkoord: ja 8 nov 2026 02:27, voor indienen van 1.0 op main d9973fa (eis 7 van tak `-b` 8c0efc0, IDE-run 42437187439 groen): alles uit beoordeling 10 plus de meldingen van eis 7, zie beoordeling 11. Van mijn kant mag Bison & Flex 1.0 worden ingediend. Komt er voor indienen nog iets zichtbaars bij (andere tekst, nieuw venster), dan kijk ik dat eerst na. Eén kan-punt voor de IDE-test (het Alt+Enter-menu is zwart op het scherm) houdt indienen niet tegen.
 
 Oud: Akkoord: ja 8 nov 2026 01:35, voor wat nu zichtbaar is op main (code van tak `-a` 0cd70b8, IDE-run 42432516728): nieuw icoon, eigen Pro-icoon in de balloon, Pro-tekst op twee regels, hint onder de knoop, plus de poster als eerste winkelplaatje (beoordeling 10). **Indienen pas nadat ik de meldingen van eis 7 in licht en donker gezien heb** (schermen `meldingen` en `meldingen-oplossing`); dat is het laatste zichtbare stuk van 1.0.
 
@@ -244,6 +246,30 @@ Bekeken (licht en donker, 2880 bij 1800, RUN.txt zegt run 42437187439 commit 8c0
 2. Controleur (agent) vond geen moet-punten. Overgenomen als kan-punt: calc.l één keer in beeld met Pro aan, als bewijs dat `return NUM;` geen melding krijgt (de code meldt in Flex geen tokens, dus GOK dat het goed is), en in donker staat maar één streepje in de schuifbalk, ook dat verdwijnt als regel 34 in het midden staat.
 
 **Besluit:** `Akkoord: ja` voor indienen van 1.0. Waarom: dit was het laatste zichtbare stuk dat ik in beoordeling 10 noemde, de meldingen zien eruit en praten zoals de IDE zelf, en ik beloofde daarna geen nieuwe eisen. Het eigen gezicht zit in icoon, Pro-icoon en poster, en dat was al af.
+
+### Beoordeling 12, 8 nov 2026 06:35 (winkeltekst en lijstplaatjes, vraag van Jet 06:25)
+
+Bekeken: `<description>` en `<change-notes>` in plugin.xml op tak `claude/jetbrains-2026-11-08-e` (0e667972, kop a0289c58); `commercie/jetbrains-bison-flex/indienen.md` deel 1 en 4; schermen van IDE-run 42453419735 (tak `-e`, RUN.txt klopt) in `schermen/jetbrains-bison-flex/claude-jetbrains-2026-11-08-e/`: `licht-calc-y-structuur`, `donker-calc-l`, `licht-hernoem-scanner`, `licht-hernoem-venster`, `licht-meldingen`, `licht-meldingen-oplossing`.
+
+**Winkeltekst: ja.** De eerste zin zegt meteen wat het is en voor welke bestanden, Free en Pro zijn helder gescheiden, elke regel klopt met de code (Chris heeft dat per regel nagelopen), en de toon is rustig en eerlijk ("No sign-up with us, no telemetry"). Lengte goed. "in CLion and other JetBrains IDEs" mag: de CLion-test is groen (run 42450473711, samengevoegd 339b6068); de zin in `indienen.md` dat CLion nog niet in de test zit, is verouderd. Eén kan-punt: de tekst in het pluginvenster van de IDE heb ik nog niet gezien; een scherm van Settings > Plugins > Installed > Bison & Flex (licht) in de IDE-test is welkom, geen rem.
+
+**Lijstplaatjes, volgorde en stand.** Allemaal 2400 bij 1520 (1200 bij 760 op factor 2, de maat die JetBrains aanraadt), dezelfde donkere achtergrond, merkregel "Bison & Flex for JetBrains IDEs", een groene FREE- of oranje PRO-chip, een korte kop en het echte IDE-scherm groot. Zo leest de reeks als één verhaal. Sjabloon: `ontwerp/bison-flex/bron/kaart.html` met `kaarten.json`, maken met `node kaart.mjs kaarten.json <nr> <uit.png>` vanuit `bron/`.
+1. `winkel-1-poster.png`: blijft (beoordeling 10). "finally connected" blijft op de poster: het is een kop op een reclameplaatje, geen zin in de beschrijving, waar JetBrains marketingwoorden afraadt. De PRO-chip staat ernaast, dus het belooft niet dat de koppeling gratis is.
+2. `winkel-2-grammatica.png` (nieuw): "Grammars that read like code.", FREE, `licht-calc-y-structuur` bijgesneden tot regel 1 tot 32 met de structuurweergave. Licht, zodat de reeks licht en donker afwisselt.
+3. `winkel-3-scanner.png` (nieuw): "Your scanner gets the same care.", FREE, `donker-calc-l` met de structuur.
+4. **Nog te maken, scherm nodig (punt A).** Kop: "Rename once. Both files follow.", PRO.
+5. **Nog te maken, scherm nodig (punt B).** Kop: "Find the rules nobody uses.", PRO.
+
+Waarom 4 en 5 niet van de bestaande schermen kunnen: het enige hernoemscherm (`hernoem-scanner`) toont de Pro-blokkade voor wie geen licentie heeft. Dat is eerlijk in de app, maar als winkelplaatje verkoopt het een slot in plaats van de functie. `meldingen-oplossing` heeft nog het zwarte vlak waar het Alt+Enter-menu hoort, en de fout staat onderaan tegen de rand.
+
+**Voor Jet, schermen voor plaatje 4 en 5** (licht thema, zelfde venstergrootte, met de stand op GELDIG via `MeldingenDiagnose.zetStand("GELDIG")`, zoals in `Meldingen.kt`):
+- **A. Hernoemen met Pro.** In calc.l de cursor op `NUM` in `return NUM;`, Shift+F6, typ `NUMBER`, Enter. Daarna calc.y en calc.l naast elkaar (editor verticaal splitsen, calc.l links, calc.y rechts, structuurpaneel dicht) en scherm `winkel-hernoemd.png`, zodat `return NUMBER;` en `%token NUMBER` en `exp: NUMBER` tegelijk in beeld staan. Lukt splitsen niet: Alt+F7 op `NUM` met Pro en een scherm van het Find-paneel met calc.l en calc.y als twee groepen (`winkel-alleplekken.png`). Daarna terugzetten.
+- **B. Melding met snelle oplossing.** De fout hoger in calc.y (na `input:` bijvoorbeeld), zodat hij midden in beeld staat; na Alt+Enter het menu met `import -window root` vangen (je eigen aanpak in je taken), en een tweede scherm met de muis op `UNDEFINED` zodat de zweeftekst te zien is (`winkel-melding-zweef.png`). Licht is genoeg.
+Plaatje 4 en 5 maak ik zelf van die schermen, met het sjabloon.
+
+**Controleur (agent)** keek mee. Overgenomen: op plaatje 2 de zin "Syntax errors as you type" weg (het scherm toont geen fout), code op plaatje 2 groter (krapper bijgesneden), merkregel op alle plaatjes gelijk, geen woord alleen op een regel. Niet overgenomen: "finally" van de poster halen (zie punt 1) en CLion uit de tekst (de CLion-test is groen, de controleur las het verouderde `indienen.md`).
+
+**Besluit:** `Akkoord: ja` voor indienen van 1.0 met deze naam en winkeltekst. Waarom: tekst klopt en leest als een winkelpagina, en de eerste drie plaatjes werken als reclame en zijn echte schermen. Plaatje 4 en 5 houden indienen niet tegen, want JetBrains laat plaatjes na de upload wisselen; maar ze moeten er zijn vóór de plugin zichtbaar wordt (Hidden uit), want Pro is waar het geld zit en dat moet je zien.
 
 ## Ontwerp eis 7: ongedefinieerd en ongebruikt (8 nov)
 

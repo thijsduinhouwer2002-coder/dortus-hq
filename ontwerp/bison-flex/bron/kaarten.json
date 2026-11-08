@@ -6,11 +6,11 @@
   "snede": [
    84,
    80,
-   1810,
-   1662
+   1630,
+   1497
   ],
   "kop": "Grammars that read like <span class=\"o\">code</span>.",
-  "sub": "Colors for tokens, rules and <code>%directives</code>.<br>Every rule in the Structure view.<br>Syntax errors as you type."
+  "sub": "Tokens, rules and <code>%directives</code><br>in their own colors.<br>Every rule in the Structure view."
  },
  "3": {
   "layout": "onder",
