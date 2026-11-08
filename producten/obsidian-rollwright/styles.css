@@ -1140,5 +1140,16 @@ body.theme-dark .rollwright-roll.rollwright-crit:not(.rollwright-error) {
 
 .rollwright-skin-preview-rolls .rollwright-roll.rollwright-crit {
 	order: 2;
-	font-size: 0.9em;
+	font-size: 1em;
+}
+
+/* Ronde 8b: in de tegel dekte de sticker de bovenkant van de 20 (r8-17, run 42443312533); hier staat
+   hij hoger en verder naar rechts, met ruimte in de tegel. */
+.rollwright-skin-preview-rolls {
+	padding: 1.1em 1.3em 0 0;
+}
+
+.rollwright-skin-preview-rolls .rollwright-roll > .rollwright-stamp {
+	top: -1.35em;
+	right: -1.7em;
 }

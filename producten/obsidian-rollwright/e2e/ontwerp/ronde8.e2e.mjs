@@ -119,14 +119,21 @@ describe("Rollwright ronde 8: eerste minuut, logboek, rechterrand", function () 
 			await legLogboek();
 			await open("Rollwright example.md", "preview");
 			for (const w of ["Initiative", "Hit", "Damage", "bar", "Wisdom", "stranger"]) {
+				await browser.pause(300);
 				if (w === "Wisdom") await zetKans(true);
 				if (w === "Damage") await zetKans(false);
 				await klik(w);
 				await browser.pause(700);
 				await losKans();
 			}
+			// Tabellen apart, op hun plek (index 4 en 5), want een tabeluitkomst is wat ronde 8 moet tonen.
+			for (const i of [4, 5]) {
+				const ok = await browser.execute((i) => { const a = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null); a[i]?.click(); return a.length; }, i);
+				console.log("TABEL KLIK", i, "van", ok);
+				await browser.pause(900);
+			}
 			await open("The Rusty Flagon.md", "preview");
-			for (const w of ["Rumour", "Hit", "Initiative"]) { await klik(w); await browser.pause(700); }
+			for (const w of ["Hit"]) { await klik(w); await browser.pause(700); }
 			await browser.executeObsidian(({ app }) => app.commands.executeCommandById("rollwright:open-history"));
 			await browser.pause(1200);
 			console.log("LOGBOEK VOL:", await paneelMaat());
