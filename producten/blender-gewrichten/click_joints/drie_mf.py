@@ -38,10 +38,7 @@ def driehoeken(ob, schaal):
         # Eerst naar mm, dan pas driehoeken: in een scene in meters zijn de vlakken 1000 keer kleiner en gaf
         # BEAUTY nog 8 dubbele randen (vaste kleine grenzen in Blender); in mm 0 (GEZIEN, ronde h).
         bm.transform(Matrix.Scale(schaal, 4) @ m)
-        # N-hoeken met EAR_CLIP: vorm v0.3 (bolnaad) gaf met BEAUTY 110 dubbele randen in deel A (meterscene,
-        # run 42470658984), waarschijnlijk holle n-hoeken waar de bol de huid snijdt. EAR_CLIP knipt holle
-        # veelhoeken zonder omgeklapte driehoeken.
-        bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="EAR_CLIP")
+        bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="BEAUTY")
         bm.verts.index_update()
         punten = [tuple(v.co) for v in bm.verts]
         om = m.determinant() < 0
