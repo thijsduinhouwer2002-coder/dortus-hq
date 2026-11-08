@@ -5,6 +5,7 @@ import com.dortus.bisonflex.parser.BisonElementen as B
 import com.dortus.bisonflex.parser.FlexElementen as F
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
+import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.PsiReference
@@ -49,6 +50,18 @@ class NaamElement(node: ASTNode) : ASTWrapperPsiElement(node), PsiNameIdentifier
     override fun getReference(): PsiReference? {
         val doel = eerste() ?: return null
         return if (doel == this) null else NaarEerste(this, doel)
+    }
+
+    /**
+     * Wat het kiesmenu toont (Choose declaration bij Ctrl+B, Find Usages Of bij Alt+F7, Shift+F6). Staat een token
+     * in calc.y en calc.yy, dan stonden er twee gelijke regels "NUM  calculator" (Daan, beoordeling 13). Het platform
+     * (`targetPresentation` in `codeInsight/navigation/util.kt`) zet `locationString` grijs achter de naam: daar
+     * komt de bestandsnaam, dus "NUM calc.y" en "NUM calc.yy". De modulenaam rechts zet het platform er zelf bij.
+     */
+    override fun getPresentation(): ItemPresentation = object : ItemPresentation {
+        override fun getPresentableText(): String = name
+        override fun getLocationString(): String? = containingFile?.name
+        override fun getIcon(unused: Boolean) = containingFile?.getIcon(0)
     }
 
     override fun toString(): String = "${node.elementType}($name)"
