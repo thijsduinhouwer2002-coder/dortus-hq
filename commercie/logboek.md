@@ -196,3 +196,11 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN):** de gedragscode van Obsidian geldt ook voor Reddit en zegt "paid content will always receive additional scrutiny" en eerst meedoen, dan promoten; de officiële Discord laat eigen werk alleen toe in `#content-update` (194.970 leden); de TTRPG-Discord van Josh Plunkett heeft 9.880 leden; awesome-dnd staat zelfpromotie en AI toe mits gemeld; Obsidian Roundup is gestopt (domein is een casinosite); geen open feature request op het forum dat Rollwright oplost. Reddit-regels weer 403, niet omzeild.
 **Beslissing:** de pull request naar awesome-dnd niet zelf doen. Waarom: hij staat onder de naam van Thijs op een plek buiten zijn lijst; de koers en mijn opdracht spreken elkaar daar tegen, dus Hans beslist.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat met flair plugins); daarvoor het verspreidingsplan van Bison & Flex.
+
+## 8 nov 2026, ±18:25 tot 18:55 UTC: Bison & Flex, run 12 (verspreidingsplan)
+**Gelezen:** berichten (open: 18:33 verspreiding, Rollwright af, nu Bison & Flex), doelen, regels, besluiten, rol, adviezen 21 en 24, status JetBrains. Bison & Flex nog in moderatie (`approve: false`, 0 downloads, `FREE`, GEZIEN 18:25).
+**Opgemerkt:** lokale dortus-hq stond los van een tak (detached); main op origin/main gezet, niets weggegooid (geen eigen wijzigingen).
+**Beslissing:** deze run het verspreidingsplan van Bison & Flex. Waarom: open bericht van Thijs gaat voor en noemt Bison & Flex na Rollwright.
+**Gedaan:** `commercie/jetbrains-bison-flex/verspreiding.md` (onderzoeker plus controleur, akkoord mits, alles verwerkt), bijwerking `lancering.md`, advies 25.
+**Gevonden (GEZIEN of DERDEN):** JetBrains Platform forum heeft een categorie voor eigen plugins (2.031 leden); awesome_jetbrains_plugins voegt alleen zelf toe na een issue; comp.compilers verwelkomt commerciële aankondigingen met veel techniek; Lobsters en dev.to vallen af op hun AI-regels; awesome-cpp blokkeert nieuwe repo's. Concept A beloofde gratis hernoemen te ruim: tokens die de scanner ook gebruikt hernoemen is Pro.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads, r/ObsidianMD via de hoofdchat); daarna het verspreidingsplan van Click Joints; Bison & Flex dag 0 zodra de moderatie klaar is.

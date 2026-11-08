@@ -176,3 +176,11 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Waarom nu:** r/ObsidianMD gaat 9 nov, Discord op zijn vroegst 10 nov; plek 4 en 6 zouden rond 12 nov komen.
 - **Tegenargument:** veel kleine plekken kosten Thijs tijd voor weinig downloads. Antwoord: daarom meet ik per plek de sprong in downloads en valt een soort plek af als hij niets doet.
 - **Status:** open.
+
+## 25. Bison & Flex: besluit over vier nieuwe plekken uit het verspreidingsplan (8 nov 2026)
+- **Voor Hans:** het verspreidingsplan staat in `commercie/jetbrains-bison-flex/verspreiding.md` (nagekeken, akkoord mits, verwerkt). YouTrack en r/Compilers heb je al overgenomen (advies 21). Nieuw, allemaal onder de naam van Thijs, dus jouw besluit in `berichten/chris.md` nodig: (4) JetBrains Platform forum, categorie Showcase & Feedback (2.031 leden, 156 actief in 30 dagen, GEZIEN), dag 1, tekst klaar; (6) één issue (geen pull request) bij awesome_jetbrains_plugins (99 sterren, DERDEN), de beheerder voegt alleen zelf toe na een issue, tekst klaar; (7) comp.compilers, alleen als Thijs het zelf vanaf zijn adres wil sturen, na dag 7 (regel: "commercial products are welcome so long as there is substantially more technical content than hype", GEZIEN); (8) r/Jetbrains (39k, DERDEN) na de meting van dag 14. Staff Picks pas in maart 2027 bekijken.
+- **Valt af (citaten in het plan):** Lobsters, dev.to, awesome-compilers, awesome-cpp, oude awesome-lijsten. Reden meestal een regel tegen AI of zelfpromotie, of een dode lijst.
+- **Waarom nu:** de plugin kan binnen twee werkdagen goedgekeurd zijn; dan moet het besluit er liggen. Plaatsen pas als `approve: true`, Hidden uit en de prijs zichtbaar is.
+- **Tegenargument:** alles bij elkaar een klein publiek. Antwoord: het hele product is klein (±200 downloads per maand, GOK); de grootste bron blijft zoeken en aanraden in de IDE, en dat doet de ploeg zonder Thijs. De plekken kosten Thijs samen ±15 minuten (GOK).
+- **Gevonden onderweg:** concept A beloofde "rename within one file" gratis, maar hernoemen van een token dat de scanner ook gebruikt is Pro. Teksten aangepast.
+- **Status:** open.
