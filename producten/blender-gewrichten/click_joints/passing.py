@@ -5,9 +5,12 @@ from mathutils import Vector
 
 GRENS_ROOD_MM = 0.8    # dunner dan dit: te dun om te printen
 GRENS_ORANJE_MM = 1.5  # dunner dan dit: krap
-# Heldere kleuren van Daan (lineair, zoals Blender ze opslaat): groen #3DDC84, oranje (Tight) amber geel
-# #FFD23F, zodat het niet op de oranje selectierand van Blender lijkt, rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
-KLEUREN = {"groen": (0.047, 0.716, 0.231, 1.0), "oranje": (1.0, 0.644, 0.05, 1.0),
+# Kleuren van Daan (lineair, zoals Blender ze opslaat). Beoordeling 2 (8 nov 07:35): Tight is verzadigd
+# citroengeel #FFEA00, want in Solid komt geen kleur boven ±#AE en alleen een geel zonder wit blijft geel
+# (#FFD23F werd mosterd). Groen is iets blauwer, #00D696: dezelfde tint als #00C389 (advies controleur, voor wie
+# geen groen ziet), maar even helder als het oude groen #3DDC84, omdat Solid alles al donkerder maakt.
+# Rood #FF4D4D. Naast de kleur staat in het paneel altijd een icoon (kleurenblind).
+KLEUREN = {"groen": (0.0, 0.672, 0.305, 1.0), "oranje": (1.0, 0.823, 0.0, 1.0),
            "rood": (1.0, 0.074, 0.074, 1.0)}
 ICONEN = {"groen": "CHECKMARK", "oranje": "ERROR", "rood": "CANCEL"}
 
