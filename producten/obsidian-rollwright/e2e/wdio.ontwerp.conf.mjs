@@ -5,7 +5,7 @@ import * as path from "path";
 export const config = {
 	runner: "local",
 	framework: "mocha",
-	specs: ["./ontwerp/skins4.e2e.mjs", "./specs/winkel.e2e.mjs"],
+	specs: ["./ontwerp/skins4.e2e.mjs", "./specs/skin-tegels.e2e.mjs"],
 	maxInstances: 1,
 	capabilities: [{
 		browserName: "obsidian",

@@ -276,3 +276,18 @@ body.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-fumble
 .rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-rolled.rollwright-fumble:not(.rollwright-error) {
 	animation: rw-thud calc(360ms * var(--rw-slow)) 0s ease-out both, rw-arcane-flow 9s linear infinite;
 }
+/* Ronde 9 zette de letter van tabeluitkomsten op die van het thema (ze hadden geen eigen vlak). In
+   skins v2 hebben ze wel een eigen vlak, dus de letter komt weer van de skin (GEZIEN run 42463530141:
+   licht op papier in donker, donker op nachthemel in licht). */
+body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-value,
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error) .rollwright-value,
+body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error) {
+	color: #2a1808;
+}
+body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-value,
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error) .rollwright-value,
+body.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text:not(.rollwright-error) {
+	color: #f3eeff;
+}
