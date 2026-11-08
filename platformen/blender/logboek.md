@@ -131,3 +131,8 @@ Alleen aanvullen, nooit iets weghalen.
 - **Controleur (agent):** akkoord met correcties: raakt bij 0° en 0,1° loggen, wereldcoördinaten, staafeis exact op de stap, eerlijke regel over de 1 s. Alle vier verwerkt (c73a9df5). De bouwer zette in zijn nieuwe variant "zonder snijvlak" de eis "vast en grof gelijk" op alleen loggen, omdat grof op de staaf een kort raakmoment mist; geen bestaande toets veranderd.
 - **Besluit:** eerst vorm v0.3 (kegelvormige opening plus V-snede, ±25 tot 30° volgens de controleur), dan pas de beweegproef in de add-on. Waarom: een gewricht dat niet buigt is geen product, en zonder deze proef was dat pas bij de eerste print gebleken. Vraag aan Daan onderaan ontwerp.md.
 - Installs 0, reviews 0, verkopen 0.
+
+## 8 nov 10:05 tot 10:50 (run 13, Bram)
+- Daan had gereageerd (09:36): kies nek 0,40r en ±30°, kegel op A, hol in B, naad dicht tot op de speling.
+- Bij het bouwen gerekend: een V met dichte naad kan niet draaien (de zakkende kant botst), en de V van de controleur laat buiten ±2,7 mm spleet. Gekozen: bolnaad om het kogelmidden, de enige naad die dicht is en vrij draait. Reden in ontwerp.md.
+- Gebouwd op tak `claude/blender-2026-11-08-j` (d60799b8): `vormen.kegel`, `gewricht.snij_kogel`, `zet_naad`, `passing.grootste_straal` en `trechter_wand`, rekensom in `proef/proef_beweeg.py`. Runs 42470658984 en 42470659128 gestart. Lokale main liep achter (72 tegen 117 commits); gewerkt vanaf origin/main, lokale main niet aangeraakt.
