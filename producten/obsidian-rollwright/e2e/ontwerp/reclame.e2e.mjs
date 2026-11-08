@@ -65,7 +65,7 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 		await zijDicht();
 	});
 
-	it("poster: voorbeeldnotitie met crit, donker en licht", async function () {
+	it.skip("poster: voorbeeldnotitie met crit, donker en licht", async function () {
 		for (const licht of [false, true]) {
 			const kant = licht ? "licht" : "donker";
 			await stap(`poster ${kant}`, async () => {
@@ -103,7 +103,7 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 		}
 	});
 
-	it("poster: logboek ernaast, donker", async function () {
+	it.skip("poster: logboek ernaast, donker", async function () {
 		await stap("poster logboek", async () => {
 			await thema("", false);
 			await open(NOTE, "preview");
@@ -151,6 +151,12 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 				await browser.pause(400);
 				await frame(`${woord}-rust`);
 			}
+			// Film v3 (controleur 8 nov): het logboek na precies deze drie worpen, zelfde zoom en zelfde notitie.
+			await muisWeg();
+			await browser.executeObsidian(({ app }) => app.commands.executeCommandById("rollwright:open-history"));
+			await browser.pause(1500);
+			await muisWeg();
+			await frame("logboek");
 			await zoom(1);
 		});
 	});
