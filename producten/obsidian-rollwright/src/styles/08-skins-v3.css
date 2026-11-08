@@ -60,9 +60,9 @@ body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.roll
 
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll) .rollwright-value,
 .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll:not(.rollwright-error) .rollwright-value {
-	font-family: "Palatino Linotype", Palatino, "URW Palladio L", "P052", "Book Antiqua", serif;
+	font-family: "Rollwright Garamond", "Palatino Linotype", Palatino, "Book Antiqua", serif;
 	font-weight: 700;
-	font-size: 1.02em;
+	font-size: 1.1em;
 	font-variant-numeric: lining-nums tabular-nums;
 }
 
@@ -92,6 +92,26 @@ body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-
 	background:
 	var(--rw-paper-noise),
 	linear-gradient(180deg, #f5e9c8, #e9d6a6);
+}
+
+body.rollwright-skin-parchment .rollwright-roll.rollwright-text.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-text.rollwright-text:not(.rollwright-error) {
+	background: transparent;
+	background-color: transparent;
+	box-shadow: none;
+	border: 0;
+	border-bottom: 0;
+	border-radius: 0;
+}
+
+body.rollwright-skin-arcane .rollwright-roll.rollwright-text.rollwright-text:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-text.rollwright-text:not(.rollwright-error) {
+	background: transparent;
+	background-color: transparent;
+	box-shadow: none;
+	border: 0;
+	border-bottom: 0;
+	border-radius: 0;
 }
 
 body.rollwright-skin-parchment .rollwright-roll.rollwright-crit:not(.rollwright-error):not(.rollwright-skin-preview-tile .rollwright-roll),

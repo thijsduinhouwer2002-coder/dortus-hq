@@ -71,7 +71,9 @@ describe("Daan: drie skins voor het lijstplaatje", function () {
 				const kleur = await browser.execute((sel) => {
 					const t = document.querySelector(`${sel} .rollwright-roll`);
 					const s = t && getComputedStyle(t);
-					return s ? `${s.backgroundColor} | ${s.color} | ${s.borderColor}` : "geen token";
+					const v = t?.querySelector(".rollwright-value");
+					const vs = v && getComputedStyle(v);
+					return s ? `${s.backgroundColor} | ${s.color} | token ${s.fontFamily} | waarde ${vs?.fontFamily} ${vs?.fontWeight} | klassen ${t.className} | palatino ${document.fonts.check("16px Palatino")} p052 ${document.fonts.check("16px P052")}` : "geen token";
 				}, LEAF);
 				console.log(`SKINS4 ${naam}: ${kleur}`);
 			});

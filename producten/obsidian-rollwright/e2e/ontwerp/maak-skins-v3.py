@@ -78,9 +78,9 @@ box-shadow: none;
 filter: drop-shadow(0 3px 3px rgba(60, 35, 5, 0.4)) drop-shadow(0 0 0.5px rgba(90, 55, 15, 0.6));
 """, tail=":hover")
 rule("parchment", """
-font-family: "Palatino Linotype", Palatino, "URW Palladio L", "P052", "Book Antiqua", serif;
+font-family: "Rollwright Garamond", "Palatino Linotype", Palatino, "Book Antiqua", serif;
 font-weight: 700;
-font-size: 1.02em;
+font-size: 1.1em;
 font-variant-numeric: lining-nums tabular-nums;
 """, tail=" .rollwright-value")
 # tekst uit een tabel blijft in de oude letter
@@ -102,6 +102,15 @@ background:
 	{NOISE},
 	linear-gradient(180deg, #f5e9c8, #e9d6a6);
 """, extra=".rollwright-text", tail="::before")
+for sk in ("parchment", "arcane"):
+    rule(sk, """
+background: transparent;
+background-color: transparent;
+box-shadow: none;
+border: 0;
+border-bottom: 0;
+border-radius: 0;
+""", extra=".rollwright-text.rollwright-text")
 # crit: bladgoud
 for ex in (".rollwright-crit", ".rollwright-fumble"):
     rule("parchment", """
