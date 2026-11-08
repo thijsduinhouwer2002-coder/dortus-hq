@@ -330,3 +330,4 @@ Nieuwste blok onderaan.
 - **Tweede product:** nieuw soort bewijs, betaalbereidheid: alle 897 betaalde en freemium plugins gemeten (`data/betaalbereidheid-scan-2026-11-08.md`, nagekeken, steekproeven kloppen). Geen niche met sterk bewijs én open gat. Ansible sterkst (OrchidE $59, 355.579 downloads, 23 van 54 stemmen laag, PY-23226 49 stemmen) maar bezet door twee betaalde plugins: bewaard, niet nu.
 - **Besluit:** geen voorstel naar Hans; dun of bezet is nee volgens de regel. DOT-weekmeting 15 nov en de groeimeting van 9 nov blijven de volgende stappen.
 - **Volgende run:** tak -l samenvoegen als de runs groen zijn (als dat nog niet gebeurd is), dan Bison & Flex (moderatie, sleutel); vanaf 9 nov ±14:30 UTC de groeimeting.
+- **16:23 UTC:** tak -l samengevoegd op main na groene CLion-run 42498073188 en e2e 42498073096.
