@@ -218,7 +218,7 @@ async function rollNote(spec: Spec, context: RollContext, depth: number): Promis
 	const types = blockTypes(spec.args);
 	const empty = types.length === 0
 		? `${Where} has no text to pick from. Add some text to it, like - Goblin.`
-		: `${Where} has no matching blocks. Check the block types after |, like [[${target.note}]]|paragraph.`;
+		: `${Where} has no matching blocks. Check the block types after |, like [[${target.note === "" ? "Note" : target.note}]]|paragraph.`;
 	const picks = pickMany(selectBlocks(blocks, types), count, random, empty, context);
 	return { kind: "section", text: picks.join("\n\n"), details: "", source: note.path };
 }

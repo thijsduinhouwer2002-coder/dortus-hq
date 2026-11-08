@@ -3,6 +3,7 @@
 ## Unreleased
 
 - A table or list in the same note can be rolled with `[[#^id]]`. The example note uses it, so its two table rolls keep working after you rename it (before, they said "Note not found").
+- A roll inside a table cell or list item now finds its links from the note that holds the table, as Obsidian does. This only matters when two notes in different folders share a name.
 - Roll log: a fixed value such as `dice: 7` shows 7 once, without a formula and working that repeat it.
 - Roll again on an older roll in the log rolls in the note it came from (with that note's frontmatter), as long as the note still exists; otherwise in the open note.
 - A crit or fumble copied from the note reads "20, NAT 20", not "20NAT 20".
