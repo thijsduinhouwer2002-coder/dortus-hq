@@ -117,6 +117,9 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 			await thema("", false);
 			await open(NOTE, "preview");
 			await zoom(1.35);
+			// Bovenaan beginnen (na het crit-token op zoom 3 stond de notitie verschoven, run 42443394427).
+			await browser.execute(() => document.querySelectorAll(".workspace-leaf.mod-active .markdown-preview-view, .workspace-leaf.mod-active .cm-scroller").forEach((e) => { e.scrollTop = 0; }));
+			await browser.pause(400);
 			// Begin zonder goud: de crit is het slot van de GIF, niet het begin (eerste opname run 42442883775).
 			await zetVast(0.35); await klik("Wisdom"); await browser.pause(800);
 			await zetVast(0.3); await klik("Damage"); await browser.pause(800);
