@@ -1,0 +1,126 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Cinzel;src:url(f/1.ttf)}
+@font-face{font-family:Fraunces;src:url(f/2.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(f/3.ttf)}
+@font-face{font-family:Inter;font-weight:700;src:url(f/4.ttf)}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#0b0a12}
+#stage{position:absolute;inset:0;overflow:hidden;
+ background:radial-gradient(ellipse 70% 60% at 50% 115%,#3a2410 0%,#1a1220 45%,#0b0a12 80%)}
+#warm{position:absolute;inset:0;background:radial-gradient(ellipse 85% 80% at 50% 45%,rgba(255,190,80,.75),rgba(255,140,40,.3) 45%,transparent 75%);opacity:0}
+#map{position:absolute;inset:-40px;opacity:.13}
+canvas{position:absolute;inset:0}
+#cam{position:absolute;inset:0;transform-origin:0 0}
+#win{position:absolute;left:192px;top:92px;width:896px;height:700px;border-radius:14px;overflow:hidden;
+ box-shadow:0 40px 90px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08);background:#1e1e1e;transform-origin:50% 100%}
+#win img{position:absolute;left:0;top:0;width:896px;height:700px}
+#cursor{position:absolute;width:20px;height:30px;left:0;top:0}
+.t{position:absolute;left:0;right:0;text-align:center;color:#f6efe2}
+#kicker{top:206px;font:700 22px Cinzel;letter-spacing:.42em;color:#e9b949}
+#title{top:244px;font:600 92px/1.02 Fraunces;letter-spacing:-.01em}
+#title b{color:#f2c14e;font-weight:600}
+#sub{top:470px;font:500 24px Inter;color:#c9bfd8}
+#d20{position:absolute;left:430px;top:150px;width:420px;height:420px;opacity:0}
+.cap{z-index:5;position:absolute;left:0;right:0;text-align:center;font:600 56px Fraunces;color:#fbf6ec;text-shadow:0 4px 30px rgba(0,0,0,.9);opacity:0}
+.cap b{color:#f2c14e;font-weight:600}
+.cap small{display:block;font:500 20px Inter;color:#d9cfe6;margin-top:10px;letter-spacing:.02em}
+#end .logo{font:700 30px Cinzel;letter-spacing:.3em;color:#e9b949}
+#end{position:absolute;inset:0;opacity:0}
+#end .big{position:absolute;top:250px;left:0;right:0;text-align:center;font:600 76px Fraunces;color:#f6efe2}
+#end .row{position:absolute;top:372px;left:0;right:0;text-align:center;font:500 24px Inter;color:#cfc4de}
+#end .pill{display:inline-block;margin-top:34px;padding:14px 26px;border:1.5px solid #e9b949;border-radius:999px;font:700 22px Inter;color:#f2c14e}
+#end .made{position:absolute;bottom:46px;left:0;right:0;text-align:center;font:500 18px Inter;color:#8f86a3}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.6));pointer-events:none}
+</style></head><body><div id="stage">
+<svg id="map" width="1360" height="800" viewBox="0 0 1360 800"><g fill="none" stroke="#e9c27a" stroke-width="1.2">
+<path d="M0 640 C200 560 300 700 480 600 S760 520 900 610 1200 560 1360 600"/>
+<path d="M0 180 C160 230 260 120 420 170 S700 260 860 160 1150 220 1360 150" stroke-dasharray="6 8"/>
+<circle cx="1180" cy="120" r="70"/><circle cx="1180" cy="120" r="54" stroke-dasharray="2 6"/>
+<path d="M1180 40 L1180 200 M1100 120 L1260 120 M1124 64 L1236 176 M1236 64 L1124 176"/>
+<path d="M120 420 l30 -40 l30 40 l30 -40 l30 40 M140 470 l30 -40 l30 40 l30 -40 l30 40"/>
+<path d="M980 400 c40 -30 90 -30 120 10 s80 40 120 0" stroke-dasharray="4 7"/></g></svg>
+<div id="warm"></div><canvas id="emb" width="1280" height="720"></canvas>
+<div id="cam">
+ <svg id="d20" viewBox="0 0 100 100" fill="none" stroke="#e9b949" stroke-width="1.6" stroke-linejoin="round">
+  <path id="dp" pathLength="1" d="M50 4 L90 27 L90 73 L50 96 L10 73 L10 27 Z M50 4 L28 62 L72 62 Z M28 62 L50 96 L72 62 M10 27 L28 62 M90 27 L72 62 M10 73 L28 62 M90 73 L72 62 M50 4 L10 27 M50 4 L90 27"/></svg>
+ <div id="titlebox"><div class="t" id="kicker">ROLLWRIGHT</div>
+ <div class="t" id="title">Roll dice <b>right</b><br>in your notes.</div>
+ <div class="t" id="sub">A dice roller for Obsidian, built for tabletop players.</div></div>
+ <div id="win"><img id="frame"><img id="logimg" src="fr/poster-ruw-logboek-donker.png" style="opacity:0">
+  <div id="logmask" style="position:absolute;left:649px;top:140px;width:247px;height:560px;background:#262626;opacity:0"></div>
+  <svg id="cursor" viewBox="0 0 12 20"><path d="M0 0 L0 17 L4 13 L7 20 L10 19 L7 12 L12 12 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div>
+</div>
+<div class="cap" id="cap1" style="top:560px">A natural 20 lands <b>in gold.</b><small>Free. Click any roll in your note to throw it again.</small></div>
+<div class="cap" id="cap2" style="top:590px;font-size:44px">Every throw, kept in a <b>session log.</b></div>
+<div id="end"><div class="t logo" style="top:200px">ROLLWRIGHT</div>
+ <div class="big">Roll dice right in your notes.</div>
+ <div class="row">Live rolls · random tables from your notes · a log for every session<br><span class="pill">Free in Obsidian Community Plugins</span></div>
+ <div class="made">Made by Thijs at Dortus</div></div>
+<div id="band" style="position:absolute;left:0;right:0;bottom:0;height:280px;background:linear-gradient(transparent,rgba(8,6,12,.96) 55%);opacity:0"></div><div id="vig"></div></div>
+<script>
+const FR={"Initiative": [[6, "gif-003-Initiative-6ms.png"], [80, "gif-004-Initiative-80ms.png"], [146, "gif-005-Initiative-146ms.png"], [215, "gif-006-Initiative-215ms.png"], [280, "gif-007-Initiative-280ms.png"], [329, "gif-008-Initiative-329ms.png"], [379, "gif-009-Initiative-379ms.png"], [447, "gif-010-Initiative-447ms.png"], [512, "gif-011-Initiative-512ms.png"], [561, "gif-012-Initiative-561ms.png"], [612, "gif-013-Initiative-612ms.png"], [645, "gif-014-Initiative-645ms.png"], [700, "gif-015-Initiative-700ms.png"], [749, "gif-016-Initiative-749ms.png"], [801, "gif-017-Initiative-801ms.png"], [845, "gif-018-Initiative-845ms.png"], [896, "gif-019-Initiative-896ms.png"], [928, "gif-020-Initiative-928ms.png"], [979, "gif-021-Initiative-979ms.png"], [1029, "gif-022-Initiative-1029ms.png"], [1078, "gif-023-Initiative-1078ms.png"], [1250, "gif-024-Initiative-rust.png"]], "Damage": [[5, "gif-026-Damage-5ms.png"], [78, "gif-027-Damage-78ms.png"], [144, "gif-028-Damage-144ms.png"], [211, "gif-029-Damage-211ms.png"], [277, "gif-030-Damage-277ms.png"], [326, "gif-031-Damage-326ms.png"], [393, "gif-032-Damage-393ms.png"], [442, "gif-033-Damage-442ms.png"], [509, "gif-034-Damage-509ms.png"], [560, "gif-035-Damage-560ms.png"], [593, "gif-036-Damage-593ms.png"], [648, "gif-037-Damage-648ms.png"], [693, "gif-038-Damage-693ms.png"], [744, "gif-039-Damage-744ms.png"], [793, "gif-040-Damage-793ms.png"], [826, "gif-041-Damage-826ms.png"], [878, "gif-042-Damage-878ms.png"], [926, "gif-043-Damage-926ms.png"], [963, "gif-044-Damage-963ms.png"], [1009, "gif-045-Damage-1009ms.png"], [1060, "gif-046-Damage-1060ms.png"], [1250, "gif-047-Damage-rust.png"]], "Wisdom": [[5, "gif-049-Wisdom-5ms.png"], [81, "gif-050-Wisdom-81ms.png"], [148, "gif-051-Wisdom-148ms.png"], [214, "gif-052-Wisdom-214ms.png"], [282, "gif-053-Wisdom-282ms.png"], [329, "gif-054-Wisdom-329ms.png"], [380, "gif-055-Wisdom-380ms.png"], [446, "gif-056-Wisdom-446ms.png"], [515, "gif-057-Wisdom-515ms.png"], [581, "gif-058-Wisdom-581ms.png"], [646, "gif-059-Wisdom-646ms.png"], [679, "gif-060-Wisdom-679ms.png"], [729, "gif-061-Wisdom-729ms.png"], [779, "gif-062-Wisdom-779ms.png"], [829, "gif-063-Wisdom-829ms.png"], [879, "gif-064-Wisdom-879ms.png"], [929, "gif-065-Wisdom-929ms.png"], [966, "gif-066-Wisdom-966ms.png"], [1029, "gif-067-Wisdom-1029ms.png"], [1062, "gif-068-Wisdom-1062ms.png"], [1250, "gif-069-Wisdom-rust.png"]]};
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const out=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const ph=(t,a,b)=>cl((t-a)/(b-a));
+// embers: deterministic
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const E=[...Array(70)].map(()=>({x:rnd()*1280,y:rnd()*720,s:.6+rnd()*2.2,v:12+rnd()*40,w:rnd()*6.28,a:.25+rnd()*.6}));
+const B=[...Array(46)].map(()=>({ang:rnd()*6.28,sp:180+rnd()*420,s:1+rnd()*2.6}));
+function frameAt(name,ms){const L=FR[name];let f=L[0][1];for(const [m,n] of L){if(m<=ms)f=n}return 'fr/'+f}
+const POS={Initiative:[262,440],Damage:[500,496],Wisdom:[395,553]};
+// timeline (s)
+const T={title:[0,2.2],winIn:[1.7,2.9],ini:3.1,dmg:4.7,wis:6.1,zoomIn:[7.25,7.9],hold:9.6,zoomOut:[9.6,10.3],log:[10.1,12.6],end:[12.9,13.6],loop:15};
+window.render=function(t){
+ // title
+ const ti=out(ph(t,.15,1)), to=ease(ph(t,1.7,2.5));
+ $('titlebox').style.opacity=ti*(1-to); $('titlebox').style.transform=`translateY(${(1-ti)*30-to*140}px)`;
+ $('dp').style.strokeDasharray='1';$('dp').style.strokeDashoffset=1-ease(ph(t,0,1.4));
+ $('d20').style.opacity=(t<2.6?.22:0)*(1-to); $('d20').style.transform=`translateY(${-to*140}px) rotate(${t*8}deg)`;
+ // window
+ const wi=out(ph(t,...T.winIn));
+ const win=$('win');win.style.opacity=wi;
+ win.style.transform=`perspective(1400px) translateY(${(1-wi)*420}px) rotateX(${(1-wi)*24}deg)`;
+ // which roll
+ let name='Initiative',ms=-1;
+ for(const [k,st] of [['Initiative',T.ini],['Damage',T.dmg],['Wisdom',T.wis]]) if(t>=st-.35){name=k;ms=(t-st)*1000}
+ let src=t<T.ini-.35?'fr/gif-001-start.png':(ms<0?(name=='Initiative'?'fr/gif-001-start.png':frameAt(name==='Damage'?'Initiative':'Damage',2000)):frameAt(name,ms));
+ if(t<T.ini-.35)src='fr/gif-001-start.png';
+ const fi=$('frame');if(fi.getAttribute('src')!==src)fi.setAttribute('src',src);
+ // cursor: glide to target, then rest
+ const order=[['Initiative',T.ini],['Damage',T.dmg],['Wisdom',T.wis]];
+ let cx=700,cy=760;let prev=[700,760];
+ for(const [k,st] of order){const p=POS[k];const g=ease(ph(t,st-1,st-.4));if(t>=st-1){cx=prev[0]+(p[0]-prev[0])*g;cy=prev[1]+(p[1]-prev[1])*g}prev=p}
+ const press=(()=>{for(const [k,st] of order){const d=t-(st-.38);if(d>0&&d<.12)return .85}return 1})();
+ $('cursor').style.transform=`translate(${cx*.875}px,${cy*.875}px) scale(${press})`;
+ $('cursor').style.opacity=t>2.6&&t<7.2?1:0;
+ // camera zoom on NAT 20
+ const zi=ease(ph(t,...T.zoomIn)), zo=ease(ph(t,...T.zoomOut));const z=zi*(1-zo);
+ const tx=192+395*.875, ty=92+553*.875; // token center on stage
+ const S=1+.38*z+.015*z*Math.sin(t*1.3);
+ const fx=640, fy=300; // where token should sit
+ $('cam').style.transform=`translate(${(fx-tx*S)*z+(1-z)*(640-640*S)}px,${(fy-ty*S)*z+(1-z)*(360-360*S)}px) scale(${S})`;
+ // warm light (scene lighting, outside the app)
+ const burst=ph(t,7.15,7.5);
+ $('warm').style.opacity=(t>7.1&&t<10.4)?(.35+.65*Math.exp(-3*(t-7.2))+.08*Math.sin(t*3))*(1-zo):0;
+ $('band').style.opacity=Math.max(out(ph(t,7.6,8.1))*(1-ph(t,9.4,9.7)),out(ph(t,10.6,11.1))*(1-ph(t,12.5,12.8)));$('cap1').style.opacity=out(ph(t,7.7,8.2))*(1-ph(t,9.4,9.7));
+ $('cap1').style.transform=`translateY(${(1-out(ph(t,7.7,8.2)))*24}px)`;
+ // log
+ const li=ease(ph(t,10.1,10.6));$('logimg').style.opacity=li*(1-ph(t,12.6,13.0));
+ const reveal=ease(ph(t,10.6,11.9));const lm=$('logmask');lm.style.opacity=li>0?1:0;
+ lm.style.top=(140+560*reveal)+'px';lm.style.height=(560*(1-reveal))+'px';
+ if(li<=0)lm.style.opacity=0;
+ $('cap2').style.opacity=out(ph(t,10.7,11.2))*(1-ph(t,12.5,12.8));
+ // end card
+ const en=out(ph(t,...T.end));
+ if(t>12.6){win.style.opacity=wi*(1-ease(ph(t,12.6,13.1)));win.style.transform+=` scale(${1-.12*ease(ph(t,12.6,13.1))})`}
+ $('end').style.opacity=en*(1-ph(t,14.6,15));
+ $('end').style.transform=`translateY(${(1-en)*20}px)`;
+ // embers
+ const c=$('emb').getContext('2d');c.clearRect(0,0,1280,720);
+ for(const e of E){const y=((e.y-e.v*t*1.4)%760+760)%760-20;const x=e.x+Math.sin(t*.8+e.w)*14;
+  c.fillStyle=`rgba(255,${170+e.s*20|0},90,${e.a*(.6+.4*Math.sin(t*3+e.w))})`;c.beginPath();c.arc(x,y,e.s,0,7);c.fill()}
+ if(t>7.2&&t<9.5){const d=t-7.2;for(const b of B){const r=b.sp*d*(1-d*.18);const x=640+Math.cos(b.ang)*r*1.6,y=300+Math.sin(b.ang)*r*.8;
+  c.fillStyle=`rgba(255,${200+b.s*15|0},110,${cl(1-d/2.3)})`;c.beginPath();c.arc(x,y,b.s*(1.2-d*.3),0,7);c.fill()}}
+};
+</script></body></html>
