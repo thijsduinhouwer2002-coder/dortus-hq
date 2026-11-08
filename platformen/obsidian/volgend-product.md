@@ -1,6 +1,31 @@
-# Obsidian: volgend product (in onderzoek, nog geen voorstel; kandidaat 2 afgevallen, kandidaat 1 voorlopig nee, 8 nov 16:35)
+# Obsidian: volgend product (in onderzoek, nog geen voorstel; ronde 5 zonder sterke kandidaat, 8 nov 17:30)
 
 Opdracht: bericht Thijs 8 nov 14:37 en het blok "Het volgende product" in `organisatie/rollen/platformmanager.md`. Hans beslist; zonder zijn ja niet bouwen. Rollwright gaat elke run voor.
+
+## Vijfde ronde 8 nov 17:30 UTC (Olaf, onderzoeker en controleur): waar zit het geld, en geen sterke kandidaat
+
+**Eerst: onze groeicijfers van kleine plugins zijn grotendeels ruis.** Een maker meldt in het forum dat tot ±1 nov ±38% van alle downloads nep was (manifest.json van de 10 nieuwste versies, tot ±41 keer per versie per dag), sterk gedaald rond 1 nov (DERDEN: https://forum.obsidian.md/t/121588). Zelf nagemeten uit de dagelijkse commits van obsidian-releases (GEZIEN door onderzoeker en controleur, momentopnames 25 okt 00:25, 1 nov 00:18, 3 nov 00:13, 8 nov 00:16 UTC): het hele register kreeg 408.058 downloads per dag (25 okt tot 1 nov) en 336.581 per dag (3 tot 8 nov), 17,5% minder. Dat is minder dan de 38% van de maker; het verschil is niet uitgezocht. Grote plugins merken weinig, kleine veel: Bases Power Pack 27 naar 4 per dag, Butter Editor 41 naar 11 (GEZIEN). **Besluit:** groei meet ik voortaan vanaf 3 nov; de oude g30 en beste-versie-cijfers in `groei-2026-11-08.csv` en `versiegroei-2026-11-08.csv` gebruik ik niet meer voor plugins onder ±1.500 per maand. Ook de kleine TTRPG-concurrenten uit ronde 2 tot 4 kunnen kleiner zijn dan daar staat.
+
+**Waar het geld zit (prijzen GEZIEN op de prijspagina's of in de README, downloads per dag 3 tot 8 nov GEZIEN):**
+| Plugin | Prijs | Totaal | Per dag (totaal / beste versie) |
+|---|---|---|---|
+| Copilot | gratis met eigen sleutel; Plus $14,99 per maand of $139,99 per jaar; Supporter $349,99 eenmalig (obsidiancopilot.com/en/pricing) | 3.340.702 | 32.743 / 22.757 |
+| Smart Connections | kern gratis; Pro $30 per maand of $299 per jaar (smartconnections.app/pro-plugins/) | 1.264.414 | 1.147 / 1.122 |
+| Remotely Save | betaalde PRO-laag voor meer opslagdiensten (prijs niet gevonden) | 2.364.070 | 2.248 / 2.138 |
+| Relay | samenwerken, $5 tot $6 per maand (README) | 228.034 | 284 / 177 |
+| TaskChute Plus | Pro-licentie voor "AI tasks" (prijs niet gevonden) | 65.891 | 187 / 186 |
+| SystemSculpt | $9 per maand of $90 per jaar plus tegoed $19 tot $99; eigen Claude Code gratis (systemsculpt.com/pricing) | 39.870 | 212 / 9 |
+| Note Companion | $15 per maand (notecompanion.ai) | 43.788 | 20 / 16 |
+| Bases Power Pack | $29 eenmalig (README) | 2.382 | 4 / 2 |
+Conclusie: het geld zit in gehoste AI met abonnement of tegoed (de basis gratis met de eigen sleutel van de gebruiker, betaald voor wat die sleutel niet geeft) en in sync en samenwerken. Kleine eenmalige ontgrendelingen lijken weinig te halen, maar dat rust op één jonge plugin en één maker (GOK, aanwijzing, geen bewijs). Rollwright ($6 eenmalig) zit in die laatste soort.
+
+**Gaten in het forum (views / likes GEZIEN):** Bases Kanban handmatige volgorde 119092 (759 / 59), maar Kanban Bases View (131 per dag) en Bases Power Pack doen het al, en het verzoek ligt bij Obsidian zelf. Projects 101089 (7.414 / 54), al opgevuld door Operon, Project Manager en Projects Plus. MCP 99936 (108.899 views), vol. "AI less editing toolbar" 114217 (627 / 16), klein. In de zoektocht (top van het jaar in het forum, zoeken op AI-onderwerpen) vond ik geen verzoek over AI-agenten of AI-zoeken met meer dan 22 likes dat nog niemand oplost; verder is niet gezocht.
+
+**Kandidaten en oordeel:** A, opmaakbalk zonder AI (tegen Editing Toolbar 2,15 mln, cMenu, Note Toolbar): zwak voor bereik, nee voor geld. B, eigen AI-agent of AI-zoeken met betaalde laag: geld bewezen, maar geen eigen smal gat, recht tegen Copilot (22.757 per dag op de beste versie) en de gratis Claudian en Agent Client: nee. C, Bases-kanban met volgorde, groepen in groepen en banen: al gebouwd, nee. **Geen voorstel naar Hans.** Liever geen tweede product dan een zonder markt.
+
+**Aanvulling 17:30 UTC: TTRPG opnieuw gemeten vanaf 3 nov (GEZIEN).** Downloads per dag tussen de momentopname van 3 nov 00:13 UTC (commit in obsidian-releases) en de live stats van 8 nov 17:17 UTC (5,7 dagen), totaal / beste versie: Atlas VTT 458 / 234 (24.426 totaal), TTRPG Tools - Maps 361 / 345, Fantasy Statblocks 357 / 156, Calendarium 203 / 140, Dice Roller 105 / 97, Initiative Tracker 67 / 63, Dice Rolls 18 / 18, Sheetsmith 15 / 10, Generic Initiative Tracker 10 / 8, PF2e Statblocks 9 / 7, The DM Compendium 7 / 6, **Combat Ledger 5 / 2**, Initiative Tracker Plus 4 / 3, Dice Tray 4 / 3. Rollwright staat nog niet in de stats. Wat dit verandert: de kleine concurrenten zijn veel kleiner dan ronde 3 zei (Combat Ledger ±60 tot 150 per maand in plaats van 1.312), de grote stilstaande plugins blijven echt (Statblocks ±4.700, Initiative Tracker ±1.900, Dice Roller ±2.900 per maand op de beste versie). De snelst groeiende TTRPG-hoek is gevechtskaarten (Atlas VTT met een eigen familie van uitbreidingen, Maps). Niet door een controleur: cijfers rechtstreeks uit het script; de controleur komt bij het voorstel.
+
+**Volgende ronde:** (1) TTRPG en de kandidaten uit ronde 2 tot 4 opnieuw meten met de groei vanaf 3 nov. (2) Een gat zoeken waar de betaalde laag iets levert wat de gebruiker niet zelf heeft (zoals Copilot en SystemSculpt), zonder dat we een zware dienst moeten draaien. (3) Sync en samenwerken alleen als er een smalle plek is (Remotely Save PRO staat 748 dagen stil, GEZIEN in de stats; nagaan of er een opvolger is).
 
 ## Vierde ronde 8 nov 16:35 UTC (Olaf): kandidaat 1 zwak bewijs, nieuwe richting AI-agenten
 
