@@ -1,0 +1,4 @@
+{"NAAM":"Click Joints","ICOON":"../../click-joints/icoon.png","KOP":"See how far it <em>bends</em>, before you print.",
+"ZIN":"Cut a ball joint into your figure. Click Joints measures the bend in 8 directions and shows it on the model.",
+"CHIPS":[["w","±20°","measured bend range"],["g","Good fit","wall and clearance in mm"],["r","+8°","red when you bend past it"]],
+"VOET":"<b>Free</b> on Blender Extensions · STL and 3MF · Blender 4.2 to 5.2","SCHERM":"../../click-joints/bron/snede-poster-rood.png"}

@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+body{margin:0;width:1500px;font-family:Inter,sans-serif}
+.band{display:flex;gap:70px;padding:40px 60px;align-items:flex-end}
+.d{background:#1d1e22;color:#c9cdd8}.l{background:#f1f2f4;color:#333}
+.col{display:flex;flex-direction:column;gap:16px;align-items:center}
+.row{display:flex;gap:22px;align-items:flex-end}
+.t{font-size:18px;font-weight:600}
+</style></head><body>
+<div class="band d" id="d"></div><div class="band l" id="l"></div>
+<script>
+const f=[["icoon-click-joints.svg","Click Joints"],["icoon-voorbeeld-opsplitsen.svg","voorbeeld: opsplitsen"],["icoon-voorbeeld-wand.svg","voorbeeld: wanddikte"]];
+for(const b of ["d","l"]){const e=document.getElementById(b);for(const [s,n] of f){e.innerHTML+=`<div class=col><div class=row><img src="${s}" width=192><img src="${s}" width=64><img src="${s}" width=32><img src="${s}" width=16></div><div class=t>${n}</div></div>`}}
+</script></body></html>

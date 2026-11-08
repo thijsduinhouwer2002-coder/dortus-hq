@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 26, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 27, 8 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -21,6 +21,7 @@ Een Dortus-product valt op: het heeft een eigen gezicht dat je in één oogopsla
 - Een functie die iets weghaalt of verandert, toon je op een winkelplaatje als voor en na, niet alleen als menu. (Versie 16, Bison & Flex plaatje 5.)
 - Toon wat het product meet, per geval en eerlijk: de gemeten waarde, nooit meer. Kies een paar vaste standen (bijvoorbeeld 30, 25 of 20 graden) boven een vrije schuif; dat leest rustig en is te testen. Kan iets hier niet, zeg dan in één regel wat wel kan, in plaats van iets roods toch te plaatsen. (Versie 18, Click Joints vorm v0.3.)
 - Het belangrijkste getal staat nooit op een gloed of verloop in dezelfde kleur. Gloed hoort om het token, niet achter de cijfers; meet het contrast van de cijfers op het lichtste punt van hun achtergrond. Een merkteken (sticker, zegel) heeft een rand die in licht en donker afsteekt. (Versie 18, Arcane crit en Parchment-zegel.)
+- Producten in een reeks op één platform delen één gezicht: zelfde tegel, zelfde kleuren, zelfde opbouw van paneel en poster, en elk een eigen moment. Voor Blender staat dat in `ontwerp/blender-reeks.md`. (Versie 27.)
 - Een pluginicoon vertelt in één beeld wat ons onderscheidt, geen abstracte vormen. Toets het op ware grootte (40px en 16px, licht en donker), niet alleen groot. Onder 16px weglaten wat niet leest. (Versie 10.)
 - De vraag bij elk oordeel: zou een gebruiker hier een schermafbeelding van maken om aan een vriend te laten zien?
 
