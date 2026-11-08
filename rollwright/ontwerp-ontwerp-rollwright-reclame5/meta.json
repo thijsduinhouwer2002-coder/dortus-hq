@@ -1,9 +1,9 @@
 {
  "scroll": {
-  "beast": 854,
-  "trap": 1078,
-  "ini": 810,
-  "per": 1277
+  "beast": 686,
+  "trap": 870,
+  "ini": 643,
+  "per": 1028
  },
  "venster": "remote",
  "files": [
@@ -37,55 +37,55 @@
    "cls": "rollwright-roll",
    "h": 27,
    "i": 0,
-   "t": "5",
-   "w": 42,
+   "t": "22",
+   "w": 51,
    "x": 325,
-   "y": 889
+   "y": 721
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 1,
-   "t": "Attack: 19",
-   "w": 101,
+   "t": "Attack: 23",
+   "w": 102,
    "x": 351,
-   "y": 1070
+   "y": 861
   },
   {
-   "cls": "rollwright-roll",
+   "cls": "rollwright-roll rollwright-roll-min rollwright-fumble",
    "h": 27,
    "i": 2,
-   "t": "Damage: 7",
-   "w": 107,
-   "x": 479,
-   "y": 1070
+   "t": "Damage: 5, MIN",
+   "w": 105,
+   "x": 480,
+   "y": 861
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 3,
-   "t": "Dex save: 20",
-   "w": 118,
+   "t": "Dex save: 14",
+   "w": 116,
    "x": 388,
-   "y": 1269
+   "y": 1020
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
-   "y": 1396
+   "y": 1147
   },
   {
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 1440
+   "y": 1190
   }
  ],
  "ini": [
@@ -93,55 +93,55 @@
    "cls": "rollwright-roll",
    "h": 27,
    "i": 0,
-   "t": "5",
-   "w": 42,
+   "t": "22",
+   "w": 51,
    "x": 325,
-   "y": 339
+   "y": 338
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 1,
-   "t": "Attack: 19",
-   "w": 101,
+   "t": "Attack: 23",
+   "w": 102,
    "x": 351,
-   "y": 520
+   "y": 478
   },
   {
-   "cls": "rollwright-roll",
+   "cls": "rollwright-roll rollwright-roll-min rollwright-fumble",
    "h": 27,
    "i": 2,
-   "t": "Damage: 7",
-   "w": 107,
-   "x": 479,
-   "y": 520
+   "t": "Damage: 5, MIN",
+   "w": 105,
+   "x": 480,
+   "y": 478
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 3,
-   "t": "Dex save: 20",
-   "w": 118,
+   "t": "Dex save: 14",
+   "w": 116,
    "x": 388,
-   "y": 719
+   "y": 637
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
-   "y": 846
+   "y": 764
   },
   {
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 890
+   "y": 807
   }
  ],
  "att": [
@@ -152,52 +152,52 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 339
+   "y": 338
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 1,
-   "t": "Attack: 19",
-   "w": 101,
+   "t": "Attack: 23",
+   "w": 102,
    "x": 351,
-   "y": 520
+   "y": 478
   },
   {
-   "cls": "rollwright-roll",
+   "cls": "rollwright-roll rollwright-roll-min rollwright-fumble",
    "h": 27,
    "i": 2,
-   "t": "Damage: 7",
-   "w": 107,
-   "x": 479,
-   "y": 520
+   "t": "Damage: 5, MIN",
+   "w": 105,
+   "x": 480,
+   "y": 478
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 3,
-   "t": "Dex save: 20",
-   "w": 118,
+   "t": "Dex save: 14",
+   "w": 116,
    "x": 388,
-   "y": 719
+   "y": 637
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
-   "y": 846
+   "y": 764
   },
   {
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 890
+   "y": 807
   }
  ],
  "dmg": [
@@ -208,7 +208,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 339
+   "y": 338
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -217,43 +217,43 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 520
+   "y": 478
   },
   {
-   "cls": "rollwright-roll",
+   "cls": "rollwright-roll rollwright-roll-min rollwright-fumble",
    "h": 27,
    "i": 2,
-   "t": "Damage: 7",
-   "w": 107,
+   "t": "Damage: 5, MIN",
+   "w": 105,
    "x": 480,
-   "y": 520
+   "y": 478
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 3,
-   "t": "Dex save: 20",
-   "w": 118,
+   "t": "Dex save: 14",
+   "w": 116,
    "x": 388,
-   "y": 719
+   "y": 637
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
-   "y": 846
+   "y": 764
   },
   {
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 890
+   "y": 807
   }
  ],
  "dex": [
@@ -264,7 +264,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 194
+   "y": 275
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -273,7 +273,7 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -282,23 +282,23 @@
    "t": "Damage: 11",
    "w": 111,
    "x": 480,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll",
    "h": 27,
    "i": 3,
-   "t": "Dex save: 20",
-   "w": 118,
+   "t": "Dex save: 14",
+   "w": 116,
    "x": 388,
    "y": 574
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
    "y": 701
   },
@@ -306,10 +306,10 @@
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 745
+   "y": 744
   }
  ],
  "per": [
@@ -320,7 +320,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 194
+   "y": 275
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -329,7 +329,7 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -338,7 +338,7 @@
    "t": "Damage: 11",
    "w": 111,
    "x": 480,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -350,11 +350,11 @@
    "y": 574
   },
   {
-   "cls": "rollwright-roll rollwright-roll-max rollwright-crit",
+   "cls": "rollwright-roll",
    "h": 27,
    "i": 4,
-   "t": "Perception: 22, NAT 20",
-   "w": 131,
+   "t": "Perception: 5",
+   "w": 122,
    "x": 339,
    "y": 701
   },
@@ -362,10 +362,10 @@
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 745
+   "y": 744
   }
  ],
  "tab": [
@@ -376,7 +376,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 194
+   "y": 275
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -385,7 +385,7 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -394,7 +394,7 @@
    "t": "Damage: 11",
    "w": 111,
    "x": 480,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -418,10 +418,10 @@
    "cls": "rollwright-roll rollwright-text",
    "h": 27,
    "i": 5,
-   "t": "Three crabs the size of carts",
-   "w": 220,
+   "t": "The harbour master, who should be dead",
+   "w": 304,
    "x": 442,
-   "y": 745
+   "y": 744
   }
  ],
  "held": [
@@ -432,7 +432,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 194
+   "y": 275
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -441,7 +441,7 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -450,7 +450,7 @@
    "t": "Damage: 11",
    "w": 111,
    "x": 480,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -477,7 +477,7 @@
    "t": "Three crabs the size of carts",
    "w": 220,
    "x": 442,
-   "y": 745
+   "y": 744
   }
  ],
  "heldA": [
@@ -488,7 +488,7 @@
    "t": "16",
    "w": 48,
    "x": 325,
-   "y": 339
+   "y": 338
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -497,7 +497,7 @@
    "t": "Attack: 23",
    "w": 102,
    "x": 351,
-   "y": 520
+   "y": 478
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -506,7 +506,7 @@
    "t": "Damage: 11",
    "w": 111,
    "x": 480,
-   "y": 520
+   "y": 478
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -515,7 +515,7 @@
    "t": "Dex save: 2, NAT 1",
    "w": 110,
    "x": 388,
-   "y": 719
+   "y": 637
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit",
@@ -524,7 +524,7 @@
    "t": "Perception: 22, NAT 20",
    "w": 131,
    "x": 339,
-   "y": 846
+   "y": 764
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-text",
@@ -533,7 +533,7 @@
    "t": "Three crabs the size of carts",
    "w": 220,
    "x": 442,
-   "y": 890
+   "y": 807
   }
  ],
  "skin-parchment": [
@@ -544,7 +544,7 @@
    "t": "16",
    "w": 51,
    "x": 325,
-   "y": 201
+   "y": 282
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -553,16 +553,16 @@
    "t": "Attack: 23",
    "w": 103,
    "x": 351,
-   "y": 380
+   "y": 421
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
-   "h": 27,
+   "h": 25,
    "i": 2,
    "t": "Damage: 11",
    "w": 115,
    "x": 481,
-   "y": 380
+   "y": 421
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -600,7 +600,7 @@
    "t": "16",
    "w": 50,
    "x": 325,
-   "y": 194
+   "y": 275
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -609,7 +609,7 @@
    "t": "Attack: 23",
    "w": 103,
    "x": 351,
-   "y": 375
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled",
@@ -618,7 +618,7 @@
    "t": "Damage: 11",
    "w": 112,
    "x": 481,
-   "y": 374
+   "y": 415
   },
   {
    "cls": "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble",
@@ -645,7 +645,7 @@
    "t": "Three crabs the size of carts",
    "w": 220,
    "x": 442,
-   "y": 745
+   "y": 744
   }
  ],
  "groot": null
