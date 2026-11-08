@@ -110,7 +110,7 @@ window.render=function(t){
  const tx=192+395*.875, ty=92+553*.875, s0=.36; // token on stage, small scale
  const L=$('lift'); const lx=640-292, ly=250-71;
  const px=tx-292+(lx-(tx-292))*m, py=ty-71+(ly-(ty-71))*m, sc=s0+(1.18-s0)*m+.012*m*Math.sin(t*2.2);
- L.style.opacity=t>7.18&&t<9.95?cl(m*3):0; L.style.transform=`translate(${px}px,${py}px) scale(${sc})`;
+ L.style.opacity=t>7.18&&t<9.95?cl((m-.12)*4):0; L.style.transform=`translate(${px}px,${py}px) scale(${sc})`;
  const R=$('rays');R.style.opacity=m*(.5+.15*Math.sin(t*2.6));R.style.transform=`rotate(${t*9}deg) scale(${.6+.5*mi})`;
  $('tag').style.opacity=out(ph(t,7.6,8.0))*(1-ph(t,9.0,9.3)); $('tag').style.letterSpacing=(.8-.3*out(ph(t,7.6,8.3)))+'em';
  const burst=ph(t,7.15,7.5);

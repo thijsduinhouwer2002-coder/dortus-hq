@@ -433,5 +433,5 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Poster v3:** zelfde wereld als de film (warm podium, kaartlijnen, vonken), titel links, echt venster rechts, de opgetilde kaart onder de echte regel zodat het kleine token zichtbaar blijft.
 - **Controleur (agent):** eerst nee, twee moet-punten: (1) logboek toonde andere getallen dan de film gooide (oude opname), (2) overvloeier tussen twee vensters bij 10 s en 12,7 s. Opgelost: nieuwe opname op tak `ontwerp/rollwright-reclame4` (spec neemt het logboek op direct na de drie GIF-worpen, run 42530737674, GEZIEN), alle filmbeelden uit die ene opname, harde snede, venster weg voor de eindkaart, logboek 3,3 s, eindkaart groter, film 16 s. Tweede keuring: ja, geen moet-punten. Kan-punt verwerkt: poster nu ook uit de nieuwe opname (Hit 12, zoals de film).
 - **Op de lijst van Thijs:** GIF, mp4 en poster met links, ja of nee vóór 9 nov 11:00 UTC.
-- **Nog kan (versie 2):** krimpende kaart landt één beeldje net boven het echte token (9,75 s).
+- **Kan-punt verwerkt:** de terugvliegende kaart dooft nu uit voor hij landt, geen dubbel beeld meer rond 9,75 s (GEZIEN).
 - **Volgende run:** berichten; bij ja van Thijs seintje aan Olaf (bestandsnamen staan op de lijst); daarna de 2 of 3 skins-richtingen voor Thijs (bericht 22:58), groot in een echte notitie.
