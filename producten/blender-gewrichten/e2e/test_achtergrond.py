@@ -14,6 +14,7 @@ import figuren  # noqa: E402
 zip_pad = sys.argv[sys.argv.index("--") + 1]
 from hulp import (delen, fouten, gesloten_delen, log, meting, plaats, speling_meten, stap,  # noqa: E402
                   toets_materiaal, toets_opening, toets_stl, toets_uit_elkaar, weg)
+import toetsen_3mf  # noqa: E402
 import toetsen_auto  # noqa: E402
 import toetsen_correcties  # noqa: E402
 import toetsen_schaal  # noqa: E402
@@ -43,6 +44,7 @@ def main():
             log(f"PASSING arm {s}: {lijst[0].get('cj_passing')}")
         if s == 0.3 and len(lijst) == 2:
             toets_stl(lijst)
+            toetsen_3mf.toets(lijst)  # ronde h: 3MF naast STL
             toets_uit_elkaar(lijst)
             toetsen_uit_elkaar.tweede_gewricht(lijst)
         weg(lijst)

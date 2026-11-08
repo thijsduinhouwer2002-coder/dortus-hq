@@ -1,9 +1,10 @@
-"""Operator click_joints.exporteer: elk zichtbaar gewrichtsdeel als STL, in millimeter."""
+"""Operator click_joints.exporteer: elk zichtbaar gewrichtsdeel als STL of 3MF (keuze in het paneel), in millimeter."""
 import os
 import tempfile
 
 import bpy
 
+from . import drie_mf
 from .eigenschappen import eenheid_per_mm
 from .uit_elkaar import echte_plek
 
@@ -19,7 +20,7 @@ def exportmap(scene):
 
 
 def hint(scene):
-    """Korte tekst voor het paneel: waar de STL-bestanden heen gaan als de map leeg is."""
+    """Korte tekst voor het paneel: waar de bestanden heen gaan als de map leeg is."""
     if scene.click_joints.exportmap:
         return None
     if bpy.data.filepath:
@@ -33,11 +34,12 @@ def delen(context):
 
 class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
     bl_idname = "click_joints.exporteer"
-    bl_label = "Export STL"
-    bl_description = "Write every visible joint part as an STL file in millimeters"
+    bl_label = "Export"
+    bl_description = "Write every visible joint part as an STL or 3MF file in millimeters"
 
     def execute(self, context):
-        if "stl_export" not in dir(bpy.ops.wm):
+        formaat = context.scene.click_joints.formaat
+        if formaat == "STL" and "stl_export" not in dir(bpy.ops.wm):
             self.report({"ERROR"}, "This Blender has no STL export (needs 4.2 or newer)")
             return {"CANCELLED"}
         lijst = delen(context)
@@ -50,14 +52,17 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
         actief = context.view_layer.objects.active
         gekozen = [o for o in context.view_layer.objects if o is not None and o.select_get()]
         with echte_plek(lijst):  # opengewerkt beeld even uit: de STL krijgt de echte plek
-            geschreven = self.schrijf(context, lijst, map_, schaal)
+            if formaat == "3MF":
+                geschreven = self.schrijf_3mf(context, lijst, map_, schaal)
+            else:
+                geschreven = self.schrijf(context, lijst, map_, schaal)
         context.view_layer.update()
         for o in context.view_layer.objects:  # selectie terug zoals hij was (na Place joint: niets)
             if o is not None:
                 o.select_set(o in gekozen)
         context.view_layer.objects.active = actief
         context.scene["cj_laatste_export"] = geschreven
-        self.report({"INFO"}, f"{len(geschreven)} STL files in {map_}")
+        self.report({"INFO"}, f"{len(geschreven)} {formaat} files in {map_}")
         return {"FINISHED"}
 
     @staticmethod
@@ -74,6 +79,18 @@ class CLICK_JOINTS_OT_exporteer(bpy.types.Operator):
             bpy.ops.wm.stl_export(filepath=pad, export_selected_objects=True, global_scale=schaal,
                                   use_scene_unit=False, ascii_format=False, apply_modifiers=True)
             deel["cj_stl"] = pad
+            geschreven.append(pad)
+        return geschreven
+
+
+    @staticmethod
+    def schrijf_3mf(context, lijst, map_, schaal):
+        geschreven = []
+        context.view_layer.update()
+        for deel in lijst:
+            pad = os.path.join(map_, bpy.path.clean_name(deel.name) + ".3mf")
+            deel["cj_3mf_driehoeken"] = drie_mf.schrijf(deel, pad, schaal)
+            deel["cj_3mf"] = pad
             geschreven.append(pad)
         return geschreven
 

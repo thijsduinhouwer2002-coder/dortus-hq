@@ -10,6 +10,7 @@ import bpy
 from mathutils import Vector
 
 import figuren
+import toetsen_3mf
 from hulp import (addon, delen, gesloten_delen, log, meting, plaats, speling_meten, stap, toets_opening,
                   toets_stl, u, weg)
 
@@ -173,6 +174,7 @@ def meterscene():
     log(f"METER: snijvlak {schuif:.5f} mm naast de cursor")
     stap("meterscene: snijvlak 0,0137 mm naast de cursor (+- 0,001)", abs(schuif - 0.0137) < 0.001)
     toets_stl(lijst, "STL meter")
+    toetsen_3mf.toets(lijst, "3MF meter")  # ronde h: ook in meters komt de 3MF in mm
     weg(lijst + [ob])
 
 
