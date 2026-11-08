@@ -33,11 +33,15 @@ const muisWeg = async () => {
 };
 const zetKans = async (h) => browser.execute((h) => { if (!window.__rwRandom) window.__rwRandom = Math.random; Math.random = () => (h ? 0.99999 : 0); }, h);
 const losKans = async () => browser.execute(() => { if (window.__rwRandom) { Math.random = window.__rwRandom; window.__rwRandom = undefined; } });
-const klik = async (woord) => browser.execute((w) => {
-	const r = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null).find((x) => x.textContent.includes(w));
+// In de voorbeeldnotitie staat "Initiative" buiten het token, dus ook klikken op volgorde: 0 Initiative,
+// 1 Hit, 2 Damage, 3 Wisdom save, 4 gasten, 5 geruchten.
+const VOLG = { Initiative: 0, Hit: 1, Damage: 2, Wisdom: 3, bar: 4, stranger: 5 };
+const klik = async (woord, opVolgorde = true) => browser.execute((w, i) => {
+	const alle = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll")].filter((x) => x.offsetParent !== null);
+	const r = alle.find((x) => x.textContent.includes(w)) ?? (i === undefined ? undefined : alle[i]);
 	r?.click();
 	return !!r;
-}, woord);
+}, woord, opVolgorde ? VOLG[woord] : undefined);
 const zoom = async (f) => {
 	await browser.execute((f) => { try { window.require("electron").webFrame.setZoomFactor(f); } catch (e) { document.body.style.zoom = String(f); } }, f);
 	await browser.pause(600);
