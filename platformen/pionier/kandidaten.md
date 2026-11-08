@@ -75,3 +75,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les van vandaag: vier platforms (Home Assistant, Framer, Meta-brillen, Kick) vielen af op dezelfde twee punten: geen winkel of geen betaalroute, of de platformeigenaar pakt de categorie zelf. Zoek gericht naar platformen met **beide**: een winkel met installs zichtbaar en betalen in de winkel, die minder dan een jaar open is.
 - Nog open: Bluesky (feeds, labelers; geld waarschijnlijk nee), Excalidraw (geen winkel bekend), AI-gereedschappen (Cursor, Warp). Snel schiften op geld voor je een agent inzet.
 - Volgen: Meta-brillen (script meldt zodra indienen opengaat), Kick (extensies of app-directory), herhaalmetingen rond 8 dec (zie status.md).
+
+## Nieuw, 8 nov 05:50 UTC (Noor)
+- Whop App Store (apps die in de communities van Whop-makers draaien, Whop rekent af; Whop groeit hard, omzet ±$142M volgens Sacra): in onderzoek 8 nov 05:50 UTC
+- Attio (CRM, App SDK en App Store sinds 2025): snelle schifting, publicatieregels noemen geen betaalde apps (GEZIEN, https://docs.attio.com/share/publishing-to-the-app-store.md). Waarschijnlijk nee op geld.
