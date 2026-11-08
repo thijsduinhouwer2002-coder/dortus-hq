@@ -108,9 +108,13 @@ describe("Rollwright skin-tegels in de instellingen (Daan klus 7)", function () 
 				expect(t.stickerBox.l).toBeGreaterThanOrEqual(t.tegel.l);
 				expect(t.stickerBox.r).toBeLessThanOrEqual(t.tegel.r);
 				expect(t.stickerBox.t).toBeGreaterThanOrEqual(t.tegel.t);
-				expect(t.stickerBox.r <= t.klein.l || t.stickerBox.b <= t.klein.t).toBe(true);
-				// Het kleine token is echt kleiner.
-				expect(t.klein.b - t.klein.t).toBeLessThan(t.crit.b - t.crit.t);
+				// De kaders mogen elkaar nergens overlappen (sinds Daans ronde 8 staat de gewone worp links).
+				const los = t.stickerBox.r <= t.klein.l || t.stickerBox.l >= t.klein.r || t.stickerBox.b <= t.klein.t || t.stickerBox.t >= t.klein.b;
+				expect(los).toBe(true);
+				// Ronde 8 (Daan): de gewone worp in de kleuren van de skin staat voorop en is niet kleiner
+				// dan de crit, want die laat zien wat je koopt.
+				expect(t.klein.r).toBeLessThanOrEqual(t.crit.l);
+				expect(t.klein.b - t.klein.t).toBeGreaterThanOrEqual(t.crit.b - t.crit.t);
 			}
 		});
 	}
