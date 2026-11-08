@@ -253,3 +253,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les: de standaardsortering (field 3) van de TikTok-portal-API verschuift tijdens het bladeren; tel altijd uniek op service_id. Script aangepast. De EU- en VS-tellingen van 8 nov kunnen een paar dubbele bevatten (VS 714 uniek van 721); bij de herhaalmeting rond 8 dec opnieuw tellen.
 - Snel nakijken: Brazilië, regels voor cosmetica en gezondheid (ANVISA) en INMETRO op TikTok Shop; nu geen enkele app die ze noemt. Als verkopers daar aantoonbaar op vastlopen (geweigerde listings), kan Brazilië hoger.
 - Andere jonge TikTok Shop-landen zoeken (gaat TikTok Shop in 2026 of 2027 nog open in nieuwe landen, bijvoorbeeld Zweden, Portugal, Tsjechië, Korea, Canada?). Een land dat net opent, heeft een bijna lege winkel.
+- Brazilië, regels voor cosmetica en gezondheid (ANVISA, INMETRO) op TikTok Shop, snelle controle of dit Brazilië hoger maakt: in onderzoek 8 nov 20:56 UTC
