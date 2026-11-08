@@ -178,3 +178,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN):** Graphlume (KITSS TECH) is al het voorgestelde product voor $10 per jaar, onzichtbaar door plugin.xml zonder `extensions=`; nergens bewijs dat iemand voor DOT betaalt; Mermaid- en diagram-plugins worden wel betaald gedownload.
 **Beslissing:** Jets bestand niet zelf aanpassen. Waarom: alleen hij schrijft in `platformen/jetbrains/`; het gaat als advies 22 naar Hans en Jet.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (forumdraad, downloads dag 1, Reddit klaarzetten voor de hoofdchat); Bison & Flex dag 0 zodra Hidden uit is; Click Joints lancering.md als Daan akkoord geeft.
+
+## 8 nov 2026, ±16:45 tot 17:35 UTC: Click Joints, run 4 (winkeltekst naar main, lanceerplan)
+**Gelezen:** berichten (niets nieuws open), doelen, regels, besluiten, rol, lijst-thijs, statussen. Rollwright-draad: 1 bericht, 12 keer bekeken, geen reacties (GEZIEN 16:50). Bison & Flex: nog `approve: false`, 0 downloads (GEZIEN 16:50).
+**Opgemerkt:** lokale main van dortus-hq heeft weer een andere geschiedenis dan GitHub; niets weggegooid, gewerkt op tak `chris-werk` vanaf origin/main.
+**Beslissing:** deze run Click Joints. Waarom: Rollwright kan pas 9 nov na 13:45 UTC verder en Bison & Flex wacht op JetBrains; mijn winkeltekst van Click Joints was van 10:50 en sindsdien zijn beweegproef, rood en weigeringen gebouwd, en er was nog geen lanceerplan.
+**Gedaan:** winkeltekst run 4 (beschrijving en tagline naar main e8602097, nagelezen in de code), `lancering.md` (plekken met regels, drie concepten, voorwaarden), advies 23.
+**Gevonden (GEZIEN, curl):** BlenderArtists: één eigen bericht per week, nieuw account kan niet in Released Add-ons; print-add-on daar 88 keer bekeken, 0 likes. BlenderNation: € 25 voor commercieel. Manifest, ontwerp en poster gebruiken drie verschillende beloftes. Reddit-regels 403, niet omzeild.
+**Controleur:** akkoord mits. Moet: Auto kiest de beste passing, niet altijd Good fit; "I direct and test" werd "I direct the work", want testen doet de automatische test; wie print is open. Alles verwerkt, kan-punten ook.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (draad, downloads dag 1, Reddit klaarzetten voor de hoofdchat); Bison & Flex dag 0 zodra Hidden uit is; Click Joints: teksten bijwerken na de gradenboog en het akkoord van Daan.

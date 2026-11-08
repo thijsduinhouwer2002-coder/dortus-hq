@@ -1,0 +1,541 @@
+stemmen	id	onderwerp
+489	CPP-871	Support for cross-compilation/debug and embedded development 
+474	CPP-870	Support for ninja build
+426	IDEA-68854	Problems View Like eclipse
+367	CPP-1102	SCons support for CLion
+365	CPP-1537	Support multiple projects in the same frame
+353	PY-9476	Allow PyCharm to debug Cython/C/C++
+338	CPP-193	Support Autotools-based projects
+287	RIDER-3824	NCrunch Support or any other Continuous Testing Tool
+287	CPP-364	Support Arduino / AVR-C and others
+282	PY-8238	Kivy project support
+264	RIDER-11489	Implement UI for Structural Search and Replace (SSR)
+223	CPP-5652	Cython support
+221	IDEA-124520	Eclipse RCP development support
+213	WEB-7394	Display XHR in Javascript debug console
+209	RIDER-27214	Remote Debugging application running in Kubernetes
+202	RIDER-10370	Azure service fabric
+200	DBE-268	Conceptual/ER schema Design Tool
+197	PY-39750	Black code style: make PyCharm formatter Black compatible
+192	DBE-4719	PrestoDB Support
+190	RIDER-43249	Combine .h and .cpp into one tab
+178	WEB-51965	Add support of Microsoft Playwright Test Runner
+167	IDEA-100812	OSGi support on a level similar to BndTools
+167	CPP-1104	Support Gradle
+164	RIDER-51400	Support roslyn properties in editorconfig
+158	CPP-5980	Ability to set path for new headers and sources files
+157	RIDER-12403	Please add support for EF database first (EDMX)
+153	CPP-3067	Send SIGINT signal to running program
+152	IDEA-15540	Export breakpoints
+150	CPP-13470	Combine CLion and PyCharm Professional
+147	DBE-4377	Postgres PL/PGSQL debugger
+146	CPP-5797	Cross-debugging Python and C++
+143	WEB-21182	ES6: provide imports layout in code style
+142	WEB-49361	Support Custom Web Components
+141	WEB-20916	Add support for tests that output Test Anything Protocol (TAP)
+141	RIDER-38805	Add ML Model Builder
+138	DBE-218	Multi Copy to different host/database
+136	IDEA-252110	Remote profiling support
+134	RIDER-16273	Scopes not available on solution explorer
+134	DBE-6089	AWS Athena support
+133	DBE-7948	Elasticsearch full support
+131	IDEA-262280	Code completion for Gradle Version Catalogs in TOML files
+129	RIDER-552	Add Paket support
+125	WEB-14781	Add Cordova debugging support
+125	DBE-10653	Display results for Run Configurations
+121	CPP-9045	Show disassembly together with source code
+118	DBE-9404	SQL Server Stored Procedure Debugging
+117	WEB-14987	Firefox debugger: provide possibility to run Firefox debugger via 'JavaScript Debug'
+117	PY-60990	Mojo support
+115	RUBY-24767	Please, add support to WSL 2
+114	DBE-12900	Support Firestore database
+114	CPP-1070	OpenCL support
+111	DBE-689	Implement DESCRIBE and EXECUTE functionality of Oracle SQL*Plus for Oracle dialect
+110	CPP-861	add premake support
+109	RIDER-625	Add ASP.NET WebForms (template and toolbox) support in Rider
+109	GO-2954	Add support for Ginkgo BDD Tests
+104	WEB-28397	Test runner detection: Cannot explicitly select the default runner per project
+103	WEB-10303	Support istanbul/lcov code coverage reports directly
+101	GO-5655	Support for godog testing framework
+101	DBE-3650	Firebird Support
+99	IDEA-134919	Allow debug variables and/or watches to be saved for later inspection
+95	DBE-2835	Teradata support
+94	RIDER-20732	Ability to analyze and uninstall unused NuGet packages and remove project references
+94	RIDER-16358	Support inspecting XAML content during debugging ("Live Visual Tree" and "Live Property Explorer")
+94	PY-1706	Add Tornado Template Support
+94	DBE-5158	InfluxDB full support
+92	WEB-55647	Support Tailwind css autocompletion using standalone tailwind CLI
+92	RIDER-10495	Having multiple solutions in a project
+92	CPP-1798	Debugger: Custom variable renderers
+91	RIDER-43920	Native WSL support
+89	IDEA-61007	ZK framework
+88	RUST-12476	Feature request: add support probe-rs debugging toolkit
+87	CPP-1576	Run/debug on Linux/macOS: "Run in external terminal" option
+86	DBE-6857	Azure Cosmos DB (SQL Mode) support
+86	DBE-6155	Support Execution of psql Backslash Directives
+86	CPP-37281	Objective-C++ support
+84	RIDER-1401	Unable to load Visual studio installer project
+84	DBE-630	SAP HANA DB support
+83	WEB-50010	Feature request - better support for yarn/npm workspaces
+83	RIDER-47638	Support XAML Previewer for WinUI
+82	CPP-1536	GLSL ES shader language support
+81	WEB-10726	Node REPL support
+81	RIDER-38942	Add support for running unit tests with docker
+81	CPP-11559	WebAssembly support
+80	IDEA-57644	AOP statement support.
+78	PY-15003	Structural Search and Replace support for Python
+78	IDEA-114661	Separate right margin configuration for documentation (javadoc, python docstrings, etc.)
+77	WEB-21788	Support ava test runner
+77	PY-42563	Add feature to create executable file
+77	DBE-1204	Data Import/Synchronization between databases
+76	RIDER-23226	Layout Designer not working properly
+75	RIDER-27606	Support Azure DevOps in Rider
+75	IDEA-75686	jBPM 5 support feature
+75	DBE-4024	MySQL / MariaDB debugger
+74	CPP-8414	Specify scripts to use for CMake generation (instead of directly invoking cmake)
+73	WEB-54645	Support non js npm scripts runners (bun, dum)
+73	RIDER-65392	Run tests before commit
+73	CPP-1607	Custom project model support
+72	WEB-32640	lit-HTML support
+72	RIDER-7172	Support Expecto test framework
+72	DBE-5691	Support concurrent query execution
+72	CPP-931	Support for Intel compiler
+72	CPP-4924	Insert namespaces into the files created by IDE
+71	WEB-9708	Ability to debug Google Chrome extensions
+71	RIDER-8443	IIS Server Type does not change the Run/Debug behavior
+71	RIDER-82104	MAUI C# HotReload does not work for macos/mobiles apps
+71	IDEA-83442	Debuging bytecode
+70	RUBY-17225	Crystal language support
+70	PY-40394	Time travel debugger for PyCharm
+69	WEB-12829	sassdoc docblock support
+69	PY-34333	Support for Google Colab forms
+69	DBE-8805	Cross database table join support
+69	DBE-435	Informix DB support
+69	DBE-1436	SQLite remote tunneling
+68	PY-51358	Mypy support out-of-the-box
+68	PY-33595	Detect Pipfile file if it is located in the sub-folder of the project folder
+68	IDEA-104687	Activiti BPM support
+68	DBE-12123	Tarantool support
+67	PY-25514	Make possible to get an output from remote script after reconnection to the remote host
+67	IDEA-54807	Allow project settings to have its own Debug Stepping, and add [Only Step into the classes] for productivity
+67	GO-4240	cgo: enhance editing C code / import CLion functionality
+66	WEB-679	Support highlighting underscore.js (and similar) templates
+66	WEB-67017	Support for running tests via Bun
+65	RIDER-21806	Scratch C# file - add possibility to reference project/assembly
+65	PY-42944	Enabling docker exec for faster execution
+65	CPP-5681	Python: Remote Debugging
+65	CPP-5649	Cross-language resolve with Python
+64	PY-30387	Support Data breakpoints
+64	CPP-3379	Add an option to redirect program output and error streams to a file
+63	RIDER-5594	Stack traces in Run or Debug windows aren't clickable
+63	RIDER-26661	Add 'Document Outline' in ToolBox as a separate tab
+63	PY-3821	Fabric deployment tool support
+63	PY-19752	Ability to edit source code remotely without local copy
+63	CPP-15899	GN build system support
+62	WEB-59250	NgRx Actions - usages of properties (actions) in createActionGroup are not being resolved
+62	WEB-29852	Allow having multiple TypeScript services in one project
+61	RIDER-624	Add Reporting template and designer in Rider
+61	PY-42461	Support Nix package manager
+61	IDEA-115000	Support visual designer for Vaadin
+61	DBE-6657	Support scheduled tasks
+60	WEB-18099	Add support of Emmet in Jade documents
+60	RIDER-35727	Color Scheme | C#: Add settings for attributes, named arguments, and method declarations/calls
+60	RIDER-18325	Feature request - Switch Nuget and project references
+60	DBE-9984	Database Markup Language support
+60	DBE-19795	DBT Projects in DataGrip
+59	WEB-26383	Request for PostCSS plugin syntax support (postcss-variables and postcss-js-mixins)
+59	RIDER-94485	Add support for DefaultAzureCredential when running inside docker
+59	RIDER-61281	Add support for Wix Toolset Project Templates
+59	RIDER-19786	Method hierarchy support in Rider
+59	IDEA-158104	Jenkins Pipeline
+58	RIDER-94289	MAUI XAML Hot Reload not working in Windows Session
+58	GO-4618	Show `go build` results in a custom "Problems" window
+58	CPP-14697	Improved New Class Creation Dialog (something like what Code::Blocks uses)
+57	RIDER-29621	user friendly UI for File Layout (designer)
+57	PY-45743	Displaying inlay hints for inferred types of variables
+57	CPP-8893	Configurable list of toolsets that include environment, compilers, cmake, debugger etc, and allow selecting per-project/per-configuration
+56	RIDER-59477	New Run/Debug Template - SSH Remote Debug of Console/Server apps
+56	PY-63729	Attach to running Docker container
+56	PY-2185	Templates for projects
+55	WEB-45069	Code Coverage: Support `c8`
+55	WEB-35464	Provide HTML snippets preview for CSS/SCSS/LESS selectors
+55	WEB-24833	Angular: link component TS and HTML files when editing
+55	WEB-1384	Support "Comma-first" formatting in JavaScript
+55	RUBY-23392	Support Jenkinsfile Formatting in Rubymine
+55	RIDER-24053	Multiline TODOs for C#
+55	IDEA-97678	Robot Framework integration
+55	DBE-4516	Support copying constraints and indexes too while copying table
+55	DBE-16632	Add parquet format for export from sql database
+54	WEB-45677	Alpine.js syntax support
+54	WEB-236	Advanced CSS formatting
+54	WEB-20053	Add Redux DevTools
+54	IDEA-120057	Need separate continuation indents settings for different places
+53	WEB-23787	Polymer & Web Components Editor services
+53	RIDER-19973	Support Entity Framework 6 in Microsoft.NET.Sdk project format
+53	IDEA-68692	Hotkey to move file to next splitter pane
+53	IDEA-332553	Zig support
+53	IDEA-168305	Add support for API Blueprint syntax
+53	IDEA-125737	Import maven compiler settings into IDEA compiler settings
+53	DBE-2638	Add a 'Visual Query Builder' feature
+53	CPP-7107	Embedded development: Serial terminal
+52	WEB-49380	Automatically fold class attribute values in HTML
+52	PY-30705	Debugger feature request: bypass/ignore/fix exception and continue debugging
+52	PY-12327	Customizable docstring generation templates
+52	CPP-9210	Visualize Doxygen LaTex docs
+51	RUBY-12337	add ability to run coverage with remote interpreter
+51	PY-7712	Support for mixin classes in code inspection
+51	PY-11870	Sort methods alphabetically within a python class
+50	WEB-397	ZenCoding + auto-completion
+50	WEB-38629	Jest: "Coverage" doesn't include branch coverage
+50	RIDER-19245	Publish to IIS (WebDeploy) for classic ASP.NET applications
+50	IDEA-191180	Custom filter frames when stopping on breakpoint
+50	IDEA-152972	Allow multiple processes debugging within the same session
+49	WEB-29209	'Unused CSS Selector' inspection: provide batch quick fix for removing selectors
+49	RIDER-79947	Implement UI to create and edit file templates
+49	RIDER-31197	Debugger. Show method return value while in the context of this method
+49	PY-40817	Ability to store project-relative path to Python interpreter (or rather, venv root) in .iml configuration file
+49	PY-23226	Ansible integration/support
+49	CPP-8590	Inline markdown support
+49	CPP-32055	Add support for building pointer/memory graphs
+49	CPP-14618	Ability to debug only my code (aka Just my code)
+48	WEB-43291	Vue.js: no support for the vue-i18n internationalization plugin
+48	DBE-3683	ANSI_QUOTES configuration option for MySQL dialects
+47	RIDER-70818	Allow code clean-up on Any save (not only explicit save)
+47	RIDER-25764	Implement custom properties grid in WinForms Designer
+47	RIDER-19645	no run configurations for Office projects
+47	PY-31133	Support variable location of Pipfile
+47	IDEA-135728	GUI for pom.xml
+46	WEB-51937	Support playwright element selector syntax highlighting
+46	WEB-46770	Deno test support
+46	WEB-41625	AdonisJS .edge template engine support
+46	RIDER-67275	Provide ability to specify external console in run configuration
+46	PY-41427	Support for flake8 integration
+46	IDEA-19625	Feature request: object diff in debugger
+46	DBE-21330	Add Turso Support
+46	CPP-11682	Debugger evaluate should handle comma expression as a special case
+45	WEB-50009	npm/yarn workspaces: workspace dependencies marked as not installed when opening a package as a project
+45	WEB-38707	Integration with NestJS-Cli
+45	PY-22815	Unable to Debug Multiple Docker Compose Containers in PyCharm
+45	CPP-10070	Visual list of errors/warnings on build
+44	WEB-34698	Support moving static and instance class methods
+44	WEB-27521	Bundle code style scheme based on Airbnb code style
+44	WEB-16776	Support code style rules for JSX and ES6
+44	PY-25008	Add kubernetes support
+44	IDEA-134704	Maven global settings file
+44	DBE-1383	Data Transfer(Export) manager
+44	CPP-16884	LLDB Support for WSL
+44	CPP-16202	Support compilation database projects for "Remote Host" and "Docker" toolchains
+43	RIDER-73116	dotnet NanoFramework Support
+43	RIDER-56016	Integrate IDEA [JavaScript/TypeScript] errors into 'Problems View / Errors in Solution'
+43	RIDER-35573	Stop debugger when browser window is closed
+43	RIDER-33192	support UWP packaging projects
+43	RIDER-30708	Remote deployment via SSH
+43	RIDER-28507	Support creating solutions according to installed plugins
+43	PY-35194	Show code regions in File Structure view for PyCharm
+43	IDEA-24108	StringTemplate template engine
+43	CPP-4704	gprof support 
+42	WEB-2188	Find all unused files in project (css, images, e.g.)
+42	RIDER-43886	Support Switch
+42	RIDER-10514	Attaching debugger to multiple processes
+42	PY-29672	Allow editor code cells debugging
+42	DBE-7569	Respect  timestamp/date/time format for import / export or allow to configure it on thy fly
+42	DBE-1912	Foreign Key Record Auto-completion
+42	DBE-11438	Trino support  (ex-PrestoSQL)
+42	CPP-833	Tools for C++ compilation speedup (e.g. ccache, warp, distcc, precompiled headers)
+41	WEB-59407	UnoCSS Support
+41	WEB-44233	[Feature] add filter for typescript show project error
+41	RIDER-87005	Allow default formatter to use `dotnet-format` or CSharpier or clang-format (like Webstorm with `prettier`)
+41	RIDER-84238	Clickable compilation errors in LiveCoding window
+41	RIDER-44430	Provide light-weight dummy CPP parser on frontend in UE4 Rider
+41	PY-70016	Support Scala-backend for iPython-style notebook
+41	PY-38694	Warn about circular imports
+41	CPP-189	Debugger: support different stopping modes (all threads, only current thread)
+40	WEB-37848	Support custom test suite functions (for Run gutter icons)
+40	PY-10591	Add SCons support (completion, resolve)
+40	IDEA-56974	Groovy/Grape: Automatically add libraries to classpath when @Grapes/@Grab annotation is found in file.
+40	DBE-15760	Support TimescaleDB
+39	WEB-32819	Cypress integration
+39	RIDER-52508	Color Scheme | C#: Add per-keyword color settings for modifiers, control-flow, and async keywords
+39	RIDER-40425	Support Filtering by Test methods in Find Usages
+39	PY-42947	Recursive Type-hint Definitions Handled Incorrectly
+39	PY-40493	Support Azure Functions
+39	PY-28324	Support "django-configurations"
+39	PY-12553	PEP 257 docstrings compliance support
+39	DBE-17163	Support Apache Doris
+39	CPP-8356	Support rr reverse-debugging
+39	CPP-7710	Implement reverse debugging with GDB 
+39	CPP-42761	Pixi integration
+38	WEB-5974	Evaluate Sass standard color-functions when displaying gutter colors
+38	WEB-31301	Automatic folding of specified HTML tags (ie. <svg>)
+38	RUBY-26851	Support for Nix package manager
+38	RIDER-54122	ClickOnce publishing support
+38	RIDER-2512	Can't insert live templates: "no templates defined in this context"
+38	IDEA-95071	Coldfusion Railo Debugger
+38	IDEA-48786	Support for JSR-305 annotations in Groovy
+38	IDEA-272455	Intellij Flex/Flash plugin new compiler options -platformsdk and export as aab
+38	IDEA-183037	An option to move binary operation sign to the next line even if "Keep line breaks" is on.
+38	CPP-9942	Support CMake 'target_sources' directive
+38	CPP-6388	Tcl language support
+38	CPP-2275	MSYS support
+37	WEB-22717	Import Resolution with Alias Babel Aliasify
+37	WEB-2099	Support debugging of PHP and Javascript code seamlessly in single debugger UI. 
+37	WEB-12630	Combine data of TypeScripts .d.ts files and plain JavaScript files for libraries
+37	IDEA-227508	Cucumber JUnit Platform engine: no navigation from test tree, no single-scenario runs
+37	IDEA-131043	Open next editor on other split
+36	WEB-7649	Refactor: Extract Method: place new function after current or at the end of the scope
+36	WEB-2337	Source mapping (SMAP) support for Firefox
+36	PY-23007	Project requirements are not detected from setup.cfg
+36	PY-21733	Setup entrypoint in Run/Debug configuration running on Docker Compose Python interpreter
+36	IDEA-58797	Support for Gaelyk framework
+36	DBE-8505	Graph based databases support
+36	DBE-5400	Support relationship type in diagrams 
+36	DBE-4493	As a data scientist, I would like to import/export from/to parquet/avro files.
+35	WEB-42233	Node and npm: Support running `npm ci` when there are changes to the package.json
+35	IDEA-62824	MyBatis Configuration Support
+35	IDEA-178175	Pin document in Structure View
+35	DBE-2423	SQL Server Agent functionality
+35	DBE-19271	Support for Vector Databases in Datagrip
+35	DBE-11590	LiteDB support
+35	CPP-22056	Watch variables and memory in realtime
+35	CPP-1313	Debug arbitrary binary
+34	WEB-67011	Support detection of Bun as interpreter in the settings
+34	WEB-24515	Custom debug type renderer for javascript
+34	RUST-11880	Embedded GDB Server configuration support
+34	PY-31948	Python Console lacks Docker container settings
+34	IDEA-217503	Support parallel artifact deployment
+34	DBE-567	Support CLR stored procedures (.NET CLR objects)
+34	DBE-2718	Allow restriction of graph size(or scope) when building diagrams
+34	CPP-29250	UML class diagrams for C++
+33	WEB-64513	Node + docker-compose: optionally don't recreate a container on each run
+33	PY-28995	Allow configuration of bind mount target for docker-compose remote interpreters
+33	DBE-7883	Impala support
+33	DBE-18905	SurrealQL Support
+33	DBE-11741	Add Cardinalities to Database Diagram Visualizations
+33	CPP-7438	Support for catkin
+33	CPP-3240	Integration with "include-what-you-use" tool by Google
+32	RUST-9329	Feature request: Show the size/alignment of a type
+32	PY-41958	User defined import nicknames/aliases
+32	PY-20605	Support IPython magic commands in Console
+32	IDEA-199749	Support for multiple debug sessions
+32	IDEA-121723	javadoc alignment of tags can be improved
+32	DBE-2083	Allow to share credentials for datasources
+32	DBE-12808	BigQuery - Estimate amount of processed data
+32	CPP-9541	Debugger command-line arguments
+32	CPP-2470	CppUTest/CppUMock support
+31	PY-72336	Integrate with Jupytext for easy quick and dirty notebook reviews on Github
+31	PY-61595	Support "Azure Machine Learning" platform
+31	PY-42909	Support poetry in docker-compose python interpreter
+31	PY-39811	Implement 'Pass count' for debugger like in IntelliJ IDEA
+31	PY-38748	Support sphinx roles in .rst preview
+31	DBE-4110	Google Cloud Spanner support
+31	CPP-6986	'Conan' dependency management support
+31	CPP-5826	Enable Doxygen copydoc annotation in Quick Documentation view
+30	RUST-3730	Feature Request: Support for Rust projects built with Bazel
+30	PY-60502	Support Mamba
+30	PY-21529	Allow to use file template variables in " Edit Configurations -> Logs -> Save console output to file"
+30	IDEA-62754	Add support for Karaf(OSGI based runtime)
+30	IDEA-29048	There should be ability to resolve dynamic url references
+30	GO-6302	Introduce Extract Parameter refactoring
+30	DBE-659	Global values for replaceable parameters
+30	DBE-10424	Azure Synapse Analytics support
+30	CPP-13179	Intention to move function definition inside class (opposite of "Split function into declaration and definition")
+30	CPP-10876	Debugger: Smart Step Into (Step into specific function)
+29	PY-7721	Support for parameter info when the called function uses *args and **kwargs to pass parameters to another function.
+29	PY-30623	PyCharm should auto-complete dynamically generated types
+29	PY-15700	Context/Language-sensitive right margin
+29	IDEA-23902	Add 'Update snapshots' button for Maven projects
+29	IDEA-120283	RAML
+29	DBE-5487	Allow sorting columns in a transposed database query result table
+29	DBE-17080	Gel (ex-EdgeDB) support
+29	DBE-14114	Disable loading ALL data source on startup
+29	DBE-10154	Code style setting: whether to indent 'BEGIN … END' in 'IF' clause in TransactSQL
+28	RUST-2748	Feature request: Support programming/debugging STM32 microcontrollers via OpenOCD
+28	PY-21985	Provide autocompletion for pandas DataFrame columns in Python files
+28	PY-17334	Please add SaltStack support as a plugin
+28	IDEA-86299	Geb browser automation
+28	IDEA-169878	Gradle Default Settings: Need 'default settings' for importing Gradle projects
+28	IDEA-121037	Add Webjars support
+28	IDEA-119553	run junit tests in parallel
+28	GO-2270	Support arrangement rules﻿ (Rearrange code feature)
+28	DBE-2715	Diagram of a table doesn't show the tables that depend on that table
+28	DBE-16740	Databricks complete support
+28	CPP-15378	Support environment variables in Toolchains settings (CMake path, Env.file path, etc.)
+27	RUST-4577	Feature request: exclude tests( in tests files, directories, mod tests) from 'Find usages' and Find in files
+27	PY-8408	logging module integration into PyCharm
+27	PY-45757	Integration with pre-commit Python hooks
+27	IDEA-87678	(RFE) Support Objects.requireNonNull in generated constructors (and setters)
+27	IDEA-244088	ABAP support in IDEA or perhaps a joint-project "SAP Studio" powered by IDEA
+27	IDEA-100272	Maven: support for implicit properties 
+27	DBE-2479	Store results of the queries
+26	PY-43839	Django Server Run/Debug Configuration does not have a "Emulate terminal in output console" option
+26	IDEA-88512	I want to be able to customize the order of quickfixes/intention actions
+26	IDEA-70423	gwt: provide support for "super-source" mechanism
+26	IDEA-253565	Spring Expression Language in custom annotations With parameter detection
+26	IDEA-153780	Add support for JUnit categories equivalent to that provided by Maven surefire/failsafe plugins
+26	IDEA-112354	New Grouping Rule "by annotation" in Java Code Style Arrangement
+26	IDEA-112035	Groovy: move inner class to upper level
+25	IDEA-311896	automatically run generate-sources before build
+25	IDEA-181023	Maven inspection for overridden managed dependency
+20	GO-5380	Enable the Go plugin for CLion
+20	GO-10586	Support sub-types in templates
+19	RUBY-24008	add support for rswag in RubyMine
+19	GO-10290	Support modify Test for function template
+18	RUST-7514	Go to Declaration on Into::into: navigate to the From::from impl instead of blanket Into impl
+18	RUBY-20874	Support debugging for two separate docker processes
+18	GO-3232	Need a QML editor
+17	RUST-13198	Feature request: add Run Configuration for custom binaries
+17	GO-4810	Support for quicktemplate files
+17	GO-11070	Detect helper functions for tests to run subtests individually
+16	RUBY-19518	secrets.yml.enc support for editing
+16	RUBY-13180	Extract partial for SLIM
+16	GO-9494	Customize Problems View reporting scope
+16	GO-8328	Go templates: Add dedicated code style settings for indentation
+16	GO-4032	CGO auto-complete improvement (Go references to C)
+15	RUST-2437	Add ability to execute scratch files
+15	RUBY-32926	Support inline syntax for RBS (RBS-inline)
+15	RUBY-14633	Sequel support
+15	GO-6135	Implement override methods action for implicitly implemented methods
+15	GO-3029	Parameter Inline Name Hints do not display in function call for arguments of non-basic types
+14	RUST-11857	RustRover Failing to Find Methods/Autocompletions in Leptos RSX file(Rust with HTML inside macros)
+14	RUBY-24347	Ability to run RSpec tests in parallel
+14	RUBY-15464	Support for RABL markup
+14	GO-6090	Structure fields refactorings
+13	GO-9458	Support specifying the project's go.mod file
+13	GO-4712	Language Injection from call site on a parameter
+12	RUST-7086	[Feature] Render directory.rs files as the directory in the project view 
+12	RUST-10212	Support for cargo-script/rust-script/cargo-eval/etc dependencies
+12	RUBY-17182	Provide Rails navigation inside Engines
+12	GO-2741	Viewing Assembly output side-by-side (Disassembly view)
+12	GO-15511	Support type inlay hints in variable declarations
+12	GO-12855	Add Build on remote target to run configuration templates
+12	GO-12084	Support gofumpt formatting rules on commit
+11	RUST-7198	Assembly view panel
+11	RUBY-29484	Support for Sorbet T::Struct class
+11	RUBY-19885	Ability to suppress rubocop offenses
+11	RUBY-18210	Ability to select remote interpreter for new projects
+11	RUBY-15918	Provide Padrino Framework support
+11	GO-9136	Improve navigation for function types so they behave similar to interfaces and their implementations
+11	GO-4352	Support for the Plush templating engine
+11	GO-1736	Support cross compile for different platforms (switch between predefined target build settings)
+10	RUBY-26133	Support WSL Sdk with Run Anything
+10	RUBY-17143	Support Rails model dependency diagram for mounted engines
+10	RUBY-12433	Support YARD reference tags
+10	GO-9859	Allow specifying different delimiters for Go Templates
+10	GO-9771	Support full remote mode
+10	GO-3445	Add support for custom project runners / hot(auto) reload
+10	GO-10862	Reader Mode: Implement Rendered documentation comments option
+9	RUST-17668	Add ability to fully customize `cargo check` command line
+9	RUBY-23854	Remote Ruby is not supported by Profiler
+9	RUBY-13945	Support turnip steps like cucumber steps
+9	GO-8475	To support 'go build ./...' (build all packages recursively) run configuration
+9	GO-7948	Code coverage exclude patterns for auto generated/mock files
+9	GO-7511	Support for Starlark configuration language
+9	GO-6963	Import profile from URL
+9	GO-5821	Move to compound if statement or extract from if statement for assignment
+9	GO-4818	Add support to split short assignment into declaration and assignment.
+9	GO-3828	Code completion not loaded for SWIG dependencies
+9	GO-20551	Introduce Global Variable/Constant refactoring (extract expression to package level)
+9	GO-11471	Make readable and navigable logged via zap error
+8	RUST-9820	Feature request: allow selecting arbitrary installled Rust channel/version
+8	RUST-5594	Support for non-Cargo based projects
+8	RUST-17404	Debugger: Render using format provided by Debug or Display traits
+8	RUST-15456	Feature Request: Add “--features” argument when running tests.
+8	RUBY-31492	Support Sorbet T.nilable and highlight errors the way Sorbet checker does
+8	RUBY-30772	Support Debug Adapter Protocol for Debugging with TruffleRuby in RubyMine
+8	RUBY-26431	Implement completion in liquid language
+8	RUBY-16051	Gherkin code style: allow to choose But/And to Given/When/Then alignment style
+8	GO-7191	Show compiler bounds check analysis results inline
+8	GO-5778	Add support for Run anything action (Ctrl+Ctrl)
+8	GO-5088	Support language injection in string concatenations
+8	GO-2997	Provide a way to upgrade Delve w/o upgrading the IDE
+7	RUST-968	Borrow visualizer
+7	RUST-9440	Support structural search and replace for Rust
+7	RUST-16864	Feature Request: "Rename Project" option
+7	RUST-12014	Feature Request: add crate manager UI
+7	RUST-11871	Show all errors in project (highlight files in project view, list errors from external linter in problems tool window)
+7	RUST-11771	Feature request: Support  Path variables for the Cargo toolchain location
+7	RUBY-5878	Add 'Method is never used' inspection
+7	RUBY-32647	Add json.jbuilder to the "New view file" menu
+7	RUBY-32526	Support reading Ruby version from mise.toml
+7	RUBY-31697	Add support for erb-lint
+7	RUBY-30229	Support for the `dry-initializer` gem
+7	RUBY-26926	Support running and debugging of containerized apps on Kubernetes
+7	RUBY-26542	Add more formatting options for hashes
+7	RUBY-26482	Implement Docker Compose coverage
+7	RUBY-19573	Support Jruby Gradle plugin
+7	RUBY-19448	Implement quick-fixes suppression through .rubocop.yml modifications
+7	RUBY-18827	Auto-require for custom frameworks
+7	RUBY-16942	Add support to URU RT native on RubyMine IDE
+7	RUBY-14544	Wrong RVM named Ruby gets selected instead of what is specified in .ruby-version
+7	GO-7599	Godoc preview in IDE
+7	GO-7276	go.mod: completion for dependency version numbers
+7	GO-6872	Add Intention "Add interface verification line"
+7	GO-6259	Alternative to "Go to Declaration" - Handling of Interface Functions
+7	GO-5349	Show "shadowed variable" notification after refactoring
+7	GO-4138	Add support for go tool trace
+7	GO-1953	"var is shadowed during return" is not reported by IDE
+7	GO-10534	Debug Just My Code
+6	RUST-8820	Automatically call Debug/Display in the Variables view of the debugger
+6	RUST-3152	Support docker
+6	RUST-12987	Feature request: Support `tarpaulin` For Code Coverage
+6	RUBY-33268	Gutter navigation between ViewComponents and its template
+6	RUBY-33263	Support ViewComponents
+6	RUBY-29802	Add support for concern paths/urls
+6	RUBY-28190	refactor/move all classes from directory under a module
+6	RUBY-24292	Support activeadmin/arbre plugin
+6	RUBY-23955	Manage RuboCop settings through inspections settings
+6	RUBY-23380	Support haml-lint
+6	RUBY-23277	RubyMine block content should be indented when the start of the block is already indented
+6	RUBY-14589	Spinach Integration (feature request)
+6	RUBY-14110	without a .ruby-version, rubymine uses the system ruby not the rbenv current ruby
+6	RUBY-11784	Ruby formatter: add option to hard wrap on right margin
+6	GO-9671	Suggest to create module copy and replace statement in go.mod when editing dependency
+6	GO-9089	Extract Parameters of function a structure
+6	GO-8791	Implement UML diagrams for Go files
+6	GO-7277	Safe delete refactoring
+6	GO-6831	Generate structure from SQL table
+6	GO-16644	Sticky lines for loops and ifs
+6	GO-13100	Add option to do not inline structs for JSON to Go type converter
+6	GO-10559	Ability to send a signal to a process launched from IDE
+5	RUST-17456	Feature request: enable/disable cfg debug_assertions
+5	RUST-13799	Feature request: add the possibility to set up an environment script.
+5	RUST-12370	Add support for Jinja-like templates (Tera, Askama, MiniJinja)
+5	RUST-11680	RustIde: Budle Qodana to RustRover
+5	RUBY-35039	Add navigation support for Cucumber hooks 
+5	RUBY-33803	RubyMine doesn't take GEM_HOME in official Ruby Docker images
+5	RUBY-32452	Provide a friendly UI for rails app:update command
+5	RUBY-32095	RubyMine: Automatically mark 'spec' directory within Rails engine as test sources root directory
+5	RUBY-30885	ViewComponent i18n standard not supported.
+5	RUBY-29683	Ability to exclude (at least) RBI files in class/reference finder
+5	RUBY-25973	Automatic generation of RubyDoc blocks
+5	RUBY-24750	FEATURE REQUEST: Localisation - default settings
+5	RUBY-22810	Ability to add custom Ruby postfix completion
+4	RUST-9957	Feature request: Code completion for `rsx!` macros in Dioxus
+4	RUST-5542	Add option to run external linter on each save
+4	RUST-4603	Add a way to navigate between corresponding from/into methods
+4	RUST-3317	Make it possible for a module declaring file to "be" the module directory
+4	RUST-2544	Improve "Copy Reference" action for Rust
+4	RUST-17033	Feature request: support  projects with two different toolchains and/or targets and common crates
+4	RUST-15821	Feature request: attach directory with rust crate to the project
+4	RUST-15763	Feature request: Use .env files to set environment variables for projects
+4	RUST-13642	Feature request: implement syntax highlighting and resolve for attribute macro content
+4	RUST-13581	Feature request: provide an option to disable --all-targets on cargo check
+4	RUST-13415	Feature request: add an option to disable suggest beta versions of dependencies Cargo.toml
+4	RUST-13392	Support for .editorconfig in Editor>Code Style Settings
+4	RUST-12442	keyword `mut` as a complete statement
+4	RUST-10307	cargo and rustc binaries should be fetched from PATH, if .cargo/bin is not available
+3	RUST-17176	Show garbled characters on droped value in variable watch.
+3	RUST-15992	Bring back group sorting of imports
+3	RUST-14671	Feature request: Allow users to write their own debug type renderers
+3	RUST-13919	Add deep-nest use statements
+3	RUST-13636	Improve supporting rust code in non-rust file (.md)
+3	RUST-13558	Provide compiler output fixes for terminal as well
+3	RUST-12703	Feature request: Syntax highlighting in GNU assembly files
+3	RUST-12543	Support format strings in more macros 
+3	RUST-12460	Feature request: Debugging existing executables without running cargo
+3	RUST-11916	Feature request Cargo.toml project/workspace options
+3	RUST-10929	Support `type_alias_impl_trait` feature
+2	RUST-18879	Feature request. go to declaration action on <dep.name>.workspace should navigate to root workspace Cargo.toml
+2	RUST-18650	Feature request: Code Style configuration for TOML
+2	RUST-18173	Add "run all tests" action
+2	RUST-17743	Change signature refactor doesn't have self param

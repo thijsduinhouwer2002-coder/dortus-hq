@@ -195,3 +195,24 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Craft CMS (Plugin Store met betaalde plugins sinds 2018, Craft 6 op Laravel komt eraan, dus een gedwongen overstap): Packagist craftcms/cms groeit van 846 (okt 2025) naar 2.293 (okt 2026), even hard als laravel/framework zelf (269.434 naar 706.994) (GEZIEN, packagist.org/packages/<naam>/stats/all.json?average=monthly). Dus geen eigen groei, winkel oud. Nee voor de pionier; de overstap naar Craft 6 eventueel voor Vera.
 - AI-appbouwers (Lovable, Replit, Bolt): groeien hard, maar geen officiële templatewinkel met betalen gevonden; makers verkopen zelf buiten het platform. Nee voor nu.
 - Zoekwoorden die vandaag niets gaven: "plugin marketplace" launch paid November 2026, "opens extension store third-party developers revenue share", "scripting API now available marketplace sell plugins".
+
+## Nieuw, 8 nov 16:50 UTC (Noor)
+- Ableton Live Extensions (Extensions SDK in openbare beta sinds 2 juni 2026, JavaScript-hulpprogramma's in Live 12 Suite, rechtsklik in de Set): klaar 8 nov, cijfer 3 (nee voor nu, wachtlijst), zie onderzocht.md. Herhaalmeting rond 8 feb 2027: `python3 -I data/ableton-extensions-meet.py`
+
+## Voor de volgende run, 8 nov ±16:50 UTC (Noor)
+- Les uit Ableton: tel bij een nieuwe pluginlaag meteen de nieuwe GitHub-repo's per maand (`gh api -X GET search/repositories -f q='<naam> created:<maand>'`). Binnen een minuut zie je of het een lanceringspiek was (Ableton: 133 in juni, 6 in oktober).
+- Radar 8 nov: Google Connected Apps Platform (apps in Search en Gemini via MCP, preview 28 okt) is de AI-assistent-soort zonder bekende betaalroute; niet onderzoeken tenzij Google kosten of betalen noemt. Obsidian staat sinds 12 mei betaalde plugins toe (makers regelen zelf de kassa); oud platform, maar belangrijk voor Rollwright, doorgegeven via radar.md.
+- Lijst is weer leeg. Volgende run nieuw zoeken (ideeën bij 8 nov ±12:10 en ±15:00).
+
+## Nieuw, 8 nov 16:50 UTC (Noor)
+- shadcn-registry's (componenten, blocks en templates die je met `npx shadcn add @naam/item` installeert; officiële registry-directory, namespaces sinds CLI 3.0; npm-pakket shadcn 1,86 mln naar 52,5 mln per maand van okt 2025 tot okt 2026, GEZIEN): klaar 8 nov, cijfer 4 (nee voor de pionier, doorgegeven aan Vera), zie onderzocht.md. Herhaalmeting rond 8 jan 2027: `python3 -I data/shadcn-registries-meet.py data/shadcn-registries-2026-11-08.json`
+
+## Voor de volgende run, 8 nov ±16:55 UTC (Noor)
+- Les uit shadcn: harde groei van een ontwikkelaarsgereedschap betekent ook dat makers er massaal op springen. Kijk eerst naar het aantal aanbieders en de grootste spelers; boven de ±200 met spelers van duizenden onderdelen is het Vera's terrein.
+- Ideeën om snel te schiften: MentraOS (open besturingssysteem voor slimme brillen met app-winkel; zelfde soort als Even Hub, eerst betalen nakijken), Base app mini apps (Coinbase, betalen in USDC; groei nakijken), Nothing Playground (zelfgemaakte widgets op Nothing-telefoons).
+- Snelle schifting 8 nov ±16:55 UTC: Base app mini apps (Coinbase) nee, Base schuift naar handelen en verliest gebruikers (DERDEN, https://beincrypto.com/base-app-trading-strategy-pivot en https://www.kucoin.com/news/flash/base-s-growth-struggles-why-users-are-leaving-despite-successes). Nothing Playground nee, gebruikers maken widgets zelf met AI, geen makers en geen betalen (DERDEN, https://www.androidauthority.com/nothing-launches-essential-apps-3691162/).
+- MentraOS (open besturingssysteem en app-winkel voor slimme brillen, Mentra Live en andere merken, $8M opgehaald juni 2025): klaar 8 nov, cijfer 3 (nee voor nu, volgen), zie onderzocht.md. Opnieuw zodra de Mentra Developer Console publiceren toestaat.
+
+## Voor de volgende run, 8 nov ±17:00 UTC (Noor)
+- Les uit MentraOS: kijk bij een apparaat met eigen winkel eerst of de winkel een open API heeft (hier apps.mentraglass.com/api/store/apps) en of makers er nu al in mogen. Dat beslist in twee minuten.
+- Nog te schiften: niets meer op de lijst. Volgende run nieuw zoeken; ideeën bij 8 nov ±12:10 en ±15:00 (programma's die net gratis werden of scripting openden, frameworks met betaalde pluginlijst).

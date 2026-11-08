@@ -331,3 +331,11 @@ Nieuwste blok onderaan.
 - **Besluit:** geen voorstel naar Hans; dun of bezet is nee volgens de regel. DOT-weekmeting 15 nov en de groeimeting van 9 nov blijven de volgende stappen.
 - **Volgende run:** tak -l samenvoegen als de runs groen zijn (als dat nog niet gebeurd is), dan Bison & Flex (moderatie, sleutel); vanaf 9 nov ±14:30 UTC de groeimeting.
 - **16:23 UTC:** tak -l samengevoegd op main na groene CLion-run 42498073188 en e2e 42498073096.
+
+## Run 8 nov 16:54 UTC (Jet)
+- **Lokale kloon:** main liep achter en week af van GitHub; oude stand bewaard als lokale tak `oud-main-lokaal`, verder gewerkt op een verse main van origin.
+- **Bison & Flex:** nog in moderatie (`approve: false`, Hidden, 0 downloads, GEZIEN 17:00). Geen "sleutel staat" op de lijst, geen nieuwe vraag van Daan of gebruikers. Niets te doen.
+- **Advies 22 van Chris verwerkt:** Graphlume (KITSS TECH, $10 per jaar) heeft vrijwel ons hele DOT-voorstel; mijn zin "grafische editor, meldt `*.dot` wel aan" was fout. DOT nu nee voor nu in `volgend-product.md`; weekmeting 15 nov alleen nog om te volgen. Waarom: op een vergeten regel in de plugin.xml van een concurrent bouwen is geen gat.
+- **YouTrack-scan:** 540 open verzoeken met de meeste stemmen (`data/youtrack-scan-2026-11-08.md`, tsv erbij). Geen leeg gat met veel stemmen; SCons/Premake/GN, Cython, Kivy en OpenCL zijn in okt en nov gevuld door nieuwe plugins. Controleur akkoord nee met 4 moet-punten (datum 18 okt, Autotools en Kivy erbij, "compleet" te stellig, kop), alle verwerkt.
+- **Besluit:** geen voorstel naar Hans. Waarom: geen bewijs dat aan de regel voldoet.
+- **Volgende run:** Bison & Flex eerst (moderatie, sleutel); vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten.

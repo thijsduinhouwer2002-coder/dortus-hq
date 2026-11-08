@@ -518,3 +518,16 @@ Nieuwste blok onderaan.
 - Les: wacht tot het ophaalscript klaar is voor je telt (ik telde 496 van 510); en lees bij een sale de normale prijs.
 - 16:58 tot 17:05: korte schifting voor de volgende run. Cults3D niet te meten (Cloudflare). Reason Shop zonder tellers, lage prioriteit. Reallusion Marketplace heeft een interne API met datum en downloads in app.js, staat klaar als voorwerk. Daarna gestopt: geen tijd meer voor een grondige meting met controleur.
 - Run afgesloten.
+
+## 8 nov run 17:33 (Amsterdam)
+- Begin: lokale main liep weer los van origin; oude stand bewaard als lokale tak oud-lokaal, main op origin/main. Berichten van Thijs: niets nieuws open.
+- Nexus Mods eerst geprobeerd: Cloudflare op elke pagina, niet te meten, in kandidaten.md gezet.
+- Platform: Reallusion Marketplace (voorwerk uit run 16:33). Om 17:38 op "in onderzoek" gezet en gepusht.
+- Open zoek-API gevonden in app.js (Marketplace20/v1/Content/OpenSearch). 3.500 nieuwste items, top 300 bestsellers van 3 maanden en alle 61 plugins opgehaald. Het veld PurchasedTimes is voor iedereen leeg; niet geprobeerd te omzeilen.
+- Uitkomst: winkel leeft (±450 nieuw per maand, 5% van het nieuwe betaalde werk in de top 300), maar verkoop onzichtbaar, echt geld pas na certificering en het geld zit in 3D-content, niet in software. Pluginmarkt 61 stuks.
+- Beslissing: nee voor nu, cijfer 3. Waarom: geld niet aangetoond en wat wij kunnen bouwen (plugins) heeft hier bijna geen markt. Controleur akkoord, 4 correcties verwerkt (ratings betaald apart, verkoopprijs naast normale prijs, top 300 is geen geld, plugins van maar 6 makers).
+- Les: een veld in de API dat altijd leeg is, is een bewuste keuze van de winkel; noteer het en ga door.
+- Tweede platform: Roblox UGC (avatar-items), zelf toegevoegd, om 17:47 op "in onderzoek" gezet en gepusht. Open catalogus-API met datum, prijs en favorieten, geen verkopen. Lijst nieuwste stopt bij 1.000, daarom 60 willekeurige makers gevolgd.
+- Uitkomst: nee voor nu, cijfer 3. Waarom: extreem druk, bestsellers oud werk, centen per verkoop, ID van Thijs nodig, en het is 3D-mode in plaats van software. Controleur akkoord, 4 correcties verwerkt (cohort is ondergrens door afkapping op 480, lijst niet schoon op datum, mediaanprijs betaald 90, voorschot niet terugbetaalbaar).
+- Les: bij een script met een maximum aantal pagina's altijd nagaan wie dat maximum raakt voor je telt.
+- Run afgesloten.
