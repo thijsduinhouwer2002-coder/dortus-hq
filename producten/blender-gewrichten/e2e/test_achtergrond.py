@@ -1,6 +1,7 @@
 """Draait met: blender -b --factory-startup --python e2e/test_achtergrond.py -- <pad naar zip>
 Installeert Click Joints als extensie en toetst gewricht, speling, passing, Maak gesloten en STL-export.
 Alles wat hij meet staat in het log (regels met [cj-e2e]). Exit 1 bij elke fout."""
+import math
 import os
 import sys
 import tempfile
@@ -9,7 +10,7 @@ import traceback
 
 import bmesh
 import bpy
-from mathutils import Vector
+from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -108,13 +109,23 @@ def toets_opening(lijst, label):
     b = next(d for d in lijst if d["cj_deel"] == "B")
     c, as_r, r = Vector(a["cj_centrum"]), Vector(a["cj_as"]).normalized(), a["cj_kogel_r"]
 
+    loodrecht = as_r.orthogonal().normalized()
+
     def stralen(ob, z0, z1):
+        """Stralen vanaf de as, loodrecht naar buiten, op 8 hoogtes en 32 richtingen: afstand tot de wand.
+        (De cilinderwand heeft alleen punten aan zijn uiteinden, daarom meten met stralen.)"""
+        bm = bmesh.new()
+        bm.from_mesh(ob.data)
+        bvh = BVHTree.FromBMesh(bm)
+        bm.free()
         uit = []
-        for v in ob.data.vertices:
-            rel = v.co - c
-            z = rel.dot(as_r) / r
-            if z0 < z < z1:
-                uit.append((rel - as_r * rel.dot(as_r)).length)
+        for i in range(8):
+            o = c + as_r * (r * (z0 + (z1 - z0) * (i + 0.5) / 8))
+            for k in range(32):
+                d = Matrix.Rotation(2 * math.pi * k / 32, 3, as_r) @ loodrecht
+                hit = bvh.ray_cast(o, d)
+                if hit[0] is not None:
+                    uit.append(hit[3])
         return uit
 
     gat = stralen(b, -1.35, -0.8)   # tussen snijvlak en kom: alleen de opening en de buitenkant
