@@ -3,14 +3,20 @@ package com.dortus.bisonflex.e2e
 import com.intellij.driver.client.Driver
 import com.intellij.driver.client.Remote
 import com.intellij.driver.client.service
+import com.intellij.driver.model.LockSemantics
 import com.intellij.driver.model.OnDispatcher
+import com.intellij.driver.sdk.Editor
 import com.intellij.driver.sdk.FileEditorManager
 import com.intellij.driver.sdk.getEnabledPlugins
 import com.intellij.driver.sdk.getHighlights
+import com.intellij.driver.sdk.getToolWindow
 import com.intellij.driver.sdk.getPlugin
 import com.intellij.driver.sdk.openFile
 import com.intellij.driver.sdk.openToolWindow
+import com.intellij.driver.sdk.PsiFile
+import com.intellij.driver.sdk.PsiManager
 import com.intellij.driver.sdk.singleProject
+import com.intellij.driver.sdk.VirtualFile
 import com.intellij.driver.sdk.waitForCodeAnalysis
 import com.intellij.driver.sdk.waitForIndicators
 import com.intellij.ide.starter.driver.engine.runIdeWithDriver
@@ -29,15 +35,34 @@ import kotlin.io.path.createDirectories
 import kotlin.io.path.writeText
 import kotlin.time.Duration.Companion.minutes
 
-@Remote("javax.swing.JTree")
-interface BoomOpAfstand {
-    fun getRowCount(): Int
-    fun getPathForRow(row: Int): BoomPadOpAfstand?
+/*
+ * De structuurweergave via het model van de plugin (BisonStructuur, zoals de IDE hem vraagt). De weg via
+ * StructureViewWrapperImpl uit StructuurEnZweven.kt bestaat in 263 niet meer (run 42442619271).
+ */
+@Remote("com.dortus.bisonflex.BisonStructuur", plugin = "com.dortus.bisonflex")
+interface BisonStructuurOpAfstand {
+    fun getStructureViewBuilder(psiFile: PsiFile): StructuurBouwerOpAfstand
 }
 
-@Remote("javax.swing.tree.TreePath")
-interface BoomPadOpAfstand {
-    fun getLastPathComponent(): Any?
+@Remote("com.intellij.ide.structureView.TreeBasedStructureViewBuilder")
+interface StructuurBouwerOpAfstand {
+    fun createStructureViewModel(editor: Editor?): StructuurModelOpAfstand
+}
+
+@Remote("com.intellij.ide.structureView.StructureViewModel")
+interface StructuurModelOpAfstand {
+    fun getRoot(): StructuurElementOpAfstand
+}
+
+@Remote("com.intellij.ide.util.treeView.smartTree.TreeElement")
+interface StructuurElementOpAfstand {
+    fun getChildren(): Array<StructuurElementOpAfstand>
+    fun getPresentation(): PresentatieOpAfstand
+}
+
+@Remote("com.intellij.navigation.ItemPresentation")
+interface PresentatieOpAfstand {
+    fun getPresentableText(): String?
 }
 
 /**
@@ -136,9 +161,11 @@ class ClionTest {
         assertEquals(0, fouten.size, "geen rode syntaxfouten in calc.y ($naam)")
 
         openToolWindow("Structure")
-        structuurBij("clion-$naam", "calc.y")
-        val regels = structuurRegels()
-        println("DORTUS-E2E [clion-$naam] structuurweergave calc.y: ${regels.size} regels ${regels.take(8)}")
+        with(ide) { pauze() }
+        val zichtbaar = getToolWindow("Structure").isVisible()
+        val regels = structuurRegels(bestand, editor)
+        println("DORTUS-E2E [clion-$naam] Structure-venster zichtbaar: $zichtbaar, structuur calc.y: ${regels.size} regels ${regels.take(10)}")
+        assertTrue(zichtbaar, "Structure-venster zichtbaar ($naam)")
         assertTrue(regels.size > 1, "structuurweergave toont regels van calc.y ($naam)")
         with(ide) { pauze() }
         wachter.reden?.let { fail("CLion [$naam] toont een licentie- of voorwaardenvenster: $it") }
@@ -159,19 +186,16 @@ class ClionTest {
         assertTrue(weg, "Open Project Wizard dicht ($naam)")
     }
 
-    /** Tekst van de zichtbare rijen in de structuurweergave (een paar keer proberen, de boom bouwt traag op). */
-    private fun Driver.structuurRegels(): List<String> {
-        var regels = emptyList<String>()
-        ide.wacht(15) {
-            val boom = structuurBoom() ?: return@wacht false
-            regels = withContext(OnDispatcher.EDT) {
-                val b = cast(boom, BoomOpAfstand::class)
-                (0 until b.getRowCount()).map { b.getPathForRow(it)?.getLastPathComponent()?.toString() ?: "?" }
+    /** Knopen van de structuur van calc.y (twee niveaus diep), via het model van de plugin, in een read-action. */
+    private fun Driver.structuurRegels(bestand: VirtualFile, editor: Editor): List<String> =
+        withContext(OnDispatcher.DEFAULT, LockSemantics.READ_ACTION) {
+            val psi = service<PsiManager>(singleProject()).findFile(bestand) ?: return@withContext emptyList<String>()
+            val wortel = new(BisonStructuurOpAfstand::class).getStructureViewBuilder(psi).createStructureViewModel(editor).getRoot()
+            wortel.getChildren().flatMap { kop ->
+                listOf(kop.getPresentation().getPresentableText() ?: "?") +
+                    kop.getChildren().map { "  " + (it.getPresentation().getPresentableText() ?: "?") }
             }
-            regels.size > 1
         }
-        return regels
-    }
 
     /**
      * Kijkt elke 3 seconden welke vensters er zichtbaar zijn (xdotool) en zet nieuwe titels in het log. Heeft een
