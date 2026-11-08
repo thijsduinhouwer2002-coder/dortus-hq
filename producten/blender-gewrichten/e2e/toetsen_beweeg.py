@@ -89,6 +89,20 @@ def blok(a, b):
     stap(f"BUIG blok: richting 0 niet veel te vroeg ({grenzen[0]:.1f} >= {verwacht:.2f} - 1)", grenzen[0] >= verwacht - 1.0)
     stap(f"BUIG blok: paneel Bends ±{hoek} niet meer dan de kleinste gemeten {min(grenzen):.1f}",
          hoek is not None and hoek <= min(grenzen))
+    # Ronde l: voorbij de blokgrens (maar ver binnen de grens van de nek) wordt het blok zelf rood, niet alleen de nek.
+    n = len(a.data.polygons)
+    blokvlakken = set(range(n - 6, n))
+    b["cj_pose_richting"] = 0
+    b["cj_pose_graden"] = verwacht + 2.0
+    aantal = bw.kleur_botsing(bpy.context.scene, b)
+    rood = a.get("cj_rood_vlakken", [])
+    rode = {rood[i] for i in range(0, len(rood), 2)}
+    log(f"BUIG blok rood: pose {verwacht + 2.0:.2f} graden in richting 0, {aantal} rode vlakken, "
+        f"waarvan {len(rode & blokvlakken)} op het blok")
+    stap("BUIG blok rood: botsing met het figuur zelf (het blok) wordt rood", len(rode & blokvlakken) > 0)
+    b["cj_pose_graden"] = 0.0
+    bw.kleur_botsing(bpy.context.scene, b)
+    stap("BUIG blok rood: pose 0 haalt het rood weg", len(a.get("cj_rood_vlakken", [])) == 0)
 
 
 def arm_en_pose(arm):

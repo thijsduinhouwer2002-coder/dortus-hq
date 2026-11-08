@@ -11,7 +11,7 @@ richting op de gevonden grens één controle met een grote uitsnede (BEREIK_GROO
 kogel en kom); botst het daar, dan opnieuw zoeken met de grote uitsnede.
 
 Ook hier: de pose (deel B alleen in de weergave gedraaid, zie `uit_elkaar.zet`) en de botsende vlakken van
-deel A in het rode passingmateriaal."""
+deel A in het rode passingmateriaal, gezocht in de grote uitsnede (ronde l)."""
 import math
 import time
 
@@ -188,7 +188,9 @@ def kleur_botsing(scene, b):
     if g <= 0.0 or "cj_buig_graden" not in a:
         me.update()
         return 0
-    meter = Meter(a, b)
+    # Grote uitsnede (controleur ronde k): ook een botsing met de rest van het figuur (schouder, kraag) wordt rood,
+    # niet alleen nek en klikrand. De grote uitsnede bevat de kleine (6r > 1,6 (r + s)).
+    meter = Meter(a, b, groot=True)
     paren = meter.raakt(int(b.get("cj_pose_richting", 0)), g, paren=True)
     vlakken = sorted({int(meter.a[2][i]) for i, _ in paren})
     if vlakken:

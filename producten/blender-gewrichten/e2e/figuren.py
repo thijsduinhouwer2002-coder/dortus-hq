@@ -107,6 +107,20 @@ def staaf(naam, straal, lengte=40.0):
     return _object(naam, bm)
 
 
+def balk(naam, breed, dik, lengte=40.0, schuin=0.6):
+    """Plat, hoekig lid langs X (eis b van Daan): doorsnede breed x dik met afgeschuinde hoeken (schuin mm),
+    zodat de naad van de bolnaad over vlakke zijden en hoeken loopt."""
+    bm = bmesh.new()
+    bmesh.ops.create_cube(bm, size=1.0)
+    bm.transform(Matrix.Diagonal((lengte, breed, dik, 1.0)))
+    randen = [e for e in bm.edges if abs((e.verts[0].co - e.verts[1].co).normalized().x) > 0.99]
+    bmesh.ops.bevel(bm, geom=randen, offset=schuin, segments=2, affect="EDGES")
+    bmesh.ops.subdivide_edges(bm, edges=[e for e in bm.edges if abs((e.verts[0].co - e.verts[1].co).normalized().x) > 0.99],
+                              cuts=31, use_grid_fill=False)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    return _object(naam, bm)
+
+
 def zet_cursor(punt, as_richting):
     """3D-cursor op het punt, met de Z-as van de cursor langs de gegeven richting."""
     c = bpy.context.scene.cursor
