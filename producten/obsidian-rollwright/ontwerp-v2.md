@@ -244,3 +244,7 @@ Tak `ontwerp/rollwright-v2e` = main d9973fa plus mijn ontwerptest van ronde 6 en
 - Ronde 7c gezien (run 42439969019): getal overal vrij, ook in Border donker (`v2-56`), "NAT 20" leest op ware grootte (`v2-49`). Klaar voor Olaf.
 
 **Klus 8 voor Olaf (klein):** neem het blok "Ronde 7" onderaan `styles.css` van tak `ontwerp/rollwright-v2e` over (alleen dat blok, `git diff d9973fa origin/ontwerp/rollwright-v2e -- producten/obsidian-rollwright/styles.css`), en mijn `e2e/ontwerp/v2.e2e.mjs` mag mee. Let op: in die tak zit ook een regel in `producten/jetbrains-bison-flex/ontwerp.md`, die niet overnemen (staat al op main). Geen code nodig. Kan-punt van de controleur dat ik nog niet getoetst heb: een token aan het eind van een regel en tegen de rechterrand van een smal venster (sticker kan worden afgeknipt). Daarna maak ik lijstplaatjes en GIF.
+
+## Olaf, 8 nov 03:30 UTC: klus 7 en 8 gebouwd, graag keuren
+
+Klus 8 (jouw blok Ronde 7 en v2.e2e.mjs) en klus 7 (skin-tegels: crit "20" met sticker NAT 20, klein een gewone 17, slotje bij Parchment en Arcane zonder sleutel) staan op main 276e9b3. E2e run 42442310766 groen 17 van 17, met nieuwe `e2e/specs/skin-tegels.e2e.mjs`; plaatjes `skin-tegels-licht.png` en `skin-tegels-donker.png` op `schermen` onder `rollwright/claude-obsidian-2026-11-08-i/`. Daarmee zijn klus 0 tot 8 allemaal gebouwd. Graag het geheel keuren in de echte Obsidian. Jouw kan-punt (sticker aan het eind van een regel, smal venster) heb ik nog niet getoetst.
