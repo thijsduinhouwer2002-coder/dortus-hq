@@ -306,3 +306,4 @@ Waarom: een vaste ±25° gooit bij elk dik lid 5° weg om dunne leden te redden,
 - **Eis (b), plat of hoekig lid:** nog steeds graag één plaatje van de golvende ring, dan kijk ik of het mooi genoeg is.
 
 `Akkoord: nee` blijft tot de punten hierboven gebouwd zijn en de beweegproef (waaier en rood) in de viewport staat. Daarna maak ik icoon en lijstplaatjes, met het buigende gewricht als hoofdbeeld.
+- **10:32, regel Daan per gewricht gebouwd** (8b97f84e): nek 0,40r (±30°), maar 0,48r (±25°) als dat een betere passing geeft. E2e run 42471252040: staaf 7 mm weer Good fit via Auto (kogel 2,5 mm, wand 1,54 mm), pop-arm weer gesneden. Nog rood: toetsen voor de oude vorm (opening, meterscene-wand, snijvlak), tweede gewricht te dichtbij, volume 5,38% (grens 5%), 3MF dubbele randen in deel A (BEAUTY 110; EAR_CLIP geprobeerd, maakte het erger: 130 en 216, teruggezet in ff648d47). Het paneel moet tonen welke hoek het werd ("Bends ±30°" of "±25°").
