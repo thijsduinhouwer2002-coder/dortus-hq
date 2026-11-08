@@ -67,7 +67,9 @@ class HernoemDiagnose {
         val doel = focus()
         val am = ActionManager.getInstance()
         val actie = am.getAction(IdeActions.ACTION_RENAME)
-        ApplicationManager.getApplication().invokeLater { am.tryToExecute(actie, null, doel, "e2e", true) }
+        ApplicationManager.getApplication().invokeLater { am.tryToExecute(actie, null, doel, "e2e", true)
+                .doWhenRejected(Runnable { println("DORTUS-E2E RenameElement via tryToExecute afgewezen (actie stond uit of was niet beschikbaar)") })
+        }
         return "gestart met focus ${doel?.javaClass?.simpleName}"
     }
 }

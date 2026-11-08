@@ -166,7 +166,8 @@ class ParserTest : BasePlatformTestCase() {
         val f3 = parse("a.y", leegVooraan)
         assertEquals(emptyList<String>(), foutlijst(leegVooraan, f3))
         assertEquals(listOf("a", "c"), typesIn(f3, "RULE_NAME"))
-        assertEquals(listOf("b", "a"), typesIn(f3, "ALTERNATIVE").filter { it.isNotBlank() })
+        assertEquals(listOf("; | b", "a"), typesIn(f3, "ALTERNATIVES"))
+        assertEquals(listOf("", "b", "a"), typesIn(f3, "ALTERNATIVE"))
     }
 
     /** Geneste C++-typetags (controleur 7 nov): geen valse fout, de hele tag is een TYPE. */
