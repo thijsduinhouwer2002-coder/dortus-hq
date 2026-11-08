@@ -44,20 +44,27 @@ def eis(naam, ok):
 
 
 def mesh_np(ob):
-    """Punten (n x 3), loop_start, loop_total en hoekpunt per loop als numpy-arrays (mesh in wereldmaat)."""
+    """Punten (n x 3) in wereldmaat, loop_start, loop_total en hoekpunt per loop als numpy-arrays.
+    Omgerekend met matrix_world zonder de delta van Exploded view (zoals uit_elkaar.echte_matrix)."""
     me = ob.data
     co = np.empty(len(me.vertices) * 3, dtype=np.float32)
     me.vertices.foreach_get("co", co)
+    m = ob.matrix_world.copy()
+    m.translation -= ob.delta_location
+    afwijking = max(abs(m[i][j] - (1.0 if i == j else 0.0)) for i in range(4) for j in range(4))
+    log(f"matrix {ob.name}: echte matrix_world wijkt {afwijking:.2e} af van de eenheidsmatrix")
+    m = np.array(m)
     ls = np.empty(len(me.polygons), dtype=np.int32)
     lt = np.empty(len(me.polygons), dtype=np.int32)
     me.polygons.foreach_get("loop_start", ls)
     me.polygons.foreach_get("loop_total", lt)
     lv = np.empty(len(me.loops), dtype=np.int32)
     me.loops.foreach_get("vertex_index", lv)
-    return co.reshape(-1, 3).astype(np.float64), ls, lt, lv
+    co = co.reshape(-1, 3).astype(np.float64) @ m[:3, :3].T + m[:3, 3]
+    return co, ls, lt, lv
 
 
-def uitsnede(mesh, c, as_r, r_uit, r_in, nek_r=None):
+def uitsnede(mesh, c, as_r, r_uit, r_in, nek_r=None, vlak=None):
     """Vlakken met minstens één hoekpunt binnen r_uit van het kogelmidden, zonder de vlakken waarvan
     ALLE hoekpunten binnen r_in liggen (kogel en kom). Met nek_r: alleen vlakken waarvan alle hoekpunten op de
     nekcilinder liggen, onder het kogelmidden. Geeft (punten, vlakken) met hernummerde punten."""
@@ -73,6 +80,9 @@ def uitsnede(mesh, c, as_r, r_uit, r_in, nek_r=None):
         rad = np.linalg.norm(rel - np.outer(t, as_r), axis=1)
         houd &= np.maximum.reduceat(np.abs(rad - nek_r)[lv], ls) < 0.02 * nek_r
         houd &= np.maximum.reduceat(t[lv], ls) < 0.0
+    if vlak is not None:  # (punt op het snijvlak, marge): vlakken met alle hoekpunten in het snijvlak weg
+        z = np.abs((co - vlak[0]) @ as_r)[lv]
+        houd &= np.maximum.reduceat(z, ls) > vlak[1]
     gekozen = np.nonzero(houd)[0]
     idx = np.concatenate([lv[ls[i]:ls[i] + lt[i]] for i in gekozen]) if len(gekozen) else np.zeros(0, np.int32)
     punten = np.unique(idx)
@@ -146,15 +156,20 @@ def meet(figuur, a_deel, b_deel):
     ma, mb = mesh_np(a_deel), mesh_np(b_deel)
     t_np = time.perf_counter() - t0
     uitslag = {}
-    for variant, nek in (("volledig", None), ("nek", 0.48 * r)):
+    vlak = (np.array(a_deel["cj_snijpunt"]), 0.05 * hulp.u())
+    for variant, nek, vl in (("volledig", None, None), ("zonder_snijvlak", None, vlak), ("nek", 0.48 * r, None)):
         t0 = time.perf_counter()
-        a = uitsnede(ma, np.array(c), np.array(as_r), r_uit, r_in, nek)
-        b = uitsnede(mb, np.array(c), np.array(as_r), r_uit, r_in)
+        a = uitsnede(ma, np.array(c), np.array(as_r), r_uit, r_in, nek, vl)
+        b = uitsnede(mb, np.array(c), np.array(as_r), r_uit, r_in, None, vl)
         t_snede = time.perf_counter() - t0
         log(f"figuur={figuur} variant={variant} uitsnede A={len(a[1])} vlakken B={len(b[1])} vlakken "
             f"(van {len(a_deel.data.polygons)} en {len(b_deel.data.polygons)}) inlezen={t_np:.3f} s "
             f"uitsnijden={t_snede:.3f} s")
         uitslag[variant] = {}
+        proef = Meter(a, b, np.array(c), as_r)
+        for k in range(RICHTINGEN):
+            log(f"figuur={figuur} variant={variant} richting={k * 360 // RICHTINGEN} raakt_bij_0={proef.raakt(k, 0.0)} "
+                f"raakt_bij_0.1={proef.raakt(k, 0.1)}")
         for methode in ("vast", "grof"):
             t0 = time.perf_counter()
             meter = Meter(a, b, np.array(c), as_r)
@@ -195,7 +210,7 @@ def rekensom(a_deel):
     oud = math.degrees(math.acos(n / math.hypot(a, h)) - math.atan2(h, a))
     log(f"staaf rekensom r={r:.3f} opening_r={a:.3f} nek_r={n:.3f} h={h:.4f} (kogelmidden boven snijvlak) "
         f"volledig=0.0 nek={nek:.2f} graden (eerste, foute rekensom onderrand: {oud:.2f})")
-    return {"volledig": 0.0, "nek": nek}
+    return {"volledig": 0.0, "nek": nek}  # zonder_snijvlak: geen rekensom, alleen gelogd
 
 
 def figuur_meten(naam, ob):
@@ -223,7 +238,11 @@ def main():
     if arm:
         for variant in arm:
             snelst = min(t for _, t in arm[variant].values())
-            eis(f"arm {variant}: hele bereik (8 richtingen) onder 1 s ({snelst:.3f} s)", snelst < 1.0)
+            log(f"arm variant={variant} snelste hele bereik {snelst:.3f} s")
+        snelst = min(t for _, t in arm["nek"].values())
+        eis(f"arm nek: hele bereik (8 richtingen) onder 1 s ({snelst:.3f} s)", snelst < 1.0)
+        log("LET OP: de 1 s-eis is alleen bewezen voor de nekvariant (64 draaiende vlakken). Volledig raakte bij de "
+            "eerste stap, dus daar is geen echt bereik doorlopen; met twee grote delen kost een toets ±40-50 ms.")
 
     staaf, a, _ = figuur_meten("staaf", figuren.staaf("staaf", 5.0, lengte=40.0))
     if staaf:
@@ -231,10 +250,12 @@ def main():
         for variant, v in verwacht.items():
             for methode in ("vast", "grof"):
                 grenzen = staaf[variant][methode][0]
+                stap = math.floor(v / STAP + 1e-9) * STAP  # laatste vrije stap voor de rekensom
                 verschil = max(abs(g - v) for g in grenzen)
-                log(f"staaf variant={variant} methode={methode} verwacht={v:.2f} gemeten={min(grenzen):.1f} tot "
-                    f"{max(grenzen):.1f} verschil={verschil:.2f} graden")
-                eis(f"staaf {variant} {methode}: elke richting binnen 2,5 graden van de rekensom", verschil <= 2.5)
+                log(f"staaf variant={variant} methode={methode} verwacht={v:.2f} laatste_vrije_stap={stap:.1f} "
+                    f"gemeten={min(grenzen):.1f} tot {max(grenzen):.1f} verschil={verschil:.2f} graden")
+                eis(f"staaf {variant} {methode}: elke richting precies {stap:.1f} graden",
+                    all(abs(g - stap) < 1e-9 for g in grenzen))
 
     if hulp.fouten:
         log(f"fouten in de hulp: {hulp.fouten}")
