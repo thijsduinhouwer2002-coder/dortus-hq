@@ -81,6 +81,20 @@ describe("Rollwright reclame: beelden voor poster en GIF", function () {
 				await muisWeg();
 				console.log(`KADER poster-${kant}:`, JSON.stringify(await kader()));
 				console.log("SCHERM:", await save(`poster-ruw-${kant}`));
+				// Groot en scherp: het crit-token op zoom 3, met de plek (in schermpixels) om bij te snijden.
+				await zoom(3);
+				const rect = await browser.execute(() => {
+					const r = [...document.querySelectorAll(".workspace-leaf.mod-active .rollwright-roll.rollwright-crit")].filter((x) => x.offsetParent !== null)[0];
+					if (!r) return null;
+					r.scrollIntoView({ block: "center", inline: "center" });
+					const b = r.getBoundingClientRect();
+					const z = window.devicePixelRatio;
+					return { x: Math.round(b.x * z), y: Math.round(b.y * z), w: Math.round(b.width * z), h: Math.round(b.height * z), dpr: z };
+				});
+				await browser.pause(500);
+				await muisWeg();
+				console.log(`CRIT ${kant}:`, JSON.stringify(rect));
+				console.log("SCHERM:", await save(`poster-ruw-crit-${kant}`));
 				await zoom(1);
 			});
 		}
