@@ -5,11 +5,11 @@ import com.intellij.codeInsight.daemon.impl.DaemonCodeAnalyzerEx
 import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.application.ReadAction
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.ProjectManager
+import com.intellij.openapi.util.Computable
 
 /**
  * Alleen voor de IDE-test (Driver, `e2e/.../Meldingen.kt`): zet de licentiestand om, past de tekst van de open
@@ -48,13 +48,14 @@ class MeldingenDiagnose {
         ApplicationManager.getApplication().invokeAndWait {
             val e = editor() ?: return@invokeAndWait
             val p = e.project ?: return@invokeAndWait
-            uit = ReadAction.compute<String, RuntimeException> {
+            // runReadAction(Computable): niet verouderd van 2025.2 tot 2026.2 (ReadAction.compute wel, vanaf 2026.2).
+            uit = ApplicationManager.getApplication().runReadAction(Computable {
                 // Openbare API (geen DaemonCodeAnalyzerImpl, die is intern volgens Plugin Verifier).
                 val alle = mutableListOf<HighlightInfo>()
                 DaemonCodeAnalyzerEx.processHighlights(e.document, p, HighlightSeverity.INFORMATION, 0, e.document.textLength) { alle.add(it); true }
                 alle.filter { it.description?.matches(Regex("(Undefined|Unused) .*")) == true }
                     .joinToString(" | ") { "${it.description} @ ${e.document.getLineNumber(it.startOffset) + 1}" }
-            }
+            })
         }
         return uit
     }
