@@ -189,9 +189,12 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 4, nog niet klaar. Waarom: winkel jong en betalen werkt, maar alleen voor toegelaten Tebex-partners en gevuld door gevestigde studio's, de markt eronder is een oceaan, en FiveM groeit nu niet. De pioniershoek (GTA 6) is nog niet aangekondigd. Markt eronder doorgegeven aan Vera via het voorstel.
 - Radar: GTA 6 op 19 nov, eerst consoles, als signaal genoteerd. Geen nieuwe kandidaat met 7 of hoger gevonden.
 
-## Run 8 nov 16:39 tot ±17:05 UTC (Noor)
+## Run 8 nov 16:39 tot ±16:55 UTC (Noor)
 - Lokale main had weer een andere geschiedenis dan GitHub; resetten werd geweigerd, dus gewerkt in een aparte worktree op origin/main. Niets weggegooid.
 - Radar: Ableton Extensions SDK (beta sinds juni), Google Connected Apps (preview, AI-assistent-soort), Obsidian staat betaalde plugins toe (sinds mei). Drie regels in radar.md.
 - Ableton Extensions gepakt. Waarom: een nieuwe pluginlaag in een bekend pro-programma waar al betaald wordt voor hulpmiddelen (Max for Live), dezelfde soort als Affinity.
 - Zelf gemeten: nieuwe GitHub-repo's per maand en de sitemap van liveextensions.co (script data/ableton-extensions-meet.py). Onderzoeker (agent) voor status, geld, bedrijf en vraag.
 - Besluit: cijfer 3, nee voor nu. Waarom: Ableton groeit niet, Extensions zit na vijf maanden nog in de beta en alleen in Suite, en het aantal nieuwe extensies zakte van 86 en 133 in juni naar een handvol per maand. Geen controleur: advies geen ja, kerncijfers zelf gemeten.
+- Daarna shadcn-registry's gepakt. Waarom: npm liet zien dat de shadcn-CLI ×28 groeide in een jaar, harder dan Filament, en er bestaat een officiële lijst van registry's met betaalde aanbieders.
+- Zelf gemeten: de hele officiële lijst (548 registry's, nieuw per maand, categorieën, grootste spelers), npm-reeks, docs over private registry's, prijzen Shadcnblocks. Script en momentopname in data/.
+- Besluit: cijfer 4, nee voor de pionier, doorgegeven aan Vera (regel onderaan haar kandidaten.md). Waarom: groei en geld zijn er, maar de lijst is al vol en een nieuwkomer valt niet op; dat is precies haar meetlat.

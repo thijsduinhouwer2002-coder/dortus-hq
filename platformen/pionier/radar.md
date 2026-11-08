@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 8 nov 2026 | npm-pakket shadcn 1,86 mln (okt 2025) naar 52,5 mln (okt 2026) per maand; officiële registry-lijst 548 registry's | https://ui.shadcn.com/r/registries.json | GEZIEN | onderzocht: cijfer 4, al vol, doorgegeven aan Vera
 - 8 nov 2026 | Ableton Extensions SDK (JavaScript-hulpprogramma's in Live 12 Suite), openbare beta sinds 2 juni 2026, nog geen stabiele release of officiële lijst | https://www.ableton.com/en/blog/introducing-extensions-sdk/ | GEZIEN | onderzocht: cijfer 3, lanceringspiek voorbij
 - 8 nov 2026 | Google Connected Apps Platform: apps in Google Search en Gemini via MCP of Android AppFunctions, preview in fasen sinds 28 okt, geen kosten of betalen genoemd | https://ppc.land/google-opens-preview-for-third-party-apps-inside-search-and-gemini/ | DERDEN | nee voor nu: AI-assistent-soort, volgen of er betalen komt
 - 8 nov 2026 | Obsidian Community (12 mei 2026): nieuwe pluginlijst met automatische keuring, betaalde plugins nu toegestaan (eigen kassa) | https://devtake.pages.dev/article/obsidian-plugin-marketplace-future | DERDEN | niet voor de pionier (oud platform), wel van belang voor Rollwright: doorgeven
