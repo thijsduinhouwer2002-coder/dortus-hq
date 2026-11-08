@@ -1,0 +1,1530 @@
+[
+ {
+  "id": "app_gWNXi8uCsC5ZEz",
+  "naam": "Richpanel",
+  "type": "b2b_app",
+  "bedrijf": "Richpanel Demo Store",
+  "installs": 8,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_9ErBmwKSWrYXHO",
+  "naam": "DayOne",
+  "type": "b2b_app",
+  "bedrijf": "dayone",
+  "installs": 12,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_snaLv5EvUlmpdJ",
+  "naam": "Klaviyo",
+  "type": "b2b_app",
+  "bedrijf": "Klaviyo-Connect",
+  "installs": 47,
+  "installs_7d": 41
+ },
+ {
+  "id": "app_wd4ztlHZb6oUnD",
+  "naam": "Supliful",
+  "type": "b2b_app",
+  "bedrijf": "Supliful",
+  "installs": 32,
+  "installs_7d": 23
+ },
+ {
+  "id": "app_utOe3VLjI7T8Sf",
+  "naam": "DIGIFY: Sell Digital Products",
+  "type": "b2c_app",
+  "bedrijf": "Vertex",
+  "installs": 48,
+  "installs_7d": 48
+ },
+ {
+  "id": "app_O8jM3UCjBrEmPl",
+  "naam": "USAdrop‑Dropshipping & POD",
+  "type": "b2b_app",
+  "bedrijf": "Usadrop",
+  "installs": 39,
+  "installs_7d": 13
+ },
+ {
+  "id": "app_S1kCiKc3KIqr0z",
+  "naam": "MetaTrader 5",
+  "type": "b2c_app",
+  "bedrijf": "qlub99",
+  "installs": 49,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_MqYe7fgQxiflol",
+  "naam": "Checkout Builder",
+  "type": "b2b_app",
+  "bedrijf": "Jose Diaz | Design",
+  "installs": 156,
+  "installs_7d": 37
+ },
+ {
+  "id": "app_iGmmoICxLTFJum",
+  "naam": "Checkout Builder",
+  "type": "b2b_app",
+  "bedrijf": "dot",
+  "installs": 121,
+  "installs_7d": 8
+ },
+ {
+  "id": "app_j93XF7EbYP0eDU",
+  "naam": "Recoup - AI Chargeback Defense",
+  "type": "b2b_app",
+  "bedrijf": "Recoup - Automated Dispute Management",
+  "installs": 4,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_pBh6TZmlm1fm0p",
+  "naam": "Rally",
+  "type": "b2b_app",
+  "bedrijf": "TradingPilotAI",
+  "installs": 5,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_SNq2a2QP2IGl8y",
+  "naam": "Inflow",
+  "type": "b2b_app",
+  "bedrijf": "TradingPilotAI",
+  "installs": 49,
+  "installs_7d": 12
+ },
+ {
+  "id": "app_VGoGxoM0e5ZPqt",
+  "naam": "Margin",
+  "type": "b2b_app",
+  "bedrijf": "TradingPilotAI",
+  "installs": 14,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_yEA3mPfqiaTVTm",
+  "naam": "Retain",
+  "type": "b2b_app",
+  "bedrijf": "TradingPilotAI",
+  "installs": 3,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_EN9CJOQPz8qcUr",
+  "naam": "AI community support agent",
+  "type": "b2b_app",
+  "bedrijf": "Quarkly",
+  "installs": 48,
+  "installs_7d": 14
+ },
+ {
+  "id": "app_oXJbN8TYHorfPf",
+  "naam": "Fabfunnel",
+  "type": "b2c_app",
+  "bedrijf": "Fabfunnel",
+  "installs": 3,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_GnnaMnzNwiXvhW",
+  "naam": "DisputeIQ",
+  "type": "b2b_app",
+  "bedrijf": "DisputeIQ",
+  "installs": 17,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_oNCFWcObq4bXPD",
+  "naam": "Calendly Integration",
+  "type": "b2c_app",
+  "bedrijf": "Calendly",
+  "installs": 23,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_7O9uHJnF9srw9E",
+  "naam": "Lobuly AI Support",
+  "type": "b2b_app",
+  "bedrijf": "lobuly solutions",
+  "installs": 69,
+  "installs_7d": 12
+ },
+ {
+  "id": "app_Jn1B4nPcvdjAAN",
+  "naam": "StatLink",
+  "type": "b2c_app",
+  "bedrijf": "Becomunity Labs",
+  "installs": 18,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_d1rbFtauMCxmRu",
+  "naam": "Automated Churn Recovery",
+  "type": "b2b_app",
+  "bedrijf": "Automation Systems",
+  "installs": 19,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_7gSGxBWqpEmFFH",
+  "naam": "VizorDesk",
+  "type": "b2c_app",
+  "bedrijf": "VizorDesk",
+  "installs": 3,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_pYb1WouerZ92S2",
+  "naam": "Podium - Levels & Leaderboards",
+  "type": "b2c_app",
+  "bedrijf": "Universal Canvas",
+  "installs": 13,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_Ayumk4UL14x024",
+  "naam": "True ROAS",
+  "type": "b2b_app",
+  "bedrijf": "Tech Motion",
+  "installs": 10,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_FLK36N8uYnTO1a",
+  "naam": "Save Queue - Churn Risk Alerts",
+  "type": "b2b_app",
+  "bedrijf": "Tech Motion",
+  "installs": 7,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_AZFTuv2SAKFO8p",
+  "naam": "PnL Calendar",
+  "type": "b2c_app",
+  "bedrijf": "qlub99",
+  "installs": 20,
+  "installs_7d": 6
+ },
+ {
+  "id": "app_4uJo3grAcKZDlS",
+  "naam": "Smash&Clash!",
+  "type": "b2c_app",
+  "bedrijf": "Smash&Clash!",
+  "installs": 6,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_i4KZRTgNxj6zwK",
+  "naam": "Freeloader",
+  "type": "b2b_app",
+  "bedrijf": "qlub99",
+  "installs": 11,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_qZwNBYXkTemdBu",
+  "naam": "SUPER MOD",
+  "type": "b2c_app",
+  "bedrijf": "SUPER MOD",
+  "installs": 10,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_eYvIPCWL7YurXg",
+  "naam": "Suggestions",
+  "type": "b2c_app",
+  "bedrijf": "Becomunity Labs",
+  "installs": 7,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_ZhGgL73Ui6uVtl",
+  "naam": "Ticketoo - AI Support Tickets",
+  "type": "b2b_app",
+  "bedrijf": "booqoo",
+  "installs": 18,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_ygXqVjukBrVaU3",
+  "naam": "QuickBooks Sync",
+  "type": "b2b_app",
+  "bedrijf": "Sales Momentum",
+  "installs": 31,
+  "installs_7d": 8
+ },
+ {
+  "id": "app_RSs0MrA5zA4JkI",
+  "naam": "Post Purchase Upsell",
+  "type": "b2b_app",
+  "bedrijf": "Post Purchase Upsell",
+  "installs": 253,
+  "installs_7d": 56
+ },
+ {
+  "id": "app_fqYWzj3RZXe1O0",
+  "naam": "Community Onboarding",
+  "type": "b2c_app",
+  "bedrijf": "Community Onboarding",
+  "installs": 101,
+  "installs_7d": 30
+ },
+ {
+  "id": "app_tKUqoY4ejodUlW",
+  "naam": "Calloo - Book/Host Calls",
+  "type": "b2b_app",
+  "bedrijf": "booqoo",
+  "installs": 28,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_paunx1XWWSvpi9",
+  "naam": "Aura",
+  "type": "b2b_app",
+  "bedrijf": "Aura",
+  "installs": 17,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_aRCN7F5IlSMd2c",
+  "naam": "ClipCap",
+  "type": "b2c_app",
+  "bedrijf": "ClipCap",
+  "installs": 67,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_lNydeijThUsxz4",
+  "naam": "X/Twitter Feed",
+  "type": "b2c_app",
+  "bedrijf": "Dziura Labs",
+  "installs": 174,
+  "installs_7d": 48
+ },
+ {
+  "id": "app_GaI9HDcIGCyyQE",
+  "naam": "Rejoin - Revenue Recovery ",
+  "type": "b2b_app",
+  "bedrijf": "Endeavour Media Ltd",
+  "installs": 10,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_9zJuiTxIO4nwv9",
+  "naam": "Loom Zoom",
+  "type": "b2c_app",
+  "bedrijf": "Michael Software",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_T4vbuGwOlRr9ED",
+  "naam": "Better Events",
+  "type": "b2c_app",
+  "bedrijf": "Michael Software",
+  "installs": 3,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_bAaf9p3VSkuwdP",
+  "naam": "Tip Me",
+  "type": "b2c_app",
+  "bedrijf": "M4JOR",
+  "installs": 9,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_t9OodHdFeEWDrl",
+  "naam": "Announcements",
+  "type": "b2c_app",
+  "bedrijf": "Vertex",
+  "installs": 242,
+  "installs_7d": 66
+ },
+ {
+  "id": "app_sKaQ5CA35JXFGA",
+  "naam": "MKKT: Digital Store",
+  "type": "b2c_app",
+  "bedrijf": "MKKT - Digital Store",
+  "installs": 74,
+  "installs_7d": 19
+ },
+ {
+  "id": "app_BRleRm7yzyBCK3",
+  "naam": "Shop",
+  "type": "b2c_app",
+  "bedrijf": "Search Candy",
+  "installs": 65,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_CBnePu0MQNJPhb",
+  "naam": "TradingView",
+  "type": "b2c_app",
+  "bedrijf": "qlub99",
+  "installs": 96,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_TT9fEDyQZ1JgL7",
+  "naam": "Trackoo - Community Tracker",
+  "type": "b2b_app",
+  "bedrijf": "booqoo",
+  "installs": 5,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_E8p1SeAFp2uKmK",
+  "naam": "Loungoo - Voice Lounge",
+  "type": "b2c_app",
+  "bedrijf": "booqoo",
+  "installs": 4,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_P0XvCLy1pA8jKM",
+  "naam": "Alertoo - Social Tracker",
+  "type": "b2b_app",
+  "bedrijf": "booqoo",
+  "installs": 12,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_XCFYaoUWi5GRaG",
+  "naam": "Sendoo - Email & Support Chats",
+  "type": "b2b_app",
+  "bedrijf": "booqoo",
+  "installs": 110,
+  "installs_7d": 21
+ },
+ {
+  "id": "app_OyBQIRPMcA7rIU",
+  "naam": "FormNest",
+  "type": "b2c_app",
+  "bedrijf": "XtremStack",
+  "installs": 3,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_tnPmMEYds1jCbW",
+  "naam": "LinkUp - collaborate",
+  "type": "b2c_app",
+  "bedrijf": "Project Managment",
+  "installs": 4,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_S2xTOtLykDVVYK",
+  "naam": "Formbase",
+  "type": "b2c_app",
+  "bedrijf": "Hey Salesman",
+  "installs": 12,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_Rc1iPBjuqufQKg",
+  "naam": "Trading Journal",
+  "type": "b2c_app",
+  "bedrijf": "Tradevipe Trading Journal",
+  "installs": 31,
+  "installs_7d": 9
+ },
+ {
+  "id": "app_yTdIJetBCQkO2R",
+  "naam": "Kahoot! - quiz your members",
+  "type": "b2c_app",
+  "bedrijf": "Kahoot app",
+  "installs": 7,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_YxYjQKOyCRA8xk",
+  "naam": "Zen Announcements",
+  "type": "b2c_app",
+  "bedrijf": "Devs Home",
+  "installs": 15,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_NEiSDKt4OnEP5s",
+  "naam": "Calls",
+  "type": "b2c_app",
+  "bedrijf": "Calls",
+  "installs": 32,
+  "installs_7d": 6
+ },
+ {
+  "id": "app_4U33T3mWdiCseF",
+  "naam": "Knowledge Base",
+  "type": "b2c_app",
+  "bedrijf": "Hey Salesman",
+  "installs": 52,
+  "installs_7d": 15
+ },
+ {
+  "id": "app_TNaDYdfCZHqGEP",
+  "naam": "Boosta - AI clipping tool",
+  "type": "b2c_app",
+  "bedrijf": "Boosta",
+  "installs": 40,
+  "installs_7d": 15
+ },
+ {
+  "id": "app_NlkCpya38KTnH5",
+  "naam": "Engage: Incentivize Community",
+  "type": "b2c_app",
+  "bedrijf": "Engage",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_rEB8gGHOYy5Vd1",
+  "naam": "ClyptAI",
+  "type": "b2c_app",
+  "bedrijf": "ClyptAI",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_r5LzOctRH1q2Pf",
+  "naam": "Q&A",
+  "type": "b2c_app",
+  "bedrijf": "the Grid",
+  "installs": 8,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_FEdyVTgprBINx1",
+  "naam": "Cornix Signals Copy Trading",
+  "type": "b2c_app",
+  "bedrijf": "Cornix - Automated Crypto Trading",
+  "installs": 8,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_7OXSNkKhVqdpsf",
+  "naam": "Funnels",
+  "type": "b2b_app",
+  "bedrijf": "Osis",
+  "installs": 18,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_Ogh5TuPIkcjJuF",
+  "naam": "Digital Products AI",
+  "type": "b2b_app",
+  "bedrijf": "Digital Products AI",
+  "installs": 1892,
+  "installs_7d": 560
+ },
+ {
+  "id": "app_QRxsQodZgK1r4D",
+  "naam": "Content Rewards",
+  "type": "b2c_app",
+  "bedrijf": "Content Rewards",
+  "installs": 8194,
+  "installs_7d": 1159
+ },
+ {
+  "id": "app_CFNV8jYnj4UUaz",
+  "naam": "AI Coaches",
+  "type": "b2c_app",
+  "bedrijf": "Whopflow",
+  "installs": 6,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_w28c3lcUoQI7eX",
+  "naam": "Formify",
+  "type": "b2c_app",
+  "bedrijf": "Quarkly",
+  "installs": 8,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_9COnd5mbOajwjD",
+  "naam": "Skinny Studio AI",
+  "type": "b2c_app",
+  "bedrijf": "Skinny Studio",
+  "installs": 7,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_k8al9ylAErk4PS",
+  "naam": "Wheely",
+  "type": "b2c_app",
+  "bedrijf": "Pioneer Agency",
+  "installs": 8,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_EVz0xltMbchv14",
+  "naam": "Economic Calendar & More",
+  "type": "b2c_app",
+  "bedrijf": "TradeHub",
+  "installs": 16,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_pW1RjQxmi75RvG",
+  "naam": "X tracker",
+  "type": "b2c_app",
+  "bedrijf": "Korvd",
+  "installs": 8,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_VjXeIBlvyAEz0y",
+  "naam": "Tracking Links",
+  "type": "b2b_app",
+  "bedrijf": "Michael Software",
+  "installs": 58,
+  "installs_7d": 12
+ },
+ {
+  "id": "app_jwfSNwUVrebFeC",
+  "naam": "Formly",
+  "type": "b2c_app",
+  "bedrijf": "Whoply HQ",
+  "installs": 9,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_ITbLF3765WA3cA",
+  "naam": "Challenger Pro",
+  "type": "b2c_app",
+  "bedrijf": "Challenger Pro",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_HAoaDlDP4OgB8D",
+  "naam": "Affiliate ",
+  "type": "b2c_app",
+  "bedrijf": "ftg",
+  "installs": 80,
+  "installs_7d": 17
+ },
+ {
+  "id": "app_6528rHN2zbIAPN",
+  "naam": "Crowly - AI Tutor",
+  "type": "b2c_app",
+  "bedrijf": "Crowly",
+  "installs": 4,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_WD8MAReYPaFiaI",
+  "naam": "Sport bet tracking",
+  "type": "b2c_app",
+  "bedrijf": "NotARobot",
+  "installs": 20,
+  "installs_7d": 8
+ },
+ {
+  "id": "app_4qRnVhvBC6HHTZ",
+  "naam": "BrickBreaker",
+  "type": "b2c_app",
+  "bedrijf": "Ewen Apps",
+  "installs": 5,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_9LuAc6c2f7yRiv",
+  "naam": "Market Pulse Live",
+  "type": "b2c_app",
+  "bedrijf": "Market Pulse Live",
+  "installs": 3,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_pOt7QLYuIlhTot",
+  "naam": "Loyalty",
+  "type": "b2b_app",
+  "bedrijf": "qlub99",
+  "installs": 13,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_Y6le3GgUZpjJn0",
+  "naam": "Upsell OTO & Order Bumps",
+  "type": "b2b_app",
+  "bedrijf": "Email Marketing For Whop",
+  "installs": 158,
+  "installs_7d": 32
+ },
+ {
+  "id": "app_Aa24d5Nw4TTDzc",
+  "naam": "Surveys",
+  "type": "b2c_app",
+  "bedrijf": "Sample",
+  "installs": 5,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_O2bu31OvP4Hq3l",
+  "naam": "LvlUp",
+  "type": "b2c_app",
+  "bedrijf": "build&scale",
+  "installs": 6,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_LphbdQi4FOb58D",
+  "naam": "Paywall Lab",
+  "type": "b2b_app",
+  "bedrijf": "hlabs",
+  "installs": 14,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_39AjaXBt15oecI",
+  "naam": "Community Requests",
+  "type": "b2c_app",
+  "bedrijf": "J21",
+  "installs": 5,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_TsXHWREMC3qDNN",
+  "naam": "Drops - Instant Paid Links",
+  "type": "b2b_app",
+  "bedrijf": "Drops",
+  "installs": 127,
+  "installs_7d": 24
+ },
+ {
+  "id": "app_tKtETmUQSRWFk0",
+  "naam": "Start your LLC | doola",
+  "type": "b2b_app",
+  "bedrijf": "Start Your LLC | doola",
+  "installs": 34,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_xUpTJhdLkRbQa7",
+  "naam": "AI Support Tickets",
+  "type": "b2c_app",
+  "bedrijf": "Intrepic Studio",
+  "installs": 11,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_BJo3BJBydLDpxG",
+  "naam": "Announcements",
+  "type": "b2c_app",
+  "bedrijf": "Vertigo Apps",
+  "installs": 353,
+  "installs_7d": 58
+ },
+ {
+  "id": "app_pr1i6oPp8yjCNG",
+  "naam": "Quiz Funnels Onboarding",
+  "type": "b2c_app",
+  "bedrijf": "Quiz Funnels Accelerator",
+  "installs": 8,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_O7SZaErflBy3e8",
+  "naam": "Linkly",
+  "type": "b2c_app",
+  "bedrijf": "Whoply HQ",
+  "installs": 69,
+  "installs_7d": 14
+ },
+ {
+  "id": "app_rzUx2xLZOsDuxu",
+  "naam": "The Ladder",
+  "type": "b2c_app",
+  "bedrijf": "Sam Development Agency",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_PxbG1gdcJ84T8Y",
+  "naam": "Dashboard Agent",
+  "type": "b2b_app",
+  "bedrijf": "Backseat Devs",
+  "installs": 707,
+  "installs_7d": 127
+ },
+ {
+  "id": "app_82JO6tIdIZN9LV",
+  "naam": "Tier Maker",
+  "type": "b2c_app",
+  "bedrijf": "NeuroTech Solutions",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_6cdiEbMmVtvkZt",
+  "naam": "Chart Share & View for Traders",
+  "type": "b2c_app",
+  "bedrijf": "zego",
+  "installs": 3,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_fiSXb2SsU8j5UA",
+  "naam": "ProphetX",
+  "type": "b2c_app",
+  "bedrijf": "BOOM SANDBOX",
+  "installs": 5,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_kKsZz1VVjMsqyR",
+  "naam": "Signer",
+  "type": "b2b_app",
+  "bedrijf": "Ignited",
+  "installs": 33,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_Y0qRjRayw3GrCf",
+  "naam": "Blog",
+  "type": "b2c_app",
+  "bedrijf": "WIT",
+  "installs": 23,
+  "installs_7d": 6
+ },
+ {
+  "id": "app_JxC65kDufm1sK9",
+  "naam": "Chat Tiers",
+  "type": "b2c_app",
+  "bedrijf": "Whop Mvps",
+  "installs": 9,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_PSEdLd1L1TOfbR",
+  "naam": "Novig",
+  "type": "b2c_app",
+  "bedrijf": "BOOM SANDBOX",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_wCQHUerMIbO5cV",
+  "naam": "Feedback Tracker",
+  "type": "b2c_app",
+  "bedrijf": "Zega Apps",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_mz2fqo8KcabNCn",
+  "naam": "Guides",
+  "type": "b2c_app",
+  "bedrijf": "Happy Industries",
+  "installs": 19,
+  "installs_7d": 9
+ },
+ {
+  "id": "app_QfUzRjyedNl8VF",
+  "naam": "Anonymous Feedback",
+  "type": "b2c_app",
+  "bedrijf": "NeutrinoApps",
+  "installs": 1,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_xdjFbwg0QybBrz",
+  "naam": "Email Marketing & Automations",
+  "type": "b2b_app",
+  "bedrijf": "UNTITLED APPS e.U.",
+  "installs": 408,
+  "installs_7d": 83
+ },
+ {
+  "id": "app_vtllLWAJVNPPVC",
+  "naam": "Quizzes",
+  "type": "b2c_app",
+  "bedrijf": "Superb Web Solutions LLC",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_RUR4Lflrkad9ay",
+  "naam": "Testimonials",
+  "type": "b2c_app",
+  "bedrijf": "M4JOR",
+  "installs": 23,
+  "installs_7d": 6
+ },
+ {
+  "id": "app_aen8amUfdagexs",
+  "naam": "GeoGuesser",
+  "type": "b2c_app",
+  "bedrijf": "building whop apps",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_RUfsGGIfPd6XbF",
+  "naam": "Subscription Analytics",
+  "type": "b2b_app",
+  "bedrijf": "BateloLabs",
+  "installs": 77,
+  "installs_7d": 14
+ },
+ {
+  "id": "app_wKujHlw9cb964k",
+  "naam": "Custom UGC",
+  "type": "b2c_app",
+  "bedrijf": "Email Marketing For Whop",
+  "installs": 3,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_73nAHyYY3DGqS6",
+  "naam": "Signals",
+  "type": "b2c_app",
+  "bedrijf": "Its All In Air",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_ybhq64JoEQa4Lt",
+  "naam": "CourtPulse",
+  "type": "b2c_app",
+  "bedrijf": "wsa",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_PsBytos2S7vFcG",
+  "naam": "FAQs",
+  "type": "b2c_app",
+  "bedrijf": "Whop App Cooker",
+  "installs": 44,
+  "installs_7d": 8
+ },
+ {
+  "id": "app_a9wAATNSIppNWg",
+  "naam": "Welcome & Onboarding",
+  "type": "b2c_app",
+  "bedrijf": "App Agentic",
+  "installs": 71,
+  "installs_7d": 22
+ },
+ {
+  "id": "app_8NJpv8Ohp63cy5",
+  "naam": "Go AI",
+  "type": "b2c_app",
+  "bedrijf": "GO AI APP",
+  "installs": 1,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_o0RdcVfY4NUmlR",
+  "naam": "Spark",
+  "type": "b2c_app",
+  "bedrijf": "Lenz Apps",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_p2HZ1SpwztuPwQ",
+  "naam": "TradingAI",
+  "type": "b2c_app",
+  "bedrijf": "Streamline",
+  "installs": 19,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_3w2tm0jtUgGi2F",
+  "naam": "PickPay: Sell Single Picks",
+  "type": "b2c_app",
+  "bedrijf": "Scratch Software Inc",
+  "installs": 24,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_Hk922CaQZIgpyY",
+  "naam": "Quiz",
+  "type": "b2c_app",
+  "bedrijf": "APPS",
+  "installs": 17,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_KrC6kMlEbEN86l",
+  "naam": "Goals",
+  "type": "b2c_app",
+  "bedrijf": "ZeusInLabs",
+  "installs": 25,
+  "installs_7d": 9
+ },
+ {
+  "id": "app_rA572sv16PrTaX",
+  "naam": "Frequently Asked Questions",
+  "type": "b2c_app",
+  "bedrijf": "CodeWave Apps",
+  "installs": 2,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_KqT19h1v7HkqXA",
+  "naam": "FlipTrack Pro",
+  "type": "b2c_app",
+  "bedrijf": "Luxury Codes",
+  "installs": 3,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_F2Xvs1V54iborw",
+  "naam": "Sell Digital Files: FilesBunny",
+  "type": "b2c_app",
+  "bedrijf": "ReviraLabs",
+  "installs": 350,
+  "installs_7d": 109
+ },
+ {
+  "id": "app_Y54oVnIvvCvyEF",
+  "naam": "Retro Snake",
+  "type": "b2c_app",
+  "bedrijf": "Whop Developer",
+  "installs": 4,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_sAdJ6w0OBnYzDk",
+  "naam": "Feedback Board",
+  "type": "b2c_app",
+  "bedrijf": "Happy Industries",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_cByRe28Etwc0vO",
+  "naam": "Trivio – Daily Trivia Games",
+  "type": "b2c_app",
+  "bedrijf": "Nebaura Studios",
+  "installs": 3,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_vktVt5yWs2JmXH",
+  "naam": "Form Builder",
+  "type": "b2c_app",
+  "bedrijf": "Form Builder",
+  "installs": 11,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_s5id0QjAzMwUfC",
+  "naam": "AI Chatbot for Your Community",
+  "type": "b2c_app",
+  "bedrijf": "Spot Labs",
+  "installs": 147,
+  "installs_7d": 27
+ },
+ {
+  "id": "app_jvoW9Vp3yGKaWF",
+  "naam": "Banned Words",
+  "type": "b2b_app",
+  "bedrijf": "Jordan",
+  "installs": 4,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_Umkc8pwGBbLQ1H",
+  "naam": "Leaderboard",
+  "type": "b2c_app",
+  "bedrijf": "Vertigo Apps",
+  "installs": 5,
+  "installs_7d": 4
+ },
+ {
+  "id": "app_zqhMKm5UPnJ4mq",
+  "naam": "Review Reward",
+  "type": "b2c_app",
+  "bedrijf": "BateloLabs",
+  "installs": 16,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_ULbUQ7PG7oM2jg",
+  "naam": "Storefront",
+  "type": "b2c_app",
+  "bedrijf": "BateloLabs",
+  "installs": 191,
+  "installs_7d": 54
+ },
+ {
+  "id": "app_V3EsjujTsLBOlW",
+  "naam": "WelcomeKit",
+  "type": "b2c_app",
+  "bedrijf": "whop apps",
+  "installs": 25,
+  "installs_7d": 10
+ },
+ {
+  "id": "app_sDXrwzF3lUJCaW",
+  "naam": "Youtube AI Video Clipper",
+  "type": "b2c_app",
+  "bedrijf": "Ripple Society",
+  "installs": 1547,
+  "installs_7d": 414
+ },
+ {
+  "id": "app_0euey9olEcXNDw",
+  "naam": "Sports Chat",
+  "type": "b2c_app",
+  "bedrijf": "BOOM SANDBOX",
+  "installs": 7,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_5qWtmCOc4lU1Ej",
+  "naam": "Easy Keyword Generator",
+  "type": "b2c_app",
+  "bedrijf": "Sketch hustle club",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_YHzng07IQoXgyN",
+  "naam": "Tasks",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 24,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_Oik32BrVDYEBAu",
+  "naam": "Wins",
+  "type": "b2c_app",
+  "bedrijf": "dot",
+  "installs": 113,
+  "installs_7d": 25
+ },
+ {
+  "id": "app_kKVYS0jsqo172g",
+  "naam": "Giveaways",
+  "type": "b2c_app",
+  "bedrijf": "dot",
+  "installs": 49,
+  "installs_7d": 16
+ },
+ {
+  "id": "app_C8Cspi2EgjEhsw",
+  "naam": "Korvd : Link in Bio",
+  "type": "b2c_app",
+  "bedrijf": "Korvd",
+  "installs": 5,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_k6RDyWrLx0l4il",
+  "naam": "App Ads - Ads in Whop Apps",
+  "type": "b2b_app",
+  "bedrijf": "UNTITLED APPS e.U.",
+  "installs": 110,
+  "installs_7d": 28
+ },
+ {
+  "id": "app_DMugMqcSCcwyCz",
+  "naam": "Coach AI",
+  "type": "b2c_app",
+  "bedrijf": "Coach AI™",
+  "installs": 96,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_RlgdIcJxpnuFhv",
+  "naam": "Proofwall",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 9,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_ClflRY5skj5YqN",
+  "naam": "Polls",
+  "type": "b2c_app",
+  "bedrijf": "Vertigo Apps",
+  "installs": 4,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_ItrIeuMkLqkux2",
+  "naam": "Private Rooms",
+  "type": "b2c_app",
+  "bedrijf": "Deiv's Apps",
+  "installs": 7,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_lXy8tnqmeNfZHU",
+  "naam": "Flappy Bird",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 23,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_LJBf23IioJe6Xo",
+  "naam": "Chess",
+  "type": "b2c_app",
+  "bedrijf": "Jordan",
+  "installs": 43,
+  "installs_7d": 9
+ },
+ {
+  "id": "app_CeM1nWvDMNIxVO",
+  "naam": "LinkHub",
+  "type": "b2c_app",
+  "bedrijf": "My apps",
+  "installs": 101,
+  "installs_7d": 23
+ },
+ {
+  "id": "app_zPuarPU6XC6nOm",
+  "naam": "Live Shopping",
+  "type": "b2c_app",
+  "bedrijf": "Search Candy",
+  "installs": 14,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_LbVZmy7OdaasRm",
+  "naam": "Flashcards",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 5,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_p48yaidwlOa6R8",
+  "naam": "Forms",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 84,
+  "installs_7d": 20
+ },
+ {
+  "id": "app_FET4iQGlNrjTWy",
+  "naam": "AutoClip",
+  "type": "b2c_app",
+  "bedrijf": "Deiv's Apps",
+  "installs": 183,
+  "installs_7d": 53
+ },
+ {
+  "id": "app_flJnFzocgQ2cZY",
+  "naam": "Onboarding",
+  "type": "b2c_app",
+  "bedrijf": "Young n' Rich",
+  "installs": 193,
+  "installs_7d": 49
+ },
+ {
+  "id": "app_3hlsmhXlAqzQLa",
+  "naam": "whopbound | email for you",
+  "type": "b2c_app",
+  "bedrijf": "Ryan's Whop",
+  "installs": 13,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_M5lHJzva9vhvqU",
+  "naam": "Email Marketing & Automation",
+  "type": "b2b_app",
+  "bedrijf": "Email Marketing For Whop",
+  "installs": 159,
+  "installs_7d": 21
+ },
+ {
+  "id": "app_c6LgYmJTfjWXD1",
+  "naam": "Trader TV",
+  "type": "b2c_app",
+  "bedrijf": "Osis",
+  "installs": 1,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_zSMyjWYnc0Et3T",
+  "naam": "TradeOff",
+  "type": "b2c_app",
+  "bedrijf": "Osis",
+  "installs": 3,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_ckYOPoqaAoNXFJ",
+  "naam": "Crypto Wallet Tracker",
+  "type": "b2c_app",
+  "bedrijf": "Able Labs",
+  "installs": 1,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_AqCX2VYIsNGL17",
+  "naam": "Lofi Radio",
+  "type": "b2c_app",
+  "bedrijf": "Ignited",
+  "installs": 3,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_a53W4QAKN35vHR",
+  "naam": "Paid Calls and Bookings",
+  "type": "b2c_app",
+  "bedrijf": "Calls & FREE Custom Apps",
+  "installs": 182,
+  "installs_7d": 42
+ },
+ {
+  "id": "app_6TWUifgF6OQy2W",
+  "naam": "Crashy Bird Royale",
+  "type": "b2c_app",
+  "bedrijf": "Whop App",
+  "installs": 15,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_gVPOVdYWPQAkrz",
+  "naam": "Crypto Wallet Tracker",
+  "type": "b2c_app",
+  "bedrijf": "Abdullah's store",
+  "installs": 12,
+  "installs_7d": 5
+ },
+ {
+  "id": "app_6urU9triY7asI6",
+  "naam": "Breathing App",
+  "type": "b2c_app",
+  "bedrijf": "Search Candy",
+  "installs": 28,
+  "installs_7d": 6
+ },
+ {
+  "id": "app_fClArGQC9IzSJL",
+  "naam": "Bet Sync",
+  "type": "b2c_app",
+  "bedrijf": "Bet Sync",
+  "installs": 8,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_GWiJRkwpkePEiL",
+  "naam": "BetScout",
+  "type": "b2c_app",
+  "bedrijf": "Deiv's Apps",
+  "installs": 5,
+  "installs_7d": 2
+ },
+ {
+  "id": "app_bLSc10GEFPDu4G",
+  "naam": "Merch App",
+  "type": "b2c_app",
+  "bedrijf": "Canary Canary",
+  "installs": 106,
+  "installs_7d": 30
+ },
+ {
+  "id": "app_ZtpLDHY4CzWww0",
+  "naam": "Betalytics",
+  "type": "b2c_app",
+  "bedrijf": "Betalytics",
+  "installs": 6,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_mu2adIOOInS7zx",
+  "naam": "Simple image editor",
+  "type": "b2c_app",
+  "bedrijf": "Writer Utilities",
+  "installs": 7,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_KHqcozSfEGNyhl",
+  "naam": "AI Image Generator",
+  "type": "b2c_app",
+  "bedrijf": "Steven's whop",
+  "installs": 46,
+  "installs_7d": 7
+ },
+ {
+  "id": "app_yY5S0HzGnvHKKw",
+  "naam": "Doodle Guest Book",
+  "type": "b2c_app",
+  "bedrijf": "Design Engineer",
+  "installs": 2,
+  "installs_7d": 1
+ },
+ {
+  "id": "app_WykcI6ivb5fOlz",
+  "naam": "Livestreaming",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 3363,
+  "installs_7d": 668
+ },
+ {
+  "id": "app_ZiYcR6P91Vskmn",
+  "naam": "Bounties",
+  "type": "b2c_app",
+  "bedrijf": "Bounties",
+  "installs": 145,
+  "installs_7d": 24
+ },
+ {
+  "id": "app_dC2dkRARmXE4qf",
+  "naam": "Calendar Bookings",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 324,
+  "installs_7d": 82
+ },
+ {
+  "id": "app_uCf1QqdQa5j2VI",
+  "naam": "Webhooks",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 13,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_zImxUsPIgti252",
+  "naam": "Tips",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 153,
+  "installs_7d": 28
+ },
+ {
+  "id": "app_i5oS9ptm9pfy7Q",
+  "naam": "Web app",
+  "type": "b2c_app",
+  "bedrijf": "Webapp by Whop",
+  "installs": 274,
+  "installs_7d": 70
+ },
+ {
+  "id": "app_jHH5YT7jHYQANi",
+  "naam": "Software",
+  "type": "b2c_app",
+  "bedrijf": "Software by Whop",
+  "installs": 458,
+  "installs_7d": 111
+ },
+ {
+  "id": "app_N3S3muNGIbm3tQ",
+  "naam": "TradingView",
+  "type": "b2c_app",
+  "bedrijf": "TradingView by Whop",
+  "installs": 339,
+  "installs_7d": 85
+ },
+ {
+  "id": "app_Hult2DfiNkAhMp",
+  "naam": "Telegram",
+  "type": "b2c_app",
+  "bedrijf": "Telegram by Whop",
+  "installs": 660,
+  "installs_7d": 171
+ },
+ {
+  "id": "app_5UWRrs7haZZeiQ",
+  "naam": "Files",
+  "type": "b2c_app",
+  "bedrijf": "Files by Whop",
+  "installs": 11358,
+  "installs_7d": 1690
+ },
+ {
+  "id": "app_sWtSR8DZsEGryg",
+  "naam": "Discord",
+  "type": "b2c_app",
+  "bedrijf": "Discord by Whop",
+  "installs": 2566,
+  "installs_7d": 645
+ },
+ {
+  "id": "app_RnVNENx5vtP8Zp",
+  "naam": "Events",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 1507,
+  "installs_7d": 344
+ },
+ {
+  "id": "app_OtuSFX6rkPguRs",
+  "naam": "Website Embed",
+  "type": "b2c_app",
+  "bedrijf": "Steven",
+  "installs": 530,
+  "installs_7d": 137
+ },
+ {
+  "id": "app_dYfm2IdXhDMquv",
+  "naam": "Forums",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 325935,
+  "installs_7d": 84070
+ },
+ {
+  "id": "app_xml5hbizmZPgUT",
+  "naam": "Chat",
+  "type": "b2c_app",
+  "bedrijf": "Whop",
+  "installs": 18256,
+  "installs_7d": 3388
+ },
+ {
+  "id": "app_mmjPLOxIgL1qxe",
+  "naam": "Content",
+  "type": "b2c_app",
+  "bedrijf": "Content by Whop",
+  "installs": 13731,
+  "installs_7d": 3186
+ },
+ {
+  "id": "app_0vPZThfBpAwLo",
+  "naam": "Courses",
+  "type": "b2c_app",
+  "bedrijf": "Courses App",
+  "installs": 16599,
+  "installs_7d": 3301
+ },
+ {
+  "id": "app_ayTVE2o3ARWN0K",
+  "naam": "Alertsify",
+  "type": "b2c_app",
+  "bedrijf": "Alertsify - Institutional-Speed Trading",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_YDJCSmJIAcfbaR",
+  "naam": "Super Closer",
+  "type": "b2b_app",
+  "bedrijf": "Super Closer",
+  "installs": 11,
+  "installs_7d": 3
+ },
+ {
+  "id": "app_QrooxQftxuVLpL",
+  "naam": "Position Sizer",
+  "type": "b2c_app",
+  "bedrijf": "MLPortfolios",
+  "installs": 0,
+  "installs_7d": 0
+ },
+ {
+  "id": "app_8Od1bCQi0mCWwG",
+  "naam": "CJDropshipping",
+  "type": "b2b_app",
+  "bedrijf": "Cjdropshipping",
+  "installs": 315,
+  "installs_7d": 158
+ }
+]
