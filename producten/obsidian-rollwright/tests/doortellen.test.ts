@@ -1,9 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { RandomInt } from "../src/engine";
 import RollwrightPlugin from "../src/main";
-import { mountRoll, startTicking, TICK_ATTR, TICK_STEPS } from "../src/ui/widget";
+import { mountRoll, startTicking, TICK_ATTR, TICK_START_MS, TICK_STEPS, tickNumber, tickSequence } from "../src/ui/widget";
 
-// Ontwerp-v2 klus 4: het getal telt na een klik ±300 ms door en landt op de echte uitkomst.
+// Ontwerp-v2 klus 4 en 4b: het getal telt na een klik door vanaf ±140 ms (als het vakje in beeld komt)
+// en landt op ±505 ms op de echte uitkomst, tegelijk met het vakje.
+const LAND = TICK_START_MS + TICK_STEPS.reduce((a, b) => a + b, 0);
 
 /** A value element that remembers its attribute, and every number it showed. */
 function fakeValue() {
@@ -65,14 +67,20 @@ afterEach(() => {
 });
 
 describe("startTicking", () => {
-	it("shows 6 numbers within the range, slower each time, ±300 ms, then takes the attribute away", () => {
+	it("waits ±140 ms, shows 6 numbers within the range, slower each time, lands at ±500 ms, then takes the attribute away", () => {
 		const value = fakeValue();
 		const stop = startTicking(value as never, { min: 1, max: 20 });
 		expect(stop).not.toBeNull();
 		expect(TICK_STEPS).toHaveLength(6);
-		expect(TICK_STEPS.reduce((a, b) => a + b, 0)).toBe(300);
+		expect(TICK_START_MS).toBe(140);
+		expect(LAND).toBeGreaterThanOrEqual(480);
+		expect(LAND).toBeLessThanOrEqual(510);
 		for (let i = 1; i < TICK_STEPS.length; i++) expect(TICK_STEPS[i]).toBeGreaterThan(TICK_STEPS[i - 1] as number);
-		vi.advanceTimersByTime(299);
+		vi.advanceTimersByTime(TICK_START_MS - 1);
+		expect(value.seen).toEqual([]);
+		vi.advanceTimersByTime(1);
+		expect(value.seen).toHaveLength(1);
+		vi.advanceTimersByTime(LAND - TICK_START_MS - 1);
 		expect(value.attrs.has(TICK_ATTR)).toBe(true);
 		vi.advanceTimersByTime(1);
 		expect(value.attrs.has(TICK_ATTR)).toBe(false);
@@ -80,6 +88,54 @@ describe("startTicking", () => {
 		for (const n of value.seen) expect(Number(n)).toBeGreaterThanOrEqual(1);
 		for (const n of value.seen) expect(Number(n)).toBeLessThanOrEqual(20);
 		expect(vi.getTimerCount()).toBe(0);
+	});
+
+	it("starts at once with delay 0", () => {
+		const value = fakeValue();
+		startTicking(value as never, { min: 1, max: 20 }, { delay: 0 });
+		expect(value.seen).toHaveLength(1);
+	});
+
+	it("never shows the same number twice in a row, and never ends on the real result, also with a fixed Math.random", () => {
+		for (const fixed of [0, 0.5, 0.999]) {
+			for (const actual of [1, 10, 20]) {
+				const value = fakeValue();
+				startTicking(value as never, { min: 1, max: 20 }, { actual }, () => fixed);
+				vi.advanceTimersByTime(LAND);
+				expect(value.seen).toHaveLength(6);
+				for (let i = 1; i < value.seen.length; i++) expect(value.seen[i]).not.toBe(value.seen[i - 1]);
+				expect(Number(value.seen[5])).not.toBe(actual);
+				expect(vi.getTimerCount()).toBe(0);
+			}
+		}
+	});
+
+	it("the same holds with random draws, and on a range of only two numbers", () => {
+		for (let run = 0; run < 200; run++) {
+			const value = fakeValue();
+			const two = run % 2 === 0;
+			const range = two ? { min: 1, max: 2 } : { min: 2, max: 12 };
+			const actual = two ? 1 + (run % 4 === 0 ? 1 : 0) : 2 + (run % 11);
+			startTicking(value as never, range, { actual });
+			vi.advanceTimersByTime(LAND);
+			for (let i = 1; i < value.seen.length; i++) expect(value.seen[i]).not.toBe(value.seen[i - 1]);
+			expect(Number(value.seen[5])).not.toBe(actual);
+			for (const n of value.seen) expect(Number(n)).toBeGreaterThanOrEqual(range.min);
+			for (const n of value.seen) expect(Number(n)).toBeLessThanOrEqual(range.max);
+		}
+	});
+
+	it("tickNumber moves a number that does not fit up by one, wrapping round, within the range", () => {
+		expect(tickNumber({ min: 1, max: 20 }, 0, null, null)).toBe(1);
+		expect(tickNumber({ min: 1, max: 20 }, 0, 1, null)).toBe(2);
+		expect(tickNumber({ min: 1, max: 20 }, 0.999, 20, null)).toBe(1);
+		expect(tickNumber({ min: 1, max: 20 }, 0, 1, 2)).toBe(3);
+		expect(tickNumber({ min: -3, max: 3 }, 0.999, 3, -3)).toBe(-2);
+	});
+
+	it("tickSequence on a range of two numbers alternates and ends on the other number", () => {
+		expect(tickSequence({ min: 1, max: 2 }, 1, () => 0)).toEqual([1, 2, 1, 2, 1, 2]);
+		expect(tickSequence({ min: 1, max: 2 }, 2, () => 0.9)).toEqual([2, 1, 2, 1, 2, 1]);
 	});
 
 	it("does nothing without a known range, for a fixed result, or with reduced motion", () => {
@@ -122,7 +178,7 @@ const settle = async () => {
 };
 
 describe("counting on the roll", () => {
-	it("never on opening; after a click it counts while the real text is there all the time, and is gone after 300 ms", async () => {
+	it("never on opening; after a click it counts while the real text is there all the time, and is gone when it lands", async () => {
 		const plugin = await load();
 		const roll = fakeRoll();
 		const cleanups: (() => void)[] = [];
@@ -134,13 +190,15 @@ describe("counting on the roll", () => {
 		await settle();
 		const value = roll.values[roll.values.length - 1];
 		expect(value?.text).toBe("24");
+		vi.advanceTimersByTime(TICK_START_MS);
 		expect(value?.attrs.has(TICK_ATTR)).toBe(true);
-		vi.advanceTimersByTime(300);
+		vi.advanceTimersByTime(LAND - TICK_START_MS);
 		expect(value?.attrs.has(TICK_ATTR)).toBe(false);
 		expect(value?.seen.length).toBe(6);
+		// The last counted number is not the real result.
+		expect(value?.seen[5]).not.toBe("24");
 		expect(value?.text).toBe("24");
-		// 24 is a crit: its gold comes with a timer of its own at 460 ms (klus 2d), then nothing runs.
-		vi.advanceTimersByTime(160);
+		// 24 is a crit: its gold came with a timer of its own at 460 ms (klus 2d); now nothing runs.
 		expect(vi.getTimerCount()).toBe(0);
 	});
 
