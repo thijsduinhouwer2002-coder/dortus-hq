@@ -607,3 +607,4 @@ Nieuwste blok onderaan.
 - Les: `community-archive` op GitHub is een goede bron voor verlaten Obsidian-plugins; ook nuttig om bij andere platformen naar zo'n archief-org te zoeken.
 - Run afgesloten.
 - Na afsluiten nog tijd: PDF++ toegevoegd aan de Obsidian-kans (cijfer 2, een onafhankelijke voortzetting is al aangevraagd). Platformrun: Twitch Extensions voorwerk, niet te meten zonder account.
+- Roll20 Marketplace voorwerk: niet te meten (lijst via /api/, verboden in robots.txt), vooral kunst. Run nu echt afgesloten.
