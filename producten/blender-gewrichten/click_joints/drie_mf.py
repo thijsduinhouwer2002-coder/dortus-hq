@@ -7,9 +7,9 @@ de geëvalueerde mesh (modifiers toegepast) in wereldcoördinaten, keer `schaal`
 import zipfile
 from xml.sax.saxutils import escape
 
-import bmesh
 import bpy
-from mathutils import Matrix
+from mathutils import Matrix, Vector
+from mathutils.geometry import tessellate_polygon
 
 TYPES = ('<?xml version="1.0" encoding="UTF-8"?>\n'
          '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
@@ -23,31 +23,65 @@ RELS = ('<?xml version="1.0" encoding="UTF-8"?>\n'
         '</Relationships>')
 
 
+def _veelhoek(vs, co, gebruikt):
+    """Driehoeken (indexen in vs) voor één vlak. Elke driehoek staat in oplopende volgorde van de punten in het
+    vlak: bij een opdeling langs diagonalen heeft elke driehoek dan dezelfde draairichting als het vlak, ook
+    als hij plat is. Probeert elk beginpunt tot geen nieuwe diagonaal een rand is die al bestaat (ronde j:
+    in de meterscene liepen 108 randen dubbel, een diagonaal viel samen met een rand elders)."""
+    n = len(vs)
+    if n == 3:
+        return [(0, 1, 2)]
+    eerste = None
+    for start in range(n):
+        if n == 4:
+            stel = [(start % 4, (start + 1) % 4, (start + 2) % 4), (start % 4, (start + 2) % 4, (start + 3) % 4)] if start < 2 else None
+            if stel is None:
+                break
+        else:
+            rot = [(start + i) % n for i in range(n)]
+            try:
+                ruw = tessellate_polygon([[co[vs[i]] for i in rot]])
+            except Exception:
+                ruw = []
+            stel = [tuple(rot[i] for i in t) for t in ruw]
+            if len(stel) != n - 2:
+                continue
+        stel = [tuple(sorted(t)) for t in stel]
+        diag = {tuple(sorted((vs[t[i]], vs[t[j]]))) for t in stel for i, j in ((0, 1), (1, 2), (0, 2))
+                if (t[j] - t[i]) % n not in (1, n - 1)}
+        if eerste is None:
+            eerste = (stel, diag)
+        if not diag & gebruikt:
+            gebruikt |= diag
+            return stel
+    if eerste is None:  # geen opdeling gevonden: waaier vanaf punt 0 (topologisch altijd goed)
+        stel = [(0, i, i + 1) for i in range(1, n - 1)]
+        eerste = (stel, {tuple(sorted((vs[0], vs[i]))) for i in range(2, n - 1)})
+    gebruikt |= eerste[1]
+    return eerste[0]
+
+
 def driehoeken(ob, schaal):
     """(hoekpunten in mm, driehoeken als drietallen indexen) van de geëvalueerde mesh in wereldcoördinaten.
-    Driehoeken via bmesh.ops.triangulate (BEAUTY): de loop_triangles van Blender gaven bij de holle n-hoeken
-    uit de Boolean 8 tot 52 randen die twee keer dezelfde kant op liepen (ronde h, GEZIEN in de test).
+    Eigen opdeling per vlak (`_veelhoek`): de loop_triangles van Blender en bmesh.ops.triangulate (BEAUTY en
+    EAR_CLIP) gaven bij de holle n-hoeken uit de Boolean randen die dubbel liepen (ronde h en j).
     Bij een gespiegeld object (negatieve schaal) draait de volgorde om, zodat de normalen naar buiten wijzen."""
     graaf = bpy.context.evaluated_depsgraph_get()
     ev = ob.evaluated_get(graaf)
     me = ev.to_mesh()
-    bm = bmesh.new()
     try:
-        bm.from_mesh(me)
-        m = ob.matrix_world
-        # Eerst naar mm, dan pas driehoeken: in een scene in meters zijn de vlakken 1000 keer kleiner en gaf
-        # BEAUTY nog 8 dubbele randen (vaste kleine grenzen in Blender); in mm 0 (GEZIEN, ronde h).
-        bm.transform(Matrix.Scale(schaal, 4) @ m)
-        bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method="BEAUTY", ngon_method="BEAUTY")
-        bm.verts.index_update()
-        punten = [tuple(v.co) for v in bm.verts]
-        om = m.determinant() < 0
+        m = Matrix.Scale(schaal, 4) @ ob.matrix_world
+        punten = [tuple(m @ v.co) for v in me.vertices]
+        co = [Vector(p) for p in punten]
+        gebruikt = {tuple(sorted(e.vertices)) for e in me.edges}
+        om = ob.matrix_world.determinant() < 0
         lijst = []
-        for f in bm.faces:
-            t = tuple(v.index for v in f.verts)
-            lijst.append(t[::-1] if om else t)
+        for p in me.polygons:
+            vs = list(p.vertices)
+            for t in _veelhoek(vs, co, gebruikt):
+                d = (vs[t[0]], vs[t[1]], vs[t[2]])
+                lijst.append(d[::-1] if om else d)
     finally:
-        bm.free()
         ev.to_mesh_clear()
     return punten, lijst
 

@@ -21,6 +21,7 @@ HOEKEN = (30, 25, 20)
 NEK_PEN = 0.40
 RANG = {"groen": 2, "oranje": 1, "rood": 0}
 MARGE_HOEK = 3.0
+MARGE_STAND = 0.5  # graden: berekende grens = stand + 0,5
 NAAD_MARGE_MM = 0.5
 TE_DUN = "Too thin here for a ball joint. Try a thicker spot."
 
@@ -37,8 +38,9 @@ def maten(inst, u, kogel_mm=None, hoek=HOEKEN[0]):
     rk, open_r = r + s, maat["open_r"]
     d_lip = math.sqrt(max(rk * rk - open_r * open_r, 0.0))
     maat["midden_z"] = max(maat["midden_z"], d_lip + maat["schuif"] + BODEM_MM * u)
-    # Nek per hoekstand; een fractie dunner, zodat de berekende grens nooit onder de stand valt.
-    maat["nek_r"] = rk * math.cos(math.radians(hoek) + math.atan2(d_lip, open_r)) * (1 - 1e-6)
+    # Nek per hoekstand, gerekend voor de stand plus MARGE_STAND: precies op de stand raakt de nek de klikrand al
+    # (beweegproef run 42475385547: stap 30 botste, gemeten 27,5). Zo is de stand zelf echt vrij.
+    maat["nek_r"] = rk * math.cos(math.radians(hoek + MARGE_STAND) + math.atan2(d_lip, open_r))
     grens = math.degrees(math.acos(min(maat["nek_r"] / rk, 1.0)) - math.atan2(d_lip, open_r))
     maat["lip_d"] = d_lip            # klikrand: zo ver onder het kogelmidden
     maat["hoek"] = hoek              # gekozen stand
