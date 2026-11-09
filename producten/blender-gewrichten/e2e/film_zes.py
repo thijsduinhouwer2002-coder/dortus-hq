@@ -136,17 +136,17 @@ def hout_materiaal():
     ruis.inputs["Detail"].default_value = 3.0
     vervorm = nt.nodes.new("ShaderNodeVectorMath")     # vector + 4 x ruis: nerf golft, geen strepen met een liniaal
     vervorm.operation = "MULTIPLY_ADD"
-    vervorm.inputs[1].default_value = (1.2, 1.2, 1.2)   # 6c: rustig golvend (6a sterkte 4 gaf slangen)
+    vervorm.inputs[1].default_value = (2.4, 2.4, 2.4)   # 6c3: 1,2 gaf rechte ribbels als ribfluweel; 6a sterkte 4 gaf slangen
     golf = nt.nodes.new("ShaderNodeTexWave")
     golf.wave_type, golf.bands_direction = "BANDS", "X"   # banden over e1 = nerflijnen in de lengte van elk lid
     golf.inputs["Scale"].default_value = 0.25            # 6b: lijn om de ±1,6 mm (6a: 3,5 mm oogde als zebra)
-    golf.inputs["Distortion"].default_value = 1.0
+    golf.inputs["Distortion"].default_value = 2.5   # 6c3: lijnen lopen uiteen en weer samen, zoals echte nerf
     golf.inputs["Detail"].default_value = 3.0
     meng = nt.nodes.new("ShaderNodeValToRGB")
     meng.color_ramp.elements[0].color = (*kleur(HOUT_DONKER), 1)
     meng.color_ramp.elements[1].color = (*kleur(HOUT_LICHT), 1)
-    meng.color_ramp.elements[0].position = 0.15
-    meng.color_ramp.elements[1].position = 0.85   # 6b: zachter verloop, minder streep
+    meng.color_ramp.elements[0].position = 0.3   # 6c3: minder contrast
+    meng.color_ramp.elements[1].position = 0.7
     nt.links.new(tex.outputs["Vector"], ruis.inputs["Vector"])
     nt.links.new(ruis.outputs["Color"], vervorm.inputs[0])
     nt.links.new(tex.outputs["Vector"], vervorm.inputs[2])
@@ -260,3 +260,15 @@ def plaats_op(ob, punt, as_):
     a = next((o for o in nieuw if o.get("cj_deel") == "A"), None)
     b = next((o for o in nieuw if o.get("cj_deel") == "B"), None)
     return uitslag, a, b
+
+
+_render_instellingen_mooi = render_instellingen
+
+
+def render_instellingen():
+    """6c3: zelfde als ronde 5, maar look AgX Base Contrast: Medium High Contrast maakte het beuken oranje."""
+    _render_instellingen_mooi()
+    try:
+        bpy.context.scene.view_settings.look = "AgX - Base Contrast"
+    except TypeError:  # oudere naam
+        bpy.context.scene.view_settings.look = "None"

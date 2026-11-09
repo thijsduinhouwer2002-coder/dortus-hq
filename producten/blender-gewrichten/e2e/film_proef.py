@@ -126,7 +126,7 @@ def main():
     # roze door de groene laag), camera recht op de rode vlakken vanaf hun eigen buitenkant.
     F["staat"]["b_door"] = F["hout_doorzichtig"](b)
     F["zet_door"](0.93)
-    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 2.5)   # 6c2: 9 werd wit-roze in AgX
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 1.2)   # 6c3: 9 werd wit-roze, 2,5 zalm; AgX bleekt fel rood
     lijst = list(a.get("cj_rood_vlakken", []))
     mw = a.matrix_world
     punten, norm = [], Vector()
