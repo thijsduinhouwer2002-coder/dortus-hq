@@ -1,28 +1,207 @@
 {
-  "_uitleg": "Wie er in de ploeg zit en wanneer ze draaien. De hoofdchat werkt dit bij als er iemand aan of uit gaat. Het dashboard-script leest dit; 'sleutels' zijn woorden waarmee hun commits beginnen.",
-  "mensen": [
-    {"naam": "Olaf",  "rol": "Hoofdbouwer",       "team": "Steam",     "schema": "elk uur", "actief": true,  "sleutels": ["Olaf"]},
-    {"naam": "Bram",  "rol": "Bouwer",            "team": "Steam + Click Joints", "schema": "elk uur", "actief": true, "sleutels": ["Bram", "Blender run", "Click Joints"]},
-    {"naam": "Sanne", "rol": "Game-ontwerper",    "team": "Steam",     "schema": "elk uur", "actief": true,  "sleutels": ["Sanne"]},
-    {"naam": "Mila",  "rol": "Ontwerper (wow)",   "team": "Steam + Garmin", "schema": "elk uur", "actief": true, "sleutels": ["Mila"]},
-    {"naam": "Daan",  "rol": "Ontwerper",         "team": "Apps + keuring", "schema": "elk uur", "actief": true, "sleutels": ["Daan"]},
-    {"naam": "Tess",  "rol": "Manager",           "team": "TikTok Shop", "schema": "elk uur", "actief": true, "sleutels": ["Tess"]},
-    {"naam": "Jet",   "rol": "Bouwer",            "team": "TikTok Shop + JetBrains", "schema": "elk uur", "actief": true, "sleutels": ["Jet"]},
-    {"naam": "Gijs",  "rol": "Manager",           "team": "Garmin",    "schema": "elk uur", "actief": true,  "sleutels": ["Gijs", "Garmin"]},
-    {"naam": "Hans",  "rol": "Hoofdmanager",      "team": "Leiding",   "schema": "08:44 en 20:44", "actief": true, "sleutels": ["Hans"]},
-    {"naam": "Chris", "rol": "Commercie",         "team": "Lanceringen", "schema": "uit", "actief": false, "sleutels": ["Chris"]},
-    {"naam": "Vera",  "rol": "Verkenner",         "team": "Zoeken",    "schema": "uit", "actief": false, "sleutels": ["Vera"]},
-    {"naam": "Noor",  "rol": "Pionier",           "team": "Zoeken",    "schema": "uit", "actief": false, "sleutels": ["Noor"]},
-    {"naam": "Kees",  "rol": "Herweger",          "team": "Zoeken",    "schema": "uit", "actief": false, "sleutels": ["Kees"]},
-    {"naam": "Lotte", "rol": "Zijpadzoeker",      "team": "Zoeken",    "schema": "uit", "actief": false, "sleutels": ["Lotte", "Zijpad"]},
-    {"naam": "Stijn", "rol": "Strateeg",          "team": "Advies",    "schema": "uit", "actief": false, "sleutels": ["Stijn"]}
-  ],
-  "producten": [
-    {"naam": "Het Hol",        "platform": "Steam",     "status": "platformen/steam/status.md",       "soort": "steam"},
-    {"naam": "TikTok-boekhouding", "platform": "TikTok Shop", "status": "platformen/tiktok-shop/status.md", "soort": "tiktok"},
-    {"naam": "Click Joints",   "platform": "Blender",   "status": "platformen/blender/status.md",     "soort": "blender"},
-    {"naam": "Bison & Flex",   "platform": "JetBrains", "status": "platformen/jetbrains/status.md",   "soort": "jetbrains"},
-    {"naam": "Garmin-app",     "platform": "Garmin",    "status": "platformen/garmin/status.md",      "soort": "garmin"},
-    {"naam": "Rollwright",     "platform": "Obsidian",  "status": "platformen/obsidian/status.md",    "soort": "obsidian"}
-  ]
+ "_uitleg": "Wie er in de ploeg zit en wanneer ze draaien. De hoofdchat werkt dit bij als er iemand aan of uit gaat. Het dashboard-script leest dit; 'sleutels' zijn woorden waarmee hun commits beginnen.",
+ "mensen": [
+  {
+   "naam": "Olaf",
+   "rol": "Hoofdbouwer",
+   "team": "Steam",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Olaf"
+   ]
+  },
+  {
+   "naam": "Bram",
+   "rol": "Bouwer",
+   "team": "Steam + Click Joints",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Bram",
+    "Blender run",
+    "Click Joints"
+   ]
+  },
+  {
+   "naam": "Sanne",
+   "rol": "Game-ontwerper",
+   "team": "Steam",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Sanne"
+   ]
+  },
+  {
+   "naam": "Mila",
+   "rol": "Ontwerper (wow)",
+   "team": "Steam + Garmin",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Mila"
+   ]
+  },
+  {
+   "naam": "Daan",
+   "rol": "Ontwerper",
+   "team": "Apps + keuring",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Daan"
+   ]
+  },
+  {
+   "naam": "Tess",
+   "rol": "Manager",
+   "team": "TikTok Shop",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Tess"
+   ]
+  },
+  {
+   "naam": "Jet",
+   "rol": "Bouwer",
+   "team": "TikTok Shop + JetBrains",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Jet"
+   ]
+  },
+  {
+   "naam": "Gijs",
+   "rol": "Manager",
+   "team": "Garmin",
+   "schema": "elk uur",
+   "actief": true,
+   "sleutels": [
+    "Gijs",
+    "Garmin"
+   ]
+  },
+  {
+   "naam": "Hans",
+   "rol": "Hoofdmanager",
+   "team": "Leiding",
+   "schema": "08:44 en 20:44",
+   "actief": true,
+   "sleutels": [
+    "Hans"
+   ]
+  },
+  {
+   "naam": "Chris",
+   "rol": "Commercie",
+   "team": "Lanceringen",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Chris"
+   ]
+  },
+  {
+   "naam": "Vera",
+   "rol": "Verkenner",
+   "team": "Zoeken",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Vera"
+   ]
+  },
+  {
+   "naam": "Noor",
+   "rol": "Pionier",
+   "team": "Zoeken",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Noor"
+   ]
+  },
+  {
+   "naam": "Kees",
+   "rol": "Herweger",
+   "team": "Zoeken",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Kees"
+   ]
+  },
+  {
+   "naam": "Lotte",
+   "rol": "Zijpadzoeker",
+   "team": "Zoeken",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Lotte",
+    "Zijpad"
+   ]
+  },
+  {
+   "naam": "Stijn",
+   "rol": "Strateeg",
+   "team": "Advies",
+   "schema": "uit",
+   "actief": false,
+   "sleutels": [
+    "Stijn"
+   ]
+  },
+  {
+   "naam": "Patrick",
+   "rol": "Perfectionist",
+   "team": "Basis",
+   "schema": "nacht 9-10 nov",
+   "actief": true,
+   "sleutels": [
+    "Patrick"
+   ]
+  }
+ ],
+ "producten": [
+  {
+   "naam": "Het Hol",
+   "platform": "Steam",
+   "status": "platformen/steam/status.md",
+   "soort": "steam"
+  },
+  {
+   "naam": "TikTok-boekhouding",
+   "platform": "TikTok Shop",
+   "status": "platformen/tiktok-shop/status.md",
+   "soort": "tiktok"
+  },
+  {
+   "naam": "Click Joints",
+   "platform": "Blender",
+   "status": "platformen/blender/status.md",
+   "soort": "blender"
+  },
+  {
+   "naam": "Bison & Flex",
+   "platform": "JetBrains",
+   "status": "platformen/jetbrains/status.md",
+   "soort": "jetbrains"
+  },
+  {
+   "naam": "Garmin-app",
+   "platform": "Garmin",
+   "status": "platformen/garmin/status.md",
+   "soort": "garmin"
+  },
+  {
+   "naam": "Rollwright",
+   "platform": "Obsidian",
+   "status": "platformen/obsidian/status.md",
+   "soort": "obsidian"
+  }
+ ]
 }
