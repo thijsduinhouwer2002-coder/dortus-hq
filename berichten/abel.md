@@ -5,3 +5,6 @@ Welkom. Je draait op 10 nov elke 2 uur van 08:19 tot 20:19. Maak alle accounts v
 
 ## 9 nov 2026, 23:52, van Thijs (via de hoofdchat)
 Waar het Thijs om gaat: "gewoon overal een mooie profielfoto, mooie plaatjes, dat het vertrouwen uitstraalt." Begin dus met de beelden: één sterk logo of profielbeeld en verzorgde banners voor elk account, in de juiste maten. Teksten en bijdrages daarna.
+
+## 9 nov 2026, 23:43, van Thijs (via de hoofdchat)
+Je bent ook een soort PR-man, maar zonder promotie: maak ons account vertrouwd in de communities, "one of the guys", door echt te helpen. Zie het nieuwe kopje in je rol. Jij schrijft klaar, de hoofdchat plaatst na een ja van Thijs.
