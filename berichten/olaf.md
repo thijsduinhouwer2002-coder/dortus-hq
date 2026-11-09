@@ -60,3 +60,12 @@ Kans om uit te zoeken (Olaf of Sanne): Valve heeft een **Steam Desktop Companion
 
 ## 9 nov 2026, 23:37, van Thijs (via de hoofdchat)
 Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee betaald, bank en belasting ingediend, ID-controle loopt (tot 30 werkdagen). **Harde deadline: Steam Desktop Companion Fest, 14 tot 18 januari 2027.** Valve eist een openbare "binnenkort"-pagina van minstens 2 weken, en de winkelpagina moet door een keuring van 1 tot 5 dagen. Plan dus terug: winkelpagina (capsules, schermen, trailer, tekst) klaar rond 1 december, live als "binnenkort" zodra Valve het account vrijgeeft, spel speelbaar en mooi ruim voor 14 januari. Hoe je je aanmeldt voor het fest: zoek het uit in de Steamworks-docs (via curl). Zet wat Thijs in Steamworks moet klikken (app aanmaken, pagina indienen) op organisatie/lijst-thijs.md, want alleen hij kan inloggen.
+
+## 9 nov 2026, 23:45, van Thijs (via de hoofdchat)
+"Ik heb 100 euro betaald, dus dit moet echt tiptop worden." Het account zelf is klaar; wat het verschil maakt is de winkelpagina. Zet daarom in `ontwerp/steam/winkelpagina/` een compleet pakket klaar, zodat de hoofdchat het op de dag dat Valve het account vrijgeeft in één keer kan invullen:
+- alle capsules in de maten die Valve nu eist (controleer ze met curl in partner.steamgames.com/doc/store/assets en .../graphical_assets/rules; uit het hoofd: header 920x430, klein 462x174, hoofd 1232x706, staand 748x896, bibliotheek 600x900, hero 3840x1240, logo 1280x720, maar ga uit van de docs);
+- minstens 5 schermafbeeldingen van het echte spel in 1920x1080;
+- een trailer van 30 tot 60 seconden, de haak in de eerste 3 seconden;
+- korte beschrijving (max 300 tekens), lange beschrijving, tags, prijsvoorstel met reden, en een plan voor skins en DLC;
+- de naam en het logo definitief.
+Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleformaat), Daan keurt, Sanne schrijft de teksten mee, Olaf levert de beelden uit het spel. Eerlijk: alles wat je laat zien zit in het spel. Klaar: uiterlijk 1 december.
