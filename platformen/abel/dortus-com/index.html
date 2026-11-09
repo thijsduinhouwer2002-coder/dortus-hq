@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dortus: small games and focused tools that fill a real gap</title>
+  <meta name="description" content="Dortus makes small games and focused tools: Rollwright for Obsidian, Bison &amp; Flex for JetBrains IDEs, Click Joints for Blender. Made by Thijs in the Netherlands." />
+  <meta name="theme-color" content="#14111c" />
+  <link rel="icon" href="/assets/dortus-mark.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://dortus.com/" />
+  <meta property="og:title" content="Dortus: small games and focused tools" />
+  <meta property="og:description" content="Tools that fill a real gap in Obsidian, JetBrains IDEs and Blender. Made by Thijs in the Netherlands." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dortus.com/" />
+  <meta property="og:site_name" content="Dortus" />
+  <meta property="og:image" content="https://dortus.com/assets/og-home.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    @font-face { font-family: "Archivo"; font-weight: 500 800; font-display: swap; src: url("/assets/fonts/archivo-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Public Sans"; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/publicsans-latin.woff2") format("woff2"); }
+    :root { --bg: #14111c; --bg-2: #1d1828; --card: #221c30; --line: #352c47; --ink: #f4f1fa; --ink-2: #bdb4cf; --ink-3: #8d84a3; --accent: #ffd25c; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Public Sans", system-ui, sans-serif; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 22px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font: 700 22px "Archivo", sans-serif; text-decoration: none; }
+    .brand img { width: 36px; height: 36px; border-radius: 9px; }
+    .hero { padding: 64px 0 56px; }
+    .hero h1 { font: 800 clamp(36px, 6vw, 64px)/1.05 "Archivo", sans-serif; letter-spacing: -0.02em; margin: 0 0 20px; max-width: 14ch; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { color: var(--ink-2); font-size: 20px; max-width: 46ch; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 72px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+    .card:hover { transform: translateY(-3px); border-color: #5a4b78; }
+    .card img { width: 100%; aspect-ratio: 3 / 2; object-fit: contain; object-position: center; display: block; background: var(--bg-2); }
+    .card .body { padding: 18px 20px 22px; }
+    .card .where { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
+    .card h2 { font: 700 22px "Archivo", sans-serif; margin: 0 0 6px; }
+    .card p { margin: 0; color: var(--ink-2); font-size: 16px; }
+    .tag { display: inline-block; margin-top: 12px; font-size: 13px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); }
+    .tag.live { border-color: #3f7d5e; color: #8fe3b8; }
+    .about { border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .about h3 { font: 700 20px "Archivo", sans-serif; margin: 0 0 8px; }
+    .about p { margin: 0; color: var(--ink-2); }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--ink-3); font-size: 15px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .about { grid-template-columns: 1fr; } .hero { padding: 36px 0 40px; } }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <!-- BEELDMERK: vervangen door het beeldmerk van Mila (merk/avatar-512.png of merkteken.svg) -->
+      <a class="brand" href="/"><img src="/assets/logo-dortus-d-512.png" alt="" />Dortus</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Small tools that fill a <em>real gap.</em></h1>
+      <p>Dortus makes focused plugins and small games. Each one does one thing well, looks like it belongs, and says plainly what is free and what is paid.</p>
+    </section>
+
+    <section class="grid" aria-label="Products">
+      <a class="card" href="/rollwright/">
+        <img src="/rollwright/poster-1200.jpg" alt="Rollwright: dice rolls in an Obsidian note, a natural 20 in gold" />
+        <div class="body">
+          <p class="where">Obsidian plugin</p>
+          <h2>Rollwright</h2>
+          <p>Roll dice right in your notes. Click to roll again, roll on your own tables, keep a roll log.</p>
+          <span class="tag live">Available · free, optional paid skins</span>
+        </div>
+      </a>
+      <a class="card" href="/bison-flex/">
+        <img src="/bison-flex/poster-v2.jpg" alt="Bison &amp; Flex: a grammar and a scanner connected in a JetBrains IDE" />
+        <div class="body">
+          <p class="where">JetBrains IDEs</p>
+          <h2>Bison &amp; Flex</h2>
+          <p>Bison/Yacc grammars and Flex/Lex scanners as real languages: colors, errors, structure, rename.</p>
+          <span class="tag">Coming soon to JetBrains Marketplace</span>
+        </div>
+      </a>
+      <a class="card" href="/click-joints/">
+        <img src="/click-joints/poster-1200.jpg" alt="Click Joints: a ball joint in Blender with the measured bend range" />
+        <div class="body">
+          <p class="where">Blender add-on</p>
+          <h2>Click Joints</h2>
+          <p>Ball and pin joints for 3D printed figures, with the bend range measured before you print.</p>
+          <span class="tag">In review at Blender Extensions</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="about">
+      <div>
+        <h3>Who makes this</h3>
+        <p>Dortus is Thijs, from the Netherlands, building with the help of AI tools. Questions, bugs or ideas go straight to him: <a href="mailto:thijs@dortus.com">thijs@dortus.com</a>.</p>
+      </div>
+      <div>
+        <h3>Earlier: apps for Confluence</h3>
+        <p>We used to make editors and apps for Atlassian Confluence and Jira. The guides and pages are still here: <a href="/atlassian.html">all Confluence apps and guides</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>&copy; 2026 Dortus</div>
+      <nav aria-label="Footer"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/support.html">Support</a><a href="mailto:thijs@dortus.com">thijs@dortus.com</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

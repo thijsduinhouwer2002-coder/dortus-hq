@@ -19,6 +19,9 @@ Eén **beeldmerk** (vierkant, werkt op 32 px en 16 px) en één **sfeerbeeld** (
 | `og-1200x630.png` | 1200 x 630 | dortus.com deelplaatje (vervangt het oude Confluence-plaatje) |
 | `merkteken.svg` | vector | favicon dortus.com, alles wat scherp moet blijven |
 
+## Wat er al is (GEZIEN in de repo dortus)
+Het huidige Dortus-logo uit de Atlassian-tijd: een donkere D met twee paarse bolletjes in een lila rondje (`assets/logo-dortus-d-1024.png`, `-512.png`, `assets/dortus-mark.svg`). Het staat op dortus.com en in de productpagina's. Mila beslist of het uniform daarop voortbouwt of iets nieuws wordt; ik werk met wat zij kiest.
+
 ## Per platform, met bron
 
 ### Steam (eerst)

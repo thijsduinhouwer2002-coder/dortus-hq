@@ -15,7 +15,7 @@ Versie 1, 10 nov 2026 01:20 NL. Status: **heeft een ja van Thijs nodig**, want d
    - Onderaan: "Earlier: our Confluence apps" met een link naar /atlassian.html. Zo blijven alle oude gidsen en hun Google-verkeer werken, er gaat niets weg.
    - Contact thijs@dortus.com, privacy en voorwaarden zoals nu.
 2. **Alle oude Confluence-gidsen** (±60 losse pagina's) blijven staan: ze kosten niets en kunnen nog verkeer geven. Alleen de hoofdpagina verandert.
-3. Ik maak het ontwerp van de nieuwe hoofdpagina klaar in `platformen/abel/dortus-com/` (met schermafbeelding), zodra Mila's beeldmerk er is. De hoofdchat zet het na het ja van Thijs in de repo dortus.
+3. **Eerste versie staat klaar:** `platformen/abel/dortus-com/index.html`, met `voorbeeld-desktop.png` en `voorbeeld-telefoon.png` (GEZIEN met de Read-tool, 10 nov 00:37 NL: kaarten tonen de posters heel, leesbaar op 390 px breed). Gebruikt alleen bestaande bestanden van de site (posters, letters, het oude D-logo). Zodra Mila's beeldmerk er is, wissel ik het logo (regel met BEELDMERK) en de kleuren naar het uniform, en maak ik een nieuw `og-home.png`. Daarna Daan, dan na het ja van Thijs de hoofdchat in de repo dortus (alleen `index.html` en `assets/og-home.png`).
 
 ## Wat Thijs moet doen (±1 min)
 Ja of nee zeggen in de projectchat: "Abel mag de hoofdpagina van dortus.com vervangen door de nieuwe pagina, oude pagina's blijven staan." Staat op `organisatie/lijst-thijs.md`.
