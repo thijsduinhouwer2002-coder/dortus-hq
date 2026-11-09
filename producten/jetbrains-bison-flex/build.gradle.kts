@@ -42,11 +42,7 @@ dependencies {
         when (doelIde) {
             "IC" -> intellijIdeaCommunity("2025.2")
             "CL" -> clion("2025.2")
-            "IU262" -> {
-                intellijIdea("2026.2")
-                // Vanaf 2026.x staat PsiTreeElementBase in een eigen module, niet meer op het standaardpad.
-                bundledModule("intellij.platform.structureView.impl")
-            }
+            "IU262" -> intellijIdea("2026.2")
             else -> error("Onbekende doelIde '$doelIde', kies IC, CL of IU262")
         }
         pluginVerifier()
