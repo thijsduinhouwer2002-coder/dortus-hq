@@ -151,10 +151,9 @@ def toets(stap, eigen, cursor):
     wm.cj_scharnier_pose = 0.0
     # Twee scharnieren, deel A van het tweede actief: de schuif hoort bij dat scharnier, het eerste blijft staan.
     staaf2 = figuren.staaf("pose2", 5.0, lengte=80.0)
-    staaf2.data.transform(Matrix.Translation((0.0, 100.0 * u, 0.0)))  # in het net, ver van het eerste (B is daar zelf gedraaid)
-    staaf2.data.update()
-    bpy.context.view_layer.update()
-    uitslag2 = _plaats((0, 100.0 * u, 0), staaf2, cursor)
+    # Op dezelfde plek als het eerste: verschoven (location of net) gaf CANCELLED "cursor inside the mesh"
+    # (runs 42663650821 en 42665378427). De delen houden elkaar niet tegen; paar() scheidt ze op cj_bron.
+    uitslag2 = _plaats((0, 0, 0), staaf2, cursor)
     a2, b2 = bpy.data.objects.get("pose2_A"), bpy.data.objects.get("pose2_B")
     stap("pose-schuif: tweede scharnier geplaatst", uitslag2 == {"FINISHED"} and a2 and b2, str(uitslag2))
     if a2 is None or b2 is None:
