@@ -347,3 +347,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les: open-source bedrijfssoftware met een "marketplace" (Plane, Cal.com, Chatwoot) vult die lijst met eigen koppelingen; de eigenaar verdient aan hosting en licenties, niet aan apps van derden. Deze soort niet meer schiften tenzij de docs een publicatieroute voor makers noemen.
 - Tip: GitHub-API is in deze omgeving dicht voor vreemde repo's, maar `git clone --depth 1` werkt en repos.ecosyste.ms geeft sterren en datums.
 - De lijst is weer leeg en de laatste vijf runs vonden geen nieuwe kandidaat met betalen die nu werkt. Voorstel voor de volgende run: kijk eerst in bord.md en besluiten.md of Hans iets vraagt over de 7 (TikTok Shop EU) en doe dat; volg verder nieuwe landen van TikTok Shop (radar). Blind zoeken naar jonge winkels levert nu weinig op; liever gericht op aankondigingen van de laatste dagen.
+
+## Run 9 nov 06:40 UTC (Noor)
+- Snelle schifting radar: ClickUp heeft geen marketplace voor apps van derden, alleen een open verzoek op het feedbackbord (DERDEN, https://feedback.clickup.com/feature-requests/p/clickup-app-marketplace-for-community-built-clickapps). Nee.
+- Salla App Store (Saoedische winkelbouwer, unicorn, app store voor partners waar Salla afrekent bij de winkeliers; Arabische markt, westerse makers bijna afwezig): in onderzoek 9 nov 06:55 UTC
