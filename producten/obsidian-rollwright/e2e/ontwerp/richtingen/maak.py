@@ -69,7 +69,7 @@ A = "body.rwx-taverne"
 css += f"""
 {A} {{ --rwx-ico-kleur: #d9a441; }}
 {A} {VIEW}, {A} .workspace-leaf-content[data-type="rollwright-history"] .view-content {{
-  background: radial-gradient(ellipse 60% 55% at 50% 28%, rgba(255,170,70,.20), transparent 70%), {HOUT}, linear-gradient(90deg,#2a1608,#3b2010 20%,#2c170a 45%,#3d2211 70%,#26140a); }}
+  background: radial-gradient(ellipse 55% 50% at 50% 30%, rgba(255,175,80,.42), rgba(255,140,40,.12) 55%, transparent 75%), {HOUT}, linear-gradient(90deg,#2a1608,#3b2010 20%,#2c170a 45%,#3d2211 70%,#26140a); }}
 {A} .view-header, {A} .workspace-tab-header-container {{ background: #1a0d05 !important; }}
 {A} {NOTE} {{ --text-normal: #f3dfbd; --text-muted: #c9a77a; --bold-color: #ffd98a; --h1-font: "RX Alegreya SC"; --font-text: "RX Spectral", Georgia, serif; color: var(--text-normal); }}
 {A} {SHEET} {{ background: linear-gradient(180deg, rgba(30,14,5,.86), rgba(22,10,4,.92)); border: 1px solid #6e4a22;
@@ -120,7 +120,7 @@ css += f"""
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
 {B} {T}.rollwright-crit .rollwright-value {{ color: #ffe07a; }}
 {B} {T}.rollwright-fumble {{ color: #ff8a70 !important; background-color: #151717 !important; background-image:
-  linear-gradient(112deg, transparent 46.5%, #ff4a1c 48%, #ffb070 49%, #ff4a1c 50%, transparent 51.5%), linear-gradient(64deg, transparent 66%, #ff4a1c 67%, transparent 68.5%),
+  linear-gradient(104deg, transparent 4%, #ff4a1c 5.5%, #ffb070 6.5%, #ff4a1c 7.5%, transparent 9%), linear-gradient(72deg, transparent 92%, #ff4a1c 93.5%, transparent 95%),
   radial-gradient(ellipse at 50% 50%, rgba(255,60,20,.28), transparent 70%), linear-gradient(180deg,#26292a,#0f1111) !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 14px rgba(255,50,20,.45) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
 {B} {T} .rollwright-stamp {{ font-family: "RX Uncial" !important; background: #1b1d1d !important; color: #ffb36a !important; border: 1px solid #ff8a3a !important; border-radius: 1px !important; }}
@@ -144,6 +144,7 @@ css += f"""
 {C} {NOTE} h1 {{ font-family: "RX Fraktur"; font-size: 2.7em; text-align: center; color: #1f3f8f; margin: .05em 0 0; font-weight: 400; }}
 {C} {NOTE} h1::first-letter {{ color: #a8231a; font-size: 1.35em; text-shadow: 1px 1px 0 #d9a830; }}
 {C} {NOTE} h1 + p {{ text-align: center; color: #a8231a; }}
+{C} {NOTE} .rollwright-roll {{ margin-left: .25em; }}
 {C} {NOTE} .callout {{ background: rgba(31,63,143,.05); border: none; border-top: 2px solid #1f3f8f; border-bottom: 2px solid #1f3f8f; border-radius: 0; }}
 {C} {NOTE} .callout-title {{ font-family: "RX Fraktur"; color: #a8231a; font-size: 1.3em; font-weight: 400; }}
 {C} {T} {{ font-family: "RX Fraktur"; color: #fbf5e6 !important; padding: .1em .62em .14em .5em !important; border-radius: 2px !important;
@@ -155,12 +156,14 @@ css += f"""
   box-shadow: 0 0 0 2px #fbf5e6, 0 0 0 3px #1f3f8f, 0 0 0 5px #fbf5e6, 0 0 0 6px #a8231a !important; }}
 {C} {T}.rollwright-crit .rollwright-icon {{ color: #a8231a !important; }}
 {C} {T}.rollwright-fumble {{ background: linear-gradient(180deg,#c0392b,#7f1d14) !important; border-color: #3a0d08 !important; }}
-{C} {T} .rollwright-stamp {{ font-family: "RX Fraktur" !important; background: #a8231a !important; color: #fbf5e6 !important; border: 1px solid #c99a2e !important; border-radius: 50% !important; }}
+{C} .workspace-tab-header.is-active::before, {C} .workspace-tab-header.is-active::after {{ display: none !important; }}
+{C} .rollwright-history-group-title {{ font-family: "RX Spectral" !important; font-variant: small-caps; font-size: 1em !important; }}
+{C} {T} .rollwright-stamp {{ font-family: "RX Spectral" !important; font-weight: 700; background: #a8231a !important; color: #fbf5e6 !important; border: 1px solid #c99a2e !important; border-radius: 50% !important; }}
 {C} .rollwright-history {{ color: #2a1d14; font-family: "RX Spectral", Georgia, serif; }}
 {C} .workspace-leaf-content[data-type="rollwright-history"] .view-content {{ background: {VELIJN}, #f6eedb !important; }}
 {C} .rollwright-history-item {{ background: transparent !important; border: none !important; border-bottom: 1px solid #c9b48a !important; border-radius: 0 !important; }}
 {C} .rollwright-history-result {{ font-family: "RX Fraktur"; color: #1f3f8f !important; font-size: 1.2em; }}
-{C} .rollwright-history-group-title, {C} .rollwright-history-name {{ font-family: "RX Fraktur"; color: #a8231a !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1.15em; }}
+{C} .rollwright-history-name {{ font-family: "RX Fraktur"; color: #a8231a !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1.15em; }}
 """
 
 (HIER / "richtingen.css").write_text(css)
