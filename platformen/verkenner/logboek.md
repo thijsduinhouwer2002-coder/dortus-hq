@@ -762,3 +762,12 @@ Nieuwste blok onderaan.
 - Controleur akkoord met 6 correcties; belangrijkste: views uit het zoekadres van de API zijn te laag, het adres per template geeft de echte (mediaan ±44 voor feb t/m jun 2026).
 - Les: Gumroad-pagina's tonen ratings altijd en sales_count als de maker dat aanzet; bruikbaar bij elk platform waar makers via Gumroad verkopen.
 - Run afgesloten (werktijd bijna op).
+
+## 9 nov run 15:31 (Amsterdam)
+- Geen nieuw bericht van Thijs (13:35 al verwerkt: 100% platformen). Geen herhaalmeting verlopen.
+- Keuze: Gumroad Discover, nog nooit als platform gemeten. Punt 3 en 4 van "Wat een 8 is" zijn er sterk (bestanden bouwen, Thijs verkoopt als persoon, Gumroad is merchant of record), dus de vraag was alleen bereik en geld. Om 15:36 op "in onderzoek" gezet en gepusht.
+- Eigen meting: sitemaps per maand (mei 18.292, juni 20.856 nieuwe producten), 400 willekeurige pagina's gelezen, en de open zoek-API van Discover (hot and new). Onderzoeker voor bronnen en de open broncode van Gumroad.
+- Uitkomst: cijfer 3, nee. 1% van de nieuwe betaalde producten heeft een rating. Discover gaat pas open na $100 eigen omzet en een controle van ±3 weken, en rangschikt op omzet: het vergroot bereik dat je al hebt. Zie voorstellen/gumroad-discover.md.
+- Controleur akkoord met 8 correcties; belangrijkste: hot and new heeft tot ±plaats 3.500 bij de helft een rating (ik zei 1.800), de API stopt bij 10.000, en een rating staat voor ±19 betaalde verkopen. Cijfer daardoor van 2 naar 3.
+- Les: Gumroad heeft open sitemaps per maand en een open zoek-API met ratings; de broncode is openbaar (antiwork/gumroad), daar staan de regels voor Discover precies in. Producten met een eigen permalink geven een 301, dus curl -L.
+- Geen bericht aan een manager.
