@@ -111,18 +111,18 @@ css += f"""
   box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.07); }}
 {A} .callout-title {{ font-family: "RW Uncial", serif; color: #ff9a55; font-size: 1.1em; text-shadow: 0 0 10px rgba(255,100,20,.45); }}
 {A} .callout-icon {{ color: #ff7a2a; }}
-{A} {T} {{ font-family: "RW Uncial", serif; color: #e7ece7 !important; padding: .12em .7em .14em .55em !important; border-radius: 2px !important;
+body.rollwright-skin-arcane {T} {{ font-family: "RW Uncial", serif; color: #e7ece7 !important; padding: .12em .7em .14em .55em !important; border-radius: 2px !important;
   background: {STEEN}, linear-gradient(180deg,#5b625f,#3b403e) !important; border: none !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 0 rgba(0,0,0,.55) !important; text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255,255,255,.15); }}
-{A} {T} .rollwright-icon {{ color: #ff8a3a !important; filter: drop-shadow(0 0 4px rgba(255,110,30,.8)); }}
-{A} {T}.rollwright-crit {{ color: #fff3c0 !important; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331) !important;
+body.rollwright-skin-arcane {T} .rollwright-icon {{ color: #ff8a3a !important; filter: drop-shadow(0 0 4px rgba(255,110,30,.8)); }}
+body.rollwright-skin-arcane {T}.rollwright-crit {{ color: #fff3c0 !important; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331) !important;
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
-{A} {T}.rollwright-crit .rollwright-value {{ color: #ffe07a; }}
-{A} {T}.rollwright-fumble {{ color: #ff8a70 !important; background-color: #151717 !important; background-image:
+body.rollwright-skin-arcane {T}.rollwright-crit .rollwright-value {{ color: #ffe07a; }}
+body.rollwright-skin-arcane {T}.rollwright-fumble {{ color: #ff8a70 !important; background-color: #151717 !important; background-image:
   linear-gradient(104deg, transparent 4%, #ff4a1c 5.5%, #ffb070 6.5%, #ff4a1c 7.5%, transparent 9%), linear-gradient(72deg, transparent 92%, #ff4a1c 93.5%, transparent 95%),
   radial-gradient(ellipse at 50% 50%, rgba(255,60,20,.28), transparent 70%), linear-gradient(180deg,#26292a,#0f1111) !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 14px rgba(255,50,20,.45) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
-{A} {T} .rollwright-stamp {{ font-family: "RW Uncial", serif !important; background: #1b1d1d !important; color: #ffb36a !important; border: 1px solid #ff8a3a !important; border-radius: 1px !important; }}
+body.rollwright-skin-arcane {T} .rollwright-stamp {{ font-family: "RW Uncial", serif !important; background: #1b1d1d !important; color: #ffb36a !important; border: 1px solid #ff8a3a !important; border-radius: 1px !important; }}
 """
 
 # ---------------- ronde d: titelbalk, eigenschappen, oude skins v2 eruit, Roll log per wereld ----------------
@@ -138,10 +138,10 @@ css += f"""
 {A} .metadata-container {{ --font-interface: "RW Spectral", Georgia, serif; font-family: "RW Spectral", Georgia, serif; color: #d7dcd6; }}
 {A} .metadata-property-key {{ color: #8f9a93; }}
 /* Arcane: geen ijsblauwe of paarse resten van skins v2 meer op de tokens. */
-{A} {T} .rollwright-icon::before {{ background: #ff8a3a !important; }}
-{A} {T}:not(.rollwright-crit):not(.rollwright-fumble) .rollwright-value, {A} {T}:not(.rollwright-crit):not(.rollwright-fumble) .rollwright-label {{ color: #e7ece7 !important; }}
-{A} {T}.rollwright-crit .rollwright-icon::before {{ background: #ffe07a !important; }}
-{A} {T}.rollwright-fumble .rollwright-icon::before {{ background: #ff6a4a !important; }}
+body.rollwright-skin-arcane {T} .rollwright-icon::before {{ background: #ff8a3a !important; }}
+body.rollwright-skin-arcane {T}:not(.rollwright-crit):not(.rollwright-fumble) .rollwright-value, body.rollwright-skin-arcane {T}:not(.rollwright-crit):not(.rollwright-fumble) .rollwright-label {{ color: #e7ece7 !important; }}
+body.rollwright-skin-arcane {T}.rollwright-crit .rollwright-icon::before {{ background: #ffe07a !important; }}
+body.rollwright-skin-arcane {T}.rollwright-fumble .rollwright-icon::before {{ background: #ff6a4a !important; }}
 
 /* ===== Roll log, Parchment: een kroniek op perkament, inkt en lakzegel ===== */
 body.rollwright-skin-parchment {H} {{

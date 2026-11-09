@@ -37,27 +37,27 @@ body.rollwright-skin-arcane .rollwright-world .callout { --callout-color: 255, 1
   box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.07); }
 body.rollwright-skin-arcane .rollwright-world .callout-title { font-family: "RW Uncial", serif; color: #ff9a55; font-size: 1.1em; text-shadow: 0 0 10px rgba(255,100,20,.45); }
 body.rollwright-skin-arcane .rollwright-world .callout-icon { color: #ff7a2a; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll) { font-family: "RW Uncial", serif; color: #e7ece7; padding: .12em .7em .14em .55em; border-radius: 2px;
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll) { font-family: "RW Uncial", serif; color: #e7ece7; padding: .12em .7em .14em .55em; border-radius: 2px;
   background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(180deg,#5b625f,#3b403e); border: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 0 rgba(0,0,0,.55); text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255,255,255,.15); }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-icon { color: #ff8a3a; filter: drop-shadow(0 0 4px rgba(255,110,30,.8)); }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit { color: #fff3c0; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(180deg,#5b625f,#2f3331);
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-icon { color: #ff8a3a; filter: drop-shadow(0 0 4px rgba(255,110,30,.8)); }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit { color: #fff3c0; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(180deg,#5b625f,#2f3331);
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-value { color: #ffe07a; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-fumble { color: #ff8a70; background-color: #151717; background-image:
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-value { color: #ffe07a; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-fumble { color: #ff8a70; background-color: #151717; background-image:
   linear-gradient(104deg, transparent 4%, #ff4a1c 5.5%, #ffb070 6.5%, #ff4a1c 7.5%, transparent 9%), linear-gradient(72deg, transparent 92%, #ff4a1c 93.5%, transparent 95%),
   radial-gradient(ellipse at 50% 50%, rgba(255,60,20,.28), transparent 70%), linear-gradient(180deg,#26292a,#0f1111);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 14px rgba(255,50,20,.45); text-shadow: 0 0 8px rgba(255,40,20,.8); }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-stamp { font-family: "RW Uncial", serif; background: #1b1d1d; color: #ffb36a; border: 1px solid #ff8a3a; border-radius: 1px; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-stamp { font-family: "RW Uncial", serif; background: #1b1d1d; color: #ffb36a; border: 1px solid #ff8a3a; border-radius: 1px; }
 body.rollwright-skin-arcane .rollwright-world .view-header { background: #0d0f0f !important; border-bottom: 1px solid #2a2e2d !important; }
 body.rollwright-skin-arcane .rollwright-world .view-header-title, body.rollwright-skin-arcane .rollwright-world .view-header-title-parent, body.rollwright-skin-arcane .rollwright-world .view-header-breadcrumb { color: #ffb36a !important; }
 body.rollwright-skin-arcane .rollwright-world .metadata-container { --font-interface: "RW Spectral", Georgia, serif; font-family: "RW Spectral", Georgia, serif; color: #d7dcd6; }
 body.rollwright-skin-arcane .rollwright-world .metadata-property-key { color: #8f9a93; }
 /* Arcane: geen ijsblauwe of paarse resten van skins v2 meer op de tokens. */
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-icon::before { background: #ff8a3a; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll):not(.rollwright-crit):not(.rollwright-fumble) .rollwright-value, body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll):not(.rollwright-crit):not(.rollwright-fumble) .rollwright-label { color: #e7ece7; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-icon::before { background: #ffe07a; }
-body.rollwright-skin-arcane .rollwright-world .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-fumble .rollwright-icon::before { background: #ff6a4a; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll) .rollwright-icon::before { background: #ff8a3a; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll):not(.rollwright-crit):not(.rollwright-fumble) .rollwright-value, body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll):not(.rollwright-crit):not(.rollwright-fumble) .rollwright-label { color: #e7ece7; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-icon::before { background: #ffe07a; }
+body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-fumble .rollwright-icon::before { background: #ff6a4a; }
 /* ===== Roll log, Arcane: stenen tabletten in een kerker, vuur als licht ===== */
 body.rollwright-skin-arcane .rollwright-history {
   --background-primary: #2a2e2d; --background-modifier-border: #3e4542; --text-normal: #d7dcd6; --text-muted: #8f9a93; --text-faint: #66706b;
