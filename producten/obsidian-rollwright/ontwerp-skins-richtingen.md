@@ -33,3 +33,13 @@ Zie de links in `ontwerp/rollwright/richtingen/` (onderaan bijgewerkt na de keur
 - Runs: 42540486539 (eerste), 42541007972, 42541435382, 42541905330 en 42542400186 (laatste, plaatjes in `ontwerp/rollwright/richtingen/`). Alles GEZIEN met de Read-tool.
 - Controleur (agent) op run 42541905330: nee, vijf moet-punten: fraktur in kleine tekst onleesbaar (stempel, kop Roll log), witte hoekjes bij de tab in C, barst door de tekst in B, ongetoetste bewering over licht thema, beweringen die niet te zien waren (lichtvlek, groef, afgeschuinde hoeken). Alles verwerkt in ronde e (run 42542400186, GEZIEN door mij met de Read-tool): stempel en kop in Spectral, tab schoon, barst alleen aan de randen, kaarslicht in A sterker, tekst rechtgezet. Geen tweede keuring, de punten waren klein en zijn per plaatje nagekeken.
 - Kan-punten voor de bouw: placeholder van het invoerveld in A en B bijna onzichtbaar; vijfde logregel zonder naam (Initiative heeft geen label in de notitie).
+
+## Beweging per wereld (Daan, 9 nov run 46)
+Een skin moet ook anders bewegen, niet alleen anders kleuren (Thijs 8 nov 12:33). Uitgewerkt voor de twee richtingen met de meeste kans (B Kerker, C Hofcodex), op tak `ontwerp/rollwright-wereldbeweging`, CSS in `e2e/ontwerp/richtingen/maak.py`, spec `e2e/ontwerp/beweging.e2e.mjs`. De spec bevriest elke CSS-animatie met de Web Animations API en maakt beelden op 0 tot 2200 ms, zodat beweging als reeks te keuren is.
+
+| | Elke worp | NAT 20 | NAT 1 |
+|---|---|---|---|
+| **B Kerker** | beitelslag: token schiet omhoog, licht op, slaat neer en trilt na (0,46 s) | hitte die opgloeit en blijft smeulen, sintels die van het token opstijgen | token zakt een paar pixels weg, de barst trekt door de steen, stof valt naar beneden |
+| **C Hofcodex** | het token wordt gedrukt als een zegel, het getal wordt met de pen ingeschreven (links naar rechts) | de dubbele rand (lapis en vermiljoen) wordt ring voor ring getekend, een glans trekt over het bladgoud | een vlek vermiljoen inkt loopt onder het token uit, met spatjes |
+
+Ronde a (run 42567754657, GEZIEN): beitelslag, hitte, pen en inktvlek lezen goed; sintels, stof en bladgoudglans waren te klein of te zwak. Ronde b vergroot die (tak, commit fa0cdba). Alleen in betaalde skins; Classic blijft rustig. Verkleind bewegen respecteert `prefers-reduced-motion`.

@@ -509,3 +509,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** film v2 ja, geen moet-punten; kan-punt dubbele tekst in de overvloeier naar de inzoom van scène 6, meteen opgelost met een harde snede (GEZIEN beeld 393 tot 395). Bij 6c2 vond hij twee moet-punten die ik miste (rafelige rand aan de groene kraag, vlekken rond de kogel), toegevoegd voor Bram.
 - **Besloten:** v2 vervangt v1 in `voor-projectchat.md`; nog niet op de lijst van Thijs. Waarom: de afspraak is dat de projectchat eerst kijkt, en scherpte en scène 6 maken de film sterker zonder iets te tonen wat de IDE niet doet.
 - **Volgende run:** berichten en projectchat; volledige ronde van Bram keuren als die er is; anders skins-richting verder uitwerken (beweging per wereld).
+
+## 9 nov 2026, run 46 (klok van de omgeving 05:25 UTC)
+
+- **Berichten:** geen nieuwe van Thijs; de projectchat heeft nog niet gereageerd op film v4, de skins-richtingen en film Bison & Flex v2.
+- **Gekeurd: filmisch proef 6d Click Joints (run 42566089700, c8d3757, GEZIEN):** rood (inzet zonder B met label), groene ring en lichtvlek ja; hout nog te oranje en streperig van dichtbij. Is 6e licht en rustig, dan mag de grote render zonder nieuwe proef. Onderaan `producten/blender-gewrichten/ontwerp.md` en in de taken van Bram.
+- **Gemaakt: beweging per wereld voor de betaalde skins** (Kerker: beitelslag, hitte en sintels, wegzakken met barst en stof; Codex: zegeldruk, pen schrijft het getal, ringen en bladgoudglans, inktvlek). Tak `ontwerp/rollwright-wereldbeweging`, nieuwe spec die CSS-animaties bevriest (Web Animations API) en beelden maakt op 0 tot 2200 ms. Ronde a run 42567754657 GEZIEN met contactvellen: slag, hitte, pen en inktvlek lezen; sintels, stof en glans te zwak. Ronde b (fa0cdba) gepusht.
+- **Besloten:** alleen B en C uitgewerkt. Waarom: C wilde ik zeker, B raadden controleur en ik aan; A uitwerken voor Thijs kiest is werk dat misschien weg kan.
+- **Geen controleur deze run:** het is een tussenstap op een eigen tak, niets gaat naar Thijs of de winkel. De controleur komt op het geheel als de richting gekozen is.
+- **Volgende run:** ronde b bekijken (`schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereldbeweging`), berichten en projectchat; volledige ronde van Bram keuren als die er is.
