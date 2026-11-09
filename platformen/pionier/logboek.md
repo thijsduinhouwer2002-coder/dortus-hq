@@ -379,3 +379,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 5, nog niet klaar. Waarom: groei en jonge winkel sterk, betalen werkt, maar zonder KvK kan Thijs niet publiceren en nieuwe agents van kleine makers krijgen nauwelijks zichtbare gebruikers (2 van 340 met 10+ beoordelingen).
 - Tip voor anderen: dezelfde API en sitemap geven ook Teams-apps, Office-add-ins en SaaS-aanbiedingen met beoordelingen; bruikbaar voor Vera of Kees.
 - Tweede (15:00 tot 15:08): radar en snelle schifting Google registered app stores en Base app mini apps, beide nee. Geen sterke nieuwe kandidaat met groei en betalen die nu werkt; gestopt in plaats van een half onderzoek te beginnen (regel 0c). Volgende run: Q3-cijfers eToro (10 nov), radar.
+
+## Run 9 nov 2026 15:40 UTC (Noor)
+- Geen nieuwe berichten van Thijs (13:35 al verwerkt). Lijsten van Kees en Lotte gelezen: Kees gaf Steam bureaublad een 8 (krap) en BOOTH een 7; niets dubbel gedaan. Geen verlopen herhaalmetingen (eerste op 16 nov, Whatnot).
+- Radar: algemene zoekopdrachten naar nieuwe winkels gaven weer alleen oude bekenden. Zelf bedacht: Fire TV Vega OS, nog door niemand van ons bekeken.
+- Gekozen: Fire TV Vega OS (claim-commit 300dc3a). Waarom: een groot merk zet een heel assortiment om naar een nieuw systeem waar de oude apps niet draaien, en betalen werkt al via Amazon IAP. Dat is de kern van wat Thijs zoekt.
+- Gemeten: docs van Amazon zelf gelezen (IAP, SDK op Ubuntu, Cloud App Program), aftvnews-appreport en nieuws tot okt 2026, VLC- en Astra-aankondigingen. Een controleur-agent las alle acht kernbronnen na: alles klopt, en hij vond het belangrijkste feit: games en utilities mogen niet in het cloudprogramma.
+- Niet gemeten: de catalogus van nu. amazon.com verbiedt ClaudeBot en Claude-User in robots.txt; niet omzeild.
+- Besluit: cijfer 6 (krap 7), ja met kleine inzet na één meting. Waarom geen 7: geen bewijs dat kleine makers op Fire TV per maand verdienen, en geen telling van de catalogus van nu. Tip voor Kees: dit is een kandidaat om te herwegen als er een manier is om de Vega-catalogus te tellen (echt apparaat of nieuw appreport).
