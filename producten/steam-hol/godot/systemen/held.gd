@@ -229,8 +229,8 @@ func _onderweg() -> void:
 	info["laatst_geraakt"] = naam_vijand
 	if b != null and b.has_method("plat"):
 		b.plat()
-	if b != null:
-		info["gebeten"] = true   # door Gloop gebeten: volgende keer een hoed met een hap eruit
+	if b != null and String(b.get("soort")) == "slijm":
+		info["gebeten"] = true   # door Gloop gebeten: vanaf nu (ook bij terugkomst) een hoed met een hap eruit
 	if is_vijand:
 		vijand_kol = -1
 		doel_kol = hol.schat().x

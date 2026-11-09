@@ -28,3 +28,9 @@ Met slijm 30%, put 22%, faam x 0,9 per niveau en elke terugkomer 50% kans: **68 
 - Voortgang terwijl je weg bent (`voortgang.gd`): rekent nog met eigen kansen (0,15 + 0,12 per val + 0,10 per bewoner). Volgende stap: dezelfde kansen als hier gebruiken.
 - Versie 1 moet ±40 uur inhoud hebben; met deze winkel is alles na ±7 uur op. Dat is inhoud (Sanne), niet balans.
 - Volgorde van de verdediging in de gang: de sim zet slijm en put om en om.
+
+## Goud per val: +3 per eerder bezoek (Bram, 9 nov 20:20 UTC, vraag Sanne 19:55)
+Regel nu in `sim.py`: **6 x (1 + 0,1 x faam) x (1 + gangen / 40) + 3 per eerder bezoek** (`GOUD_PER_BEZOEK`, derde getal op de opdrachtregel; `python3 sim.py 10 8 0` = zonder bonus). Nieuwe kolom: tijd tot de eerste aankoop. Uitvoer: `uitkomst-10u.txt`.
+- **Eerste aankoop: 45 tot 193 s, gemiddeld 104 s** (GEZIEN, 8 zaden). De bonus verandert dit niet: de eerste aankoop komt voor er een terugkomer valt. Dus binnen het doel van Sanne (rond 100 tot 200 s), met één snelle uitschieter (45 s). Met 3 in plaats van 6 per val zou het ±2 keer zo lang duren.
+- Met de bonus: aankopen 15 tot 18 in het eerste uur (was 14 tot 17), alles gekocht na 5,9 tot 6,7 uur (was 6,4 tot 7,1), langste wacht 5,5 tot 13,2 min in het eerste uur en 11 tot 18 min tot 3 uur. Vluchten 34 tot 38%, aartsvijand 0,1 tot 1,0 per uur. **Alle doelen blijven gehaald**; de winkel is alleen iets eerder op (inhoud, Sanne).
+- Een aartsvijand die na drie vluchten valt brengt 6 x ... + 9 op (Sanne rekende 15 met bezoek 3: dat klopt als het bezoek telt waarop hij valt; de sim telt eerdere bezoeken, dus vluchten).

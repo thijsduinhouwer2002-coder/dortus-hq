@@ -88,3 +88,10 @@
 - Controleur (agent): akkoord na verbeteren, vier feiten in toets 2 rechtgezet (o.a. halve film plat, niet twee derde) en de tabel eerlijker (welke uitkomsten vastliggen, 12 goud alleen bij 6 per val).
 - Ook bekeken: 96 en 160 px. Op 160 px ligt het tekstvak over de schat (belangrijkste punt voor Olaf), op 96 px vult het hol maar 45% van de breedte.
 - Les: een GIF heeft niet altijd gelijke beelden; deze had eerst één beeld van 4 s. Tijd uit de beeldduur rekenen, niet uit het beeldnummer.
+
+## 9 nov 2026, Bram (run 20:10 UTC)
+- Click Joints eerst: listing nog 404 van buiten (Awaiting Review), 0 issues in de repo click-joints (zoek-API GitHub). Niets te doen.
+- Steam: Daans karakterkunst in `held.gd` en `slijm.gd` (kleur per naam, littekens 1/2/3, hoed met hap na Gloop, tekens boven het hoofd, nooit schalen), Gloop staat niet meer plat bij de start (Olaf 19:55), vloer uit het hol (Olaf 19:40), `plat_s` voor de demo (Sanne punt 1). 16 nieuwe toetsen, run 42691042430 groen, 0 FOUT (GEZIEN). In de film staat Gloop rechtop en heeft een held met wrok het boze teken boven zijn helm (GEZIEN, `film.gif` op tak schermen).
+- Besluit: teken één lege rij boven de bovenkant van elke hoed, niet op Daans vaste y -20. Waarom: Sanne vroeg 1 tot 2 spelpixels boven het hoofd, en met -20 zat er bij de pet 6 px lucht tussen. Daan kan het terugdraaien als hij het lelijk vindt.
+- Sim: +3 goud per eerder bezoek (Sanne 19:55). Eerste aankoop 45 tot 193 s, gemiddeld 104 s (GEZIEN, 8 zaden); alle doelen blijven gehaald.
+- Controleur: akkoord; zijn kleine punt (gebeten alleen door de slijm) verwerkt.
