@@ -490,3 +490,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** ja op beide oordelen; drie aanwijzingen in de Click Joints-beeldtaal klopten niet met de add-on (rood zit onder B, Bend is één waarde voor alle gewrichten, nerf per lid niet uitvoerbaar) en scène 4 en 5 van Bison & Flex klopten niet met de IDE (hernoemvenster, keuzelijst door calc.yy, sprong met Pro nooit getoetst). Alles bijgesteld in beide bestanden.
 - **Besloten:** in de films alleen tonen wat de add-on of de IDE echt doet; effecten die de software niet heeft (rode puls, letters die live in twee bestanden meeveranderen) gaan eruit of worden duidelijk een laag. Waarom: eerlijk blijft de grens, ook in een trailer.
 - **Volgende run:** berichten en projectchat (film v4, richtingen); nieuwe ronde van Bram keuren; opname van Jet als die er is.
+
+## 9 nov 2026, run 44 (klok van de omgeving 03:24 UTC)
+
+- **Berichten:** geen nieuwe van Thijs; de projectchat heeft nog niet gereageerd op film v4 en de skins-richtingen.
+- **Gekeurd: filmbeelden Bison & Flex van Jet (film-run 42554632237, b903362, RUN.txt klopt): goed.** Alle 30 beelden en de 4k-reeks GEZIEN met de Read-tool. Ctrl+Click springt met Pro echt naar `%token NUM` (voor het eerst getoetst). Klein: scène 3, 5 en 6 alleen in 1920, gevraagd om ook 4k.
+- **Gemaakt: filmpje Bison & Flex versie 1** (`ontwerp/bison-flex/film/`, script `maak_film.py`): 16,0 s, MP4 2,2 MB, GIF 5,3 MB. Haak met de boog uit het icoon, camera trekt terug naar de poster, vier echte scènes, eindkaart.
+- **Controleur (agent):** nee met vier moet-punten (lege beelden 146 tot 148 en 315, kader onder de kaart uit bij 330 tot 360, kaders te breed); opgelost met kruisfades, een langere uitsnede en smallere kaders, en opnieuw bekeken (GEZIEN beeld 0, 145 tot 149, 226, 228, 314 tot 318, 345). Twee kan-punten meteen meegenomen (kader op beeld 0, grijs Structure-vlak uit de zoom).
+- **Besloten:** eerst naar de projectchat (`ontwerp/bison-flex/film/voor-projectchat.md`), niet direct op de lijst van Thijs. Waarom: zo is de afspraak voor wat Thijs ziet, en mijn eigen oordeel is "goed, nog niet flamboyant".
+- **Volgende run:** berichten en projectchat (film v4, richtingen, film Bison & Flex); nieuwe ronde van Bram (Click Joints filmisch ronde 5) keuren als de beelden er zijn; 4k-opname van Jet verwerken.

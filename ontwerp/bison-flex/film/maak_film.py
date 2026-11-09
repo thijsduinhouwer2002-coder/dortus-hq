@@ -100,7 +100,7 @@ def punt(cardxy, crop, schaal, p, f=1.0):
 # ---------- lagen ----------
 def kader(canvas, box, kleur, sterkte=1.0, f=1.0):
     if sterkte <= 0: return
-    x0, y0, x1, y1 = box; p = 6 * f
+    x0, y0, x1, y1 = box; p = 3 * f
     m = int(50 * f); ox, oy = int(x0 - m), int(y0 - m)
     g = Image.new("RGBA", (int(x1 - x0) + 2 * m, int(y1 - y0) + 2 * m), (0, 0, 0, 0)); d = ImageDraw.Draw(g)
     d.rounded_rectangle((x0 - p - ox, y0 - p - oy, x1 + p - ox, y1 + p - oy), radius=10 * f, outline=kleur + (int(230 * sterkte),), width=int(9 * f))
@@ -191,7 +191,7 @@ def haak(t):
     cv = BG2.copy().convert("RGBA")
     plak(cv, kaartY, POS_Y); plak(cv, kaartL, POS_L)
     bl = nb(L_NUM4, POS_L, L_CROP); by = nb(Y_NUM4, POS_Y, Y_CROP)
-    kader(cv, bl, ORANJE, ease_out(t / 0.15), 2)
+    kader(cv, bl, ORANJE, 0.5 + 0.5 * ease_out(t / 0.15), 2)
     a = ((bl[0] + bl[2]) / 2, bl[1] - 14); b = ((by[0] + by[2]) / 2, by[3] + 16)
     boog(cv, a, b, ease((t - 0.05) / 0.75), 2, buig=-0.28)
     kader(cv, by, ORANJE, ease_out((t - 0.75) / 0.2), 2)
@@ -217,7 +217,7 @@ def scene12(fi, t):
 
 # ---------- scène 3: gratis ----------
 S3_CROP = (40, 130, 1180, 770); S3_K = 1.32; S3_POS = (110, 150)
-S3Z_CROP = (380, 560, 1180, 800); S3Z_K = 2.0; S3Z_POS = (110, 290)
+S3Z_CROP = (500, 560, 1180, 800); S3Z_K = 2.0; S3Z_POS = (110, 290)
 s3z = kaart(nummer("scene3/0011.png"), S3Z_CROP, S3Z_K, "calc.y", "Y")
 s3 = {i: kaart(nummer("scene3/%04d.png" % i), S3_CROP, S3_K, "calc.y", "Y") for i in range(1, 12)}
 S3_SEQ = [(1, 0.35), (2, 0.25), (3, 0.2), (4, 0.15), (5, 0.12), (6, 0.12), (7, 0.12), (8, 0.12), (10, 0.12), (11, 0.95)]
@@ -242,6 +242,7 @@ def scene3(t, dur):
         tt = t - (dur - 0.95); u = ease_out(tt / 0.25)
         cv = BG1.copy().convert("RGBA")
         kopregel(cv, "Colors, structure and syntax errors", "free", 1.0, 0)
+        if u < 1: plak(cv, s3[11], S3_POS, 1 - u)  # kruisfade, geen leeg beeld
         plak(cv, s3z, (S3Z_POS[0], S3Z_POS[1] + 30 * (1 - u)), u)
         p = punt(S3Z_POS, S3Z_CROP, S3Z_K, (705, 717))
         kader(cv, (p[0] - 124, p[1] - 30, p[0] + 124, p[1] + 34), (255, 90, 90), ease_out(tt / 0.25) * 0.9)
@@ -258,6 +259,7 @@ def scene4(t, dur):
     else: i = 5
     if i == 5:
         u = ease_out((t - 1.45) / 0.3)
+        if u < 1: plak(cv, s4[3], S4_POS, 1 - u)
         plak(cv, s4[5], (S4_POS[0] + 60 * (1 - u), S4_POS[1]), u)
         p0 = punt(S4_POS, S4_CROP, S4_K, (410, 658)); p1 = punt(S4_POS, S4_CROP, S4_K, (476, 720))
         kader(cv, (p0[0], p0[1], p1[0], p1[1]), ORANJE, ease_out((t - 1.6) / 0.3))
@@ -282,7 +284,7 @@ def scene4(t, dur):
 S5_CROP = (40, 280, 1200, 700); S5_K = 1.45; S5_POS = (110, 170)
 s5 = {i: kaart(nummer("scene5/%04d.png" % i), S5_CROP, S5_K, "calc.y", "Y") for i in range(1, 8)}
 # eindbeeld: twee kaarten uit hetzelfde gesplitste venster (beeld 9)
-S5L_CROP = (40, 230, 880, 510); S5Y_CROP = (965, 300, 1480, 880); S5S_K = 1.3
+S5L_CROP = (40, 230, 880, 510); S5Y_CROP = (965, 300, 1480, 905); S5S_K = 1.3
 s5L = kaart(nummer("scene5/0009.png"), S5L_CROP, S5S_K, "calc.l", "L")
 s5Y = kaart(nummer("scene5/0009.png"), S5Y_CROP, S5S_K, "calc.y", "Y")
 S5L_POS = (100, 430); S5Y_POS = (1215, 170)
@@ -295,6 +297,7 @@ def scene5(t, dur):
         if i == 7: klik(cv, punt(S5_POS, S5_CROP, S5_K, (905, 627)), (t - 1.2) / 0.3)
     else:
         u = ease_out((t - 1.5) / 0.35)
+        if u < 1: plak(cv, s5[7], S5_POS, 1 - u)
         plak(cv, s5Y, (S5Y_POS[0] + 80 * (1 - u), S5Y_POS[1]), u)
         plak(cv, s5L, (S5L_POS[0] - 80 * (1 - u), S5L_POS[1]), u)
         g = ease_out((t - 1.85) / 0.3) * (1 - 0.45 * ease((t - 2.6) / 0.6))  # laag van Daan: kort oplichten
