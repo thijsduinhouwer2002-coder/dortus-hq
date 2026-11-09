@@ -13,7 +13,7 @@ Vorm per punt (verplicht, hooguit 6 regels):
 `Stappen:` genummerd, met link.
 `Klaar? Zeg in de projectchat:` "<zin>".
 
-## Nu
+## Vandaag van Thijs (nu, samen hooguit 15 minuten)
 - **Steamworks-account en Steam Direct ($100) starten** | 30 min | nu | van hoofdchat, 9 nov 23:05
 Waarom: Valve doet 15 tot 30 dagen over bank, belasting en ID; hoe eerder je start, hoe eerder Het Hol kan verkopen. De $100 wordt verrekend na $1.000 omzet (GEZIEN, partner.steamgames.com/steamdirect).
 Stappen: (1) https://partner.steamgames.com/steamdirect, "Sign up" met je Steam-account; (2) voorwaarden zelf lezen en accepteren; (3) $100 betalen; (4) bank, belasting en ID invullen.

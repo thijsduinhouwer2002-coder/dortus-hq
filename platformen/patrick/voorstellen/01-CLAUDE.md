@@ -9,14 +9,14 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt producten op app-platfo
 
 ## Begin van elke run (in deze volgorde, verder niets verplicht)
 1. `git pull --rebase` (ondiep klonen mag: `git clone --depth 50`).
-2. `berichten/<jouw naam>.md`: alleen het blok **Nieuw**. Berichten van Thijs gaan voor alles.
+2. `berichten/<jouw naam>.md`: alleen berichten zonder "verwerkt" erachter. Berichten van Thijs gaan voor alles. Verwerkt: zet "verwerkt" erachter; de hoofdchat verplaatst verwerkte berichten wekelijks naar `berichten/archief/`.
 3. `organisatie/rollen/<jouw rol>.md`: wat jij doet.
-4. `organisatie/nu.md`: de geldende besluiten en wie wat doet (hooguit 40 regels).
+4. `organisatie/bord.md`: wat nu geldt en wie wat doet (hooguit 40 regels).
 5. `platformen/<jouw map>/status.md`: waar je was en wat de volgende taak is.
-Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze, code, uitbrengen), `organisatie/archief/` (oude besluiten), `organisatie/doelen.md` (cijfers).
+Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze, bouwen, testen, uitbrengen, website), `organisatie/besluiten.md` (logboek van besluiten, vóór je zelf een groot besluit neemt), `organisatie/doelen.md` (cijfers).
 
 ## Elke run: één taak af
-- Pak de bovenste taak uit je `status.md`. Maak die af, laat hem nakijken als dat moet, sla op.
+- Pak de bovenste taak uit je `status.md`. Maak die af, laat hem nakijken als dat moet, sla op. Tijd over: de volgende, ook weer afmaken en opslaan.
 - Lukt het niet, of is er niets zinvols: schrijf dat in twee regels in `status.md` en stop. Een korte run is goed.
 - Eind van de run: werk `status.md` bij (hooguit 25 regels: doel, laatste uitkomst, volgende taak, waar je op wacht). Logboek alleen aanvullen met wat er besloten of opgeleverd is, niet met wat je las.
 
@@ -25,14 +25,17 @@ Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze,
 - Gebruik nooit de koppelingen Gmail, Trello, Atlassian, Claude Docs, Search1API, Polar, Shopify of Kondo, ook niet als ze in je run staan.
 - Nooit: inloggen, accounts aanmaken, betalen, bank-, ID- of wachtwoordgegevens invullen, voorwaarden accepteren, andermans spullen verwijderen, posten onder de naam van Thijs. Zet zo'n stap klaar in `organisatie/lijst-thijs.md` (vorm staat bovenaan dat bestand).
 - Niets nep: geen verzonnen cijfers, reviews of beloftes. Elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK.
-- Indienen of uitbrengen alleen als de test in de echte app groen is en de ontwerper `Akkoord: ja` gaf.
+- Vraag Thijs (via zijn lijst) alleen bij: geld uitgeven, iets wat niet terug kan (definitief verwijderen, een live product uit een winkel halen), risico voor zijn accounts of juridisch, een taak die twee runs op rij niet lukt, of een stap die alleen hij kan.
+- Indienen of uitbrengen alleen als de test in de echte app groen is en de ontwerper `Akkoord: ja` gaf. De eerste lancering van een product ziet Thijs eerst; een live product krijgt hooguit één versie per week via Thijs, behalve bij een echte fout.
+- dortus.com (repo `dortus`): alleen in een eigen productmap werken, niets bestaands veranderen of verwijderen.
+- Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen.
 - Tests nooit aanpassen om ze te laten slagen.
 - Geen ruwe onderzoeksdata in git (staat in `.gitignore`): de samenvatting in markdown, de ruwe data als Actions-artefact. Films en GIF's boven 3 MB eerst verkleinen; tussenversies op de tak `schermen`.
 
 ## Waar je schrijft
-- Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter).
-- Een nieuw groot besluit: één regel bovenaan `organisatie/besluiten.md`. Alleen de hoofdmanager en de hoofdchat werken `organisatie/nu.md`, `organisatie/bord.md` en `rapporten/` bij.
-- Code op een tak `claude/<platform>-<datum>`, samenvoegen als de controleur akkoord is en de tests groen zijn.
+- Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`, Chris in `commercie/`, de strateeg in `strategie/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter), een punt op `organisatie/lijst-thijs.md`.
+- Een nieuw groot besluit: één regel bovenaan `organisatie/besluiten.md`. Alleen de hoofdchat en Hans werken `organisatie/bord.md` en `rapporten/` bij.
+- Code op een tak `claude/<platform>-<datum>`, samenvoegen als de tests groen zijn (en bij een ontwerp of release de controleur akkoord is). Werk je in een andere repo (dortus, productrepo): ook daar `git ls-remote` bij het afsluiten.
 - Mislukt pushen: `git pull --rebase` en opnieuw. Nooit geforceerd.
 
 ## Afsluiten

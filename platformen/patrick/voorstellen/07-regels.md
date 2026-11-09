@@ -16,7 +16,7 @@ De harde regels die altijd gelden staan in `CLAUDE.md`. Hier staat hoe we werken
 Alleen bij: geld uitgeven; iets wat niet terug kan (definitief verwijderen, een live product uit een winkel halen); risico voor zijn accounts of juridisch; een taak die twee runs op rij niet lukt; een stap die alleen hij kan (inloggen, account, betalen, voorwaarden, een sleutel, een bericht onder zijn naam). Zet het in `organisatie/lijst-thijs.md` in de vorm die daar bovenaan staat, zet alles klaar wat kan, en ga door met ander werk.
 
 ## Besluiten
-- Een groot besluit (platform, product, stoppen, koers) komt als één regel bovenaan `organisatie/besluiten.md`: `datum | wie | besluit | waarom | wat zou het veranderen`. De hoofdchat of Hans neemt het over in `organisatie/nu.md` als het geldt.
+- Een groot besluit (platform, product, stoppen, koers) komt als één regel bovenaan `organisatie/besluiten.md`: `datum | wie | besluit | waarom | wat zou het veranderen`. De hoofdchat of Hans neemt het over in `organisatie/bord.md` als het geldt.
 - Kom niet zonder nieuw feit terug op een besluit. Logboeken en besluiten alleen aanvullen, nooit iets weghalen; ouder dan 7 dagen mag de hoofdchat naar `organisatie/archief/` verplaatsen (verplaatsen is geen weghalen).
 
 ## Een taak goed doen
@@ -64,8 +64,8 @@ Alleen bij: geld uitgeven; iets wat niet terug kan (definitief verwijderen, een 
 
 ## Geplande taken
 - Wie een geplande taak aanmaakt, wijzigt of uitzet, werkt in dezelfde run `organisatie/geplande-taken.md` en `dashboard/ploeg.json` bij.
-- De opdracht is voor iedereen dezelfde korte tekst (staat in `geplande-taken.md`). Wat verandert, staat in de rol of in `nu.md`, nooit in de opdracht.
-- Een herinnering noemt nooit wie er draait, maar zegt: "lees organisatie/nu.md en beslis dan".
+- De opdracht is voor iedereen dezelfde korte tekst (staat in `geplande-taken.md`). Wat verandert, staat in de rol of in het bord, nooit in de opdracht.
+- Een herinnering noemt nooit wie er draait, maar zegt: "lees organisatie/bord.md en beslis dan".
 
 ## Middelen
 Alle sites en programma's staan in `organisatie/middelen.md`, met wie er mag inloggen. Begin je iets nieuws te gebruiken, zet het er meteen bij.

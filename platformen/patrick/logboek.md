@@ -14,3 +14,5 @@
 - Voorstellen 04 (lijst-thijs, rekening gehouden met dashboard/bouw.py), 05 (ploeg en sturing, meetlat), 06 (repo afslanken; GIF's in ontwerp/ niet blokkeren omdat Daan ze via git doorgeeft), 07 (regels.md als naslag) geschreven.
 - Rapport herschreven met top 5 en verwijzingen naar de voorstellen.
 - Volgende run: rollen nalopen (hoofdmanager, platformmanager, ontwerper, game-ontwerper, ontwerper-wow), runs zonder uitkomst per team meten, voorstellen laten controleren door een agent die ze niet schreef.
+- Controleur-agent (las de voorstellen vers) vond: weggevallen harde regels in 01 (lijst-thijs schrijfrecht, wanneer Thijs vragen, Thijs ziet eerste lancering, dortus.com, andere chats), geen blok "Nieuw" in berichten, status.md zonder "Volgende taak", rollen die naar oude leeslijsten verwijzen, bouw.py-afhankelijkheden, en twee foute cijfers (controleur 187 niet 73; 1.640 is zonder samenvoegingen). Alles verwerkt. Op zijn kritiek "nu.md is een vierde plek": nu.md geschrapt, bord.md (bestaat al) wordt dat bestand (02-bord.md).
+- Voorstel 08 (rollen) geschreven; rapport kreeg "Hoe doorvoeren".

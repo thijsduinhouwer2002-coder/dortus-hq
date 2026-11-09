@@ -1,11 +1,11 @@
-Wat verandert: nieuw bestand `organisatie/nu.md` met alleen de besluiten die nu gelden en wie wat doet. `besluiten.md` blijft het volledige logboek (alleen aanvullen), maar hoeft niet meer elke run gelezen te worden; ouder dan 7 dagen gaat naar `organisatie/archief/besluiten-<maand>.md`.
-Waarom: besluiten.md is 56 KB en elke run las het helemaal, terwijl op 9 nov de helft van de besluiten van die ochtend 's avonds al achterhaald was. Hieronder een eerste vulling op basis van de stand van 9 nov 23:05; de hoofdchat controleert hem om 09:00.
+Wat verandert: `organisatie/bord.md` wordt het ene bestand met wat nu geldt: koers, producten met eigenaar en volgende stap, ploeg, en de afspraken die nog gelden (hooguit 40 regels). Geen nieuw bestand: het bord bestaat al en wordt al door de hoofdchat en Hans bijgehouden. `besluiten.md` blijft het volledige logboek, maar hoeft niet meer elke run gelezen te worden.
+Waarom: besluiten.md is 56 KB en elke run las het helemaal, terwijl op 9 nov de helft van de besluiten van die ochtend 's avonds al achterhaald was. Afspraak die het bijhoudt: wie een besluit in `besluiten.md` zet dat de stand verandert (meestal de hoofdchat), past in dezelfde commit het bord aan. Eerste vulling hieronder op basis van 9 nov 23:05; de hoofdchat controleert hem om 09:00.
 
 ---
 
-# Nu (geldt vandaag)
+# Bord: wat nu geldt
 
-Bijgehouden door de hoofdchat en Hans. Hooguit 40 regels. Wat hier niet staat, geldt niet meer of staat in `regels.md`. Volledig logboek: `besluiten.md`.
+Bijgehouden door de hoofdchat en Hans, in dezelfde commit als het besluit dat iets verandert. Hooguit 40 regels. Twijfel je of iets nog geldt: kijk in `besluiten.md` (nieuwste bovenaan). Volledig logboek: `besluiten.md`.
 Laatst bijgewerkt: 10 nov 2026, 09:00 (hoofdchat).
 
 ## Koers
@@ -24,11 +24,11 @@ Laatst bijgewerkt: 10 nov 2026, 09:00 (hoofdchat).
 | (nog te kiezen) | Garmin Connect IQ | Gijs | Mila | product kiezen dat vanaf dag 1 betaald is |
 
 ## Ploeg
-- Elk uur: Olaf, Bram, Sanne, Mila, Daan, Tess, Jet, Gijs. Hans 08:44 en 20:44.
+- Elk uur: Olaf, Bram, Sanne, Mila, Daan, Tess, Jet, Gijs. Hans 08:44 en 20:44 (zie voorstel 05 voor een andere verdeling; vul in wat Thijs kiest).
 - Uit: Vera, Noor, Kees, Lotte (zoeken), Chris (aan bij een goedkeuring), Stijn.
 
 ## Vaste afspraken die nog gelden (met datum)
-- Bovenaan de lijst van Thijs alleen "Wacht op jou", samen hooguit 15 minuten (Hans 9 nov 20:44).
+- Bovenaan de lijst van Thijs het blok "Vandaag van Thijs", samen hooguit 15 minuten (Hans 9 nov 20:44).
 - Eerste lancering van elk product: Thijs ziet plaatjes en tekst eerst (regels).
 - Support: thijs@dortus.com (7 nov).
 - Atlassian: niets nieuws (6 nov).
