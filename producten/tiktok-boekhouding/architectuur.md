@@ -10,6 +10,7 @@ Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`,
 - `src/moneybird/`: Moneybird-client, memoriaalboeking maken, `boekAfrekening` (zoeken op kenmerk of `bekendId`, dan POST of PATCH), OAuth en RGS.
 - `src/opslag.ts`: interface `Opslag`, `GeheugenOpslag` voor toetsen, fout `Ontkoppeld`.
 - `src/d1/opslag.ts` en `src/d1/schema.sql`: de echte opslag in Cloudflare D1. Lezen per afrekening in één batch, schrijven in een wachtrij die meegaat met de volgende statuswissel, slot altijd vers. Triggers weigeren schrijven na ontkoppelen.
+- `src/d1/tokens.ts`: tokens van TikTok (`tt_tokens`) en Moneybird (`mb_tokens`) per soort met `TokenBron`: AES-GCM met winkel-id als AAD en sleutelversie in de tekst, verversen binnen een uur, voorwaardelijk opslaan op `tt_versie`/`mb_versie`, na een 401 één keer verversen (`met`), dan `WinkelStop` `koppeling_verlopen`; alles in het ene budget.
 - Basis voor TikTok (client, endpoints, fouten) staat in `../tiktok-shop-basis/`.
 
 ## Samenhang van één aanroep
@@ -24,4 +25,4 @@ Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`,
 `npm test` (Node 22, type stripping, geen afhankelijkheden). D1 wordt nagebootst op `node:sqlite` met dezelfde SQL (`test/d1-nep.ts`). `test/boekrun-d1.test.ts` en `test/verwerk-d1.test.ts` draaien de bestaande verwerk-toetsen nog eens met `D1Opslag`.
 
 ## Nog niet gebouwd
-Tokens (`src/d1/tokens.ts`), de Worker (`src/worker.ts`), `ontkoppel` en wissen, opruimen per cron, webhook.
+De Worker (`src/worker.ts`), `ontkoppel` en wissen, opruimen per cron, webhook.
