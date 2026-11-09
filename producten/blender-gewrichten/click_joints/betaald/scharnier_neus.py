@@ -18,7 +18,14 @@ De sleuf is minstens s breed (controleur eis 3): vlakken dichter dan s smelten b
 veert de wang niet. Ligt de onderkant van het lid dichter bij H dan L plus een rest (max(t, 0,8 mm), zodat de
 voet van de lip niet dunner is dan de lip zelf), dan wordt de sleuf korter: L = diepte - rest. Met die kortere
 L geldt dezelfde rek-eis, dus een lagere klikdiepte of TIGHT. Zo zaagt de sleuf nooit door de onderkant van
-deel A (dan viel de wang los) en volgt het de regel van het ontwerp: een kleinere neus of een melding."""
+deel A (dan viel de wang los) en volgt het de regel van het ontwerp: een kleinere neus of een melding.
+
+Printbaar zonder steun (eis 5): de rand van het bolkapje maakt met H de hoek 2 atan(h / voet). Met voet 0,6 R
+was dat op de staaf van 10 mm 46,4 graden (h 0,45, voet 1,05), dus hing de onderkant van de neus bij H plat op
+het bed 46 graden over (gemeten in de mesh 45,5 graden door de ringen). Nu voet = 0,68 R: 41,4 graden (in de mesh
+±40,5), het kuiltje 38,5. Niet hoger dan 0,7 R, want de toetsen tellen alles binnen 0,7 R als voet van de neus.
+Bij een knokkel kleiner dan R = h / (0,68 tan 22,5 graden), ±1,6 mm bij h 0,45, komt de rand weer boven 45 graden;
+dat staat op de lijst voor versie 2."""
 import math
 
 import bmesh
@@ -28,7 +35,7 @@ from mathutils import Matrix, Vector
 H_MM = 0.25          # klikdiepte: hoe ver de neus voorbij de speling uitsteekt (ontwerp, besluit manager)
 H_MIN_MM = 0.1       # minder klikt niet meer merkbaar: dan de melding
 REK_MAX = 0.03       # 3%, PLA breekt rond 3 tot 5%
-BASIS = 0.6          # straal van de voet van de neus = BASIS keer de knokkelstraal R
+BASIS = 0.68         # straal van de voet van de neus = BASIS keer de knokkelstraal R (eis 5, zie boven)
 ZAAG = 0.65          # bodem van de zaagsnede op 0,65 keer de dikte van het lid onder H
 ZAAG_X = (-0.1, 0.95)  # sleuf van tw - 0,1 s tot tw + 0,95 s: 1,05 s breed, de lip blijft t (+0,05 s) dik
 ZAAG_REST_MM = 0.8   # onder de zaagbodem minstens max(t, 0,8 mm) materiaal (0,8 mm: kleinste wand van de kern)
