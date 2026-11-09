@@ -1,0 +1,26 @@
+[
+  {
+    "id": "179423564548016036",
+    "name": "Administratie",
+    "language": "nl",
+    "currency": "EUR",
+    "country": "NL",
+    "time_zone": "Europe/Amsterdam",
+    "access": "accountant_company",
+    "suspended": false,
+    "period_locked_until": null,
+    "period_start_date": "2026-01-01"
+  },
+  {
+    "id": 123,
+    "name": "Parkietje B.V.",
+    "language": "nl",
+    "currency": "EUR",
+    "country": "NL",
+    "time_zone": "Europe/Amsterdam",
+    "access": "user",
+    "suspended": false,
+    "period_locked_until": null,
+    "period_start_date": "2026-01-01"
+  }
+]
