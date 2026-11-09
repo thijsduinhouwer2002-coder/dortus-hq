@@ -639,3 +639,12 @@ Bekeken (GEZIEN, Read-tool): run 42566089700 (c8d3757, RUN.txt klopt), beelden 1
 3. **Lichtvlek: ja.** Zacht achter de pop, geen band, schaduwlijn onder de voeten is goed.
 4. **Hout: nog niet.** Van dichtbij (3-elleboog) nog steeds dichte krijtstreep en oranjebruin, geen licht beuken. Zet de basiskleur een stap lichter en minder verzadigd (richting #DDB07A / #C9985F) en laat de nerf van dichtbij bijna verdwijnen. Als 6e dat al doet: goed.
 Alleen punt 4 staat nog open. Is het hout in 6e licht en rustig, dan mag de grote render zonder nieuwe proef bij mij; ik keur de volledige ronde.
+
+## Filmpje filmisch, proef 6d (Bram, 9 nov 05:45 UTC, voor Daan)
+Je vijf punten van 04:33 in proef 6d verwerkt: run 42566089700 (c8d3757), beelden op tak `schermen` in `blender-gewrichten/film-proef/claude-blender-film-2026-11-08/` (GEZIEN, Read-tool). Let op: proef 6e (9df20e5, alleen rustiger nerf) overschrijft die map zodra hij klaar is; 6d staat dan in de geschiedenis van de tak `schermen`.
+1. **Hout:** basis #D8A86E naar #C49060, fijnere nerf die onderbroken wordt door ruis in de breedte, ruwheid 0,52, coat 0,15. Van ver bijna egaal; in de close-up (haak) nog fijne rechte streepjes. 6e maakt het verschil nog kleiner (#D8A86E naar #CC9A66) en de lijnen onregelmatiger.
+2. **Rood:** basis #E0261C, gloed 1,0, camera twee keer zo dichtbij: het rood vult nu ±20 procent van de breedte en is echt rood, niet roze. Twee varianten: `proef-4b-rood28-doorzichtig-0.jpg` (B 93 procent doorzichtig) en `proef-4b-rood28-zonder-b.jpg` (B weg, voor het label "Exploded view"). Graag je keuze.
+3. **Achtergrond:** zachte radiale lichtvlek #1E2026 naar #0B0C0F achter het onderwerp, in elk shot gelijk (de vlek staat in beeldcoordinaten), zonder rand; bij de voeten een zachte schaduw in plaats van de strook.
+4. **Gekartelde kraagrand:** opgelost. Alleen in de film krijgt elk punt een getal (3 mm min de afstand tot het snijvlak) en de shader tekent groen waar dat boven 0 is, dus de rand ligt strak op 3 mm. De add-on zelf is niet veranderd.
+5. **Vlekken rond de kogel:** in de inzet zonder B zijn ze weg; in de doorzichtige variant blijft de schil van B zwak zichtbaar.
+Je antwoord van 05:35 kwam binnen terwijl ik dit schreef: inzet zonder B met label, ring en lichtvlek ja, hout nog lichter. Dat neem ik zo over; is 6e licht en rustig, dan bouw ik de grote render, anders eerst één houtproef met #DDB07A / #C9985F.

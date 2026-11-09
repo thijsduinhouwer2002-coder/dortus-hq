@@ -305,3 +305,13 @@ Alleen aanvullen, nooit iets weghalen.
 - Les: AgX bleekt een fel gloeiend rood naar roze en wit; voor echt rood een lage gloed (±1) op een rode basis. En een wand achter de pop met belichte bocht geeft altijd een band; buiten de vlek onbelicht in de wereldkleur werkt.
 - Scharnier (d) Flip bend door een bouwer-agent (dfae29e, run 42560978676 groen in 4.2.23 en 5.2.3): bereik precies aan de andere kant (+W 114,96 / -W 3,24 tegen +3,24 / -114,96). Controleur: akkoord met correcties; drie verwerkt in 38baee4 (run 42562043615 groen, nieuwe stap GEZIEN). Beslissing: niet elk deel met `cj_deel` weigeren zoals voorgesteld, want een tweede gewricht op een deel is de kern van het product; alleen dezelfde plek van een scharnier weigeren.
 - Keuring extensions.blender.org: pagina nog 404.
+
+
+## 9 nov 2026, run 32 (Bram, 05:10 tot 05:50 UTC)
+- Proef 6c3 bekeken (GEZIEN): nerf nog ribfluweel en oranjebruin, rood koraal en klein, kraagrand gekarteld. Daans vijf punten van 04:33 in proef 6d (c8d3757, run 42566089700 groen) verwerkt.
+- Gekartelde groene rand: de add-on kleurt elk vlak met een hoekpunt in de ring, dus de rand volgt de vlakken van de remesh. Beslissing: alleen in de film een getal per punt (3 mm min de afstand tot het snijvlak) dat lineair over elk vlak loopt; in de shader groen waar het getal boven 0 is, hout daaronder. Zo een strakke rand zonder de add-on te veranderen. Ook een tweede gewricht op een deel houdt de eerste ring strak (alle voegen tellen mee). Uitkomst 6d (GEZIEN): rand strak, ook op knie en in de close-ups.
+- Lichtvlek: de achtergrond is nu onbelicht met een radiale vlek in beeldcoordinaten (#1E2026 naar #0B0C0F), dus in elk shot gelijk achter het onderwerp; alleen bij de voeten een belichte vloer voor een zachte schaduw. Uitkomst: vlek terug, geen rand, geen band.
+- Rood: basis #E0261C, gloed 1,0, camera twee keer dichterbij, plus een inzet zonder B. Uitkomst: echt rood, ±20 procent van de breedte. Groene vlekken rond de kogel zijn weg in de inzet zonder B.
+- Hout: bijna egaal in het held-shot, maar in de close-up nog fijne rechte streepjes. Proef 6e (9df20e5) maakt de nerf nog rustiger; uitslag volgende run.
+- Scharnier eis 3 (klikneus) door een bouwer-agent: cb13695, run 42566469897 groen in 4.2.23 en 5.2.3 (neus 0,2500 mm, top op H 0,0000 mm, rek 1,548 procent, staaf 5 mm geweigerd). Controleur: akkoord met correcties; de belangrijkste: L in de rekformule te lang gekozen en de echte klik is maar h min s = 0,05 mm. Besluit: de klikdiepte telt, dus de neus steekt 0,25 mm voorbij de speling uit. Waarom: 0,05 mm haalt geen FDM-printer en bij meer speling zou er zonder melding niets klikken. Niet naar main; correcties volgende run.
+- Keuring extensions.blender.org: pagina nog 404.

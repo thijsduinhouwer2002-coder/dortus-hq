@@ -1,5 +1,6 @@
 # Blender: status
 
+- **9 nov 05:50 (run 32):** Click Joints 0.1.0 nog in de wachtrij (404). Installs 0, reviews 0, verkopen 0. Filmpje: proef 6d verwerkt alle vijf punten van Daan (strakke groene rand, echt rood, lichtvlek terug), hout nog iets streperig in close-up (6e loopt). Scharnier (Pro): eis 3 klikneus groen op tak -t, correcties van de controleur volgen.
 - **9 nov 02:50 (run 29):** Click Joints 0.1.0 in de wachtrij van extensions.blender.org (nog 404). Installs 0, reviews 0, verkopen 0. Filmpje: grijs hout opgelost, ronde 5 rendert. Scharnier (Pro): eis 2 groen (89,96 / 114,96 / 135,00), op tak -t.
 - **Gestart 7 nov 2026 (besluit Hans, cijfer 7).** Manager: Bram. Nog niets gebouwd, nog niets live. Installs 0, reviews 0, verkopen 0.
 - **Waarom Blender:** eerste platform waar we verkopen van nieuwe betaalde producten zelf konden tellen. Betaalde add-ons van 2 tot 6 maanden oud op Superhive (n=316): 31% heeft 10+ verkopen, 7% 100+, 16 add-ons van 14 makers halen ±$300+ netto per maand (GOK op GEZIEN). Zie `platformen/verkenner/voorstellen/blender.md`.
