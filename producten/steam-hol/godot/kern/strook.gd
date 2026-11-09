@@ -41,6 +41,10 @@ var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altij
 # elk eenmalig, zodat je in een paar minuten een val, een vlucht met wrok, die terugkomer, een Hoard-Toucher en de
 # eerste hoed op Gloop ziet. Daarna is alles weer kans. Vlaggen in held.gd (Bram).
 const BEGIN := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
+# In de demo (film van een minuut) de Hoard-Toucher vóór de terugkomer, zodat hij rond 35 tot 40 s de schat raakt en nog
+# wegrent, en daarna nog één keer opgegeten, zodat je de toren ziet groeien (Sanne toets 4, punten 4 en 6). De Hoard-Toucher
+# slaat Gloop plat, dus hij komt pas na de held die opgegeten moet worden (anders loopt die langs een platte Gloop).
+const BEGIN_DEMO := ["vallen", "vluchten", "opgegeten", "doorlopen", "terug", "opgegeten2"]
 var begin_gedaan: Array = []   # welke stappen al geweest zijn (in de save)
 var begin_vlucht := ""         # naam van de held die moest vluchten: hij is de terugkomer
 var anim_t := 0.0
@@ -180,15 +184,18 @@ func _vrije_naam() -> String:
 	return n + (" II" if int(gevallen_namen.get(n, 0)) == 1 else " III")
 
 # Welke vaste stap is nu aan de beurt: "" (vrij spel) of "wacht" (de volgende stap kan nog niet, even later opnieuw).
+func _begin_lijst() -> Array:
+	return BEGIN_DEMO if demo else BEGIN
+
 func _begin_stap() -> String:
 	var wacht := false
-	for stap in BEGIN:
+	for stap in _begin_lijst():
 		if begin_gedaan.has(stap):
 			continue
 		if stap == "terug" and _terugkomer_i(begin_vlucht) < 0:
 			wacht = true       # hij is nog in het hol; eerst een andere stap
 			continue
-		if stap == "opgegeten" and slijm.has_method("kan_vechten") and not slijm.kan_vechten():
+		if stap.begins_with("opgegeten") and slijm.has_method("kan_vechten") and not slijm.kan_vechten():
 			wacht = true       # Gloop ligt plat; wacht tot hij weer op is
 			continue
 		return stap
@@ -239,7 +246,13 @@ func _nieuwe_held() -> bool:
 		"vluchten":
 			info["moet_vluchten"] = true
 			begin_vlucht = String(info.naam)
-		"opgegeten": info["moet_opgegeten"] = true
+		"opgegeten", "opgegeten2":
+			info["moet_opgegeten"] = true
+			if stap == "opgegeten":
+				# de eerste hoed op Gloop moet in één beeld lezen: de kroon (index 4 in Mila's held_hoeden.png),
+				# zolang held.gd nog maar 4 hoeden kent de paarse puntmuts (index 1) (Sanne toets 4, punt 2)
+				var tops: Array = held_script.get_script_constant_map().get("HOED_TOP", [])
+				info["hoed_nr"] = 4 if tops.size() >= 10 else 1
 		"doorlopen": info["moet_doorlopen"] = true
 	if stap != "":
 		begin_gedaan.append(stap)
@@ -329,11 +342,11 @@ func _process(delta: float) -> void:
 		if w.has_method("is_held"):
 			helden += 1
 	if t >= volgende_held and helden < 3:
-		var begin := begin_gedaan.size() < BEGIN.size()
+		var begin := begin_gedaan.size() < _begin_lijst().size()
 		if _nieuwe_held():
 			# ritme: gemiddeld een held per ±50 s (balans.md), in de eerste tien minuten ±40 s;
 			# in de demo sneller zodat de film van een minuut iets laat zien
-			volgende_held = t + (rng.randf_range(6.0, 9.0) if demo else (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0)))
+			volgende_held = t + ((rng.randf_range(5.0, 7.0) if begin else rng.randf_range(6.0, 9.0)) if demo else (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0)))
 		else:
 			volgende_held = t + 2.0   # een vaste stap moet nog even wachten
 	# fakkels en schat bewegen alleen als er toch al getekend wordt (er loopt een held): 6 beeldjes per seconde
