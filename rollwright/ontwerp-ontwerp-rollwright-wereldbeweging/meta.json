@@ -1,5 +1,5 @@
 {
- "css": 171407,
+ "css": 171617,
  "venster": "remote",
  "views": [
   "file-explorer",
@@ -60,7 +60,7 @@
    "content=\"\"",
    "display=block",
    "position=absolute",
-   "opacity=0.408455",
+   "opacity=0.918567",
    "left=-30.7656px",
    "right=-30.7656px",
    "top=-41.6px",
@@ -74,10 +74,10 @@
    "animationDelay=0.45s",
    "animationDuration=1.7s",
    "backgroundSize=12px 12px, 12px 12px, 12px 12px, 12px 12px, 12px 12px, 12px 12px, 12px 12px, 12px 12px",
-   "backgroundPosition=3.70256% 28.376%, 27.7299% 35.5384%, 34.4188% 24.7948%, 55.7299% 31.9572%, 58.7026% 22.6461%, 81.7299% 28.376%, 82.2701% 36.9709%, 101.73% 31.241%",
+   "backgroundPosition=0.837604% 30.106%, 28.4462% 45.2684%, 32.2701% 19.8085%, 57.1624% 38.4034%, 57.2701% 19.5111%, 83.8786% 34.376%, 81.5538% 44.7282%, 103.162% 26.9436%",
    "maskImage=none",
    "clipPath=none",
-   "filter=none",
+   "filter=drop-shadow(rgba(255, 150, 40, 0.95) 0px 0px 3px) drop-shadow(rgba(255, 90, 10, 0.6) 0px 0px 7px)",
    "transform=none",
    "isolation=auto",
    "contain=none",
@@ -146,9 +146,9 @@
    "rw-land"
   ],
   "r": [
-   351.4017333984375,
+   351.2629699707031,
    535.88232421875,
-   182.899658203125,
+   187.80221557617188,
    35.6259765625
   ]
  },
@@ -198,7 +198,7 @@
    "animationDelay=0.45s",
    "animationDuration=1.1s",
    "backgroundSize=10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px",
-   "backgroundPosition=14.9543% 31.5357%, 33.4232% 28.3821%, 49.3693% 34.6892%, 64.5229% 29.9589%, 78.4689% 33.1125%, 92.415% 31.5357%",
+   "backgroundPosition=14.9543% 33.1207%, 32.4771% 22.075%, 49.0539% 40.905%, 64.8382% 26.5978%, 79.0996% 37.0128%, 93.0457% 27.1207%",
    "maskImage=none",
    "clipPath=none",
    "filter=none",
@@ -262,7 +262,7 @@
  },
  "kerker-gewoon": {
   "cls": "rollwright-roll rollwright-rolled",
-  "n": 16,
+  "n": 17,
   "namen": [
    "rwxk-slag",
    "rwxk-hitte",
@@ -274,6 +274,7 @@
    "rwxk-slag",
    "rw-tumble",
    "rw-land",
+   "rw-sticker",
    "rwxk-zak",
    "rwxk-barst",
    "rwxk-stof",
@@ -282,9 +283,9 @@
    "rw-sticker"
   ],
   "r": [
-   484.345458984375,
+   484.25079345703125,
    364.203125,
-   140.16845703125,
+   143.5140380859375,
    34.78125
   ]
  },
@@ -464,11 +465,11 @@
    "height=35.0625px",
    "zIndex=2",
    "overflow=visible",
-   "mixBlendMode=screen",
+   "mixBlendMode=normal",
    "animationName=rwxc-glans",
    "animationDelay=0.6s",
    "animationDuration=1.1s",
-   "backgroundSize=260% 100%",
+   "backgroundSize=300% 100%",
    "backgroundPosition=99.3725% 0px",
    "maskImage=none",
    "clipPath=none",
@@ -476,7 +477,7 @@
    "transform=none",
    "isolation=auto",
    "contain=none",
-   "bg=linear-gradient(105deg, rgba(0, 0, 0, 0) 38%, rgb(255, 255, 255) 47%, rgb(255, 250, 210) 53%, rgba(0, 0, 0, 0) 62%)"
+   "bg=linear-gradient(105deg, rgba(0, 0, 0, 0) 40%, rgba(255, 255, 255, 0.15) 44%, rgba(255, 255, 255, 0.92) 49%, rgba(255, 248, 215, 0.92) 51%, rgba(255, 255, 255, 0.15) 56%, rgba(0, 0, 0, 0) 60%)"
   ],
   "anims": [
    "rwxc-druk@el t=1000 ps=paused",
