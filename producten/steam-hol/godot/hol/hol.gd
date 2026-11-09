@@ -53,8 +53,9 @@ func maak(breedte_spelpixels: int) -> void:
 
 # leg het begin-hol aan met de schat op kolom s (rechts, tegen het tekstvak) en de ingang lengte kolommen ervoor
 func leg_aan(s: int, lengte := 10) -> void:
-	schat_kol = clampi(s, 2, kolommen - 1)
-	ingang_kol = maxi(0, schat_kol - lengte)
+	schat_kol = clampi(s, 3, kolommen - 1)
+	# de ingang nooit op kolom 0: de ingang is breder dan een kolom en viel op een smal scherm half buiten beeld (Sanne toets 3, punt 4)
+	ingang_kol = maxi(1, schat_kol - lengte)
 	for i in kolommen:
 		gang[i] = i >= ingang_kol and i <= schat_kol
 		boven[i] = false
@@ -69,11 +70,13 @@ func munt_regen(k: int, n := 3) -> void:
 		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
 	set_process(true)
 
-# de schatkamer achteraan is twee rijen hoog (Sanne, 9 nov 19:00)
+# de schatkamer achteraan is twee rijen hoog (Sanne, 9 nov 19:00), en Gloops plek ervoor ook (kolom schat - 2):
+# daar is ruimte voor zijn hoedentoren van 4 hoog, anders steekt die in de aarde (Sanne toets 3, punt 3, besluit Olaf)
 func _schatkamer() -> void:
 	boven[schat_kol] = true
-	if schat_kol - 1 > ingang_kol:
-		boven[schat_kol - 1] = true
+	for k in [schat_kol - 1, schat_kol - 2]:
+		if k > ingang_kol:
+			boven[k] = true
 
 # ---- afspraak met de systemen ----
 func is_gang(cel: Vector2i) -> bool:
@@ -149,6 +152,8 @@ func klik(pos: Vector2) -> String:
 		if k > max_kol:
 			return ""
 		# links van de ingang graven: de ingang schuift mee, zo groeit het hol naar links
+		if k < 1:
+			return ""   # kolom 0 blijft dicht, anders staat de ingang half buiten beeld
 		if k == ingang_kol - 1:
 			gang[k] = true
 			ingang_kol = k
