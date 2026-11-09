@@ -1,6 +1,6 @@
 Blender 5.2.3 LTS
 pop: 315422 vlakken, foute randen 0
-look AgX / AgX - Medium High Contrast
+look AgX / AgX - Base Contrast
 object Mannequin: 315422 vlakken, vakken ['Film hout']
   vlakken per vak {0: 315422}
   materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeAttribute', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeValToRGB']
