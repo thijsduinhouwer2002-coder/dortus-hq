@@ -67,10 +67,10 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 		const m = await meet();
 		console.log("PARCHMENT LICHT:", JSON.stringify(m));
 		await browser.saveScreenshot(`${SHOTS}/skins-parchment-licht.png`);
-		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
-		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
-		expect(m.gewoon.letter).toContain("Georgia");
-		expect(m.gewoon.letter).toContain("Palatino");
+		// Notitiesfeer stap 2 (Daan, 9 nov): het token is perkament als textuur (geen vaste achtergrondkleur meer),
+		// met inkt #2e1d10 en de letter RW Cinzel, in licht en donker gelijk.
+		expect(m.gewoon.kleur).toBe("rgb(46, 29, 16)");
+		expect(m.gewoon.letter).toContain("RW Cinzel");
 	});
 
 	it("Parchment in donker blijft licht papier met donkere inkt", async function () {
@@ -78,10 +78,10 @@ describe("Rollwright: skins in licht en donker (Daan punt 5 en 8)", function () 
 		const m = await meet();
 		console.log("PARCHMENT DONKER:", JSON.stringify(m));
 		await browser.saveScreenshot(`${SHOTS}/skins-parchment-donker.png`);
-		expect(m.gewoon.bg).toBe("rgb(234, 216, 168)");
-		expect(m.gewoon.kleur).toBe("rgb(42, 24, 8)");
-		expect(m.gewoon.letter).toContain("Georgia");
-		expect(m.gewoon.letter).toContain("Palatino");
+		// Notitiesfeer stap 2 (Daan, 9 nov): het token is perkament als textuur (geen vaste achtergrondkleur meer),
+		// met inkt #2e1d10 en de letter RW Cinzel, in licht en donker gelijk.
+		expect(m.gewoon.kleur).toBe("rgb(46, 29, 16)");
+		expect(m.gewoon.letter).toContain("RW Cinzel");
 	});
 
 	it("een fout heeft in Parchment de letter van de tekst, net als in Classic", async function () {

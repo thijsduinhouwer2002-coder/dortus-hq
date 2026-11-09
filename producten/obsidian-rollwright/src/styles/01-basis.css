@@ -169,7 +169,7 @@ body.rollwright-skin-classic,
 	background: var(--background-primary);
 }
 
-/* The preview only shows: no hover, no pointer, and the serif font of Parchment stays on its own tile. */
+/* The preview only shows: no hover, no pointer. */
 .rollwright-skin-preview-tile .rollwright-skin-preview-roll {
 	cursor: default;
 	pointer-events: none;
