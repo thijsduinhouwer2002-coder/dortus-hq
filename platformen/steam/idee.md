@@ -40,6 +40,29 @@ Een kleine handelskaravaan trekt onderaan je scherm over een lange weg terwijl j
 - **Prijs:** $5,99 (GOK; Neko Station $6,99, Tidehaven $5,99).
 - **Grootste risico:** Silk Road Caravan (5495690) komt in Q1 2027 met bijna hetzelfde spel; de afstand is kleiner dan die van Het Hol tot Dungeon Architect: Idle, en zij zijn eerder. Daarnaast heeft de soort "reizen" minder bewezen vraag dan idle-RPG's (één grote, Duelist, en die is een gevechtsspel); en papieren theater is een gok tegenover bewezen pixelart (Daan zegt dat zelf). Kleiner: briefkaarten die zich na een paar weken herhalen.
 
+## Update 9 nov 18:40 UTC (Olaf): keuze Het Hol, de opdracht van Thijs, het niveau van de toppers en de strookhoogte
+**Besluit Thijs 19:20:** de richting is Het Hol en het team bouwt meteen het spel (`organisatie/besluiten.md`). Richting 1 en 3 blijven hierboven staan als geschiedenis.
+
+**De opdracht van Thijs (18:50) naast de drie richtingen** (mijn weging):
+| Eis | 1 Kerkertocht | 2 Het Hol | 3 De Karavaan |
+|---|---|---|---|
+| Tussendoor leuk (30 s tot minuten) | ja, kijken wat er viel | ja: wie kwam er binnen, één gang graven, een val zetten | ja: één briefkaart met een keuze |
+| Grappig om te onderhouden | zwak, de soort is eentonig | sterkst: helden met een wrok en een bijnaam, slijmen en skeletten als huisgenoten | middel, humor moet uit de briefkaarten komen |
+| Niet tijdrovend, nooit straffen als je weg bent | ja | **let op:** een hol dat beroofd wordt is straf; dus helden die ontsnappen nemen niets mee dat je kwijt bent, ze nemen alleen hun wrok mee | **let op:** een reis per werkweek mag geen verplichting worden |
+| Later skins en DLC (alleen uiterlijk en inhoud) | ja, maar juist in deze soort klagen kopers over betaalde kracht | ja: holthema's (ijsgrot, vulkaan, spookslot), heldengilden, bewoners, seizoenshelden, hoeden voor helden | ja: nieuwe routes en landen, wagens |
+Het Hol past het best bij "grappig om te onderhouden". Het zwakke punt is de kleine strook (zie onder).
+
+**Skins en DLC bij de toppers (GEZIEN, appdetails 9 nov 18:20 UTC):** Rusty's Retirement ($6,99, 13.982 aanbevelingen, uit apr 2024) heeft één DLC, een Supporter Pack van $3,99. Ropuka's Idle Island ($3,99, 4.108) alleen een soundtrack. Tiny Pasture ($4,07 nu, 7.124) heeft vier DLC's: een thema "Azure Waters" dat je weiland een aquarium maakt ($2,39), twee pakjes nieuwe dieren (zonder prijs in de API, waarschijnlijk gratis) en een Supporter Pack met een huisje-skin ($1,39). Deskrawl ($6,99, 3.527, uit sep 2026) heeft een Supporter Pack van $1,99. Het model van Thijs (thema's en bewoners erbij, nooit kracht) bestaat dus al en wordt gekocht; Tiny Pasture is het voorbeeld.
+
+**Strookhoogte van de toppers, gemeten op hun winkelplaatjes (GEZIEN, 1920 x 1080):** Rusty's Retirement, plaatje 1: de boerderij loopt van ±y 690 tot de taakbalk op y 1024, dus **±330 px hoog met de hoge planten erbij, ±300 px de grond zelf**, ruim 5 keer de taakbalk op dat plaatje (56 px), ±30% van het scherm. Ropuka's Idle Island is geen strook maar een zwevend eiland in een hoek; op het enige plaatje met een bureaublad is het eiland ±40% van de schermhoogte en ±55% van de breedte. Ze tonen zich op hun winkelplaatjes dus groter dan wat Thijs wil (100 tot 140 px). Of en hoe klein je ze in het spel zelf kunt zetten, kon ik zo niet zien (niet gemeten). Gevolg voor ons: 120 px is kleiner dan de toppers zich laten zien; op het winkelplaatje mogen we inzoomen, in het spel beloven we 120 px met instelbare hoogte.
+
+**Wat het niveau van de toppers betekent voor de bouw (GOK, mijn inschatting):**
+- 120 px hoog betekent bij pixel art op schaal 3 maar 40 spelpixels: figuren van ±16 spelpixels, één laag gangen met kamers erboven of eronder. **Het hol groeit dus in de breedte, niet in de diepte**; "dieper" kan een tweede rij die je bij hover ziet, of dieper naar rechts. Dat is een ontwerpkeuze voor Sanne en Daan, de bouw kan beide.
+- Godot doet pixel art goed (nearest-filter, hele schaal, AnimatedSprite2D, TileMap). De motor is niet het probleem; **de tekeningen zijn het grootste werk**: per figuur 3 tot 4 animaties van 4 tot 6 frames. Voor het prototype: ±30 tegels, 1 held, 1 slijm, 1 val, de schat. Voor versie 1: 6 helden, 6 bewoners, 4 vallen, 2 holthema's.
+- Slim: helden opbouwen uit losse delen (lijf, hoed, wapen, kleur), zodat 1 tekening veel verschillende helden geeft die je herkent als ze terugkomen, en hoeden later een skin zijn.
+- "Kleine animaties overal" kost processor: in onze proef kost elke bewegende frame, een stil beeld bijna niets. Dus beweging met reden (iets gebeurt, dan beweegt het), 15 fps, en Bram meet wat 10 tot 20 bewegende figuren kosten.
+- Wie tekent: Daan, met code (pixel voor pixel of vanuit vormen). Of dat het niveau van Rusty's Retirement haalt, weten we pas als de eerste tegels er staan; dat is het grootste risico van de hele bouw. Plaatjes van een beeldgenerator gebruiken we niet zonder dat op Steam te melden (zie boven).
+
 ## Naast elkaar
 | | 1 Eerlijke kerkertocht | 2 Het Hol | 3 De Karavaan |
 |---|---|---|---|
