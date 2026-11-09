@@ -52,3 +52,6 @@
 
 ## 9 nov 2026, 13:40 UTC
 - Geen Blender-werk deze run: de keuze wacht op een nieuwe bron (22 nov meting Hanru, ±6 dec Vera), en zonder nieuwe bron geen nieuwe ronde (regel 0c, weekbesluit Hans). Tijd ging naar de release van Rollwright 0.3.4 en de rode e2e.
+
+## 9 nov 2026, 15:05 UTC
+- Geen Blender-werk: Click Joints staat nog in de wachtrij (404, geen kopersvragen), en zonder nieuwe bron geen nieuwe ronde (regel 0c). Volgende bronnen blijven 22 nov (Hanru) en ±6 dec (Vera). Tijd ging naar de keuringspunten van Rollwright 0.3.4.

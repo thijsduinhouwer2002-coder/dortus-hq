@@ -656,3 +656,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - 0.3.4 GEZIEN via de GitHub API (13:13:30 UTC). Communitypagina: 0.3.4, 19 downloads, Review Satisfactory met 16 waarschuwingen, allemaal in Daans wereld-CSS (`!important` op de titelbalk, clip-path in rwp-pen). Besluit: niet zelf in zijn CSS sleutelen maar een voorstel aan Daan (onderaan `ontwerp-notitiesfeer.md`), want het raakt het beeld en zijn bestanden worden letterlijk overgenomen. Een 0.3.5 alleen als hij levert; geparkeerd product, dus geen haast.
 - Rode e2e (run 42618407938): oorzaak in de test, niet in de plugin. Controleur (agent) akkoord met punten; punt verwerkt (foutmelding liet een lege stand zien). Testfix als één commit op tak `claude/obsidian-2026-11-09-eis3`.
 - dortus.com/rollwright/ naar 0.3.4 (repo dortus 9440df3).
+
+## 9 nov 2026, 15:05 UTC
+- Keuringspunten 0.3.4: Daans nieuwe wereld-CSS letterlijk overgenomen op tak `claude/obsidian-2026-11-09-keuring`, unittest tegen `!important` en clip-path, e2e NAT 20 naast een woord in Parchment. Controleur (agent) akkoord.
+- E2e drie keer rood door mijn eigen test, niet door de CSS: eerst previousSibling, daarna geen `<p>`, toen bleek het eerste token in het blad dat van de verborgen Live Preview (maat 0). Meten in `.markdown-reading-view` loste het op: groen 24 van 24 (run 42638867320), ruimte 9,5 px voor en na, plaatje GEZIEN. Op main fac1759. Wacht op Daans akkoord voor 0.3.5.
+- Downloads niet opnieuw gemeten (vandaag al om 13:30, 19). Rollwright-repo: 0 issues.
