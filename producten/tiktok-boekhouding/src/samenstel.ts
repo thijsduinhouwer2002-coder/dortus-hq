@@ -29,14 +29,18 @@ export function bestellingenVan(transacties: Transactie[]): string[] {
 
 /** Telt een bewaard antwoord voor deze afrekening? Alleen als het een SKU-transactie met dit statementId heeft. */
 export function bruikbaar(b: BestellingTransacties | undefined, statementId: string): boolean {
-  return !!b && Array.isArray(b.sku_transactions) && b.sku_transactions.some((s) => s.statement_id === statementId);
+  return !!b && Array.isArray(b.sku_transactions) && b.sku_transactions.some((s) => String(s.statement_id) === statementId);
 }
 
 export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, transacties: Transactie[], bestellingen: Map<string, BestellingTransacties>): Samenstelling {
   const leeg = (status: Samenstelling["status"], reden: string, ontbrekend: string[] = []): Samenstelling => ({ status, reden, regels: [], waarschuwingen: [], ontbrekend });
   if (!kop) return leeg("onvolledig", "kop van de afrekening ontbreekt");
-  const valuta = kop.currency;
-  if (kop.total_count !== transacties.length) return leeg("onvolledig", `TikTok meldt ${kop.total_count} transacties, er kwamen er ${transacties.length}`);
+  const valuta = String(kop.currency ?? "").toUpperCase();
+  if (valuta !== "EUR") return leeg("fout_gegevens", `versie 1 werkt alleen met EUR, deze afrekening is in ${kop.currency}`);
+  if (Number(kop.total_count) !== transacties.length) return leeg("onvolledig", `TikTok meldt ${kop.total_count} transacties, er kwamen er ${transacties.length}`);
+
+  const ids = transacties.map((t) => String(t.id));
+  if (new Set(ids).size !== ids.length) return leeg("onvolledig", "TikTok gaf een transactie dubbel; opnieuw ophalen");
 
   const ontbrekend = bestellingenVan(transacties).filter((id) => !bruikbaar(bestellingen.get(id), statementId));
   if (ontbrekend.length) return leeg("onvolledig", `${ontbrekend.length} bestelling(en) nog niet opgehaald`, ontbrekend);
@@ -45,6 +49,7 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
   const w: string[] = [];
   const voeg = (soort: RegelInvoer["soort"], c: number) => { if (c !== 0) regels.push({ soort, bedragCenten: c, statementId, valuta }); };
   let somTransacties = 0;
+  let uit: number | null = null;
 
   try {
     // ORDER: per bestelling één keer de rekenkern, vergelijken met de som van haar transacties in deze afrekening.
@@ -61,7 +66,13 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
       somTransacties += doel;
       const b = boekingsregels(bestellingen.get(orderId)!);
       // Kop-waarschuwingen van de rekenkern vervallen: hier vergelijken we met de transactie van déze afrekening.
-      for (const x of b.waarschuwingen) if (!x.startsWith("kop:")) w.push(`bestelling ${orderId}: ${x}`);
+      // Waarschuwingen over SKU's van een andere afrekening horen daar, niet hier.
+      for (const x of b.waarschuwingen) {
+        if (x.startsWith("kop:")) continue;
+        const m = /\(afrekening ([^)]*)\)/.exec(x);
+        if (m && m[1] !== statementId) continue;
+        w.push(`bestelling ${orderId}: ${x}`);
+      }
       const hier = b.regels.filter((r) => r.statementId === statementId);
       for (const r of hier) {
         if (r.valuta !== valuta) return leeg("fout_gegevens", `bestelling ${orderId} is in ${r.valuta}, de afrekening in ${valuta}`);
@@ -69,18 +80,21 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
       }
       const som = hier.reduce((a, r) => a + r.bedragCenten, 0);
       let rest = doel - som;
+      let correctie = 0;
       if (rest !== 0 && aanpassing !== 0) {
+        correctie = aanpassing;
         voeg("correctie", aanpassing); // GOK: teken en of het al in settlement_amount zit (zie ontwerp)
         rest -= aanpassing;
       }
       if (rest !== 0) {
         voeg("verschil", rest);
-        w.push(`bestelling ${orderId}: regels ${som}, transacties in deze afrekening ${doel}; ${rest} apart gezet als verschil`);
+        w.push(`bestelling ${orderId}: regels ${som}, transacties in deze afrekening ${doel}${correctie ? `, correctie ${correctie} geboekt` : ""}; ${rest} apart gezet als verschil`);
       }
     }
     // Andere transacties: één correctie per transactie.
     for (const t of transacties) {
       if (t.type === "ORDER" && t.order_id) continue;
+      if (t.type === "ORDER") w.push(`transactie ${t.id}: ORDER zonder order_id, geboekt als correctie`);
       if (t.type === "RESERVE") {
         const r = bedrag((t as any).reserve_amount, valuta);
         if (r === null) return leeg("fout_gegevens", `reservering ${t.id} zonder reserve_amount`);
@@ -97,12 +111,14 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
       somTransacties += s;
       voeg("correctie", s);
     }
+    const totaal = bedrag(kop.total_settlement_amount, valuta);
+    if (totaal === null) w.push("afrekening: total_settlement_amount leeg, controle op het totaal overgeslagen");
+    else if (totaal !== somTransacties) w.push(`afrekening: transacties samen ${somTransacties}, total_settlement_amount ${totaal}`);
+    uit = bedrag(kop.payable_amount, valuta);
+    if (uit === null) w.push("afrekening: payable_amount leeg, uitbetaald bedrag onbekend");
   } catch (e) {
     return leeg("fout_gegevens", `gegevens van TikTok niet te lezen: ${(e as Error).message}`);
   }
 
-  const totaal = bedrag(kop.total_settlement_amount, valuta);
-  if (totaal !== null && totaal !== somTransacties) w.push(`afrekening: transacties samen ${somTransacties}, total_settlement_amount ${totaal}`);
-  const uit = bedrag(kop.payable_amount, valuta);
   return { status: "compleet", regels, waarschuwingen: w, ontbrekend: [], ...(uit === null ? {} : { uitbetaaldCenten: uit }) };
 }
