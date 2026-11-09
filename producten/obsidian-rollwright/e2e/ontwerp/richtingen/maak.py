@@ -112,7 +112,6 @@ css += f"""
 {B} {NOTE} .callout {{ background: rgba(0,0,0,.42) !important; border: 1px solid #4e5652; border-radius: 2px; box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.07); }}
 {B} {NOTE} .callout-title {{ font-family: "RX Uncial"; color: #ff9a55; font-size: 1.12em; text-shadow: 0 0 10px rgba(255,100,20,.45); }}
 {B} {T} {{ font-family: "RX Uncial"; color: #e7ece7 !important; padding: .12em .7em .14em .55em !important; border-radius: 2px !important;
-  clip-path: polygon(6% 0, 94% 0, 100% 22%, 100% 78%, 94% 100%, 6% 100%, 0 78%, 0 22%);
   background: {STEEN}, linear-gradient(180deg,#5b625f,#3b403e) !important; border: none !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 0 rgba(0,0,0,.55) !important; text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255,255,255,.15); }}
 {B} {T} .rollwright-value {{ font-size: 1.12em; }}
@@ -120,9 +119,10 @@ css += f"""
 {B} {T}.rollwright-crit {{ color: #fff3c0 !important; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331) !important;
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
 {B} {T}.rollwright-crit .rollwright-value {{ color: #ffe07a; }}
-{B} {T}.rollwright-fumble {{ color: #ff7a66 !important; background-color: #2a2e2d !important; background-image:
-  linear-gradient(112deg, transparent 47%, #050606 48%, #050606 50%, transparent 51%), linear-gradient(68deg, transparent 63%, #050606 64%, transparent 65.5%),
-  linear-gradient(180deg,#3e4442,#202423) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
+{B} {T}.rollwright-fumble {{ color: #ff8a70 !important; background-color: #151717 !important; background-image:
+  linear-gradient(112deg, transparent 46.5%, #ff4a1c 48%, #ffb070 49%, #ff4a1c 50%, transparent 51.5%), linear-gradient(64deg, transparent 66%, #ff4a1c 67%, transparent 68.5%),
+  radial-gradient(ellipse at 50% 50%, rgba(255,60,20,.28), transparent 70%), linear-gradient(180deg,#26292a,#0f1111) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 14px rgba(255,50,20,.45) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
 {B} {T} .rollwright-stamp {{ font-family: "RX Uncial" !important; background: #1b1d1d !important; color: #ffb36a !important; border: 1px solid #ff8a3a !important; border-radius: 1px !important; }}
 {B} .rollwright-history {{ color: #d7dcd6; font-family: "RX Spectral", Georgia, serif; }}
 {B} .rollwright-history-item {{ background: rgba(0,0,0,.35) !important; border: none !important; border-left: 2px solid #ff7a2a !important; border-radius: 0 !important; box-shadow: inset 0 1px 4px rgba(0,0,0,.6) !important; }}
