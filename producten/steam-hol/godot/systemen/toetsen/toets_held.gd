@@ -222,6 +222,14 @@ func _init() -> void:
 			gebeten = bool(r.info.get("gebeten", false))
 			break
 	ok(gebeten, "held die door Gloop geraakt werd en ontsnapte: info.gebeten")
+	var hol6 := Node2D.new()
+	hol6.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	var kees2 := Node2D.new()
+	kees2.set_script(load("res://systemen/held.gd"))
+	hol6.add_child(kees2)
+	kees2.start(hol6, {"naam": "Kees II", "bezoeken": 0, "wrok": "Gloop the Slime", "zaad": 3})
+	ok(not kees2.is_gebeten(), "Kees II met een wrok tegen Gloop is zelf niet gebeten (gewone hoed)")
+	hol6.free()
 
 	# 10. vaste uitkomsten voor de eerste tien minuten (Olaf 20:25 en 20:45, Sanne features.md)
 	var vl := 0
