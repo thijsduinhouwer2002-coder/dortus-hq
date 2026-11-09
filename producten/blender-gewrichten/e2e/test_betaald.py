@@ -14,6 +14,8 @@ import bpy
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import toetsen_scharnier  # noqa: E402
+import toetsen_scharnier_afstand  # noqa: E402
+from hulp_scharnier import cursor as _cursor  # noqa: E402
 
 args = sys.argv[sys.argv.index("--") + 1:]
 zip_betaald, zip_gratis = args[0], args[1]
@@ -50,6 +52,14 @@ def main():
     except Exception:
         traceback.print_exc()
         stap("toetsen scharnier liepen zonder fout", False)
+    try:
+        toetsen_scharnier_afstand.toets(stap, eigen, _cursor)  # eis 6: kogel naast scharnier, alle scharnieren
+    except Exception:
+        traceback.print_exc()
+        stap("toetsen afstand scharnier liepen zonder fout", False)
+    gewricht, maat = sys.modules[eigen + ".gewricht"], sys.modules[eigen + ".maat"]
+    stap("betaalde omhult gewricht.te_dicht en gewricht.markeer zolang hij aan staat",
+         gewricht.te_dicht is not maat.te_dicht and gewricht.markeer.__module__ != gewricht.__name__)
     # Rekentoets van de weigering zelf.
     stap("andere_versies ziet gratis naast betaald",
          betaald.andere_versies(["bl_ext.blender_org.click_joints", eigen], eigen) == ["bl_ext.blender_org.click_joints"])
@@ -59,6 +69,8 @@ def main():
     # (a) Echt: gratis in een eigen repository erbij, betaalde uit, gratis aan, betaalde weer aan -> geweigerd.
     addon_utils.disable(eigen, default_set=True)
     stap("uitzetten zet addon_utils.enable terug", addon_utils.enable is enable_orig)
+    stap("uitzetten zet gewricht.te_dicht en gewricht.markeer terug",
+         gewricht.te_dicht is maat.te_dicht and gewricht.markeer.__module__ == gewricht.__name__)
     bpy.ops.preferences.extension_repo_add(name="cj_gratis", type="LOCAL")
     repo = bpy.context.preferences.extensions.repos[-1]
     bpy.ops.extensions.package_install_files(filepath=zip_gratis, repo=repo.module, enable_on_install=True)

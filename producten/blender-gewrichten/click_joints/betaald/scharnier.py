@@ -5,7 +5,8 @@ Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de ki
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
 De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
-passingkleur. Exploded view (eis 6) via uit_elkaar.zet, te dichtbij via scharnier_vorm.te_dicht.
+passingkleur. Exploded view (eis 6) via uit_elkaar.zet, te dichtbij via scharnier_vorm.te_dicht (alle scharnieren van het deel
+en een kogel ernaast, zie afstand.py).
 Klikneuzen (eis 3) en de maten van de zaagsnede (vorm punt 5) in scharnier_neus.py.
 Flip bend (eigenschap flip_bend, ontwerp punt 4): keert H en de buigkant samen om, dus de stop en de
 achterstop komen aan de andere kant van het lid; in het Redo-paneel snijdt omzetten het scharnier opnieuw."""
@@ -23,6 +24,7 @@ from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
 from .. import uit_elkaar
+from . import afstand
 from . import scharnier_beweeg as beweeg
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
@@ -92,12 +94,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         punt, h, buig, lid, as_bron, terugval = uit
         # Controleur (d), punt 1: niet opnieuw snijden op dezelfde plek van een bestaand scharnier (bijvoorbeeld na
         # het omzetten van Flip bend in het paneel). Een tweede gewricht elders op het deel mag wel.
-        if bron.get("cj_soort") == "SCHARNIER" and "cj_snijpunt" in bron:
-            vorige = Vector(bron["cj_snijpunt"])
-            if (Vector(punt) - vorige).length < 2.0 * float(bron.get("cj_knokkel_r", 0.0)) + 1e-9:
-                self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
-                                         "Redo panel right after placing.")
-                return {"CANCELLED"}
+        # Kan-punt controleur (b): tegen alle scharnieren van het deel (afstand.scharnieren), niet alleen het laatste.
+        oude = afstand.scharnieren(bron)
+        if any((Vector(punt) - p).length < 2.0 * k + 1e-9 for p, _r, k in oude):
+            self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
+                                     "Redo panel right after placing.")
+            return {"CANCELLED"}
         if terugval:
             self.report({"WARNING"}, "No 3D viewport found for the view direction; the hinge axis now follows "
                                      "the X axis of the 3D cursor.")
@@ -176,6 +178,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         for deel in (deel_a, deel_b):
             for k, v in gegevens.items():
                 deel[k] = v
+            # Kan-punt controleur (b): elk deel erft de oude scharnieren aan zijn kant, plus dit nieuwe.
+            lijst = [e for e in oude if vorm.kant(frame, maat, e[0]) == deel["cj_deel"]]
+            deel["cj_scharnieren"] = afstand.plat(lijst + [(Vector(punt), gegevens["cj_reik"], maat["r"])])
             uit_elkaar.zet(deel, inst.uit_elkaar)  # eis 6 (via de module: het omhulsel van betaald/__init__ telt mee): Exploded view schuift deel B langs L
         bron.hide_set(True)
         for o in context.view_layer.objects:

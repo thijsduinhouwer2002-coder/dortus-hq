@@ -26,6 +26,7 @@ from mathutils import Matrix, Vector
 
 from .. import vormen
 from ..gewricht import bak, boolean
+from . import afstand
 from . import scharnier_neus as neus
 
 STANDEN = (90, 115, 135)
@@ -155,17 +156,41 @@ def reik(m):
 
 
 def te_dicht(bron, punt, m, u):
-    """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een scharnier op
-    `bron` ligt, anders None. Twee scharnieren mogen niet in elkaars bereik komen: afstand tussen de snijpunten
-    minstens twee keer het grootste bereik van de twee (anders snijden de stopvlakken elkaar en blijft er tussen
-    de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe al
-    tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort."""
-    if bron.get("cj_soort") != "SCHARNIER" or "cj_snijpunt" not in bron or "cj_reik" not in bron:
-        return None
-    nodig = 2.0 * max(float(bron["cj_reik"]), reik(m)) / u
-    if (Vector(punt) - Vector(bron["cj_snijpunt"])).length / u >= nodig:
-        return None
-    return math.ceil(nodig - 1e-9)
+    """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een gewricht op
+    `bron` ligt, anders None.
+    - Naast elk scharnier op het deel (afstand.scharnieren: alle, niet alleen het laatste): afstand tussen de
+      snijpunten minstens twee keer het grootste bereik van de twee (anders snijden de stopvlakken elkaar en blijft
+      er tussen de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe
+      al tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort.
+    - Naast de kogel of pen waarvan het deel komt: van snijpunt tot kogelmidden minstens de reik van het scharnier
+      plus de reik van de kogel (afstand.kogel_reik, uitleg in afstand.py).
+    Bij meer dan een te dichtbij telt de grootste nodige afstand."""
+    eigen = reik(m)
+    paren = [((Vector(punt) - p).length, 2.0 * max(r, eigen)) for p, r, _k in afstand.scharnieren(bron) if r >= 0]
+    kogel = afstand.kogel_van(bron, u)
+    if kogel is not None:
+        paren.append(((Vector(punt) - kogel[0]).length, eigen + kogel[1]))
+    return afstand.nodig_mm(paren, u)
+
+
+def in_veelhoek(y, z, punten):
+    """Ligt (y, z) binnen de veelhoek? (straal naar +y, oneven aantal kruisingen)."""
+    binnen = False
+    for i in range(len(punten)):
+        (y1, z1), (y2, z2) = punten[i], punten[(i + 1) % len(punten)]
+        if (z1 > z) != (z2 > z) and y < y1 + (z - z1) * (y2 - y1) / (z2 - z1):
+            binnen = not binnen
+    return binnen
+
+
+def kant(frame, m, p):
+    """"A" of "B": op welk deel een punt p (wereld) na deze snede ligt. Deel B is het figuur zonder onder_b, dus een
+    punt binnen de doorsnede onder_b hoort bij A (ook voor de wig: die loopt schuin, een vlak loodrecht op L zou
+    voor H fout kunnen kiezen). Alleen voor punten buiten de knokkel en de naad, zoals oude snijpunten (te_dicht
+    houdt ze minstens twee keer de reik weg)."""
+    q = frame.inverted() @ Vector(p)
+    g = 2.0 * max(abs(q.y), abs(q.z)) + 20.0 * m["rn"] + 1.0
+    return "A" if in_veelhoek(q.y, q.z, onder_b(m, g)) else "B"
 
 
 def stop_graden(alfa, theta_s):

@@ -7,8 +7,8 @@ operators, panelen en scene.click_joints."""
 import addon_utils
 import bpy
 
-from .. import uit_elkaar
-from . import scharnier, scharnier_beweeg, scharnier_boog
+from .. import gewricht, uit_elkaar
+from . import afstand, scharnier, scharnier_beweeg, scharnier_boog
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
@@ -129,6 +129,7 @@ def register(eigen=None):
     if _oude_zet[0] is None:
         _oude_zet[0] = uit_elkaar.zet
         uit_elkaar.zet = _zet
+    afstand.register(gewricht)  # kogel naast scharnier: gewricht.te_dicht en gewricht.markeer (zie afstand.py)
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
         addon_utils.enable = _enable_met_wacht(eigen)
@@ -152,6 +153,7 @@ def unregister():
         if uit_elkaar.zet is _zet:
             uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
+    afstand.unregister(gewricht)
     if _oude_enable[0] is not None:
         if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven
             addon_utils.enable = _oude_enable[0]
