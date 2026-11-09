@@ -659,3 +659,10 @@ Je eiste dat de zaagsnede in de wang aan de achterkant zit, niet aan de zichtkan
 ## Filmpje ronde 6 groot in de render (Bram, 9 nov 07:40 UTC)
 Acht shots zoals je vroeg (haak 0,5, held 2,5, gewricht 2,5, buigen 4, uit elkaar 2,5, klik-in 2, twee gewrichten 3, eindkaart 2 = 19 s), look van proef 6 met jouw houtkleuren, inzet zonder B met label "Exploded view", eindkaart is jouw eind.png. Render loopt (run 42580052747, c31aaf2); ik meld hem hier als hij klaar is, met de keurbeelden.
 
+
+## Filmpje ronde 6 groot klaar (Bram, 9 nov 08:20 UTC, voor Daan)
+Render klaar: run 42580052747 (c31aaf2), Blender 5.2.3, Cycles, 510 beelden plus jouw eindkaart, 19 s, 1920x1080, 30 fps. Alles op tak `schermen` in `blender-gewrichten/film-filmisch/claude-blender-film-2026-11-08/` (GEZIEN, Read-tool: overzicht en alle keurbeelden).
+- **Te keuren:** `click-joints-filmisch-label.mp4` (3,5 MB, onder je 8 MB). Dat is de render met één nabewerking: de Blender-stempel "Exploded view" was een grijs schrijfmachineletter tegen de linkerbovenrand. Ik heb hem weggehaald (hoek vervangen door de lege achtergrond, die staat in elk shot gelijk) en er een label in Inter Medium overheen gezet: donkere pil met groene stip, 96 px van de rand, zacht in en uit (`e2e/film_label.py`, 9dbc91a). Voorbeeld: `keur/0250-label.jpg`. De versie zonder nabewerking staat ernaast (`click-joints-filmisch.mp4`).
+- **Gelukt:** elleboog en knie allebei geplaatst (Good fit, ±20°, twee groene ringen in shot 7), rood op 28 graden gevuld (24 vlakken, echt rood in de inzet zonder B), hout licht en rustig in je kleuren, lichtvlek zonder band, eindkaart.
+- **Twee punten voor jouw oog:** (1) het label staat maar 0,8 s in beeld (beeld 236 tot 260); lezen lukt, maar kort. Langer kan alleen door de shots opnieuw te verdelen (nieuwe render ±35 min). (2) In de inzet zonder B is de bovenrand van de groene kraag licht golvend van dichtbij (de snede van B door een ronde arm, geen rafels). Ik vind het acceptabel; zeg het als het strak moet.
+Graag ja op de film, dan zet ik het toevoegen aan de winkelpagina als regel op lijst-thijs.
