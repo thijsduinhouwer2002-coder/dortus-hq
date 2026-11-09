@@ -32,6 +32,7 @@ STAND_STANDAARD = 115
 ACHTER = 0.15     # e = ACHTER keer de dikte langs de buigkant
 KNOKKEL = 0.35    # R = KNOKKEL keer de halve dikte
 WANG = 0.20       # Rn = R + s + WANG keer de halve dikte
+MARGE = 0.6       # graden: de stop mikt zoveel onder de stand, zodat hij er nooit voorbij ligt (eis 2)
 TE_DUN = "Too thin here for a hinge. Try a thicker spot."
 KIJK_LANGS = "Look at the joint from the side to place a hinge."
 
@@ -93,7 +94,9 @@ def maten(bvh, frame, s, stand, u):
         return None, TE_DUN
     r_buiten = zij[2] + e             # van H tot de voorkant van het lid
     theta_s = s / r_buiten
-    alfa = (math.radians(stand) - theta_s) / 2
+    # Marge (run 28): gemeten in de mesh lag de stop op de staaf van 128 hoeken bij stand 90 op 90,55, dus
+    # 0,55 voorbij de stand (bij 115 en 135 op -0,8 en -1,1). Mikken op stand - 0,6 houdt alle drie binnen 2 onder.
+    alfa = (math.radians(stand - MARGE) - theta_s) / 2
     r_lip = zij[3] - e                # van H tot de achterkant van het lid (raakpunt achterstop)
     return {"s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten}, ""

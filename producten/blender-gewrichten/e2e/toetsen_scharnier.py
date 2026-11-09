@@ -104,7 +104,8 @@ def toets(stap, eigen):
     vorm_m = sys.modules[eigen + ".betaald.scharnier_vorm"]
     th = float(b.get("cj_theta_s", -1.0))
     stop = vorm_m.stop_graden(math.radians(float(b.get("cj_wig_graden", 0.0))), th)
-    stap("stop 115 = 2 wig + s/r binnen 0.1 graad", th > 0 and abs(stop - 115) <= 0.1,
+    doel = 115 - vorm_m.MARGE
+    stap(f"stop {doel} = 2 wig + s/r binnen 0.1 graad", th > 0 and abs(stop - doel) <= 0.1,
          f"wig {b.get('cj_wig_graden')} theta_s {math.degrees(th):.3f} stop {stop:.3f}")
     # Kijkrichting langs de lidas geeft de melding (zonder venster valt kijk terug op de cursor, dus hier
     # alleen de rekensom zelf).
@@ -144,16 +145,18 @@ def toets_beweeg(stap, eigen):
             continue
         voor = float(b.get("cj_bereik_graden", -1))
         achter = float(b.get("cj_achter_graden", -1))
-        stap(f"stand {n}: eindstop gemeten tussen {n - 2} en {n + 0.5} graden", n - 2 <= voor <= n + 0.5,
+        stap(f"stand {n}: eindstop gemeten tussen {n - 2} en {n} graden", n - 2 <= voor <= n + 0.05,
              f"gemeten {voor:.2f}")
         achter_min = max(0.0, achter_max - 1.0)   # atan(s/r_lip) - 0,5: vangt overlap bij 0 graden
         stap(f"stand {n}: achterstop gemeten tussen -{achter_max:.2f} en +0.5 graden", 0 <= achter <= achter_max,
              f"gemeten -{achter:.2f} r_lip add-on {b.get('cj_r_lip', -1):.3f} eigen {r_lip:.3f} mm")
         stap(f"stand {n}: r_lip gelijk aan de eigen rekensom", abs(float(b.get("cj_r_lip", -1)) - r_lip) < 0.01)
         stap(f"stand {n}: achterstop minstens {achter_min:.2f} graden (geen botsing bij 0)", achter >= achter_min)
-        stap(f"stand {n}: tekst letterlijk", beweeg.tekst(voor, n) == f"Bends 0° to {n}°", beweeg.tekst(voor, n))
+        k = round(voor)
+        stap(f"stand {n}: tekst letterlijk met het gemeten getal ({n - 2} tot {n})",
+             n - 2 <= k <= n and beweeg.tekst(voor, n) == f"Bends 0° to {k}°", beweeg.tekst(voor, n))
         stap(f"stand {n}: melding van de operator letterlijk",
-             b.get("cj_melding") == f"Hinge placed. Bends 0° to {n}°.", str(b.get("cj_melding")))
+             b.get("cj_melding") == f"Hinge placed. Bends 0° to {k}°.", str(b.get("cj_melding")))
         duur, solver = float(b.get("cj_duur_s", 99)), b.get("cj_solver")
         grens = 5.0 if solver == "MANIFOLD" else 10.0
         stap(f"stand {n}: tijd met beweegproef onder {grens} s ({solver})", duur < grens, f"{duur} s")
@@ -182,4 +185,4 @@ def _toets_arm(stap, eigen, s):
     voor = float(b.get("cj_bereik_graden", -1))
     stap(f"arm 261K: tijd met beweegproef onder {grens} s ({solver})", duur < grens,
          f"{duur} s eindstop {voor:.2f} achterstop -{float(b.get('cj_achter_graden', -1)):.2f}")
-    stap("arm 261K: eindstop tussen 113 en 115.5 graden", 113 <= voor <= 115.5, f"{voor:.2f}")
+    stap("arm 261K: eindstop tussen 113 en 115 graden", 113 <= voor <= 115.05, f"{voor:.2f}")
