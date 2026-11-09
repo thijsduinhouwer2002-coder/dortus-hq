@@ -36,18 +36,18 @@ Stand 9 nov 2026, ±19:00 UTC. Richting Het Hol (besluit Thijs 9 nov 19:20). Dit
 - **Weg geweest:** bij openen één regel met aantallen en goud ("While you were away: 612 heroes came in, 410 stayed, 202 fled. Gloop is very full."), plus **drie regels met namen** (wie er terug was, welke wrok er speelde, of een aartsvijand kwam). Nu geeft `voortgang.gd` alleen aantallen en goud; de regels met namen vraag ik aan Bram, anders is terugkomen alleen "+X gold". Alleen winst, plafond 12 uur (Bram, `voortgang.gd`), dus een nacht weg levert hetzelfde als een week; niemand hoeft elke dag. (T3)
 
 ## De eerste tien minuten van een nieuw spel (wat Thijs als eerste ziet)
-Thijs keurt het prototype op wat hij in de eerste minuten ziet, en een koper schrijft zijn review op hetzelfde moment. Daarom sturen we de eerste tien minuten van een **nieuw** spel een beetje (zoals `moet_vallen` al doet), daarna is alles gewoon kans. Elk stuk hieronder gebruikt een systeem dat er al is of op de lijst staat; er komt niets nieuws bij. Tijden in echte seconden, held elke 40 tot 60 s.
+Thijs keurt het prototype op wat hij in de eerste minuten ziet, en een koper schrijft zijn review op hetzelfde moment. Daarom sturen we de eerste tien minuten van een **nieuw** spel een beetje (zoals `moet_vallen` al doet), daarna is alles gewoon kans. Elk stuk gebruikt een systeem dat er al is of op de lijst staat; nieuw is alleen dat een paar uitkomsten eenmalig vastliggen (kolom rechts, met **vast** gemarkeerd), net als `moet_vallen` nu. Tijden in echte seconden, held elke 40 tot 60 s.
 
 | Wanneer | Wat er gebeurt | Waarom | Wat het al gebruikt |
 |---|---|---|---|
 | 0 s | Strook verschijnt, Gloop slaapt, schat glinstert. Regel: "Your hole is open. Heroes will come." | rust, je ziet meteen wat van jou is | staat al |
-| ±5 s | Eerste held, schijterig, struikelt in de put. Muntjes vliegen naar de schat. "+6" | binnen 10 s iets binnen (T1) | `moet_vallen`, muntjes (feature 5) |
-| ±1 min | Tweede held loopt tegen Gloop: hap, held stuitert terug en **vlucht**. Hij krijgt een pleister. | de wrok begint, je ziet het op het poppetje | held.gd, littekens (Daan) |
-| ±2 min | Derde held valt (+6), nu 12 goud: precies genoeg voor de eerste cel graven (12 in `balans.md`); de prijs staat bij hover. | je eerste keuze binnen 2 minuten (T1) | graven, kosten uit `balans.md` |
-| ±3 min | **Die gevluchte held komt terug**: pleister, boos teken, bijnaam "the Once-Fled", loopt recht op Gloop af. | ons eigen stuk, in de eerste 5 minuten | terugkomer forceren eenmalig (zoals `moet_vallen`) |
+| ±5 s | Eerste held, schijterig, struikelt in de put. Muntjes vliegen naar de schat. "+6" | binnen 10 s iets binnen (T1) | **vast:** `moet_vallen` (staat al); muntjes (feature 5) |
+| ±1 min | Tweede held loopt tegen Gloop: hap, held stuitert terug en **vlucht**. Hij krijgt een pleister. | de wrok begint, je ziet het op het poppetje | **vast:** slaat de put over en vlucht na de hap van Gloop; held.gd, littekens (Daan) |
+| ±2 min | Derde held valt (+6), nu 12 goud (alleen met 6 goud per val, voorstel in `balans.md`; met de huidige 3 is het 6 en wordt dit ±4 min): precies genoeg voor de eerste cel graven (12 in `balans.md`); de prijs staat bij hover. | je eerste keuze binnen 2 minuten (T1) | **vast:** derde held valt; graven, kosten uit `balans.md`; prijs bij hover is nieuw (Olaf) |
+| ±3 min | **Die gevluchte held komt terug**: pleister, boos teken, bijnaam "the Once-Fled", loopt recht op Gloop af. | ons eigen stuk, in de eerste 5 minuten | **vast:** de volgende held is die terugkomer |
 | ±4 min | Gloop wint of verliest; verliest hij, dan is hij plat met "Back in a minute." en staat op. | bewoner met karakter, nooit dood | slijm.gd |
-| ±6 min | Een hebzuchtige held haalt de schat, probeert de berg op te tillen, te zwaar, rent weg als **Hoard-Toucher**. | de grap die je aan iemand vertelt | Hoard-Toucher (Bram) eenmalig forceren |
-| 10 min | Daarna gewoon kans (Bram's sim). Eerste aartsvijand pas na een paar uur, zodat het bijzonder blijft. | geen script dat je doorziet | sim |
+| ±6 min | Een hebzuchtige held haalt de schat, probeert de berg op te tillen, te zwaar, rent weg als **Hoard-Toucher**. | de grap die je aan iemand vertelt | **vast:** komt langs alles en haalt de schat; Hoard-Toucher (Bram) |
+| 10 min | Daarna gewoon kans (Bram's sim). **Regel: geen aartsvijand in het eerste uur van een nieuw spel**, zodat het bijzonder blijft (daarna ongeveer één per dag, Bram's sim). | geen script dat je doorziet | sim |
 
 **Regels:** alleen bij een vers spel (in de save onthouden, net als `moet_vallen`), nooit opnieuw na een herstart; de film van een minuut op Actions mag dit in een minuut proppen, maar het echte spel volgt de tabel. Olaf en Bram kiezen hoe; dit is wat er te zien moet zijn.
 

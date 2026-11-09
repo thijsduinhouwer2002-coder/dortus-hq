@@ -4,7 +4,7 @@ De humor van Het Hol zit voor de helft in de korte regels in de strook (`feature
 
 **Afspraken:**
 - Maximaal **42 tekens** na invullen van een gewone naam (het tekstvak op 120 px heeft ±40 tekens; de eerste GIF kapte "Gloop the Sli" af). Bijnamen maken het langer, dus de regels met `{held}` zijn bewust kort.
-- `{held}` = naam met bijnaam ("Kees the Twice-Fled"), `{naam}` = alleen de voornaam, `{bewoner}` = "Gloop", `{val}` = "the spike pit", `{n}` = getal.
+- `{held}` = naam met bijnaam ("Kees the Twice-Fled"), `{naam}` = alleen de voornaam, `{bewoner}` = "Gloop" (nooit "Gloop the Slime", anders past het niet), `{val}` = "the Spike Pit" (zoals in de code), `{n}` = getal.
 - Droog en een beetje gemeen naar de helden, lief naar je bewoners. Nooit naar de speler toe ("you failed"): de speler doet nooit iets fout.
 - Kies willekeurig binnen een soort, maar niet twee keer dezelfde regel achter elkaar.
 
@@ -35,6 +35,7 @@ De humor van Het Hol zit voor de helft in de korte regels in de strook (`feature
 - `{naam} brought friends this time.` (alleen als er echt meer komen)
 
 ## Valt (blijft in je hol)
+- `{naam} fell to {val}.` (staat al in de code)
 Toets 2: de val en het goud waren twee regels die elkaar wegdrukten. Nu één regel: plak er ` +{n}` achter (het goud van die val). Alle regels hieronder passen dan nog in 42 tekens met een naam van 6 letters en `+15`.
 - `{naam} stays forever.`
 - `{naam} found {val}. Hard.`
@@ -44,7 +45,7 @@ Toets 2: de val en het goud waren twee regels die elkaar wegdrukten. Nu één re
 - `{bewoner} says thanks for the snack.`
 
 ## Naamgenoot van een gevallen held (toets 2)
-Een naam van een gevallen held komt niet terug als gewone nieuwe held (verwarrend: je denkt dat hij terug is). Is hij toch aan de beurt, dan als `{naam} II`, zonder wrok:
+Een naam van een gevallen held komt niet terug als gewone nieuwe held (verwarrend: je denkt dat hij terug is). Is hij toch aan de beurt, dan als `{naam} II`, zonder wrok; valt die ook, dan `{naam} III`, en na III een andere naam:
 - `{naam} II climbs in. Family business.`
 - `{naam} II. {naam} fell here once.`
 - `{naam} II wants his dad's boot back.`
