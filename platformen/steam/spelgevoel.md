@@ -20,9 +20,13 @@ Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, 
 6. **Niemand komt bij de schat.** De Hoard-Toucher van Bram is nog niet aangesloten (staat op Olafs lijst). In de film staan twee helden even naast de stapel en lopen weer weg. Dat blijft een gemiste grap tot hij erin zit.
 7. **Het rechterderde deel van de strook is lege aarde.** Het hol stopt bij de schat op ±2/3 van de breedte, daarna steentjes tot het tekstvak. Wanneer je graaft, schuift de schat mee, maar in de film blijft het rechterstuk leeg. Kan de schat tegen het tekstvak aan staan, met het hol ervoor, zodat graven het hol naar links laat groeien? Dan is de strook altijd vol. Olaf beslist.
 
+**Op de andere hoogtes (GEZIEN, `strook-96.png` en `strook-160.png` van dezelfde run):**
+- **160 px (schaal 4): het tekstvak ligt over de schat.** Het hol is 256 spelpixels breed, dus de schatkamer komt precies onder het tekstvak; je ziet alleen het vaandel en de bovenkant van de stapel. Dit is het belangrijkste punt van deze toets: wie de strook groter zet om meer te zien, ziet zijn eigen schat niet meer. **Eis:** het hol eindigt altijd links van het tekstvak (of het tekstvak schuift weg tot hover).
+- **96 px (schaal 2):** het hol neemt maar ±45% van de breedte, de rest is lege aarde tot het tekstvak. Hier geldt punt 7 nog sterker.
+
 **Controleur (agent, 19:58):** feiten nagelopen tegen film, log en code; vier kleine onjuistheden verbeterd (halve film plat in plaats van twee derde, litteken is er wel maar valt weg, plat-regel ontbreekt, wrok in twee regels).
 
-**Oordeel:** een grote stap. Het ziet eruit als een spel, er komt goud en de val is lekker kort. Wat nog mist om het aan Thijs te laten zien: Gloop moet meedoen (punt 1), het goud moet je zien vliegen (punt 2) en de wrok moet op het poppetje staan (punt 3 en 4). Punt 1 is één regel, punt 2 is klein, punt 3 en 4 zijn Daans kunst aansluiten. Doorgegeven aan Olaf en Bram.
+**Oordeel:** een grote stap. Het ziet eruit als een spel, er komt goud en de val is lekker kort. Wat nog mist om het aan Thijs te laten zien: de schat mag nooit onder het tekstvak liggen (160 px), Gloop moet meedoen (punt 1), het goud moet je zien vliegen (punt 2) en de wrok moet op het poppetje staan (punt 3 en 4). Punt 1 is één regel, punt 2 is klein, punt 3 en 4 zijn Daans kunst aansluiten. Doorgegeven aan Olaf en Bram.
 
 ## Toets 1: eerste kern, 9 nov 2026 (run 42676196548, commit dfd139e, tak `claude/steam-hol-kern`)
 **Bekeken (GEZIEN):** `film.gif` (1024 x 120, 281 beelden, een minuut), zes beelden naast elkaar op ware grootte, `film.log`, `cpu.txt` op tak `schermen` (`steam-hol/claude-steam-hol-kern/`). Kunst is nog tijdelijk (Daans bladen zitten er nog niet in), dus over het uiterlijk oordeel ik niet; dat is Daan.
