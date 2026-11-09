@@ -387,3 +387,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les: een veld in een webhook of API (productType "Custom Agent") verraadt soms wat eraan komt. Zet zo'n veld op de radar, niet in het cijfer.
 - Snelle schifting 9 nov ±12:05 UTC (Noor): Warp en Excalidraw: geen winkel of betaalde extensies gevonden (zoekresultaten, GOK). Nee. Lovable: alleen een losse markt van derden (the-marketplace.lovable.app), geen officiële winkel met kassa (DERDEN). Nee. Algemene zoekopdracht naar nieuwe betaalde pluginwinkels gaf alleen oude bekenden (NativePHP, Moodle, Grafana, JetBrains).
 - Volgende run: radar, en elke week bij Notion kijken of er een agent of koppeling met price > 0 verschijnt (`data/notion-marketplace-meet.py`).
+
+## Run 9 nov 12:40 UTC (Noor)
+- Radar kort: algemene zoekopdrachten naar nieuwe betaalde winkels (nov 2026) gaven weer alleen oude bekenden (DeepSeek Harness, Sitecore, ChatGPT). Niets nieuws met een mogelijke 7.
+- AltStore PAL (alternatieve iPhone-winkel, EU sinds april 2024, Japan sinds 18 dec 2025; makers laten betalen via Patreon; groei, aantal makers en betalen nakijken): in onderzoek 9 nov 12:55 UTC
