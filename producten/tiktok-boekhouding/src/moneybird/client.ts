@@ -69,6 +69,8 @@ export class MoneybirdClient {
       try {
         res = await this.o.fetchFn(url, { method: methode, headers, body });
       } catch (e) {
+        // Budget op (product-laag): er is niets verstuurd, dus niet `server` (en nooit `onzeker`) en niet herhalen.
+        if ((e as { budgetOp?: unknown })?.budgetOp === true) throw e;
         netwerkFout = e as Error;
       }
       if (res && res.ok) {

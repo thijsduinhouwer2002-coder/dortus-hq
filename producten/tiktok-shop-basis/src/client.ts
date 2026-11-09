@@ -87,6 +87,8 @@ export class TikTokClient {
     try {
       res = await this.o.fetchFn(url, { method: a.method, headers, body });
     } catch (e) {
+      // Budget op (product-laag): er is niets verstuurd, dus geen netwerkfout en niet herhalen.
+      if ((e as { budgetOp?: unknown })?.budgetOp === true) throw e;
       return { fout: new TikTokApiError(-1, `netwerkfout: ${(e as Error).message}`, "", 503), retryAfter: null };
     }
     const retryAfter = res.headers.get("retry-after");
