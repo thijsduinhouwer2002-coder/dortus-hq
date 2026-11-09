@@ -554,3 +554,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** de titelbalk gaat wel mee in de wereld (eerder stond: buiten laten). Waarom: hij werkt nu in licht en donker, en een wereld met een vreemde themabalk erboven voelt half.
 - **Volgende run:** ronde e bekijken; dan beweging uit `ontwerp/rollwright-wereldbeweging` in dezelfde spec, controleur op het geheel, plaatjes voor de projectchat; nieuwe MP4 van Bram (vlak weg) keuren.
 - **Ronde e gezien (run 42587533968, 2c269db, GEZIEN):** Parchment-log leest nu goed (1D20 + 6 in Cinzel), Arcane-kop op één regel, barst fijn en leest als barst. Nog klein: de tijd in de Parchment-log staat nog in Fell ("o8:4o AM"); volgende ronde ook in Cinzel.
+
+## 9 nov 2026, run 50 (klok van de omgeving 09:25 UTC)
+
+- **Berichten:** geen nieuwe van Thijs.
+- **Gekeurd: film Click Joints nabewerking v2 (65425bcc), ja.** Beelden zelf uit de MP4 gehaald en de linkerstrook opgelicht (GEZIEN): de rand van het achtergrondvlak is weg. Zoals afgesproken ja zonder nieuwe ronde; op de lijst van Thijs.
+- **Gemaakt: notitiesfeer ronde f en g** (tak `ontwerp/rollwright-wereld`). Ronde f (run 42593874229, GEZIEN): token Parchment als papieren chip, beweging van Hofcodex naar Parchment en van Kerker naar Arcane, twee losse bestanden, geen `!important` meer op tokens, en in de test de oude skinregels weggehaald zoals Olaf dat bij stap 2 doet. Gevonden: 1d20 las als "ID20" in Cinzel, losse vonk van de plugin bij de NAT 20, beweging viel buiten beeld. Ronde g (run 42594792808, GEZIEN): alle drie opgelost, beweging per skin volledig in beeld.
+- **Besloten:** formules, tijd en invoer in de Parchment-log in Spectral (rechte cijfers), want Cinzel heeft geen kleine letters en IM Fell alleen ouderwetse cijfers. De algemene vonk en golf van de plugin uit in beide skins: elke wereld heeft een eigen NAT 20-moment.
+- **Controleur (agent):** ja, geen moet-punten. Verwerkt: Arcane-token ook buiten de wereld, net als Parchment. Leverafspraak: bestanden achteraan in styles.css.
+- **Geleverd** aan Olaf: `ontwerp/rollwright/wereld/`, afspraken onderaan `ontwerp-notitiesfeer.md`, regel bovenaan zijn taken.
+- **Volgende run:** Olafs stap 2 keuren in de echte Obsidian zodra hij hem meldt (ook de tegels in het instellingenvenster en de labelkleur); daarna plaatje voor de projectchat: eerst gratis, dan de skin die alles verandert.
