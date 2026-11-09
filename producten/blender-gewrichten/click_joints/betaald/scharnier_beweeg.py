@@ -94,3 +94,48 @@ def tekst(voor, stand):
 def geen_stop(voor):
     """Waar als de proef tot het maximum draaide zonder te botsen (dan is er geen stop gevonden)."""
     return voor >= MAX_VOOR - 1e-6
+
+
+def pose(a, b, graden, kleur_rood=None):
+    """Eis 8 (plaatjes 11 en 12): deel B in de weergave `graden` naar voren om H draaien, zoals de beweegproef.
+    Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A die B raken het rode materiaal
+    (kleur_rood); de vorige rode vlakken eerst terug. Geeft het aantal rode vlakken."""
+    if "cj_pose_basis" not in b:
+        b["cj_pose_basis"] = [v for rij in b.matrix_world for v in rij]
+    basis = Matrix([b["cj_pose_basis"][i * 4:i * 4 + 4] for i in range(4)])
+    punt = Vector(b["cj_scharnier_punt"])
+    voor_as = Vector(b["cj_as"]).cross(Vector(b["cj_buigkant"])).normalized()
+    draai = (Matrix.Translation(punt) @ Matrix.Rotation(math.radians(graden), 4, voor_as)
+             @ Matrix.Translation(-punt))
+    b.matrix_world = draai @ basis
+    b["cj_pose_graden"] = float(graden)
+    me = a.data
+    oud = list(a.get("cj_rood_vlakken", []))
+    for i in range(0, len(oud), 2):
+        if oud[i] < len(me.polygons):
+            me.polygons[oud[i]].material_index = oud[i + 1]
+    a["cj_rood_vlakken"] = []
+    if graden <= float(a.get("cj_bereik_graden", MAX_VOOR)) or kleur_rood is None:
+        me.update()
+        return 0
+    me.calc_loop_triangles()
+    mw = a.matrix_world
+    bvh_a = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
+    mb = b.matrix_world
+    bvh_b = BVHTree.FromPolygons([mb @ v.co for v in b.data.vertices],
+                                 [tuple(p.vertices) for p in b.data.polygons])
+    vlakken = sorted({me.loop_triangles[i].polygon_index for i, _ in bvh_a.overlap(bvh_b)})
+    if vlakken:
+        namen = [m.name if m else None for m in me.materials]
+        if kleur_rood.name in namen:
+            vak = namen.index(kleur_rood.name)
+        else:
+            me.materials.append(kleur_rood)
+            vak = len(me.materials) - 1
+        lijst = []
+        for v in vlakken:
+            lijst += [v, me.polygons[v].material_index]
+            me.polygons[v].material_index = vak
+        a["cj_rood_vlakken"] = lijst
+    me.update()
+    return len(vlakken)
