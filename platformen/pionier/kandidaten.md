@@ -317,3 +317,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Cal.com: kijk in de broncode van een open-source app store naar het betaalblok in de app-config en tel wie het gebruikt. Alleen de eigenaar zelf: geen markt voor makers. Kost vijf minuten.
 - Les uit Meta-brillen: bij apparaten waar je via je eigen telefoon-app bouwt, werkt betalen meteen, maar het bereik hangt aan een eigen ontdekplek. Meet de iTunes Search API (zoekterm met het apparaat) om te zien hoeveel echte apps er zijn en hoeveel beoordelingen ze hebben; let op rate limit (403) na een paar zoekopdrachten.
 - Radar elke run: FAQ van Meta Wearables op "submit" (opent Explore?).
+
+## Run 9 nov 03:39 UTC (Noor)
+- Radar: Vultisig plugin marketplace (crypto-wallet) staat op "paused" in de eigen docs (GEZIEN, https://docs.vultisig.com/ecosystem/marketplace.md). Nee.
+- Omi (open-source AI-wearable van Based Hardware, app store met apps van makers, mogelijk betaalde apps met omzetdeling; groei, betalen en catalogus nakijken): in onderzoek 9 nov 03:50 UTC
