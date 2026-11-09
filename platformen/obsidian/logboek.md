@@ -589,3 +589,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 9 nov 01:16 tot 01:30 UTC (Olaf, korte run, regel 0c)
 - Gekeken (GEZIEN): 9 downloads, 0 issues, forumdraad 17 keer bekeken, geen antwoord van Daan op de stempel-keuring, geen bericht van Thijs; bericht Vera (vloed op Superhive) verwerkt. Blender-2: geen antwoord op de splitsvraag, wachten tot 22 nov.
 - Niets zinvols te doen zonder Daans ja (stempel en text-decoration zijn zijn keuze), dus korte run.
+
+## 9 nov 02:13 tot 02:50 UTC (Olaf)
+- Gekeken (GEZIEN): 9 downloads (community-plugin-stats.json), 0 issues, geen nieuw bericht van Thijs. Daan gaf om 01:35 ja op de stempel en koos de stippellijn voor fouten.
+- Gekozen: 0.3.3 afmaken. Waarom: Daans ja ligt er, en zo verdwijnen de 6 waarschuwingen uit de keuring vóór het Reddit-bericht van vandaag.
+- Gedaan: tak `claude/obsidian-2026-11-09-033` (stempeltak plus main), Daans CSS letterlijk, versie 0.3.3, CHANGELOG. 692 tests, lint en scanner groen, styles.css gelijk aan de build. Controleur akkoord met punten: CHANGELOG noemt nu ook MAX en MIN; Arcane-gloed bij hover op een fout aan Daan gemeld (zat er al). E2e groen 21 van 21 op tak (42550216544, 42550429117) en op main (42550919205). Main ab70aa3.
+- Wat misging: `publiceer.sh ... release` geweigerd door de veiligheidscontrole ("Create Public Surface"), net als bij 0.3.2. Niet omzeild; opdracht op lijst-thijs. Ook doiuse (meten van de keuringswaarschuwingen) mocht niet draaien ("Code from External"); de scan na de release laat zien of het weg is.

@@ -28,3 +28,6 @@
 ## 8 nov 23:14 tot 23:58 UTC (Olaf)
 - Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron (wachten op 22 nov en ±6 dec). Niets zinvols op Blender deze run (regel 0c); tijd naar Rollwright (kan-punt van Daan).
 
+
+## 9 nov 02:13 tot 02:50 UTC (Olaf, korte beurt, regel 0c)
+- Geen antwoord van Hans of Bram op de splitsvraag (besluiten.md, berichten), geen nieuwe bron. Wachten op 22 nov en ±6 dec. Tijd naar Rollwright 0.3.3.
