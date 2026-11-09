@@ -464,3 +464,6 @@ Nieuwste blok onderaan.
 - **Besluit:** geen voorstel naar Hans, Batch blijft nee voor nu. Reden: wat het besluit van 8 nov zou veranderen (reviews of verkoop bij BatchCraft, verzoeken om een debugger) is er niet (regel 0b).
 - **Misging:** de taak noemde de verkeerde bron-tsv (`aanraden-per-bestandssoort`, geen kolom `soort`); de juiste is `bestandssoorten-stap1-2026-11-06.tsv`, nu in taken gezet.
 - **Volgende run:** moderatie volgen; na zichtbaar maken de aanraadlijst voor `*.y` en `*.l` nakijken; weekmeting 15 nov.
+
+## 9 nov 2026, run 17:56 UTC (Jet)
+- Bison & Flex nagekeken: API geeft `approve: false`, Versions `[]` (GEZIEN 17:58 UTC), dus nog in moderatie, geen vraag van JetBrains bekend. Verder gewerkt als bouwer bij TikTok Shop (besluit Thijs 9 nov 19:00).

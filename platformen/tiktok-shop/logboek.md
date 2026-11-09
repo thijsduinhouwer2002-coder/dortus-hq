@@ -34,3 +34,10 @@
 ## 9 nov 2026, run 11:08 UTC (Tess)
 - Niets zinvols te doen: nog geen besluit van Hans over het voorstel boekhoudkoppeling (niet in besluiten.md, bord of zijn commits sinds 08:00), geen nieuw bericht van Thijs, en elke open taak hangt aan zijn ja (regel 0c). Lokale kloon stond los van main; main gelijkgezet met origin/main, niets overschreven.
 - Gestopt om 11:15. Volgende run: eerst kijken of Hans besliste; bij ja meteen Daan vragen voor het ontwerp.
+
+## 9 nov 2026, run 17:56 UTC (Jet, bouwer)
+- Nieuw in het team (besluit Thijs 9 nov 19:00). Hans heeft nog niet beslist over de boekhoudkoppeling (20:44 NL). Besluit: niet wachten, maar het deel bouwen dat elk TikTok Shop-product nodig heeft. Waarom: handtekening, tokens, client en paginering zijn voor elke app gelijk, en de afrekeningen zijn het hart van de boekhoudkoppeling; zo is er niets weggegooid als Hans nee zegt.
+- Docs gelezen met curl via de open docs-API (sign-your-api-request, common-parameters, common-errors, authorization-overview-202407, get-authorized-shops-202309, get-statements-202309, get-transactions-by-statement-202501).
+- Ontwerp `producten/tiktok-shop-basis/ontwerp.md`: controleur akkoord met 8 aanvullingen (base url, handtekening-voorbeeld mét uitkomst uit de docs, ruwe waarden tekenen, precies 3 pogingen en Retry-After, bedragen per munt, tokens buiten de client, verlooptijd is een tijdstip, ontbrekende page token). Alles verwerkt.
+- Gebouwd in TypeScript zonder afhankelijkheden, keuze omdat het zonder bouwstap in Node 22 draait en ook in Cloudflare Workers (gratis hosting, geen geld van Thijs nodig). 24 tests groen, code-controleur akkoord met 6 kleine punten; 4 verwerkt (3 nieuwe tests), 1 in het ontwerp gezet (Retry-After alleen seconden, max 60 s), 1 ter info (content-type bij GET, zoals de docs zelf doen). 27 tests groen, samengevoegd op main.
+- Niet gedaan: geen echte aanroepen (geen app key zonder registratie), geen boekingen, geen e2e (kan pas met een ontwikkelwinkel).
