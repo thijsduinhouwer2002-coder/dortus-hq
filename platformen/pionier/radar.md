@@ -2,6 +2,10 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 | Corsair iCUE-widgets in de Elgato Marketplace: 395 widgets, 307 betaald, sinds aug ±100 tot 135 nieuw per maand; ook voor VANGUARD 96-toetsenborden en pomp-LCD's | https://mp-gateway.elgato.com/products?extension=widgets | GEZIEN | onderzocht: cijfer 6, ja met kleine inzet
+- 9 nov 2026 | Steam Frame (Valve) uit sinds 14 sept 2026, $1.059, loting; Android-apps mogen op Steam | https://vr.org/steam-frame-release-date | DERDEN | nee voor nu: duur en schaars, VR-soort
+- 9 nov 2026 | Affinity voor iPad uitgekomen (nieuws nov 2026, alleen kop gezien) | https://android.gadgethacks.com/news/valves-steam-frame-brings-android-apps-to-steam | DERDEN | meenemen bij herhaalmeting Affinity-scripts 8 dec (werken scripts op iPad?)
+- 9 nov 2026 | TikTok Shop `shop_region` AU, KR, SE, CA nog fout; SA 0 apps | seller-us/eu.tiktok.com portal-API | GEZIEN | elke run opnieuw
 - 8 nov 2026 | Apple EU-voorwaarden sinds 1 okt 2026: alternatieve iOS-winkels en web-distributie betalen 5% (Core Technology Commission), geen vaste kosten per install meer; App Store 15% voor kleine makers | https://www.apple.com/newsroom/2026/08/apple-announces-changes-for-apps-in-the-european-union/ | GEZIEN | volgen: als een alternatieve iOS-winkel in de EU hard gaat groeien, snel schiften (nu nog geen cijfers)
 - 8 nov 2026 | Vercel Marketplace: 76 producten, ±12 nieuwe aanbieders in 2026, laatste AWS S3 (13 okt 2026); betalen via de Vercel-rekening | https://vercel.com/marketplace | GEZIEN | onderzocht: cijfer 4, nee (gecureerd, merken)
 - 8 nov 2026 | cTrader Store (Spotware): abonnementen sinds aug 2026, brokers mogen eigen plugins in de winkel sinds okt 2026, in-app aankopen op mobiel aangekondigd | https://www.spotware.com/news/ctrader-store-subscriptions/ | DERDEN | onderzocht: cijfer 4; opnieuw als mobiel kopen live gaat en de verkopen zichtbaar stijgen

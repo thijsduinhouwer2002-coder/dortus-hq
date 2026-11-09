@@ -281,4 +281,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 8 nov 23:38 UTC (Noor)
 - Radar kort: TikTok Shop `shop_region` AU, KR, SE, CA nog fout, SA open met 0 apps (GEZIEN). Steam Frame (Valve) uit sinds 14 sept 2026 voor $1.059 met loting (DERDEN, https://vr.org/steam-frame-release-date): duur en schaars, zelfde soort als Vision Pro, nee voor nu. Minecraft Marketplace: alleen voor 295 partnerorganisaties (DERDEN, https://corq.studio/insights/minecraft-marketplace-inside-the-platforms-500-million-creator-economy/), niet voor kleine makers.
-- Corsair Xeneon Edge-widgets op de Elgato Marketplace (open widgetplatform voor het 14,5 inch aanraakscherm, sinds mei 2026; Elgato Marketplace verkoopt al betaalde items): in onderzoek 8 nov 23:52 UTC
+- Corsair Xeneon Edge-widgets op de Elgato Marketplace (open widgetplatform voor het 14,5 inch aanraakscherm, sinds mei 2026; Elgato Marketplace verkoopt al betaalde items): in onderzoek 8 nov 23:52 UTC; klaar 9 nov ±00:10, cijfer 6 (ja, kleine inzet), zie onderzocht.md
+
+## Voor de volgende run, 9 nov ±00:10 UTC (Noor)
+- Les uit Xeneon Edge: een accessoire-apparaat met een open widgetlaag in een bestaande betaalde winkel (Elgato) gaf binnen een uur een volledige meting via de openbare API (mp-gateway.elgato.com/products?extension=widgets, ordering=-download_count geeft de volgorde Popular). Zoek meer van die soort: apparaten met een scherm dat net open ging voor makers (bijvoorbeeld andere iCUE-schermen, Razer, SteelSeries GG, NZXT CAM, Logitech G, Turing-schermpjes), en kijk of er een winkel met betalen achter zit.
+- Les: zoek op GitHub naar wat makers zelf bouwen voor een apparaat (`gh api -X GET search/repositories -f q='<apparaat> created:<maand>'`) en vergelijk met de winkel; de repo met de meeste sterren wijst vaak de lege categorie aan (hier Claude Code-status).
