@@ -4,7 +4,7 @@ import { TikTokClient } from "../../tiktok-shop-basis/src/client.ts";
 import { MoneybirdClient } from "../src/moneybird/client.ts";
 import { Budget } from "../src/budget.ts";
 import { GeheugenOpslag } from "../src/opslag.ts";
-import { opnieuw, verwerkWinkel, type BoekDeps, type Instellingen } from "../src/verwerk.ts";
+import { opnieuw, vervroegStartdatum, verwerkWinkel, type BoekDeps, type Instellingen } from "../src/verwerk.ts";
 
 // Nagebootste TikTok (vorm van de docs) en een kleine nagebootste Moneybird met memoriaalboekingen in het geheugen.
 const T0 = 1_794_000_000; // nov 2026
@@ -266,5 +266,76 @@ test("afgesloten periode: fout met melding, run gaat door met de volgende", asyn
   await verwerkWinkel(deps(w, o, T0 + 50 * 86400), inst({ administratie: { id: "1", periodLockedUntil: "2026-11-20" } }));
   assert.equal(await status(o, "7001"), "fout");
   assert.match((await o.leesStatus("7001"))!.reden!, /periode_afgesloten/);
+  assert.equal(await status(o, "7002"), "geboekt");
+});
+
+test("eerst FAILED, later PAID met een tijdelijke fout: blijft terugkomen tot fout of geboekt (markering voorbij)", async () => {
+  const w = wereld();
+  const a = w.voegToe("7001", T0 + 86400, "FAILED", [10]);
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", [20]);
+  const o = new GeheugenOpslag();
+  await verwerkWinkel(deps(w, o), inst());
+  assert.ok(o.markering! > T0 + 2 * 86400);
+  a.status = "PAID";
+  w.tiktokFout.set("5001", 36009003);
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst());
+  assert.equal(await status(o, "7001"), "onvolledig");
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400 + 600), inst());
+  assert.equal((await o.leesStatus("7001"))?.pogingen, 2);
+  w.tiktokFout.clear();
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400 + 1200), inst());
+  assert.equal(await status(o, "7001"), "geboekt");
+  assert.equal(w.docs.size, 2);
+});
+
+test("onzeker: de knop weigert, en ook met een opnieuw-markering wacht de run 10 minuten", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  const o = new GeheugenOpslag();
+  const nu = T0 + 10 * 86400;
+  await o.schrijfStatus("7001", { status: "onzeker", sinds: nu, statementTime: T0 + 86400 });
+  await assert.rejects(() => opnieuw(deps(w, o, nu + 10), "7001"), /gecontroleerd/);
+  await o.schrijfStatus("7001", { status: "onzeker", sinds: nu, statementTime: T0 + 86400, opnieuwSinds: nu + 10 });
+  await verwerkWinkel(deps(w, o, nu + 20), inst());
+  assert.equal(mbVerzoeken(w), 0);
+  assert.equal(await status(o, "7001"), "onzeker");
+});
+
+test("knop terwijl een run de afrekening vasthoudt: geweigerd, niets geschreven", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  const o = new GeheugenOpslag();
+  await verwerkWinkel(deps(w, o), inst());
+  const nu = T0 + 11 * 86400;
+  await o.neemSlot("7001", "run-x", nu + 300, nu);
+  await assert.rejects(() => opnieuw(deps(w, o, nu), "7001"), /wordt nu verwerkt/);
+  assert.equal((await o.leesStatus("7001"))?.opnieuwSinds, undefined);
+});
+
+test("startdatum vervroegen: eerdere afrekeningen worden alsnog geboekt", async () => {
+  const w = wereld();
+  w.voegToe("7000", T0 - 86400, "PAID", [10]);
+  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  const o = new GeheugenOpslag();
+  await verwerkWinkel(deps(w, o), inst());
+  assert.equal(w.docs.size, 1);
+  await vervroegStartdatum(o, T0 - 2 * 86400);
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst({ startdatum: T0 - 2 * 86400 }));
+  assert.equal(await status(o, "7000"), "geboekt");
+  assert.equal(await status(o, "7001"), "geboekt");
+  assert.equal(w.docs.size, 2);
+});
+
+test("geen rekening gekozen: winkelfout instellingen, geen fout per afrekening; daarna boekt alles vanzelf", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", [10]);
+  const o = new GeheugenOpslag();
+  const zonder = { ...koppeling, per: { omzet: { grootboekId: "201" } } };
+  const r = await verwerkWinkel(deps(w, o), inst({ koppeling: zonder }));
+  assert.equal(r.winkel?.soort, "invoer");
+  assert.notEqual(await status(o, "7001"), "fout");
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst());
+  assert.equal(await status(o, "7001"), "geboekt");
   assert.equal(await status(o, "7002"), "geboekt");
 });

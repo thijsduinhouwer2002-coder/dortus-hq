@@ -238,7 +238,11 @@ const MAX_POGINGEN_RUNS = 5;
 const MAX_POGINGEN_DUUR = 24 * 3600;
 /** Hoort bij de vingerafdruk: ophogen als de manier van boeken verandert. */
 export const CODE_VERSIE = "1";
-const MB_WINKEL_STOP = ["koppeling_verlopen", "geen_abonnement", "geblokkeerd", "te_veel_verzoeken", "server", "niet_gevonden"];
+// `invoer` en `btw_nog_niet_getest` komen uit de instellingen (bijv. geen rekening gekozen): winkel stil tot het klopt,
+// dan boekt alles vanzelf, in plaats van elke afrekening apart `fout`.
+const MB_WINKEL_STOP = ["koppeling_verlopen", "geen_abonnement", "geblokkeerd", "te_veel_verzoeken", "server", "niet_gevonden", "invoer", "btw_nog_niet_getest"];
+/** Alles wat niet af is komt elke run terug, ook als het vóór de markering ligt (bijv. eerst FAILED, later onvolledig). */
+const NIET_AF = [...OPEN, "bezig_met_ophalen", "onvolledig"];
 
 export async function vingerafdruk(invoer: AfrekeningInvoer, koppeling: Koppeling, administratieId: string): Promise<string> {
   const regels = [...invoer.regels].map((r) => [r.soort, r.bedragCenten]).sort((a, b) => String(a[0]).localeCompare(String(b[0])) || Number(a[1]) - Number(b[1]));
@@ -250,30 +254,50 @@ export async function vingerafdruk(invoer: AfrekeningInvoer, koppeling: Koppelin
 
 /** Knoppen "opnieuw boeken" en "opnieuw proberen": markering op de afrekening; de volgende run haalt opnieuw op. */
 export async function opnieuw(d: Pick<TikTokDeps, "opslag" | "nu">, statementId: string): Promise<void> {
-  const st = await d.opslag.leesStatus(statementId);
-  if (!st) throw new Error(`afrekening ${statementId} is nog niet verwerkt`);
-  const { opnieuwFout: _weg, ...rest } = st;
-  await d.opslag.schrijfStatus(statementId, { ...rest, opnieuwSinds: d.nu(), pogingen: 0, eerstePoging: undefined });
+  // Met slot, zodat een lopende run de knopdruk niet overschrijft.
+  const eigenaar = `knop-${statementId}-${d.nu()}`;
+  if (!(await d.opslag.neemSlot(statementId, eigenaar, d.nu() + 30, d.nu()))) throw new Error("deze afrekening wordt nu verwerkt; probeer het zo opnieuw");
+  try {
+    const st = await d.opslag.leesStatus(statementId);
+    if (!st) throw new Error(`afrekening ${statementId} is nog niet verwerkt`);
+    if (st.status === "onzeker") throw new Error("de boeking wordt nog gecontroleerd; de app kijkt binnen 10 minuten zelf opnieuw");
+    const { opnieuwFout: _weg, ...rest } = st;
+    await d.opslag.schrijfStatus(statementId, { ...rest, opnieuwSinds: d.nu(), pogingen: 0, eerstePoging: undefined });
+  } finally {
+    await d.opslag.geefSlotTerug(statementId, eigenaar);
+  }
+}
+
+/**
+ * Startdatum vervroegd (uit `voor_startdatum` komen): de aanroeper roept dit aan bij het opslaan van de instelling,
+ * zodat de markering teruggaat en de eerdere afrekeningen alsnog worden opgehaald.
+ */
+export async function vervroegStartdatum(opslag: Opslag, nieuweStart: number): Promise<void> {
+  const m = await opslag.leesMarkering();
+  if (m === undefined || nieuweStart < m) await opslag.schrijfMarkering(nieuweStart);
 }
 
 export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<RunUitkomst> {
   const uit: RunUitkomst = { budgetOp: false, verwerkt: [] };
   const markering = Math.max((await d.opslag.leesMarkering()) ?? inst.startdatum, inst.startdatum);
-  const open = (await d.opslag.leesOpen(OPEN)).filter((o) => o.statementTime >= inst.startdatum);
+  const open = (await d.opslag.leesOpen(NIET_AF)).filter((o) => o.statementTime >= inst.startdatum);
   const vanaf = Math.min(markering, ...open.map((o) => o.statementTime));
   const openIds = new Set(open.map((o) => o.statementId));
 
   // Eerste afrekening die de markering vasthoudt (nieuw, bezig of onvolledig); undefined = alles tot nu af.
   let houdVast: number | undefined;
   let laatste: number | undefined;
+  let bezigMet: number | undefined;
   const lijst = afrekeningen(d.tiktok, d.accessToken, d.shopCipher, { vanaf, sortOrder: "ASC" });
   try {
     for await (const a of lijst) {
       const id = String(a.id);
       const tijd = Number(a.statement_time);
-      laatste = tijd;
-      if (tijd < markering && !openIds.has(id)) continue; // af en voor de markering: geen verzoek
+      if (tijd < markering && !openIds.has(id)) { laatste = tijd; continue; } // af en voor de markering: geen verzoek
+      bezigMet = tijd;
       const r = await verwerkAfrekening(d, inst, a);
+      bezigMet = undefined;
+      laatste = tijd;
       if (r.stop) {
         houdVast ??= tijd;
         if (r.winkel) uit.winkel = r.winkel;
@@ -291,9 +315,11 @@ export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<Ru
       if (!stop) throw e;
       uit.winkel = { soort: stop.soort, bericht: stop.message };
     }
-    houdVast ??= laatste === undefined ? markering : laatste + 1;
+    // Een fout midden in een afrekening houdt die afrekening vast; tussen twee afrekeningen de volgende.
+    houdVast ??= bezigMet ?? (laatste === undefined ? markering : laatste + 1);
   }
   const nieuw = houdVast ?? (laatste === undefined ? markering : laatste + 1);
+  // Nooit terug: wat vóór de markering niet af is, staat via NIET_AF toch op de lijst.
   if (nieuw !== (await d.opslag.leesMarkering())) await d.opslag.schrijfMarkering(Math.max(nieuw, markering));
   return uit;
 }
@@ -313,7 +339,8 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
   const herstel = oud?.opnieuwSinds !== undefined;
   // Af en geen knop gedrukt: geen enkel verzoek, ook niet na een gewijzigde koppeling (eis h).
   if (oud && AF.includes(oud.status) && !herstel) return { status: oud.status };
-  if (oud?.status === "onzeker" && !herstel && d.nu() - oud.sinds < ONZEKER_WACHT) return { status: "onzeker" };
+  // Ook na een knopdruk: Moneybird cachet GET, dus binnen 10 minuten kan een aangekomen POST nog onvindbaar zijn.
+  if (oud?.status === "onzeker" && d.nu() - oud.sinds < ONZEKER_WACHT) return { status: "onzeker" };
 
   if (!(await d.opslag.neemSlot(id, d.eigenaar, d.nu() + SLOT_DUUR, d.nu()))) return {}; // bezet: niets doen, niets schrijven
   try {
