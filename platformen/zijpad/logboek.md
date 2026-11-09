@@ -21,4 +21,5 @@
 - Gekozen en gemeten: Codefling (Rust-plugins, 10% afdracht). Alle 855 pluginpagina's die sinds mei bijgewerkt zijn: 73 nieuwe betaalde plugins mei t/m aug van 45 makers, mediaan 23 downloads, 36% 50+ (GEZIEN). Valt af: de uploadregels verbieden AI-werk in betaalde bestanden zonder uitzondering. Cijfer 2. Zie codefling.md.
 - Geen 7 of hoger, dus niets naar Hans.
 - Les: (1) kijk bij een kleine codemarktplaats eerst naar de uploadregels over AI; spelgemeenschappen zijn er streng op. (2) Een pagina die alles uit een aparte API laadt: kijk naar de robots.txt van die API, niet alleen van de site.
-- Volgende run: Umbraco Marketplace (Deens CMS, downloads via NuGet openbaar), Joomla Extensions Directory, Kirby-plugins (Duits), Vector PCショップ (Japanse shareware met ranglijsten). Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
+- Tweede deel van de run: Kommo geschift (niet te meten, winkel zit in het account) en Umbraco Marketplace gemeten (alle 1.086 pakketten, cijfer 2: winkel rekent niet af, downloads zijn ruis).
+- Volgende run: Joomla Extensions Directory, Kirby-plugins (Duits), Vector PCショップ (Japanse shareware met ranglijsten). Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
