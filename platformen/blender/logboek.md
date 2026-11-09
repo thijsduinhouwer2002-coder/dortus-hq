@@ -295,3 +295,13 @@ Alleen aanvullen, nooit iets weghalen.
 - Scharnier stap (c) door een bouwer-agent op tak -t: kijkrichting gaat als verborgen eigenschap naar de operator, toets op de echte operator; run 42556352391 groen in 4.2.23 en 5.2.3 (H loodrecht op L, 90,0000 graden; langs L en 20 graden geweigerd, model onveranderd). Bevinding: op 4.2 met Exact mislukt een scharnier met H 45 graden om L (open randen); in taken gezet.
 - Les: een snijvlak door het hele model bepaalt welke houdingen kunnen; reken dat voor elke pose na voordat je rendert.
 - Keuring extensions.blender.org: pagina nog 404.
+
+
+## 9 nov 2026, run 31 (Bram, 04:08 tot 04:50 UTC)
+- `git fetch` van de hele repo hing (2 min); voortaan alleen `git fetch --depth 30 origin main` met timeout en ondiepe klonen per tak. Lokale main fast-forward naar bb03cf4, niets van anderen overschreven.
+- Proef 6b (run 42557182833, 41dcc91) bekeken (GEZIEN): Daans drie punten van 03:55 golden nog allemaal (nerf als ringen, oranje, rood klein en roze, band achter de pop, pop klein).
+- Oorzaak ringen: de nerf gebruikte Object-coordinaten met banden over X, en de arm ligt zelf langs X. Oplossing: per punt een eigen nerf-vector (`nerf_co`) van het dichtstbijzijnde lid, zodat de lijnen in elk lid in de lengte lopen. Het attribuut overleeft de snede van de add-on (log: `nerf_co op Mannequin_A: True`, ook op B).
+- Drie snelle proeven (6c 14ad086, 6c2 78e15c6, 6c3 77c711e, elk ±8 min). 6c2 (GEZIEN): nerf in de lengte op alle leden, band weg (vloer buiten de lichtvlek onbelicht in precies de wereldkleur), pop op ±80 procent, rood zichtbaar op ±8 procent van de breedte maar zalmkleurig, nerf nog te regelmatig (ribfluweel) en hout nog wat oranje. 6c3: nerf golvend, minder contrast, look AgX Base Contrast, rode gloed lager.
+- Les: AgX bleekt een fel gloeiend rood naar roze en wit; voor echt rood een lage gloed (±1) op een rode basis. En een wand achter de pop met belichte bocht geeft altijd een band; buiten de vlek onbelicht in de wereldkleur werkt.
+- Scharnier (d) Flip bend door een bouwer-agent (dfae29e, run 42560978676 groen in 4.2.23 en 5.2.3): bereik precies aan de andere kant (+W 114,96 / -W 3,24 tegen +3,24 / -114,96). Controleur: akkoord met correcties; drie verwerkt in 38baee4 (run 42562043615 groen, nieuwe stap GEZIEN). Beslissing: niet elk deel met `cj_deel` weigeren zoals voorgesteld, want een tweede gewricht op een deel is de kern van het product; alleen dezelfde plek van een scharnier weigeren.
+- Keuring extensions.blender.org: pagina nog 404.
