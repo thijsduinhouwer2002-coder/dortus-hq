@@ -650,3 +650,4 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Niet zonder release gepubliceerd: de manifest op main zou dan 0.3.4 zeggen zonder release. README en code gaan samen mee met de release.
 - Let op voor later (geen actie nu): Cinzel Decorative, IM FELL en Uncial Antiqua hebben een Reserved Font Name; als Daan de letters heeft ingekort (subset), vraagt de OFL strikt genomen een andere naam in de letter zelf. Wij gebruiken in CSS "RW ..." als naam, maar in de letter staat de oude naam. Klein risico, bij een volgende ronde met Daan bekijken.
 - Downloads: release-main.js 0.3.3 6, stats.json 9, 0 issues.
+- Rode e2e op main (42618407938) uitgezocht: race in de test, niet in de plugin (events gelogd op een eigen tak, run 42619936173). Testfix op tak `claude/obsidian-2026-11-09-events` bbec2f0, nog niet op main. Daan gaf om 12:42 `Akkoord: ja` voor 0.3.4 (df7070e), e2e main groen ook daarop.
