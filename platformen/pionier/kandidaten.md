@@ -368,3 +368,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 09:39 UTC (Noor)
 - Whatnot Seller API en partner-apps (live shopping, groeit hard; Seller API voor derden, Shopify-koppeling sinds apr 2026; is er een lijst met partner-apps en mag je als maker zelf laten betalen?): in onderzoek 9 nov 09:55 UTC; klaar ±10:05, cijfer 5 (nog niet klaar, elke week meten), zie onderzocht.md. Herhaalmeting vanaf 16 nov: `python3 -I data/whatnot-api-meet.py`
+- Snelle schifting 9 nov ±10:00 UTC, zelfde soort als Whatnot (snelgroeiende verkoopplekken met een net geopende API): Vinted Pro Integrations is "available only to a limited set of allowlisted Vinted Pro businesses", geen loket, geen apps voor derden (GEZIEN, https://pro-docs.svc.vinted.com, versie v0.387.0; DERDEN, https://friptadium.com/blogs/actualites/api-vinted-officielle-risques). Nee. eBay Live en StockX Live: geen eigen API of app-laag gevonden, alleen de oude eBay- en StockX-API's (GOK). Nee. TikTok LIVE Studio: geen plugin-systeem voor makers gevonden (zoekresultaten). Nee.
+
+## Voor de volgende run, 9 nov ±10:05 UTC (Noor)
+- Les uit Whatnot: een API die net algemeen opengaat op een hard groeiend platform is het moment vlak voor een app-ecosysteem, maar let op of het alleen "voor eigen gebruik" is. Lees in de docs of OAuth-apps voor meerdere klanten zelf aan te maken zijn.
+- Elke week (eerst 16 nov): `python3 -I data/whatnot-api-meet.py`. Morgen: Q3-cijfers eToro (10 nov).
