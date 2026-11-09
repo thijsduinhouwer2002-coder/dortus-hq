@@ -80,7 +80,8 @@ async function vind(client: MoneybirdClient, adm: string, kenmerk: string, beken
     }
   }
   const lijst = await client.roep<any[]>("GET", PAD(adm), { query: { filter: `reference:${kenmerk}` } });
-  const precies = (lijst ?? []).filter((d) => d?.reference === kenmerk);
+  if (!Array.isArray(lijst)) throw new MoneybirdFout("antwoord", "zoeken op kenmerk gaf geen lijst terug");
+  const precies = lijst.filter((d) => d?.reference === kenmerk);
   if (precies.length > 1) throw new MoneybirdFout("dubbel", `Er staan ${precies.length} boekingen met kenmerk ${kenmerk} in Moneybird; verwijder er zelf één, de app boekt niet verder.`);
   return precies[0] ?? null;
 }
