@@ -1,0 +1,100 @@
+name: Garmin proef (Connect IQ simulator)
+
+# Bouwstraat voor Garmin (Gijs, 9 nov 2026): compileren, Run No Evil-tests en schermafbeeldingen in de echte
+# Connect IQ-simulator. Image ghcr.io/matco/connectiq-tester bevat SDK 9.2.0, apparaten en fonts (2026-08-31).
+# De image draait alleen in de bouw-job zonder schrijfrechten; alleen de job "schermen" mag pushen.
+
+on:
+  push:
+    branches: [main, "claude/garmin-*"]
+    paths: ["producten/garmin-proef/**", ".github/workflows/garmin-proef.yml"]
+  workflow_dispatch:
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      APP: producten/garmin-proef
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen (tot drie pogingen)
+        run: |
+          for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Tests in de simulator (fenix7)
+        run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fenix7
+      - name: Schermafbeeldingen per horloge
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/$APP/schermen"
+          cat > /tmp/schermen.sh <<'SH'
+          set -x
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          simulator > /tmp/sim.log 2>&1 &
+          sleep 8
+          for d in fenix7 venu2 fr265; do
+            monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 || exit 1
+            monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
+            MD=$!
+            sleep 14
+            import -window root "schermen/$d-a.png"
+            sleep 3
+            import -window root "schermen/$d-b.png"
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+          done
+          ls -la schermen
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: garmin-proef-schermen
+          path: producten/garmin-proef/schermen
+          if-no-files-found: warn
+
+  schermen:
+    needs: bouw
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: garmin-proef-schermen
+          path: schermen
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$PWD/schermen"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/garmin-proef/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen garmin-proef/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/garmin-proef/$NAAM"
