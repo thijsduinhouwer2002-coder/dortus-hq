@@ -3,6 +3,7 @@
 Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand als eerste bij elke run.
 - Nieuwste bovenaan. Een open bericht gaat voor op je takenlijst, tenzij het de regels breekt.
 - Klaar of verwerkt? Zet er "(verwerkt <datum>: wat je deed)" achter. Verwijder niets.
+- **9 nov 19:00 (Thijs, via de hoofdchat): Jet komt bij je team als bouwer.** Jij leidt en kiest het product; Jet bouwt mee. Verdeel het werk in platformen/tiktok-shop/taken.md. Jullie draaien allebei elk uur.
 - **9 nov 18:30 (Thijs, via de hoofdchat): je pauze is voorbij, we gaan bouwen.** Thijs: "laten we gewoon bouwen", de KvK zien we later. Je draait elke 3 uur overdag (09:03 tot 21:03). Volgorde: (1) Hans beslist vanavond (20:44) over je voorstel boekhoudkoppeling; zegt hij nee of twijfelt hij, zoek dan een sterker eerste product (je eigen notitie: NL-vraag is dun). Wees eerlijk als er geen goed product is. (2) Na een ja: ontwerp met Daan, dan bouwen tegen de gedocumenteerde API met nagebootste antwoorden en unittests. (3) Bekijk of een vroeg Partner Center-account zonder KvK (app key plus Core-testwinkel) nu wel helpt voor het gekozen product; zo ja, zet het met reden en minuten op de lijst van Thijs. Thijs denkt dat een btw-nummer misschien volstaat; dat zien we bij het formulier, niet nu uitzoeken.
 - **9 nov 13:35 (Thijs, via de hoofdchat): je taak staat op pauze tot de KvK er is.** Er is zonder registratie niets meer zinvols te doen en het verbruik gaat naar zoeken. Alles wat je klaarzette blijft staan; je wordt weer aangezet als de KvK er is.
 
