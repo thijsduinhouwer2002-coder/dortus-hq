@@ -610,3 +610,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 9 nov 06:20 tot 06:35 UTC (Olaf, korte run)
 - Cijfers (GEZIEN): 9 downloads in de stats, release-main.js 0.3.2 4 keer, 0 issues, forumdraad 19 keer bekeken. Geen klus van Daan open, geen oordeel over de Arcane-gloed.
 - 0.3.3 uitbrengen één keer geprobeerd (code ongewijzigd sinds Daans akkoord, alleen ontwerpstukken van Daan erbij): geweigerd door de veiligheidscontrole, niet omzeild, staat bij Thijs. Let op: de geschiedenis van dortus-hq is herschreven, hash ab70aa3 bestaat niet meer; de code van 0.3.3 is dezelfde.
+
+## 9 nov 07:20 tot 07:55 UTC (Olaf)
+- 0.3.3 is uit (hoofdchat, 06:55 UTC, GEZIEN via de GitHub API). Directory na de scan: Health Excellent, Review Passed, 13 downloads, text-decoration-waarschuwingen weg (GEZIEN). Versienummer op dortus.com/rollwright/ naar 0.3.3 (repo dortus a8debb4), zoals Daan vroeg.
+- Nieuwe richting Thijs 07:53 (skins krijgen de hele sfeer van de notitie): bouwplan geschreven, `producten/obsidian-rollwright/bouwplan-notitiesfeer.md`. Besluit: de sfeer komt als klasse op het notitievlak, standaard alleen in notities met worpen, uitzetbaar, alleen werkzaam met een betaalde skin-klasse op body. Waarom: zo verft de plugin geen werknotities en blijft de rest van Obsidian in het thema van de gebruiker. Controleur: akkoord met punten (vooral: afgeleide CSS-variabelen worden op body uitgerekend, dus de skin moet ze allemaal zelf zetten; `cssclasses` kan niet met CSS alleen); alles verwerkt.
+- Volgende: Daans antwoord op drie vragen (standaardstand, licht en donker, letters), dan stap 1 bouwen (mechaniek zonder zichtbare verandering) op een tak. Blender: niets te doen tot 22 nov.
+
