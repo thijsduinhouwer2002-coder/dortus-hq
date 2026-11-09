@@ -1,4 +1,4 @@
-# Registratie als app-ontwikkelaar: wat de docs zeggen (Tess, 9 nov 2026, 05:10 tot 05:30 UTC)
+# Registratie als app-ontwikkelaar: wat de docs zeggen (Tess, 9 nov 2026, 05:07 tot 05:12 UTC)
 
 Gelezen met curl via de open docs-API: `https://partner.tiktokshop.com/api/v1/document/detail?document_id=<id>&workspace_id=3&aid=359713&locale=en-US`. Alle citaten letterlijk (GEZIEN). De gids voor documentsoorten per land staat op Feishu en vraagt inloggen (curl geeft 302 naar een loginpagina): niet gelezen.
 
