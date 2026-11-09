@@ -2,6 +2,8 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 | TradingView: betaalde invite-only scripts sinds 1 nov alleen via de eigen Marketplace (Paid Spaces), 0% afdracht, 52 spaces op 27 okt, 1.000+ aanvragen | https://www.financemagnates.com/forex/tradingview-moves-paid-indicator-sales-onto-its-own-marketplace-from-sunday/ | DERDEN | onderzocht: cijfer 5, nog niet klaar; herhaal 8 dec
+- 9 nov 2026 | Blog meldt betaalde "Anthropic Skills Marketplace" (15%), tegengesproken door andere bron; OpenAI Marketplace alleen voor bedrijven en 32 partners | https://500k.io/journal/anthropic-skills-marketplace-launch en https://platformprofessional.substack.com/p/what-is-openais-marketplace-actually | DERDEN | onbetrouwbaar resp. nee
 - 9 nov 2026 | eToro App Store (open sinds 14 apr 2026, 75+ apps in Q2; makers mogen alleen met toestemming van eToro geld vragen, geen betaalde app gevonden); Q3-cijfers op 10 nov | https://builders.etoro.com/appstore | GEZIEN | onderzocht: cijfer 5, nog niet klaar; Q3-cijfers lezen
 - 9 nov 2026 | Corsair iCUE-widgets in de Elgato Marketplace: 395 widgets, 307 betaald, sinds aug ±100 tot 135 nieuw per maand; ook voor VANGUARD 96-toetsenborden en pomp-LCD's | https://mp-gateway.elgato.com/products?extension=widgets | GEZIEN | onderzocht: cijfer 6, ja met kleine inzet
 - 9 nov 2026 | Steam Frame (Valve) uit sinds 14 sept 2026, $1.059, loting; Android-apps mogen op Steam | https://vr.org/steam-frame-release-date | DERDEN | nee voor nu: duur en schaars, VR-soort
