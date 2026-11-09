@@ -8,9 +8,11 @@ extends Node2D
 
 const HOL := preload("res://hol/hol.gd")
 const TEKST := preload("res://kern/tekst.gd")
-const OPSLAG_VERSIE := 2
+const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
 
+const REGELS := preload("res://kern/regels.gd")
+const VOORTGANG := preload("res://systemen/voortgang.gd")
 const NAMEN := ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 const KLEUREN := ["#3f6fb5", "#8a4fb0", "#3f9a6a", "#c07a2a", "#6a6a7a", "#b0404a"]
 const HOEDEN := ["#b33a3a", "#e0b040", "#2a5aa0", "#3a7a3a", "#7a3a8a", "#d06a2a"]
@@ -36,6 +38,10 @@ var terugkomers: Array = []   # ontsnapte helden die terugkomen
 var held_script
 var eerste_held_gedaan := false   # de eerste held van een nieuw spel valt altijd (balans.md, Sanne)
 var anim_t := 0.0
+var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
+var slijm
+var slijm_plat := false
+var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort
 
 func log_regel(tekst_: String) -> void:
 	print(tekst_)
@@ -86,10 +92,10 @@ func _ready() -> void:
 	wezens.name = "Wezens"
 	hol.add_child(wezens)
 	# Brams slijm (Gloop, gaat nooit dood) als die er is, anders de stand-in
-	var slijm := Node2D.new()
+	slijm = Node2D.new()
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
 	wezens.add_child(slijm)
-	slijm.zet(hol, 10)
+	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
 	if slijm.has_method("stap"):
 		slijm.stap(1.0)   # anders staat Gloop bij de start plat (t = 0 valt in zijn "opveren"); vraag aan Bram in taken.md
 
@@ -98,8 +104,12 @@ func _ready() -> void:
 	tekst.breedte = scherm.size.x
 	tekst.hoogte = hoogte
 	add_child(tekst)
-	# het hol groeit niet onder het tekstvak
-	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 30) / (HOL.KOL * schaal)) - 1
+	# het hol groeit niet onder het tekstvak: de schat staat er rechts tegenaan, het hol groeit naar links
+	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 40) / (HOL.KOL * schaal)) - 1
+	hol.leg_aan(hol.max_kol)
+	slijm.position = hol.cel_naar_pos(Vector2i(hol.schat_kol - 2, 0))
+	regels = REGELS.new()
+	regels.rng = rng
 
 	if not vers:
 		laad()
@@ -115,6 +125,12 @@ func _kroniek(r: String) -> void:
 		kroniek.remove_at(0)
 	tekst.zet(kroniek, hol.goud)
 	log_regel("HOL kroniek: " + r)
+
+# naam met bijnaam voor een terugkomer ("Kees the Twice-Fled", of "Pim the Hoard-Toucher")
+func _held_naam(info: Dictionary) -> String:
+	if bool(info.get("hoard_toucher", false)):
+		return "%s the Hoard-Toucher" % info.naam
+	return "%s %s" % [info.naam, _bijnaam(int(info.get("bezoeken", 0)))]
 
 func _bijnaam(n: int) -> String:
 	match n:
@@ -137,19 +153,45 @@ func _vrije_naam() -> String:
 			vrij.append(n)
 	if vrij.is_empty():
 		return NAMEN[rng.randi_range(0, NAMEN.size() - 1)]
-	return vrij[rng.randi_range(0, vrij.size() - 1)]
+	# eerst namen die nog nooit vielen; anders een naamgenoot met II of III, na III een andere naam
+	var nooit: Array = vrij.filter(func(n): return not gevallen_namen.has(n))
+	if not nooit.is_empty():
+		return nooit[rng.randi_range(0, nooit.size() - 1)]
+	var kan: Array = vrij.filter(func(n): return int(gevallen_namen[n]) < 3)
+	if kan.is_empty():
+		kan = vrij
+	var n: String = kan[rng.randi_range(0, kan.size() - 1)]
+	return n + (" II" if int(gevallen_namen.get(n, 0)) == 1 else " III")
 
 func _nieuwe_held() -> void:
 	var info := {}
-	if not terugkomers.is_empty() and rng.randf() < 0.5:
-		info = terugkomers.pop_at(rng.randi_range(0, terugkomers.size() - 1))
-		_kroniek("%s %s is back!" % [info.naam, _bijnaam(int(info.bezoeken))])
-		_kroniek("Grudge: %s." % info.wrok)
+	# volgende held is een terugkomer: 25% (sim/UITKOMST.md); in de demo 50%, zodat de film een wrok laat zien.
+	# Een aartsvijand (3 keer gevlucht) die aan de beurt is komt maar 15% van de keren.
+	var kies := -1
+	if not terugkomers.is_empty() and rng.randf() < (0.5 if demo else 0.25):
+		kies = rng.randi_range(0, terugkomers.size() - 1)
+		if int(terugkomers[kies].bezoeken) >= 3 and rng.randf() >= 0.15:
+			kies = -1
+	if kies >= 0:
+		info = terugkomers.pop_at(kies)
+		var w: String = String(info.wrok)
+		if int(info.bezoeken) >= 3:
+			_kroniek(regels.kies("aartsvijand", {"naam": info.naam}))
+		elif w == slijm.naam():
+			_kroniek(regels.kies("terug_bewoner", {"naam": info.naam, "held": _held_naam(info), "bewoner": slijm.bijnaam_naam}))
+		elif w.begins_with("the "):
+			_kroniek(regels.kies("terug_val", {"naam": info.naam, "held": _held_naam(info), "val": w}))
+		else:
+			_kroniek(regels.kies("terug", {"naam": info.naam, "held": _held_naam(info)}))
 	else:
-		info = {"naam": _vrije_naam(), "bezoeken": 0, "wrok": "",
+		var naam := _vrije_naam()
+		info = {"naam": naam, "bezoeken": 0, "wrok": "",
 			"kleur": KLEUREN[rng.randi_range(0, KLEUREN.size() - 1)], "hoed": HOEDEN[rng.randi_range(0, HOEDEN.size() - 1)],
 			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 3)}
-		_kroniek("%s the hero climbs in." % info.naam)
+		if naam.ends_with(" II") or naam.ends_with(" III"):
+			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}))
+		else:
+			_kroniek(regels.kies("binnen", {"naam": naam}))
 	if not eerste_held_gedaan:
 		info["moet_vallen"] = true
 		eerste_held_gedaan = true
@@ -173,17 +215,46 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		var oud_wrok: String = String(info.get("wrok", ""))
 		bewaar.wrok = info.get("laatst_geraakt", oud_wrok if oud_wrok != "" else "your Hoard")
 		bewaar.erase("laatst_geraakt")
-		terugkomers.append(bewaar)
+		# 60% van wie vlucht komt ooit terug, aartsvijanden altijd (sim/UITKOMST.md); in de demo iedereen.
+		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
+		if demo or bewaar.bezoeken >= 3 or rng.randf() < 0.6:
+			terugkomers.append(bewaar)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
-		_kroniek("%s fled. Now: %s %s." % [info.naam, info.naam, _bijnaam(bewaar.bezoeken)])
+		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):
+			_kroniek(regels.kies("schat", {"naam": info.naam}))
+		else:
+			var w: String = String(bewaar.wrok)
+			_kroniek(regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
 	else:
-		var buit := 3 + 2 * int(info.get("bezoeken", 0))
+		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
+		var buit := 6 + 3 * int(info.get("bezoeken", 0))
 		hol.goud += buit
-		_kroniek("%s %s." % [info.naam, info.get("wat", "fell")])
-		_kroniek("+%d gold for your hoard." % buit)
+		var naam: String = String(info.naam)
+		var basis := naam.split(" ")[0]
+		gevallen_namen[basis] = int(gevallen_namen.get(basis, 0)) + 1
+		hol.munt_regen(hol.pos_naar_cel(_held.position).x)
+		var wat: String = String(info.get("wat", "fell"))
+		var r := ""
+		if wat.begins_with("finally"):
+			r = regels.kies("afgerekend", {"naam": naam, "bewoner": slijm.bijnaam_naam})
+		elif wat.ends_with(slijm.naam()):
+			r = regels.kies("val_bewoner", {"naam": naam, "bewoner": slijm.bijnaam_naam})
+		else:
+			r = regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")})
+		_kroniek("%s +%d" % [r, buit])
 
 func _process(delta: float) -> void:
 	t += delta
+	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7). In de demo is hij 7,5 keer zo snel
+	# weer op (±8 s in plaats van 60), net als de helden in de demo sneller komen (punt 1).
+	if slijm and slijm.has_method("kan_vechten"):
+		var nu_plat: bool = not slijm.kan_vechten()
+		if demo and nu_plat:
+			slijm.stap(delta * 6.5)
+			nu_plat = not slijm.kan_vechten()
+		if nu_plat != slijm_plat:
+			slijm_plat = nu_plat
+			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": slijm.bijnaam_naam}))
 	var helden := 0
 	for w in wezens.get_children():
 		if w.has_method("is_held"):
@@ -207,8 +278,8 @@ func _process(delta: float) -> void:
 	if demo and t >= volgende_graaf:
 		# demo: om en om een stuk gang erbij en een kamer boven de gang, zodat de film graven laat zien
 		volgende_graaf = t + 9.0
-		var k: int = hol.schat_kol + 1
-		if int(t / 9.0) % 2 == 0 and k < hol.kolommen:
+		var k: int = hol.ingang_kol - 1
+		if int(t / 9.0) % 2 == 0 and k >= 0:
 			hol.klik(hol.cel_naar_pos(Vector2i(k, 0)) - Vector2(0, 6))
 		else:
 			for kk in range(hol.ingang_kol + 2, hol.schat_kol - 1):
@@ -241,7 +312,7 @@ func _notification(what: int) -> void:
 
 func bewaar() -> void:
 	var data := {"versie": OPSLAG_VERSIE, "tijd": Time.get_unix_time_from_system(), "gang": hol.gang, "boven": hol.boven,
-		"eerste_held_gedaan": eerste_held_gedaan, "vallen": hol.vallen,
+		"eerste_held_gedaan": eerste_held_gedaan, "vallen": hol.vallen, "ingang_kol": hol.ingang_kol, "gevallen_namen": gevallen_namen,
 		"schat_kol": hol.schat_kol, "goud": hol.goud, "terugkomers": terugkomers, "kroniek": kroniek}
 	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
 	if f:
@@ -255,6 +326,9 @@ func laad() -> void:
 	if typeof(data) != TYPE_DICTIONARY:
 		log_regel("HOL opslag onleesbaar, vers begin")
 		return
+	if int(data.get("versie", 0)) < OPSLAG_VERSIE:
+		log_regel("HOL opslag van een oudere versie, vers begin")
+		return
 	var g: Array = data.get("gang", [])
 	for i in mini(g.size(), hol.kolommen):
 		hol.gang[i] = bool(g[i])
@@ -264,13 +338,30 @@ func laad() -> void:
 	var b: Array = data.get("boven", [])
 	for i in mini(b.size(), hol.kolommen):
 		hol.boven[i] = bool(b[i])
-	hol.schat_kol = clampi(int(data.get("schat_kol", hol.schat_kol)), 0, hol.kolommen - 1)
+	hol.schat_kol = clampi(int(data.get("schat_kol", hol.schat_kol)), 0, mini(hol.max_kol, hol.kolommen - 1))
+	hol.ingang_kol = clampi(int(data.get("ingang_kol", hol.ingang_kol)), 0, hol.schat_kol - 1)
+	var gn = data.get("gevallen_namen", {})
+	for n in gn:
+		gevallen_namen[String(n)] = int(gn[n])
+	slijm.position = hol.cel_naar_pos(Vector2i(hol.schat_kol - 2, 0))
 	hol._schatkamer()
 	eerste_held_gedaan = bool(data.get("eerste_held_gedaan", true))
 	hol.goud = int(data.get("goud", 0))
 	terugkomers = data.get("terugkomers", [])
 	for r in data.get("kroniek", []):
 		kroniek.append(String(r))
+	# terwijl je weg was (Bram, voortgang.gd): alleen winst, plafond 12 uur, 2 tot 3 regels met namen
+	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), hol.vallen.size(), 1, 7)
+	if int(weg.helden) > 0:
+		hol.goud += int(weg.goud)
+		var helden_d := {}
+		for h in terugkomers:
+			helden_d[String(h.naam)] = {"gevlucht": int(h.bezoeken), "wrok": String(h.get("wrok", ""))}
+		var namen := [slijm.naam()]
+		if not hol.vallen.is_empty():
+			namen.append("the Spike Pit")
+		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
+			kroniek.append(r)
 	hol.queue_redraw()
 	tekst.zet(kroniek, hol.goud)
 	log_regel("HOL opslag geladen: %d terugkomers, %d goud" % [terugkomers.size(), hol.goud])

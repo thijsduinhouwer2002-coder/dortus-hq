@@ -4,7 +4,9 @@ extends Node2D
 # - de onderste rij is de gang waar helden lopen (in de afspraak met Bram is dat cel.y == 0);
 # - de bovenste rij is aarde, behalve de schacht bij de ingang, de schatkamer achteraan (twee rijen hoog)
 #   en kamers die je zelf graaft.
-# Het hol groeit in de breedte. Afspraak met Bram (platformen/steam/taken.md): alleen deze functies en signalen gebruiken.
+# Het hol groeit in de breedte, naar links: de schat staat rechts tegen het tekstvak (Sanne toets 2, punt 0 en 6),
+# zodat het tekstvak nooit over de schat ligt en het rechterdeel van de strook nooit leeg is. Graven links van de
+# ingang schuift de ingang mee naar links. Afspraak met Bram (platformen/steam/taken.md): alleen deze functies en signalen gebruiken.
 
 signal gegraven(cel: Vector2i)
 
@@ -34,6 +36,8 @@ var max_kol := 9999           # verder graven niet: daar staat de tekst van de s
 var goud := 0                 # buit van gevallen helden; nooit iets kwijt als je weg bent
 var anim := 0                 # beeldje van fakkels en schat; loopt alleen als er toch al getekend wordt
 var put_open := {}            # kolom -> tijd tot de put weer dicht gaat (na een klap)
+var munten: Array = []        # vliegende muntjes van een val naar de schat: {van, t}
+const MUNT_S := 0.9           # zo lang vliegt een muntje
 
 func maak(breedte_spelpixels: int) -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -46,6 +50,24 @@ func maak(breedte_spelpixels: int) -> void:
 	_schatkamer()
 	vallen[7] = "stekelput"
 	queue_redraw()
+
+# leg het begin-hol aan met de schat op kolom s (rechts, tegen het tekstvak) en de ingang lengte kolommen ervoor
+func leg_aan(s: int, lengte := 10) -> void:
+	schat_kol = clampi(s, 2, kolommen - 1)
+	ingang_kol = maxi(0, schat_kol - lengte)
+	for i in kolommen:
+		gang[i] = i >= ingang_kol and i <= schat_kol
+		boven[i] = false
+	_schatkamer()
+	vallen.clear()
+	vallen[mini(ingang_kol + 5, schat_kol - 3)] = "stekelput"
+	queue_redraw()
+
+# drie muntjes vliegen van kolom k naar de schat (Sanne toets 2, punt 2: goud zie je binnenkomen)
+func munt_regen(k: int, n := 3) -> void:
+	for i in n:
+		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
+	set_process(true)
 
 # de schatkamer achteraan is twee rijen hoog (Sanne, 9 nov 19:00)
 func _schatkamer() -> void:
@@ -98,7 +120,12 @@ func _process(delta: float) -> void:
 		if put_open[k] <= 0.0:
 			put_open.erase(k)
 			queue_redraw()
-	if put_open.is_empty():
+	for m in munten:
+		m.t += delta
+	munten = munten.filter(func(m): return m.t < MUNT_S)
+	if not munten.is_empty():
+		queue_redraw()
+	if put_open.is_empty() and munten.is_empty():
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
@@ -121,6 +148,13 @@ func klik(pos: Vector2) -> String:
 	if not gang[k]:
 		if k > max_kol:
 			return ""
+		# links van de ingang graven: de ingang schuift mee, zo groeit het hol naar links
+		if k == ingang_kol - 1:
+			gang[k] = true
+			ingang_kol = k
+			queue_redraw()
+			gegraven.emit(Vector2i(k, 0))
+			return "gegraven"
 		# alleen graven naast een bestaande gang; de schat verhuist mee naar het einde, de oude kamer blijft staan
 		if (k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1]):
 			gang[k] = true
@@ -215,3 +249,13 @@ func _draw() -> void:
 		draw_texture_rect_region(DECO, Rect2(schat_kol * KOL, OPP + 1, KOL, KOL), Rect2(8 * KOL, 0, KOL, KOL))
 	var sf := (anim / 2) % 4
 	draw_texture_rect_region(SCHAT, Rect2(schat_kol * KOL - 4, vloer - 15, 24, 16), Rect2(sf * 24, 0, 24, 16))
+	# vliegende muntjes: een boogje van de val naar de schat, 2 bij 2 spelpixels met een donkere rand
+	var doel := schat_kol * KOL + KOL / 2.0
+	for m in munten:
+		if m.t < 0.0:
+			continue
+		var f: float = m.t / MUNT_S
+		var x: float = lerpf(m.van, doel, f)
+		var y: float = vloer - 6 - sin(f * PI) * 12
+		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
+		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
