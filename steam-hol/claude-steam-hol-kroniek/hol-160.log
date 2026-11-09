@@ -1,29 +1,30 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 7.0 (wacht 0.0): Bram climbs into your hole.
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Bram climbs into your hole.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 3
-HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
+HOL kroniek 11.5 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
-HOL kroniek 14.1 (wacht 1.7): Odo has a map. It is wrong.
+HOL kroniek 14.0 (wacht 1.7): Odo has a map. It is wrong.
 HOL gegraven kolom 4
-HOL kroniek 19.0 (wacht 0.0): Ties brought a torch. And hope.
+HOL kroniek 18.9 (wacht 0.0): Ties brought a torch. And hope.
 HOL begin: doorlopen (Ties)
 HOL kroniek 24.8 (wacht 0.0): Odo stays forever. +6
 HOL begin: opgegeten2 (Fenna)
 HOL gegraven kolom 5
-HOL kroniek 27.4 (wacht 2.5): Gloop wears Odo's hat now.
-HOL kroniek vervallen 28.0: Fenna read about you in a tavern.
-HOL kroniek 29.9 (wacht 4.7): Bram fled. Grudge: the Spike Pit.
+HOL kroniek 27.3 (wacht 2.5): Gloop wears Odo's hat now.
+HOL kroniek vervallen 27.9: Fenna read about you in a tavern.
+HOL kroniek 29.8 (wacht 4.7): Bram fled. Grudge: the Spike Pit.
 HOL begin: terug (Bram)
-HOL kroniek vervallen 31.9: Gloop is flat. Back soon.
+HOL kroniek vervallen 31.8: Gloop is flat. Back soon.
 HOL kroniek 32.4 (wacht 1.7): Bram limps back to the Spike Pit.
-HOL kroniek 35.0 (wacht 3.3): Ties tried to lift it. Too heavy.
-HOL kroniek 37.9 (wacht 0.0): Gloop is up again. Wobbly.
-HOL kroniek 39.9 (wacht 0.0): Fenna touched your hoard!
-HOL kroniek 42.4 (wacht 0.2): Gloop is flat. Back soon.
-HOL kroniek 43.4 (wacht 0.2): Ties ran off, giggling.
-HOL kroniek 46.0 (wacht 2.7): Ties is back for Gloop.
-HOL einde na 50 s, fps=15, goud=12, terugkomers=0
+HOL kroniek 34.9 (wacht 3.3): Ties tried to lift it. Too heavy.
+HOL kroniek 37.8 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 39.8 (wacht 0.0): Fenna touched your hoard!
+HOL kroniek 42.4 (wacht 0.7): Bram came back once too often. +9
+HOL kroniek vervallen 44.8: Pim knocks first. Polite.
+HOL kroniek 44.9 (wacht 1.7): Ties ran. Hands smell of gold.
+HOL kroniek 49.5 (wacht 0.0): Ties wrote a song about Gloop.
+HOL einde na 50 s, fps=15, goud=21, terugkomers=0
