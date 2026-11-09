@@ -1,0 +1,202 @@
+// D1-versie van de interface Opslag (ontwerp-d1-worker.md, punt 2). Eén exemplaar per winkel en per aanroep.
+// Lezen per afrekening in één batch, schrijven gebundeld met de volgende statuswissel, slot altijd vers.
+import { GEBOEKT } from "../verwerk.ts";
+import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag } from "../opslag.ts";
+
+/** Het deel van de D1-API dat we gebruiken (Cloudflare D1Database), zodat de tests een nagebootste versie kunnen geven. */
+export interface D1Statement {
+  bind(...waarden: unknown[]): D1Statement;
+  all<T = Record<string, unknown>>(): Promise<{ results: T[] }>;
+  run(): Promise<{ meta: { changes: number } }>;
+  first<T = Record<string, unknown>>(): Promise<T | null>;
+}
+export interface D1 {
+  prepare(sql: string): D1Statement;
+  batch(stmts: D1Statement[]): Promise<Array<{ results?: unknown[]; meta: { changes: number } }>>;
+}
+/** Budget uit src/budget.ts: `neem` voor nieuw werk, `neemAfmaken` voor schrijven. */
+export interface Teller {
+  neem(): void;
+  neemAfmaken(): void;
+}
+
+/** Afgerond: bewaarde bestellingen en transacties mogen weg (ontwerp punt 3), dezelfde lijst als in verwerk.ts.
+ * `wacht_op_abonnement` hoort er niet bij; `fout` en `fout_gegevens` blijven staan tot het opruimen per cron. */
+export const AF = GEBOEKT;
+/** Een rij boven deze grootte wordt niet bewaard (D1: hoogstens 2 MB per rij). */
+export const MAX_RIJ = 1_500_000;
+
+interface Geheugen {
+  transacties?: BewaardeTransacties;
+  bestellingen: Map<string, BewaardeBestelling>;
+}
+
+export class D1Opslag implements Opslag {
+  private wachtrij: D1Statement[] = [];
+  private geheugen = new Map<string, Geheugen>();
+  private markering: { waarde: number | undefined } | undefined;
+  schrijfacties = 0;
+
+  private readonly db: D1;
+  private readonly winkel: string;
+  private readonly teller: Teller;
+
+  constructor(db: D1, winkel: string, teller: Teller) {
+    this.db = db;
+    this.winkel = winkel;
+    this.teller = teller;
+  }
+
+  // ---- slot ----
+  async neemSlot(id: string, eigenaar: string, tot: number, nu: number): Promise<boolean> {
+    this.teller.neem();
+    // Na het slot alles vers; staat er nog iets in de wachtrij (na een mislukte batch), dan blijft het geheugen staan.
+    if (!this.wachtrij.length) this.geheugen.delete(id);
+    const r = await this.db
+      .prepare(
+        `INSERT INTO sloten (winkel, statement_id, eigenaar, tot) VALUES (?, ?, ?, ?)
+         ON CONFLICT(winkel, statement_id) DO UPDATE SET eigenaar = excluded.eigenaar, tot = excluded.tot
+         WHERE sloten.tot <= ? OR sloten.eigenaar = excluded.eigenaar`,
+      )
+      .bind(this.winkel, id, eigenaar, tot, nu)
+      .run();
+    return r.meta.changes === 1;
+  }
+
+  async slotTot(id: string, eigenaar: string): Promise<number | null> {
+    const lees = this.db.prepare(`SELECT eigenaar, tot FROM sloten WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id);
+    const uit = await this.batchMetWachtrij([lees]);
+    const rij = (uit.at(-1)?.results?.[0] ?? null) as { eigenaar: string; tot: number } | null;
+    return rij && rij.eigenaar === eigenaar ? Number(rij.tot) : null;
+  }
+
+  async geefSlotTerug(id: string, eigenaar: string): Promise<void> {
+    await this.batchMetWachtrij([this.db.prepare(`DELETE FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ?`).bind(this.winkel, id, eigenaar)]);
+  }
+
+  // ---- status ----
+  async leesStatus(id: string): Promise<AfrekeningStatus | undefined> {
+    this.teller.neem();
+    const rij = await this.db.prepare(`SELECT gegevens FROM statussen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id).first<{ gegevens: string }>();
+    return rij ? (JSON.parse(rij.gegevens) as AfrekeningStatus) : undefined;
+  }
+
+  async schrijfStatus(id: string, s: AfrekeningStatus): Promise<void> {
+    this.schrijfacties++;
+    const st = this.db
+      .prepare(
+        `INSERT INTO statussen (winkel, statement_id, status, statement_time, opnieuw_sinds, gegevens) VALUES (?, ?, ?, ?, ?, ?)
+         ON CONFLICT(winkel, statement_id) DO UPDATE SET status = excluded.status, statement_time = excluded.statement_time,
+         opnieuw_sinds = excluded.opnieuw_sinds, gegevens = excluded.gegevens`,
+      )
+      .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s));
+    const extra = [st];
+    if (AF.includes(s.status) && s.opnieuwSinds === undefined) {
+      // Met opnieuwSinds loopt "opnieuw boeken" nog (staat via leesOpen op de lijst): dan niets weggooien.
+      // Af: wat voor deze afrekening nog in de wachtrij of in D1 staat hoeft niet meer bewaard (opnieuw boeken haalt opnieuw op).
+      extra.push(
+        this.db.prepare(`DELETE FROM bestellingen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+        this.db.prepare(`DELETE FROM transacties WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+      );
+      this.geheugen.delete(id);
+    }
+    await this.batchMetWachtrij(extra);
+  }
+
+  // ---- transacties en bestellingen ----
+  private async laad(id: string): Promise<Geheugen> {
+    const g = this.geheugen.get(id);
+    if (g) return g;
+    this.teller.neem();
+    const [t, b] = await this.db.batch([
+      this.db.prepare(`SELECT gegevens FROM transacties WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+      this.db.prepare(`SELECT order_id, gegevens FROM bestellingen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+    ]);
+    const nieuw: Geheugen = { bestellingen: new Map() };
+    const tr = (t.results?.[0] ?? null) as { gegevens: string } | null;
+    if (tr) nieuw.transacties = JSON.parse(tr.gegevens);
+    for (const r of (b.results ?? []) as Array<{ order_id: string; gegevens: string }>) nieuw.bestellingen.set(r.order_id, JSON.parse(r.gegevens));
+    this.geheugen.set(id, nieuw);
+    return nieuw;
+  }
+
+  async leesTransacties(id: string) {
+    const t = (await this.laad(id)).transacties;
+    return t ? structuredClone(t) : undefined;
+  }
+
+  async leesBestelling(id: string, orderId: string) {
+    const b = (await this.laad(id)).bestellingen.get(orderId);
+    return b ? structuredClone(b) : undefined;
+  }
+
+  async schrijfTransacties(id: string, t: BewaardeTransacties): Promise<void> {
+    this.schrijfacties++;
+    (await this.geheugenVoorSchrijven(id)).transacties = structuredClone(t);
+    const json = JSON.stringify(t);
+    if (json.length > MAX_RIJ) return; // alleen in het geheugen van deze aanroep; te groot om te bewaren
+    this.wachtrij.push(
+      this.db
+        .prepare(`INSERT INTO transacties (winkel, statement_id, gegevens, opgehaald_op) VALUES (?, ?, ?, ?) ON CONFLICT(winkel, statement_id) DO UPDATE SET gegevens = excluded.gegevens, opgehaald_op = excluded.opgehaald_op`)
+        .bind(this.winkel, id, json, t.opgehaaldOp),
+    );
+  }
+
+  async schrijfBestelling(id: string, orderId: string, b: BewaardeBestelling): Promise<void> {
+    this.schrijfacties++;
+    (await this.geheugenVoorSchrijven(id)).bestellingen.set(orderId, structuredClone(b));
+    const json = JSON.stringify(b);
+    if (json.length > MAX_RIJ) return;
+    this.wachtrij.push(
+      this.db
+        .prepare(`INSERT INTO bestellingen (winkel, statement_id, order_id, gegevens, opgehaald_op) VALUES (?, ?, ?, ?, ?) ON CONFLICT(winkel, statement_id, order_id) DO UPDATE SET gegevens = excluded.gegevens, opgehaald_op = excluded.opgehaald_op`)
+        .bind(this.winkel, id, orderId, json, b.opgehaaldOp),
+    );
+  }
+
+  private async geheugenVoorSchrijven(id: string): Promise<Geheugen> {
+    // Schrijven zonder eerst te lezen komt in verwerk.ts niet voor; laad dan toch, zodat het geheugen compleet blijft.
+    return this.geheugen.get(id) ?? (await this.laad(id));
+  }
+
+  // ---- lijst en markering ----
+  async leesOpen(open: string[]) {
+    this.teller.neem();
+    const plekken = open.map(() => "?").join(", ") || "''";
+    const r = await this.db
+      .prepare(`SELECT statement_id, statement_time FROM statussen WHERE winkel = ? AND (status IN (${plekken}) OR opnieuw_sinds IS NOT NULL)`)
+      .bind(this.winkel, ...open)
+      .all<{ statement_id: string; statement_time: number }>();
+    return r.results.map((x) => ({ statementId: x.statement_id, statementTime: Number(x.statement_time) }));
+  }
+
+  /** Eén keer uit D1, daarna uit het geheugen (ontwerp: verwerk.ts leest hem aan het eind opnieuw). */
+  async leesMarkering(): Promise<number | undefined> {
+    if (this.markering) return this.markering.waarde;
+    this.teller.neem();
+    const r = await this.db.prepare(`SELECT markering FROM winkels WHERE id = ?`).bind(this.winkel).first<{ markering: number | null }>();
+    this.markering = { waarde: r?.markering ?? undefined };
+    return this.markering.waarde;
+  }
+
+  async schrijfMarkering(t: number): Promise<void> {
+    this.schrijfacties++;
+    const [r] = await this.batchMetWachtrij([this.db.prepare(`UPDATE winkels SET markering = ? WHERE id = ?`).bind(t, this.winkel)]);
+    if (r.meta.changes !== 1) throw new Error(`winkel ${this.winkel} bestaat niet in D1; markering niet bewaard`);
+    this.markering = { waarde: t };
+  }
+
+  /** Aan het eind van de aanroep: wat nog in de wachtrij staat wegschrijven. */
+  async klaar(extra: D1Statement[] = []): Promise<void> {
+    if (this.wachtrij.length || extra.length) await this.batchMetWachtrij(extra);
+  }
+
+  /** Wachtrij plus `extra` in één batch (één transactie). Afmaken: mag de reserve gebruiken. */
+  private async batchMetWachtrij(extra: D1Statement[]) {
+    this.teller.neemAfmaken();
+    const stmts = [...this.wachtrij, ...extra];
+    const uit = await this.db.batch(stmts);
+    this.wachtrij = []; // pas na gelukte batch: bij een fout blijft alles staan voor een volgende poging
+    return uit.slice(stmts.length - extra.length);
+  }
+}
