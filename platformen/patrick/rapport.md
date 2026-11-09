@@ -56,6 +56,8 @@ Bestanden die nog niet bestaan en dus mee moeten: `organisatie/sjablonen/status.
 - **Eerst de regels van een plek lezen.** De Reddit-post voor Rollwright stond dagen klaar; Thijs zag zelf dat r/ObsidianMD door AI gemaakte promotie verbiedt en een eerste post met ban bestraft. Staat nu als regel in `07-regels.md`, deel "Gevonden worden".
 - **Zes rollen staan uit** (verkenner, pionier, zijpadzoeker, herweger, strateeg, commercieel). Zet ze in `organisatie/rollen/uit/`, dan leest niemand ze per ongeluk.
 
+- **Weeklimiet: niemand houdt hem nog in de gaten.** Volgens de (nu uitgezette) herinnering "Verbruik-check" stond het account maandag 9 nov 13:40 op 55% van de weeklimiet, die woensdag 21:00 reset (GEZIEN in de opdracht van die herinnering). Daarna kwamen Sanne, Mila, Gijs en Patrick erbij, en Thijs wil niet meer naar verbruik gevraagd worden. Raakt de limiet op, dan stoppen alle runs tegelijk, ook die van het Steam-team, en dat merkt niemand tot Thijs kijkt. Advies: de hoofdchat leest bij elke compagnon-ronde het percentage af als Thijs het in het paneel zet (één getal, geen vraag), en heeft een vaste noodknop klaar: boven 85% gaan Daan, Mila, Sanne en Gijs naar om de 3 uur tot de reset. Voorstel 01 tot 03 helpen hier ook direct.
+
 ## Wat ik nog doe (runs 2 tot 5)
 - Rollen van de actieve Claudes nalopen op dubbel en tegenstrijdig (hoofdmanager.md is gestapeld: "je draait om 20:44" en daarna "twee keer per dag").
 - Werkwijze per team meten: hoeveel runs eindigen zonder uitkomst, waar wacht iemand op een ander.
