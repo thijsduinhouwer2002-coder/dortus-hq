@@ -1,0 +1,27 @@
+Blender 5.2.3 LTS, scherf 0/20, snel False
+Blender 5.2.3 LTS, scherf 1/20, snel False
+Blender 5.2.3 LTS, scherf 10/20, snel False
+Blender 5.2.3 LTS, scherf 11/20, snel False
+Blender 5.2.3 LTS, scherf 12/20, snel False
+Blender 5.2.3 LTS, scherf 13/20, snel False
+Blender 5.2.3 LTS, scherf 14/20, snel False
+Blender 5.2.3 LTS, scherf 15/20, snel False
+Blender 5.2.3 LTS, scherf 16/20, snel False
+Blender 5.2.3 LTS, scherf 17/20, snel False
+Blender 5.2.3 LTS, scherf 18/20, snel False
+Blender 5.2.3 LTS, scherf 19/20, snel False
+Blender 5.2.3 LTS, scherf 2/20, snel False
+Blender 5.2.3 LTS, scherf 3/20, snel False
+Blender 5.2.3 LTS, scherf 4/20, snel False
+Blender 5.2.3 LTS, scherf 5/20, snel False
+Blender 5.2.3 LTS, scherf 6/20, snel False
+Blender 5.2.3 LTS, scherf 7/20, snel False
+Blender 5.2.3 LTS, scherf 8/20, snel False
+Blender 5.2.3 LTS, scherf 9/20, snel False
+MOOI KLAAR
+deel A foute randen 0, deel B foute randen 0
+gloed: compositor aan
+plaats: {'FINISHED'}, kogel 3.5 mm, passing groen, wand 1.564, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
+pop: 145142 vlakken, foute randen 0, solver MANIFOLD
+richting 3, grens 20
+beelden: 435
