@@ -2,11 +2,12 @@
 
 ## 0.3.4
 
-- The paid skins now change the whole note, not only the dice. With Parchment a note with rolls becomes old parchment: paper, ink, old letters, a red wax seal on a natural 20. With Arcane it becomes a torch-lit dungeon of dark stone. Only the note changes; the rest of Obsidian keeps your theme. The free Classic skin is unchanged.
+- The paid skins now change the whole note, not only the dice. With Parchment a note with rolls becomes old parchment: paper, ink, old letters, a red wax seal on a natural 20. With Arcane it becomes a torch-lit dungeon of dark stone. Only the note and the Roll log change; the rest of Obsidian keeps your theme. The free Classic skin is unchanged.
 - New setting for paid skins, "Skin the note too": Notes with rolls (default), All notes or Off. Per note you can add `rollwright-world` or `rollwright-plain` to the cssclasses property.
+- The dice are redrawn too. Parchment is a paper chip with ink, also in a dark theme. Arcane is dark stone lit by fire, no longer a night sky.
 - The Roll log is redrawn for each paid skin: a chronicle on parchment, or stone tablets in Arcane.
 - In the settings, each paid skin tile says in one line what it does to your notes.
-- Table results stay readable in every skin and theme, and a dice code that cannot be read still looks like an error in the paid skins.
+- Table results stay readable in the paid skins, in light and dark mode, and a dice code that cannot be read still looks like an error.
 
 ## 0.3.3
 
