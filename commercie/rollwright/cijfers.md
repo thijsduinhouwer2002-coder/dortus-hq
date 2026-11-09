@@ -129,3 +129,8 @@ Eerlijk: het forumbericht gaf in 7 uur geen meetbare downloads (GEZIEN). Of de t
 | Sterren, open issues | 0, 0 | GEZIEN |
 
 Wat dit zegt: de 9 in de stats zijn de downloads van de releases op GitHub, de 4 op de listing tellen iets anders (installaties). Voor de meting van Reddit gebruik ik voortaan de stats (elke dag ±00:15 UTC) als hoofdcijfer, want daar staan ook de concurrenten in. Nulpunt vóór r/ObsidianMD: 9.
+
+## Stand 9 nov 2026, 09:50 UTC (run 28, GEZIEN)
+- `community-plugin-stats.json`: 9 downloads (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 1; 0.3.3 nog niet in de stats). Nulpunt voor r/ObsidianMD blijft 9.
+- `community-plugins.json`: korte tekst is nu de nieuwe ("... A natural 20 lands in gold ... keep your rolls in a Roll log"), dus de lijst in de app loopt niet meer achter (advies 29 helemaal klaar).
+- Forumdraad: 1 bericht, 19 keer bekeken, 0 likes, niet gesloten. Repo: 0 sterren, 0 open issues. Release 0.3.3 staat (9 nov 06:55 UTC).

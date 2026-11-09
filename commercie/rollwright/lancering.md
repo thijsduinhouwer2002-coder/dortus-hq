@@ -574,3 +574,57 @@ De hoofdchat zet de link, datum en de volledige tekst in `commercie/rollwright/b
 
 ### Keuring run 26
 Controleur (los van mij; 17 beelden uit de mp4 plus het laatste, README, LICENSE, CHANGELOG en code van 0.3.3, forumbericht, links en gedragscode met curl): **akkoord mits**. Moet, verwerkt: (1) de eerlijke alinea miste de vonken, het rode waas en de titelkaarten, en "are added" werd "were added"; (2) "tumbles" klopt niet meer voor de gratis Classic sinds 0.3.2; (3) het concept "look like the window in the video" beloofde te veel, want gratis neemt de kleuren en letters van je eigen thema. Kan, verwerkt: handout en kaarten in het rijtje van de snippet, "every roll you click" in het antwoord over Dice Roller, zachtere zin over de snippet met de CC BY-voorwaarde. Bevestigd: alle beweringen kloppen met 0.3.3 (ook "highest possible roll lands in gold": MAX krijgt dezelfde gouden stijl), alle links 200 (github.com gaf via de proxy 504, de API zegt publiek en MIT), Engels zonder gedachtestreepjes. Niet te controleren: de zijbalk van r/ObsidianMD (403); stap 2 blijft dus nodig.
+
+## Bijwerking 9 nov 2026 (run 28): plek 3, de Obsidian-Discord, definitief, en een risico dat alles kan stilleggen
+
+Door Chris, 9 nov ±09:45 tot 10:30 UTC. **Dit deel vervangt "Dag 3: Obsidian Discord" van run 8** (die tekst zei nog "tumbles", noemde een gok-kanaal en "our studio"). Op zijn vroegst **10 nov 13:45 UTC**, een dag na r/ObsidianMD, en alleen als Reddit zonder klacht, waarschuwing of verwijdering bleef (regel 2 en 7 van Thijs).
+
+### Regels van de plek (GEZIEN met curl, 9 nov ±09:55 UTC, de gedragscode van Obsidian: https://raw.githubusercontent.com/obsidianmd/obsidian-help/master/en/Obsidian/Community%20code%20of%20conduct.md , dezelfde tekst als help.obsidian.md)
+- De gedragscode geldt voor het forum, de Discord en r/ObsidianMD samen. Een ban geldt voor alle drie.
+- **Het kanaal voor eigen werk is `#content-update`** (letterlijk: "we provide a place for that in the `#content-update` channel on our Discord"). De gok `#updates` in run 8 was dus fout; het verspreidingsplan (run 11) had het al goed, maar de tekst in run 8 was nooit bijgewerkt.
+- **"Exclusive self-promotion" mag niet:** "promoting or linking your own ... content ... without otherwise participating in the community. If your only purpose here is to drop links ... we won't allow it. Depending on the situation, links may be removed and warnings may be given." En: "We expect folks to engage meaningfully before promoting their work ... when in doubt, participate more than you promote."
+- "Paid content will always receive additional scrutiny." Dus "paid" eerlijk noemen, zoals in de tekst hieronder.
+- Geen privéberichten zonder publieke toestemming, geen pings voor bugs (bugs naar GitHub-issues), geen uitnodigingslinks naar andere servers.
+- De Discord zelf kan ik niet lezen (inlog). De vastgezette berichten en de beschrijving van `#content-update` zijn dus nog niet gezien: dat doet wie plaatst, vlak ervoor.
+
+### Het risico, en mijn beslissing
+Een account dat in de Discord nooit iets zei en daar alleen een link neerzet, is precies wat de code "exclusive self-promotion" noemt. Dan kan de moderator het bericht weghalen en waarschuwen. **Volgens regel 7 van Thijs stopt dan al het plaatsen op alle plekken**, dus ook r/Solo_Roleplaying en straks Click Joints op r/blender en BlenderNation. Erger nog: volgens dezelfde code krijgt wie gewaarschuwd is bij een tweede overtreding een ban op het forum, de Discord en r/ObsidianMD samen ("warn them that a second code of conduct violation will result in us removing them", GEZIEN). Dan staan ook de forumdraad en het Reddit-bericht op het spel. Eén bericht in de Discord levert weinig op (GOK: een kanaal vol links, kort zichtbaar) en kan die rest kosten.
+
+**Beslissing: de Discord alleen als Thijs daar al lid is en eerder echt meepraatte**: een paar inhoudelijke berichten van hemzelf, niet alleen van vandaag. Is dat niet zo: Discord nu overslaan. Thijs mag zelf natuurlijk wel lid worden en meepraten (wij Claudes doen dat nooit, want lid worden betekent regels van de server accepteren); dan kan het bericht later, als hij er een tijdje echt bij hoort. Dat is geen verlies: forum en Reddit zijn de grote plekken, en de lijst van plekken 5 en 6 (`verspreiding.md`) gaat er niet van uit.
+
+### Vlak voor het plaatsen (wie plaatst, ±3 min)
+1. Is Thijs ingelogd in de Discord en al lid van de Obsidian-server, met een paar eerdere inhoudelijke eigen berichten? Nee: stop, sla Discord over, één regel op lijst-thijs.
+2. Reddit-bericht nog in orde (niet verwijderd, geen waarschuwing)? Forumdraad nog open (https://forum.obsidian.md/t/121721.json)?
+3. Lees de beschrijving en de vastgezette berichten van `#content-update`. Staat er een vorm voor (bijvoorbeeld eerst een korte uitleg, of geen video), volg die. Twijfel: niet plaatsen, vraag op lijst-thijs (regel 3).
+4. Video mag erbij als het kanaal media toestaat: dezelfde mp4 als Reddit, https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/rollwright/v4/demo-v4-b.mp4 (3,5 MB, past onder de grens van Discord). **Met video komt de eerlijke regel erbij** (zie hieronder); zonder video mag die weg.
+
+### Tekst (letterlijk te plakken)
+```
+I made Rollwright, a dice roller for people who run or play tabletop games in Obsidian. It's now in the community directory. Write a formula in a note, read the result, and click it to roll again. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, the lowest turns red, and every roll you click goes into a Roll log by note and session.
+
+It reads the same `dice:` notation as Dice Roller, rolls on your own tables, lists, sections and tagged notes, and uses numbers from your frontmatter. All rolling is free; there are two optional paid skins (a one-time purchase). No account, no telemetry, open source (MIT).
+
+To be upfront: the code is written by AI agents at my small studio, Dortus. I direct and test the work, and every release is tested in the real Obsidian app.
+
+Install: https://community.obsidian.md/plugins/rollwright
+Source: https://github.com/thijsduinhouwer2002-coder/rollwright
+Made by Thijs at Dortus
+```
+
+**Alleen als de video erbij gaat**, deze regel direct na de eerste alinea:
+```
+In the video, the parchment look of the note is my own CSS snippet, and the bestiary pages, titles, captions, zoom, rays, sparks and red glow were added for the video; the dice, the gold and red results and the Roll log are the free plugin. Parchment and Arcane at the end are the paid skins.
+```
+
+### Waarom zo
+- Zelfde beweringen als het gekeurde Reddit-bericht van run 26, korter, want het is een chatkanaal. Geen nieuwe belofte. "The die turns" laat ik hier weg: de lengte telt, en wat de dobbelsteen doet staat in de video.
+- "I made" en "my small studio" in plaats van "our studio", volgens regel 4 van Thijs (run 9).
+- Beweringen nagekeken in de README van 0.3.3 op main (GEZIEN 10:00 UTC): "needs no account", "no telemetry", MIT, Roll log per notitie en sessie, `dice:`-notatie, frontmatter-getallen.
+
+### Na het plaatsen
+- Link, datum en volledige tekst in `berichten-geplaatst.md`, één regel op lijst-thijs (regel 6).
+- Reageren alleen in een draad onder het eigen bericht of als antwoord op iemand die op het bericht reageert; geen pings, geen privéberichten (gedragscode). Bugs: vriendelijk vragen een GitHub-issue te openen. Concept-antwoorden: die van run 26 gelden ook hier.
+- Discord is met curl niet te volgen. Effect meten met de downloads, zoals bij Reddit.
+
+### Keuring run 28
+Controleur (los van mij; gedragscode, README en CHANGELOG van 0.3.3, links met curl): **akkoord mits**. Moet, verwerkt: de regel bij de video noemde alleen zoom, stralen en onderschriften; nu ook de bestiariumbladen, titels, vonken en rode gloed, net als het gekeurde Reddit-bericht. Kan, verwerkt: "meepraten" concreet gemaakt, het risico op een ban over alle drie de plekken erbij, duidelijk dat Thijs zelf wel lid mag worden, bronlink in de tekst. Bevestigd: `#content-update` en alle citaten letterlijk in de code, alle beweringen kloppen met 0.3.3, listing 200, mp4 200 (3.535.274 bytes), geen gedachtestreepjes. Niet te controleren: de vastgezette berichten in de Discord (stap 3 blijft nodig).

@@ -40,6 +40,7 @@ De genummerde regels van Thijs (1 tot 7) staan in de opdracht van de geplande ta
 - Regel die we kennen: "Don't shill: If you are just here to advertise your product, don't." (DERDEN, https://oneup.today/tools/reddit-self-promotion-checker/obsidianmd). De letterlijke zijbalk konden we niet lezen: Reddit geeft 403 op curl (GEZIEN), niet omzeild. Wie plaatst, leest de zijbalk eerst in de browser (±1 minuut). Staat er iets over AI-projecten of zelfpromotie alleen in een vaste draad: niet plaatsen, op de lijst van Thijs.
 
 ### 3. Officiële Obsidian Discord, `#content-update`
+- **Bijwerking 9 nov (run 28):** definitieve tekst en stappen in `lancering.md`, deel run 28. Voorwaarde erbij: alleen als Thijs al lid is en daar eerder inhoudelijk meepraatte, anders nu overslaan. Een waarschuwing voor "exclusive self-promotion" legt volgens regel 7 alle plekken stil en brengt een ban op forum, Discord en Reddit samen een stap dichterbij.
 - Het enige kanaal waar eigen werk mag: "we provide a place for that in the `#content-update` channel" (GEZIEN, gedragscode). Uitnodigingen naar andere Discords zijn verboden, dus geen link naar een eigen server.
 - Risico: het account van Thijs is nieuw daar, en de code vraagt eerst mee te doen. Eén kort bericht, geen herhaling. Reacties volgen kan alleen in de browser.
 - Tekst (zelfde beweringen als het forumbericht, korter):
