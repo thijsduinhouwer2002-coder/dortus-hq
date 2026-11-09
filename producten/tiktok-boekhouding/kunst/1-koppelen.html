@@ -1,0 +1,75 @@
+<!doctype html><html lang="nl"><meta charset="utf-8"><style>
+:root{--papier:#F5F3EE;--kaart:#FFFFFF;--inkt:#17161C;--zacht:#6B6875;--lijn:#E4E1DA;
+--accent:#4F3BD1;--accent-zacht:#ECE9FF;--goed:#0B6E3F;--goed-zacht:#E3F5EA;
+--let:#9A5B00;--let-zacht:#FFF3D6;--fout:#C2261F;--fout-zacht:#FDE8E6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--papier);color:var(--inkt);
+font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.top{display:flex;align-items:center;gap:14px;padding:18px 32px;border-bottom:1px solid var(--lijn);background:var(--kaart)}
+.merk{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.01em}
+.teken{width:30px;height:30px}
+.pad{display:flex;align-items:center;gap:8px;margin-left:auto;font-size:13px;color:var(--zacht)}
+.pil{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;background:var(--papier);border:1px solid var(--lijn);font-weight:500;color:var(--inkt)}
+.stip{width:7px;height:7px;border-radius:50%;background:var(--goed)}
+main{padding:36px 32px 48px;max-width:1180px;margin:0 auto}
+h1{font-size:28px;letter-spacing:-.02em;line-height:1.15;font-weight:700}
+.sub{color:var(--zacht);margin-top:6px;font-size:16px}
+.knop{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:11px 18px;font:600 15px Inter;cursor:pointer}
+.knop.hoofd{background:var(--accent);color:#fff}
+.knop.rustig{background:var(--kaart);color:var(--inkt);border:1px solid var(--lijn)}
+/* bon */
+.bonnen{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;align-items:start}
+.bon{background:var(--kaart);padding:22px 22px 30px;position:relative;
+box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(23,22,28,.18);
+-webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 10px) no-repeat,
+ conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 10px repeat-x}
+.bon .kop{display:flex;justify-content:space-between;align-items:baseline;color:var(--zacht);font-size:13px}
+.bon .bank{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:6px 0 2px}
+.bon .klein{font-size:12.5px;color:var(--zacht)}
+.regels{margin:16px 0 0;border-top:1px dashed var(--lijn);padding-top:12px}
+.r{display:flex;gap:8px;font-size:14px;padding:3.5px 0}
+.r .w{flex:1;display:flex;align-items:baseline;gap:6px;min-width:0}
+.r .w:after{content:"";flex:1;border-bottom:1px dotted #CFCBC2;transform:translateY(-4px)}
+.r .b{text-align:right;min-width:86px}
+.r.min .w{color:var(--zacht)}
+.som{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:2px solid var(--inkt);font-weight:700;font-size:15px}
+.stempel{position:absolute;right:16px;top:58px;transform:rotate(-8deg);border:2.5px solid currentColor;border-radius:8px;
+padding:3px 9px;font:800 13px Inter;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.stempel.goed{color:var(--goed)} .stempel.let{color:var(--let)}
+.noot{margin-top:14px;background:var(--let-zacht);border-radius:10px;padding:10px 12px;font-size:13.5px;color:#4A3200}
+.noot b{color:var(--let)}
+.balk{display:flex;align-items:center;gap:14px;margin-top:30px;padding:18px 20px;background:var(--kaart);border:1px solid var(--lijn);border-radius:14px}
+.balk .t{flex:1}
+.balk .t b{display:block;font-size:15px}
+.balk .t span{color:var(--zacht);font-size:14px}
+/* tabel */
+.kaart{background:var(--kaart);border:1px solid var(--lijn);border-radius:14px}
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--zacht);font-weight:600;text-align:left;padding:12px 18px;border-bottom:1px solid var(--lijn)}
+td{padding:14px 18px;border-bottom:1px solid var(--lijn);font-size:14.5px}
+tr:last-child td{border-bottom:0}
+td.b,th.b{text-align:right}
+.status{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:600}
+.status.goed{background:var(--goed-zacht);color:var(--goed)}
+.status.let{background:var(--let-zacht);color:var(--let)}
+.status.fout{background:var(--fout-zacht);color:var(--fout)}
+.status.wacht{background:var(--accent-zacht);color:var(--accent)}
+.tegels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.tegel{background:var(--kaart);border:1px solid var(--lijn);border-radius:14px;padding:16px 18px}
+.tegel .l{font-size:13px;color:var(--zacht)} .tegel .g{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.meter{height:6px;border-radius:9px;background:var(--papier);margin-top:10px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent);border-radius:9px}
+.waarsch{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:var(--fout-zacht);color:#6E1510;font-size:14.5px;margin-top:18px}
+.waarsch .knop{margin-left:auto;padding:7px 14px;font-size:14px;background:var(--fout);color:#fff}
+</style><body><div class="top"><div class="merk"><svg class="teken" viewBox="0 0 30 30" aria-hidden="true">
+<path d="M6 3h18v22l-3-2-3 2-3-2-3 2-3-2-3 2z" fill="#4F3BD1"/>
+<path d="M10 9h10M10 13h10" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+<path d="M10.5 18.2l2.6 2.5 6-6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Klopt</div><div class="pad"><span class="pil">Stap 1 van 3</span></div></div><main style="max-width:860px"><h1>Koppel je boekhouding</h1>
+<p class="sub">Daarna zie je meteen hoe je laatste uitbetalingen geboekt worden. Er gaat nog niets naar Moneybird.</p>
+<div style="display:flex;gap:18px;margin-top:28px;align-items:stretch"><div class="kaart" style="flex:1;padding:26px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:11px;background:#17161C;color:#fff;display:grid;place-items:center;font:800 20px Inter">T</div>
+<div><b style="font-size:17px">TikTok Shop</b><div style="color:var(--zacht);font-size:14px">Studio Lente &middot; gekoppeld</div></div></div><span class="status goed" style="align-self:flex-start">&#10003; Klaar</span></div><div style="align-self:center;font-size:22px;color:var(--zacht)">&rarr;</div><div class="kaart" style="flex:1;padding:26px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:11px;background:#1E6FD9;color:#fff;display:grid;place-items:center;font:800 20px Inter">M</div>
+<div><b style="font-size:17px">Moneybird</b><div style="color:var(--zacht);font-size:14px">Je boekhouding</div></div></div><button class="knop hoofd" style="align-self:flex-start">Koppel Moneybird</button></div></div>
+<p style="margin-top:22px;color:var(--zacht);font-size:14px">Geen Moneybird? <a href="#" style="color:var(--accent);font-weight:600">Zet je op de wachtlijst voor Exact</a></p></main></body></html>

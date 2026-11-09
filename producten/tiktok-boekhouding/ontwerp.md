@@ -1,4 +1,6 @@
-Akkoord: nee (Hans zei 9 nov 20:44 ja op het product; Daan gevraagd 9 nov 20:25 UTC via taken.md, nog niet bekeken)
+Akkoord: ja 9 nov 2026 21:05 UTC, voor het ontwerp van koppelen, proef, overzicht, uitbetaling in detail en de staten (bouwen mag); scherm 3 (rekeningen en btw) wacht op mijn schets in de volgende run. Op voorwaarde dat de schermen de schetsen in `kunst/` en de punten onder "Oordeel Daan" volgen. Dit is geen akkoord voor indienen: dat geef ik pas op de echte schermen (test via GitHub Actions, plaatjes op de tak `schermen`).
+
+Oud: Akkoord: nee (Hans zei 9 nov 20:44 ja op het product; Daan gevraagd 9 nov 20:25 UTC via taken.md, nog niet bekeken)
 
 # Ontwerp: TikTok Shop naar je boekhouding (concept)
 
@@ -61,3 +63,49 @@ Toon en uiterlijk: zakelijk maar opvallend en mooi (regels). Rustig, veel wit, b
 - Testen in een echte winkel kan pas na het vroege Partner Center-account (zie `platformen/tiktok-shop/registratie.md`, kop "Na ja van Hans").
 
 Nagekeken: controleur 9 nov 19:09 UTC, akkoord na 7 moet- en 5 kan-punten, alles verwerkt.
+
+
+## Oordeel Daan (9 nov 2026, 20:55 UTC)
+
+**Kort:** goed ontwerp, de stroom klopt en de proef-zonder-boeken is de juiste haak. Akkoord voor bouwen. Schetsen van vijf schermen staan in `kunst/` (bron `kunst/maak.py`, HTML erbij, zelf bekeken met Read): `1-koppelen.png`, `2-proef.png`, `3-overzicht.png`, `4-staten.png` (leeg, laden, fout, nog niet voor jou), `5-proef-telefoon.png`. Bedragen in de schetsen tellen echt op (nagerekend).
+
+**Wat ons onderscheidt, in één zin (uiterlijk):** de concurrenten (A2X, Link My Books, Schakel) tonen een tabel met getallen; wij tonen elke uitbetaling als een **bonnetje dat zichtbaar optelt tot het bedrag op je bank, met een stempel "Klopt"**. Dat bonnetje met stempel is het eigen gezicht: in de app, in het icoon en op het eerste winkelplaatje.
+
+### Antwoorden op de vragen
+1. **Computer eerst, telefoon moet werken.** Boekhouden en Moneybird gebeuren op de computer (GOK, maar Moneybird zelf is een webapp voor de computer). Breedte 1280 is het ontwerp; op 390 px vallen de bonnen onder elkaar en blijft alles leesbaar (`5-proef-telefoon.png`). Geen aparte telefoonversie.
+2. **Proef: kaarten, geen tabel.** Elke kaart is een bonnetje: bovenaan groot het bedrag op de bank, daaronder de regels per soort met stippellijn naar het bedrag, dikke streep, "Geboekt" met hetzelfde bedrag. Wie het ziet, snapt zonder uitleg dat het sluit. Het overzicht (dagelijks gebruik) is wel een tabel: daar wil je veel uitbetalingen tegelijk zien.
+3. **Verschil zonder eng te ogen:** amber, nooit rood. Rood is alleen voor iets wat niet geboekt is (fout, verlopen koppeling). Woorden: "apart gezet", niet "verschil" of "fout". Een amber stempel "€ 44 apart" en één notitie in gewone woorden eronder: wat er gebeurde, dat het op een tussenrekening staat en dat de omzet klopt. In het overzicht de status "Geboekt, € 44 apart" en een tegel "Apart gezet, nog na te kijken". Een kop-verschil dat niet geboekt wordt: dezelfde amber notitie, met "niet geboekt, kijk even na".
+4. **Leeg, laden, fout:** zie `4-staten.png`. Altijd: het eigen teken of één rustig symbool groot, één vette zin, één zin uitleg, hoogstens één knop. Laden met een echte teller ("2 van 3 opgehaald"), geen draaiend rondje zonder einde. Bij een fout van TikTok of Moneybird zeggen we dat het niet aan de verkoper ligt en dat we het vanzelf opnieuw proberen.
+5. **Naam en icoon (met Chris):** werknaam **Klopt** (sluit aan op de stempel en op de belofte "wat niet klopt zie je meteen"; kort, Nederlands, want versie 1 is voor Nederland). Niet "Tally": dat is al een bekend formulierenmerk (tally.so). Chris toetst de naam op merken en in de App Store voor hij vastligt; tot dan is "Klopt" werknaam. Icoon: een paars bonnetje met kartelrand en een wit vinkje (`TEKEN` in `maak.py`), leest op 30 px; op 16 px alleen bonnetje en vinkje.
+6. **Plaatjes voor de App Store:** eerste plaatje is een poster met de drie bonnen uit de proef (één amber), kop "Elke TikTok-uitbetaling netjes in Moneybird". Maak ik zodra er echte schermen zijn; eerlijk tonen wat de app doet.
+
+### Stijl voor de bouw (vast, Jet volgt dit)
+- **Kleuren:** papier `#F5F3EE` (achtergrond), kaart wit, inkt `#17161C`, zacht `#6B6875`, lijn `#E4E1DA`. Eén accent: paars `#4F3BD1` (alleen voor de hoofdknop, links en het merk). Paars, omdat het niet botst met roze en cyaan van TikTok of blauw van Moneybird, en niet met de signaalkleuren. Signalen: goed `#0B6E3F` op `#E3F5EA`, apart amber `#9A5B00` op `#FFF3D6`, fout `#C2261F` op `#FDE8E6`, wacht paars op `#ECE9FF`. Alles boven 4,5:1 contrast voor tekst (te meten in de echte build).
+- **Letter:** Inter (vrij te gebruiken, SIL OFL), op het web zelf meegeleverd. Bedragen altijd met `font-variant-numeric: tabular-nums`, rechts uitgelijnd, minbedragen in de zachte kleur met een echt minteken (−), euro als "€ 1.284,60".
+- **Vormen:** kaarten met ronde hoek 14 px, knoppen 10 px, statuslabels als pil. De bon heeft geen ronde hoek maar een kartelrand onderaan; alleen de bon, nergens anders.
+- **Eén beweging, met betekenis:** bij het openen van de proef tellen de regels van elke bon kort op (onder 0,5 s) en daarna landt de stempel met een kleine klap. Alleen de eerste keer, uit bij `prefers-reduced-motion`. Verder geen bewegingen.
+- **Teksten:** kort, gewone woorden, geen uitroeptekens. Knop zegt wat er gebeurt ("Koppel Moneybird", "Verder naar rekeningen"). Nederlands en Engels (Engelse tekst volgt met Chris).
+- **Logo's van TikTok Shop en Moneybird:** in de schetsen staan letters als plaatsvervanger. In de echte app de officiële logo's volgens hun merkregels, of alleen de naam als de regels dat eisen. Nooit zelf nagetekend.
+
+### Moet in de bouw (op volgorde)
+1. **De bon** zoals in `2-proef.png`: bedrag op de bank groot bovenaan, regels met stippellijn, som-streep, stempel. Dit scherm moet overtuigen; het krijgt de meeste zorg.
+2. **Amber voor apart gezet, rood alleen voor niet geboekt.** Nergens het woord "fout" bij een verschil.
+3. **Overzicht** zoals `3-overzicht.png`: kop met de koppelingen en hun staat (groene of rode stip), balk bij verlopen koppeling, drie tegels, tabel nieuwste boven. Bij "wacht op abonnement" staat de gratis teller vol en de link naar het abonnement met de prijs erop (geen schreeuwende knop).
+4. **Staten** zoals `4-staten.png`, voor elk scherm dat iets ophaalt.
+5. **Scherm 3, rekeningen en btw** (niet geschetst, volgt de stijl): één rij per soort, links de soort in gewone woorden met één regel uitleg ("Commissie TikTok: wat TikTok per bestelling inhoudt"), rechts twee keuzelijsten. Voorstel al ingevuld en met een klein label "voorgesteld". "Apart gezet" staat vast op de tussenrekening en is niet te kiezen (grijs, met slotje en uitleg). Startdatum bovenaan, met de waarschuwing in amber als hij in het verleden ligt.
+6. **Telefoon:** alles in één kolom, knoppen over de volle breedte, kop zonder de koppelingen.
+
+### Wat ik keur voor het akkoord voor indienen
+De echte schermen in een browser via GitHub Actions (Playwright, 1280 en 390 breed), met nagebootste TikTok- en Moneybird-antwoorden: koppelen, proef met één uitbetaling met apart gezet bedrag, rekeningen, overzicht met elke status, en de vier staten. Plaatjes openbaar op de tak `schermen` (map `tiktok-boekhouding/<tak>/`), zoals bij Rollwright. Plus naam, icoon en de App Store-plaatjes.
+
+### Controleur (agent, 9 nov 21:00 UTC) en wat ik veranderde
+Oordeel controleur: nee op versie 1 van de schetsen (ontwerp sterk, bon met stempel onderscheidend, bedragen kloppen), 8 moet-punten. Verwerkt in versie 2, zelf bekeken met Read:
+1. Gratis teller en status kloppen nu: november heeft 42 bestellingen tegen een grens van 30 (grens en € 15 zijn GOK tot Chris beslist).
+2. **Volgorde van staten vastgelegd:** koppeling verlopen gaat voor abonnement, dus de uitbetaling van 6 nov staat op "Wacht op koppeling"; de ondertitel zegt nu "Boeken staat stil tot je Moneybird opnieuw koppelt". Volgorde voor de bouw: fout > koppeling verlopen > wacht op abonnement > geboekt met apart > geboekt.
+3. Op de bon staat "Naar Moneybird" in plaats van "Geboekt": in de proef is er nog niets geboekt. In het detailscherm na boeken mag het wel "Geboekt" heten.
+4. Kop proef nu "Zo boeken wij je uitbetalingen in Moneybird", met de zin dat je zelf de startdatum kiest (de standaard is vandaag, dus deze drie komen er niet vanzelf in).
+5. **Kop-verschil geschetst** (onderaan `4-staten.png`): som "Naar Moneybird" wijkt af van de bank, daaronder in amber "Open, niet geboekt" met het bedrag, stempel "€ 2,80 open" en een notitie met het bestelnummer en waar je het nakijkt. Zo blijft de bon eerlijk sluiten.
+6. Groen donkerder (`#0B6E3F`), haalt nu ook op het groene vlak 4,5:1 (controleur mat 3,88:1 bij het oude groen).
+7. Scherm 3 (rekeningen en btw): terecht, nog niet geschetst. Volgende run, vóór Jet dat scherm bouwt. Opzet: de groepstotalen niet als losse rij (die volgen uit de soorten), soorten die zelden voorkomen (korting terug, overig omzet, correctie) ingeklapt onder "meer soorten", "Apart gezet" vast met slotje.
+8. **Beloftes in de staten moeten echt waar zijn:** "2 van 3 opgehaald" alleen als de bouw de voortgang echt telt, "we proberen het over 5 minuten vanzelf opnieuw" alleen als de bouw dat echt doet; anders de zin weglaten. Lege staat zegt nu alleen "Zodra TikTok iets uitbetaalt, staat het hier" (geen "al geboekt", geen gok over wekelijks).
+Kan-punten: vlag-emoji vervangen door "NL" in een rondje (Windows toont geen vlag), minbedragen nu in inkt en alleen het label zacht (commissie moet je zien), tegel "Apart gezet, alles open". Nog open (kan): één doorlopende stappenteller over koppelen, administratie kiezen, proef, rekeningen, aanzetten; de tegel apart gezet klikbaar naar die uitbetalingen.
