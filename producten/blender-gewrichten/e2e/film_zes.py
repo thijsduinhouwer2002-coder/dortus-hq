@@ -1,4 +1,5 @@
-"""Filmisch ronde 6 (besluit Daan 9 nov 02:35 en bijstelling 02:50): nieuwe houding, echt hout, oneindige achtergrond.
+"""Filmisch ronde 6 en 6c (6c: punten Daan 9 nov 03:55, nerf per lid in de lengte, beuken #D8A86E/#B98450, hoofdlicht ±4300 K,
+wand ver weg, camera iets van boven). Besluit Daan 9 nov 02:35 en bijstelling 02:50): nieuwe houding, echt hout, oneindige achtergrond.
 
 Wordt na film_mooi.py in dezelfde namespace geladen (exec) en vervangt daar de pop, het hout, het licht en de
 plek van het gewricht. Zo kan de kleine proef (film_proef.py) het eerst toetsen voordat de grote render erop overgaat.
@@ -18,8 +19,8 @@ Wat er anders is dan ronde 5:
 # zet_input, figuren, mod, log, staat, deel, gesloten, hout_doorzichtig, paneel-hulp.
 
 ACHTERGROND = "#121418"
-HOUT_LICHT, HOUT_DONKER = "#C99C6E", "#A9774A"
-KLEUR_3200K = "#FFB46B"   # zwarte straler 3200 K, sRGB
+HOUT_LICHT, HOUT_DONKER = "#D8A86E", "#B98450"   # 6c: Daan 03:55, licht honingkleurig beuken, weinig contrast
+KLEUR_3200K = "#FFD5AD"   # 6c: hoofdlicht nu ±4300 K (3200 K maakte het hout oranje); naam blijft voor film_mooi
 KLEUR_8000K = "#E3E9FF"   # zwarte straler 8000 K, sRGB
 
 SCHOUDER_L = Vector((-15, 0, 92))
@@ -32,7 +33,47 @@ KNIE = Vector((-7, -21, 57))
 SCHEEN = Vector((-0.05, -0.99, -0.12)).normalized()
 ENKEL = KNIE + SCHEEN * 22.0
 POP_MIDDEN = Vector((-8, -6, 62))
-BASIS_RICHTING = Vector((0.5, -1.0, -0.10)).normalized()   # 6b: van rechtsvoor, arm dwars in beeld en de trap schuin (6a van links: arm wees naar de lens)
+BASIS_RICHTING = Vector((0.5, -1.0, -0.22)).normalized()   # 6b: van rechtsvoor, arm dwars in beeld en de trap schuin (6a van links: arm wees naar de lens)
+
+
+# Assen van de leden voor de nerf (6c): per lid loopt de nerf in de lengte. Romp en hoofd: verticaal.
+NERF_LEDEN = [
+    ((0, 0, 55), (0, 0, 112), 11.0),
+    (SCHOUDER_L, ELLEBOOG, 4.3), (ELLEBOOG, HAND + ARM * 4.0, 4.0),
+    ((15, 0, 92), (18, 0, 70), 3.9), ((18, 0, 70), (19.3, -1, 42), 3.3),
+    ((6, 0, 53), (6.5, 0, 29), 4.8), ((6.5, 0, 29), (6.5, 0, 1), 3.6),
+    (HEUP_L, KNIE, 4.8), (KNIE, ENKEL + Vector((0, -2.0, 2.5)), 3.6),
+]
+
+
+def nerf_coordinaten(me):
+    """Zet per punt een vector 'nerf_co' = (langs e1, langs e2, 0,08 x langs de as) van het dichtstbijzijnde lid.
+    Waarom (Daan 03:55): met Object-coordinaten liep de nerf als ringen om de arm, want de arm ligt langs X.
+    Wave BANDS over de eerste component geeft lijnen evenwijdig aan de as van elk lid; de ruis rekt in de lengte."""
+    import numpy as np
+    n = len(me.vertices)
+    co = np.empty(n * 3, dtype=np.float64)
+    me.vertices.foreach_get("co", co)
+    co = co.reshape(n, 3)
+    beste = np.full(n, np.inf)
+    uit = np.zeros((n, 3))
+    for p0, p1, r in NERF_LEDEN:
+        p0, p1 = np.array(tuple(p0), float), np.array(tuple(p1), float)
+        d = p1 - p0
+        lengte = np.linalg.norm(d)
+        a = d / lengte
+        t = np.clip((co - p0) @ a, 0.0, lengte)
+        afst = np.linalg.norm(co - (p0 + t[:, None] * a), axis=1) - r
+        ref = np.array((0.0, 0.0, 1.0)) if abs(a[2]) < 0.9 else np.array((1.0, 0.0, 0.0))
+        e1 = np.cross(a, ref)
+        e1 /= np.linalg.norm(e1)
+        e2 = np.cross(a, e1)
+        nieuw = np.stack((co @ e1, co @ e2, (co @ a) * 0.08), axis=1)
+        kies = afst < beste
+        beste[kies] = afst[kies]
+        uit[kies] = nieuw[kies]
+    attr = me.attributes.new("nerf_co", "FLOAT_VECTOR", "POINT")
+    attr.data.foreach_set("vector", uit.astype(np.float32).ravel())
 
 
 def tekenpop(solver):
@@ -76,6 +117,7 @@ def tekenpop(solver):
     for d in delen:
         bpy.data.objects.remove(d)
     me.shade_smooth()
+    nerf_coordinaten(me)
     me.materials.clear()  # les ronde 5: new_from_object geeft een leeg vak 0
     me.materials.append(hout_materiaal())
     ob = bpy.data.objects.new("Mannequin", me)
@@ -87,26 +129,27 @@ def hout_materiaal():
     mat = bpy.data.materials.new("Film hout")
     bsdf = bsdf_van(mat)
     nt = mat.node_tree
-    tex = nt.nodes.new("ShaderNodeTexCoord")
+    tex = nt.nodes.new("ShaderNodeAttribute")   # 6c: nerf_co per lid (zie nerf_coordinaten), niet Object
+    tex.attribute_type, tex.attribute_name = "GEOMETRY", "nerf_co"
     ruis = nt.nodes.new("ShaderNodeTexNoise")
     ruis.inputs["Scale"].default_value = 3.0 / 20.0   # Daans schaal 3 op een pop van ±120 mm (per 20 mm)
     ruis.inputs["Detail"].default_value = 3.0
     vervorm = nt.nodes.new("ShaderNodeVectorMath")     # vector + 4 x ruis: nerf golft, geen strepen met een liniaal
     vervorm.operation = "MULTIPLY_ADD"
-    vervorm.inputs[1].default_value = (1.6, 1.6, 1.6)   # 6b: minder golf, sterkte 4 gaf slangen
+    vervorm.inputs[1].default_value = (1.2, 1.2, 1.2)   # 6c: rustig golvend (6a sterkte 4 gaf slangen)
     golf = nt.nodes.new("ShaderNodeTexWave")
-    golf.wave_type, golf.bands_direction = "BANDS", "X"   # banden over X = nerflijnen langs de lengte (Z) van de pop
-    golf.inputs["Scale"].default_value = 0.2             # 6b: lijn om de ±1,6 mm (6a: 3,5 mm oogde als zebra)
-    golf.inputs["Distortion"].default_value = 1.5
+    golf.wave_type, golf.bands_direction = "BANDS", "X"   # banden over e1 = nerflijnen in de lengte van elk lid
+    golf.inputs["Scale"].default_value = 0.25            # 6b: lijn om de ±1,6 mm (6a: 3,5 mm oogde als zebra)
+    golf.inputs["Distortion"].default_value = 1.0
     golf.inputs["Detail"].default_value = 3.0
     meng = nt.nodes.new("ShaderNodeValToRGB")
     meng.color_ramp.elements[0].color = (*kleur(HOUT_DONKER), 1)
     meng.color_ramp.elements[1].color = (*kleur(HOUT_LICHT), 1)
     meng.color_ramp.elements[0].position = 0.15
     meng.color_ramp.elements[1].position = 0.85   # 6b: zachter verloop, minder streep
-    nt.links.new(tex.outputs["Object"], ruis.inputs["Vector"])
+    nt.links.new(tex.outputs["Vector"], ruis.inputs["Vector"])
     nt.links.new(ruis.outputs["Color"], vervorm.inputs[0])
-    nt.links.new(tex.outputs["Object"], vervorm.inputs[2])
+    nt.links.new(tex.outputs["Vector"], vervorm.inputs[2])
     nt.links.new(vervorm.outputs[0], golf.inputs["Vector"])
     nt.links.new(golf.outputs["Fac"], meng.inputs["Fac"])
     nt.links.new(meng.outputs["Color"], bsdf.inputs["Base Color"])
@@ -118,7 +161,8 @@ def hout_materiaal():
 
 
 def _cyclorama():
-    """Vloer die met een kwartcirkel (straal 40 mm) overgaat in een achterwand, ruim groter dan elk beeld."""
+    """6c: wand op 500 mm achter de pop (was 60), zodat de bocht nooit als lichte band achter de pop staat.
+    Vloer die met een kwartcirkel (straal 40 mm) overgaat in een achterwand, ruim groter dan elk beeld."""
     bm = bmesh.new()
     breed, diep, hoog, straal = 1600.0, 900.0, 900.0, 40.0
     profiel = [(-diep, 0.0)]
@@ -128,7 +172,7 @@ def _cyclorama():
     profiel.append((straal, hoog))
     rijen = []
     for x in (-breed / 2, breed / 2):
-        rijen.append([bm.verts.new((x, py + 60.0, pz)) for py, pz in profiel])
+        rijen.append([bm.verts.new((x, py + 500.0, pz)) for py, pz in profiel])
     for i in range(len(profiel) - 1):
         bm.faces.new((rijen[0][i], rijen[1][i], rijen[1][i + 1], rijen[0][i + 1]))
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
@@ -175,7 +219,7 @@ def licht_en_wereld():
     afst.operation = "LENGTH"
     band = nt.nodes.new("ShaderNodeMapRange")
     band.inputs["From Min"].default_value = 40.0
-    band.inputs["From Max"].default_value = 320.0
+    band.inputs["From Max"].default_value = 200.0   # 6c: vlek dooft voor de bocht (Daan: geen band)
     kl = nt.nodes.new("ShaderNodeValToRGB")
     kl.color_ramp.elements[0].color = (*kleur("#3A3631"), 1)
     kl.color_ramp.elements[1].color = (*kleur(ACHTERGROND), 1)

@@ -1,4 +1,4 @@
-"""Snelle proef voor filmisch ronde 6 (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
+"""Snelle proef voor filmisch ronde 6 (6c: punten Daan 03:55, rood van dichtbij op de rode vlakken, pop groter) (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
 hout beuken, oneindige achtergrond, en het rood op 28 graden vanuit vijf hoeken plus Exploded view.
 
 Laadt film_mooi.py zonder de hoofdlus en daarna film_zes.py in dezelfde namespace (die vervangt pop, hout,
@@ -78,7 +78,8 @@ def main():
     beschrijf(pop)
     kijk = F["kijk"]
     M, BR = F["POP_MIDDEN"], F["BASIS_RICHTING"]
-    kijk(cam, M + BR * 430 + Vector((0, 0, -20)), M + Vector((0, 0, 4)), lens=50)
+    # 6c: pop ±112 mm hoog op 80 procent van de beeldhoogte: hoogte in beeld = d x 20,25 / 50, dus d ±345
+    kijk(cam, Vector((-4, -8, 56)) + BR * 345, Vector((-4, -8, 56)), lens=50)
     render("1-held")
 
     inst = bpy.context.scene.click_joints
@@ -98,6 +99,8 @@ def main():
     k = max(range(len(rich)), key=lambda i: rich[i].z)
     inst.pose_richting = str(k)
     grens = paneel.richting_graden(a, k)
+    for o in (a, b):
+        log(f"nerf_co op {o.name}: {'nerf_co' in o.data.attributes}")
     log(f"richting {k} ({tuple(round(x, 2) for x in rich[k])}), grens {grens}")
     zij = as_.cross(rich[k]).normalized()
     if zij.dot(BR) < 0:
@@ -119,13 +122,35 @@ def main():
         kijk(cam, c + (r + as_ * 0.25).normalized() * 60 * rr, c + as_ * 2, lens=60)
         render(f"4-rood28-hoek{hoek}")
     # 6b: rood met deel B (hout en groene ring) half doorzichtig, zoals in film_mooi tijdens het rood
+    # 6c (Daan 03:55): rood minstens een tiende van de beeldbreedte, echt rood (B bijna helemaal doorzichtig, dus geen
+    # roze door de groene laag), camera recht op de rode vlakken vanaf hun eigen buitenkant.
     F["staat"]["b_door"] = F["hout_doorzichtig"](b)
-    F["zet_door"](0.7)
-    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 4.0)
-    for hoek in (0, 60):
-        r = Quaternion(as_, math.radians(hoek)) @ zij
-        kijk(cam, c + (r + as_ * 0.25).normalized() * 45 * rr, c + as_ * 1, lens=60)
-        render(f"4b-rood28-doorzichtig-hoek{hoek}")
+    F["zet_door"](0.93)
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 9.0)
+    lijst = list(a.get("cj_rood_vlakken", []))
+    mw = a.matrix_world
+    punten, norm = [], Vector()
+    for i in lijst[0::2]:
+        pg = a.data.polygons[i]
+        punten += [mw @ a.data.vertices[v].co for v in pg.vertices]
+        norm += (mw.to_3x3() @ pg.normal) * pg.area
+    if punten:
+        rc = sum(punten, Vector()) / len(punten)
+        maat = max((p - rc).length for p in punten) * 2
+        if norm.length < 1e-9:
+            norm = zij.copy()
+        norm.normalize()
+        # beeldbreedte op afstand d met 60 mm lens = 0,6 d; rood op 12 procent: d = maat / 0,072
+        d = min(max(maat / 0.072, 6 * rr), 30 * rr)
+        log(f"rood midden {tuple(round(x, 2) for x in rc)}, maat {maat:.2f} mm, normaal {tuple(round(x, 2) for x in norm)}, afstand {d:.1f}")
+        fstop = cam.data.dof.aperture_fstop
+        cam.data.dof.aperture_fstop = 22.0   # zo dichtbij is f/8 te wazig
+        for j, kant in enumerate((norm, (norm + zij * 0.6).normalized())):
+            kijk(cam, rc + kant * d, rc, lens=60)
+            render(f"4b-rood28-doorzichtig-{j}")
+        cam.data.dof.aperture_fstop = fstop
+    else:
+        log("geen rode vlakken gevonden voor 4b")
     F["zet_door"](0.0)
     F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 0.0)
     inst.uit_elkaar = True
@@ -146,7 +171,7 @@ def main():
     log(f"zichtbaar in render: {[o.name for o in bpy.context.scene.objects if o.type == 'MESH' and not o.hide_render]}")
     inst.pose_graden = 15.0
     bpy.context.view_layer.update()
-    kijk(cam, M + BR * 330 + Vector((0, 0, -25)), M, lens=50)
+    kijk(cam, Vector((-4, -8, 56)) + BR * 345, Vector((-4, -8, 56)), lens=50)
     render("6-twee-gewrichten-15")
     log("PROEF KLAAR")
 
