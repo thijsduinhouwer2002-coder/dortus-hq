@@ -108,7 +108,9 @@ def toets(stap, eigen, cursor):
     print(f"[cj-betaald] METING afstand: reik scharnier {reik_h:.3f} mm (cj_reik {float(s1b['cj_reik']) / u:.3f}), "
           f"reik kogel {reik_k:.3f} mm (r {float(s2b['cj_kogel_r']) / u:.3f}, naad_r {float(s2b['cj_naad_r']) / u:.3f}), "
           f"kogelmidden {mz:.3f} mm voor de cursor, grens {grens:.3f}, N {n}")
-    stap("afstand: cj_reik gelijk aan de eigen rekensom", abs(float(s1b["cj_reik"]) / u - reik_h) < 1e-6)
+    # Binnen 0,01 mm: cj_wig_graden staat afgerond op 0,001 graad (run 42653795314: 10,349 tegen 10,348).
+    stap("afstand: cj_reik gelijk aan de eigen rekensom (binnen 0,01 mm)", abs(float(s1b["cj_reik"]) / u - reik_h) < 0.01,
+         f"{float(s1b['cj_reik']) / u:.4f} tegen {reik_h:.4f}")
     stap("afstand: deel van een scharnier draagt cj_scharnieren met zijn snijpunt", _xs(s1b, afstand, u) == [0.0]
          and _xs(s1a, afstand, u) == [0.0], f"{_xs(s1a, afstand, u)} {_xs(s1b, afstand, u)}")
 
@@ -174,7 +176,7 @@ def toets(stap, eigen, cursor):
     stap("afstand (b): middendeel draagt beide snijpunten", _xs(mid, afstand, u) == [0.0, x2], str(_xs(mid, afstand, u)))
     stap("afstand (b): buitenste deel alleen het tweede", _xs(buiten, afstand, u) == [x2], str(_xs(buiten, afstand, u)))
     stap("afstand (b): oude enkele sleutel cj_snijpunt blijft (laatste scharnier)",
-         abs(Vector(mid["cj_snijpunt"]).x / u - x2) < 1e-6)
+         abs(Vector(mid["cj_snijpunt"]).x / u - x2) < 1e-3, f"{Vector(mid['cj_snijpunt']).x / u:.6f}")  # cursor in float32
     oud = afstand.scharnieren({"cj_soort": "SCHARNIER", "cj_snijpunt": [1.0, 2.0, 3.0], "cj_reik": 4.0,
                                "cj_knokkel_r": 0.5})
     stap("afstand (b): deel met alleen de oude sleutels telt als een scharnier",
