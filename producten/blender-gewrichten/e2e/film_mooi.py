@@ -133,6 +133,7 @@ def tekenpop(solver):
     for d in delen:
         bpy.data.objects.remove(d)
     me.shade_smooth()
+    me.materials.clear()  # proef 1b9aaed: new_from_object gaf al een leeg vak 0, alle vlakken stonden daarop (grijs)
     me.materials.append(hout_materiaal())
     ob = bpy.data.objects.new("Mannequin", me)
     bpy.context.scene.collection.objects.link(ob)
@@ -223,21 +224,45 @@ def hout_doorzichtig(ob):
     nt.links.new(bsdf.outputs[0], mix.inputs[1])
     nt.links.new(door.outputs[0], mix.inputs[2])
     nt.links.new(mix.outputs[0], uit.inputs["Surface"])
-    vervangen = 0
-    for i, m in enumerate(ob.data.materials):
+    waarden = []
+    for i, m in enumerate(list(ob.data.materials)):
         if m is not None and m.name == bron.name:
             ob.data.materials[i] = mat
-            vervangen += 1
-    return waarde if vervangen else None
+            waarden.append(waarde)
+        elif m is not None and m.name == mat_naam("groen"):  # ook de groene ring van B, anders dekt die het rood af
+            kopie = m.copy()
+            kopie.name = m.name + " B"
+            ob.data.materials[i] = kopie
+            waarden.append(doorzichtig_maken(kopie))
+    return waarden or None
+
+
+def doorzichtig_maken(mat):
+    nt = mat.node_tree
+    uit = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL")
+    bsdf = next(n for n in nt.nodes if n.type == "BSDF_PRINCIPLED")
+    door, mix, waarde = (nt.nodes.new(t) for t in ("ShaderNodeBsdfTransparent", "ShaderNodeMixShader", "ShaderNodeValue"))
+    waarde.outputs[0].default_value = 0.0
+    nt.links.new(waarde.outputs[0], mix.inputs[0])
+    nt.links.new(bsdf.outputs[0], mix.inputs[1])
+    nt.links.new(door.outputs[0], mix.inputs[2])
+    nt.links.new(mix.outputs[0], uit.inputs["Surface"])
+    return waarde
+
+
+def zet_door(x):
+    for w in staat.get("b_door") or []:
+        w.outputs[0].default_value = x
 
 
 def gloed(naam, kleur_rgba, sterkte):
-    mat = bpy.data.materials.get(naam)
-    if mat is None:
-        return
-    bsdf = bsdf_van(mat)
-    zet_input(bsdf, ["Emission Color", "Emission"], kleur_rgba)
-    zet_input(bsdf, ["Emission Strength"], sterkte)
+    for n in (naam, naam + " B"):  # de doorzichtige kopie van B gloeit mee
+        mat = bpy.data.materials.get(n)
+        if mat is None:
+            continue
+        bsdf = next(x for x in mat.node_tree.nodes if x.type == "BSDF_PRINCIPLED")
+        zet_input(bsdf, ["Emission Color", "Emission"], kleur_rgba)
+        zet_input(bsdf, ["Emission Strength"], sterkte)
 
 
 def licht_en_wereld():
@@ -395,7 +420,8 @@ def plaats_gewricht(pop):
     staat.update(as_=as_, rich=rich[k], c=Vector(a["cj_centrum"]), r=float(a["cj_kogel_r"]), kijk_r=kijk_r,
                  grens=paneel.richting_graden(a, k), los=as_ * mod("uit_elkaar").afstand(b))
     staat["b_door"] = hout_doorzichtig(b)
-    log(f"richting {k}, grens {staat['grens']}, B doorzichtig {'ja' if staat['b_door'] else 'NEE'}")
+    log(f"richting {k}, grens {staat['grens']}, B doorzichtig {len(staat['b_door'] or [])} materialen")
+    log(f"vakken pop A {[m.name if m else None for m in a.data.materials]}, B {[m.name if m else None for m in b.data.materials]}")
 
 
 def draai(v, as_, graden):
@@ -440,8 +466,7 @@ def zet_beeld(cam, naam, i, n):
         kijk(cam, doel + rich * afst, doel, lens=50 + 10 * p)
         piek = math.exp(-((t - 1.1) ** 2) / 0.18)
         gloed(mat_naam("groen"), GROEN, 0.6 + 7.0 * piek if t > 0.4 else 0.0)
-        if staat.get("b_door") is not None:
-            staat["b_door"].outputs[0].default_value = 0.0
+        zet_door(0.0)
         return
     if naam == "buigen":  # van opzij; de onderarm buigt, voorbij de grens kleurt het rood en gloeit het
         g = pose_curve(t)
@@ -454,8 +479,7 @@ def zet_beeld(cam, naam, i, n):
         sterk = min(1.0, voorbij / 3.0)
         gloed(mat_naam("rood"), ROOD, (6.0 + 3.0 * math.sin(t * 11)) * sterk)
         echt_rood = len(deel("A").get("cj_rood_vlakken", [])) // 2 > 0  # alleen doorzichtig als er echt rood is
-        if staat.get("b_door") is not None:
-            staat["b_door"].outputs[0].default_value = 0.6 * sterk if echt_rood else 0.0
+        zet_door(0.6 * sterk if echt_rood else 0.0)
         if i in (0, 98, 140):
             a_ob = deel("A")
             rood = sum(1 for p in a_ob.data.polygons if a_ob.data.materials[p.material_index]
@@ -474,8 +498,7 @@ def zet_beeld(cam, naam, i, n):
         kijk(cam, doel + rich.normalized() * (70 * rr), doel, lens=60)
         gloed(mat_naam("groen"), GROEN, 0.6 + 1.5 * math.exp(-((t - 1.3) ** 2) / 0.1))
         gloed(mat_naam("rood"), ROOD, 0.0)
-        if staat.get("b_door") is not None:
-            staat["b_door"].outputs[0].default_value = 0.0
+        zet_door(0.0)
 
 
 def mat_naam(soort):
