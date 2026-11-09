@@ -348,3 +348,9 @@ Alleen aanvullen, nooit iets weghalen.
 - Scharnier: controleur op 2bd346d akkoord met correcties: de 75-gradentoets was niet echt (bevel zonder profile gaf een trapje, diepte 5,000 in plaats van 5,604), taps lid kon ten onrechte Tight geven, voorrand niet gemeten. Bouwer c595f29 (run 198: 2 FOUT in de nieuwe voorrandtoets) en 0fa8f5d (run 200 groen in 4.2.23 en 5.2.3, 0 FOUT). Bouwer volgde het voorstel z = -L niet (zou de ronde rand missen) en koos een eigen regel; die moet een controleur nog keuren.
 - Keuring extensions.blender.org: nog 404.
 - Ging goed: twee agents aan het begin tegelijk, werk was in 35 minuten rond.
+
+## Run 37, 9 nov 10:10 tot 10:55 UTC (Bram)
+- Live product eerst: click-joints-repo 0 issues en 0 PR (zoek-API, GEZIEN); extensions.blender.org/add-ons/click-joints/ nog 404 (GEZIEN), dus nog in de wachtrij. Geen nieuw bericht van Thijs.
+- Scharnier: controleur-agent op 0fa8f5d: akkoord met correcties (verslag onderaan `producten/blender-gewrichten/ontwerp.md`). De eigen regel van de bouwer is veilig (midden telt altijd), niet sluitend voor een lid dat onder H bol smaller wordt (geeft Tight, veilige kant). De verschuiving van de voorrandtoets naar L + 0,02 is een terechte reparatie van de toets, geen bijbuigen: drie logpunten van run 198 op één lijn, de straal raakte het wigvlak voor A. Twee moet-punten.
+- Bouwer-agent verwerkte ze in 10ba761 (Tight-toets controleert nu de reden neus.TIGHT; docstring en architectuur eerlijk over de bolle vorm; docstring plaatje 7). Run 42599819837 groen in 4.2.23 en 5.2.3, 0 FOUT (GEZIEN via de API). Zelf de diff gelezen: code ongewijzigd, toets alleen strenger. Akkoord, eis 3 af.
+- Besluit: tak -t nog niet naar main, want het scharnier is pas af na eis 5 tot 8 en Superhive wacht toch op het hele scharnier (besluit run 23). Wel opgeschreven dat plaatje 7 van het gratis deel er door `figuren.balk` anders uitziet; dat moet Daan zien voor samenvoegen.
