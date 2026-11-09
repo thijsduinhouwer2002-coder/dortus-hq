@@ -1,0 +1,39 @@
+{
+ "css": 282587,
+ "venster": "remote",
+ "parchment-obsidian-lezen": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Fell\", Georgia, serif"
+ },
+ "parchment-moonstone-lezen": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Fell\", Georgia, serif"
+ },
+ "arcane-obsidian-lezen": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Spectral\", Georgia, serif"
+ },
+ "arcane-moonstone-lezen": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Spectral\", Georgia, serif"
+ },
+ "parchment-obsidian-lp": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Fell\", Georgia, serif"
+ },
+ "arcane-moonstone-lp": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Spectral\", Georgia, serif"
+ },
+ "classic": {
+  "bg": "rgb(28, 28, 28)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"??\", \"??\", ui-sans-serif, -apple-system"
+ }
+}
