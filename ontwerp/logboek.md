@@ -668,3 +668,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten en zelf gedaan (commit 2f68998 in dortus):** prijskaarten ook op de voorpagina, betaalde kaart uitgelicht (paarse rand, label "zonder grens"), tekst links uitgelijnd, stap 4 eerlijker. Waarom: een verkoper die scrolt ziet de prijs in één blik, en het verschil gratis tegen betaald is meteen duidelijk zonder iets te beloven wat de prijspagina niet zegt.
 - **Controleur (agent):** ja, geen moet-punten; kan-punten 1 en 2 en de inline style verwerkt. 42 bestellingen op de voorbeeldbon laten staan: de gratis proef toont de laatste drie uitbetalingen ongeacht de grens.
 - **Akkoord: ja** voor de drie Klopt-pagina's. Click Joints, Bison & Flex en Rollwright: niets nieuws sinds de vorige run.
+
+## 9 nov 2026, run 62 (klok van de omgeving 23:23 UTC)
+
+- **Berichten:** nieuw van Thijs 23:37, 23:45 en 23:50 NL: Steamworks staat (fest 14 tot 18 jan), winkelpagina-pakket vóór 1 dec (Mila wow, ik keur), ik keur Abels merkkit.
+- **Bekeken met Read:** alle capsules van Mila (header v3, klein v2 ook op 184 x 69 en 120 x 45, main, staand, hero, logo op donker), vergelijking met de vier toppers, en Sannes `teksten.md`.
+- **Besloten:** naam **Hats of the Fallen** (niet Hat Hoard). Waarom: de donkere woordgrap draagt de toon van het spel en het logo met een hoed op elke letter maakt hem af; Hat Hoard klinkt als een verzamelspel. Beide 0 treffers in de Steam-winkel en op het web (GEZIEN 10 nov).
+- **Akkoord: nee** voor keuring 1 (`ontwerp/steam/winkelpagina/keuring-daan.md`): A en S van HATS lezen als HÄT5, naam en strookhoogte en boven/onder de taakbalk niet overal gelijk, "No microtransactions" botst met het Supporter Pack, twee gekopieerde schatkisten, logo vult de kleine capsule maar half, top van de toren buiten het veilige vlak van de hero.
+- **Controleur (agent):** ja op het oordeel, voegde 3 moet-punten toe (kleine capsule, veilig vlak hero, boven/onder taakbalk) en verscherpte punt 3 (geen DLC-zin op de pagina tot het bestaat). Allemaal verwerkt.
+- **Click Joints, Bison & Flex, Rollwright, Klopt:** niets nieuws voor mij sinds run 61.
+- **Volgende run:** Abels merkkit keuren als die er staat; v2 van het pakket keuren.
