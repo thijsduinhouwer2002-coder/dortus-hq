@@ -107,5 +107,56 @@ func _init() -> void:
 	ok(veel["goud"] > r["goud"], "meer gangen, meer goud terwijl je weg bent (%d tegen %d)" % [veel["goud"], r["goud"]])
 	var sterk: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 20)
 	ok(sterk["gevallen"] <= r["gevallen"] and sterk["goud"] > 0, "faam: helden sterker, nog steeds winst (%d tegen %d gevallen)" % [sterk["gevallen"], r["gevallen"]])
+	# toets 3 van Sanne: naamgenoot met wrok, laatste 4 overslaan, terugkomer noemt waarom, hoedregels
+	var k5 = K.new()
+	k5.binnen("Kees")
+	k5.gevallen("Kees", "Gloop the Slime", 6)
+	var ik: Dictionary = k5.binnen(k5.vrije_naam("Kees"))
+	ok(ik["naam"] == "Kees II" and ik["wrok"] == "Gloop the Slime", "Kees II komt met een wrok tegen Gloop (%s)" % ik["wrok"])
+	ok(k5.laatste_soort == "naamgenoot_hoed" and k5.laatste().begins_with("Kees II"), "naamgenoot-regel hoed: " + k5.laatste())
+	k5.binnen("Joep")
+	k5.gevallen("Joep", "the Spike Pit", 6)
+	var ij: Dictionary = k5.binnen("Joep II")
+	ok(ij["wrok"] == "" and k5.laatste_soort == "naamgenoot", "naamgenoot van een put-held: geen wrok (%s)" % k5.laatste())
+	k5.gevallen("Kees II", "Gloop the Slime", 6)
+	var ik3: Dictionary = k5.binnen("Kees III")
+	ok(ik3["wrok"] == "Gloop the Slime", "Kees III na Kees II door Gloop: ook een wrok")
+	var k6 = K.new()
+	var laatst: Array[String] = []
+	var herhaald := 0
+	for z in 200:
+		k6.binnen("Held%d" % z)
+		var rg: String = k6.laatste().replace("Held%d" % z, "X")
+		if laatst.has(rg):
+			herhaald += 1
+		laatst.append(rg)
+		if laatst.size() > 4:
+			laatst.pop_front()
+	ok(herhaald == 0, "binnenkomst: niet een van de laatste 4 regels opnieuw (%d keer)" % herhaald)
+	var zonder := 0
+	for z in 100:
+		var nm := "Terug%d" % z
+		k6.binnen(nm)
+		k6.gevlucht(nm, "Gloop the Slime" if z % 2 == 0 else "the Spike Pit")
+		k6.binnen(nm)
+		var rg: String = k6.laatste()
+		if not (rg.contains("Gloop") or rg.contains("Spike Pit") or rg.contains("Spooked")):
+			zonder += 1
+	ok(zonder == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder)
+	var k7 = K.new()
+	ok(k7.hoed("Kees", "Gloop the Slime", 1) == "Gloop wears Kees's hat now.", "eerste hoed: " + k7.laatste())
+	ok(k7.hoed("Pim", "Gloop the Slime", 25) == "Gloop is now known as the Hatted.", "25 hoeden: " + k7.laatste())
+	ok(k7.hoed("Pim", "Gloop the Slime", 0) == "", "aartsvijand naar de wand: geen hoedregel")
+	var vaak := 0
+	for z in 400:
+		if k7.hoed("Held%d" % z, "Gloop the Slime", 2 + z % 20) != "":
+			vaak += 1
+	ok(vaak > 60 and vaak < 140, "hoedregel hooguit een op de vier (%d van 400)" % vaak)
+	var te_lang2 := 0
+	for regel in k5.regels + k6.regels + k7.regels:
+		if regel.length() > 42:
+			te_lang2 += 1
+	ok(te_lang2 == 0, "nieuwe regels hooguit 42 tekens (%d te lang)" % te_lang2)
+
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

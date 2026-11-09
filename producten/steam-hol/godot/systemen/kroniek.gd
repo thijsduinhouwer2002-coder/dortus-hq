@@ -28,8 +28,8 @@ func _vars(naam: String, waardoor := "") -> Dictionary:
 		v["bewoner"] = Stem.korte_bewoner(waardoor)
 	return v
 
-func _regel(soort: String, v: Dictionary, reserve: String, achter := "") -> String:
-	var r: String = stem.kies(soort, v, achter)
+func _regel(soort: String, v: Dictionary, reserve: String, achter := "", moet_noemen := false) -> String:
+	var r: String = stem.kies(soort, v, achter, moet_noemen)
 	laatste_soort = soort if r != "" else "reserve"
 	return r if r != "" else reserve
 
@@ -47,7 +47,15 @@ func binnen(naam: String, trek := "") -> Dictionary:
 	h["bezoeken"] += 1
 	var v := _vars(naam, String(h["wrok"]))
 	var regel := ""
-	if h["bezoeken"] == 1 and naam.ends_with(" II"):
+	var ouder := _ouder(naam)
+	var door_ouder := String(helden[ouder].get("gevallen_door", "")) if ouder != "" and helden.has(ouder) else ""
+	if h["bezoeken"] == 1 and door_ouder != "" and not door_ouder.begins_with("the ") and door_ouder != "your Hoard":
+		# naamgenoot van een held die een bewoner at (Sanne toets 3 punt 2): komt met een wrok tegen die bewoner,
+		# wil de hoed van zijn vader terug en vindt hem nooit (een hoed gaat nooit van de toren af)
+		h["wrok"] = door_ouder
+		v = _vars(naam, door_ouder)
+		regel = _regel("naamgenoot_hoed", v, "%s wants dad's hat back." % naam)
+	elif h["bezoeken"] == 1 and naam.ends_with(" II"):
 		v["naam"] = naam.trim_suffix(" II")
 		regel = _regel("naamgenoot", v, "%s climbs in." % naam)
 	elif h["bezoeken"] == 1:
@@ -56,7 +64,8 @@ func binnen(naam: String, trek := "") -> Dictionary:
 	elif int(h["gevlucht"]) >= 3:
 		regel = _regel("aartsvijand", v, "%s is back." % naam)
 	else:
-		regel = _regel("terug", v, "%s is back." % naam)
+		# Sanne toets 3 punt 6: een terugkomer noemt altijd zijn wrok of bijnaam
+		regel = _regel("terug", v, "%s is back." % volle_naam(naam), "", true)
 	_schrijf(regel)
 	return {"naam": naam, "bezoeken": h["bezoeken"] - 1, "wrok": h["wrok"], "bijnaam": h["bijnaam"], "littekens": h["littekens"]}
 
@@ -86,6 +95,7 @@ func schat(naam: String) -> String:
 func gevallen(naam: String, waardoor: String, buit: int) -> String:
 	var h := held(naam)
 	h["gevallen"] += 1
+	h["gevallen_door"] = waardoor   # voor de naamgenoot: at een bewoner hem, dan komt Kees II met een wrok
 	var achter := " +%d" % buit
 	var regel := ""
 	if h["gevlucht"] > 0 and waardoor == h["wrok"]:
@@ -93,6 +103,33 @@ func gevallen(naam: String, waardoor: String, buit: int) -> String:
 	else:
 		regel = _regel("valt", _vars(naam, waardoor), "%s fell.%s" % [naam, achter], achter)
 	_schrijf(regel)
+	return regel
+
+# De ouder van een naamgenoot: "Kees II" -> "Kees", "Kees III" -> "Kees II", anders "".
+static func _ouder(naam: String) -> String:
+	if naam.ends_with(" III"):
+		return naam.trim_suffix(" III") + " II"
+	if naam.ends_with(" II"):
+		return naam.trim_suffix(" II")
+	return ""
+
+# Hoedentoren (Mila, Sanne toets 3): een bewoner at naam en zet zijn hoed op. aantal = hoeden van die bewoner nu.
+# Geeft een extra regel of "": bij de eerste hoed altijd, bij 25 en 100 de bijnaam, anders hooguit een op de vier
+# (anders verdringt het de val-regel). Geen hoed (aantal 0, bv. een aartsvijand gaat naar de wand): "".
+func hoed(naam: String, bewoner: String, aantal: int) -> String:
+	var v := _vars(naam, bewoner)
+	var regel := ""
+	if aantal <= 0:
+		return ""
+	if aantal == 1:
+		regel = _regel("hoed_eerste", v, "%s wears %s's hat now." % [v["bewoner"], naam])
+	elif aantal == 25 or aantal == 100:
+		v["bijnaam"] = "Hatted" if aantal == 25 else "Milliner"
+		regel = _regel("hoed_bijnaam", v, "%s is now the %s." % [v["bewoner"], v["bijnaam"]])
+	elif stem.rng.randf() < 0.25:
+		regel = _regel("hoed", v, "")
+	if regel != "":
+		_schrijf(regel)
 	return regel
 
 # Met pensioen (bij openen, hooguit één per keer): geen straf, een grapje. Hij komt niet meer terug.

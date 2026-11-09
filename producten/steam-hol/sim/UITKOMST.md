@@ -34,3 +34,10 @@ Regel nu in `sim.py`: **6 x (1 + 0,1 x faam) x (1 + gangen / 40) + 3 per eerder 
 - **Eerste aankoop: 45 tot 193 s, gemiddeld 104 s** (GEZIEN, 8 zaden). De bonus verandert dit niet: de eerste aankoop komt voor er een terugkomer valt. Dus binnen het doel van Sanne (rond 100 tot 200 s), met één snelle uitschieter (45 s). Met 3 in plaats van 6 per val zou het ±2 keer zo lang duren.
 - Met de bonus: aankopen 15 tot 18 in het eerste uur (was 14 tot 17), alles gekocht na 5,9 tot 6,7 uur (was 6,4 tot 7,1), langste wacht 5,5 tot 13,2 min in het eerste uur en 11 tot 18 min tot 3 uur. Vluchten 34 tot 38%, aartsvijand 0,1 tot 1,0 per uur. **Alle doelen blijven gehaald**; de winkel is alleen iets eerder op (inhoud, Sanne).
 - Een aartsvijand die na drie vluchten valt brengt 6 x ... + 9 op (Sanne rekende 15 met bezoek 3: dat klopt als het bezoek telt waarop hij valt; de sim telt eerdere bezoeken, dus vluchten).
+
+## Hoedentoren: teller `hap_slijm` (Bram, 9 nov 21:20 UTC, vraag Sanne toets 3 punt 4)
+`sim.py` telt nu elke hap van een slijm (`hap_slijm`) en de tijden van de hoeden van Gloop zelf (de eerste slijm; elke slijm heeft zijn eigen toren). GEZIEN met `python3 sim.py 1 8` en `python3 sim.py 40 4` (open tijd, dus speeltijd plus wat voortgang meetelt):
+- Eerste uur: Gloop eet 13 tot 27 helden (gemiddeld 22), dus Sanne's 13 tot 28 klopt. Vier hoeden op zijn hoofd na 2 tot 18 minuten.
+- Daarna ±27 per uur voor Gloop (±30 voor alle slijmen samen, omdat je er een bij koopt).
+- Maten van de hoedenberg voor Gloop: 5 na 0,1 tot 0,3 u, 25 na 1,0 tot 1,5 u, 100 na 3,8 tot 4,9 u, 300 na 10,7 tot 12,3 u, 1000 na 37 tot 38 u.
+- Betekenis: wie de strook een werkdag (8 u) open heeft, ziet maat 100 op dag 1, maat 300 op dag 2 en maat 1000 rond dag 5. Groei over dagen, zoals Sanne wil, maar na een week is de berg af. Voorstel aan Sanne: een zesde maat bij 3000 (±2 weken werkdagen), of de hoeden van de hoedenberg in het Heldenboek tellen zodat er daarna nog iets groeit.
