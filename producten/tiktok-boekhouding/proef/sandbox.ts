@@ -176,8 +176,17 @@ async function hoofd() {
   await vraag("3. Regel met tax_rate_id", async () => {
     const tarieven = await btwTarieven(client, ADM);
     log(`- btw-tarieven voor memoriaal (actief): ${kort(tarieven.map((t) => `${t.naam} ${t.percentage}%`), 600)}`);
-    const t21 = tarieven.find((t) => Number(t.percentage) === 21) ?? tarieven[0];
-    if (!t21) { log("- geen tarief gevonden; overgeslagen"); return; }
+    let t21 = tarieven.find((t) => Number(t.percentage) === 21) ?? tarieven[0];
+    if (!t21) {
+      // Run 1 (9 nov): geen enkel memoriaal-tarief. Dan kijken welke er wel zijn, en of Moneybird een ander soort weigert.
+      const alle = await ruw("GET", `/${ADM}/tax_rates`);
+      const lijst = Array.isArray(alle.json) ? alle.json : [];
+      log(`- alle btw-tarieven (zonder filter): ${alle.status}, ${kort(lijst.map((t: any) => `${t.name} ${t.percentage}% ${t.tax_rate_type}${t.active === false ? " (uit)" : ""}`), 1200)}`);
+      const v = lijst.find((t: any) => t.tax_rate_type === "sales_invoice" && Number(t.percentage) === 21 && t.active !== false);
+      if (!v) { log("- ook geen verkooptarief van 21%; overgeslagen"); return; }
+      t21 = { id: idsUit(JSON.stringify({ id: v.id }))[0], naam: v.name, percentage: String(v.percentage) };
+      log(`- probeer verkooptarief "${v.name}" (soort sales_invoice) in een memoriaal, om te zien of Moneybird dat weigert`);
+    }
     const s3 = `99${run}3`;
     const k3: Koppeling = { ...koppeling, per: { ...koppeling.per, omzet: { grootboekId: omzet.id, btwTariefId: t21.id } } };
     const m = maakMemoriaal(invoer(s3, [["omzet", 12100], ["commissie", -1500]]), k3, { btwToegestaan: true });
