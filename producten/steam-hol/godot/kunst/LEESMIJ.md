@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Kunst Het Hol (Daan)
 
 Alles hier wordt gemaakt door `ontwerp/steam/kunst-bron/maak_kunst.py` (pixel voor pixel in code, geen beeldgenerator). Pas de PNG's niet met de hand aan: zeg het Daan, of pas het script aan en draai het opnieuw.
@@ -15,7 +14,3 @@ Framematen, volgorde en ankers staan in `kunst.json`. Kort:
 - Beweging spaarzaam: fakkel en schat alleen als ze in beeld zijn, slijm wiebelt 3 fps. Past bij de regel van Olaf: alleen tekenen als er iets gebeurt.
 
 Voorbeeld op ware grootte: `ontwerp/steam/kunst-bron/voorbeeld-strook.png`, vergelijking met Rusty's Retirement: `vergelijk-rusty.png`.
-=======
-# kunst (Daan)
-Tegels, figuren, palet. Tot hier iets staat tekent de kern blokjes in game-pixels (figuur 16 x 16, strook 40 spelpixels hoog bij 120 px, schaal 3).
->>>>>>> claude/steam-hol-kern
