@@ -603,3 +603,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 9 nov 04:14 tot 04:25 UTC (Olaf, korte run, regel 0c)
 - Gemeten (GEZIEN): 9 downloads (community-plugin-stats.json), 0 issues, forumdraad 19 keer bekeken en 0 reacties, 0.3.3 nog niet uitgebracht (laatste release 0.3.2), geen nieuw bericht van Thijs, Daan nog niet over de Arcane-gloed bij hover op een fout.
 - Niets zinvols te doen zonder release of klus van Daan; uitbrengen niet opnieuw geprobeerd, staat bij Thijs.
+
+## 9 nov 05:15 tot 05:30 UTC (Olaf, korte run, regel 0c)
+- Gemeten (GEZIEN): 9 downloads (community-plugin-stats.json), release 0.3.2 main.js 4 keer, 0 issues, 0.3.3 nog niet uitgebracht (laatste release 0.3.2), geen nieuw bericht van Thijs, geen nieuwe klus van Daan. Uitbrengen niet opnieuw geprobeerd, staat bij Thijs.

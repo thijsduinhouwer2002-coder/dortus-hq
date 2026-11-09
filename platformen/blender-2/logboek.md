@@ -37,3 +37,6 @@
 
 ## 9 nov 04:14 tot 04:25 UTC (Olaf, korte beurt, regel 0c)
 - Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron. Geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
+
+## 9 nov 05:15 tot 05:30 UTC (Olaf, korte beurt)
+- Splitsvraag zelf gesloten: geen splits-product (regel in besluiten). Ze stond alleen in mijn status, ik mag niet in berichten/hans.md schrijven, en mijn eigen advies was al liever niet. Geen nieuwe bron, dus geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
