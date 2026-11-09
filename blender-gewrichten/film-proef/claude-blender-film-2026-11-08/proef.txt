@@ -3,18 +3,22 @@ pop: 315422 vlakken, foute randen 0
 look AgX / AgX - Base Contrast
 object Mannequin: 315422 vlakken, vakken ['Film hout']
   vlakken per vak {0: 315422}
-  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeAttribute', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeValToRGB']
+  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeAttribute', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeTexNoise', 'ShaderNodeMath', 'ShaderNodeValToRGB']
     ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
     ShaderNodeAttribute.Vector -> ShaderNodeTexNoise.Vector
     ShaderNodeTexNoise.Color -> ShaderNodeVectorMath.Vector
     ShaderNodeAttribute.Vector -> ShaderNodeVectorMath.Vector
     ShaderNodeVectorMath.Vector -> ShaderNodeTexWave.Vector
-    ShaderNodeTexWave.Factor -> ShaderNodeValToRGB.Factor
+    ShaderNodeAttribute.Vector -> ShaderNodeTexNoise.Vector
+    ShaderNodeTexWave.Factor -> ShaderNodeMath.Value
+    ShaderNodeTexNoise.Factor -> ShaderNodeMath.Value
+    ShaderNodeMath.Value -> ShaderNodeValToRGB.Factor
     ShaderNodeValToRGB.Color -> ShaderNodeBsdfPrincipled.Base Color
     Base Color gekoppeld True, waarde (0.8, 0.8, 0.8, 1.0)
     uitgangen [('Material Output', True, 'ALL')]
 render 1-held klaar
 elleboog: {'FINISHED'}, kogel 4.5 mm
+6d strakke ring A True B True, vakken A ['Film hout', None, 'Click Joints Good fit']
 elleboog: passing groen, wand 1.636, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4], foute randen A 0 B 0
 nerf_co op Mannequin_A: True
 nerf_co op Mannequin_B: True
@@ -26,11 +30,14 @@ render 4-rood28-hoek0 klaar
 render 4-rood28-hoek60 klaar
 render 4-rood28-hoek120 klaar
 render 4-rood28-hoek270 klaar
-rood midden (-33.11, -4.93, 98.28), maat 4.49 mm, normaal (0.27, 0.02, 0.96), afstand 40.8
+6d rood basis #E0261C: True
+rood midden (-33.11, -4.93, 98.28), maat 4.49 mm, normaal (0.27, 0.02, 0.96), afstand 22.5
 render 4b-rood28-doorzichtig-0 klaar
 render 4b-rood28-doorzichtig-1 klaar
+render 4b-rood28-zonder-b klaar
 render 5-rood28-exploded klaar
 knie: {'FINISHED'}, kogel 4.0 mm, A2 Mannequin_A_A, B2 Mannequin_A_B
+6d strakke ring A2 True B2 True
 knie: passing groen, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
 zichtbaar in render: ['Achtergrond', 'Mannequin_B', 'Mannequin_A_A', 'Mannequin_A_B']
 render 6-twee-gewrichten-15 klaar
