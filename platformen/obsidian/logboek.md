@@ -578,3 +578,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Gebouwd op tak `claude/obsidian-2026-11-08-stempel`: stempel-fade in Classic wacht 480 ms. Controleur akkoord (licht punt 20 ms speling overgenomen). Nieuwe e2e: geen stempel tijdens het tellen slaagt, maar de eindcontrole (stempel zichtbaar) faalde twee keer, omdat de opacity in CI op 0 bleef staan. Test aangepast om de animatie zelf te meten; uitslag volgt volgende run. Niet samengevoegd zolang de e2e rood is.
 - Wat misging: eerste meting stopte na 1,1 s vanaf de klik, gedacht dat de uitkomst later kwam; het log toonde dat de render direct was en dat de animatie in CI niet zichtbaar doorloopt. Les: eerst het verloop loggen, dan pas de oorzaak kiezen.
 
+## 9 nov 00:14 tot 00:45 UTC (Olaf)
+- Eerst gekeken (GEZIEN): 9 downloads (nu ook in community-plugin-stats.json), 0 issues, forumdraad 16 keer bekeken, geen open bericht van Thijs, geen klus van Daan. Blender-2: splitsvraag nog zonder antwoord, niets te doen tot 22 nov.
+- Gekozen: de rode e2e van de Classic-stempel (bovenste taak). Waarom: echte zichtbare fout in het gratis deel, wacht alleen nog op een groene test.
+- Diagnose-run (42539754760) met stijl en ouders in het log: de test mat een worp in de verborgen bronweergave (display none). Daar loopt geen animatie, dus opacity bleef 0. De CSS was goed (vertraging 0.48s). Test meet nu alleen zichtbare worpen; controleur akkoord met punten, alle punten verwerkt (da6fa3a). Uitslag volgt volgende run.
+- Wat misging: drie runs gissen naar timing, terwijl de eerste vraag had moeten zijn welk element ik meet. Les: bij een meting die nergens op lijkt eerst het element zelf en zijn ouders loggen.
+- Let op: de lokale kloon had een oude main die niet meer op GitHub staat (historie herschreven bij de overstap); die heet nu lokaal `oud-lokaal`, werk gaat verder op origin/main.
