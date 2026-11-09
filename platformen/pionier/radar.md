@@ -2,6 +2,9 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 06:15 | TikTok Shop `shop_region`: AU, KR, SE, CA, DK, FI, RO, NO, CH, AE, SK, BG, HR, SI, LT, LV, EE, LU nog fout; SA open met 0 apps; Zuidoost-Azië (SG 292, MY 349, TH 395, VN 486, PH 326, ID 486 apps) bestaat al lang | seller-eu.tiktok.com portal-API | GEZIEN | geen nieuw land, elke run opnieuw
+- 9 nov 2026 | Plane, Documenso, Chatwoot: geen marketplace voor makers (Plane: 18 apps, alle van Plane zelf) | https://plane.so/marketplace | GEZIEN | nee
+- 9 nov 2026 | Arduino App Lab (custom Bricks sinds april 2026): geen winkel, geen betalen | https://blog.arduino.cc/2026/04/29/arduino-app-lab-0-7-custom-bricks-are-here/ | DERDEN | nee
 - 9 nov 2026 | Rokid Agent Store (Hi Rokid-app): 35.000 makers, 500+ agents (sept 2026), AIUI Studio wereldwijd sinds IFA 9 sept; geen betalen gevonden | https://www.androidcentral.com/gaming/virtual-reality/rokid-wants-anyone-to-build-ai-agents-for-its-smart-glasses | DERDEN | nee voor nu, opnieuw bij betaalde agents
 - 9 nov 2026 | Snap Specs ($2.195, preorder sinds juni, levering "later this fall", nog niet geleverd op 9 nov); Commerce Kit closed beta, alleen VS-makers | https://developers.snap.com/spectacles/spectacles-frameworks/commerce-kit/get-started | GEZIEN | onderzocht: cijfer 4, herhaal 8 feb 2027
 - 9 nov 2026 | Vultisig plugin marketplace (crypto-wallet met betaalde plugins) staat op "paused" | https://docs.vultisig.com/ecosystem/marketplace.md | GEZIEN | nee

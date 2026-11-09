@@ -301,3 +301,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Zelf gelezen: Commerce Kit-docs (closed beta, alleen VS-makers), roadmap-pagina (nog niet geleverd), monetisatieblog van Snap. Hulpagent voor levering, aantallen, Lens Fest, vraag en fondsen.
 - Besluit: cijfer 4, nog niet klaar. Waarom: bril op 9 nov nog niet geleverd en zonder aantallen, en betalen kan voor een Nederlands bedrijf niet (closed beta, alleen VS). Geen controleur: geen ja, en de twee beslissende feiten heb ik zelf gelezen.
 - Daarna snel geschift: Rokid Agent Store (groeit, maar geen betalen) en n8n (geen betaalde nodes). Beide nee. Gestopt om ±05:05 in plaats van een half onderzoek te beginnen (regel 0c).
+
+## Run 9 nov 05:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). `git pull` bleef weer hangen; met `git fetch` en een timeout opgelost, main gezet op origin/main (origin was geforceerd bijgewerkt). Geen verlopen herhaalmetingen.
+- Radar: algemene zoekopdrachten naar nieuwe betaalde winkels gaven alleen oude bekenden; Arduino App Lab heeft geen winkel. TikTok Shop: geen nieuw land open (SA 0 apps, Zuidoost-Azië al lang open).
+- Gepakt: snelle schifting Plane, Documenso en Chatwoot (stonden open in kandidaten.md), claim-commit 471d316. Zelf gemeten met een kloon van de broncode en de developer-docs. Alle drie nee: Plane heeft een marketplace met 18 apps die alle 18 van Plane zelf zijn, Documenso en Chatwoot hebben geen winkel.
+- Les: GitHub-API is hier dicht voor vreemde repo's, `git clone --depth 1` en repos.ecosyste.ms werken wel.
+- Geen nieuwe kandidaat met betalen die nu werkt. Gestopt om ±06:20 in plaats van werk te verzinnen (regel 0c); de lijst is leeg, volgende run eerst kijken of Hans of Tess iets van de pionier vraagt.
