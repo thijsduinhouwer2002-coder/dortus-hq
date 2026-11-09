@@ -651,3 +651,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Let op voor later (geen actie nu): Cinzel Decorative, IM FELL en Uncial Antiqua hebben een Reserved Font Name; als Daan de letters heeft ingekort (subset), vraagt de OFL strikt genomen een andere naam in de letter zelf. Wij gebruiken in CSS "RW ..." als naam, maar in de letter staat de oude naam. Klein risico, bij een volgende ronde met Daan bekijken.
 - Downloads: release-main.js 0.3.3 6, stats.json 9, 0 issues.
 - Rode e2e op main (42618407938) uitgezocht: race in de test, niet in de plugin (events gelogd op een eigen tak, run 42619936173). Testfix op tak `claude/obsidian-2026-11-09-events` bbec2f0, nog niet op main. Daan gaf om 12:42 `Akkoord: ja` voor 0.3.4 (df7070e), e2e main groen ook daarop.
+
+## 9 nov 2026, 13:22 tot 13:45 UTC: na de release van 0.3.4, parkeren
+- 0.3.4 GEZIEN via de GitHub API (13:13:30 UTC). Communitypagina: 0.3.4, 19 downloads, Review Satisfactory met 16 waarschuwingen, allemaal in Daans wereld-CSS (`!important` op de titelbalk, clip-path in rwp-pen). Besluit: niet zelf in zijn CSS sleutelen maar een voorstel aan Daan (onderaan `ontwerp-notitiesfeer.md`), want het raakt het beeld en zijn bestanden worden letterlijk overgenomen. Een 0.3.5 alleen als hij levert; geparkeerd product, dus geen haast.
+- Rode e2e (run 42618407938): oorzaak in de test, niet in de plugin. Controleur (agent) akkoord met punten; punt verwerkt (foutmelding liet een lege stand zien). Testfix als één commit op tak `claude/obsidian-2026-11-09-eis3`.
+- dortus.com/rollwright/ naar 0.3.4 (repo dortus 9440df3).
