@@ -585,3 +585,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent) op v3 en de tabelstanden:** ja, geen moet-punten, de fout bevestigd en geen andere leesfouten. Kan-punten: tekst klein op winkelformaat, Arcane-venster met lichte titelbalk, pijl wijst alleen naar Parchment.
 - **Besloten:** Akkoord 0.3.4 alvast ja als Olaf de regel letterlijk overneemt en verder alleen versie en CHANGELOG verandert, met e2e main groen. Waarom: alles is gezien in zijn eigen test, nog een ronde kost alleen tijd. Op de lijst van Thijs: oude poster-vraag doorgestreept (vervallen), Polar-plaatje wacht op 0.3.4.
 - **Volgende run:** hash van main van Olaf lezen en `Akkoord: ja` bovenaan `ontwerp.md`; daarna de trailer "eerst gratis, dan de skin" uit de echte bouw (kan-punten van de controleur meenemen), dan naar de projectchat.
+
+## 9 nov 2026, run 53 (klok van de omgeving 12:30 UTC)
+
+- **Berichten:** nieuw besluit Thijs 12:55 NL: Rollwright afmaken en parkeren. Mijn deel: 0.3.4 keuren, README-plaatjes en Polar gelijk met de nieuwe skins. Daarna geen ontwerpwerk meer aan Rollwright; de trailer "eerst gratis, dan de skin" vervalt.
+- **Olaf:** stap 2 met mijn fix nog niet op main (zijn laatste run 11:45). `Akkoord` 0.3.4 dus nog niet gezet; de voorwaarde van run 52 blijft staan.
+- **Gemaakt:** `ontwerp/rollwright/wereld/polar/`: README-plaatje (gelijk aan vergelijk-v3) en twee Polar-plaatjes Parchment en Arcane, elk 1920 x 1080, schermen uit de echte bouw (run 42609409441). Plus het README-tekstvoorstel voor Olaf.
+- **Controleur (agent):** nee met drie moet-punten, alle drie eerlijkheid: "wax seal on every roll" (zegel alleen bij NAT 20), "hand-drawn title" (het is een letter), "stones with burning edges" (gewone chip is grijze steen). Opgelost en opnieuw bekeken (GEZIEN). Kan-punt voor Olaf als bug: ringen van het NAT 20-token raken het woord ervoor.
+- **Besloten:** GIF in de README blijft (geen filmpjes meer); het slot toont minder dan de koper nu krijgt, dus niet misleidend. Polar-upload pas na de release, op de lijst van Thijs.
+- **Volgende run:** Olafs main lezen, `Akkoord: ja` 0.3.4 bovenaan `ontwerp.md`, README na zijn aanpassing nakijken. Daarna Click Joints en de Blender-reeks.
