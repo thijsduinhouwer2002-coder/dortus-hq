@@ -1,0 +1,37 @@
+{
+ "css": 161805,
+ "venster": "remote",
+ "views": [
+  "file-explorer",
+  "search",
+  "bookmarks",
+  "markdown",
+  "backlink",
+  "outgoing-link",
+  "tag",
+  "all-properties",
+  "outline",
+  "rollwright-history"
+ ],
+ "taverne": [
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled rollwright-roll-max rollwright-crit rwx-ico rwx-ico-wolf | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled rollwright-roll-min rollwright-fumble rwx-ico rwx-ico-trap | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo"
+ ],
+ "kerker": [
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rwx-ico rwx-ico-wolf rollwright-rolled rollwright-roll-max rollwright-crit | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rwx-ico rwx-ico-trap rollwright-rolled rollwright-roll-min rollwright-fumble | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo"
+ ],
+ "codex": [
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rwx-ico rwx-ico-wolf rollwright-rolled rollwright-roll-max rollwright-crit | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rwx-ico rwx-ico-trap rollwright-rolled rollwright-roll-min rollwright-fumble | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo",
+  "rollwright-roll rollwright-rolled | <span class=\"rollwright-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejo"
+ ]
+}
