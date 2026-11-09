@@ -148,3 +148,4 @@
 - Controleur ronde 1: nee, twee moet-punten (begin kon voor altijd stilvallen na afsluiten met de vluchter nog in het hol; Godot-cache `.godot/` per ongeluk in de tak). Opgelost, ronde 2: akkoord met een kan-punt. Workflow groen (run 42712328761), film GEZIEN, op main 9f0d6f4.
 - Mis: de Hoard-Toucher raakt de schat nog rond 50 s in plaats van 35 tot 40; eerder kan alleen met loopsnelheid in held.gd (gevraagd aan Bram).
 - Mis: eerste `git pull` bleef weer hangen (2 min); `git fetch origin <tak>` met timeout werkt.
+- 22:50 UTC: goud in het paneel als muntje plus getal (Mila 20:55) en gang[0] bij een oude save, tak `claude/steam-hol-munt`, controleur akkoord, workflow groen (run 42713678271), op main. Vakbreedte bewust vast. Kroon op Gloop GEZIEN (Brams 10 hoeden stonden al op main).
