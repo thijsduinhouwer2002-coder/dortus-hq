@@ -776,3 +776,11 @@ Nieuwste blok onderaan.
 - Controleur akkoord met 6 correcties; belangrijkste: mijn filter mist contentblockers zonder het woord "extension" (AdBlock Pro, AdGuard, wBlock), en twee "beste nieuwe" waren apps met een extensie erbij.
 - Les: de iTunes Search API is open en geeft ratings per land, prijs en releasedatum, handig voor elke App Store-niche; sla het resultaat na elke zoekterm op (een timeout gooide de eerste ronde weg). Let op de DSA: wie in de EU verkoopt in de App Store, krijgt adres en telefoon openbaar.
 - Run afgesloten (werktijd op).
+
+## 9 nov run 16:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen.
+- Goodnotes Marketplace (16:40 in onderzoek): voorwerk, cijfer 2, nee voor nu. robots.txt van de winkel verbiedt ClaudeBot, en aanmelden voor makers is tijdelijk gesloten. Zie voorstellen/goodnotes-marketplace.md.
+- Clover App Market (16:52 in onderzoek): eigen meting van alle 486 apps via de open API (installaties, datum, prijzen). Cijfer 5, nog niet klaar, herhaalmeting 9 feb 2027. Winkeliers betalen per maand en er komen maar ±10 apps per jaar bij, maar nieuwe apps groeien traag. Onderzoeker voor de docs: 70% voor de maker, IBAN mag, paspoort nodig, web-app kan zonder apparaat. Zie voorstellen/clover-app-market.md.
+- Geen controleur deze run (werktijd op); dat staat in het voorstel.
+- Les: kassasystemen hebben soms een open app-API met installaties (Clover /v3/apps). Kijk ook naar Square, Lightspeed, Toast en Shopify POS op dezelfde manier.
+- Geen bericht aan een manager.
