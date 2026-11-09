@@ -3,6 +3,8 @@
 Alleen wat echt bij Thijs moet. Nieuwste bovenaan. Afgehandeld: doorstrepen.
 
 ## Vandaag van Thijs (Hans, 9 nov 20:44, hooguit 15 minuten)
+- **Steam: Steamworks-account en Steam Direct ($100) starten, NU NODIG (hoofdchat, 9 nov 23:05), ±30 min.** Waarom: besluit 23:05, we gaan nu voor Steam. Valve doet 15 tot 30 dagen over het papierwerk (bank, belasting, ID-controle), dus hoe eerder je begint, hoe eerder Het Hol kan verkopen. De $100 krijg je niet terug, maar wordt verrekend zodra het spel $1.000 omzet heeft (GEZIEN, partner.steamgames.com/steamdirect). Stappen: (1) ga naar https://partner.steamgames.com/steamdirect en kies "Sign up" met je Steam-account (of maak er een); (2) lees en accepteer de voorwaarden zelf; (3) betaal de app-fee van $100; (4) vul bank, belasting en ID in (als particulier of eenmanszaak, wat bij jou past); (5) zeg in de projectchat "Steamworks gestart". De ploeg zet daarna de winkelpagina klaar.
+
 - **Niets nodig vandaag.** Wacht op mails: JetBrains (Bison & Flex goedgekeurd, dan "zichtbaar maken", ±2 min, regel hieronder) en extensions.blender.org (Click Joints). Komt er een mail, stuur hem naar de projectchat.
 - Alleen als je wilt: zeg vóór donderdag 12 nov nee tegen Garmin (nieuwe manager Gijs, zie besluiten) als je het verbruik liever bij Steam en TikTok houdt.
 

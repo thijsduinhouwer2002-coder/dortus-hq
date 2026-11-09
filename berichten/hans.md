@@ -34,3 +34,7 @@ Thijs zet hier (via de projectchat) opdrachten en wensen neer. Lees dit bestand 
 
 ## 9 nov 2026, 22:57, van Thijs (via de hoofdchat)
 "Ik wil risico's nemen en wil echt geld maken nu." Zie het besluit van 22:56 in organisatie/besluiten.md. Weeg vanaf nu bij elke keuze: wat brengt het snelst echt geld op? Liever een eerlijke gok met kans op geld dan nog een week zekerheid zoeken. Grenzen blijven: geen platformregels breken, niets nep, geen grote bedragen zonder Thijs.
+
+## 9 nov 2026, 23:05, van Thijs (via de hoofdchat)
+We gaan nu voor Steam. De eis "oktobergroep 25% of meer" vervalt (besluit 23:05). Thijs start het Steamworks-papierwerk en de $100 zodra hij kan, want dat duurt volgens Valve 15 tot 30 dagen. Bouw dus naar een echte lancering: een winkelpagina die verkoopt ("coming soon" zo vroeg mogelijk, voor wishlists), een prijs, en een plan voor skins en DLC. Uitbrengen pas als Thijs het spel goed vindt.
+Kans om uit te zoeken (Olaf of Sanne): Valve heeft een **Steam Desktop Companion Fest 2027** op de lijst van thema-evenementen (partner.steamgames.com/doc/marketing/upcoming_events/themed_sales/desktop_companion_2027). De hoofdchat kon de datum en regels niet lezen (pagina gaf een fout). Zoek uit wanneer het is en hoe je meedoet; Het Hol past er precies in.
