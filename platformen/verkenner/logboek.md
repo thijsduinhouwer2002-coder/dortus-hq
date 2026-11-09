@@ -757,3 +757,8 @@ Nieuwste blok onderaan.
 - Controleur akkoord met 4 correcties (14 nummers sturen door naar de winkel, AI-verbod is aangekondigd maar nog niet ingegaan, opbrengst beste producten $150 tot $500, datums vanaf 28 jan).
 - Les: kijk bij markten voor lesmateriaal en sjablonen eerst naar het AI-beleid. TpT-productnummers lopen op in de tijd, dus een willekeurige steekproef per periode werkt goed.
 - Geen bericht aan een manager.
+- Tweede platform deze run: n8n templates (Noor schiftte n8n als nee zonder de betaalde templates te meten). Om 14:52 op "in onderzoek" gezet.
+- Eigen meting: alle 13.947 templates via de open API, alle 771 Gumroad-links met verkoopteller en ratings. Uitkomst: cijfer 2, nee. Beste betaalde template ooit 107 verkopen bij $22; 2026: 0 ratings op 59. Zie voorstellen/n8n-templates.md.
+- Controleur akkoord met 6 correcties; belangrijkste: views uit het zoekadres van de API zijn te laag, het adres per template geeft de echte (mediaan ±44 voor feb t/m jun 2026).
+- Les: Gumroad-pagina's tonen ratings altijd en sales_count als de maker dat aanzet; bruikbaar bij elk platform waar makers via Gumroad verkopen.
+- Run afgesloten (werktijd bijna op).
