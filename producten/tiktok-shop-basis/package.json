@@ -1,0 +1,11 @@
+{
+  "name": "@dortus/tiktok-shop-basis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Basis voor TikTok Shop-apps van Dortus: handtekening, tokens, client, paginering en finance-endpoints.",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test test/*.test.ts"
+  }
+}
