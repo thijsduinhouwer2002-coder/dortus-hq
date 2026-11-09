@@ -183,7 +183,7 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 		await browser.executeObsidian(({ app }) => app.setting.close());
 	});
 	// Daan (9 nov 10:55): tabeluitkomsten in beeld, in Parchment en Arcane, en Arcane met de wereld uit in een licht thema.
-	// Gemeten: de letterkleur van de uitkomst tegen zijn eigen vlak (over het vlak van de notitie gelegd), minstens 3 op 1.
+	// Gemeten: de letterkleur van .rollwright-value tegen elke kleurstop van het vlak van de uitkomst (over het vlak eronder gelegd), minstens 3 op 1.
 	const TABEL_STANDEN = [
 		{ naam: "parchment-licht", skin: "parchment", donker: false, wereld: "rolls", isWereld: true },
 		{ naam: "parchment-donker", skin: "parchment", donker: true, wereld: "rolls", isWereld: true },
@@ -217,19 +217,26 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 					if (c && c.a > 0.5) onder = c;
 				}
 				onder ??= document.body.classList.contains("theme-dark") ? { r: 30, g: 30, b: 30, a: 1 } : { r: 255, g: 255, b: 255, a: 1 };
-				const eigen = kleur(s.backgroundColor) ?? { r: 0, g: 0, b: 0, a: 0 };
-				const vlak = ["r", "g", "b"].reduce((o, k) => ({ ...o, [k]: eigen[k] * eigen.a + onder[k] * (1 - eigen.a) }), {});
 				const lum = (c) => {
 					const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
 					return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b);
 				};
-				const letter = kleur(s.color);
-				const [a, b] = [lum(letter), lum(vlak)].sort((x, y) => y - x);
+				const opVlak = (c) => ["r", "g", "b"].reduce((o, k) => ({ ...o, [k]: c[k] * c.a + onder[k] * (1 - c.a) }), {});
+				// Het vlak van de uitkomst: elke kleurstop van een verloop telt (de url-textuur niet), anders de achtergrondkleur.
+				const zonderUrl = s.backgroundImage.replace(/url\((?:"[^"]*"|'[^']*'|[^)]*)\)/g, "");
+				const stops = (zonderUrl.match(/rgba?\([^)]+\)/g) ?? []).map(kleur).filter(Boolean);
+				const eigen = kleur(s.backgroundColor) ?? { r: 0, g: 0, b: 0, a: 0 };
+				const vlakken = (stops.length ? stops : [eigen]).map(opVlak);
+				// De letter waar de tekst echt in staat.
+				const waarde = el.querySelector(".rollwright-value") ?? el;
+				const letter = kleur(win.getComputedStyle(waarde).color);
+				const ratio = (x, y) => { const [a, b] = [lum(x), lum(y)].sort((p, q) => q - p); return (a + 0.05) / (b + 0.05); };
+				const contrast = Math.min(...vlakken.map((v) => ratio(letter, v)));
 				return {
 					tekst: el.querySelector(".rollwright-value")?.textContent ?? el.textContent,
 					wereld: leaf.view.containerEl.classList.contains("rollwright-world"),
-					kleur: s.color, vlak: s.backgroundColor, beeld: s.backgroundImage === "none" ? "none" : "beeld", rand: s.borderColor,
-					contrast: Math.round(((a + 0.05) / (b + 0.05)) * 100) / 100,
+					kleur: win.getComputedStyle(waarde).color, stops: stops.length, vlak: s.backgroundColor, beeld: s.backgroundImage === "none" ? "none" : "beeld", rand: s.borderColor,
+					contrast: Math.round(contrast * 100) / 100,
 				};
 			}, MET);
 			console.log(`WERELD-CSS tabel ${stand.naam}:`, JSON.stringify(uit));
@@ -237,8 +244,8 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 			expect(uit).not.toBe(null);
 			expect(["Rood", "Blauw", "Groen"].some((k) => uit.tekst.includes(k))).toBe(true);
 			expect(uit.wereld).toBe(stand.isWereld);
-			// Een vlak met een verloop of textuur kan niet als één kleur gemeten worden; daar beslist het plaatje.
-			if (uit.beeld === "none") expect(uit.contrast).toBeGreaterThanOrEqual(3);
+			// Slechtste stop van het verloop telt; de ruistextuur is lichte korrel en telt niet mee.
+			expect(uit.contrast).toBeGreaterThanOrEqual(3);
 		});
 	}
 });
