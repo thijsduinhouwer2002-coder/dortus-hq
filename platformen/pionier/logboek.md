@@ -290,4 +290,6 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Radar kort: algemene zoekopdrachten gaven niets nieuws; Vultisig plugin marketplace staat op pauze (nee).
 - Gekozen: Omi app store. Waarom: nog niet bekeken door Vera of mij, jong apparaat met app store en betaalde apps.
 - Zelf gemeten: hele catalogus via de open API (593 apps, installs, prijs, datum), betaalcode in de open-source backend (Stripe Connect, 0% afdracht), iOS-beoordelingen per land en Android-downloads. Script data/omi-apps-meet.py.
+- Tijden: Omi in onderzoek 03:42, klaar 03:47 (de claim-commit noemt 03:50, dat was een schatting).
 - Besluit: cijfer 3, nee. Waarom: betalen werkt wel, maar de instroom van apps is sinds mei 2026 ingestort (0 tot 2 per maand), betaalde apps verkopen bijna niet en het platform is klein. Geen controleur ingezet: alle kerncijfers komen uit de eigen API en broncode van Omi (GEZIEN) en het advies is nee.
+- Daarna snel geschift: Ultrahuman PowerPlugs (alleen partners), Nothing Playground (geen betalen), Ulanzi Studio (geen winkel), Meta Horizon Worlds (platform wankelt). Alle vier nee. Geen nieuwe kandidaat met betalen die nu werkt; gestopt om ±04:00 in plaats van een half onderzoek te beginnen (regel 0c).
