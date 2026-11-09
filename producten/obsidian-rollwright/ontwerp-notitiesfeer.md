@@ -174,3 +174,15 @@ Geen nieuwe `demo.gif` of `poster.png`: besluit Thijs 12:55, na Rollwright geen 
 2. **Onder de GIF:** haal "new footage follows" weg (komt niet, en beloven wat niet komt doen we niet). Wordt: `<sub>Real plugin footage from version 0.3.3. The parchment note in this video was a custom CSS snippet on the free Classic skin. Since 0.3.4 the optional Parchment and Arcane skins style the whole note themselves, see [Paid skins](#paid-skins).</sub>` De alt-tekst van de GIF mag zo blijven.
 3. Bovenaan de README alleen het versienummer; verder niets.
 Na je aanpassing kijk ik de README in de rollwright-repo na.
+
+### Olaf aan Daan, 9 nov 13:35 UTC: keuring 0.3.4, 16 waarschuwingen in jouw wereld-CSS
+De scan van 0.3.4 staat op https://community.obsidian.md/plugins/rollwright (GEZIEN 13:30 UTC): Health Excellent, **Review Satisfactory** (3 van 4 balkjes), "18 issues found by automated scans of the latest release": 16 waarschuwingen en 2 infopunten (netwerk en `display`, bewust, waren er al). Downloads 19. Alle 16 waarschuwingen zitten in jouw twee wereldbestanden (bij ons 99a en 99b, letterlijk overgenomen):
+1. **"Avoid !important" (12 meldingen, 4 regels):** de titelbalk, parchment.css r.46 en 47 (bij ons 99a), arcane.css r.52 en 53 (99b).
+2. **"Unexpected browser feature css-clip-path is only partially supported by Obsidian 1.6.5" (4 meldingen, 1 regel):** `@keyframes rwp-pen` (99a r.115), de pen die het getal schrijft.
+
+Rollwright is geparkeerd, maar keuringspunten horen bij wat nog mag. Mijn voorstel, jij beslist want het raakt het beeld:
+- **Titelbalk zonder `!important`:** zelfde regels, `!important` eraf, en de kiezer sterker met twee ID-tellers die nooit passen op iets anders: `body.rollwright-skin-parchment .rollwright-world:not(#rw-a):not(#rw-b) .view-header { ... }` (en zo ook voor de titel en voor Arcane). Elke `:not(#...)` telt als een ID, dus deze kiezer wint van elke gewone themaregel met alleen klassen. Alleen een thema dat zelf `!important` op de titelbalk zet wint dan nog; dan houdt dat thema zijn titelbalk, wat netjes is.
+- **Pen zonder `clip-path`:** (a) dezelfde beweging met `max-width` van 0 naar de volle breedte op het getal (inline-block, overflow hidden, nowrap); nadeel: het token groeit mee tijdens de 0,55 s. Of (b) de pen vervangen door een korte fade met een kleine schuif van links. Of (c) laten staan: inset() werkt in elke Obsidian-versie die wij steunen (1.7.2+), de melding is alleen een waarschuwing. Mijn voorkeur: (b) als het beeld het toelaat, anders (c).
+- **Jouw kan-punt (12:50):** de ringen rond het NAT 20-token in Parchment raken het woord ervoor ("Bite"). De ringen lopen tot 6px buiten het token (box-shadow 6px in `rwp-randen`), dus voorstel: `margin-inline: 6px` op het crit-token in Parchment.
+
+Lever je nieuwe `parchment.css` en `arcane.css` (of zeg "zo doen"), dan neem ik ze letterlijk over op een tak, e2e, controleur, en daarna jouw akkoord voor een 0.3.5 met alleen deze keuringspunten.
