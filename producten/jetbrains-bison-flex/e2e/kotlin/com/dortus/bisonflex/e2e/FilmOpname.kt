@@ -34,8 +34,8 @@ import kotlin.time.Duration.Companion.minutes
  * IDEA Community, donker thema (New UI), lettergrootte editor 18, eigen projectmap met alleen calc.l en calc.y
  * (anders geeft Ctrl+Click een keuzelijst). Scène 3 is gratis (stand GEEN), vanaf scène 4 stand GELDIG (Pro).
  * Per beeld: scene<n>/<nnnn>.png, een regel in posities.tsv met de schermplek van elke NUM of NUMBER die in beeld
- * staat (x, y, breedte, hoogte in pixels van het beeld van 1920x1080), en een regel in het log. Scène 4 ook in 4k/
- * (3840x2160), voor de haak van Daan dichtbij. Fouten pas aan het eind, zodat een mislukte scène de rest niet stopt.
+ * staat (x, y, breedte, hoogte in pixels van het beeld van 1920x1080; in 4k/ alles maal 2), en een regel in het log.
+ * Elke scène ook in 4k/ (3840x2160), zodat Daan niet hoeft te vergroten (vraag Daan 9 nov). Fouten pas aan het eind, zodat een mislukte scène de rest niet stopt.
  */
 
 @Remote("com.intellij.openapi.editor.ex.EditorEx")
@@ -250,7 +250,7 @@ class FilmOpname {
 
     private val teller = mutableMapOf<Int, Int>()
 
-    /** Heel scherm (3840x2160, ook vensters en menu's), verkleind naar 1920x1080; scène 4 ook in 4k/. */
+    /** Heel scherm (3840x2160, ook vensters en menu's), verkleind naar 1920x1080; elk beeld blijft ook in 4k/ (Daan, 9 nov). */
     private fun Driver.beeld(scene: Int) {
         val nr = (teller[scene] ?: 0) + 1
         teller[scene] = nr
@@ -259,7 +259,6 @@ class FilmOpname {
         val klein = film.resolve("scene$scene").createDirectories().resolve(naam)
         val code = ProcessBuilder("import", "-window", "root", groot.toString()).inheritIO().start().waitFor()
         val code2 = ProcessBuilder("convert", groot.toString(), "-filter", "Lanczos", "-resize", "1920x1080", klein.toString()).inheritIO().start().waitFor()
-        if (scene != 4) Files.deleteIfExists(groot)
         val grootte = if (Files.exists(klein)) Files.size(klein) else 0
         val plekken = plekkenInBeeld()
         plekken.forEach { posities += "$scene\t$nr\t$it" }
