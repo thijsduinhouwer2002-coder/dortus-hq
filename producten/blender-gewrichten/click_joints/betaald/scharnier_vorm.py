@@ -165,7 +165,11 @@ def onder_b(m, g):
     yp, s, ta = -m["e"], m["s"], math.tan(m["alfa"])
     c = s / (2 * math.cos(m["alfa"]))
     y_top = yp + (g - c) / ta
-    return [(-g, -g), (g, -g), (g, g), (min(y_top, g - 1e-3), g), (yp, c), (yp, s / 2), (-g, s / 2)]
+    if y_top < g - 1e-3:
+        return [(-g, -g), (g, -g), (g, g), (y_top, g), (yp, c), (yp, s / 2), (-g, s / 2)]
+    # Wig onder 45 graden: het vlak verlaat het vierkant door de zijkant y = g. Daar het punt op het vlak
+    # zelf nemen; afkappen op (g, g) zou de hoek van het stopvlak veranderen (stand 90 gaf zo 90,55).
+    return [(-g, -g), (g, -g), (g, c + (g - yp) * ta), (yp, c), (yp, s / 2), (-g, s / 2)]
 
 
 def boven_a(m, g):
@@ -173,7 +177,9 @@ def boven_a(m, g):
     yp, s, ta = -m["e"], m["s"], math.tan(m["alfa"])
     c = s / (2 * math.cos(m["alfa"]))
     y_bodem = yp + (g - c) / ta
-    return [(-g, -s / 2), (yp, -s / 2), (yp, -c), (min(y_bodem, g - 1e-3), -g), (g, -g), (g, g), (-g, g)]
+    if y_bodem < g - 1e-3:
+        return [(-g, -s / 2), (yp, -s / 2), (yp, -c), (y_bodem, -g), (g, -g), (g, g), (-g, g)]
+    return [(-g, -s / 2), (yp, -s / 2), (yp, -c), (g, -c - (g - yp) * ta), (g, g), (-g, g)]
 
 
 def as_cilinder(naam, r, x0, x1, frame, m, collectie):
