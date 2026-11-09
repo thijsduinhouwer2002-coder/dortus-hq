@@ -9,7 +9,7 @@ const best = (n: number) => ({ antwoord: { order_id: String(n) } as any, opgehaa
 const status = (s: string, extra: Record<string, unknown> = {}) => ({ status: s, sinds: 1, statementTime: 1700000000, ...extra });
 
 test("(c) slot: twee eigenaars, één krijgt het; verlopen slot gaat over; slotTot leest vers", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const a = new D1Opslag(db, "w1", new Budget(50));
   const b = new D1Opslag(db, "w1", new Budget(50));
   assert.equal(await a.neemSlot("s1", "A", 1300, 1000), true);
@@ -25,7 +25,7 @@ test("(c) slot: twee eigenaars, één krijgt het; verlopen slot gaat over; slotT
 });
 
 test("(c) neemSlot leegt het geheugen: daarna weer vers uit D1", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const o = new D1Opslag(db, "w1", new Budget(50));
   assert.equal(await o.leesBestelling("s1", "1"), undefined);
   db.sqlite.prepare("INSERT INTO bestellingen VALUES ('w1','s1','1',?,5)").run(JSON.stringify(best(1)));
@@ -35,7 +35,7 @@ test("(c) neemSlot leegt het geheugen: daarna weer vers uit D1", async () => {
 });
 
 test("(d) wachtrij gaat mee met schrijfStatus in één batch; eigen schrijfacties terug te lezen; 30 bestellingen ≤ 8 queries", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const o = new D1Opslag(db, "w1", new Budget(50));
   await o.neemSlot("s1", "A", 2000, 1000);
   await o.leesStatus("s1");
@@ -55,7 +55,7 @@ test("(d) wachtrij gaat mee met schrijfStatus in één batch; eigen schrijfactie
 });
 
 test("(d) een batch die faalt laat niets half achter en de wachtrij blijft staan", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const o = new D1Opslag(db, "w1", new Budget(50));
   await o.leesBestelling("s1", "1");
   await o.schrijfBestelling("s1", "1", best(1));
@@ -85,7 +85,7 @@ test("(e) budget: nieuw werk weigert bij de reserve, afmaken gaat door", async (
 });
 
 test("(k) twee winkels in één database zien elkaars rijen niet", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1", "w2");
   const a = new D1Opslag(db, "w1", new Budget(50));
   const b = new D1Opslag(db, "w2", new Budget(50));
   await a.neemSlot("s1", "A", 2000, 1000);
@@ -100,7 +100,7 @@ test("(k) twee winkels in één database zien elkaars rijen niet", async () => {
 });
 
 test("(i) af: bewaarde bestellingen en transacties weg, status blijft; wacht_op_abonnement houdt ze; te grote rij niet bewaard", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const o = new D1Opslag(db, "w1", new Budget(50));
   const n = (t: string) => Number((db.sqlite.prepare(`SELECT count(*) n FROM ${t}`).get() as any).n);
   await o.leesBestelling("s1", "1");
@@ -136,12 +136,12 @@ test("budget met reserve: overVoorNieuw laat de reserve buiten de boekingscontro
 });
 
 test("leesOpen pakt ook opnieuw_sinds; (k) indexen worden gebruikt", async () => {
-  const db = new NepD1();
+  const db = new NepD1("w1");
   const o = new D1Opslag(db, "w1", new Budget(50));
   await o.schrijfStatus("s1", status("geboekt", { opnieuwSinds: 5 }));
   await o.schrijfStatus("s2", status("geboekt"));
   assert.deepEqual((await o.leesOpen(["onvolledig"])).map((x) => x.statementId), ["s1"]);
   const plan = JSON.stringify(db.sqlite.prepare("EXPLAIN QUERY PLAN SELECT statement_id, statement_time FROM statussen WHERE winkel = ? AND (status IN (?) OR opnieuw_sinds IS NOT NULL)").all("w1", "onvolledig"));
   assert.match(plan, /statussen_opnieuw|statussen_status/);
-  assert.match(JSON.stringify(db.sqlite.prepare("EXPLAIN QUERY PLAN SELECT id FROM winkels WHERE volgende_run <= ?").all(5)), /winkels_volgende_run/);
+  assert.match(JSON.stringify(db.sqlite.prepare("EXPLAIN QUERY PLAN SELECT id FROM winkels WHERE volgende_run <= ? AND ontkoppeld_op IS NULL").all(5)), /winkels_volgende_run/);
 });

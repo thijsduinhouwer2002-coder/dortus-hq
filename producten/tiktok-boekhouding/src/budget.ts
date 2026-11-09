@@ -49,6 +49,17 @@ export class Budget {
     this.gebruikt++;
   }
 
+  /** Hoeveel van het gebruikte budget naar de opslag (D1) ging: telt niet mee voor "vers" in ophalen.ts. */
+  opslag = 0;
+
+  /** Teller voor D1Opslag: zelfde pot (ontwerp-d1-worker.md, "Eén pot van 50"), maar apart bijgehouden. */
+  opslagTeller(): { neem(): void; neemAfmaken(): void } {
+    return {
+      neem: () => { this.neem(); this.opslag++; },
+      neemAfmaken: () => { this.neemAfmaken(); this.opslag++; },
+    };
+  }
+
   /** fetch die eerst het budget telt; geef dit mee als `fetchFn` aan beide clients. */
   omhul(fetchFn: typeof fetch): typeof fetch {
     // async, zodat BudgetOp net als bij fetch als afgewezen belofte komt en nooit synchroon.

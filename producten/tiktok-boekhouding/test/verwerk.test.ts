@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { TikTokClient } from "../../tiktok-shop-basis/src/client.ts";
 import { MoneybirdClient } from "../src/moneybird/client.ts";
 import { Budget, BudgetOp } from "../src/budget.ts";
-import { GeheugenOpslag } from "../src/opslag.ts";
+import type { GeheugenOpslag } from "../src/opslag.ts";
+import { maakOpslag } from "./opslag-keuze.ts";
 import { haalSamen, proef, WinkelStop, type TikTokDeps } from "../src/verwerk.ts";
 
 // Nagebootste TikTok: afrekeningen met transacties en bestellingen, antwoorden in de vorm van de docs ({code, data, request_id}).
@@ -45,7 +46,7 @@ const bestelling = (orderId: string, statementId: string, omzet: number): any =>
 };
 const orderT = (id: string, orderId: string, b: any): any => ({ id, type: "ORDER", order_id: orderId, settlement_amount: b.settlement_amount });
 
-function deps(fetchFn: typeof fetch, opslag = new GeheugenOpslag(), totaal = 45, nu = 1_800_000_000): TikTokDeps & { opslag: GeheugenOpslag } {
+function deps(fetchFn: typeof fetch, opslag = maakOpslag(), totaal = 45, nu = 1_800_000_000): TikTokDeps & { opslag: GeheugenOpslag } {
   const budget = new Budget(totaal);
   const tiktok = new TikTokClient({ appKey: "k", appSecret: "s", fetchFn: budget.omhul(fetchFn), nu: () => nu, slaap: async () => {} });
   return { tiktok, accessToken: "t", shopCipher: "c", opslag, budget, nu: () => nu };
@@ -104,7 +105,7 @@ test("dubbele transactie-id: niet bewaard, de volgende aanroep haalt opnieuw op"
   const a = maak("7001", 300, "PAID", 2, best);
   a.trans[1] = { ...a.trans[1], id: a.trans[0].id };
   const nep = nepTikTok([a], best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   assert.equal((await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 0 })).status, "onvolledig");
   assert.equal(opslag.transacties.size, 0);
   await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 0 });
@@ -115,7 +116,7 @@ test("boeken: compleet maar te weinig budget voor de boeking geeft bezig, de vol
   const best = new Map();
   const a = maak("7001", 300, "PAID", 2, best);
   const nep = nepTikTok([a], best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   const d = deps(nep.fn, opslag, 17); // 1 + 2 = 3 verzoeken, dan 14 over: genoeg om op te halen, de boeking past nog
   assert.equal((await haalSamen(d, "7001", { reserve: 12 })).status, "compleet");
   const krap = deps(nep.fn, opslag, 11);
@@ -149,7 +150,7 @@ test("(a) proef met een klein budget: nog bezig, de volgende aanroep gaat verder
   const best = new Map();
   const lijst = [maak("7001", 300, "PAID", 3, best, 1), maak("7002", 200, "PAID", 3, best, 4), maak("7003", 100, "PAID", 3, best, 7)];
   const nep = nepTikTok(lijst, best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   const p1 = await proef(deps(nep.fn, opslag, 7)); // lijst 1, 7001 4, 7002 1 + 1
   assert.equal(p1.nogBezig, true);
   assert.equal(p1.afrekeningen[0].status, "compleet");
@@ -170,7 +171,7 @@ test("(e) 90 bestellingen over drie aanroepen: geen bestelling twee keer opgehaa
   const best = new Map();
   const a = maak("7001", 300, "PAID", 90, best);
   const nep = nepTikTok([a], best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   const uitkomsten = [];
   for (let i = 0; i < 3; i++) uitkomsten.push(await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 12 }));
   assert.deepEqual(uitkomsten.map((u) => u.status), ["bezig_met_ophalen", "bezig_met_ophalen", "compleet"]);
@@ -189,7 +190,7 @@ test("(e) budget loopt over meer afrekeningen in één aanroep; budget op midden
   const best = new Map();
   const lijst = [maak("7001", 300, "PAID", 3, best, 1), maak("7002", 200, "PAID", 3, best, 4)];
   const nep = nepTikTok(lijst, best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   const d = deps(nep.fn, opslag, 6);
   assert.equal((await haalSamen(d, "7001", { reserve: 0 })).status, "compleet"); // 4 verzoeken
   const tweede = await haalSamen(d, "7002", { reserve: 0 }); // 1 transacties + 1 bestelling, dan op
@@ -207,7 +208,7 @@ test("(e) mislukte bestelling midden in een portie: onvolledig, de volgende run 
   const a = maak("7001", 300, "PAID", 3, best);
   const fouten = new Map([["5002", { code: 36009003 }]]);
   const nep = nepTikTok([a], best, fouten);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   const u1 = await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 0 });
   assert.equal(u1.status, "onvolledig");
   assert.match(u1.reden!, /5002 \(TikTok fout 36009003\)/);
@@ -232,7 +233,7 @@ test("bewaarde bestelling van een andere afrekening telt niet; 'opnieuw sinds T'
   const best = new Map();
   const a = maak("7001", 300, "PAID", 1, best);
   const nep = nepTikTok([a], best);
-  const opslag = new GeheugenOpslag();
+  const opslag = maakOpslag();
   // oud antwoord: alleen een SKU-transactie van een eerdere afrekening
   await opslag.schrijfBestelling("7001", "5001", { antwoord: bestelling("5001", "6999", 10), opgehaaldOp: 1 });
   assert.equal((await haalSamen(deps(nep.fn, opslag, 45, 100), "7001", { reserve: 0 })).status, "compleet");
