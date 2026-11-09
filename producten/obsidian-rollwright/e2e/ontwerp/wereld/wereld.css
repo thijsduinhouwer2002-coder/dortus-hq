@@ -179,3 +179,15 @@ body.rollwright-skin-arcane .rollwright-history .rollwright-history-item.rollwri
 body.rollwright-skin-arcane .rollwright-history .rollwright-history-item.rollwright-fumble::before { background: #ff5a3a; filter: drop-shadow(0 0 4px rgba(255,40,20,.8)); }
 body.rollwright-skin-arcane .rollwright-history .rollwright-history-item.rollwright-fumble .rollwright-history-result { color: #ff8a70; text-shadow: 0 0 8px rgba(255,40,20,.8); }
 body.rollwright-skin-arcane .rollwright-history .rollwright-history-item.rollwright-fumble .rollwright-history-name { color: #ff7a5a; }
+
+/* IM Fell heeft alleen ouderwetse cijfers (1d20 leest als id2o): formules, invoer en details in Cinzel. */
+body.rollwright-skin-parchment .rollwright-history .rollwright-history-formula, body.rollwright-skin-parchment .rollwright-history .rollwright-history-details,
+body.rollwright-skin-parchment .rollwright-history input { font-family: "RW Cinzel", serif; font-style: normal; font-size: .82em; letter-spacing: .03em; }
+body.rollwright-skin-parchment .rollwright-history .rollwright-history-result { font-family: "RW Cinzel", serif; font-weight: 600; font-size: 1.5em; }
+body.rollwright-skin-parchment .rollwright-history .rollwright-history-item.rollwright-crit .rollwright-history-result { font-weight: 700; font-size: 1.8em; }
+body.rollwright-skin-arcane .rollwright-history .rollwright-history-group-title { font-size: .85em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.rollwright-skin-arcane .rollwright-history .rollwright-history-item.rollwright-fumble { background:
+  linear-gradient(101deg, transparent 77%, rgba(255,90,40,.85) 77.4%, rgba(255,90,40,.85) 77.8%, transparent 78.2%),
+  linear-gradient(72deg, transparent 86.5%, rgba(255,90,40,.7) 86.8%, transparent 87.2%),
+  radial-gradient(ellipse 30% 60% at 80% 55%, rgba(255,60,20,.22), transparent 70%),
+  url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.035' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(180deg,#26292a,#141616); }

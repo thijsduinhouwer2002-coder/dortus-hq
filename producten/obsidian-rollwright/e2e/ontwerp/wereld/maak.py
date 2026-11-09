@@ -215,5 +215,20 @@ body.rollwright-skin-arcane {H} .rollwright-history-item.rollwright-fumble .roll
 body.rollwright-skin-arcane {H} .rollwright-history-item.rollwright-fumble .rollwright-history-name {{ color: #ff7a5a; }}
 """
 
+# ---------------- ronde e: leesbare cijfers, kortere kop, fijnere barst ----------------
+css += f"""
+/* IM Fell heeft alleen ouderwetse cijfers (1d20 leest als id2o): formules, invoer en details in Cinzel. */
+body.rollwright-skin-parchment {H} .rollwright-history-formula, body.rollwright-skin-parchment {H} .rollwright-history-details,
+body.rollwright-skin-parchment {H} input {{ font-family: "RW Cinzel", serif; font-style: normal; font-size: .82em; letter-spacing: .03em; }}
+body.rollwright-skin-parchment {H} .rollwright-history-result {{ font-family: "RW Cinzel", serif; font-weight: 600; font-size: 1.5em; }}
+body.rollwright-skin-parchment {H} .rollwright-history-item.rollwright-crit .rollwright-history-result {{ font-weight: 700; font-size: 1.8em; }}
+body.rollwright-skin-arcane {H} .rollwright-history-group-title {{ font-size: .85em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+body.rollwright-skin-arcane {H} .rollwright-history-item.rollwright-fumble {{ background:
+  linear-gradient(101deg, transparent 77%, rgba(255,90,40,.85) 77.4%, rgba(255,90,40,.85) 77.8%, transparent 78.2%),
+  linear-gradient(72deg, transparent 86.5%, rgba(255,90,40,.7) 86.8%, transparent 87.2%),
+  radial-gradient(ellipse 30% 60% at 80% 55%, rgba(255,60,20,.22), transparent 70%),
+  {STEEN}, linear-gradient(180deg,#26292a,#141616); }}
+"""
+
 (HIER / "wereld.css").write_text(css)
 print(len(css), "tekens")
