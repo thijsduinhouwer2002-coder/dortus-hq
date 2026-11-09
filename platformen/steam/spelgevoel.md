@@ -2,6 +2,25 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 4: de eerste tien minuten en de eerste hoed, 9 nov 2026 (run 42701685818, commit 6db37a1, tak `claude/steam-hol-begin`, nog niet op main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/claude-steam-hol-begin/`, 1024 x 120, 298 beelden, 60 s; eerste beeld 0,6 s), een blad met een beeld per 5 s, uitsneden drie keer vergroot (Gloop met hoed, Gloop plat, het boze teken), `film/film.log`, `cpu.txt` (1,09 CPU-s per 10 s, 114 MB) en `strook-96.png`, `strook-160.png`.
+
+**Wat nu goed is (punt 1, 3 en 6 van toets 3 opgelost):**
+- **Ons eigen stuk zit in elke film.** In 60 s: Kees valt in de put (+6), Bram vlucht met een wrok, Odo wordt door Gloop opgegeten ("Gloop ate Odo. Burp. +6", "Gloop wears Odo's hat now."), Bram komt terug ("Bram the Once-Fled is back.") en valt alsnog, Ties raakt de schat aan ("Ties tried to lift it. Too heavy."). Dit is de film die je aan iemand laat zien.
+- **De hoedentoren werkt al met één hoed.** Gloop draagt Odo's helm, en als hij plat gaat ligt de helm naast hem en staat hij er weer mee op. Dat is een klein grapje dat je zelf ontdekt.
+- **Meteen beweging** (eerste beeld 0,6 s in plaats van 4 s), het gewei-spinrag boven Gloop is weg, op 160 px staat de ingang nu in beeld. Zuinig blijft het.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **"Bram's hat goes on the wall. +9" belooft iets wat er niet is, en bij de verkeerde held.** Bram was één keer gevlucht, geen aartsvijand; de wand is alleen voor afgerekende aartsvijanden (feature 3 en 5) en is nog niet getekend: aan de rode vaandel boven de schat hangt geen hoed. De regel stond in mijn eigen voorraad onder "Wrok afgerekend" voor iedere terugkomer; dat was mijn fout. **Besluit:** de wand-regel alleen voor een aartsvijand, en pas als de wand te zien is (`kroniek-regels.md` aangepast). Voor Olaf (`kern/regels.gd`) en Bram (`kroniek_regels.gd`): regel weg uit "afgerekend". Er zijn nu twee voorraden in de code; liever één (Bram's `kroniek.gd`, zoals Bram 21:20 voorstelt).
+2. **De eerste hoed op Gloop leest als een pannendeksel.** Odo's grijze helm is plat en laag; op ware grootte zie je een grijs streepje op Gloop, geen hoed. Juist de eerste hoed is de haak. **Voorstel aan Olaf:** geef held 5 (de opgegeten held in de eerste tien minuten) de hoogste, duidelijkste hoed (de paarse puntmuts). Mila: bij de nieuwe hoedsoorten letten op een herkenbaar silhouet op 16 px (koksmuts, kroontje, emmer).
+3. **De terugkomer zegt niet waarom.** "Bram the Once-Fled is back." Zijn wrok is de put; "Bram is back for the Spike Pit." vertelt het verhaal in één regel. Bram heeft dit in `kroniek.gd` al opgelost (terugkomer noemt altijd waarom); het komt pas in de film als strook.gd `kroniek.binnen()` gebruikt.
+4. **De Hoard-Toucher komt te laat.** Ties raakt de schat pas rond 50 s aan, en de film eindigt voor hij wegrent en zijn bijnaam krijgt. Liever rond 35 tot 40 s, zodat "Ties the Hoard-Toucher ran." nog in de minuut valt.
+5. **Het boze teken leest nog als een rood kruisje** (vergroot: vier rode hoekjes, GEZIEN). Staat bij Mila.
+6. **De laatste 15 s gebeurt er weinig** en de regel "Lotte read about you in a tavern." blijft 10 s staan. Niet erg voor het spel, wel voor de film: na de vijf vaste stappen mag de demo nog één keer Gloop laten eten, dan zie je de toren groeien naar twee hoeden.
+7. Paneel nog groot en "Hoard: 21 gold" als tekst (Mila 20:55 aan Olaf, staat op zijn lijst). Twee helden aan het eind met dezelfde groene pet (Lotte en Fenna), dus hoedsoorten blijven belangrijk (Mila).
+
+**Oordeel:** voor het eerst laat de film van een minuut zien waarom Het Hol anders is dan een idle-RPG. Na punt 1 tot 4 is dit de film die Thijs kan zien, zodra het uiterlijk van Mila (paneel, teken, hoeden) erin zit. Olaf beslist wanneer.
+
 ## Toets 3: pruimkleurig hol, kroniek uit de voorraad, 9 nov 2026 (runs 42695134768 en 42695691333, commits 01bedcb en 09a7ab4, main)
 **Bekeken (GEZIEN):** `film.gif` van beide runs op tak `schermen` (`steam-hol/main/`, 1024 x 120, 281 beelden; eerste beeld duurt 4 s, daarna 0,2 s), een blad met een beeld per 5 s, uitsneden drie keer vergroot (Gloop, schat, held met ooglap, opgegeten held), `film/film.log`, `cpu.txt` (0,94 en 1,1 CPU-s per 10 s op 120 px, 114 MB) en `strook-96.png`, `strook-160.png`. Run 42695691333 heeft Mila's pruim, nog niet Gloop met één oog (dat is run 42696163192, liep nog) en nog niet Daans paneel (run 42696475804, liep nog).
 
