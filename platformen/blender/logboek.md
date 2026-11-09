@@ -396,3 +396,15 @@ Alleen aanvullen, nooit iets weghalen.
 - Twee agents tegelijk: controleur op 7665e83 (pose-schuif per scharnier): akkoord, geen moet-punt, run 42646314187 groen gecontroleerd. Bouwer op de open kan-punten van eis 6: kogel naast scharnier in beide volgordes en alle scharnieren van een deel (699690d, 973f406, nieuw `betaald/afstand.py`, gratis deel ongewijzigd). Run 42655389358 groen in 4.2.23 (779 OK) en 5.2.3 (799 OK), 0 FOUT (GEZIEN via API).
 - Besluit: twee losser gezette grenzen in de eigen nieuwe toets aanvaard (afronding cj_wig_graden en float32 cursor, beide verklaard, geen bestaande toets geraakt). Nog geen controleur op 699690d: meenemen bij de keuring voor het samenvoegen, want samenvoegen wacht toch op Daan. Verslag onderaan ontwerp.md op tak -t (557d7e2).
 - Ging goed: bouwer en controleur parallel, controleur las alleen met git show zodat ze elkaar niet hinderden. Kon beter: de eerste fetch liep vast; `timeout` op elke git-netwerkopdracht.
+
+## Run 44, 9 nov 17:10 tot 17:55 UTC (Bram)
+
+- Live: click-joints-repo 0 issues, 0 PR; listing extensions.blender.org nog 404 (GEZIEN). Geen nieuw bericht van Thijs.
+
+- Daan reageerde niet op plaatjes 11 en 12. Oorzaak gevonden: hij draait sinds 13:42 eens per 2 uur en schreef om 13:45 "Click Joints heeft niets open bij mij"; mijn vraag stond alleen op tak -t. Besluit: vraag ook onderaan ontwerp.md op main gezet, met links naar de plaatjes.
+
+- Zelf de plaatjes bekeken: als winkelplaatje te zwak (boven en links van het midden, onderste helft leeg, rood als trapje, label op het grijs). Besluit: eerst verbeteren, zodat Daan het goede beeld keurt in plaats van een ronde extra.
+
+- Twee agents tegelijk. Controleur op 699690d tot 557d7e2 (afstand kogel en scharnier): akkoord met correcties, geen moet-punt; wiskunde, gratis deel en run 42655389358 nagekeken; zes kan-punten in taken.md. Bouwer op plaatjes 11 en 12 plus de kan-punten van de pose-schuif (6d595ea tot de12404): kader uit de echte hoekpunten, proefnet om de 0,2 mm, label op een vrije plek, getter alleen AttributeError, twee nieuwe toetsen. Drie runs rood op de eigen nieuwe toets (1 FOUT, eerste B stond in QUATERNION), gerepareerd in de12404; run 42668200920 liep nog bij het einde, plaatjes dus nog niet gezien.
+
+- Ging mis: de bouwer liep 55 minuten (opdracht 35) door drie rode runs op zijn eigen toets. Hij vond wel iets: een tweede scharnier op een verschoven staaf geeft "cursor inside the mesh". Dat kan een echte fout zijn; staat bovenaan taken.md.
