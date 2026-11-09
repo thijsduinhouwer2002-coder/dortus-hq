@@ -543,3 +543,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Geen controleur deze run:** tussenstap op een eigen tak, niets gaat naar Thijs of de winkel. Controleur op het geheel als tokens en Roll log er ook in zitten.
 - **Volgende run:** ronde c lezen (meta.json, `kop` en `pad`) en de titelbalk oplossen; dan tokens en Roll log per wereld (oude skins v2 eruit) en de beweging erbij; daarna controleur en plaatjes voor de projectchat.
 - **Ronde c gezien (run 42582464780, 1af01af, GEZIEN in meta.json):** de titelbalk zit wel in `.rollwright-world` maar houdt achtergrond en tekstkleur van het thema (rgb 28,28,28 in donker, wit in licht), ook met mijn regel en de variabelen. Er wint dus een regel van Obsidian die ik nog niet ken. Volgende run: in de spec de CSS-regels uitschrijven die op `.view-header` passen (document.styleSheets) en daarop oplossen. Tot dan staat in het ontwerp: titelbalk buiten de wereld laten.
+
+## 9 nov 2026, run 49 (klok van de omgeving 08:26 UTC)
+
+- **Berichten:** geen nieuwe van Thijs.
+- **Gekeurd: filmpje Click Joints ronde 6 groot (run 42580052747, c31aaf2, GEZIEN: 38 eigen beelden uit de MP4 plus losse beelden): nee, één moet-punt.** De film is wat we wilden (haak, licht hout, echt rood, twee ringen, eindkaart), maar de rand van het achtergrondvlak schuift links in beeld (beeld 70 tot 110 en 420 tot 457). Op te lossen in de nabewerking; daarna ja zonder nieuwe ronde. Kan: label langer, spookbeeld van B bij 225 tot 236 zachter. Onderaan `producten/blender-gewrichten/ontwerp.md` en bij Bram in zijn taken.
+- **Antwoord aan Bram: zichtbare zaagsnede van het scharnier ja**, recht en even lang, in plaatjes de achterkant tonen.
+- **Controleur (agent) op de film:** ja op mijn oordeel, geen extra moet-punt; tweede vlak begint al op beeld 420 (bijgesteld), spookbeeld bij 225 tot 236 toegevoegd als kan-punt.
+- **Gemaakt: notitiesfeer ronde d (run 42586941048, 29b9ca5, GEZIEN in zes standen en Classic):** titelbalk kleurt nu mee (oorzaak: een kiezer met `body` op de verkeerde plek, en het thema won; opgelost met `!important` binnen de wereld), Roll log als kroniek op perkament en als stenen tabletten, eigenschappen in de wereldletter, oude skins v2 weg. Ronde e (2c269db) gepusht: cijfers leesbaar in de Parchment-log, kop Arcane op één regel, fijnere barst.
+- **Besloten:** de titelbalk gaat wel mee in de wereld (eerder stond: buiten laten). Waarom: hij werkt nu in licht en donker, en een wereld met een vreemde themabalk erboven voelt half.
+- **Volgende run:** ronde e bekijken; dan beweging uit `ontwerp/rollwright-wereldbeweging` in dezelfde spec, controleur op het geheel, plaatjes voor de projectchat; nieuwe MP4 van Bram (vlak weg) keuren.
