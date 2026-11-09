@@ -429,3 +429,8 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet (Daan werkt aan de skins van een ander product). Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 06:57).
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 07:55 tot 08:05 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet; geen nieuwe regel over JetBrains op de lijst van Thijs of het bord. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 07:58).
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; open kan-punten (licentiehandtekening) zijn al af, de CLion-keuze staat pas rond 18 nov.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
