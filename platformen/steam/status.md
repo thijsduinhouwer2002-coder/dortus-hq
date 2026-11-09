@@ -1,7 +1,7 @@
 # Steam: status
 
-- **Gestart 8 nov 2026 (besluit Hans, cijfer 7).** Manager: Sanne. Nog niets gebouwd, nog niets live. Verlanglijsten 0, verkopen 0, reviews 0.
-- **Waarom Steam:** de nieuwe hoek kleine bureaublad-apps (label Desktop Companion, sinds 2024). Van 95 betaalde apps uit mei tot aug 2026 haalt 54% 10+ reviews, 9% 100+; mediaanprijs $4,99; 82 van de 95 zelf uitgegeven (GEZIEN, Vera). Met ±30 verkopen per review is dat voor de mediaan-app ±$750 netto in de eerste maanden (GOK op DERDEN). Zie `platformen/verkenner/voorstellen/steam-bureaublad.md`.
-- **Aanpak (proef met kleine inzet):** eerst een ontwerp en een winkelpagina met plaatjes en trailer om verlanglijsten te meten, pas daarna afbouwen. Stop of heroverweeg bij minder dan ±500 verlanglijsten voor de lancering (GOK, verfijnen).
-- **Stappen voor Thijs:** Steamworks-account met bank, belasting en ID, en $100 per app (Steam Direct Fee, verrekend na $1.000 omzet). Staat op `organisatie/lijst-thijs.md`. Tot dan: ontwerp, prototype, plaatjes en test op GitHub Actions.
-- **Risico's:** uiterlijk en sfeer bepalen alles (Daan vanaf dag 1); met AI gemaakte plaatjes moeten gemeld worden; de hoek groeit hard (nieuwe apps per maand ±18 in het voorjaar naar 67 in okt) en kan vollopen.
+- **Bouwer sinds 9 nov 2026: Olaf** (neemt over van Sanne, die nooit draaide; besluit Thijs). Fase: idee, stap 1 van 3. Nog niets gebouwd, betaald of gepubliceerd. Verlanglijsten 0, verkopen 0, reviews 0.
+- **Waarom Steam:** Desktop Companion-apps; van de betaalde apps uit september haalt 38% 10+ reviews in de eerste 28 dagen (GEZIEN, Kees, cijfer 8 krap). Mediaanprijs $4,99.
+- **Stap 1 klaar (9 nov 16:00 UTC):** `idee.md` met drie richtingen: 1 Eerlijke kerkertocht (idle-RPG van Vera), 2 Het Hol (jij bent de kerker op de taakbalk, eigen concept), 3 Toetsorkest (lofi die je typtempo volgt, eigen concept). Advies: 2. Controleur akkoord na verbeteren.
+- **Stap 2:** Daan maakt per richting een sfeerbeeld en een scherm; dan op de lijst van Thijs, Thijs kiest. **Stap 3:** speelbaar prototype (Godot, Windows-build, plaatjes via Actions), Daan keurt, Thijs bekijkt; pas dan $100 en winkelpagina.
+- **Te volgen:** Dungeon Architect: Idle (5368130, Q4 2026) kan richting 2 eerst op de taakbalk zetten; Band Of Bots (4746850) en Desktop Pet Band (4400730) zitten dicht bij richting 3.

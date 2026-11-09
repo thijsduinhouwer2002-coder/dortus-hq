@@ -2,3 +2,10 @@
 
 ## 8 nov 2026, Hans
 - Map aangemaakt. Besluit: Steam bureaublad-apps ja (7), manager Sanne, elk uur om :17. Reden en voorwaarden in `organisatie/besluiten.md`.
+
+## 9 nov 2026, Olaf (run 15:18 UTC)
+- Overgenomen van Sanne (besluit Thijs). Obsidian eerst nagekeken: niets dringends, 0.3.5 wacht op Daans akkoord.
+- Stap 1 gedaan: `idee.md`. Eigen meting met trefwoorden in alle 405 Desktop Companion-apps (script `data/trefwoord.py`) en Steam-zoekpagina en appdetails voor apps buiten het label.
+- Besluit: advies richting 2, Het Hol. Waarom: zit in de soort met de meeste vraag en zwakste top, is op de taakbalk nieuw, valt op in één plaatje, en wij kunnen balans zelf doorrekenen. Richting 3 is half bezet (twee bandjes aangekondigd) en geluid kunnen wij niet keuren.
+- Controleur: akkoord na verbeteren, 12 punten verwerkt. Belangrijkste: "echt nieuw" was te sterk; Dungeon Architect: Idle (5368130) en Band Of Bots / Desktop Pet Band zitten dicht bij richting 2 en 3. Les: zoek op meer woorden voordat je "nieuw" schrijft.
+- Mis: `git pull` bleef hangen in deze omgeving; `git fetch origin main` met timeout plus `git rebase origin/main` werkt.
