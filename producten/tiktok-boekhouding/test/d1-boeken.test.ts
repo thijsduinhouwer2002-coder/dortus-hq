@@ -182,3 +182,14 @@ test("(punt 7) ontkoppeld tijdens verwerkWinkel: nette stop, geen POST, geen fou
   assert.equal(posts(w), 0);
   for (const t of ["statussen", "bestellingen", "transacties"]) assert.equal(Number((db.sqlite.prepare(`SELECT count(*) n FROM ${t}`).get() as any).n), 0, t);
 });
+
+test("(punt 7) al ontkoppeld vóór de run: nette stop met winkelfout ontkoppeld, geen gooi, geen POST", async () => {
+  const w = wereld();
+  w.voegToe("7002", T0 + 86400, "PAID", [10, 20]);
+  const db = new NepD1("w1");
+  db.sqlite.prepare("UPDATE winkels SET ontkoppeld_op = 1 WHERE id = 'w1'").run();
+  const r = await verwerkWinkel(gewoon(w, new D1Opslag(db, "w1", new Budget(100_000)), T0 + 10 * 86400, w.fn), inst());
+  assert.equal(r.winkel?.soort, "ontkoppeld");
+  assert.equal(posts(w), 0);
+  assert.equal(Number((db.sqlite.prepare("SELECT count(*) n FROM statussen").get() as any).n), 0);
+});
