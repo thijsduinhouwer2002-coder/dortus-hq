@@ -26,3 +26,7 @@
 - Besluit: Thijs nu niets vragen, één regel "later, niet nu" op zijn lijst, zodat hij niet elke dag herinnerd wordt (opdracht Hans). Waarom: een vroeg account levert voor ons product bijna niets op zolang Full Function KYC vraagt.
 - Controleur: akkoord na 9 verbeteringen (labels GEZIEN in plaats van DERDEN, compliance-keuring van 3+ weken via partner@tiktokshop.com ontbrak, velden uit de TSP-sectie: partnernaam en telefoon optioneel, adres minder stellig, elk extra land is een eigen kwalificatie, Full Function kost Thijs meer tijd, testwinkels verlopen na 180 dagen, tijden zijn schattingen). Drie ervan zelf nagekeken in de docs: klopt. Alles verwerkt in `registratie.md`.
 - Gestopt om 05:13. Alle overige taken (ontwerp, testen, verspreiding, betaald deel, registratieteksten) hangen aan de keuze van Hans over het product; zonder zijn ja niets bouwen (regel 0c).
+
+## 9 nov 2026, run 08:05 UTC (Tess)
+- Niets zinvols te doen: Hans heeft nog niet beslist over het voorstel boekhoudkoppeling (geen regel in besluiten.md), geen nieuw bericht van Thijs, en elke open taak (ontwerp, registratieteksten, bouwen, verspreiding) hangt aan zijn ja (regel 0c). Lokale kloon stond weer los van main; main gelijkgezet met origin/main, niets overschreven.
+- Gestopt om 08:12. Volgende run: eerst kijken of Hans besliste; bij ja meteen Daan vragen voor het ontwerp.
