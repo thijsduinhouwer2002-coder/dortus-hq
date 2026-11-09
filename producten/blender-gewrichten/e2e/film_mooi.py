@@ -29,7 +29,7 @@ LOG = open(os.path.join(UIT, f"log-{SCHERF:02d}.txt"), "a")
 FPS = 30
 # Shots (beelden, 30 per seconde): 1 held, 2 gewricht, 3 buigen en rood, 4 uit elkaar. Samen 14,5 s.
 SHOTS = [("held", 90), ("gewricht", 90), ("buigen", 150), ("uit_elkaar", 105)]
-HOUT_LICHT, HOUT_DONKER = "#D9AE78", "#8E5D33"
+HOUT_LICHT, HOUT_DONKER = "#C98A4B", "#6E4220"  # ronde 4: dieper, want AgX bleekt fel licht hout
 ACHTERGROND = "#1B1E25"
 
 
@@ -195,10 +195,37 @@ def hout_materiaal():
     nt.links.new(som.outputs[0], meng.inputs["Fac"])
     nt.links.new(meng.outputs["Color"], bsdf.inputs["Base Color"])
     zet_input(bsdf, ["Roughness"], 0.42)
-    zet_input(bsdf, ["Coat Weight", "Clearcoat"], 0.35)
+    zet_input(bsdf, ["Coat Weight", "Clearcoat"], 0.12)
     zet_input(bsdf, ["Coat Roughness", "Clearcoat Roughness"], 0.12)
     mat.diffuse_color = (*kleur(HOUT_LICHT), 1)
     return mat
+
+
+def hout_doorzichtig(ob):
+    """Eigen kopie van het hout voor deel B met een doorzichtig-schuif (Mix met Transparent BSDF).
+    Waarom: de rode vlakken van een botsing zitten aan deel A precies waar B erin drukt, dus B dekt ze altijd af
+    (ronde 3b: bij 28 graden geen rood te zien). Tijdens het rood wordt B half doorzichtig, zodat je ziet waar
+    het botst. Geeft de Value-node terug (0 = dicht, 1 = helemaal doorzichtig)."""
+    bron = bpy.data.materials.get("Film hout")
+    if bron is None or not ob.data.materials:
+        return None
+    mat = bron.copy()
+    mat.name = "Film hout B"
+    nt = mat.node_tree
+    uit = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL")
+    bsdf = next(n for n in nt.nodes if n.type == "BSDF_PRINCIPLED")
+    door = nt.nodes.new("ShaderNodeBsdfTransparent")
+    mix = nt.nodes.new("ShaderNodeMixShader")
+    waarde = nt.nodes.new("ShaderNodeValue")
+    waarde.outputs[0].default_value = 0.0
+    nt.links.new(waarde.outputs[0], mix.inputs[0])
+    nt.links.new(bsdf.outputs[0], mix.inputs[1])
+    nt.links.new(door.outputs[0], mix.inputs[2])
+    nt.links.new(mix.outputs[0], uit.inputs["Surface"])
+    for i, m in enumerate(ob.data.materials):
+        if m is bron:
+            ob.data.materials[i] = mat
+    return waarde
 
 
 def gloed(naam, kleur_rgba, sterkte):
@@ -229,8 +256,8 @@ def licht_en_wereld():
         sc.collection.objects.link(ob)
         ob.rotation_euler = (-Vector(richting)).normalized().to_track_quat("-Z", "Y").to_euler()
 
-    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFDDB0", 3.0, 6)   # warm, links voor boven
-    zon("Randlicht", (0.7, 1.0, 0.45), "#CFEAFF", 2.2, 3)     # koel, van achteren: lichte rand om de pop
+    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFDDB0", 1.7, 6)   # warm, links voor boven
+    zon("Randlicht", (0.7, 1.0, 0.45), "#E6F0FF", 0.9, 3)     # koel, van achteren: lichte rand om de pop
     zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.3, 20)
     # Vloer: donker, licht glanzend, zodat de pop een zachte spiegeling en schaduw heeft
     bm = bmesh.new()
@@ -364,7 +391,8 @@ def plaats_gewricht(pop):
         kijk_r = -kijk_r
     staat.update(as_=as_, rich=rich[k], c=Vector(a["cj_centrum"]), r=float(a["cj_kogel_r"]), kijk_r=kijk_r,
                  grens=paneel.richting_graden(a, k), los=as_ * mod("uit_elkaar").afstand(b))
-    log(f"richting {k}, grens {staat['grens']}")
+    staat["b_door"] = hout_doorzichtig(b)
+    log(f"richting {k}, grens {staat['grens']}, B doorzichtig {'ja' if staat['b_door'] else 'NEE'}")
 
 
 def draai(v, as_, graden):
@@ -418,7 +446,15 @@ def zet_beeld(cam, naam, i, n):
         kijk(cam, doel + rich * (85 * rr), doel, lens=60)
         gloed(mat_naam("groen"), GROEN, 0.6)
         voorbij = max(0.0, g - staat["grens"])
-        gloed(mat_naam("rood"), ROOD, (3.0 + 2.0 * math.sin(t * 11)) * min(1.0, voorbij / 3.0))
+        sterk = min(1.0, voorbij / 3.0)
+        gloed(mat_naam("rood"), ROOD, (6.0 + 3.0 * math.sin(t * 11)) * sterk)
+        if staat.get("b_door") is not None:
+            staat["b_door"].outputs[0].default_value = 0.6 * sterk
+        if i in (0, 98, 140):
+            a_ob = deel("A")
+            rood = sum(1 for p in a_ob.data.polygons if a_ob.data.materials[p.material_index]
+                       and a_ob.data.materials[p.material_index].name == mat_naam("rood"))
+            log(f"buigen beeld {i}: pose {g:.1f} rode vlakken A {rood}")
         return
     if naam == "uit_elkaar":  # deel B schuift van de kogel, de camera draait mee zodat je kogel en kom ziet
         if inst.pose_graden != 0.0:
@@ -432,6 +468,8 @@ def zet_beeld(cam, naam, i, n):
         kijk(cam, doel + rich.normalized() * (70 * rr), doel, lens=60)
         gloed(mat_naam("groen"), GROEN, 0.6 + 1.5 * math.exp(-((t - 1.3) ** 2) / 0.1))
         gloed(mat_naam("rood"), ROOD, 0.0)
+        if staat.get("b_door") is not None:
+            staat["b_door"].outputs[0].default_value = 0.0
 
 
 def mat_naam(soort):
