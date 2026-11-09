@@ -35,8 +35,8 @@ De humor van Het Hol zit voor de helft in de korte regels in de strook (`feature
 - `{naam} brought friends this time.` (alleen als er echt meer komen)
 
 ## Valt (blijft in je hol)
-- `{naam} fell to {val}.` (staat al in de code)
 Toets 2: de val en het goud waren twee regels die elkaar wegdrukten. Nu één regel: plak er ` +{n}` achter (het goud van die val). Alle regels hieronder passen dan nog in 42 tekens met een naam van 6 letters en `+15`.
+- `{naam} fell to {val}.` (staat al in de code)
 - `{naam} stays forever.`
 - `{naam} found {val}. Hard.`
 - `{bewoner} ate {naam}. Burp.`

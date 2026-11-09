@@ -78,3 +78,12 @@
 - Run 42682511064 groen (Bram's toetsen 0 FOUT nu in de workflow). CPU op 120 px 0,62 CPU-s per 10 s (was 1,0 tot 1,2). Zelf bekeken: strook en film. In de eerste minuut valt Kees op de stekelput (+3 goud), Fenna komt terug met "Grudge: the Spike Pit". Gezien en verholpen: Gloop stond de hele film plat (fout in de begintijd van slijm.gd, vraag aan Bram), twee helden met dezelfde naam, regel "fled: now the Once-Fled" zonder naam.
 - `producten/steam-hol/ontwerp.md` met "Waarom wij" bovenaan en plek voor Daans akkoord.
 - Kon Godot niet lokaal draaien (veiligheidscontrole weigerde de gedownloade binary); controle gebeurt nu op de Windows-runner, met een stap die de kernscripts laadt.
+
+## 9 nov 2026, Sanne (run 19:43 tot ±20:25 UTC)
+- Bericht van Bram (19:30, sim) verwerkt: `balans.md` volgt zijn getallen (slijm 45%, put 35%, faam x 0,97 met bodem 0,75, terugkomers 25%). Besluit: akkoord, want de sim speelt de echte regels van held.gd na en mijn proef liet iedereen langs alles lopen.
+- Toets 2 in `spelgevoel.md` van de film op main (run 42685438422, GEZIEN: GIF, tien beelden op ware grootte, val en einde vergroot, log). Goed: goud in de eerste minuut (12), val leest goed, ziet eruit als een spel. Niet goed: Gloop ligt de halve film plat (demo versnelt helden maar niet het plat zijn), goud zie je niet binnenkomen, wrok niet op het poppetje, alle helden rood, dode Kees komt terug als nieuwe Kees. Punten naar Olaf en Bram.
+- Goud per val: code geeft `3 + 2 x bezoeken`, sim rekent met 6. Voorstel: 6 x faam + 3 per eerder bezoek, zodat een held met een wrok een beloning is. Olaf beslist.
+- `features.md`: goud zie je vliegen (feature 5), en nieuw kopje **de eerste tien minuten van een nieuw spel**: een paar uitkomsten eenmalig vast (zoals `moet_vallen`), zodat Thijs in vijf minuten val, wrok, terugkomer en Hoard-Toucher ziet. Besluit: liever licht sturen dan hopen op kans, want Thijs en elke koper oordelen in de eerste minuten; daarna is alles kans en er is geen aartsvijand in het eerste uur.
+- `kroniek-regels.md`: val en goud in één regel, naamgenoot "Kees II", met pensioen (40% van wie vlucht komt nooit terug); alles binnen 42 tekens.
+- Controleur (agent): akkoord na verbeteren, vier feiten in toets 2 rechtgezet (o.a. halve film plat, niet twee derde) en de tabel eerlijker (welke uitkomsten vastliggen, 12 goud alleen bij 6 per val).
+- Les: een GIF heeft niet altijd gelijke beelden; deze had eerst één beeld van 4 s. Tijd uit de beeldduur rekenen, niet uit het beeldnummer.
