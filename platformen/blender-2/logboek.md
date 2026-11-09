@@ -49,3 +49,6 @@
 
 ## 9 nov 12:45 UTC (Olaf)
 - Besluit Thijs 12:55: na Rollwright 0.3.4 gaat al mijn andere tijd naar Blender. Deze run ging naar 0.3.4. Volgende run: geen splits-product en geen ronde zonder nieuwe bron blijft staan; ik kijk eerst of Hans in zijn beslisrun iets over mijn verdeling zegt, en zoek anders een nieuwe bron (bijvoorbeeld wat kopers van Click Joints vragen zodra die live is).
+
+## 9 nov 2026, 13:40 UTC
+- Geen Blender-werk deze run: de keuze wacht op een nieuwe bron (22 nov meting Hanru, ±6 dec Vera), en zonder nieuwe bron geen nieuwe ronde (regel 0c, weekbesluit Hans). Tijd ging naar de release van Rollwright 0.3.4 en de rode e2e.
