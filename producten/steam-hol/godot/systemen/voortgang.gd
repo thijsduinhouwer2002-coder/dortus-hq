@@ -52,7 +52,9 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 
 # Hoeden voor wie weg was: verdeel `opgegeten` over de slijmen (om en om), willekeurige hoedsoort, vast zaad.
 # slijmen = de slijm-nodes (slijm.gd). Geen hap-animatie: het gebeurde terwijl je weg was. Geeft per slijm het aantal.
-static func geef_hoeden(slijmen: Array, opgegeten: int, zaad: int) -> Array[int]:
+# Daarna noemt verhaal() de hoeden pas: uitkomst.hoeden_gegeven wordt waar (anders belooft de kroniek iets wat je niet ziet).
+static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Array[int]:
+	var opgegeten := int(uitkomst.get("opgegeten", 0))
 	var per: Array[int] = []
 	for s in slijmen:
 		per.append(0)
@@ -62,8 +64,10 @@ static func geef_hoeden(slijmen: Array, opgegeten: int, zaad: int) -> Array[int]
 	rng.seed = hash([zaad, opgegeten, "geef_hoeden"])
 	for i in opgegeten:
 		var k := i % slijmen.size()
-		slijmen[k].krijg_hoed(rng.randi_range(0, 3))
-		per[k] += 1
+		if slijmen[k].has_method("krijg_hoed"):   # kern/standin_slijm.gd kent geen hoeden
+			slijmen[k].krijg_hoed(rng.randi_range(0, 3))
+			per[k] += 1
+	uitkomst["hoeden_gegeven"] = per.reduce(func(a, b): return a + b, 0) > 0
 	return per
 
 static func goud_per_val(gangen: int, faam: int) -> int:
@@ -96,6 +100,8 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 	terug.sort()
 	aarts.sort()
 	var uren := float(uitkomst.get("weg_s", 0)) / 3600.0
+	# hoeden alleen noemen als ze echt gegeven zijn (geef_hoeden), anders ziet de speler ze niet op Gloop
+	var hoeden := int(uitkomst.get("opgegeten", 0)) if bool(uitkomst.get("hoeden_gegeven", false)) else 0
 	# 1. wie er terug was
 	if not terug.is_empty():
 		var n: String = terug[rng.randi_range(0, terug.size() - 1)]
@@ -108,8 +114,8 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 				uit.append(_kort("%s vs %s: fled again." % [n, wrok]))
 		else:
 			uit.append(_kort("%s was back and left in a hurry." % n))
-	elif int(uitkomst.get("opgegeten", 0)) > 0 and _bewoner(vijand_namen) != "":
-		uit.append(_kort("%s got %d new hats." % [_bewoner(vijand_namen), int(uitkomst.opgegeten)]))
+	elif hoeden > 0 and _bewoner(vijand_namen) != "":
+		uit.append(_kort("%s got %d new hat%s." % [_bewoner(vijand_namen), hoeden, "" if hoeden == 1 else "s"]))
 	elif not vijand_namen.is_empty() and int(uitkomst.get("gevallen", 0)) > 0:
 		var v: String = vijand_namen[rng.randi_range(0, vijand_namen.size() - 1)]
 		uit.append(_kort("%s had a busy shift." % v))
@@ -117,8 +123,8 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 	if not aarts.is_empty() and rng.randf() < clampf(uren * 0.5, 0.0, 0.9):
 		var a: String = aarts[rng.randi_range(0, aarts.size() - 1)]
 		uit.append(_kort("Nemesis %s came by. Still free." % a))
-	if int(uitkomst.get("opgegeten", 0)) > 0:
-		uit.append(_kort("%d came, %d fell, %d hats. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.opgegeten), int(uitkomst.goud)]))
+	if hoeden > 0:
+		uit.append(_kort("%d came, %d fell, %d hat%s. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), hoeden, "" if hoeden == 1 else "s", int(uitkomst.goud)]))
 	else:
 		uit.append(_kort("%d came, %d fell. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.goud)]))
 	return uit
