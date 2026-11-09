@@ -1,0 +1,222 @@
+{
+ "Battlefield 6": {
+  "appid": 2807960,
+  "steamnaam": "Battlefield™ 6",
+  "spelers_nu": 14548
+ },
+ "Subnautica 2": {
+  "appid": 1962700,
+  "steamnaam": "Subnautica 2",
+  "spelers_nu": 1400
+ },
+ "Slay the Spire 2": {
+  "appid": 2868840,
+  "steamnaam": "Slay the Spire 2",
+  "spelers_nu": 39543
+ },
+ "Path of Exile 2": {
+  "appid": 2694490,
+  "steamnaam": "Path of Exile 2",
+  "spelers_nu": 8293
+ },
+ "Monster Hunter Wilds": {
+  "appid": 2246340,
+  "steamnaam": "Monster Hunter Wilds",
+  "spelers_nu": 10432
+ },
+ "HELLDIVERS 2": {
+  "appid": 553850,
+  "steamnaam": "HELLDIVERS™ 2",
+  "spelers_nu": 15622
+ },
+ "Baldur's Gate III": {
+  "appid": 1086940,
+  "steamnaam": "Baldur's Gate 3",
+  "spelers_nu": 18003
+ },
+ "ELDEN RING NIGHTREIGN": {
+  "appid": 2622380,
+  "steamnaam": "ELDEN RING NIGHTREIGN",
+  "spelers_nu": 8516
+ },
+ "PEAK": {
+  "appid": 3527290,
+  "steamnaam": "PEAK",
+  "spelers_nu": 6792
+ },
+ "R.E.P.O": {
+  "appid": 3241660,
+  "steamnaam": "R.E.P.O.",
+  "spelers_nu": 13049
+ },
+ "Schedule I": {
+  "appid": 3164500,
+  "steamnaam": "Schedule I",
+  "spelers_nu": 4239
+ },
+ "Once Human": {
+  "appid": 2139460,
+  "steamnaam": "Once Human",
+  "spelers_nu": 13679
+ },
+ "Wuthering Waves": {
+  "appid": 3513350,
+  "steamnaam": "Wuthering Waves",
+  "spelers_nu": 6967
+ },
+ "Warframe": {
+  "appid": 230410,
+  "steamnaam": "Warframe",
+  "spelers_nu": 48531
+ },
+ "Final Fantasy XIV": {
+  "appid": 39210,
+  "steamnaam": "FINAL FANTASY XIV Online",
+  "spelers_nu": 8610
+ },
+ "Lost Ark": {
+  "appid": 1599340,
+  "steamnaam": "Lost Ark",
+  "spelers_nu": 4665
+ },
+ "Black Myth: Wukong": {
+  "appid": 2358720,
+  "steamnaam": "Black Myth: Wukong",
+  "spelers_nu": 10719
+ },
+ "Space Marine 2": {
+  "appid": 2183900,
+  "steamnaam": "Warhammer 40,000: Space Marine 2",
+  "spelers_nu": 5961
+ },
+ "Street Fighter 6": {
+  "appid": 1364780,
+  "steamnaam": "Street Fighter™ 6",
+  "spelers_nu": 12747
+ },
+ "ARK: Survival Ascended": {
+  "appid": 2399830,
+  "steamnaam": "ARK: Survival Ascended",
+  "spelers_nu": 15190
+ },
+ "The Finals": {
+  "appid": 2073850,
+  "steamnaam": "THE FINALS",
+  "spelers_nu": 6570
+ },
+ "Overwatch 2": {
+  "appid": 2357570,
+  "steamnaam": "Overwatch®",
+  "spelers_nu": 22267
+ },
+ "Supervive": {
+  "appid": 1283700,
+  "steamnaam": "SUPERVIVE",
+  "spelers_nu": 2
+ },
+ "Rematch": {
+  "appid": 2138720,
+  "steamnaam": "REMATCH",
+  "spelers_nu": 1035
+ },
+ "Content Warning": {
+  "appid": 2881650,
+  "steamnaam": "Content Warning",
+  "spelers_nu": 182
+ },
+ "Lethal Company": {
+  "appid": 1966720,
+  "steamnaam": "Lethal Company",
+  "spelers_nu": 1193
+ },
+ "Marvel Rivals": {
+  "appid": 2767030,
+  "steamnaam": "Marvel Rivals",
+  "spelers_nu": 20540
+ },
+ "Deadlock": {
+  "appid": 1422450,
+  "steamnaam": "Deadlock",
+  "spelers_nu": null
+ },
+ "ARC Raiders": {
+  "appid": 1808500,
+  "steamnaam": "ARC Raiders",
+  "spelers_nu": 24042
+ },
+ "Counter-Strike 2": {
+  "appid": 730,
+  "steamnaam": "Counter-Strike 2",
+  "spelers_nu": 541560
+ },
+ "Dota 2": {
+  "appid": 570,
+  "steamnaam": "Dota 2",
+  "spelers_nu": 422427
+ },
+ "Palworld": {
+  "appid": 1623730,
+  "steamnaam": "Palworld",
+  "spelers_nu": 19962
+ },
+ "Apex Legends": {
+  "appid": 1172470,
+  "steamnaam": "Apex Legends™",
+  "spelers_nu": 84735
+ },
+ "PUBG": {
+  "appid": 578080,
+  "steamnaam": "PUBG: BATTLEGROUNDS",
+  "spelers_nu": 320927
+ },
+ "Rocket League": {
+  "appid": 252950,
+  "steamnaam": "Rocket League®",
+  "spelers_nu": 6829
+ },
+ "Sons Of The Forest": {
+  "appid": 1326470,
+  "steamnaam": "Sons Of The Forest",
+  "spelers_nu": 5231
+ },
+ "Diablo IV": {
+  "appid": 2344520,
+  "steamnaam": "Diablo® IV",
+  "spelers_nu": 4686
+ },
+ "Path of Exile": {
+  "appid": 238960,
+  "steamnaam": "Path of Exile",
+  "spelers_nu": 3305
+ },
+ "New World": {
+  "appid": 1063730,
+  "steamnaam": "New World: Aeternum",
+  "spelers_nu": 158
+ },
+ "Starfield": {
+  "appid": 1716740,
+  "steamnaam": "Starfield",
+  "spelers_nu": 1618
+ },
+ "Among Us": {
+  "appid": 945360,
+  "steamnaam": "Among Us",
+  "spelers_nu": 1802
+ },
+ "Rainbow Six Siege": {
+  "appid": 359550,
+  "steamnaam": "Tom Clancy's Rainbow Six Siege",
+  "spelers_nu": 25113
+ },
+ "Splitgate 2": {
+  "appid": 2207110,
+  "steamnaam": "Power Driver",
+  "spelers_nu": 0
+ },
+ "Dark and Darker": {
+  "appid": 2016590,
+  "steamnaam": "Dark and Darker",
+  "spelers_nu": 2009
+ }
+}

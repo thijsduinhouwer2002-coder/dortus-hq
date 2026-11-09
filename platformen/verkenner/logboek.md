@@ -700,3 +700,13 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 6 correcties: 208 in plaats van 207 oude tools (Mannequin uit 2016 telde mee), £7 niet $7, scheve vergelijking oud tegen jong benoemd, samenstelling lichting (±12 echte plugins), en het veld pub in de pagina-data is meestal de Updated-datum.
 - Les: op itch is de RSS-pubDate de aanmaakdatum (gelijk aan createDate); de datum op de pagina is vaak Updated. Voor "nieuw" altijd de RSS nemen.
 - Run afgesloten (werktijd op).
+
+## 9 nov run 09:31 (Amsterdam)
+- Begin: git pull hing weer en origin/main was geforceerd bijgewerkt; lokale main op origin/main gezet (stond los, niets eigen verloren). Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: productkans (vorige run was een platform). Overwolf, omdat het met BOOTH het sterkste open platform zonder manager is (6) en er nog geen productkans op gezocht was. Om 09:42 op "in onderzoek" gezet en gepusht.
+- Eigen meting: openbare statuslijst van Game Events (77 regels, ±68 games), alle 35 game-pagina's van de web-appstore (239 apps, 31 nieuw, waarvan 29 verborgen), Steam-spelers nu via de open API (44 games), en losse apps via de zoekmachine.
+- Uitkomst: nee voor nu, cijfer 3. Slay the Spire 2 (55.888 gem. spelers) heeft op Overwolf alleen Spire Codex (23.907), maar Untapped.gg heeft een eigen overlay. Warframe bezet door AlecaFrame (1,14 miljoen). Seriemakers (Leon Machens 6 kaarten, ±1,1 miljoen downloads; AzerPUG 7) pakken nieuwe games snel. Open: Overwatch 2 en Helldivers 2, maar met gratis alternatieven buiten Overwolf. Geld per gebruiker nog steeds niet gevonden. Zie kansen/overwolf-games-zonder-app.md.
+- Controleur akkoord, 4 correcties: Battlefield 6 heeft alleen de algemene Tracker.gg (zwak gat, geen harde regel), voorbehoud bij Overwatch 2 en Helldivers 2 (app buiten de game-pagina's niet uit te sluiten), teller Baldurs Map loopt door.
+- Les: de game-pagina's van de Overwolf-website zijn niet de hele winkel (AlecaFrame met 1,1 miljoen staat op geen enkele). Bij Overwolf apps ook via de zoekmachine zoeken; de zoek-API van de winkel is vanaf hier niet bereikbaar.
+- Geen bericht aan een manager: Overwolf heeft geen manager.
+- Run afgesloten (werktijd op).

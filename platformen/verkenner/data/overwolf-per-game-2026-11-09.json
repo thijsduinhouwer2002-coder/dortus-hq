@@ -1,0 +1,6661 @@
+{
+"among-us": {
+"n_appid": 9,
+"items": [
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "among_us_notes",
+"title": "Among Us Notes",
+"author": "Roni Fernando",
+"ratings": "12",
+"avg": "3.75",
+"ads": "true",
+"premium": "true",
+"desc": "The Best Assistant For Among Us"
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "overwolf-curseforge",
+"title": "CurseForge",
+"author": "Overwolf",
+"ratings": "384",
+"avg": "4.1927",
+"ads": "true",
+"premium": "true",
+"desc": "Explore, download and manage your favourite addons and mods from CurseForge’s massive index of user-created projects."
+},
+{
+"seo": "kda.gg_by_vector_ai-among_map",
+"title": "Among Map",
+"author": "KDA.GG by Vector AI",
+"ratings": "16",
+"avg": "3.25",
+"ads": "true",
+"premium": "false",
+"desc": "Among Map is your number 1 assistant for Among Us, Now supports Airship Map"
+}
+]
+},
+"apex-legends": {
+"n_appid": 43,
+"items": [
+{
+"seo": "mao-tou_projects_ltd-predator",
+"title": "Predator",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "35",
+"avg": "3.8",
+"ads": "true",
+"premium": "false",
+"desc": "Real-Time Tracking for Apex Legends"
+},
+{
+"seo": "tracker_network-apex_legends_tracker",
+"title": "Apex Legends Tracker",
+"author": "Tracker Network",
+"ratings": "70",
+"avg": "2.3857",
+"ads": "true",
+"premium": "false",
+"desc": "Your Best Assistant in Apex Legends"
+},
+{
+"seo": "tracker_network-tracker_live",
+"title": "Tracker Live",
+"author": "Tracker Network",
+"ratings": "7",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "Join a match in your favori"
+},
+{
+"seo": "brick_lee-apexstreamstats",
+"title": "ApexStreamStats",
+"author": "Brick Lee",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track your Apex Legends performance effortlessly! View your daily match history, kills, assists, and damage in a clean, easy-to-read interface."
+},
+{
+"seo": "shenjing-apex_assistant",
+"title": "Apex Assistant",
+"author": "shenjing",
+"ratings": "6",
+"avg": "2.6667",
+"ads": null,
+"premium": "false",
+"desc": "Your best Apex game assistant"
+},
+{
+"seo": "luffygg-statsly",
+"title": "Statsly",
+"author": "luffygg",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "A powerful stats tracker and hub for Fortnite, PUBG, and Apex Legends — view match history, track performance, and stay on top of your game."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "lionlight_llc-reactclips",
+"title": "ReactClips",
+"author": "LionLight LLC",
+"ratings": "12",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Find streamers you've encountered and automatically create Twitch Clips of their stream."
+},
+{
+"seo": "gamergains",
+"title": "GamerGains",
+"author": "GamerGains Labs Inc",
+"ratings": "26",
+"avg": "4.0769",
+"ads": "true",
+"premium": "false",
+"desc": "Earn rewards playing the games you love. "
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloa"
+},
+{
+"seo": "ebounty",
+"title": "Ebounty",
+"author": "Ebounty.GG",
+"ratings": "16",
+"avg": "2.375",
+"ads": "false",
+"premium": "false",
+"desc": "Join, create, and eliminate bounties in Fortnite, Apex Legends, and PUBG. Then rank up and cash out!"
+},
+{
+"seo": "ki",
+"title": "Kickback",
+"author": "Kickback Team",
+"ratings": "184",
+"avg": "4.7228",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate gaming rewards platform, earn money while you play games and from your gaming knowledge!"
+},
+{
+"seo": "reactional_music_group_ab-musicmods",
+"title": "MusicMods",
+"author": "Reactional Music Group AB",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "true",
+"desc": "Personalize your gaming with music from  a selection of hundreds of thousands of tracks. Interactive music and stingers respond to your gameplay.  New music every week. "
+},
+{
+"seo": "wojciech_banas-aim_trainer",
+"title": "Aim Trainer",
+"author": "Wojciech Banas",
+"ratings": "12",
+"avg": "2.5833",
+"ads": "true",
+"premium": "false",
+"desc": "Aim Trainer is a free game that is specifically designed to improve the player’s aim in various First-Person Shooter games such as Fortnite, Counter-Strike: GO, and Call of Duty."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "conduit_gaming-conduit",
+"title": "Conduit",
+"author": "Conduit Gaming",
+"ratings": "11",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Play. Clip. Share. Conduit is the fastest way to turn clips from basic gameplay to high quality and post-ready content."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Let the game take control of your stream !"
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "gametree-gametree",
+"title": "GameTree",
+"author": "GameTree",
+"ratings": "2",
+"avg": "1",
+"ads": "false",
+"premium": "false",
+"desc": "Find gamer friends and play together"
+},
+{
+"seo": "instreamly-instreamly",
+"title": "inStreamly",
+"author": "inSTREAMLY",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Application for inStreamly campaigns"
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatically."
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "yuki_komine-auto_mute_music",
+"title": "Auto Mute Music",
+"author": "isMine",
+"ratings": "17",
+"avg": "4.5294",
+"ads": "false",
+"premium": "false",
+"desc": "Play Your Favorite Music. Never Miss a Footstep🎧🔥"
+},
+{
+"seo": "azarus_inc.-azarus_broadc",
+"title": "Azarus Broadcast",
+"author": "Azarus inc.",
+"ratings": "1",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Azarus Broadcast"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook f"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "twitch_overlay",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+},
+{
+"seo": "twitch_overlay-standalone",
+"title": "Twitch Overlay - Electron",
+"author": "Twitch Overlay",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "twitch_overlay",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+}
+]
+},
+"arc-raiders": {
+"n_appid": 18,
+"items": [
+{
+"seo": "metaforge",
+"title": "MetaForge",
+"author": "MetaForge",
+"ratings": "9",
+"avg": "3.8889",
+"ads": "true",
+"premium": "true",
+"desc": "The MetaForge companion app with interactive maps, databses, tools, guides and more to forge your way to glory."
+},
+{
+"seo": "treestn_dev-arc_raiders_companion",
+"title": "Arc Raiders Companion",
+"author": "Treestn Dev",
+"ratings": "10",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "All-in-one Arc Raiders overlay with maps, quest tracking, hideout upgrades, and item lookup - lightweight, built to boost your raid efficiency."
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "kofimbadam-recycleme",
+"title": "ArcTerminal",
+"author": "KofimBadam",
+"ratings": "2",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "ArcTerminal The ultimate companion for real-time scanning, resource tracking, and raid stats. Optimize every run and build your legacy in Speranza."
+},
+{
+"seo": "arctracker.io-arctracker.io",
+"title": "ARCTracker.io",
+"author": "ARCTracker.io",
+"ratings": "17",
+"avg": "3.3529",
+"ads": "true",
+"premium": "false",
+"desc": "Take the guesswork out of looting in ARC Raiders. Inspect items in-game, view interactive maps and track your progress."
+},
+{
+"seo": "jikouken-arc_forge",
+"title": "ARC Forge",
+"author": "Jikouken",
+"ratings": "3",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "The Complete Control Center for ARC Raiders Players"
+},
+{
+"seo": "mao-tou_projects_ltd-materia",
+"title": "Materia",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "9",
+"avg": "4.1111",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate tool to manage recipes and track your progress. \\\\nMateria keeps you focused on the game, not the grind"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,0"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "hanging_software-commentator",
+"title": "Commentator",
+"author": "Hanging Software",
+"ratings": "5",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Automatic sound effects for kills, goals, and clutch moments. 500,000 sounds built in, two clicks to assign | On stream or in Discord."
+}
+]
+},
+"counter-strike-2": {
+"n_appid": 31,
+"items": [
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel "
+},
+{
+"seo": "jason_novich-clutch_hud_for_cs2",
+"title": "Clutch HUD for CS2",
+"author": "jason novich",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": " Real-time Counter-Strike 2 kill stats for your player — headshot alerts, a colorful second-screen dashboard, screen recording, and fully rebindable hotkeys.\\\\n"
+},
+{
+"seo": "tracker_network-counter-strike_2_tracker",
+"title": "Counter-Strike 2 Tracker",
+"author": "Tracker Network",
+"ratings": "15",
+"avg": "3.5333",
+"ads": "true",
+"premium": "false",
+"desc": "Track your CS2 Stats, view map lineups, progression, match history, and more!"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "alberico_dias_barreto_filho-economy_tool",
+"title": "Economy Tool",
+"author": "Alberico Dias Barreto Filho",
+"ratings": "7",
+"avg": "4.4286",
+"ads": "true",
+"premium": "false",
+"desc": "CS2 economy overlay with buy suggestions, safe drops and team money at a glance. Plan Full Buy, Force Buy or Eco and keep your next round in mind."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "remy_strijker-thesuspect",
+"title": "TheSuspect",
+"author": "Remy Strijker",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "true",
+"desc": "TheSuspect enhances Counter-Strike 2 with real-time stats, kill feeds, and match insights, helping you analyze gameplay and improve performance effortlessly.  "
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "cs2strats.gg-cs2strats",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+},
+{
+"seo": "shoast-cs2_tactics",
+"title": "CS2 Strats",
+"author": "Shoast",
+"ratings": "5",
+"avg": "3.4",
+"ads": "true",
+"premium": "true",
+"desc": "The ultimate tactical strategy board and playbook builder for Counter-Strike 2."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games, achievements, stats, and graphs - now in one place."
+},
+{
+"seo": "progzerek-zonesync",
+"title": "ZoneSync",
+"author": "Progzerek",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "Dynamic music volume control for Counter - Strike 2"
+},
+{
+"seo": "conduit_gaming-conduit",
+"title": "Conduit",
+"author": "Conduit Gaming",
+"ratings": "11",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Play. Clip. Share. Conduit is the fastest way to turn clips from basic gameplay to high quality and post-ready content."
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "jikouken-killer_vibe",
+"title": "Killer Vibe",
+"author": "Jikouken",
+"ratings": "6",
+"avg": "4.1667",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic in-game soundboard for Valorant, LoL, CS2, Fortnite, Rocket League, Overwatch 2, and Marvel Rivals."
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "nxg-nxg",
+"title": "NXG",
+"author": "NXG",
+"ratings": "5",
+"avg": "4.4",
+"ads": "false",
+"premium": "false",
+"desc": "NXG is the all-in-one esports hub where you can compete in Tournaments and the Arena, earn rewards, track your stats, and level up your profile."
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatically."
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "omnicoach_ltd.-omnicoach_game_recorder",
+"title": "Omnicoach Game Recorder",
+"author": "Omnicoach Ltd.",
+"ratings": "3",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Record your gameplays automatically with close to no effort"
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "cs2strats.gg-cs2strats",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+}
+]
+},
+"deadlock": {
+"n_appid": 22,
+"items": [
+{
+"seo": "tracker_network-tracker.gg",
+"title": "Tracker.gg",
+"author": "Tracker Network",
+"ratings": "3",
+"avg": "4.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Your all-in-one tracker app by tracker.gg!"
+},
+{
+"seo": "mobalytics-mobalytics",
+"title": "Mobalytics",
+"author": "Mobalytics",
+"ratings": "48",
+"avg": "3.4792",
+"ads": "true",
+"premium": "true",
+"desc": "Find out your strengths and weaknesses, get personalized advice, summoner stats, and insights on your opponents in League of Legends."
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "deadstrats.gg-deadstrats",
+"title": "DeadStrats",
+"author": "DeadStrats.gg",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate tactical strategy planner, interactive map, and playbook for Deadlock."
+},
+{
+"seo": "wikily.gg-deadlock_labs",
+"title": "Deadlo",
+"author": "WIKILY.GG",
+"ratings": "4",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "The official Deadlock Labs companion app. Scout everyone in your lobby before the first fight and keep your timers right on your HUD"
+},
+{
+"seo": "deadlock_signal-deadlock_signal",
+"title": "Deadlock Signal",
+"author": "Deadlock Signal",
+"ratings": "4",
+"avg": "3.75",
+"ads": "true",
+"premium": "false",
+"desc": "Get live build \\u0026 skill-order tips, track every Deadlock match, clip your kills and see what pros run. All in one \\u0026 clear!\\\\n\\\\n"
+},
+{
+"seo": "_rho_technologies_gmbh-deadlock_coach",
+"title": "Deadlock Coach",
+"author": "Rho Technologies GmbH",
+"ratings": "7",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "The official app for the deadlock.coach website"
+},
+{
+"seo": "statlocker.gg-statlocker_companion",
+"title": "Statlocker Companion",
+"author": "Statlocker.gg",
+"ratings": "7",
+"avg": "4.4286",
+"ads": "true",
+"premium": "false",
+"desc": "The official desktop companion app for Statlocker.gg - featuring auto ingestion, auto highlight clipping with inbuilt editor, LFG and more!"
+},
+{
+"seo": "kofimbadam-deadlock_companion",
+"title": "Deadlock Companion",
+"author": "KofimBadam",
+"ratings": "3",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Track Deadlock matches, view live match stats, and explore detailed profile analytics in a community-driven companion app that grows with player contributions."
+},
+{
+"seo": "jackalope_digital-soulbound",
+"title": "Soulbound",
+"author": "Jackalope Digital",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Deadlock overlay \\u0026 stats tracker: scout enemy players, find counter picks and the hero meta, track your rank and match history, and get live in-game tips."
+},
+{
+"seo": "statlock-statlock_overlay",
+"title": "Statlocked Overlay",
+"author": "statlock",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Dominate every match with Statlocked Overlay — a free live deadlo"
+},
+{
+"seo": "fevish-aimii.app",
+"title": "aimii.app",
+"author": "fevish",
+"ratings": "2",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "aimii.app helps you retain perfect sensitivity across different FPS games."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+}
+]
+},
+"diablo-iv": {
+"n_appid": 17,
+"items": [
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "azerpug-d4_interactive_map",
+"title": "D4 Interactive Map",
+"author": "AzerPUG",
+"ratings": "142",
+"avg": "4.4225",
+"ads": "true",
+"premium": "false",
+"desc": "An interactive map with live player location for Diablo IV."
+},
+{
+"seo": "leon_machens-diablo_4_map",
+"title": "Diablo 4 Map",
+"author": "Leon",
+"ratings": "30",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Explore Diablo 4 Vessel of Hatred with this Interactive Map! Discover Tenet of Akarat, Helltide, Infernal Hordes, Altars of Lilith, and more with real-time position tracking."
+},
+{
+"seo": "akrew_inc.-traderie",
+"title": "Traderie",
+"author": "Akrew Inc.",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Trade Roblox Items on Traderie, a peer to peer marketplace for Roblox players."
+},
+{
+"seo": "myla_llc-diva",
+"title": "dIVa",
+"author": "MYLA LLC",
+"ratings": "5",
+"avg": "3.4",
+"ads": "true",
+"premium": "true",
+"desc": "A dynamic interface with visual analytics, dIVa elevates your aRPG journey with real-time statistics and intelligent overlays, Speed Leveling and more! Supports PoE2, PoE, D4 \\u0026 D2R"
+},
+{
+"seo": "purediablo-purediablo",
+"title": "PureDiablo",
+"author": "PureDiablo",
+"ratings": "5",
+"avg": "3.8",
+"ads": "true",
+"premium": "false",
+"desc": "The in-game app for everything Diablo 4 and Vessel of Hatred - Interactive Map, access to database, VoH content, XP per seesion tracking and more."
+},
+{
+"seo": "play-with-purpose",
+"title": "Play With Purpose",
+"author": "The Crimson Market",
+"ratings": "15",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Raid, Trade and collect Bounties — Across Any Game - Together"
+},
+{
+"seo": "kyusung4698-diablo_snaps",
+"title": "DIABLO SNAPS",
+"author": "Kyusung4698",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "true",
+"desc": "The DIABLO IV app for collectors and traders. It crops, stores, and identifies your items automatically. So sharing them is only one step away!"
+},
+{
+"seo": "zigil",
+"title": "Zigil",
+"author": "Billy Peraza",
+"ratings": "2",
+"avg": "3.5",
+"ads": "true",
+"premium": "false",
+"desc": "Diablo 4 Sigil Tracker"
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "gameglass_inc-gameglass_hub",
+"title": "GameGlass Hub",
+"author": "GameGlass Inc",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "true",
+"desc": "Turn your phone or tablet into a control "
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance "
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+}
+]
+},
+"dota2": {
+"n_appid": 21,
+"items": [
+{
+"seo": "overwolf-dotaplus",
+"title": "DotaPlus",
+"author": "Overwolf",
+"ratings": "137",
+"avg": "4.2409",
+"ads": "true",
+"premium": "false",
+"desc": "Supercharge your Dota 2 experience with ban and pick suggestions, smurf detection, MMR Tracking, player notes and much more"
+},
+{
+"seo": "dota-coach.com-dota_coach",
+"title": "Dota Coach",
+"author": "dota-coach.com",
+"ratings": "27",
+"avg": "4.3704",
+"ads": "true",
+"premium": "true",
+"desc": "An app to improve your Dota 2 gameplay, medal and MMR!"
+},
+{
+"seo": "echoclip_team-echoclip",
+"title": "Echoclip",
+"author": "Echoclip Team",
+"ratings": "4",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Your Dota 2 coach for smarter drafts, focused in-game tools, post-match reviews, and effortless highlights."
+},
+{
+"seo": "catcherinsky-dota2_tracker",
+"title": "Dota2 Tracker",
+"author": "CatcherInSky",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Record Dota 2 players with private notes and Tier Lists. Features Stratz performance radars and real-time GSI net worth tracking. Your judgment, not just numbers, wins the game."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "orca",
+"title": "Orca",
+"author": "Orca",
+"ratings": "11",
+"avg": "3.6364",
+"ads": "true",
+"premium": "false",
+"desc": "Orca is an in-game overlay that adds a layer of sounds and visual notifications for game events."
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "skelly",
+"title": "Skelly",
+"author": "skelly.gg",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "true",
+"desc": "Unleash the Power of Skelly – Your Ultimate Gaming Community Awaits!"
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "reactional_music_group_ab-musicmods",
+"title": "MusicMods",
+"author": "Reactional Music Group AB",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "true",
+"desc": "Personalize your gaming with music from  a selection of hundreds of thousands of tracks. Interactive music and stingers respond to your gameplay.  New music every week. "
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "overwolf-game_capture",
+"title": "Game Capture",
+"author": "Overwolf",
+"ratings": "410",
+"avg": "3.3854",
+"ads": "false",
+"premium": "false",
+"desc": "The Overwolf Game Capture app allows you to capture\\u0026nbsp;gameplay videos and screenshots, save them on your hard drive or upload them directly to social networks."
+},
+{
+"seo": "overwolf-teamspeak",
+"title": "TeamSpeak Overlay",
+"author": "Overwolf",
+"ratings": "275",
+"avg": "3.8073",
+"ads": "false",
+"premium": "false",
+"desc": "TeamSpeak Overlay. Hell, yeah! Full functionality and alerts from TeamSpeak, while you play!"
+},
+{
+"seo": "overwolf-browser",
+"title": "Web Browser",
+"author": "Overwolf",
+"ratings": "124",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Overwolf's chrome-based in-game browser ensures you'll find whatever it is that you are looking for."
+},
+{
+"seo": "corrado_puligheddu-whatsapp",
+"title": "WhatsApp",
+"author": "Corrado Puligheddu",
+"ratings": "84",
+"avg": "4.2143",
+"ads": "false",
+"premium": "false",
+"desc": "whatsApp Messenger"
+},
+{
+"seo": "shopkeeper-shopkeeper",
+"title": "Shopkeeper",
+"author": "Shopkeeper",
+"ratings": "5",
+"avg": "2.8",
+"ads": "false",
+"premium": "false",
+"desc": "Shopkeeper offers you personalized builds that are trustworthy and reliable according to your match"
+}
+]
+},
+"escape-from-tarkov": {
+"n_appid": 15,
+"items": [
+{
+"seo": "treestn-tarkov_companion",
+"title": "Tarkov Companion",
+"author": "Treestn",
+"ratings": "35",
+"avg": "3.4",
+"ads": "true",
+"premium": "false",
+"desc": "📦 All-in-one Tarkov overlay with maps, quest tracking, hideout upgrades, and item lookup — lightweight, built to boost your raid efficiency."
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "chaisoft-tarkov_bazaar",
+"title": "Tarkov Bazaar",
+"author": "Chaisoft",
+"ratings": "11",
+"avg": "4.1818",
+"ads": "true",
+"premium": "false",
+"desc": "Tarkov Bazaar is an Escape from Tarkov overlay that lets you instantly check item prices, flea market values, trader prices, crafting uses, barter options, and quest requirements"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": null,
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+},
+{
+"seo": "dynforge",
+"title": "DynForge",
+"author": "Albérico Dias Barreto Filho",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Connect your gameplay to Discord. Create a live game status and send automatic webhook messages using events and variables from supported games."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "games.gg-g",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+}
+]
+},
+"fall-guys": {
+"n_appid": 2,
+"items": [
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+}
+]
+},
+"fortnite": {
+"n_appid": 42,
+"items": [
+{
+"seo": "tracker_network-tracker.gg",
+"title": "Tracker.gg",
+"author": "Tracker Network",
+"ratings": "3",
+"avg": "4.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Your all-in-one tracker app by tracker.gg!"
+},
+{
+"seo": "tracker_network-fortnite_tracker",
+"title": "Fortnite Tracker",
+"author": "Tracker Network",
+"ratings": "99",
+"avg": "3.6465",
+"ads": "true",
+"premium": "true",
+"desc": "With match by match breakdowns, performance trends, and rankings Fortnite Tracker is the tool you need to be #1"
+},
+{
+"seo": "fchq.io-fortnite_creative_companion_app",
+"title": "Fortnite Creative Companion App",
+"author": "FCHQ.io",
+"ratings": "3",
+"avg": "4.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Your all-in-one Companion for Fortnite. Earn V-Bucks by playing games, see player stats (and who is a bot), capture and share video clips, and discover high-quality maps to play."
+},
+{
+"seo": "chaosground_holdings-groundzero",
+"title": "GroundZero",
+"author": "ChaosGround Holdings",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "GroundZero is a gaming companion app that helps players stay engaged across their favorite games through challenges, rewards, progression tracking, and competitive experiences."
+},
+{
+"seo": "toolkit-fortnite_toolkit",
+"title": "Fortnite ToolKit",
+"author": "ToolKit",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate in-game overlay for Fortnite. Receive better information and make perfect decisions without ever alt-tabbing."
+},
+{
+"seo": "alberico_dias_barreto_filho-fortmapp",
+"title": "Fortmapp",
+"author": "Albérico Dias Barreto Filho",
+"ratings": "22",
+"avg": "4.2273",
+"ads": "true",
+"premium": "true",
+"desc": "Fortnite map "
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "luffygg-statsly",
+"title": null,
+"author": "luffygg",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "A powerful stats tracker and hub for Fortnite, PUBG, and Apex Legends — view match history, track performance, and stay on top of your game."
+},
+{
+"seo": "dubtrackr-droidex_companion",
+"title": "Droidex Companion",
+"author": "DubTrackr",
+"ratings": "4",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Droidex for Droid Tycoon: live stats, rebirth tracking, lobby sharing and session reports, read from your screen."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "jacob_caraballo-fortnite_live_stats",
+"title": "Fortnite Live Stats",
+"author": "Jacob Caraballo",
+"ratings": "7",
+"avg": "3.8571",
+"ads": "true",
+"premium": "false",
+"desc": "Fortnite Live Stats is an in-game real-time stat tracking solution for your current gaming session."
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games, achievements, stats, and graphs - now in one place."
+},
+{
+"seo": "gamergains",
+"title": "GamerGains",
+"author": "GamerGains Labs Inc",
+"ratings": "26",
+"avg": "4.0769",
+"ads": "true",
+"premium": "false",
+"desc": "Earn rewards playing the games you love. "
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "lionlight_llc-reactclips",
+"title": "ReactClips",
+"author": "LionLight LLC",
+"ratings": "12",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Find streamers you've encountered and automatically create Twitch Clips of their stream."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "orca",
+"title": "Orca",
+"author": "Orca",
+"ratings": "11",
+"avg": "3.6364",
+"ads": "true",
+"premium": "false",
+"desc": "Orca is an in-game overlay that adds a layer of sounds and visual notifications for game events."
+},
+{
+"seo": "jikouken-killer_vibe",
+"title": "Killer Vibe",
+"author": "Jikouken",
+"ratings": "6",
+"avg": "4.1667",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic in-game soundboard for Valorant, LoL, CS2, Fortnite, Rocket League, Overwatch 2, and Marvel Rivals."
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Let the game take control of your stream !"
+},
+{
+"seo": "sydev_labs-syscubes",
+"title": null,
+"author": "Sydev Labs",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "PC stats, audio controls, clips, notes and timers in a widget layout you choose. Use it on your desktop, in supported games or with your phone."
+},
+{
+"seo": "bhaptics_inc.-bhaptics_link",
+"title": "bHaptics Link",
+"author": "bHaptics Inc.",
+"ratings": "3",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Connect Fortnite, Valorant, Rocket League, League of Legends, and Teamfight Tactics to your bHaptics TactSuit. Feel kills, hits, and key game moments in real time!"
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatically."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "shaga_labs-shaga-ow-app",
+"title": "Shaga Controller Rotation",
+"author": "Shaga Labs",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "“Pass the Sticks” remotely and bring couch co-op to your streams. Rotate control between your viewers automatically with Shaga’s Overwolf integration."
+}
+]
+},
+"gta-v": {
+"n_appid": 6,
+"items": [
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": null,
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+}
+]
+},
+"hearthstone": {
+"n_appid": 26,
+"items": [
+{
+"seo": "sebastien_tromp-firestone",
+"title": "Firestone",
+"author": "Sébastien Tromp",
+"ratings": "137",
+"avg": "3.9489",
+"ads": "true",
+"premium": "true",
+"desc": "The ultimate Hearthstone companion app"
+},
+{
+"seo": "heartharena.com-heartharena-companion",
+"title": "HearthArena Companion",
+"author": "HearthArena.com",
+"ratings": "410",
+"avg": "3.578",
+"ads": "true",
+"premium": "false",
+"desc": "The official HearthArena.com Overwolf App"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": null,
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mobius_gaming_company_ltd.-mobius",
+"title": "Mobius",
+"author": "Mobius Gaming Company Ltd.",
+"ratings": "118",
+"avg": "3.7542",
+"ads": "true",
+"premium": "false",
+"desc": "Gaming pays off, starting now."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": null
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "mvc_apps-learn.earn.repeat",
+"title": "Learn.Earn.Repeat.",
+"author": "MVC Apps",
+"ratings": "13",
+"avg": "3.7692",
+"ads": "false",
+"premium": "false",
+"desc": "Don't miss out on the chance to show off your knowledge and walk away with some amazing prizes."
+},
+{
+"seo": "gazoom_entertainment",
+"title": "Gazoom",
+"author": "Gazoom Entertainment",
+"ratings": "49",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A Pro Gaming level Reviewing tool that helps you master your game! "
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "players_republik-apollo",
+"title": "Apollo",
+"author": "Players Republik",
+"ratings": "24",
+"avg": "2.75",
+"ads": "false",
+"premium": "false",
+"desc": "Apollo allows you to customize your in-game audio experience. Become the announcer and upload your own audio, select packs from the community or choose from our extensive library!"
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your play"
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games, achievements, stats, and graphs - now in one place."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "kidas-protectme",
+"title": "ProtectMe",
+"author": "Kidas",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "ProtectMe is AI driven threat detection software for PC video games built by leading cyber threats researchers and security experts."
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+},
+{
+"seo": "raimen_ttv-automation_overdrive",
+"title": "Automation Overdrive",
+"author": "Raimen TTV",
+"ratings": "1",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Supercharge your Touch Portal macros with triggered events live from your games!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"league-of-legends": {
+"n_appid": 59,
+"items": [
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "trebonius-porofessor.gg",
+"title": "Porofessor.gg",
+"author": "Trebonius",
+"ratings": "322",
+"avg": "4.0124",
+"ads": "true",
+"premium": "true",
+"desc": "The official Porofessor.gg app — the best free League of Legends overlay and companion app. \\\\nTrack builds, jungle timers, and stats with this all-in-one LoL helper and tracker."
+},
+{
+"seo": "opgg-electron-app",
+"title": "OP.GG",
+"author": "OP.GG",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "Your best play with OP.GG for Desktop"
+},
+{
+"seo": "convex_apps-facecheck",
+"title": "Facecheck",
+"author": "Convex Apps",
+"ratings": "440",
+"avg": "4.6386",
+"ads": "true",
+"premium": "true",
+"desc": "Prepare smarter, play with live insights, and learn from every match. Facecheck helps you with builds, runes, champion select, in-game tools, post-game analysis and more."
+},
+{
+"seo": "itero_gaming-itero_drafting_coach",
+"title": "The iTero AI Coach",
+"author": "iTero Gaming",
+"ratings": "118",
+"avg": "4.4153",
+"ads": "true",
+"premium": "true",
+"desc": "An AI-Powered Macro and Drafting Coach that is PROVEN to win you more games. Includes the single most comprehensive account analyser with over 500 statistics to review."
+},
+{
+"seo": "wedraft-wedraft",
+"title": "WeDraft",
+"author": "WeDraft",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "For League teams tired of messy draft prep. Scout opponents, prep for Fearless, track advanced history \\u0026 bring custom tactical overlays into scrims. Boost belief \\u0026 actually enjoy!"
+},
+{
+"seo": "hafen_co_ltd-teamgap-gg",
+"title": "Teamgap.gg",
+"author": "Hafen Co. Ltd.",
+"ratings": "9",
+"avg": "4.1111",
+"ads": "true",
+"premium": "false",
+"desc": "League of Legends companion for match history, tier lists, draft recommendations, live 10-player analysis, objective alerts, post-game reports, and replay highlights."
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "loltheory.gg-loltheory",
+"title": "LoLTheory",
+"author": "LoLTheory.gg",
+"ratings": "68",
+"avg": "4.7059",
+"ads": "true",
+"premium": "false",
+"desc": "Smart Picks, Better Builds: Recommendations That Adapt As You Play"
+},
+{
+"seo": "yiome-team_advisor",
+"title": "Team Advisor",
+"author": "Yiome",
+"ratings": "52",
+"avg": "3.6346",
+"ads": "true",
+"premium": "false",
+"desc": "AI recommendations for champions, runes and items — from PC or your phone. Auto hover champions, see current meta tier list and much more!"
+},
+{
+"seo": "tracker_network-league_tracker_by_trn",
+"title": "League Tracker",
+"author": "Tracker Network",
+"ratings": "8",
+"avg": "3.875",
+"ads": "true",
+"premium": "true",
+"desc": "Get live match roster stats and track your progress in real-time!"
+},
+{
+"seo": "miapin.gg-miapin.gg",
+"title": "MIAPIN.GG",
+"author": "MIAPIN.GG",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "true",
+"desc": "Your League of Legends matches record themselves. Rewatch any game on the web, with a timeline that jumps you straight to the fights that decided it."
+},
+{
+"seo": "procomps",
+"title": "ProComps",
+"author": "ProComps",
+"ratings": "22",
+"avg": "4.2273",
+"ads": "true",
+"premium": "false",
+"desc": "Live Draft assistant for League o"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "amer_yono-leaguetracker",
+"title": "LeagueTracker",
+"author": "Amer Yono",
+"ratings": "35",
+"avg": "4.0857",
+"ads": "true",
+"premium": "false",
+"desc": "Master League of Legends with LeagueTracker. Insightful real-time data, builds, and enemy tracking for the ultimate gaming edge."
+},
+{
+"seo": "juliano-sigma_lol",
+"title": "Sigma LoL",
+"author": "Juliano",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "Turn every League match into progress with detailed stats, personal coaching quests, MVP honors, playstyle trophies, and shareable recaps."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "lolnam-lolnameditor",
+"title": "LolnamEditor",
+"author": "lolnam",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Keyframe your camera and render cinematic League of Legends replays"
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "david_weatherall-replays.lol",
+"title": "Replays.lol",
+"author": "David Weatherall",
+"ratings": "16",
+"avg": "3.8125",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic VOD reviews of your LOL games"
+},
+{
+"seo": "mobatrainer",
+"title": "MOBA Trainer",
+"author": "mobatrainer",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Cutting-edge environment for players to practice strategic concepts, decision making and mechanical skills"
+},
+{
+"seo": "suffix.gg-ezchat.gg",
+"title": "EzChat.gg",
+"author": "Suffix.gg",
+"ratings": "6",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Use AI to translate in-game chat and display it seamlessly both in the game and on a second monitor, enhancing communication across languages without disrupting gameplay."
+},
+{
+"seo": "patso-league_chat_translator",
+"title": "League Chat Translator",
+"author": "Patso",
+"ratings": "2",
+"avg": "1",
+"ads": "true",
+"premium": "false",
+"desc": "Enhance communication in League of Legends with real-time AI-powered translations of in-game chat messages."
+},
+{
+"seo": "waveclear_ltd-waveclear",
+"title": "WaveClear",
+"author": "WaveClear LTD",
+"ratings": "25",
+"avg": "4.32",
+"ads": "true",
+"premium": "false",
+"desc": "Real-time mental performance and VOD debrief coach for League - improve skills and rank up, for free"
+},
+{
+"seo": "mao-tou_projects_ltd-mimic",
+"title": "Mimic",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "42",
+"avg": "4.0238",
+"ads": "true",
+"premium": "false",
+"desc": "League from the safety of your toilet."
+},
+{
+"seo": "bmelectro_and_a3ead-patchme",
+"title": "PatchMe",
+"author": "BmElectro and A3ead",
+"ratings": "5",
+"avg": "4.2",
+"ads": "false",
+"premium": "false",
+"desc": "The definitive app that lets you check League of Legends patch notes and its history, as well as up-to-date information about the game."
+},
+{
+"seo": "prodrops_ltd.-prodrops",
+"title": "ProDrops",
+"author": "ProDrops Ltd.",
+"ratings": "13",
+"avg": "4.9231",
+"ads": "false",
+"premium": "false",
+"desc": "Collect trading cards from your favorite g"
+},
+{
+"seo": "mid.gg",
+"title": "MID.GG",
+"author": "Jake Pinchbeck",
+"ratings": "3",
+"avg": "4",
+"ads": "true",
+"premium": "true",
+"desc": "Search 50,000+ pro League games from Twitch, SOOP, Huya and Douyu. Learn from Faker, Chovy and 300+ creators."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "lionlight_llc-reactclips",
+"title": "ReactClips",
+"author": "LionLight LLC",
+"ratings": "12",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Find streamers you've encountered and automatically create Twitch Clips of their stream."
+},
+{
+"seo": "arrive_gaming_inc-arrive",
+"title": "Arrive",
+"author": "Arrive Gaming Inc.",
+"ratings": "19",
+"avg": "3.7895",
+"ads": "true",
+"premium": "false",
+"desc": "Optimize your network connection to League of Legends, Valorant, and CS2 in North America \\u0026 Europe to improve latency and stability. "
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review you"
+},
+{
+"seo": "bluealba-lolplanner",
+"title": "LoLPlanner",
+"author": "BlueAlba",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Enhance team gameplay before, during and after your game!"
+},
+{
+"seo": "sydev_labs-syscubes",
+"title": "SysCubes",
+"author": "Sydev Labs",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "PC stats, audio controls, clips, notes and timers in a widget layout you choose. Use it on your desktop, in supported games or with your phone."
+},
+{
+"seo": "jikouken-killer_vibe",
+"title": "Killer Vibe",
+"author": "Jikouken",
+"ratings": "6",
+"avg": "4.1667",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic in-game soundboard for Valorant, LoL, CS2, Fortnite, Rocket League, Overwatch 2, and Marvel Rivals."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "orca",
+"title": "Orca",
+"author": "Orca",
+"ratings": "11",
+"avg": "3.6364",
+"ads": "true",
+"premium": "false",
+"desc": "Orca is an in-game overlay that adds a layer of sounds and visual notifications for game events."
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": null,
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "shopkeeper-shopkeeper",
+"title": "Shopkeeper",
+"author": "Shopkeeper",
+"ratings": "5",
+"avg": "2.8",
+"ads": "false",
+"premium": "false",
+"desc": "Shopkeeper offers you personalized builds that are trustworthy and reliable according to your match"
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatically."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "rl-winnable",
+"title": "Winnable",
+"author": "RL",
+"ratings": "5",
+"avg": "4.6",
+"ads": "false",
+"premium": "false",
+"desc": "A lightweight app that calculates real-time win odds in League of Legends"
+},
+{
+"seo": "omnicoach_ltd.-omnicoach_game_recorder",
+"title": "Omnicoach Game Recorder",
+"author": "Omnicoach Ltd.",
+"ratings": "3",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Record your gameplays automatically with close to no effort"
+},
+{
+"seo": "metaboom_studio-gamerboom",
+"title": "GamerBoom",
+"author": "MetaBoom Studio",
+"ratings": "7",
+"avg": "1.7143",
+"ads": "false",
+"premium": "false",
+"desc": "Master instant game challenges with GamerBoom! Thrive in real-time battles, strategize to win, and elevate your gaming experience. Join now!"
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "hanging_software-commentator",
+"title": "Commentator",
+"author": "Hanging Software",
+"ratings": "5",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Automatic sound effects for kills, goals, and clutch moments. 500,000 sounds built in, two clicks to assign | On stream or in Discord."
+}
+]
+},
+"league-of-legends-arena": {
+"n_appid": 12,
+"items": [
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "trebonius-porofessor.gg",
+"title": "Porofessor.gg",
+"author": "Trebonius",
+"ratings": "322",
+"avg": "4.0124",
+"ads": "true",
+"premium": "true",
+"desc": "The official Porofessor.gg app — the best free League of Legends overlay and companion app. \\\\nTrack builds, jungle timers, and stats with this all-in-one LoL helper and tracker."
+},
+{
+"seo": "convex_apps-facecheck",
+"title": "Facecheck",
+"author": "Convex Apps",
+"ratings": "440",
+"avg": "4.6386",
+"ads": "true",
+"premium": "true",
+"desc": "Prepare smarter, play with live insights, and learn from every match. Facecheck helps you with builds, runes, champion select, in-game tools, post-game analysis and more."
+},
+{
+"seo": "tracker_network-league_tracker_by_trn",
+"title": "League Tracker",
+"author": "Tracker Network",
+"ratings": "8",
+"avg": "3.875",
+"ads": "true",
+"premium": null,
+"desc": "Get live match roster stats and track your progress in real-time!"
+},
+{
+"seo": "opgg-electron-app",
+"title": "OP.GG",
+"author": "OP.GG",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "Your best play with OP.GG for Desktop"
+},
+{
+"seo": "david_weatherall-replays.lol",
+"title": "Replays.lol",
+"author": "David Weatherall",
+"ratings": "16",
+"avg": "3.8125",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic VOD reviews of your LOL games"
+},
+{
+"seo": "mid.gg",
+"title": "MID.GG",
+"author": "Jake Pinch",
+"ratings": "3",
+"avg": "4",
+"ads": "true",
+"premium": "true",
+"desc": "Search 50,000+ pro League games from Twitch, SOOP, Huya and Douyu. Learn from Faker, Chovy and 300+ creators."
+},
+{
+"seo": "bmelectro_and_a3ead-patchme",
+"title": "PatchMe",
+"author": "BmElectro and A3ead",
+"ratings": "5",
+"avg": "4.2",
+"ads": "false",
+"premium": "false",
+"desc": "The definitive app that lets you check League of Legends patch notes and its history, as well as up-to-date information about the game."
+},
+{
+"seo": "proguides-the_proguides_app",
+"title": "The ProGuides App",
+"author": "ProGuides",
+"ratings": "1",
+"avg": "1",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate your game with the power of ProGuides.   AI chatbot, roster of professional coaches, and massive content library. "
+}
+]
+},
+"legends-of-runeterra": {
+"n_appid": 4,
+"items": [
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"lethal-company": {
+"n_appid": 5,
+"items": [
+{
+"seo": "thunderstore-thunderstore_mod_manager",
+"title": "Thunderstore Mod Manager",
+"author": "Thunderstore",
+"ratings": "265",
+"avg": "3.8453",
+"ads": "true",
+"premium": "true",
+"desc": "A simple and easy to use mod manager for Lethal Company, R.E.P.O., Valheim, How to Fish, PEAK, Risk of Rain 2, and many other games."
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically"
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+}
+]
+},
+"magic-the-gathering-arena": {
+"n_appid": 3,
+"items": [
+{
+"seo": "draftsim-arena-tutor",
+"title": "Arena Tutor",
+"author": "Draftsim",
+"ratings": "20",
+"avg": "3.45",
+"ads": "true",
+"premium": "true",
+"desc": "Level up your MTG Arena play with the only AI-assisted deck tracker and draft assistant. Comprehensive stats and a beautiful interface."
+},
+{
+"seo": "aetherhub-aetherhub_mtga_assistant",
+"title": "AetherHub MTGA Assistant",
+"author": "AetherHub",
+"ratings": "18",
+"avg": "4.0556",
+"ads": "true",
+"premium": "false",
+"desc": "Deck tracker, Draft helper, Collection summary, helps you build meta decks based on your collection"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"marvel-rivals": {
+"n_appid": 18,
+"items": [
+{
+"seo": "tracker_network-marvel_rivals_tracker",
+"title": "Marvel Rivals Tracker",
+"author": "Tracker Network",
+"ratings": "19",
+"avg": "3.3684",
+"ads": "true",
+"premium": "true",
+"desc": "Dominate every match with Marvel Rivals overlay - the official free Marvel Rivals overlay and stats app by Tracker.gg. Get live match stats, and track your progress in real time!"
+},
+{
+"seo": "oskar-counterwatch",
+"title": "Counterwatch",
+"author": "Oskar",
+"ratings": "49",
+"avg": "4.8571",
+"ads": "true",
+"premium": "true",
+"desc": "Counterwatch tracks every Overwatch and Marvel Rivals match you play, then shows you which heroes, maps and matchups are actually costing you rank."
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "re-rivals_edge",
+"title": "Rivals Edge",
+"author": "RE",
+"ratings": "3",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Play smarter. Track your progress. Relive your best moments.\\\\nPerformance insights, hero mastery, challenges, match history and highlights "
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "alberico_dias_barreto_filho-deeprivals",
+"title": "DeepRivals",
+"author": "Albérico Dias Barreto Filho",
+"ratings": "14",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Live hero suggestions, team ultimates and hero swaps for Marvel Rivals. Review contextual highlights, matchups and session stats after each game."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "conduit_gaming-conduit",
+"title": "Conduit",
+"author": "Conduit Gaming",
+"ratings": "11",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Play. Clip. Share. Conduit is the fastest way to turn clips from basic gameplay to high quality and post-ready content."
+},
+{
+"seo": "pound_gaming-pound_ak",
+"title": "POUND AK",
+"author": "POUND GAMING",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "You’re not just a gamer. You’re an athlete with a keyboard!"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": null,
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to "
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture "
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+}
+]
+},
+"minecraft": {
+"n_appid": 39,
+"items": [
+{
+"seo": "moonsworth_llc-lunarclient",
+"title": "Lunar Client",
+"author": "Moonsworth LLC",
+"ratings": "19",
+"avg": "4.6842",
+"ads": "true",
+"premium": "false",
+"desc": "The #1 Free Client in Minecraft with a custom launcher, 70+ mods, hundreds of customizable settings, performance enhancements, cosmetics, emotes and a social system."
+},
+{
+"seo": "feed_the_beast-ftb_app",
+"title": "FTB App",
+"author": "Feed The Beast",
+"ratings": "26",
+"avg": "4.3462",
+"ads": "true",
+"premium": "false",
+"desc": "Explore, download, and play FTB Modpacks with ease! "
+},
+{
+"seo": "sk.gg-mineymap",
+"title": "MineyMap",
+"author": "sk.gg",
+"ratings": "95",
+"avg": "3.7474",
+"ads": null,
+"premium": "false",
+"desc": "Explore and discover Minecraft worlds! Easily find biomes, structures, and other points of interest, making navigation simple and fun."
+},
+{
+"seo": "overwolf-curseforge",
+"title": "CurseForge",
+"author": "Overwolf",
+"ratings": "384",
+"avg": "4.1927",
+"ads": "true",
+"premium": "true",
+"desc": "Explore, download and manage your favourite addons and mods from CurseForge’s massive index of user-created projects."
+},
+{
+"seo": "maxx-maxxcraft",
+"title": "MaxxCraft",
+"author": "Maxx",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "true",
+"desc": "The Top Minecraft Stats Tracker! Earn achievements, badges, track your stats and find friends."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "deltarion_apps-minimap_companion",
+"title": "Minimap Companion",
+"author": "Deltarion Apps",
+"ratings": "2",
+"avg": "1",
+"ads": "true",
+"premium": "false",
+"desc": "Explore Minecraft with a minimap and interactive world map. Discover biomes and structures, save your favorite locations, and navigate dimensions in Java and Bedrock Edition."
+},
+{
+"seo": "mao-tou_projects_ltd-craft_a_lot",
+"title": "Craft a lot",
+"author": "Mao-Tou Projects Ltd",
+"ratings": null,
+"avg": "3.6",
+"ads": "false",
+"premium": "false",
+"desc": "Your Minecraft companion! Craft-A-Lot offers many features for Minecraft players such as in-game GPS, recording and sharing tools and more"
+},
+{
+"seo": "mao-tou_projects_ltd-materia",
+"title": "Materia",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "9",
+"avg": "4.1111",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate tool to manage recipes and track your progress. \\\\nMateria keeps you focused on the game, not the grind"
+},
+{
+"seo": "rastudio-minecraft_companion",
+"title": "Minecraft Companion",
+"author": "rastudio",
+"ratings": "4",
+"avg": "3.5",
+"ads": "true",
+"premium": "false",
+"desc": "Find your way through Minecraft, with the answers you need all in one place.\\\\n"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "overwolf-playperks",
+"title": "PlayPerks",
+"author": "Overwolf",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Earn, redeem, and spend rewards with PlayPerks. Watch quick ads, stack server points, and use them on your favorite Minecraft servers."
+},
+{
+"seo": "nodecraft_inc.-nodecraft_powered",
+"title": "Nodecraft Powered",
+"author": "Nodecraft Inc.",
+"ratings": "8",
+"avg": "3.75",
+"ads": "false",
+"premium": "false",
+"desc": "Game Servers Done Right"
+},
+{
+"seo": "microd-neonlink",
+"title": "Neonlink",
+"author": "MicroD",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Neonlink lets you and your friends play your favorite games like Minecraft together. Skip costly game server rentals and complicated network setup."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "bisecthosting-bisecthosting",
+"title": "BisectHosting",
+"author": "BisectHosting",
+"ratings": "8",
+"avg": "4.125",
+"ads": "false",
+"premium": "false",
+"desc": "BisectHosting offers top of the line Minecraft server hosting services with the product knowledge and support resources to help players of all experience levels get started."
+},
+{
+"seo": "conduit_gaming-conduit",
+"title": "Conduit",
+"author": "Conduit Gaming",
+"ratings": "11",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Play. Clip. Share. Conduit is the fastest way to turn clips from basic gameplay to high quality and post-ready content."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "gazoom_entertainment",
+"title": "Gazoom",
+"author": "Gazoom Entertainment",
+"ratings": "49",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A Pro Gaming level Reviewing tool that helps you master your game! "
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "digital_ingot_inc_feather_launcher",
+"title": "Feather Launcher",
+"author": "Digital Ingot, Inc.",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Feather Client is a Minecraft modpack and launcher with features such as FPS boost, FREE server hosting and more! "
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "sherwa_online_services-sherwa_-_gaming_community",
+"title": "Sherwa - Gaming Community",
+"author": "Sherwa Online Services",
+"ratings": "3",
+"avg": "5",
+"ads": null,
+"premium": "false",
+"desc": "The #1 place to find gamer teammates! Play, chat and make gamer friends online."
+},
+{
+"seo": "skelly",
+"title": "Skelly",
+"author": "skelly.gg",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "true",
+"desc": "Unleash the Power of Skelly – Your Ultimate Gaming Community Awaits!"
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "kidas-protectme",
+"title": "ProtectMe",
+"author": "Kidas",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "ProtectMe is AI driven threat detection software for PC video games built by leading cyber threats researchers and security experts."
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"new-world": {
+"n_appid": 2,
+"items": [
+{
+"seo": "leon_machens-aeternum_map",
+"title": "Aeternum Map - New World",
+"author": "Leon Machens",
+"ratings": "34",
+"avg": "4.7059",
+"ads": "true",
+"premium": "false",
+"desc": "Your New World companion  with minimap, real-time position and sync to website with locations, farming spots, resources and lore documents"
+},
+{
+"seo": "new_world_minimap-nwmm_-_new_world_minimap",
+"title": "NWMM - New World MiniMap",
+"author": "New World MiniMap",
+"ratings": "43",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "The most accurate \\u0026 efficient minimap for New World"
+}
+]
+},
+"palworld": {
+"n_appid": 14,
+"items": [
+{
+"seo": "thunderstore-thunderstore_mod_manager",
+"title": "Thunderstore Mod Manager",
+"author": "Thunderstore",
+"ratings": "265",
+"avg": "3.8453",
+"ads": "true",
+"premium": "true",
+"desc": "A simple and easy to use mod manager for Lethal Company, R.E.P.O., Valheim, How to Fish, PEAK, Risk of Rain 2, and many other games."
+},
+{
+"seo": "mao-tou_projects_ltd-materia",
+"title": "Materia",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "9",
+"avg": "4.1111",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate tool to manage recipes and track your progress. \\\\nMateria keeps you focused on the game, not the grind"
+},
+{
+"seo": "opgg-electron-app",
+"title": "OP.GG",
+"author": "OP.GG",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "Your best play with OP.GG for Desktop"
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "azerpug-paldeck_enhanced",
+"title": "Paldeck Enhanced",
+"author": "AzerPUG",
+"ratings": "34",
+"avg": "4.3529",
+"ads": "true",
+"premium": "true",
+"desc": " Paldeck Enhanced, an Interactive Map and `PokeDex` for Palworld!"
+},
+{
+"seo": "leon_machens-palworld-interactive-map",
+"title": "Palworld Interactive Map",
+"author": "Leon Machens",
+"ratings": "33",
+"avg": "3.1818",
+"ads": "true",
+"premium": "false",
+"desc": "Explore Palworld with my interactive map, showcasing spawn locations of adorable Pals. Daily updates, real-time tracking, live-mode, minimap, and more to for Palworld!"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tu"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Let the game take control of your stream !"
+}
+]
+},
+"path-of-exile": {
+"n_appid": 17,
+"items": [
+{
+"seo": "kyusung4698-poe_overlay_ii",
+"title": "PoE Overlay II",
+"author": "Kyusung4698",
+"ratings": "78",
+"avg": "3.7692",
+"ads": "true",
+"premium": "true",
+"desc": "PoE Overlay II is your all-in-one trade and price-check app for Path of Exile 2, built with slick new UI, real-time market data, and streamlined in-game tools."
+},
+{
+"seo": "poe2k-poe2k",
+"title": "PoE2k: Path of Exile 2 Trading Overlay ",
+"author": "poe2k",
+"ratings": "4",
+"avg": "3.5",
+"ads": "true",
+"premium": "false",
+"desc": "PoE 2K  is an overlay companion for Path of Exile 2 trading. Price checker with instant results, trade whispers, market search, inventory tracking for a better PoE2 experience."
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "myla_llc-diva",
+"title": "dIVa",
+"author": "MYLA LLC",
+"ratings": "5",
+"avg": "3.4",
+"ads": "true",
+"premium": "true",
+"desc": "A dynamic interface with visual analytics, dIVa elevates your aRPG journey with real-time statistics and intelligent overlays, Speed Leveling and more! Supports PoE2, PoE, D4 \\u0026 D2R"
+},
+{
+"seo": "kyusung4698-poe_overlay",
+"title": "PoE Overlay",
+"author": "Kyusung4698",
+"ratings": "81",
+"avg": "4.0988",
+"ads": "true",
+"premium": "true",
+"desc": "PoE Overlay is your all-in-one trade and price-check app for Path of Exile, featuring real-time market data, trade tools, and gameplay analysis."
+},
+{
+"seo": "caniecode-poe_planner",
+"title": "PoE Planner",
+"author": "Caniecode",
+"ratings": "7",
+"avg": "2.2857",
+"ads": "true",
+"premium": "true",
+"desc": "A planning tool for Path of Exile. Plan your character's passive skill tree and save your builds online!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone pr"
+},
+{
+"seo": "twitch_overlay",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+},
+{
+"seo": "twitch_overlay-standalone",
+"title": "Twitch Overlay - Electron",
+"author": "Twitch Overlay",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "tyger",
+"title": "TYGER",
+"author": "PlusMusic",
+"ratings": "23",
+"avg": "3.913",
+"ads": "true",
+"premium": "false",
+"desc": "Adaptive music + sound effects that react to your game. Join the prerelease beta, test 400,000 songs, and help us build v2 with full major + indie label music."
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "twitch_overlay",
+"title": null,
+"author": null,
+"ratings": null,
+"avg": null,
+"ads": null,
+"premium": null,
+"desc": null
+}
+]
+},
+"pubg": {
+"n_appid": 30,
+"items": [
+{
+"seo": "luffygg-statsly",
+"title": "Statsly",
+"author": "luffygg",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "A powerful stats tracker and hub for Fortnite, PUBG, and Apex Legends — view match history, track performance, and stay on top of your game."
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "razershot-razershot",
+"title": "RazerShot",
+"author": "RazerShot",
+"ratings": "2",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "PUBG Vehicle Spawns Live Minimap Next-gen AI FPS trainer is now global. Get personalized sensitivity scaled to your DPI, fix bad aim habits, CS2,PUBG,Overwatch,Valorant"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "wojciech_banas-aim_trainer",
+"title": "Aim Trainer",
+"author": "Wojciech Banas",
+"ratings": "12",
+"avg": "2.5833",
+"ads": "true",
+"premium": "false",
+"desc": "Aim Trainer is a free game that is specifically designed to improve the player’s aim "
+},
+{
+"seo": "ebounty",
+"title": "Ebounty",
+"author": "Ebounty.GG",
+"ratings": "16",
+"avg": "2.375",
+"ads": "false",
+"premium": "false",
+"desc": "Join, create, and eliminate bounties in Fortnite, Apex Legends, and PUBG. Then rank up and cash out!"
+},
+{
+"seo": "gazoom_entertainment",
+"title": "Gazoom",
+"author": "Gazoom Entertainment",
+"ratings": "49",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A Pro Gaming level Reviewing tool that helps you master your game! "
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "2",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": null,
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "gamergains",
+"title": "GamerGains",
+"author": "GamerGains Labs Inc",
+"ratings": "26",
+"avg": "4.0769",
+"ads": "true",
+"premium": "false",
+"desc": "Earn rewards playing the games you love. "
+},
+{
+"seo": "fruitlab-fruitlab_gaming",
+"title": "Fruitlab Gaming",
+"author": "fruitlab",
+"ratings": "2",
+"avg": "3.5",
+"ads": "true",
+"premium": "false",
+"desc": "Take your gameplay to the next level"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Let the game take control of your stream !"
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "azerpug-baldurs_map",
+"title": "Baldurs Map",
+"author": "AzerPUG",
+"ratings": "15",
+"avg": "2.8667",
+"ads": "true",
+"premium": "false",
+"desc": "An interactive map for Baldur's Gate III."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "overwolf-game_capture",
+"title": "Game Capture",
+"author": "Overwolf",
+"ratings": "410",
+"avg": "3.3854",
+"ads": "false",
+"premium": "fals",
+"desc": "The Overwolf Game Capture app allows you to capture\\u0026nbsp;gameplay videos and screenshots, save them on your hard drive or upload them directly to social networks."
+},
+{
+"seo": "overwolf-teamspeak",
+"title": "TeamSpeak Overlay",
+"author": "Overwolf",
+"ratings": "275",
+"avg": "3.8073",
+"ads": "false",
+"premium": "false",
+"desc": "TeamSpeak Overlay. Hell, yeah! Full functionality and alerts from TeamSpeak, while you play!"
+},
+{
+"seo": "overwolf-browser",
+"title": "Web Browser",
+"author": "Overwolf",
+"ratings": "124",
+"avg": "3.0806",
+"ads": "false",
+"premium": "false",
+"desc": "Overwolf's chrome-based in-game browser ensures you'll find whatever it is that you are looking for."
+},
+{
+"seo": "corrado_puligheddu-whatsapp",
+"title": "WhatsApp",
+"author": "Corrado Puligheddu",
+"ratings": "84",
+"avg": "4.2143",
+"ads": "false",
+"premium": "false",
+"desc": "whatsApp Messenger"
+},
+{
+"seo": "shopkeeper-shopkeeper",
+"title": "Shopkeeper",
+"author": "Shopkeeper",
+"ratings": "5",
+"avg": "2.8",
+"ads": "false",
+"premium": "false",
+"desc": "Shopkeeper offers you personalized builds that are trustworthy and reliable according to your match"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+}
+]
+},
+"rainbow-six-siege": {
+"n_appid": 35,
+"items": [
+{
+"seo": "tracker_network-rainbow_6_siege_tracker",
+"title": "Rainbow 6 Siege Tracker",
+"author": "Tracker Network",
+"ratings": "248",
+"avg": "3.5444",
+"ads": "true",
+"premium": "true",
+"desc": "View your teammates and opponent's stats in your lobby to see your chances to win! Advanced match, operator, map and weapon stats included too!!"
+},
+{
+"seo": "tracker_network-tracker.gg",
+"title": "Tracker.gg",
+"author": "Tracker Network",
+"ratings": "3",
+"avg": "4.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Your all-in-one tracker app by tracker.gg!"
+},
+{
+"seo": "bl0n-r6_analyst",
+"title": "R6 Analyst",
+"author": "Bl0n",
+"ratings": "148",
+"avg": "4.5135",
+"ads": "true",
+"premium": "true",
+"desc": "R6 Analyst has a variety of features that will improve and enhance your Siege experience. A personal coach in Siege! Focus suggestions, ban recommendations, and much more!"
+},
+{
+"seo": "dudekiller-r6_calls",
+"title": "R6 Calls",
+"author": "DudeKiller",
+"ratings": "15",
+"avg": "3.8",
+"ads": "false",
+"premium": "false",
+"desc": "R6 Calls is a map tool to use in and out of the game. It has an in game minimap and a desktop app to learn maps and draw sharable strats."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "tabwire",
+"title": "TabStats Games Stats Tracker",
+"author": "Tabwire",
+"ratings": "82",
+"avg": "3.0244",
+"ads": "true",
+"premium": "false",
+"desc": "Tarkov \\u0026 R6 Siege Stat Tracker by TabStats"
+},
+{
+"seo": "kickback_team-kickback",
+"title": "Kickback",
+"author": "Kickback Team",
+"ratings": "184",
+"avg": "4.7228",
+"ads": "true",
+"premium": "false",
+"desc": "The ultimate gaming rewards platform, earn money while you play games and from your gaming knowledge!"
+},
+{
+"seo": "gamergains",
+"title": "GamerGains",
+"author": "GamerGains Labs Inc",
+"ratings": "26",
+"avg": null,
+"ads": "true",
+"premium": "false",
+"desc": "Earn rewards playing the games you love. "
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "mobius_gaming_company_ltd.-mobius",
+"title": "Mobius",
+"author": "Mobius Gaming Company Ltd.",
+"ratings": "118",
+"avg": "3.7542",
+"ads": "true",
+"premium": "false",
+"desc": "Gaming pays off, starting now."
+},
+{
+"seo": "gazoom_entertainment",
+"title": "Gazoom",
+"author": "Gazoom Entertainment",
+"ratings": "49",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A Pro Gaming level Reviewing tool that helps"
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "wojciech_banas-aim_trainer",
+"title": "Aim Trainer",
+"author": "Wojciech Banas",
+"ratings": "12",
+"avg": "2.5833",
+"ads": "true",
+"premium": "false",
+"desc": "Aim Trainer is a free game that is specifically designed to improve the player’s aim in various First-Person Shooter games such as Fortnite, Counter-Strike: GO, and Call of Duty."
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "kidas-protectme",
+"title": "ProtectMe",
+"author": "Kidas",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "ProtectMe is AI driven threat detection software for PC video games built by leading cyber threats researchers and security experts."
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatica"
+},
+{
+"seo": "instreamly-instreamly",
+"title": "inStreamly",
+"author": "inSTREAMLY",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Application for inStreamly campaigns"
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "azarus_inc.-azarus_broadcast",
+"title": "Azarus Broadcast",
+"author": "Azarus inc.",
+"ratings": "1",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Azarus Broadcast"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+},
+{
+"seo": "mvc_apps-learn.earn.repeat",
+"title": "Learn.Earn.Repeat.",
+"author": "MVC Apps",
+"ratings": "13",
+"avg": "3.7692",
+"ads": "false",
+"premium": "false",
+"desc": "Don't miss out on the chance to show off your knowledge and walk away with some amazing prizes."
+},
+{
+"seo": "raimen_ttv-automation_overdrive",
+"title": "Automation Overdrive",
+"author": "Raimen TTV",
+"ratings": "1",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Supercharge your Touch Portal macros with triggered events live from your games!"
+}
+]
+},
+"roblox": {
+"n_appid": 27,
+"items": [
+{
+"seo": "dk2t-roblox_tracker",
+"title": "Roblox Tracker",
+"author": "dk2t",
+"ratings": "20",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Track your Top Games!\\\\nDiscover what’s Trending right now!\\\\nCheck progress of your friends!"
+},
+{
+"seo": "maxx-maxxblox",
+"title": "MaxxBlox",
+"author": "Maxx",
+"ratings": "3",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Enhance \\u0026 Enjoy your Roblox gameplay with an All-In-One Roblox Companion."
+},
+{
+"seo": "allory_dante-better_roblox_launcher",
+"title": "Better Roblox Launcher",
+"author": "Allory Dante",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "The better way to play Roblox — real playtime stats, community leaderboards, a FastFlags editor and a Multi-Account Launcher. See what Roblox never shows you."
+},
+{
+"seo": "strongest_battlegrounds_companion",
+"title": "Strongest Battlegrounds Companion",
+"author": "Overwolf",
+"ratings": "5",
+"avg": "4.2",
+"ads": "true",
+"premium": "false",
+"desc": "Your ultimate companion for The Strongest Battlegrounds - stay on top of updates, streaks, and more."
+},
+{
+"seo": "alberico_dias_barreto_filho-roblox_backpack_tracker",
+"title": "Roblox Backpack Tracker",
+"author": "Albérico Dias Barreto Filho",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Track Roblox playtime automatically. Discover your top experiences, revisit sessions, and organize items, values and screenshot notes in your Backpack."
+},
+{
+"seo": "kizmotek-war_tycoon",
+"title": "War Tycoon",
+"author": "KizmoTek",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Build a military base, unlock tanks, jets \\u0026 weapons, and battle rivals in this fast-paced tycoon FPS. 1B+ visits and growing.\\\\n"
+},
+{
+"seo": "kizmotek-hitman_card_game",
+"title": "Hitman Card Game",
+"author": "KizmoTek",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "A tense roulette style card game. Draw cards each turn, but avoid the deadly Hitman Card. Use strategy, skip turns \\u0026 outlast opponents. Free private servers!"
+},
+{
+"seo": "rivals_companion",
+"title": "Rivals Companion",
+"author": "Overwolf",
+"ratings": "9",
+"avg": "4.1111",
+"ads": "false",
+"premium": "false",
+"desc": "Roblox's most intense FPS - fast rounds, skill-based gunplay, and 5v5 duels where aim and movement are everything."
+},
+{
+"seo": "jujutsu_shenanigans_companion",
+"title": "Jujutsu Shenanigans Companion",
+"author": "Overwolf",
+"ratings": "6",
+"avg": "3.6667",
+"ads": "false",
+"premium": "false",
+"desc": "Roblox's most chaotic PvP - fight cursed sorcerers in Shinjuku using unique techniques, combos, and Domain Expansions. Master your style and dominate."
+},
+{
+"seo": "splitting_point_studios-splitting_point_studios",
+"title": "Splitting Point Studios",
+"author": "Splitting Point Studios",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "A network of Roblox enthusiasts that work together to create games that are completely unlike anything else out there"
+},
+{
+"seo": "duck_duck",
+"title": "Duck Duck",
+"author": "Quack Quack",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Geese chase, ducks flee, and only one waddler survives! Dodge, juggle the pressure, and outlast the flock in this frantic multiplayer tag game. Quack fast! "
+},
+{
+"seo": "krabbykrew",
+"title": "Krabby Krew",
+"author": "Wonder Works Studio",
+"ratings": "292",
+"avg": "4.4384",
+"ads": "true",
+"premium": "false",
+"desc": "Dreaming up new adventures in exciting roleplay games for immersive, imaginative fun for everyone. "
+},
+{
+"seo": "tracker_network-tracker.gg",
+"title": "Tracker.gg",
+"author": "Tracker Network",
+"ratings": "3",
+"avg": "4.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Your all-in-one tracker app by tracker.gg!"
+},
+{
+"seo": "toya",
+"title": "Toya",
+"author": "Toya Studio",
+"ratings": "100",
+"avg": "4.65",
+"ads": "true",
+"premium": "false",
+"desc": "An award-winning metaverse studio creating innovative Roblox experiences that connect communities, platforms, and brands. "
+},
+{
+"seo": "allory_dante-betterblox",
+"title": "BetterBLOX",
+"author": "Allory Dante",
+"ratings": "19",
+"avg": "3.0526",
+"ads": "true",
+"premium": "false",
+"desc": "BetterBLOX is a custom Roblox launcher enhancing the Roblox Interface"
+},
+{
+"seo": "awesomedu-grow_a_garden_calculator",
+"title": "Grow a Garden Calculator",
+"author": "Awesomedu",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "The number one calculator for Roblox Grow a Garden for calculating crop values and pet abilities."
+},
+{
+"seo": "topblox_team-topblox",
+"title": "TopBlox",
+"author": "TopBlox Team",
+"ratings": "2",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Find Roblox games through playlists, gameplay previews and quick challenges. Save games for later and keep track of what you play.\\\\n"
+},
+{
+"seo": "akrew_inc.-traderie",
+"title": "Traderie",
+"author": "Akrew Inc.",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Trade Roblox Items on Traderie, a peer to peer marketplace for Roblox players."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, an"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+}
+]
+},
+"rocket-league": {
+"n_appid": 30,
+"items": [
+{
+"seo": "tracker_network-tracker_live",
+"title": "Tracker Live",
+"author": "Tracker Network",
+"ratings": "7",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "Join a match in your favorite game to estimate your chances to win and track your match performance in real time!"
+},
+{
+"seo": "tracker_network-rocket_league_tracker",
+"title": "Rocket League Tracker",
+"author": "Tracker Network",
+"ratings": "134",
+"avg": "2.8731",
+"ads": "true",
+"premium": "false",
+"desc": "Live Rocket League Stats and Skill Rating progression!"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it"
+},
+{
+"seo": "mobius_gaming_company_ltd.-mobius",
+"title": "Mobius",
+"author": "Mobius Gaming Company Ltd.",
+"ratings": "118",
+"avg": "3.7542",
+"ads": "true",
+"premium": "false",
+"desc": "Gaming pays off, starting now."
+},
+{
+"seo": "wavedash_gmbh-rl-garage",
+"title": null,
+"author": "Wavedash GmbH",
+"ratings": "1",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "Your #1 Rocket League community! Get detailed match summaries and check other players ranks \\u0026 stats."
+},
+{
+"seo": "prodrops_ltd.-prodrops",
+"title": "ProDrops",
+"author": "ProDrops Ltd.",
+"ratings": "13",
+"avg": "4.9231",
+"ads": "false",
+"premium": "false",
+"desc": "Collect trading cards from your favorite games - by playing them!"
+},
+{
+"seo": "gamerpad-rocket_league_training_assistant",
+"title": "Rocket League Training Assistant",
+"author": "Gamerpad",
+"ratings": "3",
+"avg": "4.3333",
+"ads": "false",
+"premium": "false",
+"desc": "Rocket League Training Assistant"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone p"
+},
+{
+"seo": "games.gg-games.gg_guides",
+"title": "GAMES.GG Guides",
+"author": "GAMES.GG",
+"ratings": "118",
+"avg": "4.8814",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one GAMES.GG app featuring guides, overlays, tutorials and more across 2,000+ supported games. Join 3M+ gamers already using GAMES.GG with our new desktop app."
+},
+{
+"seo": "conduit_gaming-conduit",
+"title": "Conduit",
+"author": "Conduit Gaming",
+"ratings": "11",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Play. Clip. Share. Conduit is the fastest way to turn clips from basic gameplay to high quality and post-ready content."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games, achievements, stats, and graphs - now in one place."
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "jikouken-killer_vibe",
+"title": "Killer Vibe",
+"author": "Jikouken",
+"ratings": "6",
+"avg": null,
+"ads": "true",
+"premium": "false",
+"desc": "Automatic in-game soundboard for Valorant, LoL, CS2, Fortnite, Rocket League, Overwatch 2, and Marvel Rivals."
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Let the game take control of your stream !"
+},
+{
+"seo": "bhaptics_inc.-bhaptics_link",
+"title": "bHaptics Link",
+"author": "bHaptics Inc.",
+"ratings": "3",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Connect Fortnite, Valorant, Rocket League, League of Legends, and Teamfight Tactics to your bHaptics TactSuit. Feel kills, hits, and key game moments in real time!"
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game e"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "hanging_software-commentator",
+"title": "Commentator",
+"author": "Hanging Software",
+"ratings": "5",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Automatic sound effects for kills, goals, and clutch moments. 500,000 sounds built in, two clicks to assign | On stream or in Discord."
+}
+]
+},
+"sons-of-the-forest": {
+"n_appid": 3,
+"items": [
+{
+"seo": "metaforge",
+"title": "MetaForge",
+"author": "MetaForge",
+"ratings": "9",
+"avg": "3.8889",
+"ads": "true",
+"premium": "true",
+"desc": "The MetaForge companion app with interactive maps, databses, tools, guides and more to forge your way to glory."
+},
+{
+"seo": "leon_machens-sons_of_the_forest_map",
+"title": "Sons Of The Forest Map",
+"author": "Leon Machens",
+"ratings": "9",
+"avg": "4.2222",
+"ads": "false",
+"premium": "false",
+"desc": "Stay on top of Sons of the Forest with real-time position tracking, nodes of weapons \\u0026 points of interest, and overlay mode for seamless progress tracking."
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+}
+]
+},
+"splitgate": {
+"n_appid": 0,
+"items": []
+},
+"starcraft2": {
+"n_appid": 13,
+"items": [
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "overwolf-spawning_tool_build_advisor",
+"title": "Spawning Tool Build Advisor",
+"author": "Overwolf",
+"ratings": "19",
+"avg": "4.4737",
+"ads": "true",
+"premium": "false",
+"desc": "Picking your Build order, and keeping track of it in-game has never been easier!"
+},
+{
+"seo": "mobius_gaming_company_ltd.-mobius",
+"title": "Mobius",
+"author": "Mobius Gaming Company Ltd.",
+"ratings": "118",
+"avg": "3.7542",
+"ads": "true",
+"premium": "false",
+"desc": "Gaming pays off, starting now."
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "azerpug-baldurs_map",
+"title": "Baldurs Map",
+"author": "AzerPUG",
+"ratings": "15",
+"avg": "2.8667",
+"ads": "true",
+"premium": "false",
+"desc": "An interactive map for Baldur's Gate III."
+},
+{
+"seo": "mao-tou_projects_ltd-ouch",
+"title": "Ouch",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "14",
+"avg": "3.1429",
+"ads": "true",
+"premium": "false",
+"desc": "Review your deaths while playing"
+},
+{
+"seo": "overwolf-game_capture",
+"title": "Game Capture",
+"author": "Overwolf",
+"ratings": "410",
+"avg": "3.3854",
+"ads": "false",
+"premium": "false",
+"desc": "The Overwolf Game Capture app allows you to capture\\u0026nbsp;gameplay videos and screenshots, save them on your hard drive or upload them directly to social networks."
+},
+{
+"seo": "overwolf-teamspeak",
+"title": "TeamSpeak Overlay",
+"author": "Overwolf",
+"ratings": "275",
+"avg": "3.8073",
+"ads": "false",
+"premium": "false",
+"desc": "TeamSpeak Overlay. Hell, yeah! Full functionality and alerts from TeamSpeak, while you play!"
+},
+{
+"seo": "overwolf-browser",
+"title": "Web Browser",
+"author": "Overwolf",
+"ratings": "124",
+"avg": "3.0806",
+"ads": "false",
+"premium": "false",
+"desc": "Overwolf's chrome-based in-game browser ensures you'll find whatever it is that you are looking for."
+},
+{
+"seo": "corrado_puligheddu-whatsapp",
+"title": "WhatsApp",
+"author": "Corrado Puligheddu",
+"ratings": "84",
+"avg": "4.2143",
+"ads": "false",
+"premium": "false",
+"desc": "whatsApp Messenger"
+},
+{
+"seo": "shopkeeper-shopkeeper",
+"title": "Shopkeeper",
+"author": "Shopkeeper",
+"ratings": "5",
+"avg": "2.8",
+"ads": "false",
+"premium": "false",
+"desc": "Shopkeeper offers you personalized builds that are trustworthy and reliable according to your match"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+}
+]
+},
+"starfield": {
+"n_appid": 4,
+"items": [
+{
+"seo": "networkn-starfielddb",
+"title": "StarfieldDB",
+"author": "NetworkN",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Access our vast database of everything Starfield and track your planet discoveries ."
+},
+{
+"seo": "azerpug-starfield_companion",
+"title": "Starfield Companion",
+"author": "AzerPUG",
+"ratings": "3",
+"avg": "3.6667",
+"ads": "true",
+"premium": "false",
+"desc": "Starfield Companion will help you find the resources, flora or fauna you need!"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"teamfight-tactics": {
+"n_appid": 40,
+"items": [
+{
+"seo": "metatft.com-metatft",
+"title": "MetaTFT",
+"author": "MetaTFT.com",
+"ratings": "51",
+"avg": "4.0784",
+"ads": "true",
+"premium": "true",
+"desc": "The official Meta TFT app, the best free TeamFight Tactics overlay and companion app. Track builds, comps and stats with this all-in-one TFT addon. Download the best TFT comps"
+},
+{
+"seo": "next_level_tactics_llc-tftacademy",
+"title": "TFTAcademy",
+"author": "Next Level Tactics LLC",
+"ratings": "3",
+"avg": "4",
+"ads": "true",
+"premium": "true",
+"desc": "The TFTAcademy desktop app features pro-backed recommendations, a smart in-game planner, a replay system, and more."
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "trebonius-porofessor.gg",
+"title": "Porofessor.gg",
+"author": "Trebonius",
+"ratings": "322",
+"avg": "4.0124",
+"ads": "true",
+"premium": "true",
+"desc": "The official Porofessor.gg app — the best free League of Legends overlay and companion app. \\\\nTrack builds, jungle timers, and stats with this all-in-one LoL helper and tracker."
+},
+{
+"seo": "tftactics.gg-tftactics",
+"title": "TFTactics",
+"author": "TFTactics.gg",
+"ratings": "93",
+"avg": "3.8387",
+"ads": "true",
+"premium": "true",
+"desc": "Your trusted companion for Teamfight Tactics. From a simp"
+},
+{
+"seo": "opgg-electron-app",
+"title": "OP.GG",
+"author": "OP.GG",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": "Your best play with OP.GG for Desktop"
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "mid.gg",
+"title": "MID.GG",
+"author": "Jake Pinchbeck",
+"ratings": "3",
+"avg": "4",
+"ads": "true",
+"premium": "true",
+"desc": "Search 50,000+ pro League games from Twitch, SOOP, Huya and Douyu. Learn from Faker, Chovy and 300+ creators."
+},
+{
+"seo": "dak.gg",
+"title": "DAK.GG",
+"author": "PlayXP",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Play TFT with the DAK.GG app!"
+},
+{
+"seo": "monra-doubleup_buddy",
+"title": "TFT DoubleUp Buddy",
+"author": "Monra",
+"ratings": "2",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "TFT DoubleUp Buddy:\\\\n• Real-Time Sync: Duo coordination.\\\\n• Shop Visuals: Never miss a unit.\\\\nBuddy Board Widget and Economy :)\\\\nThe ultimate co-op companion for Double Up!"
+},
+{
+"seo": "convex_apps-facecheck",
+"title": "Facecheck",
+"author": "Convex Apps",
+"ratings": "440",
+"avg": "4.6386",
+"ads": "true",
+"premium": "true",
+"desc": "Prepare smarter, play with live insights, and learn from every match. Facecheck helps you with builds, rune"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "lionlight_llc-reactclips",
+"title": "ReactClips",
+"author": "LionLight LLC",
+"ratings": "12",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Find streamers you've encountered and automatically create Twitch Clips of their stream."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "gazoom_entertainment",
+"title": "Gazoom",
+"author": "Gazoom Entertainment",
+"ratings": "49",
+"avg": "3.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A Pro Gaming level Reviewing tool that helps you master your game! "
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed by OWO so that gamers can feel all Overwolf-compatible games."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "kidas-protectme",
+"title": "ProtectMe",
+"author": "Kidas",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "false",
+"desc": "Prot"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "infinite_album",
+"title": "Infinite Album",
+"author": "Infinite Album",
+"ratings": "9",
+"avg": "2.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Game-reactive music that generates in real time, infinitely. Copyright safe on all livestream and social platforms. Monetizable on Twitch. Powered by ethically trained AI music."
+},
+{
+"seo": "mvc_apps-learn.earn.repeat",
+"title": "Learn.Earn.Repeat.",
+"author": "MVC Apps",
+"ratings": null,
+"avg": "3.7692",
+"ads": "false",
+"premium": "false",
+"desc": "Don't miss out on the chance to show off your knowledge and walk away with some amazing prizes."
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "players_republik-apollo",
+"title": "Apollo",
+"author": "Players Republik",
+"ratings": "24",
+"avg": "2.75",
+"ads": "false",
+"premium": "false",
+"desc": "Apollo allows you to customize your in-game audio experience. Become the announcer and upload your own audio, select packs from the community or choose from our extensive library!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf g"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+}
+]
+},
+"valorant": {
+"n_appid": 44,
+"items": [
+{
+"seo": "tracker_network-valorant_tracker",
+"title": "Valorant Tracker",
+"author": "Tracker Network",
+"ratings": "452",
+"avg": "3.9159",
+"ads": "true",
+"premium": "true",
+"desc": "Dominate every match with Valorant Tracker - the official free Valorant overlay and stat tracker by Tracker.gg. Get live match stats, and track your progress in real time!"
+},
+{
+"seo": "mobalytics",
+"title": "Mobalytics Desktop",
+"author": "Mobalytics",
+"ratings": "74",
+"avg": "3.9324",
+"ads": "true",
+"premium": "true",
+"desc": "The all-in-one Mobalytics companion with overlays, builds, profiles and more to conquer the meta of your favorite games"
+},
+{
+"seo": "metabot.gg-metabot.gg_desktop",
+"title": "MetaBot.GG Desktop",
+"author": "MetaBot.GG",
+"ratings": "4",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Your ultimate gaming companion. Live in-game overlays, detailed stats, tier lists, and team comps for TFT, League, Valorant, Deadlock, and Marvel Rivals — all in one app."
+},
+{
+"seo": "opgg-electron-app",
+"title": "OP.GG",
+"author": "OP.GG",
+"ratings": "2",
+"avg": "3",
+"ads": "true",
+"premium": "false",
+"desc": null
+},
+{
+"seo": "valoplant",
+"title": "ValoPlant",
+"author": "Shoast",
+"ratings": "32",
+"avg": "3.5938",
+"ads": "true",
+"premium": "true",
+"desc": "ValoPlant is the tactical whiteboard your team plans on, now with your own matches loaded straight onto it — and an AI coach to break them down."
+},
+{
+"seo": "vstats.gg-vstats.gg",
+"title": "vstats.gg",
+"author": "vstats.gg",
+"ratings": "3",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Your complete Valorant companion: agent \\u0026 weapon stats, team comps, ranks, and tactical spots. Dominate every match."
+},
+{
+"seo": "ben_mesnik-tip_genius_2.0",
+"title": "Tip Genius",
+"author": "Ben Mesnik",
+"ratings": "16",
+"avg": "4.75",
+"ads": "true",
+"premium": "false",
+"desc": "Your personal AI coach that helps you win more"
+},
+{
+"seo": "valohunt-valohunt",
+"title": "ValoHunt",
+"author": "ValoHunt",
+"ratings": "64",
+"avg": "4.4219",
+"ads": "true",
+"premium": "false",
+"desc": "Track your performance, relive your best moments, and challenge your game sense with ValoHunt Guessr — all in one sleek, AI-powered desktop app."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": null,
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "strats.gg-strats_app",
+"title": "Strats.gg Valorant App",
+"author": "Strats.gg",
+"ratings": "20",
+"avg": "4.5",
+"ads": "true",
+"premium": "true",
+"desc": "The new standalone Valorant overlay app. Track your Valorant stats, discover lin"
+},
+{
+"seo": "aim_lab-valorant_statscenter",
+"title": "VALORANT StatsCenter",
+"author": "Aim Lab",
+"ratings": "26",
+"avg": "3.0385",
+"ads": "true",
+"premium": "false",
+"desc": "VALORANT StatsCenter is the best way to analyze, improve, and feel more connected to your VALORANT gameplay."
+},
+{
+"seo": "gabriel_micko-valorant_lineups",
+"title": "Valorant Lineups",
+"author": "Gabriel Mi",
+"ratings": "9",
+"avg": "3.8889",
+"ads": "true",
+"premium": "true",
+"desc": "Learn lineups and win without a fight"
+},
+{
+"seo": "lineupsvalorant-lineupsvalorant_overlay",
+"title": "LineupsValorant Overlay",
+"author": "LineupsValorant",
+"ratings": "6",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "LineupsValorant is a fast and easy way of finding useful VALORANT lineups on the go. "
+},
+{
+"seo": "twitch_overlay",
+"title": "Twitch Overlay",
+"author": "Twitch Overlay",
+"ratings": "2",
+"avg": "4",
+"ads": "true",
+"premium": "false",
+"desc": "Watch Twitch streams in your game or as an overlay on your desktop!"
+},
+{
+"seo": "gankster_ltd.-gankster",
+"title": "Gankster Valorant LFG",
+"author": "Gankster Ltd.",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Join millions of gamers and find players you vibe with in the most active Valorant LFG network."
+},
+{
+"seo": "valorank.app-valorank",
+"title": "Valorank",
+"author": "Valorank.app",
+"ratings": "9",
+"avg": "4.3333",
+"ads": "true",
+"premium": "true",
+"desc": "Valorant live match stats \\u0026 insights."
+},
+{
+"seo": "youtube_overlay-youtube_overlay",
+"title": "YouTube Overlay",
+"author": "YouTube Overlay",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Watch YouTube videos in your game or as an overlay on your desktop!"
+},
+{
+"seo": "prodrops_ltd.-prodrops",
+"title": "ProDrops",
+"author": "ProDrops Ltd.",
+"ratings": "13",
+"avg": "4.9231",
+"ads": "false",
+"premium": "false",
+"desc": "Collect trading cards from your favorite games - by playing them!"
+},
+{
+"seo": "headliner_valorant_headliner",
+"title": "Valorant HeadLiner",
+"author": "HeadLiner",
+"ratings": "4",
+"avg": "4.25",
+"ads": "true",
+"premium": "false",
+"desc": "Practice your crosshair placement with over 100 in-game angles and get more headshots in Valorant with HeadLiner! "
+},
+{
+"seo": "lionlight_llc-reactclips",
+"title": "ReactClips",
+"author": "LionLight LLC",
+"ratings": "12",
+"avg": "4.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Find streamers you've encountered and automatically create Twitch Clips of their stream."
+},
+{
+"seo": "jikouken-killer_vibe",
+"title": "Killer Vibe",
+"author": "Jikouken",
+"ratings": "6",
+"avg": "4.1667",
+"ads": "true",
+"premium": "false",
+"desc": "Automatic in-game soundboard for Valorant, LoL, CS2, Fortnite, Rocket League, Overwatch 2, and Marvel Rivals."
+},
+{
+"seo": "klikr-klikr",
+"title": "Klikr",
+"author": "Klikr",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Test, train, and improve your clicking speed — in-game and out"
+},
+{
+"seo": "michael_st._onge-road_to_radiant",
+"title": "Road to Radiant",
+"author": "Michael St. Onge",
+"ratings": "3",
+"avg": "2.3333",
+"ads": "true",
+"premium": "false",
+"desc": "Keep track and sort through all your stats to get insights into your game with our Valorant app, Road to Radiant!"
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": null,
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "lililomgo-valorant_rr_hider",
+"title": "Valorant RR hider",
+"author": "lililomgo",
+"ratings": "6",
+"avg": "4.3333",
+"ads": "false",
+"premium": "false",
+"desc": "A simple app that hides your Rank Rating (RR) evolution after a competitive game"
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "acer_inc.-planet9_proclip",
+"title": "Acer ProCam",
+"author": "Acer Inc.",
+"ratings": "1",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": " Acer ProCam is designed not just for Acer PC gamers, but for anyone who wants to capture their best gaming highlights automatically."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games, achievements, stats, and graphs - now in one place."
+},
+{
+"seo": "arrive_gaming_inc-arrive",
+"title": "Arrive",
+"author": "Arrive Gaming Inc.",
+"ratings": "19",
+"avg": "3.7895",
+"ads": "true",
+"premium": "false",
+"desc": "Optimize your network connection to League of Legends, Valorant, and CS2 in North America \\u0026 Europe to improve latency and stability. "
+},
+{
+"seo": "sydev_labs-syscubes",
+"title": "SysCubes",
+"author": "Sydev Labs",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "PC stats, audio controls, clips, notes and timers in a widget layout you choose. Use it on your desktop, in supported games or with your phone."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": ""
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "yuki_komine-auto_mute_music",
+"title": "Auto Mute Music",
+"author": "isMine",
+"ratings": "17",
+"avg": "4.5294",
+"ads": null,
+"premium": "false",
+"desc": "Play Your Favorite Music. Never Miss a Footstep🎧🔥"
+},
+{
+"seo": "junction_technology-next_level_labs",
+"title": "Next Level Labs",
+"author": "Junction Technology",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "Track, benchmark, and get personalized AI insights for your favorite games. Track both in-game and system performance with AI insights based on your data."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "network_n-pc_games_news",
+"title": "PC Games News",
+"author": "Network N",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "All the latest PC gaming news for the biggest games"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+}
+]
+},
+"warzone": {
+"n_appid": 9,
+"items": [
+{
+"seo": "azerpug-cod_completionist",
+"title": "CoD Completionist",
+"author": "AzerPUG",
+"ratings": "7",
+"avg": "3.4286",
+"ads": "true",
+"premium": "false",
+"desc": "An easier-than-in-game tracker for Call of Duty Modern Warfare 2 and 3 as well as Black Ops 6 skins, camos and challenges."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achieve ultimate gameplay \\u0026 boost FPS by rescuing your PC from bloated software."
+},
+{
+"seo": "liifer_technologies_inc-liifer_application",
+"title": "Liifer - Food Order",
+"author": "Liifer Technologies Inc",
+"ratings": "27",
+"avg": "4.037",
+"ads": "false",
+"premium": "false",
+"desc": "Order REAL GOODS from tons of merchants nearby without leaving your game through both our in-game and desktop apps! available in the USA. (Currently not working)"
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "peeps",
+"title": "Peeps",
+"author": "Mena Titans",
+"ratings": "20",
+"avg": "4.25",
+"ads": "true",
+"premium": "true",
+"desc": "Free game clipping app for PC. Auto-record 1080p highlights in Valorant, LoL, CS2, Fortnite \\u0026 50+ games. Saves storage. Edit \\u0026 share to TikTok, YouTube \\u0026 Discord."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "w4rgo-game_maps_escape_from_tarkov",
+"title": "Game Maps",
+"author": "W4rGo",
+"ratings": "24",
+"avg": "3.7917",
+"ads": "true",
+"premium": "false",
+"desc": "** Supporting Tarkov and More! **\\\\nInteractive maps for games like Escape From Tarkov,Marathon,Arknights Enfield,Arc Raiders, Hollow Knight,GTA V, Palworld, Diablo 4,CS 2"
+},
+{
+"seo": "heavy-streaminterakt",
+"title": "StreamInterakt",
+"author": "Heavy",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": null
+}
+]
+},
+"world-of-warcraft": {
+"n_appid": 27,
+"items": [
+{
+"seo": "rpglogs_llc-warcraft_logs_companion",
+"title": "Warcraft Logs Companion",
+"author": "RPGLogs LLC",
+"ratings": "10",
+"avg": "4.1",
+"ads": "true",
+"premium": "false",
+"desc": "\\\\nUpload your combat log. Analyze your raid. Improve your play."
+},
+{
+"seo": "maxx-maxxmmo",
+"title": "MaxxMMO",
+"author": "Maxx",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Your #1 World of Warcraft companion! Character tracking, Mythic+ details, Raid Progress, Auction House Alerts and more. Fully supporting WoW Midnight, WoW Classic TBC \\u0026 WoW Forever"
+},
+{
+"seo": "xaiin-wow_interactive_map",
+"title": "WoW Interactive Map",
+"author": "Xaiin",
+"ratings": "10",
+"avg": "3.5",
+"ads": "true",
+"premium": "false",
+"desc": "Explore Azeroth with our searchable interactive WoW map. Live Tracking, TUGS level guides, npcs, objects, items, POIs, fishing spots, talents, plus more. Supports all versions."
+},
+{
+"seo": "wowup_llc-wowupcf",
+"title": "WowUpCf",
+"author": "WowUp LLC",
+"ratings": "0",
+"avg": "0",
+"ads": "true",
+"premium": "false",
+"desc": "A community-powered World of Warcraft addon manager that makes discovering, installing, and updating addons simple and streamlined."
+},
+{
+"seo": "rastudio-wow_forever_map",
+"title": "WoW Forever Map",
+"author": "rastudio",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "Explore Azeroth with a clearer sense of where to go next. Use the interactive map to plan your journey and find the guidance you need along the way."
+},
+{
+"seo": "metaforge",
+"title": "MetaForge",
+"author": "MetaForge",
+"ratings": "9",
+"avg": "3.8889",
+"ads": "true",
+"premium": "true",
+"desc": "The MetaForge companion app with interactive maps, databses, tools, guides and more to forge your way to glory."
+},
+{
+"seo": "overwolf-curseforge",
+"title": "CurseForge",
+"author": "Overwolf",
+"ratings": "384",
+"avg": "4.1927",
+"ads": "true",
+"premium": "true",
+"desc": "Explore, download and manage your favourite addons and mods from CurseForge’s massive index of user-created projects."
+},
+{
+"seo": "wowtbc.gg",
+"title": "WOWTBC",
+"author": "WOWTBC.GG",
+"ratings": "3",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Take your World of Warcraft Classic experience to the next level. Now featuring Forever!"
+},
+{
+"seo": "azerpug-wow_info",
+"title": "WoW Info",
+"author": "AzerPUG",
+"ratings": "7",
+"avg": "4.4286",
+"ads": "true",
+"premium": "true",
+"desc": "A World of Warcraft app containing information as well as a group composition builder tool."
+},
+{
+"seo": "fonsas-next_action_guide",
+"title": "Next Action Guide",
+"author": "fonsas",
+"ratings": "0",
+"avg": "0",
+"ads": "false",
+"premium": "true",
+"desc": "Know your next action. Keep NAG updated. Sim your build without leaving the game."
+},
+{
+"seo": "buff.game-buff_achievement_tracker",
+"title": "BUFF",
+"author": "buff.game",
+"ratings": "8771",
+"avg": "4.586",
+"ads": "true",
+"premium": "true",
+"desc": "Play your favorite games,  Earn Buffs, and Redeem them on IRL items: Riot Points, Steam Credit, gaming gear, and more!"
+},
+{
+"seo": "insights_gaming-insights_capture",
+"title": "Insights Capture",
+"author": "Insights Gaming",
+"ratings": "1048",
+"avg": "4.374",
+"ads": "true",
+"premium": "true",
+"desc": "Insights Capture is a high performance game capturing tool that makes it super easy to review your own gameplay after every match."
+},
+{
+"seo": "overwolf-outplayed",
+"title": "Outplayed",
+"author": "Overwolf",
+"ratings": "2497",
+"avg": "4.5811",
+"ads": "true",
+"premium": "true",
+"desc": "Outplayed is the ultimate video capturing app for gamers. Automatically record your best moments and share it with your friends!"
+},
+{
+"seo": "mao-tou_projects_ltd-control",
+"title": "Control",
+"author": "Mao-Tou Projects Ltd",
+"ratings": "23",
+"avg": "3.9565",
+"ads": "true",
+"premium": "false",
+"desc": "Designed to let you control stuff while in-game."
+},
+{
+"seo": "auraside_inc-hone",
+"title": "Hone",
+"author": "AuraSide Inc",
+"ratings": "5",
+"avg": "5",
+"ads": "true",
+"premium": "true",
+"desc": "Unlock your PCs true potential, Hone provides you the tools to achie"
+},
+{
+"seo": "overwolf-replay-hud",
+"title": "Replay HUD",
+"author": "Overwolf",
+"ratings": "596",
+"avg": "3.7919",
+"ads": "false",
+"premium": "false",
+"desc": "Relive the game to master your performance. Review your plays together with your keyboard strokes and mouse moves. It's the ultimate gaming replay app."
+},
+{
+"seo": "yeelight-yeelight_station_connector",
+"title": "Yeelight Station Connector",
+"author": "Yeelight",
+"ratings": "5",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": "Amazing Yeelight lighting effects to cheerlead for your game events."
+},
+{
+"seo": "operon_design-playtracker",
+"title": "PlayTracker",
+"author": "Operon Design",
+"ratings": "5",
+"avg": "4.8",
+"ads": "true",
+"premium": "false",
+"desc": "PlayTracker connects to the most popular gaming platforms out there and unites gamer data. All games,"
+},
+{
+"seo": "sydev_labs-syscubes",
+"title": "SysCubes",
+"author": "Sydev Labs",
+"ratings": "1",
+"avg": "5",
+"ads": "true",
+"premium": "false",
+"desc": "PC stats, audio controls, clips, notes and timers in a widget layout you choose. Use it on your desktop, in supported games or with your phone."
+},
+{
+"seo": "network_n_media-pc_game_benchmark_-_fps_monitor",
+"title": "PC Game Benchmark - FPS Monitor",
+"author": "Network N Media",
+"ratings": "7",
+"avg": "3.2857",
+"ads": "true",
+"premium": "false",
+"desc": "Can your PC handle the games that everyone's talking about?"
+},
+{
+"seo": "owo-owo_connect",
+"title": "OWO Connect",
+"author": "OWO",
+"ratings": "2",
+"avg": "3",
+"ads": "false",
+"premium": "false",
+"desc": " OWO Connect is an App developed "
+},
+{
+"seo": "garmin-garmin_gameon",
+"title": "Garmin GameOn",
+"author": "Garmin",
+"ratings": "18",
+"avg": "2.3889",
+"ads": "false",
+"premium": "false",
+"desc": "Elevate Your Game. Leverage Garmin watch metrics to find your optimal stress level for winning. Use our guidance combining watch and match data to play more conscious and win more."
+},
+{
+"seo": "pulsoid-pulsoid",
+"title": "Pulsoid",
+"author": "pulsoid",
+"ratings": "3",
+"avg": "4",
+"ads": "false",
+"premium": "false",
+"desc": "Pulsoid is a free and easy way to have your heart rate displayed in games."
+},
+{
+"seo": "similiukas-musme",
+"title": "Musme",
+"author": "Similiukas",
+"ratings": "12",
+"avg": "2.75",
+"ads": "true",
+"premium": "false",
+"desc": "Overlay for all supported Overwolf games to see and control your Spotify music in game!"
+},
+{
+"seo": "mike_holloway-shots_fired",
+"title": "Shots Fired",
+"author": "Mike Holloway",
+"ratings": "12",
+"avg": "4.25",
+"ads": "false",
+"premium": "true",
+"desc": "Control scene switching and source visibility in OBS from Overwolf game events, or send them to a webhook for further processing \\u0026 analysis"
+},
+{
+"seo": "hive365",
+"title": "Hive365",
+"author": "Hive365",
+"ratings": "2",
+"avg": "5",
+"ads": "false",
+"premium": "false",
+"desc": "Listen to the Hive365 Radio Station in any game supported by overwolf! Submit requests, shoutouts, and vote on your favorite songs and presenters!"
+}
+]
+}
+}
