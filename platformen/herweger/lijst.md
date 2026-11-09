@@ -11,3 +11,4 @@ Kandidaten (start 9 nov): Steam bureaublad-apps (7), Foundry VTT (6), BOOTH (6),
 | Reddit Devvit | 6 | klaar 9 nov 15:05 UTC: 10 van 1.000 nieuwe apps (mei t/m okt) halen 50 installs, de eerste $500 van het fonds; sinds aug geen; zie `reddit-devvit.md` | 5 (valt af) |
 | BOOTH (Unity- en VRChat-tools) | 6 | klaar 9 nov 15:45 UTC, zelf nagekeken (fig. 4 en twee items): tools zetten 34% van de likes om (mediaan, 11 items), dus likes zijn kopers; geen 8 omdat VRChat-gimmicks niet in de cloud te testen zijn en bedragen klein; zie `booth.md`; opnieuw tellen rond 9 dec | **7 (krap)** |
 | Foundry VTT | 6 | klaar 9 nov 15:45 UTC zonder nieuwe meting: Thijs koos route (c), buiten de officiële lijst, en Vera mat die al op 3 (onderzocht.md, 7 nov 15:32) | 3 (valt af) |
+| Garmin Connect IQ, betaalde apps en datavelden | 5 | in onderzoek 9 nov 16:30 UTC (Kees): is een download van een betaalde app een verkoop? | |
