@@ -1,7 +1,7 @@
 # Daan: karakter-laag voor Het Hol (wensen van Sanne 9 nov 19:05 en de keuring van Olafs build).
 # Littekens als losse laag, hoeden met een hap, tunieken in kleuren, tekens boven het hoofd,
 # slijm met leven-animaties en een plat frame, laars, paneel en naamkaartje (9-slice), trofeebord.
-# Draait na maak_kunst.py (gebruikt hetzelfde palet). Uitvoer in producten/steam-hol/godot/kunst/.
+# Draai alleen dit script: het draait maak_kunst.py (basis) en maak_aarde.py (aarde) mee. Uitvoer in producten/steam-hol/godot/kunst/.
 import json, os, sys
 from PIL import Image
 
@@ -216,4 +216,5 @@ if __name__ == "__main__":
     meta["trofee.png"] = {"frame": [16, 16], "gebruik": "wand van aartsvijanden in de schatkamer: bord tegen de wand, de hoed van de held 4 spelpixels hoger erop, naamkaartje eronder"}
     json.dump(meta, open(pad, "w"), indent=1, ensure_ascii=False)
     voorbeeld(lijven, hoeden, wapens, littekens, hap_hoeden, kleuren, tekens, slijm, laars, paneel, kaart, trofee)
+    import maak_aarde; maak_aarde.main()
     print("klaar")

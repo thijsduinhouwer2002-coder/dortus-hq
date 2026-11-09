@@ -25,3 +25,9 @@ Gemaakt door `ontwerp/steam/kunst-bron/maak_karakter.py` (draait na maak_kunst.p
 - `laars.png`: de laars die Gloop uitspuugt, ligt daarna even op de vloer.
 - `paneel.png` (9-slice, rand 4): houten bordje met gouden spijkers voor de melding rechts in de strook, in plaats van het zwarte vlak. `naamkaartje.png` (9-slice, rand 3): goud, voor aartsvijanden. `trofee.png`: bord voor de wand van aartsvijanden, hoed erop.
 Voorbeeld: `ontwerp/steam/kunst-bron/voorbeeld-karakter.png`, paneel voor en na op de echte build: `paneel-voor-na.png`.
+
+## Aarde met lagen (Daan, 9 nov, run 58)
+Gemaakt door `ontwerp/steam/kunst-bron/maak_aarde.py` (draai `maak_karakter.py`, die draait alles; `maak_kunst.py` alleen schrijft kunst.json opnieuw zonder de nieuwe bladen).
+- `aarde_lagen.png`: 3 rijen (bovenste rij met graswortels, tweede rij, dieper) van 8 varianten. Vervangt rij 0 van `tegels.png`: kies de rij op diepte. Elke laag iets donkerder, met een golvende laaglijn die naadloos doorloopt en een gedithterde overgang.
+- `vondsten.png`: helm, zwaard, botten, fossiel, pot. Over ongeveer 1 op 10 aardecellen, weg als je graaft.
+Voorbeeld: `ontwerp/steam/kunst-bron/voorbeeld-aarde.png` (ware grootte, 3 rijen = strook van 160 px).

@@ -266,5 +266,32 @@
    16
   ],
   "gebruik": "wand van aartsvijanden in de schatkamer: bord tegen de wand, de hoed van de held 4 spelpixels hoger erop, naamkaartje eronder"
+ },
+ "aarde_lagen.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "rijen": [
+   "rij 0: bovenste rij cellen (wortels)",
+   "rij 1: tweede rij",
+   "rij 2: alles dieper (bij een hogere strook)"
+  ],
+  "varianten": 8,
+  "gebruik": "vervangt rij 0 van tegels.png: kies de rij op diepte en de variant willekeurig (vast zaad). De laaglijn loopt naadloos over de celgrens."
+ },
+ "vondsten.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "helm",
+   "zwaard",
+   "botten",
+   "fossiel",
+   "pot"
+  ],
+  "gebruik": "over een aardecel tekenen, ongeveer 1 op 10 (niet vaker, anders wordt het rommelig), vast zaad; verdwijnt als de cel gegraven wordt. Later kan graven een vondst opleveren (Sanne beslist)."
  }
 }
