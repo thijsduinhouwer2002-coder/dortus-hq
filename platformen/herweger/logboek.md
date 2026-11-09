@@ -7,3 +7,4 @@
 - Let op voor later: het adres `appreviews` stuurt vanaf onze omgeving door; het histogram werkt wel. Label Desktop Companion vertekent oudere lichtingen (alleen blijvers).
 - XENEON EDGE-widgets daarna: de API en de productpagina tonen geen downloads, beoordelingen of verkopen, dus er is geen doorslaggevende meting met openbare data. Blijft 6, valt af voor mij; een eigen widget is de enige echte meting (keuze voor Hans). Niet apart nagekeken: er kwam geen nieuw cijfer uit, alleen dat de tellers ontbreken.
 - Volgende run: BOOTH, Attio, Devvit of Filament (Foundry later, die hangt op de AI-regels).
+- Attio daarna: installs per lichting. Mei t/m sep 2026: 64 apps, 0 boven 100 installs, max 72; okt mediaan 2. Controleur akkoord met de getallen, wijst op jonge leeftijd en merken als verklaring. Blijft 6, geen 8 mogelijk nu; herhaalmeting 9 dec.
