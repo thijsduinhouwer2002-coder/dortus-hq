@@ -158,5 +158,19 @@ func _init() -> void:
 			te_lang2 += 1
 	ok(te_lang2 == 0, "nieuwe regels hooguit 42 tekens (%d te lang)" % te_lang2)
 
+	# hoeden terwijl je weg was (Mila: de toren groeit vanzelf terwijl je weg bent)
+	var hw: Dictionary = V.reken(t0, t0 + 3 * 3600, 1, 1, 42)
+	ok(int(hw.opgegeten) > 0 and int(hw.opgegeten) < int(hw.gevallen), "weg 3 uur: een deel van de gevallen helden gaf Gloop een hoed (%d van %d)" % [int(hw.opgegeten), int(hw.gevallen)])
+	ok(int(V.reken(t0, t0 + 3 * 3600, 2, 0, 42).opgegeten) == 0, "zonder bewoners geen hoeden")
+	ok(hw.goud == V.reken(t0, t0 + 3 * 3600, 1, 1, 42).goud and hw.opgegeten == V.reken(t0, t0 + 3 * 3600, 1, 1, 42).opgegeten, "hoeden en goud: zelfde save, zelfde uitkomst")
+	var hv: Array = V.verhaal(hw, {}, ["Gloop the Slime", "the Spike Pit"], 42)
+	ok(hv.size() >= 1 and hv.size() <= 3 and hv[0].begins_with("Gloop got ") and hv[-1].contains(" hats."), "verhaal noemt de hoeden: " + str(hv))
+	var sl1 = load("res://systemen/slijm.gd").new()
+	var sl2 = load("res://systemen/slijm.gd").new()
+	var per: Array = V.geef_hoeden([sl1, sl2], 7, 42)
+	ok(per == [4, 3] and sl1.hoeden.size() == 4 and sl2.hoeden.size() == 3 and sl1.hap_van < 0.0, "hoeden verdeeld over twee slijmen, zonder hap (%s)" % str(per))
+	sl1.free()
+	sl2.free()
+
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
