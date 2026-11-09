@@ -7,7 +7,7 @@ import * as fs from "fs";
 const SHOTS = "screenshots";
 const MET = "Wereld css met worp.md";
 const ZONDER = "Wereld css zonder worp.md";
-const TEKST_MET = "# Taverne\n\nDe waard kijkt op. Aanval `dice: 1d20+5`, schade `dice: 2d6`.\n\n> [!note] Hint\n> Een **vet** woord en een [[link]].\n\n- een lijst\n- met #tag\n";
+const TEKST_MET = "# Taverne\n\nDe waard kijkt op. Aanval `dice: 1d20+5`, schade `dice: 2d6`.\n\n> [!note] Hint\n> Een **vet** woord en een [[link]].\n\n- een lijst\n- met #tag\n\nKleur uit de tabel: `dice: [[Tabellen^kleuren]]`.\n";
 const TEKST_ZONDER = "# Gewoon\n\nGeen worp hier, alleen `code`.\n";
 
 /** Achtergrond en letter van het notitievlak per open notitie in het midden, plus zijbalk en tabbalk. */
@@ -182,4 +182,63 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 		}
 		await browser.executeObsidian(({ app }) => app.setting.close());
 	});
+	// Daan (9 nov 10:55): tabeluitkomsten in beeld, in Parchment en Arcane, en Arcane met de wereld uit in een licht thema.
+	// Gemeten: de letterkleur van de uitkomst tegen zijn eigen vlak (over het vlak van de notitie gelegd), minstens 3 op 1.
+	const TABEL_STANDEN = [
+		{ naam: "parchment-licht", skin: "parchment", donker: false, wereld: "rolls", isWereld: true },
+		{ naam: "parchment-donker", skin: "parchment", donker: true, wereld: "rolls", isWereld: true },
+		{ naam: "arcane-licht", skin: "arcane", donker: false, wereld: "rolls", isWereld: true },
+		{ naam: "arcane-donker", skin: "arcane", donker: true, wereld: "rolls", isWereld: true },
+		{ naam: "arcane-wereld-uit-licht", skin: "arcane", donker: false, wereld: "off", isWereld: false },
+		{ naam: "parchment-wereld-uit-donker", skin: "parchment", donker: true, wereld: "off", isWereld: false },
+	];
+	for (const stand of TABEL_STANDEN) {
+		it(`tabeluitkomst ${stand.naam}: een kleur uit de tabel, leesbaar op zijn vlak`, async function () {
+			await zet({ skin: stand.skin, licenseKey: "E2E-SLEUTEL", licenseCheckedAt: Date.now(), noteWorld: stand.wereld }, stand.donker);
+			await modus("lezen");
+			const uit = await browser.executeObsidian(({ app }, MET) => {
+				const kleur = (txt) => {
+					const m = txt.match(/rgba?\(([^)]+)\)/);
+					if (!m) return null;
+					const d = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+					return { r: d[0], g: d[1], b: d[2], a: d.length > 3 ? d[3] : 1 };
+				};
+				let leaf = null;
+				app.workspace.iterateAllLeaves((l) => { if (l.view.getViewType() === "markdown" && l.view.file?.path === MET && l.getRoot() === app.workspace.rootSplit) leaf = l; });
+				const el = leaf?.view.containerEl.querySelector(".markdown-reading-view .rollwright-roll.rollwright-text");
+				if (!el) return null;
+				el.scrollIntoView({ block: "center" });
+				const win = el.ownerDocument.defaultView;
+				const s = win.getComputedStyle(el);
+				// Het eerste niet-doorzichtige vlak onder de uitkomst.
+				let onder = null;
+				for (let p = el.parentElement; p && !onder; p = p.parentElement) {
+					const c = kleur(win.getComputedStyle(p).backgroundColor);
+					if (c && c.a > 0.5) onder = c;
+				}
+				onder ??= document.body.classList.contains("theme-dark") ? { r: 30, g: 30, b: 30, a: 1 } : { r: 255, g: 255, b: 255, a: 1 };
+				const eigen = kleur(s.backgroundColor) ?? { r: 0, g: 0, b: 0, a: 0 };
+				const vlak = ["r", "g", "b"].reduce((o, k) => ({ ...o, [k]: eigen[k] * eigen.a + onder[k] * (1 - eigen.a) }), {});
+				const lum = (c) => {
+					const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+					return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b);
+				};
+				const letter = kleur(s.color);
+				const [a, b] = [lum(letter), lum(vlak)].sort((x, y) => y - x);
+				return {
+					tekst: el.querySelector(".rollwright-value")?.textContent ?? el.textContent,
+					wereld: leaf.view.containerEl.classList.contains("rollwright-world"),
+					kleur: s.color, vlak: s.backgroundColor, beeld: s.backgroundImage === "none" ? "none" : "beeld", rand: s.borderColor,
+					contrast: Math.round(((a + 0.05) / (b + 0.05)) * 100) / 100,
+				};
+			}, MET);
+			console.log(`WERELD-CSS tabel ${stand.naam}:`, JSON.stringify(uit));
+			await browser.saveScreenshot(`${SHOTS}/tabel-${stand.naam}.png`);
+			expect(uit).not.toBe(null);
+			expect(["Rood", "Blauw", "Groen"].some((k) => uit.tekst.includes(k))).toBe(true);
+			expect(uit.wereld).toBe(stand.isWereld);
+			// Een vlak met een verloop of textuur kan niet als één kleur gemeten worden; daar beslist het plaatje.
+			if (uit.beeld === "none") expect(uit.contrast).toBeGreaterThanOrEqual(3);
+		});
+	}
 });
