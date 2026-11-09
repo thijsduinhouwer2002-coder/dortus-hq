@@ -108,26 +108,23 @@ describe("Rollwright: de skin kleurt de hele notitie, mechaniek (bouwplan notiti
 	});
 
 	it("eis 3: een andere notitie in hetzelfde tabblad neemt de klasse niet mee", async function () {
-		// Onderzoek (9 nov, rode run 42618407938): welke events komen er bij openFile in een niet-actief blad, en wat toont het blad dan?
-		const events = await browser.executeObsidian(async ({ app }, MET, ZONDER) => {
+		await browser.executeObsidian(async ({ app }, MET, ZONDER) => {
 			let blad = null;
 			app.workspace.iterateAllLeaves((leaf) => {
 				if (leaf.view.file?.path === MET) blad = leaf;
 			});
-			const t0 = performance.now();
-			const log = [];
-			const noteer = (naam) => () => log.push({ naam, ms: Math.round(performance.now() - t0), bestand: blad.view.file?.path ?? null, actief: app.workspace.getMostRecentLeaf?.() === blad, klasse: blad.view.containerEl.classList.contains("rollwright-world") });
-			const refs = ["layout-change", "active-leaf-change", "file-open"].map((naam) => app.workspace.on(naam, noteer(naam)));
 			await blad.openFile(app.vault.getAbstractFileByPath(ZONDER));
-			noteer("openFile klaar")();
-			await new Promise((r) => setTimeout(r, 1500));
-			noteer("na 1,5 s")();
-			for (const ref of refs) app.workspace.offref(ref);
-			return log;
 		}, MET, ZONDER);
-		console.log("NOTITIESFEER eis 3 events:", JSON.stringify(events));
 		await browser.waitUntil(async () => (await stand()).every((s) => s.pad !== MET), { timeout: 4000 });
-		const na = await wachtOp({ [ZONDER]: false }, "eis 3 ander bestand");
+		// Er staan nu twee bladen met ZONDER; wachtOp is al tevreden met het blad rechts. Het hergebruikte blad
+		// verliest de klasse pas na layout-change en de nieuwe beslissing (±20 ms na openFile, gemeten op tak
+		// claude/obsidian-2026-11-09-events), dus wachten tot geen enkel blad de klasse nog heeft (rode run 42618407938).
+		await wachtOp({ [ZONDER]: false }, "eis 3 ander bestand");
+		let na = [];
+		await browser.waitUntil(async () => {
+			na = await stand();
+			return !na.some((s) => s.wereld);
+		}, { timeout: 4000, timeoutMsg: `eis 3 ander bestand, klasse blijft: ${JSON.stringify(na)}` });
 		expect(na.some((s) => s.wereld)).toBe(false);
 		await browser.executeObsidian(async ({ app }, MET, ZONDER) => {
 			let blad = null;
