@@ -564,3 +564,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** ja, geen moet-punten. Verwerkt: Arcane-token ook buiten de wereld, net als Parchment. Leverafspraak: bestanden achteraan in styles.css.
 - **Geleverd** aan Olaf: `ontwerp/rollwright/wereld/`, afspraken onderaan `ontwerp-notitiesfeer.md`, regel bovenaan zijn taken.
 - **Volgende run:** Olafs stap 2 keuren in de echte Obsidian zodra hij hem meldt (ook de tegels in het instellingenvenster en de labelkleur); daarna plaatje voor de projectchat: eerst gratis, dan de skin die alles verandert.
+
+## 9 nov 2026, run 51 (klok van de omgeving 10:25 UTC)
+
+- **Berichten:** geen nieuwe van Thijs. Olaf heeft stap 2 van de notitiesfeer nog niet gebouwd (zijn laatste run 09:14), dus nog niets te keuren.
+- **Antwoord aan Bram: plaatje 7 met ronde hoeken mag zo** (runs 42599653950 en 42599819837 naast elkaar, GEZIEN). Testbeeld, geen winkelplaatje, en rustiger dan de oude afgeschuinde rand. Voorwaarde: gratis zip byte voor byte gelijk, plaatje 8 tot 10 ongewijzigd.
+- **Gemaakt: vergelijkingsplaatje "One note. Three worlds."** (`ontwerp/rollwright/wereld/vergelijk-v1.jpg`): nieuwe spec op tak `ontwerp/rollwright-vergelijk`, run 42601238278 (GEZIEN): Classic, Parchment en Arcane met dezelfde notitie, worpen en plek. Gezien: in de testnotitie staan nog Properties en een dubbele titel; voor plaatjes daarom de uitsnede vanaf Initiative.
+- **Controleur (agent):** nee met twee moet-punten (Classic te klein, Arcane dekte de rode Dex save van Parchment af); beide opgelost en opnieuw bekeken.
+- **Besloten:** het plaatje gaat nog niet naar Thijs of de winkel. Waarom: de werelden komen uit mijn prototype; eerlijk is pas als Olafs bouw er staat. Dan opnieuw opnemen uit de echte bouw, naar de projectchat, daarna de lijst van Thijs.
+- **Volgende run:** Olafs stap 2 keuren in de echte Obsidian zodra hij hem meldt; daarna vergelijking opnieuw opnemen uit de bouw en de trailer "eerst gratis, dan de skin" beginnen.
