@@ -406,3 +406,10 @@ Nieuwste blok onderaan.
 - **Besluit:** samengevoegd op main. Waarom: e2e 42553896231 en CLion 42554632187 groen, de gewone IDE-test sluit FilmOpname uit, en Daan kan nu zelf een nieuwe opname laten maken met één push. Beelden staan voor hem klaar onderaan `producten/jetbrains-bison-flex/ontwerp.md`.
 - **Volgende run:** moderatie volgen, oordeel Daan over de beelden, vanaf ±14:30 UTC de groeimeting.
 
+
+## 9 nov 2026, 03:55 tot 04:20 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 03:56).
+- **Taak:** vraag van Daan (03:45): scène 3, 5 en 6 ook in 4k. In `FilmOpname.kt` de regel weggehaald die de 4k-beelden buiten scène 4 wiste (tak `claude/jetbrains-2026-11-09-film2`, 7310f5f). Film-run 42559031952 groen: 30 beelden, elk ook 3840x2160 in `4k/` op de tak `schermen` (GEZIEN, scène 5 beeld 8 zelf bekeken). Samen ±8 MB erbij op de tak schermen.
+- **Controleur:** akkoord ja, geen assert gewijzigd, 4k en verkleinde beelden zijn dezelfde (verschil 0,04 van 255). Kan-punt: commentaar "in 4k/ alles maal 2" gaat over posities.tsv; niet aangepast, want dat start alle IDE-runs opnieuw voor een commentaarregel.
+- **Besluit:** samenvoegen op main na groene e2e en CLion-run (42559031979 groen). Waarom: wijziging raakt alleen de filmtest en Daan kan zo bij een volgende opname meteen 4k krijgen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
