@@ -156,7 +156,8 @@
    "schram",
    "verband"
   ],
-  "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam)"
+  "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam). Combinaties: ooglap en schram nooit samen (zelfde oog); de rest mag. Vervangt de rode streepjes en het verband-streepje in held.gd: die eruit.",
+  "kleur": "de oude tint-kleuren voor helden en hoeden in strook.gd en held.gd eruit, anders dubbel gekleurd"
  },
  "held_hoeden_hap.png": {
   "frame": [
@@ -181,7 +182,7 @@
    "groen",
    "paars",
    "oker",
-   "blauwgrijs"
+   "zeegroen"
   ],
   "gebruik": "zelfde frames als held_lijf.png (4 per rij); kies de rij vast per held, zodat Kees altijd dezelfde tuniek heeft en je hem herkent"
  },
@@ -197,7 +198,7 @@
    "zzz",
    "ster"
   ],
-  "plek": "midden boven het hoofd, 2 spelpixels boven de hoed; boos = wrok en ziet zijn vijand, uitroep = ziet de schat, zweet = vlucht, zzz = slijm slaapt, ster = aartsvijand (blijft staan)"
+  "plek": "midden boven het hoofd, onderkant van het teken op y = -20 ten opzichte van de voeten (anker midden onder), voor elke hoed gelijk; boos = wrok en ziet zijn vijand, uitroep = ziet de schat, zweet = vlucht, zzz = slijm slaapt, ster = aartsvijand (blijft staan)"
  },
  "slijm_leven.png": {
   "frame": [
@@ -218,16 +219,19 @@
    "hap": [
     6,
     7,
-    8
+    8,
+    9,
+    10
    ],
    "plat": [
-    9
+    11
    ],
    "opstaan": [
-    10
+    12
    ]
   },
   "fps": 5,
+  "bron": "alle leven-animaties en de hap komen uit dit blad; slijm.png alleen voor rust (frames 0 tot 3)",
   "gebruik": "slapen: herhalen met zzz uit tekens.png erboven; spugen en hap: eenmalig, daarna terug naar rust van slijm.png; plat: in plaats van uitrekken (nooit schalen, dat breekt de pixels), opstaan: 1 frame voor hij weer rust",
   "zuinig": "een leven-animatie hooguit eens per 20 tot 40 s, alleen als er geen held is"
  },
@@ -236,7 +240,7 @@
    8,
    8
   ],
-  "gebruik": "ligt na 'spugen' een tijdje naast de slijm op de vloer (buit van een held die vluchtte)"
+  "gebruik": "na het spugen-frame 3 vliegt hij in een boogje 10 tot 14 spelpixels opzij (0,3 s, hele pixels), daarna ligt hij een tijdje naast de slijm op de vloer (buit van een held die vluchtte)"
  },
  "paneel.png": {
   "9slice": 4,
@@ -244,7 +248,7 @@
    12,
    12
   ],
-  "tekst": "kleur #ffe07a voor de kop, #f3e2c0 voor de regel, 1 spelpixel ruimte binnen de rand",
+  "tekst": "kleur #ffe07a voor de kop, #f3e2c0 voor de regel; tekst begint 5 spelpixels (15 px) binnen de buitenkant, dus 1 spelpixel binnen de 9-slice-rand van 4; lettertype zoals nu in tekst.gd",
   "gebruik": "NinePatchRect (patch_margin 4 aan alle kanten, texture_filter nearest, schaal gelijk aan de strook) in plaats van het zwarte vlak"
  },
  "naamkaartje.png": {
@@ -253,7 +257,7 @@
    10,
    8
   ],
-  "tekst": "kleur #2a1a1f, naam van de aartsvijand",
+  "tekst": "kleur #2a1a1f, naam van de aartsvijand; binnenkant 6 spelpixels hoog, dus lettergrootte hooguit 15 px op schaal 3, of een kaartje van 8 hoog op schaal 2 boven de strook bij hover",
   "gebruik": "onder de held als hij aartsvijand is (3 keer gevlucht) en onder elk bord op de wand van aartsvijanden"
  },
  "trofee.png": {

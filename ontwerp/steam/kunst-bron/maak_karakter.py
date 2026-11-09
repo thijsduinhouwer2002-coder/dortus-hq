@@ -22,12 +22,12 @@ def zet(im, punten, c):
 
 # ---------- littekens: 16 x 16, zelfde frame als het lijf, tekenen boven het lijf en onder de hoed ----------
 def maak_littekens():
-    pleister = leeg(); zet(pleister, [(5, 7), (6, 7), (5, 8), (6, 8)], "P"); zet(pleister, [(4, 7), (7, 8)], "Q")
+    pleister = leeg(); zet(pleister, [(5, 7), (6, 7), (7, 7), (6, 6)], "j"); zet(pleister, [(6, 8)], "I")
     ooglap = leeg(); zet(ooglap, [(8, 6), (9, 6), (8, 7), (9, 7)], "k"); zet(ooglap, [(5, 6), (6, 6), (7, 6), (10, 6), (11, 6)], "K")
     schram = leeg(); zet(schram, [(9, 5), (10, 6), (10, 8), (9, 9)], "f"); zet(schram, [(9, 8)], "r")
     # verband: arm in een mitella, wit over de borst
-    verband = leeg(); zet(verband, [(10, 10), (9, 10), (9, 11), (8, 11), (7, 11), (6, 12), (7, 12), (8, 12)], "j")
-    zet(verband, [(10, 11), (6, 11)], "I")
+    verband = leeg(); zet(verband, [(4, 6), (5, 6), (6, 6), (10, 6), (3, 6), (2, 7), (3, 8)], "j")
+    zet(verband, [(7, 6), (2, 8)], "I"); zet(verband, [(5, 6)], "f")
     frames = [pleister, ooglap, schram, verband]
     opslaan(strip(frames), "held_littekens.png")
     return frames
@@ -37,22 +37,25 @@ def maak_hoeden_hap(hoeden):
     uit = []
     for h in hoeden:
         im = h.copy(); px = im.load(); bb = im.getbbox()
-        x1, y0 = bb[2] - 1, bb[1]
+        cx = (bb[0] + bb[2]) // 2 + 2
+        top = min(y for y in range(16) if px[cx, y][3])
         weg = set()
-        for (dx, dy) in [(0, 0), (-1, 0), (0, 1), (-2, 0), (-1, 1), (0, 2)]:
-            x, y = x1 + dx - 1, y0 + dy
-            if px[x, y][3]: weg.add((x, y))
+        for (dx, dy) in [(-1, 0), (0, 0), (1, 0), (-1, 1), (0, 1), (1, 1), (0, 2), (2, 0)]:
+            x, y = cx + dx, top + dy
+            if 0 <= x < 16 and px[x, y][3] and y < bb[3] - 1: weg.add((x, y))
         for p in weg: px[p] = (0, 0, 0, 0)
         for (x, y) in weg:   # rand van de hap donker maken
             for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
                 if 0 <= nx < 16 and 0 <= ny < 16 and (nx, ny) not in weg and px[nx, ny][3]:
                     px[nx, ny] = P["k"]
+        tand = (cx, top + 2)
+        if tand in weg: px[tand] = P["k"]; weg.discard(tand)   # tandje in de hap
         uit.append(im)
     opslaan(strip(uit), "held_hoeden_hap.png")
     return uit
 
 # ---------- tunieken in kleuren: rij 0 rood (zoals held_lijf.png), 1 groen, 2 paars, 3 oker, 4 blauw-grijs ----------
-KLEUREN = [("r", "R"), ("g", "G"), ("z", "Z"), ("O", "y"), ("i", "I")]
+KLEUREN = [("r", "R"), ("g", "G"), ("z", "Z"), ("O", "y"), ("m", "M")]
 def maak_kleuren(lijven):
     rood, roodl = P["r"], P["R"]
     rijen = []
@@ -73,7 +76,7 @@ def maak_kleuren(lijven):
 
 # ---------- tekens boven het hoofd, 8 x 8 ----------
 TEKENS = {
-    "boos": ["........", ".kk..kk.", "kffkkffk", "kfFffFfk", ".kfFFfk.", "kfFffFfk", "kffkkffk", ".kk..kk."],
+    "boos": [".kk..kk.", "kfk..kfk", "kffkkffk", ".kk..kk.", ".kk..kk.", "kffkkffk", "kfk..kfk", ".kk..kk."],
     "uitroep": ["...kk...", "..kyyk..", "..kYyk..", "..kyyk..", "...kk...", "...kk...", "..kyyk..", "...kk..."],
     "zweet": ["...k....", "..kBk...", "..kBk...", ".kBBBk..", ".kBjBk..", ".kBBBk..", "..kkk...", "........"],
     "zzz": ["BBBB....", "..B.....", ".B......", "BBBB.BBB", "......B.", ".....BBB", "........", "........"],
@@ -113,14 +116,17 @@ def maak_slijm_leven():
     plat = ["................"] * 10 + [
         "....kkkkkkkk....", "..kkNqnnnnnnkk..", ".knnnEennEennnk.", ".knnneenneennnk.",
         "kMnnnnnppnnnnnMk", "kkkkkkkkkkkkkkkk"]
+    kauw1 = rijen_aan(bol, {(6, 12): "k", (7, 12): "k", (8, 12): "k", (9, 12): "k", (8, 13): "j"})
+    kauw2 = rijen_aan(ogen_weg(a), {(5, 10): "k", (6, 10): "k", (10, 10): "k", (11, 10): "k",
+                                    (5, 12): "k", (6, 12): "k", (7, 12): "k", (8, 12): "k", (6, 13): "j", (4, 12): "p", (12, 12): "p"})
     volgorde = [("slapen", [slaap1, slaap2]), ("spugen", [bol, hap, spuug, blij]),
-                ("hap", [hap, bol, blij]), ("plat", [plat]), ("opstaan", [b])]
+                ("hap", [hap, kauw1, kauw2, kauw1, blij]), ("plat", [plat]), ("opstaan", [b])]
     frames, index = [], {}
     for naam, fr in volgorde:
         index[naam] = list(range(len(frames), len(frames) + len(fr)))
         frames += [sprite(r) for r in fr]
     opslaan(strip(frames), "slijm_leven.png")
-    laars = sprite(["........", "..kkkk..", "..kLLk..", "..kLLk..", "..kLLkkk", "..kLLLLk", "..kllllk", "..kkkkkk"])
+    laars = sprite(["..kkkk..", "..k55k..", "..kUUk..", "..kUUkk.", "..kUUU5k", "..kUUUUk", "..kLLLLk", "..kkkkkk"])
     opslaan(laars, "laars.png")
     return frames, index, laars
 
@@ -130,7 +136,7 @@ def maak_paneel():
     for y in range(12):
         for x in range(12):
             rand = min(x, y, 11 - x, 11 - y)
-            c = "k" if rand == 0 else ("U" if rand == 1 else ("u" if rand == 2 else "w"))
+            c = "k" if rand == 0 else ("U" if rand == 1 else ("k" if rand == 2 else ("l" if (y + (x // 4)) % 4 == 0 else "u")))
             if rand == 1 and (y == 11 - 1 or x == 11 - 1): c = "u"   # schaduw rechtsonder
             px[x, y] = P[c]
     for (x, y) in ((0, 0), (11, 0), (0, 11), (11, 11)): px[x, y] = (0, 0, 0, 0)
@@ -143,14 +149,14 @@ def maak_paneel():
             c = "k" if rand == 0 else ("Y" if y == 1 else ("O" if y == 6 else "y"))
             px[x, y] = P[c]
     for (x, y) in ((0, 0), (9, 0), (0, 7), (9, 7)): px[x, y] = (0, 0, 0, 0)
-    px[1, 1] = P["*"]
+    px[1, 1] = P["*"]; px[2, 4] = P["o"]; px[7, 4] = P["o"]
     opslaan(kaart, "naamkaartje.png")
     return im, kaart
 
 # ---------- trofeebord voor de wand van aartsvijanden: schildje met een haak, de hoed hangt erop ----------
 TROFEE = ["................", "................", "................", "................",
-          "..kkkkkkkkkkkk..", ".kUUUUUUUUUUUUk.", ".kUuuuukkuuuuUk.", ".kUuuuukIkuuuUk.",
-          ".kUuuuuukuuuuUk.", ".kUuuuuuuuuuuUk.", "..kUuuuuuuuuUk..", "..kUuuuuuuuuUk..",
+          "..kkkkkkkkkkkk..", ".kU55UUUUUUUUUk.", ".k5uuuukkuuuuUk.", ".kUuuuukIkuuuUk.",
+          ".kUuuuuukuuuuUk.", ".kUulluuuuuuuUk.", "..kUuuuulluuUk..", "..kUlluuuuuuUk..",
           "...kUuuuuuuUk...", "....kUUUUUUk....", ".....kkkkkk.....", "................"]
 
 # ---------- voorbeeld: alles bij elkaar op schaal 3, om zelf te keuren ----------
@@ -192,20 +198,20 @@ if __name__ == "__main__":
     trofee = sprite(TROFEE); opslaan(trofee, "trofee.png")
     pad = os.path.join(UIT, "kunst.json"); meta = json.load(open(pad))
     meta["held_littekens.png"] = {"frame": [16, 16], "volgorde": ["pleister", "ooglap", "schram", "verband"],
-        "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam)"}
+        "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam). Combinaties: ooglap en schram nooit samen (zelfde oog); de rest mag. Vervangt de rode streepjes en het verband-streepje in held.gd: die eruit.", "kleur": "de oude tint-kleuren voor helden en hoeden in strook.gd en held.gd eruit, anders dubbel gekleurd"}
     meta["held_hoeden_hap.png"] = {"frame": [16, 16], "volgorde": ["helm", "puntmuts", "kap", "pet"],
         "gebruik": "in plaats van held_hoeden.png als de held al eens door de slijm is gebeten (wrok tegen Gloop)"}
-    meta["held_lijf_kleuren.png"] = {"frame": [16, 16], "rijen": ["rood", "groen", "paars", "oker", "blauwgrijs"],
+    meta["held_lijf_kleuren.png"] = {"frame": [16, 16], "rijen": ["rood", "groen", "paars", "oker", "zeegroen"],
         "gebruik": "zelfde frames als held_lijf.png (4 per rij); kies de rij vast per held, zodat Kees altijd dezelfde tuniek heeft en je hem herkent"}
     meta["tekens.png"] = {"frame": [8, 8], "volgorde": list(TEKENS),
-        "plek": "midden boven het hoofd, 2 spelpixels boven de hoed; boos = wrok en ziet zijn vijand, uitroep = ziet de schat, zweet = vlucht, zzz = slijm slaapt, ster = aartsvijand (blijft staan)"}
+        "plek": "midden boven het hoofd, onderkant van het teken op y = -20 ten opzichte van de voeten (anker midden onder), voor elke hoed gelijk; boos = wrok en ziet zijn vijand, uitroep = ziet de schat, zweet = vlucht, zzz = slijm slaapt, ster = aartsvijand (blijft staan)"}
     meta["slijm_leven.png"] = {"frame": [16, 16], "animaties": slijm_index, "fps": 5,
-        "gebruik": "slapen: herhalen met zzz uit tekens.png erboven; spugen en hap: eenmalig, daarna terug naar rust van slijm.png; plat: in plaats van uitrekken (nooit schalen, dat breekt de pixels), opstaan: 1 frame voor hij weer rust",
+        "bron": "alle leven-animaties en de hap komen uit dit blad; slijm.png alleen voor rust (frames 0 tot 3)", "gebruik": "slapen: herhalen met zzz uit tekens.png erboven; spugen en hap: eenmalig, daarna terug naar rust van slijm.png; plat: in plaats van uitrekken (nooit schalen, dat breekt de pixels), opstaan: 1 frame voor hij weer rust",
         "zuinig": "een leven-animatie hooguit eens per 20 tot 40 s, alleen als er geen held is"}
-    meta["laars.png"] = {"frame": [8, 8], "gebruik": "ligt na 'spugen' een tijdje naast de slijm op de vloer (buit van een held die vluchtte)"}
-    meta["paneel.png"] = {"9slice": 4, "maat": [12, 12], "tekst": "kleur #ffe07a voor de kop, #f3e2c0 voor de regel, 1 spelpixel ruimte binnen de rand",
+    meta["laars.png"] = {"frame": [8, 8], "gebruik": "na het spugen-frame 3 vliegt hij in een boogje 10 tot 14 spelpixels opzij (0,3 s, hele pixels), daarna ligt hij een tijdje naast de slijm op de vloer (buit van een held die vluchtte)"}
+    meta["paneel.png"] = {"9slice": 4, "maat": [12, 12], "tekst": "kleur #ffe07a voor de kop, #f3e2c0 voor de regel; tekst begint 5 spelpixels (15 px) binnen de buitenkant, dus 1 spelpixel binnen de 9-slice-rand van 4; lettertype zoals nu in tekst.gd",
         "gebruik": "NinePatchRect (patch_margin 4 aan alle kanten, texture_filter nearest, schaal gelijk aan de strook) in plaats van het zwarte vlak"}
-    meta["naamkaartje.png"] = {"9slice": 3, "maat": [10, 8], "tekst": "kleur #2a1a1f, naam van de aartsvijand",
+    meta["naamkaartje.png"] = {"9slice": 3, "maat": [10, 8], "tekst": "kleur #2a1a1f, naam van de aartsvijand; binnenkant 6 spelpixels hoog, dus lettergrootte hooguit 15 px op schaal 3, of een kaartje van 8 hoog op schaal 2 boven de strook bij hover",
         "gebruik": "onder de held als hij aartsvijand is (3 keer gevlucht) en onder elk bord op de wand van aartsvijanden"}
     meta["trofee.png"] = {"frame": [16, 16], "gebruik": "wand van aartsvijanden in de schatkamer: bord tegen de wand, de hoed van de held 4 spelpixels hoger erop, naamkaartje eronder"}
     json.dump(meta, open(pad, "w"), indent=1, ensure_ascii=False)
