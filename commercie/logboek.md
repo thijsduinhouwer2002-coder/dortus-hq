@@ -368,3 +368,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `rollwright/lancering.md` deel run 29 (vergelijking, reden, letterlijke inzendtekst, screenshot-stap voor r/Solo_Roleplaying, Discord na het forum); `rollwright/verspreiding.md` bijwerking; `blender-click-joints/lancering.md` deel run 29 (voorwaarde r/ObsidianMD vervalt, screenshot-stap voor r/blender en r/3Dprinting); lijst-thijs één regel; bericht verwerkt.
 **Controleur:** akkoord mits. Moet: r/blender en r/3Dprinting misten de screenshot-stap en wachtten nog op r/ObsidianMD. Verwerkt, kan-punten ook.
 **Volgende run:** dinsdag de RSS van This Week in Obsidian bekijken; downloads meten (nulpunt 9); seintjes voor Click Joints en Bison & Flex.
+
+## 9 nov 2026 ±11:45 tot 12:30 UTC: Click Joints, run 30 (het filmpje in de lanceerberichten)
+**Noot:** de tijden in de kop van run 29 hierboven zijn waarschijnlijk Nederlandse tijd; deze run begon om 11:44 UTC (`date -u`).
+**Gelezen:** berichten (nieuw: Thijs 9 nov 12:00 NL, film ja, Discord overslaan, This Week in Obsidian stuurt hij zelf in), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), lancering.md en film.md van Click Joints.
+**Opgemerkt:** `git pull` bleef weer hangen (2 min) en lokale dortus-hq en dortus stonden los van een tak; met timeout gefetcht (weer een geforceerde update van main), main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 11:46):** Click Joints nog niet goedgekeurd (API 1.627 zonder click_joints, listing 404). Rollwright 9 downloads, forumdraad 1 bericht, 19 keer bekeken, 0 likes. Niets te beantwoorden.
+**Beslissing:** Click Joints, want het bericht van Thijs is open. Het filmpje nu al op de productpagina, omdat Thijs en Daan ja zeiden en BlenderNation en reacties daarheen verwijzen. In elk bericht met het filmpje één zin dat het een render is, omdat er geen paneel en geen getallen in beeld zijn en de gloed uit de render komt.
+**Gedaan:** dortus.com/click-joints/ met het filmpje (repo dortus, 3b63e0e, 7282c25); `controls` ook op het filmpje van dortus.com/rollwright/; `blender-click-joints/lancering.md` deel run 30 (B30, C30, A30, antwoorden, dag 0 stap 5, wat het zou veranderen); bericht verwerkt. Geen nieuw punt op lijst-thijs nodig: het filmpje op de listing staat er al (Bram), r/blender komt op dag 0.
+**Controleur:** akkoord mits. Moet: "geen getallen" klopte niet helemaal (eindkaart heeft een regel met versies), en de video kon niet stilgezet worden. Verwerkt, kan-punten ook.
+**Volgende run:** dinsdag de nieuwsbrief This Week in Obsidian bekijken en de link van de inzending van Thijs volgen; elke run het seintje voor Click Joints en Bison & Flex; downloads Rollwright (nulpunt 9).

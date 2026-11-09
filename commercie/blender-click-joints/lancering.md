@@ -249,3 +249,69 @@ Door Chris. Thijs liet weten (hoofdchat 9 nov 11:45, `berichten/chris.md`) dat h
 1. **De voorwaarde "twee dagen na het r/ObsidianMD-bericht van Rollwright" vervalt** (run 16 B16 en stap 5, run 27 stap 5 en de slotregel). r/blender kan op zijn vroegst dag 1 na de goedkeuring, en alleen als er op geen enkele plek een waarschuwing of verwijdering kwam (regel 7 van Thijs).
 2. **"De hoofdchat leest in de browser de regels en de zijbalk van r/blender" kan niet meer.** Nieuwe stap vóór r/blender en vóór r/3Dprinting: de hoofdchat vraagt Thijs om een screenshot van de uitgeklapte regels in de zijbalk (en de wiki over zelfpromotie, als die er is). Niet plaatsen als er staat: geen AI-gemaakte inhoud of software, zelfpromotie alleen voor actieve leden, een verhouding meedoen en promoten die Thijs niet haalt, of een minimum aan karma of accountleeftijd. Het account van Thijs (u/Immediate_Offer_630, 2 jaar, 1 karma) valt bij zo'n filter af, en een eerste post die reclame is, wordt op veel subreddits gezien zoals op r/ObsidianMD (GOK). Twijfel: niet plaatsen, vraag op lijst-thijs (regel 3).
 3. BlenderNation (C27) is geen subreddit en blijft zoals in run 27; ook daar leest wie inzendt eerst de regels.
+
+## Run 30 (Chris, 9 nov ±11:45 tot 12:30 UTC): het filmpje in de lanceerberichten
+
+Aanleiding: bericht Thijs 9 nov 12:00 (NL): "film Click Joints ja, gebruik hem in de lanceerberichten". Dit deel gaat voor op run 16, run 27 en de bijwerking van run 29 waar het verschilt; de rest blijft geldig.
+
+### Stand (GEZIEN 9 nov 11:46 UTC)
+- Nog niet goedgekeurd: API 1.627 extensies zonder `click_joints`, listing 404. Dag 0 is er dus nog niet.
+- Het filmpje: `click-joints-filmisch-v2.mp4` op de tak `schermen` (link op lijst-thijs, punt van Bram 9 nov 11:20). Zelf gedownload: sha256 `f6d544166dc8c383b41317aeab16b0ae81ea72cbd85ff02a01cec81d6794c049` (gelijk aan die van Bram en Daan), 19,5 s.
+- **Wat er echt in beeld is** (GEZIEN, contactvel van 20 beelden, één per seconde): groene ring flitst aan op een houten arm (haak), de hele houten tekenpop, het gewricht op de elleboog, de onderarm buigt, een close-up in Exploded view (label "Exploded view" in beeld) met het rode vlak, de delen schuiven uit elkaar en klikken terug, elleboog en knie met groene ring, eindkaart "Click Joints for Blender / See how far it bends, before you print. / Free on Blender Extensions / Ball and pin joints · STL and 3MF · Blender 4.2 to 5.2 / Made by Thijs at Dortus". Het label "Exploded view" in beeld is achteraf in de letter Inter over de stempel van Blender gezet (ontwerp.md); het is niet de letter van de add-on.
+- **Wat er niet in staat:** geen paneel, geen getallen over buigen of passing (±20°, "+8° past limit"), geen witte boog, geen koppen. Het is een render met licht en gloed, geen schermopname van het viewport. Daarom: de getallen blijven in de tekst van de berichten (die beschrijft de add-on, niet het filmpje), en elk bericht met het filmpje krijgt één eerlijke zin dat het een render is. Zelfde soort zin als bij Rollwright (perkament is eigen CSS).
+
+### Gedaan zonder Thijs
+- **dortus.com/click-joints/** (repo dortus, commits 3b63e0e en 7282c25, alleen de eigen map): het filmpje (`film.mp4`, zelfde bestand, plus `film-first.jpg` als eerste beeld) bovenaan het deel "What it does", vóór "Drag the bend". Speelt vanzelf, zonder geluid, in een lus, zoals het filmpje op dortus.com/rollwright/. Onderschrift: "19 seconds, no sound. Rendered in Blender from joints the add-on placed. In your viewport you see the same colours, without the glow." Poster bovenaan blijft (eis Daan). Met `controls`, zodat een bezoeker het kan stilzetten (WCAG 2.2.2, punt van de controleur; ook op dortus.com/rollwright/ erbij gezet). Lokaal getest in Chromium op 1280 en 390 px breed: video laadt en speelt, geen zijwaarts scrollen (GEZIEN). De eindkaart zegt "Free on Blender Extensions", net als de poster die er al staat; na de goedkeuring klopt dat helemaal.
+- Waarom nu en niet op dag 0: Thijs zei ja, Daan keurde hem, en de pagina is de plek waar BlenderNation en reacties naar verwijzen. Een bezoeker ziet dan meteen beweging in plaats van alleen plaatjes.
+
+### Wat er verandert per plek
+
+**r/blender, versie B30.** Vorm: een videobericht met het MP4-bestand zelf geüpload naar Reddit (niet de link). Kan er bij een videobericht geen tekst onder, dan gaat de tekst als eerste reactie van Thijs in de eigen draad. De screenshot-stap van run 29 (regels in de zijbalk, karma, AI-regel) blijft vóór alles; geen screenshot of twijfel: niet plaatsen.
+
+**Titel (B30):** `I made Click Joints: cut a printable ball joint into a mesh and see how far it bends before the parts collide (free extension)`
+
+**Tekst (B30):**
+> I made Click Joints, a free extension for 3D printing poseable figures from Blender.
+>
+> Put the 3D cursor where the joint goes and click Place joint. It cuts the mesh into two watertight parts with a ball and socket or a pin, with the clearance you set in mm. For a ball joint it measures how far it bends in 8 directions before the parts collide, and shows that range on the model and in the panel ("Bends ±20°"). Drag the Bend slider past the limit and the spot that collides turns red ("+8° past limit"). A ring on the cut shows the fit in green, yellow or red, and the panel says why.
+>
+> Exploded view, "Make watertight" on a copy, export to STL or 3MF in mm, one file per part. Tested on Blender 4.2 LTS and 5.2 LTS.
+>
+> The video is a render in Blender of joints the add-on placed; the glow comes from the render. In the viewport you get the same green ring and red spot, plus the arc and the panel with the numbers.
+>
+> I haven't printed a joint with it yet; the fit and the bend range are measured in Blender.
+>
+> https://extensions.blender.org/add-ons/click-joints/
+>
+> Free and open source (GPL-3.0-or-later). Code and bug reports: https://github.com/thijsduinhouwer2002-coder/click-joints
+>
+> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+>
+> Made by Thijs at Dortus
+
+Enige verschil met B27: de alinea over de render. Twee links blijft een punt voor de screenshot-stap (zie run 27).
+
+**BlenderNation, versie C30:** gelijk aan C27, met twee wijzigingen. (1) In de tekst na "Export to STL or 3MF." de zin: `The video is a render in Blender of joints the add-on placed.` (2) "More images: https://dortus.com/click-joints/" wordt `Video and more images: https://dortus.com/click-joints/` (het filmpje staat daar nu). Laat het formulier een bestand of een videolink toe, dan het MP4-bestand of de link https://dortus.com/click-joints/film.mp4 ; een YouTube-link hebben we niet (een kanaal aanmaken is een stap van Thijs en niet nodig voor dit bericht).
+
+**r/3Dprinting, versie A30:** de voorwaarde blijft een foto of filmpje van een **echte print**. Het render-filmpje is daar niet het hoofdbeeld (het is geen print; dat zou de plek misleiden). Mag een bericht meerdere beelden hebben, dan mag het filmpje als tweede, met de render-zin uit B30 in de tekst. Verder gelijk aan A27.
+
+**awesome-blender:** geen wijziging (een regel tekst met een link, geen beeld).
+
+**De listing zelf:** het filmpje als eerste preview op extensions.blender.org staat al op lijst-thijs (punt van Bram). Daar hoort geen render-zin bij: het onderschrift van Bram ("Place a joint, drag the bend, see red past the limit, split into printable parts.") beschrijft wat de add-on doet.
+
+### Antwoorden erbij (alleen in de eigen draad)
+- "Is that the real add-on or a render?": "Both: the joints in the video were placed by the add-on in Blender, then rendered with nicer light. In the viewport you get the same green ring and red spot without the glow, and the arc and the panel show the numbers. The red spot is easiest to see with Exploded view on. The screenshots on the listing show the panel."
+- "What did you use for the mannequin?": "A simple wooden mannequin made from basic shapes in Blender, just for the video. It doesn't come with the add-on." (Waar: gemaakt in Blender uit eenvoudige vormen, `ontwerp/click-joints/film.md`; niet "I modelled", want dat deden de agents.)
+
+### Dag 0, aangepast
+- Stap 5: op lijst-thijs "Plaatsen via de hoofdchat of door Thijs zelf: r/blender, tekst in `commercie/blender-click-joints/lancering.md`, deel run 30, versie B30, met het filmpje (link op de tak `schermen`, sha256 hierboven)". Eerst de screenshot-stap.
+- Stap 3 (knop en pil op dortus.com/click-joints/) blijft; het filmpje staat er al.
+
+### Discord
+Thijs is geen lid van de Obsidian-Discord (bericht 9 nov 12:00); voor Click Joints stond geen Discord in het plan. Geen wijziging.
+
+### Wat dit deel zou veranderen
+Wordt Click Joints afgekeurd, of staat hij over 3 weken (30 nov) nog op Awaiting Review: dan gaan het filmpje en de zin "Free on Blender Extensions" van de pagina af of worden ze aangepast, samen met Daan (de poster bovenaan zegt het ook). Tot dan zegt de pil op dezelfde pagina eerlijk "On its way to Blender Extensions".
+
+### Controleur
+Akkoord mits. Moet: (1) "geen getallen" klopte niet helemaal, de eindkaart heeft een regel met versies; (2) de video kon niet stilgezet worden. Beide verwerkt (`controls` op de Click Joints- en de Rollwright-pagina). Kan-punten ook: aria-label met de hele eindkaart, render-zin met de boog, Exploded view in het antwoord, het label in Inter genoemd, regel over afkeuring hierboven.
