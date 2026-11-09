@@ -1,0 +1,7 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API OpenGL ES 3.0.0 (ANGLE 2.1.1 git hash: 468fcbe033fa) - Compatibility - Using Device: Google Inc. (Microsoft) - ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.33648)
+
+PROEF renderer=ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.33648) / Windows driver=gl_compatibility
+PROEF bruikbaar scherm=[P: (0, 0), S: (1024, 720)] venster pos=(0, 500) maat=(1024, 220)
+PROEF doorzichtig gevraagd=true altijd boven=true
+PROEF fps na 40 s=62
