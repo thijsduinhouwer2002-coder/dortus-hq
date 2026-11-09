@@ -31,28 +31,37 @@ jobs:
           Start-Process notepad.exe
           Start-Sleep 3
           & producten/steam-proef/e2e/scherm.ps1 "$uit/0-zonder-strook.png"
-          foreach ($drv in @("opengl3_angle")) {
-            $log = "$uit/godot-$drv.log"
-            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" `
-              -ArgumentList "--path producten/steam-proef/godot --rendering-driver $drv" `
-              -RedirectStandardOutput $log -RedirectStandardError "$log.err" -PassThru
-            Start-Sleep 15
-            & producten/steam-proef/e2e/scherm.ps1 "$uit/1-strook-$drv.png"
-            # Klik in de lucht boven de strook (venster y 0 tot 60, moet erdoor) en in de strook (moet gevangen worden).
-            $h = [int](Get-CimInstance Win32_VideoController | Select-Object -First 1).CurrentVerticalResolution
-            Write-Output "schermhoogte $h"
-            & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 220 + 25)
-            Start-Sleep 1
-            & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 40)
-            Start-Sleep 1
-            Get-Process | Where-Object { $_.ProcessName -like "Godot*" } | ForEach-Object { Write-Output "CPU-seconden $($_.ProcessName) na ±17 s ($drv): $($_.CPU), geheugen MB: $([int]($_.WorkingSet64/1MB))" }
+          # Ronde 3: gewone exe (geen consolevenster), drie standen naast elkaar, CPU van het Godot-proces zelf.
+          $drv = "opengl3_angle"
+          $h = [int](Get-CimInstance Win32_VideoController | Select-Object -First 1).CurrentVerticalResolution
+          Write-Output "schermhoogte $h"
+          $samen = @()
+          foreach ($stand in @("vol60", "fps30", "zuinig")) {
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/godot-$stand.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-proef/godot --rendering-driver $drv -- stand=$stand duur=40 log=$log" -PassThru
             Start-Sleep 10
-            Get-Process | Where-Object { $_.ProcessName -like "Godot*" } | ForEach-Object { Write-Output "CPU-seconden $($_.ProcessName) na ±27 s ($drv): $($_.CPU)" }
-            Start-Sleep 18
+            & producten/steam-proef/e2e/scherm.ps1 "$uit/1-strook-$stand.png"
+            if ($stand -eq "zuinig") {
+              & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 220 + 25)
+              Start-Sleep 1
+              & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 40)
+            }
+            Start-Sleep 2
+            $p.Refresh(); $c1 = $p.TotalProcessorTime.TotalSeconds
+            Start-Sleep 20
+            $p.Refresh(); $c2 = $p.TotalProcessorTime.TotalSeconds
+            $mb = [int]($p.WorkingSet64 / 1MB)
+            $per10 = [math]::Round(($c2 - $c1) / 2, 2)
+            $regel = "CPU $stand : $per10 CPU-seconden per 10 s (gemeten over 20 s), geheugen $mb MB, kernen op de runner $([Environment]::ProcessorCount)"
+            Write-Output $regel; $samen += $regel
+            Start-Sleep 12
             if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
-            Write-Output "===== log $drv"; Get-Content $log -ErrorAction SilentlyContinue
-            Write-Output "===== fouten $drv"; Get-Content "$log.err" -ErrorAction SilentlyContinue | Select-Object -First 30
+            Write-Output "===== log $stand"; Get-Content $log -ErrorAction SilentlyContinue
           }
+          $samen | Set-Content "$uit/cpu.txt"
+          Write-Output "===== samen"; $samen
+
       - name: Schermafbeeldingen openbaar zetten (tak schermen)
         if: always()
         shell: bash

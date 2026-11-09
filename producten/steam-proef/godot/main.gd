@@ -4,8 +4,34 @@ extends Node2D
 
 var t := 0.0
 var strook := Rect2()
+var stand := "vol60"  # vol60 (oud: elke frame, geen grens), fps30, zuinig (low processor, 15 fps)
+var logpad := ""
+var duur := 40.0
+
+func log_regel(tekst: String) -> void:
+	# De gewone exe heeft geen console; daarom schrijven we zelf een logbestand (pad via -- log=...).
+	print(tekst)
+	if logpad != "":
+		var f := FileAccess.open(logpad, FileAccess.READ_WRITE if FileAccess.file_exists(logpad) else FileAccess.WRITE)
+		if f:
+			f.seek_end()
+			f.store_line(tekst)
+			f.close()
 
 func _ready() -> void:
+	for a in OS.get_cmdline_user_args():
+		if a.begins_with("stand="):
+			stand = a.substr(6)
+		elif a.begins_with("log="):
+			logpad = a.substr(4)
+		elif a.begins_with("duur="):
+			duur = float(a.substr(5))
+	match stand:
+		"fps30":
+			Engine.max_fps = 30
+		"zuinig":
+			Engine.max_fps = 15
+			OS.low_processor_usage_mode = true
 	get_viewport().transparent_bg = true
 	var scherm := DisplayServer.screen_get_usable_rect()  # zonder taakbalk
 	var hoogte := 220
@@ -16,21 +42,21 @@ func _ready() -> void:
 	# Alleen de strook vangt klikken; de lucht erboven laat ze door naar het venster eronder.
 	DisplayServer.window_set_mouse_passthrough(PackedVector2Array([
 		Vector2(0, 60), Vector2(scherm.size.x, 60), Vector2(scherm.size.x, hoogte), Vector2(0, hoogte)]))
-	print("PROEF renderer=", RenderingServer.get_video_adapter_name(), " / ", OS.get_name(),
-		" driver=", ProjectSettings.get_setting("rendering/renderer/rendering_method"))
-	print("PROEF bruikbaar scherm=", scherm, " venster pos=", pos, " maat=", DisplayServer.window_get_size())
-	print("PROEF doorzichtig gevraagd=", DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT),
-		" altijd boven=", DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP))
+	log_regel("PROEF stand=" + stand)
+	log_regel("PROEF renderer=%s / %s" % [RenderingServer.get_video_adapter_name(), OS.get_name()])
+	log_regel("PROEF bruikbaar scherm=%s venster pos=%s maat=%s" % [scherm, pos, DisplayServer.window_get_size()])
+	log_regel("PROEF doorzichtig=%s altijd boven=%s" % [DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT),
+		DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP)])
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		print("PROEF klik in de strook op ", event.position)
+		log_regel("PROEF klik in de strook op " + str(event.position))
 
 func _process(delta: float) -> void:
 	t += delta
 	queue_redraw()
-	if t > 40.0:
-		print("PROEF fps na 40 s=", Engine.get_frames_per_second())
+	if t > duur:
+		log_regel("PROEF stand=%s fps na %d s=%d" % [stand, int(duur), Engine.get_frames_per_second()])
 		get_tree().quit()
 
 func _draw() -> void:
@@ -51,5 +77,5 @@ func _draw() -> void:
 	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))
 	draw_circle(Vector2(lx, 170), 22.0, Color("#5a3a4a"))  # gloed dekkend vooraf gemengd (halfdoorzichtig laat het bureaublad door)
 	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))
-	draw_string(ThemeDB.fallback_font, Vector2(20, 100), "Dortus proef: doorzichtig boven de taakbalk, t=%d s" % int(t),
+	draw_string(ThemeDB.fallback_font, Vector2(20, 100), "Dortus proef (%s): doorzichtig boven de taakbalk, t=%d s" % [stand, int(t)],
 		HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color.WHITE)
