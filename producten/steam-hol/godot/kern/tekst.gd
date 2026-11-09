@@ -7,6 +7,20 @@ var goud := 0
 var hover := false
 var breedte := 1280.0
 var hoogte := 120.0
+var schaal := 3
+const PANEEL := preload("res://kunst/paneel.png")   # Daan: 12 x 12, 9-slice rand 4 (kunst.json)
+const R := 4
+
+# Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
+func _paneel(rect: Rect2) -> void:
+	var m := R * schaal
+	var xs := [rect.position.x, rect.position.x + m, rect.end.x - m, rect.end.x]
+	var ys := [rect.position.y, rect.position.y + m, rect.end.y - m, rect.end.y]
+	var bx := [0, R, 12 - R, 12]
+	for i in 3:
+		for j in 3:
+			draw_texture_rect_region(PANEEL, Rect2(xs[i], ys[j], xs[i + 1] - xs[i], ys[j + 1] - ys[j]),
+				Rect2(bx[i], bx[j], bx[i + 1] - bx[i], bx[j + 1] - bx[j]))
 
 func vak_breedte() -> float:
 	return minf(430.0, breedte * 0.3)
@@ -15,6 +29,9 @@ func zet(r: Array[String], g: int) -> void:
 	regels = r
 	goud = g
 	queue_redraw()
+
+func _ready() -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
 func _draw() -> void:
 	var font := ThemeDB.fallback_font
@@ -26,10 +43,13 @@ func _draw() -> void:
 	var regel_h := maat + 4
 	var bw := vak_breedte()
 	var x := breedte - bw - 8
-	var y0 := hoogte - 8 - regel_h * (toon.size() + 1)
-	draw_rect(Rect2(x - 6, y0 - 4, bw + 12, regel_h * (toon.size() + 1) + 6), Color("#1c120c"))
-	draw_rect(Rect2(x - 6, y0 - 4, bw + 12, 1), Color("#5a3a26"))
-	draw_string(font, Vector2(x, y0 + maat), "Hoard: %d gold" % goud, HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#f2c14e"))
+	var binnen := 5 * schaal   # tekst begint 5 spelpixels binnen de buitenkant van Daans paneel (kunst.json)
+	var y0 := hoogte - 2 - (binnen - 2) - regel_h * (toon.size() + 1)
+	# paneel van x - binnen tot de rechterrand, van boven de kop tot onderaan de strook
+	var links := x - binnen + 4
+	var top := y0 - binnen + 2
+	_paneel(Rect2(links, top, breedte - 2 - links, hoogte - 2 - top))
+	draw_string(font, Vector2(x, y0 + maat), "Hoard: %d gold" % goud, HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#ffe07a"))
 	for i in toon.size():
 		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
 		var r: String = toon[i]
@@ -41,4 +61,4 @@ func _draw() -> void:
 			while woorden.size() > 1 and font.get_string_size(" ".join(woorden) + "...", HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
 				woorden.remove_at(woorden.size() - 1)
 			r = " ".join(woorden) + "..."
-		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#e8dcc8"))
+		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#f3e2c0"))

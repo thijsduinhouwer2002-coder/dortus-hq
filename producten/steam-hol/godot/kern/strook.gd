@@ -103,6 +103,7 @@ func _ready() -> void:
 	tekst.set_script(TEKST)
 	tekst.breedte = scherm.size.x
 	tekst.hoogte = hoogte
+	tekst.schaal = schaal
 	add_child(tekst)
 	# het hol groeit niet onder het tekstvak: de schat staat er rechts tegenaan, het hol groeit naar links
 	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 40) / (HOL.KOL * schaal)) - 1
