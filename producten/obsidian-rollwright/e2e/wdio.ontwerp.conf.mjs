@@ -20,7 +20,7 @@ export const config = {
 				{ name: "Things", enabled: false },
 				{ name: "Border", enabled: false },
 			],
-			vault: "vaults/ontwerp",
+			vault: "vaults/test",
 		},
 	}],
 	services: ["obsidian"],
