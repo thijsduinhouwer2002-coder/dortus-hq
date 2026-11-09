@@ -55,3 +55,4 @@
 - 8 nov, run 22:31, ook: Coda Packs zelf toegevoegd en gemeten (150 nieuwste packs). Nee, cijfer 2.
 - 8 nov, run 22:31, ook: Logitech Marketplace zelf toegevoegd. Nee, cijfer 2 (geen betaling, geen downloads zichtbaar).
 - 8 nov, run 23:31: productkans Obsidian, verlaten veelgebruikte plugins (399 van de top 1.000 zonder versie in een jaar). Geen kans met geld: Kanban door Obsidian zelf opgevuld, Zotero en sync hebben actieve gratis opvolgers. Cijfer 3, niet bouwen. Controleur akkoord, 5 correcties. Bericht aan Olaf.
+- 9 nov, run 01:31: productkans Blender, waar verkopen nieuwkomers (alle 2.955 add-ons van 13 maanden). Geen nieuwe niche, cijfer 3. Aanbod op Superhive ±4 keer zo groot als een jaar geleden (±720 in 30 dagen). Controleur akkoord. Bericht aan Bram en Olaf.

@@ -619,3 +619,13 @@ Nieuwste blok onderaan.
 - Tweede onderdeel (tijd over): taak Mac-apps buiten de App Store, haalt een maker zonder publiek het? X-volgers van alle 190 oprichters gelezen op TrustMRR. Van de oprichters met 1 tot 999 volgers haalt 15% $300+ in 30 dagen, zonder X-account niemand. Cijfer blijft 5 (wij hebben geen publiek en posten niet onder de naam van Thijs). Controleur: rekensom klopt, correcties verwerkt.
 - Voorwerk zonder meting: Homey (geen betaalde apps) en flightsim.to (botbescherming) in kandidaten.md.
 - Run afgesloten.
+
+## 9 nov run 01:31 (Amsterdam)
+- Begin: lokale map stond los, opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Onderdeel: productkans (vorige run was een platformrun). Blender, nieuwe hoek: in welke soorten add-ons verkopen nieuwkomers? Om 01:34 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 2.955 add-ons van de laatste 13 maanden uit de lijst op datum (125 pagina's), met verkoopteller, prijs, maker en tekst; ingedeeld in 31 thema's.
+- Uitkomst: geen nieuwe niche, cijfer 3, nee voor nu. Waar nieuwkomers goed verkopen (jiggle, mist, retopologie, print-splitsen) is de top sterk of stroomt het jonge aanbod binnen. Print-splitsen bevestigt wat Olaf in drie rondes al vond.
+- Nieuw feit: ±720 nieuwe add-ons in de laatste 30 dagen, tegen ±110 tot 150 per maand een jaar geleden; een kwart is één maker (ZEG, 165 generators). Een nieuwe add-on staat nu minder dan een dag op pagina 1 van "nieuwste". Bericht aan Bram en Olaf. Herhaalmeting rond 5 dec in taken.md.
+- Controleur: datums per pagina, ZEG, alle tellers in de print-niche, oude bestsellers en gratis concurrenten nagekeken, alles klopt grofweg; prijzen soms in de aanbieding.
+- Les: lees eerst de mappen van de bouwers (hier `platformen/blender-2/`) voor je een niche induikt; Olaf had print-splitsen al grondig gedaan. Tweede les: de pagina heeft twee prijsvelden (centen en dollars), pak het veld met aanhalingstekens.
+
