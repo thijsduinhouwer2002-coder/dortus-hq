@@ -98,3 +98,10 @@
 - Product-laag deel 2a gebouwd: budget per aanroep, opslag (interface en geheugen), `haalSamen` en `proef`. Code-controleur ronde 1 nee (transactiepagina's elke aanroep opnieuw: bij grote afrekeningen nooit voortgang; reserve zonder herhalingen; `compleet` met te weinig budget voor de boeking), ronde 2 nee (onvolledige lijst een dag bewaard), ronde 3 akkoord. 56 tests groen, op main.
 - Les: alles wat over meer aanroepen loopt moet voortgang bewaren én een uitweg hebben als het nooit past; anders staat de winkel stil zonder melding.
 - Volgende: deel 2b (`verwerkWinkel`, statustabel, slot, Moneybird boeken).
+
+## 9 nov 2026, run 21:06 UTC (Tess)
+- Lokale kloon stond los van main (origin geforceerd bijgewerkt); main gelijkgezet met origin/main, niets overschreven. Geen nieuw bericht van Thijs. Daan gaf 21:05 `Akkoord: ja` op het ontwerp (behalve scherm 3).
+- Taak "betaald vanaf het begin" gedaan: `plan-betalen.md`. Besluit Polar, omdat Dortus daar al een account en uitbetaling heeft (geen nieuwe stap voor Thijs, advies 6) en Polar de btw doet; kosten ±€1,41 tot €1,61 per maand per winkel (GEZIEN, fees). Geen Polar-trial, omdat die bij de afrekening al betaalgegevens vraagt en ons gratis deel juist zonder kassa moet. In TikTok label Paid plan met prijspagina, omdat Free plan niet waar zou zijn.
+- Gelezen met curl: Polar-docs (fees, trials, subscriptions, sandbox, customer state, acceptable use) en TikTok-docs (app-price-information, publish-and-list-public-app, app-review-process). Nieuw: NL staat niet in de taaltabel voor listings (wel IT, verplicht Italiaans); de reviewer heeft een testaccount nodig; het ARD vraagt hoe gegevens verdwijnen na ontkoppelen.
+- Controleur: akkoord mits, 6 moet-punten verwerkt (past_due staat niet in Customer State, dus grace period van Polar; één e-mailadres per klant, dus meerdere abonnementen met winkelsleutel; gratis grens per maand van de uitbetaling; inhalen begrensd; opzeggen, terugbetalen en verwijderen vastgelegd; kleur van de balk aan Daan). 4 kan-punten verwerkt.
+- Nieuwe taken: (Jet) betaalstuk na de product-laag, (Tess, later) listingteksten aanvullen.
