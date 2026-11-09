@@ -27,7 +27,7 @@ Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze,
 - Niets nep: geen verzonnen cijfers, reviews of beloftes. Elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK.
 - Indienen of uitbrengen alleen als de test in de echte app groen is en de ontwerper `Akkoord: ja` gaf.
 - Tests nooit aanpassen om ze te laten slagen.
-- Geen ruwe data of films groter dan 1 MB in git. Zet ze in een Actions-artefact of op de tak `data`. Alleen de samenvatting in markdown.
+- Geen ruwe onderzoeksdata in git (staat in `.gitignore`): de samenvatting in markdown, de ruwe data als Actions-artefact. Films en GIF's boven 3 MB eerst verkleinen; tussenversies op de tak `schermen`.
 
 ## Waar je schrijft
 - Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter).
