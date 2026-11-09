@@ -4,6 +4,8 @@ Jet, 9 nov 2026. Waarom: een nieuwe grootboekrekening aanmaken in Moneybird kan 
 
 Bron: definitieve RGS 3.5-lijst van referentiegrootboekschema.nl (`Def-versie RGS 3.5_2.xlsx`, blad RGS3.5, 4.745 regels), GEZIEN 9 nov met curl. De gebruikte regels staan in `test/voorbeelden/rgs35-uittreksel.tsv`; de toets controleert dat elke code daar actief en op boekbaar niveau (4 of 5) staat. Let op: RGS is inmiddels bij 3.8 en 3.9 (alfa/bèta), maar Moneybird vraagt 3.5.
 
+Controleur (9 nov 21:20 UTC): akkoord, codes, uittreksel en `account_type` nagekeken tegen de echte lijst en de OpenAPI (voorbelasting staat daar zelf als current_liabilities); 4 kan-punten verwerkt hieronder.
+
 | Soort | RGS 3.5 | Omschrijving in RGS | Soort rekening | Aanmaken |
 |---|---|---|---|---|
 | omzet, terugbetaling, overig_omzet, omzet_totaal | WOmzNohOlh | 1a. Netto-omzet verkoop handelsgoederen hoog tarief | revenue | ja |
@@ -22,4 +24,7 @@ Bron: definitieve RGS 3.5-lijst van referentiegrootboekschema.nl (`Def-versie RG
 - **Btw op kosten niet aanmaken.** GOK of TikTok Nederlandse btw rekent (TikTok factureert waarschijnlijk vanuit Ierland, dan verlegd). Btw-rekeningen zijn systeemrekeningen in Moneybird; een tweede "voorbelasting" maakt de aangifte rommelig. De verkoper kiest een bestaande rekening.
 - **Correctie als verkoopkosten.** Correcties van TikTok zijn meestal kosten (boetes, chargebacks), soms een vergoeding; één rekening houdt het overzicht simpel.
 - **Verschil op vraagposten.** Past bij het ontwerp: tussenrekening, nooit omzet; de accountant ruimt hem op.
+- **Belasting (`fee_tax_breakdown.tax`) als kosten: GOK.** Zijn dit btw-bedragen die TikTok over de verkoop inhoudt of afdraagt, dan horen ze op de balans (btw), niet bij de kosten. Nakijken met echte data (vroege Partner Center-account of sandbox).
+- **Eén keer aanmaken, daarna hergebruiken (voor de bouw van stap 4).** Moneybird wil een unieke naam per administratie en soort rekening. Meerdere soorten delen een voorstel (vier op omzet), en bij een tweede winkel of een eerdere poging bestaat de rekening al (POST geeft dan 422). Dus eerst zoeken op naam of RGS-code en alleen aanmaken wat ontbreekt.
+- **Vraagposten (BVorTusTovTvp) zit niet in de Basis-set van RGS**, BVorTusTov (niveau 4) wel. Moneybird accepteert waarschijnlijk elke 3.5-code, maar dat is niet gezien: meenemen in de sandbox-test, met BVorTusTov als terugval.
 - Niet getest tegen een echte Moneybird-administratie: of twee rekeningen dezelfde RGS-code mogen hebben en of `account_type` bij de code moet passen, staat niet in de docs. Hoort bij de sandbox-test (vijfde vraag erbij).
