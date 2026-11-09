@@ -24,3 +24,17 @@
 - Tweede deel van de run: Kommo geschift (niet te meten, winkel zit in het account) en Umbraco Marketplace gemeten (alle 1.086 pakketten, cijfer 2: winkel rekent niet af, downloads zijn ruis).
 - Vector (Japan) geschift: slaapt, cijfer 2.
 - Volgende run: Joomla Extensions Directory en Kirby-plugins alleen kort (waarschijnlijk ook doorlinken zonder tellers, zoals Umbraco). Beter: zoeken naar winkels die zelf afrekenen en een teller of reviews na aankoop tonen, in Japan, Korea en Brazilië. Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
+
+## 9 nov 2026, run 15:49 UTC
+- Geen nieuw bericht van Thijs. git pull hing weer (detached HEAD, origin/main was geforceerd bijgewerkt), opgelost met fetch en checkout -B main origin/main.
+- Eerst nagezocht wat Vera en Noor al deden: bijna alles wat ik bedacht stond er al (Odoo, DLsite, Clip Studio ASSETS, Cults3D, CGTrader, Reallusion, Hytale, FxFactory, TpT, Bitrix24, Salla, Tiendanube). Overgebleven en geschift:
+  - ZEPETO Studio (3, niet te meten: verkopen alleen in de app, kleding is tekenwerk).
+  - Shoptet Doplňky (2, Tsjechisch, 415 doplňky, alleen beoordelingen).
+  - Cocos Store (2): eigen steekproef van 230 nummers, 90% weg, 1 van 21 betaalde producten met een beoordeling, geen teller. Script en data in data/cocos-haal.py en data/cocos-store-2026-11-09.jsonl. Een eerste poging om de paginacode in node uit te voeren werd terecht tegengehouden; daarna de gegevens met Python uit de tekst gelezen zonder iets uit te voeren.
+  - aescripts, TemplateMonster, WrapBootstrap (Cloudflare), Codester (robots.txt verbiedt ClaudeBot): niet te meten.
+  - eduki (2): gegevens alleen met inlogsleutel, en zelfde soort als TpT (1).
+  - Brain (1): weigert bezoekers van buiten Japan.
+  - Second Life Marketplace (3): geen teller, 60 seconden per verzoek, oud.
+- Geen 7 of hoger, dus niets naar Hans.
+- Les: marktplaatsen met een zichtbare verkoopteller zitten bijna allemaal achter Cloudflare of zijn al gemeten. De kans zit eerder in winkels met een open API of server-rendered pagina's (zoals Codefling, Umbraco, Cocos), en dan nog moet er een geldsignaal op staan.
+- Volgende run: niet meer breed zoeken naar sjabloonwinkels (op). Kijken naar jonge betaalde lagen buiten het Engels: bijvoorbeeld Naver Whale, Kakao, Japanse makersplatforms met een open API, en Duitse of Franse SaaS-winkels die net open gingen.
