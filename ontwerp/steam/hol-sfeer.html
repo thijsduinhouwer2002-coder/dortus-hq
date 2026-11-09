@@ -1,0 +1,126 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif}
+.desk{position:absolute;inset:0;background:radial-gradient(1300px 700px at 30% 10%,#2f6a8a,#173f5c 55%,#0d2638)}
+.icons{position:absolute;left:22px;top:18px;display:grid;gap:26px;color:#fff;font-size:13px;text-align:center;text-shadow:0 1px 2px #0008}
+.icons div{width:76px}.icons i{display:block;width:44px;height:38px;margin:0 auto 6px;border-radius:6px;background:linear-gradient(#ffd56a,#e9a92b)}
+.win{position:absolute;left:1000px;top:60px;width:820px;height:330px;background:#fff;border-radius:10px;box-shadow:0 20px 60px #0007;overflow:hidden}
+.win .bar{height:38px;background:#f3f3f3;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#333}
+.grid{display:grid;grid-template-columns:60px repeat(6,1fr);font-size:13px;color:#333}
+.grid div{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;height:27px;line-height:27px;padding:0 8px;white-space:nowrap;overflow:hidden}
+.grid .h{background:#f6f6f6;color:#777;text-align:center}
+.task{position:absolute;left:0;right:0;bottom:0;height:48px;background:#202020f2;border-top:1px solid #ffffff14;display:flex;justify-content:center;align-items:center;gap:14px}
+.task span{width:30px;height:30px;border-radius:6px;background:#ffffff22}
+.task .s{width:200px;border-radius:15px;background:#ffffff18;color:#ddd;font-size:14px;line-height:30px;padding-left:30px;box-sizing:border-box}
+.clock{position:absolute;right:16px;bottom:8px;color:#fff;font-size:12px;text-align:right;line-height:1.35}
+svg.strip{position:absolute;left:0;bottom:48px;width:1920px;height:440px}
+.kop{position:absolute;left:150px;top:150px;color:#fff;font:italic 700 60px/1.08 Georgia,serif;text-shadow:0 3px 14px #000a;width:760px}
+.kop small{display:block;font:400 24px/1.4 Georgia,serif;font-style:normal;opacity:.85;margin-top:14px;letter-spacing:.02em}
+.card{position:absolute;left:1160px;top:392px;width:400px;padding:20px 24px 18px 118px;background:#efe3c8;color:#33200f;font:19px/1.4 Georgia,serif;transform:rotate(2.5deg);box-shadow:0 12px 28px #0008;border-radius:2px}
+.card em{display:block;font:600 12px Georgia,serif;letter-spacing:.18em;text-transform:uppercase;color:#9b2c1c;margin-bottom:6px;font-style:normal}
+.card b{display:block;font-size:27px;line-height:1.15;margin-bottom:8px}
+.card .por{position:absolute;left:18px;top:22px;width:82px;height:100px;background:#d9c7a1;border:2px solid #8b6a3e}
+.card ul{margin:0;padding:0;list-style:none;font-size:16px}
+.card li:before{content:"✕ ";color:#9b2c1c}
+.hud{text-align:right;position:absolute;right:36px;bottom:454px;color:#ffe2b0;font:600 19px Georgia,serif;letter-spacing:.05em;text-shadow:0 2px 6px #000c}
+.hud small{display:block;font:400 14px Georgia,serif;opacity:.8;letter-spacing:.12em;text-transform:uppercase}
+.bub{position:absolute;font:italic 600 20px Georgia,serif;color:#fff3d6;text-shadow:0 2px 6px #000}
+</style></head><body>
+<div class="desk"></div>
+<div class="icons"><div><i></i>Projects</div><div><i style="background:linear-gradient(#8fd0ff,#3a8fe0)"></i>Budget.xlsx</div><div><i style="background:linear-gradient(#ddd,#999)"></i>Recycle Bin</div></div>
+<div class="win"><div class="bar">Budget_Q4.xlsx · Excel</div>
+<div class="grid" id="g"></div></div>
+<div class="kop">You are the dungeon.<small>Heroes break into your lair at the bottom of your screen.<br>Some never leave. The ones who flee come back.</small></div>
+
+<svg class="strip" viewBox="0 0 1920 440">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="9"/></filter>
+<filter id="rough2"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="6"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".55"/></filter>
+<radialGradient id="gold" cx=".5" cy=".6" r=".5"><stop offset="0" stop-color="#ffd76a" stop-opacity=".75"/><stop offset="1" stop-color="#ffb02e" stop-opacity="0"/></radialGradient>
+<radialGradient id="torch" r=".5"><stop offset="0" stop-color="#ff9a3c" stop-opacity=".55"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient>
+<radialGradient id="slime" r=".5"><stop offset="0" stop-color="#8dff6a" stop-opacity=".45"/><stop offset="1" stop-color="#8dff6a" stop-opacity="0"/></radialGradient>
+<linearGradient id="room" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d100a"/><stop offset="1" stop-color="#2b170d"/></linearGradient>
+</defs>
+<!-- grass and surface -->
+<g filter="url(#shadow)">
+<path filter="url(#rough)" d="M0 70 C200 60 300 78 520 66 S900 58 1200 70 1600 60 1920 68 V440 H0Z" fill="#6b4328"/>
+<path filter="url(#rough)" d="M0 62 C240 52 400 72 620 58 S1000 50 1300 62 1700 50 1920 60 V80 C1600 76 1300 86 900 76 S300 84 0 80Z" fill="#4f7a32"/>
+<path filter="url(#rough)" d="M0 160 C300 150 600 172 960 158 S1600 150 1920 165 V440 H0Z" fill="#5a3720"/>
+<path filter="url(#rough)" d="M0 270 C350 262 700 282 1100 268 S1700 262 1920 276 V440 H0Z" fill="#482a17"/>
+<path filter="url(#rough)" d="M0 370 C400 362 900 380 1300 366 S1800 366 1920 372 V440 H0Z" fill="#371f10"/>
+</g>
+<rect y="60" width="1920" height="380" filter="url(#grain)" fill="#000"/>
+<!-- surface: entrance and approaching hero -->
+<g fill="#151515">
+<path d="M246 64 q14 -40 34 -40 q20 0 34 40z" fill="#2a1a10"/>
+<g transform="translate(150 6) scale(1.2)"><circle cx="10" cy="6" r="7"/><path d="M2 14 h16 l3 26 h-22z"/><rect x="3" y="38" width="5" height="12"/><rect x="12" y="38" width="5" height="12"/><path d="M18 18 l14 -14" stroke="#151515" stroke-width="3"/><path d="M0 16 l-8 22 l8 -4z" fill="#d8b23a"/></g>
+</g>
+<text x="196" y="34" font-family="Georgia" font-size="15" fill="#ffe9b8" font-style="italic">Sir Aldous, 1st visit</text>
+<!-- shaft down -->
+<path filter="url(#rough2)" d="M262 66 h38 v120 h-38z" fill="url(#room)"/>
+<!-- room 1: spike pit trap -->
+<path filter="url(#rough2)" d="M200 186 h330 v80 h-330z" fill="url(#room)"/>
+<path filter="url(#rough2)" d="M330 266 h120 v70 h-120z" fill="#120905"/>
+<g fill="#cfc6b4"><path d="M336 336 l8 -30 l8 30z M356 336 l8 -34 l8 34z M376 336 l8 -28 l8 28z M396 336 l8 -33 l8 33z M416 336 l8 -30 l8 30z M436 336 l6 -24 l6 24z"/></g>
+<!-- falling hero -->
+<g transform="translate(356 222) rotate(28) scale(1.5)" fill="#111"><circle cx="10" cy="6" r="7"/><path d="M2 14 h16 l3 22 h-22z"/><path d="M-2 16 l-10 -10 M22 16 l12 -12" stroke="#111" stroke-width="4"/><path d="M-1 18 l-14 14 l12 -2z" fill="#3a7bd5"/></g>
+<text x="395" y="226" font-family="Georgia" font-weight="700" font-size="30" fill="#ffd166" stroke="#000" stroke-width="1.2">!</text>
+<!-- torches -->
+<g><circle cx="226" cy="212" r="60" fill="url(#torch)"/><rect x="223" y="210" width="6" height="22" fill="#2a1a10"/><path d="M226 196 q8 10 0 16 q-8 -6 0 -16z" fill="#ffb347"/></g>
+<!-- tunnel to room 2 -->
+<path filter="url(#rough2)" d="M530 226 h170 v30 h-170z" fill="url(#room)"/>
+<!-- room 2: slime hall with fighting hero -->
+<path filter="url(#rough2)" d="M700 180 h360 q20 0 20 20 v70 h-380z" fill="url(#room)"/>
+<circle cx="900" cy="250" r="110" fill="url(#slime)"/>
+<g filter="url(#rough2)">
+<path d="M840 270 q0 -42 34 -42 q34 0 34 42z" fill="#6fcf4a"/><circle cx="862" cy="248" r="5" fill="#0d2a08"/><circle cx="884" cy="248" r="5" fill="#0d2a08"/>
+<path d="M920 270 q0 -28 22 -28 q22 0 22 28z" fill="#9be36f"/><circle cx="936" cy="256" r="3.5" fill="#0d2a08"/><circle cx="950" cy="256" r="3.5" fill="#0d2a08"/>
+</g>
+<g transform="translate(986 198) scale(1.5)" fill="#111"><circle cx="10" cy="6" r="7"/><path d="M2 14 h16 l3 22 h-22z"/><rect x="3" y="34" width="5" height="14"/><rect x="12" y="34" width="5" height="14"/><path d="M0 18 l-22 -6" stroke="#bbb" stroke-width="3"/><path d="M19 16 l10 22 l-12 -4z" fill="#c0392b"/></g>
+<text x="820" y="214" font-family="Georgia" font-weight="700" font-size="24" fill="#b9ff9a" stroke="#000" stroke-width="1">SPLAT</text>
+<text x="930" y="200" font-family="Georgia" font-size="15" fill="#ffe9b8" font-style="italic">Bram the Thrice-Fled</text>
+<g><circle cx="726" cy="205" r="50" fill="url(#torch)"/><rect x="723" y="203" width="6" height="20" fill="#2a1a10"/><path d="M726 190 q8 10 0 16 q-8 -6 0 -16z" fill="#ffb347"/></g>
+<!-- deep shaft and skeleton room -->
+<path filter="url(#rough2)" d="M780 270 h34 v60 h-34z" fill="url(#room)"/>
+<path filter="url(#rough2)" d="M600 330 h420 v60 h-420z" fill="url(#room)"/>
+<g stroke="#e8dcc4" stroke-width="4" fill="none" stroke-linecap="round">
+<g transform="translate(660 340)"><circle cx="10" cy="6" r="6" fill="#e8dcc4"/><path d="M10 13 v20 M2 20 h16 M10 33 l-6 12 M10 33 l6 12 M18 20 l10 -8"/></g>
+<g transform="translate(720 340)"><circle cx="10" cy="6" r="6" fill="#e8dcc4"/><path d="M10 13 v20 M2 20 h16 M10 33 l-6 12 M10 33 l6 12"/></g>
+</g>
+<g fill="#5c4a36"><rect x="800" y="364" width="40" height="22"/><rect x="850" y="370" width="26" height="16"/><path d="M900 386 q20 -30 40 0z"/></g>
+<text x="640" y="326" font-family="Georgia" font-size="14" fill="#e8dcc4" font-style="italic">the lodgers</text>
+<!-- digging cursor marker -->
+<path d="M1020 330 h150 v60 h-150z" fill="none" stroke="#ffe2b0" stroke-width="2.5" stroke-dasharray="10 8" opacity=".9"/>
+<text x="1030" y="366" font-family="Georgia" font-size="16" fill="#ffe2b0">dig here · 3 gold</text>
+<!-- tunnel to treasure -->
+<path filter="url(#rough2)" d="M1080 226 h220 v30 h-220z" fill="url(#room)"/>
+<!-- treasure vault -->
+<path filter="url(#rough2)" d="M1300 170 q0 -10 10 -10 h330 q10 0 10 10 v190 h-350z" fill="url(#room)"/>
+<ellipse cx="1475" cy="320" rx="230" ry="130" fill="url(#gold)"/>
+<g filter="url(#rough2)">
+<path d="M1360 360 q115 -110 230 0z" fill="#e7a92c"/>
+<path d="M1390 360 q85 -80 170 0z" fill="#f7c948"/>
+<path d="M1430 360 q45 -46 90 0z" fill="#ffe08a"/>
+</g>
+<g fill="#ffe9a6"><circle cx="1400" cy="352" r="5"/><circle cx="1452" cy="318" r="5"/><circle cx="1510" cy="324" r="5"/><circle cx="1560" cy="350" r="5"/><circle cx="1480" cy="300" r="4"/></g>
+<g transform="translate(1440 214)" fill="#6b3d1e" stroke="#2a1a10" stroke-width="2"><rect width="70" height="44" rx="4"/><path d="M0 14 h70" /><rect x="30" y="12" width="10" height="12" fill="#ffd166"/></g>
+<!-- owner: a little horned keeper sitting on the gold -->
+<g transform="translate(1590 286)"><path d="M0 40 q0 -30 22 -30 q22 0 22 30z" fill="#7a2c3a"/><path d="M8 14 l-6 -14 l12 10z M36 14 l6 -14 l-12 10z" fill="#e8dcc4"/><circle cx="16" cy="24" r="3.5" fill="#ffd166"/><circle cx="29" cy="24" r="3.5" fill="#ffd166"/></g>
+<text x="1560" y="276" font-family="Georgia" font-size="14" fill="#ffe2b0" font-style="italic">you</text>
+<!-- roots and stones -->
+<g stroke="#2b190e" stroke-width="3" fill="none" opacity=".8"><path d="M120 80 q10 40 -6 70 q-8 20 4 40"/><path d="M1180 80 q-10 30 8 60"/><path d="M1760 76 q12 40 -4 80 q-6 30 10 60"/><path d="M640 80 q-6 30 6 60"/></g>
+<g fill="#7b5a3c" opacity=".7"><ellipse cx="120" cy="300" rx="22" ry="12"/><ellipse cx="1220" cy="330" rx="18" ry="10"/><ellipse cx="1780" cy="250" rx="26" ry="14"/><ellipse cx="560" cy="400" rx="20" ry="10"/><ellipse cx="1820" cy="400" rx="16" ry="9"/></g>
+</svg>
+<div class="hud"><small>The Hollow · depth 3</small>Today: 6 heroes in · 4 stayed · 2 fled</div>
+<div class="card"><div class="por"><svg viewBox="0 0 82 100" width="82" height="100"><circle cx="41" cy="36" r="20" fill="#2a1a10"/><path d="M12 100 q0 -40 29 -40 q29 0 29 40z" fill="#2a1a10"/><path d="M50 26 l-12 22" stroke="#c0392b" stroke-width="3"/><path d="M14 100 l20 -36 l8 6z" fill="#c0392b"/></svg></div>
+<em>Returning hero · visit 4</em><b>Bram the Thrice-Fled</b>
+<ul><li>Scar over the left eye (your spikes)</li><li>Grudge: slimes</li><li>Now carries a torch and salt</li></ul></div>
+<div class="task"><span style="background:#3aa0ff"></span><span class="s">Search</span><span style="background:#f2c94c"></span><span style="background:#1e7a3c"></span><span style="background:#2b6fdb"></span><span style="background:#7a2c3a"></span></div>
+<div class="clock">17:42<br>9-11-2026</div>
+<script>
+const g=document.getElementById('g');const rows=[["","A","B","C","D","E","F"],["1","Item","Oct","Nov","Dec","Q4","Δ"],["2","Hosting","€ 120","€ 120","€ 135","€ 375","+4%"],["3","Licenses","€ 480","€ 480","€ 480","€ 1.440","0%"],["4","Travel","€ 210","€ 90","€ 300","€ 600","-12%"],["5","Hardware","€ 0","€ 1.250","€ 0","€ 1.250",""],["6","Events","€ 350","€ 0","€ 420","€ 770","+8%"],["7","Marketing","€ 900","€ 1.100","€ 1.300","€ 3.300","+15%"],["8","Total","","","","€ 7.735",""],["9","","","","","",""],["10","","","","","",""]];
+rows.forEach((r,i)=>r.forEach((c,j)=>{const d=document.createElement('div');d.textContent=c;if(i==0||j==0)d.className='h';if(i==1||i==8)d.style.fontWeight=600;g.appendChild(d)}));
+</script>
+</body></html>
