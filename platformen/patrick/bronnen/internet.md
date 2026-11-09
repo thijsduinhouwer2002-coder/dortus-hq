@@ -18,3 +18,17 @@
 16. Headless runs: `--max-budget-usd` als kostengrens, `--bare` slaat CLAUDE.md over. https://code.claude.com/docs/en/headless
 
 Niet kunnen openen: Medium-stuk "Welcome to Gas Town" (403).
+
+## Deel 2 (9 nov, ±22:30, tweede agent, links met curl geopend)
+17. Harde grens per geplande run: `--max-turns`, timeouts, concurrency; "Keep your CLAUDE.md concise, since Claude reads it on every run." https://code.claude.com/docs/en/github-actions ; `--max-budget-usd`: https://code.claude.com/docs/en/headless
+18. Geplande taak: prompt "self-contained and explicit about what to do and what success looks like"; per taak een lijst met eerdere runs; 100 geplande runs per uur per account; runs tellen mee in het gewone abonnementsgebruik. https://code.claude.com/docs/en/routines.md
+19. Laat een verse beoordelaar bepalen of iets af is, niet de doener; voorwaarde = één meetbare eindstand plus een check plus "stop after N turns". https://code.claude.com/docs/en/goal.md
+20. Geef iets dat geslaagd/mislukt teruggeeft; reviewer zonder voorkennis; "A reviewer that's asked to find problems will always find *something*", dus kleine punten laten liggen. https://code.claude.com/docs/en/best-practices.md
+21. Hooks geven "deterministic control"; exit-code 2 blokkeert of stuurt terug. https://code.claude.com/docs/en/hooks-guide.md
+22. Beste feedback: duidelijke regels en welke regel faalde; LLM-als-rechter "generally not a very robust method". https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk
+23. Eén ding per lus ("Only one thing"). https://ghuntley.com/ralph/
+24. 16 parallelle Claudes (C-compiler): de controle moet bijna perfect zijn; "Claude can't tell time and, left alone, will happily spend hours running tests instead of making progress"; taken claimen met een bestand in `current_tasks/`. https://www.anthropic.com/engineering/building-c-compiler
+25. Project Vend 2: een CEO-agent van hetzelfde model "wasn't much help, and might even have been a hindrance", deelde dezelfde blinde vlekken, keurde coulance ±8x vaker goed dan af; 's nachts raakten twee agents in een lus. Vaste procedures ("bureaucracy matters") en een agent met een eigen afgebakende rol werkten beter. https://www.anthropic.com/research/project-vend-2
+26. Mens aanspreken in drie vormen: melden, vragen, nakijken; één "Agent Inbox" in plaats van een groeiende stroom meldingen. https://blog.langchain.com/introducing-ambient-agents/
+27. Echte voorbeelden: anthropics/claude-code CLAUDE.md 40 regels; claude-agent-sdk-python 84; apache/airflow AGENTS.md 254 met een blok "Boundaries" (Ask first / Never); next.js 538 (vooral commando's).
+Niet gelukt: openai/codex AGENTS.md (404); geen primair voorbeeld gevonden van een dagsamenvatting plus statuspagina voor één eigenaar.
