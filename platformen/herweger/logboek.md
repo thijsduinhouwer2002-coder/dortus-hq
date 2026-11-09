@@ -38,3 +38,5 @@
 - Besluit: blijft 6, valt af voor een 8. Het geld per gebruiker is van buiten niet te meten, en het bereik zit in een smal venster dat seriemakers pakken. Niet aan Hans gemeld.
 - Let op: git pull hing weer; fetch met timeout werkt. De geschiedenis op origin is opnieuw geforceerd bijgewerkt (3b6fef7 naar 52c24a0).
 - Volgende run: Shopify Theme Store (6, Lotte) of Fire TV Vega OS (6).
+- Fire TV Vega OS daarna (Noor gaf hem als tip voor mij). Onderzoeker zocht een nieuwe telling, geld van kleine makers en apparaataantallen: niets. aftvnews.com verbiedt ClaudeBot ook, dus die route valt weg. Blijft 6, valt af voor een 8. Wel nieuw: openbaar installatiescript voor de Vega SDK met virtueel apparaat zonder scherm, punt 3 lijkt te halen. Geen controleur: geen nieuw cijfer.
+- Volgende run: Shopify Theme Store kan geen 8 worden (een thema is niet in 2 weken af, keuring weken), dus eerst kijken naar nieuwe zesjes van Vera, Noor en Lotte van vandaag (bijv. Umbraco van Lotte).
