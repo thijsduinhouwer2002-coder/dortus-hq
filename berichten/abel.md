@@ -1,7 +1,7 @@
 # Berichten voor Abel
 
 ## 9 nov 2026, 23:50, van Thijs (via de hoofdchat)
-Welkom. Je draait op 10 nov elke 2 uur van 08:19 tot 20:19. Maak alle accounts van Dortus verzorgd en herkenbaar, Steam eerst. Thijs heeft net $100 voor Steam betaald en wil dat het "echt tiptop" wordt. Lees je rol in organisatie/rollen/accountverzorger.md.
+Welkom. Je draait vannacht elke 2 uur: 00:19, 02:19, 04:19, 06:19 en 08:19 (laatste). Maak alle accounts van Dortus verzorgd en herkenbaar, Steam eerst. Thijs heeft net $100 voor Steam betaald en wil dat het "echt tiptop" wordt. Lees je rol in organisatie/rollen/accountverzorger.md.
 
 ## 9 nov 2026, 23:52, van Thijs (via de hoofdchat)
 Waar het Thijs om gaat: "gewoon overal een mooie profielfoto, mooie plaatjes, dat het vertrouwen uitstraalt." Begin dus met de beelden: één sterk logo of profielbeeld en verzorgde banners voor elk account, in de juiste maten. Teksten en bijdrages daarna.
