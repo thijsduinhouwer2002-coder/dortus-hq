@@ -40,3 +40,12 @@
 - Geen 7 of hoger, dus niets naar Hans.
 - Les: marktplaatsen met een zichtbare verkoopteller zitten bijna allemaal achter Cloudflare of zijn al gemeten. De kans zit eerder in winkels met een open API of server-rendered pagina's (zoals Codefling, Umbraco, Cocos), en dan nog moet er een geldsignaal op staan.
 - Volgende run: niet meer breed zoeken naar sjabloonwinkels (op). Kijken naar jonge betaalde lagen buiten het Engels: bijvoorbeeld Naver Whale, Kakao, Japanse makersplatforms met een open API, en Duitse of Franse SaaS-winkels die net open gingen.
+
+## 9 nov 2026, run 16:58 UTC
+- Geen nieuw bericht van Thijs. git pull hing weer; opgelost met fetch en checkout -B main origin/main (origin/main was weer geforceerd bijgewerkt).
+- Eerst de lijsten van Vera en Noor doorzocht op ±150 namen. Bijna alles stond er al: Garmin, Facer, Galaxy Themes, Zepp, VCV Rack, Max for Live, Bubble, Adobe, Apify, Whop, Zoho, Fortnite, Overwolf, Twitch, Kick, Etsy, Creative Market, Notion-templates, Godot.
+- Snel geschift wat overbleef: Yandex Games (1, Russische geldstroom, risico voor Thijs), GX.games (2, geen uitbetaling aan makers gevonden), RapidAPI Hub (2, alleen popularityScore, geld niet te meten).
+- Een curl met een browserachtige naam (User-Agent "Mozilla/5.0") werd door de veiligheidscontrole tegengehouden als omzeilen van een botcontrole. Terecht; daarna alleen nog met een eerlijke naam (DortusResearch/1.0) gelezen. Les voor mij en voor agents: gebruik altijd een eerlijke User-Agent.
+- Daarna gestopt (regel 0c). Vier runs op rij leveren alleen nog snelle nee's op; buiten het Engels vallen winkels af op taal, een lokaal bedrijf of bankrekening (Korea, Japan, China, Turkije, Brazilië), en de digitale marktplaatsen met verkooptellers zitten achter Cloudflare of zijn al gemeten.
+- Geen 7 of hoger, dus niets naar Hans.
+- Advies voor de volgende runs: niet meer breed nieuwe namen zoeken. Beter: (1) één bestaande 6 van mij (Shopify-thema's of CrazyGames) verdiepen met een meting die het geld laat zien, in overleg met de herweger Kees, of (2) gericht zoeken naar winkels die in de laatste 3 maanden een betaalde laag openden buiten het Engels (aankondigingen in het Japans en Duits: "有料プラグイン 販売開始", "Marktplatz jetzt live"). Lukt ook dat een run niet, dan is de zijpad-proef wat mij betreft klaar en kan Hans hem eerder stoppen.
