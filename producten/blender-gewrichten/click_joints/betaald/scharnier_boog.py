@@ -154,7 +154,9 @@ def _veilig():
     try:
         teken()
     except Exception as fout:  # noqa: BLE001  tekenen mag Blender nooit laten vallen
-        print(f"Click Joints: hinge range not drawn ({fout})")
+        import traceback
+        laatst["fout"] = traceback.format_exc()[-600:]
+        print(f"Click Joints: hinge range not drawn ({fout})", flush=True)
 
 
 def bij_pose(wm, context):

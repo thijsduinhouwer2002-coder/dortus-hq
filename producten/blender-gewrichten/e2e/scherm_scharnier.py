@@ -30,11 +30,13 @@ from scherm_basis import log, schiet, toestand, weergave, zijbalk, zip_pad  # no
 
 POSE = 60.0
 VOORBIJ = 3.0  # graden voorbij de gemeten stop op plaatje 12
-# Rood op 12 alleen rond de stop: minstens 300 pixels (er is echt rood te zien), hoogstens 3000. Met de hele
-# bovenkant van A rood (run 42626458193, B 8 graden voorbij, lange cilindervlakken) waren het er 4006 en 4039;
-# de stop is een strook van een paar mm bij H, dus ruim onder die 4000.
-ROOD_MIN, ROOD_MAX = 300, 3000
-ROOD_STRAAL = 1.6  # rode vlakken: middelpunt binnen 1,6 keer de staafstraal van het draaipunt
+# Rood op 12 alleen rond de stop: hoogstens 3000 pixels. Met de hele bovenkant van A rood (run 42626458193,
+# B 8 graden voorbij) waren het er 4006 en 4039; de stop is een strook van een paar mm bij H, dus ruim minder.
+# Ondergrens 30 en niet 300: het rode materiaal is in Solid belicht meestal donkerder dan r 0,7 (run 42633644592:
+# heel A rood gaf maar 193 pixels), dus 300 zou ook bij een goede stop falen. Dat er rood is bewijzen de rode
+# vlakken; de pixels laten zien dat het in beeld komt.
+ROOD_MIN, ROOD_MAX = 30, 3000
+ROOD_STRAAL = 3.0  # rode vlakken: middelpunt binnen 15 mm van H (A is 20 mm lang; de stopvlakken reiken tot 12,4)
 STAAF_R = 5.0
 BOOG_MIN = 1500  # pixels die met de boog aan duidelijk lichter zijn (boog, streepjes, getal, kop)
 staat = {}
@@ -175,6 +177,10 @@ def verslag(naam, graden, rood_vlakken, voorbij, zonder):
     wit = boog_pixels(zonder, os.path.join(scherm_basis.uitmap, naam))
     verst = rood_bij_stop(a) if a else -1.0
     tekst = boog_mod.tekst(a) if a else None
+    if boog_mod.laatst.get("fout"):
+        log(f"SCHARNIER boogfout: {boog_mod.laatst['fout']!r}")
+    log(f"SCHARNIER handler={boog_mod._handler[0] is not None} boog_aan={bpy.context.window_manager.cj_scharnier_boog} "
+        f"laatst={boog_mod.laatst}")
     eisen = {
         "plaatje bestaat": rood >= 0,
         "maat 1920x1080": maat == (1920, 1080),

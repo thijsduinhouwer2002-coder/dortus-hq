@@ -126,6 +126,8 @@ def pose(a, b, graden, kleur_rood=None):
                                  [tuple(p.vertices) for p in b.data.polygons])
     vlakken = sorted({me.loop_triangles[i].polygon_index for i, _ in bvh_a.overlap(bvh_b)})
     if vlakken:
+        if len(me.materials) == 0:
+            me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is heel A rood
         namen = [m.name if m else None for m in me.materials]
         if kleur_rood.name in namen:
             vak = namen.index(kleur_rood.name)
