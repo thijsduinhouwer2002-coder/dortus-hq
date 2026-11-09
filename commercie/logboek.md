@@ -330,3 +330,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN):** winkel 3,7 keer zo vol in 7 maanden; schone week 2 tot 9 nov: mediaan ±2 per dag, 3 tot 5% haalt 24+; Dice Table en Perhaps ±2 per dag; Atlas VTT groeide door een eigen YouTube-video (808K) en XDA, en heeft tabellen in de bèta.
 **Controleur:** akkoord mits. Moet: tabel 2b gold alleen voor trage starters (nu alle plugins, 3 tot 5%, trage starters apart), Sheetsmith sinds 7 sep, downloads zijn geen gebruikers, Reddit niet te controleren in plaats van "niet gedragen", ±70 tot 190 in plaats van ±100 tot 200. Alles verwerkt, kan-punten ook (methode, deel 1, bèta, GOK bij Atlas-publiek, script aangevuld).
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, Reddit-bericht volgen, lat uit groeimaat.md gebruiken); elke run de seintjes voor Click Joints en Bison & Flex.
+
+## 9 nov 2026 ±07:45 tot 08:15 UTC: Rollwright, run 26 (Reddit-tekst definitief met trailer v4 B)
+**Gelezen:** berichten (nieuw: 9 nov 08:00, Reddit met de mp4 van v4 B en een eerlijke regel), doelen, regels, besluiten (nieuwste), rol, lijst-thijs (begin), voor-projectchat en LEESMIJ van v4.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak en `git pull` bleef hangen (GitHub had weer een geforceerde update van main); main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 07:47):** forumdraad 1 bericht, 19 keer bekeken, niet gesloten; Rollwright 9 downloads; listing heeft de nieuwe korte tekst (advies 29 gedaan), `community-plugins.json` nog de oude; README 0.3.3 toont dezelfde film als de mp4 (GIF md5 gelijk); mp4-link 200.
+**Beslissing:** het bericht van Thijs eerst, want het heeft een tijd (14:45 NL). Eerlijke alinea direct na de eerste zin, zodat niemand de film ziet, installeert en zich bedrogen voelt.
+**Gedaan:** `rollwright/lancering.md` deel run 26 (stappen vooraf, soort post, titel, tekst, wat er anders is, wat ik in de film zag, concept-antwoorden); regel op lijst-thijs; bericht verwerkt. Regels van r/ObsidianMD konden weer niet gelezen worden (403, niet omzeild, geen spiegelsites).
+**Controleur:** akkoord mits. Moet: vonken, rood waas en titelkaarten ontbraken in de eerlijke alinea; "tumbles" klopt niet voor gratis Classic sinds 0.3.2; concept-antwoord beloofde dat gratis eruitziet als het venster in de film. Alles verwerkt, kan-punten ook.
+**Volgende run:** na het plaatsen (13:45 UTC of later) de downloads van dag 1 meten tegen `groeimaat.md`; seintjes voor Click Joints en Bison & Flex.

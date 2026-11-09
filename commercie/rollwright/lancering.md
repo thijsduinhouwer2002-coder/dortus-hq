@@ -503,3 +503,74 @@ Eerst de zijbalk en de regels van r/ObsidianMD in de browser lezen (Reddit geeft
 
 ### Keuring run 20
 Controleur (los van mij, 16 beelden uit de mp4, LEESMIJ en `frames.json`, links en gedragscode met curl): **akkoord mits**. Moet, verwerkt: (1) "recorded in one take" klopte niet (losse schermafbeeldingen uit een testrun, uitsnede uit een andere run) en de zin noemde alleen licht en vonken; nieuwe zin noemt vergroten, licht, stralen en "Critical hit" en zegt "captured from the real app"; (2) het logboek toont ook een oudere Damage 7. Kan, verwerkt: tweede onderschrift genoemd, uitleg mp4 opslaan. Kan, doorgegeven: "één opname" in het voorstel van Daan op lijst-thijs is strikt genomen niet juist (in mijn logboek, voor Daan).
+
+## Bijwerking 9 nov 2026 (run 26): r/ObsidianMD, DEFINITIEF met trailer v4 B als video
+
+Door Chris, 9 nov ±07:45 tot 08:30 UTC, op het bericht van Thijs van 9 nov 08:00. **Dit deel vervangt de keuze A of B van run 20 en het beeld van run 10.** Plaatsen gaat via de hoofdchat, op zijn vroegst **9 nov 13:45 UTC (14:45 NL)**. Titel en tekst hieronder zijn letterlijk te plakken.
+
+### Vlak voor het plaatsen (hoofdchat, ±3 min)
+1. Forumdraad nog in orde? https://forum.obsidian.md/t/121721.json : niet gesloten, geen klacht of waarschuwing van een moderator (regel 2 en 7 van Thijs). Stand GEZIEN 07:47 UTC: 1 bericht (alleen dat van Thijs), 19 keer bekeken, niet gesloten, zichtbaar.
+2. Lees in de browser de zijbalk en de regels van r/ObsidianMD (Reddit geeft 403 op curl; niet omzeild, ook geen spiegelsites gebruikt). Let op: zelfpromotie, verplichte flair, regels over AI of over video. Twijfel: niet plaatsen, vraag op lijst-thijs (regel 3).
+3. Download de video: https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/rollwright/v4/demo-v4-b.mp4 (200, 3,5 MB, 16,6 s, 1280x720, h264, GEZIEN 07:47 UTC). Opent meestal als speler: rechtsklik, "Video opslaan als".
+
+### Soort post
+Post met media: upload de mp4 als video, en zet de tekst in het tekstveld eronder. Flair: wat de subreddit voor plugins voorschrijft (bijvoorbeeld "Plugins" of "Showcase"; kies volgens de zijbalk). Laat het formulier geen tekst toe bij een video: maak een gewone tekstpost met precies dezelfde titel en tekst en voeg de video in met de knop voor afbeelding of video in de editor. Lukt ook dat niet: dan de GIF https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif (dezelfde film, zelfde md5 als `demo-v4-b.gif`, GEZIEN), met dezelfde tekst.
+
+### Titel
+```
+I made a dice roller plugin where a natural 20 lands in gold, and every roll you click goes into a Roll log
+```
+
+### Tekst
+```
+I made Rollwright, a dice roller for people who run or play tabletop games in Obsidian. It is now in the community directory. You write a formula in a note, read the result, and click it to roll again.
+
+About the video, to be clear: the parchment look of the note (the paper, the fonts, the banner, the pinned handout, the cards and the wolf and trap icons) is my own CSS snippet, not part of the plugin. The bestiary pages, the titles and captions, the zoom, and the rays, sparks and red glow were added for the video. The dice, the gold and red results and the Roll log are the free plugin, captured from the real app. Parchment and Arcane at the end are optional paid skins.
+
+What I cared about most is the moment of the roll. Click a result and the die turns and the new number lands. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and the lowest turns red. Every roll you click goes into a Roll log, grouped by note and session, so after a session you can read back what happened.
+
+It uses the same `dice:` notation as the Dice Roller plugin, so notes you already have should keep working. On top of that:
+
+- Roll on your own tables, lists, sections, single lines and tagged notes. A lookup table picks the row that matches a roll.
+- `dice+:` keeps a result after a restart, `dice-mod:` writes the result into the note after you confirm.
+- Numbers from your frontmatter work in a roll: with `str: 3`, `dice: 1d20 + str` adds 3.
+- Keep highest, exploding dice, rerolls, success counting, Fudge dice and Genesys narrative dice.
+
+All rolling is free. There are optional paid skins (a one-time purchase), which is how I hope to keep working on it. No account and no telemetry. Open source (MIT).
+
+To be upfront: the code is written by AI agents that my small studio, Dortus, runs. I direct and test the work; I don't write the code myself. Every release runs automated tests in the real Obsidian app, and the full source is on GitHub.
+
+Install: https://community.obsidian.md/plugins/rollwright ("Add to Obsidian")
+Source: https://github.com/thijsduinhouwer2002-coder/rollwright
+
+Happy to answer questions here.
+
+Made by Thijs at Dortus
+```
+
+### Wat anders is dan run 10, en waarom
+- **Tweede alinea is nieuw** (op verzoek van Thijs): de perkamentstijl is eigen CSS en geen deel van de plugin, Parchment en Arcane zijn optionele skins. Ik heb er de bestiariumbladen, de zoom, de stralen en de onderschriften bij gezet, omdat die ook niet in de plugin zitten (Daan zegt dat zelf in `ontwerp/rollwright/v4/bron/LEESMIJ.md` en `voor-projectchat.md`). Het staat bovenaan, direct na de eerste zin, zodat niemand eerst de film ziet, installeert en zich bedrogen voelt. Het woord "paid" bij de skins staat er met opzet: de gedragscode van Obsidian zegt "paid content will always receive additional scrutiny".
+- De wolf en val in de notitie zijn plaatjes in de snippet (game-icons.net, Lorc, CC BY 3.0, volgens Daan), daarom staan ze in het rijtje van de snippet.
+- "it tumbles and lands" werd "the die turns and the new number lands": sinds 0.3.2 maakt de d20 in de gratis Classic alleen een kwartslag en vervaagt het getal in beeld (CHANGELOG 0.3.2, GEZIEN); tuimelen is van de betaalde skins. Het forumbericht is ouder en blijft zoals het is (één draad, niet bewerken voor dit kleine punt).
+- Verder letterlijk de gekeurde tekst van run 10. Geen nieuwe belofte over wat de plugin doet.
+
+### Wat ik zelf in de film zag (GEZIEN, 9 beelden, één per 2 s, plus het laatste beeld)
+Haak "NAT 20" met de kaart Perception 22 en stralen; titel "ROLLWRIGHT, Dice that roll inside your notes"; het venster met de notitie "The Drowned Lantern" op perkament; drie bestiariumbladen naast het venster (The Wolf bij Attack 23, The Trap bij Dex save 2 met NAT 1 in rood, onderschrift "A natural 1 lands in red", The Lantern bij Perception 22 met NAT 20, onderschrift "A natural 20 lands in gold"); het Roll log met Perception 22 NAT 20, Dex save 2 NAT 1, Damage 11 ("Every throw, kept in your session log"); Parchment en Arcane naast elkaar, elk "OPTIONAL SKIN"; eindkaart "A natural 20 lands in gold. Every throw, kept.", knop "Free in Obsidian Community Plugins", "Parchment and Arcane: optional skins", "Made by Thijs at Dortus". Onderin de meeste beelden: "Real plugin footage · Obsidian". Alles wat de film over de plugin beweert, staat in de tekst of in de README van 0.3.3.
+
+### Ook nagekeken (GEZIEN 07:47 UTC)
+- Listing https://community.obsidian.md/plugins/rollwright 200, met de nieuwe korte tekst ("A natural 20 lands in gold ... keep your rolls in a Roll log"). `community-plugins.json` op GitHub heeft nog de oude tekst; dat is de lijst die Obsidian zelf bijhoudt en volgt later (GOK).
+- README op main van de repo rollwright is 0.3.3 en toont dezelfde film als `images/demo.gif`, met eronder dezelfde eerlijke regel over de snippet en de skins. Bericht en README zeggen dus hetzelfde.
+- Downloads: 9 (GEZIEN, community-plugin-stats.json). Dat is de nulmeting voor Reddit.
+
+### Antwoorden klaar voor de draad (concepten, alleen in de eigen draad, kort)
+- **"Can I get the CSS snippet?"** `It's a quick snippet I made for the video, not something I've polished for sharing yet. If more people want it I'll look at cleaning it up for the repo.` (Niets beloven met een datum. Wil Thijs hem delen, dan maakt de ploeg hem netjes; de iconen zijn CC BY 3.0 (Lorc), dus alleen met naamsvermelding.)
+- **"So the free version doesn't look like this?"** `The rolls, the gold natural 20, the red natural 1 and the Roll log are all free. In the video they sit on my parchment CSS snippet; in your vault the free look takes your theme's colours and fonts. Parchment and Arcane, shown at the end, are the two paid skins.`
+- **"Why not just use Dice Roller?"** `Dice Roller is great and Rollwright reads the same dice: notation. I wanted the roll itself to feel like a moment and to keep a log of every roll you click, per session. If Dice Roller does what you need, stick with it.`
+- **"AI-written, no thanks."** Niet in discussie gaan. Hooguit: `Fair enough. I wanted to be upfront about it. The source and the tests are public if you want to judge the code.`
+- Vragen over geld, terugbetalen, privacy of juridisch: niet beantwoorden, bovenaan lijst-thijs (regel 5).
+
+### Na het plaatsen
+De hoofdchat zet de link, datum en de volledige tekst in `commercie/rollwright/berichten-geplaatst.md` en één regel op lijst-thijs (regel 6). Reddit is niet met curl te volgen; ik meet het effect met de downloads (dag 1 na het bericht, dag 3, dag 7) tegen de lat in `groeimaat.md`. Discord (plek 3) op zijn vroegst een dag na Reddit en alleen zonder klachten of verwijdering.
+
+### Keuring run 26
+Controleur (los van mij; 17 beelden uit de mp4 plus het laatste, README, LICENSE, CHANGELOG en code van 0.3.3, forumbericht, links en gedragscode met curl): **akkoord mits**. Moet, verwerkt: (1) de eerlijke alinea miste de vonken, het rode waas en de titelkaarten, en "are added" werd "were added"; (2) "tumbles" klopt niet meer voor de gratis Classic sinds 0.3.2; (3) het concept "look like the window in the video" beloofde te veel, want gratis neemt de kleuren en letters van je eigen thema. Kan, verwerkt: handout en kaarten in het rijtje van de snippet, "every roll you click" in het antwoord over Dice Roller, zachtere zin over de snippet met de CC BY-voorwaarde. Bevestigd: alle beweringen kloppen met 0.3.3 (ook "highest possible roll lands in gold": MAX krijgt dezelfde gouden stijl), alle links 200 (github.com gaf via de proxy 504, de API zegt publiek en MIT), Engels zonder gedachtestreepjes. Niet te controleren: de zijbalk van r/ObsidianMD (403); stap 2 blijft dus nodig.
