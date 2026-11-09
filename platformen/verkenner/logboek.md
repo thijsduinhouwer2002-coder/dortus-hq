@@ -647,3 +647,4 @@ Nieuwste blok onderaan.
 - Controleur: akkoord na 5 correcties, vooral: mei tot juli was een stilstand van de reviews tijdens de overstap, geen inzakking.
 - Les: de comments-API weigert limit boven 50 met een foutmelding in JSON; mijn eerste ophaling gaf daardoor 0 regels zonder fout. Altijd na een minuut controleren of er echt data binnenkomt.
 - Herhaalmeting begin feb 2027 in taken.md.
+- Na afsluiten nog tijd: Reason Studios Shop en Twitch Extensions opnieuw geprobeerd met de netwerktruc; beide blijven niet te meten (geen API met cijfers, robots.txt verbiedt het dashboard). Run afgesloten.
