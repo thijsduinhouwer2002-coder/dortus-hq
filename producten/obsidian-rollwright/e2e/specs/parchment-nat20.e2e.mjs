@@ -46,7 +46,10 @@ async function meet() {
 		const r = el.getBoundingClientRect();
 		// Zoek "Bite" en "hits" in de tekstnodes van de alinea zelf (niet in het token): het token kan in
 		// een eigen omhulsel staan, dus previousSibling is niet altijd de tekst (run 42634862383).
-		const p = el.closest("p");
+		// Het kleinste omhulsel boven het token dat beide woorden bevat (in lezen niet altijd een <p>, run 42636416109).
+		let p = el.parentElement;
+		while (p && !(p.textContent.includes("Bite") && p.textContent.includes("hits"))) p = p.parentElement;
+		if (!p) return { klassen: el.className, voorTekst: "", naTekst: "", html: (el.parentElement?.outerHTML ?? "").slice(0, 600) };
 		const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
 		let bite = null, hits = null;
 		for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -71,6 +74,7 @@ async function meet() {
 		const s = getComputedStyle(el);
 		return {
 			klassen: el.className,
+			titel: document.querySelector(`${sel} .view-header-title`)?.textContent ?? "",
 			wereld: !!el.closest(".rollwright-world"),
 			voorTekst, naTekst,
 			margeLinks: s.marginLeft, margeRechts: s.marginRight,
@@ -115,6 +119,7 @@ describe("Rollwright: NAT 20 in Parchment naast een woord (keuring 0.3.4)", func
 			console.log(`PARCHMENT NAT20 ${thema}:`, JSON.stringify(m));
 			await browser.saveScreenshot(`${SHOTS}/parchment-nat20-${thema}.png`);
 
+			expect(m.titel).toBe("Parchment nat20");
 			expect(m.klassen).toContain("rollwright-crit");
 			expect(m.wereld).toBe(true);
 			expect(m.voorTekst).toContain("Bite");
