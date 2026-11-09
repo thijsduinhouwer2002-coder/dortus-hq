@@ -134,3 +134,10 @@
 - Besluit: de wand-regel ("hat goes on the wall") alleen voor aartsvijanden en pas als de wand te zien is. Waarom: in de film kreeg een één keer gevluchte held hem en er hing niets; een regel die iets belooft wat je niet ziet is oneerlijk en verwarrend. Mijn eigen fout in de voorraad, hersteld.
 - Besluit: hoedenberg krijgt een zesde maat bij 3000 (Brams vraag). Waarom: met ±27 per uur (sim, GEZIEN) is 1000 rond dag 5 van een werkdag open, 3000 rond dag 14; twee weken zichtbare groei, daarna telt de hover door en neemt het heldenboek (versie 1) het over met stempels. Een maat 10.000 als berg zou na ±46 werkdagen pas komen, dat ziet bijna niemand.
 - Controleur (agent): akkoord na verbeteren; 2 MOET (wand-regel ook uit de lijst voor aartsvijanden zolang de wand er niet is, Nemesis-regel naar een eigen lijst) en 4 KAN verwerkt.
+
+## 9 nov 2026, Bram (run 22:10 UTC)
+- Click Joints: geen nieuwe issues in de repo click-joints (zoek-API: 0), geen bericht van moderatoren. Steam dus.
+- Gedaan (Sanne 21:50, Mila 21:55): hoedenberg maat 6 bij 3000, breder en niet hoger dan maat 5; 10 hoedsoorten in held.gd, slijm.gd, voortgang.gd; wand-regel weg en `afgerekend_aarts` in kroniek_regels.gd. Sim GEZIEN: maat 3000 na 110 tot 114 u open tijd.
+- Besluit: maat 6 als afgeknotte piramide van 6 rijen (33 zichtbaar). Waarom: Sanne wil niet hoger dan maat 5, want Gloops plek is twee rijen; breder laat toch zien dat de berg groeide tot Mila's tekening er is.
+- Besluit: werk op een tak en pas naar main als de workflow groen is. Waarom: Godot draaien mocht deze run niet in mijn eigen omgeving, dus de toetsen draaien alleen in steam-hol.yml.
+- Controleur (agent): eerst niet akkoord, 2 MOET verwerkt (toets telde 3000 in plaats van 2999; voortgang.gd gaf alleen hoed 0 tot 3); strook.gd en regels.gd van Olaf gevraagd in taken.md.

@@ -65,7 +65,7 @@ static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Arra
 	for i in opgegeten:
 		var k := i % slijmen.size()
 		if slijmen[k].has_method("krijg_hoed"):   # kern/standin_slijm.gd kent geen hoeden
-			slijmen[k].krijg_hoed(rng.randi_range(0, 3))
+			slijmen[k].krijg_hoed(rng.randi_range(0, 9))   # 10 hoedsoorten (Mila 21:55)
 			per[k] += 1
 	uitkomst["hoeden_gegeven"] = per.reduce(func(a, b): return a + b, 0) > 0
 	return per

@@ -306,7 +306,7 @@ func _init() -> void:
 		hoogste5 = mini(hoogste5, int(b[2]))
 		links5 = mini(links5, int(b[1]))
 	ok(g.berg_maat() == 5 and g.berg().size() == 21, "1000 hoeden: maat 5, 21 zichtbaar (%d)" % g.berg().size())
-	for i in 2000:
+	for i in 1999:
 		g.raak(i % 10)
 	ok(g.berg_maat() == 5, "2999 hoeden: nog maat 5")
 	g.raak(9)
