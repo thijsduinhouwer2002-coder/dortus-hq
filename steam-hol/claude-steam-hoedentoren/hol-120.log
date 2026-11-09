@@ -1,0 +1,21 @@
+HOL kroniek: Your hole is open. Heroes will come.
+HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
+HOL kroniek: Kees is here for your gold.
+HOL gegraven kolom 5
+HOL kroniek: Bram climbs into your hole.
+HOL kroniek: Kees fell to the Spike Pit. +6
+HOL gegraven kolom 2
+HOL kroniek: Odo is here for your gold.
+HOL kroniek: Ties read about you in a tavern.
+HOL gegraven kolom 4
+HOL kroniek: Bram fled. Grudge: the Spike Pit.
+HOL kroniek: Mara says this is a quick one.
+HOL gegraven kolom 1
+HOL kroniek: Odo fled, crying a little.
+HOL kroniek: Gloop is flat. Back soon.
+HOL kroniek: Odo is back. Still limping.
+HOL kroniek: Mara left gold and one boot. +6
+HOL gegraven kolom 3
+HOL kroniek: Bram remembers the Spike Pit.
+HOL kroniek: Gloop is up again. Wobbly.
+HOL einde na 50 s, fps=15, goud=12, terugkomers=0
