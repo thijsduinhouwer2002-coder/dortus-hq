@@ -1,6 +1,11 @@
 // Tokens van TikTok en Moneybird in D1 (ontwerp-d1-worker.md, punt 5 en punt 7: kolommen tt_tokens, mb_tokens, tt_versie, mb_versie).
 // Versleuteld met AES-GCM (WebCrypto): nieuwe IV van 12 bytes per keer, winkel-id als AAD, sleutelversie vooraan in de tekst.
 // Verversen als het access token binnen een uur verloopt; opslaan voorwaardelijk op de versie; na een 401 één keer verversen.
+//
+// LET OP: gebruik TokenBron (en ook koppelen en intrekken bij Moneybird) ALLEEN onder het winkelslot (sloten, statement_id
+// '__winkel', ontwerp punt 6). Moneybird (Doorkeeper) maakt bij elk verversen het oude refresh token ongeldig. Verversen twee
+// aanroepen tegelijk, dan kan de één het paar van de ander ongeldig maken of andersom. Het voorwaardelijk opslaan voorkomt
+// alleen dat een oud paar over een nieuw heen wordt geschreven; het maakt gelijktijdig verversen niet veilig.
 import { ververs as ttVervers, verlooptBinnen, type AppGegevens, type Tokens } from "../../../tiktok-shop-basis/src/auth.ts";
 import { ververs as mbVervers, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
 import { isBudgetOp, type Budget } from "../budget.ts";
@@ -91,7 +96,11 @@ export function tiktokSoort(app: AppGegevens): TokenSoort<Tokens> {
 export function moneybirdSoort(app: OAuthApp): TokenSoort<MoneybirdTokens> {
   return {
     kolom: "mb",
-    ververs: (r, f) => mbVervers(app, r, f),
+    // Geen nieuw refresh_token in het antwoord: het oude blijft geldig, dus dat bewaren.
+    ververs: async (r, f) => {
+      const t = await mbVervers(app, r, f);
+      return t.refreshToken ? t : { ...t, refreshToken: r };
+    },
     refreshToken: (t) => t.refreshToken,
     accessVerlooptOp: (t) => t.verlooptOp,
   };
@@ -103,12 +112,18 @@ export function is401(e: unknown): boolean {
   return x?.httpStatus === 401 || x?.soort === "koppeling_verlopen" || x?.soort === "token_verlopen";
 }
 
-/** Netwerk, 5xx, 429 of budget op: niet de koppeling, maar later opnieuw. */
-function tijdelijk(e: unknown): boolean {
+/** Netwerk, 5xx, 429, een antwoord zonder token of budget op: niet de koppeling, maar later opnieuw. */
+export function tijdelijk(e: unknown): boolean {
   if (isBudgetOp(e)) return true;
-  const s = Number((e as { httpStatus?: unknown })?.httpStatus);
+  // fetch gooit een TypeError bij een netwerkfout (Moneybird vangt die niet af); ook een afgebroken verzoek telt.
+  if (e instanceof TypeError || (e as Error)?.name === "AbortError" || (e as Error)?.name === "TimeoutError") return true;
+  const x = e as { httpStatus?: unknown; code?: unknown };
+  const s = Number(x?.httpStatus);
   if (s === 429 || s >= 500) return true;
-  return /\((5\d\d|429)\)/.test(String((e as Error)?.message));
+  // TikTok (auth.ts): code -1 is onze eigen fout (netwerk, geen JSON, antwoord zonder token), geen weigering door TikTok.
+  if (x?.code === -1) return true;
+  // Moneybird (oauth.ts): "Moneybird token mislukt (<status>)"; een 2xx zonder token is geen weigering.
+  return /\((2\d\d|5\d\d|429)\)/.test(String((e as Error)?.message));
 }
 
 export interface TokenUitkomst<T> {
@@ -127,8 +142,6 @@ export interface TokenDeps<T> {
   fetchFn?: typeof fetch;
   /** Unix-seconden. */
   nu?: () => number;
-  /** Wachttijd vóór de tweede blik in D1 als het refresh token geweigerd werd (een andere aanroep kan net aan het opslaan zijn). */
-  wachtMs?: number;
 }
 
 /** Tokens van één soort voor één winkel, binnen één aanroep. */
@@ -216,12 +229,9 @@ export class TokenBron<T> {
       nieuw = await this.d.soort.ververs(this.d.soort.refreshToken(oud.tokens), fetchFn);
     } catch (e) {
       if (tijdelijk(e)) throw e;
-      // Refresh token geweigerd: misschien heeft een andere aanroep het al gebruikt. Dan staat er een nieuwere versie in D1.
-      for (let i = 0; i < 2; i++) {
-        if (i) await new Promise((r) => setTimeout(r, this.d.wachtMs ?? 1500));
-        const vers = await this.lees();
-        if (vers.versie !== oud.versie) return vers.tokens;
-      }
+      // Refresh token geweigerd: misschien heeft een eerdere aanroep (vorig winkelslot) het al gebruikt en opgeslagen.
+      const vers = await this.lees();
+      if (vers.versie !== oud.versie) return vers.tokens;
       throw new WinkelStop("koppeling_verlopen", e as Error);
     }
     if (await this.bewaar(nieuw, oud.versie)) return nieuw;

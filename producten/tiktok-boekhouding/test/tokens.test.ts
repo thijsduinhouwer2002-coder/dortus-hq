@@ -5,7 +5,7 @@ import { NepD1 } from "./d1-nep.ts";
 import { Budget } from "../src/budget.ts";
 import { Ontkoppeld } from "../src/opslag.ts";
 import { WinkelStop } from "../src/ophalen.ts";
-import { TokenBron, ontsleutel, versleutel, type Sleutelbos, type TokenSoort } from "../src/d1/tokens.ts";
+import { TokenBron, moneybirdSoort, ontsleutel, tiktokSoort, versleutel, type Sleutelbos, type TokenSoort } from "../src/d1/tokens.ts";
 import type { Tokens } from "../../tiktok-shop-basis/src/auth.ts";
 
 const NU = 1_800_000_000;
@@ -46,7 +46,7 @@ const nepFetch = (async () => new Response("{}")) as typeof fetch;
 async function opzet(accessOver: number, refreshOver?: number) {
   const db = new NepD1("w1", "w2");
   const { server, soort } = nepTikTok(1);
-  const maak = (budget = new Budget(50)) => new TokenBron({ db, winkel: "w1", soort, sleutels: bos, budget, fetchFn: nepFetch, nu: () => NU, wachtMs: 20 });
+  const maak = (budget = new Budget(50)) => new TokenBron({ db, winkel: "w1", soort, sleutels: bos, budget, fetchFn: nepFetch, nu: () => NU });
   assert.equal(await maak().bewaar(tokens(1, accessOver, refreshOver), 0), true);
   return { db, server, maak };
 }
@@ -85,11 +85,15 @@ test("(g) waarschuwing als het refresh token binnen 14 dagen verloopt", async ()
   assert.equal((await (await opzet(4 * 3600, 15 * DAG)).maak().geef()).waarschuwing, undefined);
 });
 
-test("(g) twee aanroepen tegelijk: één keer ververst, geen koppeling_verlopen", async () => {
+test("(g) roterend refresh token: een eerdere aanroep ververste al, deze leest opnieuw in plaats van koppeling_verlopen", async () => {
+  // Gelijktijdig verversen is bij roterende tokens niet veilig; daarvoor zorgt het winkelslot. Hier na elkaar.
   const { db, server, maak } = await opzet(60);
-  const [a, b] = await Promise.all([maak().geef(), maak().geef()]);
+  const a = maak();
+  await a.lees();
+  const b = await maak().geef();
+  const a2 = await a.geef();
   assert.equal(server.geslaagd, 1);
-  assert.equal(a.tokens.accessToken, "GEHEIM-access-2");
+  assert.equal(a2.tokens.accessToken, "GEHEIM-access-2");
   assert.equal(b.tokens.accessToken, "GEHEIM-access-2");
   assert.equal(Number((db.sqlite.prepare("SELECT tt_versie v FROM winkels WHERE id='w1'").get() as any).v), 2);
 });
@@ -148,4 +152,47 @@ test("(g) ontkoppelde winkel: verversen slaat niets op en geeft Ontkoppeld", asy
   assert.deepEqual(db.sqlite.prepare("SELECT tt_tokens, tt_versie FROM winkels WHERE id='w1'").get(), voor);
   assert.equal(await maak().bewaar(tokens(9, 9999), 1), false);
   await assert.rejects(maak().lees(), (e: unknown) => e instanceof Ontkoppeld);
+});
+
+// ---- tijdelijke fouten bij verversen (controleur): netwerk, 5xx, 429 en een 200 zonder token zijn geen koppeling_verlopen ----
+const ttApp = { appKey: "k", appSecret: "s" };
+const mbApp = { clientId: "c", clientSecret: "s", redirectUri: "https://x" };
+const antwoorden: Record<string, () => Promise<Response>> = {
+  netwerk: async () => { throw new TypeError("fetch failed"); },
+  "500": async () => new Response("kapot", { status: 500 }),
+  "429": async () => new Response(JSON.stringify({ error: "te veel" }), { status: 429 }),
+  "200 zonder token": async () => new Response(JSON.stringify({ code: 0, data: {} }), { status: 200 }),
+};
+
+async function bronMet(kolom: "tt" | "mb", fetchFn: typeof fetch) {
+  const db = new NepD1("w1");
+  const soort: TokenSoort<any> = kolom === "tt" ? tiktokSoort(ttApp) : moneybirdSoort(mbApp);
+  const maak = () => new TokenBron<any>({ db, winkel: "w1", soort, sleutels: bos, budget: new Budget(50), fetchFn, nu: () => NU });
+  const start = kolom === "tt" ? tokens(1, 60) : { accessToken: "GEHEIM-mb-a", refreshToken: "GEHEIM-mb-r", scope: "documents", verlooptOp: NU + 60 };
+  assert.equal(await maak().bewaar(start, 0), true);
+  return { db, maak };
+}
+
+for (const kolom of ["tt", "mb"] as const) {
+  for (const [naam, antwoord] of Object.entries(antwoorden)) {
+    test(`(g) ${kolom} verversen met ${naam}: tijdelijke fout, geen koppeling_verlopen, niets opgeslagen`, async () => {
+      const { db, maak } = await bronMet(kolom, antwoord as typeof fetch);
+      await assert.rejects(maak().geef(), (e: unknown) => !(e instanceof WinkelStop));
+      assert.equal(Number((db.sqlite.prepare(`SELECT ${kolom}_versie v FROM winkels`).get() as any).v), 1);
+    });
+  }
+}
+
+test("(g) echte weigering bij verversen (Moneybird 400 invalid_grant): koppeling_verlopen", async () => {
+  const { maak } = await bronMet("mb", (async () => new Response(JSON.stringify({ error: "invalid_grant" }), { status: 400 })) as typeof fetch);
+  await assert.rejects(maak().geef(), (e: unknown) => e instanceof WinkelStop && e.soort === "koppeling_verlopen");
+});
+
+test("(g) Moneybird geeft geen nieuw refresh_token: het oude blijft bewaard", async () => {
+  const f = (async () => new Response(JSON.stringify({ access_token: "GEHEIM-mb-a2", scope: "documents", expires_in: 7200, created_at: NU }), { status: 200 })) as typeof fetch;
+  const { maak } = await bronMet("mb", f);
+  const u = await maak().geef();
+  assert.equal(u.tokens.accessToken, "GEHEIM-mb-a2");
+  assert.equal(u.tokens.refreshToken, "GEHEIM-mb-r");
+  assert.equal((await maak().lees()).tokens.refreshToken, "GEHEIM-mb-r");
 });
