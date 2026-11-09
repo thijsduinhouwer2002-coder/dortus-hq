@@ -1,7 +1,20 @@
 {
- "spelpixel": "1 spelpixel = 2 schermpixels bij 100% Windows, 3 bij 150%, 4 bij 200% (altijd hele schaal, filter nearest)",
+ "spelpixel": "schaal 3 bij strook 120 tot 160 px (100% Windows), schaal 2 onder 120 px; bij 150% en 200% Windows schaal 4 en 6. Altijd hele schaal, filter nearest. Strook 120 px = 40 spelpixels = maaiveld 8 + 2 rijen cellen; extra hoogte toont meer aarde eronder",
+ "maaiveld.png": {
+  "frame": [
+   16,
+   8
+  ],
+  "volgorde": [
+   "bloemen",
+   "struik",
+   "steen",
+   "bordje",
+   "paddo"
+  ]
+ },
  "cel": 16,
- "maaiveld_hoogte": 12,
+ "maaiveld_hoogte": 8,
  "tegels.png": {
   "rij0": "aarde, 8 varianten (kies willekeurig per cel, vast zaad)",
   "rij1": "gang, 16 varianten, index = n*1 + e*2 + s*4 + w*8 waarbij een bit 1 is als die buur AARDE is"
@@ -9,7 +22,7 @@
  "gras.png": {
   "frame": [
    16,
-   12
+   8
   ],
   "varianten": 4,
   "plek": "boven de bovenste aardelaag"
