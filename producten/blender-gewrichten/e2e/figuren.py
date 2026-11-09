@@ -108,15 +108,37 @@ def staaf(naam, straal, lengte=40.0):
 
 
 def balk(naam, breed, dik, lengte=40.0, schuin=0.6):
-    """Plat, hoekig lid langs X (eis b van Daan): doorsnede breed x dik met afgeschuinde hoeken (schuin mm),
-    zodat de naad van de bolnaad over vlakke zijden en hoeken loopt."""
+    """Plat, hoekig lid langs X (eis b van Daan): doorsnede breed x dik met afgeronde hoeken (straal schuin mm,
+    rond in twee stukken: profile 0,5, vlakken op 22,5 en 67,5 graden), zodat de naad van de bolnaad over vlakke
+    zijden en hoeken loopt. Zonder profile gaf bmesh een trapje (een vlak vlak en een verticaal vlak)."""
     bm = bmesh.new()
     bmesh.ops.create_cube(bm, size=1.0)
     bm.transform(Matrix.Diagonal((lengte, breed, dik, 1.0)))
     randen = [e for e in bm.edges if abs((e.verts[0].co - e.verts[1].co).normalized().x) > 0.99]
-    bmesh.ops.bevel(bm, geom=randen, offset=schuin, segments=2, affect="EDGES")
+    bmesh.ops.bevel(bm, geom=randen, offset=schuin, segments=2, profile=0.5, affect="EDGES")
     bmesh.ops.subdivide_edges(bm, edges=[e for e in bm.edges if abs((e.verts[0].co - e.verts[1].co).normalized().x) > 0.99],
                               cuts=31, use_grid_fill=False)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    return _object(naam, bm)
+
+
+def taps_staaf(naam, straal, onder, hoek, boven=20.0):
+    """Staaf langs X (straal), aan de kant -X (deel A) vanaf x = 0 taps langs Z: de halve maat langs Z neemt per
+    mm met tan(hoek) af (zijvlak hoek graden van de as, een wig), langs Y blijft de straal; uiteinde op x = -onder."""
+    bm = bmesh.new()
+    n, tg = 128, math.tan(math.radians(hoek))
+    xs = [boven, 0.0] + [-0.5 * i for i in range(1, int(round(onder / 0.5)) + 1)]
+    ringen = []
+    for x in xs:
+        fz = max(0.02, 1.0 - tg * max(0.0, -x) / straal)
+        ringen.append([bm.verts.new((x, straal * math.cos(2 * math.pi * k / n), fz * straal * math.sin(2 * math.pi * k / n)))
+                       for k in range(n)])
+    bm.faces.new(ringen[0])
+    bm.faces.new(list(reversed(ringen[-1])))
+    for a, b in zip(ringen, ringen[1:]):
+        for k in range(n):
+            bm.faces.new((a[k], a[(k + 1) % n], b[(k + 1) % n], b[k]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
     bmesh.ops.triangulate(bm, faces=bm.faces[:])
     return _object(naam, bm)
 

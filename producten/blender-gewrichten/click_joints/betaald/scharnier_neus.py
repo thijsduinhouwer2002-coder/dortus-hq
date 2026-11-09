@@ -32,6 +32,8 @@ BASIS = 0.6          # straal van de voet van de neus = BASIS keer de knokkelstr
 ZAAG = 0.65          # bodem van de zaagsnede op 0,65 keer de dikte van het lid onder H
 ZAAG_X = (-0.1, 0.95)  # sleuf van tw - 0,1 s tot tw + 0,95 s: 1,05 s breed, de lip blijft t (+0,05 s) dik
 ZAAG_REST_MM = 0.8   # onder de zaagbodem minstens max(t, 0,8 mm) materiaal (0,8 mm: kleinste wand van de kern)
+ONDER_COS = 0.25     # buiten het midden telt een vlak als onderkant tot 75 graden van de lidas
+DRAAI_MIN = 10.0     # en alleen als het minstens 10 graden verder naar onder kijkt dan het zijvlak bij H
 RINGEN = 10
 SEGMENTEN = 32
 TIGHT = "Tight: cheek too stiff to click. Try a thicker spot."
@@ -42,26 +44,39 @@ def rek(t, h, lip):
     return 1.5 * t * h / (lip * lip)
 
 
+def _onderkant(hit, zij, omlaag):
+    """Telt een treffer buiten het midden als onderkant? Het vlak moet naar onder kijken (hoogstens 75 graden van
+    de lidas, ONDER_COS) en minstens DRAAI_MIN graden verder naar onder gedraaid zijn dan het zijvlak op de hoogte
+    van H (zij, de normaal van de zijstraal net onder H). Een afgeronde of schuine onderkant draait weg van de
+    zijkant en telt; een lid dat vanaf H taps toeloopt (wig, vingertop) of een rond zijvlak (de arm) heeft onder
+    dezelfde hoek als bij H en telt niet: daar is het lid gewoon smaller, de sleuf zaagt er geen onderkant door."""
+    c_hit = abs(hit.normalized().dot(omlaag))
+    c_zij = abs(zij.normalized().dot(omlaag)) if zij is not None else 0.0
+    hoek_hit = math.degrees(math.acos(min(1.0, c_hit)))
+    hoek_zij = math.degrees(math.acos(min(1.0, c_zij)))
+    return c_hit >= ONDER_COS and hoek_hit <= hoek_zij - DRAAI_MIN
+
+
 def zaag_diepte(bvh, frame, m):
     """Kleinste afstand van H (z = 0) tot de huid langs -Z (de lidas omlaag, naar de onderkant van deel A),
     gemeten midden in beide sleuven; None als geen straal iets raakt. De sleuf loopt door het hele lid langs de
     buigkant, dus behalve in het midden en op de helft ook vlak bij beide randen (0,95 van de zijmaat langs +Y
-    en -Y op die plek): bij een schuine of afgeronde onderkant ligt de huid daar het dichtst bij H."""
+    en -Y op die plek): bij een schuine of afgeronde onderkant ligt de huid daar het dichtst bij H. Het midden
+    telt altijd, dus onder de sleuf blijft daar steeds minstens max(t, 0,8 mm) materiaal (maten_neus)."""
     xm = m["tw"] + (ZAAG_X[0] + ZAAG_X[1]) / 2 * m["s"]
     rot = frame.to_3x3()
     omlaag = (rot @ Vector((0, 0, -1))).normalized()
     diepte = None
     for x in (xm, -xm):
-        ys = [0.0]
+        ys = [(0.0, None)]
         for teken in (1, -1):
-            zij = bvh.ray_cast(frame @ Vector((x, 0.0, 0.0)), (rot @ Vector((0, teken, 0))).normalized())
+            # Zijstraal op de bovenkant van de sleuf (z = -s/4), net onder H: daar begint deel A.
+            zij = bvh.ray_cast(frame @ Vector((x, 0.0, -m["s"] / 4)), (rot @ Vector((0, teken, 0))).normalized())
             rand = zij[3] if zij[0] is not None else m["wy"]
-            ys += [teken * 0.5 * rand, teken * 0.95 * rand]
-        for y in ys:
+            ys += [(teken * f * rand, zij[1] if zij[0] is not None else None) for f in (0.5, 0.95)]
+        for y, zij_n in ys:
             hit = bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
-            # Buiten het midden telt een treffer alleen als het vlak naar de onderkant kijkt (hoogstens 75 graden
-            # van de lidas): een zijvlak van een rond lid (de arm) is geen onderkant, daar is de sleuf toch open.
-            if hit[0] is not None and (y == 0.0 or abs(hit[1].normalized().dot(omlaag)) >= 0.25):
+            if hit[0] is not None and (y == 0.0 or _onderkant(hit[1], zij_n, omlaag)):
                 diepte = hit[3] if diepte is None else min(diepte, hit[3])
     return diepte
 
