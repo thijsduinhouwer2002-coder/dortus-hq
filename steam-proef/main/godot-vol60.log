@@ -1,0 +1,5 @@
+PROEF stand=vol60
+PROEF renderer=ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11-10.0.26100.33648) / Windows
+PROEF bruikbaar scherm=[P: (0, 0), S: (1024, 720)] venster pos=(0, 500) maat=(1024, 220)
+PROEF doorzichtig=true altijd boven=true
+PROEF stand=vol60 fps na 40 s=63
