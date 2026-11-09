@@ -29,7 +29,7 @@ LOG = open(os.path.join(UIT, f"log-{SCHERF:02d}.txt"), "a")
 FPS = 30
 # Shots (beelden, 30 per seconde): 1 held, 2 gewricht, 3 buigen en rood, 4 uit elkaar. Samen 14,5 s.
 SHOTS = [("held", 90), ("gewricht", 90), ("buigen", 150), ("uit_elkaar", 105)]
-HOUT_LICHT, HOUT_DONKER = "#E2C9A2", "#B98F5E"
+HOUT_LICHT, HOUT_DONKER = "#D9AE78", "#8E5D33"
 ACHTERGROND = "#1B1E25"
 
 
@@ -121,7 +121,7 @@ def tekenpop(solver):
         m = basis.modifiers.new(d.name, "BOOLEAN")
         m.operation, m.object, m.solver = "UNION", d, solver
         d.hide_set(True)
-    voxel = float(os.environ.get("MOOI_VOXEL", "0.3"))
+    voxel = float(os.environ.get("MOOI_VOXEL", "0.2"))
     if voxel > 0:  # zachte overgangen tussen de delen, zoals een gedraaide houten pop
         rm = basis.modifiers.new("zacht", "REMESH")
         rm.mode, rm.voxel_size, rm.use_smooth_shade = "VOXEL", voxel, True
@@ -170,22 +170,28 @@ def hout_materiaal():
     tex = nt.nodes.new("ShaderNodeTexCoord")
     golf = nt.nodes.new("ShaderNodeTexWave")
     golf.wave_type, golf.bands_direction = "RINGS", "Z"
-    golf.inputs["Scale"].default_value = 0.09
-    golf.inputs["Distortion"].default_value = 6.0
-    golf.inputs["Detail"].default_value = 3.0
+    golf.inputs["Scale"].default_value = 0.22   # nerf om de ±4,5 mm, op de pop van 117 mm goed te zien
+    golf.inputs["Distortion"].default_value = 2.5
+    golf.inputs["Detail"].default_value = 4.0
     ruis = nt.nodes.new("ShaderNodeTexNoise")
     ruis.inputs["Scale"].default_value = 0.6
     meng = nt.nodes.new("ShaderNodeValToRGB")
     meng.color_ramp.elements[0].color = (*kleur(HOUT_DONKER), 1)
     meng.color_ramp.elements[1].color = (*kleur(HOUT_LICHT), 1)
-    meng.color_ramp.elements[0].position = 0.25
+    meng.color_ramp.elements[0].position = 0.35
+    meng.color_ramp.elements[1].position = 0.75
     nt.links.new(tex.outputs["Object"], golf.inputs["Vector"])
     nt.links.new(tex.outputs["Object"], ruis.inputs["Vector"])
     som = nt.nodes.new("ShaderNodeMath")
     som.operation = "MULTIPLY_ADD"
-    som.inputs[1].default_value = 0.75
+    som.inputs[1].default_value = 0.8
+    ruis_klein = nt.nodes.new("ShaderNodeMath")  # ruis -0,5 .. 0,5 maal 0,3, zodat de som tussen 0 en 1 blijft
+    ruis_klein.operation = "MULTIPLY_ADD"
+    ruis_klein.inputs[1].default_value = 0.3
+    ruis_klein.inputs[2].default_value = 0.0
+    nt.links.new(ruis.outputs["Fac"], ruis_klein.inputs[0])
     nt.links.new(golf.outputs["Fac"], som.inputs[0])
-    nt.links.new(ruis.outputs["Fac"], som.inputs[2])
+    nt.links.new(ruis_klein.outputs[0], som.inputs[2])
     nt.links.new(som.outputs[0], meng.inputs["Fac"])
     nt.links.new(meng.outputs["Color"], bsdf.inputs["Base Color"])
     zet_input(bsdf, ["Roughness"], 0.42)
@@ -223,7 +229,7 @@ def licht_en_wereld():
         sc.collection.objects.link(ob)
         ob.rotation_euler = (-Vector(richting)).normalized().to_track_quat("-Z", "Y").to_euler()
 
-    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFE2B8", 4.0, 6)   # warm, links voor boven
+    zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFDDB0", 3.0, 6)   # warm, links voor boven
     zon("Randlicht", (0.7, 1.0, 0.45), "#CFEAFF", 2.2, 3)     # koel, van achteren: lichte rand om de pop
     zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.3, 20)
     # Vloer: donker, licht glanzend, zodat de pop een zachte spiegeling en schaduw heeft
@@ -236,8 +242,9 @@ def licht_en_wereld():
     sc.collection.objects.link(vloer)
     mat = bpy.data.materials.new("Film vloer")
     b = bsdf_van(mat)
-    zet_input(b, ["Base Color"], (*kleur("#22262E"), 1))
-    zet_input(b, ["Roughness"], 0.28)
+    zet_input(b, ["Base Color"], (*kleur("#2A2D33"), 1))
+    zet_input(b, ["Roughness"], 0.55)
+    zet_input(b, ["Specular IOR Level", "Specular"], 0.25)
     me.materials.append(mat)
 
 
@@ -253,6 +260,9 @@ def camera():
 
 
 def kijk(cam, oog, doel, lens=70):
+    oog = Vector(oog)
+    if oog.z < 12.0:
+        oog.z = 12.0
     cam.location = oog
     cam.rotation_euler = (Vector(doel) - Vector(oog)).normalized().to_track_quat("-Z", "Y").to_euler()
     cam.data.lens = lens
@@ -340,6 +350,7 @@ def plaats_gewricht(pop):
     uitslag = bpy.ops.click_joints.plaats()
     bpy.context.view_layer.update()
     a, b = deel("A"), deel("B")
+    pop.hide_render = True  # zo ziet de gebruiker het ook: de add-on verbergt het origineel (hide_set)
     paneel = mod("paneel")
     log(f"plaats: {uitslag}, kogel {inst.kogel_mm} mm, passing {a.get('cj_passing')}, wand {a.get('cj_wand_mm')}, "
         f"tekst {paneel.buig_tekst(a)}, bereik {[round(x, 1) for x in a.get('cj_buig_graden', [])]}")
@@ -384,8 +395,8 @@ def zet_beeld(cam, naam, i, n):
     inst = bpy.context.scene.click_joints
     z = Vector((0, 0, 1))
     if naam == "held":  # langzaam om de pop heen, laag standpunt, de pop groot en heldhaftig
-        r = draai(BASIS_RICHTING, z, -28 + 30 * glad(a))
-        oog = POP_MIDDEN + r * 430 + Vector((0, 0, -25 + 12 * a))
+        r = draai(Vector((BASIS_RICHTING.x, BASIS_RICHTING.y, 0)).normalized(), z, -28 + 30 * glad(a))
+        oog = POP_MIDDEN + r * 430 + Vector((0, 0, -22 + 12 * a))  # z 38 tot 50: laag standpunt, boven de vloer
         kijk(cam, oog, POP_MIDDEN + Vector((0, 0, 2)), lens=50)
         return
     c, rr, kr = staat["c"], staat["r"], staat["kijk_r"]
