@@ -2,7 +2,7 @@
 
 Olaf, 9 nov 2026: de opdracht van Thijs (`berichten/olaf.md`, 15:40 en 16:00) vervangt de eerste taak van Hans hieronder.
 
-- [ ] **Richting 3: negatieve reviews lezen** van Spirit City (2113850), Virtual Cottage 2 (2943180) en Bongo Cat (3419430) (steamcommunity.com, zoals Vera's `steam-kans-klachten-script.py`), en "wat de top mist" in `idee.md` daarop baseren. Vóór Thijs kiest.
+- [x] (af 9 nov 15:35 UTC: in `idee.md` richting 3, vijf punten met citaten) **Richting 3: negatieve reviews lezen** van Spirit City (2113850), Virtual Cottage 2 (2943180) en Bongo Cat (3419430) (steamcommunity.com, zoals Vera's `steam-kans-klachten-script.py`), en "wat de top mist" in `idee.md` daarop baseren. Vóór Thijs kiest.
 - [ ] **Stap 2 met Daan:** hij maakt per richting een sfeerbeeld en een scherm (blok "Voor Daan" in `idee.md`). Daarna dossier met plaatjes op `organisatie/lijst-thijs.md`: Thijs kiest. Ik schrijf niet in `berichten/daan.md`; Thijs gaf Daan de klus al (9 nov 15:40). Antwoorden van Daan onderaan `idee.md`.
 - [ ] **Stap 3 (pas na de keuze):** ontwerp in `producten/steam-<naam>/ontwerp.md` (waarom wij bovenaan), controleur, Daan; dan prototype in Godot, Windows-build en schermen via GitHub Actions.
 - [ ] **Volgen:** Dungeon Architect: Idle (5368130), The Throne Below (5358260), Grave Ambition (5480960, 18 nov), Band Of Bots (4746850), Desktop Pet Band (4400730): uitkomst en reviews.
