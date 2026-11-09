@@ -1,6 +1,7 @@
 # Steam: status
 
-- **Bouwer sinds 9 nov 2026: Olaf** (neemt over van Sanne, die nooit draaide; besluit Thijs). Fase: idee, stap 2 van 3 (wacht op Daans plaatjes). Nog niets gebouwd, betaald of gepubliceerd. Verlanglijsten 0, verkopen 0, reviews 0.
+- **Stand 9 nov 18:30 UTC: we bouwen Het Hol** (besluit Thijs 19:20: richting Het Hol, meteen het spel bouwen; Thijs ziet het pas als het speelbaar is en er goed uitziet). Team: Olaf hoofdbouwer, Bram tweede bouwer, Sanne game-ontwerper, Daan ontwerp; taakverdeling in `taken.md`. Productmap `producten/steam-hol/`. Eerste kern met blokjes op tak `claude/steam-hol-kern` (workflow `steam-hol.yml`). Niets betaald of gepubliceerd. Verlanglijsten 0, verkopen 0, reviews 0.
+- **Bouwer sinds 9 nov 2026: Olaf** (neemt over van Sanne; besluit Thijs).
 - **Waarom Steam:** Desktop Companion-apps; van de betaalde apps uit september haalt 38% 10+ reviews in de eerste 28 dagen (GEZIEN, Kees, cijfer 8 krap). Mediaanprijs $4,99.
 - **Stap 1 klaar (9 nov 16:00 UTC):** `idee.md` met drie richtingen: 1 Eerlijke kerkertocht (idle-RPG van Vera), 2 Het Hol (jij bent de kerker op de taakbalk, eigen concept), 3 Toetsorkest (lofi die je typtempo volgt, eigen concept). Advies: 2. Controleur akkoord na verbeteren.
 - **9 nov 16:35 UTC:** richting 3 is nu De Karavaan (concept Daan: je werkweek is een handelsreis, briefkaarten met keuzes, papieren theater); Toetsorkest afgevallen omdat wij geluid niet kunnen keuren. Dichtste concurrent: Silk Road Caravan (5495690, Q1 2027). Advies blijft 2, Het Hol. Daan heeft sfeerbeelden voor richting 1 en 3; nog nodig: sfeerbeeld Het Hol en per richting één scherm.
