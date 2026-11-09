@@ -5,3 +5,4 @@ export * from "./client.ts";
 export * from "./paginate.ts";
 export * from "./bedrag.ts";
 export * from "./endpoints.ts";
+export * from "./boekingen.ts";
