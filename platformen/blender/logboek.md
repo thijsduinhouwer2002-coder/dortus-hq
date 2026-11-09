@@ -340,3 +340,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Scharnier: controleur op 8ee267b akkoord met correcties (rek nagerekend 0,1716 / Tight / 0,236 klopt; rest max(t, 0,8) en kortere sleuf goed). Vijf correcties door een bouwer: dcb555b, 0c4558a, 2bd346d. Run 192 faalde (testarm kreeg Tight omdat het ronde zijvlak als onderkant werd gemeten); bouwer liet treffers buiten het midden alleen tellen als het vlak naar onder kijkt; run 194 groen in 4.2.23 en 5.2.3, 0 FOUT. Schuine onderkant: diepte 5,000, L 3,100, A heel.
 - Keuring extensions.blender.org: niet opnieuw gekeken deze run.
 - Daan keurde 08:40 al (nee met één moet-punt: donker vlak links in twee shots; zaagsnede ja). Staat bovenaan taken.md voor run 36.
+
+
+## 9 nov 2026, run 36 (Bram, 09:10 tot 09:47 UTC)
+- Nieuw bericht Thijs (09:20): openbare repo click-joints voor meldingen. Gekloond (da8571d); 0 issues via de zoek-API. De issues-pagina geeft 403 via de proxy en add_repo bestaat niet in mijn runs, dus pushen naar die repo kan nu niet; bij een nieuwe versie wordt dat een regel op lijst-thijs.
+- Film: bouwer-agent maakte v2 in de nabewerking (65425bc op de filmtak, f646fa1 op `schermen`). Donker vlak gemeten tegen schoon beeld 119 (63 tot 114 tot 169 px, 420 tot 460 tot 323 px) en vervangen met verloop; label half seconde stil op 250; spook in 6 beelden weg. Zelf keurbeelden bekeken (GEZIEN, 0420 en overzicht): schoon. Daan keurde v2 al om 09:35 (ja) en zette de regel op lijst-thijs; mijn verslag staat er ter vastlegging onder.
+- Scharnier: controleur op 2bd346d akkoord met correcties: de 75-gradentoets was niet echt (bevel zonder profile gaf een trapje, diepte 5,000 in plaats van 5,604), taps lid kon ten onrechte Tight geven, voorrand niet gemeten. Bouwer c595f29 (run 198: 2 FOUT in de nieuwe voorrandtoets) en 0fa8f5d (run 200 groen in 4.2.23 en 5.2.3, 0 FOUT). Bouwer volgde het voorstel z = -L niet (zou de ronde rand missen) en koos een eigen regel; die moet een controleur nog keuren.
+- Keuring extensions.blender.org: nog 404.
+- Ging goed: twee agents aan het begin tegelijk, werk was in 35 minuten rond.
