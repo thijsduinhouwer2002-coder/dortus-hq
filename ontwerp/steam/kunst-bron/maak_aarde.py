@@ -9,10 +9,10 @@ sys.path.insert(0, HIER)
 import maak_kunst as mk
 
 P, sprite, strip, opslaan, UIT, CEL = mk.P, mk.sprite, mk.strip, mk.opslaan, mk.UIT, mk.CEL
-P["A"] = mk.hx("94603a")   # aarde tussentoon (tussen 3 en 4)
-P["a"] = mk.hx("74452b")   # aarde tussentoon (tussen 2 en 3)
-P["d"] = mk.hx("4f2f25")   # diepe aarde
-P["D"] = mk.hx("5a3a2e")   # diepe aarde licht
+P["A"] = mk.hx("6c4262")   # aarde tussentoon (tussen 3 en 4)
+P["a"] = mk.hx("4d3050")   # aarde tussentoon (tussen 2 en 3)
+P["d"] = mk.hx("2e1f3b")   # diepe aarde
+P["D"] = mk.hx("372644")   # diepe aarde licht
 
 # per diepte: grondkleur, licht, donker
 LAGEN = [("A", "4", "3"), ("3", "A", "a"), ("a", "3", "d")]

@@ -18,9 +18,9 @@ P = {
     "k": hx("2a1a1f"),   # omlijning
     "K": hx("432a2c"),   # zachte omlijning
     # aarde
-    "1": hx("3d2621"), "2": hx("62392a"), "3": hx("84502f"), "4": hx("a8693a"), "5": hx("c98b4f"),
+    "1": hx("261a30"), "2": hx("3f2846"), "3": hx("5c3758"), "4": hx("7d4a68"), "5": hx("a46577"),
     # holwand (achter de gang)
-    "w": hx("38241f"), "W": hx("4d332b"), "v": hx("664436"), "V": hx("7a5440"),
+    "w": hx("1d1426"), "W": hx("2b1d35"), "v": hx("3e2a47"), "V": hx("503856"),
     # steen
     "7": hx("5d5552"), "8": hx("847a72"), "9": hx("aca196"),
     # gras en mos
