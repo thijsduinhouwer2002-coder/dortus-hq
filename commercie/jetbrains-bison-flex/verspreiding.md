@@ -7,7 +7,7 @@ Door Chris, 8 nov 2026 (run 12), op opdracht van Thijs (8 nov 18:33). Gemeten me
 **Voor wie:** mensen die Bison of Flex schrijven in CLion of IntelliJ IDEA: compilerstudenten, docenten, onderhouders van parsers. Hoe groot: Bison Language Support (alleen `.y`) 13.024 downloads (GEZIEN 8 nov, `/api/plugins/16595`), groeit ±4 per dag (GOK, twee metingen). De markt is klein, ±200 downloads per maand (GOK, bouwbesluit Jet).
 
 ## Stand vandaag (8 nov, GEZIEN met `/api/plugins/35901`)
-`approve: false`, 0 downloads, `pricingModel: FREE`, proef 30 dagen. Nog in moderatie. **Niets plaatsen voordat alle drie kloppen:** `approve: true`, Hidden uit, prijs zichtbaar op de pagina (zie `lancering.md`, Stand).
+`approve: false`, 0 downloads, `pricingModel: FREE`, proef 30 dagen. Nog in moderatie. **Niets plaatsen voordat alle drie kloppen:** versie goedgekeurd, Hidden uit, prijs zichtbaar op de pagina. **Let op (run 22, 9 nov):** het veld `approve` van de plugin zelf is géén teken van goedkeuring; het staat ook bij live plugins op `false`. Kijk naar het seintje in `lancering.md`, deel run 22.
 
 ## Twee vaste regels voor alle plekken
 1. **AI eerlijk melden.** De code is door AI-agents geschreven. Steeds meer programmeerplekken weren AI-projecten of door AI geschreven tekst (Stack Overflow, r/ProgrammingLanguages, r/opensource, Lobsters, dev.to voor promotie, zie onder). Elke tekst zegt het daarom, en een plek die het verbiedt slaan we over.
@@ -20,11 +20,11 @@ Door Chris, 8 nov 2026 (run 12), op opdracht van Thijs (8 nov 18:33). Gemeten me
 | 1 | Zoeken en aanraden in de Marketplace en de IDE | grootste bron (GOK); bij `*.l` raadt de IDE nu niets aan (GEZIEN 7 nov) | vanzelf, na goedkeuring | ploeg (Jet, Chris) | ja, zonder Thijs |
 | 2 | dortus.com/bison-flex/ | pagina staat, HTTP 200 (GEZIEN 8 nov) | nu | Chris | ja, zonder Thijs |
 | 3 | YouTrack IDEABKL-7544, IDEABKL-4162, CPP-1122 | 8, 2 en 1 stemmen (GEZIEN 7 en 8 nov) | dag 0 | hoofdchat of Thijs (JetBrains-account) | ja, advies 21 overgenomen door Hans |
-| 4 | JetBrains Platform forum, Showcase & Feedback | 2.031 leden, 156 actief in 30 dagen (GEZIEN, `about.json`) | dag 1 | hoofdchat of Thijs (JetBrains-account) | **nee, besluit Hans nodig** |
+| 4 | JetBrains Platform forum, Showcase & Feedback | 2.031 leden, 156 actief in 30 dagen (GEZIEN, `about.json`) | dag 1 | hoofdchat of Thijs (JetBrains-account) | ja, advies 25 overgenomen door Hans (8 nov) |
 | 5 | r/Compilers | 25.000 tot 33.000 leden (DERDEN, zie `lancering.md`) | dag 2 tot 3 | hoofdchat of Thijs | ja, mits de regels in de browser gelezen zijn (advies 21) |
-| 6 | Lijst awesome_jetbrains_plugins, één issue | 99 sterren (DERDEN via de onderzoeker, GitHub-zoek-API; de gewone repo-API gaf mij niets terug) | ±dag 3 | hoofdchat of Thijs (GitHub-account) | **nee, besluit Hans nodig** |
-| 7 | comp.compilers (gemodereerde nieuwsgroep en mailinglijst) | "over 100,000" lezers (DERDEN, oud getal, https://compilers.iecc.com/) | na dag 7, als 3 tot 6 goed gingen | alleen Thijs, mail vanaf zijn adres | **nee, besluit Hans nodig** |
-| 8 | r/Jetbrains | 39k leden (DERDEN, https://gummysearch.com/r/Jetbrains/) | na de meting van dag 14 | hoofdchat of Thijs | **nee, besluit Hans nodig** |
+| 6 | Lijst awesome_jetbrains_plugins, één issue | 99 sterren (DERDEN via de onderzoeker, GitHub-zoek-API; de gewone repo-API gaf mij niets terug) | ±dag 3 | hoofdchat of Thijs (GitHub-account) | ja, advies 24 en 25 overgenomen door Hans (8 nov) |
+| 7 | comp.compilers (gemodereerde nieuwsgroep en mailinglijst) | "over 100,000" lezers (DERDEN, oud getal, https://compilers.iecc.com/) | na dag 7, als 3 tot 6 goed gingen | alleen Thijs, mail vanaf zijn adres | alleen als Thijs het zelf wil (Hans, 8 nov) |
+| 8 | r/Jetbrains | 39k leden (DERDEN, https://gummysearch.com/r/Jetbrains/) | na de meting van dag 14 | hoofdchat of Thijs | ja, na dag 14 (Hans, 8 nov) |
 | 9 | JetBrains Staff Picks | groot (GOK) | ronde van april 2027 | Thijs (YouTrack-ticket) | later, eerst gebruikers; dan **besluit Hans nodig** |
 
 Volgens regel 2 van Thijs: naar de volgende plek alleen als de vorige gelukt is en er geen klacht of verwijdering kwam. Wordt een bericht verwijderd of komt er een waarschuwing: overal stoppen (regel 7).

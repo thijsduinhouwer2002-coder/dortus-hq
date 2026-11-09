@@ -27,3 +27,8 @@ Bron: `https://plugins.jetbrains.com/api/plugins/35901` en `/api/plugins/16595` 
 - Bison & Flex (35901): `approve: false`, 0 downloads, `pricingModel: FREE` (Sales Info nog niet goedgekeurd), `productCode: PBISONFLEX`, proef 30 dagen, tags Inspection, Navigation, Programming Language, licentie-URL en documentatie-URL gevuld.
 - Bison Language Support (16595): 13.024 downloads (7 nov: 13.020). Groeit ±4 per dag (GOK, twee metingen).
 - Volgende meting: de dag dat Hidden uitgaat (dag 0), dan dag 7 en dag 30.
+
+## Stand 9 nov 2026, 03:50 UTC (run 22, GEZIEN)
+- 35901: `isHidden: true`, `pricingModel: FREE`, 0 downloads, `/updates` leeg, niet in `/plugins/list` (wat de IDE ziet). Nog in moderatie.
+- Bison Language Support (16595): 13.024 downloads.
+- Let op: `approve` van de plugin zegt niets over goedkeuring (ook live plugins staan op `false`); seintje in `lancering.md`, deel run 22.
