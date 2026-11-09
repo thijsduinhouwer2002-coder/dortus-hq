@@ -8,8 +8,11 @@ import com.intellij.ide.structureView.StructureViewModel
 import com.intellij.ide.structureView.StructureViewModelBase
 import com.intellij.ide.structureView.StructureViewTreeElement
 import com.intellij.ide.structureView.TreeBasedStructureViewBuilder
-import com.intellij.ide.structureView.impl.common.PsiTreeElementBase
 import com.intellij.lang.ASTNode
+import com.intellij.navigation.ItemPresentation
+import com.intellij.pom.Navigatable
+import com.intellij.psi.SmartPointerManager
+import com.intellij.psi.SmartPsiElementPointer
 import com.intellij.lang.PsiStructureViewFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
@@ -17,29 +20,55 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.tree.IElementType
 import javax.swing.Icon
 
+// Structuurweergave per taal, gebouwd op de knopen van de parser (`parser/Elementen.kt`).
+// Alleen ingebouwde iconen van de IDE, en de volgorde zoals in het bestand (geen sorteerders).
+// Klikken springt naar de knoop (de PSI-knoop is een `ASTWrapperPsiElement`, dus navigeerbaar).
+
 /**
- * Structuurweergave per taal, gebouwd op de knopen van de parser (`parser/Elementen.kt`).
- * Alleen ingebouwde iconen van de IDE, en de volgorde zoals in het bestand (geen sorteerders).
- * Klikken springt naar de knoop (de PSI-knoop is een `ASTWrapperPsiElement`, dus navigeerbaar).
+ * Eigen basis voor een knoop, in plaats van `PsiTreeElementBase` uit `structureView.impl`: die klasse staat
+ * vanaf IDEA 2026.2 niet meer op het compileerpad (zit in de plugin com.intellij.structureView). Alleen
+ * openbare API: een slimme verwijzing naar de PSI, presentatie en navigatie.
+ * Bewust weggelaten uit `PsiTreeElementBase`: knopen van een `StructureViewExtension` (geen andere plugin
+ * voegt iets toe aan Bison of Flex) en custom regions (`//region`), die deze talen niet kennen.
  */
+abstract class EigenKnoop<T : PsiElement>(element: T) : StructureViewTreeElement, ItemPresentation {
+    private val wijzer: SmartPsiElementPointer<T> = SmartPointerManager.createPointer(element)
+    val element: T? get() = wijzer.element?.takeIf { it.isValid }
+    override fun getValue(): Any? = element
+    override fun getPresentation(): ItemPresentation = this
+    override fun getIcon(open: Boolean): Icon? = null
+    override fun getChildren(): Array<StructureViewTreeElement> =
+        if (element == null) StructureViewTreeElement.EMPTY_ARRAY else kinderenBasis().toTypedArray()
+    abstract fun kinderenBasis(): Collection<StructureViewTreeElement>
+    override fun navigate(requestFocus: Boolean) { (element as? Navigatable)?.navigate(requestFocus) }
+    override fun canNavigate(): Boolean = (element as? Navigatable)?.canNavigate() == true
+    override fun canNavigateToSource(): Boolean = (element as? Navigatable)?.canNavigateToSource() == true
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        return other is EigenKnoop<*> && other.javaClass == javaClass && element != null && element == other.element
+    }
+    override fun hashCode(): Int = element?.hashCode() ?: 0
+    override fun toString(): String = presentableText ?: "?"
+}
+
 class Knoop(
     element: PsiElement,
     private val naam: String,
     private val plek: String?,
     private val icoon: Icon,
     private val kinderen: () -> List<StructureViewTreeElement> = { emptyList() },
-) : PsiTreeElementBase<PsiElement>(element) {
+) : EigenKnoop<PsiElement>(element) {
     override fun getPresentableText(): String = naam
     override fun getLocationString(): String? = plek
     override fun getIcon(open: Boolean): Icon = icoon
-    override fun getChildrenBase(): Collection<StructureViewTreeElement> = kinderen()
+    override fun kinderenBasis(): Collection<StructureViewTreeElement> = kinderen()
 }
 
 /** Het bestand zelf: de bovenste knoop (niet zichtbaar). */
 private class BestandKnoop(file: PsiFile, private val kinderen: (PsiFile) -> List<StructureViewTreeElement>) :
-    PsiTreeElementBase<PsiFile>(file) {
+    EigenKnoop<PsiFile>(file) {
     override fun getPresentableText(): String? = element?.name
-    override fun getChildrenBase(): Collection<StructureViewTreeElement> = element?.let(kinderen) ?: emptyList()
+    override fun kinderenBasis(): Collection<StructureViewTreeElement> = element?.let(kinderen) ?: emptyList()
 }
 
 private fun ASTNode.kinderen(): Sequence<ASTNode> = generateSequence(firstChildNode) { it.treeNext }
