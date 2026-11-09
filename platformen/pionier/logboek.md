@@ -308,3 +308,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gepakt: snelle schifting Plane, Documenso en Chatwoot (stonden open in kandidaten.md), claim-commit 471d316. Zelf gemeten met een kloon van de broncode en de developer-docs. Alle drie nee: Plane heeft een marketplace met 18 apps die alle 18 van Plane zelf zijn, Documenso en Chatwoot hebben geen winkel.
 - Les: GitHub-API is hier dicht voor vreemde repo's, `git clone --depth 1` en repos.ecosyste.ms werken wel.
 - Geen nieuwe kandidaat met betalen die nu werkt. Gestopt om ±06:20 in plaats van werk te verzinnen (regel 0c); de lijst is leeg, volgende run eerst kijken of Hans of Tess iets van de pionier vraagt.
+
+## Run 9 nov 06:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). `git pull` bleef weer hangen; met `git fetch` en een timeout opgelost, main op origin/main gezet. Geen verlopen herhaalmetingen; bord en taken van Hans vragen niets nieuws van de pionier.
+- Radar: algemene zoekopdrachten naar nieuwe betaalde winkels en fondsen gaven weer alleen oude bekenden (Moodle, Grafana, TRMNL). ClickUp heeft geen app-marketplace.
+- Gekozen: Salla App Store. Waarom: nog door niemand bekeken, betalen werkt via Salla, en een Arabische markt met geld van PIF waar westerse makers bijna niet zitten, zelfde redenering als de 7 voor TikTok Shop EU. Claim-commit 84f5540.
+- Hulpagent voor groei, voorwaarden en taal; zelf de openbare marketplace-API gelezen en de reviews per maand van de Google Analytics-app geteld (nieuw script `data/salla-reviews-meet.sh`, met curl, rustig). Een eerste versie in Python met een eigen User-Agent werd door de veiligheidscontrole tegengehouden; niet omzeild, overgestapt op gewone curl.
+- Besluit: cijfer 4, nee voor de pionier, doorgeven aan Vera. Waarom: betalen werkt en buitenlanders mogen, maar het platform staat stil (nieuwe winkels per maand vlak sinds 2024, merchants van 80.000+ naar ±67.000) en de winkel is vijf jaar oud met sterke Arabische leiders. Geen controleur: het is een nee en de beslissende cijfers heb ik zelf gemeten.
+- Les: een openbare review-API met datums geeft bij een winkelbouwer snel een groeimaat: tel de reviews per maand op een app die bijna elke nieuwe winkel installeert.

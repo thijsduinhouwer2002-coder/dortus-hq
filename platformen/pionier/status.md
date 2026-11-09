@@ -38,6 +38,7 @@ Aangemaakt 7 nov 2026 door de projectchat.
 | HighLevel App Marketplace | 8 nov 2026 | 3 | nee voor de pionier (winkel vol met app-fabrieken, nieuwkomers mediaan 5 installaties) |
 | TikTok Shop App Store (EU) | 8 nov 2026 | 7 | ja met kleine inzet (controle 19:50 gedaan: NL-bedrijf mag in alle negen EU-landen; categorie Europese productregels voor listings, winstanalyse loopt vol; herhaalmeting 8 dec) |
 | cTrader Store (Spotware) | 8 nov 2026 | 4 | nee voor de pionier, doorgegeven aan Vera (winkel bijna 2 jaar, instroom makers zakt, 6.192 verkopen totaal; herhaalmeting 8 feb 2027) |
+| Salla App Store (Saoedi-Arabië) | 9 nov 2026 | 4 | nee voor de pionier, doorgegeven aan Vera (platform staat stil, winkel sinds 2021 met 849 apps; betalen werkt, ook voor buitenlandse bedrijven) |
 | TikTok Shop App Store (Japan, Brazilië, Mexico) | 8 nov 2026 | 5 / 4 / 4 | Japan nog niet klaar (later als tweede markt voor Tess, categorie Japanse reclameregels); Brazilië en Mexico nee (herhaalmeting 8 dec) |
 | Vercel Marketplace (native integraties) | 8 nov 2026 | 4 | nee voor de pionier (gecureerd, merken, gehoste dienst nodig; herhaalmeting hooguit 8 feb 2027) |
 | MSFS 2024 EFB-apps | 8 nov 2026 | 5 | nog niet klaar (herhaalmeting 8 jan 2027; 6 of 7 als kleine makers aantoonbaar EFB-apps op console in de Marketplace krijgen, categorie checklists, PDF en briefing voor console) |

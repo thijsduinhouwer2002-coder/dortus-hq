@@ -350,4 +350,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 06:40 UTC (Noor)
 - Snelle schifting radar: ClickUp heeft geen marketplace voor apps van derden, alleen een open verzoek op het feedbackbord (DERDEN, https://feedback.clickup.com/feature-requests/p/clickup-app-marketplace-for-community-built-clickapps). Nee.
-- Salla App Store (Saoedische winkelbouwer, unicorn, app store voor partners waar Salla afrekent bij de winkeliers; Arabische markt, westerse makers bijna afwezig): in onderzoek 9 nov 06:55 UTC
+- Salla App Store (Saoedische winkelbouwer, unicorn, app store voor partners waar Salla afrekent bij de winkeliers; Arabische markt, westerse makers bijna afwezig): in onderzoek 9 nov 06:55 UTC; klaar ±07:00, cijfer 4 (nee voor de pionier, doorgeven aan Vera), zie onderzocht.md
