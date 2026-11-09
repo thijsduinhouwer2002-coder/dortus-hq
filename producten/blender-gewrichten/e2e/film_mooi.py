@@ -2,7 +2,8 @@
 
 Rendert in de echte Blender (achtergrond, Cycles) met de echte add-on: het gewricht, de groene passingring,
 de buiging (pose) en het rood bij te ver zijn allemaal echte toestand van Click Joints. Alleen licht, camera,
-houtmateriaal en de gloed van groen en rood zijn filmwerk.
+houtmateriaal, de gloed van groen en rood, en deel B half doorzichtig zolang er rood is (anders dekt B het rood
+af) zijn filmwerk.
 
     blender -b --python e2e/film_mooi.py -- <uitmap> <zip> <scherf> <aantal_scherven> [snel]
 
@@ -222,10 +223,12 @@ def hout_doorzichtig(ob):
     nt.links.new(bsdf.outputs[0], mix.inputs[1])
     nt.links.new(door.outputs[0], mix.inputs[2])
     nt.links.new(mix.outputs[0], uit.inputs["Surface"])
+    vervangen = 0
     for i, m in enumerate(ob.data.materials):
-        if m is bron:
+        if m is not None and m.name == bron.name:
             ob.data.materials[i] = mat
-    return waarde
+            vervangen += 1
+    return waarde if vervangen else None
 
 
 def gloed(naam, kleur_rgba, sterkte):
@@ -258,7 +261,7 @@ def licht_en_wereld():
 
     zon("Hoofdlicht", (-0.6, -0.9, 0.9), "#FFDDB0", 1.7, 6)   # warm, links voor boven
     zon("Randlicht", (0.7, 1.0, 0.45), "#E6F0FF", 0.9, 3)     # koel, van achteren: lichte rand om de pop
-    zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.3, 20)
+    zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.5, 20)
     # Vloer: donker, licht glanzend, zodat de pop een zachte spiegeling en schaduw heeft
     bm = bmesh.new()
     bmesh.ops.create_circle(bm, cap_ends=True, segments=96, radius=6000)  # rand van de vloer op de horizon, niet als lijn achter de pop
@@ -437,6 +440,8 @@ def zet_beeld(cam, naam, i, n):
         kijk(cam, doel + rich * afst, doel, lens=50 + 10 * p)
         piek = math.exp(-((t - 1.1) ** 2) / 0.18)
         gloed(mat_naam("groen"), GROEN, 0.6 + 7.0 * piek if t > 0.4 else 0.0)
+        if staat.get("b_door") is not None:
+            staat["b_door"].outputs[0].default_value = 0.0
         return
     if naam == "buigen":  # van opzij; de onderarm buigt, voorbij de grens kleurt het rood en gloeit het
         g = pose_curve(t)
@@ -448,8 +453,9 @@ def zet_beeld(cam, naam, i, n):
         voorbij = max(0.0, g - staat["grens"])
         sterk = min(1.0, voorbij / 3.0)
         gloed(mat_naam("rood"), ROOD, (6.0 + 3.0 * math.sin(t * 11)) * sterk)
+        echt_rood = len(deel("A").get("cj_rood_vlakken", [])) // 2 > 0  # alleen doorzichtig als er echt rood is
         if staat.get("b_door") is not None:
-            staat["b_door"].outputs[0].default_value = 0.6 * sterk
+            staat["b_door"].outputs[0].default_value = 0.6 * sterk if echt_rood else 0.0
         if i in (0, 98, 140):
             a_ob = deel("A")
             rood = sum(1 for p in a_ob.data.polygons if a_ob.data.materials[p.material_index]
