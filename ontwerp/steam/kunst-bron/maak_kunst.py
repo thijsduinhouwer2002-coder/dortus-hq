@@ -118,6 +118,14 @@ def gang_cel(rnd, im, ox, oy, n, e, s, w):
             else:
                 im.putpixel((ox + x, oy + min(y0 + 4, 15)), P["w"])
                 if (x + off) % 8 in (1, 2, 3): im.putpixel((ox + x, oy + y0), P["v"])
+    for _ in range(rnd.randint(0, 2)):   # mosplekje
+        x, y = rnd.randint(1, 12), rnd.randint(2, 11)
+        for dx, dy, c in ((0, 0, "g"), (1, 0, "G"), (2, 0, "g"), (1, -1, "G"), (1, 1, "g")):
+            im.putpixel((ox + x + dx, oy + y + dy), P[c])
+    if rnd.random() < 0.4:                # scheurtje
+        x, y = rnd.randint(2, 13), rnd.randint(2, 6)
+        for i in range(rnd.randint(3, 6)):
+            im.putpixel((ox + x, oy + y + i), P["w"]); x += rnd.choice((-1, 0, 1)); x = max(1, min(14, x))
     if n:   # plafond: aarderand, schaduw, hangende worteltjes
         for x in range(CEL):
             im.putpixel((ox + x, oy), P["2"]); im.putpixel((ox + x, oy + 1), P["1"])
@@ -346,6 +354,7 @@ DECO = {
     "schedel": ["................"]*7 + ["....kkkkk.......", "...kjjjjjk......", "..kjjjjjjjk.....", "..kjeejeejk.....", "..kjeejeejk.....", "..kIjjkjjIk.....", "...kIjjjIk..kk..", "...kjkjkjk.kjIk.", "....kkkkk.kkkkk."],
     "kristal": ["................"]*5 + ["......k.........", ".....kqk...k....", ".....kNk..kqk...", "..k..knMk.kNk...", ".kqk.knMk.kNMk..", ".kNk.kNMkknMk...", ".kNMkknMkknMk...", "..kMkknMkkMk....", "...kmkMkmkk.....", "...kkkkkkk......", "................"],
     "spinrag": ["9...........9...", ".9.......9.9....", "..9...9.9..9....", "..9.9..9...9....", "...9...9..9.....", "....9..9.9......", ".....9.99.......", "......9.........", "................", "................", "................", "................", "................", "................", "................", "................"],
+    "stut": ["kkkkkkkkkkkkkkkk", "kUUUUUUUUUUUUUUk", "kuuuuuuuuuuuuuuk", "kkkkkkkkkkkkkkkk", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kkk........kkk."],
     "vaandel": ["kkkkkkkkkkkkkkkk", "UUUUUUUUUUUUUUUU", "kkk..........kkk", "..krrrrrrrrrrk..", "..krRRRRRRRRrk..", "..krRRyyRRRRrk..", "..krRyYyRRRRrk..", "..krRRyyRRRRrk..", "..krRRRRRRRRrk..", "..krRRRRRRRRrk..", "..krrrrrrrrrrk..", "...krrkkkkrrk...", "....kk....kk....", "................", "................", "................"],
 }
 def maak_deco():
@@ -384,7 +393,7 @@ json.dump({
     "stekelput.png": {"frame": [16, 8], "dicht": 0, "half": 1, "open": 2, "anker": "op de vloer van de gang"},
     "held_lijf.png": {"frame": [16, 16], "lopen": [0, 1, 2, 3], "fps": 8, "anker": "midden onder (voeten op y 15)", "kijkt": "rechts; spiegel voor links"},
     "held_hoeden.png": {"frame": [16, 16], "volgorde": ["helm", "puntmuts", "kap", "pet"], "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"},
-    "versiering.png": {"frame": [16, 16], "volgorde": ["paddenstoel", "lichtzwam", "ton", "kist", "schedel", "kristal", "spinrag", "vaandel"], "anker": "midden onder op de vloer; spinrag en vaandel hangen aan het plafond (bovenkant)"},
+    "versiering.png": {"frame": [16, 16], "volgorde": ["paddenstoel", "lichtzwam", "ton", "kist", "schedel", "kristal", "spinrag", "stut", "vaandel"], "anker": "midden onder op de vloer; spinrag, stut en vaandel tegen het plafond (bovenkant); stut is een houten gangsteun, achter de figuren tekenen"},
     "gloed.png": {"frame": [52, 52], "gebruik": "warm licht rond fakkels (en groen getint rond lichtzwammen); tekenen met optellen (CanvasItemMaterial blend add) of als PointLight2D-textuur, alleen in de gangen"},
     "held_wapens.png": {"frame": [16, 16], "volgorde": ["zwaard", "staf", "fakkel"], "tekenen": "boven het lijf, in de rechterhand; 1 px omlaag bij frames 1 en 3"},
 }, open(os.path.join(UIT, "kunst.json"), "w"), ensure_ascii=False, indent=1)
@@ -403,6 +412,8 @@ def voorbeeld(breedte_cellen=40, schaal=3, naam="voorbeeld-strook.png"):
     for x in range(12, 16): gang[0][x] = True               # kamer van de slijmen (2 hoog)
     for x in range(26, 31): gang[0][x] = True               # schatkamer (2 hoog)
     for x in range(33, 36): gang[1][x] = True               # wordt gegraven
+    for x in range(19, 22): gang[0][x] = True               # voorraadkamer
+    gang[0][7] = True                                       # schacht
     for cx in range(breedte_cellen):
         g = gras.crop(((cx % 4) * CEL, 0, (cx % 4) * CEL + CEL, OPP)); im.paste(g, (cx * CEL, 0), g)
     def is_g(r, c):
@@ -428,7 +439,9 @@ def voorbeeld(breedte_cellen=40, schaal=3, naam="voorbeeld-strook.png"):
     plaf = OPP + CEL
     for cx, n in ((5, "ton"), (9, "paddenstoel"), (12, "lichtzwam"), (17, "schedel"), (21, "kist"), (25, "kristal"), (31, "lichtzwam")):
         zet(deco[n], cx * CEL, vloer - 16 + 1)
-    for cx in (7, 19, 32): zet(deco["spinrag"], cx * CEL, plaf)
+    for cx in (6, 17, 24, 32): zet(deco["stut"], cx * CEL, plaf)
+    for cx in (9, 32): zet(deco["spinrag"], cx * CEL, plaf)
+    zet(deco["ton"], 19 * CEL + 2, plaf - 16 + 13); zet(deco["kist"], 20 * CEL + 4, plaf - 16 + 13)
     zet(deco["vaandel"], 28 * CEL, OPP + 1)
     zet(fakkel[1], 4 * CEL + 4, plaf + 1)
     zet(fakkel[2], 25 * CEL + 4, plaf + 1)
