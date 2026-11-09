@@ -97,3 +97,8 @@ Aantal UK-verkopers dat LIVE gebruikt op TikTok: niet gepubliceerd. Alleen 6.000
 - Aantal Whatnot-verkopers per Europees land.
 - Shopify App Store-zoekresultaten (laden met JavaScript); ik heb alleen losse apps nagekeken.
 - De LIVE-GMV van 86 miljoen euro per kwartaal is een eigen rekensom op een schatting van Kalodata, geen officieel cijfer.
+
+## Correcties na controle (9 nov, controleur, verwerkt door Tess)
+Nagekeken tegen de bron en klopt: DARITAI in de ES-data (plek 98 van 165, Order Management, €119 per maand of €1.190 per jaar plus btw op daritai.com), Cocodesk in de FR-data (plek 133, zelfde maker als livepilot), Selmo in de PL-data (plek 9 van 83), geen LIVE-apps in DE, IT, NL, IE en GB, Lengow-cijfers (LIVE DE 12,6%, FR 20,2%, ES 19,2%, IT 19,7%, samen 17,2%, totaal €498,8 mln in 90 dagen). Bijgesteld:
+1. "Eenmansbedrijf" bij DARITAI is een afleiding uit de partnernaam: GOK.
+2. Betaalbewijs voor tools bij TikTok-veilingen in de EU is bijna niet bewezen: één app (DARITAI) zonder zichtbare klanten of reviews; Selmo draait vooral om Facebook-live.

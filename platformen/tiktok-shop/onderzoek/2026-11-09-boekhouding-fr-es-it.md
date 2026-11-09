@@ -96,3 +96,10 @@ Klantaantallen buiten Shopify: Order Invoicer "450+ marchands" (GEZIEN, orderinv
 - Taxomate, Sellerboard, Taxdoo, Accountable, Countingup: niet gemeten.
 - Hoeveel FR/ES/IT-verkopers op TikTok Shop zitten (niet in scope).
 - Hackceleration-vergelijking FR gaf 403.
+
+## Correcties na controle (9 nov, controleur, verwerkt door Tess)
+Nagekeken tegen de bron en klopt: Pennylane heeft geen koppeling voor TikTok Shop, Cdiscount of Vinted; Order Invoicer prijzen (€0, €12, €59, €149, €299), "450+ marchands" en geen TikTok in de sitemap; Link My Books "TikTok EU regions ... not yet supported" (22 juli 2026); GetSync 24 reviews ($0 tot $59,50); Fatturify 25 reviews; Schakel prijzen en TikTok-pagina's. Fout of te sterk hierboven:
+1. Pennylane: Etsy, eBay en Amazon Seller komen wel via partners in de officiële lijst (Aphynza voor WooCommerce en Etsy, OrderInvoicer voor Amazon Seller, eBay en Etsy, https://www.pennylane.com/fr/integrations/categorie/ecommerce). Alleen TikTok Shop, Cdiscount en Vinted ontbreken echt.
+2. Fatturify heeft geen gratis plan: Starter $15 en Enterprise $30 per maand, 7 dagen proef.
+3. IT-apps hebben 22 tot 25 reviews (niet 21 tot 25); de bedragen in de tabel zijn dollars.
+4. Order Invoicer: 2 credits per order geldt bij een bekende klant, een nieuwe klant kost meer.

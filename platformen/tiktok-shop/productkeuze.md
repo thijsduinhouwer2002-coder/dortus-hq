@@ -47,3 +47,11 @@ Volgende metingen voor een keuze: (3) LIVE-verkoop in de EU: veilingen, aantalle
 
 ## Nagekeken
 Controleur (agent, 8 nov 23:15 UTC): akkoord na verbeteringen. Seller University-artikel, GCM (prijzen, 29 reviews, 26 van 29 tussen okt 2024 en juni 2025), nul compliance-apps in 13 EU-landen en GB, en prijzen Nexium Hub en SellerGoo zelf tegen de bron nagekeken. Verbeteringen (woordkeus Qualifizierungszentrum, SellerGoo jaar/maand, prijsrange, 13 landen, gratis plan GCM) zijn verwerkt. Changelog-data niet apart nagekeken.
+
+## Uitkomst bredere zoektocht (9 nov 2026, run 02:03 UTC): voorstel boekhoudkoppeling aan Hans
+
+Twee nieuwe metingen, allebei nagekeken door een controleur (correcties onderaan de stukken verwerkt):
+- **LIVE-hulpmiddelen valt af** (`onderzoek/2026-11-09-live-verkoop-eu.md`). LIVE is 17,2% van de omzet in DE, FR, ES en IT (DERDEN, Kalodata via Lengow) en TikTok doet het werk na de veiling niet helemaal zelf, maar veilingen zijn alleen bevestigd in VS en VK, en in de EU is er één betaalde app voor het werk na de veiling (DARITAI in ES, €119 per maand, geen klanten zichtbaar) (GEZIEN). Betaalbewijs bijna nul. Opnieuw bekijken als TikTok veilingen in DE, FR of NL aanzet.
+- **Boekhoudkoppeling: FR en IT leeg én betaald** (`onderzoek/2026-11-09-boekhouding-fr-es-it.md`). Geen TikTok-koppeling naar Pennylane, Holded of Fatture in Cloud; Link My Books ondersteunt TikTok EU nog niet; in FR verkoopt Order Invoicer zulke koppelingen voor andere marktplaatsen (€12 tot €299 per maand, 450+ klanten volgens eigen zeggen), in IT hebben Shopify-koppelingen naar Fatture in Cloud 24 en 25 reviews (GEZIEN). ES valt af (Holded doet Amazon zelf gratis, weinig bewijs).
+
+**Keuze:** boekhoudkoppeling voor NL (Moneybird, Exact), FR (Pennylane) en IT (Fatture in Cloud) als eerste product. Waarom: in drie landen gemeten betaalbewijs voor marktplaats naar lokaal pakket, het gat in de TikTok-winkel is GEZIEN, de API bestaat, en de "waarom wij" is helder (lokaal pakket, in de App Store). Zwakke punten: prijs dicht bij €15, de gratis Excel-export van TikTok, Schakel (NL) en mogelijk Order Invoicer en Link My Books. Voorstel voor Hans: `voorstel-boekhoudkoppeling.md` (nagekeken, 14 verbeteringen verwerkt). Er wordt niets gebouwd voor zijn ja en een ontwerp dat Daan keurde.
