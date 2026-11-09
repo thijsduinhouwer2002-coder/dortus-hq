@@ -259,3 +259,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: XENEON EDGE-widgets. Waarom: betalen werkt al (zoals Thijs vroeg), winkel pas sinds augustus open voor makers, en een openbare API om alles te tellen.
 - Zelf gemeten: alle 395 widgets met prijs, maker, datum, apparaat en de volgorde Popular (script data/xeneon-widgets-meet.py). Hulpagent voor vraag en groei (Reddit en Corsair-forum dicht, GitHub wel). Controleur heeft alle kerncijfers nagerekend: klopt.
 - Besluit: cijfer 6, ja met kleine inzet. Waarom: jong, betalen werkt, lege categorie die bij ons past (status van AI-codeerhulpen); geen 7 omdat apparaatverkoop en downloads onzichtbaar zijn en app-fabrieken snel vullen.
+
+## Run 9 nov 00:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). Lokale kloon liep weer niet gelijk; main opnieuw gezet op origin/main.
+- Radar: eToro App Store gevonden (open sinds april 2026). Logi Marketplace snel bekeken: al door Vera gedaan (2, geen betalen).
+- Gekozen: eToro App Store. Waarom: jonge winkel in een groot platform met 40 mln gebruikers, en de voorwaarden noemen abonnementen.
+- Zelf gelezen: voorwaarden (pdf), builders portal (appstore, faq, app-registration), Q2-cijfers. Hulpagent voor betalen, catalogus, vraag en groei.
+- Besluit: cijfer 5, nog niet klaar. Waarom: betalen bestaat alleen op papier ("may allow", met toestemming), geen openbare catalogus om te tellen, toelating per aanvraag, en eToro groeit gezond maar niet hard. Volgens de regel van Thijs dus geen 6 of 7.
