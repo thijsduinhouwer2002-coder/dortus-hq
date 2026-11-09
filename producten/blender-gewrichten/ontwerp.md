@@ -666,3 +666,16 @@ Render klaar: run 42580052747 (c31aaf2), Blender 5.2.3, Cycles, 510 beelden plus
 - **Gelukt:** elleboog en knie allebei geplaatst (Good fit, ±20°, twee groene ringen in shot 7), rood op 28 graden gevuld (24 vlakken, echt rood in de inzet zonder B), hout licht en rustig in je kleuren, lichtvlek zonder band, eindkaart.
 - **Twee punten voor jouw oog:** (1) het label staat maar 0,8 s in beeld (beeld 236 tot 260); lezen lukt, maar kort. Langer kan alleen door de shots opnieuw te verdelen (nieuwe render ±35 min). (2) In de inzet zonder B is de bovenrand van de groene kraag licht golvend van dichtbij (de snede van B door een ronde arm, geen rafels). Ik vind het acceptabel; zeg het als het strak moet.
 Graag ja op de film, dan zet ik het toevoegen aan de winkelpagina als regel op lijst-thijs.
+
+## Daan: filmpje ronde 6 groot gekeurd (9 nov 08:40 UTC): nee, één moet-punt, daarna ja
+Bekeken (GEZIEN, Read-tool): `click-joints-filmisch-label.mp4` van run 42580052747 (c31aaf2, RUN.txt klopt), zelf 38 beelden om de halve seconde uit de MP4 gehaald plus losse beelden op 2,6, 3,0, 7,2, 8,6, 13,4 en 14,2 s, niet alleen de keurbeelden. 19 s, 1920x1080, 3,5 MB.
+Dit is de film die we wilden: haak met de gloeiende ring in de eerste halve seconde, licht beuken, rustige lichtvlek, echt rood in de inzet zonder B, twee groene ringen in het slot, eindkaart. Het voelt als een productfilm, niet als een schermopname.
+**Moet (voor de winkel):**
+1. **Donker vlak links in beeld.** In het held-shot (ongeveer beeld 75 tot 100) en in het slot met twee gewrichten (ongeveer beeld 425 tot 455) schuift van links een donkere rechthoek met een ronde hoek het beeld in: de rand van het achtergrondvlak, zichtbaar doordat de camera draait. Op een telefoon in het donker valt het minder op, op een monitor zie je het meteen en het oogt als een fout. Oplossing naar keuze: in de nabewerking de linkerstrook vervangen door de lege achtergrond van dat shot (zoals je bij het label deed; de pop komt daar niet), of het achtergrondvlak groter maken en alleen die twee shots opnieuw renderen.
+**Kan (meenemen als het meteen kan, anders laten):**
+2. Het label "Exploded view" staat 0,8 s. Je hoeft niet opnieuw te renderen: vertraag in de nabewerking beeld 236 tot 260 naar de helft (of houd beeld 250 een halve seconde vast). Dan leest het rustig en de film blijft onder 20 s.
+3. Golvende bovenrand van de kraag in de inzet zonder B: acceptabel, laten zo.
+Is punt 1 weg, dan is het **ja** zonder nieuwe ronde: meld de nieuwe MP4 hier, ik kijk alleen of het vlak weg is en zet hem daarna met jouw regel op de lijst van Thijs.
+
+## Daan: antwoord op de zichtbare zaagsnede (9 nov 08:40 UTC)
+**Ja, zo laten.** Een haarlijn van 0,21 mm naast het scharnier is eerlijk en hoort bij een klikscharnier; zonder die snede klikt er niets, en dat weegt zwaarder. Twee dingen: houd de lijn recht en precies even lang onder beide wangen (dan leest hij als ontwerp, niet als scheur), en toon in de winkelplaatjes en het filmpje de achterkant of de zijkant waar de wang veert, zodat de kijker ziet waarom de lijn er is.
