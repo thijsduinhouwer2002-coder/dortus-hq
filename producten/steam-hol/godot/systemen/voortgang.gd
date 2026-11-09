@@ -12,13 +12,17 @@ const PLAFOND_S := 12 * 3600
 const HELD_ELKE_S := 47.5          # gemiddeld, zelfde orde als in het spel (25 tot 70 s)
 
 # vallen: aantal vallen, bewoners: aantal bewoners. Meer verdediging = meer helden vallen.
-static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int) -> Dictionary:
+# gangen en faam (optioneel) maken het goud gelijk aan het spel en sim/ (balans.md): per val
+# 6 x (1 + 0,1 x faam) x (1 + gangen / 40), en faam maakt helden iets sterker (x 0,97 per niveau, bodem 0,75).
+# Zo levert een uur weg ongeveer hetzelfde op als een uur kijken (zonder de +3 voor terugkomers: die kent de save niet).
+static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int, gangen := 6, faam := 0) -> Dictionary:
 	var weg := nu_unix - laatst_unix
 	var teruggezet := weg < 0
 	weg = clampi(weg, 0, PLAFOND_S)
 	var helden := int(floor(weg / HELD_ELKE_S))
 	# zelfde kansen als held.gd en sim/ (put 35%, slijm 45%), met een plafond zodat er altijd verhalen blijven
-	var kans_val := clampf(1.0 - pow(0.65, vallen) * pow(0.55, bewoners), 0.0, 0.85)
+	var kans_val := clampf((1.0 - pow(0.65, vallen) * pow(0.55, bewoners)) * maxf(0.75, pow(0.97, faam)), 0.0, 0.85)
+	var per_val := goud_per_val(gangen, faam)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash([zaad, laatst_unix, helden])
 	var gevallen := 0
@@ -26,7 +30,7 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 	for i in helden:
 		if rng.randf() < kans_val:
 			gevallen += 1
-			goud += rng.randi_range(3, 9)
+			goud += per_val
 		else:
 			goud += 1   # wie vlucht, laat in de haast één munt vallen
 	var nieuwe_laatst := maxi(laatst_unix, nu_unix)
@@ -35,6 +39,9 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 		"goud": goud, "nieuwe_laatst": nieuwe_laatst, "teruggezet": teruggezet,
 		"regel": samenvatting(weg, helden, gevallen, goud),
 	}
+
+static func goud_per_val(gangen: int, faam: int) -> int:
+	return int(round(6.0 * (1.0 + 0.1 * faam) * (1.0 + gangen / 40.0)))
 
 static func samenvatting(weg: int, helden: int, gevallen: int, goud: int) -> String:
 	if helden == 0:

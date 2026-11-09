@@ -63,5 +63,11 @@ func _init() -> void:
 	ok(V.verhaal(V.reken(t0, t0 + 10, 1, 1, 42), hd, [], 42).is_empty(), "niemand kwam: geen verhaal")
 	var zonder: Array = V.verhaal(vu, {}, ["Gloop the Slime"], 42)
 	ok(zonder.size() >= 1 and zonder[-1].contains("gold"), "zonder bekende helden toch een regel met goud: " + zonder[-1])
+	# goud weg = goud in het spel (balans.md): 6 per val bij de start, meer met gangen en faam
+	ok(V.goud_per_val(0, 0) == 6 and V.goud_per_val(6, 0) == 7 and V.goud_per_val(40, 0) == 12 and V.goud_per_val(40, 10) == 24, "goud per val volgt balans.md")
+	var veel: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 30, 0)
+	ok(veel["goud"] > r["goud"], "meer gangen, meer goud terwijl je weg bent (%d tegen %d)" % [veel["goud"], r["goud"]])
+	var sterk: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 20)
+	ok(sterk["gevallen"] <= r["gevallen"] and sterk["goud"] > 0, "faam: helden sterker, nog steeds winst (%d tegen %d gevallen)" % [sterk["gevallen"], r["gevallen"]])
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
