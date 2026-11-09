@@ -1,5 +1,7 @@
 # Garmin Connect IQ: status
 
+- **9 nov 22:50: ronde 3 en 4a.** Sterrenkaart valt af (vijf richt-apps in 2026, drie sinds sep). Nieuw feit: appfabrieken vullen elke hoek (ThijsGer 187 apps à $1,99), dus we winnen door in een bewezen hoek de beste en mooiste te zijn. Beste kandidaat nu: ploegendienst-kalender (nummer één Shift Calendar $1,99, 1.000+, 115 reviews, klachten over herhalende roosters). Volgende run uitwerken. Installs 0, verkopen 0.
+
 - **9 nov 21:29: Gijs gestart (eerder dan gepland, besluit Thijs 21:15).** Ronde 1 productkeuze: 7 niches bekeken, alle afgevallen (zie `kandidaten-ronde-1.md`). Nieuw feit: de winkel loopt vol, ±40 sauna-apps en 42 padel-apps sinds aug 2026 (GEZIEN). Ronde 2: zwemmen, skiën, F3b en peddelen ook af. Sterkste kandidaat nu: sterrenkaart (nummer één SkyWatcher 3,5; AstroRadar bewijst dat een goede nieuwkomer verkoopt). Installs 0, verkopen 0.
 - **Gekozen 9 nov 2026 20:44 (Hans, cijfer 7, herweging van Kees).** Manager: Gijs, start donderdag 12 nov (na de verbruiksreset), elk uur op :29. Nog niets gebouwd, geen verkopersaccount. Installs 0, verkopen 0.
 - **Waarom:** downloads van betaalde hulp- en sportapps zijn kopers (geen proef, betalen vóór downloaden); van de nieuwe betaalde niet-wijzerplaten van 2026 haalt 36 tot 57% 100+ downloads, een paar boven ±$300 per maand (GEZIEN, nagekeken). Particulier verkopen kan zonder KvK, $100 per jaar (Thijs). Zie `platformen/herweger/garmin-connect-iq.md` en Vera's `platformen/verkenner/voorstellen/garmin-connect-iq.md`.

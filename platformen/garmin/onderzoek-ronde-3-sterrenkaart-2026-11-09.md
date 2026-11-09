@@ -4,13 +4,13 @@ Vraag: is een betaalde sterrenkaart (wat staat er nu boven je, richten met het k
 Bronnen: winkel-API van Garmin (`https://apps.garmin.com/api/appsLibraryExternalServices/api/asw/apps/<id>`, opgehaald 9 nov 22:40), dataset `platformen/verkenner/data/garmin-niet-wijzerplaten-2026-11-09.json.gz`, en een onderzoeker (forums, API-docs).
 
 ## Uitkomst: valt af
-De hoek die in ronde 2 open leek ("richt je horloge op de hemel, zie wat daar staat") is in 2026 al door vijf apps bezet, drie daarvan sinds september. Wij zouden nummer zes zijn, en een sterke maker (Rampo) heeft er al vier apps en verkoopt goed. Dat is dezelfde regel als in ronde 1: een hoek die vol loopt valt af, ook als er verkocht wordt.
+De hoek die in ronde 2 open leek ("richt je horloge op de hemel, zie wat daar staat") is in 2026 al door vijf apps bezet, drie daarvan sinds september. Wij zouden nummer zes zijn, en een sterke maker (Rampo) heeft er al drie apps en verkoopt goed. Dat is dezelfde regel als in ronde 1: een hoek die vol loopt valt af, ook als er verkocht wordt.
 
 ## Wat er al staat (GEZIEN, winkel-API, tenzij anders vermeld)
 | App | Maker | Sinds | Downloads | Cijfer (reviews) | Prijs | Richten met kompas? |
 |---|---|---|---|---|---|---|
 | SkyWatcher | Jeff_Crystal | jun 2025 | 10.000+ | 3,5 (17) | gratis, Pro via code buiten de winkel | nee (geen Sensor-permissie) |
-| AstroRadar | Brapps_Garmin | jan 2026 | 1.000+ | 4,7 (6) | betaald, prijs niet in API | ja: "point the watch at the horizon to activate the vertical view" (Sensor) |
+| AstroRadar | Brapps_Garmin | jan 2026 | 1.000+ | 4,7 (6) | gratis in de winkel (geen kassa), "All features unlocked for a limited time" | ja: "point the watch at the horizon to activate the vertical view" (Sensor) |
 | Planet Compass | Rampo | jan 2026 | 100+ | 4,8 (14) | $1,99 | ja (Sensor) |
 | Stargazer (wijzerplaat) | Rampo | mrt 2026 | 1.000+ | 4,5 (39) | $3,99 | nee, wijzerplaat |
 | Skyfix: Point at the Sky | ThijsGer | sep 2026 | 100+ | 5,0 (1) | $1,99 | ja, kompas plus versnellingsmeter: "hold your wrist up towards something bright, and it tells you what you are looking at" |
@@ -34,3 +34,7 @@ Ook van Rampo: Peak Finder Compass ($3,49, 1.000+ sinds mei 2026, 30 reviews). R
 - Zoek niet op idee maar op bewijs: van de 757 apps die sinds 2025 via de Garmin-kassa betaald zijn, haalden er 37 de 1.000+ (GEZIEN, dataset). Begin bij die 37 en zoek waar één verkoper alleen staat, Garmin het niet zelf doet, en de hoek niet vol loopt.
 - Kijk bij elke kandidaat eerst naar nieuwe apps van de laatste drie maanden, niet alleen naar de nummer één. Die check had ronde 2 meteen moeten doen.
 - Betalen via de Garmin-kassa (geen code per mail) blijft een pluspunt: Stargazer kreeg "I've paid for it but not received any unlock code" (GEZIEN).
+
+## Nagekeken (controleur, 9 nov 22:45)
+Goedgekeurd. Alle cijfers in de tabel kloppen met de winkel-API, en 757 en 37 kloppen met de dataset (74 kassa-apps hebben geen startdatum en vallen buiten die telling). Twee punten verbeterd: AstroRadar is in de winkel gratis zonder kassa, en Rampo heeft drie (niet vier) apps in de sterrenhoek.
+Vraag van de controleur: is maker ThijsGer (Skyfix) van ons? Nee. Dortus heeft geen Garmin-apps. ThijsGer is een appfabriek met 187 apps (GEZIEN, dataset), zie `onderzoek-ronde-4-2026-11-09.md`.
