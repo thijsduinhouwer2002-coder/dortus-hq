@@ -47,6 +47,7 @@ const BEGIN := ["vallen", "vluchten", "opgegeten", "terug", "doorlopen"]
 const BEGIN_DEMO := ["vallen", "vluchten", "opgegeten", "doorlopen", "terug", "opgegeten2"]
 var begin_gedaan: Array = []   # welke stappen al geweest zijn (in de save)
 var begin_vlucht := ""         # naam van de held die moest vluchten: hij is de terugkomer
+var vlucht_t := -100.0         # wanneer hij vluchtte (demo: terug pas 4 s later)
 var anim_t := 0.0
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
@@ -236,11 +237,25 @@ func _begin_stap() -> String:
 		if stap == "terug" and _terugkomer_i(begin_vlucht) < 0:
 			wacht = true       # hij is nog in het hol; eerst een andere stap
 			continue
+		if stap == "terug" and demo and t - vlucht_t < 4.0:
+			return "wacht"     # demo: niet meteen na zijn vlucht terug, anders komen vier regels in 2 s (film run 42721290569)
 		if stap.begins_with("opgegeten") and slijm.has_method("kan_vechten") and not slijm.kan_vechten():
 			wacht = true       # Gloop ligt plat; wacht tot hij weer op is
 			continue
 		return stap
 	return "wacht" if wacht else ""
+
+# wat bewaard wordt: de getoonde regels plus wachtende gebeurtenissen (geen lage), zodat bij afsluiten niets wegvalt
+# (controleur 23:30: de regels "terwijl je weg was" stonden bij het eerste bewaren nog in de wachtrij)
+func _kroniek_bewaar() -> Array[String]:
+	var k: Array[String] = []
+	k.assign(kroniek)
+	for w in wachtrij:
+		if not bool(w.binnen):
+			k.append(String(w.r))
+	while k.size() > 40:
+		k.remove_at(0)
+	return k
 
 func _terugkomer_i(naam: String) -> int:
 	for i in terugkomers.size():
@@ -323,6 +338,8 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		bewaar.erase("laatst_geraakt")
 		# 60% van wie vlucht komt ooit terug, aartsvijanden altijd (sim/UITKOMST.md); in de demo iedereen.
 		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
+		if String(info.naam) == begin_vlucht:
+			vlucht_t = t
 		if demo or bewaar.bezoeken >= 3 or rng.randf() < 0.6 or String(info.naam) == begin_vlucht:
 			terugkomers.append(bewaar)
 		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
@@ -460,7 +477,7 @@ func _notification(what: int) -> void:
 func bewaar() -> void:
 	var data := {"versie": OPSLAG_VERSIE, "tijd": Time.get_unix_time_from_system(), "gang": hol.gang, "boven": hol.boven,
 		"eerste_held_gedaan": eerste_held_gedaan, "vallen": hol.vallen, "ingang_kol": hol.ingang_kol, "gevallen_namen": gevallen_namen,
-		"schat_kol": hol.schat_kol, "goud": hol.goud, "terugkomers": terugkomers, "kroniek": kroniek,
+		"schat_kol": hol.schat_kol, "goud": hol.goud, "terugkomers": terugkomers, "kroniek": _kroniek_bewaar(),
 		"begin_gedaan": begin_gedaan, "begin_vlucht": begin_vlucht,
 		"slijm": slijm.naar_dict() if slijm.has_method("naar_dict") else {}}
 	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
