@@ -173,10 +173,10 @@ css += f"""
 # worden een voor een getekend, NAT 1 laat een vlek vermiljoen inkt uitlopen.
 R = ".rollwright-rolled"
 def stip(kleur, r): return f"radial-gradient(circle, {kleur} 0 {r}px, transparent {r + 1.2}px)"
-SINTELS = ", ".join([stip("#ffe08a", 1.6), stip("#ff9a3a", 1.2), stip("#ffd060", 1.8), stip("#ff7a20", 1.1),
-                     stip("#fff0b0", 1.3), stip("#ffb040", 1.5), stip("#ff8a2a", 1.0), stip("#ffe9a0", 1.4)])
-STOF = ", ".join([stip("rgba(170,180,175,.9)", 1.3), stip("rgba(140,150,145,.85)", 1.0), stip("rgba(190,195,190,.8)", 1.5),
-                  stip("rgba(120,128,124,.9)", 1.1), stip("rgba(160,168,164,.8)", 1.2), stip("rgba(200,205,200,.7)", 0.9)])
+SINTELS = ", ".join([stip("#ffe08a", 3.2), stip("#ff9a3a", 2.4), stip("#ffd060", 3.6), stip("#ff7a20", 2.2),
+                     stip("#fff0b0", 2.6), stip("#ffb040", 3.0), stip("#ff8a2a", 2.0), stip("#ffe9a0", 2.8)])
+STOF = ", ".join([stip("rgba(170,180,175,.95)", 2.6), stip("rgba(140,150,145,.9)", 2.0), stip("rgba(190,195,190,.9)", 3.0),
+                  stip("rgba(120,128,124,.95)", 2.2), stip("rgba(160,168,164,.9)", 2.4), stip("rgba(200,205,200,.85)", 1.8)])
 INKT = ", ".join([stip("#8f1a12", 2.4), stip("#a8231a", 1.6), stip("#7f1610", 1.9), stip("#a8231a", 1.2), stip("#8f1a12", 1.4)])
 css += f"""
 @keyframes rwxk-slag {{ 0% {{ transform: translateY(-5px) scale(1.06); filter: brightness(1.8); }} 28% {{ transform: translateY(2px) scale(.97); filter: brightness(1.15); }}
@@ -198,12 +198,12 @@ css += f"""
 {B} {T}{R}.rollwright-crit {{ animation: rwxk-slag .46s cubic-bezier(.2,.9,.3,1) both, rwxk-hitte 1.4s .4s ease-out both !important; }}
 {B} {T}{R}.rollwright-crit::before {{ content: "" !important; position: absolute !important; left: -18% !important; right: -18% !important; top: -2.6em !important; bottom: 30% !important;
   inset: auto; width: auto !important; height: auto !important; border: 0 !important; border-radius: 0 !important; pointer-events: none; z-index: 2 !important; opacity: 0;
-  background: {SINTELS} !important; background-size: 7px 7px !important; background-repeat: no-repeat !important; mix-blend-mode: screen;
+  background: {SINTELS} !important; background-size: 12px 12px !important; background-repeat: no-repeat !important; mix-blend-mode: screen;
   animation: rwxk-sintels 1.7s .45s cubic-bezier(.15,.6,.4,1) both !important; }}
 {B} {T}{R}.rollwright-fumble {{ animation: rwxk-zak .6s .35s cubic-bezier(.3,.7,.4,1) both !important; }}
 {B} {T}{R}.rollwright-fumble {{ background-repeat: no-repeat !important; animation: rwxk-zak .6s .35s cubic-bezier(.3,.7,.4,1) both, rwxk-barst .7s .4s ease-out both !important; }}
 {B} {T}{R}.rollwright-fumble::before {{ content: "" !important; position: absolute !important; left: -10% !important; right: -10% !important; top: 60% !important; bottom: -1.8em !important;
-  pointer-events: none; z-index: 2 !important; opacity: 0; background: {STOF} !important; background-size: 6px 6px !important; background-repeat: no-repeat !important;
+  pointer-events: none; z-index: 2 !important; opacity: 0; background: {STOF} !important; background-size: 10px 10px !important; background-repeat: no-repeat !important;
   animation: rwxk-stof 1.1s .45s ease-in both !important; }}
 
 @keyframes rwxc-pen {{ 0% {{ clip-path: inset(-20% 100% -20% 0); }} 100% {{ clip-path: inset(-20% -10% -20% 0); }} }}
@@ -217,8 +217,8 @@ css += f"""
 {C} {T}{R} .rollwright-value {{ animation: rwxc-pen .55s .12s cubic-bezier(.5,.1,.3,1) both !important; }}
 {C} {T}{R}.rollwright-crit {{ animation: rwxc-druk .4s cubic-bezier(.2,.9,.3,1) both, rwxc-randen .9s .45s ease-out both !important; }}
 {C} {T}{R}.rollwright-crit::before {{ content: "" !important; position: absolute !important; inset: 0 !important; width: auto !important; height: auto !important; border: 0 !important;
-  border-radius: inherit !important; pointer-events: none; z-index: 2 !important; mix-blend-mode: soft-light; opacity: 0;
-  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.95) 48%, rgba(255,250,210,.9) 52%, transparent 62%) !important; background-size: 260% 100% !important;
+  border-radius: inherit !important; pointer-events: none; z-index: 2 !important; mix-blend-mode: screen; opacity: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,1) 47%, rgba(255,250,210,1) 53%, transparent 62%) !important; background-size: 260% 100% !important;
   animation: rwxc-glans 1.1s .6s ease-in-out both !important; }}
 {C} {T}{R}.rollwright-fumble::before {{ content: "" !important; position: absolute !important; left: -14px !important; right: -18px !important; top: -10px !important; bottom: -12px !important;
   width: auto !important; height: auto !important; border: 0 !important; pointer-events: none; z-index: -1 !important;
