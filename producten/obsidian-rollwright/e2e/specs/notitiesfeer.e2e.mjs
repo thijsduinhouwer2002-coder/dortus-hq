@@ -116,7 +116,20 @@ describe("Rollwright: de skin kleurt de hele notitie, mechaniek (bouwplan notiti
 			await blad.openFile(app.vault.getAbstractFileByPath(ZONDER));
 		}, MET, ZONDER);
 		await browser.waitUntil(async () => (await stand()).every((s) => s.pad !== MET), { timeout: 4000 });
-		const na = await wachtOp({ [ZONDER]: false }, "eis 3 ander bestand");
+		// Er staan nu twee bladen met ZONDER; wachtOp is al tevreden met het blad rechts. Het hergebruikte blad
+		// verliest de klasse pas na layout-change en de nieuwe beslissing (±20 ms na openFile, gemeten op tak
+		// claude/obsidian-2026-11-09-events), dus wachten tot geen enkel blad de klasse nog heeft (rode run 42618407938).
+		await wachtOp({ [ZONDER]: false }, "eis 3 ander bestand");
+		let na = [];
+		try {
+			await browser.waitUntil(async () => {
+				na = await stand();
+				return !na.some((s) => s.wereld);
+			}, { timeout: 4000 });
+		} catch {
+			// Echte fout: laat zien welke bladen de klasse nog hebben (de stand van na het wachten, niet van ervoor).
+			console.log(`eis 3 ander bestand, klasse blijft: ${JSON.stringify(na)}`);
+		}
 		expect(na.some((s) => s.wereld)).toBe(false);
 		await browser.executeObsidian(async ({ app }, MET, ZONDER) => {
 			let blad = null;
