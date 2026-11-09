@@ -26,6 +26,8 @@ css = "/* Rollwright: de skin kleurt de hele notitie (prototype Daan, 9 nov 2026
 css += font("RW Cinzel", "cinzel.woff2", "font-weight: 400 900;") + font("RW Cinzel Deco", "cinzeldec.woff2", "font-weight: 700;")
 css += font("RW Fell", "fell.woff2", "font-style: normal;") + font("RW Fell", "felli.woff2", "font-style: italic;")
 css += font("RW Uncial", "uncial.woff2") + font("RW Spectral", "spectral.woff2")
+# Parchment heeft een eigen naam voor Spectral, zodat elk skinbestand los werkt.
+css += font("RW Spectral P", "spectral.woff2")
 
 T = '.rollwright-roll:not(.rollwright-skin-preview-roll)'
 
@@ -334,6 +336,17 @@ css += f"""
 @media (prefers-reduced-motion: reduce) {{ {AB} {T}{R}, {AB} {T}{R}::before {{ animation: none; }} }}
 """
 
+# ---------------- ronde g (run 50): cijfers in Spectral, oude vonk en golf weg ----------------
+css += f"""
+/* Cinzel heeft geen kleine letters: 1d20 las als ID20. Formules, details, tijd en invoer in Spectral (rechte cijfers). */
+{PB} {H} .rollwright-history-formula, {PB} {H} .rollwright-history-details, {PB} {H} .rollwright-history-time, {PB} {H} input {{
+  font-family: "RW Spectral P", Georgia, serif; font-style: italic; font-size: .85em; letter-spacing: 0; }}
+/* De algemene vonk, ring en golf van de plugin horen niet bij deze werelden; elke wereld heeft een eigen NAT 20-moment. */
+{PB} {T}.rollwright-crit::after, {PB} {T}.rollwright-crit .rollwright-icon::after {{ content: none; animation: none; }}
+{AB} {T}.rollwright-crit::after, {AB} {T}.rollwright-crit .rollwright-icon::after {{ content: none; animation: none; }}
+{PB} {T}{R}.rollwright-crit::before {{ box-shadow: none; }}
+"""
+
 # ---------------- levering: wereld.css (proef, beide) en per skin een bestand voor Olaf ----------------
 def regels(tekst):
     """Splitst CSS in regels op het hoogste niveau (commentaar telt mee met de regel erna)."""
@@ -348,7 +361,7 @@ def hoort(r):
     import re
     r = re.sub(r"/\*.*?\*/", "", r, flags=re.S).strip()
     if r.startswith("@font-face"):
-        return "p" if any(n in r for n in ('"RW Cinzel"', '"RW Cinzel Deco"', '"RW Fell"')) else "a"
+        return "p" if any(n in r for n in ('"RW Cinzel"', '"RW Cinzel Deco"', '"RW Fell"', '"RW Spectral P"')) else "a"
     if r.startswith("@keyframes rwp-"): return "p"
     if r.startswith("@keyframes rwa-"): return "a"
     p, a = "skin-parchment" in r, "skin-arcane" in r

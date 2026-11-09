@@ -75,7 +75,11 @@ describe("Rollwright: de skin kleurt de hele notitie", function () {
 		it(`beweging ${skin}`, async function () {
 			await stap("beweging" + skin, async () => {
 				await wereld(skin, "obsidian", "lezen"); await browser.pause(600);
+				await browser.execute(() => { const v = document.querySelector('.workspace-leaf-content[data-type="markdown"] .markdown-preview-view'); if (v) v.scrollTop = v.scrollHeight; });
+				await browser.pause(500);
 				for (const [naam, i, k] of [["nat20", 1, 0.99999], ["nat1", 3, 0]]) {
+					const n = await browser.execute((i) => { const a = [...document.querySelectorAll('.workspace-leaf-content[data-type="markdown"] .rollwright-roll')].filter((x) => x.offsetParent !== null); const r = a[i]?.getBoundingClientRect(); return a.length + " tokens, " + i + " op y=" + Math.round(r?.top ?? -1); }, i);
+					console.log("BEWEGING", skin, naam, n);
 					await zetVast(k); await klik(i); await losKans();
 					let t0 = Date.now();
 					for (const ms of [150, 450, 800, 1300, 2300]) { const w = ms - (Date.now() - t0); if (w > 0) await browser.pause(w); await save(`beweging-${skin}-${naam}-${ms}`); }
