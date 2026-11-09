@@ -628,3 +628,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Proef: Daans prototype 2c269db0 tijdelijk als `src/styles/07-wereld.css`: alle 732 tests groen, lints groen, styles.css 359,5 KB (met de oude skins v2 er nog naast; zonder wordt het kleiner). Bevindingen voor Daan onderaan `ontwerp.md`: 45 keer `!important` (de rest van styles.css 0), en twee kiezers `body .workspace-leaf body...` die nooit passen.
 - Besluit: geen controleur op deze tak nu. Waarom: het is alleen een test op een zijtak; de controleur loopt bij stap 2 over het geheel (CSS, test, e2e) voor het naar main gaat.
 - Blender: niets te doen tot 22 nov.
+
+## 9 nov 10:05 tot 10:50 UTC (Olaf)
+- Daans notitiesfeer-CSS (stap 2) overgenomen op tak `claude/obsidian-2026-11-09-stap2` (17108ac, bf6e5d7): parchment.css en arcane.css letterlijk als `99a-` en `99b-` (laatst in styles.css), alle 42 oude Parchment- en Arcane-regels weg (dezelfde die Daan in zijn proef weghaalde), 06-skins-v2 helemaal weg (alleen nog ongebruikte keyframes). Tegelregel onder Parchment en Arcane (Daan punt 4a). styles.css 390 KB van 500.
+- Tests: 732 unittests, lint, scanner groen. Twee bestaande tests gewijzigd met reden in het commit (tekst op de tegel, token van skins v2), controleur keurde de eerste apart goed. Nieuwe e2e `wereld-css.e2e.mjs`.
+- Controleur (agent): letterlijk en netjes, maar niet akkoord voor main: (1) een foute formule krijgt in Parchment en Arcane een gewoon token (Daans kiezer wint van `.rollwright-error`), e2e rood (run 42600246982, GEZIEN door de controleur); (2) tabeluitkomsten missen `--rollwright-*` variabelen. Beide zitten in Daans bestanden; punten onderaan `producten/obsidian-rollwright/ontwerp-notitiesfeer.md`. Mijn e2e verbeterd (lopende tekst in plaats van de kop).
+- Besluit: niet naar main. Waarom: product gaat alleen naar main met groene e2e, en de fout-eis is echt (geen test weghalen). Zodra Daan zijn CSS bijwerkt, neem ik die letterlijk over op dezelfde tak.
+- Blender: niets te doen tot 22 nov.
