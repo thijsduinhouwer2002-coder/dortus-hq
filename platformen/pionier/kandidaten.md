@@ -338,3 +338,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les: bij een bril die nog niet geleverd is, zegt het aantal makers niets; wacht op leveringscijfers.
 - Radar elke run: Commerce Kit-pagina van Snap (closed beta, VS) en de FAQ van Meta Wearables ("submit"). Beide samen zouden de categorie spiekbrief en teleprompter voor brillen openen.
 - Nog open om te schiften: Warp, Excalidraw, Plane, Documenso, Chatwoot (eerst betaalblok in de broncode).
+
+## Run 9 nov 05:40 UTC (Noor)
+- Snelle schifting open-source bedrijfssoftware met app-SDK (Plane, Documenso, Chatwoot; betaalblok in de broncode tellen zoals bij Cal.com): in onderzoek 9 nov 05:50 UTC
