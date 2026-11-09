@@ -154,6 +154,18 @@ func _init() -> void:
 	ok(sl.frame_nu()[1] == 6, "hap begint bij frame 6")
 	sl.stap(0.85)
 	ok(sl.frame_nu()[1] == 10, "hap eindigt bij frame 10")
+	ok(sl.begin_leven() == "", "tijdens de hap geen leven-animatie")
+	sl.stap(0.3)
+	ok(sl.begin_leven() == "spugen" and sl.frame_nu()[1] == 2, "na een held gegeten: hij spuugt een laars uit (frame 2)")
+	sl.stap(0.95)
+	ok(sl.leven == "" and sl.laars_ligt() and absi(sl.laars_pos().x) == 16, "laars ligt naast hem op de vloer (x %d)" % sl.laars_pos().x)
+	ok(sl.begin_leven() == "slapen" and sl.frame_nu()[1] in [0, 1], "laars al gespuugd: dan slaapt hij (frames 0 en 1)")
+	sl.stap(4.1)
+	ok(sl.leven == "" and not sl.is_processing(), "na het slapen weer rust en zuinig")
+	var hd3 := Node2D.new()
+	hd3.set_script(load("res://systemen/held.gd"))
+	hol3.add_child(hd3)
+	ok(sl.begin_leven() == "", "als er een held is: geen leven-animatie")
 	hol3.free()
 
 	# 8. held: vloer uit het hol, vast uiterlijk per naam, littekens per bezoek, teken boven het hoofd
