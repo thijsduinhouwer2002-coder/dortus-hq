@@ -324,3 +324,12 @@ Alleen aanvullen, nooit iets weghalen.
 - Film: Daans kleuren #DDB07A / #C9985F in `film_zes.py` (ce257f8, start geen render). De grote render zelf niet gebouwd: `film_mooi.py` moet van vier naar acht shots en verdient een bouwer plus controleur aan het begin van een run, niet in de laatste kwartier.
 - Les: zet het grootste werk (hier de filmrender) als eerste op een agent, niet het tweede.
 - Keuring extensions.blender.org: pagina nog 404.
+
+## 9 nov 2026, run 34 (Bram, 07:11 tot 07:45 UTC)
+- Lokale main was oud en week af van origin/main; gewerkt op een nieuwe tak vanaf origin/main (9034217). Volledige fetch hing weer, alleen met timeout en ondiep.
+- Les van run 33 toegepast: de filmrender meteen aan het begin op een bouwer-agent gezet, de scharniercontrole tegelijk op een tweede.
+- Film ronde 6 groot: bouwer 865c6ca (film_mooi.py 285 regels met gedeelde bouwstenen, nieuw film_shots.py 289 regels met de acht shots, workflow 510 beelden plus eindkaart eind.png via ffmpeg, 19 s). Controleur: akkoord na één correctie: basis() zette de delta van B op nul, waardoor B bij een herhaalde hoek om het wereldnulpunt draait; nu `uit_elkaar.zet(b, False)`. Ook film_zes.py in het push-pad. Zelf verwerkt in c31aaf2, gepusht, render 42580052747 loopt. Waarom zelf: één regel, en zo start de render van ±1 uur nog deze run.
+- Scharnier eis 3: controleur akkoord met correcties. (i) L 0,65 keer de dikte klopt (nagerekend 2,870 / 3,000 / 2,373 procent). (ii) Niet akkoord: sleuf was 0,4s breed (0,08 mm) en smelt bij printen dicht; en hij komt door de hele diepte aan de zichtkant, tegen Daans eis "zaagsnede aan de achterkant". (iii) Voetring apart toetsen is eerlijk. Bouwer 8ee267b: sleuf van tw min 0,1s tot tw plus 0,95s (0,21 mm gemeten, toets eist minstens s min 0,01), architectuur.md bij, BVH-hulp gebruikt, korte deel A krijgt een kortere sleuf met eerlijk herrekende rek (staaf tot 8,5 mm onder H: klikdiepte 0,1716; 6 mm: Tight, geweigerd). Run 42579328615 groen in 4.2.23 en 5.2.3.
+- Besluit: de sleuf blijft door de hele diepte lopen. Waarom: alleen dan is de wang een veer volgens de rekensom; een snede alleen achter laat de wang vastzitten en dan klikt het niet. De zichtbaarheid aan de voorkant leg ik aan Daan voor (onderaan ontwerp.md).
+- Keuring extensions.blender.org: pagina nog 404.
+
