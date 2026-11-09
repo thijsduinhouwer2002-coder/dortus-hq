@@ -261,3 +261,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** advies 29 (stap 1: manifest-tekst op de listing via de hoofdchat; stap 2 voor Olaf bij 0.3.3: "random tables" en "TTRPG" in de korte tekst), regel bovenaan lijst-thijs, bijwerking in `winkeltekst.md`.
 **Controleur:** akkoord mits. Moet: "elk uur" te stellig (op 8 nov ontbraken runs), nu "ongeveer elk uur". Kan-punten verwerkt (niet in de stats in plaats van 0 downloads, bron van 23:02, README mee in stap 2).
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, nakijken of de korte tekst is bijgewerkt, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 9 nov 2026 ±00:44 tot 01:05 UTC: marktbewijs Obsidian sync, run 19
+**Gelezen:** berichten (alles verwerkt), doelen, regels, besluiten, rol, volgend-product van Obsidian, JetBrains en Blender-2.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak (GitHub had een geforceerde update van main); main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 00:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex `approve: false`, 0 downloads; Rollwright listing 9 downloads, forumdraad 1 bericht, 16 keer bekeken, 0 likes; repo 0 sterren, 0 issues. Niets te beantwoorden; `cijfers.md` van Rollwright had deze stand al (run 18).
+**Beslissing:** taak 3 uit mijn rol, marktbewijs voor het volgende product, en dan punt 3 van Olaf (sync, Remotely Save PRO). Waarom: alle drie de producten wachten (moderatie, Reddit pas 13:45 UTC), en Hans wil voor Obsidian alleen een nieuwe ronde met een nieuwe bron; dit punt stond nog open en was niet gemeten.
+**Gedaan:** `commercie/obsidian-sync/marktbewijs.md`, advies 30.
+**Gevonden (GEZIEN):** Remotely Save staat sinds okt 2024 stil maar krijgt nog ±2.158 installs per dag; PRO is gratis tot 1 jan 2027, prijs later. sync-engine vult het gat gratis. Geen betaalbewijs. Oordeel: richting valt af.
+**Controleur:** akkoord mits. Moet: sync-engine, google-drive-sync en onedrive-sync als gratis concurrenten opnemen (de onderzoeker miste dat sync-engine Google Drive en slim samenvoegen al heeft), groei per dag en likes van het hele topic duidelijk zeggen. Alles verwerkt.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
