@@ -118,15 +118,15 @@ class FilmOpname {
         toets("BackSpace")
         Thread.sleep(300); beeld(3)
         for (i in 1..3) { Thread.sleep(1_000); beeld(3) }
-        // Muis op de plek van de fout (begin van de volgende regel) voor de zweeftekst met de foutmelding.
-        val plek = schermPlek("\nline\n", 10)
+        // Muis op "line": de lege foutknoop van b.error() staat meestal achter de vorige naam (controleur 9 nov).
+        val plek = schermPlek("\nline\n", 3)
         println("DORTUS-FILM scène 3 muis naar ${plek.x},${plek.y} (pixels)")
         for (dx in listOf(0, 2, 4)) { xdo("mousemove", "${plek.x + dx}", "${plek.y}"); Thread.sleep(400) }
         Thread.sleep(3_000); beeld(3)
         Thread.sleep(1_000); beeld(3)
         // Ook de foutomschrijving bij de cursor (Ctrl+F1), voor het geval de zweeftekst niet kwam.
         muisWeg()
-        with(ide) { cursorOp("\nline\n", 10) }
+        with(ide) { cursorOp("\nline\n", 5) }
         try { invokeAction("ShowErrorDescription", now = false) } catch (e: Throwable) { println("DORTUS-FILM ShowErrorDescription: ${e.javaClass.simpleName}") }
         Thread.sleep(2_000); beeld(3)
         toets("Escape")
@@ -185,6 +185,8 @@ class FilmOpname {
         try { invokeAction("RenameElement", now = false) } catch (e: Throwable) { println("DORTUS-FILM RenameElement: ${e.javaClass.simpleName}") }
         val venster = wacht(10) { actiefVenster().let { it != null && it != ideVenster } }
         println("DORTUS-FILM scène 5 hernoemvenster $venster")
+        // Zonder venster zouden Ctrl+A en het typen heel calc.y vervangen (controleur 9 nov).
+        if (!venster) error("geen hernoemvenster na Shift+F6 op %token NUM (scène 5)")
         Thread.sleep(1_500)
         beeld(5)
         toets("ctrl+a")
@@ -192,7 +194,12 @@ class FilmOpname {
         toets("Return")
         val terug = wacht(20) { actiefVenster() == ideVenster }
         println("DORTUS-FILM scène 5 terug in de IDE na Enter: $terug")
+        if (!terug) for (i in 1..3) { if (actiefVenster() == ideVenster) break; toets("Escape"); Thread.sleep(1_500) }
         Thread.sleep(2_000)
+        // calc.l links en calc.y rechts (film.md): eerst alles dicht, anders springt openFile("calc.y") naar het
+        // tabblad links (run 42553896267 gaf calc.y links).
+        try { invokeAction("CloseAllEditors") } catch (e: Throwable) { println("DORTUS-FILM CloseAllEditors: ${e.javaClass.simpleName}") }
+        Thread.sleep(1_000)
         openFile("calc.l")
         Thread.sleep(1_000)
         val inL = "return NUMBER;" in tekstOpen()
