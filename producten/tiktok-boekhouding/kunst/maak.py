@@ -150,17 +150,84 @@ def staten():
 <h1 style="margin-top:40px;font-size:22px">Verschil op bestellingniveau (niet geboekt)</h1>
 <div class="bonnen" style="grid-template-columns:repeat(3,1fr)">{kopv}</div></main>'''
 
+CSS_REK = r"""
+.rek{margin-top:18px}
+.rek .rij{display:grid;grid-template-columns:1.25fr 1.35fr;gap:18px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--lijn)}
+.rek .rij:last-child{border-bottom:0}
+.metbtw .rek .rij{grid-template-columns:1.1fr 1.25fr 150px}
+.meer b{white-space:nowrap}
+.rek .kopr{padding:11px 20px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--zacht);font-weight:600}
+.soort b{display:block;font-size:15px;font-weight:600}
+.soort span{display:block;font-size:13px;color:var(--zacht);margin-top:1px}
+.kies{display:flex;align-items:center;gap:10px;border:1px solid #D6D2C8;border-radius:10px;padding:9px 12px;background:#fff;font-size:14.5px;min-width:0}
+.kies .nr{color:var(--zacht);font-variant-numeric:tabular-nums}
+.kies .n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kies .pijl{color:var(--zacht);font-size:11px}
+.kies.vast{background:var(--papier);border-style:dashed;color:var(--zacht)}
+.lab{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;margin-top:6px}
+.lab.voor{background:var(--papier);color:#4A4752;border:1px solid var(--lijn)}
+.lab.let{background:var(--let-zacht);color:var(--let)}
+.uitleg{display:block;font-size:13px;color:var(--zacht);margin-top:4px}
+.lab.nieuw{background:var(--goed-zacht);color:var(--goed)}
+.lab.vast{background:var(--papier);color:var(--zacht);border:1px solid var(--lijn)}
+.meer{display:flex;align-items:center;gap:10px;padding:13px 20px;color:var(--accent);font-weight:600;font-size:14.5px;border-top:1px solid var(--lijn)}
+.meer span{color:var(--zacht);font-weight:400}
+.datum{display:grid;grid-template-columns:1.25fr 1.35fr;gap:18px;align-items:start;padding:20px}
+.info{display:flex;gap:12px;align-items:flex-start;background:var(--accent-zacht);color:#2A1F7A;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:18px}
+.info i{font-style:normal;font-weight:800;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;flex:none;font-size:13px}
+.slot{width:13px;height:13px;flex:none}
+@media (max-width:600px){.meer{flex-wrap:wrap;gap:2px 10px}.rek .rij,.datum{grid-template-columns:1fr;gap:8px}.rek .kopr{display:none}.btwcel:before{content:"Btw: ";color:var(--zacht);font-size:13px}}
+"""
+
+SLOT = '<svg class="slot" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="6" width="10" height="7" rx="2" fill="#6B6875"/><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="#6B6875" stroke-width="1.6" fill="none"/></svg>'
+
+def rekeningen(met_btw=False):
+    def kies(nr, naam, vast=False):
+        nrs = f'<span class="nr">{nr}</span>' if nr else ''
+        return f'<div class="kies{" vast" if vast else ""}">{SLOT if vast else ""}{nrs}<span class="n">{naam}</span>{"" if vast else "<span class=pijl>&#9662;</span>"}</div>'
+    def rij(soort, uitleg, nr, naam, lab, btw="", vast=False):
+        labels = {"gevonden": '<span class="lab voor">gevonden in je Moneybird</span>',
+                  "nieuw": '<span class="lab nieuw">+ nieuw, maken we aan</span>',
+                  "zelfde": '<span class="lab voor">zelfde als omzet</span>',
+                  "boekhouder": '<span class="lab let">kies met je boekhouder</span>',
+                  "vast": '<span class="lab vast">vast, + nieuw</span><span class="uitleg">Zo komt een verschil nooit in je omzet.</span>'}
+        btwcel = f'<div class="btwcel">{kies("", btw, vast)}</div>' if met_btw else ""
+        return f'<div class="rij"><div class="soort"><b>{soort}</b><span>{uitleg}</span></div><div>{kies(nr, naam, vast)}{labels[lab]}</div>{btwcel}</div>'
+    rijen = (rij("Omzet", "Wat klanten betaalden voor je producten", "8000", "Omzet hoog tarief", "gevonden", "21% hoog")
+        + rij("Kortingen", "Kortingen die jij gaf, van je omzet af", "", "Kortingen TikTok Shop", "nieuw", "21% hoog")
+        + rij("Terugbetaald", "Retouren en terugbetalingen aan klanten", "8000", "Omzet hoog tarief", "zelfde", "21% hoog")
+        + rij("Verzendkosten", "Wat TikTok voor verzending inhoudt", "", "Verzendkosten TikTok Shop", "nieuw", "Geen btw")
+        + rij("Commissie TikTok", "Wat TikTok per bestelling inhoudt", "", "Commissie en kosten TikTok Shop", "nieuw", "Geen btw")
+        + rij("Btw over kosten", "De btw op de kosten van TikTok", "1520", "Voorbelasting", "boekhouder", "Geen btw")
+        + rij("Belasting door TikTok", "Belasting die TikTok inhoudt of afdraagt", "", "Belastingen TikTok Shop", "nieuw", "Geen btw")
+        + rij("Apart gezet", "Bedragen die TikTok zelf niet goed optelt", "", "Vraagposten TikTok Shop", "vast", "Geen btw", vast=True))
+    kolom = '<div class="kopr rij" style="padding-top:11px;padding-bottom:11px"><span>Soort</span><span>Rekening in Moneybird</span>' + ('<span>Btw-tarief</span>' if met_btw else '') + '</div>'
+    btwinfo = "" if met_btw else '''<div class="info"><i>i</i><div><b>Btw splitsen we nog niet.</b> Je omzet komt inclusief btw op de rekening. Laat het je boekhouder weten, en kies samen waar de btw over de kosten van TikTok heen moet. Zodra btw-splitsen kan, zie je hier per soort een btw-tarief.</div></div>'''
+    stijl = ' class="metbtw"' if met_btw else ''
+    tegen = '''<div class="kaart rek"><div class="rij"><div class="soort"><b>Tegenrekening</b><span>Hier komt het hele bedrag van elke uitbetaling. Staat het op je bank, dan koppel je de bankregel hieraan.</span></div><div>''' + kies("", "Te ontvangen van TikTok Shop") + '''<span class="lab nieuw">+ nieuw, maken we aan</span></div></div></div>'''
+    return top('<span class="pil">Stap 3 van 3</span>') + f'''<main style="max-width:980px"{stijl}><h1>Waar boeken we het op?</h1>
+<p class="sub">Per soort stellen we een rekening voor. Wat al in je Moneybird staat, gebruiken we; wat ontbreekt, maken we aan. Je kunt het later altijd wijzigen.</p>
+<div class="kaart rek"><div class="datum"><div class="soort"><b>Boeken vanaf</b><span>Alleen uitbetalingen vanaf deze dag. Wat je al zelf boekte, komt er zo niet dubbel in.</span></div>
+<div><div class="kies"><span class="n">1 oktober 2026</span><span class="pijl">&#9662;</span></div>
+<div class="noot" style="margin-top:10px"><b>Deze datum ligt in het verleden.</b> Boek je uitbetalingen van na 1 oktober al zelf? Kies dan een latere datum, anders staan ze dubbel in Moneybird.</div></div></div></div>
+{btwinfo}
+<div class="kaart rek">{kolom}{rijen}<div class="meer"><b>&#9656; Meer soorten</b> <span>Korting terug, overige omzet, correcties van TikTok (komen zelden voor; 1 nieuwe rekening)</span></div></div>
+{tegen}
+<div class="balk"><div class="t"><b>Klaar om aan te zetten?</b><span>We maken 7 rekeningen aan (ze eindigen allemaal op &ldquo;TikTok Shop&rdquo;) en boeken meteen 5 uitbetalingen vanaf 1 oktober. Daarna elke nieuwe vanzelf.</span></div>
+<button class="knop rustig">Terug naar proef</button><button class="knop hoofd">Zet aan</button></div></main>'''
+
 def mobiel():
     return proef().replace('grid-template-columns:repeat(3,1fr)', '')
 
 SCHERMEN = [("1-koppelen", koppelen, 1280), ("2-proef", proef, 1280), ("3-overzicht", overzicht, 1280),
-            ("4-staten", staten, 1280), ("5-proef-telefoon", proef, 390)]
+            ("4-staten", staten, 1280), ("5-proef-telefoon", proef, 390),
+            ("6-rekeningen", rekeningen, 1280), ("6b-rekeningen-met-btw", lambda: rekeningen(True), 1280), ("6c-rekeningen-telefoon", rekeningen, 390)]
 
 async def main():
     async with async_playwright() as p:
         br = await p.chromium.launch()
         for naam, f, breed in SCHERMEN:
-            css = CSS
+            css = CSS + CSS_REK
             if breed < 600:
                 css += ".bonnen{grid-template-columns:1fr}main{padding:22px 16px}.top{padding:14px 16px}.pad{display:none}h1{font-size:23px}.balk{flex-direction:column;align-items:stretch}.balk .knop{justify-content:center}"
             html = f'<!doctype html><html lang="nl"><meta charset="utf-8"><style>{css}</style><body>{f()}</body></html>'
