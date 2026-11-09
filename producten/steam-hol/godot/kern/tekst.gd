@@ -22,6 +22,20 @@ func _paneel(rect: Rect2) -> void:
 			draw_texture_rect_region(PANEEL, Rect2(xs[i], ys[j], xs[i + 1] - xs[i], ys[j + 1] - ys[j]),
 				Rect2(bx[i], bx[j], bx[i + 1] - bx[i], bx[j + 1] - bx[j]))
 
+# muntje van 4 x 4 spelpixels: donkere rand, goud, één glimpixel
+func _munt(p: Vector2) -> void:
+	var px := float(schaal)
+	var rand := Color("#7a4a12")
+	var goudk := Color("#f2c14e")
+	var vorm := [".XX.", "XGGX", "XGGX", ".XX."]
+	for j in 4:
+		for i in 4:
+			var c: String = vorm[j][i]
+			if c == "X":
+				draw_rect(Rect2(p.x + i * px, p.y + j * px, px, px), rand)
+			elif c == "G":
+				draw_rect(Rect2(p.x + i * px, p.y + j * px, px, px), Color("#ffe07a") if (i == 1 and j == 1) else goudk)
+
 func vak_breedte() -> float:
 	return minf(430.0, breedte * 0.3)
 
@@ -49,7 +63,12 @@ func _draw() -> void:
 	var links := x - binnen + 4
 	var top := y0 - binnen + 2
 	_paneel(Rect2(links, top, breedte - 2 - links, hoogte - 2 - top))
-	draw_string(font, Vector2(x, y0 + maat), "Hoard: %d gold" % goud, HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#ffe07a"))
+	# goud als muntje plus getal in plaats van "Hoard: 24 gold" (Mila 20:55, stijl.md punt 5); zelfde kleuren als de
+	# vliegende muntjes in hol.gd, 4 x 4 spelpixels, op de schaal van de strook (scherpe pixels)
+	var mx := x
+	var my := y0 + maat / 2.0 - 2 * schaal + 1
+	_munt(Vector2(mx, my))
+	draw_string(font, Vector2(x + 5 * schaal + 2, y0 + maat), str(goud), HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#ffe07a"))
 	for i in toon.size():
 		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
 		var r: String = toon[i]
