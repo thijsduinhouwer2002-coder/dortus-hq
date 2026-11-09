@@ -1,3 +1,4 @@
-CPU vol60 : 3.49 CPU-seconden per 10 s (gemeten over 20 s), geheugen 121 MB, kernen op de runner 4
-CPU fps30 : 2.94 CPU-seconden per 10 s (gemeten over 20 s), geheugen 114 MB, kernen op de runner 4
-CPU zuinig : 1.57 CPU-seconden per 10 s (gemeten over 20 s), geheugen 114 MB, kernen op de runner 4
+CPU vol60 : 4.37 CPU-seconden per 10 s (gemeten over 20 s), geheugen 121 MB, kernen op de runner 4
+CPU fps30 : 4.07 CPU-seconden per 10 s (gemeten over 20 s), geheugen 115 MB, kernen op de runner 4
+CPU zuinig : 2.02 CPU-seconden per 10 s (gemeten over 20 s), geheugen 115 MB, kernen op de runner 4
+CPU stil : 0.02 CPU-seconden per 10 s (gemeten over 20 s), geheugen 112 MB, kernen op de runner 4
