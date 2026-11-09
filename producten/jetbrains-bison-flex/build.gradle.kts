@@ -42,7 +42,11 @@ dependencies {
         when (doelIde) {
             "IC" -> intellijIdeaCommunity("2025.2")
             "CL" -> clion("2025.2")
-            "IU262" -> intellijIdea("2026.2")
+            "IU262" -> {
+                intellijIdea("2026.2")
+                // Vanaf 2026.x is de structuurweergave (PsiTreeElementBase) een eigen gebundelde plugin.
+                bundledPlugin("com.intellij.structureView")
+            }
             else -> error("Onbekende doelIde '$doelIde', kies IC, CL of IU262")
         }
         pluginVerifier()
