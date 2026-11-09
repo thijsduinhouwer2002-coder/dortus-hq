@@ -1,19 +1,24 @@
 HOL kroniek: Your hole is open. Heroes will come.
 HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
-HOL kroniek: Kees the hero climbs into your hole.
+HOL kroniek: Kees the hero climbs in.
+HOL gegraven kolom 4
+HOL kroniek: Bram the hero climbs in.
+HOL kroniek: Kees fell to the Spike Pit.
+HOL kroniek: +3 gold for your hoard.
+HOL kroniek: Ties the hero climbs in.
 HOL gegraven kolom 13
-HOL kroniek: Mara the hero climbs into your hole.
+HOL kroniek: Joost the hero climbs in.
+HOL kroniek: Bram fell to Gloop the Slime.
+HOL kroniek: +3 gold for your hoard.
+HOL gegraven kolom 5
+HOL kroniek: Rik the hero climbs in.
 HOL gegraven kolom 14
-HOL kroniek: Odo the hero climbs into your hole.
-HOL kroniek: Kees escaped and is now Kees the Once-Fled. Grudge: the Spike Pit.
-HOL kroniek: Mara fell to Gloop the Slime. +3 gold.
-HOL kroniek: Kees the Once-Fled is back. Grudge: the Spike Pit.
-HOL gegraven kolom 15
-HOL kroniek: Odo fell to the Spike Pit. +3 gold.
-HOL kroniek: Mara the hero climbs into your hole.
-HOL gegraven kolom 16
-HOL kroniek: Rik the hero climbs into your hole.
-HOL kroniek: Mara fell to the Spike Pit. +3 gold.
-HOL kroniek: Lotte the hero climbs into your hole.
-HOL gegraven kolom 17
-HOL einde na 50 s, fps=15, goud=9, terugkomers=0
+HOL kroniek: Ties fled. Now: Ties the Once-Fled.
+HOL kroniek: Gerda the hero climbs in.
+HOL kroniek: Rik fell to the Spike Pit.
+HOL kroniek: +3 gold for your hoard.
+HOL gegraven kolom 6
+HOL kroniek: Kees the hero climbs in.
+HOL kroniek: Gerda fell to the Spike Pit.
+HOL kroniek: +3 gold for your hoard.
+HOL einde na 50 s, fps=15, goud=12, terugkomers=1
