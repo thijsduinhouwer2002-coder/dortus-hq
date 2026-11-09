@@ -277,3 +277,6 @@ body.rollwright-skin-parchment .rollwright-history .rollwright-history-formula, 
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit::after, body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-icon::after { content: none; animation: none; }
 body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit::after, body.rollwright-skin-arcane .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-icon::after { content: none; animation: none; }
 body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-rolled.rollwright-crit::before { box-shadow: none; }
+/* Het label leest slecht op bladgoud en naast vermiljoen (ronde g gezien): donkerder. */
+body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-crit .rollwright-label, .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-crit .rollwright-label { color: #5a3a08; }
+body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-roll).rollwright-fumble .rollwright-label, .rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-roll.rollwright-fumble .rollwright-label { color: #8f1a12; }

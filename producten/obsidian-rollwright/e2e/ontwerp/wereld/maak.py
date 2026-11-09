@@ -345,6 +345,9 @@ css += f"""
 {PB} {T}.rollwright-crit::after, {PB} {T}.rollwright-crit .rollwright-icon::after {{ content: none; animation: none; }}
 {AB} {T}.rollwright-crit::after, {AB} {T}.rollwright-crit .rollwright-icon::after {{ content: none; animation: none; }}
 {PB} {T}{R}.rollwright-crit::before {{ box-shadow: none; }}
+/* Het label leest slecht op bladgoud en naast vermiljoen (ronde g gezien): donkerder. */
+{tok("parchment", ".rollwright-crit .rollwright-label")} {{ color: #5a3a08; }}
+{tok("parchment", ".rollwright-fumble .rollwright-label")} {{ color: #8f1a12; }}
 """
 
 # ---------------- levering: wereld.css (proef, beide) en per skin een bestand voor Olaf ----------------
