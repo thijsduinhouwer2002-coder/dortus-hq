@@ -26,7 +26,7 @@ render 4-rood28-hoek0 klaar
 render 4-rood28-hoek60 klaar
 render 4-rood28-hoek120 klaar
 render 4-rood28-hoek270 klaar
-rood midden (-33.11, -4.93, 98.28), maat 4.49 mm, normaal (0.27, 0.02, 0.96), afstand 62.4
+rood midden (-33.11, -4.93, 98.28), maat 4.49 mm, normaal (0.27, 0.02, 0.96), afstand 40.8
 render 4b-rood28-doorzichtig-0 klaar
 render 4b-rood28-doorzichtig-1 klaar
 render 5-rood28-exploded klaar
