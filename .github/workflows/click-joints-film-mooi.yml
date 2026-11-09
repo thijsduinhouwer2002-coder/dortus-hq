@@ -3,7 +3,7 @@ name: Click Joints filmpje filmisch (echte Blender, Cycles, in stukken)
 on:
   push:
     branches: ["claude/blender-film-*"]
-    paths: ["producten/blender-gewrichten/e2e/film_mooi.py", "producten/blender-gewrichten/e2e/film_shots.py", ".github/workflows/click-joints-film-mooi.yml"]
+    paths: ["producten/blender-gewrichten/e2e/film_mooi.py", "producten/blender-gewrichten/e2e/film_shots.py", "producten/blender-gewrichten/e2e/film_zes.py", ".github/workflows/click-joints-film-mooi.yml"]
   workflow_dispatch:
     inputs:
       samples:

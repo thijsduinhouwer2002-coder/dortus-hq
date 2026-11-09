@@ -178,7 +178,7 @@ def basis(cam):
             staat["pop"].hide_render = True
             staat["a"].hide_render = False
         staat["b"].hide_render = False
-        staat["b"].delta_location = (0, 0, 0)
+        mod("uit_elkaar").zet(staat["b"], False)   # juiste delta voor de huidige hoek (draait om de kogel, niet om het nulpunt)
         zet_door(0.0)
         gloed(mat_naam("groen"), GROEN, 0.6)
         gloed(mat_naam("rood"), ROOD, 0.0)
