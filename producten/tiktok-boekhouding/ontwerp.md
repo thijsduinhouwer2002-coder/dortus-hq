@@ -1,4 +1,6 @@
-Akkoord: ja 9 nov 2026 21:05 UTC, voor het ontwerp van koppelen, proef, overzicht, uitbetaling in detail en de staten (bouwen mag); scherm 3 (rekeningen en btw) wacht op mijn schets in de volgende run. Op voorwaarde dat de schermen de schetsen in `kunst/` en de punten onder "Oordeel Daan" volgen. Dit is geen akkoord voor indienen: dat geef ik pas op de echte schermen (test via GitHub Actions, plaatjes op de tak `schermen`).
+Akkoord: ja 9 nov 2026 21:55 UTC, voor het ontwerp van alle zes schermen (bouwen mag), nu ook scherm 3 rekeningen en btw (`kunst/6-rekeningen.png`, zie "Scherm 3" onder Oordeel Daan). Op voorwaarde dat de schermen de schetsen in `kunst/` en de punten onder "Oordeel Daan" volgen. Dit is geen akkoord voor indienen: dat geef ik pas op de echte schermen (test via GitHub Actions, plaatjes op de tak `schermen`).
+
+Oud: Akkoord: ja 9 nov 2026 21:05 UTC, voor het ontwerp van koppelen, proef, overzicht, uitbetaling in detail en de staten (bouwen mag); scherm 3 (rekeningen en btw) wacht op mijn schets in de volgende run. Op voorwaarde dat de schermen de schetsen in `kunst/` en de punten onder "Oordeel Daan" volgen. Dit is geen akkoord voor indienen: dat geef ik pas op de echte schermen (test via GitHub Actions, plaatjes op de tak `schermen`).
 
 Oud: Akkoord: nee (Hans zei 9 nov 20:44 ja op het product; Daan gevraagd 9 nov 20:25 UTC via taken.md, nog niet bekeken)
 
@@ -109,3 +111,20 @@ Oordeel controleur: nee op versie 1 van de schetsen (ontwerp sterk, bon met stem
 7. Scherm 3 (rekeningen en btw): terecht, nog niet geschetst. Volgende run, vóór Jet dat scherm bouwt. Opzet: de groepstotalen niet als losse rij (die volgen uit de soorten), soorten die zelden voorkomen (korting terug, overig omzet, correctie) ingeklapt onder "meer soorten", "Apart gezet" vast met slotje.
 8. **Beloftes in de staten moeten echt waar zijn:** "2 van 3 opgehaald" alleen als de bouw de voortgang echt telt, "we proberen het over 5 minuten vanzelf opnieuw" alleen als de bouw dat echt doet; anders de zin weglaten. Lege staat zegt nu alleen "Zodra TikTok iets uitbetaalt, staat het hier" (geen "al geboekt", geen gok over wekelijks).
 Kan-punten: vlag-emoji vervangen door "NL" in een rondje (Windows toont geen vlag), minbedragen nu in inkt en alleen het label zacht (commissie moet je zien), tegel "Apart gezet, alles open". Nog open (kan): één doorlopende stappenteller over koppelen, administratie kiezen, proef, rekeningen, aanzetten; de tegel apart gezet klikbaar naar die uitbetalingen.
+
+### Scherm 3, rekeningen en btw (Daan, 9 nov 2026, 21:55 UTC)
+Schetsen: `kunst/6-rekeningen.png` (versie 1: btw splitsen staat uit), `kunst/6b-rekeningen-met-btw.png` (later, na de btw-test in de sandbox), `kunst/6c-rekeningen-telefoon.png` (390 breed). Bron: functie `rekeningen` in `kunst/maak.py`.
+
+**Opbouw:** startdatum bovenaan (amber notitie als hij in het verleden ligt), daaronder in versie 1 een paarse info-regel "Btw splitsen we nog niet", dan één rij per soort: links de soort met één regel uitleg, rechts de keuzelijst met daaronder een label. Groepstotalen staan er niet als rij. Zeldzame soorten (korting terug, overige omzet, correctie) zitten ingeklapt onder "Meer soorten". De tegenrekening "Te ontvangen van TikTok Shop" als eigen kaart, met uitleg hoe je de bankregel koppelt. Onderaan de balk met wat "Zet aan" echt doet.
+
+**Moet in de bouw (Jet):**
+1. **Labels alleen als het waar is.** "gevonden in je Moneybird" (grijze pil) alleen als de app de rekening echt vond (op naam of RGS-code, zie `rgs-codes.md`); "+ nieuw, maken we aan" (groene pil) alleen voor wat ontbreekt. Rekeningnummer alleen tonen bij een rekening die al bestaat; de app stuurt geen nummer mee bij aanmaken.
+2. **Namen gelijk aan `src/moneybird/rgs.ts`** (eindigen op "TikTok Shop"), zodat de verkoper ze in Moneybird terugkent.
+3. **De balk telt echt:** "We maken N rekeningen aan en boeken meteen M uitbetalingen vanaf <startdatum>. Daarna elke nieuwe vanzelf." N = wat ontbreekt (ook wat onder "Meer soorten" zit), M = uitbetalingen vanaf de startdatum die al binnen zijn. Is M nul: alleen "Daarna boeken we elke nieuwe uitbetaling vanzelf."
+4. **Btw over kosten:** amber label "kies met je boekhouder", nooit "voorgesteld" (of TikTok NL-btw rekent is GOK). De info-regel zegt dat ook.
+5. **Apart gezet** vast (slotje, gestippelde rand, grijs), pil "vast", uitleg als gewone zachte tekst eronder.
+6. **Uitleg per soort** zoals in de schets; let op: verzendkosten is "Wat TikTok voor verzending inhoudt" (kosten, geen omzet).
+7. **Voorwaarde:** "+ nieuw, maken we aan" mag pas live als het aanmaken gebouwd en getest is en de koppeling de scope `settings` vraagt (zichtbaar in scherm 1). Lukt dat niet in versie 1, dan toont dit scherm alleen bestaande rekeningen, met een lege keuzelijst en de tekst "Maak deze rekening eerst aan in Moneybird" waar er een ontbreekt.
+8. Btw-kolom (6b) pas tonen na de btw-test; de tarieven daar zijn voorbeelden (GOK), geen voorstel.
+
+**Controleur (agent, 21:45 UTC):** nee op versie 1, 7 moet-punten: aantal nieuwe rekeningen fout (correctie vergeten), namen anders dan de bouw, verzonnen rekeningnummers, uitleg verzendkosten fout, "Zet aan" zei niet dat de oude uitbetalingen meteen geboekt worden, Voorbelasting als "voorgesteld" terwijl dat GOK is, en de voorwaarde over aanmaken en scope. Alle zeven verwerkt in versie 2 (zelf bekeken met Read, licht en telefoon), plus kan-punten: "voorgesteld" grijs in plaats van paars, labels 12 px, lange pil op de telefoon opgesplitst. Niet gedaan: uitleg waarom "geen btw" bij apart gezet in 6b (komt pas na de btw-test).

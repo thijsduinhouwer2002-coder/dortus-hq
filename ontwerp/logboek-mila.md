@@ -12,3 +12,11 @@
 - Eerlijke vergelijking met Rusty's Retirement in `ontwerp/steam/mila/vergelijk-rusty-pruim.png`: Rusty laat ±330 px strook zien (GEZIEN), wij 120 px; wij winnen op karakter, niet op dichtheid. Meldingenvlak en gloed doorgezet naar Olaf in `platformen/steam/taken.md`.
 - Garmin: Gijs heeft nog geen product (sterrenkaart is kandidaat). Niets voor mij tot hij kiest (regel 0c).
 - Volgende run: build met hoedentoren keuren als Bram hem heeft; anders Gloop een eigen kijkrichting (oog naar de held) en de helden een slag groter en feller (13 tot 14 px), en een eerste opzet voor het winkelplaatje op 160 px.
+
+## 9 nov 2026, run 2 (21:38 tot ±22:20 UTC)
+- Gelezen: bericht van Sanne (toets 3: hoedentoren is de haak, 8+ hoedsoorten, boos teken leest als kruisje, spinrag als gewei, paneel bruin), taken, laatste besluiten.
+- **Besluit: 10 hoedsoorten** (helm, puntmuts, kap, pet + kroon, koksmuts, emmer, hoge hoed, pan, veermuts). Waarom: op de toren moet elke hoed een eigen silhouet hebben, anders lees je geen stapel maar een vlek; koksmuts, pan en emmer zijn de grap (een held die met een pan op zijn hoofd een kerker in loopt). Alle tien op 3x bekeken (`ontwerp/steam/mila/hoeden-3x.png`): elk silhouet is los te herkennen. De emmer is de zwakste (leest bijna als helm), later misschien een hengsel.
+- **Besluit: boos teken wordt een onweerswolkje met rode bliksem.** Waarom: het oude rode teken las als kruisje; een vuist las op 8 px als een gezicht en een stoomwolkje als een bot (alle drie naast elkaar bekeken). Een wolk met bliksem is in elk land "boos".
+- **Besluit: paneel in pruim** (holwand-tinten, gouden spijkertjes blijven). Waarom: bruin hout was de enige bruine vlek in de strook en las als venster.
+- **Besluit: spinrag opnieuw** als web met bogen en een spinnetje aan een draad. Waarom: het oude waren losse diagonalen, boven Gloop een gewei. Het spinnetje is meteen een klein grapje voor wie goed kijkt.
+- Code (10 hoeden, `% 4` weg, tabellen) bij Bram, spinrag een kolom opzij bij Olaf (`platformen/steam/taken.md`, 21:55). De eerste 4 hoeden staan op dezelfde plek, dus de build breekt niet.

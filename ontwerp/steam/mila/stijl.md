@@ -34,5 +34,11 @@ Begonnen 9 nov 2026. Dit is de stijl die Het Hol herkenbaar van ons maakt. Daans
 - Gevolg voor de winkelplaatjes: de strook op 160 px (de hoogste stand, eerlijk) plus een ingezoomd stukje ernaast (Gloop met toren, een held met pleister), duidelijk als vergroting.
 - Wat nu nog het meest schaadt (build 09a7ab4): (1) het meldingenvlak, een zwart blok van een derde van de breedte; (2) geen gloed rond fakkels en schat, terwijl warm licht op pruim juist de sfeer maakt; (3) lege gangen. Punten 1 en 2 staan bij Olaf.
 
+## 6. Hoeden, tekens en kleine dingen (9 nov, run 2)
+- **10 hoedsoorten** (`held_hoeden.png`, index 0 tot 9): helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts. Elk een eigen silhouet en een eigen kleur, zodat je op de toren een stapel ziet en geen vlek. De grap zit in de pan, de emmer en de koksmuts. Zie `hoeden-3x.png` (ware grootte) en `hoeden-6x.png`; maker `bron/voorbeeld_hoeden.py`.
+- **Boos teken** = onweerswolkje met rode bliksem. Vuist en stoomwolkje afgewezen (gezicht en bot op 8 px).
+- **Paneel** in pruim met gouden spijkertjes, geen bruin hout meer. GEZIEN in build 1bbdbc6: hoort nu bij het hol.
+- **Spinrag** = plat hangend web, 8 rijen bovenaan de gang, met een spinnetje eronder. In build 1bbdbc6 (`build-1bbdbc6-gloop.png`) stond het oude web nog als gewei op Gloops kop: de gang is maar één cel hoog, dus elk web van 14 rijen botst met wie eronder staat. Daarom plat, en een kolom opzij (Olaf).
+
 ## Lat (elke keer)
 Stopt iemand met scrollen? Herkenbaar van ons? Grap of haak? Werkt het klein? Eerlijk?

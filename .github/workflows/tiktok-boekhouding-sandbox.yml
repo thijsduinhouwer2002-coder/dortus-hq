@@ -1,0 +1,43 @@
+name: TikTok boekhouding sandbox-proef (Moneybird)
+
+# Proef van Jet (9 nov 2026): loopt de open vragen uit ontwerp-moneybird.md en rgs-codes.md af
+# in de Moneybird-sandbox "Klopt test", met het secret MONEYBIRD_SANDBOX_TOKEN. Zie producten/tiktok-boekhouding/proef/README.md.
+on:
+  push:
+    branches: [main]
+    paths: ["producten/tiktok-boekhouding/proef/sandbox.ts", ".github/workflows/tiktok-boekhouding-sandbox.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: moneybird-sandbox
+  cancel-in-progress: false
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - name: Unittests van de map (moeten groen zijn vóór de proef)
+        working-directory: producten/tiktok-boekhouding
+        run: npm test
+      - name: Proef in de sandbox
+        working-directory: producten/tiktok-boekhouding
+        env:
+          MONEYBIRD_SANDBOX_TOKEN: ${{ secrets.MONEYBIRD_SANDBOX_TOKEN }}
+        run: node proef/sandbox.ts
+      - name: Uitslag in de samenvatting
+        if: always()
+        run: cat producten/tiktok-boekhouding/proef/uitslag.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: moneybird-sandbox-uitslag
+          path: producten/tiktok-boekhouding/proef/uitslag.md
+          if-no-files-found: ignore

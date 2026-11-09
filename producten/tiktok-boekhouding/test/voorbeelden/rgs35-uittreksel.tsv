@@ -1,0 +1,12 @@
+# Uittreksel RGS 3.5 (definitief), bron: https://www.referentiegrootboekschema.nl/sites/default/files/public/Def-versie%20RGS%203.5_2.xlsx, blad RGS3.5, GEZIEN 9 nov 2026. Kolommen: Referentiecode, Referentienummer, Omschrijving, D/C, Nivo, Inactief
+WOmzNohOlh	8002010	1a. Netto-omzet uit verkoop van handelsgoederen belast met hoog tarief	C	4	
+WOmzNohOlv	8002020	1b. Netto-omzet uit verkoop van handelsgoederen belast met laag tarief	C	4	
+WOmzNohOla	8002100	3c. Netto-omzet uit leveringen handelsgoederen via installatie/afstandsverkopen binnen de EU	C	4	
+WOmzKebVekVkh	8006010.02	Verleende kortingen op handelsgoederen verleende kortingen	D	5	
+WBedVkkVrk	4203090	Vrachtkosten verkoop gerelateerde kosten	D	4	
+WBedVkkCom	4203140	Commissies verkoop gerelateerde kosten	D	4	
+BSchBepBtwVoo	1205010.09	Voorbelasting 	D	5	
+WBedVkkObs	4203210	Overige belastingen inzake verkoopactiviteiten verkoop gerelateerde kosten	D	4	
+WBedVkkOvr	4203220	Overige verkoopkosten verkoop gerelateerde kosten	D	4	
+BVorTusTovTvp	1106020	Tussenrekening vraagposten tussenrekeningen overig	D	5	
+BVorOvrOvk	1103190	Overige vorderingen overige vorderingen	D	4	

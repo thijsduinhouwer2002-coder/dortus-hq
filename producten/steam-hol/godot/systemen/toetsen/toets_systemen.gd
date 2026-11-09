@@ -133,7 +133,7 @@ func _init() -> void:
 		if laatst.size() > 4:
 			laatst.pop_front()
 	ok(herhaald == 0, "binnenkomst: niet een van de laatste 4 regels opnieuw (%d keer)" % herhaald)
-	var zonder_n := 0
+	var zonder_waarom := 0
 	for z in 100:
 		var nm := "Terug%d" % z
 		k6.binnen(nm)
@@ -141,8 +141,8 @@ func _init() -> void:
 		k6.binnen(nm)
 		var rg: String = k6.laatste()
 		if not (rg.contains("Gloop") or rg.contains("Spike Pit") or rg.contains("Spooked")):
-			zonder_n += 1
-	ok(zonder_n == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder_n)
+			zonder_waarom += 1
+	ok(zonder_waarom == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder_waarom)
 	var k7 = K.new()
 	ok(k7.hoed("Kees", "Gloop the Slime", 1) == "Gloop wears Kees's hat now.", "eerste hoed: " + k7.laatste())
 	ok(k7.hoed("Pim", "Gloop the Slime", 25) == "Gloop is now known as the Hatted.", "25 hoeden: " + k7.laatste())
@@ -157,6 +157,28 @@ func _init() -> void:
 		if regel.length() > 42:
 			te_lang2 += 1
 	ok(te_lang2 == 0, "nieuwe regels hooguit 42 tekens (%d te lang)" % te_lang2)
+
+	# hoeden terwijl je weg was (Mila: de toren groeit vanzelf terwijl je weg bent)
+	var hw: Dictionary = V.reken(t0, t0 + 3 * 3600, 1, 1, 42)
+	ok(int(hw.opgegeten) > 0 and int(hw.opgegeten) < int(hw.gevallen), "weg 3 uur: een deel van de gevallen helden gaf Gloop een hoed (%d van %d)" % [int(hw.opgegeten), int(hw.gevallen)])
+	ok(int(V.reken(t0, t0 + 3 * 3600, 2, 0, 42).opgegeten) == 0, "zonder bewoners geen hoeden")
+	ok(hw.goud == V.reken(t0, t0 + 3 * 3600, 1, 1, 42).goud and hw.opgegeten == V.reken(t0, t0 + 3 * 3600, 1, 1, 42).opgegeten, "hoeden en goud: zelfde save, zelfde uitkomst")
+	var hv0: Array = V.verhaal(hw, {}, ["Gloop the Slime", "the Spike Pit"], 42)
+	ok(not str(hv0).contains("hat"), "hoeden nog niet gegeven: het verhaal noemt ze niet " + str(hv0))
+	var sl1 = load("res://systemen/slijm.gd").new()
+	var sl2 = load("res://systemen/slijm.gd").new()
+	var hw7 := hw.duplicate()
+	hw7["opgegeten"] = 7
+	var per: Array = V.geef_hoeden([sl1, sl2], hw7, 42)
+	ok(per == [4, 3] and sl1.hoeden.size() == 4 and sl2.hoeden.size() == 3 and sl1.hap_van < 0.0 and hw7.hoeden_gegeven, "hoeden verdeeld over twee slijmen, zonder hap (%s)" % str(per))
+	var hv: Array = V.verhaal(hw7, {}, ["Gloop the Slime", "the Spike Pit"], 42)
+	ok(hv.size() >= 1 and hv.size() <= 3 and hv[0] == "Gloop got 7 new hats." and hv[-1].contains(" 7 hats."), "na geef_hoeden noemt het verhaal de hoeden: " + str(hv))
+	var hw1 := hw.duplicate()
+	hw1["opgegeten"] = 1
+	V.geef_hoeden([sl1], hw1, 42)
+	ok(V.verhaal(hw1, {}, ["Gloop the Slime"], 42)[0] == "Gloop got 1 new hat.", "enkelvoud: 1 new hat")
+	sl1.free()
+	sl2.free()
 
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

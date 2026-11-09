@@ -33,12 +33,42 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 			goud += per_val
 		else:
 			goud += 1   # wie vlucht, laat in de haast één munt vallen
+	# hoedentoren (Mila): wie door een bewoner viel, geeft zijn hoed. Aandeel bewoners naar hun kans (slijm 45, put 35).
+	# Eigen rng, zodat goud en vallen per zaad hetzelfde blijven als voor de hoedentoren.
+	var opgegeten := 0
+	if bewoners > 0 and gevallen > 0:
+		var deel := 0.45 * bewoners / (0.45 * bewoners + 0.35 * vallen)
+		var rh := RandomNumberGenerator.new()
+		rh.seed = hash([zaad, laatst_unix, helden, "hoeden"])
+		for i in gevallen:
+			if rh.randf() < deel:
+				opgegeten += 1
 	var nieuwe_laatst := maxi(laatst_unix, nu_unix)
 	return {
 		"weg_s": weg, "helden": helden, "gevallen": gevallen, "gevlucht": helden - gevallen,
-		"goud": goud, "nieuwe_laatst": nieuwe_laatst, "teruggezet": teruggezet,
+		"goud": goud, "nieuwe_laatst": nieuwe_laatst, "teruggezet": teruggezet, "opgegeten": opgegeten,
 		"regel": samenvatting(weg, helden, gevallen, goud),
 	}
+
+# Hoeden voor wie weg was: verdeel `opgegeten` over de slijmen (om en om), willekeurige hoedsoort, vast zaad.
+# slijmen = de slijm-nodes (slijm.gd). Geen hap-animatie: het gebeurde terwijl je weg was. Geeft per slijm het aantal.
+# Daarna noemt verhaal() de hoeden pas: uitkomst.hoeden_gegeven wordt waar (anders belooft de kroniek iets wat je niet ziet).
+static func geef_hoeden(slijmen: Array, uitkomst: Dictionary, zaad: int) -> Array[int]:
+	var opgegeten := int(uitkomst.get("opgegeten", 0))
+	var per: Array[int] = []
+	for s in slijmen:
+		per.append(0)
+	if slijmen.is_empty():
+		return per
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash([zaad, opgegeten, "geef_hoeden"])
+	for i in opgegeten:
+		var k := i % slijmen.size()
+		if slijmen[k].has_method("krijg_hoed"):   # kern/standin_slijm.gd kent geen hoeden
+			slijmen[k].krijg_hoed(rng.randi_range(0, 3))
+			per[k] += 1
+	uitkomst["hoeden_gegeven"] = per.reduce(func(a, b): return a + b, 0) > 0
+	return per
 
 static func goud_per_val(gangen: int, faam: int) -> int:
 	return int(round(6.0 * (1.0 + 0.1 * faam) * (1.0 + gangen / 40.0)))
@@ -70,6 +100,8 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 	terug.sort()
 	aarts.sort()
 	var uren := float(uitkomst.get("weg_s", 0)) / 3600.0
+	# hoeden alleen noemen als ze echt gegeven zijn (geef_hoeden), anders ziet de speler ze niet op Gloop
+	var hoeden := int(uitkomst.get("opgegeten", 0)) if bool(uitkomst.get("hoeden_gegeven", false)) else 0
 	# 1. wie er terug was
 	if not terug.is_empty():
 		var n: String = terug[rng.randi_range(0, terug.size() - 1)]
@@ -82,6 +114,8 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 				uit.append(_kort("%s vs %s: fled again." % [n, wrok]))
 		else:
 			uit.append(_kort("%s was back and left in a hurry." % n))
+	elif hoeden > 0 and _bewoner(vijand_namen) != "":
+		uit.append(_kort("%s got %d new hat%s." % [_bewoner(vijand_namen), hoeden, "" if hoeden == 1 else "s"]))
 	elif not vijand_namen.is_empty() and int(uitkomst.get("gevallen", 0)) > 0:
 		var v: String = vijand_namen[rng.randi_range(0, vijand_namen.size() - 1)]
 		uit.append(_kort("%s had a busy shift." % v))
@@ -89,8 +123,19 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 	if not aarts.is_empty() and rng.randf() < clampf(uren * 0.5, 0.0, 0.9):
 		var a: String = aarts[rng.randi_range(0, aarts.size() - 1)]
 		uit.append(_kort("Nemesis %s came by. Still free." % a))
-	uit.append(_kort("%d came, %d fell. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.goud)]))
+	if hoeden > 0:
+		uit.append(_kort("%d came, %d fell, %d hat%s. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), hoeden, "" if hoeden == 1 else "s", int(uitkomst.goud)]))
+	else:
+		uit.append(_kort("%d came, %d fell. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.goud)]))
 	return uit
+
+# Eerste bewoner uit de namen, kort ("Gloop the Slime" -> "Gloop"); vallen beginnen met "the ".
+static func _bewoner(namen: Array) -> String:
+	for n in namen:
+		if not String(n).begins_with("the "):
+			var i := String(n).find(" the ")
+			return String(n).substr(0, i) if i > 0 else String(n)
+	return ""
 
 # Kroniekregels mogen niet langer zijn dan 42 tekens (Sanne, kroniek-regels.md), anders wordt er afgekapt.
 static func _kort(r: String) -> String:

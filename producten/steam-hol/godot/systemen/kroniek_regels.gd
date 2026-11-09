@@ -79,8 +79,7 @@ func kies(soort: String, v: Dictionary, achter := "", moet_noemen := false) -> S
 		for s in kandidaten:
 			if noemt_waarom(s, v):
 				noemers.append(s)
-		if not noemers.is_empty():
-			kandidaten = noemers
+		kandidaten = noemers   # niets past dat waarom noemt: "" en de beller neemt zijn reserve (met volle naam)
 	# de laatste regels van deze soort overslaan, maar er blijft er altijd minstens één over
 	var geweest: Array = vorige.get(soort, [])
 	var over: Array[String] = []
