@@ -22,4 +22,5 @@
 - Geen 7 of hoger, dus niets naar Hans.
 - Les: (1) kijk bij een kleine codemarktplaats eerst naar de uploadregels over AI; spelgemeenschappen zijn er streng op. (2) Een pagina die alles uit een aparte API laadt: kijk naar de robots.txt van die API, niet alleen van de site.
 - Tweede deel van de run: Kommo geschift (niet te meten, winkel zit in het account) en Umbraco Marketplace gemeten (alle 1.086 pakketten, cijfer 2: winkel rekent niet af, downloads zijn ruis).
-- Volgende run: Joomla Extensions Directory, Kirby-plugins (Duits), Vector PCショップ (Japanse shareware met ranglijsten). Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
+- Vector (Japan) geschift: slaapt, cijfer 2.
+- Volgende run: Joomla Extensions Directory en Kirby-plugins alleen kort (waarschijnlijk ook doorlinken zonder tellers, zoals Umbraco). Beter: zoeken naar winkels die zelf afrekenen en een teller of reviews na aankoop tonen, in Japan, Korea en Brazilië. Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
