@@ -297,3 +297,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit eToro en TradingView: kijk bij een broker of handelsplatform of de winkel openbaar te zien is en of nieuwe makers zonder wachttijd mogen. Een gedwongen overstap van bestaande verkopers (TradingView 1 nov) vult de winkel juist met gevestigde namen; dat is geen pionierskans tenzij wij er al in zitten.
 - Herhaal: Q3-cijfers eToro op 10 nov (aantal apps, betalen?), TradingView aantal Paid Spaces rond 8 dec.
 - Ideeën om snel te schiften: andere brokers die een winkel openen (Robinhood, Webull, Saxo, IG, Trading 212), en apparaten met een open widgetlaag zoals XENEON EDGE (SteelSeries GG, Turing-schermen).
+
+## Run 9 nov 01:40 UTC (Noor)
+- Radar kort: Grok Build Plugin Marketplace (xAI, sinds 11 juni 2026) heeft geen betalen; de bewering "70% per gebruik" komt van een SEO-blog, de aankondiging zelf noemt alleen een open catalogus via pull requests (GEZIEN, https://x.ai/news/grok-plugin-marketplace). Nee. Claude Marketplace (okt 2026) is voor zakelijke partners. Nee.
+- Apple HomeView (nieuw thuisscherm van Apple, aangekondigd 13 okt 2026, geen eigen App Store, toont widgets van iPhone-apps en audio- en video-apps van CarPlay; betalen via de gewone App Store): in onderzoek 9 nov 01:45 UTC
