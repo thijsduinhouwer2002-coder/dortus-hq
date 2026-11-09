@@ -94,7 +94,8 @@ def maten(bvh, frame, s, stand, u):
     r_buiten = zij[2] + e             # van H tot de voorkant van het lid
     theta_s = s / r_buiten
     alfa = (math.radians(stand) - theta_s) / 2
-    return {"s": s, "e": e, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
+    r_lip = zij[3] - e                # van H tot de achterkant van het lid (raakpunt achterstop)
+    return {"s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten}, ""
 
 

@@ -4,8 +4,8 @@ Lidas L: de Z-as van de 3D-cursor (de snede staat daar dwars op, zoals bij as-br
 Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de kijkrichting geprojecteerd
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
-De vorm zelf staat in scharnier_vorm.py. Nog niet in deze ronde: passingkleur, Exploded view, beweegproef,
-klikneuzen, Flip bend."""
+De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
+passingkleur, Exploded view, klikneuzen, Flip bend."""
 import math
 import time
 
@@ -19,6 +19,7 @@ from ..eigenschappen import eenheid_per_mm
 from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
+from . import scharnier_beweeg as beweeg
 from . import scharnier_vorm as vorm
 
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
@@ -107,6 +108,11 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_as_terugval": terugval, "cj_knokkel_r": maat["r"], "cj_naad_r": maat["rn"],
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
                     "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_gespiegeld": gespiegeld(bron)}
+        # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
+        voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid, 4 * max(maat["wx"], maat["wy"]))
+        gegevens["cj_bereik_graden"] = round(voor, 2)
+        gegevens["cj_achter_graden"] = round(achter, 2)
+        gegevens["cj_r_lip"] = maat["r_lip"]
         for deel, letter in ((deel_a, "A"), (deel_b, "B")):
             verhuis(deel, f"{bron.name}_{letter}", bron)
             deel["cj_deel"] = letter
@@ -120,7 +126,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             if o is not None:
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
-        self.report({"INFO"}, f"Hinge placed. {gegevens['cj_duur_s']} s.")
+        self.report({"INFO"}, f"Hinge placed. {beweeg.tekst(voor, maat['stand'])}. {gegevens['cj_duur_s']} s.")
         return {"FINISHED"}
 
 

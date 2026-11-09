@@ -114,3 +114,41 @@ def toets(stap, eigen):
     schuin = vorm.scharnier_assen(lid, kijk=Vector((1, 1, 0)).normalized(), omhoog=Vector((0, 0, 1)))
     stap("schuin (45 graden) geeft H loodrecht op L", schuin is not None and abs(schuin[0].dot(lid)) < 1e-6
          and math.isclose(abs(schuin[0].y), 1.0, abs_tol=1e-6), str(schuin and tuple(schuin[0])))
+    toets_beweeg(stap, eigen)
+
+
+def toets_beweeg(stap, eigen):
+    """Eis 2: beweegproef om H, gemeten door de add-on in de mesh, tegen een eigen rekensom per stand.
+    Staaf straal 5 mm: halve dikte 5, H ligt e = 0,15 x 10 = 1,5 mm naar achteren, dus r_lip = 5 - 1,5 = 3,5 mm
+    en de achterstop hoogstens atan(0,2 / 3,5) = 3,27 graden (plus 0,5). Eindstop tussen N - 2 en N + 0,5."""
+    eig = sys.modules[eigen + ".eigenschappen"]
+    beweeg = sys.modules[eigen + ".betaald.scharnier_beweeg"]
+    s, straal = 0.2, 5.0
+    r_lip = straal - 0.15 * 2 * straal
+    achter_max = math.degrees(math.atan(s / r_lip)) + 0.5
+    for n in (90, 115, 135):
+        for ob in list(bpy.data.objects):
+            bpy.data.objects.remove(ob)
+        figuren.mm_scene()
+        scene = bpy.context.scene
+        inst = scene.click_joints
+        inst.speling_mm = s
+        inst.as_bron = "CURSOR"
+        staaf = figuren.staaf("staaf", straal)
+        figuren.maak_actief(staaf)
+        _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
+        uitslag = bpy.ops.click_joints.plaats_scharnier(stand=str(n))
+        b = bpy.data.objects.get("staaf_B")
+        if uitslag != {"FINISHED"} or b is None:
+            stap(f"stand {n}: scharnier geplaatst", False, str(uitslag))
+            continue
+        voor = float(b.get("cj_bereik_graden", -1))
+        achter = float(b.get("cj_achter_graden", -1))
+        stap(f"stand {n}: eindstop gemeten tussen {n - 2} en {n + 0.5} graden", n - 2 <= voor <= n + 0.5,
+             f"gemeten {voor:.2f}")
+        stap(f"stand {n}: achterstop gemeten tussen -{achter_max:.2f} en +0.5 graden", 0 <= achter <= achter_max,
+             f"gemeten -{achter:.2f} r_lip add-on {b.get('cj_r_lip', -1):.3f} eigen {r_lip:.3f} mm")
+        stap(f"stand {n}: r_lip gelijk aan de eigen rekensom", abs(float(b.get("cj_r_lip", -1)) - r_lip) < 0.01)
+        stap(f"stand {n}: tekst letterlijk", beweeg.tekst(voor, n) == f"Bends 0° to {n}°", beweeg.tekst(voor, n))
+        stap(f"stand {n}: tijd met beweegproef", True, f"{b.get('cj_duur_s', -1)} s")
+    stap("tekst nooit meer dan de stand", beweeg.tekst(118.0, 115) == "Bends 0° to 115°")
