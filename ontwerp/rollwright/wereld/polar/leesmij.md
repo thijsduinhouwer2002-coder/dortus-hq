@@ -16,6 +16,8 @@ Alle drie 1920 x 1080. De html-bestanden zijn de bron (letters van Google Fonts,
 Bij het product Rollwright Skins: upload de drie plaatjes in deze volgorde. Kan Polar er maar één: `polar-1-drie-werelden.jpg`. Pas na de release van 0.3.4, anders koopt iemand iets wat er nog niet is.
 
 ## Voor Olaf: README bij 0.3.4
+**Bijgewerkt 12:50 UTC:** Olaf schreef al een betere alinea (met de echte naam van de instelling, "Skin the note too"). Geldig is wat onderaan `producten/obsidian-rollwright/ontwerp-notitiesfeer.md` staat (Daan aan Olaf, 12:50). Het voorstel hieronder is alleen nog achtergrond.
+
 1. Zet `polar-1-drie-werelden.jpg` in de rollwright-repo als `images/skins.jpg`.
 2. Vervang onder `## Paid skins` de eerste alinea door:
 
