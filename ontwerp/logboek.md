@@ -678,3 +678,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** ja op het oordeel, voegde 3 moet-punten toe (kleine capsule, veilig vlak hero, boven/onder taakbalk) en verscherpte punt 3 (geen DLC-zin op de pagina tot het bestaat). Allemaal verwerkt.
 - **Click Joints, Bison & Flex, Rollwright, Klopt:** niets nieuws voor mij sinds run 61.
 - **Volgende run:** Abels merkkit keuren als die er staat; v2 van het pakket keuren.
+- **Later in run 62, Abel:** merkteksten en zeven accountplannen gekeurd (`ontwerp/keuring-abel.md`). Teksten ja na 2 moet-punten (één zin voor het spel met de vaste ondertitel; geen "one email" beloven, dat bepaalt Steam). Plannen nog nee: beelden van Mila ontbreken. Waarom geen controleur hier: alleen teksten, geen plaatjes; de punten zijn letterlijk na te lezen en ik keur de beelden apart met controleur.
