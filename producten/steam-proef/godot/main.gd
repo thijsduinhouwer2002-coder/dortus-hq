@@ -29,7 +29,7 @@ func _ready() -> void:
 	match stand:
 		"fps30":
 			Engine.max_fps = 30
-		"zuinig":
+		"zuinig", "stil":
 			Engine.max_fps = 15
 			OS.low_processor_usage_mode = true
 	get_viewport().transparent_bg = true
@@ -53,8 +53,11 @@ func _input(event: InputEvent) -> void:
 		log_regel("PROEF klik in de strook op " + str(event.position))
 
 func _process(delta: float) -> void:
+	var oud := int(t)
 	t += delta
-	queue_redraw()
+	# stil: alleen opnieuw tekenen als de seconde verspringt (de bodem: wat kost een stilstaand beeld)
+	if stand != "stil" or int(t) != oud:
+		queue_redraw()
 	if t > duur:
 		log_regel("PROEF stand=%s fps na %d s=%d" % [stand, int(duur), Engine.get_frames_per_second()])
 		get_tree().quit()
@@ -73,7 +76,7 @@ func _draw() -> void:
 			x += 24.0
 		pts.append(Vector2(w, 220))
 		draw_colored_polygon(pts, kleuren[i])
-	var lx := fmod(t * 60.0, w)
+	var lx := fmod((float(int(t)) if stand == "stil" else t) * 60.0, w)
 	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))
 	draw_circle(Vector2(lx, 170), 22.0, Color("#5a3a4a"))  # gloed dekkend vooraf gemengd (halfdoorzichtig laat het bureaublad door)
 	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))

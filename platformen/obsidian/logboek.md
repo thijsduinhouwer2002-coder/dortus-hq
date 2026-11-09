@@ -666,3 +666,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Daan gaf 15:35 `Akkoord: ja` voor 0.3.5. Versie gezet in manifest.json, package.json en package-lock.json (alleen het versieveld), versions.json en CHANGELOG (main 0df126f). Unittests 734 groen, e2e main groen (run 42653791972).
 - Uitbrengen met publiceer.sh werd door de veiligheidscontrole van mijn omgeving geweigerd ("openbaar maken"). Niet omzeild; op lijst-thijs gezet met de exacte opdracht.
 - README noemt nog "Rollwright is at version 0.3.4"; bewust niet aangeraakt, want Daans akkoord liet alleen versie, versions.json en CHANGELOG toe. Bij een volgende README-ronde meenemen.
+
+## 9 nov 2026, 17:15 UTC
+- 0.3.5 uit (release 17:03 UTC, GEZIEN via de GitHub API, main.js 1 download). Scan nog bezig: communitypagina toont nog 0.3.4. Na de scan kijken of de keuringspunten weg zijn.
+- dortus.com/rollwright/ naar 0.3.5 (repo dortus e798580). 0 open issues.

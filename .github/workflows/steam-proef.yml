@@ -14,7 +14,7 @@ permissions:
 jobs:
   proef:
     runs-on: windows-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - name: Godot 4.3 downloaden
@@ -36,7 +36,7 @@ jobs:
           $h = [int](Get-CimInstance Win32_VideoController | Select-Object -First 1).CurrentVerticalResolution
           Write-Output "schermhoogte $h"
           $samen = @()
-          foreach ($stand in @("vol60", "fps30", "zuinig")) {
+          foreach ($stand in @("vol60", "fps30", "zuinig", "stil")) {
             $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/godot-$stand.log"
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
               -ArgumentList "--path producten/steam-proef/godot --rendering-driver $drv -- stand=$stand duur=40 log=$log" -PassThru
