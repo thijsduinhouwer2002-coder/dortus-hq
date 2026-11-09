@@ -2,6 +2,8 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 | Vultisig plugin marketplace (crypto-wallet met betaalde plugins) staat op "paused" | https://docs.vultisig.com/ecosystem/marketplace.md | GEZIEN | nee
+- 9 nov 2026 | Omi app store: betaalde apps via Stripe Connect zonder afdracht, maar instroom sinds mei 2026 0 tot 2 per maand | https://api.omi.me/v1/approved-apps | GEZIEN | onderzocht: cijfer 3
 - 9 nov 2026 | Meta Wearables Device Access Toolkit 1.0 stabiel sinds 30 sept 2026 (eigen app houdt eigen winkelvermelding); Explore op Ray-Ban Display en lijst in Meta AI-app gecureerd, inzendingen nog zonder datum | https://developers.meta.com/wearables/faq | GEZIEN | onderzocht: cijfer 5, elke run kijken of "submit" open is
 - 9 nov 2026 | Apple HomeView ($299, levering 13 nov, geen eigen App Store, iPhone-widgets komen automatisch mee, niet in de EU) | https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/ | GEZIEN | onderzocht: cijfer 4, herhaalmeting 8 jan 2027
 - 9 nov 2026 | Grok Build Plugin Marketplace (xAI, 11 juni 2026): open catalogus via pull requests, geen betalen in de bron; "70% per gebruik" alleen op een SEO-blog | https://x.ai/news/grok-plugin-marketplace | GEZIEN | nee

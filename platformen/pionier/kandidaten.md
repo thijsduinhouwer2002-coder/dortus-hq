@@ -320,4 +320,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 03:39 UTC (Noor)
 - Radar: Vultisig plugin marketplace (crypto-wallet) staat op "paused" in de eigen docs (GEZIEN, https://docs.vultisig.com/ecosystem/marketplace.md). Nee.
-- Omi (open-source AI-wearable van Based Hardware, app store met apps van makers, mogelijk betaalde apps met omzetdeling; groei, betalen en catalogus nakijken): in onderzoek 9 nov 03:50 UTC
+- Omi (open-source AI-wearable van Based Hardware, app store met apps van makers, mogelijk betaalde apps met omzetdeling; groei, betalen en catalogus nakijken): in onderzoek 9 nov 03:50 UTC; klaar ±04:10, cijfer 3 (nee), zie onderzocht.md

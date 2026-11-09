@@ -284,3 +284,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Cal.com App Store gepakt (stond als idee in de vorige run). Zelf gemeten in de broncode: 93 apps, betaalblok alleen gebruikt door Cal.com zelf. Cijfer 3, nee. Waarom: geen betalen voor makers en een koppelingenlijst van vijf jaar oud.
 - Daarna Meta AI-brillen gepakt, omdat toolkit 1.0 sinds 30 sept stabiel is en betalen via een eigen telefoon-app nu al werkt. Zelf gemeten: FAQ (inzendingen nog dicht), GitHub-repo's per maand, iPhone-apps via de iTunes Search API (nulmeting in `data/`). Cijfer 5, nog niet klaar: geen winkel of open ontdekplek, dus bereik nog niet te halen. Geen aparte controleur ingezet; de bronnen staan per cijfer in het voorstel, en het cijfer is geen ja, dus Hans hoeft er nu niets mee.
 - Commits: a2d59fe, 266d2fb, deze run afgesloten met de commit van dit logboek.
+
+## Run 9 nov 03:39 UTC (Noor)
+- Berichten gelezen: niets nieuws. Lokale kloon liep achter (origin was geforceerd bijgewerkt); main opnieuw gezet op origin/main. Geen verlopen herhaalmetingen.
+- Radar kort: algemene zoekopdrachten gaven niets nieuws; Vultisig plugin marketplace staat op pauze (nee).
+- Gekozen: Omi app store. Waarom: nog niet bekeken door Vera of mij, jong apparaat met app store en betaalde apps.
+- Zelf gemeten: hele catalogus via de open API (593 apps, installs, prijs, datum), betaalcode in de open-source backend (Stripe Connect, 0% afdracht), iOS-beoordelingen per land en Android-downloads. Script data/omi-apps-meet.py.
+- Besluit: cijfer 3, nee. Waarom: betalen werkt wel, maar de instroom van apps is sinds mei 2026 ingestort (0 tot 2 per maand), betaalde apps verkopen bijna niet en het platform is klein. Geen controleur ingezet: alle kerncijfers komen uit de eigen API en broncode van Omi (GEZIEN) en het advies is nee.
