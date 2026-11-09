@@ -151,14 +151,14 @@ def _schuin(stap, cursor, eig, gesloten):
 def _randen(stap, a, tw, t, s, lip, u):
     """Sleufbodem bij de achterrand (0,95 van de halve dikte) en bij de voorrand, per wang: de sleuf ligt recht
     en even lang onder beide wangen. De voorkant van A zakt door de wig weg; voorrand = 0,95 van waar A net
-    onder de sleufbodem ophoudt (straal langs +buig)."""
+    onder de sleufbodem ophoudt (straal langs +buig op L + 0,02)."""
     m = bpy.context.scene.cursor.matrix
     c, h, buig, lid = m.to_translation(), m.col[0].xyz.normalized(), m.col[1].xyz.normalized(), m.col[2].xyz
     lid = lid.normalized()
     bvh_a = _bvh(a)
     for teken, kant in ((1, "+H"), (-1, "-H")):
         x = c + h * (teken * (tw + s / 2) * u)
-        voor = bvh_a.ray_cast(x - lid * ((lip + 0.2) * u), buig)
+        voor = bvh_a.ray_cast(x - lid * ((lip + 0.02) * u), buig)
         y_voor = 0.95 * voor[3] / u if voor[0] is not None else 0.0
         for rand, y in (("achterrand", -0.95 * DIK / 2), ("voorrand", y_voor)):
             o = x + buig * (y * u) - lid * ((lip - 0.2) * u)
