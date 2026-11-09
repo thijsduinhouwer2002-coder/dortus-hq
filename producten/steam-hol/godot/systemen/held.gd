@@ -20,11 +20,19 @@ extends Node2D
 
 signal klaar(held, uitkomst: String, info: Dictionary)
 
-const LIJF := preload("res://kunst/held_lijf.png")
+# Kunst van Daan (kunst/LEESMIJ.md, Karakter-laag 19:45): lijf in 5 vaste kleuren, littekens als losse laag,
+# hoed met een hap als Gloop hem beet, tekens (8 x 8) boven het hoofd. Nooit schalen (halve pixels).
+const LIJF := preload("res://kunst/held_lijf_kleuren.png")   # 4 loopframes x 5 rijen (rood, groen, paars, oker, zeegroen)
 const HOEDEN := preload("res://kunst/held_hoeden.png")
+const HOEDEN_HAP := preload("res://kunst/held_hoeden_hap.png")
+const LITTEKENS := preload("res://kunst/held_littekens.png")  # pleister, ooglap, schram, verband
 const WAPENS := preload("res://kunst/held_wapens.png")
+const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
+const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
+const HOED_TOP := [2, 0, 2, 3]   # bovenste pixel van elke hoed in zijn frame (helm, puntmuts, kap, pet)
+const OOGLAP := 1
+const SCHRAM := 2                # ooglap en schram nooit samen (zelfde oog, Daan)
 
-const VLOER := 36            # vloer van de gang in spelpixels (hol.gd GANG_ONDER)
 const SNEL := 11.0           # spelpixels per seconde
 const KANS := {"slijm": 0.45, "stekelput": 0.35}   # uit sim/ (Bram 9 nov), balans.md had 0,30 en 0,22
 const KANS_ANDERS := 0.25
@@ -45,6 +53,10 @@ var val_t := 0.0
 var gezien := {}             # kolommen waar hij al gegooid heeft
 var rng := RandomNumberGenerator.new()
 var verdedigingen := 0       # hoeveel keer hij al gooide (voor moet_vallen)
+var vloer := 36.0            # voeten op de vloer van de gang: uit hol.cel_naar_pos (Olaf 19:40: nu 38)
+var kleur_nr := 0            # rij in held_lijf_kleuren.png, vast per naam
+var hoed_nr := 0
+var littekens: Array[int] = []
 
 func is_held() -> bool:
 	return true
@@ -60,8 +72,47 @@ func start(h, i: Dictionary) -> void:
 		trek = "schijterig" if (hash(naam) & 1) == 1 else "hebzuchtig"
 		info["trek"] = trek
 	var p: Vector2 = hol.cel_naar_pos(hol.ingang())
+	vloer = p.y
 	position = Vector2(p.x, 2)
+	_kies_uiterlijk(naam)
 	_kies_doel()
+
+# Vast per naam (zaad = naam), zodat je Kees herkent als hij terugkomt.
+func _kies_uiterlijk(naam: String) -> void:
+	kleur_nr = int(info.get("kleur_nr", absi(hash(naam + "#lijf")) % 5))
+	hoed_nr = int(info.get("hoed_nr", absi(hash(naam)))) % 4
+	# littekens: bezoek 2 een, bezoek 3 twee, aartsvijand (drie keer gevlucht) drie
+	var n := clampi(int(info.get("bezoeken", 0)), 0, 3)
+	var r := RandomNumberGenerator.new()
+	r.seed = hash(naam + "#litteken")
+	var volgorde := [0, 1, 2, 3]
+	for i in range(3, 0, -1):
+		var j := r.randi_range(0, i)
+		var tmp = volgorde[i]
+		volgorde[i] = volgorde[j]
+		volgorde[j] = tmp
+	littekens.clear()
+	for l in volgorde:
+		if littekens.size() >= n:
+			break
+		if (l == OOGLAP and SCHRAM in littekens) or (l == SCHRAM and OOGLAP in littekens):
+			continue
+		littekens.append(l)
+
+func is_gebeten() -> bool:
+	return bool(info.get("gebeten", false)) or String(info.get("wrok", "")).ends_with("the Slime")
+
+# Welk teken boven zijn hoofd, "" voor geen. Eén tegelijk: boos > zweet > uitroep > ster.
+func teken_nu() -> String:
+	if staat == "lopen" and vijand_kol >= 0:
+		return "boos"          # wrok en op weg naar zijn vijand
+	if staat in ["vluchten", "klimmen"]:
+		return "zweet"
+	if staat == "lopen" and absf(position.x - hol.cel_naar_pos(hol.schat()).x) < 40.0:
+		return "uitroep"       # ziet de schat
+	if int(info.get("bezoeken", 0)) >= 3 or bool(info.get("aartsvijand", false)):
+		return "ster"          # aartsvijand, blijft staan
+	return ""
 
 # Waar loopt hij heen? Vijand eerst, anders de schat.
 func _kies_doel() -> void:
@@ -101,8 +152,8 @@ func stap(delta: float) -> void:
 	t += delta
 	match staat:
 		"afdalen":
-			position.y = move_toward(position.y, VLOER, SNEL * delta)
-			if position.y >= VLOER:
+			position.y = move_toward(position.y, vloer, SNEL * delta)
+			if position.y >= vloer:
 				staat = "lopen"
 		"lopen":
 			if vijand_kol < 0:
@@ -178,6 +229,8 @@ func _onderweg() -> void:
 	info["laatst_geraakt"] = naam_vijand
 	if b != null and b.has_method("plat"):
 		b.plat()
+	if b != null:
+		info["gebeten"] = true   # door Gloop gebeten: volgende keer een hoed met een hap eruit
 	if is_vijand:
 		vijand_kol = -1
 		doel_kol = hol.schat().x
@@ -186,7 +239,7 @@ func _onderweg() -> void:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
 
-# ---- tekenen: Daans lijf + hoed + wapen (16 x 16, anker midden onder) ----
+# ---- tekenen: Daans lijf + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven ----
 func _draw() -> void:
 	if staat == "weg":
 		return
@@ -195,39 +248,29 @@ func _draw() -> void:
 		frame = int(t * 8) % 4
 	var omlaag := 1 if frame in [1, 3] else 0
 	var links := staat == "vluchten"
-	var hoed := int(info.get("hoed_nr", absi(hash(String(info.get("naam", ""))))) % 4)
 	var wapen := 2 if trek == "schijterig" else 0       # schijterig neemt een fakkel mee, hebzuchtig een zwaard
 	var kleur := Color.WHITE
 	if t < geraakt_tot and int(t * 10) % 2 == 0:
 		kleur = Color(1, 0.55, 0.55)
+	var zak := 0
 	if staat == "vallen":
-		# plat en weg: inzakken en vervagen
-		kleur.a = 1.0 - val_t
-		draw_set_transform(Vector2(0, 0), 0, Vector2(1.0 + val_t * 0.4, maxf(0.15, 1.0 - val_t)))
-	elif links:
-		draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))
-	draw_texture_rect_region(LIJF, Rect2(-8, -16, 16, 16), Rect2(frame * 16, 0, 16, 16), kleur)
-	draw_texture_rect_region(HOEDEN, Rect2(-8, -16 + omlaag, 16, 16), Rect2(hoed * 16, 0, 16, 16), kleur)
+		# weg: zakt in hele pixels de vloer in en vervaagt (niet schalen, Daan)
+		kleur.a = clampf(1.0 - val_t, 0.0, 1.0)
+		zak = int(val_t * 6)
+	if links:
+		draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
+	var y := -16 + zak
+	draw_texture_rect_region(LIJF, Rect2(-8, y, 16, 16), Rect2(frame * 16, kleur_nr * 16, 16, 16), kleur)
+	for l in littekens:
+		draw_texture_rect_region(LITTEKENS, Rect2(-8, y + omlaag, 16, 16), Rect2(l * 16, 0, 16, 16), kleur)
+	draw_texture_rect_region(HOEDEN_HAP if is_gebeten() else HOEDEN, Rect2(-8, y + omlaag, 16, 16), Rect2(hoed_nr * 16, 0, 16, 16), kleur)
 	if staat != "vallen":
-		draw_texture_rect_region(WAPENS, Rect2(-8, -16 + omlaag, 16, 16), Rect2(wapen * 16, 0, 16, 16), kleur)
+		draw_texture_rect_region(WAPENS, Rect2(-8, y + omlaag, 16, 16), Rect2(wapen * 16, 0, 16, 16), kleur)
 	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	if staat == "vallen":
 		return
-	var bezoeken := int(info.get("bezoeken", 0))
-	if bezoeken > 0:   # litteken tot Daan losse littekens tekent
-		draw_rect(Rect2(-2 if not links else 1, -11 + omlaag, 1, 2), Color("#d2342c"))
-	if bezoeken > 1:   # verband
-		draw_rect(Rect2(-3, -6 + omlaag, 6, 1), Color("#efe6d2"))
-	# wrok: boos teken boven zijn hoofd zolang hij op weg is naar zijn vijand
-	if vijand_kol >= 0 and staat == "lopen":
-		var c := Color("#e8402a")
-		draw_rect(Rect2(-1, -21, 1, 1), c)
-		draw_rect(Rect2(1, -21, 1, 1), c)
-		draw_rect(Rect2(0, -20, 1, 1), c)
-		draw_rect(Rect2(-1, -19, 1, 1), c)
-		draw_rect(Rect2(1, -19, 1, 1), c)
-	# aartsvijand (drie keer gevlucht): gouden sterretje
-	if bezoeken >= 3:
-		var g := Color("#f2c14e")
-		draw_rect(Rect2(4, -21, 1, 3), g)
-		draw_rect(Rect2(3, -20, 3, 1), g)
+	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
+	var tk := teken_nu()
+	if tk != "":
+		var onder: int = -16 + int(HOED_TOP[hoed_nr]) + omlaag - 1
+		draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))

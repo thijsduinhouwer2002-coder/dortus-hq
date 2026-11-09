@@ -134,5 +134,77 @@ func _init() -> void:
 			vlucht_gewoon += 1
 	ok(vlucht_ht > vlucht_gewoon, "Hoard-Toucher vlucht vaker (%d tegen %d)" % [vlucht_ht, vlucht_gewoon])
 
+	# 7. slijm: staat bij de start NIET plat (Olaf 19:55), plat is een eigen frame, plat_s is in te stellen (demo)
+	var hol3 := Node2D.new()
+	hol3.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	var sl := Node2D.new()
+	sl.set_script(load("res://systemen/slijm.gd"))
+	hol3.add_child(sl)
+	sl.zet(hol3, 6)
+	ok(sl.kan_vechten() and not sl.is_plat(), "slijm staat bij de start klaar, niet plat")
+	ok(sl.frame_nu()[0] == sl.RUST and sl.frame_nu()[1] == 0, "start: rustframe uit slijm.png")
+	sl.plat_s = 9.0
+	sl.plat()
+	ok(sl.frame_nu()[1] == sl.PLAT and not sl.kan_vechten(), "plat: frame 11 uit slijm_leven.png, kan niet vechten")
+	sl.stap(9.1)
+	ok(sl.kan_vechten() and sl.frame_nu()[1] == sl.OPSTAAN, "na plat_s (9 s in de demo) staat hij op")
+	sl.stap(0.5)
+	ok(sl.frame_nu()[0] == sl.RUST and not sl.is_processing(), "daarna rust en zuinig (geen _process)")
+	sl.raak()
+	ok(sl.frame_nu()[1] == 6, "hap begint bij frame 6")
+	sl.stap(0.85)
+	ok(sl.frame_nu()[1] == 10, "hap eindigt bij frame 10")
+	hol3.free()
+
+	# 8. held: vloer uit het hol, vast uiterlijk per naam, littekens per bezoek, teken boven het hoofd
+	var hol4 := Node2D.new()
+	hol4.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	hol4.vloer_y = 38.0
+	var w4 := Node2D.new()
+	hol4.add_child(w4)
+	var h4 := Node2D.new()
+	h4.set_script(load("res://systemen/held.gd"))
+	w4.add_child(h4)
+	h4.start(hol4, {"naam": "Kees", "bezoeken": 0, "wrok": "", "zaad": 7})
+	for i in 60:
+		h4.stap(1.0 / 15.0)
+	ok(h4.staat == "lopen" and absf(h4.position.y - 38.0) < 0.01, "held staat op de vloer van het hol (y %.1f)" % h4.position.y)
+	ok(h4.littekens.size() == 0, "eerste bezoek: geen litteken")
+	ok(h4.teken_nu() == "", "geen wrok, ver van de schat: geen teken")
+	var kleur_kees: int = h4.kleur_nr
+	hol4.vallen[9] = "stekelput"
+	var h5 := Node2D.new()
+	h5.set_script(load("res://systemen/held.gd"))
+	w4.add_child(h5)
+	h5.start(hol4, {"naam": "Kees", "bezoeken": 2, "wrok": "the Spike Pit", "zaad": 8})
+	h5.stap(0.1)
+	ok(h5.kleur_nr == kleur_kees, "Kees heeft bij terugkomst dezelfde tuniek (rij %d)" % kleur_kees)
+	ok(h5.littekens.size() == 2, "bezoek 3: twee littekens")
+	h5.staat = "lopen"
+	ok(h5.teken_nu() == "boos", "op weg naar zijn vijand: boos teken")
+	var kleuren := {}
+	var paar_fout := 0
+	for z in 60:
+		var hz := Node2D.new()
+		hz.set_script(load("res://systemen/held.gd"))
+		w4.add_child(hz)
+		hz.start(hol4, {"naam": "Naam%d" % z, "bezoeken": 3, "wrok": "", "zaad": z})
+		kleuren[hz.kleur_nr] = true
+		if hz.littekens.size() != 3 or (hz.OOGLAP in hz.littekens and hz.SCHRAM in hz.littekens):
+			paar_fout += 1
+		hz.free()
+	ok(paar_fout == 0, "aartsvijand: drie littekens, nooit ooglap en schram samen (%d fout)" % paar_fout)
+	ok(kleuren.size() == 5, "alle vijf tuniekkleuren komen voor (%d)" % kleuren.size())
+	hol4.free()
+
+	# 9. wie Gloop overleeft is gebeten: volgende keer een hoed met een hap eruit
+	var gebeten := false
+	for z in 200:
+		r = speel({"naam": "Bas", "bezoeken": 0, "wrok": "", "trek": "hebzuchtig", "zaad": 12000 + z}, false, true)
+		if r.uitkomst == "ontsnapt" and r.info.get("laatst_geraakt", "") == "Gloop the Slime":
+			gebeten = bool(r.info.get("gebeten", false))
+			break
+	ok(gebeten, "held die door Gloop geraakt werd en ontsnapte: info.gebeten")
+
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

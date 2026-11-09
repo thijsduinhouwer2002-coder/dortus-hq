@@ -12,6 +12,7 @@ ROEKELOOS = 0.10
 BRUTAAL = 0.8
 PLAT_S = 60
 SCHIJT_OM = 0.5
+GOUD_PER_BEZOEK = 3   # Sanne 9 nov 19:55: +3 goud per eerder bezoek (een terugkomer is een beloning)
 AARTS_KANS = 0.15      # een aartsvijand die aan de beurt is, komt maar 15% van de keren echt (zeldzaam = feest)
 # Voorstel Bram (uit deze sim, zie UITKOMST.md); balans.md had faam x 0,9 per niveau zonder bodem.
 FAAM_FACTOR = 0.97
@@ -67,7 +68,7 @@ def speel(uren, zaad):
         if h is None:
             nieuw_nr += 1
             h = {"naam": "%s%d" % (rng.choice(NAMEN), nieuw_nr), "gevlucht": 0, "wrok": "", "hoard": False,
-                 "trek": rng.choice(["hebzuchtig", "schijterig"])}
+                 "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0}
         if h["gevlucht"] >= 3:
             st["aartsvijand_bezoek"] += 1
         moet_vallen = helden == 1
@@ -106,12 +107,13 @@ def speel(uren, zaad):
             st["hoard"] += 1
         if uit == "gevallen":
             st["gevallen"] += 1
-            goud += 6 * (1 + 0.1 * faam) * (1 + gangen / 40)
+            goud += 6 * (1 + 0.1 * faam) * (1 + gangen / 40) + GOUD_PER_BEZOEK * h["bezoeken"]
             if st["eerste_val"] is None:
                 st["eerste_val"] = t
         else:
             st["gevlucht"] += 1
             h["gevlucht"] += 1
+            h["bezoeken"] += 1
             if geraakt_door:
                 h["wrok"] = geraakt_door
             if rng.random() < BLIJFT_KANS or h["gevlucht"] >= 3:
@@ -145,13 +147,16 @@ def wachttijden(aankopen, tot):
 if __name__ == "__main__":
     uren = float(sys.argv[1]) if len(sys.argv) > 1 else 10
     zaden = int(sys.argv[2]) if len(sys.argv) > 2 else 5
-    print("zaad | 1e val s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend")
+    if len(sys.argv) > 3:
+        GOUD_PER_BEZOEK = float(sys.argv[3])   # python3 sim.py 10 8 0 = zonder bonus per bezoek
+    print("goud per val: 6 x faam x gangen + %g per eerder bezoek" % GOUD_PER_BEZOEK)
+    print("zaad | 1e val s | 1e koop s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend")
     for z in range(1, zaden + 1):
         s = speel(uren, z)
         a = s["aankopen"]
         n = lambda u: sum(1 for x in a if x[0] <= u * 3600)
         w = lambda u: wachttijden(a, u * 3600) / 60
         alles = "%.1f" % (s["klaar_alles"] / 3600) if s["klaar_alles"] else "nee"
-        print("%4d | %8.0f | %8.0f | %7.0f | %4d/%d/%d | %5.1f/%.1f/%.1f | %s | %.2f | %d" % (
-            z, s["eerste_val"], 100 * s["gevlucht"] / s["helden"], 100 * s["hoard"] / s["helden"],
+        print("%4d | %8.0f | %9.0f | %8.0f | %7.0f | %4d/%d/%d | %5.1f/%.1f/%.1f | %s | %.2f | %d" % (
+            z, s["eerste_val"], a[0][0] if a else -1, 100 * s["gevlucht"] / s["helden"], 100 * s["hoard"] / s["helden"],
             n(1), n(3), n(10), w(1), w(3), w(10), alles, s["aartsvijand_bezoek"] / uren, s["afgerekend"]))

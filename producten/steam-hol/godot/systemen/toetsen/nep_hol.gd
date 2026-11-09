@@ -3,10 +3,11 @@ extends Node2D
 var vallen := {}
 var ingang_kol := 2
 var schat_kol := 12
+var vloer_y := 36.0   # het echte hol staat sinds 9 nov 19:40 op 38
 func is_gang(cel: Vector2i) -> bool:
 	return cel.y == 0 and cel.x >= ingang_kol and cel.x <= schat_kol
 func cel_naar_pos(cel: Vector2i) -> Vector2:
-	return Vector2(cel.x * 16 + 8.0, 36)
+	return Vector2(cel.x * 16 + 8.0, vloer_y)
 func pos_naar_cel(pos: Vector2) -> Vector2i:
 	return Vector2i(clampi(int(pos.x / 16), 0, 40), 0)
 func ingang() -> Vector2i:
