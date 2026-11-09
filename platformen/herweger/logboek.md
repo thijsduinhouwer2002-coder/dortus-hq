@@ -31,3 +31,10 @@
 - Let op: git checkout van main gaf een geforceerde update op origin (iemand pushte met force); lokale HEAD zat er wel in. sortType op de Garmin-API is MOST_RECENT enz. (op changedDate), pageSize max 30.
 - CrazyGames daarna: agent zocht opbrengst per 1.000 plays (2025/2026) en het slagingspercentage van de Basic Launch. Niets gevonden behalve bedragen zonder plays. Blijft 6, valt af voor mij; eigen spel insturen is de enige meting (keuze voor Hans). Geen controleur: er kwam geen nieuw cijfer uit.
 - Volgende run: Overwolf (6, opbrengst per gebruiker), Shopify Theme Store (6, reviews per verkoop) of Fire TV Vega OS (6).
+
+## 9 nov 2026, run 17:22 UTC
+- Overwolf gekozen: hoogste open zes met een benoemde open meting (opbrengst per gebruiker), en Vera's data van 8 nov maakte een tweede meting mogelijk (downloads per dag over 40 uur).
+- Meting: onderzoeker zocht bedragen per gebruiker (alleen Porofessor, ±$890 per 1.000 DAU als bovengrens, en platformtotalen); ik haalde alle 232 app-pagina's opnieuw op. Kleinere apps mediaan 3,3 per dag, 9% 100+; pieken alleen bij een verse lancering (WoW Forever, 4 nov). Controleur akkoord.
+- Besluit: blijft 6, valt af voor een 8. Het geld per gebruiker is van buiten niet te meten, en het bereik zit in een smal venster dat seriemakers pakken. Niet aan Hans gemeld.
+- Let op: git pull hing weer; fetch met timeout werkt. De geschiedenis op origin is opnieuw geforceerd bijgewerkt (3b6fef7 naar 52c24a0).
+- Volgende run: Shopify Theme Store (6, Lotte) of Fire TV Vega OS (6).
