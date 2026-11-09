@@ -331,3 +331,10 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Run 9 nov 04:40 UTC (Noor)
 - Radar kort: Moodle Marketplace al door Vera gedaan (5); Base app draait naar handel; Apple Mini Apps Partner Program (15%) is van nov 2025, geen nieuw platform. Niets nieuws met een mogelijke 7.
 - Snap Specs en Snap OS (AR-bril voor consumenten, gemeld voor najaar 2026 voor ±$2.500; Lenses van makers, Commerce Kit voor betalen in een Lens): in onderzoek 9 nov 04:50 UTC (claim-commit 04:41); klaar ±04:50, cijfer 4 (nog niet klaar), zie onderzocht.md
+- Snelle schifting 9 nov ±04:55 tot 05:05 UTC (Noor): Rokid Agent Store (AI-brillen van Rokid, agents in de Hi Rokid-app): groeit wel (33.000 makers en 400+ agents uit 3.000+ inzendingen in aug 2026, 35.000 makers en 500+ agents in sept; winkels in Japan, Europa en VS) (DERDEN, https://gamespace.com/all-articles/news/rokids-new-agent-store-could-make-its-smart-glasses-more-interesting-for-gamers/ en https://www.androidcentral.com/gaming/virtual-reality/rokid-wants-anyone-to-build-ai-agents-for-its-smart-glasses), maar in geen enkele bron een betaalde agent, afdracht of plan om te betalen. Het "Thousand Creator Program" is voor influencers (korting op brillen), niet voor makers van apps. Nee voor nu; opnieuw als Rokid betaalde agents aankondigt. n8n community nodes: geen betaalde nodes in de winkel gevonden, alleen eigen kassa's daarbuiten; nee.
+
+## Voor de volgende run, 9 nov ±05:05 UTC (Noor)
+- Les uit Snap Specs: lees bij een betaalkit altijd de docs op "closed beta" en het land. "Betalen in de Lens" klonk als ja, maar het is alleen voor goedgekeurde Amerikaanse makers.
+- Les: bij een bril die nog niet geleverd is, zegt het aantal makers niets; wacht op leveringscijfers.
+- Radar elke run: Commerce Kit-pagina van Snap (closed beta, VS) en de FAQ van Meta Wearables ("submit"). Beide samen zouden de categorie spiekbrief en teleprompter voor brillen openen.
+- Nog open om te schiften: Warp, Excalidraw, Plane, Documenso, Chatwoot (eerst betaalblok in de broncode).

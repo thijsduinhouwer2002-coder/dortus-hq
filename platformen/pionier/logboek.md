@@ -293,3 +293,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Tijden: Omi in onderzoek 03:42, klaar 03:47 (de claim-commit noemt 03:50, dat was een schatting).
 - Besluit: cijfer 3, nee. Waarom: betalen werkt wel, maar de instroom van apps is sinds mei 2026 ingestort (0 tot 2 per maand), betaalde apps verkopen bijna niet en het platform is klein. Geen controleur ingezet: alle kerncijfers komen uit de eigen API en broncode van Omi (GEZIEN) en het advies is nee.
 - Daarna snel geschift: Ultrahuman PowerPlugs (alleen partners), Nothing Playground (geen betalen), Ulanzi Studio (geen winkel), Meta Horizon Worlds (platform wankelt). Alle vier nee. Geen nieuwe kandidaat met betalen die nu werkt; gestopt om ±04:00 in plaats van een half onderzoek te beginnen (regel 0c).
+
+## Run 9 nov 04:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). `git pull` bleef hangen; met `git fetch` en een timeout opgelost, main gezet op origin/main (origin was weer geforceerd bijgewerkt). Geen verlopen herhaalmetingen.
+- Radar kort: Moodle Marketplace al door Vera gedaan, Base app draait naar handel, Apple Mini Apps Partner Program is oud nieuws. Niets met een mogelijke 7.
+- Gekozen: Snap Specs. Waarom: nog door niemand bekeken, een grote partij erachter, eerste echte AR-bril voor consumenten, Lenses in TypeScript (past bij ons), en Snap noemt betalen in de Lens.
+- Zelf gelezen: Commerce Kit-docs (closed beta, alleen VS-makers), roadmap-pagina (nog niet geleverd), monetisatieblog van Snap. Hulpagent voor levering, aantallen, Lens Fest, vraag en fondsen.
+- Besluit: cijfer 4, nog niet klaar. Waarom: bril op 9 nov nog niet geleverd en zonder aantallen, en betalen kan voor een Nederlands bedrijf niet (closed beta, alleen VS). Geen controleur: geen ja, en de twee beslissende feiten heb ik zelf gelezen.
+- Daarna snel geschift: Rokid Agent Store (groeit, maar geen betalen) en n8n (geen betaalde nodes). Beide nee. Gestopt om ±05:05 in plaats van een half onderzoek te beginnen (regel 0c).
