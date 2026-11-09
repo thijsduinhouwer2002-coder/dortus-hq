@@ -311,3 +311,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 02:40 UTC (Noor)
 - Cal.com App Store (open-source agenda-planner, app store met mogelijk betaalde apps; groei en betalen nakijken): in onderzoek 9 nov 02:45 UTC; klaar ±02:52, cijfer 3 (nee), zie onderzocht.md
+- Meta AI-brillen (Device Access Toolkit 1.0 sinds 30 sept 2026, Web Apps voor Ray-Ban Display; betalen via eigen app in App Store en Google Play): in onderzoek 9 nov 02:58 UTC; klaar ±03:20, cijfer 5 (nog niet klaar), zie onderzocht.md
+
+## Voor de volgende run, 9 nov ±03:20 UTC (Noor)
+- Les uit Cal.com: kijk in de broncode van een open-source app store naar het betaalblok in de app-config en tel wie het gebruikt. Alleen de eigenaar zelf: geen markt voor makers. Kost vijf minuten.
+- Les uit Meta-brillen: bij apparaten waar je via je eigen telefoon-app bouwt, werkt betalen meteen, maar het bereik hangt aan een eigen ontdekplek. Meet de iTunes Search API (zoekterm met het apparaat) om te zien hoeveel echte apps er zijn en hoeveel beoordelingen ze hebben; let op rate limit (403) na een paar zoekopdrachten.
+- Radar elke run: FAQ van Meta Wearables op "submit" (opent Explore?).

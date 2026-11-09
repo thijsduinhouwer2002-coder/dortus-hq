@@ -1,0 +1,24 @@
+# Meta AI-brillen (Ray-Ban Meta, Oakley Meta, Ray-Ban Display) (9 nov 2026, Noor)
+
+Meting run 9 nov 02:40 UTC, ±25 minuten. Cijfer 5, advies nog niet klaar. Opnieuw zodra Meta inzendingen voor Explore opent.
+
+## Wat het is
+Drie manieren om voor de brillen van Meta te bouwen: (1) de Wearables Device Access Toolkit, waarmee een gewone iPhone- of Android-app camera, microfoon en (bij Display) het scherm van de bril gebruikt; (2) Web Apps in HTML voor de Ray-Ban Display ($799, scherm in het rechterglas); (3) Meta AI Connectors (preview).
+
+## De vijf vragen
+1. **Groeit het platform hard?** Ja. EssilorLuxottica: 2 mln Ray-Ban Meta verkocht tot feb 2025, verkoop meer dan verdrievoudigd in H1 2025, productie naar 10 mln per jaar eerder dan eind 2026; brillen goed voor meer dan 4 procentpunt van de 11,7% groei in Q3 2025 (DERDEN, https://uploadvr.com/meta-smart-glasses-drive-essilorluxotticas-growth). Op Connect (23 sept 2026) drie lijnen: Ray-Ban Meta Audio $349, Gen 3 $449, Display $799 nu ook in CA, UK, FR, IT, DE; verkoop in nieuwe landen, 100+ modellen eind 2026 (DERDEN, https://vr.org/articles/meta-glasses-three-tiers-wearables-toolkit-publishing-connect-2026). Motor: Meta (€3 mld in EssilorLuxottica) en Google die met Gemini-brillen volgt. Exacte aantallen voor 2026 niet gevonden (GOK: enkele miljoenen brillen in gebruik).
+2. **Is de winkel jong?** Er is nog geen winkel. Toolkit 1.0 is stabiel sinds 30 sept 2026: een bestaande app mag de bril gebruiken en houdt zijn eigen winkelvermelding (DERDEN, https://dymesty.com/blogs/articles/meta-connect-2026). Twee ontdekplekken komen eraan (Explore op de Display en een lijst in de Meta AI-app), maar die zijn gecureerd en "submission timing" is nog niet bekend (GEZIEN, https://developers.meta.com/wearables/faq, 9 nov). Web Apps gaan nu alleen via een link of QR naar mensen met ontwikkelaarsmodus aan (DERDEN, https://glasskit.app/docs/how-to-publish-a-meta-ray-ban-display-app).
+3. **Kan er betaald worden?** Ja, via de gewone App Store en Google Play: het is je eigen telefoon-app, dus abonnement of eenmalige aankoop werkt nu al. Op de iPhone gezien: MetaFit Display $2,99, SpecterSense $3,99 (GEZIEN, iTunes Search API). Kosten: een Apple-ontwikkelaarsaccount ($99 per jaar) en Google Play ($25 eenmalig), aan te maken door Thijs. Of Web Apps zelf mogen afrekenen, staat niet in de FAQ (niet gevonden).
+4. **Is er vraag?** Ja, bij bouwers en kopers. Op GitHub: nieuwe repo's over Meta-brillen per maand 19 (okt 2025) naar 56 (okt 2026) (GEZIEN, gh search repositories "meta glasses OR ray-ban meta OR wearables toolkit"); grootste: VisionClaw (AI-assistent voor de bril, 2.618 sterren sinds feb 2026) en OpenVision (195) (GEZIEN). Opvallend: de best beoordeelde nieuwe iPhone-apps rond deze brillen zijn juist apps die brillen in de buurt opsporen (Antizuck 120 beoordelingen, Find My Smart Glasses 35) (GEZIEN). De vraag van brildragers naar apps is nog niet te meten: echte bril-apps hebben 0 tot 2 beoordelingen.
+5. **Eerste plek te pakken?** Ja, alles is leeg. Van 26 iPhone-apps die Meta-brillen noemen (zoeken in VS en NL, deels geblokkeerd door rate limit) zijn er maar ±6 echte bril-apps, allemaal uit 2026 met 0 tot 2 beoordelingen: Glass Book Reader (lezen op de Display), DisplayList (lijstjes), MetaFit Display (sport), Keepers (camera), Jarvis OS1, Buzznow (GEZIEN, `data/meta-glasses-ios-2026-11-09.json`). Categorie voor ons: **spiekbrief en teleprompter op de Ray-Ban Display** (sprekersnotities, recepten, checklists die meelopen met je stem), of lezen op de Display. Nog niemand groot.
+
+## Waarom geen 6 of 7 nu
+- Geen winkel en geen ontdekplek voor kleine makers. Een bril-app moet nu via App Store-zoeken gevonden worden, en daar hebben bril-apps nul beoordelingen. Bereik is dus nog niet te halen; de eigen winkel (Explore) is gecureerd en zonder datum.
+- Het is een nieuw soort product voor Dortus: een echte iPhone- en Android-app, met accounts bij Apple en Google via Thijs. Testen in de echte app kan niet zonder bril (aankoop ±$449 tot $799, kosten noemen, niet nu).
+- Meta AI zelf doet de belangrijkste dingen al (vragen, foto's, vertalen); een derde-partij-app moet iets doen wat Meta niet doet.
+
+## Risico
+Platform: klein risico dat de brillen stokken (EssilorLuxottica en Meta investeren zwaar). Groter risico: Meta houdt de ontdekplekken gesloten voor gekozen partners, zoals bij de eerste preview. Teken: als Explore opent en alleen namen als Microsoft, Twitch en Spotify toont.
+
+## Advies
+Nog niet klaar, cijfer 5. Zet op de radar: zodra Meta inzendingen opent voor Explore of de lijst in de Meta AI-app, meteen opnieuw meten (dan kan het een 6 of 7 worden: winkel net open, betalen werkt via de app-winkels, categorie leeg). Herhaalmeting rond 8 dec: FAQ op "submit", iTunes-telling met `data/meta-glasses-ios-2026-11-09.json` als nulmeting.
