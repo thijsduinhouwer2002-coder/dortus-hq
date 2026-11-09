@@ -126,7 +126,7 @@ def main():
     # roze door de groene laag), camera recht op de rode vlakken vanaf hun eigen buitenkant.
     F["staat"]["b_door"] = F["hout_doorzichtig"](b)
     F["zet_door"](0.93)
-    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 9.0)
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 2.5)   # 6c2: 9 werd wit-roze in AgX
     lijst = list(a.get("cj_rood_vlakken", []))
     mw = a.matrix_world
     punten, norm = [], Vector()
@@ -141,7 +141,7 @@ def main():
             norm = zij.copy()
         norm.normalize()
         # beeldbreedte op afstand d met 60 mm lens = 0,6 d; rood op 12 procent: d = maat / 0,072
-        d = min(max(maat / 0.072, 6 * rr), 30 * rr)
+        d = min(max(maat / 0.11, 6 * rr), 30 * rr)   # 6c2: maat is de hele uitsnede, het rood zelf is kleiner
         log(f"rood midden {tuple(round(x, 2) for x in rc)}, maat {maat:.2f} mm, normaal {tuple(round(x, 2) for x in norm)}, afstand {d:.1f}")
         fstop = cam.data.dof.aperture_fstop
         cam.data.dof.aperture_fstop = 22.0   # zo dichtbij is f/8 te wazig

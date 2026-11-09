@@ -20,7 +20,7 @@ Wat er anders is dan ronde 5:
 
 ACHTERGROND = "#121418"
 HOUT_LICHT, HOUT_DONKER = "#D8A86E", "#B98450"   # 6c: Daan 03:55, licht honingkleurig beuken, weinig contrast
-KLEUR_3200K = "#FFD5AD"   # 6c: hoofdlicht nu ±4300 K (3200 K maakte het hout oranje); naam blijft voor film_mooi
+KLEUR_3200K = "#FFE4CE"   # 6c2: hoofdlicht nu ±5000 K (3200 K maakte het hout oranje); naam blijft voor film_mooi
 KLEUR_8000K = "#E3E9FF"   # zwarte straler 8000 K, sRGB
 
 SCHOUDER_L = Vector((-15, 0, 92))
@@ -64,7 +64,7 @@ def nerf_coordinaten(me):
         a = d / lengte
         t = np.clip((co - p0) @ a, 0.0, lengte)
         afst = np.linalg.norm(co - (p0 + t[:, None] * a), axis=1) - r
-        ref = np.array((0.0, 0.0, 1.0)) if abs(a[2]) < 0.9 else np.array((1.0, 0.0, 0.0))
+        ref = np.array((0.0, 1.0, 0.0)) if abs(a[1]) < 0.9 else np.array((0.0, 0.0, 1.0))  # e1 dwars op de kijkrichting (-y): geen ringen op de romp
         e1 = np.cross(a, ref)
         e1 /= np.linalg.norm(e1)
         e2 = np.cross(a, e1)
@@ -227,6 +227,17 @@ def licht_en_wereld():
     nt.links.new(afst.outputs["Value"], band.inputs["Value"])
     nt.links.new(band.outputs["Result"], kl.inputs["Fac"])
     nt.links.new(kl.outputs["Color"], b.inputs["Base Color"])
+    # 6c2: buiten de vlek precies de kleur van de wereld, onbelicht (Emission met dezelfde sterkte als de wereld).
+    # Zo valt de overgang vloer, bocht en wand weg en staat er geen lichte band achter de pop.
+    uit = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL")
+    em = nt.nodes.new("ShaderNodeEmission")
+    em.inputs["Color"].default_value = (*kleur(ACHTERGROND), 1)
+    em.inputs["Strength"].default_value = 0.6
+    mix = nt.nodes.new("ShaderNodeMixShader")
+    nt.links.new(band.outputs["Result"], mix.inputs[0])
+    nt.links.new(b.outputs[0], mix.inputs[1])
+    nt.links.new(em.outputs[0], mix.inputs[2])
+    nt.links.new(mix.outputs[0], uit.inputs["Surface"])
     zet_input(b, ["Roughness"], 0.6)
     zet_input(b, ["Specular IOR Level", "Specular"], 0.2)
     me.materials.append(mat)
