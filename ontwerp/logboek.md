@@ -518,3 +518,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** alleen B en C uitgewerkt. Waarom: C wilde ik zeker, B raadden controleur en ik aan; A uitwerken voor Thijs kiest is werk dat misschien weg kan.
 - **Geen controleur deze run:** het is een tussenstap op een eigen tak, niets gaat naar Thijs of de winkel. De controleur komt op het geheel als de richting gekozen is.
 - **Volgende run:** ronde b bekijken (`schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereldbeweging`), berichten en projectchat; volledige ronde van Bram keuren als die er is.
+- **Ronde b gezien (run 42568959822, fa0cdba, GEZIEN):** sintels, stof en glans nog steeds bijna onzichtbaar, ook groter. Oorzaak is dus niet de maat; volgende run de berekende stijl van `::before` in de spec uitschrijven (vermoedelijk maat of masker uit de plugin) en dan oplossen. Slag, hitte, pen, ringen en inktvlek zijn goed.
