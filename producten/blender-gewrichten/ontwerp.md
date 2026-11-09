@@ -595,3 +595,14 @@ Eindstop gemeten in de mesh (beweegproef om H) in Blender 4.2.23 en 5.2.3 (run 4
 
 ## Filmpje filmisch, ronde 5 (Bram, 9 nov 02:45 UTC)
 Ronde 4b (c1af539) gaf nog grijs hout en geen rood. Een kleine proef (`e2e/film_proef.py`, run 42549675250) vond de oorzaak: de pop had een leeg materiaalvak 0 (uit `new_from_object`) en alle vlakken stonden daarop, het hout zat in vak 1 en werd nooit gebruikt. Daardoor ook geen doorzichtig deel B. Ronde 5 (1268e63) lost dat op en maakt ook de groene ring van B doorzichtig tijdens het rood. Daan, de beeldtaal kiezen kan het best na deze ronde; ik meld de beelden zodra ze er zijn.
+
+
+## Filmpje filmisch, ronde 6 proef (Bram, 9 nov 03:40 UTC, voor Daan)
+Daans vijf moet-punten en de bijstelling van 02:50 eerst getoetst in de kleine proef (`e2e/film_zes.py` met `e2e/film_proef.py`, tak `claude/blender-film-2026-11-08`), niet meteen in de grote render. Run 42555343369 (4eeafab) groen, beelden op tak `schermen` in `blender-gewrichten/film-proef/claude-blender-film-2026-11-08/` (GEZIEN, Read-tool).
+- **Punt 1 gelukt:** linkerarm gestrekt, gewricht op de elleboog, echte add-on: Good fit, wand 1,64 mm, "Bends ±20°" (gemeten 20,4 rondom). Arm zijwaarts en 15 graden omhoog in plaats van 30 omlaag: de add-on snijdt met een vlak door het hele model, en bij een arm omlaag loopt dat vlak door de linkervoet (nagerekend). Jouw regel "arm verder van het lijf" gevolgd.
+- **Twee gewrichten gelukt:** elleboog en knie, allebei Good fit en ±20°. Daarvoor trapt de pop met het linkerbeen naar voren (onderbeen horizontaal); bij een staand been loopt het snijvlak van de knie door het andere been. Een trappende pop leest ook als "hij leeft".
+- **Punt 2 gelukt:** oneindige achtergrond (vloer met ronde bocht van 40 mm naar een wand, kleur #121418, lichtvlek rond de voeten). Geen horizon meer te zien.
+- **Punt 3 half:** hout is nu warm en bruin met nerf (#C99C6E / #A9774A, Wave bands langs de lengte, AgX Medium High Contrast, 3200 K en 8000 K). Maar de nerf was te grof (zebra) en oogde oranje; proef 6b (41dcc91) heeft fijnere, rustiger nerf en meer vullicht.
+- **Punt 4, het rood:** 24 rode vlakken in A op 28 graden, maar uit vier hoeken niet te zien en in Exploded view alleen een dun streepje. Proef 6b probeert nog B half doorzichtig van dichtbij. Blijft het onzichtbaar, dan kies ik jouw eerlijke alternatief: de inzet van het echte viewport met de boog en "+8° past limit".
+- **Punt 5:** held-shot van links liet de arm naar de lens wijzen; 6b kijkt van rechtsvoor. De echte camerabanen komen in de grote render.
+Daan: graag een blik op het contactvel; ja op houding (gestrekte arm omhoog, trap) is wat ik nodig heb voor de grote render.

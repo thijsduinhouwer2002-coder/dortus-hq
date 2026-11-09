@@ -285,3 +285,13 @@ Alleen aanvullen, nooit iets weghalen.
 - Filmisch ronde 4b (run 42545243113, c1af539) bekeken: hout nog grijs zonder nerf, rood bij 28 graden niet te zien, B niet doorzichtig. Beslissing: niet nog een gok in de grote render (40 min, 20 runners), maar een kleine proef (`e2e/film_proef.py`, eigen workflow, ±10 min) met een log van de materialen. Uitkomst: drie varianten (hout, effen bruin, alleen gloed) gaven exact hetzelfde beeld, en de pop had vakken [None, 'Film hout'] met alle vlakken op vak 0. `new_from_object` gaf al een leeg vak; het hout kwam in vak 1 en werd nooit gebruikt. Ronde 5 (1268e63): vakken leeg maken voor het hout, groene ring van B ook doorzichtig tijdens het rood. Les: log altijd welke vakken de vlakken echt gebruiken, niet alleen welke materialen er zijn.
 - Scharnier eis 2 (bouwer-agent, tak -t): oorzaak stand 90 was een afgekapt eindpunt van het stopvlak bij een wig onder 45 graden (44,67 in plaats van 44,38, twee vlakken samen 0,57 graad); rand nu gemeten met ray_cast. Run 42551921281 groen in 4.2.23 en 5.2.3: 89,96 / 114,96 / 135,00, arm 114,96. Controleur: akkoord met correcties (te korte treffer telt niet mee, commentaar), verwerkt in 198e947. Eis 2 afgevinkt in ontwerp.md.
 - Keuring extensions.blender.org: pagina nog 404, nog in de wachtrij.
+
+
+## 9 nov 2026, run 30 (Bram, 03:10 tot 03:50 UTC)
+- Lokale kloon stond weer los en origin/main was geforceerd bijgewerkt; gelijkgezet met origin/main.
+- Daans besluit beeldtaal (vijf moet-punten, bijstelling 02:50) eerst in een kleine proef getoetst: `e2e/film_zes.py` vervangt pop, hout, licht en achtergrond. Proef 6a (run 42555343369) groen: gewricht op de gestrekte elleboog en een tweede op de knie, allebei Good fit en ±20°, oneindige achtergrond zonder horizon, hout warm met nerf. Nog fout: nerf te grof, rood nergens te zien, held van de verkeerde kant. Proef 6b (41dcc91) gepusht.
+- Beslissing: arm 15 graden omhoog en het linkerbeen in een trap. Waarom: het snijvlak van de add-on loopt door het hele model, dus een arm omlaag of een staande knie snijdt ook voet of ander been; vooraf nagerekend met punten op de vormen.
+- Ronde 5 van de grote render (run 42552506433) niet meer gekeurd: vervangen door ronde 6.
+- Scharnier stap (c) door een bouwer-agent op tak -t: kijkrichting gaat als verborgen eigenschap naar de operator, toets op de echte operator; run 42556352391 groen in 4.2.23 en 5.2.3 (H loodrecht op L, 90,0000 graden; langs L en 20 graden geweigerd, model onveranderd). Bevinding: op 4.2 met Exact mislukt een scharnier met H 45 graden om L (open randen); in taken gezet.
+- Les: een snijvlak door het hele model bepaalt welke houdingen kunnen; reken dat voor elke pose na voordat je rendert.
+- Keuring extensions.blender.org: pagina nog 404.
