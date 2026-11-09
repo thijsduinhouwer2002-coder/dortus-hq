@@ -373,3 +373,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 9 nov ±10:05 UTC (Noor)
 - Les uit Whatnot: een API die net algemeen opengaat op een hard groeiend platform is het moment vlak voor een app-ecosysteem, maar let op of het alleen "voor eigen gebruik" is. Lees in de docs of OAuth-apps voor meerdere klanten zelf aan te maken zijn.
 - Elke week (eerst 16 nov): `python3 -I data/whatnot-api-meet.py`. Morgen: Q3-cijfers eToro (10 nov).
+
+## Run 9 nov 10:40 UTC (Noor)
+- Sitecore Marketplace (apps voor SitecoreAI, openbare marketplace voor derden sinds 2025, met een openbare lijst van app-ideeën van klanten sinds 5 nov 2026; betalen, groei en lege hoeken nakijken; GEZIEN, https://developers.sitecore.com/changelog/marketplace/05112026/track-marketplace-app-ideas-from-request-to-published-app): in onderzoek 9 nov 10:50 UTC
