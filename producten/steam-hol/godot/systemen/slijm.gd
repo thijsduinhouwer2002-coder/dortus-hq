@@ -36,7 +36,7 @@ var hap_van := -10.0
 var leven := ""            # "", "slapen" of "spugen"
 var leven_van := -10.0
 var gespuugd := 0           # laarzen uitgespuugd; hij spuugt alleen als hij meer helden at dan laarzen spuugde
-var laars_tot := -10.0      # tot wanneer de laars naast hem op de vloer ligt
+var laars_op_vloer := false   # ligt de laars naast hem (8 s, dan haalt een wekker hem weg)
 var laars_kant := 1         # 1 rechts, -1 links
 var rng := RandomNumberGenerator.new()
 var plat_tot := -10.0       # was 0.0: dan stond hij bij de start in "opstaan" en bleef zo (Olaf 19:55, GEZIEN in run 42682511064)
@@ -80,10 +80,16 @@ func begin_leven() -> String:
 	return leven
 
 func laars_ligt() -> bool:
-	return t < laars_tot
+	return laars_op_vloer
+
+func laars_weg() -> void:
+	laars_op_vloer = false
+	queue_redraw()
 
 # Waar de laars is (onder-midden, ten opzichte van Gloop), in hele pixels: boogje van 12 px opzij in 0,3 s.
 func laars_pos() -> Vector2i:
+	if leven != "spugen":
+		return Vector2i(16 * laars_kant, 0)   # geland: blijft liggen, ook als hij daarna slaapt
 	var u := clampf((t - (leven_van + 0.6)) / BOOG_S, 0.0, 1.0)   # vliegt na spugen-frame 3 (index 3 = 0,6 s)
 	var x := int(round(12.0 * u)) * laars_kant
 	var y := -int(round(8.0 * u * (1.0 - u) * 4.0 / 2.0))
@@ -124,9 +130,9 @@ func stap(delta: float) -> void:
 		leven = ""             # een held komt binnen: wakker
 	elif leven == "spugen" and t > leven_van + 0.6 + BOOG_S:
 		leven = ""
-		laars_tot = t + LAARS_LIGT_S
+		laars_op_vloer = true
 		if is_inside_tree():
-			get_tree().create_timer(LAARS_LIGT_S + 0.05).timeout.connect(queue_redraw)   # laars weg, zonder _process
+			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
 	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S:
 		set_process(false)
 
@@ -139,7 +145,7 @@ func frame_nu() -> Array:
 	if t < plat_tot + OPSTAAN_S:
 		return [LEVEN, OPSTAAN]
 	if leven == "slapen":
-		return [LEVEN, SLAPEN[int((t - leven_van) * 2.0) % 2]]
+		return [LEVEN, SLAPEN[int((t - leven_van) * FPS) % 2]]
 	if leven == "spugen":
 		return [LEVEN, SPUGEN[mini(SPUGEN.size() - 1, int((t - leven_van) * FPS))]]
 	return [RUST, 0]
