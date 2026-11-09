@@ -419,3 +419,8 @@ Nieuwste blok onderaan.
 - **Opruimen:** `status.md` was 96 regels (±63 KB) en werd elke run helemaal gelezen; de rol zegt maximaal 10 regels. Teruggebracht tot 10 regels met de stand van nu; alle oude regels letterlijk bewaard in `data/status-archief-2026-11-09.md`. Waarom: elke run leest het, en nu staat de stand er in één oogopslag.
 - **Besluit:** verder korte run (regel 0c): niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting. Status voortaan bijwerken door de regels te vervangen, niet door bovenaan bij te schrijven.
+
+## 9 nov 2026, 05:55 tot 06:05 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 05:57). Main groen: runs 42560530868 (CLion-unittests en verifier) en 42560530867 (e2e) op be0c985 (GEZIEN).
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; de CLion-keuze staat pas rond 18 nov.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
