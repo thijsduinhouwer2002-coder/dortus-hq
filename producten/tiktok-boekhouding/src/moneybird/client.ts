@@ -28,6 +28,15 @@ export function wachttijdMs(retryAfter: string | null, nuSeconden: number): numb
   return Math.min(60, Math.max(1, s)) * 1000;
 }
 
+/** De tekst van Moneybird: `full_message`, of `error` als tekst, of het object als JSON. */
+export function foutTekst(json: unknown): string {
+  if (typeof json === "string") return json;
+  const j = json as any;
+  if (typeof j?.full_message === "string") return j.full_message;
+  if (typeof j?.error === "string") return j.error;
+  return JSON.stringify(j?.error ?? j ?? "");
+}
+
 export class MoneybirdClient {
   private readonly o: Required<MoneybirdClientOpties>;
 
@@ -64,8 +73,14 @@ export class MoneybirdClient {
       }
       if (res && res.ok) {
         if (res.status === 204) return undefined as T;
-        const tekst = await res.text();
-        return (tekst ? JSON.parse(tekst) : undefined) as T;
+        try {
+          const tekst = await res.text();
+          return (tekst ? JSON.parse(tekst) : undefined) as T;
+        } catch (e) {
+          // Gelukt bij Moneybird, maar het antwoord is niet te lezen: voor POST en PATCH is de uitkomst dan onzeker.
+          netwerkFout = new Error(`antwoord ${res.status} niet te lezen: ${(e as Error).message}`);
+          res = undefined;
+        }
       }
       let fout: MoneybirdFout;
       if (netwerkFout) {
@@ -78,7 +93,7 @@ export class MoneybirdClient {
         } catch {
           json = tekst;
         }
-        const uitleg = (json as any)?.error ?? (typeof json === "string" ? json : JSON.stringify(json ?? ""));
+        const uitleg = foutTekst(json);
         fout = new MoneybirdFout(soortVanStatus(res!.status, json), `Moneybird ${res!.status}: ${uitleg}`, res!.status, json);
       }
       const magHerhalen = fout.soort === "te_veel_verzoeken" || (fout.soort === "server" && methode === "GET");

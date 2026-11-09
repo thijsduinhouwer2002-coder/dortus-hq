@@ -6,7 +6,7 @@ import { boekAfrekening } from "../src/moneybird/boeken.ts";
 import { MoneybirdFout } from "../src/moneybird/fouten.ts";
 import { wachttijdMs } from "../src/moneybird/client.ts";
 import { administraties, grootboekrekeningen, btwTarieven, controleerKoppeling } from "../src/moneybird/lezen.ts";
-import { inlogLink, wisselCode, ververs } from "../src/moneybird/oauth.ts";
+import { inlogLink, wisselCode, ververs, trekIn } from "../src/moneybird/oauth.ts";
 import { boekingsregels } from "../../tiktok-shop-basis/src/boekingen.ts";
 
 const S = "7300000000000000001";
@@ -200,8 +200,12 @@ test("(e) foutsoorten: 401, 402, 403, 422 met tekst", async () => {
 });
 
 test("(f) een gebruikt id als getal geeft een fout; administration_id als klein getal mag", async () => {
+  // Gewijzigd na kan-punt 1 van de code-controleur: bij een id als getal in het 201-antwoord staat de boeking er
+  // waarschijnlijk al, dus onzeker (met de fout erbij) in plaats van een gewone fout.
   const a = nepClient([{ json: [] }, { status: 201, json: { id: 503332872610907545 } }]);
-  await assert.rejects(boekAfrekening(a.client, ADM, STANDAARD, koppeling), (e: any) => e.soort === "antwoord");
+  const ra = await boekAfrekening(a.client, ADM, STANDAARD, koppeling);
+  assert.equal(ra.uitkomst, "onzeker");
+  assert.equal(ra.fout?.soort, "antwoord");
   const doc = alsDocument(STANDAARD);
   (doc.general_journal_document_entries[0] as any).ledger_account_id = 100;
   const b = nepClient([{ json: [doc] }]);
@@ -276,4 +280,78 @@ test("aansluiting op de rekenkern: regels van boekingsregels() gaan zo door", ()
   assert.equal(m.totaalCenten, 1850);
   assert.equal(tekstNaarCenten("18,5"), 1850);
   assert.throws(() => tekstNaarCenten("1.234"));
+});
+
+test("controleur ronde 1: 201 met onleesbaar antwoord geeft onzeker, ook bij PATCH", async () => {
+  const nep = nepFetch([{ json: [] }]);
+  let i = 0;
+  const fn = (async (u: any, init: any) => {
+    i++;
+    if (i === 1) return nep.fn(u, init);
+    return new Response("<html>", { status: 201 });
+  }) as typeof fetch;
+  const { MoneybirdClient } = await import("../src/moneybird/client.ts");
+  const client = new MoneybirdClient({ accessToken: "tok", fetchFn: fn, slaap: async () => {} });
+  const res = await boekAfrekening(client, ADM, STANDAARD, koppeling);
+  assert.equal(res.uitkomst, "onzeker");
+  assert.equal(res.fout?.soort, "server");
+  assert.equal(i, 2);
+  const b = nepClient([{ json: [alsDocument(invoer([r("omzet", 1)]))] }, { status: 503, json: { error: "down" } }]);
+  assert.equal((await boekAfrekening(b.client, ADM, STANDAARD, koppeling)).uitkomst, "onzeker");
+  assert.equal(b.verzoeken.length, 2);
+});
+
+test("controleur ronde 1: 422 met error als object en 400 geven leesbare tekst", async () => {
+  const a = nepClient([{ status: 422, json: { error: { debit: ["is not valid"] } } }]);
+  await assert.rejects(a.client.roep("POST", "/123/x", { body: {} }), (e: any) => e.soort === "geweigerd" && e.message.includes('"debit":["is not valid"]') && !e.message.includes("[object Object]"));
+  const b = nepClient([{ status: 400, json: { error: "General Journal Document is required", symbolic: { general_journal_document: "required" } } }]);
+  await assert.rejects(b.client.roep("POST", "/123/x", { body: {} }), (e: any) => e.soort === "geweigerd" && e.message.includes("is required"));
+});
+
+test("controleur ronde 1: bekendId met een ander kenmerk wordt niet vervangen maar valt terug op zoeken", async () => {
+  const ander = { ...alsDocument(STANDAARD, "42"), reference: "TikTokShop-999" };
+  const { client, verzoeken } = nepClient([{ json: ander }, { json: [] }, { status: 201, json: { id: "43" } }]);
+  const res = await boekAfrekening(client, ADM, STANDAARD, koppeling, { bekendId: "42" });
+  assert.deepEqual([res.uitkomst, res.id], ["aangemaakt", "43"]);
+  assert.deepEqual(verzoeken.map((v) => v.method), ["GET", "GET", "POST"]);
+});
+
+test("controleur ronde 1: zelfde aantal regels maar 1 cent, rekening, omschrijving of datum anders geeft PATCH", async () => {
+  const aanpassingen: Array<(d: any) => void> = [
+    (d) => { d.general_journal_document_entries[0].credit = "250.01"; },
+    (d) => { d.general_journal_document_entries[1].ledger_account_id = "999"; },
+    (d) => { d.general_journal_document_entries[2].description = "met de hand aangepast"; },
+    (d) => { d.general_journal_document_entries[5].debit = "211.56"; },
+    (d) => { d.date = "2026-11-11"; },
+  ];
+  for (const pas of aanpassingen) {
+    const doc = alsDocument(STANDAARD);
+    pas(doc);
+    const { client, verzoeken } = nepClient([{ json: [doc] }, { json: doc }]);
+    assert.equal((await boekAfrekening(client, ADM, STANDAARD, koppeling)).uitkomst, "vervangen");
+    assert.equal(verzoeken[1].method, "PATCH");
+  }
+  // volgorde volgens row_order, niet volgens het antwoord
+  const doc = alsDocument(STANDAARD);
+  doc.general_journal_document_entries.reverse();
+  const { client } = nepClient([{ json: [doc] }]);
+  assert.equal((await boekAfrekening(client, ADM, STANDAARD, koppeling)).uitkomst, "ongewijzigd");
+});
+
+test("controleur ronde 1: tijd in milliseconden, munt per regel en id's uit letters geven een invoerfout", () => {
+  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)], { statementTime: T_10NOV * 1000 }), koppeling), (e: any) => e.soort === "invoer");
+  assert.throws(() => maakMemoriaal(invoer([{ ...r("omzet", 100), valuta: "GBP" }]), koppeling), (e: any) => e.soort === "invoer");
+  assert.doesNotThrow(() => maakMemoriaal(invoer([{ ...r("omzet", 100), valuta: "EUR" }]), koppeling));
+  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, per: { omzet: { grootboekId: "omzet" } } }), (e: any) => e.soort === "invoer");
+  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, tegenrekeningId: "abc" }), (e: any) => e.soort === "invoer");
+  assert.throws(() => tekstNaarCenten(100 as any));
+});
+
+test("OAuth: intrekken stuurt token en app-gegevens", async () => {
+  const app = { clientId: "cid", clientSecret: "geheim", redirectUri: "https://x" };
+  const nep = nepFetch([{ json: {} }, { status: 403, json: { error: "unauthorized_client" } }]);
+  await trekIn(app, "b3f3", nep.fn);
+  assert.equal(nep.verzoeken[0].url.href, "https://moneybird.com/oauth/revoke");
+  assert.deepEqual(Object.fromEntries(new URLSearchParams(nep.verzoeken[0].body)), { client_id: "cid", client_secret: "geheim", token: "b3f3" });
+  await assert.rejects(trekIn(app, "x", nep.fn), /403/);
 });

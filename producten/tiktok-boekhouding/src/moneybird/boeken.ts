@@ -55,7 +55,12 @@ export async function boekAfrekening(client: MoneybirdClient, adm: Administratie
     if (e instanceof MoneybirdFout && e.soort === "server") return { uitkomst: "onzeker", waarschuwingen: w, fout: e };
     throw e;
   }
-  return { uitkomst: "aangemaakt", id: idTekst(antwoord?.id, "document id"), waarschuwingen: w };
+  try {
+    return { uitkomst: "aangemaakt", id: idTekst(antwoord?.id, "document id"), waarschuwingen: w };
+  } catch (e) {
+    // De boeking staat er waarschijnlijk, maar zonder bruikbaar id: onzeker, niet opnieuw POSTen.
+    return { uitkomst: "onzeker", waarschuwingen: w, fout: e as MoneybirdFout };
+  }
 }
 
 export function controleerPeriode(datum: string, periodLockedUntil: string | null): void {
@@ -67,7 +72,9 @@ export function controleerPeriode(datum: string, periodLockedUntil: string | nul
 async function vind(client: MoneybirdClient, adm: string, kenmerk: string, bekendId?: string): Promise<any | null> {
   if (bekendId) {
     try {
-      return await client.roep<any>("GET", `${PAD(adm)}/${idTekst(bekendId, "bekendId")}`);
+      const doc = await client.roep<any>("GET", `${PAD(adm)}/${idTekst(bekendId, "bekendId")}`);
+      // Vangnet: alleen een document met precies ons kenmerk mag vervangen worden.
+      if (doc?.reference === kenmerk) return doc;
     } catch (e) {
       if (!(e instanceof MoneybirdFout && e.soort === "niet_gevonden")) throw e;
     }
