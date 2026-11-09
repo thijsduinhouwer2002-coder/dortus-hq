@@ -2,6 +2,26 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 2: hol met Daans kunst, 9 nov 2026 (run 42685438422, commit ce73494, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, 1024 x 120, 281 beelden), tien beelden op ware grootte onder elkaar, de val bij beeld 40 tot 56 en het einde (270 tot 280) twee keer vergroot, `film.log` en `cpu.txt` (1,03 CPU-s per 10 s op 120 px, 113 MB). Daans karakter-laag (kleuren per naam, littekens, tekens, paneel) zit er nog niet in; dat staat op Olafs lijst, dus daar oordeel ik nog niet over.
+
+**Wat beter is dan toets 1 (punt 1, 4 en 6 van toets 1 zijn opgelost):**
+- **Er komt goud binnen.** Na 10 s valt Kees in de stekelput, na een minuut staat er 12 goud. Vier van de zes helden vallen, twee vluchten. Dat is precies de eerste minuut die we wilden (T1).
+- **De val leest goed.** De held loopt op de put, de pinnen schieten omhoog en hij is weg in twee beelden. Kort, duidelijk, een beetje gemeen. Goed.
+- **Het ziet er voor het eerst uit als een spel:** gras met plantjes, fakkels, vaandel, de schatberg die glinstert, gangen in twee rijen. Het hol groeit tijdens de film (kolom 4, 13, 5, 6 gegraven).
+- Geen afgekapte tekst meer. De wrok staat in de log: "Ties the Once-Fled is back! Grudge: the Spike Pit."
+
+**Wat niet goed is (in volgorde van belang):**
+1. **Gloop ligt twee derde van de film plat** (vanaf ±beeld 120 tot het einde). In de film komt er elke 6 tot 9 s een held (`strook.gd` regel 194, demo), maar Gloop blijft 60 s plat (`slijm.gd` PLAT_S). In het echte spel is 60 s plat ongeveer één held overslaan; in de film zijn het er zeven. Daardoor doet de stekelput al het werk en is de film eentonig: vier keer dezelfde dood op dezelfde plek. **Eis:** in de demo alles even snel versnellen, ook plat zijn (60 s x 7,5/50 = ±9 s). Dat verandert niets aan de balans van Bram's sim, alleen aan wat de film laat zien.
+2. **Je ziet het goud niet binnenkomen.** "+3 gold for your hoard" staat als losse regel en vervangt de regel van de val, dus je leest of de dood of het goud. Het fijnste moment van een idle-spel (iets binnen zien komen) zit nu alleen in een getal. **Eis:** drie muntjes springen van de put naar de schatberg (een halve seconde, alleen als er toch getekend wordt) en de regel wordt één regel: "Kees fell to the Spike Pit. +3" (zie `kroniek-regels.md`).
+3. **De wrok is nog niet te zien op het poppetje.** Ties komt terug en ziet er hetzelfde uit als de rest. Er zweeft wel een klein rood kruisje, maar dat staat een hele rij boven zijn hoofd in de aarde en leest als "dicht" of "dood", niet als boos. Daan heeft `tekens.png` en `held_littekens.png` klaar; dat is Olafs volgende stap. **Eis:** teken direct boven het hoofd (1 of 2 spelpixels), en een litteken dat je bij terugkomst meteen ziet.
+4. **Alle helden lijken op elkaar.** Vijf van de zes dragen dezelfde rode band en hetzelfde rode hemd; alleen de tovenaarshoed en één helm wijken af. Op 120 px is kleur het enige wat je in één blik ziet. Daans `held_lijf_kleuren.png` (vaste kleur per naam) lost dit op; graag tegelijk met punt 3.
+5. **Een dode held komt terug met dezelfde naam.** Kees valt na 10 s, en na 40 s staat er "Kees the hero climbs in." Je denkt dat hij terug is, maar het is een nieuwe Kees zonder wrok. Dat is verwarrend, want terugkomen is juist ons eigen stuk. **Eis:** een naam van een gevallen held niet opnieuw gebruiken. Beter nog, maak er een grap van: zie "De erfgenaam" in `features.md` (versie 1).
+6. **Niemand komt bij de schat.** De Hoard-Toucher van Bram is nog niet aangesloten (staat op Olafs lijst). In de film staan twee helden even naast de stapel en lopen weer weg. Dat blijft een gemiste grap tot hij erin zit.
+7. **Het rechterderde deel van de strook is lege aarde.** Het hol stopt bij de schat op ±2/3 van de breedte, daarna steentjes tot het tekstvak. Wanneer je graaft, schuift de schat mee, maar in de film blijft het rechterstuk leeg. Kan de schat tegen het tekstvak aan staan, met het hol ervoor, zodat graven het hol naar links laat groeien? Dan is de strook altijd vol. Olaf beslist.
+
+**Oordeel:** een grote stap. Het ziet eruit als een spel, er komt goud en de val is lekker kort. Wat nog mist om het aan Thijs te laten zien: Gloop moet meedoen (punt 1), het goud moet je zien vliegen (punt 2) en de wrok moet op het poppetje staan (punt 3 en 4). Punt 1 is één regel, punt 2 is klein, punt 3 en 4 zijn Daans kunst aansluiten. Doorgegeven aan Olaf en Bram.
+
 ## Toets 1: eerste kern, 9 nov 2026 (run 42676196548, commit dfd139e, tak `claude/steam-hol-kern`)
 **Bekeken (GEZIEN):** `film.gif` (1024 x 120, 281 beelden, een minuut), zes beelden naast elkaar op ware grootte, `film.log`, `cpu.txt` op tak `schermen` (`steam-hol/claude-steam-hol-kern/`). Kunst is nog tijdelijk (Daans bladen zitten er nog niet in), dus over het uiterlijk oordeel ik niet; dat is Daan.
 
