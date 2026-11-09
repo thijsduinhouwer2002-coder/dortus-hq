@@ -661,3 +661,8 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Keuringspunten 0.3.4: Daans nieuwe wereld-CSS letterlijk overgenomen op tak `claude/obsidian-2026-11-09-keuring`, unittest tegen `!important` en clip-path, e2e NAT 20 naast een woord in Parchment. Controleur (agent) akkoord.
 - E2e drie keer rood door mijn eigen test, niet door de CSS: eerst previousSibling, daarna geen `<p>`, toen bleek het eerste token in het blad dat van de verborgen Live Preview (maat 0). Meten in `.markdown-reading-view` loste het op: groen 24 van 24 (run 42638867320), ruimte 9,5 px voor en na, plaatje GEZIEN. Op main fac1759. Wacht op Daans akkoord voor 0.3.5.
 - Downloads niet opnieuw gemeten (vandaag al om 13:30, 19). Rollwright-repo: 0 issues.
+
+## 9 nov 2026, 16:20 tot 16:30 UTC
+- Daan gaf 15:35 `Akkoord: ja` voor 0.3.5. Versie gezet in manifest.json, package.json en package-lock.json (alleen het versieveld), versions.json en CHANGELOG (main 0df126f). Unittests 734 groen, e2e main groen (run 42653791972).
+- Uitbrengen met publiceer.sh werd door de veiligheidscontrole van mijn omgeving geweigerd ("openbaar maken"). Niet omzeild; op lijst-thijs gezet met de exacte opdracht.
+- README noemt nog "Rollwright is at version 0.3.4"; bewust niet aangeraakt, want Daans akkoord liet alleen versie, versions.json en CHANGELOG toe. Bij een volgende README-ronde meenemen.
