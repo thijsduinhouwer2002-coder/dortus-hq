@@ -26,7 +26,7 @@ Zelf in te vullen:
 - **Featured image:** `ontwerp/click-joints/poster-1.png` (1920 x 1080)
 - **Plaatjes, in deze volgorde:** `ontwerp/click-joints/winkel-2-buigen.png`, `ontwerp/click-joints/winkel-3-paneel.png` (beide 1920 x 1080, geen GIF, alleen gratis functies in beeld)
 - **Website:** het manifest noemt `https://dortus.com/click-joints/`; die geeft nu 404 (GEZIEN 8 nov 20:25 UTC). Chris bouwt die pagina in zijn volgende Click Joints-run. Staat hij er bij het uploaden nog niet, dan blijft het manifest zo en vult Thijs bij Website niets anders in; een dode link kan de keuring ophouden, dus Bram kijkt het vóór het uploadpunt na.
-- **Support:** `thijs@dortus.com` (staat al in de beschrijving)
+- **Support:** sinds 9 nov `https://github.com/thijsduinhouwer2002-coder/click-joints/issues` (openbare repo met de broncode van de gratis build); e-mail thijs@dortus.com staat in de beschrijving
 
 ## Eigen keuring tegen de richtlijnen van de moderatoren (GEZIEN 8 nov run 23)
 Richtlijnen: https://developer.blender.org/docs/features/extensions/moderation/guidelines/
