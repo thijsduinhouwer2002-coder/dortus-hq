@@ -1,4 +1,5 @@
-"""Gedeelde hulp voor de scharnier-toetsen (toetsen_scharnier, toetsen_kijk, toetsen_flip, toetsen_neus)."""
+"""Gedeelde hulp voor de scharnier-toetsen (toetsen_scharnier, toetsen_kijk, toetsen_flip, toetsen_neus,
+toetsen_neus_kort)."""
 from mathutils import Matrix
 from mathutils.bvhtree import BVHTree
 

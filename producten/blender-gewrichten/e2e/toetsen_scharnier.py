@@ -4,7 +4,7 @@ Staaf van 10 mm (figuren.staaf, straal 5) in een mm-scene, cursor als as-bron: l
 scharnieras H langs wereld-Y (X-as van de cursor). Eisen: twee gesloten delen, speling om H (knokkel in de
 holle cilinder) en langs H (tong tussen de wangen) gemeten in de mesh gelijk aan de ingestelde binnen 0,01 mm,
 tijd gelogd; beweegproef per stand (eis 2). Invoer (eis 4) staat in toetsen_kijk.py, Flip bend in
-toetsen_flip.py, de klikneus en de zaagsnede (eis 3, vorm punt 5) in toetsen_neus.py. Regels met [cj-betaald]."""
+toetsen_flip.py, de klikneus en de zaagsnede (eis 3, vorm punt 5) in toetsen_neus.py en toetsen_neus_kort.py. Regels met [cj-betaald]."""
 import math
 import sys
 
@@ -15,6 +15,7 @@ import figuren
 import toetsen_flip
 import toetsen_kijk
 import toetsen_neus
+import toetsen_neus_kort
 from hulp_scharnier import bvh as _bvh
 from hulp_scharnier import cursor as _cursor
 
@@ -112,6 +113,7 @@ def toets(stap, eigen):
     toets_beweeg(stap, eigen)
     toetsen_flip.toets_flip(stap, eigen)
     toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus en vorm punt 5: zaagsnede
+    toetsen_neus_kort.toets(stap, eigen, _cursor)  # sleuf bij korte staaf en schuine onderkant
 
 
 def toets_beweeg(stap, eigen):

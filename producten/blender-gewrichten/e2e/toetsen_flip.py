@@ -3,9 +3,9 @@ import sys
 
 import bpy
 from mathutils import Vector
-from mathutils.bvhtree import BVHTree
 
 import figuren
+from hulp_scharnier import bvh as _bvh
 from hulp_scharnier import cursor as _cursor
 
 
@@ -47,10 +47,8 @@ def toets_flip(stap, eigen):
         buig, lid = Vector(b["cj_buigkant"]).normalized(), Vector(b["cj_as"]).normalized()
         if w is None:
             w = lid.cross(buig).normalized()
-        bol = 1e9
-        pa, ta = beweeg._driehoeken(a, p, bol)
-        pb, tb = beweeg._driehoeken(b, p, bol)
-        bvh_a = BVHTree.FromPolygons(pa.tolist(), ta)
+        pb, tb = beweeg._driehoeken(b, p, 1e9)
+        bvh_a = _bvh(a)
         plus = beweeg._grens(bvh_a, pb, tb, p, w, beweeg.MAX_VOOR, beweeg.STAP_VOOR)
         min_ = beweeg._grens(bvh_a, pb, tb, p, -w, beweeg.MAX_VOOR, beweeg.STAP_VOOR)
         voor = float(b.get("cj_bereik_graden", -1))

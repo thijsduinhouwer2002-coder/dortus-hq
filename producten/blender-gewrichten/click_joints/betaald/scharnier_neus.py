@@ -44,12 +44,20 @@ def rek(t, h, lip):
 
 def zaag_diepte(bvh, frame, m):
     """Kleinste afstand van H (z = 0) tot de huid langs -Z (de lidas omlaag, naar de onderkant van deel A),
-    gemeten midden in beide sleuven op drie plekken langs de buigkant; None als geen straal iets raakt."""
+    gemeten midden in beide sleuven; None als geen straal iets raakt. De sleuf loopt door het hele lid langs de
+    buigkant, dus behalve in het midden en op de helft ook vlak bij beide randen (0,95 van de zijmaat langs +Y
+    en -Y op die plek): bij een schuine of afgeronde onderkant ligt de huid daar het dichtst bij H."""
     xm = m["tw"] + (ZAAG_X[0] + ZAAG_X[1]) / 2 * m["s"]
-    omlaag = (frame.to_3x3() @ Vector((0, 0, -1))).normalized()
+    rot = frame.to_3x3()
+    omlaag = (rot @ Vector((0, 0, -1))).normalized()
     diepte = None
     for x in (xm, -xm):
-        for y in (-0.5 * m["wy"], 0.0, 0.5 * m["wy"]):
+        ys = [0.0]
+        for teken in (1, -1):
+            zij = bvh.ray_cast(frame @ Vector((x, 0.0, 0.0)), (rot @ Vector((0, teken, 0))).normalized())
+            rand = zij[3] if zij[0] is not None else m["wy"]
+            ys += [teken * 0.5 * rand, teken * 0.95 * rand]
+        for y in ys:
             hit = bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
             if hit[0] is not None:
                 diepte = hit[3] if diepte is None else min(diepte, hit[3])

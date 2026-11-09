@@ -12,77 +12,21 @@ de cursor min e = 0,15 keer de dikte langs de Y-as van de cursor), niet uit opge
 - Zaagsnede: een straal uit het midden van A langs H stuit vlak naast de tong op de sleuf, tot de zaagbodem.
 - Breedte van de sleuf in de mesh (stralen uit het midden van de sleuf naar beide wanden): minstens s - 0,01,
   want smaller smelt bij het printen dicht; de wand aan de wangkant ligt op of net binnen tw + s (lip t dik).
-- Korte staaf (onderkant van A dichter bij H dan L + rest): de sleuf wordt korter (L = diepte - max(t, 0,8)),
-  deel A blijft één stuk en de sleuf eindigt boven de onderkant; nog korter geeft Tight en geen objecten.
-- Dunne staaf van 5 mm: CANCELLED met de te-dun- of Tight-melding en geen nieuwe objecten."""
+- Dunne staaf van 5 mm: CANCELLED met de te-dun- of Tight-melding en geen nieuwe objecten.
+- Rekensom zonder mesh: wang dunner dan 0,8 mm, dan is de rest onder de zaagbodem 0,8 mm (L = diepte - 0,8).
+Korte staaf en schuine onderkant staan in toetsen_neus_kort.py, de gedeelde hulp in hulp_neus.py."""
 import math
 import sys
 
 import bpy
-from mathutils import Matrix, Vector
+from mathutils import Vector
 
-import figuren
+from hulp_neus import TOL_MM, ZAAG
+from hulp_neus import as_uit_cursor as _as_uit_cursor
+from hulp_neus import meet_neus
+from hulp_neus import plaats as _plaats
+from hulp_neus import reden as _reden
 from hulp_scharnier import bvh as _bvh
-
-TOL_MM = 0.01
-KNOKKEL, WANG, ACHTER, ZAAG = 0.35, 0.20, 0.15, 0.65   # eigen rekensom (ontwerp v1.1, staaf rond)
-
-
-def _plaats(straal, cursor, s=0.2, onder=None):
-    """Staaf langs X met de cursor in de oorsprong; onder = afstand van de cursor tot het uiteinde aan de kant
-    van deel A (-X), anders de gewone 20 mm."""
-    for ob in list(bpy.data.objects):
-        bpy.data.objects.remove(ob)
-    figuren.mm_scene()
-    inst = bpy.context.scene.click_joints
-    inst.speling_mm = s
-    inst.as_bron = "CURSOR"
-    staaf = figuren.staaf("staaf", straal)
-    if onder is not None:
-        staaf.data.transform(Matrix.Translation((20.0 - onder, 0, 0)))
-    figuren.maak_actief(staaf)
-    cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
-    return staaf
-
-
-def _as_uit_cursor(straal, u):
-    """(punt op H, H, buigkant, lidas) uit de 3D-cursor: H = X-as, buigkant = Y-as, lidas = Z-as."""
-    m = bpy.context.scene.cursor.matrix
-    h, buig, lid = (m.col[i].xyz.normalized() for i in range(3))
-    return m.to_translation() - buig * (ACHTER * 2 * straal * u), h, buig, lid
-
-
-def meet_neus(a, b, straal, s, u):
-    """Per kant (+H, -H): dict met tong, top, rho_top, wang (afstanden langs H in mm) en het toppunt."""
-    p, h, buig, lid = _as_uit_cursor(straal, u)
-    r = KNOKKEL * straal * u
-    rn = r + s * u + WANG * straal * u
-    uit = {}
-    for teken, kant in ((1, "+H"), (-1, "-H")):
-        tong, top, beste = None, None, -1.0
-        for v in b.data.vertices:
-            d = b.matrix_world @ v.co - p
-            x = d.dot(h) * teken
-            if x <= 0:
-                continue
-            rho = (d - h * d.dot(h)).length
-            if 0.7 * r < rho < r + 1e-4 * u:
-                tong = x if tong is None else max(tong, x)
-            elif rho <= 0.7 * r and x > beste:
-                beste, top = x, d
-        wang = None
-        for v in a.data.vertices:
-            d = a.matrix_world @ v.co - p
-            x = d.dot(h) * teken
-            rho = (d - h * d.dot(h)).length
-            if x > 0 and d.dot(lid) > s * u and rho < rn - s * u / 2 + 1e-3 * u:
-                wang = x if wang is None else min(wang, x)
-        if tong is None or top is None or wang is None:
-            uit[kant] = None
-            continue
-        uit[kant] = {"tong": tong / u, "top": beste / u, "wang": wang / u, "punt": p + top,
-                     "rho_top": (top - h * top.dot(h)).length / u}
-    return uit
 
 
 def _klik(stap, naam, a, b, straal, s, u, klik_verwacht, lip=None):
@@ -173,71 +117,6 @@ def _breedte(stap, bvh_a, p, h, buig, lid, s, u, tw, lip, naam):
          tw + s - 0.05 <= buiten <= tw + s + 0.002, f"{buiten} mm")
 
 
-def _eilanden(ob):
-    """Aantal losse stukken in de mesh (hoekpunten verbonden via randen)."""
-    ouder = list(range(len(ob.data.vertices)))
-
-    def wortel(i):
-        while ouder[i] != i:
-            ouder[i] = ouder[ouder[i]]
-            i = ouder[i]
-        return i
-    for e in ob.data.edges:
-        a, b = wortel(e.vertices[0]), wortel(e.vertices[1])
-        if a != b:
-            ouder[a] = b
-    return len({wortel(i) for i in range(len(ouder))})
-
-
-def _kort(stap, cursor, eig, neus, vorm, ops):
-    """Eis 3 en controleur punt 4: de zaagbodem snijdt nooit door de onderkant van deel A.
-    Staaf 10 mm, onderkant 8,5 mm onder de cursor: eigen L = 8,5 - max(t, 0,8) (korter dan 0,65 * 10 = 6,5),
-    dus een lagere klikdiepte; onderkant 6 mm onder de cursor: L te kort, Tight en geen nieuwe objecten."""
-    straal, s, onder = 5.0, 0.2, 8.5
-    _plaats(straal, cursor, s, onder=onder)
-    u = eig.eenheid_per_mm(bpy.context.scene)
-    uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115")
-    a, b = bpy.data.objects.get("staaf_A"), bpy.data.objects.get("staaf_B")
-    stap("korte staaf (onderkant 8.5 mm onder H): scharnier geplaatst", uitslag == {"FINISHED"} and a and b,
-         str(uitslag))
-    if not (a and b):
-        return
-    tw = meet_neus(a, b, straal, s, u)["+H"]["tong"]
-    t = straal - tw - s
-    p, h, buig, lid = _as_uit_cursor(straal, u)
-    diepte = onder   # H ligt in het vlak van de cursor (z = 0), de onderkant van A op onder mm daaronder
-    lip = min(ZAAG * 2 * straal, diepte - max(t, 0.8))
-    k_eigen = min(neus.H_MM, 0.03 * lip * lip / (1.5 * t))
-    print(f"[cj-betaald] METING korte staaf: diepte {diepte:.3f} mm, eigen L {lip:.3f} mm, add-on L "
-          f"{float(b.get('cj_lip', -1)) / u:.3f} mm, eigen klikdiepte {k_eigen:.4f} mm, delen A {_eilanden(a)} stuk")
-    stap("korte staaf: L korter dan 0.65 keer de dikte en gelijk aan diepte - max(t, 0.8) binnen 0.01",
-         lip < ZAAG * 2 * straal and abs(float(b.get("cj_lip", -1)) / u - lip) <= TOL_MM,
-         f"{float(b.get('cj_lip', -1)) / u:.4f} eigen {lip:.4f}")
-    _klik(stap, "korte staaf", a, b, straal, s, u, k_eigen, lip=lip)
-    _zaag(stap, a, straal, s, u, tw, lip=lip, naam="korte staaf zaagsnede")
-    stap("korte staaf: deel A is één stuk (de wang hangt nog aan A)", _eilanden(a) == 1, str(_eilanden(a)))
-    # Onderkant van A onder de sleuf: een straal langs -L midden in de sleuf raakt de bodem van de sleuf en
-    # daaronder zit nog minstens max(t, 0,8) materiaal tot de onderkant.
-    bvh_a = _bvh(a)
-    o = p - buig * (1.0 * u) + h * ((tw + s / 2) * u)
-    hit = bvh_a.ray_cast(o, -lid)
-    zaag_bodem = hit[3] / u if hit[0] is not None else -1
-    stap("korte staaf: sleuf eindigt boven de onderkant van A, met minstens max(t, 0.8) mm eronder",
-         hit[0] is not None and abs(zaag_bodem - lip) <= 0.06 and diepte - zaag_bodem >= max(t, 0.8) - TOL_MM,
-         f"sleufbodem {zaag_bodem:.3f} mm, onderkant {diepte:.3f} mm")
-    staaf = _plaats(straal, cursor, s, onder=6.0)
-    voor = sorted(o.name for o in bpy.data.objects)
-    try:
-        uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115")
-    except RuntimeError:
-        uitslag = {"CANCELLED"}
-    na = sorted(o.name for o in bpy.data.objects)
-    reden = _reden(ops, vorm, neus, staaf, u)
-    print(f"[cj-betaald] METING korte staaf 6 mm: {uitslag}, melding \"{reden}\"")
-    stap("korte staaf (onderkant 6 mm onder H): Tight, CANCELLED, geen nieuwe objecten",
-         uitslag == {"CANCELLED"} and voor == na and reden == neus.TIGHT, f"{uitslag} {reden}")
-
-
 def toets(stap, eigen, cursor):
     eig = sys.modules[eigen + ".eigenschappen"]
     neus = sys.modules[eigen + ".betaald.scharnier_neus"]
@@ -299,22 +178,10 @@ def toets(stap, eigen, cursor):
     stap("Tight-rekensom: hoge neus op een korte lip geeft Tight", neus.maten_neus(
         {"s": 0.2, "wx": 5.0, "tw": 1.0, "rn": 0.3, "wy": 0.2, "r": 1.0}, 1.0) == neus.TIGHT)
     stap("rekensom: L is de afstand van H tot de zaagbodem", math.isclose(neus.ZAAG, ZAAG))
-    _kort(stap, cursor, eig, neus, vorm, ops)
-
-
-def _reden(ops, vorm, neus, staaf, u):
-    """Melding zoals de operator: maten, dan neus met de diepte tot de onderkant (zaag_diepte)."""
-    from mathutils.bvhtree import BVHTree as _B
-    import bmesh
-    inst = bpy.context.scene.click_joints
-    punt, h, buig, lid = ops.assen(bpy.context, inst)[:4]
-    frame = vorm.frame_scharnier(punt, h, buig, lid)
-    bm = bmesh.new()
-    bm.from_mesh(staaf.data)
-    bm.transform(staaf.matrix_world)
-    bvh = _B.FromBMesh(bm)
-    bm.free()
-    maat, reden = vorm.maten(bvh, frame, inst.speling_mm * u, 115, u)
-    if maat is not None:
-        reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
-    return reden
+    # Controleur punt 4: wang dunner dan 0,8 mm (t = 1,5 - 0,9 - 0,2 = 0,4), dan is de rest 0,8 en L = diepte - 0,8.
+    m08 = {"s": 0.2, "wx": 1.5, "tw": 0.9, "rn": 1.0, "wy": 5.0, "r": 1.0}
+    uit08 = neus.maten_neus(m08, 1.0, 4.0)
+    print(f"[cj-betaald] METING rekensom t {m08.get('wang_t')} mm, diepte 4.0 mm: L {m08.get('lip')} mm")
+    stap("rekensom: wang dunner dan 0.8 mm (t 0.4), dan L = diepte - 0.8 = 3.2",
+         uit08 == "" and m08.get("wang_t", 9) < 0.8 and math.isclose(m08.get("lip", -1), 4.0 - 0.8, abs_tol=1e-9),
+         f"{uit08!r} L {m08.get('lip')}")
