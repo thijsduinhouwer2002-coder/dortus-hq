@@ -1,21 +1,26 @@
 import json,re,sys,statistics as st
 R=json.load(open(sys.argv[1]))
-NEG={'grind/traag/muur':r'grind|tedious|too slow|slow progress|takes (so|too) long|stuck|wall|hours? (of|to) (wait|unlock)',
-'te weinig te doen/kort/saai':r'nothing to do|not much to do|little to do|short|boring|repetitive|shallow|lack of content|no content|run out|ran out|finished (it|the game)|beat (it|the game)|end ?game',
+NEG={'op of klaar':r'end ?game|nothing (else )?to do|ran out|run out|no more (content|progress)|(done|finished|beat) (it |the game )?(in|after) ',
+'straf als je weg bent':r'punish|gets? sick|leave (it )?for too long|lose (progress|everything)',
+'onomkeerbaar':r'can.t (change|remove|undo)|cannot (change|remove|undo)',
+'twee schermen/in de weg':r'second (monitor|screen)|two (monitors|screens)|2 (monitors|screens)|in the way',
+'markt/p2w':r'marketplace|\bmarket\b|p2w|pay to win|\btrad(e|ing)\b',
+'grind/traag/muur':r'grind|tedious|too slow|slow progress|takes (so|too) long|\bstuck\b|\bwall\b|hours? (of|to) (wait|unlock)',
+'te weinig te doen/kort/saai':r'nothing to do|not much to do|little to do|\bshort\b|boring|repetitive|shallow|lack of content|no content|run out|ran out|finished (it|the game)|beat (it|the game)|end ?game',
 'moet steeds klikken/niet idle':r'not (really )?idle|active|have to click|constant(ly)? click|babysit|micromanag|attention|keep (checking|clicking)',
-'zwaar voor pc/neemt scherm':r'cpu|gpu|fps|performance|lag|ram\b|memory|screen space|takes up|too (big|large)|window|monitor|taskbar|resolution|fullscreen',
+'zwaar voor pc/neemt scherm':r'\bcpu|\bgpu|\bfps\b|frame ?rate|performance|\blag\b|\blaggy|\bram\b|screen space|takes up|too (big|large)|in the way|resolution',
 'bugs/save weg':r'bug|crash|glitch|broken|lost (my )?(save|progress)|save (file|got|was)|freez',
-'geld/dlc/prijs':r'dlc|microtransaction|cash|gacha|pay(ing)? (to|for)|price|overpriced|money|monetiz',
+'geld/dlc/prijs':r'\bdlc|microtransaction|\bcash\b|gacha|pay(ing)? (to|for)|overpriced|monetiz|p2w|pay to win|marketplace|\bmarket\b',
 'doel/zin ontbreekt':r'no (real )?(goal|point|purpose|reason)|pointless|what.s the point|aimless|no progression',
 'weinig controle/keuze':r'no control|can.t (choose|control|move|place)|no choice|random|rng',
 'interactie/geen invloed':r'interact|just watch|watching|screensaver'}
 POS={'ontspannend/rustig':r'relax|chill|cozy|cosy|calm|peaceful|zen|wholesome',
-'mooi/kunst/pixel':r'cute|beautiful|art|pixel|adorable|charming|gorgeous|pretty|aesthetic',
-'naast werk/studie':r'work|study|studying|while (i|you)|background|second monitor|side',
+'mooi/kunst/pixel':r'cute|beautiful|\bart\b|\bartwork|pixel|adorable|charming|gorgeous|pretty|aesthetic',
+'naast werk/studie':r'\bwhile (i|you)|\bwhile working|\bat work|\bstudy|studying|background|second monitor|\bon the side',
 'voortgang/ontgrendelen':r'progress|unlock|upgrade|grow|expand|collect',
-'muziek/geluid':r'music|sound|ost|soundtrack',
+'muziek/geluid':r'\bmusic|\bsound|\bost\b|soundtrack',
 'prijs/waar voor geld':r'price|cheap|worth|bucks|\$',
-'humor/grappig':r'funny|hilarious|humor|humour|lol\b|silly|laugh',
+'humor/grappig':r'funny|hilarious|humor|humour|\blol\b|silly|laugh|\bjoke|witty',
 'neemt weinig ruimte/licht':r'small|unobtrusive|doesn.t take|lightweight|bottom of (my|the) screen|taskbar'}
 naam={'2666510':"Rusty's Retirement",'3416070':"Ropuka's Idle Island",'3167550':'Tiny Pasture','4623570':'Deskrawl'}
 def tel(lijst,D):
