@@ -31,6 +31,7 @@ const VOORRAAD := {
 	"hoed_eerste": ["{bewoner} wears {naam}'s hat now."],
 	"hoed": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile.",
 		"{bewoner}'s hat pile is taller than him."],
+	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
 	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
 }
 

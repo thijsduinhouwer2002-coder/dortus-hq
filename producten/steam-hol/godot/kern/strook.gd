@@ -327,7 +327,9 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 				w["bijnaam"] = "Hatted" if n_hoed == 25 else "Milliner"
 				_kroniek(regels.kies("hoed_bijnaam", w))
 			elif rng.randf() < 0.25:
-				_kroniek(regels.kies("hoed", w))
+				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
+				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
+				_kroniek(regels.kies(soort, w))
 
 func _process(delta: float) -> void:
 	t += delta
@@ -342,7 +344,7 @@ func _process(delta: float) -> void:
 		if w.has_method("is_held"):
 			helden += 1
 	if t >= volgende_held and helden < 3:
-		var begin := begin_gedaan.size() < _begin_lijst().size()
+		var begin := _begin_stap() != ""
 		if _nieuwe_held():
 			# ritme: gemiddeld een held per ±50 s (balans.md), in de eerste tien minuten ±40 s;
 			# in de demo sneller zodat de film van een minuut iets laat zien
@@ -427,7 +429,7 @@ func laad() -> void:
 	for i in mini(b.size(), hol.kolommen):
 		hol.boven[i] = bool(b[i])
 	hol.schat_kol = clampi(int(data.get("schat_kol", hol.schat_kol)), 0, mini(hol.max_kol, hol.kolommen - 1))
-	hol.ingang_kol = clampi(int(data.get("ingang_kol", hol.ingang_kol)), 0, hol.schat_kol - 1)
+	hol.ingang_kol = clampi(int(data.get("ingang_kol", hol.ingang_kol)), 1, hol.schat_kol - 1)
 	var gn = data.get("gevallen_namen", {})
 	for n in gn:
 		gevallen_namen[String(n)] = int(gn[n])
@@ -441,6 +443,10 @@ func laad() -> void:
 		slijm.van_dict(data.get("slijm", {}))
 	hol.goud = int(data.get("goud", 0))
 	terugkomers = data.get("terugkomers", [])
+	# de held die moest vluchten liep nog in het hol toen het spel dichtging: hij komt nooit meer terug, dus "terug" telt
+	# als gedaan, anders wacht het begin voor altijd (controleur 9 nov 22:30)
+	if begin_gedaan.has("vluchten") and not begin_gedaan.has("terug") and _terugkomer_i(begin_vlucht) < 0:
+		begin_gedaan.append("terug")
 	for r in data.get("kroniek", []):
 		kroniek.append(String(r))
 	# terwijl je weg was (Bram, voortgang.gd): alleen winst, plafond 12 uur, 2 tot 3 regels met namen
