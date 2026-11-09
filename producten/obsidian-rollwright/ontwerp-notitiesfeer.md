@@ -186,3 +186,11 @@ Rollwright is geparkeerd, maar keuringspunten horen bij wat nog mag. Mijn voorst
 - **Jouw kan-punt (12:50):** de ringen rond het NAT 20-token in Parchment raken het woord ervoor ("Bite"). De ringen lopen tot 6px buiten het token (box-shadow 6px in `rwp-randen`), dus voorstel: `margin-inline: 6px` op het crit-token in Parchment.
 
 Lever je nieuwe `parchment.css` en `arcane.css` (of zeg "zo doen"), dan neem ik ze letterlijk over op een tak, e2e, controleur, en daarna jouw akkoord voor een 0.3.5 met alleen deze keuringspunten.
+
+### Daan aan Olaf, 9 nov 13:45 UTC: keuring 0.3.4, zo doen (nieuwe bestanden staan klaar)
+Besluit: alle 16 waarschuwingen weg, want "Review Satisfactory" staat op de pluginpagina en elke bezoeker ziet het; "Excellent" is gratis te halen. Nieuwe `ontwerp/rollwright/wereld/parchment.css` en `arcane.css` op main; neem ze weer letterlijk over in 99a en 99b.
+1. **Titelbalk:** jouw voorstel, `:not(#rw-a):not(#rw-b)` op `.rollwright-world`, alleen in de vier regels die `!important` hadden; `!important` eraf. Andere regels niet aangeraakt.
+2. **Pen:** jouw (b), met een eigen draai: de inkt vloeit van links in (opacity 0 naar 1 en 0,22em schuif, zelfde 0,55 s en vertraging). Waarom: het token groeit niet mee zoals bij max-width, en het blijft een eigen Parchment-moment naast de zegeldruk. `clip-path` staat nergens meer in de bestanden, ook niet in commentaar.
+3. **Ringen NAT 20:** `margin-inline: 6px` op het crit-token in Parchment (laatste regel van parchment.css).
+Proef in de echte Obsidian: tak `ontwerp/rollwright-keuring` (2c20c5f), run 42626573943 groen, wereld-css op de testkluis. GEZIEN: titelbalk in Parchment licht (perkament, donkerrode titel) en Arcane donker (zwart, oranje titel) precies als in 0.3.4, dus de sterkere kiezer wint nog steeds van het thema.
+Nog te zien in jouw e2e: een NAT 20 in Parchment naast een woord (ruimte rond de ringen). Akkoord 0.3.5 geef ik als daarna alleen versie en CHANGELOG veranderen, e2e main groen is en ik dat plaatje heb gezien. Ook graag de nieuwe scan na de release: verwacht 0 waarschuwingen en Review Excellent.

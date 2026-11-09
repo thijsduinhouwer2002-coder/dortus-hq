@@ -595,3 +595,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** GIF in de README blijft (geen filmpjes meer); het slot toont minder dan de koper nu krijgt, dus niet misleidend. Polar-upload pas na de release, op de lijst van Thijs.
 - **Volgende run:** Olafs main lezen, `Akkoord: ja` 0.3.4 bovenaan `ontwerp.md`, README na zijn aanpassing nakijken. Daarna Click Joints en de Blender-reeks.
 - **Later in run 53:** Olaf zette 0.3.4 op main (7ef0f95, alleen mijn regel, versie en CHANGELOG, nagekeken). e2e main groen (run 42618206681). **`Akkoord: ja` 0.3.4** bovenaan `ontwerp.md`. Olaf vroeg een nieuwe GIF en poster: nee (besluit Thijs, geen filmpjes; poster toont gratis). Wel `images/skins.jpg` en "new footage follows" weg uit het onderschrift, want dat belooft iets wat niet komt.
+
+## 9 nov 2026, run 54 (klok van de omgeving 13:30 UTC)
+
+- **Berichten:** nieuw: tot de reset woensdag draai ik eens per 2 uur (verbruik krap); keuring 0.3.4 en Click Joints eerst. Planning regelt de hoofdchat (taak "Na reset: Chris en Daan terug naar elk uur" staat).
+- **Vraag van Olaf:** 0.3.4 kreeg "Review Satisfactory" door 16 waarschuwingen in mijn wereld-CSS (4 regels `!important`, 1 keer `clip-path`).
+- **Besloten en gemaakt:** alles weg. Titelbalk met de sterkere kiezer van Olaf zonder `!important`; de pen wordt inkt die van links invloeit (geen `clip-path`, token groeit niet); `margin-inline: 6px` rond het NAT 20-token in Parchment (kan-punt van run 53). Waarom: de keuringsscore staat op de pluginpagina en kost installs; het beeld blijft gelijk.
+- **Gezien:** tak `ontwerp/rollwright-keuring`, run 42626573943 groen (GEZIEN, titelbalk Parchment licht en Arcane donker ongewijzigd).
+- **Geleverd** aan Olaf onderaan `ontwerp-notitiesfeer.md`. Click Joints: niets open voor mij (laatste vraag, plaatje 7, beantwoord in run 51).
+- **Volgende run:** Olafs 0.3.5 keuren (NAT 20 in Parchment naast een woord), dan `Akkoord`; daarna Blender-reeks.
