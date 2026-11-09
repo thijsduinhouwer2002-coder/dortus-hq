@@ -56,10 +56,11 @@ Bij de eerste hoed altijd de eerste regel; daarna willekeurig, en niet bij elke 
 - `{bewoner} tries on {naam}'s hat. Fits.`
 - `{bewoner} adds {naam}'s hat to the pile.`
 - `{bewoner}'s hat pile is taller than him.`
-Naamgenoot van een held die Gloop at (komt met een wrok tegen Gloop, vindt de hoed nooit):
-- `{naam} II wants dad's hat back.`
-- `{naam} II glares at the hat pile.`
-- `{naam} II can't find it. Too many hats.`
+Naamgenoot van een held die Gloop at (komt met een wrok tegen Gloop, vindt de hoed nooit). Hier is `{naam}` al de naam met nummer ("Kees II" of "Kees III"), zoals in `kern/regels.gd`:
+- `{naam} wants dad's hat back.`
+- `{naam} glares at the hat pile.`
+- `{naam} can't find it. Too many hats.`
+Let op: `{bewoner}` blijft hier altijd "Gloop", nooit met bijnaam ("Gloop the Milliner's hat pile..." is te lang); de bijnaam alleen bij hover of in de eigen bijnaam-regel.
 Bijnamen voor Gloop: bij 25 hoeden `Gloop the Hatted`, bij 100 `Gloop the Milliner` (in de kroniek: `{bewoner} is now known as the Hatted.`).
 
 ## Met pensioen (bij openen; 40% van wie vlucht komt nooit terug, Bram's sim)
