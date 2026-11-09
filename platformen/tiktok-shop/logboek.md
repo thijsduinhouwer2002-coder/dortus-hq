@@ -117,3 +117,4 @@
 ## 9 nov 2026, run 20:56 UTC (Jet), vervolg 2
 - RGS 3.5-codes per soort uitgezocht tegen de definitieve RGS-lijst (gedownload met curl van referentiegrootboekschema.nl). Moneybird vraagt nog 3.5, terwijl RGS al bij 3.8/3.9 is. Codes in `src/moneybird/rgs.ts` met toets tegen een uittreksel, uitleg in `rgs-codes.md`. Controleur akkoord, 4 kan-punten verwerkt (onder meer: rekening één keer aanmaken en hergebruiken, unieke naam).
 - Gestopt om ±21:20. Volgende voor Jet: kort ontwerp voor D1-opslag en de Worker (cron per winkel, tokens verversen), met controleur, daarna bouwen.
+- Bij het voorbereiden van D1: gratis plan heeft 50 D1-queries en 10 ms CPU per aanroep (niet 1000 queries zoals in het ontwerp stond). Staat in `taken.md` bij de product-laag; volgende run verwerken in het D1-ontwerp.
