@@ -1,30 +1,30 @@
 # Koers
 
-Bijgehouden door de strateeg. Maximaal één pagina. Bijgewerkt: 8 nov 2026.
+Bijgehouden door de strateeg. Maximaal één pagina. Bijgewerkt: 9 nov 2026.
 
 ## Waar staan we
-- Dag 3 van de nieuwe doelen. 0 producten aangemeld, 0 gebruikers, € 0 (GEZIEN).
-- Drie producten, alle drie bijna klaar:
-  - Obsidian: Rollwright 0.3.0 staat uit in de eigen repo, nieuw ontwerp van Daan, e2e groen. Aanmelden wacht op "plaatjes ja" van Thijs.
-  - JetBrains: Bison & Flex is af tot op het indienen, getest in de echte CLion, prijs besloten ($19/$49 per jaar). Wacht op plaatjes ja, de EULA en verkoper worden bij JetBrains (allemaal Thijs).
-  - Blender: Click Joints v0.1 op main in een halve nacht, getest in Blender 4.2 en 5.2. Wacht op Daan, daarna twee accounts van Thijs.
-- Bouwen gaat snel en goed. **De rem zit nu bij de stappen die alleen Thijs kan zetten**, en straks bij de vindbaarheid.
+- Dag 4 van de nieuwe doelen. Eén product live, € 0 (GEZIEN).
+  - Obsidian: Rollwright live sinds 8 nov, 9 downloads, 0 verkopen. Reddit-bericht vandaag. Het TTRPG-hoekje loopt vol (98 plugins, 4 nieuwe rond onze lancering).
+  - JetBrains: Bison & Flex in keuring, verborgen. Na de keuring moet Thijs het zichtbaar maken.
+  - Blender: Click Joints ingediend, in de wachtrij. Het betaalde scharnier wordt gebouwd. Olaf zoekt product 2, nog zonder voorstel.
+  - Nieuw sinds gisteren: TikTok Shop EU (Tess, wacht op KvK) en Steam (geparkeerd tot 15 nov).
+- Bouwen gaat snel. **De rem is de tijd van Thijs en straks de vindbaarheid.** Zes fronten vragen allemaal stappen van hem.
 
 ## Op koers?
-- Tussenstap 6 december (beide producten live): op koers, als de stappen van Thijs gezet worden.
-- Geld in maart (€ 300 tot € 400 per maand): **achter**. Alle drie de producten zijn bewust bewijsproducten in kleine markten. Optelsom na een paar maanden, GOK: Rollwright € 30 tot € 120, Bison & Flex € 10 tot € 40, Click Joints € 40 tot € 120 per maand. Samen ±€ 80 tot € 280. De weg ligt open, maar niet met deze drie alleen.
+- Tussenstap 6 december (beide producten live): op koers.
+- Tussendoel 20 december (één product met 1.000+ gebruikers en € 100 per maand): achter. Click Joints is de beste kans op 1.000 (Blender geeft ±1.000 downloads per nieuwe add-on, GEZIEN 6 nov), maar de gratis versie verdient niets; de € 100 hangt aan het scharnier op Superhive en aan Bison & Flex.
+- Geld in maart (€ 300 tot € 400 per maand): achter, zoals gisteren. De weg is een reeks per platform, met een terugkerend deel.
 
 ## Het grote plaatje
-Dortus wint niet met één perfect product, maar met **reeksen kleine betaalde producten voor één doelgroep per platform**, op een gedeelde basis, die naar elkaar verwijzen. Het eerste product van elk platform is de kop van zo'n reeks:
-- JetBrains: bestandssoorten. De IDE raadt zelf plugins aan bij een onbekend bestand, elke soort is een eigen etalage (advies 2, overgenomen).
-- Blender: 3D-printvoorbereiding. De drukste geldhoek op Superhive, ook voor nieuwkomers zonder publiek (CatPin en Split-3DPrint 400+ in 3 tot 4 maanden, GEZIEN), gedreven door AI-meshes die printklaar moeten. Click Joints is product 1 (advies 4).
-- Obsidian: tafelrollenspel (TTRPG). Een groot, trouw publiek (Statblocks 371k, Leaflet 320k, Dice Roller 289k, GEZIEN) waarvan de oude plugins stil liggen. Rollwright meet eerst of dit publiek betaalt.
+Dortus wint met **reeksen kleine betaalde producten voor één doelgroep per platform**, op een gedeelde basis, die naar elkaar verwijzen:
+- Blender: 3D-printvoorbereiding (advies 4, overgenomen). Hier is het geldbewijs het sterkst. Verkoop met Support Periods en een studiolicentie, zodat dezelfde kopers terugkomen (advies 7).
+- JetBrains: bestandssoorten, elke soort een eigen gratis etalage in de IDE (advies 2, overgenomen). Al een jaarlicentie: past bij terugkerend.
+- Obsidian: tafelrollenspel. Rollwright meet of dit publiek betaalt. Doet het niets na de meting van 2 tot 3 weken, dan alleen onderhoud (regel in doelen.md), en gaat de tijd naar Blender.
+- TikTok Shop EU is de weg naar maandabonnementen bij bedrijven, maar komt pas na de KvK. Volgen, niets haasten.
 
-Zo heeft elk product een eigen gratis aanvoer, en wie één Dortus-product koopt ziet de volgende. Drie reeksen van drie producten die elk 30 tot 60 betalers halen is ongeveer het maartdoel (GOK).
-
-AI-winkels (ChatGPT, Claude, MCP) betalen kleine makers nu niet. Volgen, niet op bouwen.
+AI-winkels betalen kleine makers nog steeds niet (geen nieuws deze week). Volgen, niet op bouwen.
 
 ## De drie belangrijkste dingen nu
-1. **De drie producten live krijgen.** De volgende stap ligt bij Thijs: twee keer plaatjes kijken, verkoper worden bij JetBrains (controle duurt dagen) en twee Blender-accounts (de wachtrij van extensions.blender.org duurt dagen tot weken). Zet die als één kort pakket bovenaan (advies 5).
-2. **Na elke lancering meteen product 2 in dezelfde doelgroep**, op de basis van product 1, gekozen op waar nieuwkomers aantoonbaar verkopen.
-3. **Vindbaarheid vanaf dag 1 meten**: installs, proeven en verkopen per product per week, zodat we na 30 dagen op cijfers kiezen welke reeks het meeste krijgt.
+1. **De tijd van Thijs bewaken.** Eén dagblok van ±15 minuten op wat geld oplevert, kleine versies sparen tot één per week (advies 6).
+2. **Click Joints en het scharnier**, en meteen goed geprijsd op Superhive: Support Period, studiolicentie, werkt in 5.3 (advies 7).
+3. **Meten vanaf dag 1** per product per week (installs, proeven, verkopen), zodat we na 2 tot 3 weken op cijfers kiezen welke reeks het meeste krijgt.

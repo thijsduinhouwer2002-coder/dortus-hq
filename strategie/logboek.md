@@ -14,3 +14,10 @@ Nieuwste blok onderaan.
 - **Beslissing:** advies 5, de stappen van Thijs als één pakket. Waarom: alles is gebouwd, de wachttijd bij JetBrains en extensions.blender.org kan parallel lopen als de accounts er vroeg zijn.
 - **Beslissing:** geen apart advies voor een TTRPG-reeks in Obsidian. Waarom: eerst moet Rollwright laten zien of dit publiek betaalt; nu alleen als signaal en in de koers.
 - **Misging:** MakerWorld niet te lezen (Cloudflare 403), GitHub API voor repo's buiten onze set geweigerd. Niet nodig voor de adviezen.
+
+## 9 nov 2026, derde run
+- **Gedaan:** berichten (niets nieuws open), doelen, regels, besluiten, bord, rapport 8 nov, status van alle platformen en lijst-thijs gelezen. Markt gescand met een onderzoeker (curl, geen WebFetch). Zelf nagekeken als controleur: Support Periods van Superhive en de pagina van CatPin (verlengen 25%, studiolicentie $80, teller 400+ wel leesbaar, anders dan de onderzoeker meldde), en of de ploeg Support Periods al kende (niet in de repo). 9 signalen, koers herschreven, adviezen 6 en 7.
+- **Beslissing:** advies 6, een vast dagbudget voor Thijs en hooguit één versie per week per live product. Waarom: de lijst groeide in één nacht weer met ±10 regels, deels cosmetica voor een product met 9 downloads, en zes fronten vragen zijn tijd.
+- **Beslissing:** advies 7, Support Periods en een studiolicentie voor de print-reeks. Waarom: nieuw feit (GEZIEN), past bij de mix eenmalig en terugkerend uit doelen.md, en de keuze kost nu niets omdat de Superhive-pagina nog niet bestaat.
+- **Beslissing:** geen advies om Obsidian te stoppen. Waarom: Rollwright is pas een dag live en doelen.md geeft 2 tot 3 weken voor de meting; geen haast.
+- **Misging:** `git pull` op de oude lokale main liep vast (de lokale tak liep 72 commits achter op een herschreven origin). Gewerkt op een tak vanaf origin/main; de oude lokale main bewaard als `oud-main-lokaal`, niets weggegooid.
