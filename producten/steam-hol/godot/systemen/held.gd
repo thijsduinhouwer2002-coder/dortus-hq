@@ -7,10 +7,10 @@ extends Node2D
 # - komt binnen bij de ingang en loopt naar zijn doel. Een held met een wrok loopt EERST naar zijn vijand
 #   (de val of de bewoner bij naam), niet naar de schat.
 # - bij elke verdediging op zijn pad (een val of een bewoner) gooit hij één keer: valt hij, dan laat hij goud achter.
-#   Kans: slijm 30%, stekelput 22% (balans.md). Tegen zijn eigen vijand is hij roekeloos: +10 procentpunt.
+#   Kans: slijm 45%, stekelput 35% (sim/, zie sim/UITKOMST.md). Tegen zijn eigen vijand is hij roekeloos: +10 procentpunt.
 # - valt hij niet, dan is hij geraakt: hij krijgt een wrok tegen wat hem raakte. Een bewoner die verliest gaat niet dood,
 #   die is even plat (plat()).
-# - karakter: "hebzuchtig" loopt door tot de schat (vlucht pas na twee klappen); "schijterig" draait na een klap meestal om.
+# - karakter: "hebzuchtig" loopt door tot de schat (vlucht pas na twee klappen); "schijterig" draait na een klap de helft van de keren om.
 # - haalt hij de schat, dan pakt hij NIETS (geen straf): hij raakt hem aan, krijgt de bijnaam Hoard-Toucher en rent weg.
 #   Een Hoard-Toucher komt brutaler terug: iets vaker vluchten, nooit iets van jou kwijt.
 # - info["moet_vallen"] = true: hij valt bij de eerste verdediging (de eerste held van een nieuw spel, balans.md).
@@ -26,7 +26,7 @@ const WAPENS := preload("res://kunst/held_wapens.png")
 
 const VLOER := 36            # vloer van de gang in spelpixels (hol.gd GANG_ONDER)
 const SNEL := 11.0           # spelpixels per seconde
-const KANS := {"slijm": 0.30, "stekelput": 0.22}
+const KANS := {"slijm": 0.45, "stekelput": 0.35}   # uit sim/ (Bram 9 nov), balans.md had 0,30 en 0,22
 const KANS_ANDERS := 0.25
 const ROEKELOOS := 0.10      # extra kans om te vallen tegen zijn eigen vijand
 const BRUTAAL := 0.8         # Hoard-Toucher: kans om te vallen x 0,8
@@ -181,8 +181,8 @@ func _onderweg() -> void:
 	if is_vijand:
 		vijand_kol = -1
 		doel_kol = hol.schat().x
-	# schijterig draait na een klap meestal om (2 op 3), hebzuchtig pas na twee klappen
-	if (trek == "schijterig" and rng.randf() < 0.67) or klappen >= 2:
+	# schijterig draait na een klap de helft van de keren om, hebzuchtig pas na twee klappen
+	if (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
 

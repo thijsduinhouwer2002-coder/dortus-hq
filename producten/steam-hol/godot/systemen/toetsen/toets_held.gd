@@ -109,8 +109,8 @@ func _init() -> void:
 	ok(gevlucht > 0 and plat == gevlucht, "schijterig vlucht na de eerste klap (%d keer)" % gevlucht)
 	ok(bestaat == n, "slijm gaat nooit dood (%d van %d)" % [bestaat, n])
 
-	# 5. verdeling met precies één slijm en één put. Het model van balans.md geeft dan 1 - 0,70 x 0,78 = 45% vallen,
-	#    dus 55% vluchten; de 36% van Sanne is het gemiddelde over uren met meer verdediging (dat toetst sim/).
+	# 5. verdeling met één slijm en één put: ongeveer 1 op 3 vlucht (balansdoel features.md).
+	#    Kansen 45% en 35% komen uit sim/ (zie sim/UITKOMST.md); met de oude 30% en 22% vluchtte 59%.
 	for z in n:
 		var trekje := "schijterig" if z % 2 == 0 else "hebzuchtig"
 		r = speel({"naam": "Rik%d" % z, "bezoeken": 0, "wrok": "", "trek": trekje, "zaad": 5000 + z})
@@ -120,7 +120,7 @@ func _init() -> void:
 			vlucht_alle += 1
 	var deel := vlucht_alle / float(n)
 	print("[held-toets] verdeling: %d gevallen, %d gevlucht (%.0f%%)" % [gevallen, vlucht_alle, deel * 100])
-	ok(deel > 0.45 and deel < 0.62, "vluchten tussen 45%% en 62%% bij 1 slijm en 1 put (%.0f%%)" % (deel * 100))
+	ok(deel > 0.28 and deel < 0.48, "vluchten tussen 28%% en 48%% bij 1 slijm en 1 put (%.0f%%)" % (deel * 100))
 
 	# 6. Hoard-Toucher komt brutaler terug: vaker vluchten
 	var vlucht_ht := 0

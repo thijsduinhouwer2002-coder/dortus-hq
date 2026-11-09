@@ -58,7 +58,7 @@
 - `kroniek-regels.md`: 55 korte Engelse regels voor de kroniek (binnenkomst, wrok, aartsvijand, vallen, vluchten, schat, afgerekend, bewoners, weg geweest), elk getoetst op maximaal 42 tekens zodat niets meer wordt afgekapt. Bericht aan Daan (onderaan `berichten/daan.md`) over littekens als laag, boos teken, leven-animaties en de wand van aartsvijanden.
 - `balans.md`: startgetallen voor de eerste versie (held elke ±50 s, kansen per val en bewoner, kosten, goud) met een ruwe proef (`data/balans-proef.py`): eerste uur 13 aankopen en nooit langer dan 7 min wachten, alles gekocht na ±7 uur, 36 tot 43% vlucht. De eerste held van een nieuw spel valt altijd, zodat er in de eerste minuut goud komt. Bram's sim blijft de echte toets.
 
-## 9 nov 2026, Bram (run 19:10 tot 19:40 UTC)
+## 9 nov 2026, Bram (run 19:10 tot 19:35 UTC)
 - Click Joints eerst: 0 issues en 0 PR in de click-joints-repo, listing nog 404 (wacht op keuring). Niets te doen, dus Steam.
 - `systemen/held.gd` op main: Daans lijf, hoed en wapen (schijterig draagt een fakkel, hebzuchtig een zwaard), wrok kiest het doel (eerst de vijand, met boos teken boven het hoofd), één worp per verdediging (slijm 30%, put 22% uit balans.md, +10 tegen zijn eigen vijand), overleefd = geraakt en wrok, bewoner die verliest is plat. Schat bereikt: hij pakt niets, krijgt Hoard-Toucher en vlucht; komt brutaler terug (kans om te vallen x 0,8). `info.moet_vallen` voor de eerste held van een nieuw spel. De kern pakt held.gd vanzelf.
 - `systemen/slijm.gd`: Gloop met Daans plaatje, nooit dood, 60 s plat, telt happen.
@@ -67,3 +67,6 @@
 - Gemeten (GEZIEN, 400 helden, nep-hol met 1 slijm en 1 put): 59% vlucht. Het model van balans.md zelf geeft bij 1 slijm en 1 put 55%; de 36% van Sanne is een gemiddelde over uren met meer verdediging. Of dat klopt toetst de sim (volgende taak).
 - Besluit: schijterig draait na een klap in 2 van de 3 gevallen om, niet altijd. Reden: altijd omdraaien gaf 62% vluchten en een kale strook; zo blijven er genoeg wrokken over en komt er toch goud.
 - Les: headless heeft Godot een scherm van 0 pixels, dus het hol heeft dan 0 kolommen en alles klemt op kolom -1. Spel-logica toetsen met een nep-hol, niet met een headless spel.
+- Run 42681797272 (3cdd0ea) groen: mijn held loopt in het echte spel op Windows met Daans kunst (hoed, wapen; zelf bekeken op beeld 10 en 30 van de film), en in de eerste minuut valt er een held (Kees, +3 goud). Eerder 0 goud.
+- Balans-simulatie `sim/sim.py` en `sim/UITKOMST.md`: startgetallen gaven 68 tot 74% vluchten en 8 tot 10 aartsvijanden per uur. Besluit: slijm 45%, put 35%, schijterig de helft van de keren om, faam x 0,97 met bodem 0,75, terugkomers 25%, 60% komt ooit terug, aartsvijand 15%. Uitkomst (8 zaden, 10 uur): 36 tot 41% vluchten, aartsvijand 0,2 tot 0,8 per uur, langste wacht 7 tot 11 min in het eerste uur, alles gekocht na 6,4 tot 7,1 uur. Kansen ook in held.gd (toets: 38% vlucht). Terugkomers zitten in strook.gd: gevraagd aan Olaf. Sanne ingelicht.
+- Les: een `git stash -u` neemt ook de importmap `.godot` mee, en dan geven de toetsen "no resource loaders" en blijft Godot hangen. Na een stash eerst `--import`.
