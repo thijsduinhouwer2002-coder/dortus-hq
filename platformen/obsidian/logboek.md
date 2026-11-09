@@ -584,3 +584,4 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Diagnose-run (42539754760) met stijl en ouders in het log: de test mat een worp in de verborgen bronweergave (display none). Daar loopt geen animatie, dus opacity bleef 0. De CSS was goed (vertraging 0.48s). Test meet nu alleen zichtbare worpen; controleur akkoord met punten, alle punten verwerkt (da6fa3a). Uitslag volgt volgende run.
 - Wat misging: drie runs gissen naar timing, terwijl de eerste vraag had moeten zijn welk element ik meet. Les: bij een meting die nergens op lijkt eerst het element zelf en zijn ouders loggen.
 - Let op: de lokale kloon had een oude main die niet meer op GitHub staat (historie herschreven bij de overstap); die heet nu lokaal `oud-lokaal`, werk gaat verder op origin/main.
+- 00:45 UTC: e2e groen 21 van 21 (run 42540586090, GEZIEN), keuring gevraagd aan Daan onderaan ontwerp.md. Nog niet samengevoegd: wacht op Daan.
