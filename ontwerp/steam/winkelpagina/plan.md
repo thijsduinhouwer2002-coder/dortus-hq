@@ -35,8 +35,8 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 ## 4. Stand per bestand
 | Bestand | Stand | Wat nog |
 |---|---|---|
-| `header-920x430.png` | v1 | logo leest sterk, ook verkleind naar 292 breed (GEZIEN). **Te zwak: Gloop met zijn toren is te klein en de hoedenberg leest als puin.** v2: Gloop en toren 2x zo groot als ingezoomd middelpunt (eerlijk: zelfde tekening, hele schaal), minder dingen, één bange held met een pan. |
-| `klein-462x174.png` | v1 | op 120 x 45 lezen HATS, de kroon en OF THE FALLEN (GEZIEN). Gloop rechts valt weg: v2 alleen het logo met de hoeden, of Gloop groter in plaats van de lucht. |
+| `header-920x430.png` | v2 | v1 (scene op schaal 6) afgewezen: Gloop en toren te klein, berg leek puin. v2: scene op schaal 10, **Gloop met 4 hoeden is het middelpunt**, een nieuwe held met een pan kijkt naar hem, schat met gloed rechts, logo links boven. Verkleind naar 292 breed lezen logo en toren nog (GEZIEN). Nog: de achterwand bovenaan (mos-rij) is half afgesneden; de hoedenberg links van Gloop mag netter. |
+| `klein-462x174.png` | v1 | op 120 x 45 en 184 x 69 lezen HATS, de kroon en OF THE FALLEN (GEZIEN); Gloop met toren rechts is klein maar herkenbaar. |
 | main, vertical, library, hero, logo | nog niet | uit dezelfde maker zodra header v2 staat |
 | 5 schermafbeeldingen 1920 x 1080 | nog niet | van Olaf uit de echte build (strook op 160 px op een rustig bureaublad, plus een ingezoomd stuk ernaast), zie stijl.md punt 5 |
 | trailer 30 tot 60 s | nog niet | eerste 3 s: een held loopt binnen, Gloop eet hem, zijn hoed vliegt op de toren. Opname van de demo-modus van Olaf |

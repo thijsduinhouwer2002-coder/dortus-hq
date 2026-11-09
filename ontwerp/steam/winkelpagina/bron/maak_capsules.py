@@ -154,28 +154,26 @@ def scene(W, H, grond_y, kamer, items):
 
 def schaal(im, s): return im.resize((im.width * s, im.height * s), Image.NEAREST)
 
-# ---------- header 920 x 430 (schaal 6: 154 x 76 spelpixels, boven 20 px weg) ----------
+# ---------- header 920 x 430 v2: scene op schaal 10 (92 x 43 spelpixels), logo erop op schaal 6 ----------
 def header():
-    W, H, S = 154, 76, 6
-    gy = 34
-    y0 = gy + 8
-    vloer = y0 + 32
-    kamer = [(kx, r) for kx in range(0, 10) for r in (0, 1)]
-    def dingen(im):
-        im = gloed(im, 18, y0 + 10, .45); im.alpha_composite(cel(FAKKEL, 1, 8, 12), (14, y0 + 4))
-        im = gloed(im, 140, vloer - 8, .8); im = gloed(im, 120, y0 + 8, .4)
-        im.alpha_composite(cel(FAKKEL, 2, 8, 12), (116, y0 + 3))
-        im.alpha_composite(cel(SCHAT, 1, 24, 16), (128, vloer - 16))
-        berg(im, 104, vloer, [0, 1, 3, 2, 6, 1, 0, 3, 2, 1])            # maat 3: 10 zichtbaar
-        gloop_met_toren(im, 110, vloer, [7, 5, 4, 9])                    # hoge hoed, koksmuts, kroon, veermuts
-        held(im, 50, vloer, 0, 8, wapen=0, teken=1)                       # held met een pan op, "!"
-        held(im, 30, vloer, 2, 3, wapen=1, teken=0, litteken=True)        # terugkomer met wrok
-        return im
-    im = scene(W, H, gy, kamer, [dingen])
-    lg = logo(2)
-    im.alpha_composite(lg, (4, 4))
-    im.alpha_composite(ING, (100, gy - 6))
-    return schaal(im, S).crop((2, 26, 922, 456))
+    W, H, S = 92, 43, 10
+    vloer = 39
+    im = Image.new("RGBA", (W, H), (0x1d, 0x14, 0x26, 255))
+    for kx in range(W // 16 + 1):                       # achterwand van de schatkamer (gang-tegels, open)
+        for ry in range(3):
+            im.alpha_composite(cel(TEG, 1 if ry == 0 else 0, rij=1), (kx * 16, vloer - 48 + ry * 16))
+        im.alpha_composite(cel(TEG, (kx * 3) % 8, rij=0), (kx * 16, vloer))
+    im = gloed(im, 80, vloer - 8, .9); im = gloed(im, 56, vloer - 14, .35); im = gloed(im, 86, 12, .5)
+    im.alpha_composite(cel(FAKKEL, 2, 8, 12), (82, 6))
+    im.alpha_composite(cel(SCHAT, 1, 24, 16), (70, vloer - 16))
+    im.alpha_composite(cel(SCHAT, 3, 24, 16), (82, vloer - 16))
+    berg(im, 56, vloer, [0, 1, 3, 2, 6, 1])                     # maat 2: 6 hoeden
+    gloop_met_toren(im, 57, vloer, [7, 5, 4, 9])                # hoge hoed, koksmuts, kroon, veermuts
+    held(im, 22, vloer, 0, 8, wapen=0)                         # nieuwe held met een pan op, kijkt naar Gloop
+    im = schaal(im, S)
+    lg = schaal(logo(2), 5)
+    im.alpha_composite(lg, (14, 12))
+    return im
 
 # ---------- klein 462 x 174 (schaal 4: 116 x 44, rand weg) ----------
 def klein():
@@ -184,8 +182,8 @@ def klein():
     lucht(im, H)
     for kx in range(W // 16 + 1):
         im.alpha_composite(cel(TEG, (kx * 5) % 8, rij=0), (kx * 16, H - 5))
-    im = gloed(im, 100, H - 10, .7)
-    gloop_met_toren(im, 101, H - 4, [7, 5, 4])
+    im = gloed(im, 99, H - 12, .8)
+    gloop_met_toren(im, 99, H - 5, [7, 5, 4, 9])
     lg = logo(2, met_hoeden=True)
     im.alpha_composite(lg, (1, (H - lg.height) // 2))
     return schaal(im, S).crop((1, 1, 463, 175))
