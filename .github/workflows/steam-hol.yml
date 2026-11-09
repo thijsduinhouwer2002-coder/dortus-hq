@@ -79,7 +79,7 @@ jobs:
         run: |
           SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots"
           [ -d "$SRC" ] || { echo "geen schermafbeeldingen"; exit 0; }
-          find "$SRC/film" -name 'f*.png' -delete 2>/dev/null || true
+          find "$SRC/film" \( -name 'f*.png' -o -name 'f.wav' \) -delete 2>/dev/null || true
           NAAM=$(echo "$TAK" | tr '/' '-')
           URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.name "github-actions[bot]"

@@ -141,7 +141,8 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 	bewaar["hoed"] = (info.hoed as Color).to_html(false)
 	if uitkomst == "ontsnapt":
 		bewaar.bezoeken = int(info.get("bezoeken", 0)) + 1
-		bewaar.wrok = info.get("laatst_geraakt", "your Hoard")
+		var oud_wrok: String = String(info.get("wrok", ""))
+		bewaar.wrok = info.get("laatst_geraakt", oud_wrok if oud_wrok != "" else "your Hoard")
 		bewaar.erase("laatst_geraakt")
 		terugkomers.append(bewaar)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.

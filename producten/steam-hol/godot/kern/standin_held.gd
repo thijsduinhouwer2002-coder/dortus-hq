@@ -62,6 +62,7 @@ func _onderweg() -> void:
 	if hol.val_op(cel) != "" and info.get("wrok", "") == "the Spike Pit" and staat == "lopen":
 		gezien[cel.x] = true
 		info["wat"] = "saw the Spike Pit again and turned back"
+		info["laatst_geraakt"] = "the Spike Pit"  # wrok blijft staan
 		staat = "vluchten"
 		return
 	if hol.val_op(cel) != "":
