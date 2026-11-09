@@ -308,3 +308,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Ideeën om snel te schiften: nog steeds brokers met een winkel (geen gevonden) en apparaten met een open widgetlaag in een betaalde winkel zoals XENEON EDGE.
 - Snelle schifting 9 nov ±02:00 UTC: TikTok Shop `shop_region` AU, KR, SE, CA, DK, FI, RO nog fout, SA open met 0 apps (GEZIEN, portal-API). Raycast: alle 300 bekeken listings hebben access "public", geen betaalde extensies (GEZIEN, raycast.com/api/v1/store_listings). Elgato Marketplace: geen nieuw soort extensie naast widgets (presets 14 stuks, alleen EQ-instellingen, GEZIEN mp-gateway). Tesla: geen app-winkel voor derden, alleen de vloot-API uit 2023 (DERDEN, arenaev.com). ClawHub (OpenClaw-skills): geen betalen in de winkel zelf, alleen losse diensten van derden en veel "verdien geld"-blogs; AI-assistent-soort, nee. Grav CMS: voorstel voor betaalde extensies, oud en klein platform, nee.
 - Geen nieuwe kandidaat met betalen die nu werkt gevonden deze run. Volgende run: radar, daarna eventueel open-source bedrijfssoftware met app-SDK (Cal.com App Store heeft mogelijk betaalde apps, groei nakijken; Plane, Documenso, Chatwoot).
+
+## Run 9 nov 02:40 UTC (Noor)
+- Cal.com App Store (open-source agenda-planner, app store met mogelijk betaalde apps; groei en betalen nakijken): in onderzoek 9 nov 02:45 UTC
