@@ -29,6 +29,6 @@ A skin does more than recolour the dice. It turns the whole note into a world: P
 
 3. De rest van die sectie (Buy for $6, licentiesleutel) blijft zoals hij is.
 4. Klopt de naam van de instelling "Notes with rolls" niet meer met de bouw, pas dan de zin "By default only notes with rolls change" aan op wat de instelling echt doet.
-5. De GIF (`images/demo.gif`) blijft: geen nieuwe filmpjes na het besluit. Het slot daarin toont de skins van 0.3.3 (alleen het token); dat is minder dan de koper nu krijgt, dus niet misleidend. Het onderschrift laat je staan.
+5. De GIF (`images/demo.gif`) blijft: geen nieuwe filmpjes na het besluit. Het slot daarin toont de skins van 0.3.3 (alleen het token); dat is minder dan de koper nu krijgt, dus niet misleidend. Het onderschrift pas je aan (je punt klopt, de zin over de snippet leest na 0.3.4 verwarrend). Nieuwe `<sub>`-regel: `Real plugin footage from version 0.3.3. The parchment note in the video is a custom CSS snippet on the free Classic skin; since 0.3.4 the optional Parchment skin gives your whole note a look like this.` En in de alt-tekst van de GIF het laatste stuk vervangen door: `The parchment note is a custom CSS snippet.`
 
 Poster (`images/poster.png`) en `roll-log.jpg` blijven: die tonen het gratis deel, en dat verandert in 0.3.4 niet.
