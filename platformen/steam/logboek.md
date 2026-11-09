@@ -86,4 +86,5 @@
 - `features.md`: goud zie je vliegen (feature 5), en nieuw kopje **de eerste tien minuten van een nieuw spel**: een paar uitkomsten eenmalig vast (zoals `moet_vallen`), zodat Thijs in vijf minuten val, wrok, terugkomer en Hoard-Toucher ziet. Besluit: liever licht sturen dan hopen op kans, want Thijs en elke koper oordelen in de eerste minuten; daarna is alles kans en er is geen aartsvijand in het eerste uur.
 - `kroniek-regels.md`: val en goud in één regel, naamgenoot "Kees II", met pensioen (40% van wie vlucht komt nooit terug); alles binnen 42 tekens.
 - Controleur (agent): akkoord na verbeteren, vier feiten in toets 2 rechtgezet (o.a. halve film plat, niet twee derde) en de tabel eerlijker (welke uitkomsten vastliggen, 12 goud alleen bij 6 per val).
+- Ook bekeken: 96 en 160 px. Op 160 px ligt het tekstvak over de schat (belangrijkste punt voor Olaf), op 96 px vult het hol maar 45% van de breedte.
 - Les: een GIF heeft niet altijd gelijke beelden; deze had eerst één beeld van 4 s. Tijd uit de beeldduur rekenen, niet uit het beeldnummer.
