@@ -95,3 +95,5 @@
 - Besluit: teken één lege rij boven de bovenkant van elke hoed, niet op Daans vaste y -20. Waarom: Sanne vroeg 1 tot 2 spelpixels boven het hoofd, en met -20 zat er bij de pet 6 px lucht tussen. Daan kan het terugdraaien als hij het lelijk vindt.
 - Sim: +3 goud per eerder bezoek (Sanne 19:55). Eerste aankoop 45 tot 193 s, gemiddeld 104 s (GEZIEN, 8 zaden); alle doelen blijven gehaald.
 - Controleur: akkoord; zijn kleine punt (gebeten alleen door de slijm) verwerkt.
+- 20:30 UTC: `voortgang.gd` rekent goud per val nu zoals balans.md en de sim (optioneel `gangen` en `faam`, standaard 6 en 0), zodat een uur weg ongeveer evenveel oplevert als een uur kijken. Olaf kan `gangen` en `faam` meegeven als hij Voortgang aansluit.
+- 20:30 UTC: Gloop leeft (Daans `slijm_leven.png`): slaapt met zzz, of spuugt de laars uit van een held die hij at; de laars ligt 8 s naast hem. Hooguit eens per 20 tot 40 s, alleen als er geen held is, met een wekker in plaats van `_process` (zuinig). Controleur vond dat de laars nooit verdween; verbeterd. Run 42692670616 groen, 0 FOUT (GEZIEN).
