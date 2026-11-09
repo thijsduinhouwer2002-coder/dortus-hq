@@ -14,6 +14,7 @@
 - 6 nov, run 18:31: Garmin Connect IQ zelf toegevoegd en gemeten (44.384 apps via open API), nog niet klaar, cijfer 5. Controleur akkoord, 9 correcties verwerkt.
 - 6 nov, run 21:31: Discord opnieuw met eigen meting (18.343 directory-apps, 23.612 bots van discordbotlist.com), nu nee voor nu, cijfer 5. Controleur akkoord, 7 correcties verwerkt. Unity Asset Store: voorwerk klaar (sitemap en paginavelden), meting volgt in de volgende run.
 - 7 nov, run 07:31: Shopify eerste 100 installs gemeten via StoreCensus. Gevoel Thijs klopt (±2 tot 6 van de 100). Cijfer blijft 6. Controleur akkoord.
+- 9 nov, run 08:31: VTuber-software (2, nee). 2 van 95 nieuwe itch-tools met 3+ ratings, vloed AI-overlays.
 - 7 nov, run 09:31: BuiltByBit en Polymart (2, nee). Polymart zelf gemeten (903 producten): nieuwe betaalde plugins verkopen mediaan 0. Controleur akkoord.
 - 7 nov, run 10:31: Blender geld gemeten op Superhive (verkooptellers, 3.166 pagina's). Nu ja, cijfer 7. Controleur akkoord. Wacht op besluit Hans.
 - 7 nov, run 11:31: Foundry VTT zelf toegevoegd en gemeten (Forge Bazaar 9.360 modules, 23 Patreon-makers). Nog niet klaar, cijfer 6. Controleur akkoord, 7 correcties. Wacht op Thijs (AI-regels).

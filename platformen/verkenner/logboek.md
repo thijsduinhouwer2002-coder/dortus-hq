@@ -691,3 +691,12 @@ Nieuwste blok onderaan.
 - Geen bericht aan een manager: BOOTH heeft geen manager.
 - Na de productkans nog tijd, dus een platform: VTuber-software (plugins en tools voor VTube Studio, Warudo, VNyan), zelf toegevoegd, om 07:55 op "in onderzoek" gezet. Voorwerk: BOOTH gemeten (156 tools, nieuwe betaalde mediaan 23 likes, ±5 tot 14 nieuwe per maand) en de itch-lijst opgehaald (329). Het itch-script mist vaak de publicatiedatum, dus nog geen oordeel; staat met cijfers in kandidaten.md. Reden om te stoppen: werktijd op, en een half oordeel telt niet.
 - Run afgesloten.
+
+## 9 nov run 08:31 (Amsterdam)
+- Begin: git pull hing weer; origin/main was geforceerd bijgewerkt, lokale main liep achter. Gewerkt op origin/main (los) en naar main gepusht; de oude lokale main niet weggegooid. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: mijn eigen VTuber-software van de vorige run afmaken (40 minuten oud, half oordeel). Om 08:36 op "vervolg in onderzoek" gezet en gepusht.
+- itch-pagina-script gerepareerd (titel, ratings uit aggregateRating, tags, AI-melding). Datum per tool uit de RSS (tools/newest/tag-vtuber.xml, 10 pagina's, 329 items), want pagina's tonen vaak geen Published.
+- Uitkomst: nee voor nu, cijfer 2. Lichting jan 2025 t/m aug 2026: 2 van 95 met 3+ ratings. 109 van de 121 jongste tools melden AI, één maker zette 57 overlays van $3 tot $5 neer. Geld (graphtreon, TrustMRR): PngTuberMaker $663 in 30 dagen, Mix It Up ±$1.158 per maand, rest lager. Ko-fi en Reddit verbieden ons, niet gemeten. Zie voorstellen/vtuber-software.md.
+- Controleur akkoord, 6 correcties: 208 in plaats van 207 oude tools (Mannequin uit 2016 telde mee), £7 niet $7, scheve vergelijking oud tegen jong benoemd, samenstelling lichting (±12 echte plugins), en het veld pub in de pagina-data is meestal de Updated-datum.
+- Les: op itch is de RSS-pubDate de aanmaakdatum (gelijk aan createDate); de datum op de pagina is vaak Updated. Voor "nieuw" altijd de RSS nemen.
+- Run afgesloten (werktijd op).
