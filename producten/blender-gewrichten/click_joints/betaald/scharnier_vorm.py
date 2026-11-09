@@ -148,6 +148,26 @@ def maten(bvh, frame, s, stand, u):
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten, "t_vlak": t}, ""
 
 
+def reik(m):
+    """Hoe ver het scharnier langs L van de snede reikt, naar beide kanten (Blender-eenheden): de stopvlakken
+    lopen op hoek a tot de huid (t_vlak sin a), de wangen tot Rn, de zaagsnede tot lip onder H; plus s."""
+    return max(m["t_vlak"] * math.sin(m["alfa"]), m["rn"], m["lip"]) + m["s"]
+
+
+def te_dicht(bron, punt, m, u):
+    """Eis 6: nodige afstand in mm (naar boven afgerond) als het nieuwe scharnier te dicht bij een scharnier op
+    `bron` ligt, anders None. Twee scharnieren mogen niet in elkaars bereik komen: afstand tussen de snijpunten
+    minstens twee keer het grootste bereik van de twee (anders snijden de stopvlakken elkaar en blijft er tussen
+    de twee niets over). Het grootste, want dichtbij het oude scharnier loopt het stopvlak van het nieuwe al
+    tegen het schuine vlak van het oude aan, en dan meet t_vlak van het nieuwe te kort."""
+    if bron.get("cj_soort") != "SCHARNIER" or "cj_snijpunt" not in bron or "cj_reik" not in bron:
+        return None
+    nodig = 2.0 * max(float(bron["cj_reik"]), reik(m)) / u
+    if (Vector(punt) - Vector(bron["cj_snijpunt"])).length / u >= nodig:
+        return None
+    return math.ceil(nodig - 1e-9)
+
+
 def stop_graden(alfa, theta_s):
     """De echte eindstop in graden: 2a + s/r (zie boven)."""
     return math.degrees(2 * alfa + theta_s)

@@ -18,6 +18,7 @@ import toetsen_kijk
 import toetsen_neus
 import toetsen_neus_kort
 import toetsen_print
+import toetsen_scharnier_uit
 from hulp_scharnier import bvh as _bvh
 from hulp_scharnier import cursor as _cursor
 
@@ -70,6 +71,8 @@ def toets(stap, eigen):
     inst = scene.click_joints
     inst.speling_mm = 0.2
     inst.as_bron = "CURSOR"
+    # Eis 6: Exploded view schuift deel B nu ook bij het scharnier. Deze toetsen meten in matrix_world, dus uit.
+    inst.uit_elkaar = False
     staaf = figuren.staaf("staaf", 5.0)
     figuren.maak_actief(staaf)
     _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
@@ -117,6 +120,7 @@ def toets(stap, eigen):
     toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus en vorm punt 5: zaagsnede
     toetsen_neus_kort.toets(stap, eigen, _cursor)  # sleuf bij korte staaf en schuine onderkant
     toetsen_print.toets(stap, eigen, _cursor)  # eis 5: oplegvlak en overhang bij neus, kuiltje en sleuf
+    toetsen_scharnier_uit.toets(stap, eigen, _cursor)  # eis 6: Exploded view, export op de echte plek, te dichtbij
 
 
 def toets_beweeg(stap, eigen):

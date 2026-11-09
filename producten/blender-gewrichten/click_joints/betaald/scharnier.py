@@ -5,7 +5,7 @@ Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de ki
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
 De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
-passingkleur, Exploded view.
+passingkleur. Exploded view (eis 6) via uit_elkaar.zet, te dichtbij via scharnier_vorm.te_dicht.
 Klikneuzen (eis 3) en de maten van de zaagsnede (vorm punt 5) in scharnier_neus.py.
 Flip bend (eigenschap flip_bend, ontwerp punt 4): keert H en de buigkant samen om, dus de stop en de
 achterstop komen aan de andere kant van het lid; in het Redo-paneel snijdt omzetten het scharnier opnieuw."""
@@ -22,6 +22,7 @@ from ..eigenschappen import eenheid_per_mm
 from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
+from ..uit_elkaar import zet as zet_weergave
 from . import scharnier_beweeg as beweeg
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
@@ -122,6 +123,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             bpy.data.meshes.remove(me)
             self.report({"WARNING"}, reden)
             return {"CANCELLED"}
+        nodig = vorm.te_dicht(bron, punt, maat, u)  # eis 6: zelfde melding als bij de kogel
+        if nodig is not None:
+            bpy.data.meshes.remove(me)
+            bron["cj_te_dicht_mm"] = nodig
+            self.report({"WARNING"}, f"Too close to another joint (keep {nodig} mm apart).")
+            return {"CANCELLED"}
         hulp = bpy.data.collections.new("cj_hulp")
         context.scene.collection.children.link(hulp)
         werk = bpy.data.objects.new("cj_werk", me)
@@ -149,7 +156,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_flip_bend": bool(self.flip_bend), "cj_neus_h": maat["neus_h"],
                     "cj_neus_klik": maat["neus_klik"],
                     "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
-                    "cj_rek": maat["rek"], "cj_zaag_diepte": maat.get("zaag_diepte", -1.0)}
+                    "cj_rek": maat["rek"], "cj_zaag_diepte": maat.get("zaag_diepte", -1.0),
+                    "cj_reik": vorm.reik(maat)}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
@@ -168,6 +176,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         for deel in (deel_a, deel_b):
             for k, v in gegevens.items():
                 deel[k] = v
+            zet_weergave(deel, inst.uit_elkaar)  # eis 6: Exploded view schuift deel B langs L
         bron.hide_set(True)
         for o in context.view_layer.objects:
             if o is not None:
