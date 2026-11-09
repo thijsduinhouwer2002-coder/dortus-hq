@@ -1,0 +1,22 @@
+; Technische proef Steam (Olaf, 9 nov 2026): kan een Godot-venster doorzichtig boven de taakbalk staan,
+; met klikken erdoorheen, en kunnen we dat op een Windows-runner van GitHub Actions starten en fotograferen?
+; Geen product, geen richting: alleen de basis die alle drie de richtingen nodig hebben.
+config_version=5
+
+[application]
+config/name="Dortus Steam proef"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.3")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=220
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/per_pixel_transparency/allowed=true
+window/energy_saving/keep_screen_on=false
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+viewport/transparent_background=true

@@ -1,0 +1,75 @@
+name: Steam proef (Godot op Windows, doorzichtig venster)
+
+# Technische proef van Olaf (9 nov 2026), geen product: start een Godot-strook boven de taakbalk
+# op een echte Windows-runner, met Kladblok erachter, en maakt schermafbeeldingen.
+on:
+  push:
+    branches: [main, "claude/steam-*"]
+    paths: ["producten/steam-proef/**", ".github/workflows/steam-proef.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  proef:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 downloaden
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Get-ChildItem godot
+      - name: Strook starten met Kladblok erachter, schermafbeeldingen
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-proef/e2e/screenshots"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          Start-Process notepad.exe
+          Start-Sleep 3
+          & producten/steam-proef/e2e/scherm.ps1 "$uit/0-zonder-strook.png"
+          foreach ($drv in @("opengl3_angle", "opengl3")) {
+            $log = "$uit/godot-$drv.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" `
+              -ArgumentList "--path producten/steam-proef/godot --rendering-driver $drv" `
+              -RedirectStandardOutput $log -RedirectStandardError "$log.err" -PassThru
+            Start-Sleep 15
+            & producten/steam-proef/e2e/scherm.ps1 "$uit/1-strook-$drv.png"
+            $cpu = (Get-Process -Id $p.Id -ErrorAction SilentlyContinue).CPU
+            Write-Output "CPU-seconden na 15 s ($drv): $cpu"
+            Start-Sleep 30
+            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+            Write-Output "===== log $drv"; Get-Content $log -ErrorAction SilentlyContinue
+            Write-Output "===== fouten $drv"; Get-Content "$log.err" -ErrorAction SilentlyContinue | Select-Object -First 30
+          }
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-proef/e2e/screenshots"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-proef/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Schermen steam-proef/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-proef/$NAAM"
+          ls "$SRC"
