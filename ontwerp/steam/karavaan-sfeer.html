@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif}
+.desk{position:absolute;inset:0;background:radial-gradient(1200px 700px at 70% 20%,#3d7fd0,#1d4f9c 55%,#123a7a)}
+.icons{position:absolute;left:22px;top:18px;display:grid;gap:26px;color:#fff;font-size:13px;text-align:center;text-shadow:0 1px 2px #0008}
+.icons div{width:76px}.icons i{display:block;width:44px;height:38px;margin:0 auto 6px;border-radius:6px;background:linear-gradient(#ffd56a,#e9a92b)}
+.win{position:absolute;left:520px;top:120px;width:900px;height:560px;background:#f3f3f3;border-radius:10px;box-shadow:0 20px 60px #0007;overflow:hidden}
+.win .bar{height:38px;background:#fff;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#333}
+.win .doc{padding:34px 60px;color:#555;font-size:15px;line-height:1.9}
+.win .doc b{display:block;color:#222;font-size:22px;margin-bottom:10px}
+.line{height:10px;background:#ddd;border-radius:5px;margin:14px 0}
+.task{position:absolute;left:0;right:0;bottom:0;height:48px;background:#1c1f26ee;display:flex;justify-content:center;align-items:center;gap:14px}
+.task span{width:30px;height:30px;border-radius:6px;background:#ffffff22}
+.clock{position:absolute;right:16px;bottom:8px;color:#fff;font-size:12px;text-align:right;line-height:1.35}
+svg.strip{position:absolute;left:0;bottom:48px;width:1920px;height:300px}
+.hud{position:absolute;right:28px;bottom:268px;color:#ffe9c2;font:600 14px Georgia,serif;letter-spacing:.06em;text-align:right;text-shadow:0 2px 6px #000a}
+.hud small{display:block;font:400 12px Georgia,serif;opacity:.8;letter-spacing:.1em;text-transform:uppercase}
+.post{position:absolute;left:1180px;bottom:300px;width:250px;padding:14px 16px 12px;background:#f6ecd8;color:#3b2a1a;font:15px/1.45 Georgia,serif;transform:rotate(-3deg);box-shadow:0 10px 24px #0006;border-radius:2px}
+.post em{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a0482a;margin-bottom:6px;font-style:normal}
+.post:after{content:"";position:absolute;right:12px;top:10px;width:38px;height:44px;border:2px dashed #c9a87a}
+</style></head><body>
+<div class="desk"></div>
+<div class="icons"><div><i></i>Projects</div><div><i style="background:linear-gradient(#9fd3ff,#4a90e2)"></i>Thesis.docx</div><div><i style="background:linear-gradient(#c7c7c7,#8a8a8a)"></i>Recycle Bin</div></div>
+<div class="win"><div class="bar">Thesis_final_v3.docx · Word</div><div class="doc"><b>Chapter 4: Results</b><div class="line" style="width:92%"></div><div class="line" style="width:86%"></div><div class="line" style="width:95%"></div><div class="line" style="width:60%"></div><div class="line" style="width:90%;margin-top:36px"></div><div class="line" style="width:84%"></div><div class="line" style="width:70%"></div></div></div>
+<svg class="strip" viewBox="0 0 1920 300" preserveAspectRatio="none">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1b3d" stop-opacity="0"/><stop offset=".35" stop-color="#3b2347"/><stop offset=".75" stop-color="#b8554a"/><stop offset="1" stop-color="#f2a65a"/></linearGradient>
+ <filter id="paper" x="-5%" y="-30%" width="110%" height="160%"><feDropShadow dx="0" dy="-3" stdDeviation="4" flood-color="#000" flood-opacity=".45"/></filter>
+ <radialGradient id="glow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".95"/><stop offset=".4" stop-color="#ffb347" stop-opacity=".35"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+ <radialGradient id="sun"><stop offset="0" stop-color="#fff1c9"/><stop offset=".5" stop-color="#ffc56b" stop-opacity=".7"/><stop offset="1" stop-color="#ff9a4a" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="1920" height="300" fill="url(#sky)"/>
+<circle cx="1500" cy="190" r="120" fill="url(#sun)"/>
+<g fill="#fff" opacity=".8"><circle cx="160" cy="70" r="1.6"/><circle cx="420" cy="54" r="1.2"/><circle cx="700" cy="88" r="1.4"/><circle cx="980" cy="60" r="1"/><circle cx="1210" cy="80" r="1.3"/><circle cx="1760" cy="66" r="1.5"/><circle cx="300" cy="110" r="1"/></g>
+<path filter="url(#paper)" fill="#7a3b4f" d="M0 190 L120 150 L210 175 L330 120 L430 165 L560 130 L700 172 L820 110 L960 160 L1080 128 L1230 168 L1360 118 L1520 160 L1640 132 L1780 170 L1920 140 V300 H0Z"/>
+<path filter="url(#paper)" fill="#5a2a45" d="M0 225 C140 200 260 214 380 196 C520 176 640 214 780 205 C920 196 1040 176 1180 198 C1320 220 1460 186 1600 200 C1740 214 1840 196 1920 204 V300 H0Z"/>
+<!-- stadje rechts -->
+<g filter="url(#paper)" fill="#3c1d36"><rect x="1560" y="168" width="34" height="50"/><path d="M1556 170 L1577 146 L1598 170Z"/><rect x="1604" y="182" width="28" height="36"/><path d="M1600 184 L1618 166 L1636 184Z"/><rect x="1640" y="150" width="20" height="68"/><path d="M1636 152 L1650 120 L1664 152Z"/><rect x="1668" y="178" width="40" height="40"/><path d="M1664 180 L1688 160 L1712 180Z"/></g>
+<g fill="#ffd27a"><rect x="1570" y="184" width="6" height="8"/><rect x="1614" y="194" width="5" height="7"/><rect x="1647" y="170" width="5" height="8"/><rect x="1684" y="192" width="6" height="8"/></g>
+<circle cx="1630" cy="190" r="70" fill="url(#glow)" opacity=".45"/>
+<path filter="url(#paper)" fill="#2b1529" d="M0 252 C200 238 360 250 520 244 C700 237 860 252 1040 246 C1220 240 1400 252 1580 245 C1740 239 1840 248 1920 244 V300 H0Z"/>
+<!-- weg -->
+<path d="M0 262 C300 256 620 266 960 260 C1300 254 1600 264 1920 258" stroke="#e9b77a" stroke-width="2" stroke-dasharray="2 9" fill="none" opacity=".55"/>
+<!-- karavaan -->
+<g filter="url(#paper)" fill="#1a0c18">
+ <g transform="translate(700 196)">
+ <path d="M4 40 C4 6 76 6 76 40Z" fill="#e8d3b0"/>
+ <path d="M4 40 C4 6 76 6 76 40" fill="none" stroke="#1a0c18" stroke-width="2.5"/>
+ <path d="M28 40 C26 16 30 12 32 11 M52 40 C54 16 50 12 48 11" stroke="#b89a72" stroke-width="2" fill="none"/>
+ <rect x="-2" y="38" width="84" height="10" rx="2" fill="#1a0c18"/>
+ <g fill="none" stroke="#1a0c18" stroke-width="3"><circle cx="16" cy="54" r="10"/><circle cx="64" cy="54" r="10"/></g>
+ <g stroke="#1a0c18" stroke-width="1.6"><path d="M6 54H26M16 44V64M54 54H74M64 44V64"/></g>
+ <path d="M82 44 L110 50" stroke="#1a0c18" stroke-width="3"/>
+</g><g transform="translate(820 196)">
+ <path d="M4 40 C4 6 92 6 92 40Z" fill="#e8d3b0"/>
+ <path d="M4 40 C4 6 92 6 92 40" fill="none" stroke="#1a0c18" stroke-width="2.5"/>
+ <path d="M34 40 C32 16 36 12 38 11 M62 40 C64 16 60 12 58 11" stroke="#b89a72" stroke-width="2" fill="none"/>
+ <rect x="-2" y="38" width="100" height="10" rx="2" fill="#1a0c18"/>
+ <g fill="none" stroke="#1a0c18" stroke-width="3"><circle cx="16" cy="54" r="10"/><circle cx="80" cy="54" r="10"/></g>
+ <g stroke="#1a0c18" stroke-width="1.6"><path d="M6 54H26M16 44V64M70 54H90M80 44V64"/></g>
+ <path d="M98 44 L126 50" stroke="#1a0c18" stroke-width="3"/>
+</g>
+<g transform="translate(948 214)"><ellipse cx="22" cy="18" rx="22" ry="11"/><rect x="2" y="24" width="4" height="24"/><rect x="36" y="24" width="4" height="24"/><path d="M38 12 L54 -4 L62 0 L46 18Z"/><rect x="14" y="24" width="4" height="24"/><rect x="28" y="24" width="4" height="24"/><path d="M0 14 L-10 26" stroke="#1a0c18" stroke-width="3"/></g>
+<g transform="translate(1022 206)"><circle cx="8" cy="6" r="6"/><path d="M-1 0 L17 0 L12 -6 L4 -6Z"/><path d="M0 14 H16 L19 42 H-3Z"/><rect x="2" y="42" width="4" height="14"/><rect x="10" y="42" width="4" height="14"/><path d="M16 18 L30 8" stroke="#1a0c18" stroke-width="3"/></g>
+</g>
+</g>
+<circle cx="1053" cy="213" r="44" fill="url(#glow)"/><circle cx="1053" cy="213" r="4" fill="#fff3c4"/>
+<circle cx="918" cy="236" r="26" fill="url(#glow)" opacity=".8"/><circle cx="918" cy="236" r="3" fill="#fff3c4"/>
+<!-- vuurvliegjes -->
+<g fill="#ffe08a"><circle cx="560" cy="236" r="2"/><circle cx="610" cy="222" r="1.5"/><circle cx="1130" cy="232" r="2"/><circle cx="1210" cy="218" r="1.4"/></g>
+<!-- voorgrond gras -->
+<path fill="#12070f" d="M0 300 V276 C80 270 120 282 200 276 L210 262 L216 276 C300 272 380 284 460 276 L468 258 L474 276 C600 270 700 282 820 276 C1000 270 1180 284 1320 276 L1328 262 L1334 276 C1500 270 1700 282 1920 274 V300Z"/>
+</svg>
+<div class="hud"><small>Day 3 · the road to Saltmere</small>142 of 300 leagues · 2 h 10 min on the road today</div>
+<div class="post"><em>Postcard from the road</em>Made camp under the old bridge. Brannoc swears the river talks at night. Traded two crates of salt for a map.</div>
+<div class="task"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="clock">17:42<br>9-11-2026</div>
+</body></html>
