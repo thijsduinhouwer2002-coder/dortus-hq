@@ -27,6 +27,7 @@ var gang: Array[bool] = []
 var vallen := {}          # kolom -> soort ("stekelput")
 var ingang_kol := 2
 var schat_kol := 12
+var max_kol := 9999       # verder graven niet: daar staat de tekst van de strook
 var goud := 0             # buit van gevallen helden; nooit iets kwijt als je weg bent
 
 func maak(breedte_spelpixels: int) -> void:
@@ -74,6 +75,8 @@ func pad(van: Vector2i, naar: Vector2i) -> Array[Vector2i]:
 func klik(pos: Vector2) -> String:
 	var k := pos_naar_cel(pos).x
 	if not gang[k]:
+		if k > max_kol:
+			return ""
 		# alleen graven naast een bestaande gang; de schat verhuist mee naar het einde
 		if (k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1]):
 			gang[k] = true
@@ -117,7 +120,7 @@ func _draw() -> void:
 		if gang[k]:
 			draw_rect(Rect2(k * KOL, GANG_BOVEN, KOL, GANG_ONDER - GANG_BOVEN), C_GANG)
 			draw_rect(Rect2(k * KOL, GANG_ONDER, KOL, 2), C_GANG_VLOER)
-		elif (k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1]):
+		elif k <= max_kol and ((k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1])):
 			# hier kun je graven: gestippelde rand
 			for y in range(GANG_BOVEN, GANG_ONDER, 4):
 				draw_rect(Rect2(k * KOL + 1, y, 1, 2), C_AARDE_LICHT)

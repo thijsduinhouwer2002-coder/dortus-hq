@@ -93,6 +93,8 @@ func _ready() -> void:
 	tekst.breedte = scherm.size.x
 	tekst.hoogte = hoogte
 	add_child(tekst)
+	# het hol groeit niet onder het tekstvak
+	hol.max_kol = int((scherm.size.x - tekst.vak_breedte() - 30) / (HOL.KOL * schaal)) - 1
 
 	if not vers:
 		laad()

@@ -8,6 +8,9 @@ var hover := false
 var breedte := 1280.0
 var hoogte := 120.0
 
+func vak_breedte() -> float:
+	return minf(430.0, breedte * 0.3)
+
 func zet(r: Array[String], g: int) -> void:
 	regels = r
 	goud = g
@@ -21,7 +24,7 @@ func _draw() -> void:
 	for i in range(max(0, regels.size() - n), regels.size()):
 		toon.append(regels[i])
 	var regel_h := maat + 4
-	var bw := 430.0
+	var bw := vak_breedte()
 	var x := breedte - bw - 8
 	var y0 := hoogte - 8 - regel_h * (toon.size() + 1)
 	draw_rect(Rect2(x - 6, y0 - 4, bw + 12, regel_h * (toon.size() + 1) + 6), Color("#1c120c"))
