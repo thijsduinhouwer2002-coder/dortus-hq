@@ -108,7 +108,9 @@ func is_aartsvijand() -> bool:
 	return int(info.get("bezoeken", 0)) >= 3 or bool(info.get("aartsvijand", false))
 
 func is_gebeten() -> bool:
-	return bool(info.get("gebeten", false)) or String(info.get("wrok", "")).ends_with("the Slime")
+	# alleen echt gebeten (strook.gd bewaart info.gebeten bij terugkomers). Niet uit de wrok afleiden:
+	# Kees II heeft een wrok tegen Gloop omdat Gloop zijn vader at, maar zelf is hij nooit gebeten.
+	return bool(info.get("gebeten", false))
 
 # Welk teken boven zijn hoofd, "" voor geen. Eén tegelijk: boos > zweet > uitroep > ster.
 func teken_nu() -> String:
