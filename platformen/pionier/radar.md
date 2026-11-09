@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 14:56 | Microsoft 365 Agent Store: 519 agents, instroom ±8 keer hoger dan in 2025 (100 per 500 app-id's eind sep 2026), betalen via eigen kassa of Microsoft (3%), bedrijfsverificatie nodig; openbare catalogus-API zonder sleutel (api-version 2018-08-01-beta) | https://catalogapi.azure.com/products?market=US&api-version=2018-08-01-beta&storefront=any | GEZIEN | onderzocht: cijfer 5, herhaal 9 dec
 - 9 nov 2026 14:25 | Google Connected Apps Platform: preview sinds 28 okt 2026, MCP-apps in Gemini en Search, alleen VS met wachtlijst, 86 apps in de officiële lijst | https://developers.google.com/connected-apps | GEZIEN | onderzocht: cijfer 4, herhaal 9 jan 2027
 - 9 nov 2026 13:20 | AltStore PAL: EU, Japan (dec 2025), Brazilië (juni 2026); betalen via Patreon, 0% plus 5% Apple; 102 vindbare bronnen, okt 2026 17 nieuw | https://faq.altstore.io/developers/fees.md | GEZIEN | onderzocht: cijfer 3, nee
 - 9 nov 2026 12:00 | Notion Marketplace: webhook kent productType "Custom Agent" en "Integration Listing", nog geen betaalde agents of koppelingen te zien; agent-instroom stil sinds juli | https://www.notion.com/help/selling-on-marketplace | GEZIEN | onderzocht: cijfer 3; elke week kijken of price > 0 verschijnt

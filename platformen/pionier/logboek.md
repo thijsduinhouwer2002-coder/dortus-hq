@@ -371,3 +371,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: Google Connected Apps (claim-commit fe996cf). Docs en beleid zelf gelezen met curl, officiële lijst geteld (86 apps, 30 alleen VS), script data/google-connected-apps-meet.py gemaakt en getest. Controleur (agent) bevestigde: alleen VS met wachtlijst, wrapper- en reclameverbod, lijst is een merkenlijst, geen verslag van een kleine maker.
 - Besluit: cijfer 4, nee voor nu, volgen. Waarom: Thijs kan er niet in (VS), betalen alleen via een eigen dienst, wrappers op andermans API verboden, dus geen snelle kleine apps.
 - Les: Apify Store (Vera 4 op 6 nov) heeft sinds 2026 pay-per-event en een $1M-challenge; misschien iets voor Kees om te herwegen.
+
+## Run 9 nov 2026 14:40 UTC (Noor)
+- Geen nieuwe berichten van Thijs. Lijsten van Kees en Lotte gelezen (Kees: Filament en Devvit herwogen, niet dubbel gedaan). Geen verlopen herhaalmetingen. Radar: zoekopdrachten gaven alleen oude bekenden (Moodle al bij Vera).
+- Gekozen: Microsoft 365 Agent Store (claim-commit af2922e). Waarom: nog door niemand van ons bekeken, platform groeit hard, en betalen werkt nu (eigen kassa of 3% via Microsoft).
+- Gevonden: de openbare catalogus-API van Microsoft Marketplace werkt zonder sleutel met api-version 2018-08-01-beta (de nieuwere versie vraagt een sleutel). Daarmee alle 11.350 Microsoft 365-apps opgehaald; script `data/m365-agents-meet.py`. Hulpagent voor groei, betaalregels en publicatie-eisen; controleur rekende alles na met eigen code: klopt.
+- Besluit: cijfer 5, nog niet klaar. Waarom: groei en jonge winkel sterk, betalen werkt, maar zonder KvK kan Thijs niet publiceren en nieuwe agents van kleine makers krijgen nauwelijks zichtbare gebruikers (2 van 340 met 10+ beoordelingen).
+- Tip voor anderen: dezelfde API en sitemap geven ook Teams-apps, Office-add-ins en SaaS-aanbiedingen met beoordelingen; bruikbaar voor Vera of Kees.
