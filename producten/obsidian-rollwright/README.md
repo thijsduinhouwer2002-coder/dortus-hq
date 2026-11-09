@@ -6,9 +6,9 @@
 
 Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players who keep their sessions in Obsidian. It uses the `dice:` notation known from the Dice Roller plugin. All rolling is free. [Optional skins](#paid-skins) are a one-time purchase.
 
-![Real plugin footage in a session note: a natural 20 lands in gold, a natural 1 in red, every throw goes to the session log, then the optional Parchment and Arcane skins. The parchment note style is a custom CSS snippet, not part of the plugin](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
+![Real plugin footage in a session note: a natural 20 lands in gold, a natural 1 in red, every throw goes to the session log, then the optional Parchment and Arcane skins. The parchment note style in this video was a custom CSS snippet; since version 0.3.4 the paid skins style the whole note themselves](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
 
-<sub>Real plugin footage. The parchment note style in the video is a custom CSS snippet, not part of the plugin; Parchment and Arcane are optional paid skins.</sub>
+<sub>Real plugin footage. The parchment note style in this video was a custom CSS snippet. Since version 0.3.4 the optional paid skins Parchment and Arcane style the whole note themselves; new footage follows.</sub>
 
 ## What you can do
 
@@ -151,6 +151,8 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 ## Paid skins
 
 **All rolling features are free. Two visual skins, Parchment and Arcane, are paid and need a license key.** The Classic skin is free.
+
+A paid skin changes more than the dice. Parchment turns a note with rolls into old parchment, Arcane into a torch-lit dungeon, and the Roll log follows. The rest of Obsidian keeps your theme. The setting "Skin the note too" picks which notes: Notes with rolls (default), All notes or Off. Per note, add `rollwright-world` or `rollwright-plain` to the cssclasses property.
 
 You buy the skins once through Polar: press Buy for $6 in the settings, pay, then paste the license key from your Polar purchases in the settings and press Activate. One key works on all your devices.
 
