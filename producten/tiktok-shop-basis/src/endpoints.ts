@@ -136,10 +136,11 @@ export interface SkuTransactie {
   [veld: string]: unknown;
 }
 
+// order_id en currency kunnen ontbreken als TikTok geen `data` geeft; de rekenkern weigert dan de bestelling.
 export interface BestellingTransacties {
-  order_id: string;
+  order_id?: string;
   order_create_time?: number;
-  currency: string;
+  currency?: string;
   revenue_amount?: string;
   fee_and_tax_amount?: string;
   shipping_cost_amount?: string;
