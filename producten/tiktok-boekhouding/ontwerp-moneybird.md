@@ -43,12 +43,14 @@ Invoer is de uitkomst van `boekingsregels()` uit de basis (alle regels van één
 - (c) `boekAfrekening`: met `bekendId` eerst GET op dat id; zonder: zoeken op kenmerk. Niets gevonden geeft één POST met die body; gevonden en gelijk (bedragen als `"100.0"`) geeft geen schrijfactie; gevonden en anders geeft één PATCH met `_destroy` voor elk oud regel-id plus de nieuwe regels; twee gevonden geeft `dubbel` zonder schrijven; een gevonden boeking met een ander kenmerk telt niet mee; `bekendId` met 404 valt terug op niet gevonden; alles 0 met bestaande boeking geeft `leeg_maar_geboekt` zonder schrijven.
 - (d) GET met 500 wordt herhaald (3 pogingen), POST met 500 niet en geeft `onzeker`; 429 wordt herhaald, ook bij POST, met de wachttijd uit `Retry-After` als tijdstip en als aantal seconden, altijd tussen 1 en 60 s.
 - (e) 401 geeft `koppeling_verlopen`, 402 `geen_abonnement`, 403 `geblokkeerd`, 422 `geweigerd` met de tekst uit de body.
-- (f) Een id als getal in een antwoord geeft een fout.
+- (f) Een gebruikt id als getal in een antwoord geeft een fout; komt dat in het 201-antwoord van een POST, dan is de uitkomst `onzeker` met die fout erbij (de boeking staat er dan waarschijnlijk al).
 - (g) OAuth: inloglink precies goed (client_id, redirect_uri, response_type=code, scope `documents`), inwisselen en verversen sturen form-encoded naar `/oauth/token` met de juiste velden.
 - (h) Lijsten: grootboekrekeningen in één verzoek, btw-tarieven met het juiste filter, getest met de letterlijke voorbeelden uit de OpenAPI (in `test/voorbeelden/`). `controleerKoppeling` keurt een rekening zonder `general_journal_document` en een tegenrekening van een ander soort af.
 - (i) Uitbetaald bedrag wijkt af: wel geboekt, waarschuwing met beide bedragen.
 
 ## Controleur
+Code: ronde 1 nee (onleesbaar 2xx-antwoord gaf een losse fout in plaats van `onzeker`, foutobject werd "[object Object]", `bekendId` zonder controle op kenmerk), ronde 2 akkoord (9 nov, commit 0a17351); kleine kan-punten daarna ook verwerkt (lege btw-keuze is geen btw, zoeken zonder lijst is een antwoordfout).
+
 Ronde 2 (9 nov 20:15 UTC): **akkoord**. Kan-punten verwerkt: id-regel alleen voor gebruikte id's, periodecontrole pas vóór schrijven, PATCH-fout is `onzeker`, terugval via 404, `in_locked_period` herkennen.
 
 Ronde 1 (9 nov 20:05 UTC): nee, 8 moet-punten: veldnaam van de body; vergelijken in centen en zonder btw; btw pas na sandbox-test; GET-cache van Moneybird (id bewaren, POST-fout is onzeker); slot per afrekening; afgesloten periode; `_destroy` met id als tekst onbewezen; feitelijke fouten (grootboek zonder paginering, `Retry-After` is een tijdstip, `allowed_document_types`). Kan-punten verwerkt: scope alleen `documents`, 403 eigen soort en één keer verversen bij 401, alles 0, gewone omschrijving en `row_order`, `statement_time` en jaarwisseling, eerlijk over details per bestelling, exact zoeken in de sandbox-test.

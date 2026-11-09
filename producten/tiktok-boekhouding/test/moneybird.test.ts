@@ -355,3 +355,11 @@ test("OAuth: intrekken stuurt token en app-gegevens", async () => {
   assert.deepEqual(Object.fromEntries(new URLSearchParams(nep.verzoeken[0].body)), { client_id: "cid", client_secret: "geheim", token: "b3f3" });
   await assert.rejects(trekIn(app, "x", nep.fn), /403/);
 });
+
+test("controleur ronde 2: lege btwTariefId is geen btw; zoeken zonder lijst is een antwoordfout", async () => {
+  const m = maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, per: { omzet: { grootboekId: "100", btwTariefId: "" } } });
+  assert.equal("tax_rate_id" in m.body.general_journal_document.general_journal_document_entries_attributes[0], false);
+  const { client, verzoeken } = nepClient([{ json: { fout: "geen lijst" } }]);
+  await assert.rejects(boekAfrekening(client, ADM, STANDAARD, koppeling), (e: any) => e.soort === "antwoord");
+  assert.equal(verzoeken.length, 1);
+});

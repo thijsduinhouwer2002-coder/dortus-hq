@@ -125,7 +125,8 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
     if (c === 0) continue;
     const k = koppeling.per[soort];
     if (!k?.grootboekId) throw new MoneybirdFout("invoer", `geen grootboekrekening gekozen voor "${naam}"`);
-    if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId !== undefined && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("invoer", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
+    // Een leeg btw-tarief (lege keuzelijst in instellingen) betekent: geen btw.
+    if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("invoer", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
     if (k.btwTariefId && !opties.btwToegestaan) throw new MoneybirdFout("btw_nog_niet_getest", `btw-tarief bij "${naam}" kan pas na de sandbox-test`);
     totaal += c;
     const regel: MemoriaalRegel = { grootboekId: k.grootboekId, debetCenten: c < 0 ? -c : 0, creditCenten: c > 0 ? c : 0, omschrijving: `TikTok Shop ${naam}, afrekening ${invoer.statementId}` };
