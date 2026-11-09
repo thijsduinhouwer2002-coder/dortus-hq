@@ -44,7 +44,7 @@ UI={
 <div class="paper" style="left:930px;bottom:262px;width:250px;padding:10px 12px;transform:rotate(1.5deg)"><em style="color:#9b2c1c">Returning · visit 4</em><b>Bram the Thrice-Fled</b><br>Scar over the left eye. Grudge: slimes.</div>
 <div class="paper" style="right:16px;bottom:58px;padding:6px 8px;display:flex;gap:6px;font-size:12px;text-align:center"><div style="width:52px">⛏<br>Dig 3</div><div style="width:52px">▲<br>Spikes 12</div><div style="width:52px">●<br>Slime 20</div><div style="width:52px">☠<br>Bones 30</div></div>'''),
 'karavaan':('Q4 planning.docx · Word','''<div class="hud"><small>Tuesday · day 2 of 5</small>214 km to Varenna · 3 wagons · 86 silver</div>
-<div class="paper" style="left:880px;bottom:250px;width:300px;padding:12px 14px;transform:rotate(-2deg)"><em>Postcard · near Ostwick</em>The bridge is gone. The ferryman wants 12 silver, or we take the hill road: one day longer, but the hill villages buy wool.<br><span class="btn k">Pay the ferry</span><span class="btn">Hill road</span></div>
+<div class="paper" style="left:880px;bottom:250px;width:300px;padding:12px 14px;transform:rotate(-2deg)"><span style="position:absolute;right:10px;top:6px;font:12px Georgia;color:#8a6410">later ✕</span><em>Postcard · near Ostwick</em>The bridge is gone. The ferryman wants 12 silver, or we take the hill road: one day longer, but the hill villages buy wool.<br><span class="btn k">Pay the ferry</span><span class="btn">Hill road</span></div>
 <div class="menu"><i>⚖</i><i>✉</i><i>≡</i></div>'''),
 }
 for n,(t,u) in UI.items():

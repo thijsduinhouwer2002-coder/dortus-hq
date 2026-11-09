@@ -4,7 +4,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;font-family:"Segoe
 .desk{position:absolute;inset:0;background:radial-gradient(1300px 700px at 30% 10%,#2f6a8a,#173f5c 55%,#0d2638)}
 .icons{position:absolute;left:22px;top:18px;display:grid;gap:26px;color:#fff;font-size:13px;text-align:center;text-shadow:0 1px 2px #0008}
 .icons div{width:76px}.icons i{display:block;width:44px;height:38px;margin:0 auto 6px;border-radius:6px;background:linear-gradient(#ffd56a,#e9a92b)}
-.win{position:absolute;left:1000px;top:60px;width:820px;height:330px;background:#fff;border-radius:10px;box-shadow:0 20px 60px #0007;overflow:hidden}
+.win{position:absolute;left:1000px;top:60px;width:820px;height:308px;background:#fff;border-radius:10px;box-shadow:0 20px 60px #0007;overflow:hidden}
 .win .bar{height:38px;background:#f3f3f3;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#333}
 .grid{display:grid;grid-template-columns:60px repeat(6,1fr);font-size:13px;color:#333}
 .grid div{border-right:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;height:27px;line-height:27px;padding:0 8px;white-space:nowrap;overflow:hidden}
@@ -113,14 +113,14 @@ svg.strip{position:absolute;left:0;bottom:48px;width:1920px;height:440px}
 <g stroke="#2b190e" stroke-width="3" fill="none" opacity=".8"><path d="M120 80 q10 40 -6 70 q-8 20 4 40"/><path d="M1180 80 q-10 30 8 60"/><path d="M1760 76 q12 40 -4 80 q-6 30 10 60"/><path d="M640 80 q-6 30 6 60"/></g>
 <g fill="#7b5a3c" opacity=".7"><ellipse cx="120" cy="300" rx="22" ry="12"/><ellipse cx="1220" cy="330" rx="18" ry="10"/><ellipse cx="1780" cy="250" rx="26" ry="14"/><ellipse cx="560" cy="400" rx="20" ry="10"/><ellipse cx="1820" cy="400" rx="16" ry="9"/></g>
 </svg>
-<div class="hud"><small>The Hollow · depth 3</small>Today: 6 heroes in · 4 stayed · 2 fled</div>
+<div style="position:absolute;left:36px;bottom:500px;color:#fff;font:12px Segoe UI;opacity:.75;letter-spacing:.08em">ZOOMED IN 2× · IN GAME THE LAIR IS ±200 PX HIGH</div><div class="hud"><small>The Hollow · depth 3</small>Today: 6 heroes in · 4 stayed · 2 fled</div>
 <div class="card"><div class="por"><svg viewBox="0 0 82 100" width="82" height="100"><circle cx="41" cy="36" r="20" fill="#2a1a10"/><path d="M12 100 q0 -40 29 -40 q29 0 29 40z" fill="#2a1a10"/><path d="M50 26 l-12 22" stroke="#c0392b" stroke-width="3"/><path d="M14 100 l20 -36 l8 6z" fill="#c0392b"/></svg></div>
 <em>Returning hero · visit 4</em><b>Bram the Thrice-Fled</b>
 <ul><li>Scar over the left eye (your spikes)</li><li>Grudge: slimes</li><li>Now carries a torch and salt</li></ul></div>
 <div class="task"><span style="background:#3aa0ff"></span><span class="s">Search</span><span style="background:#f2c94c"></span><span style="background:#1e7a3c"></span><span style="background:#2b6fdb"></span><span style="background:#7a2c3a"></span></div>
 <div class="clock">17:42<br>9-11-2026</div>
 <script>
-const g=document.getElementById('g');const rows=[["","A","B","C","D","E","F"],["1","Item","Oct","Nov","Dec","Q4","Δ"],["2","Hosting","€ 120","€ 120","€ 135","€ 375","+4%"],["3","Licenses","€ 480","€ 480","€ 480","€ 1.440","0%"],["4","Travel","€ 210","€ 90","€ 300","€ 600","-12%"],["5","Hardware","€ 0","€ 1.250","€ 0","€ 1.250",""],["6","Events","€ 350","€ 0","€ 420","€ 770","+8%"],["7","Marketing","€ 900","€ 1.100","€ 1.300","€ 3.300","+15%"],["8","Total","","","","€ 7.735",""],["9","","","","","",""],["10","","","","","",""]];
+const g=document.getElementById('g');const rows=[["","A","B","C","D","E","F"],["1","Item","Oct","Nov","Dec","Q4","Δ"],["2","Hosting","€ 120","€ 120","€ 135","€ 375","+4%"],["3","Licenses","€ 480","€ 480","€ 480","€ 1.440","0%"],["4","Travel","€ 210","€ 90","€ 300","€ 600","-12%"],["5","Hardware","€ 0","€ 1.250","€ 0","€ 1.250",""],["6","Events","€ 350","€ 0","€ 420","€ 770","+8%"],["7","Marketing","€ 900","€ 1.100","€ 1.300","€ 3.300","+15%"],["8","Total","","","","€ 7.735",""],["9","","","","","",""]];
 rows.forEach((r,i)=>r.forEach((c,j)=>{const d=document.createElement('div');d.textContent=c;if(i==0||j==0)d.className='h';if(i==1||i==8)d.style.fontWeight=600;g.appendChild(d)}));
 </script>
 </body></html>
