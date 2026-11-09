@@ -49,13 +49,15 @@ css += f"""
   --text-selection: rgba(122,59,31,.22); --caret-color: #4a1f0e;
   --metadata-label-text-color: #6b4f35; --metadata-input-text-color: #2e1d10;
   --callout-title-color: #7a3b1f;
+  --callout-blend-mode: normal; --tab-background-active: #dcc595; --titlebar-background-focused: #dcc595;
   color-scheme: light;
 }}
+{P} .markdown-preview-view, {P} .markdown-rendered, {P} .markdown-source-view, {P} .cm-content, {P} .callout-content {{ color: var(--text-normal); }}
 {P} .view-content {{
   background: {PAPIER_FIJN}, {PAPIER_VLEK}, radial-gradient(ellipse 120% 90% at 50% 40%, #f0e0bd 0%, #e6d2a8 55%, #d8bd8a 100%);
   box-shadow: inset 0 0 120px rgba(120,72,24,.42), inset 0 0 18px rgba(90,50,15,.35);
 }}
-{P} .view-header {{ background: #dcc595; border-bottom: 1px solid #b89a6c; }}
+body .workspace-leaf {P} .view-header, {P} .view-header {{ background: #dcc595; border-bottom: 1px solid #b89a6c; }}
 {P} .view-header-title, {P} .view-header-breadcrumb {{ font-family: "RW Cinzel", serif; letter-spacing: .06em; color: #4a1f0e; }}
 {P} .view-header .clickable-icon {{ color: #6b4f35; }}
 {P} .markdown-rendered h1, {P} .HyperMD-header-1, {P} .inline-title {{ text-align: center; font-size: 2.3em; letter-spacing: .02em; }}
@@ -89,13 +91,15 @@ css += f"""
   --text-selection: rgba(255,122,42,.28); --caret-color: #ffb36a;
   --metadata-label-text-color: #8f9a93; --metadata-input-text-color: #d7dcd6;
   --callout-title-color: #ff9a55;
+  --callout-blend-mode: normal; --tab-background-active: #0d0f0f; --titlebar-background-focused: #0d0f0f;
   color-scheme: dark;
 }}
+{A} .markdown-preview-view, {A} .markdown-rendered, {A} .markdown-source-view, {A} .cm-content, {A} .callout-content {{ color: var(--text-normal); }}
 {A} .view-content {{
   background: radial-gradient(ellipse 70% 45% at 50% 112%, rgba(255,90,20,.30), transparent 70%), {STEEN}, linear-gradient(160deg,#2b2f2e,#1a1d1d 55%,#121414);
   box-shadow: inset 0 0 100px rgba(0,0,0,.55);
 }}
-{A} .view-header {{ background: #0d0f0f; border-bottom: 1px solid #2a2e2d; }}
+body .workspace-leaf {A} .view-header, {A} .view-header {{ background: #0d0f0f; border-bottom: 1px solid #2a2e2d; }}
 {A} .view-header-title, {A} .view-header-breadcrumb {{ font-family: "RW Uncial", serif; color: #ffb36a; }}
 {A} .view-header .clickable-icon {{ color: #8f9a93; }}
 {A} .markdown-rendered h1, {A} .HyperMD-header-1, {A} .inline-title {{ text-align: center; font-size: 2.5em;
