@@ -26,3 +26,8 @@ Er zijn er maar 15. Na wegstrepen (GoPro: Garmin zelf en Bluetooth; golf driving
 
 ## Gijs: wat ik ermee doe
 Ademhaling wordt de kandidaat voor ronde 5b. Eerst nakijken: (1) wie de maker van WHM breathing+ is en of het de officiële Wim Hof-app is (merknaam, dan mogen wij die naam niet gebruiken), (2) alle 604 reviews van WHM: wat missen kopers, (3) hoe de top 3 eruitzien (screenshotFileIds in de API), (4) of Wim Hof-ademhaling eerlijk en veilig te brengen is (waarschuwing: nooit in water of achter het stuur). Pas dan een voorstel. Gebedstijden blijft reserve (klein, maar kwaliteit en kloppende tijden zijn een eerlijk verschil). Herinneringen valt af (druk).
+
+## Aanvulling Gijs (9 nov 22:56, dataset)
+- WHM breathing+ is van MobileDriveway (geen Wim Hof-bedrijf, GOK op naam; na te kijken). Dezelfde maker heeft ook een **gratis** WHM breathing met 50.000+ downloads en 1.730 reviews sinds jun 2022 (GEZIEN). De betaalde plus-versie (sinds dec 2024) leeft dus van een grote gratis basis. Een nieuwkomer staat tegenover een gratis app van 50.000+.
+- 604 reviews bij 1.000+ downloads is veel; mogelijk telt de winkel een deel van de reviews van de gratis versie mee, of reviewt bijna elke koper door het vragen om een review (klacht hierboven). Volgende run nakijken voordat de 26 per maand als vraag telt.
+- Verder in de hoek: Breathing Timer (HRV, BOLT, Wim Hof, 4-7-8; gratis, 1.000+, 92 reviews sinds apr 2026), Bitochi (PRO $6,25 en gratis Tool 1.000+), WhiteBear Breath and Plunge (PRO $2,99), Deyve Breath Training ($2,99, okt 2026) (GEZIEN).
