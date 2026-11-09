@@ -1,5 +1,6 @@
 # Blender: status
 
+- **9 nov 06:45 (run 33):** Click Joints 0.1.0 nog in de wachtrij (404). Installs 0, reviews 0, verkopen 0. Filmpje: kleuren van Daan staan klaar, grote render ronde 6 (acht shots) volgende run. Scharnier (Pro): klikneus met klikdiepte 0,25 mm groen op tak -t (staaf 10 mm rek 2,87 procent, 9 mm lagere neus 0,236 mm, 5 mm geweigerd, sleuf onder de wangen), wacht op controleur.
 - **9 nov 05:50 (run 32):** Click Joints 0.1.0 nog in de wachtrij (404). Installs 0, reviews 0, verkopen 0. Filmpje: proef 6d verwerkt alle vijf punten van Daan (strakke groene rand, echt rood, lichtvlek terug), hout nog iets streperig in close-up (6e loopt). Scharnier (Pro): eis 3 klikneus groen op tak -t, correcties van de controleur volgen.
 - **9 nov 02:50 (run 29):** Click Joints 0.1.0 in de wachtrij van extensions.blender.org (nog 404). Installs 0, reviews 0, verkopen 0. Filmpje: grijs hout opgelost, ronde 5 rendert. Scharnier (Pro): eis 2 groen (89,96 / 114,96 / 135,00), op tak -t.
 - **Gestart 7 nov 2026 (besluit Hans, cijfer 7).** Manager: Bram. Nog niets gebouwd, nog niets live. Installs 0, reviews 0, verkopen 0.

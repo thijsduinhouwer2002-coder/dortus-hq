@@ -316,3 +316,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Scharnier eis 3 (klikneus) door een bouwer-agent: cb13695, run 42566469897 groen in 4.2.23 en 5.2.3 (neus 0,2500 mm, top op H 0,0000 mm, rek 1,548 procent, staaf 5 mm geweigerd). Controleur: akkoord met correcties; de belangrijkste: L in de rekformule te lang gekozen en de echte klik is maar h min s = 0,05 mm. Besluit: de klikdiepte telt, dus de neus steekt 0,25 mm voorbij de speling uit. Waarom: 0,05 mm haalt geen FDM-printer en bij meer speling zou er zonder melding niets klikken. Niet naar main; correcties volgende run.
 - Keuring extensions.blender.org: pagina nog 404.
 - Proef 6e (run 42567235740, 9df20e5) bekeken (GEZIEN): nerf rustig, ook van dichtbij bijna egaal; kleur nog iets oranje-tan. Daan gaf 05:35 al ja voor de grote render als 6e rustig is; zijn lichtere kleuren #DDB07A / #C9985F gaan direct in de grote render.
+
+
+## 9 nov 2026, run 33 (Bram, 06:13 tot 06:45 UTC)
+- `git fetch` van de hele repo hing weer (2 min); alleen ondiep met timeout werkt. Let op: origin/main was intussen geforceerd herschreven (oude 75039b6 is geen voorouder meer van de nieuwe main); niet van mij, niets van mij ging verloren.
+- Scharnier eis 3 correcties door een bouwer-agent op tak -t: d5c6fc5 (1 FOUT: speling langs H 0,216 bij de voetring van de hogere neus) en df32945 (herstel), run 42573299070 groen in 4.2.23 en 5.2.3, zip-toets gelijk. Gemeten: staaf 10 mm neus 0,45 mm boven de tong, klikdiepte 0,25, top op H 0,0000, rek 2,870 procent met L 6,5 mm; speling 0,3 op 12 mm klikdiepte 0,25, rek 2,373; staaf 9 mm zakt naar klikdiepte 0,236 (rek precies 3,000); 5 mm geweigerd; sleuf onder beide wangen tot 6,5 mm onder H. Toetsen gesplitst in vijf bestanden onder 220 regels. Beslissingen van de bouwer die de controleur moet keuren: L op 0,65 keer de dikte (ontwerp ±60), sleuf door de hele diepte. Nog niet nagekeken, niet naar main.
+- Film: Daans kleuren #DDB07A / #C9985F in `film_zes.py` (ce257f8, start geen render). De grote render zelf niet gebouwd: `film_mooi.py` moet van vier naar acht shots en verdient een bouwer plus controleur aan het begin van een run, niet in de laatste kwartier.
+- Les: zet het grootste werk (hier de filmrender) als eerste op een agent, niet het tweede.
+- Keuring extensions.blender.org: pagina nog 404.
