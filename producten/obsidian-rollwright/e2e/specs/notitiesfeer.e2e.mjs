@@ -153,6 +153,35 @@ describe("Rollwright: de skin kleurt de hele notitie, mechaniek (bouwplan notiti
 		await wachtOp({ [MET]: true, [ZONDER]: false }, "eis 5 terug");
 	});
 
+	it("eis 6c: een uitgesteld blad krijgt de klasse zodra het opent", async function () {
+		// Een achtergrondtab met de worp, dan de lay-out opnieuw laden: Obsidian stelt niet zichtbare tabs uit.
+		const voor = await browser.executeObsidian(async ({ app }, MET) => {
+			const achter = app.workspace.getLeaf("tab");
+			await achter.openFile(app.vault.getAbstractFileByPath(MET), { active: false });
+			const actief = app.workspace.getLeaf("tab");
+			await actief.openFile(app.vault.getAbstractFileByPath("Rollen.md"), { active: true });
+			await app.workspace.changeLayout(app.workspace.getLayout());
+			const uitgesteld = [];
+			app.workspace.iterateAllLeaves((leaf) => {
+				if (leaf.isDeferred) uitgesteld.push({ type: leaf.view.getViewType(), wereld: leaf.view.containerEl.classList.contains("rollwright-world"), state: leaf.getViewState().state?.file });
+			});
+			return uitgesteld;
+		}, MET);
+		console.log("NOTITIESFEER eis 6c uitgesteld:", JSON.stringify(voor));
+		const blad = voor.find((b) => b.state === MET);
+		expect(blad).toBeDefined();
+		expect(blad.wereld).toBe(false);
+		await browser.executeObsidian(async ({ app }, MET) => {
+			let doel = null;
+			app.workspace.iterateAllLeaves((leaf) => {
+				if (leaf.isDeferred && leaf.getViewState().state?.file === MET) doel = leaf;
+			});
+			app.workspace.setActiveLeaf(doel, { focus: true });
+			await doel.loadIfDeferred();
+		}, MET);
+		await wachtOp({ [MET]: true }, "eis 6c na openen");
+	});
+
 	it("eis 6: een notitie met worpen in de zijbalk krijgt de klasse niet", async function () {
 		await browser.executeObsidian(async ({ app }, MET) => {
 			const zij = app.workspace.getRightLeaf(true);
@@ -204,5 +233,8 @@ describe("Rollwright: de skin kleurt de hele notitie, mechaniek (bouwplan notiti
 			await app.plugins.enablePlugin("rollwright");
 		});
 		await browser.pause(800);
+		// Een nieuwe plugin leest de bewaarde instellingen (Classic, geen sleutel): zet de skin weer aan.
+		await zetPlugin({ skin: "parchment", licenseKey: "E2E-SLEUTEL", licenseCheckedAt: Date.now(), noteWorld: "rolls" });
+		await wachtOp({ [MET]: true }, "eis 7 weer aan");
 	});
 });

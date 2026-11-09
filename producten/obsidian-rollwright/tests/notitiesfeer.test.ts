@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import type { TFile as ObsidianFile } from "obsidian";
-import { MarkdownView, TFile } from "./obsidian-stub";
+import { MarkdownView, TFile, WorkspaceWindow } from "./obsidian-stub";
 import { DEFAULT_SETTINGS } from "../src/plugin-data";
 import { cssClassList, noteHasRoll, noteWorldMode, NoteWorld, visibleMarkdown, wantsWorld, WORLD_CLASS } from "../src/ui/note-world";
 
@@ -46,6 +46,16 @@ describe("noteHasRoll: a roll the reader can see", () => {
 		expect(noteHasRoll("<!-- `dice: 1d6` -->")).toBe(false);
 		expect(noteHasRoll("<!--\n`dice: 1d6`")).toBe(false);
 		expect(noteHasRoll("%% hidden %% and `dice: 1d6`")).toBe(true);
+	});
+
+	it("%% or <!-- inside a code span opens no comment (controleur)", () => {
+		expect(noteHasRoll("Use `%%` for comments\n\n`dice: 1d20`")).toBe(true);
+		expect(noteHasRoll("Type `<!--` here\n\n`dice: 1d20`")).toBe(true);
+		expect(noteHasRoll("`%%` and %% `dice: 1d20` %%")).toBe(false);
+	});
+
+	it("a fence inside a list item, indented, also hides its rolls", () => {
+		expect(noteHasRoll("- item\n    ```\n    `dice: 1d6`\n    ```")).toBe(false);
 	});
 
 	it("keeps the number of lines, so nothing shifts", () => {
@@ -124,19 +134,19 @@ function noteLeaf(path: string, root: unknown) {
 	return { view, getRoot: () => root };
 }
 
-function setup(texts: Record<string, string>, options: { skin?: string; licensed?: boolean; mode?: string; cssclasses?: Record<string, unknown> } = {}) {
+function setup(texts: Record<string, string>, options: { skin?: string; licensed?: boolean; mode?: string; cssclasses?: Record<string, unknown>; cssclass?: Record<string, unknown> } = {}) {
 	const leftSplit = {};
 	const rightSplit = {};
 	const rootSplit = {};
-	const leaves = [noteLeaf("Roll.md", rootSplit), noteLeaf("Plain.md", rootSplit), noteLeaf("Side.md", rightSplit), noteLeaf("Popout.md", { window: true })];
-	texts = { "Side.md": "`dice: 1d6`", "Popout.md": "`dice: 1d6`", ...texts };
+	const leaves = [noteLeaf("Roll.md", rootSplit), noteLeaf("Plain.md", rootSplit), noteLeaf("Side.md", rightSplit), noteLeaf("Popout.md", new WorkspaceWindow()), noteLeaf("Hover.md", {})];
+	texts = { "Side.md": "`dice: 1d6`", "Popout.md": "`dice: 1d6`", "Hover.md": "`dice: 1d6`", ...texts };
 	const read = vi.fn(async (file: ObsidianFile) => texts[file.path] ?? "");
 	const plugin = {
 		settings: { ...DEFAULT_SETTINGS, skin: options.skin ?? "parchment", noteWorld: options.mode ?? "rolls" },
 		isLicensed: options.licensed ?? true,
 		app: {
-			workspace: { leftSplit, rightSplit, iterateAllLeaves: (callback: (leaf: unknown) => void) => leaves.forEach(callback) },
-			metadataCache: { getFileCache: (file: ObsidianFile) => ({ frontmatter: { cssclasses: options.cssclasses?.[file.path] } }) },
+			workspace: { leftSplit, rightSplit, rootSplit, iterateAllLeaves: (callback: (leaf: unknown) => void) => leaves.forEach(callback) },
+			metadataCache: { getFileCache: (file: ObsidianFile) => ({ frontmatter: { cssclasses: options.cssclasses?.[file.path], cssclass: options.cssclass?.[file.path] } }) },
 			vault: { cachedRead: read },
 		},
 	};
@@ -151,10 +161,10 @@ function setup(texts: Record<string, string>, options: { skin?: string; licensed
 }
 
 describe("NoteWorld: the class on the open notes", () => {
-	it("Notes with rolls: the note with a roll and the pop-out window, not the plain note or the sidebar", async () => {
+	it("Notes with rolls: the note with a roll and the pop-out window, not the plain note, the sidebar or a leaf of another plugin", async () => {
 		const { has, settle } = setup({ "Roll.md": "Hit `dice: 1d20`", "Plain.md": "Just text" });
 		await settle();
-		expect([has(0), has(1), has(2), has(3)]).toEqual([true, false, false, true]);
+		expect([has(0), has(1), has(2), has(3), has(4)]).toEqual([true, false, false, true, false]);
 	});
 
 	it("Classic or no key: nowhere", async () => {
@@ -193,6 +203,25 @@ describe("NoteWorld: the class on the open notes", () => {
 		await new Promise((resolve) => setTimeout(resolve, 0));
 		expect(has(0)).toBe(true);
 		expect(read.mock.calls.length).toBe(calls);
+	});
+
+	it("the old key cssclass works too", async () => {
+		const { world, has } = setup({ "Roll.md": "`dice: 1d20`" }, { mode: "off", cssclass: { "Plain.md": "rollwright-world" } });
+		world.refresh();
+		await new Promise((resolve) => setTimeout(resolve, 0));
+		expect([has(0), has(1)]).toEqual([false, true]);
+	});
+
+	it("a change in a note that is not open, or without a paid skin, does nothing", async () => {
+		const free = setup({ "Roll.md": "" }, { licensed: false });
+		const closed = Object.assign(new TFile("Closed.md"), { stat: { mtime: 5 } }) as unknown as ObsidianFile;
+		const spy = vi.spyOn(free.world, "refresh");
+		free.world.noteChanged(free.leaves[0]!.view.file as unknown as ObsidianFile, "`dice: 1d6`");
+		const paid = setup({ "Roll.md": "" });
+		const paidSpy = vi.spyOn(paid.world, "refresh");
+		paid.world.noteChanged(closed, "`dice: 1d6`");
+		expect(spy).not.toHaveBeenCalled();
+		expect(paidSpy).not.toHaveBeenCalled();
 	});
 
 	it("clear takes it away everywhere (plugin off)", async () => {

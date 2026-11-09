@@ -1,4 +1,4 @@
-import { MarkdownView, TFile, type WorkspaceLeaf } from "obsidian";
+import { MarkdownView, TFile, WorkspaceWindow, type WorkspaceLeaf } from "obsidian";
 import type RollwrightPlugin from "../main";
 import { resolveSkin } from "../pro/skins";
 import { findInlineDice } from "../rollers/inline";
@@ -30,7 +30,10 @@ export function noteWorldMode(value: unknown): NoteWorldMode {
 	return NOTE_WORLD_MODES.some((mode) => mode.id === value) ? (value as NoteWorldMode) : "rolls";
 }
 
-const FENCE_OPEN = /^(?:[ \t]*>)*[ \t]{0,3}(`{3,}|~{3,})(.*)$/;
+// Any indent, so a fence inside a list item counts too. An indented code block is not skipped (known limit).
+const FENCE_OPEN = /^(?:[ \t]*>)*[ \t]*(`{3,}|~{3,})(.*)$/;
+// Code spans first, so `%%` or `<!--` written inside backticks opens no comment.
+const CODE_OR_COMMENT = /(`+)[\s\S]*?\1(?!`)|%%[\s\S]*?(?:%%|$)|<!--[\s\S]*?(?:-->|$)/g;
 
 /** Spaces for everything but line breaks, so lines keep their number and length. */
 function blank(text: string): string {
@@ -65,7 +68,7 @@ export function visibleMarkdown(text: string): string {
 		kept.push("");
 	}
 	// An unclosed comment runs to the end of the note, as in Obsidian.
-	return kept.join("\n").replace(/%%[\s\S]*?(?:%%|$)/g, blank).replace(/<!--[\s\S]*?(?:-->|$)/g, blank);
+	return kept.join("\n").replace(CODE_OR_COMMENT, (found: string) => (found.startsWith("`") ? found : blank(found)));
 }
 
 /** True when the note shows at least one `dice:`, `dice+:`, `dice-:` or `dice-mod:` code. */
@@ -112,8 +115,22 @@ export class NoteWorld {
 
 	/** Called by the changed event of the metadata cache: the text is already there, no read needed. */
 	noteChanged(file: TFile, text: string): void {
+		// Free users and notes that are not open cost nothing; a later read finds the new mtime.
+		if (!this.paidSkin() || !this.isOpen(file)) return;
 		this.rolls.set(file.path, { mtime: file.stat.mtime, hasRoll: noteHasRoll(text) });
 		this.refresh();
+	}
+
+	private paidSkin(): boolean {
+		return resolveSkin(this.plugin.settings.skin, this.plugin.isLicensed).paid;
+	}
+
+	private isOpen(file: TFile): boolean {
+		let open = false;
+		this.plugin.app.workspace.iterateAllLeaves((leaf) => {
+			if (leaf.view instanceof MarkdownView && leaf.view.file?.path === file.path) open = true;
+		});
+		return open;
 	}
 
 	/** Looks at every open note again. Only the newest call applies its answer. */
@@ -135,7 +152,7 @@ export class NoteWorld {
 
 	private async decide(): Promise<Set<HTMLElement>> {
 		const { settings } = this.plugin;
-		const paidSkin = resolveSkin(settings.skin, this.plugin.isLicensed).paid;
+		const paidSkin = this.paidSkin();
 		const wanted = new Set<HTMLElement>();
 		if (!paidSkin) return wanted;
 		const mode = noteWorldMode(settings.noteWorld);
@@ -145,7 +162,9 @@ export class NoteWorld {
 			if (!(view instanceof MarkdownView) || !(view.file instanceof TFile) || !this.inMainArea(leaf)) return;
 			const file = view.file;
 			const el = view.containerEl;
-			const cssclasses = cssClassList(this.plugin.app.metadataCache.getFileCache(file)?.frontmatter?.cssclasses);
+			const frontmatter = this.plugin.app.metadataCache.getFileCache(file)?.frontmatter;
+			// cssclass (without s) is the old name, still read by Obsidian.
+			const cssclasses = [...cssClassList(frontmatter?.cssclasses), ...cssClassList(frontmatter?.cssclass)];
 			let needsText = false;
 			const quick = wantsWorld({
 				paidSkin,
@@ -171,16 +190,17 @@ export class NoteWorld {
 	private async hasRoll(file: TFile): Promise<boolean> {
 		const known = this.rolls.get(file.path);
 		if (known && known.mtime === file.stat.mtime) return known.hasRoll;
+		// The mtime from before the read: a change during the read then counts as not yet seen.
+		const mtime = file.stat.mtime;
 		const hasRoll = noteHasRoll(await this.plugin.app.vault.cachedRead(file));
-		this.rolls.set(file.path, { mtime: file.stat.mtime, hasRoll });
+		this.rolls.set(file.path, { mtime, hasRoll });
 		return hasRoll;
 	}
 
-	/** Not in the left or right sidebar. Tabs in the main area and in pop-out windows count. */
+	/** Tabs in the main area and in pop-out windows. Not the sidebars, not leaves of other plugins (hover editors). */
 	private inMainArea(leaf: WorkspaceLeaf): boolean {
-		const { workspace } = this.plugin.app;
 		const root = leaf.getRoot();
-		return root !== workspace.leftSplit && root !== workspace.rightSplit;
+		return root === this.plugin.app.workspace.rootSplit || root instanceof WorkspaceWindow;
 	}
 
 	private apply(wanted: Set<HTMLElement>): void {
