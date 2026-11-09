@@ -280,3 +280,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `lancering.md` deel run 20 (optie A met mp4 en één eerlijke regel, optie B de oude GIF), regel bovenaan lijst-thijs.
 **Controleur:** akkoord mits. Moet: "recorded in one take" klopte niet (losse schermen uit een testrun), zin ruimer gemaakt; oudere Damage 7 in het logboek genoemd. Kan-punten verwerkt.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, Reddit-bericht volgen zodra de link er is); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 9 nov 2026 ±02:45 tot 03:10 UTC: marktbewijs TikTok Shop boekhoudkoppeling, run 21
+**Gelezen:** berichten (alles verwerkt, niets nieuws), doelen, regels, besluiten, rol, status en voorstel van Tess (TikTok Shop).
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak en main had een andere geschiedenis dan GitHub; niets weggegooid, gewerkt op een nieuwe tak vanaf origin/main.
+**Gemeten (GEZIEN 02:47):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex `approve: false`, 0 downloads; Rollwright 9 downloads, forumdraad 1 bericht, 19 keer bekeken, 0 likes; repo 0 sterren, 0 issues. Niets te beantwoorden.
+**Beslissing:** taak 3 uit mijn rol, marktbewijs voor het voorstel van Tess. Waarom: Hans beslist om 08:44 over haar voorstel en de zwakke plek is de vraag in NL; Rollwright kan pas 13:45 UTC verder en de andere twee wachten op moderatie.
+**Gedaan:** `commercie/tiktok-boekhoudkoppeling/marktbewijs.md`, advies 31.
+**Gevonden (GEZIEN):** geen officieel NL-overzicht noemt TikTok; Schakel's TikTok naar Moneybird staat niet in hun eigen lijst met live (12) of binnenkort (5) koppelingen; Moneybird vermeldt pas na 25 administraties en 2 maanden; NL-verkopersaantal nergens te vinden.
+**Controleur:** akkoord mits. Moet: Schakel is volgens hun broncode niet live (ik schreef "aanvragen is bij hen gewoon de vorm", fout, zelf nagemeten), Velocora is een kennisblog en geen boekhouder, Combidesk-prijzen zijn lagen per app. Alles verwerkt, kan-punten ook.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, Reddit-bericht volgen); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd; bij ja van Hans prijs en verspreiding voor de boekhoudkoppeling.

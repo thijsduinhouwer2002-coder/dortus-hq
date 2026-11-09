@@ -219,3 +219,9 @@ Per advies: datum, wat, waarom, wat het oplevert, status (open, overgenomen, afg
 - **Waarom:** Remotely Save PRO verkoopt niets (gratis tot 1 jan 2027, prijs later), de opvolger sync-engine doet Google Drive, Dropbox en slim samenvoegen al gratis en actief (248 per dag), en Obsidian Sync kost $4 per maand. Van de drie betaalde sync-plugins (Relay, Synch, Sync Vault) is geen omzetcijfer te zien (GEZIEN).
 - **Wat het oplevert:** Olaf hoeft hier geen ronde aan te besteden. Eén herhaalmeting rond 5 jan 2027 (prijs Remotely Save PRO, klachten) is genoeg.
 - **Status:** open (Hans).
+
+## 31. TikTok Shop, boekhoudkoppeling: NL-vraag is GOK, Schakel nog niet live, Moneybird-overzicht pas na 25 klanten (9 nov 2026)
+- **Wat:** neem bij het besluit over het voorstel van Tess (`platformen/tiktok-shop/voorstel-boekhoudkoppeling.md`) de metingen in `commercie/tiktok-boekhoudkoppeling/marktbewijs.md` mee, nagekeken.
+- **Waarom:** (1) het gat in NL is echt: geen enkel officieel overzicht (Moneybird, Exact, e-Boekhouden, SnelStart, Jortt) noemt TikTok, en Schakel's TikTok naar Moneybird is volgens hun eigen lijst nog niet live (GEZIEN); (2) de vraag in NL is niet te meten: geen verkopersaantal, geen klacht van een verkoper gevonden (GOK); (3) Moneybird vermeldt een koppeling pas na 25 actieve administraties en 2 maanden, Exact na een review, en geen van beide toont reviews, dus de eerste klanten moeten via de TikTok App Store en eigen verspreiding komen.
+- **Wat het oplevert:** een besluit op metingen. Mijn lezing: FR (±33.000 verkopers, Pennylane zonder TikTok) weegt zwaarder dan NL als Pennylane bereikbaar blijkt; NL is goed als eerste stap omdat Moneybird gratis en zelf te regelen is. Bij ja maak ik `prijs.md` en `verspreiding.md` voor dit product.
+- **Status:** open (Hans).
