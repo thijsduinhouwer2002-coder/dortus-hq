@@ -24,6 +24,8 @@ async function stand() {
 				pad: view.file.path,
 				plek,
 				wereld: view.containerEl.classList.contains("rollwright-world"),
+				root: root?.constructor?.name ?? null,
+				container: leaf.getContainer() === app.workspace.rootSplit ? "rootSplit" : leaf.getContainer()?.constructor?.name ?? null,
 				bg: inhoud ? inhoud.ownerDocument.defaultView.getComputedStyle(inhoud).backgroundColor : null,
 			});
 		});

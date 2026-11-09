@@ -128,17 +128,18 @@ function fakeEl() {
 	};
 }
 
-function noteLeaf(path: string, root: unknown) {
+/** Like Obsidian: a pop-out leaf has its own root (not a WorkspaceWindow); its container is the window. */
+function noteLeaf(path: string, root: unknown, container: unknown = root) {
 	const file = Object.assign(new TFile(path), { stat: { mtime: 1 } });
 	const view = Object.assign(Object.create(MarkdownView.prototype) as object, { file, containerEl: fakeEl() }) as { file: TFile & { stat: { mtime: number } }; containerEl: ReturnType<typeof fakeEl> };
-	return { view, getRoot: () => root };
+	return { view, getRoot: () => root, getContainer: () => container };
 }
 
 function setup(texts: Record<string, string>, options: { skin?: string; licensed?: boolean; mode?: string; cssclasses?: Record<string, unknown>; cssclass?: Record<string, unknown> } = {}) {
 	const leftSplit = {};
 	const rightSplit = {};
 	const rootSplit = {};
-	const leaves = [noteLeaf("Roll.md", rootSplit), noteLeaf("Plain.md", rootSplit), noteLeaf("Side.md", rightSplit), noteLeaf("Popout.md", new WorkspaceWindow()), noteLeaf("Hover.md", {})];
+	const leaves = [noteLeaf("Roll.md", rootSplit), noteLeaf("Plain.md", rootSplit), noteLeaf("Side.md", rightSplit, rootSplit), noteLeaf("Popout.md", {}, new WorkspaceWindow()), noteLeaf("Hover.md", {}, {})];
 	texts = { "Side.md": "`dice: 1d6`", "Popout.md": "`dice: 1d6`", "Hover.md": "`dice: 1d6`", ...texts };
 	const read = vi.fn(async (file: ObsidianFile) => texts[file.path] ?? "");
 	const plugin = {

@@ -199,8 +199,12 @@ export class NoteWorld {
 
 	/** Tabs in the main area and in pop-out windows. Not the sidebars, not leaves of other plugins (hover editors). */
 	private inMainArea(leaf: WorkspaceLeaf): boolean {
+		const { workspace } = this.plugin.app;
 		const root = leaf.getRoot();
-		return root === this.plugin.app.workspace.rootSplit || root instanceof WorkspaceWindow;
+		if (root === workspace.leftSplit || root === workspace.rightSplit) return false;
+		// getContainer gives the main area (rootSplit) or a pop-out window; getRoot of a pop-out leaf does not.
+		const container = leaf.getContainer();
+		return container === workspace.rootSplit || container instanceof WorkspaceWindow;
 	}
 
 	private apply(wanted: Set<HTMLElement>): void {
