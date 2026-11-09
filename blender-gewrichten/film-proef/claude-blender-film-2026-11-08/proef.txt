@@ -23,8 +23,9 @@ render 3-elleboog-0 klaar
 render 4-rood28-hoek0 klaar
 render 4-rood28-hoek60 klaar
 render 4-rood28-hoek120 klaar
-render 4-rood28-hoek180 klaar
 render 4-rood28-hoek270 klaar
+render 4b-rood28-doorzichtig-hoek0 klaar
+render 4b-rood28-doorzichtig-hoek60 klaar
 render 5-rood28-exploded klaar
 knie: {'FINISHED'}, kogel 4.0 mm, A2 Mannequin_A_A, B2 Mannequin_A_B
 knie: passing groen, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
