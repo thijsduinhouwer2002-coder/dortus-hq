@@ -21,7 +21,9 @@ const wereld = (skin, thema, modus) => browser.executeObsidian(async ({ app }, s
 	await leaf.setViewState({ type: "markdown", state: { ...leaf.view.getState(), mode: modus === "lp" ? "source" : "preview", source: false } });
 	leaf.view.containerEl.classList.add("rollwright-world");
 	const cs = getComputedStyle(leaf.view.containerEl.querySelector(".view-content"));
-	return { cls: leaf.view.containerEl.className, bg: cs.backgroundColor, font: getComputedStyle(leaf.view.containerEl.querySelector(".cm-content, .markdown-preview-view") || document.body).fontFamily.slice(0, 40) };
+	const kop = leaf.view.containerEl.querySelector(".view-header"); const kc = kop ? getComputedStyle(kop) : null;
+	const pad = []; for (let e = kop; e && e !== document.body; e = e.parentElement) pad.push(e.className.slice(0, 60) + " bg=" + getComputedStyle(e).backgroundColor + " img=" + getComputedStyle(e).backgroundImage.slice(0, 30));
+	return { kop: kc ? [kc.backgroundColor, kc.backgroundImage.slice(0, 40), kc.color] : "geen kop in containerEl", pad, cls: leaf.view.containerEl.className, bg: cs.backgroundColor, font: getComputedStyle(leaf.view.containerEl.querySelector(".cm-content, .markdown-preview-view") || document.body).fontFamily.slice(0, 40) };
 }, skin, thema, modus);
 const meta = {};
 
