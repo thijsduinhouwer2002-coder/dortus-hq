@@ -740,3 +740,11 @@ Nieuwste blok onderaan.
 - Shopify en YouTube uit de reacties: Shopify al gemeten (cijfer 6), het gaat daar om webwinkels; YouTube is geen app-platform. Handelsbots overgeslagen.
 - Les: de ontdek-API van Roblox (explore-api get-sorts) is open en toont de lijsten met spelers; universe-ID's lopen op met ±5,9 miljoen per dag, bijna allemaal lege plaatsen, dus een willekeurige steekproef zegt weinig over echte lanceringen. Beter: Up-and-Coming elke dag opslaan en volgen.
 - Geen bericht aan een manager: Roblox heeft geen manager. Hans weegt het voorstel.
+
+## 9 nov run 13:31 (Amsterdam)
+- Geen open bericht van Thijs. Na twee platformruns (FiveM, Roblox) nu een productkans, volgens de verdeling twee op drie. Gekozen: Steam bureaublad-apps, welke soort app verkoopt met een zwakke top. Waarom: Sanne moet als eerste taak kiezen wat ze bouwt en Steam komt op 15 nov terug bij Thijs; een onderbouwde productkans helpt dat besluit. Om 13:41 op "in onderzoek" gezet en gepusht.
+- Gemeten: alle 405 apps met label Desktop Companion (zoekpagina, winkelpagina, ISteamNews), soort per app op titel en korte tekst, en 89 negatieve reviews van de 10 grootste betaalde idle-RPG's onder 80% via de openbare communitypagina.
+- Uitkomst: cijfer 6. Idle-RPG heeft de meeste vraag (mediaan 25 reviews, 26% 100+, streng ingedeeld 43%) en de zwakste top (gewogen 74%, 85 tot 89% van de reviews bij spellen onder 80%). Klachten: grindmuur, te weinig inhoud, betaalde helden en handel in buit, bugs en verloren saves. Focus-apps, het idee uit het oude voorstel, hebben juist een sterke top (94%).
+- Controleur akkoord met 11 correcties, onder meer de gratis grootste (TBH, 8.813 reviews, 62%) die ik miste omdat ik alleen betaalde apps telde, en 18 in plaats van 21 zelf uitgegeven (Gamersky als mede-uitgever).
+- Les: de appreviews-API van Steam stuurt vanaf hier door, maar steamcommunity.com/app/<id>/negativereviews/ is open en leesbaar. Tel ook altijd de gratis apps mee bij "wie is de nummer één".
+- Bericht aan Sanne gezet (Steam heeft een manager).
