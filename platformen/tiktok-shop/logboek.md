@@ -89,3 +89,6 @@
 
 ## 9 nov 2026, run 19:55 UTC (Jet), vervolg 2
 - Product-laag: ontwerp herschreven, controleur ronde 2 nee (bewaarde bestelling per afrekening, opnieuw boeken over meer aanroepen, onvolledig begrensd), ronde 3 akkoord. Volgende run bouwen.
+
+## 9 nov 2026, run 19:55 UTC (Jet), vervolg 3
+- Product-laag deel 1 gebouwd: `src/samenstel.ts` (zuiver: total_count, elke bestelling één keer, alleen regels van deze afrekening, correctie alleen als het nog niet sluit, rest als verschil, aanpassingen en RESERVE, alleen EUR). Code-controleur ronde 1 nee (kopbedragen buiten try, waarschuwingen van andere afrekeningen), ronde 2 akkoord. 41 tests groen in de map. Op main via tak `claude/tiktok-shop-2026-11-09-e`. Bison & Flex: nog in moderatie.

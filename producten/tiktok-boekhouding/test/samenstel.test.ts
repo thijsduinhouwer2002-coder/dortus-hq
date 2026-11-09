@@ -155,3 +155,8 @@ test("controleur: echte weigering door de rekenkern (ongeldige munt) geeft fout_
   const b = { ...bestelling("A", "25", "-4", "-2.5"), currency: "EU" };
   assert.equal(stelSamen(S, kop(1), [orderT("1", "A", "18.5")], new Map([["A", b]])).status, "fout_gegevens");
 });
+
+test("controleur ronde 2: kop zonder munt of met total_count null is onvolledig, geen vaste fout", () => {
+  assert.equal(stelSamen(S, {} as any, [], new Map()).status, "onvolledig");
+  assert.equal(stelSamen(S, kop(0, { total_count: null }), [], new Map()).status, "onvolledig");
+});

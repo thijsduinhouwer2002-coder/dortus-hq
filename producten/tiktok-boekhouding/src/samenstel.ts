@@ -35,7 +35,8 @@ export function bruikbaar(b: BestellingTransacties | undefined, statementId: str
 export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, transacties: Transactie[], bestellingen: Map<string, BestellingTransacties>): Samenstelling {
   const leeg = (status: Samenstelling["status"], reden: string, ontbrekend: string[] = []): Samenstelling => ({ status, reden, regels: [], waarschuwingen: [], ontbrekend });
   if (!kop) return leeg("onvolledig", "kop van de afrekening ontbreekt");
-  const valuta = String(kop.currency ?? "").toUpperCase();
+  if (!kop.currency || !/^\d+$/.test(String(kop.total_count ?? ""))) return leeg("onvolledig", "kop zonder munt of aantal transacties");
+  const valuta = String(kop.currency).toUpperCase();
   if (valuta !== "EUR") return leeg("fout_gegevens", `versie 1 werkt alleen met EUR, deze afrekening is in ${kop.currency}`);
   if (Number(kop.total_count) !== transacties.length) return leeg("onvolledig", `TikTok meldt ${kop.total_count} transacties, er kwamen er ${transacties.length}`);
 
@@ -70,7 +71,7 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
       for (const x of b.waarschuwingen) {
         if (x.startsWith("kop:")) continue;
         const m = /\(afrekening ([^)]*)\)/.exec(x);
-        if (m && m[1] !== statementId) continue;
+        if (m && m[1] && m[1] !== statementId) continue;
         w.push(`bestelling ${orderId}: ${x}`);
       }
       const hier = b.regels.filter((r) => r.statementId === statementId);
