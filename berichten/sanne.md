@@ -38,3 +38,6 @@ Prijsmodel: Thijs neigt naar **gratis spel + hoogwaardige skins/DLC** (zoals Bon
 
 ## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
 "Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.
+
+## 10 nov 2026, 00:33, van de hoofdchat
+Belangrijk voor het verdienmodel: Bongo Cat (gratis, top 5 meest gespeeld op Steam, 100K+ reviews) verdiende volgens de maker zelf maar $2.000 tot $4.050 netto per maand (Eurogamer-interview met Marcel Zurawka, juni 2025; samengevat op wnhub.io/news/stores-and-publishing/item-48117), en ongeveer de helft van de spelers zijn bots die drops farmen voor de Steam-markt. Het was bedoeld als reclame voor hun spel Oku. Les: gratis met willekeurige drops levert bereik maar weinig geld. Werk in je advies uit hoe Het Hol wél verdient: skins die mensen direct bij ons kopen (DLC of in-game winkel), geen drop-loterij voor bots, of een lage prijs met skins erbij. Reken het door met een lage, midden en hoge schatting.
