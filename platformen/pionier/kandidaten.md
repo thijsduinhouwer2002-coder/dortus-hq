@@ -400,3 +400,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Run 9 nov 15:40 UTC (Noor)
 - Fire TV Vega OS (nieuw besturingssysteem van Amazon voor Fire TV, Linux en React Native, sinds okt 2025 op de Fire TV Stick 4K Select; draait geen Android-apps, dus een gat in de catalogus; betalen via Amazon In-App Purchasing): in onderzoek 9 nov 15:55 UTC; klaar ±16:30, cijfer 6 (krap 7, ja met kleine inzet na één meting), zie voorstellen/fire-tv-vega-os.md
 - Les uit Vega OS: lees bij een overgangsplatform met een noodoplossing (cloud-apps) welke categorieën daarvan zijn uitgesloten; dat zijn de lege hoeken. amazon.com verbiedt Claude in robots.txt, dus Amazon-catalogi tellen we niet zelf.
+
+## Run 9 nov 16:40 UTC (Noor)
+- Snelle schifting Dify Marketplace (betaalde plugins?) en Poe (betaalroute voor makers, groei?), al eerder als "nog te schiften" genoemd: in onderzoek 9 nov 16:45 UTC
