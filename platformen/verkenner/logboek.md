@@ -720,3 +720,13 @@ Nieuwste blok onderaan.
 - Les: bij Garmin zegt releaseDate niets over onderhoud; Garmin zet apps zelf massaal over. Voor "verlaten" de reviews lezen.
 - Geen bericht aan een manager: Garmin heeft geen manager.
 - Run afgesloten (werktijd op).
+
+## 9 nov run 11:31 (Amsterdam)
+- Begin: lokale main stond los, op origin/main gezet (git pull hing, met fetch gewerkt). Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: platformrun (de vorige twee runs waren productkansen). FiveM en RedM, nog nooit bekeken, een grote markt waar servereigenaren voor scripts betalen. Om 11:35 op "in onderzoek" gezet en gepusht.
+- Eigen meting: de open serverlijst van Cfx (protobuf-stream, 33.513 servers, 81.389 spelers) en de resources van 588 servers (200 drukste plus 388 willekeurige) via de open single-endpoint; spelersnamen niet opgeslagen. Scripts data/fivem-stream-script.py, fivem-server-script.sh, fivem-resources-analyse-script.py. Onderzoeker: forum (betaalde releases per maand, steekproef sep 2026), Cfx Marketplace, Tebex, regels.
+- Uitkomst: nee voor nu, cijfer 3. Geld op marktniveau echt (script $29,99, Tebex 15%), maar bereik van nieuwe makers zwak (mediaan 260 views, 0 tot 1 like), 71% van de servers draait iets van een vaste top, geen kleine maker met een bedrag, testen vraagt GTA V-licentie en Cfx-account. Zie voorstellen/fivem-redm.md.
+- Controleur akkoord, 6 correcties (418 in plaats van 384 servers met studio-script, ±430 in plaats van ±450 releases per maand, Qbox-groei niet gemeten, enz.).
+- Les: de serverlijst van FiveM toont per server de resources, dus bereik per script is te tellen; de lijst-stream zelf heeft ze niet, alleen de losse serverpagina in de API. servers.fivem.net verbiedt /servers/detail/ in robots.txt, de API-host heeft geen robots.txt; rustig gelezen (600 verzoeken).
+- Geen bericht aan een manager: FiveM heeft geen manager.
+- Run afgesloten (werktijd op).

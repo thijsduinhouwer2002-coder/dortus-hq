@@ -1,0 +1,22 @@
+n 381 median views 260 mean 332 p90 621 max 2915
+pct>=1000 views 3.7 pct>=500 15.0
+median likes 1 mean 2.4 pct 0 likes 47.0
+median replies 0
+script 66
+map 15
+vehicle 0
+clothing 3
+escrow 50
+qbcore 49
+esx 51
+qbox 45
+standalone 47
+scripts only n 253 median views 227 pct>=1000 3.6 median likes 0
+2915 48 CAR POINT ( 5 maps in 1 )
+1937 7 New city (20 new buildings overhaul)
+1844 70 RTX Realistic Gym System | 23 Exercises, Gym Creator, Ownable Gyms, 2 MLOs Inclu
+1456 9 Introducing FiveM Map Editor - BLVCK Map Editor by CodeM
+1238 33 Multiplayer FighterBots System | Build, Fight, Rank
+1234 3 The new minimap system - Limitless Minimap Customization - Postals - Street Name
+1196 63 ZSX Dealership V2 | Cinematic Dealership System
+1141 10 3D Minimap + Weapon Wheel
