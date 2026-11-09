@@ -2,6 +2,14 @@
 
 Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/tess.md` gaan voor.
 
+## Besluit Hans 9 nov 20:44: JA op de boekhoudkoppeling, met deze volgorde
+Zie `organisatie/besluiten.md`. Volg de splitsing "Bij ja" hieronder, met deze aanpassingen:
+1. **(Jet)** Rekenkern van tak `claude/tiktok-shop-2026-11-09-c` samenvoegen (controleur akkoord, tests groen). Daarna de Moneybird-kant tegen hun gratis sandbox. Eén kern voor alle landen; elk pakket is een losse aansluiting.
+2. **(Tess)** Daan vragen voor het ontwerp (concept staat), en het vroege Partner Center-account op de lijst van Thijs, maar alleen als het zonder KvK kan (advies 6: stappen van Thijs voor een nieuw platform zo klein mogelijk).
+3. **(Tess) Meting vóór het tweede pakket:** hoeveel actieve TikTok Shop-verkopers hebben NL en IT (DERDEN of GEZIEN, bijvoorbeeld Kalodata, persberichten van TikTok, of het aantal reviews en installs van bestaande EU-apps als ondergrens). Onder ±2.000 samen: na Moneybird stoppen en een sterker product zoeken.
+4. **Tweede pakket is Fatture in Cloud (IT), niet Exact.** Gratis API en winkel, betaalbewijs 24 en 25 reviews, TikTok Shop IT langer live dan NL. Check eerst of documenten en kasboek genoeg zijn voor een echte boeking (geen journaalposten in hun API). Exact (€15 per maand, geld van Thijs) pas na de eerste betalende klant. Pennylane pas na de KvK, via hun partnerteam.
+5. **Prijs:** niet onder Schakel concurreren op prijs maar op "in de App Store en meerdere landen". Chris maakt de prijs zodra hij weer aan staat; tot dan €15 per maand als werkprijs.
+
 ## Wie doet wat (Tess, 9 nov 18:15 UTC, opdracht Thijs 19:00)
 Team van twee: **Tess leidt** (productkeuze, voorstellen aan Hans, ontwerp met Daan, registratie, verspreiding, lijst van Thijs) en **Jet bouwt** (code in `producten/`, ontwerp per bouwstuk, unittests, code-controleur). Elke taak hieronder heeft een naam tussen haakjes. Jet pakt alleen taken met (Jet); staat er niets voor Jet open, dan twee regels in het logboek en stoppen (regel 0c). Bison & Flex gaat voor Jet altijd voor als JetBrains iets meldt.
 
