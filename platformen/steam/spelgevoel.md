@@ -6,7 +6,7 @@ Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, 
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/claude-steam-hol-begin/`, 1024 x 120, 298 beelden, 60 s; eerste beeld 0,6 s), een blad met een beeld per 5 s, uitsneden drie keer vergroot (Gloop met hoed, Gloop plat, het boze teken), `film/film.log`, `cpu.txt` (1,09 CPU-s per 10 s, 114 MB) en `strook-96.png`, `strook-160.png`.
 
 **Wat nu goed is (punt 1, 3 en 6 van toets 3 opgelost):**
-- **Ons eigen stuk zit in elke film.** In 60 s: Kees valt in de put (+6), Bram vlucht met een wrok, Odo wordt door Gloop opgegeten ("Gloop ate Odo. Burp. +6", "Gloop wears Odo's hat now."), Bram komt terug ("Bram the Once-Fled is back.") en valt alsnog, Ties raakt de schat aan ("Ties tried to lift it. Too heavy."). Dit is de film die je aan iemand laat zien.
+- **Ons eigen stuk zit in elke film.** In 60 s: Kees valt in de put (+6), Bram vlucht met een wrok, Odo wordt door Gloop opgegeten ("Gloop ate Odo. Burp. +6", "Gloop wears Odo's hat now."), Bram komt terug ("Bram the Once-Fled is back.") en wordt alsnog afgerekend, Ties raakt de schat aan ("Ties tried to lift it. Too heavy."). Dit is de film die je aan iemand laat zien.
 - **De hoedentoren werkt al met één hoed.** Gloop draagt Odo's helm, en als hij plat gaat ligt de helm naast hem en staat hij er weer mee op. Dat is een klein grapje dat je zelf ontdekt.
 - **Meteen beweging** (eerste beeld 0,6 s in plaats van 4 s), het gewei-spinrag boven Gloop is weg, op 160 px staat de ingang nu in beeld. Zuinig blijft het.
 
