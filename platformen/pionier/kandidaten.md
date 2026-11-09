@@ -356,3 +356,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 07:40 UTC (Noor)
 - SHOPLINE App Store (winkelbouwer uit Azië die naar de VS, het VK en Europa trekt; app store met afrekenen via SHOPLINE; groei in het westen en jonge winkel nakijken): in onderzoek 9 nov 07:48 UTC; klaar ±07:55, cijfer 3 (nee), zie onderzocht.md
+- Tiendanube / Nuvemshop App Store (winkelbouwer voor Latijns-Amerika; Storeleads 124.943 live winkels eind 2024 naar 208.292 nu, GEZIEN https://storeleads.app/reports/tiendanube; afrekenen van apps en jonge hoeken nakijken): in onderzoek 9 nov 07:55 UTC
