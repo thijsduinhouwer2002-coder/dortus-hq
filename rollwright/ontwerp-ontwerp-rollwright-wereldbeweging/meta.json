@@ -1,0 +1,159 @@
+{
+ "css": 171345,
+ "venster": "remote",
+ "views": [
+  "file-explorer",
+  "search",
+  "bookmarks",
+  "markdown",
+  "backlink",
+  "outgoing-link",
+  "tag",
+  "all-properties",
+  "outline",
+  "rollwright-history"
+ ],
+ "kerker-nat20": {
+  "cls": "rollwright-roll rwx-ico rwx-ico-wolf rollwright-rolled",
+  "n": 3,
+  "namen": [
+   "rwxk-slag",
+   "rw-tumble",
+   "rw-land"
+  ],
+  "r": [
+   285.82330322265625,
+   363.3823547363281,
+   180.1502685546875,
+   35.62591552734375
+  ]
+ },
+ "kerker-nat1": {
+  "cls": "rollwright-roll rwx-ico rwx-ico-trap rollwright-rolled",
+  "n": 11,
+  "namen": [
+   "rwxk-slag",
+   "rwxk-hitte",
+   "rwxk-sintels",
+   "rw-tumble",
+   "rw-burst",
+   "rw-land",
+   "rw-sticker",
+   "rwxk-slag",
+   "rw-tumble",
+   "rw-land",
+   "rw-sticker"
+  ],
+  "r": [
+   351.4096984863281,
+   535.88232421875,
+   182.61813354492188,
+   35.6259765625
+  ]
+ },
+ "kerker-gewoon": {
+  "cls": "rollwright-roll rollwright-rolled",
+  "n": 16,
+  "namen": [
+   "rwxk-slag",
+   "rwxk-hitte",
+   "rwxk-sintels",
+   "rw-tumble",
+   "rw-burst",
+   "rw-land",
+   "rw-sticker",
+   "rwxk-slag",
+   "rw-tumble",
+   "rw-land",
+   "rwxk-zak",
+   "rwxk-barst",
+   "rwxk-stof",
+   "rw-tumble",
+   "rw-land",
+   "rw-sticker"
+  ],
+  "r": [
+   484.052490234375,
+   364.203125,
+   150.52001953125,
+   34.78125
+  ]
+ },
+ "codex-nat20": {
+  "cls": "rollwright-roll rwx-ico rwx-ico-wolf rollwright-rolled",
+  "n": 12,
+  "namen": [
+   "rwxc-druk",
+   "rw-tumble",
+   "rwxc-pen",
+   "rw-sticker",
+   "rwxc-druk",
+   "rw-tumble",
+   "rwxc-pen",
+   "rwxc-druk",
+   "rwxc-vlek",
+   "rw-tumble",
+   "rwxc-pen",
+   "rw-sticker"
+  ],
+  "r": [
+   296.53985595703125,
+   412.44842529296875,
+   142.0452880859375,
+   38.9156494140625
+  ]
+ },
+ "codex-nat1": {
+  "cls": "rollwright-roll rwx-ico rwx-ico-trap rollwright-rolled",
+  "n": 14,
+  "namen": [
+   "rwxc-druk",
+   "rwxc-randen",
+   "rwxc-glans",
+   "rw-tumble",
+   "rw-burst",
+   "rwxc-pen",
+   "rw-sticker",
+   "rwxc-druk",
+   "rw-tumble",
+   "rwxc-pen",
+   "rwxc-druk",
+   "rw-tumble",
+   "rwxc-pen",
+   "rw-sticker"
+  ],
+  "r": [
+   361.97344970703125,
+   594.1359252929688,
+   151.3968505859375,
+   38.9156494140625
+  ]
+ },
+ "codex-gewoon": {
+  "cls": "rollwright-roll rollwright-rolled",
+  "n": 15,
+  "namen": [
+   "rwxc-druk",
+   "rwxc-randen",
+   "rwxc-glans",
+   "rw-tumble",
+   "rw-burst",
+   "rwxc-pen",
+   "rw-sticker",
+   "rwxc-druk",
+   "rw-tumble",
+   "rwxc-pen",
+   "rwxc-druk",
+   "rwxc-vlek",
+   "rw-tumble",
+   "rwxc-pen",
+   "rw-sticker"
+  ],
+  "r": [
+   462.80859375,
+   414.29022216796875,
+   120.2578125,
+   37.0289306640625
+  ]
+ }
+}
