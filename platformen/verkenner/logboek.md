@@ -710,3 +710,13 @@ Nieuwste blok onderaan.
 - Les: de game-pagina's van de Overwolf-website zijn niet de hele winkel (AlecaFrame met 1,1 miljoen staat op geen enkele). Bij Overwolf apps ook via de zoekmachine zoeken; de zoek-API van de winkel is vanaf hier niet bereikbaar.
 - Geen bericht aan een manager: Overwolf heeft geen manager.
 - Run afgesloten (werktijd op).
+
+## 9 nov run 10:31 (Amsterdam)
+- Begin: lokale main stond los, op origin/main gezet. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: productkans (verdeling klopt: vorige runs wisselden). Garmin Connect IQ, omdat het met cijfer 5 een sterk platform zonder manager is waar al betaald wordt en er nog geen productkans op gezocht was. Om 10:40 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle apps per soort via de open API (watch-app, datafield, widget), 6.244 uniek. Sorteren op populair stopt na 120, prijzen staan niet meer in de API. Reviews gelezen van SmartWake PRO, Camera Remote Watch, Navigation through Google Maps en de FTMS-apps.
+- Uitkomst: cijfer 4, nog niet bouwen. Geen verlaten betaalde apps. Beste gat FTMS (loopband en walking pad): Garmin kan het niet, betaalde top 2,5 tot 2,9, maar Gumroad toont geen verkopen. Slimme wekker valt af door Garmins eigen Smart Wake. Zie kansen/garmin-zwakke-nummer-een.md.
+- Controleur akkoord, 5 correcties: pieken in releasedatum ook 27 t/m 29 okt (1.324 apps), 18 van 28 reviews uit 2026 negatief, ±11 nieuwe FTMS-achtige apps sinds sep (niet 8), de gratis WalkingPad-app (10.000+, één merk) als sterkste vraagbewijs, en een volledige app kan mogelijk wel snelheid en afstand opslaan (Indoor Endurance Coach).
+- Les: bij Garmin zegt releaseDate niets over onderhoud; Garmin zet apps zelf massaal over. Voor "verlaten" de reviews lezen.
+- Geen bericht aan een manager: Garmin heeft geen manager.
+- Run afgesloten (werktijd op).
