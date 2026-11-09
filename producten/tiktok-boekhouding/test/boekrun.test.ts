@@ -333,9 +333,30 @@ test("geen rekening gekozen: winkelfout instellingen, geen fout per afrekening; 
   const o = new GeheugenOpslag();
   const zonder = { ...koppeling, per: { omzet: { grootboekId: "201" } } };
   const r = await verwerkWinkel(deps(w, o), inst({ koppeling: zonder }));
-  assert.equal(r.winkel?.soort, "invoer");
+  assert.equal(r.winkel?.soort, "instelling");
   assert.notEqual(await status(o, "7001"), "fout");
   await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst());
   assert.equal(await status(o, "7001"), "geboekt");
   assert.equal(await status(o, "7002"), "geboekt");
+});
+
+test("twee runs om elkaar heen: B boekt tussen de lezing en het slot van A, A doet daarna geen Moneybird-verzoek", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  const o = new GeheugenOpslag();
+  const nu = T0 + 10 * 86400;
+  // A leest (nog niets) en wacht; B verwerkt alles zodra A om het slot vraagt.
+  const echtNeem = o.neemSlot.bind(o);
+  let eerst = true;
+  let naB = -1;
+  o.neemSlot = async (id, eig, tot, n) => {
+    if (eerst && eig === "run-A") { eerst = false; await verwerkWinkel({ ...deps(w, o, nu), eigenaar: "run-B" }, inst()); naB = mbVerzoeken(w); }
+    return echtNeem(id, eig, tot, n);
+  };
+  await verwerkWinkel({ ...deps(w, o, nu), eigenaar: "run-A" }, inst());
+  assert.ok(naB > 0);
+  assert.equal(mbVerzoeken(w), naB); // A doet niets meer bij Moneybird (de echte Moneybird cachet zoeken)
+  assert.equal(w.urls.filter((u) => u.startsWith("POST MB")).length, 1);
+  assert.equal(w.docs.size, 1);
+  assert.equal(await status(o, "7001"), "geboekt");
 });

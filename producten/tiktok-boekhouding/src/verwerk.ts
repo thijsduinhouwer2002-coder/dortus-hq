@@ -238,9 +238,9 @@ const MAX_POGINGEN_RUNS = 5;
 const MAX_POGINGEN_DUUR = 24 * 3600;
 /** Hoort bij de vingerafdruk: ophogen als de manier van boeken verandert. */
 export const CODE_VERSIE = "1";
-// `invoer` en `btw_nog_niet_getest` komen uit de instellingen (bijv. geen rekening gekozen): winkel stil tot het klopt,
+// `instelling` en `btw_nog_niet_getest` komen uit de instellingen (bijv. geen rekening gekozen): winkel stil tot het klopt,
 // dan boekt alles vanzelf, in plaats van elke afrekening apart `fout`.
-const MB_WINKEL_STOP = ["koppeling_verlopen", "geen_abonnement", "geblokkeerd", "te_veel_verzoeken", "server", "niet_gevonden", "invoer", "btw_nog_niet_getest"];
+const MB_WINKEL_STOP = ["koppeling_verlopen", "geen_abonnement", "geblokkeerd", "te_veel_verzoeken", "server", "niet_gevonden", "instelling", "btw_nog_niet_getest"];
 /** Alles wat niet af is komt elke run terug, ook als het vóór de markering ligt (bijv. eerst FAILED, later onvolledig). */
 const NIET_AF = [...OPEN, "bezig_met_ophalen", "onvolledig"];
 
@@ -335,15 +335,23 @@ interface AfrekeningUitkomst {
 async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening): Promise<AfrekeningUitkomst> {
   const id = String(a.id);
   const tijd = Number(a.statement_time);
-  const oud = await d.opslag.leesStatus(id);
-  const herstel = oud?.opnieuwSinds !== undefined;
   // Af en geen knop gedrukt: geen enkel verzoek, ook niet na een gewijzigde koppeling (eis h).
-  if (oud && AF.includes(oud.status) && !herstel) return { status: oud.status };
-  // Ook na een knopdruk: Moneybird cachet GET, dus binnen 10 minuten kan een aangekomen POST nog onvindbaar zijn.
-  if (oud?.status === "onzeker" && d.nu() - oud.sinds < ONZEKER_WACHT) return { status: "onzeker" };
+  // Ook na een knopdruk wacht onzeker 10 minuten: Moneybird cachet GET, dus een aangekomen POST kan nog onvindbaar zijn.
+  const nietsTeDoen = (s: AfrekeningStatus | undefined): AfrekeningUitkomst | null => {
+    if (s && AF.includes(s.status) && s.opnieuwSinds === undefined) return { status: s.status };
+    if (s?.status === "onzeker" && d.nu() - s.sinds < ONZEKER_WACHT) return { status: "onzeker" };
+    return null;
+  };
+  const vroeg = nietsTeDoen(await d.opslag.leesStatus(id)); // spaart een slot
+  if (vroeg) return vroeg;
 
   if (!(await d.opslag.neemSlot(id, d.eigenaar, d.nu() + SLOT_DUUR, d.nu()))) return {}; // bezet: niets doen, niets schrijven
   try {
+    // Opnieuw lezen ná het slot: een andere run of de knop kan intussen geschreven hebben (geen dubbele POST zonder bekendId).
+    const oud = await d.opslag.leesStatus(id);
+    const herstel = oud?.opnieuwSinds !== undefined;
+    const niets = nietsTeDoen(oud);
+    if (niets) return niets;
     const basis = { ...(oud ?? {}), statementTime: tijd } as AfrekeningStatus;
     const zet = async (status: string, extra: Partial<AfrekeningStatus> = {}): Promise<AfrekeningUitkomst> => {
       const { opnieuwFout: _a, reden: _r, ...rest } = basis;
@@ -408,6 +416,8 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
       if (isBudgetOp(e)) return { stop: true, budgetOp: true }; // niets verstuurd: niets schrijven, geen onzeker
       if (e instanceof MoneybirdFout) {
         if (MB_WINKEL_STOP.includes(e.soort)) return { stop: true, winkel: { soort: e.soort, bericht: e.message } };
+        // Gegevens van deze afrekening kloppen niet (bijv. tijd of bedrag): vast, alleen deze afrekening.
+        if (e.soort === "invoer") return faal("fout_gegevens", e.message);
         return faal("fout", `${e.soort}: ${e.message}`);
       }
       throw e;

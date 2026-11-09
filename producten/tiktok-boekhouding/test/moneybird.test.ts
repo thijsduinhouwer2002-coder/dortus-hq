@@ -62,8 +62,8 @@ test("(a) datum in Nederlandse tijd, ook bij de jaarwisseling", () => {
 
 test("(b) invoerfouten geven een fout zonder enig verzoek", async () => {
   const gevallen: Array<[AfrekeningInvoer, Koppeling, string, any?]> = [
-    [invoer([r("belasting", -100)]), koppeling, "invoer"],
-    [STANDAARD, { ...koppeling, tegenrekeningId: "" }, "invoer"],
+    [invoer([r("belasting", -100)]), koppeling, "instelling"],
+    [STANDAARD, { ...koppeling, tegenrekeningId: "" }, "instelling"],
     [invoer([r("omzet", 100)], { valuta: "GBP" }), koppeling, "invoer"],
     [invoer([{ soort: "omzet", bedragCenten: 100, statementId: "999" }]), koppeling, "invoer"],
     [invoer([r("omzet", 100)]), { ...koppeling, per: { ...koppeling.per, omzet: { grootboekId: "100", btwTariefId: "7" } } }, "btw_nog_niet_getest"],
@@ -338,12 +338,12 @@ test("controleur ronde 1: zelfde aantal regels maar 1 cent, rekening, omschrijvi
   assert.equal((await boekAfrekening(client, ADM, STANDAARD, koppeling)).uitkomst, "ongewijzigd");
 });
 
-test("controleur ronde 1: tijd in milliseconden, munt per regel en id's uit letters geven een invoerfout", () => {
+test("controleur ronde 1: tijd in milliseconden, munt per regel en id's uit letters geven een invoer- of instellingfout", () => {
   assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)], { statementTime: T_10NOV * 1000 }), koppeling), (e: any) => e.soort === "invoer");
   assert.throws(() => maakMemoriaal(invoer([{ ...r("omzet", 100), valuta: "GBP" }]), koppeling), (e: any) => e.soort === "invoer");
   assert.doesNotThrow(() => maakMemoriaal(invoer([{ ...r("omzet", 100), valuta: "EUR" }]), koppeling));
-  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, per: { omzet: { grootboekId: "omzet" } } }), (e: any) => e.soort === "invoer");
-  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, tegenrekeningId: "abc" }), (e: any) => e.soort === "invoer");
+  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, per: { omzet: { grootboekId: "omzet" } } }), (e: any) => e.soort === "instelling");
+  assert.throws(() => maakMemoriaal(invoer([r("omzet", 100)]), { ...koppeling, tegenrekeningId: "abc" }), (e: any) => e.soort === "instelling");
   assert.throws(() => tekstNaarCenten(100 as any));
 });
 
