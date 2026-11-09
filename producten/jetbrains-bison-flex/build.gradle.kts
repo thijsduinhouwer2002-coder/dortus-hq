@@ -97,7 +97,7 @@ fun Test.ideTestInstellingen() {
 intellijPlatformTesting.testIdeUi.register("integrationTest") {
     task {
         ideTestInstellingen()
-        filter { excludeTestsMatching("*.ClionTest") }
+        filter { excludeTestsMatching("*.ClionTest"); excludeTestsMatching("*.FilmOpname") }
     }
 }
 
@@ -105,6 +105,14 @@ intellijPlatformTesting.testIdeUi.register("clionTest") {
     task {
         ideTestInstellingen()
         filter { includeTestsMatching("*.ClionTest") }
+    }
+}
+
+// Beelden voor het filmpje van Daan (FilmOpname.kt), alleen in jetbrains-bison-flex-film.yml.
+intellijPlatformTesting.testIdeUi.register("filmTest") {
+    task {
+        ideTestInstellingen()
+        filter { includeTestsMatching("*.FilmOpname") }
     }
 }
 
