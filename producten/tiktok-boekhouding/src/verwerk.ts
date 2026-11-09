@@ -55,10 +55,13 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   // Bewaarde transacties (van een eerdere aanroep, na T en niet ouder dan een dag) besparen alle pagina's.
   const bewaard = await d.opslag.leesTransacties(statementId);
   let kop, transacties;
+  let nieuw = false;
   if (bewaard && (o.sinds === undefined || bewaard.opgehaaldOp > o.sinds) && d.nu() - bewaard.opgehaaldOp < BEWAAR_TRANSACTIES) {
     ({ kop, transacties } = bewaard);
   } else {
-    const vers = d.budget.over === d.budget.totaal;
+    // "Vers": aan het begin van deze afrekening was (bijna) het hele budget er nog (marge voor de lijst met afrekeningen
+    // en tokens verversen). Lukt het dan nog niet, dan lukt het nooit.
+    const vers = d.budget.over >= d.budget.totaal - VERS_MARGE;
     try {
       ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
     } catch (e) {
@@ -69,8 +72,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
       if (e instanceof TikTokApiError) return { status: "onvolledig", reden: `transacties niet opgehaald: TikTok fout ${e.code}`, regels: [], waarschuwingen: [], ontbrekend: [] };
       return { status: "fout_gegevens", reden: `transacties niet te lezen: ${(e as Error).message}`, regels: [], waarschuwingen: [], ontbrekend: [] };
     }
-    // Alleen een complete lijst bewaren; anders zou een onvolledige lijst een dag blijven hangen.
-    if (kop && String(kop.total_count) === String(transacties.length)) await d.opslag.schrijfTransacties(statementId, { kop, transacties, opgehaaldOp: d.nu() });
+    nieuw = true;
   }
 
   const telt = (b: Awaited<ReturnType<Opslag["leesBestelling"]>>) => !!b && bruikbaar(b.antwoord, statementId) && (o.sinds === undefined || b.opgehaaldOp > o.sinds);
@@ -81,6 +83,9 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   }
   // Eerst de controles die geen bestelling nodig hebben (munt, total_count, dubbele transactie): spaart budget.
   const voor = stelSamen(statementId, kop, transacties, bestellingen);
+  // Bewaren pas na de controles: een lijst die "onvolledig" is zonder ontbrekende bestellingen (aantal, dubbele id,
+  // kop zonder munt) wordt niet bewaard, zodat de volgende aanroep opnieuw ophaalt.
+  if (nieuw && !(voor.status === "onvolledig" && !voor.ontbrekend.length)) await d.opslag.schrijfTransacties(statementId, { kop, transacties, opgehaaldOp: d.nu() });
   if (!(voor.status === "onvolledig" && voor.ontbrekend.length)) return klaar(voor);
   const ontbrekend = voor.ontbrekend;
 
@@ -120,6 +125,8 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
 
 /** Bewaarde transacties gelden een dag; daarna (of na "opnieuw sinds T") opnieuw ophalen. */
 const BEWAAR_TRANSACTIES = 24 * 3600;
+/** Verzoeken die vóór een afrekening al op mogen zijn om hem nog als "vers" te zien (lijst met afrekeningen, tokens). */
+const VERS_MARGE = 5;
 
 export interface ProefAfrekening {
   statementId: string;

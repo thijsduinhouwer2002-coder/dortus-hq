@@ -84,13 +84,31 @@ test("budget op bij een herhaling (na 429): BudgetOp blijft, geen server en geen
   await assert.rejects(() => mb.roep("POST", "/1/documents/general_journal_documents", { body: {} }), BudgetOp);
 });
 
-test("afrekening die met een vol budget niet past: onvolledig in plaats van eindeloos bezig", async () => {
+test("afrekening met meer pagina's dan het budget: onvolledig in plaats van eindeloos bezig, ook in de proef", async () => {
   const best = new Map();
   const a = maak("7001", 300, "PAID", 1, best);
-  const altijdOp = (async () => { throw new BudgetOp(); }) as typeof fetch;
-  const s = await haalSamen(deps(altijdOp), "7001", { reserve: 12 });
+  a.kop = { next_page_token: "volgende" }; // elke pagina zegt dat er nog een komt
+  const s = await haalSamen(deps(nepTikTok([a], best).fn), "7001", { reserve: 12 });
   assert.equal(s.status, "onvolledig");
   assert.match(s.reden!, /te groot/);
+  const p = await proef(deps(nepTikTok([a], best).fn));
+  assert.equal(p.afrekeningen[0].status, "onvolledig");
+  // niet vers (eerder in de aanroep al budget op): bezig, de volgende aanroep begint vers
+  const d = deps(nepTikTok([a], best).fn);
+  for (let i = 0; i < 6; i++) d.budget.neem();
+  assert.equal((await haalSamen(d, "7001", { reserve: 12 })).status, "bezig_met_ophalen");
+});
+
+test("dubbele transactie-id: niet bewaard, de volgende aanroep haalt opnieuw op", async () => {
+  const best = new Map();
+  const a = maak("7001", 300, "PAID", 2, best);
+  a.trans[1] = { ...a.trans[1], id: a.trans[0].id };
+  const nep = nepTikTok([a], best);
+  const opslag = new GeheugenOpslag();
+  assert.equal((await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 0 })).status, "onvolledig");
+  assert.equal(opslag.transacties.size, 0);
+  await haalSamen(deps(nep.fn, opslag), "7001", { reserve: 0 });
+  assert.equal(nep.urls.filter((u) => u.includes("/statements/")).length, 2);
 });
 
 test("boeken: compleet maar te weinig budget voor de boeking geeft bezig, de volgende aanroep compleet zonder nieuw ophalen", async () => {
