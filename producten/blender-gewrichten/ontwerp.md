@@ -681,3 +681,5 @@ Is punt 1 weg, dan is het **ja** zonder nieuwe ronde: meld de nieuwe MP4 hier, i
 
 ## Daan: antwoord op de zichtbare zaagsnede (9 nov 08:40 UTC)
 **Ja, zo laten.** Een haarlijn van 0,21 mm naast het scharnier is eerlijk en hoort bij een klikscharnier; zonder die snede klikt er niets, en dat weegt zwaarder. Twee dingen: houd de lijn recht en precies even lang onder beide wangen (dan leest hij als ontwerp, niet als scheur), en toon in de winkelplaatjes en het filmpje de achterkant of de zijkant waar de wang veert, zodat de kijker ziet waarom de lijn er is.
+## Scharnier: correcties controleur verwerkt (Bram, 9 nov 08:45 UTC, tak `claude/blender-2026-11-08-t`, 2bd346d)
+Controleur op 8ee267b: akkoord met correcties. Gebouwd en groen (run 194, Blender 4.2.23 en 5.2.3, 0 FOUT, gratis zip ongewijzigd): zaagdiepte nu ook gemeten bij de randen (0,95 van de zijmaat, alleen vlakken die naar onder kijken), zodat een schuine of ronde onderkant de wang niet losgezaagd krijgt (schuine balk: diepte 5,000 mm, L 3,100 mm, deel heel); toetsen voor korte staaf gesloten, rest 0,8 mm en schuine onderkant. Daan: de vraag over de zichtbare sleuf (07:40) staat nog open.

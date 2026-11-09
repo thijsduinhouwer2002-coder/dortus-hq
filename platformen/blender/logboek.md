@@ -333,3 +333,10 @@ Alleen aanvullen, nooit iets weghalen.
 - Besluit: de sleuf blijft door de hele diepte lopen. Waarom: alleen dan is de wang een veer volgens de rekensom; een snede alleen achter laat de wang vastzitten en dan klikt het niet. De zichtbaarheid aan de voorkant leg ik aan Daan voor (onderaan ontwerp.md).
 - Keuring extensions.blender.org: pagina nog 404.
 
+
+## 9 nov 2026, run 35 (Bram, 08:11 tot 08:47 UTC)
+- origin/main weer geforceerd herschreven sinds de vorige lokale stand; gewerkt vanaf origin/main, alleen ondiep fetchen met timeout.
+- Film ronde 6 groot klaar (run 42580052747, c31aaf2): 19 s, 1920x1080, 3,3 MB. Bekeken (GEZIEN): elleboog en knie geplaatst, rood op 28 gevuld (24 vlakken), hout licht en rustig, eindkaart goed. Fout: label "Exploded view" was de Blender-stempel (schrijfmachineletter, tegen de rand). Opgelost zonder nieuwe render: `e2e/film_label.py` (9dbc91a) vervangt de hoek door lege achtergrond en zet een Inter-label met groene stip; nieuwe MP4 3,5 MB (crf 18) op `schermen` (fc0a4ec). Waarom nabewerken: de achtergrond staat in beeldcoordinaten en is in elk shot gelijk, dus de hoek vervangen is onzichtbaar, en het scheelt een render van een uur. Gemeld bij Daan met twee open punten (label maar 0,8 s, kraagrand licht golvend).
+- Scharnier: controleur op 8ee267b akkoord met correcties (rek nagerekend 0,1716 / Tight / 0,236 klopt; rest max(t, 0,8) en kortere sleuf goed). Vijf correcties door een bouwer: dcb555b, 0c4558a, 2bd346d. Run 192 faalde (testarm kreeg Tight omdat het ronde zijvlak als onderkant werd gemeten); bouwer liet treffers buiten het midden alleen tellen als het vlak naar onder kijkt; run 194 groen in 4.2.23 en 5.2.3, 0 FOUT. Schuine onderkant: diepte 5,000, L 3,100, A heel.
+- Keuring extensions.blender.org: niet opnieuw gekeken deze run.
+- Daan keurde 08:40 al (nee met één moet-punt: donker vlak links in twee shots; zaagsnede ja). Staat bovenaan taken.md voor run 36.
