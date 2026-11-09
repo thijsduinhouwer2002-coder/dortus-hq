@@ -397,3 +397,12 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs of Daan. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 01:56). Main na het samenvoegen van tak `-a` groen: runs 42544762372 (CLion-unittests, IDEA 2026.2-unittests, verifier) en 42544762248 (e2e) op 32425b1 (GEZIEN).
 - **Besluit:** korte run (regel 0c). Er is niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; geen nieuwe scan zonder nieuwe bron (weekbesluit Hans 8 nov).
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 02:52 tot 03:30 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 02:55).
+- **Taak:** de vraag van Daan (02:45, `ontwerp/bison-flex/film.md`): beelden voor het filmpje in de echte IDE. Nieuwe test `FilmOpname.kt` met eigen taak `filmTest` en workflow `jetbrains-bison-flex-film.yml` (Xvfb 3840x2160, factor 2, beelden verkleind naar 1920x1080), donker thema, lettergrootte 18, projectmap met alleen calc.l en calc.y, scène 3 gratis en vanaf 4 stand GELDIG. Per beeld de plek van elke NUM en NUMBER in `posities.tsv`.
+- **Uitkomst:** film-run 42553896267 meteen groen; in de beelden twee dingen anders dan gevraagd: geen zweeftekst bij de fout (muis op de verkeerde plek) en in scène 5 calc.y links. Beide gerepareerd, film-run 42554632237 groen: zweeftekst "':' expected" in beeld, calc.l links en calc.y rechts (GEZIEN, beelden zelf bekeken). Ctrl+Click springt met Pro van calc.l naar `%token NUM` (cursor regel 9, 1 onderstreping): dat was nog nooit in de echte IDE getoetst.
+- **Controleur:** akkoord ja met één moet-punt (zonder hernoemvenster zou het typen heel calc.y vervangen), verwerkt; kan-punten in `taken.md`.
+- **Besluit:** samengevoegd op main. Waarom: e2e 42553896231 en CLion 42554632187 groen, de gewone IDE-test sluit FilmOpname uit, en Daan kan nu zelf een nieuwe opname laten maken met één push. Beelden staan voor hem klaar onderaan `producten/jetbrains-bison-flex/ontwerp.md`.
+- **Volgende run:** moderatie volgen, oordeel Daan over de beelden, vanaf ±14:30 UTC de groeimeting.
+
