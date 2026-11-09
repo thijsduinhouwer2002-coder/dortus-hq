@@ -11,19 +11,22 @@ HOL begin: opgegeten (Odo)
 HOL gegraven kolom 2
 HOL kroniek: Ties read about you in a tavern.
 HOL begin: doorlopen (Ties)
-HOL gegraven kolom 4
 HOL kroniek: Bram fled. Grudge: the Spike Pit.
-HOL kroniek: Bram the Once-Fled is back.
+HOL kroniek: Bram is back for the Spike Pit.
 HOL begin: terug (Bram)
+HOL gegraven kolom 4
 HOL kroniek: Gloop ate Odo. Burp. +6
 HOL kroniek: Gloop wears Odo's hat now.
-HOL gegraven kolom 1
 HOL kroniek: Gloop is flat. Back soon.
-HOL kroniek: Rik says this is a quick one.
-HOL kroniek: Bram's hat goes on the wall. +9
-HOL gegraven kolom 3
+HOL gegraven kolom 1
+HOL kroniek: Bram came back once too often. +9
 HOL kroniek: Gloop is up again. Wobbly.
+HOL kroniek: Joost has a map. It is wrong.
+HOL begin: opgegeten2 (Joost)
+HOL gegraven kolom 3
 HOL kroniek: Lotte read about you in a tavern.
-HOL gegraven kolom 6
 HOL kroniek: Ties tried to lift it. Too heavy.
+HOL gegraven kolom 6
 HOL kroniek: Fenna knocks first. Polite.
+HOL kroniek: Joost stays forever. +6
+HOL kroniek: Gloop's hat pile is taller than him.
