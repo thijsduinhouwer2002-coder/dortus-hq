@@ -46,3 +46,13 @@ Niet dringend: het live product en de moderatie gaan voor. Wel graag binnen een 
 3. Code op 1280 breed nog leesbaar.
 4. Gratis en Pro overal gelijk aan poster en `plugin.xml`.
 5. Alles wat in een IDE-venster gebeurt, is een echte opname.
+
+## Film versie 1 (Daan, 9 nov 03:40 UTC)
+Gemaakt van de beelden van Jet (film-run 42554632237, b903362, RUN.txt klopt), alle beelden GEZIEN met de Read-tool. Script `film/maak_film.py` (Pillow en ffmpeg), uitvoer `film/bison-flex-film-v1.mp4` (16,0 s, 1920 x 1080, H.264, 2,1 MB) en `film/bison-flex-film-v1.gif` (960 breed, 15 bps, 5,1 MB), overzicht `film/beelden-v1.jpg`.
+- Haak: het eerste beeld staat dichtbij `return NUM;`, het kader is er meteen en de boog schiet in 0,8 s naar `%token NUM`, met een lichtring bij aankomst. Daarna trekt de camera terug naar de poster (kop en onderregel).
+- Scène 3 (FREE): Structure gaat open, de `:` verdwijnt, daarna inzoomen op de echte melding "':' expected" zodat je hem op 1280 breed kunt lezen.
+- Scène 4 (PRO): uit de 4k-beelden; Ctrl ingedrukt geeft de onderstreping met `token "NUM" [calc.y]`, klik, calc.y met de cursor op `%token NUM`. Toetsen getekend.
+- Scène 5 (PRO): het echte hernoemvenster, NUMBER letter voor letter, dan twee kaarten uit hetzelfde gesplitste venster (beeld 9) met de drie plekken. Kaders en bogen daar zijn een laag van mij, zoals afgesproken.
+- Scène 6 (PRO) en eindkaart met de vaste regel en dortus.com/bison-flex.
+- Afwijking van het draaiboek: 16,0 s in plaats van 15,5 (binnen 14 tot 16).
+- Voor versie 2: scène 3, 5 en 6 zijn uit 1920-beelden vergroot (factor 1,3 tot 2) en daardoor iets zacht. Vraag aan Jet: dezelfde opname, maar alle scènes ook in 4k op de tak `schermen` (alleen de uploadstap).
