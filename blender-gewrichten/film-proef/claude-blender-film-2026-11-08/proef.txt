@@ -3,11 +3,11 @@ pop: 315422 vlakken, foute randen 0
 look AgX / AgX - Medium High Contrast
 object Mannequin: 315422 vlakken, vakken ['Film hout']
   vlakken per vak {0: 315422}
-  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeTexCoord', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeValToRGB']
+  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeAttribute', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeValToRGB']
     ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
-    ShaderNodeTexCoord.Object -> ShaderNodeTexNoise.Vector
+    ShaderNodeAttribute.Vector -> ShaderNodeTexNoise.Vector
     ShaderNodeTexNoise.Color -> ShaderNodeVectorMath.Vector
-    ShaderNodeTexCoord.Object -> ShaderNodeVectorMath.Vector
+    ShaderNodeAttribute.Vector -> ShaderNodeVectorMath.Vector
     ShaderNodeVectorMath.Vector -> ShaderNodeTexWave.Vector
     ShaderNodeTexWave.Factor -> ShaderNodeValToRGB.Factor
     ShaderNodeValToRGB.Color -> ShaderNodeBsdfPrincipled.Base Color
@@ -16,6 +16,8 @@ object Mannequin: 315422 vlakken, vakken ['Film hout']
 render 1-held klaar
 elleboog: {'FINISHED'}, kogel 4.5 mm
 elleboog: passing groen, wand 1.636, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4], foute randen A 0 B 0
+nerf_co op Mannequin_A: True
+nerf_co op Mannequin_B: True
 richting 3 ((0.27, 0.03, 0.96)), grens 20
 render 2-haak-gloed klaar
 render 3-elleboog-0 klaar
@@ -24,8 +26,9 @@ render 4-rood28-hoek0 klaar
 render 4-rood28-hoek60 klaar
 render 4-rood28-hoek120 klaar
 render 4-rood28-hoek270 klaar
-render 4b-rood28-doorzichtig-hoek0 klaar
-render 4b-rood28-doorzichtig-hoek60 klaar
+rood midden (-33.11, -4.93, 98.28), maat 4.49 mm, normaal (0.27, 0.02, 0.96), afstand 62.4
+render 4b-rood28-doorzichtig-0 klaar
+render 4b-rood28-doorzichtig-1 klaar
 render 5-rood28-exploded klaar
 knie: {'FINISHED'}, kogel 4.0 mm, A2 Mannequin_A_A, B2 Mannequin_A_B
 knie: passing groen, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
