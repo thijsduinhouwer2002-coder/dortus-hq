@@ -32,7 +32,7 @@ Ademhaling wordt de kandidaat voor ronde 5b. Eerst nakijken: (1) wie de maker va
 - 604 reviews bij 1.000+ downloads is veel; mogelijk telt de winkel een deel van de reviews van de gratis versie mee, of reviewt bijna elke koper door het vragen om een review (klacht hierboven). Volgende run nakijken voordat de 26 per maand als vraag telt.
 - Verder in de hoek: Breathing Timer (HRV, BOLT, Wim Hof, 4-7-8; gratis, 1.000+, 92 reviews sinds apr 2026), Bitochi (PRO $6,25 en gratis Tool 1.000+), WhiteBear Breath and Plunge (PRO $2,99), Deyve Breath Training ($2,99, okt 2026) (GEZIEN).
 
-## Ronde 5b, begin (9 nov 22:58, Gijs, alle reviews uit de winkel-API)
+## Ronde 5b, begin (9 nov 22:56, Gijs, alle reviews uit de winkel-API)
 - WHM breathing+ ($4,99): alle 604 reviews opgehaald. In 2026 per maand 16 tot 35, gemiddeld ±26; oktober 29 (GEZIEN). Slechts 23 reviewers staan ook bij de gratis versie, dus het zijn echte eigen reviews, geen overgenomen (GEZIEN). Gemiddeld 4,85; maar 61 van de 604 hebben tekst, dus veel komt door het vragen om een review in de app (GOK, past bij de klacht "harassed to provide feedback").
 - De gratis WHM breathing krijgt in 2026 nog 5 tot 24 reviews per maand (GEZIEN). Mensen stappen dus over van gratis naar betaald: een gewoonte-app die je elke dag gebruikt, waarvoor $4,99 geen drempel is.
 - Wat de plus-versie extra biedt (GEZIEN, beschrijving): waarschuwingstril voor het einde van het ademen, aanraakscherm uit, details per ronde in de Garmin-activiteit, trilmomenten tijdens het inhouden, trilsterkte en geluiden.
