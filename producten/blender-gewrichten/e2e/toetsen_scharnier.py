@@ -366,6 +366,17 @@ def toets_flip(stap, eigen):
         uit[flip] = (buig, plus, min_)
     stap("flip: buigkant tegengesteld", uit[False][0].dot(uit[True][0]) < -0.999,
          f"dot {uit[False][0].dot(uit[True][0]):.6f}")
+    # Controleur (d), punt 1: op dezelfde plek van een bestaand scharnier weigert de operator (geen extra delen).
+    a_oud = bpy.data.objects.get("staaf_A")
+    figuren.maak_actief(a_oud)
+    voor_namen = {o.name for o in bpy.data.objects}
+    try:
+        tweede = bpy.ops.click_joints.plaats_scharnier(stand="115", flip_bend=False)
+    except RuntimeError as fout:
+        tweede = f"fout: {fout}"
+    nieuw = {o.name for o in bpy.data.objects} - voor_namen
+    stap("opnieuw snijden op hetzelfde scharnier geweigerd, geen nieuwe objecten",
+         tweede == {"CANCELLED"} and not nieuw, f"{tweede}, nieuw {sorted(nieuw)}")
     # Lidas omhoog op het scherm: omhoog zegt niets, buigkant vast L x H, flip keert hem om.
     lid = Vector((1, 0, 0))
     kijk = Vector((0, 0, -1))

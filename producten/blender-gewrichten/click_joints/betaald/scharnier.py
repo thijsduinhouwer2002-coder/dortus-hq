@@ -87,6 +87,14 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             self.report({"WARNING"}, vorm.KIJK_LANGS)
             return {"CANCELLED"}
         punt, h, buig, lid, as_bron, terugval = uit
+        # Controleur (d), punt 1: niet opnieuw snijden op dezelfde plek van een bestaand scharnier (bijvoorbeeld na
+        # het omzetten van Flip bend in het paneel). Een tweede gewricht elders op het deel mag wel.
+        if bron.get("cj_soort") == "SCHARNIER" and "cj_snijpunt" in bron:
+            vorige = Vector(bron["cj_snijpunt"])
+            if (Vector(punt) - vorige).length < 2.0 * float(bron.get("cj_knokkel_r", 0.0)) + 1e-9:
+                self.report({"WARNING"}, "There is already a hinge here. Undo first, or use Flip bend in the "
+                                         "Redo panel right after placing.")
+                return {"CANCELLED"}
         if terugval:
             self.report({"WARNING"}, "No 3D viewport found for the view direction; the hinge axis now follows "
                                      "the X axis of the 3D cursor.")
@@ -113,7 +121,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         werk = bpy.data.objects.new("cj_werk", me)
         hulp.objects.link(werk)
         solver = solver_naam()
-        deel_a, deel_b = vorm.snij(hulp, werk, frame, maat, solver)
+        try:
+            deel_a, deel_b = vorm.snij(hulp, werk, frame, maat, solver)
+        except RuntimeError as e:  # controleur (d), punt 4: geen hulpobjecten achterlaten
+            ruim_op(hulp)
+            self.report({"ERROR"}, f"The cut failed ({e}); the mesh is unchanged.")
+            return {"CANCELLED"}
         uitslag = [is_gesloten(d.data) for d in (deel_a, deel_b)]
         if not all(ok for ok, _ in uitslag):
             ruim_op(hulp)
@@ -154,7 +167,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         kop = "Hinge placed, bend flipped" if self.flip_bend else "Hinge placed"
         melding = f"{kop}. {beweeg.tekst(voor, maat['stand'])}."
         if beweeg.geen_stop(voor):
-            melding = "Hinge placed, but no end stop was found. Check the shape near the joint."
+            melding = f"{kop}, but no end stop was found. Check the shape near the joint."
         for deel in (deel_a, deel_b):
             deel["cj_melding"] = melding
         self.report({"WARNING"} if beweeg.geen_stop(voor) else {"INFO"}, f"{melding} {gegevens['cj_duur_s']} s.")
