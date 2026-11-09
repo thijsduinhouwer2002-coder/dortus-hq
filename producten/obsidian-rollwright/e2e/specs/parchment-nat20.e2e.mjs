@@ -44,21 +44,30 @@ async function meet() {
 	return browser.execute((sel) => {
 		const el = document.querySelector(`${sel} .rollwright-roll`);
 		const r = el.getBoundingClientRect();
-		const voor = el.previousSibling;
-		const na = el.nextSibling;
+		// Zoek "Bite" en "hits" in de tekstnodes van de alinea zelf (niet in het token): het token kan in
+		// een eigen omhulsel staan, dus previousSibling is niet altijd de tekst (run 42634862383).
+		const p = el.closest("p");
+		const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+		let bite = null, hits = null;
+		for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+			if (el.contains(n)) continue;
+			if (!bite && n.textContent.includes("Bite")) bite = n;
+			if (!hits && n.textContent.includes("hits")) hits = n;
+		}
 		const rect = (node, vanaf, tot) => {
 			const range = document.createRange();
 			range.setStart(node, vanaf);
 			range.setEnd(node, tot);
 			return range.getBoundingClientRect();
 		};
+		const voorTekst = bite?.textContent ?? "";
+		const naTekst = hits?.textContent ?? "";
+		if (!bite || !hits) return { klassen: el.className, voorTekst, naTekst, html: p.outerHTML.slice(0, 600) };
 		// Laatste letter van "Bite" en eerste letter van "hits" (de spatie telt mee als ruimte).
-		const voorTekst = voor?.textContent ?? "";
-		const eindBite = voorTekst.trimEnd().length;
-		const rVoor = rect(voor, eindBite - 1, eindBite);
-		const naTekst = na?.textContent ?? "";
-		const beginHits = naTekst.length - naTekst.trimStart().length;
-		const rNa = rect(na, beginHits, beginHits + 1);
+		const eindBite = voorTekst.indexOf("Bite") + 4;
+		const rVoor = rect(bite, eindBite - 1, eindBite);
+		const beginHits = naTekst.indexOf("hits");
+		const rNa = rect(hits, beginHits, beginHits + 1);
 		const s = getComputedStyle(el);
 		return {
 			klassen: el.className,
@@ -108,7 +117,8 @@ describe("Rollwright: NAT 20 in Parchment naast een woord (keuring 0.3.4)", func
 
 			expect(m.klassen).toContain("rollwright-crit");
 			expect(m.wereld).toBe(true);
-			expect(m.voorTekst.trimEnd().endsWith("Bite")).toBe(true);
+			expect(m.voorTekst).toContain("Bite");
+			expect(m.naTekst).toContain("hits");
 			expect(m.margeLinks).toBe("6px");
 			expect(m.margeRechts).toBe("6px");
 			// De ringen lopen 6px buiten het token; de letter ervoor en erna staat daar buiten.
