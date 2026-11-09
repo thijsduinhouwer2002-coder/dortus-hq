@@ -18,14 +18,17 @@ Blender 5.2.3 LTS, scherf 6/20, snel False
 Blender 5.2.3 LTS, scherf 7/20, snel False
 Blender 5.2.3 LTS, scherf 8/20, snel False
 Blender 5.2.3 LTS, scherf 9/20, snel False
-MOOI KLAAR
-buigen beeld 0: pose 0.0 rode vlakken A 0
-buigen beeld 140: pose 17.7 rode vlakken A 0
-buigen beeld 98: pose 28.0 rode vlakken A 25
-deel A foute randen 0, deel B foute randen 0
+MOOI KLAAR (510 beelden in Blender, daarna 60 beelden eindkaart in de workflow)
+buigen beeld 0: pose 0.0, rode vlakken A 0
+buigen beeld 110: pose 9.7, rode vlakken A 0
+buigen beeld 36: pose 15.0, rode vlakken A 0
+buigen beeld 66: pose 28.0, rode vlakken A 24
+buigen beeld 90: pose 28.0, rode vlakken A 24
+elleboog: {'FINISHED'}, kogel 4.5 mm, passing groen, wand 1.636, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
 gloed: compositor aan
-plaats: {'FINISHED'}, kogel 3.5 mm, passing groen, wand 1.57, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
-pop: 327226 vlakken, foute randen 0, solver MANIFOLD
-richting 3, grens 20, B doorzichtig 2 materialen
-vakken pop A ['Film hout', None, 'Click Joints Good fit'], B ['Film hout B', None, 'Click Joints Good fit B']
-beelden: 435
+knie: {'FINISHED'}, passing groen, tekst Bends ±20°, grens 20, strakke ring A2 True B2 True
+pop: 315422 vlakken, foute randen 0, look AgX - Base Contrast
+richting 3, grens 20, kogelstraal 2.25, B doorzichtig 2 materialen
+rood: 124 punten, midden (-33.11, -4.93, 98.28), maat 4.49 mm, afstand 22.5
+strakke ring A True B True; foute randen A 0 B 0
+beelden: 510
