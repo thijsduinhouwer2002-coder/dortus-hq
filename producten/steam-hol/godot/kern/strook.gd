@@ -73,7 +73,7 @@ func _ready() -> void:
 	held_script = load("res://systemen/held.gd") if ResourceLoader.exists("res://systemen/held.gd") else load("res://kern/standin_held.gd")
 
 	var scherm := DisplayServer.screen_get_usable_rect()  # zonder taakbalk
-	schaal = maxi(2, int(round(hoogte / 40.0)))
+	schaal = maxi(2, int(hoogte / 40.0))   # naar beneden afronden, anders valt de bovenkant van het hol weg
 	var spel_h := int(hoogte / schaal)
 	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))
 	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - hoogte))
@@ -113,6 +113,7 @@ func _ready() -> void:
 
 	if not vers:
 		laad()
+		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
 	if kroniek.is_empty():
 		_kroniek("Your hole is open. Heroes will come.")
 	hol.gegraven.connect(func(cel): log_regel("HOL gegraven kolom %d" % cel.x))
@@ -127,6 +128,9 @@ func _kroniek(r: String) -> void:
 	log_regel("HOL kroniek: " + r)
 
 # naam met bijnaam voor een terugkomer ("Kees the Twice-Fled", of "Pim the Hoard-Toucher")
+func _bewoner() -> String:
+	return String(slijm.get("bijnaam_naam")) if "bijnaam_naam" in slijm else "Gloop"
+
 func _held_naam(info: Dictionary) -> String:
 	if bool(info.get("hoard_toucher", false)):
 		return "%s the Hoard-Toucher" % info.naam
@@ -143,10 +147,10 @@ func _bijnaam(n: int) -> String:
 func _vrije_naam() -> String:
 	var bezet := {}
 	for h in terugkomers:
-		bezet[String(h.naam)] = true
+		bezet[String(h.naam).split(" ")[0]] = true
 	for w in wezens.get_children():
 		if w.has_method("is_held"):
-			bezet[String(w.info.get("naam", ""))] = true
+			bezet[String(w.info.get("naam", "")).split(" ")[0]] = true
 	var vrij: Array = []
 	for n in NAMEN:
 		if not bezet.has(n):
@@ -159,7 +163,10 @@ func _vrije_naam() -> String:
 		return nooit[rng.randi_range(0, nooit.size() - 1)]
 	var kan: Array = vrij.filter(func(n): return int(gevallen_namen[n]) < 3)
 	if kan.is_empty():
-		kan = vrij
+		# alle namen vielen al drie keer: opnieuw tellen, dan weer een kale naam
+		var n0: String = vrij[rng.randi_range(0, vrij.size() - 1)]
+		gevallen_namen.erase(n0)
+		return n0
 	var n: String = kan[rng.randi_range(0, kan.size() - 1)]
 	return n + (" II" if int(gevallen_namen.get(n, 0)) == 1 else " III")
 
@@ -178,7 +185,7 @@ func _nieuwe_held() -> void:
 		if int(info.bezoeken) >= 3:
 			_kroniek(regels.kies("aartsvijand", {"naam": info.naam}))
 		elif w == slijm.naam():
-			_kroniek(regels.kies("terug_bewoner", {"naam": info.naam, "held": _held_naam(info), "bewoner": slijm.bijnaam_naam}))
+			_kroniek(regels.kies("terug_bewoner", {"naam": info.naam, "held": _held_naam(info), "bewoner": _bewoner()}))
 		elif w.begins_with("the "):
 			_kroniek(regels.kies("terug_val", {"naam": info.naam, "held": _held_naam(info), "val": w}))
 		else:
@@ -219,6 +226,14 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
 		if demo or bewaar.bezoeken >= 3 or rng.randf() < 0.6:
 			terugkomers.append(bewaar)
+		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
+		if terugkomers.size() > 8:
+			var weg_i := 0
+			for i in terugkomers.size():
+				if int(terugkomers[i].bezoeken) < 3:
+					weg_i = i
+					break
+			terugkomers.remove_at(weg_i)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
 		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):
 			_kroniek(regels.kies("schat", {"naam": info.naam}))
@@ -235,13 +250,14 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		hol.munt_regen(hol.pos_naar_cel(_held.position).x)
 		var wat: String = String(info.get("wat", "fell"))
 		var r := ""
+		var extra := " +%d" % buit
 		if wat.begins_with("finally"):
-			r = regels.kies("afgerekend", {"naam": naam, "bewoner": slijm.bijnaam_naam})
+			r = regels.kies("afgerekend_aarts" if int(info.get("bezoeken", 0)) >= 3 else "afgerekend", {"naam": naam}, extra.length())
 		elif wat.ends_with(slijm.naam()):
-			r = regels.kies("val_bewoner", {"naam": naam, "bewoner": slijm.bijnaam_naam})
+			r = regels.kies("val_bewoner", {"naam": naam, "bewoner": _bewoner()}, extra.length())
 		else:
-			r = regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")})
-		_kroniek("%s +%d" % [r, buit])
+			r = regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
+		_kroniek(r + extra)
 
 func _process(delta: float) -> void:
 	t += delta
@@ -254,7 +270,7 @@ func _process(delta: float) -> void:
 			nu_plat = not slijm.kan_vechten()
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
-			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": slijm.bijnaam_naam}))
+			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}))
 	var helden := 0
 	for w in wezens.get_children():
 		if w.has_method("is_held"):

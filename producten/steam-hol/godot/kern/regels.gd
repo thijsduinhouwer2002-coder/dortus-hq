@@ -18,7 +18,8 @@ const VOORRAAD := {
 	"val": ["{naam} fell to {val}.", "{naam} found {val}. Hard.", "{naam} stays forever.", "{naam} left gold and one boot.",
 		"{naam} will not be leaving."],
 	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
-	"afgerekend": ["Grudge settled. {naam} rests.", "{naam}'s hat goes on the wall.", "Nemesis {naam}: finally stays."],
+	"afgerekend": ["Grudge settled. {naam} rests.", "{naam}'s hat goes on the wall."],
+	"afgerekend_aarts": ["Nemesis {naam}: finally stays.", "Grudge settled. {naam} rests.", "{naam}'s hat goes on the wall."],
 	"vlucht": ["{naam} fled. Grudge: {bewoner}.", "{naam} ran. Swore revenge.", "{naam} escaped with a limp.",
 		"{naam} left. Took nothing. Angry.", "{naam} fled, crying a little."],
 	"schat": ["{naam} touched your hoard!", "{naam} tried to lift it. Too heavy.", "{naam} licked a coin and ran.",
@@ -35,7 +36,7 @@ func vul(r: String, w: Dictionary) -> String:
 		r = r.replace("{%s}" % k, String(w[k]))
 	return r
 
-func kies(soort: String, w: Dictionary) -> String:
+func kies(soort: String, w: Dictionary, erbij := 0) -> String:
 	var lijst: Array = VOORRAAD.get(soort, ["..."])
 	if rng == null:
 		rng = RandomNumberGenerator.new()
@@ -43,7 +44,7 @@ func kies(soort: String, w: Dictionary) -> String:
 	for i in lijst.size():
 		if lijst.size() > 1 and i == int(vorige.get(soort, -1)):
 			continue
-		if vul(lijst[i], w).length() <= MAX:
+		if vul(lijst[i], w).length() <= MAX - erbij:
 			keuzes.append(i)
 	var i: int = keuzes[rng.randi_range(0, keuzes.size() - 1)] if not keuzes.is_empty() else 0
 	vorige[soort] = i
