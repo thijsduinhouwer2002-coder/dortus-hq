@@ -32,7 +32,7 @@ STAND_STANDAARD = 115
 ACHTER = 0.15     # e = ACHTER keer de dikte langs de buigkant
 KNOKKEL = 0.35    # R = KNOKKEL keer de halve dikte
 WANG = 0.20       # Rn = R + s + WANG keer de halve dikte
-MARGE = 0.0       # graden onder de stand; 0 sinds de rand op r_buiten / cos(a) staat (run 28)
+MARGE = 0.0       # graden onder de stand; 0, want de rand van het stopvlak wordt gemeten (vlak_lengte)
 TE_DUN = "Too thin here for a hinge. Try a thicker spot."
 KIJK_LANGS = "Look at the joint from the side to place a hinge."
 
@@ -79,10 +79,14 @@ def straal_tot_huid(bvh, frame, richting):
     return None if hit[0] is None else hit[3]
 
 
-def vlak_lengte(bvh, frame, e, s, alfa, wx):
-    """Grootste min(t_A, t_B) over een paar doorsneden langs H (zie maten), of None als een straal mist."""
+def vlak_lengte(bvh, frame, e, s, alfa, wx, t_min):
+    """Grootste min(t_A, t_B) over een paar doorsneden langs H (zie maten), of None als een straal mist.
+    Een treffer korter dan t_min (rn + s, binnen de knokkel en de naad) telt als misser, zodat t nooit 0 of
+    heel klein wordt (s / t en een negatieve wig bij een binnenschil)."""
     beste = None
     ca, sa = math.cos(alfa), math.sin(alfa)
+    # Alleen x = 0 en +-0,4 wx gemeten: een lid dat verder naar buiten langer uitsteekt, stopt eerder dan de
+    # stand. De tekst toont dan eerlijk het gemeten getal uit de beweegproef.
     for x in (0.0, -0.4 * wx, 0.4 * wx):
         lengtes = []
         # A: vlak op hoek -a, voet op s/2 naar beneden-achter; B: op +a, voet op s/2 naar boven-achter.
@@ -91,7 +95,7 @@ def vlak_lengte(bvh, frame, e, s, alfa, wx):
             o = frame @ Vector(start)
             w = (frame.to_3x3() @ Vector(richting)).normalized()
             hit = bvh.ray_cast(o, w)
-            if hit[0] is None:
+            if hit[0] is None or hit[3] < t_min:
                 break
             lengtes.append(hit[3])
         if len(lengtes) == 2:
@@ -123,7 +127,7 @@ def maten(bvh, frame, s, stand, u):
     alfa = math.radians(stand - MARGE) / 2
     t = r_buiten / math.cos(alfa)
     for _ in range(8):
-        t_nieuw = vlak_lengte(bvh, frame, e, s, alfa, wx)
+        t_nieuw = vlak_lengte(bvh, frame, e, s, alfa, wx, rn + s)
         if t_nieuw is not None:
             t = t_nieuw
         theta_s = s / t
