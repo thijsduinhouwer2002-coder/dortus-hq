@@ -92,3 +92,9 @@
 
 ## 9 nov 2026, run 19:55 UTC (Jet), vervolg 3
 - Product-laag deel 1 gebouwd: `src/samenstel.ts` (zuiver: total_count, elke bestelling één keer, alleen regels van deze afrekening, correctie alleen als het nog niet sluit, rest als verschil, aanpassingen en RESERVE, alleen EUR). Code-controleur ronde 1 nee (kopbedragen buiten try, waarschuwingen van andere afrekeningen), ronde 2 akkoord. 41 tests groen in de map. Op main via tak `claude/tiktok-shop-2026-11-09-e`. Bison & Flex: nog in moderatie.
+
+## 9 nov 2026, run 20:56 UTC (Jet, bouwer)
+- Bison & Flex nagekeken: nog in moderatie (`approve: false`, `isHidden: true`, Versions `[]`, GEZIEN 20:57 UTC). Lokale kloon stond weer los; op `origin/main` gezet, werkboom was schoon.
+- Product-laag deel 2a gebouwd: budget per aanroep, opslag (interface en geheugen), `haalSamen` en `proef`. Code-controleur ronde 1 nee (transactiepagina's elke aanroep opnieuw: bij grote afrekeningen nooit voortgang; reserve zonder herhalingen; `compleet` met te weinig budget voor de boeking), ronde 2 nee (onvolledige lijst een dag bewaard), ronde 3 akkoord. 56 tests groen, op main.
+- Les: alles wat over meer aanroepen loopt moet voortgang bewaren én een uitweg hebben als het nooit past; anders staat de winkel stil zonder melding.
+- Volgende: deel 2b (`verwerkWinkel`, statustabel, slot, Moneybird boeken).

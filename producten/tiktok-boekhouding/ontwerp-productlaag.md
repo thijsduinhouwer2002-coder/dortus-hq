@@ -62,6 +62,9 @@ Geen schermen, geen gratis grens tellen (komt binnen als `magBoeken`; Chris bepa
 - (i) Slot bezet: niets gedaan en niets geschreven. `onzeker` van 5 minuten geleden: overgeslagen; van 11 minuten: opnieuw.
 - (j) Dezelfde bestelling in twee afrekeningen: de tweede geeft de juiste regels zonder `verschil`. "Opnieuw boeken" op 90 bestellingen loopt over drie aanroepen en `geboekt` blijft staan tot het af is. Een rekenkern-weigering geeft meteen `fout_gegevens`; een tijdelijke fout na 5 runs `fout`.
 
+## Gebouwd (aanvullingen tijdens het bouwen)
+Deel 2a (9 nov 21:05 UTC, code-controleur akkoord na 3 rondes): kop en transacties worden per afrekening bewaard (alleen als de controles op aantal, munt en dubbele id slagen, een dag geldig, opnieuw na T), zodat een grote afrekening niet elke aanroep alle pagina's kost. Past een afrekening niet in een (bijna) vol budget, dan `onvolledig` "te groot" en geldt de grens van 5 runs of 24 uur. Vóór een bestelling moet er reserve plus 2 herhalingen over zijn; bij boeken telt `compleet` pas als er nog 12 over zijn.
+
 ## Controleur
 Ronde 3 (9 nov 20:30 UTC): **akkoord**; vier kleine kan-punten verwerkt (fout_gegevens in de tabel, wat het eerst komt, markering bij bezig en onvolledig, netheid).
 
