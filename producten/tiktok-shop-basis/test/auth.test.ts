@@ -13,6 +13,7 @@ test("auth_code inwisselen: juiste url, parameters en uitlezen van het docs-antw
   assert.equal(v.url.searchParams.get("grant_type"), "authorized_code");
   assert.equal(v.url.searchParams.get("auth_code"), "TTP_FeBoANmHP3yqdoUI9fZOCw");
   assert.equal(v.url.searchParams.get("app_key"), "123abc");
+  assert.equal(v.url.searchParams.get("app_secret"), APP.appSecret);
   assert.equal(v.url.searchParams.get("sign"), null);
   assert.equal(t.accessTokenVerlooptOp, 1660556783);
   assert.equal(t.refreshTokenVerlooptOp, 1691487031);
@@ -25,7 +26,9 @@ test("verversen: grant_type refresh_token en eigen pad", async () => {
   const nep = nepFetch([{ json: voorbeeld("token-get") }]);
   await ververs(APP, "TTP_C2XWDN63ON-FOHJSMR0WSG", nep.fn);
   const v = nep.verzoeken[0];
-  assert.equal(v.url.pathname, "/api/v2/token/refresh");
+  assert.equal(v.url.origin + v.url.pathname, "https://auth.tiktok-shops.com/api/v2/token/refresh");
+  assert.equal(v.url.searchParams.get("app_key"), APP.appKey);
+  assert.equal(v.url.searchParams.get("app_secret"), APP.appSecret);
   assert.equal(v.url.searchParams.get("grant_type"), "refresh_token");
   assert.equal(v.url.searchParams.get("refresh_token"), "TTP_C2XWDN63ON-FOHJSMR0WSG");
 });
@@ -60,4 +63,20 @@ test("state is willekeurig en wordt streng vergeleken", () => {
   assert.equal(stateKlopt(s, s.slice(0, -1) + (s.endsWith("0") ? "1" : "0")), false);
   assert.equal(stateKlopt(s, null), false);
   assert.equal(stateKlopt(s, ""), false);
+});
+
+test("netwerkfout bij tokens geeft eigen fout zonder secret", async () => {
+  const kapot = (async () => {
+    throw new Error("fetch failed https://auth.tiktok-shops.com/?app_secret=" + APP.appSecret);
+  }) as typeof fetch;
+  await assert.rejects(haalTokens(APP, "c", kapot), (e: unknown) => {
+    assert.ok(e instanceof TikTokApiError);
+    assert.ok(!e.message.includes(APP.appSecret));
+    return true;
+  });
+});
+
+test("code 0 zonder tokens geeft een fout in plaats van lege velden", async () => {
+  const nep = nepFetch([{ json: { code: 0, message: "success", request_id: "R", data: { open_id: "1" } } }]);
+  await assert.rejects(haalTokens(APP, "c", nep.fn), /zonder access_token/);
 });

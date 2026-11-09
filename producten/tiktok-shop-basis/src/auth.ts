@@ -56,7 +56,13 @@ type FetchFn = typeof fetch;
 
 async function tokenAanroep(pad: string, params: Record<string, string>, fetchFn: FetchFn): Promise<Tokens> {
   const url = `${TOKEN_BASIS}${pad}?${new URLSearchParams(params).toString()}`;
-  const antw = await fetchFn(url, { method: "GET" });
+  let antw: Response;
+  try {
+    antw = await fetchFn(url, { method: "GET" });
+  } catch {
+    // Eigen bericht zonder url: daar staat het secret in.
+    throw new TikTokApiError(-1, `netwerkfout bij ${pad}`, "", 503);
+  }
   let json: any;
   try {
     json = await antw.json();
@@ -67,6 +73,9 @@ async function tokenAanroep(pad: string, params: Record<string, string>, fetchFn
     throw new TikTokApiError(Number(json?.code ?? -1), String(json?.message ?? "onbekend"), String(json?.request_id ?? ""), antw.status);
   }
   const d = json.data;
+  if (typeof d.access_token !== "string" || typeof d.refresh_token !== "string" || !d.access_token || !d.refresh_token) {
+    throw new TikTokApiError(-1, `antwoord van ${pad} zonder access_token of refresh_token`, String(json.request_id ?? ""), antw.status);
+  }
   return {
     accessToken: d.access_token,
     accessTokenVerlooptOp: Number(d.access_token_expire_in),

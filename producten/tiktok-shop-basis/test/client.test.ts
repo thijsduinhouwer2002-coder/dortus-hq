@@ -121,3 +121,10 @@ test("body wordt precies zo getekend als verstuurd", async () => {
   assert.equal(v.body, '{"b":2,"a":"é"}');
   assert.equal(query.sign, await maakHandtekening({ path: v.url.pathname, query, body: v.body, contentType: "application/json" }, APP.appSecret));
 });
+
+test("5xx drie keer mislukt geeft soort server na 3 pogingen", async () => {
+  const { client, verzoeken, slapen } = nepClient([{ status: 502, tekst: "bad gateway" }]);
+  await assert.rejects(geautoriseerdeWinkels(client, "t"), (e: any) => e.soort === "server");
+  assert.equal(verzoeken.length, 3);
+  assert.deepEqual(slapen, [1000, 2000]);
+});
