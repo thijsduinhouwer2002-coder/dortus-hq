@@ -2,7 +2,7 @@
 # (film-run 42554632237) als kaarten op de achtergrond van de poster, met koppen,
 # kaders en de boog als lagen. Alles in een IDE-venster is een echte opname.
 # Versie 2 (Daan, 9 nov 04:31): scène 3, 5 en 6 ook uit 4k (film-run 42559031952), halve regels
-# aan de randen van elke uitsnede lopen zacht weg.
+# aan de randen van elke uitsnede lopen zacht weg, scène 6 zoomt in op de echte melding.
 # Gebruik: python3 -I maak_film.py <map met beelden van Jet> <uitvoermap>
 import sys, os, math, subprocess
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -341,16 +341,38 @@ def scene5(t, dur):
     return cv
 
 # ---------- scène 6: ongebruikte regel ----------
+# v2: eerst het hele venster, dan inzoomen op de echte melding "Unused rule 'term'" (beeld 2),
+# het echte Alt+Enter-menu (beeld 3) en de regel die weg is (beeld 4). Alles uit de 4k-opname.
 S6_CROP = (40, 430, 1100, 800); S6_K = 1.6; S6_POS = (110, 200)
 s6 = {i: kaart4("scene6/%04d.png" % i, S6_CROP, S6_K, "calc.y", "Y") for i in range(1, 5)}
-S6_SEQ = [(1, 0.3), (2, 0.5), (3, 0.5), (4, 0.4)]
+S6Z_CROP = (40, 556, 660, 806); S6Z_K = 2.55; S6Z_POS = (110, 230)
+s6z = {i: kaart4("scene6/%04d.png" % i, S6Z_CROP, S6Z_K, "calc.y", "Y") for i in range(2, 5)}
+TERM = (124, 674, 175, 700)  # het woord term op regel 20, in 1920-maten
 def scene6(t, dur):
-    cv = BG1.copy().convert("RGBA"); i = kies(S6_SEQ, t); inn = ease_out(t / 0.25)
-    plak(cv, s6[i], (S6_POS[0], S6_POS[1] + 40 * (1 - inn)), inn)
-    ka = ease(t / 0.25); d = ImageDraw.Draw(cv)
+    cv = BG1.copy().convert("RGBA"); d = ImageDraw.Draw(cv)
+    if t < 0.95:
+        i = 1 if t < 0.3 else 2; inn = ease_out(t / 0.25)
+        plak(cv, s6[i], (S6_POS[0], S6_POS[1] + 40 * (1 - inn)), inn)
+        if i == 2:
+            a = punt(S6_POS, S6_CROP, S6_K, TERM[:2]); b = punt(S6_POS, S6_CROP, S6_K, TERM[2:])
+            kader(cv, (a[0], a[1], b[0], b[1]), ORANJE, ease_out((t - 0.35) / 0.25))
+    else:
+        u = ease_out((t - 0.95) / 0.3)
+        i = 2 if t < 1.55 else (3 if t < 2.1 else 4)
+        if u < 1: plak(cv, s6[2], S6_POS, 1 - u)  # kruisfade, geen leeg beeld
+        plak(cv, s6z[i], (S6Z_POS[0], S6Z_POS[1] + 30 * (1 - u)), u)
+        if i == 2:
+            a = punt(S6Z_POS, S6Z_CROP, S6Z_K, TERM[:2]); b = punt(S6Z_POS, S6Z_CROP, S6Z_K, TERM[2:])
+            kader(cv, (a[0], a[1], b[0], b[1]), ORANJE, u)
+        if i == 3: toets(cv, (1500, 960), "Alt+Enter", 1.0, t < 1.75)
+        if i == 4:
+            g = ease_out((t - 2.1) / 0.25)
+            a = punt(S6Z_POS, S6Z_CROP, S6Z_K, (40, 666)); b = punt(S6Z_POS, S6Z_CROP, S6Z_K, (660, 706))
+            kader(cv, (a[0] + 12, a[1], b[0] - 14, b[1]), (120, 210, 150), g * (1 - 0.5 * ease((t - 2.5) / 0.3)))
+            pil(cv, (b[0] - 250, a[1] - 72), "RULE REMOVED", "free", g)
+    ka = ease(t / 0.25)
     x = rijk(d, (110, 52 + 20 * (1 - ka)), [("Unused rules, ", WIT), ("caught.", ORANJE)], font("Bold", 56), int(255 * ka))
     pil(cv, (x + 26, 62 + 20 * (1 - ka)), "PRO", "pro", ka)
-    if i == 3: toets(cv, (1500, 960), "Alt+Enter", 1.0, True)
     return cv
 
 # ---------- scène 7: eindkaart ----------
@@ -371,7 +393,7 @@ def scene7(t, dur):
     d.text((W / 2, 760), "dortus.com/bison-flex", font=font("SemiBold", 44), fill=ORANJE + (int(255 * c),), anchor="mm")
     return cv
 
-SCENES = [(scene12, 3.3), (scene3, 2.6), (scene4, 3.1), (scene5, 3.2), (scene6, 1.7), (scene7, 2.1)]
+SCENES = [(scene12, 3.3), (scene3, 2.6), (scene4, 3.1), (scene5, 3.2), (scene6, 2.8), (scene7, 2.1)]
 n = 0; vorige = None
 for si, (fn, dur) in enumerate(SCENES):
     nf = int(round(dur * FPS))
