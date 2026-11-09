@@ -1,20 +1,23 @@
 HOL kroniek: Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
-HOL kroniek: Kees the hero climbs in.
-HOL gegraven kolom 4
-HOL kroniek: Bram the hero climbs in.
-HOL kroniek: Kees fell to the Spike Pit.
-HOL kroniek: +3 gold for your hoard.
-HOL kroniek: Ties the hero climbs in.
-HOL gegraven kolom 13
-HOL kroniek: Joost the hero climbs in.
+HOL kroniek: Kees is here for your gold.
 HOL gegraven kolom 5
-HOL kroniek: Bram fled. Now: Bram the Once-Fled.
-HOL kroniek: Kees the hero climbs in.
-HOL gegraven kolom 6
-HOL kroniek: Ties fled. Now: Ties the Once-Fled.
-HOL kroniek: Mara the hero climbs in.
-HOL kroniek: Kees fled. Now: Kees the Once-Fled.
-HOL kroniek: Joost fled. Now: Joost the Once-Fled.
-HOL kroniek: Ties the Once-Fled is back!
-HOL kroniek: Grudge: the Spike Pit.
+HOL kroniek: Bram climbs into your hole.
+HOL kroniek: Kees fell to the Spike Pit. +6
+HOL gegraven kolom 2
+HOL kroniek: Odo is here for your gold.
+HOL kroniek: Gloop is flat. Back soon.
+HOL kroniek: Ties read about you in a tavern.
+HOL gegraven kolom 4
+HOL kroniek: Gloop is up again. Wobbly.
+HOL kroniek: Odo stays forever. +6
+HOL kroniek: Fenna has a map. It is wrong.
+HOL gegraven kolom 1
+HOL kroniek: Bram fled. Grudge: Gloop.
+HOL kroniek: Gloop says thanks for the snack. +6
+HOL kroniek: Wil knocks first. Polite.
+HOL gegraven kolom 3
+HOL kroniek: Joost is here for your gold.
+HOL kroniek: Gloop is flat. Back soon.
+HOL gegraven kolom 0
+HOL kroniek: Gloop is up again. Wobbly.
