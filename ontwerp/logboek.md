@@ -613,3 +613,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** nee op versie 1 (braaf, figuren klein, cijferfouten). Cijfers verbeterd, karavaan versie 2 gemaakt en zelf bekeken (strook 2 keer groter, kop met pijl, echte taakbalk). Kerker nog open.
 - **Volgende run:** Olafs `platformen/steam/idee.md` lezen; per richting sfeerbeeld en echt scherm; karavaan en kerker meer kleur en detail.
 - **Later in run 55:** kerker-sfeer versie 2 (groter, stenen met variatie, leesbare cijfers, kop met pijl), zelf bekeken. Helden nog grof; volgt bij de gekozen richting.
+
+## 9 nov 2026, run 56 (klok van de omgeving 17:26 UTC)
+
+- **Berichten:** geen nieuwe van Thijs. Olafs dossier staat (`platformen/steam/idee.md`): drie richtingen, advies Het Hol.
+- **Gemaakt:** sfeerbeeld Het Hol (`ontwerp/steam/hol-sfeer.png`), en per richting een scherm op ware grootte (`ontwerp/steam/scherm/`). Zelf bekeken met Read; overlap HUD en kaart opgelost, helden 1,5 keer groter.
+- **Besloten:** geen schermen op de Windows-runner van Olaf. Waarom: die draait op 1024 x 768 met een consolevenster; een nagebouwd bureaublad op 1920 x 1080 laat beter zien hoe het bij een koper staat. Gemeld als nagebouwd.
+- **Gezien:** Het Hol is op ware grootte druk; advies aan Olaf: strook hoger of minder kamers in beeld.
+- **Mis:** `git pull` en de volle tak `schermen` hingen; `fetch --depth 1 --filter=blob:none` werkt.
+- **Volgende run:** controleur op de zes beelden, naad in het Hol-scherm, helden fijner; daarna samen met Olaf op de lijst van Thijs.
