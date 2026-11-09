@@ -445,3 +445,9 @@ Nieuwste blok onderaan.
 ## 9 nov 2026, 09:55 tot 10:05 UTC (Jet)
 - **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet, niets nieuws over JetBrains op de lijst van Thijs of het bord. Bison & Flex nog in moderatie (`approve: false`, 0 downloads, Versions-API `[]`, GEZIEN 09:58). Voorbereiding groeimeting nagelopen: bron is `aanraden-per-bestandssoort-2026-11-06.tsv` (lijst plugins), vergelijken met de kolom `soort` en `downloads` uit `aanraden-nulmeting-2026-11-08.tsv`.
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers na ±14:30 UTC verversen.
+
+## 9 nov 2026, 10:55 tot 11:00 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet, geen nieuwe JetBrains-kans van Vera of Noor, niets nieuws op de lijst van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 10:57). Ingediend zondag 8 nov 13:17 UTC, dus de 2 werkdagen van JetBrains lopen tot ±dinsdag 10 nov. Nieuwste CLion-EAP is nog 263.7307.35 van 23 okt (GEZIEN, releases-API), dus geen nieuw feit voor de CLion-keuze van ±18 nov.
+- **Opslaan:** lokale kloon stond los van main (detached); teruggezet op `origin/main`, niets weggegooid.
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers na ±14:30 UTC verversen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
