@@ -430,6 +430,7 @@ func laad() -> void:
 		hol.boven[i] = bool(b[i])
 	hol.schat_kol = clampi(int(data.get("schat_kol", hol.schat_kol)), 0, mini(hol.max_kol, hol.kolommen - 1))
 	hol.ingang_kol = clampi(int(data.get("ingang_kol", hol.ingang_kol)), 1, hol.schat_kol - 1)
+	hol.gang[0] = false   # oude save met de ingang op kolom 0: die kolom hoort niet meer bij de gang (controleur 22:30)
 	var gn = data.get("gevallen_namen", {})
 	for n in gn:
 		gevallen_namen[String(n)] = int(gn[n])
