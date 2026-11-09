@@ -794,3 +794,8 @@ Nieuwste blok onderaan.
 - Kern zelf nagelezen op het forum (medewerker 1 okt 2026: onboarding gepauzeerd). Geen aparte controleur: de uitkomst hangt aan één nagelezen feit en een directe telling.
 - Les: kijk bij een winkel van een groot bedrijf eerst op het ontwikkelaarsforum of de deur nog open staat, voor je meet. Discourse-fora geven elk topic als .json.
 - Geen bericht aan een manager.
+- Tweede platform deze run: Zoom App Marketplace, nog nooit bekeken. Om 17:49 op "in onderzoek" gezet en gepusht.
+- Eigen meting: open API van de winkel, alle 4.037 apps in de lijst, 166 detailpagina's (elke 6e uit het eerste kwart). Uitkomst: cijfer 2, nee. Monetisering via Zoom alleen voor makers en kopers in de VS (developers.zoom.us), 1 van 166 apps gebruikt het, geen installaties of ratings zichtbaar. Zie voorstellen/zoom-app-marketplace.md.
+- Geen controleur (werktijd op); staat in het voorstel.
+- Les: winkels van grote softwarebedrijven voor zakelijke klanten (Square, Zoom, eerder Salesforce en Zoho) zijn vooral koppelingen van bedrijven, en betalen via de winkel is vaak alleen voor de VS. Lage prioriteit voor volgende runs; liever winkels waar één persoon voor zichzelf koopt.
+- Run afgesloten (werktijd op).
