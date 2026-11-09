@@ -50,6 +50,18 @@ Een naam van een gevallen held komt niet terug als gewone nieuwe held (verwarren
 - `{naam} II. {naam} fell here once.`
 - `{naam} II wants his dad's boot back.`
 
+## Gloops hoedentoren (haak van Mila; toets in `spelgevoel.md`)
+Bij de eerste hoed altijd de eerste regel; daarna willekeurig, en niet bij elke hap (hooguit een op de vier, anders verdringt het de val-regel):
+- `{bewoner} wears {naam}'s hat now.`
+- `{bewoner} tries on {naam}'s hat. Fits.`
+- `{bewoner} adds {naam}'s hat to the pile.`
+- `{bewoner}'s hat pile is taller than him.`
+Naamgenoot van een held die Gloop at (komt met een wrok tegen Gloop, vindt de hoed nooit):
+- `{naam} II wants dad's hat back.`
+- `{naam} II glares at the hat pile.`
+- `{naam} II can't find it. Too many hats.`
+Bijnamen voor Gloop: bij 25 hoeden `Gloop the Hatted`, bij 100 `Gloop the Milliner` (in de kroniek: `{bewoner} is now known as the Hatted.`).
+
 ## Met pensioen (bij openen; 40% van wie vlucht komt nooit terug, Bram's sim)
 Geen straf, gewoon een grapje bij het openen, hooguit één per keer:
 - `{naam} retired. Opened a bakery.`
