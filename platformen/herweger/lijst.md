@@ -8,4 +8,4 @@ Kandidaten (start 9 nov): Steam bureaublad-apps (7), Foundry VTT (6), BOOTH (6),
 | Corsair XENEON EDGE-widgets | 6 | klaar 9 nov 13:41 UTC: geen openbare teller voor downloads of verkopen, dus geen doorslaggevende meting; zie `xeneon-edge-widgets.md` | 6 (valt af) |
 | Attio App Store | 6 | klaar 9 nov 13:42 UTC, nagekeken: geen nieuwe app (mei t/m okt) boven 100 installs; zie `attio-app-store.md`; opnieuw rond 9 dec | 6 (valt af voor een 8) |
 | Filament | 6 | klaar 9 nov 14:55 UTC: geen enkel openbaar verkoopcijfer, kopersporen in code bijna nul voor nieuwkomers; zie `filament.md` | 6 (valt af voor een 8) |
-| Reddit Devvit | 6 | in onderzoek 9 nov 14:55 UTC (Kees) | |
+| Reddit Devvit | 6 | klaar 9 nov 15:05 UTC: 10 van 1.000 nieuwe apps (mei t/m okt) halen 50 installs, de eerste $500 van het fonds; sinds aug geen; zie `reddit-devvit.md` | 5 (valt af) |

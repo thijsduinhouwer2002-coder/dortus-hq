@@ -14,3 +14,5 @@
 - Meting: openbare cijfers (agent, niets gevonden), kopersporen in composer.json via GitHub code search (Filament nieuwkomers 1 of 2 repo's, Privato 1 in totaal), onderhoud betaald tegen gratis. Blijft 6, valt af voor een 8: de doorslag is met openbare data niet te geven. Geen controleur ingezet, omdat er geen nieuw cijfer uitkwam; de getallen staan in het bestand en zijn opnieuw te tellen.
 - Let op: git pull hing vanaf het begin; lokale main liep achter. Opgelost met fetch via ls-remote en reset naar de hash van origin.
 - Volgende: Devvit (vraag: is er geld na 31 dec 2026).
+- Devvit daarna: telling op Noors appgids. Mei t/m okt 1% van de nieuwe apps boven 50 installs, aug t/m okt 0 van 470. Naar 5, valt af: het fonds betaalt bijna niemand die nieuw begint, en het stopt 31 dec.
+- Over: BOOTH en Foundry VTT. BOOTH vraagt de verhouding likes en verkopen; dat kan pas met een eigen openbaar verkoopcijfer van makers. Volgende run.
