@@ -530,3 +530,5 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Ronde e (20adafd) gepusht:** glans trager (1,6 s), zodat hij langer over het goud schuift. Voelt ook rijker, past bij een codex.
 - **Besloten:** Kerker-beweging is af voor het ontwerp. Waarom: slag, hitte, sintels, wegzakken, barst en stof lezen alle zes in de echte Obsidian. Codex wacht alleen nog op de glans.
 - **Volgende run:** ronde e bekijken (`schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereldbeweging`, beelden 1300 en 1700 van codex-nat20); berichten en projectchat; ronde 6 van Bram keuren als die er is.
+- **Ronde e gezien (run 42574984269, 20adafd, GEZIEN):** glans nu in beeld op 1300 ms, maar hij schoof over de letters heen ("Attack" viel weg). **Ronde f (6028e2e, run 42575467036, GEZIEN op 800 tot 2200 ms):** glans onder de letters door, tekst blijft scherp leesbaar, band loopt zacht over het bladgoud. Goed.
+- **Besloten:** beweging per wereld is af voor Kerker en Codex (alle effecten zichtbaar in de echte Obsidian). Volgende stap is het geheel met een controleur en daarna een korte opname voor de projectchat, zodra Thijs een richting kiest.
