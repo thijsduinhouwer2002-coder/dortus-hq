@@ -1,0 +1,28 @@
+
+## Rusty's Retirement
+neg 79 uren mediaan 26.2 onder 2u: 8 boven 20u: 48
+   [('te weinig te doen/kort/saai', 26), ('zwaar voor pc/neemt scherm', 23), ('geld/dlc/prijs', 18), ('grind/traag/muur', 15), ('moet steeds klikken/niet idle', 11), ('interactie/geen invloed', 11), ('bugs/save weg', 7), ('doel/zin ontbreekt', 6), ('weinig controle/keuze', 1)]
+pos 70 uren mediaan 114.3 onder 2u: 0 boven 20u: 62
+   [('naast werk/studie', 30), ('mooi/kunst/pixel', 17), ('voortgang/ontgrendelen', 13), ('ontspannend/rustig', 12), ('muziek/geluid', 9), ('prijs/waar voor geld', 6), ('neemt weinig ruimte/licht', 6), ('humor/grappig', 0)]
+
+## Ropuka's Idle Island
+neg 79 uren mediaan 49.6 onder 2u: 7 boven 20u: 54
+   [('interactie/geen invloed', 17), ('te weinig te doen/kort/saai', 13), ('zwaar voor pc/neemt scherm', 12), ('grind/traag/muur', 8), ('bugs/save weg', 7), ('geld/dlc/prijs', 6), ('moet steeds klikken/niet idle', 5), ('weinig controle/keuze', 5), ('doel/zin ontbreekt', 2)]
+pos 79 uren mediaan 265.3 onder 2u: 0 boven 20u: 75
+   [('naast werk/studie', 34), ('mooi/kunst/pixel', 28), ('ontspannend/rustig', 24), ('muziek/geluid', 24), ('voortgang/ontgrendelen', 15), ('prijs/waar voor geld', 7), ('humor/grappig', 3), ('neemt weinig ruimte/licht', 3)]
+
+## Tiny Pasture
+neg 80 uren mediaan 13.1 onder 2u: 24 boven 20u: 34
+   [('bugs/save weg', 20), ('geld/dlc/prijs', 14), ('grind/traag/muur', 13), ('zwaar voor pc/neemt scherm', 13), ('te weinig te doen/kort/saai', 8), ('moet steeds klikken/niet idle', 7), ('interactie/geen invloed', 3), ('doel/zin ontbreekt', 1), ('weinig controle/keuze', 1)]
+pos 76 uren mediaan 68.0 onder 2u: 0 boven 20u: 66
+   [('mooi/kunst/pixel', 48), ('naast werk/studie', 37), ('voortgang/ontgrendelen', 22), ('muziek/geluid', 17), ('neemt weinig ruimte/licht', 17), ('ontspannend/rustig', 15), ('prijs/waar voor geld', 7), ('humor/grappig', 3)]
+
+## Deskrawl
+neg 78 uren mediaan 179.3 onder 2u: 3 boven 20u: 69
+   [('te weinig te doen/kort/saai', 35), ('grind/traag/muur', 22), ('geld/dlc/prijs', 20), ('doel/zin ontbreekt', 6), ('weinig controle/keuze', 6), ('bugs/save weg', 5), ('moet steeds klikken/niet idle', 3), ('zwaar voor pc/neemt scherm', 3), ('interactie/geen invloed', 2)]
+pos 80 uren mediaan 203.6 onder 2u: 0 boven 20u: 73
+   [('naast werk/studie', 26), ('voortgang/ontgrendelen', 23), ('mooi/kunst/pixel', 17), ('prijs/waar voor geld', 14), ('muziek/geluid', 10), ('neemt weinig ruimte/licht', 8), ('humor/grappig', 5), ('ontspannend/rustig', 3)]
+
+## Totaal
+neg 316 [('te weinig te doen/kort/saai', 82), ('grind/traag/muur', 58), ('geld/dlc/prijs', 58), ('zwaar voor pc/neemt scherm', 51), ('bugs/save weg', 39), ('interactie/geen invloed', 33), ('moet steeds klikken/niet idle', 26), ('doel/zin ontbreekt', 15), ('weinig controle/keuze', 13)]
+pos 305 [('naast werk/studie', 127), ('mooi/kunst/pixel', 110), ('voortgang/ontgrendelen', 73), ('muziek/geluid', 60), ('ontspannend/rustig', 54), ('prijs/waar voor geld', 34), ('neemt weinig ruimte/licht', 34), ('humor/grappig', 11)]
