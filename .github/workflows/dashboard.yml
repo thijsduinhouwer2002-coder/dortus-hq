@@ -1,0 +1,43 @@
+name: Dashboard (elk half uur)
+
+# Hoofdchat, 9 nov 2026. Bouwt het Dortus-dashboard uit de repo en een paar openbare adressen,
+# zonder Claude. Uitvoer gaat naar de tak `dashboard` (GitHub Pages) en is ook te lezen als
+# https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/dashboard/data.json
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["dashboard/**", ".github/workflows/dashboard.yml"]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: dashboard
+  cancel-in-progress: true
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2500
+      - name: Dashboard bouwen
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 dashboard/bouw.py "$RUNNER_TEMP/dash"
+      - name: Naar de tak dashboard
+        run: |
+          cd "$RUNNER_TEMP/dash"
+          touch .nojekyll
+          git init -q -b dashboard
+          git config user.name "Dortus dashboard"
+          git config user.email "thijs@dortus.com"
+          git add -A
+          git commit -q -m "Dashboard $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" dashboard
