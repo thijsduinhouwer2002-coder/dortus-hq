@@ -34,7 +34,10 @@ def deur(x, y, s, klein=False):
     clip = f'<clipPath id="{cid}"><path d="{binnen}"/></clipPath>'
     knop = f'<circle cx="{x+(t+bw-30)*s:.1f}" cy="{y+300*s:.1f}" r="{(15 if not klein else 0)*s:.1f}" fill="{GOUD}"/>'
     sch = "".join(f'<rect x="{x-22*s:.1f}" y="{y+yy*s:.1f}" width="{44*s:.1f}" height="{70*s:.1f}" rx="{14*s:.1f}" fill="{GOUD}"/>' for yy in (90, 400)) if not klein else ""
-    return (f'{clip}<path d="{buiten}" fill="{LILA}"/>'
+    diepte = "" if klein else (f'<clipPath id="d{cid}"><path d="{buiten}"/></clipPath>'
+              f'<path d="{buiten}" fill="none" stroke="#c9b9ff" stroke-width="{26*s:.1f}" clip-path="url(#d{cid})"/>'
+              f'<path d="{binnen}" fill="none" stroke="{LILA_D}" stroke-width="{56*s:.1f}" clip-path="url(#d{cid})"/>')
+    return (f'{clip}<path d="{buiten}" fill="{LILA}"/>{diepte}'
             f'<path d="{binnen}" fill="url(#licht)"/>{rand}'
             f'{vloer}<path d="{blad}" fill="{PRUIM}"/><path d="{kant}" fill="{NACHT}"/>{knop}{sch}')
 

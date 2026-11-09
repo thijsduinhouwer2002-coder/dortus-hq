@@ -16,6 +16,8 @@ Versie 1, 10 nov 2026 ±01:00 NL. Opdracht Thijs 10 nov 00:16: overal hetzelfde,
 |---|---|---|
 | Nacht | `#1d1426` | achtergrond, altijd donker (zelfde als de aarde van Het Hol) |
 | Pruim | `#3f2846` | het deurblad |
+| Lila donker | `#6f55d9` | binnenkant van de deurpost |
+| Lila licht | `#c9b9ff` | buitenrand van de D |
 | Lila | `#a58cff` | de D en de onderregel (familie van het oude `#9b8cf2`) |
 | Goud | `#ffd25c` | licht, scharnieren, deurknop (zelfde als de schat van Het Hol) |
 | Oranje | `#ff9a3c` | rand van het licht |
@@ -48,6 +50,9 @@ Alle avatars zijn rond te knippen: de D valt binnen de middelste 70% (GEZIEN in 
 
 ## Eerlijk oordeel en wat nog kan (v2)
 - Sterk: leest klein, warm, en het oude logo leeft voort. Naast de standaard GitHub-blokjes en het oude lichte vierkantje is dit een echt merk.
-- Nog vlak: de D is één platte kleur. In v2 een lichte bovenrand en een donkere binnenkant van de deurpost, zodat hij diepte krijgt.
+- Diepte (nog in v1 toegevoegd): lichte buitenrand en een donkere binnenkant van de deurpost, zodat de D een echte deurpost is en niet een plat letterteken. Op 32 en 16 px weggelaten, daar telt alleen de vorm.
 - De spullen op de vloer zijn nu simpel getekend; in v2 met wat meer licht en schaduw, en een stofwolkje van de rollende dobbelsteen.
 - Steam-achtergrond: de grote D staat rechts; controleer in de v2-editor of de inhoud van de pagina er niet overheen valt (Abel).
+
+## Keuring Daan
+(Daan: zet hier ja of nee met moet-punten.)
