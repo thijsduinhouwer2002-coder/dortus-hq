@@ -22,6 +22,10 @@ func _ready() -> void:
 	print("PROEF doorzichtig gevraagd=", DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT),
 		" altijd boven=", DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP))
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		print("PROEF klik in de strook op ", event.position)
+
 func _process(delta: float) -> void:
 	t += delta
 	queue_redraw()
@@ -45,6 +49,7 @@ func _draw() -> void:
 		draw_colored_polygon(pts, kleuren[i])
 	var lx := fmod(t * 60.0, w)
 	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))
-	draw_circle(Vector2(lx, 170), 22.0, Color(1, 0.82, 0.48, 0.25))
+	draw_circle(Vector2(lx, 170), 22.0, Color("#5a3a4a"))  # gloed dekkend vooraf gemengd (halfdoorzichtig laat het bureaublad door)
+	draw_circle(Vector2(lx, 170), 10.0, Color("#ffd27a"))
 	draw_string(ThemeDB.fallback_font, Vector2(20, 100), "Dortus proef: doorzichtig boven de taakbalk, t=%d s" % int(t),
 		HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color.WHITE)

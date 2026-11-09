@@ -31,16 +31,24 @@ jobs:
           Start-Process notepad.exe
           Start-Sleep 3
           & producten/steam-proef/e2e/scherm.ps1 "$uit/0-zonder-strook.png"
-          foreach ($drv in @("opengl3_angle", "opengl3")) {
+          foreach ($drv in @("opengl3_angle")) {
             $log = "$uit/godot-$drv.log"
             $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" `
               -ArgumentList "--path producten/steam-proef/godot --rendering-driver $drv" `
               -RedirectStandardOutput $log -RedirectStandardError "$log.err" -PassThru
             Start-Sleep 15
             & producten/steam-proef/e2e/scherm.ps1 "$uit/1-strook-$drv.png"
-            $cpu = (Get-Process -Id $p.Id -ErrorAction SilentlyContinue).CPU
-            Write-Output "CPU-seconden na 15 s ($drv): $cpu"
-            Start-Sleep 30
+            # Klik in de lucht boven de strook (venster y 0 tot 60, moet erdoor) en in de strook (moet gevangen worden).
+            $h = [int](Get-CimInstance Win32_VideoController | Select-Object -First 1).CurrentVerticalResolution
+            Write-Output "schermhoogte $h"
+            & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 220 + 25)
+            Start-Sleep 1
+            & producten/steam-proef/e2e/klik.ps1 300 ($h - 48 - 40)
+            Start-Sleep 1
+            Get-Process | Where-Object { $_.ProcessName -like "Godot*" } | ForEach-Object { Write-Output "CPU-seconden $($_.ProcessName) na ±17 s ($drv): $($_.CPU), geheugen MB: $([int]($_.WorkingSet64/1MB))" }
+            Start-Sleep 10
+            Get-Process | Where-Object { $_.ProcessName -like "Godot*" } | ForEach-Object { Write-Output "CPU-seconden $($_.ProcessName) na ±27 s ($drv): $($_.CPU)" }
+            Start-Sleep 18
             if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
             Write-Output "===== log $drv"; Get-Content $log -ErrorAction SilentlyContinue
             Write-Output "===== fouten $drv"; Get-Content "$log.err" -ErrorAction SilentlyContinue | Select-Object -First 30
