@@ -34,3 +34,6 @@
 
 ## 9 nov 03:13 tot 03:30 UTC (Olaf)
 - Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron. Volgens Hans (geen nieuwe ronde zonder nieuwe bron) geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
+
+## 9 nov 04:14 tot 04:25 UTC (Olaf, korte beurt, regel 0c)
+- Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron. Geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
