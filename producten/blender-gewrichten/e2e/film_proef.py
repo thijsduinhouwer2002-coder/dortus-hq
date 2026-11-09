@@ -61,7 +61,8 @@ def render(naam):
 
 
 def main():
-    from mathutils import Vector
+    import math
+    from mathutils import Quaternion, Vector
     log(f"Blender {bpy.app.version_string}")
     bpy.ops.extensions.package_install_files(filepath=ZIP, repo="user_default", enable_on_install=True)
     for ob in list(bpy.data.objects):
@@ -113,15 +114,23 @@ def main():
     inst.pose_graden = 28.0
     bpy.context.view_layer.update()
     log(f"28 graden: rode vlakken A {len(a.get('cj_rood_vlakken', [])) // 2}")
-    for j, hoek in enumerate((0, 60, 120, 180, 270)):
-        from mathutils import Quaternion
-        import math
+    for j, hoek in enumerate((0, 60, 120, 270)):  # 180 stond in 6a in de achterwand (zwart beeld)
         r = Quaternion(as_, math.radians(hoek)) @ zij
         kijk(cam, c + (r + as_ * 0.25).normalized() * 60 * rr, c + as_ * 2, lens=60)
         render(f"4-rood28-hoek{hoek}")
+    # 6b: rood met deel B (hout en groene ring) half doorzichtig, zoals in film_mooi tijdens het rood
+    F["staat"]["b_door"] = F["hout_doorzichtig"](b)
+    F["zet_door"](0.7)
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 4.0)
+    for hoek in (0, 60):
+        r = Quaternion(as_, math.radians(hoek)) @ zij
+        kijk(cam, c + (r + as_ * 0.25).normalized() * 45 * rr, c + as_ * 1, lens=60)
+        render(f"4b-rood28-doorzichtig-hoek{hoek}")
+    F["zet_door"](0.0)
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 0.0)
     inst.uit_elkaar = True
     bpy.context.view_layer.update()
-    kijk(cam, c + (zij + as_ * 0.5).normalized() * 75 * rr, c + as_ * 6, lens=60)
+    kijk(cam, c + (zij + as_ * 0.5).normalized() * 45 * rr, c + as_ * 4, lens=60)
     render("5-rood28-exploded")
     inst.uit_elkaar = False
     inst.pose_graden = 0.0

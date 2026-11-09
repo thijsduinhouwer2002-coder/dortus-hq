@@ -32,7 +32,7 @@ KNIE = Vector((-7, -21, 57))
 SCHEEN = Vector((-0.05, -0.99, -0.12)).normalized()
 ENKEL = KNIE + SCHEEN * 22.0
 POP_MIDDEN = Vector((-8, -6, 62))
-BASIS_RICHTING = Vector((-0.55, -1.0, -0.10)).normalized()   # camera voor de pop (de pop kijkt naar -y)
+BASIS_RICHTING = Vector((0.5, -1.0, -0.10)).normalized()   # 6b: van rechtsvoor, arm dwars in beeld en de trap schuin (6a van links: arm wees naar de lens)
 
 
 def tekenpop(solver):
@@ -93,17 +93,17 @@ def hout_materiaal():
     ruis.inputs["Detail"].default_value = 3.0
     vervorm = nt.nodes.new("ShaderNodeVectorMath")     # vector + 4 x ruis: nerf golft, geen strepen met een liniaal
     vervorm.operation = "MULTIPLY_ADD"
-    vervorm.inputs[1].default_value = (4.0, 4.0, 4.0)
+    vervorm.inputs[1].default_value = (1.6, 1.6, 1.6)   # 6b: minder golf, sterkte 4 gaf slangen
     golf = nt.nodes.new("ShaderNodeTexWave")
     golf.wave_type, golf.bands_direction = "BANDS", "X"   # banden over X = nerflijnen langs de lengte (Z) van de pop
-    golf.inputs["Scale"].default_value = 0.09            # lijn om de ±3,5 mm
+    golf.inputs["Scale"].default_value = 0.2             # 6b: lijn om de ±1,6 mm (6a: 3,5 mm oogde als zebra)
     golf.inputs["Distortion"].default_value = 1.5
     golf.inputs["Detail"].default_value = 3.0
     meng = nt.nodes.new("ShaderNodeValToRGB")
     meng.color_ramp.elements[0].color = (*kleur(HOUT_DONKER), 1)
     meng.color_ramp.elements[1].color = (*kleur(HOUT_LICHT), 1)
-    meng.color_ramp.elements[0].position = 0.25
-    meng.color_ramp.elements[1].position = 0.65
+    meng.color_ramp.elements[0].position = 0.15
+    meng.color_ramp.elements[1].position = 0.85   # 6b: zachter verloop, minder streep
     nt.links.new(tex.outputs["Object"], ruis.inputs["Vector"])
     nt.links.new(ruis.outputs["Color"], vervorm.inputs[0])
     nt.links.new(tex.outputs["Object"], vervorm.inputs[2])
@@ -161,7 +161,7 @@ def licht_en_wereld():
 
     zon("Hoofdlicht", (-0.7, -0.8, 1.0), KLEUR_3200K, 2.2, 5)   # warm, links voor boven
     zon("Randlicht", (0.6, 1.0, 0.5), KLEUR_8000K, 1.6, 3)      # koel, van achteren
-    zon("Vullicht", (1.0, -0.5, 0.25), "#FFF2E6", 0.35, 25)
+    zon("Vullicht", (1.0, -0.5, 0.25), "#FFF2E6", 0.6, 25)   # 6b: schaduwkant minder zwart
     # Oneindige achtergrond: de wand staat achter de pop (+y), de camera kijkt vanaf -y.
     me = _cyclorama()
     ob = bpy.data.objects.new("Achtergrond", me)
