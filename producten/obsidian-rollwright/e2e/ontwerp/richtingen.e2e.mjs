@@ -52,12 +52,12 @@ describe("Rollwright skins: drie richtingen", function () {
 	for (const [w, thema] of [["taverne", "obsidian"], ["kerker", "obsidian"], ["codex", "moonstone"]]) {
 		it(`richting ${w}`, async function () {
 			await stap(w, async () => {
-				await wereld(w, thema); await browser.pause(600);
+				await wereld(w, thema); await browser.executeObsidian(async ({ app }) => app.plugins.plugins.rollwright.clearHistory()); await browser.pause(600);
 				await browser.execute(() => { const sc = document.querySelector(".workspace-leaf-content[data-type=\"markdown\"] .markdown-preview-view"); if (sc) sc.scrollTop = 0; });
 				for (const [i, k] of [[0, 0.62], [2, 0.8], [3, 0], [4, 0.55], [1, 0.99999]]) { await zetVast(k); await klik(i); await browser.pause(1300); await losKans(); }
 				meta[w] = await iconen(); await muisWeg(); await browser.pause(400);
 				await save(`richting-${w}`);
-				await browser.execute(() => { const sc = document.querySelector(".workspace-leaf-content[data-type=\"markdown\"] .markdown-preview-view"); if (sc) sc.scrollTop = 260; });
+				await browser.execute(() => { const sc = document.querySelector(".workspace-leaf-content[data-type=\"markdown\"] .markdown-preview-view"); if (sc) sc.scrollTop = 230; });
 				await browser.pause(300); await save(`richting-${w}-b`);
 			});
 		});

@@ -47,11 +47,13 @@ body[class*="rwx-"] {SHEET} {{ max-width: 780px; margin: 22px auto 30px !importa
 body[class*="rwx-"] {NOTE} {{ --font-text-size: 18px; --line-height-normal: 1.6; }}
 body[class*="rwx-"] {T} {{ position: relative; isolation: isolate; box-shadow: none !important; animation: none; }}
 body[class*="rwx-"] {T} .rollwright-stamp {{ box-shadow: none !important; }}
-body[class*="rwx-"] {T}.rwx-ico::after {{ content: ""; display: inline-block; width: 1.05em; height: 1.05em; margin-left: .35em; vertical-align: -0.16em;
+body[class*="rwx-"] {T}.rwx-ico::after {{ content: "" !important; position: static !important; display: inline-block !important; opacity: 1 !important; width: 1.3em; height: 1.3em; margin-left: .4em; vertical-align: -0.28em; animation: none !important;
   -webkit-mask: var(--rwx-ico) center / contain no-repeat; background: currentColor; }}
 body[class*="rwx-"] {T}.rwx-ico-wolf {{ --rwx-ico: {WOLF}; }}
 body[class*="rwx-"] {T}.rwx-ico-trap {{ --rwx-ico: {TRAP}; }}
-body[class*="rwx-"] {NOTE} .callout {{ position: relative; }}
+body[class*="rwx-"] {NOTE} .callout {{ position: relative; overflow: visible !important; }}
+body[class*="rwx-"] {NOTE} .metadata-container, body[class*="rwx-"] {NOTE} .frontmatter-container {{ display: none !important; }}
+body[class*="rwx-"] .view-header-title {{ color: var(--rwx-kop, #e8d8b8) !important; }}
 body[class*="rwx-"] {NOTE} .callout[data-callout="beast"]::after,
 body[class*="rwx-"] {NOTE} .callout[data-callout="trap"]::after {{ content: ""; position: absolute; right: 16px; top: 50%; translate: 0 -50%; width: 84px; height: 84px;
   -webkit-mask: var(--rwx-ico) center / contain no-repeat; background: var(--rwx-ico-kleur, currentColor); opacity: .9; }}
@@ -102,15 +104,16 @@ css += f"""
 {B} {NOTE} {{ --text-normal: #d7dcd6; --text-muted: #8f9a93; --bold-color: #ffb27a; --font-text: "RX Spectral", Georgia, serif; color: var(--text-normal); }}
 {B} {SHEET} {{ background: {STEEN}, linear-gradient(180deg,#3a3f3d,#2a2e2d); border: 1px solid #555d59;
   box-shadow: inset 0 2px 0 rgba(255,255,255,.08), inset 0 -3px 0 rgba(0,0,0,.4), 0 0 0 6px #151717, 0 0 0 7px #4a514e, 0 30px 80px rgba(0,0,0,.75); }}
-{B} {NOTE} h1 {{ font-family: "RX Uncial"; font-size: 2.6em; text-align: center; margin: .05em 0 0; color: #1d201f;
-  text-shadow: 0 1px 0 rgba(255,255,255,.18), 0 -1px 0 rgba(0,0,0,.8), 0 0 18px rgba(255,110,30,.0); -webkit-text-stroke: .6px #6b7470; }}
+{B} {NOTE} h1 {{ font-family: "RX Uncial"; font-size: 2.6em; text-align: center; margin: .05em 0 0; color: #ffb36a;
+  text-shadow: 0 -1px 0 #000, 0 0 10px rgba(255,120,30,.75), 0 0 34px rgba(255,80,10,.45); }}
 {B} {NOTE} h1 + p {{ text-align: center; }}
-{B} {NOTE} .callout {{ background: rgba(0,0,0,.28); border: none; border-radius: 2px; box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.07); }}
+{B} {NOTE} .callout {{ background: rgba(0,0,0,.42) !important; border: 1px solid #4e5652; border-radius: 2px; box-shadow: inset 0 2px 6px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.07); }}
 {B} {NOTE} .callout-title {{ font-family: "RX Uncial"; color: #ff9a55; font-size: 1.12em; text-shadow: 0 0 10px rgba(255,100,20,.45); }}
 {B} {T} {{ font-family: "RX Uncial"; color: #e7ece7 !important; padding: .12em .7em .14em .55em !important; border-radius: 2px !important;
   clip-path: polygon(6% 0, 94% 0, 100% 22%, 100% 78%, 94% 100%, 6% 100%, 0 78%, 0 22%);
   background: {STEEN}, linear-gradient(180deg,#5b625f,#3b403e) !important; border: none !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 0 rgba(0,0,0,.55) !important; text-shadow: 0 -1px 0 #000, 0 1px 0 rgba(255,255,255,.15); }}
+{B} {T} .rollwright-value {{ font-size: 1.12em; }}
 {B} {T} .rollwright-icon {{ color: #ff8a3a !important; filter: drop-shadow(0 0 4px rgba(255,110,30,.8)); }}
 {B} {T}.rollwright-crit {{ color: #fff3c0 !important; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331) !important;
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
@@ -128,7 +131,8 @@ css += f"""
 # ---------------- C. De Hofcodex: velijn, lapis, vermiljoen, bladgoud ----------------
 C = "body.rwx-codex"
 css += f"""
-{C} {{ --rwx-ico-kleur: #1f3f8f; }}
+{C} {{ --rwx-ico-kleur: #1f3f8f; --rwx-kop: #e9d79a; }}
+{C} .workspace-tab-header.is-active {{ background: #1a2550 !important; color: #e9d79a !important; }}
 {C} {VIEW}, {C} .workspace-leaf-content[data-type="rollwright-history"] .view-content {{
   background: radial-gradient(ellipse at 50% 0%, #2a3a6e, #121a36 70%); }}
 {C} .view-header, {C} .workspace-tab-header-container {{ background: #0e1430 !important; }}
@@ -154,7 +158,7 @@ css += f"""
 {C} .workspace-leaf-content[data-type="rollwright-history"] .view-content {{ background: {VELIJN}, #f6eedb !important; }}
 {C} .rollwright-history-item {{ background: transparent !important; border: none !important; border-bottom: 1px solid #c9b48a !important; border-radius: 0 !important; }}
 {C} .rollwright-history-result {{ font-family: "RX Fraktur"; color: #1f3f8f !important; font-size: 1.2em; }}
-{C} .rollwright-history-group-title, {C} .rollwright-history-name {{ font-family: "RX Fraktur"; color: #a8231a !important; }}
+{C} .rollwright-history-group-title, {C} .rollwright-history-name {{ font-family: "RX Fraktur"; color: #a8231a !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1.15em; }}
 """
 
 (HIER / "richtingen.css").write_text(css)
