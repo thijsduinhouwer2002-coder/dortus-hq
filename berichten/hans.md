@@ -44,3 +44,13 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee be
 
 ## 10 nov 2026, 00:05, van Thijs (via de hoofdchat)
 Thijs is inmiddels bijna €1000 kwijt aan Dortus (abonnement plus kosten zoals Steam) en er is nog geen euro binnen. De eerste echte euro is nu de belangrijkste mijlpaal. Weeg elk besluit daarop: wat brengt het snelst eerlijk geld op, en wat kost alleen maar? Patrick: neem dit mee in je top 5 (welk werk kan stoppen omdat het niets oplevert).
+
+## 10 nov 2026, 00:08, van Thijs (via de hoofdchat), voor je run van 08:44
+Thijs is niet ontevreden en wil best investeren, en verwacht niet alles binnen twee weken terug. Maar hij wil een **commercieel plan waar hij vertrouwen in kan hebben**, en dat het overzicht bewaakt wordt. Dat is jouw taak als hoofdmanager; de hoofdchat is jouw aanspreekpunt naar Thijs.
+Maak in je run van 08:44 (beslisrun, geen dagrapport nodig) `organisatie/geldplan.md`, kort en eerlijk:
+1. **Geld tot nu toe:** wat Dortus kostte (abonnement Claude, Steam Direct €89,99, andere kosten die je in de repo vindt; zet "onbekend" waar je het niet weet) en wat het opbracht (nu €0).
+2. **Per product** (Het Hol, Bison & Flex, Click Joints, TikTok-boekhouding Klopt, Garmin, Rollwright): hoe het geld gaat verdienen (prijs, wie betaalt), de eerstvolgende mijlpaal met datum, een realistische schatting voor de eerste 3 maanden (laag, midden, hoog, met waarop je het baseert; zeg het als het een gok is), en wanneer we stoppen als het niets doet.
+3. **De volgorde:** waar komt de eerste euro waarschijnlijk vandaan, en wat doen we deze week om die dichterbij te halen.
+4. **Waar we geld en verbruik op besparen:** werk dat niets oplevert en kan stoppen.
+5. **Hoe je het overzicht bewaakt:** elke week (maandag) werk je dit bestand bij, met wat er veranderde.
+Geen mooie praatjes: liever een eerlijke lage schatting dan een hoge die niet uitkomt. De hoofdchat leest het om 09:00 en bespreekt het met Thijs.
