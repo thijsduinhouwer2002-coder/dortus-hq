@@ -12,6 +12,7 @@ from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 import figuren
+import toetsen_neus
 
 TOL_MM = 0.01
 
@@ -118,6 +119,7 @@ def toets(stap, eigen):
     toets_kijk(stap, eigen)
     toets_beweeg(stap, eigen)
     toets_flip(stap, eigen)
+    toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus
 
 
 def _staaf_kijk():

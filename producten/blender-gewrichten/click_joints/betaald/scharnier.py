@@ -5,7 +5,8 @@ Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de ki
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
 De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
-passingkleur, Exploded view, klikneuzen.
+passingkleur, Exploded view, de zaagsnede in de wang.
+Klikneuzen (eis 3) in scharnier_neus.py.
 Flip bend (eigenschap flip_bend, ontwerp punt 4): keert H en de buigkant samen om, dus de stop en de
 achterstop komen aan de andere kant van het lid; in het Redo-paneel snijdt omzetten het scharnier opnieuw."""
 import math
@@ -22,6 +23,7 @@ from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
 from . import scharnier_beweeg as beweeg
+from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
 
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
@@ -112,6 +114,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         bvh = BVHTree.FromBMesh(bm)
         bm.free()
         maat, reden = vorm.maten(bvh, frame, s, int(self.stand), u)
+        if maat is not None:
+            reden = neus.maten_neus(maat, u)   # eis 3: klikneus en rek, of Tight (dan geen scharnier)
+            maat = None if reden else maat
         if maat is None:
             bpy.data.meshes.remove(me)
             self.report({"WARNING"}, reden)
@@ -140,7 +145,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_as_terugval": terugval, "cj_knokkel_r": maat["r"], "cj_naad_r": maat["rn"],
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
                     "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_t_vlak": maat["t_vlak"], "cj_gespiegeld": gespiegeld(bron),
-                    "cj_flip_bend": bool(self.flip_bend)}
+                    "cj_flip_bend": bool(self.flip_bend), "cj_neus_h": maat["neus_h"],
+                    "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
+                    "cj_rek": maat["rek"]}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])

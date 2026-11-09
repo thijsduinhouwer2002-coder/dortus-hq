@@ -26,6 +26,7 @@ from mathutils import Matrix, Vector
 
 from .. import vormen
 from ..gewricht import bak, boolean
+from . import scharnier_neus as neus
 
 STANDEN = (90, 115, 135)
 STAND_STANDAARD = 115
@@ -213,6 +214,9 @@ def snij(hulp, werk, frame, m, solver):
     for k, (x0, x1) in enumerate(((tw + s, g * 1.1), (-g * 1.1, -(tw + s)))):
         wang = as_cilinder(f"cj_wang_{k}", rn - s / 2, x0, x1, frame, m, hulp)
         boolean(gereed_a, wang, "DIFFERENCE", solver)
+    if "neus_h" in m:  # eis 3: kuiltjes in de wangen (bol met straal + s om de top van de neus)
+        for kuil in neus.neuzen(frame, m, hulp, kuiltje=True):
+            boolean(gereed_a, kuil, "UNION", solver)
     gereed_a = bak(gereed_a, "cj_snij_a", hulp)
     gereed_a.hide_set(True)
     a = bak(werk, "cj_a_bron", hulp)
@@ -229,5 +233,8 @@ def snij(hulp, werk, frame, m, solver):
     for k, (x0, x1) in enumerate(((tw, g * 1.1), (-g * 1.1, -tw))):
         naad = as_cilinder(f"cj_naad_{k}", rn + s / 2, x0, x1, frame, m, hulp)
         boolean(b, naad, "DIFFERENCE", solver)
+    if "neus_h" in m:  # eis 3: klikneuzen op beide zijkanten van de tong, top op H
+        for n in neus.neuzen(frame, m, hulp):
+            boolean(b, n, "UNION", solver)
     deel_b = bak(b, "cj_deel_b", hulp)
     return deel_a, deel_b
