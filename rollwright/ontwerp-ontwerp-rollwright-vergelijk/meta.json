@@ -1,0 +1,95 @@
+{
+ "css": {
+  "oudeRegelsWeg": 42,
+  "tekens": 350942
+ },
+ "venster": "remote",
+ "classic-moonstone": {
+  "bg": "rgb(255, 255, 255)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"??\", \"??\", ui-sans-serif, -apple-system",
+  "kop": [
+   "rgb(255, 255, 255)",
+   "none",
+   "rgb(34, 34, 34)"
+  ],
+  "pad": [
+   "view-header bg=rgb(255, 255, 255) img=none",
+   "workspace-leaf-content rollwright-world bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-leaf mod-active bg=rgb(255, 255, 255) img=none",
+   "workspace-tab-container bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-tabs mod-top mod-top-left-space mod-active bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-split mod-vertical mod-root bg=rgb(255, 255, 255) img=none",
+   "workspace is-secondary-sidedock-open is-right-sidedock-open bg=rgba(0, 0, 0, 0) img=none",
+   "horizontal-main-container bg=rgba(0, 0, 0, 0) img=none",
+   "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
+  ]
+ },
+ "classic-moonstone-scroll": 495,
+ "classic-obsidian": {
+  "bg": "rgb(28, 28, 28)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"??\", \"??\", ui-sans-serif, -apple-system",
+  "kop": [
+   "rgb(28, 28, 28)",
+   "none",
+   "rgb(218, 218, 218)"
+  ],
+  "pad": [
+   "view-header bg=rgb(28, 28, 28) img=none",
+   "workspace-leaf-content rollwright-world bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-leaf mod-active bg=rgb(28, 28, 28) img=none",
+   "workspace-tab-container bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-tabs mod-top mod-top-left-space mod-active bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-split mod-vertical mod-root bg=rgb(28, 28, 28) img=none",
+   "workspace is-secondary-sidedock-open is-right-sidedock-open bg=rgba(0, 0, 0, 0) img=none",
+   "horizontal-main-container bg=rgba(0, 0, 0, 0) img=none",
+   "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
+  ]
+ },
+ "classic-obsidian-scroll": 495,
+ "parchment-moonstone": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Fell\", Georgia, serif",
+  "kop": [
+   "rgb(220, 197, 149)",
+   "none",
+   "rgb(34, 34, 34)"
+  ],
+  "pad": [
+   "view-header bg=rgb(220, 197, 149) img=none",
+   "workspace-leaf-content rollwright-world bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-leaf mod-active bg=rgb(255, 255, 255) img=none",
+   "workspace-tab-container bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-tabs mod-top mod-top-left-space mod-active bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-split mod-vertical mod-root bg=rgb(255, 255, 255) img=none",
+   "workspace is-secondary-sidedock-open is-right-sidedock-open bg=rgba(0, 0, 0, 0) img=none",
+   "horizontal-main-container bg=rgba(0, 0, 0, 0) img=none",
+   "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
+  ]
+ },
+ "parchment-moonstone-scroll": 571,
+ "arcane-moonstone": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "cls": "workspace-leaf-content rollwright-world",
+  "font": "\"RW Spectral\", Georgia, serif",
+  "kop": [
+   "rgb(13, 15, 15)",
+   "none",
+   "rgb(34, 34, 34)"
+  ],
+  "pad": [
+   "view-header bg=rgb(13, 15, 15) img=none",
+   "workspace-leaf-content rollwright-world bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-leaf mod-active bg=rgb(255, 255, 255) img=none",
+   "workspace-tab-container bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-tabs mod-top mod-top-left-space mod-active bg=rgba(0, 0, 0, 0) img=none",
+   "workspace-split mod-vertical mod-root bg=rgb(255, 255, 255) img=none",
+   "workspace is-secondary-sidedock-open is-right-sidedock-open bg=rgba(0, 0, 0, 0) img=none",
+   "horizontal-main-container bg=rgba(0, 0, 0, 0) img=none",
+   "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
+  ]
+ },
+ "arcane-moonstone-scroll": 553
+}
