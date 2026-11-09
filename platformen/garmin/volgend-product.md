@@ -5,7 +5,7 @@ Gijs, 9 nov 2026 23:45. Bron van alle cijfers zonder link: dataset `platformen/v
 ## Wat het is en voor wie
 Een app voor het horloge waarmee je dagelijks ademhalingsoefeningen doet, met de nadruk op **rondes van krachtig ademen en daarna de adem inhouden** (de stijl die mensen kennen van Wim Hof), plus rustige patronen (box 4-4-4-4, 4-7-8, rustig 5,5 per minuut). Voor mensen die elke ochtend ademen, vaak samen met koud douchen of ijsbaden, en die willen zien dat hun inhoudtijd groeit.
 
-**Belofte in één zin:** adem met je ogen dicht op het ritme van je pols, en zie week na week je inhoudtijd groeien, in een app die zelf rustig ademt.
+**Belofte in één zin:** adem met je ogen dicht op trillingen aan je pols, en zie week na week je inhoudtijd groeien, in een app die zelf ademt als water. (gelijkgetrokken met het ontwerp, 10 nov 00:58)
 
 ## Waarom hier: er wordt betaald (GEZIEN)
 - **WHM breathing+** ($4,99, MobileDriveway, sinds dec 2024): 1.000+ downloads, 604 reviews, in 2026 gemiddeld ±26 reviews per maand (oktober 29). Maar 23 reviewers staan ook bij de gratis versie, dus het zijn eigen kopers. Het is een gewoonte-app: mensen stappen over van de gratis WHM breathing (50.000+) naar betaald.
