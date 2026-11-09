@@ -271,3 +271,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden (GEZIEN):** Remotely Save staat sinds okt 2024 stil maar krijgt nog ±2.158 installs per dag; PRO is gratis tot 1 jan 2027, prijs later. sync-engine vult het gat gratis. Geen betaalbewijs. Oordeel: richting valt af.
 **Controleur:** akkoord mits. Moet: sync-engine, google-drive-sync en onedrive-sync als gratis concurrenten opnemen (de onderzoeker miste dat sync-engine Google Drive en slim samenvoegen al heeft), groei per dag en likes van het hele topic duidelijk zeggen. Alles verwerkt.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 9 nov 2026 ±01:45 tot 02:05 UTC: Rollwright, run 20 (beeld bij het r/ObsidianMD-bericht)
+**Gelezen:** berichten (alles verwerkt, niets nieuws), doelen, regels, besluiten, rol, bord, lijst-thijs, status van alle platformen.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak; main op origin/main gezet (git checkout -B), geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 01:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex `approve: false`, 0 downloads; forumdraad Rollwright 1 bericht, 17 keer bekeken, 0 likes; repo rollwright 0 sterren, 0 issues. Niets te beantwoorden. Korte tekst op de listing nog die van 0.3.0 (advies 29 nog niet uitgevoerd). Afrekenpagina skins: beschrijving staat, plaatje nog niet.
+**Beslissing:** de nieuwe film van Daan (ja of nee van Thijs vóór 11:00 UTC) inpassen in het Reddit-bericht van 13:45 UTC. Waarom: zonder dit plaatst de hoofdchat bij een ja de film zonder te zeggen dat licht en stralen niet in de plugin zitten, en dat breekt "alleen beweren wat klopt".
+**Gedaan:** `lancering.md` deel run 20 (optie A met mp4 en één eerlijke regel, optie B de oude GIF), regel bovenaan lijst-thijs.
+**Controleur:** akkoord mits. Moet: "recorded in one take" klopte niet (losse schermen uit een testrun), zin ruimer gemaakt; oudere Damage 7 in het logboek genoemd. Kan-punten verwerkt.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, Reddit-bericht volgen zodra de link er is); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.

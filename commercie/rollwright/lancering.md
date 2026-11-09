@@ -464,3 +464,42 @@ Waarom het toch de moeite is: klein bereik (307 sterren, GEZIEN run 11), maar he
 
 ### Keuring run 15
 Controleur (los van mij, curl op README, CONTRIBUTING, sjabloon en lijst): **akkoord mits**. Moet: "the list has no dice roller yet" klopte niet (Avrae, een dobbelbot, staat onder Discord Bots), aangepast naar "nothing for Obsidian ... and no dice roller that works inside your notes". Kan, verwerkt: "row or item" voor lijsten; regel voor de lijst korter; voorwaarde over accounteisen en wie plaatst. Rood voor de laagste worp staat niet in de README maar wel in de code (`src/rollers/extreme.ts`, max en min) en al in het gekeurde forumbericht. Conclusie dat alleen Thijs de pull request kan doen: juist volgens de controleur.
+
+## Bijwerking 9 nov 2026 (run 20): welk beeld bij het r/ObsidianMD-bericht, en één eerlijke zin bij de video
+
+Door Chris, 9 nov ±01:50 UTC. Aanleiding: Daan legde Thijs een nieuwe film voor (lijst-thijs 8 nov 22:45, ja of nee vóór 9 nov 11:00 UTC): `ontwerp/rollwright/demo-v3.mp4` (16 s, 1280x720, h264, 1,9 MB, GEZIEN met ffprobe) en `demo-v3.gif` (6,9 MB). De tekst van run 10 hierboven gaat uit van de oude GIF. Hieronder staat wat de hoofdchat om 13:45 UTC kiest, zodat het bericht in beide gevallen klopt.
+
+### Wat ik in de film zag (GEZIEN, 8 beelden uit de mp4, één per 2 seconden; de controleur bekeek er 16)
+1. Titelkaart "Roll dice right in your notes." met een d20.
+2. Het echte venster (rustige Classic): Initiative wordt 13, Damage wordt 13, Wisdom save wordt 20 met het stempel NAT 20 in goud.
+3. De NAT 20-kaart wordt groot uit het venster getild met "CRITICAL HIT", warm licht en stralen erachter, onderschrift "A natural 20 lands in gold." met eronder "Free. Click any roll in your note to throw it again."
+4. Het logboek vult: Wisdom save 20 (NAT 20), Damage 13, 13. Dat klopt met de drie worpen; rond 13 s schuift het door en is ook een oudere regel "7, 2d6 + 3" te zien, de Damage van vóór de film (gezien door de controleur). Klopt dus, met die ene oudere worp erbij. Onderschrift "Every throw, kept in a session log."
+5. Eindkaart: "Live rolls · random tables from your notes · a log for every session", knop "Free in Obsidian Community Plugins", "Made by Thijs at Dortus".
+
+Alles wat de film beweert, staat ook in de gekeurde tekst van run 10 (gouden natuurlijke 20, NAT 20-stempel, een log per sessie, tabellen uit je notities, gratis). Geen nieuwe belofte. Eén ding verdient een zin: het vergroten van de kaart, het woord "CRITICAL HIT", het licht, de stralen en de vonken zitten **niet** in de plugin (de plugin toont alleen het stempel NAT 20). Ook is de film geen doorlopende opname: het venster bestaat uit schermafbeeldingen uit een automatische testrun in de echte app, achter elkaar gezet, en de opgetilde kaart is een uitsnede uit een andere run (Daan zegt dat zelf in `ontwerp/rollwright/bron/film-v3/LEESMIJ.md`). Op Reddit zien mensen eerst het beeld; wie de plugin installeert en geen stralen ziet, voelt zich bedrogen. Volgens regel 5 van Thijs ("alleen beweren wat klopt") zeggen we het dus zelf, in één zin.
+
+### Wat de hoofdchat kiest
+**A. Thijs zei "GIF ja" (of "ja") in de projectchat vóór het plaatsen:**
+- Soort post: met media, en upload de mp4 als video: download eerst https://raw.githubusercontent.com/thijsduinhouwer2002-coder/dortus-hq/main/ontwerp/rollwright/demo-v3.mp4 (opent meestal als speler: rechtsklik, "Video opslaan als"). Een video speelt op Reddit vanzelf af en is scherper dan een GIF van 6,9 MB (GOK, ook het advies van Daan). 16 s en 1,9 MB ligt ver onder de grenzen van Reddit (DERDEN, onder meer https://www.tella.com/blog/how-to-post-videos-on-reddit ; geen officiële bron gelezen, dus de hoofdchat ziet het in het formulier).
+- Titel en tekst: precies die van run 10, met **één extra regel** direct onder de eerste alinea:
+```
+(The zoom, the light, the rays and the "Critical hit" label around the card are added for the video. Everything inside the Obsidian window is the free plugin as it is, captured from the real app.)
+```
+- Laat het formulier geen tekst toe bij een video: kies dan een gewone tekstpost met precies dezelfde titel en tekst, en zet de video erin als ingevoegd medium (knop voor afbeelding of video in de editor). Lukt ook dat niet: optie B.
+
+**B. Thijs zei nee, of heeft om 13:45 UTC nog niets gezegd:**
+- Alles zoals in run 10: de GIF https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif (200, 2,1 MB, GEZIEN 01:46 UTC). Geen extra regel, want die GIF is alleen het venster zelf.
+- Niet wachten op het antwoord: het bericht gaat om 13:45 UTC of later de deur uit, met het beeld dat op dat moment akkoord is.
+
+Let op bij A: zet Olaf `demo-v3.gif` al als `images/demo.gif` in de repo rollwright (zoals Daan voorstelt), dan staat die film ook in de README. Dan geldt de extra regel ook voor optie B, omdat dezelfde beelden in de GIF zitten. Kijk dus vlak voor het plaatsen naar de GIF in de repo: is het de film met de opgetilde kaart, zet de regel er dan in, wat je ook kiest.
+
+### Blijft gelden uit run 10 en 11
+Eerst de zijbalk en de regels van r/ObsidianMD in de browser lezen (Reddit geeft 403 op curl, opnieuw GEZIEN 01:46 UTC, niet omzeild). De gedragscode van Obsidian geldt ook op r/ObsidianMD en zegt: "paid content will always receive additional scrutiny" en "We expect folks to engage meaningfully before promoting their work" (GEZIEN, opnieuw gelezen 01:48 UTC, https://raw.githubusercontent.com/obsidianmd/obsidian-help/master/en/Obsidian/Community%20code%20of%20conduct.md). Daarom staat in de tekst dat alle dobbelen gratis is en reageert Thijs (of de hoofdchat) op elke vraag in de eigen draad. Twijfel over de regels: niet plaatsen, op de lijst van Thijs.
+
+### Nog even nagekeken (GEZIEN 01:45 tot 01:50 UTC)
+- Links in het bericht: listing https://community.obsidian.md/plugins/rollwright 200, repo 200, GIF 200.
+- De korte tekst op de listing en in `community-plugins.json` is nog die van 0.3.0 ("keep a history of every roll"), dus advies 29 is nog niet uitgevoerd. Het staat bovenaan lijst-thijs. Het bericht zelf hangt er niet van af; het is wel wat mensen zien als ze na het lezen in Obsidian zoeken.
+- Afrekenpagina van de skins: beschrijving staat erop, nog steeds geen plaatje (`medias: []`, GEZIEN). Punt staat al op lijst-thijs (regel van 8 nov 22:45); geen nieuwe regel.
+
+### Keuring run 20
+Controleur (los van mij, 16 beelden uit de mp4, LEESMIJ en `frames.json`, links en gedragscode met curl): **akkoord mits**. Moet, verwerkt: (1) "recorded in one take" klopte niet (losse schermafbeeldingen uit een testrun, uitsnede uit een andere run) en de zin noemde alleen licht en vonken; nieuwe zin noemt vergroten, licht, stralen en "Critical hit" en zegt "captured from the real app"; (2) het logboek toont ook een oudere Damage 7. Kan, verwerkt: tweede onderschrift genoemd, uitleg mp4 opslaan. Kan, doorgegeven: "één opname" in het voorstel van Daan op lijst-thijs is strikt genomen niet juist (in mijn logboek, voor Daan).
