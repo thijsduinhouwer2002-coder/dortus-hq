@@ -500,3 +500,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** eerst naar de projectchat (`ontwerp/bison-flex/film/voor-projectchat.md`), niet direct op de lijst van Thijs. Waarom: zo is de afspraak voor wat Thijs ziet, en mijn eigen oordeel is "goed, nog niet flamboyant".
 - **Volgende run:** berichten en projectchat (film v4, richtingen, film Bison & Flex); nieuwe ronde van Bram (Click Joints filmisch ronde 5) keuren als de beelden er zijn; 4k-opname van Jet verwerken.
 - **Ook bekeken (run 44):** filmisch ronde 6 proef van Bram (run 42555343369, GEZIEN): beeldtaal klopt nu, drie punten voor hem (nerf in de lengte en lichter beuken, rood op 28 groter en echt rood, pop groter zonder horizonband), onderaan `producten/blender-gewrichten/ontwerp.md` en een regel in zijn taken.
+
+## 9 nov 2026, run 45 (klok van de omgeving 04:26 UTC)
+
+- **Berichten:** geen nieuwe van Thijs; de projectchat heeft nog niet gereageerd op film v4, de skins-richtingen en film Bison & Flex v1.
+- **Gemaakt: film Bison & Flex versie 2** (`ontwerp/bison-flex/film/bison-flex-film-v2.mp4`, `.gif`, `beelden-v2.jpg`, 17,1 s). Scène 3, 5 en 6 uit de 4k-opname van Jet (film-run 42559031952; posities gelijk aan run 42554632237, verschil gemiddeld 0,1 van 255, GEZIEN), halve regels aan de randen lopen weg, scène 6 (was het zwakst) zoomt in op de echte melding "Unused rule 'term'", het Alt+Enter-menu en de regel die echt weg is. Bekeken met de Read-tool (overzicht, losse beelden, voor en na naast elkaar).
+- **Gekeurd: filmisch proef 6c2 Click Joints (run 42561797861, 78e15c6): houding ja**, grote render mag; nog niet de film: hout als ribfluweel en oranje, rood zalmroze en klein, achtergrond dood zwart. Punten onderaan `producten/blender-gewrichten/ontwerp.md` en in de taken van Bram.
+- **Controleur (agent):** film v2 ja, geen moet-punten; kan-punt dubbele tekst in de overvloeier naar de inzoom van scène 6, meteen opgelost met een harde snede (GEZIEN beeld 393 tot 395). Bij 6c2 vond hij twee moet-punten die ik miste (rafelige rand aan de groene kraag, vlekken rond de kogel), toegevoegd voor Bram.
+- **Besloten:** v2 vervangt v1 in `voor-projectchat.md`; nog niet op de lijst van Thijs. Waarom: de afspraak is dat de projectchat eerst kijkt, en scherpte en scène 6 maken de film sterker zonder iets te tonen wat de IDE niet doet.
+- **Volgende run:** berichten en projectchat; volledige ronde van Bram keuren als die er is; anders skins-richting verder uitwerken (beweging per wereld).

@@ -359,8 +359,8 @@ def scene6(t, dur):
     else:
         u = ease_out((t - 0.95) / 0.3)
         i = 2 if t < 1.55 else (3 if t < 2.1 else 4)
-        if u < 1: plak(cv, s6[2], S6_POS, 1 - u)  # kruisfade, geen leeg beeld
-        plak(cv, s6z[i], (S6Z_POS[0], S6Z_POS[1] + 30 * (1 - u)), u)
+        # harde snede naar de inzoom (een overvloeier gaf dubbele tekst, controleur run 45)
+        plak(cv, s6z[i], (S6Z_POS[0], S6Z_POS[1] + 30 * (1 - u)), 1.0)
         if i == 2:
             a = punt(S6Z_POS, S6Z_CROP, S6Z_K, TERM[:2]); b = punt(S6Z_POS, S6Z_CROP, S6Z_K, TERM[2:])
             kader(cv, (a[0], a[1], b[0], b[1]), ORANJE, u)
