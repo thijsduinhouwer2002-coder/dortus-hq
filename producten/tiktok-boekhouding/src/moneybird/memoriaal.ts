@@ -30,6 +30,8 @@ export interface RegelInvoer {
   soort: MbSoort;
   bedragCenten: number;
   statementId: string;
+  /** Munt van de regel (zoals de rekenkern hem geeft); als hij er is, moet hij gelijk zijn aan die van de afrekening. */
+  valuta?: string;
 }
 
 export interface AfrekeningInvoer {
@@ -88,7 +90,8 @@ export function centenTekst(c: number): string {
 
 /** "100.0", "0.0", "12.34" of "12,34" van Moneybird naar centen; meer dan twee decimalen is een fout. */
 export function tekstNaarCenten(s: unknown): number {
-  const t = String(s ?? "").replace(",", ".");
+  if (typeof s !== "string") throw new MoneybirdFout("antwoord", `bedrag van Moneybird is geen tekst: ${JSON.stringify(s)}`);
+  const t = s.replace(",", ".");
   const m = /^(-?)(\d+)(?:\.(\d{1,2}))?$/.exec(t);
   if (!m) throw new MoneybirdFout("antwoord", `onverwacht bedrag van Moneybird: ${JSON.stringify(s)}`);
   const c = Number(m[2]) * 100 + Number((m[3] ?? "").padEnd(2, "0"));
@@ -98,12 +101,17 @@ export function tekstNaarCenten(s: unknown): number {
 export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, opties: MemoriaalOpties = {}): Memoriaal {
   if (!/^\d+$/.test(invoer.statementId)) throw new MoneybirdFout("invoer", `statementId moet uit cijfers bestaan: ${invoer.statementId}`);
   if (invoer.valuta !== "EUR") throw new MoneybirdFout("invoer", `versie 1 boekt alleen EUR, deze afrekening is in ${invoer.valuta}`);
-  if (!Number.isFinite(invoer.statementTime)) throw new MoneybirdFout("invoer", "statementTime ontbreekt");
+  // Unix-seconden tussen 2015 en 2100; vangt milliseconden en lege waarden af.
+  if (!Number.isFinite(invoer.statementTime) || invoer.statementTime < 1_420_070_400 || invoer.statementTime > 4_102_444_800) {
+    throw new MoneybirdFout("invoer", `statementTime is geen Unix-tijd in seconden: ${invoer.statementTime}`);
+  }
+  if (!/^\d+$/.test(koppeling.tegenrekeningId ?? "") && koppeling.tegenrekeningId) throw new MoneybirdFout("invoer", `tegenrekening-id moet uit cijfers bestaan: ${koppeling.tegenrekeningId}`);
   if (!koppeling.tegenrekeningId) throw new MoneybirdFout("invoer", "geen tegenrekening (Te ontvangen van TikTok Shop) gekozen");
 
   const som = new Map<MbSoort, number>();
   for (const r of invoer.regels) {
     if (r.statementId !== invoer.statementId) throw new MoneybirdFout("invoer", `regel van afrekening ${r.statementId} hoort niet bij afrekening ${invoer.statementId}`);
+    if (r.valuta !== undefined && r.valuta !== invoer.valuta) throw new MoneybirdFout("invoer", `regel in ${r.valuta} in een afrekening in ${invoer.valuta}`);
     if (!BEKEND.has(r.soort)) throw new MoneybirdFout("invoer", `onbekende soort: ${r.soort}`);
     if (!Number.isSafeInteger(r.bedragCenten)) throw new MoneybirdFout("invoer", `bedrag is geen geheel aantal centen: ${r.bedragCenten}`);
     som.set(r.soort, (som.get(r.soort) ?? 0) + r.bedragCenten);
@@ -117,6 +125,7 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
     if (c === 0) continue;
     const k = koppeling.per[soort];
     if (!k?.grootboekId) throw new MoneybirdFout("invoer", `geen grootboekrekening gekozen voor "${naam}"`);
+    if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId !== undefined && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("invoer", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
     if (k.btwTariefId && !opties.btwToegestaan) throw new MoneybirdFout("btw_nog_niet_getest", `btw-tarief bij "${naam}" kan pas na de sandbox-test`);
     totaal += c;
     const regel: MemoriaalRegel = { grootboekId: k.grootboekId, debetCenten: c < 0 ? -c : 0, creditCenten: c > 0 ? c : 0, omschrijving: `TikTok Shop ${naam}, afrekening ${invoer.statementId}` };
