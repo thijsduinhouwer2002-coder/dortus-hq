@@ -1,6 +1,8 @@
 # Bison & Flex: filmpje (Daan, 9 nov 2026). Zet de echte IDE-beelden van Jet
 # (film-run 42554632237) als kaarten op de achtergrond van de poster, met koppen,
 # kaders en de boog als lagen. Alles in een IDE-venster is een echte opname.
+# Versie 2 (Daan, 9 nov 04:31): scène 3, 5 en 6 ook uit 4k (film-run 42559031952), halve regels
+# aan de randen van elke uitsnede lopen zacht weg.
 # Gebruik: python3 -I maak_film.py <map met beelden van Jet> <uitvoermap>
 import sys, os, math, subprocess
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -66,11 +68,29 @@ def badge(letter, kleur, s):
     f = font("Bold", int(s * 0.7)); d.text((s / 2, s / 2 + 1), letter, font=f, fill=(255, 255, 255), anchor="mm")
     return im
 
+def vervaag_randen(im, diepte):
+    """halve regels aan de boven- en onderrand zacht laten weglopen in de eigen achtergrond
+    van elke kolom (mediaan van de kolom = editorkleur, ook bij de gutter)."""
+    import statistics
+    w, h = im.size; px = im.load()
+    kleur = []
+    for x in range(w):
+        col = [px[x, y] for y in range(0, h, 3)]
+        kleur.append(tuple(int(statistics.median(c[k] for c in col)) for k in range(3)))
+    laag = Image.new("RGB", (w, 1)); laag.putdata(kleur); laag = laag.resize((w, h))
+    m = Image.new("L", (1, h), 0); mp = m.load()
+    for y in range(h):
+        d = min(y, h - 1 - y)
+        if d < diepte: mp[0, y] = int(255 * (1 - d / diepte) ** 1.6)
+    m = m.resize((w, h))
+    return Image.composite(laag, im, m)
+
 def kaart(bron, crop, schaal, titel, letter, f=1.0):
     """bron: pad, crop: (x0,y0,x1,y1) in bronpixels, schaal: bron -> scherm (bij f=1)."""
     im = Image.open(bron).convert("RGB").crop(crop)
     bw, bh = int((crop[2] - crop[0]) * schaal), int((crop[3] - crop[1]) * schaal)
     im = im.resize((bw, bh), Image.LANCZOS)
+    im = vervaag_randen(im, int(30 * f))
     tb = int(TB * f); r = int(18 * f)
     c = Image.new("RGBA", (bw, bh + tb), (43, 45, 48, 255))
     c.paste(im, (0, tb)); d = ImageDraw.Draw(c)
@@ -178,6 +198,10 @@ def klik(canvas, p, t):
 
 def nummer(p): return "%s/%s" % (SRC, p)
 
+def kaart4(rel, crop, schaal, *a):
+    """zelfde kaart, maar uit de 4k-opname (3840x2160, precies 2x): scherper bij vergroten. crop blijft in 1920-maten."""
+    return kaart(nummer("4k/" + rel), tuple(2 * c for c in crop), schaal / 2, *a)
+
 # ---------- scène 1 en 2: haak en kop (op dubbele grootte, voor de camerabeweging) ----------
 L_CROP = (80, 455, 2100, 1000); Y_CROP = (80, 390, 1720, 790); K = 1.16  # 4k -> 2x canvas
 L_NUM4 = (1510, 782, 1510 + 66, 782 + 62); Y_NUM4 = (410, 658, 410 + 66, 658 + 62)
@@ -218,8 +242,8 @@ def scene12(fi, t):
 # ---------- scène 3: gratis ----------
 S3_CROP = (40, 130, 1180, 770); S3_K = 1.32; S3_POS = (110, 150)
 S3Z_CROP = (500, 560, 1180, 800); S3Z_K = 2.0; S3Z_POS = (110, 290)
-s3z = kaart(nummer("scene3/0011.png"), S3Z_CROP, S3Z_K, "calc.y", "Y")
-s3 = {i: kaart(nummer("scene3/%04d.png" % i), S3_CROP, S3_K, "calc.y", "Y") for i in range(1, 12)}
+s3z = kaart4("scene3/0011.png", S3Z_CROP, S3Z_K, "calc.y", "Y")
+s3 = {i: kaart4("scene3/%04d.png" % i, S3_CROP, S3_K, "calc.y", "Y") for i in range(1, 12)}
 S3_SEQ = [(1, 0.35), (2, 0.25), (3, 0.2), (4, 0.15), (5, 0.12), (6, 0.12), (7, 0.12), (8, 0.12), (10, 0.12), (11, 0.95)]
 def kopregel(cv, tekst, soort, alpha, dy):
     d = ImageDraw.Draw(cv); f = font("Bold", 56)
@@ -282,11 +306,11 @@ def scene4(t, dur):
 
 # ---------- scène 5: hernoemen ----------
 S5_CROP = (40, 280, 1200, 700); S5_K = 1.45; S5_POS = (110, 170)
-s5 = {i: kaart(nummer("scene5/%04d.png" % i), S5_CROP, S5_K, "calc.y", "Y") for i in range(1, 8)}
+s5 = {i: kaart4("scene5/%04d.png" % i, S5_CROP, S5_K, "calc.y", "Y") for i in range(1, 8)}
 # eindbeeld: twee kaarten uit hetzelfde gesplitste venster (beeld 9)
 S5L_CROP = (40, 230, 880, 510); S5Y_CROP = (965, 300, 1480, 905); S5S_K = 1.3
-s5L = kaart(nummer("scene5/0009.png"), S5L_CROP, S5S_K, "calc.l", "L")
-s5Y = kaart(nummer("scene5/0009.png"), S5Y_CROP, S5S_K, "calc.y", "Y")
+s5L = kaart4("scene5/0009.png", S5L_CROP, S5S_K, "calc.l", "L")
+s5Y = kaart4("scene5/0009.png", S5Y_CROP, S5S_K, "calc.y", "Y")
 S5L_POS = (100, 430); S5Y_POS = (1215, 170)
 S5_SEQ = [(1, 0.35), (2, 0.14), (3, 0.14), (4, 0.14), (5, 0.14), (6, 0.14), (7, 0.45)]
 def scene5(t, dur):
@@ -318,7 +342,7 @@ def scene5(t, dur):
 
 # ---------- scène 6: ongebruikte regel ----------
 S6_CROP = (40, 430, 1100, 800); S6_K = 1.6; S6_POS = (110, 200)
-s6 = {i: kaart(nummer("scene6/%04d.png" % i), S6_CROP, S6_K, "calc.y", "Y") for i in range(1, 5)}
+s6 = {i: kaart4("scene6/%04d.png" % i, S6_CROP, S6_K, "calc.y", "Y") for i in range(1, 5)}
 S6_SEQ = [(1, 0.3), (2, 0.5), (3, 0.5), (4, 0.4)]
 def scene6(t, dur):
     cv = BG1.copy().convert("RGBA"); i = kies(S6_SEQ, t); inn = ease_out(t / 0.25)
