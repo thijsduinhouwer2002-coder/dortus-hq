@@ -144,3 +144,5 @@ body.rollwright-skin-parchment .rollwright-roll:not(.rollwright-skin-preview-rol
 /* Variabelen voor tabeluitkomsten en blokuitkomsten (.rollwright-text): buiten de wereld volgen ze het thema zoals Classic, binnen de wereld de perkamentkleuren. */
 body.rollwright-skin-parchment, .rollwright-skin-preview-tile.rollwright-skin-parchment { --rollwright-bg: var(--background-secondary); --rollwright-fg: var(--text-normal); --rollwright-border: var(--background-modifier-border); --rollwright-accent: var(--interactive-accent); }
 body.rollwright-skin-parchment .rollwright-world { --rollwright-bg: rgba(122,59,31,.08); --rollwright-fg: #2e1d10; --rollwright-border: #c8ab7c; --rollwright-accent: #7a3b1f; }
+/* Tabeluitkomst op het papieren token: altijd inkt, ook buiten de wereld in een donker thema (anders licht op papier, GEZIEN run 42609255916). */
+body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block), body.rollwright-skin-parchment .rollwright-roll.rollwright-text:not(.rollwright-error):not(.rollwright-roll-block) .rollwright-value { color: #2e1d10; }
