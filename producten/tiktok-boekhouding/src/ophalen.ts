@@ -60,8 +60,9 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
     ({ kop, transacties } = bewaard);
   } else {
     // "Vers": aan het begin van deze afrekening was (bijna) het hele budget er nog (marge voor de lijst met afrekeningen
-    // en tokens verversen). Lukt het dan nog niet, dan lukt het nooit.
-    const vers = d.budget.overVoorNieuw >= d.budget.totaal - d.budget.reserve - VERS_MARGE;
+    // en tokens verversen). Lukt het dan nog niet, dan lukt het nooit. Queries naar de opslag (D1) tellen hier niet:
+    // die komen elke aanroep terug, dus een afrekening die daardoor niet past, past nooit.
+    const vers = d.budget.overVoorNieuw + d.budget.opslag >= d.budget.totaal - d.budget.reserve - VERS_MARGE;
     try {
       ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
     } catch (e) {

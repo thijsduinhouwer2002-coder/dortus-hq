@@ -33,14 +33,34 @@ export interface AfrekeningStatus {
   [veld: string]: unknown;
 }
 
+/** De winkel is ontkoppeld (ontwerp-d1-worker.md, punt 7): de opslag weigert elke schrijfactie. Nette stop, geen fout. */
+export class Ontkoppeld extends Error {
+  readonly ontkoppeld = true;
+  constructor(bericht = "winkel is ontkoppeld; niets meer geschreven") {
+    super(bericht);
+    this.name = "Ontkoppeld";
+  }
+}
+
+export function isOntkoppeld(e: unknown): e is Ontkoppeld {
+  return (e as { ontkoppeld?: unknown })?.ontkoppeld === true;
+}
+
 export interface Opslag {
   /** true als het slot nu van `eigenaar` is (nieuw, of het oude was verlopen). */
   neemSlot(statementId: string, eigenaar: string, totSeconden: number, nu: number): Promise<boolean>;
   /** Tot wanneer het slot van `eigenaar` geldig is, of null als het niet (meer) van hem is. */
   slotTot(statementId: string, eigenaar: string): Promise<number | null>;
   geefSlotTerug(statementId: string, eigenaar: string): Promise<void>;
+  /**
+   * "Boeking gestart" (ontwerp-d1-worker.md, punt 1): schrijft `s` alleen als het slot van `eigenaar` nog minstens tot
+   * `minTot` geldt, in dezelfde schrijfactie als die controle. Geeft terug tot wanneer het slot geldt (null: niet van hem).
+   */
+  startBoeking(statementId: string, eigenaar: string, s: AfrekeningStatus, minTot: number): Promise<number | null>;
   leesStatus(statementId: string): Promise<AfrekeningStatus | undefined>;
   schrijfStatus(statementId: string, s: AfrekeningStatus): Promise<void>;
+  /** Alleen om "boeking gestart" terug te draaien als er eerder geen status was. */
+  wisStatus(statementId: string): Promise<void>;
   leesBestelling(statementId: string, orderId: string): Promise<BewaardeBestelling | undefined>;
   schrijfBestelling(statementId: string, orderId: string, b: BewaardeBestelling): Promise<void>;
   leesTransacties(statementId: string): Promise<BewaardeTransacties | undefined>;
@@ -73,6 +93,11 @@ export class GeheugenOpslag implements Opslag {
   async geefSlotTerug(id: string, eigenaar: string) {
     if (this.sloten.get(id)?.eigenaar === eigenaar) this.sloten.delete(id);
   }
+  async startBoeking(id: string, eigenaar: string, s: AfrekeningStatus, minTot: number) {
+    const tot = await this.slotTot(id, eigenaar);
+    if (tot !== null && tot >= minTot) await this.schrijfStatus(id, s);
+    return tot;
+  }
   async leesStatus(id: string) {
     const s = this.statussen.get(id);
     return s ? structuredClone(s) : undefined;
@@ -80,6 +105,10 @@ export class GeheugenOpslag implements Opslag {
   async schrijfStatus(id: string, s: AfrekeningStatus) {
     this.schrijfacties++;
     this.statussen.set(id, structuredClone(s));
+  }
+  async wisStatus(id: string) {
+    this.schrijfacties++;
+    this.statussen.delete(id);
   }
   async leesBestelling(id: string, orderId: string) {
     const b = this.bestellingen.get(`${id}/${orderId}`);

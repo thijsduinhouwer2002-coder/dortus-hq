@@ -2,7 +2,7 @@
 // (ontwerp, "Boeken" en de statustabel). Ophalen en de proef staan in ophalen.ts.
 import { afrekeningen, type Afrekening } from "../../tiktok-shop-basis/src/endpoints.ts";
 import { isBudgetOp, RESERVE_BOEKING } from "./budget.ts";
-import type { AfrekeningStatus, Opslag } from "./opslag.ts";
+import { isOntkoppeld, type AfrekeningStatus, type Opslag } from "./opslag.ts";
 import type { MoneybirdClient } from "./moneybird/client.ts";
 import { MoneybirdFout } from "./moneybird/fouten.ts";
 import { boekAfrekening, type AdministratieInfo } from "./moneybird/boeken.ts";
@@ -124,6 +124,8 @@ export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<Ru
       if (!r.status) houdVast ??= tijd; // slot bezet: later opnieuw
     }
   } catch (e) {
+    // Winkel ontkoppeld (ontwerp-d1-worker.md, punt 7): nette stop, niets meer schrijven, ook geen markering.
+    if (isOntkoppeld(e)) return { ...uit, winkel: { soort: "ontkoppeld", bericht: "winkel is ontkoppeld; er wordt niets meer geboekt" } };
     if (isBudgetOp(e)) uit.budgetOp = true;
     else {
       const stop = winkelStop(e);
@@ -137,6 +139,15 @@ export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<Ru
   // Nooit terug: wat vóór de markering niet af is, staat via NIET_AF toch op de lijst.
   if (nieuw !== (await d.opslag.leesMarkering())) await d.opslag.schrijfMarkering(Math.max(nieuw, markering));
   return uit;
+}
+
+export const BOEKING_GESTART = "boeking gestart";
+
+/** Status "boeking gestart" van een afgebroken aanroep: verder als de status van daarvoor (zonder de tussenvelden). */
+function naAfbraak(s: AfrekeningStatus | undefined): AfrekeningStatus | undefined {
+  if (!s || s.status !== "onzeker" || s.reden !== BOEKING_GESTART) return s;
+  const { vorigeStatus, reden: _r, ...rest } = s;
+  return typeof vorigeStatus === "string" ? { ...rest, status: vorigeStatus } : { ...rest, status: "onzeker" };
 }
 
 interface AfrekeningUitkomst {
@@ -163,10 +174,14 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
   if (!(await d.opslag.neemSlot(id, d.eigenaar, d.nu() + SLOT_DUUR, d.nu()))) return {}; // bezet: niets doen, niets schrijven
   try {
     // Opnieuw lezen ná het slot: een andere run of de knop kan intussen geschreven hebben (geen dubbele POST zonder bekendId).
-    const oud = await d.opslag.leesStatus(id);
-    const herstel = oud?.opnieuwSinds !== undefined;
-    const niets = nietsTeDoen(oud);
+    const gelezen = await d.opslag.leesStatus(id);
+    const niets = nietsTeDoen(gelezen);
     if (niets) return niets;
+    // Na een afbraak tijdens het boeken (status "boeking gestart", ouder dan 10 minuten): verder met de status van
+    // daarvoor, zodat een mislukte "opnieuw boeken" weer geboekt met opnieuwFout wordt. boekAfrekening zoekt eerst op
+    // kenmerk of bekendId, dus een POST die er toch staat wordt gevonden en niet herhaald.
+    const oud = naAfbraak(gelezen);
+    const herstel = oud?.opnieuwSinds !== undefined;
     const basis = { ...(oud ?? {}), statementTime: tijd } as AfrekeningStatus;
     const zet = async (status: string, extra: Partial<AfrekeningStatus> = {}): Promise<AfrekeningUitkomst> => {
       const { opnieuwFout: _a, reden: _r, ...rest } = basis;
@@ -194,7 +209,7 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
 
     let s: Ophaling;
     try {
-      s = await haalSamen(d, id, { reserve: RESERVE_BOEKING, ...(herstel ? { sinds: oud!.opnieuwSinds } : {}) });
+      s = await haalSamen(d, id, { reserve: RESERVE_BOEKING + 2, ...(herstel ? { sinds: oud!.opnieuwSinds } : {}) });
     } catch (e) {
       if (e instanceof WinkelStop) return { stop: true, winkel: { soort: e.soort, bericht: e.message } };
       throw e;
@@ -221,16 +236,28 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     const invoer: AfrekeningInvoer = { statementId: id, statementTime: tijd, valuta: "EUR", regels: s.regels, ...(s.uitbetaaldCenten !== undefined ? { uitbetaaldCenten: s.uitbetaaldCenten } : {}) };
     const afdruk = await vingerafdruk(invoer, inst.koppeling, inst.administratie.id);
     if (herstel && oud?.documentId && oud.vingerafdruk === afdruk && GEBOEKT.includes(oud.status)) return zet(oud.status, { uitkomst: "ongewijzigd", opnieuwSinds: undefined, pogingen: 0, eerstePoging: undefined });
-    const tot = await d.opslag.slotTot(id, d.eigenaar);
+    // "Boeking gestart" in dezelfde schrijfactie als de slotcontrole (ontwerp-d1-worker.md, punt 1). Stopt de aanroep
+    // tussen de POST en de echte status, dan blijft hij onzeker: 10 minuten wachten, dan zoeken op kenmerk.
+    const { opnieuwFout: _of, reden: _rd, vorigeStatus: _vs, ...kaal } = basis;
+    const gestart: AfrekeningStatus = { ...kaal, status: "onzeker", reden: BOEKING_GESTART, sinds: d.nu(), ...(oud ? { vorigeStatus: oud.status } : {}) };
+    const tot = await d.opslag.startBoeking(id, d.eigenaar, gestart, d.nu() + SLOT_MARGE);
     if (tot === null || tot - d.nu() < SLOT_MARGE) return { stop: true }; // vangnet: niet schrijven zonder geldig slot
+    // Niets verstuurd (budget op, of Moneybird weigerde de hele winkel): de status van daarvoor terug.
+    const terug = async () => (gelezen ? d.opslag.schrijfStatus(id, gelezen) : d.opslag.wisStatus(id));
 
     let b;
     try {
       b = await boekAfrekening(d.moneybird, inst.administratie, invoer, inst.koppeling, { ...(oud?.documentId ? { bekendId: oud.documentId } : {}), btwToegestaan: inst.btwToegestaan });
     } catch (e) {
-      if (isBudgetOp(e)) return { stop: true, budgetOp: true }; // niets verstuurd: niets schrijven, geen onzeker
+      if (isBudgetOp(e)) {
+        await terug();
+        return { stop: true, budgetOp: true }; // niets verstuurd: geen onzeker
+      }
       if (e instanceof MoneybirdFout) {
-        if (MB_WINKEL_STOP.includes(e.soort)) return { stop: true, winkel: { soort: e.soort, bericht: e.message } };
+        if (MB_WINKEL_STOP.includes(e.soort)) {
+          await terug();
+          return { stop: true, winkel: { soort: e.soort, bericht: e.message } };
+        }
         // Gegevens van deze afrekening kloppen niet (bijv. tijd of bedrag): vast, alleen deze afrekening.
         if (e.soort === "invoer") return faal("fout_gegevens", e.message);
         return faal("fout", `${e.soort}: ${e.message}`);

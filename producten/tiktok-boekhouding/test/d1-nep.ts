@@ -32,8 +32,10 @@ export class NepD1 {
   queries = 0;
   /** Zet op een getal n: de batch faalt bij statement n (0-geteld). Eén keer. */
   faalBijStatement: number | undefined;
-  constructor() {
+  /** `winkels`: ids die meteen een rij in `winkels` krijgen (de triggers uit het schema eisen die rij). */
+  constructor(...winkels: string[]) {
     this.sqlite.exec(readFileSync(new URL("../src/d1/schema.sql", import.meta.url), "utf8"));
+    for (const w of winkels) this.sqlite.prepare("INSERT INTO winkels (id, shop_id, shop_cipher) VALUES (?, ?, ?)").run(w, `shop-${w}`, `cipher-${w}`);
   }
   tel() { this.queries++; }
   prepare(sql: string) { return new NepStatement(this, sql); }

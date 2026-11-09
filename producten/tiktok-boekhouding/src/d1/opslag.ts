@@ -1,7 +1,7 @@
 // D1-versie van de interface Opslag (ontwerp-d1-worker.md, punt 2). Eén exemplaar per winkel en per aanroep.
 // Lezen per afrekening in één batch, schrijven gebundeld met de volgende statuswissel, slot altijd vers.
 import { GEBOEKT } from "../verwerk.ts";
-import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag } from "../opslag.ts";
+import { Ontkoppeld, type AfrekeningStatus, type BewaardeBestelling, type BewaardeTransacties, type Opslag } from "../opslag.ts";
 
 /** Het deel van de D1-API dat we gebruiken (Cloudflare D1Database), zodat de tests een nagebootste versie kunnen geven. */
 export interface D1Statement {
@@ -35,6 +35,8 @@ export class D1Opslag implements Opslag {
   private wachtrij: D1Statement[] = [];
   private geheugen = new Map<string, Geheugen>();
   private markering: { waarde: number | undefined } | undefined;
+  /** Gezet zodra D1 "ontkoppeld" meldt (punt 7): daarna geen slot meer en geen enkele schrijfactie. */
+  private ontkoppeld = false;
   schrijfacties = 0;
 
   private readonly db: D1;
@@ -49,28 +51,55 @@ export class D1Opslag implements Opslag {
 
   // ---- slot ----
   async neemSlot(id: string, eigenaar: string, tot: number, nu: number): Promise<boolean> {
+    if (this.ontkoppeld) return false;
     this.teller.neem();
     // Na het slot alles vers; staat er nog iets in de wachtrij (na een mislukte batch), dan blijft het geheugen staan.
     if (!this.wachtrij.length) this.geheugen.delete(id);
     const r = await this.db
       .prepare(
-        `INSERT INTO sloten (winkel, statement_id, eigenaar, tot) VALUES (?, ?, ?, ?)
+        // Ontkoppelde (of onbekende) winkel: geen rij, dus geen slot, ook als er nog geen slotrij was (punt 7).
+        `INSERT INTO sloten (winkel, statement_id, eigenaar, tot)
+         SELECT ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL)
          ON CONFLICT(winkel, statement_id) DO UPDATE SET eigenaar = excluded.eigenaar, tot = excluded.tot
          WHERE sloten.tot <= ? OR sloten.eigenaar = excluded.eigenaar`,
       )
-      .bind(this.winkel, id, eigenaar, tot, nu)
+      .bind(this.winkel, id, eigenaar, tot, this.winkel, nu)
       .run();
     return r.meta.changes === 1;
   }
 
   async slotTot(id: string, eigenaar: string): Promise<number | null> {
-    const lees = this.db.prepare(`SELECT eigenaar, tot FROM sloten WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id);
-    const uit = await this.batchMetWachtrij([lees]);
+    return this.slotMetSchrijven(id, eigenaar, []);
+  }
+
+  /** Punt 1: status "boeking gestart" alleen als het slot nog tot `minTot` van ons is, in dezelfde batch als die controle. */
+  async startBoeking(id: string, eigenaar: string, s: AfrekeningStatus, minTot: number): Promise<number | null> {
+    const st = this.db
+      .prepare(
+        `INSERT INTO statussen (winkel, statement_id, status, statement_time, opnieuw_sinds, gegevens)
+         SELECT ?, ?, ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ? AND tot >= ?)
+         ON CONFLICT(winkel, statement_id) DO UPDATE SET status = excluded.status, statement_time = excluded.statement_time,
+         opnieuw_sinds = excluded.opnieuw_sinds, gegevens = excluded.gegevens`,
+      )
+      .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s), this.winkel, id, eigenaar, minTot);
+    const tot = await this.slotMetSchrijven(id, eigenaar, [st]);
+    if (tot !== null && tot >= minTot) this.schrijfacties++;
+    return tot;
+  }
+
+  /** Slot vers lezen (met `ontkoppeld_op`), na de wachtrij en `ervoor` in dezelfde batch. */
+  private async slotMetSchrijven(id: string, eigenaar: string, ervoor: D1Statement[]): Promise<number | null> {
+    if (this.ontkoppeld) return null;
+    const lees = this.db
+      .prepare(`SELECT s.eigenaar, s.tot FROM sloten s JOIN winkels w ON w.id = s.winkel AND w.ontkoppeld_op IS NULL WHERE s.winkel = ? AND s.statement_id = ?`)
+      .bind(this.winkel, id);
+    const uit = await this.batchMetWachtrij([...ervoor, lees]);
     const rij = (uit.at(-1)?.results?.[0] ?? null) as { eigenaar: string; tot: number } | null;
     return rij && rij.eigenaar === eigenaar ? Number(rij.tot) : null;
   }
 
   async geefSlotTerug(id: string, eigenaar: string): Promise<void> {
+    if (this.ontkoppeld) return; // niets meer om naar te schrijven
     await this.batchMetWachtrij([this.db.prepare(`DELETE FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ?`).bind(this.winkel, id, eigenaar)]);
   }
 
@@ -101,6 +130,11 @@ export class D1Opslag implements Opslag {
       this.geheugen.delete(id);
     }
     await this.batchMetWachtrij(extra);
+  }
+
+  async wisStatus(id: string): Promise<void> {
+    this.schrijfacties++;
+    await this.batchMetWachtrij([this.db.prepare(`DELETE FROM statussen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id)]);
   }
 
   // ---- transacties en bestellingen ----
@@ -181,21 +215,38 @@ export class D1Opslag implements Opslag {
 
   async schrijfMarkering(t: number): Promise<void> {
     this.schrijfacties++;
-    const [r] = await this.batchMetWachtrij([this.db.prepare(`UPDATE winkels SET markering = ? WHERE id = ?`).bind(t, this.winkel)]);
-    if (r.meta.changes !== 1) throw new Error(`winkel ${this.winkel} bestaat niet in D1; markering niet bewaard`);
+    const [r] = await this.batchMetWachtrij([this.db.prepare(`UPDATE winkels SET markering = ? WHERE id = ? AND ontkoppeld_op IS NULL`).bind(t, this.winkel)]);
+    if (r.meta.changes !== 1) {
+      this.ontkoppeld = true;
+      throw new Ontkoppeld(`winkel ${this.winkel} bestaat niet in D1 of is ontkoppeld; markering niet bewaard`);
+    }
     this.markering = { waarde: t };
   }
 
   /** Aan het eind van de aanroep: wat nog in de wachtrij staat wegschrijven. */
   async klaar(extra: D1Statement[] = []): Promise<void> {
+    if (this.ontkoppeld) return;
     if (this.wachtrij.length || extra.length) await this.batchMetWachtrij(extra);
   }
 
   /** Wachtrij plus `extra` in één batch (één transactie). Afmaken: mag de reserve gebruiken. */
   private async batchMetWachtrij(extra: D1Statement[]) {
+    if (this.ontkoppeld) throw new Ontkoppeld();
     this.teller.neemAfmaken();
     const stmts = [...this.wachtrij, ...extra];
-    const uit = await this.db.batch(stmts);
+    let uit;
+    try {
+      uit = await this.db.batch(stmts);
+    } catch (e) {
+      // Trigger uit het schema (punt 7): de hele batch is weggevallen. Nette stop, geen fout en geen onzeker.
+      if (/ontkoppeld/.test(String((e as Error)?.message))) {
+        this.ontkoppeld = true;
+        this.wachtrij = [];
+        this.geheugen.clear();
+        throw new Ontkoppeld();
+      }
+      throw e;
+    }
     this.wachtrij = []; // pas na gelukte batch: bij een fout blijft alles staan voor een volgende poging
     return uit.slice(stmts.length - extra.length);
   }
