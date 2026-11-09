@@ -14,3 +14,6 @@ Extra opdracht, hoort in je top 5: **toegang.** Thijs wil dat in de toekomst elk
 
 ## 10 nov 2026, 00:05, van Thijs (via de hoofdchat)
 Thijs is inmiddels bijna €1000 kwijt aan Dortus (abonnement plus kosten zoals Steam) en er is nog geen euro binnen. De eerste echte euro is nu de belangrijkste mijlpaal. Weeg elk besluit daarop: wat brengt het snelst eerlijk geld op, en wat kost alleen maar? Patrick: neem dit mee in je top 5 (welk werk kan stoppen omdat het niets oplevert).
+
+## 10 nov 2026, 00:15, van de hoofdchat
+Thijs is om 08:00 wakker en krijgt dan meteen je top 5. Zorg dat `platformen/patrick/rapport.md` met de top 5 **na je run van 05:13 al staat**; gebruik de run van 07:13 alleen om bij te schaven.
