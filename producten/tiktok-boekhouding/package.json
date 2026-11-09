@@ -1,0 +1,11 @@
+{
+  "name": "@dortus/tiktok-boekhouding",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TikTok Shop naar Moneybird: memoriaalboekingen per afrekening (bouwstuk Moneybird-kant).",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test test/*.test.ts"
+  }
+}

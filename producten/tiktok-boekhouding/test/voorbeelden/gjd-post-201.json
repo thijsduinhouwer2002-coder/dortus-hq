@@ -1,0 +1,52 @@
+{
+  "id": "503332872610907545",
+  "administration_id": 123,
+  "reference": "foobar",
+  "date": "2026-11-09",
+  "journal_type": null,
+  "created_at": "2026-11-09T14:47:34.932Z",
+  "updated_at": "2026-11-09T14:47:34.932Z",
+  "version": 1794235654,
+  "general_journal_document_entries": [
+    {
+      "id": "503332872611956122",
+      "administration_id": 123,
+      "ledger_account_id": "503332872572110210",
+      "project_id": null,
+      "contact_id": null,
+      "debit": "100.0",
+      "credit": "0.0",
+      "row_order": null,
+      "created_at": "2026-11-09T14:47:34.933Z",
+      "updated_at": "2026-11-09T14:47:34.933Z",
+      "description": null
+    },
+    {
+      "id": "503332872611956123",
+      "administration_id": 123,
+      "ledger_account_id": "503332872597276055",
+      "project_id": null,
+      "contact_id": null,
+      "debit": "0.0",
+      "credit": "100.0",
+      "row_order": null,
+      "created_at": "2026-11-09T14:47:34.934Z",
+      "updated_at": "2026-11-09T14:47:34.934Z",
+      "description": null
+    }
+  ],
+  "notes": [],
+  "attachments": [],
+  "events": [
+    {
+      "administration_id": 123,
+      "user_id": "503332790188639333",
+      "action": "document_saved",
+      "link_entity_id": null,
+      "link_entity_type": null,
+      "data": {},
+      "created_at": "2026-11-09T14:47:34.935Z",
+      "updated_at": "2026-11-09T14:47:34.935Z"
+    }
+  ]
+}
