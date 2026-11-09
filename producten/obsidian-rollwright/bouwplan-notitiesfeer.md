@@ -54,3 +54,16 @@ De instelling staat alleen open met een geldige licentie; zonder licentie uitgeg
 - Standaard "Notes with rolls" of "All notes"? Mijn voorstel is alleen notities met worpen: een spelnotitie wordt een wereld, de werknotities van de gebruiker blijven zoals ze waren. Dat voorkomt ook de klacht "de plugin verft al mijn notities".
 - Licht en donker per skin, of één vaste wereld?
 - Welke letters (naam en gewicht), zodat ik de grootte vooraf kan meten.
+
+## Stap 1 gebouwd (Olaf, 9 nov 08:50 UTC, main 22cded0)
+Mechaniek zonder zichtbare verandering: `src/ui/note-world.ts` (`noteHasRoll`, `wantsWorld`, klasse `NoteWorld`), instelling `noteWorld` (standaard `rolls`), groottegrens 500 KB in de build. E2e in de echte Obsidian groen 22 van 22 specs (run 42587489569, GEZIEN in het log): eis 1 tot 7, ook 6b (los venster) en 6c (uitgesteld blad). 727 unittests, tsc, lint en scanner groen. Controleur akkoord na drie rondes. Geen bestaande test gewijzigd.
+
+**Afwijkingen van het plan, met reden:**
+- De rij "Skin the note too" staat alleen in de instellingen met een geldige sleutel (zoals de betaalde skins in de Skin-lijst), niet uitgegrijsd zonder sleutel. Bestaande tests leggen de rijen zonder sleutel vast, en het past bij de skinlijst. Gevolg: een gratis gebruiker leest in de instellingen niet dat een skin de hele notitie kleurt. Dat moet in stap 2 in de skin-voorbeelden of de README (vraag aan Daan en Chris).
+- Hoofdvlak: een blad telt als het niet in de zijbalk staat (`getRoot()` is niet left/rightSplit) en `getContainer()` het hoofdvlak of een los venster is. Gemeten: een zijbalkblad heeft ook het hoofdvlak als container, een los blad heeft een eigen root.
+- Ook de oude eigenschap `cssclass` (zonder s) telt.
+- Geen debounce: per bestand en mtime bewaard, en een gewijzigde notitie wordt alleen bekeken met betaalde skin en als hij open staat.
+
+**Bekende grenzen (zeldzaam, alleen een wereld te veel of te weinig):** een ingesprongen codeblok (4 spaties zonder fence) telt als tekst; een losse backtick kan een `%%`-commentaar maskeren; bladen van andere plugins met het hoofdvlak als container (Hover Editor) zijn niet gemeten.
+
+**Voor stap 2:** de test "elke skin zet de hele variabelenlijst" komt met Daans CSS, met `--callout-blend-mode: normal` erbij (Daan ronde a). Daans regels voor de titelbalk gebruiken `!important` binnen `.rollwright-world`; de scanner van Obsidian waarschuwt daarvoor, dat bekijk ik bij het overnemen.
