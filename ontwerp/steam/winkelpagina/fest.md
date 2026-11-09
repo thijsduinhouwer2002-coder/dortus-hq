@@ -1,6 +1,6 @@
 # Steam Desktop Companion Fest 2027: wanneer en hoe we meedoen (Sanne)
 
-Stand 9 nov 2026, 23:00 UTC. Gelezen met curl (GEZIEN) in de Steamworks-docs:
+Stand 9 nov 2026, 23:00 UTC. Gelezen met curl (GEZIEN, Sanne 22:50 UTC; de controleur kreeg de fest-pagina daarna drie keer niet geladen, de andere drie wel en bevestigde die) in de Steamworks-docs:
 - https://partner.steamgames.com/doc/marketing/upcoming_events/themed_sales/desktop_companion_2027
 - https://partner.steamgames.com/doc/marketing/upcoming_events/themed_sales (regels voor alle thema-fests)
 - https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027
@@ -15,11 +15,11 @@ Stand 9 nov 2026, 23:00 UTC. Gelezen met curl (GEZIEN) in de Steamworks-docs:
 - **Sortering in een vak:** op belangstelling en populariteit (verlanglijsten), deels willekeurig. Hoe meer verlanglijsten vooraf, hoe hoger.
 
 ## Wat dat voor ons betekent (besluit Sanne, afgestemd op de deadline van Thijs)
-1. **We doen mee als "binnenkort" met een gratis demo.** Uitbrengen vóór 14 januari kan, maar dan moet het hele spel af en goed zijn (Thijs keurt eerst); een demo levert in het fest verlanglijsten op zonder dat we haasten. Met een demo staan we in twee vakken (Upcoming en Demos) in plaats van één. Waarom geen uitbrengen in het fest: kwaliteit gaat voor de datum (besluit 6 nov), en de trailer van Valve halen we als nieuw spel toch niet.
+1. **We doen mee als "binnenkort" met een gratis demo.** Uitbrengen vóór 14 januari kan, maar dan moet het hele spel af en goed zijn (Thijs keurt eerst); een demo levert in het fest verlanglijsten op zonder dat we haasten. Met een demo kunnen we in twee vakken staan (Upcoming en Demos) in plaats van één (GOK: de docs zeggen niet dat één spel in beide komt). Waarom geen uitbrengen in het fest: kwaliteit gaat voor de datum (besluit 6 nov), en de trailer van Valve halen we als nieuw spel toch niet.
 2. **Daarna Steam Next Fest februari 2027** (22 februari tot 1 maart, GEZIEN): dezelfde demo, nog een keer een grote golf verlanglijsten. **Aanmelden uiterlijk 10 januari 2027** (23:59 PST); demo en winkelpagina ingediend uiterlijk 1 februari (18 januari als we in de persvoorvertoning willen). Een spel mag maar in **één** Next Fest ooit (GEZIEN, docs Next Fest); Valve eist geen nieuwe of exclusieve demo ("We do not require exclusivity or newness for your demo"), dus dezelfde demo uit het Companion Fest mag mee. Februari is de goede: dicht bij het uitbrengen. Uitbrengen dan in maart 2027, als Thijs het spel goed vindt.
 3. **Tags vanaf de eerste dag:** `Desktop Companion` als eerste tag, en `Idler`. Zonder die tag worden we niet uitgenodigd. De rest staat in `teksten.md`.
 4. **Wat er klaar moet zijn voor het fest (terug gerekend):**
-   - Winkelpagina live als "binnenkort" uiterlijk ±20 december (Valve eist minstens 2 weken openbaar vóór uitbrengen, en wij willen een paar weken verlanglijsten vóór 14 januari). Keuring van de pagina 1 tot 5 werkdagen, dus indienen rond 1 december, zoals Thijs vroeg.
+   - Winkelpagina live als "binnenkort" uiterlijk ±20 december (Valve eist minstens 2 weken openbaar vóór uitbrengen, DERDEN: bericht Thijs 9 nov 23:37, en wij willen een paar weken verlanglijsten vóór 14 januari). Keuring van de pagina 1 tot 5 werkdagen (DERDEN, zelfde bericht), dus indienen rond 1 december, zoals Thijs vroeg.
    - Demo-build ingediend uiterlijk ±24 december (GEZIEN: voor Next Fest vraagt Valve de demo 3 weken vooraf ter keuring; voor dit fest staat er geen datum, dus houden we dezelfde 3 weken aan, met de feestdagen ertussen).
    - Aanmelden voor het fest zodra de uitnodiging komt (of zelf via de link hierboven, met het appid).
    - Op 8 januari ons eigen bericht met de asset kit (Chris zet het klaar, de hoofdchat plaatst).
@@ -28,3 +28,6 @@ Stand 9 nov 2026, 23:00 UTC. Gelezen met curl (GEZIEN) in de Steamworks-docs:
 ## Stappen voor Thijs (staan ook op `organisatie/lijst-thijs.md`)
 - Nu al, 1 min: in Steamworks bij Users & Permissions (https://partner.steamgames.com/pub/users/) bij zijn eigen account **"Receive Steamworks communications"** aanzetten en de bevestigingsmail aanklikken; en op https://store.steampowered.com/account/emailoptout "New Steamworks features are announced or sales events are available" aanvinken. Anders mist hij de uitnodiging.
 - Later, als de app bestaat en de pagina live staat: op https://partner.steamgames.com/optin/sale/desktop_companion_2027 het vinkje bij Het Hol zetten en opslaan. En vóór 10 januari 2027 aanmelden voor Next Fest februari.
+
+## Nagekeken
+Controleur 9 nov ±23:10 UTC: akkoord na verbeteren (teksten.md en fest.md). Verwerkt: tags tot 20 aangevuld en de regel van Valve erbij, tekenlimiet als DERDEN/GOK, "fall into", "upgrade", "all its gold back" in plaats van "refund", Steam-opmaak [b] en [list], labels bij alle cijfers, twee aannames als DERDEN of GOK.

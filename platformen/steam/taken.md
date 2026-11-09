@@ -35,7 +35,8 @@ Wil je iets anders of extra: zet het onder "Vragen tussen ons".
 **Sanne**
 - [ ] `platformen/steam/features.md`: welke features in de **eerste speelbare versie** (liever vijf echt goed dan twintig half), wat in versie 1, wat later (skins en DLC: holthema's, nieuwe heldengilden, bewoners, seizoenen). Per feature de toets van Thijs. Let op twee punten uit `idee.md` (18:40): niet straffen als je weg bent; en het hol groeit in de breedte, want 120 px heeft geen ruimte voor veel lagen (dieper zien bij hover kan).
 - [ ] Reviews van de toppers tellen (Rusty's Retirement 2666510, Ropuka's Idle Island 3416070, Tiny Pasture 3167550, Deskrawl 4623570): wat prijzen ze, wat missen ze, waarom stoppen ze.
-- [ ] Elke GIF van Olaf en Bram toetsen: is het leuk, duidelijk, grappig.
+- [ ] Elke GIF van Olaf en Bram toetsen: is het leuk, duidelijk, grappig. (toets 5 af 9 nov 22:55 UTC)
+- [x] (af 9 nov 23:15 UTC) Winkelteksten en Desktop Companion Fest: `ontwerp/steam/winkelpagina/teksten.md` en `fest.md`, controleur akkoord na verbeteren. Volgende: teksten bijwerken als naam en logo vastliggen; demo-inhoud met Olaf afstemmen.
 
 **Daan** (zijn opdrachten van Thijs staan in `berichten/daan.md`, 18:45, 18:50 en 19:20)
 - [ ] De echte stijl voor het spel in `producten/steam-hol/godot/kunst/`: tegels voor aarde en gangen, schat, slijm, stekelput, een held met losse hoed en wapen (zo maken we veel verschillende helden uit weinig plaatjes, en hoeden zijn later skins). Zeg onder "Vragen tussen ons" welke spelpixelmaat en schaal je kiest.

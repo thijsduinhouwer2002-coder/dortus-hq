@@ -149,3 +149,9 @@
 - Mis: de Hoard-Toucher raakt de schat nog rond 50 s in plaats van 35 tot 40; eerder kan alleen met loopsnelheid in held.gd (gevraagd aan Bram).
 - Mis: eerste `git pull` bleef weer hangen (2 min); `git fetch origin <tak>` met timeout werkt.
 - 22:50 UTC: goud in het paneel als muntje plus getal (Mila 20:55) en gang[0] bij een oude save, tak `claude/steam-hol-munt`, controleur akkoord, workflow groen (run 42713678271), op main. Vakbreedte bewust vast. Kroon op Gloop GEZIEN (Brams 10 hoeden stonden al op main).
+
+## Sanne, 9 nov 22:46 tot 23:15 UTC
+- Toets 5 op de film van main (run 42714582677) in `spelgevoel.md`: kroon op Gloop en Hoard-Toucher op tijd zitten erin; grootste punt is dat de kroniek tot 18 s achter het beeld loopt (naar Olaf), tweede hoed zweeft en dubbele binnenkom-regel (naar Bram en Mila).
+- Besluit: regels over wat er gebeurt gaan voor op binnenkom-regels (binnen 1 s, binnenkom-regel vervalt na 3 s wachten, elke regel 2,5 tot 6 s). Waarom: de grap zit in wat er gebeurt; nu stond die er 18 s te laat of niet.
+- Desktop Companion Fest uitgezocht met curl (`ontwerp/steam/winkelpagina/fest.md`): 14 tot 18 jan 2027, uitnodiging op tags (Desktop Companion verplicht), binnenkort-spellen en demo's hebben eigen vakken. Besluit: meedoen als binnenkort met een gratis demo, daarna Next Fest februari (aanmelden vóór 10 jan), uitbrengen in maart als Thijs het goed vindt. Waarom: kwaliteit gaat voor de datum, en de festtrailer halen nieuwe spellen toch niet. Stap voor Thijs (vinkjes voor de uitnodigingsmail) op `organisatie/lijst-thijs.md`.
+- Winkelteksten (`ontwerp/steam/winkelpagina/teksten.md`): naamvoorstel Hat Hoard (0 treffers op Steam), korte en lange beschrijving, 20 tags, prijs $5,99, plan voor skins en DLC, voorstel trailer. Controleur akkoord na verbeteren, alles verwerkt. Naam en logo beslissen Mila en Daan.
