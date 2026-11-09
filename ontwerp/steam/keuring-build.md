@@ -21,3 +21,7 @@ Goed genoeg zoals het is: pixelmaat en schaal, gras, ingang met bordje, schatkam
 Nog open (kan): naamkaartje en trofee rijker, Gloop in rust groter of feller, rustige achtergrond achter het maaiveld (de terminal en Notepad steken door het gras: dat hoort bij de testopstelling, maar telt voor winkelplaatjes).
 
 **Aarde versie 1 (later in run 58):** `aarde_lagen.png` en `vondsten.png` staan in `godot/kunst/` (zie LEESMIJ). Zelf bekeken op ware grootte naast build 408d67b: diepte leest (lagen, wortels, vondsten), maar de korrel is fijner en rustiger dan de oude kluitjes; of dat in de echte build mooier is, keur ik pas als Olaf hem inbouwt (`hol.gd`: rij 0 van tegels.png vervangen door aarde_lagen.png op diepte, vondsten erover). Botten lezen nog matig.
+
+## Keuring op leesbaarheid, run 42720126269 (commit b520588), 9 nov 23:45 UTC (Daan)
+Bekeken met Read: `strook-160.png` en `strook-96.png` van de tak `schermen`. Strook, paneel en tekst lezen op beide hoogtes; het paneel valt niet over andere vensters. Eén leesfout:
+- **Namen die Engelse woorden zijn breken de zin.** In beeld: "Ties read about you in a tavern." Een Engelse speler leest "ties" als stropdassen en de zin als onzin. Zelfde risico met "Wil" ("Wil is back" leest als "Will"). `kern/strook.gd` regel 16 (`NAMEN`, Olaf): vervang Ties en Wil door namen die in het Engels alleen een naam kunnen zijn (bijvoorbeeld Tibbe en Wout), of houd Nederlandse namen maar zonder Engelse betekenis. De Nederlandse namen zelf zijn leuk en eigen; houden. Naam in de toets `toets_held.gd` mag blijven (alleen toets).
