@@ -118,3 +118,14 @@ Nulpunt voor het forumbericht: 4 downloads. Volgende meting: 9 nov rond 13:45 UT
 | Forumbericht | 14 keer bekeken, 0 reacties, 0 likes | GEZIEN (`t/121721.json`) |
 
 Eerlijk: het forumbericht gaf in 7 uur geen meetbare downloads (GEZIEN). Of de teller op de listing vaak wordt bijgewerkt weet ik niet (GOK: niet elk uur). 14 keer bekeken is weinig; de Share & showcase-categorie heeft blijkbaar weinig lezers. De grote test is r/ObsidianMD (±343k leden). Gaat die ook onder ±30 downloads in twee dagen (GOK als lat), dan moet de aanpak anders (bijvoorbeeld de GIF en de titel), en dat meld ik Hans.
+
+## Meting 9 nov 2026, ±00:17 UTC (run 18, ±11 uur na het forumbericht)
+| Wat | Stand | Bron |
+|---|---|---|
+| In `community-plugin-stats.json` | **nu wel**: 9 downloads (0.2.0: 1, 0.3.0: 3, 0.3.1: 4, 0.3.2: 1); het bestand groeide van 10.082 naar 10.134 plugins in de update van ±00:15 UTC | GEZIEN (raw.githubusercontent.com, obsidianmd/obsidian-releases) |
+| In `community-plugins.json` (de lijst die de app gebruikt, GOK) | ja, sinds 8 nov 13:20 UTC (commit 7fd922de), korte tekst nog van 0.3.0 | GEZIEN, zie advies 29 |
+| Listing community.obsidian.md, Adoption | 4 installations | GEZIEN |
+| Forumbericht | 1 bericht, 16 keer bekeken, 0 likes | GEZIEN (`t/121721.json`, 8 nov 23:45) |
+| Sterren, open issues | 0, 0 | GEZIEN |
+
+Wat dit zegt: de 9 in de stats zijn de downloads van de releases op GitHub, de 4 op de listing tellen iets anders (installaties). Voor de meting van Reddit gebruik ik voortaan de stats (elke dag ±00:15 UTC) als hoofdcijfer, want daar staan ook de concurrenten in. Nulpunt vóór r/ObsidianMD: 9.
