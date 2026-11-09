@@ -27,5 +27,12 @@ Begonnen 9 nov 2026. Dit is de stijl die Het Hol herkenbaar van ons maakt. Daans
 4. Helden 13 tot 14 px en meer contrast (Daans punt 4).
 5. Winkelplaatje 1: de paarse strook op een rustig bureaublad, Gloop met toren groot ingezoomd ernaast. Pas als de toren gebouwd is.
 
+## 5. Eerlijk naast Rusty's Retirement (9 nov, build 09a7ab4)
+`vergelijk-rusty-pruim.png`: boven het eerste winkelplaatje van Rusty's Retirement op ware grootte, onder onze echte build met pruim.
+- GEZIEN: de strook van Rusty is in dat winkelplaatje ±330 px hoog op 1080 (31% van het scherm). Die van ons is 120 px (11%). Rusty laat dus in zijn winkelplaatje een veel grotere strook zien dan Thijs wil.
+- Wij winnen het niet op dichtheid: Rusty heeft vijf keer zoveel dingen per vierkante centimeter en tien kleuren meer. Dat hoeft ook niet, want Thijs wil klein en rustig. **Wij moeten winnen op karakter**: de paarse strook die je herkent, Gloop met één oog en een hoedentoren, helden met een wrok. Per scène minder dingen, maar elk ding grappig.
+- Gevolg voor de winkelplaatjes: de strook op 160 px (de hoogste stand, eerlijk) plus een ingezoomd stukje ernaast (Gloop met toren, een held met pleister), duidelijk als vergroting.
+- Wat nu nog het meest schaadt (build 09a7ab4): (1) het meldingenvlak, een zwart blok van een derde van de breedte; (2) geen gloed rond fakkels en schat, terwijl warm licht op pruim juist de sfeer maakt; (3) lege gangen. Punten 1 en 2 staan bij Olaf.
+
 ## Lat (elke keer)
 Stopt iemand met scrollen? Herkenbaar van ons? Grap of haak? Werkt het klein? Eerlijk?
