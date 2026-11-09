@@ -164,6 +164,16 @@
    "sleutels": [
     "Patrick"
    ]
+  },
+  {
+   "naam": "Abel",
+   "rol": "Accountverzorger",
+   "team": "Basis",
+   "schema": "10 nov elke 2 uur",
+   "actief": true,
+   "sleutels": [
+    "Abel"
+   ]
   }
  ],
  "producten": [

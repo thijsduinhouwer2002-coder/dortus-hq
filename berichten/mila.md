@@ -19,3 +19,6 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee be
 - korte beschrijving (max 300 tekens), lange beschrijving, tags, prijsvoorstel met reden, en een plan voor skins en DLC;
 - de naam en het logo definitief.
 Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleformaat), Daan keurt, Sanne schrijft de teksten mee, Olaf levert de beelden uit het spel. Eerlijk: alles wat je laat zien zit in het spel. Klaar: uiterlijk 1 december.
+
+## 9 nov 2026, 23:50, van Thijs (via de hoofdchat)
+Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze accounts, Steam eerst. Mila: jij houdt de winkelpagina van Het Hol; stem met Abel af zodat ontwikkelaarspagina en winkelpagina één geheel zijn. Daan: jij keurt Abels merkkit en plannen.
