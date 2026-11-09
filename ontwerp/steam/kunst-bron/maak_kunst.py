@@ -18,9 +18,9 @@ P = {
     "k": hx("2a1a1f"),   # omlijning
     "K": hx("432a2c"),   # zachte omlijning
     # aarde
-    "1": hx("3d2621"), "2": hx("5a3a2c"), "3": hx("774c34"), "4": hx("96633f"), "5": hx("b5804f"),
+    "1": hx("3d2621"), "2": hx("62392a"), "3": hx("84502f"), "4": hx("a8693a"), "5": hx("c98b4f"),
     # holwand (achter de gang)
-    "w": hx("2e1d1e"), "W": hx("3f2a28"), "v": hx("543832"), "V": hx("6a4838"),
+    "w": hx("38241f"), "W": hx("4d332b"), "v": hx("664436"), "V": hx("7a5440"),
     # steen
     "7": hx("5d5552"), "8": hx("847a72"), "9": hx("aca196"),
     # gras en mos
@@ -32,7 +32,7 @@ P = {
     # huid
     "s": hx("f3c49b"), "S": hx("c98a68"), "p": hx("e8857a"),
     # kleren
-    "r": hx("8e2f36"), "R": hx("c9493f"), "b": hx("2f4f8f"), "B": hx("4f7fd0"),
+    "r": hx("b23a3c"), "R": hx("ee6a4f"), "b": hx("3d68c4"), "B": hx("6f9ff0"),
     "l": hx("4a3524"), "L": hx("6e4e30"),
     # metaal en hout
     "i": hx("6c7884"), "I": hx("a9b6bf"), "j": hx("e4ecef"),
@@ -138,7 +138,7 @@ def gang_cel(rnd, im, ox, oy, n, e, s, w):
             im.putpixel((ox + 15, oy + y), P["2"]); im.putpixel((ox + 14, oy + y), P["1"])
 
 def maak_tegels():
-    # rij 0: 4 aardevarianten; rij 1: 16 gangvarianten (index = n*1 + e*2 + s*4 + w*8)
+    # rij 0: 8 aardevarianten; rij 1: 16 gangvarianten (index = n*1 + e*2 + s*4 + w*8)
     im = Image.new("RGBA", (CEL * 16, CEL * 2), (0, 0, 0, 0))
     for i in range(8): aarde_cel(random.Random(10 + i), im, i * CEL, 0)
     for m in range(16):
@@ -148,7 +148,7 @@ def maak_tegels():
 
 # ---------- maaiveld ----------
 def maak_gras():
-    # 4 varianten van 16 x 12: lucht doorzichtig, dichte grasrand met sprieten, bovenste aarde
+    # 4 varianten van 16 x 8: lucht doorzichtig, dichte grasrand met sprieten, bovenste aarde
     im = Image.new("RGBA", (CEL * 4, OPP), (0, 0, 0, 0))
     for v in range(4):
         rnd = random.Random(200 + v); ox = v * CEL
@@ -164,7 +164,7 @@ def maak_gras():
     opslaan(im, "gras.png")
     return im
 
-BOVEN = {   # versiering op het maaiveld, 16 x 12, onderkant op de grasrand (y 8)
+BOVEN = {   # versiering op het maaiveld; getekend op 16 x 12, opgeslagen als 16 x 8 (rij 2 tot 10)
     "bloemen": ["................", "...*......p.....", "..*Y*....pRp....", "...*......p.....", "...G...Y..G..*..", "...G..YxY.G.*Y*.", "..hG...G..G..G..", "..GG...G.GG..G..", "................", "................", "................", "................"],
     "struik": ["................", "................", "......kkkk......", "....kkhhGGkk....", "...khHhGGGGGk...", "..khhGGGGgGGGk..", "..kGGGRGGGgRGk..", "..kgGGGGgGGGgk..", "...kkgggggggk...", "................", "................", "................"],
     "steen": ["................"]*4 + [".....kkkk.......", "....k9988k......", "...k998887k.....", "...k888777k.....", "....kkkkkk......", "................", "................", "................"],
@@ -281,7 +281,7 @@ def maak_val():
 # ---------- held: los lijf, hoed en wapen (16 x 16, voeten op y 15, kijkt naar rechts) ----------
 LIJF_BOVEN = [
     "................", "................", "................", "................",
-    ".....kkkkkk.....", "....ksssssSk....", "....ksssEesk....", "....ksssEesk....",
+    ".....kkkkkk.....", "....ksssssSk....", "....ksssEesk....", "....ksssEEsk....",
     "....kpsssssk....", ".....kSSSSk.....",
 ]
 LIJF_ROMP = [
@@ -309,9 +309,9 @@ HOEDEN = {
     "pet": ["................", "................", "................", ".....kkkkkk.....", "....kRRRRRRk....", "....kkkkkkkkkk..", "................"],
 }
 WAPENS = {
-    "zwaard": ["..........kj....", ".........kjI....", "........kjIk....", ".......kjIk.....", "......kyk.......", "......kok.......", "................"],
-    "staf":   ["..........kYk...", "..........kxk...", "..........kUk...", "..........kuk...", "..........kuk...", "..........kuk...", "..........kuk..."],
-    "fakkel": ["..........kx....", ".........kFxk...", "..........fk....", "..........kuk...", "..........kuk...", "................", "................"],
+    "zwaard": ["............kk..", "...........kjk..", "...........kjk..", "...........kjk..", "...........kIk..", "..........kyyyk.", "...........kok..", "...........kok.."],
+    "staf":   [".........kkk....", "........kYxYk...", "........kx*xk...", ".........kYk....", "..........kUk...", "..........kUk...", "..........kuk...", "..........kuk...", "..........kuk..."],
+    "fakkel": ["...........x....", "..........kxk...", ".........kFxFk..", ".........kfFfk..", "..........kik...", "..........kuk...", "..........kuk...", "..........kuk..."],
 }
 
 def maak_held():
@@ -323,7 +323,7 @@ def maak_held():
     opslaan(strip(hoeden), "held_hoeden.png")
     wapens = []
     for naam in ("zwaard", "staf", "fakkel"):
-        im = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); im.paste(sprite(WAPENS[naam]), (1, 6)); wapens.append(im)
+        im = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); sp = sprite(WAPENS[naam]); im.paste(sp, (1, 15 - sp.height - 1)); wapens.append(im)
     opslaan(strip(wapens), "held_wapens.png")
     return lijven, hoeden, wapens
 
@@ -331,7 +331,7 @@ def held(lijven, hoeden, wapens, fr, hoed, wapen):
     im = lijven[fr].copy()
     bob = 1 if fr in (1, 3) else 0
     if wapen is not None:
-        w = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); w.paste(wapens[wapen], (0, bob)); im = Image.alpha_composite(w, im) if wapen == 1 else Image.alpha_composite(im, w)
+        w = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); w.paste(wapens[wapen], (0, bob)); im = Image.alpha_composite(im, w)
     if hoed is not None:
         h = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); h.paste(hoeden[hoed], (0, bob)); im = Image.alpha_composite(im, h)
     return im
@@ -343,13 +343,15 @@ DECO = {
     "lichtzwam": ["................"]*6 + ["...kkkk.........", "..kNqqNk........", ".kNNqNNNk.......", ".kkMMMMkk..kkk..", "...kqqk...kNqNk.", "...kqNk...kkMkk.", "...kqNk....kqk..", "...kNNk.kk.kNk..", "..kkNMkkNqkkMk..", ".kkkkkkkkkkkkkk."],
     "ton":  ["................"]*4 + ["....kkkkkkk.....", "...kUUUUUUUk....", "...kiiiiiiik....", "..kUuUUUUUuUk...", "..kUuUUUUUuUk...", "..kiiiiiiiiik...", "..kUuUUUUUuUk...", "..kUuUUUUUuUk...", "...kiiiiiiik....", "...kUUUUUUUk....", "....kkkkkkk.....", "................"],
     "kist": ["................"]*6 + ["..kkkkkkkkkk....", "..kUUUUUUUUk....", "..kuUkkkkUuk....", "..kUkUUUUkUk....", "..kUUkUUkUUk....", "..kUUUkkUUUk....", "..kUkUUUUkUk....", "..kuUkkkkUuk....", "..kUUUUUUUUk....", "..kkkkkkkkkk...."],
-    "schedel": ["................"]*9 + ["....kkkk........", "...kjjjjk.......", "...kekjek.......", "...kjjjjk..kk...", "....kIjk..kjjk..", "....kkkk.kjIIjk.", ".........kkkkkk."],
+    "schedel": ["................"]*7 + ["....kkkkk.......", "...kjjjjjk......", "..kjjjjjjjk.....", "..kjeejeejk.....", "..kjeejeejk.....", "..kIjjkjjIk.....", "...kIjjjIk..kk..", "...kjkjkjk.kjIk.", "....kkkkk.kkkkk."],
     "kristal": ["................"]*5 + ["......k.........", ".....kqk...k....", ".....kNk..kqk...", "..k..knMk.kNk...", ".kqk.knMk.kNMk..", ".kNk.kNMkknMk...", ".kNMkknMkknMk...", "..kMkknMkkMk....", "...kmkMkmkk.....", "...kkkkkkk......", "................"],
     "spinrag": ["9...........9...", ".9.......9.9....", "..9...9.9..9....", "..9.9..9...9....", "...9...9..9.....", "....9..9.9......", ".....9.99.......", "......9.........", "................", "................", "................", "................", "................", "................", "................", "................"],
     "vaandel": ["kkkkkkkkkkkkkkkk", "UUUUUUUUUUUUUUUU", "kkk..........kkk", "..krrrrrrrrrrk..", "..krRRRRRRRRrk..", "..krRRyyRRRRrk..", "..krRyYyRRRRrk..", "..krRRyyRRRRrk..", "..krRRRRRRRRrk..", "..krRRRRRRRRrk..", "..krrrrrrrrrrk..", "...krrkkkkrrk...", "....kk....kk....", "................", "................", "................"],
 }
 def maak_deco():
-    frames = [sprite(DECO[n]) for n in DECO]
+    frames = []
+    for n in DECO:
+        sp = sprite(DECO[n]); f = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); f.paste(sp, (0, 16 - sp.height), sp); frames.append(f)
     opslaan(strip(frames), "versiering.png"); return dict(zip(DECO, frames))
 
 def maak_gloed(r=26):
@@ -382,7 +384,9 @@ json.dump({
     "stekelput.png": {"frame": [16, 8], "dicht": 0, "half": 1, "open": 2, "anker": "op de vloer van de gang"},
     "held_lijf.png": {"frame": [16, 16], "lopen": [0, 1, 2, 3], "fps": 8, "anker": "midden onder (voeten op y 15)", "kijkt": "rechts; spiegel voor links"},
     "held_hoeden.png": {"frame": [16, 16], "volgorde": ["helm", "puntmuts", "kap", "pet"], "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"},
-    "held_wapens.png": {"frame": [16, 16], "volgorde": ["zwaard", "staf", "fakkel"], "tekenen": "zwaard en fakkel boven het lijf, staf achter het lijf; 1 px omlaag bij frames 1 en 3"},
+    "versiering.png": {"frame": [16, 16], "volgorde": ["paddenstoel", "lichtzwam", "ton", "kist", "schedel", "kristal", "spinrag", "vaandel"], "anker": "midden onder op de vloer; spinrag en vaandel hangen aan het plafond (bovenkant)"},
+    "gloed.png": {"frame": [52, 52], "gebruik": "warm licht rond fakkels (en groen getint rond lichtzwammen); tekenen met optellen (CanvasItemMaterial blend add) of als PointLight2D-textuur, alleen in de gangen"},
+    "held_wapens.png": {"frame": [16, 16], "volgorde": ["zwaard", "staf", "fakkel"], "tekenen": "boven het lijf, in de rechterhand; 1 px omlaag bij frames 1 en 3"},
 }, open(os.path.join(UIT, "kunst.json"), "w"), ensure_ascii=False, indent=1)
 
 # ---------- voorbeeld: een stuk hol op ware maat (schaal 3, strook 120 px) ----------

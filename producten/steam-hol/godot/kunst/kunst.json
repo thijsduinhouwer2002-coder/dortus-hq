@@ -108,6 +108,30 @@
   ],
   "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"
  },
+ "versiering.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "paddenstoel",
+   "lichtzwam",
+   "ton",
+   "kist",
+   "schedel",
+   "kristal",
+   "spinrag",
+   "vaandel"
+  ],
+  "anker": "midden onder op de vloer; spinrag en vaandel hangen aan het plafond (bovenkant)"
+ },
+ "gloed.png": {
+  "frame": [
+   52,
+   52
+  ],
+  "gebruik": "warm licht rond fakkels (en groen getint rond lichtzwammen); tekenen met optellen (CanvasItemMaterial blend add) of als PointLight2D-textuur, alleen in de gangen"
+ },
  "held_wapens.png": {
   "frame": [
    16,
@@ -118,6 +142,6 @@
    "staf",
    "fakkel"
   ],
-  "tekenen": "zwaard en fakkel boven het lijf, staf achter het lijf; 1 px omlaag bij frames 1 en 3"
+  "tekenen": "boven het lijf, in de rechterhand; 1 px omlaag bij frames 1 en 3"
  }
 }
