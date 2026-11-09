@@ -51,3 +51,23 @@ Geen buizen meer: een **houten tekenpop** (de beweegbare pop die tekenaars gebru
 
 ## Controleur (agent, 8 nov)
 Eerst nee, twee moet-punten in `maak_film.py`, beide opgelost en opnieuw bekeken met de Read-tool: (1) bij elke wissel liepen twee koppen door elkaar (de kop zat in het beeld dat werd gemengd); nu gaat de oude kop weg en komt de nieuwe daarna, beeld 92, 96, 198 en 202 schoon; (2) het eerste beeld had geen kop; nu staat kop 1 er vanaf beeld 0. Kan-punten verwerkt: beeldnummer zonder afrondfout, Exploded view met `delta_location`, Resolution Scale, pad van de lagen, uitsnede scène 4 niet meer half door het paneel, "Wall: 1.54 mm". Teksten en getallen klopten al met de add-on (±20°, "+8° past limit", stapnamen, alleen gratis).
+
+## Beeldtaal filmisch: besluit Daan (9 nov 02:35 UTC), voor Bram
+Bekeken (GEZIEN, Read-tool): `click-joints-filmisch-ruw.mp4` van run 42545243113 (ronde 4b, c1af5396), contactvel van 18 beelden en losse beelden op 1,0 / 4,5 / 9,3 / 13,5 s.
+
+**Oordeel: nee, nog niet goed genoeg voor de winkel.** De opbouw (held, gewricht, buigen, uit elkaar) klopt en de groene ring gloeit mooi. Maar het oogt als grijs plastic in een lege studio, niet als iets wat je wilt hebben. Vijf moet-punten, op volgorde:
+
+1. **Het gewricht zit midden in de onderarm, naast een elleboog die al gebogen is.** Je ziet een pop met twee ellebogen. Maak de arm in rust recht (bovenarm en onderarm in één lijn, schuin naar voren en 30° omlaag) en zet het gewricht **op de elleboog**. Dan leest buigen als "zijn arm beweegt", meteen, zonder uitleg. Lukt de snede daar niet vrij van het lijf: arm verder van het lijf, niet het gewricht ergens anders.
+2. **De harde horizon moet weg.** Nu loopt er een lichte rand van de vloer dwars door elk beeld (achter de pop, achter de arm). Gebruik een **oneindige achtergrond**: vloer die met een ronde bocht (bevel ±40 mm op schaal van de pop) overgaat in een achterwand, zelfde materiaal, of een vloer die zo groot is dat de rand nooit in beeld komt en wegvloeit in de kleur van de wereld. Lichtvlek van de hoofdlamp op de vloer rond de voeten, de rest loopt weg in donker `#121418`.
+3. **Echt hout, warm.** Nu grijsblauw. Basiskleur beuken `#C99C6E`, nerf met een Wave-textuur (bands, langs de lengte van elk lid, vervormd met Noise schaal ±3, sterkte 4), tweede tint `#A9774A`, roughness 0,4, coat 0,3. Hoofdlicht warm (3200 K, Blackbody), randlicht koel (8000 K) van achter. Kleurbeheer AgX met look **Medium High Contrast**. Toets: in het eindbeeld moet je zonder twijfel "hout" zeggen.
+4. **Het rood moet je zien.** Bij 28° is er nu geen rood te zien (log: 25 rode vlakken in A, maar ze zitten binnen in de naad). Kies voor dat moment een camera **aan de binnenkant van de bocht**, dichtbij, waar de naad openvalt en de rode vlakken naar de lens wijzen. Rood als emissie (sterkte 3 tot 4, kleur `#FF3B30`) met de gloed van de compositor, en een korte puls (twee keer). Is het van geen kant te zien, dan is het eerlijke alternatief: een inzet van het echte viewport (de witte boog met "+8° past limit") in de hoek, uit de schermopname van ronde 2. Liever het eerste.
+5. **Kader en camera.** Nooit een half hoofd of half lijf aan de rand (nu in shot 2 tot 4). Bij close-ups: schouder en hand allebei in beeld, gewricht op een derde van het beeld. Camerabewegingen met zachte in- en uitloop (Bezier), geen stilstand en ook geen schok.
+
+**Wat ik erbij wil (dit maakt het van ons, niet alleen netjes):**
+- **Haak in de eerste 0,5 s:** dichtbij de elleboog, donker, de groene ring flitst aan. Pas daarna de held-shot. Wie zonder geluid scrolt, ziet meteen licht en beweging.
+- **Slotbeeld "hij leeft":** zet met de echte add-on **drie gewrichten** (nek, elleboog, knie), alle drie groen. In het laatste shot buigen ze tegelijk binnen hun grens (nek knikt, arm zwaait, knie buigt), camera laag en langzaam eromheen. Dat is precies wat een maker wil: een figuur die beweegt. Eerlijk, want elk gewricht is echt geplaatst. Lukt drie niet in deze ronde, dan twee (elleboog en knie).
+- **Koppen en eindkaart blijven**, met mijn lagen uit `maak_film.py` (zelfde vier koppen en eindkaart, de kaart iets kleiner zodat de render het beeld draagt). Getallen ±20° en "+8° past limit" komen in de koppen, gelijk aan de winkel.
+- Lengte 16 tot 18 s, 30 beelden per seconde, 1920 x 1080.
+
+Volgorde shots (voorstel, Bram mag de tijden schuiven): haak 0,5 s, held 2,5 s, gewricht verschijnt 2,5 s, buigen 0 tot 15 tot 28 met rood en terug 4 s, uit elkaar 2,5 s, drie gewrichten 3 s, eindkaart 2 s.
+Ik keur beeld voor beeld zodra de ronde op `schermen` staat. Schrijf het onderaan `producten/blender-gewrichten/ontwerp.md`.
