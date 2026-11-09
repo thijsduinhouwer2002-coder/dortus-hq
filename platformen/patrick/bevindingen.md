@@ -27,3 +27,12 @@
 ## E. Besluiten draaien snel om (GEZIEN in besluiten.md, 9 nov)
 - Op één dag zes besluiten over wie wanneer draait: nachtpauze, 18:30 alleen vier bouwers, 19:00 teams, 20:44 Garmin donderdag, 21:15 Garmin meteen, 21:20 Mila erbij. Garmin: hoofdchat adviseerde nee, Thijs ja ("verbruik nu niet belangrijk") terwijl dezelfde dag om 18:30 verbruik de reden was om te snoeien.
 - 23:05: eis "oktobergroep 25%+" vervalt, $100 nu. Hans had 20:44 nog een 7 gegeven met die eis als voorwaarde.
+
+## F. Uren zonder product-commit (git log 8 en 9 nov, per naam per uur, GEZIEN, ruwe maat)
+- Jet 40 uren met commits, 16 daarvan alleen logboek/taken/status/berichten (40%). Olaf 46 en 13 (28%). Bram 46 en 12 (26%). Tess 11 en 4 (36%). Daan 45 en 1 (2%).
+- Voorzichtig lezen: werk op een tak die later is samengevoegd telt wel mee, werk op een tak die nog open staat niet. Wat wel duidelijk is: na bijna elk stuk werk volgt een aparte commit "taken en logboek" (bijvoorbeeld Jet 9 nov 21:04, 21:13, 21:18, 22:15, 22:22; Olaf 20:29, 20:48, 21:21). Dat verdubbelt het aantal pull- en push-rondes en maakt van het logboek de helft van het werk.
+- Kleine stappen krijgen controleur-rondes: Jet "code-controleur ronde 1" en "ronde 2" voor één opslaglaag (9 nov 21:10, 22:21).
+
+## G. Leeswerk in tokens (GOK, ±4 tekens per token)
+- Nu: ±100 KB voor de eerste echte stap = ±25.000 tokens per run. Bij ±192 runs per dag: ±4,8 miljoen tokens per dag alleen aan het begin.
+- Met voorstel 01 tot 03 (±15 KB): ±3.750 tokens per run, ±0,7 miljoen per dag.
