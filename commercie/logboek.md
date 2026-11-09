@@ -359,3 +359,12 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gevonden:** de gedragscode verbiedt "exclusive self-promotion" en zegt dat wie gewaarschuwd is bij een tweede overtreding van alle drie de plekken verwijderd wordt. Een link-only bericht in de Discord kan dus via regel 7 alle verdere plaatsingen stilleggen.
 **Controleur:** akkoord mits. Moet: regel bij de video miste bestiariumbladen, titels, vonken en rode gloed. Verwerkt, kan-punten ook.
 **Volgende run:** na 13:45 UTC Rollwright (meting dag 1 na het Reddit-bericht tegen `groeimaat.md`); elke run de seintjes voor Click Joints en Bison & Flex.
+
+## 9 nov 2026 ±12:00 tot 12:45 UTC: Rollwright, run 29 (vervanger voor r/ObsidianMD)
+**Gelezen:** berichten (nieuw: hoofdchat 9 nov 11:45, r/ObsidianMD gaat niet door), doelen, regels, besluiten (nieuwste), rol, middelen, lijst-thijs (begin), verspreiding.md en lancering.md van Rollwright, adviezen 24 en 35.
+**Opgemerkt:** `git pull` bleef weer hangen (2 min); lokale main liep uiteen met origin (GitHub had weer een geforceerde update). Lokale main laten staan en op een nieuwe lokale tak vanaf origin/main gewerkt; niets weggegooid.
+**Beslissing:** Rollwright, want het bericht van Thijs is open. Vervangende plek: This Week in Obsidian, omdat het de enige gevonden plek is met bewijs dat rollenspel- en AI-plugins erin komen (Atlas VTT in #45), die zelf naar het makerschap vraagt en geen kans op een waarschuwing geeft die volgens regel 7 alles stillegt. Eerlijk: het bereik is onbekend (GOK); de video-route (advies 35) blijft de grote hefboom.
+**Onderzocht (onderzoeker plus eigen curl):** r/Solo_Roleplaying (AI-assisted play welkom, Promotion-flair, regels zelf niet leesbaar), r/rpg (AI-flair en 100 karma: valt af), ttrpg.network/c/rpg en EN World (tegen AI-inhoud: valt af), lemmy.world, dice.camp en itch.io (klein of eerst een account), Obsidian Hub (weinig onderhouden).
+**Gedaan:** `rollwright/lancering.md` deel run 29 (vergelijking, reden, letterlijke inzendtekst, screenshot-stap voor r/Solo_Roleplaying, Discord na het forum); `rollwright/verspreiding.md` bijwerking; `blender-click-joints/lancering.md` deel run 29 (voorwaarde r/ObsidianMD vervalt, screenshot-stap voor r/blender en r/3Dprinting); lijst-thijs één regel; bericht verwerkt.
+**Controleur:** akkoord mits. Moet: r/blender en r/3Dprinting misten de screenshot-stap en wachtten nog op r/ObsidianMD. Verwerkt, kan-punten ook.
+**Volgende run:** dinsdag de RSS van This Week in Obsidian bekijken; downloads meten (nulpunt 9); seintjes voor Click Joints en Bison & Flex.

@@ -242,3 +242,10 @@ Open broncode is op r/blender en bij awesome-blender een pluspunt (GOK: GPL en e
 
 ### Nog steeds waar
 Geen woord over een betaalde versie in welk bericht dan ook; ±20° overal; "I haven't printed a joint with it yet" blijft tot er een echte print is; r/blender op zijn vroegst twee dagen na het geplaatste r/ObsidianMD-bericht van Rollwright (dat plaatst Thijs nu zelf, lijst-thijs 9 nov ±09:25).
+
+## Bijwerking 9 nov 2026 (run 29): r/ObsidianMD vervalt, dus andere voorwaarden voor r/blender en r/3Dprinting
+
+Door Chris. Thijs liet weten (hoofdchat 9 nov 11:45, `berichten/chris.md`) dat het Rollwright-bericht op r/ObsidianMD **niet** geplaatst wordt: regel 4 daar bant wie als eerste post een AI-gebouwd project promoot. Ook schreef hij dat reddit.com voor Claude in Chrome geblokkeerd is. Twee gevolgen voor dit draaiboek; dit deel gaat voor op run 16 en run 27 waar ze botsen:
+1. **De voorwaarde "twee dagen na het r/ObsidianMD-bericht van Rollwright" vervalt** (run 16 B16 en stap 5, run 27 stap 5 en de slotregel). r/blender kan op zijn vroegst dag 1 na de goedkeuring, en alleen als er op geen enkele plek een waarschuwing of verwijdering kwam (regel 7 van Thijs).
+2. **"De hoofdchat leest in de browser de regels en de zijbalk van r/blender" kan niet meer.** Nieuwe stap vóór r/blender en vóór r/3Dprinting: de hoofdchat vraagt Thijs om een screenshot van de uitgeklapte regels in de zijbalk (en de wiki over zelfpromotie, als die er is). Niet plaatsen als er staat: geen AI-gemaakte inhoud of software, zelfpromotie alleen voor actieve leden, een verhouding meedoen en promoten die Thijs niet haalt, of een minimum aan karma of accountleeftijd. Het account van Thijs (u/Immediate_Offer_630, 2 jaar, 1 karma) valt bij zo'n filter af, en een eerste post die reclame is, wordt op veel subreddits gezien zoals op r/ObsidianMD (GOK). Twijfel: niet plaatsen, vraag op lijst-thijs (regel 3).
+3. BlenderNation (C27) is geen subreddit en blijft zoals in run 27; ook daar leest wie inzendt eerst de regels.

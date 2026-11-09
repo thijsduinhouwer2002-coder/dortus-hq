@@ -628,3 +628,68 @@ In the video, the parchment look of the note is my own CSS snippet, and the best
 
 ### Keuring run 28
 Controleur (los van mij; gedragscode, README en CHANGELOG van 0.3.3, links met curl): **akkoord mits**. Moet, verwerkt: de regel bij de video noemde alleen zoom, stralen en onderschriften; nu ook de bestiariumbladen, titels, vonken en rode gloed, net als het gekeurde Reddit-bericht. Kan, verwerkt: "meepraten" concreet gemaakt, het risico op een ban over alle drie de plekken erbij, duidelijk dat Thijs zelf wel lid mag worden, bronlink in de tekst. Bevestigd: `#content-update` en alle citaten letterlijk in de code, alle beweringen kloppen met 0.3.3, listing 200, mp4 200 (3.535.274 bytes), geen gedachtestreepjes. Niet te controleren: de vastgezette berichten in de Discord (stap 3 blijft nodig).
+
+## Bijwerking 9 nov 2026 (run 29): r/ObsidianMD vervalt, vervangende plek is de nieuwsbrief This Week in Obsidian, en een vooraf-check voor r/Solo_Roleplaying
+
+Door Chris, 9 nov ±12:00 tot 12:45 UTC, op het bericht van Thijs (hoofdchat 9 nov 11:45). **De Reddit-tekst van run 26 wordt niet gebruikt.** Regel 4 van r/ObsidianMD ("If your first and only post is to promote your project (vibe-coded or otherwise), you will be immediately banned", gelezen door Thijs) past precies op ons bericht, en de AI-zin weglaten doen we nooit.
+
+### Welke plek dan? Wat ik bekeek (onderzoeker plus eigen metingen, 9 nov)
+| Plek | AI-regel | Zelfpromotie | Bereik | Oordeel |
+|---|---|---|---|---|
+| **This Week in Obsidian** (wekelijkse nieuwsbrief, Substack, elke dinsdag) | geen; het inzendformulier vraagt alleen "Are you the creator or affiliated?" (GEZIEN, `.github/ISSUE_TEMPLATE/content-suggestion.yml` in z08-studio/this-week-in-obsidian) | inzenden mag, open voor iedereen: "Submit an issue to suggest a plugin, tool, workflow, or community resource" (GEZIEN, README) | onbekend aantal abonnees (GOK); actief: #46 op 3 nov, elke dinsdag sinds minstens 23 jun, #27 (GEZIEN, RSS) | **gekozen** |
+| r/Solo_Roleplaying | in de zijbalk: "Gamebooks, dungeon crawlers, oracle and AI assisted play are all welcome here" (DERDEN, https://gummysearch.com/r/Solo_Roleplaying/); een regel over AI-gemaakte tools niet kunnen lezen | flairs "Promotion", "Free Product-&-Files", "tool-questions-and-sharing" (DERDEN, zelfde bron) | ±87k leden (DERDEN) | blijft plek 5, maar eerst een screenshot van de zijbalk (zie onder) |
+| r/rpg | AI-posts alleen met flair "AI" en minstens 100 karma in de subreddit (DERDEN, https://cannibalhalflinggaming.com/2025/09/13/weekend-update-9-13-2025/) | | 1,6M | valt af (1 karma) |
+| ttrpg.network/c/rpg (Lemmy) | "No AI-generated content." (GEZIEN, API) | eens per week voor actieve leden | 104 actief per maand | valt af |
+| EN World | "please do not post AI-generated content here" en "not an AI-content repository" (GEZIEN, https://www.enworld.org/help/terms/) | | | valt af: formeel grijs, sfeer duidelijk tegen AI |
+| lemmy.world/c/dnd, c/obsidianmd, dice.camp (Mastodon) | geen AI-regel (GEZIEN, API's) | promotie mag als het nuttig is en tweerichting (GEZIEN, https://legal.lemmy.world/tos/ regel 7.0) | 485, 60 en 1.255 actief per maand (GEZIEN); plugin-berichten daar krijgen 0 tot 5 punten (GEZIEN) | niet nu: klein, en Thijs moet eerst een account maken |
+| itch.io | AI mag met verplichte AI-vermelding (GEZIEN, https://itch.io/docs/creators/quality-guidelines) | eigen pagina | onbekend | niet nu: account nodig, en de plugin installeer je toch in Obsidian |
+| Obsidian Hub, pagina "Plugins for TTRPG" | geen | open voor bewerken | GOK: klein, pagina en site lijken weinig onderhouden | overslaan |
+
+### Waarom This Week in Obsidian
+1. **Het bewijs dat het past:** in #45 (27 oct) stond **Atlas VTT** onder "Plugins Worth Checking Out" ("Run TTRPG battle maps with tokens, ..."), en in dezelfde editie meerdere AI-plugins (GEZIEN, RSS van thisweekinobsidian.substack.com). Rollenspel-plugins komen er dus in, en AI is daar geen taboe. De pluginlijst wordt door de redactie gekozen, niet automatisch: Atlas stond al in #40 als "[Release]" en kwam pas in #45 in de lijst (GEZIEN, controleur). Rollwright hoeft dus niet meteen in #47 te staan; ik kijk een paar weken.
+2. **Geen risico voor de andere plekken:** het is een voorstel aan een redactie, geen bericht in een community. Wordt het niet gekozen, dan gebeurt er niets. Geen kans op een waarschuwing of ban (regel 7 van Thijs).
+3. **Eerlijk zonder moeite:** het formulier vraagt zelf of je de maker bent; we antwoorden "Yes" en zetten de AI-zin in de uitleg.
+4. **Mag zonder apart besluit:** het is een issue op GitHub om op een lijst te komen. Hans besliste 8 nov 20:44 (advies 24): "Pull requests en issues naar lijsten mogen voortaan zonder apart besluit, altijd via de hoofdchat of Thijs." Een inzending voor de pluginlijst van een nieuwsbrief valt daar volgens mij onder. Twijfelt de hoofdchat: Thijs beslist.
+5. **Eerlijk over het bereik:** hoeveel abonnees de nieuwsbrief heeft, weet ik niet (GOK). Dit vervangt r/ObsidianMD niet in grootte; het is de beste plek die nu zonder risico kan. De grote hefboom blijft de video-route van advies 35 (open bij Hans).
+
+### Inzending (via de hoofdchat of Thijs, ±3 min, ingelogd op GitHub als Thijs)
+Ga naar https://github.com/z08-studio/this-week-in-obsidian/issues/new?template=content-suggestion.yml . De titel staat al op `[Suggestion] `; maak er `[Suggestion] Rollwright` van. Velden:
+
+**Name:**
+```
+Rollwright
+```
+**Link:**
+```
+https://community.obsidian.md/plugins/rollwright
+```
+**Why is it useful?**
+```
+A dice roller for people who run or play tabletop games (D&D, solo RPGs, OSR) in Obsidian. Write a formula in a note and click the result to roll again; it also rolls on your own tables, lists and tagged notes and reads numbers from frontmatter. The highest possible roll lands in gold, a natural 20 gets a NAT 20 stamp, and every roll you click goes into a Roll log by note and session. It reads the same `dice:` notation as Dice Roller.
+
+All rolling is free; two optional skins are a one-time purchase and only change the look. No account, no telemetry, open source (MIT): https://github.com/thijsduinhouwer2002-coder/rollwright
+
+To be upfront: I made it with AI agents at my small studio, Dortus. The code is written by those agents; I direct and test the work, and every release is tested in the real Obsidian app.
+
+Made by Thijs at Dortus
+```
+**Are you the creator or affiliated with this project?** `Yes`
+
+Daarna: link naar het issue in `berichten-geplaatst.md` (regel 6 van Thijs) en één regel op lijst-thijs. Reageert de redactie in het issue met een vraag: kort en eerlijk antwoorden, alleen in dat issue. Ik volg het issue niet zelf (de repo zit niet in de toegang van mijn run); ik kijk wel elke dinsdag in de RSS of Rollwright erin staat, en meet de downloads de twee dagen erna.
+
+### r/Solo_Roleplaying (plek 5): eerst de zijbalk zien
+Op verzoek van Thijs (punt 2 van zijn bericht) wordt er niets geplaatst voordat de hoofdchat via Thijs een screenshot van de regels heeft (reddit.com is ook voor Claude in Chrome geblokkeerd). Wat er op die screenshot moet staan, en wanneer het niet doorgaat:
+1. De regels in de zijbalk (alle nummers, uitgeklapt) en, als er een is, de wiki-pagina over zelfpromotie.
+2. **Niet plaatsen als** er staat: geen AI-gemaakte inhoud of software, of zelfpromotie alleen voor actieve leden, of een verhouding (bijvoorbeeld 1 op 10) die Thijs niet haalt, of een minimum aan karma of accountleeftijd. Het account van Thijs (u/Immediate_Offer_630, 2 jaar oud, 1 karma) zou dan door een filter vallen of, zoals op r/ObsidianMD, als "eerste en enige post is reclame" gezien worden.
+3. Wel plaatsen kan als AI-gebouwde tools niet verboden zijn en er een flair voor eigen werk is ("Promotion" of "tool-questions-and-sharing"). Het teken dat het kan: de zijbalk noemt "AI assisted play" welkom en er stond onlangs een "I made a free offline dice roller + solo oracle app" onder Promotion (DERDEN, gummysearch). Dat zegt nog niets over een eerste post van een account met 1 karma.
+4. Voorwaarde 1 van run 15 verandert: r/ObsidianMD valt weg. Nieuwe voorwaarde 1: de forumdraad en (als die geplaatst wordt) de Discord bleven zonder klacht, waarschuwing of verwijdering. Voorwaarde 2 wordt: op zijn vroegst ±16 nov, een week na de inzending bij de nieuwsbrief, zodat het effect per plek te zien is. De tekst van run 15 blijft geldig.
+5. Mijn eerlijke inschatting (GOK): de kans dat r/Solo_Roleplaying een eerste post van een account met 1 karma laat staan, is klein, ook als de regels het toestaan, want veel subreddits houden nieuwe accounts met een automatische filter tegen. Thijs kan daar zelf eerst een tijdje gewoon meepraten; dat kiest hij zelf, wij doen dat nooit voor hem.
+
+### Ook voor de andere subreddits
+Dezelfde stap (eerst een screenshot van zijbalk en regels via Thijs, en de karmafilter meewegen) geldt voor plek 8 van Rollwright (r/osr, r/DungeonMasters, na dag 14) en voor r/blender en r/3Dprinting in het draaiboek van Click Joints (bijgewerkt in `commercie/blender-click-joints/lancering.md`, deel run 29).
+
+### Discord (plek 3) na het vervallen van Reddit
+Regel 2 van Thijs zegt: naar de volgende plek alleen als de vorige gelukt is. Het forum (plek 1) is gelukt; Reddit vervalt op last van Thijs, niet door een klacht. De Discord kan dus na het forum, met dezelfde voorwaarde als in run 28: alleen als Thijs daar al lid is en eerder echt meepraatte. De tijd "op zijn vroegst 10 nov 13:45 UTC" hing aan Reddit en geldt niet meer; wel minstens een dag na de inzending bij de nieuwsbrief, om het effect los te kunnen meten. De tekst van run 28 blijft geldig, zonder het woord "Reddit".
+
+### Keuring run 29
+Controleur (los van mij; alle bronnen zelf met curl gelezen): **akkoord mits**. Bevestigd: README en formulier van This Week in Obsidian letterlijk, alle edities op dinsdag, Atlas VTT in #45 met AI-plugins in dezelfde editie, citaten van EN World, ttrpg.network, lemmy.world en gummysearch letterlijk, alle productbeweringen kloppen met de README van 0.3.3, redenering over advies 24 en de Discord eerlijk, geen gedachtestreepjes. Niet te controleren: itch.io (429, niet omzeild; speelt geen rol in de keuze). Moet, verwerkt: de screenshot-stap ook voor r/blender en r/3Dprinting van Click Joints, en de voorwaarde daar die op r/ObsidianMD wachtte (deel run 29 in dat draaiboek). Kan, verwerkt: plek 8 genoemd, nieuwsbrief als plek in `verspreiding.md`, redactie kiest zelf, typfout, datum 23 jun.

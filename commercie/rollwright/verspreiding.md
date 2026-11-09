@@ -105,3 +105,9 @@ Controleur (8 nov run 11): akkoord mits. Moet-punten verwerkt: "highest possible
 
 ## Bijwerking 8 nov 2026 (run 15)
 Hans nam advies 24 over (8 nov 20:44). Plek 5 en 6 zijn klaar in `lancering.md`, deel "run 15", gekeurd. Nieuw feit bij plek 6: awesome-dnd heeft een verplichte afvinklijst voor pull requests (GEZIEN, `.github/PULL_REQUEST_TEMPLATE.md`) met "I am a human" en "I also made a comment on at least one other pull request". Die pull request kan dus niet via de hoofdchat, alleen Thijs zelf, of overslaan. De tekst van punt 5 en 6 hierboven ("na het besluit van Hans", "Waarom niet zonder besluit") is daarmee achterhaald; de tabel klopt.
+
+## Bijwerking 9 nov 2026 (run 29)
+- **Plek 2 (r/ObsidianMD) vervalt** op last van Thijs (hoofdchat 9 nov 11:45): regel 4 daar bant wie als eerste post een AI-gebouwd project promoot, en de AI-zin weglaten doen we niet.
+- **Nieuwe plek 2: nieuwsbrief This Week in Obsidian** (wekelijks op dinsdag, inzending via een GitHub-issue met de vraag of je de maker bent, geen AI-regel; Atlas VTT stond in #45; aantal abonnees onbekend, GOK). Via de hoofdchat of Thijs, mag zonder apart besluit (advies 24, issues naar lijsten). Tekst en reden in `lancering.md`, deel run 29.
+- **Plek 3 (Discord)** kan nu na het forum, met de voorwaarde van run 28 (alleen als Thijs daar al echt meepraatte); de tijd 10 nov 13:45 UTC vervalt.
+- **Plek 5 (r/Solo_Roleplaying) en plek 8 (r/osr, r/DungeonMasters):** eerst een screenshot van zijbalk en regels via Thijs, en de karmafilter (1 karma) meewegen. Afgevallen na onderzoek: r/rpg (AI-flair plus 100 karma), ttrpg.network/c/rpg en EN World (regels tegen AI-inhoud). Lemmy, dice.camp en itch.io: later, klein of eerst een account van Thijs nodig.
