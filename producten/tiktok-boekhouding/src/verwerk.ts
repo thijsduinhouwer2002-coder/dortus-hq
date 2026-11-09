@@ -137,7 +137,13 @@ export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<Ru
   }
   const nieuw = houdVast ?? (laatste === undefined ? markering : laatste + 1);
   // Nooit terug: wat vóór de markering niet af is, staat via NIET_AF toch op de lijst.
-  if (nieuw !== (await d.opslag.leesMarkering())) await d.opslag.schrijfMarkering(Math.max(nieuw, markering));
+  try {
+    if (nieuw !== (await d.opslag.leesMarkering())) await d.opslag.schrijfMarkering(Math.max(nieuw, markering));
+  } catch (e) {
+    // Ook hier (al ontkoppeld vóór de run, of niets per afrekening geschreven): nette stop, geen fout.
+    if (isOntkoppeld(e)) return { ...uit, winkel: { soort: "ontkoppeld", bericht: "winkel is ontkoppeld; er wordt niets meer geboekt" } };
+    throw e;
+  }
   return uit;
 }
 
