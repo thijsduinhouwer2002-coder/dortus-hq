@@ -114,6 +114,8 @@ func _bijnaam(h: Dictionary) -> String:
 	var n: int = h["gevlucht"]
 	if n <= 0:
 		return ""
+	if bool(h.get("hoard_toucher", false)) and n < 3:
+		return "Hoard-Toucher"   # Sanne: wie de schat aanraakt heet zo, tot hij aartsvijand wordt
 	if n == 1:
 		return "Spooked" if h["wrok"] != "" else "Lucky"
 	var tel: String = TELWOORD[n] if n < TELWOORD.size() else "Ever"
