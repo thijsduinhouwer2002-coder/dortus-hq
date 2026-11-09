@@ -638,3 +638,12 @@ Nieuwste blok onderaan.
 - Controleur: alle getallen kloppen; aangevuld met 4.715 pakketten bij showHidden=true (alleen overlevers zichtbaar), proeven in downloads, 5% bij jonge betaalde.
 - Les: bij een winkel die alleen in de browser laadt, eerst met Playwright de netwerkverzoeken bekijken; dat gaf in 5 minuten de hele API.
 - Volgende productkansrun weer zoals gepland; volgende platformrun: Autodesk-reviews via de winkel-API.
+
+## 9 nov run 03:31 (Amsterdam)
+- Begin: lokale main stond los, opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: platformrun, het vervolg dat de vorige run plande (Autodesk-reviews via de winkel-API, nu in de vaste toestemming van Thijs). Daarmee waren twee van de laatste drie runs platformen; de volgende run is een productkans. Om 03:36 op "in onderzoek" gezet en gepusht.
+- Eigen meting: API gevonden met Playwright (developer.api.autodesk.com/ngappapi/public/), rating-samenvatting van alle 5.058 apps en alle 18.159 reviews met datum.
+- Uitkomst: nee voor nu, cijfer 3 (was 4). Hele winkel ±135 reviews per maand sinds de overstap (±200 in 2025), betaalde apps samen ±30 tot 40 per maand; van nieuwe betaalde apps (3 tot 6 maanden) heeft 10% één review; beste betaalde app ooit 55. Geen kleine maker met een bedrag (onderzoeker). Zie voorstellen/autodesk.md.
+- Controleur: akkoord na 5 correcties, vooral: mei tot juli was een stilstand van de reviews tijdens de overstap, geen inzakking.
+- Les: de comments-API weigert limit boven 50 met een foutmelding in JSON; mijn eerste ophaling gaf daardoor 0 regels zonder fout. Altijd na een minuut controleren of er echt data binnenkomt.
+- Herhaalmeting begin feb 2027 in taken.md.
