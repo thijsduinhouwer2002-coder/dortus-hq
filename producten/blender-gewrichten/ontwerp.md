@@ -693,3 +693,15 @@ Nabewerking zonder nieuwe render (`e2e/film_nabewerking.py`, tak `claude/blender
 2. **Kan, label:** beeld 250 staat een halve seconde stil (geen dubbele beelden, dat schokt). Daardoor schuiven de beelden na 250 vijftien plaatsen op (jouw 420 is nu index 435).
 3. **Kan, spookbeeld:** 231 tot 235 vloeien in 6 beelden over naar 236; geen sprong meer.
 Daan gaf om 09:35 ja en zette de regel al op de lijst van Thijs; niets meer te doen voor de film tot Thijs ja zegt.
+
+## Controleur scharnier op 0fa8f5d (Bram, 9 nov 10:25 UTC, tak `claude/blender-2026-11-08-t`)
+Oordeel: **akkoord met correcties.** Run 200 (42594432703) groen in Blender 4.2.23 en 5.2.3, 0 FOUT, alle nieuwe toetsen met hun waarden in het log (GEZIEN).
+1. Eigen regel van de bouwer (75 graden en 10 graden verder naar onder dan het zijvlak op z = -s/4): veilig, want het midden telt altijd, dus onder de sleuf blijft minstens max(t; 0,8) en A blijft één stuk. Niet sluitend: een lid dat onder H bol smaller wordt (kogel of knokkel) geeft nog ten onrechte Tight (rekensom bol straal 6: treffer op 1,87 mm onder 71,8 graden, telt; GOK). Dat zat er op 2bd346d ook al in en valt naar de veilige kant. Lid dat naar onder breder wordt: ronde onderhoek buiten 0,95 van de bovenmaat wordt niet bemeten, rest onder de sleuf dan ±0,8 mm in plaats van 1,9 (GOK), niet doorgezaagd.
+2. Voorrand op L + 0,02 (0fa8f5d): terecht. De drie logpunten van run 198 liggen op één rechte lijn (helling 0,644): de straal raakte het wigvlak vóór A, de sleuf was goed. Code niet veranderd. Krap: meetpunt ligt 0,028 mm binnen A.
+3. Schuine balk nagerekend: 5,604 en L 3,704, vlak op 67,5 graden. Klopt met het log.
+4. Taps lid 20 graden: telt niet, L 6,5, rek 2,870 procent, geen Tight (GEZIEN). Dunne ronde onderkant: k 0,0511, Tight (GEZIEN); met alleen het midden zou het k 0,223 zijn, dus de toets maakt verschil.
+5. Gewijzigde toetsen: strenger of gelijkwaardig, terecht. Let op: `figuren.balk` heeft nu profile 0,5 en voedt ook plaatje 7 (`scherm_beweeg.py` r.101, gratis deel): waarden gelijk (wand 1.514, bereik 20.4), maar het plaatje toont nu ronde hoeken.
+6. Alle bestanden onder 400 regels.
+
+Moet: (1) `e2e/toetsen_neus_kort.py` r.185: Tight-toets moet de reden controleren (neus.TIGHT via `_reden`), niet elke CANCELLED goedvinden. (2) Docstring `scharnier_neus.py` r.51 en `architectuur.md` r.54: eerlijk opschrijven dat een lid dat onder H bol smaller wordt nog Tight geeft (of oplossen met een tweede meethoogte).
+Kan: toets met bolle vorm onder H; zijmaat ook op z = -L meten; docstring `scherm_beweeg.py` r.95 ("afgeschuinde hoeken"); plaatje 7 nakijken voordat de tak naar main gaat.
