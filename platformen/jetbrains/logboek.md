@@ -424,3 +424,8 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 05:57). Main groen: runs 42560530868 (CLion-unittests en verifier) en 42560530867 (e2e) op be0c985 (GEZIEN).
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; de CLion-keuze staat pas rond 18 nov.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 06:55 tot 07:00 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet (Daan werkt aan de skins van een ander product). Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 06:57).
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
