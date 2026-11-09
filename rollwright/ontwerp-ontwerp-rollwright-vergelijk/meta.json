@@ -25,7 +25,7 @@
    "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
   ]
  },
- "classic-moonstone-scroll": 495,
+ "classic-moonstone-scroll": 303,
  "classic-obsidian": {
   "bg": "rgb(28, 28, 28)",
   "cls": "workspace-leaf-content rollwright-world",
@@ -47,7 +47,7 @@
    "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
   ]
  },
- "classic-obsidian-scroll": 495,
+ "classic-obsidian-scroll": 303,
  "parchment-moonstone": {
   "bg": "rgba(0, 0, 0, 0)",
   "cls": "workspace-leaf-content rollwright-world",
@@ -69,7 +69,7 @@
    "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
   ]
  },
- "parchment-moonstone-scroll": 571,
+ "parchment-moonstone-scroll": 346,
  "arcane-moonstone": {
   "bg": "rgba(0, 0, 0, 0)",
   "cls": "workspace-leaf-content rollwright-world",
@@ -91,5 +91,5 @@
    "app-container no-transition bg=rgba(0, 0, 0, 0) img=none"
   ]
  },
- "arcane-moonstone-scroll": 553
+ "arcane-moonstone-scroll": 333
 }
