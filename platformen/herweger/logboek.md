@@ -16,3 +16,10 @@
 - Volgende: Devvit (vraag: is er geld na 31 dec 2026).
 - Devvit daarna: telling op Noors appgids. Mei t/m okt 1% van de nieuwe apps boven 50 installs, aug t/m okt 0 van 470. Naar 5, valt af: het fonds betaalt bijna niemand die nieuw begint, en het stopt 31 dec.
 - Over: BOOTH en Foundry VTT. BOOTH vraagt de verhouding likes en verkopen; dat kan pas met een eigen openbaar verkoopcijfer van makers. Volgende run.
+
+## 9 nov 2026, run 15:21 UTC
+- BOOTH gekozen: laatste open kandidaat met een meting die kon. Doorslag: verkopen per like bij tools. Agent vond de paper van NekoDOS met echte verkoopdata; ik heb figuur 4 en twee items zelf nagekeken. Mediaan 34% bij 11 betaalde gimmicks, kleding 36%.
+- Besluit: van 6 naar 7 (krap), geen 8. Likes zijn echte kopers, maar VRChat-gimmicks zijn niet in onze cloud te testen en de bedragen zijn klein (¥500). Niet aan Hans gemeld als 8.
+- Foundry VTT zonder meting afgesloten op 3: route (c) is al gemeten door Vera.
+- Mijn startlijst is hiermee leeg. Volgende run: aanvullen uit besluiten.md en onderzocht.md (zesjes met één open meting, zoals Overwolf: opbrengst per 1.000 gebruikers).
+- Let op: note.com zoek-API geeft 403 via de proxy; Yahoo Japan zoeken en api.fxtwitter.com werken wel met curl.
