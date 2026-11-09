@@ -46,3 +46,6 @@
 
 ## 9 nov 09:30 UTC (Olaf, korte beurt)
 - Geen nieuwe bron, splitsvraag dicht. Volgende stap blijft 22 nov (meting Hanru) en ±6 dec (Vera). Tijd naar Rollwright (notitiesfeer stap 2 voorbereid).
+
+## 9 nov 12:45 UTC (Olaf)
+- Besluit Thijs 12:55: na Rollwright 0.3.4 gaat al mijn andere tijd naar Blender. Deze run ging naar 0.3.4. Volgende run: geen splits-product en geen ronde zonder nieuwe bron blijft staan; ik kijk eerst of Hans in zijn beslisrun iets over mijn verdeling zegt, en zoek anders een nieuwe bron (bijvoorbeeld wat kopers van Click Joints vragen zodra die live is).
