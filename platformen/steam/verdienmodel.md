@@ -4,14 +4,14 @@ Sanne, 10 nov 2026 (run 23:45 UTC op 9 nov). Opdracht Thijs 10 nov 00:28 NL en h
 
 Alle cijfers zijn op 9 nov 2026 met curl opgehaald, tenzij anders vermeld. Labels: GEZIEN (zelf gemeten), DERDEN (bron met link), GOK.
 - Prijzen en DLC-lijsten: `store.steampowered.com/api/appdetails?appids=<id>&cc=us` (GEZIEN).
-- Reviews: het getal op de winkelpagina met `l=english` ("x% of the N user reviews"). Dat telt alleen Engelse reviews; het echte totaal is hoger (Bongo Cat heeft er volgens de hoofdchat 100K+ in alle talen).
+- Reviews: het getal op de winkelpagina met `l=english` ("x% of the N user reviews"). Dat telt alleen Engelse reviews; het echte totaal is hoger (Bongo Cat heeft er volgens de hoofdchat 100K+ in alle talen, niet zelf nagemeten).
 - Klachten: 40 meest behulpzame negatieve en 40 positieve Engelse reviews per spel van de communitypagina (script `platformen/steam/data/reviews-haal.py`), geteld op trefwoorden (geld/DLC/prijs, drops/markt/bots). GEZIEN, ruwe telling: een review kan in twee bakjes vallen.
 
 ## 1. Wat de concurrenten doen
 
 | Spel | Model | Basisprijs | Wat ze verkopen (prijs) | Hoe het erin zit | Engelse reviews (positief) | Klachten over geld (van 40 negatieve) |
 |---|---|---|---|---|---|---|
-| **Bongo Cat** (3419430) | gratis | $0 | willekeurige hoedjes-drops die op de Steam-markt verhandeld worden; sinds apr 2026 ook 5 DLC-packs ($5,05 tot $10,09) | Steam Inventory (drops en markt) en gewone DLC | 31.121 (96%) | 6 van 40 over geld en 9 over drops, markt of bots (deels dezelfde reviews): "FOMO inducing", "promotes completing your collection via Steam market", "money-grubbing" |
+| **Bongo Cat** (3419430) | gratis | $0 | willekeurige hoedjes-drops die op de Steam-markt verhandeld worden; sinds apr 2026 ook 5 DLC-packs ($5,05 tot $10,09, GEZIEN) | Steam Inventory (drops en markt) en gewone DLC | 31.121 (96%) | 6 van 40 over geld en 9 over drops, markt of bots (deels dezelfde reviews): "FOMO inducing", "promotes completing your collection via Steam market", "money-grubbing" |
 | **Desktop Mate** (3301060) | gratis | $0 | 45 personage-DLC's, bijna allemaal $14,99 (Miku, Hello Kitty, Vocaloids) | gewone DLC per personage | 5.381 (61%, laatste 30 dagen 75%) | **23 van 40** over dure DLC, vooral omdat mods (eigen personages) eruit gehaald zijn om DLC te verkopen: "$15 PER CHARACTER", "greedy cash grab" |
 | **Rusty's Retirement** (2666510) | betaald | $6,99 | alleen een Supporter Pack ($3,99) | gewone DLC | 6.625 (97%) | 4 van 79 (eerdere telling, `data/reviews-2026-11-09/telling.txt`) |
 | **Spirit City: Lofi Sessions** (2113850) | betaald | $11,99 | 4 plek-DLC's ($7,99), 1 cosmetisch pack ($4,99), Supporter Pack ($5,99) | gewone DLC | 9.230 (97%) | 12 van 40: "8 euro DLC's feel like the Sims DLC's", geen updates voor het basisspel maar wel cosmetische DLC |
@@ -19,36 +19,36 @@ Alle cijfers zijn op 9 nov 2026 met curl opgehaald, tenzij anders vermeld. Label
 | **Ropuka's Idle Island** (3416070) | betaald | $3,99 | alleen soundtrack ($1,99) | soundtrack-app | 2.405 (95%) | 0 van 79 |
 | **Deskrawl: Idle ARPG** (4623570) | betaald | $6,99 | Supporter Pack $1,99; buit is verhandelbaar op de Steam-markt | Steam Inventory (markt) en DLC | 473 (69%), **laatste 30 dagen 36% van 1.258** | **32 van 40** over drops en markt: "designed and balanced around item trade", "pay to win", "0 rare items in 250 hours" |
 
-Bongo Cat in geld (DERDEN, Eurogamer-interview met Marcel Zurawka, samengevat op wnhub.io/news/stores-and-publishing/item-48117, nagelezen met curl): netto **$2.000 (maart), $4.050 (april), $3.800 (mei), $2.800 (juni 2025)**, nog niet winstgevend. 170 tot 180 duizend mensen per dag online, waarvan volgens de maker ongeveer de helft bots die drops verzamelen. Het was een proef met de markt en reclame voor hun spel Oku.
+Bongo Cat in geld (DERDEN, Eurogamer-interview met Marcel Zurawka, samengevat op wnhub.io/news/stores-and-publishing/item-48117, nagelezen met curl): netto **$2.000 (maart), $4.050 (april), $3.800 (mei), $2.800 (juni 2025)**, nog niet winstgevend. 170 tot 180 duizend mensen per dag online, waarvan volgens de maker ongeveer de helft bots die drops verzamelen. Het was volgens de maker een proef met de markt (DERDEN, wnhub). Dat het ook reclame voor hun spel Oku was, zegt de hoofdchat (niet zelf nagelezen).
 
 DLC-verkoop als maat (GOK, want DLC-reviews zijn geen verkopen): DLC-reviews gedeeld door reviews van het basisspel. Rusty's Supporter Pack 94 / 6.625 = 1,4%. Spirit City plek-DLC's 80 tot 287 / 9.230 = 0,9 tot 3,1%. Tiny Pasture dier-DLC 103 / 1.209 = 8,5%, Supporter Pack 43 / 1.209 = 3,6%. Desktop Mate Miku 428 / 5.381 = 8%. Een DLC-koper schrijft minder vaak een review dan een spelkoper, dus het echte aandeel kopers ligt hoger; ik reken met 8 tot 18% van de spelers die iets extra koopt (GOK).
 
 ## 2. Wat we hiervan leren
-1. **Gratis met drops geeft bereik, geen geld.** Bongo Cat: top 5 meest gespeeld, toch $2.000 tot $4.050 per maand. De helft bots.
+1. **Gratis met drops geeft bereik, geen geld.** Bongo Cat: 170 tot 180 duizend spelers per dag (DERDEN), toch $2.000 tot $4.050 per maand. De helft bots.
 2. **Verhandelbare dingen maken het spel kapot.** Deskrawl zakte naar 36% positief omdat de buit om de markt heen gebouwd is. Bij Bongo Cat dezelfde klacht, kleiner. Spelers ruiken het meteen.
 3. **Dure, dunne skins en iets afpakken geeft woede.** Desktop Mate: $14,99 per personage plus mods eruit = 61% positief. Niet de prijs alleen, maar het gevoel dat iets gratis werd afgepakt.
-4. **Betaald met een Supporter Pack is veilig.** Rusty's, Tiny Pasture, Spirit City, Deskrawl: allemaal een Supporter Pack bij het uitbrengen, geen klachten erover (Rusty's 98% positief op het pack zelf). Dit werkt omdat iedereen weet dat het een fooi is.
+4. **Betaald met een Supporter Pack is veilig.** Rusty's, Tiny Pasture en Spirit City: allemaal een Supporter Pack bij het uitbrengen, geen klachten erover (Rusty's pack 98% positief van 94 reviews, Spirit City 98% van 102, GEZIEN). Deskrawl heeft er ook een, maar daar gaat het mis door de markt, niet door het pack. Dit werkt omdat iedereen weet dat het een fooi is.
 5. **Inhoud-DLC mag, als het basisspel blijft groeien.** Spirit City verkoopt goed (tot 287 reviews per DLC), maar de klacht "Sims-DLC's" komt zodra het basisspel stilstaat. Gratis updates naast betaalde DLC is de prijs van vertrouwen.
 
 ## 3. Rekensom eerste jaar: gratis tegenover betaald
 
-Aannames (GOK, eerlijk gezegd ruw): netto ±55% van de winkelprijs na de afdracht aan Valve (30%), btw en regionale prijzen. Spelers gratis = 5 keer zoveel als kopers betaald. Gratis: 2 tot 5% koopt iets, gemiddeld $5 tot $7. Betaald: $4,99, 8 tot 18% koopt daarnaast iets, gemiddeld $3,30.
+Aannames (GOK, eerlijk gezegd ruw): netto ±55% van de winkelprijs na de afdracht aan Valve (30%), btw en regionale prijzen. Spelers gratis = 5 keer zoveel als kopers betaald. Gratis: 2% (laag), 3% (midden) of 5% (hoog) koopt iets, gemiddeld $5, $6 of $7 winkelprijs. Betaald: $4,99, en 8%, 12% of 18% koopt daarnaast iets voor gemiddeld $6 winkelprijs, dus $3,30 netto per koper van een extra. Elke rij neemt bewust de lage, middelste of hoge kant van alle aannames tegelijk.
 
 | Schatting | Betaald $4,99: kopers | Netto basisspel | Netto DLC | **Totaal betaald** | Gratis: spelers | **Totaal gratis** |
 |---|---|---|---|---|---|---|
 | Laag | 2.000 | $5.500 | $500 | **±$6.000** | 10.000 | **±$550** |
 | Midden | 10.000 | $27.400 | $4.000 | **±$31.400** | 50.000 | **±$5.000** |
-| Hoog | 40.000 | $109.800 | $23.800 | **±$133.500** | 200.000 | **±$38.500** |
+| Hoog | 40.000 | $109.800 | $23.800 | **±$133.600** | 200.000 | **±$38.500** |
 
-Gratis wint alleen als het bereik meer dan ±25 keer zo groot wordt als betaald. Dat lukte Bongo Cat, maar met drops en bots, en zelfs dan bleef het bij een paar duizend per maand.
+Betaald levert ±$3,00 tot $3,30 netto per koper op, gratis $0,06 tot $0,19 per speler. Gratis wint dus pas als het 15 tot 55 keer zoveel spelers trekt als betaald kopers (in de tabel is dat 5 keer, een GOK die de hele uitkomst bepaalt). Bongo Cat haalde zulk bereik, maar met drops en bots, en bleef toch op een paar duizend dollar per maand.
 
 ## 4. Advies voor Het Hol
 
 **Betaald, $4,99, met een permanente gratis demo en eerlijke skins als losse DLC.**
 
 Waarom niet gratis:
-- De rekensom: bij elke schatting levert betaald 5 tot 10 keer meer op.
-- Van betaald naar gratis kan later altijd: de Steamworks-docs hebben er een eigen stuk voor ("Switching from paid to free", partner.steamgames.com/doc/store/freetoplay, GEZIEN). Andersom noemen de docs niet (GOK: kan niet of moeilijk). Betaald beginnen houdt dus beide wegen open.
+- De rekensom: betaald levert in de tabel 3,5 tot 11 keer meer op, en gratis haalt pas gelijk bij 15 tot 55 keer zoveel spelers.
+- Van betaald naar gratis kan later altijd: de Steamworks-docs hebben er een eigen stuk voor ("Switching from paid to free", DERDEN, partner.steamgames.com/doc/store/freetoplay). Andersom noemen de docs niet (GOK: kan niet of moeilijk). Betaald beginnen houdt dus beide wegen open.
 - Het bereik van gratis halen we voor een groot deel met de **gratis demo** op het Desktop Companion Fest (zie `ontwerp/steam/winkelpagina/fest.md`): wie wil proberen, kan proberen.
 - Zonder drops of markt (die willen we niet, zie les 1 en 2) mist gratis precies de motor die Bongo Cat groot maakte.
 
