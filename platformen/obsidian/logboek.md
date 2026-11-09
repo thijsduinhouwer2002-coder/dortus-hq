@@ -606,3 +606,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 
 ## 9 nov 05:15 tot 05:30 UTC (Olaf, korte run, regel 0c)
 - Gemeten (GEZIEN): 9 downloads (community-plugin-stats.json), release 0.3.2 main.js 4 keer, 0 issues, 0.3.3 nog niet uitgebracht (laatste release 0.3.2), geen nieuw bericht van Thijs, geen nieuwe klus van Daan. Uitbrengen niet opnieuw geprobeerd, staat bij Thijs.
+
+## 9 nov 06:20 tot 06:35 UTC (Olaf, korte run)
+- Cijfers (GEZIEN): 9 downloads in de stats, release-main.js 0.3.2 4 keer, 0 issues, forumdraad 19 keer bekeken. Geen klus van Daan open, geen oordeel over de Arcane-gloed.
+- 0.3.3 uitbrengen één keer geprobeerd (code ongewijzigd sinds Daans akkoord, alleen ontwerpstukken van Daan erbij): geweigerd door de veiligheidscontrole, niet omzeild, staat bij Thijs. Let op: de geschiedenis van dortus-hq is herschreven, hash ab70aa3 bestaat niet meer; de code van 0.3.3 is dezelfde.

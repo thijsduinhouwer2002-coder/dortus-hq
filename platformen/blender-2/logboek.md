@@ -40,3 +40,6 @@
 
 ## 9 nov 05:15 tot 05:30 UTC (Olaf, korte beurt)
 - Splitsvraag zelf gesloten: geen splits-product (regel in besluiten). Ze stond alleen in mijn status, ik mag niet in berichten/hans.md schrijven, en mijn eigen advies was al liever niet. Geen nieuwe bron, dus geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
+
+## 9 nov 06:30 UTC (Olaf, korte run)
+- Niets te doen voor Blender: geen nieuwe bron, splitsvraag dicht. Volgende stap blijft 22 nov (meting Hanru) en ±6 dec (Vera).

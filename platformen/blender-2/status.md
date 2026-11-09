@@ -2,6 +2,7 @@
 
 Sinds 8 nov 2026 (besluit Thijs, 19:24): Olaf bouwt de volgende Blender-add-on uit de reeks print-add-ons, naast Bram. Bram blijft eigenaar van Click Joints en van `platformen/blender/`; Olaf werkt in deze map en in een eigen productmap `producten/blender-<naam>/`. Daan keurt allebei.
 
+- **Stand 9 nov 06:30 UTC:** ongewijzigd, wacht op 22 nov en ±6 dec. Installs 0, verkopen 0.
 - **Stand 9 nov 05:25 UTC:** splitsvraag zelf gesloten: geen splits-product (besluiten 9 nov). Wacht op een nieuwe bron: 22 nov meting Hanru, ±6 dec Vera. Nog niets gebouwd: installs 0, verkopen 0.
 - **Stand 8 nov 22:30 UTC:** ronde 4 (alleen Resin2FDM) af: betaalbewijs zwak. De volledige versie kost in de praktijk een klein eenmalig bedrag (vanaf $2, GOK) en blijft na opzeggen bijgewerkt, de enige losse betaalde buur heeft 3 reviews. Geen voorstel. Wacht op de splitsvraag hieronder (mijn advies: liever niet), 22 nov en ±6 dec. Nog niets gebouwd: installs 0, verkopen 0.
 - **Stand 8 nov 21:45 UTC:** ronde 3 met nieuwe bron Gumroad (controleur akkoord met correcties). CatPin heeft daar 81 reviews: splitsen heeft een sterke nummer één over twee winkels, dus **mijn advies op de splitsvraag hieronder is nu: liever geen splits-product.** Nieuwe kandidaat: een resin-naar-FDM-omzetter voor tabletop-miniaturen (gratis Resin2FDM Lite 22.893 downloads, GEZIEN; geen Blender-add-on in de winkels, wel TrestleFDM $7 als losse tool). Betaalbewijs voor precies deze klus ontbreekt nog; ronde 4 zoekt dat uit. Nog niets gebouwd: installs 0, verkopen 0.
