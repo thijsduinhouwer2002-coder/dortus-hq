@@ -11,7 +11,7 @@ import time
 
 import bmesh
 import bpy
-from bpy.props import EnumProperty
+from bpy.props import EnumProperty, FloatVectorProperty
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
@@ -25,17 +25,29 @@ from . import scharnier_vorm as vorm
 STAND_KEUZES = [(str(n), f"{n}°", f"Bends up to {n}°") for n in vorm.STANDEN]
 
 
-def assen(context, inst):
+def kijk_en_omhoog(context, kijk=None, omhoog=None):
+    """(kijkrichting, omhoog) in wereldcoordinaten, of None zonder 3D-weergave.
+
+    Een meegegeven kijkrichting (eigenschap kijk_richting van de operator, lengte groter dan 0) gaat voor;
+    zo kan de toets in Blender zonder venster de echte operator met een kijkrichting draaien."""
+    if kijk is not None and Vector(kijk).length > 1e-9:
+        om = Vector(omhoog) if omhoog is not None and Vector(omhoog).length > 1e-9 else None
+        return Vector(kijk).normalized(), om
+    rv3d = kijk_regio(context)
+    if rv3d is None:
+        return None
+    return (rv3d.view_rotation @ Vector((0, 0, -1))).normalized(), rv3d.view_rotation @ Vector((0, 1, 0))
+
+
+def assen(context, inst, kijk=None, omhoog=None):
     """(punt, H, buigkant, L, as-bron, terugval) of None als de kijkrichting te dicht bij de lidas ligt."""
     cursor = context.scene.cursor
     m = cursor.matrix
     lid = m.col[2].xyz.normalized()
     if inst.as_bron == "KIJK":
-        rv3d = kijk_regio(context)
-        if rv3d is not None:
-            kijk = (rv3d.view_rotation @ Vector((0, 0, -1))).normalized()
-            omhoog = rv3d.view_rotation @ Vector((0, 1, 0))
-            uit = vorm.scharnier_assen(lid, kijk=kijk, omhoog=omhoog)
+        ko = kijk_en_omhoog(context, kijk, omhoog)
+        if ko is not None:
+            uit = vorm.scharnier_assen(lid, kijk=ko[0], omhoog=ko[1])
             return None if uit is None else (cursor.location.copy(),) + uit[:3] + ("KIJK", False)
     uit = vorm.scharnier_assen(lid, cursor_x=m.col[0].xyz, cursor_y=m.col[1].xyz)
     return (cursor.location.copy(),) + uit[:3] + ("CURSOR", inst.as_bron == "KIJK")
@@ -48,6 +60,9 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
 
     stand: EnumProperty(name="Bends up to", items=STAND_KEUZES, default=str(vorm.STAND_STANDAARD))
+    # Leeg (0, 0, 0) = kijkrichting uit de 3D-weergave. Alleen voor scripts en de toets zonder venster.
+    kijk_richting: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
+    kijk_omhoog: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
 
     @classmethod
     def poll(cls, context):
@@ -63,7 +78,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
                                    "2 faces). Click Make watertight first.")
             return {"CANCELLED"}
-        uit = assen(context, inst)
+        uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog)
         if uit is None:
             self.report({"WARNING"}, vorm.KIJK_LANGS)
             return {"CANCELLED"}
