@@ -35,7 +35,7 @@ describe("Rollwright: gratis tegen de werelden", function () {
 		fs.mkdirSync(SHOTS, { recursive: true });
 		const css = fs.readFileSync(path.join(HIER, "wereld", "wereld.css"), "utf8");
 		meta.css = await browser.executeObsidian(async ({ app }, css) => {
-			app.vault.setConfig("spellcheck", false); app.customCss.setTheme("");
+			app.vault.setConfig("spellcheck", false); app.vault.setConfig("propertiesInDocument", "hidden"); app.vault.setConfig("showInlineTitle", false); app.customCss.setTheme("");
 			const st = document.createElement("style"); st.id = "rw-wereld"; st.textContent = css; document.head.appendChild(st);
 			// Stap 2 nabootsen: alle oude Parchment- en Arcane-regels van de plugin eruit, zoals Olaf ze vervangt.
 			let weg = 0;
