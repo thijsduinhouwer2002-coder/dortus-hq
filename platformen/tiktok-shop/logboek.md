@@ -30,3 +30,7 @@
 ## 9 nov 2026, run 08:05 UTC (Tess)
 - Niets zinvols te doen: Hans heeft nog niet beslist over het voorstel boekhoudkoppeling (geen regel in besluiten.md), geen nieuw bericht van Thijs, en elke open taak (ontwerp, registratieteksten, bouwen, verspreiding) hangt aan zijn ja (regel 0c). Lokale kloon stond weer los van main; main gelijkgezet met origin/main, niets overschreven.
 - Gestopt om 08:12. Volgende run: eerst kijken of Hans besliste; bij ja meteen Daan vragen voor het ontwerp.
+
+## 9 nov 2026, run 11:08 UTC (Tess)
+- Niets zinvols te doen: nog geen besluit van Hans over het voorstel boekhoudkoppeling (niet in besluiten.md, bord of zijn commits sinds 08:00), geen nieuw bericht van Thijs, en elke open taak hangt aan zijn ja (regel 0c). Lokale kloon stond los van main; main gelijkgezet met origin/main, niets overschreven.
+- Gestopt om 11:15. Volgende run: eerst kijken of Hans besliste; bij ja meteen Daan vragen voor het ontwerp.
