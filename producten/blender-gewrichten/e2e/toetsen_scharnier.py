@@ -198,16 +198,18 @@ def _waar_raakt(stap, beweeg, n, voor):
     h, buig, lid = (Vector(b[k]).normalized() for k in ("cj_scharnier_as", "cj_buigkant", "cj_as"))
     pa, ta = beweeg._driehoeken(a, p, 1e9)
     pb, tb = beweeg._driehoeken(b, p, 1e9)
-    m = (Matrix.Translation(p) @ Matrix.Rotation(math.radians(voor + 0.3), 4, lid.cross(buig).normalized())
+    hoek = voor + 0.06
+    m = (Matrix.Translation(p) @ Matrix.Rotation(math.radians(hoek), 4, lid.cross(buig).normalized())
          @ Matrix.Translation(-p))
     import numpy as np
     mm = np.array(m)
     gb = pb @ mm[:3, :3].T + mm[:3, 3]
     paren = _B.FromPolygons(gb.tolist(), tb).overlap(_B.FromPolygons(pa.tolist(), ta))
-    punten = []
-    for _, j in paren[:400]:
-        c = sum((Vector(gb[k]) for k in tb[j]), Vector()) / 3 - p
-        punten.append((round(c.dot(h), 2), round(c.dot(buig), 2), round(c.dot(lid), 2)))
-    punten = sorted(set(punten))
-    print(f"[cj-betaald] DIAGNOSE stand {n}: {len(paren)} paren bij {voor + 0.3:.2f} graden, B-punten (x, y, z) "
-          f"eerste {punten[:6]} laatste {punten[-6:]}")
+
+    def f(q):
+        c = Vector(q) - p
+        return (round(c.dot(h), 2), round(c.dot(buig), 2), round(c.dot(lid), 2))
+    print(f"[cj-betaald] DIAGNOSE stand {n}: {len(paren)} paren bij {hoek:.2f} graden, t_vlak "
+          f"{b.get('cj_t_vlak', -1):.3f} wig {b.get('cj_wig_graden')}")
+    for j, i in paren[:6]:  # overlap geeft (index in B, index in A)
+        print(f"[cj-betaald] DIAGNOSE stand {n}: B {[f(gb[k]) for k in tb[j]]} A {[f(pa[k]) for k in ta[i]]}")

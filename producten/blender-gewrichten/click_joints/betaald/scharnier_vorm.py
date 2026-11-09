@@ -79,6 +79,27 @@ def straal_tot_huid(bvh, frame, richting):
     return None if hit[0] is None else hit[3]
 
 
+def vlak_lengte(bvh, frame, e, s, alfa, wx):
+    """Grootste min(t_A, t_B) over een paar doorsneden langs H (zie maten), of None als een straal mist."""
+    beste = None
+    ca, sa = math.cos(alfa), math.sin(alfa)
+    for x in (0.0, -0.4 * wx, 0.4 * wx):
+        lengtes = []
+        # A: vlak op hoek -a, voet op s/2 naar beneden-achter; B: op +a, voet op s/2 naar boven-achter.
+        for start, richting in (((x, -e - s / 2 * sa, -s / 2 * ca), (0, ca, -sa)),
+                                ((x, -e - s / 2 * sa, s / 2 * ca), (0, ca, sa))):
+            o = frame @ Vector(start)
+            w = (frame.to_3x3() @ Vector(richting)).normalized()
+            hit = bvh.ray_cast(o, w)
+            if hit[0] is None:
+                break
+            lengtes.append(hit[3])
+        if len(lengtes) == 2:
+            t = min(lengtes)
+            beste = t if beste is None else max(beste, t)
+    return beste
+
+
 def maten(bvh, frame, s, stand, u):
     """Maten van het scharnier, of (None, reden) als het lid te dun is of de cursor buiten het figuur ligt."""
     zij = [straal_tot_huid(bvh, frame, r) for r in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0))]
@@ -92,17 +113,24 @@ def maten(bvh, frame, s, stand, u):
     tw = wx / 3 - s / 2
     if tw < 0.6 * u or (wy - e) - (rn + s / 2) < 0.3 * u or r < 0.6 * u:
         return None, TE_DUN
-    r_buiten = zij[2] + e             # van H tot de voorkant van het lid
-    # Het stopvlak staat schuin (hoek a), dus zijn buitenrand ligt bij een recht lid op r_buiten / cos(a) van H,
-    # niet op r_buiten (run 28: gemeten 114,18 en 133,9 bij 115 en 135 klopt precies met die rand). a en theta_s
-    # hangen van elkaar af, dus een paar keer invullen (convergeert snel, theta_s is klein).
+    r_buiten = zij[2] + e             # van H tot de voorkant van het lid (alleen als eerste schatting)
+    # De stop valt waar de verste rand van een stopvlak het andere vlak raakt: bij een draai van 2a + s/t, met
+    # t de lengte van het stopvlak langs het vlak, van de voet bij H tot de huid. Die lengte meten we met een
+    # straal langs het vlak zelf (A op hoek -a, B op +a, elk op s/2 naast H), want bij een lid dat niet recht
+    # is (de arm: de voorkant wijkt naar de uiteinden) ligt de rand dichter bij H dan r_buiten / cos(a).
+    # Raken: de rand van B komt op het vlak van A als t_B <= t_A, anders komt de rand van A op het vlak van B,
+    # dus per doorsnede telt min(t_A, t_B); de vroegste stop is de doorsnede met de grootste t.
     alfa = math.radians(stand - MARGE) / 2
-    for _ in range(6):
-        theta_s = s * math.cos(alfa) / r_buiten
+    t = r_buiten / math.cos(alfa)
+    for _ in range(8):
+        t_nieuw = vlak_lengte(bvh, frame, e, s, alfa, wx)
+        if t_nieuw is not None:
+            t = t_nieuw
+        theta_s = s / t
         alfa = (math.radians(stand - MARGE) - theta_s) / 2
     r_lip = zij[3] - e                # van H tot de achterkant van het lid (raakpunt achterstop)
     return {"s": s, "e": e, "r_lip": r_lip, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
-            "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten}, ""
+            "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten, "t_vlak": t}, ""
 
 
 def stop_graden(alfa, theta_s):
