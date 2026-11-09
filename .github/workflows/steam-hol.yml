@@ -27,6 +27,24 @@ jobs:
         run: |
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
           if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Toetsen systemen en held (Bram, moeten 0 FOUT geven)
+        shell: pwsh
+        run: |
+          $fout = 0
+          foreach ($t in @("toets_systemen", "toets_held")) {
+            $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot -s "systemen/toetsen/$t.gd" 2>&1 | Out-String
+            Write-Output $uit
+            if ($LASTEXITCODE -ne 0 -or $uit -match "FOUT [^0]|SCRIPT ERROR|Parse Error") { Write-Output "== $t ROOD"; $fout++ }
+          }
+          if ($fout -gt 0) { exit 1 }
+      - name: Scripts van de kern laden zonder fout
+        shell: pwsh
+        run: |
+          $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s kern/strook.gd 2>&1 | Out-String
+          Write-Output $uit
+          $uit2 = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s hol/hol.gd 2>&1 | Out-String
+          Write-Output $uit2
+          if (($uit + $uit2) -match "SCRIPT ERROR|Parse Error") { exit 1 }
       - name: Strook op 96, 120 en 160 px met Kladblok erachter, CPU op 120
         shell: pwsh
         run: |
