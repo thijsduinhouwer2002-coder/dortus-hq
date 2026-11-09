@@ -26,6 +26,8 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 - Waarom: (1) de naam ís de haak: Gloop draagt de hoeden van wie hij opat, dat lees je in de naam en zie je in het logo; (2) een donkere grap op "Hall of the Fallen", past bij helden met een wrok en een kroniek; (3) uniek: Steam-zoeken op "Hats of the Fallen" geeft 0 treffers (GEZIEN, storesearch 9 nov).
 - Afgewezen: alles met **Gloop** in de naam. Op Steam bestaan al "Gloop", "Gloop: Liquid Physics", "All Hail Gloop!" en "Walkabout Mini Golf: Gloop Lair" (GEZIEN). Gloop blijft wel de naam van het slijm in het spel. Ook afgewezen: "Lair Below" (0 treffers maar zegt niets grappigs), "Hatpile" (leest als rommel), "Underlair" (botst met "A Scoundrel in the Underlair").
 - Wat het zou veranderen: een merk of spel met (bijna) dezelfde naam, of Thijs wil iets anders.
+- **Sanne stelde tegelijk "Hat Hoard" voor** (`teksten.md`, ook 0 treffers). Afweging: Hat Hoard is korter en past makkelijker klein; Hats of the Fallen heeft de grap en de toon van het spel (een donkere woordgrap, helden die vallen), en op 120 x 45 leest het logo ook (GEZIEN). Ik houd Hats of the Fallen; Daan beslist mee vóór 11 nov. Kiest hij Hat Hoard, dan past de maker zich aan (alleen de tekst in `logo()`).
+- Abel (accountverzorger, bericht Thijs 23:50 NL) maakt de merkkit voor de ontwikkelaarspagina: hij krijgt van mij het logo, de kleuren (pruim #1d1426 en #3f2846, schatgoud #ffd25c, Gloopgroen #7ee0ae) en de pixelletter, zodat winkelpagina en ontwikkelaarspagina één geheel zijn.
 
 ## 3. Logo (versie 2, 9 nov)
 - Eigen pixelletter in hetzelfde spelpixelrooster als het spel. **HATS** groot in goud (de kleur van de schat), **OF THE FALLEN** kleiner in muntgroen (de kleur van Gloop). Dikke bijna zwarte pruimrand, zodat het op elke achtergrond leest.
@@ -62,7 +64,7 @@ Alles uit de echte build (eerlijk). Steam toont schermen op 1920 x 1080 en verkl
 6. (als het er is) het kroniekpaneel met namen, bijnamen en hoeden.
 
 **Trailer 30 tot 60 s (opname van de demo-modus, 60 fps, 1920 x 1080):**
-- 0 tot 3 s, de haak: dicht op Gloop. Een held met een pan op loopt binnen, Gloop slokt hem op, de pan vliegt op de toren. Tekst in beeld: "Every hero leaves something behind."
+- 0 tot 3 s, de haak: dicht op Gloop. Een held met een pan op loopt binnen, Gloop slokt hem op, de pan vliegt op de toren. Tekst in beeld: "He keeps the hats." (voorstel Sanne, beter dan mijn "Every hero leaves something behind.")
 - 3 tot 12 s: uitzoomen naar de echte strook onderaan een bureaublad met een spreadsheet erboven: "It lives under your taskbar."
 - 12 tot 35 s: val, vlucht, de terugkomer met een wrok, de hoedenberg die groeit (versneld), de kroniek.
 - 35 tot 50 s: tien hoeden op een rij, één voor één op de toren.
