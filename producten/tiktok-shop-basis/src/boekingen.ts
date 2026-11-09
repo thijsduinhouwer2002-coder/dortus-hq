@@ -34,6 +34,18 @@ const OMZET_SOORT: Record<string, Soort> = {
 };
 
 type Veld = { veld: string; centen: number; soort: Soort };
+/** De bruikbare velden van een uitsplitsing, en of er iets is overgeslagen. */
+type Delen = { velden: Veld[]; overgeslagen: boolean };
+
+/** Te veel decimalen voor de munt is geen rare waarde maar een verkeerde aanname: fout voor de hele bestelling. */
+function leesBedrag(waarde: string, valuta: string): number | undefined {
+  try {
+    return naarKleinsteEenheid(waarde, valuta);
+  } catch (e) {
+    if (/decimalen/.test(String((e as Error).message))) throw e;
+    return undefined;
+  }
+}
 
 /** Leest een totaalveld: undefined of "" is onbekend (null), anders centen. */
 function totaal(waarde: unknown, valuta: string, naam: string, w: string[]): number | null {
@@ -42,12 +54,12 @@ function totaal(waarde: unknown, valuta: string, naam: string, w: string[]): num
     w.push(`${naam}: geen tekst, behandeld als onbekend`);
     return null;
   }
-  try {
-    return naarKleinsteEenheid(waarde, valuta);
-  } catch {
+  const c = leesBedrag(waarde, valuta);
+  if (c === undefined) {
     w.push(`${naam}: ongeldig bedrag "${waarde}", behandeld als onbekend`);
     return null;
   }
+  return c;
 }
 
 /** Leest de velden van een uitsplitsing. null als er geen bruikbaar object is. */
@@ -58,26 +70,31 @@ function uitsplitsing(
   soortVan: (veld: string) => Soort,
   overslaan: Set<string>,
   w: string[],
-): Veld[] | null {
-  if (obj === null || typeof obj !== "object" || Array.isArray(obj)) return null;
+): Delen | null {
+  if (obj === undefined || obj === null) return null;
+  if (typeof obj !== "object" || Array.isArray(obj)) {
+    w.push(`${naam}: geen object, overgeslagen`);
+    return null;
+  }
   const uit: Veld[] = [];
+  let overgeslagen = false;
   for (const [veld, waarde] of Object.entries(obj as Record<string, unknown>)) {
     if (overslaan.has(veld)) continue;
     if (waarde === undefined || waarde === "") continue;
     if (typeof waarde !== "string") {
       w.push(`${naam}.${veld}: geen bedrag, overgeslagen`);
+      overgeslagen = true;
       continue;
     }
-    let centen: number;
-    try {
-      centen = naarKleinsteEenheid(waarde, valuta);
-    } catch {
+    const centen = leesBedrag(waarde, valuta);
+    if (centen === undefined) {
       w.push(`${naam}.${veld}: ongeldig bedrag "${waarde}", overgeslagen`);
+      overgeslagen = true;
       continue;
     }
     uit.push({ veld, centen, soort: soortVan(veld) });
   }
-  return uit;
+  return { velden: uit, overgeslagen };
 }
 
 const som = (v: Veld[]) => v.reduce((s, x) => s + x.centen, 0);
@@ -85,12 +102,14 @@ const som = (v: Veld[]) => v.reduce((s, x) => s + x.centen, 0);
 /**
  * Kiest per groep: losse regels als de uitsplitsing op de cent sluit (of het totaal onbekend is),
  * anders het totaal als één regel. Geeft de som van de groep terug, of null als hij onbekend is.
+ * Is het totaal onbekend en de uitsplitsing onvolledig (iets overgeslagen of leeg), dan worden de geldige
+ * velden geboekt maar is de groep onbekend: zo gaat nooit omzet stil naar `verschil`.
  */
 function groep(
   naam: string,
   totaalVeld: string,
   totaalCenten: number | null,
-  delen: Veld[] | null,
+  delen: Delen | null,
   totaalSoort: Soort,
   voeg: (soort: Soort, centen: number, bron: string) => void,
   w: string[],
@@ -100,15 +119,19 @@ function groep(
     return null;
   }
   if (delen !== null && totaalCenten === null) {
+    for (const d of delen.velden) voeg(d.soort, d.centen, d.veld);
+    if (delen.overgeslagen || delen.velden.length === 0) {
+      w.push(`${naam}: totaal ${totaalVeld} onbekend en uitsplitsing onvolledig, groep onbekend`);
+      return null;
+    }
     w.push(`${naam}: totaal ${totaalVeld} onbekend, uitsplitsing gebruikt`);
-    for (const d of delen) voeg(d.soort, d.centen, d.veld);
-    return som(delen);
+    return som(delen.velden);
   }
-  if (delen !== null && som(delen) === totaalCenten) {
-    for (const d of delen) voeg(d.soort, d.centen, d.veld);
+  if (delen !== null && som(delen.velden) === totaalCenten) {
+    for (const d of delen.velden) voeg(d.soort, d.centen, d.veld);
     return totaalCenten;
   }
-  const s = delen === null ? "geen" : String(som(delen));
+  const s = delen === null ? "geen" : String(som(delen.velden));
   w.push(`${naam}: uitsplitsing (${s}) sluit niet op ${totaalVeld} (${totaalCenten}), totaal geboekt`);
   voeg(totaalSoort, totaalCenten!, totaalVeld);
   return totaalCenten;
@@ -117,13 +140,14 @@ function groep(
 const isBelastingOpKosten = (veld: string) => /(_tax|_tax_amount)$/.test(veld);
 
 export function boekingsregels(b: BestellingTransacties): Boekingen {
-  const valuta = typeof b.currency === "string" ? b.currency : "";
-  if (!/^[A-Za-z]{3}$/.test(valuta)) throw new Error(`bestelling ${b.order_id ?? "?"}: ongeldige munt "${String(b.currency)}"`);
+  const valuta = typeof b.currency === "string" ? b.currency.toUpperCase() : "";
+  if (!/^[A-Z]{3}$/.test(valuta)) throw new Error(`bestelling ${b.order_id ?? "?"}: ongeldige munt "${String(b.currency)}"`);
   const orderId = String(b.order_id ?? "");
   const regels: Boekingsregel[] = [];
   const w: string[] = [];
   const volgnummers = new Map<string, number>();
   const skus: SkuTransactie[] = Array.isArray(b.sku_transactions) ? b.sku_transactions : [];
+  if (!Array.isArray(b.sku_transactions)) w.push("sku_transactions ontbreekt of is geen lijst");
 
   for (const t of skus) {
     const statementId = String(t.statement_id ?? "");
@@ -133,6 +157,7 @@ export function boekingsregels(b: BestellingTransacties): Boekingen {
     volgnummers.set(basis, nr + 1);
     const sleutel = `${basis}/${nr}`;
     const pre = `sku ${skuId} (afrekening ${statementId})`;
+    if (!statementId || !skuId) w.push(`${pre}: statement_id of sku_id ontbreekt, regels zijn niet aan een afrekening te koppelen`);
     const voeg = (soort: Soort, centen: number, bronVeld: string) => {
       if (centen !== 0) regels.push({ sleutel, soort, bedragCenten: centen, valuta, orderId, statementId, skuId, bronVeld });
     };
@@ -148,11 +173,20 @@ export function boekingsregels(b: BestellingTransacties): Boekingen {
       "verzendkosten_totaal", voeg, w,
     );
     const ftb = t.fee_tax_breakdown;
-    let kostenDelen: Veld[] | null = null;
-    if (ftb !== null && typeof ftb === "object" && !Array.isArray(ftb)) {
+    let kostenDelen: Delen | null = null;
+    if (ftb !== undefined && ftb !== null && (typeof ftb !== "object" || Array.isArray(ftb))) {
+      w.push(`${pre} fee_tax_breakdown: geen object, overgeslagen`);
+    } else if (ftb) {
       const fee = uitsplitsing(ftb.fee, valuta, `${pre} fee`, (v) => (isBelastingOpKosten(v) ? "belasting_op_kosten" : "commissie"), new Set(), w);
       const tax = uitsplitsing(ftb.tax, valuta, `${pre} tax`, () => "belasting", new Set(), w);
-      if (fee !== null || tax !== null) kostenDelen = [...(fee ?? []), ...(tax ?? [])];
+      if (fee !== null || tax !== null) {
+        // Een helft die er is maar kapot (geen object) is, maakt de uitsplitsing onvolledig.
+        const kapot = (h: unknown, d: Delen | null) => h !== undefined && h !== null && d === null;
+        kostenDelen = {
+          velden: [...(fee?.velden ?? []), ...(tax?.velden ?? [])],
+          overgeslagen: !!fee?.overgeslagen || !!tax?.overgeslagen || kapot(ftb.fee, fee) || kapot(ftb.tax, tax),
+        };
+      }
     }
     const kosten = groep(
       `${pre} kosten en belasting`, "fee_tax_amount", totaal(t.fee_tax_amount, valuta, `${pre} fee_tax_amount`, w),
@@ -178,8 +212,10 @@ export function boekingsregels(b: BestellingTransacties): Boekingen {
     const alles = regels.reduce((s, r) => s + r.bedragCenten, 0);
     if (alles !== kop) w.push(`kop: alle regels samen ${alles}, settlement_amount van de bestelling is ${kop}; niet geboekt, alleen gemeld`);
   }
-  if (typeof b.total_count === "number" && b.total_count !== skus.length) {
-    w.push(`total_count is ${b.total_count}, maar er zijn ${skus.length} SKU-transacties`);
+  const ruw: unknown = b.total_count;
+  const telling = typeof ruw === "string" && /^\d+$/.test(ruw) ? Number(ruw) : ruw;
+  if (typeof telling === "number" && telling !== skus.length) {
+    w.push(`total_count is ${telling}, maar er zijn ${skus.length} SKU-transacties`);
   }
   return { regels, waarschuwingen: w };
 }

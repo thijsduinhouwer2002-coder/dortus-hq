@@ -76,11 +76,11 @@ test("(c) sluitende bestelling met twee SKU's: losse regels, juiste soorten, gee
 });
 
 test("(d) onbekend nieuw veld komt mee als regel van zijn groep", () => {
-  const t = sku({ revenue_amount: "46.00", settlement_amount: "34.20" });
+  const t = sku({ revenue_amount: "46.00" });
   t.revenue_breakdown.nieuw_omzetveld_amount = "1.00";
   t.shipping_cost_amount = "-5.50";
   t.shipping_cost_breakdown.nieuwe_verzendtoeslag = "-1.00";
-  t.settlement_amount = "33.20";
+  // 46,00 − 5,50 − 7,30 = 33,20: de afrekening blijft gelijk.
   const { regels, waarschuwingen } = boekingsregels(bestelling([t]));
   assert.deepEqual(waarschuwingen, []);
   assert.deepEqual(kort(regels.filter((r) => r.bronVeld.startsWith("nieuw"))), [
@@ -90,7 +90,8 @@ test("(d) onbekend nieuw veld komt mee als regel van zijn groep", () => {
 });
 
 test("(e) nul, lege tekst en ontbrekende velden in een uitsplitsing geven geen regel en geen fout", () => {
-  const { regels } = boekingsregels(bestelling([sku()]));
+  const { regels, waarschuwingen } = boekingsregels(bestelling([sku()]));
+  assert.deepEqual(waarschuwingen, []);
   for (const veld of ["cod_service_fee_amount", "gst_amount", "affiliate_commission_amount", "supplementary_component"]) {
     assert.ok(!regels.some((r) => r.bronVeld === veld), veld);
   }
@@ -113,6 +114,7 @@ test("(f) object of null in een uitsplitsing: overgeslagen met waarschuwing, gro
   const { regels, waarschuwingen } = boekingsregels(bestelling([t]));
   assert.ok(waarschuwingen.some((x) => /fee\.referral_fee_amount: geen bedrag/.test(x)));
   assert.ok(waarschuwingen.some((x) => /tax\.vat_amount: geen bedrag/.test(x)));
+  assert.ok(waarschuwingen.some((x) => /kosten en belasting: uitsplitsing \(-180\) sluit niet op fee_tax_amount \(-730\), totaal geboekt/.test(x)));
   assert.deepEqual(kort(regels.filter((r) => r.soort.startsWith("kosten") || r.soort === "commissie")), [
     ["kosten_en_belasting_totaal", -730, "fee_tax_amount"],
   ]);
@@ -179,4 +181,47 @@ test("(k) JPY zonder decimalen", () => {
   const { regels, waarschuwingen } = boekingsregels({ order_id: "9", currency: "JPY", settlement_amount: "750", sku_transactions: [t] });
   assert.deepEqual(waarschuwingen, []);
   assert.deepEqual(regels.map((r) => r.bedragCenten), [1000, -200, -50]);
+});
+
+test("onbekend totaal en onvolledige uitsplitsing: groep onbekend, geen omzet naar verschil", () => {
+  for (const kapot of [{ x: 1 }, "50.001x", null]) {
+    const t = sku({ revenue_amount: "" });
+    t.revenue_breakdown = { subtotal_before_discount_amount: kapot, seller_discount_amount: "-5.00" };
+    const { regels, waarschuwingen } = boekingsregels(bestelling([t], { settlement_amount: "33.20" }));
+    assert.ok(!regels.some((r) => r.soort === "verschil"), String(kapot));
+    assert.deepEqual(kort(regels.filter((r) => r.soort === "korting")), [["korting", -500, "seller_discount_amount"]]);
+    assert.ok(waarschuwingen.some((x) => /omzet: totaal revenue_amount onbekend en uitsplitsing onvolledig, groep onbekend/.test(x)));
+    assert.ok(waarschuwingen.some((x) => /controle op settlement_amount overgeslagen/.test(x)));
+  }
+  const leeg = sku({ revenue_amount: "", revenue_breakdown: {} });
+  const u = boekingsregels(bestelling([leeg], { settlement_amount: "33.20" }));
+  assert.ok(!u.regels.some((r) => r.soort === "verschil"));
+  assert.ok(u.waarschuwingen.some((x) => /groep onbekend/.test(x)));
+});
+
+test("kapotte helft van fee_tax_breakdown: waarschuwing, en bij leeg totaal geen stille verschil-regel", () => {
+  const t = sku({ fee_tax_amount: "" });
+  t.fee_tax_breakdown.tax = "kapot";
+  const { regels, waarschuwingen } = boekingsregels(bestelling([t]));
+  assert.ok(waarschuwingen.some((x) => /tax: geen object, overgeslagen/.test(x)));
+  assert.ok(waarschuwingen.some((x) => /kosten en belasting: totaal fee_tax_amount onbekend en uitsplitsing onvolledig/.test(x)));
+  assert.ok(!regels.some((r) => r.soort === "verschil"));
+  assert.equal(regels.filter((r) => r.soort === "commissie").length, 2);
+});
+
+test("te veel decimalen voor de munt: fout voor de hele bestelling", () => {
+  assert.throws(() => boekingsregels(bestelling([sku({ settlement_amount: "33.200" })])), /decimalen/);
+  const t = sku();
+  t.fee_tax_breakdown.fee.referral_fee_amount = "-4.000";
+  assert.throws(() => boekingsregels(bestelling([t])), /decimalen/);
+});
+
+test("kleine letters in de munt, total_count als tekst, ontbrekende ids en sku_transactions", () => {
+  let u = boekingsregels(bestelling([sku()], { currency: "eur", total_count: "2" }));
+  assert.ok(u.regels.every((r) => r.valuta === "EUR"));
+  assert.deepEqual(u.waarschuwingen, ["total_count is 2, maar er zijn 1 SKU-transacties"]);
+  u = boekingsregels(bestelling([sku({ statement_id: undefined })]));
+  assert.ok(u.waarschuwingen.some((x) => /statement_id of sku_id ontbreekt/.test(x)));
+  u = boekingsregels({ order_id: "1", currency: "EUR", settlement_amount: "0" } as any);
+  assert.deepEqual(u.waarschuwingen, ["sku_transactions ontbreekt of is geen lijst"]);
 });
