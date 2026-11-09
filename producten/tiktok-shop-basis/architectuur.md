@@ -9,7 +9,7 @@ Kleine bibliotheek in TypeScript zonder afhankelijkheden. Draait in Node 22.18+ 
 | `src/auth.ts` | inloglink, `state`, auth_code inwisselen, verversen, verloopcheck; gaat buiten de client om (secret in de query, nooit loggen) | fouten |
 | `src/client.ts` | `TikTokClient.roep`: app_key, timestamp, sign, kop `x-tts-access-token`, shop_cipher, 3 pogingen bij 429/5xx met `Retry-After` | sign, fouten |
 | `src/paginate.ts` | `allePaginas` met bovengrens 500, `verzamel` | |
-| `src/endpoints.ts` | winkels, afrekeningen (statements), transacties per afrekening | client, paginate |
+| `src/endpoints.ts` | winkels, afrekeningen (statements), transacties per afrekening, transacties per bestelling (`transactiesVanBestelling`, ontwerp-rekenkern.md deel 1) | client, paginate |
 | `src/bedrag.ts` | tekstbedrag naar kleinste munteenheid, zonder afronden | |
 | `src/index.ts` | alles naar buiten | |
 

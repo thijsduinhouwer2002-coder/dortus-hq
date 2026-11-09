@@ -117,3 +117,52 @@ export async function transactiesVanAfrekening(
   for await (const t of it) transacties.push(t);
   return { kop, transacties };
 }
+
+// Transacties van één bestelling (get-transactions-by-order-202501). Geen paginering.
+// Let op: de kop heet `fee_and_tax_amount`, per SKU heet hetzelfde `fee_tax_amount`.
+export interface SkuTransactie {
+  sku_id: string;
+  sku_name?: string;
+  product_name?: string;
+  statement_id: string;
+  quantity?: string;
+  settlement_amount?: string;
+  revenue_amount?: string;
+  revenue_breakdown?: Record<string, unknown>;
+  shipping_cost_amount?: string;
+  shipping_cost_breakdown?: Record<string, unknown>;
+  fee_tax_amount?: string;
+  fee_tax_breakdown?: { fee?: Record<string, unknown>; tax?: Record<string, unknown>; [veld: string]: unknown };
+  [veld: string]: unknown;
+}
+
+// order_id en currency kunnen ontbreken als TikTok geen `data` geeft; de rekenkern weigert dan de bestelling.
+export interface BestellingTransacties {
+  order_id?: string;
+  order_create_time?: number;
+  currency?: string;
+  revenue_amount?: string;
+  fee_and_tax_amount?: string;
+  shipping_cost_amount?: string;
+  settlement_amount?: string;
+  total_count?: number;
+  sku_transactions: SkuTransactie[];
+  [veld: string]: unknown;
+}
+
+export async function transactiesVanBestelling(
+  c: TikTokClient,
+  accessToken: string,
+  shopCipher: string,
+  orderId: string,
+): Promise<BestellingTransacties> {
+  if (!/^\d+$/.test(orderId)) throw new Error(`ongeldig order_id: "${orderId}"`);
+  const a = await c.roep<BestellingTransacties>({
+    method: "GET",
+    path: `/finance/202501/orders/${orderId}/statement_transactions`,
+    accessToken,
+    shopCipher,
+  });
+  const d = (a.data ?? {}) as BestellingTransacties;
+  return { ...d, sku_transactions: d.sku_transactions ?? [] };
+}
