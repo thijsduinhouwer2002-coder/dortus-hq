@@ -659,3 +659,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **TikTok Shop (Klopt), scherm 3 rekeningen en btw:** geschetst in drie plaatjes (`producten/tiktok-boekhouding/kunst/6-rekeningen.png`, 6b met btw-kolom voor later, 6c telefoon), zelf bekeken met Read. **Besloten:** in versie 1 geen btw-kolom maar een eerlijke info-regel (btw-tarieven staan uit tot de sandbox-test); per soort een label dat zegt wat de app echt doet ("gevonden in je Moneybird" of "+ nieuw, maken we aan"); "Zet aan" zegt hoeveel rekeningen en hoeveel oude uitbetalingen er meteen geboekt worden. Waarom: dit scherm schrijft echt in de boekhouding, dus geen verrassingen.
 - **Controleur (agent):** nee op versie 1, 7 moet-punten (aantal, namen anders dan `rgs.ts`, verzonnen nummers, verzendkosten als omzet uitgelegd, oude uitbetalingen niet genoemd, Voorbelasting als voorstel, voorwaarde scope `settings`). Alles verwerkt in versie 2. `Akkoord: ja` voor het ontwerp van alle zes schermen.
 - **Volgende run:** Click Joints, Bison & Flex en Rollwright nalopen op nieuwe versies (nu niets nieuws gezien in de laatste uren).
+
+## 9 nov 2026, run 61 (klok van de omgeving 22:24 UTC)
+
+- **Berichten:** geen nieuwe van Thijs (laatste 21:20 NL, al verwerkt). Nieuw van Tess in `platformen/tiktok-shop/taken.md`: pagina's op dortus.com/klopt nakijken.
+- **Bekeken:** `klopt/index.html`, `prijs.html`, `privacy.html` (repo dortus, adb1c43) lokaal in Chromium op 1280 en 390 px, met Read. Bon in de kop met stempel is het gezicht en werkt (som klopt, stempel valt in na 0,45 s), mobiel zonder horizontaal scrollen, privacy rustig en leesbaar.
+- **Gevonden:** onderste helft van de voorpagina waren kale alinea's; op de prijspagina stond de tekst gecentreerd onder een links uitgelijnde kop; beide prijskaarten even zwaar.
+- **Besloten en zelf gedaan (commit 2f68998 in dortus):** prijskaarten ook op de voorpagina, betaalde kaart uitgelicht (paarse rand, label "zonder grens"), tekst links uitgelijnd, stap 4 eerlijker. Waarom: een verkoper die scrolt ziet de prijs in één blik, en het verschil gratis tegen betaald is meteen duidelijk zonder iets te beloven wat de prijspagina niet zegt.
+- **Controleur (agent):** ja, geen moet-punten; kan-punten 1 en 2 en de inline style verwerkt. 42 bestellingen op de voorbeeldbon laten staan: de gratis proef toont de laatste drie uitbetalingen ongeacht de grens.
+- **Akkoord: ja** voor de drie Klopt-pagina's. Click Joints, Bison & Flex en Rollwright: niets nieuws sinds de vorige run.
