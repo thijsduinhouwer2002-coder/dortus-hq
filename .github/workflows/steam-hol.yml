@@ -1,0 +1,101 @@
+name: Het Hol (Steam, Godot op Windows)
+
+# Olaf, 9 nov 2026. Start Het Hol op een echte Windows-runner met Kladblok erachter:
+# schermafbeelding op 96, 120 en 160 px, CPU-meting op 120 px, en een film van een minuut spelen (GIF).
+on:
+  push:
+    branches: [main, "claude/steam-*"]
+    paths: ["producten/steam-hol/**", ".github/workflows/steam-hol.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hol:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Godot 4.3 downloaden
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+      - name: Importeren (eerste keer openen)
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Strook op 96, 120 en 160 px met Kladblok erachter, CPU op 120
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/screenshots"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          Start-Process notepad.exe
+          Start-Sleep 3
+          $samen = @()
+          foreach ($h in @(96, 120, 160)) {
+            $log = ((Resolve-Path $uit).Path -replace '\\','/') + "/hol-$h.log"
+            $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+              -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=$h demo=1 vers=1 duur=50 log=$log" -PassThru
+            Start-Sleep 22
+            & producten/steam-hol/e2e/scherm.ps1 "$uit/strook-$h.png"
+            if ($h -eq 120) {
+              $p.Refresh(); $c1 = $p.TotalProcessorTime.TotalSeconds
+              Start-Sleep 20
+              $p.Refresh(); $c2 = $p.TotalProcessorTime.TotalSeconds
+              $regel = "CPU hoogte $h : $([math]::Round(($c2 - $c1) / 2, 2)) CPU-seconden per 10 s, geheugen $([int]($p.WorkingSet64 / 1MB)) MB"
+              Write-Output $regel; $samen += $regel
+            }
+            $p.WaitForExit(40000) | Out-Null
+            if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+            Write-Output "===== log $h"; Get-Content $log -ErrorAction SilentlyContinue
+          }
+          $samen | Set-Content "$uit/cpu.txt"
+      - name: Film van een minuut spelen (Movie Maker, 15 fps)
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/screenshots"
+          $film = "$((Resolve-Path $uit).Path)/film"
+          New-Item -ItemType Directory -Force $film | Out-Null
+          $log = ($film -replace '\\','/') + "/film.log"
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after 900 -- hoogte=120 demo=1 vers=1 film=1 log=$log" -PassThru
+          if (-not $p.WaitForExit(600000)) { Stop-Process -Id $p.Id -Force }
+          Get-Content $log -ErrorAction SilentlyContinue
+          (Get-ChildItem $film -Filter *.png).Count
+      - name: GIF maken
+        shell: pwsh
+        run: |
+          python -m pip install --quiet pillow
+          python producten/steam-hol/e2e/gif.py producten/steam-hol/e2e/screenshots/film producten/steam-hol/e2e/screenshots/film.gif
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/screenshots"
+          [ -d "$SRC" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          find "$SRC/film" -name 'f*.png' -delete 2>/dev/null || true
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            if git clone -q --depth 1 --branch schermen "$URL" "$T" 2>/dev/null; then :; else
+              mkdir -p "$T" && cd "$T" && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="$T/steam-hol/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Schermen steam-hol/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/steam-hol/$NAAM"
+          ls -la "$SRC" "$SRC/film" || true
