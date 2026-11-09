@@ -60,6 +60,7 @@ Per richting één sfeerbeeld (de wereld en het gevoel) en één echt scherm (ho
 3. De Karavaan: jouw sfeerbeeld `karavaan-sfeer.png` staat er al; nog één echt scherm (de strook op ware grootte, met een stadje en de handelsbeurt of een briefkaart met een keuze, en het reisboek).
 Stand 9 nov 16:30 UTC (Olaf): richting 1 heeft jouw `kerker-sfeer.png`, richting 3 jouw `karavaan-sfeer.png`. Nog nodig: een sfeerbeeld voor richting 2 (Het Hol) en per richting één echt scherm. Toetsorkest is afgevallen, daar hoeft niets meer voor.
 Bijzonder, flamboyant, uniek, maar eerlijk: alleen tonen wat het spel echt gaat doen.
+Techniek die het beeld raakt (proef op een Windows-runner, 9 nov 17:31 UTC, zie logboek): (1) alles wat half doorzichtig is in de strook laat het bureaublad erdoor, dus gloed en schaduw vooraf mengen met dekkende kleuren, of de strook een eigen dekkende achtergrond geven; de lucht erboven is helemaal doorzichtig en klikken gaan erdoor. (2) Stilstand kost bijna niets, elke bewegende frame wel; beweging dus spaarzaam en met reden, op 15 tot 20 fps. Een scherm dat dat eerlijk laat zien (veel rust, één ding dat beweegt) is beter dan alles tegelijk in beweging.
 
 ## Wat nog open is
 - Reviews van Bongo Cat, Spirit City en Virtual Cottage 2 lezen voor richting 3 (wat missen ze); (gedaan 9 nov 15:35 UTC, reviews van de lofi-apps gelezen, zie richting 3). Richting 2: Dungeon Architect: Idle (5368130), The Throne Below en Grave Ambition volgen (uitkomst, reviews).
