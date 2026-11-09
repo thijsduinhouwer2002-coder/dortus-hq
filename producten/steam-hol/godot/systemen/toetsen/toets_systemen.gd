@@ -28,7 +28,14 @@ func _init() -> void:
 	ok(k.held("Bram")["wrok"] == "Gloop the Slime", "wrok blijft bij vluchten zonder raak")
 	k.binnen("Bram")
 	k.gevallen("Bram", "Gloop the Slime", 7)
-	ok(k.laatste_soort == "afgerekend" and k.laatste().ends_with(" +7"), "wrok vereffend: " + k.laatste())
+	ok(k.laatste_soort == "afgerekend_aarts" and k.laatste().ends_with(" +7") and not k.laatste().contains("wall"),
+		"aartsvijand vereffend, eigen lijst (Sanne 21:50): " + k.laatste())
+	k.binnen("Wim")
+	k.gevlucht("Wim", "Gloop the Slime")
+	k.binnen("Wim")
+	k.gevallen("Wim", "Gloop the Slime", 5)
+	ok(k.laatste_soort == "afgerekend" and k.laatste().ends_with(" +5") and not k.laatste().contains("wall")
+		and not k.laatste().contains("Nemesis"), "wrok vereffend, gewone held zonder wand of Nemesis: " + k.laatste())
 	# regels van Sanne: hooguit 42 tekens, goud in dezelfde regel, niet twee keer dezelfde achter elkaar
 	var k3 = K.new()
 	var te_lang := 0

@@ -154,7 +154,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 3:
         GOUD_PER_BEZOEK = float(sys.argv[3])   # python3 sim.py 10 8 0 = zonder bonus per bezoek
     print("goud per val: 6 x faam x gangen + %g per eerder bezoek" % GOUD_PER_BEZOEK)
-    print("zaad | 1e val s | 1e koop s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend | hoeden/u alle slijmen | Gloop: hoeden/u, 4 op hoofd na (min) | Gloop 5/25/100/300/1000 hoeden na (u)")
+    print("zaad | 1e val s | 1e koop s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend | hoeden/u alle slijmen | Gloop: hoeden/u, 4 op hoofd na (min) | Gloop 5/25/100/300/1000/3000 hoeden na (u)")
     for z in range(1, zaden + 1):
         s = speel(uren, z)
         a = s["aankopen"]
@@ -167,4 +167,4 @@ if __name__ == "__main__":
             z, s["eerste_val"], a[0][0] if a else -1, 100 * s["gevlucht"] / s["helden"], 100 * s["hoard"] / s["helden"],
             n(1), n(3), n(10), w(1), w(3), w(10), alles, s["aartsvijand_bezoek"] / uren, s["afgerekend"],
             s["hap_slijm"] / uren, "%.1f, %s" % (len(ht) / uren, "%.0f" % (ht[3] / 60) if len(ht) >= 4 else "-"),
-            "/".join(maat(m) for m in (5, 25, 100, 300, 1000))))
+            "/".join(maat(m) for m in (5, 25, 100, 300, 1000, 3000))))

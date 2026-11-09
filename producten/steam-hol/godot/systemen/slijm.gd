@@ -25,15 +25,17 @@ const LAARS_LIGT_S := 8.0
 const LEVEN_MIN_S := 20.0   # Daan: een leven-animatie hooguit eens per 20 tot 40 s, alleen als er geen held is
 const LEVEN_MAX_S := 40.0
 # Hoedentoren (Mila, ontwerp/steam/mila/stijl.md; Sanne toets 3): elke held die hij at, zijn hoed komt op zijn hoofd.
-const HOEDEN := preload("res://kunst/held_hoeden.png")   # 4 hoeden, 16 x 16, zelfde index als held.gd hoed_nr
-const HOED_TOP := [2, 0, 2, 3]     # bovenste zichtbare rij per hoed (uit het plaatje gemeten)
-const HOED_ONDER := [5, 5, 6, 5]   # onderste zichtbare rij per hoed
+const HOEDEN := preload("res://kunst/held_hoeden.png")   # 10 hoeden, 16 x 16, zelfde index als held.gd hoed_nr
+const HOED_SOORTEN := 10           # Mila 21:55: helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts
+const HOED_TOP := [2, 0, 2, 3, 1, 0, 0, 0, 2, 0]     # bovenste zichtbare rij per hoed (Mila, gemeten uit het plaatje)
+const HOED_ONDER := [5, 5, 6, 5, 5, 5, 5, 5, 5, 5]   # onderste zichtbare rij per hoed
 const RUST_TOP := [6, 7, 6, 6, 3, 7]                          # bovenkant van Gloop per frame in slijm.png
 const LEVEN_TOP := [6, 7, 7, 3, 3, 6, 3, 7, 6, 7, 6, 10, 7]   # idem slijm_leven.png (plat = 10)
 const OP_HOOFD := 4                # hooguit 4 op zijn hoofd, de rest op de hoedenberg
 const SCHEEF := [0, 1, -1, 1]      # x-verschuiving om en om, zodat het wiebelt
-const BERG_MAAT := [5, 25, 100, 300, 1000]   # vanaf zoveel hoeden in totaal wordt de berg een maat groter
-const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21] # hoeveel hoeden je per maat op de berg ziet (piramide)
+const BERG_MAAT := [5, 25, 100, 300, 1000, 3000]   # vanaf zoveel hoeden wordt de berg een maat groter (Sanne 21:50: zesde maat bij 3000)
+const BERG_ZICHTBAAR := [0, 3, 6, 10, 15, 21, 33] # hoeveel hoeden je per maat op de berg ziet
+const BERG_RIJEN := 6              # maat 6 wordt breder, niet hoger dan maat 5 (Gloops plek is twee rijen, Sanne)
 
 var hol
 var soort := "slijm"
@@ -124,14 +126,14 @@ func raak(hoed := -1) -> int:
 	gegeten += 1
 	hap_van = t
 	if hoed >= 0:
-		hoeden.append(hoed % 4)
+		hoeden.append(hoed % HOED_SOORTEN)
 	set_process(true)
 	return hoeden.size()
 
 # Een hoed erbij zonder hap-animatie (voortgang terwijl je weg was, Voortgang.geef_hoeden).
 func krijg_hoed(hoed: int) -> int:
 	gegeten += 1
-	hoeden.append(absi(hoed) % 4)
+	hoeden.append(absi(hoed) % HOED_SOORTEN)
 	queue_redraw()
 	return hoeden.size()
 
@@ -141,7 +143,7 @@ func hoeden_op_hoofd() -> Array:
 func hoeden_op_berg() -> int:
 	return maxi(0, hoeden.size() - OP_HOOFD)
 
-# Maat van de hoedenberg: 0 (geen berg) tot 5.
+# Maat van de hoedenberg: 0 (geen berg) tot 6.
 func berg_maat() -> int:
 	var m := 0
 	for grens in BERG_MAAT:
@@ -173,7 +175,7 @@ func naar_dict() -> Dictionary:
 func van_dict(d: Dictionary) -> void:
 	hoeden.clear()
 	for h in d.get("hoeden", []):
-		hoeden.append(int(h) % 4)
+		hoeden.append(absi(int(h)) % HOED_SOORTEN)
 	gegeten = maxi(int(d.get("gegeten", 0)), hoeden.size())
 	gespuugd = int(d.get("gespuugd", 0))
 	keer_plat = int(d.get("keer_plat", 0))
@@ -249,7 +251,7 @@ func berg() -> Array:
 		return uit
 	var rij := 0
 	var in_rij := 1
-	while in_rij * (in_rij + 1) < 2 * n:
+	while _past_op_berg(in_rij) < n:
 		in_rij += 1          # breedte van de onderste rij
 	var k := 0
 	var breedte := in_rij
@@ -263,7 +265,17 @@ func berg() -> Array:
 			k += 1
 		rij += 1
 		breedte -= 1
+		if rij >= BERG_RIJEN:
+			break
 	return uit
+
+# Hoeveel hoeden er op een berg met deze onderste rij passen: een piramide, hooguit BERG_RIJEN hoog
+# (daarboven wordt hij een afgeknotte piramide, dus breder en niet hoger).
+func _past_op_berg(onder: int) -> int:
+	var n := 0
+	for r in mini(onder, BERG_RIJEN):
+		n += onder - r
+	return n
 
 func _draw() -> void:
 	for b in berg():

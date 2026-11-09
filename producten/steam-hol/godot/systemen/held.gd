@@ -34,7 +34,8 @@ const LITTEKENS := preload("res://kunst/held_littekens.png")  # pleister, ooglap
 const WAPENS := preload("res://kunst/held_wapens.png")
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
-const HOED_TOP := [2, 0, 2, 3]   # bovenste pixel van elke hoed in zijn frame (helm, puntmuts, kap, pet)
+const HOED_SOORTEN := 10        # Mila 21:55: 10 hoeden in held_hoeden.png en held_hoeden_hap.png
+const HOED_TOP := [2, 0, 2, 3, 1, 0, 0, 0, 2, 0]   # bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
 const OOGLAP := 1
 const SCHRAM := 2                # ooglap en schram nooit samen (zelfde oog, Daan)
 
@@ -85,7 +86,7 @@ func start(h, i: Dictionary) -> void:
 # Vast per naam (zaad = naam), zodat je Kees herkent als hij terugkomt.
 func _kies_uiterlijk(naam: String) -> void:
 	kleur_nr = int(info.get("kleur_nr", absi(hash(naam + "#lijf")) % 5))
-	hoed_nr = int(info.get("hoed_nr", absi(hash(naam)))) % 4
+	hoed_nr = absi(int(info.get("hoed_nr", absi(hash(naam))))) % HOED_SOORTEN
 	# littekens: bezoek 2 een, bezoek 3 twee, aartsvijand (drie keer gevlucht) drie
 	var n := clampi(int(info.get("bezoeken", 0)), 0, 3)
 	var r := RandomNumberGenerator.new()

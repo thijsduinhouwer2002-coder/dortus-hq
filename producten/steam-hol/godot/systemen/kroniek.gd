@@ -99,7 +99,8 @@ func gevallen(naam: String, waardoor: String, buit: int) -> String:
 	var achter := " +%d" % buit
 	var regel := ""
 	if h["gevlucht"] > 0 and waardoor == h["wrok"]:
-		regel = _regel("afgerekend", _vars(naam, waardoor), "Grudge settled." + achter, achter)
+		var soort := "afgerekend_aarts" if int(h["gevlucht"]) >= 3 else "afgerekend"
+		regel = _regel(soort, _vars(naam, waardoor), "Grudge settled." + achter, achter)
 	else:
 		regel = _regel("valt", _vars(naam, waardoor), "%s fell.%s" % [naam, achter], achter)
 	_schrijf(regel)
