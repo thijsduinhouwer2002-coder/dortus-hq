@@ -184,3 +184,61 @@ Dag 0 nulmeting, dan elke run de downloads van de listing. Twee dagen na elk ber
 - AI-argwaan: "Fair point. It's tested automatically in real Blender 4.2 and 5.2 on every change, and it's free, so you can judge the result yourself." Daarna niet meer reageren.
 - "Does it do hinges / knees that bend one way?": "Not in this version: it does ball joints and pins. A pin turns around one axis, but nothing stops it from bending backwards." (Geen belofte over later; het scharnier is nog niet af.)
 - Klachten over geld, privacy of juridische vragen: niet beantwoorden, bovenaan lijst-thijs.
+
+---
+
+## Run 27 (Chris, 9 nov ±08:45 tot 09:30 UTC): de eigen repo voor meldingen in het draaiboek
+
+Aanleiding: bericht Thijs 9 nov ±09:20 NL. Click Joints heeft een eigen openbare repo, https://github.com/thijsduinhouwer2002-coder/click-joints (README, GPL-3.0, broncode gratis build 0.1.0, issues aan), en Report Issues op extensions.blender.org wijst daarheen. Dit deel gaat voor op run 16 waar het verschilt; de rest van run 16 blijft geldig.
+
+### Stand (GEZIEN 9 nov 08:50 UTC)
+- Wachtrij: nog **Awaiting Review**, enige activiteit de inzending (8 nov 22:09 en 22:18, tijd van de site), geen opmerking van een moderator. API 1.622 extensies zonder `click_joints`, listing 404.
+- Op de wachtrijpagina staat bij Report Issues nu `github.com/thijsduinhouwer2002-coder/click-joints/issues`. Daarmee is de opmerking die bij 4 van de 27 add-ons met een ronde wijzigingen kwam (wachtrij.md, punt 1) vooraf opgelost; advies 33 is uitgevoerd.
+- README en LICENSE in de nieuwe repo geven 200 (raw.githubusercontent.com). De README noemt installeren, "Report a problem" met de issues-link en wat je moet meesturen, en thijs@dortus.com.
+- **Wat ik niet kan zien:** de issues zelf. Mijn geplande run mag alleen dortus-hq, dortus en rollwright lezen; de API en github.com geven voor click-joints 403 ("not enabled for this session"). Niet omzeild. Op lijst-thijs staat hoe dat opgelost wordt; tot dan kijkt de hoofdchat bij een seintje van Thijs.
+- Ook niet te zien: of er in die repo een release met het zip staat. De README zegt "download the zip from the releases"; staat er geen release, dan klopt die zin niet (advies 36).
+
+### Gedaan zonder Thijs
+- **dortus.com/click-joints/** (repo dortus, commit 4aba37e, alleen de eigen map): bij License staat nu "GPL 3.0 or later, source on GitHub" met de link naar de repo, en bij Support "Found a bug? Open an issue on GitHub, so others can see it too. A question or an idea? Write to thijs@dortus.com." Niets anders veranderd. Live gezien: https://dortus.com/click-joints/ geeft 200 en bevat de issues-link (curl, 9 nov, GEZIEN door de controleur). Daan kijkt hem na (advies 36).
+
+### Wat er verandert in de berichten
+Open broncode is op r/blender en bij awesome-blender een pluspunt (GOK: GPL en een openbare repo maken een gratis add-on van een onbekende maker betrouwbaarder), en geeft mensen een plek om fouten te melden die iedereen ziet. Daarom één regel erbij in elk bericht, verder niets.
+
+**r/blender, versie B27.** Dit is nu de geldige tekst om letterlijk te plakken (B16 plus één regel na de link). Twee links: lees in de regels van r/blender of dat mag; zo niet, dan gaat de regel "Free and open source" als eerste reactie van Thijs in de eigen draad.
+
+**Titel (B27):** `I made Click Joints: cut a printable ball joint into a mesh and see how far it bends before the parts collide (free extension)`
+
+**Tekst (B27):**
+> I made Click Joints, a free extension for 3D printing poseable figures from Blender.
+>
+> Put the 3D cursor where the joint goes and click Place joint. It cuts the mesh into two watertight parts with a ball and socket or a pin, with the clearance you set in mm. For a ball joint it measures how far it bends in 8 directions before the parts collide, and shows that range on the model and in the panel ("Bends ±20°"). Drag the Bend slider past the limit and the spot that collides turns red ("+8° past limit"). A ring on the cut shows the fit in green, yellow or red, and the panel says why.
+>
+> Exploded view, "Make watertight" on a copy, export to STL or 3MF in mm, one file per part. Tested on Blender 4.2 LTS and 5.2 LTS.
+>
+> I haven't printed a joint with it yet; the fit and the bend range are measured in Blender.
+>
+> https://extensions.blender.org/add-ons/click-joints/
+>
+> Free and open source (GPL-3.0-or-later). Code and bug reports: https://github.com/thijsduinhouwer2002-coder/click-joints
+>
+> Honest note: the code is written by AI agents that my small studio, Dortus, runs. I direct the work; every version is tested automatically in real Blender 4.2 and 5.2.
+>
+> Made by Thijs at Dortus
+
+**BlenderNation, versie C27:** gelijk aan C16, met onder "More images" één regel:
+> Source code and issues: https://github.com/thijsduinhouwer2002-coder/click-joints
+
+**r/3Dprinting, versie A27:** gelijk aan A16, met de regel "Free and open source (GPL-3.0-or-later). Code and bug reports: ..." uit B27 als eigen alinea direct na de alinea met de link.
+
+**awesome-blender:** de regel in de lijst linkt naar de listing op extensions.blender.org (dat is de voorwaarde in CONTRIBUTING.md: een goedgekeurde listing). Vraagt de lijst bij de regel om een repo, dan de repo-link erbij. Verder ongewijzigd: op zijn vroegst dag 7.
+
+### Dag 0 erbij
+5. (vervangt stap 5 van run 16) Op lijst-thijs: "Plaatsen via de hoofdchat of door Thijs zelf: r/blender, tekst in `commercie/blender-click-joints/lancering.md`, deel run 27, versie B27", met dezelfde voorwaarde over het r/ObsidianMD-bericht.
+6. Bij de nulmeting ook de repo: sterren en open issues, zodra mijn run de repo mag lezen (anders de hoofdchat). In `cijfers.md` naast de downloads.
+
+### Antwoorden erbij (alleen in de eigen draad)
+- "Found a bug" of een foutmelding in de draad: "Thanks! Could you open an issue at https://github.com/thijsduinhouwer2002-coder/click-joints/issues with your Blender version and the message the panel showed? A small .blend helps a lot." Daarna niet in de draad debuggen.
+- "Is it open source?": "Yes, GPL-3.0-or-later, the code is on GitHub: https://github.com/thijsduinhouwer2002-coder/click-joints"
+
+### Nog steeds waar
+Geen woord over een betaalde versie in welk bericht dan ook; ±20° overal; "I haven't printed a joint with it yet" blijft tot er een echte print is; r/blender op zijn vroegst twee dagen na het geplaatste r/ObsidianMD-bericht van Rollwright (dat plaatst Thijs nu zelf, lijst-thijs 9 nov ±09:25).
