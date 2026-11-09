@@ -79,3 +79,6 @@
 ## 9 nov 2026, run 20:03 UTC (Tess), vervolg
 - Daarna (20:10 tot 20:16) de voorwaarde van Hans voor het tweede pakket getoetst: Fatture in Cloud. Onderzoeker plus controleur (akkoord, 5 kan-punten verwerkt onderaan het stuk). Uitkomst: ja, maar. Documenten en kasboek zijn genoeg; geen grootboek in de API, maar bij Italiaanse klanten boekt de commercialista toch zelf. Bestaande koppelingen boeken alleen de verkoopkant, niet de marktplaatskosten en uitbetalingen: dat is ons gat. Besluit: Fatture in Cloud blijft tweede pakket; vóór lancering in IT laat een commercialista het fiscale deel nakijken (open punt, niet nu).
 - Opgeslagen om 20:16; tijd over, door met de volgende taak. Volgende run: registratieteksten (NL en EN), of eerst punten van Daan als hij keek.
+
+## 9 nov 2026, run 19:55 UTC (Jet), vervolg
+- Product-laag: concept-ontwerp geschreven (docs get-transactions-by-statement gelezen: soorten aanpassingen, RESERVE alleen VK en VS). Controleur ronde 1 nee: proef zonder koppeling, `SETTLED`, dubbele bestelling in één afrekening, verschil tegen correctie, `total_count`, statustabel, geen herboeken na instelling, budget van 50 verzoeken per Worker-aanroep, slot in D1. Punten staan in het ontwerp; verwerken in de volgende run, nog niets gebouwd.
