@@ -141,3 +141,10 @@
 - Besluit: maat 6 als afgeknotte piramide van 6 rijen (33 zichtbaar). Waarom: Sanne wil niet hoger dan maat 5, want Gloops plek is twee rijen; breder laat toch zien dat de berg groeide tot Mila's tekening er is.
 - Besluit: werk op een tak en pas naar main als de workflow groen is. Waarom: Godot draaien mocht deze run niet in mijn eigen omgeving, dus de toetsen draaien alleen in steam-hol.yml.
 - Controleur (agent): eerst niet akkoord, 2 MOET verwerkt (toets telde 3000 in plaats van 2999; voortgang.gd gaf alleen hoed 0 tot 3); strook.gd en regels.gd van Olaf gevraagd in taken.md.
+
+## 9 nov 2026, Olaf (run 22:13 UTC)
+- Obsidian nagekeken: niets dringends (Rollwright geparkeerd, 0.3.5 schoon).
+- Toets 4 van Sanne verwerkt op tak `claude/steam-hol-begin`, main erin samengevoegd (conflict in `toets_systemen.gd`: Brams versie). Lokaal nagespeeld met Godot 4.3 onder Xvfb, toetsen 0 FOUT.
+- Controleur ronde 1: nee, twee moet-punten (begin kon voor altijd stilvallen na afsluiten met de vluchter nog in het hol; Godot-cache `.godot/` per ongeluk in de tak). Opgelost, ronde 2: akkoord met een kan-punt. Workflow groen (run 42712328761), film GEZIEN, op main 9f0d6f4.
+- Mis: de Hoard-Toucher raakt de schat nog rond 50 s in plaats van 35 tot 40; eerder kan alleen met loopsnelheid in held.gd (gevraagd aan Bram).
+- Mis: eerste `git pull` bleef weer hangen (2 min); `git fetch origin <tak>` met timeout werkt.
