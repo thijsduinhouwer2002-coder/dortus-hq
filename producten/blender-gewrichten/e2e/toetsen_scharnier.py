@@ -1,36 +1,24 @@
-"""Toetsen van het scharnier (ontwerp betaald v1.1, eis 1), aangeroepen vanuit test_betaald.py.
+"""Toetsen van het scharnier (ontwerp betaald v1.1, eis 1 en 2), aangeroepen vanuit test_betaald.py.
 
 Staaf van 10 mm (figuren.staaf, straal 5) in een mm-scene, cursor als as-bron: lidas langs de staaf (X),
 scharnieras H langs wereld-Y (X-as van de cursor). Eisen: twee gesloten delen, speling om H (knokkel in de
 holle cilinder) en langs H (tong tussen de wangen) gemeten in de mesh gelijk aan de ingestelde binnen 0,01 mm,
-tijd gelogd. Regels met [cj-betaald]."""
+tijd gelogd; beweegproef per stand (eis 2). Invoer (eis 4) staat in toetsen_kijk.py, Flip bend in
+toetsen_flip.py, de klikneus en de zaagsnede (eis 3, vorm punt 5) in toetsen_neus.py. Regels met [cj-betaald]."""
 import math
 import sys
 
 import bpy
 from mathutils import Matrix, Vector
-from mathutils.bvhtree import BVHTree
 
 import figuren
+import toetsen_flip
+import toetsen_kijk
 import toetsen_neus
+from hulp_scharnier import bvh as _bvh
+from hulp_scharnier import cursor as _cursor
 
 TOL_MM = 0.01
-
-
-def _bvh(ob):
-    me = ob.data
-    punten = [ob.matrix_world @ v.co for v in me.vertices]
-    return BVHTree.FromPolygons(punten, [tuple(p.vertices) for p in me.polygons])
-
-
-def _cursor(punt, x, y, z):
-    m = Matrix.Identity(4)
-    for i, v in enumerate((x, y, z)):
-        m.col[i][:3] = v
-    m.col[3][:3] = punt
-    c = bpy.context.scene.cursor
-    c.rotation_mode = "QUATERNION"
-    c.matrix = m
 
 
 def meet(a, b, u):
@@ -116,86 +104,10 @@ def toets(stap, eigen):
     schuin = vorm.scharnier_assen(lid, kijk=Vector((1, 1, 0)).normalized(), omhoog=Vector((0, 0, 1)))
     stap("schuin (45 graden) geeft H loodrecht op L", schuin is not None and abs(schuin[0].dot(lid)) < 1e-6
          and math.isclose(abs(schuin[0].y), 1.0, abs_tol=1e-6), str(schuin and tuple(schuin[0])))
-    toets_kijk(stap, eigen)
+    toetsen_kijk.toets_kijk(stap, eigen)
     toets_beweeg(stap, eigen)
-    toets_flip(stap, eigen)
-    toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus
-
-
-def _staaf_kijk():
-    """Lege mm-scene met de staaf actief, as-bron View direction, lidas L = Z-as van de cursor = wereld-X."""
-    for ob in list(bpy.data.objects):
-        bpy.data.objects.remove(ob)
-    figuren.mm_scene()
-    inst = bpy.context.scene.click_joints
-    inst.speling_mm = 0.2
-    inst.as_bron = "KIJK"
-    staaf = figuren.staaf("staaf", 5.0)
-    figuren.maak_actief(staaf)
-    _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
-    return staaf
-
-
-def toets_kijk(stap, eigen):
-    """Eis 4 (invoer), op de echte operator: de kijkrichting gaat mee als eigenschap kijk_richting, want in
-    Blender zonder venster is er geen 3D-weergave. Schuin (45 graden) op de staaf: H loodrecht op L binnen
-    0,5 graad en een geplaatst scharnier. Langs L en 20 graden ervan af: melding, CANCELLED, niets nieuw."""
-    lid = Vector((1, 0, 0))
-    for naam, kijk in (("45 graden in het XY-vlak", Vector((1, 1, 0))),
-                       ("45 graden schuin omlaag", Vector((math.sqrt(2), -1, -1)))):
-        kijk = kijk.normalized()
-        _staaf_kijk()
-        hoek_kl = math.degrees(kijk.angle(lid))
-        try:
-            uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115", kijk_richting=tuple(kijk),
-                                                           kijk_omhoog=(0.0, 0.0, 1.0))
-        except RuntimeError as fout:
-            solver = sys.modules[eigen + ".gewricht"].solver_naam()
-            if naam.endswith("omlaag") and solver != "MANIFOLD":
-                # BEKEND (run 42555524302, 4.2.23): H 45 graden gedraaid om L legt de snijvlakken precies door
-                # hoekpunten van de staaf (128 zijden) en de Exact-solver geeft dan open randen. Fout in de
-                # snijcode, niet in de invoer; zichtbaar gelogd, telt niet als FOUT tot de snijcode hersteld is.
-                print(f"[cj-betaald] BEKEND kijk {naam} op {solver}: {fout}")
-                continue
-            uitslag = {"CANCELLED"}
-            print(f"[cj-betaald] melding: {fout}")
-        b = bpy.data.objects.get("staaf_B")
-        geplaatst = uitslag == {"FINISHED"} and b is not None and bpy.data.objects.get("staaf_A") is not None
-        stap(f"kijk {naam} (hoek met L {hoek_kl:.1f}): scharnier geplaatst", geplaatst, str(uitslag))
-        if not geplaatst:
-            continue
-        h = Vector(b["cj_scharnier_as"]).normalized()
-        l_deel = Vector(b["cj_as"]).normalized()
-        hoek = math.degrees(h.angle(l_deel))
-        stap(f"kijk {naam}: H loodrecht op L (90 plus of min 0.5 graad)", abs(hoek - 90.0) <= 0.5,
-             f"hoek H-L {hoek:.4f} graden H {tuple(round(c, 4) for c in h)} as-bron {b.get('cj_as_bron')}")
-        # H is de kijkrichting geprojecteerd loodrecht op L (zelfde lijn, teken mag om voor de buigkant).
-        proj = (kijk - lid * kijk.dot(lid)).normalized()
-        stap(f"kijk {naam}: H is de geprojecteerde kijkrichting", abs(abs(h.dot(proj)) - 1) < 1e-6
-             and b.get("cj_as_bron") == "KIJK" and not b.get("cj_as_terugval"),
-             f"|H.proj| {abs(h.dot(proj)):.6f}")
-    melding = sys.modules[eigen + ".betaald.scharnier_vorm"].KIJK_LANGS
-    for naam, graden in (("langs L", 0.0), ("20 graden van L", 20.0)):
-        staaf = _staaf_kijk()
-        kijk = Vector((math.cos(math.radians(graden)), math.sin(math.radians(graden)), 0))
-        voor_ob = sorted(o.name for o in bpy.data.objects)
-        voor_me, voor_col = len(bpy.data.meshes), len(bpy.data.collections)
-        n_v = len(staaf.data.vertices)
-        tekst = ""
-        try:
-            uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115", kijk_richting=tuple(kijk),
-                                                           kijk_omhoog=(0.0, 0.0, 1.0))
-        except RuntimeError as fout:  # bij een ERROR-melding
-            uitslag, tekst = {"CANCELLED"}, str(fout)
-        onveranderd = (sorted(o.name for o in bpy.data.objects) == voor_ob and len(bpy.data.meshes) == voor_me
-                       and len(bpy.data.collections) == voor_col and len(staaf.data.vertices) == n_v
-                       and not staaf.hide_get())
-        weigert = sys.modules[eigen + ".betaald.scharnier"].assen(
-            bpy.context, bpy.context.scene.click_joints, kijk=tuple(kijk)) is None
-        stap(f"kijk {naam}: CANCELLED en model onveranderd", uitslag == {"CANCELLED"} and onveranderd,
-             f"{uitslag} objecten {len(bpy.data.objects)} meshes {len(bpy.data.meshes)}")
-        stap(f"kijk {naam}: de operator kiest de melding \"{melding}\"", weigert and
-             (not tekst or melding in tekst), tekst)
+    toetsen_flip.toets_flip(stap, eigen)
+    toetsen_neus.toets(stap, eigen, _cursor)  # eis 3: klikneus en vorm punt 5: zaagsnede
 
 
 def toets_beweeg(stap, eigen):
@@ -293,116 +205,3 @@ def _waar_raakt(stap, beweeg, n, voor):
           f"{b.get('cj_t_vlak', -1):.3f} wig {b.get('cj_wig_graden')}")
     for j, i in paren[:6]:  # overlap geeft (index in B, index in A)
         print(f"[cj-betaald] DIAGNOSE stand {n}: B {[f(gb[k]) for k in tb[j]]} A {[f(pa[k]) for k in ta[i]]}")
-
-
-def _plaats_staaf(flip, **extra):
-    """Lege mm-scene, staaf straal 5 actief, cursor als bij de andere toetsen; (uitslag, A, B)."""
-    for ob in list(bpy.data.objects):
-        bpy.data.objects.remove(ob)
-    figuren.mm_scene()
-    inst = bpy.context.scene.click_joints
-    inst.speling_mm = 0.2
-    inst.as_bron = extra.pop("as_bron", "CURSOR")
-    staaf = figuren.staaf("staaf", 5.0)
-    figuren.maak_actief(staaf)
-    _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
-    uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115", flip_bend=flip, **extra)
-    return uitslag, bpy.data.objects.get("staaf_A"), bpy.data.objects.get("staaf_B")
-
-
-def toets_flip(stap, eigen):
-    """Ontwerp punt 4, ronde t2 (d): Flip bend uit en aan op stand 115. Beide keren twee gesloten delen en een
-    eindstop van 113 tot 115 graden gemeten in de mesh, maar aan tegengestelde kanten. Kant onafhankelijk van
-    de add-on gemeten: B draait om een vaste wereldas W = L x buigkant(uit). Zonder flip komt B bij +W pas op
-    de eindstop en bij -W al op de achterstop; met flip precies andersom. Daarnaast: de stopvlakken (de
-    wigpunt van A) liggen aan de kant van de buigkant."""
-    gesloten = sys.modules[eigen + ".gesloten"]
-    beweeg = sys.modules[eigen + ".betaald.scharnier_beweeg"]
-    vorm = sys.modules[eigen + ".betaald.scharnier_vorm"]
-    uit = {}
-    w = None
-    for flip in (False, True):
-        naam = f"flip {'aan' if flip else 'uit'}"
-        uitslag, a, b = _plaats_staaf(flip)
-        if uitslag != {"FINISHED"} or a is None or b is None:
-            stap(f"{naam}: scharnier geplaatst", False, str(uitslag))
-            return
-        ga, gb = gesloten.is_gesloten(a), gesloten.is_gesloten(b)
-        stap(f"{naam}: twee gesloten delen (0 open randen)", ga[0] and gb[0], f"A {ga[1]} B {gb[1]} foute randen")
-        p = Vector(b["cj_scharnier_punt"])
-        buig, lid = Vector(b["cj_buigkant"]).normalized(), Vector(b["cj_as"]).normalized()
-        if w is None:
-            w = lid.cross(buig).normalized()
-        bol = 1e9
-        pa, ta = beweeg._driehoeken(a, p, bol)
-        pb, tb = beweeg._driehoeken(b, p, bol)
-        bvh_a = BVHTree.FromPolygons(pa.tolist(), ta)
-        plus = beweeg._grens(bvh_a, pb, tb, p, w, beweeg.MAX_VOOR, beweeg.STAP_VOOR)
-        min_ = beweeg._grens(bvh_a, pb, tb, p, -w, beweeg.MAX_VOOR, beweeg.STAP_VOOR)
-        voor = float(b.get("cj_bereik_graden", -1))
-        eind, terug = (min_, plus) if flip else (plus, min_)
-        stap(f"{naam}: eindstop add-on tussen 113 en 115 graden", 113 <= voor <= 115.05, f"gemeten {voor:.2f}")
-        stap(f"{naam}: eigen beweegproef om vaste as W, eindstop aan de {'-W' if flip else '+W'} kant 113 tot 115",
-             eind is not None and 113 <= eind <= 115.05 and abs(eind - voor) <= 0.1,
-             f"+W {plus} -W {min_} graden")
-        stap(f"{naam}: andere kant ({'+W' if flip else '-W'}) stuit op de achterstop onder 5 graden",
-             terug is not None and terug < 5.0, f"{terug}")
-        # Stopvlakken: het platte achterstopvlak van A (z = -s/2, buiten de wangen) ligt achter H, dus aan de
-        # kant tegenover de buigkant; de wig (eindstop) opent naar de buigkant.
-        u = sys.modules[eigen + ".eigenschappen"].eenheid_per_mm(bpy.context.scene)
-        s = float(b["cj_speling_mm"]) * u
-        h = Vector(b["cj_scharnier_as"]).normalized()
-        achter = []
-        for v in a.data.vertices:
-            d = a.matrix_world @ v.co - p
-            if abs(d.dot(lid) + s / 2) < 1e-4 * u and (d - h * d.dot(h)).length > float(b["cj_naad_r"]) + s:
-                achter.append(d.dot(buig))
-        stap(f"{naam}: achterstopvlak van A tegenover de buigkant, wig opent naar de buigkant",
-             bool(achter) and max(achter) < 0,
-             f"{len(achter)} punten, grootste afstand naar de buigkant {max(achter) if achter else 0:.3f} mm")
-        k = round(voor)
-        kop = "Hinge placed, bend flipped" if flip else "Hinge placed"
-        stap(f"{naam}: melding toont het gemeten bereik", b.get("cj_melding") == f"{kop}. Bends 0° to {k}°.",
-             str(b.get("cj_melding")))
-        stap(f"{naam}: cj_flip_bend opgeslagen", bool(b.get("cj_flip_bend")) == flip)
-        uit[flip] = (buig, plus, min_)
-    stap("flip: buigkant tegengesteld", uit[False][0].dot(uit[True][0]) < -0.999,
-         f"dot {uit[False][0].dot(uit[True][0]):.6f}")
-    # Controleur (d), punt 1: op dezelfde plek van een bestaand scharnier weigert de operator (geen extra delen).
-    a_oud = bpy.data.objects.get("staaf_A")
-    figuren.maak_actief(a_oud)
-    voor_namen = {o.name for o in bpy.data.objects}
-    try:
-        tweede = bpy.ops.click_joints.plaats_scharnier(stand="115", flip_bend=False)
-    except RuntimeError as fout:
-        tweede = f"fout: {fout}"
-    nieuw = {o.name for o in bpy.data.objects} - voor_namen
-    stap("opnieuw snijden op hetzelfde scharnier geweigerd, geen nieuwe objecten",
-         tweede == {"CANCELLED"} and not nieuw, f"{tweede}, nieuw {sorted(nieuw)}")
-    # Lidas omhoog op het scherm: omhoog zegt niets, buigkant vast L x H, flip keert hem om.
-    lid = Vector((1, 0, 0))
-    kijk = Vector((0, 0, -1))
-    z = [vorm.scharnier_assen(lid, kijk=kijk, omhoog=lid.copy(), omdraaien=f) for f in (False, True)]
-    stap("lidas omhoog op het scherm: buigkant vast en flip keert hem om", None not in z
-         and abs(z[0][1].dot(lid)) < 1e-6 and z[0][1].dot(z[1][1]) < -0.999
-         and abs(z[0][0].dot(Vector((0, 0, 1)))) > 0.999, str(z[0] and tuple(z[0][1])))
-    for flip in (False, True):
-        naam = f"kijk met lidas omhoog op het scherm, flip {'aan' if flip else 'uit'}"
-        try:
-            uitslag, a, b = _plaats_staaf(flip, as_bron="KIJK", kijk_richting=tuple(kijk), kijk_omhoog=tuple(lid))
-        except RuntimeError as fout:
-            solver = sys.modules[eigen + ".gewricht"].solver_naam()
-            if solver != "MANIFOLD":
-                print(f"[cj-betaald] BEKEND {naam} op {solver}: {fout}")
-                continue
-            uitslag, a, b = {"CANCELLED"}, None, None
-        if uitslag != {"FINISHED"} or a is None or b is None:
-            stap(f"{naam}: scharnier geplaatst", False, str(uitslag))
-            continue
-        buig = Vector(b["cj_buigkant"]).normalized()
-        verwacht = z[1 if flip else 0][1]
-        ga, gb = gesloten.is_gesloten(a), gesloten.is_gesloten(b)
-        voor = float(b.get("cj_bereik_graden", -1))
-        stap(f"{naam}: buigkant zoals gekozen, gesloten, eindstop 113 tot 115",
-             buig.dot(verwacht) > 0.999 and ga[0] and gb[0] and 113 <= voor <= 115.05,
-             f"buig {tuple(round(c, 3) for c in buig)} A {ga[1]} B {gb[1]} eindstop {voor:.2f}")

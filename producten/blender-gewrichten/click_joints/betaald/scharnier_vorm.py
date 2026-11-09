@@ -217,6 +217,11 @@ def snij(hulp, werk, frame, m, solver):
     if "neus_h" in m:  # eis 3: kuiltjes in de wangen (bol met straal + s om de top van de neus)
         for kuil in neus.neuzen(frame, m, hulp, kuiltje=True):
             boolean(gereed_a, kuil, "UNION", solver)
+        # Vorm punt 5: zaagsnede onder elke wang, tot de zaagbodem (L onder H), zodat de wang een lip wordt.
+        x0, x1, z0, z1 = neus.zaag_maten(m)
+        vlak = [(-0.9 * g, z0), (0.9 * g, z0), (0.9 * g, z1), (-0.9 * g, z1)]
+        for k, (a0, a1) in enumerate(((x0, x1), (-x1, -x0))):
+            boolean(gereed_a, prisma(f"cj_zaag_{k}", vlak, a0, a1, frame, hulp), "UNION", solver)
     gereed_a = bak(gereed_a, "cj_snij_a", hulp)
     gereed_a.hide_set(True)
     a = bak(werk, "cj_a_bron", hulp)

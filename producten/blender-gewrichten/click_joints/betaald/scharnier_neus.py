@@ -1,28 +1,30 @@
 """Klikneuzen van het scharnier (ontwerp betaald v1.1, vorm punt 5, eis 3), alleen in de betaalde build.
 
-Op beide zijkanten van de tong van B (x = +tw en -tw in het frame van scharnier_vorm) een bolkapje met
-hoogte h = 0,25 mm en zijn top precies op as H. In de wang van A een kuiltje: een bol met dezelfde
-middelpunt en straal + s, dus overal speling s om de neus. Omdat neus en kuiltje allebei rond H draaien,
-blijft die speling bij elke buighoek gelijk; de neus houdt het scharnier niet tegen, hij klikt alleen bij
-het in elkaar zetten (de wang moet h - s = 0,05 mm verder opzij dan de speling) en houdt B daarna langs H vast.
+Op beide zijkanten van de tong van B (x = +tw en -tw in het frame van scharnier_vorm) een bolkapje met zijn
+top precies op as H. De klikdiepte k = 0,25 mm is wat telt (besluit manager na de controleur): de neus steekt
+k voorbij de speling uit, dus de top ligt op x = tw + s + k en de neus is s + k hoog boven het zijvlak van de
+tong. In de wang van A een kuiltje: een bol met hetzelfde middelpunt en straal + s, dus overal speling s om de
+neus. Omdat neus en kuiltje allebei rond H draaien, blijft die speling bij elke buighoek gelijk; bij het in
+elkaar zetten moet de wang k opzij en daarna houdt de neus B langs H vast.
 
-Rek van de wang bij indrukken (ontwerp, balkformule, GOK van de controleur): eps = 1,5 * t * h / L^2, met
-t de dikte van de wang langs H (wx - tw - s) en L de lengte van de buigzame lip: van H tot de bodem van de
-zaagsnede, die vanaf de bovenrand van de wang (rn - s/2 boven H) tot 60% van de dikte van het lid (0,6 * 2 wy)
-onder H gaat. Is eps groter dan 3%, dan een lagere neus; lager dan H_MIN dan geen scharnier maar de melding
-TIGHT (nooit een rood scharnier dat toch geplaatst wordt).
-De zaagsnede zelf wordt in deze ronde nog niet gesneden (open punt); de rek is die van de geplande lip."""
+Rek van de wang bij indrukken (ontwerp, balkformule, GOK van de controleur): eps = 1,5 * t * k / L^2, met
+t de dikte van de wang langs H (wx - tw - s), k de klikdiepte en L de lengte van de buigzame lip: van as H tot
+de bodem van de zaagsnede (correctie controleur), die ZAAG keer de dikte van het lid (ZAAG * 2 wy) onder H ligt.
+De zaagsnede zelf snijdt scharnier_vorm.snij (zaag_maten hieronder). Is eps groter dan 3%, dan een kleinere
+klikdiepte; kleiner dan H_MIN dan geen scharnier maar de melding TIGHT (nooit een rood scharnier dat toch
+geplaatst wordt)."""
 import math
 
 import bmesh
 import bpy
 from mathutils import Matrix
 
-H_MM = 0.25          # hoogte van de neus (ontwerp)
-H_MIN_MM = 0.1       # lager klikt niet meer merkbaar: dan de melding
+H_MM = 0.25          # klikdiepte: hoe ver de neus voorbij de speling uitsteekt (ontwerp, besluit manager)
+H_MIN_MM = 0.1       # minder klikt niet meer merkbaar: dan de melding
 REK_MAX = 0.03       # 3%, PLA breekt rond 3 tot 5%
 BASIS = 0.6          # straal van de voet van de neus = BASIS keer de knokkelstraal R
-ZAAG = 0.6           # zaagsnede tot 60% van de dikte van het lid onder H
+ZAAG = 0.65          # bodem van de zaagsnede op 0,65 keer de dikte van het lid onder H
+ZAAG_X = (0.4, 0.8)  # zaagsnede in de wang-voet, van tw + 0,4 s tot tw + 0,8 s (los van alle andere vlakken)
 RINGEN = 10
 SEGMENTEN = 32
 TIGHT = "Tight: cheek too stiff to click. Try a thicker spot."
@@ -34,20 +36,30 @@ def rek(t, h, lip):
 
 
 def maten_neus(m, u):
-    """Vult m aan met de neusmaten (h, voet, bolstraal, wangdikte, lip, rek) of geeft de melding TIGHT terug."""
+    """Vult m aan met de neusmaten of geeft de melding TIGHT terug.
+    klik = klikdiepte k, neus_h = hoogte boven het zijvlak van de tong (s + k), lip = L (H tot zaagbodem)."""
     s = m["s"]
     t = m["wx"] - m["tw"] - s
-    lip = (m["rn"] - s / 2) + ZAAG * 2 * m["wy"]
-    h = H_MM * u
-    if rek(t, h, lip) > REK_MAX:
-        h = REK_MAX * lip * lip / (1.5 * t)
-    if h < H_MIN_MM * u or t <= 0:
+    lip = ZAAG * 2 * m["wy"]
+    k = H_MM * u
+    if t > 0 and rek(t, k, lip) > REK_MAX:
+        k = REK_MAX * lip * lip / (1.5 * t)
+    if k < H_MIN_MM * u or t <= 0:
         return TIGHT
+    h = s + k
     voet = BASIS * m["r"]
     rho = (voet * voet + h * h) / (2 * h)       # straal van de bol waar het kapje van is
-    m.update({"neus_h": h, "neus_voet": voet, "neus_rho": rho, "wang_t": t, "lip": lip,
-              "rek": rek(t, h, lip)})
+    m.update({"neus_h": h, "neus_klik": k, "neus_voet": voet, "neus_rho": rho, "wang_t": t, "lip": lip,
+              "rek": rek(t, k, lip)})
     return ""
+
+
+def zaag_maten(m):
+    """(x0, x1, z_bodem, z_top) van de zaagsnede in het frame (x langs H, z langs de lidas), voor de + kant.
+    Een smalle sleuf onder de gleuf, door de hele diepte van het lid (langs de buigkant): zo hangt de wang
+    met zijn buitenste derde alleen nog onder de zaagbodem aan deel A en veert hij opzij als een lip."""
+    s, tw = m["s"], m["tw"]
+    return tw + ZAAG_X[0] * s, tw + ZAAG_X[1] * s, -m["lip"], -s / 4
 
 
 def _draailichaam(naam, profiel, frame, collectie):

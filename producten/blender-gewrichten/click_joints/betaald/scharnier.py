@@ -5,8 +5,8 @@ Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de ki
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
 De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
-passingkleur, Exploded view, de zaagsnede in de wang.
-Klikneuzen (eis 3) in scharnier_neus.py.
+passingkleur, Exploded view.
+Klikneuzen (eis 3) en de maten van de zaagsnede (vorm punt 5) in scharnier_neus.py.
 Flip bend (eigenschap flip_bend, ontwerp punt 4): keert H en de buigkant samen om, dus de stop en de
 achterstop komen aan de andere kant van het lid; in het Redo-paneel snijdt omzetten het scharnier opnieuw."""
 import math
@@ -146,6 +146,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
                     "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_t_vlak": maat["t_vlak"], "cj_gespiegeld": gespiegeld(bron),
                     "cj_flip_bend": bool(self.flip_bend), "cj_neus_h": maat["neus_h"],
+                    "cj_neus_klik": maat["neus_klik"],
                     "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
                     "cj_rek": maat["rek"]}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
