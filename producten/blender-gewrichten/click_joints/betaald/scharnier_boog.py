@@ -19,6 +19,7 @@ ROOD = (1.0, 0x4D / 255.0, 0x4D / 255.0)  # zelfde rood als de kogelboog
 STRAAL = 3.5        # keer de knokkelstraal
 STREEP = 5          # graden tussen twee streepjes
 POSE_LANG = 1.15
+ROOD_PX = 24        # "+N° past limit": groot genoeg voor een winkelplaatje (16 was te klein)
 _handler = [None]
 laatst = {}  # wat de laatste tekenbeurt tekende, voor het bewijs in de schermtest
 
@@ -104,19 +105,23 @@ def _binnen(hul, x, y):
 
 def _rood_plek(regio, rv3d, q, uit, delen, tekst_, px, schaal):
     """Plek van "+N° past limit". Zoals op de kogelboog (winkelplaatje 9) moet rood met donkere rand op de achtergrond
-    staan: over een grijs deel is het slecht leesbaar. Kandidaten rond het eind van de pose-lijn, de eerste waarvan het
-    tekstvak buiten de omhullende van A en B (hoekpunten van de bound box, in beeld) en binnen het beeld ligt wint.
-    Geeft (plek, vrij); niets vrij: de oude plek (70 px verder langs de lijn)."""
+    staan: over een grijs deel is het slecht leesbaar. Kandidaten in ringen rond het eind van de pose-lijn, eerst
+    dichtbij en in de richting van de lijn, dan verder en rondom; de eerste waarvan het tekstvak buiten de omhullende
+    van A en B (hoekpunten van de bound box, in beeld) en binnen het beeld ligt wint. Alleen langs de pose-lijn zoeken
+    (tot run 42668200920) vond bij een schuin scharnier niets vrij: de lijn wijst dan in deel B.
+    Geeft (plek, vrij, (breed, hoog)); niets vrij: de oude plek (70 px verder langs de lijn)."""
     import blf
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
     blf.size(0, px)
     breed, hoog = blf.dimensions(0, tekst_)
     hullen = [_omhulsel([naar2d(regio, rv3d, d.matrix_world @ Vector(h)) for h in d.bound_box]) for d in delen]
-    dwars = Vector((-uit.y, uit.x))
     rand = 8.0 * schaal
-    for t in (70.0, 100.0, 140.0, 190.0, 250.0):
-        for s in (0.0, 1.0, -1.0, 1.6, -1.6):
-            m = q["pose_eind"] + uit * (t * schaal) + dwars * (s * (breed / 2.0 + 20.0 * schaal))
+    hoeken = sorted(range(-180, 180, 15), key=abs)
+    for t in [70.0 + 30.0 * i for i in range(40)]:
+        for g in hoeken:
+            r = math.radians(g)
+            richting = Vector((uit.x * math.cos(r) - uit.y * math.sin(r), uit.x * math.sin(r) + uit.y * math.cos(r)))
+            m = q["pose_eind"] + richting * (t * schaal)
             x0, x1, y0, y1 = m.x - breed / 2 - rand, m.x + breed / 2 + rand, m.y - hoog / 2 - rand, m.y + hoog / 2 + rand
             if x0 < 0 or y0 < 0 or x1 > regio.width or y1 > regio.height - 100.0 * schaal:
                 continue
@@ -127,8 +132,18 @@ def _rood_plek(regio, rv3d, q, uit, delen, tekst_, px, schaal):
                 continue
             if any(x0 <= hx <= x1 and y0 <= hy <= y1 for h in hullen for hx, hy in h):
                 continue
-            return m, True
-    return q["pose_eind"] + uit * (70.0 * schaal), False
+            return m, True, (breed, hoog)
+    return q["pose_eind"] + uit * (70.0 * schaal), False, (breed, hoog)
+
+
+def _tot_vak(van, m, breed, hoog, rand):
+    """Punt op de rand van het tekstvak (midden m) op de lijn van van naar m: daar stopt het verwijslijntje."""
+    d = m - van
+    if d.length == 0:
+        return m
+    sx = (breed / 2 + rand) / abs(d.x) if d.x else float("inf")
+    sy = (hoog / 2 + rand) / abs(d.y) if d.y else float("inf")
+    return m - d * min(1.0, sx, sy)
 
 
 def _teken_een(regio, rv3d, a, b, schaal):
@@ -166,8 +181,12 @@ def _teken_een(regio, rv3d, a, b, schaal):
             # Verder naar buiten dan het getal van de grens, anders liggen "115°" en "+3° past limit" over elkaar.
             uit = q["pose_eind"] - q["centrum"] if q["centrum"] is not None else Vector((0.0, 1.0))
             uit = uit.normalized() if uit.length > 0 else Vector((0.0, 1.0))
-            plek, vrij = _rood_plek(regio, rv3d, q, uit, (a, b), v["voorbij_tekst"], int(16 * schaal), schaal)
-            rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, int(16 * schaal))
+            groot = int(ROOD_PX * schaal)
+            plek, vrij, (breed, hoog) = _rood_plek(regio, rv3d, q, uit, (a, b), v["voorbij_tekst"], groot, schaal)
+            if vrij:  # dun rood lijntje van het eind van de pose-lijn naar de tekst op de vrije plek
+                waaier._lijn(dik, regio, [q["pose_eind"], _tot_vak(q["pose_eind"], plek, breed, hoog, 6.0 * schaal)],
+                             (*ROOD, 0.9), 2.0 * schaal)
+            rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, groot)
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     kop = tekst(a)
     kop_getekend = waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop, WIT,

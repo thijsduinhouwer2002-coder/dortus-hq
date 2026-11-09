@@ -11,7 +11,10 @@ zonder boog, dan met, en de pixels die duidelijk lichter werden zijn de boog.
 Plaatje 12 staat 3 graden voorbij de stop (bij 8 graden lag B dwars over A). De staaf is in de lengte
 doorgesneden: de zijvlakken van een gewone cilinder lopen over de hele lengte, dan wordt bij elke aanraking de
 hele bovenkant van A rood in plaats van alleen de stop. Om de mm gaf langs de stop een trapje van rode vlakken
-(run 42658121473); binnen 13 mm van H (de stopvlakken reiken tot 12,4) daarom om de 0,2 mm, met 192 zijvlakken.
+(run 42658121473); om de 0,2 mm (tot run 42668200920) gaf geen trapje maar wel een rood lijntje van één vlak breed
+(152 rode pixels), voor een winkelplaatje te dun. Nu ook snedes met vlakken door de scharnieras H, om de
+WIG graden: de botsrand (stopvlak van B door H, in de rand van A) loopt dan binnen één wig, en die hele wig wordt
+een strakke rode band met rechte randen langs H. Daarnaast om de mm dwars, met 192 zijvlakken.
 Alleen het net van deze proef, de add-on bepaalt rood zoals altijd (vlakken van A die B raken).
 
 Kader (winkelplaatjes, als 8 en 9): uit de echte hoekpunten van A en B en de punten van de boog, in beeld
@@ -44,7 +47,7 @@ VOORBIJ = 3.0  # graden voorbij de gemeten stop op plaatje 12
 ROOD_MIN, ROOD_MAX = 30, 3000
 ROOD_STRAAL = 3.0  # rode vlakken: middelpunt binnen 15 mm van H (A is 20 mm lang; de stopvlakken reiken tot 12,4)
 STAAF_R = 5.0
-FIJN_MM, FIJN_STAP = 13.0, 0.2  # fijne snedes rond H (zie boven)
+WIG = 6.0  # graden tussen twee snedes door H (zie boven)
 HOOGTE, BREEDTE = 0.65, 0.85  # deel van het beeld dat het onderwerp vult (kader)
 BOOG_MIN = 1500  # pixels die met de boog aan duidelijk lichter zijn (boog, streepjes, getal, kop)
 staat = {}
@@ -82,7 +85,7 @@ def boog_pixels(zonder, met):
     return int(np.count_nonzero((licht > 0.25) & wit))
 
 
-def snedes(lengte, fijn=FIJN_MM, stap=FIJN_STAP):
+def snedes(lengte, fijn=0.0, stap=0.2):
     """Plaatsen van de snedes langs de staaf: om de mm, binnen fijn mm van H (x = 0) om de stap mm."""
     grof = [-lengte / 2 + i for i in range(1, int(lengte)) if abs(-lengte / 2 + i) > fijn + 1e-6]
     return sorted(grof + [round(-fijn + i * stap, 4) for i in range(int(round(2 * fijn / stap)) + 1)])
@@ -96,6 +99,10 @@ def staaf_in_plakken(naam, straal, lengte=40.0):
     for x in snedes(lengte):
         geom = bm.verts[:] + bm.edges[:] + bm.faces[:]
         bmesh.ops.bisect_plane(bm, geom=geom, plane_co=(x, 0, 0), plane_no=(1, 0, 0))
+    for i in range(1, int(round(180.0 / WIG))):  # vlakken door H (de y-as, zie plaats_scharnier)
+        t = math.radians(i * WIG)
+        geom = bm.verts[:] + bm.edges[:] + bm.faces[:]
+        bmesh.ops.bisect_plane(bm, geom=geom, plane_co=(0, 0, 0), plane_no=(math.cos(t), 0, math.sin(t)))
     me = bpy.data.meshes.new(naam)
     bm.to_mesh(me)
     bm.free()
