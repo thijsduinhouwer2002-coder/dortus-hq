@@ -115,7 +115,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         bm.free()
         maat, reden = vorm.maten(bvh, frame, s, int(self.stand), u)
         if maat is not None:
-            reden = neus.maten_neus(maat, u)   # eis 3: klikneus en rek, of Tight (dan geen scharnier)
+            # Eis 3: klikneus en rek, of Tight (dan geen scharnier); de sleuf nooit door de onderkant van A.
+            reden = neus.maten_neus(maat, u, neus.zaag_diepte(bvh, frame, maat))
             maat = None if reden else maat
         if maat is None:
             bpy.data.meshes.remove(me)
@@ -148,7 +149,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_flip_bend": bool(self.flip_bend), "cj_neus_h": maat["neus_h"],
                     "cj_neus_klik": maat["neus_klik"],
                     "cj_neus_voet": maat["neus_voet"], "cj_wang_t": maat["wang_t"], "cj_lip": maat["lip"],
-                    "cj_rek": maat["rek"]}
+                    "cj_rek": maat["rek"], "cj_zaag_diepte": maat.get("zaag_diepte", -1.0)}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])

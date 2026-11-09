@@ -12,19 +12,26 @@ t de dikte van de wang langs H (wx - tw - s), k de klikdiepte en L de lengte van
 de bodem van de zaagsnede (correctie controleur), die ZAAG keer de dikte van het lid (ZAAG * 2 wy) onder H ligt.
 De zaagsnede zelf snijdt scharnier_vorm.snij (zaag_maten hieronder). Is eps groter dan 3%, dan een kleinere
 klikdiepte; kleiner dan H_MIN dan geen scharnier maar de melding TIGHT (nooit een rood scharnier dat toch
-geplaatst wordt)."""
+geplaatst wordt).
+
+De sleuf is minstens s breed (controleur eis 3): vlakken dichter dan s smelten bij het printen samen, dan
+veert de wang niet. Ligt de onderkant van het lid dichter bij H dan L plus een rest (max(t, 0,8 mm), zodat de
+voet van de lip niet dunner is dan de lip zelf), dan wordt de sleuf korter: L = diepte - rest. Met die kortere
+L geldt dezelfde rek-eis, dus een lagere klikdiepte of TIGHT. Zo zaagt de sleuf nooit door de onderkant van
+deel A (dan viel de wang los) en volgt het de regel van het ontwerp: een kleinere neus of een melding."""
 import math
 
 import bmesh
 import bpy
-from mathutils import Matrix
+from mathutils import Matrix, Vector
 
 H_MM = 0.25          # klikdiepte: hoe ver de neus voorbij de speling uitsteekt (ontwerp, besluit manager)
 H_MIN_MM = 0.1       # minder klikt niet meer merkbaar: dan de melding
 REK_MAX = 0.03       # 3%, PLA breekt rond 3 tot 5%
 BASIS = 0.6          # straal van de voet van de neus = BASIS keer de knokkelstraal R
 ZAAG = 0.65          # bodem van de zaagsnede op 0,65 keer de dikte van het lid onder H
-ZAAG_X = (0.4, 0.8)  # zaagsnede in de wang-voet, van tw + 0,4 s tot tw + 0,8 s (los van alle andere vlakken)
+ZAAG_X = (-0.1, 0.95)  # sleuf van tw - 0,1 s tot tw + 0,95 s: 1,05 s breed, de lip blijft t (+0,05 s) dik
+ZAAG_REST_MM = 0.8   # onder de zaagbodem minstens max(t, 0,8 mm) materiaal (0,8 mm: kleinste wand van de kern)
 RINGEN = 10
 SEGMENTEN = 32
 TIGHT = "Tight: cheek too stiff to click. Try a thicker spot."
@@ -35,12 +42,32 @@ def rek(t, h, lip):
     return 1.5 * t * h / (lip * lip)
 
 
-def maten_neus(m, u):
+def zaag_diepte(bvh, frame, m):
+    """Kleinste afstand van H (z = 0) tot de huid langs -Z (de lidas omlaag, naar de onderkant van deel A),
+    gemeten midden in beide sleuven op drie plekken langs de buigkant; None als geen straal iets raakt."""
+    xm = m["tw"] + (ZAAG_X[0] + ZAAG_X[1]) / 2 * m["s"]
+    omlaag = (frame.to_3x3() @ Vector((0, 0, -1))).normalized()
+    diepte = None
+    for x in (xm, -xm):
+        for y in (-0.5 * m["wy"], 0.0, 0.5 * m["wy"]):
+            hit = bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
+            if hit[0] is not None:
+                diepte = hit[3] if diepte is None else min(diepte, hit[3])
+    return diepte
+
+
+def maten_neus(m, u, diepte=None):
     """Vult m aan met de neusmaten of geeft de melding TIGHT terug.
-    klik = klikdiepte k, neus_h = hoogte boven het zijvlak van de tong (s + k), lip = L (H tot zaagbodem)."""
+    klik = klikdiepte k, neus_h = hoogte boven het zijvlak van de tong (s + k), lip = L (H tot zaagbodem).
+    diepte (zaag_diepte): ligt de onderkant van het lid dichter dan L + rest, dan wordt L korter."""
     s = m["s"]
     t = m["wx"] - m["tw"] - s
     lip = ZAAG * 2 * m["wy"]
+    if diepte is not None:
+        lip = min(lip, diepte - max(t, ZAAG_REST_MM * u))
+        m["zaag_diepte"] = diepte
+    if lip <= 0:
+        return TIGHT
     k = H_MM * u
     if t > 0 and rek(t, k, lip) > REK_MAX:
         k = REK_MAX * lip * lip / (1.5 * t)
@@ -56,8 +83,9 @@ def maten_neus(m, u):
 
 def zaag_maten(m):
     """(x0, x1, z_bodem, z_top) van de zaagsnede in het frame (x langs H, z langs de lidas), voor de + kant.
-    Een smalle sleuf onder de gleuf, door de hele diepte van het lid (langs de buigkant): zo hangt de wang
-    met zijn buitenste derde alleen nog onder de zaagbodem aan deel A en veert hij opzij als een lip."""
+    Een sleuf onder de gleuf (1,05 s breed, van net binnen de tong tot net voor de wang), door de hele diepte
+    van het lid (langs de buigkant): zo hangt de wang met zijn buitenste derde alleen nog onder de zaagbodem
+    aan deel A en veert hij opzij als een lip van dikte t."""
     s, tw = m["s"], m["tw"]
     return tw + ZAAG_X[0] * s, tw + ZAAG_X[1] * s, -m["lip"], -s / 4
 
