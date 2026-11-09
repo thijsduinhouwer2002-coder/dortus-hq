@@ -628,4 +628,4 @@ Nieuwste blok onderaan.
 - Nieuw feit: ±720 nieuwe add-ons in de laatste 30 dagen, tegen ±110 tot 150 per maand een jaar geleden; een kwart is één maker (ZEG, 165 generators). Een nieuwe add-on staat nu minder dan een dag op pagina 1 van "nieuwste". Bericht aan Bram en Olaf. Herhaalmeting rond 5 dec in taken.md.
 - Controleur: datums per pagina, ZEG, alle tellers in de print-niche, oude bestsellers en gratis concurrenten nagekeken, alles klopt grofweg; prijzen soms in de aanbieding.
 - Les: lees eerst de mappen van de bouwers (hier `platformen/blender-2/`) voor je een niche induikt; Olaf had print-splitsen al grondig gedaan. Tweede les: de pagina heeft twee prijsvelden (centen en dollars), pak het veld met aanhalingstekens.
-
+- Na afsluiten nog tijd: Orbolt (Houdini) voorwerk in kandidaten.md, prijzen zichtbaar maar geen tellers. Run afgesloten.
