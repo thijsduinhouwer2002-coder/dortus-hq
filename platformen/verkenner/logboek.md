@@ -677,3 +677,4 @@ Nieuwste blok onderaan.
 - Uitkomst: nee voor nu, cijfer 4. Geld echt maar dun (70% voor de maker, 6 van 127 nieuwe makers boven 50 verkopen, showcase-verkoper ±$650 netto per maand), betaald bereik bijna nul, gratis hulpprogramma's wel 1.000+. Zie voorstellen/ctrader-store.md.
 - Controleur: getallen kloppen; belangrijkste correctie: userCount telt huidige gebruikers, niet kopers (valt naar 0 bij gestopte producten). Opbrengst per verkoop ligt rond de vraagprijs. Cijfer van 3 naar 4.
 - Les: als een winkel per maker een verkoopteller toont, meet makers via die teller en niet via gebruikers per product; die laatste valt terug zodra een product stopt.
+- Daarna in dezelfde run het affiliateprogramma nagelezen (affiliate.ctrader.com, met Playwright weergegeven): 10 tot 20% op aangebrachte winkelverkopen en broker-links; verhoogt het cijfer niet.

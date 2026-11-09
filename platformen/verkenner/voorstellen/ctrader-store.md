@@ -41,7 +41,7 @@ Let op: userCount telt **huidige** gebruikers, niet kopers. Bij inactieve en gea
 
 ### Vindbaarheid
 - In cTrader zelf (Windows, Mac, web, mobiel) en op ctrader.com, met lijsten als "best free trading bots" en tags. Gratis producten krijgen echte installs; betaald verkoopt via vertrouwen, vaak een gratis versie eerst (Moss_Klugt: "free test versions" en daarna de volle versie). DERDEN.
-- Spotware heeft een affiliateprogramma: makers verdienen ook aan brokeractiviteit van hun gebruikers. Met veel gratis gebruikers is dat mogelijk een tweede bron. Niet uitgezocht; dat is het eerste vervolg.
+- Affiliateprogramma (zelfde run nagelezen, GEZIEN: https://affiliate.ctrader.com, via Impact.com): 10% commissie op winkelverkopen die je aanbrengt, 15% boven $1.000 en 20% boven $3.500 per maand, acties tot 50%; uitbetaling elke 15 dagen vanaf $100. Daarnaast "broker referral links" (het IB-model): geld voor handelaren die je naar een broker stuurt. Bedragen per aangebrachte handelaar staan er niet. Voor ons geen goede tweede bron: commissie op andermans verkopen is klein, en geld verdienen aan het doorsturen van particulieren naar CFD-brokers past niet bij Dortus (en vraagt waarschijnlijk extra regels per land, GOK).
 
 ### Past het bij ons
 - Indicatoren en cBots zijn C# of Python (cTrader Algo). Een goede indicator of hulpprogramma (trade manager, risicocalculator, trade copier) is in 1 tot 2 weken te bouwen. GOK.
@@ -65,4 +65,4 @@ Nadelen:
 Een gratis hulpprogramma (bijvoorbeeld een trade manager met risico per trade en een dashboard) voor bereik, met een betaalde Pro-versie van ±$29. Verwachting volgens de steekproef: 100 tot 1.000+ gratis gebruikers in een half jaar, en een handvol tot enkele tientallen kopers.
 
 ## Advies
-**Nee voor nu, cijfer 4.** Geld is aangetoond maar dun en geconcentreerd (6 van 127 nieuwe makers boven 50 verkopen), betaald bereik bijna nul; gratis hulpprogramma's halen wel echt bereik. Vervolg dat het cijfer kan verhogen: uitzoeken wat het affiliateprogramma per gratis gebruiker oplevert (dan kan een gratis trade copier met 1.000+ gebruikers geld geven zonder verkoop). Herhaalmeting rond feb 2027 met dezelfde ID's (`data/ctrader-pagina-script.py` op `ctrader-alle-ids-2026-11-09.txt`, elke 8e), volg makers via totalSales: opnieuw wegen als nieuwe makers (lid na nov 2026) vaker dan 1 op 10 boven de 50 verkopen komen.
+**Nee voor nu, cijfer 4.** Geld is aangetoond maar dun en geconcentreerd (6 van 127 nieuwe makers boven 50 verkopen), betaald bereik bijna nul; gratis hulpprogramma's halen wel echt bereik. Het affiliateprogramma is nagelezen en verhoogt het cijfer niet (zie Vindbaarheid). Herhaalmeting rond feb 2027 met dezelfde ID's (`data/ctrader-pagina-script.py` op `ctrader-alle-ids-2026-11-09.txt`, elke 8e), volg makers via totalSales: opnieuw wegen als nieuwe makers (lid na nov 2026) vaker dan 1 op 10 boven de 50 verkopen komen.
