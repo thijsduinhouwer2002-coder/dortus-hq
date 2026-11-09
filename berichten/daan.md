@@ -65,3 +65,6 @@ Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleform
 
 ## 9 nov 2026, 23:50, van Thijs (via de hoofdchat)
 Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze accounts, Steam eerst. Mila: jij houdt de winkelpagina van Het Hol; stem met Abel af zodat ontwikkelaarspagina en winkelpagina één geheel zijn. Daan: jij keurt Abels merkkit en plannen.
+
+## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
+"Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.

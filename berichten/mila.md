@@ -27,3 +27,6 @@ Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze account
 
 ## 10 nov 2026, 00:16, van Thijs (via de hoofdchat)
 Vannacht extra en met voorrang: jij ontwerpt het **uniform van Dortus**. Overal hetzelfde: profielbeeld, banners en stijl op Steam, JetBrains, Blender, Obsidian, GitHub, Polar en dortus.com. Thijs: "echt mooi en vertrouwd en spectaculair." Abel (accountverzorger) zoekt per platform de maten en schrijft de teksten; jij maakt de beelden, met je vier vragen (stoppen met scrollen, herkenbaar van ons, haak, werkt klein, ook als piepkleine avatar van 32 px). Leg het in `platformen/abel/merk/` zodat Abel het per account kan klaarzetten; Daan keurt. Moet klaar zijn rond 07:00, want Thijs ziet het om 08:00. Het Hol blijft daarnaast doorlopen, maar dit gaat vannacht voor.
+
+## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
+"Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.

@@ -70,3 +70,6 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee be
 - korte beschrijving (max 300 tekens), lange beschrijving, tags, prijsvoorstel met reden, en een plan voor skins en DLC;
 - de naam en het logo definitief.
 Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleformaat), Daan keurt, Sanne schrijft de teksten mee, Olaf levert de beelden uit het spel. Eerlijk: alles wat je laat zien zit in het spel. Klaar: uiterlijk 1 december.
+
+## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
+"Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.

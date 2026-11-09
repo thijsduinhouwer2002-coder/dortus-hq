@@ -35,3 +35,6 @@ Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleform
 
 ## 10 nov 2026, 00:28, van Thijs (via de hoofdchat)
 Prijsmodel: Thijs neigt naar **gratis spel + hoogwaardige skins/DLC** (zoals Bongo Cat), "als het een sterk spel is met echt hoogwaardige DLC's". Zoek uit hoe de concurrenten dit precies doen en zet het in `platformen/steam/verdienmodel.md`: per spel (Bongo Cat, Desktop Mate, Rusty's Retirement, Spirit City, Tiny Pasture, Ropuka, en wat je nog vindt) het model (gratis/betaald, prijs, wat ze verkopen: skins, DLC, packs, bundels), wat het kost, hoe het in het spel zit (Steam Inventory, DLC, winkeltje), reviews als maat voor bereik, en wat spelers erover klagen. Daarna: jouw advies voor Het Hol (model, prijzen, eerste 3 skins/DLC's), en wat Olaf moet bouwen (Steam-microtransacties of gewone DLC) en of dat vóór 14 januari haalbaar is. Echte cijfers met link, geen gokken zonder het erbij te zeggen. Met Hans afstemmen; Thijs beslist.
+
+## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
+"Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn.
