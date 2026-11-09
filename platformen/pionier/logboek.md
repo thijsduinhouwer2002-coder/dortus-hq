@@ -277,3 +277,4 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: Apple HomeView. Waarom: nieuw Apple-apparaat dat over vier dagen levert, en betalen werkt al via de App Store.
 - Zelf gelezen: Apple-persbericht, HIG Widgets (HomeView-deel), ontwikkelaarsovereenkomst 6.4, App Store-zoekresultaten. Hulpagent voor groei, vraag en precedent (StandBy, CarPlay).
 - Besluit: cijfer 4, nee voor nu. Waarom: geen eigen winkel, bestaande widgets komen automatisch mee (de grote gezinsapps staan er op dag één), alleen het kleinste formaat, niet in de EU, en geen verkoopcijfers. Herhaalmeting 8 jan 2027.
+- Daarna nog geschift (TikTok-landen, Raycast, Elgato, Tesla, ClawHub, Grav): niets met betalen dat nu werkt en jong is. Gestopt om ±02:05 in plaats van werk te verzinnen (regel 0c).
