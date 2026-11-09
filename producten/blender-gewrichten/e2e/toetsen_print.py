@@ -128,6 +128,30 @@ def overhang(ob, b, omlaag, bed, deel, u):
     return 90.0 - a, a, int(telt.sum()), (float(x[0]) / u, float(rho[0]) / u, float(z[0]) / u)
 
 
+def wang_onder(ob, b, omlaag, u):
+    """(grootste overhang, aantal vlakken, slechtste (x, rho, z) in mm, aantal vlakken met overhang tussen 40 en 45)
+    over de onderkant van de wangen van deel A onder H: middelpunt met |x| >= tw + s + m, 0,5 Rn <= rho <=
+    Rn - s/2 + m en z < 0. Daar zat de ronde wangcilinder onder het wigvlak (56 graden, run 42601420356); nu
+    hoort er een vlak stuk op 44 graden te liggen (scharnier_vorm.afschuin). Ruimer dan de buurt van (b)."""
+    v, mid, nrm, opp, _ = _mesh(ob)
+    p = np.array(list(b["cj_scharnier_punt"]))
+    h, lid = (np.array(list(Vector(b[k]).normalized())) for k in ("cj_scharnier_as", "cj_as"))
+    s, tw, rn = float(b["cj_speling_mm"]) * u, float(b["cj_tong_half"]), float(b["cj_naad_r"])
+    m = MARGE_S * s
+    d = mid - p
+    x = d @ h
+    rho = np.linalg.norm(d - np.outer(x, h), axis=1)
+    z = d @ lid
+    kies = (np.abs(x) >= tw + s + m) & (rho >= 0.5 * rn) & (rho <= rn - s / 2 + m) & (z < 0)
+    c = nrm @ np.array(omlaag)
+    oh = np.where(kies & (c > 0), 90.0 - np.degrees(np.arccos(np.clip(c, -1.0, 1.0))), -1.0)
+    if not kies.any():
+        return None
+    j = int(np.argmax(oh))
+    schuin = int(((oh > 40.0) & (oh <= MAX_OVERHANG)).sum())
+    return max(0.0, float(oh[j])), int(kies.sum()), (float(x[j]) / u, float(rho[j]) / u, float(z[j]) / u), schuin
+
+
 def _plaats(maak, cursor, s=0.2):
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
@@ -172,6 +196,8 @@ def toets(stap, eigen, cursor):
             if uit is None:
                 stap(f"print {naam} deel {deel}: vlakken bij neus en kuiltje gevonden", False)
                 continue
+            if deel == "A":
+                _toets_wang(stap, naam, ob, b, omlaag, u)
             oh, hoek, aantal, plek = uit
             plek_t = f"(x {plek[0]:.3f}, rho {plek[1]:.3f}, z {plek[2]:.3f} mm)" if plek else "geen vlak naar onder"
             print(f"[cj-betaald] METING print {naam} deel {deel}: grootste overhang bij neus, kuiltje"
@@ -179,3 +205,16 @@ def toets(stap, eigen, cursor):
                   f"vlakken, slechtste vlak {plek_t}, omlaag {tuple(round(c, 3) for c in omlaag)}")
             stap(f"print {naam} deel {deel}: geen overhang boven {MAX_OVERHANG:.0f} graden bij neus, kuiltje"
                  f"{' en sleuf' if deel == 'A' else ''}", oh <= MAX_OVERHANG, f"{oh:.2f} graden {plek_t}")
+
+
+def _toets_wang(stap, naam, ob, b, omlaag, u):
+    """Nieuwe toets bij eis 5: de schuine onderkant van de wang van A is er en hangt hoogstens 45 graden over."""
+    uit = wang_onder(ob, b, omlaag, u)
+    if uit is None:
+        stap(f"print {naam} deel A: vlakken onder de wang gevonden", False)
+        return
+    oh, aantal, plek, schuin = uit
+    print(f"[cj-betaald] METING print {naam} deel A: onderkant wang grootste overhang {oh:.2f} graden over {aantal} "
+          f"vlakken (x {plek[0]:.3f}, rho {plek[1]:.3f}, z {plek[2]:.3f} mm), vlakken op 40 tot 45 graden {schuin}")
+    stap(f"print {naam} deel A: schuine onderkant wang hoogstens {MAX_OVERHANG:.0f} graden en aanwezig",
+         oh <= MAX_OVERHANG and schuin > 0, f"{oh:.2f} graden, {schuin} schuine vlakken")

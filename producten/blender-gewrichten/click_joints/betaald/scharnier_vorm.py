@@ -37,6 +37,8 @@ MARGE = 0.0       # graden onder de stand; 0, want de rand van het stopvlak word
 TE_DUN = "Too thin here for a hinge. Try a thicker spot."
 KIJK_LANGS = "Look at the joint from the side to place a hinge."
 VOORKEUR_MIN = 0.05   # omhoog minder dan ongeveer 3 graden uit de lidas: geen voorkeur voor de buigkant
+SCHUIN = 44.0     # graden: schuine onderkant van de wang van A aan de voorkant (eis 5, hoogstens 45 overhang)
+SCHUIN_MARGE = 4.0  # graden voorbij de plek waar het wigvlak van A de wangcilinder snijdt
 
 
 def frame_scharnier(punt, h, buig, lid):
@@ -195,6 +197,31 @@ def boven_a(m, g):
     return [(-g, -s / 2), (yp, -s / 2), (yp, -c), (g, -c - (g - yp) * ta), (g, g), (-g, g)]
 
 
+def afschuin(m, g):
+    """Doorsnede (y, z) van de schuine snede onder de wang van A aan de voorkant (eis 5), of None.
+
+    De wangcilinder (straal rho = Rn - s/2 om H) steekt voor H onder het wigvlak van A uit. Een punt van de
+    cilinder op hoek theta onder de buigkant heeft een overhang van theta graden als A rechtop print (omlaag =
+    -L); het wigvlak snijdt de cilinder op theta_j = a + asin(s / (2 rho)), bij stand 115 ongeveer 57,7 graden.
+    Deze snede haalt het kapje van de cilinder weg voorbij een rechte lijn met de normaal op SCHUIN graden onder
+    de buigkant, die de cilinder snijdt op SCHUIN - b en theta_j + SCHUIN_MARGE. Wat overblijft: cilinder tot
+    SCHUIN - b (overhang kleiner dan SCHUIN), dan het vlakke stuk op SCHUIN graden tot het wigvlak.
+    Alleen van de wangcilinder af (niet van het figuur): onder het wigvlak blijft A heel. Het kapje ligt op
+    afstand d = rho cos b of meer van H: ver van kuiltje en neus (binnen ongeveer 0,4 rho), alleen materiaal
+    weg (de speling naar B, buiten Rn + s/2, wordt nergens kleiner) en het stopvlak van A begint pas voorbij
+    de cilinder, waar het onveranderd blijft."""
+    rho, s = m["rn"] - m["s"] / 2, m["s"]
+    phi = math.radians(SCHUIN)
+    theta_j = m["alfa"] + math.asin(min(1.0, s / (2 * rho)))
+    if theta_j <= phi:
+        return None
+    d = rho * math.cos(theta_j + math.radians(SCHUIN_MARGE) - phi)
+    ny, nz, ty, tz = math.cos(phi), -math.sin(phi), math.sin(phi), math.cos(phi)
+    cy, cz = -m["e"] + ny * d, nz * d
+    return [(cy - ty * g, cz - tz * g), (cy + ty * g, cz + tz * g),
+            (cy + (ty + ny) * g, cz + (tz + nz) * g), (cy + (ny - ty) * g, cz + (nz - tz) * g)]
+
+
 def as_cilinder(naam, r, x0, x1, frame, m, collectie):
     """Cilinder om H (de X-as door het draaipunt) van x0 tot x1."""
     f = frame @ Matrix.Translation((0, -m["e"], 0)) @ Matrix.Rotation(math.pi / 2, 4, "Y")
@@ -213,6 +240,11 @@ def snij(hulp, werk, frame, m, solver):
     boolean(gereed_a, gat, "UNION", solver)
     for k, (x0, x1) in enumerate(((tw + s, g * 1.1), (-g * 1.1, -(tw + s)))):
         wang = as_cilinder(f"cj_wang_{k}", rn - s / 2, x0, x1, frame, m, hulp)
+        schuin = afschuin(m, g)
+        if schuin is not None:  # eis 5: schuine onderkant voor H in plaats van de ronde (zie afschuin)
+            boolean(wang, prisma(f"cj_schuin_{k}", schuin, -1.2 * g, 1.2 * g, frame, hulp), "DIFFERENCE", solver)
+            rond, wang = wang, bak(wang, f"cj_wang_schuin_{k}", hulp)
+            rond.hide_set(True)
         boolean(gereed_a, wang, "DIFFERENCE", solver)
     if "neus_h" in m:  # eis 3: kuiltjes in de wangen (bol met straal + s om de top van de neus)
         for kuil in neus.neuzen(frame, m, hulp, kuiltje=True):
