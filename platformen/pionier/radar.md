@@ -2,6 +2,8 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 10:05 | Whatnot Seller API algemeen open sinds 29 okt 2026 voor alle live-verkopers, met MCP en verzendlabels; alleen voor eigen gebruik, OAuth-apps voor derden via het Whatnot-team; Whatnot $20 mld, verkoop verdubbelt in 2026 | https://blog.teamwhatnot.com/unitedstates/whatnot-seller-api | GEZIEN | onderzocht: cijfer 5, elke week meten
+- 9 nov 2026 09:45 | Nous Research Hermes Marketplace: 976 plugins, gratis; ChatGPT Plugin Extensions: geen betaalroute (eigen kassa buiten ChatGPT mag) | https://top5apps.ai/news/chatgpt-plugin-extensions-store-2026/ | DERDEN | geen nieuw feit, nee
 - 9 nov 2026 09:00 | Linear-integraties: 366 in de sitemap, sinds 2022, ±10 nieuw per maand, okt 28; Folk, Granola, Pylon, Plain zonder lijst voor makers | https://linear.app/integrations | GEZIEN | nee voor de pionier
 - 9 nov 2026 09:00 | Attio App Store: SDK stabiel sinds 11 aug 2026, 294 apps (166 van derden, ±20 nieuw per maand), makers verkopen met eigen kassa ($29 tot $199/mnd), npm `attio` ×7 in een jaar | https://attio.com/apps | GEZIEN | onderzocht: cijfer 6, ja met kleine inzet; herhaal 9 dec
 - 9 nov 2026 08:45 | DeepSeek Harness: officiële plugin-marketplace en steunprogramma (tokens, promotie) aangekondigd, 35.000 plugins, 1,54 mln dagelijkse gebruikers; geen verkoop door makers | https://technode.com/2026/11/06/deepseek-plans-official-plugin-marketplace-as-harness-daily-users-reach-1-54-million/ | DERDEN | nee (AI-agent-soort zonder betalen)

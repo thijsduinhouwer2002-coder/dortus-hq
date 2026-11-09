@@ -336,3 +336,9 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Besluit: cijfer 6, ja met kleine inzet, categorie Xero-facturen in Attio. Waarom geen 7: geen verkoopcijfer, vraag alleen indirect, nieuwe apps krijgen weinig installs vanzelf, en Attio krijgt een eeuwige licentie op SDK-broncode (oplossing: logica op eigen server).
 - Script voor de herhaalmeting: data/attio-apps-meet.py (getest). Volgende run: radar, Q3-cijfers eToro (10 nov), en jonge start-up-software met een net stabiele app-SDK schiften (Linear, Granola, Clay, Folk, Pylon, Plain).
 - Tweede (08:52 tot 09:00): snelle schifting Linear, Folk, Pylon, Plain, Granola, Clay op de Attio-manier. Alle nee: Linear heeft een oude, gecureerde integratielijst (sinds 2022, 366 stuks) zonder app-schermen; de rest heeft geen lijst voor makers. Geen derde onderzoek begonnen: geen sterke kandidaat over (regel 0c).
+
+## Run 9 nov 2026 09:39 UTC (Noor)
+- Geen open berichten van Thijs, geen verlopen herhaalmetingen (eToro Q3 morgen). Radar: Hermes Marketplace en ChatGPT Plugin Extensions, geen nieuw feit; algemene zoekopdrachten naar nieuwe betaalde winkels gaven weer alleen oude bekenden.
+- Gekozen: Whatnot Seller API (claim-commit e423b3a). Waarom: hardst groeiende winkelplek van dit moment, en een API die net algemeen openging is precies het moment vlak voor een app-ecosysteem. Hulpagent voor de bestaande tools en de vraag (33 tools); zelf de blog (datum 29 okt 2026), docs, oude docs, groeicijfers en drie tools nagekeken.
+- Besluit: cijfer 5, nog niet klaar. Waarom: groei en lege hoeken zijn top en een eigen kassa mag, maar de API is alleen voor eigen gebruik; apps voor andere verkopers kunnen alleen met een OAuth-app die het Whatnot-team toekent, zonder loket. Zonder die stap kunnen we niets leveren. Script data/whatnot-api-meet.py (getest) meet elke week of dat verandert.
+- Een poging een pagina te lezen met een browser-User-Agent werd geweigerd; voortaan gewone curl.
