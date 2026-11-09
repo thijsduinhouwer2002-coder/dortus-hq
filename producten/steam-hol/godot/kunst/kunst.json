@@ -1,0 +1,110 @@
+{
+ "spelpixel": "1 spelpixel = 2 schermpixels bij 100% Windows, 3 bij 150%, 4 bij 200% (altijd hele schaal, filter nearest)",
+ "cel": 16,
+ "maaiveld_hoogte": 12,
+ "tegels.png": {
+  "rij0": "aarde, 4 varianten (kies willekeurig per cel, vast zaad)",
+  "rij1": "gang, 16 varianten, index = n*1 + e*2 + s*4 + w*8 waarbij een bit 1 is als die buur AARDE is"
+ },
+ "gras.png": {
+  "frame": [
+   16,
+   12
+  ],
+  "varianten": 4,
+  "plek": "boven de bovenste aardelaag"
+ },
+ "ingang.png": {
+  "frame": [
+   20,
+   14
+  ],
+  "anker": "onderkant op de grasrand, poortje boven de ingang-cel"
+ },
+ "fakkel.png": {
+  "frame": [
+   8,
+   12
+  ],
+  "frames": 4,
+  "fps": 6,
+  "plek": "aan de wand van een gang, alleen bij de ingang en de schatkamer"
+ },
+ "schat.png": {
+  "frame": [
+   24,
+   16
+  ],
+  "frames": 4,
+  "fps": 4,
+  "anker": "midden onder"
+ },
+ "slijm.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "rust": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "rust_fps": 3,
+  "hap": [
+   4,
+   5
+  ],
+  "anker": "midden onder"
+ },
+ "stekelput.png": {
+  "frame": [
+   16,
+   8
+  ],
+  "dicht": 0,
+  "half": 1,
+  "open": 2,
+  "anker": "op de vloer van de gang"
+ },
+ "held_lijf.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "lopen": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "fps": 8,
+  "anker": "midden onder (voeten op y 15)",
+  "kijkt": "rechts; spiegel voor links"
+ },
+ "held_hoeden.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "helm",
+   "puntmuts",
+   "kap",
+   "pet"
+  ],
+  "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"
+ },
+ "held_wapens.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "zwaard",
+   "staf",
+   "fakkel"
+  ],
+  "tekenen": "zwaard en fakkel boven het lijf, staf achter het lijf; 1 px omlaag bij frames 1 en 3"
+ }
+}
