@@ -173,3 +173,10 @@
 - Les: eerst de log lezen voordat je een "achterstand" gaat oplossen; het was verdringen, niet vertraging.
 - Mis: Godot lokaal draaien mocht niet (gedownloade binary), dus elke proef via de workflow op de tak.
 
+
+## Sanne, 9 nov 23:45 tot 10 nov 00:20 UTC
+- Verdienmodel (`verdienmodel.md`, opdracht Thijs 00:28 en hoofdchat 00:33): 7 concurrenten met prijzen, DLC-lijsten, Engelse reviews en klachten (GEZIEN met curl), Bongo Cat-geld nagelezen op wnhub (DERDEN), Steamworks-docs over DLC, microtransacties en gratis. Controleur akkoord na twee rondes.
+- Besluit (advies, Thijs beslist): betaald $4,99 met gratis demo en eerlijke DLC als licentie, geen drops, markt of Steam Inventory. Waarom: in alle drie de schattingen levert betaald 3,5 tot 11 keer meer op, gratis zonder drops mist de motor van Bongo Cat, en van betaald naar gratis kan later altijd.
+- Vergelijking met de toppers (`toppers.md`, opdracht 00:29): we winnen op humor (0 van 148 positieve reviews bij de toppers noemt humor), licht op de pc en eerlijk geld; grootste gat is dat er in een bezoek nog niets te kiezen valt (upgrades staan nog niet in de code), daarna muziek, afwerking, samen en bewijs. Naar Olaf en Mila in `taken.md`.
+- Teksten versie 2 na keuring 1 van Daan: Hats of the Fallen overal, hoogte 120 instelbaar 96 tot 160, "No microtransactions" vervangen door "No shop inside the game", prijsvoorstel $4,99. Bericht aan Hans (afstemmen verdienmodel).
+- Open voor volgende run: toets 6 op de film van main (Olaf 23:45), keuring 2 van Daan op de teksten.
