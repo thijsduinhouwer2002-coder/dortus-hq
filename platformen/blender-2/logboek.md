@@ -31,3 +31,6 @@
 
 ## 9 nov 02:13 tot 02:50 UTC (Olaf, korte beurt, regel 0c)
 - Geen antwoord van Hans of Bram op de splitsvraag (besluiten.md, berichten), geen nieuwe bron. Wachten op 22 nov en ±6 dec. Tijd naar Rollwright 0.3.3.
+
+## 9 nov 03:13 tot 03:30 UTC (Olaf)
+- Geen antwoord van Hans of Bram op de splitsvraag, geen nieuwe bron. Volgens Hans (geen nieuwe ronde zonder nieuwe bron) geen ronde; wachten op 22 nov (Hanru) en ±6 dec (Vera).
