@@ -144,5 +144,123 @@
    "fakkel"
   ],
   "tekenen": "boven het lijf, in de rechterhand; 1 px omlaag bij frames 1 en 3"
+ },
+ "held_littekens.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "pleister",
+   "ooglap",
+   "schram",
+   "verband"
+  ],
+  "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam)"
+ },
+ "held_hoeden_hap.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "volgorde": [
+   "helm",
+   "puntmuts",
+   "kap",
+   "pet"
+  ],
+  "gebruik": "in plaats van held_hoeden.png als de held al eens door de slijm is gebeten (wrok tegen Gloop)"
+ },
+ "held_lijf_kleuren.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "rijen": [
+   "rood",
+   "groen",
+   "paars",
+   "oker",
+   "blauwgrijs"
+  ],
+  "gebruik": "zelfde frames als held_lijf.png (4 per rij); kies de rij vast per held, zodat Kees altijd dezelfde tuniek heeft en je hem herkent"
+ },
+ "tekens.png": {
+  "frame": [
+   8,
+   8
+  ],
+  "volgorde": [
+   "boos",
+   "uitroep",
+   "zweet",
+   "zzz",
+   "ster"
+  ],
+  "plek": "midden boven het hoofd, 2 spelpixels boven de hoed; boos = wrok en ziet zijn vijand, uitroep = ziet de schat, zweet = vlucht, zzz = slijm slaapt, ster = aartsvijand (blijft staan)"
+ },
+ "slijm_leven.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "animaties": {
+   "slapen": [
+    0,
+    1
+   ],
+   "spugen": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "hap": [
+    6,
+    7,
+    8
+   ],
+   "plat": [
+    9
+   ],
+   "opstaan": [
+    10
+   ]
+  },
+  "fps": 5,
+  "gebruik": "slapen: herhalen met zzz uit tekens.png erboven; spugen en hap: eenmalig, daarna terug naar rust van slijm.png; plat: in plaats van uitrekken (nooit schalen, dat breekt de pixels), opstaan: 1 frame voor hij weer rust",
+  "zuinig": "een leven-animatie hooguit eens per 20 tot 40 s, alleen als er geen held is"
+ },
+ "laars.png": {
+  "frame": [
+   8,
+   8
+  ],
+  "gebruik": "ligt na 'spugen' een tijdje naast de slijm op de vloer (buit van een held die vluchtte)"
+ },
+ "paneel.png": {
+  "9slice": 4,
+  "maat": [
+   12,
+   12
+  ],
+  "tekst": "kleur #ffe07a voor de kop, #f3e2c0 voor de regel, 1 spelpixel ruimte binnen de rand",
+  "gebruik": "NinePatchRect (patch_margin 4 aan alle kanten, texture_filter nearest, schaal gelijk aan de strook) in plaats van het zwarte vlak"
+ },
+ "naamkaartje.png": {
+  "9slice": 3,
+  "maat": [
+   10,
+   8
+  ],
+  "tekst": "kleur #2a1a1f, naam van de aartsvijand",
+  "gebruik": "onder de held als hij aartsvijand is (3 keer gevlucht) en onder elk bord op de wand van aartsvijanden"
+ },
+ "trofee.png": {
+  "frame": [
+   16,
+   16
+  ],
+  "gebruik": "wand van aartsvijanden in de schatkamer: bord tegen de wand, de hoed van de held 4 spelpixels hoger erop, naamkaartje eronder"
  }
 }

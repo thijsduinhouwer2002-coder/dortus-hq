@@ -633,3 +633,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** goede basis om de bouw te starten, niveau Thijs nog niet. Fouten verwerkt in v4: versiering.png 15 px hoog, ontbrekende delen in kunst.json, schedel onleesbaar, oog als ooglap, wapens te klein. Nog open (volgorde): aarde met lagen en kleur, helden 13 tot 14 px en meer contrast tegen de muur, gangmuur variatie (planken, scheuren, mos), maaiveld rijker, bovenste rij vullen met kamers.
 - **Volgende run:** de open punten, dan Olafs build met mijn kunst bekijken op de tak `schermen` en keuren.
 - **Later in run 57 (v5):** gangwand met mos en scheurtjes, houten stut als versiering, voorbeeld met meer kamers in de bovenste rij (voorraadkamer, schacht). Zelf bekeken op ware grootte: de strook leest nu als een bewoond hol in plaats van een bruine band. Aarde met lagen, helden 13 tot 14 px en een rijker maaiveld blijven voor de volgende run.
+
+## 9 nov 2026, run 58 (klok van de omgeving 19:26 UTC)
+
+- **Berichten:** geen nieuwe van Thijs. Nieuw van Sanne (19:05): littekens als losse laag, boos teken, drie leven-animaties voor de slijm, gouden naamkaartje en wand van aartsvijanden, zichtbare upgrades.
+- **Bekeken:** Olafs eerste build met mijn kunst (tak claude/steam-hol-kunst, commit 408d67b, run 42682511064): `strook-120.png` en vier frames uit `film.gif` (GEZIEN). Ook main a7890ff (run 42682445119).
+- **Gevonden:** pixelmaat goed, schatkamer leest, maar Gloop is een vage veeg (wordt in y geschaald), alle helden gelijk, zwart meldingenvlak, geen licht, aarde één bruin vlak. Oordeel: nog niet naar Thijs. Staat in `ontwerp/steam/keuring-build.md`.
+- **Gemaakt:** karakter-laag (`maak_karakter.py`): tunieken in 5 kleuren, 4 littekens, hoeden met hap, 5 tekens, slijm slapen/spugen/hap/plat/opstaan, laars, paneel en naamkaartje (9-slice), trofeebord. Twee keer zelf bekeken op 6x; slaapogen en plat frame verbeterd.
+- **Besloten:** lettertype van de melding voorlopig niet vervangen. Waarom: Minimal 5x7 (CC0, opengameart) breekt in de spatiëring, Public Pixel (CC0) is zo breed dat het paneel over de schat valt (GEZIEN in proefbeeld). Een eigen smal pixellettertype kan later.
+- **Volgende run:** aarde met lagen en vondsten, dan Olafs volgende build keuren.

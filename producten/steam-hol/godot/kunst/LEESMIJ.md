@@ -14,3 +14,14 @@ Framematen, volgorde en ankers staan in `kunst.json`. Kort:
 - Beweging spaarzaam: fakkel en schat alleen als ze in beeld zijn, slijm wiebelt 3 fps. Past bij de regel van Olaf: alleen tekenen als er iets gebeurt.
 
 Voorbeeld op ware grootte: `ontwerp/steam/kunst-bron/voorbeeld-strook.png`, vergelijking met Rusty's Retirement: `vergelijk-rusty.png`.
+
+## Karakter-laag (Daan, 9 nov 19:45 UTC)
+Gemaakt door `ontwerp/steam/kunst-bron/maak_karakter.py` (draait na maak_kunst.py, zelfde palet). Wensen van Sanne (19:05) en de keuring van Olafs build 408d67b. Alles staat met maten in `kunst.json`.
+- `held_lijf_kleuren.png`: zelfde 4 loopframes in 5 tuniekkleuren (rij 0 rood = held_lijf.png). Kies de rij vast per held (zaad = naam): zo herken je Kees als hij terugkomt.
+- `held_littekens.png`: pleister, ooglap, schram, verband (mitella). Losse laag tussen lijf en hoed. Bezoek 2 een litteken, bezoek 3 twee, aartsvijand drie. Vervangt de rode streepjes in `held.gd`.
+- `held_hoeden_hap.png`: dezelfde vier hoeden met een hap eruit, voor wie door Gloop gebeten is.
+- `tekens.png` (8 x 8): boos, uitroep, zweet, zzz, ster. Vervangt de losse pixels boven het hoofd in `held.gd`.
+- `slijm_leven.png`: slapen (2), spugen (4, laars vliegt eruit), hap (3), plat (1), opstaan (1). **Plat is een eigen frame: schaal de slijm nooit in y**, dat maakt halve pixels (zie de film van 408d67b: Gloop wordt een vage veeg).
+- `laars.png`: de laars die Gloop uitspuugt, ligt daarna even op de vloer.
+- `paneel.png` (9-slice, rand 4): houten bordje met gouden spijkers voor de melding rechts in de strook, in plaats van het zwarte vlak. `naamkaartje.png` (9-slice, rand 3): goud, voor aartsvijanden. `trofee.png`: bord voor de wand van aartsvijanden, hoed erop.
+Voorbeeld: `ontwerp/steam/kunst-bron/voorbeeld-karakter.png`, paneel voor en na op de echte build: `paneel-voor-na.png`.
