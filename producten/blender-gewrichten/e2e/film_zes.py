@@ -20,7 +20,7 @@ Wat er anders is dan ronde 5:
 
 ACHTERGROND = "#0B0C0F"   # 6d: Daan 04:33, rand van de lichtvlek (midden #1E2026)
 VLEK = "#1E2026"
-HOUT_LICHT, HOUT_DONKER = "#D8A86E", "#C49060"   # 6d: Daan 04:33, bijna egaal, nerf hooguit 10 procent verschil
+HOUT_LICHT, HOUT_DONKER = "#D8A86E", "#CC9A66"   # 6e: nog minder verschil (6d close-up nog streperig); 6d: Daan 04:33, bijna egaal, nerf hooguit 10 procent verschil
 ROOD = (*kleur("#E0261C"), 1.0)   # 6d: Daan 04:33, verzadigd rood als basis, lage gloed (AgX bleekt fel rood naar roze)
 KLEUR_3200K = "#FFE4CE"   # 6c2: hoofdlicht nu ±5000 K (3200 K maakte het hout oranje); naam blijft voor film_mooi
 KLEUR_8000K = "#E3E9FF"   # zwarte straler 8000 K, sRGB
@@ -142,19 +142,19 @@ def hout_kleur(nt):
     golf = nt.nodes.new("ShaderNodeTexWave")
     golf.wave_type, golf.bands_direction = "BANDS", "X"
     golf.inputs["Scale"].default_value = 0.55            # 6d: fijner (lijn om de ±0,6 mm)
-    golf.inputs["Distortion"].default_value = 4.0
+    golf.inputs["Distortion"].default_value = 6.0   # 6e: lijnen lopen meer uiteen
     golf.inputs["Detail"].default_value = 4.0
     golf.inputs["Detail Roughness"].default_value = 0.7
     breed = nt.nodes.new("ShaderNodeTexNoise")           # 6d: lijnen onderbroken en ongelijk, geen ribfluweel
-    breed.inputs["Scale"].default_value = 0.35
+    breed.inputs["Scale"].default_value = 0.6   # 6e: lijnen vaker onderbroken
     breed.inputs["Detail"].default_value = 2.0
     keer = nt.nodes.new("ShaderNodeMath")
     keer.operation = "MULTIPLY"
     meng = nt.nodes.new("ShaderNodeValToRGB")
     meng.color_ramp.elements[0].color = (*kleur(HOUT_LICHT), 1)
     meng.color_ramp.elements[1].color = (*kleur(HOUT_DONKER), 1)
-    meng.color_ramp.elements[0].position = 0.15
-    meng.color_ramp.elements[1].position = 0.55
+    meng.color_ramp.elements[0].position = 0.25
+    meng.color_ramp.elements[1].position = 0.75   # 6e: alleen de sterkste lijnen tellen
     nt.links.new(tex.outputs["Vector"], ruis.inputs["Vector"])
     nt.links.new(ruis.outputs["Color"], vervorm.inputs[0])
     nt.links.new(tex.outputs["Vector"], vervorm.inputs[2])

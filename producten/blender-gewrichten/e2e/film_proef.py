@@ -1,4 +1,4 @@
-"""Snelle proef voor filmisch ronde 6 (6d: Daan 04:33, bijna egaal hout, rood #E0261C dichterbij, lichtvlek, strakke ring; 6c: punten Daan 03:55, rood van dichtbij op de rode vlakken, pop groter) (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
+"""Snelle proef voor filmisch ronde 6 (6e: nerf nog rustiger; 6d: Daan 04:33, bijna egaal hout, rood #E0261C dichterbij, lichtvlek, strakke ring; 6c: punten Daan 03:55, rood van dichtbij op de rode vlakken, pop groter) (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
 hout beuken, oneindige achtergrond, en het rood op 28 graden vanuit vijf hoeken plus Exploded view.
 
 Laadt film_mooi.py zonder de hoofdlus en daarna film_zes.py in dezelfde namespace (die vervangt pop, hout,
