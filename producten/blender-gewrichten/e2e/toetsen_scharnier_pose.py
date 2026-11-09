@@ -122,3 +122,18 @@ def toets(stap, eigen, cursor):
              fout < 1e-5, f"{fout:.2e}")
         stap(f"pose 60 met B zelf gedraaid ({modus}): export STL gelijk aan zonder pose", d < 1e-4, f"{d:.7f} mm")
     beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
+    # (f) Pose-schuif in het paneel hoort bij het actieve scharnier en leest de stand van deel B terug.
+    wm = bpy.context.window_manager
+    figuren.maak_actief(b)
+    wm.cj_scharnier_pose = 30.0
+    bpy.context.view_layer.update()
+    terug = wm.cj_scharnier_pose
+    stap("pose-schuif: zet de stand op deel B en leest hem terug",
+         abs(float(b.get("cj_pose_graden", -1)) - 30.0) < 1e-6 and abs(terug - 30.0) < 1e-4, f"{terug}")
+    b["cj_pose_graden"] = 45.0  # zoals na heropenen: de stand staat in de .blend, de schuif volgt
+    stap("pose-schuif volgt de stand die op deel B staat", abs(wm.cj_scharnier_pose - 45.0) < 1e-4,
+         f"{wm.cj_scharnier_pose}")
+    figuren.maak_actief(staaf)
+    stap("pose-schuif zonder actief scharnier: 0", wm.cj_scharnier_pose == 0.0, f"{wm.cj_scharnier_pose}")
+    figuren.maak_actief(b)
+    wm.cj_scharnier_pose = 0.0

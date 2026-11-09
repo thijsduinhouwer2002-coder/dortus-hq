@@ -169,14 +169,28 @@ def herteken(_wm=None, context=None):
                 gebied.tag_redraw()
 
 
-def bij_pose(wm, context):
-    """Pose-schuif: alleen de weergave, net als bij de kogel."""
+def _actief_paar():
+    ctx = bpy.context
+    ob = getattr(ctx, "active_object", None) or ctx.view_layer.objects.active
+    return paar(ctx.scene, ob)
+
+
+def _pose_lees(_wm):
+    """De pose-schuif hoort bij het actieve scharnier: de stand staat op deel B (cj_pose_graden), dus elk scharnier
+    houdt zijn eigen stand, ook na heropenen van het bestand (kan-punt controleur eis 8)."""
+    try:
+        _a, b = _actief_paar()
+    except (AttributeError, TypeError):
+        return 0.0
+    return float(b.get("cj_pose_graden", 0.0)) if b is not None else 0.0
+
+
+def _pose_zet(_wm, waarde):
     from .. import kleur
-    ob = getattr(context, "active_object", None) or context.view_layer.objects.active
-    a, b = paar(context.scene, ob)
+    a, b = _actief_paar()
     if a is None or b is None:
         return
-    beweeg.pose(a, b, float(wm.cj_scharnier_pose), kleur.materiaal("rood"))
+    beweeg.pose(a, b, float(waarde), kleur.materiaal("rood"))
     herteken()
 
 
@@ -204,7 +218,7 @@ def register():
     bpy.types.WindowManager.cj_scharnier_pose = bpy.props.FloatProperty(
         name="Bend", default=0.0, min=0.0, max=150.0,
         description="Bend part B in the view only, to check the range. Past the end stop, touching faces turn red",
-        update=bij_pose)
+        get=_pose_lees, set=_pose_zet)
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.append(teken_paneel)
