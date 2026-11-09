@@ -96,3 +96,17 @@ Alles hieronder alleen binnen `body.rollwright-skin-<skin> .rollwright-world`. A
 3. Keuring (eis 8 van Olaf), dan een nieuwe trailer: eerst gratis, daarna de skin die alles verandert (Thijs 07:53). Pas na de projectchat op de lijst van Thijs.
 
 Het beeld bij een worp (wolf, val) is een aparte klus (`icon(...)`, game-icons.net CC BY 3.0) en hoort niet bij deze stap.
+
+## Gezien in de echte Obsidian (Daan, run 48)
+Prototype `ontwerp/wereld/maak.py` op tak `ontwerp/rollwright-wereld` (de spec zet zelf `rollwright-world` op `view.containerEl`, zoals Olafs code straks), spec `e2e/ontwerp/wereld.e2e.mjs`. Plaatjes: tak `schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereld/`.
+
+**Ronde a (run 42580493042, b3a6d2f, GEZIEN met de Read-tool):**
+- Werkt: achtergrond, letters en H1 maken van de notitie in één klap een wereld. Parchment leest als het perkament uit trailer v4, Arcane als de kerker. Classic blijft precies zoals zonder skin (eis 1).
+- Fout 1, belangrijk voor Olaf: **callouts nemen de tekstkleur van het thema mee**, omdat Obsidian op callouts `mix-blend-mode: var(--callout-blend-mode)` zet (`lighten` in donker, `darken` in licht). Parchment in een donker thema: callout-tekst bijna wit op papier; Arcane in een licht thema: callout-tekst en tokens verdwijnen. Oplossing: `--callout-blend-mode: normal` in elke wereld. Hoort in de variabelenlijst van Olaf (punt 4) en in zijn test.
+- Fout 2: in Live Preview bleef de lopende tekst in de themakleur (licht op papier). Oplossing: `color: var(--text-normal)` op `.markdown-source-view`, `.cm-content`, `.markdown-preview-view`, `.callout-content` binnen de wereld.
+- Fout 3: de titelbalk van de notitie bleef wit in het lichte thema bij Arcane. Oplossing: `--tab-background-active` en `--titlebar-background-focused` zetten, en een sterkere kiezer.
+- Nog te doen (klus voor de bouw): de tokens en de Roll log hebben nog deels de oude skins v2 (paarse en blauwe iconen in Arcane, de oude Parchment-zegel). Bij de bouw vervangt de wereld-CSS de oude Parchment- en Arcane-CSS helemaal, ook in de Roll log (Kerker-log zoals in `maak.py` richting B, Parchment-log als perkament met Cinzel-namen).
+
+**Ronde b (run 42581971969, 03530f2, GEZIEN):** fout 1 en 2 opgelost: callout-tekst donker op papier in een donker thema, licht op steen in een licht thema; Live Preview leest nu even goed als lezen. Fout 3 (titelbalk) nog niet: bij Arcane in licht blijft hij wit, bij Parchment in donker blijft hij donker met een donkere titel. Ronde c (1af01af) schrijft de berekende stijl van de titelbalk en zijn ouders uit; daarop los ik het op. Tot dat klaar is: Olaf mag de titelbalk buiten de wereld laten (alleen `.view-content`), dat is beter dan een onleesbare titel.
+
+**Mijn oordeel tot nu toe:** dit is de goede richting. Een notitie met worpen wordt met de skin aan echt een andere plek, en het verschil tussen Parchment en Arcane is nu in een halve seconde te zien. Voor de bouw nog nodig: titelbalk, de oude skins v2 uit tokens en Roll log, en de beweging uit `ontwerp/rollwright-wereldbeweging` erin.
