@@ -136,6 +136,8 @@ func _ready() -> void:
 # De kroniek loopt gelijk met het beeld (Sanne toets 5, punt 1). Elke regel gaat eerst in een wachtrij; _toon() kiest:
 # - een regel over wat er gebeurt (val, vlucht, schat, hoed, plat) gaat altijd voor en verdringt een binnenkom-regel na 1 s;
 # - een binnenkom-regel komt alleen als er niets anders wacht en vervalt na 3 s wachten (dan komt hij nooit in de kroniek);
+#   "Gloop is flat" en "up again" zijn net zo laag: een toestand, geen gebeurtenis (film run 42720059959: anders liep de
+#   kroniek in een drukke minuut 6 s achter door plat en op);
 # - een getoonde regel blijft minstens 2,5 s staan (een binnenkom-regel 1 s als er een gebeurtenis wacht); wacht er niets,
 #   dan blijft hij staan tot er iets nieuws is (een leeg vak zegt niets).
 # Alleen getoonde regels komen in `kroniek` (hover en opslag), zodat je nooit een regel terugleest die niemand zag.
@@ -378,7 +380,7 @@ func _process(delta: float) -> void:
 		var nu_plat: bool = not slijm.kan_vechten()
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
-			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}))
+			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}), true)   # laag: toestand, geen gebeurtenis
 	var helden := 0
 	for w in wezens.get_children():
 		if w.has_method("is_held"):
