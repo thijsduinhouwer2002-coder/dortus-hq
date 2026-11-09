@@ -678,3 +678,4 @@ Nieuwste blok onderaan.
 - Controleur: getallen kloppen; belangrijkste correctie: userCount telt huidige gebruikers, niet kopers (valt naar 0 bij gestopte producten). Opbrengst per verkoop ligt rond de vraagprijs. Cijfer van 3 naar 4.
 - Les: als een winkel per maker een verkoopteller toont, meet makers via die teller en niet via gebruikers per product; die laatste valt terug zodra een product stopt.
 - Daarna in dezelfde run het affiliateprogramma nagelezen (affiliate.ctrader.com, met Playwright weergegeven): 10 tot 20% op aangebrachte winkelverkopen en broker-links; verhoogt het cijfer niet.
+- Daarna FxFactory (videoplugins voor Final Cut Pro en Premiere) om 06:58 op "in onderzoek" gezet: voorwerk, niet te meten (productpagina's tonen alleen prijs en versie). Run afgesloten.
