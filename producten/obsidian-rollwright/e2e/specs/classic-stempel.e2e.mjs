@@ -53,9 +53,17 @@ async function klikEnMeet(i, waarde) {
 				Math.random = echt;
 				// Laat de animaties van de stempel uitlopen, zodat te zien is waar ze eindigen (zichtbaar of niet).
 				const eindStempel = roll?.querySelector(":scope > .rollwright-stamp");
+				// Run 42536132426: geen animaties en zicht 0 in elk beeld. Waarom precies: de stijl zelf en de ouders.
+				const es = eindStempel ? getComputedStyle(eindStempel) : null;
+				const ouders = [];
+				for (let p = eindStempel?.parentElement; p && ouders.length < 12; p = p.parentElement) {
+					const ps = getComputedStyle(p);
+					if (ps.display === "none" || ps.visibility !== "visible" || ps.opacity !== "1") ouders.push(`${p.tagName}.${String(p.className).slice(0, 60)} d=${ps.display} v=${ps.visibility} o=${ps.opacity}`);
+				}
+				const uitleg = es ? { display: es.display, visibility: es.visibility, opacity: es.opacity, animatie: es.animationName, vertraging: es.animationDelay, duur: es.animationDuration, verbonden: eindStempel.isConnected, zichtbaar: document.visibilityState, ouders, html: roll?.outerHTML.slice(0, 400) } : null;
 				for (const a of eindStempel?.getAnimations?.() ?? []) a.finish();
 				const eindZicht = eindStempel ? Number(getComputedStyle(eindStempel).opacity) : 0;
-				klaar({ beelden, klassen: roll?.className ?? "", eindZicht });
+				klaar({ beelden, klassen: roll?.className ?? "", eindZicht, uitleg });
 			}
 		};
 		requestAnimationFrame(kijk);
@@ -97,6 +105,7 @@ describe("Rollwright: stempel in Classic pas na het doortellen (Daan kan-punt 1)
 				expect(eind.telt).toBe(false);
 				expect(eind.stempel).toBe(stempel);
 				console.log(`CLASSIC STEMPEL ${naam} klik ${keer} eind: zicht ${eind.zicht}, na finish ${m.eindZicht}, animaties ${JSON.stringify(eind.anim)}`);
+				console.log(`CLASSIC STEMPEL ${naam} klik ${keer} uitleg: klassen ${m.klassen} ${JSON.stringify(m.uitleg)}`);
 				// Elk tellend beeld: de stempel-animatie wacht nog (of er is geen zichtbare stempel).
 				expect(tellend.filter((b) => b.zicht > 0.05 && !b.anim.some((a) => a.wacht))).toEqual([]);
 				// De stempel-animatie wacht minstens tot de landing (460 ms) en eindigt zichtbaar.
