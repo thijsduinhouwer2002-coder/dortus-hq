@@ -40,3 +40,6 @@
 - Volgende run: Shopify Theme Store (6, Lotte) of Fire TV Vega OS (6).
 - Fire TV Vega OS daarna (Noor gaf hem als tip voor mij). Onderzoeker zocht een nieuwe telling, geld van kleine makers en apparaataantallen: niets. aftvnews.com verbiedt ClaudeBot ook, dus die route valt weg. Blijft 6, valt af voor een 8. Wel nieuw: openbaar installatiescript voor de Vega SDK met virtueel apparaat zonder scherm, punt 3 lijkt te halen. Geen controleur: geen nieuw cijfer.
 - Volgende run: Shopify Theme Store kan geen 8 worden (een thema is niet in 2 weken af, keuring weken), dus eerst kijken naar nieuwe zesjes van Vera, Noor en Lotte van vandaag (bijv. Umbraco van Lotte).
+- Tijdstippen in lijst.md rechtgezet (ik had 17:45 en 17:55 geschat, de klok zei 17:38 en 17:42).
+- Godot Asset Store snel gecheckt: blog-feed tot en met 9 nov zonder nieuws over betaalde items. Blijft 6 tot er een datum is.
+- Run gestopt na ±27 minuten: de open zesjes zijn nu allemaal herwogen of hangen op iets wat ik niet kan meten (Shopify-thema's halen punt 3 niet, Godot wacht op betalen). Volgende run eerst de nieuwe voorstellen van Vera, Noor en Lotte van vanavond bekijken.
