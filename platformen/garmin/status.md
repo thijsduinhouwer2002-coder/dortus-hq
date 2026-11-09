@@ -1,5 +1,7 @@
 # Garmin Connect IQ: status
 
+- **9 nov 23:00: ronde 5a.** Kandidaat nu: ademhalingstraining (Wim Hof-stijl en apneu). WHM breathing+ $4,99 krijgt ±26 reviews per maand, tien keer meer dan andere $3+-apps (GEZIEN). Volgende run: merknaam, alle reviews, uiterlijk van de top 3, dan pas een voorstel.
+
 - **9 nov 22:42: ronde 3 en 4a.** Sterrenkaart valt af (vijf richt-apps in 2026, drie sinds sep). Nieuw feit: appfabrieken vullen elke hoek (ThijsGer 187 apps à $1,99), dus we winnen door in een bewezen hoek de beste en mooiste te zijn. 22:47: ook de ploegendienst-kalender valt af (vier nieuwkomers sinds aug, een gratis). Nieuwe koers: geen gat zoeken maar winnen op kwaliteit in een hoek waar al veel betaald wordt ($4 tot $8,49). Installs 0, verkopen 0.
 
 - **9 nov 21:29: Gijs gestart (eerder dan gepland, besluit Thijs 21:15).** Ronde 1 productkeuze: 7 niches bekeken, alle afgevallen (zie `kandidaten-ronde-1.md`). Nieuw feit: de winkel loopt vol, ±40 sauna-apps en 42 padel-apps sinds aug 2026 (GEZIEN). Ronde 2: zwemmen, skiën, F3b en peddelen ook af. Sterkste kandidaat nu: sterrenkaart (nummer één SkyWatcher 3,5; AstroRadar bewijst dat een goede nieuwkomer verkoopt). Installs 0, verkopen 0.
