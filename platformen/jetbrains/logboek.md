@@ -441,3 +441,7 @@ Nieuwste blok onderaan.
 - **Opslaan:** de lokale kloon had geen gedeelde geschiedenis meer met GitHub (overstap naar het eigen account). Niets weggegooid: de oude tak lokaal hernoemd en verder gewerkt op `origin/main`.
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 09:55 tot 10:05 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet, niets nieuws over JetBrains op de lijst van Thijs of het bord. Bison & Flex nog in moderatie (`approve: false`, 0 downloads, Versions-API `[]`, GEZIEN 09:58). Voorbereiding groeimeting nagelopen: bron is `aanraden-per-bestandssoort-2026-11-06.tsv` (lijst plugins), vergelijken met de kolom `soort` en `downloads` uit `aanraden-nulmeting-2026-11-08.tsv`.
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers na ±14:30 UTC verversen.
