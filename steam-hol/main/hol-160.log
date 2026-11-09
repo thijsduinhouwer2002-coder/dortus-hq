@@ -6,14 +6,15 @@ HOL kroniek: Bram climbs into your hole.
 HOL kroniek: Kees fell to the Spike Pit. +6
 HOL gegraven kolom 3
 HOL kroniek: Odo is here for your gold.
-HOL kroniek: Bram found the Spike Pit. Hard. +6
-HOL kroniek: Lotte read about you in a tavern.
+HOL kroniek: Ties read about you in a tavern.
 HOL gegraven kolom 4
-HOL kroniek: Fenna has a map. It is wrong.
+HOL kroniek: Bram fled. Grudge: the Spike Pit.
+HOL kroniek: Mara says this is a quick one.
 HOL gegraven kolom 6
-HOL kroniek: Odo fled. Grudge: the Spike Pit.
-HOL kroniek: Lotte stays forever. +6
-HOL kroniek: Wil knocks first. Polite.
+HOL kroniek: Ties will not be leaving. +6
+HOL kroniek: Odo fled, crying a little.
+HOL kroniek: Odo the Once-Fled is back.
+HOL kroniek: Mara found the Spike Pit. Hard. +6
 HOL gegraven kolom 7
-HOL kroniek: Joost is here for your gold.
-HOL einde na 50 s, fps=15, goud=18, terugkomers=1
+HOL kroniek: Bram is back. Still limping.
+HOL einde na 50 s, fps=15, goud=18, terugkomers=0
