@@ -49,3 +49,22 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 
 ## 5. Eerlijk
 Alles wat erop staat zit in het spel: 10 hoedsoorten (held_hoeden.png), hooguit 4 hoeden op Gloops hoofd en de rest op de hoedenberg (slijm.gd, `OP_HOOFD`, `berg()`), het boze wolkje en het uitroepteken (tekens.png), ingang, fakkels, schat. De lucht met sterren is versiering voor de capsule; in het spel ligt de strook op je bureaublad.
+
+## 6. Schermafbeeldingen en trailer: wat ik van Olaf nodig heb
+Alles uit de echte build (eerlijk). Steam toont schermen op 1920 x 1080 en verkleind in de winkellijst; de strook is in het echt 120 tot 160 px hoog. Daarom per scherm: **de echte strook op 160 px onderaan een rustig bureaublad, plus bovenin een vergroting (schaal 2 of 3 van dezelfde opname) met een dun kader**, zodat je ziet hoe klein het echt is én wat er gebeurt. De opmaak (bureaublad, kader, vergroting) maak ik; Olaf levert de ruwe opnames.
+
+**Opnames (PNG, venster op 1920 breed, strook 160 px, demo-modus):**
+1. Gloop eet een held: het frame waarop de hoed van zijn hoofd op de toren vliegt.
+2. Gloop met 4 hoeden op zijn hoofd en een hoedenberg (maat 3 of hoger) naast zich.
+3. Een terugkomer met litteken en het boze wolkje boven zijn hoofd, met zijn kroniekregel ("Bram is back for the Spike Pit.").
+4. De stekelput gaat open onder een held, drie muntjes vliegen naar de schat.
+5. Het hol na lang spelen: veel gangen, fakkels met gloed, de schat groot.
+6. (als het er is) het kroniekpaneel met namen, bijnamen en hoeden.
+
+**Trailer 30 tot 60 s (opname van de demo-modus, 60 fps, 1920 x 1080):**
+- 0 tot 3 s, de haak: dicht op Gloop. Een held met een pan op loopt binnen, Gloop slokt hem op, de pan vliegt op de toren. Tekst in beeld: "Every hero leaves something behind."
+- 3 tot 12 s: uitzoomen naar de echte strook onderaan een bureaublad met een spreadsheet erboven: "It lives under your taskbar."
+- 12 tot 35 s: val, vlucht, de terugkomer met een wrok, de hoedenberg die groeit (versneld), de kroniek.
+- 35 tot 50 s: tien hoeden op een rij, één voor één op de toren.
+- Slot: logo, "Wishlist now" (in de trailer mag dat, op capsules niet).
+Muziek en geluid: nog open (Sanne en Olaf, wat is er in het spel).
