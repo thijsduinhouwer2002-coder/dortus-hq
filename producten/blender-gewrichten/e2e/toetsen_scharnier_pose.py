@@ -158,12 +158,14 @@ def toets(stap, eigen, cursor):
     stap("pose-schuif: tweede scharnier geplaatst", uitslag2 == {"FINISHED"} and a2 and b2, str(uitslag2))
     if a2 is None or b2 is None:
         return
+    bpy.context.view_layer.update()
+    mw1 = b.matrix_world.copy()  # B van het eerste staat in QUATERNION (uit e): delta_rotation_euler telt dan niet
     figuren.maak_actief(a2)
     wm.cj_scharnier_pose = 40.0
     bpy.context.view_layer.update()
-    eerste = (float(b.get("cj_pose_graden", -1)), max(abs(x) for x in b.delta_rotation_euler))
+    eerste = (float(b.get("cj_pose_graden", -1)), _matrix_verschil(b.matrix_world, mw1))
     print(f"[cj-betaald] METING pose-schuif met A2 actief: B2 {b2.get('cj_pose_graden')}, schuif {wm.cj_scharnier_pose}, "
-          f"eerste B {eerste[0]} (delta_rotation max {eerste[1]:.2e})")
+          f"eerste B {eerste[0]} (matrix_world verschil {eerste[1]:.2e})")
     stap("pose-schuif met A van het tweede scharnier actief: B2 op 40, schuif leest 40",
          abs(float(b2.get("cj_pose_graden", -1)) - 40.0) < 1e-6 and abs(wm.cj_scharnier_pose - 40.0) < 1e-4,
          f"{b2.get('cj_pose_graden')}")
