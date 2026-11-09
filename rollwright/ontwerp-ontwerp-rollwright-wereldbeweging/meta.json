@@ -1,5 +1,5 @@
 {
- "css": 171617,
+ "css": 171631,
  "venster": "remote",
  "views": [
   "file-explorer",
@@ -22,9 +22,9 @@
    "rw-land"
   ],
   "r": [
-   285.95172119140625,
+   286.0520324707031,
    363.3823547363281,
-   175.6121826171875,
+   172.06781005859375,
    35.62591552734375
   ]
  },
@@ -146,9 +146,9 @@
    "rw-land"
   ],
   "r": [
-   351.2629699707031,
+   351.381103515625,
    535.88232421875,
-   187.80221557617188,
+   183.62841796875,
    35.6259765625
   ]
  },
@@ -262,7 +262,7 @@
  },
  "kerker-gewoon": {
   "cls": "rollwright-roll rollwright-rolled",
-  "n": 17,
+  "n": 16,
   "namen": [
    "rwxk-slag",
    "rwxk-hitte",
@@ -274,7 +274,6 @@
    "rwxk-slag",
    "rw-tumble",
    "rw-land",
-   "rw-sticker",
    "rwxk-zak",
    "rwxk-barst",
    "rwxk-stof",
@@ -283,9 +282,9 @@
    "rw-sticker"
   ],
   "r": [
-   484.25079345703125,
+   484.01361083984375,
    364.203125,
-   143.5140380859375,
+   151.8946533203125,
    34.78125
   ]
  },
@@ -468,9 +467,9 @@
    "mixBlendMode=normal",
    "animationName=rwxc-glans",
    "animationDelay=0.6s",
-   "animationDuration=1.1s",
+   "animationDuration=1.6s",
    "backgroundSize=300% 100%",
-   "backgroundPosition=99.3725% 0px",
+   "backgroundPosition=93.6825% 0px",
    "maskImage=none",
    "clipPath=none",
    "filter=none",
