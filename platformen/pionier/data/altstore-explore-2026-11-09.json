@@ -1,0 +1,716 @@
+[
+{
+"username": "aedon",
+"created_at": "2026-11-07T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 2,
+"last_status_at": "2026-11-03"
+},
+{
+"username": "ktgk",
+"created_at": "2026-11-07T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 37,
+"last_status_at": "2026-11-08"
+},
+{
+"username": "storyfetcher",
+"created_at": "2026-11-07T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 5,
+"last_status_at": "2026-11-06"
+},
+{
+"username": "flyingant",
+"created_at": "2026-11-07T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 3,
+"last_status_at": "2026-10-31"
+},
+{
+"username": "jrep",
+"created_at": "2026-11-07T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 2,
+"last_status_at": "2026-10-29"
+},
+{
+"username": "provena",
+"created_at": "2026-10-28T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-10-27"
+},
+{
+"username": "heymira",
+"created_at": "2026-10-28T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2026-10-27"
+},
+{
+"username": "worduel",
+"created_at": "2026-10-26T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-10-25"
+},
+{
+"username": "rhizomatica",
+"created_at": "2026-10-23T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-10-22"
+},
+{
+"username": "tarohidaapps",
+"created_at": "2026-10-20T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-10-19"
+},
+{
+"username": "mathieudubart",
+"created_at": "2026-10-19T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2026-10-20"
+},
+{
+"username": "atelier",
+"created_at": "2026-10-19T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 44,
+"last_status_at": "2026-11-08"
+},
+{
+"username": "astrokairos",
+"created_at": "2026-10-19T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-10-18"
+},
+{
+"username": "weex",
+"created_at": "2026-10-15T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-09-21"
+},
+{
+"username": "dellarivasolutions",
+"created_at": "2026-10-13T00:00:00.000Z",
+"followers_count": 6,
+"statuses_count": 9,
+"last_status_at": "2026-10-19"
+},
+{
+"username": "skein",
+"created_at": "2026-10-13T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2026-10-10"
+},
+{
+"username": "marten",
+"created_at": "2026-10-06T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 17,
+"last_status_at": "2026-11-03"
+},
+{
+"username": "xsquare",
+"created_at": "2026-10-06T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-10-05"
+},
+{
+"username": "eitri",
+"created_at": "2026-10-05T00:00:00.000Z",
+"followers_count": 5,
+"statuses_count": 2,
+"last_status_at": "2026-10-05"
+},
+{
+"username": "geoadventures",
+"created_at": "2026-10-05T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-10-03"
+},
+{
+"username": "bittenapps",
+"created_at": "2026-10-05T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 3,
+"last_status_at": "2026-10-11"
+},
+{
+"username": "talktosomebody",
+"created_at": "2026-10-01T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-10-05"
+},
+{
+"username": "josueramos",
+"created_at": "2026-09-28T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2026-11-06"
+},
+{
+"username": "zoetheintern",
+"created_at": "2026-09-28T00:00:00.000Z",
+"followers_count": 5,
+"statuses_count": 14,
+"last_status_at": "2026-09-28"
+},
+{
+"username": "Lampadina17",
+"created_at": "2026-09-16T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-09-15"
+},
+{
+"username": "nemutai",
+"created_at": "2026-09-16T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-09-16"
+},
+{
+"username": "mabumu",
+"created_at": "2026-09-14T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-08-24"
+},
+{
+"username": "mdhibrido",
+"created_at": "2026-09-08T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 1,
+"last_status_at": "2026-09-04"
+},
+{
+"username": "decrypt",
+"created_at": "2026-09-01T00:00:00.000Z",
+"followers_count": 8,
+"statuses_count": 86,
+"last_status_at": "2026-11-06"
+},
+{
+"username": "bixilon",
+"created_at": "2026-08-10T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "eqlabs",
+"created_at": "2026-08-07T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-08-10"
+},
+{
+"username": "ruthvision",
+"created_at": "2026-08-07T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-08-05"
+},
+{
+"username": "newspool",
+"created_at": "2026-08-03T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 4,
+"last_status_at": "2026-08-06"
+},
+{
+"username": "radiojhero",
+"created_at": "2026-07-27T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2026-08-02"
+},
+{
+"username": "couchpotato",
+"created_at": "2026-07-21T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 2,
+"last_status_at": "2026-07-21"
+},
+{
+"username": "aymkdn",
+"created_at": "2026-07-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 5,
+"last_status_at": "2026-10-19"
+},
+{
+"username": "rateme",
+"created_at": "2026-07-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 5,
+"last_status_at": "2026-09-23"
+},
+{
+"username": "jvrcruz",
+"created_at": "2026-07-16T00:00:00.000Z",
+"followers_count": 10,
+"statuses_count": 32,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "erickmff",
+"created_at": "2026-07-13T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-07-13"
+},
+{
+"username": "sprk",
+"created_at": "2026-07-08T00:00:00.000Z",
+"followers_count": 11,
+"statuses_count": 2,
+"last_status_at": "2026-07-08"
+},
+{
+"username": "pospro",
+"created_at": "2026-07-06T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 15,
+"last_status_at": "2026-10-20"
+},
+{
+"username": "timeguru",
+"created_at": "2026-07-01T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-07-01"
+},
+{
+"username": "holos",
+"created_at": "2026-06-29T00:00:00.000Z",
+"followers_count": 18,
+"statuses_count": 5,
+"last_status_at": "2026-07-19"
+},
+{
+"username": "streamrai",
+"created_at": "2026-06-29T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 4,
+"last_status_at": "2026-07-15"
+},
+{
+"username": "boocord",
+"created_at": "2026-06-26T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 7,
+"last_status_at": "2026-10-16"
+},
+{
+"username": "bevelstudio",
+"created_at": "2026-06-23T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-06-23"
+},
+{
+"username": "transmission_remote",
+"created_at": "2026-06-22T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "stremio",
+"created_at": "2026-06-10T00:00:00.000Z",
+"followers_count": 27,
+"statuses_count": 10,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "greenmobile",
+"created_at": "2026-05-27T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 2,
+"last_status_at": "2026-05-28"
+},
+{
+"username": "handyglobe",
+"created_at": "2026-05-19T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2026-05-19"
+},
+{
+"username": "finanze",
+"created_at": "2026-04-28T00:00:00.000Z",
+"followers_count": 8,
+"statuses_count": 16,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "ApesOfThoth",
+"created_at": "2026-04-27T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 2,
+"last_status_at": "2026-04-27"
+},
+{
+"username": "moga",
+"created_at": "2026-04-06T00:00:00.000Z",
+"followers_count": 12,
+"statuses_count": 9,
+"last_status_at": "2026-11-05"
+},
+{
+"username": "jstorrent",
+"created_at": "2026-04-01T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "q",
+"created_at": "2026-03-31T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 13,
+"last_status_at": "2026-03-31"
+},
+{
+"username": "semmelstulle",
+"created_at": "2026-03-18T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 11,
+"last_status_at": "2026-11-05"
+},
+{
+"username": "inmystream",
+"created_at": "2026-03-12T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 4,
+"last_status_at": "2026-03-12"
+},
+{
+"username": "orbyt",
+"created_at": "2026-03-12T00:00:00.000Z",
+"followers_count": 10,
+"statuses_count": 4,
+"last_status_at": "2026-04-27"
+},
+{
+"username": "pixelfed",
+"created_at": "2026-03-11T00:00:00.000Z",
+"followers_count": 19,
+"statuses_count": 2,
+"last_status_at": "2026-03-11"
+},
+{
+"username": "framasoft",
+"created_at": "2026-03-11T00:00:00.000Z",
+"followers_count": 17,
+"statuses_count": 7,
+"last_status_at": "2026-09-29"
+},
+{
+"username": "hottub",
+"created_at": "2026-03-10T00:00:00.000Z",
+"followers_count": 28,
+"statuses_count": 9,
+"last_status_at": "2026-08-18"
+},
+{
+"username": "hithere",
+"created_at": "2026-03-09T00:00:00.000Z",
+"followers_count": 5,
+"statuses_count": 4,
+"last_status_at": "2026-04-18"
+},
+{
+"username": "nirvati",
+"created_at": "2026-02-24T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 2,
+"last_status_at": "2026-02-24"
+},
+{
+"username": "anneferret",
+"created_at": "2026-02-24T00:00:00.000Z",
+"followers_count": 11,
+"statuses_count": 9,
+"last_status_at": "2026-10-23"
+},
+{
+"username": "jaycetest",
+"created_at": "2026-02-10T00:00:00.000Z",
+"followers_count": 0,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "weex_dev",
+"created_at": "2026-02-10T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "fantinel",
+"created_at": "2026-01-28T00:00:00.000Z",
+"followers_count": 40,
+"statuses_count": 10,
+"last_status_at": "2026-11-06"
+},
+{
+"username": "marchgames",
+"created_at": "2026-01-15T00:00:00.000Z",
+"followers_count": 8,
+"statuses_count": 13,
+"last_status_at": "2026-03-23"
+},
+{
+"username": "foxxoccino",
+"created_at": "2026-01-13T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 2,
+"last_status_at": "2026-01-13"
+},
+{
+"username": "mexc",
+"created_at": "2026-01-07T00:00:00.000Z",
+"followers_count": 6,
+"statuses_count": 19,
+"last_status_at": "2026-11-04"
+},
+{
+"username": "tfourj",
+"created_at": "2025-12-30T00:00:00.000Z",
+"followers_count": 18,
+"statuses_count": 57,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "partyknights",
+"created_at": "2025-12-27T00:00:00.000Z",
+"followers_count": 5,
+"statuses_count": 7,
+"last_status_at": "2026-09-04"
+},
+{
+"username": "nnsnodnb",
+"created_at": "2025-12-26T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 6,
+"last_status_at": "2026-10-22"
+},
+{
+"username": "spicysparks",
+"created_at": "2025-12-24T00:00:00.000Z",
+"followers_count": 6,
+"statuses_count": 19,
+"last_status_at": "2026-11-05"
+},
+{
+"username": "merlinbaer",
+"created_at": "2025-12-23T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 12,
+"last_status_at": "2026-10-21"
+},
+{
+"username": "polymorph",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 3,
+"last_status_at": "2025-12-23"
+},
+{
+"username": "hackerweb",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 8,
+"statuses_count": 2,
+"last_status_at": "2025-12-18"
+},
+{
+"username": "victormarino",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 0,
+"last_status_at": null
+},
+{
+"username": "BlueMatter",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 2,
+"last_status_at": "2025-12-18"
+},
+{
+"username": "cardmate",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 2,
+"last_status_at": "2025-12-18"
+},
+{
+"username": "charon",
+"created_at": "2025-12-18T00:00:00.000Z",
+"followers_count": 3,
+"statuses_count": 2,
+"last_status_at": "2025-12-18"
+},
+{
+"username": "volksverpetzer",
+"created_at": "2025-11-21T00:00:00.000Z",
+"followers_count": 16,
+"statuses_count": 6,
+"last_status_at": "2026-07-24"
+},
+{
+"username": "squadblast",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 22,
+"last_status_at": "2025-12-04"
+},
+{
+"username": "fullcodes",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 4,
+"last_status_at": "2026-03-11"
+},
+{
+"username": "cbruegg",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 1,
+"statuses_count": 2,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "salupovteam",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 7,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "cranci",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 2,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "blissquake",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 6,
+"last_status_at": "2025-12-30"
+},
+{
+"username": "ignited",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 11,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "urnetwork",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "nuumi",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 2,
+"statuses_count": 3,
+"last_status_at": "2025-10-21"
+},
+{
+"username": "appfair",
+"created_at": "2025-10-21T00:00:00.000Z",
+"followers_count": 16,
+"statuses_count": 24,
+"last_status_at": "2026-03-11"
+},
+{
+"username": "cizzuk",
+"created_at": "2025-10-08T00:00:00.000Z",
+"followers_count": 35,
+"statuses_count": 104,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "peopledrop",
+"created_at": "2025-10-07T00:00:00.000Z",
+"followers_count": 4,
+"statuses_count": 5,
+"last_status_at": "2026-03-11"
+},
+{
+"username": "michael128",
+"created_at": "2025-10-07T00:00:00.000Z",
+"followers_count": 7,
+"statuses_count": 11,
+"last_status_at": "2026-07-23"
+},
+{
+"username": "itorrent",
+"created_at": "2025-10-06T00:00:00.000Z",
+"followers_count": 29,
+"statuses_count": 34,
+"last_status_at": "2026-07-20"
+},
+{
+"username": "stux",
+"created_at": "2025-10-03T00:00:00.000Z",
+"followers_count": 15,
+"statuses_count": 10,
+"last_status_at": "2026-03-11"
+},
+{
+"username": "utm",
+"created_at": "2025-08-19T00:00:00.000Z",
+"followers_count": 81,
+"statuses_count": 6,
+"last_status_at": "2026-10-21"
+},
+{
+"username": "stikdebug",
+"created_at": "2025-08-19T00:00:00.000Z",
+"followers_count": 24,
+"statuses_count": 12,
+"last_status_at": "2025-10-23"
+},
+{
+"username": "epicgames",
+"created_at": "2025-08-19T00:00:00.000Z",
+"followers_count": 55,
+"statuses_count": 130,
+"last_status_at": "2026-11-01"
+},
+{
+"username": "altstore",
+"created_at": "2025-08-19T00:00:00.000Z",
+"followers_count": 388,
+"statuses_count": 115,
+"last_status_at": "2026-11-02"
+},
+{
+"username": "admin",
+"created_at": "2025-08-19T00:00:00.000Z",
+"followers_count": 19,
+"statuses_count": 0,
+"last_status_at": "2026-03-10"
+}
+]

@@ -390,4 +390,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 12:40 UTC (Noor)
 - Radar kort: algemene zoekopdrachten naar nieuwe betaalde winkels (nov 2026) gaven weer alleen oude bekenden (DeepSeek Harness, Sitecore, ChatGPT). Niets nieuws met een mogelijke 7.
-- AltStore PAL (alternatieve iPhone-winkel, EU sinds april 2024, Japan sinds 18 dec 2025; makers laten betalen via Patreon; groei, aantal makers en betalen nakijken): in onderzoek 9 nov 12:55 UTC
+- AltStore PAL (alternatieve iPhone-winkel, EU sinds april 2024, Japan sinds 18 dec 2025; makers laten betalen via Patreon; groei, aantal makers en betalen nakijken): in onderzoek 9 nov 12:55 UTC; klaar ±13:20, cijfer 3 (nee), zie onderzocht.md
+- Les uit AltStore PAL: een winkel die door wetgeving bestaat, leeft van wat de grote winkel weigert (emulators, torrent). Voor gewone hulpprogramma's is er geen reden om die omweg te nemen. Zelfde soort overslaan: andere alternatieve iPhone-winkels (Aptoide iOS, Setapp Mobile), tenzij er gebruikerscijfers boven de miljoen komen.

@@ -356,3 +356,11 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gemeten: alle 393 agent-templates en 528 koppelingen uit `__NEXT_DATA__`, detailpagina's van alle agents (datum, maker), 703 van 2.305 AI Skills (daarna gaf de site geen data meer), help en developer-docs. Controleur (agent) bevestigde alle vijf punten; kanttekening: agent-datums in zijn steekproef alle feb tot jun.
 - Besluit: cijfer 3, nee voor nu. Script data/notion-marketplace-meet.py, data in data/notion-agents-2026-11-09.json.
 - Tweede (12:00 tot 12:08): snelle schifting Warp, Excalidraw en Lovable, alle nee. Geen sterke nieuwe kandidaat met groei en betalen die nu werkt; gestopt in plaats van een half onderzoek te beginnen.
+
+## Run 9 nov 2026 12:40 UTC (Noor)
+- Nieuw bericht van Thijs (9 nov 13:35): we zoeken een 8; Kees herweegt de zesjes, Lotte zoekt buiten de gewone winkels en buiten Engelstalig gebied. Hun lijsten zijn nog leeg, dus geen dubbel werk. Gelezen en verwerkt.
+- Radar: algemene zoekopdrachten gaven alleen oude bekenden. Geen verlopen herhaalmetingen of weektaken (laatste weekcheck 8 nov 22:49).
+- Gekozen: AltStore PAL (claim-commit c332855). Waarom: betalen werkt nu, de winkel is in Japan en Brazilië minder dan een jaar open en stond nog nergens in onze lijsten. Japan en Brazilië horen niet bij Lotte, want AltStore is Engelstalig en de makers zitten overal.
+- Gemeten: docs (kosten, landen, Patreon), explore.alt.store-API (102 bronnen per maand), Patreon-API (8.710 betalende leden bij AltStore zelf). Controleur (agent) bevestigde alles en vond geen recenter gebruikerscijfer.
+- Besluit: cijfer 3, nee. Waarom: klein publiek zonder zichtbare groei, en wat er werkt is wat Apple weigert. Script data/altstore-explore-meet.py, data in data/altstore-explore-2026-11-09.json.
+- Git pull bleef hangen zonder time-out; voortaan `GIT_TERMINAL_PROMPT=0 timeout 60 git fetch` en daarna `git merge --ff-only` of `git rebase`.

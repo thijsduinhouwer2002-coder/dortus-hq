@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 13:20 | AltStore PAL: EU, Japan (dec 2025), Brazilië (juni 2026); betalen via Patreon, 0% plus 5% Apple; 102 vindbare bronnen, okt 2026 17 nieuw | https://faq.altstore.io/developers/fees.md | GEZIEN | onderzocht: cijfer 3, nee
 - 9 nov 2026 12:00 | Notion Marketplace: webhook kent productType "Custom Agent" en "Integration Listing", nog geen betaalde agents of koppelingen te zien; agent-instroom stil sinds juli | https://www.notion.com/help/selling-on-marketplace | GEZIEN | onderzocht: cijfer 3; elke week kijken of price > 0 verschijnt
 - 9 nov 2026 10:55 | Kit App Store: 60.000+ creators, winkel sinds 2024, eigen betaald account toegestaan; Kit oud en vlak | https://developers.kit.com/kit-app-store/overview.md | GEZIEN | nee voor de pionier, eventueel Vera
 - 9 nov 2026 11:05 | Sitecore Marketplace: openbare ideeënlijst met stemmen en analytics voor makers (5 nov 2026), publieke apps sinds 10 nov 2025, default apps van Sitecore zelf sinds 7 okt 2026 | https://developers.sitecore.com/changelog/marketplace/05112026/track-marketplace-app-ideas-from-request-to-published-app | GEZIEN | onderzocht: cijfer 4, nee
