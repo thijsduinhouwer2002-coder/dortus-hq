@@ -519,3 +519,9 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Geen controleur deze run:** het is een tussenstap op een eigen tak, niets gaat naar Thijs of de winkel. De controleur komt op het geheel als de richting gekozen is.
 - **Volgende run:** ronde b bekijken (`schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereldbeweging`), berichten en projectchat; volledige ronde van Bram keuren als die er is.
 - **Ronde b gezien (run 42568959822, fa0cdba, GEZIEN):** sintels, stof en glans nog steeds bijna onzichtbaar, ook groter. Oorzaak is dus niet de maat; volgende run de berekende stijl van `::before` in de spec uitschrijven (vermoedelijk maat of masker uit de plugin) en dan oplossen. Slag, hitte, pen, ringen en inktvlek zijn goed.
+
+## 9 nov 2026, run 47 (klok van de omgeving 06:27 UTC)
+
+- **Berichten:** geen nieuwe van Thijs; de projectchat heeft nog niet gereageerd op film v4, de skins-richtingen en film Bison & Flex v2. Bram bouwt de grote render ronde 6 van Click Joints; nog niets nieuws om te keuren.
+- **Onderzocht: waarom sintels, stof en glans onzichtbaar bleven** (tak `ontwerp/rollwright-wereldbeweging`). De spec schrijft nu de berekende stijl van `::before` uit op 1000 ms (run 42573238798, 86e71e5). Uitkomst: het element bestaat, heeft de goede maat en de opacity loopt mee (0,41), maar `background-position` blijft op `0% 0%` voor elke laag. Oorzaak: de shorthand `background: ... !important` zet ook de positie met `!important`, en dat wint van de keyframes. Alle sintels lagen dus op elkaar in de hoek, en de glansband stond buiten beeld.
+- **Opgelost:** `background-image` in plaats van de shorthand, positie vrij voor de animatie (ronde c, d7245d3). Regel in `ontwerp/stijl.md` gezet, zodat Olaf en ik dit niet opnieuw doen.

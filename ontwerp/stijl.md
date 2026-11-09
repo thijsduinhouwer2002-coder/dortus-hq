@@ -35,6 +35,7 @@ Altijd:
 - Alles werkt met alleen het toetsenbord, en elke knop zonder tekst heeft een naam (tooltip of `aria-label`).
 - In Obsidian zowel de leesweergave als Live Preview bekijken. Ze moeten er hetzelfde uitzien. Live Preview zet `white-space: pre-wrap` op de regel: wat je erin rendert krijgt `white-space: normal`, anders worden regeleinden lege regels.
 - Een knop om te kopen is een gewone knop met de prijs erop ("Buy for $6"), geen opvallende accentknop.
+- Wat een animatie verandert (bijvoorbeeld `background-position`, `opacity`, `transform`), zet je in de gewone regel nooit met `!important`, ook niet via een shorthand als `background: ... !important`. Een `!important`-regel wint van elke keyframe, en dan staat de beweging stil zonder foutmelding. Zet beeld met `background-image: ... !important` en laat de positie vrij (les uit Rollwright skins, 9 nov: sintels, stof en glans bleven daardoor onzichtbaar).
 
 Nooit:
 - Vaste kleuren in de gratis versie. Vaste kleuren mogen alleen in een betaalde skin die de gebruiker zelf kiest, en die moet in licht en donker leesbaar zijn.
