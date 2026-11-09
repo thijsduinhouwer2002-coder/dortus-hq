@@ -74,6 +74,37 @@ test("budget: telt elk verzoek en gooit BudgetOp vóór het verzoek vertrekt", a
   assert.equal(b.over, 0);
 });
 
+test("budget op bij een herhaling (na 429): BudgetOp blijft, geen server en geen onzeker", async () => {
+  const te429 = (async () => new Response(JSON.stringify({ code: 36009002, message: "te veel", request_id: "r" }), { status: 429 })) as typeof fetch;
+  const b1 = new Budget(1);
+  const tt = new TikTokClient({ appKey: "k", appSecret: "s", fetchFn: b1.omhul(te429), slaap: async () => {} });
+  await assert.rejects(() => tt.roep({ method: "GET", path: "/x" }), BudgetOp);
+  const b2 = new Budget(1);
+  const mb = new MoneybirdClient({ accessToken: "t", fetchFn: b2.omhul((async () => new Response("{}", { status: 429 })) as typeof fetch), nu: () => 1, slaap: async () => {} });
+  await assert.rejects(() => mb.roep("POST", "/1/documents/general_journal_documents", { body: {} }), BudgetOp);
+});
+
+test("afrekening die met een vol budget niet past: onvolledig in plaats van eindeloos bezig", async () => {
+  const best = new Map();
+  const a = maak("7001", 300, "PAID", 1, best);
+  const altijdOp = (async () => { throw new BudgetOp(); }) as typeof fetch;
+  const s = await haalSamen(deps(altijdOp), "7001", { reserve: 12 });
+  assert.equal(s.status, "onvolledig");
+  assert.match(s.reden!, /te groot/);
+});
+
+test("boeken: compleet maar te weinig budget voor de boeking geeft bezig, de volgende aanroep compleet zonder nieuw ophalen", async () => {
+  const best = new Map();
+  const a = maak("7001", 300, "PAID", 2, best);
+  const nep = nepTikTok([a], best);
+  const opslag = new GeheugenOpslag();
+  const d = deps(nep.fn, opslag, 17); // 1 + 2 = 3 verzoeken, dan 14 over: genoeg om op te halen, de boeking past nog
+  assert.equal((await haalSamen(d, "7001", { reserve: 12 })).status, "compleet");
+  const krap = deps(nep.fn, opslag, 11);
+  assert.equal((await haalSamen(krap, "7001", { reserve: 12 })).status, "bezig_met_ophalen");
+  assert.equal(krap.budget.over, 11);
+});
+
 test("budget op in de clients: geen netwerkfout, geen herhaling, geen onzeker", async () => {
   const b = new Budget(0);
   const tt = new TikTokClient({ appKey: "k", appSecret: "s", fetchFn: b.omhul(fetch), slaap: async () => {} });
@@ -96,6 +127,20 @@ test("(a) proef zonder koppeling: drie afrekeningen als regels per soort, nul ve
   assert.equal(nep.urls.some((u) => u.includes("moneybird")), false);
 });
 
+test("(a) proef met een klein budget: nog bezig, de volgende aanroep gaat verder zonder dubbel ophalen", async () => {
+  const best = new Map();
+  const lijst = [maak("7001", 300, "PAID", 3, best, 1), maak("7002", 200, "PAID", 3, best, 4), maak("7003", 100, "PAID", 3, best, 7)];
+  const nep = nepTikTok(lijst, best);
+  const opslag = new GeheugenOpslag();
+  const p1 = await proef(deps(nep.fn, opslag, 7)); // lijst 1, 7001 4, 7002 1 + 1
+  assert.equal(p1.nogBezig, true);
+  assert.equal(p1.afrekeningen[0].status, "compleet");
+  const p2 = await proef(deps(nep.fn, opslag));
+  assert.equal(p2.nogBezig, false);
+  assert.ok(p2.afrekeningen.every((a) => a.status === "compleet"));
+  assert.equal(new Set(nep.urls.filter((u) => u.includes("/orders/"))).size, nep.urls.filter((u) => u.includes("/orders/")).length);
+});
+
 test("(a) proef: minder dan drie uitbetaald, dan ook PROCESSING met label", async () => {
   const best = new Map();
   const lijst = [maak("7001", 300, "PROCESSING", 1, best, 1), maak("7002", 200, "PAID", 1, best, 2), maak("7003", 100, "FAILED", 1, best, 3)];
@@ -115,11 +160,14 @@ test("(e) 90 bestellingen over drie aanroepen: geen bestelling twee keer opgehaa
   assert.equal(orders.length, 90);
   assert.equal(new Set(orders).size, 90);
   assert.equal(uitkomsten[2].regels.reduce((s, r) => s + r.bedragCenten, 0), 90 * 900);
-  // reserve gerespecteerd: per aanroep 45 - 1 (transacties) - 12 = 32 bestellingen
-  assert.equal(uitkomsten[0].ontbrekend.length, 90 - 32);
+  // reserve plus 2 herhalingen gerespecteerd: eerste aanroep 45 - 1 (transacties) - 14 = 30 bestellingen,
+  // tweede 45 - 14 = 31 (transacties bewaard, dus geen pagina's opnieuw), derde de rest
+  assert.equal(uitkomsten[0].ontbrekend.length, 60);
+  assert.equal(uitkomsten[1].ontbrekend.length, 29);
+  assert.equal(nep.urls.filter((u) => u.includes("/statements/")).length, 1);
 });
 
-test("(e) budget loopt over meer afrekeningen in één aanroep; budget_op midden in de transacties verliest niets", async () => {
+test("(e) budget loopt over meer afrekeningen in één aanroep; budget op midden in een afrekening verliest niets", async () => {
   const best = new Map();
   const lijst = [maak("7001", 300, "PAID", 3, best, 1), maak("7002", 200, "PAID", 3, best, 4)];
   const nep = nepTikTok(lijst, best);

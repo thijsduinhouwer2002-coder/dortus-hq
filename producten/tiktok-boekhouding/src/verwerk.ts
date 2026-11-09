@@ -1,9 +1,9 @@
 // Product-laag, deel 2a (ontwerp-productlaag.md): een afrekening ophalen binnen het budget, en de proef (eis a).
 // Boeken (verwerkWinkel, statustabel, slot, Moneybird) volgt in deel 2b.
-import type { TikTokClient } from "../../tiktok-shop-basis/src/client.ts";
+import { MAX_POGINGEN, type TikTokClient } from "../../tiktok-shop-basis/src/client.ts";
 import { afrekeningen, transactiesVanAfrekening, transactiesVanBestelling, type Afrekening } from "../../tiktok-shop-basis/src/endpoints.ts";
 import { TikTokApiError, type FoutSoort } from "../../tiktok-shop-basis/src/fouten.ts";
-import { isBudgetOp, type Budget } from "./budget.ts";
+import { isBudgetOp, RESERVE_BOEKING, type Budget } from "./budget.ts";
 import type { Opslag } from "./opslag.ts";
 import { bestellingenVan, bruikbaar, stelSamen, type Samenstelling } from "./samenstel.ts";
 import type { MbSoort } from "./moneybird/memoriaal.ts";
@@ -52,18 +52,28 @@ export interface OphaalOpties {
  */
 export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpties): Promise<Ophaling> {
   const bezig = (reden: string, ontbrekend: string[] = []): Ophaling => ({ status: "bezig_met_ophalen", reden, regels: [], waarschuwingen: [], ontbrekend });
+  // Bewaarde transacties (van een eerdere aanroep, na T en niet ouder dan een dag) besparen alle pagina's.
+  const bewaard = await d.opslag.leesTransacties(statementId);
   let kop, transacties;
-  try {
-    ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
-  } catch (e) {
-    if (isBudgetOp(e)) return bezig("budget op bij de transacties van de afrekening");
-    const stop = winkelStop(e);
-    if (stop) throw stop;
-    if (e instanceof TikTokApiError) return { status: "onvolledig", reden: `transacties niet opgehaald: TikTok fout ${e.code}`, regels: [], waarschuwingen: [], ontbrekend: [] };
-    return { status: "fout_gegevens", reden: `transacties niet te lezen: ${(e as Error).message}`, regels: [], waarschuwingen: [], ontbrekend: [] };
+  if (bewaard && (o.sinds === undefined || bewaard.opgehaaldOp > o.sinds) && d.nu() - bewaard.opgehaaldOp < BEWAAR_TRANSACTIES) {
+    ({ kop, transacties } = bewaard);
+  } else {
+    const vers = d.budget.over === d.budget.totaal;
+    try {
+      ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
+    } catch (e) {
+      // Met een vol budget lukt het nooit: dan onvolledig, zodat de grens van 5 runs of 24 uur geldt (geen eindeloze stilstand).
+      if (isBudgetOp(e)) return vers ? { status: "onvolledig", reden: "afrekening te groot voor één aanroep (te veel transactiepagina's)", regels: [], waarschuwingen: [], ontbrekend: [] } : bezig("budget op bij de transacties van de afrekening");
+      const stop = winkelStop(e);
+      if (stop) throw stop;
+      if (e instanceof TikTokApiError) return { status: "onvolledig", reden: `transacties niet opgehaald: TikTok fout ${e.code}`, regels: [], waarschuwingen: [], ontbrekend: [] };
+      return { status: "fout_gegevens", reden: `transacties niet te lezen: ${(e as Error).message}`, regels: [], waarschuwingen: [], ontbrekend: [] };
+    }
+    // Alleen een complete lijst bewaren; anders zou een onvolledige lijst een dag blijven hangen.
+    if (kop && String(kop.total_count) === String(transacties.length)) await d.opslag.schrijfTransacties(statementId, { kop, transacties, opgehaaldOp: d.nu() });
   }
 
-  const telt = (b: Awaited<ReturnType<Opslag["leesBestelling"]>>) => !!b && bruikbaar(b.antwoord, statementId) && (o.sinds === undefined || b.opgehaaldOp >= o.sinds);
+  const telt = (b: Awaited<ReturnType<Opslag["leesBestelling"]>>) => !!b && bruikbaar(b.antwoord, statementId) && (o.sinds === undefined || b.opgehaaldOp > o.sinds);
   const bestellingen = new Map();
   for (const id of bestellingenVan(transacties)) {
     const b = await d.opslag.leesBestelling(statementId, id);
@@ -71,13 +81,14 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   }
   // Eerst de controles die geen bestelling nodig hebben (munt, total_count, dubbele transactie): spaart budget.
   const voor = stelSamen(statementId, kop, transacties, bestellingen);
-  if (!(voor.status === "onvolledig" && voor.ontbrekend.length)) return voor;
+  if (!(voor.status === "onvolledig" && voor.ontbrekend.length)) return klaar(voor);
   const ontbrekend = voor.ontbrekend;
 
   const mislukt: string[] = [];
   for (let i = 0; i < ontbrekend.length; i++) {
     const id = ontbrekend[i];
-    if (d.budget.over <= o.reserve) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
+    // Eén bestelling kost tot MAX_POGINGEN verzoeken (herhalen bij 429 of 5xx); de reserve mag daar niet onder zakken.
+    if (d.budget.over <= o.reserve + (o.reserve > 0 ? MAX_POGINGEN - 1 : 0)) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
     let antwoord;
     try {
       antwoord = await transactiesVanBestelling(d.tiktok, d.accessToken, d.shopCipher, id);
@@ -98,8 +109,17 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   }
   if (mislukt.length) return { status: "onvolledig", reden: `bestelling(en) niet opgehaald: ${mislukt.join(", ")}`, regels: [], waarschuwingen: [], ontbrekend: mislukt.map((m) => m.split(" ")[0]) };
 
-  return stelSamen(statementId, kop, transacties, bestellingen);
+  return klaar(stelSamen(statementId, kop, transacties, bestellingen));
+
+  // Bij boeken (reserve > 0): compleet telt pas als er nog genoeg over is voor één boeking, anders volgende aanroep.
+  function klaar(s: Samenstelling): Ophaling {
+    if (o.reserve > 0 && s.status === "compleet" && d.budget.over < Math.max(o.reserve, RESERVE_BOEKING)) return bezig("compleet, maar te weinig budget over voor de boeking");
+    return s;
+  }
 }
+
+/** Bewaarde transacties gelden een dag; daarna (of na "opnieuw sinds T") opnieuw ophalen. */
+const BEWAAR_TRANSACTIES = 24 * 3600;
 
 export interface ProefAfrekening {
   statementId: string;

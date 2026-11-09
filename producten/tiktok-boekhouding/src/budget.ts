@@ -20,7 +20,7 @@ export function isBudgetOp(e: unknown): e is BudgetOp {
 
 export class Budget {
   private gebruikt = 0;
-  private readonly totaal: number;
+  readonly totaal: number;
   constructor(totaal = START_BUDGET) {
     this.totaal = totaal;
   }

@@ -1,10 +1,17 @@
 // Opslag van de product-laag (ontwerp-productlaag.md, kop "Slot en opslag"). Interface plus een versie in het geheugen
 // voor de tests; de echte versie komt in D1 (voorwaardelijke INSERT voor het slot), niet in deze stap.
-import type { BestellingTransacties } from "../../tiktok-shop-basis/src/endpoints.ts";
+import type { AfrekeningKop, BestellingTransacties, Transactie } from "../../tiktok-shop-basis/src/endpoints.ts";
 
 export interface BewaardeBestelling {
   antwoord: BestellingTransacties;
   /** Unix-seconden: wanneer opgehaald. "Opnieuw boeken sinds T" telt alleen wat na T is opgehaald. */
+  opgehaaldOp: number;
+}
+
+/** Kop en transacties van een afrekening, zodat een grote afrekening niet elke aanroep opnieuw alle pagina's kost. */
+export interface BewaardeTransacties {
+  kop: AfrekeningKop | undefined;
+  transacties: Transactie[];
   opgehaaldOp: number;
 }
 
@@ -33,6 +40,8 @@ export interface Opslag {
   schrijfStatus(statementId: string, s: AfrekeningStatus): Promise<void>;
   leesBestelling(statementId: string, orderId: string): Promise<BewaardeBestelling | undefined>;
   schrijfBestelling(statementId: string, orderId: string, b: BewaardeBestelling): Promise<void>;
+  leesTransacties(statementId: string): Promise<BewaardeTransacties | undefined>;
+  schrijfTransacties(statementId: string, t: BewaardeTransacties): Promise<void>;
   leesMarkering(): Promise<number | undefined>;
   schrijfMarkering(statementTime: number): Promise<void>;
 }
@@ -41,6 +50,7 @@ export class GeheugenOpslag implements Opslag {
   readonly sloten = new Map<string, { eigenaar: string; tot: number }>();
   readonly statussen = new Map<string, AfrekeningStatus>();
   readonly bestellingen = new Map<string, BewaardeBestelling>();
+  readonly transacties = new Map<string, BewaardeTransacties>();
   markering: number | undefined;
   /** Aantal schrijfacties, voor toetsen als "niets geschreven". */
   schrijfacties = 0;
@@ -73,6 +83,14 @@ export class GeheugenOpslag implements Opslag {
   async schrijfBestelling(id: string, orderId: string, b: BewaardeBestelling) {
     this.schrijfacties++;
     this.bestellingen.set(`${id}/${orderId}`, structuredClone(b));
+  }
+  async leesTransacties(id: string) {
+    const t = this.transacties.get(id);
+    return t ? structuredClone(t) : undefined;
+  }
+  async schrijfTransacties(id: string, t: BewaardeTransacties) {
+    this.schrijfacties++;
+    this.transacties.set(id, structuredClone(t));
   }
   async leesMarkering() {
     return this.markering;
