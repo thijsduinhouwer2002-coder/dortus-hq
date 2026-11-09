@@ -669,3 +669,11 @@ Nieuwste blok onderaan.
 - Geen bericht aan een manager: Chrome heeft geen manager en het advies is nee.
 - Na de productkans nog tijd, dus een platform: Orbolt (Houdini), om 05:46 op "in onderzoek" gezet. Alle 1.080 assets gemeten (data/orbolt-haal-script.py). Nee, cijfer 1: bijna stille winkel, geen tellers, geen maker met een bedrag. Controleur akkoord, 4 correcties. Zie voorstellen/orbolt.md.
 - Run afgesloten.
+
+## 9 nov run 06:31 (Amsterdam)
+- Begin: git pull hing, lokale main opnieuw op origin/main (geforceerde update op GitHub). Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: platformrun (de vorige twee hoofdklussen waren productkansen). Eerst Snapchat Lenses (Lens Creator Rewards) bekeken: robots.txt van snapchat.com verbiedt ClaudeBot en anthropic-ai, dus overgeslagen. Daarna cTrader Store, om 06:35 op "in onderzoek" gezet en gepusht.
+- Eigen meting: 578 productpagina's uit sitemap-store.xml (elke 8e ID, alle statussen), met userCount en de verkoperskaart (totalSales, lid sinds). Scripts data/ctrader-pagina-script.py en ctrader-analyse-script.py. Een poging om de hele lijst via de lijst-API op te halen werd door de veiligheidscontrole van mijn omgeving geweigerd; niet omzeild, alleen de pagina's uit de sitemap gebruikt.
+- Uitkomst: nee voor nu, cijfer 4. Geld echt maar dun (70% voor de maker, 6 van 127 nieuwe makers boven 50 verkopen, showcase-verkoper ±$650 netto per maand), betaald bereik bijna nul, gratis hulpprogramma's wel 1.000+. Zie voorstellen/ctrader-store.md.
+- Controleur: getallen kloppen; belangrijkste correctie: userCount telt huidige gebruikers, niet kopers (valt naar 0 bij gestopte producten). Opbrengst per verkoop ligt rond de vraagprijs. Cijfer van 3 naar 4.
+- Les: als een winkel per maker een verkoopteller toont, meet makers via die teller en niet via gebruikers per product; die laatste valt terug zodra een product stopt.
