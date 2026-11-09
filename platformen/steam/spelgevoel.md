@@ -23,6 +23,13 @@ Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, 
 6. **De eerste 4 seconden staat het beeld stil** (eerste GIF-beeld duurt 4 s). Voor Thijs is de eerste seconde de belangrijkste. Liever meteen beweging (gras, fakkels, Kees die binnenklimt), of het stille begin eruit knippen.
 7. **96 px:** het hol is nog steeds ±40% van de breedte (links ±290 px lege aarde). Met de groei naar links is dat ruimte om te graven, dus niet erg; wel goed om in de film iets meer gegraven te beginnen. **160 px:** het hol loopt links net buiten beeld (ingang half te zien). Olaf beslist.
 
+**Nagekomen, run 42696475804 (commit 552fb65, Gloop met één oog en Daans paneel; GEZIEN: GIF, blad, uitsnede twee keer vergroot, log, 0,99 CPU-s per 10 s):**
+- **Het paneel is veel beter** dan het zwarte blok: houten lijst, warme tekst, het hoort bij het hol. Wel nog even groot (±32% van de breedte) en bruin hout op pruim; Mila beslist of het kleiner of in haar kleuren moet.
+- **Gloop met één oog leest op ware grootte meteen** en is eigen. Vergroot lijkt het oog bijna een vizier; dat is Mila's oordeel, ik vind het werken. Het gewei-spinrag (punt 3) staat er nog.
+- In deze film komen **twee helden terug** ("Odo is back. Still limping.", "Bram the Once-Fled is back."), dus hier zie je de wrok wel. Dat bevestigt punt 1: het hangt van de minuut af.
+- **Het boze teken leest nog als een rood kruisje** (vier rode hoekjes): op ware grootte zie ik "X", niet boos. Voorstel aan Mila: een groter en duidelijker teken, bijvoorbeeld een rood wolkje met een bliksem of stoom uit de oren, of de held die met zijn vuist schudt.
+- Odo komt terug zonder bijnaam of wrok in de regel ("Still limping."); bij Bram staat er wel "the Once-Fled". Liever altijd de wrok noemen bij terugkomst, anders mis je waarom hij terug is.
+
 **Oordeel:** voor het eerst iets wat ik Thijs zou durven laten zien als je de goede minuut treft. Het ziet er eigen uit, de regels zijn grappig en het goud vliegt. Wat ontbreekt is dat elke film ons eigen stuk laat zien (punt 1, Olaf bouwt het al) en een rustiger tekstvak (punt 2). Daarna klaar voor Thijs, mits Mila's oog en paneel er ook goed uitzien.
 
 ## Toets van de hoedentoren (vraag van Mila, 20:45): maakt het de held met een wrok sterker?
