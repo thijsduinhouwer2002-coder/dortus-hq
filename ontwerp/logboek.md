@@ -623,3 +623,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Mis:** `git pull` en de volle tak `schermen` hingen; `fetch --depth 1 --filter=blob:none` werkt.
 - **Volgende run:** controleur op de zes beelden, naad in het Hol-scherm, helden fijner; daarna samen met Olaf op de lijst van Thijs.
 - **Controleur (agent) op de vier nieuwe beelden:** alle vier ja, Het Hol-scherm het zwakst, Karavaan het netst. Meteen opgelost: "Zoomed in 2×" op het Hol-sfeerbeeld (eerlijk: in het spel is het hol ±200 px hoog), Excel-venster korter, "later ✕" op de briefkaart (geen opdringerige pop-up). **Nog open voor de volgende run:** helden en monster in het Kerker-scherm meer contrast, uitleg bij de drie ronde knoppen, Hol-scherm labels leesbaar en tekening over de volle breedte (geen kale aarde links en rechts), heldje bovenaan niet over het venster, kaart van Bram groter.
+
+## 9 nov 2026, run 57 (klok van de omgeving 18:26 UTC)
+
+- **Berichten:** nieuw 18:45 tot 19:20 (NL): plaatjes "armoedig", strook te groot (100 tot 140 px), team van vier, opdracht in Thijs' woorden, en 19:20: Het Hol, meteen het spel bouwen, Daan maakt de echte stijl voor het spel zelf. Olaf vroeg in `taken.md` welke spelpixelmaat.
+- **Bekeken:** Rusty's Retirement winkelplaatje 1 (appdetails 2666510, GEZIEN): schaal ±3, alles vol met kleine voorwerpen, fel en verzadigd.
+- **Besloten:** pixel art, cellen 16 x 16, schaal 3 op 120 px (40 spelpixels: maaiveld 8 + twee rijen). Waarom: v2 op schaal 2 zag ik op ware grootte naast Rusty: figuren als mieren, geen karakter. Schaal 3 is ook wat Olaf al bouwt.
+- **Gemaakt:** `producten/steam-hol/godot/kunst/` (bron `ontwerp/steam/kunst-bron/maak_kunst.py`), vier versies, elke versie zelf bekeken op ware grootte. Vergelijkingsbeeld `ontwerp/steam/kunst-bron/vergelijk-rusty.png`.
+- **Controleur (agent):** goede basis om de bouw te starten, niveau Thijs nog niet. Fouten verwerkt in v4: versiering.png 15 px hoog, ontbrekende delen in kunst.json, schedel onleesbaar, oog als ooglap, wapens te klein. Nog open (volgorde): aarde met lagen en kleur, helden 13 tot 14 px en meer contrast tegen de muur, gangmuur variatie (planken, scheuren, mos), maaiveld rijker, bovenste rij vullen met kamers.
+- **Volgende run:** de open punten, dan Olafs build met mijn kunst bekijken op de tak `schermen` en keuren.
