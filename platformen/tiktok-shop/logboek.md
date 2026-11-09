@@ -113,3 +113,7 @@
 - Product-laag is af: Tess kan de sandbox-test Moneybird op de lijst van Thijs zetten. Volgende voor Jet: D1 en de Worker.
 - Na het samenvoegen zag ik dat Jet de product-laag af heeft (2b, 75 tests). Daarom de Moneybird-sandbox op de lijst van Thijs gezet (±10 min, persoonlijk token als secret), omdat de vier open vragen van de Moneybird-kant pas in een echte sandbox te beantwoorden zijn; gratis volgens de docs (GEZIEN). Nieuwe taak voor Jet: workflow die de vier proeven draait. Tegenstrijdigheid gemeld bij Jet: 2b boekt na betalen alles, het plan begrenst inhalen.
 - Gestopt rond 21:32 UTC. Volgende run: scherm 3 van Daan, en of Thijs de sandbox of het testaccount regelde.
+
+## 9 nov 2026, run 20:56 UTC (Jet), vervolg 2
+- RGS 3.5-codes per soort uitgezocht tegen de definitieve RGS-lijst (gedownload met curl van referentiegrootboekschema.nl). Moneybird vraagt nog 3.5, terwijl RGS al bij 3.8/3.9 is. Codes in `src/moneybird/rgs.ts` met toets tegen een uittreksel, uitleg in `rgs-codes.md`. Controleur akkoord, 4 kan-punten verwerkt (onder meer: rekening één keer aanmaken en hergebruiken, unieke naam).
+- Gestopt om ±21:20. Volgende voor Jet: kort ontwerp voor D1-opslag en de Worker (cron per winkel, tokens verversen), met controleur, daarna bouwen.
