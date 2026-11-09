@@ -1,6 +1,6 @@
 // Rekenkern: van de transacties van één bestelling naar neutrale boekingsregels.
 // Ontwerp: ontwerp-rekenkern.md deel 2. Geen netwerk, geen boekhoudpakket, alles in centen.
-import { naarKleinsteEenheid } from "./bedrag.ts";
+import { naarKleinsteEenheid, TeVeelDecimalen } from "./bedrag.ts";
 import type { BestellingTransacties, SkuTransactie } from "./endpoints.ts";
 
 export type Soort =
@@ -38,11 +38,11 @@ type Veld = { veld: string; centen: number; soort: Soort };
 type Delen = { velden: Veld[]; overgeslagen: boolean };
 
 /** Te veel decimalen voor de munt is geen rare waarde maar een verkeerde aanname: fout voor de hele bestelling. */
-function leesBedrag(waarde: string, valuta: string): number | undefined {
+function leesBedrag(waarde: string, valuta: string, naam: string): number | undefined {
   try {
     return naarKleinsteEenheid(waarde, valuta);
   } catch (e) {
-    if (/decimalen/.test(String((e as Error).message))) throw e;
+    if (e instanceof TeVeelDecimalen) throw new TeVeelDecimalen(`${naam}: ${e.message}`);
     return undefined;
   }
 }
@@ -54,7 +54,7 @@ function totaal(waarde: unknown, valuta: string, naam: string, w: string[]): num
     w.push(`${naam}: geen tekst, behandeld als onbekend`);
     return null;
   }
-  const c = leesBedrag(waarde, valuta);
+  const c = leesBedrag(waarde, valuta, naam);
   if (c === undefined) {
     w.push(`${naam}: ongeldig bedrag "${waarde}", behandeld als onbekend`);
     return null;
@@ -86,7 +86,7 @@ function uitsplitsing(
       overgeslagen = true;
       continue;
     }
-    const centen = leesBedrag(waarde, valuta);
+    const centen = leesBedrag(waarde, valuta, `${naam}.${veld}`);
     if (centen === undefined) {
       w.push(`${naam}.${veld}: ongeldig bedrag "${waarde}", overgeslagen`);
       overgeslagen = true;
@@ -120,7 +120,7 @@ function groep(
   }
   if (delen !== null && totaalCenten === null) {
     for (const d of delen.velden) voeg(d.soort, d.centen, d.veld);
-    if (delen.overgeslagen || delen.velden.length === 0) {
+    if (delen.overgeslagen || !delen.velden.some((d) => d.centen !== 0)) {
       w.push(`${naam}: totaal ${totaalVeld} onbekend en uitsplitsing onvolledig, groep onbekend`);
       return null;
     }
@@ -156,7 +156,7 @@ export function boekingsregels(b: BestellingTransacties): Boekingen {
     const nr = volgnummers.get(basis) ?? 0;
     volgnummers.set(basis, nr + 1);
     const sleutel = `${basis}/${nr}`;
-    const pre = `sku ${skuId} (afrekening ${statementId})`;
+    const pre = `bestelling ${orderId} sku ${skuId} (afrekening ${statementId})`;
     if (!statementId || !skuId) w.push(`${pre}: statement_id of sku_id ontbreekt, regels zijn niet aan een afrekening te koppelen`);
     const voeg = (soort: Soort, centen: number, bronVeld: string) => {
       if (centen !== 0) regels.push({ sleutel, soort, bedragCenten: centen, valuta, orderId, statementId, skuId, bronVeld });

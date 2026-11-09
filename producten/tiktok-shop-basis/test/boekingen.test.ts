@@ -155,7 +155,7 @@ test("(i2) lege totalen zijn onbekend, niet 0", () => {
     ["verzendkosten", -600, "actual_shipping_fee_amount"],
     ["verzendkosten", 150, "customer_paid_shipping_fee_amount"],
   ]);
-  assert.deepEqual(u.waarschuwingen, ["sku 11 (afrekening 900) verzending: totaal shipping_cost_amount onbekend, uitsplitsing gebruikt"]);
+  assert.deepEqual(u.waarschuwingen, ["bestelling 577 sku 11 (afrekening 900) verzending: totaal shipping_cost_amount onbekend, uitsplitsing gebruikt"]);
 });
 
 test("(j) dezelfde sku in twee afrekeningen: twee sleutels, gedeeld per transactie, stabiel", () => {
@@ -193,10 +193,12 @@ test("onbekend totaal en onvolledige uitsplitsing: groep onbekend, geen omzet na
     assert.ok(waarschuwingen.some((x) => /omzet: totaal revenue_amount onbekend en uitsplitsing onvolledig, groep onbekend/.test(x)));
     assert.ok(waarschuwingen.some((x) => /controle op settlement_amount overgeslagen/.test(x)));
   }
-  const leeg = sku({ revenue_amount: "", revenue_breakdown: {} });
+  for (const rb of [{}, { subtotal_before_discount_amount: "0" }]) {
+  const leeg = sku({ revenue_amount: "", revenue_breakdown: rb });
   const u = boekingsregels(bestelling([leeg], { settlement_amount: "33.20" }));
   assert.ok(!u.regels.some((r) => r.soort === "verschil"));
   assert.ok(u.waarschuwingen.some((x) => /groep onbekend/.test(x)));
+  }
 });
 
 test("kapotte helft van fee_tax_breakdown: waarschuwing, en bij leeg totaal geen stille verschil-regel", () => {
@@ -210,7 +212,7 @@ test("kapotte helft van fee_tax_breakdown: waarschuwing, en bij leeg totaal geen
 });
 
 test("te veel decimalen voor de munt: fout voor de hele bestelling", () => {
-  assert.throws(() => boekingsregels(bestelling([sku({ settlement_amount: "33.200" })])), /decimalen/);
+  assert.throws(() => boekingsregels(bestelling([sku({ settlement_amount: "33.200" })])), /bestelling 577 sku 11 .*settlement_amount: .*decimalen/);
   const t = sku();
   t.fee_tax_breakdown.fee.referral_fee_amount = "-4.000";
   assert.throws(() => boekingsregels(bestelling([t])), /decimalen/);
