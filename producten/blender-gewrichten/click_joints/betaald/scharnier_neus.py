@@ -48,8 +48,11 @@ def _onderkant(hit, zij, omlaag):
     """Telt een treffer buiten het midden als onderkant? Het vlak moet naar onder kijken (hoogstens 75 graden van
     de lidas, ONDER_COS) en minstens DRAAI_MIN graden verder naar onder gedraaid zijn dan het zijvlak op de hoogte
     van H (zij, de normaal van de zijstraal net onder H). Een afgeronde of schuine onderkant draait weg van de
-    zijkant en telt; een lid dat vanaf H taps toeloopt (wig, vingertop) of een rond zijvlak (de arm) heeft onder
-    dezelfde hoek als bij H en telt niet: daar is het lid gewoon smaller, de sleuf zaagt er geen onderkant door."""
+    zijkant en telt; een lid dat vanaf H taps toeloopt (wig, vingertop) of rond is in de doorsnede (de arm) heeft
+    onder dezelfde hoek als bij H en telt niet: daar is het lid gewoon smaller, de sleuf zaagt er geen onderkant door.
+    Dat geldt niet voor een lid dat onder H bol smaller wordt (een kogel of knokkel op H): daar draait het zijvlak
+    wel weg en telt het ten onrechte als onderkant, zodat het nog Tight kan geven. Dat valt naar de veilige kant
+    (geen scharnier in plaats van een losse wang) en staat op de lijst voor versie 2."""
     c_hit = abs(hit.normalized().dot(omlaag))
     c_zij = abs(zij.normalized().dot(omlaag)) if zij is not None else 0.0
     hoek_hit = math.degrees(math.acos(min(1.0, c_hit)))
