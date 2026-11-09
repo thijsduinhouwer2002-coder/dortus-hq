@@ -105,8 +105,8 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
   if (!Number.isFinite(invoer.statementTime) || invoer.statementTime < 1_420_070_400 || invoer.statementTime > 4_102_444_800) {
     throw new MoneybirdFout("invoer", `statementTime is geen Unix-tijd in seconden: ${invoer.statementTime}`);
   }
-  if (!/^\d+$/.test(koppeling.tegenrekeningId ?? "") && koppeling.tegenrekeningId) throw new MoneybirdFout("invoer", `tegenrekening-id moet uit cijfers bestaan: ${koppeling.tegenrekeningId}`);
-  if (!koppeling.tegenrekeningId) throw new MoneybirdFout("invoer", "geen tegenrekening (Te ontvangen van TikTok Shop) gekozen");
+  if (!/^\d+$/.test(koppeling.tegenrekeningId ?? "") && koppeling.tegenrekeningId) throw new MoneybirdFout("instelling", `tegenrekening-id moet uit cijfers bestaan: ${koppeling.tegenrekeningId}`);
+  if (!koppeling.tegenrekeningId) throw new MoneybirdFout("instelling", "geen tegenrekening (Te ontvangen van TikTok Shop) gekozen");
 
   const som = new Map<MbSoort, number>();
   for (const r of invoer.regels) {
@@ -124,9 +124,9 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
     const c = som.get(soort) ?? 0;
     if (c === 0) continue;
     const k = koppeling.per[soort];
-    if (!k?.grootboekId) throw new MoneybirdFout("invoer", `geen grootboekrekening gekozen voor "${naam}"`);
+    if (!k?.grootboekId) throw new MoneybirdFout("instelling", `geen grootboekrekening gekozen voor "${naam}"`);
     // Een leeg btw-tarief (lege keuzelijst in instellingen) betekent: geen btw.
-    if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("invoer", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
+    if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("instelling", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
     if (k.btwTariefId && !opties.btwToegestaan) throw new MoneybirdFout("btw_nog_niet_getest", `btw-tarief bij "${naam}" kan pas na de sandbox-test`);
     totaal += c;
     const regel: MemoriaalRegel = { grootboekId: k.grootboekId, debetCenten: c < 0 ? -c : 0, creditCenten: c > 0 ? c : 0, omschrijving: `TikTok Shop ${naam}, afrekening ${invoer.statementId}` };

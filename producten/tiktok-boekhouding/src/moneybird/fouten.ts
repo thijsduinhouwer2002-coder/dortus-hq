@@ -10,7 +10,8 @@ export type MoneybirdFoutSoort =
   | "te_veel_verzoeken" // 429
   | "server" // 5xx of netwerkfout
   | "periode_afgesloten" // datum op of vóór period_locked_until, of 422 in_locked_period
-  | "invoer" // eigen controle vóór de aanroep
+  | "invoer" // eigen controle vóór de aanroep (gegevens van de afrekening)
+  | "instelling" // eigen controle: de koppeling met rekeningen klopt niet (winkel stil tot de gebruiker het regelt)
   | "btw_nog_niet_getest"
   | "dubbel"
   | "antwoord" // onverwacht antwoord (bijv. id als getal)
