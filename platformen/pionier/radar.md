@@ -2,6 +2,8 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 07:10 | Fourthwall Developer Platform: apps en site-editor-secties van derden, publiceren nog via Discord, één zelfstandige app (Echobrain), eigen kassa toegestaan; 25.732 live winkels | https://docs.fourthwall.com/apps/publishing.md | GEZIEN | onderzocht: cijfer 5, herhaal 9 feb 2027
+- 9 nov 2026 07:00 | Light Phone III-tools: "non-commercial" | https://engadget.com/2161468/the-minimalist-light-phone-iii-will-soon-support-a-curated-set-of-third-party-apps | DERDEN | nee
 - 9 nov 2026 07:00 | Salla App Store (Saoedi-Arabië): openbare API api.salla.dev/marketplace/v2 met 849 apps, 475 betaald; groei van het platform staat stil; ClickUp heeft geen app-marketplace | https://api.salla.dev/marketplace/v2/apps | GEZIEN | onderzocht: cijfer 4, doorgeven aan Vera
 - 9 nov 2026 06:15 | TikTok Shop `shop_region`: AU, KR, SE, CA, DK, FI, RO, NO, CH, AE, SK, BG, HR, SI, LT, LV, EE, LU nog fout; SA open met 0 apps; Zuidoost-Azië (SG 292, MY 349, TH 395, VN 486, PH 326, ID 486 apps) bestaat al lang | seller-eu.tiktok.com portal-API | GEZIEN | geen nieuw land, elke run opnieuw
 - 9 nov 2026 | Plane, Documenso, Chatwoot: geen marketplace voor makers (Plane: 18 apps, alle van Plane zelf) | https://plane.so/marketplace | GEZIEN | nee
