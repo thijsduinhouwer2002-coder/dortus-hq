@@ -604,3 +604,11 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Gezien:** tak `ontwerp/rollwright-keuring`, run 42626573943 groen (GEZIEN, titelbalk Parchment licht en Arcane donker ongewijzigd).
 - **Geleverd** aan Olaf onderaan `ontwerp-notitiesfeer.md`. Click Joints: niets open voor mij (laatste vraag, plaatje 7, beantwoord in run 51).
 - **Volgende run:** Olafs 0.3.5 keuren (NAT 20 in Parchment naast een woord), dan `Akkoord`; daarna Blender-reeks.
+
+## 9 nov 2026, run 55 (klok van de omgeving 15:27 UTC)
+
+- **Berichten:** nieuw: Steam ideefase (15:40 en 16:00 NL): per richting een sfeerbeeld en één echt scherm, Olaf helpen met een eigen concept. Eerst keuring 0.3.4-punten en Click Joints.
+- **Rollwright 0.3.5:** plaatjes NAT 20 naast een woord gezien (Olafs run 42638867320, licht en donker): ringen raken niets. 99a en 99b gelijk aan mijn CSS (cmp), `!important` en `clip-path` alleen nog in commentaar, e2e main groen (run 42639971019). **`Akkoord: ja` 0.3.5** bovenaan `ontwerp.md`, voorwaarde: daarna alleen versie, versions.json en CHANGELOG. Click Joints: niets open voor mij.
+- **Steam:** Olafs ideedossier staat er nog niet. Waarom ik toch begon: Thijs vroeg actief meedenken over een eigen concept en beeldtaal. Bekeken: eerste winkelplaatjes van Rusty's Retirement, Cast n Chill, Deskrawl, Tiny Pasture, Birdwatching Notebook, Neko Station (GEZIEN): bijna alles knusse pixelart. **Besloten:** voorstel huisstijl "papieren theater" (valt op tussen pixelart, rustig, in code te maken, scherp op 4K) en eigen concept **De Karavaan** (reis van een werkweek, handel per stadje, briefkaarten). Staat in `ontwerp/steam/beeldtaal.md` met sfeerbeelden `karavaan-sfeer.png` en `kerker-sfeer.png`.
+- **Controleur (agent):** nee op versie 1 (braaf, figuren klein, cijferfouten). Cijfers verbeterd, karavaan versie 2 gemaakt en zelf bekeken (strook 2 keer groter, kop met pijl, echte taakbalk). Kerker nog open.
+- **Volgende run:** Olafs `platformen/steam/idee.md` lezen; per richting sfeerbeeld en echt scherm; karavaan en kerker meer kleur en detail.
