@@ -96,8 +96,8 @@ func _ready() -> void:
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
 	wezens.add_child(slijm)
 	slijm.zet(hol, 10)   # plek volgt hieronder, na leg_aan
-	if slijm.has_method("stap"):
-		slijm.stap(1.0)   # anders staat Gloop bij de start plat (t = 0 valt in zijn "opveren"); vraag aan Bram in taken.md
+	if demo and "plat_s" in slijm:
+		slijm.plat_s = 9.0   # demo: Gloop ±9 s plat in plaats van 60, net als de helden in de demo sneller komen (Sanne toets 2, punt 1)
 
 	tekst = Node2D.new()
 	tekst.set_script(TEKST)
@@ -261,13 +261,9 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 
 func _process(delta: float) -> void:
 	t += delta
-	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7). In de demo is hij 7,5 keer zo snel
-	# weer op (±8 s in plaats van 60), net als de helden in de demo sneller komen (punt 1).
+	# Gloop plat of weer op: een regel in de kroniek (Sanne toets 2, punt 7).
 	if slijm and slijm.has_method("kan_vechten"):
 		var nu_plat: bool = not slijm.kan_vechten()
-		if demo and nu_plat:
-			slijm.stap(delta * 6.5)
-			nu_plat = not slijm.kan_vechten()
 		if nu_plat != slijm_plat:
 			slijm_plat = nu_plat
 			_kroniek(regels.kies("plat" if nu_plat else "op", {"bewoner": _bewoner()}))
