@@ -20,7 +20,7 @@ P = {
     # aarde
     "1": hx("3d2621"), "2": hx("5a3a2c"), "3": hx("774c34"), "4": hx("96633f"), "5": hx("b5804f"),
     # holwand (achter de gang)
-    "w": hx("231719"), "W": hx("2f2023"), "v": hx("3c2b2b"),
+    "w": hx("2e1d1e"), "W": hx("3f2a28"), "v": hx("543832"), "V": hx("6a4838"),
     # steen
     "7": hx("5d5552"), "8": hx("847a72"), "9": hx("aca196"),
     # gras en mos
@@ -69,22 +69,36 @@ OPP = 12   # hoogte van het maaiveld (gras) boven de eerste aardelaag
 def aarde_cel(rnd, im, ox, oy):
     for y in range(CEL):
         for x in range(CEL):
-            v = rnd.random()
-            c = "3" if v < 0.62 else ("2" if v < 0.86 else "4")
-            im.putpixel((ox + x, oy + y), P[c])
-    # klonten en steentjes
-    for _ in range(rnd.randint(1, 3)):
-        x, y = rnd.randint(1, 13), rnd.randint(1, 13)
-        for dx, dy, c in ((0, 0, "4"), (1, 0, "4"), (0, 1, "2"), (1, 1, "2")):
-            im.putpixel((ox + x + dx, oy + y + dy), P[c])
-    if rnd.random() < 0.45:
-        x, y = rnd.randint(2, 11), rnd.randint(2, 11)
-        steen = [".88.", "8997", "7887", ".77."]
+            im.putpixel((ox + x, oy + y), P["3"])
+    # kluiten: blobje met licht linksboven en schaduw rechtsonder
+    for _ in range(rnd.randint(3, 5)):
+        x, y = rnd.randint(0, 12), rnd.randint(0, 12); w, h = rnd.randint(2, 4), rnd.randint(2, 3)
+        for yy in range(h):
+            for xx in range(w):
+                c = "4" if (yy == 0 or xx == 0) else "3"
+                im.putpixel((ox + (x + xx) % CEL, oy + (y + yy) % CEL), P[c])
+        for xx in range(w): im.putpixel((ox + (x + xx) % CEL, oy + (y + h) % CEL), P["2"])
+        im.putpixel((ox + (x + w) % CEL, oy + (y + h) % CEL), P["2"])
+    for _ in range(rnd.randint(2, 4)):
+        im.putpixel((ox + rnd.randint(0, 15), oy + rnd.randint(0, 15)), P["2"])
+    k = rnd.random()
+    if k < 0.40:
+        x, y = rnd.randint(2, 10), rnd.randint(2, 10)
+        steen = [".kkk.", "k898k", "k8887k", ".k77k", "..kk."] if rnd.random() < 0.5 else [".kk.", "k98k", "k87k", ".kk."]
         for yy, r in enumerate(steen):
             for xx, c in enumerate(r):
+                if c != "." and x + xx < 16 and y + yy < 16: im.putpixel((ox + x + xx, oy + y + yy), P[c if c != "k" else "1"])
+    elif k < 0.44:   # botje (zeldzaam)
+        x, y = rnd.randint(2, 9), rnd.randint(3, 11)
+        for xx, c in enumerate("jIIIIj"): im.putpixel((ox + x + xx, oy + y), P[c])
+        for dx in (0, 5):
+            im.putpixel((ox + x + dx, oy + y - 1), P["j"]); im.putpixel((ox + x + dx, oy + y + 1), P["I"])
+    elif k < 0.50:   # kristalletje
+        x, y = rnd.randint(3, 11), rnd.randint(3, 10)
+        for yy, r in enumerate([".N.", "NqM", "nNM", ".m."]):
+            for xx, c in enumerate(r):
                 if c != ".": im.putpixel((ox + x + xx, oy + y + yy), P[c])
-        im.putpixel((ox + x + 1, oy + y + 4), P["1"]); im.putpixel((ox + x + 2, oy + y + 4), P["1"])
-    if rnd.random() < 0.25:   # worteltje
+    if rnd.random() < 0.3:   # worteltje
         x = rnd.randint(2, 13); y = rnd.randint(0, 6)
         for i in range(rnd.randint(3, 6)):
             im.putpixel((ox + x, oy + y + i), P["u"])
@@ -94,14 +108,16 @@ def gang_cel(rnd, im, ox, oy, n, e, s, w):
     """n,e,s,w = True als de buur aarde is (dan komt er een rand)."""
     for y in range(CEL):
         for x in range(CEL):
-            v = rnd.random()
-            c = "W" if v < 0.7 else ("w" if v < 0.9 else "v")
-            im.putpixel((ox + x, oy + y), P[c])
-    # stenen in de achterwand, heel zacht
-    for _ in range(2):
-        x, y = rnd.randint(2, 12), rnd.randint(4, 10)
-        for dx in range(3): im.putpixel((ox + x + dx, oy + y), P["v"])
-        im.putpixel((ox + x + 1, oy + y - 1), P["v"])
+            im.putpixel((ox + x, oy + y), P["W"])
+    # gestapelde stenen in de achterwand (metselwerk, rij van 5 hoog)
+    for ry, y0 in enumerate((0, 5, 10)):
+        off = (ry * 4) % 8
+        for x in range(CEL):
+            if (x + off) % 8 == 0:
+                for y in range(y0, min(y0 + 5, CEL)): im.putpixel((ox + x, oy + y), P["w"])
+            else:
+                im.putpixel((ox + x, oy + min(y0 + 4, 15)), P["w"])
+                if (x + off) % 8 in (1, 2, 3): im.putpixel((ox + x, oy + y0), P["v"])
     if n:   # plafond: aarderand, schaduw, hangende worteltjes
         for x in range(CEL):
             im.putpixel((ox + x, oy), P["2"]); im.putpixel((ox + x, oy + 1), P["1"])
@@ -124,7 +140,7 @@ def gang_cel(rnd, im, ox, oy, n, e, s, w):
 def maak_tegels():
     # rij 0: 4 aardevarianten; rij 1: 16 gangvarianten (index = n*1 + e*2 + s*4 + w*8)
     im = Image.new("RGBA", (CEL * 16, CEL * 2), (0, 0, 0, 0))
-    for i in range(4): aarde_cel(random.Random(10 + i), im, i * CEL, 0)
+    for i in range(8): aarde_cel(random.Random(10 + i), im, i * CEL, 0)
     for m in range(16):
         gang_cel(random.Random(100 + m), im, m * CEL, CEL, bool(m & 1), bool(m & 2), bool(m & 4), bool(m & 8))
     opslaan(im, "tegels.png")
@@ -313,15 +329,44 @@ def held(lijven, hoeden, wapens, fr, hoed, wapen):
         h = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); h.paste(hoeden[hoed], (0, bob)); im = Image.alpha_composite(im, h)
     return im
 
+
+# ---------- versiering, 16 x 16 per stuk ----------
+DECO = {
+    "paddenstoel": ["................"]*7 + ["....kkk.........", "...kRjRk..kk....", "..kRRRjRkkRjk...", "..kkkkkkkkkkk...", "....ksk...kk....", "....ksk...kk....", "...kSSSk.kSk....", "...kkkkk.kkk...."],
+    "lichtzwam": ["................"]*6 + ["...kkkk.........", "..kNqqNk........", ".kNNqNNNk.......", ".kkMMMMkk..kkk..", "...kqqk...kNqNk.", "...kqNk...kkMkk.", "...kqNk....kqk..", "...kNNk.kk.kNk..", "..kkNMkkNqkkMk..", ".kkkkkkkkkkkkkk."],
+    "ton":  ["................"]*4 + ["....kkkkkkk.....", "...kUUUUUUUk....", "...kiiiiiiik....", "..kUuUUUUUuUk...", "..kUuUUUUUuUk...", "..kiiiiiiiiik...", "..kUuUUUUUuUk...", "..kUuUUUUUuUk...", "...kiiiiiiik....", "...kUUUUUUUk....", "....kkkkkkk.....", "................"],
+    "kist": ["................"]*6 + ["..kkkkkkkkkk....", "..kUUUUUUUUk....", "..kuUkkkkUuk....", "..kUkUUUUkUk....", "..kUUkUUkUUk....", "..kUUUkkUUUk....", "..kUkUUUUkUk....", "..kuUkkkkUuk....", "..kUUUUUUUUk....", "..kkkkkkkkkk...."],
+    "schedel": ["................"]*9 + ["....kkkk........", "...kjjjjk.......", "...kekjek.......", "...kjjjjk..kk...", "....kIjk..kjjk..", "....kkkk.kjIIjk.", ".........kkkkkk."],
+    "kristal": ["................"]*5 + ["......k.........", ".....kqk...k....", ".....kNk..kqk...", "..k..knMk.kNk...", ".kqk.knMk.kNMk..", ".kNk.kNMkknMk...", ".kNMkknMkknMk...", "..kMkknMkkMk....", "...kmkMkmkk.....", "...kkkkkkk......", "................"],
+    "spinrag": ["9...........9...", ".9.......9.9....", "..9...9.9..9....", "..9.9..9...9....", "...9...9..9.....", "....9..9.9......", ".....9.99.......", "......9.........", "................", "................", "................", "................", "................", "................", "................", "................"],
+    "vaandel": ["kkkkkkkkkkkkkkkk", "UUUUUUUUUUUUUUUU", "kkk..........kkk", "..krrrrrrrrrrk..", "..krRRRRRRRRrk..", "..krRRyyRRRRrk..", "..krRyYyRRRRrk..", "..krRRyyRRRRrk..", "..krRRRRRRRRrk..", "..krRRRRRRRRrk..", "..krrrrrrrrrrk..", "...krrkkkkrrk...", "....kk....kk....", "................", "................", "................"],
+}
+def maak_deco():
+    frames = [sprite(DECO[n]) for n in DECO]
+    opslaan(strip(frames), "versiering.png"); return dict(zip(DECO, frames))
+
+def maak_gloed(r=26):
+    # warm licht rond fakkels en lichtzwammen; in Godot als sprite met optellen (blend add) of als PointLight2D-textuur
+    im = Image.new("RGBA", (r * 2, r * 2), (0, 0, 0, 0))
+    for y in range(r * 2):
+        for x in range(r * 2):
+            d = ((x - r + 0.5) ** 2 + (y - r + 0.5) ** 2) ** 0.5 / r
+            if d < 1:
+                # in treden (pixel art, geen zachte waas): 3 ringen
+                a = 70 if d < 0.4 else (42 if d < 0.7 else 20)
+                im.putpixel((x, y), (255, 170, 80, a))
+    opslaan(im, "gloed.png"); return im
+
 # ---------- alles maken ----------
 tegels = maak_tegels(); gras = maak_gras(); fakkel = maak_fakkel(); schat = maak_schat()
 slijm = maak_slijm(); val = maak_val(); lijven, hoeden, wapens = maak_held()
 ingang = sprite(INGANG); opslaan(ingang, "ingang.png")
+deco = maak_deco(); gloed = maak_gloed()
 
 json.dump({
     "spelpixel": "1 spelpixel = 2 schermpixels bij 100% Windows, 3 bij 150%, 4 bij 200% (altijd hele schaal, filter nearest)",
     "cel": 16, "maaiveld_hoogte": OPP,
-    "tegels.png": {"rij0": "aarde, 4 varianten (kies willekeurig per cel, vast zaad)", "rij1": "gang, 16 varianten, index = n*1 + e*2 + s*4 + w*8 waarbij een bit 1 is als die buur AARDE is"},
+    "tegels.png": {"rij0": "aarde, 8 varianten (kies willekeurig per cel, vast zaad)", "rij1": "gang, 16 varianten, index = n*1 + e*2 + s*4 + w*8 waarbij een bit 1 is als die buur AARDE is"},
     "gras.png": {"frame": [16, 12], "varianten": 4, "plek": "boven de bovenste aardelaag"},
     "ingang.png": {"frame": [20, 14], "anker": "onderkant op de grasrand, poortje boven de ingang-cel"},
     "fakkel.png": {"frame": [8, 12], "frames": 4, "fps": 6, "plek": "aan de wand van een gang, alleen bij de ingang en de schatkamer"},
@@ -363,7 +408,7 @@ def voorbeeld(breedte_cellen=60, schaal=2, naam="voorbeeld-strook.png"):
                 m = int(n) | int(e) << 1 | int(s) << 2 | int(w) << 3
                 t = tegels.crop((m * CEL, CEL, m * CEL + CEL, 2 * CEL))
             else:
-                v = rnd.randint(0, 3); t = tegels.crop((v * CEL, 0, v * CEL + CEL, CEL))
+                v = rnd.randint(0, 7); t = tegels.crop((v * CEL, 0, v * CEL + CEL, CEL))
             im.paste(t, (x, y))
     # gras ingang weg (gat), poortje
     for xx in range(ing * CEL, ing * CEL + CEL):
@@ -372,6 +417,14 @@ def voorbeeld(breedte_cellen=60, schaal=2, naam="voorbeeld-strook.png"):
     def zet(sp, x, y): im.paste(sp, (int(x), int(y)), sp)
     vloer1 = OPP + 2 * CEL - 3   # onderkant van rij 1, op de vloer
     vloer2 = OPP + 3 * CEL - 3
+    # versiering op de vloer en aan het plafond
+    plaf1 = OPP + CEL
+    for cx, n in ((9, "ton"), (13, "paddenstoel"), (17, "schedel"), (23, "lichtzwam"), (28, "kist"), (31, "paddenstoel"), (38, "kristal"), (42, "lichtzwam")):
+        zet(deco[n], cx * CEL, vloer1 - 16 + 1)
+    for cx, n in ((19, "lichtzwam"), (35, "kristal"), (14, "kristal")):
+        zet(deco[n], cx * CEL, vloer2 - 16 + 1)
+    for cx in (12, 27, 41): zet(deco["spinrag"], cx * CEL, plaf1)
+    zet(deco["vaandel"], 35 * CEL, OPP + CEL)
     zet(fakkel[1], 8 * CEL + 4, OPP + CEL + 1)
     zet(fakkel[2], 33 * CEL + 4, OPP + CEL + 1)
     zet(schat[0], 36 * CEL - 4, vloer2 - 16 + 1)
@@ -383,6 +436,26 @@ def voorbeeld(breedte_cellen=60, schaal=2, naam="voorbeeld-strook.png"):
     zet(held(lijven, hoeden, wapens, 1, 1, 1), 15 * CEL - 4, vloer1 - 16 + 1)
     zet(held(lijven, hoeden, wapens, 2, 2, 2), 24 * CEL + 2, vloer1 - 16 + 1)
     h4 = held(lijven, hoeden, wapens, 3, 3, None).transpose(Image.FLIP_LEFT_RIGHT); zet(h4, 32 * CEL, vloer1 - 16 + 1)
+    # licht erbovenop (optellen)
+    licht = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    for (lx, ly) in ((8 * CEL + 8, OPP + CEL + 4), (33 * CEL + 8, OPP + CEL + 4), (37 * CEL, vloer2 - 6)):
+        licht.alpha_composite(gloed, (lx - gloed.width // 2, ly - gloed.height // 2))
+    for (lx, ly) in ((23 * CEL + 8, vloer1 - 4), (42 * CEL + 8, vloer1 - 4), (19 * CEL + 8, vloer2 - 4)):
+        g2 = gloed.resize((32, 32), Image.NEAREST)
+        px = g2.load()
+        for yy in range(32):
+            for xx in range(32):
+                r_, g_, b_, a_ = px[xx, yy]; px[xx, yy] = (110, 255, 200, a_)
+        licht.alpha_composite(g2, (lx - 16, ly - 16))
+    import numpy as np
+    a = np.asarray(im).astype(np.int32); l = np.asarray(licht).astype(np.int32)
+    gm = np.zeros((H, W, 1), dtype=bool)
+    for r in range(3):
+        for c in range(breedte_cellen):
+            if gang[r][c]: gm[OPP + r * CEL:OPP + (r + 1) * CEL, c * CEL:(c + 1) * CEL] = True
+    gang_masker = gm
+    a[..., :3] = np.clip(a[..., :3] + (l[..., :3] * l[..., 3:4]) // 255, 0, 255) * gang_masker + a[..., :3] * (~gang_masker)
+    im = Image.fromarray(a.astype(np.uint8), "RGBA")
     groot = im.resize((W * schaal, H * schaal), Image.NEAREST)
     groot.save(os.path.join(HIER, naam))
     return groot

@@ -3,7 +3,7 @@
  "cel": 16,
  "maaiveld_hoogte": 12,
  "tegels.png": {
-  "rij0": "aarde, 4 varianten (kies willekeurig per cel, vast zaad)",
+  "rij0": "aarde, 8 varianten (kies willekeurig per cel, vast zaad)",
   "rij1": "gang, 16 varianten, index = n*1 + e*2 + s*4 + w*8 waarbij een bit 1 is als die buur AARDE is"
  },
  "gras.png": {
