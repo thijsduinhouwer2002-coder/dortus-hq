@@ -20,7 +20,7 @@ Wat er anders is dan ronde 5:
 
 ACHTERGROND = "#0B0C0F"   # 6d: Daan 04:33, rand van de lichtvlek (midden #1E2026)
 VLEK = "#1E2026"
-HOUT_LICHT, HOUT_DONKER = "#D8A86E", "#CC9A66"   # 6e: nog minder verschil (6d close-up nog streperig); 6d: Daan 04:33, bijna egaal, nerf hooguit 10 procent verschil
+HOUT_LICHT, HOUT_DONKER = "#DDB07A", "#C9985F"   # ronde 6 groot: Daan 05:35, lichter en minder oranje; 6e had "#D8A86E", "#CC9A66": nog minder verschil (6d close-up nog streperig); 6d: Daan 04:33, bijna egaal, nerf hooguit 10 procent verschil
 ROOD = (*kleur("#E0261C"), 1.0)   # 6d: Daan 04:33, verzadigd rood als basis, lage gloed (AgX bleekt fel rood naar roze)
 KLEUR_3200K = "#FFE4CE"   # 6c2: hoofdlicht nu ±5000 K (3200 K maakte het hout oranje); naam blijft voor film_mooi
 KLEUR_8000K = "#E3E9FF"   # zwarte straler 8000 K, sRGB
