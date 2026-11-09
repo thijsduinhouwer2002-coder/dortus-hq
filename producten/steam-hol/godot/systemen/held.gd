@@ -10,7 +10,7 @@ extends Node2D
 #   Kans: slijm 30%, stekelput 22% (balans.md). Tegen zijn eigen vijand is hij roekeloos: +10 procentpunt.
 # - valt hij niet, dan is hij geraakt: hij krijgt een wrok tegen wat hem raakte. Een bewoner die verliest gaat niet dood,
 #   die is even plat (plat()).
-# - karakter: "hebzuchtig" loopt door tot de schat; "schijterig" draait om na de eerste klap.
+# - karakter: "hebzuchtig" loopt door tot de schat (vlucht pas na twee klappen); "schijterig" draait na een klap meestal om.
 # - haalt hij de schat, dan pakt hij NIETS (geen straf): hij raakt hem aan, krijgt de bijnaam Hoard-Toucher en rent weg.
 #   Een Hoard-Toucher komt brutaler terug: iets vaker vluchten, nooit iets van jou kwijt.
 # - info["moet_vallen"] = true: hij valt bij de eerste verdediging (de eerste held van een nieuw spel, balans.md).
@@ -105,6 +105,8 @@ func stap(delta: float) -> void:
 			if position.y >= VLOER:
 				staat = "lopen"
 		"lopen":
+			if vijand_kol < 0:
+				doel_kol = hol.schat().x   # de schat schuift mee als je graaft
 			var doel: Vector2 = hol.cel_naar_pos(Vector2i(doel_kol, 0))
 			position.x = move_toward(position.x, doel.x, SNEL * (1.25 if trek == "hebzuchtig" else 1.0) * delta)
 			_onderweg()
@@ -149,6 +151,8 @@ func _onderweg() -> void:
 	if soort == "" and b == null:
 		return
 	gezien[cel.x] = true
+	if soort != "":
+		b = null   # val en bewoner in dezelfde kolom: hij vecht tegen de val
 	var naam_vijand: String = NAAM_PUT if soort != "" else b.naam()
 	var kans: float = KANS.get(soort if soort != "" else String(b.get("soort") if "soort" in b else "slijm"), KANS_ANDERS)
 	var is_vijand := vijand_kol >= 0 and cel.x == vijand_kol
@@ -177,7 +181,8 @@ func _onderweg() -> void:
 	if is_vijand:
 		vijand_kol = -1
 		doel_kol = hol.schat().x
-	if trek == "schijterig" or klappen >= 2:
+	# schijterig draait na een klap meestal om (2 op 3), hebzuchtig pas na twee klappen
+	if (trek == "schijterig" and rng.randf() < 0.67) or klappen >= 2:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
 

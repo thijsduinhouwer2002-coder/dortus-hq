@@ -69,6 +69,28 @@ func _init() -> void:
 	ok(r.uitkomst == "ontsnapt" and r.info.get("hoard_toucher", false), "schat gehaald: ontsnapt als Hoard-Toucher")
 	ok(String(r.info.get("wat", "")).contains("took nothing"), "hij pakt niets: " + String(r.info.get("wat", "")))
 
+	# 3b. je graaft terwijl hij loopt: de schat schuift op en hij loopt mee naar de nieuwe plek
+	var hol2 := Node2D.new()
+	hol2.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	var w2 := Node2D.new()
+	hol2.add_child(w2)
+	var h2 := Node2D.new()
+	h2.set_script(load("res://systemen/held.gd"))
+	w2.add_child(h2)
+	uitkomst = ""
+	h2.klaar.connect(_klaar)
+	h2.start(hol2, {"naam": "Ties", "bezoeken": 0, "wrok": "", "zaad": 4})
+	var max_x := 0.0
+	for i in 3000:
+		if i == 60:
+			hol2.schat_kol = 15
+		if uitkomst != "":
+			break
+		max_x = maxf(max_x, h2.position.x)
+		h2.stap(1.0 / 15.0)
+	ok(absf(max_x - (15 * 16 + 8)) < 1.0 and uitkomst == "ontsnapt", "schat verschoven: hij loopt naar de nieuwe plek (x %.0f)" % max_x)
+	hol2.free()
+
 	# 4. schijterig draait om na de eerste klap; een verslagen bewoner is even plat en bestaat nog
 	var gevlucht := 0
 	var plat := 0
@@ -87,7 +109,8 @@ func _init() -> void:
 	ok(gevlucht > 0 and plat == gevlucht, "schijterig vlucht na de eerste klap (%d keer)" % gevlucht)
 	ok(bestaat == n, "slijm gaat nooit dood (%d van %d)" % [bestaat, n])
 
-	# 5. verdeling: met slijm en put vlucht ongeveer 1 op 3 tot de helft (balansdoel features.md)
+	# 5. verdeling met precies één slijm en één put. Het model van balans.md geeft dan 1 - 0,70 x 0,78 = 45% vallen,
+	#    dus 55% vluchten; de 36% van Sanne is het gemiddelde over uren met meer verdediging (dat toetst sim/).
 	for z in n:
 		var trekje := "schijterig" if z % 2 == 0 else "hebzuchtig"
 		r = speel({"naam": "Rik%d" % z, "bezoeken": 0, "wrok": "", "trek": trekje, "zaad": 5000 + z})
@@ -97,7 +120,7 @@ func _init() -> void:
 			vlucht_alle += 1
 	var deel := vlucht_alle / float(n)
 	print("[held-toets] verdeling: %d gevallen, %d gevlucht (%.0f%%)" % [gevallen, vlucht_alle, deel * 100])
-	ok(deel > 0.25 and deel < 0.65, "vluchten tussen 25%% en 65%% (%.0f%%)" % (deel * 100))
+	ok(deel > 0.45 and deel < 0.62, "vluchten tussen 45%% en 62%% bij 1 slijm en 1 put (%.0f%%)" % (deel * 100))
 
 	# 6. Hoard-Toucher komt brutaler terug: vaker vluchten
 	var vlucht_ht := 0
