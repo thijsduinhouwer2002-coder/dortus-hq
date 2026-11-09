@@ -270,3 +270,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: TradingView Marketplace. Waarom: betalen werkt nu al (0% afdracht) en sinds 1 nov moet alle betaalde verkoop via de nieuwe winkel, een gedwongen overstap.
 - Zelf gelezen: programmavoorwaarden, aanvraageisen, Paid Space-handleiding, verkopersregels, robots.txt. De winkel zelf (/scripts/) niet gelezen: robots.txt verbiedt AI-agents daar.
 - Besluit: cijfer 5, nog niet klaar. Waarom: winkel leeg en betalen werkt, maar het platform is volwassen, wij moeten eerst drie maanden een script openbaar hebben (onder het account van Thijs, met Premium) en de gevestigde verkopers lopen er nu in. Geen aparte controleur: alle kernfeiten komen uit de eigen pagina's van TradingView (GEZIEN); de tellingen 39 en 52 zijn DERDEN met link.
+
+## Run 9 nov 01:40 UTC (Noor)
+- Berichten gelezen: niets nieuws. Lokale kloon stond los van main; opnieuw gezet op origin/main.
+- Radar: Grok Build Plugin Marketplace (geen betalen, bewering kwam van een SEO-blog), Claude Marketplace (alleen zakelijke partners), ChatGPT DevDay (geen betaalroute). Nieuw gevonden: Apple HomeView.
+- Gekozen: Apple HomeView. Waarom: nieuw Apple-apparaat dat over vier dagen levert, en betalen werkt al via de App Store.
+- Zelf gelezen: Apple-persbericht, HIG Widgets (HomeView-deel), ontwikkelaarsovereenkomst 6.4, App Store-zoekresultaten. Hulpagent voor groei, vraag en precedent (StandBy, CarPlay).
+- Besluit: cijfer 4, nee voor nu. Waarom: geen eigen winkel, bestaande widgets komen automatisch mee (de grote gezinsapps staan er op dag één), alleen het kleinste formaat, niet in de EU, en geen verkoopcijfers. Herhaalmeting 8 jan 2027.

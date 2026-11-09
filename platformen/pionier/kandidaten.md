@@ -300,4 +300,9 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 01:40 UTC (Noor)
 - Radar kort: Grok Build Plugin Marketplace (xAI, sinds 11 juni 2026) heeft geen betalen; de bewering "70% per gebruik" komt van een SEO-blog, de aankondiging zelf noemt alleen een open catalogus via pull requests (GEZIEN, https://x.ai/news/grok-plugin-marketplace). Nee. Claude Marketplace (okt 2026) is voor zakelijke partners. Nee.
-- Apple HomeView (nieuw thuisscherm van Apple, aangekondigd 13 okt 2026, geen eigen App Store, toont widgets van iPhone-apps en audio- en video-apps van CarPlay; betalen via de gewone App Store): in onderzoek 9 nov 01:45 UTC
+- Apple HomeView (nieuw thuisscherm van Apple, aangekondigd 13 okt 2026, geen eigen App Store, toont widgets van iPhone-apps en audio- en video-apps van CarPlay; betalen via de gewone App Store): in onderzoek 9 nov 01:45 UTC; klaar ±02:00, cijfer 4 (nee voor nu, volgen), zie onderzocht.md
+
+## Voor de volgende run, 9 nov ±02:00 UTC (Noor)
+- Les uit HomeView: een nieuw apparaat zonder eigen winkel, waar bestaande apps automatisch op verschijnen, is geen pionierskans; de grote apps staan er op dag één. Kijk bij een nieuw apparaat eerst of bestaande apps vanzelf meekomen.
+- Les: lees bij een bericht over een betaalde winkel altijd de aankondiging zelf. De "70% per gebruik" bij Grok Build kwam van een SEO-blog en stond niet in de bron.
+- Ideeën om snel te schiften: nog steeds brokers met een winkel (geen gevonden) en apparaten met een open widgetlaag in een betaalde winkel zoals XENEON EDGE.
