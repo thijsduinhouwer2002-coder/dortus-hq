@@ -205,6 +205,13 @@ func _init() -> void:
 			k8.gevlucht(nm, "Gloop the Slime")
 		sjablonen.append(k8.laatste().replace(nm, "{naam}"))
 	ok(dubbel10 == 0, "binnenkomst: geen regel die in de laatste 10 al stond (%d keer)" % dubbel10)
+	# demo-minuut: 7 binnenkom-regels op rij, alle 7 verschillend (eerst alle andere, dan pas een herhaling)
+	var k10 = K.new()
+	var zeven := {}
+	for z in 7:
+		k10.binnen("Demo%d" % z)
+		zeven[k10.laatste().replace("Demo%d" % z, "{naam}")] = true
+	ok(zeven.size() == 7, "7 helden op rij: 7 verschillende binnenkom-regels (%d)" % zeven.size())
 	# Olaf 22:35: één voorraad; kern/strook.gd kan dezelfde soorten en de getal-vorm van kies() gebruiken
 	var stem = load("res://systemen/kroniek_regels.gd").new()
 	var mist: Array[String] = []

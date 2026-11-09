@@ -56,6 +56,12 @@ const GEHEUGEN := 4    # Sanne toets 3 punt 3: per soort de laatste 4 regels ove
 const GEHEUGEN_ALLES := 10
 var laatste_alles: Array[String] = []   # laatste gekozen sjablonen van alle soorten, nieuwste achteraan
 
+# Hoeveel regels van deze soort onthouden worden: minstens 4, en bij een grote soort alles op één na, zodat een regel
+# pas terugkomt als de andere allemaal geweest zijn (Sanne toets 5: in de demo-minuut geen binnenkom-regel twee keer).
+func geheugen(soort: String) -> int:
+	var lijst: Array = VOORRAAD.get(soort, [])
+	return maxi(GEHEUGEN, lijst.size() - 1)
+
 func _init(zaad := 0) -> void:
 	rng.seed = zaad if zaad != 0 else hash("kroniek")
 
@@ -101,7 +107,7 @@ func kies(soort: String, v: Dictionary, achter = "", moet_noemen := false) -> St
 			if noemt_waarom(s, v):
 				noemers.append(s)
 		kandidaten = noemers   # niets past dat waarom noemt: "" en de beller neemt zijn reserve (met volle naam)
-	# eerst: niets uit de laatste 10 van de kroniek en niets uit de laatste 4 van deze soort
+	# eerst: niets uit de laatste 10 van de kroniek en niets uit het geheugen van deze soort (geheugen())
 	var geweest: Array = vorige.get(soort, [])
 	var over: Array[String] = []
 	for s in kandidaten:
@@ -109,7 +115,7 @@ func kies(soort: String, v: Dictionary, achter = "", moet_noemen := false) -> St
 			over.append(s)
 	# anders: de laatste regels van deze soort overslaan, maar er blijft er altijd minstens één over
 	if over.is_empty():
-		for n in range(mini(GEHEUGEN, geweest.size()), -1, -1):
+		for n in range(mini(geheugen(soort), geweest.size()), -1, -1):
 			over.clear()
 			var recent: Array = geweest.slice(geweest.size() - n) if n > 0 else []
 			for s in kandidaten:
@@ -127,8 +133,10 @@ func kies(soort: String, v: Dictionary, achter = "", moet_noemen := false) -> St
 		over.append(kort)
 	var gekozen: String = over[rng.randi_range(0, over.size() - 1)]
 	geweest.append(gekozen)
-	if geweest.size() > GEHEUGEN:
-		geweest.pop_front()
+	if geweest.size() > geheugen(soort):
+		# rond (alle regels van een grote soort geweest): houd alleen de laatste 4, zodat de volgende ronde
+		# een nieuwe volgorde krijgt in plaats van steeds hetzelfde rijtje (controleur)
+		geweest = geweest.slice(geweest.size() - GEHEUGEN) if geheugen(soort) > GEHEUGEN else geweest.slice(1)
 	vorige[soort] = geweest
 	laatste_alles.append(gekozen)
 	if laatste_alles.size() > GEHEUGEN_ALLES:
