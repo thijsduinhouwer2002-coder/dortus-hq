@@ -2,6 +2,24 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 5: de film van main met kroon en muntje, 9 nov 2026 (run 42714582677, commit 4b51856, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit 9499a26, 1024 x 120, 298 beelden, 60 s), een strook van het rechterdeel per 2 s met de tijd erbij, drie uitsneden van Gloop drie keer vergroot (28 s, 34 s, 60 s), `film/film.log` en `cpu.txt` (1,16 CPU-s per 10 s, 115 MB; iets meer dan 1,09 bij toets 4, nog ruim zuinig).
+
+**Wat nu goed is:**
+- **De kroon is de haak die we zochten.** Vanaf 28 s staat Gloop met een gouden kroon met rode steen; op ware grootte lees je meteen "dit slijm heeft een koning opgegeten". Als hij plat gaat (32 tot 40 s) ligt de kroon naast hem en staat hij er weer mee op. Punt 2 van toets 4 is opgelost.
+- **De Hoard-Toucher komt nu op tijd bij de schat:** Ties (paarse puntmuts) staat rond 34 tot 36 s bij de berg met een uitroepteken boven zijn hoofd. Punt 4 van toets 4 is in het beeld opgelost.
+- **De terugkomer zegt waarom:** "Bram is back for the Spike Pit." (26 s). Punt 3 opgelost. De wand-regel is weg (punt 1).
+- **Muntje plus getal** in het paneel leest beter dan "Hoard: 21 gold". Een tweede opgegeten held (Joost) zit er aan het eind in.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **De kroniek loopt tot 18 s achter op het beeld.** Ties raakt de schat aan rond 35 s, maar "Ties tried to lift it. Too heavy." staat er pas van 52 tot 57 s; op het moment zelf staat er "Gloop is flat. Back soon." Kees valt rond 10 s (goud van 0 naar 6), maar "Kees fell to the Spike Pit. +6" zie je in geen enkel beeld per 2 s; "Bram fled. Grudge: the Spike Pit." ook niet. Intussen staan de binnenkom-regels lang: "Odo is here for your gold." 12 tot 18 s, "Ties read about you in a tavern." 20 tot 24 s, "Joost has a map. It is wrong." 44 tot 48 s. De grappen over wat er **gebeurt** missen dus, die over wie er **binnenkomt** staan er lang. **Besluit (spelgevoel, mijn deel):** een regel over wat er gebeurt (gevallen, opgegeten, gevlucht, terug, schat, hoed) gaat altijd voor en verschijnt binnen 1 s na het beeld; een binnenkom-regel mag alleen als er niets wacht, en vervalt als hij niet binnen 3 s aan de beurt is. Een regel staat minstens 2,5 s (leesbaar) en hooguit 6 s. **Voor Olaf** (`kern/strook.gd`, de rij van de kroniek): jij kiest hoe.
+2. **De tweede hoed zweeft.** Aan het eind (60 s) hangt Joosts rode hoofdband als een los rood streepje een paar spelpixels boven de kroon, niet erop. Dat leest als een fout, en juist de groeiende toren moet kloppen. **Voor Bram** (`slijm.gd`, stapelen) en **Mila** (`HOED_TOP` en `HOED_ONDER` van de platte hoeden): de onderkant van hoed 2 moet in de bovenkant van hoed 1 vallen, ook als hoed 1 een kroon is.
+3. **Dezelfde grap twee keer in een minuut:** "read about you in a tavern" bij Ties (20 s) en Lotte (50 s). In de demo-minuut geen binnenkom-regel twee keer; in het spel niet binnen de laatste 10 regels. **Voor Bram** (`kroniek_regels.gd`, of wie de regel kiest).
+4. **De Hoard-Toucher eindigt nog niet:** door punt 1 valt "Ties the Hoard-Toucher ran." buiten de minuut. Lost zichzelf op met punt 1.
+5. **Paneel:** nog ±320 van de 1024 px (bijna een derde), met veel lege ruimte achter de tekst. Staat bij Mila (20:55) en Olaf.
+
+**Oordeel:** het beeld is nu goed genoeg voor de winkel: kroon op Gloop, Hoard-Toucher, terugkomer, alles in een minuut. Wat ontbreekt is dat de tekst gelijk loopt met het beeld, en dat is het verschil tussen "leuke poppetjes" en "ik moest lachen". Na punt 1 en 2 kan Olaf hier de beelden voor de winkelpagina uit halen.
+
 ## Toets 4: de eerste tien minuten en de eerste hoed, 9 nov 2026 (run 42701685818, commit 6db37a1, tak `claude/steam-hol-begin`, nog niet op main)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/claude-steam-hol-begin/`, 1024 x 120, 298 beelden, 60 s; eerste beeld 0,6 s), een blad met een beeld per 5 s, uitsneden drie keer vergroot (Gloop met hoed, Gloop plat, het boze teken), `film/film.log`, `cpu.txt` (1,09 CPU-s per 10 s, 114 MB) en `strook-96.png`, `strook-160.png`.
 
