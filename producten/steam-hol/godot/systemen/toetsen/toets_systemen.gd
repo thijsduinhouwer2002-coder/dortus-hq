@@ -187,5 +187,41 @@ func _init() -> void:
 	sl1.free()
 	sl2.free()
 
+	# Sanne toets 5 punt 2: geen binnenkom-regel die in de laatste 10 regels van de kroniek al stond
+	var k8 = K.new()
+	var sjablonen: Array[String] = []
+	var dubbel10 := 0
+	for z in 300:
+		var nm := "Held%d" % z
+		k8.binnen(nm)
+		var sj: String = k8.laatste().replace(nm, "{naam}")
+		if k8.laatste_soort.begins_with("binnen") and sjablonen.slice(maxi(0, sjablonen.size() - 10)).has(sj):
+			dubbel10 += 1
+		sjablonen.append(sj)
+		# zoals in het spel: elke held heeft ook een afloop-regel (vallen of vluchten)
+		if z % 3 == 0:
+			k8.gevallen(nm, "the Spike Pit", 6)
+		else:
+			k8.gevlucht(nm, "Gloop the Slime")
+		sjablonen.append(k8.laatste().replace(nm, "{naam}"))
+	ok(dubbel10 == 0, "binnenkomst: geen regel die in de laatste 10 al stond (%d keer)" % dubbel10)
+	# Olaf 22:35: één voorraad; kern/strook.gd kan dezelfde soorten en de getal-vorm van kies() gebruiken
+	var stem = load("res://systemen/kroniek_regels.gd").new()
+	var mist: Array[String] = []
+	for soort in ["binnen", "naamgenoot", "terug", "terug_bewoner", "terug_val", "aartsvijand", "val", "val_bewoner", "afgerekend",
+			"afgerekend_aarts", "vlucht", "schat", "plat", "op", "hoed_eerste", "hoed", "hoed_klein", "hoed_bijnaam"]:
+		if not stem.VOORRAAD.has(soort):
+			mist.append(soort)
+	ok(mist.is_empty(), "alle soorten van strook.gd staan in kroniek_regels.gd (mist: %s)" % str(mist))
+	var rv: String = stem.kies("val", {"naam": "Bartholomew", "val": "the Spike Pit"}, 4)
+	ok(rv != "" and rv.length() <= 38 and not rv.contains("+"), "kies met getal: ruimte voor ' +12', niets erachter (%s)" % rv)
+	ok(stem.kies("plat", {"bewoner": "Gloop"}) == "Gloop is flat. Back soon.", "plat-regel uit dezelfde voorraad")
+	ok(stem.kies("val_bewoner", {"naam": "Maximiliaan-Theodoor", "bewoner": "Gloop"}, 30) != "", "kies met getal geeft nooit leeg")
+	var k9 = K.new()
+	k9.binnen("Kees")
+	k9.gevallen("Kees", "the Spike Pit", 6)
+	k9.binnen("Kees II")
+	ok(not k9.laatste().contains("II II") and not k9.laatste().contains("{") and k9.laatste().contains("Kees II"), "naamgenoot met {oud}: " + k9.laatste())
+
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

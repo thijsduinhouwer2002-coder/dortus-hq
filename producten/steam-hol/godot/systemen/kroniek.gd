@@ -55,8 +55,8 @@ func binnen(naam: String, trek := "") -> Dictionary:
 		h["wrok"] = door_ouder
 		v = _vars(naam, door_ouder)
 		regel = _regel("naamgenoot_hoed", v, "%s wants dad's hat back." % naam)
-	elif h["bezoeken"] == 1 and naam.ends_with(" II"):
-		v["naam"] = naam.trim_suffix(" II")
+	elif h["bezoeken"] == 1 and ouder != "":
+		v["oud"] = naam.split(" ")[0]   # "Kees II" en "Kees III": Kees viel hier ooit
 		regel = _regel("naamgenoot", v, "%s climbs in." % naam)
 	elif h["bezoeken"] == 1:
 		var soort := "binnen_" + trek if trek != "" and stem.rng.randf() < 0.3 else "binnen"
@@ -116,7 +116,7 @@ static func _ouder(naam: String) -> String:
 
 # Hoedentoren (Mila, Sanne toets 3): een bewoner at naam en zet zijn hoed op. aantal = hoeden van die bewoner nu.
 # Geeft een extra regel of "": bij de eerste hoed altijd, bij 25 en 100 de bijnaam, anders hooguit een op de vier
-# (anders verdringt het de val-regel). Geen hoed (aantal 0, bv. een aartsvijand gaat naar de wand): "".
+# (anders verdringt het de val-regel). Geen hoed (aantal 0; later een aartsvijand die naar de wand gaat, zodra die er is): "".
 func hoed(naam: String, bewoner: String, aantal: int) -> String:
 	var v := _vars(naam, bewoner)
 	var regel := ""
