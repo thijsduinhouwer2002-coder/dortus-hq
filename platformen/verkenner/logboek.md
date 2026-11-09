@@ -748,3 +748,12 @@ Nieuwste blok onderaan.
 - Controleur akkoord met 11 correcties, onder meer de gratis grootste (TBH, 8.813 reviews, 62%) die ik miste omdat ik alleen betaalde apps telde, en 18 in plaats van 21 zelf uitgegeven (Gamersky als mede-uitgever).
 - Les: de appreviews-API van Steam stuurt vanaf hier door, maar steamcommunity.com/app/<id>/negativereviews/ is open en leesbaar. Tel ook altijd de gratis apps mee bij "wie is de nummer één".
 - Bericht aan Sanne gezet (Steam heeft een manager).
+
+## 9 nov run 14:31 (Amsterdam)
+- Open bericht van Thijs (9 nov 13:35): terug naar 100% platformen, op zoek naar een 8. Verwerkt. Geen herhaalmeting verlopen.
+- Keuze: Teachers Pay Teachers, nog nooit bekeken, een echte kassa en producten (pdf, slides) die wij met code kunnen maken. Chrome en WordPress bleken al op 5 nov gemeten; Etsy verbiedt ons in robots.txt. Om 14:40 op "in onderzoek" gezet en gepusht.
+- Eigen meting: productnummers lopen ±9.700 per dag op; 360 willekeurige nummers van feb t/m jun 2026 gelezen, ratings, prijs en datum uit de pagina. Onderzoeker voor bronnen.
+- Uitkomst: cijfer 1, nee. 3% van de nieuwe betaalde producten heeft één rating, ±150.000 nieuwe per maand, en TpT kondigde in okt 2026 een AI-verbod aan. Zie voorstellen/teachers-pay-teachers.md.
+- Controleur akkoord met 4 correcties (14 nummers sturen door naar de winkel, AI-verbod is aangekondigd maar nog niet ingegaan, opbrengst beste producten $150 tot $500, datums vanaf 28 jan).
+- Les: kijk bij markten voor lesmateriaal en sjablonen eerst naar het AI-beleid. TpT-productnummers lopen op in de tijd, dus een willekeurige steekproef per periode werkt goed.
+- Geen bericht aan een manager.
