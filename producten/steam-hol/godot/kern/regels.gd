@@ -26,6 +26,11 @@ const VOORRAAD := {
 		"{naam} is now the Hoard-Toucher."],
 	"plat": ["{bewoner} is flat. Back soon."],
 	"op": ["{bewoner} is up again. Wobbly."],
+	# hoedentoren (Mila, kroniek-regels.md): bij de eerste hoed altijd "hoed_eerste", daarna hooguit een op de vier
+	"hoed_eerste": ["{bewoner} wears {naam}'s hat now."],
+	"hoed": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile.",
+		"{bewoner}'s hat pile is taller than him."],
+	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
 }
 
 var rng: RandomNumberGenerator
