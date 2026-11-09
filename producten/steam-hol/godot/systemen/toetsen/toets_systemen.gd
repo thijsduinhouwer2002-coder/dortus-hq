@@ -221,7 +221,7 @@ func _init() -> void:
 	k9.binnen("Kees")
 	k9.gevallen("Kees", "the Spike Pit", 6)
 	k9.binnen("Kees II")
-	ok(not k9.laatste().contains("II II") and k9.laatste().contains("Kees II"), "naamgenoot met {oud}: " + k9.laatste())
+	ok(not k9.laatste().contains("II II") and not k9.laatste().contains("{") and k9.laatste().contains("Kees II"), "naamgenoot met {oud}: " + k9.laatste())
 
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
