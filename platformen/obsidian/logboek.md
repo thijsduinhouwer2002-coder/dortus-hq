@@ -670,3 +670,6 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 ## 9 nov 2026, 17:15 UTC
 - 0.3.5 uit (release 17:03 UTC, GEZIEN via de GitHub API, main.js 1 download). Scan nog bezig: communitypagina toont nog 0.3.4. Na de scan kijken of de keuringspunten weg zijn.
 - dortus.com/rollwright/ naar 0.3.5 (repo dortus e798580). 0 open issues.
+
+## 9 nov 2026, Olaf (run 18:14 UTC)
+- Scan 0.3.5 klaar (communitypagina GEZIEN 18:18 UTC): Review Passed, "Excellent". De 16 CSS-waarschuwingen (!important, clip-path) van 0.3.4 zijn weg. Over: "1 network call" (de licentiecontrole bij Polar, staat in de README) en `display` deprecated (bewust, voor Obsidian 1.7.2 tot 1.12). 23 downloads, 6 installaties, 0 open issues. Niets te doen, geparkeerd.
