@@ -52,6 +52,8 @@ body[class*="rwx-"] {T}.rwx-ico::after {{ content: "" !important; position: stat
 body[class*="rwx-"] {T}.rwx-ico-wolf {{ --rwx-ico: {WOLF}; }}
 body[class*="rwx-"] {T}.rwx-ico-trap {{ --rwx-ico: {TRAP}; }}
 body[class*="rwx-"] {NOTE} .callout {{ position: relative; overflow: visible !important; }}
+body[class*="rwx-"] {NOTE} .callout-content, body[class*="rwx-"] {NOTE} p {{ overflow: visible !important; }}
+body[class*="rwx-"] {T}.rollwright-crit, body[class*="rwx-"] {T}.rollwright-fumble {{ animation: none !important; }}
 body[class*="rwx-"] {NOTE} .metadata-container, body[class*="rwx-"] {NOTE} .frontmatter-container {{ display: none !important; }}
 body[class*="rwx-"] .view-header-title {{ color: var(--rwx-kop, #e8d8b8) !important; }}
 body[class*="rwx-"] {NOTE} .callout[data-callout="beast"]::after,
@@ -118,9 +120,9 @@ css += f"""
 {B} {T}.rollwright-crit {{ color: #fff3c0 !important; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331) !important;
   text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
 {B} {T}.rollwright-crit .rollwright-value {{ color: #ffe07a; }}
-{B} {T}.rollwright-fumble {{ color: #ff6a55 !important; background:
-  linear-gradient(115deg, transparent 46%, #0a0b0b 47%, #0a0b0b 49%, transparent 50%), linear-gradient(70deg, transparent 60%, #0a0b0b 61%, transparent 62.5%),
-  {STEEN}, linear-gradient(180deg,#3e4442,#262a29) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
+{B} {T}.rollwright-fumble {{ color: #ff7a66 !important; background-color: #2a2e2d !important; background-image:
+  linear-gradient(112deg, transparent 47%, #050606 48%, #050606 50%, transparent 51%), linear-gradient(68deg, transparent 63%, #050606 64%, transparent 65.5%),
+  linear-gradient(180deg,#3e4442,#202423) !important; text-shadow: 0 0 8px rgba(255,40,20,.8); }}
 {B} {T} .rollwright-stamp {{ font-family: "RX Uncial" !important; background: #1b1d1d !important; color: #ffb36a !important; border: 1px solid #ff8a3a !important; border-radius: 1px !important; }}
 {B} .rollwright-history {{ color: #d7dcd6; font-family: "RX Spectral", Georgia, serif; }}
 {B} .rollwright-history-item {{ background: rgba(0,0,0,.35) !important; border: none !important; border-left: 2px solid #ff7a2a !important; border-radius: 0 !important; box-shadow: inset 0 1px 4px rgba(0,0,0,.6) !important; }}
@@ -132,7 +134,7 @@ css += f"""
 C = "body.rwx-codex"
 css += f"""
 {C} {{ --rwx-ico-kleur: #1f3f8f; --rwx-kop: #e9d79a; }}
-{C} .workspace-tab-header.is-active {{ background: #1a2550 !important; color: #e9d79a !important; }}
+{C} .workspace-tab-header.is-active, {C} .workspace-tab-header.is-active .workspace-tab-header-inner-title {{ background: #1a2550 !important; color: #e9d79a !important; }}
 {C} {VIEW}, {C} .workspace-leaf-content[data-type="rollwright-history"] .view-content {{
   background: radial-gradient(ellipse at 50% 0%, #2a3a6e, #121a36 70%); }}
 {C} .view-header, {C} .workspace-tab-header-container {{ background: #0e1430 !important; }}
