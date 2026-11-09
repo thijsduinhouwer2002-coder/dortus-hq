@@ -3,7 +3,7 @@ name: Click Joints filmpje filmisch (echte Blender, Cycles, in stukken)
 on:
   push:
     branches: ["claude/blender-film-*"]
-    paths: ["producten/blender-gewrichten/e2e/film_mooi.py", ".github/workflows/click-joints-film-mooi.yml"]
+    paths: ["producten/blender-gewrichten/e2e/film_mooi.py", "producten/blender-gewrichten/e2e/film_shots.py", ".github/workflows/click-joints-film-mooi.yml"]
   workflow_dispatch:
     inputs:
       samples:
@@ -15,11 +15,13 @@ permissions:
 
 env:
   SCHERVEN: 20
+  BEELDEN: 510      # zeven shots uit Blender (17 s); film_shots.py, SHOTS
+  EINDKAART: 2      # seconden eindkaart (Daans eind.png), 0,4 s overgang
 
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 90   # 26 beelden per stuk (was 22) plus het tweede gewricht
     strategy:
       fail-fast: false
       matrix:
@@ -63,6 +65,10 @@ jobs:
     steps:
       - name: ffmpeg
         run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg imagemagick
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ontwerp/click-joints/film
+          path: repo
       - uses: actions/download-artifact@v4
         with:
           pattern: mooi-*
@@ -72,15 +78,26 @@ jobs:
           mkdir -p /tmp/alles /tmp/uit/keur
           cp /tmp/stukken/*/beelden/*.png /tmp/alles/ 2>/dev/null || true
           cat /tmp/stukken/*/log-*.txt | grep -v "^beeld " | sort -u > /tmp/uit/log.txt || true
-          N=$(ls /tmp/alles | wc -l); echo "beelden: $N (verwacht 435)"; echo "beelden: $N" >> /tmp/uit/log.txt
+          N=$(ls /tmp/alles | wc -l); echo "beelden: $N (verwacht $BEELDEN)"; echo "beelden: $N" >> /tmp/uit/log.txt
           # ontbrekende beelden melden
-          for i in $(seq 1 435); do f=$(printf "%04d" $i); [ -f /tmp/alles/$f.png ] || echo "ONTBREEKT $f" | tee -a /tmp/uit/log.txt; done | head -20
+          for i in $(seq 1 $BEELDEN); do f=$(printf "%04d" $i); [ -f /tmp/alles/$f.png ] || echo "ONTBREEKT $f" | tee -a /tmp/uit/log.txt; done | head -20
           ffmpeg -v error -y -framerate 30 -start_number 1 -i /tmp/alles/%04d.png -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart /tmp/uit/click-joints-filmisch-ruw.mp4
-          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size -of default=nw=1 /tmp/uit/click-joints-filmisch-ruw.mp4
-          # keurbeelden: held, ring op zijn felst, 15 graden, 28 graden rood, uit elkaar
-          for f in 0001 0060 0123 0215 0291 0320 0380 0435; do
+          # eindkaart erachter: Daans eind.png, 0,4 s overvloeien, daarna $EINDKAART s helemaal in beeld
+          EIND=repo/ontwerp/click-joints/film/eind.png
+          DUUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/uit/click-joints-filmisch-ruw.mp4)
+          OFFSET=$(python3 -c "print(round($DUUR - 0.4, 3))")
+          ffmpeg -v error -y -i /tmp/uit/click-joints-filmisch-ruw.mp4 -loop 1 -framerate 30 -t $(python3 -c "print($EINDKAART + 0.4)") -i $EIND \
+            -filter_complex "[0:v]fps=30,format=yuv420p,setsar=1[a];[1:v]scale=1920:1080,fps=30,format=yuv420p,setsar=1[b];[a][b]xfade=transition=fade:duration=0.4:offset=$OFFSET[v]" \
+            -map "[v]" -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart /tmp/uit/click-joints-filmisch.mp4 \
+            || echo "FOUT: eindkaart niet geplakt, alleen de ruwe MP4" | tee -a /tmp/uit/log.txt
+          for m in /tmp/uit/click-joints-filmisch-ruw.mp4 /tmp/uit/click-joints-filmisch.mp4; do
+            ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size -of default=nw=1 $m || true
+          done
+          # keurbeelden: haak, held, ring op zijn felst, 15 graden, rood doorzichtig, rood zonder B, uit elkaar, klik, twee gewrichten
+          for f in 0013 0052 0124 0199 0232 0250 0331 0389 0466; do
             [ -f /tmp/alles/$f.png ] && convert /tmp/alles/$f.png -resize 1280x720 /tmp/uit/keur/$f.jpg
           done
+          convert $EIND -resize 1280x720 /tmp/uit/keur/9999-eindkaart.jpg || true
           montage /tmp/uit/keur/*.jpg -tile 4x -geometry 480x270+4+4 -background '#111' /tmp/uit/keur/overzicht.jpg || true
       - uses: actions/upload-artifact@v4
         with:
