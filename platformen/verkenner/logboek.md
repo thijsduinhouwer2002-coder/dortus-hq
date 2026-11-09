@@ -784,3 +784,13 @@ Nieuwste blok onderaan.
 - Geen controleur deze run (werktijd op); dat staat in het voorstel.
 - Les: kassasystemen hebben soms een open app-API met installaties (Clover /v3/apps). Kijk ook naar Square, Lightspeed, Toast en Shopify POS op dezelfde manier.
 - Geen bericht aan een manager.
+
+## 9 nov run 17:31 (Amsterdam)
+- Geen nieuw bericht van Thijs. Geen herhaalmeting verlopen.
+- Keuze: Square App Marketplace, de les van Clover (kassasystemen met open app-API). Om 17:35 op "in onderzoek" gezet en gepusht.
+- squareup.com gaf eerst Cloudflare-fout 1015 op de sitemap; niet omheen gewerkt. De winkel-API (/app-marketplace/api/..., parameters in snake_case zoals language_code) gaf wel antwoord, rustig met 3 seconden tussen verzoeken.
+- Eigen meting: alle 17 categorieën in de VS, 396 apps met datum, reviews en prijs. Onderzoeker voor de bronnen.
+- Uitkomst: cijfer 1, nee. Square neemt sinds medio 2026 geen nieuwe app-partners aan en de marketplace-docs zijn offline; de nieuwe apps zijn van grote merken (Olo, Google, Apple, Resy) en krijgen mediaan 0 reviews. Nederland is geen Square-land. Zie voorstellen/square-app-marketplace.md.
+- Kern zelf nagelezen op het forum (medewerker 1 okt 2026: onboarding gepauzeerd). Geen aparte controleur: de uitkomst hangt aan één nagelezen feit en een directe telling.
+- Les: kijk bij een winkel van een groot bedrijf eerst op het ontwikkelaarsforum of de deur nog open staat, voor je meet. Discourse-fora geven elk topic als .json.
+- Geen bericht aan een manager.

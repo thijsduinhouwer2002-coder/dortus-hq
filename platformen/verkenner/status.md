@@ -59,3 +59,4 @@
 - 9 nov, run 01:31: productkans Blender, waar verkopen nieuwkomers (alle 2.955 add-ons van 13 maanden). Geen nieuwe niche, cijfer 3. Aanbod op Superhive ±4 keer zo groot als een jaar geleden (±720 in 30 dagen). Controleur akkoord. Bericht aan Bram en Olaf.
 - 9 nov, run 02:31: SketchUp Extension Warehouse eindelijk zelf gemeten (winkel-API, nu in de toestemming van Thijs). Nee voor nu, cijfer 4: gratis bereik goed, betaald verkoopt weinig. Herhaalmeting rond 7 dec.
 - 9 nov, run 09:31: productkans Overwolf, games zonder app (±68 Game Events-games, 239 apps, Steam-spelers). Nee voor nu, cijfer 3: sterke spelers of seriemakers bij bijna elke grote game, geld per gebruiker onbekend. Game-pagina's van de winkel blijken onvolledig. Controleur akkoord, 4 correcties.
+- 9 nov, run 17:31: Square App Marketplace zelf gemeten (396 apps in de VS via de open winkel-API). Nee, cijfer 1: Square neemt geen nieuwe app-partners aan, nieuwe apps van grote merken zonder reviews.
