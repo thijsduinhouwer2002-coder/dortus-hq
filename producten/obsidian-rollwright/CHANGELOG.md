@@ -2,7 +2,7 @@
 
 ## 0.3.3
 
-- In Classic, the NAT 20 and NAT 1 label now appears after the number has finished counting, not during it.
+- In Classic, the labels above a result (NAT 20, NAT 1, MAX, MIN) now appear after the number has finished counting, not during it.
 - A dice code that cannot be read is marked with a red dotted line under it, instead of a wavy underline. It no longer looks like a link.
 
 ## 0.3.2
