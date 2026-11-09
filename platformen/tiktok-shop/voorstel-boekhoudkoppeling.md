@@ -37,9 +37,10 @@ Let op: dit zijn koppelingen voor Bol, Amazon en Shopify. Dat er voor een TikTok
 - Prijs: in NL is €7 tot €15 per maand gangbaar, in FR en IT €12 tot €30, iets hoger. Dicht bij onze ondergrens van €15.
 - Btw: een btw-veld per verkoop voor lokale EU-winkels niet gevonden in de API; vat_amount geldt alleen voor cross-border (GEZIEN). Dat de app de btw zelf moet uitrekenen is GOK.
 - NL staat niet in de regiotabel van de partner-docs; dat NL-winkels met dezelfde API werken is GOK.
-- Pakket-API's: Moneybird open API (GEZIEN). Exact: API GEZIEN, maar een app registreren in het App Center en mogelijk een partnerschap voor een openbare vermelding is DERDEN/GOK. Pennylane en Fatture in Cloud: nog niet gemeten.
+- Pakket-API's (gemeten 9 nov 02:30, `onderzoek/2026-11-09-pakket-apis.md`, steekproef zelf nagekeken): alle vier hebben OAuth voor apps (GEZIEN). Moneybird: gratis, app zelf registreren, gratis sandbox, boekingen en btw-tarieven mogelijk; limiet 150 aanvragen per 5 minuten per IP voor al onze klanten samen, per administratie aan te vragen. Exact: Developer-abonnement €15 per maand ex btw (geld, dus Thijs), standaard tot 100 administraties, App Store-vermelding pas na goedkeuring. Fatture in Cloud: gratis, ook de App Store, maar geen grootboek of journaalposten in de API (documenten en kasboek). **Pennylane is de grootste rem:** OAuth-sleutels en sandbox alleen via hun partnerteam, koppeling moet gecertificeerd worden, voorwaarden en kosten onbekend.
+- Daarom bouwvolgorde (advies): eerst Moneybird (gratis, alles zelf te regelen), dan Exact (na €15 per maand van Thijs), Pennylane pas na contact met hun partnerteam (formulier, onder de naam van Thijs, na de KvK), IT daarna.
 - Registratie vraagt KvK; testen in een echte winkel pas daarna. Tot dan bouwen tegen de gedocumenteerde API met nagebootste antwoorden.
 - LIVE-hulpmiddelen vielen af: in de EU bijna geen betaalbewijs (één app, DARITAI in ES, €119 per maand, zonder zichtbare klanten), veilingen alleen bevestigd in VS en VK.
 
 ## Advies
-Ja om te gaan ontwerpen: eerst NL (Moneybird, Exact) en FR (Pennylane), daarna IT. Vóór het bouwen nog meten: API's van Pennylane en Fatture in Cloud. Hans beslist.
+Ja om te gaan ontwerpen: eerst NL (Moneybird, dan Exact), daarna FR (Pennylane, na ja van hun partnerteam) en IT. Hans beslist.
