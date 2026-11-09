@@ -20,15 +20,16 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.tree.IElementType
 import javax.swing.Icon
 
-/**
- * Structuurweergave per taal, gebouwd op de knopen van de parser (`parser/Elementen.kt`).
- * Alleen ingebouwde iconen van de IDE, en de volgorde zoals in het bestand (geen sorteerders).
- * Klikken springt naar de knoop (de PSI-knoop is een `ASTWrapperPsiElement`, dus navigeerbaar).
- */
+// Structuurweergave per taal, gebouwd op de knopen van de parser (`parser/Elementen.kt`).
+// Alleen ingebouwde iconen van de IDE, en de volgorde zoals in het bestand (geen sorteerders).
+// Klikken springt naar de knoop (de PSI-knoop is een `ASTWrapperPsiElement`, dus navigeerbaar).
+
 /**
  * Eigen basis voor een knoop, in plaats van `PsiTreeElementBase` uit `structureView.impl`: die klasse staat
  * vanaf IDEA 2026.2 niet meer op het compileerpad (zit in de plugin com.intellij.structureView). Alleen
  * openbare API: een slimme verwijzing naar de PSI, presentatie en navigatie.
+ * Bewust weggelaten uit `PsiTreeElementBase`: knopen van een `StructureViewExtension` (geen andere plugin
+ * voegt iets toe aan Bison of Flex) en custom regions (`//region`), die deze talen niet kennen.
  */
 abstract class EigenKnoop<T : PsiElement>(element: T) : StructureViewTreeElement, ItemPresentation {
     private val wijzer: SmartPsiElementPointer<T> = SmartPointerManager.createPointer(element)
@@ -42,8 +43,10 @@ abstract class EigenKnoop<T : PsiElement>(element: T) : StructureViewTreeElement
     override fun navigate(requestFocus: Boolean) { (element as? Navigatable)?.navigate(requestFocus) }
     override fun canNavigate(): Boolean = (element as? Navigatable)?.canNavigate() == true
     override fun canNavigateToSource(): Boolean = (element as? Navigatable)?.canNavigateToSource() == true
-    override fun equals(other: Any?): Boolean =
-        other is EigenKnoop<*> && other.javaClass == javaClass && element != null && element == other.element
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        return other is EigenKnoop<*> && other.javaClass == javaClass && element != null && element == other.element
+    }
     override fun hashCode(): Int = element?.hashCode() ?: 0
     override fun toString(): String = presentableText ?: "?"
 }
