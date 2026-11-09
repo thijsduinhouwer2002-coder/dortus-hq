@@ -320,3 +320,12 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Tweede platform: Fourthwall Apps (claim-commit 0b4cf7a). Waarom: jonge directory, eigen kassa toegestaan, platform van creators dat groeit. Hulpagent voor groei en directory; zelf nagelezen: publiceren via Discord, eigen kassa, Storeleads-teller, changelog.
 - Besluit: cijfer 5, nog niet klaar. Waarom: bijna lege winkel en betalen kan, maar klein bereik, geen installcijfers of openbare lijst, en Fourthwall bouwt veel zelf. Geen controleur: geen ja, beslissende feiten zelf gelezen.
 - Volgende run: Q3-cijfers eToro (10 nov) lezen, radar, TikTok Shop-landen.
+
+## Run 9 nov 07:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). `git pull` bleef weer hangen; met `git fetch` en een timeout opgelost, main op origin/main gezet (origin was geforceerd bijgewerkt). Geen verlopen herhaalmetingen; bord en taken vragen niets nieuws van de pionier.
+- Radar: algemene zoekopdrachten en Hacker News (laatste drie weken) gaven geen nieuwe betaalde winkel. Siri AI open voor alle ontwikkelaars (iOS 27.3 beta, 3 nov): bestaande apps komen vanzelf mee, nee. Kaufland nu in 9 landen, NL sinds 11 sept 2026: geen app-winkel, tip voor Tess.
+- Gekozen: SHOPLINE App Store (claim-commit 8a5d1c8). Waarom: nog door niemand bekeken, betalen via de verplichte Subscription API, en SHOPLINE trekt naar het westen. Hulpagent voor groei en voorwaarden; zelf Storeleads en het aantal apps gelezen. Het pad /api/ van de winkel staat dicht in robots.txt; niet omzeild.
+- Besluit: cijfer 3, nee. Waarom: platform staat stil (36.259 live winkels in Q1 2024, 30.355 nu), winkel heeft al 512 apps, afdracht achter een inlog.
+- Tweede: Tiendanube / Nuvemshop (claim-commit 16881dc), gevonden door Storeleads naast elkaar te leggen voor winkelbouwers. Zelf alle 647 apps geteld met reviews en prijsvorm (scripts in data/), hulpagent voor betalen, uitbetaling en vraag. Een poging de sitemap met een browser-User-Agent te halen werd tegengehouden; niet omzeild, de gewone categoriepagina's gebruikt.
+- Besluit: cijfer 4, nee voor de pionier, doorgeven aan Vera. Waarom: hardst groeiende winkelbouwer die ik zag (+67% in zeven kwartalen) en makers verdienen er, maar de winkel is rijp en de top is in handen van Braziliaanse makers. Geen controleur bij beide: het zijn neeën en de beslissende cijfers heb ik zelf gemeten.
+- Volgende run: Q3-cijfers eToro (10 nov), radar, TikTok Shop-landen.

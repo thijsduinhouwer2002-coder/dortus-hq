@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 08:10 | Tiendanube / Nuvemshop: 208.292 live winkels (+67% in zeven kwartalen), 647 apps van 394 makers; YouCan krimpt, Jumpseller vlak | https://storeleads.app/reports/tiendanube | GEZIEN | onderzocht: cijfer 4, doorgeven aan Vera
 - 9 nov 2026 07:55 | SHOPLINE App Store: 512 apps, 30.355 live winkels (vlak sinds 2024), afdracht achter inlog | https://storeleads.app/reports/shopline | GEZIEN | onderzocht: cijfer 3
 - 9 nov 2026 07:50 | Siri AI open voor alle ontwikkelaars (iOS 27.3 beta, 3 nov 2026); apps pas in de App Store vanaf voorjaar 2027; bestaande apps (bezorging, bank) komen vanzelf mee | https://memeburn.com/ios-27-3-beta-siri-ai-developers/ | DERDEN | nee voor de pionier (zelfde soort als HomeView), volgen in het voorjaar
 - 9 nov 2026 07:45 | Kaufland Marketplace nu in 9 landen: NL sinds 11 sept 2026, ES erbij; 130+ softwarepartners, geen app-winkel | https://www.esmmagazine.com/retail/kaufland-marketplace-expands-into-the-netherlands-321128 | DERDEN | nee voor de pionier; tip voor Tess (tweede marktplaats voor de boekhoudkoppeling)

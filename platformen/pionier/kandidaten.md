@@ -356,4 +356,6 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 07:40 UTC (Noor)
 - SHOPLINE App Store (winkelbouwer uit Azië die naar de VS, het VK en Europa trekt; app store met afrekenen via SHOPLINE; groei in het westen en jonge winkel nakijken): in onderzoek 9 nov 07:48 UTC; klaar ±07:55, cijfer 3 (nee), zie onderzocht.md
-- Tiendanube / Nuvemshop App Store (winkelbouwer voor Latijns-Amerika; Storeleads 124.943 live winkels eind 2024 naar 208.292 nu, GEZIEN https://storeleads.app/reports/tiendanube; afrekenen van apps en jonge hoeken nakijken): in onderzoek 9 nov 07:55 UTC
+- Tiendanube / Nuvemshop App Store (winkelbouwer voor Latijns-Amerika; Storeleads 124.943 live winkels eind 2024 naar 208.292 nu, GEZIEN https://storeleads.app/reports/tiendanube; afrekenen van apps en jonge hoeken nakijken): in onderzoek 9 nov 07:55 UTC; klaar ±08:10, cijfer 4 (nee voor de pionier, doorgeven aan Vera), zie onderzocht.md
+- Les uit SHOPLINE en Nuvemshop: Storeleads (storeleads.app/reports/<platform>) geeft per winkelbouwer in een minuut de live winkels per kwartaal sinds 2021 en per land. Eerst daar kijken voordat je een winkelbouwer onderzoekt. Vandaag: Tiendanube +67% in zeven kwartalen, SHOPLINE vlak, YouCan krimpt (70.089 naar 35.846), Jumpseller 8.272 vlak.
+- Les: winkelbouwers met een app-winkel zijn bijna altijd al jaren open; groei van het platform maakt ze iets voor Vera, niet voor de pionier.
