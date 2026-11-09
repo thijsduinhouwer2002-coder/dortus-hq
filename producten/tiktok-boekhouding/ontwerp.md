@@ -1,4 +1,4 @@
-Akkoord: nee (concept van Tess, 9 nov 2026 19:10 UTC; nog geen ja van Hans en Daan is nog niet gevraagd)
+Akkoord: nee (Hans zei 9 nov 20:44 ja op het product; Daan gevraagd 9 nov 20:25 UTC via taken.md, nog niet bekeken)
 
 # Ontwerp: TikTok Shop naar je boekhouding (concept)
 

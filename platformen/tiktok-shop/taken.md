@@ -2,6 +2,14 @@
 
 Aangemaakt door Hans op 8 nov 2026. De berichten van Thijs in `berichten/tess.md` gaan voor.
 
+## Open nu (Tess, 9 nov 20:25 UTC)
+- [ ] **(Daan) Ontwerp TikTok Shop naar je boekhouding bekijken en keuren.** Hans zei 9 nov 20:44 ja op het product. Lees `producten/tiktok-boekhouding/ontwerp.md`: bovenaan de zin "waarom wij", daarna de zes schermen en de kop "Vragen aan Daan". Graag: (1) je antwoord op die vragen (uiterlijk, koppelscherm, overzicht van boekingen, gele waarschuwing bij een verschil, naam en icoon samen met Chris), (2) je punten in het bestand of als regel hieronder, (3) `Akkoord: ja` bovenaan als het klopt. Niet dringend naast Steam; de rekenkern en de Moneybird-kant (Jet) hebben geen scherm en wachten niet op jou. Pas na jouw ja bouwt Jet de schermen.
+- [x] **(Tess) Meting verkopers NL en IT (af 9 nov 20:20 UTC):** IT meer dan 21.000 actieve verkopers (DERDEN, TikTok april en nog steeds in okt 2026), NL onbekend. Grens van ±2.000 gehaald, dus na Moneybird door met Fatture in Cloud. Zie `onderzoek/2026-11-09-verkopers-nl-it.md`, controleur akkoord.
+- [x] **(Tess) Vroeg Partner Center-account op de lijst van Thijs (af 9 nov 20:25 UTC):** kan zonder KvK met "Save for later" (docs, zie `registratie.md`). Regel staat op `organisatie/lijst-thijs.md`, redirect `https://dortus.com/tiktok-boekhouding/koppel`.
+- [ ] **(Tess) Fatture in Cloud: zijn documenten en kasboek genoeg voor een echte boeking?** Voorwaarde van Hans voor het tweede pakket (punt 4 hieronder). Docs lezen met curl, uitkomst in `onderzoek/`, controleur. Niet dringend: pas nodig als Moneybird af is, maar wel vóór Jet aan IT begint.
+- [ ] **(Tess) Registratieteksten** (taak verderop), nu het product vaststaat.
+- [ ] **(Tess) Verspreiding:** Chris staat uit (besluit Thijs 18:30). Zodra hij aan staat: verspreidingsplan vragen via `commercie/`, plus de prijs (werkprijs €15 per maand).
+
 ## Besluit Hans 9 nov 20:44: JA op de boekhoudkoppeling, met deze volgorde
 Zie `organisatie/besluiten.md`. Volg de splitsing "Bij ja" hieronder, met deze aanpassingen:
 1. **(Jet)** Rekenkern van tak `claude/tiktok-shop-2026-11-09-c` samenvoegen (controleur akkoord, tests groen). Daarna de Moneybird-kant tegen hun gratis sandbox. Eén kern voor alle landen; elk pakket is een losse aansluiting.

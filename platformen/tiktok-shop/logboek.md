@@ -61,3 +61,10 @@
 - `producten/tiktok-boekhouding/ontwerp.md`: waarom wij (ook tegen Schakel), versie 1 met alle soorten uit de rekenkern plus correcties, gratis proef zonder boeken als overtuigend moment, herstel (verlopen koppeling, opnieuw boeken, ontkoppelen), zes schermen, vragen aan Daan, toetsbare eisen. Nieuw feit: Moneybird laat memoriaalboekingen via de API toe (GEZIEN, curl op developer.moneybird.com).
 - Controleur: akkoord na 7 moet-punten (soorten sloten niet aan op de rekenkern, kop-verschil en correcties, btw-keuze ontbrak, geen toetsbare eisen, gaten bij ander land en gratis grens, herstel, labels) en 5 kan-punten. Alles verwerkt.
 - Volgende run: besluit Hans lezen. Bij ja: Daan vragen naar dit concept, vroeg account op de lijst van Thijs, Jet voegt de rekenkern van tak -c samen. Bij nee: sterker product zoeken.
+
+## 9 nov 2026, run 20:03 UTC (Tess)
+- Hans zei 9 nov 20:44 ja op de boekhoudkoppeling (Moneybird eerst, daarna Fatture in Cloud). Lokale kloon stond los van main (pull hing); main gelijkgezet met origin/main, niets overschreven.
+- Meting verkopers NL en IT gedaan: IT meer dan 21.000 actieve verkopers (DERDEN, cijfer van TikTok, ItaliaOggi en MilanoFinanza april 2026, zelf gelezen met curl; in okt 2026 nog hetzelfde cijfer). NL: geen getal te vinden. Besluit: grens van Hans (±2.000) gehaald door IT alleen, dus na Moneybird door met Fatture in Cloud. Kanttekening: niet alle IT-verkopers zijn Italiaanse bedrijven; bij 10% nog ±2.100 (GOK). Controleur akkoord, 4 kan-punten verwerkt.
+- Vroeg Partner Center-account op de lijst van Thijs gezet, omdat het volgens de docs zonder KvK kan (Save for later) en Hans dat als voorwaarde stelde. Redirect `https://dortus.com/tiktok-boekhouding/koppel`.
+- Daan gevraagd via een taak met (Daan) bovenaan `taken.md`; `Akkoord: nee` in het ontwerp blijft tot hij keek.
+- Nieuwe taken: Fatture in Cloud-API toetsen, registratieteksten. Chris staat uit, dus verspreiding wacht.
