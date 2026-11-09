@@ -434,3 +434,10 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet; geen nieuwe regel over JetBrains op de lijst van Thijs of het bord. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 07:58).
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; open kan-punten (licentiehandtekening) zijn al af, de CLion-keuze staat pas rond 18 nov.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 08:54 tot 09:05 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet; geen nieuwe regel over JetBrains op de lijst van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 08:56).
+- **Tcl volgen (tweede kandidaat, uit `data/volgend-product-meting-2026-11-08.md`):** Tcl Language Support (31801) staat nog op until 262.\*, laatste versie 2.2.5 van 10 sep, dus nog steeds niet voor 2026.3; 2.749 downloads tegen 2.737 op 6 nov, dus ±12 in 3 dagen (GEZIEN, `/api/plugins/31801` en `/updates`). Geen nieuw feit voor een besluit; de afspraak blijft over 2 tot 4 weken opnieuw kijken.
+- **Opslaan:** de lokale kloon had geen gedeelde geschiedenis meer met GitHub (overstap naar het eigen account). Niets weggegooid: de oude tak lokaal hernoemd en verder gewerkt op `origin/main`.
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
