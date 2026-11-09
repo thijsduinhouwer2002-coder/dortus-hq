@@ -14,6 +14,11 @@ extends Node2D
 # - haalt hij de schat, dan pakt hij NIETS (geen straf): hij raakt hem aan, krijgt de bijnaam Hoard-Toucher en rent weg.
 #   Een Hoard-Toucher komt brutaler terug: iets vaker vluchten, nooit iets van jou kwijt.
 # - info["moet_vallen"] = true: hij valt bij de eerste verdediging (de eerste held van een nieuw spel, balans.md).
+# - info["moet_vluchten"]: overleeft de eerste verdediging en rent dan weg (krijgt zijn wrok).
+# - info["moet_doorlopen"]: overleeft alles, rent nergens voor weg en raakt de schat aan (Hoard-Toucher).
+# - info["moet_opgegeten"]: de eerste bewoner op zijn pad eet hem (vallen overleeft hij); zijn hoed gaat op de toren.
+# - valt hij door een bewoner, dan gaat zijn hoed naar diens hoedentoren: info "hoed_naar" ("bewoner" of "wand"
+#   voor een aartsvijand) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
 # Terug in info (voor strook.gd en kroniek.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
 # "trek", "gezien_vijand". Uitkomst: "gevallen" of "ontsnapt".
@@ -99,6 +104,9 @@ func _kies_uiterlijk(naam: String) -> void:
 			continue
 		littekens.append(l)
 
+func is_aartsvijand() -> bool:
+	return int(info.get("bezoeken", 0)) >= 3 or bool(info.get("aartsvijand", false))
+
 func is_gebeten() -> bool:
 	return bool(info.get("gebeten", false)) or String(info.get("wrok", "")).ends_with("the Slime")
 
@@ -110,7 +118,7 @@ func teken_nu() -> String:
 		return "zweet"
 	if staat == "lopen" and absf(position.x - hol.cel_naar_pos(hol.schat()).x) < 40.0:
 		return "uitroep"       # ziet de schat
-	if int(info.get("bezoeken", 0)) >= 3 or bool(info.get("aartsvijand", false)):
+	if is_aartsvijand():
 		return "ster"          # aartsvijand, blijft staan
 	return ""
 
@@ -214,14 +222,29 @@ func _onderweg() -> void:
 		kans *= BRUTAAL
 	verdedigingen += 1
 	var valt := rng.randf() < kans
+	# vaste uitkomsten voor de eerste tien minuten (Olaf 20:25 en 20:45, Sanne features.md); strook.gd zet ze alleen bij een vers spel
 	if bool(info.get("moet_vallen", false)) and verdedigingen == 1:
 		valt = true
+	if bool(info.get("moet_vluchten", false)) and verdedigingen == 1:
+		valt = false           # één klap en hij rent (hieronder)
+	if bool(info.get("moet_doorlopen", false)):
+		valt = false           # overleeft alles en raakt de schat aan: Hoard-Toucher
+	if bool(info.get("moet_opgegeten", false)):
+		valt = b != null       # een bewoner krijgt hem (held 5: eerste hoed op Gloop); een val overleeft hij
 	if valt:
 		info["laatst_geraakt"] = naam_vijand
 		info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand
 		staat = "vallen"
 		if b != null and b.has_method("raak"):
-			b.raak()           # hap
+			# hoedentoren: zijn hoed gaat naar de bewoner, behalve bij een aartsvijand (die gaat met hoed naar de wand)
+			var naar_wand := is_aartsvijand()
+			var n = null
+			if b.has_method("hoeden_op_hoofd"):   # slijm.gd met hoedentoren
+				n = b.raak(-1 if naar_wand else hoed_nr)
+			else:
+				b.raak()          # stand-in van Olaf (kern/standin_slijm.gd) kent geen hoeden
+			info["hoed_naar"] = "wand" if naar_wand else "bewoner"
+			info["hoeden_bewoner"] = 0 if naar_wand or n == null else int(n)   # voor kroniek.hoed(naam, bewoner, aantal)
 		return
 	# overleefd: geraakt, wrok tegen dit ding; een bewoner die verliest is even plat
 	klappen += 1
@@ -235,7 +258,12 @@ func _onderweg() -> void:
 		vijand_kol = -1
 		doel_kol = hol.schat().x
 	# schijterig draait na een klap de helft van de keren om, hebzuchtig pas na twee klappen
-	if (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2:
+	var rent := (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2
+	if bool(info.get("moet_vluchten", false)):
+		rent = true
+	if bool(info.get("moet_doorlopen", false)) or bool(info.get("moet_opgegeten", false)):
+		rent = false
+	if rent:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
 

@@ -44,7 +44,8 @@ func speel(info: Dictionary, met_put := true, met_slijm := true) -> Dictionary:
 		stappen += 1
 	var r := {"uitkomst": uitkomst, "info": uit_info, "eerste_doel": eerste_doel, "trek": trek, "tijd": stappen / 15.0,
 		"slijm_plat": slijm != null and not slijm.kan_vechten(), "slijm_gegeten": slijm.gegeten if slijm != null else 0,
-		"slijm_bestaat": slijm != null and is_instance_valid(slijm)}
+		"slijm_bestaat": slijm != null and is_instance_valid(slijm),
+		"slijm_hoeden": slijm.hoeden.duplicate() if slijm != null else []}
 	hol.free()
 	return r
 
@@ -221,6 +222,82 @@ func _init() -> void:
 			gebeten = bool(r.info.get("gebeten", false))
 			break
 	ok(gebeten, "held die door Gloop geraakt werd en ontsnapte: info.gebeten")
+
+	# 10. vaste uitkomsten voor de eerste tien minuten (Olaf 20:25 en 20:45, Sanne features.md)
+	var vl := 0
+	var dl := 0
+	var og := 0
+	for z in 30:
+		r = speel({"naam": "Vlucht%d" % z, "bezoeken": 0, "wrok": "", "trek": "hebzuchtig", "moet_vluchten": true, "zaad": 300 + z})
+		if r.uitkomst == "ontsnapt" and r.info.get("laatst_geraakt", "") == "Gloop the Slime" and r.slijm_plat:
+			vl += 1
+		r = speel({"naam": "Door%d" % z, "bezoeken": 0, "wrok": "", "trek": "schijterig", "moet_doorlopen": true, "zaad": 400 + z})
+		if r.uitkomst == "ontsnapt" and bool(r.info.get("hoard_toucher", false)):
+			dl += 1
+		r = speel({"naam": "Hap%d" % z, "bezoeken": 0, "wrok": "", "moet_opgegeten": true, "zaad": 500 + z})
+		if r.uitkomst == "gevallen" and r.info.get("laatst_geraakt", "") == "Gloop the Slime" and r.slijm_hoeden.size() == 1:
+			og += 1
+	ok(vl == 30, "moet_vluchten: één klap van Gloop en hij rent, met wrok (%d van 30)" % vl)
+	ok(dl == 30, "moet_doorlopen: ook een schijterige komt langs alles en wordt Hoard-Toucher (%d van 30)" % dl)
+	ok(og == 30, "moet_opgegeten: Gloop eet hem en draagt zijn hoed (%d van 30)" % og)
+	r = speel({"naam": "Put", "bezoeken": 0, "wrok": "", "moet_opgegeten": true, "zaad": 7}, true, false)
+	ok(r.uitkomst == "ontsnapt" and bool(r.info.get("hoard_toucher", false)), "moet_opgegeten zonder bewoner: overleeft de put, raakt de schat aan")
+
+	# 11. hoedentoren: zijn hoed gaat op Gloop, een aartsvijand gaat met zijn hoed naar de wand
+	r = speel({"naam": "Odo", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1})
+	var odo_hoed := absi(hash("Odo")) % 4
+	ok(r.slijm_hoeden == [odo_hoed] and r.info.get("hoed_naar", "") == "bewoner" and int(r.info.get("hoeden_bewoner", 0)) == 1,
+		"Odo's hoed (%d) staat op Gloop: %s" % [odo_hoed, str(r.slijm_hoeden)])
+	r = speel({"naam": "Nemesis", "bezoeken": 3, "wrok": "Gloop the Slime", "moet_opgegeten": true, "zaad": 2})
+	ok(r.uitkomst == "gevallen" and r.slijm_hoeden.is_empty() and r.info.get("hoed_naar", "") == "wand",
+		"aartsvijand: geen hoed op Gloop, hij gaat naar de wand (%s)" % str(r.slijm_hoeden))
+
+	# 12. toren en berg op de slijm zelf
+	var hol5 := Node2D.new()
+	hol5.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	var g = Node2D.new()
+	g.set_script(load("res://systemen/slijm.gd"))
+	hol5.add_child(g)
+	g.zet(hol5, 6)
+	ok(g.toren().is_empty() and g.berg().is_empty() and g.hover_regel() == "Gloop has no hats yet.", "zonder hoeden: geen toren, geen berg")
+	for i in 3:
+		g.raak(i)
+	g.stap(2.0)
+	var tr: Array = g.toren()
+	# onderste hoed met zijn onderste rij 1 px in de bovenkant van Gloop (rust: y 6 in zijn frame = -10)
+	ok(tr.size() == 3 and int(tr[0][2]) + g.HOED_ONDER[0] == -10, "eerste hoed zakt 1 px in Gloop (y %d)" % int(tr[0][2]))
+	ok(int(tr[1][2]) + g.HOED_ONDER[1] == int(tr[0][2]) + g.HOED_TOP[0], "tweede hoed 1 px in de eerste")
+	ok(int(tr[0][1]) == 0 and int(tr[1][1]) == 1 and int(tr[2][1]) == -1, "scheef om en om (0, +1, -1)")
+	for i in 7:
+		g.raak(i % 4)
+	ok(g.hoeden.size() == 10 and g.hoeden_op_hoofd().size() == 4 and g.hoeden_op_berg() == 6, "10 hoeden: 4 op zijn hoofd, 6 op de berg")
+	ok(g.berg_maat() == 1 and g.berg().size() == 3, "maat 1 vanaf 5 hoeden: 3 zichtbaar op de berg (%d)" % g.berg().size())
+	ok(g.hover_regel() == "Gloop wears 4 hats. 6 more in the pile.", "hover: " + g.hover_regel())
+	var berg_rechts := -99
+	for b in g.berg():
+		berg_rechts = maxi(berg_rechts, int(b[1]))
+	ok(berg_rechts <= -8, "de berg ligt links naast hem (x %d)" % berg_rechts)
+	g.plat()
+	g.stap(1.0)
+	var op_vloer := true
+	for h in g.toren():
+		if int(h[2]) + g.HOED_ONDER[int(h[0])] != -1:
+			op_vloer = false
+	ok(g.toren().size() == 4 and op_vloer, "plat: de toren valt mee, de hoeden liggen op de vloer")
+	g.stap(g.plat_s + 1.0)
+	ok(int(g.toren()[0][2]) + g.HOED_ONDER[int(g.toren()[0][0])] < -5, "opgestaan: de toren staat weer op zijn hoofd")
+	for i in 90:
+		g.raak(i % 4)
+	ok(g.hoeden.size() == 100 and g.berg_maat() == 3 and g.berg().size() == 10 and g.hoed_bijnaam() == "Milliner", "100 hoeden: maat 3, 10 zichtbaar, Milliner")
+	var d: Dictionary = g.naar_dict()
+	var g2 = Node2D.new()
+	g2.set_script(load("res://systemen/slijm.gd"))
+	hol5.add_child(g2)
+	g2.zet(hol5, 8)
+	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
+	g2.van_dict(d)
+	ok(g2.hoeden == g.hoeden and g2.gegeten == 100, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
+	hol5.free()
 
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

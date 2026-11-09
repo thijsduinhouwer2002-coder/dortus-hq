@@ -33,7 +33,7 @@ def speel(uren, zaad):
     faam = 0
     terug = []            # terugkomers
     st = {"gevallen": 0, "gevlucht": 0, "hoard": 0, "afgerekend": 0, "aartsvijand_bezoek": 0,
-          "eerste_val": None, "aankopen": [], "wrok_naar_vijand": 0}
+          "eerste_val": None, "aankopen": [], "wrok_naar_vijand": 0, "hap_slijm": 0, "hap_tijden": []}
     nieuw_nr = 0
     volgende = 4.0
     eind = uren * 3600
@@ -91,6 +91,10 @@ def speel(uren, zaad):
                 kans *= BRUTAAL
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
+                if v["soort"] == "slijm":
+                    st["hap_slijm"] += 1      # hoedentoren: elke hap is een hoed (Sanne toets 3, punt 4)
+                    if v is verd[0]:
+                        st["hap_tijden"].append(t)   # toren van Gloop zelf (elke slijm zijn eigen toren)
                 if h["gevlucht"] > 0 and is_vijand:
                     st["afgerekend"] += 1
                 break
@@ -150,13 +154,17 @@ if __name__ == "__main__":
     if len(sys.argv) > 3:
         GOUD_PER_BEZOEK = float(sys.argv[3])   # python3 sim.py 10 8 0 = zonder bonus per bezoek
     print("goud per val: 6 x faam x gangen + %g per eerder bezoek" % GOUD_PER_BEZOEK)
-    print("zaad | 1e val s | 1e koop s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend")
+    print("zaad | 1e val s | 1e koop s | vlucht % | hoard % | aankopen 1u/3u/10u | langste wacht 1u/3u/10u (min) | alles na (u) | aartsvijand/u | afgerekend | hoeden/u alle slijmen | Gloop: hoeden/u, 4 op hoofd na (min) | Gloop 5/25/100/300/1000 hoeden na (u)")
     for z in range(1, zaden + 1):
         s = speel(uren, z)
         a = s["aankopen"]
         n = lambda u: sum(1 for x in a if x[0] <= u * 3600)
         w = lambda u: wachttijden(a, u * 3600) / 60
         alles = "%.1f" % (s["klaar_alles"] / 3600) if s["klaar_alles"] else "nee"
-        print("%4d | %8.0f | %9.0f | %8.0f | %7.0f | %4d/%d/%d | %5.1f/%.1f/%.1f | %s | %.2f | %d" % (
+        ht = s["hap_tijden"]
+        maat = lambda m: "%.1f" % (ht[m - 1] / 3600) if len(ht) >= m else "-"
+        print("%4d | %8.0f | %9.0f | %8.0f | %7.0f | %4d/%d/%d | %5.1f/%.1f/%.1f | %s | %.2f | %d | %.1f | %s | %s" % (
             z, s["eerste_val"], a[0][0] if a else -1, 100 * s["gevlucht"] / s["helden"], 100 * s["hoard"] / s["helden"],
-            n(1), n(3), n(10), w(1), w(3), w(10), alles, s["aartsvijand_bezoek"] / uren, s["afgerekend"]))
+            n(1), n(3), n(10), w(1), w(3), w(10), alles, s["aartsvijand_bezoek"] / uren, s["afgerekend"],
+            s["hap_slijm"] / uren, "%.1f, %s" % (len(ht) / uren, "%.0f" % (ht[3] / 60) if len(ht) >= 4 else "-"),
+            "/".join(maat(m) for m in (5, 25, 100, 300, 1000))))
