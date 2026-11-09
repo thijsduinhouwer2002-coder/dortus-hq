@@ -29,6 +29,14 @@ const klikEnVries = (i) => browser.execute((i) => {
 	const r = el.getBoundingClientRect(); return { n: anims.length, namen: anims.map((x) => x.animationName || x.constructor.name), r: [r.x, r.y, r.width, r.height], cls: el.className };
 }, i);
 const zetTijd = (t) => browser.execute((t) => { document.getAnimations().forEach((x) => { x.pause(); x.currentTime = t; }); return document.getAnimations().length; }, t);
+const diag = (i) => browser.execute((i) => {
+	const a = [...document.querySelectorAll(".workspace-leaf-content[data-type=\"markdown\"] .rollwright-roll")].filter((x) => x.offsetParent !== null);
+	const el = a[i]; if (!el) return null; const o = {};
+	for (const ps of ["::before", "::after", ""]) { const c = getComputedStyle(el, ps || null);
+		o[ps || "el"] = ["content","display","position","opacity","left","right","top","bottom","width","height","zIndex","overflow","mixBlendMode","animationName","animationDelay","animationDuration","backgroundSize","backgroundPosition","maskImage","clipPath","filter","transform","isolation","contain"].map((k) => k + "=" + String(c[k]).slice(0, 160)).concat(["bg=" + c.backgroundImage.slice(0, 200)]); }
+	const keten = []; let p = el.parentElement; for (let k = 0; k < 8 && p; k++, p = p.parentElement) { const c = getComputedStyle(p); keten.push(p.className.slice(0, 50) + " ov=" + c.overflow + " ct=" + c.contain + " cp=" + c.clipPath); }
+	o.keten = keten; o.anims = document.getAnimations().map((x) => (x.animationName || "?") + "@" + (x.effect?.pseudoElement || "el") + " t=" + x.currentTime + " ps=" + x.playState);
+	return o; }, i);
 const TIJDEN = [0, 120, 240, 360, 480, 620, 800, 1000, 1300, 1700, 2200];
 
 describe("Rollwright skins: beweging per wereld", function () {
@@ -69,7 +77,7 @@ describe("Rollwright skins: beweging per wereld", function () {
 					await zetVast(k); const info = await klikEnVries(i); await losKans(); await iconen(); await muisWeg();
 					meta[`${w}-${naam}`] = info; console.log("BEWEGING", w, naam, JSON.stringify(info).slice(0, 400));
 					await browser.pause(700); // laat het doortellen (JS) uitlopen; de CSS staat stil
-					for (const t of TIJDEN) { await zetTijd(t); await browser.pause(60); await save(`beweging-${w}-${naam}-${String(t).padStart(4, "0")}`); }
+					for (const t of TIJDEN) { await zetTijd(t); await browser.pause(60); if (t === 1000) meta[`diag-${w}-${naam}`] = await diag(i); await save(`beweging-${w}-${naam}-${String(t).padStart(4, "0")}`); }
 					await browser.execute(() => document.getAnimations().forEach((x) => x.finish()));
 				}
 				await browser.pause(400); await save(`beweging-${w}-eind`);
