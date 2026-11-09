@@ -35,12 +35,26 @@ De humor van Het Hol zit voor de helft in de korte regels in de strook (`feature
 - `{naam} brought friends this time.` (alleen als er echt meer komen)
 
 ## Valt (blijft in je hol)
+Toets 2: de val en het goud waren twee regels die elkaar wegdrukten. Nu één regel: plak er ` +{n}` achter (het goud van die val). Alle regels hieronder passen dan nog in 42 tekens met een naam van 6 letters en `+15`.
 - `{naam} stays forever.`
 - `{naam} found {val}. Hard.`
 - `{bewoner} ate {naam}. Burp.`
 - `{naam} left gold and one boot.`
 - `{naam} will not be leaving.`
 - `{bewoner} says thanks for the snack.`
+
+## Naamgenoot van een gevallen held (toets 2)
+Een naam van een gevallen held komt niet terug als gewone nieuwe held (verwarrend: je denkt dat hij terug is). Is hij toch aan de beurt, dan als `{naam} II`, zonder wrok:
+- `{naam} II climbs in. Family business.`
+- `{naam} II. {naam} fell here once.`
+- `{naam} II wants his dad's boot back.`
+
+## Met pensioen (bij openen; 40% van wie vlucht komt nooit terug, Bram's sim)
+Geen straf, gewoon een grapje bij het openen, hooguit één per keer:
+- `{naam} retired. Opened a bakery.`
+- `{naam} retired. Tells tall tales now.`
+- `{naam} quit heroing. Sells maps.`
+- `{naam} won't be back. Too scared.`
 
 ## Vlucht
 - `{naam} fled. Grudge: {bewoner}.`
