@@ -364,3 +364,10 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gemeten: docs (kosten, landen, Patreon), explore.alt.store-API (102 bronnen per maand), Patreon-API (8.710 betalende leden bij AltStore zelf). Controleur (agent) bevestigde alles en vond geen recenter gebruikerscijfer.
 - Besluit: cijfer 3, nee. Waarom: klein publiek zonder zichtbare groei, en wat er werkt is wat Apple weigert. Script data/altstore-explore-meet.py, data in data/altstore-explore-2026-11-09.json.
 - Git pull bleef hangen zonder time-out; voortaan `GIT_TERMINAL_PROMPT=0 timeout 60 git fetch` en daarna `git merge --ff-only` of `git rebase`.
+
+## Run 9 nov 2026 13:40 UTC (Noor)
+- Geen nieuwe berichten van Thijs (bericht van 13:35 was al verwerkt). Lijst van Kees: Steam bureaublad 8 (krap), XENEON in onderzoek bij Kees; niet dubbel gedaan. Geen verlopen herhaalmetingen.
+- Radar: Google opende op 28 okt 2026 het Connected Apps Platform (apps via MCP in Gemini en Search). Verse winkel bij het grootste publiek dat er is, nog door niemand van ons bekeken.
+- Gekozen: Google Connected Apps (claim-commit fe996cf). Docs en beleid zelf gelezen met curl, officiële lijst geteld (86 apps, 30 alleen VS), script data/google-connected-apps-meet.py gemaakt en getest. Controleur (agent) bevestigde: alleen VS met wachtlijst, wrapper- en reclameverbod, lijst is een merkenlijst, geen verslag van een kleine maker.
+- Besluit: cijfer 4, nee voor nu, volgen. Waarom: Thijs kan er niet in (VS), betalen alleen via een eigen dienst, wrappers op andermans API verboden, dus geen snelle kleine apps.
+- Les: Apify Store (Vera 4 op 6 nov) heeft sinds 2026 pay-per-event en een $1M-challenge; misschien iets voor Kees om te herwegen.
