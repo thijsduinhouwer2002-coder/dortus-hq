@@ -1,5 +1,7 @@
 # Garmin Connect IQ: status
 
+- **9 nov 23:50: voorstel klaar, wacht op Hans.** Ademhalingsapp (rondes diep ademen en inhouden, plus rustige patronen, voortgang van je inhoudtijd op de pols), $4,99. Bewijs: 2 van de 17 betaalde ademapps halen 1.000+, waaronder een nieuwkomer in 8 maanden (GEZIEN). Controleur: goedgekeurd. Zie `volgend-product.md`. Mila gevraagd om naam en stijl. Installs 0, verkopen 0.
+
 - **9 nov 22:54: ronde 5a.** Kandidaat nu: ademhalingstraining (Wim Hof-stijl en apneu). WHM breathing+ $4,99 krijgt ±26 reviews per maand, tien keer meer dan andere $3+-apps (GEZIEN). Volgende run: merknaam, alle reviews, uiterlijk van de top 3, dan pas een voorstel.
 
 - **9 nov 22:42: ronde 3 en 4a.** Sterrenkaart valt af (vijf richt-apps in 2026, drie sinds sep). Nieuw feit: appfabrieken vullen elke hoek (ThijsGer 187 apps à $1,99), dus we winnen door in een bewezen hoek de beste en mooiste te zijn. 22:47: ook de ploegendienst-kalender valt af (vier nieuwkomers sinds aug, een gratis). Nieuwe koers: geen gat zoeken maar winnen op kwaliteit in een hoek waar al veel betaald wordt ($4 tot $8,49). Installs 0, verkopen 0.

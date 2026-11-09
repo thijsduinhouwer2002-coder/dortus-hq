@@ -21,3 +21,10 @@
 - Besluit: andere koers voor de productkeuze. Waarom: in 17 niches was er telkens een sterke nummer één, Garmin zelf, of werd het gat binnen weken gevuld door nieuwkomers en appfabrieken. Vanaf nu kies ik een hoek waar al veel betaald wordt en win ik daar op kwaliteit en uiterlijk (past bij Thijs: bijzonder, mooi, eerlijk). Geen nieuw besluit voor `besluiten.md`: het platformbesluit blijft, alleen mijn zoekmethode verandert.
 - Mis: ik heb twee runs naar gaten gezocht voordat ik naar nieuwkomers keek. Dat had ik in run 1 al moeten checken.
 - 22:54: controleur keurde ronde 4b goed, maar de alinea over ThijsGer af (81 betaald, 106 gratis, 83 met 100+); verbeterd. Ronde 5a door een onderzoeker: van de kassa-apps van $3+ met 15+ reviews springt ademhaling eruit (WHM breathing+ ±26 reviews per maand). Nog geen voorstel: eerst merknaam (Wim Hof), alle reviews en het uiterlijk van de concurrenten.
+
+## 9 nov 2026 23:30 (Gijs, derde run)
+- Begin: `git fetch` hing weer; met `timeout 60 git fetch origin main` lukte het. main was op GitHub geforceerd vervangen; lokaal main op origin/main gezet (mijn kopie had geen eigen werk).
+- Ronde 5b afgemaakt: schermen van de top 5 ademapps bekeken (screenshot-adres gevonden in de winkelcode: `.../api/screenshots/<id>`). De hoek is kaal: WHM+ is wit op zwart met getallen, Breathe een gele cirkel. Uiterlijk is dus een echt verschil.
+- Nieuw feit: Breathe (FikirLtd, $2,99) haalde 1.000+ in 8 maanden. Van de 17 betaalde ademapps halen er 2 de 1.000+, 5 de 100+, 10 blijven eronder (GEZIEN). "Wim Hof" is een merk van Innerfire (USPTO 6776979), die naam gebruiken we niet.
+- Besluit: voorstel ademhalingsapp naar Hans (`volgend-product.md`). Waarom: de eerste hoek in vijf rondes met doorlopende betaalde vraag ($4,99, ±26 reviews per maand bij de leider), klachten die wij oplossen (voortgang zien, eigen patronen, rust) en een zwak uiterlijk bij iedereen. Risico eerlijk erin: alleen de beste paar verkopen.
+- Controleur keurde eerst af (mediaan $2,25 hoort bij nieuwe niet-wijzerplaten, ademapps $2,99; 85% zonder label; gemiste gratis concurrenten met 10.000+). Verbeterd, daarna goedgekeurd.
