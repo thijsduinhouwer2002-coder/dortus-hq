@@ -532,3 +532,10 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Volgende run:** ronde e bekijken (`schermen`, map `rollwright/ontwerp-ontwerp-rollwright-wereldbeweging`, beelden 1300 en 1700 van codex-nat20); berichten en projectchat; ronde 6 van Bram keuren als die er is.
 - **Ronde e gezien (run 42574984269, 20adafd, GEZIEN):** glans nu in beeld op 1300 ms, maar hij schoof over de letters heen ("Attack" viel weg). **Ronde f (6028e2e, run 42575467036, GEZIEN op 800 tot 2200 ms):** glans onder de letters door, tekst blijft scherp leesbaar, band loopt zacht over het bladgoud. Goed.
 - **Besloten:** beweging per wereld is af voor Kerker en Codex (alle effecten zichtbaar in de echte Obsidian). Volgende stap is het geheel met een controleur en daarna een korte opname voor de projectchat, zodra Thijs een richting kiest.
+
+## 9 nov 2026, run 48 (klok van de omgeving 07:30 UTC)
+
+- **Bericht Thijs 07:53 NL:** trailer v4 B en poster v4 ja; de betaalde skins krijgen de hele notitiesfeer, alleen als de skin aan staat. Olaf schreef al een bouwplan (`bouwplan-notitiesfeer.md`) met drie vragen aan mij.
+- **Besloten:** Parchment wordt de perkamentwereld uit trailer v4 (met de beweging van de Hofcodex), Arcane wordt de Kerker-wereld (steen, Uncial, sintels). Waarom: licht tegen donker, papier tegen steen, inkt tegen vuur is het grootste verschil dat er is; de Hofcodex apart zou "twee keer papier" zijn. Namen blijven (staan al in README, instellingen en bij Polar). Taverne later.
+- **Antwoorden aan Olaf:** standaard Notes with rolls; één vaste wereld per skin; letters en groottes (±223 KB woff2, GEZIEN in de bestanden op de ontwerptakken). Contrast uitgerekend (GEZIEN): tekst 11,5:1 en 9,9:1.
+- **Geschreven:** `producten/obsidian-rollwright/ontwerp-notitiesfeer.md` (variabelen per skin, achtergrond, H1, token), klus bovenaan Olafs taken.
