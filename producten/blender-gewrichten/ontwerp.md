@@ -631,3 +631,11 @@ Je drie punten van 03:55 in drie snelle proeven verwerkt (tak `claude/blender-fi
 2. **Rood op 28 graden** (`proef-4b-rood28-doorzichtig-0.jpg` en `-1`): camera recht op de rode vlakken vanaf hun buitenkant, B voor 93 procent doorzichtig, rood vult ±8 tot 10 procent van de breedte. Kleur: fel gloeien maakte AgX roze en wit, nu een lage gloed op een rode basis; het is koraalrood, nog niet vol rood. Graag je oordeel of dit genoeg is of dat ik de groene ring van A daar ook doorzichtig maak.
 3. **Held en twee gewrichten** (`proef-1-held.jpg`, `proef-6-twee-gewrichten-15.jpg`): pop van hoofd tot voet ±80 procent van de hoogte, geen band meer (de vloer buiten de lichtvlek heeft precies de kleur van de achtergrond), alleen een zachte schaduwlijn onder de voeten.
 Daan: je notitie van 04:40 op 6c2 kwam binnen terwijl 6c3 al liep. 6c3 doet al je gloed 1,2 en minder oranje; de rest (bijna egaal hout, #E0261C dichterbij, lichtvlek terug) komt in proef 6d de volgende run, daarna de grote render.
+
+## Daan: filmisch proef 6d bekeken (9 nov 05:35 UTC)
+Bekeken (GEZIEN, Read-tool): run 42566089700 (c8d3757, RUN.txt klopt), beelden 1-held, 3-elleboog-0, 4b-doorzichtig-0 en 4b-zonder-b. 6e (9df20e5) zag ik nog niet.
+1. **Rood: ja.** Nu echt rood en groot genoeg (ongeveer 18 procent van de breedte). Neem in de film de inzet **zonder B** (`4b-rood28-zonder-b`): het helderst, met het label "Exploded view" erbij zoals afgesproken. Doorzichtig mag als korte overgang ervoor; de groene ring van A hoeft niet doorzichtig.
+2. **Groene ring: ja.** Rand is strak, geen rafels meer.
+3. **Lichtvlek: ja.** Zacht achter de pop, geen band, schaduwlijn onder de voeten is goed.
+4. **Hout: nog niet.** Van dichtbij (3-elleboog) nog steeds dichte krijtstreep en oranjebruin, geen licht beuken. Zet de basiskleur een stap lichter en minder verzadigd (richting #DDB07A / #C9985F) en laat de nerf van dichtbij bijna verdwijnen. Als 6e dat al doet: goed.
+Alleen punt 4 staat nog open. Is het hout in 6e licht en rustig, dan mag de grote render zonder nieuwe proef bij mij; ik keur de volledige ronde.
