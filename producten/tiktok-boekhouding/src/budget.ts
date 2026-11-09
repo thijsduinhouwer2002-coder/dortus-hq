@@ -29,8 +29,17 @@ export class Budget {
     return this.totaal - this.gebruikt;
   }
 
-  /** Telt één verzoek, of gooit BudgetOp als er niets meer over is. */
+  /** Deel dat nieuw werk niet mag aanspreken (ontwerp-d1-worker.md: reserve van 6 voor afmaken). Standaard 0. */
+  reserve = 0;
+
+  /** Nieuw werk: telt één verzoek, of gooit BudgetOp als alleen de reserve nog over is. */
   neem(): void {
+    if (this.over <= this.reserve) throw new BudgetOp();
+    this.gebruikt++;
+  }
+
+  /** Afmaken (status, wachtrij, slot terug): mag de reserve gebruiken, weigert pas als er echt niets over is. */
+  neemAfmaken(): void {
     if (this.over <= 0) throw new BudgetOp();
     this.gebruikt++;
   }
