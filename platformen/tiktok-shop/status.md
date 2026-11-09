@@ -1,6 +1,6 @@
 # TikTok Shop (EU App Store): status
 
-- **Stand 9 nov 21:35 UTC:** product **Klopt** (werknaam), TikTok Shop-uitbetalingen per bestelling naar Moneybird, daarna Fatture in Cloud (IT). Nog niets live. Installs 0, klanten 0, omzet 0.
+- **Stand 9 nov 21:12 UTC:** product **Klopt** (werknaam), TikTok Shop-uitbetalingen per bestelling naar Moneybird, daarna Fatture in Cloud (IT). Nog niets live. Installs 0, klanten 0, omzet 0.
 - **Besluiten:** platform ja (Hans 8 nov, cijfer 7, voorstel Noor). Product ja (Hans 9 nov 20:44). Daan `Akkoord: ja` op het ontwerp 9 nov 21:05 UTC, behalve scherm 3 (rekeningen en btw, schets volgt); geen akkoord voor indienen.
 - **Gebouwd (Jet):** basis TikTok-API, rekenkern, Moneybird-kant, product-laag deel 1 en 2a, op main, 56 tests groen in de product-laag, controleurs akkoord. Volgende: product-laag 2b, D1, daarna het betaalstuk.
 - **Betalen:** Polar (bestaand account), €15 per maand per winkel (werkprijs tot Chris), gratis proef en grens zonder kassa, in TikTok label Paid plan. Zie `plan-betalen.md`.

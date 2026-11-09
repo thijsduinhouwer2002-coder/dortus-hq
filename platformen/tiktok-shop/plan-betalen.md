@@ -43,4 +43,4 @@ De organisatie Dortus is van 6 nov 2026, dus na 27 mei 2026: plan **Starter, 5% 
 - Thijs, later en gebundeld: Polar-product aanmaken (of de hoofdchat met hem), Polar- en Moneybird-sandbox. Pas als de product-laag en het betaalstuk van Jet staan.
 - De naam "Klopt" is werknaam (Daan); de URL `dortus.com/klopt/` volgt de naam.
 
-Nagekeken: controleur 9 nov ±21:30 UTC, akkoord mits; 6 moet-punten (past_due niet in Customer State, één e-mailadres per klant, welke maand telt, inhalen begrensd, opzeggen en terugbetalen, kleur van Daan) en 4 kan-punten (Pro eerder, uitbetaalkosten, beta, proefveld leeg) verwerkt. Twee GOK's weggehaald: 100%-korting en external_customer_id kunnen (GEZIEN door de controleur).
+Nagekeken: controleur 9 nov ±21:10 UTC, akkoord mits; 6 moet-punten (past_due niet in Customer State, één e-mailadres per klant, welke maand telt, inhalen begrensd, opzeggen en terugbetalen, kleur van Daan) en 4 kan-punten (Pro eerder, uitbetaalkosten, beta, proefveld leeg) verwerkt. Twee GOK's weggehaald: 100%-korting en external_customer_id kunnen (GEZIEN door de controleur).
