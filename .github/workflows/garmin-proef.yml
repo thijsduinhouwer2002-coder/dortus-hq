@@ -52,6 +52,7 @@ jobs:
             kill "$MD" 2>/dev/null || true
             sleep 2
           done
+          mogrify -fuzz 2% -trim +repage schermen/*.png
           ls -la schermen
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh

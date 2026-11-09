@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **9 nov 23:55: bouwstraat werkt.** Proefapp compileert voor fenix7, venu2 en fr265, 4 tests groen in de echte simulator, schermen op de tak `schermen` (map `garmin-proef/`), run 42714270261. Geen Garmin-login nodig om te bouwen en te testen.
 - **9 nov 23:50: voorstel klaar, wacht op Hans.** Ademhalingsapp (rondes diep ademen en inhouden, plus rustige patronen, voortgang van je inhoudtijd op de pols), $4,99. Bewijs: 2 van de 17 betaalde ademapps halen 1.000+, waaronder een nieuwkomer in 8 maanden (GEZIEN). Controleur: goedgekeurd. Zie `volgend-product.md`. Mila gevraagd om naam en stijl. Installs 0, verkopen 0.
 
 - **9 nov 22:54: ronde 5a.** Kandidaat nu: ademhalingstraining (Wim Hof-stijl en apneu). WHM breathing+ $4,99 krijgt ±26 reviews per maand, tien keer meer dan andere $3+-apps (GEZIEN). Volgende run: merknaam, alle reviews, uiterlijk van de top 3, dan pas een voorstel.
