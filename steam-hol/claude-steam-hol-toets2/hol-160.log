@@ -6,14 +6,15 @@ HOL kroniek: Bram climbs into your hole.
 HOL kroniek: Kees fell to the Spike Pit. +6
 HOL gegraven kolom 3
 HOL kroniek: Odo is here for your gold.
-HOL kroniek: Bram found the Spike Pit. Hard. +6
+HOL kroniek: Gloop says thanks for the snack. +6
 HOL kroniek: Lotte read about you in a tavern.
 HOL gegraven kolom 4
-HOL kroniek: Gloop says thanks for the snack. +6
-HOL kroniek: Rik knocks first. Polite.
-HOL gegraven kolom 6
-HOL kroniek: Lotte stays forever. +6
 HOL kroniek: Fenna has a map. It is wrong.
+HOL gegraven kolom 6
+HOL kroniek: Odo fled. Grudge: the Spike Pit.
+HOL kroniek: Lotte stays forever. +6
+HOL kroniek: Wil knocks first. Polite.
 HOL gegraven kolom 7
-HOL kroniek: Rik stays forever. +6
-HOL einde na 50 s, fps=15, goud=30, terugkomers=0
+HOL kroniek: Fenna found the Spike Pit. Hard. +6
+HOL kroniek: Joost climbs into your hole.
+HOL einde na 50 s, fps=15, goud=24, terugkomers=1
