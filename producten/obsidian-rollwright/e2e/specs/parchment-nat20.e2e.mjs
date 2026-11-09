@@ -8,7 +8,8 @@ import * as fs from "fs";
 const SHOTS = "screenshots";
 const PAD = "Parchment nat20.md";
 const TEKST = "# Wolf\n\nBite `dice: 1d20+5` hits the knight.\n";
-const LEAF = ".workspace-leaf.mod-active";
+// Alleen de lezen-weergave: de verborgen Live Preview van hetzelfde blad heeft ook een token, met maat 0 (run 42637689172).
+const LEAF = ".workspace-leaf.mod-active .markdown-reading-view";
 
 async function zetWillekeur(waarde) {
 	await browser.execute((waarde) => {
@@ -74,7 +75,7 @@ async function meet() {
 		const s = getComputedStyle(el);
 		return {
 			klassen: el.className,
-			titel: document.querySelector(`${sel} .view-header-title`)?.textContent ?? "",
+			titel: document.querySelector(sel).closest(".workspace-leaf")?.querySelector(".view-header-title")?.textContent ?? "",
 			wereld: !!el.closest(".rollwright-world"),
 			voorTekst, naTekst,
 			margeLinks: s.marginLeft, margeRechts: s.marginRight,
@@ -127,6 +128,7 @@ describe("Rollwright: NAT 20 in Parchment naast een woord (keuring 0.3.4)", func
 			expect(m.margeLinks).toBe("6px");
 			expect(m.margeRechts).toBe("6px");
 			// De ringen lopen 6px buiten het token; de letter ervoor en erna staat daar buiten.
+			expect(m.token.b).toBeGreaterThan(0);
 			expect(m.ruimteVoor).toBeGreaterThanOrEqual(6);
 			expect(m.ruimteNa).toBeGreaterThanOrEqual(6);
 		});
