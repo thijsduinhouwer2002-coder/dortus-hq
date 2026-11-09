@@ -392,3 +392,8 @@ Nieuwste blok onderaan.
 - **Controleur:** akkoord ja, geen test gewijzigd, runs 42542863371 (IDEA 2026.2 unittests met `HERSTART: platform 262, met reden true`, verifier 5 keer Compatible) en 42542863399 (e2e licht en donker, structuur en hernoem-structuur) groen (GEZIEN).
 - **Besluit:** samengevoegd op main (46489e8). Waarom: alles groen en nagekeken, en nu wordt de weg `restart(Object)` ook na het einde van de CLion-EAP (±22 nov) bij elke push getoetst.
 - **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten. Tot dan korte runs (regel 0c): er is niets zinvols tot de moderatie of de meting.
+
+## 9 nov 2026, 01:53 tot 02:00 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 01:56). Main na het samenvoegen van tak `-a` groen: runs 42544762372 (CLion-unittests, IDEA 2026.2-unittests, verifier) en 42544762248 (e2e) op 32425b1 (GEZIEN).
+- **Besluit:** korte run (regel 0c). Er is niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; geen nieuwe scan zonder nieuwe bron (weekbesluit Hans 8 nov).
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
