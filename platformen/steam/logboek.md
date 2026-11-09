@@ -118,6 +118,7 @@
 - Tak `claude/steam-hol-begin` (6db37a1): Brams `claude/steam-hoedentoren` samengevoegd; eerste tien minuten in strook.gd (vijf vaste stappen, eenmalig, in de save, terugkomer wacht tot hij gevlucht is, opgegeten wacht tot Gloop op is); hoedentoren aangesloten (hoeden van Gloop in de save, kroniekregel bij de eerste hoed, bij 25 en 100 de bijnaam, anders een op de vier); Gloops plek twee rijen hoog; ingang nooit op kolom 0; demo begint na 0,5 s.
 - In Brams `toets_systemen.gd` stond `var zonder` twee keer (parse-fout, de toets draaide niet): tweede hernoemd naar `zonder_n`. Daarna 0 FOUT in beide toetsen (lokaal Godot 4.3).
 - Lokale proef 60 s demo onder Xvfb: alle vijf stappen binnen de minuut, 0 scriptfouten. Nog niet: controleur, Actions, main.
+
 ## 9 nov 2026, Bram (run 21:10 UTC)
 - Click Joints eerst: listing nog 404 van buiten (Awaiting Review), 0 issues in de repo click-joints (zoek-API GitHub). Niets te doen.
 - Steam, toets 3 van Sanne en de vlaggen van Olaf, op main (run 42701361252 groen, 0 FOUT, GEZIEN in de log): hoedentoren in `slijm.gd` (laatste 4 op zijn hoofd volgens Mila's maten, hoedenberg links in 5 maten, toren valt mee als hij plat ligt, een hoed gaat er nooit af, save), `moet_vluchten`, `moet_doorlopen`, `moet_opgegeten` in `held.gd`, kroniek: naamgenoot met wrok, laatste 4 regels overslaan, terugkomer noemt altijd waarom, hoedregels. 23 nieuwe toetsen.
