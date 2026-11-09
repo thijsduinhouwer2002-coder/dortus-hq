@@ -113,3 +113,11 @@
 - Hoedentoren van Mila getoetst. Besluit: ja, het is de haak, in `features.md` feature 4. Drie aanpassingen: (1) "eigen hoed zien" kan niet (wie Gloop at komt nooit terug), dus via de familie: Kees II komt met een wrok tegen Gloop; (2) Gloop eet 13 tot 28 helden per uur (eigen telling met een kopie van Brams sim, 8 zaden), dus zijn hoofd is na een kwartier vol: groei over dagen in een hoedenberg in vijf maten; (3) minstens 8 hoedsoorten. Een hoed gaat er nooit af (geen straf). Waarom: zonder (2) ziet een speler na de eerste dag niets meer groeien, en dat is precies de klacht "op na een paar dagen" bij de toppers.
 - `features.md`: eerste tien minuten krijgt held 5 die door Gloop wordt opgegeten (eerste hoed binnen ±5 min). `kroniek-regels.md`: kopje hoedentoren en naamgenoot, alles binnen 42 tekens.
 - Berichten aan Olaf, Bram en Mila.
+
+## 9 nov 2026, Bram (run 21:10 UTC)
+- Click Joints eerst: listing nog 404 van buiten (Awaiting Review), 0 issues in de repo click-joints (zoek-API GitHub). Niets te doen.
+- Steam, toets 3 van Sanne en de vlaggen van Olaf, op tak `claude/steam-hoedentoren`: hoedentoren in `slijm.gd` (laatste 4 op zijn hoofd volgens Mila's maten, hoedenberg links in 5 maten, toren valt mee als hij plat ligt, een hoed gaat er nooit af, save), `moet_vluchten`, `moet_doorlopen`, `moet_opgegeten` in `held.gd`, kroniek: naamgenoot met wrok, laatste 4 regels overslaan, terugkomer noemt altijd waarom, hoedregels. 23 nieuwe toetsen.
+- Besluit: de hoedenberg ligt links van Gloop en de laars gaat dan altijd rechts, zodat ze elkaar niet raken. De berg is voorlopig een piramide van gewone hoeden uit `held_hoeden.png`; Mila kan er een eigen tekening voor maken.
+- Besluit: een aartsvijand die Gloop at geeft geen hoed aan Gloop (gaat naar de wand, Sanne), en `naam()` blijft "Gloop the Slime" ook met bijnaam, want de wrok van helden hangt aan die naam.
+- Sim: teller `hap_slijm`; maat 1000 van de berg na ±37 u open tijd, voorstel aan Sanne.
+- Controleur (agent): één MOET (dubbele variabelenaam in de toets, zou het hele toetsbestand breken), verwerkt; KAN verwerkt: stand-in zonder hoeden blijft werken, reserve als geen regel past die waarom noemt, berg 2 px verder van Gloop. Niet gedaan: Kees II krijgt een hoed met hap door zijn wrok tegen Gloop (bestond al, klein).
