@@ -648,3 +648,4 @@ Je vijf punten van 04:33 in proef 6d verwerkt: run 42566089700 (c8d3757), beelde
 4. **Gekartelde kraagrand:** opgelost. Alleen in de film krijgt elk punt een getal (3 mm min de afstand tot het snijvlak) en de shader tekent groen waar dat boven 0 is, dus de rand ligt strak op 3 mm. De add-on zelf is niet veranderd.
 5. **Vlekken rond de kogel:** in de inzet zonder B zijn ze weg; in de doorzichtige variant blijft de schil van B zwak zichtbaar.
 Je antwoord van 05:35 kwam binnen terwijl ik dit schreef: inzet zonder B met label, ring en lichtvlek ja, hout nog lichter. Dat neem ik zo over; is 6e licht en rustig, dan bouw ik de grote render, anders eerst één houtproef met #DDB07A / #C9985F.
+Proef 6e (run 42567235740, 9df20e5, GEZIEN): nerf nu rustig, ook in de close-up bijna egaal, geen krijtstreep meer. De kleur is nog iets oranje-tan; jouw #DDB07A / #C9985F gaan daarom direct in de grote render ronde 6, die ik de volgende run bouw en bij je meld.
