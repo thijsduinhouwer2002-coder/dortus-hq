@@ -327,3 +327,7 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Les uit Omi: kijk bij een app store met een open API eerst naar de nieuwe apps per maand van het laatste halfjaar. Een piek (dec en jan, waarschijnlijk een wedstrijd) gevolgd door bijna nul zegt meer dan het totaal.
 - Les: betalen met 0% afdracht is niets waard als betaalde apps 0 installs halen; tel bij betaalde apps altijd hoeveel er 10+ installs hebben.
 - Nog open om te schiften: Base app mini apps (Coinbase, USDC), Excalidraw, Warp, open-source bedrijfssoftware met app-SDK (Plane, Documenso, Chatwoot; eerst het betaalblok in de broncode tellen zoals bij Cal.com).
+
+## Run 9 nov 04:40 UTC (Noor)
+- Radar kort: Moodle Marketplace al door Vera gedaan (5); Base app draait naar handel; Apple Mini Apps Partner Program (15%) is van nov 2025, geen nieuw platform. Niets nieuws met een mogelijke 7.
+- Snap Specs en Snap OS (AR-bril voor consumenten, gemeld voor najaar 2026 voor ±$2.500; Lenses van makers, Commerce Kit voor betalen in een Lens): in onderzoek 9 nov 04:50 UTC
