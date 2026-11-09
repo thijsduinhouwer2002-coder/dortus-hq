@@ -8,7 +8,7 @@ Made by Thijs at [Dortus](https://dortus.com) for game masters and solo players 
 
 ![Real plugin footage in a session note: a natural 20 lands in gold, a natural 1 in red, every throw goes to the session log, then the optional Parchment and Arcane skins. The parchment note style in this video was a custom CSS snippet; since version 0.3.4 the paid skins style the whole note themselves](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/demo.gif)
 
-<sub>Real plugin footage. The parchment note style in this video was a custom CSS snippet. Since version 0.3.4 the optional paid skins Parchment and Arcane style the whole note themselves; new footage follows.</sub>
+<sub>Real plugin footage from version 0.3.3. The parchment note in this video was a custom CSS snippet on the free Classic skin. Since 0.3.4 the optional Parchment and Arcane skins style the whole note themselves, see [Paid skins](#paid-skins).</sub>
 
 ## What you can do
 
@@ -154,6 +154,8 @@ If the first header is a formula, Rollwright rolls it and finds the matching row
 
 A paid skin changes more than the dice. Parchment turns a note with rolls into old parchment, Arcane into a torch-lit dungeon, and the Roll log follows. The rest of Obsidian keeps your theme. The setting "Skin the note too" picks which notes: Notes with rolls (default), All notes or Off. Per note, add `rollwright-world` or `rollwright-plain` to the cssclasses property.
 
+![The same session note three times: free Classic in your own theme, then the optional Parchment and Arcane skins, each turning the note and the roll log into its own world](https://raw.githubusercontent.com/thijsduinhouwer2002-coder/rollwright/main/images/skins.jpg)
+
 You buy the skins once through Polar: press Buy for $6 in the settings, pay, then paste the license key from your Polar purchases in the settings and press Activate. One key works on all your devices.
 
 ## Payments and network
@@ -178,4 +180,4 @@ Questions, ideas or a bug? Open an issue on [GitHub](https://github.com/thijsdui
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE). The fonts in the paid skins (Cinzel, Cinzel Decorative, IM FELL English, Spectral, Uncial Antiqua) are under the SIL Open Font License 1.1, see [OFL.txt](OFL.txt).

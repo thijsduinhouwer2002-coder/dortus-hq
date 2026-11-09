@@ -12,7 +12,7 @@ cd "$DOEL" && git pull -q --rebase origin main 2>/dev/null || true
 find "$DOEL" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 tar -C "$BRON" -cf - \
   --exclude='./node_modules' --exclude='./main.js' --exclude='*.map' \
-  --exclude='./e2e' --exclude='./OPEN.md' --exclude='./architectuur.md' --exclude='./ontwerp*.md' \
+  --exclude='./e2e' --exclude='./OPEN.md' --exclude='./architectuur.md' --exclude='./ontwerp*.md' --exclude='./bouwplan*.md' \
   --exclude='./publiceer.sh' --exclude='./.github' . | tar -C "$DOEL" -xf -
 mkdir -p "$DOEL/.github/workflows"
 cp "$BRON/../../organisatie/sjablonen/obsidian-release.yml" "$DOEL/.github/workflows/release.yml"
