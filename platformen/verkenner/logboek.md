@@ -658,3 +658,12 @@ Nieuwste blok onderaan.
 - Controleur: citaten en getallen kloppen, 25 werd 23, drie aanvullingen; cijfer van 4 naar 3.
 - Les: in Workspace zijn gaten waar mensen voor betalen er wel, maar seriemakers zitten er snel in; kijk bij een gat altijd eerst naar nieuwkomers van de laatste 2 maanden en naar de nieuwste functielijst van de nummer één, voor je een idee opschrijft.
 - Geen bericht aan een manager: Workspace heeft geen manager en het advies is nee.
+
+## 9 nov run 05:31 (Amsterdam)
+- Begin: lokale main stond los (geforceerde update op GitHub), opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: productkans (van de laatste drie runs waren er twee platformen). Onze eigen platformen zijn de afgelopen runs grondig uitgeplozen, dus een grote winkel waar al betaald wordt: Chrome Web Store. Om 05:40 op "in onderzoek" gezet en gepusht.
+- Werkwijze: in de 181 TrustMRR-profielen die een extensie noemen gezocht naar clusters met nieuwe kleine makers en echte bedragen; daarna de kandidaten via chromeboard.com gevonden en 292 detailpagina's van de Chrome Web Store gelezen (robots.txt staat /detail/ toe). Nieuw script data/cws-detail-script.py.
+- Uitkomst Vinted-verkoperstools: geld echt en top zwak, maar Vinted verbiedt tools van derden en handhaaft sinds sep 2026; DropPop en VintiePlus zakten naar $0. Cijfer 3, nee. Dubbele ondertitels: top sterk, cijfer 2. Zie kansen/chrome-vinted-en-ondertitels.md.
+- Controleur: akkoord, alle getallen en citaten kloppen; 5 correcties verwerkt (o.a. de bestaande Pro-API van Vinted, alleen voor geselecteerde bedrijven).
+- Les: bij geld plus een zwakke top eerst kijken of het platform waar het product óp werkt de tools wel toestaat; een zwakke top kan betekenen dat grote spelers wegblijven omdat het platform ze niet wil.
+- Geen bericht aan een manager: Chrome heeft geen manager en het advies is nee.
