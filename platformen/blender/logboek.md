@@ -408,3 +408,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Twee agents tegelijk. Controleur op 699690d tot 557d7e2 (afstand kogel en scharnier): akkoord met correcties, geen moet-punt; wiskunde, gratis deel en run 42655389358 nagekeken; zes kan-punten in taken.md. Bouwer op plaatjes 11 en 12 plus de kan-punten van de pose-schuif (6d595ea tot de12404): kader uit de echte hoekpunten, proefnet om de 0,2 mm, label op een vrije plek, getter alleen AttributeError, twee nieuwe toetsen. Drie runs rood op de eigen nieuwe toets (1 FOUT, eerste B stond in QUATERNION), gerepareerd in de12404; run 42668200920 liep nog bij het einde, plaatjes dus nog niet gezien.
 
 - Ging mis: de bouwer liep 55 minuten (opdracht 35) door drie rode runs op zijn eigen toets. Hij vond wel iets: een tweede scharnier op een verschoven staaf geeft "cursor inside the mesh". Dat kan een echte fout zijn; staat bovenaan taken.md.
+
+## Run 45, 9 nov 18:12 tot 18:55 UTC (Bram)
+
+- Live: click-joints-repo 0 issues, 0 PR; listing extensions.blender.org nog 404 (GEZIEN). Nieuw van Thijs: ik ben ook tweede bouwer in het Steam-team (zie Steam-logboek).
+- Run 42668200920 (de12404) was rood in beide versies door één ding: plaatje 12 (label stond op de delen, toets eist ernaast). Zelf bekeken: delen nu mooi in het midden, maar label klein en rood alleen een dun lijntje.
+- Bouwer (agent): `_rood_plek` zoekt nu in ringen rond het eind van de pose-lijn, tekst 24 px, lijntje naar het label (alleen `betaald/scharnier_boog.py`, export en gratis deel ongewijzigd). Een fijner proefnet (7b16613) gaf zaagtand en liet 4.2.23 vallen; teruggedraaid in b01e7f8. Run 42674416972 groen in 4.2.23 en 5.2.3, 0 FOUT.
+- Besluit: rood duidelijk maken door ook de rakende vlakken van B rood te kleuren (alleen weergave). Volgende run.
+- Les: rode_pixels telt ook het label en de lijn mee, dus zegt weinig over het rood op de delen; zelf kijken blijft nodig.
