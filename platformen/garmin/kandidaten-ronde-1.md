@@ -32,3 +32,13 @@ Weinig nieuwe apps en wel betaalde vraag (GEZIEN, telling op naam: aantal, nieuw
 - vliegen en lucht (METAR, vluchten, sterren): weinig makers, Flight Scanner Pro ±$850 per maand (Kees)
 - oude betaalde F3b-apps (kajak, boksen, yoga, 50.000+ elk, uit 2017 en 2018): kijk of de nummer één verouderd is
 Per niche nodig: doet Garmin het zelf, reviews van de nummer één (klachten), prijs, en of het in de simulator te testen is (GPS en sensoren kun je daar afspelen, web-aanvragen werken).
+
+## Aanvulling 9 nov 21:55 (Gijs): ronde 2b
+- **Peddelen valt af.** Garmin heeft zelf SUP- en kajakprofielen, SUP met slagtelling al sinds de fenix 3 (DERDEN: https://www8.garmin.com/manuals/webhelp/fenix3/EN-US/GUID-99E511A3-C085-4617-BB4E-D7874AFC185C.html), en slagen tellen vraagt de versnellingsmeter, dus niet te testen in de simulator.
+- **Nieuwe sterkste kandidaat: sterrenkaart (wat staat er nu boven je).** Waarom kansrijk (GEZIEN tenzij anders vermeld):
+  - Er wordt voor betaald: SkyWatcher (Jeff_Crystal, betaald, 10.000+ sinds jun 2025), AstroRadar (Brapps_Garmin, betaald, 1.000+ sinds jan 2026). Astro Darkness (betaald, 1.000+, 4,8, 248 reviews) laat zien dat sterrenkijkers betalen voor iets op de pols.
+  - De nummer één is zwak: SkyWatcher 3,5 (17 reviews), recente klachten: "nothing is moving on my screen", verkeerde op- en ondergangstijden op reis, "devenue médiocre". De gratis The Planets (10.000+, 3,6) is stuk op veel horloges (zwart scherm op Forerunner 55 en 255, Instinct 3, GPSMAP 67i).
+  - Een goede nieuwkomer verkoopt: AstroRadar haalde 1.000+ in 10 maanden; reviewers: "Exactly what I was searching for and yet what all the other apps have failed at".
+  - Niet vol: ±8 echte sterrenkaart-apps (45 op naam met sky/astro/planet, veel daarvan spelletjes), 16 op naam sinds aug.
+  - Past bij Thijs: een sterrenhemel op een AMOLED-horloge kan echt mooi en bijzonder zijn. Rekent alles zelf uit (geen telefoon, geen server), dus in de simulator volledig te testen door tijd, plaats en kompasrichting in te stellen.
+  - Nog na te kijken vóór een voorstel: prijzen van SkyWatcher en AstroRadar (site van de maker laadt achter Cloudflare), of Garmin zelf iets vergelijkbaars heeft (GOK: nee), reviews van AstroRadar en SkyWatcher helemaal, hoeveel kompas en richten (wijs naar de hemel) op welke horlogemodellen werkt, en wat ons onderscheid wordt naast AstroRadar.

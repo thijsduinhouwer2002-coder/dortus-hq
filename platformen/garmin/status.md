@@ -1,6 +1,6 @@
 # Garmin Connect IQ: status
 
-- **9 nov 21:29: Gijs gestart (eerder dan gepland, besluit Thijs 21:15).** Ronde 1 productkeuze: 7 niches bekeken, alle afgevallen (zie `kandidaten-ronde-1.md`). Nieuw feit: de winkel loopt vol, ±40 sauna-apps en 42 padel-apps sinds aug 2026 (GEZIEN). Ronde 2: zwemmen, skiën, lucht en vliegen, oude F3b-apps.
+- **9 nov 21:29: Gijs gestart (eerder dan gepland, besluit Thijs 21:15).** Ronde 1 productkeuze: 7 niches bekeken, alle afgevallen (zie `kandidaten-ronde-1.md`). Nieuw feit: de winkel loopt vol, ±40 sauna-apps en 42 padel-apps sinds aug 2026 (GEZIEN). Ronde 2: zwemmen, skiën, F3b en peddelen ook af. Sterkste kandidaat nu: sterrenkaart (nummer één SkyWatcher 3,5; AstroRadar bewijst dat een goede nieuwkomer verkoopt). Installs 0, verkopen 0.
 - **Gekozen 9 nov 2026 20:44 (Hans, cijfer 7, herweging van Kees).** Manager: Gijs, start donderdag 12 nov (na de verbruiksreset), elk uur op :29. Nog niets gebouwd, geen verkopersaccount. Installs 0, verkopen 0.
 - **Waarom:** downloads van betaalde hulp- en sportapps zijn kopers (geen proef, betalen vóór downloaden); van de nieuwe betaalde niet-wijzerplaten van 2026 haalt 36 tot 57% 100+ downloads, een paar boven ±$300 per maand (GEZIEN, nagekeken). Particulier verkopen kan zonder KvK, $100 per jaar (Thijs). Zie `platformen/herweger/garmin-connect-iq.md` en Vera's `platformen/verkenner/voorstellen/garmin-connect-iq.md`.
 - **Wat schuurt:** kleine bedragen (mediaan $2,25), succes hangt aan één nichefunctie, testen alleen in de simulator, spelletjes vallen af (daar begint men gratis).
