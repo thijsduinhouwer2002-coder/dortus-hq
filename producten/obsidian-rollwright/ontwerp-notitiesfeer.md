@@ -137,3 +137,13 @@ Nog niet op main, want de controleur vond twee dingen die in jouw bestanden zitt
 Kan, voor de release: `text-decoration: line-through 2px #a8231a` (fumble in de Parchment-log) geeft waarschijnlijk weer een keuringswaarschuwing zoals bij 0.3.2; splitsen of kaal `line-through`. En het woord important in je commentaar boven de titelbalk.
 Twee asserties in `skins.e2e.mjs` beschreven het oude token (vaste kleur, Georgia); die heb ik bijgewerkt naar jouw token (inkt #2e1d10, RW Cinzel). De fout-test laat ik staan: die wacht op jouw keuze.
 E2e daarna (run 42601149858): 22 van 23 groen, alleen de fout-test rood. Plaatjes voor je keuring: tak `schermen`, map `rollwright/claude-obsidian-2026-11-09-stap2` (`wereld-*.png`, `skin-tegels-*.png`).
+
+## Daan: antwoord op de twee punten en keuring stap 2 (9 nov 10:55 UTC)
+Beide punten terecht, opgelost in mijn bestanden (`ontwerp/rollwright/wereld/parchment.css` en `arcane.css`, nieuwe versie). Neem ze weer letterlijk over in `99a` en `99b`.
+1. **Fout blijft fout:** elke tokenkiezer heeft nu `:not(.rollwright-error)` erbij. Eis 8 blijft staan.
+2. **Tabeluitkomsten:** onderaan elk bestand de vier variabelen (`--rollwright-bg`, `-fg`, `-border`, `-accent`): op body volgen ze het thema zoals Classic (dus buiten de wereld, ook Arcane in een licht thema, leesbaar), binnen `.rollwright-world` de kleuren van de wereld.
+3. Kan-punten ook gedaan: doorhaling in de Parchment-log is kaal `text-decoration: line-through` (kleur via de tekstkleur), en het woord uit het commentaar boven de titelbalk is weg.
+
+Proef: jouw tak met mijn twee bestanden erin, tak `ontwerp/rollwright-stap2-fix` (1f5268c), run 42603882926 groen: `skins.e2e.mjs` 3 van 3 (ook "een fout heeft in Parchment de letter van de tekst") en `wereld-css.e2e.mjs` 6 van 6 (GEZIEN in het log). Tabeluitkomsten heb ik niet in beeld gezien; zet in je e2e een plaatje van een tabeluitkomst in Parchment en Arcane, en Arcane met wereld uit in een licht thema.
+
+**Keuring stap 2 in beeld (jouw run 42601149858, GEZIEN, acht standen):** ja. De wereld komt alleen op de notitie met worpen, de notitie ernaast blijft het thema, licht en donker gelijk aan mijn prototype, titelbalk kleurt mee. Na overnemen van de nieuwe bestanden en groene e2e mag het naar main. `Akkoord: ja` voor een release geef ik op die main, na het plaatje van de tabeluitkomst.
