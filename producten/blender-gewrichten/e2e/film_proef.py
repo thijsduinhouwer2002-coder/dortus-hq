@@ -1,4 +1,4 @@
-"""Snelle proef voor filmisch ronde 6 (6c: punten Daan 03:55, rood van dichtbij op de rode vlakken, pop groter) (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
+"""Snelle proef voor filmisch ronde 6 (6d: Daan 04:33, bijna egaal hout, rood #E0261C dichterbij, lichtvlek, strakke ring; 6c: punten Daan 03:55, rood van dichtbij op de rode vlakken, pop groter) (Daan 9 nov): gestrekte arm met gewricht op de elleboog, trap met knie-gewricht,
 hout beuken, oneindige achtergrond, en het rood op 28 graden vanuit vijf hoeken plus Exploded view.
 
 Laadt film_mooi.py zonder de hoofdlus en daarna film_zes.py in dezelfde namespace (die vervangt pop, hout,
@@ -89,6 +89,7 @@ def main():
         log("PROEF FOUT elleboog niet geplaatst")
         return
     pop.hide_render = True
+    log(f"6d strakke ring A {F['strakke_ring'](a)} B {F['strakke_ring'](b)}, vakken A {[m.name if m else None for m in a.data.materials]}")
     paneel = F["mod"]("paneel")
     log(f"elleboog: passing {a.get('cj_passing')}, wand {a.get('cj_wand_mm')}, tekst {paneel.buig_tekst(a)}, "
         f"bereik {[round(x, 1) for x in a.get('cj_buig_graden', [])]}, foute randen A {F['gesloten'](a)} B {F['gesloten'](b)}")
@@ -126,7 +127,8 @@ def main():
     # roze door de groene laag), camera recht op de rode vlakken vanaf hun eigen buitenkant.
     F["staat"]["b_door"] = F["hout_doorzichtig"](b)
     F["zet_door"](0.93)
-    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 1.2)   # 6c3: 9 werd wit-roze, 2,5 zalm; AgX bleekt fel rood
+    log(f"6d rood basis #E0261C: {F['rood_basis']()}")
+    F["gloed"](F["mat_naam"]("rood"), F["ROOD"], 1.0)   # 6d: Daan 0,8 tot 1,2 op verzadigde basis
     lijst = list(a.get("cj_rood_vlakken", []))
     mw = a.matrix_world
     punten, norm = [], Vector()
@@ -141,13 +143,18 @@ def main():
             norm = zij.copy()
         norm.normalize()
         # beeldbreedte op afstand d met 60 mm lens = 0,6 d; rood op 12 procent: d = maat / 0,072
-        d = min(max(maat / 0.11, 6 * rr), 30 * rr)   # 6c2: maat is de hele uitsnede, het rood zelf is kleiner
+        d = min(max(maat / 0.2, 4 * rr), 30 * rr)   # 6d: Daan minstens 10 procent (6c3 gaf 8 tot 10)
         log(f"rood midden {tuple(round(x, 2) for x in rc)}, maat {maat:.2f} mm, normaal {tuple(round(x, 2) for x in norm)}, afstand {d:.1f}")
         fstop = cam.data.dof.aperture_fstop
         cam.data.dof.aperture_fstop = 22.0   # zo dichtbij is f/8 te wazig
         for j, kant in enumerate((norm, (norm + zij * 0.6).normalized())):
             kijk(cam, rc + kant * d, rc, lens=60)
             render(f"4b-rood28-doorzichtig-{j}")
+        # 6d: Daans terugval, B helemaal weg in de inzet (eerlijk met label "Exploded view" in de film)
+        b.hide_render = True
+        kijk(cam, rc + norm * d, rc, lens=60)
+        render("4b-rood28-zonder-b")
+        b.hide_render = False
         cam.data.dof.aperture_fstop = fstop
     else:
         log("geen rode vlakken gevonden voor 4b")
@@ -166,6 +173,7 @@ def main():
     log(f"knie: {uit2}, kogel {inst.kogel_mm} mm, A2 {a2.name if a2 else None}, B2 {b2.name if b2 else None}")
     if a2 is not None:
         a.hide_render = True
+        log(f"6d strakke ring A2 {F['strakke_ring'](a2)} B2 {F['strakke_ring'](b2)}")
         log(f"knie: passing {a2.get('cj_passing')}, tekst {paneel.buig_tekst(a2)}, "
             f"bereik {[round(x, 1) for x in a2.get('cj_buig_graden', [])]}")
     log(f"zichtbaar in render: {[o.name for o in bpy.context.scene.objects if o.type == 'MESH' and not o.hide_render]}")
