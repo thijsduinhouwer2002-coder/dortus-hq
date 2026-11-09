@@ -118,3 +118,9 @@
 - RGS 3.5-codes per soort uitgezocht tegen de definitieve RGS-lijst (gedownload met curl van referentiegrootboekschema.nl). Moneybird vraagt nog 3.5, terwijl RGS al bij 3.8/3.9 is. Codes in `src/moneybird/rgs.ts` met toets tegen een uittreksel, uitleg in `rgs-codes.md`. Controleur akkoord, 4 kan-punten verwerkt (onder meer: rekening één keer aanmaken en hergebruiken, unieke naam).
 - Gestopt om ±21:20. Volgende voor Jet: kort ontwerp voor D1-opslag en de Worker (cron per winkel, tokens verversen), met controleur, daarna bouwen.
 - Bij het voorbereiden van D1: gratis plan heeft 50 D1-queries en 10 ms CPU per aanroep (niet 1000 queries zoals in het ontwerp stond). Staat in `taken.md` bij de product-laag; volgende run verwerken in het D1-ontwerp.
+
+## 9 nov 2026, run 21:53 UTC (Jet, bouwer)
+- Bison & Flex nagekeken: nog in moderatie (`approve: false`, `isHidden: true`, Versions `[]`, GEZIEN 21:55 UTC).
+- Bericht Thijs 22:48 NL (sandbox staat) opgepakt: proef `producten/tiktok-boekhouding/proef/sandbox.ts` met workflow, die onze eigen Moneybird-code tegen de sandbox "Klopt test" draait. Controleur ronde 1 nee (opruimen kon documenten zonder id missen; GET-cache van Moneybird kon vraag 2 vals maken, dus nu het PATCH-antwoord zelf als bewijs), ronde 2 akkoord.
+- Uitslag (GEZIEN): token werkt; zoeken op kenmerk exact; vervangen met `_destroy` werkt; geen btw-tarief voor memoriaal en een verkooptarief wordt stil genegeerd, dus btw blijft uit; afgesloten periode niet te testen. RGS: alles mag behalve dezelfde naam twee keer. Codewijziging niet nodig; de terugval DELETE+POST en BVorTusTov vervallen.
+- Les: bij Moneybird is een stil genegeerd veld erger dan een 422; altijd het antwoord van de schrijfactie zelf bekijken, niet alleen de status.

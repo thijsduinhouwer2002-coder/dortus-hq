@@ -28,3 +28,11 @@ Controleur (9 nov 21:20 UTC): akkoord, codes, uittreksel en `account_type` nagek
 - **Eén keer aanmaken, daarna hergebruiken (voor de bouw van stap 4).** Moneybird wil een unieke naam per administratie en soort rekening. Meerdere soorten delen een voorstel (vier op omzet), en bij een tweede winkel of een eerdere poging bestaat de rekening al (POST geeft dan 422). Dus eerst zoeken op naam of RGS-code en alleen aanmaken wat ontbreekt.
 - **Vraagposten (BVorTusTovTvp) zit niet in de Basis-set van RGS**, BVorTusTov (niveau 4) wel. Moneybird accepteert waarschijnlijk elke 3.5-code, maar dat is niet gezien: meenemen in de sandbox-test, met BVorTusTov als terugval.
 - Niet getest tegen een echte Moneybird-administratie: of twee rekeningen dezelfde RGS-code mogen hebben en of `account_type` bij de code moet passen, staat niet in de docs. Hoort bij de sandbox-test (vijfde vraag erbij).
+
+## Uitslag sandbox-test (GEZIEN 9 nov 22:03 UTC, run 42708208521)
+- BVorOvrOvk als current_assets: 201, `taxonomy_item` 3.5 "Overige vorderingen", toegestaan in memoriaal.
+- **Twee rekeningen met dezelfde RGS-code mag** (201).
+- **BVorTusTovTvp (buiten de Basis-set) mag** (201, "Tussenrekening vraagposten"); de terugval BVorTusTov is dus niet nodig.
+- **Moneybird controleert niet of `account_type` bij de code past** (expenses met BVorOvrOvk: 201). Onze app moet dus zelf de juiste soort meesturen bij aanmaken.
+- **Zelfde naam en soort twee keer: 422** `{"error":{"name":["has already been taken"]}}`. Bevestigt: eerst zoeken op naam, alleen aanmaken wat ontbreekt.
+- Een rekening die al in een boeking stond, zet DELETE alleen op inactief.
