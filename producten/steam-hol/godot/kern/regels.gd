@@ -25,6 +25,8 @@ const VOORRAAD := {
 		"{naam} left. Took nothing. Angry.", "{naam} fled, crying a little."],
 	"schat": ["{naam} touched your hoard!", "{naam} tried to lift it. Too heavy.", "{naam} licked a coin and ran.",
 		"{naam} is now the Hoard-Toucher."],
+	# bij het wegrennen van de Hoard-Toucher (toets 5, punt 4); de aanraak-regel kwam al op het moment zelf
+	"schat_weg": ["{naam} the Hoard-Toucher ran.", "{naam} ran. Hands smell of gold.", "{naam} ran off, giggling."],
 	"plat": ["{bewoner} is flat. Back soon."],
 	"op": ["{bewoner} is up again. Wobbly."],
 	# hoedentoren (Mila, kroniek-regels.md): bij de eerste hoed altijd "hoed_eerste", daarna hooguit een op de vier
@@ -36,23 +38,33 @@ const VOORRAAD := {
 }
 
 var rng: RandomNumberGenerator
-var vorige := {}   # soort -> index van de vorige regel
+var vorige := {}   # soort -> lijst met de laatst gekozen indexen (nieuwste achteraan)
 
 func vul(r: String, w: Dictionary) -> String:
 	for k in w:
 		r = r.replace("{%s}" % k, String(w[k]))
 	return r
 
+# Geen regel opnieuw voor alle andere van die soort geweest zijn (Sanne toets 5, punt 3: dezelfde grap twee keer in
+# een minuut); past er dan niets binnen 42 tekens, dan toch een die past, en anders de eerste (die zijn bewust kort).
 func kies(soort: String, w: Dictionary, erbij := 0) -> String:
 	var lijst: Array = VOORRAAD.get(soort, ["..."])
 	if rng == null:
 		rng = RandomNumberGenerator.new()
+	var recent: Array = vorige.get(soort, [])
+	var passen: Array = []
 	var keuzes: Array = []
 	for i in lijst.size():
-		if lijst.size() > 1 and i == int(vorige.get(soort, -1)):
-			continue
 		if vul(lijst[i], w).length() <= MAX - erbij:
-			keuzes.append(i)
+			passen.append(i)
+			if not recent.has(i):
+				keuzes.append(i)
+	if keuzes.is_empty():
+		keuzes = passen
 	var i: int = keuzes[rng.randi_range(0, keuzes.size() - 1)] if not keuzes.is_empty() else 0
-	vorige[soort] = i
+	recent.erase(i)
+	recent.append(i)
+	while recent.size() > max(0, lijst.size() - 1):
+		recent.remove_at(0)
+	vorige[soort] = recent
 	return vul(lijst[i], w)

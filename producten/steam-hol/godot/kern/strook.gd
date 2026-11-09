@@ -133,12 +133,51 @@ func _ready() -> void:
 	log_regel("HOL start hoogte=%d schaal=%d spelpixels=%dx%d venster=%s pos=%s held=%s" % [hoogte, schaal,
 		int(scherm.size.x / schaal), spel_h, DisplayServer.window_get_size(), DisplayServer.window_get_position(), held_script.resource_path])
 
-func _kroniek(r: String) -> void:
-	kroniek.append(r)
+# De kroniek loopt gelijk met het beeld (Sanne toets 5, punt 1). Elke regel gaat eerst in een wachtrij; _toon() kiest:
+# - een regel over wat er gebeurt (val, vlucht, schat, hoed, plat) gaat altijd voor en verdringt een binnenkom-regel na 1 s;
+# - een binnenkom-regel komt alleen als er niets anders wacht en vervalt na 3 s wachten (dan komt hij nooit in de kroniek);
+# - een getoonde regel blijft minstens 2,5 s staan (een binnenkom-regel 1 s als er een gebeurtenis wacht); wacht er niets,
+#   dan blijft hij staan tot er iets nieuws is (een leeg vak zegt niets).
+# Alleen getoonde regels komen in `kroniek` (hover en opslag), zodat je nooit een regel terugleest die niemand zag.
+const REGEL_MIN := 2.5
+const BINNEN_WACHT := 3.0
+const BINNEN_WIJK := 1.0
+var wachtrij: Array = []        # [{r, binnen, sinds}]
+var regel_sinds := -100.0       # wanneer de getoonde regel kwam
+var regel_binnen := false       # is de getoonde regel een binnenkom-regel
+
+func _kroniek(r: String, binnen := false) -> void:
+	wachtrij.append({"r": r, "binnen": binnen, "sinds": t})
+	_toon()
+
+func _toon() -> void:
+	# binnenkom-regels die te lang wachten vervallen
+	for i in range(wachtrij.size() - 1, -1, -1):
+		if bool(wachtrij[i].binnen) and t - float(wachtrij[i].sinds) > BINNEN_WACHT:
+			log_regel("HOL kroniek vervallen %.1f: %s" % [t, wachtrij[i].r])
+			wachtrij.remove_at(i)
+	if wachtrij.is_empty():
+		return
+	var k := 0
+	for i in wachtrij.size():
+		if not bool(wachtrij[i].binnen):
+			k = i
+			break
+	var volgende: Dictionary = wachtrij[k]
+	var staat := t - regel_sinds
+	var mag := staat >= REGEL_MIN
+	if regel_binnen and not bool(volgende.binnen) and staat >= BINNEN_WIJK:
+		mag = true
+	if not mag:
+		return
+	wachtrij.remove_at(k)
+	regel_sinds = t
+	regel_binnen = bool(volgende.binnen)
+	kroniek.append(String(volgende.r))
 	if kroniek.size() > 40:
 		kroniek.remove_at(0)
 	tekst.zet(kroniek, hol.goud)
-	log_regel("HOL kroniek: " + r)
+	log_regel("HOL kroniek %.1f (wacht %.1f): %s" % [t, t - float(volgende.sinds), volgende.r])
 
 # naam met bijnaam voor een terugkomer ("Kees the Twice-Fled", of "Pim the Hoard-Toucher")
 func _bewoner() -> String:
@@ -238,9 +277,9 @@ func _nieuwe_held() -> bool:
 			"kleur": KLEUREN[rng.randi_range(0, KLEUREN.size() - 1)], "hoed": HOEDEN[rng.randi_range(0, HOEDEN.size() - 1)],
 			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 3)}
 		if naam.ends_with(" II") or naam.ends_with(" III"):
-			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}))
+			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		else:
-			_kroniek(regels.kies("binnen", {"naam": naam}))
+			_kroniek(regels.kies("binnen", {"naam": naam}), true)
 	match stap:
 		"vallen": info["moet_vallen"] = true
 		"vluchten":
@@ -272,7 +311,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 	var bewaar := info.duplicate()
 	bewaar["kleur"] = (info.kleur as Color).to_html(false)
 	bewaar["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld"]:
 		bewaar.erase(v)
 	bewaar.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -294,7 +333,8 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 			terugkomers.remove_at(weg_i)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
 		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):
-			_kroniek(regels.kies("schat", {"naam": info.naam}))
+			# de schat-regel kwam al op het moment van aanraken (_process); nu alleen dat hij wegrent
+			_kroniek(regels.kies("schat_weg", {"naam": info.naam}))
 		else:
 			var w: String = String(bewaar.wrok)
 			_kroniek(regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
@@ -343,6 +383,14 @@ func _process(delta: float) -> void:
 	for w in wezens.get_children():
 		if w.has_method("is_held"):
 			helden += 1
+			# Hoard-Toucher: de regel komt op het moment dat hij de schat aanraakt, niet pas als hij ontsnapt (toets 5)
+			var hi = w.get("info")
+			if hi is Dictionary and bool(hi.get("hoard_toucher", false)) and not hi.has("schat_gemeld"):
+				hi["schat_gemeld"] = true
+				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
+	_toon()
+	if tekst.goud != hol.goud:
+		tekst.zet(kroniek, hol.goud)
 	if t >= volgende_held and helden < 3:
 		var begin := _begin_stap() != ""
 		if _nieuwe_held():
