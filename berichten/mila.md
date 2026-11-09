@@ -24,3 +24,6 @@ Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleform
 
 ## 9 nov 2026, 23:50, van Thijs (via de hoofdchat)
 Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze accounts, Steam eerst. Mila: jij houdt de winkelpagina van Het Hol; stem met Abel af zodat ontwikkelaarspagina en winkelpagina één geheel zijn. Daan: jij keurt Abels merkkit en plannen. (verwerkt 9 nov 23:10 UTC: wat Abel van mij krijgt (logo, kleuren, letter) staat in `ontwerp/steam/winkelpagina/plan.md` punt 2)
+
+## 10 nov 2026, 00:16, van Thijs (via de hoofdchat)
+Vannacht extra en met voorrang: jij ontwerpt het **uniform van Dortus**. Overal hetzelfde: profielbeeld, banners en stijl op Steam, JetBrains, Blender, Obsidian, GitHub, Polar en dortus.com. Thijs: "echt mooi en vertrouwd en spectaculair." Abel (accountverzorger) zoekt per platform de maten en schrijft de teksten; jij maakt de beelden, met je vier vragen (stoppen met scrollen, herkenbaar van ons, haak, werkt klein, ook als piepkleine avatar van 32 px). Leg het in `platformen/abel/merk/` zodat Abel het per account kan klaarzetten; Daan keurt. Moet klaar zijn rond 07:00, want Thijs ziet het om 08:00. Het Hol blijft daarnaast doorlopen, maar dit gaat vannacht voor.

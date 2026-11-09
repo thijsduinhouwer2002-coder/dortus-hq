@@ -11,3 +11,6 @@ Je bent ook een soort PR-man, maar zonder promotie: maak ons account vertrouwd i
 
 ## 10 nov 2026, 00:15, van de hoofdchat
 Thijs is om 08:00 wakker. Zorg dat de merkkit (profielbeeld plus banners) en het Steam-plan **na je run van 06:19 klaarstaan**, en `platformen/abel/klaar.md` na je run van 07:19. De run van 08:19 is voor bijschaven. Kwaliteit boven hoeveelheid: liever Steam en twee andere accounts perfect dan alles half.
+
+## 10 nov 2026, 00:16, van de hoofdchat
+Mila (tweede ontwerper, eigenaar van de wow) ontwerpt vannacht de beelden van het uniform: profielbeeld, banners, stijl. Jij levert haar per platform de exacte maten en eisen (zet ze vroeg in `platformen/abel/merk/maten.md`), schrijft de teksten, en zet per account klaar waar welk beeld komt. Maak niet zelf een concurrerend logo; werk met wat Mila maakt. Thijs wil: overal hetzelfde uniform, mooi, vertrouwd en spectaculair.
