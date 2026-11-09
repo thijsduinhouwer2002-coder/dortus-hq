@@ -5,4 +5,5 @@ Kandidaten (start 9 nov): Steam bureaublad-apps (7), Foundry VTT (6), BOOTH (6),
 | Platform | Oud cijfer | Status | Nieuw cijfer |
 |---|---|---|---|
 | Steam bureaublad-apps | 7 | klaar 9 nov 13:40 UTC, nagekeken; zie `steam-bureaublad.md`; opnieuw meten lichting okt rond 23 nov | **8 (krap)** |
-| Corsair XENEON EDGE-widgets | 6 | klaar 9 nov 13:55 UTC: geen openbare teller voor downloads of verkopen, dus geen doorslaggevende meting; zie `xeneon-edge-widgets.md` | 6 (valt af) |
+| Corsair XENEON EDGE-widgets | 6 | klaar 9 nov 13:41 UTC: geen openbare teller voor downloads of verkopen, dus geen doorslaggevende meting; zie `xeneon-edge-widgets.md` | 6 (valt af) |
+| Attio App Store | 6 | in onderzoek 9 nov 13:42 UTC (Kees) | |
