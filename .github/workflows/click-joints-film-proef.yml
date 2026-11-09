@@ -1,0 +1,65 @@
+name: Click Joints filmpje proef (hout en rood, klein)
+
+on:
+  push:
+    branches: ["claude/blender-film-*"]
+    paths: ["producten/blender-gewrichten/e2e/film_proef.py", ".github/workflows/click-joints-film-proef.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  proef:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        working-directory: producten/blender-gewrichten
+    steps:
+      - uses: actions/checkout@v4
+      - name: Systeempakketten
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libgl1 libegl1 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 libice6 zip imagemagick
+      - name: Blender 5.2.3 ophalen
+        run: |
+          curl -fsSL --retry 5 --retry-delay 10 -o /tmp/blender.tar.xz "https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz"
+          mkdir -p /tmp/blender && tar -xf /tmp/blender.tar.xz -C /tmp/blender --strip-components=1
+      - name: Add-on inpakken
+        run: bash e2e/maak_zip.sh
+      - name: Proef renderen
+        env:
+          BLENDER_USER_RESOURCES: /tmp/bu
+          BLENDER_USER_CONFIG: /tmp/bu/config
+        run: |
+          /tmp/blender/blender -b --python e2e/film_proef.py -- /tmp/proef /tmp/click_joints.zip 2>&1 \
+            | grep -v "^Fra:\|| Sample\|Updating\|Synchroniz\|Loading\|Waiting" | tee /tmp/render.log
+          cat /tmp/proef/proef.txt
+          grep -q "PROEF KLAAR" /tmp/proef/proef.txt
+          for f in /tmp/proef/*.png; do convert "$f" -quality 88 "${f%.png}.jpg"; rm "$f"; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: proef
+          path: /tmp/proef
+      - name: Openbaar zetten (tak schermen)
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s
+            D="/tmp/s/blender-gewrichten/film-proef/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r /tmp/proef/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Proef filmpje $NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
