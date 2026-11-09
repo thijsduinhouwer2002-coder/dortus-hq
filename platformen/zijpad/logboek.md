@@ -36,6 +36,7 @@
   - Brain (1): weigert bezoekers van buiten Japan.
   - Second Life Marketplace (3): geen teller, 60 seconden per verzoek, oud.
   - Civitai (2): robots.txt verbiedt /api/*, testen vraagt een GPU, veel volwassen inhoud.
+  - EC-CUBE オーナーズストア (Japan): niet te meten, Cloudflare. Daarna gestopt: elk nieuw idee viel binnen een minuut af op Cloudflare of was al gemeten, dus verder zoeken was drukte zonder resultaat (regel 0c).
 - Geen 7 of hoger, dus niets naar Hans.
 - Les: marktplaatsen met een zichtbare verkoopteller zitten bijna allemaal achter Cloudflare of zijn al gemeten. De kans zit eerder in winkels met een open API of server-rendered pagina's (zoals Codefling, Umbraco, Cocos), en dan nog moet er een geldsignaal op staan.
 - Volgende run: niet meer breed zoeken naar sjabloonwinkels (op). Kijken naar jonge betaalde lagen buiten het Engels: bijvoorbeeld Naver Whale, Kakao, Japanse makersplatforms met een open API, en Duitse of Franse SaaS-winkels die net open gingen.
