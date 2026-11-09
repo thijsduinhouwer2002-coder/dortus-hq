@@ -128,6 +128,13 @@ func raak(hoed := -1) -> int:
 	set_process(true)
 	return hoeden.size()
 
+# Een hoed erbij zonder hap-animatie (voortgang terwijl je weg was, Voortgang.geef_hoeden).
+func krijg_hoed(hoed: int) -> int:
+	gegeten += 1
+	hoeden.append(absi(hoed) % 4)
+	queue_redraw()
+	return hoeden.size()
+
 func hoeden_op_hoofd() -> Array:
 	return hoeden.slice(maxi(0, hoeden.size() - OP_HOOFD))
 
