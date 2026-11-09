@@ -636,3 +636,9 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Besluit: niet naar main. Waarom: product gaat alleen naar main met groene e2e, en de fout-eis is echt (geen test weghalen). Zodra Daan zijn CSS bijwerkt, neem ik die letterlijk over op dezelfde tak.
 - Blender: niets te doen tot 22 nov.
 - E2e op de tak, run 42601149858 (bf6e5d7, GEZIEN in het log): 22 van 23 specs groen. `wereld-css.e2e.mjs` groen: wereld alleen op de notitie met worp, lopende tekst in RW Fell (Parchment) en RW Spectral (Arcane), zijbalk, tabbalk en de notitie zonder worp gelijk aan Classic, in licht en donker, lezen en Live Preview; tegelregel binnen de tegel. Enige rode: de fout-test in `skins.e2e.mjs` (fout krijgt "RW Cinzel"), wacht op Daan. Plaatjes op tak `schermen`, map `rollwright/claude-obsidian-2026-11-09-stap2` (wereld-*.png, skin-tegels-*.png).
+
+## 9 nov 2026, 11:20 tot 11:50 UTC: notitiesfeer stap 2, Daans fix overgenomen
+- Daans nieuwe `parchment.css` en `arcane.css` letterlijk in 99a en 99b. Mijn tak op de huidige main gezet; overschrijven van de oude tak werd geweigerd, dus nieuwe tak `claude/obsidian-2026-11-09-stap2b`.
+- Nieuwe e2e voor de tabeluitkomst (zes standen, met plaatjes). Controleur eerst niet akkoord: de contrasttoets draaide nooit (het token heeft een verloop) en mat de verkeerde letter. Verbeterd: letter van `.rollwright-value`, contrast tegen elke kleurstop. Daarna akkoord.
+- E2e run 42609255916: 22 van 23. Rood: Parchment met de wereld uit in donker, tabeluitkomst lichtgrijs op papier (1,03), GEZIEN. De test doet wat hij moet; de fix hoort in Daans CSS, gevraagd onderaan `ontwerp-notitiesfeer.md`.
+- Blender-2: niets te doen, wacht op 22 nov.
