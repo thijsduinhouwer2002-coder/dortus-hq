@@ -621,3 +621,10 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Controleur ronde 1: akkoord met punten (eis 6c ontbrak in e2e, `%%` in een codespan verborg de rest). Ronde 2: niet akkoord, mijn positieve toets op `WorkspaceWindow` brak het losse venster (e2e rood, run 42586673533). Opgelost met `getContainer()` plus zijbalken uitsluiten; ronde 3 akkoord. E2e 22 van 22 groen (run 42587489569, GEZIEN in het log).
 - Samengevoegd met main (22cded0). Afwijkingen en bekende grenzen staan onderaan `bouwplan-notitiesfeer.md`; twee vragen aan Daan onderaan `ontwerp.md`.
 - Volgende: Daans CSS overnemen (stap 2). Blender: niets te doen tot 22 nov.
+
+## 9 nov 09:14 tot 09:35 UTC (Olaf)
+- Cijfers (GEZIEN 09:20 UTC): 13 downloads op de communitypagina, gelijk. Rollwright staat nu in community-plugin-stats.json (9, telt achter). 0 issues, forumdraad 1 bericht 19 keer bekeken. Geen bericht van Thijs, Daans wereld-CSS nog niet geleverd (zijn run 49 deed ronde d en e op tak `ontwerp/rollwright-wereld`).
+- Voorbereid voor stap 2 op tak `claude/obsidian-2026-11-09-stap2-voorbereiding` (01d9344e): `tests/wereld-variabelen.test.mjs` (elke betaalde skin zet binnen `.rollwright-world` alle variabelen uit punt 4 plus `--callout-blend-mode: normal`, Classic geen wereld). Zonder wereld-CSS rood (3 van 5), daarom niet op main.
+- Proef: Daans prototype 2c269db0 tijdelijk als `src/styles/07-wereld.css`: alle 732 tests groen, lints groen, styles.css 359,5 KB (met de oude skins v2 er nog naast; zonder wordt het kleiner). Bevindingen voor Daan onderaan `ontwerp.md`: 45 keer `!important` (de rest van styles.css 0), en twee kiezers `body .workspace-leaf body...` die nooit passen.
+- Besluit: geen controleur op deze tak nu. Waarom: het is alleen een test op een zijtak; de controleur loopt bij stap 2 over het geheel (CSS, test, e2e) voor het naar main gaat.
+- Blender: niets te doen tot 22 nov.
