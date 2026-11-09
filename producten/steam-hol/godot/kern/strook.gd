@@ -90,6 +90,8 @@ func _ready() -> void:
 	slijm.set_script(load("res://systemen/slijm.gd") if ResourceLoader.exists("res://systemen/slijm.gd") else load("res://kern/standin_slijm.gd"))
 	wezens.add_child(slijm)
 	slijm.zet(hol, 10)
+	if slijm.has_method("stap"):
+		slijm.stap(1.0)   # anders staat Gloop bij de start plat (t = 0 valt in zijn "opveren"); vraag aan Bram in taken.md
 
 	tekst = Node2D.new()
 	tekst.set_script(TEKST)
@@ -121,6 +123,22 @@ func _bijnaam(n: int) -> String:
 		3: return "the Thrice-Fled"
 	return "the %d-Times-Fled" % n
 
+# geen twee helden met dezelfde naam tegelijk (in het hol of bij de terugkomers), anders snap je de wrok niet
+func _vrije_naam() -> String:
+	var bezet := {}
+	for h in terugkomers:
+		bezet[String(h.naam)] = true
+	for w in wezens.get_children():
+		if w.has_method("is_held"):
+			bezet[String(w.info.get("naam", ""))] = true
+	var vrij: Array = []
+	for n in NAMEN:
+		if not bezet.has(n):
+			vrij.append(n)
+	if vrij.is_empty():
+		return NAMEN[rng.randi_range(0, NAMEN.size() - 1)]
+	return vrij[rng.randi_range(0, vrij.size() - 1)]
+
 func _nieuwe_held() -> void:
 	var info := {}
 	if not terugkomers.is_empty() and rng.randf() < 0.5:
@@ -128,7 +146,7 @@ func _nieuwe_held() -> void:
 		_kroniek("%s %s is back!" % [info.naam, _bijnaam(int(info.bezoeken))])
 		_kroniek("Grudge: %s." % info.wrok)
 	else:
-		info = {"naam": NAMEN[rng.randi_range(0, NAMEN.size() - 1)], "bezoeken": 0, "wrok": "",
+		info = {"naam": _vrije_naam(), "bezoeken": 0, "wrok": "",
 			"kleur": KLEUREN[rng.randi_range(0, KLEUREN.size() - 1)], "hoed": HOEDEN[rng.randi_range(0, HOEDEN.size() - 1)],
 			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 3)}
 		_kroniek("%s the hero climbs in." % info.naam)
@@ -157,7 +175,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		bewaar.erase("laatst_geraakt")
 		terugkomers.append(bewaar)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
-		_kroniek("%s fled: now %s." % [info.naam, _bijnaam(bewaar.bezoeken)])
+		_kroniek("%s fled. Now: %s %s." % [info.naam, info.naam, _bijnaam(bewaar.bezoeken)])
 	else:
 		var buit := 3 + 2 * int(info.get("bezoeken", 0))
 		hol.goud += buit
