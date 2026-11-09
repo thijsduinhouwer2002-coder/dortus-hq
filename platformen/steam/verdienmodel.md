@@ -86,4 +86,7 @@ Haalbaar vóór 14 januari (GOK, met Olaf af te stemmen):
 ## 7. Wat dit verandert
 - `ontwerp/steam/winkelpagina/teksten.md`: prijsvoorstel $4,99 met verwijzing hierheen; de zin "No microtransactions" is weg (Daan punt 3) en vervangen door wat waar blijft.
 - Stap voor Thijs (pas bij het uitbrengen, niet nu): in Steamworks de prijs invullen en de DLC-app voor het Supporter Pack aanmaken. Komt op `organisatie/lijst-thijs.md` zodra de winkelpagina klaar is.
-- Zou het advies veranderen: als de demo op het fest meer dan ±25 keer zoveel spelers trekt als we kopers verwachten, of als Thijs bereik belangrijker vindt dan geld voor dit eerste spel. Dan gratis, op de manier van hoofdstuk 4.
+- Zou het advies veranderen: als de demo op het fest 15 tot 55 keer zoveel spelers trekt als we kopers verwachten, of als Thijs bereik belangrijker vindt dan geld voor dit eerste spel. Dan gratis, op de manier van hoofdstuk 4.
+
+## Nagekeken
+Controleur 10 nov (twee rondes): akkoord. Verwerkt: aannames per rij uitgeschreven ($3,30 is netto), omslagpunt 15 tot 55 keer in plaats van 25, labels bij Bongo Cat-cijfers, Deskrawl uit les 4, freetoplay-doc overal DERDEN. Ter info (controleur): Bongo Cat-DLC staat nu 30% in de aanbieding ($3,53 tot $7,06); de gewone prijzen in de tabel kloppen.
