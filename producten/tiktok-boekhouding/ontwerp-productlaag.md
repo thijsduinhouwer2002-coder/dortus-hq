@@ -65,6 +65,8 @@ Geen schermen, geen gratis grens tellen (komt binnen als `magBoeken`; Chris bepa
 ## Gebouwd (aanvullingen tijdens het bouwen)
 Deel 2a (9 nov 21:05 UTC, code-controleur akkoord na 3 rondes): kop en transacties worden per afrekening bewaard (alleen als de controles op aantal, munt en dubbele id slagen, een dag geldig, opnieuw na T), zodat een grote afrekening niet elke aanroep alle pagina's kost. Past een afrekening niet in een (bijna) vol budget, dan `onvolledig` "te groot" en geldt de grens van 5 runs of 24 uur. Vóór een bestelling moet er reserve plus 2 herhalingen over zijn; bij boeken telt `compleet` pas als er nog 12 over zijn.
 
+Deel 2b (9 nov 21:15 UTC, code-controleur akkoord na 3 rondes), afwijkingen van het ontwerp: `wacht_op_abonnement` staat op de eigen lijst (zodat betalen de volgende run boekt); alles wat niet af is (ook `bezig_met_ophalen` en `onvolledig`) wordt elke run nagekeken, ook vóór de markering; de status wordt opnieuw gelezen ná het slot; `onzeker` wacht ook na de knop 10 minuten en de knop weigert `onzeker`; de knop neemt zelf kort het slot; geen rekening gekozen (`instelling`) zet de winkel stil; startdatum vervroegen gaat via `vervroegStartdatum`; de winkelfout gaat als uitkomst naar de aanroeper.
+
 ## Controleur
 Ronde 3 (9 nov 20:30 UTC): **akkoord**; vier kleine kan-punten verwerkt (fout_gegevens in de tabel, wat het eerst komt, markering bij bezig en onvolledig, netheid).
 

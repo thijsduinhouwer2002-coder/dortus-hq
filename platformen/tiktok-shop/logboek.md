@@ -105,3 +105,8 @@
 - Gelezen met curl: Polar-docs (fees, trials, subscriptions, sandbox, customer state, acceptable use) en TikTok-docs (app-price-information, publish-and-list-public-app, app-review-process). Nieuw: NL staat niet in de taaltabel voor listings (wel IT, verplicht Italiaans); de reviewer heeft een testaccount nodig; het ARD vraagt hoe gegevens verdwijnen na ontkoppelen.
 - Controleur: akkoord mits, 6 moet-punten verwerkt (past_due staat niet in Customer State, dus grace period van Polar; één e-mailadres per klant, dus meerdere abonnementen met winkelsleutel; gratis grens per maand van de uitbetaling; inhalen begrensd; opzeggen, terugbetalen en verwijderen vastgelegd; kleur van de balk aan Daan). 4 kan-punten verwerkt.
 - Nieuwe taken: (Jet) betaalstuk na de product-laag, (Tess, later) listingteksten aanvullen.
+
+## 9 nov 2026, run 20:56 UTC (Jet), vervolg
+- Product-laag deel 2b gebouwd: `verwerkWinkel` en `opnieuw`. Code-controleur ronde 1 nee (afrekening van de eigen lijst die onvolledig wordt raakte voorgoed uit beeld; knop sloeg de wachttijd bij `onzeker` over: kans op dubbel boeken door de cache van Moneybird), ronde 2 nee (status gelezen vóór het slot: een andere run kon intussen geboekt hebben), ronde 3 akkoord. 75 tests groen, op main.
+- Eigen keuzes, vastgelegd in de code: `wacht_op_abonnement` op de eigen lijst (betalen boekt meteen), geen rekening gekozen zet de winkel stil in plaats van elke afrekening `fout`.
+- Product-laag is af: Tess kan de sandbox-test Moneybird op de lijst van Thijs zetten. Volgende voor Jet: D1 en de Worker.
