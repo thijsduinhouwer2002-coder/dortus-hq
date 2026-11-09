@@ -202,7 +202,7 @@ def afschuin(m, g):
 
     De wangcilinder (straal rho = Rn - s/2 om H) steekt voor H onder het wigvlak van A uit. Een punt van de
     cilinder op hoek theta onder de buigkant heeft een overhang van theta graden als A rechtop print (omlaag =
-    -L); het wigvlak snijdt de cilinder op theta_j = a + asin(s / (2 rho)), bij stand 115 ongeveer 57,7 graden.
+    -L); het wigvlak snijdt de cilinder op theta_j = a + asin(s / (2 rho)), bij stand 115 ongeveer 58 tot 59 graden.
     Deze snede haalt het kapje van de cilinder weg voorbij een rechte lijn met de normaal op SCHUIN graden onder
     de buigkant, die de cilinder snijdt op SCHUIN - b en theta_j + SCHUIN_MARGE. Wat overblijft: cilinder tot
     SCHUIN - b (overhang kleiner dan SCHUIN), dan het vlakke stuk op SCHUIN graden tot het wigvlak.

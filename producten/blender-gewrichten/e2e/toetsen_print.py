@@ -132,7 +132,8 @@ def wang_onder(ob, b, omlaag, u):
     """(grootste overhang, aantal vlakken, slechtste (x, rho, z) in mm, aantal vlakken met overhang tussen 40 en 45)
     over de onderkant van de wangen van deel A onder H: middelpunt met |x| >= tw + s + m, 0,5 Rn <= rho <=
     Rn - s/2 + m en z < 0. Daar zat de ronde wangcilinder onder het wigvlak (56 graden, run 42601420356); nu
-    hoort er een vlak stuk op 44 graden te liggen (scharnier_vorm.afschuin). Ruimer dan de buurt van (b)."""
+    hoort er een vlak stuk op 44 graden te liggen (scharnier_vorm.afschuin). Ruimer dan de buurt van (b).
+    Geeft ook (d verwacht, d gemeten) in Blender-eenheden voor het schuine vlak."""
     v, mid, nrm, opp, _ = _mesh(ob)
     p = np.array(list(b["cj_scharnier_punt"]))
     h, lid = (np.array(list(Vector(b[k]).normalized())) for k in ("cj_scharnier_as", "cj_as"))
@@ -148,11 +149,23 @@ def wang_onder(ob, b, omlaag, u):
     if not kies.any():
         return None
     j = int(np.argmax(oh))
-    schuin = int(((oh > 40.0) & (oh <= MAX_OVERHANG)).sum())
-    return max(0.0, float(oh[j])), int(kies.sum()), (float(x[j]) / u, float(rho[j]) / u, float(z[j]) / u), schuin
+    # Controleur eis 5, correctie 2: een schuin vlak telt alleen als het tussen 43 en 45 graden overhangt, langs H
+    # loopt en op de verwachte afstand d van H ligt (binnen 0,02 mm). Eigen rekensom uit het ontwerp: rho = Rn - s/2,
+    # snijhoek wigvlak theta_j = a + asin(s / (2 rho)), vlak op 44 graden onder de buigkant, b = theta_j + 4 - 44,
+    # d = rho cos b. Afstand van een vlak langs H tot H: |n . (middelpunt - draaipunt)|.
+    rho_w = rn - s / 2
+    b_hoek = math.radians(float(b["cj_wig_graden"])) + math.asin(min(1.0, s / (2 * rho_w))) + math.radians(4.0 - 44.0)
+    d_verwacht = rho_w * math.cos(b_hoek)
+    afst = np.abs(np.einsum("ij,ij->i", nrm, d))
+    goed = kies & (oh >= 43.0) & (oh <= MAX_OVERHANG) & (np.abs(nrm @ h) < 0.01)
+    goed &= np.abs(afst - d_verwacht) < 0.02 * u
+    schuin = int(goed.sum())
+    gemeten = float(np.median(afst[goed])) / u if schuin else -1.0
+    return (max(0.0, float(oh[j])), int(kies.sum()), (float(x[j]) / u, float(rho[j]) / u, float(z[j]) / u), schuin,
+            d_verwacht / u, gemeten)
 
 
-def _plaats(maak, cursor, s=0.2):
+def _plaats(maak, cursor, stand=115, s=0.2):
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
     figuren.mm_scene()
@@ -162,16 +175,19 @@ def _plaats(maak, cursor, s=0.2):
     ob = maak()
     figuren.maak_actief(ob)
     cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
-    return bpy.ops.click_joints.plaats_scharnier(stand="115")
+    return bpy.ops.click_joints.plaats_scharnier(stand=str(stand))
 
 
 def toets(stap, eigen, cursor):
     eig = sys.modules[eigen + ".eigenschappen"]
-    for naam, maak, plat in (("staaf", lambda: figuren.staaf("staaf", 5.0), True),
-                             ("arm", lambda: figuren.arm("arm"), False)):
-        uitslag = _plaats(maak, cursor)
+    # Controleur eis 5, correctie 1: ook stand 135 op de staaf (daar is het kapje onder de wang het grootst).
+    for naam, maak, plat, stand in (("staaf", lambda: figuren.staaf("staaf", 5.0), True, 115),
+                                    ("arm", lambda: figuren.arm("arm"), False, 115),
+                                    ("staaf", lambda: figuren.staaf("staaf", 5.0), True, 135)):
+        uitslag = _plaats(maak, cursor, stand)
         u = eig.eenheid_per_mm(bpy.context.scene)
         a, b = bpy.data.objects.get(f"{naam}_A"), bpy.data.objects.get(f"{naam}_B")
+        naam = naam if stand == 115 else f"{naam} stand {stand}"
         if uitslag != {"FINISHED"} or a is None or b is None or "cj_neus_h" not in b:
             stap(f"print {naam}: scharnier geplaatst", False, str(uitslag))
             continue
@@ -213,8 +229,10 @@ def _toets_wang(stap, naam, ob, b, omlaag, u):
     if uit is None:
         stap(f"print {naam} deel A: vlakken onder de wang gevonden", False)
         return
-    oh, aantal, plek, schuin = uit
+    oh, aantal, plek, schuin, d_verwacht, d_gemeten = uit
     print(f"[cj-betaald] METING print {naam} deel A: onderkant wang grootste overhang {oh:.2f} graden over {aantal} "
-          f"vlakken (x {plek[0]:.3f}, rho {plek[1]:.3f}, z {plek[2]:.3f} mm), vlakken op 40 tot 45 graden {schuin}")
-    stap(f"print {naam} deel A: schuine onderkant wang hoogstens {MAX_OVERHANG:.0f} graden en aanwezig",
+          f"vlakken (x {plek[0]:.3f}, rho {plek[1]:.3f}, z {plek[2]:.3f} mm), vlakken op 43 tot 45 graden op afstand "
+          f"d van H {schuin}, d verwacht {d_verwacht:.4f} mm, gemeten {d_gemeten:.4f} mm")
+    stap(f"print {naam} deel A: schuine onderkant wang hoogstens {MAX_OVERHANG:.0f} graden en aanwezig "
+         "(43 tot 45 graden op d = rho cos b binnen 0,02 mm)",
          oh <= MAX_OVERHANG and schuin > 0, f"{oh:.2f} graden, {schuin} schuine vlakken")
