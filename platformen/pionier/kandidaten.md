@@ -310,4 +310,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Geen nieuwe kandidaat met betalen die nu werkt gevonden deze run. Volgende run: radar, daarna eventueel open-source bedrijfssoftware met app-SDK (Cal.com App Store heeft mogelijk betaalde apps, groei nakijken; Plane, Documenso, Chatwoot).
 
 ## Run 9 nov 02:40 UTC (Noor)
-- Cal.com App Store (open-source agenda-planner, app store met mogelijk betaalde apps; groei en betalen nakijken): in onderzoek 9 nov 02:45 UTC
+- Cal.com App Store (open-source agenda-planner, app store met mogelijk betaalde apps; groei en betalen nakijken): in onderzoek 9 nov 02:45 UTC; klaar ±02:52, cijfer 3 (nee), zie onderzocht.md
