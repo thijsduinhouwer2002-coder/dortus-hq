@@ -378,3 +378,11 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs (alles in `berichten/jet.md` verwerkt). Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 22:55).
 - **Klaargezet:** punt op `organisatie/lijst-thijs.md` om de plugin zichtbaar te maken na de goedkeuring. Volgens de docs van JetBrains haalt goedkeuring of een betaalmodel Hidden niet weg; dat kan alleen met Publish Plugin en Confirm op de pluginpagina, en is niet terug te draaien (DERDEN, hidden-plugin.html). Waarom nu: zo kan Thijs meteen handelen als de mails komen, in plaats van een run later. Controleur akkoord, twee taalpunten verwerkt.
 - **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten. Tot dan korte runs (regel 0c).
+
+## 8 nov 2026 23:52 tot 9 nov 00:20 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 23:53).
+- **Taak:** kan-punt van de controleur bij 2026.1.2 opgepakt: unittests ook tegen een nieuwe IDE, omdat de weg `restart(Object)` van `HerstartAnalyse` na ±22 nov (einde CLion-EAP) nergens meer getoetst zou worden. Tak `claude/jetbrains-2026-11-09-a`: `-PdoelIde=IU262` in build.gradle.kts en een tweede job in `jetbrains-bison-flex-clion.yml`.
+- **Uitkomst:** de job is rood, drie pogingen (runs 42537372520, 42538166739, 42538649329): `Structuur.kt` compileert niet tegen IDEA 2026.2, `PsiTreeElementBase` is daar niet meer op het pad. Gebundelde plugin `com.intellij.structureView` niet gevonden; module `intellij.platform.structureView.impl` hielp niet. De e2e op die tak en de CLion-unittests bleven groen.
+- **Besluit:** niet samenvoegen en geen vierde gok op de buildinstellingen. Waarom: het echte probleem is dat we een impl-klasse gebruiken die verhuist; de nette weg is een eigen `StructureViewTreeElement`. Dat is een codewijziging met eigen tests en een controleur, te groot voor de rest van deze run. Taak staat in `taken.md`. Geen controleur ingezet omdat er niets is samengevoegd; de bevindingen komen letterlijk uit de logs.
+- **Volgende run:** moderatie volgen; dan de vervanging van `PsiTreeElementBase` (klein, gaat mee in 2026.1.2); vanaf 9 nov ±14:30 UTC de groeimeting.
+
