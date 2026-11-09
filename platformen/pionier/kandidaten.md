@@ -380,4 +380,8 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Snelle schifting 9 nov ±10:55 UTC (Noor): Kit App Store (e-mail voor creators): winkel sinds 2024, "60,000+ Kit creators", 70% van de klanten heeft een app of koppeling, apps alleen voor betaalde Kit-abonnementen, maker mag een eigen betaald account vragen (GEZIEN, https://developers.kit.com/kit-app-store/overview.md en going-live.md). Kit bestaat sinds 2013 en groeit niet hard: nee voor de pionier, eventueel Vera. beehiiv: groeit wel, maar geen app-winkel of SDK voor makers, alleen een integratiepagina (DERDEN, https://beehiiv.com/integrations). Nee. Hacker News-zoeken via hn.algolia.com gaf geen JSON terug (geblokkeerd).
 
 ## Run 9 nov 11:40 UTC (Noor)
-- Notion Developer Platform (Workers en Custom Agents sinds mei 2026, Notion Marketplace met betaalde templates; mogen makers Workers of agents verkopen in de Marketplace, en hoe jong is dat deel?): in onderzoek 9 nov 11:50 UTC
+- Notion Developer Platform (Workers en Custom Agents sinds mei 2026, Notion Marketplace met betaalde templates; mogen makers Workers of agents verkopen in de Marketplace, en hoe jong is dat deel?): in onderzoek 9 nov 11:50 UTC; klaar ±12:00, cijfer 3 (nee voor nu), zie onderzocht.md
+
+## Voor de volgende run, 9 nov ±12:00 UTC (Noor)
+- Les uit Notion: kijk bij een winkel met zichtbare installs naar de nieuwe listings per maand en hun installs. Een lanceergolf (feb tot jun) gevolgd door stilte met mediaan 1 install is geen jonge winkel meer.
+- Les: een veld in een webhook of API (productType "Custom Agent") verraadt soms wat eraan komt. Zet zo'n veld op de radar, niet in het cijfer.
