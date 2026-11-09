@@ -29,7 +29,7 @@ def meet(a, b, u):
     buig = Vector(b["cj_buigkant"]).normalized()
     r, tw, rn, s = b["cj_knokkel_r"], b["cj_tong_half"], b["cj_naad_r"], b["cj_speling_mm"] * u
     bvh_a = _bvh(a)
-    om, langs = [], []
+    om, langs, voet = [], [], []
     for v in b.data.vertices:
         q = b.matrix_world @ v.co
         d = q - p
@@ -39,10 +39,12 @@ def meet(a, b, u):
         if abs(abs(x) - tw) > 1e-4 * u:
             continue
         # Langs H: punten op de zijkant van de tong, binnen de wangen.
+        # De voetring van de klikneus (dichter dan 0,7 R bij H) hoort bij de neus: daar ligt het kuiltje schuin
+        # boven, dus meer ruimte dan s (getoetst als voet, nooit minder dan s); de neus zelf in toetsen_neus.
         if rho < rn - 2 * s:
             hit = bvh_a.find_nearest(q)
             if hit[0] is not None:
-                langs.append(hit[3] / u)
+                (voet if rho < 0.7 * r else langs).append(hit[3] / u)
         # Om H: randpunten van de knokkel (straal R) waar deel A hem omvat: achter en onder H (voor H ligt
         # de wig open, daar zit geen A tegen de knokkel). Langs de rechte rand naar het midden van de tong
         # geschoven, zodat de wangen niet meetellen.
@@ -50,7 +52,7 @@ def meet(a, b, u):
             hit = bvh_a.find_nearest(p + radiaal)
             if hit[0] is not None:
                 om.append(hit[3] / u)
-    return om, langs
+    return om, langs, voet
 
 
 def toets(stap, eigen):
@@ -78,7 +80,9 @@ def toets(stap, eigen):
     stap("twee gesloten delen", ga[0] and gb[0], f"A {ga[1]} B {gb[1]} foute randen")
     h = Vector(b["cj_scharnier_as"])
     stap("H langs de X-as van de cursor", abs(abs(h.dot(Vector((0, 1, 0)))) - 1) < 1e-6, str(tuple(round(c, 4) for c in h)))
-    om, langs = meet(a, b, u)
+    om, langs, voet = meet(a, b, u)
+    stap("voetring klikneus: speling nergens kleiner dan 0.2 mm min 0.01", bool(voet) and min(voet) >= 0.2 - TOL_MM,
+         f"min {min(voet) if voet else -1:.4f} max {max(voet) if voet else -1:.4f} over {len(voet)} punten")
     for naam, lijst in (("om H", om), ("langs H", langs)):
         if not lijst:
             stap(f"speling {naam} gemeten", False, "geen meetpunten")
