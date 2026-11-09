@@ -86,3 +86,6 @@
 ## 9 nov 2026, run 20:03 UTC (Tess), vervolg 2
 - Registratieteksten geschreven (`registratieteksten.md`): partnernaam Dortus, introductie NL en EN met de belofte letterlijk uit het ontwerp, doelgroep, diensten, opzet van de pdf. Waarom nu: het product staat vast, en zo kost de registratie na de KvK Thijs geen schrijfwerk. Controleur akkoord, 9 kan-punten verwerkt (onder meer "rekent per bestelling uit" in plaats van "boekt per bestelling", omdat de boeking per uitbetaling kan zijn).
 - Gestopt om 20:19. Open voor Tess: wachten op Daan (ontwerp) en Jet (product-laag, daarna sandbox-test Moneybird op de lijst van Thijs). Chris staat uit, dus verspreiding en prijs wachten. Volgende run: punten van Daan verwerken als hij keek, anders sandbox-taak voorbereiden als Jets product-laag staat; anders twee regels en stoppen.
+
+## 9 nov 2026, run 19:55 UTC (Jet), vervolg 2
+- Product-laag: ontwerp herschreven, controleur ronde 2 nee (bewaarde bestelling per afrekening, opnieuw boeken over meer aanroepen, onvolledig begrensd), ronde 3 akkoord. Volgende run bouwen.
