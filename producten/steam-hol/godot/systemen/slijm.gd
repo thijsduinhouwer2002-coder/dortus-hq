@@ -251,7 +251,7 @@ func berg() -> Array:
 			if k >= n:
 				break
 			var h: int = hoeden[k]   # de oudste hoeden liggen op de berg
-			var x := -10 - 6 * (in_rij - 1) + 6 * j + 3 * rij
+			var x := -12 - 6 * (in_rij - 1) + 6 * j + 3 * rij
 			uit.append([h, x, -1 - int(HOED_ONDER[h]) - 3 * rij])
 			k += 1
 		rij += 1

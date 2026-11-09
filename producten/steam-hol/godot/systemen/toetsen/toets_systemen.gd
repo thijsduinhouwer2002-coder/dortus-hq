@@ -133,7 +133,7 @@ func _init() -> void:
 		if laatst.size() > 4:
 			laatst.pop_front()
 	ok(herhaald == 0, "binnenkomst: niet een van de laatste 4 regels opnieuw (%d keer)" % herhaald)
-	var zonder := 0
+	var zonder_waarom := 0
 	for z in 100:
 		var nm := "Terug%d" % z
 		k6.binnen(nm)
@@ -141,8 +141,8 @@ func _init() -> void:
 		k6.binnen(nm)
 		var rg: String = k6.laatste()
 		if not (rg.contains("Gloop") or rg.contains("Spike Pit") or rg.contains("Spooked")):
-			zonder += 1
-	ok(zonder == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder)
+			zonder_waarom += 1
+	ok(zonder_waarom == 0, "terugkomer noemt altijd wrok of bijnaam (%d zonder)" % zonder_waarom)
 	var k7 = K.new()
 	ok(k7.hoed("Kees", "Gloop the Slime", 1) == "Gloop wears Kees's hat now.", "eerste hoed: " + k7.laatste())
 	ok(k7.hoed("Pim", "Gloop the Slime", 25) == "Gloop is now known as the Hatted.", "25 hoeden: " + k7.laatste())

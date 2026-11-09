@@ -238,7 +238,11 @@ func _onderweg() -> void:
 		if b != null and b.has_method("raak"):
 			# hoedentoren: zijn hoed gaat naar de bewoner, behalve bij een aartsvijand (die gaat met hoed naar de wand)
 			var naar_wand := is_aartsvijand()
-			var n = b.raak(-1 if naar_wand else hoed_nr)
+			var n = null
+			if b.has_method("hoeden_op_hoofd"):   # slijm.gd met hoedentoren
+				n = b.raak(-1 if naar_wand else hoed_nr)
+			else:
+				b.raak()          # stand-in van Olaf (kern/standin_slijm.gd) kent geen hoeden
 			info["hoed_naar"] = "wand" if naar_wand else "bewoner"
 			info["hoeden_bewoner"] = 0 if naar_wand or n == null else int(n)   # voor kroniek.hoed(naam, bewoner, aantal)
 		return
