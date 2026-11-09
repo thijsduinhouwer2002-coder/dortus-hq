@@ -6,6 +6,7 @@ weigering als de gratis versie uit een andere repository ook aan staat: zelfde i
 operators, panelen en scene.click_joints."""
 import bpy
 
+from .. import uit_elkaar
 from . import scharnier
 
 ACTIEF = True
@@ -24,7 +25,23 @@ def weiger_dubbel(eigen):
         raise RuntimeError(MELDING)
 
 
+_oude_afstand = [None]
+
+
+def _afstand(ob):
+    """Eis 6: Exploded view schuift deel B van een scharnier 1,5 keer de wangdiameter (3 Rn = 3 cj_naad_r) langs
+    de lidas; de tong reikt tot R onder H en de wangen van A tot Rn - s/2 erboven, dus de tong komt helemaal uit
+    de vork. Anders (kogel) de functie van het gratis deel, dat zelf niet verandert."""
+    if ob.get("cj_soort") == "SCHARNIER":
+        return uit_elkaar.FACTOR * 2.0 * float(ob.get("cj_naad_r", 0.0))
+    return _oude_afstand[0](ob)
+
+
 def register():
+    # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand op in de module, dus neemt dit omhulsel mee.
+    if _oude_afstand[0] is None:
+        _oude_afstand[0] = uit_elkaar.afstand
+        uit_elkaar.afstand = _afstand
     for k in KLASSEN:
         bpy.utils.register_class(k)
     # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
@@ -43,3 +60,6 @@ def unregister():
         del bpy.types.WindowManager.cj_flip_bend
     for k in reversed(KLASSEN):
         bpy.utils.unregister_class(k)
+    if _oude_afstand[0] is not None:
+        uit_elkaar.afstand = _oude_afstand[0]
+        _oude_afstand[0] = None

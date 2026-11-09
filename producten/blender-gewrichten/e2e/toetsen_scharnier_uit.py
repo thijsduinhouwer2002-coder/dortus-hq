@@ -8,12 +8,14 @@ Staaf van 5 mm straal en 80 mm lang langs X, stand 115, speling 0,2, cursor als 
 (b) Export STL en 3MF met Exploded view aan: het bestand gelijk aan de export met Exploded view uit, en de grenzen
     van deel B in het bestand gelijk aan de echte plek (binnen 0,001 mm).
 (c) Tweede scharnier op deel B te dichtbij: geweigerd met "Too close to another joint (keep N mm apart).", geen
-    nieuwe delen. N zelf gerekend: reik = max(t_vlak sin a, Rn, lip) + s, N = 2 keer het grootste bereik naar boven
-    afgerond (zelfde doorsnede; vlak bij het oude meet het nieuwe korter, dus telt het oude). Op N + 1 mm lukt het.
+    nieuwe delen, op 2 reik - 0,5 mm. N zelf gerekend: reik = max(t_vlak sin a, Rn, lip) + s, N = 2 keer het grootste
+    bereik naar boven afgerond (vlak bij het oude meet het nieuwe korter, dus telt het oude). Precies op N lukt het:
+    twee nieuwe gesloten delen en een gemeten bereik van 113 tot 115 graden.
 Alle maten in het log in mm."""
 import math
 import os
 import struct
+import sys
 import tempfile
 import zipfile
 import xml.etree.ElementTree as ET
@@ -32,7 +34,8 @@ def _grenzen(punten):
 
 
 def _echt(ob, u):
-    """Hoekpunten van het deel in mm met Exploded view uit (de echte plek)."""
+    """Hoekpunten van het deel in mm via matrix_world, dus zoals in beeld: met Exploded view aan verschoven, uit
+    op de echte plek."""
     return [tuple(c / u for c in ob.matrix_world @ v.co) for v in ob.data.vertices]
 
 
@@ -78,7 +81,6 @@ def _plaats(punt, bron, cursor):
 
 
 def toets(stap, eigen, cursor):
-    import sys
     eig = sys.modules[eigen + ".eigenschappen"]
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)
@@ -137,9 +139,11 @@ def toets(stap, eigen, cursor):
     bpy.context.view_layer.update()
     stap("eis 6: na export staat deel B weer verschoven",
          abs((b.matrix_world.translation - b.location).length / u - 3 * float(b["cj_naad_r"]) / u) < 1e-3)
-    # (c) Tweede scharnier op deel B: te dicht, daarna ver genoeg.
-    nodig = math.ceil(2 * _reik(b, u) - 1e-9)
-    x = nodig - 2.0
+    # (c) Tweede scharnier op deel B: net te dicht (2 reik - 0,5 mm), daarna precies op N.
+    gesloten = sys.modules[eigen + ".gesloten"]
+    reik = _reik(b, u)
+    nodig = math.ceil(2 * reik - 1e-9)
+    x = 2 * reik - 0.5
     voor = {o.name for o in bpy.data.objects}
     tekst = []
     with vang(tekst):
@@ -147,17 +151,23 @@ def toets(stap, eigen, cursor):
     nieuw = {o.name for o in bpy.data.objects} - voor
     gemeld = b.get("cj_te_dicht_mm")
     verwacht = f"Too close to another joint (keep {nodig} mm apart)."
-    print(f"[cj-betaald] METING eis 6 te dicht: reik {_reik(b, u):.3f} mm (t_vlak {float(b['cj_t_vlak']) / u:.3f}, "
+    print(f"[cj-betaald] METING eis 6 te dicht: reik {reik:.3f} mm (t_vlak {float(b['cj_t_vlak']) / u:.3f}, "
           f"wig {b['cj_wig_graden']}, Rn {float(b['cj_naad_r']) / u:.3f}, lip {float(b['cj_lip']) / u:.3f}), "
-          f"N eigen rekensom {nodig}, tweede op x={x:.1f} mm: uitslag={uitslag}, cj_te_dicht_mm={gemeld}, "
-          f"nieuwe objecten {sorted(nieuw)}, melding gevangen {verwacht in tekst[0]}")
-    stap(f"eis 6: tweede scharnier op {x:.1f} mm geweigerd met keep {nodig} mm, geen nieuwe delen",
+          f"2 reik {2 * reik:.3f}, N eigen rekensom {nodig}, tweede op x={x:.3f} mm: uitslag={uitslag}, "
+          f"cj_te_dicht_mm={gemeld}, nieuwe objecten {sorted(nieuw)}, melding gevangen {verwacht in tekst[0]}")
+    stap(f"eis 6: tweede scharnier op {x:.3f} mm (2 reik - 0,5) geweigerd met keep {nodig} mm, geen nieuwe delen",
          uitslag == {"CANCELLED"} and gemeld == nodig and not nieuw, f"kreeg {gemeld}, nieuw {sorted(nieuw)}")
     stap(f"eis 6: melding precies '{verwacht}'", f"Warning: {verwacht}" in tekst[0])
-    x = nodig + 1.0
+    x = float(nodig)
     uitslag = _plaats((x, 0, 0), b, cursor)
-    nieuw = [o for o in bpy.data.objects if o.name not in voor]
-    print(f"[cj-betaald] METING eis 6 tweede scharnier op x={x:.1f} mm: uitslag={uitslag}, nieuwe delen "
-          f"{sorted(o.name for o in nieuw)}")
-    stap(f"eis 6: tweede scharnier op {x:.1f} mm geplaatst (twee nieuwe delen)",
-         uitslag == {"FINISHED"} and len([o for o in nieuw if o.get("cj_deel")]) == 2, str(uitslag))
+    nieuw = [o for o in bpy.data.objects if o.name not in voor and o.get("cj_deel")]
+    dicht = [gesloten.is_gesloten(o) for o in nieuw]
+    bereik = [float(o.get("cj_bereik_graden", -1)) for o in nieuw]
+    print(f"[cj-betaald] METING eis 6 tweede scharnier op x={x:.1f} mm (precies N): uitslag={uitslag}, nieuwe delen "
+          f"{sorted(o.name for o in nieuw)}, foute randen {[d[1] for d in dicht]}, cj_bereik_graden {bereik}")
+    stap(f"eis 6: tweede scharnier op N = {x:.1f} mm geplaatst (twee nieuwe delen)",
+         uitslag == {"FINISHED"} and len(nieuw) == 2, str(uitslag))
+    stap("eis 6: tweede scharnier op N: beide delen gesloten", len(dicht) == 2 and all(d[0] for d in dicht),
+         str([d[1] for d in dicht]))
+    stap("eis 6: tweede scharnier op N: gemeten bereik binnen 2 graden onder de stand 115",
+         len(bereik) == 2 and all(113.0 <= g <= 115.05 for g in bereik), str(bereik))

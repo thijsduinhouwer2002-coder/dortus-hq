@@ -14,11 +14,7 @@ RICHTINGEN = 8
 
 
 def afstand(ob):
-    """Verschuiving van deel B in Blender-eenheden (de stralen staan al in eenheden). Kogel: 1,5 keer de
-    kogeldiameter. Scharnier (eis 6): 1,5 keer de diameter van de wang (Rn), langs de lidas L (cj_as); de tong
-    van B reikt tot R onder H en de wangen van A tot Rn - s/2 erboven, dus 3 Rn haalt de tong helemaal uit de vork."""
-    if ob.get("cj_soort") == "SCHARNIER":
-        return FACTOR * 2.0 * float(ob.get("cj_naad_r", 0.0))
+    """Verschuiving van deel B in Blender-eenheden (de kogelstraal staat al in eenheden)."""
     return FACTOR * 2.0 * float(ob.get("cj_kogel_r", 0.0))
 
 
