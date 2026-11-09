@@ -667,3 +667,5 @@ Nieuwste blok onderaan.
 - Controleur: akkoord, alle getallen en citaten kloppen; 5 correcties verwerkt (o.a. de bestaande Pro-API van Vinted, alleen voor geselecteerde bedrijven).
 - Les: bij geld plus een zwakke top eerst kijken of het platform waar het product óp werkt de tools wel toestaat; een zwakke top kan betekenen dat grote spelers wegblijven omdat het platform ze niet wil.
 - Geen bericht aan een manager: Chrome heeft geen manager en het advies is nee.
+- Na de productkans nog tijd, dus een platform: Orbolt (Houdini), om 05:46 op "in onderzoek" gezet. Alle 1.080 assets gemeten (data/orbolt-haal-script.py). Nee, cijfer 1: bijna stille winkel, geen tellers, geen maker met een bedrag. Controleur akkoord, 4 correcties. Zie voorstellen/orbolt.md.
+- Run afgesloten.
