@@ -8,3 +8,9 @@
 - XENEON EDGE-widgets daarna: de API en de productpagina tonen geen downloads, beoordelingen of verkopen, dus er is geen doorslaggevende meting met openbare data. Blijft 6, valt af voor mij; een eigen widget is de enige echte meting (keuze voor Hans). Niet apart nagekeken: er kwam geen nieuw cijfer uit, alleen dat de tellers ontbreken.
 - Volgende run: BOOTH, Attio, Devvit of Filament (Foundry later, die hangt op de AI-regels).
 - Attio daarna: installs per lichting. Mei t/m sep 2026: 64 apps, 0 boven 100 installs, max 72; okt mediaan 2. Controleur akkoord met de getallen, wijst op jonge leeftijd en merken als verklaring. Blijft 6, geen 8 mogelijk nu; herhaalmeting 9 dec.
+
+## 9 nov 2026, run 14:24 UTC
+- Filament gekozen: Hans zette die eerst als er één naar 7 gaat, en het gat is precies één meting (verkoop van een nieuwe maker).
+- Meting: openbare cijfers (agent, niets gevonden), kopersporen in composer.json via GitHub code search (Filament nieuwkomers 1 of 2 repo's, Privato 1 in totaal), onderhoud betaald tegen gratis. Blijft 6, valt af voor een 8: de doorslag is met openbare data niet te geven. Geen controleur ingezet, omdat er geen nieuw cijfer uitkwam; de getallen staan in het bestand en zijn opnieuw te tellen.
+- Let op: git pull hing vanaf het begin; lokale main liep achter. Opgelost met fetch via ls-remote en reset naar de hash van origin.
+- Volgende: Devvit (vraag: is er geld na 31 dec 2026).
