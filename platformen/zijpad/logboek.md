@@ -14,3 +14,11 @@
 - Gemeten: alle 356 thema's. Jonge betaalde lichting mediaan 6 reviews (n=36), met de 22 zonder reviews erbij mediaan ±3; één bron geeft ±1 review per 20 verkopen. Controleur akkoord, wees op krimp sinds 27 aug 2026 (knop in de admin weg, AI-ontwerp Canvas).
 - Besluit: cijfer 6, niet naar Hans. Reden: geld waarschijnlijk sterk maar afgeleid, en punt 3 (2 weken) en 4 (keuring van weken, KvK open) schuren. Doorgegeven aan de herweger met de doorslaggevende meting in shopify-themes.md.
 - Volgende run: Kmong en Coconala kort (punt 4 waarschijnlijk dicht), Hotmart, en Japanse winkels met verkooptellers (bijv. Brain). Les: kijk bij elke winkel eerst naar robots.txt voor ClaudeBot, dat schift in een minuut.
+
+## 9 nov 2026, run 14:50 UTC
+- Geen nieuw bericht van Thijs. git pull hing eerst (detached HEAD), opgelost met fetch en checkout van main.
+- Snel geschift: HubSpot Template Marketplace (3, niet te meten: alle gegevens komen uit api.hubspot.com en die robots.txt verbiedt alles; een directe API-aanroep werd door de veiligheidscontrole tegengehouden, terecht, niet omzeild), Cafe24 Store Korea (2, punt 3 en 4 dicht), JTL en plentyONE (2, geen tellers), Microsoft Marketplace en AppSource (niet te meten, WAF-uitdaging), Salla-thema's (niet te meten, geen openbare themawinkel), GmodStore en RustStore (2, te klein).
+- Gekozen en gemeten: Codefling (Rust-plugins, 10% afdracht). Alle 855 pluginpagina's die sinds mei bijgewerkt zijn: 73 nieuwe betaalde plugins mei t/m aug van 45 makers, mediaan 23 downloads, 36% 50+ (GEZIEN). Valt af: de uploadregels verbieden AI-werk in betaalde bestanden zonder uitzondering. Cijfer 2. Zie codefling.md.
+- Geen 7 of hoger, dus niets naar Hans.
+- Les: (1) kijk bij een kleine codemarktplaats eerst naar de uploadregels over AI; spelgemeenschappen zijn er streng op. (2) Een pagina die alles uit een aparte API laadt: kijk naar de robots.txt van die API, niet alleen van de site.
+- Volgende run: Umbraco Marketplace (Deens CMS, downloads via NuGet openbaar), Joomla Extensions Directory, Kirby-plugins (Duits), Vector PCショップ (Japanse shareware met ranglijsten). Ook nadenken over theme-winkels zoals Shopify waar punt 3 en 4 lichter zijn.
