@@ -8,10 +8,10 @@ Vlakken tussen A en B (doorsnede loodrecht op H):
 - achter het draaipunt: B begint op z = +s/2, A houdt op bij z = -s/2. Dat is de achterstop: doorknikken gaat
   hoogstens ongeveer atan(s / r_lip) voorbij rechtdoor.
 - voor het draaipunt de wig (eindstop): het stopvlak van B staat op hoek +a, dat van A op -a, elk evenwijdig
-  op s/2 van een vlak door H. Twee zulke vlakken raken bij draaien de buitenrand (afstand r van H) bij
-  2a - s/r. Daarom a = (N + s/r_buiten) / 2, zodat de stop precies op de stand N ligt. Let op: het ontwerp
-  schreef (N - s/r)/2; met vlakken op s/2 van H gaf dat een stop op N - 2s/r (zelf nagerekend, de
-  beweegproef om H in een volgende ronde toetst het).
+  op s/2 van een vlak door H. Bij een draai van 2a lopen de twee vlakken evenwijdig, maar aan weerszijden van
+  H, dus nog met een spleet s; de rand van B (afstand r van H) raakt pas na nog ongeveer s/r. De echte stop
+  is dus 2a + s/r. Daarom a = (N - s/r_buiten) / 2, zodat de stop op de stand N ligt (ontwerp v1.1;
+  controleur ronde t1 nagerekend in een doorsnede: 89,5 / 114,2 / 133,9 graden bij 90 / 115 / 135).
 Zijwaarts drie derden langs H: de tong van B (|x| < tw) met de knokkel (cilinder straal R om H), en de
 wangen van A (|x| > tw + s), elk een cilinder met straal Rn - s/2 om H. B houdt buiten de tong afstand
 (cilinder Rn + s/2), dus B draait langs de wangen zonder te botsen (zelfde truc als de bolnaad).
@@ -92,9 +92,14 @@ def maten(bvh, frame, s, stand, u):
         return None, TE_DUN
     r_buiten = zij[2] + e             # van H tot de voorkant van het lid
     theta_s = s / r_buiten
-    alfa = (math.radians(stand) + theta_s) / 2
+    alfa = (math.radians(stand) - theta_s) / 2
     return {"s": s, "e": e, "r": r, "rn": rn, "tw": tw, "wx": wx, "wy": wy, "stand": stand,
             "alfa": alfa, "theta_s": theta_s, "r_buiten": r_buiten}, ""
+
+
+def stop_graden(alfa, theta_s):
+    """De echte eindstop in graden: 2a + s/r (zie boven)."""
+    return math.degrees(2 * alfa + theta_s)
 
 
 def prisma(naam, punten, x0, x1, frame, collectie):

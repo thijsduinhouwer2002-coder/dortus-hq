@@ -100,6 +100,16 @@ def toets(stap, eigen):
              f"gemiddeld {gem:.4f} min {min(lijst):.4f} max {max(lijst):.4f} over {len(lijst)} punten")
     stap("tijd scharnier", True, f"{b.get('cj_duur_s', -1)} s solver {b.get('cj_solver')} "
                                  f"wig {b.get('cj_wig_graden')} graden R {b.get('cj_knokkel_r', 0):.3f} mm")
+    # Wighoek (controleur ronde t1): stop = 2 * wig + s/r moet de stand zijn, binnen 0,1 graad.
+    vorm_m = sys.modules[eigen + ".betaald.scharnier_vorm"]
+    th = float(b.get("cj_theta_s", -1.0))
+    stop = vorm_m.stop_graden(math.radians(float(b.get("cj_wig_graden", 0.0))), th)
+    stap("stop 115 = 2 wig + s/r binnen 0.1 graad", th > 0 and abs(stop - 115) <= 0.1,
+         f"wig {b.get('cj_wig_graden')} theta_s {math.degrees(th):.3f} stop {stop:.3f}")
+    for stand in (90, 115, 135):
+        alfa = (math.radians(stand) - th) / 2
+        st = vorm_m.stop_graden(alfa, th)
+        stap(f"rekensom stand {stand}: stop binnen 0.1 graad", abs(st - stand) <= 0.1, f"stop {st:.3f}")
     # Kijkrichting langs de lidas geeft de melding (zonder venster valt kijk terug op de cursor, dus hier
     # alleen de rekensom zelf).
     vorm = sys.modules[eigen + ".betaald.scharnier_vorm"]

@@ -106,7 +106,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_scharnier_punt": list(draaipunt), "cj_snijpunt": list(punt), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_knokkel_r": maat["r"], "cj_naad_r": maat["rn"],
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
-                    "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_gespiegeld": gespiegeld(bron)}
+                    "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_gespiegeld": gespiegeld(bron)}
         for deel, letter in ((deel_a, "A"), (deel_b, "B")):
             verhuis(deel, f"{bron.name}_{letter}", bron)
             deel["cj_deel"] = letter
