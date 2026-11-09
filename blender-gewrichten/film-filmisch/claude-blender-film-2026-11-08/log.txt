@@ -26,5 +26,6 @@ deel A foute randen 0, deel B foute randen 0
 gloed: compositor aan
 plaats: {'FINISHED'}, kogel 3.5 mm, passing groen, wand 1.57, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
 pop: 327226 vlakken, foute randen 0, solver MANIFOLD
-richting 3, grens 20, B doorzichtig ja
+richting 3, grens 20, B doorzichtig 2 materialen
+vakken pop A ['Film hout', None, 'Click Joints Good fit'], B ['Film hout B', None, 'Click Joints Good fit B']
 beelden: 435
