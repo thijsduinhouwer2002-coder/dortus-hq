@@ -146,9 +146,40 @@ def toets_beweeg(stap, eigen):
         achter = float(b.get("cj_achter_graden", -1))
         stap(f"stand {n}: eindstop gemeten tussen {n - 2} en {n + 0.5} graden", n - 2 <= voor <= n + 0.5,
              f"gemeten {voor:.2f}")
+        achter_min = max(0.0, achter_max - 1.0)   # atan(s/r_lip) - 0,5: vangt overlap bij 0 graden
         stap(f"stand {n}: achterstop gemeten tussen -{achter_max:.2f} en +0.5 graden", 0 <= achter <= achter_max,
              f"gemeten -{achter:.2f} r_lip add-on {b.get('cj_r_lip', -1):.3f} eigen {r_lip:.3f} mm")
         stap(f"stand {n}: r_lip gelijk aan de eigen rekensom", abs(float(b.get("cj_r_lip", -1)) - r_lip) < 0.01)
+        stap(f"stand {n}: achterstop minstens {achter_min:.2f} graden (geen botsing bij 0)", achter >= achter_min)
         stap(f"stand {n}: tekst letterlijk", beweeg.tekst(voor, n) == f"Bends 0° to {n}°", beweeg.tekst(voor, n))
-        stap(f"stand {n}: tijd met beweegproef", True, f"{b.get('cj_duur_s', -1)} s")
+        stap(f"stand {n}: melding van de operator letterlijk",
+             b.get("cj_melding") == f"Hinge placed. Bends 0° to {n}°.", str(b.get("cj_melding")))
+        duur, solver = float(b.get("cj_duur_s", 99)), b.get("cj_solver")
+        grens = 5.0 if solver == "MANIFOLD" else 10.0
+        stap(f"stand {n}: tijd met beweegproef onder {grens} s ({solver})", duur < grens, f"{duur} s")
+    _toets_arm(stap, eigen, s)
     stap("tekst nooit meer dan de stand", beweeg.tekst(118.0, 115) == "Bends 0° to 115°")
+
+
+def _toets_arm(stap, eigen, s):
+    """Testarm van 261K (eis 1 en 2): scharnier plaatsen met beweegproef binnen de tijdseis."""
+    for ob in list(bpy.data.objects):
+        bpy.data.objects.remove(ob)
+    figuren.mm_scene()
+    inst = bpy.context.scene.click_joints
+    inst.speling_mm = s
+    inst.as_bron = "CURSOR"
+    arm = figuren.arm("arm")
+    figuren.maak_actief(arm)
+    _cursor((0, 0, 0), Vector((0, 1, 0)), Vector((0, 0, 1)), Vector((1, 0, 0)))
+    uitslag = bpy.ops.click_joints.plaats_scharnier(stand="115")
+    b = bpy.data.objects.get("arm_B")
+    if uitslag != {"FINISHED"} or b is None:
+        stap("arm 261K: scharnier geplaatst", False, str(uitslag))
+        return
+    duur, solver = float(b.get("cj_duur_s", 99)), b.get("cj_solver")
+    grens = 5.0 if solver == "MANIFOLD" else 10.0
+    voor = float(b.get("cj_bereik_graden", -1))
+    stap(f"arm 261K: tijd met beweegproef onder {grens} s ({solver})", duur < grens,
+         f"{duur} s eindstop {voor:.2f} achterstop -{float(b.get('cj_achter_graden', -1)):.2f}")
+    stap("arm 261K: eindstop tussen 113 en 115.5 graden", 113 <= voor <= 115.5, f"{voor:.2f}")

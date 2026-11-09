@@ -109,7 +109,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
                     "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_gespiegeld": gespiegeld(bron)}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
-        voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid, 4 * max(maat["wx"], maat["wy"]))
+        voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
+                                     1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
+        if voor is None:
+            ruim_op(hulp)
+            self.report({"ERROR"}, "The parts overlap before they move; the mesh is unchanged.")
+            return {"CANCELLED"}
         gegevens["cj_bereik_graden"] = round(voor, 2)
         gegevens["cj_achter_graden"] = round(achter, 2)
         gegevens["cj_r_lip"] = maat["r_lip"]
@@ -126,7 +131,12 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             if o is not None:
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
-        self.report({"INFO"}, f"Hinge placed. {beweeg.tekst(voor, maat['stand'])}. {gegevens['cj_duur_s']} s.")
+        melding = f"Hinge placed. {beweeg.tekst(voor, maat['stand'])}."
+        if beweeg.geen_stop(voor):
+            melding = "Hinge placed, but no end stop was found. Check the shape near the joint."
+        for deel in (deel_a, deel_b):
+            deel["cj_melding"] = melding
+        self.report({"WARNING"} if beweeg.geen_stop(voor) else {"INFO"}, f"{melding} {gegevens['cj_duur_s']} s.")
         return {"FINISHED"}
 
 
