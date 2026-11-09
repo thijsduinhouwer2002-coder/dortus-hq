@@ -2,7 +2,7 @@
 
 Opdracht: bericht Thijs 8 nov 22:58. Eerst naar de projectchat (poortwachter), daarna op de lijst van Thijs.
 
-Alle plaatjes zijn 16:9 (1400 x 788) uit de echte Obsidian met de echte Rollwright 0.3.2 en echte worpen (tak `ontwerp/rollwright-richtingen`, spec `e2e/ontwerp/richtingen.e2e.mjs`). De skins zelf zijn nog prototype-CSS (`e2e/ontwerp/richtingen/maak.py`), dus dit is een ontwerp, nog geen gebouwde skin. Zelfde notitie in alle drie, zodat je eerlijk kunt vergelijken: initiatief, de wolf (NAT 20), de val (NAT 1), schade en Perception.
+Alle plaatjes zijn 16:9 (1400 x 788) uit de echte Obsidian met de echte Rollwright 0.3.2 en echte worpen (run 42542400186, tak `ontwerp/rollwright-richtingen`, spec `e2e/ontwerp/richtingen.e2e.mjs`). De skins zelf zijn nog prototype-CSS (`e2e/ontwerp/richtingen/maak.py`), dus dit is een ontwerp, nog geen gebouwde skin. Zelfde notitie in alle drie, zodat je eerlijk kunt vergelijken: initiatief, de wolf (NAT 20), de val (NAT 1), schade en Perception.
 
 | Richting | Bovenaan | Iets lager (wolf en val) |
 |---|---|---|
@@ -14,6 +14,8 @@ Wat per richting anders is: achtergrond, letter, kleuren, vorm van het token, NA
 
 **Beeld bij de worp** is een optie die de gebruiker zelf kiest (`|icon(wolf)` of een lijstje woord naar icoon), niet geraden. Iconen van game-icons.net (CC BY 3.0). In de plaatjes: klein in het token, groot in de callout.
 
-**Mijn keuze:** A en C als de twee betaalde skins (donker en warm tegen licht en kleurrijk, het verst uit elkaar, C is de enige die in een licht thema mooi is), B later als derde.
+**Mijn keuze:** C zeker (de enige lichte wereld, het meest eigen). Voor de tweede twijfel ik tussen A en B; de controleur vindt A het braafst en raadt B aan, en ik neig daar ook naar. Thijs kiest.
 
 **Eerlijk:** de achtergrond van de notitie hoort bij de skin alleen als de gebruiker dat aanzet (schakelaar of `cssclasses`), want een plugin verft niet ongevraagd je notities. Zonder schakelaar: token, Roll log en iconen in de wereld van de skin.
+
+Controleur (agent): eerst nee met vijf kleine moet-punten (fraktur te klein, tab, barst door de tekst, twee beweringen die niet te zien waren); alles verwerkt en opnieuw bekeken.

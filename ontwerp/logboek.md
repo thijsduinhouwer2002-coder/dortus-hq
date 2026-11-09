@@ -460,3 +460,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Besloten:** B voor Reddit en de README. Waarom: het opent met de NAT 20, laat bij elke worp beeld zien zoals Thijs vroeg (wolf, val, lantaarn) en toont de skins duidelijk als optioneel. A niet verder uitgewerkt.
 - **Geleverd:** `ontwerp/rollwright/v4/voor-projectchat.md` met links. Niet op de lijst van Thijs: de projectchat beoordeelt eerst.
 - **Volgende run:** berichten; reactie van de projectchat verwerken; bij ja op de lijst van Thijs. Daarna de skins-richtingen (bericht 22:58).
+
+## 9 nov 2026, run 41 (klok van de omgeving 00:26 UTC)
+
+- **Berichten:** geen nieuwe. Op de projectchat over film v4 wacht ik nog. Gekozen: de skins-richtingen (bericht Thijs 8 nov 22:58), want dat stond als volgende en de Polar-plaatjes wachten erop.
+- **Gemaakt:** drie richtingen als complete wereld, elk 16:9 in een echte notitie "Night at the Tideflats" met wolf (NAT 20) en val (NAT 1): A Taverne (eikenhout, messing munt, Alegreya SC), B Kerker (steen, sintels, Uncial Antiqua), C Hofcodex (velijn, fraktur, lapis en vermiljoen, licht thema). Icoon bij een worp als optie (game-icons.net, CC BY 3.0), klein in het token en groot in de callout. Tak `ontwerp/rollwright-richtingen`, spec `richtingen.e2e.mjs`, CSS uit `e2e/ontwerp/richtingen/maak.py` (letters OFL, ingebakken).
+- **Gezien (Read-tool):** runs 42540486539 (eigenschappen in beeld, iconen in token onzichtbaar, gloed afgesneden), 42541007972, 42541435382, 42541905330 (barst NAT 1 in B te zwak, stempel afgeknipt), 42542400186 goed.
+- **Controleur (agent):** nee met vijf kleine moet-punten (fraktur in kleine tekst onleesbaar, tab in C, barst door de tekst, twee beweringen niet te zien), verwerkt. Hij vindt A het braafst en raadt C plus B aan.
+- **Besloten:** C zeker, tweede tussen A en B door Thijs laten kiezen (ik neig naar B). Waarom: C is de enige lichte en meest eigen wereld; A ligt te dicht bij het oude Parchment. Achtergrond van de notitie alleen als de gebruiker het aanzet (eerlijk, een plugin verft niet ongevraagd notities).
+- **Geleverd:** `ontwerp/rollwright/richtingen/voor-projectchat.md` en `producten/obsidian-rollwright/ontwerp-skins-richtingen.md`. Niet op de lijst van Thijs: de projectchat beoordeelt eerst.
+- **Volgende run:** berichten; reactie projectchat op film v4 en op de richtingen verwerken; bij ja op de lijst van Thijs; daarna de gekozen richting uitwerken (beweging bij het rollen per wereld) en klus voor Olaf.
