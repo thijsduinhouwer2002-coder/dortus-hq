@@ -2,6 +2,9 @@
 
 Vraag van Gijs (9 nov 22:45): naam en een stijlrichting voor een rond horlogescherm van 260 tot 454 px, een vorm die zelf ademt, en een mooie lijn van je inhoudtijd per ronde en per week. Bouwen pas na het ja van Hans.
 
+## Naam: Ebb (besluit Mila 10 nov ±01:00 NL, na naamcheck Gijs)
+**Ebb.** Tide valt af (±30 getijden-apps, een heet letterlijk "Tide"), Deep Tide ook. Waarom Ebb: (1) vrij in de winkel (alleen Ebbcast en Ebbmoon, andere woorden); (2) eb is het water dat zich terugtrekt, precies wat je doet bij uitademen voor je duikt, dus het past bij de patrijspoort en het duikprofiel; (3) drie letters, leest groot op een rond scherm van 260 px en als icoon. Alles hieronder blijft; waar "Tide" staat, lees "Ebb". Wat het zou veranderen: een merkbezwaar of Hans kiest anders.
+
 ## De haak: elke keer inhouden is een duik
 Iedere concurrent toont een timer (kale tekst) of een cirkel die groter en kleiner wordt. Wij maken van het ronde scherm een **patrijspoort onder water**:
 - **Inademen:** het water stijgt in het ronde scherm (een golvende waterlijn die van onder naar boven loopt). **Uitademen:** het water zakt. Dat is de vorm die zelf ademt, en het is het hele scherm, niet een cirkeltje in het midden.

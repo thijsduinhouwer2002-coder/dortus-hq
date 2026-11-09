@@ -49,7 +49,7 @@ def schrijf(naam, w, h, inhoud, png=True, uit=None):
     return p
 
 def avatar(klein=False):
-    s = 1.0 if not klein else 1.4
+    s = 1.15 if not klein else 1.4
     w, h = 500*s, 560*s
     return (f'<rect width="1024" height="1024" fill="{NACHT}"/>'
             f'<circle cx="540" cy="512" r="430" fill="url(#gloed)"/>'
