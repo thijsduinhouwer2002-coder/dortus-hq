@@ -160,6 +160,7 @@ def toets_beweeg(stap, eigen):
         duur, solver = float(b.get("cj_duur_s", 99)), b.get("cj_solver")
         grens = 5.0 if solver == "MANIFOLD" else 10.0
         stap(f"stand {n}: tijd met beweegproef onder {grens} s ({solver})", duur < grens, f"{duur} s")
+        _waar_raakt(stap, beweeg, n, voor)
     _toets_arm(stap, eigen, s)
     stap("tekst nooit meer dan de stand", beweeg.tekst(118.0, 115) == "Bends 0° to 115°")
 
@@ -186,3 +187,27 @@ def _toets_arm(stap, eigen, s):
     stap(f"arm 261K: tijd met beweegproef onder {grens} s ({solver})", duur < grens,
          f"{duur} s eindstop {voor:.2f} achterstop -{float(b.get('cj_achter_graden', -1)):.2f}")
     stap("arm 261K: eindstop tussen 113 en 115 graden", 113 <= voor <= 115.05, f"{voor:.2f}")
+
+
+def _waar_raakt(stap, beweeg, n, voor):
+    """Diagnose (run 28): waar raken A en B net voorbij de gemeten stop? Middelpunten van de overlappende
+    driehoeken van B in het frame (x langs H, y buigkant, z lidas, oorsprong op het draaipunt), in mm."""
+    from mathutils.bvhtree import BVHTree as _B
+    a, b = bpy.data.objects.get("staaf_A"), bpy.data.objects.get("staaf_B")
+    p = Vector(b["cj_scharnier_punt"])
+    h, buig, lid = (Vector(b[k]).normalized() for k in ("cj_scharnier_as", "cj_buigkant", "cj_as"))
+    pa, ta = beweeg._driehoeken(a, p, 1e9)
+    pb, tb = beweeg._driehoeken(b, p, 1e9)
+    m = (Matrix.Translation(p) @ Matrix.Rotation(math.radians(voor + 0.3), 4, lid.cross(buig).normalized())
+         @ Matrix.Translation(-p))
+    import numpy as np
+    mm = np.array(m)
+    gb = pb @ mm[:3, :3].T + mm[:3, 3]
+    paren = _B.FromPolygons(gb.tolist(), tb).overlap(_B.FromPolygons(pa.tolist(), ta))
+    punten = []
+    for _, j in paren[:400]:
+        c = sum((Vector(gb[k]) for k in tb[j]), Vector()) / 3 - p
+        punten.append((round(c.dot(h), 2), round(c.dot(buig), 2), round(c.dot(lid), 2)))
+    punten = sorted(set(punten))
+    print(f"[cj-betaald] DIAGNOSE stand {n}: {len(paren)} paren bij {voor + 0.3:.2f} graden, B-punten (x, y, z) "
+          f"eerste {punten[:6]} laatste {punten[-6:]}")
