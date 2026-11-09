@@ -27,12 +27,17 @@ async function meet() {
 				pad: view.file.path,
 				wereld: el.classList.contains("rollwright-world"),
 				inhoud: stijl(el.querySelector(".view-content")),
-				tekst: stijl(el.querySelector(".markdown-preview-view p, .cm-line")),
+				// Lopende tekst, geen kop: in lezen de eerste alinea, in Live Preview de eerste gevulde regel die geen kop is.
+				tekst: stijl(
+					el.querySelector(".markdown-reading-view p")?.offsetParent
+						? el.querySelector(".markdown-reading-view p")
+						: Array.from(el.querySelectorAll(".markdown-source-view .cm-line:not(.HyperMD-header)")).find((l) => l.textContent.trim() !== "") ?? null,
+				),
 			});
 		});
 		return {
 			notities,
-			zijbalk: stijl(document.querySelector(".workspace-split.mod-left-split .workspace-leaf-content")),
+			zijbalk: stijl(document.querySelector(".workspace-split.mod-left-split")),
 			tabbalk: stijl(document.querySelector(".workspace-tab-header-container")),
 			body: stijl(document.body),
 		};
@@ -62,6 +67,8 @@ async function modus(mode) {
 }
 
 const isRW = (letter) => /"?RW /.test(letter ?? "");
+// De letter van de lopende tekst per skin (Daan: --font-text), niet die van de koppen.
+const TEKSTLETTER = { parchment: "RW Fell", arcane: "RW Spectral" };
 
 describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", function () {
 	let classic = {};
@@ -119,7 +126,7 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 				expect(zonder.wereld).toBe(false);
 				// Eis 2: andere achtergrond (kleur of textuur) en de letter van de skin.
 				expect(met.inhoud.bg !== zonder.inhoud.bg || met.inhoud.beeld !== zonder.inhoud.beeld).toBe(true);
-				expect(isRW(met.tekst.letter)).toBe(true);
+				expect(met.tekst.letter).toContain(TEKSTLETTER[skin]);
 				expect(isRW(zonder.tekst.letter)).toBe(false);
 				// Eis 6: de notitie zonder worp, de zijbalk en de tabbalk zien eruit als bij Classic.
 				expect(zonder.inhoud).toEqual(basis.notities.find((n) => n.pad === ZONDER).inhoud);
@@ -132,14 +139,15 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 				const metLp = lp.notities.find((n) => n.pad === MET);
 				console.log(`WERELD-CSS ${skin} ${thema} live preview:`, JSON.stringify(metLp));
 				expect(metLp.wereld).toBe(true);
-				expect(isRW(metLp.tekst.letter)).toBe(true);
+				expect(metLp.tekst.letter).toContain(TEKSTLETTER[skin]);
 				await browser.saveScreenshot(`${SHOTS}/wereld-${skin}-${thema}-lp.png`);
 				await modus("lezen");
 			});
 		}
 	}
 
-	it("eis 8: de tegels in de instellingen met de regel onder de betaalde skins, voor Daan", async function () {
+	// Plaatjes van de tegels maakt skin-tegels.e2e.mjs (eigen venster van de instellingen); hier de regel zelf.
+	it("de tegels in de instellingen hebben de regel onder de betaalde skins, leesbaar op hun eigen achtergrond", async function () {
 		await zet({ skin: "parchment", licenseKey: "", licenseCheckedAt: 0, noteWorld: "rolls" }, false);
 		await browser.executeObsidian(({ app }) => {
 			app.setting.open();
@@ -169,8 +177,8 @@ describe("Rollwright: Daans notitiewereld per skin (notitiesfeer stap 2)", funct
 			console.log(`WERELD-CSS tegels ${donker ? "donker" : "licht"}:`, JSON.stringify(regels));
 			expect(regels.map((r) => r.tekst)).toEqual([null, "Turns the whole note into old parchment", "Turns the whole note into a torch-lit dungeon"]);
 			expect(regels.filter((r) => r.tekst).every((r) => r.binnen)).toBe(true);
-			await browser.pause(300);
-			await browser.saveScreenshot(`${SHOTS}/wereld-tegels-${donker ? "donker" : "licht"}.png`);
+			// Vaste kleur per tegel, in licht en donker gelijk (de tegels hebben een vaste achtergrond).
+			expect(regels.map((r) => r.kleur)).toEqual([null, "rgb(90, 58, 30)", "rgb(185, 194, 188)"]);
 		}
 		await browser.executeObsidian(({ app }) => app.setting.close());
 	});
