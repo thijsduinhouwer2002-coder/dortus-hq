@@ -211,3 +211,18 @@ Door Chris. In run 8 schreef ik hierboven dat de korte tekst vanzelf goed komt z
 `Roll dice and random tables right in your notes, for TTRPG game masters and solo players. Click to roll again. A natural 20 lands in gold. Draw from lists, sections and tags, and keep your rolls in a Roll log.`
 
 **Voortaan:** bij elke release waarin de korte tekst verandert, de Short description ook op de listing laten zetten, in de vaste stap "Check for new releases" van Olaf.
+
+## Bijwerking 9 nov 2026 (run 31): Polar en dortus.com gelijk met de skins van 0.3.4
+Opdracht: besluit Thijs 9 nov 12:55, "Polar-pagina gelijk met de skins van 0.3.4". Sinds 0.3.4 kleurt een betaalde skin de hele notitie, niet alleen de dobbelstenen.
+
+**Zo staat het nu (GEZIEN ±14:45 UTC, met curl op de openbare afrekenlink uit `src/pro/license.ts`):** product Rollwright Skins, $6 eenmalig (`is_recurring: false`, `price_amount: 600`), geen plaatjes (`medias` leeg), beschrijving: `Two extra looks for the Rollwright dice roller in Obsidian: Parchment and Arcane. One payment, one license key for all your devices. All rolling features stay free.` Die zin klopt nog, maar verkoopt de skins als "looks" van de dobbelstenen; wat een koper sinds 0.3.4 echt krijgt, staat er niet in.
+
+**Nieuwe beschrijving voor Polar** (zelfde woorden als de README van 0.3.4, "Paid skins"):
+
+`Two optional skins for the Rollwright dice roller in Obsidian: Parchment and Arcane. A skin changes more than the dice: Parchment turns a note with rolls into old parchment, Arcane into a torch-lit dungeon, and the Roll log follows. The rest of Obsidian keeps your theme. One payment, one license key for all your devices. All rolling features and the Classic skin stay free.`
+
+Plaatjes: de drie van Daan (`ontwerp/rollwright/wereld/polar/`), in zijn volgorde. Beide stappen kan alleen Thijs met zijn inlog; samen op lijst-thijs onder het punt van Daan.
+
+**dortus.com/rollwright/ (zelf gedaan, repo dortus):** het deel "Optional skins" had nog het oude plaatje (alleen tokens, "night-sky token") en zei niets over de notitie. Nu: tekst gelijk aan de README van 0.3.4 (Parchment oud perkament, Arcane een kerker bij fakkellicht, de Roll log volgt, de rest van Obsidian houdt je thema, de instelling "Skin the note too" met notes with rolls, all notes of off; namen nagekeken in `src/ui/settings.ts` en `src/ui/note-world.ts`), plaatje `skins-worlds.jpg` (Daans "One note. Three worlds.", 1600 x 900) met de alt-tekst van de README, onderschrift "One note, three worlds." De bedankpagina zegt bij stap 3 nu dat de hele notitie verandert en welke instelling dat regelt. Getest op 390 en 1280 breed zonder zijwaarts scrollen (GEZIEN). Het oude `skins.jpg` blijft in de map staan, niets verwijderd; het wordt niet meer gebruikt en kan later weg.
+
+Controleur (run 31): akkoord mits. Moet: hoofdletters van de drie keuzes zoals in de app, juiste meettijd. Kan: zin "The rest of Obsidian keeps your theme" en Classic gratis in de Polar-tekst, notitie over het oude plaatje. Alles verwerkt.

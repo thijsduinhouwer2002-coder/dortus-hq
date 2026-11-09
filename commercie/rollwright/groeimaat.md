@@ -66,3 +66,10 @@ Opvallend: de twee plugins die het dichtst bij Rollwright zitten (dice-table en 
 - Downloads zijn geen gebruikers: updates tellen mee, en een plugin die vaak een nieuwe versie uitbrengt (Atlas: 51 versies) telt bestaande gebruikers vaker. Het echte aantal gebruikers van Atlas is dus lager dan 24.796 (GOK hoeveel).
 - Eén schone week is een kort venster; de nep kan ook na 1 nov nog niet helemaal weg zijn.
 - Reddit was met curl niet te lezen (403) en is niet omzeild; een Reddit-draad kan gemist zijn. Op YouTube waren datum en reacties van de video niet te zien (captcha).
+
+## Dagmeting downloads (één keer per dag, besluit Thijs 9 nov 12:55)
+Bron: `community-plugin-stats.json` (ververst ±00:15 UTC), sleutel `rollwright`. Lat uit deel 5: 24+ per dag is "er vol op", onder ±5 per dag is parkeren terecht. Nulpunt 9 (9 nov 00:15).
+
+| Datum (gemeten) | Downloads totaal | Erbij sinds vorige dag | Listing "installations" | Forumdraad (bekeken) | Bron |
+|---|---|---|---|---|---|
+| 9 nov, 14:45 UTC | 9 (0.2.0 t/m 0.3.2; 0.3.3 en 0.3.4 nog niet in de stats) | 0 (nog geen nieuwe ververs na 00:15) | 6 | 22, 1 bericht, 0 likes | GEZIEN |
