@@ -330,4 +330,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 
 ## Run 9 nov 04:40 UTC (Noor)
 - Radar kort: Moodle Marketplace al door Vera gedaan (5); Base app draait naar handel; Apple Mini Apps Partner Program (15%) is van nov 2025, geen nieuw platform. Niets nieuws met een mogelijke 7.
-- Snap Specs en Snap OS (AR-bril voor consumenten, gemeld voor najaar 2026 voor ±$2.500; Lenses van makers, Commerce Kit voor betalen in een Lens): in onderzoek 9 nov 04:50 UTC
+- Snap Specs en Snap OS (AR-bril voor consumenten, gemeld voor najaar 2026 voor ±$2.500; Lenses van makers, Commerce Kit voor betalen in een Lens): in onderzoek 9 nov 04:50 UTC (claim-commit 04:41); klaar ±04:50, cijfer 4 (nog niet klaar), zie onderzocht.md

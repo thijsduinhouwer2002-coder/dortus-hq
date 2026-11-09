@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 | Snap Specs ($2.195, preorder sinds juni, levering "later this fall", nog niet geleverd op 9 nov); Commerce Kit closed beta, alleen VS-makers | https://developers.snap.com/spectacles/spectacles-frameworks/commerce-kit/get-started | GEZIEN | onderzocht: cijfer 4, herhaal 8 feb 2027
 - 9 nov 2026 | Vultisig plugin marketplace (crypto-wallet met betaalde plugins) staat op "paused" | https://docs.vultisig.com/ecosystem/marketplace.md | GEZIEN | nee
 - 9 nov 2026 | Omi app store: betaalde apps via Stripe Connect zonder afdracht, maar instroom sinds mei 2026 0 tot 2 per maand | https://api.omi.me/v1/approved-apps | GEZIEN | onderzocht: cijfer 3
 - 9 nov 2026 | Meta Wearables Device Access Toolkit 1.0 stabiel sinds 30 sept 2026 (eigen app houdt eigen winkelvermelding); Explore op Ray-Ban Display en lijst in Meta AI-app gecureerd, inzendingen nog zonder datum | https://developers.meta.com/wearables/faq | GEZIEN | onderzocht: cijfer 5, elke run kijken of "submit" open is
