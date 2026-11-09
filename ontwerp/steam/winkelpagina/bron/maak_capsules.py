@@ -169,7 +169,7 @@ def header():
     im.alpha_composite(cel(SCHAT, 3, 24, 16), (82, vloer - 16))
     berg(im, 56, vloer, [0, 1, 3, 2, 6, 1])                     # maat 2: 6 hoeden
     gloop_met_toren(im, 57, vloer, [7, 5, 4, 9])                # hoge hoed, koksmuts, kroon, veermuts
-    held(im, 22, vloer, 0, 8, wapen=0)                         # nieuwe held met een pan op, kijkt naar Gloop
+    held(im, 10, vloer, 0, 8, wapen=0)                         # nieuwe held met een pan op, kijkt naar Gloop
     im = schaal(im, S)
     lg = schaal(logo(2), 5)
     im.alpha_composite(lg, (14, 12))
@@ -188,7 +188,81 @@ def klein():
     im.alpha_composite(lg, (1, (H - lg.height) // 2))
     return schaal(im, S).crop((1, 1, 463, 175))
 
+# ---------- schatkamer als losse scene (voor main, staand, library, hero) ----------
+def kamer(W, H, vloer, gx, hx, sx, berg_hoeden=(0, 1, 3, 2, 6, 1), toren=(7, 5, 4, 9), wand_rijen=3, held_kleur=0, held_hoed=8, gras_y=None):
+    im = Image.new("RGBA", (W, H), (0x1d, 0x14, 0x26, 255))
+    for kx in range(W // 16 + 2):
+        for ry in range(wand_rijen + 14):
+            y = vloer - 16 * (ry + 1)
+            if y < -16: break
+            im.alpha_composite(cel(TEG, 1 if ry == wand_rijen - 1 else (0 if ry < wand_rijen else (kx * 7 + ry * 3) % 8), rij=1 if ry < wand_rijen else 0), (kx * 16, y))
+        for ry in range((H - vloer) // 16 + 1):
+            im.alpha_composite(cel(TEG, (kx * 3 + ry * 5) % 8, rij=0), (kx * 16, vloer + ry * 16))
+    if gras_y is not None:
+        lucht(im, gras_y + 2)
+        for kx in range(W // 16 + 1):
+            im.alpha_composite(cel(GRAS, kx % 4, 16, 8), (kx * 16, gras_y))
+        r = random.Random(3)
+        ruimte = (vloer - 16 * wand_rijen) - (gras_y + 8)       # aarde tussen gras en kamer
+        for _ in range(W // 30 if ruimte >= 20 else 0):
+            x = r.randrange(W - 16); y = r.randrange(gras_y + 9, vloer - 16 * wand_rijen - 17)
+            im.alpha_composite(cel(VOND, r.randrange(5)), (x, y))
+    im = gloed(im, sx + 10, vloer - 8, .9); im = gloed(im, gx, vloer - 14, .35); im = gloed(im, sx + 16, vloer - 30, .5)
+    im.alpha_composite(cel(FAKKEL, 2, 8, 12), (sx + 12, vloer - 34))
+    im.alpha_composite(cel(SCHAT, 1, 24, 16), (sx, vloer - 16))
+    im.alpha_composite(cel(SCHAT, 3, 24, 16), (sx + 12, vloer - 16))
+    berg(im, gx - 1, vloer, list(berg_hoeden))
+    gloop_met_toren(im, gx, vloer, list(toren))
+    if hx is not None:
+        held(im, hx, vloer, held_kleur, held_hoed, wapen=0)
+    return im
+
+def main_capsule():   # 1232 x 706: schaal 11 = 112 x 64 (+ rand)
+    S = 11; W, H = 113, 65
+    im = kamer(W, H, 60, 74, 22, 88, wand_rijen=2, gras_y=14)
+    im = schaal(im, S)
+    lg = schaal(logo(2), 6)
+    im.alpha_composite(lg, ((1232 - lg.width) // 2, 24))
+    return im.crop((0, 0, 1232, 706))
+
+def staand():         # 748 x 896: schaal 8 = 94 x 112
+    S = 8; W, H = 94, 112
+    im = kamer(W, H, 104, 52, 3, 66, wand_rijen=3, gras_y=40)
+    im = schaal(im, S)
+    lg = schaal(logo(2), 8)
+    lg = lg.crop((0, 0, min(lg.width, 748), lg.height)) if lg.width <= 748 else schaal(logo(2), 7)
+    im.alpha_composite(lg, ((748 - lg.width) // 2, 24))
+    return im.crop((0, 0, 748, 896))
+
+def library():        # 600 x 900: schaal 6 = 100 x 150
+    S = 6; W, H = 100, 150
+    im = kamer(W, H, 138, 56, 6, 72, wand_rijen=3, gras_y=60)
+    im = schaal(im, S)
+    lg = schaal(logo(2), 6)
+    lg = lg if lg.width <= 600 else schaal(logo(2), 5)
+    im.alpha_composite(lg, ((600 - lg.width) // 2, 70))
+    return im.crop((0, 0, 600, 900))
+
+def hero():           # 3840 x 1240, geen tekst; Gloops gezicht in het veilige midden (860 x 380 rond het midden)
+    S = 16; W, H = 240, 78
+    im = kamer(W, H, 50, 120, 68, 134, berg_hoeden=(0, 1, 3, 2, 6, 1, 0, 3, 2, 1), wand_rijen=2)
+    held(im, 44, 50, 2, 3, wapen=1)
+    im.alpha_composite(cel(VERS, 4), (26, 50 - 16))
+    r = random.Random(5)
+    for _ in range(9):
+        im.alpha_composite(cel(VOND, r.randrange(5)), (r.randrange(W - 16), r.choice([r.randrange(0, 2), r.randrange(54, 60)])))
+    return schaal(im, S)
+
+def logo_los():       # 1280 breed, doorzichtig
+    lg = logo(2); s = 1280 // lg.width
+    lg = schaal(lg, s)
+    uit = Image.new("RGBA", (1280, lg.height), (0, 0, 0, 0)); uit.alpha_composite(lg, ((1280 - lg.width) // 2, 0))
+    return uit
+
 if __name__ == "__main__":
     os.makedirs(UIT, exist_ok=True)
     h = header(); print("header", h.size); h.convert("RGB").save(os.path.join(UIT, "header-920x430.png"))
     k = klein(); print("klein", k.size); k.convert("RGB").save(os.path.join(UIT, "klein-462x174.png"))
+    for naam, f in (("main-1232x706", main_capsule), ("staand-748x896", staand), ("library-600x900", library), ("hero-3840x1240", hero)):
+        b = f(); print(naam, b.size); b.convert("RGB").save(os.path.join(UIT, naam + ".png"))
+    l = logo_los(); print("logo", l.size); l.save(os.path.join(UIT, "logo-1280.png"))

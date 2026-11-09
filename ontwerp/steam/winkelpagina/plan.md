@@ -37,7 +37,11 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 |---|---|---|
 | `header-920x430.png` | v2 | v1 (scene op schaal 6) afgewezen: Gloop en toren te klein, berg leek puin. v2: scene op schaal 10, **Gloop met 4 hoeden is het middelpunt**, een nieuwe held met een pan kijkt naar hem, schat met gloed rechts, logo links boven. Verkleind naar 292 breed lezen logo en toren nog (GEZIEN). Nog: de achterwand bovenaan (mos-rij) is half afgesneden; de hoedenberg links van Gloop mag netter. |
 | `klein-462x174.png` | v1 | op 120 x 45 en 184 x 69 lezen HATS, de kroon en OF THE FALLEN (GEZIEN); Gloop met toren rechts is klein maar herkenbaar. |
-| main, vertical, library, hero, logo | nog niet | uit dezelfde maker zodra header v2 staat |
+| `main-1232x706.png` | v1 | sterrenlucht, gras, logo, daaronder de schatkamer met held, hoedenberg, Gloop met 4 hoeden en schat. Logo valt half over het gras, leest goed door de rand (GEZIEN). |
+| `staand-748x896.png` | v1 | logo groot in de lucht, schatkamer onderaan. Eerste versie met lege bakstenen wand afgewezen (leeg midden). |
+| `library-600x900.png` | v1 | zelfde opbouw als staand, verkleind naar 300 x 450 nog leesbaar (GEZIEN). |
+| `hero-3840x1240.png` | v1 | geen tekst; Gloops gezicht en toren in het veilige vlak 860 x 380 (nagemeten met een kader). Eerste versie op schaal 10 was leeg en klein, nu schaal 16 met vondsten in de aarde. |
+| `logo-1280.png` | v1 | 1280 breed, doorzichtig, alleen het logo |
 | 5 schermafbeeldingen 1920 x 1080 | nog niet | van Olaf uit de echte build (strook op 160 px op een rustig bureaublad, plus een ingezoomd stuk ernaast), zie stijl.md punt 5 |
 | trailer 30 tot 60 s | nog niet | eerste 3 s: een held loopt binnen, Gloop eet hem, zijn hoed vliegt op de toren. Opname van de demo-modus van Olaf |
 | teksten, tags, prijs, skins en DLC | Sanne schrijft mee | voorstel prijs en DLC: hoeden-skins passen precies op de haak |
