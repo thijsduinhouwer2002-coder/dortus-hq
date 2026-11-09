@@ -32,3 +32,6 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee be
 - korte beschrijving (max 300 tekens), lange beschrijving, tags, prijsvoorstel met reden, en een plan voor skins en DLC;
 - de naam en het logo definitief.
 Mila is eigenaar van de wow (stoppen met scrollen, ook op het kleine capsuleformaat), Daan keurt, Sanne schrijft de teksten mee, Olaf levert de beelden uit het spel. Eerlijk: alles wat je laat zien zit in het spel. Klaar: uiterlijk 1 december.
+
+## 10 nov 2026, 00:28, van Thijs (via de hoofdchat)
+Prijsmodel: Thijs neigt naar **gratis spel + hoogwaardige skins/DLC** (zoals Bongo Cat), "als het een sterk spel is met echt hoogwaardige DLC's". Zoek uit hoe de concurrenten dit precies doen en zet het in `platformen/steam/verdienmodel.md`: per spel (Bongo Cat, Desktop Mate, Rusty's Retirement, Spirit City, Tiny Pasture, Ropuka, en wat je nog vindt) het model (gratis/betaald, prijs, wat ze verkopen: skins, DLC, packs, bundels), wat het kost, hoe het in het spel zit (Steam Inventory, DLC, winkeltje), reviews als maat voor bereik, en wat spelers erover klagen. Daarna: jouw advies voor Het Hol (model, prijzen, eerste 3 skins/DLC's), en wat Olaf moet bouwen (Steam-microtransacties of gewone DLC) en of dat vóór 14 januari haalbaar is. Echte cijfers met link, geen gokken zonder het erbij te zeggen. Met Hans afstemmen; Thijs beslist.

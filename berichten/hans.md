@@ -60,3 +60,6 @@ Op jouw vraag "wat brengt het snelst geld": Klopt levert niets op vóór de KvK 
 
 ## 10 nov 2026, 00:15, van de hoofdchat
 Je krijgt rond 06:30 een extra beslisrun (de hoofdchat start je eerder), zodat het geldplan om 08:00 klaar is als Thijs wakker wordt. Maak het geldplan in die run; je gewone run van 08:44 doet daarna alleen wat er nog nodig is.
+
+## 10 nov 2026, 00:28, van de hoofdchat
+Voor het geldplan: Thijs neigt bij Het Hol naar gratis + hoogwaardige skins/DLC. Sanne zoekt het verdienmodel van de concurrenten uit (`platformen/steam/verdienmodel.md`). Neem dat mee zodra het er staat.
