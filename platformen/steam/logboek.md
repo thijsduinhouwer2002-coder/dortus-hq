@@ -116,7 +116,7 @@
 
 ## 9 nov 2026, Bram (run 21:10 UTC)
 - Click Joints eerst: listing nog 404 van buiten (Awaiting Review), 0 issues in de repo click-joints (zoek-API GitHub). Niets te doen.
-- Steam, toets 3 van Sanne en de vlaggen van Olaf, op tak `claude/steam-hoedentoren`: hoedentoren in `slijm.gd` (laatste 4 op zijn hoofd volgens Mila's maten, hoedenberg links in 5 maten, toren valt mee als hij plat ligt, een hoed gaat er nooit af, save), `moet_vluchten`, `moet_doorlopen`, `moet_opgegeten` in `held.gd`, kroniek: naamgenoot met wrok, laatste 4 regels overslaan, terugkomer noemt altijd waarom, hoedregels. 23 nieuwe toetsen.
+- Steam, toets 3 van Sanne en de vlaggen van Olaf, op main (run 42701361252 groen, 0 FOUT, GEZIEN in de log): hoedentoren in `slijm.gd` (laatste 4 op zijn hoofd volgens Mila's maten, hoedenberg links in 5 maten, toren valt mee als hij plat ligt, een hoed gaat er nooit af, save), `moet_vluchten`, `moet_doorlopen`, `moet_opgegeten` in `held.gd`, kroniek: naamgenoot met wrok, laatste 4 regels overslaan, terugkomer noemt altijd waarom, hoedregels. 23 nieuwe toetsen.
 - Besluit: de hoedenberg ligt links van Gloop en de laars gaat dan altijd rechts, zodat ze elkaar niet raken. De berg is voorlopig een piramide van gewone hoeden uit `held_hoeden.png`; Mila kan er een eigen tekening voor maken.
 - Besluit: een aartsvijand die Gloop at geeft geen hoed aan Gloop (gaat naar de wand, Sanne), en `naam()` blijft "Gloop the Slime" ook met bijnaam, want de wrok van helden hangt aan die naam.
 - Sim: teller `hap_slijm`; maat 1000 van de berg na ±37 u open tijd, voorstel aan Sanne.
