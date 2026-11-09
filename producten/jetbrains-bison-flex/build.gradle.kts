@@ -44,8 +44,8 @@ dependencies {
             "CL" -> clion("2025.2")
             "IU262" -> {
                 intellijIdea("2026.2")
-                // Vanaf 2026.x is de structuurweergave (PsiTreeElementBase) een eigen gebundelde plugin.
-                bundledPlugin("com.intellij.structureView")
+                // Vanaf 2026.x staat PsiTreeElementBase in een eigen module, niet meer op het standaardpad.
+                bundledModule("intellij.platform.structureView.impl")
             }
             else -> error("Onbekende doelIde '$doelIde', kies IC, CL of IU262")
         }
