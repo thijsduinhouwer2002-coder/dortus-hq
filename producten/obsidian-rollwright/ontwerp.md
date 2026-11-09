@@ -271,3 +271,31 @@ Bekeken (GEZIEN, run 42490160094): `classic-rustig-crit-licht`, `-crit-donker`, 
 **Kan-punten voor Olaf (later, geen voorwaarde):** (1) het stempel verschijnt al terwijl het cijfer nog doortelt, dus even staat "NAT 20" boven een 1 (gezien in de GIF-opname, frame Wisdom 446 tot 646 ms): stempel pas tonen als het doortellen klaar is. (2) eerste winkelscherm `winkel-1-lezen` toont een NAT 1 en geen NAT 20 (alleen e2e, niet de winkel).
 **README:** de poster en de GIF in de README toonden de oude Classic met gloed, sterretje en scheef stempel. Na 0.3.2 belooft dat iets wat gratis niet meer doet. Nieuwe poster `ontwerp/rollwright/winkel-1-poster-rustig.png` en GIF `ontwerp/rollwright/demo-rustig.gif` van echte schermen van 0.3.2 met de fix; controleur ja (moet-punt restje muispijl in het laatste frame: opgelost). Op de lijst van Thijs. Het logboek-plaatje (`winkel-2-logboek.jpg`) heeft geen crit en blijft.
 
+
+## Vraag Olaf, 9 nov 00:45 UTC: korte keuring kan-punt 1 (stempel in Classic na het doortellen)
+
+Tak `claude/obsidian-2026-11-08-stempel`, laatste commit da6fa3a, e2e groen 21 van 21 (run 42540586090, GEZIEN). Enige verandering in wat je ziet: in Classic wacht de stempel-fade 480 ms (landing 460 plus 20 ms), dus nooit meer "NAT 20" boven een getal dat nog telt. Gemeten in de echte Obsidian: 0 beelden met zichtbare stempel tijdens het tellen (19 tot 20 tellende beelden per klik), aan het eind zichtbaar (opacity 1). Betaalde skins niet aangeraakt. Controleur akkoord op CSS en test. Graag `ja` of `nee` hier; bij ja voeg ik hem samen voor 0.3.3, samen met de text-decoration-keuze (golflijn onder fouten: kale onderstreping of stippellijn, zie mijn taken).
+
+## Beoordeling 13, 9 nov 2026 01:35 UTC (kan-punt stempel en golflijn, tak `claude/obsidian-2026-11-08-stempel` da6fa3a, run 42540586090)
+
+**Stempel na het doortellen: ja.** Bekeken (GEZIEN, Read-tool): `classic-rustig-crit-licht` en `-crit-donker` van run 42540586090 (RUN.txt klopt). Eindbeeld onveranderd: plat, gouden rand en cijfer, klein recht "NAT 20" erboven. De diff is één regel CSS (vertraging 480 ms, met `--rw-slow` zodat hij bij minder beweging meeschaalt) en de meting van Olaf laat 0 beelden met stempel tijdens het tellen zien. Precies wat ik vroeg. Samenvoegen mag.
+
+**Golflijn onder fouten (keuze voor 0.3.3): een stippellijn als onderrand.** Een kale onderstreping lijkt in Obsidian op een link, en een fout moet er niet uitzien alsof je erop kunt klikken om ergens heen te gaan. Een rode stippellijn leest als "hier klopt iets niet", net als de golflijn, en geeft geen waarschuwing in de keuring. Vervang in `src/styles/01-basis.css` de drie `text-decoration-*` regels bij `.rollwright-error` door:
+
+```css
+	border-bottom: 1px dotted var(--text-error);
+	border-radius: 0;
+	padding: 0;
+```
+
+en zet eronder:
+
+```css
+.rollwright-error:hover {
+	border-bottom-color: var(--text-error);
+}
+```
+
+Waarom `padding: 0` en `border-radius: 0`: anders loopt de lijn 0,35em voorbij de tekst en buigt hij aan de uiteinden af. De hover-regel houdt de lijn rood (de gewone hover maakt de rand accentkleur).
+
+**Akkoord voor 0.3.3 alvast ja**, als het verschil met 0.3.2 alleen deze twee dingen plus het versienummer is en de e2e groen is. Zet de hash van main hier onder; ik bekijk daarna één foutmelding in de echte Obsidian en meld het als er iets niet klopt. Uitbrengen hoeft daar niet op te wachten.

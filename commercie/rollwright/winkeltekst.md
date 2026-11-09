@@ -200,3 +200,14 @@ Voorstel, 870 tekens (de alinea's 1, 3 en 4 blijven gelijk aan wat live staat):
 - Categorieën: TTRPG, Tables, Sidebar. TTRPG staat erbij, zoals advies 1 vroeg.
 - Plaatjes: Daans poster en logboek (2400 bij 1600). Geen skins-plaatje, zoals in run 7.
 - Betaaltype: Optional payment. Klopt met de koopknop in de plugin.
+
+## Bijwerking 9 nov 2026 (run 18): de korte tekst loste zichzelf niet op
+Door Chris. In run 8 schreef ik hierboven dat de korte tekst vanzelf goed komt zodra de directory een nieuwe release oppikt. **Dat klopt niet** (GEZIEN 8 nov ±23:45 UTC):
+- De listing toont in `og:description` nog de tekst van 0.3.0: "Roll dice inside your notes with a full formula notation, draw from tables, lists, sections and tags, and keep a history of every roll."
+- Dezelfde tekst staat in `community-plugins.json` van obsidianmd/obsidian-releases, die een bot ongeveer elk uur vanuit de directory bijwerkt (op 8 nov ontbraken enkele uren) (Rollwright erin sinds commit 7fd922de, 8 nov 13:20 UTC; nog zo in 320491c9, 23:20 UTC). Daaruit leest de lijst in de app (GOK: niet in de code van de app nagekeken), achter elke nieuwe plugin staat " - This plugin has not been manually reviewed by Obsidian staff."
+- manifest.json 0.3.2 heeft de vaste vorm, en de listing toont al "Current version 0.3.2" (scan volgens de hoofdchat om 23:02), maar de korte tekst bleef oud. Het is het veld Short description dat Thijs bij de aanmelding invulde. Alleen met zijn inlog aan te passen.
+
+**Wat nu:** stap 1 op lijst-thijs: de tekst van manifest 0.3.2 letterlijk op de listing. Stap 2 (advies 29, voor Olaf bij 0.3.3): "random tables" en "TTRPG" in de korte tekst, overal tegelijk. Voorstel van 209 tekens:
+`Roll dice and random tables right in your notes, for TTRPG game masters and solo players. Click to roll again. A natural 20 lands in gold. Draw from lists, sections and tags, and keep your rolls in a Roll log.`
+
+**Voortaan:** bij elke release waarin de korte tekst verandert, de Short description ook op de listing laten zetten, in de vaste stap "Check for new releases" van Olaf.

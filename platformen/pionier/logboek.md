@@ -252,3 +252,29 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: MSFS 2024 EFB-apps. Waarom: betalen werkt al, nieuwe app-laag met alleen kleine makers, past bij ons werk (TypeScript), en console-spelers kunnen alleen via de Marketplace iets toevoegen.
 - Zelf gemeten: Steam-spelers per maand (steamcharts) en de betaalde EFB-apps op simMarket met prijs. Hulpagent voor groei, regels, forumvraag en bestaande apps.
 - Besluit: cijfer 5, nog niet klaar. Waarom: groei is vooral herstel in een niche, verkopen onzichtbaar, en de console-hoek hangt aan goedkeuring door Microsoft. Herhaalmeting 8 jan 2027.
+
+## Run 8 nov 23:38 tot 9 nov ±00:10 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). Lokale main liep achter; vanaf origin/main gewerkt.
+- Radar: TikTok AU en anderen nog dicht, Steam Frame (duur, schaars), Minecraft Marketplace (alleen partners). Nieuw gevonden: Corsair-widgets in de Elgato Marketplace.
+- Gekozen: XENEON EDGE-widgets. Waarom: betalen werkt al (zoals Thijs vroeg), winkel pas sinds augustus open voor makers, en een openbare API om alles te tellen.
+- Zelf gemeten: alle 395 widgets met prijs, maker, datum, apparaat en de volgorde Popular (script data/xeneon-widgets-meet.py). Hulpagent voor vraag en groei (Reddit en Corsair-forum dicht, GitHub wel). Controleur heeft alle kerncijfers nagerekend: klopt.
+- Besluit: cijfer 6, ja met kleine inzet. Waarom: jong, betalen werkt, lege categorie die bij ons past (status van AI-codeerhulpen); geen 7 omdat apparaatverkoop en downloads onzichtbaar zijn en app-fabrieken snel vullen.
+
+## Run 9 nov 00:40 UTC (Noor)
+- Berichten gelezen: niets nieuws (22:31 en 19:16 al verwerkt). Lokale kloon liep weer niet gelijk; main opnieuw gezet op origin/main.
+- Radar: eToro App Store gevonden (open sinds april 2026). Logi Marketplace snel bekeken: al door Vera gedaan (2, geen betalen).
+- Gekozen: eToro App Store. Waarom: jonge winkel in een groot platform met 40 mln gebruikers, en de voorwaarden noemen abonnementen.
+- Zelf gelezen: voorwaarden (pdf), builders portal (appstore, faq, app-registration), Q2-cijfers. Hulpagent voor betalen, catalogus, vraag en groei.
+- Besluit: cijfer 5, nog niet klaar. Waarom: betalen bestaat alleen op papier ("may allow", met toestemming), geen openbare catalogus om te tellen, toelating per aanvraag, en eToro groeit gezond maar niet hard. Volgens de regel van Thijs dus geen 6 of 7.
+- Daarna snel geschift: NZXT CAM (gratis, nee), losse skill-winkels voor AI-agents (geen platform, nee), OpenAI Marketplace (alleen bedrijven, nee). Een blogbericht over een betaalde Anthropic-skillwinkel bleek tegengesproken; niet overgenomen.
+- Gekozen: TradingView Marketplace. Waarom: betalen werkt nu al (0% afdracht) en sinds 1 nov moet alle betaalde verkoop via de nieuwe winkel, een gedwongen overstap.
+- Zelf gelezen: programmavoorwaarden, aanvraageisen, Paid Space-handleiding, verkopersregels, robots.txt. De winkel zelf (/scripts/) niet gelezen: robots.txt verbiedt AI-agents daar.
+- Besluit: cijfer 5, nog niet klaar. Waarom: winkel leeg en betalen werkt, maar het platform is volwassen, wij moeten eerst drie maanden een script openbaar hebben (onder het account van Thijs, met Premium) en de gevestigde verkopers lopen er nu in. Geen aparte controleur: alle kernfeiten komen uit de eigen pagina's van TradingView (GEZIEN); de tellingen 39 en 52 zijn DERDEN met link.
+
+## Run 9 nov 01:40 UTC (Noor)
+- Berichten gelezen: niets nieuws. Lokale kloon stond los van main; opnieuw gezet op origin/main.
+- Radar: Grok Build Plugin Marketplace (geen betalen, bewering kwam van een SEO-blog), Claude Marketplace (alleen zakelijke partners), ChatGPT DevDay (geen betaalroute). Nieuw gevonden: Apple HomeView.
+- Gekozen: Apple HomeView. Waarom: nieuw Apple-apparaat dat over vier dagen levert, en betalen werkt al via de App Store.
+- Zelf gelezen: Apple-persbericht, HIG Widgets (HomeView-deel), ontwikkelaarsovereenkomst 6.4, App Store-zoekresultaten. Hulpagent voor groei, vraag en precedent (StandBy, CarPlay).
+- Besluit: cijfer 4, nee voor nu. Waarom: geen eigen winkel, bestaande widgets komen automatisch mee (de grote gezinsapps staan er op dag één), alleen het kleinste formaat, niet in de EU, en geen verkoopcijfers. Herhaalmeting 8 jan 2027.
+- Daarna nog geschift (TikTok-landen, Raycast, Elgato, Tesla, ClawHub, Grav): niets met betalen dat nu werkt en jong is. Gestopt om ±02:05 in plaats van werk te verzinnen (regel 0c).

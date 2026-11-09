@@ -378,3 +378,22 @@ Nieuwste blok onderaan.
 - **Gecheckt:** geen nieuw bericht van Thijs (alles in `berichten/jet.md` verwerkt). Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 22:55).
 - **Klaargezet:** punt op `organisatie/lijst-thijs.md` om de plugin zichtbaar te maken na de goedkeuring. Volgens de docs van JetBrains haalt goedkeuring of een betaalmodel Hidden niet weg; dat kan alleen met Publish Plugin en Confirm op de pluginpagina, en is niet terug te draaien (DERDEN, hidden-plugin.html). Waarom nu: zo kan Thijs meteen handelen als de mails komen, in plaats van een run later. Controleur akkoord, twee taalpunten verwerkt.
 - **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten. Tot dan korte runs (regel 0c).
+
+## 8 nov 2026 23:52 tot 9 nov 00:20 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 23:53).
+- **Taak:** kan-punt van de controleur bij 2026.1.2 opgepakt: unittests ook tegen een nieuwe IDE, omdat de weg `restart(Object)` van `HerstartAnalyse` na ±22 nov (einde CLion-EAP) nergens meer getoetst zou worden. Tak `claude/jetbrains-2026-11-09-a`: `-PdoelIde=IU262` in build.gradle.kts en een tweede job in `jetbrains-bison-flex-clion.yml`.
+- **Uitkomst:** de job is rood, drie pogingen (runs 42537372520, 42538166739, 42538649329): `Structuur.kt` compileert niet tegen IDEA 2026.2, `PsiTreeElementBase` is daar niet meer op het pad. Gebundelde plugin `com.intellij.structureView` niet gevonden; module `intellij.platform.structureView.impl` hielp niet. De e2e op die tak en de CLion-unittests bleven groen.
+- **Besluit:** geen vierde gok op de buildinstellingen, maar de oorzaak weg: `Structuur.kt` op een eigen basis `EigenKnoop` (slimme verwijzing, presentatie, navigatie, alleen openbare API). Run 42539127459: IDEA 2026.2 unittests 120/120, `HERSTART: platform 262, met reden true`, CLion-unittests groen (GEZIEN). Controleur (vergeleek met de echte bron van PsiTreeElementBase): akkoord ja, niets wat gebruikers merken, alles bestaat al in 2025.2; drie kan-punten in `taken.md`. Niet samengevoegd omdat Plugin Verifier en de e2e (IDEA en CLion 2026.3) aan het eind van de run nog liepen.
+- **Volgende run:** moderatie volgen; tak `-a` met de kan-punten afmaken en samenvoegen na groene runs; vanaf 9 nov ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 00:55 tot 01:20 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 00:56 en 01:16).
+- **Taak:** tak `claude/jetbrains-2026-11-09-a` afgemaakt. Runs op 925d1e9 waren groen (42539127459 met verifier 5 keer Compatible, e2e 42539127449, GEZIEN). De drie kan-punten van de controleur verwerkt (8b8ab46): `this === other` vooraan in `equals`, één KDoc boven `EigenKnoop`, en in het commentaar waarom StructureViewExtension en custom regions weg zijn; regel in `architectuur.md`.
+- **Controleur:** akkoord ja, geen test gewijzigd, runs 42542863371 (IDEA 2026.2 unittests met `HERSTART: platform 262, met reden true`, verifier 5 keer Compatible) en 42542863399 (e2e licht en donker, structuur en hernoem-structuur) groen (GEZIEN).
+- **Besluit:** samengevoegd op main (46489e8). Waarom: alles groen en nagekeken, en nu wordt de weg `restart(Object)` ook na het einde van de CLion-EAP (±22 nov) bij elke push getoetst.
+- **Volgende run:** moderatie volgen; vanaf 9 nov ±14:30 UTC de groeimeting van de aanraadlijsten. Tot dan korte runs (regel 0c): er is niets zinvols tot de moderatie of de meting.
+
+## 9 nov 2026, 01:53 tot 02:00 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 01:56). Main na het samenvoegen van tak `-a` groen: runs 42544762372 (CLion-unittests, IDEA 2026.2-unittests, verifier) en 42544762248 (e2e) op 32425b1 (GEZIEN).
+- **Besluit:** korte run (regel 0c). Er is niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen; geen nieuwe scan zonder nieuwe bron (weekbesluit Hans 8 nov).
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.

@@ -251,3 +251,32 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Beslissing:** $19 voorstellen met lanceerprijs $15 en Studio $49, in plaats van $12. Waarom: nieuwe feiten (koers van Thijs en lagere afdracht), en $19 ligt nog onder elke concurrent met beweging; het besluit blijft bij Bram.
 **Controleur:** akkoord mits. Moet: testkaartje stond op drie plekken buiten de haken, buigbereik geldt alleen voor kogels, AI-zin maakte de rol van AI te klein. Alles verwerkt, kan-punten ook.
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 8 nov 2026 ±23:44 tot 9 nov ±00:25 UTC: Rollwright, run 18 (vindbaarheid: korte tekst op de listing)
+**Gelezen:** berichten (alles verwerkt), doelen, regels, besluiten, rol, adviezen 24 tot 28, status van alle platformen.
+**Opgemerkt:** lokale main van dortus-hq had weer een andere geschiedenis dan GitHub (72 voor, 52 achter); oude stand bewaard als tak `oud-lokaal`, main op origin/main gezet.
+**Gemeten (GEZIEN 23:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex nog `approve: false`, Hidden, 0 downloads; forumdraad Rollwright 1 bericht, 16 keer bekeken, 0 likes; repo rollwright 0 sterren, 0 issues. Niets te beantwoorden.
+**Beslissing:** deze run de vindbaarheid van Rollwright. Waarom: de andere twee wachten op moderatie, en het r/ObsidianMD-bericht van 9 nov 13:45 UTC stuurt mensen naar de listing en het zoekvak; daar moet alles kloppen.
+**Gevonden (GEZIEN):** de korte tekst op de listing en in `community-plugins.json` (die de app gebruikt, GOK) is nog die van 0.3.0 ("keep a history of every roll"); de nieuwe tekst uit manifest 0.3.2 neemt de directory niet over. Mijn aanname uit run 8 dat dit vanzelf goed komt, was fout. Rollwright staat in de mirror sinds 8 nov 13:20 UTC. Bij een nabootsing van het zoekvak staat Rollwright bij "dice" onderaan van 22, en ontbreekt bij "random table" (3 plugins) en "ttrpg" (38).
+**Gedaan:** advies 29 (stap 1: manifest-tekst op de listing via de hoofdchat; stap 2 voor Olaf bij 0.3.3: "random tables" en "TTRPG" in de korte tekst), regel bovenaan lijst-thijs, bijwerking in `winkeltekst.md`.
+**Controleur:** akkoord mits. Moet: "elk uur" te stellig (op 8 nov ontbraken runs), nu "ongeveer elk uur". Kan-punten verwerkt (niet in de stats in plaats van 0 downloads, bron van 23:02, README mee in stap 2).
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, nakijken of de korte tekst is bijgewerkt, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 9 nov 2026 ±00:44 tot 01:05 UTC: marktbewijs Obsidian sync, run 19
+**Gelezen:** berichten (alles verwerkt), doelen, regels, besluiten, rol, volgend-product van Obsidian, JetBrains en Blender-2.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak (GitHub had een geforceerde update van main); main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 00:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex `approve: false`, 0 downloads; Rollwright listing 9 downloads, forumdraad 1 bericht, 16 keer bekeken, 0 likes; repo 0 sterren, 0 issues. Niets te beantwoorden; `cijfers.md` van Rollwright had deze stand al (run 18).
+**Beslissing:** taak 3 uit mijn rol, marktbewijs voor het volgende product, en dan punt 3 van Olaf (sync, Remotely Save PRO). Waarom: alle drie de producten wachten (moderatie, Reddit pas 13:45 UTC), en Hans wil voor Obsidian alleen een nieuwe ronde met een nieuwe bron; dit punt stond nog open en was niet gemeten.
+**Gedaan:** `commercie/obsidian-sync/marktbewijs.md`, advies 30.
+**Gevonden (GEZIEN):** Remotely Save staat sinds okt 2024 stil maar krijgt nog ±2.158 installs per dag; PRO is gratis tot 1 jan 2027, prijs later. sync-engine vult het gat gratis. Geen betaalbewijs. Oordeel: richting valt af.
+**Controleur:** akkoord mits. Moet: sync-engine, google-drive-sync en onedrive-sync als gratis concurrenten opnemen (de onderzoeker miste dat sync-engine Google Drive en slim samenvoegen al heeft), groei per dag en likes van het hele topic duidelijk zeggen. Alles verwerkt.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, r/ObsidianMD via de hoofdchat); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.
+
+## 9 nov 2026 ±01:45 tot 02:05 UTC: Rollwright, run 20 (beeld bij het r/ObsidianMD-bericht)
+**Gelezen:** berichten (alles verwerkt, niets nieuws), doelen, regels, besluiten, rol, bord, lijst-thijs, status van alle platformen.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak; main op origin/main gezet (git checkout -B), geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 01:45):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404); Bison & Flex `approve: false`, 0 downloads; forumdraad Rollwright 1 bericht, 17 keer bekeken, 0 likes; repo rollwright 0 sterren, 0 issues. Niets te beantwoorden. Korte tekst op de listing nog die van 0.3.0 (advies 29 nog niet uitgevoerd). Afrekenpagina skins: beschrijving staat, plaatje nog niet.
+**Beslissing:** de nieuwe film van Daan (ja of nee van Thijs vóór 11:00 UTC) inpassen in het Reddit-bericht van 13:45 UTC. Waarom: zonder dit plaatst de hoofdchat bij een ja de film zonder te zeggen dat licht en stralen niet in de plugin zitten, en dat breekt "alleen beweren wat klopt".
+**Gedaan:** `lancering.md` deel run 20 (optie A met mp4 en één eerlijke regel, optie B de oude GIF), regel bovenaan lijst-thijs.
+**Controleur:** akkoord mits. Moet: "recorded in one take" klopte niet (losse schermen uit een testrun), zin ruimer gemaakt; oudere Damage 7 in het logboek genoemd. Kan-punten verwerkt.
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, korte tekst nakijken, Reddit-bericht volgen zodra de link er is); elke run het seintje voor Click Joints; Bison & Flex dag 0 zodra goedgekeurd.

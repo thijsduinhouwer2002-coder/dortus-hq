@@ -1,0 +1,1 @@
+const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1280,height:720},deviceScaleFactor:2});for(const n of ['pa','pb']){await p.goto('file://'+__dirname+'/'+n+'.html');await p.waitForTimeout(600);await p.screenshot({path:n+'.png'})}await b.close()})();

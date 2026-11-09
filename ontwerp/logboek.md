@@ -435,3 +435,48 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Op de lijst van Thijs:** GIF, mp4 en poster met links, ja of nee vóór 9 nov 11:00 UTC.
 - **Kan-punt verwerkt:** de terugvliegende kaart dooft nu uit voor hij landt, geen dubbel beeld meer rond 9,75 s (GEZIEN).
 - **Volgende run:** berichten; bij ja van Thijs seintje aan Olaf (bestandsnamen staan op de lijst); daarna de 2 of 3 skins-richtingen voor Thijs (bericht 22:58), groot in een echte notitie.
+
+## 8 nov 2026, run 39 (klok van de omgeving 22:54 UTC)
+
+- **Berichten:** nieuw: poortwachter 23:58 NL, v3 is netjes maar niet flamboyant; ronde met 5 punten, 2 varianten vóór 9 nov 11:00 NL, eerst naar de projectchat. Gekozen: dit, want het is het eerste wat Reddit ziet en heeft een deadline.
+- **Gemaakt, opname:** tak `ontwerp/rollwright-reclame5`, spec `reclame5.e2e.mjs`, notitie "The Drowned Lantern" in de ontwerpkluis met eigen snippet (perkament, hout en leer, Cinzel en IM Fell ingebakken), zelfgetekende banner, wolf en val (game-icons.net, CC BY 3.0). Runs 42533011123 (notitie niet gevonden), 42533443120 (verkeerde kluis: conf stond op `vaults/test`), 42534170685 (mooi, maar tokens onleesbaar licht op het perkament en eigenschappen in beeld), 42534527947 goed (GEZIEN, Read-tool). Venster nu 1400x860 via Electron (setWindowSize faalt op deze Chrome).
+- **Besloten:** het blad krijgt in de snippet de kleuren die Rollwright in een licht thema gebruikt. Waarom: Rollwright leest de themakleuren van de body, dus een licht blad in een donker thema gaf lichte tekst op perkament; zo ziet de gratis Classic eruit zoals hij in licht echt is, zonder de plugin te veranderen.
+- **Gemaakt, film:** variant A versie 1 (`ontwerp/rollwright/v4/demo-v4-a.mp4` en `.gif`), haak met de NAT 20 vóór de titel, NAT 1 in rood met de val, skins groot. Contactvellen bekeken met de Read-tool; hook-timing gecorrigeerd (Classic landt binnen 0,25 s, stralen kwamen eerst te laat).
+- **Nog open:** inzoom dieper, skins-uitsnede, variant B "Bestiarium", poster v4, controleur, dan beide naar de projectchat.
+
+## 8 nov 2026, extra run 40 (op verzoek van de projectchat, alleen film en poster v4, 23:25 tot 23:36 UTC)
+
+- **Gemaakt:** variant A beter (diepere inzoom op NAT 1 en NAT 20, skins ruimer uitgesneden, timing van de haak gelijk aan de echte landing: rood na 0,54 s en goud na 0,72 s, GEZIEN per beeld). Variant B "Bestiarium" nieuw: drie snelle sneden met wolf, val en lantaarn, speelkaarten naast het venster en skins naast elkaar. Twee posters (2560x1440).
+- **Controleur (agent):** A eerst nee (5 moet-punten: eerste beeld leeg, label over het venster, lamp in de eindzin, te wazig, uitsnede poster), B ja met 2 moet-punten (getallen op de wolf-kaart klopten niet met de worp die nog rolde, "fo" afgekapt op de poster). Alles opgelost en opnieuw bekeken met de Read-tool.
+- **Besloten:** beide onder "Voor de projectchat" (`ontwerp/rollwright/v4/extra-run/voor-projectchat.md` (apart gezet, omdat de gewone run tegelijk dezelfde bestanden in v4 schreef, commit 9f5f384e)), niet op de lijst van Thijs. Mijn keuze B voor Reddit, omdat hij zonder geluid vanaf beeld 1 te snappen is; A voor de README.
+
+## 8 nov 2026, run 40 (klok van de omgeving 23:25 UTC)
+
+- **Lokale kopie:** lokale `main` liep weer uiteen; gewerkt op `werk` vanaf origin/main, gepusht naar main.
+- **Berichten:** geen nieuwe. Verder met film v4 voor de projectchat (deadline 9 nov 10:00 UTC).
+- **Werkplek opnieuw opgebouwd:** beelden van run 42534527947 uit tak `schermen`, lettertypen uit `drowned.css`, iconen en banner van tak `ontwerp/rollwright-reclame5`. Stappen in `ontwerp/rollwright/v4/bron/LEESMIJ.md`, zodat een volgende run dit niet opnieuw hoeft uit te zoeken.
+- **Gemaakt:** variant B "Bestiarium" (16,6 s): haak NAT 20, wolf, NAT 1; per worp een bestiariumblad naast het venster; camera volgt de worp; inzoom op het session log; skins naast elkaar als twee werelden. Variant A dieper ingezoomd. Poster v4. Alles bekeken met de Read-tool (contactvellen en losse beelden).
+- **Controleur (agent):** eerste ronde A nee, B nee met 4 moet-punten (getallen bij de wolf klopten niet tijdens het rollen, haak te zwak, ondertitel over het label en log onleesbaar, afgekapte woorden), poster ja. Alles in B opgelost; tweede ronde B ja, poster ja.
+- **Besloten:** B voor Reddit en de README. Waarom: het opent met de NAT 20, laat bij elke worp beeld zien zoals Thijs vroeg (wolf, val, lantaarn) en toont de skins duidelijk als optioneel. A niet verder uitgewerkt.
+- **Geleverd:** `ontwerp/rollwright/v4/voor-projectchat.md` met links. Niet op de lijst van Thijs: de projectchat beoordeelt eerst.
+- **Volgende run:** berichten; reactie van de projectchat verwerken; bij ja op de lijst van Thijs. Daarna de skins-richtingen (bericht 22:58).
+
+## 9 nov 2026, run 41 (klok van de omgeving 00:26 UTC)
+
+- **Berichten:** geen nieuwe. Op de projectchat over film v4 wacht ik nog. Gekozen: de skins-richtingen (bericht Thijs 8 nov 22:58), want dat stond als volgende en de Polar-plaatjes wachten erop.
+- **Gemaakt:** drie richtingen als complete wereld, elk 16:9 in een echte notitie "Night at the Tideflats" met wolf (NAT 20) en val (NAT 1): A Taverne (eikenhout, messing munt, Alegreya SC), B Kerker (steen, sintels, Uncial Antiqua), C Hofcodex (velijn, fraktur, lapis en vermiljoen, licht thema). Icoon bij een worp als optie (game-icons.net, CC BY 3.0), klein in het token en groot in de callout. Tak `ontwerp/rollwright-richtingen`, spec `richtingen.e2e.mjs`, CSS uit `e2e/ontwerp/richtingen/maak.py` (letters OFL, ingebakken).
+- **Gezien (Read-tool):** runs 42540486539 (eigenschappen in beeld, iconen in token onzichtbaar, gloed afgesneden), 42541007972, 42541435382, 42541905330 (barst NAT 1 in B te zwak, stempel afgeknipt), 42542400186 goed.
+- **Controleur (agent):** nee met vijf kleine moet-punten (fraktur in kleine tekst onleesbaar, tab in C, barst door de tekst, twee beweringen niet te zien), verwerkt. Hij vindt A het braafst en raadt C plus B aan.
+- **Besloten:** C zeker, tweede tussen A en B door Thijs laten kiezen (ik neig naar B). Waarom: C is de enige lichte en meest eigen wereld; A ligt te dicht bij het oude Parchment. Achtergrond van de notitie alleen als de gebruiker het aanzet (eerlijk, een plugin verft niet ongevraagd notities).
+- **Geleverd:** `ontwerp/rollwright/richtingen/voor-projectchat.md` en `producten/obsidian-rollwright/ontwerp-skins-richtingen.md`. Niet op de lijst van Thijs: de projectchat beoordeelt eerst.
+- **Volgende run:** berichten; reactie projectchat op film v4 en op de richtingen verwerken; bij ja op de lijst van Thijs; daarna de gekozen richting uitwerken (beweging bij het rollen per wereld) en klus voor Olaf.
+
+## 9 nov 2026, run 42 (klok van de omgeving 01:26 UTC)
+
+- **Berichten:** geen nieuwe van Thijs. De projectchat heeft nog niet gereageerd op film v4 en de skins-richtingen; daar wacht ik op.
+- **Gekeurd:** kan-punt stempel van Olaf (tak `claude/obsidian-2026-11-08-stempel` da6fa3a, run 42540586090, `classic-rustig-crit-licht` en `-donker` GEZIEN met de Read-tool): ja. Golflijn onder fouten (keuring 0.3.3): rode stippellijn als onderrand, exacte CSS in beoordeling 13. Waarom: een kale onderstreping lijkt op een link. Alvast akkoord voor 0.3.3 als alleen die twee dingen veranderen.
+- **Gevonden en opgelost: dortus.com/rollwright/ liep achter.** Er stond "Version 0.3.1 ... listing on its way" (live sinds 8 nov, 0.3.2), installeren alleen met de hand, en de demo-video en poster toonden de oude Classic met gloed en sterretje (beeld uit demo.mp4 op 12 s, GEZIEN), wat gratis sinds 0.3.2 niet meer doet. Vandaag komen er Reddit-bezoekers, dus dit ging voor.
+  Veranderd (repo dortus, commits 159ac93 en 8924679): status "Live in Obsidian's Community plugins. Version 0.3.2.", hoofdknop "Open in Obsidian", installeren via Community plugins met de handroute ingeklapt, demo en poster van de rustige versie (`demo-rustig.gif` als mp4, `winkel-1-poster-rustig.png`, die Thijs om 23:03 in de README liet zetten), en een skins-plaatje bij Optional skins: alleen Parchment en Arcane uit `winkel-3-skins-v2.jpg` (ja Thijs 12:33), zonder de oude Classic. Het vergelijkingsplaatje met skins v3 heb ik bewust niet gebruikt, want v3 zit nog niet in de plugin.
+  Bekeken met Playwright op 1440 en 390 breed (GEZIEN). **Controleur (agent):** ja, geen moet-punten; drie kan-punten ("lights up" werd "turns gold", lijstmarge op smal scherm, link naar obsidian.md) verwerkt.
+- **Volgende run:** berichten en projectchat over film v4 en richtingen. Kiest de projectchat of Thijs v4: dan ook op dortus.com/rollwright demo.mp4, demo-first.jpg, poster.jpg en poster-1200.jpg vervangen (zelfde namen). Hash van 0.3.3 nakijken onder beoordeling 13.
+- **Ook bekeken (GEZIEN, Playwright 1440):** dortus.com/click-joints/ en de status van bison-flex. Feiten kloppen nog ("On its way to Blender Extensions", "Coming soon to JetBrains Marketplace"). Kan-punt voor later, geen haast: op click-joints staat bovenaan de poster met dezelfde kop als de h1 eronder, dus je leest de kop twee keer. Zodra het filmpje van Bram klaar is, komt dat filmpje rechts in de hero (zoals bij Rollwright) en gaat de poster omlaag naar de plaatjes. Doe ik zelf bij de keuring van het filmpje.

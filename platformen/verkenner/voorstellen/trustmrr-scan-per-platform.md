@@ -38,3 +38,27 @@ Wat de controleur rechtzette: de Mac-groep is groter dan mijn eerste telling (zi
 - **Mac-apps buiten de App Store: cijfer 5, nog niet klaar.** Geld aangetoond (DERDEN, geverifieerd), bouwbaar voor ons (Swift of Electron, 1 tot 2 weken), maar bereik hangt helemaal af van eigen verspreiding en dat is niet te meten zonder een eigen test. Wat er nog gemeten moet worden: hoe de 20 makers met $300+ hun eerste klanten vonden (Product Hunt-lanceringen, X-volgers), en of een maker zonder publiek het ook haalt.
 - **Tools rond AI-codeagenten: cijfer 5, nog niet klaar.** Snelle groei, kleine producten, betalende ontwikkelaars, maar ook geen winkel en veel gratis concurrentie op GitHub. Zelfde vraag: hoe vinden ze klanten?
 - **De scan zelf:** nuttig als bron. Geen nieuw platform met cijfer 6 of hoger. Het script kan elke maand opnieuw draaien om groepen te volgen.
+
+## Vervolg 9 nov run 00:31: haalt een Mac-maker zonder publiek het ook?
+Taak uit taken.md (8 nov 21:31). Per profiel op TrustMRR (de .md-pagina, toegestaan) het aantal X-volgers van de oprichter gelezen, voor alle 190 Mac-apps buiten de App Store die sinds 2025 begonnen (geen App Store of RevenueCat als betaalbron). Geteld per oprichter (beste app), zodat een maker met meerdere apps één keer telt. "0" betekent: geen X gekoppeld, meestal ook geen oprichter op het profiel.
+
+| X-volgers oprichter | Oprichters | $300+ in 30 dagen | $1.000+ |
+|---|---|---|---|
+| 0 (geen X) | 31 | 1 (3%), en die is twijfelachtig (wow-keywords, geen oprichter, misschien geen Mac-app) | 1 |
+| 1 tot 999 | 108 | 16 (15%) | 9 |
+| 1.000 tot 4.999 | 24 | 9 (38%) | 7 |
+| 5.000+ | 11 | 8 (73%) | 5 |
+
+(GEZIEN op TrustMRR; omzet zelf is DERDEN, geverifieerd via de betaaldienst.) 72 van de 190 apps hadden $0 in 30 dagen.
+
+Voorbeelden met weinig volgers: SessionWatcher (32 volgers, $1.563 in 30 dagen, Claude Code-verbruik in de menubalk), Headroom (724, $3.091), Chronoid (772, $1.657), ExtraDock (391, $3.655). Let op: ExtraDock is van een maker met 4 apps plus een bundel, dus een portfolioverkoper, geen nieuwkomer.
+
+Kanalen (eigen sites van de apps met $300+): 8 linken naar hun Product Hunt-pagina, bijna allemaal naar het X-account van de oprichter (bouwen in het openbaar), Reddit-vermeldingen vooral bij ExtraDock (46), bytemail (17), ExtraBar (14), atomicbot (13), cursorclip (9). Setapp speelt bijna geen rol (1 site).
+
+**Wat het betekent:** weinig volgers sluit omzet niet uit: ongeveer 1 op 7 oprichters met minder dan 1.000 volgers haalt $300+ in 30 dagen. Met een publiek gaat het veel vaker goed. Zonder X-account vond ik er geen.
+
+**Zwaktes (van de controleur, terecht):** wie zich op TrustMRR zet is al een verkoper die op X actief is; Mac-apps zonder verkoopdrang zie je niet, dus 15% is een bovengrens voor ons. Volgers kunnen ook komen dóór de omzet. De groepen boven 1.000 zijn klein (24 en 11). Het gaat om 30 dagen, terwijl de apps tussen een paar weken en bijna twee jaar oud zijn.
+
+**Cijfer Mac-apps buiten de App Store blijft 5, nog niet klaar.** Wat het zou veranderen: een eigen proef. Dortus heeft geen X-publiek, en Thijs post niet onder zijn naam (regel). De enige route zonder eigen publiek is dan Product Hunt, Reddit (r/macapps) en zoekmachines, en die kunnen wij niet zelf bespelen zonder account. Dat maakt de drempel voor ons hoger dan voor deze makers.
+
+Data: `data/trustmrr-mac-volgers-2026-11-09.tsv`, `data/trustmrr-mac-kanalen-2026-11-09.tsv`, script `data/trustmrr-mac-volgers-script.sh`. Controleur: rekensom klopt, 5 profielen zelf nagekeken; correcties verwerkt (per oprichter tellen, geen-X apart, 36 in plaats van 40 met $300+, Product Hunt 8, Reddit-zin, voorzichtiger conclusie).

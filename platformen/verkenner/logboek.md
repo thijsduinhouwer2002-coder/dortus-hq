@@ -608,3 +608,33 @@ Nieuwste blok onderaan.
 - Run afgesloten.
 - Na afsluiten nog tijd: PDF++ toegevoegd aan de Obsidian-kans (cijfer 2, een onafhankelijke voortzetting is al aangevraagd). Platformrun: Twitch Extensions voorwerk, niet te meten zonder account.
 - Roll20 Marketplace voorwerk: niet te meten (lijst via /api/, verboden in robots.txt), vooral kunst. Run nu echt afgesloten.
+
+## 9 nov run 00:31 (Amsterdam)
+- Begin: lokale main stond los, opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Onderdeel: platformrun (de twee runs hiervoor waren productkansen). TRMNL zelf gevonden (hardware met een winkel voor plugins en een maandelijks Creator Fund). Om 00:35 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 1.237 recipes via de open Recipes API (recipes.json, met publicatiedatum en installs) en alle 12 maandposts van het Creator Fund.
+- Uitkomst: nee voor nu, cijfer 3. Geld gaat aantoonbaar naar kleine makers, maar de pot is sinds april vlak ±$3.900 per maand voor alle makers samen; nieuwe recipes halen mediaan 14 connections, geen eigen prijs mogelijk. Zie voorstellen/trmnl.md.
+- Controleur: alle getallen kloppen; vier toevoegingen verwerkt.
+- Les: zoek eerst in de documentatie naar een open JSON-ingang (hier `.json` achter de lijst-URL) voor je pagina's gaat schrapen; dat scheelde ±15 minuten en gaf datums die op de pagina's ontbraken.
+- Tweede onderdeel (tijd over): taak Mac-apps buiten de App Store, haalt een maker zonder publiek het? X-volgers van alle 190 oprichters gelezen op TrustMRR. Van de oprichters met 1 tot 999 volgers haalt 15% $300+ in 30 dagen, zonder X-account niemand. Cijfer blijft 5 (wij hebben geen publiek en posten niet onder de naam van Thijs). Controleur: rekensom klopt, correcties verwerkt.
+- Voorwerk zonder meting: Homey (geen betaalde apps) en flightsim.to (botbescherming) in kandidaten.md.
+- Run afgesloten.
+
+## 9 nov run 01:31 (Amsterdam)
+- Begin: lokale map stond los, opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Onderdeel: productkans (vorige run was een platformrun). Blender, nieuwe hoek: in welke soorten add-ons verkopen nieuwkomers? Om 01:34 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 2.955 add-ons van de laatste 13 maanden uit de lijst op datum (125 pagina's), met verkoopteller, prijs, maker en tekst; ingedeeld in 31 thema's.
+- Uitkomst: geen nieuwe niche, cijfer 3, nee voor nu. Waar nieuwkomers goed verkopen (jiggle, mist, retopologie, print-splitsen) is de top sterk of stroomt het jonge aanbod binnen. Print-splitsen bevestigt wat Olaf in drie rondes al vond.
+- Nieuw feit: ±720 nieuwe add-ons in de laatste 30 dagen, tegen ±110 tot 150 per maand een jaar geleden; een kwart is één maker (ZEG, 165 generators). Een nieuwe add-on staat nu minder dan een dag op pagina 1 van "nieuwste". Bericht aan Bram en Olaf. Herhaalmeting rond 5 dec in taken.md.
+- Controleur: datums per pagina, ZEG, alle tellers in de print-niche, oude bestsellers en gratis concurrenten nagekeken, alles klopt grofweg; prijzen soms in de aanbieding.
+- Les: lees eerst de mappen van de bouwers (hier `platformen/blender-2/`) voor je een niche induikt; Olaf had print-splitsen al grondig gedaan. Tweede les: de pagina heeft twee prijsvelden (centen en dollars), pak het veld met aanhalingstekens.
+- Na afsluiten nog tijd: Orbolt (Houdini) voorwerk in kandidaten.md, prijzen zichtbaar maar geen tellers. Run afgesloten.
+
+## 9 nov run 02:31 (Amsterdam)
+- Begin: lokale main stond los en GitHub had een geforceerde update; opnieuw op origin/main. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: eigenlijk een productkansrun, maar de vaste toestemming van Thijs noemt nu uitdrukkelijk het lezen van de winkel-API van SketchUp, het platform dat op 7 nov niet te meten was. Platformen zijn de hoofdzaak, dus SketchUp eerst. Om 02:38 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 1.429 zichtbare extensies via twee API-verzoeken (packages?count=1000), met downloads, prijs, proef en datum. API gevonden door de netwerkverzoeken van de winkel in Playwright te bekijken.
+- Uitkomst: nee voor nu, cijfer 4. Gratis bereik goed (mediaan 236 na 3 tot 6 maanden, 67% 100+), betaald klein (nieuwe betaalde mediaan 14 tot 25 downloads, 5% van de jonge betaalde haalt 100+), 30% afdracht (DERDEN), geen maker met een bedrag. Zie voorstellen/sketchup.md.
+- Controleur: alle getallen kloppen; aangevuld met 4.715 pakketten bij showHidden=true (alleen overlevers zichtbaar), proeven in downloads, 5% bij jonge betaalde.
+- Les: bij een winkel die alleen in de browser laadt, eerst met Playwright de netwerkverzoeken bekijken; dat gaf in 5 minuten de hele API.
+- Volgende productkansrun weer zoals gepland; volgende platformrun: Autodesk-reviews via de winkel-API.
