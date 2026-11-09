@@ -1,60 +1,33 @@
 Blender 5.2.3 LTS
-engine CYCLES, view AgX, look AgX - Medium High Contrast
-object Mannequin: 327226 vlakken, vakken [None, 'Film hout']
-  vlakken per vak {0: 327226}
-  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeTexCoord', 'ShaderNodeTexWave', 'ShaderNodeTexNoise', 'ShaderNodeValToRGB', 'ShaderNodeMath', 'ShaderNodeMath']
+pop: 315422 vlakken, foute randen 0
+look AgX / AgX - Medium High Contrast
+object Mannequin: 315422 vlakken, vakken ['Film hout']
+  vlakken per vak {0: 315422}
+  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeTexCoord', 'ShaderNodeTexNoise', 'ShaderNodeVectorMath', 'ShaderNodeTexWave', 'ShaderNodeValToRGB']
     ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
-    ShaderNodeTexCoord.Object -> ShaderNodeTexWave.Vector
     ShaderNodeTexCoord.Object -> ShaderNodeTexNoise.Vector
-    ShaderNodeTexNoise.Factor -> ShaderNodeMath.Value
-    ShaderNodeTexWave.Factor -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeValToRGB.Factor
+    ShaderNodeTexNoise.Color -> ShaderNodeVectorMath.Vector
+    ShaderNodeTexCoord.Object -> ShaderNodeVectorMath.Vector
+    ShaderNodeVectorMath.Vector -> ShaderNodeTexWave.Vector
+    ShaderNodeTexWave.Factor -> ShaderNodeValToRGB.Factor
     ShaderNodeValToRGB.Color -> ShaderNodeBsdfPrincipled.Base Color
     Base Color gekoppeld True, waarde (0.8, 0.8, 0.8, 1.0)
     uitgangen [('Material Output', True, 'ALL')]
-render 1-hout-nu klaar
-render 2-effen-bruin klaar
-render 3-alleen-gloed-bruin klaar
-object Mannequin_A: 305533 vlakken, vakken [None, 'Film hout', 'Click Joints Good fit']
-  vlakken per vak {0: 299906, 2: 5627}
-  materiaal Film hout: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeTexCoord', 'ShaderNodeTexWave', 'ShaderNodeTexNoise', 'ShaderNodeValToRGB', 'ShaderNodeMath', 'ShaderNodeMath']
-    ShaderNodeTexCoord.Object -> ShaderNodeTexWave.Vector
-    ShaderNodeTexCoord.Object -> ShaderNodeTexNoise.Vector
-    ShaderNodeTexNoise.Factor -> ShaderNodeMath.Value
-    ShaderNodeTexWave.Factor -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeValToRGB.Factor
-    ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
-    ShaderNodeValToRGB.Color -> ShaderNodeBsdfPrincipled.Base Color
-    Base Color gekoppeld True, waarde (0.584, 0.254, 0.07, 1.0)
-    uitgangen [('Material Output', True, 'ALL')]
-  materiaal Click Joints Good fit: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial']
-    ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
-    Base Color gekoppeld False, waarde (0.0, 0.672, 0.305, 1.0)
-    uitgangen [('Material Output', True, 'ALL')]
-object Mannequin_B: 26138 vlakken, vakken [None, 'Film hout B', 'Click Joints Good fit']
-  vlakken per vak {0: 21353, 2: 4785}
-  materiaal Film hout B: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial', 'ShaderNodeTexCoord', 'ShaderNodeTexWave', 'ShaderNodeTexNoise', 'ShaderNodeValToRGB', 'ShaderNodeMath', 'ShaderNodeMath', 'ShaderNodeBsdfTransparent', 'ShaderNodeMixShader', 'ShaderNodeValue']
-    ShaderNodeTexCoord.Object -> ShaderNodeTexWave.Vector
-    ShaderNodeTexCoord.Object -> ShaderNodeTexNoise.Vector
-    ShaderNodeTexNoise.Factor -> ShaderNodeMath.Value
-    ShaderNodeTexWave.Factor -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeMath.Value
-    ShaderNodeMath.Value -> ShaderNodeValToRGB.Factor
-    ShaderNodeValToRGB.Color -> ShaderNodeBsdfPrincipled.Base Color
-    ShaderNodeValue.Value -> ShaderNodeMixShader.Factor
-    ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeMixShader.Shader
-    ShaderNodeBsdfTransparent.BSDF -> ShaderNodeMixShader.Shader
-    ShaderNodeMixShader.Shader -> ShaderNodeOutputMaterial.Surface
-    Base Color gekoppeld True, waarde (0.584, 0.254, 0.07, 1.0)
-    uitgangen [('Material Output', True, 'ALL')]
-  materiaal Click Joints Good fit: nodes ['ShaderNodeBsdfPrincipled', 'ShaderNodeOutputMaterial']
-    ShaderNodeBsdfPrincipled.BSDF -> ShaderNodeOutputMaterial.Surface
-    Base Color gekoppeld False, waarde (0.0, 0.672, 0.305, 1.0)
-    uitgangen [('Material Output', True, 'ALL')]
-buigen 28: rode vlakken 25, B doorzichtig waarde 0.6000000238418579
-render 4-buigen-28 klaar
-buigen 40: rode vlakken 45
-render 5-buigen-40 klaar
+render 1-held klaar
+elleboog: {'FINISHED'}, kogel 4.5 mm
+elleboog: passing groen, wand 1.636, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4], foute randen A 0 B 0
+richting 3 ((0.27, 0.03, 0.96)), grens 20
+render 2-haak-gloed klaar
+render 3-elleboog-0 klaar
+28 graden: rode vlakken A 24
+render 4-rood28-hoek0 klaar
+render 4-rood28-hoek60 klaar
+render 4-rood28-hoek120 klaar
+render 4-rood28-hoek180 klaar
+render 4-rood28-hoek270 klaar
+render 5-rood28-exploded klaar
+knie: {'FINISHED'}, kogel 4.0 mm, A2 Mannequin_A_A, B2 Mannequin_A_B
+knie: passing groen, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
+zichtbaar in render: ['Achtergrond', 'Mannequin_B', 'Mannequin_A_A', 'Mannequin_A_B']
+render 6-twee-gewrichten-15 klaar
 PROEF KLAAR

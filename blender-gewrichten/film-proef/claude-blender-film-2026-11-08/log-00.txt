@@ -1,5 +1,1 @@
 gloed: compositor aan
-plaats: {'FINISHED'}, kogel 3.5 mm, passing groen, wand 1.57, tekst Bends ±20°, bereik [20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4, 20.4]
-deel A foute randen 0, deel B foute randen 0
-richting 3, grens 20, B doorzichtig ja
-buigen beeld 98: pose 28.0 rode vlakken A 25
