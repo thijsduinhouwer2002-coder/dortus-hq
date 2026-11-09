@@ -29,3 +29,5 @@
 - Meting: 6 en 9 nov naast elkaar (0 overstappen gratis naar betaald), reviews van alle 204 betaalde niet-wijzerplaten uit 2026 met 100+ (5 eerst gratis, controleur vond een zesde, allemaal spelletjes), forumregels via een agent. Controleur haalde de hele winkel opnieuw op: getallen kloppen.
 - Besluit: van 5 naar 7, geen 8. Downloads zijn kopers bij hulp- en sportapps, maar bedragen klein ($2,25 mediaan) en 1.000+ haalt maar 2 tot 7% van kleine makers. Niet als 8 aan Hans gemeld.
 - Let op: git checkout van main gaf een geforceerde update op origin (iemand pushte met force); lokale HEAD zat er wel in. sortType op de Garmin-API is MOST_RECENT enz. (op changedDate), pageSize max 30.
+- CrazyGames daarna: agent zocht opbrengst per 1.000 plays (2025/2026) en het slagingspercentage van de Basic Launch. Niets gevonden behalve bedragen zonder plays. Blijft 6, valt af voor mij; eigen spel insturen is de enige meting (keuze voor Hans). Geen controleur: er kwam geen nieuw cijfer uit.
+- Volgende run: Overwolf (6, opbrengst per gebruiker), Shopify Theme Store (6, reviews per verkoop) of Fire TV Vega OS (6).
