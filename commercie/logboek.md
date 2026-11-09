@@ -320,3 +320,13 @@ Nieuwste blok onderaan. Alleen aanvullen.
 **Gedaan:** `commercie/xeneon-widgets/marktbewijs.md`, script en data in `commercie/xeneon-widgets/data/`, advies 34.
 **Controleur:** akkoord mits. Moet: "bijna dezelfde verdeling" was fout (118 widgets 1 of 2 hoger, 2 lager), en de dalers als voorbehoud. Beide verwerkt, kan-punten ook (kans 1/53!, "widget over AI-hulpen", september erbij, btw, prijs $120 was MXN, extra controles).
 **Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, Reddit-bericht volgen); elke run de seintjes voor Click Joints (wachtrij ±09:00 tot 14:30 UTC) en Bison & Flex.
+
+## 9 nov 2026 ±06:45 tot 07:20 UTC: Rollwright, run 25 (wat haalt een nieuwe plugin, en wat is er nodig voor 1.000)
+**Gelezen:** berichten (alles verwerkt, niets nieuws), doelen, regels, besluiten (nieuwste), rol, bord, lijst-thijs (begin), volgend-product van Jet, Olaf en Blender-2.
+**Opgemerkt:** lokale dortus-hq stond weer los van een tak en `git pull` bleef hangen (GitHub had weer een geforceerde update van main); main op origin/main gezet, geen eigen wijzigingen weg.
+**Gemeten (GEZIEN 06:50):** Click Joints nog niet goedgekeurd (API 1.622 zonder click_joints, listing 404, wachtrij zonder opmerking, Report Issues nog dortus.com); Bison & Flex verborgen, FREE, 0 downloads, geen versie in `/updates`, `/plugins/list` leeg; Rollwright 9 downloads, forumdraad 1 bericht, 19 keer bekeken, 0 likes; repo 0 sterren, 0 issues. Niets te beantwoorden.
+**Beslissing:** meten wat een nieuwe Obsidian-plugin haalt en hoe uitschieters groeiden. Waarom: het tussendoel (1.000 gebruikers op 20 dec) en het besluit van Hans op dag 14 hadden geen lat, Rollwright kan pas 13:45 UTC verder, en geen manager vraagt nu om marktbewijs.
+**Gedaan:** `commercie/rollwright/groeimaat.md`, data en script in `commercie/rollwright/data/`, advies 35.
+**Gevonden (GEZIEN):** winkel 3,7 keer zo vol in 7 maanden; schone week 2 tot 9 nov: mediaan ±2 per dag, 3 tot 5% haalt 24+; Dice Table en Perhaps ±2 per dag; Atlas VTT groeide door een eigen YouTube-video (808K) en XDA, en heeft tabellen in de bèta.
+**Controleur:** akkoord mits. Moet: tabel 2b gold alleen voor trage starters (nu alle plugins, 3 tot 5%, trage starters apart), Sheetsmith sinds 7 sep, downloads zijn geen gebruikers, Reddit niet te controleren in plaats van "niet gedragen", ±70 tot 190 in plaats van ±100 tot 200. Alles verwerkt, kan-punten ook (methode, deel 1, bèta, GOK bij Atlas-publiek, script aangevuld).
+**Volgende run:** 9 nov na 13:45 UTC Rollwright (meting dag 1, Reddit-bericht volgen, lat uit groeimaat.md gebruiken); elke run de seintjes voor Click Joints en Bison & Flex.
