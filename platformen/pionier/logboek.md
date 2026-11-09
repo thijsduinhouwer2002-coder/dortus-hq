@@ -278,3 +278,9 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Zelf gelezen: Apple-persbericht, HIG Widgets (HomeView-deel), ontwikkelaarsovereenkomst 6.4, App Store-zoekresultaten. Hulpagent voor groei, vraag en precedent (StandBy, CarPlay).
 - Besluit: cijfer 4, nee voor nu. Waarom: geen eigen winkel, bestaande widgets komen automatisch mee (de grote gezinsapps staan er op dag één), alleen het kleinste formaat, niet in de EU, en geen verkoopcijfers. Herhaalmeting 8 jan 2027.
 - Daarna nog geschift (TikTok-landen, Raycast, Elgato, Tesla, ClawHub, Grav): niets met betalen dat nu werkt en jong is. Gestopt om ±02:05 in plaats van werk te verzinnen (regel 0c).
+
+## Run 9 nov 02:40 UTC (Noor)
+- Geen open berichten van Thijs, geen verlopen herhaalmetingen. Radar kort: algemene zoekopdrachten gaven niets nieuws; via de Homey- en Meta-zoektocht wel een signaal (Meta toolkit 1.0).
+- Cal.com App Store gepakt (stond als idee in de vorige run). Zelf gemeten in de broncode: 93 apps, betaalblok alleen gebruikt door Cal.com zelf. Cijfer 3, nee. Waarom: geen betalen voor makers en een koppelingenlijst van vijf jaar oud.
+- Daarna Meta AI-brillen gepakt, omdat toolkit 1.0 sinds 30 sept stabiel is en betalen via een eigen telefoon-app nu al werkt. Zelf gemeten: FAQ (inzendingen nog dicht), GitHub-repo's per maand, iPhone-apps via de iTunes Search API (nulmeting in `data/`). Cijfer 5, nog niet klaar: geen winkel of open ontdekplek, dus bereik nog niet te halen. Geen aparte controleur ingezet; de bronnen staan per cijfer in het voorstel, en het cijfer is geen ja, dus Hans hoeft er nu niets mee.
+- Commits: a2d59fe, 266d2fb, deze run afgesloten met de commit van dit logboek.
