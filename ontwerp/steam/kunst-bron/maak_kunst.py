@@ -319,7 +319,8 @@ def lijf(fr, bob):
     return im
 
 HOEDEN = {
-    "helm": ["................", "................", "......kkkk......", "....kkIjjIkk....", "...kiIIIIIIIk...", "...kkkkkkkkkk...", "................"],
+    # Mila 9 nov run 3: helm hoger met een rode kam (Sanne toets 4: de platte helm las op Gloop als een pannendeksel)
+    "helm": [".....kkkkk......", "....kRRRRrk.....", "....kkIjjIkk....", "...kiIIIIIIIk...", "...kiIIIIIIIk...", "...kkkkkkkkkk...", "................"],
     "puntmuts": ["........kk......", ".......kZZk.....", "......kZzZk.....", ".....kZZzZZk....", "....kZZZZzZZk...", "...kkYkkkkkkkk..", "................"],
     "kap": ["................", "................", "......kkkkk.....", ".....kGGGGGk....", "....kgGGGGGGk...", "...kgk.....kk...", "...kgk.........."],
     "pet": ["................", "................", "................", ".....kkkkkk.....", "....kRRRRRRk....", "....kkkkkkkkkk..", "................"],

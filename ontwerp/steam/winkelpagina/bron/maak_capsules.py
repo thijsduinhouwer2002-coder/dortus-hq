@@ -10,7 +10,7 @@ TEG, GRAS, MAAI, SLIJM, HOED, LIJF, SCHAT, FAKKEL, GLOED, TEK, VERS, VOND, ING, 
     "tegels.png", "gras.png", "maaiveld.png", "slijm.png", "held_hoeden.png", "held_lijf_kleuren.png", "schat.png",
     "fakkel.png", "gloed.png", "tekens.png", "versiering.png", "vondsten.png", "ingang.png", "held_wapens.png", "held_littekens.png")]
 def cel(im, i, w=16, h=16, rij=0): return im.crop((i * w, rij * h, i * w + w, rij * h + h))
-HOED_TOP = [2, 0, 2, 3, 1, 0, 0, 0, 2, 0]
+HOED_TOP = [0, 0, 2, 3, 1, 0, 0, 0, 2, 0]   # helm 0 sinds de kam (9 nov run 3)
 HOED_ONDER = [5, 5, 6, 5, 5, 5, 5, 5, 5, 5]
 SCHEEF = [0, 1, -1, 1]
 DONKER = (0x12, 0x0b, 0x18, 255)

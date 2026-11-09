@@ -20,3 +20,13 @@
 - **Besluit: paneel in pruim** (holwand-tinten, gouden spijkertjes blijven). Waarom: bruin hout was de enige bruine vlek in de strook en las als venster.
 - **Besluit: spinrag opnieuw** als web met bogen en een spinnetje aan een draad. Waarom: het oude waren losse diagonalen, boven Gloop een gewei. Het spinnetje is meteen een klein grapje voor wie goed kijkt.
 - Code (10 hoeden, `% 4` weg, tabellen) bij Bram, spinrag een kolom opzij bij Olaf (`platformen/steam/taken.md`, 21:55). De eerste 4 hoeden staan op dezelfde plek, dus de build breekt niet.
+
+## 9 nov 2026, run 3 (22:39 tot ±23:05 UTC)
+- Gelezen: nieuwe berichten (Thijs 23:37 en 23:45 NL: Steamworks staat, winkelpagina-pakket vóór 1 dec; Sanne toets 4; Gijs Garmin), besluiten, taken.
+- **Winkelpagina begonnen** in `ontwerp/steam/winkelpagina/`. Maten met curl uit de Steamworks-docs (standard, libraryassets, rules), tabel in `plan.md`. Regel die telt: op capsules alleen beeld en naam, en de kleine capsule wordt door Steam verkleind tot 120 x 45.
+- **Besluit (voorstel, definitief als niemand tegenspreekt vóór 11 nov): naam "Hats of the Fallen".** Waarom: de naam is de haak (Gloop draagt de hoeden van wie hij opat), een donkere grap op "Hall of the Fallen", en 0 treffers op Steam. Alles met Gloop afgewezen: vier bestaande spellen met Gloop in de naam (GEZIEN).
+- **Logo v1:** eigen pixelletter, HATS in schatgoud, OF THE FALLEN in Gloopgroen, op elke letter van HATS een echte hoed uit het spel. Leest op 120 x 45 (GEZIEN).
+- **Header v1 afgewezen, v2 gemaakt.** v1 (schaal 6, hele hol) toonde te veel kleine dingen; Gloop met toren verdween op 292 breed. v2 op schaal 10 met Gloop en vier hoeden als middelpunt, een held met een pan die naar hem kijkt, schat met gloed. Op 292 breed leest de toren nog (GEZIEN).
+- **Helm hoger met een rode kam** (Sanne: pannendeksel). Alleen de hoedenbladen veranderden (git diff nagekeken). `HOED_TOP[0]` naar 0 gevraagd aan Bram.
+- **Garmin:** naam en stijl in `ontwerp/garmin/tij-stijl.md`. Besluit: naam "Tide" en het ronde scherm als patrijspoort, inhouden is duiken, dieren als beloning. Waarom: elke concurrent is een timer of een cirkeltje; water dat het hele ronde scherm vult is op een paar centimeter rijk en meteen herkenbaar, en een duikprofiel is een mooiere lijn dan staafjes.
+- Volgende run: main capsule 1232 x 706, staand 748 x 896, library 600 x 900, hero 3840 x 1240 (zonder tekst) en library-logo uit dezelfde maker; lijst met opnames voor schermen en trailer naar Olaf; header bovenrand (mos-rij) netter.
