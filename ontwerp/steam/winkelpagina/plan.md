@@ -35,7 +35,7 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 ## 4. Stand per bestand
 | Bestand | Stand | Wat nog |
 |---|---|---|
-| `header-920x430.png` | v2 | v1 (scene op schaal 6) afgewezen: Gloop en toren te klein, berg leek puin. v2: scene op schaal 10, **Gloop met 4 hoeden is het middelpunt**, een nieuwe held met een pan kijkt naar hem, schat met gloed rechts, logo links boven. Verkleind naar 292 breed lezen logo en toren nog (GEZIEN). Nog: de achterwand bovenaan (mos-rij) is half afgesneden; de hoedenberg links van Gloop mag netter. |
+| `header-920x430.png` | v3 | v2 verloor naast de toppers (`vergelijk-header-toppers.png`, op 292 breed zoals de winkellijst): logo en figuren te klein, donker vlak. v3: close-up op schaal 12, Gloop met vier hoeden als hoofdfiguur, held met pan links onder het logo, schat met gloed rechts, logo groter. **Eerlijk oordeel: herkenbaar en de grap leest, maar nog minder rijk dan Rusty, Tiny Pasture en Deskrawl** (die zijn geschilderd, met een dik eigen logo). v4: Gloop en de hoeden opnieuw tekenen op 3x de spelmaat (zelfde figuur, meer detail, licht van de schat op zijn huid) en een dikker logo met een gouden rand en reliëf. |
 | `klein-462x174.png` | v1 | op 120 x 45 en 184 x 69 lezen HATS, de kroon en OF THE FALLEN (GEZIEN); Gloop met toren rechts is klein maar herkenbaar. |
 | `main-1232x706.png` | v1 | sterrenlucht, gras, logo, daaronder de schatkamer met held, hoedenberg, Gloop met 4 hoeden en schat. Logo valt half over het gras, leest goed door de rand (GEZIEN). |
 | `staand-748x896.png` | v1 | logo groot in de lucht, schatkamer onderaan. Eerste versie met lege bakstenen wand afgewezen (leeg midden). |

@@ -154,26 +154,25 @@ def scene(W, H, grond_y, kamer, items):
 
 def schaal(im, s): return im.resize((im.width * s, im.height * s), Image.NEAREST)
 
-# ---------- header 920 x 430 v2: scene op schaal 10 (92 x 43 spelpixels), logo erop op schaal 6 ----------
+# ---------- header 920 x 430 v3: close-up op schaal 12 (77 x 36 spelpixels), groot logo op schaal 6 ----------
+# v2 verloor naast de toppers (Rusty, Ropuka, Tiny Pasture, Deskrawl): logo en figuren te klein, te donker.
 def header():
-    W, H, S = 92, 43, 10
-    vloer = 39
+    W, H, S = 77, 36, 12
+    vloer = 34
     im = Image.new("RGBA", (W, H), (0x1d, 0x14, 0x26, 255))
-    for kx in range(W // 16 + 1):                       # achterwand van de schatkamer (gang-tegels, open)
+    for kx in range(W // 16 + 1):
         for ry in range(3):
-            im.alpha_composite(cel(TEG, 1 if ry == 0 else 0, rij=1), (kx * 16, vloer - 48 + ry * 16))
+            im.alpha_composite(cel(TEG, 1 if ry == 1 else 0, rij=1), (kx * 16, vloer - 16 * (ry + 1)))
         im.alpha_composite(cel(TEG, (kx * 3) % 8, rij=0), (kx * 16, vloer))
-    im = gloed(im, 80, vloer - 8, .9); im = gloed(im, 56, vloer - 14, .35); im = gloed(im, 86, 12, .5)
-    im.alpha_composite(cel(FAKKEL, 2, 8, 12), (82, 6))
-    im.alpha_composite(cel(SCHAT, 1, 24, 16), (70, vloer - 16))
-    im.alpha_composite(cel(SCHAT, 3, 24, 16), (82, vloer - 16))
-    berg(im, 56, vloer, [0, 1, 3, 2, 6, 1])                     # maat 2: 6 hoeden
-    gloop_met_toren(im, 57, vloer, [7, 5, 4, 9])                # hoge hoed, koksmuts, kroon, veermuts
-    held(im, 10, vloer, 0, 8, wapen=0)                         # nieuwe held met een pan op, kijkt naar Gloop
+    for gx_, gy_, st in ((62, vloer - 6, 1.0), (54, vloer - 12, .7), (70, vloer - 18, .6), (40, vloer - 8, .35)):
+        im = gloed(im, gx_, gy_, st)
+    im.alpha_composite(cel(SCHAT, 1, 24, 16), (62, vloer - 16))
+    gloop_met_toren(im, 52, vloer, [7, 5, 4, 9])
+    held(im, 4, vloer, 0, 8, wapen=0)
     im = schaal(im, S)
-    lg = schaal(logo(2), 5)
-    im.alpha_composite(lg, (14, 12))
-    return im
+    lg = schaal(logo(2), 6)
+    im.alpha_composite(lg, (0, 0))
+    return im.crop((0, 0, 920, 430))
 
 # ---------- klein 462 x 174 (schaal 4: 116 x 44, rand weg) ----------
 def klein():
