@@ -2,6 +2,9 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 09:00 | Attio App Store: SDK stabiel sinds 11 aug 2026, 294 apps (166 van derden, ±20 nieuw per maand), makers verkopen met eigen kassa ($29 tot $199/mnd), npm `attio` ×7 in een jaar | https://attio.com/apps | GEZIEN | onderzocht: cijfer 6, ja met kleine inzet; herhaal 9 dec
+- 9 nov 2026 08:45 | DeepSeek Harness: officiële plugin-marketplace en steunprogramma (tokens, promotie) aangekondigd, 35.000 plugins, 1,54 mln dagelijkse gebruikers; geen verkoop door makers | https://technode.com/2026/11/06/deepseek-plans-official-plugin-marketplace-as-harness-daily-users-reach-1-54-million/ | DERDEN | nee (AI-agent-soort zonder betalen)
+- 9 nov 2026 08:45 | PteroCA (facturatiepaneel voor gameservers) marketplace live, alles gratis, betaalde plugins in ontwikkeling | https://pteroca.com/blog/pteroca-v06-released-marketplace-now-live-roadmap-updated-for-2026 | GEZIEN | nee voor nu, klein
 - 9 nov 2026 08:10 | Tiendanube / Nuvemshop: 208.292 live winkels (+67% in zeven kwartalen), 647 apps van 394 makers; YouCan krimpt, Jumpseller vlak | https://storeleads.app/reports/tiendanube | GEZIEN | onderzocht: cijfer 4, doorgeven aan Vera
 - 9 nov 2026 07:55 | SHOPLINE App Store: 512 apps, 30.355 live winkels (vlak sinds 2024), afdracht achter inlog | https://storeleads.app/reports/shopline | GEZIEN | onderzocht: cijfer 3
 - 9 nov 2026 07:50 | Siri AI open voor alle ontwikkelaars (iOS 27.3 beta, 3 nov 2026); apps pas in de App Store vanaf voorjaar 2027; bestaande apps (bezorging, bank) komen vanzelf mee | https://memeburn.com/ios-27-3-beta-siri-ai-developers/ | DERDEN | nee voor de pionier (zelfde soort als HomeView), volgen in het voorjaar
