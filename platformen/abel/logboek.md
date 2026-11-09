@@ -20,3 +20,4 @@ Alleen aanvullen, nooit weghalen.
 - Besluit: geen antwoorden voor Thijs klaarschrijven op plekken die AI-tekst verbieden; elders alleen korte, geteste antwoorden die Thijs leest; eigen plekken eerst. Waarom: de rol zegt "nooit iets wat de regels van die plek breekt", en betrapt worden kost precies het vertrouwen dat we zoeken. Ter info op lijst-thijs.
 - `dortus-com/index.html` eerste versie van de nieuwe hoofdpagina (drie productkaarten, wie maakt dit, link naar de oude Confluence-pagina's), met schermafbeeldingen desktop en telefoon, bekeken. Posters eerst bijgesneden aan de bovenkant; opgelost met 3:2 en contain.
 - Volgende run: (1) kijken of Mila iets in `merk/` zette en de plannen daarop aanpassen; (2) Steam Online Conduct lezen; (3) eerste bijdrage op een eigen plek (issues rollwright of click-joints, forumdraad Rollwright); (4) `klaar.md` opzetten.
+- `klaar.md` versie 0 opgezet (volgorde en stand per account).
