@@ -7,7 +7,8 @@ Helden, bewoners, vallen, kroniek, voortgang terwijl je weg bent. Zie de afspraa
   voor de eerste held van een nieuw spel. Boos teken boven het hoofd op weg naar zijn vijand, gouden ster bij 3 keer gevlucht.
 - `slijm.gd`: bewoner Gloop met Daans plaatje. Gaat nooit dood: verliest hij, dan is hij 60 s plat (`plat()`, `kan_vechten()`)
   en telt hij zijn happen (`gegeten`). Nog niet gebruikt door `strook.gd` (die zet de stand-in neer).
-- `kroniek.gd`, `voortgang.gd`: kroniek met wrok en bijnamen; voortgang terwijl je weg bent (alleen winst, plafond 12 uur).
+- `kroniek.gd`, `voortgang.gd`: kroniek met wrok en bijnamen; voortgang terwijl je weg bent (alleen winst, plafond 12 uur, zelfde kansen als held.gd). `Voortgang.verhaal(uitkomst, kroniek.helden, ["Gloop the Slime", "the Spike Pit"], zaad)` geeft 2 tot 3 regels met namen (wie terug was, welke wrok, aartsvijand), elk hooguit 42 tekens.
+- Balans: `../../sim/sim.py`, uitkomst in `../../sim/UITKOMST.md`.
 
 Toetsen (Godot 4.3, moeten 0 FOUT geven):
 ```

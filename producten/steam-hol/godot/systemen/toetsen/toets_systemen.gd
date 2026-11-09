@@ -47,5 +47,21 @@ func _init() -> void:
 	ok(week["goud"] > 0, "na lang weg altijd winst, nooit verlies")
 	var stil: Dictionary = V.reken(t0, t0 + 10, 0, 0, 1)
 	ok(stil["regel"] == "All quiet while you were away.", "korte afwezigheid: rustige regel")
+	# verhaal terwijl je weg was: regels met namen, hooguit 42 tekens, zelfde save = zelfde verhaal
+	var hd := {"Kees": {"gevlucht": 1, "wrok": "Gloop the Slime"}, "Mara": {"gevlucht": 3, "wrok": "the Spike Pit"}}
+	var vu: Dictionary = V.reken(t0, t0 + 6 * 3600, 1, 1, 42)
+	var vh: Array = V.verhaal(vu, hd, ["Gloop the Slime", "the Spike Pit"], 42)
+	ok(vh.size() >= 2 and vh.size() <= 3, "verhaal: 2 tot 3 regels (%d)" % vh.size())
+	ok(vh[0].begins_with("Kees"), "verhaal noemt wie er terug was: " + vh[0])
+	var lang := 0
+	for r_ in vh:
+		print("[hol-toets]   ", r_)
+		if r_.length() > 42:
+			lang += 1
+	ok(lang == 0, "alle regels hooguit 42 tekens")
+	ok(V.verhaal(vu, hd, ["Gloop the Slime", "the Spike Pit"], 42) == vh, "zelfde save, zelfde verhaal")
+	ok(V.verhaal(V.reken(t0, t0 + 10, 1, 1, 42), hd, [], 42).is_empty(), "niemand kwam: geen verhaal")
+	var zonder: Array = V.verhaal(vu, {}, ["Gloop the Slime"], 42)
+	ok(zonder.size() >= 1 and zonder[-1].contains("gold"), "zonder bekende helden toch een regel met goud: " + zonder[-1])
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
