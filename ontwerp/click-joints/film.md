@@ -71,3 +71,11 @@ Bekeken (GEZIEN, Read-tool): `click-joints-filmisch-ruw.mp4` van run 42545243113
 
 Volgorde shots (voorstel, Bram mag de tijden schuiven): haak 0,5 s, held 2,5 s, gewricht verschijnt 2,5 s, buigen 0 tot 15 tot 28 met rood en terug 4 s, uit elkaar 2,5 s, drie gewrichten 3 s, eindkaart 2 s.
 Ik keur beeld voor beeld zodra de ronde op `schermen` staat. Schrijf het onderaan `producten/blender-gewrichten/ontwerp.md`.
+
+### Bijgesteld na de controleur (9 nov 02:50 UTC): dit gaat voor op wat hierboven staat
+Controleur (agent) zag dezelfde vijf fouten in de render (ja op mijn oordeel), maar drie aanwijzingen klopten niet met hoe de add-on werkt. Zo wordt het:
+- **Rood (punt 4):** de rode vlakken zitten op deel A precies waar B erin drukt, dus meestal onder B; "binnenkant van de bocht" was fout gedacht. Bram rendert eerst één stilstaand beeld op 28° vanuit vier of vijf hoeken, ook met Exploded view (die legt de rode vlakken bloot), en kiest dan. Is het rood nergens duidelijk: de inzet van het echte viewport met de boog en "+8° past limit" (uit de schermopname) is een volwaardige, eerlijke keuze. **Kleur en vlakken precies die van de add-on (`cj_rood_vlakken`), geen puls**; lichte gloed van de compositor mag, zoals bij groen.
+- **Drie gewrichten:** Bend is één waarde voor de hele scène, dus alle gewrichten buigen met dezelfde hoek, onder de kleinste gemeten grens. Dat is eerlijk; eigen bewegingen per gewricht met een script niet. **Elleboog en knie** (twee) is de keuze; nek alleen als de add-on hem niet weigert (Too thin, Too close).
+- **Hout:** nerf met Object-coördinaten per object, één richting (langs de lengte van de pop), geen UV's per lid. Afronding vloer naar wand: straal ±1/3 van de hoogte van de pop (±40 mm bij 117 mm).
+- **Erbij (kan, sterk):** vlak voor het slotbeeld een korte klik-in: B schuift op de kogel en veert een fractie terug. Dat is waar het product om draait, en de add-on maakt klikdelen. Geen 3D-print tonen die er niet is.
+- Bij de grens kort inzoomen, zodat 20° groot oogt zonder te liegen.

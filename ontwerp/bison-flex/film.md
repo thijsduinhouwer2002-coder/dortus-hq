@@ -5,7 +5,7 @@ Opdracht Thijs (8 nov 23:15): meer tijd en moeite in GIF's en video's, ook voor 
 Waar het voor is: rechts in de hero van dortus.com/bison-flex/ (zoals bij Rollwright), als GIF bovenaan de README, en als video bij de lancering (Reddit r/Jetbrains of r/ProgrammingLanguages, met link). In de winkel van JetBrains kan een video alleen als YouTube-link; dat zet ik later op de lijst van Thijs, niet nu.
 
 ## Waarom dit opvalt
-De enige actieve concurrent voor Bison/Yacc in C en C++ (Bison Language Support) kent alleen `.y` en staat sinds september 2023 stil (DERDEN, zie "Waarom wij" bovenaan `producten/jetbrains-bison-flex/ontwerp.md`); zijn winkelpagina toont geen film (GOK, niet nagekeken deze run). Niemand laat zien wat het echte probleem van iemand met een `.l` en `.y` is: twee bestanden die over dezelfde tokens gaan en elkaar niet kennen. Ons filmpje laat in vijftien seconden zien dat een token van het ene bestand naar het andere springt, en dat hernoemen in beide tegelijk gebeurt. Eén zin: **je ziet NUM reizen.**
+De enige concurrent voor Bison/Yacc in C en C++ die nog in de winkel staat (Bison Language Support) kent alleen `.y` en kreeg sinds september 2023 geen update (DERDEN, zie "Waarom wij" bovenaan `producten/jetbrains-bison-flex/ontwerp.md`); zijn winkelpagina toont geen film (GOK, niet nagekeken deze run). Niemand laat zien wat het echte probleem van iemand met een `.l` en `.y` is: twee bestanden die over dezelfde tokens gaan en elkaar niet kennen. Ons filmpje laat in vijftien seconden zien dat een token van het ene bestand naar het andere springt, en dat hernoemen in beide tegelijk gebeurt. Eén zin: **je ziet NUM reizen.**
 
 ## Gezicht
 Zelfde als de poster (`winkel-1-poster.png`): donkere achtergrond met de oranje gloed rechtsboven en blauw linksonder, Inter voor koppen, oranje voor grammatica (Y), blauw voor scanner (L), de boog van L naar Y uit het icoon. De IDE-vensters zweven als kaarten op die achtergrond, met afgeronde hoeken en een zachte schaduw. Geen geluid nodig; alles is zonder geluid te snappen.
@@ -17,7 +17,7 @@ Zelfde als de poster (`winkel-1-poster.png`): donkere achtergrond met de oranje 
 | 2 | 1,5 tot 3,5 | Camera trekt terug: beide vensters naast elkaar op de achtergrond. | **Your grammar and scanner, finally connected.** | lagen |
 | 3 | 3,5 tot 6,0 | calc.y in het donkere thema: kleuren, Structure-paneel klapt open, een tikfout geeft een rode golflijn met melding. | Free: colors, structure and syntax errors | echte reeks |
 | 4 | 6,0 tot 9,0 | Ctrl ingedrukt boven NUM in calc.l: onderstreept. Klik: het tabblad wisselt en de cursor staat op `%token NUM` in calc.y. Toetsen Ctrl + Click en het PRO-label in beeld. | Ctrl + Click: jump to the %token. PRO | echte reeks |
-| 5 | 9,0 tot 12,5 | Shift+F6 op NUM, je typt NUMBER letter voor letter, en in een gesplitst venster veranderen calc.l en calc.y tegelijk. De plekken die meeveranderen lichten kort op. | Rename once. Both files follow. PRO | echte reeks |
+| 5 | 9,0 tot 12,5 | Shift+F6 op NUM: het hernoemvenster van de IDE, je typt NUMBER (één beeld per letter), Enter. Daarna calc.l en calc.y naast elkaar met overal NUMBER; het kort oplichten van die plekken is een laag van mij, geen IDE-gedrag. | Rename once. Both files follow. PRO | echte reeks |
 | 6 | 12,5 tot 13,5 | Een ongebruikte regel krijgt een waarschuwing, Alt+Enter, weg. | Unused rules, caught. PRO | echte reeks |
 | 7 | 13,5 tot 15,5 | Eindkaart: icoon, "Bison & Flex for JetBrains IDEs", eronder de vaste regel en het adres. | Free: colors, structure and syntax errors · Pro: jump, rename and unused-code warnings across grammar and scanner | lagen |
 
@@ -31,6 +31,14 @@ Gratis en Pro precies zoals op de poster en in `plugin.xml` (regel Thijs 8 nov).
 5. Schrijf onderaan `producten/jetbrains-bison-flex/ontwerp.md` dat het klaar staat. Ik maak de film (lagen, overgangen, koppen) en keur hem.
 
 Niet dringend: het live product en de moderatie gaan voor. Wel graag binnen een dag, zodat de film er is als de winkel ja zegt.
+
+## Bijgesteld na de controleur (9 nov 02:50 UTC)
+- **Eigen map voor de film met alleen calc.l en calc.y** (geen calc.yy en calc.ll, anders geeft Ctrl+Click een keuzelijst in plaats van een sprong).
+- **Pro aan** zoals in `Winkelschermen.kt` (stand GELDIG via MeldingenDiagnose).
+- **Scène 4 is nog nooit met Pro in de echte IDE getoetst** (de test kijkt alleen dat er zonder licentie niet gesprongen wordt). Log daarom na de klik: cursor staat op `%token NUM` in calc.y, en het aantal onderstrepingen bij Ctrl-zweven (`ctrlZweven`). Springt hij niet: eerst repareren, dan pas de film.
+- **Donker thema is nieuw werk** (de winkelschermen zijn licht).
+- Scène 6: neem de zweeftekst of het Alt+Enter-menu in beeld, want een WEAK WARNING zie je in donker op video nauwelijks.
+- GIF voor de README: 960 breed, 15 beelden per seconde.
 
 ## Klaar als (ik toets dit)
 1. 14 tot 16 s, 1920 x 1080, H.264, onder 6 MB; GIF-versie onder 8 MB voor de README.
