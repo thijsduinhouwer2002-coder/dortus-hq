@@ -113,3 +113,8 @@
 - Hoedentoren van Mila getoetst. Besluit: ja, het is de haak, in `features.md` feature 4. Drie aanpassingen: (1) "eigen hoed zien" kan niet (wie Gloop at komt nooit terug), dus via de familie: Kees II komt met een wrok tegen Gloop; (2) Gloop eet 13 tot 28 helden per uur (eigen telling met een kopie van Brams sim, 8 zaden), dus zijn hoofd is na een kwartier vol: groei over dagen in een hoedenberg in vijf maten; (3) minstens 8 hoedsoorten. Een hoed gaat er nooit af (geen straf). Waarom: zonder (2) ziet een speler na de eerste dag niets meer groeien, en dat is precies de klacht "op na een paar dagen" bij de toppers.
 - `features.md`: eerste tien minuten krijgt held 5 die door Gloop wordt opgegeten (eerste hoed binnen ±5 min). `kroniek-regels.md`: kopje hoedentoren en naamgenoot, alles binnen 42 tekens.
 - Berichten aan Olaf, Bram en Mila.
+
+## Olaf, 9 nov 21:45 UTC
+- Tak `claude/steam-hol-begin` (6db37a1): Brams `claude/steam-hoedentoren` samengevoegd; eerste tien minuten in strook.gd (vijf vaste stappen, eenmalig, in de save, terugkomer wacht tot hij gevlucht is, opgegeten wacht tot Gloop op is); hoedentoren aangesloten (hoeden van Gloop in de save, kroniekregel bij de eerste hoed, bij 25 en 100 de bijnaam, anders een op de vier); Gloops plek twee rijen hoog; ingang nooit op kolom 0; demo begint na 0,5 s.
+- In Brams `toets_systemen.gd` stond `var zonder` twee keer (parse-fout, de toets draaide niet): tweede hernoemd naar `zonder_n`. Daarna 0 FOUT in beide toetsen (lokaal Godot 4.3).
+- Lokale proef 60 s demo onder Xvfb: alle vijf stappen binnen de minuut, 0 scriptfouten. Nog niet: controleur, Actions, main.
