@@ -10,6 +10,7 @@ Waarom: 1.640 commits in 3 dagen en 0 euro. Niet omdat er slecht gebouwd wordt (
 - De **hoofdchat met Thijs** beslist over koers, ploeg en geld, en houdt `organisatie/bord.md` bij. Dat gebeurt nu al in de praktijk; maak het officieel.
 - **Hans** wordt de **controleur van het bedrijf**, één run per dag (08:44): klopt het bord met wat er gebeurt, wie leverde niets op (runs zonder uitkomst), welke opdracht of rol is verouderd, welk punt hangt al twee dagen. Hij schrijft dat in een dagkaart van 10 regels en zet het in `berichten/` bij wie het aangaat. Productkeuzes van managers keurt hij nog wel goed (die zijn klein genoeg).
 - De **compagnon-ronde** blijft het kanaal naar Thijs (dashboard, korte melding). Geen eigen besluiten buiten de opdrachten van Thijs.
+- **Vast beslisritme:** wie er draait, hoe vaak, en welke producten lopen, verandert alleen op twee vaste momenten per dag (de compagnon-ronde van 09:00 en die van 21:00), tenzij er iets kapot is of geld op het spel staat. Een besluit geldt tot het volgende moment. Wat Thijs tussendoor zegt, wordt genoteerd en op het eerstvolgende moment doorgevoerd. Bron: Shape Up, besluiten aan de "betting table" en daarna niet ingrijpen, "bets are commitments" (bron 28); Kanban, werk tegelijk beperken (bron 29).
 **Oplevert:** geen omgedraaide besluiten meer, één Hans-run per dag minder, duidelijk wie wat beslist. **Keuze Thijs.**
 
 ## 2. Hooguit drie producten tegelijk, elk met een lanceerdatum (advies: ja)

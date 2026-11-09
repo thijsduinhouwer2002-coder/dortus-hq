@@ -1,7 +1,7 @@
 # Rapport Patrick, perfectionist (nacht 9 op 10 nov 2026)
 
 Stand: versie na run 1 (9 nov, ±23:30 NL). Volgende runs scherpen aan; de run van 07:13 maakt hem af.
-Bewijs: `bevindingen.md`. Bronnen van buiten (27 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `10`.
+Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `10`.
 
 ## In één alinea
 In drie dagen (7 tot en met 9 nov) maakte de ploeg ±1.650 commits, samenvoegingen niet meegeteld. Opbrengst: één product live (Rollwright, 19 downloads, 0 verkopen), twee in keuring, 0 euro. Bouwen is niet het probleem: het Steam-team bouwt echt en snel. Wat traag en duur is: elke run leest eerst 80 tot 130 KB, de opdrachten van de geplande taken spreken de besluiten tegen, er sturen drie lagen die elkaars besluiten omdraaien, bij elke kleine taak loopt een controleur-agent mee, en de meetlat voor nieuwe kansen kan bijna geen ja geven. De vijf punten hieronder pakken dat aan. Punt 1, 2 en 5 zijn gewoon goed en kosten de hoofdchat samen ±2 uur. Punt 3 en 4 zijn keuzes van Thijs.
@@ -28,7 +28,7 @@ Er staan drie koersen door elkaar: CLAUDE.md "gebruikers en later geld", de proj
 ### 3. Eén beslisser, één controleur, minder tegelijk (keuze Thijs)
 - **Wat er mis is.** Drie lagen sturen: Hans, de hoofdchat en de compagnon-ronde. Besluiten van Hans van 20:44 werden dezelfde avond omgedraaid (Garmin donderdag werd meteen; $100 na meting werd $100 nu). Op 9 nov veranderde de ploeg zes keer. Elke run zet volgens de rol "1 of 2 agents" in, ook voor kleine taken; 187 commits sinds 8 nov noemen de controleur. Het Steam-team van vijf schreef op één dag 104 commits aan berichten, en er was al een samenvoegfout.
 - **Wat anderen doen.** Project Vend 2: een baas-agent van hetzelfde model "wasn't much help, and might even have been a hindrance"; vaste procedures en afgebakende rollen werkten beter (bron 25). Begin met 3 tot 5 agents, overleg groeit mee (bron 11). Multi-agent kost ±15 keer de tokens (bron 10). Een reviewer die moet zoeken "will always find something" (bron 20); groene tests zijn de beste controle (bron 22).
-- **Voorstel** (`05-ploeg-en-sturing.md`). De hoofdchat met Thijs beslist over koers, ploeg en geld en houdt het bord bij. Hans wordt de controleur van het bedrijf: één run per dag, een dagkaart van 10 regels (wie leverde niets, wat is verouderd, wat hangt). Steam met 3 Claudes elk uur, de rest om de 2 uur tot er iets te bouwen is. Controleur-agent alleen bij een ontwerp, iets wat naar buiten gaat, of een getal waar een besluit op rust.
+- **Voorstel** (`05-ploeg-en-sturing.md`). De hoofdchat met Thijs beslist over koers, ploeg en geld en houdt het bord bij. Hans wordt de controleur van het bedrijf: één run per dag, een dagkaart van 10 regels (wie leverde niets, wat is verouderd, wat hangt). Ploeg en schema veranderen alleen op twee vaste momenten per dag (09:00 en 21:00), behalve bij nood (Shape Up: "bets are commitments", bron 28). Steam met 3 Claudes elk uur, de rest om de 2 uur tot er iets te bouwen is. Controleur-agent alleen bij een ontwerp, iets wat naar buiten gaat, of een getal waar een besluit op rust.
 - **Oplevert.** GOK: ±40% minder runs en minder heen en weer, zonder dat Steam trager gaat.
 - **Eerlijk over Thijs.** Thijs zei om 21:15 "verbruik is nu niet belangrijk", drie uur nadat hij om 18:30 juist om verbruik snoeide. Mijn punt is niet alleen verbruik: elke extra Claude en elke ommezwaai kost overleg, en dat remt de lancering.
 
@@ -60,5 +60,4 @@ Bestanden die nog niet bestaan en dus mee moeten: `organisatie/sjablonen/status.
 
 ## Wat ik nog doe (runs 2 tot 5)
 - Voorstel 01 en 07 nog eens naast elkaar leggen met de huidige regels.md, regel voor regel, zodat er niets wegvalt.
-- Een derde ronde op internet: hoe anderen een eigenaar laten beslissen zonder dat besluiten heen en weer gaan (beslisritme, vaste momenten).
 - Top 5 definitief maken en per punt de minuten werk voor de hoofdchat nalopen.

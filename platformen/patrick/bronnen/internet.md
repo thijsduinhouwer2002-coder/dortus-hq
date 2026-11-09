@@ -32,3 +32,12 @@ Niet kunnen openen: Medium-stuk "Welcome to Gas Town" (403).
 26. Mens aanspreken in drie vormen: melden, vragen, nakijken; één "Agent Inbox" in plaats van een groeiende stroom meldingen. https://blog.langchain.com/introducing-ambient-agents/
 27. Echte voorbeelden: anthropics/claude-code CLAUDE.md 40 regels; claude-agent-sdk-python 84; apache/airflow AGENTS.md 254 met een blok "Boundaries" (Ask first / Never); next.js 538 (vooral commando's).
 Niet gelukt: openai/codex AGENTS.md (404); geen primair voorbeeld gevonden van een dagsamenvatting plus statuspagina voor één eigenaar.
+
+## Deel 3 (9 nov, ±22:40, derde agent, links met curl geopend)
+28. Besluiten op een vast moment ("betting table"), daarna niet meer ingrijpen: "nobody else can jump in afterward to interfere", "bets are commitments". https://basecamp.com/shapeup/2.2-chapter-08
+29. Kanban: werk zichtbaar maken en "limit work in progress (WIP)", "make policies explicit". https://en.wikipedia.org/wiki/Kanban_(development)
+30. "Three focused teammates often outperform five scattered ones." https://code.claude.com/docs/en/agent-teams
+31. Notities: "structured note-taking ... with minimal overhead" (één NOTES-bestand); voortgangsbestand plus duidelijke commitberichten. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+32. C-compiler: 16 agents op hetzelfde probleem "didn't help", ze overschreven elkaars werk; multi-agent research leed aan "distracting each other with excessive updates". https://www.anthropic.com/engineering/building-c-compiler , https://www.anthropic.com/engineering/multi-agent-research-system
+33. Ontwikkelaarsblog: "the fourth agent helps, the ninth is theatre"; "Unreviewed work isn't shipped work. It's inventory." https://crystl.dev/blog/how-many-agents-can-you-run/ (één persoon, geen onderzoek)
+Niet gevonden: een bron over een besluitenlog met geldigheidsduur voor AI-agents.

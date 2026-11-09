@@ -22,3 +22,4 @@
 - Einde run 1 (±22:40 UTC). Stand: rapport met koerszin plus top 5 staat, voorstellen 01 tot 10 staan, punten van de controleur verwerkt.
 - Run 2 begint met: 01 en 07 regel voor regel tegen de huidige regels.md (niets mag wegvallen), dan derde internetronde (beslisritme eigenaar), dan rapport aanscherpen.
 - Na afsluiten nog tijd: 07 aangevuld met vier punten uit de huidige regels die ontbraken (productrepo en geplande taak opnieuw, wie op de waarom-zin toetst, notities direct op main, repo privé).
+- Derde internetronde (bronnen 28 tot 33): vast beslisritme verwerkt in 05 en rapport punt 3. Run 2 hoeft die ronde niet meer te doen.
