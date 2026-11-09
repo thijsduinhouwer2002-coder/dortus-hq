@@ -679,3 +679,13 @@ Nieuwste blok onderaan.
 - Les: als een winkel per maker een verkoopteller toont, meet makers via die teller en niet via gebruikers per product; die laatste valt terug zodra een product stopt.
 - Daarna in dezelfde run het affiliateprogramma nagelezen (affiliate.ctrader.com, met Playwright weergegeven): 10 tot 20% op aangebrachte winkelverkopen en broker-links; verhoogt het cijfer niet.
 - Daarna FxFactory (videoplugins voor Final Cut Pro en Premiere) om 06:58 op "in onderzoek" gezet: voorwerk, niet te meten (productpagina's tonen alleen prijs en versie). Run afgesloten.
+
+## 9 nov run 07:31 (Amsterdam)
+- Begin: lokale main stond los en git pull hing; met git ls-remote gezien dat GitHub gelijk stond, lokale main daarop gezet. Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: productkans (vorige run was een platform). BOOTH, omdat het met cijfer 6 het sterkste open platform zonder manager is en er nog geen productkans op gezocht was. Om 07:41 op "in onderzoek" gezet en gepusht.
+- Eigen meting: de 1.500 populairste tools van 3Dツール・システム op likes (JSON per item), plus de lichting van 7 nov ingedeeld in 28 thema's (data/booth-thema-script.py). VRChat Developer Updates en de AI-post gelezen.
+- Uitkomst: vraag en betalen echt, top jong (1.068 van 1.500 uit 2025 en 2026). Beste niches aaien (mediaan 514) en poses (±166 tot 222), maar druk met actieve makers. Geen zwakke top. AI-tools voor VRChat halen ±de helft van de likes. Cijfer 3, nee voor nu. Zie kansen/booth-vrchat-tools.md.
+- Wel een aankomend gat: Unity 6 SDK voor makers "soon" (5 nov), daarna URP. Herhaalmeting 4 tot 8 weken na de Unity 6 SDK, uiterlijk 1 feb 2027.
+- Controleur akkoord, 10 correcties. Belangrijkste: slapen viel weg (trefwoord 寝 ving 添い寝), 112 in plaats van 190 winkels, AI-verschil kleiner na het weghalen van valse treffers, en een gemiste oude top: フェイドアウトシステム (maker stil sinds 2023).
+- Les: bij indelen op Japanse trefwoorden altijd de treffers nalezen; korte tekens (寝, 耳, なで) vangen veel andere woorden (添い寝, 耳かき, みんなで).
+- Geen bericht aan een manager: BOOTH heeft geen manager.
