@@ -27,6 +27,9 @@ export interface AfrekeningStatus {
   eerstePoging?: number;
   /** "Opnieuw boeken of proberen sinds T": gezet door de knop, weg als het af is. */
   opnieuwSinds?: number;
+  /** Fout bij opnieuw boeken; de oude status (bijv. geboekt) blijft dan staan. */
+  opnieuwFout?: string;
+  statementTime?: number;
   [veld: string]: unknown;
 }
 
@@ -42,6 +45,8 @@ export interface Opslag {
   schrijfBestelling(statementId: string, orderId: string, b: BewaardeBestelling): Promise<void>;
   leesTransacties(statementId: string): Promise<BewaardeTransacties | undefined>;
   schrijfTransacties(statementId: string, t: BewaardeTransacties): Promise<void>;
+  /** Afrekeningen op de eigen lijst (ze houden de markering niet vast) en afrekeningen met "opnieuw sinds". */
+  leesOpen(open: string[]): Promise<Array<{ statementId: string; statementTime: number }>>;
   leesMarkering(): Promise<number | undefined>;
   schrijfMarkering(statementTime: number): Promise<void>;
 }
@@ -91,6 +96,9 @@ export class GeheugenOpslag implements Opslag {
   async schrijfTransacties(id: string, t: BewaardeTransacties) {
     this.schrijfacties++;
     this.transacties.set(id, structuredClone(t));
+  }
+  async leesOpen(open: string[]) {
+    return [...this.statussen].filter(([, s]) => open.includes(s.status) || s.opnieuwSinds !== undefined).map(([statementId, s]) => ({ statementId, statementTime: Number(s.statementTime) }));
   }
   async leesMarkering() {
     return this.markering;
