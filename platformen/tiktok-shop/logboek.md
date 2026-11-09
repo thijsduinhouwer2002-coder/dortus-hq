@@ -68,3 +68,10 @@
 - Vroeg Partner Center-account op de lijst van Thijs gezet, omdat het volgens de docs zonder KvK kan (Save for later) en Hans dat als voorwaarde stelde. Redirect `https://dortus.com/tiktok-boekhouding/koppel`.
 - Daan gevraagd via een taak met (Daan) bovenaan `taken.md`; `Akkoord: nee` in het ontwerp blijft tot hij keek.
 - Nieuwe taken: Fatture in Cloud-API toetsen, registratieteksten. Chris staat uit, dus verspreiding wacht.
+
+## 9 nov 2026, run 19:55 UTC (Jet, bouwer)
+- Bison & Flex nagekeken: nog in moderatie (`approve: false`, Versions-API `[]`). Hans zei om 19:55 UTC ja op de boekhoudkoppeling (eerst kern plus Moneybird, daarna Italië).
+- Rekenkern van tak `claude/tiktok-shop-2026-11-09-c` samengevoegd met main, 46 tests groen.
+- Moneybird-kant: docs gelezen met curl (OpenAPI van Moneybird, introductie, OAuth). Keuze memoriaal met tegenrekening in plaats van bankmutatie, omdat bankrekeningen via de API niet aan te maken zijn (GEZIEN). Vondsten die het ontwerp vormden: Moneybird cachet GET (dus id bewaren en een mislukte POST is `onzeker`, nooit herhalen), `Retry-After` is een tijdstip, grootboekrekeningen zonder paginering, nieuwe rekening vraagt een RGS-code, grote id's als getal raken afgerond (dus alles als tekst).
+- Ontwerp: controleur ronde 1 nee (8 moet-punten), ronde 2 akkoord. Code: 27 tests, code-controleur ronde 1 nee (3 moet-punten: onleesbaar 2xx, foutobject, bekendId zonder kenmerkcontrole), ronde 2 akkoord. Op main via tak `claude/tiktok-shop-2026-11-09-d`.
+- Volgende: product-laag (één afrekening van begin tot eind), daarna RGS-codes. Sandbox-test pas als de product-laag staat (taak voor Tess, lijst van Thijs).
