@@ -7,12 +7,14 @@ Aangeroepen vanuit toetsen_scharnier.py na eis 6, zelfde staaf als toetsen_schar
 (c) Exploded view aan en uit met pose 60: de draaiing blijft die om H (niet de kogelpose), het draaipunt schuift
     precies 3 Rn langs L mee; export ook dan gelijk.
 (d) Pose terug naar 0: matrix_world gelijk aan echte_matrix (geen restje draaiing).
+(e) Ook als de gebruiker B zelf draaide (euler en QUATERNION): matrix_world . echte_matrix^-1 is precies
+    T(c) Q T(-c) met Q 60 graden om lidas x buigkant (dus ook de draairichting), export gelijk aan zonder pose.
 Alle maten in het log in mm."""
 import math
 import sys
 
 import bpy
-from mathutils import Vector
+from mathutils import Matrix, Quaternion, Vector
 
 import figuren
 from toetsen_scharnier_uit import _exporteer, _plaats
@@ -99,3 +101,24 @@ def toets(stap, eigen, cursor):
     bpy.context.view_layer.update()
     rest = _matrix_verschil(b.matrix_world, uit_elkaar.echte_matrix(b))
     stap("pose 0: matrix_world gelijk aan echte_matrix", rest < 1e-6, f"{rest:.2e}")
+    # (e) B zelf gedraaid, euler en quaternion; draairichting ook vast.
+    voor_as = Vector(b["cj_as"]).cross(Vector(b["cj_buigkant"])).normalized()
+    doel = Matrix.Translation(punt) @ Matrix.Rotation(math.radians(60.0), 4, voor_as) @ Matrix.Translation(-punt)
+    for modus, zet in (("XYZ", lambda: setattr(b, "rotation_euler", (0.3, -0.2, 0.5))),
+                       ("QUATERNION", lambda: setattr(b, "rotation_quaternion",
+                                                      Quaternion(Vector((1, 2, 3)).normalized(), 0.7)))):
+        b.rotation_mode = modus
+        zet()
+        beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
+        bpy.context.view_layer.update()
+        ref_e = _exporteer(inst, "STL", b)
+        beweeg.pose(a, b, 60.0, kleur.materiaal("rood"))
+        bpy.context.view_layer.update()
+        fout = _matrix_verschil(b.matrix_world @ uit_elkaar.echte_matrix(b).inverted(), doel)
+        d = _max_verschil(_exporteer(inst, "STL", b), ref_e)
+        print(f"[cj-betaald] METING pose 60 met B zelf gedraaid ({modus}): afwijking van T(c) Q T(-c) {fout:.2e}, "
+              f"export STL verschil {d:.7f} mm")
+        stap(f"pose 60 met B zelf gedraaid ({modus}): draaiing om H door het draaipunt, goede richting",
+             fout < 1e-5, f"{fout:.2e}")
+        stap(f"pose 60 met B zelf gedraaid ({modus}): export STL gelijk aan zonder pose", d < 1e-4, f"{d:.7f} mm")
+    beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))

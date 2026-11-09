@@ -97,14 +97,21 @@ def _zet(ob, aan):
     _oude_zet[0](ob, aan)
 
 
+def _scharnier_recht():
+    """Bij uitzetten van Pro: deel B van elk scharnier weer recht in beeld (pose 0, delta's op nul), anders zou
+    het gratis deel bij Exploded view de kogelpose op een scharnier zetten (kan-punt controleur eis 8)."""
+    try:
+        delen = [o for o in bpy.data.objects if o.get("cj_soort") == "SCHARNIER" and o.get("cj_deel") == "B"]
+    except (AttributeError, TypeError):  # bpy.data is bij opstarten soms afgeschermd
+        return
+    for o in delen:
+        o["cj_pose_graden"] = 0.0
+        o.delta_location = (0.0, 0.0, 0.0)
+        o.delta_rotation_euler = (0.0, 0.0, 0.0)
+        o.delta_rotation_quaternion = (1.0, 0.0, 0.0, 0.0)
+
+
 def register(eigen=None):
-    # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand op in de module, dus neemt dit omhulsel mee.
-    if _oude_afstand[0] is None:
-        _oude_afstand[0] = uit_elkaar.afstand
-        uit_elkaar.afstand = _afstand
-    if _oude_zet[0] is None:  # uit_elkaar.zet_alle zoekt zet op in de module
-        _oude_zet[0] = uit_elkaar.zet
-        uit_elkaar.zet = _zet
     for k in KLASSEN:
         bpy.utils.register_class(k)
     # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
@@ -115,6 +122,13 @@ def register(eigen=None):
         paneel.append(scharnier.teken_knop)
     scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
     # Omhullen pas als alles staat (kan-punt controleur eis 7), zodat een fout hierboven geen omhulsel achterlaat.
+    # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand en zet op in de module.
+    if _oude_afstand[0] is None:
+        _oude_afstand[0] = uit_elkaar.afstand
+        uit_elkaar.afstand = _afstand
+    if _oude_zet[0] is None:
+        _oude_zet[0] = uit_elkaar.zet
+        uit_elkaar.zet = _zet
     if _oude_enable[0] is None and eigen:
         _oude_enable[0] = addon_utils.enable
         addon_utils.enable = _enable_met_wacht(eigen)
@@ -129,11 +143,14 @@ def unregister():
         del bpy.types.WindowManager.cj_flip_bend
     for k in reversed(KLASSEN):
         bpy.utils.unregister_class(k)
+    _scharnier_recht()
     if _oude_afstand[0] is not None:
-        uit_elkaar.afstand = _oude_afstand[0]
+        if uit_elkaar.afstand is _afstand:  # alleen terugzetten als het nog ons omhulsel is
+            uit_elkaar.afstand = _oude_afstand[0]
         _oude_afstand[0] = None
     if _oude_zet[0] is not None:
-        uit_elkaar.zet = _oude_zet[0]
+        if uit_elkaar.zet is _zet:
+            uit_elkaar.zet = _oude_zet[0]
         _oude_zet[0] = None
     if _oude_enable[0] is not None:
         if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven
