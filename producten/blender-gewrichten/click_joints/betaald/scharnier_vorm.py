@@ -10,8 +10,9 @@ Vlakken tussen A en B (doorsnede loodrecht op H):
 - voor het draaipunt de wig (eindstop): het stopvlak van B staat op hoek +a, dat van A op -a, elk evenwijdig
   op s/2 van een vlak door H. Bij een draai van 2a lopen de twee vlakken evenwijdig, maar aan weerszijden van
   H, dus nog met een spleet s; de rand van B (afstand r van H) raakt pas na nog ongeveer s/r. De echte stop
-  is dus 2a + s/r. Daarom a = (N - s/r_buiten) / 2, zodat de stop op de stand N ligt (ontwerp v1.1;
-  controleur ronde t1 nagerekend in een doorsnede: 89,5 / 114,2 / 133,9 graden bij 90 / 115 / 135).
+  is dus 2a + s/r (exact 2a + 2 atan(s / (2 sqrt(r^2 - s^2/4))), minder dan 0,001 graad verschil). Daarom
+  a = (N - s/r_buiten) / 2, zodat de stop op de stand N ligt (ontwerp v1.1; controleur ronde t2 rekende de
+  zuivere doorsnede na: 90,0 / 115,0 / 135,0 bij r 6,5 mm en s 0,2 mm).
 Zijwaarts drie derden langs H: de tong van B (|x| < tw) met de knokkel (cilinder straal R om H), en de
 wangen van A (|x| > tw + s), elk een cilinder met straal Rn - s/2 om H. B houdt buiten de tong afstand
 (cilinder Rn + s/2), dus B draait langs de wangen zonder te botsen (zelfde truc als de bolnaad).

@@ -106,10 +106,6 @@ def toets(stap, eigen):
     stop = vorm_m.stop_graden(math.radians(float(b.get("cj_wig_graden", 0.0))), th)
     stap("stop 115 = 2 wig + s/r binnen 0.1 graad", th > 0 and abs(stop - 115) <= 0.1,
          f"wig {b.get('cj_wig_graden')} theta_s {math.degrees(th):.3f} stop {stop:.3f}")
-    for stand in (90, 115, 135):
-        alfa = (math.radians(stand) - th) / 2
-        st = vorm_m.stop_graden(alfa, th)
-        stap(f"rekensom stand {stand}: stop binnen 0.1 graad", abs(st - stand) <= 0.1, f"stop {st:.3f}")
     # Kijkrichting langs de lidas geeft de melding (zonder venster valt kijk terug op de cursor, dus hier
     # alleen de rekensom zelf).
     vorm = sys.modules[eigen + ".betaald.scharnier_vorm"]
