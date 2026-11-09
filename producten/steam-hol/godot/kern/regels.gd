@@ -38,33 +38,38 @@ const VOORRAAD := {
 }
 
 var rng: RandomNumberGenerator
-var vorige := {}   # soort -> lijst met de laatst gekozen indexen (nieuwste achteraan)
+var vorige := {}   # soort -> indexen die deze ronde al geweest zijn (schudzak)
 
 func vul(r: String, w: Dictionary) -> String:
 	for k in w:
 		r = r.replace("{%s}" % k, String(w[k]))
 	return r
 
-# Geen regel opnieuw voor alle andere van die soort geweest zijn (Sanne toets 5, punt 3: dezelfde grap twee keer in
-# een minuut); past er dan niets binnen 42 tekens, dan toch een die past, en anders de eerste (die zijn bewust kort).
+# Schudzak per soort (Sanne toets 5, punt 3: dezelfde grap twee keer in een minuut): elke regel van een soort komt een
+# keer voor de zak weer vol is, en nooit twee keer achter elkaar (ook niet over de grens van de zak heen). Past er niets
+# uit de zak binnen 42 tekens, dan een andere die past, en anders de eerste (die zijn bewust kort).
+var vorig := {}    # soort -> laatst gekozen index
+
 func kies(soort: String, w: Dictionary, erbij := 0) -> String:
 	var lijst: Array = VOORRAAD.get(soort, ["..."])
 	if rng == null:
 		rng = RandomNumberGenerator.new()
-	var recent: Array = vorige.get(soort, [])
+	var geweest: Array = vorige.get(soort, [])
+	if geweest.size() >= lijst.size():
+		geweest = []
 	var passen: Array = []
 	var keuzes: Array = []
 	for i in lijst.size():
-		if vul(lijst[i], w).length() <= MAX - erbij:
-			passen.append(i)
-			if not recent.has(i):
-				keuzes.append(i)
+		if vul(lijst[i], w).length() > MAX - erbij:
+			continue
+		passen.append(i)
+		if not geweest.has(i) and (lijst.size() == 1 or i != int(vorig.get(soort, -1))):
+			keuzes.append(i)
 	if keuzes.is_empty():
 		keuzes = passen
 	var i: int = keuzes[rng.randi_range(0, keuzes.size() - 1)] if not keuzes.is_empty() else 0
-	recent.erase(i)
-	recent.append(i)
-	while recent.size() > max(0, lijst.size() - 1):
-		recent.remove_at(0)
-	vorige[soort] = recent
+	if not geweest.has(i):
+		geweest.append(i)
+	vorige[soort] = geweest
+	vorig[soort] = i
 	return vul(lijst[i], w)

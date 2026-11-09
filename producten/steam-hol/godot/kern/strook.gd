@@ -174,7 +174,7 @@ func _toon() -> void:
 	regel_sinds = t
 	regel_binnen = bool(volgende.binnen)
 	kroniek.append(String(volgende.r))
-	if kroniek.size() > 40:
+	while kroniek.size() > 40:
 		kroniek.remove_at(0)
 	tekst.zet(kroniek, hol.goud)
 	log_regel("HOL kroniek %.1f (wacht %.1f): %s" % [t, t - float(volgende.sinds), volgende.r])
@@ -385,7 +385,8 @@ func _process(delta: float) -> void:
 			helden += 1
 			# Hoard-Toucher: de regel komt op het moment dat hij de schat aanraakt, niet pas als hij ontsnapt (toets 5)
 			var hi = w.get("info")
-			if hi is Dictionary and bool(hi.get("hoard_toucher", false)) and not hi.has("schat_gemeld"):
+			# (kijk naar "wat": "hoard_toucher" blijft in de save staan voor de bijnaam, dus een terugkomer heeft hem al)
+			if hi is Dictionary and String(hi.get("wat", "")).begins_with("touched") and not hi.has("schat_gemeld"):
 				hi["schat_gemeld"] = true
 				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
 	_toon()
@@ -508,8 +509,9 @@ func laad() -> void:
 		var namen := [slijm.naam()]
 		if not hol.vallen.is_empty():
 			namen.append("the Spike Pit")
+		# via de wachtrij, zodat je ze bij openen een voor een ziet (controleur punt 4)
 		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
-			kroniek.append(r)
+			_kroniek(String(r))
 	hol.queue_redraw()
 	tekst.zet(kroniek, hol.goud)
 	log_regel("HOL opslag geladen: %d terugkomers, %d goud" % [terugkomers.size(), hol.goud])
