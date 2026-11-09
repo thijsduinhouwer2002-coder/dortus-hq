@@ -133,15 +133,15 @@ def toets(stap, eigen, cursor):
     terug = wm.cj_scharnier_pose
     stap("pose-schuif: zet de stand op deel B en leest hem terug",
          abs(float(b.get("cj_pose_graden", -1)) - 30.0) < 1e-6 and abs(terug - 30.0) < 1e-4, f"{terug}")
-    schuif_d = (tuple(b.delta_rotation_euler), tuple(b.delta_location))
+    schuif_d = (tuple(b.delta_rotation_euler), tuple(b.delta_rotation_quaternion), tuple(b.delta_location))
     beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
     beweeg.pose(a, b, 30.0, kleur.materiaal("rood"))
-    direct_d = (tuple(b.delta_rotation_euler), tuple(b.delta_location))
+    direct_d = (tuple(b.delta_rotation_euler), tuple(b.delta_rotation_quaternion), tuple(b.delta_location))
     d_fout = max(abs(x - y) for p, q in zip(schuif_d, direct_d) for x, y in zip(p, q))
     print(f"[cj-betaald] METING pose-schuif 30: delta_rotation {tuple(round(x, 5) for x in schuif_d[0])}, "
-          f"delta_location {tuple(round(x / u, 4) for x in schuif_d[1])} mm, verschil met beweeg.pose {d_fout:.2e}")
+          f"delta_quaternion {tuple(round(x, 5) for x in schuif_d[1])}, delta_location {tuple(round(x / u, 4) for x in schuif_d[2])} mm, verschil met beweeg.pose {d_fout:.2e}")
     stap("pose-schuif 30: delta's van B gelijk aan beweeg.pose 30 en niet nul",
-         d_fout < 1e-9 and max(abs(x) for x in schuif_d[0]) > 0.1, f"{d_fout:.2e}")
+         d_fout < 1e-9 and max(abs(x) for x in schuif_d[2]) > 0.1 * u, f"{d_fout:.2e}")
     b["cj_pose_graden"] = 45.0  # zoals na heropenen: de stand staat in de .blend, de schuif volgt
     stap("pose-schuif volgt de stand die op deel B staat", abs(wm.cj_scharnier_pose - 45.0) < 1e-4,
          f"{wm.cj_scharnier_pose}")
@@ -151,9 +151,10 @@ def toets(stap, eigen, cursor):
     wm.cj_scharnier_pose = 0.0
     # Twee scharnieren, deel A van het tweede actief: de schuif hoort bij dat scharnier, het eerste blijft staan.
     staaf2 = figuren.staaf("pose2", 5.0, lengte=80.0)
-    staaf2.location = (0.0, 40.0 * u, 0.0)
+    staaf2.data.transform(Matrix.Translation((0.0, 100.0 * u, 0.0)))  # in het net, ver van het eerste (B is daar zelf gedraaid)
+    staaf2.data.update()
     bpy.context.view_layer.update()
-    uitslag2 = _plaats((0, 40.0 * u, 0), staaf2, cursor)
+    uitslag2 = _plaats((0, 100.0 * u, 0), staaf2, cursor)
     a2, b2 = bpy.data.objects.get("pose2_A"), bpy.data.objects.get("pose2_B")
     stap("pose-schuif: tweede scharnier geplaatst", uitslag2 == {"FINISHED"} and a2 and b2, str(uitslag2))
     if a2 is None or b2 is None:
