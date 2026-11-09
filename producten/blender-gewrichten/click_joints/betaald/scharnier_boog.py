@@ -79,6 +79,58 @@ def vorm(a, b, pose):
     }
 
 
+def _omhulsel(punten):
+    """Convexe omhullende in beeld (monotone keten), tegen de klok in."""
+    p = sorted({(round(x.x, 2), round(x.y, 2)) for x in punten if x is not None})
+    if len(p) < 3:
+        return p
+
+    def kruis(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    onder, boven = [], []
+    for rij, uit in ((p, onder), (reversed(p), boven)):
+        for x in rij:
+            while len(uit) >= 2 and kruis(uit[-2], uit[-1], x) <= 0:
+                uit.pop()
+            uit.append(x)
+    return onder[:-1] + boven[:-1]
+
+
+def _binnen(hul, x, y):
+    n = len(hul)
+    return n >= 3 and all((hul[(i + 1) % n][0] - hul[i][0]) * (y - hul[i][1])
+                          - (hul[(i + 1) % n][1] - hul[i][1]) * (x - hul[i][0]) >= 0 for i in range(n))
+
+
+def _rood_plek(regio, rv3d, q, uit, delen, tekst_, px, schaal):
+    """Plek van "+N° past limit". Zoals op de kogelboog (winkelplaatje 9) moet rood met donkere rand op de achtergrond
+    staan: over een grijs deel is het slecht leesbaar. Kandidaten rond het eind van de pose-lijn, de eerste waarvan het
+    tekstvak buiten de omhullende van A en B (hoekpunten van de bound box, in beeld) en binnen het beeld ligt wint.
+    Geeft (plek, vrij); niets vrij: de oude plek (70 px verder langs de lijn)."""
+    import blf
+    from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
+    blf.size(0, px)
+    breed, hoog = blf.dimensions(0, tekst_)
+    hullen = [_omhulsel([naar2d(regio, rv3d, d.matrix_world @ Vector(h)) for h in d.bound_box]) for d in delen]
+    dwars = Vector((-uit.y, uit.x))
+    rand = 8.0 * schaal
+    for t in (70.0, 100.0, 140.0, 190.0, 250.0):
+        for s in (0.0, 1.0, -1.0, 1.6, -1.6):
+            m = q["pose_eind"] + uit * (t * schaal) + dwars * (s * (breed / 2.0 + 20.0 * schaal))
+            x0, x1, y0, y1 = m.x - breed / 2 - rand, m.x + breed / 2 + rand, m.y - hoog / 2 - rand, m.y + hoog / 2 + rand
+            if x0 < 0 or y0 < 0 or x1 > regio.width or y1 > regio.height - 100.0 * schaal:
+                continue
+            proef = [(x, y) for x in (x0, m.x, x1) for y in (y0, m.y, y1)]
+            if q["label"] is not None and (m - q["label"]).length < breed / 2 + 40.0 * schaal:
+                continue
+            if any(_binnen(h, x, y) for h in hullen for x, y in proef):
+                continue
+            if any(x0 <= hx <= x1 and y0 <= hy <= y1 for h in hullen for hx, hy in h):
+                continue
+            return m, True
+    return q["pose_eind"] + uit * (70.0 * schaal), False
+
+
 def _teken_een(regio, rv3d, a, b, schaal):
     import gpu
     from bpy_extras.view3d_utils import location_3d_to_region_2d as naar2d
@@ -104,7 +156,7 @@ def _teken_een(regio, rv3d, a, b, schaal):
         for _, s0, s1 in streep:
             waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
         getal = waaier._tekst(0, q["label"], f"{v['getal']}°", WIT, int(20 * schaal))
-    rood_tekst = False
+    rood_tekst, vrij = False, None
     if q["pose_eind"] is not None:
         if v["voorbij"]:
             waaier._waaiervlak(vlak, q["centrum"], [p(x) for x in v["rood_vlak"]], (*ROOD, 0.30))
@@ -114,8 +166,8 @@ def _teken_een(regio, rv3d, a, b, schaal):
             # Verder naar buiten dan het getal van de grens, anders liggen "115°" en "+3° past limit" over elkaar.
             uit = q["pose_eind"] - q["centrum"] if q["centrum"] is not None else Vector((0.0, 1.0))
             uit = uit.normalized() if uit.length > 0 else Vector((0.0, 1.0))
-            rood_tekst = waaier._tekst(0, q["pose_eind"] + uit * (70.0 * schaal), v["voorbij_tekst"],
-                                       ROOD, int(16 * schaal))
+            plek, vrij = _rood_plek(regio, rv3d, q, uit, (a, b), v["voorbij_tekst"], int(16 * schaal), schaal)
+            rood_tekst = waaier._tekst(0, plek, v["voorbij_tekst"], ROOD, int(16 * schaal))
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     kop = tekst(a)
     kop_getekend = waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop, WIT,
@@ -123,7 +175,7 @@ def _teken_een(regio, rv3d, a, b, schaal):
     return {"pose": round(pose, 3), "getal": f"{v['getal']}°", "getal_getekend": getal,
             "streepjes": len(streep), "kijkhoek": round(hoek, 1), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None,
-            "kop": kop if kop_getekend else None}
+            "kop": kop if kop_getekend else None, "rood_vrij": vrij}
 
 
 def teken():
@@ -180,7 +232,7 @@ def _pose_lees(_wm):
     houdt zijn eigen stand, ook na heropenen van het bestand (kan-punt controleur eis 8)."""
     try:
         _a, b = _actief_paar()
-    except (AttributeError, TypeError):
+    except AttributeError:  # bpy.context zonder scene of view_layer (tijdens laden of registreren)
         return 0.0
     return float(b.get("cj_pose_graden", 0.0)) if b is not None else 0.0
 

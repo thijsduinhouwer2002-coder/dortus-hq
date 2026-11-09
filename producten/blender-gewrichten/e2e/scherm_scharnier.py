@@ -8,9 +8,15 @@ X-scherm (r > 0,7, g en b < 0,3). Zoals 8 en 9: gradenboog van het scharnier (be
 regel "Bends 0° to N°" in beeld, het scharnier in het midden. De boog bewijzen we met pixels: eerst een opname
 zonder boog, dan met, en de pixels die duidelijk lichter werden zijn de boog.
 
-Plaatje 12 staat 3 graden voorbij de stop (bij 8 graden lag B dwars over A). De staaf is om de mm in de lengte
+Plaatje 12 staat 3 graden voorbij de stop (bij 8 graden lag B dwars over A). De staaf is in de lengte
 doorgesneden: de zijvlakken van een gewone cilinder lopen over de hele lengte, dan wordt bij elke aanraking de
-hele bovenkant van A rood in plaats van alleen de stop."""
+hele bovenkant van A rood in plaats van alleen de stop. Om de mm gaf langs de stop een trapje van rode vlakken
+(run 42658121473); binnen 13 mm van H (de stopvlakken reiken tot 12,4) daarom om de 0,2 mm, met 192 zijvlakken.
+Alleen het net van deze proef, de add-on bepaalt rood zoals altijd (vlakken van A die B raken).
+
+Kader (winkelplaatjes, als 8 en 9): uit de echte hoekpunten van A en B en de punten van de boog, in beeld
+geprojecteerd met de projectie van de weergave, zoeken we kijkpunt en afstand zodat het geheel in het midden
+staat en 65 procent van de hoogte vult (hoogstens 85 procent van de breedte)."""
 import importlib
 import math
 import os
@@ -38,6 +44,8 @@ VOORBIJ = 3.0  # graden voorbij de gemeten stop op plaatje 12
 ROOD_MIN, ROOD_MAX = 30, 3000
 ROOD_STRAAL = 3.0  # rode vlakken: middelpunt binnen 15 mm van H (A is 20 mm lang; de stopvlakken reiken tot 12,4)
 STAAF_R = 5.0
+FIJN_MM, FIJN_STAP = 13.0, 0.2  # fijne snedes rond H (zie boven)
+HOOGTE, BREEDTE = 0.65, 0.85  # deel van het beeld dat het onderwerp vult (kader)
 BOOG_MIN = 1500  # pixels die met de boog aan duidelijk lichter zijn (boog, streepjes, getal, kop)
 staat = {}
 
@@ -74,13 +82,18 @@ def boog_pixels(zonder, met):
     return int(np.count_nonzero((licht > 0.25) & wit))
 
 
+def snedes(lengte, fijn=FIJN_MM, stap=FIJN_STAP):
+    """Plaatsen van de snedes langs de staaf: om de mm, binnen fijn mm van H (x = 0) om de stap mm."""
+    grof = [-lengte / 2 + i for i in range(1, int(lengte)) if abs(-lengte / 2 + i) > fijn + 1e-6]
+    return sorted(grof + [round(-fijn + i * stap, 4) for i in range(int(round(2 * fijn / stap)) + 1)])
+
+
 def staaf_in_plakken(naam, straal, lengte=40.0):
-    """Als figuren.staaf, maar om de mm in de lengte doorgesneden (zie boven)."""
+    """Als figuren.staaf, maar in de lengte doorgesneden (zie boven)."""
     bm = bmesh.new()
-    bmesh.ops.create_cone(bm, cap_ends=True, segments=128, radius1=straal, radius2=straal, depth=lengte)
+    bmesh.ops.create_cone(bm, cap_ends=True, segments=192, radius1=straal, radius2=straal, depth=lengte)
     bm.transform(Matrix.Rotation(math.pi / 2, 4, "Y"))
-    for i in range(1, int(lengte)):
-        x = -lengte / 2 + i
+    for x in snedes(lengte):
         geom = bm.verts[:] + bm.edges[:] + bm.faces[:]
         bmesh.ops.bisect_plane(bm, geom=geom, plane_co=(x, 0, 0), plane_no=(1, 0, 0))
     me = bpy.data.meshes.new(naam)
@@ -146,6 +159,68 @@ def plaats_scharnier():
     gebied.tag_redraw()
 
 
+def _kader_punten(a, b):
+    """Echte hoekpunten van A en B (met de pose in matrix_world) en de punten van de boog, in wereldcoördinaten."""
+    bpy.context.view_layer.update()
+    lijst = []
+    for ob in (a, b):
+        co = np.empty(len(ob.data.vertices) * 3, dtype=np.float64)
+        ob.data.vertices.foreach_get("co", co)
+        mw = np.array(ob.matrix_world)
+        lijst.append(np.c_[co.reshape(-1, 3), np.ones(len(co) // 3)] @ mw.T)
+    v = _mod("betaald.scharnier_boog").vorm(a, b, float(b.get("cj_pose_graden", 0.0)))
+    boog = list(v["boog"]) + [v[k] for k in ("label", "pose_eind", "centrum") if v[k] is not None]
+    lijst.append(np.array([[*x, 1.0] for x in boog]))
+    return np.vstack(lijst)
+
+
+def _in_beeld(rv3d, punten, venster=None):
+    """Punten in NDC (-1 tot 1) met de projectie van de weergave en een kijkmatrix uit plek, draaiing en afstand."""
+    rot = rv3d.view_rotation.to_matrix().to_4x4()
+    vm = (Matrix.Translation(rv3d.view_location) @ rot @ Matrix.Translation((0, 0, rv3d.view_distance))).inverted()
+    h = punten @ np.array((venster if venster is not None else rv3d.window_matrix) @ vm).T
+    return h[:, :2] / h[:, 3:4]
+
+
+def kader():
+    """Kijkpunt en afstand zo dat A, B en de boog in het midden staan en HOOGTE van het beeld vullen (zie boven)."""
+    a, b = staat.get("a"), staat.get("b")
+    _, gebied, _ = zijbalk()
+    if a is None or b is None or gebied is None:
+        return None
+    rv3d = gebied.spaces.active.region_3d
+    pw = rv3d.window_matrix.copy()  # hangt alleen af van lens en beeldmaat, niet van plek of afstand
+    pt = _kader_punten(a, b)
+    rot = rv3d.view_rotation.to_matrix()
+    for _ in range(10):
+        ndc = _in_beeld(rv3d, pt, pw)
+        lo, hi = ndc.min(axis=0), ndc.max(axis=0)
+        c, maat = (lo + hi) / 2.0, hi - lo
+        d = rv3d.view_distance
+        rv3d.view_location = rv3d.view_location + rot.col[0] * float(c[0] * d / pw[0][0]) \
+            + rot.col[1] * float(c[1] * d / pw[1][1])
+        rv3d.view_distance = d * float(max(maat[1] / (2 * HOOGTE), maat[0] / (2 * BREEDTE)))
+    ndc = _in_beeld(rv3d, pt, pw)
+    lo, hi = ndc.min(axis=0), ndc.max(axis=0)
+    staat["kader"] = (lo, hi)
+    gebied.tag_redraw()
+    log(f"SCHARNIER kader: midden=({(lo[0] + hi[0]) / 2:.3f}, {(lo[1] + hi[1]) / 2:.3f}) hoogte={(hi[1] - lo[1]) / 2:.3f} "
+        f"breedte={(hi[0] - lo[0]) / 2:.3f} afstand={rv3d.view_distance:.1f} punten={len(pt)}")
+    return lo, hi
+
+
+def kader_gemeten():
+    """Na het tekenen: het kader met de echte perspective_matrix van Blender (de controle op kader())."""
+    a, b = staat.get("a"), staat.get("b")
+    _, gebied, _ = zijbalk()
+    if a is None or b is None or gebied is None:
+        return None
+    pm = np.array(gebied.spaces.active.region_3d.perspective_matrix)
+    h = _kader_punten(a, b) @ pm.T
+    ndc = h[:, :2] / h[:, 3:4]
+    return ndc.min(axis=0), ndc.max(axis=0)
+
+
 def zet(graden):
     a, b = staat.get("a"), staat.get("b")
     if a is None or b is None:
@@ -153,10 +228,24 @@ def zet(graden):
         return 0
     wm = bpy.context.window_manager
     figuren.maak_actief(a)
-    wm.cj_scharnier_pose = float(graden)  # de pose-schuif van het paneel (update draait B en kleurt rood)
+    wm.cj_scharnier_pose = float(graden)  # de pose-schuif van het paneel (set draait B en kleurt rood)
     n = len(a.get("cj_rood_vlakken", [])) // 2
     log(f"SCHARNIER pose={graden} rood_vlakken={n}")
     return n
+
+
+def rood_onder(a):
+    """Rode vlakken van A aan de onderkant (tegen de buigkant in, middelpunt meer dan de halve straal onder de lidas):
+    de dunne rode lijn bij de zaagsnede. Geeft (aantal, kleinste en grootste afstand tot H langs de lidas in mm)."""
+    lijst = list(a.get("cj_rood_vlakken", []))
+    punt, lid, buig = (Vector(a[k]) for k in ("cj_scharnier_punt", "cj_as", "cj_buigkant"))
+    mw = a.matrix_world
+    onder = []
+    for i in range(0, len(lijst), 2):
+        m = mw @ a.data.polygons[lijst[i]].center - punt
+        if m.dot(buig.normalized()) < -0.5 * STAAF_R:
+            onder.append(m.dot(lid.normalized()))
+    return len(onder), (round(min(onder), 2), round(max(onder), 2)) if onder else None
 
 
 def rood_bij_stop(a):
@@ -200,6 +289,15 @@ def verslag(naam, graden, rood_vlakken, voorbij, zonder):
         "rode tekst alleen voorbij": (tb.get("voorbij_tekst") is not None) == voorbij,
         "boog in pixels": wit >= BOOG_MIN,
     }
+    lo, hi = kader_gemeten() or ((9.0, 9.0), (9.0, 9.0))
+    midden, hoog = ((lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2), (hi[1] - lo[1]) / 2
+    eisen["onderwerp in het midden"] = max(abs(midden[0]), abs(midden[1])) < 0.05
+    eisen["onderwerp 60 tot 70 procent hoog"] = 0.60 <= hoog <= 0.70
+    if voorbij:
+        eisen["rode tekst naast de delen"] = tb.get("rood_vrij") is True
+    log(f"SCHARNIER kader gemeten {naam}: midden=({midden[0]:.3f}, {midden[1]:.3f}) hoogte={hoog:.3f} "
+        f"breedte={(hi[0] - lo[0]) / 2:.3f}; rood onder de lidas (aantal, afstand tot H langs de lidas mm)="
+        f"{rood_onder(a) if a else None}")
     mis = [k for k, ok in eisen.items() if not ok]
     log(f"SCHARNIER {'OK' if not mis else 'FOUT'} {'rood' if voorbij else 'pose'} {naam} maat={maat} "
         f"rode_pixels={rood} rode_vlakken={rood_vlakken} verst_rood={verst:.2f} boog_pixels={wit} tekst={tekst} "
@@ -219,11 +317,14 @@ def stap():
         bpy.context.window_manager.cj_scharnier_boog = False
         staat["rood11"] = zet(POSE)
         return 2.0
-    if n == 3:
+    if n in (3, 6):
+        kader()  # na een tekenbeurt: dan past window_matrix bij het volle venster
+        return 1.0
+    if n == 4:
         staat["zonder11"] = zonder_boog("cj_zonder_11.png")
         bpy.context.window_manager.cj_scharnier_boog = True
         return 2.0
-    if n == 4:
+    if n == 5:
         schiet("11-scharnier.png")
         verslag("11-scharnier-x.png", POSE, staat["rood11"], voorbij=False, zonder=staat["zonder11"])
         a = staat.get("a")
@@ -231,11 +332,11 @@ def stap():
         bpy.context.window_manager.cj_scharnier_boog = False
         staat["rood12"] = zet(staat["voorbij"])
         return 2.0
-    if n == 5:
+    if n == 7:
         staat["zonder12"] = zonder_boog("cj_zonder_12.png")
         bpy.context.window_manager.cj_scharnier_boog = True
         return 2.0
-    if n == 6:
+    if n == 8:
         schiet("12-scharnier-rood.png")
         verslag("12-scharnier-rood-x.png", staat["voorbij"], staat["rood12"], voorbij=True, zonder=staat["zonder12"])
         return 0.5

@@ -9,6 +9,9 @@ Aangeroepen vanuit toetsen_scharnier.py na eis 6, zelfde staaf als toetsen_schar
 (d) Pose terug naar 0: matrix_world gelijk aan echte_matrix (geen restje draaiing).
 (e) Ook als de gebruiker B zelf draaide (euler en QUATERNION): matrix_world . echte_matrix^-1 is precies
     T(c) Q T(-c) met Q 60 graden om lidas x buigkant (dus ook de draairichting), export gelijk aan zonder pose.
+(f) Pose-schuif in het paneel: zet en leest de stand van deel B van het actieve scharnier. Na het zetten zijn de
+    delta's van B (delta_rotation en delta_location) precies die van beweeg.pose met dezelfde hoek, niet nul.
+    Met twee scharnieren en deel A van het tweede actief draait alleen B van het tweede (controleur 7665e83).
 Alle maten in het log in mm."""
 import math
 import sys
@@ -130,10 +133,40 @@ def toets(stap, eigen, cursor):
     terug = wm.cj_scharnier_pose
     stap("pose-schuif: zet de stand op deel B en leest hem terug",
          abs(float(b.get("cj_pose_graden", -1)) - 30.0) < 1e-6 and abs(terug - 30.0) < 1e-4, f"{terug}")
+    schuif_d = (tuple(b.delta_rotation_euler), tuple(b.delta_location))
+    beweeg.pose(a, b, 0.0, kleur.materiaal("rood"))
+    beweeg.pose(a, b, 30.0, kleur.materiaal("rood"))
+    direct_d = (tuple(b.delta_rotation_euler), tuple(b.delta_location))
+    d_fout = max(abs(x - y) for p, q in zip(schuif_d, direct_d) for x, y in zip(p, q))
+    print(f"[cj-betaald] METING pose-schuif 30: delta_rotation {tuple(round(x, 5) for x in schuif_d[0])}, "
+          f"delta_location {tuple(round(x / u, 4) for x in schuif_d[1])} mm, verschil met beweeg.pose {d_fout:.2e}")
+    stap("pose-schuif 30: delta's van B gelijk aan beweeg.pose 30 en niet nul",
+         d_fout < 1e-9 and max(abs(x) for x in schuif_d[0]) > 0.1, f"{d_fout:.2e}")
     b["cj_pose_graden"] = 45.0  # zoals na heropenen: de stand staat in de .blend, de schuif volgt
     stap("pose-schuif volgt de stand die op deel B staat", abs(wm.cj_scharnier_pose - 45.0) < 1e-4,
          f"{wm.cj_scharnier_pose}")
     figuren.maak_actief(staaf)
     stap("pose-schuif zonder actief scharnier: 0", wm.cj_scharnier_pose == 0.0, f"{wm.cj_scharnier_pose}")
     figuren.maak_actief(b)
+    wm.cj_scharnier_pose = 0.0
+    # Twee scharnieren, deel A van het tweede actief: de schuif hoort bij dat scharnier, het eerste blijft staan.
+    staaf2 = figuren.staaf("pose2", 5.0, lengte=80.0)
+    staaf2.location = (0.0, 40.0 * u, 0.0)
+    bpy.context.view_layer.update()
+    uitslag2 = _plaats((0, 40.0 * u, 0), staaf2, cursor)
+    a2, b2 = bpy.data.objects.get("pose2_A"), bpy.data.objects.get("pose2_B")
+    stap("pose-schuif: tweede scharnier geplaatst", uitslag2 == {"FINISHED"} and a2 and b2, str(uitslag2))
+    if a2 is None or b2 is None:
+        return
+    figuren.maak_actief(a2)
+    wm.cj_scharnier_pose = 40.0
+    bpy.context.view_layer.update()
+    eerste = (float(b.get("cj_pose_graden", -1)), max(abs(x) for x in b.delta_rotation_euler))
+    print(f"[cj-betaald] METING pose-schuif met A2 actief: B2 {b2.get('cj_pose_graden')}, schuif {wm.cj_scharnier_pose}, "
+          f"eerste B {eerste[0]} (delta_rotation max {eerste[1]:.2e})")
+    stap("pose-schuif met A van het tweede scharnier actief: B2 op 40, schuif leest 40",
+         abs(float(b2.get("cj_pose_graden", -1)) - 40.0) < 1e-6 and abs(wm.cj_scharnier_pose - 40.0) < 1e-4,
+         f"{b2.get('cj_pose_graden')}")
+    stap("pose-schuif met A2 actief: het eerste scharnier blijft op 0", abs(eerste[0]) < 1e-9 and eerste[1] < 1e-9,
+         str(eerste))
     wm.cj_scharnier_pose = 0.0
