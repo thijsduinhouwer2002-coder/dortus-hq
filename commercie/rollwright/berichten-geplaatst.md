@@ -87,3 +87,11 @@ I'd love to hear what you roll on and what is missing. Bugs and ideas are welcom
 
 Made by Thijs at Dortus
 ```
+
+## 9 nov 2026, 18:06: This Week in Obsidian (inzending)
+- Plek: GitHub-issue bij de nieuwsbrief This Week in Obsidian (z08-studio/this-week-in-obsidian), sjabloon Content suggestion.
+- Link: https://github.com/z08-studio/this-week-in-obsidian/issues/37
+- Geplaatst door Thijs zelf (het formulier was ingevuld door de hoofdchat; versturen via Chrome werd om 12:00 door de veiligheidscontrole tegengehouden).
+- Titel: [Suggestion] Rollwright. Name: Rollwright. Link: https://community.obsidian.md/plugins/rollwright. Creator: Yes.
+- Tekst: zie de tekst in commercie/rollwright/lancering.md deel run 29 (met de eerlijke AI-zin en "Made by Thijs at Dortus").
+- Volgen: de nieuwsbrief komt op dinsdag uit; kijk of Rollwright erin staat en meet de downloads de dagen erna.
