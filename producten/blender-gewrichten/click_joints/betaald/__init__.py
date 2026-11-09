@@ -8,11 +8,12 @@ import addon_utils
 import bpy
 
 from .. import uit_elkaar
-from . import scharnier
+from . import scharnier, scharnier_boog
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
 MELDING = "Disable the free Click Joints first. Your settings stay in the .blend file."
+MELDING_UIT = "Click Joints Pro was turned off. Disable the free Click Joints first, then enable Pro again."
 
 
 def andere_versies(namen, eigen):
@@ -30,15 +31,15 @@ LAATSTE_MELDING = [None]  # voor de e2e: de laatste keer dat de betaalde opzij g
 _oude_enable = [None]
 
 
-def _meld():
-    """Zelfde melding in de console en (met scherm) als venstertje bij de muis."""
-    LAATSTE_MELDING[0] = MELDING
-    print(f"Click Joints: {MELDING}")
+def _meld(melding=MELDING_UIT):
+    """Melding in de console en (met scherm) als venstertje bij de muis."""
+    LAATSTE_MELDING[0] = melding
+    print(f"Click Joints: {melding}")
     if bpy.app.background:
         return
     try:
         bpy.context.window_manager.popup_menu(
-            lambda self, _ctx: self.layout.label(text=MELDING), title="Click Joints", icon='ERROR')
+            lambda self, _ctx: self.layout.label(text=melding), title="Click Joints", icon='ERROR')
     except Exception:
         pass
 
@@ -62,11 +63,13 @@ def _enable_met_wacht(eigen):
 
     def enable(module_name, *args, **kwargs):
         if andere_versies([module_name], eigen) and eigen in {a.module for a in bpy.context.preferences.addons}:
-            addon_utils.disable(eigen, default_set=True)
+            # default_set van de aanroep volgen (kan-punt controleur eis 7); het vinkje in de voorkeuren geeft True.
+            addon_utils.disable(eigen, default_set=bool(kwargs.get("default_set", False)))
             _meld()
         return oud(module_name, *args, **kwargs)
 
     enable.__wrapped__ = oud
+    enable._actief = True  # alleen terugzetten als addon_utils.enable nog ons omhulsel is
     return enable
 
 
@@ -83,9 +86,6 @@ def _afstand(ob):
 
 
 def register(eigen=None):
-    if _oude_enable[0] is None and eigen:
-        _oude_enable[0] = addon_utils.enable
-        addon_utils.enable = _enable_met_wacht(eigen)
     # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand op in de module, dus neemt dit omhulsel mee.
     if _oude_afstand[0] is None:
         _oude_afstand[0] = uit_elkaar.afstand
@@ -98,9 +98,15 @@ def register(eigen=None):
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.append(scharnier.teken_knop)
+    scharnier_boog.register()  # eis 8: gradenboog en pose-schuif van het scharnier
+    # Omhullen pas als alles staat (kan-punt controleur eis 7), zodat een fout hierboven geen omhulsel achterlaat.
+    if _oude_enable[0] is None and eigen:
+        _oude_enable[0] = addon_utils.enable
+        addon_utils.enable = _enable_met_wacht(eigen)
 
 
 def unregister():
+    scharnier_boog.unregister()
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.remove(scharnier.teken_knop)
@@ -112,5 +118,6 @@ def unregister():
         uit_elkaar.afstand = _oude_afstand[0]
         _oude_afstand[0] = None
     if _oude_enable[0] is not None:
-        addon_utils.enable = _oude_enable[0]
+        if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven
+            addon_utils.enable = _oude_enable[0]
         _oude_enable[0] = None

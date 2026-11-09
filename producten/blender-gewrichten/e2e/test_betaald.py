@@ -86,7 +86,7 @@ def main():
     bpy.ops.preferences.addon_enable(module=gratis_mod)  # zelfde weg als het vinkje in de voorkeuren
     stap("(b) betaald aan, dan gratis: betaalde is uit", eigen not in aan(), str(aan()))
     stap("(b) gratis staat aan", gratis_mod in aan(), str(aan()))
-    stap("(b) weigermelding gegeven", betaald.LAATSTE_MELDING[0] == betaald.MELDING, str(betaald.LAATSTE_MELDING[0]))
+    stap("(b) weigermelding gegeven", betaald.LAATSTE_MELDING[0] == betaald.MELDING_UIT, str(betaald.LAATSTE_MELDING[0]))
     stap("(b) gratis werkt (operators, paneel, scene.click_joints)",
          "plaats" in dir(bpy.ops.click_joints) and hasattr(bpy.types, "CLICK_JOINTS_PT_paneel")
          and hasattr(bpy.types.Scene, "click_joints") and "plaats_scharnier" not in dir(bpy.ops.click_joints))

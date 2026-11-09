@@ -24,9 +24,9 @@ def stap(naam, ok, extra=""):
 zg = zipfile.ZipFile(gratis)
 namen = sorted(n for n in zg.namelist() if not n.endswith("/"))
 stap("gratis zip zonder betaald/", not any(n.startswith("betaald/") for n in namen))
-woorden = re.compile(r"\b(Hinge|hinge|Pro|Superhive|superhive|betaald|Betaald)\b")
+woorden = re.compile(r"\b(hinge|pro|superhive|betaald)\b", re.I)
 # Zelftoets van de regex: losse woorden tellen, delen van langere woorden niet.
-moet = ["Click Joints Pro", "Pro.", "(Pro)", "'Pro'", "Get Pro now", "Hinge joint", "on Superhive"]
+moet = ["Click Joints Pro", "Pro.", "(Pro)", "'Pro'", "Get Pro now", "Hinge joint", "on Superhive", "PRO", "HINGE"]
 niet = ["Properties", "Project", "bpy.props", "Prothese", "Hinged", "Hinges", "ProFile", "Pro_mode", "superhives"]
 stap("regex vangt het hele woord", all(woorden.search(z) for z in moet), str([z for z in moet if not woorden.search(z)]))
 stap("regex negeert delen van woorden", not any(woorden.search(z) for z in niet),
