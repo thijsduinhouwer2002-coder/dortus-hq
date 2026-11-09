@@ -77,7 +77,8 @@ def maak_kleuren(lijven):
 
 # ---------- tekens boven het hoofd, 8 x 8 ----------
 TEKENS = {
-    "boos": [".kk..kk.", "kfk..kfk", "kffkkffk", ".kk..kk.", ".kk..kk.", "kffkkffk", "kfk..kfk", ".kk..kk."],
+    # Mila 9 nov: onweerswolkje met rode bliksem; het oude rode teken las op ware grootte als een kruisje (Sanne toets 3)
+    "boos": ["..kk.kk.", ".k99k98k", "k9988888", "k8888877", ".kkkRkk.", "...kRk..", "..kRRRk.", "..kRk..."],
     "uitroep": ["...kk...", "..kyyk..", "..kYyk..", "..kyyk..", "...kk...", "...kk...", "..kyyk..", "...kk..."],
     "zweet": ["...k....", "..kBk...", "..kBk...", ".kBBBk..", ".kBjBk..", ".kBBBk..", "..kkk...", "........"],
     "zzz": ["BBBB....", "..B.....", ".B......", "BBBB.BBB", "......B.", ".....BBB", "........", "........"],
@@ -144,8 +145,9 @@ def maak_paneel():
     for y in range(12):
         for x in range(12):
             rand = min(x, y, 11 - x, 11 - y)
-            c = "k" if rand == 0 else ("U" if rand == 1 else ("k" if rand == 2 else ("l" if (y + (x // 4)) % 4 == 0 else "u")))
-            if rand == 1 and (y == 11 - 1 or x == 11 - 1): c = "u"   # schaduw rechtsonder
+            # Mila 9 nov: pruim in plaats van bruin hout (Sanne toets 3: "groot en bruin op pruim"); hoort bij de holwand
+            c = "k" if rand == 0 else ("V" if rand == 1 else ("k" if rand == 2 else ("v" if (y + (x // 4)) % 4 == 0 else "W")))
+            if rand == 1 and (y == 11 - 1 or x == 11 - 1): c = "v"   # schaduw rechtsonder
             px[x, y] = P[c]
     for (x, y) in ((0, 0), (11, 0), (0, 11), (11, 11)): px[x, y] = (0, 0, 0, 0)
     for (x, y) in ((2, 2), (9, 2), (2, 9), (9, 9)): px[x, y] = P["y"]   # gouden spijkertjes
@@ -207,7 +209,7 @@ if __name__ == "__main__":
     pad = os.path.join(UIT, "kunst.json"); meta = json.load(open(pad))
     meta["held_littekens.png"] = {"frame": [16, 16], "volgorde": ["pleister", "ooglap", "schram", "verband"],
         "tekenen": "boven het lijf, onder hoed en wapen, zelfde frame; 1 px omlaag bij lopen-frames 1 en 3. Bezoek 2: 1 litteken, bezoek 3: 2, aartsvijand: 3; kies vast per held (zaad = naam). Combinaties: ooglap en schram nooit samen (zelfde oog); de rest mag. Vervangt de rode streepjes en het verband-streepje in held.gd: die eruit.", "kleur": "de oude tint-kleuren voor helden en hoeden in strook.gd en held.gd eruit, anders dubbel gekleurd"}
-    meta["held_hoeden_hap.png"] = {"frame": [16, 16], "volgorde": ["helm", "puntmuts", "kap", "pet"],
+    meta["held_hoeden_hap.png"] = {"frame": [16, 16], "volgorde": mk.HOED_NAMEN,
         "gebruik": "in plaats van held_hoeden.png als de held al eens door de slijm is gebeten (wrok tegen Gloop)"}
     meta["held_lijf_kleuren.png"] = {"frame": [16, 16], "rijen": ["rood", "groen", "paars", "oker", "zeegroen"],
         "gebruik": "zelfde frames als held_lijf.png (4 per rij); kies de rij vast per held, zodat Kees altijd dezelfde tuniek heeft en je hem herkent"}

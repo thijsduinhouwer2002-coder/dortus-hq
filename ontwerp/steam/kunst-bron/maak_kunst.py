@@ -323,7 +323,15 @@ HOEDEN = {
     "puntmuts": ["........kk......", ".......kZZk.....", "......kZzZk.....", ".....kZZzZZk....", "....kZZZZzZZk...", "...kkYkkkkkkkk..", "................"],
     "kap": ["................", "................", "......kkkkk.....", ".....kGGGGGk....", "....kgGGGGGGk...", "...kgk.....kk...", "...kgk.........."],
     "pet": ["................", "................", "................", ".....kkkkkk.....", "....kRRRRRRk....", "....kkkkkkkkkk..", "................"],
+    # Mila 9 nov: zes extra hoeden (Sanne toets 3: minstens 8 soorten, grappige mogen). Index 4 tot 9, zelfde frame.
+    "kroon": ["................", "...k...kk...k...", "..kYk.kYYk.kYk..", "..kyykyrrykyyk..", "..kOOOOOOOOOOk..", "..kkkkkkkkkkkk.."],
+    "koksmuts": [".....kkk.kkk....", "....kEEEkEEEk...", "...kEEjEEEEjEk..", "...kjEEEjEEEjk..", "....kjjjjjjjk...", "....kkkkkkkkk..."],
+    "emmer": [".....kkkkkk.....", ".....kUuUuk.....", "....kiIiiiik....", "....kUuUuUuk....", "...kiIiiiiiik...", "...kkkkkkkkkk..."],
+    "hoge_hoed": [".....kkkkkk.....", ".....k8777k.....", ".....k8777k.....", ".....krRrrk.....", "..k8877777777k..", "..kkkkkkkkkkkk.."],
+    "pan": ["................", "................", ".....kkkkkkk....", "kkkkk888877k....", "kUUUk87777777k..", "kkkkkkkkkkkkkk.."],
+    "veermuts": ["..........kk....", ".........kRRk...", "......kkkRk.....", ".....kBBkRk.....", "....kbBBBBBk....", "....kkkkkkkkk..."],
 }
+HOED_NAMEN = list(HOEDEN)
 WAPENS = {
     "zwaard": ["............kk..", "...........kjk..", "...........kjk..", "...........kjk..", "...........kIk..", "..........kyyyk.", "...........kok..", "...........kok.."],
     "staf":   [".........kkk....", "........kYxYk...", "........kx*xk...", ".........kYk....", "..........kUk...", "..........kUk...", "..........kuk...", "..........kuk...", "..........kuk..."],
@@ -334,7 +342,7 @@ def maak_held():
     lijven = [lijf(i, i in (1, 3)) for i in range(4)]
     opslaan(strip(lijven), "held_lijf.png")
     hoeden = []
-    for naam in ("helm", "puntmuts", "kap", "pet"):
+    for naam in HOED_NAMEN:
         im = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); im.paste(sprite(HOEDEN[naam]), (0, 0)); hoeden.append(im)
     opslaan(strip(hoeden), "held_hoeden.png")
     wapens = []
@@ -361,7 +369,8 @@ DECO = {
     "kist": ["................"]*6 + ["..kkkkkkkkkk....", "..kUUUUUUUUk....", "..kuUkkkkUuk....", "..kUkUUUUkUk....", "..kUUkUUkUUk....", "..kUUUkkUUUk....", "..kUkUUUUkUk....", "..kuUkkkkUuk....", "..kUUUUUUUUk....", "..kkkkkkkkkk...."],
     "schedel": ["................"]*7 + ["....kkkkk.......", "...kjjjjjk......", "..kjjjjjjjk.....", "..kjeejeejk.....", "..kjeejeejk.....", "..kIjjkjjIk.....", "...kIjjjIk..kk..", "...kjkjkjk.kjIk.", "....kkkkk.kkkkk."],
     "kristal": ["................"]*5 + ["......k.........", ".....kqk...k....", ".....kNk..kqk...", "..k..knMk.kNk...", ".kqk.knMk.kNMk..", ".kNk.kNMkknMk...", ".kNMkknMkknMk...", "..kMkknMkkMk....", "...kmkMkmkk.....", "...kkkkkkk......", "................"],
-    "spinrag": ["9...........9...", ".9.......9.9....", "..9...9.9..9....", "..9.9..9...9....", "...9...9..9.....", "....9..9.9......", ".....9.99.......", "......9.........", "................", "................", "................", "................", "................", "................", "................", "................"],
+    # Mila 9 nov: echt web met bogen en een spinnetje aan een draad; het oude las boven Gloop als een gewei (Sanne toets 3)
+    "spinrag": ["9.....9.....9...", ".9...898...9....", "..9.8.9.8.9.....", "8..9..9..9..8...", ".8..9.9.9..8....", "..8..999..8.....", "...88.9.88......", "......9.........", "......8.........", "......8.........", ".....kkk........", "....kkekk.......", ".....kRk........", "....k...k.......", "................", "................"],
     "stut": ["kkkkkkkkkkkkkkkk", "kUUUUUUUUUUUUUUk", "kuuuuuuuuuuuuuuk", "kkkkkkkkkkkkkkkk", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kuk........kuk.", ".kUk........kUk.", ".kUk........kUk.", ".kkk........kkk."],
     "vaandel": ["kkkkkkkkkkkkkkkk", "UUUUUUUUUUUUUUUU", "kkk..........kkk", "..krrrrrrrrrrk..", "..krRRRRRRRRrk..", "..krRRyyRRRRrk..", "..krRyYyRRRRrk..", "..krRRyyRRRRrk..", "..krRRRRRRRRrk..", "..krRRRRRRRRrk..", "..krrrrrrrrrrk..", "...krrkkkkrrk...", "....kk....kk....", "................", "................", "................"],
 }
@@ -400,7 +409,7 @@ json.dump({
     "slijm.png": {"frame": [16, 16], "rust": [0, 1, 2, 3], "rust_fps": 3, "hap": [4, 5], "anker": "midden onder"},
     "stekelput.png": {"frame": [16, 8], "dicht": 0, "half": 1, "open": 2, "anker": "op de vloer van de gang"},
     "held_lijf.png": {"frame": [16, 16], "lopen": [0, 1, 2, 3], "fps": 8, "anker": "midden onder (voeten op y 15)", "kijkt": "rechts; spiegel voor links"},
-    "held_hoeden.png": {"frame": [16, 16], "volgorde": ["helm", "puntmuts", "kap", "pet"], "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"},
+    "held_hoeden.png": {"frame": [16, 16], "volgorde": HOED_NAMEN, "tekenen": "boven het lijf, zelfde frame, 1 px omlaag bij lopen-frames 1 en 3"},
     "versiering.png": {"frame": [16, 16], "volgorde": ["paddenstoel", "lichtzwam", "ton", "kist", "schedel", "kristal", "spinrag", "stut", "vaandel"], "anker": "midden onder op de vloer; spinrag, stut en vaandel tegen het plafond (bovenkant); stut is een houten gangsteun, achter de figuren tekenen"},
     "gloed.png": {"frame": [52, 52], "gebruik": "warm licht rond fakkels (en groen getint rond lichtzwammen); tekenen met optellen (CanvasItemMaterial blend add) of als PointLight2D-textuur, alleen in de gangen"},
     "held_wapens.png": {"frame": [16, 16], "volgorde": ["zwaard", "staf", "fakkel"], "tekenen": "boven het lijf, in de rechterhand; 1 px omlaag bij frames 1 en 3"},
