@@ -1,6 +1,7 @@
 # TikTok Shop (EU App Store): status
 
 - **Stand 9 nov 21:12 UTC:** product **Klopt** (werknaam), TikTok Shop-uitbetalingen per bestelling naar Moneybird, daarna Fatture in Cloud (IT). Nog niets live. Installs 0, klanten 0, omzet 0.
+- **Eerste euro (10 nov 00:15 NL):** niet eerder dan 4 tot 8 weken na de KvK plus de tijd tot de eerste betalende verkoper (GOK). Snellere variant zonder TikTok-registratie (upload van de export naar Moneybird) bekeken en afgeraden: geen echt voorbeeldbestand, geen kanaal, zwakker dan Schakel. Zie `onderzoek/2026-11-10-eerste-euro.md`.
 - **Besluiten:** platform ja (Hans 8 nov, cijfer 7, voorstel Noor). Product ja (Hans 9 nov 20:44). Daan `Akkoord: ja` op het ontwerp 9 nov 21:05 UTC, behalve scherm 3 (rekeningen en btw, schets volgt); geen akkoord voor indienen.
 - **Gebouwd (Jet):** basis TikTok-API, rekenkern, Moneybird-kant, product-laag deel 1 en 2a, op main, 56 tests groen in de product-laag, controleurs akkoord. Volgende: product-laag 2b, D1, daarna het betaalstuk.
 - **Website (9 nov 22:25 UTC):** dortus.com/klopt/ met productpagina, prijs (`/klopt/prijs`, pricing URL voor de listing) en privacy (`/klopt/privacy`), alles als "in ontwikkeling". Wachtlijst via mail naar thijs@dortus.com (aantal mails is een eerste maat voor vraag).

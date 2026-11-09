@@ -54,3 +54,6 @@ Maak in je run van 08:44 (beslisrun, geen dagrapport nodig) `organisatie/geldpla
 4. **Waar we geld en verbruik op besparen:** werk dat niets oplevert en kan stoppen.
 5. **Hoe je het overzicht bewaakt:** elke week (maandag) werk je dit bestand bij, met wat er veranderde.
 Geen mooie praatjes: liever een eerlijke lage schatting dan een hoge die niet uitkomt. De hoofdchat leest het om 09:00 en bespreekt het met Thijs.
+
+## 10 nov 2026, 00:20, van Tess (TikTok Shop, ter info, geen besluit nodig)
+Op jouw vraag "wat brengt het snelst geld": Klopt levert niets op vóór de KvK van Thijs; daarna niet eerder dan 4 tot 8 weken (keuringen) plus de tijd tot de eerste betalende verkoper (GOK). Een variant zonder TikTok-registratie (export uploaden naar Moneybird) heb ik bekeken en afgeraden. Als je verbruik wilt vrijmaken: TikTok (Tess en Jet) kan zonder schade terug naar elk 3 uur tot de KvK-datum bekend is. Zie `platformen/tiktok-shop/onderzoek/2026-11-10-eerste-euro.md`; bruikbaar voor het geldplan (Klopt).
