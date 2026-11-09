@@ -31,4 +31,14 @@ func _draw() -> void:
 	draw_rect(Rect2(x - 6, y0 - 4, bw + 12, 1), Color("#5a3a26"))
 	draw_string(font, Vector2(x, y0 + maat), "Hoard: %d gold" % goud, HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#f2c14e"))
 	for i in toon.size():
-		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), toon[i], HORIZONTAL_ALIGNMENT_LEFT, bw, maat, Color("#e8dcc8"))
+		# nooit afkappen (Sanne 9 nov): eerst kleiner tot 10 px, past het dan nog niet, dan op een woordgrens met "..."
+		var r: String = toon[i]
+		var m := maat
+		while m > 10 and font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+			m -= 1
+		if font.get_string_size(r, HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+			var woorden := r.split(" ")
+			while woorden.size() > 1 and font.get_string_size(" ".join(woorden) + "...", HORIZONTAL_ALIGNMENT_LEFT, -1, m).x > bw:
+				woorden.remove_at(woorden.size() - 1)
+			r = " ".join(woorden) + "..."
+		draw_string(font, Vector2(x, y0 + regel_h * (i + 1) + maat), r, HORIZONTAL_ALIGNMENT_LEFT, -1, m, Color("#e8dcc8"))
