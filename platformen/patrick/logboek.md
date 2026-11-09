@@ -10,3 +10,7 @@
 - Rapport-concept met top 5 geschreven.
 - Voorstellen 01 (CLAUDE.md), 02 (organisatie/nu.md), 03 (geplande opdracht, stand.md, geplande-taken.md) geschreven.
 - Volgende run: 04 lijst-thijs.md nieuwe vorm, 05 regels.md korter, rollen nalopen (hoofdmanager.md is gestapeld: "je draait om 20:44" en daaronder "twee keer per dag"), meetlat en Hans versus hoofdchat, repo-afslanken uitwerken.
+- Ontdekt: status.md bestaat al (rol: max 10 regels, praktijk tot 84). Voorstellen gebruiken status.md in plaats van een nieuw stand.md.
+- Voorstellen 04 (lijst-thijs, rekening gehouden met dashboard/bouw.py), 05 (ploeg en sturing, meetlat), 06 (repo afslanken; GIF's in ontwerp/ niet blokkeren omdat Daan ze via git doorgeeft), 07 (regels.md als naslag) geschreven.
+- Rapport herschreven met top 5 en verwijzingen naar de voorstellen.
+- Volgende run: rollen nalopen (hoofdmanager, platformmanager, ontwerper, game-ontwerper, ontwerper-wow), runs zonder uitkomst per team meten, voorstellen laten controleren door een agent die ze niet schreef.
