@@ -1,34 +1,46 @@
 # Steam: taken (belangrijkste bovenaan)
 
-## Taakverdeling Steam-team (Olaf, 9 nov 18:30 UTC; besluit Thijs 9 nov 19:00: team van vier, Olaf leidt en beslist over de bouw)
-Iedereen draait elk uur. Werk alleen in je eigen bestanden hieronder; iets nodig van een ander: zet een regel onder "Vragen tussen ons" onderaan dit blok (met je naam en tijd) en de ander zet "(antwoord ...)" erachter. De opdracht van Thijs (`berichten/olaf.md` 18:50) is voor iedereen de toets: **tussendoor leuk (30 s tot een paar minuten), grappig om te onderhouden, niet tijdrovend en nooit straffen als je weg bent, later skins en DLC alleen uiterlijk en inhoud, nooit betalen om sneller te gaan.**
+## Taakverdeling Steam-team: Het Hol bouwen (Olaf, 9 nov 18:35 UTC)
+Besluit Thijs 9 nov 19:20 (`organisatie/besluiten.md`): **de richting is Het Hol en we bouwen meteen het spel**, geen rondes concepten meer. Thijs ziet het pas als het speelbaar is en er goed uitziet. Niets betalen of publiceren tot hij het prototype goedkeurde. Team (19:00): Olaf hoofdbouwer en beslist over de bouw, Bram tweede bouwer (systemen), Sanne game-ontwerper, Daan ontwerp. Iedereen draait elk uur.
 
-**Gedeelde productmap: `producten/steam-strook/`** (werknaam; de motor is voor alle drie de richtingen hetzelfde, het spel komt erin na de keuze van Thijs). Indeling, ieder zijn eigen deel:
-- `producten/steam-strook/godot/kern/` en `ontwerp.md`: **Olaf** (venster, hoogte, klik door de lucht, zuinig tekenen, instellingen, opslag-aanroep, test op Actions).
-- `producten/steam-strook/godot/systemen/` en `producten/steam-strook/sim/`: **Bram** (spelsystemen, voortgang terwijl je weg bent, balans-simulatie).
-- `producten/steam-strook/godot/kunst/`: **Daan** (sprites, tegels, palet; Bram en Olaf lezen alleen).
-- `platformen/steam/features.md`, `spelgevoel.md`: **Sanne**. `platformen/steam/idee.md`, `taken.md`, `status.md`: **Olaf**. `ontwerp/steam/`: **Daan**. Logboek: iedereen, een eigen regel met je naam.
-- Workflow `.github/workflows/steam-strook.yml`: **Olaf** (Bram mag er een stap bij vragen).
+**De toets voor elke keuze** (Thijs 18:50): tussendoor leuk (30 s tot een paar minuten levert al iets op), grappig om te onderhouden (helden met een wrok, gekke bewoners), niet tijdrovend en **nooit straffen als je weg bent**, later skins en DLC alleen uiterlijk en inhoud, nooit betalen om sneller te gaan. **Strook:** standaard 120 px hoog, instelbaar 96 tot 160 px, geen kaartjes over andere vensters (meldingen klein in de strook, meer pas bij hover binnen de strook). Op dat formaat moeten detail en karakter overeind blijven.
 
-**Olaf (hoofdbouwer)**
-- [ ] (deels 9 nov 18:40 UTC) `idee.md` bijwerken met de opdracht van Thijs (vier eisen per richting getoetst), wat het niveau van de toppers betekent voor de bouw, en de gemeten strookhoogte van Rusty's Retirement en Ropuka's Idle Island.
-- [ ] Kern van de strook in `producten/steam-strook/godot/kern/`: hoogte instelbaar door de gebruiker (standaard 120 px, keuze 96 tot 160), geen kaartjes over andere vensters (meldingen klein in de strook, meer pas bij hover binnen de strook), klik door de lucht, standaard 15 fps en niet tekenen als er niets beweegt, plaats voor opslaan. Test op de Windows-runner met schermafbeelding op 100, 120 en 140 px en CPU-meting. Richting-onafhankelijk, dus mag nu al.
-- [ ] Na de plaatjes van Daan en features.md van Sanne: dossier met plaatjes op `organisatie/lijst-thijs.md`, Thijs kiest.
+**Productmap: `producten/steam-hol/`** (werknaam van het spel: Het Hol). Ieder werkt in zijn eigen deel:
+| Wie | Schrijft in | Wat |
+|---|---|---|
+| Olaf | `producten/steam-hol/godot/project.godot`, `main.tscn`, `godot/kern/`, `godot/hol/`, `ontwerp.md`, `.github/workflows/steam-hol.yml`, `producten/steam-hol/e2e/` | venster en strook (hoogte, klik door de lucht, zuinig tekenen, hover), het hol zelf (raster, graven, kamers, schat), opslaan, de test en de GIF van een minuut spelen op Actions |
+| Bram | `producten/steam-hol/godot/systemen/` (helden, bewoners, vallen, kroniek), `producten/steam-hol/sim/`, unittests daarvoor | helden die binnenkomen en door het hol lopen, karakter, vallen en bewoners, ontsnappen en terugkomen met wrok, litteken en bijnaam, kroniek, voortgang terwijl je weg bent, balans-simulatie |
+| Sanne | `platformen/steam/features.md`, `spelgevoel.md` | welke features in de eerste speelbare versie, getoetst aan de opdracht; toetst elke GIF |
+| Daan | `producten/steam-hol/godot/kunst/`, `ontwerp/steam/` | de echte stijl voor het spel zelf, op het niveau van Rusty's Retirement en Ropuka's Idle Island, op 120 px; `Akkoord:` bovenaan `ontwerp.md` |
+`platformen/steam/idee.md`, `taken.md`, `status.md`: Olaf. Logboek `platformen/steam/logboek.md`: iedereen, een eigen kopje met je naam en tijd.
 
-**Bram (tweede bouwer, features en systemen)** (Click Joints gaat voor als er iets is)
-- [ ] **Proef pixel art en animatie in Godot** (`producten/steam-strook/godot/systemen/proef-pixel/` of een eigen scène die de kern van Olaf laadt; tot die er is, mag je uitgaan van `producten/steam-proef/` als voorbeeld): een tegelstrook van 120 px hoog in pixel art op schaal 3 (dus 40 spelpixels hoog), nearest-filter, hele schaal, 10 tot 20 bewegende figuurtjes van 16 bij 16 met 4 tot 6 frames op 15 fps. Meet op de Windows-runner de CPU (zelfde meting als `steam-proef`) en maak een GIF. Vraag: hoeveel kost "kleine animaties overal" zoals bij de toppers. Plaatjes: neem tijdelijke blokjes of vraag Daan om één testsprite onder "Vragen tussen ons".
-- [ ] **Voortgang terwijl je weg bent, eerlijk** (`producten/steam-strook/godot/systemen/`): bij openen uitrekenen wat er gebeurde sinds de laatste keer (tijd uit de save, niet uit de klok alleen; klok terugzetten mag niets kapotmaken), met een samenvatting van één regel. Regel van Thijs: wie weg is, mist niets en verliest niets. Unittests.
-- [ ] Na de keuze van Thijs: de spelsystemen van de gekozen richting volgens `features.md` van Sanne, en de balans-simulatie in `producten/steam-strook/sim/` (voortgang over honderden uren zonder muur).
+**Afspraak tussen kern en systemen (Olaf en Bram):** het hol is een raster van cellen (`Vector2i`), in `godot/hol/hol.gd` (Olaf). Bram gebruikt alleen deze functies en signalen en bouwt zijn helden en bewoners als losse scènes onder de node `Hol/Wezens`:
+- `is_gang(cel) -> bool`, `cel_naar_pos(cel) -> Vector2`, `pos_naar_cel(pos) -> Vector2i`, `pad(van, naar) -> Array[Vector2i]`, `ingang() -> Vector2i`, `schat() -> Vector2i`, `val_op(cel) -> String` ("" of soort), signaal `gegraven(cel)`.
+- Spelpixels: Daan kiest de maat; tot dan rekent de bouw met figuren van 16 bij 16 spelpixels op schaal 3 in een strook van 120 px (40 spelpixels hoog).
+Wil je iets anders of extra: zet het onder "Vragen tussen ons".
 
-**Sanne (game-ontwerper)**
-- [ ] `platformen/steam/features.md` voor Het Hol (advies), met de vier eisen van Thijs als kern en per feature de toets; een korte vergelijking waarom niet de andere twee. Let op twee punten uit mijn weging (idee.md, 18:40): (1) Het Hol mag niet straffen als je weg bent (helden die ontsnappen nemen geen schat mee die je kwijt bent); (2) de strook wordt 100 tot 140 px hoog, dus een doorsnede met veel lagen past niet: ontwerp het hol zo dat het in de breedte groeit, of laat dieper zien bij hover.
-- [ ] Reviews van de vier toppers tellen (Rusty's Retirement 2666510, Ropuka's Idle Island 3416070, Tiny Pasture 3167550, Deskrawl 4623570): wat prijzen ze, wat missen ze, waarom stoppen ze. Hoe verdienen ze aan DLC (zie idee.md: Tiny Pasture verkoopt thema en dieren als DLC).
+**Olaf**
+- [ ] **Eerste speelbare kern (nu):** `producten/steam-hol/`: strook van 120 px boven de taakbalk, instelbare hoogte, klik door de lucht, 15 fps en niet tekenen als er niets beweegt; een hol in de breedte met een ingang, gangen, één kamer met schat, graven met een klik; tijdelijke blokjes tot Daans kunst er is. Een eenvoudige held van mij als stand-in tot Bram de zijne levert. Workflow `steam-hol.yml` op de Windows-runner: echte schermafbeelding op 96, 120 en 160 px, CPU-meting, en een GIF van een minuut spelen (Godot Movie Maker). Daarna `ontwerp.md` met "Waarom wij" bovenaan.
+- [x] (af 9 nov 18:40 UTC) `idee.md`: opdracht van Thijs, niveau van de toppers voor de bouw, gemeten strookhoogte van de toppers.
 
-**Daan (ontwerp)** (zijn opdrachten staan in `berichten/daan.md` 18:45 en 18:50; hier alleen de afspraak met de bouw)
-- [ ] Nieuwe plaatjes op het niveau van de toppers, strook 100 tot 140 px, vergelijkingsbeeld (zijn bericht van Thijs). Voor de bouw graag: welke pixelgrootte en schaal (voorstel bouw: 16 px figuren op schaal 3 bij 120 px), en het palet, zodat Bram de proef op jouw maat doet.
+**Bram** (Click Joints gaat voor als er iets is)
+- [ ] **Helden** in `godot/systemen/held.gd` en `held.tscn`: komen binnen bij `ingang()`, lopen met `pad()` naar de schat, twee karaktertrekken om mee te beginnen (hebzuchtig: gaat recht op de schat af; schijterig: keert om bij een val die hij heeft gezien), raken gewond door een val of een bewoner, sneuvelen (laten buit achter) of ontsnappen. **Ontsnapte helden komen terug** met een litteken, een wrok tegen wat hem raakte (de val of de bewoner bij naam) en een bijnaam die het spel ze geeft ("Bram de Driemaal Gevluchte"). Belangrijk: wie ontsnapt neemt niets mee dat jij kwijtraakt (geen straf).
+- [ ] **Bewoners en vallen** in `godot/systemen/`: één bewoner (slijm) en één val (stekelput) om te beginnen.
+- [ ] **Kroniek** in `godot/systemen/kroniek.gd`: houdt bij wie er binnenkwam, viel en ontsnapte; geeft één korte regel voor in de strook ("Bram de Driemaal Gevluchte is terug").
+- [ ] **Voortgang terwijl je weg bent**: bij openen uitrekenen wat er gebeurde (tijd uit de save; klok terugzetten maakt niets kapot), één regel samenvatting, niets verliezen. Unittests (GUT of eigen kleine runner, jij kiest).
+- [ ] Daarna: balans-simulatie in `producten/steam-hol/sim/` (voortgang over honderden uren zonder muur).
 
-**Vragen tussen ons** (nieuwste onderaan, "(antwoord <naam> <tijd>: ...)" erachter)
-- Olaf 18:30 aan Daan: pixel art of rijk getekend? Jij beslist; zeg het hier, dan richt Bram de proef erop in. Mijn bouw-weging staat in `idee.md` (18:40).
+**Sanne**
+- [ ] `platformen/steam/features.md`: welke features in de **eerste speelbare versie** (liever vijf echt goed dan twintig half), wat in versie 1, wat later (skins en DLC: holthema's, nieuwe heldengilden, bewoners, seizoenen). Per feature de toets van Thijs. Let op twee punten uit `idee.md` (18:40): niet straffen als je weg bent; en het hol groeit in de breedte, want 120 px heeft geen ruimte voor veel lagen (dieper zien bij hover kan).
+- [ ] Reviews van de toppers tellen (Rusty's Retirement 2666510, Ropuka's Idle Island 3416070, Tiny Pasture 3167550, Deskrawl 4623570): wat prijzen ze, wat missen ze, waarom stoppen ze.
+- [ ] Elke GIF van Olaf en Bram toetsen: is het leuk, duidelijk, grappig.
+
+**Daan** (zijn opdrachten van Thijs staan in `berichten/daan.md`, 18:45, 18:50 en 19:20)
+- [ ] De echte stijl voor het spel in `producten/steam-hol/godot/kunst/`: tegels voor aarde en gangen, schat, slijm, stekelput, een held met losse hoed en wapen (zo maken we veel verschillende helden uit weinig plaatjes, en hoeden zijn later skins). Zeg onder "Vragen tussen ons" welke spelpixelmaat en schaal je kiest.
+
+**Vragen tussen ons** (nieuwste onderaan; "(antwoord <naam> <tijd>: ...)" erachter)
+- Olaf 18:35 aan Daan: welke spelpixelmaat en schaal (voorstel bouw: 16 px figuren, schaal 3, strook 120 px = 40 spelpixels), en pixel art of rijk getekend? Jij beslist; tot dan bouw ik met blokjes op die maat.
+- Olaf 18:35 aan Bram: begin met `held.gd` tegen de functies hierboven. Ik zet vandaag of in mijn volgende run een eerste `hol.gd` met die functies op main; tot dan kun je de held los bouwen met een nep-hol dat dezelfde functies heeft.
 
 ## Eerder (Olaf, alleen)
 
