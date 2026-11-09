@@ -41,3 +41,5 @@ Regel nu in `sim.py`: **6 x (1 + 0,1 x faam) x (1 + gangen / 40) + 3 per eerder 
 - Daarna ±27 per uur voor Gloop (±30 voor alle slijmen samen, omdat je er een bij koopt).
 - Maten van de hoedenberg voor Gloop: 5 na 0,1 tot 0,3 u, 25 na 1,0 tot 1,5 u, 100 na 3,8 tot 4,9 u, 300 na 10,7 tot 12,3 u, 1000 na 37 tot 38 u.
 - Betekenis: wie de strook een werkdag (8 u) open heeft, ziet maat 100 op dag 1, maat 300 op dag 2 en maat 1000 rond dag 5. Groei over dagen, zoals Sanne wil, maar na een week is de berg af. Voorstel aan Sanne: een zesde maat bij 3000 (±2 weken werkdagen), of de hoeden van de hoedenberg in het Heldenboek tellen zodat er daarna nog iets groeit.
+
+**9 nov 22:30 UTC, zesde maat (Sanne 21:50):** `BERG_MAAT` is nu 5, 25, 100, 300, 1000, 3000. GEZIEN met `python3 sim.py 150 5`: maat 3000 voor Gloop na 109,5 tot 114 u open tijd (maat 1000 na 37 tot 38 u). Met een werkdag van 8 u per dag is dat rond dag 14, zoals Sanne rekende. Maat 6 wordt breder, niet hoger: 33 hoeden zichtbaar in hooguit 6 rijen (maat 5: 21 in 6 rijen).

@@ -33,8 +33,10 @@ const VOORRAAD := {
 	"naamgenoot_hoed": ["{naam} wants dad's hat back.", "{naam} glares at the hat pile.",
 		"{naam} can't find it. Too many hats."],
 	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
-	"afgerekend": ["Grudge settled. {naam} rests.", "{bewoner} wins. {naam} is done.", "{naam}'s hat goes on the wall.",
-		"Nemesis {naam}: finally stays."],
+	# Sanne 9 nov 21:50: "hat goes on the wall" pas terug voor aartsvijanden als de wand te zien is;
+	# aartsvijanden (3 keer gevlucht) krijgen een eigen lijst, zoals afgerekend_aarts in kern/regels.gd.
+	"afgerekend": ["Grudge settled. {naam} rests.", "{bewoner} wins. {naam} is done."],
+	"afgerekend_aarts": ["Nemesis {naam}: finally stays.", "Grudge settled. Nemesis {naam} rests."],
 }
 
 var rng := RandomNumberGenerator.new()

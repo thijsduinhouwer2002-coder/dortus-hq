@@ -253,7 +253,7 @@ func _init() -> void:
 
 	# 11. hoedentoren: zijn hoed gaat op Gloop, een aartsvijand gaat met zijn hoed naar de wand
 	r = speel({"naam": "Odo", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1})
-	var odo_hoed := absi(hash("Odo")) % 4
+	var odo_hoed := absi(hash("Odo")) % 10   # Mila 21:55: 10 hoedsoorten, held.gd rekent nu % HOED_SOORTEN
 	ok(r.slijm_hoeden == [odo_hoed] and r.info.get("hoed_naar", "") == "bewoner" and int(r.info.get("hoeden_bewoner", 0)) == 1,
 		"Odo's hoed (%d) staat op Gloop: %s" % [odo_hoed, str(r.slijm_hoeden)])
 	r = speel({"naam": "Nemesis", "bezoeken": 3, "wrok": "Gloop the Slime", "moet_opgegeten": true, "zaad": 2})
@@ -297,6 +297,31 @@ func _init() -> void:
 	for i in 90:
 		g.raak(i % 4)
 	ok(g.hoeden.size() == 100 and g.berg_maat() == 3 and g.berg().size() == 10 and g.hoed_bijnaam() == "Milliner", "100 hoeden: maat 3, 10 zichtbaar, Milliner")
+	# Sanne 9 nov 21:50: zesde maat bij 3000; maat 6 breder, niet hoger dan maat 5
+	for i in 900:
+		g.raak(i % 10)
+	var hoogste5 := 0
+	var links5 := 0
+	for b in g.berg():
+		hoogste5 = mini(hoogste5, int(b[2]))
+		links5 = mini(links5, int(b[1]))
+	ok(g.berg_maat() == 5 and g.berg().size() == 21, "1000 hoeden: maat 5, 21 zichtbaar (%d)" % g.berg().size())
+	for i in 2000:
+		g.raak(i % 10)
+	ok(g.berg_maat() == 5, "2999 hoeden: nog maat 5")
+	g.raak(9)
+	var hoogste6 := 0
+	var links6 := 0
+	for b in g.berg():
+		hoogste6 = mini(hoogste6, int(b[2]))
+		links6 = mini(links6, int(b[1]))
+	ok(g.berg_maat() == 6 and g.berg().size() == 33, "3000 hoeden: maat 6, 33 zichtbaar (%d)" % g.berg().size())
+	ok(hoogste6 >= hoogste5 and links6 < links5, "maat 6 is breder (x %d < %d), niet hoger (y %d >= %d)" % [links6, links5, hoogste6, hoogste5])
+	var alle_soorten := true
+	for h in g.hoeden:
+		if h < 0 or h >= 10:
+			alle_soorten = false
+	ok(alle_soorten and g.hoeden.has(9), "10 hoedsoorten (Mila): index 0 tot 9 blijft heel")
 	var d: Dictionary = g.naar_dict()
 	var g2 = Node2D.new()
 	g2.set_script(load("res://systemen/slijm.gd"))
@@ -304,7 +329,7 @@ func _init() -> void:
 	g2.zet(hol5, 8)
 	ok(g2.hoeden.is_empty(), "elke slijm zijn eigen toren")
 	g2.van_dict(d)
-	ok(g2.hoeden == g.hoeden and g2.gegeten == 100, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
+	ok(g2.hoeden == g.hoeden and g2.gegeten == 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
 	hol5.free()
 
 	print("[held-toets] klaar: %d FOUT" % fout)
