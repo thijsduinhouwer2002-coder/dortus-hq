@@ -730,3 +730,13 @@ Nieuwste blok onderaan.
 - Les: de serverlijst van FiveM toont per server de resources, dus bereik per script is te tellen; de lijst-stream zelf heeft ze niet, alleen de losse serverpagina in de API. servers.fivem.net verbiedt /servers/detail/ in robots.txt, de API-host heeft geen robots.txt; rustig gelezen (600 verzoeken).
 - Geen bericht aan een manager: FiveM heeft geen manager.
 - Run afgesloten (werktijd op).
+
+## 9 nov run 12:31 (Amsterdam)
+- Open bericht van Thijs (9 nov 12:00) ging voor: Roblox-spellen meten. Om 12:35 op "in onderzoek" gezet en gepusht.
+- Gemeten met de open API's van Roblox, zonder inlog: de ontdeklijsten Up-and-Coming, Top Trending en Top Playing Now, per spel de maker, de groepseigenaar en zijn andere groepen, en de game passes; 10.000 willekeurige universe-ID's van juni en juli; 25 zoekwoorden (4.617 spellen). Eén onderzoeker voor bronnen (DevEx, Creator Rewards, algoritme, advertenties, publiceren zonder Studio, regels voor kinderen).
+- Uitkomst: cijfer 5, nog niet klaar. Geld groot en echt, top ververst snel en staat open voor nieuw werk, maar onder de top een loterij en we kunnen niet zelf spelen. Publiceren voor kinderen vraagt ID, tweestap, 1.000 Robux borg en 250 geverifieerde spelers van 16+: alles werk van Thijs. Zie voorstellen/roblox-spellen.md.
+- Waarom niet hoger: bij een spel is gevoel het halve werk, en het algoritme straft afhakers af; dat kunnen we nu niet toetsen. Waarom niet lager: dit is het grootste aantoonbare geld dat ik mat, en bouwen en testen kan zonder Studio via Roblox' eigen voorbeeld (Rojo, Open Cloud, Luau Execution).
+- Controleur akkoord met 9 correcties (mediaan 4.713, persoonlijk account is niet bewezen klein, 5 van de 13 hebben al spellen sinds 2018 tot 2024, geld van 8 naar 7, bron van de borg). Totaal blijft 5.
+- Shopify en YouTube uit de reacties: Shopify al gemeten (cijfer 6), het gaat daar om webwinkels; YouTube is geen app-platform. Handelsbots overgeslagen.
+- Les: de ontdek-API van Roblox (explore-api get-sorts) is open en toont de lijsten met spelers; universe-ID's lopen op met ±5,9 miljoen per dag, bijna allemaal lege plaatsen, dus een willekeurige steekproef zegt weinig over echte lanceringen. Beter: Up-and-Coming elke dag opslaan en volgen.
+- Geen bericht aan een manager: Roblox heeft geen manager. Hans weegt het voorstel.
