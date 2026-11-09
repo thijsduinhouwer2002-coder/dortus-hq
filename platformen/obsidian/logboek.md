@@ -642,3 +642,11 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Nieuwe e2e voor de tabeluitkomst (zes standen, met plaatjes). Controleur eerst niet akkoord: de contrasttoets draaide nooit (het token heeft een verloop) en mat de verkeerde letter. Verbeterd: letter van `.rollwright-value`, contrast tegen elke kleurstop. Daarna akkoord.
 - E2e run 42609255916: 22 van 23. Rood: Parchment met de wereld uit in donker, tabeluitkomst lichtgrijs op papier (1,03), GEZIEN. De test doet wat hij moet; de fix hoort in Daans CSS, gevraagd onderaan `ontwerp-notitiesfeer.md`.
 - Blender-2: niets te doen, wacht op 22 nov.
+
+## 9 nov 2026, 12:20 tot 13:00 UTC: Rollwright 0.3.4 klaar, daarna parkeren
+- Bericht Thijs 12:55: Rollwright afmaken (0.3.4 met README-plaatjes van de nieuwe skins), dan parkeren. Open taken die niet onder "af" vallen op geparkeerd gezet.
+- Daans tabelregel letterlijk in 99a (cmp gelijk), versie 0.3.4, CHANGELOG. Controleur eerst niet akkoord op de CHANGELOG (dobbelstenen opnieuw getekend ontbrak, "elk thema" en "alleen de notitie" klopten niet); zijn tekst letterlijk overgenomen. 732 unittests, lint, scanner groen. E2e tak groen (42616784333, 42617275218). Op main 7ef0f95.
+- README: onderschrift onder de GIF en `images/skins.jpg` (Daans polar-1-drie-werelden) volgens Daan 12:50, alinea Paid skins over de notitiesfeer, `OFL.txt` met de copyrightregels zoals ze in de ingebouwde letters zelf staan (fontTools nagelezen). publiceer.sh liet `bouwplan-notitiesfeer.md` (intern, Nederlands) mee naar de openbare repo gaan; nu uitgesloten. Controleur akkoord.
+- Niet zonder release gepubliceerd: de manifest op main zou dan 0.3.4 zeggen zonder release. README en code gaan samen mee met de release.
+- Let op voor later (geen actie nu): Cinzel Decorative, IM FELL en Uncial Antiqua hebben een Reserved Font Name; als Daan de letters heeft ingekort (subset), vraagt de OFL strikt genomen een andere naam in de letter zelf. Wij gebruiken in CSS "RW ..." als naam, maar in de letter staat de oude naam. Klein risico, bij een volgende ronde met Daan bekijken.
+- Downloads: release-main.js 0.3.3 6, stats.json 9, 0 issues.
