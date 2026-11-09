@@ -1,10 +1,13 @@
 # Rapport Patrick, perfectionist (nacht 9 op 10 nov 2026)
 
 Stand: versie na run 1 (9 nov, ±23:30 NL). Volgende runs scherpen aan; de run van 07:13 maakt hem af.
-Bewijs: `bevindingen.md`. Bronnen van buiten (27 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `09`.
+Bewijs: `bevindingen.md`. Bronnen van buiten (27 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `10`.
 
 ## In één alinea
 In drie dagen (7 tot en met 9 nov) maakte de ploeg ±1.650 commits, samenvoegingen niet meegeteld. Opbrengst: één product live (Rollwright, 19 downloads, 0 verkopen), twee in keuring, 0 euro. Bouwen is niet het probleem: het Steam-team bouwt echt en snel. Wat traag en duur is: elke run leest eerst 80 tot 130 KB, de opdrachten van de geplande taken spreken de besluiten tegen, er sturen drie lagen die elkaars besluiten omdraaien, bij elke kleine taak loopt een controleur-agent mee, en de meetlat voor nieuwe kansen kan bijna geen ja geven. De vijf punten hieronder pakken dat aan. Punt 1, 2 en 5 zijn gewoon goed en kosten de hoofdchat samen ±2 uur. Punt 3 en 4 zijn keuzes van Thijs.
+
+## Vóór alles: één koerszin (keuze Thijs, 1 minuut)
+Er staan drie koersen door elkaar: CLAUDE.md "gebruikers en later geld", de projectbeschrijving "eerst bereik, daarna geld", `doelen.md` "geld gaat voor bereik", en het besluit van 9 nov 22:56 "echt geld maken nu". Ook "nooit haasten om een datum" (doelen) tegenover "liever een eerlijke gok dan een week zekerheid" (22:56). Elke afweging van elke Claude leunt hierop. Mijn advies: **"Zo snel mogelijk eerlijk geld, gespreid over platformen. Bereik telt omdat het tot geld leidt: elk product heeft vanaf dag 1 een betaald deel."** Uitwerking: `voorstellen/10-koers-in-een-zin.md`.
 
 ## Top 5
 

@@ -17,3 +17,4 @@
 - Controleur-agent (las de voorstellen vers) vond: weggevallen harde regels in 01 (lijst-thijs schrijfrecht, wanneer Thijs vragen, Thijs ziet eerste lancering, dortus.com, andere chats), geen blok "Nieuw" in berichten, status.md zonder "Volgende taak", rollen die naar oude leeslijsten verwijzen, bouw.py-afhankelijkheden, en twee foute cijfers (controleur 187 niet 73; 1.640 is zonder samenvoegingen). Alles verwerkt. Op zijn kritiek "nu.md is een vierde plek": nu.md geschrapt, bord.md (bestaat al) wordt dat bestand (02-bord.md).
 - Voorstel 08 (rollen) geschreven; rapport kreeg "Hoe doorvoeren".
 - Voorstel 09 (dashboard op uitkomst) geschreven, rapport punt 5 aangevuld.
+- Ontdekt: drie tegenstrijdige koerszinnen (bereik eerst / geld gaat voor bereik / geld nu). Voorstel 10 en een blok bovenaan het rapport.
