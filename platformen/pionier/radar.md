@@ -2,6 +2,9 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 07:55 | SHOPLINE App Store: 512 apps, 30.355 live winkels (vlak sinds 2024), afdracht achter inlog | https://storeleads.app/reports/shopline | GEZIEN | onderzocht: cijfer 3
+- 9 nov 2026 07:50 | Siri AI open voor alle ontwikkelaars (iOS 27.3 beta, 3 nov 2026); apps pas in de App Store vanaf voorjaar 2027; bestaande apps (bezorging, bank) komen vanzelf mee | https://memeburn.com/ios-27-3-beta-siri-ai-developers/ | DERDEN | nee voor de pionier (zelfde soort als HomeView), volgen in het voorjaar
+- 9 nov 2026 07:45 | Kaufland Marketplace nu in 9 landen: NL sinds 11 sept 2026, ES erbij; 130+ softwarepartners, geen app-winkel | https://www.esmmagazine.com/retail/kaufland-marketplace-expands-into-the-netherlands-321128 | DERDEN | nee voor de pionier; tip voor Tess (tweede marktplaats voor de boekhoudkoppeling)
 - 9 nov 2026 07:10 | Fourthwall Developer Platform: apps en site-editor-secties van derden, publiceren nog via Discord, één zelfstandige app (Echobrain), eigen kassa toegestaan; 25.732 live winkels | https://docs.fourthwall.com/apps/publishing.md | GEZIEN | onderzocht: cijfer 5, herhaal 9 feb 2027
 - 9 nov 2026 07:00 | Light Phone III-tools: "non-commercial" | https://engadget.com/2161468/the-minimalist-light-phone-iii-will-soon-support-a-curated-set-of-third-party-apps | DERDEN | nee
 - 9 nov 2026 07:00 | Salla App Store (Saoedi-Arabië): openbare API api.salla.dev/marketplace/v2 met 849 apps, 475 betaald; groei van het platform staat stil; ClickUp heeft geen app-marketplace | https://api.salla.dev/marketplace/v2/apps | GEZIEN | onderzocht: cijfer 4, doorgeven aan Vera

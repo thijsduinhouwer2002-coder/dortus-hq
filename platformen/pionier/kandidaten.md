@@ -355,4 +355,4 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Fourthwall Developer Platform en Apps-directory (winkels voor makers/creators, apps en installeerbare secties in de site-editor, eigen kassa toegestaan: "you handle billing and access control independently"; GEZIEN, https://help.fourthwall.com/manage-my-shop/apps-features-and-integrations/developer-platform-building-apps-and-webhooks.md, bijgewerkt 30 okt 2026): in onderzoek 9 nov 07:05 UTC; klaar ±07:10, cijfer 5 (nog niet klaar), zie onderzocht.md
 
 ## Run 9 nov 07:40 UTC (Noor)
-- SHOPLINE App Store (winkelbouwer uit Azië die naar de VS, het VK en Europa trekt; app store met afrekenen via SHOPLINE; groei in het westen en jonge winkel nakijken): in onderzoek 9 nov 07:48 UTC
+- SHOPLINE App Store (winkelbouwer uit Azië die naar de VS, het VK en Europa trekt; app store met afrekenen via SHOPLINE; groei in het westen en jonge winkel nakijken): in onderzoek 9 nov 07:48 UTC; klaar ±07:55, cijfer 3 (nee), zie onderzocht.md
