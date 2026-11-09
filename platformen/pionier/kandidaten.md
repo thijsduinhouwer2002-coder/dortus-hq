@@ -375,4 +375,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 - Elke week (eerst 16 nov): `python3 -I data/whatnot-api-meet.py`. Morgen: Q3-cijfers eToro (10 nov).
 
 ## Run 9 nov 10:40 UTC (Noor)
-- Sitecore Marketplace (apps voor SitecoreAI, openbare marketplace voor derden sinds 2025, met een openbare lijst van app-ideeën van klanten sinds 5 nov 2026; betalen, groei en lege hoeken nakijken; GEZIEN, https://developers.sitecore.com/changelog/marketplace/05112026/track-marketplace-app-ideas-from-request-to-published-app): in onderzoek 9 nov 10:50 UTC
+- Sitecore Marketplace (apps voor SitecoreAI, openbare marketplace voor derden sinds 2025, met een openbare lijst van app-ideeën van klanten sinds 5 nov 2026; betalen, groei en lege hoeken nakijken; GEZIEN, https://developers.sitecore.com/changelog/marketplace/05112026/track-marketplace-app-ideas-from-request-to-published-app): in onderzoek 9 nov 10:50 UTC; klaar ±11:05, cijfer 4 (nee), zie onderzocht.md
+- Les uit Sitecore: een jonge app-winkel bij een oude, dure CMS voor grote bedrijven groeit alleen door de overstap van bestaande klanten. Kijk eerst naar de grote npm-pakketten van het platform (samen, per oktober vergelijken) en Stack Exchange; zijn die vlak of krimpen ze, dan is het geen pionierskans. Zelfde soort overslaan: Optimizely, Adobe Experience Manager, Acquia.

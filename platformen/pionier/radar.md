@@ -2,6 +2,7 @@
 
 Nieuwe signalen: nieuwe app-winkels, plugin-systemen, ontwikkelaarsprogramma's, betaalde lagen voor makers, hard groeiende platformen. Nieuwste bovenaan. Eén regel per signaal: datum | wat | link | label (GEZIEN, DERDEN, GOK) | vervolg.
 
+- 9 nov 2026 11:05 | Sitecore Marketplace: openbare ideeënlijst met stemmen en analytics voor makers (5 nov 2026), publieke apps sinds 10 nov 2025, default apps van Sitecore zelf sinds 7 okt 2026 | https://developers.sitecore.com/changelog/marketplace/05112026/track-marketplace-app-ideas-from-request-to-published-app | GEZIEN | onderzocht: cijfer 4, nee
 - 9 nov 2026 10:05 | Whatnot Seller API algemeen open sinds 29 okt 2026 voor alle live-verkopers, met MCP en verzendlabels; alleen voor eigen gebruik, OAuth-apps voor derden via het Whatnot-team; Whatnot $20 mld, verkoop verdubbelt in 2026 | https://blog.teamwhatnot.com/unitedstates/whatnot-seller-api | GEZIEN | onderzocht: cijfer 5, elke week meten
 - 9 nov 2026 09:45 | Nous Research Hermes Marketplace: 976 plugins, gratis; ChatGPT Plugin Extensions: geen betaalroute (eigen kassa buiten ChatGPT mag) | https://top5apps.ai/news/chatgpt-plugin-extensions-store-2026/ | DERDEN | geen nieuw feit, nee
 - 9 nov 2026 09:00 | Linear-integraties: 366 in de sitemap, sinds 2022, ±10 nieuw per maand, okt 28; Folk, Granola, Pylon, Plain zonder lijst voor makers | https://linear.app/integrations | GEZIEN | nee voor de pionier
