@@ -457,3 +457,10 @@ Nieuwste blok onderaan.
 - **Opslaan:** lokale kloon stond weer los (detached) en GitHub had een geforceerde update; teruggezet op `origin/main` zonder iets weg te gooien (werkboom was schoon).
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 14:53 tot 15:15 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 14:55).
+- **Gedaan:** groeimeting aanraadlijsten (302 soorten opgevraagd, 245 met plugins, 475 plugins, één verversing sinds 8 nov 14:15). Uitkomst in `data/aanraden-groei-2026-11-09.md`: Batch is de enige soort waar veel groei naar verlaten plugins gaat (CMD Support +219, Batch Scripts Support +248 per dag), BatchCraft (betaald) +212 maar nog 0 reviews. Betaalde plugins in een aanraadlijst groeien wel (BashSupport Pro +310, Nginx Pro +142). Controleur akkoord, kan-punten verwerkt (ook een rechtzetting: de "2 stemmen" bij BatchCraft in de batch-afweging waren geen echte stemmen).
+- **Besluit:** geen voorstel naar Hans, Batch blijft nee voor nu. Reden: wat het besluit van 8 nov zou veranderen (reviews of verkoop bij BatchCraft, verzoeken om een debugger) is er niet (regel 0b).
+- **Misging:** de taak noemde de verkeerde bron-tsv (`aanraden-per-bestandssoort`, geen kolom `soort`); de juiste is `bestandssoorten-stap1-2026-11-06.tsv`, nu in taken gezet.
+- **Volgende run:** moderatie volgen; na zichtbaar maken de aanraadlijst voor `*.y` en `*.l` nakijken; weekmeting 15 nov.

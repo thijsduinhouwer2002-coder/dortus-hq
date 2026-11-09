@@ -1,0 +1,246 @@
+groei_totaal	aantal_plugins	soort	grootste_groeier	groei_grootste
+50020	3	Dockerfile	Docker	50000
+41228	1	*.vue	Vue.js	41228
+41160	5	*.ipynb	Python Community Edition	13855
+30686	4	*.env	.env files	30424
+17850	4	*.rst	Python Community Edition	13855
+17745	2	requirements.txt	Python Community Edition	13855
+16161	7	*.pdf	HTTP Client	15843
+15845	3	*.rest	HTTP Client	15843
+15843	1	*.http	HTTP Client	15843
+15276	5	*.md	Markdown	14771
+14288	3	.eslintrc	JavaScript and TypeScript	13074
+14287	2	yarn.lock	JavaScript and TypeScript	13074
+14287	2	.babelrc	JavaScript and TypeScript	13074
+13472	7	*.proto	Protocol Buffers	13147
+13159	9	*.csv	CSV Editor	12622
+12661	5	*.tsv	CSV Editor	12622
+9312	3	*.rs	Rust	7599
+7742	1	*.dart	Dart	7742
+7700	5	*.yaml	YAML	7662
+7694	4	*.yml	YAML	7662
+7343	2	*.toml	Toml	7343
+7343	1	poetry.lock	Toml	7343
+7343	1	Pipfile	Toml	7343
+7343	1	Cargo.lock	Toml	7343
+7252	4	*.class	Java	6590
+6915	3	*.vm	Apache Velocity	6805
+6591	1	.editorconfig	EditorConfig	6591
+5907	2	*.gradle	Gradle for Java	5907
+5734	3	*.sh	Shell Script	5418
+5090	1	.prettierrc	Prettier	5090
+5069	4	*.properties	Properties	5051
+4366	8	*.ftl	FreeMarker	4302
+4037	6	*.kt	Kotlin	4035
+3947	5	*.j2	Python	3890
+3923	3	*.jinja	Python	3890
+3673	2	*.pom	Maven	3665
+3517	3	*.webp	WebP	2837
+3301	1	*.service	Unit File Support (systemd)	3301
+3211	5	*.pbxproj	Kotlin Multiplatform	2867
+3207	4	*.swift	Kotlin Multiplatform	2867
+3206	4	*.plist	Kotlin Multiplatform	2867
+2956	3	*.hql	Jakarta EE Platform	2951
+2942	12	*.asm	Kotlin Multiplatform	2867
+2941	2	*.strings	Kotlin Multiplatform	2867
+2867	1	*.xib	Kotlin Multiplatform	2867
+2867	1	*.xcconfig	Kotlin Multiplatform	2867
+2867	1	*.storyboard	Kotlin Multiplatform	2867
+2771	12	*.feature	Gherkin	1927
+2697	4	BUILD	Bazel	2634
+2641	4	*.bzl	Bazel	2634
+2636	2	WORKSPACE	Bazel	2634
+2636	2	*.star	Bazel	2634
+2636	2	*.bazel	Bazel	2634
+2589	3	*.hcl	Terraform and HCL	2582
+2583	2	*.tf	Terraform and HCL	2582
+2504	5	*.mk	Makefile Language	2473
+2483	2	Makefile	Makefile Language	2473
+2378	4	*.aar	Android	1680
+2378	3	*.apk	Android	1680
+2355	8	*.cfg	Minecraft Development	1347
+2348	5	*.ttf	Android	1680
+2341	3	*.trace	Android	1680
+2340	3	*.fs	Android	1680
+2191	4	*.gql	GraphQL	2165
+2188	2	*.graphql	GraphQL	2165
+1942	1	*.adoc	AsciiDoc	1942
+1783	13	*.conf	PHP	947
+1547	2	*.twig	PHP	947
+1481	7	*.s	Go	1428
+1446	3	*.go	Go	1428
+1428	1	go.mod	Go	1428
+1404	2	*.log	Ideolog	1402
+1284	4	*.tpl	PHP	947
+1221	1	*.mustache	Handlebars/Mustache	1221
+1221	1	*.hbs	Handlebars/Mustache	1221
+906	2	*.ini	Ini	906
+857	4	*.prisma	Prisma ORM	855
+811	2	*.pug	Pug (ex-Jade)	807
+740	2	*.astro	Astro	726
+722	5	*.cmd	Batch Scripts Support	248
+713	3	*.hprof	Rider Android Support	660
+694	8	*.mmd	Mermaid	231
+690	2	*.ejs	EJS	687
+679	3	*.bat	Batch Scripts Support	248
+653	2	*.puml	plantuml4idea	535
+602	10	*.xlsx	ExcelReader	379
+595	3	*.bicep	Azure Toolkit for Rider	388
+552	1	*.mdx	MDX	552
+516	3	*.svelte	Svelte	501
+461	2	*.gitlab-ci.yml	CI Aid for GitLab	461
+441	1	CMakeLists.txt	CMake	441
+441	1	*.cmake	CMake	441
+425	10	*.parquet	Big Data File Viewer	162
+425	2	*.ps1	PowerShell	425
+391	1	justfile	Just	391
+391	1	Justfile	Just	391
+364	7	*.avro	Big Data File Viewer	162
+342	4	*.cls	TeXiFy-IDEA	227
+309	1	.htaccess	Apache config (.htaccess)	309
+299	8	*.sql	Database Navigator	225
+287	3	*.bin	Hex Editor	131
+265	2	*.tex	TeXiFy-IDEA	227
+265	2	*.bib	TeXiFy-IDEA	227
+261	1	meson.build	Meson	261
+258	2	Vagrantfile	Ruby	253
+256	7	*.m	CLion C and C++	218
+253	1	Gemfile	Ruby	253
+253	1	*.rb	Ruby	253
+253	1	*.gemspec	Ruby	253
+253	1	*.erb	Ruby	253
+239	6	*.db	SimpleSqliteBrowser	101
+236	7	*.gz	Omni Viewer	118
+236	6	*.tar	Omni Viewer	118
+221	5	*.wav	Omni Viewer	118
+221	5	*.mp3	Omni Viewer	118
+205	4	*.obj	Hex Editor	131
+202	2	*.mp4	Omni Viewer	118
+187	4	*.elf	Hex Editor	131
+187	3	*.so	Hex Editor	131
+187	2	*.wasm	Hex Editor	131
+187	2	*.exe	Hex Editor	131
+187	2	*.dylib	Hex Editor	131
+187	2	*.dll	Hex Editor	131
+183	11	*.lua	EmmyLua	70
+180	5	*.7z	Omni Viewer	118
+174	2	*.pcap	Omni Viewer	118
+169	3	*.iso	Hex Editor	131
+162	1	*.r	R Language	162
+156	3	*.liquid	Liquid	151
+156	2	*.zip	Omni Viewer	118
+149	3	*.docx	Omni Viewer	118
+144	2	*.wat	WebAssembly	88
+142	1	*.pot	GNU GetText Files Support (*.po)	142
+142	1	*.po	GNU GetText Files Support (*.po)	142
+136	7	Jenkinsfile	Jenkinsfile	95
+136	1	*.drawio	Diagrams.net Integration	136
+134	1	.gitattributes	.gitattributes support	134
+131	1	*.o	Hex Editor	131
+131	1	*.img	Hex Editor	131
+130	2	*.sqlite	SimpleSqliteBrowser	101
+127	6	*.zig	ZigBrains	116
+118	1	*.shp	Omni Viewer	118
+118	1	*.mdf	Omni Viewer	118
+118	1	*.h5	Omni Viewer	118
+110	3	*.clj	Cursive	103
+103	4	*.g4	ANTLR v4	81
+99	11	*.robot	Hyper RobotFramework Support	31
+96	2	*.kql	Elasticsearch	92
+84	1	*.sln	jetplay	84
+63	1	*.hex	Advanced JSON Studio	63
+60	3	*.stl	Flexible For OpenSCAD	24
+56	4	*.ex	Elixir	29
+56	2	CODEOWNERS	Git Codeowners	47
+56	2	*.jl	Flexible Julia	56
+53	3	*.pas	Pascal Flow	32
+50	4	*.arb	Flutter Intl	26
+45	3	*.st	EPICS Workbench	38
+45	2	*.nix	NixIDEA	38
+44	5	*.vhd	Archive Browser	38
+44	2	Caddyfile	Caddyfile support	36
+43	7	*.hs	Flexible Haskell	26
+43	5	*.mod	CPLEX OPL	43
+40	3	*.glb	3D Visualizer	20
+40	1	*.haml	Haml	40
+38	2	*.sol	Solidity	19
+36	2	*.cue	CUE	36
+36	1	*.slim	Slim	36
+34	2	*.gltf	3D Visualizer	20
+33	6	*.dot	Document Viewer	28
+29	2	*.npy	Scientific Image Visualizer	20
+29	1	*.mbtiles	SQLite Lens: SQLite Database File Viewer	29
+28	1	*.jfr	Java JFR Profiler	28
+26	3	*.cabal	Flexible Haskell	26
+25	1	.tool-versions	Version Checker	25
+25	1	.nvmrc	Version Checker	25
+24	5	*.thrift	Thrift Support (fork)	14
+24	5	*.nim	Nim Pro	16
+23	2	*.nc	Scientific Image Visualizer	20
+22	2	*.dcm	Scientific Image Visualizer	20
+21	3	*.cob	Flexible COBOL	17
+20	1	*.safetensors	Model File Inspector	20
+20	1	*.png	Image Editor	20
+20	1	*.jpg	Image Editor	20
+20	1	*.ico	Image Editor	20
+20	1	*.gif	Image Editor	20
+20	1	*.gguf	Model File Inspector	20
+20	1	*.fits	Scientific Image Visualizer	20
+20	1	*.fbx	3D Visualizer	20
+19	7	*.v	HDL and Vivado + MCP Support	8
+18	4	*.libsonnet	Jsonnet Language Server	12
+17	5	*.sv	HDL and Vivado + MCP Support	8
+17	4	*.xliff	Auto Localizer	11
+17	3	*.jsonnet	Jsonnet Language Server	12
+17	1	*.mjml	MJML Support	17
+17	1	*.erl	Erlang	17
+15	2	*.patch	Diff / Patch File Support	13
+15	2	*.diff	Diff / Patch File Support	13
+14	6	*.ron	RON Assist	7
+13	1	Procfile	Procfile	13
+12	1	*.f90	Fortran	12
+11	3	*.tscn	Godot-JVM	9
+11	2	*.tcl	HDL and Vivado + MCP Support	8
+10	2	*.vbs	VBScript	6
+10	2	*.duckdb	Toolkit for DuckDB	7
+9	1	*.nii	Niivue Viewer	9
+9	1	*.awk	AWK Support	9
+8	1	Brewfile	Brew Bundle	8
+8	1	*.iss	Inno Setup	8
+7	3	*.ml	ReasonML	6
+7	2	*.njk	Nunjucks	4
+7	1	*.xsd	XSD / WSDL Visualizer	7
+7	1	*.woff	FontViewer	7
+7	1	*.kicad_pcb	Flexible For Schematics	7
+6	2	*.org	OrgMode	6
+6	1	*.ahk	AutoHotkey	6
+5	4	*.gv	DOT Language	4
+5	2	*.y	Bison Language Support	3
+5	2	*.scpt	AppleScript Support	4
+5	2	*.applescript	AppleScript Support	4
+4	2	*.scm	Scheme	4
+4	1	*.rego	Open Policy Agent	4
+4	1	*.jsonc	JSON	4
+4	1	*.json5	JSON	4
+4	1	*.har	JSON	4
+3	3	*.nsi	NPCoding Installer Scripts	3
+3	1	*.kdl	KDL Document Language	3
+3	1	*.cairo	Cairo Analyzer	3
+2	2	Earthfile	EarthBuild	2
+2	2	*.tres	GdScript	1
+2	1	Tiltfile	Tiltfile Support	2
+2	1	.gitignore	Git	2
+2	1	*.xml	Vector Thumbnails	2
+2	1	*.svg	SVG2VectorDrawable	2
+2	1	*.rkt	Racket	2
+2	1	*.dbc	NPCoding CAN Database Files	2
+1	5	*.move	Move on Aptos	1
+1	1	*.reg	NPCoding Registry Files	1
+1	1	*.prof	Profile Viewer: CPU & Heap Profiles, Flame Graphs	1
+1	1	*.hjson	HJson	1
+0	1	*.unity	Unity Support	0
+0	1	*.prefab	Unity Support	0
+0	1	*.pbf	PureBasic Language	0
+0	1	*.onnx	ONNX4IDEA	0
+0	1	*.groovy	Groovy	0
+0	1	*.dhall	Dhall	0

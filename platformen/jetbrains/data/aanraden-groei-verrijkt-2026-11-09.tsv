@@ -1,0 +1,137 @@
+groei	downloads	id	naam	maker	model	laatste_versie	laatste_datum	until	soorten
+50000	33587407	7724	Docker	JetBrains	FREE	263.7307.215	2026-11-05	263.*	Dockerfile
+41228	23082086	9442	Vue.js	JetBrains	FREE	263.7307.211	2026-11-05	263.*	*.vue
+30424	32860547	9525	.env files	JetBrains	FREE	263.7307.209	2026-11-05	263.*	*.env
+15843	16628550	13121	HTTP Client	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.http *.pdf *.rest
+14771	16019257	7793	Markdown	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.md
+13855	13944316	7322	Python Community Edition	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.ipynb *.rst requirements.txt
+13147	8775154	14004	Protocol Buffers	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.proto
+13074	14745142	22069	JavaScript and TypeScript	JetBrains	FREE	263.7307.200	2026-11-04	263.*	.babelrc .eslintrc yarn.lock
+12622	13838961	10037	CSV Editor	9fed028c-a280-435f-8eda-f1ac7185e7eb	FREE	252.56.0	2026-11-09		*.csv *.tsv
+11881	17481025	24880	Notebook Files	JetBrains	FREE	263.7307.108	2026-10-30	263.*	*.ipynb
+11524	18343199	22814	Jupyter	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.ipynb
+7742	29403975	6351	Dart	Google	FREE	511.0.0	2026-11-04		*.dart
+7662	14751260	13126	YAML	JetBrains	FREE	263.7307.112	2026-10-30	263.*	*.yaml *.yml
+7599	2531660	22407	Rust	JetBrains	FREE	263.7307.218-windows-x86_64	2026-11-05	263.*	*.rs
+7343	21181543	8195	Toml	JetBrains	FREE	263.7307.112	2026-10-30	263.*	*.toml Cargo.lock Pipfile poetry.lock
+6805	6448502	21738	Apache Velocity	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.vm
+6591	16295343	7294	EditorConfig	JetBrains	FREE	263.7307.108	2026-10-30	263.*	.editorconfig
+6590	5024204	27368	Java	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.class
+5907	3858487	27367	Gradle for Java	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.gradle
+5418	5436259	13122	Shell Script	JetBrains	FREE	263.7307.115	2026-10-30	263.*	*.sh
+5090	8673506	10456	Prettier	JetBrains	FREE	263.7307.110	2026-10-30	263.*	.prettierrc
+5051	13377009	11594	Properties	JetBrains	FREE	263.7307.108	2026-10-30	263.*	*.properties
+4302	1051742	27369	FreeMarker	JetBrains	FREE	263.7307.112	2026-10-30	263.*	*.ftl
+4035	38087143	6954	Kotlin	JetBrains	FREE	263.7307.200-IJ	2026-11-04	263.*	*.kt
+3890	12962956	631	Python	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.ipynb *.j2 *.jinja *.rst requirements.txt
+3665	7370913	27164	Maven	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.pom
+3301	1278181	11070	Unit File Support (systemd)	528d8d82-4c8f-4fb5-891c-3f6e3f575aa0	FREE	242.261108.974	2026-11-08		*.service
+2951	3404576	20207	Jakarta EE Platform	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.hql
+2867	2322773	14936	Kotlin Multiplatform	JetBrains	FREE	262.11879.145-IJ	2026-11-09	262.*	*.asm *.pbxproj *.plist *.storyboard *.strings *.swift *.xcconfig *.xib
+2837	1946149	15037	WebP	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.webp
+2634	1971024	22977	Bazel	JetBrains	FREE	2026.3.1	2026-10-27	263.*	*.bazel *.bzl *.star BUILD WORKSPACE
+2582	6179437	7808	Terraform and HCL	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.hcl *.tf
+2473	7330348	9333	Makefile Language	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.mk Makefile
+2165	6280160	8097	GraphQL	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.gql *.graphql
+1942	3520142	7391	AsciiDoc	7e0206d0-b87a-4469-ac38-cafd8aa0fca8	FREE	0.45.12	2026-11-08		*.adoc
+1927	6241599	9164	Gherkin	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.feature
+1680	1542364	22989	Android	JetBrains	FREE	263.7307.200-windows-x86_64	2026-11-04	263.*	*.aar *.apk *.fs *.rs *.trace *.ttf
+1428	4930381	9568	Go	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.go *.s go.mod
+1402	13057615	9746	Ideolog	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.log
+1347	2410025	8327	Minecraft Development	minecraft-dev	FREE	2026.3-1.9.0	2026-10-17	263.*	*.cfg
+1221	5349657	6884	Handlebars/Mustache	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.hbs *.mustache
+1213	1267660	27880	JavaScript for JetBrains Client	JetBrains	FREE	252.28539.108	2026-07-30	252.*	.babelrc .eslintrc yarn.lock
+947	7166932	6610	PHP	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.conf *.tpl *.twig
+906	8769413	6981	Ini	JetBrains	FREE	263.7307.112	2026-10-30	263.*	*.cfg *.ini
+855	1065042	20686	Prisma ORM	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.prisma
+807	2310125	7094	Pug (ex-Jade)	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.pug
+726	663101	20959	Astro	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.astro
+718	3479102	7212	Cucumber for Java	JetBrains	FREE	263.7307.112	2026-10-30	263.*	*.feature
+687	1389342	7296	EJS	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.ejs
+660	1547946	12056	Rider Android Support	JetBrains	FREE	263.7307.196-windows-x86_64	2026-11-05	263.7307.*	*.aar *.apk *.class *.fs *.hprof *.trace *.ttf *.webp
+600	3929459	7303	Twig	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.twig
+552	957682	14944	MDX	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.mdx
+535	5092810	7017	plantuml4idea	a23f723e-b2d6-48dc-b7a7-5f898c9b0eb5	FREE	7.15.0-IJ2023.2	2026-09-23		*.puml
+501	1630331	12375	Svelte	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.svelte
+461	1731668	25859	CI Aid for GitLab	392e3fbf-7e05-4f80-91f1-1bbcc0354d61	FREE	2.1.0	2026-09-28		*.gitlab-ci.yml
+441	629187	28794	CMake	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.cmake CMakeLists.txt
+425	1506374	10249	PowerShell	18dc9d0b-6e63-4fe8-8431-3af82c5edd39	FREE	2.12.0	2026-07-19		*.ps1
+391	563079	18658	Just	5f47aa04-3398-4eea-98f1-d27c0a115f9b	FREE	0.6.58	2026-11-05	263.*	Justfile justfile
+388	1816529	11220	Azure Toolkit for Rider	JetBrains	FREE	4.9.1	2026-11-03		*.bicep
+388	2230713	24198	Gemini Code Assist	Google	FREE	1.60.1-253	2026-10-13	262.*	*.md
+379	1243156	14722	ExcelReader	obiscr	FREE	2026.11.1-263	2026-11-06	263.*	*.csv *.xlsx
+336	53625	33360	Smarty	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.conf *.tpl
+310	622026	13841	BashSupport Pro Shell & Zsh	joachim_ansorg	PAID	5.0.13.263	2026-11-06	263.*	*.sh
+309	2083532	6834	Apache config (.htaccess)	JetBrains	FREE	263.7307.101	2026-10-30	263.*	.htaccess
+265	436558	22150	Noctule, the Swift IDE	joachim_ansorg	FREEMIUM	4.1.0.523-263	2026-11-03	263.*	*.pbxproj *.plist *.swift
+261	278502	28797	Meson	JetBrains	FREE	263.7307.200	2026-11-04	263.*	meson.build
+257	242710	19147	Buf for Protocol Buffers	Buf	FREE	0.9.1	2026-11-09		*.proto
+253	2818784	1293	Ruby	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.erb *.gemspec *.rb Gemfile Vagrantfile
+248	2062297	265	Batch Scripts Support		FREE	1.0.13	2021-12-01		*.bat *.cmd
+231	1701850	20146	Mermaid	JetBrains	FREE	263.7307.200	2026-11-04	263.*	*.mmd
+227	900949	9473	TeXiFy-IDEA	1fa35b7b-8bc0-41f8-9744-12c6789d136f	FREE	1.1.1	2026-09-18		*.bib *.cls *.tex
+225	5052374	1800	Database Navigator	oracle	FREE	4.1.0.3	2026-09-22	263.*	*.sql
+219	2246411	5834	CMD Support	b5bf1e72-f54f-4967-ade2-26a04d98a9e5	FREE	1.0.5	2015-03-05		*.bat *.cmd
+218	46325	28804	CLion C and C++	JetBrains	FREE	263.7307.200-windows-arm64	2026-11-04	263.*	*.m
+212	9797	34804	BatchCraft: Batch & CMD	kitss-tech	PAID	1.0.2	2026-10-10		*.bat *.cmd
+190	2422965	7861	EnvFile	0e8d27ec-ffec-47a6-92b3-21f4f7d47d02	FREE	5.0.1	2026-03-27		*.env
+174	2762761	15461	Nginx Configuration	meanmail	FREE	2026.2.3	2026-07-19		*.conf
+172	942636	8053	Azure Toolkit for IntelliJ	Microsoft	FREE	3.97.8-2026.3	2026-11-02	263.*	*.bicep
+168	413920	14494	PDF Viewer	df56e57f-c734-46d1-952b-4c95312bf528	FREE	0.18.6	2026-09-18		*.pdf
+162	2370299	21701	Big Data File Viewer	JetBrains	FREE	263.5153.40	2026-09-18	263.5153.*	*.avro *.parquet
+162	4239202	6632	R Language	JetBrains	FREE	253.33813.105	2026-10-30	253.*	*.r
+158	26989	30883	Mermaid Studio Core	DavidSeptimus	FREEMIUM	2026.4.7+as	2026-11-07		*.mmd
+151	329715	14388	Liquid	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.liquid
+142	269198	18280	Nginx Configuration Pro	meanmail	PAID	202624.0	2026-11-05		*.conf
+142	431944	7123	GNU GetText Files Support (*.po)	JetBrains	FREE	263.7307.108	2026-10-30	263.*	*.po *.pot
+136	500570	15635	Diagrams.net Integration	7e0206d0-b87a-4469-ac38-cafd8aa0fca8	FREE	0.2.8	2026-08-21		*.drawio
+134	760284	26477	.gitattributes support	xepozz	FREE	2026.2.0	2026-07-06		.gitattributes
+131	48113	28521	Hex Editor	meanmail	FREEMIUM	12.0.1	2026-11-05		*.bin *.dll *.dylib *.elf *.exe *.img *.iso *.o *.obj *.so *.wasm
+118	62897	28550	Omni Viewer	battlecook	FREEMIUM	202610.2.0	2026-11-01		*.7z *.avro *.docx *.gz *.h5 *.mdf *.mmd *.mp3 *.mp4 *.parquet *.pcap *.pdf *.puml *.shp *.tar *.wav *.xlsx *.zip
+118	1319028	10481	HOCON	45b3ded2-8bbb-4ed1-bd88-8c421c3ca685	FREE	2026.2.1	2026-10-21	270.*	*.conf
+116	126811	22456	ZigBrains	767ee441-63c6-4674-98be-aeaa01c460d5	FREE	32.0.0-263	2026-10-29		*.zig
+110	820710	10253	Illuminated Cloud 2	RoseSilverSoftware	FREE	2.4.3.3	2026-11-05	263.*	*.cls *.md *.vm
+103	691580	8090	Cursive	Ideogram	FREE	2026.4.1-263	2026-11-05	263.*	*.clj
+102	1711446	7124	ReStructuredText	JetBrains	FREE	263.7307.108	2026-10-30	263.*	*.rst
+101	488410	19797	SimpleSqliteBrowser	95b8ff55-b931-47aa-84f0-74f685f4aed0	FREE	1.1.1	2026-04-16		*.db *.sqlite
+100	500280	9339	BinEd - Binary/Hex Editor	90d8e92f-a1a3-4a7b-9003-8246c9b98f29	FREE	0.2.14.1	2026-10-28		*.bin
+95	162810	26270	Jenkinsfile	Anbora-labs	PAID	1.7.2	2026-09-11	263.*	Jenkinsfile
+94	47037	30432	Mermaid Visualizer	alextdev	FREE	1.14.0	2026-11-01		*.mmd
+92	156071	14512	Elasticsearch	Anton_Shuvaev	PAID	2026.3.0-253	2026-11-06	253.*	*.kql
+88	319810	20158	Writerside	JetBrains	FREE	2026.10.0423	2026-10-27		*.cfg
+88	154437	14978	WebAssembly	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.wat
+84	15500	31014	jetplay	twango	FREE	0.7.2	2026-11-08		*.mp3 *.mp4 *.sln *.wav
+81	788447	7358	ANTLR v4	22db7b10-4314-4a4c-ba6e-84c04e0b1975	FREE	1.26	2026-08-27		*.g4
+79	469793	8191	SQLDelight	lysine-dev	FREE	2.4.1	2026-10-06		*.db
+74	13804	31023	Flexible Swift	ilscipio	PAID	2026.2.45-243	2026-11-08	243.*	*.pbxproj *.plist *.strings *.swift
+70	1014180	9768	EmmyLua	fb7d5b35-ab79-47f8-b9b7-36162be34ea6	FREE	1.4.26-IDEA2026.2	2026-08-17	262.*	*.lua
+68	1836827	12896	Rainbow CSV	6a6e00fe-865f-4d55-8429-be80d1b3e68f	FREE	2.0.2	2022-05-10		*.csv
+65	3466437	12494	Big Data Tools	JetBrains	FREE	263.4732.28	2026-09-11	263.4732.*	*.avro *.parquet
+63	1461512	10650	Advanced JSON Studio	2e37a9d6-2d07-4e4f-9d60-528f58075991	FREEMIUM	2026.1.10	2026-06-14	273.*	*.hex
+57	30714	31385	EnvForge - AI-Safe Environment Manager	emre-erinc	FREE	0.3.0	2026-09-04	262.*	*.env
+56	30256	29090	Hexana — WebAssembly & Binary Inspector	JetBrains	FREE	0.22	2026-10-27		*.bin *.dll *.dylib *.elf *.exe *.gz *.parquet *.pcap *.so *.tar *.wasm *.wat
+56	341810	19232	Karate	karatelabs	FREE	4.0.7	2026-10-22		*.feature
+56	9175	29356	Flexible Julia	ilscipio	PAID	2026.9.73-243	2026-11-08	243.*	*.jl
+56	224545	9554	Bazel for CLion	JetBrains	FREE	2026.10.30.0-api-version-262	2026-10-30	262.*	BUILD
+52	142182	19161	Databee: Database Client & SQL	LeJiu	PAID	2026.5.1	2026-11-08		*.sql
+49	15642	29870	Mermaid Studio	DavidSeptimus	PAID	2026.4.7	2026-11-07		*.mmd
+47	880199	253	JProfiler	ejtech	FREE	22.1.1	2026-09-08		*.hprof
+47	466548	26491	Git Codeowners	xepozz	FREE	2026.2.0	2026-07-06		CODEOWNERS
+45	316361	18663	ExcelEditor	obiscr	FREEMIUM	2026.11.1-263	2026-10-31	263.*	*.csv *.xlsx
+43	17133	31125	CPLEX OPL	jaanulo	FREE	1.5.2	2026-10-18		*.mod
+40	65045	13116	Haml	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.haml
+39	23812	24957	Luau	9d0ced70-f05c-4347-8e31-18fb61fedad8	FREE	0.4.0	2026-10-03		*.lua
+38	340381	9491	Archive Browser	fc08a3d6-ceee-4d2c-8baf-ba5e9e4847b4	FREE	0.33	2026-08-07		*.7z *.aar *.apk *.gz *.iso *.tar *.vhd *.zip
+38	2718	33154	LaTeX Pro	jetplugins	PAID	2026.1.28	2026-11-09		*.bib *.tex
+38	11506	31029	EPICS Workbench	haohao	FREE	0.2.0	2026-04-09		*.cmd *.db *.proto *.st
+38	199335	8607	NixIDEA	NixOS	FREE	0.4.0.22	2026-07-06		*.nix
+38	105276	14843	Wavefront OBJ	e3555e83-0f06-45cd-8c31-aca9272da09e	FREE	1.4.15	2026-10-31		*.obj
+36	37556	16126	CUE	cue-labs	FREE	0.14.0	2026-11-02		*.cue
+36	216664	7128	Slim	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.slim
+36	94496	27362	Caddyfile support	xepozz	FREE	2026.2.0	2026-07-06		Caddyfile
+35	92483	22913	Bicep	JetBrains	FREE	263.7307.101	2026-10-30	263.*	*.bicep
+35	19706	30540	SpecBinder (Beta)	spec-bright	FREE	2026.20.0	2026-11-08		*.feature
+34	386	34924	Lua	JetBrains	FREE	263.7307.196	2026-11-05	263.7307.*	*.lua
+33	175	35722	Rust Pro	jetplugins	PAID	2026.1.3	2026-11-07		*.rs
+32	2547	32155	Pascal Flow	meanmail	FREEMIUM	9.0.0	2026-11-06		*.pas
+31	318121	16382	Hyper RobotFramework Support	3f3e770e-e20f-4c51-a091-af6266f2933b	FREE	0.1.19	2026-10-08		*.robot

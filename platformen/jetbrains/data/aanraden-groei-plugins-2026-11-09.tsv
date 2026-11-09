@@ -1,0 +1,476 @@
+groei	downloads	id	naam	xmlId	soorten
+50000	33587407	7724	Docker	Docker	Dockerfile
+41228	23082086	9442	Vue.js	org.jetbrains.plugins.vue	*.vue
+30424	32860547	9525	.env files	ru.adelf.idea.dotenv	*.env
+15843	16628550	13121	HTTP Client	com.jetbrains.restClient	*.http *.pdf *.rest
+14771	16019257	7793	Markdown	org.intellij.plugins.markdown	*.md
+13855	13944316	7322	Python Community Edition	PythonCore	*.ipynb *.rst requirements.txt
+13147	8775154	14004	Protocol Buffers	idea.plugin.protoeditor	*.proto
+13074	14745142	22069	JavaScript and TypeScript	JavaScript	.babelrc .eslintrc yarn.lock
+12622	13838961	10037	CSV Editor	net.seesharpsoft.intellij.plugins.csv	*.csv *.tsv
+11881	17481025	24880	Notebook Files	com.intellij.notebooks.core	*.ipynb
+11524	18343199	22814	Jupyter	intellij.jupyter	*.ipynb
+7742	29403975	6351	Dart	Dart	*.dart
+7662	14751260	13126	YAML	org.jetbrains.plugins.yaml	*.yaml *.yml
+7599	2531660	22407	Rust	com.jetbrains.rust	*.rs
+7343	21181543	8195	Toml	org.toml.lang	*.toml Cargo.lock Pipfile poetry.lock
+6805	6448502	21738	Apache Velocity	com.intellij.velocity	*.vm
+6591	16295343	7294	EditorConfig	org.editorconfig.editorconfigjetbrains	.editorconfig
+6590	5024204	27368	Java	com.intellij.java	*.class
+5907	3858487	27367	Gradle for Java	org.jetbrains.plugins.gradle	*.gradle
+5418	5436259	13122	Shell Script	com.jetbrains.sh	*.sh
+5090	8673506	10456	Prettier	intellij.prettierJS	.prettierrc
+5051	13377009	11594	Properties	com.intellij.properties	*.properties
+4302	1051742	27369	FreeMarker	com.intellij.freemarker	*.ftl
+4035	38087143	6954	Kotlin	org.jetbrains.kotlin	*.kt
+3890	12962956	631	Python	Pythonid	*.ipynb *.j2 *.jinja *.rst requirements.txt
+3665	7370913	27164	Maven	org.jetbrains.idea.maven	*.pom
+3301	1278181	11070	Unit File Support (systemd)	net.sjrx.intellij.plugins.systemdunitfiles	*.service
+2951	3404576	20207	Jakarta EE Platform	com.intellij.javaee	*.hql
+2867	2322773	14936	Kotlin Multiplatform	com.jetbrains.kmm	*.asm *.pbxproj *.plist *.storyboard *.strings *.swift *.xcconfig *.xib
+2837	1946149	15037	WebP	intellij.webp	*.webp
+2634	1971024	22977	Bazel	org.jetbrains.bazel	*.bazel *.bzl *.star BUILD WORKSPACE
+2582	6179437	7808	Terraform and HCL	org.intellij.plugins.hcl	*.hcl *.tf
+2473	7330348	9333	Makefile Language	name.kropp.intellij.makefile	*.mk Makefile
+2165	6280160	8097	GraphQL	com.intellij.lang.jsgraphql	*.gql *.graphql
+1942	3520142	7391	AsciiDoc	org.asciidoctor.intellij.asciidoc	*.adoc
+1927	6241599	9164	Gherkin	gherkin	*.feature
+1680	1542364	22989	Android	org.jetbrains.android	*.aar *.apk *.fs *.rs *.trace *.ttf
+1428	4930381	9568	Go	org.jetbrains.plugins.go	*.go *.s go.mod
+1402	13057615	9746	Ideolog	com.intellij.ideolog	*.log
+1347	2410025	8327	Minecraft Development	com.demonwav.minecraft-dev	*.cfg
+1221	5349657	6884	Handlebars/Mustache	com.dmarcotte.handlebars	*.hbs *.mustache
+1213	1267660	27880	JavaScript for JetBrains Client	com.intellij.javascript.frontend	.babelrc .eslintrc yarn.lock
+947	7166932	6610	PHP	com.jetbrains.php	*.conf *.tpl *.twig
+906	8769413	6981	Ini	com.jetbrains.plugins.ini4idea	*.cfg *.ini
+855	1065042	20686	Prisma ORM	org.intellij.prisma	*.prisma
+807	2310125	7094	Pug (ex-Jade)	com.jetbrains.plugins.jade	*.pug
+726	663101	20959	Astro	org.jetbrains.plugins.astro	*.astro
+718	3479102	7212	Cucumber for Java	cucumber-java	*.feature
+687	1389342	7296	EJS	com.jetbrains.lang.ejs	*.ejs
+660	1547946	12056	Rider Android Support	com.jetbrains.rider.android	*.aar *.apk *.class *.fs *.hprof *.trace *.ttf *.webp
+600	3929459	7303	Twig	com.jetbrains.twig	*.twig
+552	957682	14944	MDX	mdx.js	*.mdx
+535	5092810	7017	plantuml4idea	PlantUML integration	*.puml
+501	1630331	12375	Svelte	dev.blachut.svelte.lang	*.svelte
+461	1731668	25859	CI Aid for GitLab	com.github.deeepamin.gitlabciaid	*.gitlab-ci.yml
+441	629187	28794	CMake	com.intellij.cmake	*.cmake CMakeLists.txt
+425	1506374	10249	PowerShell	com.intellij.plugin.adernov.powershell	*.ps1
+391	563079	18658	Just	org.mvnsearch.plugins.justPlugin	Justfile justfile
+388	1816529	11220	Azure Toolkit for Rider	com.intellij.resharper.azure	*.bicep
+388	2230713	24198	Gemini Code Assist	com.google.tools.ij.aiplugin	*.md
+379	1243156	14722	ExcelReader	com.chesterccw.excelreader	*.csv *.xlsx
+336	53625	33360	Smarty	com.jetbrains.smarty	*.conf *.tpl
+310	622026	13841	BashSupport Pro Shell & Zsh	pro.bashsupport	*.sh
+309	2083532	6834	Apache config (.htaccess)	com.intellij.apacheConfig	.htaccess
+265	436558	22150	Noctule, the Swift IDE	dev.j-a.swift	*.pbxproj *.plist *.swift
+261	278502	28797	Meson	com.intellij.clion.meson	meson.build
+257	242710	19147	Buf for Protocol Buffers	com.github.bufbuild.intellij	*.proto
+253	2818784	1293	Ruby	org.jetbrains.plugins.ruby	*.erb *.gemspec *.rb Gemfile Vagrantfile
+248	2062297	265	Batch Scripts Support	Batch Scripts Support	*.bat *.cmd
+231	1701850	20146	Mermaid	com.intellij.mermaid	*.mmd
+227	900949	9473	TeXiFy-IDEA	nl.rubensten.texifyidea	*.bib *.cls *.tex
+225	5052374	1800	Database Navigator	DBN	*.sql
+219	2246411	5834	CMD Support	CMD Support	*.bat *.cmd
+218	46325	28804	CLion C and C++	org.jetbrains.plugins.clion.radler	*.m
+212	9797	34804	BatchCraft: Batch & CMD	com.kitsstech.batchcraft	*.bat *.cmd
+190	2422965	7861	EnvFile	net.ashald.envfile	*.env
+174	2762761	15461	Nginx Configuration	dev.meanmail.plugin.nginx-intellij-plugin	*.conf
+172	942636	8053	Azure Toolkit for IntelliJ	com.microsoft.tooling.msservices.intellij.azure	*.bicep
+168	413920	14494	PDF Viewer	com.firsttimeinforever.intellij.pdf.viewer.intellij-pdf-viewer	*.pdf
+162	2370299	21701	Big Data File Viewer	com.intellij.bigdatatools.binary.files	*.avro *.parquet
+162	4239202	6632	R Language	R4Intellij	*.r
+158	26989	30883	Mermaid Studio Core	dev.tachilabs.mermaidstudio.core	*.mmd
+151	329715	14388	Liquid	com.intellij.lang.liquid	*.liquid
+142	269198	18280	Nginx Configuration Pro	dev.meanmail.plugin.nginx-intellij-plugin-pro	*.conf
+142	431944	7123	GNU GetText Files Support (*.po)	org.jetbrains.plugins.localization	*.po *.pot
+136	500570	15635	Diagrams.net Integration	de.docs_as_co.intellij.plugin.diagramsnet	*.drawio
+134	760284	26477	.gitattributes support	com.github.xepozz.gitattributes	.gitattributes
+131	48113	28521	Hex Editor	dev.meanmail.plugin.hex-editor	*.bin *.dll *.dylib *.elf *.exe *.img *.iso *.o *.obj *.so *.wasm
+118	62897	28550	Omni Viewer	com.omniviewer.omni-viewer	*.7z *.avro *.docx *.gz *.h5 *.mdf *.mmd *.mp3 *.mp4 *.parquet *.pcap *.pdf *.puml *.shp *.tar *.wav *.xlsx *.zip
+118	1319028	10481	HOCON	org.jetbrains.plugins.hocon	*.conf
+116	126811	22456	ZigBrains	com.falsepattern.zigbrains	*.zig
+110	820710	10253	Illuminated Cloud 2	com.illuminatedcloud2.intellij	*.cls *.md *.vm
+103	691580	8090	Cursive	com.cursiveclojure.cursive	*.clj
+102	1711446	7124	ReStructuredText	org.jetbrains.plugins.rest	*.rst
+101	488410	19797	SimpleSqliteBrowser	com.github.gitofleonardo.simplesqlitebrowser	*.db *.sqlite
+100	500280	9339	BinEd - Binary/Hex Editor	org.exbin.deltahex.intellij	*.bin
+95	162810	26270	Jenkinsfile	co.anbora.labs.jenkins.jenkinsFile	Jenkinsfile
+94	47037	30432	Mermaid Visualizer	com.alextdev.MermaidVisualizer	*.mmd
+92	156071	14512	Elasticsearch	org.elasticsearch4idea	*.kql
+88	319810	20158	Writerside	com.jetbrains.writerside	*.cfg
+88	154437	14978	WebAssembly	com.jetbrains.webstorm.web-assembly-plugin	*.wat
+84	15500	31014	jetplay	dev.twango.jetplay	*.mp3 *.mp4 *.sln *.wav
+81	788447	7358	ANTLR v4	org.antlr.intellij.plugin	*.g4
+79	469793	8191	SQLDelight	com.squareup.sqldelight	*.db
+74	13804	31023	Flexible Swift	com.flexible.swift	*.pbxproj *.plist *.strings *.swift
+70	1014180	9768	EmmyLua	com.tang	*.lua
+68	1836827	12896	Rainbow CSV	com.andrey4623.rainbowcsv	*.csv
+65	3466437	12494	Big Data Tools	com.intellij.bigdatatools	*.avro *.parquet
+63	1461512	10650	Advanced JSON Studio	com.godwin.json.parser	*.hex
+57	30714	31385	EnvForge - AI-Safe Environment Manager	com.envforge.ide	*.env
+56	30256	29090	Hexana — WebAssembly & Binary Inspector	org.jetbrains.hexana	*.bin *.dll *.dylib *.elf *.exe *.gz *.parquet *.pcap *.so *.tar *.wasm *.wat
+56	341810	19232	Karate	io.karatelabs.intellij	*.feature
+56	9175	29356	Flexible Julia	com.flexible.julia	*.jl
+56	224545	9554	Bazel for CLion	com.google.idea.bazel.clwb	BUILD
+52	142182	19161	Databee: Database Client & SQL	com.db.database.tool	*.sql
+49	15642	29870	Mermaid Studio	dev.tachilabs.mermaidstudio	*.mmd
+47	880199	253	JProfiler	JProfiler	*.hprof
+47	466548	26491	Git Codeowners	com.github.xepozz.gitcodeowners	CODEOWNERS
+45	316361	18663	ExcelEditor	com.github.obiscr.exceleditor	*.csv *.xlsx
+43	17133	31125	CPLEX OPL	com.github.cplexopl.opl-support	*.mod
+40	65045	13116	Haml	org.jetbrains.plugins.haml	*.haml
+39	23812	24957	Luau	com.github.aleksandrsl.intellijluau	*.lua
+38	340381	9491	Archive Browser	com.github.b3er.idea.plugins.arc.browser	*.7z *.aar *.apk *.gz *.iso *.tar *.vhd *.zip
+38	2718	33154	LaTeX Pro	dev.jetplugins.latex	*.bib *.tex
+38	11506	31029	EPICS Workbench	org.epics.workbench	*.cmd *.db *.proto *.st
+38	199335	8607	NixIDEA	nix-idea	*.nix
+38	105276	14843	Wavefront OBJ	it.czerwinski.intellij.wavefront	*.obj
+36	37556	16126	CUE	dev.monogon.cuelang	*.cue
+36	216664	7128	Slim	org.jetbrains.plugins.slim	*.slim
+36	94496	27362	Caddyfile support	com.github.xepozz.caddy	Caddyfile
+35	92483	22913	Bicep	com.intellij.bicep	*.bicep
+35	19706	30540	SpecBinder (Beta)	dev.specbinder.intellij-plugin	*.feature
+34	386	34924	Lua	com.intellij.lua	*.lua
+33	175	35722	Rust Pro	dev.jetplugins.rust	*.rs
+32	2547	32155	Pascal Flow	dev.meanmail.pascal	*.pas
+31	318121	16382	Hyper RobotFramework Support	com.github.jnhyperion.hyperrobotframeworkplugin	*.robot
+29	507189	7522	Elixir	org.elixir_lang	*.ex
+29	5318	33684	SQLite Lens: SQLite Database File Viewer	com.twilightventures.sqlitelens	*.mbtiles *.sqlite
+29	41624	26216	RobotCode - Robot Framework Support	dev.robotcode.robotcode4ij	*.robot
+28	36659	28456	Document Viewer	com.syncfusion.documentviewer	*.csv *.docx *.dot *.pdf *.tsv *.xlsx
+28	10140	29804	Jinja2 Enhanced Support	com.jinja2enhanced	*.j2 *.jinja
+28	36880	20937	Java JFR Profiler	me.bechberger.jfrplugin	*.jfr
+27	127	35721	Lua Pro	dev.jetplugins.lua	*.lua
+26	923223	13666	Flutter Intl	com.localizely.flutter-intl	*.arb
+26	2732	30630	Flexible Haskell	com.flexible.haskell	*.cabal *.hs
+26	208205	8045	SciaReto Mind Map	nb-mind-map-idea	*.mmd
+25	468	34831	Version Checker	io.github.khopland.version-checker	.nvmrc .tool-versions
+24	337286	11940	File Expander	com.github.camork.fileExpander	*.7z *.gz *.tar
+24	3546	30043	Flexible Elixir	com.flexible.elixir	*.ex
+24	615	32015	Flexible For OpenSCAD	com.flexible.scad	*.stl
+23	4132	29404	AEM Integration	com.ilscipio.aem.integration	*.ftl
+23	95042	20645	Apollo GraphQL	com.apollographql.ijplugin	*.gql *.graphql
+20	777	34426	Scientific Image Visualizer	imagevisualizer	*.dcm *.fits *.nc *.npy
+20	795	34145	3D Visualizer	de.kleinicke.plyvisualizer	*.fbx *.glb *.gltf *.obj *.stl
+20	707	34547	Model File Inspector	dev.modelinspector	*.gguf *.safetensors
+20	1766	29116	Image Editor	dev.meanmail.plugin.image-editor	*.gif *.ico *.jpg *.png *.webp
+20	319	34930	Flexible Delphi	com.flexible.delphi	*.pas
+20	558429	16422	Protobuf	io.kanro.idea.plugin.protobuf	*.proto
+19	27530	26536	nginx-support	net.ishchenko.idea.nginx	*.conf
+19	355598	12626	OrchidE - Ansible Language Support	com.taff.plugin.orchide	*.j2 *.yaml *.yml
+19	454800	9475	Solidity	me.serce.solidity	*.sol
+19	3497	28744	Flexible Solidity	com.flexible.solidity	*.sol
+18	27866	28440	BoltDB Explorer	co.uk.owenrumney.boltdb-explorer-intellij	*.db
+18	5436	30608	Audio Player	com.github.audioplayer	*.mp3 *.wav
+17	369	34037	Flexible COBOL	com.flexible.cobol	*.cob
+17	745187	7083	Erlang	org.jetbrains.erlang	*.erl
+17	198712	16418	MJML Support	de.timo_reymann.intellij-mjml-support	*.mjml
+17	41669	29948	Jenkinsfile Syntax Highlighter	com.github.bashtovoi.jenkinsfile-syntax-highlighter	Jenkinsfile
+16	57643	18416	Fluent Language	FluentLanguage	*.ftl
+16	78	35539	Nim Pro	dev.jetplugins.nim	*.nim
+16	60	35691	SCAD Sphere	app.heckit.ide.scadsphere	*.obj *.stl
+15	40309	25857	Env File Masker	com.github.mucahitkayadan.envmasker	*.env
+15	20445	24123	Haskell LSP	boo.fox.haskelllsp	*.hs
+15	2325	31546	Svelte Hero	com.langheroes.svelte	*.svelte
+15	3679	33721	XLSX Lens: Excel XLSX Spreadsheet Viewer	com.twilightventures.xlsxlens	*.xlsx
+14	76075	9759	NASM Assembly Language	com.nasmlanguage	*.asm
+14	3150	30290	Astro Pro	com.astroproPlugin	*.astro
+14	143643	24012	Reqnroll for Rider	net.reqnroll	*.feature
+14	44546	23446	ANTLR v4 Grammar	com.my.antlr.tool	*.g4
+14	2831	29933	3D Model Viewer	ke.co.coterie.plugins.model3d-viewer	*.glb *.gltf
+14	199431	19912	Thrift Support (fork)	thrift-syntax-fork	*.thrift
+13	20201	21732	gpt-helper	de.keeyzar.gpt-helper.gpt-helper	*.arb
+13	12538	17712	Motorola 68000 Series Assembler	com.yanncebron.m68kplugin	*.asm *.s
+13	47118	18612	Diff / Patch File Support	de.femtopedia.diffplugin	*.diff *.patch
+13	16247	27879	Go for JetBrains Client	org.jetbrains.plugins.go.frontend	*.go
+13	9470	29877	Nereid	com.nereid.mermaid	*.mmd
+13	3327	29560	Jasypt Helper	com.jasypt.helper.plugin	*.properties *.yaml *.yml
+13	392	34606	XLSX Viewer & Editor for Excel	com.gramshift.xlsxeditor	*.xlsx
+13	2884	31590	Docker Manager	dev.meanmail.plugin.docker	Dockerfile
+13	1535	32391	Procfile	co.anbora.labs.procfile	Procfile
+12	102053	9699	Fortran	org.jetbrains.fortran	*.f90
+12	52034	18752	Jsonnet Language Server	com.github.zzehring.intellijjsonnet	*.jsonnet *.libsonnet
+12	3281	31798	Magma	com.renpe.magma	*.m
+11	6763	27860	Auto Localizer	io.doloc.auto-localizer	*.arb *.xliff
+11	15150	16799	6502 Assembly	org.ca65	*.asm *.s
+11	599661	12373	logstash-config-files-support	com.github.redfoos.logstash-intellij-plugin	*.conf
+11	81690	22315	SumnekoLua	com.cppcxy.Intellij-SumnekoLua	*.lua
+11	79965	22931	AndroidSupportFramework	com.framework.plugin.yisingle	*.mk
+11	183334	17424	IntelliBot #patched	com.millennialmedia.intellibot@lte2000	*.robot
+11	6205	32907	Jenkinsfile Support	io.genai.jenkinsfile	Jenkinsfile
+10	5168	31020	Wave Language	dev.wavelang.wave	*.asm *.mk *.s Makefile
+10	19570	23685	Flexible Freemarker	com.ilscipio.language	*.ftl
+10	2345	33811	Notebook Lens: Jupyter ipynb Viewer	com.twilightventures.notebooklens	*.ipynb
+10	31760	24392	ProtoStuff Generate	cn.bigfire.protosttuff.generate	*.proto
+9	27135	17268	MC68000 Assembly Language Support	de.platon42.m68k	*.asm *.s
+9	38	35737	MASMLD Core	dev.masmld.core	*.asm *.s
+9	40331	17037	AWK Support	intellij-awk	*.awk
+9	3279	31042	NGINX Configuration Language	io.github.l2dy.ide.ic.nginx	*.conf
+9	132488	7232	Wolfram Language	de.halirutan.mathematica	*.m
+9	1152	32356	mk-format Highlighter	com.moiseskerschner.mkformat	*.mk
+9	1688	32824	Niivue Viewer	com.github.felixstieglitz.niivuejetbrains	*.nii *.npy
+9	12327	16505	Godot-JVM	com.utopia-rise.godotjvmideaplugin	*.tscn
+9	27	35763	ZJ	io.github.fncontroloption.zj	*.zig
+9	1821	31794	Codeowls	net.wolfig.codeowls	CODEOWNERS
+8	264498	10162	Context Free Grammar	codes.rudolph.idea.cfg	*.cfg
+8	36012	27779	KnopkaOgurec	knopka_ogurec	*.feature
+8	1062	32410	Inno Setup	org.pcsoft.ij.plugin.inno-setup	*.iss
+8	138163	10941	Matlab Support	MatlabSupport	*.m
+8	13218	22370	Easy Maven	ru.rzn.gmyasoedov.gmaven	*.pom
+8	1960	30907	HDL and Vivado + MCP Support	com.hdl.verilog-vivado-plugin	*.sv *.tcl *.v
+8	19730	20061	Brew Bundle	co.anbora.labs.brew-bundle	Brewfile
+8	788	32813	Caddyfile Pro	pro.caddyfile	Caddyfile
+8	30638	26583	Jenkinsfile Pro	co.anbora.labs.groovy.jenkinsFile	Jenkinsfile
+7	5396	31537	Nginx Lens	com.agomuseum.nginxlens	*.conf
+7	26	35635	Toolkit for DuckDB	dev.jetplugins.duckdb	*.duckdb
+7	275	34182	Flexible For Schematics	com.flexible.schematics	*.kicad_pcb
+7	1488	31649	Nix Pro	dev.jetplugins.nix-pro	*.nix
+7	923	31724	RON Assist	com.github.unclepomedev.ronassist	*.ron
+7	931221	9193	MaxCompute Studio	OdpsStudio	*.sql
+7	2099	31561	FontViewer	cn.itscloudy.fontviewer	*.ttf *.woff
+7	37948	18425	XSD / WSDL Visualizer	com.fluxparticle.xsdvisualizer	*.xsd
+7	66612	12541	Red Hat Dependency Analytics	org.jboss.tools.intellij.analytics	Dockerfile
+6	32447	13945	AutoHotkey	de.nordgedanken.auto_hotkey	*.ahk
+6	100436	19186	Cap-Hadoop	com.cap.plugin.hadoop	*.avro *.csv *.parquet
+6	1442	33510	Parquet Lens: Parquet, Avro, TFRecord, Arrow & Feather Viewer	com.twilightventures.parquetlens	*.avro *.parquet
+6	10820	30013	Nginx Configuration Formatter	cc.ayakurayuki.nginx-configuration-formatter	*.conf
+6	1789	23556	Magnolia CMS Integration	com.ilscipio.magnolia-integration	*.ftl
+6	2156	29781	ANTLR4 Plus	com.antlr4plus	*.g4
+6	8165	22024	GLB Viewer	com.github.issaloubani.glbviewer	*.glb
+6	1672	33908	Heap Dump Lens: JVM Heap Dump, Thread Dump & GC Log Viewer	com.twilightventures.heapdumplens	*.hprof
+6	5392505	7896	Markdown Navigator Enhanced	com.vladsch.idea.multimarkdown	*.md
+6	113447	9440	ReasonML	reasonml	*.ml
+6	1677	30772	OrgMode	OrgMode	*.org
+6	246373	16086	Robot Framework Language Server	robocorp.lsp.intellij	*.robot
+6	68540	21066	RobotFramework Helper	com.github.nghiatm.robotframeworkplugin	*.robot
+6	11560	27395	Xeon RobotFramework Support	dev.xeonkryptos.xeonrobotframeworkplugin	*.robot
+6	14499303	4230	BashSupport	BashSupport	*.sh
+6	1992	26079	Spark SQL Helper	github.camilesing.sparksqlheler	*.sql
+6	54612	8041	StringTemplate v4	org.antlr.jetbrains.st4plugin	*.st
+6	28786	23598	VBScript	com.karsta26.VBScript	*.vbs
+6	703405	11386	Alibaba Cloud Toolkit	com.alibabacloud.intellij.toolkit-intellij	*.yaml
+5	1726	28913	Enhanced NASM Assembly Support	dev.agb.nasmplugin	*.asm
+5	407	33521	TableKit: Excel & Parquet Viewer	com.kitworks.tablekit	*.avro *.parquet
+5	71148	9185	Bazel for Android Studio	com.google.idea.bazel.aswb	*.bzl BUILD
+5	8707	26308	BatchUI	io.github.chriso345.BatchUI	*.cmd
+5	101854	14809	Casbin	io.github.will7200.plugins.casbin	*.conf
+5	17436	29146	PipelineLens	com.poeticcoder.pipelinelens	*.conf Jenkinsfile
+5	1090402	10925	Database Tools and SQL for WebStorm	com.intellij.database	*.csv *.hql *.sql *.tsv
+5	9628	26716	CSV Color Pro	org.csv-color-pro	*.csv *.tsv
+5	19983	28613	MBKarate For AutoTest	com.mb.mb-plugin	*.feature
+5	922827	5047	Go language (golang.org) support plugin	ro.redeul.google.go	*.go
+5	3998	31655	SaltStack Toolkit	com.akrikun.saltstack	*.j2 *.jinja
+5	400	34870	Rolewise for Ansible	com.kitsstech.rolewise	*.j2
+5	68636	10852	Jsonnet	com.databricks	*.jsonnet *.libsonnet
+5	1229	30022	Matrix Hero - MATLAB IDE	com.langheroes.matlab	*.m
+5	1310	33340	Mermaid Companion	dev.gaphunter.mermaidcompanion	*.mmd
+5	89186	8559	Multi-OS Engine	org.moe	*.pbxproj
+5	13052	14203	SystemVerilog Studio	com.levses	*.sv *.v
+5	1403	26267	VHDL Language Support	com.wjcdx.vhdl-lang-plugin	*.vhd
+5	8540	25727	Vagrant Icon	com.yawl.vagrant	Vagrantfile
+4	82459	8149	AppleScript Support	com.intellij.plugin.applescript	*.applescript *.scpt
+4	172492	15128	Nim	com.jetbrains.nim	*.cfg *.nim
+4	20305	22489	Clojure LSP	com.github.clojure-lsp	*.clj
+4	1073	32969	HOCON Support	io.github.dsudomoin.hocon	*.conf
+4	154591	10312	DOT Language	org.plugin.dot.id	*.dot *.gv
+4	526	30924	FreeMarker Templates PRO	foundation.tachyon.freemarker	*.ftl
+4	1134	31231	FreeMarker Support	com.ttb.freemarker	*.ftl
+4	4299	25364	JSON	com.intellij.modules.json	*.har *.json5 *.jsonc
+4	1420	30965	function-hcl	crossplanecontrib.functionhcl	*.hcl
+4	239	32146	Kusto Hero	com.langheroes.kusto	*.kql
+4	831	31592	Nunjucks	com.obra.nunjucks	*.njk
+4	22	35491	NPCoding Support for Pug	com.npcoding.pugsupport	*.pug
+4	87669	14865	Open Policy Agent	org.openpolicyagent.opa-idea-plugin	*.rego
+4	6982	29046	Robot Framework Professional	com.jakubjirak.robotframework	*.robot
+4	23047	10171	Scheme	intellij-scheme	*.scm
+4	19282	26971	Thrift Assistant	thrift-assistant	*.thrift
+4	462	34424	ASP Classic Language Support	dvamuch.asp-classic-language-support	*.vbs
+4	49929	13673	Localization	de.espend.idea.localization	*.xliff
+3	885	23671	Cairo Analyzer	Cairo_Analyze	*.cairo
+3	89692	8636	Clojure-Kit	org.jetbrains.idea.clojure	*.clj
+3	342097	9238	JetForcer | The Smartest Force.com IDE	com.jedide.apex	*.cls
+3	4089	32330	bbolt Database	com.protonail.bbolt	*.db
+3	15079	26779	OOXml Tools	org.zhangwenqing.idea.ooxml-tools	*.docx *.xlsx
+3	1400	33853	DuckDB Lens: DuckDB Database File Viewer	com.twilightventures.duckdblens	*.duckdb
+3	513	30109	EJS Hero	com.langheroes.ejs	*.ejs
+3	17351	28671	Karate Chop Debugger	in.srikanthk.devlabs.karate-chop-debugger	*.feature
+3	15735	29773	Karate Debug	com.j8d.karate-debug	*.feature
+3	42386	22307	Atlas	io.ariga.atlas.hcl	*.hcl
+3	3787	20136	KDL Document Language	dev.kdl	*.kdl
+3	613	33073	Liquid for Shopify & Jekyll	com.obra.liquid	*.liquid
+3	13218	28372	C/C++ for JetBrains Client	org.jetbrains.plugins.cpp.frontend	*.m
+3	1751	28995	NC Viewer	com.ncviewer.idea	*.nc
+3	474	31790	Nim using nimlangserver	com.laamella.nim	*.nim
+3	2668	29567	Nunjucks Hero	com.langheroes.nunjucks	*.njk
+3	82	35523	NPCoding Installer Scripts	com.npcoding.installerscripts	*.nsi
+3	3300	29009	Parquet Studio	com.github.jhordyhuaman.parquetstudio	*.parquet
+3	7860	22737	ApiTool	com.zys.http	*.properties
+3	886	26307	RON Extended Support for Rust Rover	com.github.amondeshir.rustroverronremix	*.ron
+3	1277	29979	reStructuredText Pro	dev.jetplugins.rstpro	*.rst
+3	1338	26514	SystemVerilog Language Support	com.wjcdx.systemverilog-lang-plugin	*.sv
+3	2749	31801	Tcl Language Support	com.tcllsp.jetbrains	*.tcl
+3	361141	7331	Thrift Support	com.intellij.plugins.thrift	*.thrift
+3	1390	32461	Thrift Hero	com.langheroes.thrift	*.thrift
+3	6398	24183	Vlang	io.vlang	*.v
+3	13027	16595	Bison Language Support	info.fluffos.idea_bison	*.y
+2	6575	11988	Kick Assembler (... and chew bubble gum)	de.achimonline.kickassembler-acbg	*.asm
+2	123	33512	Columns - Parquet and Avro Editor	com.zuhaibzahid.columns	*.avro *.parquet
+2	128	34170	Bazel LSP	com.intellij.experimental.bazel-lsp	*.bazel *.bzl *.star BUILD WORKSPACE
+2	760	27876	Java for JetBrains Client	com.intellij.java.frontend	*.class
+2	166113	7831	Illuminated Cloud	com.illuminatedcloud.intellij	*.cls
+2	7118	14660	Creatures CAOS and Agenteering	com.badahori.creatures.plugins.intellij.agenteering	*.cob
+2	2371	27294	Cobol Forge	com.mituuz.cobolforge	*.cob
+2	46	35520	NPCoding CAN Database Files	com.npcoding.candatabases	*.dbc
+2	241	31122	DICOM Viewer	com.jetmedviewer	*.dcm
+2	14288	11957	Diff / Patch File Support	de.thomasrosenau.diffplugin	*.diff *.patch
+2	346	30828	Explore: Elixir Support	com.thiromano.exact	*.ex
+2	274	32227	ANTLR4 Helper	com.antlr4.helper	*.g4
+2	246	33387	MarkLogic Pulse	com.marklogictools.pulse	*.gql *.sql
+2	3378	27826	Liquid Hero	dev.liquidhero	*.liquid
+2	275457	12241	Catdea	com.cybrosis.catdea	*.log
+2	155678	14698	Luanalysis	au.com.glassechidna.luanalysis	*.lua
+2	101	34600	Intarsia	dev.madrasco.intarsia	*.parquet
+2	2620	27539	Reader	org-ryr.reader	*.pdf
+2	23236	27817	Prisma Graph Visualizer	com.alexanderkoch.prismagraph	*.prisma
+2	733	29160	TableGear - Yet Another ORM and ElasticSearch Code Generator	com.bixuebihui.idea-tablegear	*.properties
+2	6903	14752	Racket	org.racket.lang	*.rkt
+2	567816	7386	IntelliBot	com.millennialmedia.intellibot	*.robot
+2	60974	7430	Robot Plugin	com.jivesoftware.robot.intellij.plugin	*.robot
+2	1196	28862	RON LSP	today.jason.ron-lsp-intellij	*.ron
+2	44744	4486	SQL Code Assistant	SQL	*.sql
+2	152784	8103	SVG2VectorDrawable	com.moxun.plugin.s2v	*.svg
+2	5019	21813	Verilog Language Support	com.wjcdx.verilog-lang-plugin	*.v
+2	27376	10741	Vector Thumbnails	ignaciotcrespo.github.com.vector-drawable-thumbnails	*.xml
+2	21172	11444	GoYacc Support	idea.goyacc	*.y
+2	41264	13173	Git	Git4Idea	.gitignore
+2	1120	28062	EarthBuild	dev.EarthBuild.earthly-intellij-plugin	Earthfile
+2	1510	29875	Tiltfile Support	com.gdelre.tiltfile	Tiltfile
+1	278	32123	AppleScript Toolkit	software.barad1tos.applescript.toolkit	*.applescript *.scpt
+1	8569	9386	NASM Assembly Support	com.NASMSupport	*.asm
+1	1095	25748	TASKING winIDEA	com.tasking.winidea	*.asm *.s
+1	111829	13107	GDScript	gdscript	*.cfg *.tres *.tscn
+1	31364	23371	Mojo	com.kishmakov.mojo	*.cfg
+1	827	31516	Vault Toolbox	com.veeva.vault.toolbox	*.csv
+1	2291	29772	Dot Plus	org.abpubli.dot	*.dot *.gv
+1	497	30071	Elixirij	dev.murek.elixirij	*.ex
+1	192510	9413	Substeps IntelliJ Plugin	uk.co.itmoore.intellisubsteps	*.feature
+1	77	35337	Reqnroll Extension (Preview)	net.reqnroll.idesupport	*.feature
+1	257	29883	OFBiz Integration	com.ilscipio.ofbiz	*.ftl
+1	33132	10402	Graql	com.intellij.lang.graql	*.gql
+1	1604	22501	HJson	com.zelaux.hjson	*.hjson
+1	1356	19322	Haskell Syntax Highlighting	com.vampire.haskell.language	*.hs
+1	486	26301	CardanoPyC	aiquant.plugins	*.hs
+1	14179	17098	Kotlin Multiplatform Mobile for AppCode	com.intellij.appcode.kmm	*.kt
+1	1231	27875	Kotlin for JetBrains Client	com.intellij.kotlin.frontend	*.kt
+1	2849	23097	DataSonnet Mapper	io.portx.datasonnet	*.libsonnet
+1	786	20871	Miranda Language Support	dev.adnathanail.mirandaintellijplugin	*.m
+1	2117	28388	mini markdown	com.markdown.editor.plugin	*.md
+1	96275	13740	DockDockBuild	com.intuit.intellij.makefile	*.mk
+1	5300	18531	OCaml	intellij-ocaml	*.ml
+1	26033	14721	Move on Aptos	org.move.lang	*.move
+1	2314	7563	CocosEditor2.0	org.cce	*.mp3 *.wav
+1	1265	14520	Nimatron	com.tiepy.nimatron	*.nim
+1	151913	7340	I-Pascal	com.siberika.idea.pascal	*.pas
+1	1550	26494	FusionPDF	com.github.wkkya.fusionpdf	*.pdf
+1	324	32121	R3 Book Reader	com.github.haoticdance.bookreaderintellijplugin	*.pdf
+1	96	34546	Profile Viewer: CPU & Heap Profiles, Flame Graphs	dev.profileviewer	*.prof
+1	34	35524	NPCoding Registry Files	com.npcoding.registryfiles	*.reg
+1	11683	9232	Http Editor Client	ru.basecode.ide.rest.plugin	*.rest
+1	12199	13075	Retrofit Rest Client	cn.vove7.ide.plugin.rest	*.rest
+1	405280	7415	Robot Framework Support	amailp.intellij.robot	*.robot
+1	18490	24447	m3 Robot Support	net.modulo3.robot	*.robot *.tsv
+1	1370	12635	RON (Rusty Object Notation)	com.vultix.intellij-ron	*.ron
+1	8615	15878	RON Extended Support	com.github.madwareru.intellijronremix	*.ron
+1	3028	7227	Redline Smalltalk	Redline Smalltalk	*.st
+1	993	27945	basic-verilog-support	com.github.kalldrexx.jbverilogplugin	*.sv *.v
+1	330519	8240	Swift	com.intellij.clion-swift	*.swift
+1	3920	17715	Terraform Code Visualizer	com.stenalpjolly.tfcv	*.tf
+1	17837	7805	PRADO Plugin	idea.plugins.prado	*.tpl
+1	8277	18586	Android Tools for AppCode	com.jetbrains.appcode.android	*.trace *.ttf
+1	95941	20123	GdScript	ice.explosive.gdscript	*.tres *.tscn
+1	4478	9399	HDLine	com.activemesa.hdline	*.vhd
+1	65977	17212	i18n Ally	org.i18nally.jetbrainsideplugin	*.xliff
+1	27217	9362	Neos Support	vette.neos	*.xliff
+1	16399	25033	Light Sheet	dev.victoryil.lightsheet	*.xlsx
+1	738	17143	ZigLang	org.zig	*.zig
+1	42	35677	Zig Pro	dev.jetplugins.zig	*.zig
+1	323799	7494	ESLint	com.wix.eslint	.eslintrc
+0	1732	19799	File Expander2	com.github.camork.fix.fileExpander	*.7z *.gz *.tar
+0	4757	23392	ArchiveManager	com.github.dixtdf.archive.manager	*.7z *.gz *.iso *.tar *.vhd
+0	53281	10310	Android Bundle Support	io.github.lizhangqu.intellij.plugin.android.bundle	*.aar *.so
+0	77	30433	Arb.NET	arbnet	*.arb
+0	3	12052	LC-3 Assembly Support For IntelliJ Platform	cn.codetector.lc3.lc3intellij	*.asm
+0	48589	7826	Buck for IDEA	intellij.buck.plugin	*.bzl
+0	61832	7602	HaskForce	com.haskforce	*.cabal *.hs
+0	306	31233	Haskeletor	me.fornever.haskeletor	*.cabal *.hs
+None			Twelf Plugin	Twelf Plugin	*.cfg *.elf
+0	39409	12665	Kotlin/Native Platform Dependencies	com.intellij.kotlinNative.platformDeps	*.class
+None			Cuefy	today.movatech.plugins.cuefy	*.cue
+None			MPS file-DB persistence	generatedsoft.mps.dbfp	*.db
+0	3735	13889	Dhall	org.intellij.plugins.dhall	*.dhall
+0	102	17704	DevTools	com.voc.ide.plugin.tools	*.dot *.tpl
+0	21773	27121	Dot Base	io.github.abpubli.dot-support	*.dot *.gv
+0	191	27597	Dot Compat	io.github.abpubli.dot-compat	*.dot *.gv
+0	31973	19145	LiteFlowX	top.xystudio.plugin.idea.LiteFlowX	*.elf
+0	67086	13227	TAG Editor	tag-editor	*.feature
+0	21790	14180	F# Support	com.jetbrains.rider.fsharp	*.fs *.ml
+None			GitLabCI	com.gitlabci.plugin	*.gitlab-ci.yml
+0	537636	1524	Groovy	org.intellij.groovy	*.gradle *.groovy
+0	2087	15289	Expert.ai Studio Core	ai.expert.studio	*.gz
+0	48	31347	LinhScript	me.hql.linhscript	*.hql
+0	8753	6330	Haskell	ideah	*.hs
+0	17627	23120	JASS	JASS	*.ini
+0	78094	10413	Julia	org.ice1000.julia	*.jl
+None			Jsonnet Pro	today.movatech.plugins.jsonnet	*.jsonnet *.libsonnet
+0	24211	10454	Kotlin/Native for CLion	org.jetbrains.kotlin.native.clion	*.kt
+0	9373	10619	Kotlin/Native for AppCode	org.jetbrains.kotlin.native.appcode	*.kt
+0	4	11540	KEEP-87 Kotlin	arrow-kt.io.keep87	*.kt
+0	896537	5055	Lua [Deprecated]	Lua	*.lua
+0	13142	11382	Luakit	com.williamwen	*.lua
+0	435	18098	IDLua	LuaLegacy	*.lua
+0	11486	19596	Tarantool-EmmyLua	com.tarantoollua	*.lua
+0	8878	24864	Openresty	com.jin_xc	*.lua
+0	2	12666	Lexa Studio	com.lexastudio	*.mod
+0	3542	14602	Stellaris Modding Support	com.windea.stellaris	*.mod
+0	37	18697	Oberon	kn.uni.dbis.oberon.lang	*.mod
+0	384	23764	Rapid	com.bossymr.intellij-rapid	*.mod
+0	9672	23301	Sui Move Language	org.sui.lang	*.move
+0	143	27656	Move Language for Sui	com.suimove.lang	*.move
+0	64	29574	Move on Endless	org.endless.move.lang	*.move
+0	82	29105	IOTA Move	org.iota.ide	*.move
+0	128	8451	CocosEditor2.0-AppCode	org.cce.appcode	*.mp3 *.wav
+0	383	10383	Nim Language Support	com.deflatedpickle.nim	*.nim
+0	26510	7732	NSIS plugin	com.krylysov.nsisplugin	*.nsi
+0	6294	7886	NSIS Language Support	com.jotc.nsis.plugin.nsis	*.nsi
+0	224	19368	ONNX4IDEA	cn.shanghai.oyb.onnx	*.onnx
+0	32268	7095	Org4Idea	Org4Idea	*.org
+0	80	15422	PureBasic Language	eu.bradan.purebasic.PureBasic	*.pbf
+0	30760	12786	Multi-OS Engine Community Edition	org.moe.community	*.pbxproj
+0	2723	10674	RubyMotion support	org.jetbrains.plugins.ruby.motion	*.plist
+0	40239	9219	Unity Support	com.intellij.resharper.unity	*.prefab *.unity
+0	57321	14240	Prisma	fr.gabrielcolson.prisma.prisma-intellij-plugin	*.prisma
+0	34151	14282	Prisma Support	io.techtrails.intellij.prisma	*.prisma
+0	178675	4942	Google Protocol Buffers support	com.nmatveev.idea-plugin-protobuf	*.proto
+0	763372	8277	Protobuf Support	io.protostuff.protostuff-jetbrains-plugin	*.proto
+0	809	32373	PowerShell 7	com.github.powershell7	*.ps1
+0	3037	14897	RON	org.jonahhenriksson.ron	*.ron
+0	2828	5967	Schemely	schemely	*.scm
+None			SQL support	com.intellij.sql	*.sql
+None			SystemVerilog	studio.edaphic.sv	*.sv *.v
+0	20506	10021	Svelte	de.escalon.idea.plugin.svelte	*.svelte
+0	4883	26050	Thrift-Formatter	thriftlabs.thrift-formatter	*.thrift
+0	5245	27358	Groml Support	com.github.harleygilpin.gromlsupportplugin	*.toml
+0	16970	19274	Icon Font Viewer	com.github.Joehaivo.icon-font-viewer	*.ttf
+0	22477	20287	Vlang	org.vlang	*.v
+0	4175	16647	Driver	se.ohol.driver	*.vhd
+None			CodeConfuse	com.loklok.confuse.confuse	*.vm
+0	3081	11095	MDW Studio	com.centurylink.mdw.studio	*.xlsx
+0	8723	22729	SCell.Reader	com.intechcore.scell.ideaplugin	*.xlsx
+0	5709	9971	Grav Support	net.offbeatpioneer.intellij.plugins.gravsupport	*.yaml
+None			simple jump	com.example.demo	*.yml
+0	8272	10560	Zig	org.ziglang	*.zig
+0	10871	18062	Zig Support	org.ziglang.jb	*.zig
+0	8899	20392	Earthly	dev.earthly.earthly-intellij-plugin	Earthfile
+0	2599	27533	PandaCoder	com.shuyixiao.yixiaoPlugins	Jenkinsfile
+0	675	32486	GenAI Jenkinsfile	io.genai.jenkins	Jenkinsfile
