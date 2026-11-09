@@ -28,7 +28,7 @@ Alleen bij: geld uitgeven; iets wat niet terug kan (definitief verwijderen, een 
 6. **Stopregels:** dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing. Jong platform via de pionier: groeit het platform 2 maanden niet meer, of verdwijnt het betaalplan: stoppen of veranderen.
 
 ## Elk product: perfect, onderscheidend, duidelijke belofte (Thijs 8 nov)
-- Bovenaan `producten/<product>/ontwerp.md` de ene zin: waarom iemand ons kiest boven de beste concurrent. Kun je die niet schrijven, dan is het product niet klaar.
+- Bovenaan `producten/<product>/ontwerp.md` de ene zin: waarom iemand ons kiest boven de beste concurrent. Kun je die niet schrijven, dan is het product niet klaar. De ontwerper toetst erop bij zijn akkoord, Chris bij de winkeltekst, Hans bij elk lanceerbesluit.
 - Op elke winkelpagina, poster en README in een paar seconden: wat het doet, voor wie, waarom beter, wat gratis en wat betaald. Overal hetzelfde.
 - Mooi en opvallend is de helft van het product ("geen brave zooi", Thijs 7 nov). Denk vanaf het begin met de ontwerper mee over uiterlijk en gevoel. Wel eerlijk: wat je laat zien, zit in het product.
 - Betaald deel vanaf de eerste versie. Durf hoger te prijzen.
@@ -39,17 +39,17 @@ Alleen bij: geld uitgeven; iets wat niet terug kan (definitief verwijderen, een 
 - **Tests niet aanpassen** om ze te laten slagen. Een test wijzigen of weghalen alleen met reden in de commit; de controleur keurt dat apart.
 - **Elke fout is jouw fout:** faalt er iets na jouw wijziging, zoek de oorzaak.
 - **Opruimen:** elke week één opruimtaak bovenaan (dubbele code, grote bestanden, architectuur.md).
-- Code op een tak `claude/<platform>-<datum>`; samenvoegen als controleur akkoord en tests groen.
+- Code op een tak `claude/<platform>-<datum>`; samenvoegen als de tests groen zijn (bij een ontwerp of release ook de controleur akkoord). Notities in je eigen map mogen direct op `main`.
 
 ## Testen in de echte app (GitHub Actions)
 - Elk product wordt getest in de echte app van het platform, op GitHub Actions (in de Claude-omgeving mogen gedownloade programma's niet starten; die beveiliging omzeil je nooit). Workflow `.github/workflows/<product>-e2e.yml`, tests in `producten/<product>/e2e/`. Voorbeeld: `rollwright-e2e.yml`.
 - Laat de test opschrijven wat hij ziet (`console.log`) en zijn schermafbeeldingen op de tak `schermen` zetten (map `<product>/<taknaam>/`, stap kopiëren uit `rollwright-e2e.yml`).
-- Uitslag lezen (repo is openbaar): `curl -s "https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/runs?per_page=5"` en `curl -sL https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/jobs/<job-id>/logs`.
+- Uitslag lezen (repo is openbaar; wordt hij ooit privé, controleer dan of dit nog werkt): `curl -s "https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/runs?per_page=5"` en `curl -sL https://api.github.com/repos/thijsduinhouwer2002-coder/dortus-hq/actions/jobs/<job-id>/logs`.
 
 ## Uitbrengen
 - Pas als de test in de echte app groen is en de ontwerper `Akkoord: ja` zette bovenaan `producten/<product>/ontwerp.md` (ook voor de README, dat is de winkelpagina).
 - Eerste lancering van elk product: Thijs ziet plaatjes en README eerst en zegt ja of nee. Een live product krijgt hooguit één versie per week via Thijs, behalve bij een echte fout.
-- Elk live product heeft een eigen openbare repo onder thijsduinhouwer2002-coder met alleen code, tests, README, LICENSE, CHANGELOG. Thijs maakt die repo aan; `producten/<product>/publiceer.sh` zet de bestanden erin, met `release` maakt de workflow een release (sjabloon `organisatie/sjablonen/obsidian-release.yml`).
+- Elk live product heeft een eigen openbare repo onder thijsduinhouwer2002-coder met alleen code, tests, README, LICENSE, CHANGELOG. Thijs maakt die repo aan (het systeem staat het ons niet toe); daarna maakt de hoofdchat de geplande taak van de manager opnieuw aan, zodat die in de nieuwe repo mag pushen. `producten/<product>/publiceer.sh` zet de bestanden erin, met `release` maakt de workflow een release (sjabloon `organisatie/sjablonen/obsidian-release.yml`).
 - De eerste aanmelding bij een platform doet Thijs met zijn login; zet die klaar op zijn lijst.
 
 ## Gevonden worden
