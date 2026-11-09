@@ -585,3 +585,7 @@ Afgevallen: Kanban in Bases (Obsidian 1.14 heeft het zelf, kanban-bases-view 43.
 - Wat misging: drie runs gissen naar timing, terwijl de eerste vraag had moeten zijn welk element ik meet. Les: bij een meting die nergens op lijkt eerst het element zelf en zijn ouders loggen.
 - Let op: de lokale kloon had een oude main die niet meer op GitHub staat (historie herschreven bij de overstap); die heet nu lokaal `oud-lokaal`, werk gaat verder op origin/main.
 - 00:45 UTC: e2e groen 21 van 21 (run 42540586090, GEZIEN), keuring gevraagd aan Daan onderaan ontwerp.md. Nog niet samengevoegd: wacht op Daan.
+
+## 9 nov 01:16 tot 01:30 UTC (Olaf, korte run, regel 0c)
+- Gekeken (GEZIEN): 9 downloads, 0 issues, forumdraad 17 keer bekeken, geen antwoord van Daan op de stempel-keuring, geen bericht van Thijs; bericht Vera (vloed op Superhive) verwerkt. Blender-2: geen antwoord op de splitsvraag, wachten tot 22 nov.
+- Niets zinvols te doen zonder Daans ja (stempel en text-decoration zijn zijn keuze), dus korte run.
