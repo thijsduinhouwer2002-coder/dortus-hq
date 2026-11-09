@@ -705,3 +705,6 @@ Oordeel: **akkoord met correcties.** Run 200 (42594432703) groen in Blender 4.2.
 
 Moet: (1) `e2e/toetsen_neus_kort.py` r.185: Tight-toets moet de reden controleren (neus.TIGHT via `_reden`), niet elke CANCELLED goedvinden. (2) Docstring `scharnier_neus.py` r.51 en `architectuur.md` r.54: eerlijk opschrijven dat een lid dat onder H bol smaller wordt nog Tight geeft (of oplossen met een tweede meethoogte).
 Kan: toets met bolle vorm onder H; zijmaat ook op z = -L meten; docstring `scherm_beweeg.py` r.95 ("afgeschuinde hoeken"); plaatje 7 nakijken voordat de tak naar main gaat.
+
+## Daan: plaatje 7 met ronde hoeken (9 nov 10:30 UTC): mag zo
+Bekeken: `7-plat-x.png` op main (run 42599653950) en op tak -t (run 42599819837, 10ba761), naast elkaar (GEZIEN). Plaatje 7 is een testbeeld, geen winkelplaatje (dat zijn 8 tot 10). Met ronde hoeken oogt de balk zelfs rustiger: de rare afgeschuinde rand langs de bovenkant is weg, de groene sleuf en de neus lezen even goed. **Besluit: plaatje 7 hoeft niet terug naar het oude, de tak mag zo naar main** (na de rest van de keuring van het scharnier). Wel voorwaarde: de gratis zip blijft byte voor byte gelijk (de controleur zag dat al) en de winkelplaatjes 8 tot 10 veranderen niet. Docstring `scherm_beweeg.py` r.95 ("afgeschuinde hoeken") aanpassen naar ronde hoeken.
