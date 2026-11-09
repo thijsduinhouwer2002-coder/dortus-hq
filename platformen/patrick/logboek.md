@@ -18,3 +18,6 @@
 - Voorstel 08 (rollen) geschreven; rapport kreeg "Hoe doorvoeren".
 - Voorstel 09 (dashboard op uitkomst) geschreven, rapport punt 5 aangevuld.
 - Ontdekt: drie tegenstrijdige koerszinnen (bereik eerst / geld gaat voor bereik / geld nu). Voorstel 10 en een blok bovenaan het rapport.
+- Risico weeklimiet toegevoegd (55% op ma 13:40 volgens de uitgezette herinnering, reset wo 21:00, niemand kijkt nog).
+- Einde run 1 (±22:40 UTC). Stand: rapport met koerszin plus top 5 staat, voorstellen 01 tot 10 staan, punten van de controleur verwerkt.
+- Run 2 begint met: 01 en 07 regel voor regel tegen de huidige regels.md (niets mag wegvallen), dan derde internetronde (beslisritme eigenaar), dan rapport aanscherpen.
