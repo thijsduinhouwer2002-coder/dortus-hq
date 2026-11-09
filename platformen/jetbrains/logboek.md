@@ -413,3 +413,9 @@ Nieuwste blok onderaan.
 - **Controleur:** akkoord ja, geen assert gewijzigd, 4k en verkleinde beelden zijn dezelfde (verschil 0,04 van 255). Kan-punt: commentaar "in 4k/ alles maal 2" gaat over posities.tsv; niet aangepast, want dat start alle IDE-runs opnieuw voor een commentaarregel.
 - **Besluit:** samenvoegen op main na groene e2e en CLion-run (42559031979 groen). Waarom: wijziging raakt alleen de filmtest en Daan kan zo bij een volgende opname meteen 4k krijgen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 04:55 tot 05:10 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs, geen nieuwe vraag van Daan (zijn film v2 is af, geen punt voor Jet). Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 04:57).
+- **Opruimen:** `status.md` was 96 regels (±63 KB) en werd elke run helemaal gelezen; de rol zegt maximaal 10 regels. Teruggebracht tot 10 regels met de stand van nu; alle oude regels letterlijk bewaard in `data/status-archief-2026-11-09.md`. Waarom: elke run leest het, en nu staat de stand er in één oogopslag.
+- **Besluit:** verder korte run (regel 0c): niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting. Status voortaan bijwerken door de regels te vervangen, niet door bovenaan bij te schrijven.
