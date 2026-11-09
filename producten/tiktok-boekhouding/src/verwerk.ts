@@ -64,7 +64,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   } else {
     // "Vers": aan het begin van deze afrekening was (bijna) het hele budget er nog (marge voor de lijst met afrekeningen
     // en tokens verversen). Lukt het dan nog niet, dan lukt het nooit.
-    const vers = d.budget.over >= d.budget.totaal - VERS_MARGE;
+    const vers = d.budget.overVoorNieuw >= d.budget.totaal - d.budget.reserve - VERS_MARGE;
     try {
       ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
     } catch (e) {
@@ -96,7 +96,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   for (let i = 0; i < ontbrekend.length; i++) {
     const id = ontbrekend[i];
     // Eén bestelling kost tot MAX_POGINGEN verzoeken (herhalen bij 429 of 5xx); de reserve mag daar niet onder zakken.
-    if (d.budget.over <= o.reserve + (o.reserve > 0 ? MAX_POGINGEN - 1 : 0)) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
+    if (d.budget.overVoorNieuw <= o.reserve + (o.reserve > 0 ? MAX_POGINGEN - 1 : 0)) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
     let antwoord;
     try {
       antwoord = await transactiesVanBestelling(d.tiktok, d.accessToken, d.shopCipher, id);
@@ -121,7 +121,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
 
   // Bij boeken (reserve > 0): compleet telt pas als er nog genoeg over is voor één boeking, anders volgende aanroep.
   function klaar(s: Samenstelling): Ophaling {
-    if (o.reserve > 0 && s.status === "compleet" && d.budget.over < Math.max(o.reserve, RESERVE_BOEKING)) return bezig("compleet, maar te weinig budget over voor de boeking");
+    if (o.reserve > 0 && s.status === "compleet" && d.budget.overVoorNieuw < Math.max(o.reserve, RESERVE_BOEKING)) return bezig("compleet, maar te weinig budget over voor de boeking");
     return s;
   }
 }

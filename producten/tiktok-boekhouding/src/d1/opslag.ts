@@ -19,6 +19,11 @@ export interface Teller {
   neemAfmaken(): void;
 }
 
+/** Afgerond: bewaarde bestellingen en transacties mogen weg (ontwerp punt 3). `wacht_op_abonnement` hoort er niet bij. */
+export const AF = ["geboekt", "geboekt_met_waarschuwing", "leeg", "leeg_maar_geboekt"];
+/** Een rij boven deze grootte wordt niet bewaard (D1: hoogstens 2 MB per rij). */
+export const MAX_RIJ = 1_500_000;
+
 interface Geheugen {
   transacties?: BewaardeTransacties;
   bestellingen: Map<string, BewaardeBestelling>;
@@ -43,7 +48,8 @@ export class D1Opslag implements Opslag {
   // ---- slot ----
   async neemSlot(id: string, eigenaar: string, tot: number, nu: number): Promise<boolean> {
     this.teller.neem();
-    this.geheugen.delete(id); // na het slot alles vers
+    // Na het slot alles vers; staat er nog iets in de wachtrij (na een mislukte batch), dan blijft het geheugen staan.
+    if (!this.wachtrij.length) this.geheugen.delete(id);
     const r = await this.db
       .prepare(
         `INSERT INTO sloten (winkel, statement_id, eigenaar, tot) VALUES (?, ?, ?, ?)
@@ -82,7 +88,16 @@ export class D1Opslag implements Opslag {
          opnieuw_sinds = excluded.opnieuw_sinds, gegevens = excluded.gegevens`,
       )
       .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s));
-    await this.batchMetWachtrij([st]);
+    const extra = [st];
+    if (AF.includes(s.status)) {
+      // Af: wat voor deze afrekening nog in de wachtrij of in D1 staat hoeft niet meer bewaard (opnieuw boeken haalt opnieuw op).
+      extra.push(
+        this.db.prepare(`DELETE FROM bestellingen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+        this.db.prepare(`DELETE FROM transacties WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),
+      );
+      this.geheugen.delete(id);
+    }
+    await this.batchMetWachtrij(extra);
   }
 
   // ---- transacties en bestellingen ----
@@ -115,20 +130,24 @@ export class D1Opslag implements Opslag {
   async schrijfTransacties(id: string, t: BewaardeTransacties): Promise<void> {
     this.schrijfacties++;
     (await this.geheugenVoorSchrijven(id)).transacties = structuredClone(t);
+    const json = JSON.stringify(t);
+    if (json.length > MAX_RIJ) return; // alleen in het geheugen van deze aanroep; te groot om te bewaren
     this.wachtrij.push(
       this.db
         .prepare(`INSERT INTO transacties (winkel, statement_id, gegevens, opgehaald_op) VALUES (?, ?, ?, ?) ON CONFLICT(winkel, statement_id) DO UPDATE SET gegevens = excluded.gegevens, opgehaald_op = excluded.opgehaald_op`)
-        .bind(this.winkel, id, JSON.stringify(t), t.opgehaaldOp),
+        .bind(this.winkel, id, json, t.opgehaaldOp),
     );
   }
 
   async schrijfBestelling(id: string, orderId: string, b: BewaardeBestelling): Promise<void> {
     this.schrijfacties++;
     (await this.geheugenVoorSchrijven(id)).bestellingen.set(orderId, structuredClone(b));
+    const json = JSON.stringify(b);
+    if (json.length > MAX_RIJ) return;
     this.wachtrij.push(
       this.db
         .prepare(`INSERT INTO bestellingen (winkel, statement_id, order_id, gegevens, opgehaald_op) VALUES (?, ?, ?, ?, ?) ON CONFLICT(winkel, statement_id, order_id) DO UPDATE SET gegevens = excluded.gegevens, opgehaald_op = excluded.opgehaald_op`)
-        .bind(this.winkel, id, orderId, JSON.stringify(b), b.opgehaaldOp),
+        .bind(this.winkel, id, orderId, json, b.opgehaaldOp),
     );
   }
 
@@ -159,8 +178,9 @@ export class D1Opslag implements Opslag {
 
   async schrijfMarkering(t: number): Promise<void> {
     this.schrijfacties++;
+    const [r] = await this.batchMetWachtrij([this.db.prepare(`UPDATE winkels SET markering = ? WHERE id = ?`).bind(t, this.winkel)]);
+    if (r.meta.changes !== 1) throw new Error(`winkel ${this.winkel} bestaat niet in D1; markering niet bewaard`);
     this.markering = { waarde: t };
-    await this.batchMetWachtrij([this.db.prepare(`UPDATE winkels SET markering = ? WHERE id = ?`).bind(t, this.winkel)]);
   }
 
   /** Aan het eind van de aanroep: wat nog in de wachtrij staat wegschrijven. */

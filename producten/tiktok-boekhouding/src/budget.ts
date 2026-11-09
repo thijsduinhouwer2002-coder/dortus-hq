@@ -29,6 +29,11 @@ export class Budget {
     return this.totaal - this.gebruikt;
   }
 
+  /** Wat nieuw werk nog mag gebruiken (zonder de reserve voor afmaken). Gelijk aan `over` als reserve 0 is. */
+  get overVoorNieuw(): number {
+    return this.over - this.reserve;
+  }
+
   /** Deel dat nieuw werk niet mag aanspreken (ontwerp-d1-worker.md: reserve van 6 voor afmaken). Standaard 0. */
   reserve = 0;
 
