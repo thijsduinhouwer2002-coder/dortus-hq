@@ -1,7 +1,9 @@
 """Draait met: blender -b --factory-startup --python e2e/test_betaald.py -- <betaalde zip> <gratis zip>
 Betaalde build (ontwerp betaald v1.1): installeren en aanzetten werkt, het betaalde deel is geladen en de
-kern doet het nog (operators, paneel). Daarna de weigering bij dubbel aanstaan: de gratis zip in een tweede
-repository erbij; aanzetten van de betaalde naast de gratis moet weigeren met de melding.
+kern doet het nog (operators, paneel). Daarna de weigering bij dubbel aanstaan (eis 7), in beide volgordes met de gratis zip in een
+tweede repository: (a) gratis aan, dan betaald: geweigerd met de melding; (b) betaald aan, dan gratis: de
+betaalde gaat eerst netjes uit met dezelfde melding en de gratis werkt; na het uitzetten van de gratis kan
+de betaalde weer gewoon aan.
 Regels met [cj-betaald] in het log. Exit 1 bij elke fout."""
 import os
 import sys
@@ -30,6 +32,7 @@ def aan():
 
 def main():
     print(f"[cj-betaald] Blender {bpy.app.version_string}")
+    enable_orig = addon_utils.enable
     bpy.ops.extensions.package_install_files(filepath=zip_betaald, repo="user_default", enable_on_install=True)
     mods = aan()
     stap("betaalde build staat aan", len(mods) == 1, str(mods))
@@ -52,16 +55,49 @@ def main():
          betaald.andere_versies(["bl_ext.blender_org.click_joints", eigen], eigen) == ["bl_ext.blender_org.click_joints"])
     stap("andere_versies negeert zichzelf en andere add-ons",
          betaald.andere_versies([eigen, "bl_ext.user_default.iets_anders"], eigen) == [])
-    # Echt: gratis in een eigen repository erbij, betaalde uit, gratis aan, betaalde weer aan -> geweigerd.
+    stap("betaalde omhult addon_utils.enable zolang hij aan staat", addon_utils.enable is not enable_orig)
+    # (a) Echt: gratis in een eigen repository erbij, betaalde uit, gratis aan, betaalde weer aan -> geweigerd.
     addon_utils.disable(eigen, default_set=True)
+    stap("uitzetten zet addon_utils.enable terug", addon_utils.enable is enable_orig)
     bpy.ops.preferences.extension_repo_add(name="cj_gratis", type="LOCAL")
     repo = bpy.context.preferences.extensions.repos[-1]
     bpy.ops.extensions.package_install_files(filepath=zip_gratis, repo=repo.module, enable_on_install=True)
     gratis_mod = f"bl_ext.{repo.module}.click_joints"
     stap("gratis staat aan in eigen repository", gratis_mod in aan(), str(aan()))
-    addon_utils.enable(eigen, default_set=True, handle_error=lambda e: print(f"[cj-betaald] melding: {e}"))
-    stap("betaalde weigert naast de gratis", eigen not in aan(), str(aan()))
-    stap("gratis blijft werken", "plaats" in dir(bpy.ops.click_joints))
+    meldingen = []
+
+    def fout_cb(e):
+        meldingen.append(str(e))
+        print(f"[cj-betaald] melding: {e}")
+
+    addon_utils.enable(eigen, default_set=True, handle_error=fout_cb)
+    stap("(a) gratis aan, dan betaald: betaalde weigert", eigen not in aan(), str(aan()))
+    stap("(a) weigermelding gegeven", any(betaald.MELDING in m for m in meldingen), " | ".join(meldingen))
+    stap("(a) gratis blijft werken", "plaats" in dir(bpy.ops.click_joints) and hasattr(bpy.types.Scene, "click_joints"))
+    stap("(a) geen omhulsel na weigering", addon_utils.enable is enable_orig)
+    # Gratis weer uit: dan kan de betaalde gewoon aan.
+    addon_utils.disable(gratis_mod, default_set=True)
+    addon_utils.enable(eigen, default_set=True, handle_error=fout_cb)
+    stap("gratis uit, dan kan betaald weer aan", aan() == [eigen], str(aan()))
+    stap("betaald werkt weer (scharnier-operator)", "plaats_scharnier" in dir(bpy.ops.click_joints))
+    # (b) Betaald aan, dan gratis aan -> betaalde gaat eerst uit met de melding, gratis werkt.
+    betaald = sys.modules.get(eigen + ".betaald", betaald)  # zelfde module als het omhulsel
+    betaald.LAATSTE_MELDING[0] = None
+    bpy.ops.preferences.addon_enable(module=gratis_mod)  # zelfde weg als het vinkje in de voorkeuren
+    stap("(b) betaald aan, dan gratis: betaalde is uit", eigen not in aan(), str(aan()))
+    stap("(b) gratis staat aan", gratis_mod in aan(), str(aan()))
+    stap("(b) weigermelding gegeven", betaald.LAATSTE_MELDING[0] == betaald.MELDING, str(betaald.LAATSTE_MELDING[0]))
+    stap("(b) gratis werkt (operators, paneel, scene.click_joints)",
+         "plaats" in dir(bpy.ops.click_joints) and hasattr(bpy.types, "CLICK_JOINTS_PT_paneel")
+         and hasattr(bpy.types.Scene, "click_joints") and "plaats_scharnier" not in dir(bpy.ops.click_joints))
+    stap("(b) omhulsel opgeruimd", addon_utils.enable is enable_orig)
+    stap("(b) gratis instelling leesbaar", bpy.context.scene.click_joints is not None)
+    # En terug: gratis uit, betaald aan.
+    addon_utils.disable(gratis_mod, default_set=True)
+    addon_utils.enable(eigen, default_set=True, handle_error=fout_cb)
+    stap("(b) gratis weer uit, dan kan betaald weer aan", aan() == [eigen], str(aan()))
+    stap("(b) betaald werkt weer", "plaats_scharnier" in dir(bpy.ops.click_joints)
+         and addon_utils.enable is not enable_orig)
 
 
 try:

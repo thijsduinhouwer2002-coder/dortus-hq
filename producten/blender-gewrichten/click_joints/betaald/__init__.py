@@ -4,6 +4,7 @@ Het scharnier met eindstop (ontwerp betaald v1.1 in ontwerp.md): vorm in scharni
 paneelknoppen in scharnier.py. Ook de
 weigering als de gratis versie uit een andere repository ook aan staat: zelfde id, dus anders botsen
 operators, panelen en scene.click_joints."""
+import addon_utils
 import bpy
 
 from .. import uit_elkaar
@@ -25,6 +26,50 @@ def weiger_dubbel(eigen):
         raise RuntimeError(MELDING)
 
 
+LAATSTE_MELDING = [None]  # voor de e2e: de laatste keer dat de betaalde opzij ging voor de gratis
+_oude_enable = [None]
+
+
+def _meld():
+    """Zelfde melding in de console en (met scherm) als venstertje bij de muis."""
+    LAATSTE_MELDING[0] = MELDING
+    print(f"Click Joints: {MELDING}")
+    if bpy.app.background:
+        return
+    try:
+        bpy.context.window_manager.popup_menu(
+            lambda self, _ctx: self.layout.label(text=MELDING), title="Click Joints", icon='ERROR')
+    except Exception:
+        pass
+
+
+def _enable_met_wacht(eigen):
+    """Tweede volgorde van eis 7: de betaalde staat aan en daarna wordt de gratis aangezet.
+
+    De gratis code mag niet veranderen, dus de betaalde moet het merken. Gekozen: zolang de betaalde aan staat
+    is addon_utils.enable omhuld. Elke weg om een add-on aan te zetten komt daar langs (het vinkje in de
+    voorkeuren via preferences.addon_enable, installeren met "enable on install", het opstarten via
+    addon_utils.reset_all, scripts). Wordt een andere Click Joints aangezet, dan zet de betaalde eerst
+    zichzelf netjes uit (addon_utils.disable, dus zijn eigen unregister) en geeft de melding; pas daarna
+    registreert de gratis zijn klassen.
+
+    Waarom niet een timer of handler die achteraf kijkt: dan heeft de gratis zich al geregistreerd met
+    dezelfde namen (operators, paneel, scene.click_joints). Zet de betaalde zich daarna uit, dan haalt zijn
+    unregister juist scene.click_joints en klassen van de gratis weg, en de gratis is kapot. Vooraf opzij
+    gaan heeft dat probleem niet, kost niets bij gewoon gebruik (geen timer die blijft lopen, alleen één
+    naamvergelijking als er een add-on wordt aangezet) en bij uitzetten zet unregister de oude functie terug."""
+    oud = _oude_enable[0]
+
+    def enable(module_name, *args, **kwargs):
+        if andere_versies([module_name], eigen) and eigen in {a.module for a in bpy.context.preferences.addons}:
+            addon_utils.disable(eigen, default_set=True)
+            _meld()
+        return oud(module_name, *args, **kwargs)
+
+    enable.__wrapped__ = oud
+    return enable
+
+
 _oude_afstand = [None]
 
 
@@ -37,7 +82,10 @@ def _afstand(ob):
     return _oude_afstand[0](ob)
 
 
-def register():
+def register(eigen=None):
+    if _oude_enable[0] is None and eigen:
+        _oude_enable[0] = addon_utils.enable
+        addon_utils.enable = _enable_met_wacht(eigen)
     # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand op in de module, dus neemt dit omhulsel mee.
     if _oude_afstand[0] is None:
         _oude_afstand[0] = uit_elkaar.afstand
@@ -63,3 +111,6 @@ def unregister():
     if _oude_afstand[0] is not None:
         uit_elkaar.afstand = _oude_afstand[0]
         _oude_afstand[0] = None
+    if _oude_enable[0] is not None:
+        addon_utils.enable = _oude_enable[0]
+        _oude_enable[0] = None
