@@ -1,7 +1,7 @@
 # Rapport Patrick, perfectionist (nacht 9 op 10 nov 2026)
 
 Stand: versie na run 1 (9 nov, ±23:30 NL). Volgende runs scherpen aan; de run van 07:13 maakt hem af.
-Bewijs: `bevindingen.md`. Bronnen van buiten (27 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `07`.
+Bewijs: `bevindingen.md`. Bronnen van buiten (27 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `09`.
 
 ## In één alinea
 In drie dagen (7 tot en met 9 nov) maakte de ploeg ±1.650 commits, samenvoegingen niet meegeteld. Opbrengst: één product live (Rollwright, 19 downloads, 0 verkopen), twee in keuring, 0 euro. Bouwen is niet het probleem: het Steam-team bouwt echt en snel. Wat traag en duur is: elke run leest eerst 80 tot 130 KB, de opdrachten van de geplande taken spreken de besluiten tegen, er sturen drie lagen die elkaars besluiten omdraaien, bij elke kleine taak loopt een controleur-agent mee, en de meetlat voor nieuwe kansen kan bijna geen ja geven. De vijf punten hieronder pakken dat aan. Punt 1, 2 en 5 zijn gewoon goed en kosten de hoofdchat samen ±2 uur. Punt 3 en 4 zijn keuzes van Thijs.
@@ -37,8 +37,8 @@ In drie dagen (7 tot en met 9 nov) maakte de ploeg ±1.650 commits, samenvoeging
 ### 5. De lijst voor Thijs op één scherm (gewoon goed)
 - **Wat er mis is.** `lijst-thijs.md` is 82 KB met 61 doorgestreepte punten; van de open punten zijn er twee echt nu. Het dashboard raadt met een lange zoekzin welk punt "ter info" is (`dashboard/bouw.py` regel 120) en toont "commits vandaag" als kopcijfer: drukte, geen uitkomst.
 - **Wat anderen doen.** Eén inbox voor de mens met drie soorten berichten: melden, vragen, nakijken (bron 26).
-- **Voorstel** (`04-lijst-thijs.md`). Hooguit 5 punten, vaste vorm (wat, minuten, nu of deze week of pas na X, waarom in één zin, stappen, de zin die Thijs terugzegt). Afgehandeld gaat dezelfde dag naar het archief. Dashboard: "pas na" bepaalt ter info; het kopcijfer wordt per product installs, verkopen en dagen tot lancering in plaats van commits.
-- **Werk.** ±30 minuten plus twee regels in `bouw.py`.
+- **Voorstel** (`04-lijst-thijs.md`). Hooguit 5 punten, vaste vorm (wat, minuten, nu of deze week of pas na X, waarom in één zin, stappen, de zin die Thijs terugzegt). Afgehandeld gaat dezelfde dag naar het archief. Dashboard (`09-dashboard.md`): bovenaan gebruikers, betalende klanten en euro per maand tegen het doel van 20 december; per product lanceerdatum en waar het op wacht; per persoon de laatste uitkomst in plaats van het aantal commits. "pas na" bepaalt wat ter info is.
+- **Werk.** ±30 minuten voor de lijst, ±1 uur voor het dashboard.
 
 ## Hoe doorvoeren zonder dat de ploeg vastloopt
 Een controleur die mijn voorstellen niet schreef, vond terecht dat CLAUDE.md, rollen en status.md samen moeten veranderen. Daarom:
