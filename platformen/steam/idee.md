@@ -1,0 +1,67 @@
+# Steam: ideedossier, drie richtingen voor een bureaublad-app (Desktop Companion)
+
+Olaf, Steam-bouwer (neemt over van Sanne), 9 nov 2026, run 15:18 UTC. Opdracht: `berichten/olaf.md` (Thijs 15:40 en 16:00). Stap 1 van 3: drie richtingen met bewijs; daarna maakt Daan per richting een sfeerbeeld en één scherm, dan kiest Thijs. Er wordt niets betaald of gepubliceerd.
+
+Bronnen: Kees `platformen/herweger/steam-bureaublad.md` (cijfer 8, krap), Vera `platformen/verkenner/kansen/steam-idle-rpg.md` en haar data `platformen/verkenner/data/steam-kans-2026-11-09/` (alle 405 apps met het label Desktop Companion, stand 9 nov). Eigen meting deze run: trefwoorden in titel, korte tekst en labels van die 405 apps, plus de openbare zoekpagina en appdetails van Steam voor apps buiten het label (script `platformen/steam/data/trefwoord.py`). Reviews naar verkopen: ±30 verkopen per review (DERDEN, zie `platformen/verkenner/voorstellen/steam-bureaublad.md`).
+
+## Wat voor alle drie geldt
+- De hoek verdient nu nog: van de betaalde apps uit september haalt 38% 10+ reviews in de eerste 28 dagen (GEZIEN, Kees). De helft verdient bijna niets; het verschil zit in sfeer en plaatjes.
+- Bouw in Godot 4 (één exe, klein, op Linux te bouwen, op GitHub Actions Windows te starten en te fotograferen). Altijd: transparant venster boven de taakbalk, klikken gaan erdoorheen behalve op het spel, weinig processor, Steam Cloud plus reservekopie van de save.
+- Eén prijs, geen betaalde kracht, geen loot boxes, geen handel op de Steam-markt. Met AI gemaakte plaatjes melden we op Steam, of we gebruiken ze niet.
+
+## Richting 1: Eerlijke kerkertocht (de idle-RPG van Vera)
+Een klein heldenteam trekt onderaan je scherm door kerkers terwijl jij werkt: vechten, buit, sterker worden, nieuwe gebieden, ook voortgang als het spel uit staat.
+- **Bewijs van vraag en betalen (GEZIEN, Vera):** 27 betaalde idle-RPG's uit jan t/m sep 2026, mediaan 25 reviews, 67% 10+, 26% 100+, samen 3.793 reviews: de meeste vraag van alle soorten. Leiders: Your Big, Cute Monster Farm 1.215 reviews (77%), Tap Tap Loot 868 (76%), Duelist 735 in één maand (77%), Desktop Raid 702 (75%). De grootste is gratis: TBH: Task Bar Hero 8.812 reviews, 62%.
+- **Wat de top mist (GEZIEN, 89 negatieve reviews van de 10 grootste, Vera):** grindmuur en balans (in alle 10), te weinig inhoud (9), betaalde helden of handel in buit (6), bugs en verloren saves (7), onaf (5). Kopers spelen 80 tot 700+ uur en zijn boos. 85% van alle reviews in deze soort hoort bij spellen onder 80% positief.
+- **Waarom de onze anders en beter is:** dezelfde kerkertocht, maar met een voortgang die we vooraf over honderden uren doorrekenen, zodat er nooit een muur komt, voor één prijs.
+- **Wat er nieuw aan is (eerlijk):** weinig. Het concept bestaat tientallen keren; ons verschil is uitvoering (balans, stabiliteit, eerlijk geld). Desktop Raid belooft al "no grind". Book of Fei (92%, 357 reviews) laat zien dat goed gemaakt kan winnen.
+- **Bouw:** middelgroot. Gevecht, buit, gebieden, balans-simulatie, inhoud voor 100+ uur. 4 tot 6 weken (GOK). Moeilijkste: genoeg inhoud en pixelart.
+- **Prijs:** $5,99 (GOK; mediaan van de soort $4,99, leiders $6,99 tot $8,99).
+- **Grootste risico:** de soort loopt vol: 2 per maand in het voorjaar, 9 in september, 18 in oktober (GEZIEN, Vera). Wij zijn dan de zoveelste kerkertocht, en "eerlijk" zie je niet op een plaatje.
+
+## Richting 2: Het Hol (jij bent de kerker), eigen concept
+Omgekeerde idle-RPG. Onderaan je scherm ligt jouw hol, een doorsnede van de aarde. Kleine helden met een naam en een karakter komen het binnen om je schat te stelen. Jij graaft kamers, zet vallen en monsters neer en laat het verder zijn gang gaan terwijl jij werkt. Gevallen helden laten buit achter waarmee je dieper graaft. Helden die ontsnappen komen terug: sterker, met een wrok, een litteken en een bijnaam die het spel ze geeft ("Bram de Driemaal Gevluchte"). Een kroniek houdt bij wie je hol overleefde. Donker, maar met humor: de helden zijn de brutale indringers, jouw slijmen en skeletten de huisgenoten.
+- **Bewijs van vraag en betalen:** het valt in dezelfde soort als richting 1, de idle-RPG/gevecht met de meeste vraag en de zwakste top (zie boven, GEZIEN). Verdedigen op de taakbalk verkoopt ook: Desktop Defender (torenverdediging) 1.789 reviews, 92%, $4,99 (GEZIEN). Dat kopers "de schurk zijn" leuk vinden zie je buiten de taakbalk: Grave Ambition (je bent de overlord die terugslaat, uit 18 nov), The Throne Below (je bent het oude kwaad onder een koninkrijk, binnenkort) en Idle Demon Lord II (okt 2026) (GEZIEN, Steam-zoekpagina; geen verkoopcijfers, dus geen bewijs van betalen, wel van makers die erin geloven).
+- **Wat de top mist:** zie richting 1 (grind, eentonig, betaalmodel). Daarnaast: alle idle-RPG's zijn dezelfde "helden lopen naar rechts en slaan"; de grootste klacht na grind is eentonigheid (9 van 10 spellen, GEZIEN Vera). Het Hol draait het perspectief om, en het bouwen van je hol geeft iets te doen zonder te klikken.
+- **Waarom de onze anders en beter is:** in elk ander taakbalkspel ben je de held; in Het Hol bouw je de kerker en kijk je hoe de helden erin vastlopen, met helden die je herkent omdat ze terugkomen.
+- **Wat er nieuw aan is (eerlijk):** in de 405 Desktop Companion-apps staat geen enkel spel waarin je de kerker of de schurk bent (GEZIEN, trefwoorden dungeon keeper, villain, evil lord, lair: 0 treffers). Als groot spel bestaat het idee wel (Dungeon Keeper, Legend of Keepers, The Throne Below), maar niet als klein spel aan de rand van je scherm. Terugkerende helden met een wrok kennen we uit grote spellen (het nemesis-idee), niet uit deze hoek.
+- **Bouw:** middelgroot tot groot. Doorsnede met graven, kamers en vallen, helden met eenvoudige wegzoeken en een paar karaktertrekken, kroniek, balans-simulatie. 5 tot 8 weken (GOK). Moeilijkste: het bouwen leuk maken in een strook van ±200 pixel hoog, en de balans van twee systemen (helden en hol).
+- **Prijs:** $5,99 (GOK).
+- **Grootste risico:** niemand heeft het in deze hoek gedaan, dus de vraag is niet bewezen; het kan een gat zijn of iets wat niemand wil. Kleinere risico's: bouwen is meer klikken dan "idle"; we moeten het in de demo of het prototype laten spelen voor we betalen.
+
+## Richting 3: Toetsorkest (je werktempo wordt muziek), eigen concept
+Een klein bandje op je taakbalk speelt rustige lofi die meebeweegt met hoe jij werkt. Typ je snel, dan gaat de drummer harder en komt de bas erbij; denk je na, dan blijft alleen de piano; stop je, dan stemmen ze hun gitaar en drinken ze koffie. Je verzamelt muzikanten en stijlen (jazz, synthwave, chiptune, strijkkwartet) en aan het eind van de dag krijg je een plaatje: "jouw dinsdag", een minuut muziek uit je eigen werkdag, om terug te luisteren. Het programma telt alleen het tempo van toetsaanslagen, nooit welke toets.
+- **Bewijs van vraag en betalen:** apps die reageren op je typen zijn de grootste groep van het label: Bongo Cat 31.102 reviews (96%, gratis, de grootste van alle 405). Betaald, jan t/m sep 2026: 16 apps met typen als motor, mediaan 11 reviews, 9 met 10+, 1 met 100+ (Tap Tap Loot 868) (GEZIEN). Lofi en muziek als sfeer: Spirit City: Lofi Sessions 9.227 reviews (97%, $11,99), Mini Cozy Room: Lo-Fi 760, Virtual Cottage 2 733 (97%); 16 betaalde muziek- en lofi-apps uit jan t/m sep 2026, mediaan 10 reviews, 96% positief gewogen (GEZIEN).
+- **Wat de top mist:** de lofi-apps spelen een vaste lijst muziek die niets met jou doet; de typ-apps tellen alleen (Bongo Cat slaat op een trommel, Keyboard Farm laat per toets een plant groeien). Niemand maakt van je werk muziek. (GOK op basis van de korte teksten; de reviews van deze apps heb ik nog niet gelezen, staat als taak.)
+- **Waarom de onze anders en beter is:** de enige lofi die je zelf speelt, gewoon door te werken.
+- **Wat er nieuw aan is (eerlijk):** geen enkele Desktop Companion-app maakt muziek uit je typen (GEZIEN, trefwoorden compose, orchestra, instrument, melody: 0 treffers in de 405; Steam-zoekpagina "typing music", "typing orchestra", "keyboard music desktop": niets wat het doet). Het dichtst bij: KEYLINGS (elke toets een wezentje, uit jan 2027) en Keyboard Farm (elke toets een stukje land), allebei geen muziek.
+- **Bouw:** middelgroot, maar met een moeilijk stuk: een muziekmotor die uit losse opnamen steeds mooie, passende muziek maakt (vaste akkoordenschema's, lussen per instrument, overgangen op de maat). 4 tot 6 weken (GOK). Vrije of gekochte opnamen nodig, of een muzikant.
+- **Prijs:** $4,99 (GOK), later stijlen als kleine uitbreiding (nooit nodig om te spelen).
+- **Grootste risico:** wij kunnen niet luisteren. Claudes kunnen geluid niet beoordelen, Daan ook niet; of het mooi klinkt, weet pas een mens (Thijs of vrienden). Daarnaast: muziek tijdens werk moet je kunnen uitzetten, en dan blijft weinig over; een app die toetsaanslagen leest kan door virusscanners verdacht worden (Bongo Cat doet het ook, dus te doen, maar netjes uitleggen).
+
+## Naast elkaar
+| | 1 Eerlijke kerkertocht | 2 Het Hol | 3 Toetsorkest |
+|---|---|---|---|
+| Vraag (GEZIEN) | sterkst bewezen | soort sterk, eigen draai niet bewezen | typen en lofi bewezen, muziek uit typen niet |
+| Nieuw | weinig | echt nieuw in deze hoek | echt nieuw |
+| Bouw (GOK) | 4 tot 6 weken | 5 tot 8 weken | 4 tot 6 weken, muziekmotor moeilijk |
+| Kunnen wij het keuren | ja (simulatie, beeld) | ja (simulatie, beeld) | nee voor geluid |
+| Plaatje en trailer | zoals de rest | valt op (je ziet meteen "ik ben de kerker") | moeilijk op een plaatje, sterk in een trailer met geluid |
+| Prijs (GOK) | $5,99 | $5,99 | $4,99 |
+
+## Mijn advies: richting 2, Het Hol
+Het zit in de soort met de meeste vraag en de zwakste top (GEZIEN), maar is geen kopie: in de hele hoek ben je nergens de kerker. Dat is wat Thijs vraagt (origineel, binnen bewezen vraag), het valt op in één plaatje, en het leunt op wat wij goed kunnen: balans doorrekenen en testen. Het risico (de draai is niet bewezen) maken we klein met het prototype: als het spelen in een strook onderaan het scherm niet leuk is, zien we dat voordat er $100 betaald wordt. Richting 1 is de veilige terugval met dezelfde motor (helden, buit, balans), richting 3 vind ik het mooiste idee maar het verst van wat wij zelf kunnen keuren.
+
+## Voor Daan (stap 2)
+Per richting één sfeerbeeld (de wereld en het gevoel) en één echt scherm (hoe het op een Windows-bureaublad boven de taakbalk staat, op ware grootte, naast een echt venster). Wat elk moet laten zien in één blik:
+1. Eerlijke kerkertocht: een heldenteam onderaan het scherm dat midden in een gevecht zit, buit die valt; mag niet lijken op de tientallen andere (zoek een eigen stijl).
+2. Het Hol: de doorsnede van de aarde onder de taakbalk, jouw kamers en vallen, een held die net in een val loopt, en het kaartje van een terugkerende held met zijn bijnaam en litteken.
+3. Toetsorkest: het bandje op de taakbalk dat speelt terwijl er in een venster getypt wordt, met zichtbaar dat de muziek meegaat (noten, licht, beweging), en het plaatje "jouw dinsdag".
+Bijzonder, flamboyant, uniek, maar eerlijk: alleen tonen wat het spel echt gaat doen.
+
+## Wat nog open is
+- Reviews van Bongo Cat, Spirit City en Virtual Cottage 2 lezen voor richting 3 (wat missen ze); verlanglijst-signalen van The Throne Below en Grave Ambition na hun uitkomst (richting 2).
+- Herhaalmeting oktober-lichting rond 23 nov (Kees) en idle-RPG rond 9 dec (Vera): zakt het, dan weegt richting 1 lichter.
+
+## Nagekeken
+(volgt: controleur)
