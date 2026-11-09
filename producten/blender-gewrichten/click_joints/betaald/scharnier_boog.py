@@ -112,7 +112,10 @@ def _teken_een(regio, rv3d, a, b, schaal):
         waaier._lijn(dik, regio, [q["centrum"], q["pose_eind"]], (*(ROOD if v["voorbij"] else WIT), 1.0),
                      4.0 * schaal)
         if v["voorbij"] and hoek >= waaier.SCHUIN_MIN:
-            rood_tekst = waaier._tekst(0, q["pose_eind"] + Vector((0.0, 18.0 * schaal)), v["voorbij_tekst"],
+            # Verder naar buiten dan het getal van de grens, anders liggen "115°" en "+3° past limit" over elkaar.
+            uit = q["pose_eind"] - q["centrum"] if q["centrum"] is not None else Vector((0.0, 1.0))
+            uit = uit.normalized() if uit.length > 0 else Vector((0.0, 1.0))
+            rood_tekst = waaier._tekst(0, q["pose_eind"] + uit * (70.0 * schaal), v["voorbij_tekst"],
                                        ROOD, int(16 * schaal))
     # De regel van het paneel ook in beeld (winkelschermen 11 en 12), bovenaan in het midden.
     kop = tekst(a)
@@ -159,6 +162,14 @@ def _veilig():
         print(f"Click Joints: hinge range not drawn ({fout})", flush=True)
 
 
+def herteken(_wm=None, context=None):
+    """Alle 3D-weergaven opnieuw tekenen (een eigenschap van de WindowManager doet dat zelf niet)."""
+    for venster in bpy.context.window_manager.windows:
+        for gebied in venster.screen.areas:
+            if gebied.type == "VIEW_3D":
+                gebied.tag_redraw()
+
+
 def bij_pose(wm, context):
     """Pose-schuif: alleen de weergave, net als bij de kogel."""
     from .. import kleur
@@ -167,6 +178,7 @@ def bij_pose(wm, context):
     if a is None or b is None:
         return
     beweeg.pose(a, b, float(wm.cj_scharnier_pose), kleur.materiaal("rood"))
+    herteken()
 
 
 def teken_paneel(self, context):
@@ -189,7 +201,7 @@ def teken_paneel(self, context):
 
 def register():
     bpy.types.WindowManager.cj_scharnier_boog = bpy.props.BoolProperty(
-        name="Show bend range", default=True, description="Draw the measured bend range of the hinge")
+        name="Show bend range", default=True, description="Draw the measured bend range of the hinge", update=herteken)
     bpy.types.WindowManager.cj_scharnier_pose = bpy.props.FloatProperty(
         name="Bend", default=0.0, min=0.0, max=150.0,
         description="Bend part B in the view only, to check the range. Past the end stop, touching faces turn red",
