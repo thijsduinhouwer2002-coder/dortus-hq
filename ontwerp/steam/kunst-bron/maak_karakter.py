@@ -12,6 +12,7 @@ import maak_kunst as mk   # tekent ook de basisbladen opnieuw (vast zaad, dus ge
 P, sprite, strip, opslaan, UIT = mk.P, mk.sprite, mk.strip, mk.opslaan, mk.UIT
 P["P"] = mk.hx("ecd2a8")   # pleister
 P["Q"] = mk.hx("b8946c")   # pleister schaduw
+P["c"] = mk.hx("c98b4f")   # leer en hout licht (was aarde 5, aarde is nu pruim)
 
 def leeg(w=16, h=16):
     return Image.new("RGBA", (w, h), (0, 0, 0, 0))
@@ -94,18 +95,25 @@ def rijen_aan(rows, wat):
     return ["".join(r) for r in rows]
 
 def ogen_weg(rows):
-    return [r.replace("E", "n").replace("e", "n") if i in (9, 10) else r for i, r in enumerate(rows)]
+    """Mila 9 nov: eenogige Gloop. Haalt oog en grijns weg; de frames hieronder tekenen hun eigen oog en mond."""
+    r = list(rows)
+    wide = r[13].startswith(".k")   # frame b is breder
+    r[9] = r[9][:5] + "n" * (13 - 5) + r[9][13:] if not wide else r[9][:5] + "n" * 8 + r[9][13:]
+    for y in (10, 11, 12):
+        r[y] = "".join("n" if ch in "kEe" and 5 <= x <= 11 else ch for x, ch in enumerate(r[y]))
+    r[13] = "".join("M" if ch in "kE" and 4 <= x <= 11 else ch for x, ch in enumerate(r[13]))
+    return r
 
 def maak_slijm_leven():
     a, b = mk.SLIJM_RUST
-    slaap1 = rijen_aan(ogen_weg(a), {(5, 10): "k", (6, 10): "k", (7, 10): "k", (9, 10): "k", (10, 10): "k", (11, 10): "k", (5, 9): "k", (11, 9): "k"})
-    slaap2 = ogen_weg(b)
-    slaap2 = rijen_aan(slaap2, {(5, 10): "k", (6, 10): "k", (7, 10): "k", (10, 10): "k", (11, 10): "k", (12, 10): "k", (5, 9): "k", (12, 9): "k"})
-    blij = rijen_aan(ogen_weg(a), {(6, 9): "k", (5, 10): "k", (7, 10): "k", (10, 9): "k", (9, 10): "k", (11, 10): "k"})
-    bol = rijen_aan(ogen_weg(b), {(6, 10): "k", (7, 10): "k", (10, 10): "k", (11, 10): "k", (3, 12): "p", (12, 12): "p"})
+    lijn = lambda y, x0, x1: {(x, y): "k" for x in range(x0, x1 + 1)}
+    slaap1 = rijen_aan(ogen_weg(a), lijn(11, 6, 10))
+    slaap2 = rijen_aan(ogen_weg(b), lijn(11, 6, 10))
+    blij = rijen_aan(ogen_weg(a), {**lijn(10, 7, 9), (6, 11): "k", (10, 11): "k", **lijn(13, 5, 8), (9, 13): "E", (10, 13): "k"})
+    bol = rijen_aan(ogen_weg(b), {**lijn(11, 6, 10), (6, 10): "k", (10, 10): "k", (3, 12): "p", (12, 12): "p"})
     hap = [
         "................", "................", "................", ".....kkkkkk.....",
-        "....kNNnnnnk....", "...kNqNnnnnnk...", "...knEennEennk..", "..knneenneennk..",
+        "....kNNnnnnk....", "...kNqNnnnnnk...", "...knnkkkkknnk..", "..knnkEEeeeknk..",
         "..knkkkkkkkkk...", "..knkRRRRRRk....", "..knkkkkkkkkk...", "..knnnnnnnnnnk..",
         "..knMnnnnnnnMk..", "..kMMnnnnnnMMk..", "...kMMMMMMMMk...", "....kkkkkkkk....",
     ]
@@ -114,11 +122,11 @@ def maak_slijm_leven():
                             (11, 9): "L", (12, 9): "L", (13, 9): "L", (14, 9): "L", (15, 9): "k",
                             (11, 10): "l", (12, 10): "l", (13, 10): "l", (14, 10): "l", (15, 10): "k"})
     plat = ["................"] * 10 + [
-        "....kkkkkkkk....", "..kkNqnnnnnnkk..", ".knnnEennEennnk.", ".knnneenneennnk.",
-        "kMnnnnnppnnnnnMk", "kkkkkkkkkkkkkkkk"]
-    kauw1 = rijen_aan(bol, {(6, 12): "k", (7, 12): "k", (8, 12): "k", (9, 12): "k", (8, 13): "j"})
-    kauw2 = rijen_aan(ogen_weg(a), {(5, 10): "k", (6, 10): "k", (10, 10): "k", (11, 10): "k",
-                                    (5, 12): "k", (6, 12): "k", (7, 12): "k", (8, 12): "k", (6, 13): "j", (4, 12): "p", (12, 12): "p"})
+        "....kkkkkkkk....", "..kkNqnnnnnnkk..", ".knnnnkkkkknnnnk", ".knnnnnnnnnnnnnk",
+        "kMnnnnkkEknnnnMk", "kkkkkkkkkkkkkkkk"]
+    for _f in (slaap1, slaap2, blij, bol, hap, spuug, plat): assert all(len(r) == 16 for r in _f), _f
+    kauw1 = rijen_aan(bol, {**lijn(13, 6, 9), (8, 13): "E"})
+    kauw2 = rijen_aan(ogen_weg(a), {**lijn(11, 6, 10), (6, 10): "k", (10, 10): "k", **lijn(13, 5, 8), (6, 13): "E", (4, 12): "p", (12, 12): "p"})
     volgorde = [("slapen", [slaap1, slaap2]), ("spugen", [bol, hap, spuug, blij]),
                 ("hap", [hap, kauw1, kauw2, kauw1, blij]), ("plat", [plat]), ("opstaan", [b])]
     frames, index = [], {}
@@ -126,7 +134,7 @@ def maak_slijm_leven():
         index[naam] = list(range(len(frames), len(frames) + len(fr)))
         frames += [sprite(r) for r in fr]
     opslaan(strip(frames), "slijm_leven.png")
-    laars = sprite(["..kkkk..", "..k55k..", "..kUUk..", "..kUUkk.", "..kUUU5k", "..kUUUUk", "..kLLLLk", "..kkkkkk"])
+    laars = sprite(["..kkkk..", "..kcck..", "..kUUk..", "..kUUkk.", "..kUUUck", "..kUUUUk", "..kLLLLk", "..kkkkkk"])
     opslaan(laars, "laars.png")
     return frames, index, laars
 
@@ -155,7 +163,7 @@ def maak_paneel():
 
 # ---------- trofeebord voor de wand van aartsvijanden: schildje met een haak, de hoed hangt erop ----------
 TROFEE = ["................", "................", "................", "................",
-          "..kkkkkkkkkkkk..", ".kU55UUUUUUUUUk.", ".k5uuuukkuuuuUk.", ".kUuuuukIkuuuUk.",
+          "..kkkkkkkkkkkk..", ".kUccUUUUUUUUUk.", ".kcuuuukkuuuuUk.", ".kUuuuukIkuuuUk.",
           ".kUuuuuukuuuuUk.", ".kUulluuuuuuuUk.", "..kUuuuulluuUk..", "..kUlluuuuuuUk..",
           "...kUuuuuuuUk...", "....kUUUUUUk....", ".....kkkkkk.....", "................"]
 

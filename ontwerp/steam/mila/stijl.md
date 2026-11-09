@@ -15,9 +15,14 @@ Begonnen 9 nov 2026. Dit is de stijl die Het Hol herkenbaar van ons maakt. Daans
 - Maat: Gloop staat in de schatkamer (2 rijen hoog = 32 spelpixels). Gloop is 10 px hoog, een hoed 3 tot 6 px. **Hooguit 4 hoeden op zijn hoofd**, elke hoed 1 px in de vorige gezakt, scheef om en om (x 0, +1, -1, +1), zodat het wiebelt. Hoed nummer 5 en verder: op een stapeltje naast Gloop op de vloer (de "hoedenberg"), hooguit 3 zichtbaar.
 - **Eerlijk:** dit plaatje mag pas in winkelplaatjes als het in het spel zit. Bouwtaak voor Bram staat in `platformen/steam/taken.md`.
 
-## 3. Wat ik nog ga doen (volgorde)
+## 3. Gloop heeft één oog (gedaan 9 nov)
+- Gloop is nu een **eenogige slijm met een scheve grijns en één tand**. Een gewone slijm met twee oogjes en blosjes heeft elk spel; één groot oog zie je op ware grootte (16 px, schaal 3) meteen en vergeet je niet. GEZIEN in `kunst-bron/voorbeeld-strook.png`.
+- Het oog kijkt naar rechts. Kijkt Gloop naar links (held komt van links): het hele frame spiegelen, dat mag (hele pixels). Knipperen, slapen, blij, bol, kauwen, hap, spugen, plat en opstaan zijn allemaal mee getekend, zelfde bladen en indeling (`slijm.png`, `slijm_leven.png`), dus de code hoeft niet te veranderen. De bovenkant blijft y 6, dus de hoedentoren past.
+- Ontwerpen die ik afwees (`gezichten`, alleen in mijn kladmap): twee ogen met grijns (te gewoon), scheel (leest als fout), loens (te druk op 10 px).
+
+## 4. Wat ik nog ga doen (volgorde)
 1. De echte build met pruim bekijken (Actions draait vanzelf op main) en de gloed bijstellen als die vlekt.
-2. Gloop als mascotte: een eigen gezicht dat je na één keer kent (scheve grijns met één tand, of één knipoog), nog steeds 16 x 16.
+2. (gedaan, zie 3) Gloop met één oog.
 3. Het meldingenvlak is nu een groot zwart blok over een derde van de strook. Kleiner en in de stijl van het hol (een houten bordje of perkament dat even uit de grond komt).
 4. Helden 13 tot 14 px en meer contrast (Daans punt 4).
 5. Winkelplaatje 1: de paarse strook op een rustig bureaublad, Gloop met toren groot ingezoomd ernaast. Pas als de toren gebouwd is.

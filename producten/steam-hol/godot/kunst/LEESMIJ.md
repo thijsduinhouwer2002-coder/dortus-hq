@@ -31,3 +31,8 @@ Gemaakt door `ontwerp/steam/kunst-bron/maak_aarde.py` (draai `maak_karakter.py`,
 - `aarde_lagen.png`: 3 rijen (bovenste rij met graswortels, tweede rij, dieper) van 8 varianten. Vervangt rij 0 van `tegels.png`: kies de rij op diepte. Elke laag iets donkerder, met een golvende laaglijn die naadloos doorloopt en een gedithterde overgang.
 - `vondsten.png`: helm, zwaard, botten, fossiel, pot. Over ongeveer 1 op 10 aardecellen, weg als je graaft.
 Voorbeeld: `ontwerp/steam/kunst-bron/voorbeeld-aarde.png` (ware grootte, 3 rijen = strook van 160 px).
+
+## Stijl van Mila (9 nov 2026)
+- Aarde en holwand zijn **pruim** in plaats van bruin (palet in `ontwerp/steam/kunst-bron/maak_kunst.py` en `maak_aarde.py`). Zelfde bladen, zelfde maten. Harde bruine kleuren in code: holwand donker `#1d1426`, aarde `#3f2846`.
+- **Gloop heeft één oog**, een scheve grijns en één tand, in alle frames van `slijm.png` en `slijm_leven.png`. Het oog kijkt naar rechts; naar links = het frame spiegelen.
+- Komt eraan: Gloops hoedentoren (zie `ontwerp/steam/mila/stijl.md`, bouw Bram in `slijm.gd`).

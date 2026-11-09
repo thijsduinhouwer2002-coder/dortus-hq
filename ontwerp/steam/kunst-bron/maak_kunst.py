@@ -247,28 +247,36 @@ def maak_schat():
     opslaan(strip(frames), "schat.png"); return frames
 
 # ---------- slijm, 16 x 16: 4 frames rust (zachte wiebel), 2 frames hap ----------
+# Mila 9 nov: Gloop is een eenogige slijm met een scheve grijns en één tand (eigen gezicht, herkenbaar op ware grootte).
+# Het oog staat op rij 9 tot 12, kolom 5 tot 11; de mond op rij 13. Bovenkant van Gloop blijft y 6 (hoedentoren).
 SLIJM_RUST = [
     [
         "................", "................", "................", "................",
         "................", "................", ".....kkkkkk.....", "....kNNnnnnk....",
-        "...kNqNnnnnnk...", "...knnEenEennk..", "..knnneenneenk..", "..knnnnnnnnnnk..",
-        "..knMnnppnnnMk..", "..kMMnnnnnnMMk..", "...kMMMMMMMMk...", "....kkkkkkkk....",
+        "...kNqNnnnnnk...", "...knnkkkkknnk..", "..knnkEEEeeknk..", "..knnkEEEeeknk..",
+        "..knnnkkkkknnk..", "..kMMkkkkEkMMk..", "...kMMMMMMMMk...", "....kkkkkkkk....",
     ],
     [
         "................", "................", "................", "................",
         "................", "................", "................", ".....kkkkkk.....",
-        "...kkNNnnnnkk...", "..kNqnEennEenk..", "..knnneenneennk.", ".knnnnnnnnnnnnk.",
-        ".knMnnnppnnnMnk.", ".kMMnnnnnnnnMMk.", "..kMMMMMMMMMMk..", "...kkkkkkkkkk...",
+        "...kkNNnnnnkk...", "..kNqnkkkkknnk..", "..knnkEEEeeknnk.", ".knnnkEEEeeknnk.",
+        ".knnnnkkkkknnnk.", ".kMMnkkkkEkkMMk.", "..kMMMMMMMMMMk..", "...kkkkkkkkkk...",
     ],
 ]
+for _f in SLIJM_RUST: assert all(len(r) == 16 for r in _f), _f
+
+def oog_dicht(rows):
+    """Oog dicht (knipperen, slapen): het oog wordt een lijntje op rij 11."""
+    r = list(rows)
+    r[9] = "...knnnnnnnnnk.."; r[10] = "..knnnnnnnnnnk.."; r[11] = "..knnkkkkkkknk.."; r[12] = "..knnnnnnnnnnk.."
+    return r
 
 def maak_slijm():
     a, b = sprite(SLIJM_RUST[0]), sprite(SLIJM_RUST[1])
-    # knipper: ogen dicht in frame 4
-    c = sprite([r.replace("E", "n").replace("ee", "kk") if i in (9, 10) else r for i, r in enumerate(SLIJM_RUST[0])])
+    c = sprite(oog_dicht(SLIJM_RUST[0]))   # knipper in frame 4
     hap = sprite([
         "................", "................", "................", ".....kkkkkk.....",
-        "....kNNnnnnk....", "...kNqNnnnnnk...", "...knEennEennk..", "..knneenneennk..",
+        "....kNNnnnnk....", "...kNqNnnnnnk...", "...knnkkkkknnk..", "..knnkEEeeeknk..",
         "..knkkkkkkkkk...", "..knkRRRRRRk....", "..knkkkkkkkkk...", "..knnnnnnnnnnk..",
         "..knMnnnnnnnMk..", "..kMMnnnnnnMMk..", "...kMMMMMMMMk...", "....kkkkkkkk....",
     ])
