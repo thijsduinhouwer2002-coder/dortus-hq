@@ -251,14 +251,29 @@ func _init() -> void:
 	r = speel({"naam": "Put", "bezoeken": 0, "wrok": "", "moet_opgegeten": true, "zaad": 7}, true, false)
 	ok(r.uitkomst == "ontsnapt" and bool(r.info.get("hoard_toucher", false)), "moet_opgegeten zonder bewoner: overleeft de put, raakt de schat aan")
 
-	# 11. hoedentoren: zijn hoed gaat op Gloop, een aartsvijand gaat met zijn hoed naar de wand
+	# 11. hoedentoren: zijn hoed gaat op Gloop. Ook een aartsvijand, zolang de wand niet te zien is (Sanne 22:55;
+	#     deze toets zei eerst "naar de wand", gewijzigd op haar besluit; met WAND_ER waar gaat hij weer naar de wand)
 	r = speel({"naam": "Odo", "bezoeken": 0, "wrok": "", "moet_vallen": true, "zaad": 1})
 	var odo_hoed := absi(hash("Odo")) % 10   # Mila 21:55: 10 hoedsoorten, held.gd rekent nu % HOED_SOORTEN
 	ok(r.slijm_hoeden == [odo_hoed] and r.info.get("hoed_naar", "") == "bewoner" and int(r.info.get("hoeden_bewoner", 0)) == 1,
 		"Odo's hoed (%d) staat op Gloop: %s" % [odo_hoed, str(r.slijm_hoeden)])
 	r = speel({"naam": "Nemesis", "bezoeken": 3, "wrok": "Gloop the Slime", "moet_opgegeten": true, "zaad": 2})
-	ok(r.uitkomst == "gevallen" and r.slijm_hoeden.is_empty() and r.info.get("hoed_naar", "") == "wand",
-		"aartsvijand: geen hoed op Gloop, hij gaat naar de wand (%s)" % str(r.slijm_hoeden))
+	var nem_hoed := absi(hash("Nemesis")) % 10
+	ok(r.uitkomst == "gevallen" and r.slijm_hoeden == [nem_hoed] and r.info.get("hoed_naar", "") == "bewoner"
+		and int(r.info.get("hoeden_bewoner", 0)) == 1,
+		"aartsvijand zonder wand: zijn hoed (%d) gaat op Gloop als trofee (%s)" % [nem_hoed, str(r.slijm_hoeden)])
+	# Mila 23:00 en 23:10: helm met kam vanaf rij 0, kroon 2; held en slijm gebruiken dezelfde tabel
+	var hs = load("res://systemen/held.gd").new()
+	var ss = load("res://systemen/slijm.gd").new()
+	ok(hs.HOED_TOP == [0, 0, 2, 3, 2, 0, 0, 0, 2, 0] and ss.HOED_TOP == hs.HOED_TOP, "HOED_TOP van Mila in held.gd en slijm.gd gelijk")
+	hs.free()
+	ss.free()
+	# Olaf 22:35: info.snelheid voor de demo; dezelfde held met snelheid 1,4 is ruim eerder klaar, met dezelfde uitkomst
+	var traag: Dictionary = speel({"naam": "Rap", "bezoeken": 0, "wrok": "", "moet_doorlopen": true, "zaad": 5})
+	var rap: Dictionary = speel({"naam": "Rap", "bezoeken": 0, "wrok": "", "moet_doorlopen": true, "zaad": 5, "snelheid": 1.4})
+	ok(traag.uitkomst == "ontsnapt" and rap.uitkomst == "ontsnapt" and bool(rap.info.get("hoard_toucher", false))
+		and rap.tijd < traag.tijd * 0.8 and rap.tijd > traag.tijd * 0.6,
+		"snelheid 1,4: Hoard-Toucher in %.1f s in plaats van %.1f s" % [rap.tijd, traag.tijd])
 
 	# 12. toren en berg op de slijm zelf
 	var hol5 := Node2D.new()

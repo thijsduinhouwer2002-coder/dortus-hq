@@ -27,7 +27,7 @@ const LEVEN_MAX_S := 40.0
 # Hoedentoren (Mila, ontwerp/steam/mila/stijl.md; Sanne toets 3): elke held die hij at, zijn hoed komt op zijn hoofd.
 const HOEDEN := preload("res://kunst/held_hoeden.png")   # 10 hoeden, 16 x 16, zelfde index als held.gd hoed_nr
 const HOED_SOORTEN := 10           # Mila 21:55: helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts
-const HOED_TOP := [2, 0, 2, 3, 1, 0, 0, 0, 2, 0]     # bovenste zichtbare rij per hoed (Mila, gemeten uit het plaatje)
+const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]     # bovenste zichtbare rij per hoed (Mila; 23:00 helm met kam 0, 23:10 kroon 2 zodat de hoed erboven tussen de punten zakt)
 const HOED_ONDER := [5, 5, 6, 5, 5, 5, 5, 5, 5, 5]   # onderste zichtbare rij per hoed
 const RUST_TOP := [6, 7, 6, 6, 3, 7]                          # bovenkant van Gloop per frame in slijm.png
 const LEVEN_TOP := [6, 7, 7, 3, 3, 6, 3, 7, 6, 7, 6, 10, 7]   # idem slijm_leven.png (plat = 10)
@@ -121,7 +121,7 @@ func is_plat() -> bool:
 	return t < plat_tot
 
 # Hij at een held. hoed = index in held_hoeden.png, of -1 als de hoed niet naar hem gaat
-# (een afgerekende aartsvijand gaat met zijn hoed naar de wand, Sanne). Geeft het aantal hoeden terug.
+# (later: een afgerekende aartsvijand naar de wand, zodra die te zien is; tot dan krijgt de bewoner ook zijn hoed, Sanne 22:55). Geeft het aantal hoeden terug.
 func raak(hoed := -1) -> int:
 	gegeten += 1
 	hap_van = t

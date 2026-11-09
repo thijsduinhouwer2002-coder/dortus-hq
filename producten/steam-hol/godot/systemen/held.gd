@@ -13,12 +13,14 @@ extends Node2D
 # - karakter: "hebzuchtig" loopt door tot de schat (vlucht pas na twee klappen); "schijterig" draait na een klap de helft van de keren om.
 # - haalt hij de schat, dan pakt hij NIETS (geen straf): hij raakt hem aan, krijgt de bijnaam Hoard-Toucher en rent weg.
 #   Een Hoard-Toucher komt brutaler terug: iets vaker vluchten, nooit iets van jou kwijt.
+# - info["snelheid"]: factor op al zijn bewegingen (standaard 1.0); de demo zet hem hoger zodat de Hoard-Toucher
+#   rond 35 tot 40 s bij de schat is (Olaf 22:35).
 # - info["moet_vallen"] = true: hij valt bij de eerste verdediging (de eerste held van een nieuw spel, balans.md).
 # - info["moet_vluchten"]: overleeft de eerste verdediging en rent dan weg (krijgt zijn wrok).
 # - info["moet_doorlopen"]: overleeft alles, rent nergens voor weg en raakt de schat aan (Hoard-Toucher).
 # - info["moet_opgegeten"]: de eerste bewoner op zijn pad eet hem (vallen overleeft hij); zijn hoed gaat op de toren.
-# - valt hij door een bewoner, dan gaat zijn hoed naar diens hoedentoren: info "hoed_naar" ("bewoner" of "wand"
-#   voor een aartsvijand) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
+# - valt hij door een bewoner, dan gaat zijn hoed naar diens hoedentoren: info "hoed_naar" ("bewoner", of "wand"
+#   voor een aartsvijand zodra WAND_ER waar is) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
 # Terug in info (voor strook.gd en kroniek.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
 # "trek", "gezien_vijand". Uitkomst: "gevallen" of "ontsnapt".
@@ -35,7 +37,7 @@ const WAPENS := preload("res://kunst/held_wapens.png")
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
 const HOED_SOORTEN := 10        # Mila 21:55: 10 hoeden in held_hoeden.png en held_hoeden_hap.png
-const HOED_TOP := [2, 0, 2, 3, 1, 0, 0, 0, 2, 0]   # bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
+const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]   # Mila 23:00 en 23:10: helm met kam vanaf rij 0, kroon 2 (hoed erboven zakt tussen de punten); bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
 const OOGLAP := 1
 const SCHRAM := 2                # ooglap en schram nooit samen (zelfde oog, Daan)
 
@@ -45,6 +47,9 @@ const KANS_ANDERS := 0.25
 const ROEKELOOS := 0.10      # extra kans om te vallen tegen zijn eigen vijand
 const BRUTAAL := 0.8         # Hoard-Toucher: kans om te vallen x 0,8
 const NAAM_PUT := "the Spike Pit"
+# Sanne 22:55: zolang de wand niet te zien is gaat ook de hoed van een aartsvijand op de bewoner die hem at
+# (een trofee, en een hoed verdwijnt nooit zonder dat je ziet waarheen). Wand er (versie 1): op true.
+const WAND_ER := false
 
 var hol
 var info := {}
@@ -161,6 +166,8 @@ func _process(delta: float) -> void:
 # Los van _process zodat de toetsen hem met de hand kunnen laten lopen.
 func stap(delta: float) -> void:
 	t += delta
+	var echt := delta
+	delta *= clampf(float(info.get("snelheid", 1.0)), 0.25, 4.0)   # alleen lopen en klimmen; t en het wegzakken blijven gewoon
 	match staat:
 		"afdalen":
 			position.y = move_toward(position.y, vloer, SNEL * delta)
@@ -186,7 +193,7 @@ func stap(delta: float) -> void:
 				klaar.emit(self, "ontsnapt", info)
 				queue_free()
 		"vallen":
-			val_t += delta
+			val_t += echt
 			if val_t >= 1.0:
 				staat = "weg"
 				klaar.emit(self, "gevallen", info)
@@ -239,8 +246,8 @@ func _onderweg() -> void:
 		info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand
 		staat = "vallen"
 		if b != null and b.has_method("raak"):
-			# hoedentoren: zijn hoed gaat naar de bewoner, behalve bij een aartsvijand (die gaat met hoed naar de wand)
-			var naar_wand := is_aartsvijand()
+			# hoedentoren: zijn hoed gaat naar de bewoner; een aartsvijand pas naar de wand als die te zien is (WAND_ER)
+			var naar_wand := WAND_ER and is_aartsvijand()
 			var n = null
 			if b.has_method("hoeden_op_hoofd"):   # slijm.gd met hoedentoren
 				n = b.raak(-1 if naar_wand else hoed_nr)
