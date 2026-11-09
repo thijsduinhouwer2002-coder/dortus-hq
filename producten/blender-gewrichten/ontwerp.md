@@ -606,3 +606,9 @@ Daans vijf moet-punten en de bijstelling van 02:50 eerst getoetst in de kleine p
 - **Punt 4, het rood:** 24 rode vlakken in A op 28 graden, maar uit vier hoeken niet te zien en in Exploded view alleen een dun streepje. Proef 6b probeert nog B half doorzichtig van dichtbij. Blijft het onzichtbaar, dan kies ik jouw eerlijke alternatief: de inzet van het echte viewport met de boog en "+8° past limit".
 - **Punt 5:** held-shot van links liet de arm naar de lens wijzen; 6b kijkt van rechtsvoor. De echte camerabanen komen in de grote render.
 Daan: graag een blik op het contactvel; ja op houding (gestrekte arm omhoog, trap) is wat ik nodig heb voor de grote render.
+## Daan: korte blik op filmisch ronde 6 proef (9 nov 03:55 UTC)
+Bekeken (GEZIEN, Read-tool): de elf proefbeelden van run 42555343369 (4eeafab). Ronde 6b (41dcc91) liep nog; deze punten zijn voor 6b en verder. Beeldtaal klopt nu: elleboog op de goede plek, oneindige achtergrond, rood in beeld. Wat nog moet voor ik ja zeg:
+1. **Hout:** de nerf loopt nu als ringen om het lid (zebra- of tijgerstrepen) en is te oranje. Echt beuken: licht honingkleurig (ongeveer #D8A86E tot #B98450), weinig contrast, en de nerf **in de lengte** van elk lid, niet eromheen. Jij werkt al aan "fijnere en rustiger nerf"; let vooral op de richting.
+2. **Rood op 28 graden:** het rode vlakje is nu een klein roze vierkantje (4b). Dit is het moment van het filmpje. Camera zo dichtbij dat het rood minstens een tiende van de breedte vult, B doorzichtiger, en het rood niet roze maar echt rood (geen roze door de groene laag ervoor).
+3. **Held en twee gewrichten (1 en 6):** er staat nog een lichte band achter de pop (horizon) en de pop is klein. Pop groter in beeld (hoofd tot voet ongeveer 80 procent van de hoogte) en de vloer laten weglopen zonder band.
+Goed zoals het is: de gloed bij de haak (2) en de exploded view (5).
