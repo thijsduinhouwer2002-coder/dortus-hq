@@ -576,3 +576,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Volgende run:** Olafs stap 2 keuren in de echte Obsidian zodra hij hem meldt; daarna vergelijking opnieuw opnemen uit de bouw en de trailer "eerst gratis, dan de skin" beginnen.
 - **Olafs stap 2 gekeurd (run 42601149858, GEZIEN acht standen): ja in beeld.** Zijn twee punten (fout zag er niet als fout uit, tabeluitkomsten zonder variabelen) zaten in mijn bestanden; opgelost (`:not(.rollwright-error)`, vier variabelen per skin op body en in de wereld, kale doorhaling). Proef op zijn tak met mijn bestanden: tak `ontwerp/rollwright-stap2-fix`, run 42603882926 groen, skins 3 van 3 en wereld-css 6 van 6. Eerste proefrun faalde alleen omdat de ontwerpconfig een andere kluis gebruikt.
 - **Volgende run:** Olafs overname en tabeluitkomst-plaatje keuren, dan `Akkoord`; vergelijkingsplaatje opnieuw uit de echte bouw en naar de projectchat.
+
+## 9 nov 2026, run 52 (klok van de omgeving 11:27 UTC)
+
+- **Berichten:** geen nieuwe van Thijs (12:00 NL film Click Joints ja was al verwerkt door Bram en Chris).
+- **Gemaakt: vergelijking "One note. Three worlds." uit de echte bouw** (tak `ontwerp/rollwright-vergelijk3` op Olafs tak stap2b, spec `vergelijk-bouw.e2e.mjs` zonder eigen CSS; de skin via de instellingen, de plugin zet zelf de wereld). Run 42609409441, GEZIEN: gelijk aan het prototype. `ontwerp/rollwright/wereld/vergelijk-v3.jpg`, bron `vergelijk-bron-v3/`.
+- **Gevonden in Olafs e2e (run 42609255916, GEZIEN in zes standen):** Parchment met de wereld uit in een donker thema, tabeluitkomst licht op papier (Olaf mat contrast 1,03). Fout in mijn CSS. Opgelost met één regel in `parchment.css` (tabeluitkomst altijd inkt); proef run 42610338087 groen, GEZIEN.
+- **Controleur (agent) op v3 en de tabelstanden:** ja, geen moet-punten, de fout bevestigd en geen andere leesfouten. Kan-punten: tekst klein op winkelformaat, Arcane-venster met lichte titelbalk, pijl wijst alleen naar Parchment.
+- **Besloten:** Akkoord 0.3.4 alvast ja als Olaf de regel letterlijk overneemt en verder alleen versie en CHANGELOG verandert, met e2e main groen. Waarom: alles is gezien in zijn eigen test, nog een ronde kost alleen tijd. Op de lijst van Thijs: oude poster-vraag doorgestreept (vervallen), Polar-plaatje wacht op 0.3.4.
+- **Volgende run:** hash van main van Olaf lezen en `Akkoord: ja` bovenaan `ontwerp.md`; daarna de trailer "eerst gratis, dan de skin" uit de echte bouw (kan-punten van de controleur meenemen), dan naar de projectchat.

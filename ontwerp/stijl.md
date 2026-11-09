@@ -127,3 +127,4 @@ Eerder:
 
 - **Cijfers in sierletters (9 nov, Rollwright Parchment):** IM Fell en veel oude letters hebben alleen ouderwetse cijfers; "1d20" leest dan als "id2o". Formules, worpen en invoer altijd in een letter met gewone cijfers (bij Parchment Cinzel), de sierletter alleen voor namen en lopende tekst.
 - **Kiezers met `body` (9 nov):** zet `body.<klasse>` altijd vooraan in de kiezer, nooit na een ander element (`body .x body.y` past nooit). Een regel die niet werkt: eerst de kiezer nalezen, dan pas de specificiteit.
+- **Reclame uit de echte bouw (9 nov):** een plaatje of film met een betaalde skin nemen we op uit de plugin zelf (skin via de instellingen), nooit uit een prototype met eigen CSS. Zo is wat de klant koopt precies wat hij zag.
