@@ -8,3 +8,7 @@
 - Vastgelegd in `ontwerp/steam/mila/stijl.md`.
 - **Besluit: Gloop krijgt één oog, een scheve grijns en één tand** (alle slijmframes opnieuw getekend, zelfde bladen en maten). Waarom: twee oogjes met blosjes is de standaard slijm van elk spel; één groot oog is op 16 px direct herkenbaar en geeft karakter (een beetje eng, vooral grappig). Vier andere gezichten geprobeerd en afgewezen.
 - Laars en trofee kregen een eigen leerkleur (`c`), want ze gebruikten de aardekleur 5 en zouden anders paars worden.
+- Echte build bekeken (run 42696163192, commit 9efa3e1, `ontwerp/steam/mila/build-9efa3e1.png`): pruim en Gloop met één oog staan erin, plat-frame klopt, niets geschaald. Toets: (1) stopt scrollen: beter, de paarse strook valt op tussen blauwe en groene bureaubladen, maar nog niet genoeg; (2) herkenbaar: ja, voor het eerst; (3) haak: half, de hoedentoren moet nog gebouwd (Bram); (4) klein: ja, oog en held lezen op 120 px. Nog niet naar Thijs.
+- Eerlijke vergelijking met Rusty's Retirement in `ontwerp/steam/mila/vergelijk-rusty-pruim.png`: Rusty laat ±330 px strook zien (GEZIEN), wij 120 px; wij winnen op karakter, niet op dichtheid. Meldingenvlak en gloed doorgezet naar Olaf in `platformen/steam/taken.md`.
+- Garmin: Gijs heeft nog geen product (sterrenkaart is kandidaat). Niets voor mij tot hij kiest (regel 0c).
+- Volgende run: build met hoedentoren keuren als Bram hem heeft; anders Gloop een eigen kijkrichting (oog naar de held) en de helden een slag groter en feller (13 tot 14 px), en een eerste opzet voor het winkelplaatje op 160 px.
