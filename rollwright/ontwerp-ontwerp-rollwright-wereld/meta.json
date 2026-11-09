@@ -1,5 +1,8 @@
 {
- "css": 300506,
+ "css": {
+  "oudeRegelsWeg": 42,
+  "tekens": 316835
+ },
  "venster": "remote",
  "parchment-obsidian-lezen": {
   "bg": "rgba(0, 0, 0, 0)",
