@@ -1,5 +1,6 @@
 // D1-versie van de interface Opslag (ontwerp-d1-worker.md, punt 2). Eén exemplaar per winkel en per aanroep.
 // Lezen per afrekening in één batch, schrijven gebundeld met de volgende statuswissel, slot altijd vers.
+import { GEBOEKT } from "../verwerk.ts";
 import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag } from "../opslag.ts";
 
 /** Het deel van de D1-API dat we gebruiken (Cloudflare D1Database), zodat de tests een nagebootste versie kunnen geven. */
@@ -19,8 +20,9 @@ export interface Teller {
   neemAfmaken(): void;
 }
 
-/** Afgerond: bewaarde bestellingen en transacties mogen weg (ontwerp punt 3). `wacht_op_abonnement` hoort er niet bij. */
-export const AF = ["geboekt", "geboekt_met_waarschuwing", "leeg", "leeg_maar_geboekt"];
+/** Afgerond: bewaarde bestellingen en transacties mogen weg (ontwerp punt 3), dezelfde lijst als in verwerk.ts.
+ * `wacht_op_abonnement` hoort er niet bij; `fout` en `fout_gegevens` blijven staan tot het opruimen per cron. */
+export const AF = GEBOEKT;
 /** Een rij boven deze grootte wordt niet bewaard (D1: hoogstens 2 MB per rij). */
 export const MAX_RIJ = 1_500_000;
 
@@ -89,7 +91,8 @@ export class D1Opslag implements Opslag {
       )
       .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s));
     const extra = [st];
-    if (AF.includes(s.status)) {
+    if (AF.includes(s.status) && s.opnieuwSinds === undefined) {
+      // Met opnieuwSinds loopt "opnieuw boeken" nog (staat via leesOpen op de lijst): dan niets weggooien.
       // Af: wat voor deze afrekening nog in de wachtrij of in D1 staat hoeft niet meer bewaard (opnieuw boeken haalt opnieuw op).
       extra.push(
         this.db.prepare(`DELETE FROM bestellingen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id),

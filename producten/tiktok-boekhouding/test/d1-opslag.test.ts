@@ -108,6 +108,8 @@ test("(i) af: bewaarde bestellingen en transacties weg, status blijft; wacht_op_
   await o.schrijfTransacties("s1", { kop: undefined, transacties: [], opgehaaldOp: 7 });
   await o.schrijfStatus("s1", status("wacht_op_abonnement"));
   assert.equal(n("bestellingen"), 1);
+  await o.schrijfStatus("s1", status("geboekt", { opnieuwSinds: 9 }));
+  assert.equal(n("bestellingen"), 1, "opnieuw boeken loopt nog: bewaren");
   await o.schrijfStatus("s1", status("geboekt"));
   assert.equal(n("bestellingen"), 0);
   assert.equal(n("transacties"), 0);

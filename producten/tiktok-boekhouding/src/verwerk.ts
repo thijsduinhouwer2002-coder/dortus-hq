@@ -227,7 +227,7 @@ export interface RunUitkomst {
   verwerkt: Array<{ statementId: string; status: string }>;
 }
 
-const GEBOEKT = ["geboekt", "geboekt_met_waarschuwing", "leeg", "leeg_maar_geboekt"];
+export const GEBOEKT = ["geboekt", "geboekt_met_waarschuwing", "leeg", "leeg_maar_geboekt"];
 const AF = [...GEBOEKT, "fout", "fout_gegevens"];
 /** Eigen lijst: elke run nakijken, houdt de markering niet vast. wacht_op_abonnement staat erop, zodat betalen meteen boekt. */
 const OPEN = ["wacht_op_uitbetaling", "uitbetaling_mislukt", "onbekende_uitbetaalstatus", "onzeker", "wacht_op_abonnement"];
