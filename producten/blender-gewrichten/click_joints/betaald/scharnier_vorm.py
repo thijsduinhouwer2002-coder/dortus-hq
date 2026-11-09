@@ -35,6 +35,7 @@ WANG = 0.20       # Rn = R + s + WANG keer de halve dikte
 MARGE = 0.0       # graden onder de stand; 0, want de rand van het stopvlak wordt gemeten (vlak_lengte)
 TE_DUN = "Too thin here for a hinge. Try a thicker spot."
 KIJK_LANGS = "Look at the joint from the side to place a hinge."
+VOORKEUR_MIN = 0.05   # omhoog minder dan ongeveer 3 graden uit de lidas: geen voorkeur voor de buigkant
 
 
 def frame_scharnier(punt, h, buig, lid):
@@ -46,12 +47,17 @@ def frame_scharnier(punt, h, buig, lid):
     return m
 
 
-def scharnier_assen(lid, kijk=None, omhoog=None, cursor_x=None, cursor_y=None):
+def scharnier_assen(lid, kijk=None, omhoog=None, cursor_x=None, cursor_y=None, omdraaien=False):
     """(H, buigkant, lidas, hoek tussen kijkrichting en lidas in graden) of None als de kijkhoek te klein is.
 
     Met een kijkrichting: H is de kijkrichting geprojecteerd loodrecht op L, de buigkant is de omhoog-richting
     van de kijker loodrecht op H en L. Zonder kijkrichting (as-bron Cursor): H = X-as en buigkant = Y-as van
-    de cursor, ook loodrecht op L gemaakt."""
+    de cursor, ook loodrecht op L gemaakt.
+
+    Staat de lidas (bijna) omhoog op het scherm, dan zegt de omhoog-richting niets over de buigkant (minder
+    dan VOORKEUR_MIN loodrecht op H en L). Dan blijft de buigkant L x H, vast en voorspelbaar, en kiest de
+    gebruiker de kant met Flip bend. omdraaien (Flip bend) keert H en de buigkant samen om: het frame blijft
+    rechtshandig, de stop komt aan de andere kant van het lid en B buigt de andere kant op."""
     lid = lid.normalized()
     if kijk is not None:
         hoek = math.degrees(lid.angle(kijk)) if kijk.length > 0 else 0.0
@@ -65,8 +71,10 @@ def scharnier_assen(lid, kijk=None, omhoog=None, cursor_x=None, cursor_y=None):
         h = (cursor_x - lid * cursor_x.dot(lid)).normalized()
         voorkeur = cursor_y
     buig = lid.cross(h).normalized()
-    if voorkeur is not None and buig.dot(voorkeur) < 0:
+    if voorkeur is not None and voorkeur.length > 0 and buig.dot(voorkeur.normalized()) < -VOORKEUR_MIN:
         # Buigkant naar de voorkeur: H omdraaien houdt het frame rechtshandig (de as zelf blijft dezelfde lijn).
+        h, buig = -h, -buig
+    if omdraaien:
         h, buig = -h, -buig
     return h, buig, lid, hoek
 

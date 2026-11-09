@@ -5,13 +5,15 @@ Scharnieras H (ontwerp betaald v1.1, invoer b): bij as-bron View direction de ki
 loodrecht op L; maakt die minder dan 30 graden met L, dan een melding en geen scharnier. Bij as-bron Cursor
 de X-as van de cursor. Buigkant: omhoog op het scherm (bij Cursor de Y-as van de cursor).
 De vorm zelf staat in scharnier_vorm.py, de beweegproef (eis 2) in scharnier_beweeg.py. Nog niet in deze ronde:
-passingkleur, Exploded view, klikneuzen, Flip bend."""
+passingkleur, Exploded view, klikneuzen.
+Flip bend (eigenschap flip_bend, ontwerp punt 4): keert H en de buigkant samen om, dus de stop en de
+achterstop komen aan de andere kant van het lid; in het Redo-paneel snijdt omzetten het scharnier opnieuw."""
 import math
 import time
 
 import bmesh
 import bpy
-from bpy.props import EnumProperty, FloatVectorProperty
+from bpy.props import BoolProperty, EnumProperty, FloatVectorProperty
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
@@ -39,7 +41,7 @@ def kijk_en_omhoog(context, kijk=None, omhoog=None):
     return (rv3d.view_rotation @ Vector((0, 0, -1))).normalized(), rv3d.view_rotation @ Vector((0, 1, 0))
 
 
-def assen(context, inst, kijk=None, omhoog=None):
+def assen(context, inst, kijk=None, omhoog=None, omdraaien=False):
     """(punt, H, buigkant, L, as-bron, terugval) of None als de kijkrichting te dicht bij de lidas ligt."""
     cursor = context.scene.cursor
     m = cursor.matrix
@@ -47,9 +49,9 @@ def assen(context, inst, kijk=None, omhoog=None):
     if inst.as_bron == "KIJK":
         ko = kijk_en_omhoog(context, kijk, omhoog)
         if ko is not None:
-            uit = vorm.scharnier_assen(lid, kijk=ko[0], omhoog=ko[1])
+            uit = vorm.scharnier_assen(lid, kijk=ko[0], omhoog=ko[1], omdraaien=omdraaien)
             return None if uit is None else (cursor.location.copy(),) + uit[:3] + ("KIJK", False)
-    uit = vorm.scharnier_assen(lid, cursor_x=m.col[0].xyz, cursor_y=m.col[1].xyz)
+    uit = vorm.scharnier_assen(lid, cursor_x=m.col[0].xyz, cursor_y=m.col[1].xyz, omdraaien=omdraaien)
     return (cursor.location.copy(),) + uit[:3] + ("CURSOR", inst.as_bron == "KIJK")
 
 
@@ -60,6 +62,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
 
     stand: EnumProperty(name="Bends up to", items=STAND_KEUZES, default=str(vorm.STAND_STANDAARD))
+    flip_bend: BoolProperty(name="Flip bend", default=False,
+                            description="Bend the other way: the end stop moves to the other side of the part")
     # Leeg (0, 0, 0) = kijkrichting uit de 3D-weergave. Alleen voor scripts en de toets zonder venster.
     kijk_richting: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
     kijk_omhoog: FloatVectorProperty(size=3, default=(0.0, 0.0, 0.0), options={"HIDDEN", "SKIP_SAVE"})
@@ -78,7 +82,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             self.report({"ERROR"}, f"The mesh {bron.name} is not watertight ({fout} edges without exactly "
                                    "2 faces). Click Make watertight first.")
             return {"CANCELLED"}
-        uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog)
+        uit = assen(context, inst, kijk=self.kijk_richting, omhoog=self.kijk_omhoog, omdraaien=self.flip_bend)
         if uit is None:
             self.report({"WARNING"}, vorm.KIJK_LANGS)
             return {"CANCELLED"}
@@ -122,7 +126,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
                     "cj_scharnier_punt": list(draaipunt), "cj_snijpunt": list(punt), "cj_as_bron": as_bron,
                     "cj_as_terugval": terugval, "cj_knokkel_r": maat["r"], "cj_naad_r": maat["rn"],
                     "cj_tong_half": maat["tw"], "cj_stand": maat["stand"], "cj_solver": solver,
-                    "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_t_vlak": maat["t_vlak"], "cj_gespiegeld": gespiegeld(bron)}
+                    "cj_wig_graden": round(math.degrees(maat["alfa"]), 3), "cj_theta_s": maat["theta_s"], "cj_t_vlak": maat["t_vlak"], "cj_gespiegeld": gespiegeld(bron),
+                    "cj_flip_bend": bool(self.flip_bend)}
         # Beweegproef om H (eis 2) op de delen in wereldcoordinaten, voor ze verhuizen.
         voor, achter = beweeg.bereik(deel_a, deel_b, draaipunt, h, buig, lid,
                                      1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
@@ -146,7 +151,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             if o is not None:
                 o.select_set(False)
         context.view_layer.objects.active = deel_a
-        melding = f"Hinge placed. {beweeg.tekst(voor, maat['stand'])}."
+        kop = "Hinge placed, bend flipped" if self.flip_bend else "Hinge placed"
+        melding = f"{kop}. {beweeg.tekst(voor, maat['stand'])}."
         if beweeg.geen_stop(voor):
             melding = "Hinge placed, but no end stop was found. Check the shape near the joint."
         for deel in (deel_a, deel_b):
@@ -162,9 +168,14 @@ def teken_knop(self, context):
     vak = self.layout.box()
     vak.label(text="Place hinge, bends up to:")
     rij = vak.row(align=True)
+    wm = context.window_manager
+    flip = bool(getattr(wm, "cj_flip_bend", False))
     for n in vorm.STANDEN:
         op = rij.operator(CLICK_JOINTS_OT_plaats_scharnier.bl_idname, text=f"{n}°")
         op.stand = str(n)
+        op.flip_bend = flip
+    if hasattr(wm, "cj_flip_bend"):
+        vak.prop(wm, "cj_flip_bend", toggle=True)
 
 
 KLASSEN = (CLICK_JOINTS_OT_plaats_scharnier,)

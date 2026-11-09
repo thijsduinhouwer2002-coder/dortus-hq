@@ -27,6 +27,9 @@ def weiger_dubbel(eigen):
 def register():
     for k in KLASSEN:
         bpy.utils.register_class(k)
+    # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
+    bpy.types.WindowManager.cj_flip_bend = bpy.props.BoolProperty(
+        name="Flip bend", default=False, description="Bend the other way: the end stop moves to the other side")
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.append(scharnier.teken_knop)
@@ -36,5 +39,7 @@ def unregister():
     paneel = getattr(bpy.types, "CLICK_JOINTS_PT_paneel", None)
     if paneel is not None:
         paneel.remove(scharnier.teken_knop)
+    if hasattr(bpy.types.WindowManager, "cj_flip_bend"):
+        del bpy.types.WindowManager.cj_flip_bend
     for k in reversed(KLASSEN):
         bpy.utils.unregister_class(k)
