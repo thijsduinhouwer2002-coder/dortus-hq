@@ -1,0 +1,41 @@
+widgets 395 groepen (min. aantal verschillende downloadtellingen) 97
+grootte onderste 6 groepen [12, 12, 14, 15, 40, 53]
+betaald: ondergrens downloads, verdeling Counter({0: 134, 5: 51, 10: 27, 25: 16, 20: 15, 15: 15, 50: 13, 30: 12, 45: 9, 40: 8, 35: 7})
+betaald in onderste groep 53 van 307
+betaald ondergrens >=10: 122 >=20: 80 >=50: 13
+74 Sidekick for Discord | Respawn Icons 7.99 2026-09-13
+69 Deckord | Qaem 37.54 2026-08-27
+68 Music Pro | FlowKits 12.0 2026-08-20
+66 Volume Mixer | FlowKits 5.0 2026-08-28
+65 Sidekick for Spotify | Respawn Icons 8.99 2026-09-09
+60 Steam Library | Respawn Icons 12.99 2026-08-20
+56 Star Citizen Edge Control | FlowKits 30.0 2026-08-18
+56 Flow for Discord (Edge) | FlowKits 12.0 2026-10-09
+54 Control Center | Respawn Icons 9.99 2026-09-21
+52 EdgeTube | Qaem 19.99 2026-09-06
+52 Hardware Monitor XL | Atomic 9.99 2026-10-12
+51 My Discord Widget | StreamSpell 14.0 2026-10-08
+50 PC Guardian | Kron 9.99 2026-08-25
+49 Calendar for Gmail | Respawn Icons 9.99 2026-09-04
+49 Music | Respawn Icons 8.99 2026-09-08
+48 Star Citizen | Respawn Icons 29.99 2026-08-11
+47 Nocturne Deck | GM Edge Labs 10.5 2026-09-26
+47 Flight Radar | Respawn Icons 9.99 2026-08-11
+46 Home Assistant Companion | Respawn Icons 19.99 2026-08-21
+46 Sidekick for OBS | Respawn Icons 8.99 2026-10-01
+45 Performance Grapher | PackRat 🐀 15.99 2026-08-11
+45 Flow for Outlook and Teams (Edge) | FlowKits 20.0 2026-09-22
+44 NOTE//EDGE | iConCity 7.0 2026-08-20
+43 Notes | Kron 9.99 2026-08-25
+43 BIO-GRID Command Array | Opulent Hardware 3.99 2026-08-31
+gratis ondergrens top 5 [('Sensor Bar', 96), ('Smoke Clock', 95), ('Moon Phase Clock', 94), ('Doodle Pad', 93), ('Checklist', 92)]
+ondergrens netto per maker ($, 70%) [('Qaem', 8483), ('Respawn Icons', 7649), ('FlowKits', 3747), ('PackRat 🐀', 2552), ('Simple Code', 2310), ('Atomic', 1690), ('Kron', 1455), ('StreamSpell', 1372), ('ABE', 848), ('iConCity', 738), ("Tom's Cave", 671), ('GM Edge Labs', 510)]
+2026-08 64 mediaan ondergrens 12.5 aandeel >=5 0.78
+2026-09 105 mediaan ondergrens 8 aandeel >=5 0.57
+2026-10 117 mediaan ondergrens 5 aandeel >=5 0.53
+2026-11 21 mediaan ondergrens 0 aandeel >=5 0.05
+valuta Counter({'USD': 173, 'GBP': 64, 'SAR': 23, 'CAD': 20, 'EUR': 17, 'MXN': 4, 'AED': 3, 'JPY': 1, 'AUD': 1, 'ILS': 1})
+ondergrens netto per maker in USD [('Respawn Icons', 7649), ('FlowKits', 3747), ('PackRat 🐀', 2552), ('Qaem', 2262), ('Atomic', 1690), ('Kron', 1455), ('StreamSpell', 1372), ('iConCity', 938), ("Tom's Cave", 843), ('ABE', 610)] totaal 26775
+makers met ondergrens >= $100: 24 van 39
+prijs mediaan USD 6.35
+AI Usage Dashboard ondergrens [22] [{'currency': 'USD', 'plan': 'once', 'savings_absolute': None, 'savings_percentage': None, 'unit_amount': 1199, 'unit_amount_discounted': None}]
