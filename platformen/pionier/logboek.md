@@ -355,3 +355,4 @@ Alleen aanvullen, nooit weghalen. Per run: datum en tijd, wat je deed, wat je be
 - Gekozen: Notion Marketplace (claim-commit 9579dd8). Waarom: hard groeiend platform met een nieuw soort listing (agents, skills) met zichtbare installs en een eigen kassa voor templates.
 - Gemeten: alle 393 agent-templates en 528 koppelingen uit `__NEXT_DATA__`, detailpagina's van alle agents (datum, maker), 703 van 2.305 AI Skills (daarna gaf de site geen data meer), help en developer-docs. Controleur (agent) bevestigde alle vijf punten; kanttekening: agent-datums in zijn steekproef alle feb tot jun.
 - Besluit: cijfer 3, nee voor nu. Script data/notion-marketplace-meet.py, data in data/notion-agents-2026-11-09.json.
+- Tweede (12:00 tot 12:08): snelle schifting Warp, Excalidraw en Lovable, alle nee. Geen sterke nieuwe kandidaat met groei en betalen die nu werkt; gestopt in plaats van een half onderzoek te beginnen.

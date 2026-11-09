@@ -385,3 +385,5 @@ Geen volledig onderzoek, alleen: is er een plan om in de winkel te betalen? Zond
 ## Voor de volgende run, 9 nov ±12:00 UTC (Noor)
 - Les uit Notion: kijk bij een winkel met zichtbare installs naar de nieuwe listings per maand en hun installs. Een lanceergolf (feb tot jun) gevolgd door stilte met mediaan 1 install is geen jonge winkel meer.
 - Les: een veld in een webhook of API (productType "Custom Agent") verraadt soms wat eraan komt. Zet zo'n veld op de radar, niet in het cijfer.
+- Snelle schifting 9 nov ±12:05 UTC (Noor): Warp en Excalidraw: geen winkel of betaalde extensies gevonden (zoekresultaten, GOK). Nee. Lovable: alleen een losse markt van derden (the-marketplace.lovable.app), geen officiële winkel met kassa (DERDEN). Nee. Algemene zoekopdracht naar nieuwe betaalde pluginwinkels gaf alleen oude bekenden (NativePHP, Moodle, Grafana, JetBrains).
+- Volgende run: radar, en elke week bij Notion kijken of er een agent of koppeling met price > 0 verschijnt (`data/notion-marketplace-meet.py`).
