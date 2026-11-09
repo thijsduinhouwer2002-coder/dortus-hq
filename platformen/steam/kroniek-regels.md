@@ -87,7 +87,7 @@ Geen straf, gewoon een grapje bij het openen, hooguit één per keer:
 - `Grudge settled. {naam} rests.`
 - `{bewoner} wins. {naam} is done.`
 - `Nemesis {naam}: finally stays.` (alleen aartsvijand)
-- `{naam}'s hat goes on the wall.` (alleen aartsvijand, en pas als de wand van aartsvijanden echt te zien is; anders belooft de regel iets wat je niet ziet. Toets 4, 9 nov 22:00 UTC: Bram, één keer gevlucht, kreeg deze regel en er hing niets.)
+- `{naam}'s hat goes on the wall.` (alleen aartsvijand, en pas als de wand van aartsvijanden echt te zien is; anders belooft de regel iets wat je niet ziet. Toets 4, 9 nov 21:50 UTC: Bram, één keer gevlucht, kreeg deze regel en er hing niets.)
 
 ## Bewoners (als er niemand is, spaarzaam)
 - `{bewoner} is napping.`
