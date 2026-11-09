@@ -28,7 +28,7 @@ G = {
  "N": ["X...X", "XX..X", "X.X.X", "X..XX", "X...X", "X...X", "X...X"],
  " ": [".....", ".....", ".....", ".....", ".....", ".....", "....."],
 }
-def woord(tekst, blok, kleuren, rand=DONKER, gat=1):
+def woord(tekst, blok, kleuren, rand=DONKER, gat=1, binnenrand=None):
     """Pixeltekst met dikke donkere rand en een schaduw eronder. blok = pixels per letterpixel (in spelpixels)."""
     w = sum(5 * blok + gat * blok for _ in tekst) - gat * blok
     h = 7 * blok
@@ -46,7 +46,8 @@ def woord(tekst, blok, kleuren, rand=DONKER, gat=1):
                         for bx in range(blok):
                             vul.putpixel((x0 + gx * blok + bx, 2 + y), kl)
         x0 += 6 * blok if gat else 5 * blok
-    # rand: elke lege pixel naast vul wordt donker; schaduw 2 rijen onder
+    # rand: elke lege pixel naast vul wordt donker; schaduw 2 rijen onder.
+    # binnenrand (Mila v4): de buitenste rij van de letter zelf wordt een donkerder tint, de bovenste rij een lichtere (reliëf)
     a = vul.split()[3]
     for y in range(im.height):
         for x in range(im.width):
@@ -56,6 +57,17 @@ def woord(tekst, blok, kleuren, rand=DONKER, gat=1):
                        for dx in (-1, 0, 1) for dy in (-1, 0, 1, -2, -3))
             if buur:
                 im.putpixel((x, y), rand)
+    if blok >= 2 and binnenrand:
+        kopie = vul.copy()
+        for y in range(vul.height):
+            for x in range(vul.width):
+                if not a.getpixel((x, y)): continue
+                leeg = lambda dx, dy: not (0 <= x + dx < vul.width and 0 <= y + dy < vul.height and a.getpixel((x + dx, y + dy)))
+                if leeg(0, -1):
+                    kopie.putpixel((x, y), (0xff, 0xf6, 0xd0, 255))
+                elif leeg(0, 1) or leeg(1, 0):
+                    kopie.putpixel((x, y), binnenrand)
+        vul = kopie
     im.alpha_composite(vul)
     return im
 GOUD = [(0xff, 0xe9, 0x9a, 255), (0xff, 0xd2, 0x5c, 255), (0xf2, 0xb2, 0x3a, 255), (0xd9, 0x8a, 0x2a, 255)]
@@ -63,18 +75,18 @@ MUNT = [(0xb8, 0xf5, 0xd2, 255), (0x7e, 0xe0, 0xae, 255), (0x4f, 0xc0, 0x8f, 255
 
 def logo(blok_groot=2, met_hoeden=True):
     """HATS groot met op elke letter een echte hoed uit het spel; 'OF THE FALLEN' eronder."""
-    hats = woord("HATS", blok_groot, GOUD)
+    hats = woord("HATS", blok_groot + 1, GOUD, binnenrand=(0xa8, 0x5a, 0x1e, 255))
     rest = woord("OF THE FALLEN", 1 if blok_groot <= 2 else blok_groot // 2, MUNT)
     w = max(hats.width, rest.width)
-    hoog = 9 if met_hoeden else 0
+    hoog = 10 if met_hoeden else 0
     im = Image.new("RGBA", (w, hoog + hats.height + rest.height - 1), (0, 0, 0, 0))
     hx = (w - hats.width) // 2
     im.alpha_composite(hats, (hx, hoog))
     if met_hoeden:
         # kroon op H, koksmuts op A, pan op T, veermuts op S (de grap: de letters zijn ook opgegeten helden)
         for n, h in enumerate([4, 5, 8, 9]):
-            lx = hx + 2 + n * 6 * blok_groot + (5 * blok_groot) // 2 - 8 + [0, 0, 0, 1][n]
-            ly = hoog + 2 - HOED_ONDER[h] - 1 + 1 + (1 if n == 1 else 0)
+            lx = hx + 2 + n * 6 * (blok_groot + 1) + (5 * (blok_groot + 1)) // 2 - 8 + [0, 0, 0, 1][n]
+            ly = hoog + 2 - HOED_ONDER[h] - 1 + (0 if n == 1 else 1)
             im.alpha_composite(cel(HOED, h), (lx, ly))
     im.alpha_composite(rest, ((w - rest.width) // 2, hoog + hats.height - 1))
     return im
@@ -170,22 +182,22 @@ def header():
     gloop_met_toren(im, 52, vloer, [7, 5, 4, 9])
     held(im, 4, vloer, 0, 8, wapen=0)
     im = schaal(im, S)
-    lg = schaal(logo(2), 6)
-    im.alpha_composite(lg, (0, 0))
+    lg = schaal(logo(2), 5)
+    im.alpha_composite(lg, (4, 0))
     return im.crop((0, 0, 920, 430))
 
-# ---------- klein 462 x 174 (schaal 4: 116 x 44, rand weg) ----------
+# ---------- klein 462 x 174 (schaal 3: 154 x 58): het logo vult bijna alles, want Steam maakt er 120 x 45 van ----------
 def klein():
-    W, H, S = 116, 44, 4
+    W, H, S = 154, 58, 3
     im = Image.new("RGBA", (W, H), (0, 0, 0, 255))
     lucht(im, H)
     for kx in range(W // 16 + 1):
-        im.alpha_composite(cel(TEG, (kx * 5) % 8, rij=0), (kx * 16, H - 5))
-    im = gloed(im, 99, H - 12, .8)
-    gloop_met_toren(im, 99, H - 5, [7, 5, 4, 9])
+        im.alpha_composite(cel(TEG, (kx * 5) % 8, rij=0), (kx * 16, H - 6))
+    im = gloed(im, 132, H - 14, .9)
+    gloop_met_toren(im, 132, H - 6, [7, 5, 4, 9])
     lg = logo(2, met_hoeden=True)
-    im.alpha_composite(lg, (1, (H - lg.height) // 2))
-    return schaal(im, S).crop((1, 1, 463, 175))
+    im.alpha_composite(lg, (2, (H - lg.height) // 2))
+    return schaal(im, S)
 
 # ---------- schatkamer als losse scene (voor main, staand, library, hero) ----------
 def kamer(W, H, vloer, gx, hx, sx, berg_hoeden=(0, 1, 3, 2, 6, 1), toren=(7, 5, 4, 9), wand_rijen=3, held_kleur=0, held_hoed=8, gras_y=None):
@@ -250,7 +262,7 @@ def hero():           # 3840 x 1240, geen tekst; Gloops gezicht in het veilige m
     r = random.Random(5)
     for _ in range(9):
         im.alpha_composite(cel(VOND, r.randrange(5)), (r.randrange(W - 16), r.choice([r.randrange(0, 2), r.randrange(54, 60)])))
-    return schaal(im, S)
+    return schaal(im, S).crop((0, 4, 3840, 1244))
 
 def logo_los():       # 1280 breed, doorzichtig
     lg = logo(2); s = 1280 // lg.width

@@ -27,16 +27,17 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 - Afgewezen: alles met **Gloop** in de naam. Op Steam bestaan al "Gloop", "Gloop: Liquid Physics", "All Hail Gloop!" en "Walkabout Mini Golf: Gloop Lair" (GEZIEN). Gloop blijft wel de naam van het slijm in het spel. Ook afgewezen: "Lair Below" (0 treffers maar zegt niets grappigs), "Hatpile" (leest als rommel), "Underlair" (botst met "A Scoundrel in the Underlair").
 - Wat het zou veranderen: een merk of spel met (bijna) dezelfde naam, of Thijs wil iets anders.
 
-## 3. Logo (versie 1, gemaakt 9 nov)
+## 3. Logo (versie 2, 9 nov)
 - Eigen pixelletter in hetzelfde spelpixelrooster als het spel. **HATS** groot in goud (de kleur van de schat), **OF THE FALLEN** kleiner in muntgroen (de kleur van Gloop). Dikke bijna zwarte pruimrand, zodat het op elke achtergrond leest.
 - **Op elke letter van HATS staat een echte hoed uit het spel**: kroon op de H, koksmuts op de A, pan op de T, veermuts op de S. De letters zijn zelf ook opgegeten helden. Dat is de grap die je in 120 x 45 nog ziet.
+- v2: HATS dikker (letterpixel 3 in plaats van 2) met reliëf: bovenste rij licht, onderkant en rechterkant donker goud; de hoeden staan nu óp de letters, zodat de punt van de A niet meer onder de koksmuts verdwijnt (las als H).
 - Maker: `bron/maak_capsules.py` (functie `logo()`), leest alleen de echte plaatjes uit `producten/steam-hol/godot/kunst/`.
 
 ## 4. Stand per bestand
 | Bestand | Stand | Wat nog |
 |---|---|---|
 | `header-920x430.png` | v3 | v2 verloor naast de toppers (`vergelijk-header-toppers.png`, op 292 breed zoals de winkellijst): logo en figuren te klein, donker vlak. v3: close-up op schaal 12, Gloop met vier hoeden als hoofdfiguur, held met pan links onder het logo, schat met gloed rechts, logo groter. **Eerlijk oordeel: herkenbaar en de grap leest, maar nog minder rijk dan Rusty, Tiny Pasture en Deskrawl** (die zijn geschilderd, met een dik eigen logo). v4: Gloop en de hoeden opnieuw tekenen op 3x de spelmaat (zelfde figuur, meer detail, licht van de schat op zijn huid) en een dikker logo met een gouden rand en reliëf. |
-| `klein-462x174.png` | v1 | op 120 x 45 en 184 x 69 lezen HATS, de kroon en OF THE FALLEN (GEZIEN); Gloop met toren rechts is klein maar herkenbaar. |
+| `klein-462x174.png` | v2 | schaal 3 zodat het hele logo past (v1 sneed OF THE FALLEN af toen het logo dikker werd); op 184 x 69 en 120 x 45 lezen HATS met hoeden en OF THE FALLEN (GEZIEN). Kan nog: logo groter, minder lucht. |
 | `main-1232x706.png` | v1 | sterrenlucht, gras, logo, daaronder de schatkamer met held, hoedenberg, Gloop met 4 hoeden en schat. Logo valt half over het gras, leest goed door de rand (GEZIEN). |
 | `staand-748x896.png` | v1 | logo groot in de lucht, schatkamer onderaan. Eerste versie met lege bakstenen wand afgewezen (leeg midden). |
 | `library-600x900.png` | v1 | zelfde opbouw als staand, verkleind naar 300 x 450 nog leesbaar (GEZIEN). |
