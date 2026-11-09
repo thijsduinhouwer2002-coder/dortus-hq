@@ -689,3 +689,5 @@ Nieuwste blok onderaan.
 - Controleur akkoord, 10 correcties. Belangrijkste: slapen viel weg (trefwoord 寝 ving 添い寝), 112 in plaats van 190 winkels, AI-verschil kleiner na het weghalen van valse treffers, en een gemiste oude top: フェイドアウトシステム (maker stil sinds 2023).
 - Les: bij indelen op Japanse trefwoorden altijd de treffers nalezen; korte tekens (寝, 耳, なで) vangen veel andere woorden (添い寝, 耳かき, みんなで).
 - Geen bericht aan een manager: BOOTH heeft geen manager.
+- Na de productkans nog tijd, dus een platform: VTuber-software (plugins en tools voor VTube Studio, Warudo, VNyan), zelf toegevoegd, om 07:55 op "in onderzoek" gezet. Voorwerk: BOOTH gemeten (156 tools, nieuwe betaalde mediaan 23 likes, ±5 tot 14 nieuwe per maand) en de itch-lijst opgehaald (329). Het itch-script mist vaak de publicatiedatum, dus nog geen oordeel; staat met cijfers in kandidaten.md. Reden om te stoppen: werktijd op, en een half oordeel telt niet.
+- Run afgesloten.

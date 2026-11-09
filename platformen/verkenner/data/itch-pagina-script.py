@@ -1,29 +1,21 @@
-# Haalt per itch.io-pagina het aantal beoordelingen, AI-melding en makerprofiel op.
-# Gebruik: python3 itch-pagina-script.py <lijst.json> <van JJJJ-MM-DD> <tot JJJJ-MM-DD> <uit.json>
-import sys, json, time, re, urllib.request
-from concurrent.futures import ThreadPoolExecutor
-lijst, van, tot, uit = sys.argv[1:5]
-items = [i for i in json.load(open(lijst)) if van <= i["pub"][:10] < tot]
-seen=set(); items=[i for i in items if not (i["url"] in seen or seen.add(i["url"]))]
-def haal(i):
-    for p in range(3):
-        try:
-            h = urllib.request.urlopen(urllib.request.Request(i["url"], headers={"User-Agent": "Mozilla/5.0 (onderzoek)"}), timeout=30).read().decode("utf8", "replace")
-            break
-        except Exception as e:
-            if "404" in str(e): i["weg"] = True; return i
-            time.sleep(3)
-    else:
-        i["fout"] = True; return i
-    m = re.search(r'"ratingCount":(\d+)', h)
-    i["ratings"] = int(m.group(1)) if m else 0
-    m = re.search(r'"ratingValue":"([\d.]+)"', h); i["score"] = float(m.group(1)) if m else None
-    m = re.search(r'<td>AI Disclosure</td><td>(.*?)</td>', h, re.S)
-    i["ai"] = re.sub(r"<[^>]+>", " ", m.group(1)).strip() if m else ""
-    m = re.search(r'Comments?</h2>|class="community_post', h); i["reacties"] = len(re.findall(r'class="community_post ', h))
-    time.sleep(0.3)
-    return i
-with ThreadPoolExecutor(3) as ex:
-    res = list(ex.map(haal, items))
-json.dump(res, open(uit, "w"), indent=0)
-print("klaar", len(res))
+# Leest itch.io-pagina's: publicatiedatum, aantal ratings, prijs. Gebruik: python3 -I itch-pagina-script.py URLS.txt UIT.jsonl
+# LET OP (9 nov): veel itch-pagina's tonen geen rij Published en de titel-regex mist vaak; volgende keer de eerste <abbr title> in game_info_panel_widget als datum nemen en de titel uit <title>. Rustig blijven: bij te snel lezen geeft itch 429.
+import json,subprocess,re,time,sys
+urls=[u.strip() for u in open(sys.argv[1]) if u.strip()]
+f=open(sys.argv[2],'a')
+for u in urls:
+    for t in range(3):
+        r=subprocess.run(["curl","-s","-m","30","-A","Mozilla/5.0 DortusVerkenner",u],capture_output=True,text=True)
+        if '429 Too Many' not in r.stdout: break
+        time.sleep(15)
+    h=r.stdout
+    pub=re.search(r'<td>Published</td><td><abbr title="([^"]+)"',h)
+    upd=re.search(r'<td>Updated</td><td><abbr title="([^"]+)"',h)
+    rat=re.search(r'\((\d[\d,]*) total ratings?\)',h)
+    avg=re.search(r'ratingValue"?[:=]\s*"?([\d.]+)',h)
+    price=re.search(r'<span class="dollars[^"]*"[^>]*>([^<]+)</span>',h)
+    pwyw='Name your own price' in h or 'name your own price' in h
+    title=re.search(r'<h1 class="game_title"[^>]*>([^<]+)',h)
+    f.write(json.dumps({'url':u,'title':title.group(1) if title else None,'pub':pub.group(1) if pub else None,'upd':upd.group(1) if upd else None,
+      'ratings':int(rat.group(1).replace(',','')) if rat else 0,'avg':avg.group(1) if avg else None,'price':price.group(1) if price else None,'pwyw':pwyw,'len':len(h)})+"\n"); f.flush()
+    time.sleep(1.5)
