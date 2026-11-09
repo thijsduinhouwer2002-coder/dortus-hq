@@ -1,5 +1,5 @@
 {
- "css": 171631,
+ "css": 171838,
  "venster": "remote",
  "views": [
   "file-explorer",
@@ -22,9 +22,9 @@
    "rw-land"
   ],
   "r": [
-   286.0520324707031,
+   285.77032470703125,
    363.3823547363281,
-   172.06781005859375,
+   182.0218505859375,
    35.62591552734375
   ]
  },
@@ -132,7 +132,7 @@
  },
  "kerker-nat1": {
   "cls": "rollwright-roll rwx-ico rwx-ico-trap rollwright-rolled",
-  "n": 10,
+  "n": 11,
   "namen": [
    "rwxk-slag",
    "rwxk-hitte",
@@ -143,12 +143,13 @@
    "rw-sticker",
    "rwxk-slag",
    "rw-tumble",
-   "rw-land"
+   "rw-land",
+   "rw-sticker"
   ],
   "r": [
-   351.381103515625,
+   351.1968688964844,
    535.88232421875,
-   183.62841796875,
+   190.13748168945312,
    35.6259765625
   ]
  },
@@ -282,9 +283,9 @@
    "rw-sticker"
   ],
   "r": [
-   484.01361083984375,
+   484.2601623535156,
    364.203125,
-   151.8946533203125,
+   143.18283081054688,
    34.78125
   ]
  },
@@ -460,9 +461,9 @@
    "right=0px",
    "top=0px",
    "bottom=0px",
-   "width=133.281px",
+   "width=138.281px",
    "height=35.0625px",
-   "zIndex=2",
+   "zIndex=0",
    "overflow=visible",
    "mixBlendMode=normal",
    "animationName=rwxc-glans",
@@ -504,7 +505,7 @@
    "right=0px",
    "top=0px",
    "bottom=0px",
-   "width=135.281px",
+   "width=140.281px",
    "height=37.0625px",
    "zIndex=auto",
    "overflow=visible",
@@ -690,7 +691,7 @@
    "rw-sticker"
   ],
   "r": [
-   462.80859375,
+   467.80859375,
    414.29022216796875,
    120.2578125,
    37.0289306640625
