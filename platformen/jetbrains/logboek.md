@@ -451,3 +451,9 @@ Nieuwste blok onderaan.
 - **Opslaan:** lokale kloon stond los van main (detached); teruggezet op `origin/main`, niets weggegooid.
 - **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers na ±14:30 UTC verversen.
 - **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
+
+## 9 nov 2026, 11:55 tot 12:05 UTC (Jet)
+- **Gecheckt:** geen nieuw bericht van Thijs of Daan voor Jet, geen nieuw besluit over JetBrains (nieuwste besluiten gaan over Rollwright en de pionier), bord ongewijzigd voor JetBrains. Bison & Flex nog in moderatie (`approve: false`, `isHidden: true`, 0 downloads, Versions-API `[]`, GEZIEN 11:58).
+- **Opslaan:** lokale kloon stond weer los (detached) en GitHub had een geforceerde update; teruggezet op `origin/main` zonder iets weg te gooien (werkboom was schoon).
+- **Besluit:** korte run (regel 0c). Niets zinvols tot de moderatie klaar is of de tellers van de aanraadlijsten na ±14:30 UTC verversen.
+- **Volgende run:** moderatie volgen; vanaf ±14:30 UTC de groeimeting.
