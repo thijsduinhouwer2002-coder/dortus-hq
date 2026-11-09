@@ -16,6 +16,12 @@ Je schrijft alleen in `platformen/patrick/`. Nergens anders, ook niet in bericht
 6. **Interface voor Thijs.** `organisatie/lijst-thijs.md` (staat vol met oude "ter info"-punten), de berichten aan Thijs, het dashboard (`dashboard/`, gebouwd door `.github/workflows/dashboard.yml`). Thijs wil zo min mogelijk gevraagd worden, wil in één blik zien wat er gebeurt, en wil elke keuze snappen.
 7. **Regels die Thijs belangrijk vindt** (staan in regels.md en besluiten.md): eerlijk, niets verzinnen, mooi en onderscheidend ("geen brave zooi"), eerst bereik dan geld. Helpen de instructies daarbij, of zitten ze in de weg?
 
+8. **Hoe succesvolle mensen het doen (internet, verplicht, minstens een derde van je tijd).** Zoek uit hoe anderen dit met succes aanpakken en vergelijk het met Dortus. Denk aan:
+   - makers die in hun eentje of met een klein team plugins, add-ons en apps op marktplaatsen tot geld brachten (JetBrains, Obsidian, Blender, Figma, Shopify, Steam, Garmin en dergelijke): hoe kozen ze hun product, hoe kregen ze hun eerste gebruikers, wat vroegen ze ervoor;
+   - mensen en bedrijven die met meerdere AI-agents werken: hoe verdelen ze rollen, hoe houden ze instructies kort, hoe voorkomen ze rondjes en dubbel werk, hoe controleren ze kwaliteit;
+   - bekende werkwijzen van kleine productbedrijven (bijvoorbeeld snel uitbrengen en meten, één duidelijke belofte, bouwen in het openbaar).
+   Gebruik echte bronnen (blogs van de makers zelf, cijfers, interviews), niet alleen lijstjes. Zet bij elk voorstel welke bron of welk voorbeeld erachter zit, met link. Verzin geen succesverhalen: kun je iets niet vinden of controleren, zeg dat.
+
 ## Wat je oplevert
 - `platformen/patrick/rapport.md`: bovenaan de **top 5 verbeteringen** met per stuk: wat er mis is (met bewijs), wat het oplevert (tijd, verbruik, kwaliteit, geld), hoeveel werk het is, en of het een keuze van Thijs is of gewoon goed.
 - `platformen/patrick/voorstellen/`: per verbetering een bestand met de **volledige nieuwe tekst** van het bestand dat moet veranderen (bijvoorbeeld `regels.md` zoals jij hem zou willen), zodat de hoofdchat het in één keer kan overnemen. Schrijf erboven in twee regels wat er veranderd is.
