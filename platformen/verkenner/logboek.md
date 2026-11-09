@@ -771,3 +771,8 @@ Nieuwste blok onderaan.
 - Controleur akkoord met 8 correcties; belangrijkste: hot and new heeft tot ±plaats 3.500 bij de helft een rating (ik zei 1.800), de API stopt bij 10.000, en een rating staat voor ±19 betaalde verkopen. Cijfer daardoor van 2 naar 3.
 - Les: Gumroad heeft open sitemaps per maand en een open zoek-API met ratings; de broncode is openbaar (antiwork/gumroad), daar staan de regels voor Discover precies in. Producten met een eigen permalink geven een 301, dus curl -L.
 - Geen bericht aan een manager.
+- Tweede platform deze run: Safari-extensies in de App Store, nog nooit bekeken. Om 15:50 op "in onderzoek" gezet.
+- Eigen meting: open iTunes Search API, 42 zoektermen, VS en VK, iPhone en Mac. Uitkomst: cijfer 3, nee. Nieuwe extensies krijgen mediaan 1 rating (iPhone) en 0 (Mac); betaalde vrijwel niets. Bouwen is wel makkelijk geworden: sinds sep 2025 een zip uploaden in App Store Connect, Apple bouwt de app. Zie voorstellen/safari-extensies.md.
+- Controleur akkoord met 6 correcties; belangrijkste: mijn filter mist contentblockers zonder het woord "extension" (AdBlock Pro, AdGuard, wBlock), en twee "beste nieuwe" waren apps met een extensie erbij.
+- Les: de iTunes Search API is open en geeft ratings per land, prijs en releasedatum, handig voor elke App Store-niche; sla het resultaat na elke zoekterm op (een timeout gooide de eerste ronde weg). Let op de DSA: wie in de EU verkoopt in de App Store, krijgt adres en telefoon openbaar.
+- Run afgesloten (werktijd op).
