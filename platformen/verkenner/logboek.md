@@ -648,3 +648,13 @@ Nieuwste blok onderaan.
 - Les: de comments-API weigert limit boven 50 met een foutmelding in JSON; mijn eerste ophaling gaf daardoor 0 regels zonder fout. Altijd na een minuut controleren of er echt data binnenkomt.
 - Herhaalmeting begin feb 2027 in taken.md.
 - Na afsluiten nog tijd: Reason Studios Shop en Twitch Extensions opnieuw geprobeerd met de netwerktruc; beide blijven niet te meten (geen API met cijfers, robots.txt verbiedt het dashboard). Run afgesloten.
+
+## 9 nov run 04:31 (Amsterdam)
+- Begin: git pull hing, daarna lokale main opnieuw op origin/main (geforceerde update op GitHub). Berichten van Thijs: niets nieuws open. Geen herhaalmeting verlopen.
+- Keuze: productkans (de vorige twee runs waren platformen). JetBrains, Obsidian en Blender zijn al grondig uitgeplozen (Jet deed verlaten plugins en YouTrack), dus een andere winkel waar al data lag: Google Workspace. Om 04:40 op "in onderzoek" gezet en gepusht.
+- Eigen meting: alle 1.227 add-ons met 100K+ gebruikers opnieuw gelezen met reviews (data/gwm-kapot-script.py), geteld op "werkt niet meer" uit 2026 en op reviews over betalen; 24 thema's en 12 kandidaten met reviewteksten bekeken.
+- Uitkomst: duidelijkste gat is foto's in bulk naar Slides (nummer één 1M+ en 2,4 sterren, mensen betalen per klus, Google Photos API sinds mrt 2025 ingeperkt). Toch cijfer 3, nee voor nu: ±$4 per maand per betaler, seriemakers (Daily Picks, Single Task Tools) vullen gaten binnen weken, en de nummer één en Daily Picks hebben ons idee al. Zie kansen/google-workspace-fotos-naar-slides.md.
+- Nevenvondst: Sorted Paragraphs en Table of contents (elk 4M) zijn sinds juni 2026 kapot, maar gratis en er kwamen al 10 nieuwe vervangers. Steeds terugkerende klacht bij betaalde add-ons: de licentiecheck werkt niet.
+- Controleur: citaten en getallen kloppen, 25 werd 23, drie aanvullingen; cijfer van 4 naar 3.
+- Les: in Workspace zijn gaten waar mensen voor betalen er wel, maar seriemakers zitten er snel in; kijk bij een gat altijd eerst naar nieuwkomers van de laatste 2 maanden en naar de nieuwste functielijst van de nummer één, voor je een idee opschrijft.
+- Geen bericht aan een manager: Workspace heeft geen manager en het advies is nee.
