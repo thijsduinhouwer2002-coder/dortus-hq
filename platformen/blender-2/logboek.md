@@ -43,3 +43,6 @@
 
 ## 9 nov 06:30 UTC (Olaf, korte run)
 - Niets te doen voor Blender: geen nieuwe bron, splitsvraag dicht. Volgende stap blijft 22 nov (meting Hanru) en ±6 dec (Vera).
+
+## 9 nov 09:30 UTC (Olaf, korte beurt)
+- Geen nieuwe bron, splitsvraag dicht. Volgende stap blijft 22 nov (meting Hanru) en ±6 dec (Vera). Tijd naar Rollwright (notitiesfeer stap 2 voorbereid).
