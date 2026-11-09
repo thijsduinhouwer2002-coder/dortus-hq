@@ -1,7 +1,9 @@
 import { browser } from "@wdio/globals";
+import * as fs from "fs";
 
 // Ontwerptest van Daan, 9 nov: de foutmelding van 0.3.3 (rode stippellijn) in licht, donker en twee thema's, en bij hover.
 const SHOTS = "screenshots";
+fs.mkdirSync(SHOTS, { recursive: true });
 const shot = async (naam) => { const f = `${SHOTS}/fout-${naam}.png`; await browser.saveScreenshot(f); console.log("SCHERM:", f); };
 const thema = async (naam, licht) => {
 	await browser.executeObsidian(({ app }, naam, licht) => { app.customCss.setTheme(naam); app.changeTheme(licht ? "moonstone" : "obsidian"); }, naam, licht);
