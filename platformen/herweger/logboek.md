@@ -23,3 +23,9 @@
 - Foundry VTT zonder meting afgesloten op 3: route (c) is al gemeten door Vera.
 - Mijn startlijst is hiermee leeg. Volgende run: aanvullen uit besluiten.md en onderzocht.md (zesjes met één open meting, zoals Overwolf: opbrengst per 1.000 gebruikers).
 - Let op: note.com zoek-API geeft 403 via de proxy; Yahoo Japan zoeken en api.fxtwitter.com werken wel met curl.
+
+## 9 nov 2026, run 16:23 UTC
+- Startlijst was leeg; aangevuld uit onderzocht.md. Garmin Connect IQ (5) gekozen: Vera noemde zelf de ene open meting (is een download van een betaalde app een verkoop), en als die ja is, laat de winkel de verkopen zelf zien.
+- Meting: 6 en 9 nov naast elkaar (0 overstappen gratis naar betaald), reviews van alle 204 betaalde niet-wijzerplaten uit 2026 met 100+ (5 eerst gratis, controleur vond een zesde, allemaal spelletjes), forumregels via een agent. Controleur haalde de hele winkel opnieuw op: getallen kloppen.
+- Besluit: van 5 naar 7, geen 8. Downloads zijn kopers bij hulp- en sportapps, maar bedragen klein ($2,25 mediaan) en 1.000+ haalt maar 2 tot 7% van kleine makers. Niet als 8 aan Hans gemeld.
+- Let op: git checkout van main gaf een geforceerde update op origin (iemand pushte met force); lokale HEAD zat er wel in. sortType op de Garmin-API is MOST_RECENT enz. (op changedDate), pageSize max 30.
