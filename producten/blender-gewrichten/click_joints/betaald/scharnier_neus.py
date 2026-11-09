@@ -59,9 +59,9 @@ def zaag_diepte(bvh, frame, m):
             ys += [teken * 0.5 * rand, teken * 0.95 * rand]
         for y in ys:
             hit = bvh.ray_cast(frame @ Vector((x, y, 0.0)), omlaag)
-            # Buiten het midden telt een treffer alleen als het vlak naar de onderkant kijkt (hoogstens 60 graden
+            # Buiten het midden telt een treffer alleen als het vlak naar de onderkant kijkt (hoogstens 75 graden
             # van de lidas): een zijvlak van een rond lid (de arm) is geen onderkant, daar is de sleuf toch open.
-            if hit[0] is not None and (y == 0.0 or abs(hit[1].normalized().dot(omlaag)) >= 0.5):
+            if hit[0] is not None and (y == 0.0 or abs(hit[1].normalized().dot(omlaag)) >= 0.25):
                 diepte = hit[3] if diepte is None else min(diepte, hit[3])
     return diepte
 
