@@ -169,8 +169,8 @@ def hout_materiaal():
     nt = mat.node_tree
     tex = nt.nodes.new("ShaderNodeTexCoord")
     golf = nt.nodes.new("ShaderNodeTexWave")
-    golf.wave_type, golf.bands_direction = "RINGS", "Z"
-    golf.inputs["Scale"].default_value = 0.22   # nerf om de ±4,5 mm, op de pop van 117 mm goed te zien
+    golf.wave_type, golf.rings_direction = "RINGS", "Z"  # bij RINGS telt rings_direction
+    golf.inputs["Scale"].default_value = 0.07   # ring om de 2π/(20·0,07) ≈ 4,5 mm, op de pop van 117 mm goed te zien
     golf.inputs["Distortion"].default_value = 2.5
     golf.inputs["Detail"].default_value = 4.0
     ruis = nt.nodes.new("ShaderNodeTexNoise")
@@ -185,7 +185,7 @@ def hout_materiaal():
     som = nt.nodes.new("ShaderNodeMath")
     som.operation = "MULTIPLY_ADD"
     som.inputs[1].default_value = 0.8
-    ruis_klein = nt.nodes.new("ShaderNodeMath")  # ruis -0,5 .. 0,5 maal 0,3, zodat de som tussen 0 en 1 blijft
+    ruis_klein = nt.nodes.new("ShaderNodeMath")  # ruis maal 0,3 (0 tot 0,3), zodat de som rond het midden van de kleurband blijft
     ruis_klein.operation = "MULTIPLY_ADD"
     ruis_klein.inputs[1].default_value = 0.3
     ruis_klein.inputs[2].default_value = 0.0
@@ -234,7 +234,7 @@ def licht_en_wereld():
     zon("Vullicht", (0.9, -0.6, 0.2), "#FFF0E0", 0.3, 20)
     # Vloer: donker, licht glanzend, zodat de pop een zachte spiegeling en schaduw heeft
     bm = bmesh.new()
-    bmesh.ops.create_circle(bm, cap_ends=True, segments=96, radius=900)
+    bmesh.ops.create_circle(bm, cap_ends=True, segments=96, radius=6000)  # rand van de vloer op de horizon, niet als lijn achter de pop
     me = bpy.data.meshes.new("Vloer")
     bm.to_mesh(me)
     bm.free()
@@ -251,7 +251,7 @@ def licht_en_wereld():
 def camera():
     sc = bpy.context.scene
     cd = bpy.data.cameras.new("Film")
-    cd.lens, cd.clip_start, cd.clip_end = 70, 1.0, 5000
+    cd.lens, cd.clip_start, cd.clip_end = 70, 1.0, 10000
     cd.dof.use_dof, cd.dof.aperture_fstop = True, float(os.environ.get("MOOI_FSTOP", "8"))
     cam = bpy.data.objects.new("Film", cd)
     sc.collection.objects.link(cam)
