@@ -1,0 +1,21 @@
+HOL kroniek: Your hole is open. Heroes will come.
+HOL start hoogte=96 schaal=2 spelpixels=512x48 venster=(1024, 96) pos=(0, 624) held=res://systemen/held.gd
+HOL kroniek: Kees the hero climbs in.
+HOL gegraven kolom 4
+HOL kroniek: Kees the hero climbs in.
+HOL kroniek: Kees fell to the Spike Pit.
+HOL kroniek: +3 gold for your hoard.
+HOL kroniek: Rik the hero climbs in.
+HOL gegraven kolom 13
+HOL kroniek: Fenna the hero climbs in.
+HOL gegraven kolom 5
+HOL kroniek: Kees fled: now the Once-Fled.
+HOL kroniek: Fenna the hero climbs in.
+HOL kroniek: Rik fled: now the Once-Fled.
+HOL gegraven kolom 14
+HOL kroniek: Ties the hero climbs in.
+HOL kroniek: Fenna fled: now the Once-Fled.
+HOL gegraven kolom 6
+HOL kroniek: Fenna the Once-Fled is back!
+HOL kroniek: Grudge: the Spike Pit.
+HOL einde na 50 s, fps=15, goud=3, terugkomers=2
