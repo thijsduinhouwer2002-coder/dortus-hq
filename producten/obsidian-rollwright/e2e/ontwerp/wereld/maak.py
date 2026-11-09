@@ -57,7 +57,7 @@ css += f"""
   background: {PAPIER_FIJN}, {PAPIER_VLEK}, radial-gradient(ellipse 120% 90% at 50% 40%, #f0e0bd 0%, #e6d2a8 55%, #d8bd8a 100%);
   box-shadow: inset 0 0 120px rgba(120,72,24,.42), inset 0 0 18px rgba(90,50,15,.35);
 }}
-body .workspace-leaf {P} .view-header, {P} .view-header {{ background: #dcc595; border-bottom: 1px solid #b89a6c; }}
+{P} .view-header {{ background: #dcc595; border-bottom: 1px solid #b89a6c; }}
 {P} .view-header-title, {P} .view-header-breadcrumb {{ font-family: "RW Cinzel", serif; letter-spacing: .06em; color: #4a1f0e; }}
 {P} .view-header .clickable-icon {{ color: #6b4f35; }}
 {P} .markdown-rendered h1, {P} .HyperMD-header-1, {P} .inline-title {{ text-align: center; font-size: 2.3em; letter-spacing: .02em; }}
@@ -99,7 +99,7 @@ css += f"""
   background: radial-gradient(ellipse 70% 45% at 50% 112%, rgba(255,90,20,.30), transparent 70%), {STEEN}, linear-gradient(160deg,#2b2f2e,#1a1d1d 55%,#121414);
   box-shadow: inset 0 0 100px rgba(0,0,0,.55);
 }}
-body .workspace-leaf {A} .view-header, {A} .view-header {{ background: #0d0f0f; border-bottom: 1px solid #2a2e2d; }}
+{A} .view-header {{ background: #0d0f0f; border-bottom: 1px solid #2a2e2d; }}
 {A} .view-header-title, {A} .view-header-breadcrumb {{ font-family: "RW Uncial", serif; color: #ffb36a; }}
 {A} .view-header .clickable-icon {{ color: #8f9a93; }}
 {A} .markdown-rendered h1, {A} .HyperMD-header-1, {A} .inline-title {{ text-align: center; font-size: 2.5em;
@@ -230,5 +230,140 @@ body.rollwright-skin-arcane {H} .rollwright-history-item.rollwright-fumble {{ ba
   {STEEN}, linear-gradient(180deg,#26292a,#141616); }}
 """
 
+
+# ---------------- ronde f (run 50): token Parchment, tegels, beweging, levering in twee bestanden ----------------
+def tok(skin, extra=""):
+    """Het token in de notitie (niet de tegels) en het token op de tegel van deze skin in de instellingen."""
+    return f"body.rollwright-skin-{skin} {T}{extra}, .rollwright-skin-preview-tile.rollwright-skin-{skin} .rollwright-roll{extra}"
+R = ".rollwright-rolled"
+def stip(kleur, r): return f"radial-gradient(circle, {kleur} 0 {r}px, transparent {r + 1.2}px)"
+SINTELS = ", ".join([stip("#ffe08a", 3.2), stip("#ff9a3a", 2.4), stip("#ffd060", 3.6), stip("#ff7a20", 2.2),
+                     stip("#fff0b0", 2.6), stip("#ffb040", 3.0), stip("#ff8a2a", 2.0), stip("#ffe9a0", 2.8)])
+STOF = ", ".join([stip("rgba(170,180,175,.95)", 2.6), stip("rgba(140,150,145,.9)", 2.0), stip("rgba(190,195,190,.9)", 3.0),
+                  stip("rgba(120,128,124,.95)", 2.2), stip("rgba(160,168,164,.9)", 2.4), stip("rgba(200,205,200,.85)", 1.8)])
+INKT = ", ".join([stip("#8f1a12", 2.4), stip("#a8231a", 1.6), stip("#7f1610", 1.9), stip("#a8231a", 1.2), stip("#8f1a12", 1.4)])
+PB, AB = "body.rollwright-skin-parchment", "body.rollwright-skin-arcane"
+css += f"""
+/* ===== Token Parchment: een warme chip van papier met inkt (trailer v4), NAT 20 in bladgoud met lakzegel, NAT 1 in vermiljoen ===== */
+{tok("parchment")} {{ position: relative; isolation: isolate; font-family: "RW Cinzel", serif; font-weight: 600; color: #2e1d10;
+  padding: .06em .58em .1em .46em; border: 1px solid #b89a6c; border-radius: 3px;
+  background: {PAPIER_FIJN}, linear-gradient(180deg, #f6e9c9, #ecdcb4); box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 2px rgba(90,50,15,.22); }}
+{tok("parchment", " .rollwright-icon")} {{ color: #7a3b1f; }}
+{tok("parchment", " .rollwright-icon::before")} {{ background: #7a3b1f; }}
+{tok("parchment", " .rollwright-label")} {{ color: #6b4f35; }}
+{tok("parchment", ".rollwright-crit")} {{ color: #4a2a00; border-color: #8a5a08;
+  background: linear-gradient(135deg,#fff3b0 0%,#e8b730 30%,#fff0a0 48%,#c88f12 70%,#f5d55a 100%); }}
+{tok("parchment", ".rollwright-crit .rollwright-value")} {{ color: #4a2a00; }}
+{tok("parchment", ".rollwright-crit .rollwright-icon::before")} {{ background: #a8231a; }}
+{tok("parchment", ".rollwright-fumble")} {{ color: #a8231a; border-color: #a8231a; }}
+{tok("parchment", ".rollwright-fumble .rollwright-value")} {{ color: #a8231a; }}
+{tok("parchment", ".rollwright-fumble .rollwright-icon::before")} {{ background: #a8231a; }}
+{tok("parchment", " .rollwright-stamp")} {{ font-family: "RW Cinzel", serif; font-weight: 700; background: radial-gradient(circle at 38% 32%, #d0453a, #a8231a 55%, #6e140e);
+  color: #fbf5e6; border: 1px solid #c99a2e; border-radius: 50%; box-shadow: 0 1px 2px rgba(60,20,5,.45); }}
+/* De glans schuift over het goud, onder de letters door. */
+{PB} {T}.rollwright-crit > :not(.rollwright-stamp) {{ position: relative; z-index: 1; }}
+
+/* ===== Token Arcane op de tegel ook (in de notitie stond hij al) ===== */
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll {{ font-family: "RW Uncial", serif; color: #e7ece7; padding: .12em .7em .14em .55em; border-radius: 2px;
+  background: {STEEN}, linear-gradient(180deg,#5b625f,#3b403e); border: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 -2px 0 rgba(0,0,0,.55); }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit {{ color: #fff3c0; background: radial-gradient(ellipse at 50% 120%, rgba(255,200,60,.95), rgba(255,120,20,.55) 45%, transparent 75%), {STEEN}, linear-gradient(180deg,#5b625f,#2f3331); text-shadow: 0 0 6px #ffb020, 0 0 14px #ff7a00; }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll .rollwright-icon::before {{ background: #ff8a3a; }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-roll.rollwright-crit .rollwright-icon::before {{ background: #ffe07a; }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-stamp {{ font-family: "RW Uncial", serif; background: #1b1d1d; color: #ffb36a; border: 1px solid #ff8a3a; border-radius: 1px; }}
+
+/* ===== Tegels in de instellingen: elke tegel is een stukje van zijn wereld ===== */
+.rollwright-skin-preview-tile.rollwright-skin-parchment {{ background: {PAPIER_FIJN}, {PAPIER_VLEK}, radial-gradient(ellipse at 50% 40%, #f0e0bd, #ddc394); border: 1px solid #b89a6c;
+  box-shadow: inset 0 0 24px rgba(120,72,24,.35); color: #2e1d10; }}
+.rollwright-skin-preview-tile.rollwright-skin-parchment .rollwright-skin-preview-name {{ font-family: "RW Cinzel", serif; letter-spacing: .06em; color: #4a1f0e; }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane {{ background: radial-gradient(ellipse 80% 50% at 50% 115%, rgba(255,90,20,.35), transparent 70%), {STEEN}, linear-gradient(160deg,#2b2f2e,#121414);
+  border: 1px solid #3e4542; box-shadow: inset 0 0 24px rgba(0,0,0,.6); color: #d7dcd6; }}
+.rollwright-skin-preview-tile.rollwright-skin-arcane .rollwright-skin-preview-name {{ font-family: "RW Uncial", serif; color: #ffb36a; text-shadow: 0 0 8px rgba(255,110,20,.5); }}
+
+/* Parchment-log: ook de tijd in Cinzel (IM Fell schreef 08:40 als o8:4o). */
+{PB} {H} .rollwright-history-time {{ font-family: "RW Cinzel", serif; font-style: normal; font-size: .8em; letter-spacing: .03em; }}
+
+/* ===== Beweging Arcane (Kerker): beitelslag; NAT 20 hitte en sintels; NAT 1 zakt weg, barst en stof ===== */
+@keyframes rwa-slag {{ 0% {{ transform: translateY(-5px) scale(1.06); filter: brightness(1.8); }} 28% {{ transform: translateY(2px) scale(.97); filter: brightness(1.15); }}
+  50% {{ transform: translateY(-1px) rotate(-.6deg); }} 70% {{ transform: translateY(.5px) rotate(.3deg); }} 100% {{ transform: none; filter: none; }} }}
+@keyframes rwa-hitte {{ 0% {{ box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 0 0 rgba(255,120,20,0); }}
+  30% {{ box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 0 34px 10px rgba(255,140,30,.85), 0 0 80px 20px rgba(255,80,10,.45); }}
+  100% {{ box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 0 16px 3px rgba(255,120,20,.55), 0 0 40px 8px rgba(255,70,10,.25); }} }}
+@keyframes rwa-sintels {{
+  0% {{ opacity: 0; background-position: 8% 96%, 22% 104%, 38% 90%, 50% 100%, 63% 94%, 76% 106%, 88% 92%, 96% 100%; }}
+  12% {{ opacity: 1; }}
+  60% {{ opacity: .9; }} 100% {{ opacity: 0; background-position: -2% 4%, 31% 22%, 30% -8%, 60% 14%, 55% -10%, 87% 6%, 79% 26%, 106% -2%; }} }}
+@keyframes rwa-zak {{ 0% {{ transform: none; }} 15% {{ transform: translateY(3px) rotate(-1.4deg); filter: brightness(1.6); }}
+  32% {{ transform: translate(-1.5px, 3px) rotate(1deg); }} 48% {{ transform: translate(1px, 3.5px) rotate(-.6deg); }} 100% {{ transform: translateY(2px); filter: none; }} }}
+@keyframes rwa-barst {{ 0% {{ background-size: 0% 100%, 0% 100%, 100% 100%, 100% 100%; }} 40% {{ background-size: 100% 100%, 0% 100%, 100% 100%, 100% 100%; }}
+  100% {{ background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%; }} }}
+@keyframes rwa-stof {{ 0% {{ opacity: 0; background-position: 20% 6%, 35% 0%, 50% 10%, 62% 2%, 75% 8%, 88% 0%; }} 10% {{ opacity: 1; }}
+  100% {{ opacity: 0; background-position: 4% 92%, 27% 70%, 47% 108%, 71% 80%, 88% 100%, 104% 86%; }} }}
+{AB} {T} {{ position: relative; isolation: isolate; }}
+{AB} {T}{R} {{ animation: rwa-slag .46s cubic-bezier(.2,.9,.3,1) both; }}
+{AB} {T}{R}.rollwright-crit {{ animation: rwa-slag .46s cubic-bezier(.2,.9,.3,1) both, rwa-hitte 1.4s .4s ease-out both; }}
+{AB} {T}{R}.rollwright-crit::before {{ content: ""; position: absolute; inset: auto; left: -18%; right: -18%; top: -2.6em; bottom: 30%; width: auto; height: auto;
+  border: 0; border-radius: 0; pointer-events: none; z-index: 2; opacity: 0; -webkit-mask: none; mask: none;
+  background-image: {SINTELS}; background-size: 12px 12px; background-repeat: no-repeat; mix-blend-mode: screen;
+  animation: rwa-sintels 1.7s .45s cubic-bezier(.15,.6,.4,1) both; }}
+{AB} {T}{R}.rollwright-fumble {{ background-repeat: no-repeat; animation: rwa-zak .6s .35s cubic-bezier(.3,.7,.4,1) both, rwa-barst .7s .4s ease-out both; }}
+{AB} {T}{R}.rollwright-fumble::before {{ content: ""; position: absolute; inset: auto; left: -10%; right: -10%; top: 60%; bottom: -1.8em; width: auto; height: auto; border: 0;
+  pointer-events: none; z-index: 2; opacity: 0; -webkit-mask: none; mask: none; background-image: {STOF}; background-size: 10px 10px; background-repeat: no-repeat;
+  animation: rwa-stof 1.1s .45s ease-in both; }}
+
+/* ===== Beweging Parchment (Hofcodex): zegeldruk, de pen schrijft het getal; NAT 20 randen en bladgoudglans; NAT 1 een inktvlek ===== */
+@keyframes rwp-pen {{ 0% {{ clip-path: inset(-20% 100% -20% 0); }} 100% {{ clip-path: inset(-20% -10% -20% 0); }} }}
+@keyframes rwp-druk {{ 0% {{ transform: translateY(-3px) scale(1.05); }} 45% {{ transform: translateY(1px) scale(.985); }} 100% {{ transform: none; }} }}
+@keyframes rwp-randen {{ 0% {{ box-shadow: 0 0 0 0 #f6ead0, 0 0 0 0 #7a3b1f, 0 0 0 0 #f6ead0, 0 0 0 0 #a8231a; }}
+  45% {{ box-shadow: 0 0 0 2px #f6ead0, 0 0 0 3px #7a3b1f, 0 0 0 3px #f6ead0, 0 0 0 3px #a8231a; }}
+  100% {{ box-shadow: 0 0 0 2px #f6ead0, 0 0 0 3px #7a3b1f, 0 0 0 5px #f6ead0, 0 0 0 6px #a8231a; }} }}
+@keyframes rwp-glans {{ 0% {{ background-position: 115% 0; opacity: 1; }} 85% {{ opacity: 1; }} 100% {{ background-position: -15% 0; opacity: 0; }} }}
+@keyframes rwp-vlek {{ 0% {{ transform: scale(.15) rotate(-20deg); opacity: 0; }} 25% {{ opacity: .95; }} 60% {{ transform: scale(1.08) rotate(4deg); }} 100% {{ transform: scale(1) rotate(0); opacity: .9; }} }}
+{PB} {T}{R} {{ animation: rwp-druk .4s cubic-bezier(.2,.9,.3,1) both; }}
+{PB} {T}{R} .rollwright-value {{ animation: rwp-pen .55s .12s cubic-bezier(.5,.1,.3,1) both; }}
+{PB} {T}{R}.rollwright-crit {{ box-shadow: 0 0 0 2px #f6ead0, 0 0 0 3px #7a3b1f, 0 0 0 5px #f6ead0, 0 0 0 6px #a8231a; animation: rwp-druk .4s cubic-bezier(.2,.9,.3,1) both, rwp-randen .9s .45s ease-out both; }}
+{PB} {T}{R}.rollwright-crit::before {{ content: ""; position: absolute; inset: 0; width: auto; height: auto; border: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+  mix-blend-mode: normal; opacity: 0; -webkit-mask: none; mask: none;
+  background-image: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.15) 44%, rgba(255,255,255,.92) 49%, rgba(255,248,215,.92) 51%, rgba(255,255,255,.15) 56%, transparent 60%);
+  background-size: 300% 100%; background-repeat: no-repeat; animation: rwp-glans 1.6s .6s cubic-bezier(.4,.1,.6,.9) both; }}
+{PB} {T}{R}.rollwright-fumble::before {{ content: ""; position: absolute; inset: auto; left: -14px; right: -18px; top: -10px; bottom: -12px; width: auto; height: auto; border: 0;
+  pointer-events: none; z-index: -1; -webkit-mask: none; mask: none; border-radius: 46% 58% 42% 62% / 58% 40% 64% 44%;
+  background-image: {INKT}, radial-gradient(ellipse at 50% 50%, rgba(143,26,18,.55), rgba(143,26,18,.25) 60%, transparent 72%);
+  background-size: 9px 9px, 9px 9px, 9px 9px, 9px 9px, 9px 9px, 100% 100%; background-repeat: no-repeat;
+  background-position: 0% 10%, 96% 0%, 100% 90%, 6% 100%, 60% 100%, 0 0; animation: rwp-vlek .7s .4s cubic-bezier(.2,.8,.3,1.1) both; }}
+@media (prefers-reduced-motion: reduce) {{ {PB} {T}{R}, {PB} {T}{R}::before, {PB} {T}{R} .rollwright-value {{ animation: none; }} }}
+@media (prefers-reduced-motion: reduce) {{ {AB} {T}{R}, {AB} {T}{R}::before {{ animation: none; }} }}
+"""
+
+# ---------------- levering: wereld.css (proef, beide) en per skin een bestand voor Olaf ----------------
+def regels(tekst):
+    """Splitst CSS in regels op het hoogste niveau (commentaar telt mee met de regel erna)."""
+    uit, diep, start = [], 0, 0
+    for i, c in enumerate(tekst):
+        if c == "{": diep += 1
+        elif c == "}":
+            diep -= 1
+            if diep == 0: uit.append(tekst[start:i + 1].strip()); start = i + 1
+    return uit
+def hoort(r):
+    import re
+    r = re.sub(r"/\*.*?\*/", "", r, flags=re.S).strip()
+    if r.startswith("@font-face"):
+        return "p" if any(n in r for n in ('"RW Cinzel"', '"RW Cinzel Deco"', '"RW Fell"')) else "a"
+    if r.startswith("@keyframes rwp-"): return "p"
+    if r.startswith("@keyframes rwa-"): return "a"
+    p, a = "skin-parchment" in r, "skin-arcane" in r
+    if p and not a: return "p"
+    if a and not p: return "a"
+    raise SystemExit("regel hoort bij geen of beide skins: " + r[:120])
+def zonder_important(r):
+    # !important alleen nog in de titelbalk (daar wint anders een regel van het thema). Tokens en Roll log zonder.
+    return r if ".view-header" in r else r.replace(" !important", "")
+alle = [zonder_important(r) for r in regels(css.split("*/", 1)[1])]
+kop = "/* Rollwright {naam}: de skin kleurt de hele notitie, het token, de tegel en de Roll log (Daan, 9 nov 2026).\n   Gemaakt met ontwerp/rollwright/wereld/maak.py; letters onder de SIL Open Font License 1.1. Letterlijk overnemen. */\n"
+delen = {"p": [], "a": []}
+for r in alle: delen[hoort(r)].append(r)
+for k, naam in (("p", "parchment"), ("a", "arcane")):
+    (HIER / f"{naam}.css").write_text(kop.format(naam=naam.capitalize()) + "\n".join(delen[k]) + "\n")
+css = kop.format(naam="Parchment en Arcane") + "\n".join(alle) + "\n"
 (HIER / "wereld.css").write_text(css)
 print(len(css), "tekens")

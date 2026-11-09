@@ -34,7 +34,13 @@ describe("Rollwright: de skin kleurt de hele notitie", function () {
 		meta.css = await browser.executeObsidian(async ({ app }, css) => {
 			app.vault.setConfig("spellcheck", false); app.customCss.setTheme("");
 			const st = document.createElement("style"); st.id = "rw-wereld"; st.textContent = css; document.head.appendChild(st);
-			return css.length;
+			// Stap 2 nabootsen: alle oude Parchment- en Arcane-regels van de plugin eruit, zoals Olaf ze vervangt.
+			let weg = 0;
+			const ruim = (lijst) => { for (let i = lijst.cssRules.length - 1; i >= 0; i--) { const r = lijst.cssRules[i];
+				if (r.cssRules && !r.selectorText) { ruim(r); continue; }
+				if (r.selectorText && /rollwright-skin-(parchment|arcane)/.test(r.selectorText)) { lijst.deleteRule(i); weg++; } } };
+			for (const sh of Array.from(document.styleSheets)) { if (sh.ownerNode?.id === "rw-wereld") continue; try { ruim(sh); } catch (e) {} }
+			return { tekens: css.length, oudeRegelsWeg: weg };
 		}, css);
 		meta.venster = await browser.execute(() => { try { window.require("@electron/remote").getCurrentWindow().setSize(1400, 788); return "remote"; } catch (e) { try { window.resizeTo(1400, 788); return "resizeTo"; } catch (e2) { return String(e2); } } });
 		await browser.pause(800);
@@ -61,6 +67,32 @@ describe("Rollwright: de skin kleurt de hele notitie", function () {
 				for (const [i, k] of [[0, 0.62], [2, 0.8], [3, 0], [4, 0.55], [1, 0.99999]]) { await zetVast(k); await klik(i); await browser.pause(1300); await losKans(); }
 				await muisWeg(); await browser.pause(400);
 				await save(`wereld-${skin}-${thema}-${modus}`);
+			});
+		});
+	}
+
+	for (const skin of ["parchment", "arcane"]) {
+		it(`beweging ${skin}`, async function () {
+			await stap("beweging" + skin, async () => {
+				await wereld(skin, "obsidian", "lezen"); await browser.pause(600);
+				for (const [naam, i, k] of [["nat20", 1, 0.99999], ["nat1", 3, 0]]) {
+					await zetVast(k); await klik(i); await losKans();
+					let t0 = Date.now();
+					for (const ms of [150, 450, 800, 1300, 2300]) { const w = ms - (Date.now() - t0); if (w > 0) await browser.pause(w); await save(`beweging-${skin}-${naam}-${ms}`); }
+				}
+			});
+		});
+	}
+
+	for (const [skin, thema] of [["parchment", "obsidian"], ["arcane", "moonstone"]]) {
+		it(`tegels ${skin} ${thema}`, async function () {
+			await stap("tegels" + skin, async () => {
+				await wereld(skin, thema, "lezen");
+				await browser.executeObsidian(async ({ app }) => { app.setting.open(); app.setting.openTabById("rollwright"); });
+				await browser.pause(1200);
+				await browser.execute(() => document.querySelector(".rollwright-skin-preview")?.scrollIntoView({ block: "center" }));
+				await browser.pause(500); await save(`tegels-${skin}-${thema}`);
+				await browser.executeObsidian(({ app }) => app.setting.close()); await browser.pause(500);
 			});
 		});
 	}
