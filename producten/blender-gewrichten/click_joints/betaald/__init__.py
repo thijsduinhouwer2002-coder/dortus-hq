@@ -8,7 +8,7 @@ import addon_utils
 import bpy
 
 from .. import uit_elkaar
-from . import scharnier, scharnier_boog
+from . import scharnier, scharnier_beweeg, scharnier_boog
 
 ACTIEF = True
 KLASSEN = scharnier.KLASSEN
@@ -85,11 +85,26 @@ def _afstand(ob):
     return _oude_afstand[0](ob)
 
 
+_oude_zet = [None]
+
+
+def _zet(ob, aan):
+    """Weergave van deel B: bij een scharnier de eigen pose om H (scharnier_beweeg.zet_scharnier), anders de
+    functie van het gratis deel. Zonder dit zou Exploded view aan of uit de kogelpose op een scharnier zetten."""
+    if ob.get("cj_soort") == "SCHARNIER" and ob.get("cj_deel") == "B" and "cj_scharnier_punt" in ob:
+        scharnier_beweeg.zet_scharnier(ob, aan)
+        return
+    _oude_zet[0](ob, aan)
+
+
 def register(eigen=None):
     # uit_elkaar.zet (en via zet_alle ook bij_wissel) zoekt afstand op in de module, dus neemt dit omhulsel mee.
     if _oude_afstand[0] is None:
         _oude_afstand[0] = uit_elkaar.afstand
         uit_elkaar.afstand = _afstand
+    if _oude_zet[0] is None:  # uit_elkaar.zet_alle zoekt zet op in de module
+        _oude_zet[0] = uit_elkaar.zet
+        uit_elkaar.zet = _zet
     for k in KLASSEN:
         bpy.utils.register_class(k)
     # Keuze voor de knoppen in het paneel (niet in de .blend, zoals een knop in een werkbalk).
@@ -117,6 +132,9 @@ def unregister():
     if _oude_afstand[0] is not None:
         uit_elkaar.afstand = _oude_afstand[0]
         _oude_afstand[0] = None
+    if _oude_zet[0] is not None:
+        uit_elkaar.zet = _oude_zet[0]
+        _oude_zet[0] = None
     if _oude_enable[0] is not None:
         if getattr(addon_utils.enable, "_actief", False):  # iemand anders omhulde daarna: niet overschrijven
             addon_utils.enable = _oude_enable[0]

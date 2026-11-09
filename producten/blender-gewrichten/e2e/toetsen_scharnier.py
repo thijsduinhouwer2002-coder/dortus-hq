@@ -18,6 +18,7 @@ import toetsen_kijk
 import toetsen_neus
 import toetsen_neus_kort
 import toetsen_print
+import toetsen_scharnier_pose
 import toetsen_scharnier_uit
 from hulp_scharnier import bvh as _bvh
 from hulp_scharnier import cursor as _cursor
@@ -121,6 +122,7 @@ def toets(stap, eigen):
     toetsen_neus_kort.toets(stap, eigen, _cursor)  # sleuf bij korte staaf en schuine onderkant
     toetsen_print.toets(stap, eigen, _cursor)  # eis 5: oplegvlak en overhang bij neus, kuiltje en sleuf
     toetsen_scharnier_uit.toets(stap, eigen, _cursor)  # eis 6: Exploded view, export op de echte plek, te dichtbij
+    toetsen_scharnier_pose.toets(stap, eigen, _cursor)  # eis 8: pose alleen weergave, export gelijk
 
 
 def toets_beweeg(stap, eigen):

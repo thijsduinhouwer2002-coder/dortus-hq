@@ -52,10 +52,9 @@ def vorm(a, b, pose):
     c = Vector(a["cj_scharnier_punt"])
     lid = Vector(a["cj_as"]).normalized()
     voor_as = lid.cross(Vector(a["cj_buigkant"])).normalized()
-    basis = b.get("cj_pose_basis")
-    # Middelpunt van B in rechte stand: de bounding box in lokale coördinaten via de basismatrix.
-    from mathutils import Matrix
-    mb = Matrix([basis[i * 4:i * 4 + 4] for i in range(4)]) if basis else b.matrix_world
+    # Middelpunt van B in rechte stand: de bounding box via de matrix zonder pose en Exploded view.
+    from ..uit_elkaar import echte_matrix
+    mb = echte_matrix(b)
     hoeken = [mb @ Vector(h) for h in b.bound_box]
     midden_b = sum(hoeken, Vector()) / 8.0
     d = lid if (midden_b - c).dot(lid) >= 0 else -lid

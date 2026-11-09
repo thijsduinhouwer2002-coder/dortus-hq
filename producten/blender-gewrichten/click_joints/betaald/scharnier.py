@@ -22,7 +22,7 @@ from ..eigenschappen import eenheid_per_mm
 from ..gesloten import gespiegeld, is_gesloten
 from ..gewricht import kijk_regio, ruim_op, solver_naam, verhuis
 from ..uit_elkaar import echte_matrix
-from ..uit_elkaar import zet as zet_weergave
+from .. import uit_elkaar
 from . import scharnier_beweeg as beweeg
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
@@ -176,7 +176,7 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
         for deel in (deel_a, deel_b):
             for k, v in gegevens.items():
                 deel[k] = v
-            zet_weergave(deel, inst.uit_elkaar)  # eis 6: Exploded view schuift deel B langs L
+            uit_elkaar.zet(deel, inst.uit_elkaar)  # eis 6 (via de module: het omhulsel van betaald/__init__ telt mee): Exploded view schuift deel B langs L
         bron.hide_set(True)
         for o in context.view_layer.objects:
             if o is not None:

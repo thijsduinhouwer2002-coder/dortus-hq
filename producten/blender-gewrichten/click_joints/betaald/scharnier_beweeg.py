@@ -10,9 +10,36 @@ Draairichting: het frame is X = H, Y = buigkant, Z = lidas (rechtshandig). Naar 
 naar de buigkant, dat is een draai om lid x buig = -H."""
 import math
 
+import bpy
 import numpy as np
-from mathutils import Matrix, Vector
+from mathutils import Matrix, Quaternion, Vector
 from mathutils.bvhtree import BVHTree
+
+from .. import uit_elkaar
+from ..uit_elkaar import echte_matrix
+
+
+def pose_q(b):
+    """Draaiing van de scharnierpose: om H (lidas x buigkant) over cj_pose_graden."""
+    g = float(b.get("cj_pose_graden", 0.0))
+    if g == 0.0:
+        return Quaternion()
+    voor_as = Vector(b["cj_as"]).cross(Vector(b["cj_buigkant"])).normalized()
+    return Quaternion(voor_as, math.radians(g))
+
+
+def zet_scharnier(ob, aan):
+    """Weergave van deel B van een scharnier: Exploded view langs de lidas plus pose om het draaipunt.
+    Echte matrix M = T(p) R S; in beeld T(e) T(c) Q T(-c) M = T(e + c + Q(p - c)) Q R S (zoals uit_elkaar.zet,
+    Blender zet de delta-draaiing links van de eigen draaiing)."""
+    e = Vector(ob["cj_as"]).normalized() * uit_elkaar.afstand(ob) if aan else Vector()
+    q = pose_q(ob)
+    if ob.parent is None and q != Quaternion():
+        p, c = Vector(ob.location), Vector(ob["cj_scharnier_punt"])
+        ob.delta_location = e + c + q @ (p - c) - p
+    else:
+        ob.delta_location = e
+    uit_elkaar._zet_draai(ob, q)
 
 NAUWKEURIG = 0.05   # graden
 MAX_VOOR = 150.0
@@ -100,15 +127,17 @@ def pose(a, b, graden, kleur_rood=None):
     """Eis 8 (plaatjes 11 en 12): deel B in de weergave `graden` naar voren om H draaien, zoals de beweegproef.
     Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A die B raken het rode materiaal
     (kleur_rood); de vorige rode vlakken eerst terug. Geeft het aantal rode vlakken."""
-    if "cj_pose_basis" not in b:
-        b["cj_pose_basis"] = [v for rij in b.matrix_world for v in rij]
-    basis = Matrix([b["cj_pose_basis"][i * 4:i * 4 + 4] for i in range(4)])
-    punt = Vector(b["cj_scharnier_punt"])
-    voor_as = Vector(b["cj_as"]).cross(Vector(b["cj_buigkant"])).normalized()
-    draai = (Matrix.Translation(punt) @ Matrix.Rotation(math.radians(graden), 4, voor_as)
-             @ Matrix.Translation(-punt))
-    b.matrix_world = draai @ basis
+    # Alleen de weergave: de draaiing staat in delta_rotation en delta_location van deel B (zet_scharnier),
+    # net als de pose van de kogel. location, rotation en matrix_world-zonder-delta's blijven van de gebruiker,
+    # dus de export (echte_plek) en echte_matrix zien deel B recht.
     b["cj_pose_graden"] = float(graden)
+    try:
+        aan = bool(bpy.context.scene.click_joints.uit_elkaar)
+    except AttributeError:
+        aan = False
+    zet_scharnier(b, aan)
+    punt = Vector(b["cj_scharnier_punt"])
+    draai = (Matrix.Translation(punt) @ pose_q(b).to_matrix().to_4x4() @ Matrix.Translation(-punt))
     me = a.data
     oud = list(a.get("cj_rood_vlakken", []))
     for i in range(0, len(oud), 2):
@@ -121,7 +150,7 @@ def pose(a, b, graden, kleur_rood=None):
     me.calc_loop_triangles()
     mw = a.matrix_world
     bvh_a = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
-    mb = b.matrix_world
+    mb = draai @ echte_matrix(b)  # waar B echt zou staan bij deze stand, zonder Exploded view
     bvh_b = BVHTree.FromPolygons([mb @ v.co for v in b.data.vertices],
                                  [tuple(p.vertices) for p in b.data.polygons])
     vlakken = sorted({me.loop_triangles[i].polygon_index for i, _ in bvh_a.overlap(bvh_b)})
