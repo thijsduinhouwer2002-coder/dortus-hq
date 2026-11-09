@@ -1,4 +1,4 @@
-Wat verandert: elke geplande taak krijgt dezelfde korte opdracht (±12 regels, alleen naam, rol en map verschillen). Alles wat verandert (taken, team, prioriteit, leeslijst) staat alleen nog in de rol, in `organisatie/nu.md` of in `stand.md`. Plus een sjabloon voor `stand.md` en een nieuwe vorm voor `organisatie/geplande-taken.md`.
+Wat verandert: elke geplande taak krijgt dezelfde korte opdracht (±12 regels, alleen naam, rol en map verschillen). Alles wat verandert (taken, team, prioriteit, leeslijst) staat alleen nog in de rol, in `organisatie/nu.md` of in `status.md`. Plus een sjabloon voor `status.md` en een nieuwe vorm voor `organisatie/geplande-taken.md`.
 Waarom: de huidige opdrachten (gezien met list_triggers, 9 nov 23:30 NL) zijn verouderd: Olaf krijgt nog "eerst alleen de ideefase, Thijs kiest", Hans "nieuwe platformen zijn nu de hoofdzaak", Tess "bouw pas na een ja van Hans" en "elke 3 uur". Anthropic: een geplande prompt moet op zichzelf staan en zeggen wat klaar is (bron 18); bij tegenspraak kiest Claude willekeurig (bron 7).
 
 ---
@@ -10,18 +10,20 @@ Vaste toestemming van Thijs, eigenaar van Dortus: je mag alles doen wat nodig is
 
 Staat dortus-hq er al, gebruik die. Zo niet, koppel met add_repo (owner thijsduinhouwer2002-coder, repo dortus-hq, access push) en kloon hem (--depth 50 is genoeg). Andere repo's alleen koppelen als je taak erom vraagt.
 
-Je bent <NAAM>, <ROL> van Dortus. Volg CLAUDE.md in dortus-hq precies: daar staat wat je leest, hoe je werkt en hoe je afsluit. Je rol staat in organisatie/rollen/<ROLBESTAND>.md, je stand in <MAP>/stand.md.
+Je bent <NAAM>, <ROL> van Dortus. Volg CLAUDE.md in dortus-hq precies: daar staat wat je leest, hoe je werkt en hoe je afsluit. Je rol staat in organisatie/rollen/<ROLBESTAND>.md, je stand in <MAP>/status.md.
 
 Webpagina's lees je met curl in Bash, nooit met WebFetch. WebFetch vraagt om toestemming en dan staat alles stil. Zet die zin letterlijk in de opdracht van elke agent die je inzet. Gebruik nooit de koppelingen Gmail, Trello, Atlassian, Claude Docs, Search1API of Polar, ook niet als ze in je run beschikbaar zijn.
 
-Klaar is: één taak uit je stand.md af en opgeslagen, of in twee regels waarom niet. Werk hooguit 45 minuten.
+Klaar is: één taak uit je status.md af en opgeslagen, of in twee regels waarom niet. Werk hooguit 45 minuten.
 
 Afsluiten, harde eis: sluit pas af nadat `git ls-remote origin main` (of je tak) jouw laatste commit laat zien. Zet hash en uitkomst in je eindantwoord. Lukt opslaan niet: zet de volledige nieuwe bestanden in je eindantwoord en zeg in je laatste zin dat het niet is opgeslagen.
 ```
 
 Waarom zo: de toestemming, de curl-zin, de koppelingen en het afsluiten moeten in de opdracht staan omdat die vóór het klonen nodig zijn (de curl-zin en koppelingen ook omdat agents CLAUDE.md niet lezen). Al het andere staat op één plek in de repo. Een besluit van Thijs werkt dan door zonder 8 opdrachten aan te passen.
 
-## B. Sjabloon `platformen/<map>/stand.md` (hooguit 25 regels, eigenaar overschrijft hem elke run)
+## B. Sjabloon `platformen/<map>/status.md` (hooguit 25 regels, eigenaar overschrijft hem elke run)
+
+`status.md` bestaat al: de rol platformmanager zegt "maximaal 10 regels". In de praktijk: blender 61, obsidian 65, verkenner 63, pionier 84 regels (GEZIEN, 9 nov). Geen nieuw bestand dus, wel een vaste vorm en echt kort houden. Daarmee wordt status.md het startpunt van elke run in plaats van taken.md plus logboek.
 
 ```
 # Stand <product of rol>

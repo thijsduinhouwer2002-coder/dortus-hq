@@ -12,13 +12,13 @@ Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt producten op app-platfo
 2. `berichten/<jouw naam>.md`: alleen het blok **Nieuw**. Berichten van Thijs gaan voor alles.
 3. `organisatie/rollen/<jouw rol>.md`: wat jij doet.
 4. `organisatie/nu.md`: de geldende besluiten en wie wat doet (hooguit 40 regels).
-5. `platformen/<jouw map>/stand.md`: waar je was en wat de volgende taak is.
+5. `platformen/<jouw map>/status.md`: waar je was en wat de volgende taak is.
 Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze, code, uitbrengen), `organisatie/archief/` (oude besluiten), `organisatie/doelen.md` (cijfers).
 
 ## Elke run: één taak af
-- Pak de bovenste taak uit je `stand.md`. Maak die af, laat hem nakijken als dat moet, sla op.
-- Lukt het niet, of is er niets zinvols: schrijf dat in twee regels in `stand.md` en stop. Een korte run is goed.
-- Eind van de run: werk `stand.md` bij (hooguit 25 regels: doel, laatste uitkomst, volgende taak, waar je op wacht). Logboek alleen aanvullen met wat er besloten of opgeleverd is, niet met wat je las.
+- Pak de bovenste taak uit je `status.md`. Maak die af, laat hem nakijken als dat moet, sla op.
+- Lukt het niet, of is er niets zinvols: schrijf dat in twee regels in `status.md` en stop. Een korte run is goed.
+- Eind van de run: werk `status.md` bij (hooguit 25 regels: doel, laatste uitkomst, volgende taak, waar je op wacht). Logboek alleen aanvullen met wat er besloten of opgeleverd is, niet met wat je las.
 
 ## Harde regels (gelden altijd)
 - **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.
