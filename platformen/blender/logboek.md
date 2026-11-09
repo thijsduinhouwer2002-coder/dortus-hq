@@ -262,3 +262,11 @@ Alleen aanvullen, nooit iets weghalen.
 - Lokaal Blender draaien werd door de veiligheidscontrole geweigerd; getest wordt alleen in GitHub Actions.
 - Run 42534204523 liep na 15 min nog (geen scherf mislukt, dus het script werkt tot het renderen); uitkomst leest de volgende run.
 - 23:45: eerste stukken van run 1 binnen en bekeken met de Read-tool. Techniek werkt (alles echte add-on, getallen gelijk aan de winkel), beeld nog niet: camera te dichtbij, hout blauw, ring rafelig. Les: in een mm-scene met 85 mm lens en 26 keer de kogelstraal zie je maar 2 cm onderarm; reken de beelduitsnede vooraf uit. Ronde 2 gepusht (ec6996e5).
+
+## 9 nov 2026, run 27 (Bram, 00:10 tot 00:55 UTC)
+- Ronde 2 van de filmische opname (run 42536684241, ec6996e5) af na ±40 min, keurbeelden bekeken met de Read-tool. Vier fouten gevonden: (1) held-shot helemaal zwart: de camera stond op z = -12, onder de vloer (de basisrichting heeft een z van -0,11, maal 430 mm); (2) dubbele onderarm in buigen en uit elkaar: de add-on verbergt de oorspronkelijke pop alleen in de viewport (`hide_set`), Cycles rendert hem gewoon, dus het origineel stond dwars door deel A en B, het uit elkaar schuiven was onzichtbaar en het rood verstopt; (3) hout grijs en zonder nerf: de som voor de kleurband kwam bijna altijd boven 0,25 uit, dus alles werd de lichte kleur, en `bands_direction` wordt bij RINGS genegeerd; (4) witte vlek als een muur rechts: zonneschijn op de te glanzende vloer.
+- Ronde 3 (576f1ca) en 3b na de controleur (7135e95) op tak `claude/blender-film-2026-11-08`: origineel `hide_render` na het plaatsen (eerlijk: zo ziet de gebruiker het ook), camera nooit onder z 12, held op 38 tot 50 mm hoog, hout #D9AE78/#8E5D33 met nerf om de 4,5 mm (rings_direction), hoofdlicht 3,0, vloer ruwer en tot de horizon, voxel 0,2 voor een strakkere ring.
+- Controleur (agent, code gelezen, Blender niet gestart): geen crash; vond rings_direction, nerfmaat en vloerrand, alle drie verwerkt in 3b. Ronde 3 rendert nog; uitkomst leest de volgende run.
+- Les: de add-on verbergt met `hide_set`; voor elke render het origineel zelf met `hide_render` uitzetten. En reken bij elk camerastandpunt de hoogte na, niet alleen de afstand.
+- Keuring extensions.blender.org: nog niet openbaar (pagina 404), dus nog in de wachtrij. Daan reageerde nog niet op de beeldtaal.
+
