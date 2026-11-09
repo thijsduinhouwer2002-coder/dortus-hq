@@ -20,7 +20,10 @@ async function klikEnMeet(i, waarde) {
 	return browser.executeAsync((sel, i, waarde, klaar) => {
 		const echt = Math.random;
 		Math.random = () => waarde;
-		const el = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
+		// Alleen worpen die je ziet. Run 42539754760: worp 0 van het blad zat in de verborgen bronweergave
+		// (.markdown-source-view, display none, want de notitie staat in lezen); daar loopt geen animatie.
+		const zichtbaar = () => Array.from(document.querySelectorAll(`${sel} .rollwright-roll`)).filter((e) => e.checkVisibility());
+		const el = zichtbaar()[i];
 		if (!el) {
 			Math.random = echt;
 			klaar({ fout: "geen worp" });
@@ -31,7 +34,7 @@ async function klikEnMeet(i, waarde) {
 		el.click();
 		const kijk = () => {
 			const t = performance.now() - start;
-			const roll = document.querySelectorAll(`${sel} .rollwright-roll`)[i];
+			const roll = zichtbaar()[i];
 			const stempel = roll?.querySelector(":scope > .rollwright-stamp");
 			const waardeEl = roll?.querySelector(".rollwright-value");
 			const st = stempel ? getComputedStyle(stempel) : null;
@@ -79,7 +82,7 @@ describe("Rollwright: stempel in Classic pas na het doortellen (Daan kan-punt 1)
 			await leaf.openFile(file, { state: { mode: "preview" } });
 			app.workspace.setActiveLeaf(leaf, { focus: true });
 		});
-		await browser.waitUntil(async () => browser.execute((sel) => document.querySelectorAll(`${sel} .rollwright-roll .rollwright-value`).length >= 1, LEAF), {
+		await browser.waitUntil(async () => browser.execute((sel) => Array.from(document.querySelectorAll(`${sel} .rollwright-roll .rollwright-value`)).some((e) => e.checkVisibility()), LEAF), {
 			timeout: 20000, timeoutMsg: "de worpen in Crit.md kwamen niet",
 		});
 		await zetClassic();
