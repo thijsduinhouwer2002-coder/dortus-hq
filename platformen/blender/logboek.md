@@ -440,5 +440,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## 10 nov 10:17 tot ±10:45 UTC (Bram, handmatige run)
 - Af: status en downloadmeting (2 downloads om 10:17), Superhive-pagina definitief, Daans punten 1 tot 6 gebouwd (ronde 2, add-on kleurt zelf, runs groen), poster 2 uit de nieuwe opname, Pro-zip heet nu "Click Joints Pro" 1.0.0 en komt met sha256 uit de workflow; regel "nog niet" op lijst-thijs.
+- Run 42798025852 groen in 4.2.23 en 5.2.3 (zips 0 FOUT, betaald 0 FOUT); Pro-zip 1.0.0 uit 5.2.3 op tak `schermen` (`blender-gewrichten/claude-blender-pro-winkel/5.2.3/click_joints_pro-1.0.0.zip`, sha256 310e2c5e...0ace).
 - Open: antwoord van Daan op ronde 2 (14 of 14b, punten 4 tot 6), en de goedkeuring van de makersaanvraag door Superhive.
 - Volgende run: na Daans ja tak `claude/blender-pro-winkel` samenvoegen met main, release `click-joints-pro-v1.0.0` met de zip uit de groene run, regel op lijst-thijs op "nu" zetten; elke run `meet_downloads.sh` en issues click-joints.
