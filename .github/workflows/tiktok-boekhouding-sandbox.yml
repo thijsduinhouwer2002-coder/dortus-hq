@@ -5,7 +5,7 @@ name: TikTok boekhouding sandbox-proef (Moneybird)
 on:
   push:
     branches: [main]
-    paths: ["producten/tiktok-boekhouding/proef/sandbox.ts", ".github/workflows/tiktok-boekhouding-sandbox.yml"]
+    paths: ["producten/tiktok-boekhouding/proef/sandbox.ts", "producten/tiktok-boekhouding/proef/btw-verlegd.ts", ".github/workflows/tiktok-boekhouding-sandbox.yml"]
   workflow_dispatch:
 
 permissions:
@@ -32,12 +32,22 @@ jobs:
         env:
           MONEYBIRD_SANDBOX_TOKEN: ${{ secrets.MONEYBIRD_SANDBOX_TOKEN }}
         run: node proef/sandbox.ts
+      - name: Proef 2 in de sandbox (verlegde btw, 10 nov)
+        if: always()
+        working-directory: producten/tiktok-boekhouding
+        env:
+          MONEYBIRD_SANDBOX_TOKEN: ${{ secrets.MONEYBIRD_SANDBOX_TOKEN }}
+        run: node proef/btw-verlegd.ts
       - name: Uitslag in de samenvatting
         if: always()
-        run: cat producten/tiktok-boekhouding/proef/uitslag.md >> "$GITHUB_STEP_SUMMARY" || true
+        run: |
+          cat producten/tiktok-boekhouding/proef/uitslag.md >> "$GITHUB_STEP_SUMMARY" || true
+          cat producten/tiktok-boekhouding/proef/uitslag-btw.md >> "$GITHUB_STEP_SUMMARY" || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: moneybird-sandbox-uitslag
-          path: producten/tiktok-boekhouding/proef/uitslag.md
+          path: |
+            producten/tiktok-boekhouding/proef/uitslag.md
+            producten/tiktok-boekhouding/proef/uitslag-btw.md
           if-no-files-found: ignore
