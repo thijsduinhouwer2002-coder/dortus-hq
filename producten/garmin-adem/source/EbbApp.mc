@@ -90,15 +90,36 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
-    // Stoptijd wordt in de knophandler vastgelegd (eis 4).
+    // Stoptijd wordt in de knophandler vastgelegd (eis 4): de klok wordt gelezen in de handler zelf.
     function stop() as Boolean {
-        var nu = System.getTimer();
+        return stopOp(System.getTimer());
+    }
+
+    // Los van de klok, zodat de toets een nagebootste tijd kan geven.
+    function stopOp(nu as Number) as Boolean {
         if (_view.sessie.fase == Ebb.FASE_INHOUDEN) {
             _view.sessie.stopInhouden(nu);
             WatchUi.requestUpdate();
             return true;
         }
         return false;
+    }
+
+    // Wat terug doet: tijdens inhouden stoppen, anders het pauzemenu (doorgaan, opslaan, weggooien).
+    function terugActie() as Symbol {
+        return (_view.sessie.fase == Ebb.FASE_INHOUDEN) ? :stop : :pauze;
+    }
+
+    function onBack() as Boolean {
+        if (terugActie() == :stop) {
+            return stop();
+        }
+        var menu = new WatchUi.Menu2({:title => "Paused"});
+        menu.addItem(new WatchUi.MenuItem("Resume", null, :doorgaan, null));
+        menu.addItem(new WatchUi.MenuItem("Save", null, :opslaan, null));
+        menu.addItem(new WatchUi.MenuItem("Discard", null, :weggooien, null));
+        WatchUi.pushView(menu, new PauzeDelegate(), WatchUi.SLIDE_UP);
+        return true;
     }
 
     function onSelect() as Boolean {
@@ -115,5 +136,20 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
 
     function onPreviousPage() as Boolean {
         return stop();
+    }
+}
+
+// Pauzemenu. Opslaan en weggooien sluiten nu nog alleen de app; opname volgt bij eis 10.
+class PauzeDelegate extends WatchUi.Menu2InputDelegate {
+    function initialize() {
+        Menu2InputDelegate.initialize();
+    }
+
+    function onSelect(item as WatchUi.MenuItem) as Void {
+        var id = item.getId();
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        if (id == :opslaan || id == :weggooien) {
+            System.exit();
+        }
     }
 }
