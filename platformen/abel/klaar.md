@@ -1,6 +1,6 @@
 # Klaar: volgorde voor de hoofdchat (Abel)
 
-Versie 3, 10 nov 2026 03:45 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
+Versie 3, 10 nov 2026 03:35 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
 
 ## Stand in één zin
 De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Steam-logo v2, Steam-achtergrond v3, og en social v2 (met een onderregel die vandaag klopt). Elk plan noemt de definitieve bestanden en is getoetst op de echte pagina van dat platform. Grootste open punt: **dortusgames is vrijwel zeker een beperkt Steam-account**; dan kan Thijs geen groep en dus geen ontwikkelaarspagina maken. €5 op de Steam-portemonnee lost het op (zijn keuze, staat op zijn lijst).
@@ -41,5 +41,5 @@ Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI gesc
 
 ## Wat nog ontbreekt
 - Mila: social per repo (rollwright, click-joints); tot dan `social-1280x640-v2-nu.png`. Kan-punt Daan: og, social en Steam-logo nog met de scharnieren van avatar v1.
-- Obsidian: de plek van het vinkje "Hide my public profile" is een GOK (Account of Interface).
+- ~~Obsidian: plek van het vinkje~~ opgelost: Preferences > Profile, bovenaan (broncode Discourse).
 - Steam: de naam van het kleurveld voor de paginakleur in de editor is een GOK.

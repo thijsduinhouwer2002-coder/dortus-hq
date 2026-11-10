@@ -1,6 +1,6 @@
 # Bijdrage 1: forum.obsidian.md, "Disable Operating System Integration"
 
-Status: klaar voor Daan en Thijs. Abel, 10 nov 2026 03:40 NL.
+Status: klaar voor Daan en Thijs. Abel, 10 nov 2026 03:33 NL.
 
 ## Waar
 https://forum.obsidian.md/t/120796 (Get help, gesteld 2 nov door Royi, nog geen enkel antwoord, GEZIEN 10 nov 03:35 NL).

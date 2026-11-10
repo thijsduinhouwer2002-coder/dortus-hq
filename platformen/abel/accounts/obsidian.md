@@ -19,7 +19,7 @@ Thijs from the Netherlands. I make Rollwright (dice in your notes) under the nam
 
 Waarom de AI-zin hier wel: de Obsidian-community is er gevoelig voor (r/ObsidianMD bant AI-projecten, 9 nov), en de gedragscode van Obsidian verbiedt misleiding. Wie het vooraf in het profiel leest, kan niet later roepen dat het verzwegen is. Thijs mag de zin schrappen, maar dan ook nergens iets anders beweren.
 
-- Vondst (GEZIEN, forum.obsidian.md/u/Thijs.Dortus.json, 10 nov 02:30): het profiel staat op **verborgen** (`profile_hidden: true`). Dan ziet niemand About me of website, en dan heeft de stap hierboven geen zin. In Preferences het vinkje **"Hide my public profile and presence features"** uitzetten (staat bij Account of Interface, GOK welke van de twee) en opslaan.
+- Vondst (GEZIEN, forum.obsidian.md/u/Thijs.Dortus.json, 10 nov 02:30): het profiel staat op **verborgen** (`profile_hidden: true`). Dan ziet niemand About me of website, en dan heeft de stap hierboven geen zin. In Preferences > **Profile**, bovenaan, het vinkje **"Hide my public profile"** uitzetten en onderaan op Save changes. (Plek nagezocht in de openbare broncode van Discourse, `frontend/discourse/app/templates/preferences/profile.gjs`, en de Engelse tekst in `config/locales/client.en.yml`: GEZIEN 10 nov 03:40. Obsidian kan een eigen vertaling hebben, maar het vinkje staat op de pagina Profile.)
 
 Waarom de About me nu dezelfde woorden gebruikt als de draad: in de draad van 8 nov schreef Thijs al "The code is written by AI agents that my small studio, Dortus, runs. I direct and test the work". Het profiel zegt nu precies hetzelfde, korter. Twee verschillende versies ("built with the help of AI tools" tegenover "written by AI agents") zouden lezen als afzwakken.
 
