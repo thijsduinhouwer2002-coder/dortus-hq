@@ -1,5 +1,7 @@
 # Voorbeeld, geen echte uitrol (ontwerp-d1-worker.md, punt 6). Secrets zet je met `wrangler secret put`:
-# TOKEN_SLEUTELS (JSON {"v1": "<32 bytes base64>"}), TIKTOK_APP_SECRET, MONEYBIRD_CLIENT_SECRET, POLAR_TOKEN, POLAR_WEBHOOK_SECRET.
+# TOKEN_SLEUTELS (JSON {"v1": "<32 bytes base64>"}), TIKTOK_APP_SECRET, MONEYBIRD_CLIENT_SECRET, POLAR_TOKEN, POLAR_WEBHOOK_SECRET,
+# SESSIE_SLEUTELS (JSON {"s1": "<32 bytes base64>"}, los van TOKEN_SLEUTELS).
+# Eigen subdomein (ontwerp-schermen.md): TikTok-redirect in Partner Center APP_ADRES/app/tiktok/terug, webhook APP_ADRES/tiktok/webhook.
 name = "tiktok-boekhouding"
 main = "src/worker.ts"
 compatibility_date = "2026-10-01"
@@ -8,7 +10,10 @@ compatibility_date = "2026-10-01"
 TOKEN_SLEUTEL_HUIDIG = "v1"
 TIKTOK_APP_KEY = "<app key uit TikTok Partner Center>"
 MONEYBIRD_CLIENT_ID = "<client id van de Moneybird-app>"
-MONEYBIRD_REDIRECT_URI = "https://dortus.com/klopt/moneybird/terug"
+MONEYBIRD_REDIRECT_URI = "https://klopt.dortus.com/app/moneybird/terug"
+APP_ADRES = "https://klopt.dortus.com"
+SESSIE_SLEUTEL_HUIDIG = "s1"
+TIKTOK_SERVICE_ID = "<service id uit TikTok Partner Center>"
 POLAR_API = "https://sandbox-api.polar.sh"
 POLAR_PRODUCT_ID = "<id van het product van 15 euro per maand>"
 POLAR_TERUG_URL = "<pagina waar de verkoper na betalen terugkomt>"
