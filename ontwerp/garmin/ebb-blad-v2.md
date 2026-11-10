@@ -1,4 +1,36 @@
-# Ebb blad v2.2: alle schermen, ronde 2 (Mila, 10 nov run 17 en 18)
+# Ebb blad v2.3: alle schermen (Mila, 10 nov run 17 tot 19)
+
+**Nieuwste blad: `ontwerp/garmin/ebb-blad-v2.3.png`** (per scherm links 454 px AMOLED, rechts 260 px MIP, ware grootte; icoon ook op 70 en 40 px). Losse beelden en meting in `ontwerp/garmin/blad23/` (`meting-v23.txt`), bron `ontwerp/garmin/bron/ebb_blad_v23.py`. Vervangt v2.2 (`ebb-blad-v2.png`, `blad2/`, die blijven staan ter vergelijking). Gaat eerst naar Thijs via de hoofdchat; Gijs bouwt pas na zijn ja.
+
+## Vierde frisse keuring (v2.2, 6 van 10, elf moet-punten). Wat ik deed in v2.3 (GEZIEN met Read, gemeten)
+**Grootste besluit: twee gezichten van één app.** De keurder had gelijk: op 454 zag het eruit als een opgeblazen MIP-scherm. Een AMOLED-horloge kan echte kleuren en zachte randen; het kleine MIP-horloge kan dat niet. Dus:
+- **454 (AMOLED):** de zee is één doorlopend verloop door dezelfde vier tinten (helderder gekozen), zachte golflijnen tussen de lagen, een gloed onder het schuim, heel zachte lichtstralen onder water, de zon met een warme gloed, zachte letters en randen. De grafieken (today, 8 weeks) zijn ook een verloop van licht naar diep. 800 tot 15.000 kleuren per beeld.
+- **260 (MIP):** strak en eerlijk: harde vlakken, alleen MIP-kleuren (0 pixels erbuiten op alle 13 schermen), **geen dithering meer** langs de golfranden.
+
+Per moet-punt:
+1. 454 met verloop en zachte randen, 260 strak zonder dithering (zie boven).
+2. **Voortgangsboog:** donker spoor rondom, de boog in oranje 0xFF5500 (een eigen kleur, nergens anders gebruikt sinds de schildpad groen is), witte stip met zwarte rand aan het eind, met een zwarte rand los van de golf. Bij de walvis (alles gevonden) een volle oranje ring.
+3. **3b:** "whale found" en "4 of 4" op het moment van vinden, in twee regels (op één regel raakte het de ring). Daarna toont het duikscherm een nieuw doel: "best 3:12" (je record plus 9 s); dat scherm teken ik niet apart, het is scherm 3 met een andere ondertekst.
+4. **8 weeks:** de lijn eindigt rechts in de gouden stip van vandaag; onder de grafiek "best 2:08 today". Today eindigt met dezelfde 2:08 in goud als derde ronde. Eén verhaal.
+5. **Eén betekenis per groot getal:** op 2 is het getal je ademteller: titel "in" (wisselt met "out"), onder "breath 23 of 30" en "round 2". Op 4 en 5 zijn het seconden: "15 s" en "7 s", de s klein en grijs, samen gecentreerd.
+6. **3d:** "turtle found" groot, "held 2:03 · 3 of 4" eronder.
+7. **260:** kleinste letter nu 20 px = 14 px kapitaalhoogte (gemeten). Pijltjes bij 30 nu 10 px hoog (waren 7).
+8. **Sea log:** de verborgen walvis is precies dezelfde walvis als silhouet, met cyaan rand en een "?" op zijn lijf, en "next 3:00". **Schildpad groen** (schild 0x00AA55, huid 0xAAFF55, donkere schildrand, geen stippen, klein staartje): nu nooit meer te verwarren met de vis. **Kwal** opnieuw in de ronde stijl: ronde kap met golvende onderrand, vier zachte armen die taps toelopen met een rond eind, glans linksboven.
+9. **Menu:** Box eruit (eerst een eigen scherm verdienen). Nu "Calm · 4-7-8", "Rounds 3 x 30" (gekozen), "Sea log". Sea log in het menu: zo kom je bij je dieren zonder eerst te duiken.
+10. **Veiligheid:** voluit "Never hold your / breath in water / or while driving.", het hele blok lager (teken op 27% D, OK op 76,5% D).
+11. **START-boog: nergens.** Hij stond er maar op drie schermen en suggereerde dat START elders niets doet. De gekozen pil en de OK-knop zeggen al wat START doet.
+
+Kan-punten: (2) walvissen 1,2% D naar links op menu, 3b, sea log en icoon (zwaartepunt bleef optisch rechts); (4) icoon met vier grotere bouten en water tot boven in de poort, leest nu op 70 en 40 px (GEZIEN); (5) AMOLED: boven het water blijft het zwart, alleen het water licht op. (1) hoofdletterregel: titels klein (today, sea log, settings), items met hoofdletter (Rounds, Sea log, Buzz on): stond al zo. (3) "round 1, 2, 3" bij today: niet gedaan, de drie tijden zeggen het al en op 260 is er geen ruimte voor een vierde regel zonder te kleine letters.
+
+**Gemeten (`blad23/meting-v23.txt`):** kader van alles wat getekend is binnen 1,5 px van het midden op alle 26 beelden (sea log 1,5 px door de walvis die bewust naar links staat). Optisch midden op 260 binnen 2 px, behalve today (+5,7 px) en 8 weeks (+4,2 px): het record staat nu rechts, omdat het vandaag is. Dat is de data, geen scheefstand.
+
+**Beeldtaal, wat er verandert ten opzichte van de 10 regels hieronder:** regel 4 wordt "één schaal van vier blauwtinten: op AMOLED als zacht verloop, op MIP als harde vlakken zonder dithering"; regel 5 krijgt "oranje = voortgang"; regel 6: kleinste letter 20 px op 260 (14 px kapitaalhoogte), op AMOLED zachte letters; regel 8: dieren elk in hun eigen tint (walvis, vis en kwal warm, schildpad groen), verder dezelfde stijl.
+
+**Voor Gijs (pas na het ja van Thijs), GOK om na te kijken:** verloop op AMOLED het makkelijkst als vaste PNG per scherm-achtergrond (de zee per diepte vooraf getekend, 3 tot 4 standen), of met `Graphics.createColor` en `setAntiAlias(true)` (API 3.2+); lichtstralen als bitmap met alfa. Geheugen nakijken op de venu2 en vivoactive5. Op MIP-horloges (260, fenix 7, Forerunner 255) de harde versie.
+
+---
+
+## Eerder: Ebb blad v2.2: alle schermen, ronde 2 (Mila, 10 nov run 17 en 18)
 
 Blad: **`ontwerp/garmin/ebb-blad-v2.png`** (per scherm links 454 px, rechts 260 px, ware grootte). Losse beelden en meting in `ontwerp/garmin/blad2/` (`meting-v2.txt`), bron `ontwerp/garmin/bron/ebb_blad_v2.py`. Vervangt blad v1. Gaat eerst naar Thijs via de hoofdchat; Gijs bouwt pas na zijn ja.
 

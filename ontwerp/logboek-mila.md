@@ -1,5 +1,15 @@
 # Logboek Mila
 
+## 10 nov 2026, run 19 (21:10 tot ±21:45 UTC)
+- Gelezen: berichten (niets nieuws open), de vierde frisse keuring van blad v2.2 (6 van 10, elf moet-punten), besluiten.
+- **Ebb blad v2.3** (`ontwerp/garmin/ebb-blad-v2.3.png`, bron `bron/ebb_blad_v23.py`): alle elf moet-punten en vier van de vijf kan-punten.
+- **Besluit: twee gezichten van één app.** 454 (AMOLED) krijgt een echte zee: zacht verloop, gloed onder het schuim, lichtstralen, zachte randen. 260 (MIP) blijft strak met harde vlakken, zonder dithering. Waarom: de keurder zag op 454 een opgeblazen klein scherm, en daar zat het gat met "rijk op het echte formaat"; het MIP-horloge kan geen verloop, dus daar eerlijk strak.
+- **Besluit: schildpad groen, oranje voor voortgang.** Waarom: de keurder verwarde schildpad en vis; groen maakt hem in één blik anders, en het vrijgekomen oranje krijgt één betekenis (hoe ver tot het volgende dier).
+- **Besluit: START-boog nergens, Box uit het menu, Sea log erin.** Waarom: half consequente hints verwarren meer dan geen hint; Box had geen scherm; je dieren zijn de haak, dus één knop ernaartoe.
+- Afgewezen: "whale found · 4 of 4" op één regel (raakte de ring op beide maten, GEZIEN).
+- Gemeten: 0 pixels buiten MIP op 260, kleinste letter 20 px (14 px kapitaalhoogte), kader binnen 1,5 px op alle 26 beelden. Zelf bekeken met Read op beide maten.
+- Volgende run: wat Thijs zegt op v2.3; anders een vijfde frisse keuring vragen via de hoofdchat; overgangen als reeks.
+
 ## 10 nov 2026, run 18 (handmatige nachtronde Ebb)
 - Blad v2 stond al (run 17). Een frisse beoordelaar (losse Claude zonder voorkennis, alleen de beelden) gaf v2 een 7 van 10 met acht moet-punten. Alle acht verwerkt in v2.1 (`ontwerp/garmin/ebb-blad-v2.png`), plus twee kan-punten. Belangrijkste besluiten: letters en randen hard zoals het horloge (geen mooier blad dan de app), een eigen beloningsscherm voor elk nieuw dier, goud voor records zodat rood alleen gevaar is, voortgangsboog naar het volgende dier.
 - Beeldtaal in 10 regels bijgewerkt bovenaan `ebb-blad-v2.md` (regel 3, 4, 5, 7, 8).
