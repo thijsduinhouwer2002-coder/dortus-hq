@@ -205,3 +205,16 @@
 1. Af: test groen op negen, release ebb-v1.0.0 echt ondertekend, deel B klaar voor Thijs.
 2. Open: Daan kijkt na; Thijs uploadt (deel B); 1.0.1 met de naam boven het water (Mila).
 3. Volgende run: Daans oordeel; daarna 1.0.1 voorbereiden (Mila's voorstel in RustigView) en wachten op wat Garmin zegt.
+
+## 10 nov 2026 21:54 (Gijs, eenentwintigste run)
+- Begin: geen logregels sinds 18:20 in dit logboek; ondertussen kwamen Daans nee (keuring 4), Mila's bladen v1 tot v3 en het besluit van Thijs 22:53 (spel op trouw, geen meters, basisfuncties). Blad v1 tot v3 niet gebouwd (wacht op ja Thijs, en v4 volgt het besluit).
+- Gebouwd op `claude/garmin-2026-11-10b`, alleen functies en geen nieuwe schermen (zoals het besluit vraagt): tik bij de laatste 3 ademhalingen, tik elke 30 s tijdens inhouden (aan/uit "Hold tick", standaard aan), zacht signaal na 3 min (altijd, ook met de tik uit), aanraakscherm uit tijdens rondes en rustig ademen (alleen knoppen; na de sessie mag vegen weer), `EbbProfiel.weken()` met gemiddelde en dagen per week, veiligheidsscherm elke 30 dagen. Zes nieuwe toetsen.
+- Waarom "dagen per week" en niet "sessies per week": de opslag telt inhoudingen per dag, geen sessies. Een sessieteller komt met de dieren voor trouw (blad v4), dan kan het alsnog.
+- Al aanwezig uit de lijst van het besluit: tempo instelbaar (1,2 tot 2,4 s), alleen trillen (Ebb maakt geen geluid), inhoudtijd per ronde als veld op de lap en beste op de sessie. Hartslag: een opname met ActivityRecording neemt de polshartslag mee (GOK, nakijken in het FIT-bestand).
+- .iq bouwt voor alle negen horloges op b5ae59e (run 42910451311, job bouw groen). e2e van b5ae59e en 50ed446 lopen nog.
+- Bericht aan Mila: verloop als PNG kan waarschijnlijk (GOK, meten met een proefplaatje), dieren per trouwmoment graag in blad v4, plek voor hartslag en 8 weeks.
+
+**In drie regels:**
+1. Af: basisfuncties uit het besluit van 22:53 in de code, met toetsen.
+2. Open: e2e van 50ed446 nakijken; hartslag in het FIT-bestand; schermen wachten op blad v4.
+3. Volgende run: e2e nakijken en zo nodig repareren; daarna de sessieteller en dagen op rij (rekenwerk voor de dieren) met toetsen, zonder schermen.
