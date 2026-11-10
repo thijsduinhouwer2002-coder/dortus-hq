@@ -22,7 +22,10 @@ export const KLEUREN = {
 
 const k = KLEUREN;
 
-export const CSS = `@font-face{font-family:Inter;src:url(/fonts/Inter-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+export const CSS = `@font-face{font-family:Inter;src:url(/fonts/inter-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url(/fonts/inter-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Inter;src:url(/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:Inter;src:url(/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
 *{box-sizing:border-box}
 html{background:${k.papier};color:${k.inkt};font:16px/1.5 Inter,system-ui,sans-serif}
 body{margin:0}

@@ -44,6 +44,17 @@ export function zelfde(a: string, b: string): boolean {
   return v === 0;
 }
 
+// ---- state ----
+
+/** Onvoorspelbare state van 43 tekens (32 bytes), alleen tekens uit DEEL. */
+export function maakState(): string {
+  return b64url(crypto.getRandomValues(new Uint8Array(32)));
+}
+
+export function stateKlopt(cookie: string | undefined, ontvangen: string | null | undefined): boolean {
+  return !!cookie && !!ontvangen && zelfde(cookie, ontvangen);
+}
+
 // ---- sessie ----
 
 /** `versie.winkel.verloopt.mac`; de winkel-id mag geen punt bevatten (wij maken uuid's). */
@@ -95,20 +106,20 @@ export function herkomstKlopt(request: Request, appAdres: string): boolean {
 
 // ---- state voor Moneybird, gebonden aan de winkel ----
 
-export async function maakMbState(bos: SessieSleutels, state: string, winkel: string): Promise<string> {
+export async function maakMbState(bos: SessieSleutels, state: string, winkel: string, nu: number): Promise<string> {
   const k = ruweSleutel(bos, bos.huidig);
   if (!k || !DEEL.test(state) || !DEEL.test(winkel)) throw new Error("ongeldige state of winkel");
-  const kern = `${bos.huidig}.${state}.${winkel}`;
+  const kern = `${bos.huidig}.${state}.${winkel}.${nu + KORT}`;
   return `${kern}.${await mac(k, "mb." + kern)}`;
 }
 
 /** Geeft de state alleen terug als het cookie van ons is en bij deze winkel hoort. */
-export async function leesMbState(bos: SessieSleutels, waarde: string | undefined, winkel: string): Promise<string | null> {
+export async function leesMbState(bos: SessieSleutels, waarde: string | undefined, winkel: string, nu: number): Promise<string | null> {
   const d = waarde?.split(".");
-  if (!d || d.length !== 4) return null;
+  if (!d || d.length !== 5 || !/^\d{1,12}$/.test(d[3])) return null;
   const k = ruweSleutel(bos, d[0]);
-  if (!k || !zelfde(await mac(k, "mb." + d.slice(0, 3).join(".")), d[3])) return null;
-  return d[2] === winkel ? d[1] : null;
+  if (!k || !zelfde(await mac(k, "mb." + d.slice(0, 4).join(".")), d[4])) return null;
+  return d[2] === winkel && Number(d[3]) > nu ? d[1] : null;
 }
 
 // ---- keuze-cookie (meer dan één NL-winkel): versleuteld, eigen sleutel via HKDF ----
@@ -166,6 +177,7 @@ export async function leesKeuze(bos: SessieSleutels, waarde: string | undefined,
 
 /** Alle cookies van de app: `__Host-`, dus Secure, Path=/ en geen Domain. */
 export function zetCookie(naam: string, waarde: string, maxAge: number): string {
+  if (!/^[A-Za-z0-9_-]+$/.test(naam) || !/^[A-Za-z0-9._-]*$/.test(waarde)) throw new Error("ongeldige cookie");
   return `${naam}=${waarde}; Max-Age=${maxAge}; Path=/; HttpOnly; Secure; SameSite=Lax`;
 }
 

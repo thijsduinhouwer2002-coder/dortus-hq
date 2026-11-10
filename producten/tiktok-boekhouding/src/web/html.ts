@@ -91,8 +91,13 @@ ${stap}${o.inhoud}
   return new Response(body.tekst, { status: o.status ?? 200, headers: h });
 }
 
-/** Doorsturen, met cookies. */
+/** Buiten de app alleen naar inloggen bij TikTok en Moneybird (geen open doorverwijzing). */
+const BUITEN = ["https://services.tiktokshop.com/", "https://moneybird.com/oauth/"];
+
+/** Doorsturen, met cookies. Alleen naar `/app...` of een adres uit BUITEN. */
 export function naar(adres: string, cookies: string[] = []): Response {
+  const binnen = adres === "/app" || adres.startsWith("/app/") || adres.startsWith("/app?");
+  if (!binnen && !BUITEN.some((b) => adres.startsWith(b))) throw new Error(`doorsturen naar ${adres} niet toegestaan`);
   const h = kopregels({ location: adres });
   h.delete("content-type");
   for (const c of cookies) h.append("set-cookie", c);

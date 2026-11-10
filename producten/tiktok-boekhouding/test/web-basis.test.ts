@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  csrfKlopt, csrfVan, herkomstKlopt, leesCookies, leesKeuze, leesMbState, leesSessie, maakKeuze, maakMbState, maakSessie,
+  csrfKlopt, csrfVan, herkomstKlopt, maakState, stateKlopt, leesCookies, leesKeuze, leesMbState, leesSessie, maakKeuze, maakMbState, maakSessie,
   SESSIE_DUUR, wisCookie, zetCookie, type SessieSleutels,
 } from "../src/web/sessie.ts";
 import { CSP, esc, html, Html, naar, pagina } from "../src/web/html.ts";
@@ -29,6 +29,19 @@ test("sessie: heen en terug, vals, verlopen, andere sleutel, sleutelwissel", asy
   assert.equal(await leesSessie({ ...bos, huidig: "s2" }, c, NU), "w-1");
   assert.equal(await leesSessie({ huidig: "s2", sleutels: { s2: bos.sleutels.s2 } }, c, NU), null);
   await assert.rejects(maakSessie(bos, "w.1", NU));
+  await assert.rejects(maakSessie({ huidig: "k", sleutels: { k: new Uint8Array(16) } }, "w-1", NU), "te korte sleutel");
+  assert.equal(await leesSessie(bos, ["__proto__", w, t, m].join("."), NU), null);
+  assert.equal(await leesSessie(bos, await maakMbState(bos, "abc", "w-1", NU), NU), null, "Moneybird-state is geen sessie");
+});
+
+test("state: onvoorspelbaar, 43 tekens, vergelijken", () => {
+  const a = maakState(), b = maakState();
+  assert.notEqual(a, b);
+  assert.match(a, /^[A-Za-z0-9_-]{43}$/);
+  assert.equal(stateKlopt(a, a), true);
+  assert.equal(stateKlopt(a, b), false);
+  assert.equal(stateKlopt(undefined, a), false);
+  assert.equal(stateKlopt(a, null), false);
 });
 
 test("csrf: hoort bij precies dit cookie", async () => {
@@ -53,12 +66,14 @@ test("(j) herkomst: Origin, anders Referer, geen van beide is nee", () => {
 });
 
 test("Moneybird-state hoort bij de winkel", async () => {
-  const c = await maakMbState(bos, "abc123", "w-1");
-  assert.equal(await leesMbState(bos, c, "w-1"), "abc123");
-  assert.equal(await leesMbState(bos, c, "w-2"), null, "andere winkel");
+  const c = await maakMbState(bos, "abc123", "w-1", NU);
+  assert.equal(await leesMbState(bos, c, "w-1", NU), "abc123");
+  assert.equal(await leesMbState(bos, c, "w-2", NU), null, "andere winkel");
+  assert.equal(await leesMbState(bos, c, "w-1", NU + 601), null, "na 10 minuten weg");
   const d = c.split(".");
-  assert.equal(await leesMbState(bos, [d[0], "abc124", d[2], d[3]].join("."), "w-1"), null);
-  assert.equal(await leesMbState(bos, undefined, "w-1"), null);
+  assert.equal(await leesMbState(bos, [d[0], "abc124", d[2], d[3], d[4]].join("."), "w-1", NU), null);
+  assert.equal(await leesMbState(bos, [d[0], d[1], d[2], String(NU + 9999), d[4]].join("."), "w-1", NU), null, "langer gemaakt");
+  assert.equal(await leesMbState(bos, undefined, "w-1", NU), null);
 });
 
 test("keuze-cookie: versleuteld, met vlag, verloopt, niet te vervalsen", async () => {
@@ -70,16 +85,22 @@ test("keuze-cookie: versleuteld, met vlag, verloopt, niet te vervalsen", async (
   assert.deepEqual(terug?.shops.map((s) => s.id), ["1", "2"]);
   assert.equal(await leesKeuze(bos, c, NU + 601), null, "na 10 minuten weg");
   const d = c.split(".");
-  assert.equal(await leesKeuze(bos, [d[0], d[1], d[2].slice(0, -2) + "AA"].join("."), NU), null);
+  const midden = Math.floor(d[2].length / 2);
+  const ander = d[2][midden] === "A" ? "B" : "A";
+  assert.equal(await leesKeuze(bos, [d[0], d[1], d[2].slice(0, midden) + ander + d[2].slice(midden + 1)].join("."), NU), null);
   assert.equal(await leesKeuze(bos, ["s2", d[1], d[2]].join("."), NU), null, "versie hoort bij de sleutel");
   assert.equal(await leesKeuze(bos, "a.b", NU), null);
 });
 
-test("(i)-deel en (c)-deel: cookies zijn __Host-, HttpOnly, Secure, Lax; wissen met Max-Age=0", () => {
+test("(a)-deel en (c)-deel: cookies zijn __Host-, HttpOnly, Secure, Lax; wissen met Max-Age=0", () => {
   const z = zetCookie("__Host-klopt", "x", 60);
   for (const deel of ["Path=/", "HttpOnly", "Secure", "SameSite=Lax", "Max-Age=60"]) assert.ok(z.includes(deel), deel);
   assert.ok(!/Domain=/i.test(z));
   assert.ok(wisCookie("__Host-klopt_tt").includes("Max-Age=0"));
+  assert.throws(() => zetCookie("a", "x; Domain=boos.example", 1));
+  assert.throws(() => naar("https://boos.example/"));
+  assert.throws(() => naar("//boos.example/app"));
+  assert.equal(naar("https://moneybird.com/oauth/authorize?x=1").status, 302);
   const r = new Request(ADRES, { headers: { cookie: "a=1; __Host-klopt=v.w.1.m; a=2" } });
   assert.deepEqual(leesCookies(r), { a: "1", "__Host-klopt": "v.w.1.m" });
 });
