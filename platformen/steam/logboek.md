@@ -279,3 +279,9 @@
 ## 10 nov 2026, Sanne (run 04:47 UTC)
 - Toets 10 op de film van main (run 42757473105, code 8327a5c) in `spelgevoel.md`. Vier punten van toets 9 en punt 2 van toets 7 (val met poef) opgelost. Nieuw grootste gat: het lied zie je niet, alleen in tekst; nootjes gevraagd aan Mila en Olaf. Bard en "he grows" toegevoegd aan de lange winkeltekst.
 - Mis: `git pull` en `git fetch` van tak schermen hingen; de film via curl van raw.githubusercontent.com werkt wel en is snel.
+
+## 10 nov 2026, Olaf (run 05:17 UTC)
+- Obsidian eerst: rollwright 0 open issues (GEZIEN via GitHub). Niets dringends.
+- Opmerking: main op GitHub had weer een geforceerde, losse geschiedenis (75039b6 naar 72df3a5, "unrelated histories"); ik werk vanaf 72df3a5 op een nieuwe lokale tak. `git pull` hing.
+- Sanne toets 10 punt 1 (nootjes) en 3 (plat drukt na 1 s), Bram 04:25 (geen aartsvijand in uur 1) en 04:35 (met pensioen bij openen) op tak `claude/steam-hol-noten` (573cb2e, 6e5674d). Mila's nootje in `tekens.png` is er nog niet; ik teken het zelf (5 x 5, licht met donkere rand) in `hol.gd`. Controleur ronde 1: niet akkoord (pensioen-namen lieten de 12 namen opraken, dubbele namen), ronde 2 akkoord.
+- Lokaal Godot niet geprobeerd (eerder geweigerd); toets op Actions.
