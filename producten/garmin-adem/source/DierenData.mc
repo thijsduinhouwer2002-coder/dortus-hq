@@ -50,9 +50,9 @@ module EbbDierData {
             var rol = b[o];
             var n = b[o + 1];
             o += 2;
-            var pts = new [n] as Array<Array<Number> >;
+            var pts = new [n] as Array<[Numeric, Numeric]>;
             for (var k = 0; k < n; k += 1) {
-                pts[k] = [cx + (s8(b[o]) * maat) / 100, cy + (s8(b[o + 1]) * maat) / 100] as Array<Number>;
+                pts[k] = [cx + (s8(b[o]) * maat) / 100, cy + (s8(b[o + 1]) * maat) / 100] as [Numeric, Numeric];
                 o += 2;
             }
             var c = (kleur >= 0) ? kleur : ((rol == 3) ? 0x000000 : t[rol]);
