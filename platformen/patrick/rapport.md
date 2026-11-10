@@ -23,7 +23,7 @@ Werk voor jou vandaag, samen ±20 minuten: één Polar-sleutel die alleen kan le
 
 
 ## In één alinea
-In drie dagen maakte de ploeg ±1.640 commits (zonder samenvoegingen). Opbrengst: één product te koop (Rollwright, skins $6, 23 downloads volgens de Obsidian-statistiek, GEZIEN 10 nov 04:20 UTC), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en ziet niemand in de ploeg of er iets verkocht is. De vijf punten hieronder lossen dat op.
+In drie dagen maakte de ploeg ±1.640 commits (zonder samenvoegingen). Opbrengst: één product te koop (Rollwright, skins $6, 23 downloads volgens de Obsidian-statistiek, GEZIEN 10 nov 04:20 UTC), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat eind november of begin december te koop kan staan (Click Joints Pro, Ebb op Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en ziet niemand in de ploeg of er iets verkocht is. De vijf punten hieronder lossen dat op.
 
 ## Top 5 uitgewerkt
 
