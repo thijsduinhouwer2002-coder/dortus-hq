@@ -3,4 +3,8 @@
     <string id="VeldInhoud">Hold time</string>
     <string id="VeldBeste">Longest hold</string>
     <string id="EenheidS">s</string>
+    <string id="VeldAdem">Breaths</string>
+    <string id="EenheidAdem">breaths</string>
+    <string id="VeldRondes">Rounds</string>
+    <string id="EenheidRondes">rounds</string>
 </strings>

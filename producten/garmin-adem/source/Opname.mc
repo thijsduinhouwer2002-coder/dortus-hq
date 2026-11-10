@@ -10,6 +10,8 @@ class EbbOpname {
     private var _sessie as ActivityRecording.Session or Null = null;
     private var _inhoud as FitContributor.Field or Null = null;
     private var _beste as FitContributor.Field or Null = null;
+    private var _adem as FitContributor.Field or Null = null;     // blad v5 P2: "Breaths" per lap
+    private var _rondes as FitContributor.Field or Null = null;   // blad v5 P2: "Rounds" in de samenvatting
     var besteS as Number = 0;
     var laps as Number = 0;
 
@@ -46,19 +48,23 @@ class EbbOpname {
         });
         _inhoud = s.createField("inhoud", 0, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_LAP, :units => "s"});
         _beste = s.createField("beste", 1, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_SESSION, :units => "s"});
+        _adem = s.createField("adem", 2, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_LAP});
+        _rondes = s.createField("rondes", 3, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_SESSION});
         s.start();
         _sessie = s;
         besteS = 0;
         laps = 0;
     }
 
-    // Na het inhouden: de inhoudtijd komt op de lap van deze ronde, de beste op de sessie.
-    function inhouden(inhoudS as Number) as Void {
+    // Na het inhouden: inhoudtijd en ademhalingen op de lap van deze ronde, de langste en het aantal rondes op de sessie.
+    function inhouden(inhoudS as Number, adem as Number) as Void {
         if (_sessie == null) {
             return;
         }
         var s = (inhoudS > 65535) ? 65535 : inhoudS;
         (_inhoud as FitContributor.Field).setData(s);
+        (_adem as FitContributor.Field).setData(adem > 255 ? 255 : adem);
+        (_rondes as FitContributor.Field).setData(laps + 1);
         if (s > besteS) {
             besteS = s;
             (_beste as FitContributor.Field).setData(s);

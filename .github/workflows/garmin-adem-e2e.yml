@@ -144,7 +144,7 @@ jobs:
               with fitdecode.FitReader(pad) as fit:
                   for fr in fit:
                       if isinstance(fr, fitdecode.FitDataMessage) and fr.name in ("sport", "session", "lap", "field_description", "developer_data_id"):
-                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "beste")
+                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "beste", "adem", "rondes")
                           velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
                           dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
                           print(fr.name, velden, "dev:", dev)
@@ -171,8 +171,10 @@ jobs:
                       if fr.name == "session":
                           sessie = {f.name: f.raw_value for f in fr.fields if f.name in ("sport", "sub_sport", "num_laps")}
                           beste = velden.get("beste")
+                          print("P2", naam, "rondes:", velden.get("rondes"))
                       if fr.name == "lap":
                           inhoud.append(velden.get("inhoud"))
+                          print("P2", naam, "adem op de lap:", velden.get("adem"))
                       if fr.name == "record":
                           rec += 1
                           if velden.get("heart_rate") is not None: hr.append(velden.get("heart_rate"))

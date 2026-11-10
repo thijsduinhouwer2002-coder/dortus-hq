@@ -35,7 +35,7 @@ function testTerugBuitenInhoudenIsPauze(logger as Test.Logger) as Boolean {
 (:test)
 function testOpnameZonderSessieVeilig(logger as Test.Logger) as Boolean {
     var o = new EbbOpname();
-    o.inhouden(42);
+    o.inhouden(42, 30);
     o.rondeKlaar();
     var ok = o.opslaan();
     o.weggooien();

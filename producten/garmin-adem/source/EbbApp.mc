@@ -196,7 +196,7 @@ class EbbView extends WatchUi.View {
         if (tijd < 0) {
             return false;
         }
-        opname.inhouden((tijd + 500) / 1000);
+        opname.inhouden((tijd + 500) / 1000, sessie.ademhalingen);
         return true;
     }
 
