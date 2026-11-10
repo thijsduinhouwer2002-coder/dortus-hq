@@ -10,6 +10,7 @@ import ebb_blad_v4 as v4
 from ebb_blad_v4 import hart, omlijnd, dagstippen, HART
 from PIL import Image, ImageDraw
 from ebb_dieren_v4 import ALLE
+import ebb_dieren_v5   # V6: zeekomkommer, otter, zeehond, rog, manta, haai, orka, zwaardvis opnieuw (zet v3.dier_beeld om)
 dier = v3.dier
 
 SIL = (0, 85, 255)     # silhouet van een dier dat je nog niet hebt: 3,7:1 op zwart (V2), wel MIP
@@ -210,7 +211,7 @@ def s_rooster5(D, pagina, gevonden=7, kies=3):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.135), 'sea log', D*0.075, TITEL)
     tekst(d, D, (D/2, D*0.205), f'{gevonden} of 24', D*0.062, LICHTCYAAN)
-    xs = (-0.25, 0, 0.25); ys = (0.35, 0.545, 0.74)
+    xs = (-0.25, 0, 0.25); ys = (0.37, 0.555, 0.74)
     opp = (D*0.112)**2*0.55
     for i in range(9):
         n = pagina*9 + i

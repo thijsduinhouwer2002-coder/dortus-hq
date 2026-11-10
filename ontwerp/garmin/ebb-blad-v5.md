@@ -25,7 +25,7 @@ Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 | V3 grijs | ja | Geen grijs meer op 6b/6c (wit en lichtcyaan 0xAAFFFF). Overal elders ook lichtcyaan in plaats van grijs. |
 | V4 6b = 6c | ja | Zelfde skelet: kop met drie tijden, dier op 0,515, naam op 0,695, reeks op 0,775, stippen op 0,85. Het silhouet zit helemaal onder water, de golf loopt erboven. |
 | V5 groot dier | ja | Zeester op 6b ±40 % van de breedte. |
-| V6 tekenregel 24 dieren | **nee, volgende run** | Zeekomkommer, otter, zeehond opnieuw; rog en manta uit elkaar; haai, orka, manta, zwaardvis lichter. Staat als eerste op mijn lijst. |
+| V6 tekenregel 24 dieren | ja | `ebb-dieren-v5.png`, bron `bron/ebb_dieren_v5.py` (`delen_v5`, zelfde vorm als `dier_delen()`). Opnieuw: **zeekomkommer met slaapmuts** (de grap: hij komt na een pauze), zeeotter op zijn rug met licht gezicht, oortjes, schelp en voetjes omhoog, zeehond met snuit, snorpuntjes en vlekjes. Rog is nu een kleine teal ruit met stippen, manta een brede zwarte met witte buik en hoorntjes. Haai lichter (lavendel), zwaardvis lichtblauw met zichtbaar zwaard en zeil (was onzichtbaar op diep water), orka, manta, zwaardvis en haai met een lichte rand van 1 tot 2 px. Zelfde oog voor alle 24. 0 pixels buiten MIP op 260. |
 | V7 geen 24 stipjes | ja | 8c: groot dier, naam, hoe gekregen, knop "swims with you". |
 | S1 veiligheid | ja | Drie korte bladen (Next, Next, OK), tekst hieronder letterlijk voor de code. |
 | S2 startcheck | ja | 1b: "Seated or lying?" met knop Start, bij elke Rounds-start. |
@@ -49,7 +49,7 @@ Activiteit "Breathwork" (of "Ebb"), met: duur, gemiddelde en hoogste hartslag (g
 - Kader van alles wat getekend is: midden binnen 0,5 px op alle schermen op 260 en 454, behalve de sea log (8: -5 px op 260): dat is de ring om het gekozen dier links; zonder ring 0 px. Optisch midden binnen 2,7 px.
 - Verste pixel die geen water of rand is (kolom "verst" in de meting, alleen zinvol op schermen zonder water): sea log 0,86 en 0,89 van de straal (onderste dieren en hints), instellingen, today, 8 weeks en veiligheid 0,70 tot 0,78. Op schermen met water meet de kolom het schuim van de golf (0,97); daar staat de tekst op het oog ruim binnen de rand.
 - 0 pixels buiten de MIP-kleuren op 260. Kleinste letter 20 px op 260.
-- Bekeken met de Read-tool: heel blad, de drie inhoudschermen naast elkaar en de zeven zee-standen, sea log 1 en 2 vergroot. Zwakste nu: het trilicoontje op 3c is klein en wat druk; de "r1 r2 r3" kop op het eindscherm is netjes maar zakelijk.
+- Bekeken met de Read-tool: heel blad, de drie inhoudschermen naast elkaar en de zeven zee-standen, sea log 1 en 2 vergroot. Dieren v5 bekeken op diep water op 454 en 260. Zwakste nu: de otter leest als otter maar ook een beetje als beertje; het trilicoontje op 3c is klein en wat druk; de "r1 r2 r3" kop op het eindscherm is netjes maar zakelijk.
 
 ## Wat Thijs hier als eerste van zegt (besluit 23:39 punt 3)
-Waarschijnlijk: "de zee wordt nu echt donkerder, goed; maar zijn de dieren al allemaal mooi?" Nee, V6 (zeekomkommer, otter, zeehond, rog/manta) is nog niet opnieuw getekend. Daarom gaat v5 pas naar Thijs met de nieuwe dieren erbij.
+Waarschijnlijk: "de zee wordt nu echt donkerder, goed; maar zijn de dieren al allemaal mooi?" In dezelfde run opnieuw getekend (V6). Tweede vraag die hij kan stellen: "zie ik op de pols dat het water donkerder wordt?" Ja op 454; op 260 zijn het vaste stappen in vier MIP-tinten, zie de strook.
