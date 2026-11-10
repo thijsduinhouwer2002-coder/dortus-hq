@@ -14,7 +14,9 @@ Daarnaast: `doelen.md` zegt "Een keuze wordt nooit gehaast om een datum te halen
 ## Mijn advies
 Kies deze zin en zet hem overal letterlijk neer:
 
-> **Zo snel mogelijk eerlijk geld, gespreid over platformen. Bereik telt omdat het tot geld leidt: elk product heeft vanaf dag 1 een betaald deel. Liever een eerlijke gok die snel uitkomt dan een week extra zekerheid.**
+> **Eerst de eerste eerlijke euro, daarna spreiden. Bereik telt omdat het tot geld leidt: elk product is vanaf dag 1 te koop. Liever een eerlijke gok die snel uitkomt dan een week extra zekerheid.**
+
+(Aangepast in run 2 na het bericht van Thijs van 10 nov 00:05: de eerste euro is nu de mijlpaal.)
 
 Waarom deze: hij past bij het nieuwste besluit van Thijs (22:56), bij de rekensom in doelen.md (20.000 installs met $6 eenmalig is ±$2.400 één keer, dus bereik zonder betaald deel helpt weinig), en bij de stopregel. "Eerst bereik" past bij gratis producten die later betaald worden; dat is een andere weg die meer tijd kost.
 

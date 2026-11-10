@@ -23,3 +23,10 @@
 - Run 2 begint met: 01 en 07 regel voor regel tegen de huidige regels.md (niets mag wegvallen), dan derde internetronde (beslisritme eigenaar), dan rapport aanscherpen.
 - Na afsluiten nog tijd: 07 aangevuld met vier punten uit de huidige regels die ontbraken (productrepo en geplande taak opnieuw, wie op de waarom-zin toetst, notities direct op main, repo privé).
 - Derde internetronde (bronnen 28 tot 33): vast beslisritme verwerkt in 05 en rapport punt 3. Run 2 hoeft die ronde niet meer te doen.
+
+## Run 2, 10 nov 2026, 00:14 tot ~01:00 UTC
+- Nieuwe berichten: toegang (23:50), eerste euro (00:05), rapport af na 05:13 (00:15).
+- Agent deed onderzoek naar officiële sleutels per platform: `bronnen/toegang-ruw.md`. Polar-scopes zelf nagekeken in de broncode. dortus.com draait op GitHub Pages (GEZIEN met curl).
+- Voorstel 11 (toegang) en 12 (eerste euro, per product de vroegste euro) geschreven.
+- Rapport herschreven: top 5 is nu 1 eerste euro, 2 toegang, 3 korte start plus één opdracht (oude 1 en 2 samen), 4 sturing plus meetlat (oude 3 en 4 samen), 5 lijst en dashboard met euro-meter. Koerszin in 10 aangepast.
+- Volgende run (03:13): controleur-agent laat 11, 12 en de nieuwe top 5 vers lezen; 01 en 07 regel voor regel tegen de huidige regels.md (staat nog open uit run 1); cijfers in het rapport nalopen (26 downloads, 57 KB besluiten).

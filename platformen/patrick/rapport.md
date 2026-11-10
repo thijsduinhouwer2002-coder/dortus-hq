@@ -1,63 +1,53 @@
 # Rapport Patrick, perfectionist (nacht 9 op 10 nov 2026)
 
-Stand: versie na run 1 (9 nov, ±23:30 NL). Volgende runs scherpen aan; de run van 07:13 maakt hem af.
-Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/internet.md`. Volledige nieuwe teksten om over te nemen: `voorstellen/01` tot `10`.
+Stand: run 2 (10 nov, ±01:45 NL). Runs van 03:13 en 05:13 controleren en schaven; na 05:13 is dit de versie voor Thijs om 08:00.
+Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/internet.md` en `bronnen/toegang-ruw.md`. Volledige teksten om over te nemen: `voorstellen/01` tot `12`.
 
 ## In één alinea
-In drie dagen (7 tot en met 9 nov) maakte de ploeg ±1.650 commits, samenvoegingen niet meegeteld. Opbrengst: één product live (Rollwright, 19 downloads, 0 verkopen), twee in keuring, 0 euro. Bouwen is niet het probleem: het Steam-team bouwt echt en snel. Wat traag en duur is: elke run leest eerst 80 tot 130 KB, de opdrachten van de geplande taken spreken de besluiten tegen, er sturen drie lagen die elkaars besluiten omdraaien, bij elke kleine taak loopt een controleur-agent mee, en de meetlat voor nieuwe kansen kan bijna geen ja geven. De vijf punten hieronder pakken dat aan. Punt 1, 2 en 5 zijn gewoon goed en kosten de hoofdchat samen ±2 uur. Punt 3 en 4 zijn keuzes van Thijs.
+In drie dagen maakte de ploeg ±1.650 commits. Opbrengst: één product te koop (Rollwright, skins $6, 26 downloads), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en moet Thijs voor elke release of telling zelf iets doen. De vijf punten hieronder lossen dat op.
 
 ## Vóór alles: één koerszin (keuze Thijs, 1 minuut)
-Er staan drie koersen door elkaar: CLAUDE.md "gebruikers en later geld", de projectbeschrijving "eerst bereik, daarna geld", `doelen.md` "geld gaat voor bereik", en het besluit van 9 nov 22:56 "echt geld maken nu". Ook "nooit haasten om een datum" (doelen) tegenover "liever een eerlijke gok dan een week zekerheid" (22:56). Elke afweging van elke Claude leunt hierop. Mijn advies: **"Zo snel mogelijk eerlijk geld, gespreid over platformen. Bereik telt omdat het tot geld leidt: elk product heeft vanaf dag 1 een betaald deel."** Uitwerking: `voorstellen/10-koers-in-een-zin.md`.
+Nu staan er vier koersen door elkaar (CLAUDE.md "gebruikers en later geld", projectbeschrijving "eerst bereik", `doelen.md` "geld gaat voor bereik", besluit 22:56 "echt geld nu"). Elke afweging leunt hierop. Advies: **"Eerst de eerste eerlijke euro, daarna spreiden. Bereik telt omdat het tot geld leidt: elk product is vanaf dag 1 te koop."** Uitwerking: `voorstellen/10-koers-in-een-zin.md`.
 
 ## Top 5
 
-### 1. Elke run leest nog maar ±15 KB in plaats van ±100 KB (gewoon goed)
-- **Wat er mis is.** De leeslijst staat op drie plekken en verschilt: CLAUDE.md (berichten, doelen, regels, besluiten, rol, map), `platformmanager.md` (regels, bord, status, taken, laatste 5 regels logboek) en de opdracht van elke taak (weer anders). In de praktijk: regels 13 KB, besluiten 56 KB, berichten tot 42 KB (Olaf), plus de map. 8 Claudes elk uur, ±192 runs per dag. `status.md` moet volgens de rol 10 regels zijn; blender heeft er 61, obsidian 65, pionier 84.
-- **Wat anderen doen.** Anthropic: CLAUDE.md onder 200 regels, langer "reduce adherence"; verwijzen of verplicht laten lezen bespaart niets, alleen laden als het nodig is (bron 1, 2, 5). Anthropic's eigen CLAUDE.md is 40 regels (bron 27). Voor lange klussen: kort voortgangsbestand plus git log, en één taak per sessie (bron 8, 23).
-- **Voorstel.** CLAUDE.md wordt de enige startlijst met de harde regels (`voorstellen/01-CLAUDE.md`). `organisatie/bord.md` (bestaat al) wordt het ene bestand met wat nu geldt, hooguit 40 regels (`02-bord.md`); `besluiten.md` blijft het logboek maar hoeft niet meer elke run gelezen. `status.md` per map wordt het startpunt: vaste vorm, hooguit 25 regels, met de volgende taak (`03`, deel B). `regels.md` wordt naslag van ±6 KB (`07-regels.md`).
-- **Oplevert.** GOK (±4 tekens per token): het begin van een run gaat van ±25.000 naar ±4.000 tokens; bij ±192 runs per dag is dat ±4 miljoen tokens per dag minder. Plus betere naleving, omdat de harde regels niet verdrinken. Kleine extra winst: logboek en taken in dezelfde commit als het werk, niet in een aparte commit (nu na bijna elk stuk werk, zie bevindingen F).
-- **Werk.** ±1 uur voor de hoofdchat, in één keer doorvoeren en in elk berichtenbestand één regel zetten.
+### 1. Zet de ploeg op de eerste euro (keuze Thijs, 1 minuut)
+- **Wat er mis is.** Per product de vroegste euro (`voorstellen/12-eerste-euro.md`): Click Joints Pro ±1 week als het via Polar verkoopt (kassa staat al), Garmin-ademapp eind november, Bison & Flex half december (30 dagen proef na goedkeuring), Het Hol half januari, Klopt pas 4 tot 8 weken na een KvK die er nog niet is. Toch draaien Tess en Jet elk uur op Klopt, en zit Bram (de bouwer van Click Joints) op Steam als vijfde man.
+- **Voorstel.** Elk uur: Olaf, Sanne, Mila (Steam), Bram (Click Joints Pro tot hij te koop staat), Gijs (Garmin). Klopt stil tot de KvK-datum vaststaat; Jet op afroep voor de lancering van Bison & Flex. Geen nieuw platform tot er een euro binnen is. Elk product krijgt op het bord een "euro-datum"; schuift die twee keer, dan kleiner of stoppen.
+- **Eerlijk over geld.** Minder Claudes bespaart zelf geen euro: het abonnement is vast. Het spaart weeklimiet en overleg. De echte kostenknop is een kleiner abonnement; meet na de reset (wo 21:00) een week en beslis dan. GOK, niet gemeten.
+- **Oplevert.** Twee kansen op een euro in november in plaats van nul, zonder dat Steam trager gaat (de bouwer blijft).
 
-### 2. Alle geplande opdrachten dezelfde korte tekst (gewoon goed)
-- **Wat er mis is.** Gezien met list_triggers (9 nov 23:30): Olaf krijgt elk uur nog "eerst alleen de ideefase, Thijs kiest" (achterhaald 19:20). Hans krijgt "nieuwe platformen zijn nu de hoofdzaak" (zoeken staat stil sinds 18:30). Tess "bouw pas na een ja van Hans" en "elke 3 uur" (beide achterhaald). `geplande-taken.md` is van 7 nov en mist Gijs, Mila, Kees, Lotte en Patrick. De herinnering van 11 nov noemt een ploeg die al twee keer veranderd is.
-- **Wat anderen doen.** Bij tegenspraak kiest Claude willekeurig (bron 7). Een geplande prompt moet op zichzelf staan en zeggen wat klaar is (bron 18).
-- **Voorstel.** Eén opdracht van ±12 regels voor iedereen; alleen naam, rol en map verschillen. Alles wat verandert staat in de rol, het bord of `status.md`. Wie een taak wijzigt, werkt `geplande-taken.md` en `dashboard/ploeg.json` in dezelfde run bij (`03-geplande-opdracht.md`).
-- **Oplevert.** Een besluit van Thijs werkt meteen door, zonder 8 opdrachten aan te passen.
-- **Werk.** ±30 minuten met update_trigger.
+### 2. Toegang met officiële sleutels (gewoon goed, Thijs ±10 minuten nu)
+- **Wat er mis is.** Elke Rollwright-release, elke telling van verkopen en elke Blender-update loopt via Thijs of de hoofdchat. Er zijn nu maar twee sleutels: JetBrains-upload en Moneybird-proef (GEZIEN in de workflows).
+- **Voorstel** (`voorstellen/11-toegang.md`, wordt `organisatie/toegang.md`). Nu: (1) Polar-token alleen lezen, de euro-meter voor iedereen, 5 min; (2) GitHub-token voor alleen `rollwright` en `click-joints`, dan releast de ploeg zelf, 5 min. Later: Blender-token na goedkeuring (3 min), Polar-schrijftoken bij het tweede product, Steam-build-account in december (20 min, één keer inloggen met Steam Guard op Thijs' eigen computer, daarna alleen een bestand als secret). Niet: Steam-financiële sleutel (alleen met vast IP te beperken), Moneybird-hoofdsleutel (opent de hele administratie). Garmin heeft geen upload-API: elke upload blijft handwerk.
+- **Regels.** Sleutels alleen als GitHub-secret per platform-environment, alleen in Actions bij push of met de hand, nooit in een bestand of bericht. Prijzen, live zetten, eerste inzending, profielen, voorwaarden, betalen en posten blijven bij Thijs of de hoofdchat, ook als een sleutel het technisch kan.
+- **Bron.** Officiële docs van elk platform, met link per punt in `bronnen/toegang-ruw.md`; Polar-scopes nagekeken in hun broncode.
 
-### 3. Eén beslisser, één controleur, minder tegelijk (keuze Thijs)
-- **Wat er mis is.** Drie lagen sturen: Hans, de hoofdchat en de compagnon-ronde. Besluiten van Hans van 20:44 werden dezelfde avond omgedraaid (Garmin donderdag werd meteen; $100 na meting werd $100 nu). Op 9 nov veranderde de ploeg zes keer. Elke run zet volgens de rol "1 of 2 agents" in, ook voor kleine taken; 187 commits sinds 8 nov noemen de controleur. Het Steam-team van vijf schreef op één dag 104 commits aan berichten, en er was al een samenvoegfout.
-- **Wat anderen doen.** Project Vend 2: een baas-agent van hetzelfde model "wasn't much help, and might even have been a hindrance"; vaste procedures en afgebakende rollen werkten beter (bron 25). Begin met 3 tot 5 agents, overleg groeit mee (bron 11). Multi-agent kost ±15 keer de tokens (bron 10). Een reviewer die moet zoeken "will always find something" (bron 20); groene tests zijn de beste controle (bron 22).
-- **Voorstel** (`05-ploeg-en-sturing.md`). De hoofdchat met Thijs beslist over koers, ploeg en geld en houdt het bord bij. Hans wordt de controleur van het bedrijf: één run per dag, een dagkaart van 10 regels (wie leverde niets, wat is verouderd, wat hangt). Ploeg en schema veranderen alleen op twee vaste momenten per dag (09:00 en 21:00), behalve bij nood (Shape Up: "bets are commitments", bron 28). Steam met 3 Claudes elk uur, de rest om de 2 uur tot er iets te bouwen is. Controleur-agent alleen bij een ontwerp, iets wat naar buiten gaat, of een getal waar een besluit op rust.
-- **Oplevert.** GOK: ±40% minder runs en minder heen en weer, zonder dat Steam trager gaat.
-- **Eerlijk over Thijs.** Thijs zei om 21:15 "verbruik is nu niet belangrijk", drie uur nadat hij om 18:30 juist om verbruik snoeide. Mijn punt is niet alleen verbruik: elke extra Claude en elke ommezwaai kost overleg, en dat remt de lancering.
+### 3. Elke run start met ±15 KB in plaats van ±100 KB, met één opdracht voor iedereen (gewoon goed, ±1,5 uur hoofdchat)
+- **Wat er mis is.** De leeslijst staat op drie plekken en verschilt (CLAUDE.md, `platformmanager.md`, de opdracht van elke geplande taak). `besluiten.md` is 57 KB en groeit; `status.md` moet 10 regels zijn, praktijk tot 84. De geplande opdrachten spreken de besluiten tegen: Olaf krijgt elk uur nog "Thijs kiest eerst", Hans "nieuwe platformen zijn de hoofdzaak", Tess "elke 3 uur" (list_triggers, 9 nov 23:30). `geplande-taken.md` mist vijf taken.
+- **Wat anderen doen.** Anthropic: CLAUDE.md onder 200 regels, langer geeft slechtere naleving; bij tegenspraak kiest Claude willekeurig; een geplande prompt moet op zichzelf staan (bronnen 1, 2, 7, 18, 27).
+- **Voorstel.** CLAUDE.md wordt de enige startlijst met de harde regels (01). `organisatie/bord.md` is het ene bestand met wat nu geldt, hooguit 40 regels (02). `status.md` per map in vaste vorm met de volgende taak (03 B). Alle geplande taken krijgen dezelfde opdracht van ±12 regels (03 A). `regels.md` wordt naslag (07). Rollen verwijzen alleen nog naar CLAUDE.md (08).
+- **Oplevert.** GOK: het begin van een run van ±25.000 naar ±4.000 tokens, en een besluit van Thijs werkt meteen overal door zonder 8 opdrachten aan te passen.
 
-### 4. De meetlat vervangen door één getal: verwachte euro's in 90 dagen (keuze Thijs)
-- **Wat er mis is.** Een 8 eist vier dingen tegelijk: kleine makers verdienen er nu, bereik voor nieuwkomers, wij bouwen binnen ±2 weken, Thijs verkoopt binnen een week zonder kosten vooraf. Waar verdiend wordt, zit bijna altijd een drempel ($100 bij Steam, KvK bij TikTok, $100 per jaar bij Garmin). Na ±170 platformen en 410 commits van de zoekers kwamen er vooral zessen en zevens. Steam kreeg een 7 omdat de drempels "schuurden", en Thijs koos het toch. De lat zei nee tegen wat Thijs wilde.
-- **Voorstel.** Elke kans (platform plus product samen) krijgt één schatting: verwachte opbrengst in 90 dagen, laag, middel en hoog, met bron per getal, gedeeld door de weken werk. Drempels zijn kosten, geen afwijzing. Kies het beste getal per week werk.
-- **Oplevert.** Sneller kiezen, en Thijs snapt elke keuze in één regel. Past bij zijn besluit van 22:56 ("liever een eerlijke gok met kans op geld").
+### 4. Eén beslisser, vaste momenten, en kiezen op euro per week werk (keuze Thijs)
+- **Wat er mis is.** Hans, de hoofdchat en de compagnon-ronde sturen alle drie. Besluiten van Hans van 20:44 werden dezelfde avond omgedraaid (Garmin, Steam-geld); op 9 nov veranderde de ploeg zes keer. De meetlat eist vier dingen tegelijk voor een 8, dus kwamen er na ±170 platformen vooral zessen, en Thijs koos Steam toch.
+- **Wat anderen doen.** Project Vend 2: een baas-agent van hetzelfde model "wasn't much help, and might even have been a hindrance" (bron 25). Shape Up: vaste beslismomenten, "bets are commitments" (bron 28).
+- **Voorstel** (`voorstellen/05-ploeg-en-sturing.md`). De hoofdchat met Thijs beslist koers, ploeg en geld. Hans wordt één keer per dag de controleur (dagkaart van 10 regels: wie leverde niets, wat is verouderd, wat hangt). Ploeg en schema veranderen alleen om 09:00 en 21:00, behalve bij nood. Kansen kiezen we op één getal: verwachte euro's in 90 dagen (laag, middel, hoog, met bron) gedeeld door weken werk. Drempels zijn kosten, geen afwijzing. Controleur-agent alleen bij een ontwerp, iets dat naar buiten gaat, of een getal waar een besluit op rust.
+- **Eerlijk over Thijs.** Om 18:30 snoeide Thijs om verbruik, om 21:15 was verbruik "nu niet belangrijk" en startte Garmin tegen het advies van de hoofdchat in. Spreiden is een goed doel, maar elke ommezwaai kost een paar runs uitleg en overdracht. Twee vaste momenten per dag geven Thijs dezelfde macht met minder ruis.
 
-### 5. De lijst voor Thijs op één scherm (gewoon goed)
-- **Wat er mis is.** `lijst-thijs.md` is 82 KB met 61 doorgestreepte punten; van de open punten zijn er twee echt nu. Het dashboard raadt met een lange zoekzin welk punt "ter info" is (`dashboard/bouw.py` regel 120) en toont "commits vandaag" als kopcijfer: drukte, geen uitkomst.
-- **Wat anderen doen.** Eén inbox voor de mens met drie soorten berichten: melden, vragen, nakijken (bron 26).
-- **Voorstel** (`04-lijst-thijs.md`). Hooguit 5 punten, vaste vorm (wat, minuten, nu of deze week of pas na X, waarom in één zin, stappen, de zin die Thijs terugzegt). Afgehandeld gaat dezelfde dag naar het archief. Dashboard (`09-dashboard.md`): bovenaan gebruikers, betalende klanten en euro per maand tegen het doel van 20 december; per product lanceerdatum en waar het op wacht; per persoon de laatste uitkomst in plaats van het aantal commits. "pas na" bepaalt wat ter info is.
-- **Werk.** ±30 minuten voor de lijst, ±1 uur voor het dashboard.
+### 5. Thijs ziet in één blik de euro's, en zijn lijst past op één scherm (gewoon goed, ±1,5 uur)
+- **Wat er mis is.** `lijst-thijs.md` is 82 KB met 61 doorgestreepte punten. Het dashboard toont "commits vandaag" als kopcijfer: drukte, geen uitkomst. Niemand ziet verkopen zonder in te loggen bij Polar.
+- **Voorstel** (`04-lijst-thijs.md`, `09-dashboard.md`). Lijst: hooguit 5 punten in vaste vorm (wat, minuten, wanneer, waarom in één zin, stappen); afgehandeld gaat dezelfde dag naar het archief. Dashboard: bovenaan euro's binnen (uit de Polar-leessleutel van punt 2), betalende klanten en per product de euro-datum; per persoon de laatste uitkomst in plaats van het aantal commits.
 
 ## Hoe doorvoeren zonder dat de ploeg vastloopt
-Een controleur die mijn voorstellen niet schreef, vond terecht dat CLAUDE.md, rollen en status.md samen moeten veranderen. Daarom:
-1. **Eén commit** met: `CLAUDE.md` (01), `organisatie/bord.md` (02), `organisatie/regels.md` (07), de leesstap en agentstap in de rollen (08 A, B en D), `organisatie/sjablonen/status.md` (03 B) en een regel in elk berichtenbestand ("zet je status.md om naar het sjabloon"). Tot een status.md is omgezet, geldt de bovenste taak uit taken.md.
-2. Direct daarna de opdrachten van de geplande taken met update_trigger (03 A) en `geplande-taken.md` (03 C).
-3. `.gitignore` (06) en `lijst-thijs.md` met archief (04), plus de regels 120 en 134 in `dashboard/bouw.py`.
-4. Wat Thijs kiest uit 05 (sturing, ploeg, meetlat) en 08 C (Hans).
-Bestanden die nog niet bestaan en dus mee moeten: `organisatie/sjablonen/status.md`, `organisatie/archief/`, `berichten/archief/`, `.gitignore`.
+1. **09:00, met Thijs (5 minuten):** koerszin, punt 1 (ploeg), punt 4 (sturing en meetlat). Thijs maakt daarna de twee sleutels van punt 2.
+2. **Eén commit** met `CLAUDE.md` (01), `organisatie/bord.md` met euro-datum per product (02 en 12), `organisatie/regels.md` (07), `organisatie/toegang.md` (11), de lees- en agentstap in de rollen (08), `organisatie/sjablonen/status.md` (03 B) en in elk berichtenbestand één regel "zet je status.md om naar het sjabloon".
+3. Direct daarna de opdrachten van de geplande taken met update_trigger (03 A), het schema van punt 1, en `geplande-taken.md` (03 C).
+4. `.gitignore` (06), `lijst-thijs.md` met archief (04), dashboard (09).
 
-## Ook belangrijk, maar niet in de top 5
-- **Repo afslanken** (`06-repo-afslanken.md`). `.git` is 2,7 GB, de datamappen van de zoekers ±170 MB. In deze run liep `git fetch` vast. Een `.gitignore` voor ruwe data kost 10 minuten; de geschiedenis opschonen is een keuze van Thijs voor later.
-- **Eerst de regels van een plek lezen.** De Reddit-post voor Rollwright stond dagen klaar; Thijs zag zelf dat r/ObsidianMD door AI gemaakte promotie verbiedt en een eerste post met ban bestraft. Staat nu als regel in `07-regels.md`, deel "Gevonden worden".
-- **Zes rollen staan uit** (verkenner, pionier, zijpadzoeker, herweger, strateeg, commercieel). Zet ze in `organisatie/rollen/uit/`, dan leest niemand ze per ongeluk.
-
-- **Weeklimiet: niemand houdt hem nog in de gaten.** Volgens de (nu uitgezette) herinnering "Verbruik-check" stond het account maandag 9 nov 13:40 op 55% van de weeklimiet, die woensdag 21:00 reset (GEZIEN in de opdracht van die herinnering). Daarna kwamen Sanne, Mila, Gijs en Patrick erbij, en Thijs wil niet meer naar verbruik gevraagd worden. Raakt de limiet op, dan stoppen alle runs tegelijk, ook die van het Steam-team, en dat merkt niemand tot Thijs kijkt. Advies: de hoofdchat leest bij elke compagnon-ronde het percentage af als Thijs het in het paneel zet (één getal, geen vraag), en heeft een vaste noodknop klaar: boven 85% gaan Daan, Mila, Sanne en Gijs naar om de 3 uur tot de reset. Voorstel 01 tot 03 helpen hier ook direct.
-
-## Wat ik nog doe (runs 2 tot 5)
-- Voorstel 01 en 07 nog eens naast elkaar leggen met de huidige regels.md, regel voor regel, zodat er niets wegvalt.
-- Top 5 definitief maken en per punt de minuten werk voor de hoofdchat nalopen.
+## Ook belangrijk, niet in de top 5
+- **Weeklimiet: niemand kijkt.** 55% op ma 13:40 (herinnering "Verbruik-check", nu uit), reset wo 21:00, daarna kwamen er vier Claudes bij. Raakt hij op, dan stopt alles tegelijk. Punt 1 helpt direct; noodknop: boven 85% alleen nog Olaf, Bram en Gijs elk uur.
+- **Repo afslanken** (06). `.git` is 2,7 GB; een `.gitignore` voor ruwe data kost 10 minuten.
+- **dortus.com draait op GitHub Pages** (GEZIEN). Volgens GitHub niet bedoeld voor een commerciële dienst; afrekenen gebeurt bij Polar, dus voor nu prima. Bij echte verkoop van Klopt naar Cloudflare Pages (11).
+- **Eerst de regels van een plek lezen** voor je ergens iets plaatst (Reddit-ban bij Rollwright). Staat in 07.
+- **Zes rollen staan uit.** Verplaats ze naar `organisatie/rollen/uit/`.
