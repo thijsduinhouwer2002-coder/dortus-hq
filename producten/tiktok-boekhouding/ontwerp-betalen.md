@@ -86,3 +86,6 @@ Gebouwd: stap 0 tot 4b (telling, `wacht_ouder`, maandwissel), toetsen d, e, f, g
 - **Onbekende fout uit `boekAfrekening`** (geen MoneybirdFout of BudgetOp): de telling blijft staan (te ruim is veilig), de status blijft "boeking gestart".
 - **Maandwissel** draait alleen zonder abonnement en alleen als `leesOpen` iets geeft van vóór het begin van de vorige maand; `UPDATE ... RETURNING`, de omgezette gaan uit de runlijst. Kan-punt open: een oude `uitbetaling_mislukt` laat hem elke aanroep één query kosten.
 - Nog niet gebouwd: stap 5 (twijfel-opvraging, toets h) en deel 3 (`zegOp` in de cron).
+
+## Bouw stap 5 (Jet, 10 nov 2026, tak `claude/tiktok-shop-2026-11-10-k`)
+`src/polar/twijfel.ts` (`heeftTwijfel`, `abonnementVoorRun`), aangeroepen in de consumer na de tokens en vóór `verwerkWinkel`. "Er wacht een afrekening van de lopende of vorige maand" komt als `EXISTS` mee in de eerste SELECT van de consumer (geen extra query). Zonder stand telt de stand als oud. Polar onbereikbaar, 429, 5xx, budget op of geen `POLAR_TOKEN`: deze aanroep alleen gratis boeken en een logregel (ALARM bij 401/403 of geen instellingen). Het schrijven is `schrijfStand` (alleen als nieuwer); de uitkomst van deze aanroep volgt de opvraging, ook als D1 intussen een nieuwere stand kreeg (dan hoogstens één aanroep alleen gratis). Toets h en l in `test/twijfel.test.ts`.

@@ -13,7 +13,7 @@ const rij = (db: NepD1, w: string) => db.sqlite.prepare("SELECT * FROM winkels W
 
 // Standaard een actief abonnement: deze toetsen gaan over budget en tokens, niet over de gratis grens. Sinds deel 2 van het
 // betaalstuk leest de Worker het abonnement uit `winkels.abonnement` (niet meer `magBoeken` uit de instellingen).
-const ACTIEF = JSON.stringify({ actief: true, tot: NU + 30 * 86400, id: "sub", opgezegd: false, stand: 1 });
+const ACTIEF = JSON.stringify({ actief: true, tot: NU + 30 * 86400, id: "sub", opgezegd: false, stand: NU * 1_000_000 }); // verse stand: geen twijfel (stap 5)
 async function winkel(db: NepD1, w: string, extra: { volgende_run?: number; snel_teller?: number; ontkoppeld?: boolean; abonnement?: string | null } = {}) {
   const tt = await versleutel(bos, w, JSON.stringify({ accessToken: "tt-a", accessTokenVerlooptOp: NU + 86400, refreshToken: "tt-r", refreshTokenVerlooptOp: NU + 100 * 86400 }));
   const mb = await versleutel(bos, w, JSON.stringify({ accessToken: "mb-a", refreshToken: "mb-r", scope: "documents" }));

@@ -9,6 +9,8 @@ import { webhook } from "./webhook.ts";
 import { polarWebhook, POLAR_WEBHOOK_PAD } from "./polar/webhook.ts";
 import type { PolarInstellingen } from "./polar/client.ts";
 import { abonnementActief } from "./polar/abonnement.ts";
+import { abonnementVoorRun } from "./polar/twijfel.ts";
+import { beginVanMaand, vorigeMaand } from "./telling.ts";
 import { MoneybirdClient } from "./moneybird/client.ts";
 import { MoneybirdFout } from "./moneybird/fouten.ts";
 import type { OAuthApp } from "./moneybird/oauth.ts";
@@ -106,6 +108,7 @@ interface WinkelRij {
   mb_tokens: string | null;
   mb_versie: number;
   abonnement: string | null;
+  wacht_recent: number; // stap 5 (ontwerp-betalen.md): afrekening van de lopende of vorige maand wacht op een abonnement
 }
 
 /** Soorten die alleen bij één kant voorkomen. `te_veel_verzoeken` en `server` komen bij beide voor. */
@@ -183,8 +186,9 @@ async function verwerkOnderSlot(
   teller.neem();
   const rij = await o.db
     // Winkelrij en beide tokens in één query (scheelt 2 per aanroep); TokenBron.vanRij gebruikt de tokenkolommen.
-    .prepare(`SELECT shop_cipher, instellingen, snel_teller, tt_tokens, tt_versie, mb_tokens, mb_versie, abonnement FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
-    .bind(winkel)
+    .prepare(`SELECT shop_cipher, instellingen, snel_teller, tt_tokens, tt_versie, mb_tokens, mb_versie, abonnement, EXISTS (SELECT 1 FROM statussen s
+      WHERE s.winkel = winkels.id AND s.status = 'wacht_op_abonnement' AND s.statement_time >= ?) AS wacht_recent FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
+    .bind(beginVanMaand(vorigeMaand(nu)), winkel)
     .first<WinkelRij>();
   if (!rij) return "ontkoppeld";
 
@@ -217,6 +221,7 @@ async function verwerkOnderSlot(
         await mbBron.vanRij(rij.mb_tokens, rij.mb_versie);
         await mbBron.geef();
         if (tt.waarschuwing) o.log(`winkel ${winkel}: refresh token van TikTok verloopt binnen 14 dagen; verkoper moet opnieuw koppelen`);
+        inst.magBoeken = await abonnementVoorRun({ db: o.db, winkel, kolom: rij.abonnement, wachtRecent: Number(rij.wacht_recent) === 1, nu, polar: o.polar, budget, fetchFn: o.fetchFn, slaap: o.slaap, neem: () => teller.neem(), log: o.log }); // stap 5; niet via `volg`: Polar is geen kant van een winkelfout
         const f = budget.omhul(volg);
         const slaap = o.slaap ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
         const run = (ttTok: string, mbTok: string) =>
