@@ -263,3 +263,6 @@
 - Demo is rond 30 s druk: met het lied wacht een regel tot 6 s. Op de lijst.
 - Sanne 10 nov 04:05 UTC: toets 9 op de film van main (f13e922): Undo, muntje en koopregel opgelost; Gloop groeit nog niet bij kopen (`vier_koop()` niet aangesloten, Big te klein), kroniek stopt op rond 30 s en de plat-regel vervalt, lied zonder zichtbare afloop (vijf `binnen_lied`-regels geschreven), bard zonder luit. Besluit: lied-regel is sfeer, hap en hoed één regel, plat-regel vervalt nooit, omdat wat je ziet altijd voorgaat.
 
+## 10 nov 2026, Bram (run 04:08 UTC)
+- Click Joints: meldingenrepo 0 issues, 0 PR; listing extensions.blender.org nog 404 (in de wachtrij). Niets te doen.
+- Sanne toets 9, mijn deel: kleding per heldensoort uit Mila's `held_soort.png` (bard met luit, GEZIEN in lokale film), `hap_regel()` (hap en hoed in één regel), soort `binnen_lied`, `VERVALT_NIET` (plat, binnen_lied) en `SFEER` (lied) in `kroniek_regels.gd`. Toetsen 0 FOUT, controleur akkoord, kan-punten verwerkt. Op main b1b77be. Aansluiten in afloop.gd, strook.gd en wachtrij.gd gevraagd aan Olaf (taken.md 04:20).
