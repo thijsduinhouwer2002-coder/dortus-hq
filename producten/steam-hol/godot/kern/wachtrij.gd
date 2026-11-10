@@ -23,10 +23,13 @@ const NOOIT_WEG := ["plat", "lied"]
 # punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond).
 const DRINGEND := ["plat"]
 # Weggedrukt voor hij 2,5 s stond (Sanne toets 11, punt 1: "Bram's song got popular. Uh oh." stond 1 s, plat drukte hem
-# weg): een NOOIT_WEG-regel komt direct na de regel die hem wegdrukte nog één keer terug, zonder die op te houden, en gaat
-# daarna pas weg. Alleen NOOIT_WEG (besluit Olaf 10 nov): een binnenkom-regel mag na 1 s wijken voor een gebeurtenis
+# weg): de lied-regel (TERUG) komt direct na de regel die hem wegdrukte nog één keer terug, zonder die op te houden, en gaat
+# daarna pas weg. Alleen lage sfeerregels (besluit Olaf 10 nov): een binnenkom-regel mag na 1 s wijken voor een gebeurtenis
 # (toets 5) en terugkomen zou de kroniek weer laten achterlopen. Gebeurtenissen gaan nog steeds voor de terugkomer.
 # Hij komt maar één keer terug (`terug`), en in de kroniek staat hij daarna één keer, op zijn nieuwe plek.
+# Alleen "lied", niet "plat" (controleur 10 nov 06:30): een plat die terugkomt terwijl Gloop al op is zegt iets anders
+# dan je ziet, en strook.gd haalt een wachtende plat weg als hij opstaat (dan zou "op" ontbreken).
+const TERUG := ["lied"]
 
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
@@ -66,7 +69,7 @@ static func toon(s) -> void:
 	s.wachtrij.remove_at(k)
 	# de getoonde regel stond te kort: één keer terug, vooraan bij de lage regels
 	var oud: Dictionary = s.regel_nu
-	if not oud.is_empty() and staat < REGEL_MIN and NOOIT_WEG.has(String(oud.get("soort", ""))) and not bool(oud.get("terug", false)):
+	if not oud.is_empty() and staat < REGEL_MIN and TERUG.has(String(oud.get("soort", ""))) and not bool(oud.get("terug", false)):
 		var weer := oud.duplicate()
 		weer["terug"] = true
 		weer["sinds"] = s.t

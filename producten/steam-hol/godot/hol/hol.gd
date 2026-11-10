@@ -134,7 +134,7 @@ const SCHUD_S := 0.5
 const GRAAF_S := 0.45
 const SCHUIF_S := 0.4
 var brokkel := {}             # Vector2i(kolom, rij 0 of 1) -> tijd sinds graven
-var ingang_vorig := -1        # kolom waar de ingang vandaan schuift
+var ingang_van_x := -1.0      # x (spelpixels) waar de ingang vandaan schuift
 var ingang_schuif := 0.0      # tijd die het schuiven nog duurt
 var GRAAF_BLAD: Texture2D = load("res://kunst/graaf.png") if ResourceLoader.exists("res://kunst/graaf.png") else null
 
@@ -143,11 +143,11 @@ func _graaf_moment(cel: Vector2i) -> void:
 	set_process(true)
 
 func _ingang_x() -> float:
-	if ingang_schuif <= 0.0 or ingang_vorig < 0:
+	if ingang_schuif <= 0.0 or ingang_van_x < 0.0:
 		return float(ingang_kol * KOL)
 	var f := 1.0 - ingang_schuif / SCHUIF_S
 	f = 1.0 - (1.0 - f) * (1.0 - f)   # rustig uitlopen
-	return lerpf(float(ingang_vorig * KOL), float(ingang_kol * KOL), f)
+	return lerpf(ingang_van_x, float(ingang_kol * KOL), f)
 
 # de aarde die nog over is in een cel die net gegraven is, plus steentjes en stof
 func _brokkel(cel: Vector2i, tijd: float) -> void:
@@ -243,7 +243,7 @@ func klik(pos: Vector2) -> String:
 			return ""   # kolom 0 blijft dicht, anders staat de ingang half buiten beeld
 		if k == ingang_kol - 1:
 			gang[k] = true
-			ingang_vorig = int(round(_ingang_x() / KOL)) if ingang_schuif > 0.0 else ingang_kol
+			ingang_van_x = _ingang_x()   # ook als hij nog schuift: vanaf waar hij nu staat, geen sprong
 			ingang_kol = k
 			ingang_schuif = SCHUIF_S
 			_graaf_moment(Vector2i(k, 1))
