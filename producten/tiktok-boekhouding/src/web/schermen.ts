@@ -2,7 +2,7 @@
 // kunst/4-staten.png). Alleen opbouw en tekst: de routes in koppelen.ts en moneybird.ts kiezen welk scherm en geven het aan `pagina`.
 // Alle teksten van een scherm staan hier bij elkaar, zodat Engels er later naast kan.
 
-import { html, type Html } from "./html.ts";
+import { html, LOGO, type Html } from "./html.ts";
 
 export interface Scherm {
   titel: string;
@@ -28,10 +28,19 @@ export function landNaam(code: string): string {
 const knopLink = (adres: string, tekst: string) => html`<a class="knop knop-hoofd" href="${adres}">${tekst}</a>`;
 const verborgenCsrf = (csrf: string) => html`<input type="hidden" name="csrf" value="${csrf}">`;
 
-/** Rustige staat: teken, één vette zin, één zin uitleg, hoogstens één knop (Daan, punt 4). */
-function staat(teken: string, kop: string, uitleg: string, knop?: Html): Html {
-  return html`<section class="staat"><div class="teken" aria-hidden="true">${teken}</div><h1>${kop}</h1><p class="zacht">${uitleg}</p>${knop ?? ""}</section>`;
+/** Rustige staat in een kaart (schets kunst/4-staten.png, punt 3 van Daan 10 nov 06:10): teken in een cirkel, één vette
+ * zin, één zin uitleg, hoogstens één knop. `fout` is licht rood met een secundaire knop (de fout ligt niet bij de verkoper);
+ * `logo` is het merkteken groot; anders licht paars. */
+type Teken = { soort: "paars" | "fout"; tekst: string } | { soort: "logo" };
+function staat(teken: Teken, kop: string, uitleg: string, knop?: Html): Html {
+  const t = teken.soort === "logo"
+    ? html`<img class="logo-groot" src="${LOGO}" alt="" width="56" height="56">`
+    : html`<div class="teken teken-${teken.soort}" aria-hidden="true">${teken.tekst}</div>`;
+  return html`<section class="kaart staat">${t}<h1>${kop}</h1><p class="zacht">${uitleg}</p>${knop ?? ""}</section>`;
 }
+const knopRustig = (adres: string, tekst: string) => html`<a class="knop knop-gewoon" href="${adres}">${tekst}</a>`;
+const paars = (tekst: string): Teken => ({ soort: "paars", tekst });
+const LOGO_TEKEN: Teken = { soort: "logo" };
 
 export interface KoppelGegevens {
   winkelnaam: string;
@@ -52,9 +61,9 @@ ${g.melding ? html`<p class="melding" role="status">${g.melding}</p>` : ""}
 <section class="kaart"><div class="dienst"><span class="tegel tegel-tt" aria-hidden="true">T</span><div><h2>TikTok Shop</h2><p>${g.winkelnaam} · gekoppeld</p></div></div><p class="pil pil-goed"><span aria-hidden="true">✓ </span>Klaar</p></section>
 <span class="pijl" aria-hidden="true">→</span>
 <section class="kaart"><div class="dienst"><span class="tegel tegel-mb" aria-hidden="true">M</span><div><h2>Moneybird</h2><p>Je boekhouding</p></div></div>
-<form method="post" action="/app/moneybird/start">${verborgenCsrf(g.csrf)}<button class="knop knop-hoofd" type="submit">Koppel Moneybird</button></form>
-<p class="klein">We vragen Moneybird om boekingen te maken en je grootboekrekeningen te lezen en aan te maken.</p></section>
+<form method="post" action="/app/moneybird/start">${verborgenCsrf(g.csrf)}<button class="knop knop-hoofd" type="submit">Koppel Moneybird</button></form></section>
 </div>
+<p class="klein">We vragen Moneybird om boekingen te maken en je grootboekrekeningen te lezen en aan te maken.</p>
 <p class="zacht">Geen Moneybird? <a href="/app/niet-voor-jou?voor=exact">Zet je op de wachtlijst voor Exact</a></p>`,
   };
 }
@@ -86,7 +95,7 @@ export function nietVoorJou(n: NietVoorJou): Scherm {
   const mail = `mailto:${SUPPORT}?subject=${encodeURIComponent(onderwerp)}`;
   return {
     titel: kop,
-    inhoud: staat(teken, kop, `${uitleg} Mail ons, dan hoor je het als Klopt voor jou werkt.`, knopLink(mail, "Mail ons")),
+    inhoud: staat(paars(teken), kop, `${uitleg} Mail ons, dan hoor je het als Klopt voor jou werkt.`, knopLink(mail, "Mail ons")),
   };
 }
 
@@ -101,7 +110,7 @@ export function foutBijKoppelen(kant: "TikTok" | "Moneybird", reden: "andere_kan
   return {
     titel: kop,
     status: 502,
-    inhoud: staat("!", kop, uitleg, knopLink(kant === "TikTok" ? START_TIKTOK : "/app", "Opnieuw koppelen")),
+    inhoud: staat({ soort: "fout", tekst: "!" }, kop, uitleg, knopRustig(kant === "TikTok" ? START_TIKTOK : "/app", "Opnieuw koppelen")),
   };
 }
 
@@ -109,7 +118,7 @@ export function foutBijKoppelen(kant: "TikTok" | "Moneybird", reden: "andere_kan
 export function weigeringTikTok(): Scherm {
   return {
     titel: "Geen toestemming",
-    inhoud: staat("…", "Je gaf TikTok Shop geen toestemming.", "Zonder toestemming kan Klopt je uitbetalingen niet lezen.", knopLink(START_TIKTOK, "Opnieuw koppelen")),
+    inhoud: staat(paars("…"), "Je gaf TikTok Shop geen toestemming.", "Zonder toestemming kan Klopt je uitbetalingen niet lezen.", knopLink(START_TIKTOK, "Opnieuw koppelen")),
   };
 }
 
@@ -117,7 +126,7 @@ export function weigeringTikTok(): Scherm {
 export function uitgelogd(): Scherm {
   return {
     titel: "Open Klopt vanuit TikTok Shop",
-    inhoud: staat("✓", "Open Klopt vanuit TikTok Shop", "Je logt in via TikTok Shop. Wachtwoorden hebben we niet.", knopLink(START_TIKTOK, "Inloggen met TikTok Shop")),
+    inhoud: staat(LOGO_TEKEN, "Open Klopt vanuit TikTok Shop", "Je logt in via TikTok Shop. Wachtwoorden hebben we niet.", knopLink(START_TIKTOK, "Inloggen met TikTok Shop")),
   };
 }
 
@@ -125,7 +134,7 @@ export function uitgelogd(): Scherm {
 export function openAls(winkelnaam: string): Scherm {
   return {
     titel: "Open Klopt",
-    inhoud: staat("✓", `Open Klopt als ${winkelnaam}`, "Bevestig even via TikTok Shop dat jij het bent.", knopLink(START_TIKTOK, "Doorgaan met TikTok Shop")),
+    inhoud: staat(LOGO_TEKEN, `Open Klopt als ${winkelnaam}`, "Bevestig even via TikTok Shop dat jij het bent.", knopLink(START_TIKTOK, "Doorgaan met TikTok Shop")),
   };
 }
 
@@ -134,7 +143,7 @@ export function evenGeduld(): Scherm {
     titel: "Even geduld",
     status: 503,
     kopregels: { "retry-after": "60" },
-    inhoud: staat("…", "Even geduld", "Klopt is net bezig met je winkel. Probeer het over een minuut opnieuw.", knopLink("/app", "Vernieuwen")),
+    inhoud: staat(paars("…"), "Even geduld", "Klopt is net bezig met je winkel. Probeer het over een minuut opnieuw.", knopRustig("/app", "Vernieuwen")),
   };
 }
 
@@ -164,5 +173,5 @@ export function kiesAdministratie(adms: Array<{ id: string; naam: string }>, csr
 
 /** Tot deel 2 (proef) er is. */
 export function gekoppeld(winkelnaam: string): Scherm {
-  return { titel: "Gekoppeld", stap: STAP1, inhoud: staat("✓", "Gekoppeld", `${winkelnaam} en Moneybird zijn gekoppeld. De proef volgt in de volgende stap.`) };
+  return { titel: "Gekoppeld", stap: STAP1, inhoud: staat(LOGO_TEKEN, "Gekoppeld", `${winkelnaam} en Moneybird zijn gekoppeld. De proef volgt in de volgende stap.`) };
 }

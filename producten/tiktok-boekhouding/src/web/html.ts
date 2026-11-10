@@ -61,7 +61,7 @@ export function kopregels(extra: Record<string, string> = {}): Headers {
 }
 
 /** Het teken van Klopt (bon met vinkje, zelfde als op dortus.com/klopt/), als data-adres: de CSP staat `img-src data:` toe. */
-const LOGO = new Html(
+export const LOGO = new Html(
   "data:image/svg+xml," +
     encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M6 3h18v22l-3-2-3 2-3-2-3 2-3-2-3 2z" fill="#4F3BD1"/><path d="M10 9h10M10 13h10" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"/><path d="M10.5 18.2l2.6 2.5 6-6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
