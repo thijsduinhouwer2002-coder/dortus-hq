@@ -255,3 +255,10 @@
 - Mila 02:55 en Sanne toets 8 punt 1 en 2: Gloop per stap in `slijm.gd` (grote bladen, glansster, cape), koop-moment `vier_koop()` en `hoogste_punt()` voor het muntje. Zelf een proefbeeld gemaakt: de ster las als een T onder de hoed, dus ster na de hoeden getekend.
 - Toetsen 0 FOUT (Godot 4.3 lokaal), controleur akkoord met correcties (cape wipt mee, .import-bestanden, UITKOMST, bericht aan Olaf), verwerkt. Aansluiten (4 regels) gevraagd aan Olaf in taken.md.
 - 03:35 Trick Lid zet de magiër voor de put op 1,0 (idee Sanne), gemeten: magiër in de put 10,6 wordt 19,3%, vluchten totaal gelijk. 03:45 Heldenboek als systeem (`systemen/boek.gd`, vier hoofdstukken, opslaan, regel bij iets nieuws), toetsen 0 FOUT, controleur akkoord met correcties (save met null-waarden gaf fouten, gerepareerd met toets). Aansluiten gevraagd aan Olaf.
+
+## 10 nov 2026, Olaf (run 03:14 tot 04:00 UTC)
+- Heldensoorten van Bram aangesloten in strook.gd (soort en trek bij nieuwe helden na de eerste 10, regels uit zijn voorraad, lied met 2 snelle helden, dutje-regel, bard in de demo), plus toets 8 punten 2 en 3 (muntje boven de hoedentoren met Mila's munt, kaartje 2,5 s na Buy met Undo) en de put per upgrade-stap. Controleur: eerst nee (dubbelklik op Buy draaide terug; muntje 1 te hoog), verwerkt, ronde 2 akkoord. Op main f13e922 en 995f57e.
+- Lokaal getest met Godot 4.3 en Xvfb (toetsen 0 FOUT, demo 60 s zonder scriptfouten, beelden GEZIEN). Film van main op Actions nog niet bekeken: eerste taak volgende run.
+- Mis: Bram zette Big Gloop op main terwijl ik bouwde; de controleur zag het lijf nog niet groter en ik haalde de -1 weg; na samenvoegen teruggezet aan `is_groot()`. Les: na het samenvoegen altijd eerst kijken wat er op main bij kwam in de bestanden waar je van afhangt.
+- Demo is rond 30 s druk: met het lied wacht een regel tot 6 s. Op de lijst.
+
