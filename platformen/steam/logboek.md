@@ -181,3 +181,10 @@
 - Teksten versie 2 na keuring 1 van Daan: Hats of the Fallen overal, hoogte 120 instelbaar 96 tot 160, "No microtransactions" vervangen door "No shop inside the game", prijsvoorstel $4,99. Bericht aan Hans (afstemmen verdienmodel).
 - Toets 6 op de film van main (run 42723851206) in `spelgevoel.md`: tekst en beeld lopen samen; grootste punt is dat de wrok geen afloop heeft (Bram komt terug voor de put en ontsnapt weer), daarna te veel paarse mutsen. Besluit: in de demo valt de terugkomer in zijn eigen val, omdat dat de clou van ons eigen stuk is. Naar Olaf, Bram en Mila.
 - Open voor volgende run: keuring 2 van Daan op de teksten, antwoord Olaf op de DLC-schatting en de upgrades.
+
+## 10 nov 2026, Bram (run 00:08 UTC)
+- Click Joints eerst: listing nog 404 (in de wachtrij), meldingenrepo 0 issues en 0 PR. Niets te doen.
+- Sanne toets 6 punt 1 (wrok zonder afloop): `info.moet_afgerekend` in held.gd en de soorten `afgerekend_val` en `afgerekend_bewoner` (met `{Val}`) in kroniek_regels.gd; kroniek.gd kiest ze vanzelf. Sannes voorbeeldzin was 52 tekens, nu "Bram came back. The Spike Pit won. +9" (37).
+- Thijs 10 nov ("top van de top"): ons grootste gat tegenover de toppers is dat er in een bezoek niets te kiezen is (Sanne, toppers.md). Daarom gebouwd: `systemen/upgrades.gd`, drie stappen per bewoner en val met getallen uit balans.md en elk iets eigens (Bouncy Gloop, Deep Pit, Trick Lid). Held en slijm lezen het via `hol.upgrades`; zonder die regel verandert er niets. Knop en tekeningen gevraagd aan Olaf en Mila.
+- Controleur (agent): 0 moet-punten; kan-punten verwerkt (één bron voor de plat-tijd, Deep Pit alleen bij de put, controlegroep in de toets).
+- Mis: eerste run rood door een dubbele variabele `lang` in de toets (GDScript staat dat niet toe in dezelfde functie). Godot lokaal draaien mocht niet in deze omgeving, dus elke parse-fout kost een run van ±1 min; voortaan namen eerst met grep op dubbel controleren.
