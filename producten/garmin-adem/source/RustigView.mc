@@ -131,7 +131,8 @@ class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {
             _view.hervat();
         } else if (id == :opslaan) {
             _view.opname.opslaan();
-            EbbTrouw.naSessie(EbbView.vandaag());
+            // Ook rustig ademen telt voor trouw; het eindscherm met een nieuw dier komt met blad v4.1.
+            System.println("TROUW nieuwe dieren " + EbbTrouw.nieuweDieren(EbbTrouw.naSessie(EbbView.vandaag())));
             System.exit();
         } else if (id == :weggooien) {
             _view.opname.weggooien();

@@ -46,24 +46,31 @@ module EbbProfiel {
         return lijn;
     }
 
-    // 8 weeks (besluit 22:53, punt 6): per week, oudste eerst, eindigend met de week tot en met vandaag,
-    // [gemiddelde inhoudtijd in s over alle inhoudingen, dagen met een sessie, aantal inhoudingen].
-    // Een lege week is [0, 0, 0]. Nog niet getekend: dat komt met blad v4 van Mila.
-    function weken(opslag as EbbOpslag, vandaag as Number) as Array<Array<Number> > {
+    // 8 weeks (besluit 22:53, punt 6, blad v4.1 scherm 7): per week, oudste eerst, eindigend met de week tot en met
+    // vandaag, [gemiddelde inhoudtijd in s over alle inhoudingen, aantal opgeslagen sessies, aantal inhoudingen].
+    // sessieDagen is de lijst dagnummers met één regel per opgeslagen sessie (EbbTrouw.sessieDagen()).
+    // Een lege week is [0, 0, 0].
+    function weken(opslag as EbbOpslag, sessieDagen as Array<Number>, vandaag as Number) as Array<Array<Number> > {
         var uit = [] as Array<Array<Number> >;
         for (var w = 7; w >= 0; w -= 1) {
+            var van = vandaag - w * 7 - 6;
+            var tot = vandaag - w * 7;
             var som = 0;
             var n = 0;
-            var dagen = 0;
-            for (var d = vandaag - w * 7 - 6; d <= vandaag - w * 7; d += 1) {
+            for (var d = van; d <= tot; d += 1) {
                 var g = opslag.dag(d);
                 if (g != null) {
                     som += g[1] * g[2];
                     n += g[2];
-                    dagen += 1;
                 }
             }
-            uit.add([(n > 0) ? (som + n / 2) / n : 0, dagen, n] as Array<Number>);
+            var sessies = 0;
+            for (var i = 0; i < sessieDagen.size(); i += 1) {
+                if (sessieDagen[i] >= van && sessieDagen[i] <= tot) {
+                    sessies += 1;
+                }
+            }
+            uit.add([(n > 0) ? (som + n / 2) / n : 0, sessies, n] as Array<Number>);
         }
         return uit;
     }
@@ -167,6 +174,9 @@ module EbbTrouw {
     const DAG = "trDag";
     const REEKS = "trReeks";
     const BESTE = "trBeste";
+    const PAUZE = "trPauze";      // 1 zodra je terugkwam na 7 of meer dagen zonder sessie (zeekomkommer)
+    const SESDAGEN = "trSesDagen"; // dagnummer van elke opgeslagen sessie in de laatste 56 dagen (8 weeks)
+    const PAUZE_DAGEN = 7;
 
     // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie.
     // Zelfde dag: gelijk. De dag erna: plus één. Later (of de klok terug): opnieuw 1.
@@ -188,8 +198,39 @@ module EbbTrouw {
         return (v instanceof Number) ? v as Number : 0;
     }
 
-    // Na opslaan: tellers bijwerken. Geeft [sessies, reeks, beste reeks].
+    // Eerste sessie na 7 of meer hele dagen zonder: tussen de vorige sessiedag en vandaag liggen minstens 7 dagen.
+    function terugNaPauze(vorigeDag as Number, sessiesTot as Number, dag as Number) as Boolean {
+        return sessiesTot > 0 && dag - vorigeDag - 1 >= PAUZE_DAGEN;
+    }
+
+    function sessieDagen() as Array<Number> {
+        var v = Application.Storage.getValue(SESDAGEN);
+        return (v instanceof Array) ? v as Array<Number> : [] as Array<Number>;
+    }
+
+    // Een sessie op dag erbij; alles ouder dan 56 dagen eruit, en nooit meer dan 400 regels (geheugen).
+    function bewaarSessieDag(dag as Number) as Void {
+        var oud = sessieDagen();
+        var nieuw = [] as Array<Number>;
+        for (var i = 0; i < oud.size(); i += 1) {
+            if (oud[i] > dag - EbbOpslag.DAGEN && oud[i] <= dag) {
+                nieuw.add(oud[i]);
+            }
+        }
+        nieuw.add(dag);
+        if (nieuw.size() > 400) {
+            nieuw = nieuw.slice(nieuw.size() - 400, null);
+        }
+        Application.Storage.setValue(SESDAGEN, nieuw);
+    }
+
+    // Na opslaan: tellers bijwerken. Geeft [sessies, reeks, beste reeks, terug na pauze (1 of 0)].
     function naSessie(dag as Number) as Array<Number> {
+        var pauze = terugNaPauze(getal(DAG), getal(SESSIES), dag);
+        if (pauze) {
+            Application.Storage.setValue(PAUZE, 1);
+        }
+        bewaarSessieDag(dag);
         var sessies = getal(SESSIES) + 1;
         var reeks = volgendeReeks(getal(DAG), getal(REEKS), dag);
         var beste = getal(BESTE);
@@ -200,7 +241,7 @@ module EbbTrouw {
         Application.Storage.setValue(DAG, dag);
         Application.Storage.setValue(REEKS, reeks);
         Application.Storage.setValue(BESTE, beste);
-        return [sessies, reeks, beste] as Array<Number>;
+        return [sessies, reeks, beste, getal(PAUZE)] as Array<Number>;
     }
 
     // De reeks zoals die vandaag telt: na een gemiste dag is hij voorbij (0), ook zonder nieuwe sessie.
@@ -209,47 +250,72 @@ module EbbTrouw {
         return (vandaag == dag || vandaag == dag + 1) ? getal(REEKS) : 0;
     }
 
-    // De 24 dieren voor trouw (besluit 22:53). Per dier [naam, soort, drempel]: soort 0 is aantal opgeslagen
-    // sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt niets af).
-    // Na een paar maanden met ±4 sessies per week heb je ze allemaal (blauwe vinvis bij 60 sessies, ±15 weken).
-    // Namen en volgorde mag Mila aanpassen; de logica blijft.
+    // De 24 dieren voor trouw (besluit 22:53, lijst van blad v4.1 van Mila). Per dier [naam, soort, drempel]:
+    // soort 0 is aantal opgeslagen sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt
+    // niets af), soort 2 is "back after a break": je eerste sessie na 7 of meer dagen zonder (de zeekomkommer).
+    // Na een paar maanden met ±4 sessies per week heb je de rest (de walvis bij 60 sessies, ±15 weken).
     const SOORT_SESSIES = 0;
     const SOORT_REEKS = 1;
+    const SOORT_PAUZE = 2;
     const DIEREN = [
         ["Fish", 0, 1], ["Shrimp", 0, 2], ["Jellyfish", 1, 2], ["Turtle", 1, 3],
         ["Crab", 0, 5], ["Seahorse", 0, 8], ["Starfish", 1, 4], ["Clownfish", 0, 10],
         ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 1, 6], ["Ray", 0, 15],
         ["Seal", 1, 7], ["Dolphin", 0, 18], ["Swordfish", 1, 10], ["Sea otter", 0, 21],
         ["Manta", 1, 14], ["Shark", 0, 25], ["Sunfish", 0, 30], ["Orca", 1, 21],
-        ["Narwhal", 0, 40], ["Giant squid", 1, 30], ["Sea turtle elder", 0, 50], ["Blue whale", 0, 60]
+        ["Narwhal", 0, 40], ["Giant squid", 1, 30], ["Sea cucumber", 2, 7], ["Whale", 0, 60]
     ] as Array<Array>;
+    const ZEEKOMKOMMER = 22;
     const BITS = "trDieren";
 
-    // Welke dieren je hebt bij deze tellers: één bit per dier.
-    function verdiend(sessies as Number, besteReeks as Number) as Number {
+    // Welke dieren je hebt bij deze tellers: één bit per dier. pauze is 1 als je ooit terugkwam na een pauze.
+    function verdiend(sessies as Number, besteReeks as Number, pauze as Number) as Number {
         var bits = 0;
         for (var i = 0; i < DIEREN.size(); i += 1) {
             var r = DIEREN[i];
-            var stand = ((r[1] as Number) == SOORT_SESSIES) ? sessies : besteReeks;
-            if (stand >= (r[2] as Number)) {
+            var soort = r[1] as Number;
+            var stand = (soort == SOORT_SESSIES) ? sessies : ((soort == SOORT_REEKS) ? besteReeks : pauze);
+            var drempel = (soort == SOORT_PAUZE) ? 1 : (r[2] as Number);
+            if (stand >= drempel) {
                 bits |= (1 << i);
             }
         }
         return bits;
     }
 
-    // Na een sessie: zet de nieuwe dieren in de opslag en geef hun nummers terug (voor het scherm aan het eind).
+    // Na een sessie: hoogstens één nieuw dier (blad v4.1: "hoogstens één nieuw dier per sessie, de rest wacht").
+    // De zeekomkommer gaat voor, zodat hij komt op de dag dat je terug bent; verder het laagste nummer eerst.
+    // Wat wacht komt bij een volgende sessie, want de tellers zakken nooit. Geeft [] of [nummer].
     function nieuweDieren(tellers as Array<Number>) as Array<Number> {
         var oud = getal(BITS);
-        var nu = verdiend(tellers[0], tellers[2]) | oud;
+        var klaar = verdiend(tellers[0], tellers[2], tellers.size() > 3 ? tellers[3] : 0) & ~oud;
         var nieuw = [] as Array<Number>;
-        for (var i = 0; i < DIEREN.size(); i += 1) {
-            if ((nu & (1 << i)) != 0 && (oud & (1 << i)) == 0) {
-                nieuw.add(i);
+        if ((klaar & (1 << ZEEKOMKOMMER)) != 0) {
+            nieuw.add(ZEEKOMKOMMER);
+        } else {
+            for (var i = 0; i < DIEREN.size(); i += 1) {
+                if ((klaar & (1 << i)) != 0) {
+                    nieuw.add(i);
+                    break;
+                }
             }
         }
-        Application.Storage.setValue(BITS, nu);
+        if (nieuw.size() > 0) {
+            Application.Storage.setValue(BITS, oud | (1 << nieuw[0]));
+        }
         return nieuw;
+    }
+
+    // Hoeveel dieren er nog klaarliggen voor een volgende sessie (verdiend maar nog niet getoond).
+    function wachtend() as Number {
+        var klaar = verdiend(getal(SESSIES), getal(BESTE), getal(PAUZE)) & ~getal(BITS);
+        var n = 0;
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            if ((klaar & (1 << i)) != 0) {
+                n += 1;
+            }
+        }
+        return n;
     }
 
     function heeft(i as Number) as Boolean {
@@ -271,6 +337,9 @@ module EbbTrouw {
     function hoe(i as Number) as String {
         var r = DIEREN[i];
         var n = r[2] as Number;
+        if ((r[1] as Number) == SOORT_PAUZE) {
+            return "back after a break";
+        }
         if ((r[1] as Number) == SOORT_REEKS) {
             return n + "-day streak";
         }
@@ -297,5 +366,7 @@ module EbbTrouw {
         Application.Storage.deleteValue(DAG);
         Application.Storage.deleteValue(REEKS);
         Application.Storage.deleteValue(BESTE);
+        Application.Storage.deleteValue(PAUZE);
+        Application.Storage.deleteValue(SESDAGEN);
     }
 }
