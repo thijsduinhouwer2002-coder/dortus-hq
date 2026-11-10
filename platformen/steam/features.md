@@ -122,6 +122,25 @@ Doel: genoeg inhoud dat het **niet na 3 dagen op is** (Rusty's-klacht). GOK: ±4
 - **Faam:** hoe meer helden je hol overleefden of niet, hoe beroemder je hol en hoe gekkere helden er komen. Faam gaat nooit omlaag.
 - **Instellingen:** links of rechts, kleurenblind, sneltoets om te verbergen (hoogte, fps, geluid en stil uur zitten al in de eerste versie).
 
+### Uitwerking: het Heldenboek (Sanne 10 nov 03:10 UTC, versie 1, vóór het fest)
+**Waarom nu:** met het kaartje is er een keuze per bezoek (toets 8). Wat nog ontbreekt is de reden om na een week de strook aan te laten: iets dat je bijhoudt en dat van jou is. Rusty's grootste klacht is "na 3 dagen op" (25 van 79 negatieve reviews, `toppers.md`); Birdwatching Notebook verkoopt op een verzamelboek (`idee.md`). Het Heldenboek is ons antwoord, maar dan met verhalen in plaats van een lijst om af te vinken.
+
+**Waar het zit (geen venster buiten de strook):** in het paneel rechts, net als het kaartje. Bij hover over het paneel verschijnt rechtsboven een klein boekje (8 x 8 spelpixels); klik maakt van het paneel één bladzijde, met pijltjes links en rechts om te bladeren. Klik ernaast of 10 s niets: terug naar de kroniek. Op 96 px past een bladzijde ook: een poppetje van 16 x 16 links, naam erboven, twee korte regels en een rij stempels. Hoe het eruitziet: Mila.
+
+**Vier hoofdstukken:**
+1. **Helden (5 bladzijden):** gewoon, ridder, dief, magiër, bard. Per bladzijde drie stempels: *door Gloop*, *door de put*, *ontsnapt*. Een stempel komt de eerste keer dat het gebeurt, met een regel in de kroniek ("New page: the Wizard. Gloop got him."). Na de eerste vangst staat er ook de zwakte: "Weak to: Spike Pit" (de ridder) of "Weak to: Gloop" (dief, magiër). Zo leer je de keuze uit `balans.md` uit het boek, niet uit een handleiding. De moeilijkste stempel is de magiër in de put (±0,7 per uur in Brams sim, GEZIEN in `data/soorten-keuze.py`), dus ook die komt op dag 1. Dat is goed: dit hoofdstuk leert, het houdt niet vast.
+2. **Karakters (6 bladzijden):** per trek één moment dat je moet zien gebeuren, geen teller. Hebzuchtig: raakt de schat (de Hoard-Toucher). Schijterig: keert om voor een val. Slaapkop: gevangen tijdens zijn dutje. Wraakzuchtig: afgerekend door zijn eigen vijand. Opschepper: ontsnapt na zijn pochregel (de kroniek lacht hem uit). Verdwaald: komt later, als het hol meer rijen heeft. Elk moment heeft een eigen regel; het boek bewaart die regel met de naam van die held erbij.
+3. **Hoeden (10 bladzijden nu, meer met elke hoed van Mila):** elke hoed die Gloop ooit droeg, met de naam van de eerste held die hem verloor ("Chef's hat. First worn by Kees."). Onderaan het hoofdstuk de stempels van de hoedenberg bij 1000, 3000 en 10.000 (besluit 9 nov 21:50).
+4. **Aartsvijanden (geen einde):** elke held die je aartsvijand werd krijgt een eigen bladzijde, ook als hij nog leeft: naam, bijnaam, littekens, zijn wrok, hoe vaak hij kwam, en als het af is: wie hem kreeg en op welke dag ("Kees the Thrice-Fled. Grudge: Gloop. Settled on day 4 by the Spike Pit."). Zijn kinderen (versie 1) krijgen een bladzijde achter de zijne. Dit hoofdstuk is jouw eigen verhaal en loopt nooit vol: ±1 tot 7 per werkdag van 8 uur (aartsvijand 0,1 tot 0,9 per uur, `sim/UITKOMST.md`, GEZIEN).
+
+**Hoe lang het meegaat (GOK, Bram meet na):** hoofdstuk 1 en 2 op dag 1 tot 2 (72 helden per uur, GEZIEN in de sim), hoeden binnen een dag, de hoedenberg-stempels op dag 5, 14 en ±45 (bij een werkdag open), aartsvijanden altijd. Het boek is dus snel een beetje vol en nooit helemaal af, zonder dat er iets zeldzaams van 0,1% in zit.
+
+**Wat het eerlijk houdt (T3, T4):** geen dagelijkse stempels, niets dat verloopt, niets wat je mist als je weg bent (wat er gebeurde terwijl je weg was telt gewoon mee, en de eerste regel bij openen noemt nieuwe bladzijden). Alles in het basisspel is 100% te halen. DLC-gilden krijgen een eigen hoofdstuk achteraan, met een eigen teller, zodat het basisboek nooit "onaf" lijkt zonder DLC.
+
+**Bouw:** klein tot middel. Bram: `systemen/boek.gd` (wat staat erin, opslaan in de save, `nieuw(soort, wat, naam) -> regel`), Olaf: de bladzijde in het paneel (zelfde weg als het kaartje in `kern/kaartje.gd`), Mila: boekje, stempels (drie kleine tekens van 8 x 8) en de bladzijde. Ik schrijf de regels in `kroniek-regels.md` als Olaf zegt dat het vóór het fest past.
+
+**Idee voor de put erbij (aan Bram, voor de balans):** Trick Lid (stap 3 van de put, "looks like floor") zet de factor van de magiër voor de put van 0,3 naar 1,0: hij ziet vallen, maar deze ziet eruit als vloer. Dan is er een echte tegenzet voor de magiër, en zie je een upgrade iets doen wat je in het boek terugleest. Eerst meten met `sim.py soorten`.
+
 ## Later: skins en DLC (alleen uiterlijk en inhoud, T4)
 - **Holthema's** (de grootste skin): ijsgrot, vulkaan, spookslot, snoepgrot. Zelfde spel, ander hol. Tiny Pasture verkoopt al een thema-DLC voor $2,39 (Olaf, `idee.md`, GEZIEN).
 - **Heldengilden** als inhoud-DLC: piraten, ridders van de ronde tafel, toeristen met camera's. Nieuwe trekken en hoeden, niet sterker.
