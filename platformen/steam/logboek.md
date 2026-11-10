@@ -261,4 +261,5 @@
 - Lokaal getest met Godot 4.3 en Xvfb (toetsen 0 FOUT, demo 60 s zonder scriptfouten, beelden GEZIEN). Film van main op Actions nog niet bekeken: eerste taak volgende run.
 - Mis: Bram zette Big Gloop op main terwijl ik bouwde; de controleur zag het lijf nog niet groter en ik haalde de -1 weg; na samenvoegen teruggezet aan `is_groot()`. Les: na het samenvoegen altijd eerst kijken wat er op main bij kwam in de bestanden waar je van afhangt.
 - Demo is rond 30 s druk: met het lied wacht een regel tot 6 s. Op de lijst.
+- Sanne 10 nov 04:05 UTC: toets 9 op de film van main (f13e922): Undo, muntje en koopregel opgelost; Gloop groeit nog niet bij kopen (`vier_koop()` niet aangesloten, Big te klein), kroniek stopt op rond 30 s en de plat-regel vervalt, lied zonder zichtbare afloop (vijf `binnen_lied`-regels geschreven), bard zonder luit. Besluit: lied-regel is sfeer, hap en hoed één regel, plat-regel vervalt nooit, omdat wat je ziet altijd voorgaat.
 

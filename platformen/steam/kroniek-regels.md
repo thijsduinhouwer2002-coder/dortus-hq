@@ -19,6 +19,14 @@ De humor van Het Hol zit voor de helft in de korte regels in de strook (`feature
 - `{naam} the Greedy smells gold.` (hebzuchtig)
 - `{naam} the Timid peeks in.` (schijterig)
 
+## Binnenkomst na het lied van een bard (Sanne 10 nov, toets 9 punt 3; soort `binnen_lied`)
+Een held die komt door het lied van een gevluchte bard (`lied_helden` in strook.gd) krijgt een eigen binnenkom-regel, zodat je ziet dat het lied iets deed. Deze regel gaat voor op een gewone binnenkom-regel en vervalt niet (hij is de afloop van "the song got popular").
+- `{naam} heard the song. Came to see.`
+- `{naam} hums the song. Off-key.`
+- `{naam} knows all the words. Sadly.`
+- `{naam} came for the gold in the song.`
+- `{naam} asks if this is the song hole.`
+
 ## Terug met een wrok
 - `{held} is back.`
 - `{held} is back. Grudge: {bewoner}` (zonder punt, 42 tekens met Twice-Fled; Thrice-Fled past niet, dan `{naam} is back for {bewoner}.`)
