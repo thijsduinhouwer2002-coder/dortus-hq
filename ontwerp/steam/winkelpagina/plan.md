@@ -138,3 +138,10 @@ Alles nagemeten in de png's (GEZIEN).
   5. `scherm-5-hap` (3x, demo 160, beeld 820 = 54,7 s): Gloop met kroon en emmer, munten vliegen, "Gloop ate Mara. Kept the bucket. +6".
 - Eerlijk, wat nog niet goed is: in de week-film loopt er steeds maar één held tegelijk (kan 5 blijft open), en in scherm 4 en 5 valt de rechterrand van het paneel buiten beeld (de tekst staat er wel helemaal in).
 
+
+## Versie 10 (Mila, 10 nov run 13): schermafbeeldingen v4 na keuring 8 van Daan
+Zelfde opnames als versie 9 (main 166acf3, runs 42844480669, 42844486856, 42844525242), alleen opnieuw gesneden met `bron/maak_schermen2.py` (nu met `rustig`).
+- **Moet 1, paneel heel of helemaal weg.** Het paneel is in het spel altijd open en ±445 spelpixels breed (strook x 1470 tot 1915, GEZIEN op elk beeld van de week-film), dus op 3x passen hoedenberg, Gloop en paneel nooit samen. **Besluit scherm 1: de snede stopt net vóór het paneel** (`zoom ... 1146 3`, strook x 826 tot 1466): hoedenberg, Royal Gloop met vier hoeden, fakkel en schat, geen half paneel. Waarom: Daans tweede optie; de hoedentoren vertelt de grap zonder regel, en het beeld is rustiger. Afgewezen: 2x met alles erin (spel op 30% van de hoogte, de hoeden worden spikkels). **Scherm 4 en 5:** snede tot de rechterrand van de strook (`zoom ... 1600 3`), paneel met rand en een strookje aarde eromheen helemaal in beeld (GEZIEN op ware grootte).
+- **Moet 2, scherm 2 zonder namaak.** Geen venster en geen taakbalk meer: alleen de avondlucht en de strook op de onderrand, zoals bij een verborgen taakbalk (Rusty's doet hetzelfde). Het echte bureaublad van de runner (`bureaublad-echt.png`) kan niet: daar staan Windows-achtergrond, merkiconen en een logvenster op.
+- **Eerlijk:** de lucht en heuvels bovenin zijn het bureaublad uit het opnamescript, niet de strook zelf. Het spel ligt in het echt over je eigen bureaublad; alles in de strook is de echte opname.
+- Kan-punten scherm 3 (randje bij x ±1910, wrok leest klein als "Gloop is dood") nog open; scherm 3 is ongewijzigd.

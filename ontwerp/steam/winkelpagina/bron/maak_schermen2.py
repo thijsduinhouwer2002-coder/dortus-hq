@@ -1,4 +1,5 @@
 # Mila 10 nov run 10: schermafbeeldingen v2 (Daan keuring 6). Echte opnames van de strook op 1920 breed
+# v4 (run 13, Daan keuring 8): "rustig" = bureaublad zonder venster en zonder taakbalk; zoom met x_midden zo dat het paneel heel in beeld is (of er helemaal buiten).
 # (workflow steam-hol-winkel.yml, tak schermen, map steam-hol/winkel-1920/los/). Geen tekst, geen kaders, geen merk.
 # Het bureaublad is decor (eigen tekening: avondlucht, een neutraal venster, een kale taakbalk), de strook is de echte
 # opname met zijn doorzichtige lucht, zoals hij in het spel boven de taakbalk ligt.
@@ -79,24 +80,28 @@ def taakbalk(d, k):
         d.rounded_rectangle(((cx - 14) * k, (y + 10) * k, (cx + 14) * k, (y + 38) * k), radius=6 * k, fill=(0x34, 0x2c, 0x3f))
     d.rounded_rectangle(((W - 120) * k, (y + 18) * k, (W - 30) * k, (y + 30) * k), radius=3 * k, fill=(0x34, 0x2c, 0x3f))
 
-def bureau(k, opname, met_venster=True):
+def bureau(k, opname, met_venster=True, met_balk=True):
     im = lucht(W * k, H * k, k)
     d = ImageDraw.Draw(im)
     if met_venster:                    # v3 (Daan keuring 7 moet 3): in de vergrotingen geen venster, het hoekje las als fout
         venster(d, k)
-    taakbalk(d, k)
+    balk = BALK_H if met_balk else 0   # v4 (Daan keuring 8 moet 2): geen namaakvenster en geen namaaktaakbalk; strook op de onderrand
+    if met_balk:
+        taakbalk(d, k)
     s = Image.open(opname).convert("RGBA")
     sh = s.size[1]                     # 120 standaard, 96 tot 160 instelbaar
     if s.size[0] != W:
         raise SystemExit(f"opname is {s.size}, verwacht {W} breed")
     s = s.resize((W * k, sh * k), Image.NEAREST)
     im = im.convert("RGBA")
-    im.alpha_composite(s, (0, (H - BALK_H - sh) * k))
+    im.alpha_composite(s, (0, (H - balk - sh) * k))
     return im.convert("RGB")
 
 if __name__ == "__main__":
     if sys.argv[1] == "bureau":
         bureau(1, sys.argv[2]).save(sys.argv[3])
+    elif sys.argv[1] == "rustig":        # v4: alleen lucht en strook
+        bureau(1, sys.argv[2], met_venster=False, met_balk=False).save(sys.argv[3])
     else:
         opname, xm, k, uit = sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
         groot = bureau(k, opname, met_venster=False)
