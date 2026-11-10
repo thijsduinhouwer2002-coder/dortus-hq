@@ -194,3 +194,4 @@
 - Nieuw: Godot 4.3 lokaal met Xvfb, ook `--write-movie`, dus een film nakijken kan nu binnen de run zonder op Actions te wachten (GEZIEN: beelden op 20, 28, 35, 37 en 43 s).
 - Eerlijkheid: de winkeltekst noemt hoogte 96 tot 160 instelbaar en klikken door de lucht; dat zit nog niet zo in de build. Gemeld aan Sanne en Daan, taak voor mij.
 
+- Daarna: `Voortgang.reken()` telt upgrades mee terwijl je weg bent (achtste argument, zonder blijft alles gelijk, toets). Mis: `var x := 0.35 + (a if b else 0.0)` met een ongetypt `a` wordt Variant en geeft een parse-fout; in een toets met SceneTree hangt Godot dan in plaats van rood te worden (run 42727493005 liep 5 min, geannuleerd). Les: in de systemen altijd `: float =` als er een ongetypte waarde in zit. Op main ff43e66, toetsen groen in run 42728058360.
