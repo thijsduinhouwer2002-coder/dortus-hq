@@ -44,6 +44,7 @@ jobs:
           sleep 8
           for d in fenix7 venu2 fr265; do
             monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 || exit 1
+            touch /tmp/merk-$d
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!
             sleep 14
@@ -55,7 +56,7 @@ jobs:
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
             echo "== FIT-bestanden na $d (nieuwer dan de start)"
             mkdir -p "schermen/fit/$d"
-            find / -xdev -iname '*.fit' -newer /tmp/merk -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+            find / -xdev -iname '*.fit' -newer /tmp/merk-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
               ls -la "$f"; cp "$f" "schermen/fit/$d/$(basename "$f")"
             done
           done
@@ -77,9 +78,9 @@ jobs:
               with fitdecode.FitReader(pad) as fit:
                   for fr in fit:
                       if isinstance(fr, fitdecode.FitDataMessage) and fr.name in ("sport", "session", "lap", "field_description", "developer_data_id"):
-                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number")
+                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "beste")
                           velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
-                          dev = {f.name: f.value for f in fr.fields if getattr(f, "is_developer_data", False)}
+                          dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
                           print(fr.name, velden, "dev:", dev)
           PY
           python3 /tmp/leesfit.py "$APP/schermen/fit"
