@@ -1,9 +1,9 @@
-# Ebb blad v5 (stand v5.3): alle schermen na de keuring van v4.1 (Mila, 11 nov 00:00 tot 00:35 NL)
+# Ebb blad v5 (stand v5.4): alle schermen na de keuring van v4.1 (Mila, 11 nov 00:00 tot 00:35 NL)
 
 **Blad: `ontwerp/garmin/ebb-blad-v5.png`** (21 schermen, per scherm links 454 px AMOLED, rechts 260 px MIP op ware grootte).
 **Naast elkaar:** `blad5/drie-holds-454.png` (0:30, 1:45, 3:04) en `blad5/zee-standen-260.png` (alle zeven zee-standen).
 **Dieren:** `ontwerp/garmin/ebb-dieren-v5.png`. Losse beelden en meting in `blad5/` (`meting-v5.txt`). Bron: `bron/ebb_blad_v5.py` en `bron/ebb_dieren_v5.py`. Gijs zet de dieren met zijn script al om naar `DierenData.mc`.
-**Stand:** vervangt v4.1. Twee frisse keuringen in deze run, v5.0 en v5.1, gaven allebei een 6 (`ebb-blad-v5-frisse-keuring.md`). De punten daaruit zitten in v5.2 en v5.3. Nog niet bouwen en nog niet naar Thijs: eerst een frisse keuring op v5.3 met minstens een 8.
+**Stand:** vervangt v4.1. Twee frisse keuringen in deze run, v5.0 en v5.1, gaven allebei een 6 (`ebb-blad-v5-frisse-keuring.md`). De punten daaruit zitten in v5.2 en v5.3. Daarna drie aparte frisse beoordelaars op v5.3: veiligheid 8, visueel 7, product 7. Hun punten zitten in v5.4 (onderaan). Nog niet bouwen en nog niet naar Thijs: eerst visueel en product opnieuw keuren, alle drie minstens een 8.
 
 ## Afvinklijst
 **Besluit 22:53**
@@ -43,13 +43,13 @@
 
 **Product**
 - **P1:** 9 toont Rounds 3, Breathing pace 10 per min, Breaths 30 en Buzz every 30 s on. 9b toont Buzz last 3 breaths on, Buzz only on (no sound), Touch lock on en Safety info.
-- **P2, Garmin Connect:** activiteit Breathwork, met per ronde een lap. FIT-velden: per lap "Hold time" en "Breaths", in de samenvatting "Rounds 3" en "Longest hold 3:04". Daarbij de gewone hartslaggrafiek van Garmin; daarop zie je per ronde het hart zakken. Er staat nergens "best" of "record".
+- **P2, Garmin Connect:** activiteit Breathwork, met per ronde een lap. FIT-velden: per lap "Hold time" en "Breaths", in de samenvatting "Rounds 3" en "Hold times 1:20 · 1:45 · 3:04". Daarbij de gewone hartslaggrafiek van Garmin; daarop zie je per ronde het hart zakken. Er staat nergens "best" of "record".
 - **P3:** op elk inhoudscherm onderaan een hartje, bpm en "· round N". Die regel staat op 3a, 3b en 3c op dezelfde hoogte.
 - **P4:** na 3:00 staat bovenaan "time to breathe" in wit op de plek van "hold", met een trilling. Geen geel.
 - **P5:** de staven zijn sessies per week en de getallen eronder ook. Daaronder "avg hold 1:41" over alle sessies; dat is iets anders dan today (1:49, alleen vandaag).
 - **P6, één verhaal:** een nieuwe gebruiker met 9 sessies.
-  - Ochtend 7:40: 1:20, 1:45, 3:04. Dat zijn de schermen 3a, 3b, 3c en 6b. Op 6b krijg je de Starfish voor 4 dagen op rij, en daarmee heb je 7 dieren.
-  - Avond 21:15: 1:15, 1:38, 1:52. Op 6c staat dan "Pufferfish tomorrow", want die komt bij 5 dagen op rij.
+  - Ochtend 7:40: 1:20, 1:45, 3:04. Dat zijn de schermen 3a, 3b, 3c en 6b. Dat is sessie 8; op 6b krijg je de Starfish voor 4 dagen op rij, en daarmee heb je 7 dieren (sessies 1 tot 6 gaven Fish, Shrimp, Jellyfish, Turtle, Crab, Seahorse; sessie 7 niets).
+  - Avond 21:15 (sessie 9): 1:15, 1:38, 1:52. Op 6c: "next: Clownfish, in 1 more session" (Clownfish = 10 sessies; bij twee kandidaten gaat het laagste nummer voor, dus dit klopt altijd).
   - Today: zes holds, avg 1:49 (nagerekend).
   - 8 weeks: 0 0 0 0 0 0 3 6, samen 9 sessies.
   - Sea log: "7 of 24", en de octopus vraagt "3 more sessions" (12 min 9).
@@ -58,7 +58,8 @@
 - **P8:** scherm 2 heeft groot "23" en klein "of 30 · round 2". Scherm 4 heeft "big breath in, hold" boven "15 s". Het eindscherm heeft "3 rounds" boven de drie tijden.
 - **P9, regels:**
   - **Gemiste dag:** de reeks op het eindscherm begint opnieuw. Dieren voor dagen op rij tellen met je beste reeks, dus een gemiste dag pakt nooit een dier af. Na 7 of meer dagen zonder sessie komt de zeekomkommer, en die gaat dan voor op andere dieren.
-  - **Schema:** hoogstens één nieuw dier per sessie, en sessiedieren tellen hoogstens 2 sessies per dag mee. Bij ongeveer 4 sessies per week krijg je er in week 1 vier à vijf, in week 2 en 3 elke 3 à 4 dagen een, en daarna ongeveer één per week. Narwhal, Giant squid en Whale komen in maand 3 en 4.
+  - **Schema:** zie de tabel onderaan (v5.4). Hoogstens één nieuw dier per sessie, bij twee kandidaten het laagste nummer eerst; sessiedieren tellen hoogstens 2 sessies per dag.
+  - **De 7 stippen op 6b en 6c:** de dagen van je huidige reeks, een week lang. Na 7 dagen blijft de rij vol staan (met "7+ days in a row" in de tekst); een gemiste dag maakt de stippen weer leeg, maar je beste reeks blijft gelden voor de dieren.
   - **Waarschuwing:** de drie veiligheidsbladen bij de eerste start en elke 30 dagen opnieuw. "Seated or lying?" bij elke Rounds-start. Op 3:00 een trilling met "time to breathe".
 
 **Visueel**
@@ -66,7 +67,7 @@
 - **V2:** een dier dat je nog niet hebt is een spook: het dier in drie donkere blauwen, zodat vinnen, banden, buik en een klein licht oog te zien blijven, met een lichtcyaan rand van 2 px. De rand haalt 18,5:1 op zwart en 6,4:1 op 0055AA. Bovenaan staat wat het gekozen spook vraagt ("Octopus · 3 more sessions"). De zeekomkommer blijft een verrassing ("comes after a break").
 - **V3:** nergens nog grijs. Tekst is wit (7,3:1 op 0055AA) of lichtcyaan AAFFFF (6,4:1).
 - **V4:** 6b en 6c hebben hetzelfde skelet: kop op 0,14, "3 rounds" op 0,21, tijden op 0,27, dier op 0,535 tot 0,55, regel op 0,73, regel op 0,80, 7 stippen op 0,86. Het spook zit helemaal onder water.
-- **V5:** de zeester op 6b is ongeveer 37% breed. Daarachter een lichtkrans van 12 stralen, alleen onder water; op het horloge draait die langzaam. Dan "new friend!" in geel op een eigen regel en meer belletjes.
+- **V5:** de zeester op 6b is in v5.4 ongeveer 40% breed (s = 0,228 D). Daarachter een lichtkrans van 12 stralen, alleen onder water; op het horloge draait die langzaam. Dan "new friend!" in geel op een eigen regel en meer belletjes.
 - **V6:** dieren v5. Opnieuw getekend: zeekomkommer met slaapmuts, zeeotter op zijn rug, zeehond met vlekjes. Rog is een kleine ruit met stippen, manta breed met hoorntjes. Haai, zwaardvis, orka en manta zijn lichter of hebben een rand. Alle 24 hebben hetzelfde oog.
 - **V7:** 8c heeft geen 24 stipjes meer, wel een groot dier, de naam, "found: 3 days in a row" en een knop met toestand.
 
@@ -92,3 +93,53 @@
 
 ## Wat Thijs hier als eerste van zegt
 Mijn gok: "het water en het nieuwe dier zijn nu goed." Wat hij nog kan zeggen: today blijft een rij trechters zonder uitleg, en de otter blijft het zwakste dier. Allebei staat het op mijn lijst voor na de volgende keuring.
+
+## v5.4: punten van de drie aparte beoordelaars op v5.3 (veiligheid 8, visueel 7, product 7)
+**Product**
+- **M1 en M2, cijfers en "tomorrow":** 6c is nu sessie 9 zonder dier, met "next: Clownfish, in 1 more session". Dat klopt altijd, want bij twee kandidaten gaat het laagste nummer voor.
+- **M3, eerlijk schema:** dieren voor dagen op rij vragen nu hoogstens 7 dagen; Orca, Giant squid en de rest vragen sessies. Wie ongeveer 4 keer per week ademt, haalt alle 24 in ongeveer 13 weken; na sessie 20 komt er nog ongeveer elke 1 à 2 weken een dier. Whale staat op 50 in plaats van 60 (dat is ±12 weken, nog steeds de laatste).
+- **M4:** de tabel staat hieronder.
+- **M5:** de 7 stippen zijn uitgelegd (zie P9). Today heeft nu de tijden boven elke groep en "6 holds · deeper = longer".
+
+| nr | dier | wanneer | verwacht bij 4 sessies per week |
+|---|---|---|---|
+| 1 | Fish | 1 sessies | week 1 |
+| 2 | Shrimp | 2 sessies | week 1 |
+| 3 | Jellyfish | 2 dagen op rij | week 1 |
+| 4 | Turtle | 3 dagen op rij | week 1 |
+| 5 | Crab | 4 sessies | week 1 |
+| 6 | Seahorse | 6 sessies | week 2 |
+| 7 | Starfish | 4 dagen op rij | week 1 |
+| 8 | Clownfish | 10 sessies | week 3 |
+| 9 | Pufferfish | 5 dagen op rij | week 2 tot 4 |
+| 10 | Octopus | 12 sessies | week 3 |
+| 11 | Squid | 14 sessies | week 4 |
+| 12 | Ray | 16 sessies | week 4 |
+| 13 | Seal | 6 dagen op rij | week 3 tot 8 |
+| 14 | Dolphin | 18 sessies | week 5 |
+| 15 | Swordfish | 20 sessies | week 5 |
+| 16 | Sea otter | 22 sessies | week 6 |
+| 17 | Manta | 7 dagen op rij | week 3 tot 8 |
+| 18 | Shark | 25 sessies | week 7 |
+| 19 | Sunfish | 28 sessies | week 7 |
+| 20 | Orca | 32 sessies | week 8 |
+| 21 | Narwhal | 36 sessies | week 9 |
+| 22 | Giant squid | 42 sessies | week 11 |
+| 23 | Sea cucumber | eerste sessie na 7+ dagen zonder | wanneer je terugkomt |
+| 24 | Whale | 50 sessies | week 13 |
+
+Bij dagen op rij telt je beste reeks ooit. Een reeks van 5 tot 7 dagen komt bij 4 sessies per week af en toe voor, niet elke week. Daarom staat bij die dieren een ruim venster.
+
+**Visueel**
+- **Zeester:** ongeveer 40% breed. De kop van het eindscherm is twee regels geworden: "3 rounds done" met de tijden eronder. De stralen vallen niet achter de tekst.
+- **8 weeks:** lege weken zijn een stipje op de lijn en er staat alleen een getal boven de staven. Geen rij nullen meer.
+- **Today:** de tijden staan boven hun groep van drie, met uitleg eronder.
+- **Sea log:** blad 3 heeft twee rijen, die staan verticaal in het midden. De zeldzame dieren (haai, orka, manta, zwaardvis, walvis) zijn 15% groter.
+- **Open:** zeehond, zeekomkommer en walvis opnieuw tekenen, en de sea log met het gekozen dier links (kader 4,5 px).
+
+**Veiligheid, voor Gijs en de winkel**
+- De trilling op 3:00 komt altijd, ook als "Buzz every 30 s" uit staat en ook bij "Buzz only". Daarna herhaalt hij elke 30 s zolang je blijft inhouden.
+- De veiligheidsbladen bij de eerste start zijn niet over te slaan: terug en vegen gaan niet langs 10, 10b en 10c.
+- In de code staat de tekst letterlijk gelijk aan het blad, ook op 390 en 416 px.
+- Connect toont geen "Longest hold" meer, maar alleen de inhoudtijd per lap en "Hold times 1:20 · 1:45 · 3:04" in de samenvatting.
+- **Winkeltekst (`ebb-winkel.md`):** "new best", "best 3:05", "Who will you meet? Fish 1:00 ... whale 3:00" en "Best hold per day" moeten weg voordat er iets in de winkel komt. Daar komen de korte veiligheidsregels en "Not a medical device" voor in de plaats. Dat doe ik zodra het blad vast staat.

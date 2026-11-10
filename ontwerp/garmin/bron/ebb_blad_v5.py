@@ -118,7 +118,7 @@ def s_boven5(D):
 def s_today5(D):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.18), 'today', D*0.085, TITEL)
-    opp = D*0.33; L, R = D*0.17, D*0.83
+    opp = D*0.36; L, R = D*0.17, D*0.83
     sessies = [('7:40', [80, 105, 184]), ('21:15', [75, 98, 112])]   # ochtend = 6b, avond = 6c
     maxdiep = D*0.25; breed = (R-L)/6; gat = D*0.07
     zeevlak = Image.new('L', (D, D), 0); zd = ImageDraw.Draw(zeevlak); lijnen = []
@@ -133,18 +133,17 @@ def s_today5(D):
     for pts in lijnen: d.line(pts, fill=W0 if not amo(D) else AM[W0], width=lw)
     d.line([(L, opp), (R, opp)], fill=SCHUIM, width=lw)
     for si, (klok, _) in enumerate(sessies):
-        tekst(d, D, (L + (si*3 + 1.5)*breed, opp + maxdiep + D*0.065), klok, D*0.068, WIT)
-    tekst(d, D, (D/2, D*0.73), '2 sessions · 6 holds', D*0.068, LICHTCYAAN)
-    tekst(d, D, (D/2, D*0.81), 'avg 1:49', D*0.068, WIT)
+        tekst(d, D, (L + (si*3 + 1.5)*breed + (D*0.035 if si else -D*0.035), opp - D*0.05), klok, D*0.062, WIT)
+    tekst(d, D, (D/2, D*0.715), '6 holds · deeper = longer', D*0.062, LICHTCYAAN)
+    tekst(d, D, (D/2, D*0.795), 'avg 1:49', D*0.075, WIT)
     rand(im, D); return im
 
 # ---------------- 6b en 6c: hetzelfde skelet (V4) ----------------
 def einde_kop5(d, D, tijden=('1:20', '1:45', '3:04')):
-    tekst(d, D, (D/2, D*0.140), 'session done', D*0.075, TITEL)
-    tekst(d, D, (D/2, D*0.208), '3 rounds', D*0.060, LICHTCYAAN)          # label bij de drie tijden (P8, M5)
+    tekst(d, D, (D/2, D*0.150), '3 rounds done', D*0.075, TITEL)          # titel is meteen het label van de tijden (P8)
     xs = (-0.15, 0, 0.15)
     for k, t in enumerate(tijden):
-        tekst(d, D, (D/2 + xs[k]*D, D*0.272), t, D*0.068, WIT)           # wit (V3), ruim boven de golf (M5)
+        tekst(d, D, (D/2 + xs[k]*D, D*0.235), t, D*0.068, WIT)           # wit (V3), ruim boven de golf (M5)
 
 def einde_zee(im, D):
     zee(im, D, [(D*0.355, W1), (D*0.62, W2), (D*0.84, W3)], amp=D*0.012, schuim=True, stralen=True)
@@ -152,10 +151,10 @@ def einde_zee(im, D):
 def s_einde5(D):
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop5(d, D)
-    stralenkrans(im, D, D/2, D*0.55)
+    stralenkrans(im, D, D/2, D*0.545)
     d = ImageDraw.Draw(im)
     bellen(d, D, [(0.22, 0.55, 0.012), (0.19, 0.50, 0.007), (0.80, 0.58, 0.010), (0.83, 0.52, 0.006), (0.25, 0.45, 0.005)])
-    dier(im, 'ster', D/2, D*0.55, D*0.195)       # ±40 % van de breedte (V5, M4)
+    dier(im, 'ster', D/2, D*0.545, D*0.228)       # ±40 % van de breedte (V5, M4)
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.728), 'new friend!', D*0.085, GEEL)
     tekst(d, D, (D/2, D*0.800), 'Starfish · 4 days in a row', D*0.066, WIT)
@@ -170,7 +169,7 @@ def stralenkrans(im, D, cx, cy):
         a = math.radians(k*30 + 8)
         md.polygon([(cx, cy), (cx + R*math.cos(a-0.09), cy + R*math.sin(a-0.09)), (cx + R*math.cos(a+0.09), cy + R*math.sin(a+0.09))], fill=255 if not amo(D) else 120)
     if amo(D): m = m.filter(ImageFilter.GaussianBlur(D/120))
-    ImageDraw.Draw(m).rectangle([0, 0, D, D*0.375], fill=0)   # alleen onder water, nooit door de tijden
+    ImageDraw.Draw(m).rectangle([0, 0, D, D*0.375], fill=0); ImageDraw.Draw(m).rectangle([0, D*0.69, D, D], fill=0)   # niet achter de tekst   # alleen onder water, nooit door de tijden
     im.paste(Image.new('RGB', (D, D), (0, 85, 255) if not amo(D) else (170, 230, 255)), (0, 0), m)
 
 def silhouet(im, D, soort, x, y, s):
@@ -183,10 +182,10 @@ def s_einde_gewoon5(D):
     """Zelfde plekken als 6b; het dier is hier het silhouet van wie morgen komt, los van de golf."""
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop5(d, D, ('1:15', '1:38', '1:52'))   # de avondsessie van dezelfde dag
-    silhouet(im, D, 'kogel', D/2, D*0.535, D*0.15)
+    silhouet(im, D, 'clown', D/2, D*0.545, D*0.17)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.728), 'Pufferfish tomorrow', D*0.075, WIT)
-    tekst(d, D, (D/2, D*0.800), '4 days in a row', D*0.066, LICHTCYAAN)
+    tekst(d, D, (D/2, D*0.728), 'next: Clownfish', D*0.075, WIT)
+    tekst(d, D, (D/2, D*0.800), 'in 1 more session', D*0.066, LICHTCYAAN)
     dagstippen(d, D, D*0.862, 4)
     rand(im, D); return im
 
@@ -195,7 +194,7 @@ WEKEN = [0, 0, 0, 0, 0, 0, 3, 6]   # nieuwe gebruiker: 9 sessies in totaal (8 bi
 def s_weken5(D):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.18), '8 weeks', D*0.085, TITEL)
-    L, R, top, bod = D*0.20, D*0.80, D*0.30, D*0.58
+    L, R, top, bod = D*0.20, D*0.80, D*0.36, D*0.60
     kol = (R-L)/8; bw = kol*0.70; hoog = 7
     m = Image.new('L', (D, D), 0); md = ImageDraw.Draw(m); kop = []
     for i, n in enumerate(WEKEN):
@@ -207,7 +206,10 @@ def s_weken5(D):
         d.line([(xm-bw/2+bw*0.2, yt+lw/2), (xm+bw/2-bw*0.2, yt+lw/2)], fill=WIT if i == 7 else SCHUIM, width=lw)
     d.line([(L, bod), (R, bod)], fill=W1 if not amo(D) else AM[W1], width=lw)
     for i, n in enumerate(WEKEN):
-        tekst(d, D, (L + (i+0.5)*kol, bod + D*0.055), str(n), D*0.062, WIT if i == 7 else LICHTCYAAN)
+        xm = L + (i+0.5)*kol
+        if n: tekst(d, D, (xm, bod - (bod-top)*n/hoog - D*0.045), str(n), D*0.062, WIT if i == 7 else LICHTCYAAN)
+        else:
+            rr = D*0.010; d.ellipse([xm-rr, bod+D*0.03-rr, xm+rr, bod+D*0.03+rr], fill=(0, 85, 170) if not amo(D) else AM[W1])
     tekst(d, D, (D/2, D*0.735), 'sessions per week', D*0.068, LICHTCYAAN)
     tekst(d, D, (D/2, D*0.815), 'avg hold 1:41', D*0.075, WIT)
     rand(im, D); return im
@@ -228,8 +230,8 @@ def s_rooster5(D, pagina, gevonden=7, kies=3):
         n = pagina*9 + i
         if n >= 24: continue
         soort = ALLE[n][0]; r_, k_ = divmod(i, 3)
-        x, y = D/2 + xs[k_]*D, ys[r_]*D
-        sc = v3.schaal_voor_gewicht(soort, opp)
+        x, y = D/2 + xs[k_]*D, (ys[r_] + (0.09 if pagina == 2 else 0))*D
+        sc = v3.schaal_voor_gewicht(soort, opp) * (1.15 if soort in ('haai', 'orka', 'manta', 'zwaard', 'walvis') else 1)   # zeldzaam = groter
         if n == kies:
             rr = D*0.098; lw = max(2, round(D/130)); d.ellipse([x-rr, y-rr, x+rr, y+rr], outline=SCHUIM, width=lw)
         if n < gevonden: dier(im, soort, x, y, sc)
@@ -241,9 +243,11 @@ def s_rooster_1(D): return s_rooster5(D, 0)
 def s_rooster_2(D): return s_rooster5(D, 1, kies=9)
 def s_rooster_3(D): return s_rooster5(D, 2, kies=22)
 SESSIES_NU = 9
+# Schema v5.3 (productkeuring): dagen op rij hoogstens 7, daarna alleen sessies, zodat wie 4 keer per week ademt alle 24 haalt
+SCHEMA = ['1x', '2x', '2d', '3d', '4x', '6x', '4d', '10x', '5d', '12x', '14x', '16x', '6d', '18x', '20x',
+          '22x', '7d', '25x', '28x', '32x', '36x', '42x', 'break', '50x']
 def _eis(n):
-    naam = ALLE[n][1]; drempel = ['1x', '2x', '2d', '3d', '5x', '8x', '4d', '10x', '5d', '12x', '6d', '15x', '7d', '18x', '10d',
-                                  '21x', '14d', '25x', '30x', '21d', '40x', '30d', 'break', '60x'][n]
+    naam = ALLE[n][1]; drempel = SCHEMA[n]
     if drempel == 'break': return 'comes after a break'   # naam blijft een verrassing
     if drempel.endswith('x'): return f'{naam} · {int(drempel[:-1]) - SESSIES_NU} more sessions'
     return f'{naam} · {drempel[:-1]} days in a row'
