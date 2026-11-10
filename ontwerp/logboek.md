@@ -774,3 +774,6 @@ Bekeken: Ebb winkelbeelden v2 (dd460d0, tak `claude/garmin-2026-11-10b`), winkel
 
 ## 10 nov 2026, ±18:45 UTC (Daan, zelfde run)
 Bekeken: Het Hol schermen v4 (plan versie 10). Moet 1 en 2 van keuring 8 gedaan, dus ja zoals afgesproken (keuring 9). Kan-punt: scherm 4 en 5 tonen geen held of Gloop, bij nieuwe opnames een levendiger moment kiezen.
+
+## 10 nov 2026 (Daan, handmatige run van de hoofdchat: volledige eindkeuring Ebb)
+Bekeken: acht winkelbeelden v2 en icoon (dd460d0), winkeltekst versie 3 tegen de code, de echte bouw (run 42874773753 op dd460d0, scène 0 tot 6 op vier horloges; run 42873672316 e2e op negen horloges), de zoekrij met de top 3. Besloten: `Akkoord: nee`, keuring 4 met W1 tot W10 (dieren, onderkaak in de waterkleur, Sea log op één maat, label 3:05 op de lijn, 4-7-8 op de golfrand op vivoactive 5). Tekst ja. Richting v2 voor walvis en schildpad gemaakt en na de controleur verbeterd (tekenfilmstaart in plaats van vissenstaart). Uitkomst in `berichten/gijs.md` en `berichten/mila.md` op verzoek van de hoofdchat.

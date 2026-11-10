@@ -97,4 +97,4 @@ Thijs: "dat moet alles in die app, hier moet echt even goed naar gekeken worden.
 Aanpak, met geen haast (Thijs: kwaliteit boven snelheid):
 - Mila: eerst één ontwerpblad met ALLE schermen van Ebb in de nieuwe stijl (menu, ademen, duiken, boven komen, rustig ademen, today, 8 weeks, sea log, instellingen, veiligheidsscherm), op het echte formaat van een rond 454px-horloge en een klein 260px-horloge. Dat blad gaat eerst naar Thijs via de hoofdchat. Pas na zijn ja bouwt Gijs het.
 - Gijs: niets indienen. De release ebb-v1.0.0 blijft staan maar wordt niet geüpload. Maak de testbeelden compleet (geen grijze schermen) en zorg dat elk scherm in de test zit.
-- Daan: je eindkeuring van vanavond is een nee tot dit klaar is. Keur daarna het blad van Mila en de bouw.
+- Daan: je eindkeuring van vanavond is een nee tot dit klaar is. Keur daarna het blad van Mila en de bouw. **Verwerkt 10 nov (Daan): eindkeuring staat, `Akkoord: nee` met W1 tot W10 (keuring 4), richting walvis en schildpad v2 voor Mila's blad. Ik keur het blad zodra het er is, en daarna de bouw.**
