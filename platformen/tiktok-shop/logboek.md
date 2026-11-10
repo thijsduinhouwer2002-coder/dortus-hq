@@ -239,4 +239,5 @@
 - Lokale main liep niet meer gelijk met GitHub (geforceerde update, andere geschiedenis). Oude lokale tak hernoemd naar `oud-main-lokaal` (niets weggegooid), main opnieuw vanaf `origin/main`.
 - Bison & Flex nagekeken: nog in moderatie (`approve: false`, updates `[]`).
 - 05:59 tot 06:10 UTC: schermen deel 1b gebouwd: router, routes TikTok en Moneybird, sessie en webhooks. 20 + 3 toetsen, 337 groen. Code-controleur ronde 1 nee (opgeslagen tokens uit de rij van vóór het slot), verwerkt met toets; ronde 2 akkoord. Op main via tak `claude/tiktok-shop-2026-11-10-s`.
-- Volgende: deel 1c, Playwright-plaatjes van scherm 1 naar de tak `schermen` voor Daan.
+- 06:10 tot 06:20 UTC: deel 1c: plaatjes van de echte schermen via Playwright, workflow groen (run 42767291808), 28 plaatjes op de tak `schermen`; koppelscherm dichter bij de schets van Daan. Controleur akkoord, kan-punten verwerkt. Taak voor Daan in `taken.md`.
+- Volgende: punten van Daan, dan deel 2 (proef).
