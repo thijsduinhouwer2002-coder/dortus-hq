@@ -105,7 +105,7 @@ class VeiligView extends WatchUi.View {
         for (var i = 0; i < regels.size(); i += 1) {
             dc.drawText(w / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
         }
-        dc.setColor(0x00AAFF, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, y + regels.size() * lh + lh / 2, f, "Press start: OK", Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
@@ -432,7 +432,8 @@ class EbbView extends WatchUi.View {
             var a = p[2 * i];
             var tip = p[2 * i + 1];
             var b = p[2 * i + 2];
-            var k = EbbTeken.DIEPTE[1 + (i < 2 ? i : 2)];
+            // Kan-punt Daan: één tint uit de duikkleuren, geen fel blauw; de schuimlijn geeft de vorm.
+            var k = EbbTeken.DIEPTE[1];
             dc.setColor(k, k);
             dc.fillPolygon([[a[0], a[1]], [tip[0], tip[1]], [b[0], b[1]]]);
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
@@ -485,7 +486,8 @@ class EbbView extends WatchUi.View {
         var half = (stap / 2 > 1) ? stap / 2 : 1;
         // Schaduw (Daan M2): één doorlopend vlak van de eerste tot de laatste dag met een sessie, van de bodem
         // tot het gemiddelde; een dag zonder sessie wordt overbrugd, alleen de lijn erboven krijgt daar een gat.
-        dc.setColor(EbbTeken.DIEPTE[2], EbbTeken.DIEPTE[2]);
+        // Kleur (kan-punt Daan): de diepte van het inhouden (DIEPTE[1]) in plaats van fel blauw.
+        dc.setColor(EbbTeken.DIEPTE[1], EbbTeken.DIEPTE[1]);
         var vlak = [] as Array<[Numeric, Numeric]>;
         var eerste = null as Array<Number> or Null;
         var laatste = null as Array<Number> or Null;

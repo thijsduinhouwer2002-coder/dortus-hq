@@ -1,21 +1,44 @@
 import Toybox.Application;
+import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
 // Startmenu (ontwerp, bediening): rondes beginnen of de instellingen openen.
 module EbbStart {
+    // Op aanraakhorloges (vivoactive, venu) is het systeemmenu een wit vlak; daar een eigen donker menu
+    // in de kleuren van Ebb (kan-punt Daan 10 nov). Knophorloges houden het systeemmenu, dat is daar al donker.
     function menu() as WatchUi.Menu2 {
-        var m = new WatchUi.Menu2({:title => "Ebb"});
-        m.addItem(new WatchUi.MenuItem("Rounds", rondesTekst(), :rondes, null));
-        var namen = PATROON_NAMEN;
-        for (var i = 0; i < namen.size(); i += 1) {
-            m.addItem(new WatchUi.MenuItem(namen[i], PATROON_TEKST[i], i, null));
+        var labels = ["Rounds"] as Array<String>;
+        var subs = [rondesTekst()] as Array<String or Null>;
+        var ids = [:rondes] as Array<Symbol or Number>;
+        for (var i = 0; i < PATROON_NAMEN.size(); i += 1) {
+            labels.add(PATROON_NAMEN[i]);
+            subs.add(PATROON_TEKST[i]);
+            ids.add(i);
         }
-        m.addItem(new WatchUi.MenuItem("My pattern", eigenTekst(), :eigen, null));
-        m.addItem(new WatchUi.MenuItem("Sea log", null, :dieren, null));
-        m.addItem(new WatchUi.MenuItem("Settings", null, :instellingen, null));
-        return m;
+        labels.add("My pattern"); subs.add(eigenTekst()); ids.add(:eigen);
+        labels.add("Sea log"); subs.add(null); ids.add(:dieren);
+        labels.add("Settings"); subs.add(null); ids.add(:instellingen);
+        var m = null as WatchUi.Menu2 or Null;
+        if (System.getDeviceSettings().isTouchScreen) {
+            var h = System.getDeviceSettings().screenHeight;
+            var cm = new WatchUi.CustomMenu(h / 5, Graphics.COLOR_BLACK, {
+                :title => new EbbMenuTitel("Ebb"),
+                :titleItemHeight => h / 4,
+                :focusItemHeight => h / 4
+            });
+            for (var i = 0; i < labels.size(); i += 1) {
+                cm.addItem(new EbbMenuItem(ids[i], labels[i], subs[i]));
+            }
+            m = cm;
+        } else {
+            m = new WatchUi.Menu2({:title => "Ebb", :theme => WatchUi.MENU_THEME_CYAN});
+            for (var i = 0; i < labels.size(); i += 1) {
+                m.addItem(new WatchUi.MenuItem(labels[i], subs[i], ids[i], null));
+            }
+        }
+        return m as WatchUi.Menu2;
     }
 
     function rondesTekst() as String {
@@ -34,7 +57,7 @@ module EbbStart {
     const NAMEN = ["Breaths per round", "Pace", "Rounds", "Recovery hold", "My pattern: in", "My pattern: hold", "My pattern: out", "My pattern: rest"] as Array<String>;
 
     function instellingen() as WatchUi.Menu2 {
-        var m = new WatchUi.Menu2({:title => "Settings"});
+        var m = new WatchUi.Menu2({:title => "Settings", :theme => WatchUi.MENU_THEME_CYAN});
         for (var i = 0; i < NAMEN.size(); i += 1) {
             m.addItem(new WatchUi.MenuItem(NAMEN[i], EbbInstellingen.tekst(i), i, null));
         }
@@ -99,5 +122,59 @@ class InstellingenDelegate extends WatchUi.Menu2InputDelegate {
     function onBack() as Void {
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
         WatchUi.switchToView(EbbStart.menu(), new StartDelegate(), WatchUi.SLIDE_IMMEDIATE);
+    }
+}
+
+// Titel van het donkere menu: "Ebb" in schuimkleur met een golflijn eronder.
+class EbbMenuTitel extends WatchUi.Drawable {
+    private var _tekst as String;
+
+    function initialize(tekst as String) {
+        Drawable.initialize({});
+        _tekst = tekst;
+    }
+
+    function draw(dc as Graphics.Dc) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (h * 6) / 10, Graphics.FONT_SMALL, _tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+}
+
+// Regel van het donkere menu: wit label, zachte ondertekst; de regel met focus krijgt een turquoise streep links.
+class EbbMenuItem extends WatchUi.CustomMenuItem {
+    private var _label as String;
+    private var _sub as String or Null;
+
+    function initialize(id as Symbol or Number, label as String, sub as String or Null) {
+        CustomMenuItem.initialize(id, {});
+        _label = label;
+        _sub = sub;
+    }
+
+    function draw(dc as Graphics.Dc) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        var focus = isFocused();
+        dc.setColor(focus ? EbbTeken.DIEPTE[3] : Graphics.COLOR_BLACK, focus ? EbbTeken.DIEPTE[3] : Graphics.COLOR_BLACK);
+        dc.clear();
+        var groot = focus ? Graphics.FONT_MEDIUM : Graphics.FONT_SMALL;
+        var y = h / 2;
+        if (_sub != null) {
+            y = h / 2 - dc.getFontHeight(Graphics.FONT_XTINY) / 2;
+        }
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y, groot, _label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (_sub != null) {
+            dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, y + dc.getFontHeight(groot) / 2, Graphics.FONT_XTINY, _sub as String, Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        if (focus) {
+            dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+            dc.fillRectangle(w / 2 - w / 8, h - 3, w / 4, 2);
+        }
     }
 }
