@@ -2,7 +2,8 @@ extends RefCounted
 # Heldensoorten (Bram, 10 nov). Versie 1 van features.md (Sanne): ridder, dief, magiër en bard, zodat het niet
 # na 3 dagen op is. Olaf 10 nov 01:40: alles van [v1] komt vóór het fest (14 jan).
 # Elke soort voelt anders in de strook, niet alleen een getal:
-#   ridder:  sterk en traag. Loopt langzamer, vlucht pas na twee klappen (ook als hij schijterig is), slijm krijgt hem minder snel.
+#   ridder:  sterk en traag. Loopt langzamer, vlucht pas na twee klappen (ook als hij schijterig is). Zwaar harnas: past niet in
+#            Gloops mond (slijm 0,7) maar zakt door elke vloer (put 1,4). Zo heeft elke soort een eigen zwakte (Sanne 10 nov 03:05).
 #   dief:    snel en glad. Ontwijkt de put vaak (springt erover), Gloop is zijn zwakke plek.
 #   magiër:  ziet vallen. De put krijgt hem bijna nooit, maar tegen Gloop helpt geen spreuk.
 #   bard:    zwak, maar vlucht hij, dan zingt hij een lied over je hol en komen er meer helden (info "lied").
@@ -12,7 +13,7 @@ extends RefCounted
 # Kiezen moet strook.gd (Olaf) nog doen met kies(nr, r), gevraagd in taken.md; tot dan komt er geen soort in het spel: de eerste 10 helden van een nieuw spel zijn gewoon (de eerste tien
 # minuten blijven zoals Sanne ze schreef), daarna af en toe een soort. Een terugkomer houdt zijn soort (in de kroniek).
 #
-# Getallen zijn een begin (GOK), nagerekend in sim/sim.py (python3 sim.py soorten): de doelen moeten blijven
+# Getallen: ridder en bard van Sanne (balans.md, 10 nov 03:05), de rest een begin (GOK), nagerekend in sim/sim.py (python3 sim.py soorten): de doelen moeten blijven
 # gelden (±1 op 3 vlucht, zie sim/UITKOMST.md). Sanne mag ze bijstellen in balans.md.
 
 const SOORTEN := ["ridder", "dief", "magier", "bard"]
@@ -20,13 +21,13 @@ const SOORTEN := ["ridder", "dief", "magier", "bard"]
 # kans_x: factor op de kans dat hij valt, per verdediging. snel: factor op lopen en klimmen.
 # taai: vlucht pas na twee klappen. wapen: plaatje in held_wapens.png (0 zwaard, 1 staf, 2 fakkel), -1 = zoals nu.
 const DATA := {
-	"ridder": {"snel": 0.75, "kans_x": {"slijm": 0.85, "stekelput": 1.0}, "taai": true, "wapen": 0,
-		"naam": "Knight", "uitleg": "Slow and stubborn. Runs only after two hits."},
+	"ridder": {"snel": 0.75, "kans_x": {"slijm": 0.7, "stekelput": 1.4}, "taai": true, "wapen": 0,
+		"naam": "Knight", "uitleg": "Heavy armor. Too big for Gloop. Pits love him."},
 	"dief": {"snel": 1.3, "kans_x": {"slijm": 1.15, "stekelput": 0.5}, "taai": false, "wapen": -1,
 		"naam": "Thief", "uitleg": "Quick. Pits rarely catch him. Hates slime."},
 	"magier": {"snel": 1.0, "kans_x": {"slijm": 1.25, "stekelput": 0.3}, "taai": false, "wapen": 1,
 		"naam": "Wizard", "uitleg": "Sees traps. No spell works on Gloop."},
-	"bard": {"snel": 1.0, "kans_x": {"slijm": 1.15, "stekelput": 1.15}, "taai": false, "wapen": -1,
+	"bard": {"snel": 1.0, "kans_x": {"slijm": 1.1, "stekelput": 1.1}, "taai": false, "wapen": -1,
 		"naam": "Bard", "uitleg": "Weak. If he escapes, he sings about you."},
 }
 

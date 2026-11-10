@@ -8,6 +8,13 @@ extends Node2D
 
 const RUST := preload("res://kunst/slijm.png")          # 16 x 16, rust 0..3
 const LEVEN := preload("res://kunst/slijm_leven.png")   # 16 x 16: slapen 0-1, spugen 2-5, hap 6-10, plat 11, opstaan 12
+# Upgrades per stap (Mila 10 nov 02:55, ontwerp/steam/mila/gloop-upgrades-10x.png). Stappen stapelen: Royal heeft ook Big en Bouncy.
+# Big Gloop (niveau 1+): eigen bladen, lijf 1 spelpixel groter rondom getekend (niet geschaald), zelfde indeling en frames.
+const RUST_GROOT := preload("res://kunst/slijm_groot.png")
+const LEVEN_GROOT := preload("res://kunst/slijm_leven_groot.png")
+const UPG := preload("res://kunst/slijm_upgrades.png")  # cel 0 (x 0, 16 x 16) glansster voor Bouncy, cel 1 (x 16, 24 x 16) cape voor Royal
+const KOOP_S := 0.6         # het moment van kopen: 3 beelden op 5 fps (Sanne toets 8 punt 1: Gloop wipt en zwelt)
+const KOOP_WIP := [-2, -3, -1]   # hoeveel spelpixels hij omhoog is per beeld; in beeld 0 nog het oude lijf, daarna het nieuwe
 const HAP := [6, 7, 8, 9, 10]
 const PLAT := 11
 const OPSTAAN := 12
@@ -52,6 +59,7 @@ var gespuugd := 0           # laarzen uitgespuugd; hij spuugt alleen als hij mee
 var laars_op_vloer := false   # ligt de laars naast hem (8 s, dan haalt een wekker hem weg)
 var laars_kant := 1         # 1 rechts, -1 links
 var rng := RandomNumberGenerator.new()
+var koop_van := -10.0       # wanneer de laatste upgrade gekocht werd (vier_koop)
 var plat_tot := -10.0       # was 0.0: dan stond hij bij de start in "opstaan" en bleef zo (Olaf 19:55, GEZIEN in run 42682511064)
 
 func zet(h, kol: int) -> void:
@@ -107,6 +115,36 @@ func laars_pos() -> Vector2i:
 	var x := int(round(12.0 * u)) * laars_kant
 	var y := -int(round(8.0 * u * (1.0 - u) * 4.0 / 2.0))
 	return Vector2i(x + 4 * laars_kant, y)
+
+# Welke upgrade-stap Gloop heeft (0 tot 3), uit hol.upgrades (systemen/upgrades.gd). Zonder upgrades 0.
+func niveau() -> int:
+	if hol != null and "upgrades" in hol and hol.get("upgrades") != null:
+		return int(hol.get("upgrades").niveau("slijm"))
+	return 0
+
+# Na "Buy" op het kaartje (kern/kaartje.gd): Gloop wipt omhoog en zwelt in 3 beelden (0,6 s) naar zijn nieuwe lijf.
+func vier_koop() -> void:
+	koop_van = t
+	set_process(true)
+	queue_redraw()
+
+# Na "Undo" of laden: alleen opnieuw tekenen, zonder feestje.
+func upgrade_veranderd() -> void:
+	queue_redraw()
+
+# Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
+func wip_nu() -> int:
+	if t < koop_van or t >= koop_van + KOOP_S or is_plat():
+		return 0
+	return int(KOOP_WIP[mini(KOOP_WIP.size() - 1, int((t - koop_van) * FPS))])
+
+# Het hoogste punt van Gloop met alles wat hij draagt (Gloop-coordinaten, y omhoog negatief): de bovenste hoed,
+# anders zijn kruin, de glansster of de zzz niet meegerekend. Voor het muntje erboven (Sanne toets 8 punt 2: 3 spelpixels boven het bovenste).
+func hoogste_punt() -> int:
+	var y := -16 + top_nu() + wip_nu()
+	for h in toren():
+		y = mini(y, int(h[2]) + int(HOED_TOP[int(h[0])]))
+	return y
 
 func is_bewoner() -> bool:
 	return true
@@ -205,11 +243,24 @@ func stap(delta: float) -> void:
 		laars_op_vloer = true
 		if is_inside_tree():
 			get_tree().create_timer(LAARS_LIGT_S).timeout.connect(laars_weg)   # laars weg, zonder _process
-	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S:
+	if leven == "" and t > hap_van + HAP_S and t > plat_tot + OPSTAAN_S and t > koop_van + KOOP_S:
 		set_process(false)
 
 # Welk frame uit welk blad: [blad, frame]. Los zodat de toetsen het kunnen nakijken.
+# Vanaf Big Gloop uit de grote bladen; in het eerste beeld van het koop-moment nog het oude (klein) lijf.
 func frame_nu() -> Array:
+	var f := _frame_klein()
+	if is_groot():
+		f[0] = RUST_GROOT if f[0] == RUST else LEVEN_GROOT
+	return f
+
+func is_groot() -> bool:
+	var n := niveau()
+	if n == 1 and t >= koop_van and t < koop_van + 1.0 / FPS:
+		return false     # net Big gekocht: beeld 0 nog klein, dan zwelt hij
+	return n >= 1
+
+func _frame_klein() -> Array:
 	if t < hap_van + HAP_S:
 		return [LEVEN, HAP[mini(HAP.size() - 1, int((t - hap_van) * FPS))]]
 	if t < plat_tot:
@@ -225,8 +276,11 @@ func frame_nu() -> Array:
 # Bovenkant van Gloop in het huidige frame (de toren volgt hem: hap, spugen, opstaan).
 func top_nu() -> int:
 	var f := frame_nu()
-	var tabel: Array = RUST_TOP if f[0] == RUST else LEVEN_TOP
-	return int(tabel[int(f[1])])
+	var tabel: Array = RUST_TOP if (f[0] == RUST or f[0] == RUST_GROOT) else LEVEN_TOP
+	var top := int(tabel[int(f[1])])
+	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
+		top -= 1     # het grote lijf is 1 spelpixel hoger (Mila), dan zakt de toren niet in zijn kruin
+	return top
 
 # Waar elke hoed van de toren staat: [hoed, x, y] (y = bovenkant van het 16 x 16 frame, Gloop-coordinaten).
 # Rechtop: elke hoed met zijn onderste rij 1 px in de bovenkant van wat eronder staat. Plat: de toren valt mee,
@@ -238,7 +292,7 @@ func toren() -> Array:
 		for i in op.size():
 			uit.append([op[i], 9 + 6 * i, -1 - int(HOED_ONDER[op[i]])])
 		return uit
-	var boven := -16 + top_nu()
+	var boven := -16 + top_nu() + wip_nu()
 	for i in op.size():
 		var h: int = op[i]
 		var y := boven - int(HOED_ONDER[h])
@@ -284,9 +338,16 @@ func _draw() -> void:
 	for b in berg():
 		draw_texture_rect_region(HOEDEN, Rect2(int(b[1]) - 8, int(b[2]), 16, 16), Rect2(int(b[0]) * 16, 0, 16, 16))
 	var f := frame_nu()
-	draw_texture_rect_region(f[0], Rect2(-8, -16, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
+	var wip := wip_nu()
+	var n := niveau()
+	if n >= 3 and not is_plat():
+		draw_texture_rect_region(UPG, Rect2(-12, -16 + wip, 24, 16), Rect2(16, 0, 24, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
+	draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
 	for h in toren():
 		draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
+	if n >= 2 and not is_plat():
+		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
+		draw_texture_rect_region(UPG, Rect2(-8, -16 + top_nu() - 5 + wip, 16, 16), Rect2(0, 0, 16, 16))
 	if leven == "slapen":
 		var zy := -25
 		for h in toren():

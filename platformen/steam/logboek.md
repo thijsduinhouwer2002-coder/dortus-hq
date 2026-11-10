@@ -247,3 +247,10 @@
 - 02:30: ook drie karaktertrekken (slaapkop, wraakzuchtig, opschepper) in held.gd, kroniek en sim; toetsen 0 FOUT, vraag aan Olaf aangevuld. "Verdwaald" bewust nog niet (niet te zien in één rij gangen).
 - Sanne 10 nov 03:05 UTC: toets 8 op de film van main (run 42743682321, `spelgevoel.md`): het kaartje werkt, gat 1 dicht; punten voor Olaf (kopen moet je zien, muntje dichter bij Gloop, Undo zichtbaar na kopen). Koopregels met een grap in `kroniek-regels.md`. Heldensoorten: ridder wordt de held van de put (slijm 0,7, put 1,4), bard 1,1/1,1, gemeten op Brams sim met `data/soorten-keuze.py`, vluchten 35,1% (`balans.md`). Moet-punt controleur in `data/ritme-bezoeker.py` gerepareerd, tabel in balans.md bevestigd.
 - Sanne 10 nov 03:10 UTC: Heldenboek uitgewerkt in `features.md` (vier hoofdstukken, in het paneel, eerlijk en zonder dagelijkse plicht), vraag aan Olaf of het vóór het fest past; voorstel Trick Lid tegen de magiër aan Bram; `toppers.md` gat 1 bijgewerkt (half dicht).
+
+## Bram, 10 nov 03:11 tot 03:30 UTC
+- Click Joints eerst: listing nog 404 (Awaiting Review), meldingenrepo 0 issues en 0 PR (GEZIEN). Niets te doen.
+- Sanne 03:05: ridder wordt de held van de put (slijm 0,7, put 1,4), bard 1,1 en 1,1; in `heldensoort.gd` en `sim.py`, sim vluchten 31,5 tot 40,6% (doel gehaald).
+- Olaf 02:40: `upgrades.terug(soort)` voor Undo. Sanne toets 8 punt 4: koopregels met grap in `koop_regel()`. Royal zegt nu cape, want Mila tekende een cape (eerlijk).
+- Mila 02:55 en Sanne toets 8 punt 1 en 2: Gloop per stap in `slijm.gd` (grote bladen, glansster, cape), koop-moment `vier_koop()` en `hoogste_punt()` voor het muntje. Zelf een proefbeeld gemaakt: de ster las als een T onder de hoed, dus ster na de hoeden getekend.
+- Toetsen 0 FOUT (Godot 4.3 lokaal), controleur akkoord met correcties (cape wipt mee, .import-bestanden, UITKOMST, bericht aan Olaf), verwerkt. Aansluiten (4 regels) gevraagd aan Olaf in taken.md.

@@ -274,7 +274,25 @@ func _init() -> void:
 			else:
 				print("  te lang: ", kr, " | ", vg)
 	ok(regels_ok == 6, "namen, uitleg en kroniekregel passen (%d van 6)" % regels_ok)
-	ok(u3.koop_regel("slijm") == "Gloop is now Royal Gloop." and u3.put_verborgen(), "regel: " + u3.koop_regel("slijm"))
+	var kr2: String = u3.koop_regel("slijm")
+	ok(kr2 == "All hail Royal Gloop. Burp." and u3.put_verborgen(), "tweede regel voor Royal is de tweede grap: " + kr2)
+	var u5 = load("res://systemen/upgrades.gd").new()
+	u5.koop("slijm", 1000)
+	ok(u5.koop_regel("slijm") == "Gloop is now Big Gloop. Bigger mouth.", "eerste koop: eerste grap van Sanne")
+	var u7 = load("res://systemen/upgrades.gd").new()
+	u7.koop("slijm", 1000)
+	ok(u7.koop_regel("slijm", "Bartholomew") == "Bartholomew grew. The hats fit better.", "lange naam: de eerste grap die in 42 tekens past")
+	ok(u5.koop_regel("slijm", "Gloopsterwurmendraakwiggelaarxx").begins_with("Gloopsterwurmendraakwiggelaarxx is now Big"), "heel lange naam: de vaste korte regel, nooit leeg")
+	# terug(): wat Undo teruggeeft, gelijk aan wat de bovenste stap kostte
+	var u6 = load("res://systemen/upgrades.gd").new()
+	ok(u6.terug("slijm") == 0, "niets gekocht: Undo geeft 0")
+	var terug_ok := true
+	for n in 3:
+		var kost_u6: int = u6.kost("stekelput")
+		u6.koop("stekelput", 1000)
+		terug_ok = terug_ok and u6.terug("stekelput") == kost_u6
+	ok(terug_ok and u6.terug("stekelput") == 353, "terug() is steeds de prijs van de bovenste stap (45, 126, 353)")
+	ok(u6.verkoop("stekelput") == 353 and u6.terug("stekelput") == 126, "na weghalen: terug() de prijs van de stap eronder")
 	# voortgang telt upgrades mee; zonder upgrades precies als voorheen
 	var vz: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
 	var vn: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 0, null)

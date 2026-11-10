@@ -27,8 +27,8 @@ def graaf_prijs(gangen):
 
 # Heldensoorten (versie 1, godot/systemen/heldensoort.gd): zelfde getallen. Aan met: python3 sim.py soorten
 SOORTEN = False
-SOORT_DATA = {"ridder": ({"slijm": 0.85, "put": 1.0}, True), "dief": ({"slijm": 1.15, "put": 0.5}, False),
-              "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.15, "put": 1.15}, False)}
+SOORT_DATA = {"ridder": ({"slijm": 0.7, "put": 1.4}, True), "dief": ({"slijm": 1.15, "put": 0.5}, False),
+              "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.1, "put": 1.1}, False)}  # ridder en bard: Sanne 10 nov 03:05 (balans.md)
 SOORT_GEWICHT = {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
 LIED_HELDEN = 2
 

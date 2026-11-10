@@ -6,14 +6,14 @@ extends RefCounted
 # Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 126, 353 (45 x 2,8^n, Sanne 10 nov),
 # elke upgrade +7 procentpunt kans dat een held valt. Daarbovenop heeft elke stap iets eigens dat je ziet of merkt,
 # zodat het een keuze is en geen getal:
-#   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, kroon van slijm)
+#   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, paarse cape van Mila; eerst een kroon, maar die botste met de hoedentoren)
 #   stekelput: 1 Rusty Spikes (+7)       2 Deep Pit (+7, en een schijterige held keert er niet voor om)  3 Trick Lid (+7, dicht tot hij erop staat)
 # Wat het spel ermee doet:
 # - held.gd vraagt de kans erbij via het hol: als hol een eigenschap "upgrades" heeft (dit object), telt
 #   kans_erbij(soort) mee. Zonder die eigenschap verandert er niets (ook niet in de oude films).
 # - slijm.gd rekent bij plat() zelf plat_s x 2/3 vanaf Bouncy Gloop (40 s in het spel, ook korter in de demo).
-# - de tekening van elke stap is van Mila (gevraagd in taken.md); tot die er is geeft niveau() het getal en tekent
-#   slijm.gd niets anders.
+# - de tekening van elke stap is van Mila (kunst/slijm_groot.png, slijm_upgrades.png, stekelput_upgrades.png);
+#   slijm.gd tekent Gloop per stap, hol.gd (Olaf) de put.
 # - opslaan: naar_dict() en van_dict() (in de save van strook.gd).
 # Geen tijdsdruk en geen straf: kopen kan altijd, weghalen geeft de volle prijs terug (balans.md), dus niets is fout te kiezen.
 
@@ -28,7 +28,7 @@ const STAPPEN := {
 	"slijm": [
 		{"naam": "Big Gloop", "uitleg": "Bigger mouth. More heroes fall."},
 		{"naam": "Bouncy Gloop", "uitleg": "Back up in 40 s instead of 60."},
-		{"naam": "Royal Gloop", "uitleg": "A slime crown. Heroes gulp."},
+		{"naam": "Royal Gloop", "uitleg": "A royal cape. Heroes gulp."},
 	],
 	"stekelput": [
 		{"naam": "Rusty Spikes", "uitleg": "Rust hurts. More heroes fall."},
@@ -91,15 +91,45 @@ func put_houdt_vast() -> bool:
 func put_verborgen() -> bool:
 	return niveau("stekelput") >= 3
 
-# De regel voor de kroniek als je iets koopt (hooguit 42 tekens): "Gloop is now Big Gloop."
+# Wat "Undo" teruggeeft: de volle prijs van de bovenste stap (balans.md), 0 als er niets gekocht is.
+# kern/kaartje.gd gebruikt dit, zodat er geen tweede kopie van de formule is (vraag Olaf 10 nov 02:40).
+func terug(soort: String) -> int:
+	var n := niveau(soort)
+	if n <= 0:
+		return 0
+	return int(round(BASIS * pow(FACTOR, n - 1)))
+
+# Koopregels met een grap (Sanne, platformen/steam/kroniek-regels.md "Kopen", toets 8 punt 4). Elke regel zegt
+# wat de stap echt doet. {b} = de naam van de bewoner. De eerste keer de eerste regel, daarna om de beurt.
+const KOOP_REGELS := {
+	"Big Gloop": ["{b} is now Big {b}. Bigger mouth.", "{b} grew. The hats fit better.", "More {b}. Same appetite. Worse."],
+	"Bouncy Gloop": ["{b} bounces now. Back up in 40 s.", "{b} learned to bounce. Smug.", "Boing. {b} is Bouncy {b}."],
+	"Royal Gloop": ["{b} wears a royal cape now.", "All hail Royal {b}. Burp.", "{b} is royalty now. Insufferable."],
+	"Rusty Spikes": ["The Spike Pit got rusty. Ouch.", "Rust on the spikes. On purpose.", "The spikes are rusty now. Tetanus."],
+	"Deep Pit": ["The pit got deeper. Echo, echo.", "Deeper pit. Nobody turns back now.", "The pit is very deep now. Hello?"],
+	"Trick Lid": ["The pit has a lid. Looks like floor.", "New floor. Not floor.", "The Spike Pit hides now. Shh."],
+}
+const REGEL_MAX := 42
+var _regel_tel := {}   # hoe vaak elke stap al een regel gaf (niet bewaard: na herstart begint hij weer bij de eerste; Undo en opnieuw kopen geeft de volgende grap)
+
+# De regel voor de kroniek als je iets koopt (hooguit 42 tekens). Past een grap niet (lange naam), dan de korte vaste regel.
 func koop_regel(soort: String, bewoner := "Gloop") -> String:
 	var n := niveau(soort)
 	if n <= 0:
 		return ""
 	var naam: String = STAPPEN[soort][n - 1]["naam"]
-	if soort == "slijm":
-		return "%s is now %s." % [bewoner, naam.replace("Gloop", bewoner)]
-	return "The Spike Pit got %s." % naam
+	var passend: Array = []
+	for r in KOOP_REGELS.get(naam, []):
+		var t := String(r).replace("{b}", bewoner)
+		if t.length() <= REGEL_MAX:
+			passend.append(t)
+	if passend.is_empty():
+		if soort == "slijm":
+			return "%s is now %s." % [bewoner, naam.replace("Gloop", bewoner)]
+		return "The Spike Pit got %s." % naam
+	var i := int(_regel_tel.get(naam, 0))
+	_regel_tel[naam] = i + 1
+	return passend[i % passend.size()]
 
 func naar_dict() -> Dictionary:
 	return niveaus.duplicate()
