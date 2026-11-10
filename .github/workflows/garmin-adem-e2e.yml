@@ -87,6 +87,30 @@ jobs:
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
             grep -q "VEILIG bevestigd" "/tmp/do-$d.log" && grep -q "STARTCHECK" "/tmp/do-$d.log" && echo "S1 S2 $d: drie bladen bevestigd, startcheck gezien" || echo "S1 S2 $d: NIET gezien (toetsen?)"
           done
+          # Keuring G3: vegen in het menu op de aanraakhorloges. Na de veiligheidsbladen het menu, dan met de muis
+          # van onder naar boven slepen over het scherm; het beeld moet veranderen (menu schuift). Telt nog niet mee.
+          for d in vivoactive5 venu2 venu3; do
+            monkeydo "bin/app-$d.prg" "$d" > "/tmp/veeg-$d.log" 2>&1 &
+            MD=$!
+            sleep 14
+            if command -v xdotool >/dev/null; then
+              W=$(xdotool search --onlyvisible --name "Simulator" 2>/dev/null | head -1)
+              [ -n "$W" ] && xdotool windowactivate "$W" 2>/dev/null
+              grep -q "VEILIG blad 1" "/tmp/veeg-$d.log" && { xdotool key Return; sleep 1; xdotool key Return; sleep 1; xdotool key Return; sleep 3; }
+              import -window root "/tmp/veeg-$d-voor.png"
+              eval "$(xdotool getwindowgeometry --shell "$W" 2>/dev/null)"
+              CX=$((X + WIDTH / 2)); CY=$((Y + HEIGHT / 2))
+              xdotool mousemove "$CX" $((CY + 70)) mousedown 1; sleep 0.2
+              for k in 1 2 3 4 5 6 7; do xdotool mousemove "$CX" $((CY + 70 - k * 20)); sleep 0.05; done
+              xdotool mouseup 1; sleep 2
+              import -window root "schermen/$d-veeg.png"
+              V=$(compare -metric AE "/tmp/veeg-$d-voor.png" "schermen/$d-veeg.png" null: 2>&1 || true)
+              echo "G3 VEGEN $d: $V pixels anders na vegen (0 = menu schoof niet)"
+            fi
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+            echo "== uitvoer vegen $d"; cat "/tmp/veeg-$d.log"
+          done
           # Eis 10: testbouw neemt een sessie op (inhoud 3 s en 5 s), slaat op, en gooit een tweede opname weg.
           # Simulator per horloge opnieuw starten: een echt horloge opent elke app vers. Zonder herstart lekte
           # een lege lap van een weggegooide opname in de volgende opname op een ander horloge (run 42772406769).
