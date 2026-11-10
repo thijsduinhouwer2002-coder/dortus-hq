@@ -10,7 +10,8 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht,
-		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {}}
+		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
+		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {}}
 	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify(data))
@@ -58,7 +59,10 @@ static func laad(s, begin) -> void:
 	for r in data.get("kroniek", []):
 		s.kroniek.append(String(r))
 	# terwijl je weg was (Bram, voortgang.gd): alleen winst, plafond 12 uur, 2 tot 3 regels met namen
-	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7)
+	if s.hol.upgrades != null and data.get("upgrades") is Dictionary:
+		s.hol.upgrades.van_dict(data.get("upgrades"))
+	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
+	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
 	if int(weg.helden) > 0:
 		s.hol.goud += int(weg.goud)
 		var helden_d := {}

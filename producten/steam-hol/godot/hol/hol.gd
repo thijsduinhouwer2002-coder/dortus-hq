@@ -37,6 +37,9 @@ var goud := 0                 # buit van gevallen helden; nooit iets kwijt als j
 var anim := 0                 # beeldje van fakkels en schat; loopt alleen als er toch al getekend wordt
 var put_open := {}            # kolom -> tijd tot de put weer dicht gaat (na een klap)
 var munten: Array = []        # vliegende muntjes van een val naar de schat: {van, t}
+# Gekochte stappen per bewoner en val (Brams systemen/upgrades.gd). held.gd en slijm.gd lezen ze via deze eigenschap;
+# alles op niveau 0 verandert niets. Kopen komt met het kaartje (features.md feature 5, Olaf).
+var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
 
 func maak(breedte_spelpixels: int) -> void:
