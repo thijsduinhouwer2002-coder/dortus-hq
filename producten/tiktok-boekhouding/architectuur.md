@@ -1,13 +1,13 @@
 # Architectuur: TikTok Shop naar Moneybird
 
-Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`, `ontwerp-moneybird.md`, `ontwerp-productlaag.md`, `ontwerp-d1-worker.md`.
+Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`, `ontwerp-moneybird.md`, `ontwerp-productlaag.md`, `ontwerp-d1-worker.md`, `ontwerp-affiliate.md`.
 
 ## Onderdelen
 - `src/budget.ts`: één teller per aanroep (`Budget`) voor fetch én D1 (één pot van 50, reserve 6 voor afmaken). `omhul` telt fetch, `opslagTeller` telt D1-queries in dezelfde pot. `BudgetOp` betekent: niets verstuurd.
 - `src/ophalen.ts`: een afrekening ophalen bij TikTok (transacties, daarna elke ontbrekende bestelling één keer) en samenstellen; ook de proef (eis a). Gooit `WinkelStop`.
 - `src/samenstel.ts`: transacties en bestellingen naar regels per soort, met controles.
 - `src/verwerk.ts`: de boekrun (`verwerkWinkel`), de statustabel per afrekening, slot, "boeking gestart", de knoppen (`opnieuw`, `vervroegStartdatum`). Exporteert ook alles uit `ophalen.ts`.
-- `src/moneybird/`: Moneybird-client, memoriaalboeking maken, `boekAfrekening` (zoeken op kenmerk of `bekendId`, dan POST of PATCH), OAuth en RGS.
+- `src/moneybird/`: Moneybird-client, memoriaalboeking maken, `boekAfrekening` (zoeken op kenmerk of `bekendId`, dan POST of PATCH), OAuth en RGS. Soort `affiliate` zonder eigen rekening valt in `maakMemoriaal` terug op de rekening van `commissie` (zonder btw-tarief).
 - `src/opslag.ts`: interface `Opslag`, `GeheugenOpslag` voor toetsen, fout `Ontkoppeld`.
 - `src/d1/opslag.ts` en `src/d1/schema.sql`: de echte opslag in Cloudflare D1. Lezen per afrekening in één batch, schrijven in een wachtrij die meegaat met de volgende statuswissel, slot altijd vers. Triggers weigeren schrijven na ontkoppelen.
 - `src/d1/tokens.ts`: tokens van TikTok (`tt_tokens`) en Moneybird (`mb_tokens`) per soort met `TokenBron`: AES-GCM met winkel-id als AAD en sleutelversie in de tekst, verversen binnen een uur, voorwaardelijk opslaan op `tt_versie`/`mb_versie`, na een 401 één keer verversen (`met`), dan `WinkelStop` `koppeling_verlopen`; alles in het ene budget.

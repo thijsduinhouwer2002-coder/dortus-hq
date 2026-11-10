@@ -15,7 +15,7 @@ Een zuivere functie `boekingsregels(bestelling)` in een nieuw bestand `src/boeki
 - `terugbetaling`: `refund_subtotal_before_discount_amount` (meestal negatief). `korting_terug`: `seller_discount_refund_amount` (meestal positief). Apart, zodat het pakket ze op eigen rekeningen kan zetten.
 - `overig_omzet`: alle andere velden van `revenue_breakdown` (o.a. de COD-velden en `distant_item_fee_amount`), ook nieuwe onbekende.
 - `verzendkosten`: alle velden van `shipping_cost_breakdown` behalve `supplementary_component`.
-- `belasting_op_kosten`: velden onder `fee_tax_breakdown.fee` waarvan de naam eindigt op `_tax` of `_tax_amount` (bijv. `platform_semi_managed_commission_fee_tax`, `cps_shop_ads_commission_tax_amount`). `commissie`: alle andere velden onder `fee`.
+- `belasting_op_kosten`: velden onder `fee_tax_breakdown.fee` waarvan de naam eindigt op `_tax` of `_tax_amount` (bijv. `platform_semi_managed_commission_fee_tax`, `cps_shop_ads_commission_tax_amount`). `commissie`: alle andere velden onder `fee`. **Sinds 10 nov:** velden in `AFFILIATE_VELDEN` (`tap_shop_ads_commission`) of met voorvoegsel `affiliate_` worden `affiliate` (geld voor creators en partners); alleen de rest is `commissie`. Zie `producten/tiktok-boekhouding/ontwerp-affiliate.md`.
 - `belasting`: alle velden onder `fee_tax_breakdown.tax`.
 - Groepstotalen (als de uitsplitsing niet sluit, zie hieronder): `omzet_totaal`, `verzendkosten_totaal`, `kosten_en_belasting_totaal`.
 - `verschil`: maakt de som van één SKU-transactie sluitend. Het pakket boekt dit altijd op een tussenrekening, nooit als omzet.
