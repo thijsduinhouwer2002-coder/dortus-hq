@@ -104,7 +104,7 @@ test("alle schermen: geen inline stijl of script, geen uitroeptekens in de tekst
   for (const s of alle) {
     const t = await tekstVan(s);
     assert.ok(!/<style|style=|<script|onclick=/i.test(t), s.titel);
-    const zichtbaar = t.replace(/<!doctype html>/i, "").replace(/<div class="teken" aria-hidden="true">!<\/div>/g, "");
+    const zichtbaar = t.replace(/<!doctype html>/i, "").replace(/<div class="teken teken-fout" aria-hidden="true">!<\/div>/g, "");
     assert.ok(!zichtbaar.includes("!"), `uitroepteken in ${s.titel}`);
   }
 });
