@@ -28,7 +28,7 @@ Thijs zei ja, de nieuwe pagina staat live (curl toont de nieuwe titel), en Daan 
 - Nieuwe bestanden, met nieuwe namen zodat geen enkele bestaande pagina verandert: `assets/dortus-door.svg` (zonder achtergrond), `assets/dortus-door-small.svg` (favicon), `assets/dortus-door-512.png` (balk en apple-touch-icon), `assets/og-home.png` (Mila's og 1200 x 630). Klaar in `platformen/abel/dortus-com/assets/`.
 - Na het ja van Thijs zet de hoofdchat in de repo dortus alleen `index.html` en deze vier nieuwe bestanden neer.
 
-## Run 4 (10 nov 04:05 NL)
+## Run 4 (10 nov 03:30 NL)
 - `assets/og-home.png` is nu Mila's og v2 met onderregel "Focused tools today, small games on the way" (`merk/og-1200x630-v2-nu.png`). Waarom: Daan vroeg dat het deelplaatje pas "small games" belooft als Hats of the Fallen op Steam staat (keuring 2, kan 5); dit is vandaag waar.
 - Titel, beschrijving en og-titel van `index.html` op dezelfde manier: eerst de tools, het spel "on the way". Voorbeelden opnieuw gemaakt en bekeken (desktop 1280 en telefoon 390).
 - Stand: wacht op het ja van Thijs (lijst-thijs, punt van 01:25). Is Hats of the Fallen later "coming soon" op Steam, dan mag de og terug naar Mila's gewone v2.
