@@ -191,3 +191,9 @@
 - 02:12 tot 02:19 UTC: drie kan-punten van de controleur gedaan (token vóór `polar_gestart`, ALARM alleen als er geen open opzegtaak is, toets voor een verwijderde klant). Controleur akkoord, 251 tests, op main via tak `-i`. Daarna begonnen aan deel 2.
 - 02:19 tot 02:25 UTC: deel 2 begonnen op tak `-j` (gepusht, niet op main): telling vastleggen en weghalen (stap 3 en 4), toetsen d en e, 263 tests. Besluit: niet samenvoegen zonder controleur en niet half af, want `magBoeken` heeft daar tijdelijk een andere betekenis. Rest staat in `taken.md`.
 - 02:25 tot 02:28 UTC: tussenkeuring van tak `-j` door de controleur: nee (afrekening zonder bestellingen kon op wacht bij een maand boven 30). Punten in `taken.md`, volgende run eerst verwerken. Gestopt rond 02:29 UTC.
+
+## 10 nov 2026, run 02:55 UTC (Jet)
+- `git pull` hing weer (origin geforceerd bijgewerkt, lokale main week af); `fetch` plus een eigen tak op `origin/main` werkte. Geen nieuw bericht van Thijs. Bison & Flex: `approve: false` (GEZIEN 02:57 UTC). Door met het betaalstuk deel 2.
+- Tussenkeuring verwerkt: afrekening zonder bestellingen mag altijd (`? = 0` in de SQL), telling weg in dezelfde batch als `faal` en `terug`, `wisTelling` alleen met eigen slot. Daarna stap 0 tot 2, `wacht_ouder`, maandwissel en het abonnement uit `winkels.abonnement`.
+- Besluit: bij een volle maand alleen zonder verzoek wachten als Get Statements omzet boven 0 geeft. Reden: het ontwerp zegt ook dat een afrekening zonder bestellingen altijd mag, en zonder omzet weet je dat pas na de transacties.
+- Code-controleur ronde 1 nee: de knop `opnieuw` sloeg de leeftijdsregel over, zodat een verkoper zonder abonnement per oude maand 30 bestellingen gratis kon boeken. Besluit: de knop slaat hem niet meer over; inhalen van oude maanden alleen met abonnement. Reden: dat is precies waar het plan betalen voor vraagt. Ronde 2 akkoord, 281 tests, op main via tak `-j`. Tess ingelicht via `taken.md`.
