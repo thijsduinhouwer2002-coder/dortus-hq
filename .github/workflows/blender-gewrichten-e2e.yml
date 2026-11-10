@@ -94,6 +94,24 @@ jobs:
           grep -q "SCHARNIER OK pose" /tmp/scharnier.log || { echo "FOUT: plaatje 11 niet goed"; exit 1; }
           grep -q "SCHARNIER OK rood" /tmp/scharnier.log || { echo "FOUT: plaatje 12 niet goed"; exit 1; }
           for f in 11-scharnier-x.png 12-scharnier-rood-x.png; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
+      - name: Winkelplaatjes Pro (betaalde zip, houten knie, plaatjes 13 en 14)
+        # Daan 10 nov 04:45: echt ding, groene band, eigen achtergrond, geen selectie, rood als vlak. Eigen stap en mappen.
+        if: always()
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          BLENDER_USER_RESOURCES: /tmp/cj_pro
+          BLENDER_USER_CONFIG: /tmp/cj_pro/config
+          BLENDER_USER_EXTENSIONS: /tmp/cj_pro/extensions
+        run: |
+          [ -s /tmp/click_joints_betaald.zip ] || bash e2e/maak_zip.sh betaald
+          /tmp/blender/blender -b --python-expr "import bpy; bpy.context.preferences.view.show_splash=False; bpy.ops.wm.save_userpref(); bpy.ops.wm.save_as_mainfile(filepath='/tmp/start_p.blend')"
+          timeout 300 xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
+            /tmp/blender/blender /tmp/start_p.blend --python e2e/scherm_pro.py -- "$PWD/e2e/screenshots/${{ matrix.blender }}" /tmp/click_joints_betaald.zip 2>&1 | tee /tmp/pro.log || true
+          grep "\[cj-scherm\] PRO" /tmp/pro.log || true
+          grep -q "PRO OK schoon" /tmp/pro.log || { echo "FOUT: plaatje 13 schoon niet goed"; exit 1; }
+          grep -q "PRO OK pose" /tmp/pro.log || { echo "FOUT: plaatje 13 niet goed"; exit 1; }
+          grep -q "PRO OK rood" /tmp/pro.log || { echo "FOUT: plaatje 14 niet goed"; exit 1; }
+          for f in 13-pro-knie-schoon-x.png 13-pro-knie-x.png 14-pro-knie-rood-x.png pro-knie.json; do [ -s "e2e/screenshots/${{ matrix.blender }}/$f" ] || { echo "FOUT: $f ontbreekt"; exit 1; }; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
