@@ -10,7 +10,7 @@ Kleine bibliotheek in TypeScript zonder afhankelijkheden. Draait in Node 22.18+ 
 | `src/client.ts` | `TikTokClient.roep`: app_key, timestamp, sign, kop `x-tts-access-token`, shop_cipher, 3 pogingen bij 429/5xx met `Retry-After` | sign, fouten |
 | `src/paginate.ts` | `allePaginas` met bovengrens 500, `verzamel` | |
 | `src/endpoints.ts` | winkels, afrekeningen (statements), transacties per afrekening, transacties per bestelling (`transactiesVanBestelling`, ontwerp-rekenkern.md deel 1) | client, paginate |
-| `src/boekingen.ts` | rekenkern: transacties van één bestelling naar neutrale boekingsregels met waarschuwingen (ontwerp-rekenkern.md deel 2) | bedrag, endpoints (types) |
+| `src/boekingen.ts` | rekenkern: transacties van één bestelling naar neutrale boekingsregels met waarschuwingen (ontwerp-rekenkern.md deel 2); kostenvelden via `soortVanKostenveld`: btw op kosten, `affiliate` (sinds 10 nov, `tiktok-boekhouding/ontwerp-affiliate.md`) of commissie | bedrag, endpoints (types) |
 | `src/bedrag.ts` | tekstbedrag naar kleinste munteenheid, zonder afronden | |
 | `src/index.ts` | alles naar buiten | |
 

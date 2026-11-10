@@ -5,7 +5,7 @@ import type { BestellingTransacties, SkuTransactie } from "./endpoints.ts";
 
 export type Soort =
   | "omzet" | "korting" | "terugbetaling" | "korting_terug" | "overig_omzet"
-  | "verzendkosten" | "commissie" | "belasting_op_kosten" | "belasting"
+  | "verzendkosten" | "commissie" | "affiliate" | "belasting_op_kosten" | "belasting"
   | "omzet_totaal" | "verzendkosten_totaal" | "kosten_en_belasting_totaal"
   | "verschil";
 
@@ -139,6 +139,16 @@ function groep(
 
 const isBelastingOpKosten = (veld: string) => /(_tax|_tax_amount)$/.test(veld);
 
+/** Geld voor creators en affiliate-partners, niet voor TikTok (ontwerp-affiliate.md in tiktok-boekhouding). Naast het voorvoegsel `affiliate_`. */
+export const AFFILIATE_VELDEN: ReadonlySet<string> = new Set(["tap_shop_ads_commission"]);
+
+/** Indeling van een veld uit fee_tax_breakdown.fee: eerst btw op kosten, dan affiliate, anders commissie van TikTok. */
+export function soortVanKostenveld(veld: string): Soort {
+  if (isBelastingOpKosten(veld)) return "belasting_op_kosten";
+  if (AFFILIATE_VELDEN.has(veld) || veld.startsWith("affiliate_")) return "affiliate";
+  return "commissie";
+}
+
 export function boekingsregels(b: BestellingTransacties): Boekingen {
   const valuta = typeof b.currency === "string" ? b.currency.toUpperCase() : "";
   if (!/^[A-Z]{3}$/.test(valuta)) throw new Error(`bestelling ${b.order_id ?? "?"}: ongeldige munt "${String(b.currency)}"`);
@@ -177,7 +187,7 @@ export function boekingsregels(b: BestellingTransacties): Boekingen {
     if (ftb !== undefined && ftb !== null && (typeof ftb !== "object" || Array.isArray(ftb))) {
       w.push(`${pre} fee_tax_breakdown: geen object, overgeslagen`);
     } else if (ftb) {
-      const fee = uitsplitsing(ftb.fee, valuta, `${pre} fee`, (v) => (isBelastingOpKosten(v) ? "belasting_op_kosten" : "commissie"), new Set(), w);
+      const fee = uitsplitsing(ftb.fee, valuta, `${pre} fee`, soortVanKostenveld, new Set(), w);
       const tax = uitsplitsing(ftb.tax, valuta, `${pre} tax`, () => "belasting", new Set(), w);
       if (fee !== null || tax !== null) {
         // Een helft die er is maar kapot (geen object) is, maakt de uitsplitsing onvolledig.

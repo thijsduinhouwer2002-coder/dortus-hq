@@ -18,6 +18,7 @@ export const SOORTEN: Array<[MbSoort, string]> = [
   ["verzendkosten", "verzendkosten"],
   ["verzendkosten_totaal", "verzendkosten (totaal)"],
   ["commissie", "commissie en kosten"],
+  ["affiliate", "affiliate-commissie (creators)"],
   ["belasting_op_kosten", "btw op kosten"],
   ["belasting", "belasting"],
   ["kosten_en_belasting_totaal", "kosten en belasting (totaal)"],
@@ -123,7 +124,8 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
   for (const [soort, naam] of SOORTEN) {
     const c = som.get(soort) ?? 0;
     if (c === 0) continue;
-    const k = koppeling.per[soort];
+    // Affiliate zonder eigen rekening valt terug op de rekening van de commissie, nooit op het btw-tarief daarvan (ontwerp-affiliate.md).
+    const k = koppeling.per[soort] ?? (soort === "affiliate" && koppeling.per.commissie?.grootboekId ? { grootboekId: koppeling.per.commissie.grootboekId } : undefined);
     if (!k?.grootboekId) throw new MoneybirdFout("instelling", `geen grootboekrekening gekozen voor "${naam}"`);
     // Een leeg btw-tarief (lege keuzelijst in instellingen) betekent: geen btw.
     if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("instelling", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
