@@ -46,3 +46,11 @@ Regel nu in `sim.py`: **6 x (1 + 0,1 x faam) x (1 + gangen / 40) + 3 per eerder 
 
 ## 10 nov 00:30 UTC (Bram): upgrades met hun eigen effect
 `sim.py` rekent nu ook wat stap 2 van elke upgrade doet (`godot/systemen/upgrades.gd`): Bouncy Gloop ligt 2/3 van de tijd plat (40 s), Deep Pit laat een schijterige held na zijn eerste klap van de put niet omkeren. Uitkomst (GEZIEN, 8 zaden, `uitkomst-10u.txt`): vluchten blijft 34 tot 39%, eerste aankoop gelijk (45 tot 193 s), aankopen per uur gelijk, Gloop eet iets meer (±30 per uur in plaats van ±27, hoed 300 na ±10 u). Langste wacht tot 10 u 38 tot 49 min (dat is na "alles gekocht"). Alle doelen blijven gehaald; de stappen maken het spel niet te makkelijk.
+
+## 10 nov 01:35 UTC (Bram): ritme van de eerste upgrade (Sanne, features.md feature 5, "GOK, na te meten in Brams sim")
+Nieuw: `python3 sim.py ritme` (20 zaden). Twee spelers: "spaar" koopt alleen upgrades en graaft nooit (Sannes "als je niet graaft"), "goedkoopst" koopt steeds het goedkoopste (zoals tot nu toe). GEZIEN:
+- **Spaar: eerste upgrade (60) na 7,3 / 11,1 / 15,6 min open tijd** (min, mediaan, max). Sannes gok van ±10 min klopt.
+- **Goedkoopst: geen enkele upgrade in de eerste 2 uur.** Graven kost 5 + 1,2 x gangen en blijft tot 40 gangen onder de 60, dus wie steeds het goedkoopste pakt graaft eerst het hele hol vol. In het eerste uur is er dan wel elke 5,5 tot 13,4 min iets te kopen.
+- Spaar heeft in het eerste uur een gat van 10,6 tot 34,8 min zonder iets te kopen (de tweede stap kost 168).
+- **Betekenis voor het kaartje:** de keuze is echt (graven of sparen), en dat is goed, maar een speler die het goedkoopste kiest, ziet de upgrades pas na uren. Het muntje boven Gloop (Sanne) helpt alleen als hij spaart. Voorstel aan Sanne: het muntje ook laten zien als de speler 60 heeft en het graven hem er weer onder zou brengen, of graven per gang duurder vanaf ±12 gangen. Dat is haar keuze (balans.md); de sim kan beide doorrekenen.
+- **Fout gevonden en hersteld:** Deep Pit telde in de sim nooit mee (de put heet in `sim.py` "put", de regel keek naar "stekelput"). Na herstel (8 zaden, `uitkomst-10u.txt`): vluchten 33 tot 38%, aankopen per uur gelijk, alle doelen blijven gehaald. De uitspraak van 00:30 hierboven ("Deep Pit gerekend") klopte dus niet; nu wel.
