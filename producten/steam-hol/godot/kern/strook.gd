@@ -215,10 +215,12 @@ func _held_naam(info: Dictionary) -> String:
 func _terug_regel(soort: String, info: Dictionary, w: Dictionary) -> String:
 	w["held"] = _held_naam(info)
 	if bool(info.get("hoard_toucher", false)):
-		w["naam"] = _held_naam(info)
-		var r: String = regels.kies(soort, w)
-		if r.length() <= REGELS.MAX:
-			return r
+		# eerst toetsen of een regel met bijnaam past, zodat de schudzak geen regel opslokt die niemand ziet (kan-punt 3)
+		var hw := w.duplicate()
+		hw["naam"] = _held_naam(info)
+		for r in REGELS.VOORRAAD.get(soort, []):
+			if regels.vul(r, hw).length() <= REGELS.MAX:
+				return regels.kies(soort, hw)
 	w["naam"] = info.naam
 	return regels.kies(soort, w)
 
@@ -357,6 +359,7 @@ func _nieuwe_held() -> bool:
 				# Sanne toets 7, punt 1: de minuut eindigt met een clou. Zij kwam rond 43 s binnen en liep 16 s naar Gloop
 				# (hap op 59,8 s, niet te zien); 1.5 keer zo snel is de hap rond 54 s, met regel en hoed op de toren
 				info["snelheid"] = 1.5
+				info["demo_clou"] = true   # haar hoed op de toren krijgt altijd een regel (controleur kan-punt 1)
 			if stap == "opgegeten":
 				opgegeten_t = t
 				if demo:
@@ -387,7 +390,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 	var bewaar := info.duplicate()
 	bewaar["kleur"] = (info.kleur as Color).to_html(false)
 	bewaar["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou"]:
 		bewaar.erase(v)
 	bewaar.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -399,7 +402,8 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
 		if String(info.naam) == begin_vlucht:
 			vlucht_t = t
-		vlucht_tijd[String(info.naam)] = t
+		if demo:
+			vlucht_tijd[String(info.naam)] = t
 		if demo or bewaar.bezoeken >= 3 or rng.randf() < 0.6 or String(info.naam) == begin_vlucht:
 			terugkomers.append(bewaar)
 		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
@@ -452,7 +456,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 			elif n_hoed == 25 or n_hoed == 100:
 				w["bijnaam"] = "Hatted" if n_hoed == 25 else "Milliner"
 				_kroniek(regels.kies("hoed_bijnaam", w))
-			elif rng.randf() < 0.25 or (demo and n_hoed == 2):
+			elif rng.randf() < 0.25 or bool(info.get("demo_clou", false)):
 				# demo: de tweede hoed altijd een regel, de toren groeit in beeld (Sanne toets 7, punt 1)
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
