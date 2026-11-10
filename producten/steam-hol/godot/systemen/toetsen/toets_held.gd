@@ -392,12 +392,12 @@ func _init() -> void:
 	var bouncy = U.new()
 	bouncy.van_dict({"slijm": 2})
 	hol_b.upgrades = bouncy
-	var sl := Node2D.new()
-	sl.set_script(load("res://systemen/slijm.gd"))
-	hol_b.add_child(sl)
-	sl.zet(hol_b, 6)
-	sl.plat()
-	ok(absf(sl.plat_tot - sl.t - 40.0) < 0.01, "Bouncy Gloop: plat 40 s in plaats van 60 (%.1f)" % (sl.plat_tot - sl.t))
+	var sl_b := Node2D.new()
+	sl_b.set_script(load("res://systemen/slijm.gd"))
+	hol_b.add_child(sl_b)
+	sl_b.zet(hol_b, 6)
+	sl_b.plat()
+	ok(absf(sl_b.plat_tot - sl_b.t - 40.0) < 0.01, "Bouncy Gloop: plat 40 s in plaats van 60 (%.1f)" % (sl_b.plat_tot - sl_b.t))
 	hol_b.free()
 
 	print("[held-toets] klaar: %d FOUT" % fout)

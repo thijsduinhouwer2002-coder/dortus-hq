@@ -238,14 +238,14 @@ func _init() -> void:
 	var ra: String = k11.laatste()
 	ok(k11.laatste_soort == "afgerekend_val" and ra.contains("The Spike Pit") and ra.ends_with(" +9") and ra.length() <= 42
 		and not ra.contains("{"), "wrok tegen de put: eigen afloop-regel met hoofdletter: " + ra)
-	var lang := 0
+	var af_lang := 0
 	for soort in ["afgerekend_val", "afgerekend_bewoner"]:
 		for sj in stem.VOORRAAD[soort]:
 			var vol: String = stem.vul(sj, {"naam": "Bram", "val": "the Spike Pit", "bewoner": "Gloop"}) + " +12"
 			if vol.length() > 42 or vol.contains("{"):
-				lang += 1
+				af_lang += 1
 				print("  te lang of open: ", vol)
-	ok(lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % lang)
+	ok(af_lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % lang)
 	ok(stem.kies("afgerekend_val", {"naam": "Bram", "val": ""}) == "", "afloop-regel met {Val} komt niet zonder val")
 	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
 	# upgrades (Bram 10 nov, feature 5, balans.md): 60, 168, 470, drie per soort, volle prijs terug, opslaan
