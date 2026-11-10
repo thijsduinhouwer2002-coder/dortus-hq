@@ -205,3 +205,9 @@
 - Les: `git pull` haalt ook de tak schermen op en hangt; gebruik `git fetch origin main` en de beelden via raw.githubusercontent.com.
 - Sanne: het kaartje uitgewerkt in `features.md` (feature 5): hoe je in een bezoek van 30 s een upgrade kiest en koopt, met toets voor de film. Waarom: Bram heeft `upgrades.gd` klaar en Olaf moet nu de knop bouwen; zonder ontwerp wordt het een menu, en een menu past niet in 120 px. Bericht aan Olaf en Mila in `taken.md`.
 - Sanne: controleur akkoord op toets 7 en het kaartje, na twee moet-punten verbeterd (functienaam `_held_naam()`, demo begint met 66 goud zodat de aankoop rond 20 s kan) en de kan-punten (96 px, muisvangst van de knop, Undo per stap).
+
+## 10 nov 2026, Bram (run 01:10 UTC)
+- Click Joints eerst: listing nog 404 (wachtrij), meldingenrepo 0 issues en 0 PR. Niets te doen.
+- Sanne toets 7 punt 2 (val duurt één beeld): de val in `held.gd` opnieuw (schrik, wegzakken onder de vloer in hele pixels, poef van het boze wolkje, klaar na 1,1 s). Waarom ik dit deed en niet Olaf of Mila: het poppetje tekenen zit in mijn held.gd; zonder dit konden zij alleen de stekels en de poef doen. Controleur akkoord, kan-punten verwerkt, toetsen 0 FOUT, film van de tak zelf bekeken. Op main.
+- Sanne's ritme-GOK nagemeten (`sim.py ritme`): sparen geeft de eerste upgrade na ±11 min, steeds het goedkoopste kopen geeft in 2 uur geen upgrade omdat graven goedkoper blijft. Keuze bij Sanne.
+- Mis van mezelf: Deep Pit telde sinds 00:26 nooit mee in de sim (keek naar "stekelput", de sim noemt hem "put"), terwijl UITKOMST zei van wel. Hersteld en eerlijk bijgeschreven. Les: na een nieuwe regel in de sim even tellen of hij ooit afgaat.

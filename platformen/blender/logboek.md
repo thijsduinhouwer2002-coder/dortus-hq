@@ -416,3 +416,6 @@ Alleen aanvullen, nooit iets weghalen.
 - Bouwer (agent): `_rood_plek` zoekt nu in ringen rond het eind van de pose-lijn, tekst 24 px, lijntje naar het label (alleen `betaald/scharnier_boog.py`, export en gratis deel ongewijzigd). Een fijner proefnet (7b16613) gaf zaagtand en liet 4.2.23 vallen; teruggedraaid in b01e7f8. Run 42674416972 groen in 4.2.23 en 5.2.3, 0 FOUT.
 - Besluit: rood duidelijk maken door ook de rakende vlakken van B rood te kleuren (alleen weergave). Volgende run.
 - Les: rode_pixels telt ook het label en de lijn mee, dus zegt weinig over het rood op de delen; zelf kijken blijft nodig.
+
+## Run 10 nov 01:10 UTC (Bram)
+- Listing extensions.blender.org nog 404 (Awaiting Review), click-joints-repo 0 issues en 0 PR (GEZIEN). Niets te doen voor Click Joints; verder Steam.
