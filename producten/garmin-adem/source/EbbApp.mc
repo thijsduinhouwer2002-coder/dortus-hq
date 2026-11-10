@@ -340,7 +340,10 @@ class EbbView extends WatchUi.View {
             var soort = EbbProfiel.dier(t);
             if (soort >= 0) {
                 var p = (t - EbbProfiel.DREMPELS[soort]).toFloat() / EbbProfiel.IN_BEELD_MS;
-                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (yDier * d).toNumber());
+                // De walvis (moet 3) heeft een spuitje tot 14% D boven zijn midden: iets lager, zodat het cijfer vrij blijft.
+                var yd = (soort == 3) ? yDier + 0.06 : yDier;
+                if (yd > 0.86) { yd = 0.86; }
+                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (yd * d).toNumber());
             }
             var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");

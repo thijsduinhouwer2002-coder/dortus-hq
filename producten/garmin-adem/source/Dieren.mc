@@ -23,7 +23,7 @@ class DierenView extends WatchUi.View {
             var y = (d * (0.30 + 0.15 * i)).toNumber();
             var x = (d * 0.40).toNumber();
             if ((bits & (1 << i)) != 0) {
-                EbbTeken.dier(dc, d, i, x, y);
+                EbbTeken.dierKlein(dc, d, i, x, y);
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             } else {
                 dc.setColor(EbbTeken.DIEPTE[2], Graphics.COLOR_TRANSPARENT);
