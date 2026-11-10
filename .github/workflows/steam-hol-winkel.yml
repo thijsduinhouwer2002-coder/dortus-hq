@@ -10,6 +10,9 @@ on:
       soort:
         description: "demo (de film van een minuut) of week (een hol na ±een week spelen, uit een save)"
         default: "week"
+      hoogte:
+        description: "hoogte van de strook in px (96 tot 160)"
+        default: "120"
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -23,6 +26,7 @@ jobs:
     timeout-minutes: 30
     env:
       SOORT: ${{ inputs.soort || 'week' }}
+      HOOGTE: ${{ inputs.hoogte || '160' }}
     steps:
       - uses: actions/checkout@v4
       - name: Scherm op 1920 x 1080
@@ -85,7 +89,7 @@ jobs:
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=120 $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=$env:HOOGTE $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log" -PassThru
           if (-not $p.WaitForExit(900000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           $alle = Get-ChildItem $film -Filter "f*.png" | Sort-Object Name
@@ -109,7 +113,7 @@ jobs:
           for poging in 1 2 3 4 5; do
             rm -rf "$T"
             git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
-            D="$T/steam-hol/winkel-1920-$SOORT"
+            D="$T/steam-hol/winkel-1920-$SOORT-$HOOGTE"
             rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
