@@ -38,7 +38,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				if int(s.terugkomers[i].bezoeken) < 3:
 					weg_i = i
 					break
-			s.pensioen_namen = VOORTGANG.met_pensioen(s.pensioen_namen, String(s.terugkomers[weg_i].naam))
+			if not s.demo:   # in de demo niet, anders veranderen de namen in de film
+				s.pensioen_namen = VOORTGANG.met_pensioen(s.pensioen_namen, String(s.terugkomers[weg_i].naam))
 			s.terugkomers.remove_at(weg_i)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
 		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):

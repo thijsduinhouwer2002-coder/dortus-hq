@@ -52,7 +52,11 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
-	s.pensioen_namen = data.get("pensioen_namen", [])
+	s.pensioen_namen = []
+	var pn = data.get("pensioen_namen", [])
+	if pn is Array:
+		for n in pn:
+			s.pensioen_namen.append(String(n))
 	if s.slijm.has_method("van_dict"):
 		s.slijm.van_dict(data.get("slijm", {}))
 	s.hol.goud = int(data.get("goud", 0))

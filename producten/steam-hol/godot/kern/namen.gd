@@ -40,8 +40,6 @@ static func vrije_naam(s) -> String:
 	var bezet := {}
 	for h in s.terugkomers:
 		bezet[String(h.naam).split(" ")[0]] = true
-	for n in s.pensioen_namen:   # anders loopt Mara binnen vlak na "Mara retired. Opened a bakery."
-		bezet[String(n).split(" ")[0]] = true
 	for w in s.wezens.get_children():
 		if w.has_method("is_held"):
 			bezet[String(w.info.get("naam", "")).split(" ")[0]] = true
@@ -49,6 +47,14 @@ static func vrije_naam(s) -> String:
 	for n in NAMEN:
 		if not bezet.has(n):
 			vrij.append(n)
+	# pensioen-namen liever niet (anders loopt Mara binnen vlak na "Mara retired. Opened a bakery."), maar alleen als er
+	# dan nog een naam over is: er zijn 12 namen, 8 terugkomers, 3 in het hol en 5 met pensioen (controleur 05:45)
+	var pens := {}
+	for p in s.pensioen_namen:
+		pens[String(p).split(" ")[0]] = true
+	var zonder: Array = vrij.filter(func(n): return not pens.has(n))
+	if not zonder.is_empty():
+		vrij = zonder
 	if vrij.is_empty():
 		return NAMEN[s.rng.randi_range(0, NAMEN.size() - 1)]
 	# eerst namen die nog nooit vielen; anders een naamgenoot met II of III, na III een andere naam
