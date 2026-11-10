@@ -2,6 +2,25 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 7: de film van main met de afloop van de wrok, 10 nov 2026 (run 42728963292, commit 4be7165, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit d64caf8, 1024 x 120, 298 beelden, 60 s), twee bladen met een beeld per 3 s, ingezoomd op 39 tot 46 s en 46 tot 60 s, `film/film.log`, `cpu.txt` (1,13 CPU-s per 10 s, 115 MB).
+
+**Wat nu goed is:**
+- **De wrok heeft een afloop, en die leest.** Bram vlucht (26,1 s, "Grudge: the Spike Pit."), komt terug met het grijze boze wolkje boven zijn helm (33,7 s), loopt door het hol naar de put, valt erin (42,5 s, stekels omhoog), de muntjes vliegen naar de schat en de teller springt van 12 naar 21 met "Bram came back. The Spike Pit won. +9" (43,2 s). Dit is de beste grap van de minuut en het verhaal van onze winkelpagina in negen seconden. Punt 1 van toets 6 is opgelost.
+- **Elke held een eigen hoed:** Kees koksmuts, Bram helm met rode kam, Odo kroon, Tibbe bruine hoed, Mara grijze pet, Lotte hoge hoed. Je ziet in één minuut dat er veel hoeden zijn. Punt 2 opgelost.
+- **De drukke stap loopt gelijk:** Tibbe raakt de schat terwijl Gloop plat ligt (36 tot 37 s) en de regel staat er in hetzelfde beeld (37,3 s). Punt 3 opgelost.
+- **CPU** 1,13 CPU-s per 10 s op Actions (toets 6: 1,49; Olafs vorige run 0,81). Het verschil tussen twee runs van bijna dezelfde code is ruis van de Actions-computer; ruim zuinig. Punt 4 klaar.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **De laatste 13 seconden hebben geen afloop.** Mara komt binnen rond 46 s, haar eigen regel vervalt ("kroniek vervallen 48.0: Mara read about you in a tavern."), en ze loopt 13 s door een leeg hol naar Gloop. De hap valt precies op 59,8 s, in het laatste beeld; de kijker ziet hem niet en er komt geen regel. Een minuut die eindigt met iemand die loopt, voelt als afgeknipt. **Eis voor de demo:** Mara wordt opgegeten rond 52 tot 55 s, met de regel en de hoed die op de toren komt (dan zie je de toren groeien, punt 6 van toets 4). Bijvoorbeeld `snelheid` 1.4 voor haar, of haar 5 s eerder laten binnenkomen nu de Hoard-Toucher eerder klaar is. Haar binnenkomst-regel mag dan vervallen. **Voor Olaf.**
+2. **De val zelf duurt één beeld.** Bram is op 42,5 s half doorzichtig in de stekels en een beeld later weg. Het moment waar de hele wrok naartoe werkt, verdient ongeveer een seconde: stekels omhoog, Bram zakt zichtbaar weg, het boze wolkje knapt als een poef (of wordt een klein wit vlaggetje). Dan lacht een kijker op het goede moment in plaats van te denken dat hij iets miste. **Voor Mila** (poef of vlaggetje, een paar beelden) **en Olaf** (stekels en wegzakken langer).
+3. **Tibbe keert meteen om.** "Tibbe ran off, giggling." op 47,9 s en "Tibbe is back for Gloop." op 50,7 s; in beeld klimt hij de ladder op en direct weer af. Dat leest als een fout, niet als een terugkomer. In het echte spel is het goed (daar zit er tijd tussen), maar in de demo liever geen tweede terugkomer, of minstens 8 s ertussen. En als hij terugkomt, met zijn bijnaam: "Tibbe the Hoard-Toucher is back for Gloop." (`naam_met_bijnaam` staat al in strook.gd, regel 202). **Voor Olaf, klein.**
+4. **Paneel:** nog altijd ±320 van de 1024 px. Blijft bij Mila en Olaf (geen nieuwe eis).
+
+**Winkeltekst:** hoogte en klikken zijn nu waar in de build (rechtsklik wisselt 96, 120, 160; klikken gaan door lucht en gras, `kern/strook.gd`). De zin in `ontwerp/steam/winkelpagina/teksten.md` volgt nu precies de build.
+
+**Oordeel:** de minuut heeft nu een begin, een midden en een clou. Met punt 1 en 2 is dit de demo-minuut die ik ook in de trailer zou willen zien.
+
 ## Toets 6: de film van main na de kroniek-wachtrij, 10 nov 2026 (run 42723851206, commit 4c7bd5d, main)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit 8c9397e, 1024 x 120, 298 beelden, 60 s), twee bladen met een beeld per 3 s, `film/film.log`, `cpu.txt` (1,49 CPU-s per 10 s, 114 MB).
 

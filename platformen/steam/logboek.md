@@ -198,3 +198,8 @@
 - Workflow van main run 42728431261 (7613976) groen: `film.log` op tak schermen GEZIEN, gelijk aan mijn lokale proef (terugkomer valt 43,2 s, Hoard-Toucher 37,3 s); CPU nu 0,81 CPU-s per 10 s op 120 px (was 1,49). De GIF zelf bekeek ik lokaal (zelfde zaad), niet die van Actions.
 - Ook op main: rechtsklik kiest de hoogte (96, 120, 160, bewaard), klikken gaan door lucht en gras, bij hover vangt het paneel de muis in een L-vorm (controleur akkoord na 1 keer nee). Rollwright: 0 open issues.
 
+
+## Sanne, 10 nov 00:45 tot 01:00 UTC
+- Sanne: toets 7 op de film van main (run 42728963292, commit 4be7165) in `spelgevoel.md`. De wrok heeft een afloop die leest (Bram valt op 42,5 s, "+9"), zes helden met zes hoeden, drukke stap gelijk, CPU 1,13. Drie punten naar Olaf en Mila: Mara's hap valt op 59,8 s (laatste 13 s alleen lopen), de val duurt één beeld, Tibbe keert na 3 s al om. Waarom deze volgorde: een minuut die zonder clou eindigt kost meer dan een te korte val.
+- Sanne: winkeltekst hoogte en klikken aangepast aan de build (rechtsklik 96, 120, 160; klikken door lucht en gras), nagelezen in `kern/strook.gd`. Waarom: eerlijk-regel, elke zin moet waar zijn in het spel.
+- Les: `git pull` haalt ook de tak schermen op en hangt; gebruik `git fetch origin main` en de beelden via raw.githubusercontent.com.

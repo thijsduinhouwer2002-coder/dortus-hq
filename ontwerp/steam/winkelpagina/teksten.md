@@ -44,7 +44,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 >
 > [h2]Small, quiet and fair[/h2]
 > [list]
-> [*]Sits right above the taskbar, 120 pixels tall (you can set it from 96 to 160). Clicks pass straight through the empty sky.
+> [*]Sits right above the taskbar, 120 pixels tall (right-click to switch to 96 or 160). Clicks pass straight through the sky and the grass.
 > [*]Light on your PC: it only draws when something moves, with an FPS setting.
 > [*]Sound is off by default.
 > [*]No daily rewards, no energy, no timers calling you back. Anything you build can be moved or removed for all its gold back.
@@ -52,6 +52,7 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > [/list]
 
 Te controleren voor het indienen (Olaf, Bram):
+- Hoogte en klikken (10 nov 00:55 UTC): rechtsklik wisselt 96, 120, 160 en bewaart het (`HOOGTES` en `MOUSE_BUTTON_RIGHT` in `kern/strook.gd`), klikken gaan door lucht en gras (`window_set_mouse_passthrough`), op main volgens Olaf, controleur akkoord. Zin aangepast naar wat de build doet. Klopt.
 - "about every minute": held elke 40 tot 60 s (strook.gd), klopt nu.
 - "three lines about who came by": `kern/strook.gd` roept `VOORTGANG.verhaal` al aan (controleur, GEZIEN). Klopt.
 - "FPS setting", "Sound is off by default", "full refund": eisen in `features.md`; de fps-instelling en al het goud terug bij verplaatsen of weghalen moeten in de bouw (nu nog niet GEZIEN).
