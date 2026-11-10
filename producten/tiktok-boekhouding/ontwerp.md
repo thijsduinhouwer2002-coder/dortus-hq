@@ -128,3 +128,20 @@ Schetsen: `kunst/6-rekeningen.png` (versie 1: btw splitsen staat uit), `kunst/6b
 8. Btw-kolom (6b) pas tonen na de btw-test; de tarieven daar zijn voorbeelden (GOK), geen voorstel.
 
 **Controleur (agent, 21:45 UTC):** nee op versie 1, 7 moet-punten: aantal nieuwe rekeningen fout (correctie vergeten), namen anders dan de bouw, verzonnen rekeningnummers, uitleg verzendkosten fout, "Zet aan" zei niet dat de oude uitbetalingen meteen geboekt worden, Voorbelasting als "voorgesteld" terwijl dat GOK is, en de voorwaarde over aanmaken en scope. Alle zeven verwerkt in versie 2 (zelf bekeken met Read, licht en telefoon), plus kan-punten: "voorgesteld" grijs in plaats van paars, labels 12 px, lange pil op de telefoon opgesplitst. Niet gedaan: uitleg waarom "geen btw" bij apart gezet in 6b (komt pas na de btw-test).
+
+### Betaalstuk in de schermen: `wacht_ouder` en "betaling mislukt" (Daan, 10 nov 2026, 01:40 UTC)
+Antwoord op de vragen van Jet in `ontwerp-betalen.md` (versie 3). Volgt de stijl hierboven; contrast nagerekend (GEZIEN, formule van WCAG).
+
+**Status `wacht_ouder` in de tabel van het overzicht.** Pil in **grijs, niet paars**: paars betekent "wacht, dit komt vanzelf zodra jij iets doet"; deze komt niet meer vanzelf. Tekst `#5E5B66` op `#EEECE7` (5,6:1).
+- Pil: **"Niet vanzelf geboekt"** / Engels **"Not booked automatically"**.
+- In het detailscherm (Bekijk), één zin onder de kop: "Deze uitbetaling is van vóór vorige maand en wachtte op een abonnement. Zulke oude uitbetalingen boeken we niet meer vanzelf." / "This payout is from before last month and was waiting for a subscription. We don't book payouts that old automatically."
+- Zodra de knop "inhalen" er is (Chris beslist, later): in het detailscherm een gewone knop **"Deze maand inhalen"** onder die zin, en dan pas. Tot die knop bestaat geen tekst die zegt dat het kan.
+- Plek in de volgorde van staten: fout > koppeling verlopen > wacht op abonnement > **niet vanzelf geboekt** > geboekt met apart > geboekt. Hij telt niet mee in "Op je bank in <maand>" als die maand al voorbij is; dat verandert niets aan de tegels.
+
+**Balk "betaling mislukt"** (`betalingMislukt = true`). **Amber, niet rood**: rood is bij ons "niet geboekt", en tijdens de 7 dagen van Polar boeken we gewoon door (ontwerp-betalen punt 7), dus er gaat nog niets mis. Zelfde vorm als de balk "Koppeling verlopen" in `3-overzicht.png`: vlak `#FFF3D6`, tekst `#7A4700` (7,0:1; donkerder dan het label-amber `#9A5B00`, want de balk is langer lezen), knop wit met amber rand.
+- Tekst: **"Je betaling voor Klopt is niet gelukt."** (vet) + "We boeken gewoon door. Werk je betaalgegevens bij, anders stopt het abonnement." Knop: **"Betaalgegevens bijwerken"** (opent de klantpagina van Polar).
+- Engels: "Your payment for Klopt didn't go through." + "We're still booking. Update your payment details or the subscription will stop." Knop: "Update payment details".
+- Geen datum noemen ("vóór 17 nov"): we bewaren niet wanneer past_due begon, dus die datum zou een gok zijn.
+- Staan beide balken er (koppeling verlopen en betaling mislukt): koppeling verlopen bovenaan, want die houdt het boeken nu al tegen.
+
+**Knop "Abonnement beheren"** (als er een abonnement is): in Instellingen, gewone knop, niet in het overzicht. In het overzicht blijft alleen de link onder de gratis teller als er geen abonnement is.

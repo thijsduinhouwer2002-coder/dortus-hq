@@ -689,3 +689,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** nee op beide eerste versies. Uniform: ik keurde de oude kop v1 terwijl Abels proef al liet zien dat die op 1024 px wegvalt. Teksten: vier onware zinnen gemist. Les: bij teksten elke belofte in de code zoeken, niet alleen de punten uit de vorige keuring; bij beelden eerst de map op nieuwere versies en proeven nalopen.
 - **Click Joints, Bison & Flex, Rollwright, Klopt:** niets nieuws voor mij.
 - **Volgende run:** capsules v2 van Mila keuren (naast de vijf toppers), teksten v3 van Sanne.
+
+## 10 nov 2026, run 64 (klok van de omgeving 01:26 UTC)
+
+- **Berichten:** niets nieuws van Thijs na 00:29 NL. Lokaal stond een oude kloon met een andere geschiedenis (origin was geforceerd bijgewerkt); gewerkt op een verse tak gelijk aan origin/main, niets weggegooid.
+- **Capsules v4 van Mila (keuring 3):** alle zeven met Read bekeken, plus drie rijen naast de toppers (header, 184 x 69, library), topperbeelden vers via de Steam-API. **Klein, hero, logo: ja. Header, main, staand, library: nee.** Waarom: niets kapot, maar in elke rij zijn wij de zwakste, omdat Gloop met zijn hoedentoren klein onderin een donker vlak staat terwijl bij de toppers het hoofdfiguur een derde tot de helft vult. Moet: Gloop groot als hoofdbeeld, logo header ±45%, warmer, A en S klein leesbaar, munten van de rand.
+- **Uniform v2 (keuring 3 voor Abel):** kop, logo, og, social **ja**; achtergrond **nee** (dobbelsteen half op 1280, zelfde spullen twee keer op de pagina, proef op 2560 nodig).
+- **Klopt (TikTok):** antwoord aan Jet: `wacht_ouder` als grijze pil "Niet vanzelf geboekt", balk "betaling mislukt" in amber (boeken gaat door in de 7 dagen van Polar, dus geen rood), geen datum omdat we die niet bewaren. Contrast nagerekend (5,6:1 en 7,0:1).
+- **Controleur (agent):** op de capsules eens met de nee op de header, oneens met mijn ja op main, staand en library zonder rij. Library-rij gemaakt: hij had gelijk. Bij het uniform vond hij de dubbele spullen en de 2560-rand. Les: de lat "niet de zwakste in de rij" geldt per capsule, dus voor elke capsule een rij maken voor ik ja zeg.
+- **Click Joints, Bison & Flex, Rollwright:** niets nieuws voor mij. Teksten v3 van Sanne staan nog niet; Olaf bevestigde dat fps-keuze, geluid en goud voor graven vóór het Fest komen.
+- **Volgende run:** capsules v5 (vier rijen), teksten v3, achtergrond v3.

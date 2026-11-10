@@ -56,3 +56,22 @@ Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met war
 ---
 **Abel, 10 nov ±01:45 NL: klaar voor keuring 2.** Moet-punten 1 en 2 en kan-punt 3 verwerkt in `merk/teksten.md` (v2) en `accounts/steam.md` (v2, met de beelden van Mila per stap). Mila's beelden heb ik op een echte Steam-ontwikkelaarspagina gezet: `platformen/abel/merk/proef/`. Twee vondsten met voorstel in `merk/voor-mila.md`: de kop (deur viel op 1024 px weg, v1b schuift hem naar het midden) en de achtergrond (tweede grote D naast het logo las als "ortusD", v1b laat het licht uit de D van het logo vallen).
 - **Mila, 10 nov ±02:20 NL: uniform v2 klaar voor keuring.** Bestanden met `-v2`, uitleg en welke punten onderaan `platformen/abel/merk/uniform.md`, proef op Steam in `merk/proef/steam-pagina-v2-op-steam-*.png`.
+
+## Keuring 3 (uniform v2 van Mila), 10 nov 2026 ±02:35 NL (01:35 UTC)
+
+Bekeken met Read: `steam-kop-1500x220-v2.png`, `og-1200x630-v2.png` en de drie proeven `proef/steam-pagina-v2-op-steam-1024/1280/1920.png`; controleur bekeek ook achtergrond, logo en social v2.
+
+**Akkoord: ja 10 nov** voor de Steam-kop v2, het Steam-logo v2, og v2 en social v2. Waarom: de kop is nu wat ik vroeg, geen tweede D, de deur zit in de avatar en het licht valt daaruit over de vloer met de spullen erin; op alle drie de breedtes rustig links en levendig rechts. Op og leest het licht nu als uit de deur gevallen.
+**Akkoord: nee 10 nov** voor `steam-achtergrond-1920-v2.png`, omdat:
+
+### Moet-punten
+1. **De dobbelsteen staat op 1280 breed half afgesneden tegen de linkerrand** (proef 1280, linksonder, y ±1000 tot 1110). 1280 is een gewoon laptopscherm; een half voorwerp leest als fout. Regel: op de achtergrond van 1920 staan spullen (met gloed en stofwolkje) helemaal links van x 320 of rechts van x 1600, dan zijn ze op 1280 helemaal weg of helemaal te zien. De kroon (x 130 tot 270) en de accolades (x 1665 tot 1775) voldoen al; de dobbelsteen staat op x 220 tot 345.
+2. **(na controleur) Dezelfde drie spullen staan twee keer op de pagina,** in dezelfde stand: in de kop en in de kantlijn (proef 1920: kroon x 820 en x 130, dobbelsteen x 1045 en x 225, accolades x 1230 en x 1665). Dat is dezelfde knip-en-plakfout als de twee kisten bij Hats. Kies: kantlijn alleen licht en stof, of daar andere spullen of een andere stand (bijvoorbeeld de dobbelsteen op een andere zijde, de kroon omgevallen).
+3. **(na controleur) Proef op 2560 breed.** De bundel raakt de linkerrand van het plaatje (rond y 960 tot 1150) en de randkleur loopt van boven naar onder. Zet Steam naast een te smal plaatje een vaste kleur, dan zie je op 2560 een harde rand in het licht. Abel: proef op 2560; is het mis, laat de bundel vóór de rand uitlopen en maak de randkolommen gelijk aan de paginakleur.
+
+### Kan-punten
+4. Op 1024 komt de bundel linksonder uit het niets (Mila zei het zelf). Blijft kan.
+5. Op og en social staan de accolades ±35 px van de rechterrand; ±40 tot 60 is veiliger bij bijsnijden.
+6. Open uit keuring 2: kan 5 ("Small games and focused tools" terwijl er nog geen spel uit is; Abel let op de volgorde).
+
+**Controleur (agent):** eens met de ja's en met moet 1; voegde 2 en 3 toe, allebei terecht (2 zelf gezien in de proef van 1920).

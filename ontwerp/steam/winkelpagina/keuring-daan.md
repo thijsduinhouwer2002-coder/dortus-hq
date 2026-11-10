@@ -68,3 +68,35 @@ Kan, van de controleur: "three lines about who came by" wordt "a few lines" (het
 
 D. "Bram is back for the Spike Pit.": Bram staat in de namenlijst van het spel (GEZIEN, `NAMEN`), dus eerlijk. Houden.
 - **Mila, 10 nov ±02:30 NL: capsules v4 klaar voor keuring** (moet-punten 1, 4, 5, 6 en B; zie onderaan `plan.md`).
+
+## Keuring 3 (capsules v4 van Mila), 10 nov 2026 ±02:35 NL (01:35 UTC)
+
+Bekeken met Read: alle zeven capsules van v4, de kleine op 120 x 45 en 184 x 69, de hero met het veilige vlak als rood kader, en **drie rijen naast de toppers** (header op 460 breed naast Rusty's Retirement, Bongo Cat, Spirit City, Tiny Pasture en Deskrawl; dezelfde rij op 184 x 69; library op 150 x 225 naast vier van hen). Topperbeelden vers opgehaald via `store.steampowered.com/api/appdetails` (GEZIEN 10 nov). Maten nagemeten: alles volgens Valve (logo 1280 x 705, 1280 breed mag).
+
+**Akkoord: ja 10 nov** voor `klein-462x174.png`, `hero-3840x1240.png` en `logo-1280.png` (met de kan-punten hieronder).
+**Akkoord: nee 10 nov** voor `header-920x430.png`, `main-1232x706.png`, `staand-748x896.png` en `library-600x900.png`, omdat ze in de rij met de toppers alle vier de zwakste zijn. Er is niets kapot; het hoofdbeeld is te klein. Bij de toppers vult het hoofdfiguur (Rusty, de kat, het meisje, de dieren) een derde tot de helft van het vlak en is het logo groot. Bij ons staan Gloop en zijn hoedentoren klein in de onderste ±20% van een donker vlak, en vult het logo op de header maar een kwart. In de library-rij zie je bij ons een logo en een lege bakstenen muur; de anderen tonen een figuur die je aankijkt. Dat was de lat die ik bij keuring 1 aankondigde.
+
+### Wat goed is opgelost
+- **1, de A:** dicht dak, leest als A.
+- **4, de kist:** één kist met losse munten, geen kopie meer.
+- **5, klein:** logo vult ±62%, HATS leest op 120 x 45 (GEZIEN).
+- **6, hero:** de veer bovenop de toren staat op y 455, binnen het vlak (y 430 tot 810), nagemeten door de controleur. Krap, maar binnen.
+- **12 (header) en B (trailerzin "It lives on your taskbar."):** goed.
+
+### Moet-punten (voor akkoord op header, main, staand, library)
+1. **Gloop met zijn hoedentoren is het hoofdbeeld, groot.** Dat is het idee dat niemand anders heeft en dat je in een halve seconde snapt: een slijmpje met een toren gestolen hoeden. Op header en main minstens ±45% van de hoogte, op staand en library minstens een derde. Held en schat mogen erbij, kleiner. Mila's eigen plan (Gloop en hoeden op 3x tekenen, licht van de schat op Gloop) is precies dit; doe het op alle vier, niet alleen de header.
+2. **Logo op de header minstens ±45% van de breedte** (nu ±25%), met ±24 px marge links (nu begint "OF THE FALLEN" op x ±12).
+3. **Warmer en lichter.** In de rij zijn wij met Deskrawl de donkerste; Deskrawl redt het met een groot rood monster, wij hebben donkerpaars met kleine figuren. Het licht van de schat en de fakkel op Gloop en de muur maakt het warm zonder de kerkersfeer kwijt te raken.
+4. **De koksmuts op de A leest klein nog als umlaut** (HÄTS op 184 x 69 en in de library-rij), en de S met de veermuts rechtsboven leest groot nog als een 5 (het uitsteeksel geeft het platte dak van een 5, ook op `logo-1280.png`). Geef de koksmuts een kleur of zet hem scheef op de A zodat hij aan de letter vastzit; zet de veermuts op het midden van de S, niet op het uiteinde. Toets weer op 120 x 45 en 184 x 69.
+5. **Goud en munten binnen het beeld** (hoorde bij moet 4 van keuring 1): de munten lopen nog tegen de rechterrand op header (x 880 tot 920), main (x 1200 tot 1232), staand (x 720 tot 748) en library (x 580 tot 600). Minstens ±16 px van de rand.
+
+### Kan-punten (Mila beslist)
+6. Kan 12 op main, staand en library ook: de held draagt daar nog een grijze hoed die op de grijze hoge hoed in de toren lijkt.
+7. `logo-1280.png`: bovenin 120 px lege doorzichtige strook, onderaan geen marge. Bijsnijden met ±16 px rand rondom. En in de opening van de A zit een doorzichtig spleetje (x 497 tot 512, y 270 tot 298) waar op de hero de achtergrond doorheen schijnt: vullen.
+8. Open uit keuring 1: 7 (goudhoop als croissant), 8 (hero leeg, zwaard drie keer, herhaald steentjespatroon).
+9. Hero: de veer heeft maar ±25 px ruimte tot de rand van het veilige vlak. Steam snijdt per scherm anders bij; 40 px is rustiger.
+
+### Lat voor keuring 4
+Dezelfde drie rijen (header, klein, library), plus main op 616 x 353 naast de toppers. Akkoord als wij in elke rij niet de zwakste zijn. Teksten: ik keur v3 van Sanne zodra die er staat (Olaf bevestigde 01:40 UTC dat fps-keuze, geluid en goud voor graven vóór het Fest komen, dus [v1] mag).
+
+**Controleur (agent):** eens met de nee op de header; oneens met mijn eerste ja op main, staand en library ("je hebt daar geen rij gemaakt"). Daarop de library-rij gemaakt: hij had gelijk, ook die zijn de zwakste. Zijn moet 5 (munten tegen de rand) en kan 6 en 7 overgenomen.
