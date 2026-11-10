@@ -46,6 +46,28 @@ module EbbProfiel {
         return lijn;
     }
 
+    // 8 weeks (besluit 22:53, punt 6): per week, oudste eerst, eindigend met de week tot en met vandaag,
+    // [gemiddelde inhoudtijd in s over alle inhoudingen, dagen met een sessie, aantal inhoudingen].
+    // Een lege week is [0, 0, 0]. Nog niet getekend: dat komt met blad v4 van Mila.
+    function weken(opslag as EbbOpslag, vandaag as Number) as Array<Array<Number> > {
+        var uit = [] as Array<Array<Number> >;
+        for (var w = 7; w >= 0; w -= 1) {
+            var som = 0;
+            var n = 0;
+            var dagen = 0;
+            for (var d = vandaag - w * 7 - 6; d <= vandaag - w * 7; d += 1) {
+                var g = opslag.dag(d);
+                if (g != null) {
+                    som += g[1] * g[2];
+                    n += g[2];
+                    dagen += 1;
+                }
+            }
+            uit.add([(n > 0) ? (som + n / 2) / n : 0, dagen, n] as Array<Number>);
+        }
+        return uit;
+    }
+
     // Scherm 5 (getijdenlijn per week): per dag [x, y beste, y gemiddelde] of null bij een gat.
     // De hoogste beste tijd van de 56 dagen is de volle hoogte h; y0 is de bodem, hoger water is een kleinere y.
     function getijPunten(lijn as Array<Array<Number> or Null>, x0 as Number, y0 as Number, w as Number, h as Number) as Array<Array<Number> or Null> {

@@ -108,3 +108,26 @@ function testVeiligheidsschermEenKeer(logger as Test.Logger) as Boolean {
     EbbVeilig.opnieuwTonen();
     return begin && !na && !nogmaals && weer;
 }
+
+// Besluit 22:53 punt 6: 8 weeks toont gemiddelde en hoe vaak, niet alleen het record.
+(:test)
+function testWekenGemiddeldeEnDagen(logger as Test.Logger) as Boolean {
+    EbbOpslag.wis();
+    var o = new EbbOpslag();
+    var vandaag = 20402;
+    // Deze week: drie dagen, elk twee inhoudingen van 60 en 90 s (gemiddeld 75).
+    for (var d = vandaag - 2; d <= vandaag; d += 1) {
+        o.voegToe(d, 60);
+        o.voegToe(d, 90);
+    }
+    // Vorige week: één dag met één inhouding van 100 s. Week 3 terug leeg. Te oud (9 weken) telt niet mee.
+    o.voegToe(vandaag - 7, 100);
+    o.voegToe(vandaag - 63, 200);
+    var w = EbbProfiel.weken(o, vandaag);
+    logger.debug("weken " + w);
+    EbbOpslag.wis();
+    return w.size() == 8
+        && w[7][0] == 75 && w[7][1] == 3 && w[7][2] == 6
+        && w[6][0] == 100 && w[6][1] == 1 && w[6][2] == 1
+        && w[5][0] == 0 && w[5][1] == 0 && w[0][2] == 0;
+}
