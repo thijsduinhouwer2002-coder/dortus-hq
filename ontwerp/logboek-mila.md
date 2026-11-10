@@ -68,4 +68,5 @@
 - Code bij Bram in `platformen/steam/taken.md`.
 - Volgende run: tekening per stap van de stekelput (Rusty Spikes, Deep Pit, Trick Lid), muntje van twee beelden, dan opmaak van de schermafbeeldingen zodra Olaf opnames levert.
 - Later in run 7: **stekelput per stap** (`kunst/stekelput_upgrades.png`, zelfde indeling als `stekelput.png`, één rij per niveau). Besluit: roest, dan een zwart gat als hij opengaat, dan een deksel in de kleur van de aarde met één haarscheurtje. Waarom: elke stap zie je de minuut erna terug, en de Trick Lid doet wat zijn uitleg belooft ("looks like floor until it isn't"), dus eerlijk. Code bij Olaf (`hol.gd` r250).
-- Volgende run: muntje van twee beelden, dan opmaak schermafbeeldingen zodra Olaf opnames levert; muziek en klank kiezen met Olaf (Sanne 00:00, Olaf 01:40).
+- Later in run 7: **koop-muntje van twee beelden** (`kunst/koop_munt.png`): plat en op zijn kant, zodat het draait. Waarom: een draaiende munt zegt "klik hier" zonder geluid of melding (Sanne). Code bij Olaf.
+- Volgende run: opmaak schermafbeeldingen zodra Olaf opnames levert; muziek en klank kiezen met Olaf (Sanne 00:00, Olaf 01:40).
