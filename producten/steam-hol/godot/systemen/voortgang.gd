@@ -15,13 +15,16 @@ const HELD_ELKE_S := 47.5          # gemiddeld, zelfde orde als in het spel (25 
 # gangen en faam (optioneel) maken het goud gelijk aan het spel en sim/ (balans.md): per val
 # 6 x (1 + 0,1 x faam) x (1 + gangen / 40), en faam maakt helden iets sterker (x 0,97 per niveau, bodem 0,75).
 # Zo levert een uur weg ongeveer hetzelfde op als een uur kijken (zonder de +3 voor terugkomers: die kent de save niet).
-static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int, gangen := 6, faam := 0) -> Dictionary:
+# upg (optioneel): systemen/upgrades.gd; gekochte stappen tellen ook terwijl je weg bent (+7 procentpunt per stap).
+static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, zaad: int, gangen := 6, faam := 0, upg = null) -> Dictionary:
 	var weg := nu_unix - laatst_unix
 	var teruggezet := weg < 0
 	weg = clampi(weg, 0, PLAFOND_S)
 	var helden := int(floor(weg / HELD_ELKE_S))
 	# zelfde kansen als held.gd en sim/ (put 35%, slijm 45%), met een plafond zodat er altijd verhalen blijven
-	var kans_val := clampf((1.0 - pow(0.65, vallen) * pow(0.55, bewoners)) * maxf(0.75, pow(0.97, faam)), 0.0, 0.85)
+	var k_put := 0.35 + (upg.kans_erbij("stekelput") if upg != null else 0.0)
+	var k_slijm := 0.45 + (upg.kans_erbij("slijm") if upg != null else 0.0)
+	var kans_val := clampf((1.0 - pow(1.0 - k_put, vallen) * pow(1.0 - k_slijm, bewoners)) * maxf(0.75, pow(0.97, faam)), 0.0, 0.85)
 	var per_val := goud_per_val(gangen, faam)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = hash([zaad, laatst_unix, helden])
@@ -37,7 +40,7 @@ static func reken(laatst_unix: int, nu_unix: int, vallen: int, bewoners: int, za
 	# Eigen rng, zodat goud en vallen per zaad hetzelfde blijven als voor de hoedentoren.
 	var opgegeten := 0
 	if bewoners > 0 and gevallen > 0:
-		var deel := 0.45 * bewoners / (0.45 * bewoners + 0.35 * vallen)
+		var deel := k_slijm * bewoners / (k_slijm * bewoners + k_put * vallen)
 		var rh := RandomNumberGenerator.new()
 		rh.seed = hash([zaad, laatst_unix, helden, "hoeden"])
 		for i in gevallen:

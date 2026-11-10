@@ -275,6 +275,15 @@ func _init() -> void:
 				print("  te lang: ", kr, " | ", vg)
 	ok(regels_ok == 6, "namen, uitleg en kroniekregel passen (%d van 6)" % regels_ok)
 	ok(u3.koop_regel("slijm") == "Gloop is now Royal Gloop." and u3.put_verborgen(), "regel: " + u3.koop_regel("slijm"))
+	# voortgang telt upgrades mee; zonder upgrades precies als voorheen
+	var vz: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42)
+	var vn: Dictionary = V.reken(t0, t0 + 3600, 1, 1, 42, 6, 0, null)
+	var u4 = load("res://systemen/upgrades.gd").new()
+	u4.van_dict({"slijm": 3, "stekelput": 3})
+	var vm: Dictionary = V.reken(t0, t0 + 6 * 3600, 1, 1, 42, 6, 0, u4)
+	var vz6: Dictionary = V.reken(t0, t0 + 6 * 3600, 1, 1, 42)
+	ok(vz.goud == vn.goud and vz.gevallen == vn.gevallen, "voortgang zonder upgrades gelijk aan voorheen")
+	ok(vm.gevallen >= vz6.gevallen and vm.goud >= vz6.goud, "voortgang met upgrades: minstens zoveel gevallen (%d tegen %d)" % [vm.gevallen, vz6.gevallen])
 
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
