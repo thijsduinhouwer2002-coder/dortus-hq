@@ -29,12 +29,20 @@ class EbbApp extends Application.AppBase {
         if (EbbBouw.DEMO) {
             // Testbouw eis 10: 2 ademhalingen van 250 ms, 2 rondes, herstel 500 ms.
             view.sessie = new Ebb.Rondes(2, 250, 2, 500, System.getTimer());
-            // Eis 10, tweede helft: een opname die wordt weggegooid mag geen FIT-bestand geven.
-            var eerst = new EbbOpname();
-            eerst.start();
-            eerst.inhouden(9);
-            eerst.weggooien();
-            System.println("OPNAME eerste proef weggegooid");
+            // Eis 10, tweede helft: bij elke tweede start van de testbouw wordt een opname weggegooid;
+            // de workflow kijkt dat die start geen FIT-bestand geeft. (Weggooien en opslaan in één start
+            // liet in de simulator de weggegooide lap in het volgende bestand achter.)
+            var keer = Application.Storage.getValue("demokeer");
+            var k = (keer instanceof Number) ? keer as Number : 0;
+            Application.Storage.setValue("demokeer", k + 1);
+            if (k % 2 == 1) {
+                view.opnemen = false;
+                var weg = new EbbOpname();
+                weg.start();
+                weg.inhouden(9);
+                weg.weggooien();
+                System.println("OPNAME proef weggegooid");
+            }
         }
         if (!EbbBouw.DEMO && EbbVeilig.moetTonen()) {
             return [new VeiligView(), new VeiligDelegate(view)];
@@ -97,6 +105,7 @@ class EbbView extends WatchUi.View {
 
     var opname as EbbOpname = new EbbOpname();
     var koraal as Boolean = false;
+    var opnemen as Boolean = true;
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
 
@@ -104,7 +113,9 @@ class EbbView extends WatchUi.View {
         if (!_gestart) {
             _gestart = true;
             sessie.segmentStart = System.getTimer();
-            opname.start();
+            if (opnemen) {
+                opname.start();
+            }
         }
         _timer.start(method(:tik), 100, true);
     }

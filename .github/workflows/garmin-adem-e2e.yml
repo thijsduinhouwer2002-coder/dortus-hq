@@ -80,6 +80,18 @@ jobs:
             find / -xdev -iname '*.fit' -newer /tmp/demo-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
               ls -la "$f"; cp "$f" "schermen/fit/$d/$(basename "$f")"
             done
+            # Tweede start van de testbouw: opname weggooien, er mag geen nieuw FIT-bestand komen.
+            touch /tmp/weg-$d
+            monkeydo "bin/demo-$d.prg" "$d" > "/tmp/weg-$d.log" 2>&1 &
+            MD=$!
+            sleep 12
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+            echo "== uitvoer tweede start $d"; cat "/tmp/weg-$d.log"
+            mkdir -p "schermen/fit-weg/$d"
+            find / -xdev -iname '*.fit' -newer /tmp/weg-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+              ls -la "$f"; cp "$f" "schermen/fit-weg/$d/$(basename "$f")"
+            done
           done
           echo "== alle activiteiten in de simulator"; ls -la --time-style=full-iso /tmp/com.garmin.connectiq/GARMIN/Activities 2>/dev/null || true
           mogrify -fuzz 2% -trim +repage schermen/*.png
@@ -106,7 +118,11 @@ jobs:
           # Eis 10 nakijken: per horloge precies één bestand (het weggegooide geeft er geen), training 10, subsport 62, 2 laps, inhoud 3 en 5, beste 5.
           import os
           fout = []
-          mappen = sorted(glob.glob(sys.argv[1] + "/*/"))
+          mappen = sorted(glob.glob(sys.argv[1] + "/fit/*/"))
+          weg = glob.glob(sys.argv[1] + "/fit-weg/**/*.fit", recursive=True)
+          print("EIS10 FIT-bestanden na weggooien:", len(weg))
+          if weg:
+              fout.append("na weggooien toch %d FIT-bestanden" % len(weg))
           if len(mappen) != 3:
               fout.append("verwacht 3 horloges, gevonden %d" % len(mappen))
           for m in mappen:
@@ -118,12 +134,12 @@ jobs:
               with fitdecode.FitReader(fits[0]) as fit:
                   for fr in fit:
                       if not isinstance(fr, fitdecode.FitDataMessage): continue
-                      dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
+                      velden = {f.name: f.value for f in fr.fields}
                       if fr.name == "session":
                           sessie = {f.name: f.raw_value for f in fr.fields if f.name in ("sport", "sub_sport", "num_laps")}
-                          beste = dev.get("beste")
+                          beste = velden.get("beste")
                       if fr.name == "lap":
-                          inhoud.append(dev.get("inhoud"))
+                          inhoud.append(velden.get("inhoud"))
               uitslag = (sessie.get("sport"), sessie.get("sub_sport"), sessie.get("num_laps"), inhoud, beste)
               print("EIS10", naam, "sport, subsport, laps, inhoud, beste:", uitslag)
               if uitslag != (10, 62, 2, [3, 5], 5):
@@ -131,7 +147,7 @@ jobs:
           print("EIS10 UITSLAG:", "goed" if not fout else fout)
           sys.exit(1 if fout else 0)
           PY
-          python3 /tmp/leesfit.py "$APP/schermen/fit"
+          python3 /tmp/leesfit.py "$APP/schermen"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
