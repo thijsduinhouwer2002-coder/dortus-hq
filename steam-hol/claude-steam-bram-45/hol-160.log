@@ -9,6 +9,12 @@ HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
 HOL kroniek 14.1 (wacht 1.8): Odo has a map. It is wrong.
 HOL gegraven kolom 4
+HOL demo klik op Gloop
+HOL kaartje open 18.5: slijm
+HOL demo klik op Buy
+HOL koop 20.0: slijm niveau 1, goud 27
+HOL kaartje dicht 20.0
+HOL kroniek 20.0 (wacht 0.0): Gloop is now Big Gloop.
 HOL kroniek 23.0 (wacht 0.0): Tibbe brought a torch. And hope.
 HOL begin: doorlopen (Tibbe)
 HOL kroniek 24.8 (wacht 0.0): Odo stays forever. +6
@@ -26,4 +32,4 @@ HOL kroniek vervallen 44.0: Joost read about you in a tavern.
 HOL kroniek 44.3 (wacht 2.3): Tibbe ran off, giggling.
 HOL kroniek 46.8 (wacht 0.4): Fenna knocks first. Polite.
 HOL kroniek 47.8 (wacht 0.3): Gloop ate Joost. Burp. +6
-HOL einde na 50 s, fps=15, goud=27, terugkomers=1
+HOL einde na 50 s, fps=15, goud=48, terugkomers=1
