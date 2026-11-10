@@ -46,7 +46,7 @@ Profielpagina > **Customize your pins** > kies `rollwright` en `click-joints` (l
 
 ## Stap 3. Social preview (±1 min per repo)
 Dit plaatje toont GitHub als iemand een repolink deelt (Discord, Reddit, forum). Nu is dat een grijs standaardkaartje.
-Repo > **Settings** > General > **Social preview** > Edit > Upload an image: `platformen/abel/merk/social-1280x640-v2-nu.png` (1280 x 640, 129 kB; GitHub wil minder dan 1 MB). Doen bij `rollwright` en `click-joints`.
+Repo > **Settings** > General > **Social preview** > Edit > Upload an image: `platformen/abel/merk/social-1280x640-v2b-nu.png` (1280 x 640; GitHub wil minder dan 1 MB). Doen bij `rollwright` en `click-joints`.
 Waarom de `-nu`-versie: dat is Mila's social v2 (akkoord Daan, keuring 3) met als onderregel "Focused tools today, small games on the way" in plaats van "Small games and focused tools". Daan vroeg dat het plaatje pas over spellen praat als Hats of the Fallen op Steam staat (keuring 2, kan 5). Komt Mila met een eigen plaatje per repo, dan dat gebruiken.
 
 ## Wat ik niet zelf doe

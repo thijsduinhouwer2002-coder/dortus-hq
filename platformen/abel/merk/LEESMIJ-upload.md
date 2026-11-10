@@ -1,6 +1,6 @@
 # Beelden van Dortus: welk bestand waar (Abel)
 
-Alles hier is goedgekeurd door Daan. De mapnummers volgen de volgorde in `platformen/abel/klaar.md`. Per account staan de stappen en teksten in `platformen/abel/accounts/<account>.md`.
+Alles hier is goedgekeurd door Daan (laatste: keuring 5, scharnieren v2b). De mapnummers volgen de volgorde in `platformen/abel/klaar.md`. Per account staan de stappen en teksten in `platformen/abel/accounts/<account>.md`.
 
 | Map | Bestand | Waar het heen gaat |
 |---|---|---|

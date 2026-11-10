@@ -1,8 +1,8 @@
 #!/bin/sh
 # Abel: zet de definitieve beelden per account in upload/, met namen die zeggen waar ze heen gaan, plus een zip.
-# Draai vanuit platformen/abel/:  sh merk/bron/maak_upload.sh v2   (of v2b na Daans ja voor de scharnieren)
+# Draai vanuit platformen/abel/:  sh merk/bron/maak_upload.sh   (standaard v2b, akkoord Daan keuring 5; v2 alleen als terugval)
 set -e
-V=${1:-v2}
+V=${1:-v2b}
 rm -rf upload && mkdir -p upload/1-steam upload/2-polar upload/3-github upload/4-blender upload/5-obsidian upload/6-dortus-com
 cp merk/avatar-184-v2.png                upload/1-steam/profiel-en-groep-avatar-184.png
 cp merk/steam-kop-1500x220-v2.png        upload/1-steam/ontwikkelaarspagina-kop-1500x220.png
