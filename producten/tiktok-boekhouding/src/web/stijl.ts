@@ -1,7 +1,7 @@
 // De stijl van Daan (ontwerp.md, "Stijl voor de bouw"), als één CSS-bestand op `/app/stijl.css`.
 // Geen inline stijl: de CSP staat dat niet toe. Verhoog STIJL_VERSIE bij elke wijziging, zodat de cache vernieuwt.
 
-export const STIJL_VERSIE = "1";
+export const STIJL_VERSIE = "2";
 export const STIJL_PAD = `/app/stijl.css?v=${STIJL_VERSIE}`;
 
 export const KLEUREN = {
@@ -56,6 +56,9 @@ a{color:${k.paars}}
 .lijst{list-style:none;padding:0;margin:0}
 .lijst li{padding:12px 0;border-top:1px solid ${k.lijn}}
 .verborgen{display:none}
+.melding{background:${k.apartVlak};color:${k.apart};border-radius:10px;padding:12px 16px;margin:16px 0}
+fieldset{border:0;padding:0;margin:0}
+legend{font-weight:600;margin-bottom:8px}
 @media (max-width:600px){.blokken{grid-template-columns:1fr}.knop{display:block;width:100%;text-align:center}.kop{padding:12px 16px}}
 `;
 

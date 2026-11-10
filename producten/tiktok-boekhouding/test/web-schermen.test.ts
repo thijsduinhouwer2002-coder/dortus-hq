@@ -13,6 +13,8 @@ const BOOS = `<script>x</script>"'`;
 
 test("(p) scherm 1: schets-teksten, Moneybird-knop als POST met csrf, rechten, Exact-link", async () => {
   const t = await tekstVan(koppelScherm({ winkelnaam: "Studio Lente", csrf: "CSRF123" }));
+  const m = await tekstVan(koppelScherm({ winkelnaam: "A", csrf: "c", melding: "Je gaf Moneybird geen toestemming." }));
+  assert.ok(m.includes(`<p class="melding" role="status">Je gaf Moneybird geen toestemming.</p>`));
   for (const zin of ["Stap 1 van 3", "Koppel je boekhouding", "Er gaat nog niets naar Moneybird.", "Studio Lente · gekoppeld", "Koppel Moneybird"]) {
     assert.ok(t.includes(zin), zin);
   }
@@ -41,6 +43,9 @@ test("keuzeschermen: POST naar de juiste route, eerste keuze aangevinkt, csrf er
   assert.ok(w.includes(`action="/app/tiktok/kies"`) && w.includes(`value="C1"`));
   assert.equal((w.match(/ checked/g) ?? []).length, 1);
   assert.ok(w.includes(`value="2"> B`));
+  assert.ok(w.includes("<legend>Welke winkel koppel je?</legend>"));
+  assert.throws(() => kiesWinkel([], "c"));
+  assert.throws(() => kiesAdministratie([], "c"));
   const a = await tekstVan(kiesAdministratie([{ id: "9", naam: "Studio Lente B.V." }], "C2"));
   assert.ok(a.includes(`action="/app/moneybird/administratie"`) && a.includes(`name="administratie" value="9"`));
 });
@@ -53,6 +58,10 @@ test("nog niet voor jou: land in gewone woorden, mailto met gecodeerd onderwerp,
   assert.ok(t.includes("Mail ons, dan hoor je het als Klopt voor jou werkt."));
   assert.ok(!/<form|<input|e-mail achter/i.test(t));
   assert.equal(landNaam("xx"), "XX");
+  const boos = await tekstVan(nietVoorJou({ soort: "land", land: `<b>"x` }));
+  assert.ok(!boos.includes("<b>") && boos.includes("&lt;B&gt;&quot;X"));
+  const mailto = boos.match(/href="(mailto:[^"]*)"/)![1];
+  assert.match(mailto, /^mailto:thijs@dortus\.com\?subject=[A-Za-z0-9%._~-]+$/, "alleen gecodeerde tekens");
   assert.ok((await tekstVan(nietVoorJou({ soort: "exact" }))).includes("Wachtlijst%20Klopt%3A%20Exact"));
   assert.ok((await tekstVan(nietVoorJou({ soort: "geen_administratie" }))).includes("geen Moneybird-administratie"));
   assert.ok((await tekstVan(nietVoorJou({ soort: "geen_nl_administratie" }))).includes("Geen Nederlandse administratie in euro"));
@@ -60,30 +69,36 @@ test("nog niet voor jou: land in gewone woorden, mailto met gecodeerd onderwerp,
 
 test("(e) foutstaat: niet aan jou, geen belofte dat we het vanzelf opnieuw proberen", async () => {
   for (const kant of ["TikTok", "Moneybird"] as const) {
-    const s = foutBijKoppelen(kant);
+    const s = foutBijKoppelen(kant, "andere_kant");
     assert.equal(s.status, 502);
     const t = await tekstVan(s);
     assert.ok(t.includes(`${kant} gaf geen antwoord`) && t.includes("Dat ligt niet aan jou."));
     assert.ok(!/vanzelf|over 5 minuten/i.test(t));
-    assert.ok(t.includes(`href="/app/tiktok/start"`));
+    const anders = await tekstVan(foutBijKoppelen(kant, "anders"));
+    assert.ok(anders.includes(`Koppelen met ${kant} lukte niet`) && !anders.includes("ligt niet aan jou"));
   }
+  // TikTok opnieuw via de inlog van TikTok, Moneybird via scherm 1 (daar staat de POST-knop met csrf).
+  assert.ok((await tekstVan(foutBijKoppelen("TikTok", "anders"))).includes(`href="/app/tiktok/start">Opnieuw koppelen`));
+  const mb = await tekstVan(foutBijKoppelen("Moneybird", "anders"));
+  assert.ok(mb.includes(`href="/app">Opnieuw koppelen`) && !mb.includes("/app/tiktok/start"));
   assert.ok((await tekstVan(weigeringTikTok())).includes("Je gaf TikTok Shop geen toestemming"));
 });
 
 test("(k)-deel uitgelogd en even geduld: geen winkelgegevens, juiste status, knop", async () => {
   const u = uitgelogd();
-  assert.equal(u.status, 401);
+  assert.equal(pagina(u).status, 200);
   const t = await tekstVan(u);
   assert.ok(t.includes("Open Klopt vanuit TikTok Shop") && t.includes(`href="/app/tiktok/start"`));
   assert.ok(!/gekoppeld|Moneybird/.test(t));
   const g = evenGeduld();
   assert.equal(g.status, 503);
+  assert.equal(pagina(g).headers.get("retry-after"), "60");
   assert.ok((await tekstVan(g)).includes(`href="/app">Vernieuwen`));
 });
 
 test("alle schermen: geen inline stijl of script, geen uitroeptekens in de tekst", async () => {
   const alle = [
-    koppelScherm({ winkelnaam: "A", csrf: "c" }), nietVoorJou({ soort: "land", land: "IT" }), foutBijKoppelen("TikTok"), weigeringTikTok(),
+    koppelScherm({ winkelnaam: "A", csrf: "c" }), nietVoorJou({ soort: "land", land: "IT" }), foutBijKoppelen("TikTok", "andere_kant"), foutBijKoppelen("Moneybird", "anders"), weigeringTikTok(),
     uitgelogd(), openAls("A"), evenGeduld(), kiesWinkel([{ id: "1", naam: "A" }], "c"), kiesAdministratie([{ id: "1", naam: "A" }], "c"), gekoppeld("A"),
   ];
   for (const s of alle) {

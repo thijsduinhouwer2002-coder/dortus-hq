@@ -67,6 +67,7 @@ export interface PaginaOpties {
   stap?: { nu: number; van: number };
   status?: number;
   cookies?: string[];
+  kopregels?: Record<string, string>;
 }
 
 export function pagina(o: PaginaOpties): Response {
@@ -86,7 +87,7 @@ ${stap}${o.inhoud}
 </main>
 </body>
 </html>`;
-  const h = kopregels();
+  const h = kopregels(o.kopregels);
   for (const c of o.cookies ?? []) h.append("set-cookie", c);
   return new Response(body.tekst, { status: o.status ?? 200, headers: h });
 }

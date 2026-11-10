@@ -9,6 +9,7 @@ export interface Scherm {
   inhoud: Html;
   stap?: { nu: number; van: number };
   status?: number;
+  kopregels?: Record<string, string>;
 }
 
 const STAP1 = { nu: 1, van: 3 };
@@ -46,7 +47,7 @@ export function koppelScherm(g: KoppelGegevens): Scherm {
     stap: STAP1,
     inhoud: html`<h1>Koppel je boekhouding</h1>
 <p class="zacht">Daarna zie je meteen hoe je laatste uitbetalingen geboekt worden. Er gaat nog niets naar Moneybird.</p>
-${g.melding ? html`<p class="pil pil-apart">${g.melding}</p>` : ""}
+${g.melding ? html`<p class="melding" role="status">${g.melding}</p>` : ""}
 <div class="blokken">
 <section class="kaart"><h2>TikTok Shop</h2><p><span class="stip stip-goed"></span>${g.winkelnaam} · gekoppeld</p><p class="pil pil-goed">Klaar</p></section>
 <section class="kaart"><h2>Moneybird</h2><p><span class="stip stip-uit"></span>Je boekhouding</p>
@@ -64,11 +65,11 @@ export function nietVoorJou(n: NietVoorJou): Scherm {
   let kop: string, uitleg: string, onderwerp: string, teken = "NL";
   if (n.soort === "land") {
     kop = "Nu alleen voor Nederlandse winkels";
-    uitleg = `Je winkel staat in ${landNaam(n.land)}. We breiden uit per land.`;
+    uitleg = `Je winkel staat in ${landNaam(n.land)}.`;
     onderwerp = `Wachtlijst Klopt: ${landNaam(n.land)}`;
   } else if (n.soort === "exact") {
     kop = "Klopt werkt nu alleen met Moneybird";
-    uitleg = "Exact komt misschien later. Hoe meer mensen erom vragen, hoe eerder.";
+    uitleg = "Exact komt misschien later.";
     onderwerp = "Wachtlijst Klopt: Exact";
     teken = "M";
   } else if (n.soort === "geen_administratie") {
@@ -88,12 +89,18 @@ export function nietVoorJou(n: NietVoorJou): Scherm {
   };
 }
 
-/** Foutstaat zonder belofte dat we het vanzelf opnieuw proberen (dat doen we bij koppelen niet). */
-export function foutBijKoppelen(kant: "TikTok" | "Moneybird"): Scherm {
+/**
+ * Foutstaat zonder belofte dat we het vanzelf opnieuw proberen (dat doen we bij koppelen niet). "Ligt niet aan jou" alleen
+ * als de andere kant echt faalde (5xx, 429, geen antwoord); bij een verlopen of al gebruikte code niet. Moneybird opnieuw
+ * gaat via scherm 1 (`/app`), want daar staat de POST-knop met csrf; TikTok opnieuw via de inlog van TikTok.
+ */
+export function foutBijKoppelen(kant: "TikTok" | "Moneybird", reden: "andere_kant" | "anders"): Scherm {
+  const kop = reden === "andere_kant" ? `${kant} gaf geen antwoord` : `Koppelen met ${kant} lukte niet`;
+  const uitleg = reden === "andere_kant" ? "Dat ligt niet aan jou. Probeer het zo nog eens." : "Probeer het nog eens.";
   return {
-    titel: `${kant} gaf geen antwoord`,
+    titel: kop,
     status: 502,
-    inhoud: staat("!", `${kant} gaf geen antwoord`, "Dat ligt niet aan jou. Probeer het zo nog eens.", knopLink(START_TIKTOK, "Opnieuw koppelen")),
+    inhoud: staat("!", kop, uitleg, knopLink(kant === "TikTok" ? START_TIKTOK : "/app", "Opnieuw koppelen")),
   };
 }
 
@@ -101,7 +108,7 @@ export function foutBijKoppelen(kant: "TikTok" | "Moneybird"): Scherm {
 export function weigeringTikTok(): Scherm {
   return {
     titel: "Geen toestemming",
-    inhoud: staat("!", "Je gaf TikTok Shop geen toestemming", "Zonder toestemming kan Klopt je uitbetalingen niet lezen.", knopLink(START_TIKTOK, "Opnieuw koppelen")),
+    inhoud: staat("…", "Je gaf TikTok Shop geen toestemming.", "Zonder toestemming kan Klopt je uitbetalingen niet lezen.", knopLink(START_TIKTOK, "Opnieuw koppelen")),
   };
 }
 
@@ -109,7 +116,6 @@ export function weigeringTikTok(): Scherm {
 export function uitgelogd(): Scherm {
   return {
     titel: "Open Klopt vanuit TikTok Shop",
-    status: 401,
     inhoud: staat("✓", "Open Klopt vanuit TikTok Shop", "Je logt in via TikTok Shop. Wachtwoorden hebben we niet.", knopLink(START_TIKTOK, "Inloggen met TikTok Shop")),
   };
 }
@@ -126,29 +132,32 @@ export function evenGeduld(): Scherm {
   return {
     titel: "Even geduld",
     status: 503,
+    kopregels: { "retry-after": "60" },
     inhoud: staat("…", "Even geduld", "Klopt is net bezig met je winkel. Probeer het over een minuut opnieuw.", knopLink("/app", "Vernieuwen")),
   };
 }
 
 export function kiesWinkel(shops: Array<{ id: string; naam: string }>, csrf: string): Scherm {
+  if (shops.length === 0) throw new Error("kiesWinkel zonder winkels");
   return {
     titel: "Kies je winkel",
     stap: STAP1,
     inhoud: html`<h1>Kies je winkel</h1><p class="zacht">Eén abonnement is voor één winkel. Welke koppel je met Klopt?</p>
-<form method="post" action="/app/tiktok/kies" class="kaart">${verborgenCsrf(csrf)}<ul class="lijst">${shops.map(
+<form method="post" action="/app/tiktok/kies" class="kaart">${verborgenCsrf(csrf)}<fieldset><legend>Welke winkel koppel je?</legend><ul class="lijst">${shops.map(
       (s, i) => html`<li><label><input type="radio" name="shop" value="${s.id}"${i === 0 ? html` checked` : ""}> ${s.naam}</label></li>`,
-    )}</ul><button class="knop knop-hoofd" type="submit">Koppel deze winkel</button></form>`,
+    )}</ul></fieldset><button class="knop knop-hoofd" type="submit">Koppel deze winkel</button></form>`,
   };
 }
 
 export function kiesAdministratie(adms: Array<{ id: string; naam: string }>, csrf: string): Scherm {
+  if (adms.length === 0) throw new Error("kiesAdministratie zonder administraties");
   return {
     titel: "Kies je administratie",
     stap: STAP1,
     inhoud: html`<h1>Kies je administratie</h1><p class="zacht">In welke Moneybird-administratie boekt Klopt je TikTok-uitbetalingen?</p>
-<form method="post" action="/app/moneybird/administratie" class="kaart">${verborgenCsrf(csrf)}<ul class="lijst">${adms.map(
+<form method="post" action="/app/moneybird/administratie" class="kaart">${verborgenCsrf(csrf)}<fieldset><legend>Welke administratie?</legend><ul class="lijst">${adms.map(
       (a, i) => html`<li><label><input type="radio" name="administratie" value="${a.id}"${i === 0 ? html` checked` : ""}> ${a.naam}</label></li>`,
-    )}</ul><button class="knop knop-hoofd" type="submit">Kies deze administratie</button></form>`,
+    )}</ul></fieldset><button class="knop knop-hoofd" type="submit">Kies deze administratie</button></form>`,
   };
 }
 
