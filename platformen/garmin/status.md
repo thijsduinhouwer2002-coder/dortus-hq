@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 23:20: logica van blad v4.1 en v5 in de code, alle 24 dieren v5 als data (niets ingediend).** Dierenlijst met Sea cucumber (terug na 7 dagen) en Whale, hoogstens één nieuw dier per sessie, sessiedieren hoogstens 2 per dag, 8 weeks telt sessies per week, geen record of "best" meer, FIT-velden "Hold time" en "Longest hold". Mila's dieren v5 staan als 5,3 kB data in de app (nog niet op een scherm). Schermen van blad v5 wachten op het ja van Thijs. Installs 0, verkopen 0.
 - **10 nov 22:40: nachtronde Ebb, logica volgens besluit 22:53 (niets ingediend).** Eerlijk nagekeken wat de app al had vóór deze avond:
   - Instelbaar ademtempo: ja, al sinds 10 nov 10:00 (1,2 tot 2,4 s per in of uit, plus aantal ademhalingen, rondes en herstel).
   - Trillen bij de laatste ademhalingen: nee, nu gebouwd (twee lichte tikjes bij elk van de laatste 3 inademingen).

@@ -236,3 +236,17 @@
 2. Open: e2e en plaatjes van 8f73450 nakijken; hartslag alleen op een echt horloge te zien; schermen volgens blad v4 (wacht op ja van Thijs op het blad, zoals bij v1 tot v3).
 3. Volgende run: run van 8f73450 nakijken, dan blad v4 bouwen als er een ja is; anders de 20 ontbrekende dieren met Mila.
 
+
+## 10 nov 2026 22:57 (Gijs, tweeëntwintigste run)
+- Begin: nieuw van Mila (22:50, blad v4.1 en alle 24 dieren), de keuring van v4.1 door drie beoordelaars (23:52, 6/6/6, punten G1 tot G5 voor mij) en tijdens de run haar blad v5 en dieren v5. Schermen bouw ik niet: eerst het ja van Thijs op het blad.
+- Run 42915056979 (8f73450) nagekeken: Sea log staat binnen de rand op vier horloges (GEZIEN). Hartslag in de FIT van de simulator: 0 van 2 records (simulator geeft geen hartslag; op een echt horloge nog niet gezien, GOK dat het werkt omdat de opname de polssensor aanzet).
+- Logica (c3967fc): Sea cucumber op 23, voorwaarde "back after a break" (eerste sessie na 7 of meer dagen zonder), Whale op 24; hoogstens één nieuw dier per sessie, de rest wacht (blad v4.1); zeekomkommer gaat voor zodat hij op de dag van terugkomst komt. 8 weeks telt sessies per week (lijst met een dagnummer per sessie, hoogstens 56 dagen). Rustig ademen geeft nu ook dieren.
+- Keuring G1 en G2 (0d028f1): geen record meer bewaard, geen "new best" en geen "best" (getijdenlijn toont "avg"), FIT-veld "Longest hold"; voor de dieren tellen hoogstens 2 sessies per dag. Daarna (2855f2e) per lap "Hold time" zoals Mila's P2.
+- Dieren als data (c1b3d6d, 0ae1363): `bron/maak_dieren_data.py` zet Mila's Python-dieren om naar `DierenData.mc`, 5,3 kB voor alle 24, elke veelhoek hoogstens 60 punten, op het zwaartepunt, met lichte rand en slaapoog. Waarom zelf omzetten: dan kan Mila blijven tekenen in haar eigen bron en kost elke nieuwe versie mij één commando. Een nabootsing van de horlogecode naast haar `dier_beeld()` gelegd: alle 24 gelijk (GEZIEN). Nog niet op een scherm.
+- Fouten onderweg: twee typefouten van de compiler (opslaan van een lijst, punten voor fillPolygon), allebei in de volgende commit opgelost. Toetsen in de simulator groen op 0d028f1 (run 42920395169, stap tests geslaagd); uitslag van de laatste commits staat hieronder of in de volgende run.
+- G3 (vegen op aanraakhorloges), G4 (tijd per tekenbeurt van de sea log op fenix 7 en FR255) en G5 (beelden op 390 en 416) horen bij de schermen van blad v5; gaan mee in die bouw.
+
+**In drie regels:**
+1. Af: logica van blad v4.1 en v5 (dierenlijst, één per sessie, 2 per dag, sessies per week), oude spel weg (G1), alle 24 dieren v5 als data.
+2. Open: uitslag CI van de laatste commits; schermen van blad v5 wachten op het ja van Thijs; "Breaths" en "Rounds" als FIT-veld komen met de schermen.
+3. Volgende run: CI nakijken; is er een ja op blad v5, dan bouwen (eerst de dieren in sea log en eindscherm, met G3 tot G5); anders twee regels en stoppen.
