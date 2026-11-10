@@ -1,0 +1,79 @@
+extends RefCounted
+# Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
+# Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
+
+static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
+	var b := info.duplicate()
+	b["kleur"] = (info.kleur as Color).to_html(false)
+	b["hoed"] = (info.hoed as Color).to_html(false)
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou"]:
+		b.erase(v)
+	b.erase("wat")
+	if uitkomst == "ontsnapt":
+		b.bezoeken = int(info.get("bezoeken", 0)) + 1
+		var oud_wrok: String = String(info.get("wrok", ""))
+		b.wrok = info.get("laatst_geraakt", oud_wrok if oud_wrok != "" else "your Hoard")
+		b.erase("laatst_geraakt")
+		# 60% van wie vlucht komt ooit terug, aartsvijanden altijd (sim/UITKOMST.md); in de demo iedereen.
+		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
+		if String(info.naam) == s.begin_vlucht:
+			s.vlucht_t = s.t
+		if s.demo:
+			s.vlucht_tijd[String(info.naam)] = s.t
+		if s.demo or b.bezoeken >= 3 or s.rng.randf() < 0.6 or String(info.naam) == s.begin_vlucht:
+			s.terugkomers.append(b)
+		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
+		if s.terugkomers.size() > 8:
+			var weg_i := 0
+			for i in s.terugkomers.size():
+				if int(s.terugkomers[i].bezoeken) < 3:
+					weg_i = i
+					break
+			s.terugkomers.remove_at(weg_i)
+		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
+		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):
+			# de schat-regel kwam al op het moment van aanraken (_process); nu alleen dat hij wegrent
+			s._kroniek(s.regels.kies("schat_weg", {"naam": info.naam}))
+		else:
+			var w: String = String(b.wrok)
+			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
+	else:
+		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
+		var buit := 6 + 3 * int(info.get("bezoeken", 0))
+		s.hol.goud += buit
+		var naam: String = String(info.naam)
+		var basis := naam.split(" ")[0]
+		s.gevallen_namen[basis] = int(s.gevallen_namen.get(basis, 0)) + 1
+		s.hol.munt_regen(s.hol.pos_naar_cel(_held.position).x)
+		var wat: String = String(info.get("wat", "fell"))
+		var r := ""
+		var extra := " +%d" % buit
+		if wat.begins_with("finally"):
+			var vijand := wat.replace("finally fell to ", "")
+			if int(info.get("bezoeken", 0)) >= 3:
+				r = s.regels.kies("afgerekend_aarts", {"naam": naam}, extra.length())
+			elif vijand.begins_with("the "):
+				# "Bram came back. The Spike Pit won." (Sanne toets 6, punt 1: de grap moet af zijn)
+				r = s.regels.kies("afgerekend_val", {"naam": naam, "Val": "The" + vijand.substr(3)}, extra.length())
+			else:
+				r = s.regels.kies("afgerekend", {"naam": naam}, extra.length())
+		elif wat.ends_with(s.slijm.naam()):
+			r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
+		else:
+			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
+		s._kroniek(r + extra)
+		# hoedentoren: zijn hoed staat nu op Gloop (slijm.gd, Bram). Eerste hoed altijd een regel, bij 25 en 100 de bijnaam,
+		# anders hooguit een op de vier, zodat de val-regel niet verdrongen wordt (kroniek-regels.md)
+		var n_hoed := int(info.get("hoeden_bewoner", 0))
+		if String(info.get("hoed_naar", "")) == "bewoner" and n_hoed > 0:
+			var w := {"bewoner": s._bewoner(), "naam": basis}
+			if n_hoed == 1:
+				s._kroniek(s.regels.kies("hoed_eerste", w))
+			elif n_hoed == 25 or n_hoed == 100:
+				w["bijnaam"] = "Hatted" if n_hoed == 25 else "Milliner"
+				s._kroniek(s.regels.kies("hoed_bijnaam", w))
+			elif s.rng.randf() < 0.25 or bool(info.get("demo_clou", false)):
+				# demo: de hoed van de clou-held (Mara) altijd een regel, de toren groeit in beeld (Sanne toets 7, punt 1)
+				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
+				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
+				s._kroniek(s.regels.kies(soort, w))
