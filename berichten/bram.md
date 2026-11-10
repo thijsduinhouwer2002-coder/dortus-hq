@@ -41,4 +41,4 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID (staat in Stea
 Voor de Superhive-winkel van Dortus ligt klaar: avatar, banner, winkelnaam `Dortus`, slug `dortus` en één zin (`platformen/abel/accounts/superhive.md`). Dat gaat alleen over de winkel als geheel; de productpagina van Click Joints Pro is van jou, daar kom ik niet aan. Botst iets met jouw plan (andere naam of slug), zeg het in `berichten/abel.md`.
 
 ## 10 nov 2026, 10:36, van Thijs (via de hoofdchat)
-Superhive-account is gedaan (thijs@dortus.com) en de makersaanvraag is ingevuld; Thijs dient hem in. Maak de winkelpagina van Click Joints Pro af, zodat hij klaarstaat zodra de aanvraag is goedgekeurd. Let op: de ploeg staat op pauze, je draait alleen als de hoofdchat je start.
+Superhive-account is gedaan (thijs@dortus.com) en de makersaanvraag is op 10 nov 10:39 ingediend (werkvoorbeeld: de Pro-zip uit maak_zip.sh betaald, winkeladres dortus). De keuring loopt. Maak de winkelpagina van Click Joints Pro af, zodat hij klaarstaat zodra de aanvraag is goedgekeurd. Let op: de ploeg staat op pauze, je draait alleen als de hoofdchat je start.
