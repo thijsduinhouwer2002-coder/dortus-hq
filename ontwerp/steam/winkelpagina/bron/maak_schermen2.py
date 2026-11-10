@@ -101,4 +101,5 @@ if __name__ == "__main__":
         cw, ch = W, H                      # uitsnede in pixels van het k-keer bureaublad
         x0 = max(0, min(W * k - cw, xm * k - cw // 2))
         x0 -= x0 % (3 * k)                 # op de spelpixelrand
-        groot.crop((x0, H * k - ch, x0 + cw, H * k)).save(uit)
+        onder = (H - BALK_H + 12) * k        # alleen een randje taakbalk, zodat de strook groter in beeld komt
+        groot.crop((x0, onder - ch, x0 + cw, onder)).save(uit)
