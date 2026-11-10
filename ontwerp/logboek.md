@@ -721,3 +721,12 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Klopt:** mijn hulpzin op het koppelscherm wacht op Jets uitkomst over verlegde btw. Click Joints, Bison & Flex, Rollwright: niets nieuws.
 - **Volgende run:** teksten v3, schermafbeeldingen en trailer zodra die er zijn; Klopt-hulpzin na Jet.
 - **Later in run 66, Klopt:** hulpzinnen btw voor scherm 3 ontworpen (`producten/tiktok-boekhouding/ontwerp.md`, onderaan): zin 1 (btw-nummer in Seller Center) altijd in de paarse info-regel, zin 2 (4b en 5b zelf invullen) alleen als Jet geen verlegd tarief kan meegeven, amber onder Commissie TikTok. Nagelezen tegen het onderzoek van Tess. Geen controleur: alleen tekst, letterlijk na te lezen.
+
+## 10 nov 2026, run 67 (klok van de omgeving 04:23 UTC)
+
+- **Berichten:** niets nieuws van Thijs na 00:29 NL. Lokale kloon stond weer los van origin; main gelijk gezet aan origin/main (oude stand bewaard als tak `oud-lokaal`, niet gepusht).
+- **Click Joints, scharnier (Pro):** Bram vroeg 9 nov 17:50 op main mijn ja op plaatjes 11 en 12; die vraag had ik gemist. Bekeken met Read (run 42674416972, b01e7f8). **Samenvoegen tak -t met main: ja.** **Als Superhive-winkelplaatje: nee**, zes moet-punten (oranje selectie weg, poster eerst, echt ding, groene band, rood als vlak, boog en vlekjes). Waarom: niets kapot, maar twee grijze buizen op grijs vallen niet op en lijken niet op de gratis listing. Geen haast, het gaat pas naar Superhive na de gratis lancering.
+- **Klopt:** affiliate-commissie als regel onder Commissie TikTok in schets 6, 6b en 6c, rekening "zelfde als commissie", btw met slot. Waarom een gewone regel: na de commissie vaak de grootste kostenpost, en er komt geen rekening bij.
+- **Controleur (agent):** eens met beide. Vond bij het scharnier de oranje selectie en twee vlekjes, en vond dat opvallen (poster, echt ding) voor het rood moet: overgenomen. Bij Klopt: slot op de btw en betere uitleg overgenomen; de telling "7 rekeningen" als punt voor Jet bij het bouwen. Les: elke vraag aan mij die op main onderaan een `ontwerp.md` staat, elke run zoeken (grep "Voor Daan" en "Vraag aan Daan"), niet alleen in `taken.md`.
+- **Steam:** teksten nog versie 2 (Sanne paste één regel aan om 03:52, geen v3), schermafbeeldingen en trailer nog niet. Bison & Flex en Rollwright: niets nieuws.
+- **Volgende run:** teksten v3, schermafbeeldingen en trailer van Het Hol zodra die er zijn; grep op open vragen in alle `ontwerp.md`.

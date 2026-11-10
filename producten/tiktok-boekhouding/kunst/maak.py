@@ -185,21 +185,21 @@ def rekeningen(met_btw=False):
     def kies(nr, naam, vast=False):
         nrs = f'<span class="nr">{nr}</span>' if nr else ''
         return f'<div class="kies{" vast" if vast else ""}">{SLOT if vast else ""}{nrs}<span class="n">{naam}</span>{"" if vast else "<span class=pijl>&#9662;</span>"}</div>'
-    def rij(soort, uitleg, nr, naam, lab, btw="", vast=False):
+    def rij(soort, uitleg, nr, naam, lab, btw="", vast=False, btw_vast=False):
         labels = {"gevonden": '<span class="lab voor">gevonden in je Moneybird</span>',
                   "nieuw": '<span class="lab nieuw">+ nieuw, maken we aan</span>',
                   "zelfde": '<span class="lab voor">zelfde als omzet</span>',
                   "zelfde-commissie": '<span class="lab voor">zelfde als commissie</span>',
                   "boekhouder": '<span class="lab let">kies met je boekhouder</span>',
                   "vast": '<span class="lab vast">vast, + nieuw</span><span class="uitleg">Zo komt een verschil nooit in je omzet.</span>'}
-        btwcel = f'<div class="btwcel">{kies("", btw, vast)}</div>' if met_btw else ""
+        btwcel = f'<div class="btwcel">{kies("", btw, vast or btw_vast)}</div>' if met_btw else ""
         return f'<div class="rij"><div class="soort"><b>{soort}</b><span>{uitleg}</span></div><div>{kies(nr, naam, vast)}{labels[lab]}</div>{btwcel}</div>'
     rijen = (rij("Omzet", "Wat klanten betaalden voor je producten", "8000", "Omzet hoog tarief", "gevonden", "21% hoog")
         + rij("Kortingen", "Kortingen die jij gaf, van je omzet af", "", "Kortingen TikTok Shop", "nieuw", "21% hoog")
         + rij("Terugbetaald", "Retouren en terugbetalingen aan klanten", "8000", "Omzet hoog tarief", "zelfde", "21% hoog")
         + rij("Verzendkosten", "Wat TikTok voor verzending inhoudt", "", "Verzendkosten TikTok Shop", "nieuw", "Geen btw")
         + rij("Commissie TikTok", "Wat TikTok per bestelling inhoudt", "", "Commissie en kosten TikTok Shop", "nieuw", "Geen btw")
-        + rij("Affiliate-commissie", "Wat creators krijgen voor verkopen via hun video's", "", "Commissie en kosten TikTok Shop", "zelfde-commissie", "Geen btw")
+        + rij("Affiliate-commissie", "Wat TikTok inhoudt voor creators die je producten verkopen", "", "Commissie en kosten TikTok Shop", "zelfde-commissie", "Geen btw", btw_vast=True)
         + rij("Btw over kosten", "De btw op de kosten van TikTok", "1520", "Voorbelasting", "boekhouder", "Geen btw")
         + rij("Belasting door TikTok", "Belasting die TikTok inhoudt of afdraagt", "", "Belastingen TikTok Shop", "nieuw", "Geen btw")
         + rij("Apart gezet", "Bedragen die TikTok zelf niet goed optelt", "", "Vraagposten TikTok Shop", "vast", "Geen btw", vast=True))
