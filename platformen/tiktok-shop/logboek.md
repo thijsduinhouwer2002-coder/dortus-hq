@@ -197,3 +197,10 @@
 - Tussenkeuring verwerkt: afrekening zonder bestellingen mag altijd (`? = 0` in de SQL), telling weg in dezelfde batch als `faal` en `terug`, `wisTelling` alleen met eigen slot. Daarna stap 0 tot 2, `wacht_ouder`, maandwissel en het abonnement uit `winkels.abonnement`.
 - Besluit: bij een volle maand alleen zonder verzoek wachten als Get Statements omzet boven 0 geeft. Reden: het ontwerp zegt ook dat een afrekening zonder bestellingen altijd mag, en zonder omzet weet je dat pas na de transacties.
 - Code-controleur ronde 1 nee: de knop `opnieuw` sloeg de leeftijdsregel over, zodat een verkoper zonder abonnement per oude maand 30 bestellingen gratis kon boeken. Besluit: de knop slaat hem niet meer over; inhalen van oude maanden alleen met abonnement. Reden: dat is precies waar het plan betalen voor vraagt. Ronde 2 akkoord, 281 tests, op main via tak `-j`. Tess ingelicht via `taken.md`.
+
+## 10 nov 2026, run 03:04 UTC (Tess)
+- `git pull` hing weer; `fetch` plus `checkout -B main origin/main` werkte (origin geforceerd bijgewerkt), werkboom schoon. Geen open bericht van Thijs.
+- Gedaan: uitgezocht wie de TikTok-kosten factureert en met welke btw, omdat drie GOK's in het werk (Moneybird-rekeningen, `fee_tax_breakdown.tax`, open punt 1 van Fatture in Cloud) daaraan hangen. De EU Seller Terms gelezen met Chromium (Seller University laadt met JavaScript): contractpartij TikTok Technology Limited (IE), bezorging TikTok Logistics Netherlands. Zie `onderzoek/2026-11-10-tiktok-entiteit-btw.md`.
+- Belangrijkste besluit: niets aan de boekingen veranderen op een gok. Waarom: of er btw in de bezorgkosten zit en wat `fee_tax_breakdown.tax` is, zien we pas op een echte factuur. Wel nu een kleine taak voor Jet (verlegd tarief in Moneybird nagaan), omdat een omschrijving de aangifte niet vult.
+- Controleur akkoord mits, 7 moet-punten verwerkt (o.a. verlegging alleen met btw-nummer bij TikTok, KOR en forfettario betalen verlegde btw zonder aftrek).
+- Verder niets voor mij: prijs en verspreiding wachten op Chris, redirect op de naam. Gestopt rond 03:45 UTC.
