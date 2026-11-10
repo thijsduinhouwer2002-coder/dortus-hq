@@ -137,6 +137,8 @@ export async function polarWebhook(request: Request, o: Omgeving, nu: number): P
 
   let winkel: string;
   let schrijf: D1Statement;
+  /** state_changed met een lopend abonnement dat niet opgezegd is: bij een onbekende of ontkoppelde winkel ALARM. */
+  let lopendNietOpgezegd = false;
   if (type === "customer.state_changed") {
     const state = data as PolarKlantStand;
     winkel = typeof state.external_id === "string" ? state.external_id : "";
@@ -145,6 +147,10 @@ export async function polarWebhook(request: Request, o: Omgeving, nu: number): P
       return tekst(202);
     }
     schrijf = schrijfStand(o.db, winkel, standUitState(state, winkel, stand), typeof state.id === "string" ? state.id : null);
+    lopendNietOpgezegd = !state.deleted_at && (Array.isArray(state.active_subscriptions) ? state.active_subscriptions : []).some((a) => {
+      const w = a?.metadata?.winkel;
+      return a?.cancel_at_period_end !== true && (w === undefined || w === null || String(w) === winkel);
+    });
   } else {
     // Van welke winkel: `metadata.winkel`, anders `customer.external_id`. Een event met de sleutel van een andere winkel
     // in de metadata raakt deze winkel dus niet, ook als de klant dezelfde is.
@@ -164,7 +170,21 @@ export async function polarWebhook(request: Request, o: Omgeving, nu: number): P
 
   try {
     const r = await schrijf.run();
-    log(winkel, r.meta.changes === 1 ? "verwerkt" : "niets geschreven (onbekend, ontkoppeld, oud of dubbel)");
+    if (r.meta.changes === 1) {
+      log(winkel, "verwerkt");
+      return tekst(202);
+    }
+    // Niets geschreven. Loopt er een abonnement dat niet opgezegd is, kijk dan of de winkel weg is (alleen in dit
+    // zeldzame geval een tweede query): dan betaalt iemand voor een winkel die er niet meer is, bijvoorbeeld een checkout
+    // die na het ontkoppelen betaald werd. De taak `opzeggen` vangt dat op als de kale rij er nog is; dit valt op.
+    if (lopendNietOpgezegd) {
+      const gekoppeld = await o.db.prepare(`SELECT 1 AS j FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`).bind(winkel).first();
+      if (!gekoppeld) {
+        o.log(`ALARM polar-webhook ${type} winkel ${winkel} ${webhookId}: actief abonnement zonder opzegging voor een onbekende of ontkoppelde winkel; controleer in Polar`);
+        return tekst(202);
+      }
+    }
+    log(winkel, "niets geschreven (onbekend, ontkoppeld, oud of dubbel)");
     return tekst(202);
   } catch (e) {
     log(winkel, `D1 mislukt, Polar probeert opnieuw: ${String((e as Error)?.message ?? e).slice(0, 200)}`);

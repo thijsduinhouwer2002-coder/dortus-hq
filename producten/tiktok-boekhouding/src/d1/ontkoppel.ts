@@ -7,10 +7,11 @@
 //     "intrekken": { "pogingen": 0, "eerste_poging"?: s, "laatste_poging"?: s },   // alleen als er mb_tokens waren
 //     "opzeggen":  { "voor": s, "pogingen": 0, "laatste_poging"?: s, "laatste_fout"?: "...", "alarm_op"?: s }   // als polar_klant, abonnement of polar_gestart gezet was
 //   }
-// Tijden in Unix-seconden. `opzeggen.voor` is `ontkoppeld_op`: het betaalstuk zegt alleen abonnementen op die daarvoor
-// begonnen. Het betaalstuk (eigen bouwstuk) verhoogt bij een mislukte poging `pogingen` en zet `laatste_poging` en
-// `laatste_fout`; lukt het, dan haalt het `$.opzeggen` weg en zet `polar_klant` op NULL. `alarm_op` is van de cron
-// (ALARM hoogstens één keer per dag). Opnieuw koppelen mag een kale rij alleen hergebruiken als `taken` leeg is.
+// Tijden in Unix-seconden. `opzeggen.voor` is `ontkoppeld_op` (ter informatie: `zegOp` zegt alle lopende abonnementen
+// van de winkel op, ook een checkout die na het ontkoppelen betaald werd). Het betaalstuk (eigen bouwstuk) verhoogt bij
+// een mislukte poging `pogingen` en zet `laatste_poging` en `laatste_fout`; lukt het, dan haalt het `$.opzeggen` weg en
+// zet `polar_klant` op NULL. `alarm_op` is van de cron (ALARM hoogstens één keer per dag).
+// Opnieuw koppelen mag een kale rij alleen hergebruiken als `taken` leeg is.
 // Opzeggen komt er ook zonder `polar_klant` (ontwerp-betalen.md, punt 1): een betaalde checkout waarvan de webhook nog
 // niet binnen is heeft alleen `polar_gestart`. `zegOp` werkt met de winkelsleutel, dus `abonnement` en `polar_gestart`
 // gaan meteen weg; alleen `polar_klant` blijft zolang de taak openstaat.

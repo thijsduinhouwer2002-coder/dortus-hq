@@ -103,8 +103,13 @@ test("(a) meerdere handtekeningen in de kop: één goede is genoeg", async () =>
   const body = stateChanged(iso(NU), { subs: [{ id: "sub-1", eind: NU + 1000 }] });
   const goed = await tekenPolar(sleutelsVan(SECRET)[0], "msg_1", String(NU), enc.encode(body));
   const fout = "v1,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-  assert.equal(await status(o, body, { handtekening: `${fout} v2,iets ${goed}` }), 202);
+  assert.equal(await status(o, body, { handtekening: `${fout} v2,iets ${goed}` }), 202, "achteraan");
   assert.equal(abo(db, "w1").actief, true);
+  for (const kop of [`${goed} ${fout}`, `${fout} ${goed} v1,BBBB`]) {
+    const { db: db2, o: o2 } = await opzet();
+    assert.equal(await status(o2, body, { handtekening: kop }), 202, kop);
+    assert.equal(abo(db2, "w1").actief, true, "vooraan en in het midden");
+  }
 });
 
 test("(a) verkeerd secret, buiten 5 minuten, ontbrekende kop of andere body: 403 met ALARM en niets veranderd", async () => {
@@ -296,4 +301,24 @@ test("export default fetch: /polar/webhook gaat naar de Polar-webhook", async ()
   // Zonder secret in de env: 500.
   const r2 = await worker.fetch(await verzoek(stateChanged(iso(nu), { subs: [] }), { kopTijd: nu }), { ...env, POLAR_WEBHOOK_SECRET: undefined } as any);
   assert.equal(r2.status, 500);
+});
+
+test("ALARM: state_changed met een lopend, niet opgezegd abonnement voor een ontkoppelde of onbekende winkel", async () => {
+  const { db, o, log } = await opzet();
+  db.sqlite.prepare("UPDATE winkels SET ontkoppeld_op = ? WHERE id = 'w2'").run(NU);
+  const alarmen = () => log.filter((r) => r.startsWith("ALARM"));
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w2", subs: [{ id: "sub-1", eind: NU + 1000 }] })), 202);
+  assert.equal(alarmen().length, 1);
+  assert.match(alarmen()[0], /w2/);
+  assert.ok(!alarmen()[0].includes("geheim@"), "geen e-mail in het log");
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w9", subs: [{ id: "sub-1", winkel: "w9", eind: NU + 1000 }] })), 202);
+  assert.equal(alarmen().length, 2, "onbekende winkel ook");
+  // Geen ALARM: opgezegd, geen abonnement, abonnement van een andere winkel, of een gewone oude webhook bij een gekoppelde winkel.
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w2", subs: [{ id: "sub-1", eind: NU + 1000, opgezegd: true }] })), 202);
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w2", subs: [] })), 202);
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w2", subs: [{ id: "sub-x", winkel: "w1", eind: NU + 1000 }] })), 202);
+  await status(o, stateChanged(iso(NU + 5), { subs: [{ id: "sub-1", eind: NU + 1000 }] }));
+  assert.equal(await status(o, stateChanged(iso(NU), { subs: [{ id: "sub-1", eind: NU + 1000 }] })), 202);
+  assert.equal(alarmen().length, 2);
+  assert.equal(rij(db, "w2")!.abonnement, null, "niets geschreven");
 });

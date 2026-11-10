@@ -7,16 +7,24 @@
 //                              `success_url`, `customer_ip_address`), 201 Checkout (`url`)
 //   POST /v1/customer-sessions/  body CustomerSessionCustomerExternalIDCreate (`external_customer_id`, `return_url`),
 //                              201 CustomerSession (`customer_portal_url`), 409 AmbiguousExternalCustomerID
+//   GET  /v1/subscriptions/  query `external_customer_id`, `status` (herhaald: status=a&status=b, standaard "form"
+//                              uit OpenAPI), `page` (vanaf 1), `limit` (max 100); 200 ListResource[Subscription]:
+//                              `items` (Subscription: `id`, `status`, `metadata`, `cancel_at_period_end`) en
+//                              `pagination` (`total_count`, `max_page`). Scope subscriptions:read.
 //   PATCH /v1/subscriptions/{id}  body SubscriptionCancel (`cancel_at_period_end`), 200 Subscription;
 //                              403 AlreadyCanceledSubscription | InactiveSubscription | PaymentNotReady (veld `error`);
 //                              404 ResourceNotFound; 409 SubscriptionLocked | SubscriptionNotScheduledToCancel
 import { isBudgetOp, type Budget } from "../budget.ts";
 import type { D1 } from "../d1/opslag.ts";
-import { secondenVan, standUitState, type PolarKlantStand, type StandUitPolar } from "./abonnement.ts";
+import { standUitState, type PolarKlantStand, type StandUitPolar } from "./abonnement.ts";
 
 export const POLAR_VERSIE = "2026-10";
 /** Langer wachten dan dit na een 429 doen we niet in de aanroep zelf: dan later opnieuw. */
 export const MAX_WACHT_429 = 2;
+/** Statussen die nog opgezegd moeten worden. Customer State toont alleen active en trialing, daarom de lijst (Moet 1). */
+export const OPZEG_STATUSSEN = ["active", "trialing", "past_due", "paused"] as const;
+/** Hoogstens zoveel pagina's van 100 per opzegpoging (budget); meer is voor één winkel niet te verwachten. */
+export const MAX_PAGINAS = 3;
 
 export interface PolarInstellingen {
   /** `https://api.polar.sh` of `https://sandbox-api.polar.sh` (env POLAR_API). */
@@ -57,6 +65,14 @@ export class PolarFout extends Error {
 /** gelukt: niets meer op te zeggen. later: opnieuw bij de volgende cron. uitgesteld: budget op, niets (meer) verstuurd. */
 export type OpzegUitkomst = { uitkomst: "gelukt" } | { uitkomst: "later"; fout: string } | { uitkomst: "uitgesteld" };
 
+/** Het deel van Subscription (uit de lijst) dat zegOp leest. */
+interface PolarAbonnementInLijst {
+  id: string;
+  status?: string;
+  metadata?: Record<string, unknown> | null;
+  cancel_at_period_end?: boolean;
+}
+
 export class PolarClient {
   private readonly d: PolarDeps;
   private readonly f: typeof fetch;
@@ -67,6 +83,8 @@ export class PolarClient {
 
   /** Eén verzoek, met één herhaling bij 429 als `Retry-After` hoogstens 2 seconden is. Geeft status en body (JSON of null). */
   private async verzoek(methode: string, pad: string, body?: unknown): Promise<{ status: number; json: any }> {
+    // Nooit een verzoek met een lege Bearer: dat geeft alleen een 401 en kost budget.
+    if (!this.d.instellingen.token) throw new PolarFout("POLAR_TOKEN ontbreekt: geen verzoek naar Polar gestuurd");
     const url = this.d.instellingen.api.replace(/\/+$/, "") + pad;
     const init: RequestInit = {
       method: methode,
@@ -171,25 +189,37 @@ export class PolarClient {
   }
 
   /**
-   * Taak `opzeggen` (punt 4): Customer State lezen, dan elk actief abonnement van deze winkel dat nog niet opgezegd is
-   * `cancel_at_period_end`. 200, 403 AlreadyCanceledSubscription en 404 zijn gelukt; de rest later. `voor` (unix-seconden,
-   * `taken.opzeggen.voor`): abonnementen die daarna begonnen niet opzeggen. Gooit nooit (BudgetOp wordt `uitgesteld`).
+   * Taak `opzeggen` (punt 4): alle abonnementen van deze winkel met status active, trialing, past_due of paused ophalen
+   * (`GET /v1/subscriptions/`, niet Customer State: daar staan past_due en paused niet in), en elk dat nog niet opgezegd is
+   * `cancel_at_period_end`. 200, 403 AlreadyCanceledSubscription en 404 zijn gelukt; de rest later. Geen klant of geen
+   * abonnementen: gelukt. Ook een abonnement dat na het ontkoppelen begon wordt opgezegd (de kale rij wordt pas
+   * hergebruikt als `taken` leeg is). Gooit nooit (BudgetOp wordt `uitgesteld`).
    *
    * "Van deze winkel": met `metadata.winkel` gelijk aan de sleutel, of zonder `metadata.winkel` (de klant is per winkel,
    * via `external_customer_id`). Eén met de sleutel van een andere winkel blijft staan.
    */
-  async zegOp(winkel: string, voor?: number): Promise<OpzegUitkomst> {
+  async zegOp(winkel: string): Promise<OpzegUitkomst> {
     try {
-      const state = await this.state(winkel);
-      if (!state) return { uitkomst: "gelukt" };
-      const lijst = (Array.isArray(state.active_subscriptions) ? state.active_subscriptions : []).filter((a) => {
+      const lijst: PolarAbonnementInLijst[] = [];
+      for (let pagina = 1; ; pagina++) {
+        const q = new URLSearchParams({ external_customer_id: winkel });
+        for (const st of OPZEG_STATUSSEN) q.append("status", st);
+        q.set("page", String(pagina));
+        q.set("limit", "100");
+        const a = await this.verzoek("GET", `/v1/subscriptions/?${q}`);
+        if (a.status === 404) break; // onbekende klant: niets op te zeggen
+        if (a.status !== 200 || !Array.isArray(a.json?.items)) throw this.fout("abonnementen lezen", a);
+        lijst.push(...a.json.items);
+        const max = Number(a.json.pagination?.max_page ?? 1);
+        if (!(pagina < max)) break;
+        if (pagina >= MAX_PAGINAS) return { uitkomst: "later", fout: `meer dan ${MAX_PAGINAS} pagina's abonnementen` };
+      }
+      const open = lijst.filter((a) => {
         if (!a || typeof a.id !== "string" || a.cancel_at_period_end === true) return false;
         const w = a.metadata?.winkel;
-        if (w !== undefined && w !== null && String(w) !== winkel) return false;
-        const begin = secondenVan(a.started_at ?? a.created_at);
-        return voor === undefined || begin === null || begin <= voor;
+        return w === undefined || w === null || String(w) === winkel;
       });
-      for (const a of lijst) {
+      for (const a of open) {
         const r = await this.verzoek("PATCH", `/v1/subscriptions/${encodeURIComponent(a.id)}`, { cancel_at_period_end: true });
         if (r.status === 200 || r.status === 404) continue;
         if (r.status === 403 && r.json?.error === "AlreadyCanceledSubscription") continue;

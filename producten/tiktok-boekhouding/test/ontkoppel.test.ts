@@ -144,6 +144,7 @@ test("(j) betaalstuk: abonnement, polar_gestart en telling weg bij ontkoppelen; 
   db.sqlite.exec("DROP TRIGGER telling_ontkoppeld_insert");
   db.sqlite.prepare("INSERT INTO telling VALUES ('w1', 's4', '2026-11', 1)").run();
   assert.throws(() => db.sqlite.prepare("UPDATE telling SET bestellingen = 9 WHERE winkel = 'w1'").run(), /ontkoppeld/);
+  assert.equal(Number((db.sqlite.prepare("SELECT bestellingen b FROM telling WHERE winkel = 'w1'").get() as any).b), 1, "UPDATE geweigerd");
   const w2 = rij(db, "w2")!;
   assert.ok(w2.abonnement && w2.polar_gestart, "andere winkel ongemoeid");
   assert.equal(tel(db, "telling", "w2"), 1);

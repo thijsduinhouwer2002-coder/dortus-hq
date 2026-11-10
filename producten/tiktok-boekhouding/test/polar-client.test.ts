@@ -142,33 +142,68 @@ test("portaalLink: customer session met external_customer_id en return_url", asy
 
 // --- (i) zegOp -----------------------------------------------------------------------------------------------------
 
-test("(i) zegOp 200: alleen actieve, niet opgezegde abonnementen van deze winkel krijgen cancel_at_period_end", async () => {
+/** Antwoord van GET /v1/subscriptions/ (ListResource[Subscription]). */
+const lijst = (subs: Array<PolarAbonnement & { status?: string }>, max_page = 1): NepAntwoord => ({ json: { items: subs, pagination: { total_count: subs.length, max_page } } });
+
+test("(i) zegOp 200: lijst via /v1/subscriptions/ met alle vier de statussen; alleen niet opgezegde van deze winkel krijgen cancel_at_period_end", async () => {
   const subs = [sub("eigen", NU + 10, { winkel: "w1" }), sub("zonder", NU + 10), sub("al-op", NU + 10, { opgezegd: true }), sub("ander", NU + 10, { winkel: "w2" })];
-  const { c, verzoeken } = client([{ json: state(subs) }, { json: {} }, { json: {} }]);
+  const { c, verzoeken } = client([lijst(subs), { json: {} }, { json: {} }]);
   assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" });
+  const get = verzoeken[0];
+  assert.equal(get.method, "GET");
+  assert.equal(get.url.pathname, "/v1/subscriptions/");
+  assert.equal(get.url.searchParams.get("external_customer_id"), "w1");
+  assert.deepEqual(get.url.searchParams.getAll("status"), ["active", "trialing", "past_due", "paused"]);
+  assert.equal(get.url.searchParams.get("limit"), "100");
+  assert.equal(get.url.searchParams.get("page"), "1");
   const patches = verzoeken.filter((v) => v.method === "PATCH");
   assert.deepEqual(patches.map((v) => v.url.pathname), ["/v1/subscriptions/eigen", "/v1/subscriptions/zonder"]);
   assert.deepEqual(JSON.parse(patches[0].body!), { cancel_at_period_end: true });
 });
 
-test("(i) zegOp: 403 AlreadyCanceledSubscription en 404 zijn gelukt; nooit klant (404 op state) ook", async () => {
-  for (const a of [{ status: 403, json: { error: "AlreadyCanceledSubscription", detail: "x" } }, { status: 404, json: { error: "ResourceNotFound", detail: "x" } }]) {
-    const { c } = client([{ json: state([sub("s", NU + 10)]) }, a]);
-    assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" }, String(a.status));
-  }
-  const { c, verzoeken } = client([{ status: 404, json: { error: "ResourceNotFound", detail: "Customer not found." } }]);
+test("(i) zegOp: een past_due-abonnement (niet in Customer State) wordt ook opgezegd", async () => {
+  const { c, verzoeken } = client([lijst([{ ...sub("achterstand", NU + 10), status: "past_due" }]), { json: {} }]);
   assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" });
-  assert.equal(verzoeken.length, 1);
+  assert.deepEqual(verzoeken.filter((v) => v.method === "PATCH").map((v) => v.url.pathname), ["/v1/subscriptions/achterstand"]);
+  assert.ok(!verzoeken.some((v) => v.url.pathname.includes("/state")), "geen Customer State");
 });
 
-test("(i) zegOp: 409, 5xx, 429, ander 403, netwerk of fout bij het lezen van de state: later", async () => {
+test("(i) zegOp: ook een abonnement dat na het ontkoppelen begon wordt opgezegd", async () => {
+  const { c, verzoeken } = client([lijst([sub("oud", NU + 10, { begin: NU - 10 }), sub("na-ontkoppelen", NU + 10, { begin: NU + 3600 })]), { json: {} }, { json: {} }]);
+  assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" });
+  assert.deepEqual(verzoeken.filter((v) => v.method === "PATCH").map((v) => v.url.pathname), ["/v1/subscriptions/oud", "/v1/subscriptions/na-ontkoppelen"]);
+});
+
+test("(i) zegOp: meerdere pagina's worden gelezen; te veel pagina's is later", async () => {
+  const { c, verzoeken } = client([lijst([sub("p1", NU + 10)], 2), lijst([sub("p2", NU + 10)], 2), { json: {} }, { json: {} }]);
+  assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" });
+  assert.deepEqual(verzoeken.filter((v) => v.method === "GET").map((v) => v.url.searchParams.get("page")), ["1", "2"]);
+  assert.equal(verzoeken.filter((v) => v.method === "PATCH").length, 2);
+  const { c: c2 } = client([lijst([], 9)]);
+  assert.equal((await c2.zegOp("w1")).uitkomst, "later");
+});
+
+test("(i) zegOp: 403 AlreadyCanceledSubscription en 404 zijn gelukt; geen abonnementen of onbekende klant ook", async () => {
+  for (const a of [{ status: 403, json: { error: "AlreadyCanceledSubscription", detail: "x" } }, { status: 404, json: { error: "ResourceNotFound", detail: "x" } }]) {
+    const { c } = client([lijst([sub("s", NU + 10)]), a]);
+    assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" }, String(a.status));
+  }
+  const { c, verzoeken } = client([lijst([])]);
+  assert.deepEqual(await c.zegOp("w1"), { uitkomst: "gelukt" });
+  assert.equal(verzoeken.length, 1);
+  const { c: c2 } = client([{ status: 404, json: { error: "ResourceNotFound", detail: "x" } }]);
+  assert.deepEqual(await c2.zegOp("w1"), { uitkomst: "gelukt" });
+});
+
+test("(i) zegOp: 409, 5xx, 429, ander 403, netwerk of fout bij het lezen van de lijst: later", async () => {
   const gevallen: NepAntwoord[][] = [
-    [{ json: state([sub("s", NU + 10)]) }, { status: 409, json: { error: "SubscriptionLocked", detail: "x" } }],
-    [{ json: state([sub("s", NU + 10)]) }, { status: 502 }],
-    [{ json: state([sub("s", NU + 10)]) }, { status: 429, headers: { "retry-after": "60" } }],
-    [{ json: state([sub("s", NU + 10)]) }, { status: 403, json: { error: "InactiveSubscription", detail: "x" } }],
-    [{ json: state([sub("s", NU + 10)]) }, { fout: new TypeError("fetch failed") }],
+    [lijst([sub("s", NU + 10)]), { status: 409, json: { error: "SubscriptionLocked", detail: "x" } }],
+    [lijst([sub("s", NU + 10)]), { status: 502 }],
+    [lijst([sub("s", NU + 10)]), { status: 429, headers: { "retry-after": "60" } }],
+    [lijst([sub("s", NU + 10)]), { status: 403, json: { error: "InactiveSubscription", detail: "x" } }],
+    [lijst([sub("s", NU + 10)]), { fout: new TypeError("fetch failed") }],
     [{ status: 503 }],
+    [{ json: { geen: "lijst" } }],
   ];
   for (const g of gevallen) {
     const { c } = client(g);
@@ -177,11 +212,21 @@ test("(i) zegOp: 409, 5xx, 429, ander 403, netwerk of fout bij het lezen van de 
   }
 });
 
-test("(i) zegOp: abonnement dat na `voor` begon niet opzeggen; budget op wordt uitgesteld", async () => {
-  const { c, verzoeken } = client([{ json: state([sub("oud", NU + 10, { begin: NU - 10 }), sub("nieuw", NU + 10, { begin: NU + 10 })]) }, { json: {} }]);
-  assert.deepEqual(await c.zegOp("w1", NU), { uitkomst: "gelukt" });
-  assert.deepEqual(verzoeken.filter((v) => v.method === "PATCH").map((v) => v.url.pathname), ["/v1/subscriptions/oud"]);
-  const { c: c2, verzoeken: v2 } = client([{ json: state([sub("s", NU + 10)]) }, { json: {} }], { budget: new Budget(1) });
-  assert.deepEqual(await c2.zegOp("w1"), { uitkomst: "uitgesteld" });
-  assert.equal(v2.length, 1, "PATCH niet verstuurd");
+test("(i) zegOp: budget op wordt uitgesteld", async () => {
+  const { c, verzoeken } = client([lijst([sub("s", NU + 10)]), { json: {} }], { budget: new Budget(1) });
+  assert.deepEqual(await c.zegOp("w1"), { uitkomst: "uitgesteld" });
+  assert.equal(verzoeken.length, 1, "PATCH niet verstuurd");
+});
+
+test("leeg POLAR_TOKEN: duidelijke fout, geen verzoek en geen budget", async () => {
+  const nep = nepFetch([{ json: {} }]);
+  const budget = new Budget(50);
+  const c = new PolarClient({ instellingen: { ...INST, token: "" }, budget, fetchFn: nep.fn, nu: () => NU });
+  await assert.rejects(c.standVan("w1"), (e) => e instanceof PolarFout && /POLAR_TOKEN/.test(e.message));
+  await assert.rejects(c.portaalLink("w1"), /POLAR_TOKEN/);
+  const u = await c.zegOp("w1");
+  assert.equal(u.uitkomst, "later");
+  assert.match((u as { fout: string }).fout, /POLAR_TOKEN/);
+  assert.equal(nep.verzoeken.length, 0);
+  assert.equal(budget.over, 50);
 });
