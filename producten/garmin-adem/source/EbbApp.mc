@@ -39,7 +39,7 @@ class EbbApp extends Application.AppBase {
                 view.opnemen = false;
                 var weg = new EbbOpname();
                 weg.start();
-                weg.inhouden(9);
+                // Proef 10 nov 07:05: zonder setData, om te zien of de lek de lap zelf is of de veldwaarde.
                 weg.weggooien();
                 System.println("OPNAME proef weggegooid");
             }
