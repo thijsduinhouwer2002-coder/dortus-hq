@@ -161,7 +161,8 @@ export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps:
       const u = await polar.zegOp(id);
       if (u.uitkomst === "uitgesteld") { uit.budgetOp = true; break; }
       if (u.uitkomst === "gelukt") { uit.opgezegd++; gelukt.add(id); }
-      else deps.log(`winkel ${id}: opzeggen bij Polar mislukt, later opnieuw (${u.fout})`);
+      // 401 of 403 (geen AlreadyCanceled): meestal een verkeerd POLAR_TOKEN, dus meteen ALARM in plaats van pas na dag 23.
+      else deps.log(`${/: 40[13]\b/.test(u.fout) ? "ALARM " : ""}winkel ${id}: opzeggen bij Polar mislukt, later opnieuw (${u.fout})`);
       schrijf.push(opzegStatement(db, id, u, nu)!);
     }
   }

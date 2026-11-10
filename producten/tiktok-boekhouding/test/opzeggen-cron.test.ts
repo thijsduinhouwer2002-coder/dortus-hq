@@ -105,3 +105,13 @@ test("(i, l) cron: budget op tijdens opzeggen schrijft niets voor die winkel (ui
   assert.equal(u.budgetOp, true);
   assert.equal(taken(db, "w1").opzeggen.pogingen, 0, "uitgesteld telt niet als poging");
 });
+
+test("(i) cron: 401 van Polar (verkeerd token) geeft meteen een ALARM-regel", async () => {
+  const db = new NepD1();
+  await ontkoppeldBetaald(db, "w1");
+  const p = nepPolar({ lijst: 401 });
+  const d = deps(p.fn);
+  await ruimOntkoppeldOp(db, NU + 60, new Budget(50), { ...d.d, polar: INST });
+  assert.equal(taken(db, "w1").opzeggen.pogingen, 1);
+  assert.ok(d.alarmen().some((r) => r.includes("opzeggen bij Polar mislukt")), JSON.stringify(d.alarmen()));
+});
