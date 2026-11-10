@@ -182,3 +182,9 @@ Kan Klopt het tarief wel meegeven: zin 2 vervalt helemaal, ook in het detailsche
 
 **Alleen voor kosten van TikTok Technology Limited** (onderzoek Tess): affiliate-commissie krijgt geen van beide zinnen.
 **Waarom zo:** de verkoper moet het lezen op het moment dat hij zijn rekeningen kiest, niet pas bij de aangifte; paars voor de controle (niets mis), amber voor wat hij zelf moet doen, nooit rood.
+
+## Daan: affiliate-commissie op scherm 3 (10 nov 04:55 UTC)
+Op verzoek van Jet (taken 04:25). Nieuwe regel direct onder Commissie TikTok, in alle drie de schetsen (`kunst/6-rekeningen`, `6b` met btw, `6c` telefoon; bron `kunst/maak.py`, met Read bekeken op 1280 en 390):
+- **Affiliate-commissie**, uitleg "Wat creators krijgen voor verkopen via hun video's".
+- Voorstel: rekening **Commissie en kosten TikTok Shop** met het grijze label **"zelfde als commissie"** (zelfde vorm als "zelfde als omzet" bij Terugbetaald). Btw-kolom in 6b: Geen btw, want de affiliate-regel neemt nooit het btw-tarief van de commissie over (Jet).
+- Waarom een gewone regel en niet onder "Meer soorten": bij veel TikTok-winkels is dit na de commissie de grootste kostenpost, dus de verkoper wil hem zien. Er komt geen nieuwe rekening bij, dus de telling in de balk ("7 rekeningen") blijft kloppen.
