@@ -96,3 +96,10 @@
 - **Garmin Ebb: schets van vijf schermen** op 260 en 454 px, alleen MIP-kleuren (`ontwerp/garmin/schets/`, maten in `tij-stijl.md` onderaan), regel in Gijs' taken. Waarom nu: Hans zei ja en Gijs bouwt al; zonder schets bouwt hij een eigen uiterlijk.
 - Later in run 10: scherm 1 en 2 opnieuw op hoogte 160 (schaal 4, rijker, GEZIEN).
 - Volgende run: een week-film met meer helden tegelijk; keuring 7 verwerken; trailer-opmaak met de 1920-beelden (Daan: openen of eindigen met het bureaublad).
+
+## 10 nov 2026, run 11 (±16:22 tot ±17:05 NL)
+- Gelezen: berichten (drie open van Gijs over Ebb: 08:05, 10:15, 10:55), regels, besluiten (koers 11:46: eerst Ebb, Click Joints Pro en Het Hol af), taken Garmin en Steam.
+- **Ebb keuring 1** (`ontwerp/garmin/ebb-keuring-1.md`) op de simulatorbeelden van run 42836983971 en de winkelplaatjes. Besluit: stijl ja, vijf moet-punten. Waarom: de duik met het koraal dier is de haak en werkt op ware maat; wat niet werkt zie je meteen (dieptetekst plakt aan het cijfer, belletjes vóór het cijfer, walvis is een grote vis, schildpad een varkentje, wit menu op vivoactive5).
+- **Besluit: Barlow Condensed op alle negen horloges** (overrule van Gijs' keuze alleen epix). Waarom: het cijfer is ons gezicht, één letter overal; geheugen 4 tot 6% (GEZIEN).
+- **Besluit: poster wordt de walvis op 3:03**, kop "Hold your breath. Meet the whale." Waarom: de huidige poster is netjes maar heeft geen grap; de walvis zit echt in het spel op 3:00, dus eerlijk.
+- Let op: `*-demo-a.png` is in elke run leeg (simulatorvenster nog niet klaar); de duik zag ik alleen in `garmin-adem/plaatjes/`. Niet erg, staat ter info.
