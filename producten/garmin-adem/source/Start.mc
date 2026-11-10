@@ -13,6 +13,7 @@ module EbbStart {
             m.addItem(new WatchUi.MenuItem(namen[i], PATROON_TEKST[i], i, null));
         }
         m.addItem(new WatchUi.MenuItem("My pattern", eigenTekst(), :eigen, null));
+        m.addItem(new WatchUi.MenuItem("Sea log", null, :dieren, null));
         m.addItem(new WatchUi.MenuItem("Settings", null, :instellingen, null));
         return m;
     }
@@ -63,6 +64,8 @@ class StartDelegate extends WatchUi.Menu2InputDelegate {
             var ev = new RustigView(EbbInstellingen.eigenPatroon(), "My pattern");
             (Application.getApp() as EbbApp).zetRustig(ev);
             WatchUi.pushView(ev, new RustigDelegate(ev), WatchUi.SLIDE_LEFT);
+        } else if (id == :dieren) {
+            WatchUi.pushView(new DierenView(), new WatchUi.BehaviorDelegate(), WatchUi.SLIDE_LEFT);
         } else if (id == :instellingen) {
             WatchUi.pushView(EbbStart.instellingen(), new InstellingenDelegate(), WatchUi.SLIDE_LEFT);
         }

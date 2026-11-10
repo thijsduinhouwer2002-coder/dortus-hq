@@ -12,7 +12,7 @@ Breathing rounds and calm patterns on your wrist, drawn as water. Your screen fi
 Ebb turns your round watch face into a porthole.
 
 ROUNDS
-A set number of deep breaths at a steady pace, then breathe out and hold for as long as you like. Press any button to stop the hold, then take one full breath and hold it to recover. The hold is a dive: the water gets deeper every 15 seconds, bubbles rise, and a fish, a jellyfish, a turtle and a whale pass by at 1:00, 1:30, 2:00 and 3:00.
+A set number of deep breaths at a steady pace, then breathe out and hold for as long as you like. Press any button to stop the hold, then take one full breath and hold it to recover. The hold is a dive: the water gets deeper every 15 seconds, bubbles rise, and a fish, a jellyfish, a turtle and a whale pass by at 1:00, 1:30, 2:00 and 3:00. The sea log keeps every animal you have met.
 
 CALM BREATHING
 Box 4-4-4-4, 4-7-8, a slow 5.5 in and 5.5 out, and one pattern of your own.
@@ -38,5 +38,5 @@ Sit or lie down. Never practise breath holds in or near water, or while driving.
 ## Watches in versie 1
 fenix 7, fenix 8 47 mm, epix Pro 47 mm, Forerunner 255, 265, 965, Venu 2, Venu 3, vivoactive 5 (alle ronde schermen, API 5.0.0). Uitbreiden naar meer horloges vóór indienen nakijken (lijst in `manifest.xml`).
 
-## Nog niet in de tekst, want nog niet gebouwd
-- Een scherm met de dieren die je al zag (de opslag houdt het bij, er is nog geen scherm). Bouwen of uit het ontwerp halen.
+## Nagekeken
+- Sea log (dieren die je zag) gebouwd 10 nov 11:00 in `Dieren.mc`, in het startmenu.
