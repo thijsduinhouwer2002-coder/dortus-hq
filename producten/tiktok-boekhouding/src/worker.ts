@@ -8,6 +8,7 @@ import { Budget, isBudgetOp } from "./budget.ts";
 import { webhook } from "./webhook.ts";
 import { polarWebhook, POLAR_WEBHOOK_PAD } from "./polar/webhook.ts";
 import type { PolarInstellingen } from "./polar/client.ts";
+import { abonnementActief } from "./polar/abonnement.ts";
 import { MoneybirdClient } from "./moneybird/client.ts";
 import { MoneybirdFout } from "./moneybird/fouten.ts";
 import type { OAuthApp } from "./moneybird/oauth.ts";
@@ -104,6 +105,7 @@ interface WinkelRij {
   tt_versie: number;
   mb_tokens: string | null;
   mb_versie: number;
+  abonnement: string | null;
 }
 
 /** Soorten die alleen bij één kant voorkomen. `te_veel_verzoeken` en `server` komen bij beide voor. */
@@ -181,7 +183,7 @@ async function verwerkOnderSlot(
   teller.neem();
   const rij = await o.db
     // Winkelrij en beide tokens in één query (scheelt 2 per aanroep); TokenBron.vanRij gebruikt de tokenkolommen.
-    .prepare(`SELECT shop_cipher, instellingen, snel_teller, tt_tokens, tt_versie, mb_tokens, mb_versie FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
+    .prepare(`SELECT shop_cipher, instellingen, snel_teller, tt_tokens, tt_versie, mb_tokens, mb_versie, abonnement FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
     .bind(winkel)
     .first<WinkelRij>();
   if (!rij) return "ontkoppeld";
@@ -198,7 +200,9 @@ async function verwerkOnderSlot(
   let fout: OpgeslagenWinkelfout | null = null;
   let nogWerk = false;
   try {
-    const inst = rij.instellingen ? (JSON.parse(rij.instellingen) as Instellingen) : undefined;
+    const opgeslagen = rij.instellingen ? (JSON.parse(rij.instellingen) as Instellingen) : undefined;
+    // Abonnement uit `winkels.abonnement` (webhook of opvraging van Polar), nooit uit de opgeslagen instellingen.
+    const inst = opgeslagen ? { ...opgeslagen, magBoeken: abonnementActief(rij.abonnement, nu) } : undefined;
     if (!inst?.koppeling || !inst.administratie || !rij.shop_cipher) {
       fout = { soort: "instelling", bericht: "instellingen of shop_cipher ontbreken", kant: "app" };
     } else {

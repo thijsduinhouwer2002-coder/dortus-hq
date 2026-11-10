@@ -11,12 +11,15 @@ import worker from "../src/worker.ts";
 const NU = T0 + 10 * 86400;
 const rij = (db: NepD1, w: string) => db.sqlite.prepare("SELECT * FROM winkels WHERE id = ?").get(w) as Record<string, any>;
 
-async function winkel(db: NepD1, w: string, extra: { volgende_run?: number; snel_teller?: number; ontkoppeld?: boolean } = {}) {
+// Standaard een actief abonnement: deze toetsen gaan over budget en tokens, niet over de gratis grens. Sinds deel 2 van het
+// betaalstuk leest de Worker het abonnement uit `winkels.abonnement` (niet meer `magBoeken` uit de instellingen).
+const ACTIEF = JSON.stringify({ actief: true, tot: NU + 30 * 86400, id: "sub", opgezegd: false, stand: 1 });
+async function winkel(db: NepD1, w: string, extra: { volgende_run?: number; snel_teller?: number; ontkoppeld?: boolean; abonnement?: string | null } = {}) {
   const tt = await versleutel(bos, w, JSON.stringify({ accessToken: "tt-a", accessTokenVerlooptOp: NU + 86400, refreshToken: "tt-r", refreshTokenVerlooptOp: NU + 100 * 86400 }));
   const mb = await versleutel(bos, w, JSON.stringify({ accessToken: "mb-a", refreshToken: "mb-r", scope: "documents" }));
   db.sqlite
-    .prepare(`INSERT INTO winkels (id, shop_id, shop_cipher, tt_tokens, mb_tokens, instellingen, volgende_run, snel_teller, ontkoppeld_op) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-    .run(w, `shop-${w}`, `cipher-${w}`, tt, mb, JSON.stringify(inst()), extra.volgende_run ?? 0, extra.snel_teller ?? 0, extra.ontkoppeld ? NU - 10 : null);
+    .prepare(`INSERT INTO winkels (id, shop_id, shop_cipher, tt_tokens, mb_tokens, instellingen, volgende_run, snel_teller, ontkoppeld_op, abonnement) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+    .run(w, `shop-${w}`, `cipher-${w}`, tt, mb, JSON.stringify(inst()), extra.volgende_run ?? 0, extra.snel_teller ?? 0, extra.ontkoppeld ? NU - 10 : null, extra.abonnement === undefined ? ACTIEF : extra.abonnement);
 }
 
 function omgeving(db: NepD1, fetchFn: typeof fetch) {
@@ -220,4 +223,22 @@ test("(j) CPU van één consumer-aanroep met 30 bestellingen onder 5 ms in Node"
   // Besluit Jet: boven 5 ms een bekende fout (todo), maar de assert loopt wel echt.
   if (cpu.ms >= 5) t.todo("CPU boven 5 ms in Node, risico bij Tess");
   assert.ok(cpu.ms < 5, `CPU ${cpuTekst}`);
+});
+
+test("(betalen deel 2) consumer: abonnement komt uit winkels.abonnement, niet uit magBoeken in de instellingen", async () => {
+  for (const [naam, kolom, verwacht] of [
+    ["geen abonnement", null, "wacht_op_abonnement"],
+    ["tot voorbij", JSON.stringify({ actief: true, tot: NU - 1, stand: 1 }), "wacht_op_abonnement"],
+    ["kapotte JSON", "{", "wacht_op_abonnement"],
+    ["actief", ACTIEF, "geboekt"],
+  ] as const) {
+    const db = new NepD1();
+    await winkel(db, "a", { abonnement: kolom }); // instellingen hebben magBoeken: true, dat telt niet
+    const w = wereld();
+    w.voegToe("801", T0 + 86400, "PAID", Array(31).fill(10));
+    const { o } = omgeving(db, w.fn);
+    for (let i = 0; i < 4; i++) await consumer({ winkel: "a" }, o, NU + i * 1000);
+    const st = db.sqlite.prepare("SELECT status FROM statussen WHERE statement_id = '801'").get() as { status: string } | undefined;
+    assert.equal(st?.status, verwacht, naam);
+  }
 });

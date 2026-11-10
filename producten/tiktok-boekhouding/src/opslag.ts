@@ -82,6 +82,16 @@ export interface Opslag {
   wisTelling(statementId: string, eigenaar: string): Promise<void>;
   /** `terug()` van stap 4: status van daarvoor terug (of weg) en, als `wisTelling`, de telling weg, in één schrijfactie. */
   zetTerug(statementId: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean): Promise<void>;
+  /**
+   * De telling van de winkel (afrekening naar maand en bestellingen), voor stap 0 tot 2. D1: één query per aanroep, daarna
+   * bijgehouden bij eigen schrijfacties. Mag iets achterlopen: stap 3 (de SQL) beslist.
+   */
+  leesTelling(): Promise<Map<string, { maand: string; bestellingen: number }>>;
+  /**
+   * Maandwissel (stap 4b): `wacht_op_abonnement` met `statement_time` vóór `grens` en zonder knop wordt `wacht_ouder`,
+   * bewaarde transacties en bestellingen daarvan weg. Geeft de omgezette afrekeningen terug.
+   */
+  maandwissel(grens: number): Promise<string[]>;
 }
 
 export interface TellingVast {
@@ -129,6 +139,26 @@ export class GeheugenOpslag implements Opslag {
     this.schrijfacties++;
     this.statussen.set(id, structuredClone(s));
     if (wisTelling) this.telling.delete(id);
+    if (s.status === "wacht_ouder" && s.opnieuwSinds === undefined) this.wisBewaard(id);
+  }
+  private wisBewaard(id: string) {
+    this.transacties.delete(id);
+    for (const k of [...this.bestellingen.keys()]) if (k.startsWith(`${id}/`)) this.bestellingen.delete(k);
+  }
+  async leesTelling() {
+    return new Map([...this.telling].map(([k, v]) => [k, { ...v }]));
+  }
+  async maandwissel(grens: number) {
+    this.schrijfacties++;
+    const ids: string[] = [];
+    for (const [id, s] of this.statussen) {
+      if (s.status === "wacht_op_abonnement" && (s.statementTime ?? Infinity) < grens && s.opnieuwSinds === undefined) {
+        this.statussen.set(id, { ...s, status: "wacht_ouder" });
+        this.wisBewaard(id);
+        ids.push(id);
+      }
+    }
+    return ids;
   }
   async wisStatus(id: string) {
     this.schrijfacties++;

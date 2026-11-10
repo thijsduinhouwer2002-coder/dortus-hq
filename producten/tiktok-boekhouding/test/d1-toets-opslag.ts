@@ -43,6 +43,8 @@ export class D1ToetsOpslag implements Opslag {
   legTellingVast(id: string, eigenaar: string, t: TellingVast) { return this.binnen.legTellingVast(id, eigenaar, t); }
   wisTelling(id: string, eigenaar: string) { return this.binnen.wisTelling(id, eigenaar); }
   zetTerug(id: string, vorige: AfrekeningStatus | undefined, wis: boolean) { return this.binnen.zetTerug(id, vorige, wis); }
+  leesTelling() { return this.binnen.leesTelling(); }
+  maandwissel(grens: number) { return this.binnen.maandwissel(grens); }
   /** Zelfde vorm als GeheugenOpslag.telling (alleen lezen). */
   get telling() {
     const rijen = this.db.sqlite.prepare("SELECT statement_id, maand, bestellingen FROM telling WHERE winkel = 'w1'").all() as Array<{ statement_id: string; maand: string; bestellingen: number }>;

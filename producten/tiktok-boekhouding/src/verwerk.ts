@@ -8,7 +8,7 @@ import { MoneybirdFout } from "./moneybird/fouten.ts";
 import { boekAfrekening, type AdministratieInfo } from "./moneybird/boeken.ts";
 import type { AfrekeningInvoer, Koppeling, MbSoort } from "./moneybird/memoriaal.ts";
 import { haalSamen, UITBETAALD, WinkelStop, winkelStop, type Ophaling, type TikTokDeps } from "./ophalen.ts";
-import { GRATIS_PER_MAAND, maandVan } from "./telling.ts";
+import { beginVanMaand, GRATIS_PER_MAAND, maandVan, somVanMaand, vorigeMaand } from "./telling.ts";
 
 export { haalSamen, proef, WinkelStop, type OphaalOpties, type Ophaling, type ProefAfrekening, type ProefUitkomst, type TikTokDeps } from "./ophalen.ts";
 // ---------------------------------------------------------------------------------------------------------------
@@ -24,9 +24,10 @@ export interface Instellingen {
   /** Unix-seconden: afrekeningen daarvoor worden niet opgehaald en niet geboekt. */
   startdatum: number;
   /**
-   * Abonnement actief: geen gratis grens (ontwerp-betalen.md, punt 2). Zonder boekt een afrekening alleen als de maand
-   * (zonder deze afrekening) plus haar bestellingen hoogstens 30 is; anders `wacht_op_abonnement`.
-   * Tijdelijk (deel 2, stap 3 en 4): de aanroeper zet dit nog zelf; het lezen van `winkels.abonnement` komt later.
+   * Abonnement actief (ontwerp-betalen.md, punt 2: `actief` en `tot` > nu): geen gratis grens. Zonder boekt een afrekening
+   * alleen als de maand (zonder deze afrekening) plus haar bestellingen hoogstens 30 is, en alleen in de lopende of vorige
+   * maand; anders `wacht_op_abonnement` of `wacht_ouder`. De Worker zet dit uit `winkels.abonnement`, nooit uit de
+   * opgeslagen instellingen.
    */
   magBoeken: boolean;
   administratie: AdministratieInfo;
@@ -48,7 +49,9 @@ export interface RunUitkomst {
 }
 
 export const GEBOEKT = ["geboekt", "geboekt_met_waarschuwing", "leeg", "leeg_maar_geboekt"];
-const AF = [...GEBOEKT, "fout", "fout_gegevens"];
+/** Ouder dan de vorige maand en geen abonnement (ontwerp-betalen.md, punt 2 stap 1 en 4b): telt als af, alleen de knop haalt hem terug. */
+export const WACHT_OUDER = "wacht_ouder";
+const AF = [...GEBOEKT, "fout", "fout_gegevens", WACHT_OUDER];
 /** Eigen lijst: elke run nakijken, houdt de markering niet vast. wacht_op_abonnement staat erop, zodat betalen meteen boekt. */
 const OPEN = ["wacht_op_uitbetaling", "uitbetaling_mislukt", "onbekende_uitbetaalstatus", "onzeker", "wacht_op_abonnement"];
 const SLOT_DUUR = 300;
@@ -100,7 +103,16 @@ export async function vervroegStartdatum(opslag: Opslag, nieuweStart: number): P
 export async function verwerkWinkel(d: BoekDeps, inst: Instellingen): Promise<RunUitkomst> {
   const uit: RunUitkomst = { budgetOp: false, verwerkt: [] };
   const markering = Math.max((await d.opslag.leesMarkering()) ?? inst.startdatum, inst.startdatum);
-  const open = (await d.opslag.leesOpen(NIET_AF)).filter((o) => o.statementTime >= inst.startdatum);
+  let open = (await d.opslag.leesOpen(NIET_AF)).filter((o) => o.statementTime >= inst.startdatum);
+  // Maandwissel (stap 4b): alleen zonder abonnement en alleen als er iets openstaat van vóór de vorige maand (kost dan één
+  // batch). Wat `wacht_ouder` wordt, gaat uit de lijst van deze run.
+  if (!inst.magBoeken) {
+    const grens = beginVanMaand(vorigeMaand(d.nu()));
+    if (open.some((o) => o.statementTime < grens)) {
+      const weg = new Set(await d.opslag.maandwissel(grens));
+      if (weg.size) open = open.filter((o) => !weg.has(o.statementId));
+    }
+  }
   const vanaf = Math.min(markering, ...open.map((o) => o.statementTime));
   const openIds = new Set(open.map((o) => o.statementId));
 
@@ -222,9 +234,25 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
       if (!UITBETAALD.includes(ps)) return zet("onbekende_uitbetaalstatus", { reden: `onbekende uitbetaalstatus ${ps}` });
     }
 
+    // Stap 0 (ontwerp-betalen.md, punt 2): vrijgesteld van de grens is een afrekening die al geboekt, onzeker of "boeking
+    // gestart" was, of al een rij in de telling heeft: zoeken op kenmerk en herstellen mogen nooit stilvallen.
+    const tellingen = inst.magBoeken ? undefined : await d.opslag.leesTelling();
+    const vrij = inst.magBoeken || (oud !== undefined && (GEBOEKT.includes(oud.status) || oud.status === "onzeker")) || gelezen?.reden === BOEKING_GESTART || tellingen!.has(id);
+    const maand = maandVan(tijd);
+    const som = tellingen ? somVanMaand(tellingen, maand, id) : 0;
+    if (!vrij) {
+      // Stap 1, vóór het ophalen (geen verzoek naar TikTok). Ouder dan de vorige maand: `wacht_ouder` (de knop slaat dit over).
+      if (!herstel && maand < vorigeMaand(d.nu())) return zet(WACHT_OUDER, { opnieuwSinds: undefined, pogingen: 0, eerstePoging: undefined });
+      // Maand al vol: wachten, behalve als de afrekening volgens Get Statements geen omzet heeft (dan misschien zonder
+      // bestellingen, en die mag altijd: stap 2 telt het precies).
+      if (som >= GRATIS_PER_MAAND && !zonderOmzet(a)) return zet("wacht_op_abonnement", { opnieuwSinds: undefined });
+    }
+
     let s: Ophaling;
     try {
-      s = await haalSamen(d, id, { reserve: RESERVE_BOEKING + 2, ...(herstel ? { sinds: oud!.opnieuwSinds } : {}) });
+      // Stap 2: na de transacties, vóór de losse bestellingen. Past de afrekening niet meer in de maand, dan niet ophalen.
+      const wacht = vrij ? undefined : (n: number) => n > 0 && som + n > GRATIS_PER_MAAND;
+      s = await haalSamen(d, id, { reserve: RESERVE_BOEKING + 2, ...(herstel ? { sinds: oud!.opnieuwSinds } : {}), ...(wacht ? { wachtBij: wacht } : {}) });
     } catch (e) {
       if (e instanceof WinkelStop) return { stop: true, winkel: { soort: e.soort, bericht: e.message } };
       throw e;
@@ -233,6 +261,7 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
       if (!(herstel && oud && GEBOEKT.includes(oud.status))) await zet("bezig_met_ophalen", { reden: s.reden });
       return { stop: true, budgetOp: true };
     }
+    if (s.status === "wacht_grens") return zet("wacht_op_abonnement", { opnieuwSinds: undefined });
     if (s.status === "fout_gegevens") return faal("fout_gegevens", s.reden ?? "");
     if (s.status === "onvolledig") {
       const pogingen = (oud?.pogingen ?? 0) + 1;
@@ -255,11 +284,9 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     const { opnieuwFout: _of, reden: _rd, vorigeStatus: _vs, ...kaal } = basis;
     const gestart: AfrekeningStatus = { ...kaal, status: "onzeker", reden: BOEKING_GESTART, sinds: d.nu(), ...(oud ? { vorigeStatus: oud.status } : {}) };
     // Stap 3 (ontwerp-betalen.md, punt 2): de telling vastleggen in één batch vóór die van startBoeking, met de grens in de
-    // SQL. Vrijgesteld (stap 0): een afrekening die al geboekt, onzeker of "boeking gestart" was, gaat nooit door de grens
-    // op wacht (zoeken op kenmerk en herstellen mogen niet stilvallen). Een rij van een eerdere poging telt als vrijstelling.
-    const vrij = inst.magBoeken || (oud !== undefined && (GEBOEKT.includes(oud.status) || oud.status === "onzeker")) || gelezen?.reden === BOEKING_GESTART;
+    // SQL. Vrijgesteld (stap 0): geen grens. Een rij van een eerdere poging telt in de SQL als vrijstelling (INSERT OR IGNORE).
     const telling = await d.opslag.legTellingVast(id, d.eigenaar, {
-      maand: maandVan(tijd), bestellingen: s.bestellingen ?? 0, vrij, grens: GRATIS_PER_MAAND, minTot: d.nu() + SLOT_MARGE,
+      maand, bestellingen: s.bestellingen ?? 0, vrij, grens: GRATIS_PER_MAAND, minTot: d.nu() + SLOT_MARGE,
     });
     if (!telling.slot) return { stop: true }; // slot verloren: niets schrijven (zelfde vangnet als bij startBoeking)
     if (!telling.rij) return zet("wacht_op_abonnement"); // grens bereikt: niets verstuurd, bestellingen staan bewaard
@@ -305,4 +332,10 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
   } finally {
     await d.opslag.geefSlotTerug(id, d.eigenaar);
   }
+}
+
+/** Get Statements zegt dat er geen omzet is (`revenue_amount` 0): misschien een afrekening zonder bestellingen. */
+function zonderOmzet(a: Afrekening): boolean {
+  const r = a.revenue_amount;
+  return typeof r === "string" && r.trim() !== "" && Number(r) === 0;
 }

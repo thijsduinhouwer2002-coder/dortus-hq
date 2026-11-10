@@ -114,3 +114,19 @@ test("(e) zetTerug in D1 is één batch (status en telling samen)", async () => 
   assert.equal(Number((db.sqlite.prepare("SELECT count(*) n FROM telling").get() as any).n), 0);
   assert.equal(db.queries - q0, 2, "elke poging één batch");
 });
+
+import { beginVanMaand, maandTerug, somVanMaand, vorigeMaand } from "../src/telling.ts";
+
+test("(f, g) vorige maand en begin van een maand in Europe/Amsterdam", () => {
+  assert.equal(maandTerug("2027-01"), "2026-12");
+  assert.equal(maandTerug("2026-11"), "2026-10");
+  assert.equal(vorigeMaand(utc("2026-12-31T23:30:00Z")), "2026-12", "al januari in Amsterdam");
+  assert.equal(vorigeMaand(utc("2026-11-10T03:00:00Z")), "2026-10");
+  assert.equal(beginVanMaand("2027-01"), utc("2026-12-31T23:00:00Z"), "wintertijd UTC+1");
+  assert.equal(beginVanMaand("2026-06"), utc("2026-05-31T22:00:00Z"), "zomertijd UTC+2");
+  assert.equal(beginVanMaand("2026-11"), utc("2026-10-31T23:00:00Z"), "net na de wissel naar wintertijd");
+  assert.equal(beginVanMaand("2026-04"), utc("2026-03-31T22:00:00Z"), "net na de wissel naar zomertijd");
+  const tel = new Map([["a", { maand: "2026-11", bestellingen: 20 }], ["b", { maand: "2026-11", bestellingen: 5 }], ["c", { maand: "2026-10", bestellingen: 9 }]]);
+  assert.equal(somVanMaand(tel, "2026-11", "x"), 25);
+  assert.equal(somVanMaand(tel, "2026-11", "a"), 5, "eigen afrekening telt niet");
+});

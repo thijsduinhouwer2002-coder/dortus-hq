@@ -1,6 +1,6 @@
 // D1-versie van de interface Opslag (ontwerp-d1-worker.md, punt 2). Eén exemplaar per winkel en per aanroep.
 // Lezen per afrekening in één batch, schrijven gebundeld met de volgende statuswissel, slot altijd vers.
-import { GEBOEKT } from "../verwerk.ts";
+import { GEBOEKT, WACHT_OUDER } from "../verwerk.ts";
 import { Ontkoppeld, type AfrekeningStatus, type BewaardeBestelling, type BewaardeTransacties, type Opslag, type TellingVast } from "../opslag.ts";
 
 /** Het deel van de D1-API dat we gebruiken (Cloudflare D1Database), zodat de tests een nagebootste versie kunnen geven. */
@@ -35,6 +35,8 @@ export class D1Opslag implements Opslag {
   private wachtrij: D1Statement[] = [];
   private geheugen = new Map<string, Geheugen>();
   private markering: { waarde: number | undefined } | undefined;
+  /** Telling van de winkel, één keer per aanroep gelezen (stap 0 tot 2) en daarna bijgehouden bij eigen schrijfacties. */
+  private tellingCache: Map<string, { maand: string; bestellingen: number }> | undefined;
   /** Gezet zodra D1 "ontkoppeld" meldt (punt 7): daarna geen slot meer en geen enkele schrijfactie. */
   private ontkoppeld = false;
   schrijfacties = 0;
@@ -120,8 +122,12 @@ export class D1Opslag implements Opslag {
       )
       .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s));
     const extra = [st];
-    if (wisTelling) extra.push(this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id));
-    if (AF.includes(s.status) && s.opnieuwSinds === undefined) {
+    if (wisTelling) {
+      extra.push(this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id));
+      this.tellingCache?.delete(id);
+    }
+    // `wacht_ouder` telt als af (ontwerp-betalen.md, punt 2 stap 4b): bewaren tot af, dus ook dan weg (privacybelofte).
+    if ((AF.includes(s.status) || s.status === WACHT_OUDER) && s.opnieuwSinds === undefined) {
       // Met opnieuwSinds loopt "opnieuw boeken" nog (staat via leesOpen op de lijst): dan niets weggooien.
       // Af: wat voor deze afrekening nog in de wachtrij of in D1 staat hoeft niet meer bewaard (opnieuw boeken haalt opnieuw op).
       extra.push(
@@ -249,6 +255,7 @@ export class D1Opslag implements Opslag {
         .bind(this.winkel, id, this.winkel, id, eigenaar, t.minTot),
     ]);
     const r = ((lees.results ?? [])[0] ?? {}) as { rij?: number; slot?: number };
+    if (ins.meta.changes === 1) this.tellingCache?.set(id, { maand: t.maand, bestellingen: t.bestellingen });
     return { rij: Number(r.rij) === 1, ingevoegd: ins.meta.changes === 1, slot: Number(r.slot) === 1 };
   }
 
@@ -259,6 +266,8 @@ export class D1Opslag implements Opslag {
         .prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ? AND EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ?)`)
         .bind(this.winkel, id, this.winkel, id, eigenaar),
     ]);
+    // Misschien niet gewist (slot van een ander): dan is de cache te laag, stap 3 in de SQL beslist toch.
+    this.tellingCache?.delete(id);
   }
 
   async zetTerug(id: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean): Promise<void> {
@@ -275,6 +284,39 @@ export class D1Opslag implements Opslag {
     const extra = [status];
     if (wisTelling) extra.push(this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id));
     await this.batchMetWachtrij(extra);
+    if (wisTelling) this.tellingCache?.delete(id);
+  }
+
+  async leesTelling(): Promise<Map<string, { maand: string; bestellingen: number }>> {
+    if (!this.tellingCache) {
+      this.teller.neem();
+      const r = await this.db.prepare(`SELECT statement_id, maand, bestellingen FROM telling WHERE winkel = ?`).bind(this.winkel).all<{ statement_id: string; maand: string; bestellingen: number }>();
+      this.tellingCache = new Map(r.results.map((x) => [x.statement_id, { maand: x.maand, bestellingen: Number(x.bestellingen) }]));
+    }
+    return new Map(this.tellingCache);
+  }
+
+  async maandwissel(grens: number): Promise<string[]> {
+    this.schrijfacties++;
+    // Status staat op twee plekken (kolom en gegevens). Daarna de bewaarde transacties en bestellingen van alles wat
+    // `wacht_ouder` is weg (bewaren tot af), in dezelfde batch.
+    const [upd] = await this.batchMetWachtrij([
+      this.db
+        .prepare(
+          `UPDATE statussen SET status = '${WACHT_OUDER}', gegevens = json_set(gegevens, '$.status', '${WACHT_OUDER}')
+           WHERE winkel = ? AND status = 'wacht_op_abonnement' AND statement_time < ? AND opnieuw_sinds IS NULL RETURNING statement_id`,
+        )
+        .bind(this.winkel, grens),
+      this.db
+        .prepare(`DELETE FROM transacties WHERE winkel = ? AND statement_id IN (SELECT statement_id FROM statussen WHERE winkel = ? AND status = '${WACHT_OUDER}' AND opnieuw_sinds IS NULL)`)
+        .bind(this.winkel, this.winkel),
+      this.db
+        .prepare(`DELETE FROM bestellingen WHERE winkel = ? AND statement_id IN (SELECT statement_id FROM statussen WHERE winkel = ? AND status = '${WACHT_OUDER}' AND opnieuw_sinds IS NULL)`)
+        .bind(this.winkel, this.winkel),
+    ]);
+    const ids = ((upd.results ?? []) as Array<{ statement_id: string }>).map((r) => String(r.statement_id));
+    for (const id of ids) this.geheugen.delete(id);
+    return ids;
   }
 
   /** Wachtrij plus `extra` in één batch (één transactie). Afmaken: mag de reserve gebruiken. */
