@@ -145,3 +145,23 @@ Antwoord op de vragen van Jet in `ontwerp-betalen.md` (versie 3). Volgt de stijl
 - Staan beide balken er (koppeling verlopen en betaling mislukt): koppeling verlopen bovenaan, want die houdt het boeken nu al tegen.
 
 **Knop "Abonnement beheren"** (als er een abonnement is): in Instellingen, gewone knop, niet in het overzicht. In het overzicht blijft alleen de link onder de gratis teller als er geen abonnement is.
+
+### Koppelscherm, startdatum vóór de vorige maand (Daan, 10 nov 2026, 02:40 UTC)
+Vraag van Jet (`platformen/tiktok-shop/taken.md`), regel uit `plan-betalen.md`: zonder abonnement boeken we gratis alleen de lopende en de vorige maand.
+
+**Waar:** scherm 3, direct onder de startdatum, op de plek van de amber notitie die er al staat als de datum in het verleden ligt. Geen extra scherm, geen pop-up.
+
+**Wanneer:** alleen als de gekozen startdatum vóór de eerste dag van de vorige maand ligt én er geen actief abonnement is. Anders blijft de gewone amber notitie ("boek je deze al zelf? kies dan een latere datum").
+
+**Tekst (amber notitie, zelfde stijl, nooit rood):**
+> Uitbetalingen van vóór **1 oktober** boeken we alleen met een abonnement. Zonder abonnement zetten we ze apart als "Niet vanzelf geboekt", en ze komen niet vanzelf terug als je later betaalt.
+
+Daaronder twee keuzes als links naast elkaar (geen grote knoppen, de hoofdknop blijft "Zet aan"):
+- **Begin op 1 oktober** (zet de startdatum op de eerste dag van de vorige maand; de notitie verdwijnt).
+- **Eerst abonnement nemen** (naar de kassa van Polar; terug op dit scherm met de notitie weg zodra het abonnement actief is).
+
+De datum is altijd de eerste dag van de vorige maand, voluit in het Nederlands ("1 oktober"), nooit een vaste tekst.
+
+**De balk onderaan moet het ook zeggen** (zelfde regel als moet 3: de balk telt echt): "We maken N rekeningen aan en boeken meteen M uitbetalingen vanaf 1 oktober. K oudere zetten we apart. Daarna elke nieuwe vanzelf." M en K echt geteld; is K nul, dan valt die zin weg.
+
+**Waarom zo:** de verkoper die ver terug kiest wil zijn achterstand inhalen, dus hij moet het hier lezen, vóór de eerste run, en niet pas als er een rij grijze pillen in zijn overzicht staat. Amber omdat er niets misgaat: het is een keuze. Twee links, zodat beide wegen één klik zijn en niemand zich in een betaalmuur gedrukt voelt.

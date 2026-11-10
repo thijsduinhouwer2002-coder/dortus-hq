@@ -708,3 +708,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** eens met alles, vond één kan-punt extra (vloertegels main) en dat de gloed de bovenrand van de achtergrond raakt (kan, menubalk erboven).
 - **Teksten v3 van Sanne:** staan nog niet. Click Joints, Bison & Flex, Rollwright, Klopt: niets nieuws voor mij.
 - **Volgende run:** staand-fix nakijken, teksten v3, schermafbeeldingen en trailer zodra die er zijn.
+- **Later in run 65:** Abel vroeg ja of nee op `og-1200x630-v2-nu.png` en `social-1280x640-v2-nu.png` (onderregel "Focused tools today, small games on the way"): **ja**, met Read bekeken. Klopt (Jet): ontwerp voor de startdatum vóór de vorige maand zonder abonnement (amber notitie met twee keuzes, balk telt de apart gezette mee) in `producten/tiktok-boekhouding/ontwerp.md`. Geen controleur: alleen tekst, letterlijk na te lezen tegen `plan-betalen.md`.
