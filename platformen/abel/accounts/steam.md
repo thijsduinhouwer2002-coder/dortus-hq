@@ -6,6 +6,7 @@ Versie 2, 10 nov 2026 01:40 NL. Status: beelden van Mila staan er, teksten aange
 Op Steam ziet een speler straks overal hetzelfde Dortus: het profiel dortusgames, de groep en de ontwikkelaarspagina dragen dezelfde deur-D en dezelfde korte tekst, en de winkelpagina van Hats of the Fallen linkt naar die ontwikkelaarspagina, zodat iemand op "Follow" kan klikken.
 
 ## Hoe het eruit gaat zien (proef op een echte Steam-pagina)
+- Profiel: `merk/proef/steam-profiel-kort-op-steam.png`.
 - Kop van de ontwikkelaarspagina: `merk/proef/steam-kop-v1b-op-steam-1280.png` en `-1024.png`.
 - Hele ontwikkelaarspagina met logo en achtergrond: `merk/proef/steam-pagina-v1b-op-steam-1920.png` en `-1280.png`. (De spellen in de proef zijn van Klei, wiens pagina ik als mal gebruikte; bij ons staat daar Hats of the Fallen.)
 
@@ -32,9 +33,10 @@ Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rech
 Samenvatting om te plakken:
 ```
 Dortus makes small games and focused tools.
-Our first game, Hats of the Fallen, is a tiny dungeon on your taskbar: heroes come for the slime's treasure, and he keeps their hats.
-Made by Thijs in the Netherlands. Questions or bugs: thijs@dortus.com
+Our first game: Hats of the Fallen, a tiny dungeon on your taskbar.
+Made by Thijs in the Netherlands: thijs@dortus.com
 ```
+Waarom korter dan op de groep en de ontwikkelaarspagina: Steam toont op een profiel maar drie regels en verstopt de rest achter "View more info". Met de lange spelzin viel het mailadres weg; zo staat alles in beeld. Zelfde vaste ondertitel van het spel. Proef: `merk/proef/steam-profiel-kort-op-steam.png`.
 
 Niet doen: achtergrond, kader of badges kopen in de Puntenwinkel. Een kaal maar verzorgd profiel straalt meer vertrouwen uit dan een bont gekocht thema, en het kost geld.
 
@@ -53,7 +55,7 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 | Openbaar | Ja, iedereen mag lid worden |
 | Avatar | `avatar-184.png` (zelfde als het profiel) |
 | Kop (headline) | `Small games and focused tools from the Netherlands` |
-| Samenvatting | zelfde tekst als het profiel |
+| Samenvatting | de lange versie: `Dortus makes small games and focused tools.` / `Our first game, Hats of the Fallen, is a tiny dungeon on your taskbar: heroes come for the slime's treasure, and he keeps their hats.` / `Made by Thijs in the Netherlands. Questions or bugs: thijs@dortus.com` (drie regels) |
 | Website | `https://dortus.com`, pas als de hoofdpagina niet meer over Confluence gaat (zie `dortus-com.md`). Tot dan leeg. |
 
 ## Stap 3. Ontwikkelaarspagina (Thijs, ±15 min, kan pas als Hats of the Fallen een app-ID heeft in Steamworks)
