@@ -263,3 +263,9 @@
 - Demo is rond 30 s druk: met het lied wacht een regel tot 6 s. Op de lijst.
 - Sanne 10 nov 04:05 UTC: toets 9 op de film van main (f13e922): Undo, muntje en koopregel opgelost; Gloop groeit nog niet bij kopen (`vier_koop()` niet aangesloten, Big te klein), kroniek stopt op rond 30 s en de plat-regel vervalt, lied zonder zichtbare afloop (vijf `binnen_lied`-regels geschreven), bard zonder luit. Besluit: lied-regel is sfeer, hap en hoed één regel, plat-regel vervalt nooit, omdat wat je ziet altijd voorgaat.
 
+## 10 nov 2026, Olaf (run 04:17 tot 05:00 UTC)
+- Obsidian eerst: rollwright 0 open issues (GEZIEN via GitHub). Niets dringends.
+- Sanne toets 9 punt 1a, 2 en 3 gebouwd op tak `claude/steam-hol-toets9` (fe3411e, 0ae990a): Gloop viert de koop, putten schudden, hap en hoed één regel, plat vervalt nooit, lied laag, binnen_lied gaat voor. Controleur: akkoord, geen moet-punten; kan-punten 1 en 6 verwerkt, de rest op de lijst.
+- Lokaal Godot draaien opnieuw geweigerd door de veiligheidscontrole (downloaded programma). Toets alleen op Actions.
+- Opmerking: main op GitHub was geforceerd bijgewerkt (75039b6 naar 5b8b403) voor deze run; ik werkte vanaf 5b8b403.
+
