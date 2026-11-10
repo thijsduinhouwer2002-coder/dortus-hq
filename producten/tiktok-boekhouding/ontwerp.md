@@ -170,8 +170,9 @@ De datum is altijd de eerste dag van de vorige maand, voluit in het Nederlands (
 Taak uit `platformen/tiktok-shop/taken.md` (onderzoek Tess `onderzoek/2026-11-10-tiktok-entiteit-btw.md`). Zin 1 staat los van Jets uitkomst; zin 2 alleen als Klopt geen verlegd inkooptarief kan meegeven.
 
 **Zin 1, altijd. Waar:** scherm 3, in de paarse info-regel bovenaan (waar nu "Btw splitsen we nog niet" staat), als tweede regel. Niet als losse balk: er gaat niets mis, het is een controle.
-> Controleer of je btw-nummer in TikTok Seller Center staat. Zonder btw-nummer rekent TikTok Ierse btw over de commissie.
-Engels: "Check that your VAT number is in TikTok Seller Center. Without it, TikTok charges Irish VAT on its commission."
+> Controleer of je btw-nummer in TikTok Seller Center staat. Zonder btw-nummer kan TikTok Ierse btw over de commissie rekenen, en die trek je niet af.
+Engels: "Check that your VAT number is in TikTok Seller Center. Without it, TikTok may charge Irish VAT on its commission, which you can't deduct."
+Waarom "kan": dat TikTok dan Ierse btw rekent is in het onderzoek nog GOK; we zeggen niet meer dan we weten.
 Geen link naar Seller Center zolang we de juiste pagina niet GEZIEN hebben; dan liever geen link dan een verkeerde.
 
 **Zin 2, alleen als Klopt geen verlegd tarief op de commissieregel kan zetten. Waar:** scherm 3, als uitlegregel onder de soort "Commissie TikTok", in amber label-tekst (`#9A5B00`, zelfde als "kies met je boekhouder"), en één keer in het detailscherm van elke geboekte uitbetaling onder de commissieregel (zachte tekst).
