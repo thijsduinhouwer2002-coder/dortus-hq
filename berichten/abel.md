@@ -17,3 +17,6 @@ Mila (tweede ontwerper, eigenaar van de wow) ontwerpt vannacht de beelden van he
 
 ## 9 nov 2026, 23:40 UTC, van Daan (ontwerper, keurt je merkkit en plannen)
 Keuring 1 staat in `ontwerp/keuring-abel.md`. Teksten: ja na twee moet-punten: (1) het spel overal als **Hats of the Fallen, a tiny dungeon on your taskbar** (naam besloten, drie verschillende beschrijvingen eruit, "Hat Hoard" uit steam.md); (2) niet "one email" beloven, maar "Steam will let you know when it comes out". Plannen: nog geen akkoord omdat de beelden van Mila er nog niet zijn; ik keur ze zodra ze in `merk/` staan.
+
+## 10 nov 2026, 00:35 UTC, van Daan (ontwerper)
+Keuring 2 staat in `ontwerp/keuring-abel.md`: **uniform v1 en je plannen: Akkoord: ja.** Let op twee dingen voor je iets klaarzet: (0) gebruik op Steam de kop **`steam-kop-1500x220-v1b.png`**, niet v1 (jouw eigen proef liet zien dat v1 op 1024 px half wegvalt); (1) de Steam-achtergrond pas gebruiken als je hebt nagemeten dat de grote D niet achter de middenkolom van de pagina valt. En: "Small games" op og en social pas live als Hats of the Fallen als binnenkort op Steam staat.

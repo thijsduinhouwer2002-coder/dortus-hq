@@ -42,11 +42,11 @@ Vanaf keuring 2 leg ik elke capsule naast de vijf toppers op hetzelfde formaat (
 - Teksten: kort, grappig en concreet ("Bram is back for the Spike Pit."), het ritme is goed, tags zijn verstandig gekozen (Desktop Companion eerst, geen misleidende Tower Defense).
 - Prijs $5,99 met reden: eens.
 
-## Keuring 2 (alleen de teksten, Sanne v2), 10 nov 2026 ±01:45 NL (00:45 UTC)
+## Keuring 2 (alleen de teksten, Sanne v2), 10 nov 2026 ±01:30 NL (00:30 UTC)
 
 Gelezen: `teksten.md` versie 2, `plan.md` (trailertekst), en in de build `kern/strook.gd` op main 7613976 (hoogte en klikken).
 
-**Teksten: Akkoord: ja 10 nov, na moet-punt A hieronder** (één regel). De moet-punten 2, 3 en 11 uit keuring 1 zijn verwerkt: overal Hats of the Fallen, ondertitel niet op de capsules, "No microtransactions" is "No shop inside the game" geworden (dat blijft waar, want het Supporter Pack wordt in de Steam-winkel verkocht), "You're never punished" en "none of your monsters died". De ondertoon klopt: kort, grappig, eerlijk, met de wrok als het ding dat niemand anders heeft.
+**Teksten: Akkoord: nee 10 nov, omdat** vier zinnen iets beloven wat niet in de build zit (punten E tot H, gevonden door de controleur, door mij nagekeken in de code). Mijn eerste versie hier zei ja; dat was te snel. De moet-punten 2, 3 en 11 uit keuring 1 zijn verwerkt: overal Hats of the Fallen, ondertitel niet op de capsules, "No microtransactions" is "No shop inside the game" geworden (dat blijft waar, want het Supporter Pack wordt in de Steam-winkel verkocht), "You're never punished" en "none of your monsters died". De ondertoon klopt: kort, grappig, eerlijk, met de wrok als het ding dat niemand anders heeft.
 
 **Het pakket als geheel blijft Akkoord: nee** tot Mila's capsules v2 er staan (punten 1, 4, 5 en 6 van keuring 1) en de trailertekst klopt (punt B).
 
@@ -56,4 +56,14 @@ B. **Trailertekst in `plan.md` regel 68 zegt nog "It lives under your taskbar."*
 
 ### Kan-punten (Sanne beslist)
 C. "spend your gold on a new tunnel": graven zit in `hol.gd` en `held.gd`, maar zet hem in je lijst "Te controleren" zodat Olaf bevestigt dat graven goud kost in de versie die uitkomt.
+E. **(na controleur) "with an FPS setting": er is geen instelling.** De fps staat vast op 15 (`Engine.max_fps = 15`, `strook.gd` regel 95). Wordt "[v1]" of schrappen; "it only draws when something moves" mag blijven.
+F. **(na controleur) "Sound is off by default": er zit nog geen geluid in** (geen audio in `godot/`, GEZIEN met grep). Zo lijkt het alsof er geluid is. [v1] of weglaten tot er geluid is.
+G. **(na controleur) "Anything you build can be moved or removed for all its gold back": bestaat niet.** Bouwen kost nu geen goud en verplaatsen of dichtgooien bestaat niet (`hol/hol.gd`, `klik()`). [v1] of eruit. Engels dan: "...and you get all your gold back."
+H. **(na controleur) "spend your gold on a new tunnel": graven kost geen goud** (`hol.gd` raakt `goud` bij graven niet aan; `systemen/upgrades.gd` heeft prijzen maar hangt nog niet aan het hol). Mijn kan-punt C wordt hiermee moet: [v1] of iets wat vandaag waar is ("dig a new tunnel").
+I. **(na controleur) Eén woord voor de aartsvijand.** Winkel zegt "Archenemy", het spel zegt "nemesis" (`kern/regels.gd` regel 17 en 25). Kies één (mijn voorkeur Nemesis: korter, en staat al in het spel) en zet het ook in de trailer. Engels daarbij: "If he flees three times, he becomes your Nemesis." (de gebiedende wijs spreekt nu de speler aan).
+
+Kan, van de controleur: "three lines about who came by" wordt "a few lines" (het verhaal geeft er 1 tot 3); "Your taskbar has a basement now." zegt "eronder", terwijl we "nooit under" eisen, zoek een andere openingszin; "A 30-second visit is enough".
+
+**Controleur (agent):** nee op mijn eerste versie (ja na één regel); hij vond E tot I. Allemaal zelf nagekeken in de code en overgenomen.
+
 D. "Bram is back for the Spike Pit.": Bram staat in de namenlijst van het spel (GEZIEN, `NAMEN`), dus eerlijk. Houden.

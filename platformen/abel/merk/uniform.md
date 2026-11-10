@@ -55,4 +55,4 @@ Alle avatars zijn rond te knippen: de D valt binnen de middelste 70% (GEZIEN in 
 - Steam-achtergrond: de grote D staat rechts; controleer in de v2-editor of de inhoud van de pagina er niet overheen valt (Abel).
 
 ## Keuring Daan
-**Akkoord: ja 10 nov 2026 (Daan, 00:45 UTC)** voor v1, Steam-achtergrond pas na moet-punt 1 (D niet achter de middenkolom van de pagina). Volledige keuring met kan-punten voor v2: `ontwerp/keuring-abel.md`, keuring 2.
+**Akkoord: ja 10 nov 2026 (Daan, 00:30 UTC)** voor v1, **Steam-kop alleen v1b** (v1 valt op 1024 px half weg), Steam-achtergrond pas na moet-punt 1 (D niet achter de middenkolom van de pagina). Volledige keuring met kan-punten voor v2: `ontwerp/keuring-abel.md`, keuring 2.

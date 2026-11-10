@@ -24,15 +24,16 @@ Gelezen: `platformen/abel/merk/teksten.md`, `merk/maten.md`, en de plannen in `p
 - Geen gekochte profielthema's, geen halflege Polar-winkel, geen tekstwijziging aan Click Joints tijdens de keuring.
 - Elke stap voor Thijs met waar, wat en hoe lang.
 
-## Keuring 2: beelden van het uniform (Mila v1), 10 nov 2026 ±01:45 NL (00:45 UTC)
+## Keuring 2: beelden van het uniform (Mila v1), 10 nov 2026 ±01:30 NL (00:30 UTC)
 
 Bekeken met Read: `toets-klein.png` (avatar rond en vierkant op 184, 64, 32, 20 en 16, op Steam-donker en GitHub-wit), `avatar-512.png`, `og-1200x630.png`, `social-1280x640.png`, `steam-kop-1500x220.png`, `steam-achtergrond-1920.png`, en `steam-logo-1200x460.png` zelf op Steam-blauw (#1b2838) gelegd. Contrast nagerekend (GEZIEN): crème op Nacht 16,3:1, lila onderregel op Nacht 6,6:1.
 
-**Uniform v1: Akkoord: ja 10 nov** voor avatar (alle maten), merkteken, Steam-logo, Steam-kop, og en social. **Steam-achtergrond: ja, mits punt 1.** Daarmee zijn ook **de plannen van Abel akkoord** (de teksten waren al ja na keuring 1): Abel mag ze per account klaarzetten op de lijst van Thijs.
+**Uniform v1: Akkoord: ja 10 nov** voor avatar (alle maten), merkteken, Steam-logo, og en social, en de Steam-kop **alleen als `steam-kop-1500x220-v1b.png`** (zie punt 0; v1 niet gebruiken). **Steam-achtergrond: ja, mits punt 1.** Daarmee zijn ook **de plannen van Abel akkoord** (de teksten waren al ja na keuring 1): Abel mag ze per account klaarzetten op de lijst van Thijs.
 
 Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met warm licht is een idee dat je in één blik snapt, het oude logo leeft er herkenbaar in voort (de bolletjes zijn nu scharnieren), en het leest nog op 16 px als een lila D met een gouden hart. Naast de grijs-gele GitHub-blokjes van nu is het verschil enorm. Mijn vier maten uit keuring 1 (16, 32, 64, cirkel) zijn getoetst en kloppen.
 
-### Moet-punt
+### Moet-punten
+0. **(na controleur) Gebruik de kop v1b, niet v1.** Abels proef `proef/steam-kop-v1-op-steam-1024.png` laat zien dat de D van v1 op een venster van 1024 breed half in de vervaagde rand verdwijnt; `steam-kop-1500x220-v1b.png` zet de D op x ±950 tot 1085 en staat op 1024 en 1280 goed (GEZIEN met Read in `proef/steam-kop-v1b-op-steam-1024.png`). Mila: zet in de tabel van `uniform.md` v1b als het bestand en haal v1 weg of noem hem "niet gebruiken", zodat Abel niet per ongeluk v1 uploadt.
 1. **Steam-achtergrond: de grote D mag niet onder de inhoud van de pagina vallen.** De D staat op x ±1230 tot 1700 van 1920. De middenkolom van een Steam-pagina is ±940 tot 1000 px breed (GOK, uit het hoofd), dus ongeveer x 460 tot 1460: dan valt de linkerhelft van de D (scharnieren en deur) achter de tekst. Abel: zet de achtergrond in de v2-editor op proef (voorbeeldweergave, niets publiceren) of meet de kolombreedte op een bestaande ontwikkelaarspagina, en schuif de D zo nodig naar x ≥ 1480 of maak hem kleiner. Pas dan gebruiken.
 
 ### Kan-punten (Mila beslist, v2)
@@ -40,6 +41,12 @@ Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met war
 3. Op og en social staan twee D's (woordmerk links, grote deur rechts). Dat is mooi, maar de grote deur trekt alle aandacht weg van het woord. Overweeg op social per repo (v2) alleen het woordmerk klein en het productbeeld groot in het licht.
 4. De spullen (kroon, dobbelsteen, accolades) zijn vlak tegenover de deur, die wel diepte heeft; de accolades zweven. Mila noemt het zelf al voor v2 (licht, schaduw, stofwolkje).
 5. Tekst "Small games and focused tools": er is nog geen spel uit. Prima zolang Hats of the Fallen als binnenkort op Steam staat voordat dit plaatje live gaat; anders eerst "Small tools and games in the making" of iets anders dat vandaag waar is. Abel let op de volgorde.
+
+6. (na controleur) Op de kop v1b staan de avatar-D en de D in de kop vlak naast elkaar: twee keer hetzelfde. Sterker: in de kop alleen de lichtbaan met de spullen (kroon, dobbelsteen, accolades), de deur zit al in de avatar. Dit is mijn sterkste kan-punt voor v2.
+7. (na controleur) Steam en GitHub tonen op 32 px de verkleinde grote avatar, niet `avatar-32.png`. In `toets-klein.png` worden de scharnieren dan gele spikkels. Leest nog als D, dus geen moet; de eigen kleine tekening helpt vooral de favicon.
+8. (na controleur) `steam-logo-1200x460.png`: "ortus" is crème op doorzichtig en verdwijnt op wit. Zet bij regel 2 van `uniform.md`: logo alleen op Nacht of Steam-donker. De inhoud staat ook niet in het midden (links 70 px, rechts 166 px rand).
+
+**Controleur (agent):** nee op mijn eerste versie van deze keuring, omdat ik de oude kop v1 akkoord gaf terwijl Abels proef liet zien dat die op 1024 px breed faalt. Verwerkt als punt 0; kan-punten 6 tot 8 van hem.
 
 ### Goed, houden
 - Eén vaste set kleuren, goud gelijk aan de schat van Het Hol: het merk en het spel voelen familie zonder dat Gloop in het merk zit.

@@ -679,3 +679,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Click Joints, Bison & Flex, Rollwright, Klopt:** niets nieuws voor mij sinds run 61.
 - **Volgende run:** Abels merkkit keuren als die er staat; v2 van het pakket keuren.
 - **Later in run 62, Abel:** merkteksten en zeven accountplannen gekeurd (`ontwerp/keuring-abel.md`). Teksten ja na 2 moet-punten (één zin voor het spel met de vaste ondertitel; geen "one email" beloven, dat bepaalt Steam). Plannen nog nee: beelden van Mila ontbreken. Waarom geen controleur hier: alleen teksten, geen plaatjes; de punten zijn letterlijk na te lezen en ik keur de beelden apart met controleur.
+
+## 10 nov 2026, run 63 (klok van de omgeving 00:27 UTC)
+
+- **Berichten:** geen nieuwe van Thijs na 00:29 NL (al verwerkt). Nieuw: Sanne vraagt keuring 2 van de teksten; Mila's uniform v1 staat (`platformen/abel/merk/`), dus Abels plannen zijn te keuren.
+- **Uniform (Mila v1) en plannen Abel:** alle beelden bekeken met Read, logo zelf op Steam-blauw gelegd, contrast nagerekend. **Akkoord: ja**, Steam-kop alleen v1b, Steam-achtergrond pas na nameten van de middenkolom (`ontwerp/keuring-abel.md`, keuring 2). Waarom ja: een deur op een kier met licht snap je in één blik, het oude logo leeft voort en het leest op 16 px; dit is het eerste echte merk.
+- **Teksten Hats of the Fallen (Sanne v2):** eerst ja na één regel (drie standen, geen schuif), na de controleur **nee**: fps-instelling, geluid, goud voor graven en terugbetalen bij verplaatsen zitten niet in de build; één woord Nemesis. Zelf nagekeken in de code. Bericht aan Sanne, Mila en Olaf in `platformen/steam/taken.md`.
+- **Build 7613976 (run 42728431261):** leesbaarheid goed op 96 en 160, namenfix gezien.
+- **Controleur (agent):** nee op beide eerste versies. Uniform: ik keurde de oude kop v1 terwijl Abels proef al liet zien dat die op 1024 px wegvalt. Teksten: vier onware zinnen gemist. Les: bij teksten elke belofte in de code zoeken, niet alleen de punten uit de vorige keuring; bij beelden eerst de map op nieuwere versies en proeven nalopen.
+- **Click Joints, Bison & Flex, Rollwright, Klopt:** niets nieuws voor mij.
+- **Volgende run:** capsules v2 van Mila keuren (naast de vijf toppers), teksten v3 van Sanne.
