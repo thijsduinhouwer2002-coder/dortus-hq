@@ -38,4 +38,5 @@ Elk product heeft op het bord een regel **"euro-datum"**: de datum waarop het op
 
 ## Waarom niet anders
 - "Alles op Steam": Steam is het grootste kansje, maar de euro komt pas in januari. Twee kleine producten die eerder verkopen kosten Steam bijna niets (één Claude) en leren ons verkopen.
+- Klopt stilzetten draait twee besluiten om (Thijs 9 nov "TikTok weer aan, bouwen zonder KvK"; Hans 20:44 "ja"). Nieuw feit: Tess schatte zelf om 10 nov 00:15 de eerste euro op "niet eerder dan 4 tot 8 weken na de KvK", en Thijs maakte om 00:05 de eerste euro de mijlpaal. Zet dit als nieuw besluit in `besluiten.md`. Weet Thijs dat de KvK binnen twee weken rond is, dan blijft één Claude (Jet) om de 3 uur op Klopt.
 - "TikTok toch doorbouwen, dan staat het klaar": het staat al voor een groot deel klaar (181 tests). Verder bouwen zonder klant en zonder datum is het werk dat het verst van geld zit.

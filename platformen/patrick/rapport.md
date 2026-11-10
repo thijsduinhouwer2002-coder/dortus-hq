@@ -5,7 +5,7 @@ Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/in
 
 ## Voor Thijs: vijf keer ja of nee (±3 minuten), daarna 5 minuten werk
 1. Koerszin "eerst de eerste eerlijke euro, daarna spreiden" (hieronder): ja / nee.
-2. Ploeg op de eerste euro (punt 1): Bram terug naar Click Joints, Klopt stil tot de KvK-datum, 6 Claudes elk uur: ja / nee.
+2. Ploeg op de eerste euro (punt 1): Bram terug naar Click Joints, Klopt stil tot de KvK-datum, 6 Claudes elk uur: ja / nee. Plus één datum: wanneer verwacht je de KvK?
 3. Hoofdchat beslist, Hans controleert één keer per dag, ploeg verandert alleen om 09:00 en 21:00 (punt 4): ja / nee.
 4. Kansen kiezen op verwachte euro's per week werk in plaats van de 8-meetlat (punt 4): ja / nee.
 5. dortus-hq privé maken (zie "Ook belangrijk"): ja / nee.
