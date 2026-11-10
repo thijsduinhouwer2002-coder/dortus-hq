@@ -63,3 +63,11 @@ Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI gesc
 - ~~Obsidian: plek van het vinkje~~ opgelost: Preferences > Profile, bovenaan (broncode Discourse).
 - Steam: paginakleur instellen is door Valve beschreven en aangeraden (docs); alleen de exacte knopnaam heb ik niet gezien.
 - Superhive: Daans ja op de banner (gevraagd 10 nov 07:45). Bij nee alleen de avatar zetten en de banner leeg laten; het plan zegt hoe. Ook niet gezien: het instellingenscherm zelf (alleen na inloggen); veldnamen komen uit Superhive's eigen hulppagina's.
+
+## Geplaatst door de hoofdchat (10 nov 11:40, op Thijs' ja)
+- GitHub: profielfoto, plus social preview bij rollwright en click-joints.
+- Polar: logo.
+- Blender ID: avatar.
+- Obsidian-forum: profielfoto.
+- Steam: profielavatar. De ontwikkelaarspagina en groep kunnen pas als het account niet meer beperkt is ($5 uitgeven).
+- Nog open: Superhive-avatar (formulier vraagt eerst een land), Superhive-winkelbanner (pas na goedkeuring als maker), dortus.com (wacht op Thijs' ja).
