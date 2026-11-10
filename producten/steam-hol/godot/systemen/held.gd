@@ -99,6 +99,53 @@ func start(h, i: Dictionary) -> void:
 	_kies_uiterlijk(naam)
 	_kies_doel()
 
+# Bewaren van een held die nog in het hol loopt (Olaf, kan-punt 00:40: bij wisselen van hoogte of afsluiten
+# verdween hij). naar_dict() geeft alleen JSON-veilige waarden (kleuren als tekst, rng.state als tekst want
+# JSON rekent met doubles); herstel(hol, d) zet hem precies terug, ook midden in een val. Roep herstel aan na
+# add_child (anders vindt hij de bewoners niet). Een held die al "weg" is geeft {}: niet bewaren.
+# Alleen de velden hieronder worden weer een Color of een heel getal; een nieuw kleurveld hier bijzetten.
+const KLEUR_VELDEN := ["kleur", "hoed"]
+const HEEL_VELDEN := ["bezoeken", "hoed_nr", "kleur_nr", "hoeden_bewoner", "zaad", "taai"]
+
+func naar_dict() -> Dictionary:
+	if staat == "weg":
+		return {}
+	var i := {}
+	for k in info.keys():
+		var v = info[k]
+		i[k] = (v as Color).to_html(false) if v is Color else v
+	return {"info": i, "staat": staat, "x": position.x, "y": position.y, "doel_kol": doel_kol, "vijand_kol": vijand_kol,
+		"klappen": klappen, "t": t, "geraakt_tot": geraakt_tot, "val_t": val_t, "val_teken": val_teken,
+		"gezien": gezien.keys(), "verdedigingen": verdedigingen, "rng": str(rng.state)}
+
+func herstel(h, d: Dictionary) -> void:
+	var i: Dictionary = (d.get("info", {}) as Dictionary).duplicate()
+	for k in KLEUR_VELDEN:
+		if i.get(k) is String:
+			i[k] = Color(String(i[k]))
+	for k in HEEL_VELDEN:
+		if i.get(k) is float:
+			i[k] = int(i[k])
+	var gezien_v = i.get("gezien_vijand", null)
+	start(h, i)
+	if gezien_v != null:
+		info["gezien_vijand"] = gezien_v   # start() zet hem terug op false via _kies_doel
+	staat = String(d.get("staat", staat))
+	position = Vector2(float(d.get("x", position.x)), float(d.get("y", position.y)))
+	doel_kol = int(d.get("doel_kol", doel_kol))
+	vijand_kol = int(d.get("vijand_kol", vijand_kol))
+	klappen = int(d.get("klappen", 0))
+	t = float(d.get("t", 0.0))
+	geraakt_tot = float(d.get("geraakt_tot", 0.0))
+	val_t = float(d.get("val_t", 0.0))
+	val_teken = String(d.get("val_teken", ""))
+	gezien.clear()
+	for k in d.get("gezien", []):
+		gezien[int(k)] = true
+	verdedigingen = int(d.get("verdedigingen", 0))
+	if d.has("rng"):
+		rng.state = String(d.rng).to_int()
+
 # Vast per naam (zaad = naam), zodat je Kees herkent als hij terugkomt.
 func _kies_uiterlijk(naam: String) -> void:
 	kleur_nr = int(info.get("kleur_nr", absi(hash(naam + "#lijf")) % 5))
