@@ -1,0 +1,89 @@
+name: Het Hol winkelbeelden (1920 breed, Mila)
+
+# Mila, 10 nov 2026. Opnames voor de schermafbeeldingen en de trailer op de winkelpagina (Daan keuring 6, moet 1):
+# de strook over de hele breedte van een scherm van 1920 x 1080, zoals een koper hem krijgt.
+# Raakt de gewone test van Olaf (steam-hol.yml) niet. Losse PNG's (met doorzichtige lucht) op de tak schermen,
+# map steam-hol/winkel-1920/.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/steam-hol-winkel.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  winkel:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scherm op 1920 x 1080
+        shell: pwsh
+        run: |
+          try { Set-DisplayResolution -Width 1920 -Height 1080 -Force } catch { Write-Output "Set-DisplayResolution: $_" }
+          Start-Sleep 3
+          Add-Type -AssemblyName System.Windows.Forms
+          Write-Output "SCHERM $([System.Windows.Forms.Screen]::PrimaryScreen.Bounds)"
+      - name: Godot 4.3 downloaden
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+      - name: Importeren
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
+          if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
+      - name: Bureaublad met de strook (echt, ter vergelijking)
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/winkel"
+          New-Item -ItemType Directory -Force $uit | Out-Null
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle -- hoogte=120 demo=1 vers=1 duur=40" -PassThru
+          Start-Sleep 30
+          & producten/steam-hol/e2e/scherm.ps1 "$uit/bureaublad-echt.png"
+          $p.WaitForExit(30000) | Out-Null
+          if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
+      - name: Film op 1920 breed, 75 s, elk 5e beeld bewaard
+        shell: pwsh
+        run: |
+          $uit = "producten/steam-hol/e2e/winkel"
+          $film = "$((Resolve-Path $uit).Path)/f"
+          New-Item -ItemType Directory -Force $film | Out-Null
+          $log = ($film -replace '\\','/') + "/film.log"
+          $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after 1125 -- hoogte=120 demo=1 vers=1 film=1 log=$log" -PassThru
+          if (-not $p.WaitForExit(900000)) { Stop-Process -Id $p.Id -Force }
+          Get-Content $log -ErrorAction SilentlyContinue
+          $alle = Get-ChildItem $film -Filter "f*.png" | Sort-Object Name
+          Write-Output "beelden: $($alle.Count)"
+          New-Item -ItemType Directory -Force "$uit/los" | Out-Null
+          $i = 0
+          foreach ($b in $alle) { if ($i % 5 -eq 0) { Copy-Item $b.FullName "$uit/los/$($b.Name)" }; $i++ }
+          Remove-Item $film -Recurse -Force
+      - name: Openbaar zetten (tak schermen, steam-hol/winkel-1920)
+        if: always()
+        shell: bash
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/steam-hol/e2e/winkel"
+          [ -d "$SRC" ] || { echo "niets"; exit 0; }
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          T="$RUNNER_TEMP/s"
+          for poging in 1 2 3 4 5; do
+            rm -rf "$T"
+            git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
+            D="$T/steam-hol/winkel-1920"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          ls -la "$SRC" | head
