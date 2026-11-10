@@ -2,19 +2,19 @@ HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
 HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 6.9 (wacht 0.0): Bram climbs into your hole.
+HOL kroniek 6.8 (wacht 0.0): Bram climbs into your hole.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 3
-HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
+HOL kroniek 11.5 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
-HOL kroniek 14.1 (wacht 1.8): Odo has a map. It is wrong.
+HOL kroniek 14.0 (wacht 1.8): Odo has a map. It is wrong.
 HOL gegraven kolom 4
 HOL kroniek 23.0 (wacht 0.0): Tibbe brought a torch. And hope.
 HOL begin: doorlopen (Tibbe)
 HOL kroniek 24.8 (wacht 0.0): Odo stays forever. +6
 HOL gegraven kolom 5
 HOL kroniek 27.3 (wacht 2.5): Gloop wears Odo's hat now.
-HOL kroniek 29.8 (wacht 4.7): Bram escaped with a limp.
+HOL kroniek 29.8 (wacht 4.8): Bram escaped with a limp.
 HOL begin: terug (Bram)
 HOL kroniek 32.4 (wacht 1.7): Bram is back for the Spike Pit.
 HOL kroniek vervallen 34.2: Gloop is flat. Back soon.
