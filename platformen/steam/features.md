@@ -88,6 +88,15 @@ Volgorde = belangrijkheid. Grootte bouw is GOK.
 **Bouw:** klein tot middel (Olaf hol, Bram kroniek, Daan de wand).
 **Toets:** T1 ja, T2 ja, T3 ja, T4 ja.
 
+**Uitwerking 10 nov 01:00 UTC: het kaartje, de keuze in een bezoek van 30 seconden** (gat 1 uit `toppers.md`; `systemen/upgrades.gd` van Bram geeft al naam, uitleg en kost per stap; het kaartje zelf is van Olaf, het uiterlijk van Mila).
+- **Zien dat er iets te kiezen is, zonder melding:** kun je een upgrade betalen, dan staat er een klein glinsterend muntje boven Gloop of de put (twee beelden, rustig, geen geluid, geen getal). Niets knippert buiten de strook en niets vraagt je terug te komen (T3). Wie langskijkt, ziet in één oogopslag: hier kan ik iets.
+- **Klikken op Gloop of de put:** het paneel rechts (waar nu de kroniek staat, ±320 px) wordt het kaartje: naam van de volgende stap, de uitleg van één regel uit `upgrades.gd`, de kost met muntje, en één knop "Buy". Kan het nog niet, dan staat de kost grijs met "x more gold". Geen nieuw venster, het past in de 120 px die er al is. Klik ernaast of wacht 6 s: terug naar de kroniek.
+- **Na kopen:** het object verandert meteen in beeld (Mila's tekening per stap), de muntjes vliegen van de schat naar het object (omgekeerd van een val), en de kroniek krijgt de regel uit `koop_regel()` ("Gloop is now Big Gloop."). Zo voelt kopen als iets dat je ziet gebeuren, niet als een getal dat zakt.
+- **Terugdraaien:** op het kaartje van een gekochte stap staat ook "Undo (+168)": volle prijs terug (eis "weghalen voor al je goud terug"). Daardoor is geen keuze fout en durf je te proberen.
+- **Graven** blijft klik op aarde naast een gang; bij hover over die cel staat de kost in het paneel. Dan zijn er per bezoek drie echte keuzes: graven (het hol groter, meer goud per val later), Gloop of de put. Ze verschillen in gevoel, niet alleen in getal: Bouncy Gloop is sneller terug, Deep Pit houdt de bange held vast, Trick Lid is een grap om naar te kijken.
+- **Ritme (GOK, na te meten in Brams sim):** met 6 tot 9 goud per val en ±1 val per 1,5 min is de eerste upgrade (60) na ±10 min open tijd te betalen, als je niet graaft. Samen met graven (12, 13, 14...) is er in het eerste uur bij elk bezoek van een paar minuten iets te kiezen; dat was de eis uit `balans.md`.
+- **Toets voor het kaartje (zo keur ik het in de film):** (1) in de demo-minuut koopt de demo één keer Big Gloop rond 20 s, met muntjes naar Gloop en de regel; (2) het muntje boven Gloop is op 120 px te zien maar trekt niet meer aandacht dan een held; (3) van klik tot gekocht is twee klikken.
+
 **Altijd, in alle vijf (geen feature maar een eis):** strook klein en instelbaar, 15 fps en niet tekenen als er niets beweegt (staat al), een fps-instelling in het menu, geluid standaard uit en "stil uur", save die niet kwijt kan (schrijven naar een tijdelijk bestand, dan hernoemen, plus één reserve), logbestand met een maximum. Dit komt uit de klachten over zwaar, in de weg, afleiding en bugs.
 
 ## Waarom niet de andere twee (kort)
