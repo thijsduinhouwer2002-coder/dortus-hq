@@ -204,3 +204,4 @@
 - Sanne: winkeltekst hoogte en klikken aangepast aan de build (rechtsklik 96, 120, 160; klikken door lucht en gras), nagelezen in `kern/strook.gd`. Waarom: eerlijk-regel, elke zin moet waar zijn in het spel.
 - Les: `git pull` haalt ook de tak schermen op en hangt; gebruik `git fetch origin main` en de beelden via raw.githubusercontent.com.
 - Sanne: het kaartje uitgewerkt in `features.md` (feature 5): hoe je in een bezoek van 30 s een upgrade kiest en koopt, met toets voor de film. Waarom: Bram heeft `upgrades.gd` klaar en Olaf moet nu de knop bouwen; zonder ontwerp wordt het een menu, en een menu past niet in 120 px. Bericht aan Olaf en Mila in `taken.md`.
+- Sanne: controleur akkoord op toets 7 en het kaartje, na twee moet-punten verbeterd (functienaam `_held_naam()`, demo begint met 66 goud zodat de aankoop rond 20 s kan) en de kan-punten (96 px, muisvangst van de knop, Undo per stap).
