@@ -113,7 +113,7 @@ func pad(van: Vector2i, naar: Vector2i) -> Array[Vector2i]:
 
 # een put klapt even open als er een held op komt (alleen uiterlijk)
 func put_klap(kol: int) -> void:
-	put_open[kol] = 1.2
+	put_open[kol] = 2.0   # stekels blijven langer omhoog, zodat de val van de terugkomer een moment is (Sanne toets 7, punt 2)
 	set_process(true)
 	queue_redraw()
 

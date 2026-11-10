@@ -59,6 +59,8 @@ var begin_vlucht := ""         # naam van de held die moest vluchten: hij is de 
 var vlucht_t := -100.0         # wanneer hij vluchtte (demo: terug pas 4 s later)
 var opgegeten_t := -100.0      # demo: wanneer de held die opgegeten wordt binnenkwam (Hoard-Toucher pas 10 s later)
 var demo_hoed_i := 0           # demo: volgende hoed uit DEMO_HOEDEN
+var vlucht_tijd := {}          # demo: naam -> wanneer hij vluchtte (niet bewaard); een terugkomer pas na DEMO_TERUG_NA s
+const DEMO_TERUG_NA := 8.0     # Sanne toets 7, punt 3: Tibbe klom de ladder op en meteen weer af, dat leest als een fout
 var anim_t := 0.0
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
@@ -208,6 +210,18 @@ func _held_naam(info: Dictionary) -> String:
 		return "%s the Hoard-Toucher" % info.naam
 	return "%s %s" % [info.naam, _bijnaam(int(info.get("bezoeken", 0)))]
 
+# Terugkomer-regel. De Hoard-Toucher komt terug met zijn bijnaam ("Tibbe the Hoard-Toucher is back for Gloop.",
+# Sanne toets 7, punt 3), maar alleen als dat binnen 42 tekens past; anders zijn kale naam (nooit afgekapt).
+func _terug_regel(soort: String, info: Dictionary, w: Dictionary) -> String:
+	w["held"] = _held_naam(info)
+	if bool(info.get("hoard_toucher", false)):
+		w["naam"] = _held_naam(info)
+		var r: String = regels.kies(soort, w)
+		if r.length() <= REGELS.MAX:
+			return r
+	w["naam"] = info.naam
+	return regels.kies(soort, w)
+
 func _bijnaam(n: int) -> String:
 	match n:
 		1: return "the Once-Fled"
@@ -293,18 +307,23 @@ func _nieuwe_held() -> bool:
 	if stap == "terug":
 		kies = _terugkomer_i(begin_vlucht)
 	elif stap == "" and not terugkomers.is_empty() and rng.randf() < (0.5 if demo else 0.25):
-		kies = rng.randi_range(0, terugkomers.size() - 1)
-		if int(terugkomers[kies].bezoeken) >= 3 and rng.randf() >= 0.15:
-			kies = -1
+		var kan: Array = []
+		for i in terugkomers.size():
+			if not demo or t - float(vlucht_tijd.get(String(terugkomers[i].naam), -100.0)) >= DEMO_TERUG_NA:
+				kan.append(i)
+		if not kan.is_empty():
+			kies = kan[rng.randi_range(0, kan.size() - 1)]
+			if int(terugkomers[kies].bezoeken) >= 3 and rng.randf() >= 0.15:
+				kies = -1
 	if kies >= 0:
 		info = terugkomers.pop_at(kies)
 		var w: String = String(info.wrok)
 		if int(info.bezoeken) >= 3:
 			_kroniek(regels.kies("aartsvijand", {"naam": info.naam}))
 		elif w == slijm.naam():
-			_kroniek(regels.kies("terug_bewoner", {"naam": info.naam, "held": _held_naam(info), "bewoner": _bewoner()}))
+			_kroniek(_terug_regel("terug_bewoner", info, {"bewoner": _bewoner()}))
 		elif w.begins_with("the "):
-			_kroniek(regels.kies("terug_val", {"naam": info.naam, "held": _held_naam(info), "val": w}))
+			_kroniek(_terug_regel("terug_val", info, {"val": w}))
 		else:
 			_kroniek(regels.kies("terug", {"naam": info.naam, "held": _held_naam(info)}))
 	else:
@@ -334,6 +353,10 @@ func _nieuwe_held() -> bool:
 			begin_vlucht = String(info.naam)
 		"opgegeten", "opgegeten2":
 			info["moet_opgegeten"] = true
+			if stap == "opgegeten2" and demo:
+				# Sanne toets 7, punt 1: de minuut eindigt met een clou. Zij kwam rond 43 s binnen en liep 16 s naar Gloop
+				# (hap op 59,8 s, niet te zien); 1.5 keer zo snel is de hap rond 54 s, met regel en hoed op de toren
+				info["snelheid"] = 1.5
 			if stap == "opgegeten":
 				opgegeten_t = t
 				if demo:
@@ -376,6 +399,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		# Wie niet terugkomt gaat met pensioen: geen straf, later een grapje bij openen.
 		if String(info.naam) == begin_vlucht:
 			vlucht_t = t
+		vlucht_tijd[String(info.naam)] = t
 		if demo or bewaar.bezoeken >= 3 or rng.randf() < 0.6 or String(info.naam) == begin_vlucht:
 			terugkomers.append(bewaar)
 		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
@@ -428,7 +452,8 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 			elif n_hoed == 25 or n_hoed == 100:
 				w["bijnaam"] = "Hatted" if n_hoed == 25 else "Milliner"
 				_kroniek(regels.kies("hoed_bijnaam", w))
-			elif rng.randf() < 0.25:
+			elif rng.randf() < 0.25 or (demo and n_hoed == 2):
+				# demo: de tweede hoed altijd een regel, de toren groeit in beeld (Sanne toets 7, punt 1)
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				_kroniek(regels.kies(soort, w))
