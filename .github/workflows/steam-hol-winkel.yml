@@ -80,6 +80,7 @@ jobs:
         shell: pwsh
         run: |
           $uit = "producten/steam-hol/e2e/winkel"
+          New-Item -ItemType Directory -Force $uit | Out-Null
           $film = "$((Resolve-Path $uit).Path)/f"
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
