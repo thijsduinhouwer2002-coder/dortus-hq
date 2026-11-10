@@ -1,6 +1,7 @@
 import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.Time;
 import Toybox.Timer;
@@ -408,11 +409,12 @@ class EbbView extends WatchUi.View {
         if (EbbBouw.DEMO) {
             var lijn = [] as Array<Array<Number> or Null>;
             for (var i = 0; i < EbbOpslag.DAGEN; i += 1) {
-                if (i % 7 == 3 || i % 11 == 5) {
+                // Iemand die één dag per week overslaat en langzaam beter wordt, met wat schommeling.
+                if (i % 7 == 3) {
                     lijn.add(null);
                 } else {
-                    var beste = 55 + i + (i % 4) * 6;
-                    lijn.add([beste, beste - 12 - (i % 3) * 5] as Array<Number>);
+                    var beste = (62 + 1.1 * i + 7 * Math.sin(i / 2.5)).toNumber();
+                    lijn.add([beste, beste - 14 - (i % 3) * 3] as Array<Number>);
                 }
             }
             return lijn;
