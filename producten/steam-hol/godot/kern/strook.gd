@@ -10,6 +10,10 @@ const HOL := preload("res://hol/hol.gd")
 const TEKST := preload("res://kern/tekst.gd")
 const OPSLAG_VERSIE := 3   # 3: hol groeit naar links, schat rechts (oudere saves: vers begin, er zijn nog geen spelers)
 const OPSLAG := "user://hol.json"
+# Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
+# (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
+const INSTELLING := "user://instellingen.json"
+const HOOGTES := [96, 120, 160]
 
 const REGELS := preload("res://kern/regels.gd")
 const VOORTGANG := preload("res://systemen/voortgang.gd")
@@ -71,7 +75,11 @@ func log_regel(tekst_: String) -> void:
 			f.close()
 
 func _ready() -> void:
-	for a in OS.get_cmdline_user_args():
+	if FileAccess.file_exists(INSTELLING):
+		var inst = JSON.parse_string(FileAccess.get_file_as_string(INSTELLING))
+		if inst is Dictionary and inst.has("hoogte"):
+			hoogte = clampi(int(inst.hoogte), 96, 160)
+	for a in OS.get_cmdline_user_args():   # argumenten (workflow) gaan voor de instelling
 		var kv := a.split("=", true, 1)
 		if kv.size() < 2:
 			continue
@@ -96,8 +104,11 @@ func _ready() -> void:
 	DisplayServer.window_set_size(Vector2i(scherm.size.x, hoogte))
 	DisplayServer.window_set_position(Vector2i(scherm.position.x, scherm.position.y + scherm.size.y - hoogte))
 	var boven := (spel_h - HOL.H) * schaal   # lege (doorzichtige) rand bovenaan bij 96 px
+	# klikken gaan door de lucht en het gras heen naar het venster erachter; alleen het hol zelf (onder het maaiveld)
+	# vangt de muis (graven, hover op het paneel). Zo blokkeert de strook nooit meer dan de rijen van het hol.
+	var vangt := boven + HOL.OPP * schaal
 	DisplayServer.window_set_mouse_passthrough(PackedVector2Array([
-		Vector2(0, boven), Vector2(scherm.size.x, boven), Vector2(scherm.size.x, hoogte), Vector2(0, hoogte)]))
+		Vector2(0, vangt), Vector2(scherm.size.x, vangt), Vector2(scherm.size.x, hoogte), Vector2(0, hoogte)]))
 
 	hol = Node2D.new()
 	hol.set_script(HOL)
@@ -496,6 +507,8 @@ func _input(event: InputEvent) -> void:
 		var p: Vector2 = (event.position - hol.position) / schaal
 		var wat: String = hol.klik(p)
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+		zet_hoogte(HOOGTES[(HOOGTES.find(hoogte) + 1) % HOOGTES.size()] if HOOGTES.has(hoogte) else 120)
 	elif event is InputEventMouseMotion and not tekst.hover:
 		tekst.hover = true
 		tekst.queue_redraw()
@@ -506,6 +519,16 @@ func _notification(what: int) -> void:
 		tekst.queue_redraw()
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		bewaar()
+
+# Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
+func zet_hoogte(h: int) -> void:
+	log_regel("HOL hoogte %d -> %d" % [hoogte, h])
+	bewaar()
+	var f := FileAccess.open(INSTELLING, FileAccess.WRITE)
+	if f:
+		f.store_string(JSON.stringify({"hoogte": h}))
+		f.close()
+	get_tree().reload_current_scene()
 
 func bewaar() -> void:
 	var data := {"versie": OPSLAG_VERSIE, "tijd": Time.get_unix_time_from_system(), "gang": hol.gang, "boven": hol.boven,
