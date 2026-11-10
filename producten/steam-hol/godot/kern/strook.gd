@@ -313,7 +313,8 @@ func _nieuwe_held() -> bool:
 		"vallen": info["moet_vallen"] = true
 		"terug":
 			# de wrok krijgt een afloop: hij komt terug voor de put en valt erin, of Gloop eet hem (Sanne toets 6, punt 1).
-			# Alleen in de eerste tien minuten; daarna kan een terugkomer weer ontsnappen en groeit zijn wrok.
+			# Ook buiten de demo, maar alleen in de eerste tien minuten (stap "terug" in BEGIN); daarna kan een terugkomer
+			# weer ontsnappen en groeit zijn wrok.
 			if String(info.get("wrok", "")).begins_with("the "):
 				info["moet_vallen"] = true     # eerste verdediging op zijn pad is zijn vijand: hij loopt eerst naar de put
 			else:
@@ -353,7 +354,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 	var bewaar := info.duplicate()
 	bewaar["kleur"] = (info.kleur as Color).to_html(false)
 	bewaar["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid"]:
 		bewaar.erase(v)
 	bewaar.erase("wat")
 	if uitkomst == "ontsnapt":
