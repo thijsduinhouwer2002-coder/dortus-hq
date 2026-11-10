@@ -70,7 +70,9 @@ async function hoofd() {
   log("- Het API-antwoord heeft geen veld voor de rubriek van de aangifte (zie velden hierboven); welke rubriek een tarief vult, is via de API niet te zien.");
 
   log("\n## B. Inkooptarief op een memoriaalregel");
-  const inkoop = [...alle.values()].find((t) => t.tax_rate_type === "purchase_invoice" && t.active && Number(t.percentage) === 21);
+  // Heeft iemand "Binnen EU 21% (btw verlegd)" aangezet (lijst van Thijs, 10 nov), dan dat tarief; anders het gewone inkooptarief 21%.
+  const inkoop = verlegd.find((t) => t.active && t.tax_rate_type !== "sales_invoice")
+    ?? [...alle.values()].find((t) => t.tax_rate_type === "purchase_invoice" && t.active && Number(t.percentage) === 21);
   const reks = await ruw("GET", `/${ADM}/ledger_accounts`);
   const lijst = Array.isArray(reks.json) ? reks.json : [];
   const magMemo = (soort: string) => lijst.filter((r: any) => r.account_type === soort && (r.allowed_document_types ?? []).includes("general_journal_document") && r.active !== false);
