@@ -41,6 +41,7 @@ const VOORRAAD := {
 		"{bewoner}'s hat pile is taller than him."],
 	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
 	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
+	# hap_hoed, hap_hoed_eerste en binnen_lied (Sanne toets 9) staan in Brams voorraad (cf88ba4), een plek.
 }
 
 var rng: RandomNumberGenerator

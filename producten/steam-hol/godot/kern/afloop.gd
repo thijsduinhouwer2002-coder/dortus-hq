@@ -6,7 +6,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
 	b["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld"]:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -41,7 +41,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			var w: String = String(b.wrok)
 			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
 		if lied > 0:
-			s._kroniek(s.regels.kies("lied", {"naam": info.naam}))
+			# sfeerregel: je ziet het lied niet, dus laag zoals binnenkomst en mag vervallen (Sanne toets 9, besluit 2a);
+			# de afloop zie je wel: de helden die erdoor komen krijgen een eigen regel die voorgaat (binnen_lied, strook.gd)
+			s._kroniek(s.regels.kies("lied", {"naam": info.naam}), true, "lied")
 			s.lied_helden += lied
 			if not s.demo:
 				s.volgende_held = minf(s.volgende_held, s.t + s.rng.randf_range(8.0, 20.0))
@@ -66,14 +68,30 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			else:
 				r = s.regels.kies("afgerekend", {"naam": naam}, extra.length())
 		elif wat.ends_with(s.slijm.naam()):
-			r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
+			# hap en hoed in een regel op het moment van de hap (Sanne toets 9, besluit 2b): eerst kwam de hoed-regel 4 tot
+			# 6 s na de hap, terwijl de hoed al op zijn kop stond. Wanneer: zoals de hoed-regel hieronder (eerste hoed, de
+			# clou in de demo, anders een op de vier); bij 25 en 100 blijft de bijnaam een eigen regel.
+			var n_h := int(info.get("hoeden_bewoner", 0))
+			if String(info.get("hoed_naar", "")) == "bewoner" and n_h > 0 and n_h != 25 and n_h != 100:
+				# de hoed die hij echt op had: held.gd rekent hem zelf uit als hoed_nr ontbreekt (oude save), controleur kan-punt 6
+				var hn = _held.get("hoed_nr") if _held != null else null
+				if hn == null:
+					hn = info.get("hoed_nr", -1)
+				if n_h == 1 or bool(info.get("demo_clou", false)) or s.rng.randf() < 0.25:
+					r = s.regels.kies("hap_hoed_eerste" if n_h == 1 else "hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(hn))}, extra.length())
+					if r.length() > RG.MAX - extra.length():
+						r = ""   # te lang met deze namen: dan de gewone hap-regel (de hoed staat toch op de toren)
+				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
+			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
+			if r == "":
+				r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 		else:
 			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
 		# hoedentoren: zijn hoed staat nu op Gloop (slijm.gd, Bram). Eerste hoed altijd een regel, bij 25 en 100 de bijnaam,
 		# anders hooguit een op de vier, zodat de val-regel niet verdrongen wordt (kroniek-regels.md)
 		var n_hoed := int(info.get("hoeden_bewoner", 0))
-		if String(info.get("hoed_naar", "")) == "bewoner" and n_hoed > 0:
+		if String(info.get("hoed_naar", "")) == "bewoner" and n_hoed > 0 and not bool(info.get("hoed_gemeld", false)):
 			var w := {"bewoner": s._bewoner(), "naam": basis}
 			if n_hoed == 1:
 				s._kroniek(s.regels.kies("hoed_eerste", w))
@@ -85,3 +103,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				s._kroniek(s.regels.kies(soort, w))
+
+# Engelse naam van hoed i voor "hap_hoed": Brams lijst (kroniek_regels.gd HOED_KORT, zijn toets vergelijkt hem met boek.gd).
+const KR := preload("res://systemen/kroniek_regels.gd")
+const RG := preload("res://kern/regels.gd")
+static func hoed_naam(i: int) -> String:
+	return String(KR.HOED_KORT[i]) if i >= 0 and i < KR.HOED_KORT.size() else "hat"

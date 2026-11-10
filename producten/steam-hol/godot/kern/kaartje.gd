@@ -110,6 +110,11 @@ static func koop(s) -> void:
 		return
 	s.hol.goud = rest
 	s.hol.munt_naar(s.kaart_kol, 4)
+	# het koop-moment moet je zien (Sanne toets 9 punt 1): Gloop wipt en zwelt (Bram, slijm.gd), de put schudt (hol.gd)
+	if soort == "slijm" and s.slijm.has_method("vier_koop"):
+		s.slijm.vier_koop()
+	elif soort == "stekelput" and s.hol.has_method("put_koop"):
+		s.hol.put_koop()
 	s.log_regel("HOL koop %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
 	# het kaartje blijft 2,5 s staan met de nieuwe naam en Undo; de koopregel komt als het dichtgaat (dicht())
 	s.kaart_gekocht = true
@@ -127,6 +132,8 @@ static func undo(s) -> void:
 		return
 	s.hol.goud += terug
 	s.hol.munt_regen(s.kaart_kol, 4)   # het goud vliegt terug naar de schat
+	if soort == "slijm" and s.slijm.has_method("upgrade_veranderd"):
+		s.slijm.upgrade_veranderd()   # terug naar zijn oude lijf, zonder feestje (Bram 03:25)
 	s.log_regel("HOL undo %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
 	s.kaart_regel = ""   # Undo binnen de 2,5 s na Buy: de koopregel vervalt, alleen "undone"
 	dicht(s, false)

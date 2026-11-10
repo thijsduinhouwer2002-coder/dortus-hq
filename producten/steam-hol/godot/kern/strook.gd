@@ -275,7 +275,12 @@ func _nieuwe_held() -> bool:
 			info["soort_held"] = soort_h
 		if trek_h != "":
 			info["trek"] = trek_h
-		if naam.ends_with(" II") or naam.ends_with(" III"):
+		if lied_helden > 0 and stap != "vluchten":
+			# hij komt door het lied van de bard: dat moet je zien, dus een gebeurtenis die voorgaat en niet vervalt
+			# (Sanne toets 9, punt 3). lied_helden telt pas af in _process als deze held er is.
+			info["lied_held"] = true
+			_kroniek(regels.kies("binnen_lied", {"naam": naam}), false, "binnen_lied")
+		elif naam.ends_with(" II") or naam.ends_with(" III"):
 			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		elif soort_h != "":
 			_kroniek(regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")
