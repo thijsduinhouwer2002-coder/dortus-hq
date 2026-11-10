@@ -1,35 +1,35 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 7.0 (wacht 0.0): Bram the Bard tunes his lute.
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 3
 HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
-HOL kroniek 14.2 (wacht 1.8): Odo climbs into your hole.
+HOL kroniek 14.1 (wacht 1.8): Odo climbs into your hole.
 HOL gegraven kolom 4
 HOL demo klik op Gloop
-HOL kaartje open 18.6: slijm
+HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 27
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 25.1 (wacht 0.2): Gloop ate Odo. Kept the crown. +6
-HOL kroniek vervallen 26.2: Tibbe has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.3): Gloop ate Odo. Kept the crown. +6
+HOL kroniek vervallen 26.1: Tibbe has a map. It is wrong.
 HOL gegraven kolom 5
 HOL kroniek 27.6 (wacht 2.5): Bram fled. Grudge: the Spike Pit.
-HOL kroniek 30.2 (wacht 5.0): Bram's song got popular. Uh oh.
+HOL kroniek 30.2 (wacht 5.1): Bram's song got popular. Uh oh.
 HOL begin: terug (Bram)
 HOL kroniek 31.2 (wacht 0.5): Bram is back for the Spike Pit.
 HOL kroniek 33.8 (wacht 2.5): Gloop is flat. Back soon.
 HOL kroniek 34.8 (wacht 0.9): Tibbe is now the Hoard-Toucher.
-HOL kroniek 40.4 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 40.3 (wacht 0.0): Gloop is up again. Wobbly.
 HOL begin: opgegeten2 (Joost)
-HOL kroniek 41.4 (wacht 0.3): Joost came for the gold in the song.
-HOL kroniek 43.9 (wacht 2.1): Bram came back. The Spike Pit won. +9
+HOL kroniek 41.3 (wacht 0.3): Joost came for the gold in the song.
+HOL kroniek 43.8 (wacht 2.1): Bram came back. The Spike Pit won. +9
 HOL kroniek 46.4 (wacht 4.3): Tibbe ran off, giggling.
-HOL kroniek 49.0 (wacht 1.3): Gloop ate Joost. Kept the bucket. +6
-HOL kroniek vervallen 49.5: Fenna knocks first. Polite.
+HOL kroniek 48.9 (wacht 1.3): Gloop ate Joost. Kept the bucket. +6
+HOL kroniek vervallen 49.4: Fenna knocks first. Polite.
 HOL einde na 50 s, fps=15, goud=48, terugkomers=1
