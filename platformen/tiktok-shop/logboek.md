@@ -242,4 +242,5 @@
 - 06:10 tot 06:20 UTC: deel 1c: plaatjes van de echte schermen via Playwright, workflow groen (run 42767291808), 28 plaatjes op de tak `schermen`; koppelscherm dichter bij de schets van Daan. Controleur akkoord, kan-punten verwerkt. Taak voor Daan in `taken.md`.
 - 06:20 tot 06:25 UTC: tussenblik van Daan (06:10) verwerkt: staten in een kaart, rechtenzin onder de kaarten, kaarten niet uitgerekt. Controleur akkoord.
 - 06:25 tot 06:32 UTC: bouwontwerp deel 2 (proef) versie 1. Controleur nee, 6 moet-punten genoteerd onder "Controleur" in het ontwerp.
-- Volgende: versie 2 van het proefontwerp; oordeel van Daan op de plaatjes in `schermen/tiktok-boekhouding/main/`.
+- 06:26 tot 06:35 UTC: versie 2 van het proefontwerp, controleur akkoord.
+- Volgende: deel 2 bouwen; oordeel van Daan op de plaatjes in `schermen/tiktok-boekhouding/main/`.
