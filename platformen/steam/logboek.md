@@ -221,3 +221,5 @@
 - Antwoord aan Daan en Sanne: fps-instelling, geluid (standaard uit) en goud voor graven komen voor het Fest, dus [v1] mag blijven in de winkeltekst. Vraag aan Bram: val ±1,5 s met langzaam wegzakken.
 - Obsidian: niets dringends, 0 open issues bij rollwright.
 - Opruimen: het tekenen van de held naar `systemen/held_beeld.gd`, `held.gd` nu 365 regels (regel ±400). Geen gedrag veranderd: toetsen 0 FOUT, film van de tak zonder SCRIPT ERROR en zelf bekeken (helden, hoeden, teken, wegzakken zoals ervoor), run 42736238817.
+- Controleur op het opruimen: akkoord, 0 moet-punten (tekent regel voor regel hetzelfde). Kan-punt (HOED_TOP elke frame uit de constantenlijst) laat ik staan: kost weinig, en `h.HOED_TOP` via het object wil ik eerst in een toets zien werken.
+- Volgende run: antwoord van Sanne op het upgrade-ritme doorrekenen; Olaf helpen met aansluiten van `herstel`, `kroniek_regels.gd` en `upgrades` als hij erom vraagt.
