@@ -12,24 +12,24 @@ HOL gegraven kolom 9
 HOL demo klik op Gloop
 HOL kaartje open 18.5: slijm
 HOL demo klik op Buy
-HOL koop 20.0: slijm niveau 1, goud 27
-HOL kaartje dicht 22.5
-HOL kroniek 22.5 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
+HOL koop 20.1: slijm niveau 1, goud 27
+HOL kaartje dicht 22.6
+HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 25.1 (wacht 2.0): Tibbe has a map. It is wrong.
-HOL kroniek 26.1 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
+HOL kroniek 25.1 (wacht 2.1): Tibbe has a map. It is wrong.
+HOL kroniek 26.2 (wacht 0.1): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 11
-HOL kroniek 28.7 (wacht 2.5): Bram's song got popular. Uh oh.
+HOL kroniek 28.7 (wacht 2.6): Bram's song got popular. Uh oh.
 HOL begin: terug (Bram)
-HOL kroniek 31.2 (wacht 3.5): Gloop says thanks for the snack. +6
-HOL kroniek 33.7 (wacht 6.0): Gloop wears Odo's hat now.
+HOL kroniek 31.3 (wacht 3.5): Gloop says thanks for the snack. +6
+HOL kroniek 33.8 (wacht 6.1): Gloop wears Odo's hat now.
 HOL gegraven kolom 8
-HOL kroniek 36.3 (wacht 5.5): Bram limps back to the Spike Pit.
+HOL kroniek 36.3 (wacht 5.6): Bram limps back to the Spike Pit.
 HOL kroniek vervallen 37.4: Gloop is flat. Back soon.
-HOL kroniek 38.8 (wacht 1.9): Tibbe tried to lift it. Too heavy.
+HOL kroniek 38.9 (wacht 1.9): Tibbe tried to lift it. Too heavy.
 HOL kroniek 43.2 (wacht 0.0): The Spike Pit won. Grudge settled. +9
-HOL gegraven kolom 10
 HOL begin: opgegeten2 (Lotte)
+HOL gegraven kolom 10
 HOL kroniek 45.7 (wacht 2.3): Gloop is up again. Wobbly.
 HOL kroniek 47.9 (wacht 0.0): Tibbe ran. Hands smell of gold.
 HOL kroniek vervallen 48.1: Lotte read about you in a tavern.
