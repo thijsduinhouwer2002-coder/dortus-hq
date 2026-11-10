@@ -49,7 +49,7 @@ export function koppelScherm(g: KoppelGegevens): Scherm {
 <p class="zacht">Daarna zie je meteen hoe je laatste uitbetalingen geboekt worden. Er gaat nog niets naar Moneybird.</p>
 ${g.melding ? html`<p class="melding" role="status">${g.melding}</p>` : ""}
 <div class="koppel">
-<section class="kaart"><div class="dienst"><span class="tegel tegel-tt" aria-hidden="true">T</span><div><h2>TikTok Shop</h2><p>${g.winkelnaam} · gekoppeld</p></div></div><p class="pil pil-goed">✓ Klaar</p></section>
+<section class="kaart"><div class="dienst"><span class="tegel tegel-tt" aria-hidden="true">T</span><div><h2>TikTok Shop</h2><p>${g.winkelnaam} · gekoppeld</p></div></div><p class="pil pil-goed"><span aria-hidden="true">✓ </span>Klaar</p></section>
 <span class="pijl" aria-hidden="true">→</span>
 <section class="kaart"><div class="dienst"><span class="tegel tegel-mb" aria-hidden="true">M</span><div><h2>Moneybird</h2><p>Je boekhouding</p></div></div>
 <form method="post" action="/app/moneybird/start">${verborgenCsrf(g.csrf)}<button class="knop knop-hoofd" type="submit">Koppel Moneybird</button></form>
