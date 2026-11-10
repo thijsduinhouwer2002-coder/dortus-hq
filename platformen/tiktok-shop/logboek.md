@@ -163,4 +163,4 @@
 ## 10 nov 2026, run 00:55 UTC (Jet)
 - `git pull` hing weer; `fetch` plus `checkout -B main origin/main` werkte. Geen nieuw bericht van Thijs. Bison & Flex: `approve: false`, updates `[]` (GEZIEN 00:57 UTC).
 - Taak "code bewaart meer dan punt 3" gedaan, omdat de privacypagina en de keuring van TikTok erop leunen en dat zwaarder weegt dan 2 queries winst. Besluit: slank maken direct na het ophalen en niet pas bij het opslaan, zodat een bewaard antwoord nooit anders kan rekenen dan een vers. Controleur ronde 1 nee: `reserve_amount` ontbrak (RESERVE werd `fout_gegevens`) en toets 3 rekende niet door (GBP stopte meteen). Ronde 2 akkoord, 198 tests, op main.
-
+- Daarna: winkelrij en beide tokens in één D1-query (scheelt 2 van de 50 per aanroep). `TokenBron.vanRij` vult de tokens uit die rij; verversen en herlezen blijven via `lees`. Controleur akkoord in één ronde; kan-punt (ontkoppelen midden in een TikTok-verversing merkt de run iets later, onschuldig) als uitleg in de code gezet. 200 tests, op main.
