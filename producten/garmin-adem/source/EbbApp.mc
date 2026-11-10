@@ -83,7 +83,6 @@ class EbbApp extends Application.AppBase {
                 view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
                 view.sessie.fase = Ebb.FASE_KLAAR;
                 view.sessie.inhoudtijden = [102000, 151000, 185000] as Array<Number>;
-                view.koraal = true;
                 view.opnemen = false;
                 view.getij = (k == 5);
                 return [view, new EbbDelegate(view)];
@@ -156,6 +155,8 @@ class EbbView extends WatchUi.View {
 
     var opname as EbbOpname = new EbbOpname();
     var koraal as Boolean = false;
+    // Dieren die je deze sessie verdiende (nummers in EbbTrouw.DIEREN); het scherm "new friend" komt met blad v4.
+    var nieuweDieren as Array<Number> = [] as Array<Number>;
     var opnemen as Boolean = true;
     // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
     var plaatjeMs as Number = -1;
@@ -163,6 +164,7 @@ class EbbView extends WatchUi.View {
     var getij as Boolean = false;
     const YKLEIN_ADEMEN = 0.855;
     private var _klaarSinds as Number = -1;
+    var gezelschap as Number = EbbTrouw.gezelschap();
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
@@ -191,9 +193,6 @@ class EbbView extends WatchUi.View {
             return false;
         }
         opname.inhouden((tijd + 500) / 1000);
-        for (var i = 0; i <= EbbProfiel.gehaald(tijd); i += 1) {
-            EbbProfiel.eersteKeer(i);
-        }
         return true;
     }
 
@@ -212,10 +211,12 @@ class EbbView extends WatchUi.View {
             opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
         }
         opslag.bewaar();
-        EbbTrouw.naSessie(dag);
+        // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
+        nieuweDieren = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(dag));
+        System.println("TROUW nieuwe dieren " + nieuweDieren);
+        // Het record wordt nog bewaard (zichtbaar), maar er hoort geen beloning meer bij: geen koraal, geen "new best".
         var record = EbbProfiel.record();
-        koraal = EbbProfiel.nieuwRecord(sessie.inhoudtijden, record * 1000 + 999);
-        if (koraal) {
+        if (EbbProfiel.nieuwRecord(sessie.inhoudtijden, record * 1000 + 999)) {
             EbbProfiel.bewaarRecord(sessie.inhoudtijden[EbbProfiel.diepste(sessie.inhoudtijden)] / 1000);
         }
         return ok;
@@ -373,9 +374,9 @@ class EbbView extends WatchUi.View {
                 }
             }
             EbbTeken.bellen(dc, d, zichtbaar);
-            var soort = EbbProfiel.dier(t);
-            if (soort >= 0) {
-                var p = (t - EbbProfiel.DREMPELS[soort]).toFloat() / EbbProfiel.IN_BEELD_MS;
+            var p = EbbProfiel.zwem(t);
+            if (p >= 0.0) {
+                var soort = gezelschap;
                 // De walvis (moet 3) heeft een spuitje tot 14% D boven zijn midden: iets lager, zodat het cijfer vrij blijft.
                 var yd = (soort == 3) ? yDier + 0.06 : yDier;
                 if (yd > 0.86) { yd = 0.86; }
@@ -383,7 +384,9 @@ class EbbView extends WatchUi.View {
             }
             var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
-            klein = s + " m";
+            // Besluit 22:53: geen meters. Op die plek de live hartslag, klein (leeg zonder meting).
+            var hr = EbbOpname.hartslag();
+            klein = (hr > 0) ? hr + " bpm" : "";
         } else if (fase == Ebb.FASE_HERSTEL) {
             // 3. Boven: water schiet in 0,5 s van 93% naar 72%, plons van vijf belletjes.
             var peil = (t < 500) ? 0.93 - 0.21 * t / 500.0 : 0.72;

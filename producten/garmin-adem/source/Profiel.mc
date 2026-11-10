@@ -104,44 +104,18 @@ module EbbProfiel {
         return j;
     }
 
-    // Dieren bij 1:00, 1:30, 2:00 en 3:00 inhouden (vis, kwal, schildpad, walvis), elk 8 s in beeld.
-    const DREMPELS = [60000, 90000, 120000, 180000] as Array<Number>;
-    const IN_BEELD_MS = 8000;
+    // Besluit 22:53: geen dieren meer op inhoudtijd. Tijdens het inhouden zwemt je gezelschap (een dier dat je al hebt)
+    // rustig voorbij in een vaste cyclus van 20 s: 16 s in beeld, 4 s weg. Hoe lang je inhoudt verandert er niets aan.
+    const CYCLUS_MS = 20000;
+    const IN_BEELD_MS = 16000;
 
-    // Welk dier zwemt er op inhoudtijd ms voorbij: 0 tot 3, of -1.
-    function dier(ms as Number) as Number {
-        for (var i = DREMPELS.size() - 1; i >= 0; i -= 1) {
-            if (ms >= DREMPELS[i] && ms < DREMPELS[i] + IN_BEELD_MS) {
-                return i;
-            }
+    // Plek van het dier in de cyclus, 0.0 (rechts erin) tot 1.0 (links eruit), of -1.0 als het even weg is.
+    function zwem(ms as Number) as Float {
+        var p = ms % CYCLUS_MS;
+        if (p >= IN_BEELD_MS) {
+            return -1.0;
         }
-        return -1;
-    }
-
-    // Hoogste drempel die gehaald is (voor het logboek), of -1.
-    function gehaald(ms as Number) as Number {
-        for (var i = DREMPELS.size() - 1; i >= 0; i -= 1) {
-            if (ms >= DREMPELS[i]) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    // Gezien-bits in de opslag. Geeft true als dit dier voor het eerst gezien is (dan wordt het één keer bewaard).
-    function eersteKeer(i as Number) as Boolean {
-        var bits = Application.Storage.getValue("dieren");
-        var b = (bits instanceof Number) ? bits as Number : 0;
-        if ((b & (1 << i)) != 0) {
-            return false;
-        }
-        Application.Storage.setValue("dieren", b | (1 << i));
-        return true;
-    }
-
-    function dierenGezien() as Number {
-        var bits = Application.Storage.getValue("dieren");
-        return (bits instanceof Number) ? bits as Number : 0;
+        return p.toFloat() / IN_BEELD_MS;
     }
 
     function record() as Number {
@@ -235,7 +209,89 @@ module EbbTrouw {
         return (vandaag == dag || vandaag == dag + 1) ? getal(REEKS) : 0;
     }
 
+    // De 24 dieren voor trouw (besluit 22:53). Per dier [naam, soort, drempel]: soort 0 is aantal opgeslagen
+    // sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt niets af).
+    // Na een paar maanden met ±4 sessies per week heb je ze allemaal (blauwe vinvis bij 60 sessies, ±15 weken).
+    // Namen en volgorde mag Mila aanpassen; de logica blijft.
+    const SOORT_SESSIES = 0;
+    const SOORT_REEKS = 1;
+    const DIEREN = [
+        ["Fish", 0, 1], ["Shrimp", 0, 2], ["Jellyfish", 1, 2], ["Turtle", 1, 3],
+        ["Crab", 0, 5], ["Seahorse", 0, 8], ["Starfish", 1, 4], ["Clownfish", 0, 10],
+        ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 1, 6], ["Ray", 0, 15],
+        ["Seal", 1, 7], ["Dolphin", 0, 18], ["Swordfish", 1, 10], ["Sea otter", 0, 21],
+        ["Manta", 1, 14], ["Shark", 0, 25], ["Sunfish", 0, 30], ["Orca", 1, 21],
+        ["Narwhal", 0, 40], ["Giant squid", 1, 30], ["Sea turtle elder", 0, 50], ["Blue whale", 0, 60]
+    ] as Array<Array>;
+    const BITS = "trDieren";
+
+    // Welke dieren je hebt bij deze tellers: één bit per dier.
+    function verdiend(sessies as Number, besteReeks as Number) as Number {
+        var bits = 0;
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            var r = DIEREN[i];
+            var stand = ((r[1] as Number) == SOORT_SESSIES) ? sessies : besteReeks;
+            if (stand >= (r[2] as Number)) {
+                bits |= (1 << i);
+            }
+        }
+        return bits;
+    }
+
+    // Na een sessie: zet de nieuwe dieren in de opslag en geef hun nummers terug (voor het scherm aan het eind).
+    function nieuweDieren(tellers as Array<Number>) as Array<Number> {
+        var oud = getal(BITS);
+        var nu = verdiend(tellers[0], tellers[2]) | oud;
+        var nieuw = [] as Array<Number>;
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            if ((nu & (1 << i)) != 0 && (oud & (1 << i)) == 0) {
+                nieuw.add(i);
+            }
+        }
+        Application.Storage.setValue(BITS, nu);
+        return nieuw;
+    }
+
+    function heeft(i as Number) as Boolean {
+        return (getal(BITS) & (1 << i)) != 0;
+    }
+
+    function aantal() as Number {
+        var n = 0;
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            if (heeft(i)) {
+                n += 1;
+            }
+        }
+        return n;
+    }
+
+    // Eerlijke tekst hoe je een dier krijgt, bijvoorbeeld "3 days in a row" of "30 sessions".
+    function hoe(i as Number) as String {
+        var r = DIEREN[i];
+        var n = r[2] as Number;
+        if ((r[1] as Number) == SOORT_REEKS) {
+            return n + " days in a row";
+        }
+        return n == 1 ? "1 session" : n + " sessions";
+    }
+
+    // Van de vier dieren die we nu kunnen tekenen (vis, kwal, schildpad, walvis): het nummer in DIEREN.
+    const GETEKEND = [0, 2, 3, 23] as Array<Number>;
+
+    // Welk getekend dier mee zwemt tijdens het inhouden: het hoogste dat je hebt, anders de vis.
+    // Het hangt niet af van hoe lang je inhoudt (geen beloning voor inhoudtijd).
+    function gezelschap() as Number {
+        for (var s = GETEKEND.size() - 1; s > 0; s -= 1) {
+            if (heeft(GETEKEND[s])) {
+                return s;
+            }
+        }
+        return 0;
+    }
+
     function wis() as Void {
+        Application.Storage.deleteValue(BITS);
         Application.Storage.deleteValue(SESSIES);
         Application.Storage.deleteValue(DAG);
         Application.Storage.deleteValue(REEKS);

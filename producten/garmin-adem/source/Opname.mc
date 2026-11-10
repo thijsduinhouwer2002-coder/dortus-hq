@@ -15,6 +15,16 @@ class EbbOpname {
     function initialize() {
     }
 
+    // Live hartslag (slagen per minuut) voor het inhoudscherm, of 0 als er geen meting is.
+    // De opname zelf legt de polshartslag vast in het FIT-bestand (records), zoals bij elke Garmin-activiteit.
+    static function hartslag() as Number {
+        var info = Activity.getActivityInfo();
+        if (info != null && info.currentHeartRate != null) {
+            return info.currentHeartRate as Number;
+        }
+        return 0;
+    }
+
     function loopt() as Boolean {
         return _sessie != null;
     }

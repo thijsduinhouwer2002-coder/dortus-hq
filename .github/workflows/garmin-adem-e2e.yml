@@ -163,7 +163,7 @@ jobs:
               naam = os.path.basename(m.rstrip("/"))
               if len(fits) != 1:
                   fout.append("%s: %d FIT-bestanden in plaats van 1" % (naam, len(fits))); continue
-              sessie, inhoud, beste = {}, [], None
+              sessie, inhoud, beste, hr, rec = {}, [], None, [], 0
               with fitdecode.FitReader(fits[0]) as fit:
                   for fr in fit:
                       if not isinstance(fr, fitdecode.FitDataMessage): continue
@@ -173,6 +173,10 @@ jobs:
                           beste = velden.get("beste")
                       if fr.name == "lap":
                           inhoud.append(velden.get("inhoud"))
+                      if fr.name == "record":
+                          rec += 1
+                          if velden.get("heart_rate") is not None: hr.append(velden.get("heart_rate"))
+              print("HARTSLAG", naam, "records:", rec, "met hartslag:", len(hr), "voorbeeld:", hr[:5])
               uitslag = (sessie.get("sport"), sessie.get("sub_sport"), sessie.get("num_laps"), inhoud, beste)
               print("EIS10", naam, "sport, subsport, laps, inhoud, beste:", uitslag)
               if uitslag != (10, 62, 2, [3, 5], 5):

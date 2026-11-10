@@ -73,26 +73,33 @@ function testGetijPunten(logger as Test.Logger) as Boolean {
         && EbbProfiel.hoogsteDag([null] as Array<Array<Number> or Null>) == -1;
 }
 
-// Eis 8: met nagebootste klok het juiste dier bij 1:00, 1:30, 2:00 en 3:00; een eerste keer wordt één keer bewaard.
+// Besluit 22:53: het dier tijdens het inhouden hangt niet af van de inhoudtijd; het zwemt in een vaste cyclus van 20 s.
 (:test)
-function testDierenOpTijd(logger as Test.Logger) as Boolean {
-    return EbbProfiel.dier(59999) == -1 && EbbProfiel.dier(60000) == 0 && EbbProfiel.dier(67999) == 0
-        && EbbProfiel.dier(68000) == -1 && EbbProfiel.dier(90000) == 1 && EbbProfiel.dier(120500) == 2
-        && EbbProfiel.dier(150000) == -1 && EbbProfiel.dier(180000) == 3 && EbbProfiel.dier(200000) == -1
-        && EbbProfiel.gehaald(200000) == 3 && EbbProfiel.gehaald(30000) == -1;
+function testZwemZonderBeloning(logger as Test.Logger) as Boolean {
+    return EbbProfiel.zwem(0) == 0.0 && EbbProfiel.zwem(8000) == 0.5 && EbbProfiel.zwem(16000) == -1.0
+        && EbbProfiel.zwem(20000) == 0.0 && EbbProfiel.zwem(188000) == 0.5;
 }
 
+// Dieren voor trouw: 24 stuks, elk één keer, nieuwe alleen bij het afsluiten van een sessie, beste reeks telt.
 (:test)
-function testDierEenKeerBewaard(logger as Test.Logger) as Boolean {
-    Application.Storage.deleteValue("dieren");
-    var eerste = EbbProfiel.eersteKeer(2);
-    var tweede = EbbProfiel.eersteKeer(2);
-    var bits = EbbProfiel.dierenGezien();
-    var ander = EbbProfiel.eersteKeer(0);
-    var bits2 = EbbProfiel.dierenGezien();
-    Application.Storage.deleteValue("dieren");
-    logger.debug("bits " + bits + " daarna " + bits2);
-    return eerste && !tweede && bits == 4 && ander && bits2 == 5;
+function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var lijst = EbbTrouw.DIEREN.size() == 24;
+    var geen = EbbTrouw.aantal() == 0 && EbbTrouw.gezelschap() == 0;
+    var eerste = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(100));        // 1 sessie: vis
+    var tweede = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(101));        // 2 sessies, 2 dagen: garnaal en kwal
+    var zelfde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(101));        // 3 sessies, zelfde dag: niets
+    var derde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));         // 3 dagen op rij: schildpad
+    var na = EbbTrouw.aantal() == 4 && EbbTrouw.gezelschap() == 2;    // schildpad zwemt mee
+    // Na een gat blijft wat je hebt; alles bij 60 sessies en 30 dagen op rij.
+    EbbTrouw.naSessie(110);
+    var alles = EbbTrouw.verdiend(60, 30) == (1 << 24) - 1 && EbbTrouw.verdiend(59, 30) != (1 << 24) - 1;
+    var tekst = EbbTrouw.hoe(3).equals("3 days in a row") && EbbTrouw.hoe(23).equals("60 sessions") && EbbTrouw.hoe(0).equals("1 session");
+    logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde);
+    var gehouden = EbbTrouw.aantal() == 4;
+    EbbTrouw.wis();
+    return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 2 && tweede[0] == 1 && tweede[1] == 2
+        && zelfde.size() == 0 && derde.size() == 1 && derde[0] == 3 && na && alles && tekst && gehouden;
 }
 
 // Eis 2: na bevestigen nooit meer, behalve na "opnieuw tonen".
