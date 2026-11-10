@@ -24,28 +24,40 @@ def roestig(im):
             elif c == D2: u.putpixel((x, y), ROEST_D)
             elif c == L6: u.putpixel((x, y), ROEST_P)
     return u
+VLOER, KIER = (92, 55, 88, 255), (42, 26, 31, 255)   # bovenste vloerrij in het echte spel (GEZIEN, film main 04:25)
 def diep(im):
+    # run 9 (Daan kan 4: Deep Pit las niet als diep): als hij opengaat snijdt een zwart gat van 3 rijen door de vloer,
+    # met paarse wanden; de stekels staan IN het gat (hun voet verdwijnt in het zwart), dus je kijkt erin.
     u = im.copy()
     for f in (1, 2):
-        for x in range(f * 16 + 1, f * 16 + 15):
-            u.putpixel((x, 6), RAND if x in (f * 16 + 1, f * 16 + 14) else GAT)
+        for y in (5, 6, 7):
+            for x in range(f * 16, f * 16 + 16):
+                wand = x in (f * 16, f * 16 + 15)
+                c = u.getpixel((x, y))
+                if wand: u.putpixel((x, y), RAND)
+                elif y >= 6 or c in (KIER, (42, 26, 31, 255)): u.putpixel((x, y), GAT)
     return u
 def truc(im):
+    # run 9 (Daan kan 4: het deksel lag als strook naast de put): dicht is hij echt vloer. Rij 5 en 6 doorzichtig
+    # (je ziet de muur van de gang erachter), rij 7 in de kleur van de vloer, met alleen twee naden en één haarscheurtje.
     u = im.copy()
     for x in range(16):
-        u.putpixel((x, 5), NACHT); u.putpixel((x, 7), AARDE_D)
-        u.putpixel((x, 6), AARDE_L if x in (3, 11) else AARDE)
-    u.putpixel((8, 6), NACHT)   # haarscheurtje: wie goed kijkt, ziet hem
+        u.putpixel((x, 5), (0, 0, 0, 0)); u.putpixel((x, 6), (0, 0, 0, 0))
+        u.putpixel((x, 7), KIER if x in (1, 14) else VLOER)
+    u.putpixel((8, 6), (0, 0, 0, 0)); u.putpixel((9, 7), KIER)
     return u
 r1 = roestig(bron); r2 = diep(r1); r3 = truc(r2)
 blad = Image.new("RGBA", (48, 24), (0, 0, 0, 0))
 for i, r in enumerate((r1, r2, r3)): blad.alpha_composite(r, (0, i * 8))
 blad.save(os.path.join(K, "stekelput_upgrades.png"))
-# proef: 4 rijen (niveau 0 tot 3), op de vloer van het hol, 10x en 3x
-p = Image.new("RGBA", (52, 4 * 11), (0x1d, 0x14, 0x26, 255))
+# proef op de echte gang (uitsnede van de film van main, spelpixels: elke 3 schermpixels 1), 4 rijen: niveau 0 tot 3,
+# telkens dicht en open naast elkaar op de plek van de put. 10x en 3x.
+film = os.path.join(R, "ontwerp", "steam", "mila", "bron", "gang-uit-film.png")
+gang = Image.open(film).convert("RGBA")   # 40 x 12 spelpixels, vloer bovenrand op rij 8
+p = Image.new("RGBA", (2 * 42, 4 * 13), (255, 255, 255, 255))
 for i, r in enumerate((bron, r1, r2, r3)):
-    y = i * 11 + 2
-    for x in range(52): p.putpixel((x, y + 7), AARDE_D); p.putpixel((x, y + 6), AARDE); p.putpixel((x, y + 5), NACHT)
-    p.alpha_composite(r, (2, y))
-for s, naam in ((10, "put-upgrades-10x.png"), (3, "put-upgrades-3x.png")):
-    p.resize((p.width * s, p.height * s), Image.NEAREST).save(os.path.join(R, "ontwerp", "steam", "mila", naam))
+    for j, f in enumerate((0, 2)):
+        g = gang.copy(); g.alpha_composite(r.crop((f * 16, 0, f * 16 + 16, 8)), (12, 1))
+        p.alpha_composite(g, (j * 42 + 1, i * 13 + 1))
+for s_, naam in ((10, "put-upgrades-10x.png"), (3, "put-upgrades-3x.png")):
+    p.resize((p.width * s_, p.height * s_), Image.NEAREST).save(os.path.join(R, "ontwerp", "steam", "mila", naam))
