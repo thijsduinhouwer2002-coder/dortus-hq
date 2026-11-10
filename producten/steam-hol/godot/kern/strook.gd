@@ -68,6 +68,7 @@ var slijm_plat := false
 var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort
 var kaart_soort := ""       # het kaartje voor upgrades (kern/kaartje.gd): "" dicht, anders "slijm" of "stekelput"
 var kaart_t := 0.0          # laatste klik op het kaartje (dicht na 6 s)
+var kaart_kol := -1         # kolom van het aangeklikte object (muntjes vliegen daarheen, Remove haalt die put weg)
 var demo_koop := 0          # demo: 0 nog niets, 1 kaartje open, 2 gekocht (kern/kaartje.gd, demo_stap)
 
 func log_regel(tekst_: String) -> void:

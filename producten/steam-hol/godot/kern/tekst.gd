@@ -14,6 +14,7 @@ const R := 4
 var kaart := {}
 var knop_koop := Rect2()   # in vensterpixels, voor de klik (strook.gd); leeg als er geen knop staat
 var knop_undo := Rect2()
+var knop_weg := Rect2()
 
 # Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
 func _paneel(rect: Rect2) -> void:
@@ -95,6 +96,7 @@ func _draw_kaart() -> void:
 	var kx := x
 	knop_koop = Rect2()
 	knop_undo = Rect2()
+	knop_weg = Rect2()
 	if int(kaart.kost) >= 0:
 		if bool(kaart.kan):
 			knop_koop = _knop(kx, ky, kh, "Buy  %d" % int(kaart.kost), maat, font)
@@ -106,6 +108,9 @@ func _draw_kaart() -> void:
 			kx += 5 * schaal + 2 + font.get_string_size(grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
 	if int(kaart.terug) > 0:
 		knop_undo = _knop(kx, ky, kh, "Undo  +%d" % int(kaart.terug), maat - 1, font)
+		kx = knop_undo.end.x + 4 * schaal
+	if bool(kaart.get("weg", false)):
+		knop_weg = _knop(kx, ky, kh, "Remove", maat - 1, font)
 
 func _draw() -> void:
 	if not kaart.is_empty():
@@ -113,6 +118,7 @@ func _draw() -> void:
 		return
 	knop_koop = Rect2()
 	knop_undo = Rect2()
+	knop_weg = Rect2()
 	var font := ThemeDB.fallback_font
 	var maat := 12 if hoogte < 110 else 13
 	var n := 3 if hover else 1

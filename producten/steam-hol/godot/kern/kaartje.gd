@@ -39,7 +39,8 @@ static func soort_op(s, p: Vector2) -> String:
 static func beschrijving(s, soort: String) -> Dictionary:
 	var up = s.hol.upgrades
 	var bew: String = s._bewoner()
-	var d := {"soort": soort, "titel": "", "uitleg": "", "kost": -1, "kan": false, "tekort": 0, "terug": 0}
+	var d := {"soort": soort, "titel": "", "uitleg": "", "kost": -1, "kan": false, "tekort": 0, "terug": 0,
+		"weg": soort == "stekelput"}   # een put kun je ook weghalen (controleur: anders was een put zetten onomkeerbaar)
 	var v: Dictionary = up.volgende(soort)
 	if v.is_empty():
 		var laatste: String = UPG.STAPPEN[soort][UPG.MAX_NIVEAU - 1]["naam"]
@@ -61,14 +62,15 @@ static func terug_bedrag(up, soort: String) -> int:
 		return 0
 	return int(round(UPG.BASIS * pow(UPG.FACTOR, n - 1)))
 
-static func open(s, soort: String) -> void:
+static func open(s, soort: String, kol := -1) -> void:
 	s.kaart_soort = soort
+	s.kaart_kol = kol if kol >= 0 else _kol_van(s, soort)
 	s.kaart_t = s.t
 	ververs(s)
 	s._muis_vlak(true)   # de knoppen moeten de muis vangen, ook zonder hover (Sanne)
 	s.log_regel("HOL kaartje open %.1f: %s" % [s.t, soort])
 
-static func dicht(s) -> void:
+static func dicht(s, toon := true) -> void:
 	if s.kaart_soort == "":
 		return
 	s.log_regel("HOL kaartje dicht %.1f" % s.t)
@@ -76,7 +78,8 @@ static func dicht(s) -> void:
 	s.tekst.kaart = {}
 	s.tekst.queue_redraw()
 	s._muis_vlak(s.tekst.hover)
-	s._toon()   # wat in de wachtrij stond komt nu
+	if toon:
+		s._toon()   # wat in de wachtrij stond komt nu
 
 static func ververs(s) -> void:
 	s.tekst.kaart = beschrijving(s, s.kaart_soort) if s.kaart_soort != "" else {}
@@ -90,9 +93,9 @@ static func koop(s) -> void:
 	if rest < 0:
 		return
 	s.hol.goud = rest
-	s.hol.munt_naar(_kol_van(s, soort), 4)
+	s.hol.munt_naar(s.kaart_kol, 4)
 	s.log_regel("HOL koop %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
-	dicht(s)
+	dicht(s, false)   # eerst de eigen regel, anders flitst een oude regel 0 s voorbij (controleur kan-punt 1)
 	_eigen_regel(s, up.koop_regel(soort, s._bewoner()))
 	s.bewaar()
 
@@ -104,12 +107,26 @@ static func undo(s) -> void:
 	if terug <= 0:
 		return
 	s.hol.goud += terug
-	s.hol.munt_regen(_kol_van(s, soort), 4)   # het goud vliegt terug naar de schat
+	s.hol.munt_regen(s.kaart_kol, 4)   # het goud vliegt terug naar de schat
 	s.log_regel("HOL undo %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
-	dicht(s)
+	dicht(s, false)
 	if soort == "slijm":
 		naam = naam.replace("Gloop", s._bewoner())
 	_eigen_regel(s, "%s undone. +%d" % [naam, terug])
+	s.bewaar()
+
+# Put weghalen (vroeger: klik op de put). Zetten kost nog niets, dus er gaat ook niets terug; de upgrades horen bij
+# de soort put, niet bij deze ene, en blijven dus staan.
+static func weg(s) -> void:
+	var k: int = s.kaart_kol
+	if not s.hol.vallen.has(k):
+		dicht(s)
+		return
+	s.hol.vallen.erase(k)
+	s.hol.queue_redraw()
+	s.log_regel("HOL put weg %.1f: kolom %d" % [s.t, k])
+	dicht(s, false)
+	_eigen_regel(s, "The Spike Pit is filled in.")
 	s.bewaar()
 
 # Je eigen klik krijgt meteen antwoord: de regel gaat voor alles en komt nu (geen 2,5 s wachten op de vorige regel).
@@ -138,20 +155,21 @@ static func klik(s, pos: Vector2) -> bool:
 		if s.tekst.knop_undo.has_point(pos):
 			undo(s)
 			return true
-		var in_paneel: bool = s.tekst.hover_vak().has_point(pos)
-		var was: String = s.kaart_soort
-		dicht(s)
-		if in_paneel:
+		if s.tekst.knop_weg.has_point(pos):
+			weg(s)
 			return true
-		# klik op hetzelfde object sluit alleen; op het andere object opent dat kaartje meteen
+		var was_kol: int = s.kaart_kol
+		dicht(s)
+		# klik ernaast sluit alleen (geen graven of put per ongeluk); op een ander object opent dat kaartje meteen
 		var p0: Vector2 = (pos - s.hol.position) / s.schaal
-		if soort_op(s, p0) == was:
+		var ander := soort_op(s, p0)
+		if ander == "" or s.hol.pos_naar_cel(p0).x == was_kol:
 			return true
 	var p: Vector2 = (pos - s.hol.position) / s.schaal
 	var soort := soort_op(s, p)
 	if soort == "":
 		return false
-	open(s, soort)
+	open(s, soort, s.hol.pos_naar_cel(p).x)
 	return true
 
 # Elke frame (goedkoop): kaartje dicht na 6 s, en het muntje boven Gloop en de put als je iets kunt kopen.
