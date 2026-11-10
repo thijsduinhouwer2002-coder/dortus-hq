@@ -1,6 +1,6 @@
 # Obsidian: kant-en-klaar plan (Abel)
 
-Versie 2, 10 nov 2026 02:45 NL. Status: klaar. Avatar van Mila, akkoord Daan (keuring 2), proef op de echte forumdraad bekeken.
+Versie 3, 10 nov 2026 06:30 NL. Status: klaar. Avatar v2 van Mila, akkoord Daan (keuring 4), proef op de echte forumdraad bekeken. **Bestand: `platformen/abel/upload/5-obsidian/forum-profielfoto-512.png`.** Doe eerst het vinkje "Hide my public profile" uit (zie onder), anders ziet niemand de rest.
 
 ## Wat er nu staat (GEZIEN 10 nov 00:55)
 - Rollwright in de pluginlijst: auteur **Dortus**, authorUrl https://dortus.com (manifest.json 0.3.5). Goed, maar die link landt op de Confluence-hoofdpagina (zie `dortus-com.md`).
@@ -9,7 +9,7 @@ Versie 2, 10 nov 2026 02:45 NL. Status: klaar. Avatar van Mila, akkoord Daan (ke
 
 ## Stap 1. Forumprofiel (Thijs, ±3 min)
 Inloggen op https://forum.obsidian.md > avatar rechtsboven > **Preferences**.
-- Account > **Profile picture** > uploaden: `platformen/abel/merk/avatar-512-v2.png` (Discourse knipt hem rond; Mila houdt de vorm binnen de middelste 70%).
+- Account > **Profile picture** > uploaden: `upload/5-obsidian/forum-profielfoto-512.png` (Discourse knipt hem rond; Mila houdt de vorm binnen de middelste 70%).
 - Account > Name: `Thijs`.
 - Profile > **About me**:
 ```

@@ -82,3 +82,17 @@ Alleen aanvullen, nooit weghalen.
 - Op zoek naar een tweede bijdrage: forum.obsidian.md Get help en Developers zonder antwoord nagelopen. Vondst die voor ons telt: t/121588 (makers zien dat ±38% van de downloadcijfers in `community-plugin-stats.json` automatische manifest.json-ophaalacties waren, en dat dat rond 1 nov bijna stopte). Bij Rollwright klopt het cijfer per versie met de manifest.json-tellers op GitHub, en main.js loopt gelijk op (0.3.3: 6 en 6; 0.3.4: 4 en 5; GEZIEN via de openbare API). Dus onze 23 downloads zijn waarschijnlijk echte installs of updates, geen robots. Besluit: geen antwoord in die draad klaarschrijven. Waarom: de vraag is aan het Obsidian-team, en onze plugin bestaat pas sinds na de daling, dus we voegen weinig toe; liever geen dan een dun antwoord. Ter info voor wie downloads meet (Patrick), via de hoofdchat.
 - Steam stap 0 (telt de $100 mee voor de $5-grens?): nog eens gezocht, niets nieuws in openbare bronnen. Blijft GOK met de controle die al op lijst-thijs staat.
 - Volgende run (06:19): merkkit en Steam-plan moeten dan klaarstaan (dat doen ze). Dan: alle plannen nog één keer van boven naar onder lezen als Thijs (klopt elke knop, elk bestand, geen v1/v2 meer), en de teksten in `steam.md` naast het overzichtsblad leggen.
+
+## Run 7, 10 nov 2026 06:21 NL
+- Gelezen: logboek, berichten (niets nieuws), keuring-abel (niets nieuws na keuring 5). Lokale kopie stond los van main; opnieuw aan origin/main gekoppeld.
+- Alle zeven plannen van boven naar onder gelezen als Thijs met de zip open. Rechtgezet: elk plan noemt nu het bestand uit `upload/` (naam die Thijs ziet) in plaats van `merk/...-v2.png`; koppen van de plannen bijgewerkt (Steam zei nog "beelden v2"); Steam-knoppen ook in het Engels; Polar zonder oude "spikkels"-zin; Obsidian begint met het vinkje "Hide my public profile".
+- Vondst: de GitHub-bio beloofde nog "A tiny dungeon game is on its way to Steam", terwijl run 4 noteerde dat dat eruit was. Besluit: bio `Focused tools for Obsidian, Blender and JetBrains. Small games on the way.` Waarom: gelijk aan og en social (Daan, kan 5) en aan mijn eigen regel in `teksten.md` (spel pas noemen als de winkelpagina "binnenkort" is). Op Steam zelf noemen profiel en groep het spel wel; dat is de plek waar het komt, en we zeggen nergens dat het uit is.
+- Nagemeten met `cmp`: avatars in `upload/` zijn de goedgekeurde v2.
+- Teksten naast de winkelpagina van Sanne gelegd: zelfde ondertitel "a tiny dungeon on your taskbar", geen tegenspraak.
+- GitHub-proef opnieuw (`bron/mock4v3.js`): nu ook het vak About gevuld zoals na stap 2. Het oude script verving "No description" niet (de tekst zat in een element met kinderen). Licht en donker bekeken.
+- Overzichtsblad aangevuld met dortus.com (rij 6, wacht op ja), bekeken.
+- Bijdrage 1: Royi's vraag nog steeds zonder antwoord (curl 06:35). Blijft geldig.
+- `klaar.md` versie 6.
+- Volgende run (07:19): klaar.md definitief maken (stand in één zin bovenaan nalezen, tijden optellen); lijst-thijs nalopen of mijn punten daar nog kloppen met de plannen.
+- Nog gezocht naar een tweede bijdrage (forum.obsidian.md, nieuwste vragen zonder antwoord). t/121749 ("Network drive access" bij elke start, SMB-kluis): alle desktop-changelogs 1.14.0 tot 1.15.1 doorzocht, niets over die melding. Besluit: geen antwoord. Waarom: zonder eigen test of bron zou het gokken zijn. t/121779 is door de vrager verwijderd.
+- `klaar.md`: totale Thijs-tijd erbij (±34 min plus later 15).

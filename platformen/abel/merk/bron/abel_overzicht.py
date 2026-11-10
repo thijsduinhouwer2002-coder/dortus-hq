@@ -8,9 +8,10 @@ rijen=[
  ('1. Steam: ontwikkelaarspagina','proef/steam-pagina-definitief-1920.png',(0,0,1920,1100),'Kop, logo, achtergrond en paginakleur Nacht. De spellen zijn van de mal (Klei).'),
  ('1. Steam: profiel dortusgames','proef/steam-profiel-kort-op-steam.png',None,'Avatar en korte profieltekst; de kleur komt van het profiel dat als mal diende.'),
  ('2. Polar: afrekenpagina','proef/polar-afrekenen-uitsnede.png',None,'Nu staat hier een grijze letter D.'),
- ('3. GitHub: repo Rollwright','proef/github-repo-light.png',None,'Profielfoto naast elke commit en repo.'),
+ ('3. GitHub: repo Rollwright','proef/github-repo-light.png',None,'Profielfoto, en het vak About gevuld (beschrijving, website, topics: stap 2).'),
  ('4. Blender Extensions','proef/blender-avatar-uitsnede.png',None,'Nu een leeg poppetje.'),
  ('5. Obsidian-forum','proef/obsidian-draad-dark.png',None,'Nu een letter "t".'),
+ ('6. dortus.com: nieuwe hoofdpagina (wacht op ja van Thijs)','../dortus-com/voorbeeld-desktop.png',(0,0,1280,1010),'Nu opent dortus.com nog met Confluence. Oude pagina\'s blijven staan, met een link onderaan.'),
 ]
 blokken=[]
 for kop,f,crop,uitleg in rijen:

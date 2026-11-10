@@ -292,7 +292,7 @@ func toren() -> Array:
 	var op := hoeden_op_hoofd()
 	if is_plat():
 		for i in op.size():
-			uit.append([op[i], 9 + 6 * i, -1 - int(HOED_ONDER[op[i]])])
+			uit.append([op[i], (11 if is_groot() else 9) + 6 * i, -1 - int(HOED_ONDER[op[i]])])   # groot lijf is 20 breed
 		return uit
 	var boven := -16 + top_nu() + wip_nu()
 	for i in op.size():
@@ -312,7 +312,7 @@ func berg() -> Array:
 	var in_rij := 1
 	while _past_op_berg(in_rij) < n:
 		in_rij += 1          # breedte van de onderste rij
-	var links := -14 if niveau() >= 1 else -12   # groot lijf en mantel: berg 2 pixels verder naar links (Mila 04:55)
+	var links := -14 if is_groot() else -12   # groot lijf en mantel: berg 2 pixels verder naar links (Mila 04:55)
 	var k := 0
 	var breedte := in_rij
 	while k < n and breedte > 0:

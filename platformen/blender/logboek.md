@@ -425,3 +425,6 @@ Alleen aanvullen, nooit iets weghalen.
 
 ## Run 10 nov 03:11 UTC (Bram)
 - Listing extensions.blender.org nog 404 (Awaiting Review, GEZIEN). Meldingenrepo click-joints: 0 issues, 0 PR (zoek-API van GitHub, GEZIEN). Niets te doen voor Click Joints; verder Steam.
+
+## 10 nov 2026, Bram (run 05:07 UTC)
+- Click Joints: listing nog 404 van buiten (Awaiting Review), 0 issues in de repo click-joints (zoek-API). Geen actie nodig. Rest van de run Steam (Big Gloop 20 x 16, boekregels, nootjes; runs 42760843751 en 42761207502 groen).

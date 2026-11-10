@@ -1,9 +1,9 @@
 # GitHub: kant-en-klaar plan (Abel)
 
-Versie 3, 10 nov 2026 03:30 NL. Status: klaar, akkoord Daan (keuring 2 voor avatar en teksten, keuring 3 voor social v2). Avatar `merk/avatar-512-v2.png` (akkoord Daan, keuring 4); social `-v2-nu` (akkoord Daan, na keuring 4).
+Versie 4, 10 nov 2026 06:30 NL. Status: klaar, akkoord Daan (teksten keuring 2, avatar v2 keuring 4, social v2b keuring 5). **Bestanden: `platformen/abel/upload/3-github/` (of de zip `dortus-beelden.zip`).**
 
 ## Proef
-`merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Het vak About staat er nog leeg in, zo ziet het er nu uit; stap 2 vult het.
+`merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Sinds 10 nov 06:45 staat ook het vak About erin zoals na stap 2 (beschrijving, website, topics); script `merk/bron/mock4v3.js`.
 
 ## Ter info: "claude" staat als maker bij de commits
 Op de repopagina staat bij de laatste commit de naam `claude` met het Claude-logo (GEZIEN). Dat past bij onze eerlijke AI-zin en hoeft niet weg. Wel een reden om de bio en de avatar van Thijs verzorgd te hebben: een bezoeker ziet dan een mens met een merk die met AI bouwt, in plaats van een leeg account waar alleen een bot in werkt.
@@ -21,13 +21,15 @@ github.com > avatar rechtsboven > **Settings** > Public profile.
 
 | Veld | Invullen |
 |---|---|
-| Profielfoto | `platformen/abel/merk/avatar-512-v2.png` |
+| Profielfoto | `upload/3-github/profielfoto-512.png` |
 | Name | `Thijs · Dortus` |
-| Bio | `Focused tools for Obsidian, Blender and JetBrains. A tiny dungeon game is on its way to Steam.` (95 tekens, max 160) |
+| Bio | `Focused tools for Obsidian, Blender and JetBrains. Small games on the way.` (75 tekens, max 160) |
 | URL | `https://dortus.com` |
 | Company | `Dortus` |
 | Location | `Netherlands` |
 | E-mail | `thijs@dortus.com` tonen alleen als dat adres in GitHub is toegevoegd en bevestigd; anders leeg laten |
+
+Waarom de bio het spel niet bij naam noemt: zelfde regel als bij og en social (Daan, kan 5), zolang Hats of the Fallen nog niet als "binnenkort" op Steam staat. Daarna mag het: `A tiny dungeon game is on its way to Steam.`
 
 Waarom "Thijs · Dortus" en niet alleen "Dortus": het is zijn persoonlijke account, en een mens achter de plugin wekt meer vertrouwen dan een merk. Zo zie je allebei.
 
@@ -46,7 +48,7 @@ Profielpagina > **Customize your pins** > kies `rollwright` en `click-joints` (l
 
 ## Stap 3. Social preview (±1 min per repo)
 Dit plaatje toont GitHub als iemand een repolink deelt (Discord, Reddit, forum). Nu is dat een grijs standaardkaartje.
-Repo > **Settings** > General > **Social preview** > Edit > Upload an image: `platformen/abel/merk/social-1280x640-v2b-nu.png` (1280 x 640; GitHub wil minder dan 1 MB). Doen bij `rollwright` en `click-joints`.
+Repo > **Settings** > General > **Social preview** > Edit > Upload an image: `upload/3-github/social-preview-rollwright-en-click-joints-1280x640.png` (bron `merk/social-1280x640-v2b-nu.png`) (1280 x 640; GitHub wil minder dan 1 MB). Doen bij `rollwright` en `click-joints`.
 Waarom de `-nu`-versie: dat is Mila's social v2 (akkoord Daan, keuring 3) met als onderregel "Focused tools today, small games on the way" in plaats van "Small games and focused tools". Daan vroeg dat het plaatje pas over spellen praat als Hats of the Fallen op Steam staat (keuring 2, kan 5). Komt Mila met een eigen plaatje per repo, dan dat gebruiken.
 
 ## Wat ik niet zelf doe

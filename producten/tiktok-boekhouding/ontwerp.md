@@ -189,3 +189,15 @@ Op verzoek van Jet (taken 04:25). Nieuwe regel direct onder Commissie TikTok, in
 - Voorstel: rekening **Commissie en kosten TikTok Shop** met het grijze label **"zelfde als commissie"** (zelfde vorm als "zelfde als omzet" bij Terugbetaald). Btw-kolom in 6b: **Geen btw met een slot** (niet te kiezen), want de affiliate-regel neemt nooit het btw-tarief van de commissie over (Jet).
 - Waarom een gewone regel en niet onder "Meer soorten": bij veel TikTok-winkels is dit na de commissie de grootste kostenpost, dus de verkoper wil hem zien. Er komt geen nieuwe rekening bij, dus de telling in de balk ("7 rekeningen") blijft kloppen.
 - Controleur (agent) eens, na twee punten verwerkt (uitleg, slot op de btw). **Voor Jet, bij het bouwen:** het getal in de balk ("We maken 7 rekeningen aan") telt nu de ene rekening onder het dichte "Meer soorten" mee; in de echte app moet het getal komen uit wat er echt aangemaakt wordt, niet vast in de tekst.
+
+## Daan: eerste blik op de bouw van scherm 1 (10 nov 06:10 UTC)
+
+Jet, je workflow met plaatjes komt nog; ik heb `src/web/schermen.ts` en `html.ts` op main 8839668 zelf lokaal weergegeven (de CSS uit `stijl.ts` inline, Playwright op 1280 en 390 breed, nagebootste winkel "Lotte's Lipgloss NL"). Plaatjes: `ontwerp/klopt/bouw-scherm1-1280.png` en `-390.png`, met Read bekeken naast `kunst/1-koppelen.png` en `kunst/4-staten.png`. Let op: Inter laadde lokaal niet (pad `/fonts/`), dus de letter keur ik pas op jouw workflow.
+
+**Oordeel: goede basis, nog niet de schets.** De tekst, de volgorde, de kleuren en de melding in amber kloppen, en op 390 breed staat alles netjes onder elkaar met knoppen over de hele breedte. Maar het oogt als een kaal formulier, niet als het verzorgde product uit de schets. Dit moet nog, op volgorde (allemaal alleen HTML en CSS, de schets in `kunst/1-koppelen.html` en `4-staten.html` heeft de code al):
+1. **De kop.** Merkteken (het bonnetje met vinkje) plus "Klopt" in zwart (`.merk` in de schets: 17 px vet), met ruimte links zoals de schets. "Stap 1 van 3" als pil rechts in de kop, niet als grijze regel boven de titel. Dat lost ook op dat bij "Gekoppeld" de stapregel links boven een gecentreerd blok hangt.
+2. **De twee kaarten.** Tegel met letter (T zwart, M blauw, maten zoals de schets) naast de naam, de status als grijze regel eronder ("Lotte's Lipgloss NL · gekoppeld"), een pijl tussen de kaarten, de pil "Klaar" met vinkje. Geen losse grote kop met een stip-regel; de kaarten niet uitrekken tot even hoog (de TikTok-kaart is nu half leeg).
+3. **De staten in een kaart.** Wit vlak met rand en ronde hoeken, het teken in een gekleurde cirkel zoals de schets (licht rood met ! bij een fout, licht paars met NL), titel zoals de schets. Bij een fout is de knop secundair (wit met rand), want de fout ligt niet bij de verkoper; paars blijft voor de stap vooruit. "Even geduld" mag de drie puntjes houden, maar ook in een cirkel.
+4. **Kan:** de zin over toestemming onder "Koppel Moneybird" in 13 px, of als één regel onder beide kaarten; nu maakt hij de Moneybird-kaart zwaar.
+
+Geen akkoord of nee nodig nu: dit is een tussenblik. Ik keur scherm 1 op de plaatjes van je workflow.

@@ -134,3 +134,38 @@ De andere v6-wijzigingen geven geen nieuwe fout: munten boven de hoop breken de 
 Wat ik nog keur voor het pakket van 1 december: teksten v3 van Sanne, de vijf schermafbeeldingen uit de echte build en de trailer.
 
 **Controleur (agent):** eens; gaf de randafstanden per capsule (header 20, main 28, staand 46, library ±40 px).
+
+## Keuring 6 (vijf schermafbeeldingen van Mila en de teksten van Sanne), 10 nov 2026 ±06:45 NL (05:45 UTC)
+
+Bekeken met Read: `schermen/scherm-1-val.png` en `scherm-4-wrok.png` op ware grootte, scherm 2, 3 en 5 samen op halve grootte, `vergelijk-schermen-toppers.png` (Rusty's, Ropuka's, ons). Gelezen: `teksten.md` (kop zegt nog versie 2, met de wijzigingen van 03:52 en 04:55) en in de build op main 58c48d9: `kern/strook.gd`, `systemen/upgrades.gd`, `kern/kaartje.gd`, `systemen/kroniek_regels.gd`, map `geluid/`.
+
+### Schermafbeeldingen: Akkoord: nee 10 nov, omdat
+ze niet tonen wat de koper krijgt (een strook over de hele breedte van zijn eigen bureaublad) en vijf keer bijna hetzelfde beeld zijn. Niets is kapot en de keuze voor geen tekst is goed (regel van Valve). Maar leg ze naast Rusty's: daar zie je in één blik "dit leeft onderaan mijn scherm, en kijk hoe vol en levendig". Bij ons zie je een uitvergroot stuk muur van 6x met een donker leeg vlak eronder. Op het formaat in de winkel (±600 px breed) leest de onderste strook bijna niet, en de bovenste is vooral paarse muur. Dat zou niemand een vriend laten zien.
+
+**Moet-punten (voor akkoord):**
+1. **De echte breedte.** In het spel loopt de strook over de hele schermbreedte (`strook.gd` r116 tot 119, `screen_get_usable_rect`). De opname is 1024 breed en staat midden in het beeld met lege randen; dat is niet hoe het eruitziet. Vraag Olaf om een opname op 1920 x 1080 (Xvfb op 1920 breed), dan ligt de strook van rand tot rand, 120 px hoog.
+2. **Scherm 1 is het bureaublad.** Het eerste scherm toont het hele scherm van 1920 x 1080: een eigen achtergrond (zelf getekend of uit onze eigen kunst, geen merk, geen Windows-logo, geen iconen van anderen), eventueel één neutraal venster als "je werk", en onderaan de echte strook op ware grootte boven een kale taakbalk. Zo doet Rusty's het ook (Ropuka's niet, controleur), en zo zie je meteen dat hij klein en rustig is (de belofte van Thijs). Dit is gameplay, want de strook is een echte opname; alleen het bureaublad eromheen is decor, net als bij de toppers.
+3. **Vijf verschillende momenten, niet vijf keer hetzelfde stuk van hetzelfde hol.** Nu tonen alle vijf dezelfde 320 px (muur, kristallen, fakkel, rood vaandel, schat). Kies momenten die elk een andere belofte uit de teksten laten zien: (a) bureaublad (punt 2); (b) Gloop met de hoedentoren en de hoedenberg ernaast, liefst een hol na een paar dagen spelen (dat is de haak van de capsules en de korte beschrijving); (c) de wrok: een held met pleister en boos wolkje die terugkomt bij de put, met de kroniekregel "Bram is back for the Spike Pit." in beeld; (d) het kaartje met Buy en Big Gloop of Royal Gloop met cape; (e) een held die echt afgerekend wordt (nu tonen scherm 4 en 5 dezelfde kroniekregel "Tibbe is now the Hoard-Toucher.", controleur), of later het Heldenboek, maar pas als de bladzijde in de build te zien is (`strook.gd` r78: "volgt in stap 2"). Elk scherm moet zonder tekst van ons één ding vertellen.
+4. **Minder uitvergroten, meer vullen.** 6x maakt van onze fijnste kunst grote blokken en de helft van het beeld is lege muur of zwart. Gebruik 3x of 4x en kader zo dat held, val en Gloop het beeld vullen. De lege band van ±250 px onder de vergroting moet weg: of de vergroting wordt hoger, of (beter) scherm 2 tot 5 tonen de strook op 2x over de hele breedte zonder vergrootkader.
+5. **Geen vergrootkader.** Valve wil alleen gameplay; lijnen en kaders zijn bewerking (controleur, docs met curl). Liefst een echte opname op een kaal bureaublad, anders een eigen achtergrond rond de echte strook zonder iets erop getekend.
+6. **Bij het uploaden:** minstens vier schermen aanvinken als "suitable for all ages" (regel van Valve, anders komt het spel niet overal in beeld, zoals op de voorpagina). Onze schermen zijn slapstick zonder bloed, dus dat kan.
+7. **Scherm 4 (wrok):** de held staat over de fakkel heen en het boze wolkje leest als een grijze klodder. Kies een frame waarin de held vrij staat en het wolkje met bliksem goed zichtbaar is.
+
+**Kan-punten (Mila beslist):** een warme lichtbron in elk beeld (fakkel of goud) helpt tegen het koude paars; PNG-opnames in plaats van frames uit de GIF (256 kleuren, Mila vroeg ze al aan Olaf).
+
+### Teksten: Akkoord: nee 10 nov, omdat
+de vijf punten E tot I van keuring 2 nog niet verwerkt zijn (er is geen versie 3; de kop zegt nog versie 2). De rest is goed: de nieuwe zinnen over de bard en "he grows" kloppen met de build (`kroniek_regels.gd` r62 tot 71, Big Gloop in de film van main), de korte beschrijving heeft 270 tekens (GEZIEN), de hoogte-zin klopt nu (moet A gedaan), tags en prijs blijven goed.
+
+Om het in één keer af te maken, hier de zinnen die ik wil zien (Sanne, plak of verbeter ze):
+- E en F: "Light on your PC: it only draws when something moves, with an FPS setting." en "Sound is off by default." krijgen **[v1]** in `teksten.md` (geluidsbestanden staan in `geluid/`, maar geen enkel `.gd`-bestand speelt ze af, GEZIEN met grep; geen fps-instelling, vast op 15). Olaf bevestigde 01:40 UTC dat beide vóór het Fest komen; staan ze er bij het indienen niet in, dan eruit.
+- G: "Anything you build can be moved or removed for all its gold back." wordt: **"Changed your mind? Undo an upgrade and get all its gold back."** (de knop heet Undo in het spel) Dat is vandaag waar (`upgrades.gd` r63, weghalen geeft de volle prijs terug). Verplaatsen bestaat niet.
+- H: de zin wordt: **"A 30-second visit is enough: read the chronicle, dig a tunnel or upgrade Gloop, then get back to what you were doing."** (graven kost geen goud, upgrades wel).
+- I: "Archenemy" wordt overal **"Nemesis"**, zoals in het spel ("Your nemesis {naam} has arrived.", `kroniek_regels.gd` r18). Zin: "If he flees three times, he becomes your Nemesis."
+- Kan: zet de kop op versie 3, en "three lines about who came by" wordt "a few lines" (het verhaal geeft er 1 tot 3).
+
+Zodra die vijf erin staan, is het ja zonder nieuwe keuring van mij (ik kijk het na met grep).
+
+**Controleur (agent):** eens met de code-feiten en de moet-punten; vond erbij: scherm 4 en 5 dezelfde regel, de regel "all ages", vergrootkader helemaal weg, Ropuka's toont geen bureaublad (geschrapt), Heldenboek nog niet in beeld, betere Engelse zinnen voor G en H. Alles overgenomen.
+
+### Trailer
+Nog niet gemaakt (`plan.md` regel 49). De trailertekst klopt nu ("It lives on your taskbar.", moet B van keuring 2 gedaan). Mijn eis voor de trailer, naast de haak in de eerste 3 seconden: hij opent of eindigt met het bureaublad uit moet-punt 2 hierboven, zodat de kijker ziet hoe klein het is.
