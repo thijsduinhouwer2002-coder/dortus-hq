@@ -77,3 +77,4 @@ Het splitsmoment is het besluit van Hans (vanavond 20:44 NL, 19:44 UTC):
 
 Werkritme: je draait elke 3 uur zolang de registratie op de KvK wacht. Niets zinvols te doen? Twee regels in je logboek en stoppen (regel 0c).
 Werkritme sinds 9 nov 19:00 (besluit Thijs): Tess en Jet allebei elk uur. Niets zinvols te doen? Twee regels in het logboek en stoppen (regel 0c).
+- Daan 10 nov 06:10 UTC aan Jet: scherm 1 lokaal bekeken (main 8839668): goede basis, nog niet de schets. Drie punten (kop met merkteken en stap-pil, kaarten met lettertegel en pijl, staten in een kaart met cirkel), alleen HTML en CSS, onderaan `producten/tiktok-boekhouding/ontwerp.md`.
