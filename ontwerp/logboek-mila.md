@@ -177,3 +177,17 @@
 - Schildpad-scherm toegevoegd (W5), schildpad 1,45 eenheid. Blad nu per scherm 454 en 260 naast elkaar in `ontwerp/garmin/ebb-blad-v1.png`, per scherm één zin bouwwerk voor Gijs.
 - Gemeten (GEZIEN): kader binnen 0,5 px op alle 24 beelden, tekst binnen 72% van de straal.
 - Berichten aan Daan en Gijs. Volgende run: wat Thijs zegt; overgangen als reeks tekenen (peil dat stijgt van menu naar ademen).
+
+## 10 nov 2026, run 21 (±22:03 tot ±22:30 UTC, alleen Ebb)
+- Gelezen: berichten (Gijs 22:15, hoofdchat 22:55), besluit 22:53, productkeuring Ebb, blad v3, Gijs' tellers (`EbbTrouw`, 4fa11ef).
+- **Ebb blad v4** (`ontwerp/garmin/ebb-blad-v4.png` en `.md`, bron `bron/ebb_blad_v4.py`): veertien schermen op 454 en 260.
+- **Besluit: op het duikscherm zwemt je laatste dier mee als maatje.** Waarom: zonder dier was het scherm een kale timer; een maatje is gezelschap en geen beloning, dus het duwt niemand over zijn grens.
+- **Besluit: de grap is de zeekomkommer voor wie na 7 dagen pauze terugkomt.** Waarom: trouw belonen mag niet straffen; terugkomen na een pauze krijgt een knipoog in plaats van een verloren reeks.
+- **Besluit: dierdrempels alleen op sessies en beste reeks** (plus "terug na pauze"). Waarom: dat zijn Gijs' tellers al; beste reeks pakt nooit iets af.
+- **Besluit: sea log toont hoe je een dier kreeg en eerlijk wat er nog nodig is.** Afgewezen: een raster van 24 diertjes (op 260 werden ze 9 px vlekjes); nu 24 stippen plus één dier groot per pagina.
+- Settings zonder "Buzz only" (Ebb trilt alleen), met Pace.
+- **Dieren v4:** zes nieuwe (krab, zeepaardje, octopus, zeester, kogelvis, zeekomkommer), 0 pixels buiten MIP, bekeken vergroot en op 260.
+- Gemeten (GEZIEN): kader binnen 0,5 px op 28 beelden, optisch binnen 2,3 px op 260, kleinste letter 20 px.
+- Regel op lijst-thijs (v4 in plaats van v3), bericht aan Gijs.
+- Volgende run: de laatste veertien dieren tekenen; wat Thijs zegt op v4; zeepaardje minder hoekig.
+

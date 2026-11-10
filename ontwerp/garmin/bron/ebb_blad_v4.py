@@ -170,7 +170,7 @@ def s_zeelog_open(D):
     dier(im, 'walvis', wx, wy, ws, kleur=W2 if not amo(D) else AM[W2])
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.625), '?', D*0.085, SCHUIM)
-    tekst(d, D, (D/2, D*0.705), '30 sessions', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.705), '50 sessions', D*0.068, GRIJS)
     tekst(d, D, (D/2, D*0.800), 'no. 24', D*0.068, GRIJS)
     rand(im, D); return im
 
@@ -184,7 +184,7 @@ def s_instellingen(D):
     tekst(d, D, (D/2, D*0.565), 'normal', D*0.072, SCHUIM)
     pijltjes(d, D, D/2 - D*0.135, D*0.565, SCHUIM); pijltjes(d, D, D/2 + D*0.135, D*0.565, SCHUIM)
     tekst(d, D, (D/2, D*0.670), 'Hold tick on', D*0.068, GRIJS)
-    tekst(d, D, (D/2, D*0.765), 'Buzz only off', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.765), 'Rounds 3', D*0.068, GRIJS)
     rand(im, D); return im
 
 SCHERMEN = [('1 menu', s_menu), ('2 ademen', v3.s_ademen), ('3 duiken 0:48', s_duik_vroeg), ('3b duiken 2:34', s_duik_laat),

@@ -9,7 +9,7 @@
  454  6b einde: nieuw dier   kader x  +0.0 px   kleuren 10139
  454  7 8 weeks              kader x  +0.0 px   kleuren 1770
  454  8 sea log              kader x  +0.0 px   kleuren 6092
- 454  8b sea log nog niet    kader x  +0.0 px   kleuren 4766
+ 454  8b sea log nog niet    kader x  +0.0 px   kleuren 4706
  454  9 settings             kader x  +0.0 px   kleuren 1460
  454  10 veiligheid          kader x  +0.5 px   kleuren 1324
  260  1 menu                 kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
@@ -23,7 +23,7 @@
  260  6b einde: nieuw dier   kader x  +0.0 px   optisch x  -1.4 px   pixels buiten MIP 0
  260  7 8 weeks              kader x  +0.5 px   optisch x  +0.2 px   pixels buiten MIP 0
  260  8 sea log              kader x  +0.0 px   optisch x  -2.3 px   pixels buiten MIP 0
- 260  8b sea log nog niet    kader x  +0.0 px   optisch x  +1.1 px   pixels buiten MIP 0
- 260  9 settings             kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
+ 260  8b sea log nog niet    kader x  +0.0 px   optisch x  +0.8 px   pixels buiten MIP 0
+ 260  9 settings             kader x  +0.5 px   optisch x  -1.1 px   pixels buiten MIP 0
  260  10 veiligheid          kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
-kleinste tekst op 260: "Sit. Stop if dizzy." 20 px, "Sea log  ·  Settings" 20 px, "7 of 24" 20 px, "3 days in a row" 20 px, "no. 24" 20 px, "round 2" 20 px
+kleinste tekst op 260: "2:08" 20 px, "50 sessions" 20 px, "Rounds 3" 20 px, "1:20" 20 px, "breathe when ready" 20 px, "avg 1:44" 20 px
