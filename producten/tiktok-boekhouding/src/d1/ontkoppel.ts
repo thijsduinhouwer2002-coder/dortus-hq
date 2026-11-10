@@ -5,7 +5,7 @@
 //   {
 //     "reden": "knop" | "webhook" | "koppeling_verlopen_21_dagen" | ...,
 //     "intrekken": { "pogingen": 0, "eerste_poging"?: s, "laatste_poging"?: s },   // alleen als er mb_tokens waren
-//     "opzeggen":  { "voor": s, "pogingen": 0, "laatste_poging"?: s, "laatste_fout"?: "...", "alarm_op"?: s }
+//     "opzeggen":  { "voor": s, "pogingen": 0, "laatste_poging"?: s, "laatste_fout"?: "...", "alarm_op"?: s }   // alleen als polar_klant gezet was
 //   }
 // Tijden in Unix-seconden. `opzeggen.voor` is `ontkoppeld_op`: het betaalstuk zegt alleen abonnementen op die daarvoor
 // begonnen. Het betaalstuk (eigen bouwstuk) verhoogt bij een mislukte poging `pogingen` en zet `laatste_poging` en
@@ -95,7 +95,8 @@ export async function ontkoppel(db: D1, winkel: string, reden: string, nu: numbe
   teller.neem();
   // Volgorde: eerst de oude mb_tokens lezen, dan winkels bijwerken (zet ontkoppeld_op; vanaf dan weigeren de triggers elke
   // INSERT en UPDATE op de vier tabellen, ook van een aanroep die nog loopt), dan de DELETEs (die weigeren de triggers niet).
-  // In SET verwijst `mb_tokens` naar de oude waarde: intrekken alleen als er Moneybird-tokens waren.
+  // In SET verwijst `mb_tokens` naar de oude waarde: intrekken alleen als er Moneybird-tokens waren; opzeggen alleen als er
+  // een Polar-klant is (geen klant: niets op te zeggen).
   const uit = await db.batch([
     db.prepare(`SELECT mb_tokens FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`).bind(winkel),
     db
@@ -103,12 +104,12 @@ export async function ontkoppel(db: D1, winkel: string, reden: string, nu: numbe
         `UPDATE winkels SET ontkoppeld_op = ?, shop_id = NULL, shop_cipher = NULL, tt_tokens = NULL, tt_versie = 0, mb_versie = 0,
          administratie = NULL, instellingen = NULL, markering = NULL, winkelfout = NULL, winkelfout_sinds = NULL,
          volgende_run = 0, snel_teller = 0,
-         taken = CASE WHEN mb_tokens IS NOT NULL
-           THEN json_object('reden', ?, 'intrekken', json_object('pogingen', 0), 'opzeggen', json_object('voor', ?, 'pogingen', 0))
-           ELSE json_object('reden', ?, 'opzeggen', json_object('voor', ?, 'pogingen', 0)) END
+         taken = json_patch(json_object('reden', ?), json_patch(
+           CASE WHEN mb_tokens IS NOT NULL THEN json_object('intrekken', json_object('pogingen', 0)) ELSE '{}' END,
+           CASE WHEN polar_klant IS NOT NULL THEN json_object('opzeggen', json_object('voor', ?, 'pogingen', 0)) ELSE '{}' END))
          WHERE id = ? AND ontkoppeld_op IS NULL`,
       )
-      .bind(nu, reden, nu, reden, nu, winkel),
+      .bind(nu, reden, nu, winkel),
     ...WINKEL_TABELLEN.map((t) => db.prepare(`DELETE FROM ${t} WHERE winkel = ?`).bind(winkel)),
   ]);
   if (uit[1].meta.changes !== 1) return { ontkoppeld: false };

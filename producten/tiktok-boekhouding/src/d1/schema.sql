@@ -20,8 +20,10 @@ CREATE TABLE IF NOT EXISTS winkels (
   polar_klant TEXT
 );
 CREATE INDEX IF NOT EXISTS winkels_volgende_run ON winkels(volgende_run) WHERE ontkoppeld_op IS NULL;
--- Webhook type 6 zoekt de winkel op shop_id (punt 7).
-CREATE INDEX IF NOT EXISTS winkels_shop_id ON winkels(shop_id) WHERE shop_id IS NOT NULL;
+-- Webhook type 6 zoekt de winkel op shop_id (punt 7). Uniek: één gekoppelde rij per TikTok-winkel.
+CREATE UNIQUE INDEX IF NOT EXISTS winkels_shop_id ON winkels(shop_id) WHERE shop_id IS NOT NULL;
+-- Cron: winkels die 21 dagen op dezelfde winkelfout staan (punt 7).
+CREATE INDEX IF NOT EXISTS winkels_winkelfout_sinds ON winkels(winkelfout_sinds) WHERE winkelfout_sinds IS NOT NULL AND ontkoppeld_op IS NULL;
 
 CREATE TABLE IF NOT EXISTS sloten (
   winkel TEXT NOT NULL,

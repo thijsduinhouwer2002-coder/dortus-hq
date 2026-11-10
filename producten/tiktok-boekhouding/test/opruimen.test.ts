@@ -10,7 +10,7 @@ import { DAG, NU, deps, nepRevoke, rij, taken, tel, vulWinkel } from "./ontkoppe
 
 /** Ontkoppelde winkel waarvan intrekken met 500 mislukte. */
 async function metOpenIntrekken(db: NepD1, w: string) {
-  await vulWinkel(db, w);
+  await vulWinkel(db, w, { polar: `polar-${w}` });
   await ontkoppel(db, w, "knop", NU, new Budget(50), deps(nepRevoke(500).fn).d);
 }
 const betaalstukKlaar = (db: NepD1, w: string) => db.sqlite.prepare("UPDATE winkels SET taken = json_remove(taken, '$.opzeggen'), polar_klant = NULL WHERE id = ?").run(w);
@@ -70,7 +70,7 @@ test("(n) cron: 403 niet herhalen; hoogstens 5 intrekpogingen per aanroep, binne
 
 test("(o) cron: kale rij weg zodra beide taken klaar zijn", async () => {
   const db = new NepD1();
-  await vulWinkel(db, "w1");
+  await vulWinkel(db, "w1", { polar: "polar-1" });
   await vulWinkel(db, "w2");
   await ontkoppel(db, "w1", "knop", NU, new Budget(50), deps(nepRevoke(200).fn).d);
   const { d } = deps(nepRevoke().fn);
@@ -117,9 +117,9 @@ test("(o) cron: mislukte opzegging blijft staan na dag 23, met elke dag één AL
   assert.equal(rij(db, "w1"), undefined);
 });
 
-test("(o) cron: opzegging na dag 23 nooit geprobeerd telt ook als niet gelukt: rij blijft met ALARM (eigen keuze)", async () => {
+test("(o) cron: met polar_klant en opzegging nooit geprobeerd: rij blijft na dag 23 met ALARM per dag", async () => {
   const db = new NepD1();
-  await vulWinkel(db, "w1");
+  await vulWinkel(db, "w1", { polar: "polar-1" });
   await ontkoppel(db, "w1", "knop", NU, new Budget(50), deps(nepRevoke(200).fn).d);
   const { d, alarmen } = deps(nepRevoke().fn);
   await ruimOntkoppeldOp(db, NU + 22 * DAG, new Budget(50), d);
@@ -128,6 +128,43 @@ test("(o) cron: opzegging na dag 23 nooit geprobeerd telt ook als niet gelukt: r
   assert.equal(alarmen().length, 1);
   assert.match(alarmen()[0], /23 dagen/);
   assert.ok(rij(db, "w1"));
+  await ruimOntkoppeldOp(db, NU + 30 * DAG, new Budget(50), d);
+  assert.equal(alarmen().length, 2);
+  assert.equal(rij(db, "w1")!.polar_klant, "polar-1");
+});
+
+test("(o) cron: zonder polar_klant geen taak opzeggen; rij weg op dag 23 (of zodra intrekken klaar is)", async () => {
+  const db = new NepD1();
+  await vulWinkel(db, "w1");
+  await ontkoppel(db, "w1", "knop", NU, new Budget(50), deps(nepRevoke(500).fn).d);
+  assert.deepEqual(Object.keys(taken(db, "w1")).sort(), ["intrekken", "reden"], "geen opzeggen");
+  db.sqlite.prepare("UPDATE winkels SET taken = json_set(taken, '$.intrekken.eerste_poging', ?) WHERE id = 'w1'").run(NU + 22 * DAG);
+  const { d, alarmen } = deps(nepRevoke(500).fn);
+  await ruimOntkoppeldOp(db, NU + 23 * DAG - 1, new Budget(50), d);
+  assert.ok(rij(db, "w1"));
+  await ruimOntkoppeldOp(db, NU + 23 * DAG, new Budget(50), d);
+  assert.equal(rij(db, "w1"), undefined);
+  assert.deepEqual(alarmen(), []);
+
+  await vulWinkel(db, "w2");
+  await ontkoppel(db, "w2", "knop", NU, new Budget(50), deps(nepRevoke(200).fn).d);
+  assert.deepEqual(taken(db, "w2"), { reden: "knop" });
+  await ruimOntkoppeldOp(db, NU + 60, new Budget(50), d);
+  assert.equal(rij(db, "w2"), undefined, "intrekken klaar en niets op te zeggen: meteen weg");
+});
+
+test("(o) cron: budget op bij de schrijfbatch of vooraf geeft budgetOp, geen fout", async () => {
+  const db = new NepD1();
+  await metOpenIntrekken(db, "w1");
+  const revoke = nepRevoke(200);
+  const { d } = deps(revoke.fn);
+  assert.equal((await ruimOntkoppeldOp(db, NU + 60, new Budget(0), d)).budgetOp, true);
+  const u = await ruimOntkoppeldOp(db, NU + 60, new Budget(2), d); // leesbatch en één fetch, dan is de pot leeg
+  assert.equal(u.budgetOp, true);
+  assert.equal(revoke.verzoeken.length, 1);
+  assert.ok(taken(db, "w1").intrekken, "niets geschreven: taak staat er nog, de volgende cron herhaalt (200)");
+  const plan = JSON.stringify(db.sqlite.prepare("EXPLAIN QUERY PLAN SELECT id FROM winkels WHERE ontkoppeld_op IS NULL AND winkelfout_sinds <= ?").all(5));
+  assert.match(plan, /winkels_winkelfout_sinds/);
 });
 
 test("(o) cron: vangnet wist rijen die toch bleven staan, hoogstens 20 winkels per aanroep", async () => {

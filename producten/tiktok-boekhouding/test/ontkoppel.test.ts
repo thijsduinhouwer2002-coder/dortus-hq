@@ -43,7 +43,7 @@ test("(m) na ontkoppel: geen rijen meer, alleen de kale rij; andere winkel ongem
 
 test("(m) zonder Moneybird-tokens: geen fetch en geen taak intrekken; opzeggen staat klaar", async () => {
   const db = new NepD1();
-  await vulWinkel(db, "w1", { mb: false });
+  await vulWinkel(db, "w1", { mb: false, polar: "polar-1" });
   const revoke = nepRevoke();
   const budget = new Budget(50);
   assert.deepEqual(await ontkoppel(db, "w1", "knop", NU, budget, deps(revoke.fn).d), { ontkoppeld: true, intrekken: "geen" });
@@ -68,7 +68,7 @@ test("(m) idempotent: al ontkoppeld of onbekend doet niets en geeft geen fout", 
 
 test("(n) intrekken 200: refresh token met app-gegevens naar /oauth/revoke, token en taak weg", async () => {
   const db = new NepD1();
-  await vulWinkel(db, "w1");
+  await vulWinkel(db, "w1", { polar: "polar-1" });
   const revoke = nepRevoke(200);
   assert.equal((await ontkoppel(db, "w1", "knop", NU, new Budget(50), deps(revoke.fn).d)).intrekken, "gelukt");
   assert.equal(revoke.verzoeken[0].url, "https://moneybird.com/oauth/revoke");

@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { NepD1 } from "./d1-nep.ts";
-import { Budget } from "../src/budget.ts";
+import { Budget, BudgetOp, isBudgetOp } from "../src/budget.ts";
 import { Ontkoppeld } from "../src/opslag.ts";
 import { WinkelStop } from "../src/ophalen.ts";
 import { TokenBron, moneybirdSoort, ontsleutel } from "../src/d1/tokens.ts";
@@ -55,6 +55,34 @@ test("(punt 7) rij bestaat niet meer tijdens verversen: ook dan ingetrokken en O
 test("(punt 7) intrekken van het nieuwe paar mislukt: ALARM, toch Ontkoppeld en nooit koppeling_verlopen", async () => {
   const o = await opzet(ontkoppelTussendoor, 500);
   await assert.rejects(o.maak().geef(), (e: unknown) => e instanceof Ontkoppeld && !(e instanceof WinkelStop));
+  assert.equal(o.log.length, 1);
+  assert.match(o.log[0], /^ALARM winkel w1/);
+});
+
+const revokesMetR2 = (o: { verzoeken: Array<{ pad: string; body: Record<string, string> }> }) => o.verzoeken.filter((v) => v.pad === "/oauth/revoke" && v.body.token === "GEHEIM-r2").length;
+
+test("(punt 7, controleur a) alleen de reserve over na het verversen: herlezen en intrekken gaan via afmaken, r2 ingetrokken", async () => {
+  const o = await opzet(ontkoppelTussendoor);
+  o.budget.reserve = 46;
+  await assert.rejects(o.maak().geef(), (e: unknown) => e instanceof Ontkoppeld);
+  assert.equal(revokesMetR2(o), 1);
+  assert.deepEqual(o.log, []);
+});
+
+test("(punt 7, controleur b) bewaar gooit BudgetOp: r2 ingetrokken, de oorspronkelijke fout gaat door", async () => {
+  const o = await opzet(async () => {});
+  const bron = o.maak();
+  bron.bewaar = async () => { throw new BudgetOp(); };
+  await assert.rejects(bron.geef(), (e: unknown) => isBudgetOp(e));
+  assert.equal(revokesMetR2(o), 1);
+  assert.equal(JSON.parse(await ontsleutel(bos, "w1", String((o.db.sqlite.prepare("SELECT mb_tokens t FROM winkels").get() as any).t))).refreshToken, "GEHEIM-r1", "niets nieuws in D1");
+});
+
+test("(punt 7) pot echt leeg na het verversen: intrekken kan niet binnen het budget, dus ALARM en BudgetOp", async () => {
+  const o = await opzet(async () => {});
+  while (o.budget.over > 2) o.budget.neemAfmaken(); // lezen en verversen passen nog, opslaan niet
+  await assert.rejects(o.maak().geef(), (e: unknown) => isBudgetOp(e));
+  assert.equal(revokesMetR2(o), 0);
   assert.equal(o.log.length, 1);
   assert.match(o.log[0], /^ALARM winkel w1/);
 });

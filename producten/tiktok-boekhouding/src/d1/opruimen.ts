@@ -20,6 +20,8 @@ export interface OpruimUitkomst {
   ingetrokken: number;
   alarmen: number;
   ontkoppeld: number;
+  /** true: het budget raakte op; de volgende cron gaat verder. */
+  budgetOp: boolean;
 }
 
 const OPZEGGEN_OPEN = `json_extract(taken, '$.opzeggen') IS NOT NULL`;
@@ -66,8 +68,13 @@ export function verwijderKaleRijen(db: D1, nu: number): D1Statement {
 
 export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps: IntrekDeps): Promise<OpruimUitkomst> {
   const teller = budget.opslagTeller();
-  const uit: OpruimUitkomst = { ingetrokken: 0, alarmen: 0, ontkoppeld: 0 };
-  teller.neem();
+  const uit: OpruimUitkomst = { ingetrokken: 0, alarmen: 0, ontkoppeld: 0, budgetOp: false };
+  try {
+    teller.neem();
+  } catch (e) {
+    if (!isBudgetOp(e)) throw e;
+    return { ...uit, budgetOp: true };
+  }
   const [verlopenIntr, opnieuw, opzeg, verlopen] = await db.batch([
     // (a) intrekken langer dan 7 dagen geprobeerd: token toch weg, ALARM
     db.prepare(`SELECT id FROM winkels WHERE ontkoppeld_op IS NOT NULL AND ${INTREKKEN_OPEN} AND ${EERSTE_POGING} <= ? LIMIT 50`).bind(nu - INTREKKEN_MAX_DUUR),
@@ -107,7 +114,7 @@ export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps:
   for (const { id, mb_tokens } of rijen<{ id: string; mb_tokens: string | null }>(opnieuw)) {
     if (!mb_tokens) { schrijf.push(intrekkenKlaar(db, id)); continue; }
     const u = await trekMoneybirdIn(id, mb_tokens, budget, deps);
-    if (u === "uitgesteld") break; // budget op: de rest de volgende keer
+    if (u === "uitgesteld") { uit.budgetOp = true; break; } // budget op: de rest de volgende keer
     if (u === "gelukt") uit.ingetrokken++;
     if (u === "alarm") uit.alarmen++;
     schrijf.push(intrekStatement(db, id, u, nu)!);
@@ -120,14 +127,20 @@ export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps:
   }
   // Volgorde: eerst de taken bijwerken, dan het vangnet, dan pas de kale rijen weg.
   schrijf.push(...wisVangnet(db), verwijderKaleRijen(db, nu));
-  teller.neemAfmaken();
+  try {
+    teller.neemAfmaken();
+  } catch (e) {
+    // Pot echt leeg: niets geschreven. Intrekken dat net lukte wordt de volgende keer herhaald (geeft dan weer 200).
+    if (!isBudgetOp(e)) throw e;
+    return { ...uit, budgetOp: true };
+  }
   await db.batch(schrijf);
 
   for (const { id } of rijen<{ id: string }>(verlopen)) {
     try {
       if ((await ontkoppel(db, id, "koppeling_verlopen_21_dagen", nu, budget, deps)).ontkoppeld) uit.ontkoppeld++;
     } catch (e) {
-      if (isBudgetOp(e)) break;
+      if (isBudgetOp(e)) { uit.budgetOp = true; break; }
       throw e;
     }
   }

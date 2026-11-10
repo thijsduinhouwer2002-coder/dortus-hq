@@ -2,10 +2,13 @@
 // Versleuteld met AES-GCM (WebCrypto): nieuwe IV van 12 bytes per keer, winkel-id als AAD, sleutelversie vooraan in de tekst.
 // Verversen als het access token binnen een uur verloopt; opslaan voorwaardelijk op de versie; na een 401 één keer verversen.
 //
-// LET OP: gebruik TokenBron (en ook koppelen en intrekken bij Moneybird) ALLEEN onder het winkelslot (sloten, statement_id
-// '__winkel', ontwerp punt 6). Moneybird (Doorkeeper) maakt bij elk verversen het oude refresh token ongeldig. Verversen twee
+// LET OP: gebruik TokenBron (en ook koppelen bij Moneybird) ALLEEN onder het winkelslot (sloten, statement_id '__winkel',
+// ontwerp punt 6). Moneybird (Doorkeeper) maakt bij elk verversen het oude refresh token ongeldig. Verversen twee
 // aanroepen tegelijk, dan kan de één het paar van de ander ongeldig maken of andersom. Het voorwaardelijk opslaan voorkomt
 // alleen dat een oud paar over een nieuw heen wordt geschreven; het maakt gelijktijdig verversen niet veilig.
+// Intrekken door `ontkoppel` en de cron (src/d1/ontkoppel.ts, opruimen.ts) mag ZONDER winkelslot: intrekken is geen
+// verversen. Ververst een aanroep tegelijk, dan kan hij zijn verse paar niet meer opslaan (winkel ontkoppeld) en trekt
+// hij dat paar zelf in (`trekVersPaarIn` hieronder).
 import { ververs as ttVervers, verlooptBinnen, type AppGegevens, type Tokens } from "../../../tiktok-shop-basis/src/auth.ts";
 import { ververs as mbVervers, trekIn, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
 import { isBudgetOp, type Budget } from "../budget.ts";
@@ -170,8 +173,9 @@ export class TokenBron<T> {
   }
 
   /** Vers uit D1 lezen en ontsleutelen. Ontkoppeld of geen rij: `Ontkoppeld`; geen tokens: `koppeling_verlopen`. */
-  async lees(): Promise<{ tokens: T; versie: number }> {
-    this.teller.neem();
+  async lees(afmaken = false): Promise<{ tokens: T; versie: number }> {
+    if (afmaken) this.teller.neemAfmaken();
+    else this.teller.neem();
     const rij = await this.d.db
       .prepare(`SELECT ${this.kolom} AS t, ${this.versieKolom} AS v FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
       .bind(this.d.winkel)
@@ -239,28 +243,44 @@ export class TokenBron<T> {
       if (vers.versie !== oud.versie) return vers.tokens;
       throw new WinkelStop("koppeling_verlopen", e as Error);
     }
-    if (await this.bewaar(nieuw, oud.versie)) return nieuw;
-    // changes = 0: een andere aanroep was eerder, of de winkel is ontkoppeld (dan gooit lees `Ontkoppeld`).
+    // Vanaf hier bestaat er een vers paar dat alleen in het geheugen staat. Wordt het niet opgeslagen omdat de winkel
+    // ontkoppeld is, of kan dat niet vastgesteld worden (bewaar of herlezen gooit, ook BudgetOp), dan intrekken.
+    let opgeslagen: boolean;
     try {
-      return (await this.lees()).tokens;
+      opgeslagen = await this.bewaar(nieuw, oud.versie);
     } catch (e) {
-      if (e instanceof Ontkoppeld) await this.trekVersPaarIn(nieuw, fetchFn);
+      await this.trekVersPaarIn(nieuw);
+      throw e;
+    }
+    if (opgeslagen) return nieuw;
+    // changes = 0: een andere aanroep was eerder, of de winkel is ontkoppeld (dan gooit lees `Ontkoppeld`).
+    // Herlezen is afmaken (mag de reserve gebruiken), anders blijft het verse paar bij een bijna lege pot leven.
+    try {
+      return (await this.lees(true)).tokens;
+    } catch (e) {
+      await this.trekVersPaarIn(nieuw);
       throw e;
     }
   }
 
   /**
-   * Punt 7: tijdens het verversen is de winkel ontkoppeld. Het nieuwe paar staat nergens en het oude refresh token is bij
-   * Moneybird al ongeldig, dus `ontkoppel` zou het verkeerde token intrekken. Daarom hier meteen het nieuwe intrekken,
-   * binnen hetzelfde budget. Lukt dat niet: ALARM (het paar is nergens bewaard, dus later opnieuw proberen kan niet).
+   * Punt 7: het verse paar is niet opgeslagen (winkel tijdens het verversen ontkoppeld, of opslaan of herlezen mislukte).
+   * Het staat nergens en het oude refresh token is bij Moneybird al ongeldig, dus `ontkoppel` zou het verkeerde token
+   * intrekken. Daarom hier meteen het nieuwe intrekken. Lukt dat niet: ALARM (later opnieuw proberen kan niet).
    */
-  private async trekVersPaarIn(nieuw: T, fetchFn: typeof fetch): Promise<void> {
+  private async trekVersPaarIn(nieuw: T): Promise<void> {
     if (!this.d.soort.intrekken) return;
+    // Afmaken: telt in dezelfde pot, maar mag de reserve gebruiken. Is de pot echt leeg, dan BudgetOp en dus ALARM.
+    const ruw = this.d.fetchFn ?? fetch;
+    const fetchFn = (async (input: any, init?: any) => {
+      this.d.budget.neemAfmaken();
+      return ruw(input, init);
+    }) as typeof fetch;
     try {
       await this.d.soort.intrekken(nieuw, fetchFn);
     } catch (e) {
       const log = this.d.log ?? ((r: string) => console.error(r));
-      log(`ALARM winkel ${this.d.winkel}: ververst ${this.kolom}-paar na ontkoppelen niet ingetrokken (${(e as Error)?.message}); trek de koppeling handmatig in`);
+      log(`ALARM winkel ${this.d.winkel}: vers ${this.kolom}-paar niet opgeslagen en niet ingetrokken (${(e as Error)?.message}); trek de koppeling handmatig in`);
     }
   }
 }
