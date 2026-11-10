@@ -10,7 +10,7 @@ import { WINKELSLOT } from "../worker.ts";
 import { formulier, foutTekst, instellingenVan, postKlopt, sessieVan, toon, WEB_SLOT_DUUR, type Ctx, type Sessie, type WinkelRij } from "./basis.ts";
 import { naar } from "./html.ts";
 import { evenGeduld, foutBijKoppelen, gekoppeld, kiesAdministratie, koppelScherm, nietVoorJou, uitgelogd, type Scherm } from "./schermen.ts";
-import { csrfVan, KORT, leesMbState, maakMbState, maakState, MB_STATE_COOKIE, stateKlopt, wisCookie, zetCookie } from "./sessie.ts";
+import { csrfVan, KORT, SESSIE_COOKIE, leesMbState, maakMbState, maakState, MB_STATE_COOKIE, stateKlopt, wisCookie, zetCookie } from "./sessie.ts";
 
 const geweigerd = () => new Response("Geweigerd", { status: 403 });
 const metStatus = (s: Scherm, status: number): Scherm => ({ ...s, status });
@@ -63,7 +63,7 @@ export async function moneybirdTerug(c: Ctx): Promise<Response> {
   }
 
   const opgeslagen = await slaMbTokensOp(c, s.winkel, nieuw);
-  if (opgeslagen === "ontkoppeld") return toon(uitgelogd(), [wis]);
+  if (opgeslagen === "ontkoppeld") return toon(uitgelogd(), [wis, wisCookie(SESSIE_COOKIE)]);
   if (opgeslagen === "mislukt") return toon(foutBijKoppelen("Moneybird", "anders"), [wis]);
 
   let lijst: Administratie[];
@@ -139,7 +139,10 @@ async function naAdministraties(c: Ctx, s: Sessie, lijst: Administratie[], cooki
   return toon(kiesAdministratie(nl.map((a) => ({ id: a.id, naam: a.naam })), await csrfVan(c.o.sessie, s.cookie)), cookies);
 }
 
-/** Iets doen onder het winkelslot (60 s). Bezet: null. Het slot gaat altijd terug. */
+/**
+ * Iets doen onder het winkelslot (60 s). Bezet (of winkel net ontkoppeld): null, de route toont "Even geduld". Het slot
+ * gaat terug in `finally`; is de pot dan helemaal leeg (BudgetOp), dan verloopt het slot vanzelf na 60 s.
+ */
 export async function onderSlot<R>(c: Ctx, winkel: string, doe: () => Promise<R>): Promise<{ uit: R } | null> {
   const opslag = new D1Opslag(c.o.db, winkel, c.teller);
   const eigenaar = c.o.eigenaar?.() ?? `web-${crypto.randomUUID()}`;
@@ -156,7 +159,7 @@ export async function onderSlot<R>(c: Ctx, winkel: string, doe: () => Promise<R>
 async function lijstOnderSlot(c: Ctx, s: Sessie): Promise<{ uit: Administratie[] } | null> {
   return onderSlot(c, s.winkel.id, async () => {
     const bron = new TokenBron({ db: c.o.db, winkel: s.winkel.id, soort: moneybirdSoort(c.o.moneybirdApp), sleutels: c.o.sleutels, budget: c.budget, fetchFn: c.o.fetchFn, nu: () => c.nu, log: c.o.log });
-    await bron.vanRij(s.winkel.mb_tokens, s.winkel.mb_versie);
+    // Geen vanRij: de rij van de sessie is van vóór het slot; `met` leest vers uit D1.
     return bron.met((t) => administraties(mbClient(c, t.accessToken)));
   });
 }

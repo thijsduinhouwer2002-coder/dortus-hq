@@ -384,7 +384,16 @@ export default {
       return new Response("", { status: 500 });
     }
     const pad = new URL(request.url).pathname;
-    if (isAppPad(pad)) return router(request, webOmgevingVan(env, o), seconden(Date.now()));
+    if (isAppPad(pad)) {
+      let w: WebOmgeving;
+      try {
+        w = webOmgevingVan(env, o);
+      } catch (e) {
+        console.log(`fetch: sessiesleutels onbruikbaar: ${foutTekst(e)}`);
+        return new Response("", { status: 500 });
+      }
+      return router(request, w, seconden(Date.now()));
+    }
     if (pad === POLAR_WEBHOOK_PAD) return polarWebhook(request, o, seconden(Date.now()));
     return webhook(request, o, seconden(Date.now()));
   },

@@ -59,7 +59,7 @@ export class TikTokClient {
 
   async roep<T>(a: Aanroep): Promise<Antwoord<T>> {
     let laatste: TikTokApiError | undefined;
-    const max = Math.max(1, Math.floor(this.o.pogingen));
+    const max = Math.max(1, Math.floor(this.o.pogingen ?? MAX_POGINGEN) || MAX_POGINGEN);
     for (let poging = 1; poging <= max; poging++) {
       const { fout, antwoord, retryAfter } = await this.eenPoging<T>(a);
       if (antwoord) return antwoord;

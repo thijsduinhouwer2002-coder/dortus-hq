@@ -29,6 +29,7 @@ function wereld() {
     admsStatus: 200,
     ttTeller: 0,
     verzoeken: [] as string[],
+    koppen: [] as string[],
     ingetrokken: [] as string[],
   };
   const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status });
@@ -36,6 +37,7 @@ function wereld() {
     const u = new URL(String(input));
     const m = init.method ?? "GET";
     w.verzoeken.push(`${m} ${u.hostname} ${u.pathname}`);
+    w.koppen.push(JSON.stringify(init.headers ?? {}));
     if (u.hostname === "auth.tiktok-shops.com") {
       if (w.ttToken !== 200) return json({ code: 1, message: "storing" }, w.ttToken);
       const n = ++w.ttTeller;
@@ -504,4 +506,88 @@ test("uitloggen: alleen met csrf van ons eigen adres, wist het cookie", async ()
   assert.equal((await vraag(o, "POST", "/app/uit", { cookies: { [SESSIE_COOKIE]: sessie }, form: { csrf: "x" } })).r.status, 403);
   const { r } = await vraag(o, "POST", "/app/uit", { cookies: { [SESSIE_COOKIE]: sessie }, form: { csrf: await csrfVan(bos, sessie) } });
   assert.ok(koekjes(r).some((c) => c.startsWith(`${SESSIE_COOKIE}=;`) && /Max-Age=0/.test(c)));
+});
+
+test("moet-punt controleur: opgeslagen tokens worden onder het slot vers gelezen, niet uit de rij van de sessie", async () => {
+  const { w, fn } = wereld();
+  const db = new NepD1();
+  const { o } = omgeving(fn, db);
+  w.webhookFout = true;
+  const sessie = koekje((await koppelTikTok(o)).r, SESSIE_COOKIE)!;
+  w.webhookFout = false;
+  const id = sessie.split(".")[1];
+  const { versleutel } = await import("../src/d1/tokens.ts");
+  db.sqlite.prepare("UPDATE winkels SET mb_tokens = ?, mb_versie = 1 WHERE id = ?").run(await versleutel(sleutels, id, JSON.stringify({ accessToken: "MB-OUD", refreshToken: "r1", scope: "" })), id);
+  // Haak: tussen de sessie-SELECT en het slot ververst de consumer beide paren.
+  const ttNieuw = await versleutel(sleutels, id, JSON.stringify({ accessToken: "TTVERS", accessTokenVerlooptOp: NU + 86400 * 5, refreshToken: "x", refreshTokenVerlooptOp: NU + 86400 * 50, openId: "open-1" }));
+  const mbNieuw = await versleutel(sleutels, id, JSON.stringify({ accessToken: "MBVERS", refreshToken: "r2", scope: "" }));
+  const orig = db.prepare.bind(db);
+  let haak = true;
+  (db as any).prepare = (sql: string) => {
+    if (haak && /INSERT INTO sloten/.test(sql)) {
+      haak = false;
+      db.sqlite.prepare("UPDATE winkels SET tt_tokens = ?, tt_versie = tt_versie + 1, mb_tokens = ?, mb_versie = mb_versie + 1 WHERE id = ?").run(ttNieuw, mbNieuw, id);
+    }
+    return orig(sql);
+  };
+  const voor = w.koppen.length;
+  await vraag(o, "GET", "/app", { cookies: { [SESSIE_COOKIE]: sessie } });
+  const nieuw = w.koppen.slice(voor).join("\n") + w.verzoeken.slice(voor).join("\n");
+  assert.ok(nieuw.includes("TTVERS"), "webhooks met het verse TikTok-token");
+  assert.ok(!nieuw.includes("TT-ACCESS-1"));
+  haak = true;
+  (db as any).prepare = (sql: string) => {
+    if (haak && /INSERT INTO sloten/.test(sql)) {
+      haak = false;
+      db.sqlite.prepare("UPDATE winkels SET mb_tokens = ?, mb_versie = mb_versie + 1 WHERE id = ?").run(mbNieuw, id);
+    }
+    return orig(sql);
+  };
+  db.sqlite.prepare("UPDATE winkels SET mb_tokens = ? WHERE id = ?").run(await versleutel(sleutels, id, JSON.stringify({ accessToken: "MB-OUD", refreshToken: "r1", scope: "" })), id);
+  const v2 = w.koppen.length;
+  await vraag(o, "POST", "/app/moneybird/administratie", { cookies: { [SESSIE_COOKIE]: sessie }, form: { administratie: "501", csrf: await csrfVan(bos, sessie) } });
+  const k = w.koppen.slice(v2).join("\n");
+  assert.ok(k.includes("MBVERS") && !k.includes("MB-OUD"), "administraties met het verse Moneybird-token");
+});
+
+test("Moneybird opslaan: na 3 keer een andere versie het verse paar intrekken; winkel ontkoppeld: vers paar intrekken en sessie wissen", async () => {
+  const { w, fn } = wereld();
+  const db = new NepD1();
+  const { o, log } = omgeving(fn, db);
+  const sessie = koekje((await koppelTikTok(o)).r, SESSIE_COOKIE)!;
+  const id = sessie.split(".")[1];
+  const orig = db.prepare.bind(db);
+  (db as any).prepare = (sql: string) => {
+    if (/^\s*UPDATE winkels SET mb_tokens/.test(sql)) db.sqlite.prepare("UPDATE winkels SET mb_versie = mb_versie + 1 WHERE id = ?").run(id);
+    return orig(sql);
+  };
+  const terug = async (st: string) => vraag(o, "GET", `/app/moneybird/terug?code=c&state=${st}`, { cookies: { [SESSIE_COOKIE]: sessie, [MB_STATE_COOKIE]: await maakMbState(bos, st, id, NU) } });
+  const a = await terug("a");
+  assert.equal(a.r.status, 502);
+  assert.deepEqual(w.ingetrokken, ["MB-REFRESH-1"]);
+  assert.equal(rijen(db)[0].mb_tokens, null);
+  w.ingetrokken.length = 0;
+  (db as any).prepare = (sql: string) => {
+    if (/^\s*UPDATE winkels SET mb_tokens/.test(sql)) db.sqlite.prepare("UPDATE winkels SET ontkoppeld_op = 1, shop_id = NULL WHERE id = ?").run(id);
+    return orig(sql);
+  };
+  const b = await terug("b");
+  assert.match(b.tekst, /Open Klopt vanuit TikTok Shop/);
+  assert.ok(koekjes(b.r).some((c) => c.startsWith(`${SESSIE_COOKIE}=;`)));
+  assert.deepEqual(w.ingetrokken, ["MB-REFRESH-1"]);
+  controleerGeheim(b.tekst, log);
+});
+
+test("herkomst op /app/tiktok/kies en /app/uit: vreemde Origin of geen Origin is 403", async () => {
+  const { w, fn } = wereld();
+  const { o, db } = omgeving(fn);
+  w.shops = [{ id: "1", name: "Een", region: "NL", cipher: "C1" }, { id: "2", name: "Twee", region: "NL", cipher: "C2" }];
+  const z = await vraag(o, "GET", "/app/tiktok/terug?code=abc");
+  const keuze = koekje(z.r, KEUZE_COOKIE)!;
+  const csrf = await csrfVan(bos, keuze);
+  for (const origin of ["https://kwaad.example", null]) {
+    assert.equal((await vraag(o, "POST", "/app/tiktok/kies", { cookies: { [KEUZE_COOKIE]: keuze }, form: { shop: "1", csrf }, origin })).r.status, 403);
+    assert.equal((await vraag(o, "POST", "/app/uit", { form: {}, origin })).r.status, 403);
+  }
+  assert.equal(rijen(db).length, 0);
 });

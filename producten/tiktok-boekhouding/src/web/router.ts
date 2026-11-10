@@ -59,7 +59,7 @@ async function appScherm(c: Ctx): Promise<Response> {
     try {
       await onderSlot(c, s.winkel.id, async () => {
         const bron = new TokenBron({ db: c.o.db, winkel: s.winkel.id, soort: tiktokSoort(c.o.tiktokApp), sleutels: c.o.sleutels, budget: c.budget, fetchFn: c.o.fetchFn, nu: () => c.nu, log: c.o.log });
-        await bron.vanRij(s.winkel.tt_tokens, s.winkel.tt_versie);
+        // Vers lezen onder het slot (de rij van de sessie is van vóór het slot).
         const { tokens } = await bron.geef();
         await meldWebhooksAan(c, s.winkel.id, tokens.accessToken, cipher);
       });
