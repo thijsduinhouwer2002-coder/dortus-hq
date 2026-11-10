@@ -112,6 +112,8 @@ async function hoofd() {
     const verschil = na.filter((t) => t.tax_rate_id === inkoop.id).map((t) => Number(t.amount)).reduce((a, b) => a + b, 0)
       - voor.filter((t) => t.tax_rate_id === inkoop.id).map((t) => Number(t.amount)).reduce((a, b) => a + b, 0);
     log(`- grondslag van "${inkoop.name}" (inkoop) in het rapport, na min vóór: ${verschil}`);
+    // Een verlegd tarief kan twee rijen geven (bijvoorbeeld NL/4b en NL/5b): per rubriek grondslag en btw tonen.
+    for (const t of na.filter((t) => t.tax_rate_id === inkoop.id)) log(`  - na: ${t.report_reference} grondslag ${t.amount} btw ${t.tax}`);
     log(`- uitkomst B: ${verschil === 0 ? "het btw-rapport telt het inkooptarief op een memoriaalregel niet mee (let op: GET kan uit de cache komen, zie de twee rapporten)" : "het btw-rapport telt de memoriaalregel mee onder het inkooptarief"}`);
   }
 }
