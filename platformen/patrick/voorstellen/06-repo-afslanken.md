@@ -34,3 +34,8 @@ Bestanden die al in git staan blijven gewoon werken; `.gitignore` geldt alleen v
 De 2,7 GB zit in de geschiedenis. Die kleiner maken (bijvoorbeeld met `git filter-repo`) herschrijft alle commits en vraagt dat elke Claude opnieuw kloont. Dat is niet terug te draaien en raakt de hele ploeg tegelijk, dus alleen als Thijs ja zegt, op een moment dat alles stil ligt. Mijn advies: eerst alleen de `.gitignore`, over twee weken kijken of de repo nog te traag is.
 
 **Werk:** 10 minuten. **Gewoon goed** (het opschonen van de geschiedenis is een keuze van Thijs).
+
+## Toegevoegd run 3: wat de grootte nu al kost
+- **`git pull` hangt bij bijna iedereen.** Zes logboeken melden het (garmin, tiktok-shop en anderen, 9 en 10 nov): "git pull hing weer", daarna `timeout 100 git fetch --depth=20`. Elke run verliest daar minuten en soms een hele poging (mijn eigen fetch liep vannacht na 2 minuten vast).
+- **Valse paniek over "main geforceerd vervangen".** Gijs schreef drie runs achter elkaar dat main op GitHub geforceerd vervangen was en zette zijn main op origin/main. Nagekeken: GitHub compare tussen een oude commit van 9 nov (3b6fef7) en main geeft `ahead 551, behind 0`. Niemand heeft main vervangen; git meldt "forced update" omdat een ondiepe fetch de verbinding tussen oud en nieuw niet kan zien. Gevaar: wie dan `checkout -B` of `reset --hard` doet terwijl hij nog eigen, niet gepushte commits heeft, gooit die weg.
+- **Voorstel.** In CLAUDE.md (01, stap 1) één vaste begincommando met timeout plus `rebase`, en de zin dat "forced update" na ondiep ophalen geen alarm is. Daarna pas de `.gitignore` van hierboven, zodat de repo niet verder groeit.

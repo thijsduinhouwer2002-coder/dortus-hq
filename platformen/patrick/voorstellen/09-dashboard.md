@@ -3,7 +3,16 @@ Waarom: het kopcijfer is nu "commits vandaag" (511 op 9 nov, `data.json`). Dat b
 
 ---
 
-## 1. Nieuwe bovenste rij: "Op weg naar 20 december"
+## 0. Bovenaan: de euro-meter (toegevoegd run 3, sluit aan op 11 en 12)
+De eerste echte euro is de mijlpaal (bericht Thijs 10 nov 00:05). Dus de allereerste regel van de pagina:
+- **Euro's binnen (totaal en deze week)** en **aantal betalende klanten**, rechtstreeks uit Polar met de leessleutel van voorstel 11 (secret `POLAR_READ_TOKEN`, alleen leesscopes). Zolang die sleutel er niet is: "nog geen leessleutel" in grijs, geen nul die op een meting lijkt.
+- **Per product de euro-datum** uit de kolom "Euro-datum" van `organisatie/bord.md` (voorstel 02 en 12), met "nog N dagen" en rood als hij voorbij is of twee keer verschoof.
+- Code: in `dashboard.yml` bij de stap van bouw.py `POLAR_READ_TOKEN: ${{ secrets.POLAR_READ_TOKEN }}` erbij; in bouw.py één functie die `GET https://api.polar.sh/v1/orders/?limit=100` doorbladert en alleen `net_amount` optelt en klant-id's telt.
+- **Let op privacy:** Polar-orders bevatten naam en mailadres van de klant. bouw.py schrijft alleen de twee totalen naar `data.json` en de pagina, nooit een order of mailadres. De dashboard-tak is openbaar zolang dortus-hq openbaar is (rapport, "Ook belangrijk").
+
+De rij van punt 1 hieronder komt daaronder; "Lanceerdatum (richt)" in punt 2 wordt "Euro-datum".
+
+## 1. Tweede rij: "Op weg naar 20 december"
 Drie getallen naast elkaar, met het doel eronder:
 - **Gebruikers (alle producten samen):** som van de downloads/installs die bouw.py al ophaalt (Obsidian, JetBrains, later Blender, Steam, Garmin). Doel: 1.000 in één product.
 - **Betalende klanten:** uit de `Cijfers:`-regel in elke `status.md` (sjabloon voorstel 03). Doel: eerste.
