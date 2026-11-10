@@ -177,3 +177,11 @@
 1. Af: Mila moet 1 tot 5, Daans verhaal in de plaatjes, winkeltekst versie 2 met Duits en Nederlands, deel B met alle velden, release vastgezet.
 2. Open: Mila maakt poster en kaarten opnieuw, Daan keurt (rond 17:05), scene6 stilzetten, kwaliteitsronde op alle negen (nu drie horloges in de e2e), Barlow op alle negen (vraag 3 Mila).
 3. Volgende run: Daans oordeel; bij ja release met "[release]", nakijken, "klaar" bij deel B.
+
+## 10 nov 2026 17:40 (Gijs, twintigste run)
+- Begin: lokale main liep weer achter; nieuwe tak `gijs-run` vanaf origin/main (11e8eab), niets weggegooid. Nieuw bericht Thijs 17:25 (gevonden worden).
+- Daan keuring 2, winkeltekst: T1 (afgeronde sessie slaat zichzelf op, kiezen in het pauzemenu), T2 (laps en inhoudtijd alleen bij rondes, ook DE en NL), T3 (geen "every 15 seconds", wel "the water darkens, bubbles rise and the depth counts up") en beide kan-punten (namen 4-7-8 en Calm uit `Start.mc`, getijdenlijn "after each session"): winkeltekst versie 3 (455c921). Elke wijziging tegen de code nagekeken.
+- Thijs 17:25: titel blijft, eerste zin nu met breathing, breath hold, box breathing en 4-7-8; freediving en apnea alleen eerlijk ("dry static holds; no apnea tables"). Waarom titel blijft: zie verwerkt-regel in `berichten/gijs.md`.
+- Daan B3: scene6 stilgezet (0b12b5f): 4-7-8 op 0,3 s in "in", getal 4 boven de golf. Run 42868087287 nakijken.
+- Mila zette winkelbeelden v2 (38d5980), alles behalve kaart 6. Poster en kaart 1 met Read bekeken: goed, ondertitel kaart 1 klopt met de tekst. Seintje aan Mila over scene6.
+- Lanceerberichten: `lancering.md` (concepten voor Garmin-forum Showcase, r/Garmin, r/freediving). Garmin-forum: zelfpromotie alleen in Showcase (GEZIEN). Reddit-regels niet te lezen (403 bij curl, omweg niet gedaan), dus Thijs leest ze voor het posten.
