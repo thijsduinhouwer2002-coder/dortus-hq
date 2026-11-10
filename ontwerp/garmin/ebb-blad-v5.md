@@ -1,0 +1,55 @@
+# Ebb blad v5: alle schermen na de keuring van v4.1 (Mila, 11 nov 00:05 NL, run 23)
+
+**Blad: `ontwerp/garmin/ebb-blad-v5.png`.** Links 454 px (AMOLED), rechts 260 px (MIP), ware grootte. 20 schermen.
+**De zee per 30 s in één blik: `ontwerp/garmin/blad5/zee-standen-260.png`.** **De drie inhoudschermen naast elkaar: `blad5/drie-holds-454.png`.**
+Losse beelden en meting: `ontwerp/garmin/blad5/` (`meting-v5.txt`), bron `ontwerp/garmin/bron/ebb_blad_v5.py` (bouwt op v4 en v3).
+Vervangt v4.1. Gaat eerst langs een frisse beoordelaar (besluit 22:52) en dan naar Thijs; Gijs bouwt de schermen pas na zijn ja.
+Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
+
+## Wat er veranderde, punt voor punt (keuring `ebb-blad-v4-keuring-drie.md`)
+| punt | ja/nee | waar en hoe |
+|---|---|---|
+| T1 eigen dier | ja | Op 3a/3b/3c zwemt je eigen dier mee: de schildpad die je in de sea log koos (8c, knop "swims with you"). Zonder keuze: het laatst gevonden dier. Hij kantelt per scherm iets anders; de belletjes staan op elk scherm ergens anders. |
+| T2 zee donkerder | ja | Zes vaste standen, elke 30 s een stap (0:00, 0:30, 1:00, 1:30, 2:00, 2:30). MIP: de lichte banden schuiven omhoog en vallen weg, W3 groeit (zie strook). AMOLED: dezelfde banden plus het hele water 10 % donkerder per stap. Vanaf 3:00 terug naar stand 4: iets lichter, samen met de tekst. 0:30, 1:45 en 3:04 zijn alle drie anders. |
+| P1 instellingen | ja | 9: Rounds 3, **Breathing pace 10 per min**, Breaths 30, Buzz every 30 s on. 9b: Buzz last 3 breaths on, **Buzz only on (no sound)**, Touch lock on, Safety info. Geen "tick" of "normal" meer. |
+| P2 Connect | ja (beschreven) | Zie onder. |
+| P3 hartslag en ronde | ja | Elk inhoudscherm onderaan: hartje, bpm, "· round 2". Op 3c op de tweede regel. |
+| P4 na 3:00 | ja | "3:00 · time to breathe" in wit met trilicoon, geen geel. |
+| P5 8 weeks | ja | Staven = sessies per week (2 tot 5), getal eronder; "sessions per week"; "avg hold 1:29" over 8 weken (today zegt 1:32, het eindscherm laat 1:20, 1:45, 2:08 zien: drie verschillende dingen). |
+| P6 kloppende cijfers | ja | Eén verhaal: je hebt 7 dieren (Fish tot Starfish = 8 sessies, 4 dagen op rij). 6b: Starfish voor 4 dagen op rij. 6c (de sessie erna, zelfde dag): volgende is Pufferfish, 5 dagen op rij, dus "Pufferfish tomorrow". Herstel: "round 2 held 1:45", gelijk aan r2 op het eindscherm. 8: "7 of 24". Geen clownvis meer naast de vis. |
+| P7 today en eindscherm | ja | Today laat de hele dag zien: twee sessies (7:40 en 21:15), zes trechters, "2 sessions · 6 holds", "avg 1:32". |
+| P8 teksten | ja | 2: groot "23", klein "of 30 · round 2". 4: "big breath in, hold" boven "15 s". Eindscherm: r1 r2 r3 boven de tijden. |
+| P9 regels | ja | Zie onder. |
+| V1 sea log | ja | 3 x 3 per blad, 3 bladen ("1 / 3"). Kleinste dier 30 px op 260 en 52 px op 454 (gemeten, kwal), de rest groter. |
+| V2 silhouetten | ja | Kleur 0x0055FF (3,7:1 op zwart, MIP) en onder elk silhouet hoe je hem krijgt: "12x" = 12 sessies, "6d" = 6 dagen op rij, "break" bij de zeekomkommer. |
+| V3 grijs | ja | Geen grijs meer op 6b/6c (wit en lichtcyaan 0xAAFFFF). Overal elders ook lichtcyaan in plaats van grijs. |
+| V4 6b = 6c | ja | Zelfde skelet: kop met drie tijden, dier op 0,515, naam op 0,695, reeks op 0,775, stippen op 0,85. Het silhouet zit helemaal onder water, de golf loopt erboven. |
+| V5 groot dier | ja | Zeester op 6b ±40 % van de breedte. |
+| V6 tekenregel 24 dieren | **nee, volgende run** | Zeekomkommer, otter, zeehond opnieuw; rog en manta uit elkaar; haai, orka, manta, zwaardvis lichter. Staat als eerste op mijn lijst. |
+| V7 geen 24 stipjes | ja | 8c: groot dier, naam, hoe gekregen, knop "swims with you". |
+| S1 veiligheid | ja | Drie korte bladen (Next, Next, OK), tekst hieronder letterlijk voor de code. |
+| S2 startcheck | ja | 1b: "Seated or lying?" met knop Start, bij elke Rounds-start. |
+
+## Teksten voor de code (letterlijk)
+- 10: "Sit or lie down. / Never standing, / never in or near water, / never while driving." [Next]
+- 10b: "You can faint / without warning. / Never force a hold. / Stop if dizzy." [Next]
+- 10c: "Not if pregnant, / under 18, epilepsy, / heart or blood / pressure problems." geel: "Not a medical device." [OK]
+- 1b: "Rounds 3 x 30" / "Seated or lying?" [Start]
+- 3c: "3:00 · time to breathe" (wit), met een korte trilling (Gijs' zachte signaal).
+
+## P2: wat je in Garmin Connect ziet na een Rounds-sessie
+Activiteit "Breathwork" (of "Ebb"), met: duur, gemiddelde en hoogste hartslag (gewone grafiek van Garmin), en per ronde een lap. Eigen velden (FIT, al in de code van Gijs): per lap "Hold time" (m:ss) en "Breaths"; in de samenvatting "Rounds 3" en "Longest hold 2:08". Geen "best" of record. De hartslaggrafiek laat per ronde zien hoe je hart tijdens het inhouden zakt: dat is het mooie plaatje in Connect, zonder dat wij iets tekenen.
+
+## P9: regels die vast liggen
+- **Gemiste dag:** de reeks op het eindscherm begint opnieuw bij 1, maar dieren voor dagen op rij tellen met je **beste** reeks. Een gemiste dag pakt dus nooit een dier af. Na 7 of meer dagen zonder komt de zeekomkommer ("back after a break"), zodat terugkomen een cadeau is en geen schuld.
+- **Schema van de 24:** hoogstens één nieuw dier per sessie, en sessiedieren tellen hoogstens 2 sessies per dag (Gijs G2). Bij 4 sessies per week, 5 dagen op rij in de eerste week: week 1 vier tot vijf dieren (Fish, Shrimp, Jellyfish, Turtle, Crab), week 2 en 3 elke 3 tot 4 dagen een (Seahorse tot Squid), daarna gemiddeld één per week, en de laatste (Narwhal 40x, Giant squid 30 dagen, Whale 60x) in maand 3 en 4. Wie elke dag komt is na ±2 maanden bij 22 van 24; de walvis blijft voor de trouwste.
+- **Waarschuwing:** de drie veiligheidsbladen bij de eerste start en elke 30 dagen opnieuw; de regel "Seated or lying?" bij elke Rounds-start; "time to breathe" met trilling op 3:00 inhouden.
+
+## Gemeten (`blad5/meting-v5.txt`) en bekeken
+- Kader van alles wat getekend is: midden binnen 0,5 px op alle schermen op 260 en 454, behalve de sea log (8: -5 px op 260): dat is de ring om het gekozen dier links; zonder ring 0 px. Optisch midden binnen 2,7 px.
+- Verste pixel die geen water of rand is (kolom "verst" in de meting, alleen zinvol op schermen zonder water): sea log 0,86 en 0,89 van de straal (onderste dieren en hints), instellingen, today, 8 weeks en veiligheid 0,70 tot 0,78. Op schermen met water meet de kolom het schuim van de golf (0,97); daar staat de tekst op het oog ruim binnen de rand.
+- 0 pixels buiten de MIP-kleuren op 260. Kleinste letter 20 px op 260.
+- Bekeken met de Read-tool: heel blad, de drie inhoudschermen naast elkaar en de zeven zee-standen, sea log 1 en 2 vergroot. Zwakste nu: het trilicoontje op 3c is klein en wat druk; de "r1 r2 r3" kop op het eindscherm is netjes maar zakelijk.
+
+## Wat Thijs hier als eerste van zegt (besluit 23:39 punt 3)
+Waarschijnlijk: "de zee wordt nu echt donkerder, goed; maar zijn de dieren al allemaal mooi?" Nee, V6 (zeekomkommer, otter, zeehond, rog/manta) is nog niet opnieuw getekend. Daarom gaat v5 pas naar Thijs met de nieuwe dieren erbij.
