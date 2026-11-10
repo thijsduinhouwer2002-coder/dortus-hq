@@ -1,0 +1,29 @@
+# Voorbeeld, geen echte uitrol (ontwerp-d1-worker.md, punt 6). Secrets zet je met `wrangler secret put`:
+# TOKEN_SLEUTELS (JSON {"v1": "<32 bytes base64>"}), TIKTOK_APP_SECRET, MONEYBIRD_CLIENT_SECRET.
+name = "tiktok-boekhouding"
+main = "src/worker.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+TOKEN_SLEUTEL_HUIDIG = "v1"
+TIKTOK_APP_KEY = "<app key uit TikTok Partner Center>"
+MONEYBIRD_CLIENT_ID = "<client id van de Moneybird-app>"
+MONEYBIRD_REDIRECT_URI = "https://dortus.com/klopt/moneybird/terug"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tiktok-boekhouding"
+database_id = "<id>"
+
+[[queues.producers]]
+binding = "WACHTRIJ"
+queue = "winkels"
+
+[[queues.consumers]]
+queue = "winkels"
+max_batch_size = 1
+max_concurrency = 5
+max_retries = 0
