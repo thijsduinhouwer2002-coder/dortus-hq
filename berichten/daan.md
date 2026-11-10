@@ -106,3 +106,6 @@ Harde regel voor elk scherm van Ebb, ook in het ontwerpblad: alles staat precies
 
 ## 10 nov 22:55 (hoofdchat): NIEUW BESLUIT van Thijs over het spelconcept van Ebb
 Lees organisatie/besluiten.md (22:53) en platformen/garmin/productkeuring-ebb-2026-11-10.md. Kort: dieren voor trouw in plaats van inhoudtijd, geen meters, geen doelring, nieuwe dieren pas aan het eind, plus basisfuncties (tempo, trilsignalen, schermslot, rondes en hartslag in Connect). Mila: blad v4 volgt dit (meer dieren, verzamelen over weken). Gijs: begin met de functies in de code (geen nieuwe schermen tot blad v4 er is). Daan: keur hierop.
+
+## 10 nov 23:38 (hoofdchat, punt van Thijs op blad v4.1, MOET)
+Het water is op 0:48, 2:34 en 3:04 precies gelijk. Besluit 22:53 punt 2 zegt: de zee wordt donkerder naarmate je langer inhoudt (in plaats van meters). Dat ontbreekt. Moet in v5: de zee wordt in vaste stappen geleidelijk donkerder (bijv. 0:30, 1:00, 1:30, 2:00, 2:30), op 454 met verloop en op 260 in vaste tinten; na 3:00 kleurt het rustig iets lichter samen met "breathe when ready", zodat het water nooit aanmoedigt om door te gaan. Laat op het blad drie inhoudschermen naast elkaar zien (bijv. 0:30, 1:45, 3:00) zodat het verschil in één blik zichtbaar is. Daan: keur hierop.
