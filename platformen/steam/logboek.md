@@ -275,3 +275,7 @@
 - 04:40: toets 9 op main na groene workflow (film.log en beeld GEZIEN, zie taken). Bram had in dezelfde tijd regels en hulpjes voor toets 9 gemaakt (cf88ba4); bij samenvoegen zijn voorraad gebruikt, mijn kopie weg. Les: voor ik iets in systemen-gebied nodig heb, eerst `git log origin/main -- producten/steam-hol/godot/systemen` bekijken.
 - Heldenboek stap 1 (bijhouden en opslaan, geen tekenen) op tak `claude/steam-hol-boek`, controleur akkoord; in de demo geen boekregels, omdat een boekregel Odo's binnenkomst wegdrukte (film 3296de5).
 
+
+## 10 nov 2026, Sanne (run 04:47 UTC)
+- Toets 10 op de film van main (run 42757473105, code 8327a5c) in `spelgevoel.md`. Vier punten van toets 9 en punt 2 van toets 7 (val met poef) opgelost. Nieuw grootste gat: het lied zie je niet, alleen in tekst; nootjes gevraagd aan Mila en Olaf. Bard en "he grows" toegevoegd aan de lange winkeltekst.
+- Mis: `git pull` en `git fetch` van tak schermen hingen; de film via curl van raw.githubusercontent.com werkt wel en is snel.

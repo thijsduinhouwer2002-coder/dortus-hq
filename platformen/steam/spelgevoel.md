@@ -2,6 +2,30 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 10: koop zichtbaar, hap en hoed in één regel, lied met afloop, 10 nov 2026 (run 42757473105, commit 1f29de3, main; code van 8327a5c)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit "Schermen steam-hol/main run 42757473105", 04:46 UTC, 1024 x 120, 298 beelden, 60 s), een beeld per seconde van 0 tot 59 s, ingezoomd 3x op Gloop van 19,4 tot 22,8 s per 0,2 s, op de put van 41,8 tot 44 s per 0,2 s en op Gloop van 53 tot 59,8 s per 0,3 s, `film/film.log`, `cpu.txt` (1,26 CPU-s per 10 s, 117 MB). Mila's Big Gloop van 2 spelpixels (42514b7) zit nog niet in deze film.
+
+**Wat nu goed is:**
+- **Kopen doet iets.** Op 20,2 s wipt Gloop omhoog en komt hij groter terug; daarna blijft hij zo. In de inzoom zie je het verschil, op ware maat net. Punt 1a van toets 9 opgelost.
+- **De val heeft zijn moment.** Bram staat op 42,2 s voor de put, het onweerswolkje knapt in een kring van rookjes met een wit vlaggetje, de stekels blijven omhoog en Bram zakt in 0,8 s weg; daarna vliegen de muntjes. Dit is punt 2 van toets 7, en het is precies de lach die de trailer nodig heeft.
+- **De bard heeft een luit.** Vanaf 8 s loopt Bram met een gele luit op zijn rug, ook als hij valt. "Bram the Bard tunes his lute." klopt nu met het beeld. Punt 4 van toets 9 opgelost.
+- **Het lied heeft een afloop.** "Bram's song got popular. Uh oh." (33,8 s) en dan komt Mara binnen met "Mara knows all the words. Sadly." (45,8 s). Daarna wordt ze opgegeten. Dat is een grap in drie stappen. Punt 3 van toets 9 opgelost.
+- **Hap en hoed zijn één regel op het moment zelf:** "Gloop ate Odo. Kept the crown. +6" (28,7 s, kroon staat al op zijn kop) en "Gloop ate Mara. Kept the bucket. +6" (54,2 s). De emmer staat netjes op de kroon, geen zwevende hoed meer: de toren groeit in beeld. Punt 2b opgelost.
+- **De plat-regel komt** (36,3 s) en vervalt niet. Punt 2c opgelost.
+- **Olafs afwijking bij de lied-regel (laag, vervalt niet): akkoord.** Hij wacht 7,7 s, maar hij leidt Mara in; zonder die regel leest haar regel als onzin. Olaf had gelijk.
+- **"Gloop is up again. Wobbly." vervalt (46,5 s): akkoord.** Je ziet hem opstaan, de regel voegt weinig toe, en Mara's lied-regel is belangrijker. Geen actie.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **Het lied zie je niet, je leest het alleen.** Op het moment dat het lied populair wordt staat Bram al 7 s buiten beeld, en Mara loopt binnen zonder iets dat zingen laat zien. Je ziet een luit, maar nooit muziek. Voor de trailer en de winkel is dit het verschil tussen "er staat een grapje" en "ik zie het gebeuren". **Eis:** (a) een bard die binnenloopt en een bard die vlucht krijgt 2 of 3 kleine muzieknootjes die boven hem opstijgen en vervagen (elke ±2 s een nootje); (b) een held met `lied_held` krijgt bij binnenkomst 2 s lang hetzelfde nootje boven zijn hoofd, zodat je ziet dat hij komt door het lied. Geluid `lied` van Mila hoort erbij als geluid aan staat. **Voor Mila** (nootje van 5 x 5 in `tekens.png`, 2 beelden) **en Olaf** (tekenen en wanneer). Klein werk, groot verschil.
+2. **Big Gloop is op ware maat nog te weinig groter.** De wip is goed, maar het verschil in maat zie je zonder inzoom nauwelijks. Mila's nieuwe bladen van 20 x 16 (`slijm_groot2.png`, 42514b7) staan klaar. **Voor Bram** (de zes stappen uit Mila's bericht van 04:55 in `slijm.gd`).
+3. **"Gloop is flat. Back soon." komt 1,3 s te laat.** Gloop ligt plat vanaf ±35,0 s, de regel komt op 36,3 s omdat de lied-regel er nog staat. Mijn afspraak was binnen 1 s. Een lage regel die niet vervalt mag een gebeurtenis niet ophouden. **Voor Olaf, klein:** in `kern/wachtrij.gd` mag een gebeurtenis een lage regel na 1 s wegdrukken, ook als die lage regel in `NOOIT_WEG` staat (die komt dan daarna nog even terug of vervalt alsnog; jij kiest).
+4. **De eerste 11 seconden zijn traag.** De eerste val komt op 11,6 s; daarvoor loopt Kees alleen. Voor de demo-minuut is dat goed (rustig begin), maar de trailer moet in 3 s haken. **Voor Olaf (trailer):** open met 42 tot 44 s (wolkje knapt, Bram zakt weg, "The Spike Pit won. +9") of 53 tot 55 s (hap, emmer op de kroon), niet met het begin van de film.
+5. **Paneel:** nog ±320 van de 1024 px. Blijft bij Mila en Olaf.
+
+**Winkeltekst:** het lied van de bard en "Gloop grows" zitten nu in de build, met afloop in beeld. Toegevoegd in `ontwerp/steam/winkelpagina/teksten.md` (lange beschrijving). Stap 2 en 3 van Gloop (namen en uiterlijk) noem ik nog niet bij naam, want die zag ik nog niet in een film.
+
+**Oordeel:** dit is de eerste minuut zonder een open gat in het verhaal: keuze, gevolg, wrok met afloop, lied met afloop, toren die groeit. Met nootjes (punt 1) en de grote Gloop (punt 2) kan de trailer uit deze film gesneden worden.
+
 ## Toets 9: heldensoorten, het lied en het kaartje na Buy, 10 nov 2026 (run 42749522414, commit f13e922, main; log uit run 42751197475 op 816f9eb)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, laatst gewijzigd in e48104f, 1024 x 120, 298 beelden, 60 s; de runs op 995f57e en 816f9eb gaven dezelfde film, want de demo is vast), een blad per seconde van 0 tot 30 s en per 2 s van 30 tot 59 s, ingezoomd 2,5x op Gloop en de schat van 18,4 tot 23,2 s per 0,6 s, `film/film.log`, `cpu.txt` (1,27 CPU-s per 10 s, 118 MB; ruis van Actions, nog ruim zuinig).
 

@@ -21,7 +21,7 @@ Mijn advies was Hat Hoard; Daan koos Hats of the Fallen omdat Hat Hoard als verz
 ## 2. Korte beschrijving (Steam-veld ±300 tekens, DERDEN/GOK: Valve noemt "a few hundred characters"; deze heeft 270)
 > A tiny dungeon lives on top of your taskbar. Heroes climb in, fall into your traps and get eaten by Gloop, who wears their hats. The ones who flee come back with scars, nicknames and a grudge. Dig, upgrade and laugh between tasks. You're never punished for looking away.
 
-Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin 2 is de haak die op de capsule en in de trailer staat (hoeden op Gloop), zin 3 is wat geen ander taakbalkspel heeft (de wrok), zin 4 belooft het eerlijke ritme. Valen, opgegeten worden, hoed op Gloop en terugkomen met wrok zitten in de film van main (toets 5); graven en "nooit straffen" zitten in de bouw. "Upgrade" is sinds 10 nov waar in de build (kaartje met Buy en Undo, drie stappen voor Gloop en voor de put, toets 8 en 9 in `spelgevoel.md`), dus geen **[v1]** meer. Nog niet in de tekst: heldensoorten en het lied van de bard (pas als je de luit ziet en het lied een zichtbare afloop heeft, toets 9 punt 3 en 4) en "Gloop grows" (pas als je Gloop ziet groeien, toets 9 punt 1). (Na controleur: "into" in plaats van "in", "upgrade" in plaats van "decorate".)
+Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin 2 is de haak die op de capsule en in de trailer staat (hoeden op Gloop), zin 3 is wat geen ander taakbalkspel heeft (de wrok), zin 4 belooft het eerlijke ritme. Valen, opgegeten worden, hoed op Gloop en terugkomen met wrok zitten in de film van main (toets 5); graven en "nooit straffen" zitten in de bouw. "Upgrade" is sinds 10 nov waar in de build (kaartje met Buy en Undo, drie stappen voor Gloop en voor de put, toets 8 en 9 in `spelgevoel.md`), dus geen **[v1]** meer. Sinds toets 10 (10 nov 05:00 UTC) wel in de lange beschrijving: het lied van de bard (luit in beeld, "Mara knows all the words. Sadly.") en "he grows" (Gloop wipt en wordt groter bij kopen). De namen van stap 2 en 3 nog niet, want die zag ik nog niet in een film. (Na controleur: "into" in plaats van "in", "upgrade" in plaats van "decorate".)
 
 ## 3. Lange beschrijving (Steam-opmaak: koppen als [h2], lijstjes als [list])
 
@@ -30,10 +30,10 @@ Waarom zo: zin 1 zegt wat en waar (Desktop Companion, voor de fest-keuring), zin
 > Hats of the Fallen is a tiny pixel dungeon that sits in a strip right above your taskbar while you work, study or watch something. Heroes keep climbing in to steal your gold. Most of them don't make it out.
 >
 > [h2]Gloop wears the hats[/h2]
-> Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks.
+> Gloop the Slime eats heroes and keeps their hats. A crown, a chef's hat, a bucket, a frying pan: they stack on his head, and when the stack gets too tall, the hats pile up next to him in a hoard of hats that keeps growing for weeks. Spend your gold on him and he grows.
 >
 > [h2]Heroes hold grudges[/h2]
-> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Flee three times and he becomes your Archenemy. **[v1]** One day his son shows up and wants his father's hat back.
+> Every hero has a name and a quirk. The ones who flee come back with a bandage, a nickname and a grudge against whatever hurt them. "Bram is back for the Spike Pit." Bards are worse: one who escapes sings about your dungeon, and new heroes show up knowing all the words. Flee three times and he becomes your Archenemy. **[v1]** One day his son shows up and wants his father's hat back.
 >
 > [h2]Glance, smile, get back to work[/h2]
 > [list]
