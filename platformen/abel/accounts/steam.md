@@ -1,6 +1,6 @@
 # Steam: kant-en-klaar plan (Abel)
 
-Versie 2, 10 nov 2026 01:40 NL. Status: beelden van Mila staan er, teksten aangepast op keuring 1 van Daan (moet-punten 1 en 2, kan-punt 3). Wacht op: Daans akkoord op dit plan en op de twee v1b-beelden (`merk/voor-mila.md`).
+Versie 3, 10 nov 2026 03:15 NL. Status: plan en beelden akkoord (Daan, keuring 2). **Nieuw en belangrijk: eerst stap 0, want een beperkt Steam-account kan bijna niets van dit plan.**
 
 ## In één zin
 Op Steam ziet een speler straks overal hetzelfde Dortus: het profiel dortusgames, de groep en de ontwikkelaarspagina dragen dezelfde deur-D en dezelfde korte tekst, en de winkelpagina van Hats of the Fallen linkt naar die ontwikkelaarspagina, zodat iemand op "Follow" kan klikken.
@@ -16,6 +16,18 @@ Wie de ontwikkelaarspagina volgt, krijgt van Steam bericht als we iets uitbrenge
 ## Wat er nu staat (GEZIEN 10 nov 00:40)
 - steamcommunity.com/id/dortus, /groups/dortus en /groups/dortusgames: "Error", dus vrij.
 - store.steampowered.com/developer/dortus: bestaat niet. Vrij.
+
+## Stap 0. Is dortusgames een beperkt account? (Thijs, ±1 min kijken, daarna een keuze van ±€5)
+Dit bepaalt of de rest werkt. Valve beperkt elk account dat **minder dan $5 in de Steam-winkel** uitgaf. Wat zo'n account niet kan (GEZIEN, help.steampowered.com/en/faqs/view/71D3-35C2-AD96-AA3A, 10 nov 03:10):
+- **"Making your Steam profile visible to non-friends"**: stap 1 zou dan alleen voor vrienden zichtbaar zijn, dus voor niemand.
+- **"Creating Steam groups"**: stap 2 lukt niet, en zonder groep geen ontwikkelaarspagina (stap 3). Valve zegt het ook in de Steamworks-docs: "You'll need to make sure that your individual Steam account is not 'limited'" (GEZIEN, partner.steamgames.com/doc/store/creator_homepage).
+- Ook geen links plaatsen in de community en geen vrienden toevoegen.
+
+Telt de $100 van Steam Direct mee? Op Valves lijst staan alleen aankopen in de Steam-winkel en tegoed op de Steam-portemonnee. De fee betaal je in Steamworks, niet in de winkel, dus waarschijnlijk **niet** (GOK, niet nagemeten; Valve noemt de fee nergens). dortusgames is op 9 nov nieuw gemaakt voor Steamworks, dus ik reken erop dat het beperkt is.
+
+**Kijken:** ingelogd als dortusgames naar https://help.steampowered.com, zoek "Limited User Accounts" en klik daar op de link "view your current limited user spend". Staat er minder dan $5: beperkt.
+
+**Oplossing (geld, dus jouw keuze):** €5 of meer op de Steam-portemonnee van dortusgames zetten (Steam > je naam > Account details > "Add funds to your Steam Wallet"). Het geld is niet weg: het blijft op dortusgames staan, bijvoorbeeld om later een spel te kopen dat we als voorbeeld willen bekijken. Mijn advies: doen, want zonder dit staan stap 1, 2 en 3 stil, en dus ook de "Follow"-knop die volgers geeft voor het fest van 14 januari. Staat op `organisatie/lijst-thijs.md`.
 
 ## Stap 1. Profiel dortusgames (Thijs, ±5 min, kan nu)
 Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rechtsboven > **Profiel bekijken** > **Profiel bewerken**.
@@ -86,6 +98,8 @@ Waarom zo: kort, één vaste zin voor het spel (keuring Daan), en we beloven nie
 - **Eerlijkheid AI:** in de Content Survey (verplicht bij het indienen) vraagt Valve of er inhoud in het spel zit die met hulp van AI-tools gemaakt is en die spelers zien. Dat moet je beschrijven; Valve toont het op de winkelpagina. DERDEN: https://partner.steamgames.com/doc/gettingstarted/contentsurvey. Voorstel (Thijs keurt): "The pixel art, text and code were made with the help of AI tools (Anthropic's Claude) and reviewed by the developer. No AI runs while you play." Alleen invullen wat waar is. Staat ter info op `organisatie/lijst-thijs.md`.
 
 ## Beelden (allemaal van Mila, v1b is mijn verschuiving met haar eigen code)
+Welke versie: de bestanden hieronder zijn door Daan goedgekeurd (keuring 2). Mila maakte daarna v2 (`-v2` in de naam, licht uit de kier, kop zonder tweede D); die wacht op Daans keuring 3. **Keurt Daan v2 goed, gebruik dan overal de `-v2`-bestanden in plaats van v1b en v1.** Daans moet-punt 1 (de grote D niet achter de middenkolom) is in zowel v1b als v2 opgelost: daar staat geen tweede D meer op de achtergrond (GEZIEN in `proef/steam-pagina-v1b-op-steam-1920.png` en `steam-pagina-v2-op-steam-1280.png`).
+
 | Waar | Bestand | Maat |
 |---|---|---|
 | Profiel, groep, logo in de kop | `merk/avatar-184.png` | 184 x 184 |
@@ -94,7 +108,7 @@ Waarom zo: kort, één vaste zin voor het spel (keuring Daan), en we beloven nie
 | Achtergrond (v2) | `merk/steam-achtergrond-1920-v1b.png` | 1920 x 1200 |
 
 ## Klaar als
-Daan zette `Akkoord: ja` onder dit plan (of in `ontwerp/keuring-abel.md`), en Mila nam v1b over of verving het door iets beters.
+Stap 0 is opgelost (geen beperkt account), profiel en groep staan, en na de app-ID de ontwikkelaarspagina. Akkoord Daan: ja (keuring 2, 10 nov).
 
 ## Keuring Daan
 (Daan: ja of nee met moet-punten.)
