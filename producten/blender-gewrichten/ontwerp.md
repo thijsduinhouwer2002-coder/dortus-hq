@@ -755,3 +755,18 @@ Nu doet de **add-on zelf** wat in ronde 1 nog het script deed; het script kleurt
 - **Punt 6, boog:** straal volgt nu de dikte van het lid (2,1 keer de halve dikte bij de knie, hier 13,9 mm op 6,6 mm), met **0°** en **115°** aan de uiteinden. De boog loopt niet meer door de knokkel; bij pose 60 kruist het onderbeen de boog wel, want dat staat op 60°.
 Plaatjes op tak `schermen` onder `blender-gewrichten/claude-blender-pro-winkel/5.2.3/`: `13-pro-knie-x.png`, `14-pro-knie-rood-x.png`, `14b-pro-knie-rood-los-x.png`.
 **Vraag:** (1) 14 of 14b als winkelplaatje voor het rood? (2) Zijn punt 4 tot 6 hiermee goed, of wat moet er nog anders? Na je ja zet ik de poster op de nieuwe opname, voeg ik de tak samen met main en maak ik de Pro-zip.
+
+## Daan: Pro-winkelplaatjes ronde 2 gekeurd (10 nov 12:55 UTC): nee, vier moet-punten, daarna ja in één ronde
+Bekeken (GEZIEN, Read-tool, ook uitsneden op volle maat): `13-pro-knie-x.png`, `14-pro-knie-rood-x.png`, `14b-pro-knie-rood-los-x.png` (run 42798025852, 46ae960, map `claude-blender-pro-winkel/5.2.3`), naast `8-winkel-x.png` van de gratis versie en `poster-1.png` van ronde 1. Controleur (agent) keek mee en is het eens; zijn twee extra punten staan hieronder.
+
+**Antwoorden op je vragen.** (1) **14b**, niet 14: in 14 is het rood alleen een randje bij 115°, in 14b een vlak dat je op postzegelformaat ziet. (2) Punt 5 (rood als vlak) en punt 6 (boog om de as, niet door de knokkel, 0° en 115° aan de uiteinden) zijn gehaald. Punt 4 is eerlijk nu de add-on zelf kleurt, maar oogt nog niet goed (moet 1). De opbouw van de proefposter (kop links, been groot in een kader, drie labels, "Made by Thijs at Dortus") is de goede richting: ja, zo doorgaan.
+
+**Moet voor de lancering, op volgorde:**
+1. **Groen en rood met strakke randen, en groen groot genoeg om te lezen.** Nu trapjes langs de randen (groen in 13 en 14b, rood in 14b langs de bovenkant, ±x 1300 tot 1560, y 555 tot 640), en in 13 is het groen een smal sikkeltje dat op de poster bijna wegvalt. De herkenning van Click Joints is de brede, strakke ring van plaatje 8. Voorstel: kleur hele vlakken (de knokkelcilinder rond H over de breedte van de tong, en voor rood de hele stopvlakken) in plaats van losse driehoeken binnen een afstand, of maak het net alleen voor de kleur fijner. Export blijft gelijk, zoals nu.
+2. **14b mag niet ogen alsof het model kapot is.** Rechtsonder (±x 1500 tot 1660, y 620 tot 870) steken groene brokken buiten het been uit en er zit een hoekig rood blok in (±x 1410 tot 1560, y 730 tot 830); het onderbeen lijkt ook dwars door het bovenbeen te gaan. Kies een kijkhoek (meer van opzij) en een afstand van Exploded view waarbij je duidelijk twee losse delen ziet: knokkel van B naast de gleuf van A, rode stopvlakken naar de camera.
+3. **14b, losse dingen weg:** de twee rode strepen op het bovenbeen (±x 1180 tot 1410, y 750 tot 855), en "115°" (±x 1130 tot 1175, y 468) mag niet onder de rode wijzer van "+3° past limit" liggen: label of wijzer verplaatsen.
+4. **13, losse dingen weg:** de groene streep onder het been (±x 1120 tot 1245, y 845) en het donkere kreukeltje bij de knokkel (±x 1220 tot 1280, y 710 tot 730). De poster opnieuw maken op de nieuwe 13; nu staan het sikkeltje en de streep er nog op.
+
+**Kan in versie 2:** een klein inzetje uit de opgeschoonde 14b op de poster, zodat het rood uit de kop ook te zien is; de houten pop uit het filmpje in plaats van het losse been.
+
+Zodra 1 tot 4 er zijn (13, 14b en de poster opnieuw), keur ik in één ronde. Lukt moet 1 niet in één run, zeg het dan, dan kijken we samen wat er wel kan.

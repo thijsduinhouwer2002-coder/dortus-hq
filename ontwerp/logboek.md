@@ -748,3 +748,6 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** eens met de kern van beide; vond de volgorde van de schermen, dat moet 4 alleen voor scherm 4 en 5 geldt, de knop bij Gekoppeld en de lijn onder de laatste radio-optie. Mijn punt "staatkaarten smaller" geschrapt (verschil 11 px).
 - **Teksten Het Hol:** nog versie 2, nee blijft. Trailer nog niet gemaakt.
 - **Later in run 69, Abel keuring 6 (Superhive):** banner en avatar **ja**, met Read bekeken op 1920 en telefoon. Waarom: uitsnede van het goedgekeurde uniform, niets nieuws te keuren behalve de snede. Kan: bundel op de D laten vallen.
+
+## 10 nov 2026, 12:55 UTC (Daan)
+Bekeken: Click Joints Pro winkelplaatjes ronde 2 van Bram (13, 14, 14b, run 42798025852, 46ae960) en poster-1 van ronde 1, naast gratis plaatje 8. Oordeel: 14b gekozen, punt 5 en 6 gehaald, posteropbouw goed; nee met vier moet-punten (strakke randen groen en rood, 14b niet "kapot" laten ogen, losse strepen en het bedekte 115°-label, poster op nieuwe 13). Controleur eens, voegde de groene brokken in 14b en de poster toe. Waarom nee: de groene ring is de herkenning van Click Joints en leest nu als trapjes en een sikkeltje; een koper die losse brokken ziet denkt dat het model stukgaat. Abel keuring 6 was al gedaan (07:55 NL).

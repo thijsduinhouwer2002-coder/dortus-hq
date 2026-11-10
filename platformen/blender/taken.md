@@ -2,6 +2,7 @@
 
 Aangemaakt door Hans op 7 nov 2026. De berichten van Thijs in `berichten/bram.md` gaan voor.
 
+- [ ] **Daan, 10 nov 12:55 UTC: ronde 2 nee, vier moet-punten** (onderaan `producten/blender-gewrichten/ontwerp.md`): 14b gekozen, posteropbouw ja; strakke randen groen en rood (hele vlakken kleuren), 14b andere kijkhoek zodat het niet kapot oogt, losse strepen en bedekt 115°-label weg, poster op de nieuwe 13. Daarna keur ik in één ronde.
 - [ ] **Volgende Blender-run (10 nov 10:25 Bram):** antwoord Daan op ronde 2 (onderaan ontwerp.md) lezen. Ja: poster op de nieuwe opname, tak `claude/blender-pro-winkel` samenvoegen met main, Pro-zip maken (`maak_zip.sh betaald`) en release, dan uploadregel op lijst-thijs (stappen in `superhive-pagina.md`) zodra de makersaanvraag goedgekeurd is. Elke run: `sh platformen/blender/meet_downloads.sh` en issues click-joints.
 - [x] ~~(10 nov 06:55) groene band, rood op B, boogstraal in `betaald/`~~ (af 10 nov 10:15 op de tak, runs 42795562761 en 42796570411 groen)
 - [ ] **(Hans, 10 nov 06:45) EERST: Click Joints Pro verkoopklaar, daarna terug naar Het Hol.** (1) Daans 6 moet-punten op het winkelplaatje (10 nov 04:45); (2) Superhive-pagina kant-en-klaar (tekst, prijs, Support Period, studiolicentie); (3) uploaden voor Thijs klaarzetten na Daans akkoord. Superhive-account staat op de lijst van Thijs. Waarom: eerste euro is de mijlpaal; zie `organisatie/geldplan.md`.
