@@ -237,15 +237,19 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     // Stap 0 (ontwerp-betalen.md, punt 2): vrijgesteld van de grens is een afrekening die al geboekt, onzeker of "boeking
     // gestart" was, of al een rij in de telling heeft: zoeken op kenmerk en herstellen mogen nooit stilvallen.
     const tellingen = inst.magBoeken ? undefined : await d.opslag.leesTelling();
-    const vrij = inst.magBoeken || (oud !== undefined && (GEBOEKT.includes(oud.status) || oud.status === "onzeker")) || gelezen?.reden === BOEKING_GESTART || tellingen!.has(id);
+    // `vrijSql`: alleen abonnement of status gaat als vrijstelling naar de SQL van stap 3; een bestaande rij vangt
+    // INSERT OR IGNORE daar zelf op, zodat een achterlopende cache nooit zonder grens laat invoegen.
+    const vrijSql = inst.magBoeken || (oud !== undefined && (GEBOEKT.includes(oud.status) || oud.status === "onzeker")) || gelezen?.reden === BOEKING_GESTART;
+    const vrij = vrijSql || tellingen!.has(id);
     const maand = maandVan(tijd);
     const som = tellingen ? somVanMaand(tellingen, maand, id) : 0;
     if (!vrij) {
-      // Stap 1, vóór het ophalen (geen verzoek naar TikTok). Ouder dan de vorige maand: `wacht_ouder` (de knop slaat dit over).
-      if (!herstel && maand < vorigeMaand(d.nu())) return zet(WACHT_OUDER, { opnieuwSinds: undefined, pogingen: 0, eerstePoging: undefined });
-      // Maand al vol: wachten, behalve als de afrekening volgens Get Statements geen omzet heeft (dan misschien zonder
-      // bestellingen, en die mag altijd: stap 2 telt het precies).
-      if (som >= GRATIS_PER_MAAND && !zonderOmzet(a)) return zet("wacht_op_abonnement", { opnieuwSinds: undefined });
+      // Stap 1, vóór het ophalen (geen verzoek naar TikTok). Ouder dan de vorige maand: `wacht_ouder`, ook na de knop:
+      // gratis ruimte geldt alleen voor de lopende en vorige maand (toets g). Met abonnement is `vrij` al waar.
+      if (maand < vorigeMaand(d.nu())) return zet(WACHT_OUDER, { opnieuwSinds: undefined, pogingen: 0, eerstePoging: undefined });
+      // Maand al vol: wachten zonder verzoek, alleen als Get Statements omzet boven 0 geeft. Anders misschien zonder
+      // bestellingen, en die mag altijd: stap 2 telt het precies.
+      if (som >= GRATIS_PER_MAAND && metOmzet(a)) return zet("wacht_op_abonnement", { opnieuwSinds: undefined });
     }
 
     let s: Ophaling;
@@ -286,10 +290,10 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     // Stap 3 (ontwerp-betalen.md, punt 2): de telling vastleggen in één batch vóór die van startBoeking, met de grens in de
     // SQL. Vrijgesteld (stap 0): geen grens. Een rij van een eerdere poging telt in de SQL als vrijstelling (INSERT OR IGNORE).
     const telling = await d.opslag.legTellingVast(id, d.eigenaar, {
-      maand, bestellingen: s.bestellingen ?? 0, vrij, grens: GRATIS_PER_MAAND, minTot: d.nu() + SLOT_MARGE,
+      maand, bestellingen: s.bestellingen ?? 0, vrij: vrijSql, grens: GRATIS_PER_MAAND, minTot: d.nu() + SLOT_MARGE,
     });
     if (!telling.slot) return { stop: true }; // slot verloren: niets schrijven (zelfde vangnet als bij startBoeking)
-    if (!telling.rij) return zet("wacht_op_abonnement"); // grens bereikt: niets verstuurd, bestellingen staan bewaard
+    if (!telling.rij) return zet("wacht_op_abonnement", { opnieuwSinds: undefined }); // grens bereikt: niets verstuurd, bestellingen staan bewaard
     // Stap 4: de rij gaat alleen weg als deze poging hem invoegde en de status van daarvoor niet geboekt was.
     wisRij = telling.ingevoegd && !(oud !== undefined && GEBOEKT.includes(oud.status));
     const tot = await d.opslag.startBoeking(id, d.eigenaar, gestart, d.nu() + SLOT_MARGE);
@@ -334,8 +338,8 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
   }
 }
 
-/** Get Statements zegt dat er geen omzet is (`revenue_amount` 0): misschien een afrekening zonder bestellingen. */
-function zonderOmzet(a: Afrekening): boolean {
-  const r = a.revenue_amount;
-  return typeof r === "string" && r.trim() !== "" && Number(r) === 0;
+/** Get Statements geeft omzet boven 0: dan zeker bestellingen. Ontbreekt het veld of is het 0, dan misschien niet. */
+function metOmzet(a: Afrekening): boolean {
+  const r = Number(a.revenue_amount);
+  return Number.isFinite(r) && r > 0;
 }

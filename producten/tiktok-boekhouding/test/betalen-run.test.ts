@@ -38,7 +38,7 @@ async function runs(w: ReturnType<typeof wereld>, o: GeheugenOpslag, i: Partial<
 test("(f) maand vol: geen verzoek naar TikTok voor de afrekening; n te groot: transacties wel, losse bestellingen niet", async () => {
   const w = wereld();
   w.voegToe("8001", T0 + DAG, "PAID", Array(30).fill(10));
-  w.voegToe("8002", T0 + 2 * DAG, "PAID", [10]);
+  w.voegToe("8002", T0 + 2 * DAG, "PAID", [10]).omzet = "10.00"; // omzet boven 0 in Get Statements: zeker bestellingen
   const o = maakOpslag();
   await runs(w, o, {});
   assert.equal(await status(o, "8001"), "geboekt");
@@ -115,18 +115,35 @@ test("(f, g) maandwissel: wacht_op_abonnement van oktober wordt in december wach
   assert.equal(await status(o, "8502"), "geboekt");
 });
 
-test("(g) inhalen zonder abonnement alleen voor de lopende en vorige maand", async () => {
+test("(g) inhalen zonder abonnement alleen voor de lopende en vorige maand, ook niet via de knop", async () => {
   const w = wereld();
   w.voegToe("8601", SEP, "PAID", [10]);
   w.voegToe("8602", OKT, "PAID", [10]);
   w.voegToe("8603", T0 + DAG, "PAID", [10]);
   const o = maakOpslag();
   await runs(w, o, {}, NU, 3);
-  assert.equal(await status(o, "8601"), "wacht_ouder");
+  assert.equal(await status(o, "8601"), "wacht_ouder", "september heeft ruimte, maar is ouder dan de vorige maand");
   assert.equal(await status(o, "8602"), "geboekt");
   assert.equal(await status(o, "8603"), "geboekt");
-  // De knop op een wacht_ouder zonder abonnement: leeftijd overgeslagen, september heeft ruimte, dus geboekt.
+  // De knop zonder abonnement: blijft wacht_ouder, geen verzoek naar TikTok voor die afrekening, niets naar Moneybird.
+  const docs = w.docs.size;
   await opnieuw({ opslag: o, nu: () => NU + 9000 }, "8601");
   await runs(w, o, {}, NU + 9001, 3);
-  assert.equal(await status(o, "8601"), "geboekt");
+  assert.equal(await status(o, "8601"), "wacht_ouder");
+  assert.equal(tt(w, "/statements/8601/"), 0);
+  assert.equal(w.docs.size, docs);
+  assert.equal(((o as any).telling as Map<string, unknown>).has("8601"), false);
+});
+
+test("(f) zonder revenue_amount in Get Statements: maand vol, toch de transacties ophalen (misschien zonder bestellingen)", async () => {
+  const w = wereld();
+  w.voegToe("8701", T0 + DAG, "PAID", Array(30).fill(10));
+  w.voegToe("8702", T0 + 2 * DAG, "PAID", [10]).omzet = "12.50";
+  w.voegToe("8703", T0 + 3 * DAG, "PAID", [], [{ id: "y1", type: "ADJUSTMENT", settlement_amount: "-1.00", adjustment_amount: "-1.00" }]);
+  const o = maakOpslag();
+  await runs(w, o, {});
+  assert.equal(tt(w, "/statements/8702/"), 0, "omzet boven 0: wachten zonder verzoek");
+  assert.equal(await status(o, "8702"), "wacht_op_abonnement");
+  assert.ok(tt(w, "/statements/8703/") >= 1);
+  assert.ok(["geboekt", "geboekt_met_waarschuwing"].includes(String(await status(o, "8703"))));
 });
