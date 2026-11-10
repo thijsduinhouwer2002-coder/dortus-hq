@@ -70,4 +70,5 @@ Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI gesc
 - Blender ID: avatar.
 - Obsidian-forum: profielfoto.
 - Steam: profielavatar. De ontwikkelaarspagina en groep kunnen pas als het account niet meer beperkt is ($5 uitgeven).
-- Nog open: Superhive-avatar (formulier vraagt eerst een land), Superhive-winkelbanner (pas na goedkeuring als maker), dortus.com (wacht op Thijs' ja).
+- Superhive: avatar (land Nederland, op Thijs' ja), 11:35.
+- Nog open: Superhive-winkelbanner (pas na goedkeuring als maker), dortus.com (wacht op Thijs' ja).
