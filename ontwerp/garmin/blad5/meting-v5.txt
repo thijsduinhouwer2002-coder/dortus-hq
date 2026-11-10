@@ -10,32 +10,34 @@
  454  6b einde met dier      kader x  +0.0 px
  454  6c einde zonder dier   kader x  +0.0 px
  454  7 8 weeks              kader x  +0.0 px
- 454  8 sea log 1 van 3      kader x  -8.5 px
- 454  8b sea log 2 van 3     kader x  +1.5 px
+ 454  8 sea log 1 van 3      kader x  -8.0 px
+ 454  8b sea log 2 van 3     kader x  -3.5 px
+ 454  8d sea log 3 van 3     kader x  +9.0 px
  454  8c sea log dier        kader x  +0.0 px
  454  9 settings             kader x  +0.0 px
  454  9b settings            kader x  +0.0 px
  454  10 veilig 1            kader x  +0.5 px
  454  10b veilig 2           kader x  +0.5 px
  454  10c veilig 3           kader x  +0.5 px
- 260  1 menu                 kader x  +0.5 px   optisch x  -1.2 px   buiten MIP 0   verst 0.97 R
+ 260  1 menu                 kader x  +0.5 px   optisch x  -0.5 px   buiten MIP 0   verst 0.97 R
  260  1b start               kader x  +0.0 px   optisch x  +0.5 px   buiten MIP 0   verst 0.97 R
  260  2 ademen               kader x  +0.0 px   optisch x  +0.6 px   buiten MIP 0   verst 0.97 R
  260  3a hold 0:30           kader x  +0.0 px   optisch x  +0.6 px   buiten MIP 0   verst 0.97 R
  260  3b hold 1:45           kader x  +0.0 px   optisch x  +2.1 px   buiten MIP 0   verst 0.97 R
- 260  3c hold 3:04           kader x  +0.0 px   optisch x  +0.7 px   buiten MIP 0   verst 0.97 R
+ 260  3c hold 3:04           kader x  +0.0 px   optisch x  +0.2 px   buiten MIP 0   verst 0.97 R
  260  4 herstel              kader x  +0.0 px   optisch x  -1.1 px   buiten MIP 0   verst 0.97 R
  260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   buiten MIP 0   verst 0.97 R
- 260  6 today                kader x  +0.0 px   optisch x  +1.1 px   buiten MIP 0   verst 0.74 R
- 260  6b einde met dier      kader x  +0.0 px   optisch x  -0.8 px   buiten MIP 0   verst 0.97 R
- 260  6c einde zonder dier   kader x  +0.0 px   optisch x  +0.0 px   buiten MIP 0   verst 0.97 R
+ 260  6 today                kader x  +0.0 px   optisch x  +1.2 px   buiten MIP 0   verst 0.74 R
+ 260  6b einde met dier      kader x  +0.0 px   optisch x  -0.5 px   buiten MIP 0   verst 0.97 R
+ 260  6c einde zonder dier   kader x  +0.0 px   optisch x  -1.2 px   buiten MIP 0   verst 0.97 R
  260  7 8 weeks              kader x  +0.5 px   optisch x  +0.4 px   buiten MIP 0   verst 0.76 R
- 260  8 sea log 1 van 3      kader x  -5.0 px   optisch x  +0.1 px   buiten MIP 0   verst 0.87 R
- 260  8b sea log 2 van 3     kader x  +1.0 px   optisch x  -1.0 px   buiten MIP 0   verst 0.90 R
+ 260  8 sea log 1 van 3      kader x  -4.5 px   optisch x  -4.1 px   buiten MIP 0   verst 0.84 R
+ 260  8b sea log 2 van 3     kader x  -2.5 px   optisch x  -3.3 px   buiten MIP 0   verst 0.85 R
+ 260  8d sea log 3 van 3     kader x  +5.5 px   optisch x  +0.7 px   buiten MIP 0   verst 0.92 R
  260  8c sea log dier        kader x  +0.0 px   optisch x  +0.4 px   buiten MIP 0   verst 0.73 R
  260  9 settings             kader x  +0.5 px   optisch x  -2.7 px   buiten MIP 0   verst 0.78 R
  260  9b settings            kader x  +0.5 px   optisch x  -1.1 px   buiten MIP 0   verst 0.70 R
  260  10 veilig 1            kader x  +0.0 px   optisch x  -0.3 px   buiten MIP 0   verst 0.76 R
  260  10b veilig 2           kader x  -0.5 px   optisch x  -0.9 px   buiten MIP 0   verst 0.76 R
  260  10c veilig 3           kader x  +0.5 px   optisch x  -0.3 px   buiten MIP 0   verst 0.76 R
-kleinste tekst op 260: "Next" 20 px, "25x" 20 px, "2 / 3" 20 px, "2" 20 px, "You can faint" 20 px, "Never force a hold." 20 px
+kleinste tekst op 260: "1:20" 20 px, "Not a medical device." 20 px, "10 per min" 20 px, "big breath in, hold" 20 px, "Pufferfish tomorrow" 20 px, "without warning." 20 px

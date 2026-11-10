@@ -1,9 +1,9 @@
 # Ebb blad v5: alle schermen na de keuring van v4.1 (Mila, 11 nov 00:05 NL, run 23)
 
-**Blad: `ontwerp/garmin/ebb-blad-v5.png`.** Links 454 px (AMOLED), rechts 260 px (MIP), ware grootte. 20 schermen.
+**Blad: `ontwerp/garmin/ebb-blad-v5.png`.** Links 454 px (AMOLED), rechts 260 px (MIP), ware grootte. 21 schermen.
 **De zee per 30 s in één blik: `ontwerp/garmin/blad5/zee-standen-260.png`.** **De drie inhoudschermen naast elkaar: `blad5/drie-holds-454.png`.**
 Losse beelden en meting: `ontwerp/garmin/blad5/` (`meting-v5.txt`), bron `ontwerp/garmin/bron/ebb_blad_v5.py` (bouwt op v4 en v3).
-Vervangt v4.1. Gaat eerst langs een frisse beoordelaar (besluit 22:52) en dan naar Thijs; Gijs bouwt de schermen pas na zijn ja.
+Vervangt v4.1. Frisse keuring v5.0 (zelfde run): 6 van 10, acht moet-punten M1 tot M8, alle acht verwerkt in v5.1 (zie onder en `ebb-blad-v5-frisse-keuring.md`). Volgende stap: nieuwe frisse keuring op v5.1, pas bij 8 of hoger naar Thijs; Gijs bouwt de schermen pas na zijn ja.
 Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 
 ## Wat er veranderde, punt voor punt (keuring `ebb-blad-v4-keuring-drie.md`)
@@ -16,7 +16,7 @@ Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 | P3 hartslag en ronde | ja | Elk inhoudscherm onderaan: hartje, bpm, "· round 2". Op 3c op de tweede regel. |
 | P4 na 3:00 | ja | "3:00 · time to breathe" in wit met trilicoon, geen geel. |
 | P5 8 weeks | ja | Staven = sessies per week (2 tot 5), getal eronder; "sessions per week"; "avg hold 1:29" over 8 weken (today zegt 1:32, het eindscherm laat 1:20, 1:45, 2:08 zien: drie verschillende dingen). |
-| P6 kloppende cijfers | ja | Eén verhaal: je hebt 7 dieren (Fish tot Starfish = 8 sessies, 4 dagen op rij). 6b: Starfish voor 4 dagen op rij. 6c (de sessie erna, zelfde dag): volgende is Pufferfish, 5 dagen op rij, dus "Pufferfish tomorrow". Herstel: "round 2 held 1:45", gelijk aan r2 op het eindscherm. 8: "7 of 24". Geen clownvis meer naast de vis. |
+| P6 kloppende cijfers | ja (v5.1) | Eén verhaal: je hebt 7 dieren (Fish tot Starfish = 8 sessies, 4 dagen op rij). Ochtend 7:40: rondes 1:20, 1:45, 3:04 (3a, 3b, 3c en 6b: Starfish voor 4 dagen op rij). Avond 21:15: 1:15, 1:38, 1:52 (6c: volgende is Pufferfish, 5 dagen op rij, dus "Pufferfish tomorrow"). Today: deze zes, avg 1:49 (nagerekend). Herstel: "round 2 held 1:45". 8: "7 of 24". Geen clownvis meer naast de vis. |
 | P7 today en eindscherm | ja | Today laat de hele dag zien: twee sessies (7:40 en 21:15), zes trechters, "2 sessions · 6 holds", "avg 1:32". |
 | P8 teksten | ja | 2: groot "23", klein "of 30 · round 2". 4: "big breath in, hold" boven "15 s". Eindscherm: r1 r2 r3 boven de tijden. |
 | P9 regels | ja | Zie onder. |
@@ -38,7 +38,7 @@ Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 - 3c: "3:00 · time to breathe" (wit), met een korte trilling (Gijs' zachte signaal).
 
 ## P2: wat je in Garmin Connect ziet na een Rounds-sessie
-Activiteit "Breathwork" (of "Ebb"), met: duur, gemiddelde en hoogste hartslag (gewone grafiek van Garmin), en per ronde een lap. Eigen velden (FIT, al in de code van Gijs): per lap "Hold time" (m:ss) en "Breaths"; in de samenvatting "Rounds 3" en "Longest hold 2:08". Geen "best" of record. De hartslaggrafiek laat per ronde zien hoe je hart tijdens het inhouden zakt: dat is het mooie plaatje in Connect, zonder dat wij iets tekenen.
+Activiteit "Breathwork" (of "Ebb"), met: duur, gemiddelde en hoogste hartslag (gewone grafiek van Garmin), en per ronde een lap. Eigen velden (FIT, al in de code van Gijs): per lap "Hold time" (m:ss) en "Breaths"; in de samenvatting "Rounds 3" en "Longest hold 3:04". Geen "best" of record. De hartslaggrafiek laat per ronde zien hoe je hart tijdens het inhouden zakt: dat is het mooie plaatje in Connect, zonder dat wij iets tekenen.
 
 ## P9: regels die vast liggen
 - **Gemiste dag:** de reeks op het eindscherm begint opnieuw bij 1, maar dieren voor dagen op rij tellen met je **beste** reeks. Een gemiste dag pakt dus nooit een dier af. Na 7 of meer dagen zonder komt de zeekomkommer ("back after a break"), zodat terugkomen een cadeau is en geen schuld.
@@ -53,3 +53,14 @@ Activiteit "Breathwork" (of "Ebb"), met: duur, gemiddelde en hoogste hartslag (g
 
 ## Wat Thijs hier als eerste van zegt (besluit 23:39 punt 3)
 Waarschijnlijk: "de zee wordt nu echt donkerder, goed; maar zijn de dieren al allemaal mooi?" In dezelfde run opnieuw getekend (V6). Tweede vraag die hij kan stellen: "zie ik op de pols dat het water donkerder wordt?" Ja op 454; op 260 zijn het vaste stappen in vier MIP-tinten, zie de strook.
+
+## v5.1: de acht moet-punten van de frisse keuring (zelfde run)
+- M1 en M2: één verhaal (zie P6). 3c is ronde 3 van de ochtend, r3 = 3:04, Longest hold 3:04; 6c is de avond met eigen tijden; today avg 1:49 = gemiddelde van de zes.
+- M3: 6b en 6c allebei 7 stippen (een week), 4 gevuld.
+- M4: zeester kleiner en lager (0,18 op 0,545), kogelvis 0,145 op 0,54: vrij van de tijden.
+- M5: op 3c staat "time to breathe" met trilicoon bovenaan op de plek van "hold"; hart en ronde blijven op dezelfde hoogte als op 3a en 3b. "3:00 ·" viel weg: het grote getal zegt het al.
+- M6: geen codes meer. Sea log: silhouetten als spook (donkerblauw met lichtcyaan rand van 2 px), onder de lijst voluit wat het gekozen silhouet vraagt ("12 sessions", "back after a break"); bovenaan "7 of 24 · page 2/3". Blad 3 getekend (8d).
+- M7: spookvis op 6c en in de sea log: vulling W3 met lichtcyaan rand, geen volle 0055FF meer.
+- M8: menu toont je eigen dier (de schildpad) in het lage tij in plaats van de walvis die je nog niet hebt.
+- Meting v5.1: kader en optisch midden binnen 2,7 px behalve de sea log (ring om het gekozen dier en een halve laatste rij geven 2,5 tot 9 px kaderverschuiving; het raster zelf staat in het midden).
+- Kan-punten K1 (today minder ijspegel), K2 (extra glans bij new friend, otter en zeekomkommer nog eens), K3 ("swims with you" schakelaar of toestand), K4 ("in" kaal) staan open voor de volgende run.
