@@ -3,7 +3,7 @@
 **Blad: `ontwerp/garmin/ebb-blad-v5.png`.** Links 454 px (AMOLED), rechts 260 px (MIP), ware grootte. 21 schermen.
 **De zee per 30 s in één blik: `ontwerp/garmin/blad5/zee-standen-260.png`.** **De drie inhoudschermen naast elkaar: `blad5/drie-holds-454.png`.**
 Losse beelden en meting: `ontwerp/garmin/blad5/` (`meting-v5.txt`), bron `ontwerp/garmin/bron/ebb_blad_v5.py` (bouwt op v4 en v3).
-Vervangt v4.1. Frisse keuring v5.0 (zelfde run): 6 van 10, acht moet-punten M1 tot M8, alle acht verwerkt in v5.1 (zie onder en `ebb-blad-v5-frisse-keuring.md`). Volgende stap: nieuwe frisse keuring op v5.1, pas bij 8 of hoger naar Thijs; Gijs bouwt de schermen pas na zijn ja.
+Vervangt v4.1. Twee frisse keuringen in dezelfde run: v5.0 een 6 (M1 tot M8, verwerkt in v5.1), v5.1 een 6 (N1 tot N6, vijf verwerkt in v5.2, N2 spoken open). Zie `ebb-blad-v5-frisse-keuring.md`. Volgende stap: N2, dan frisse keuring op v5.2, pas bij 8 of hoger naar Thijs; Gijs bouwt de schermen pas na zijn ja.
 Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 
 ## Wat er veranderde, punt voor punt (keuring `ebb-blad-v4-keuring-drie.md`)
@@ -15,9 +15,9 @@ Beeldtaal en de 10 regels: ongewijzigd, bovenaan `ebb-blad-v1.md`.
 | P2 Connect | ja (beschreven) | Zie onder. |
 | P3 hartslag en ronde | ja | Elk inhoudscherm onderaan: hartje, bpm, "· round 2". Op 3c op de tweede regel. |
 | P4 na 3:00 | ja | "3:00 · time to breathe" in wit met trilicoon, geen geel. |
-| P5 8 weeks | ja | Staven = sessies per week (2 tot 5), getal eronder; "sessions per week"; "avg hold 1:29" over 8 weken (today zegt 1:32, het eindscherm laat 1:20, 1:45, 2:08 zien: drie verschillende dingen). |
+| P5 8 weeks | ja | Staven = sessies per week (2 tot 5), getal eronder; "sessions per week"; "avg hold 1:41" over alle sessies (today zegt 1:49 over vandaag, het eindscherm per ronde). Staven van een nieuwe gebruiker: 0 0 0 0 0 0 3 6 = 9 sessies, past bij 7 dieren (v5.2). |
 | P6 kloppende cijfers | ja (v5.1) | Eén verhaal: je hebt 7 dieren (Fish tot Starfish = 8 sessies, 4 dagen op rij). Ochtend 7:40: rondes 1:20, 1:45, 3:04 (3a, 3b, 3c en 6b: Starfish voor 4 dagen op rij). Avond 21:15: 1:15, 1:38, 1:52 (6c: volgende is Pufferfish, 5 dagen op rij, dus "Pufferfish tomorrow"). Today: deze zes, avg 1:49 (nagerekend). Herstel: "round 2 held 1:45". 8: "7 of 24". Geen clownvis meer naast de vis. |
-| P7 today en eindscherm | ja | Today laat de hele dag zien: twee sessies (7:40 en 21:15), zes trechters, "2 sessions · 6 holds", "avg 1:32". |
+| P7 today en eindscherm | ja | Today laat de hele dag zien: twee sessies (7:40 en 21:15), zes trechters, "2 sessions · 6 holds", "avg 1:49". |
 | P8 teksten | ja | 2: groot "23", klein "of 30 · round 2". 4: "big breath in, hold" boven "15 s". Eindscherm: r1 r2 r3 boven de tijden. |
 | P9 regels | ja | Zie onder. |
 | V1 sea log | ja | 3 x 3 per blad, 3 bladen ("1 / 3"). Kleinste dier 30 px op 260 en 52 px op 454 (gemeten, kwal), de rest groter. |
@@ -64,3 +64,12 @@ Waarschijnlijk: "de zee wordt nu echt donkerder, goed; maar zijn de dieren al al
 - M8: menu toont je eigen dier (de schildpad) in het lage tij in plaats van de walvis die je nog niet hebt.
 - Meting v5.1: kader en optisch midden binnen 2,7 px behalve de sea log (ring om het gekozen dier en een halve laatste rij geven 2,5 tot 9 px kaderverschuiving; het raster zelf staat in het midden).
 - Kan-punten K1 (today minder ijspegel), K2 (extra glans bij new friend, otter en zeekomkommer nog eens), K3 ("swims with you" schakelaar of toestand), K4 ("in" kaal) staan open voor de volgende run.
+
+## v5.2: de punten van de tweede frisse keuring (v5.1 kreeg ook een 6)
+- N1 cijfers tellen op: 8 weeks is nu een nieuwe gebruiker (0 0 0 0 0 0 3 6 = 9 sessies), "avg hold 1:41"; sea log rekent "more sessions" vanaf 9.
+- N2 spoken herkenbaarder (kogelvis met staart en oog, kenmerk per dier groter, clownvis-spook niet gelijk aan de vis): **open, eerste werk volgende run.**
+- N3 sea log: bovenaan wat het gekozen silhouet vraagt met naam ("Octopus · 3 more sessions"), de zeekomkommer blijft een verrassing ("comes after a break"); onderaan "2 / 3". 8c: "found: 3 days in a row", knop "swims with you: on".
+- N4 nieuw dier als feest: zeester ±37 procent breed, lichtkrans van 12 stralen erachter (alleen onder water; op het horloge draait hij langzaam), "new friend!" in geel op een eigen regel, naam en reden eronder, meer belletjes.
+- N5 eindscherm: "session done", "3 rounds", dan de drie tijden ruim boven de golf (geen r1 r2 r3 meer).
+- N6 3c: trilicoon weg, alleen "time to breathe" (het horloge trilt).
+- Kan: de kleine "s" op 4 en 5 nu lichtcyaan. Open: today minder ijspegel, OK op 10c gelijk met Next.

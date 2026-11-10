@@ -15,6 +15,7 @@ dier = v3.dier
 
 SIL = (0, 85, 255)     # silhouet van een dier dat je nog niet hebt: 3,7:1 op zwart (V2), wel MIP
 LICHTCYAAN = (170, 255, 255)
+v3.GRIJS = LICHTCYAAN   # K3: ook de kleine "s" op 4 en 5 lichtcyaan in plaats van grijs
 
 # ---------------- de zee wordt donkerder: zes vaste standen, elke 30 s een stap (T2) ----------------
 ZEE_STAND = [
@@ -65,10 +66,7 @@ def s_duik5(D, sec, ronde, bpm, hoek):
     if sec < 180:
         tekst(d, D, (D/2, D*0.225), 'hold', D*0.085, SCHUIM)
     else:   # na 3:00: bovenaan "time to breathe" met trilicoon, in wit (P4, M5)
-        px = D*0.075; t = 'time to breathe'; w = f(max(px, MIN*D)).getlength(t); s_ = px*0.9
-        x0 = D/2 - (s_ + px*0.4 + w)/2
-        trilicoon(d, D, x0 + s_/2, D*0.225, s_, WIT)
-        tekst(d, D, (x0 + s_ + px*0.4 + w/2, D*0.225), t, px, WIT)
+        tekst(d, D, (D/2, D*0.225), 'time to breathe', D*0.080, WIT)   # het horloge trilt zacht; geen icoon (las als losse tekens)
     tekst(d, D, (D/2, D*0.42), f'{sec//60}:{sec%60:02d}', D*0.30, WIT)
     bellen(d, D, BELLEN[sec])
     dier(im, 'pad', D/2, D*0.655, D*0.10, hoek=hoek)    # je eigen dier (T1): hier de schildpad die je koos in de sea log
@@ -142,11 +140,11 @@ def s_today5(D):
 
 # ---------------- 6b en 6c: hetzelfde skelet (V4) ----------------
 def einde_kop5(d, D, tijden=('1:20', '1:45', '3:04')):
-    tekst(d, D, (D/2, D*0.165), 'session done', D*0.075, TITEL)
+    tekst(d, D, (D/2, D*0.140), 'session done', D*0.075, TITEL)
+    tekst(d, D, (D/2, D*0.208), '3 rounds', D*0.060, LICHTCYAAN)          # label bij de drie tijden (P8, M5)
     xs = (-0.15, 0, 0.15)
-    for k, (r, t) in enumerate(zip(('r1', 'r2', 'r3'), tijden)):
-        tekst(d, D, (D/2 + xs[k]*D, D*0.235), r, D*0.060, LICHTCYAAN)    # label bij de drie tijden (P8)
-        tekst(d, D, (D/2 + xs[k]*D, D*0.305), t, D*0.068, WIT)           # wit, 4,5:1 (V3)
+    for k, t in enumerate(tijden):
+        tekst(d, D, (D/2 + xs[k]*D, D*0.272), t, D*0.068, WIT)           # wit (V3), ruim boven de golf (M5)
 
 def einde_zee(im, D):
     zee(im, D, [(D*0.355, W1), (D*0.62, W2), (D*0.84, W3)], amp=D*0.012, schuim=True, stralen=True)
@@ -154,13 +152,26 @@ def einde_zee(im, D):
 def s_einde5(D):
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop5(d, D)
-    bellen(d, D, [(0.27, 0.50, 0.011), (0.24, 0.45, 0.006), (0.74, 0.53, 0.009)])
-    dier(im, 'ster', D/2, D*0.545, D*0.18)       # groot: ±40 % van de breedte (V5)
+    stralenkrans(im, D, D/2, D*0.55)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.695), 'new friend: Starfish', D*0.075, WIT)
-    tekst(d, D, (D/2, D*0.775), '4 days in a row', D*0.068, GEEL)
-    dagstippen(d, D, D*0.850, 4)
+    bellen(d, D, [(0.22, 0.55, 0.012), (0.19, 0.50, 0.007), (0.80, 0.58, 0.010), (0.83, 0.52, 0.006), (0.25, 0.45, 0.005)])
+    dier(im, 'ster', D/2, D*0.55, D*0.195)       # ±40 % van de breedte (V5, M4)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.728), 'new friend!', D*0.085, GEEL)
+    tekst(d, D, (D/2, D*0.800), 'Starfish · 4 days in a row', D*0.066, WIT)
+    dagstippen(d, D, D*0.862, 4)
     rand(im, D); return im
+
+def stralenkrans(im, D, cx, cy):
+    """Lichtkrans achter een nieuw dier: 12 smalle stralen. MIP harde 0x55AAFF, AMOLED zacht en vervaagd.
+    Op het horloge draait hij langzaam (1 graad per beeld) zolang het scherm open is."""
+    m = Image.new('L', (D, D), 0); md = ImageDraw.Draw(m); R = D*0.25
+    for k in range(12):
+        a = math.radians(k*30 + 8)
+        md.polygon([(cx, cy), (cx + R*math.cos(a-0.09), cy + R*math.sin(a-0.09)), (cx + R*math.cos(a+0.09), cy + R*math.sin(a+0.09))], fill=255 if not amo(D) else 120)
+    if amo(D): m = m.filter(ImageFilter.GaussianBlur(D/120))
+    ImageDraw.Draw(m).rectangle([0, 0, D, D*0.375], fill=0)   # alleen onder water, nooit door de tijden
+    im.paste(Image.new('RGB', (D, D), (0, 85, 255) if not amo(D) else (170, 230, 255)), (0, 0), m)
 
 def silhouet(im, D, soort, x, y, s):
     k = max(2, round(D/130))
@@ -172,15 +183,15 @@ def s_einde_gewoon5(D):
     """Zelfde plekken als 6b; het dier is hier het silhouet van wie morgen komt, los van de golf."""
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop5(d, D, ('1:15', '1:38', '1:52'))   # de avondsessie van dezelfde dag
-    silhouet(im, D, 'kogel', D/2, D*0.54, D*0.145)
+    silhouet(im, D, 'kogel', D/2, D*0.535, D*0.15)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.695), 'Pufferfish tomorrow', D*0.075, WIT)
-    tekst(d, D, (D/2, D*0.775), '4 days in a row', D*0.068, LICHTCYAAN)
-    dagstippen(d, D, D*0.850, 4)
+    tekst(d, D, (D/2, D*0.728), 'Pufferfish tomorrow', D*0.075, WIT)
+    tekst(d, D, (D/2, D*0.800), '4 days in a row', D*0.066, LICHTCYAAN)
+    dagstippen(d, D, D*0.862, 4)
     rand(im, D); return im
 
 # ---------------- 7 8 weeks: staven = sessies per week (P5) ----------------
-WEKEN = [2, 3, 2, 4, 5, 3, 5, 4]
+WEKEN = [0, 0, 0, 0, 0, 0, 3, 6]   # nieuwe gebruiker: 9 sessies in totaal (8 bij 6b, 9 na 6c), past bij 7 dieren (M1)
 def s_weken5(D):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.18), '8 weeks', D*0.085, TITEL)
@@ -198,7 +209,7 @@ def s_weken5(D):
     for i, n in enumerate(WEKEN):
         tekst(d, D, (L + (i+0.5)*kol, bod + D*0.055), str(n), D*0.062, WIT if i == 7 else LICHTCYAAN)
     tekst(d, D, (D/2, D*0.735), 'sessions per week', D*0.068, LICHTCYAAN)
-    tekst(d, D, (D/2, D*0.815), 'avg hold 1:29', D*0.075, WIT)
+    tekst(d, D, (D/2, D*0.815), 'avg hold 1:41', D*0.075, WIT)
     rand(im, D); return im
 
 # ---------------- 8 sea log: 3 x 3 per blad, 3 bladen (V1, V2) ----------------
@@ -207,7 +218,10 @@ HINT = {n: h for n, h in enumerate(['1x', '2x', '2d', '3d', '5x', '8x', '4d', '1
 def s_rooster5(D, pagina, gevonden=7, kies=3):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.135), 'sea log', D*0.075, TITEL)
-    tekst(d, D, (D/2, D*0.205), f'{gevonden} of 24  ·  page {pagina+1}/3', D*0.062, LICHTCYAAN)
+    if kies >= gevonden:   # wat het gekozen silhouet vraagt, voluit, op de brede regel bovenaan (M3)
+        tekst(d, D, (D/2, D*0.205), EIS[kies], D*0.060, WIT)
+    else:
+        tekst(d, D, (D/2, D*0.205), f'{gevonden} of 24', D*0.062, LICHTCYAAN)
     xs = (-0.25, 0, 0.25); ys = (0.37, 0.555, 0.74)
     opp = (D*0.112)**2*0.55
     for i in range(9):
@@ -221,16 +235,19 @@ def s_rooster5(D, pagina, gevonden=7, kies=3):
         if n < gevonden: dier(im, soort, x, y, sc)
         else: silhouet(im, D, soort, x, y, sc*0.92)
         d = ImageDraw.Draw(im)
-    if kies >= gevonden:   # wat het gekozen silhouet vraagt, voluit (M6)
-        tekst(d, D, (D/2, D*0.86), EIS[kies], D*0.062, WIT)
+    tekst(d, D, (D/2, D*0.875), f'{pagina+1} / 3', D*0.058, LICHTCYAAN)
     rand(im, D); return im
 def s_rooster_1(D): return s_rooster5(D, 0)
 def s_rooster_2(D): return s_rooster5(D, 1, kies=9)
 def s_rooster_3(D): return s_rooster5(D, 2, kies=22)
-EIS = {n: e for n, e in enumerate(['1 session', '2 sessions', '2 days in a row', '3 days in a row', '5 sessions', '8 sessions',
-       '4 days in a row', '10 sessions', '5 days in a row', '12 sessions', '6 days in a row', '15 sessions', '7 days in a row',
-       '18 sessions', '10 days in a row', '21 sessions', '14 days in a row', '25 sessions', '30 sessions', '21 days in a row',
-       '40 sessions', '30 days in a row', 'back after a break', '60 sessions'])}
+SESSIES_NU = 9
+def _eis(n):
+    naam = ALLE[n][1]; drempel = ['1x', '2x', '2d', '3d', '5x', '8x', '4d', '10x', '5d', '12x', '6d', '15x', '7d', '18x', '10d',
+                                  '21x', '14d', '25x', '30x', '21d', '40x', '30d', 'break', '60x'][n]
+    if drempel == 'break': return 'comes after a break'   # naam blijft een verrassing
+    if drempel.endswith('x'): return f'{naam} · {int(drempel[:-1]) - SESSIES_NU} more sessions'
+    return f'{naam} · {drempel[:-1]} days in a row'
+EIS = {n: _eis(n) for n in range(24)}
 
 # ---------------- 8c sea log, één dier: jouw maatje kiezen (T1), geen 24 stippen (V7) ----------------
 def s_zeelog5(D):
@@ -242,9 +259,9 @@ def s_zeelog5(D):
     dier(im, 'pad', D/2, D*0.415, D*0.15, hoek=-6)
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.585), 'Turtle', D*0.090, WIT)
-    tekst(d, D, (D/2, D*0.665), '3 days in a row', D*0.068, LICHTCYAAN)
-    v4.pil(d, D, 0.775, 0.50, 0.11)
-    tekst(d, D, (D/2, D*0.775), 'swims with you', D*0.066, WIT)
+    tekst(d, D, (D/2, D*0.665), 'found: 3 days in a row', D*0.066, LICHTCYAAN)
+    v4.pil(d, D, 0.775, 0.56, 0.11)
+    tekst(d, D, (D/2, D*0.775), 'swims with you: on', D*0.066, WIT)   # toestand aan; START zet hem uit
     rand(im, D); return im
 
 # ---------------- 9 instellingen: alles uit besluit punt 5, gewone woorden (P1) ----------------
