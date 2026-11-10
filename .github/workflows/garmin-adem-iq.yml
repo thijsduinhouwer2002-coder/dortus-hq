@@ -49,19 +49,20 @@ jobs:
           fi
       - name: .iq bouwen (alle horloges uit manifest.xml)
         run: |
-          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro "$IMAGE" -c \
-            'monkeyc -e -r -w -f monkey.jungle -y /k/key.der -o /app/bin/Ebb.iq 2>&1 | tee /app/bin/bouw.log; test -s /app/bin/Ebb.iq'
+          mkdir -p /tmp/uit && chmod 777 /tmp/uit
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro -v /tmp/uit:/uit "$IMAGE" -c \
+            'monkeyc -e -r -w -f monkey.jungle -y /k/key.der -o /uit/Ebb.iq > /uit/bouw.log 2>&1; cat /uit/bouw.log; test -s /uit/Ebb.iq'
           rm -rf /tmp/k
-          ls -la "$APP/bin/Ebb.iq"
-          echo "Waarschuwingen: $(grep -ci warning "$APP/bin/bouw.log" || true)"
-          cd "$APP/bin" && sha256sum Ebb.iq | tee Ebb.iq.sha256
+          ls -la /tmp/uit/Ebb.iq
+          echo "Waarschuwingen: $(grep -ci warning /tmp/uit/bouw.log || true)"
+          cd /tmp/uit && sha256sum Ebb.iq | tee Ebb.iq.sha256
       - uses: actions/upload-artifact@v4
         with:
           name: ebb-iq
           path: |
-            producten/garmin-adem/bin/Ebb.iq
-            producten/garmin-adem/bin/Ebb.iq.sha256
-            producten/garmin-adem/bin/bouw.log
+            /tmp/uit/Ebb.iq
+            /tmp/uit/Ebb.iq.sha256
+            /tmp/uit/bouw.log
 
   # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
   plaatjes:
