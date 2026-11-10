@@ -486,7 +486,7 @@ class EbbView extends WatchUi.View {
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.fillCircle(diep[0], diep[1], r > 3 ? r : 3);
         var s = t[j] / 1000;
-        dc.drawText(diep[0] - (r * 16) / 10, diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
+        dc.drawText(diep[0] - (r * 16) / 10 - (d * 0.02).toNumber(), diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(koraal ? EbbTeken.KORAAL : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, koraal ? "new best" : t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);

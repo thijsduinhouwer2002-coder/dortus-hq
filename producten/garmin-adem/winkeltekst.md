@@ -15,7 +15,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Description (English)
 
-Ebb turns your round watch face into a porthole. Breath hold rounds, box breathing and calm breathing patterns on your wrist, drawn as water: the screen fills as you breathe in, empties as you breathe out, and becomes a dive when you hold your breath.
+Ebb turns your round watch face into a porthole. Breath hold rounds, box breathing and calm breathing patterns on your wrist, drawn as water: the screen fills as you breathe in, empties as you breathe out, and becomes a dive when you hold your breath. For practice on land only: sit or lie down, never in or near water, never while driving.
 
 BREATH HOLD ROUNDS
 • A set number of deep breaths at a steady pace, then breathe out and hold for as long as you like.
@@ -69,7 +69,7 @@ Tags: breathing, breathwork, breath hold, breath training, box breathing, 4 7 8 
 ## Deutsch
 Titel (47 tekens): `Ebb: Atemübungen, Atem anhalten & Box Breathing`
 
-Ebb macht dein rundes Zifferblatt zu einem Bullauge. Atemrunden mit Atem anhalten, Box Breathing und ruhige Atemmuster am Handgelenk, gezeichnet als Wasser: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen und wird zum Tauchgang, wenn du die Luft anhältst.
+Ebb macht dein rundes Zifferblatt zu einem Bullauge. Atemrunden mit Atem anhalten, Box Breathing und ruhige Atemmuster am Handgelenk, gezeichnet als Wasser: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen und wird zum Tauchgang, wenn du die Luft anhältst. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
 • Atemrunden: feste Anzahl tiefer Atemzüge, dann ausatmen und so lange halten, wie du willst. Bei 1:00, 1:30, 2:00 und 3:00 schwimmen Fisch, Qualle, Schildkröte und Wal vorbei; das Sea log merkt sich jedes Tier.
 • Box Breathing 4-4-4-4, 4 7 8, langsam 5,5 ein und 5,5 aus, und ein eigenes Muster.
@@ -85,7 +85,7 @@ Tags: Atemübungen, Atemtraining, Atem anhalten, Box Breathing, Entspannung, Atm
 ## Nederlands
 Titel (42 tekens): `Ebb: Ademhalingsoefeningen & Adem inhouden`
 
-Ebb maakt van je ronde horloge een patrijspoort. Ademrondes met adem inhouden, box breathing en rustige ademhaling op je pols, getekend als water: het scherm loopt vol als je inademt, loopt leeg als je uitademt en wordt een duik als je je adem inhoudt.
+Ebb maakt van je ronde horloge een patrijspoort. Ademrondes met adem inhouden, box breathing en rustige ademhaling op je pols, getekend als water: het scherm loopt vol als je inademt, loopt leeg als je uitademt en wordt een duik als je je adem inhoudt. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
 • Ademrondes: een vast aantal diepe ademhalingen, dan uitademen en inhouden zo lang je wilt. Op 1:00, 1:30, 2:00 en 3:00 zwemmen een vis, kwal, schildpad en walvis voorbij; het Sea log bewaart elk dier.
 • Box breathing 4-4-4-4, 4 7 8, rustig 5,5 in en 5,5 uit, en een eigen patroon.
@@ -100,4 +100,5 @@ Tags: ademhalingsoefeningen, ademhaling, adem inhouden, box breathing, ontspanni
 
 ## Nagekeken
 - Elke zin tegen de bouw op tak `claude/garmin-2026-11-10b` (f287bab): rondes, inhouden met knop, herstel, dieren op 1:00/1:30/2:00/3:00, Sea log, drie patronen plus eigen, duikprofiel met koraal, getijdenlijn 8 weken, trillen per fase en uit te zetten, FIT met laps en eigen velden, pauze en opslaan of weggooien, instellingen op het horloge (`Start.mc`, `Instellingen.mc`, `Opname.mc`).
+- Veiligheid staat in de eerste alinea van elke taal, niet alleen onderaan (Daan, keuring winkelbeelden 1, 16:25), omdat de beelden een horloge in zee tonen.
 - Geen review-vraag in de app: bewuste keuze, zie logboek 10 nov 16:30.
