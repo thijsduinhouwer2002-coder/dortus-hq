@@ -139,3 +139,6 @@ Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
 ## 10 nov 11:48: wie stuurt (Thijs, vraag 4 van Patrick)
 De hoofdchat (Thijs met Claude) beslist over koers, ploeg en geld. Hans is de controleur, één keer per dag (wie leverde niets, wat hangt, wat is verouderd). De ploeg verandert alleen op vaste momenten (09:00 en 21:00), behalve bij nood. Een manager kiest zelf zijn volgende product binnen zijn platform en begint meteen; de hoofdchat mag dat op het vaste moment terugdraaien. Is Thijs er niet, dan beslist de hoofdchat binnen de koers. Dit wordt de basis van het dagrooster na 11 nov.
+
+## 10 nov 11:49: kiezen op euro per week werk (Thijs, vraag 5 van Patrick)
+Nieuwe kansen kiezen we op één getal: verwachte euro's in 90 dagen (laag, midden, hoog, elk met bron) gedeeld door het aantal weken werk. Dit vervangt de oude lat (een 8 op vier eisen tegelijk). Drempels zijn kosten, geen afwijzing. Geldt pas weer als er een eerste euro binnen is (koers 11:46).
