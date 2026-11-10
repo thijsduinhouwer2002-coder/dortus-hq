@@ -8,6 +8,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ebb_blad_v3 as v3
 from ebb_blad_v3 import *
 from PIL import Image, ImageDraw
+import ebb_dieren_v4 as dv4   # alle 24 dieren (zet v3.dier_beeld om)
+from ebb_dieren_v4 import ALLE
+dier = v3.dier
 
 HART = (255, 85, 85)
 
@@ -98,7 +101,7 @@ def dagstippen(d, D, y, n_vol, n=7):
     for i in range(n):
         x = x0 + i*gap
         if i < n_vol: d.ellipse([x-r, y-r, x+r, y+r], fill=SCHUIM)
-        else: d.ellipse([x-r, y-r, x+r, y+r], outline=(W1 if not amo(D) else AM[W1]), width=max(1, round(D/180)))
+        else: d.ellipse([x-r, y-r, x+r, y+r], outline=(W0 if not amo(D) else AM[W0]), width=max(1, round(D/150)))
 
 def s_einde(D):
     im = leeg(D)
@@ -150,10 +153,10 @@ def s_zeelog(D):
             if k < 7: d.ellipse([x-r, y-r, x+r, y+r], fill=SCHUIM)
             else: d.ellipse([x-r, y-r, x+r, y+r], outline=(W0 if not amo(D) else AM[W0]), width=max(1, round(D/200)))
     bellen(d, D, [(0.30, 0.50, 0.010), (0.70, 0.44, 0.007)])
-    dier(im, 'pad', D/2, D*0.465, D*0.12, hoek=-6)
+    dier(im, 'ster', D/2, D*0.465, D*0.10)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.625), 'Turtle', D*0.085, WIT)
-    tekst(d, D, (D/2, D*0.705), '3 days in a row', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.625), 'Starfish', D*0.085, WIT)
+    tekst(d, D, (D/2, D*0.705), '4 days in a row', D*0.068, GRIJS)
     tekst(d, D, (D/2, D*0.800), '7 of 24', D*0.068, SCHUIM)
     rand(im, D); return im
 
@@ -184,12 +187,66 @@ def s_instellingen(D):
     tekst(d, D, (D/2, D*0.565), 'normal', D*0.072, SCHUIM)
     pijltjes(d, D, D/2 - D*0.135, D*0.565, SCHUIM); pijltjes(d, D, D/2 + D*0.135, D*0.565, SCHUIM)
     tekst(d, D, (D/2, D*0.670), 'Hold tick on', D*0.068, GRIJS)
-    tekst(d, D, (D/2, D*0.765), 'Rounds 3', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.765), 'Last 3 buzz on', D*0.068, GRIJS)
     rand(im, D); return im
+
+# ---------------- 6b/6c einde sessie ----------------
+def einde_kop(d, D):
+    tekst(d, D, (D/2, D*0.175), 'session done', D*0.075, TITEL)
+    tekst(d, D, (D/2, D*0.265), '1:20 · 1:45 · 2:08', D*0.066, GRIJS)
+
+def s_einde(D):
+    im = leeg(D)
+    zee(im, D, [(D*0.12, W1), (D*0.62, W2), (D*0.84, W3)], amp=D*0.012, schuim=False, stralen=True)
+    d = ImageDraw.Draw(im); einde_kop(d, D)
+    bellen(d, D, [(0.29, 0.44, 0.011), (0.26, 0.40, 0.006), (0.72, 0.47, 0.009)])
+    dier(im, 'pad', D/2, D*0.445, D*0.135, hoek=-6)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.615), 'new friend: Turtle', D*0.080, WIT)
+    tekst(d, D, (D/2, D*0.700), '3 days in a row', D*0.068, GEEL)
+    dagstippen(d, D, D*0.790, 3)
+    rand(im, D); return im
+
+def s_einde_gewoon(D):
+    """De meeste sessies: geen nieuw dier. Dan reeks plus wie er hierna komt (op trouw, niet op inhoudtijd)."""
+    im = leeg(D)
+    zee(im, D, [(D*0.12, W1), (D*0.62, W2), (D*0.84, W3)], amp=D*0.012, schuim=False, stralen=True)
+    d = ImageDraw.Draw(im); einde_kop(d, D)
+    tekst(d, D, (D/2, D*0.375), '4 days in a row', D*0.085, WIT)
+    dagstippen(d, D, D*0.465, 4)
+    ws = D*0.075; k = max(1, round(D/260))
+    for ox, oy in ((-k,0),(k,0),(0,-k),(0,k)):
+            dier(im, 'clown', D/2+ox, D*0.595+oy, ws, kleur=SCHUIM)
+    dier(im, 'clown', D/2, D*0.595, ws, kleur=W2 if not amo(D) else AM[W2])
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.745), 'Clownfish in 2 sessions', D*0.068, GRIJS)
+    rand(im, D); return im
+
+# ---------------- 8 sea log als verzamelboek: 12 per pagina ----------------
+def s_rooster(D, pagina, gevonden=7, kies=6):
+    im = leeg(D); d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.165), 'sea log', D*0.075, TITEL)
+    tekst(d, D, (D/2, D*0.245), f'{gevonden} of 24', D*0.066, GRIJS)
+    xs = (-0.30, -0.10, 0.10, 0.30); ys = (0.385, 0.535, 0.685)
+    opp = (D*0.072)**2*0.55
+    for i in range(12):
+        n = pagina*12 + i; soort = ALLE[n][0]; r_, k_ = divmod(i, 4)
+        x, y = D/2 + xs[k_]*D, ys[r_]*D
+        sc = v3.schaal_voor_gewicht(soort, opp)
+        if n == kies:   # cursor: ring in schuim om het gekozen dier
+            rr = D*0.072; lw = max(2, round(D/130)); d.ellipse([x-rr, y-rr, x+rr, y+rr], outline=SCHUIM, width=lw)
+        if n < gevonden: dier(im, soort, x, y, sc)
+        else: dier(im, soort, x, y, sc, kleur=W1 if not amo(D) else AM[W1])
+        d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.815), f'{pagina+1} / 2', D*0.066, GRIJS)
+    rand(im, D); return im
+def s_rooster1(D): return s_rooster(D, 0)
+def s_rooster2(D): return s_rooster(D, 1, kies=-1)
 
 SCHERMEN = [('1 menu', s_menu), ('2 ademen', v3.s_ademen), ('3 duiken 0:48', s_duik_vroeg), ('3b duiken 2:34', s_duik_laat),
             ('3c na 3 min', s_duik_3min), ('4 boven', v3.s_boven), ('5 rustig 4-7-8', v3.s_rustig), ('6 today', s_today),
-            ('6b einde: nieuw dier', s_einde), ('7 8 weeks', s_weken), ('8 sea log', s_zeelog), ('8b sea log nog niet', s_zeelog_open),
+            ('6b einde met dier', s_einde), ('6c einde zonder dier', s_einde_gewoon), ('7 8 weeks', s_weken),
+            ('8 sea log blad 1', s_rooster1), ('8b sea log blad 2', s_rooster2), ('8c sea log dier', s_zeelog),
             ('9 settings', s_instellingen), ('10 veiligheid', v3.s_veilig)]
 
 def maak(uit):
@@ -207,7 +264,7 @@ def maak(uit):
     rijen = (len(SCHERMEN) + kol - 1)//kol
     W = gap + kol*(cel_b + gap); H = 110 + rijen*(cel_h + gap)
     blad = Image.new('RGB', (W, H), (14, 16, 24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 30), 'Ebb blad v4 (Mila): dieren voor trouw, geen meters, geen doelring. Links 454 AMOLED, rechts 260 MIP, ware grootte',
+    d.text((gap, 30), 'Ebb blad v4.1 (Mila): dieren voor trouw, geen meters, geen doelring. Links 454 AMOLED, rechts 260 MIP, ware grootte',
            font=f(44), fill=(220, 230, 240))
     for i, (naam, fn) in enumerate(SCHERMEN):
         r, k = divmod(i, kol); x = gap + k*(cel_b + gap); y = 110 + r*(cel_h + gap)

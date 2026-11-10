@@ -6,10 +6,12 @@
  454  4 boven                kader x  +0.0 px   kleuren 9161
  454  5 rustig 4-7-8         kader x  +0.0 px   kleuren 6255
  454  6 today                kader x  +0.0 px   kleuren 2130
- 454  6b einde: nieuw dier   kader x  +0.0 px   kleuren 10139
+ 454  6b einde met dier      kader x  +0.0 px   kleuren 11816
+ 454  6c einde zonder dier   kader x  +0.0 px   kleuren 10351
  454  7 8 weeks              kader x  +0.0 px   kleuren 1770
- 454  8 sea log              kader x  +0.0 px   kleuren 6092
- 454  8b sea log nog niet    kader x  +0.0 px   kleuren 4706
+ 454  8 sea log blad 1       kader x  +2.5 px   kleuren 3471
+ 454  8b sea log blad 2      kader x  -2.0 px   kleuren 992
+ 454  8c sea log dier        kader x  +0.0 px   kleuren 6395
  454  9 settings             kader x  +0.0 px   kleuren 1460
  454  10 veiligheid          kader x  +0.5 px   kleuren 1324
  260  1 menu                 kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
@@ -20,10 +22,12 @@
  260  4 boven                kader x  +0.0 px   optisch x  -1.6 px   pixels buiten MIP 0
  260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   pixels buiten MIP 0
  260  6 today                kader x  +0.0 px   optisch x  +1.4 px   pixels buiten MIP 0
- 260  6b einde: nieuw dier   kader x  +0.0 px   optisch x  -1.4 px   pixels buiten MIP 0
+ 260  6b einde met dier      kader x  +0.0 px   optisch x  -1.1 px   pixels buiten MIP 0
+ 260  6c einde zonder dier   kader x  +0.0 px   optisch x  -1.9 px   pixels buiten MIP 0
  260  7 8 weeks              kader x  +0.5 px   optisch x  +0.2 px   pixels buiten MIP 0
- 260  8 sea log              kader x  +0.0 px   optisch x  -2.3 px   pixels buiten MIP 0
- 260  8b sea log nog niet    kader x  +0.0 px   optisch x  +0.8 px   pixels buiten MIP 0
- 260  9 settings             kader x  +0.5 px   optisch x  -1.1 px   pixels buiten MIP 0
+ 260  8 sea log blad 1       kader x  +1.0 px   optisch x  +0.4 px   pixels buiten MIP 0
+ 260  8b sea log blad 2      kader x  -2.0 px   optisch x  +1.0 px   pixels buiten MIP 0
+ 260  8c sea log dier        kader x  +0.0 px   optisch x  -2.7 px   pixels buiten MIP 0
+ 260  9 settings             kader x  +0.5 px   optisch x  -0.9 px   pixels buiten MIP 0
  260  10 veiligheid          kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
-kleinste tekst op 260: "2:08" 20 px, "50 sessions" 20 px, "Rounds 3" 20 px, "1:20" 20 px, "breathe when ready" 20 px, "avg 1:44" 20 px
+kleinste tekst op 260: "!" 20 px, "3 days in a row" 20 px, "1:45" 20 px, "1:20" 20 px, "2 / 2" 20 px, "3" 20 px
