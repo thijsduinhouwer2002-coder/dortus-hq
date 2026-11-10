@@ -1,11 +1,11 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=120 schaal=3 spelpixels=341x40 venster=(1024, 120) pos=(0, 600) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
-HOL kroniek 2.5 (wacht 1.9): Kees is here for your gold.
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
 HOL kroniek 6.9 (wacht 0.0): Bram climbs into your hole.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 5
-HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
+HOL kroniek 11.5 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
 HOL kroniek 14.1 (wacht 1.8): Odo has a map. It is wrong.
 HOL gegraven kolom 2
@@ -21,7 +21,7 @@ HOL kroniek 26.1 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 4
 HOL kroniek 28.6 (wacht 0.9): Gloop says thanks for the snack. +6
 HOL begin: terug (Bram)
-HOL kroniek 31.2 (wacht 3.5): Gloop wears Odo's hat now.
+HOL kroniek 31.1 (wacht 3.5): Gloop wears Odo's hat now.
 HOL kroniek 33.7 (wacht 3.0): Bram is back for the Spike Pit.
 HOL gegraven kolom 1
 HOL kroniek 36.2 (wacht 1.9): Gloop is flat. Back soon.
@@ -29,7 +29,7 @@ HOL kroniek 37.2 (wacht 0.3): Tibbe is now the Hoard-Toucher.
 HOL kroniek 43.2 (wacht 0.0): Bram came back. The Spike Pit won. +9
 HOL begin: opgegeten2 (Mara)
 HOL gegraven kolom 3
-HOL kroniek 45.8 (wacht 2.3): Gloop is up again. Wobbly.
+HOL kroniek 45.7 (wacht 2.3): Gloop is up again. Wobbly.
 HOL kroniek 47.9 (wacht 0.0): Tibbe ran off, giggling.
-HOL kroniek vervallen 48.0: Mara read about you in a tavern.
+HOL kroniek vervallen 47.9: Mara read about you in a tavern.
 HOL einde na 50 s, fps=15, goud=42, terugkomers=1
