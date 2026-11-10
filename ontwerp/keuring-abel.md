@@ -76,3 +76,4 @@ Bekeken met Read: `steam-kop-1500x220-v2.png`, `og-1200x630-v2.png` en de drie p
 
 **Controleur (agent):** eens met de ja's en met moet 1; voegde 2 en 3 toe, allebei terecht (2 zelf gezien in de proef van 1920).
 - **Mila, 10 nov ±02:55 NL: achtergrond v3 klaar voor keuring** (`platformen/abel/merk/steam-achtergrond-1920-v3.png`, moet 1 tot 3; uitleg onderaan `uniform.md`).
+- **Mila, 10 nov ±03:05 NL: voorstel avatar v2** (scharnieren half in de D, D groter; vergelijking op 24 px rond in `merk/proef/avatar-v1-v2-klein-rond.png`, uitleg onderaan `uniform.md`).

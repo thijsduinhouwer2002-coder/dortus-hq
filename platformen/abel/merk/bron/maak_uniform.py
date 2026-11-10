@@ -13,6 +13,7 @@ DEFS = f"""<defs>
 </defs>"""
 
 _n = [0]
+SCH_X, SCH_W = -22, 44      # scharnieren: links buiten de D (v1)
 def deur(x, y, s, klein=False):
     """De D als deur op een kier, in een vak van 500 x 560 maal s, linksboven op x,y.
     Linkerkant recht met twee scharnieren (de twee bolletjes van het oude logo), binnenin licht,
@@ -33,7 +34,7 @@ def deur(x, y, s, klein=False):
     vloer = f'<path d="M{P(t+bw,560-t-30)} L{P(220+ri-30,560-t)} L{P(t,560-t)} Z" fill="#fff6c9" fill-opacity="0.55" clip-path="url(#{cid})"/>' if not klein else ""
     clip = f'<clipPath id="{cid}"><path d="{binnen}"/></clipPath>'
     knop = f'<circle cx="{x+(t+bw-30)*s:.1f}" cy="{y+300*s:.1f}" r="{(15 if not klein else 0)*s:.1f}" fill="{GOUD}"/>'
-    sch = "".join(f'<rect x="{x-22*s:.1f}" y="{y+yy*s:.1f}" width="{44*s:.1f}" height="{70*s:.1f}" rx="{14*s:.1f}" fill="{GOUD}"/>' for yy in (90, 400)) if not klein else ""
+    sch = "".join(f'<rect x="{x+SCH_X*s:.1f}" y="{y+yy*s:.1f}" width="{SCH_W*s:.1f}" height="{70*s:.1f}" rx="{14*s:.1f}" fill="{GOUD}"/>' for yy in (90, 400)) if not klein else ""
     diepte = "" if klein else (f'<clipPath id="d{cid}"><path d="{buiten}"/></clipPath>'
               f'<path d="{buiten}" fill="none" stroke="#c9b9ff" stroke-width="{26*s:.1f}" clip-path="url(#d{cid})"/>'
               f'<path d="{binnen}" fill="none" stroke="{LILA_D}" stroke-width="{56*s:.1f}" clip-path="url(#d{cid})"/>')
@@ -51,8 +52,8 @@ def schrijf(naam, w, h, inhoud, png=True, uit=None):
         subprocess.run(["rsvg-convert", p, "-w", str(uit or w), "-o", f"{UIT}/{naam}.png"], check=True)
     return p
 
-def avatar(klein=False):
-    s = 1.15 if not klein else 1.4
+def avatar(klein=False, s=None):
+    s = s or (1.15 if not klein else 1.4)
     w, h = 500*s, 560*s
     return (f'<rect width="1024" height="1024" fill="{NACHT}"/>'
             f'<circle cx="540" cy="512" r="430" fill="url(#gloed)"/>'
@@ -242,6 +243,14 @@ if __name__ == "__main__":
         schrijf("merkteken-klein", 1024, 1024, avatar(klein=True), png=False)
         for m in (32, 16):
             subprocess.run(["rsvg-convert", f"{UIT}/merkteken-klein.svg", "-w", str(m), "-o", f"{UIT}/avatar-{m}.png"], check=True)
+    if "avatar-v2" in sys.argv:
+        # avatar v2 (Abel run 3, Daan kan 7): op 24 px rond werden de scharnieren gele spikkels naast de D.
+        # Nu groter (D vult meer van de cirkel) en de scharnieren half in de D, zodat ze een deel van de letter zijn.
+        SCH_X, SCH_W = -12, 50
+        schrijf("avatar-v2", 1024, 1024, avatar(s=1.3), png=False)
+        for m in (1024, 512, 184):
+            subprocess.run(["rsvg-convert", f"{UIT}/avatar-v2.svg", "-w", str(m), "-o", f"{UIT}/avatar-{m}-v2.png"], check=True)
+        sys.exit(0)
     # v2: alles met een lichtbundel of spullen, plus het logo in het midden
     schrijf("steam-logo-1200x460-v2", 1200, 460, woord_midden(1200, 460, 280))
     schrijf("steam-kop-1500x220-v2", 1500, 220, kop_v2())
