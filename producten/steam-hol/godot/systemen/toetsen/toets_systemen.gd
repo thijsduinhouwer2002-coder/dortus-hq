@@ -245,7 +245,7 @@ func _init() -> void:
 			if vol.length() > 42 or vol.contains("{"):
 				af_lang += 1
 				print("  te lang of open: ", vol)
-	ok(af_lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % lang)
+	ok(af_lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % af_lang)
 	ok(stem.kies("afgerekend_val", {"naam": "Bram", "val": ""}) == "", "afloop-regel met {Val} komt niet zonder val")
 	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
 	# upgrades (Bram 10 nov, feature 5, balans.md): 60, 168, 470, drie per soort, volle prijs terug, opslaan
@@ -259,7 +259,7 @@ func _init() -> void:
 	ok(u.verkoop("slijm") == 470 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
 	var u2 = load("res://systemen/upgrades.gd").new()
 	u2.van_dict(u.naar_dict())
-	ok(u2.niveau("slijm") == 2 and u2.plat_s() == 40.0, "opslaan en laden, Bouncy Gloop 40 s")
+	ok(u2.niveau("slijm") == 2 and absf(u2.plat_factor() * 60.0 - 40.0) < 0.01, "opslaan en laden, Bouncy Gloop 40 s")
 	u2.van_dict({"slijm": 9, "stekelput": -3})
 	ok(u2.niveau("slijm") == 3 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 3")
 	var regels_ok := 0

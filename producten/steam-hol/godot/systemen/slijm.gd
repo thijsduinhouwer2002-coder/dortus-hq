@@ -184,8 +184,8 @@ func van_dict(d: Dictionary) -> void:
 func plat() -> void:
 	keer_plat += 1
 	var duur := plat_s
-	if hol != null and "upgrades" in hol and hol.get("upgrades") != null and hol.get("upgrades").niveau("slijm") >= 2:
-		duur = plat_s * 2.0 / 3.0   # Bouncy Gloop (systemen/upgrades.gd): 40 s in plaats van 60, ook in de demo een derde korter
+	if hol != null and "upgrades" in hol and hol.get("upgrades") != null:
+		duur = plat_s * hol.get("upgrades").plat_factor()   # Bouncy Gloop (systemen/upgrades.gd): 40 s in plaats van 60
 	plat_tot = t + duur
 	set_process(true)
 

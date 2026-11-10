@@ -284,8 +284,8 @@ func _onderweg() -> void:
 		doel_kol = hol.schat().x
 	# schijterig draait na een klap de helft van de keren om, hebzuchtig pas na twee klappen
 	var rent := (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2
-	if soort != "" and upg != null and upg.put_houdt_vast() and klappen < 2:
-		rent = false           # Deep Pit: een schijterige held vergeet om te keren
+	if soort == "stekelput" and upg != null and upg.put_houdt_vast() and klappen < 2:
+		rent = false           # Deep Pit: een schijterige held keert na zijn eerste klap (van de put) niet om
 	if bool(info.get("moet_vluchten", false)):
 		rent = true
 	if bool(info.get("moet_doorlopen", false)) or bool(info.get("moet_opgegeten", false)) or bool(info.get("moet_afgerekend", false)):

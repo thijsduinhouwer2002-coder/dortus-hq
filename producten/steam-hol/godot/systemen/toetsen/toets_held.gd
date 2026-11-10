@@ -386,6 +386,12 @@ func _init() -> void:
 		r = speel({"naam": "S%d" % z, "bezoeken": 0, "wrok": "", "trek": "schijterig", "zaad": 2000 + z}, true, false, diep)
 		if r.uitkomst == "ontsnapt" and not bool(r.info.get("hoard_toucher", false)):
 			omgekeerd += 1
+	var omgekeerd_zonder := 0
+	for z in 100:
+		r = speel({"naam": "S%d" % z, "bezoeken": 0, "wrok": "", "trek": "schijterig", "zaad": 2000 + z}, true, false)
+		if r.uitkomst == "ontsnapt" and not bool(r.info.get("hoard_toucher", false)):
+			omgekeerd_zonder += 1
+	ok(omgekeerd_zonder > 10, "controle: zonder Deep Pit keert een schijterige held wel eens om (%d van 100)" % omgekeerd_zonder)
 	ok(omgekeerd == 0, "Deep Pit: een schijterige held keert na de put niet om (%d keer wel)" % omgekeerd)
 	var hol_b := Node2D.new()
 	hol_b.set_script(load("res://systemen/toetsen/nep_hol.gd"))

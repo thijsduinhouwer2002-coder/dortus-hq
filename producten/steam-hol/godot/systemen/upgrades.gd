@@ -11,7 +11,7 @@ extends RefCounted
 # Wat het spel ermee doet:
 # - held.gd vraagt de kans erbij via het hol: als hol een eigenschap "upgrades" heeft (dit object), telt
 #   kans_erbij(soort) mee. Zonder die eigenschap verandert er niets (ook niet in de oude films).
-# - slijm.gd leest plat_s(): 60, of 40 vanaf Bouncy Gloop.
+# - slijm.gd rekent bij plat() zelf plat_s x 2/3 vanaf Bouncy Gloop (40 s in het spel, ook korter in de demo).
 # - de tekening van elke stap is van Mila (gevraagd in taken.md); tot die er is geeft niveau() het getal en tekent
 #   slijm.gd niets anders.
 # - opslaan: naar_dict() en van_dict() (in de save van strook.gd).
@@ -22,8 +22,6 @@ const MAX_NIVEAU := 3
 const BASIS := 60.0
 const FACTOR := 2.8
 const KANS_PER := 0.07
-const PLAT_S := 60.0
-const PLAT_S_BOUNCY := 40.0
 
 # Naam en korte uitleg per stap, Engels zoals in het spel (hooguit 22 en 34 tekens, past in het paneel).
 const STAPPEN := {
@@ -81,8 +79,9 @@ func volgende(soort: String) -> Dictionary:
 func kans_erbij(soort: String) -> float:
 	return KANS_PER * niveau(soort)
 
-func plat_s() -> float:
-	return PLAT_S_BOUNCY if niveau("slijm") >= 2 else PLAT_S
+# Factor op de tijd dat de slijm plat ligt (slijm.gd plat()): Bouncy Gloop 2/3, dus 40 s in plaats van 60.
+func plat_factor() -> float:
+	return 2.0 / 3.0 if niveau("slijm") >= 2 else 1.0
 
 # Deep Pit: een schijterige held keert na een klap van de put niet om.
 func put_houdt_vast() -> bool:
