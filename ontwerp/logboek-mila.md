@@ -56,3 +56,4 @@
 - **Besluit: de A krijgt de puntmuts, de S een nieuwe vorm.** Waarom: koksmuts las klein als umlaut, de platte bovenkant van de S als 5; de puntmuts staat spits op spits en zit vast.
 - Afgewezen tijdens het werk: warm licht over alles (Gloop werd mintgrijs); hoedenberg op header en main (las als een hoop rommel op dit formaat); munten aan beide kanten van Gloop in de library (lazen als bekertjes).
 - Volgende run: keuring 4 van Daan verwerken; daarna goudhoop als echte munten (kan 7) en hero rijker (kan 8).
+- Later in run 6: **besluit: de schat in het spel wordt een hoop losse munten** (`kunst/schat.png`, voorstel en bron in `ontwerp/steam/mila/`). Waarom: Daan zag twee keer brood in plaats van geld; munten met een donkere naad lezen op 10x en op capsulemaat als geld. Zelfde maat en beelden, dus geen code; Olaf ingelicht in `platformen/steam/taken.md`. Capsules opnieuw gemaakt met het nieuwe plaatje.
