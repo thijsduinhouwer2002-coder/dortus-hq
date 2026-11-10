@@ -1,0 +1,90 @@
+name: Garmin Ebb .iq (winkelbestand)
+
+# Gijs, 10 nov 2026. Maakt het .iq-bestand dat Thijs in de Connect IQ-winkel uploadt (monkeyc -e, release-bouw),
+# en zet het als release op GitHub. Start bij een push die versie.txt (of dit bestand) wijzigt, of met de hand.
+# Alleen een versie bouwen waarvan garmin-adem-e2e.yml groen is.
+#
+# Ondertekenen: Garmin wil dat elke update met dezelfde ontwikkelaarssleutel is ondertekend. Die sleutel hoort
+# niet in deze openbare repo. Staat het geheim GARMIN_DEV_KEY (base64 van de DER-sleutel) er, dan wordt daarmee
+# ondertekend en heet de release "ebb-v<versie>". Staat het er niet, dan een wegwerpsleutel en een proef-release
+# "ebb-v<versie>-proef" die NIET ingediend mag worden.
+# De image van een derde draait zonder netwerk (--network none) en in een job zonder schrijfrechten, zodat de sleutel
+# er niet uit kan; alleen de job "release" mag schrijven en die draait de image niet.
+
+on:
+  push:
+    branches: [main, "claude/garmin-*"]
+    paths: ["producten/garmin-adem/versie.txt", ".github/workflows/garmin-adem-iq.yml"]
+  workflow_dispatch:
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    outputs:
+      echt: ${{ steps.sleutel.outputs.echt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Sleutel
+        id: sleutel
+        env:
+          KEY: ${{ secrets.GARMIN_DEV_KEY }}
+        run: |
+          mkdir -p /tmp/k && chmod 700 /tmp/k
+          if [ -n "$KEY" ]; then
+            echo "$KEY" | base64 -d > /tmp/k/key.der; echo "echt=ja" >> "$GITHUB_OUTPUT"; echo "Ondertekend met GARMIN_DEV_KEY"
+          else
+            openssl genrsa -out /tmp/k/key.pem 4096 2>/dev/null
+            openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/k/key.pem -out /tmp/k/key.der -nocrypt
+            echo "echt=nee" >> "$GITHUB_OUTPUT"; echo "::warning::Geen GARMIN_DEV_KEY: proefbestand, niet indienen"
+          fi
+      - name: .iq bouwen (alle horloges uit manifest.xml)
+        run: |
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/k:/k:ro "$IMAGE" -c \
+            'monkeyc -e -r -w -f monkey.jungle -y /k/key.der -o /app/bin/Ebb.iq 2>&1 | tee /app/bin/bouw.log; test -s /app/bin/Ebb.iq'
+          rm -rf /tmp/k
+          ls -la "$APP/bin/Ebb.iq"
+          echo "Waarschuwingen: $(grep -ci warning "$APP/bin/bouw.log" || true)"
+          cd "$APP/bin" && sha256sum Ebb.iq | tee Ebb.iq.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ebb-iq
+          path: |
+            producten/garmin-adem/bin/Ebb.iq
+            producten/garmin-adem/bin/Ebb.iq.sha256
+            producten/garmin-adem/bin/bouw.log
+
+  release:
+    needs: bouw
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: producten/garmin-adem/versie.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: ebb-iq
+          path: iq
+      - name: Release op GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ECHT: ${{ needs.bouw.outputs.echt }}
+        run: |
+          VERSIE=$(tr -d ' \n' < producten/garmin-adem/versie.txt)
+          if [ "$ECHT" = "ja" ]; then TAG="ebb-v$VERSIE"; PRE=""; NOOT="Ebb $VERSIE voor de Connect IQ-winkel, ondertekend met de ontwikkelaarssleutel van Dortus."
+          else TAG="ebb-v$VERSIE-proef"; PRE="--prerelease"; NOOT="PROEF: ondertekend met een wegwerpsleutel. Niet indienen; eerst het geheim GARMIN_DEV_KEY zetten en opnieuw draaien."; fi
+          gh release delete "$TAG" -R "$GITHUB_REPOSITORY" -y --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" $PRE -t "$TAG" \
+            -n "$NOOT Commit $GITHUB_SHA, run $GITHUB_RUN_ID. sha256: $(cut -d' ' -f1 iq/Ebb.iq.sha256)" iq/Ebb.iq iq/Ebb.iq.sha256
