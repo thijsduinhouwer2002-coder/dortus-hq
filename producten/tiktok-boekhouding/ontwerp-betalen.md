@@ -1,0 +1,47 @@
+# Ontwerp betaalstuk (Polar), versie 1
+
+Jet, 10 nov 2026, 01:15 UTC. Bouwt `platformen/tiktok-shop/plan-betalen.md` (Tess) technisch uit. Werkwaarden tot Chris beslist: €15 per maand per winkel, 30 bestellingen per kalendermaand gratis. Status: concept, wacht op de controleur. Geen scherm in dit stuk (balk "betaling mislukt" en de knop "Abonnement beheren" komen met de schermen, kleur van Daan).
+
+Bronnen (onderzoeker-agent, 10 nov 01:10 UTC, met curl; de vectoren door Jet zelf nagerekend): Polar OpenAPI `https://polar.sh/docs/openapi/2026-10.openapi.json`, `polar.sh/docs/integrate/webhooks/delivery.md`, `polar.sh/docs/integrate/customer-state.md`, `polar.sh/docs/api-reference/versioning.md`, `polar.sh/docs/api-reference/introduction.md`, `polar.sh/docs/features/subscriptions/introduction.md`, `polar.sh/docs/features/checkout/links.md` en `session.md`, Standard Webhooks spec en JS-bibliotheek op github (standard-webhooks/standard-webhooks). Alles GEZIEN tenzij GOK erbij staat.
+
+## 1. Wat de app weet en bewaart
+- **Winkelsleutel naar Polar:** onze eigen `winkels.id` als `external_customer_id`, niet de TikTok `shop_id` (privacybelofte: naar Polar alleen de winkelsleutel). Dezelfde sleutel ook als `metadata.winkel` op de checkout, zodat hij op het abonnement komt (GOK, sterk: de docs zeggen het voor checkout links en upgrades).
+- **Per winkel in `winkels`:** `polar_klant` (bestaat al, Polar customer id) en een nieuwe kolom `abonnement` (JSON): `{ actief, tot, id, opgezegd, betalingMislukt, stand }`. `actief` en `tot` (= `current_period_end`, unix-seconden) uit Customer State; `betalingMislukt` uit `subscription.past_due`; `stand` = `webhook-timestamp` of het tijdstip van onze eigen opvraging. Geen bedragen, geen e-mail, geen kaartgegevens.
+- **Gratis teller:** nieuwe tabel `gratis (winkel, maand, bestellingen, PRIMARY KEY (winkel, maand))`, `maand` als `JJJJ-MM` in tijdzone Europe/Amsterdam van de `statement_time` (de dag waarop de verkoper het geld ziet). Valt onder de wis-regels van punt 7 van `ontwerp-d1-worker.md` (vijfde tabel bij ontkoppelen, triggers erbij).
+
+## 2. Mag deze uitbetaling boeken?
+Nu is `Instellingen.magBoeken` één vlag per run. Wordt een keuze per afrekening, vlak vóór "boeking gestart":
+1. Abonnement `actief` en `tot` > nu: ja.
+2. Anders gratis: `gratis[maand].bestellingen + aantal bestellingen van deze afrekening <= 30`: ja, en de teller gaat omhoog **in dezelfde batch** als "boeking gestart" (zo telt hij precies één keer; bij opnieuw boeken van een al geboekte afrekening telt hij niet nog eens: alleen als de vorige status geen `geboekt` was). Een afrekening gaat in zijn geheel: past hij niet, dan wacht hij helemaal.
+3. Anders `wacht_op_abonnement` (staat al in de statuslijst en in OPEN).
+4. **Inhalen begrensd:** komt een abonnement, dan boeken alleen wachtende afrekeningen uit de lopende en de vorige kalendermaand. Oudere blijven `wacht_op_abonnement` met reden "ouder dan vorige maand" (later per maand in te halen, vorm en prijs Chris).
+5. **Twijfel:** `actief` maar `tot` is voorbij (verlenging gemist), of er staat een `wacht_op_abonnement` open en `stand` is ouder dan 6 uur: één keer Customer State opvragen (1 verzoek uit de pot van 50, vóór het ophalen bij TikTok). Polar onbereikbaar of 5xx/429: niet boeken wat het abonnement nodig heeft, gewoon wachten (geen winkelfout, wel een logregel); gratis boeken gaat door.
+6. Opgezegd: Customer State houdt het abonnement actief tot het einde van de periode, dus boeken gaat door tot `tot`, daarna alleen gratis. `past_due` valt uit Customer State; Polar's grace period van 7 dagen (instelling in Polar, regel op de lijst van Thijs bij het aanmaken van het product) houdt het zo lang actief.
+
+## 3. Webhook van Polar
+`POST /polar/webhook` in `fetch` van de Worker (naast `/tiktok/webhook`).
+- Body ruw, hoogstens 64 KiB (413).
+- **Handtekening (Standard Webhooks):** koppen `webhook-id`, `webhook-timestamp`, `webhook-signature`. Getekend: `id + "." + timestamp + "." + ruwe body`, HMAC-SHA256, base64, in de kop als `v1,<base64>`, eventueel meerdere gescheiden door spaties (één moet kloppen). Sleutel: Polar gebruikt twee schema's, afhankelijk van wanneer het secret gemaakt is (vóór of na 8 sep 2026): (a) `whsec_` eraf en de rest base64-decoderen, (b) de UTF-8-bytes van de hele `whsec_...`-tekst. We proberen beide, zoals de SDK's van Polar. Toetsvector (Standard Webhooks/Svix, nagerekend): secret `whsec_MfKQ9r8GKYqrTwjUPD8ILPZIo2LaLaSw`, id `msg_p5jXN8AQM9LWM0D4loKWxJek`, ts `1614265330`, body `{"test": 2432232314}` geeft (a) `v1,g0hM9SsE+OTPJTGt/tmIKtSyZlE3uFJELVlNIOLJ1OE=` en (b) `v1,TcxlhK9b6UD6iVI1ZU2tTqp8PEVfYRseNNfa6b+LcUg=`. Tijdvenster 5 minuten beide kanten (zoals de bibliotheek). Fout: 403, niets gedaan. Vergelijken in constante tijd.
+- **Versie vast:** endpoint in Polar op API-versie `2026-10`; kop `webhook-api-version` anders dan `2026-10`: 202 en een logregel, niets doen (we lezen dan misschien velden verkeerd; Customer State bij de volgende twijfel herstelt het).
+- **Volgorde en dubbel:** we schrijven alleen als `webhook-timestamp` nieuwer is dan `stand` (voorwaarde in de UPDATE). Dubbel of oud: 202 zonder iets te doen. Geen aparte tabel met webhook-id's nodig.
+- **`customer.state_changed`:** `data.external_id` is onze winkelsleutel; onbekend of ontkoppeld: 202 en logregel. Uit `active_subscriptions` het abonnement met `metadata.winkel` gelijk aan de sleutel; staat er geen enkel abonnement met `metadata.winkel`, dan het enige actieve (oude checkout zonder metadata); meerdere zonder: het met de verste `current_period_end`. Gevonden: `actief`, `tot`, `id`, `opgezegd = cancel_at_period_end`. Niets gevonden: `actief = false`. `polar_klant = data.id`. `data.deleted_at` gezet: `actief = false`.
+- **`subscription.past_due`:** `betalingMislukt = true` (alleen als `metadata.winkel` of `customer.external_id` klopt). **`subscription.active`** en **`subscription.uncanceled`**: `betalingMislukt = false`. Andere events: 202, niets.
+- Antwoord 202 bij succes (voorbeeld van Polar), 500 als D1 faalt (Polar probeert tot 10 keer opnieuw). Antwoorden binnen 2 seconden: geen verzoeken naar buiten in de webhook.
+- Log: alleen eventtype, winkelsleutel en webhook-id; geen e-mail of naam uit de body.
+
+## 4. Verzoeken naar Polar (eigen kleine client, `src/polar/`)
+- Basis `https://api.polar.sh` (sandbox `https://sandbox-api.polar.sh`, via env), kop `Authorization: Bearer <Organization Access Token>` en `Polar-Version: 2026-10`. Telt in het budget via `budget.omhul`. 429: één keer herhalen na `Retry-After` als die ≤ 2 s is, anders opgeven (later opnieuw). Grens 500 per minuut per organisatie: ruim genoeg.
+- `standVan(winkel)`: `GET /v1/customers/external/{winkel}/state`; 404 = geen klant = niet actief; zelfde keuze van het abonnement als in de webhook.
+- `maakCheckout(winkel, ip?)`: `POST /v1/checkouts/` met `products: [POLAR_PRODUCT_ID]`, `external_customer_id`, `metadata: {winkel}`, `success_url`, `customer_ip_address` uit `CF-Connecting-IP`. Geeft de `url`. Wordt aangeroepen door de schermen (later), niet door de cron.
+- `portaalLink(winkel)`: `POST /v1/customer-sessions/` met `external_customer_id` en `return_url`; geeft `customer_portal_url`.
+- `zegOp(winkel)`: Customer State lezen, elk actief abonnement van deze winkel `PATCH /v1/subscriptions/{id}` met `{"cancel_at_period_end": true}`. 200 of 403 met `AlreadyCanceledSubscription`: gelukt. 404: gelukt (niets meer). 409, 429, 5xx, netwerk: later. Dit voert de taak `opzeggen` uit die `ontkoppel` al neerzet (punt 7); de cron in `opruimen.ts` roept het aan, met de bestaande regels (elke dag ALARM als het na dag 23 nog open is).
+
+## 5. Env en instellingen
+Nieuwe secrets: `POLAR_TOKEN` (scopes `customers:read`, `checkouts:write`, `customer_sessions:write`, `subscriptions:write`), `POLAR_WEBHOOK_SECRET`, `POLAR_PRODUCT_ID`, `POLAR_API` (sandbox of echt). In Polar (later, op de lijst van Thijs, gebundeld): product €15 per maand, grace period 7 dagen, webhook-endpoint met versie 2026-10 voor `customer.state_changed`, `subscription.past_due`, `subscription.active`, `subscription.uncanceled`, Bot Fight Mode van Cloudflare uit voor dat pad.
+
+## 6. Open, te toetsen in de Polar-sandbox (later, geen vraag aan Thijs nu)
+- Komt `metadata` van een API-checkout echt op het abonnement? (GOK, sterk.)
+- Twee winkels van één verkoper met één e-mailadres: maakt `external_customer_id` per winkel twee klanten, of botst het e-mailadres? Zo ja: één klant per verkoper met "Allow multiple subscriptions" en de keuze via `metadata.winkel` (die keuze staat er al in, dus de code hoeft dan niet om).
+
+## 7. Toetsen (unittests op voorbeeldvormen uit de OpenAPI, nagebootste D1 en fetch)
+(a) handtekening: beide vectoren, meerdere handtekeningen in de kop, verkeerd secret, buiten 5 minuten, ontbrekende kop: 403 en niets veranderd. (b) state_changed zet `actief`/`tot`, oude of dubbele webhook doet niets, onbekende winkel 202. (c) keuze van het abonnement met en zonder `metadata.winkel`. (d) gratis grens: 30 precies wel, 31 niet, afrekening in zijn geheel, teller één keer (ook bij opnieuw boeken en bij een tweede run), maand in Europe/Amsterdam (uitbetaling 31 dec 23:30 UTC telt als januari). (e) inhalen alleen lopende en vorige maand. (f) twijfel: één opvraging, Polar weg dan gratis wel en betaald niet. (g) `zegOp`: 200, 403 AlreadyCanceled, 404 gelukt; 409/5xx later. (h) past_due zet en active wist `betalingMislukt`. (i) budget: opvraging telt in de pot van 50.
