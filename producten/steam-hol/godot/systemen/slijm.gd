@@ -10,9 +10,9 @@ const RUST := preload("res://kunst/slijm.png")          # 16 x 16, rust 0..3
 const LEVEN := preload("res://kunst/slijm_leven.png")   # 16 x 16: slapen 0-1, spugen 2-5, hap 6-10, plat 11, opstaan 12
 # Upgrades per stap (Mila 10 nov 02:55, ontwerp/steam/mila/gloop-upgrades-10x.png). Stappen stapelen: Royal heeft ook Big en Bouncy.
 # Big Gloop (niveau 1+): eigen bladen, lijf 1 spelpixel groter rondom getekend (niet geschaald), zelfde indeling en frames.
-const RUST_GROOT := preload("res://kunst/slijm_groot.png")
-const LEVEN_GROOT := preload("res://kunst/slijm_leven_groot.png")
-const UPG := preload("res://kunst/slijm_upgrades.png")  # cel 0 (x 0, 16 x 16) glansster voor Bouncy, cel 1 (x 16, 24 x 16) cape voor Royal
+const RUST_GROOT := preload("res://kunst/slijm_groot2.png")    # frames 20 x 16 (Mila 04:55: 2 spelpixels groter rondom)
+const LEVEN_GROOT := preload("res://kunst/slijm_leven_groot2.png")
+const UPG := preload("res://kunst/slijm_upgrades2.png")  # cel 0 (x 0, 20 breed) glansster, cel 1 (x 20, 28 breed) mantel achter, cel 2 (x 48, 20 breed) bovenzoom met gesp voor
 const KOOP_S := 0.6         # het moment van kopen: 3 beelden op 5 fps (Sanne toets 8 punt 1: Gloop wipt en zwelt)
 const KOOP_WIP := [-2, -3, -1]   # hoeveel spelpixels hij omhoog is per beeld; in beeld 0 nog het oude lijf, daarna het nieuwe
 const HAP := [6, 7, 8, 9, 10]
@@ -128,8 +128,10 @@ func vier_koop() -> void:
 	set_process(true)
 	queue_redraw()
 
-# Na "Undo" of laden: alleen opnieuw tekenen, zonder feestje.
+# Na "Undo" of laden: alleen opnieuw tekenen, zonder feestje. Een koop-moment dat nog liep stopt meteen
+# (controleur 04:22: Undo binnen 0,6 s liet de wip doorlopen).
 func upgrade_veranderd() -> void:
+	koop_van = -10.0
 	queue_redraw()
 
 # Hoeveel spelpixels hij nu omhoog is door het koop-moment (0 of negatief).
@@ -279,7 +281,7 @@ func top_nu() -> int:
 	var tabel: Array = RUST_TOP if (f[0] == RUST or f[0] == RUST_GROOT) else LEVEN_TOP
 	var top := int(tabel[int(f[1])])
 	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
-		top -= 1     # het grote lijf is 1 spelpixel hoger (Mila), dan zakt de toren niet in zijn kruin
+		top -= 2     # het grote lijf is 2 spelpixels hoger (Mila 04:55), dan zakt de toren niet in zijn kruin
 	return top
 
 # Waar elke hoed van de toren staat: [hoed, x, y] (y = bovenkant van het 16 x 16 frame, Gloop-coordinaten).
@@ -310,6 +312,7 @@ func berg() -> Array:
 	var in_rij := 1
 	while _past_op_berg(in_rij) < n:
 		in_rij += 1          # breedte van de onderste rij
+	var links := -14 if niveau() >= 1 else -12   # groot lijf en mantel: berg 2 pixels verder naar links (Mila 04:55)
 	var k := 0
 	var breedte := in_rij
 	while k < n and breedte > 0:
@@ -317,7 +320,7 @@ func berg() -> Array:
 			if k >= n:
 				break
 			var h: int = hoeden[k]   # de oudste hoeden liggen op de berg
-			var x := -12 - 6 * (in_rij - 1) + 6 * j + 3 * rij
+			var x := links - 6 * (in_rij - 1) + 6 * j + 3 * rij
 			uit.append([h, x, -1 - int(HOED_ONDER[h]) - 3 * rij])
 			k += 1
 		rij += 1
@@ -341,13 +344,18 @@ func _draw() -> void:
 	var wip := wip_nu()
 	var n := niveau()
 	if n >= 3 and not is_plat():
-		draw_texture_rect_region(UPG, Rect2(-12, -16 + wip, 24, 16), Rect2(16, 0, 24, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
-	draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
+		draw_texture_rect_region(UPG, Rect2(-14, -16 + wip, 28, 16), Rect2(20, 0, 28, 16))   # Royal: cape erachter, op de vloer (wipt mee bij het koop-moment)
+	if f[0] == RUST_GROOT or f[0] == LEVEN_GROOT:
+		draw_texture_rect_region(f[0], Rect2(-10, -16 + wip, 20, 16), Rect2(int(f[1]) * 20, 0, 20, 16))
+	else:
+		draw_texture_rect_region(f[0], Rect2(-8, -16 + wip, 16, 16), Rect2(int(f[1]) * 16, 0, 16, 16))
+	if n >= 3 and not is_plat():
+		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(48, 0, 20, 16))   # Royal: bovenzoom met gouden gesp voor hem, vóór de hoeden
 	for h in toren():
 		draw_texture_rect_region(HOEDEN, Rect2(int(h[1]) - 8, int(h[2]), 16, 16), Rect2(int(h[0]) * 16, 0, 16, 16))
 	if n >= 2 and not is_plat():
 		# Bouncy: glansster tegen zijn kruin. Na de hoeden getekend, anders dekt de onderste hoed de bovenarm af en leest hij als een T.
-		draw_texture_rect_region(UPG, Rect2(-8, -16 + top_nu() - 5 + wip, 16, 16), Rect2(0, 0, 16, 16))
+		draw_texture_rect_region(UPG, Rect2(-10, -16 + top_nu() - 4 + wip, 20, 16), Rect2(0, 0, 20, 16))
 	if leven == "slapen":
 		var zy := -25
 		for h in toren():
