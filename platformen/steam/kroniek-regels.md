@@ -128,3 +128,15 @@ Eén regel per aankoop, meteen na "Buy". Kort (past in het paneel, max ±42 teke
 - Trick Lid: `The pit has a lid. Looks like floor.` / `New floor. Not floor.` / `The Spike Pit hides now. Shh.`
 - Undo: `{naam} undone. +{goud}` blijft zo (eerlijk en duidelijk, geen grap nodig).
 Let op eerlijkheid: elke regel zegt wat de stap echt doet (40 s, dieper, deksel); geen regel belooft meer dan het spel doet.
+
+## Heldenboek (Sanne 10 nov 05:05 UTC; voor `systemen/boek.gd` van Bram)
+Bram heeft in `boek.gd` al één vaste regel per soort; die zijn duidelijk en kloppen. Hieronder per soort de vaste regel (eerste, uit de code) plus twee grappigere, zodat het boek niet elke keer hetzelfde zegt. Alle regels gemeten met de langste gevallen ("the Wizard", "Feather cap", "Tibbe", elk moment uit MOMENTEN, 10000, dag 123): **alle ≤ 42 tekens** (de langste is 42). Kies zoals bij de rest: willekeurig binnen de soort, niet twee keer achter elkaar. De korte val-terug (`kort` in `_past`) blijft zoals Bram hem heeft.
+- Nieuwe bladzijde, hoofdstuk 1 (`{wie}` = "the Wizard", nooit vooraan in de zin): `New page: {wie}. {hoe}` / `Page for {wie}. {hoe}` / `Booked: {wie}. {hoe}`
+- Nieuwe stempel, hoofdstuk 1: `New stamp for {wie}. {hoe}` (zoals nu)
+- `{hoe}` per stempel, één van twee: door Gloop `{bewoner} got him.` / `{bewoner} says yum.`; door de put `The pit got him.` / `Spikes: one.`; ontsnapt `He got away.` / `Ran off. Counts.`
+- Moment, hoofdstuk 2: `New page: {naam} {wat}.` / `Book: {naam} {wat}. Noted.` / `{naam} {wat}. Filed.`
+- Hoed, hoofdstuk 3: `New hat: {hoed}. Thanks, {naam}.` / `{hoed} added. {naam} won't need it.` / `Book: {naam}'s {hoed}. Kept.`
+- Hoedenberg: `The hat pile reached {n}. Stamped.` / `{n} hats. The pile has weather now.` / `{n} hats. {bewoner} is very proud.`
+- Nieuwe aartsvijand: `New nemesis in the book: {naam}.` / `{naam} is in the book. In red ink.` / `{naam} got his own page. He'd love it.`
+- Aartsvijand afgerekend: `Book: {naam}, settled on day {d}.` / `{naam}'s page is closed. Day {d}.` / `Day {d}: {naam}'s grudge is filed.`
+Eerlijk: "red ink" en "weather" zijn grapjes in tekst; als Mila de aartsvijand-bladzijde in rood tekent is het ook waar, anders blijft het een grap die niemand als belofte leest.
