@@ -1,0 +1,131 @@
+name: Garmin Ebb (Connect IQ simulator)
+
+# Ebb, de ademapp (Gijs, 10 nov 2026), gekopieerd uit de bouwstraat garmin-proef: compileren, Run No Evil-tests en schermafbeeldingen in de echte
+# Connect IQ-simulator. Image ghcr.io/matco/connectiq-tester bevat SDK 9.2.0, apparaten en fonts (2026-08-31).
+# De image draait alleen in de bouw-job zonder schrijfrechten; alleen de job "schermen" mag pushen.
+
+on:
+  push:
+    branches: [main, "claude/garmin-*"]
+    paths: ["producten/garmin-adem/**", ".github/workflows/garmin-adem-e2e.yml"]
+  workflow_dispatch:
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen (tot drie pogingen)
+        run: |
+          for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Tests in de simulator (fenix7)
+        run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fenix7
+      - name: Schermafbeeldingen per horloge
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/$APP/schermen"
+          cat > /tmp/schermen.sh <<'SH'
+          set -x
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          touch /tmp/merk
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          simulator > /tmp/sim.log 2>&1 &
+          sleep 8
+          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
+            echo "== bouw $d"; monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 -w || exit 1
+          done
+          for d in fenix7 vivoactive5 fr265 fenix847mm; do
+            touch /tmp/merk-$d
+            monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
+            MD=$!
+            sleep 14
+            import -window root "schermen/$d-a.png"
+            sleep 3
+            import -window root "schermen/$d-b.png"
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+            echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
+            echo "== FIT-bestanden na $d (nieuwer dan de start)"
+            mkdir -p "schermen/fit/$d"
+            find / -xdev -iname '*.fit' -newer /tmp/merk-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+              ls -la "$f"; cp "$f" "schermen/fit/$d/$(basename "$f")"
+            done
+          done
+          echo "== mappen van de simulator in /tmp"; ls -laR /tmp/com.garmin.connectiq 2>/dev/null | head -80 || true
+          mogrify -fuzz 2% -trim +repage schermen/*.png
+          ls -la schermen
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+      - name: FIT-bestanden lezen met fitdecode
+        if: always()
+        run: |
+          pip install -q fitdecode
+          cat > /tmp/leesfit.py <<'PY'
+          import glob, sys, fitdecode
+          bestanden = sorted(glob.glob(sys.argv[1] + "/**/*.fit", recursive=True))
+          print("aantal FIT-bestanden:", len(bestanden))
+          for pad in bestanden:
+              print("==", pad)
+              with fitdecode.FitReader(pad) as fit:
+                  for fr in fit:
+                      if isinstance(fr, fitdecode.FitDataMessage) and fr.name in ("sport", "session", "lap", "field_description", "developer_data_id"):
+                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "beste")
+                          velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
+                          dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
+                          print(fr.name, velden, "dev:", dev)
+          PY
+          python3 /tmp/leesfit.py "$APP/schermen/fit"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: garmin-adem-schermen
+          path: producten/garmin-adem/schermen
+          if-no-files-found: warn
+
+  schermen:
+    needs: bouw
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: garmin-adem-schermen
+          path: schermen
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$PWD/schermen"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM=$(echo "$TAK" | tr '/' '-')
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            if git clone -q --depth 1 --branch schermen "$URL" /tmp/s 2>/dev/null; then :; else
+              mkdir /tmp/s && cd /tmp/s && git init -q -b schermen && git remote add origin "$URL" && cd - >/dev/null
+            fi
+            D="/tmp/s/garmin-adem/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen garmin-adem/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/garmin-adem/$NAAM"
