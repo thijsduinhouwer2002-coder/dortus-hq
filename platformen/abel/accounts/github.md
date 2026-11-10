@@ -3,7 +3,7 @@
 Versie 4, 10 nov 2026 06:30 NL. Status: klaar, akkoord Daan (teksten keuring 2, avatar v2 keuring 4, social v2b keuring 5). **Bestanden: `platformen/abel/upload/3-github/` (of de zip `dortus-beelden.zip`).**
 
 ## Proef
-`merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Het vak About staat er nog leeg in, zo ziet het er nu uit; stap 2 vult het.
+`merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Sinds 10 nov 06:45 staat ook het vak About erin zoals na stap 2 (beschrijving, website, topics); script `merk/bron/mock4v3.js`.
 
 ## Ter info: "claude" staat als maker bij de commits
 Op de repopagina staat bij de laatste commit de naam `claude` met het Claude-logo (GEZIEN). Dat past bij onze eerlijke AI-zin en hoeft niet weg. Wel een reden om de bio en de avatar van Thijs verzorgd te hebben: een bezoeker ziet dan een mens met een merk die met AI bouwt, in plaats van een leeg account waar alleen een bot in werkt.

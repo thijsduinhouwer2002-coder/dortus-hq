@@ -19,13 +19,13 @@ Bewuste uitzondering: op Steam (profiel en groep) noemen we Hats of the Fallen w
 `platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh` (maakt v2b, de goedgekeurde versie). Alle tien bestanden samen bekeken op 10 nov 05:25.
 
 ## Zo ziet het eruit (proeven op echte pagina's, alleen in onze browser vervangen)
-**Alles op één blad: `merk/proef/overzicht-alle-accounts.png`** (Steam pagina en profiel, Polar, GitHub, Blender, Obsidian onder elkaar; goed om Thijs als eerste te laten zien). Opnieuw maken: `python3 merk/bron/abel_overzicht.py` vanuit `merk/`.
+**Alles op één blad: `merk/proef/overzicht-alle-accounts.png`** (Steam pagina en profiel, Polar, GitHub, Blender, Obsidian en de nieuwe hoofdpagina van dortus.com onder elkaar; goed om Thijs als eerste te laten zien). Opnieuw maken: `python3 merk/bron/abel_overzicht.py` vanuit `merk/`.
 - Steam-ontwikkelaarspagina, definitief (avatar v2, kop v2, logo v2b, achtergrond v3, paginakleur Nacht): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png` (opnieuw gemaakt 10 nov 05:23 met logo v2b; de spellen in de proef zijn van Klei, de pagina die ik als mal gebruikte). Breed scherm: `steam-pagina-v3-nacht-op-steam-2560.png`.
 - Steam-profiel: `merk/proef/steam-profiel-kort-op-steam.png`
 - Polar-afrekenpagina: `merk/proef/polar-afrekenen-uitsnede.png` (nu staat daar een grijze letter D)
 - Blender Extensions: `merk/proef/blender-avatar-uitsnede.png` (nu een leeg poppetje)
 - Obsidian-forum: `merk/proef/obsidian-draad-dark.png` (nu een letter "t")
-- GitHub: `merk/proef/github-repo-light.png`
+- GitHub: `merk/proef/github-repo-light.png` en `-dark.png` (sinds 10 nov 06:45 met het vak About gevuld zoals na stap 2: beschrijving, website, topics)
 - dortus.com nieuw: `dortus-com/voorbeeld-desktop.png` en `voorbeeld-telefoon.png`
 - Avatar v1 en v2 klein en rond naast elkaar: `merk/proef/avatar-v1-v2-klein-rond.png`
 (Proeven van Polar, Blender, Obsidian en GitHub opnieuw gemaakt met avatar v2 op 10 nov 03:40; ook de Steam-profielproef. De achtergrondkleur van die proef komt van het profiel dat ik als mal gebruikte; ons profiel krijgt de gewone Steam-kleur.)
