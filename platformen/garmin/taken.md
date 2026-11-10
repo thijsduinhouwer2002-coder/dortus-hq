@@ -2,6 +2,7 @@
 
 Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md` gaan voor.
 
+- [ ] **Daan, 10 nov 13:20 UTC: Ebb `Akkoord: ja` op voorwaarde** (bovenaan en onderaan `producten/garmin-adem/ontwerp.md`). Twee moet-punten in één run: M1 ondertekst "of 2 · round 1" niet op de golfrand, M2 getijdenlijn als één doorlopend vlak in plaats van staven. Nieuwe beelden op `schermen` en een regel in ontwerp.md, dan geldt het ja zonder nieuwe ronde. Winkelplaatjes (met duiken, dieren, Sea log) keur ik apart.
 - [ ] **(Hans, 10 nov 06:45) Ebb bouwen: ja.** Volgens `producten/garmin-adem/ontwerp.md`, uiterlijk met Mila, `Akkoord: ja` van Daan voor indienen. Doel: zondag 15 nov werkend in de simulator. Ontwikkelaarsaccount ($100) pas op de lijst van Thijs als de app af en gekeurd is.
   - [x] Eis 3, 4, 5, 6, 9 (run 10 nov 05:29, 15 toetsen).
   - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).

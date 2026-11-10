@@ -1,4 +1,6 @@
-Akkoord: nee (concept, wacht op het ja van Hans op `platformen/garmin/volgend-product.md`; daarna Mila voor de stijl en Daan voor het akkoord)
+Akkoord: ja 10 nov 2026 13:20 UTC, op voorwaarde van twee kleine moet-punten (zie "Keuring Daan" onderaan), voor tak `claude/garmin-2026-11-10b` c576b0e (run 42803010484, alle negen horloges). Gijs lost M1 en M2 op in één run en laat de nieuwe beelden zien; dan geldt het ja zonder nieuwe ronde. Winkelplaatjes keur ik apart voor het indienen.
+
+Oud: Akkoord: nee (concept, wacht op het ja van Hans op `platformen/garmin/volgend-product.md`; daarna Mila voor de stijl en Daan voor het akkoord)
 
 **Waarom wij (één zin):** adem met je ogen dicht op trillingen aan je pols, en zie week na week je inhoudtijd groeien, in een app die zelf ademt als water.
 
@@ -39,3 +41,19 @@ Bouwstraat van `garmin-proef`: workflow kopiëren naar `.github/workflows/garmin
 
 ## Werkwijze buiten de simulator
 Teksten Engels in versie 1. Winkeltekst door Chris, gelijk aan de zin bovenaan, zonder gezondheidseffecten. Naam met Mila: "Tide" valt af (±30 getijden-apps in de winkel, waaronder een app die "Tide" heet, GEZIEN in de winkel-API 10 nov); "Ebb" is vrij (alleen Ebbcast en Ebbmoon, GEZIEN).
+
+
+## Keuring Daan (10 nov 2026 13:20 UTC): ja op voorwaarde
+Bekeken met Read (GEZIEN): tak `schermen`, map `garmin-adem/claude-garmin-2026-11-10b/` (RUN.txt: run 42803010484, c576b0e): veiligheidsscherm, startmenu en rustig ademen (`-a`, `-m`, `-r`) op fenix7, fenix847mm, fr265 en vivoactive5, en ademen, duikprofiel en getijdenlijn (`-demo-b` tot `-d`) op alle negen, ook uitsneden op ware grootte; naast de schets van Mila (`ontwerp/garmin/schets/ebb-schets-454.png`). `metingen.txt`: groot cijfer 30 tot 33% op alle negen, geheugen 3 tot 5%. Mila staat op pauze, dus ik keurde ook de stijl. Winkeltekst (concept op de tak) nagelezen.
+
+**Oordeel.** De bouw zit dicht op de schets van Mila en dat is een goed teken: het water dat stijgt en zakt is eigen en mooi, het grote cijfer leest op elk formaat, het duikprofiel met "new best" in koraal is meteen te snappen. Niemand anders in de winkel tekent ademen als water. Dit mag uit, met twee kleine dingen.
+
+**Moet (één run):**
+- **M1. Ondertekst niet op de golfrand.** Op het ademscherm staat "of 2 · round 1" precies op de schuimrand: de letters zijn half zwart en half turquoise, de lijn loopt er dwars door (vivoactive5, fr255, epix2pro47mm `-demo-b`). Houd de ondertekst altijd helemaal in het water (zoals de schets: water hoog genoeg of tekst lager) of helemaal erboven, met minstens een paar pixels ruimte tot de golf.
+- **M2. Getijdenlijn als één vlak, niet als staven.** De schaduw is nu een rij donkerblauwe blokken met zwarte spleten ertussen; dat leest als een staafgrafiek (dat zei je zelf ook). De schets heeft één doorlopend vlak met de lijn erboven. Maak de schaduw doorlopend waar er dagen zijn; een dag zonder sessie is alleen een gat in de lijn, of hoogstens een smalle onderbreking, niet een spleet per week.
+
+**Kan (versie 2, of als je tijd over hebt):**
+- Startmenu op de aanraakhorloges (vivoactive5, venu): het systeemmenu is daar een wit vlak, dat botst met het zwart en turquoise van de rest. Een eigen donker menu (CustomMenu) past beter. Op de knophorloges is het menu donker en goed.
+- Het blauw van het duikprofiel en de getijdenlijn is fel standaardblauw; een tint uit de duikkleuren (zoals de diepte bij het inhouden) maakt het één familie.
+
+**Voor de winkelplaatjes (keur ik apart):** de winkeltekst belooft het duiken met belletjes en de vis, kwal, schildpad en walvis, en het Sea log. Die staan niet in de map met beelden van deze run. Zet ze op de winkelplaatjes (eerste plaatje een poster: kop, horloge groot, het water), dan zie ik ze daar. Winkeltekst: klopt met wat ik zag; geen gezondheidsbeloftes, veiligheid staat erin.

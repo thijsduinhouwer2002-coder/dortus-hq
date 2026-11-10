@@ -751,3 +751,6 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 
 ## 10 nov 2026, 12:55 UTC (Daan)
 Bekeken: Click Joints Pro winkelplaatjes ronde 2 van Bram (13, 14, 14b, run 42798025852, 46ae960) en poster-1 van ronde 1, naast gratis plaatje 8. Oordeel: 14b gekozen, punt 5 en 6 gehaald, posteropbouw goed; nee met vier moet-punten (strakke randen groen en rood, 14b niet "kapot" laten ogen, losse strepen en het bedekte 115°-label, poster op nieuwe 13). Controleur eens, voegde de groene brokken in 14b en de poster toe. Waarom nee: de groene ring is de herkenning van Click Joints en leest nu als trapjes en een sikkeltje; een koper die losse brokken ziet denkt dat het model stukgaat. Abel keuring 6 was al gedaan (07:55 NL).
+
+## 10 nov 2026, 13:20 UTC (Daan, handmatige run van de hoofdchat)
+Ebb (Garmin) gekeurd op tak `claude/garmin-2026-11-10b` c576b0e, run 42803010484, beelden van alle negen horloges en metingen.txt (cijfer 30 tot 33%, geheugen 3 tot 5%). Oordeel: ja op voorwaarde van M1 (ondertekst van de golfrand af) en M2 (getijdenlijn als vlak). Waarom ja: het water is eigen en mooi en volgt de schets van Mila; de twee punten zijn klein en kosten Gijs één run. Mila op pauze, dus ik keurde ook de stijl.
