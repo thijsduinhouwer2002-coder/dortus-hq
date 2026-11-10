@@ -43,6 +43,11 @@ var munten: Array = []        # vliegende muntjes van een val naar de schat: {va
 # alles op niveau 0 verandert niets. Kopen komt met het kaartje (features.md feature 5, Olaf).
 var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
+# muzieknootjes boven een bard en boven een held die door zijn lied komt (Sanne toets 10, punt 1): {x, y, t, duur, volg}
+# Een nootje van 5 x 5 spelpixels met een donkere rand; zolang Mila's nootje in tekens.png er niet is, teken ik het zelf.
+var noten: Array = []
+const NOOT := ["..##.", "..#.#", "..#..", "###..", "###.."]
+const NOOT_STIJG := 8.0       # zoveel spelpixels stijgt een los nootje
 var koop_munt: Array = []     # kolommen met een klein muntje erboven: hier kun je iets kopen (kern/kaartje.gd)
 var koop_munt_y := {}         # kolom -> bovenkant van wat daar staat (Gloop met hoeden); het muntje komt 3 erboven
 
@@ -75,6 +80,11 @@ func leg_aan(s: int, lengte := 10) -> void:
 func munt_regen(k: int, n := 3) -> void:
 	for i in n:
 		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
+	set_process(true)
+
+# een nootje: los (stijgt en vervaagt, duur 1,6 s) of boven een held die het volgt (volg = de held, blijft staan)
+func noot(x: float, y: float, duur := 1.6, volg: Node2D = null) -> void:
+	noten.append({"x": x, "y": y, "t": 0.0, "duur": duur, "volg": weakref(volg) if volg else null})
 	set_process(true)
 
 # na kopen: muntjes vliegen van de schat naar het object, omgekeerd van een val (Sanne, het kaartje)
@@ -154,7 +164,19 @@ func _process(delta: float) -> void:
 	munten = munten.filter(func(m): return m.t < MUNT_S)
 	if not munten.is_empty():
 		queue_redraw()
-	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0:
+	for n in noten:
+		n.t += delta
+		if n.volg != null:
+			var h = n.volg.get_ref()
+			if h == null:
+				n.t = n.duur
+			else:
+				n.x = h.position.x
+				n.y = h.position.y - 21.0
+	if not noten.is_empty():
+		noten = noten.filter(func(n): return n.t < n.duur)
+		queue_redraw()
+	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and noten.is_empty():
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
@@ -307,3 +329,21 @@ func _draw() -> void:
 		var onder_y: float = float(koop_munt_y[k]) - 3.0 if koop_munt_y.has(k) else float(GANG_BOVEN + 8)
 		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
 		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))
+	# muzieknootjes (Sanne toets 10, punt 1): licht met een donkere rand, zodat ze ook op de pruimkleurige aarde lezen;
+	# een los nootje stijgt NOOT_STIJG spelpixels en vervaagt in de tweede helft, een nootje boven een held blijft staan
+	for n in noten:
+		var f: float = clampf(n.t / n.duur, 0.0, 1.0)
+		var los: bool = n.volg == null
+		var a: float = (1.0 - maxf(0.0, f - 0.5) * 2.0) if los else (1.0 if f < 0.85 else (1.0 - f) / 0.15)
+		var nx: float = round(n.x + (sin(n.t * 5.0) * 1.0 if los else 0.0)) - 2.0
+		var ny: float = maxf(round(n.y - (f * NOOT_STIJG if los else 0.0)), float(OPP + 1))
+		var rand := Color(0.17, 0.08, 0.16, a)
+		var licht := Color(0.98, 0.91, 0.66, a)
+		for r in 5:
+			for c in 5:
+				if NOOT[r][c] == "#":
+					draw_rect(Rect2(nx + c - 1, ny + r - 1, 3, 3), rand)
+		for r in 5:
+			for c in 5:
+				if NOOT[r][c] == "#":
+					draw_rect(Rect2(nx + c, ny + r, 1, 1), licht)

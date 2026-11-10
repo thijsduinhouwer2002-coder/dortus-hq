@@ -19,6 +19,9 @@ const BINNEN_WIJK := 1.0
 # (afwijking, besluit Olaf 10 nov): in de film van fe3411e verviel hij en kwam daarna "Lotte hums the song" zonder dat
 # je ooit van een lied hoorde. Laag betekent dat hij nooit een gebeurtenis ophoudt, dus de kroniek loopt niet achter.
 const NOOIT_WEG := ["plat", "lied"]
+# "Gloop is flat" drukt net als een gebeurtenis een getoonde lage regel (lied, binnenkomst) na 1 s weg (Sanne toets 10,
+# punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond). De weggedrukte lage regel was al getoond en komt niet terug.
+const DRINGEND := ["plat"]
 
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
@@ -28,15 +31,23 @@ static func toon(s) -> void:
 			s.wachtrij.remove_at(i)
 	if s.wachtrij.is_empty():
 		return
-	var k := 0
+	# eerst een gebeurtenis, dan "plat" (wat je ziet), dan de oudste lage regel
+	var k := -1
 	for i in s.wachtrij.size():
 		if not bool(s.wachtrij[i].binnen):
 			k = i
 			break
+	if k < 0:
+		k = 0
+		for i in s.wachtrij.size():
+			if DRINGEND.has(String(s.wachtrij[i].get("soort", ""))):
+				k = i
+				break
 	var volgende: Dictionary = s.wachtrij[k]
 	var staat: float = s.t - s.regel_sinds
 	var mag := staat >= REGEL_MIN
-	if s.regel_binnen and not bool(volgende.binnen) and staat >= BINNEN_WIJK:
+	var drukt: bool = not bool(volgende.binnen) or DRINGEND.has(String(volgende.get("soort", "")))
+	if s.regel_binnen and drukt and staat >= BINNEN_WIJK:
 		mag = true
 	if not mag:
 		return

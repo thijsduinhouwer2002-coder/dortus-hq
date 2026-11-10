@@ -40,6 +40,8 @@ static func vrije_naam(s) -> String:
 	var bezet := {}
 	for h in s.terugkomers:
 		bezet[String(h.naam).split(" ")[0]] = true
+	for n in s.pensioen_namen:   # anders loopt Mara binnen vlak na "Mara retired. Opened a bakery."
+		bezet[String(n).split(" ")[0]] = true
 	for w in s.wezens.get_children():
 		if w.has_method("is_held"):
 			bezet[String(w.info.get("naam", "")).split(" ")[0]] = true

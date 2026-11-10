@@ -1,4 +1,5 @@
 extends RefCounted
+const VOORTGANG := preload("res://systemen/voortgang.gd")   # met_pensioen (Bram 04:35)
 # Deel van kern/strook.gd (Olaf), losgehaald bij het opruimen van 10 nov (strook.gd was 650 regels).
 # Statische functies; `s` is de strook. Gedrag gelijk aan voor het splitsen (film.log gelijk).
 
@@ -25,6 +26,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			s.vlucht_tijd[String(info.naam)] = s.t
 		if s.demo or b.bezoeken >= 3 or s.rng.randf() < 0.6 or String(info.naam) == s.begin_vlucht:
 			s.terugkomers.append(b)
+		else:
+			s.pensioen_namen = VOORTGANG.met_pensioen(s.pensioen_namen, String(info.naam))
 		# Heldenboek: wie drie keer vluchtte is een aartsvijand en krijgt een bladzijde, ook als hij niet terugkomt
 		if int(b.bezoeken) >= 3:
 			boek_regel(s, s.boek.aarts(String(info.naam), {"bijnaam": "Thrice-Fled", "wrok": String(b.wrok), "bezoeken": int(b.bezoeken)}))
@@ -35,6 +38,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				if int(s.terugkomers[i].bezoeken) < 3:
 					weg_i = i
 					break
+			s.pensioen_namen = VOORTGANG.met_pensioen(s.pensioen_namen, String(s.terugkomers[weg_i].naam))
 			s.terugkomers.remove_at(weg_i)
 		# Geen straf: wie ontsnapt neemt niets mee dat jij kwijt bent, alleen zijn wrok.
 		if bool(info.get("hoard_toucher", false)) and String(info.get("wat", "")).begins_with("touched"):

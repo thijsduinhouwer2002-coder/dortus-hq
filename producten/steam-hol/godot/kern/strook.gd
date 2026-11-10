@@ -64,6 +64,7 @@ var demo_hoed_i := 0           # demo: volgende hoed uit DEMO_HOEDEN
 var vlucht_tijd := {}          # demo: naam -> wanneer hij vluchtte (niet bewaard); een terugkomer pas na DEMO_TERUG_NA s
 const DEMO_TERUG_NA := 8.0     # Sanne toets 7, punt 3: Tibbe klom de ladder op en meteen weer af, dat leest als een fout
 var anim_t := 0.0
+var pensioen_namen: Array = []   # wie vluchtte en nooit terugkomt (hooguit 5, oudste voor); bij openen een grapje (Bram 04:35)
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
 var slijm_plat := false
@@ -243,7 +244,9 @@ func _nieuwe_held() -> bool:
 				kan.append(i)
 		if not kan.is_empty():
 			kies = kan[rng.randi_range(0, kan.size() - 1)]
-			if int(terugkomers[kies].bezoeken) >= 3 and rng.randf() >= 0.15:
+			# en pas vanaf de 60e nieuwe held, ±1 uur (Sanne features.md: geen aartsvijand in het eerste uur; Brams sim,
+			# sim/UITKOMST.md: anders 32% van de spellen in uur 1). Niet in de demo, daar telt de film.
+			if int(terugkomers[kies].bezoeken) >= 3 and ((not demo and not SOORT.aarts_mag(helden_nr)) or rng.randf() >= 0.15):
 				kies = -1
 	if kies >= 0:
 		info = terugkomers.pop_at(kies)
@@ -365,6 +368,14 @@ func _process(delta: float) -> void:
 			if hi is Dictionary and String(hi.get("wat", "")).begins_with("touched") and not hi.has("schat_gemeld"):
 				hi["schat_gemeld"] = true
 				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
+			# muzieknootjes (Sanne toets 10, punt 1): een bard laat elke ±2 s een nootje opstijgen (binnenlopen en vluchten,
+			# niet als hij valt); een held die door het lied komt krijgt bij binnenkomst 2 s een nootje boven zijn hoofd
+			if str(w.get("soort_held")) == "bard" and str(w.get("staat")) != "vallen" and t >= float(w.get_meta("noot_t", 0.0)):
+				w.set_meta("noot_t", t + 2.0)   # geen rng: die bepaalt de demo-film
+				hol.noot(w.position.x + 5.0, w.position.y - 18.0)
+			if hi is Dictionary and bool(hi.get("lied_held", false)) and not w.has_meta("lied_noot"):
+				w.set_meta("lied_noot", true)
+				hol.noot(w.position.x, w.position.y - 21.0, 2.0, w)
 			# slaapkop (Bram, versie 1): zijn dutje een lage regel, zoals binnenkomst (hij ligt er 4 s, de regel mag wachten)
 			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
 				hi["dutje_gemeld"] = true

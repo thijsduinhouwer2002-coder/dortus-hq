@@ -10,6 +10,7 @@ static func bewaar(s) -> void:
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
+		"pensioen_namen": s.pensioen_namen,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
 		"boek": s.boek.naar_dict() if s.boek != null else {}}
@@ -51,6 +52,7 @@ static func laad(s, begin) -> void:
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
 	s.helden_nr = int(data.get("helden_nr", 0))
 	s.lied_helden = int(data.get("lied_helden", 0))
+	s.pensioen_namen = data.get("pensioen_namen", [])
 	if s.slijm.has_method("van_dict"):
 		s.slijm.van_dict(data.get("slijm", {}))
 	s.hol.goud = int(data.get("goud", 0))
@@ -81,6 +83,11 @@ static func laad(s, begin) -> void:
 		# via de wachtrij, zodat je ze bij openen een voor een ziet (controleur punt 4)
 		for r in VOORTGANG.verhaal(weg, helden_d, namen, 7):
 			s._kroniek(String(r))
+	# met pensioen (Bram 04:35, Sanne kroniek-regels.md): na minstens 30 min weg hooguit één held die nooit terugkwam
+	var p: Dictionary = VOORTGANG.pensioen(s.pensioen_namen, weg, s.regels)
+	if not p.is_empty():
+		s._kroniek(String(p.regel))
+		s.pensioen_namen.erase(p.naam)
 	s.hol.queue_redraw()
 	s.tekst.zet(s.kroniek, s.hol.goud)
 	s.log_regel("HOL opslag geladen: %d terugkomers, %d goud" % [s.terugkomers.size(), s.hol.goud])
