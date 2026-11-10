@@ -242,7 +242,7 @@ class EbbView extends WatchUi.View {
         var klein = "";
         var yGroot = 0.38;
         var yKlein = 0.73;
-        var font = EbbTeken.grootFont(dc, d, 0.42);
+        var font = EbbTeken.grootFont(dc, d, 0.55);
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, onderin 20% bij uit, 80% bij in.
             EbbTeken.water(dc, d, 0.2 + 0.6 * sessie.water(nu), EbbTeken.DIEPTE[0], golfFase);
@@ -353,7 +353,7 @@ class EbbView extends WatchUi.View {
         var diep = p[2 * j + 1];
         var kleur = koraal ? EbbTeken.KORAAL : EbbTeken.LICHT;
         var r = (d * 0.022).toNumber();
-        dc.setColor(kleur, kleur);
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.fillCircle(diep[0], diep[1], r > 3 ? r : 3);
         var s = t[j] / 1000;
         dc.drawText(diep[0] - (r * 16) / 10, diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
