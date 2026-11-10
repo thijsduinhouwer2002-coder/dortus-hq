@@ -23,6 +23,10 @@ class EbbApp extends Application.AppBase {
 
     private var _view as EbbView or Null = null;
 
+    function zetView(view as EbbView) as Void {
+        _view = view;
+    }
+
     function getInitialView() as [WatchUi.Views] or [WatchUi.Views, WatchUi.InputDelegates] {
         var view = new EbbView();
         _view = view;
@@ -44,8 +48,12 @@ class EbbApp extends Application.AppBase {
                 System.println("OPNAME proef weggegooid");
             }
         }
-        if (!EbbBouw.DEMO && EbbVeilig.moetTonen()) {
-            return [new VeiligView(), new VeiligDelegate(view)];
+        if (!EbbBouw.DEMO) {
+            EbbTrillen.aan = EbbInstellingen.trillen();
+            if (EbbVeilig.moetTonen()) {
+                return [new VeiligView(), new VeiligDelegate()];
+            }
+            return [EbbStart.menu(), new StartDelegate()];
         }
         return [view, new EbbDelegate(view)];
     }
@@ -76,16 +84,13 @@ class VeiligView extends WatchUi.View {
 }
 
 class VeiligDelegate extends WatchUi.BehaviorDelegate {
-    private var _view as EbbView;
-
-    function initialize(view as EbbView) {
+    function initialize() {
         BehaviorDelegate.initialize();
-        _view = view;
     }
 
     function onSelect() as Boolean {
         EbbVeilig.bevestig();
-        WatchUi.switchToView(_view, new EbbDelegate(_view), WatchUi.SLIDE_LEFT);
+        WatchUi.switchToView(EbbStart.menu(), new StartDelegate(), WatchUi.SLIDE_LEFT);
         return true;
     }
 
@@ -100,7 +105,7 @@ class EbbView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        sessie = new Ebb.Rondes(30, 1600, 3, 15000, System.getTimer());
+        sessie = EbbInstellingen.rondes(System.getTimer());
     }
 
     var opname as EbbOpname = new EbbOpname();
