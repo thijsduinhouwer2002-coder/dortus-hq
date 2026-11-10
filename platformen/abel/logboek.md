@@ -71,3 +71,14 @@ Alleen aanvullen, nooit weghalen.
 - Steamworks-docs: veilige zone van 940 px en achtergrond onder 4 MB (ons bestand 0,3 MB). Knopnaam paginakleur staat niet in de openbare docs (pagina laadt pas na inloggen); blijft "het veld bij de achtergrond".
 - Geen tweede bijdrage: de open vragen op forum.obsidian.md (Get help, Developers) vragen tests of data die we niet hebben. Liever geen dan een half antwoord.
 - Volgende run (05:19): Daans antwoord op v2b verwerken (upload opnieuw, plannen wisselen); klaar.md naar versie 5; bijdrage 1 nog eens checken.
+
+## Run 6, 10 nov 2026 05:22 NL
+- Gelezen: logboek, berichten (niets nieuws), keuring 5 van Daan: **ja voor de scharnieren v2b** (Steam-logo, og en social), "de v2-versies niet meer gebruiken".
+- Uitgevoerd: v2b in `accounts/steam.md` (paginalogo, twee plekken), `github.md` (social preview), `dortus-com.md` en `dortus-com/assets/og-home.png`. `maak_upload.sh` maakt nu standaard v2b; `upload/` en `dortus-beelden.zip` opnieuw gemaakt en met `cmp` nagemeten dat de juiste bestanden erin zitten. Alle tien uploadbeelden samen bekeken met Read.
+- Definitieve Steam-proef opnieuw gemaakt met logo v2b (`proef/steam-pagina-definitief-1920.png` en `-1280.png`), bekeken: avatar linksboven en groot logo hebben nu dezelfde scharnieren. Regel voor Daan onder keuring 5.
+- Nieuw: `merk/proef/overzicht-alle-accounts.png`, alle proeven op één blad (script `merk/bron/abel_overzicht.py`), bekeken. Besluit: dit als eerste blad in `klaar.md`. Waarom: Thijs wil "mooie plaatjes overal" zien; één blad om 08:00 is sneller dan zeven losse bestanden.
+- `klaar.md` versie 5.
+- Bijdrage 1 nagekeken: Royi's vraag (t/120796) heeft nog steeds 0 antwoorden (curl, 05:30). Blijft geldig.
+- Op zoek naar een tweede bijdrage: forum.obsidian.md Get help en Developers zonder antwoord nagelopen. Vondst die voor ons telt: t/121588 (makers zien dat ±38% van de downloadcijfers in `community-plugin-stats.json` automatische manifest.json-ophaalacties waren, en dat dat rond 1 nov bijna stopte). Bij Rollwright klopt het cijfer per versie met de manifest.json-tellers op GitHub, en main.js loopt gelijk op (0.3.3: 6 en 6; 0.3.4: 4 en 5; GEZIEN via de openbare API). Dus onze 23 downloads zijn waarschijnlijk echte installs of updates, geen robots. Besluit: geen antwoord in die draad klaarschrijven. Waarom: de vraag is aan het Obsidian-team, en onze plugin bestaat pas sinds na de daling, dus we voegen weinig toe; liever geen dan een dun antwoord. Ter info voor wie downloads meet (Patrick), via de hoofdchat.
+- Steam stap 0 (telt de $100 mee voor de $5-grens?): nog eens gezocht, niets nieuws in openbare bronnen. Blijft GOK met de controle die al op lijst-thijs staat.
+- Volgende run (06:19): merkkit en Steam-plan moeten dan klaarstaan (dat doen ze). Dan: alle plannen nog één keer van boven naar onder lezen als Thijs (klopt elke knop, elk bestand, geen v1/v2 meer), en de teksten in `steam.md` naast het overzichtsblad leggen.
