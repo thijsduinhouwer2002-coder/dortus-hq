@@ -57,10 +57,13 @@ static func teken(h) -> void:
 	h.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
 	var tk: String = String(h.teken_nu()) if staat != "vallen" else String(vb.teken)
-	if tk == "":
-		return
 	var tops: Array = h.get_script().get_script_constant_map().get("HOED_TOP", [])   # HOED_TOP blijft in held.gd (strook.gd leest hem daar)
 	var onder: int = y + (int(tops[hoed_nr]) if hoed_nr < tops.size() else 0) + omlaag - 1
+	if staat != "vallen":
+		for nt in nootjes(String(h.soort_held), bool(h.info.get("lied_held", false)), staat, t):
+			_noot(h, int(nt[0]), onder - 6 + int(nt[1]), float(nt[2]))
+	if tk == "":
+		return
 	if tk == "poef":
 		_poef(h, onder - 4, float(vb.poef_fase))
 		return
@@ -81,3 +84,46 @@ static func poef_beeld(fase: float) -> int:
 
 static func _poef(h, midden_y: int, fase: float) -> void:   # midden_y = onder - 4 (zoals het oude wolkje), bovenkant beeld = midden_y - 4
 	h.draw_texture_rect_region(POEF, Rect2(-6, midden_y - 4, 12, 10), Rect2(poef_beeld(fase) * 12, 0, 12, 10))
+
+# Muzieknootjes (Sanne toets 10 punt 1: "het lied zie je niet"). Een bard die binnenloopt of vlucht laat elke 2 s een
+# nootje opstijgen (4 s lang, 8 spelpixels omhoog, vervaagt), dus 2 tegelijk; een held die door het lied komt heeft
+# de eerste 2 s één nootje boven zijn hoofd. Geeft [x, dy, alfa] per nootje; dy 0 = vlak boven de hoed.
+const NOOT_ELKE_S := 2.0
+const NOOT_LEEF_S := 4.0
+const NOOT_LIED_S := 2.0
+static func nootjes(soort_held: String, lied_held: bool, staat: String, t: float) -> Array:
+	var uit := []
+	if staat in ["weg", "vallen"]:
+		return uit
+	if soort_held == "bard" and staat in ["afdalen", "lopen", "vluchten", "klimmen"]:
+		var k := int(floor(t / NOOT_ELKE_S))
+		for i: int in [k, k - 1]:
+			if i < 0:
+				continue
+			var leef: float = t - float(i) * NOOT_ELKE_S
+			if leef < 0.0 or leef >= NOOT_LEEF_S:
+				continue
+			var u: float = leef / NOOT_LEEF_S
+			var x := (2 if i % 2 == 0 else -5) + int(round(sin(leef * 3.0)))   # om en om links en rechts, wiebelt een pixel
+			uit.append([x, -int(round(8.0 * u)), 1.0 - u * u])
+	elif lied_held and t < NOOT_LIED_S:
+		uit.append([-2, -int(round(sin(t * 6.0))), 1.0])   # wipt op de maat
+	return uit
+
+# Nootje van 5 x 5 in pixels (achtste noot met vlag), tot Mila er een tekening voor heeft (tekens.png, 2 beelden).
+const NOOT_PIX := ["..##.", "..#.#", "..#..", "###..", "###.."]
+static func _noot(h, x: int, y: int, alfa: float) -> void:
+	var licht := Color(1.0, 0.88, 0.45, alfa)
+	var rand := Color(0.13, 0.08, 0.05, alfa * 0.9)
+	for ry in 5:
+		for rx in 5:
+			if NOOT_PIX[ry][rx] == "#":
+				for d in [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]:
+					var nx: int = rx + d.x
+					var ny: int = ry + d.y
+					if nx < 0 or ny < 0 or nx > 4 or ny > 4 or NOOT_PIX[ny][nx] != "#":
+						h.draw_rect(Rect2(x + nx, y + ny, 1, 1), rand)   # donkere rand, leesbaar op lucht en aarde
+	for ry in 5:
+		for rx in 5:
+			if NOOT_PIX[ry][rx] == "#":
+				h.draw_rect(Rect2(x + rx, y + ry, 1, 1), licht)
