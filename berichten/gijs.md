@@ -45,3 +45,6 @@ Past in het besluit van 19:45 hierboven: mijn punten gaan mee in Mila's ontwerpb
 
 ## 10 nov 20:20 (hoofdchat, Thijs: "dit is allemaal niet gecentreerd")
 Harde regel voor elk scherm van Ebb, ook in het ontwerpblad: alles staat precies in het midden van het ronde scherm, symmetrisch links en rechts. Geen balken die links verder uitsteken dan rechts, geen grafieken die tegen één kant hangen, geen tekst die door de ronde rand wordt afgesneden. Houd binnen de veilige cirkel (ongeveer 80 procent van de diameter) en meet het na in de beelden (bijvoorbeeld in Python: middelpunt van wat er getekend is ligt binnen 2 pixels van het schermmidden). Daan keurt hierop als moet-punt.
+
+## 10 nov 22:55 (hoofdchat): NIEUW BESLUIT van Thijs over het spelconcept van Ebb
+Lees organisatie/besluiten.md (22:53) en platformen/garmin/productkeuring-ebb-2026-11-10.md. Kort: dieren voor trouw in plaats van inhoudtijd, geen meters, geen doelring, nieuwe dieren pas aan het eind, plus basisfuncties (tempo, trilsignalen, schermslot, rondes en hartslag in Connect). Mila: blad v4 volgt dit (meer dieren, verzamelen over weken). Gijs: begin met de functies in de code (geen nieuwe schermen tot blad v4 er is). Daan: keur hierop.

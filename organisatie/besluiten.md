@@ -155,3 +155,13 @@ Thijs: "vind het bizar dat als ik kort kritiek lever het ineens wel beter kan; i
 2. De hoofdchat kijkt zelf naar de echte schermen (niet alleen naar het oordeel van de ploeg) voordat iets gemeld wordt.
 3. Eerst ontwerpblad met alle schermen, dan bouwen. Daan keurt de echte bouw, niet de tekening.
 4. Kritiek van Thijs wordt een vaste regel in het ontwerp, zodat hij hem nooit twee keer hoeft te geven.
+
+## 10 nov 22:53: Ebb, nieuw spelconcept en basisfuncties (Thijs, na productkeuring)
+1. Dieren verdien je met trouw (sessies en dagen op rij; 20 tot 30 dieren over een paar maanden), niet met inhoudtijd. Inhoudtijd blijft zichtbaar, zonder beloning.
+2. Geen meters diepte; de zee wordt alleen donkerder naarmate je langer inhoudt.
+3. Geen oranje doelring en geen "next 3:00".
+4. Nieuwe dieren pas aan het eind van een sessie tonen, niet midden in.
+5. Erbij in versie 1: instelbaar ademtempo (als het er nog niet is), trillen bij de laatste 3 ademhalingen, trillen tijdens het inhouden (elke 30 s, aan/uit), alleen trillen, aanraakscherm uit tijdens een sessie, inhoudtijd per ronde als veld in de Garmin Connect-activiteit plus hartslag, live hartslag klein op het inhoudscherm, zacht signaal na 3 minuten inhouden.
+6. 8 weeks toont gemiddelde per sessie en sessies per week, niet alleen het record.
+7. Menu: twee gelijke keuzes (Rounds en Calm), daaronder Sea log en instellingen.
+Bron: platformen/garmin/productkeuring-ebb-2026-11-10.md. Dit kost een paar dagen extra; kwaliteit gaat voor.
