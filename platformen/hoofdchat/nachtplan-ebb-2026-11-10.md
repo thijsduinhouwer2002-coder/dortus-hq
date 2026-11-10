@@ -19,3 +19,10 @@ Doel: de hele app Ebb mooi, gecentreerd en af, op het niveau van de winkelbeelde
 
 ## Erbij (22:52, Thijs: "ook de hele app zelf en qua uitbreidingen")
 Naast het uiterlijk: een frisse productkeuring van Ebb als geheel. Wat mist een koper van $4,99 vergeleken met de concurrenten (reviews van WHM breathing+ en anderen)? Welke uitbreidingen maken het beter zonder het rommelig te maken? Uitkomst als voorstel voor Thijs om 08:00 (wat in versie 1 moet, wat in een latere update), niets bouwen zonder zijn ja.
+
+## Erbij (23:40, Thijs: "elk uur door, zet er meer agents op die dit beoordelen")
+Elke ronde drie frisse beoordelaars tegelijk, elk een eigen bril, geen van drieën kent het werk:
+1. Visueel ontwerper: mooi, centreren (gemeten), lettermaten op 260, contrast, samenhang van stijl en dieren.
+2. Productkeurder: elk besluit uit organisatie/besluiten.md (22:53 en later) punt voor punt afvinken; opeenvolgende schermen naast elkaar (verandert wat moet veranderen?); klopt elke tekst; zou een koper overstappen van WHM breathing+?
+3. Veiligheid en regels: beloont iets langer inhouden, is de waarschuwing goed, Garmin-regels, geheugen en haalbaarheid in Connect IQ op de negen horloges.
+Het laagste cijfer telt. Pas als alle drie een 8 of hoger geven, bouwt Gijs. Daarna keurt Daan de echte bouw.
