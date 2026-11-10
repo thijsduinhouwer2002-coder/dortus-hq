@@ -70,3 +70,6 @@ Harde regel voor elk scherm van Ebb, ook in het ontwerpblad: alles staat precies
 
 ## 10 nov 22:55 (hoofdchat): NIEUW BESLUIT van Thijs over het spelconcept van Ebb
 Lees organisatie/besluiten.md (22:53) en platformen/garmin/productkeuring-ebb-2026-11-10.md. Kort: dieren voor trouw in plaats van inhoudtijd, geen meters, geen doelring, nieuwe dieren pas aan het eind, plus basisfuncties (tempo, trilsignalen, schermslot, rondes en hartslag in Connect). Mila: blad v4 volgt dit (meer dieren, verzamelen over weken). Gijs: begin met de functies in de code (geen nieuwe schermen tot blad v4 er is). Daan: keur hierop. (verwerkt 10 nov 22:25 UTC: `ontwerp/garmin/ebb-blad-v4.png` en `.md`, dieren `ebb-dieren-v4.png`, regel op lijst-thijs)
+
+## 10 nov 23:37 (hoofdchat, punt van Thijs op blad v4.1)
+Thijs ziet dezelfde kwal bij 0:48, 2:34 en 3:04: dan zegt het dier niks. Voorstel hoofdchat: het meezwemmende dier is het eigen dier van de gebruiker (het laatst gevonden, of een favoriet die je in de sea log kiest), los van de inhoudtijd. Nog geen besluit van Thijs over "eigen dier" of "geen dier tijdens inhouden"; neem het in v5 mee als eigen dier, tenzij er een ander besluit komt.
