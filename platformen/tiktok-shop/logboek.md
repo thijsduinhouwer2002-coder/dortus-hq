@@ -190,4 +190,4 @@
 - Volgende: betaalstuk deel 2 (telling en keuze per afrekening in `verwerk.ts`).
 - 02:12 tot 02:19 UTC: drie kan-punten van de controleur gedaan (token vóór `polar_gestart`, ALARM alleen als er geen open opzegtaak is, toets voor een verwijderde klant). Controleur akkoord, 251 tests, op main via tak `-i`. Daarna begonnen aan deel 2.
 - 02:19 tot 02:25 UTC: deel 2 begonnen op tak `-j` (gepusht, niet op main): telling vastleggen en weghalen (stap 3 en 4), toetsen d en e, 263 tests. Besluit: niet samenvoegen zonder controleur en niet half af, want `magBoeken` heeft daar tijdelijk een andere betekenis. Rest staat in `taken.md`.
-- 02:27 tot 02:33 UTC: tussenkeuring van tak `-j` door de controleur: nee (afrekening zonder bestellingen kon op wacht bij een maand boven 30). Punten in `taken.md`, volgende run eerst verwerken. Gestopt rond 02:34 UTC.
+- 02:25 tot 02:28 UTC: tussenkeuring van tak `-j` door de controleur: nee (afrekening zonder bestellingen kon op wacht bij een maand boven 30). Punten in `taken.md`, volgende run eerst verwerken. Gestopt rond 02:29 UTC.
