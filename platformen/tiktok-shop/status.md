@@ -11,4 +11,5 @@
 - **Team:** Tess leidt, Jet bouwt, allebei elk uur (Thijs 9 nov 19:00). Chris staat uit; prijs en verspreiding wachten op hem.
 - **Stopregel (4b):** twee maanden geen groei van EU-apps en geen nieuwe landen, of TikTok verbiedt eigen kassa's: stoppen of veranderen. Product: minder dan 20 installaties in 6 weken na lancering.
 - **Moneybird-kanaal (10 nov):** vermelding op moneybird.nl pas na 25 actieve administraties en 2 maanden live (GEZIEN, helpartikel Moneybird); groeikanaal, geen startkanaal. Zie `onderzoek/2026-11-10-moneybird-productie.md`.
+- **Italië (10 nov):** geen koppeling gevonden die TikTok-kosten en uitbetalingen in Fatture in Cloud zet; Italiaanse listing kan; automatische TD17 per maand is waarschijnlijk het onderscheid. TikTok App Store IT telt 160 apps (GEZIEN 10 nov). Zie `onderzoek/2026-11-10-italie-klaarzetten.md`.
 - **Herhaalmeting platform:** rond 8 dec met `platformen/pionier/data/tiktokshop-apps-meet.py`, vergelijk met 8 nov.

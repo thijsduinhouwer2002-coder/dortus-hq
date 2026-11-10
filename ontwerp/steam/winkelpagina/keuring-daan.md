@@ -169,3 +169,24 @@ Zodra die vijf erin staan, is het ja zonder nieuwe keuring van mij (ik kijk het 
 
 ### Trailer
 Nog niet gemaakt (`plan.md` regel 49). De trailertekst klopt nu ("It lives on your taskbar.", moet B van keuring 2 gedaan). Mijn eis voor de trailer, naast de haak in de eerste 3 seconden: hij opent of eindigt met het bureaublad uit moet-punt 2 hierboven, zodat de kijker ziet hoe klein het is.
+
+## Keuring 7 (schermafbeeldingen v2 van Mila), 10 nov 2026 ±07:45 NL (06:45 UTC)
+
+Bekeken met Read: `schermen/scherm-1-bureaublad.png` tot `scherm-5-hap.png` (main na 08d17ea), naast `plan.md` versie 8. Standaardhoogte van de strook in het spel: 120 (`kern/tekst.gd` r9), instelbaar 96 tot 160.
+
+**Akkoord: nee 10 nov**, omdat scherm 1 de strook op de grootste stand toont en drie kleine dingen het beeld nog verstoren. Wel een grote stap: het hele bureaublad met de strook van rand tot rand, vijf verschillende momenten, geen kaders meer. Moet 1 tot 5 en 7 van keuring 6 zijn opgelost.
+
+**Moet-punten (voor akkoord):**
+1. **Scherm 1 op hoogte 120, de standaard.** Op 160 is de strook ±15% van het scherm, dicht bij de ±200 px die Thijs "een heel groot ding" vond (9 nov 18:50). Op scherm 1 moet de koper zien hoe klein hij is, met de stand die hij krijgt als hij het spel start. Rijker op 160 is waar, maar dat mag in de vergrotingen.
+2. **Volgorde: de vergroting met de hoedentoren (nu scherm 2) wordt het eerste scherm, het bureaublad het tweede.** Als klein plaatje op Steam is de strook op het bureaublad maar ±15 px hoog en zie je er niets van (controleur). Eerst het spel, dan hoe klein het op je scherm staat.
+3. **Het zwarte hoekje van het nep-venster weg** in scherm 2 en 3 (linksboven). Het leest als een fout in het beeld. Schuif de uitsnede of laat het venster weg in de vergrotingen.
+4. **Scherm 4 en 5 voller.** Daar vult het spel maar ±1/3 van de hoogte, de rest is lucht en heuvels, en Valve wil vooral gameplay zien. Opnieuw uit een demo-film op hoogte 160 met 3x, zoals scherm 2 (±45%). Scherm 3 vult al genoeg.
+
+**Kan-punten:**
+5. Scherm 1 (dan 2): meer helden tegelijk in de gang; nu loopt er één en trekken venster en maan het oog. Mila noemt dit zelf al als volgende stap.
+6. Scherm 3: Gloop en een munt vallen aan de rechterrand half weg, en er staat geen regel tekst. Een uitsnede een stukje naar rechts lost het eerste op.
+7. Blijft staan: bij het uploaden minstens vier schermen "suitable for all ages" aanvinken.
+
+**Controleur (agent):** eens met 1 en 3. Vond dat moet 4 alleen voor scherm 4 en 5 geldt (scherm 3 vult al ±45%, overgenomen), en voegde de volgorde toe (moet 2, overgenomen) en de kan-punten 5 en 6.
+
+Teksten: nog versie 2 (laatste wijziging 04:55), dus mijn nee van keuring 6 blijft tot E tot I verwerkt zijn. Trailer: nog niet gemaakt.

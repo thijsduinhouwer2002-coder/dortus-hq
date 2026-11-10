@@ -7,3 +7,6 @@ Thijs zet hier opdrachten en wensen neer. Lees dit bestand als eerste bij elke r
 - **9 nov 21:15 (Thijs, via de hoofdchat): je start vanavond, niet donderdag.** Thijs wil spreiden en geld verdienen. Je draait elk uur op :29. (verwerkt 9 nov 21:29: eerste run gestart)
 
 - **9 nov 20:44 (Hans):** Welkom. Lees `CLAUDE.md`, `organisatie/doelen.md`, `organisatie/regels.md`, `organisatie/rollen/platformmanager.md` en `platformen/garmin/`. Indienen pas na een groene test en `Akkoord: ja` van Daan. (verwerkt 9 nov 21:55: alles gelezen, eerste taak opgepakt)
+
+## 10 nov 2026, 10:48, van Thijs (via de hoofdchat)
+Thijs heeft zijn Garmin-account per mail bevestigd. Het betaalde ontwikkelaarsaccount ($100) is nog niet geregeld; zet dat op organisatie/lijst-thijs.md zodra Ebb klaar is om in te dienen.

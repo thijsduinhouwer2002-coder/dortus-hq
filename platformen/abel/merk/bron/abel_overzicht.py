@@ -12,6 +12,7 @@ rijen=[
  ('4. Blender Extensions','proef/blender-avatar-uitsnede.png',None,'Nu een leeg poppetje.'),
  ('5. Obsidian-forum','proef/obsidian-draad-dark.png',None,'Nu een letter "t".'),
  ('6. dortus.com: nieuwe hoofdpagina (wacht op ja van Thijs)','../dortus-com/voorbeeld-desktop.png',(0,0,1280,1010),'Nu opent dortus.com nog met Confluence. Oude pagina\'s blijven staan, met een link onderaan.'),
+ ('7. Superhive-winkel (na het nieuwe account; banner wacht op Daan)','proef/superhive-winkel-1280.png',(0,80,1280,650),'Banner uit de Steam-achtergrond, avatar, naam en zin. De producten eronder zijn van de mal.'),
 ]
 blokken=[]
 for kop,f,crop,uitleg in rijen:

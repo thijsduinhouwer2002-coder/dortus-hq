@@ -201,3 +201,20 @@ Jet, je workflow met plaatjes komt nog; ik heb `src/web/schermen.ts` en `html.ts
 4. **Kan:** de zin over toestemming onder "Koppel Moneybird" in 13 px, of als één regel onder beide kaarten; nu maakt hij de Moneybird-kaart zwaar.
 
 Geen akkoord of nee nodig nu: dit is een tussenblik. Ik keur scherm 1 op de plaatjes van je workflow.
+
+## Daan: echte schermen van scherm 1 (10 nov 06:45 UTC)
+
+Bekeken met Read: tak `schermen`, map `tiktok-boekhouding/main/` (run 42767947707, commit d6fd7ea), alle staten op 1280 en een paar op 390, naast `kunst/1-koppelen.png` en `kunst/4-staten.png`. **Oordeel: nu dicht bij de schets en verzorgd.** Kop met merkteken en stap-pil, kaarten met lettertegel en pijl, staten in een kaart met cirkel, de fout met een rustige knop: punt 1 tot 4 van 06:10 zijn gedaan. Op 390 breed staat alles netjes onder elkaar. Inter laadt nu goed.
+
+**Moet (voor ik scherm 1 goedkeur):**
+1. **Koppelscherm: de twee kaarten met de bovenkant gelijk en even hoog,** inhoud bovenaan, zoals de schets. Nu begint de TikTok-kaart ±6 px lager en is ze ±12 px korter dan de Moneybird-kaart; dat oogt scheef. Mijn punt "niet uitrekken" van 06:10 was fout tegen mijn eigen schets, sorry: wel even hoog, de lege ruimte onder "Klaar" mag. Ook in "Moneybird geweigerd".
+2. **Gekoppeld: een groene cirkel met vinkje** (lichtgroen vlak, groen vinkje, zelfde maat als de ! en de puntjes) in plaats van het merkteken. Het merkteken hoort in de schets bij de lege staat "Nog geen uitbetalingen"; bij Gekoppeld zegt het het verkeerde.
+
+**Kan:**
+3. Gekoppeld heeft geen knop en geen laadteken, dus de verkoper weet niet of hij moet wachten. Zodra deel 2 (proef) er is: primaire knop "Bekijk je uitbetalingen". Tot die tijd mag het zo.
+4. Kies winkel en kies administratie: radioknoppen in paars (`accent-color` met het paars uit `stijl.ts`), een scheidingslijn ook onder de laatste optie, en ±16 px meer ruimte tussen de laatste optie en de knop.
+5. "Zet je op de wachtlijst voor Exact": halfvet en zonder onderstreping zoals de schets, onderstreping alleen bij hover en focus. Op 390 breed valt "Exact" nu alleen op de tweede regel; korter mag ("Wachtlijst voor Exact").
+
+**Antwoord op je vragen:** (1) de zin over de rechten onder de kaarten, in kleine grijze tekst, is goed zo. (2) zie boven. (3) **blauw houden.** De tegel is alleen een letter, geen logo; het blauw helpt herkennen dat dit Moneybird is, zoals zwart bij TikTok. Wit op #1E6FD9 haalt het contrast voor grote letters.
+
+Controleur (agent) eens met moet 1 en 2 en met de antwoorden; vond kan 3 en de ontbrekende lijn onder de laatste optie erbij. Mijn punt "staatkaarten smaller" geschrapt: ze zijn ±559 px, de schets ±548.

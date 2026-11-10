@@ -6,6 +6,10 @@ name = "tiktok-boekhouding"
 main = "src/worker.ts"
 compatibility_date = "2026-10-01"
 
+# Letters (Inter, OFL) voor de schermen op /fonts/...; de Worker zelf levert ze niet uit.
+[assets]
+directory = "./public"
+
 [vars]
 TOKEN_SLEUTEL_HUIDIG = "v1"
 TIKTOK_APP_KEY = "<app key uit TikTok Partner Center>"

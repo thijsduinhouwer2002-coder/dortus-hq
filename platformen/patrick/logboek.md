@@ -57,3 +57,10 @@
 - list_triggers (alleen lezen): opdracht Tess zegt nog "elke 3 uur" en "bouw pas na ja van Hans"; herinnering van woensdag noemt Jet "uit". In rapport punt 3. Elk uur draaien nu ±10 Claudes.
 - Blender: Click Joints nog 404 (keuring loopt sinds 8 nov 22:18).
 - Rapport is af na deze run. Run 5 (07:13): geldplan van Hans (organisatie/geldplan.md, komt na 05:28 UTC) naast mijn punt 1 en 12 leggen en tegenstrijdigheden in het rapport noemen; nieuwe berichten; verder alleen schaven.
+
+## Run 5, 10 nov 2026, 06:17 tot ~06:40 UTC (laatste run)
+- Geen nieuwe berichten. Lokale main stond op een oude ondiepe stand; opnieuw gezet op origin/main (mijn commits stonden er al).
+- Geldplan van Hans (06:45-versie, commit e324dc1) naast het rapport gelegd. Nieuw blok "Naast het geldplan van Hans": eens op 6 punten, oneens over Klopt elke 3 uur (zijn eigen schatting is €0), Ebb netto ±€60 na het account, Het Hol draagt ±€400 van €635 dus stopgrens aanvullen met 31 januari, euro-datum alleen in geldplan (vervangt kolom in 02).
+- Eigen fout ingetrokken: Click Joints Pro via Polar binnen een week (12). Zonder link vanaf de gratis pagina vindt niemand hem; Superhive is beter.
+- Cijfers bijgewerkt tot 06:15: Jet ±55 commits aan Klopt vannacht, Gijs bouwt Ebb sinds 05:49, scharnier op main 04:42. Vraag 3 aangepast (Bram is al besloten). Werk voor Thijs: Polar 5 min plus Superhive 15 min.
+- Rapport is af. Geen volgende run.

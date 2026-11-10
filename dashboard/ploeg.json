@@ -6,7 +6,7 @@
    "rol": "Hoofdbouwer",
    "team": "Steam",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Olaf"
    ]
@@ -16,7 +16,7 @@
    "rol": "Bouwer",
    "team": "Steam + Click Joints",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Bram",
     "Blender run",
@@ -28,7 +28,7 @@
    "rol": "Game-ontwerper",
    "team": "Steam",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Sanne"
    ]
@@ -38,7 +38,7 @@
    "rol": "Ontwerper (wow)",
    "team": "Steam + Garmin",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Mila"
    ]
@@ -48,7 +48,7 @@
    "rol": "Ontwerper",
    "team": "Apps + keuring",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Daan"
    ]
@@ -58,7 +58,7 @@
    "rol": "Manager",
    "team": "TikTok Shop",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Tess"
    ]
@@ -68,7 +68,7 @@
    "rol": "Bouwer",
    "team": "TikTok Shop + JetBrains",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Jet"
    ]
@@ -78,7 +78,7 @@
    "rol": "Manager",
    "team": "Garmin",
    "schema": "elk uur",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Gijs",
     "Garmin"
@@ -89,7 +89,7 @@
    "rol": "Hoofdmanager",
    "team": "Leiding",
    "schema": "08:44 en 20:44",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Hans"
    ]
@@ -160,7 +160,7 @@
    "rol": "Perfectionist",
    "team": "Basis",
    "schema": "nacht 9-10 nov",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Patrick"
    ]
@@ -170,7 +170,7 @@
    "rol": "Accountverzorger",
    "team": "Basis",
    "schema": "nacht 9-10 nov",
-   "actief": true,
+   "actief": false,
    "sleutels": [
     "Abel"
    ]

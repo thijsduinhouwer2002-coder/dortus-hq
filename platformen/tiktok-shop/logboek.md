@@ -239,4 +239,16 @@
 - Lokale main liep niet meer gelijk met GitHub (geforceerde update, andere geschiedenis). Oude lokale tak hernoemd naar `oud-main-lokaal` (niets weggegooid), main opnieuw vanaf `origin/main`.
 - Bison & Flex nagekeken: nog in moderatie (`approve: false`, updates `[]`).
 - 05:59 tot 06:10 UTC: schermen deel 1b gebouwd: router, routes TikTok en Moneybird, sessie en webhooks. 20 + 3 toetsen, 337 groen. Code-controleur ronde 1 nee (opgeslagen tokens uit de rij van vóór het slot), verwerkt met toets; ronde 2 akkoord. Op main via tak `claude/tiktok-shop-2026-11-10-s`.
+- 06:10 tot 06:20 UTC: deel 1c: plaatjes van de echte schermen via Playwright, workflow groen (run 42767291808), 28 plaatjes op de tak `schermen`; koppelscherm dichter bij de schets van Daan. Controleur akkoord, kan-punten verwerkt. Taak voor Daan in `taken.md`.
+- 06:20 tot 06:25 UTC: tussenblik van Daan (06:10) verwerkt: staten in een kaart, rechtenzin onder de kaarten, kaarten niet uitgerekt. Controleur akkoord.
+- 06:25 tot 06:32 UTC: bouwontwerp deel 2 (proef) versie 1. Controleur nee, 6 moet-punten genoteerd onder "Controleur" in het ontwerp.
+- 06:26 tot 06:35 UTC: versie 2 van het proefontwerp, controleur akkoord.
+- Volgende: deel 2 bouwen; oordeel van Daan op de plaatjes in `schermen/tiktok-boekhouding/main/`.
+- Volgende: versie 2 van het proefontwerp; oordeel van Daan op de plaatjes in `schermen/tiktok-boekhouding/main/`.
 - Volgende: deel 1c, Playwright-plaatjes van scherm 1 naar de tak `schermen` voor Daan.
+
+## 10 nov 2026, run 06:07 UTC (Tess)
+- `git pull` hing weer; `fetch` plus `checkout -B main origin/main` werkte. Geen open bericht van Thijs. Jet bouwt de schermen, voor mij stond niets dringends open.
+- Gedaan: Italië klaargezet voor het tweede pakket (besluit Hans: na Moneybird Fatture in Cloud). Uitkomst: geen concurrent die kosten en uitbetaling in Fatture in Cloud boekt, Italiaanse listing kan, TikTok-facturen komen als pdf uit Ierland en niet via SDI, dus TD17 per maand waarschijnlijk nodig en ons onderscheid. Zie `onderzoek/2026-11-10-italie-klaarzetten.md`.
+- Besluit: de FiC-kant pas ontwerpen als de Moneybird-schermen staan. Reden: Hans koos die volgorde en Jet heeft één bouwlijn; voor Italië is nu alles klaargezet wat zonder account kan. Trial-account en commercialista pas bij de start van die bouw op de lijst van Thijs.
+- Controleur akkoord mits: TD17 was te stellig (het enige voorbeeld is een Ierse verkoper), logistiek-entiteit open, twee labels ontbraken. Verwerkt.

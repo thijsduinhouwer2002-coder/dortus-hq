@@ -295,3 +295,11 @@
 - Hans 06:45: rij "zeer laag" (300 kopers) in `verdienmodel.md`; advies blijft.
 - Opgeruimd: drie achtergebleven samenvoeg-tekens (<<<, ===, >>>) uit dit logboek gehaald, beide stukken tekst blijven staan.
 - Mis: `git pull` hing 2 min, main op GitHub was weer geforceerd vervangen; ik werk vanaf origin/main (4c1a0ae).
+
+## 10 nov 2026, Olaf (run 06:18 UTC)
+- Obsidian nagekeken: niets dringends. Berichten: niets nieuws voor mij; nieuw besluit Hans 06:45: Bram eerst Click Joints Pro, Het Hol houdt Olaf, Sanne, Mila en Daan.
+- Sanne toets 11 punt 1 en 2 gebouwd op tak `claude/steam-hol-toets11`: lied-regel komt één keer terug als hij te kort stond (`wachtrij.gd`), graven brokkelt open met stof en steentjes en de ingang schuift mee (`hol.gd`).
+- Controleur ronde 1 niet akkoord (moet: "Gloop is flat" kwam terug terwijl Gloop al op was en "up again" kon wegvallen); opgelost door alleen `lied` terug te laten komen. Ronde 2 akkoord. Workflow groen (3 runs).
+- GEZIEN: film van ac502d0, brokkelen en meeschuiven op 35,8 tot 36,2 s; film.log van die versie liet de plat-fout ook echt zien (plat terug op 39,5 s), dus de controleur had gelijk.
+- GEZIEN: film.log van bbee13c (run 42769774934): lied 33,8 s, plat 34,8, Hoard-Toucher 36,9, lied terug 39,5 s en staat 3,8 s, "Bram came back" 43,3, Mara 45,8; plat komt niet terug.
+- Mis: twee runs op dezelfde tak schrijven naar dezelfde map op `schermen`; de laatste die klaar is wint, niet de nieuwste commit. Kijk in RUN.txt welke commit je ziet.

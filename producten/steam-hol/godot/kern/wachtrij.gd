@@ -20,13 +20,21 @@ const BINNEN_WIJK := 1.0
 # je ooit van een lied hoorde. Laag betekent dat hij nooit een gebeurtenis ophoudt, dus de kroniek loopt niet achter.
 const NOOIT_WEG := ["plat", "lied"]
 # "Gloop is flat" drukt net als een gebeurtenis een getoonde lage regel (lied, binnenkomst) na 1 s weg (Sanne toets 10,
-# punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond). De weggedrukte lage regel was al getoond en komt niet terug.
+# punt 3: hij kwam 1,3 s te laat omdat de lied-regel er nog stond).
 const DRINGEND := ["plat"]
+# Weggedrukt voor hij 2,5 s stond (Sanne toets 11, punt 1: "Bram's song got popular. Uh oh." stond 1 s, plat drukte hem
+# weg): de lied-regel (TERUG) komt direct na de regel die hem wegdrukte nog één keer terug, zonder die op te houden, en gaat
+# daarna pas weg. Alleen lage sfeerregels (besluit Olaf 10 nov): een binnenkom-regel mag na 1 s wijken voor een gebeurtenis
+# (toets 5) en terugkomen zou de kroniek weer laten achterlopen. Gebeurtenissen gaan nog steeds voor de terugkomer.
+# Hij komt maar één keer terug (`terug`), en in de kroniek staat hij daarna één keer, op zijn nieuwe plek.
+# Alleen "lied", niet "plat" (controleur 10 nov 06:30): een plat die terugkomt terwijl Gloop al op is zegt iets anders
+# dan je ziet, en strook.gd haalt een wachtende plat weg als hij opstaat (dan zou "op" ontbreken).
+const TERUG := ["lied"]
 
 static func toon(s) -> void:
 	# binnenkom-regels die te lang wachten vervallen
 	for i in range(s.wachtrij.size() - 1, -1, -1):
-		if bool(s.wachtrij[i].binnen) and not NOOIT_WEG.has(String(s.wachtrij[i].get("soort", ""))) and s.t - float(s.wachtrij[i].sinds) > BINNEN_WACHT:
+		if bool(s.wachtrij[i].binnen) and not bool(s.wachtrij[i].get("terug", false)) and not NOOIT_WEG.has(String(s.wachtrij[i].get("soort", ""))) and s.t - float(s.wachtrij[i].sinds) > BINNEN_WACHT:
 			s.log_regel("HOL kroniek vervallen %.1f: %s" % [s.t, s.wachtrij[i].r])
 			s.wachtrij.remove_at(i)
 	if s.wachtrij.is_empty():
@@ -39,10 +47,17 @@ static func toon(s) -> void:
 			break
 	if k < 0:
 		k = 0
+		var dringend := -1
+		var terug := -1
 		for i in s.wachtrij.size():
-			if DRINGEND.has(String(s.wachtrij[i].get("soort", ""))):
-				k = i
-				break
+			if dringend < 0 and DRINGEND.has(String(s.wachtrij[i].get("soort", ""))):
+				dringend = i
+			if terug < 0 and bool(s.wachtrij[i].get("terug", false)):
+				terug = i
+		if dringend >= 0:
+			k = dringend
+		elif terug >= 0:
+			k = terug
 	var volgende: Dictionary = s.wachtrij[k]
 	var staat: float = s.t - s.regel_sinds
 	var mag := staat >= REGEL_MIN
@@ -52,8 +67,21 @@ static func toon(s) -> void:
 	if not mag:
 		return
 	s.wachtrij.remove_at(k)
+	# de getoonde regel stond te kort: één keer terug, vooraan bij de lage regels
+	var oud: Dictionary = s.regel_nu
+	if not oud.is_empty() and staat < REGEL_MIN and TERUG.has(String(oud.get("soort", ""))) and not bool(oud.get("terug", false)):
+		var weer := oud.duplicate()
+		weer["terug"] = true
+		weer["sinds"] = s.t
+		s.wachtrij.insert(0, weer)
+		s.log_regel("HOL kroniek weggedrukt na %.1f s, komt terug: %s" % [staat, oud.r])
 	s.regel_sinds = s.t
 	s.regel_binnen = bool(volgende.binnen)
+	s.regel_nu = volgende
+	if bool(volgende.get("terug", false)):
+		var oude_plek: int = s.kroniek.rfind(String(volgende.r))
+		if oude_plek >= 0:
+			s.kroniek.remove_at(oude_plek)
 	s.kroniek.append(String(volgende.r))
 	while s.kroniek.size() > 40:
 		s.kroniek.remove_at(0)
