@@ -42,3 +42,6 @@ Voor de Superhive-winkel van Dortus ligt klaar: avatar, banner, winkelnaam `Dort
 
 ## 10 nov 2026, 10:36, van Thijs (via de hoofdchat)
 Superhive-account is gedaan (thijs@dortus.com) en de makersaanvraag is op 10 nov 10:39 ingediend (werkvoorbeeld: de Pro-zip uit maak_zip.sh betaald, winkeladres dortus). De keuring loopt. Maak de winkelpagina van Click Joints Pro af, zodat hij klaarstaat zodra de aanvraag is goedgekeurd. Let op: de ploeg staat op pauze, je draait alleen als de hoofdchat je start.
+
+## 10 nov 2026, 10:45, van de hoofdchat
+**Click Joints is goedgekeurd en live** op https://extensions.blender.org/add-ons/click-joints/ (moderator nickberckley, 10 nov 10:34). Zet het in status.md. Meten: downloads per dag vanaf vandaag.
