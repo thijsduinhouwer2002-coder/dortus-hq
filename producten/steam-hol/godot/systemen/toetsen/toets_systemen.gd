@@ -384,6 +384,7 @@ func _init() -> void:
 	ok(soort_lang == 0, "regels van de soorten passen met Joost III in 42 tekens (%d te lang)" % soort_lang)
 	# Heldenboek (systemen/boek.gd, Sanne features.md 10 nov 03:10)
 	var bk = load("res://systemen/boek.gd").new()
+	bk.vast = 0   # de vaste regel (eerste variant)
 	var bk_r1: String = bk.held("magier", "slijm", "Wout")
 	ok(bk_r1 == "New page: the Wizard. Gloop got him.", "eerste vangst van een soort: nieuwe bladzijde (" + bk_r1 + ")")
 	ok(bk.held("magier", "slijm", "Pim") == "", "zelfde stempel twee keer: geen regel")
@@ -405,7 +406,51 @@ func _init() -> void:
 		if String(bk_rr).length() > 42:
 			bk_lang += 1
 	ok(bk_lang == 0 and bk.log_nieuw.size() == 10, "alle boekregels hooguit 42 tekens (%d te lang, %d regels)" % [bk_lang, bk.log_nieuw.size()])
+	# Varianten (Sanne kroniek-regels.md "Heldenboek" 05:05): willekeurig, nooit twee keer achter elkaar, alle varianten komen,
+	# met de langste gevallen alles in 42 tekens.
+	var bv_dubbel := 0
+	var bv_lang := 0
+	var bv_zinnen := {}
+	for zaad in 40:
+		var bv = load("res://systemen/boek.gd").new()
+		bv.rng.seed = zaad
+		for sh in ["", "ridder", "dief", "magier", "bard"]:
+			for w in ["slijm", "stekelput", "ontsnapt"]:
+				var rr: String = bv.held(sh, w, "Tibbe")
+				bv_zinnen[rr.split(".")[0] + "|" + rr.substr(rr.find(".") + 2)] = true
+		for nr in 10:
+			bv_zinnen[bv.hoed(nr, "Tibbe").left(6)] = true
+		for tk in ["hebzuchtig", "schijterig", "slaapkop", "wraakzuchtig", "opschepper"]:
+			bv_zinnen[bv.moment(tk, "Tibbe").left(6)] = true
+		bv_zinnen[bv.berg(10000)] = true
+		for nn in ["Tibbe", "Mara", "Odo", "Kees"]:
+			bv_zinnen[bv.aarts(nn).right(10)] = true
+			bv_zinnen[bv.aarts_af(nn, "Gloop", 123).left(5)] = true
+		for rr in bv.log_nieuw:
+			if String(rr).length() > 42:
+				bv_lang += 1
+		if zaad == 0:
+			print("[hol-toets] boekregels zaad 0: ", bv.log_nieuw)
+	# 3 pagina x 2 hoe-slijm + put/weg-varianten op stempels, 3 hoed, 3 moment, 3 berg, 3 aarts, 3 aarts_af
+	ok(bv_zinnen.size() >= 3 + 3 + 3 + 3 + 3, "over 40 zaden komen veel varianten voor (%d verschillend)" % bv_zinnen.size())
+	ok(bv_lang == 0, "alle varianten met Tibbe, dag 123 en 10000 hoeden in 42 tekens (%d te lang)" % bv_lang)
+	var bv2 = load("res://systemen/boek.gd").new()
+	var bv_vorige := -1
+	for i in 200:
+		bv2._kies("x", ["a", "b", "c"])
+		if int(bv2.vorige["x"]) == bv_vorige:
+			bv_dubbel += 1
+		bv_vorige = int(bv2.vorige["x"])
+	ok(bv_dubbel == 0, "nooit twee keer achter elkaar dezelfde variant (%d keer)" % bv_dubbel)
+	var bv_tel := {}
+	for i in 300:
+		bv_tel[bv2._kies("y", ["a", "b", "c"])] = true
+	ok(bv_tel.size() == 3, "alle drie de varianten komen voor")
+	var bv3 = load("res://systemen/boek.gd").new()
+	bv3.vast = 2
+	ok(bv3.berg(1000, "Gloop") == "1000 hats. Gloop is very proud." and bv3.aarts("Odo") == "Odo got his own page. He'd love it." and bv3.held("magier", "stekelput", "Pim") == "Booked: the Wizard. Spikes: one.", "derde varianten zoals Sanne ze schreef")
 	var bk2 = load("res://systemen/boek.gd").new()
+	bk2.vast = 0
 	ok(bk2.held("", "slijm", "Bartholomew the Unbudged").length() <= 42 and bk2.hoed(9, "Bartholomew the Unbudged") == "New hat in the book: Feather cap.", "lange naam: korte regel, nooit te lang")
 	var bk_v: Dictionary = bk.vol()
 	ok(bk_v.kan == 15 + 5 + 10 + 3 and bk_v.heb == 6 + 1 + 1 + 1, "vol(): %d van %d (aartsvijanden tellen niet mee)" % [bk_v.heb, bk_v.kan])
