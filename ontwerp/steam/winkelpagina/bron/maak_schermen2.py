@@ -85,11 +85,12 @@ def bureau(k, opname):
     venster(d, k)
     taakbalk(d, k)
     s = Image.open(opname).convert("RGBA")
-    if s.size != (W, STROOK_H):
-        raise SystemExit(f"opname is {s.size}, verwacht {(W, STROOK_H)}")
-    s = s.resize((W * k, STROOK_H * k), Image.NEAREST)
+    sh = s.size[1]                     # 120 standaard, 96 tot 160 instelbaar
+    if s.size[0] != W:
+        raise SystemExit(f"opname is {s.size}, verwacht {W} breed")
+    s = s.resize((W * k, sh * k), Image.NEAREST)
     im = im.convert("RGBA")
-    im.alpha_composite(s, (0, (H - BALK_H - STROOK_H) * k))
+    im.alpha_composite(s, (0, (H - BALK_H - sh) * k))
     return im.convert("RGB")
 
 if __name__ == "__main__":
@@ -100,6 +101,6 @@ if __name__ == "__main__":
         groot = bureau(k, opname)
         cw, ch = W, H                      # uitsnede in pixels van het k-keer bureaublad
         x0 = max(0, min(W * k - cw, xm * k - cw // 2))
-        x0 -= x0 % (3 * k)                 # op de spelpixelrand
+        x0 -= x0 % k                       # hele scherm-pixels
         onder = (H - BALK_H + 12) * k        # alleen een randje taakbalk, zodat de strook groter in beeld komt
         groot.crop((x0, onder - ch, x0 + cw, onder)).save(uit)

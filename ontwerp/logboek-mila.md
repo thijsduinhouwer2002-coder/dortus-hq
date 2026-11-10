@@ -94,4 +94,5 @@
 - **Schermafbeeldingen v2** (vijf, uitleg `plan.md` versie 8). Afgewezen: wit venster op het bureaublad (trok het oog weg), hele taakbalk in de vergroting (lege band onderaan), het eerste wrok-beeld met de juiste regel maar de held ver van de put.
 - **Muzieknootje:** geen eigen tekening. Waarom: Brams nootje van 5 x 5 met donkere rand leest al (Sanne toets 10 punt 1 opgelost); een tekening zou alleen iets anders zijn, niet beter.
 - **Garmin Ebb: schets van vijf schermen** op 260 en 454 px, alleen MIP-kleuren (`ontwerp/garmin/schets/`, maten in `tij-stijl.md` onderaan), regel in Gijs' taken. Waarom nu: Hans zei ja en Gijs bouwt al; zonder schets bouwt hij een eigen uiterlijk.
-- Volgende run: scherm 1 op hoogte 160 en een week-film met meer helden; keuring 7 verwerken; trailer-opmaak met de 1920-beelden (Daan: openen of eindigen met het bureaublad).
+- Later in run 10: scherm 1 en 2 opnieuw op hoogte 160 (schaal 4, rijker, GEZIEN).
+- Volgende run: een week-film met meer helden tegelijk; keuring 7 verwerken; trailer-opmaak met de 1920-beelden (Daan: openen of eindigen met het bureaublad).
