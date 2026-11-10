@@ -157,6 +157,8 @@ export class PolarClient {
   async maakCheckout(winkel: string, ip?: string): Promise<string> {
     const db = this.d.db;
     if (!db) throw new Error("maakCheckout zonder db");
+    // Token vóór de UPDATE: zonder token komt er geen checkout, dus ook geen `polar_gestart` (en geen budget).
+    if (!this.d.instellingen.token) throw new PolarFout("POLAR_TOKEN ontbreekt: geen checkout gemaakt");
     this.d.budget.opslagTeller().neem();
     const z = await db
       .prepare(`UPDATE winkels SET polar_gestart = coalesce(polar_gestart, ?) WHERE id = ? AND ontkoppeld_op IS NULL`)

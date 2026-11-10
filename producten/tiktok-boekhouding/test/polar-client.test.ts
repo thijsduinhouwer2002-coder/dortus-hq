@@ -230,3 +230,16 @@ test("leeg POLAR_TOKEN: duidelijke fout, geen verzoek en geen budget", async () 
   assert.equal(nep.verzoeken.length, 0);
   assert.equal(budget.over, 50);
 });
+
+test("maakCheckout met leeg POLAR_TOKEN: fout, polar_gestart niet gezet, geen budget en geen verzoek", async () => {
+  const db = new NepD1("w1");
+  const nep = nepFetch([{ status: 201, json: { url: "u" } }]);
+  const budget = new Budget(50);
+  const c = new PolarClient({ instellingen: { ...INST, token: "" }, budget, fetchFn: nep.fn, nu: () => NU, db: db as any });
+  const q0 = db.queries;
+  await assert.rejects(c.maakCheckout("w1"), (e) => e instanceof PolarFout && /POLAR_TOKEN/.test(e.message));
+  assert.equal((db.sqlite.prepare("SELECT polar_gestart p FROM winkels WHERE id = 'w1'").get() as any).p, null);
+  assert.equal(db.queries, q0);
+  assert.equal(budget.over, 50);
+  assert.equal(nep.verzoeken.length, 0);
+});
