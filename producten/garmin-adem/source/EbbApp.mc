@@ -427,13 +427,27 @@ class EbbView extends WatchUi.View {
         var p = EbbProfiel.getijPunten(lijn, x0, bodem, w, (d * 0.36).toNumber());
         var stap = (p.size() > 1) ? w / (p.size() - 1) : w;
         var half = (stap / 2 > 1) ? stap / 2 : 1;
-        // Schaduw: per dag een strook van de bodem tot het gemiddelde.
+        // Schaduw: per reeks dagen achter elkaar één vlak van de bodem tot het gemiddelde (een eiland per reeks).
         dc.setColor(EbbTeken.DIEPTE[2], EbbTeken.DIEPTE[2]);
-        for (var i = 0; i < p.size(); i += 1) {
-            if (p[i] != null) {
-                var q = p[i] as Array<Number>;
-                dc.fillRectangle(q[0] - half, q[2], 2 * half + 1, bodem - q[2]);
+        var i0 = 0;
+        while (i0 < p.size()) {
+            if (p[i0] == null) {
+                i0 += 1;
+                continue;
             }
+            var vlak = [] as Array<[Numeric, Numeric]>;
+            var eerste = p[i0] as Array<Number>;
+            vlak.add([eerste[0] - half, bodem]);
+            vlak.add([eerste[0] - half, eerste[2]]);
+            var laatste = eerste;
+            while (i0 < p.size() && p[i0] != null) {
+                laatste = p[i0] as Array<Number>;
+                vlak.add([laatste[0], laatste[2]]);
+                i0 += 1;
+            }
+            vlak.add([laatste[0] + half, laatste[2]]);
+            vlak.add([laatste[0] + half, bodem]);
+            dc.fillPolygon(vlak);
         }
         // Bodem met een streepje per week.
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
@@ -446,7 +460,7 @@ class EbbView extends WatchUi.View {
         }
         // Lijn door de beste tijden, onderbroken bij een gat.
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(d / 110 > 2 ? d / 110 : 2);
+        dc.setPenWidth(d / 80 > 2 ? d / 80 : 2);
         var dagen = 0;
         for (var i = 0; i < p.size(); i += 1) {
             if (p[i] != null) {
@@ -472,7 +486,7 @@ class EbbView extends WatchUi.View {
         dc.fillCircle(top[0], top[1], r > 3 ? r : 3);
         var s = (lijn[j] as Array<Number>)[0];
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.76).toNumber(), Graphics.FONT_SMALL, "best " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
+        dc.drawText(d / 2, (d * 0.72).toNumber(), Graphics.FONT_SMALL, "best " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.86).toNumber(), Graphics.FONT_XTINY, dagen + " days", Graphics.TEXT_JUSTIFY_CENTER);
