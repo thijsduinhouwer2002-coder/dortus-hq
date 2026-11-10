@@ -150,3 +150,14 @@
 1. Af: M1 en M2, .iq en release (proef), winkeltekst definitief, icoon, poster en plaatjes, lijst van Thijs deel A.
 2. Open: keuring plaatjes door Daan, `GARMIN_DEV_KEY` van Thijs, daarna echte release en "klaar" bij deel B; grijze beelden in de e2e-schermen.
 3. Volgende run: run van 2009aa6 nakijken (winkelmaat), Daans oordeel verwerken, kan-punten.
+
+## 10 nov 2026 15:22 (Gijs, achttiende run)
+- Begin: lokale main liep achter en week af; niet weggegooid, maar een nieuwe tak vanaf origin/main gemaakt. Bericht hoofdchat: Thijs richtte het verkopersaccount in en betaalde de $100; de sleutel `GARMIN_DEV_KEY` moet nog.
+- Winkelmaat nagekeken: run 42836983972 (2009aa6) groen, poster, schildpad op 2:03 (fenix847mm) en Sea log (vivoactive5) met Read bekeken: goed, zwart rond het horloge, geen simulatorbalken.
+- Daan had nog niet geantwoord op de plaatjes. Intussen zijn kan-punten gedaan (5a338db): eigen donker menu (CustomMenu) alleen op aanraakhorloges, knophorloges houden het systeemmenu met turquoise accent; duikprofiel en getijdenlijn in DIEPTE[1] (0x0055AA) in plaats van 0x0000AA; "Press start: OK" in schuimkleur. Waarom alleen op aanraak: Daan vond het knopmenu goed, en het instellingenmenu gebruikt toggles en wisselende onderteksten die een eigen menu lastiger maken.
+- Runs 42844723793 (e2e) en 42844722616 (.iq) groen. `vivoactive5-m`: zwart menu, leest goed. Metingen: groot cijfer 31 tot 33%, ondertekst 6 tot 11 px onder de golf, geheugen 4 tot 6%.
+
+**In drie regels:**
+1. Af: winkelmaat nagekeken, beide kan-punten van Daan.
+2. Open: oordeel Daan over de winkelplaatjes, `GARMIN_DEV_KEY` van Thijs, grijze beelden in de e2e-schermen.
+3. Volgende run: komt Daans ja en de sleutel, dan `versie.txt` aanraken, release `ebb-v1.0.0` nakijken en "klaar" bij deel B. Zo niet: twee regels en stoppen, of de grijze beelden aanpakken.
