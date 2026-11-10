@@ -112,6 +112,7 @@ test("slank: in D1 staat na het ophalen geen productnaam of SKU-naam", async () 
 
 test("slank: elk TikTok-veld dat samenstel of boekingsregels noemt, staat in een lijst (anders valt het stil weg)", () => {
   const bron = ["../../tiktok-shop-basis/src/boekingen.ts", "../src/samenstel.ts"].map((f) => readFileSync(new URL(f, import.meta.url), "utf8")).join("\n");
+  // Grens: ziet alleen namen met een liggend streepje en een TikTok-achtig einde; currency, type, status en id niet.
   // Velden binnen de uitsplitsingen: die blijven heel, dus hoeven niet in een lijst.
   const binnenUitsplitsing = new Set(["subtotal_before_discount_amount", "seller_discount_amount", "refund_subtotal_before_discount_amount", "seller_discount_refund_amount", "supplementary_component"]);
   const lijsten = new Set<string>([...KOP, ...TRANSACTIE, ...BESTELLING, ...SKU, "sku_transactions"]);
