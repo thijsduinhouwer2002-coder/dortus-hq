@@ -136,3 +136,6 @@ Vorm: `datum | wie | besluit | waarom | wat zou het veranderen`
 
 ## 10 nov 11:46: één koers voor iedereen (Thijs, vraag 2 van Patrick)
 "Eerst de eerste eerlijke euro, daarna spreiden. Bereik telt omdat het tot geld leidt. Elk product is vanaf dag 1 te koop." Dit vervangt "eerst bereik", "geld gaat voor bereik" en "echt geld nu" in oudere stukken. Gevolg: eerst Ebb, Click Joints Pro en Het Hol af; geen nieuw platform tot er een euro binnen is.
+
+## 10 nov 11:48: wie stuurt (Thijs, vraag 4 van Patrick)
+De hoofdchat (Thijs met Claude) beslist over koers, ploeg en geld. Hans is de controleur, één keer per dag (wie leverde niets, wat hangt, wat is verouderd). De ploeg verandert alleen op vaste momenten (09:00 en 21:00), behalve bij nood. Een manager kiest zelf zijn volgende product binnen zijn platform en begint meteen; de hoofdchat mag dat op het vaste moment terugdraaien. Is Thijs er niet, dan beslist de hoofdchat binnen de koers. Dit wordt de basis van het dagrooster na 11 nov.
