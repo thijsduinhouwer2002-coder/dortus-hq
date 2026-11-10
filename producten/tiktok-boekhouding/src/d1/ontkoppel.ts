@@ -5,12 +5,15 @@
 //   {
 //     "reden": "knop" | "webhook" | "koppeling_verlopen_21_dagen" | ...,
 //     "intrekken": { "pogingen": 0, "eerste_poging"?: s, "laatste_poging"?: s },   // alleen als er mb_tokens waren
-//     "opzeggen":  { "voor": s, "pogingen": 0, "laatste_poging"?: s, "laatste_fout"?: "...", "alarm_op"?: s }   // alleen als polar_klant gezet was
+//     "opzeggen":  { "voor": s, "pogingen": 0, "laatste_poging"?: s, "laatste_fout"?: "...", "alarm_op"?: s }   // als polar_klant, abonnement of polar_gestart gezet was
 //   }
 // Tijden in Unix-seconden. `opzeggen.voor` is `ontkoppeld_op`: het betaalstuk zegt alleen abonnementen op die daarvoor
 // begonnen. Het betaalstuk (eigen bouwstuk) verhoogt bij een mislukte poging `pogingen` en zet `laatste_poging` en
 // `laatste_fout`; lukt het, dan haalt het `$.opzeggen` weg en zet `polar_klant` op NULL. `alarm_op` is van de cron
 // (ALARM hoogstens één keer per dag). Opnieuw koppelen mag een kale rij alleen hergebruiken als `taken` leeg is.
+// Opzeggen komt er ook zonder `polar_klant` (ontwerp-betalen.md, punt 1): een betaalde checkout waarvan de webhook nog
+// niet binnen is heeft alleen `polar_gestart`. `zegOp` werkt met de winkelsleutel, dus `abonnement` en `polar_gestart`
+// gaan meteen weg; alleen `polar_klant` blijft zolang de taak openstaat.
 import { trekIn, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
 import { isBudgetOp, type Budget } from "../budget.ts";
 import { ontsleutel, type Sleutelbos } from "./tokens.ts";
@@ -20,7 +23,7 @@ export const DAG = 24 * 3600;
 /** Intrekken hoogstens zo lang opnieuw proberen (vanaf de eerste poging), daarna token toch weg en ALARM. */
 export const INTREKKEN_MAX_DUUR = 7 * DAG;
 /** Tabellen met rijen per winkel; DELETE wordt niet door de triggers geweigerd. */
-export const WINKEL_TABELLEN = ["statussen", "transacties", "bestellingen", "sloten"] as const;
+export const WINKEL_TABELLEN = ["statussen", "transacties", "bestellingen", "sloten", "telling"] as const;
 
 export interface IntrekDeps {
   app: OAuthApp;
@@ -87,26 +90,26 @@ export function intrekStatement(db: D1, winkel: string, u: IntrekUitkomst, nu: n
 
 /**
  * Ontkoppelen: in één batch (één query, één transactie) `ontkoppeld_op`, alles van de winkel leeg behalve de kale rij,
- * en alle rijen weg uit de vier tabellen. Daarna Moneybird intrekken (één fetch) en de uitkomst opslaan (één query).
+ * en alle rijen weg uit de vijf tabellen. Daarna Moneybird intrekken (één fetch) en de uitkomst opslaan (één query).
  * Onbekend of al ontkoppeld: niets veranderd, geen fout. Kost hoogstens 3 uit het budget.
  */
 export async function ontkoppel(db: D1, winkel: string, reden: string, nu: number, budget: Budget, deps: IntrekDeps): Promise<OntkoppelUitkomst> {
   const teller = budget.opslagTeller();
   teller.neem();
   // Volgorde: eerst de oude mb_tokens lezen, dan winkels bijwerken (zet ontkoppeld_op; vanaf dan weigeren de triggers elke
-  // INSERT en UPDATE op de vier tabellen, ook van een aanroep die nog loopt), dan de DELETEs (die weigeren de triggers niet).
-  // In SET verwijst `mb_tokens` naar de oude waarde: intrekken alleen als er Moneybird-tokens waren; opzeggen alleen als er
-  // een Polar-klant is (geen klant: niets op te zeggen).
+  // INSERT en UPDATE op de vijf tabellen, ook van een aanroep die nog loopt), dan de DELETEs (die weigeren de triggers niet).
+  // In SET verwijst elke kolom naar de oude waarde: intrekken alleen als er Moneybird-tokens waren; opzeggen als er een
+  // Polar-klant, een abonnement of een gestarte checkout is (anders niets op te zeggen).
   const uit = await db.batch([
     db.prepare(`SELECT mb_tokens FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`).bind(winkel),
     db
       .prepare(
         `UPDATE winkels SET ontkoppeld_op = ?, shop_id = NULL, shop_cipher = NULL, tt_tokens = NULL, tt_versie = 0, mb_versie = 0,
          administratie = NULL, instellingen = NULL, markering = NULL, winkelfout = NULL, winkelfout_sinds = NULL,
-         volgende_run = 0, snel_teller = 0,
+         volgende_run = 0, snel_teller = 0, abonnement = NULL, polar_gestart = NULL,
          taken = json_patch(json_object('reden', ?), json_patch(
            CASE WHEN mb_tokens IS NOT NULL THEN json_object('intrekken', json_object('pogingen', 0)) ELSE '{}' END,
-           CASE WHEN polar_klant IS NOT NULL THEN json_object('opzeggen', json_object('voor', ?, 'pogingen', 0)) ELSE '{}' END))
+           CASE WHEN polar_klant IS NOT NULL OR abonnement IS NOT NULL OR polar_gestart IS NOT NULL THEN json_object('opzeggen', json_object('voor', ?, 'pogingen', 0)) ELSE '{}' END))
          WHERE id = ? AND ontkoppeld_op IS NULL`,
       )
       .bind(nu, reden, nu, winkel),

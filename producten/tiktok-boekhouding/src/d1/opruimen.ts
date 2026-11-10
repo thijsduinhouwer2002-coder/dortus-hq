@@ -41,11 +41,12 @@ export function wisVangnet(db: D1): D1Statement[] {
     db.prepare(
       `UPDATE winkels SET shop_id = NULL, shop_cipher = NULL, tt_tokens = NULL, tt_versie = 0, mb_versie = 0, administratie = NULL,
        instellingen = NULL, markering = NULL, winkelfout = NULL, winkelfout_sinds = NULL, volgende_run = 0, snel_teller = 0,
+       abonnement = NULL, polar_gestart = NULL,
        mb_tokens = CASE WHEN ${INTREKKEN_OPEN} THEN mb_tokens END,
        polar_klant = CASE WHEN ${OPZEGGEN_OPEN} THEN polar_klant END
        WHERE id IN (SELECT id FROM winkels WHERE ontkoppeld_op IS NOT NULL AND (shop_id IS NOT NULL OR shop_cipher IS NOT NULL
          OR tt_tokens IS NOT NULL OR administratie IS NOT NULL OR instellingen IS NOT NULL OR markering IS NOT NULL
-         OR winkelfout IS NOT NULL OR winkelfout_sinds IS NOT NULL OR tt_versie <> 0 OR mb_versie <> 0 OR volgende_run <> 0 OR snel_teller <> 0
+         OR winkelfout IS NOT NULL OR winkelfout_sinds IS NOT NULL OR abonnement IS NOT NULL OR polar_gestart IS NOT NULL OR tt_versie <> 0 OR mb_versie <> 0 OR volgende_run <> 0 OR snel_teller <> 0
          OR (mb_tokens IS NOT NULL AND NOT ${INTREKKEN_OPEN}) OR (polar_klant IS NOT NULL AND NOT ${OPZEGGEN_OPEN})) LIMIT ${n})`,
     ),
   ];
@@ -54,7 +55,7 @@ export function wisVangnet(db: D1): D1Statement[] {
 /**
  * (c) Kale rij weg als beide taken klaar zijn, of na dag 23 als alleen `intrekken` nog openstaat. Staat `opzeggen` nog
  * open, dan blijft de rij altijd (een opzegging die niet gelukt is verdwijnt nooit stil). Alleen als er geen rijen meer
- * in de vier tabellen staan, zodat het vangnet ze nog kan vinden.
+ * in de vijf tabellen staan, zodat het vangnet ze nog kan vinden.
  */
 export function verwijderKaleRijen(db: D1, nu: number): D1Statement {
   return db

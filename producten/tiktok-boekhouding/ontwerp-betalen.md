@@ -64,3 +64,12 @@ Ronde 3 (±01:22 UTC): **akkoord**, geen moet-punten.
 - Stap 1 komt na de controle op `payment_status` (die kost geen verzoek): PROCESSING blijft `wacht_op_uitbetaling`.
 - Gratis ruimte geldt in deze versie alleen voor de lopende en vorige maand (oude afrekening zonder abonnement wordt `wacht_ouder`, ook bij ruimte in die oude maand). Voor Tess: in het plan zetten of anders laten beslissen.
 - Voor Daan: tekst en plek voor `wacht_ouder` in de statuslijst ("ouder dan vorige maand, inhalen per maand").
+
+## Bouw deel 1 (Jet, 10 nov 2026)
+Gebouwd: schema (`abonnement`, `polar_gestart`, tabel `telling` met triggers), wissen bij ontkoppelen en opruimen, `src/polar/abonnement.ts` (keuze en schrijven), `src/polar/client.ts`, `src/polar/webhook.ts` en de route in de Worker. Anders dan hierboven:
+- **Twee standen.** `stand` hoort bij de velden uit Customer State (state_changed, opvraging), `vlagStand` bij `betalingMislukt` (events `subscription.*`). Elke soort vergelijkt alleen met de eigen stand en schrijft met `json_set` alleen de eigen velden. Met één stand zou een past_due die iets ouder is dan de laatste state_changed wegvallen. Twijfel ("stand ouder dan 3 dagen") kijkt naar `stand`.
+- **Tijden.** Volgens de OpenAPI zijn `timestamp` en `current_period_end` tekst (ISO, zes cijfers achter de komma), geen unix-seconden. `tot` wordt unix-seconden; `stand` en `vlagStand` zijn **microseconden** (een opvraging: `nu * 1_000_000`).
+- **Van welke winkel is een `subscription.*`-event:** `metadata.winkel` gaat voor `customer.external_id`. `subscription.updated` met een andere status dan `active` doet niets.
+- **`zegOp(winkel, voor?)`:** slaat abonnementen over die al `cancel_at_period_end` hebben, die `metadata.winkel` van een andere winkel hebben, of die na `voor` (`taken.opzeggen.voor`) begonnen. Uitkomst `gelukt`, `later` (met foutregel) of `uitgesteld` (budget op).
+- **`maakCheckout`** zet `polar_gestart` vóór de POST (alleen de eerste keer); onbekende of ontkoppelde winkel: fout en geen checkout.
+- **Extra env `POLAR_TERUG_URL`** (optioneel) voor `success_url` en `return_url`. Geen `POLAR_WEBHOOK_SECRET`: webhook 500 met ALARM. Kapotte JSON (met goede handtekening): 400; ontbrekende `timestamp` of sleutel: 202 en logregel.

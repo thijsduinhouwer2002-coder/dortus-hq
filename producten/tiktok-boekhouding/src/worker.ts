@@ -6,6 +6,8 @@ import { TikTokApiError } from "../../tiktok-shop-basis/src/fouten.ts";
 import type { AppGegevens } from "../../tiktok-shop-basis/src/auth.ts";
 import { Budget, isBudgetOp } from "./budget.ts";
 import { webhook } from "./webhook.ts";
+import { polarWebhook, POLAR_WEBHOOK_PAD } from "./polar/webhook.ts";
+import type { PolarInstellingen } from "./polar/client.ts";
 import { MoneybirdClient } from "./moneybird/client.ts";
 import { MoneybirdFout } from "./moneybird/fouten.ts";
 import type { OAuthApp } from "./moneybird/oauth.ts";
@@ -45,6 +47,8 @@ export interface Omgeving {
   sleutels: Sleutelbos;
   tiktokApp: AppGegevens;
   moneybirdApp: OAuthApp;
+  /** Polar (ontwerp-betalen.md, punt 5). Ontbreekt: de Polar-webhook geeft 500 met ALARM. */
+  polar?: PolarInstellingen;
   /** Wachten bij 429 (clients); in toetsen niets. */
   slaap?: (ms: number) => Promise<void>;
   /** Uniek per aanroep: eigenaar van de sloten. Standaard willekeurig. */
@@ -315,6 +319,15 @@ export interface WorkerEnv {
   MONEYBIRD_CLIENT_ID: string;
   MONEYBIRD_CLIENT_SECRET: string;
   MONEYBIRD_REDIRECT_URI: string;
+  /** Polar (ontwerp-betalen.md, punt 5): `https://api.polar.sh` of `https://sandbox-api.polar.sh`. */
+  POLAR_API?: string;
+  /** Secret: Organization Access Token. */
+  POLAR_TOKEN?: string;
+  /** Secret: `whsec_...` van het webhook-endpoint. */
+  POLAR_WEBHOOK_SECRET?: string;
+  POLAR_PRODUCT_ID?: string;
+  /** Waar de verkoper na checkout of portaal terugkomt (success_url en return_url). */
+  POLAR_TERUG_URL?: string;
 }
 
 export function omgevingVan(env: WorkerEnv): Omgeving {
@@ -331,13 +344,20 @@ export function omgevingVan(env: WorkerEnv): Omgeving {
     sleutels,
     tiktokApp: { appKey: env.TIKTOK_APP_KEY, appSecret: env.TIKTOK_APP_SECRET },
     moneybirdApp: { clientId: env.MONEYBIRD_CLIENT_ID, clientSecret: env.MONEYBIRD_CLIENT_SECRET, redirectUri: env.MONEYBIRD_REDIRECT_URI },
+    polar: {
+      api: env.POLAR_API || "https://api.polar.sh",
+      token: env.POLAR_TOKEN ?? "",
+      productId: env.POLAR_PRODUCT_ID ?? "",
+      webhookSecret: env.POLAR_WEBHOOK_SECRET ?? "",
+      terugUrl: env.POLAR_TERUG_URL || undefined,
+    },
   };
 }
 
 const seconden = (ms: number) => Math.floor(ms / 1000);
 
 export default {
-  // Webhook van TikTok (type 6: ontkoppelen). Zie src/webhook.ts.
+  // Webhooks: Polar (src/polar/webhook.ts) en TikTok (type 6: ontkoppelen, src/webhook.ts).
   async fetch(request: Request, env: WorkerEnv): Promise<Response> {
     let o: Omgeving;
     try {
@@ -346,6 +366,7 @@ export default {
       console.log(`fetch: env onbruikbaar: ${foutTekst(e)}`);
       return new Response("", { status: 500 });
     }
+    if (new URL(request.url).pathname === POLAR_WEBHOOK_PAD) return polarWebhook(request, o, seconden(Date.now()));
     return webhook(request, o, seconden(Date.now()));
   },
   async scheduled(controller: { scheduledTime: number }, env: WorkerEnv, ctx: { waitUntil(p: Promise<unknown>): void }) {

@@ -1,5 +1,5 @@
 # Voorbeeld, geen echte uitrol (ontwerp-d1-worker.md, punt 6). Secrets zet je met `wrangler secret put`:
-# TOKEN_SLEUTELS (JSON {"v1": "<32 bytes base64>"}), TIKTOK_APP_SECRET, MONEYBIRD_CLIENT_SECRET.
+# TOKEN_SLEUTELS (JSON {"v1": "<32 bytes base64>"}), TIKTOK_APP_SECRET, MONEYBIRD_CLIENT_SECRET, POLAR_TOKEN, POLAR_WEBHOOK_SECRET.
 name = "tiktok-boekhouding"
 main = "src/worker.ts"
 compatibility_date = "2026-10-01"
@@ -9,6 +9,9 @@ TOKEN_SLEUTEL_HUIDIG = "v1"
 TIKTOK_APP_KEY = "<app key uit TikTok Partner Center>"
 MONEYBIRD_CLIENT_ID = "<client id van de Moneybird-app>"
 MONEYBIRD_REDIRECT_URI = "https://dortus.com/klopt/moneybird/terug"
+POLAR_API = "https://sandbox-api.polar.sh"
+POLAR_PRODUCT_ID = "<id van het product van 15 euro per maand>"
+POLAR_TERUG_URL = "<pagina waar de verkoper na betalen terugkomt>"
 
 [triggers]
 crons = ["*/15 * * * *"]

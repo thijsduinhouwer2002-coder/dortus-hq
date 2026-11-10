@@ -179,10 +179,10 @@ test("(o) cron: vangnet wist rijen die toch bleven staan, hoogstens 20 winkels p
   const { d } = deps(nepRevoke().fn);
   await ruimOntkoppeldOp(db, NU + 60, new Budget(50), d);
   const over = (t: string) => Number((db.sqlite.prepare(`SELECT count(DISTINCT winkel) n FROM ${t} WHERE winkel <> 'levend'`).get() as any).n);
-  for (const t of ["statussen", "transacties", "bestellingen", "sloten"]) assert.equal(over(t), 2, t);
+  for (const t of ["statussen", "transacties", "bestellingen", "sloten", "telling"]) assert.equal(over(t), 2, t);
   assert.equal(Number((db.sqlite.prepare("SELECT count(*) n FROM winkels WHERE shop_id IS NOT NULL AND id <> 'levend'").get() as any).n), 2);
   await ruimOntkoppeldOp(db, NU + 120, new Budget(50), d);
-  for (const t of ["statussen", "transacties", "bestellingen", "sloten"]) assert.equal(over(t), 0, t);
+  for (const t of ["statussen", "transacties", "bestellingen", "sloten", "telling"]) assert.equal(over(t), 0, t);
   assert.equal(rij(db, "w1")!.shop_id, null);
   assert.equal(rij(db, "w1")!.instellingen, null);
   assert.equal(tel(db, "statussen", "levend"), 2, "gekoppelde winkel ongemoeid");
@@ -214,4 +214,22 @@ test("(o) cron: 21 dagen koppeling_verlopen aan de kant van TikTok wordt ontkopp
   for (const w of ["kort", "mb", "hersteld"]) assert.equal(rij(db, w)!.ontkoppeld_op, null, w);
   await ruimOntkoppeldOp(db, NU + 21 * DAG + 1, new Budget(50), d);
   assert.equal(rij(db, "kort")!.ontkoppeld_op, NU + 21 * DAG + 1);
+});
+
+test("(j) cron: vangnet wist abonnement, polar_gestart en telling van een kale rij die toch bleef staan", async () => {
+  const db = new NepD1();
+  await vulWinkel(db, "w1", { mb: false, betaald: true });
+  await vulWinkel(db, "levend", { betaald: true });
+  db.sqlite.prepare(`UPDATE winkels SET ontkoppeld_op = ?, taken = '{"opzeggen":{"voor":1,"pogingen":0}}' WHERE id = 'w1'`).run(NU);
+  // Kale rij waar alleen abonnement en polar_gestart nog staan: de voorwaarde van het vangnet moet ze zelf vinden.
+  db.sqlite.prepare(`INSERT INTO winkels (id, ontkoppeld_op, taken, abonnement) VALUES ('w2', ?, '{"opzeggen":{"voor":1,"pogingen":0}}', '{"actief":true}')`).run(NU);
+  db.sqlite.prepare(`INSERT INTO winkels (id, ontkoppeld_op, taken, polar_gestart) VALUES ('w3', ?, '{"opzeggen":{"voor":1,"pogingen":0}}', 5)`).run(NU);
+  await ruimOntkoppeldOp(db, NU + 60, new Budget(50), deps(nepRevoke().fn).d);
+  assert.equal(rij(db, "w2")!.abonnement, null);
+  assert.equal(rij(db, "w3")!.polar_gestart, null);
+  assert.equal(rij(db, "w1")!.abonnement, null);
+  assert.equal(rij(db, "w1")!.polar_gestart, null);
+  assert.equal(tel(db, "telling", "w1"), 0);
+  assert.ok(rij(db, "levend")!.abonnement);
+  assert.equal(tel(db, "telling", "levend"), 1);
 });
