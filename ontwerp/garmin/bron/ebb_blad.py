@@ -89,7 +89,9 @@ def leeg(D):
 
 def s_menu(D):
     im, d = leeg(D)
-    water(d, D, D*0.80, NACHT, amp=D*0.015, n=2)            # laag tij onderin: je staat aan de kust
+    # de walvis komt even boven in het lage tij (rug en spuitje boven water), daarna het water eroverheen
+    walvis3(d, D/2, D*0.815, D*0.95/100, golfjes=False)
+    water(d, D, D*0.835, NACHT, amp=D*0.012, n=2)            # laag tij onderin: je staat aan de kust
     tekst(d, (D/2, D*0.20), 'Ebb', D*0.10, LICHT)
     # vorige en volgende, klein en gedimd, precies in het midden
     tekst(d, (D/2, D*0.33), 'Calm', D*0.065, GRIJS)
@@ -99,10 +101,6 @@ def s_menu(D):
     tekst(d, (D/2, y-D*0.028), 'Rounds', D*0.085, WIT)
     tekst(d, (D/2, y+D*0.050), '3 x 30 breaths', D*0.050, SCHUIM)
     tekst(d, (D/2, D*0.67), 'Box', D*0.065, ZACHT)
-    # drie stippen als plaats in de lijst (geen schuifbalk aan de zijkant)
-    for i, k in enumerate((-1, 0, 1)):
-        r = D*0.008; x = D/2 + k*D*0.03; yy = D*0.875
-        d.ellipse([x-r, yy-r, x+r, yy+r], fill=SCHUIM if k == -1 else ZACHT)
     rand(d, D); return im
 
 def s_ademen(D):
@@ -136,6 +134,16 @@ def s_walvis(D):
     tekst(d, (D/2, D*0.22), '183 m', D*0.065, SCHUIM)
     tekst(d, (D/2, D*0.44), '3:03', D*0.30, WIT)
     walvis3(d, D/2, D*0.72, D*1.25/100, golfjes=False)
+    rand(d, D); return im
+
+def s_schildpad(D):
+    im, d = leeg(D)
+    diepte_banden(d, D, D*0.10)
+    tekst(d, (D/2, D*0.22), '123 m', D*0.065, SCHUIM)
+    tekst(d, (D/2, D*0.44), '2:03', D*0.30, WIT)
+    dr.schildpad(d, D/2, D*0.725, D*1.45/100)
+    for s_ in (-1, 1):
+        bel(d, D/2 + s_*D*0.27, D*0.66, D*0.014); bel(d, D/2 + s_*D*0.30, D*0.57, D*0.009)
     rand(d, D); return im
 
 def s_boven(D):
@@ -225,21 +233,24 @@ def s_weken(D):
     tekst(d, (D/2, D*0.845), '44 days', D*0.048, ZACHT)
     rand(d, D); return im
 
+def walvis_silhouet(d, cx, cy, e, kleur=MID):
+    alles, (mx, my, b, h) = dr.walvis_delen()
+    T = lambda pts: [(cx+(x-mx)*e, cy+(y-my)*e) for x, y in pts]
+    for g in (dr.W_STAART, dr.W_LIJF, dr.W_VIN): d.polygon(T(g), fill=kleur)
+
 def s_zeelog(D):
     im, d = leeg(D)
     tekst(d, (D/2, D*0.19), 'sea log', D*0.070, ZACHT)
     tekst(d, (D/2, D*0.265), '3 of 4 met', D*0.048, SCHUIM)
-    # 2 x 2 rooster, symmetrisch: elk dier in een eigen patrijspoortje, tijd eronder
-    vakken = [(-1, -1, 'vis', '1:00'), (1, -1, 'kwal', '1:30'), (-1, 1, 'schildpad', '2:00'), (1, 1, 'walvis', '3:00')]
-    for sx, sy, dier, t in vakken:
-        cx = D/2 + sx*D*0.15; cy = D*0.50 + sy*D*0.13 - D*0.02; r = D*0.085
-        d.ellipse([cx-r, cy-r, cx+r, cy+r], fill=NACHT, outline=MID, width=max(2, round(D/150)))
-        if dier == 'vis': vis(d, cx, cy, r*0.55)
-        elif dier == 'kwal': kwal(d, cx, cy+r*0.05, r*0.45)
-        elif dier == 'schildpad': dr.schildpad(d, cx, cy, r*0.78/9)
-        else:   # nog niet ontmoet: silhouet en een vraagteken
-            tekst(d, (cx, cy), '?', r*1.1, MID)
-        tekst(d, (cx, cy + r + D*0.032), t, D*0.050, WIT if dier != 'walvis' else ZACHT)
+    # boven drie dieren op een rij, onder in het midden de walvis, het breedst (Daan W8): gespiegeld
+    H = D*0.085; kol = D*0.20; y1 = D*0.42; y2 = D*0.645
+    vis(d, D/2-kol, y1, H*0.80)
+    kwal(d, D/2, y1+H*0.05, H*0.55)
+    _, (_, _, sb, sh) = dr.schildpad_delen(); dr.schildpad(d, D/2+kol-D*0.02, y1, H*1.35/sh)   # de schildpad is breder dan de vis: iets naar binnen, zodat de rij gespiegeld uitkomt
+    _, (_, _, wb, wh) = dr.walvis_delen(); walvis_silhouet(d, D/2, y2, H*1.25/wh)
+    tekst(d, (D/2, y2+D*0.005), '?', D*0.075, SCHUIM)
+    for x, y, t, kl in [(D/2-kol, y1, '1:00', WIT), (D/2, y1, '1:30', WIT), (D/2+kol-D*0.02, y1, '2:00', WIT), (D/2, y2, '3:00', ZACHT)]:
+        tekst(d, (x, y + D*0.095), t, D*0.050, kl)
     rand(d, D); return im
 
 def s_instellingen(D):
@@ -281,7 +292,7 @@ def s_icoon(D):
         d.ellipse([bx-q, by-q, bx+q, by+q], fill=BOUT)
     return im
 
-SCHERMEN = [('1 menu', s_menu), ('2 ademen', s_ademen), ('3 duiken', s_duiken), ('3b walvis 3:03', s_walvis),
+SCHERMEN = [('1 menu', s_menu), ('2 ademen', s_ademen), ('3 duiken', s_duiken), ('3b walvis 3:03', s_walvis), ('3c schildpad 2:03', s_schildpad),
             ('4 boven', s_boven), ('5 rustig 4-7-8', s_rustig), ('6 today', s_today), ('7 8 weeks', s_weken),
             ('8 sea log', s_zeelog), ('9 settings', s_instellingen), ('10 veiligheid', s_veilig)]
 
@@ -310,26 +321,22 @@ def maak(uit):
             dx, verst, kader = meet(im, D)
             rapport.append((D, naam, dx, verst, kader))
     s_icoon(560).save(f'{uit}/ebb-walvis-v3-patrijspoort.png')
-    # het blad: rij 454, rij 260, en de walvis groot
-    gap = 24; kol = 6
-    W = gap + kol*(454+gap); rij454 = (len(SCHERMEN)+kol-1)//kol
-    H = 90 + rij454*(454+60) + 2*(260+56) + 40
+    # het blad: per scherm 454 en 260 px naast elkaar, ware grootte
+    gap = 30; cel_b = 454 + 24 + 260; kol = 4; cel_h = 454 + 64
+    rijen = (len(SCHERMEN) + 1 + kol - 1)//kol
+    W = gap + kol*(cel_b + gap); H = 110 + rijen*(cel_h + gap)
     blad = Image.new('RGB', (W, H), (14, 16, 24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 26), 'Ebb ontwerpblad v1 (Mila): alle schermen, 454 px en 260 px op ware grootte, alles in het midden',
-           font=f(36), fill=(220, 230, 240))
-    y = 90
-    for i, (naam, fn) in enumerate(SCHERMEN):
-        r, k = divmod(i, kol); x = gap + k*(454+gap); yy = y + r*(454+60)
-        blad.paste(fn(454), (x, yy)); d.text((x, yy+460), naam, font=f(26), fill=(170, 190, 210))
-    k = len(SCHERMEN) % kol
-    blad.paste(s_icoon(454), (gap + k*(454+gap), y + (rij454-1)*(454+60)))
-    d.text((gap + k*(454+gap), y + (rij454-1)*(454+60)+460), 'walvis v3 (icoon en loep)', font=f(26), fill=(170, 190, 210))
-    y += rij454*(454+60)
-    per = 9
-    for i, (naam, fn) in enumerate(SCHERMEN):
-        r, k = divmod(i, per); x = gap + k*(260+40); yy = y + r*(260+56)
-        blad.paste(fn(260), (x, yy)); d.text((x, yy+262), naam, font=f(22), fill=(170, 190, 210))
-    blad.save(f'{uit}/ebb-ontwerpblad-v1.png')
+    d.text((gap, 30), 'Ebb blad v1 (Mila): alle schermen, links 454 px, rechts 260 px, ware grootte, alles in het midden',
+           font=f(44), fill=(220, 230, 240))
+    cellen = SCHERMEN + [('walvis v3 (icoon en loep)', None)]
+    for i, (naam, fn) in enumerate(cellen):
+        r, k = divmod(i, kol); x = gap + k*(cel_b + gap); y = 110 + r*(cel_h + gap)
+        if fn is None:
+            blad.paste(s_icoon(454), (x, y)); blad.paste(s_icoon(260), (x+478, y+194))
+        else:
+            blad.paste(fn(454), (x, y)); blad.paste(fn(260), (x+478, y+194))
+        d.text((x, y+462), naam, font=f(32), fill=(170, 190, 210))
+    blad.save(f'{uit}/ebb-blad-v1.png')
     return rapport
 
 if __name__ == '__main__':

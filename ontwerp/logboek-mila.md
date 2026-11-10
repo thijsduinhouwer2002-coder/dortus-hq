@@ -141,3 +141,12 @@
 - Regel op lijst-thijs (blad ja of nee) en bij Gijs (niet bouwen voor het ja).
 - Bericht 20:22 erbij: **beeldtaal in 10 regels** bovenaan het blad, lat ABZÛ, Alto's Odyssey en Headspace. Waarom die drie: duik als verhaal met dieren, rust in vlakke lagen, rust met een knipoog.
 - Volgende run: blad nog eens kritisch naast de drie voorbeelden (overgangen tekenen als reeks, menu rijker); wat Thijs zegt op het blad; daarna W4 poster en kaart 2 opnieuw na `ebb-v1.0.1`.
+
+## 10 nov 2026, run 16 (handmatig, hoofdchat 20:18 NL, alleen Ebb)
+- Gelezen: berichten 19:33, 19:45, 20:20, 20:22, Daan keuring 4 (W1 tot W10).
+- Mooiste Connect IQ-apps opgehaald met de winkel-API (Snorlax, Butterflies, Minimal Lines, Surfline). Les: een figuur in een kleine wereld (Snorlax) en een eigen cijferstijl (Minimal Lines) maken een app herkenbaar; Surfline laat de zee niet zien, dat is ons gat.
+- **Besluit: de walvis komt boven in het lage tij van het menu.** Waarom: het menu was nog een lijst; nu zit de grap op het eerste scherm, net als de figuur bij Snorlax.
+- **Besluit: sea log met drie dieren boven en de walvis groot eronder.** Waarom: Daan W8 (walvis het breedst) en een 2 x 2 rooster kwam niet gespiegeld uit (kader 5,5 px uit het midden, GEZIEN). Afgewezen: patrijspoortjes per dier (walvis paste er niet in).
+- Schildpad-scherm toegevoegd (W5), schildpad 1,45 eenheid. Blad nu per scherm 454 en 260 naast elkaar in `ontwerp/garmin/ebb-blad-v1.png`, per scherm één zin bouwwerk voor Gijs.
+- Gemeten (GEZIEN): kader binnen 0,5 px op alle 24 beelden, tekst binnen 72% van de straal.
+- Berichten aan Daan en Gijs. Volgende run: wat Thijs zegt; overgangen als reeks tekenen (peil dat stijgt van menu naar ademen).

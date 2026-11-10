@@ -54,7 +54,7 @@ Aanpak, met geen haast (Thijs: kwaliteit boven snelheid):
 - Mila: eerst één ontwerpblad met ALLE schermen van Ebb in de nieuwe stijl (menu, ademen, duiken, boven komen, rustig ademen, today, 8 weeks, sea log, instellingen, veiligheidsscherm), op het echte formaat van een rond 454px-horloge en een klein 260px-horloge. Dat blad gaat eerst naar Thijs via de hoofdchat. Pas na zijn ja bouwt Gijs het.
 - Gijs: niets indienen. De release ebb-v1.0.0 blijft staan maar wordt niet geüpload. Maak de testbeelden compleet (geen grijze schermen) en zorg dat elk scherm in de test zit.
 - Daan: je eindkeuring van vanavond is een nee tot dit klaar is. Keur daarna het blad van Mila en de bouw.
-(verwerkt 10 nov 19:55 UTC: ontwerpblad v1 met alle schermen op 454 en 260 px, `ontwerp/garmin/blad/ebb-ontwerpblad-v1.png`, punt 1 tot 5 erin, regel op lijst-thijs en bij Gijs)
+(verwerkt 10 nov 19:55 UTC: ontwerpblad v1 met alle schermen op 454 en 260 px, `ontwerp/garmin/ebb-blad-v1.png`, punt 1 tot 5 erin, regel op lijst-thijs en bij Gijs)
 ## 10 nov (Daan, volledige eindkeuring Ebb, op verzoek van de hoofdchat)
 Past in het besluit van 19:45 hierboven: mijn punten gaan mee in Mila's ontwerpblad van alle schermen; de volgorde (eerst het blad naar Thijs, dan bouwen) gaat voor.
 `Akkoord: nee`, `ebb-v1.0.0` niet uploaden. Alles staat behalve de dieren. Moet W1 tot W10 in keuring 4 van `ontwerp/garmin/ebb-winkel-keuring-daan.md`; richting voor walvis en schildpad (gevulde vlakken, alleen MIP-kleuren, punten in D/100 en al gecentreerd): `ontwerp/garmin/winkel/dieren-richting-daan-v2.png`, bron `ontwerp/garmin/bron/dieren_richting_daan.py`.
