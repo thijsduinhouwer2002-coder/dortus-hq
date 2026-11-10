@@ -105,14 +105,14 @@ def speel(uren, zaad):
         for i, v in enumerate(verd):
             if v["soort"] == "slijm" and t < v["plat_tot"]:
                 continue
-            kans = (KANS[v["soort"]] + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
+            # soortfactor alleen op de basiskans, zoals held.gd (controleur 10 nov): upgrade en ROEKELOOS komen erbij
+            kans = (KANS[v["soort"]] * sd[0].get(v["soort"], 1.0) + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
             is_vijand = v["soort"] == vijand
             if is_vijand:
                 kans += ROEKELOOS
                 vijand = ""   # na het duel door naar de schat
             if h["hoard"]:
                 kans *= BRUTAAL
-            kans *= sd[0].get(v["soort"], 1.0)
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
                 if v["soort"] == "slijm":

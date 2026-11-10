@@ -66,6 +66,6 @@ Sinds nu rekenen `sim.py` (`UPG_BASIS`, `graaf_prijs()`) en `godot/systemen/upgr
 ## 10 nov 02:20 UTC (Bram): heldensoorten (versie 1), `python3 sim.py soorten`
 Ridder, dief, magiër en bard uit `features.md` (versie 1) als systeem in `godot/systemen/heldensoort.gd`, zelfde getallen in `sim.py` (`SOORTEN`, standaard uit, dus de tabel hierboven verandert niet: nagekeken, uitvoer gelijk). Na de eerste 10 helden: 55% gewoon, 15% ridder, 15% dief, 10% magiër, 5% bard. Een bard die ontsnapt zingt, dan komen er 2 helden snel achter elkaar (8 tot 20 s).
 Uitkomst (GEZIEN, 8 zaden, 10 uur), zonder / met soorten:
-- vluchten 33 tot 39% / **35 tot 40%** (doel ±1 op 3 blijft), helden per uur 71 tot 73 / 73 tot 76, alles gekocht na 7,1 tot 7,6 / 7,0 tot 7,8 u.
-- langste wacht in uur 1: 6,7 tot 15,0 / 7,3 tot 19,8 min (ver onder 2 uur), aartsvijand 0,1 tot 0,9 / 0,1 tot 1,3 per uur, liederen 0,6 tot 1,3 per uur (een bard die zingt is dus ongeveer eens per uur een gebeurtenis).
+- vluchten 33 tot 39% / **35 tot 39%** (doel ±1 op 3 blijft), helden per uur 71 tot 73 / 72 tot 75, alles gekocht na 7,1 tot 7,6 / 7,0 tot 7,6 u. (Na de controleur: de soortfactor geldt net als in held.gd alleen op de basiskans, niet op upgrade en ROEKELOOS.)
+- langste wacht in uur 1: 6,7 tot 15,0 / 7,0 tot 19,8 min (ver onder 2 uur), aartsvijand 0,1 tot 0,9 / 0,2 tot 0,8 per uur, liederen 0,5 tot 1,6 per uur (een bard die zingt is dus ongeveer eens per uur een gebeurtenis).
 - In `toets_held.gd` (120 helden per soort, 1 slijm en 1 put): magiër valt 2 keer in de put tegen 18 voor een gewone held, dief 8, ridder komt vaker tot de put (25, hij is taai) en loopt 19 s tegen 13 s; vluchten per soort 32 tot 44%. Getallen zijn een GOK, Sanne mag ze bijstellen.

@@ -297,8 +297,8 @@ func _init() -> void:
 	var soort_lang := 0
 	for sj in ["binnen_ridder", "binnen_dief", "binnen_magier", "binnen_bard", "lied"]:
 		for rsj in ks.stem.VOORRAAD[sj]:
-			if ks.stem.vul(rsj, {"naam": "Bram", "held": "Bram", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
+			if ks.stem.vul(rsj, {"naam": "Joost III", "held": "Joost III", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
 				soort_lang += 1
-	ok(soort_lang == 0, "regels van de soorten passen met Bram in 42 tekens (%d te lang)" % soort_lang)
+	ok(soort_lang == 0, "regels van de soorten passen met Joost III in 42 tekens (%d te lang)" % soort_lang)
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

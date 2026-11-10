@@ -46,7 +46,7 @@ func vrije_naam(naam: String) -> String:
 func binnen(naam: String, trek := "", soort_held := "") -> Dictionary:
 	var h := held(naam)
 	h["bezoeken"] += 1
-	if soort_held != "" and String(h.get("soort_held", "")) == "":
+	if soort_held != "" and h["bezoeken"] == 1:   # alleen bij zijn eerste bezoek; een oude terugkomer blijft gewoon
 		h["soort_held"] = soort_held
 	soort_held = String(h.get("soort_held", ""))
 	var v := _vars(naam, String(h["wrok"]))

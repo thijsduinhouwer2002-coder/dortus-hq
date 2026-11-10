@@ -9,7 +9,7 @@ extends RefCounted
 # Leeg ("") is de held zoals hij al was: zonder soort verandert er niets, dus de demo en oude saves blijven gelijk.
 #
 # Gebruik in held.gd: info["soort_held"] (zo heet het, want "soort" is in held.gd al de soort val of bewoner).
-# Kiezen doet strook.gd met kies(nr, r): de eerste 10 helden van een nieuw spel zijn gewoon (de eerste tien
+# Kiezen moet strook.gd (Olaf) nog doen met kies(nr, r), gevraagd in taken.md; tot dan komt er geen soort in het spel: de eerste 10 helden van een nieuw spel zijn gewoon (de eerste tien
 # minuten blijven zoals Sanne ze schreef), daarna af en toe een soort. Een terugkomer houdt zijn soort (in de kroniek).
 #
 # Getallen zijn een begin (GOK), nagerekend in sim/sim.py (python3 sim.py soorten): de doelen moeten blijven
@@ -23,7 +23,7 @@ const DATA := {
 	"ridder": {"snel": 0.75, "kans_x": {"slijm": 0.85, "stekelput": 1.0}, "taai": true, "wapen": 0,
 		"naam": "Knight", "uitleg": "Slow and stubborn. Runs only after two hits."},
 	"dief": {"snel": 1.3, "kans_x": {"slijm": 1.15, "stekelput": 0.5}, "taai": false, "wapen": -1,
-		"naam": "Thief", "uitleg": "Quick. Hops over pits. Hates slime."},
+		"naam": "Thief", "uitleg": "Quick. Pits rarely catch him. Hates slime."},
 	"magier": {"snel": 1.0, "kans_x": {"slijm": 1.25, "stekelput": 0.3}, "taai": false, "wapen": 1,
 		"naam": "Wizard", "uitleg": "Sees traps. No spell works on Gloop."},
 	"bard": {"snel": 1.0, "kans_x": {"slijm": 1.15, "stekelput": 1.15}, "taai": false, "wapen": -1,

@@ -26,7 +26,8 @@ extends Node2D
 #   voor een aartsvijand zodra WAND_ER waar is) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
 # - info["soort_held"]: "ridder", "dief", "magier" of "bard" (systemen/heldensoort.gd, versie 1); leeg = zoals hierboven.
-#   Een bard die vlucht (ook als Hoard-Toucher) zet info["lied"] = 2: strook.gd laat dan 2 helden extra komen.
+#   Een bard die vlucht (ook als Hoard-Toucher) zet info["lied"] = 2; strook.gd moet dan 2 helden extra laten komen
+#   (nog aan te sluiten door Olaf, taken.md 10 nov). Zonder soort_held verandert er niets.
 #
 # Terug in info (voor strook.gd en kroniek.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
 # "trek", "gezien_vijand". Uitkomst: "gevallen" of "ontsnapt".
