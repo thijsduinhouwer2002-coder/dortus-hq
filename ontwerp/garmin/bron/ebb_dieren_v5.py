@@ -25,6 +25,10 @@ v3.TINT.update({
 })
 RAND = {'orka': (170,170,255), 'manta': (170,170,255), 'zwaard': (170,255,255), 'haai': (85,85,170)}
 MUTS = (85, 85, 255)
+# Spook (dier dat je nog niet hebt): geen platte vlek maar het dier in drie donkere blauwen, zodat staart, vinnen,
+# banden en buik te zien blijven, plus een klein licht oog. De lichte rand tekent blad_v5.silhouet eromheen.
+SPOOK = {'lijf': (0,0,85), 'licht': (0,0,170), 'donker': (0,85,170), 'zwart': (0,0,0), 'muts': (0,0,170), 'witp': (0,85,170)}
+SPOOK_OOG = (170,255,255)
 
 def delen_v5(soort):
     if soort == 'komkom':
@@ -87,21 +91,27 @@ def dier_beeld(soort, s, kleur_override=None, hoek=0):
     delen, ogen = delen_v5(soort)
     lijf, licht, donker = v3.TINT[soort]
     rol = {'lijf': lijf, 'licht': licht, 'donker': donker, 'zwart': (0,0,0), 'muts': MUTS, 'witp': WIT}
-    if kleur_override: rol = {k: kleur_override for k in rol}
+    spook = isinstance(kleur_override, dict)
+    if spook: rol = dict(kleur_override)
+    elif kleur_override: rol = {k: kleur_override for k in rol}
     if hoek:
         ca, sa = math.cos(math.radians(-hoek)), math.sin(math.radians(-hoek))
         R_ = lambda pts: [(x*ca - y*sa, x*sa + y*ca) for x, y in pts]
         delen = [(R_(p), r) for p, r in delen]; ogen = R_(ogen)
     W = int(s*2.8) + 6; c = W/2
     im = Image.new('RGBA', (W, W), (0,0,0,0)); d = ImageDraw.Draw(im)
-    if soort in RAND and not kleur_override:   # lichte rand: hetzelfde dier, iets verschoven, eronder
+    if soort in RAND and not kleur_override and not spook:   # lichte rand: hetzelfde dier, iets verschoven, eronder
         k = max(1, round(s/45))
         for ox, oy in ((-k,0),(k,0),(0,-k),(0,k)):
             for pts, r in delen:
                 d.polygon([(c + x*s + ox, c + y*s + oy) for x, y in pts], fill=RAND[soort] + (255,))
     for pts, r in delen:
         d.polygon([(c + x*s, c + y*s) for x, y in pts], fill=rol[r] + (255,))
-    if not kleur_override:
+    if spook:   # klein licht oog, zodat je ziet waar de kop zit
+        for ox, oy in ogen:
+            R = max(1.5, 0.08*s); x, y = c + ox*s, c + oy*s
+            d.ellipse([x-R, y-R, x+R, y+R], fill=SPOOK_OOG + (255,))
+    elif not kleur_override:
         for ox, oy in ogen:
             R = max(2.0, 0.13*s); p = max(1.2, 0.07*s); x, y = c + ox*s, c + oy*s
             d.ellipse([x-R, y-R, x+R, y+R], fill=WIT + (255,))

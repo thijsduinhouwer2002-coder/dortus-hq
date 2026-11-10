@@ -120,7 +120,7 @@ def s_today5(D):
     tekst(d, D, (D/2, D*0.18), 'today', D*0.085, TITEL)
     opp = D*0.33; L, R = D*0.17, D*0.83
     sessies = [('7:40', [80, 105, 184]), ('21:15', [75, 98, 112])]   # ochtend = 6b, avond = 6c
-    maxdiep = D*0.25; breed = (R-L)/6; gat = D*0.03
+    maxdiep = D*0.25; breed = (R-L)/6; gat = D*0.07
     zeevlak = Image.new('L', (D, D), 0); zd = ImageDraw.Draw(zeevlak); lijnen = []
     for si, (_, tijden) in enumerate(sessies):
         for j, sec in enumerate(tijden):
@@ -177,7 +177,7 @@ def silhouet(im, D, soort, x, y, s):
     k = max(2, round(D/130))
     for ox, oy in ((-k,0),(k,0),(0,-k),(0,k),(-k,-k),(k,k),(-k,k),(k,-k)):
         dier(im, soort, x+ox, y+oy, s, kleur=LICHTCYAAN)
-    dier(im, soort, x, y, s, kleur=W3 if not amo(D) else AM[W3])
+    dier(im, soort, x, y, s, kleur=ebb_dieren_v5.SPOOK if not amo(D) else {k: AM.get(v, v) for k, v in ebb_dieren_v5.SPOOK.items()})   # N2: vinnen, banden en oog blijven zichtbaar
 
 def s_einde_gewoon5(D):
     """Zelfde plekken als 6b; het dier is hier het silhouet van wie morgen komt, los van de golf."""
