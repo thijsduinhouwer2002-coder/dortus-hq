@@ -40,5 +40,13 @@ Begonnen 9 nov 2026. Dit is de stijl die Het Hol herkenbaar van ons maakt. Daans
 - **Paneel** in pruim met gouden spijkertjes, geen bruin hout meer. GEZIEN in build 1bbdbc6: hoort nu bij het hol.
 - **Spinrag** = plat hangend web, 8 rijen bovenaan de gang, met een spinnetje eronder. In build 1bbdbc6 (`build-1bbdbc6-gloop.png`) stond het oude web nog als gewei op Gloops kop: de gang is maar één cel hoog, dus elk web van 14 rijen botst met wie eronder staat. Daarom plat, en een kolom opzij (Olaf).
 
+## 7. Eerlijk naast de toppers, beeld en klank (10 nov, run 8; opdracht Thijs 00:29)
+Sanne telde de reviews (`platformen/steam/toppers.md`). Mijn kant, beeld en klank, eerlijk:
+- **Waar we winnen:** de haak leest op ware grootte (de hoedentoren, de kroon van een koning op een slijmpje); niemand van de drie heeft een grap in het beeld. Pruim met goud is een eigen kleur in een lijst vol groen en bruin. Capsules staan alle zeven op ja van Daan.
+- **Waar we verliezen, 1: beweging.** Rusty's en Spirit City bewegen vloeiend met veel tussenbeelden; wij lopen in 4 beelden en vallen in 2 tot 4. Dit is ons grootste gat in beeld. Wat ik doe: elk moment dat de film laat zien krijgt een eigen beeld (poef, koopmoment, munt die draait, gedaan), daarna de val en de hap.
+- **Waar we verliezen, 2: klank.** Spirit City wordt in 25 van 40 positieve reviews om muziek geprezen; wij hadden niets. Nu: zes geluidjes en een muziekstuk van 80 s, zelf gemaakt (`godot/geluid/`). Eerlijk: niemand van ons kan luisteren, dus de kwaliteit is gemeten, niet gehoord. Thijs staat op de lijst voor één keer luisteren.
+- **Waar we verliezen, 3: rijkdom per pixel.** Rusty's strook zit vol planten en kleine dingen die groeien. Ons hol heeft fakkels, spinrag en vondsten, maar na een uur verandert er minder te zien dan bij Rusty's. Het Heldenboek (getekend) en de helden per soort (getekend: harnas, buidel, baard, luit) helpen; de hoedenberg is wat over dagen groeit.
+- **Waar we nog niets hebben:** samen met vrienden (Bongo Cat). Niet vóór het fest.
+
 ## Lat (elke keer)
 Stopt iemand met scrollen? Herkenbaar van ons? Grap of haak? Werkt het klein? Eerlijk?
