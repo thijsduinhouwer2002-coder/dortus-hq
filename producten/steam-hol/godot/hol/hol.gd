@@ -127,6 +127,58 @@ func pad(van: Vector2i, naar: Vector2i) -> Array[Vector2i]:
 # koop-moment van de put (Sanne toets 8 punt 1, toets 9): alle putten schudden 0,5 s heen en weer (1 spelpixel),
 # want de gekochte stap geldt voor elke put. Alleen uiterlijk; tekent alleen zolang het schudt.
 const SCHUD_S := 0.5
+# Graven heeft een moment (Sanne toets 11, punt 2): een nieuwe cel brokkelt in 4 beelden open (aarde valt weg, steentjes
+# vallen, een stofwolkje) en de ingang met zijn fakkel schuift in 0,4 s mee in plaats van te springen. Alleen uiterlijk:
+# de cel is meteen open voor helden. Tekening in code tot Mila een blad `kunst/graaf.png` maakt (4 beelden van 16 x 16,
+# de aarde die nog over is, links naar rechts); dan tekent _brokkel dat in plaats van de stippen.
+const GRAAF_S := 0.45
+const SCHUIF_S := 0.4
+var brokkel := {}             # Vector2i(kolom, rij 0 of 1) -> tijd sinds graven
+var ingang_vorig := -1        # kolom waar de ingang vandaan schuift
+var ingang_schuif := 0.0      # tijd die het schuiven nog duurt
+var GRAAF_BLAD: Texture2D = load("res://kunst/graaf.png") if ResourceLoader.exists("res://kunst/graaf.png") else null
+
+func _graaf_moment(cel: Vector2i) -> void:
+	brokkel[cel] = 0.0
+	set_process(true)
+
+func _ingang_x() -> float:
+	if ingang_schuif <= 0.0 or ingang_vorig < 0:
+		return float(ingang_kol * KOL)
+	var f := 1.0 - ingang_schuif / SCHUIF_S
+	f = 1.0 - (1.0 - f) * (1.0 - f)   # rustig uitlopen
+	return lerpf(float(ingang_vorig * KOL), float(ingang_kol * KOL), f)
+
+# de aarde die nog over is in een cel die net gegraven is, plus steentjes en stof
+func _brokkel(cel: Vector2i, tijd: float) -> void:
+	var x := float(cel.x * KOL)
+	var y := float(OPP if cel.y == 0 else GANG_BOVEN)
+	var beeld := mini(3, int(tijd / GRAAF_S * 4.0))
+	if GRAAF_BLAD != null:
+		draw_texture_rect_region(GRAAF_BLAD, Rect2(x, y, KOL, KOL), Rect2(beeld * KOL, 0, KOL, KOL))
+	else:
+		# beeld 0 bijna dicht, beeld 3 nog een paar kruimels; welke stip blijft staan is vast per cel (geen geflikker)
+		var over: float = [0.85, 0.55, 0.28, 0.08][beeld]
+		for py in range(0, KOL, 2):
+			for px in range(0, KOL, 2):
+				if float(_hash(cel.x * 31 + px, cel.y * 17 + py) % 100) / 100.0 < over:
+					draw_rect(Rect2(x + px, y + py, 2, 2), Color("#3f2846"))
+	# steentjes vallen naar de vloer van de cel
+	var vloer_y := y + KOL - 3
+	for i in 3:
+		var sx0 := x + 3 + i * 5
+		var start := y + 2 + (i * 3) % 5
+		var f := clampf(tijd / GRAAF_S * (1.0 + i * 0.25), 0.0, 1.0)
+		var sy := lerpf(start, vloer_y, f * f)
+		draw_rect(Rect2(sx0, sy, 2, 2), Color("#6e4a6a"))
+		draw_rect(Rect2(sx0, sy, 1, 1), Color("#9a7090"))
+	# stofwolkje dat uitdijt en vervaagt, op de vloer van de nieuwe cel
+	var d := clampf(tijd / GRAAF_S, 0.0, 1.0)
+	var stof := Color("#c9a27a", 0.45 * (1.0 - d))
+	draw_circle(Vector2(x + 4, vloer_y), 2.0 + d * 3.0, stof)
+	draw_circle(Vector2(x + KOL - 4, vloer_y), 2.0 + d * 3.0, stof)
+	draw_circle(Vector2(x + KOL / 2.0, vloer_y - 2), 1.5 + d * 4.0, stof)
+
 const SCHUD_X := [1, -1, 1, -1, 0]
 var put_schud := 0.0
 func put_koop() -> void:
@@ -149,12 +201,20 @@ func _process(delta: float) -> void:
 	if put_schud > 0.0:
 		put_schud = maxf(0.0, put_schud - delta)
 		queue_redraw()
+	for c in brokkel.keys():
+		brokkel[c] += delta
+		if brokkel[c] >= GRAAF_S:
+			brokkel.erase(c)
+		queue_redraw()
+	if ingang_schuif > 0.0:
+		ingang_schuif = maxf(0.0, ingang_schuif - delta)
+		queue_redraw()
 	for m in munten:
 		m.t += delta
 	munten = munten.filter(func(m): return m.t < MUNT_S)
 	if not munten.is_empty():
 		queue_redraw()
-	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0:
+	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0 and brokkel.is_empty() and ingang_schuif <= 0.0:
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
@@ -171,6 +231,7 @@ func klik(pos: Vector2) -> String:
 		if pos.y < OPP or boven[k] or not gang[k] or k > max_kol:
 			return ""
 		boven[k] = true
+		_graaf_moment(Vector2i(k, 0))
 		queue_redraw()
 		gegraven.emit(Vector2i(k, -1))
 		return "kamer"
@@ -182,13 +243,18 @@ func klik(pos: Vector2) -> String:
 			return ""   # kolom 0 blijft dicht, anders staat de ingang half buiten beeld
 		if k == ingang_kol - 1:
 			gang[k] = true
+			ingang_vorig = int(round(_ingang_x() / KOL)) if ingang_schuif > 0.0 else ingang_kol
 			ingang_kol = k
+			ingang_schuif = SCHUIF_S
+			_graaf_moment(Vector2i(k, 1))
+			_graaf_moment(Vector2i(k, 0))   # de schacht schuift mee: die cel brokkelt ook open
 			queue_redraw()
 			gegraven.emit(Vector2i(k, 0))
 			return "gegraven"
 		# alleen graven naast een bestaande gang; de schat verhuist mee naar het einde, de oude kamer blijft staan
 		if (k > 0 and gang[k - 1]) or (k < kolommen - 1 and gang[k + 1]):
 			gang[k] = true
+			_graaf_moment(Vector2i(k, 1))
 			if k > schat_kol:
 				schat_kol = k
 				_schatkamer()
@@ -248,8 +314,12 @@ func _draw() -> void:
 			var kx := k * KOL + (1 if k > 0 and gang[k - 1] else KOL - 2)
 			for y in range(GANG_BOVEN + 3, GANG_BOVEN + KOL - 2, 3):
 				draw_rect(Rect2(kx, y, 1, 1), Color("#c9a27a"))
-	# ingang: poortje op de grasrand boven de schacht
-	draw_texture(INGANG, Vector2(ingang_kol * KOL - 2, OPP - 14 + 4))
+	# net gegraven cellen: de aarde brokkelt weg (over de open tegel heen, onder de figuren)
+	for c in brokkel:
+		_brokkel(c, float(brokkel[c]))
+	# ingang: poortje op de grasrand boven de schacht (schuift mee als je links graaft)
+	var ix := _ingang_x()
+	draw_texture(INGANG, Vector2(ix - 2, OPP - 14 + 4))
 	# versiering op vaste plekken in de gang (stut tegen het plafond, iets op de vloer); achter de figuren
 	for k in range(ingang_kol + 1, schat_kol - 1):
 		var h := _hash(k, 7)
@@ -277,10 +347,13 @@ func _draw() -> void:
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
-	for k in fk:
+	for i in fk.size():
+		var k: int = fk[i]
 		if k <= ingang_kol or k >= kolommen:
 			continue
 		var fx: float = k * KOL + 4
+		if i == 0:
+			fx = ix + KOL + 4   # de fakkel bij de ingang schuift mee
 		draw_texture_rect_region(GLOED, Rect2(fx + 4 - 20, GANG_BOVEN + 4 - 20, 40, 40), Rect2(0, 0, 52, 52), lamp)
 		draw_texture_rect_region(FAKKEL, Rect2(fx, GANG_BOVEN + 1, 8, 12), Rect2((anim % 4) * 8, 0, 8, 12))
 	# schatkamer: vaandel aan het plafond en de schat op de vloer
