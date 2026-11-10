@@ -119,7 +119,10 @@ def toets(stap, eigen, cursor):
         lijst = list(ob.get("cj_rood_vlakken", []))
         m = uit_elkaar.echte_matrix(ob)
         for i in range(0, len(lijst), 2):
-            verst = max(verst, (m @ ob.data.polygons[lijst[i]].center - punt).length / u)
+            # Dichtste hoekpunt van het vlak: de staaf heeft lange zijvlakken waarvan het middelpunt ver weg ligt
+            # (run 42794577017: 25,9 mm met het middelpunt), terwijl het vlak zelf wel bij de stop raakt.
+            f = ob.data.polygons[lijst[i]]
+            verst = max(verst, min((m @ ob.data.vertices[k].co - punt).length for k in f.vertices) / u)
     print(f"[cj-betaald] METING rood {voorbij:.1f} graden: A {ra} vlakken, B {rb} vlakken, verst {verst:.2f} mm van H")
     stap("rood voorbij de stop op A en op B", ra > 0 and rb > 0, f"A {ra}, B {rb}")
     stap("rood alleen bij de stop (binnen 15 mm van het draaipunt)", verst <= 15.0, f"{verst:.2f} mm")

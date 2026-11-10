@@ -53,7 +53,9 @@ def paar(scene, ob):
 
 def dikte(a, b):
     """Halve dikte van het lid bij de knie in het buigvlak: de verste afstand langs de buigkant (beide kanten) tot het
-    draaipunt van de hoekpunten van A en B binnen 2 knokkelstralen van het draaipunt langs de lidas, rechte stand."""
+    draaipunt van de hoekpunten van A en B binnen 5 knokkelstralen van het draaipunt langs de lidas, rechte stand.
+    (2 knokkelstralen was te krap: daar is het lid rond de knokkel weggesneden, run 42794577017 gaf 4,2 mm op een been
+    van ±6 mm.)"""
     sleutel = (a.name, b.name, len(a.data.vertices), len(b.data.vertices))
     if sleutel in _dikte:
         return _dikte[sleutel]
@@ -70,7 +72,7 @@ def dikte(a, b):
         ob.data.vertices.foreach_get("co", co)
         mw = np.array(echte_matrix(ob), dtype=np.float64)
         rel = co.reshape(n, 3) @ mw[:3, :3].T + mw[:3, 3] - c
-        dicht = np.abs(rel @ lid) <= 2.0 * k
+        dicht = np.abs(rel @ lid) <= 5.0 * k
         if dicht.any():
             best = max(best, float(np.abs(rel[dicht] @ buig).max()))
     _dikte[sleutel] = best
