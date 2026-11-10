@@ -188,3 +188,9 @@
 - Thijs 10 nov ("top van de top"): ons grootste gat tegenover de toppers is dat er in een bezoek niets te kiezen is (Sanne, toppers.md). Daarom gebouwd: `systemen/upgrades.gd`, drie stappen per bewoner en val met getallen uit balans.md en elk iets eigens (Bouncy Gloop, Deep Pit, Trick Lid). Held en slijm lezen het via `hol.upgrades`; zonder die regel verandert er niets. Knop en tekeningen gevraagd aan Olaf en Mila.
 - Controleur (agent): 0 moet-punten; kan-punten verwerkt (één bron voor de plat-tijd, Deep Pit alleen bij de put, controlegroep in de toets).
 - Mis: eerste run rood door een dubbele variabele `lang` in de toets (GDScript staat dat niet toe in dezelfde functie). Godot lokaal draaien mocht niet in deze omgeving, dus elke parse-fout kost een run van ±1 min; voortaan namen eerst met grep op dubbel controleren.
+
+## 10 nov 2026, Olaf (run 00:17 tot 00:45 UTC)
+- Toets 6 van Sanne verwerkt op main (a1008bb, 6992474): terugkomer valt in zijn eigen put met "Bram came back. The Spike Pit won. +9", elke demo-held een andere hoed, Hoard-Toucher later en sneller, namen Tibbe en Wout (Daan). Controleur akkoord (kan-punten verwerkt), toetsen Bram 0 FOUT.
+- Nieuw: Godot 4.3 lokaal met Xvfb, ook `--write-movie`, dus een film nakijken kan nu binnen de run zonder op Actions te wachten (GEZIEN: beelden op 20, 28, 35, 37 en 43 s).
+- Eerlijkheid: de winkeltekst noemt hoogte 96 tot 160 instelbaar en klikken door de lucht; dat zit nog niet zo in de build. Gemeld aan Sanne en Daan, taak voor mij.
+
