@@ -1,0 +1,55 @@
+name: TikTok boekhouding schermen (Daan)
+
+# Plaatjes van de echte schermen (router met nagebootste TikTok, Moneybird en D1) op 1280 en 390 breed,
+# naar de tak schermen, map tiktok-boekhouding/<tak>/. Zie producten/tiktok-boekhouding/schermen/maak.ts.
+on:
+  push:
+    branches: ["main", "claude/tiktok-shop-**"]
+    paths: ["producten/tiktok-boekhouding/src/web/**", "producten/tiktok-boekhouding/schermen/**", ".github/workflows/tiktok-boekhouding-schermen.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  schermen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: producten/tiktok-boekhouding
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - run: node --version
+      - run: npm install --no-save --no-package-lock playwright@1.48.2
+      - run: npx playwright install --with-deps chromium
+      - run: node --test test/web-basis.test.ts test/web-schermen.test.ts test/web-routes.test.ts
+      - run: node schermen/maak.ts schermen/uit
+      - name: Schermafbeeldingen openbaar zetten (tak schermen)
+        if: always()
+        working-directory: .
+        env:
+          TOKEN: ${{ github.token }}
+          TAK: ${{ github.ref_name }}
+        run: |
+          SRC="$GITHUB_WORKSPACE/producten/tiktok-boekhouding/schermen/uit"
+          [ -d "$SRC" ] && [ -n "$(ls -A "$SRC")" ] || { echo "geen schermafbeeldingen"; exit 0; }
+          NAAM="$(echo "$TAK" | tr '/' '-')"
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s
+            git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            D="/tmp/s/tiktok-boekhouding/$NAAM"
+            rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            cd /tmp/s && git add -A && git commit -q -m "Schermen tiktok-boekhouding/$NAAM run ${GITHUB_RUN_ID}" || exit 0
+            if git push -q origin schermen; then cd - >/dev/null; break; fi
+            cd - >/dev/null; sleep $((poging * 3))
+          done
+          echo "Bekijk: https://github.com/${GITHUB_REPOSITORY}/tree/schermen/tiktok-boekhouding/$NAAM"
+          ls "$SRC"

@@ -48,11 +48,12 @@ export function koppelScherm(g: KoppelGegevens): Scherm {
     inhoud: html`<h1>Koppel je boekhouding</h1>
 <p class="zacht">Daarna zie je meteen hoe je laatste uitbetalingen geboekt worden. Er gaat nog niets naar Moneybird.</p>
 ${g.melding ? html`<p class="melding" role="status">${g.melding}</p>` : ""}
-<div class="blokken">
-<section class="kaart"><h2>TikTok Shop</h2><p><span class="stip stip-goed"></span>${g.winkelnaam} · gekoppeld</p><p class="pil pil-goed">Klaar</p></section>
-<section class="kaart"><h2>Moneybird</h2><p><span class="stip stip-uit"></span>Je boekhouding</p>
+<div class="koppel">
+<section class="kaart"><div class="dienst"><span class="tegel tegel-tt" aria-hidden="true">T</span><div><h2>TikTok Shop</h2><p>${g.winkelnaam} · gekoppeld</p></div></div><p class="pil pil-goed">✓ Klaar</p></section>
+<span class="pijl" aria-hidden="true">→</span>
+<section class="kaart"><div class="dienst"><span class="tegel tegel-mb" aria-hidden="true">M</span><div><h2>Moneybird</h2><p>Je boekhouding</p></div></div>
 <form method="post" action="/app/moneybird/start">${verborgenCsrf(g.csrf)}<button class="knop knop-hoofd" type="submit">Koppel Moneybird</button></form>
-<p class="zacht">We vragen Moneybird om boekingen te maken en je grootboekrekeningen te lezen en aan te maken.</p></section>
+<p class="klein">We vragen Moneybird om boekingen te maken en je grootboekrekeningen te lezen en aan te maken.</p></section>
 </div>
 <p class="zacht">Geen Moneybird? <a href="/app/niet-voor-jou?voor=exact">Zet je op de wachtlijst voor Exact</a></p>`,
   };
