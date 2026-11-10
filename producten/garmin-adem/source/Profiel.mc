@@ -126,6 +126,31 @@ module EbbProfiel {
     const IN_BEELD_MS = 16000;
 
     // Plek van het dier in de cyclus, 0.0 (rechts erin) tot 1.0 (links eruit), of -1.0 als het even weg is.
+    // Blad v5 (Mila T2): de zee wordt elke 30 s inhouden een stand donkerder (0 tot 5); vanaf 3:00 terug naar
+    // stand 4, iets lichter, zodat het water nooit aanmoedigt om langer te gaan.
+    function zeeStand(sec as Number) as Number {
+        if (sec >= 180) {
+            return 4;
+        }
+        var s = sec / 30;
+        return s > 5 ? 5 : (s < 0 ? 0 : s);
+    }
+
+    // Banden per stand (ZEE_STAND in Mila's ebb_blad_v5.py): paren [bovenkant in honderdsten van D, watertint 0 tot 3].
+    const ZEE = [
+        [12, 0, 19, 1, 62, 2, 90, 3],
+        [12, 0, 16, 1, 50, 2, 78, 3],
+        [12, 1, 40, 2, 68, 3],
+        [12, 1, 26, 2, 52, 3],
+        [12, 2, 40, 3],
+        [12, 2, 22, 3]
+    ] as Array<Array<Number> >;
+
+    // AMOLED: bovenop de banden het hele water 10 procent donkerder per stand (in procenten helderheid).
+    function amoledHelderheid(stand as Number) as Number {
+        return 100 - 10 * stand;
+    }
+
     function zwem(ms as Number) as Float {
         var p = ms % CYCLUS_MS;
         if (p >= IN_BEELD_MS) {
@@ -271,6 +296,8 @@ module EbbTrouw {
         ["Narwhal", 0, 40], ["Giant squid", 1, 30], ["Sea cucumber", 2, 7], ["Whale", 0, 60]
     ] as Array<Array>;
     const ZEEKOMKOMMER = 22;
+    const LAATST = "trLaatst";   // nummer van het laatst gevonden dier
+    const GEKOZEN = "trGekozen"; // dier dat je in de sea log koos ("swims with you", blad v5 8c)
     const BITS = "trDieren";
 
     // Welke dieren je hebt bij deze tellers: één bit per dier. pauze is 1 als je ooit terugkwam na een pauze.
@@ -307,6 +334,7 @@ module EbbTrouw {
         }
         if (nieuw.size() > 0) {
             Application.Storage.setValue(BITS, oud | (1 << nieuw[0]));
+            Application.Storage.setValue(LAATST, nieuw[0]);
         }
         return nieuw;
     }
@@ -365,7 +393,31 @@ module EbbTrouw {
         return 0;
     }
 
+    // Blad v5 (T1): kies in de sea log het dier dat meezwemt; alleen een dier dat je hebt. Geeft of het lukte.
+    function kies(i as Number) as Boolean {
+        if (i < 0 || i >= DIEREN.size() || !heeft(i)) {
+            return false;
+        }
+        Application.Storage.setValue(GEKOZEN, i);
+        return true;
+    }
+
+    // Wie meezwemt tijdens het inhouden (nummer in DIEREN): je keuze, anders het laatst gevonden dier, anders -1.
+    function meezwemmer() as Number {
+        var g = Application.Storage.getValue(GEKOZEN);
+        if (g instanceof Number && heeft(g as Number)) {
+            return g as Number;
+        }
+        var l = Application.Storage.getValue(LAATST);
+        if (l instanceof Number && heeft(l as Number)) {
+            return l as Number;
+        }
+        return -1;
+    }
+
     function wis() as Void {
+        Application.Storage.deleteValue(LAATST);
+        Application.Storage.deleteValue(GEKOZEN);
         Application.Storage.deleteValue(BITS);
         Application.Storage.deleteValue(SESSIES);
         Application.Storage.deleteValue(DAG);

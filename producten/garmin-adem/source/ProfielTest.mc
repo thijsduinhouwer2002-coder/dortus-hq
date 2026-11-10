@@ -203,3 +203,29 @@ function testTrouwTellers(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
     return drie && vandaagNog && voorbij && gat && terug;
 }
+
+// Blad v5 T2: elke 30 s een stand donkerder, hoogstens 5; vanaf 3:00 terug naar 4. Zes standen met banden.
+(:test)
+function testZeeStand(logger as Test.Logger) as Boolean {
+    return EbbProfiel.zeeStand(0) == 0 && EbbProfiel.zeeStand(29) == 0 && EbbProfiel.zeeStand(30) == 1
+        && EbbProfiel.zeeStand(105) == 3 && EbbProfiel.zeeStand(150) == 5 && EbbProfiel.zeeStand(179) == 5
+        && EbbProfiel.zeeStand(180) == 4 && EbbProfiel.zeeStand(400) == 4
+        && EbbProfiel.ZEE.size() == 6 && EbbProfiel.amoledHelderheid(5) == 50;
+}
+
+// Blad v5 T1: meezwemmer is je keuze, anders het laatst gevonden dier; kiezen kan alleen wat je hebt.
+(:test)
+function testMeezwemmer(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var leeg = EbbTrouw.meezwemmer() == -1;
+    EbbTrouw.nieuweDieren(EbbTrouw.naSessie(300));     // vis
+    EbbTrouw.nieuweDieren(EbbTrouw.naSessie(301));     // garnaal
+    var laatst = EbbTrouw.meezwemmer() == 1;
+    var nietGehad = !EbbTrouw.kies(23);
+    var wel = EbbTrouw.kies(0);
+    var gekozen = EbbTrouw.meezwemmer() == 0;
+    EbbTrouw.nieuweDieren(EbbTrouw.naSessie(301));     // kwal: keuze blijft
+    var blijft = EbbTrouw.meezwemmer() == 0;
+    EbbTrouw.wis();
+    return leeg && laatst && nietGehad && wel && gekozen && blijft;
+}
