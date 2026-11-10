@@ -25,6 +25,9 @@ extends Node2D
 # - valt hij door een bewoner, dan gaat zijn hoed naar diens hoedentoren: info "hoed_naar" ("bewoner", of "wand"
 #   voor een aartsvijand zodra WAND_ER waar is) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
+# - info["soort_held"]: "ridder", "dief", "magier" of "bard" (systemen/heldensoort.gd, versie 1); leeg = zoals hierboven.
+#   Een bard die vlucht (ook als Hoard-Toucher) zet info["lied"] = 2: strook.gd laat dan 2 helden extra komen.
+#
 # Terug in info (voor strook.gd en kroniek.gd): "wat" (korte Engelse zin), "laatst_geraakt", "hoard_toucher",
 # "trek", "gezien_vijand". Uitkomst: "gevallen" of "ontsnapt".
 
@@ -32,6 +35,7 @@ signal klaar(held, uitkomst: String, info: Dictionary)
 
 # Kunst van Daan (kunst/LEESMIJ.md, Karakter-laag 19:45): lijf in 5 vaste kleuren, littekens als losse laag,
 # hoed met een hap als Gloop hem beet, tekens (8 x 8) boven het hoofd. Nooit schalen (halve pixels).
+const SOORT := preload("res://systemen/heldensoort.gd")      # ridder, dief, magiër, bard (versie 1); "" = zoals altijd
 const HELD_BEELD := preload("res://systemen/held_beeld.gd")   # lijf, littekens, hoed, wapen, teken en de val
 const HOED_SOORTEN := 10        # Mila 21:55: 10 hoeden in held_hoeden.png en held_hoeden_hap.png
 const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]   # Mila 23:00 en 23:10: helm met kam vanaf rij 0, kroon 2 (hoed erboven zakt tussen de punten); bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
@@ -58,6 +62,7 @@ const VAL_TEKEN_S := 0.4     # zo lang staat het uitroepteken of de poef erboven
 var hol
 var info := {}
 var trek := "hebzuchtig"
+var soort_held := ""         # systemen/heldensoort.gd, uit info["soort_held"]; "" = gewone held
 var staat := "afdalen"       # afdalen, lopen, vluchten, klimmen, vallen
 var doel_kol := 0
 var vijand_kol := -1         # kolom van zijn vijand, -1 als hij er geen (meer) heeft
@@ -87,6 +92,9 @@ func start(h, i: Dictionary) -> void:
 	if trek == "":
 		trek = "schijterig" if (hash(naam) & 1) == 1 else "hebzuchtig"
 		info["trek"] = trek
+	soort_held = String(info.get("soort_held", ""))
+	if not SOORT.geldig(soort_held):
+		soort_held = ""
 	var p: Vector2 = hol.cel_naar_pos(hol.ingang())
 	vloer = p.y
 	position = Vector2(p.x, 2)
@@ -99,7 +107,7 @@ func start(h, i: Dictionary) -> void:
 # add_child (anders vindt hij de bewoners niet). Een held die al "weg" is geeft {}: niet bewaren.
 # Alleen de velden hieronder worden weer een Color of een heel getal; een nieuw kleurveld hier bijzetten.
 const KLEUR_VELDEN := ["kleur", "hoed"]
-const HEEL_VELDEN := ["bezoeken", "hoed_nr", "kleur_nr", "hoeden_bewoner", "zaad", "taai"]
+const HEEL_VELDEN := ["bezoeken", "hoed_nr", "kleur_nr", "hoeden_bewoner", "zaad", "taai", "lied"]
 
 func naar_dict() -> Dictionary:
 	if staat == "weg":
@@ -219,7 +227,7 @@ func _process(delta: float) -> void:
 func stap(delta: float) -> void:
 	t += delta
 	var echt := delta
-	delta *= clampf(float(info.get("snelheid", 1.0)), 0.25, 4.0)   # alleen lopen en klimmen; t en het wegzakken blijven gewoon
+	delta *= clampf(float(info.get("snelheid", 1.0)) * SOORT.snel(soort_held), 0.25, 4.0)   # alleen lopen en klimmen; t en het wegzakken blijven gewoon
 	match staat:
 		"afdalen":
 			position.y = move_toward(position.y, vloer, SNEL * delta)
@@ -262,6 +270,8 @@ func _aangekomen() -> void:
 	info["hoard_toucher"] = true
 	info["wat"] = "touched your hoard, took nothing and ran"
 	staat = "vluchten"
+	if SOORT.zingt(soort_held):
+		info["lied"] = SOORT.LIED_HELDEN
 
 # De upgrades (systemen/upgrades.gd) hangen aan het hol als dat een eigenschap "upgrades" heeft; anders null.
 func _upgrades():
@@ -282,7 +292,7 @@ func _onderweg() -> void:
 		b = null   # val en bewoner in dezelfde kolom: hij vecht tegen de val
 	var naam_vijand: String = NAAM_PUT if soort != "" else b.naam()
 	var soort_vd: String = soort if soort != "" else String(b.get("soort") if "soort" in b else "slijm")
-	var kans: float = KANS.get(soort_vd, KANS_ANDERS)
+	var kans: float = KANS.get(soort_vd, KANS_ANDERS) * SOORT.kans_factor(soort_held, soort_vd)
 	var upg = _upgrades()
 	if upg != null:
 		kans += upg.kans_erbij(soort_vd)   # systemen/upgrades.gd: +7 procentpunt per gekochte stap (balans.md)
@@ -335,6 +345,8 @@ func _onderweg() -> void:
 		doel_kol = hol.schat().x
 	# schijterig draait na een klap de helft van de keren om, hebzuchtig pas na twee klappen
 	var rent := (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2
+	if SOORT.taai(soort_held) and klappen < 2:
+		rent = false           # ridder: rent pas na twee klappen, ook als hij schijterig is
 	if soort == "stekelput" and upg != null and upg.put_houdt_vast() and klappen < 2:
 		rent = false           # Deep Pit: een schijterige held keert na zijn eerste klap (van de put) niet om
 	if bool(info.get("moet_vluchten", false)):
@@ -344,6 +356,8 @@ func _onderweg() -> void:
 	if rent:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
+		if SOORT.zingt(soort_held):
+			info["lied"] = SOORT.LIED_HELDEN   # bard: zingt over je hol, strook.gd laat er zoveel extra komen
 
 # Hoe de val eruitziet op tijd vt (los van _draw, zodat de toets het kan nakijken zonder te tekenen):
 # hop (negatief = omhoog), zak (0 tot 16 pixels onder de vloer), teken erboven ("uitroep", "poef" of ""),

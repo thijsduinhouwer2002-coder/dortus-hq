@@ -42,9 +42,13 @@ func vrije_naam(naam: String) -> String:
 
 # Een held komt binnen. Geeft de info terug die de held meekrijgt (bezoeken, wrok, bijnaam).
 # trek ("hebzuchtig" of "schijterig") mag mee voor een regel die bij hem past.
-func binnen(naam: String, trek := "") -> Dictionary:
+# soort_held ("ridder", "dief", "magier", "bard", systemen/heldensoort.gd) blijft bij hem: een terugkomer houdt zijn soort.
+func binnen(naam: String, trek := "", soort_held := "") -> Dictionary:
 	var h := held(naam)
 	h["bezoeken"] += 1
+	if soort_held != "" and String(h.get("soort_held", "")) == "":
+		h["soort_held"] = soort_held
+	soort_held = String(h.get("soort_held", ""))
 	var v := _vars(naam, String(h["wrok"]))
 	var regel := ""
 	var ouder := _ouder(naam)
@@ -58,6 +62,8 @@ func binnen(naam: String, trek := "") -> Dictionary:
 	elif h["bezoeken"] == 1 and ouder != "":
 		v["oud"] = naam.split(" ")[0]   # "Kees II" en "Kees III": Kees viel hier ooit
 		regel = _regel("naamgenoot", v, "%s climbs in." % naam)
+	elif h["bezoeken"] == 1 and soort_held != "":
+		regel = _regel("binnen_" + soort_held, v, "%s climbs in." % naam)   # de soort zie je meteen (kies in heldensoort.gd)
 	elif h["bezoeken"] == 1:
 		var soort := "binnen_" + trek if trek != "" and stem.rng.randf() < 0.3 else "binnen"
 		regel = _regel(soort, v, "%s climbs in." % naam)
@@ -67,7 +73,14 @@ func binnen(naam: String, trek := "") -> Dictionary:
 		# Sanne toets 3 punt 6: een terugkomer noemt altijd zijn wrok of bijnaam
 		regel = _regel("terug", v, "%s is back." % volle_naam(naam), "", true)
 	_schrijf(regel)
-	return {"naam": naam, "bezoeken": h["bezoeken"] - 1, "wrok": h["wrok"], "bijnaam": h["bijnaam"], "littekens": h["littekens"]}
+	return {"naam": naam, "bezoeken": h["bezoeken"] - 1, "wrok": h["wrok"], "bijnaam": h["bijnaam"], "littekens": h["littekens"],
+		"soort_held": soort_held}
+
+# Een bard ontsnapte en zingt (held.gd zet info "lied"): één regel; strook.gd laat info.lied helden extra komen.
+func lied(naam: String) -> String:
+	var r := _regel("lied", _vars(naam), "%s sang about you." % naam)
+	_schrijf(r)
+	return r
 
 # Een held ontsnapt. waardoor = wat hem het laatst raakte ("" als niets). Je verliest nooit iets: geen buit weg.
 func gevlucht(naam: String, waardoor: String) -> String:

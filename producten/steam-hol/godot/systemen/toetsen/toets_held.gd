@@ -497,5 +497,56 @@ func _init() -> void:
 	ok(midden >= 8, "de meeste werden echt onderweg bewaard (%d van 20)" % midden)
 	ok(gelijk == 20, "held bewaard midden in het hol loopt na herstel precies zo verder (%d van 20)" % gelijk)
 
+	# heldensoorten (Bram 10 nov, versie 1, systemen/heldensoort.gd)
+	var HS = load("res://systemen/heldensoort.gd")
+	var tel := {}
+	for soort in ["", "ridder", "dief", "magier", "bard"]:
+		tel[soort] = {"put": 0, "slijm": 0, "vlucht": 0, "lied": 0, "tijd": 0.0}
+		for z in 120:
+			var rs := speel({"naam": "Toets%d" % z, "zaad": 7000 + z, "trek": "schijterig" if z % 2 == 0 else "hebzuchtig", "soort_held": soort})
+			var lg := String(rs.info.get("laatst_geraakt", ""))
+			if rs.uitkomst == "gevallen":
+				tel[soort]["put" if lg == "the Spike Pit" else "slijm"] += 1
+			else:
+				tel[soort]["vlucht"] += 1
+			if int(rs.info.get("lied", 0)) > 0:
+				tel[soort]["lied"] += 1
+			tel[soort]["tijd"] += rs.tijd / 120.0
+	print("[held-toets] soorten (120 elk, put/slijm/vlucht/lied/tijd): ", tel)
+	ok(tel["magier"]["put"] < tel[""]["put"] / 2, "magiër valt veel minder in de put (%d tegen %d)" % [tel["magier"]["put"], tel[""]["put"]])
+	ok(tel["dief"]["put"] < tel[""]["put"], "dief springt vaker over de put (%d tegen %d)" % [tel["dief"]["put"], tel[""]["put"]])
+	ok(tel["ridder"]["tijd"] > tel[""]["tijd"] and tel["dief"]["tijd"] < tel[""]["tijd"], "ridder trager, dief sneller (%.1f / %.1f / %.1f s)" % [tel["ridder"]["tijd"], tel[""]["tijd"], tel["dief"]["tijd"]])
+	ok(tel["ridder"]["put"] > tel[""]["put"], "ridder is taai: komt na een klap van Gloop vaker tot de put (%d tegen %d)" % [tel["ridder"]["put"], tel[""]["put"]])
+	for sh in tel:
+		var vls: float = float(tel[sh]["vlucht"]) / 120.0
+		ok(vls > 0.2 and vls < 0.5, "soort '%s' vlucht %.0f%% (doel ±1 op 3, per soort tussen 20 en 50%%)" % [sh, vls * 100.0])
+	ok(tel["bard"]["lied"] == tel["bard"]["vlucht"] and tel["bard"]["lied"] > 0 and tel[""]["lied"] == 0 and tel["ridder"]["lied"] == 0, "alleen een bard die ontsnapt zingt (%d van %d)" % [tel["bard"]["lied"], tel["bard"]["vlucht"]])
+	var rz := speel({"naam": "Zonder", "zaad": 42})
+	var rz2 := speel({"naam": "Zonder", "zaad": 42, "soort_held": "draak"})
+	ok(rz.uitkomst == rz2.uitkomst and is_equal_approx(rz.tijd, rz2.tijd), "onbekende soort = gewone held, dus de demo blijft gelijk")
+	var kr := RandomNumberGenerator.new()
+	kr.seed = 3
+	var gekozen := {}
+	var eerste_tien_gewoon := true
+	for nr in range(1, 1001):
+		var ks: String = HS.kies(nr, kr)
+		if nr <= 10 and ks != "":
+			eerste_tien_gewoon = false
+		gekozen[ks] = int(gekozen.get(ks, 0)) + 1
+	ok(eerste_tien_gewoon, "de eerste 10 helden van een nieuw spel zijn gewoon (eerste tien minuten blijven gelijk)")
+	ok(gekozen.size() == 5 and int(gekozen[""]) > 450 and int(gekozen.get("bard", 0)) < int(gekozen.get("dief", 0)), "daarna meestal gewoon, een bard is zeldzaam %s" % str(gekozen))
+	var hd := Node2D.new()
+	hd.set_script(load("res://systemen/held.gd"))
+	var hol_d := Node2D.new()
+	hol_d.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	hol_d.add_child(Node2D.new())
+	hol_d.get_child(0).add_child(hd)
+	hd.start(hol_d, {"naam": "Sir Bewaar", "soort_held": "ridder"})
+	var dsoort: Dictionary = JSON.parse_string(JSON.stringify(hd.naar_dict()))
+	var hd2 := Node2D.new()
+	hd2.set_script(load("res://systemen/held.gd"))
+	hol_d.get_child(0).add_child(hd2)
+	hd2.herstel(hol_d, dsoort)
+	ok(hd2.soort_held == "ridder", "soort blijft na bewaren en laden")
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

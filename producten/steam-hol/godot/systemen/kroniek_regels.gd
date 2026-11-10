@@ -50,6 +50,13 @@ const VOORRAAD := {
 	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
 	"plat": ["{bewoner} is flat. Back soon."],
 	"op": ["{bewoner} is up again. Wobbly."],
+	# Heldensoorten (Bram 10 nov, versie 1, systemen/heldensoort.gd). Sanne mag ze herschrijven in kroniek-regels.md.
+	"binnen_ridder": ["Sir {naam} clanks in.", "Sir {naam} polished his armor for this.", "Sir {naam} is very slow. Very sure."],
+	"binnen_dief": ["{naam} the Thief tiptoes in.", "{naam} sneaks in. Nobody saw. You saw.", "{naam} picks the lock. It was open."],
+	"binnen_magier": ["{naam} the Wizard sniffs for traps.", "{naam} casts Light. It is a candle.", "{naam} knows every trap. Almost."],
+	"binnen_bard": ["{naam} the Bard tunes his lute.", "{naam} hums on the way in.", "{naam} is here for a story."],
+	# Een bard die ontsnapt zingt over je hol: er komen helden bij (heldensoort.LIED_HELDEN).
+	"lied": ["{naam} sang about your hole. More came.", "{naam}'s song got popular. Uh oh.", "A song about you! Heroes on the way."],
 	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
 }
 

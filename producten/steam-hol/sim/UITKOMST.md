@@ -55,10 +55,17 @@ Nieuw: `python3 sim.py ritme` (20 zaden). Twee spelers: "spaar" koopt alleen upg
 - **Betekenis voor het kaartje:** de keuze is echt (graven of sparen), en dat is goed, maar een speler die het goedkoopste kiest, ziet de upgrades pas na uren. Het muntje boven Gloop (Sanne) helpt alleen als hij spaart. Voorstel aan Sanne: het muntje ook laten zien als de speler 60 heeft en het graven hem er weer onder zou brengen, of graven per gang duurder vanaf ±12 gangen. Dat is haar keuze (balans.md); de sim kan beide doorrekenen.
 - **Fout gevonden en hersteld:** Deep Pit telde in de sim nooit mee (de put heet in `sim.py` "put", de regel keek naar "stekelput"). Na herstel (8 zaden, `uitkomst-10u.txt`): vluchten 33 tot 38%, aankopen per uur gelijk, alle doelen blijven gehaald. De uitspraak van 00:30 hierboven ("Deep Pit gerekend") klopte dus niet; nu wel.
 
-## 10 nov 02:25 UTC (Bram): upgrade 45, 126, 353 en graven +3 per gang boven de 12 (Sanne 01:50, balans.md)
+## 10 nov 02:15 UTC (Bram): upgrade 45, 126, 353 en graven +3 per gang boven de 12 (Sanne 01:50, balans.md)
 Sinds nu rekenen `sim.py` (`UPG_BASIS`, `graaf_prijs()`) en `godot/systemen/upgrades.gd` (`BASIS`) met Sannes nieuwe getallen; de metingen van 01:35 hierboven (60, 168, 470) zijn daarmee oud. Uitkomst (GEZIEN, 8 zaden, 10 uur, `uitkomst-10u.txt`):
 - Eerste val na 4 s, vluchten 33 tot 39%, aartsvijand 0,1 tot 0,9 per uur, Hoard-Toucher 4 tot 6%. **Doelen gehaald.**
 - Eerste aankoop gelijk (45 tot 193 s): dat is graven onder de 12 gangen, daar veranderde niets. Niet omdat de sim niet opnieuw draaide.
 - Aankopen 12 tot 15 in het eerste uur (was 15 tot 18), alles gekocht na **7,1 tot 7,6 uur** (was 5,9 tot 6,7). Langste wacht: 6,7 tot 15,0 min in uur 1, 11 tot 16 min tot 3 uur. **Ver onder het plafond van 2 uur.**
 - Ritme (`python3 sim.py ritme`, 20 zaden): **spaar** eerste upgrade na 5,1 / 9,3 / 13,3 min (was 7,3 / 11,1 / 15,6), langste gat in uur 1 16,6 tot 33,2 min; **goedkoopst** eerste upgrade na 50 / 61 / 72 min (was: nooit in 2 uur), langste gat in uur 1 6,7 tot 16,5 min. De toeslag op graven doet dus wat Sanne wilde: ook wie het goedkoopste koopt ziet binnen ±een uur zijn eerste upgrade.
 - Gloop eet ±29 tot 31 helden per uur; hoedenberg 100 na 2,9 tot 4,4 u, 300 na ±10 u.
+
+## 10 nov 02:20 UTC (Bram): heldensoorten (versie 1), `python3 sim.py soorten`
+Ridder, dief, magiër en bard uit `features.md` (versie 1) als systeem in `godot/systemen/heldensoort.gd`, zelfde getallen in `sim.py` (`SOORTEN`, standaard uit, dus de tabel hierboven verandert niet: nagekeken, uitvoer gelijk). Na de eerste 10 helden: 55% gewoon, 15% ridder, 15% dief, 10% magiër, 5% bard. Een bard die ontsnapt zingt, dan komen er 2 helden snel achter elkaar (8 tot 20 s).
+Uitkomst (GEZIEN, 8 zaden, 10 uur), zonder / met soorten:
+- vluchten 33 tot 39% / **35 tot 40%** (doel ±1 op 3 blijft), helden per uur 71 tot 73 / 73 tot 76, alles gekocht na 7,1 tot 7,6 / 7,0 tot 7,8 u.
+- langste wacht in uur 1: 6,7 tot 15,0 / 7,3 tot 19,8 min (ver onder 2 uur), aartsvijand 0,1 tot 0,9 / 0,1 tot 1,3 per uur, liederen 0,6 tot 1,3 per uur (een bard die zingt is dus ongeveer eens per uur een gebeurtenis).
+- In `toets_held.gd` (120 helden per soort, 1 slijm en 1 put): magiër valt 2 keer in de put tegen 18 voor een gewone held, dief 8, ridder komt vaker tot de put (25, hij is taai) en loopt 19 s tegen 13 s; vluchten per soort 32 tot 44%. Getallen zijn een GOK, Sanne mag ze bijstellen.

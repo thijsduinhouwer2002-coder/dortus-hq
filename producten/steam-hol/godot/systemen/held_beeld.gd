@@ -25,6 +25,9 @@ static func teken(h) -> void:
 	var omlaag := 1 if frame in [1, 3] else 0
 	var links := staat == "vluchten"
 	var wapen := 2 if String(h.trek) == "schijterig" else 0       # schijterig neemt een fakkel mee, hebzuchtig een zwaard
+	var w_soort: int = h.SOORT.wapen(String(h.soort_held))
+	if w_soort >= 0:
+		wapen = w_soort                                            # ridder zwaard, magiër staf (heldensoort.gd)
 	var kleur := Color.WHITE
 	if t < float(h.geraakt_tot) and int(t * 10) % 2 == 0:
 		kleur = Color(1, 0.55, 0.55)

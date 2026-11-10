@@ -285,5 +285,20 @@ func _init() -> void:
 	ok(vz.goud == vn.goud and vz.gevallen == vn.gevallen, "voortgang zonder upgrades gelijk aan voorheen")
 	ok(vm.gevallen >= vz6.gevallen and vm.goud >= vz6.goud, "voortgang met upgrades: minstens zoveel gevallen (%d tegen %d)" % [vm.gevallen, vz6.gevallen])
 
+	# heldensoorten in de kroniek (Bram 10 nov)
+	var ks = load("res://systemen/kroniek.gd").new()
+	var ib: Dictionary = ks.binnen("Odo", "hebzuchtig", "ridder")
+	ok(String(ib.soort_held) == "ridder" and ks.laatste().contains("Odo"), "ridder komt binnen met eigen regel: " + ks.laatste())
+	ks.gevlucht("Odo", "the Spike Pit")
+	var ib2: Dictionary = ks.binnen("Odo")
+	ok(String(ib2.soort_held) == "ridder", "terugkomer houdt zijn soort")
+	var lr: String = ks.lied("Fenna")
+	ok(lr != "" and lr.length() <= 42, "bard zingt: " + lr)
+	var soort_lang := 0
+	for sj in ["binnen_ridder", "binnen_dief", "binnen_magier", "binnen_bard", "lied"]:
+		for rsj in ks.stem.VOORRAAD[sj]:
+			if ks.stem.vul(rsj, {"naam": "Bram", "held": "Bram", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
+				soort_lang += 1
+	ok(soort_lang == 0, "regels van de soorten passen met Bram in 42 tekens (%d te lang)" % soort_lang)
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

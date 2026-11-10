@@ -1,0 +1,72 @@
+extends RefCounted
+# Heldensoorten (Bram, 10 nov). Versie 1 van features.md (Sanne): ridder, dief, magiër en bard, zodat het niet
+# na 3 dagen op is. Olaf 10 nov 01:40: alles van [v1] komt vóór het fest (14 jan).
+# Elke soort voelt anders in de strook, niet alleen een getal:
+#   ridder:  sterk en traag. Loopt langzamer, vlucht pas na twee klappen (ook als hij schijterig is), slijm krijgt hem minder snel.
+#   dief:    snel en glad. Ontwijkt de put vaak (springt erover), Gloop is zijn zwakke plek.
+#   magiër:  ziet vallen. De put krijgt hem bijna nooit, maar tegen Gloop helpt geen spreuk.
+#   bard:    zwak, maar vlucht hij, dan zingt hij een lied over je hol en komen er meer helden (info "lied").
+# Leeg ("") is de held zoals hij al was: zonder soort verandert er niets, dus de demo en oude saves blijven gelijk.
+#
+# Gebruik in held.gd: info["soort_held"] (zo heet het, want "soort" is in held.gd al de soort val of bewoner).
+# Kiezen doet strook.gd met kies(nr, r): de eerste 10 helden van een nieuw spel zijn gewoon (de eerste tien
+# minuten blijven zoals Sanne ze schreef), daarna af en toe een soort. Een terugkomer houdt zijn soort (in de kroniek).
+#
+# Getallen zijn een begin (GOK), nagerekend in sim/sim.py (python3 sim.py soorten): de doelen moeten blijven
+# gelden (±1 op 3 vlucht, zie sim/UITKOMST.md). Sanne mag ze bijstellen in balans.md.
+
+const SOORTEN := ["ridder", "dief", "magier", "bard"]
+
+# kans_x: factor op de kans dat hij valt, per verdediging. snel: factor op lopen en klimmen.
+# taai: vlucht pas na twee klappen. wapen: plaatje in held_wapens.png (0 zwaard, 1 staf, 2 fakkel), -1 = zoals nu.
+const DATA := {
+	"ridder": {"snel": 0.75, "kans_x": {"slijm": 0.85, "stekelput": 1.0}, "taai": true, "wapen": 0,
+		"naam": "Knight", "uitleg": "Slow and stubborn. Runs only after two hits."},
+	"dief": {"snel": 1.3, "kans_x": {"slijm": 1.15, "stekelput": 0.5}, "taai": false, "wapen": -1,
+		"naam": "Thief", "uitleg": "Quick. Hops over pits. Hates slime."},
+	"magier": {"snel": 1.0, "kans_x": {"slijm": 1.25, "stekelput": 0.3}, "taai": false, "wapen": 1,
+		"naam": "Wizard", "uitleg": "Sees traps. No spell works on Gloop."},
+	"bard": {"snel": 1.0, "kans_x": {"slijm": 1.15, "stekelput": 1.15}, "taai": false, "wapen": -1,
+		"naam": "Bard", "uitleg": "Weak. If he escapes, he sings about you."},
+}
+
+# Wegingen na de eerste 10 helden: gewoon blijft de meeste (zo blijft de wrok-grap het hart), een bard is zeldzaam.
+const KIES_GEWICHT := {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
+const EERSTE_GEWOON := 10
+const LIED_HELDEN := 2        # zoveel helden extra na een lied (strook.gd laat ze binnen de volgende minuut komen)
+
+static func geldig(s: String) -> bool:
+	return DATA.has(s)
+
+static func kies(nr: int, r: RandomNumberGenerator) -> String:
+	if nr <= EERSTE_GEWOON:
+		return ""
+	var totaal := 0
+	for k in KIES_GEWICHT:
+		totaal += int(KIES_GEWICHT[k])
+	var x := r.randi_range(1, totaal)
+	for k in KIES_GEWICHT:
+		x -= int(KIES_GEWICHT[k])
+		if x <= 0:
+			return String(k)
+	return ""
+
+static func kans_factor(s: String, verdediging: String) -> float:
+	if not DATA.has(s):
+		return 1.0
+	return float(DATA[s]["kans_x"].get(verdediging, 1.0))
+
+static func snel(s: String) -> float:
+	return float(DATA[s]["snel"]) if DATA.has(s) else 1.0
+
+static func taai(s: String) -> bool:
+	return DATA.has(s) and bool(DATA[s]["taai"])
+
+static func wapen(s: String) -> int:
+	return int(DATA[s]["wapen"]) if DATA.has(s) else -1
+
+static func naam(s: String) -> String:
+	return String(DATA[s]["naam"]) if DATA.has(s) else ""
+
+static func zingt(s: String) -> bool:
+	return s == "bard"

@@ -25,6 +25,13 @@ GRAAF_DREMPEL = 12     # Sanne 10 nov 01:50: graven 5 + 1,2 x gangen, plus 3 per
 def graaf_prijs(gangen):
     return 5 + 1.2 * gangen + 3 * max(0, gangen - GRAAF_DREMPEL)
 
+# Heldensoorten (versie 1, godot/systemen/heldensoort.gd): zelfde getallen. Aan met: python3 sim.py soorten
+SOORTEN = False
+SOORT_DATA = {"ridder": ({"slijm": 0.85, "put": 1.0}, True), "dief": ({"slijm": 1.15, "put": 0.5}, False),
+              "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.15, "put": 1.15}, False)}
+SOORT_GEWICHT = {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
+LIED_HELDEN = 2
+
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 
@@ -42,6 +49,8 @@ def speel(uren, zaad):
     st = {"gevallen": 0, "gevlucht": 0, "hoard": 0, "afgerekend": 0, "aartsvijand_bezoek": 0,
           "eerste_val": None, "aankopen": [], "wrok_naar_vijand": 0, "hap_slijm": 0, "hap_tijden": []}
     nieuw_nr = 0
+    lied_extra = 0
+    st["soort_tel"] = {}
     volgende = 4.0
     eind = uren * 3600
 
@@ -62,7 +71,8 @@ def speel(uren, zaad):
 
     while t < eind:
         t = volgende
-        volgende = t + rng.uniform(25, 75)
+        volgende = t + (rng.uniform(8, 20) if lied_extra > 0 else rng.uniform(25, 75))
+        lied_extra = max(0, lied_extra - 1)
         helden += 1
         faam = helden // 60
         # wie komt er?
@@ -77,9 +87,13 @@ def speel(uren, zaad):
         if h is None:
             nieuw_nr += 1
             h = {"naam": "%s%d" % (rng.choice(NAMEN), nieuw_nr), "gevlucht": 0, "wrok": "", "hoard": False,
-                 "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0}
+                 "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0, "soort": ""}
+            if SOORTEN and nieuw_nr > 10:
+                h["soort"] = rng.choices(list(SOORT_GEWICHT), weights=list(SOORT_GEWICHT.values()))[0]
+        sd = SOORT_DATA.get(h.get("soort", ""), ({}, False))
         if h["gevlucht"] >= 3:
             st["aartsvijand_bezoek"] += 1
+        st["soort_tel"][h.get("soort", "")] = st["soort_tel"].get(h.get("soort", ""), 0) + 1
         moet_vallen = helden == 1
         # pad: verdediging in volgorde van de gang (slijm en put om en om, zoals je ze neerzet)
         vijand = h["wrok"] if h["wrok"] in ("slijm", "put") and aantal[h["wrok"]] > 0 else ""
@@ -98,6 +112,7 @@ def speel(uren, zaad):
                 vijand = ""   # na het duel door naar de schat
             if h["hoard"]:
                 kans *= BRUTAAL
+            kans *= sd[0].get(v["soort"], 1.0)
             if rng.random() < kans or (moet_vallen and klappen == 0 and i == 0):
                 uit = "gevallen"
                 if v["soort"] == "slijm":
@@ -115,7 +130,7 @@ def speel(uren, zaad):
             # Deep Pit (stap 2 van de put): een schijterige held keert na zijn eerste klap van de put niet om
             # (10 nov 01:30: stond op "stekelput", maar in de sim heet hij "put", dus Deep Pit telde nooit mee)
             diep = v["soort"] == "put" and upg["put"] >= 2 and klappen < 2
-            if (h["trek"] == "schijterig" and not diep and rng.random() < SCHIJT_OM) or klappen >= 2:
+            if (h["trek"] == "schijterig" and not diep and not (sd[1] and klappen < 2) and rng.random() < SCHIJT_OM) or klappen >= 2:
                 uit = "gevlucht"
                 break
         if uit is None:
@@ -130,6 +145,9 @@ def speel(uren, zaad):
         else:
             st["gevlucht"] += 1
             h["gevlucht"] += 1
+            if h.get("soort") == "bard":
+                lied_extra += LIED_HELDEN   # de bard zingt over je hol: er komen helden bij
+                st["liederen"] = st.get("liederen", 0) + 1
             h["bezoeken"] += 1
             if geraakt_door:
                 h["wrok"] = geraakt_door
@@ -177,6 +195,21 @@ def ritme(zaden=20):
         print("%-10s eerste upgrade na %.1f / %.1f / %.1f min (min/mediaan/max), langste gat zonder aankoop in uur 1: %.1f tot %.1f min" % (
             strat, ts[0], ts[len(ts) // 2], ts[-1], min(keuze), max(keuze)))
     STRATEGIE = "goedkoopst"
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "soorten":
+    # zelfde doelen met en zonder heldensoorten (8 zaden, 10 uur)
+    for aan in (False, True):
+        SOORTEN = aan
+        rij = []
+        for z in range(1, 9):
+            s = speel(10, z)
+            a = s["aankopen"]
+            rij.append((100 * s["gevlucht"] / s["helden"], s["helden"] / 10, wachttijden(a, 3600) / 60,
+                        s["klaar_alles"] / 3600 if s["klaar_alles"] else 99, s["aartsvijand_bezoek"] / 10, s.get("liederen", 0) / 10))
+        k = lambda i: "%.1f tot %.1f" % (min(r[i] for r in rij), max(r[i] for r in rij))
+        print("soorten %-5s | vlucht %% %s | helden/u %s | langste wacht uur 1 %s min | alles na %s u | aartsvijand/u %s | liederen/u %s" % (
+            aan, k(0), k(1), k(2), k(3), k(4), k(5)))
+    sys.exit()
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "ritme":
     ritme()

@@ -232,6 +232,6 @@
 - Controleur: eerst niet akkoord (7 moet-punten: voorbeeldprijzen een gang verschoven, drie bereiken te smal, aankopen verkeerd om, groter gat niet genoemd, botsing kaartje met features.md, label), alles verwerkt, daarna akkoord; kan-punten (afronding, uitleg) ook verwerkt.
 - Toets 8 kan nog niet: Olaf zette kaartje stap 1 (aansluiten, in beeld nog niets anders) op main; muntje, knop en demo-aankoop komen in stap 2. Volgende run: toets 8 zodra het kaartje op main staat.
 
-## Bram, 10 nov 02:10 tot 02:45 UTC
+## Bram, 10 nov 02:10 UTC
 - Click Joints: listing extensions.blender.org nog 404 (Awaiting Review), niets te doen.
 - Sanne 01:50 verwerkt: upgrades 45, 126, 353 en graven +3 per gang boven 12 in `upgrades.gd` en `sim.py`, doelen nagerekend (UITKOMST.md). Mila's `poef.png` in `held_beeld.gd`. Toetsen 0 FOUT (nu ook lokaal met Godot 4.3 voor Linux, scheelt wachten op Windows-runs). Controleur akkoord met correcties: moet-punt zit in Sannes rekenscript (telt de toeslag nu dubbel), aan haar gemeld in taken.md.
