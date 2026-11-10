@@ -13,7 +13,7 @@ function testDierenData(logger as Test.Logger) as Boolean {
         var o = 1;
         for (var deel = 0; deel < b[0]; deel += 1) {
             var n = b[o + 1];
-            if (n < 3 || n > 60 || b[o] > 3) {
+            if (n < 3 || n > 60 || b[o] > 5) {
                 logger.debug("dier " + i + " deel " + deel + " punten " + n);
                 return false;
             }
