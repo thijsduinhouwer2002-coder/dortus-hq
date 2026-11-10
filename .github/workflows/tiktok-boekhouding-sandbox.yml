@@ -33,7 +33,7 @@ jobs:
           MONEYBIRD_SANDBOX_TOKEN: ${{ secrets.MONEYBIRD_SANDBOX_TOKEN }}
         run: node proef/sandbox.ts
       - name: Proef 2 in de sandbox (verlegde btw, 10 nov)
-        if: always()
+        if: ${{ !cancelled() }}
         working-directory: producten/tiktok-boekhouding
         env:
           MONEYBIRD_SANDBOX_TOKEN: ${{ secrets.MONEYBIRD_SANDBOX_TOKEN }}

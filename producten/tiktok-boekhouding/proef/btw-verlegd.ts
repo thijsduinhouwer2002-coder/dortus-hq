@@ -59,6 +59,7 @@ async function hoofd() {
   for (const [naam, f] of Object.entries(lijsten)) {
     const r = await tarieven(f);
     const rij = Array.isArray(r.json) ? r.json : [];
+    if (rij.length === 100) log("  (precies 100: er kan een tweede pagina zijn)");
     for (const t of rij) alle.set(String(t.id), t);
     log(`- ${naam}${f ? ` (\`${f}\`)` : ""}: ${r.status}, ${rij.length} tarieven${rij.length ? ": " + rij.map((t: any) => `"${t.name}" ${t.tax_rate_type}${t.active ? "" : " (inactief)"}`).join(", ") : ""}`);
   }
@@ -74,15 +75,19 @@ async function hoofd() {
   const lijst = Array.isArray(reks.json) ? reks.json : [];
   const magMemo = (soort: string) => lijst.filter((r: any) => r.account_type === soort && (r.allowed_document_types ?? []).includes("general_journal_document") && r.active !== false);
   const kosten = magMemo("expenses")[0];
-  const tegen = magMemo("current_assets")[0];
+  // Geen debiteuren of crediteuren als tegenrekening: die kunnen om een contact vragen en dan zegt de 422 niets over het tarief.
+  const tegen = magMemo("current_assets").find((r: any) => !/debiteur|crediteur/i.test(String(r.name)));
   if (!inkoop || !kosten || !tegen) {
-    log(`- niet te testen: inkooptarief 21% ${inkoop ? "ja" : "nee"}, kostenrekening ${kosten ? "ja" : "nee"}, tegenrekening ${tegen ? "ja" : "nee"}`);
+    log(`- niet te testen: inkooptarief 21% ${inkoop ? "ja" : "nee"}, kostenrekening ${kosten ? "ja" : "nee"}, tegenrekening ${tegen ? "ja" : "nee"} (GET ledger_accounts ${reks.status})`);
   } else {
     const ref = `TikTokShop-98${String(Date.now()).slice(-9)}`;
+    const datum = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const periode = datum.slice(0, 4) + datum.slice(5, 7);
+    const voor = await btwRapport(periode, "vóór de boeking");
     const body = {
       general_journal_document: {
         reference: ref,
-        date: new Date(Date.now() - 86400000).toISOString().slice(0, 10),
+        date: datum,
         general_journal_document_entries_attributes: [
           { ledger_account_id: kosten.id, debit: "10.00", credit: "0.00", description: "TikTok Shop commissie (proef verlegde btw)", row_order: 1, tax_rate_id: inkoop.id },
           { ledger_account_id: tegen.id, debit: "0.00", credit: "10.00", description: "TikTok Shop te ontvangen (proef verlegde btw)", row_order: 2 },
@@ -97,9 +102,24 @@ async function hoofd() {
     log(`- antwoord: ${kort(p.tekst, 2500)}`);
     const regels = p.json?.general_journal_document_entries ?? [];
     const metTarief = regels.filter((e: any) => e.tax_rate_id != null).length;
-    log(`- regels terug: ${regels.length} (gestuurd 2), regels met tax_rate_id: ${metTarief}, veld tax_rate_id bestaat in het antwoord: ${regels.some((e: any) => "tax_rate_id" in e)}`);
-    log(`- uitkomst B: ${p.status === 201 ? (metTarief === 0 && regels.length === 2 ? "inkooptarief stil genegeerd (net als het verkooptarief in proef 1)" : "Moneybird deed iets met het tarief, zie antwoord") : "geweigerd, zie antwoord"}`);
+    log(`- regels terug: ${regels.length} (gestuurd 2), regels met tax_rate_id: ${metTarief} (het antwoord-schema van een memoriaalregel kent dat veld niet, dus dit zegt alleen iets over extra btw-regels)`);
+    if (p.status !== 201) { log("- uitkomst B: geweigerd, zie antwoord"); return; }
+    // Het echte bewijs: telt het btw-rapport van die maand het inkooptarief na de boeking mee?
+    const na = await btwRapport(periode, "na de boeking");
+    if (voor === undefined || na === undefined) { log("- uitkomst B: niet vast te stellen, het btw-rapport is niet leesbaar (zie status hierboven)"); return; }
+    const verschil = na.filter((t) => t.tax_rate_id === inkoop.id).map((t) => Number(t.amount)).reduce((a, b) => a + b, 0)
+      - voor.filter((t) => t.tax_rate_id === inkoop.id).map((t) => Number(t.amount)).reduce((a, b) => a + b, 0);
+    log(`- grondslag van "${inkoop.name}" (inkoop) in het rapport, na min vóór: ${verschil}`);
+    log(`- uitkomst B: ${verschil === 0 ? "het btw-rapport telt het inkooptarief op een memoriaalregel niet mee (let op: GET kan uit de cache komen, zie de twee rapporten)" : "het btw-rapport telt de memoriaalregel mee onder het inkooptarief"}`);
   }
+}
+
+/** Btw-rapport van één maand (scopes documents en sales_invoices; een 403 loggen we gewoon). */
+async function btwRapport(periode: string, wanneer: string): Promise<any[] | undefined> {
+  const r = await ruw("GET", `/${ADM}/reports/tax.json?period=${periode}`);
+  const rij = Array.isArray(r.json?.tax_rates) ? r.json.tax_rates : undefined;
+  log(`- btw-rapport ${periode} ${wanneer}: ${r.status}${rij ? `, ${rij.length} tarieven: ${rij.map((t: any) => `"${t.name}" ${t.type} ${t.report_reference} grondslag ${t.amount} btw ${t.tax}`).join("; ") || "leeg"}` : ` ${kort(r.tekst, 400)}`}`);
+  return rij;
 }
 
 async function opruimen() {
@@ -107,6 +127,7 @@ async function opruimen() {
   for (const id of gemaakt) {
     const r = await ruw("DELETE", `/${ADM}/documents/general_journal_documents/${id}`);
     log(`- document ${id}: ${r.status}`);
+    if (r.status !== 200 && r.status !== 204) { log(`  LET OP: niet verwijderd, ${kort(r.tekst, 300)}`); process.exitCode = 1; }
   }
   if (!gemaakt.length) log("- niets gemaakt");
 }
