@@ -123,7 +123,7 @@ class EbbView extends WatchUi.View {
     var opnemen as Boolean = true;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
-    const YKLEIN_ADEMEN = 0.84;
+    const YKLEIN_ADEMEN = 0.855;
     private var _klaarSinds as Number = -1;
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
@@ -280,7 +280,7 @@ class EbbView extends WatchUi.View {
             woord = sessie.isIn(nu) ? "in" : "out";
             groot = sessie.ademhaling(nu).toString();
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
-            // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,84),
+            // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,855; run 42826914263 gaf bij 0,84 maar 2 px ruimte op 260 px),
             // zodat hij altijd helemaal in het water staat en nooit op de schuimrand.
             yKlein = YKLEIN_ADEMEN;
         } else if (fase == Ebb.FASE_INHOUDEN) {

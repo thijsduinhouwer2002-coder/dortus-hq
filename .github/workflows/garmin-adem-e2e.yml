@@ -130,7 +130,7 @@ jobs:
           grep -H "GROOT\|GEHEUGEN\|ONDERTEKST" /tmp/demo-*.log | sed "s,/tmp/demo-,," | tee /tmp/metingen.txt schermen/metingen.txt
           # Epix2pro47mm: grootste systeemletter 123 van 416 px (29,6%), daarom daar de eigen cijferletter (130 px).
           awk '/GROOT/ { p=$NF; sub("%","",p); if (p+0 < 30) { print "EIS11 TE KLEIN: " $0; f=1 } }
-               /ONDERTEKST/ { m++; for (i=1;i<NF;i++) { if ($i=="ruimte") r=$(i+1); if ($i=="over") o=$(i+1) } if (r+0 < 2 || o+0 < 0) { print "DAAN M1 FOUT: " $0; f=1 } }
+               /ONDERTEKST/ { m++; for (i=1;i<NF;i++) { if ($i=="ruimte") r=$(i+1); if ($i=="over") o=$(i+1) } if (r+0 < 4 || o+0 < 0) { print "DAAN M1 FOUT: " $0; f=1 } }
                /GEHEUGEN/ { n++; p=$NF; sub("%","",p); if (p+0 >= 80) { print "EIS12 TE VOL: " $0; f=1 } }
                END { print "EIS12 horloges met meting: " n ", ondertekst: " m; if (n < 9 || m < 9) f=1; exit f }' /tmp/metingen.txt || { echo "EIS11/12 FOUT"; touch schermen/eis11-12-fout; }
           # Proef (telt niet mee): derde start op fenix847mm zonder herstart, direct na het weggooien.
