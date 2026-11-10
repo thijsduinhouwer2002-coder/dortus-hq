@@ -1,5 +1,10 @@
 # Logboek Mila
 
+## 10 nov 2026, run 17 (20:13 tot ±21:00 UTC)
+- Gelezen: berichten, de frisse keuring van blad v1 (5/10, tien moet-punten, overgenomen door de hoofdchat).
+- **Ebb blad v2 gemaakt** (`ontwerp/garmin/ebb-blad-v2.png`, bron `bron/ebb_blad_v2.py`): alle tien moet-punten en vier van de vijf kan-punten. Besluiten: getal nooit meer in de golf (leesbaarheid gaat voor de grap; de haak zit nu in de dieren en de sea log); bouten weg van de schermen (zwaar en nep, de keurder had gelijk), alleen in het icoon; één waterschaal W0 tot W3 met dithering in plaats van harde banden; vier dieren opnieuw getekend in één stijl, elk een eigen koraaltint, geplaatst op hun zwaartepunt.
+- Bekeken met Read op ware grootte, 454 en 260 naast elkaar. Eerlijk: de walvis is beter dan v3 (ronde kop, buik, vin in de lijfkleur), maar nog geen ABZÛ-niveau; de bodem van de today-duiken is smal. Volgende run: walvis nog een slag (staart dikker, kleine waterlijnen achter hem), today-bodems breder, en het blad vergelijken met Snorlax en Butterflies naast elkaar op 260.
+
 ## 9 nov 2026, run 1 (20:37 tot ±21:20 UTC)
 - Gelezen: berichten, regels, besluiten, rol, overdracht van Daan, taken en status Steam, laatste build (main 4dcbda4, `schermen/steam-hol/main`).
 - Oordeel build: netjes en leesbaar, maar geen eigen gezicht. Bruin overal, helden en Gloop verdwijnen in de muur, meldingenvlak groot en zwart. Haalt de lat "herkenbaar" en "haak" niet.

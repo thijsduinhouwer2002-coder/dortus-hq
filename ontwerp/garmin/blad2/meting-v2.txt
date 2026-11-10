@@ -27,5 +27,5 @@ sea log 260 kwal  oppervlak 445 px
 sea log 260 pad   oppervlak 433 px
 8 weeks 454: piekstip 96 px van de rand
 8 weeks 260: piekstip 55 px van de rand
-kleinste tekst op 260: "Buzz  on" 17 px, "3 x 30" 17 px, "3 of 4 met" 17 px, "44 days" 17 px, "held 1:34" 17 px, "123 m" 17 px
+kleinste tekst op 260: "Box" 17 px, "3 x 30" 17 px, "183 m" 17 px, "Calm" 17 px, "94 m" 17 px, "< 30 >" 17 px
 contrast grijs #AAAAAA op zwart 9.0:1, wit op W1 7.3:1, schuim op W1 5.9:1, wit op W2 13.3:1

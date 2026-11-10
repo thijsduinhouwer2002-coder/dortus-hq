@@ -16,7 +16,7 @@ Opdracht: de frisse keuring van blad v1 (`ebb-blad-v1-frisse-keuring.md`, 5 van 
 9. **8 weeks:** één lijn (je beste tijd per dag, met gaten waar je niet ademde) op een doorlopend getij-vlak, één koraal stip op je beste dag met het label "best 2:08" eronder. De stip ligt 55 px van de rand op 260 (eis 15).
 10. **Today:** drie herkenbare duiken: een U met vlakke bodem, de diepte is je inhoudtijd, de tijd onder elke duik; het record in koraal met "new best".
 
-Ook de kan-punten: één titelkleur (schuim) voor alle fasewoorden en titels, geel alleen voor de zon; dithering; veiligheidsscherm rustig (teken, twee regels, OK, geen golf); belletjes in verschillende maten en niet gespiegeld. Niet gedaan: een andere houding van de walvis per scherm (kan-punt 3); dat is de volgende stap.
+Ook de kan-punten: één titelkleur (schuim) voor alle fasewoorden en titels, geel alleen voor de zon; dithering; veiligheidsscherm rustig (teken, twee regels, OK, geen golf); belletjes in verschillende maten en niet gespiegeld. Kan-punt 3 deels: de dieren hebben een houding (walvis daalt 9 graden met de kop omlaag, schildpad zweeft 6 graden omhoog, in het menu ligt de walvis plat aan de oppervlakte met zijn spuitje); de punten draaien, niet het beeld, dus de randen blijven strak.
 
 ## Midden (harde regel 20:20)
 Kader van alles wat getekend is: op alle 24 beelden binnen 1 px van het schermmidden (eis 2 px).

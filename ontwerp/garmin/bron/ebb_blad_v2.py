@@ -130,9 +130,13 @@ def dier_delen(soort):
         vlek = [ (ellips(x, y, r, r*0.85), 'licht') for x, y, r in ((0.08,-0.30,0.17),(-0.28,-0.12,0.12),(0.44,-0.12,0.12)) ]
         return [(achter,'donker'), (voor,'donker'), (kop,'lijf'), (schild,'lijf'), (buik,'licht')] + vlek, [(-0.80,-0.06)]
 
-def dier_beeld(soort, s, kleur_override=None):
+def dier_beeld(soort, s, kleur_override=None, hoek=0):
     """Tekent het dier op een eigen laag (RGBA) met schaal s px per eenheid. Geeft beeld en zwaartepunt."""
     delen, ogen = dier_delen(soort)
+    if hoek:   # de punten draaien (niet het beeld), zo blijven de randen even strak als op het horloge
+        ca, sa = math.cos(math.radians(-hoek)), math.sin(math.radians(-hoek))
+        R_ = lambda pts: [(x*ca - y*sa, x*sa + y*ca) for x, y in pts]
+        delen = [(R_(p), r) for p, r in delen]; ogen = R_(ogen)
     lijf, licht, donker = TINT[soort]
     if kleur_override: lijf = licht = donker = kleur_override
     W = int(s*2.6) + 4; c = W/2
@@ -152,9 +156,10 @@ def dier_beeld(soort, s, kleur_override=None):
     ys, xs = np.nonzero(a)
     return im, (xs.mean() + 0.5, ys.mean() + 0.5), a.sum()
 
-def dier(im, soort, cx, cy, s, kleur=None):
-    """Plaatst het dier met zijn ZWAARTEPUNT op (cx, cy): optisch midden (moet-punt 7)."""
-    laag, (zx, zy), _ = dier_beeld(soort, s, kleur)
+def dier(im, soort, cx, cy, s, kleur=None, hoek=0):
+    """Plaatst het dier met zijn ZWAARTEPUNT op (cx, cy): optisch midden (moet-punt 7).
+    hoek: houding in graden (positief = kop omlaag, dalen; negatief = kop omhoog, stijgen). Kan-punt 3."""
+    laag, (zx, zy), _ = dier_beeld(soort, s, kleur, hoek)
     im.paste(laag, (int(round(cx - zx)), int(round(cy - zy))), laag)
     return laag, (zx, zy)
 
@@ -206,17 +211,17 @@ def s_ademen(D):
 def duik_zee(im, D):
     zee(im, D, [(D*0.10, W0), (D*0.17, W1), (D*0.50, W2), (D*0.78, W3)], amp=D*0.014)
 
-def s_duik(D, diepte, tijd, soort, s, bel):
+def s_duik(D, diepte, tijd, soort, s, bel, hoek=0):
     im = leeg(D); duik_zee(im, D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.25), diepte, D*0.066, SCHUIM)
     tekst(d, D, (D/2, D*0.44), tijd, D*0.30, WIT)
     bellen(d, D, bel)
-    dier(im, soort, D/2, D*0.715, s*D)
+    dier(im, soort, D/2, D*0.715, s*D, hoek=hoek)
     rand(im, D); return im
 
 def s_duiken(D): return s_duik(D, '94 m', '1:34', 'kwal', 0.085, [(0.42, 0.61, 0.012), (0.39, 0.575, 0.007), (0.66, 0.66, 0.016), (0.70, 0.60, 0.009)])
-def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)])
-def s_schildpad(D): return s_duik(D, '123 m', '2:03', 'pad', 0.105, [(0.33, 0.66, 0.009), (0.30, 0.62, 0.014), (0.68, 0.64, 0.007)])
+def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)], hoek=9)   # walvis daalt mee de diepte in
+def s_schildpad(D): return s_duik(D, '123 m', '2:03', 'pad', 0.105, [(0.33, 0.66, 0.009), (0.30, 0.62, 0.014), (0.68, 0.64, 0.007)], hoek=-6)   # schildpad zweeft omhoog
 
 def s_boven(D):
     im = leeg(D); d = ImageDraw.Draw(im)
