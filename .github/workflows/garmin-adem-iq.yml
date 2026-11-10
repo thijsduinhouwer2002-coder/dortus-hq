@@ -1,7 +1,7 @@
 name: Garmin Ebb .iq (winkelbestand)
 
 # Gijs, 10 nov 2026. Maakt het .iq-bestand dat Thijs in de Connect IQ-winkel uploadt (monkeyc -e, release-bouw),
-# en zet het als release op GitHub. Start bij elke push in producten/garmin-adem (de proef-release wordt dan vervangen), of met de hand.
+# en zet het als release op GitHub. Bouwt bij elke push in producten/garmin-adem; de release alleen met de hand of met "[release]" in het commitbericht.
 # Alleen een versie bouwen waarvan garmin-adem-e2e.yml groen is.
 #
 # Ondertekenen: Garmin wil dat elke update met dezelfde ontwikkelaarssleutel is ondertekend. Die sleutel hoort
@@ -142,8 +142,15 @@ jobs:
             sleep $((poging * 3))
           done
 
+  # Gijs 10 nov 16:35: de release alleen nog met de hand (workflow_dispatch) of met "[release]" in het commitbericht.
+  # Eerst verving elke push ebb-v1.0.0, en twee runs tegelijk botsten (run 42853275668: HTTP 403 na het weggooien).
+  # Zo blijft de release die Thijs uploadt vast staan; elke push levert de .iq nog wel als artefact.
   release:
     needs: bouw
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]')
+    concurrency:
+      group: ebb-release
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       contents: write
