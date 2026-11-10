@@ -128,3 +128,4 @@
 - Gelezen: tak van Gijs (niets nieuws sinds 0b12b5f), mijn v2 van run 13. B1, B2, B4, B5 en moet 3 en 4 zaten al in v2 (poster met walvis-loep, dieptetekst boven het cijfer, belletjes naast de diepte, GEZIEN).
 - Oorzaak van "4-7-8" op de golfrand gevonden in `RustigView.mc` r73 (naam vast op 0,76 D, golftop op 0,775 D bij laag water); oplossing in drie regels naar Gijs (`berichten/gijs.md`). Niet zelf gebouwd: Gijs bouwt tegelijk aan de app.
 - Berichten aan Daan (nakijken kan op kaart 6 na) en Gijs.
+- Later in run 14: Gijs zette scene6 op 0,53 s (37e443c); **kaart 6 opnieuw** (ed06841), naam in het water (GEZIEN). Alle acht beelden v2 klaar, Daan en Gijs ingelicht, overzicht met kaart 6 bijgewerkt.
