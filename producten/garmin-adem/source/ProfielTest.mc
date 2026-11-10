@@ -131,3 +131,18 @@ function testWekenGemiddeldeEnDagen(logger as Test.Logger) as Boolean {
         && w[6][0] == 100 && w[6][1] == 1 && w[6][2] == 1
         && w[5][0] == 0 && w[5][1] == 0 && w[0][2] == 0;
 }
+
+// Productkeuring: veiligheidsscherm bij de eerste start en daarna elke 30 dagen opnieuw.
+(:test)
+function testVeiligElkeDertigDagen(logger as Test.Logger) as Boolean {
+    EbbVeilig.opnieuwTonen();
+    var eerste = EbbVeilig.moetTonenOp(20400);
+    EbbVeilig.bevestigOp(20400);
+    var dag29 = EbbVeilig.moetTonenOp(20429);
+    var dag30 = EbbVeilig.moetTonenOp(20430);
+    var klokTerug = EbbVeilig.moetTonenOp(20390);
+    Application.Storage.setValue(EbbVeilig.SLEUTEL, true);
+    var oudeWaarde = EbbVeilig.moetTonenOp(20400);
+    EbbVeilig.opnieuwTonen();
+    return eerste && !dag29 && dag30 && klokTerug && oudeWaarde;
+}

@@ -157,14 +157,27 @@ module EbbProfiel {
 // Eis 2: het veiligheidsscherm komt alleen tot het bevestigd is, en weer na "opnieuw tonen" in de instellingen.
 module EbbVeilig {
     const SLEUTEL = "veilig";
+    const DAGEN = 30;   // productkeuring: waarschuwing bij de eerste start en daarna elke 30 dagen
+
+    // Bewaard is het dagnummer van de laatste bevestiging. Niets (of de oude waarde true) betekent: tonen.
+    function moetTonenOp(vandaag as Number) as Boolean {
+        var v = Application.Storage.getValue(SLEUTEL);
+        if (!(v instanceof Number)) {
+            return true;
+        }
+        return vandaag - (v as Number) >= DAGEN || vandaag < (v as Number);
+    }
 
     function moetTonen() as Boolean {
-        var v = Application.Storage.getValue(SLEUTEL);
-        return !((v instanceof Boolean) && (v as Boolean));
+        return moetTonenOp(EbbView.vandaag());
+    }
+
+    function bevestigOp(vandaag as Number) as Void {
+        Application.Storage.setValue(SLEUTEL, vandaag);
     }
 
     function bevestig() as Void {
-        Application.Storage.setValue(SLEUTEL, true);
+        bevestigOp(EbbView.vandaag());
     }
 
     function opnieuwTonen() as Void {
