@@ -29,6 +29,9 @@ jobs:
           for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
       - name: Tests in de simulator (fenix7)
         run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fenix7
+      # Keuring G4: dezelfde toetsen (met de zwaarste sea log-pagina) ook op de FR255, het zwakste horloge.
+      - name: Tests in de simulator (fr255)
+        run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fr255
       - name: Schermafbeeldingen per horloge
         run: |
           mkdir -p "$GITHUB_WORKSPACE/$APP/schermen"

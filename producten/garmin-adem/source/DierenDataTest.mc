@@ -1,4 +1,6 @@
+import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.Test;
 
 // Mila's 24 dieren als data (bron/maak_dieren_data.py): elk dier leest precies tot het eind van zijn bytes,
@@ -32,4 +34,28 @@ function testDierenData(logger as Test.Logger) as Boolean {
     var t = EbbDierData.telling(23);
     logger.debug("walvis " + t);
     return t[0] == 5 && t[2] == 1;
+}
+
+// Keuring G4: de zwaarste sea log-pagina (9 dieren, elk met lichte rand = 5 tekenbeurten per dier, plus 9 silhouetten
+// met rand) in één onUpdate mag de watchdog niet raken. Deze toets draait in de e2e op fenix 7 en FR255.
+(:test)
+function testSeaLogWatchdog(logger as Test.Logger) as Boolean {
+    var bmp = Graphics.createBufferedBitmap({:width => 260, :height => 260}).get() as Graphics.BufferedBitmap;
+    var dc = bmp.getDc();
+    var t0 = System.getTimer();
+    // Rand om elk dier: 4 keer verschoven in de randkleur, dan het dier (ook voor dieren zonder eigen rand: zwaarste geval).
+    for (var i = 0; i < 9; i += 1) {
+        var x = 50 + (i % 3) * 80;
+        var y = 50 + (i / 3) * 80;
+        var dier = 15 + i;   // de zwaarste dieren achteraan de lijst (otter tot walvis)
+        EbbDierData.vlakken(dc, dier, x - 1, y, 22, 0x0055FF);
+        EbbDierData.vlakken(dc, dier, x + 1, y, 22, 0x0055FF);
+        EbbDierData.vlakken(dc, dier, x, y - 1, 22, 0x0055FF);
+        EbbDierData.vlakken(dc, dier, x, y + 1, 22, 0x0055FF);
+        EbbDierData.teken(dc, dier, x, y, 22, -1);
+    }
+    var ms = System.getTimer() - t0;
+    System.println("G4 SEALOG 9 dieren met rand: " + ms + " ms");
+    logger.debug("G4 sea log " + ms + " ms");
+    return true;
 }
