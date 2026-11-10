@@ -11,6 +11,8 @@ module EbbTeken {
     const BEL = 0x55AAFF;
     const KORAAL = 0xFF5555;
     const LICHT = 0xFFFFAA;
+    // Boven dit peil raakt het lichte water het fasewoord bovenaan; dan wordt het woord donkerblauw.
+    const PEIL_DONKER = 0.74;
     const DIEPTE = [0x00AAAA, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
     const GOLF_PUNTEN = 28;
 

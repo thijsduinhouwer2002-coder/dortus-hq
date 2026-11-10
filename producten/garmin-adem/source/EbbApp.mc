@@ -269,9 +269,12 @@ class EbbView extends WatchUi.View {
         var yGroot = 0.38;
         var yKlein = 0.73;
         var font = EbbTeken.grootFont(dc, d);
+        var donker = false;
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, onderin 20% bij uit, 80% bij in.
-            EbbTeken.water(dc, d, 0.2 + 0.6 * sessie.water(nu), EbbTeken.DIEPTE[0], golfFase);
+            var peilA = 0.2 + 0.6 * sessie.water(nu);
+            EbbTeken.water(dc, d, peilA, EbbTeken.DIEPTE[0], golfFase);
+            donker = peilA > EbbTeken.PEIL_DONKER;
             woord = sessie.isIn(nu) ? "in" : "out";
             groot = sessie.ademhaling(nu).toString();
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
@@ -297,6 +300,7 @@ class EbbView extends WatchUi.View {
             // 3. Boven: water schiet in 0,5 s van 93% naar 80%, plons van vijf belletjes.
             var peil = (t < 500) ? 0.93 - 0.13 * t / 500.0 : 0.80;
             EbbTeken.water(dc, d, peil.toFloat(), EbbTeken.DIEPTE[0], golfFase);
+            donker = peil > EbbTeken.PEIL_DONKER;
             EbbTeken.bellen(dc, d, [[0.22, 0.20, 0.022], [0.30, 0.12, 0.014], [0.50, 0.08, 0.018],
                 [0.70, 0.13, 0.012], [0.78, 0.22, 0.020]] as Array<Array<Float> >);
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
@@ -312,7 +316,8 @@ class EbbView extends WatchUi.View {
             }
         }
         if (woord.length() > 0) {
-            dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+            // Staat het lichte water tot boven, dan leest het zachte woord niet meer: dan donkerblauw.
+            dc.setColor(donker ? EbbTeken.DIEPTE[3] : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, (d * 0.13).toNumber(), Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
