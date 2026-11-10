@@ -14,3 +14,7 @@ Klank: zacht en rond (sinus en driehoek), kort, piek -9 dB, geen tik aan begin o
 | `lied.wav` | de bard ontsnapt en zingt (vijf getokkelde noten) | 0,89 s |
 
 Regels voor het afspelen (voorstel Mila): bij veel munten tegelijk hooguit één `munt` per 0,12 s, anders wordt het geratel. Volume in Godot op -6 dB onder de rest van de computer (AudioServer bus "Hol"). Golfvormen: `ontwerp/steam/mila/geluid-golven.png`.
+
+## Muziek: `muziek_hol.ogg` ("Gloop's Lullaby", Mila 10 nov)
+Getokkelde luit (een geplukte snaar nagebootst in code, zuiver gestemd, nagemeten op 0 cent), zachte bas en een eenvoudige melodie. A klein, 72 slagen per minuut, 24 maten, precies 80 s, loopt naadloos rond (de naklank van het eind zit al in het begin, ook de kamer en het filter lopen rond). Piek -14 dB, dus zachter dan de geluidjes. Opbouw: 4 maten alleen luit, dan melodie A, melodie A met variatie, een lichter deel in C, A terug, en 4 maten alleen luit, zodat de naad stil en zacht is.
+In Godot: importeer met Loop aan (Import, Loop: On), speel af op een eigen bus, standaard uit, aan in het rechtsklikmenu ("Music"), los van de geluidjes. Bron `ontwerp/steam/mila/bron/muziek.py`, golf en naad `ontwerp/steam/mila/muziek-golf.png`.
