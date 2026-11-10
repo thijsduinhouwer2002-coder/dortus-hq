@@ -9,6 +9,12 @@ HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
 HOL kroniek 14.1 (wacht 1.8): Odo has a map. It is wrong.
 HOL gegraven kolom 2
+HOL demo klik op Gloop
+HOL kaartje open 18.5: slijm
+HOL demo klik op Buy
+HOL koop 20.1: slijm niveau 1, goud 12
+HOL kaartje dicht 20.1
+HOL kroniek 20.1 (wacht 0.0): Gloop is now Big Gloop.
 HOL kroniek 23.1 (wacht 0.0): Tibbe brought a torch. And hope.
 HOL begin: doorlopen (Tibbe)
 HOL kroniek 26.1 (wacht 0.0): Bram fled. Grudge: the Spike Pit.
