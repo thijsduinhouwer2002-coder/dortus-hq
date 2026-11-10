@@ -192,3 +192,12 @@
 - Later in de run: nog zeven dieren (clownvis, rog, dolfijn, zeehond, inktvis, kreeft, zeeotter), nu 17 van de 24, nummers gelijk aan de tabel. Otter eerst een bruine vlek (GEZIEN), nu met lichte kop en schelp; blijft de zwakste.
 - Volgende run: de laatste zeven dieren; wat Thijs zegt op v4; otter en zeepaardje beter.
 
+## 10 nov 2026, run 22 (nachtronde hoofdchat 23:01 NL, alleen Ebb)
+- Gelezen: opdracht nachtronde, Gijs 22:40 (24 dieren in de code).
+- **Besluit: Gijs' dierenlijst is de lijst**, met één wissel: nr. 23 "Sea turtle elder" wordt de zeekomkommer ("back after a break"). Waarom: een tweede schildpad is geen nieuw dier; de grap blijft.
+- **Alle 24 dieren getekend** (`ebb-dieren-v4.png`). Zwaardvis eerst cyaan en verdween in het water (GEZIEN), nu violetblauw. Walvis heet "Whale", want hij is rood.
+- **Blad v4.1:** sea log als verzamelboek, 12 per blad met een ring als cursor (afgewezen in run 21 met stippen; met echte dieren op ±30 px leest het wel op 260, GEZIEN); eindscherm met rondes, dier en reeks; eindscherm zonder dier met het volgende dier op trouw; settings met Pace, Hold tick en Last 3 buzz; 8 weeks met sessies per week.
+- Dagstippen op 6c waren onzichtbaar op 260 (rand in dezelfde blauwtint, GEZIEN), nu rand in lichtblauw.
+- Gemeten: kader binnen 2,0 px op 32 beelden, kleinste letter 20 px op 260.
+- Volgende run: wat Thijs zegt op v4.1; otter en zeepaardje beter.
+

@@ -24,10 +24,10 @@
  260  6 today                kader x  +0.0 px   optisch x  +1.4 px   pixels buiten MIP 0
  260  6b einde met dier      kader x  +0.0 px   optisch x  -1.1 px   pixels buiten MIP 0
  260  6c einde zonder dier   kader x  +0.0 px   optisch x  -1.9 px   pixels buiten MIP 0
- 260  7 8 weeks              kader x  +0.5 px   optisch x  +0.2 px   pixels buiten MIP 0
+ 260  7 8 weeks              kader x  +0.5 px   optisch x  +0.5 px   pixels buiten MIP 0
  260  8 sea log blad 1       kader x  +1.0 px   optisch x  +0.4 px   pixels buiten MIP 0
  260  8b sea log blad 2      kader x  -2.0 px   optisch x  +1.0 px   pixels buiten MIP 0
  260  8c sea log dier        kader x  +0.0 px   optisch x  -2.7 px   pixels buiten MIP 0
  260  9 settings             kader x  +0.5 px   optisch x  -0.9 px   pixels buiten MIP 0
  260  10 veiligheid          kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
-kleinste tekst op 260: "!" 20 px, "3 days in a row" 20 px, "1:45" 20 px, "1:20" 20 px, "2 / 2" 20 px, "3" 20 px
+kleinste tekst op 260: "58" 20 px, "Calm 4-7-8" 20 px, "session done" 20 px, "normal" 20 px, "1:20 · 1:45 · 2:08" 20 px, "or while driving." 20 px

@@ -136,7 +136,7 @@ def s_weken(D):
     for i, (_, dagen) in enumerate(WEKEN):   # dagen per week als cijfer onder de kolom
         tekst(d, D, (L + (i+0.5)*kol, bod + D*0.055), str(dagen), D*0.062, WIT if i == 7 else GRIJS)
     tekst(d, D, (D/2, D*0.735), 'avg 1:44', D*0.085, WIT)
-    tekst(d, D, (D/2, D*0.825), '5 days this week', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.825), '5 sessions this week', D*0.068, GRIJS)
     rand(im, D); return im
 
 # ---------------- 8 sea log: verzamelen over weken (24 dieren) ----------------
