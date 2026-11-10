@@ -104,15 +104,14 @@ jobs:
           done
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           # Winkelmaat: hoogstens 500 px hoog en onder 150 KB (Connect IQ-winkel), minder kleuren zonder zichtbaar verlies.
-          for f in plaatjes/*-scene*.png; do convert "$f" -resize x500 -colors 128 "plaatjes/winkel-$(basename "$f")"; done
-          ls -la plaatjes/winkel-*
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
           ls -la "$APP/plaatjes"
-      - name: Poster (eerste winkelplaatje)
+      - name: Poster en winkelmaat (zonder simulatorbalken, onder 150 KB)
         run: |
           python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
           python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"
+          for f in "$APP"/plaatjes/*-scene*.png; do python3 "$APP/bron/maak_winkel.py" "$f" "$APP/plaatjes/winkel-$(basename "$f")"; done
       - uses: actions/upload-artifact@v4
         with:
           name: ebb-plaatjes
