@@ -30,3 +30,14 @@ function testTerugBuitenInhoudenIsPauze(logger as Test.Logger) as Boolean {
     return tijdensAdemen == :pauze && tijdensInhouden == :stop && tijdensHerstel == :pauze
         && !d.stopOp(121000);
 }
+
+// Eis 10 (deel in de unittest): zonder lopende opname geeft stoppen gewoon de inhoudtijd door, opslaan zonder opname geeft false.
+(:test)
+function testOpnameZonderSessieVeilig(logger as Test.Logger) as Boolean {
+    var o = new EbbOpname();
+    o.inhouden(42);
+    o.rondeKlaar();
+    var ok = o.opslaan();
+    o.weggooien();
+    return !ok && !o.loopt() && o.laps == 0;
+}

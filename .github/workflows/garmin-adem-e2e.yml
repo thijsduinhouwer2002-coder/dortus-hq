@@ -43,7 +43,12 @@ jobs:
           simulator > /tmp/sim.log 2>&1 &
           sleep 8
           for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
-            echo "== bouw $d"; monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 -w || exit 1
+            echo "== bouw $d"; monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 -w > "/tmp/bouw-$d.log" 2>&1; R=$?
+            cat "/tmp/bouw-$d.log"; [ $R -eq 0 ] || exit 1
+            echo "WAARSCHUWINGEN $d: $(grep -ci warning "/tmp/bouw-$d.log")"
+          done
+          for d in fenix7 vivoactive5 fenix847mm; do
+            echo "== testbouw eis 10 $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
           done
           for d in fenix7 vivoactive5 fr265 fenix847mm; do
             touch /tmp/merk-$d
@@ -56,9 +61,18 @@ jobs:
             kill "$MD" 2>/dev/null || true
             sleep 2
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
-            echo "== FIT-bestanden na $d (nieuwer dan de start)"
+          done
+          # Eis 10: testbouw neemt een sessie op (inhoud 3 s en 5 s), slaat op, en gooit een tweede opname weg.
+          for d in fenix7 vivoactive5 fenix847mm; do
+            touch /tmp/demo-$d
+            monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
+            MD=$!
+            sleep 28
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+            echo "== uitvoer testbouw $d"; cat "/tmp/demo-$d.log"
             mkdir -p "schermen/fit/$d"
-            find / -xdev -iname '*.fit' -newer /tmp/merk-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+            find / -xdev -iname '*.fit' -newer /tmp/demo-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
               ls -la "$f"; cp "$f" "schermen/fit/$d/$(basename "$f")"
             done
           done
@@ -84,6 +98,33 @@ jobs:
                           velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
                           dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
                           print(fr.name, velden, "dev:", dev)
+          # Eis 10 nakijken: per horloge precies één bestand (het weggegooide geeft er geen), training 10, subsport 62, 2 laps, inhoud 3 en 5, beste 5.
+          import os
+          fout = []
+          mappen = sorted(glob.glob(sys.argv[1] + "/*/"))
+          if len(mappen) != 3:
+              fout.append("verwacht 3 horloges, gevonden %d" % len(mappen))
+          for m in mappen:
+              fits = sorted(glob.glob(m + "*.fit"))
+              naam = os.path.basename(m.rstrip("/"))
+              if len(fits) != 1:
+                  fout.append("%s: %d FIT-bestanden in plaats van 1" % (naam, len(fits))); continue
+              sessie, inhoud, beste = {}, [], None
+              with fitdecode.FitReader(fits[0]) as fit:
+                  for fr in fit:
+                      if not isinstance(fr, fitdecode.FitDataMessage): continue
+                      dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
+                      if fr.name == "session":
+                          sessie = {f.name: f.raw_value for f in fr.fields if f.name in ("sport", "sub_sport", "num_laps")}
+                          beste = dev.get("beste")
+                      if fr.name == "lap":
+                          inhoud.append(dev.get("inhoud"))
+              uitslag = (sessie.get("sport"), sessie.get("sub_sport"), sessie.get("num_laps"), inhoud, beste)
+              print("EIS10", naam, "sport, subsport, laps, inhoud, beste:", uitslag)
+              if uitslag != (10, 62, 2, [3, 5], 5):
+                  fout.append("%s: %s" % (naam, uitslag))
+          print("EIS10 UITSLAG:", "goed" if not fout else fout)
+          sys.exit(1 if fout else 0)
           PY
           python3 /tmp/leesfit.py "$APP/schermen/fit"
       - uses: actions/upload-artifact@v4

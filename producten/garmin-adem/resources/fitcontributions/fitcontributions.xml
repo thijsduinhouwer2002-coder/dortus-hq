@@ -1,0 +1,4 @@
+<fitContributions>
+    <fitField id="0" displayInChart="false" displayInActivityLaps="true" sortOrder="0" precision="0" dataLabel="@Strings.VeldInhoud" unitLabel="@Strings.EenheidS" />
+    <fitField id="1" displayInChart="false" displayInActivitySummary="true" sortOrder="1" precision="0" dataLabel="@Strings.VeldBeste" unitLabel="@Strings.EenheidS" />
+</fitContributions>

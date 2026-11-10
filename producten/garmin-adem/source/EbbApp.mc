@@ -2,6 +2,7 @@ import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Time;
 import Toybox.Timer;
 import Toybox.WatchUi;
 
@@ -14,6 +15,10 @@ class EbbApp extends Application.AppBase {
 
     function getInitialView() as [WatchUi.Views] or [WatchUi.Views, WatchUi.InputDelegates] {
         var view = new EbbView();
+        if (EbbBouw.DEMO) {
+            // Testbouw eis 10: 2 ademhalingen van 250 ms, 2 rondes, herstel 500 ms.
+            view.sessie = new Ebb.Rondes(2, 250, 2, 500, System.getTimer());
+        }
         return [view, new EbbDelegate(view)];
     }
 }
@@ -27,8 +32,57 @@ class EbbView extends WatchUi.View {
         sessie = new Ebb.Rondes(30, 1600, 3, 15000, System.getTimer());
     }
 
+    var opname as EbbOpname = new EbbOpname();
+    private var _gestart as Boolean = false;
+    private var _lapsGesloten as Number = 0;
+
     function onShow() as Void {
+        if (!_gestart) {
+            _gestart = true;
+            opname.start();
+        }
         _timer.start(method(:tik), 100, true);
+    }
+
+    // Stop het inhouden op tijdstip nu (uit de knophandler of de testbouw) en zet de tijd op de lap.
+    function stopInhouden(nu as Number) as Boolean {
+        var tijd = sessie.stopInhouden(nu);
+        if (tijd < 0) {
+            return false;
+        }
+        opname.inhouden((tijd + 500) / 1000);
+        return true;
+    }
+
+    // Dagnummer van de lokale datum (dagen sinds 1970).
+    static function vandaag() as Number {
+        return (Time.today().value() + System.getClockTime().timeZoneOffset) / 86400;
+    }
+
+    // Opslaan: activiteit bewaren en de inhoudtijden in de 56 dagen zetten.
+    function opslaan() as Boolean {
+        var ok = opname.opslaan();
+        System.println("OPNAME opgeslagen " + ok + " laps " + (opname.laps + 1) + " beste " + opname.besteS);
+        var opslag = new EbbOpslag();
+        var dag = vandaag();
+        for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
+            opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
+        }
+        opslag.bewaar();
+        if (EbbBouw.DEMO) {
+            // Eis 10, tweede helft: een opname die wordt weggegooid mag geen FIT-bestand geven.
+            var tweede = new EbbOpname();
+            tweede.start();
+            tweede.inhouden(9);
+            tweede.weggooien();
+            System.println("OPNAME tweede weggegooid");
+        }
+        return ok;
+    }
+
+    function weggooien() as Void {
+        opname.weggooien();
+        System.println("OPNAME weggegooid");
     }
 
     function onHide() as Void {
@@ -40,7 +94,21 @@ class EbbView extends WatchUi.View {
 
     function tik() as Void {
         var nu = System.getTimer();
+        if (EbbBouw.DEMO && sessie.fase == Ebb.FASE_INHOUDEN) {
+            var doel = EbbBouw.INHOUD_MS[sessie.ronde % EbbBouw.INHOUD_MS.size()];
+            if (sessie.verstreken(nu) >= doel) {
+                stopInhouden(sessie.segmentStart + doel);
+            }
+        }
         sessie.bijwerken(nu);
+        // Elke afgeronde ronde die niet de laatste is sluit een lap (onUpdate kan de ronde al verder gezet hebben).
+        while (_lapsGesloten < sessie.ronde && _lapsGesloten < sessie.rondes - 1) {
+            opname.rondeKlaar();
+            _lapsGesloten += 1;
+        }
+        if (sessie.fase == Ebb.FASE_KLAAR && opname.loopt()) {
+            opslaan();
+        }
         trilBijWissel(nu);
         WatchUi.requestUpdate();
     }
@@ -123,8 +191,7 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
 
     // Los van de klok, zodat de toets een nagebootste tijd kan geven.
     function stopOp(nu as Number) as Boolean {
-        if (_view.sessie.fase == Ebb.FASE_INHOUDEN) {
-            _view.sessie.stopInhouden(nu);
+        if (_view.stopInhouden(nu)) {
             WatchUi.requestUpdate();
             return true;
         }
@@ -144,7 +211,7 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         menu.addItem(new WatchUi.MenuItem("Resume", null, :doorgaan, null));
         menu.addItem(new WatchUi.MenuItem("Save", null, :opslaan, null));
         menu.addItem(new WatchUi.MenuItem("Discard", null, :weggooien, null));
-        WatchUi.pushView(menu, new PauzeDelegate(), WatchUi.SLIDE_UP);
+        WatchUi.pushView(menu, new PauzeDelegate(_view), WatchUi.SLIDE_UP);
         return true;
     }
 
@@ -165,16 +232,23 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
     }
 }
 
-// Pauzemenu. Opslaan en weggooien sluiten nu nog alleen de app; opname volgt bij eis 10.
+// Pauzemenu: doorgaan, opslaan (activiteit en 56 dagen) of weggooien (geen FIT-bestand).
 class PauzeDelegate extends WatchUi.Menu2InputDelegate {
-    function initialize() {
+    private var _view as EbbView;
+
+    function initialize(view as EbbView) {
         Menu2InputDelegate.initialize();
+        _view = view;
     }
 
     function onSelect(item as WatchUi.MenuItem) as Void {
         var id = item.getId();
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-        if (id == :opslaan || id == :weggooien) {
+        if (id == :opslaan) {
+            _view.opslaan();
+            System.exit();
+        } else if (id == :weggooien) {
+            _view.weggooien();
             System.exit();
         }
     }

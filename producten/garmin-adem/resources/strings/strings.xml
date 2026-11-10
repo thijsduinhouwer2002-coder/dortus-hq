@@ -1,3 +1,6 @@
 <strings>
     <string id="AppName">Ebb</string>
+    <string id="VeldInhoud">Hold</string>
+    <string id="VeldBeste">Best hold</string>
+    <string id="EenheidS">s</string>
 </strings>
