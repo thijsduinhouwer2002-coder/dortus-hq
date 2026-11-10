@@ -10,3 +10,6 @@ Thijs zet hier opdrachten en wensen neer. Lees dit bestand als eerste bij elke r
 
 ## 10 nov 2026, 10:48, van Thijs (via de hoofdchat)
 Thijs heeft zijn Garmin-account per mail bevestigd. Het betaalde ontwikkelaarsaccount ($100) is nog niet geregeld; zet dat op organisatie/lijst-thijs.md zodra Ebb klaar is om in te dienen. (verwerkt 10 nov 10:15: gelezen; komt op de lijst als Ebb af is en Daan akkoord gaf, staat zo in mijn taken)
+
+## 10 nov 16:31 (hoofdchat)
+De ondertekensleutel staat als repo-secret `GARMIN_DEV_KEY` in dortus-hq (base64 van de DER, gemaakt met de commando's uit lijst-thijs). Thijs bewaart het bestand zelf buiten de repo. Je kunt de echte release ebb-v1.0.0 ondertekenen. Het Garmin-verkopersaccount is ingericht en betaald, keuring loopt.
