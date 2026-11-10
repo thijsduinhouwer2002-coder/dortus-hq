@@ -5,11 +5,12 @@ import Toybox.Lang;
 import Toybox.Sensor;
 
 // Eis 10: elke sessie wordt een activiteit (training, subsport ademhaling 62), één lap per ronde,
-// eigen veld "inhoud" (s) op de lap en "beste" (s) op de sessie. Label en eenheid in resources/fitcontributions.
+// eigen veld "inhoud" (s) op de lap en "tijden" (tekst) op de sessie. Label en eenheid in resources/fitcontributions.
 class EbbOpname {
     private var _sessie as ActivityRecording.Session or Null = null;
     private var _inhoud as FitContributor.Field or Null = null;
-    private var _beste as FitContributor.Field or Null = null;
+    private var _tijden as FitContributor.Field or Null = null;   // blad v5.4: "Hold times 1:20 · 1:45 · 3:04", geen "Longest hold"
+    private var _tekst as String = "";
     private var _adem as FitContributor.Field or Null = null;     // blad v5 P2: "Breaths" per lap
     private var _rondes as FitContributor.Field or Null = null;   // blad v5 P2: "Rounds" in de samenvatting
     var besteS as Number = 0;
@@ -26,6 +27,13 @@ class EbbOpname {
             return info.currentHeartRate as Number;
         }
         return 0;
+    }
+
+    // "1:20 · 1:45" plus een nieuwe tijd; past het niet meer in 47 tekens, dan blijft de tekst zoals hij was.
+    static function tijdenTekst(oud as String, s as Number) as String {
+        var t = (s / 60).toString() + ":" + (s % 60).format("%02d");
+        var nieuw = oud.length() == 0 ? t : oud + " · " + t;
+        return nieuw.toUtf8Array().size() <= 47 ? nieuw : oud;
     }
 
     function loopt() as Boolean {
@@ -47,13 +55,14 @@ class EbbOpname {
             :name => "Ebb"
         });
         _inhoud = s.createField("inhoud", 0, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_LAP, :units => "s"});
-        _beste = s.createField("beste", 1, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_SESSION, :units => "s"});
+        _tijden = s.createField("tijden", 4, FitContributor.DATA_TYPE_STRING, {:mesgType => FitContributor.MESG_TYPE_SESSION, :count => 48});
         _adem = s.createField("adem", 2, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_LAP});
         _rondes = s.createField("rondes", 3, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_SESSION});
         s.start();
         _sessie = s;
         besteS = 0;
         laps = 0;
+        _tekst = "";
     }
 
     // Na het inhouden: inhoudtijd en ademhalingen op de lap van deze ronde, de langste en het aantal rondes op de sessie.
@@ -67,8 +76,9 @@ class EbbOpname {
         (_rondes as FitContributor.Field).setData(laps + 1);
         if (s > besteS) {
             besteS = s;
-            (_beste as FitContributor.Field).setData(s);
         }
+        _tekst = EbbOpname.tijdenTekst(_tekst, s);
+        (_tijden as FitContributor.Field).setData(_tekst);
     }
 
     // Einde van een ronde die niet de laatste is: lap sluiten. De laatste lap sluit bij opslaan.

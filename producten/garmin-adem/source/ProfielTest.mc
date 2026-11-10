@@ -108,19 +108,19 @@ function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     var derde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));         // 3 dagen op rij: schildpad
     var vijf = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));          // 5 sessies: krab
     var na = EbbTrouw.aantal() == 5 && EbbTrouw.gezelschap() == 2 && EbbTrouw.wachtend() == 0;
-    // Na 6 dagen zonder geen zeekomkommer (en niets anders klaar); na 7 dagen zonder wel.
-    var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(109));           // dag 103 t/m 108 zonder: 6 dagen
+    // Na 6 dagen zonder geen zeekomkommer; na 7 dagen zonder wel.
+    var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(109));           // dag 103 t/m 108 zonder: 6 dagen, geen zeekomkommer; 6 sessies: zeepaardje
     var zeven = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(117));         // dag 110 t/m 116 zonder: 7 dagen
-    var gehouden = EbbTrouw.aantal() == 6;
-    var alles = EbbTrouw.verdiend(60, 30, 1) == (1 << 24) - 1 && EbbTrouw.verdiend(60, 30, 0) != (1 << 24) - 1
-        && EbbTrouw.verdiend(59, 30, 1) != (1 << 24) - 1;
-    var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("60 sessions")
+    var gehouden = EbbTrouw.aantal() == 7;
+    var alles = EbbTrouw.verdiend(50, 7, 1) == (1 << 24) - 1 && EbbTrouw.verdiend(50, 7, 0) != (1 << 24) - 1
+        && EbbTrouw.verdiend(49, 7, 1) != (1 << 24) - 1 && EbbTrouw.verdiend(50, 6, 1) != (1 << 24) - 1;
+    var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("50 sessions")
         && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(22).equals("back after a break");
     logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde + " zes " + zes + " zeven " + zeven);
     EbbTrouw.wis();
     return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 1 && tweede[0] == 1 && wacht
         && zelfde.size() == 1 && zelfde[0] == 2 && derde.size() == 1 && derde[0] == 3 && vijf.size() == 1 && vijf[0] == 4 && na
-        && zes.size() == 0 && zeven.size() == 1 && zeven[0] == 22 && gehouden && alles && tekst;
+        && zes.size() == 1 && zes[0] == 5 && zeven.size() == 1 && zeven[0] == 22 && gehouden && alles && tekst;
 }
 
 // Eis 2: na bevestigen nooit meer, behalve na "opnieuw tonen".

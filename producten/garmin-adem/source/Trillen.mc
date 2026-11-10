@@ -35,8 +35,9 @@ module EbbTrillen {
     }
 
     // Geeft true als er getrild is (voor de toets); doet niets als trillen uit staat of het horloge niet kan trillen.
+    // Uitzondering: het signaal op 3:00 inhouden (en elke 30 s daarna) komt altijd (veiligheidskeuring blad v5.4).
     function tril(m as Moment) as Boolean {
-        if (!aan || !(Attention has :vibrate)) {
+        if ((!aan && m != M_DRIE_MIN) || !(Attention has :vibrate)) {
             return false;
         }
         var p = patroon(m);

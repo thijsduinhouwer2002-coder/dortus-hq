@@ -19,9 +19,10 @@ module Ebb {
     }
 
     // Signaal tijdens het inhouden tussen twee tikken (inhoudtijd vorig en nu, ms):
-    // 2 bij het passeren van 3 minuten (zacht signaal, altijd), 1 bij elke 30 s als elke30 aan staat, anders 0.
+    // 2 bij het passeren van 3 minuten en daarna elke 30 s zolang je inhoudt (altijd, ook met "Buzz every 30 s" uit;
+    // veiligheidskeuring blad v5.4), 1 bij elke 30 s daarvoor als elke30 aan staat, anders 0.
     function inhoudSignaal(vorigMs as Number, nuMs as Number, elke30 as Boolean) as Number {
-        if (vorigMs < 180000 && nuMs >= 180000) {
+        if (nuMs >= 180000 && (vorigMs < 180000 || nuMs / 30000 > vorigMs / 30000)) {
             return 2;
         }
         if (elke30 && nuMs >= 30000 && nuMs / 30000 > vorigMs / 30000) {

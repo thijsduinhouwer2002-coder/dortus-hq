@@ -101,7 +101,8 @@ class EbbApp extends Application.AppBase {
         if (!EbbBouw.DEMO) {
             EbbTrillen.aan = EbbInstellingen.trillen();
             if (EbbVeilig.moetTonen()) {
-                return [new VeiligView(), new VeiligDelegate()];
+                var vv = new VeiligView();
+                return [vv, new VeiligDelegate(vv)];
             }
             return [EbbStart.menu(), new StartDelegate()];
         }
@@ -109,10 +110,31 @@ class EbbApp extends Application.AppBase {
     }
 }
 
-// Eis 2: veiligheidsscherm bij de eerste start; na bevestigen nooit meer (tenzij "opnieuw tonen").
+// Eis 2 en blad v5 (S1): drie veiligheidsbladen bij de eerste start en elke 30 dagen. Tekst letterlijk gelijk aan
+// het blad (`ontwerp/garmin/ebb-blad-v5.md`). Niet over te slaan: alleen START of een tik gaat naar het volgende blad;
+// vegen en de bladertoetsen doen niets, terug gaat een blad terug (op het eerste blad: de app sluit, zonder bevestigen).
+module EbbVeiligTekst {
+    const BLADEN = [
+        ["Sit or lie down.", "Never standing,", "never in or near water,", "never while driving."],
+        ["You can faint", "without warning.", "Never force a hold.", "Stop if dizzy."],
+        ["Not if pregnant,", "under 18, epilepsy,", "heart or blood", "pressure problems."]
+    ] as Array<Array<String> >;
+    const GEEL = "Not a medical device.";
+
+    function knop(blad as Number) as String {
+        return blad < BLADEN.size() - 1 ? "Next" : "OK";
+    }
+}
+
 class VeiligView extends WatchUi.View {
+    var blad as Number = 0;
+
     function initialize() {
         View.initialize();
+    }
+
+    function onShow() as Void {
+        System.println("VEILIG blad " + (blad + 1));
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -120,27 +142,126 @@ class VeiligView extends WatchUi.View {
         var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        var regels = ["Sit or lie down.", "Never in or near water,", "never while driving.", "Dizzy? Stop."];
+        var regels = EbbVeiligTekst.BLADEN[blad];
+        var geel = (blad == EbbVeiligTekst.BLADEN.size() - 1);
         var f = Graphics.FONT_XTINY;
         var lh = dc.getFontHeight(f);
-        var y = h / 2 - (regels.size() * lh) / 2 - lh / 2;
+        var n = regels.size() + (geel ? 1 : 0);
+        // Blok van regels plus knop (anderhalve regel lager) precies in het midden.
+        var y = h / 2 - ((n + 1) * lh + lh / 2) / 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         for (var i = 0; i < regels.size(); i += 1) {
             dc.drawText(w / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
         }
+        if (geel) {
+            dc.setColor(0xFFFF55, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, y + regels.size() * lh, f, EbbVeiligTekst.GEEL, Graphics.TEXT_JUSTIFY_CENTER);
+        }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, y + regels.size() * lh + lh / 2, f, "Press start: OK", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(w / 2, y + n * lh + lh / 2, f, EbbVeiligTekst.knop(blad), Graphics.TEXT_JUSTIFY_CENTER);
+        // Drie stipjes onder de knop: waar je bent.
+        var r = h / 100 > 2 ? h / 100 : 2;
+        var yy = y + (n + 1) * lh + lh / 2 + r * 2;
+        for (var i = 0; i < 3; i += 1) {
+            var x = w / 2 + (i - 1) * r * 4;
+            if (i == blad) {
+                dc.fillCircle(x, yy, r);
+            } else {
+                dc.drawCircle(x, yy, r);
+            }
+        }
     }
 }
 
 class VeiligDelegate extends WatchUi.BehaviorDelegate {
+    private var _view as VeiligView;
+
+    function initialize(view as VeiligView) {
+        BehaviorDelegate.initialize();
+        _view = view;
+    }
+
+    function onSelect() as Boolean {
+        if (_view.blad < EbbVeiligTekst.BLADEN.size() - 1) {
+            _view.blad += 1;
+            System.println("VEILIG blad " + (_view.blad + 1));
+            WatchUi.requestUpdate();
+            return true;
+        }
+        System.println("VEILIG bevestigd");
+        EbbVeilig.bevestig();
+        WatchUi.switchToView(EbbStart.menu(), new StartDelegate(), WatchUi.SLIDE_LEFT);
+        return true;
+    }
+
+    function onTap(evt as WatchUi.ClickEvent) as Boolean {
+        return onSelect();
+    }
+
+    // Niet langs de bladen: vegen en bladeren doen niets.
+    function onNextPage() as Boolean {
+        return true;
+    }
+
+    function onPreviousPage() as Boolean {
+        return true;
+    }
+
+    function onSwipe(evt as WatchUi.SwipeEvent) as Boolean {
+        return true;
+    }
+
+    function onBack() as Boolean {
+        if (_view.blad > 0) {
+            _view.blad -= 1;
+            System.println("VEILIG blad " + (_view.blad + 1));
+            WatchUi.requestUpdate();
+            return true;
+        }
+        return false;
+    }
+}
+
+// Blad v5 (S2): bij elke Rounds-start eerst "Seated or lying?" met START. Terug gaat naar het menu.
+class StartCheckView extends WatchUi.View {
+    function initialize() {
+        View.initialize();
+    }
+
+    function onShow() as Void {
+        System.println("STARTCHECK");
+    }
+
+    function onUpdate(dc as Graphics.Dc) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
+        var f = Graphics.FONT_XTINY;
+        var lh = dc.getFontHeight(f);
+        var fs = Graphics.FONT_SMALL;
+        var ls = dc.getFontHeight(fs);
+        var blok = lh + ls + lh / 2 + lh;
+        var y = h / 2 - blok / 2;
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y, f, EbbStart.rondesKop(), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y + lh, fs, "Seated or lying?", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y + lh + ls + lh / 2, f, "Start", Graphics.TEXT_JUSTIFY_CENTER);
+    }
+}
+
+class StartCheckDelegate extends WatchUi.BehaviorDelegate {
     function initialize() {
         BehaviorDelegate.initialize();
     }
 
     function onSelect() as Boolean {
-        EbbVeilig.bevestig();
-        WatchUi.switchToView(EbbStart.menu(), new StartDelegate(), WatchUi.SLIDE_LEFT);
+        System.println("STARTCHECK start");
+        var view = new EbbView();
+        (Application.getApp() as EbbApp).zetView(view);
+        WatchUi.switchToView(view, new EbbDelegate(view), WatchUi.SLIDE_LEFT);
         return true;
     }
 

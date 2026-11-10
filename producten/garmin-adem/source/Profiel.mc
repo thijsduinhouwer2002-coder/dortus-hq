@@ -283,17 +283,17 @@ module EbbTrouw {
     // De 24 dieren voor trouw (besluit 22:53, lijst van blad v4.1 van Mila). Per dier [naam, soort, drempel]:
     // soort 0 is aantal opgeslagen sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt
     // niets af), soort 2 is "back after a break": je eerste sessie na 7 of meer dagen zonder (de zeekomkommer).
-    // Na een paar maanden met ±4 sessies per week heb je de rest (de walvis bij 60 sessies, ±15 weken).
+    // Schema van blad v5.4 (eerlijk voor wie ±4 keer per week ademt; de walvis bij 50 sessies, ±3 maanden).
     const SOORT_SESSIES = 0;
     const SOORT_REEKS = 1;
     const SOORT_PAUZE = 2;
     const DIEREN = [
         ["Fish", 0, 1], ["Shrimp", 0, 2], ["Jellyfish", 1, 2], ["Turtle", 1, 3],
-        ["Crab", 0, 5], ["Seahorse", 0, 8], ["Starfish", 1, 4], ["Clownfish", 0, 10],
-        ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 1, 6], ["Ray", 0, 15],
-        ["Seal", 1, 7], ["Dolphin", 0, 18], ["Swordfish", 1, 10], ["Sea otter", 0, 21],
-        ["Manta", 1, 14], ["Shark", 0, 25], ["Sunfish", 0, 30], ["Orca", 1, 21],
-        ["Narwhal", 0, 40], ["Giant squid", 1, 30], ["Sea cucumber", 2, 7], ["Whale", 0, 60]
+        ["Crab", 0, 4], ["Seahorse", 0, 6], ["Starfish", 1, 4], ["Clownfish", 0, 10],
+        ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 0, 14], ["Ray", 0, 16],
+        ["Seal", 1, 6], ["Dolphin", 0, 18], ["Swordfish", 0, 20], ["Sea otter", 0, 22],
+        ["Manta", 1, 7], ["Shark", 0, 25], ["Sunfish", 0, 28], ["Orca", 0, 32],
+        ["Narwhal", 0, 36], ["Giant squid", 0, 42], ["Sea cucumber", 2, 7], ["Whale", 0, 50]
     ] as Array<Array>;
     const ZEEKOMKOMMER = 22;
     const LAATST = "trLaatst";   // nummer van het laatst gevonden dier
@@ -316,20 +316,16 @@ module EbbTrouw {
     }
 
     // Na een sessie: hoogstens één nieuw dier (blad v4.1: "hoogstens één nieuw dier per sessie, de rest wacht").
-    // De zeekomkommer gaat voor, zodat hij komt op de dag dat je terug bent; verder het laagste nummer eerst.
-    // Wat wacht komt bij een volgende sessie, want de tellers zakken nooit. Geeft [] of [nummer].
+    // Bij meer kandidaten het laagste nummer eerst (blad v5.4). Wat wacht komt bij een volgende sessie,
+    // want de tellers zakken nooit. Geeft [] of [nummer].
     function nieuweDieren(tellers as Array<Number>) as Array<Number> {
         var oud = getal(BITS);
         var klaar = verdiend(tellers[0], tellers[2], tellers.size() > 3 ? tellers[3] : 0) & ~oud;
         var nieuw = [] as Array<Number>;
-        if ((klaar & (1 << ZEEKOMKOMMER)) != 0) {
-            nieuw.add(ZEEKOMKOMMER);
-        } else {
-            for (var i = 0; i < DIEREN.size(); i += 1) {
-                if ((klaar & (1 << i)) != 0) {
-                    nieuw.add(i);
-                    break;
-                }
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            if ((klaar & (1 << i)) != 0) {
+                nieuw.add(i);
+                break;
             }
         }
         if (nieuw.size() > 0) {

@@ -183,14 +183,15 @@ function testRustigPauze(logger as Test.Logger) as Boolean {
         && new Ebb.Rustig([4000, 4000, 4000, 4000] as Array<Number>, 0).overS(4000) == 4;
 }
 
-// Productkeuring 10 nov: zacht signaal na 3 minuten (altijd) en elke 30 s een tik (alleen als die aan staat).
+// Productkeuring 10 nov en blad v5.4: signaal op 3:00 en daarna elke 30 s (altijd), daarvoor elke 30 s een tik (als die aan staat).
 (:test)
 function testInhoudSignaal(logger as Test.Logger) as Boolean {
     var dertig = Ebb.inhoudSignaal(29900, 30000, true) == 1 && Ebb.inhoudSignaal(59950, 60050, true) == 1;
     var tussen = Ebb.inhoudSignaal(30000, 30100, true) == 0 && Ebb.inhoudSignaal(0, 100, true) == 0;
     var uit = Ebb.inhoudSignaal(29900, 30000, false) == 0;
     var drie = Ebb.inhoudSignaal(179950, 180050, true) == 2 && Ebb.inhoudSignaal(179950, 180050, false) == 2;
-    var naDrie = Ebb.inhoudSignaal(180050, 180150, false) == 0 && Ebb.inhoudSignaal(209950, 210050, true) == 1;
+    var naDrie = Ebb.inhoudSignaal(180050, 180150, false) == 0 && Ebb.inhoudSignaal(209950, 210050, true) == 2
+        && Ebb.inhoudSignaal(209950, 210050, false) == 2 && Ebb.inhoudSignaal(239950, 240050, false) == 2;
     // Een tik telt maar één keer, ook als de klok een paar honderd ms verspringt.
     var tellen = 0;
     var vorig = 0;

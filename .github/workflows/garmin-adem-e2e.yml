@@ -63,14 +63,26 @@ jobs:
             if command -v xdotool >/dev/null; then
               W=$(xdotool search --onlyvisible --name "Simulator" 2>/dev/null | head -1)
               [ -n "$W" ] && xdotool windowactivate "$W" 2>/dev/null
+              # Blad v5 S1: drie veiligheidsbladen, niet over te slaan. Eerst de bladertoetsen: die mogen niets doen.
+              xdotool key Down; sleep 1; xdotool key Up; sleep 1
+              if grep -q "VEILIG blad 2" "/tmp/do-$d.log"; then echo "S1 FOUT $d: bladeren sloeg een veiligheidsblad over"; touch schermen/s1-fout; fi
+              xdotool key Return; sleep 2
+              import -window root "schermen/$d-a2.png"
+              xdotool key Return; sleep 2
+              import -window root "schermen/$d-a3.png"
               xdotool key Return; sleep 3
               import -window root "schermen/$d-m.png"
+              # Blad v5 S2: Rounds begint met "Seated or lying?"; terug naar het menu.
+              xdotool key Return; sleep 2
+              import -window root "schermen/$d-s.png"
+              xdotool key Escape; sleep 2
               xdotool key Down; sleep 1; xdotool key Return; sleep 7
               import -window root "schermen/$d-r.png"
             fi
             kill "$MD" 2>/dev/null || true
             sleep 2
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
+            grep -q "VEILIG bevestigd" "/tmp/do-$d.log" && grep -q "STARTCHECK" "/tmp/do-$d.log" && echo "S1 S2 $d: drie bladen bevestigd, startcheck gezien" || echo "S1 S2 $d: NIET gezien (toetsen?)"
           done
           # Eis 10: testbouw neemt een sessie op (inhoud 3 s en 5 s), slaat op, en gooit een tweede opname weg.
           # Simulator per horloge opnieuw starten: een echt horloge opent elke app vers. Zonder herstart lekte
@@ -144,7 +156,7 @@ jobs:
               with fitdecode.FitReader(pad) as fit:
                   for fr in fit:
                       if isinstance(fr, fitdecode.FitDataMessage) and fr.name in ("sport", "session", "lap", "field_description", "developer_data_id"):
-                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "beste", "adem", "rondes")
+                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number", "inhoud", "tijden", "adem", "rondes")
                           velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
                           dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
                           print(fr.name, velden, "dev:", dev)
@@ -170,7 +182,7 @@ jobs:
                       velden = {f.name: f.value for f in fr.fields}
                       if fr.name == "session":
                           sessie = {f.name: f.raw_value for f in fr.fields if f.name in ("sport", "sub_sport", "num_laps")}
-                          beste = velden.get("beste")
+                          beste = velden.get("tijden")
                           print("P2", naam, "rondes:", velden.get("rondes"))
                       if fr.name == "lap":
                           inhoud.append(velden.get("inhoud"))
@@ -180,8 +192,8 @@ jobs:
                           if velden.get("heart_rate") is not None: hr.append(velden.get("heart_rate"))
               print("HARTSLAG", naam, "records:", rec, "met hartslag:", len(hr), "voorbeeld:", hr[:5])
               uitslag = (sessie.get("sport"), sessie.get("sub_sport"), sessie.get("num_laps"), inhoud, beste)
-              print("EIS10", naam, "sport, subsport, laps, inhoud, beste:", uitslag)
-              if uitslag != (10, 62, 2, [3, 5], 5):
+              print("EIS10", naam, "sport, subsport, laps, inhoud, tijden:", uitslag)
+              if uitslag != (10, 62, 2, [3, 5], "0:03 · 0:05"):
                   fout.append("%s: %s" % (naam, uitslag))
           for f in sorted(glob.glob(sys.argv[1] + "/fit-proef/**/*.fit", recursive=True)):
               laps = []
@@ -192,6 +204,8 @@ jobs:
               print("EIS10-PROEF zonder herstart, inhoud per lap:", laps)
           if os.path.exists(sys.argv[1] + "/metingen.txt"):
               print(open(sys.argv[1] + "/metingen.txt").read())
+          if os.path.exists(sys.argv[1] + "/s1-fout"):
+              fout.append("veiligheidsblad over te slaan met bladertoetsen")
           if os.path.exists(sys.argv[1] + "/eis11-12-fout"):
               fout.append("eis 11 of 12 niet gehaald, zie metingen in de stap ervoor")
           print("EIS10 UITSLAG:", "goed" if not fout else fout)

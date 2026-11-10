@@ -1,7 +1,8 @@
 <strings>
     <string id="AppName">Ebb</string>
     <string id="VeldInhoud">Hold time</string>
-    <string id="VeldBeste">Longest hold</string>
+    <string id="VeldTijden">Hold times</string>
+    <string id="EenheidLeeg"> </string>
     <string id="EenheidS">s</string>
     <string id="VeldAdem">Breaths</string>
     <string id="EenheidAdem">breaths</string>

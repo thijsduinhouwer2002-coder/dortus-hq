@@ -57,3 +57,17 @@ function testAanraakUitTijdensSessie(logger as Test.Logger) as Boolean {
     // Tikken tijdens het inhouden stopt niet meer: alleen de knop.
     return ademen && inhouden && klaar && view.sessie.fase == Ebb.FASE_KLAAR;
 }
+
+// Blad v5.4: Connect toont "Hold times 1:20 · 1:45 · 3:04" in plaats van "Longest hold"; de tekst past altijd in het veld.
+(:test)
+function testTijdenTekst(logger as Test.Logger) as Boolean {
+    var t = EbbOpname.tijdenTekst("", 80);
+    t = EbbOpname.tijdenTekst(t, 105);
+    t = EbbOpname.tijdenTekst(t, 184);
+    var lang = "";
+    for (var i = 0; i < 20; i += 1) {
+        lang = EbbOpname.tijdenTekst(lang, 125);
+    }
+    logger.debug("tijden " + t + " lang " + lang);
+    return t.equals("1:20 · 1:45 · 3:04") && lang.toUtf8Array().size() <= 47 && lang.length() > 0;
+}

@@ -41,6 +41,11 @@ module EbbStart {
         return m as WatchUi.Menu2;
     }
 
+    // Kop van het startscherm (blad v5, 1b): "Rounds 3 x 30".
+    function rondesKop() as String {
+        return "Rounds " + EbbInstellingen.waarde(EbbInstellingen.RONDES) + " x " + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN);
+    }
+
     function rondesTekst() as String {
         return EbbInstellingen.waarde(EbbInstellingen.RONDES) + " x " + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " breaths";
     }
@@ -76,9 +81,8 @@ class StartDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as WatchUi.MenuItem) as Void {
         var id = item.getId();
         if (id == :rondes) {
-            var view = new EbbView();
-            (Application.getApp() as EbbApp).zetView(view);
-            WatchUi.pushView(view, new EbbDelegate(view), WatchUi.SLIDE_LEFT);
+            // Blad v5 (S2): eerst "Seated or lying?", pas dan de sessie.
+            WatchUi.pushView(new StartCheckView(), new StartCheckDelegate(), WatchUi.SLIDE_LEFT);
         } else if (id instanceof Number) {
             var n = id as Number;
             var rv = new RustigView(Ebb.patronen()[n], EbbStart.PATROON_NAMEN[n]);
