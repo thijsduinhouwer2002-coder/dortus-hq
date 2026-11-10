@@ -24,7 +24,7 @@ BREATH HOLD ROUNDS
 • A set number of deep breaths at a steady pace, then breathe out and hold for as long as you like.
 • Press any button to end the hold, then take one full breath and hold it to recover.
 • The hold is a dive: the water darkens and bubbles rise. Your live heart rate shows small under the timer.
-• Collect 24 sea animals by showing up: sessions and days in a row, never by holding longer. New friends appear at the end of a session.
+• Collect 24 sea animals by showing up: sessions and day streaks, never by holding longer. New friends appear at the end of a session.
 • The Sea log shows the animals you have and exactly how to get the next one.
 
 BOX BREATHING AND CALM PATTERNS

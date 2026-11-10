@@ -94,7 +94,7 @@ function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     // Na een gat blijft wat je hebt; alles bij 60 sessies en 30 dagen op rij.
     EbbTrouw.naSessie(110);
     var alles = EbbTrouw.verdiend(60, 30) == (1 << 24) - 1 && EbbTrouw.verdiend(59, 30) != (1 << 24) - 1;
-    var tekst = EbbTrouw.hoe(3).equals("3 days in a row") && EbbTrouw.hoe(23).equals("60 sessions") && EbbTrouw.hoe(0).equals("1 session");
+    var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("60 sessions") && EbbTrouw.hoe(0).equals("1 session");
     logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde);
     var gehouden = EbbTrouw.aantal() == 4;
     EbbTrouw.wis();

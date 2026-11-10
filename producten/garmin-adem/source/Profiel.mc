@@ -266,12 +266,13 @@ module EbbTrouw {
         return n;
     }
 
-    // Eerlijke tekst hoe je een dier krijgt, bijvoorbeeld "3 days in a row" of "30 sessions".
+    // Eerlijke tekst hoe je een dier krijgt, bijvoorbeeld "3-day streak" of "30 sessions".
+    // Kort, want "3 days in a row" liep in het Sea log door de ronde rand (plaatjes run 42912712998, fenix847mm).
     function hoe(i as Number) as String {
         var r = DIEREN[i];
         var n = r[2] as Number;
         if ((r[1] as Number) == SOORT_REEKS) {
-            return n + " days in a row";
+            return n + "-day streak";
         }
         return n == 1 ? "1 session" : n + " sessions";
     }

@@ -19,7 +19,7 @@ class DierenView extends WatchUi.View {
         dc.drawText(w / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, EbbTrouw.aantal() + " of " + EbbTrouw.DIEREN.size(), Graphics.TEXT_JUSTIFY_CENTER);
         for (var i = 0; i < 4; i += 1) {
             var y = (d * (0.30 + 0.15 * i)).toNumber();
-            var x = (d * 0.40).toNumber();
+            var x = (d * 0.32).toNumber();
             if (EbbTrouw.heeft(EbbTrouw.GETEKEND[i])) {
                 EbbTeken.dierKlein(dc, d, i, x, y);
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -28,7 +28,7 @@ class DierenView extends WatchUi.View {
                 dc.fillCircle(x, y, (d * 0.02).toNumber());
                 dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
             }
-            dc.drawText((d * 0.56).toNumber(), y, Graphics.FONT_XTINY, EbbTrouw.hoe(EbbTrouw.GETEKEND[i]), Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText((d * 0.44).toNumber(), y, Graphics.FONT_XTINY, EbbTrouw.hoe(EbbTrouw.GETEKEND[i]), Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
         }
     }
 }
