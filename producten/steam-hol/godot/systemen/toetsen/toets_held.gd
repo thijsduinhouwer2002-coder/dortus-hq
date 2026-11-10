@@ -11,6 +11,15 @@ func ok(voorwaarde: bool, wat: String) -> void:
 		fout += 1
 		print("[held-toets] FOUT ", wat)
 
+# twee info-woordenboeken gelijk, los van de volgorde van de sleutels
+func _zelfde(a: Dictionary, b: Dictionary) -> bool:
+	if a.size() != b.size():
+		return false
+	for k in a.keys():
+		if not b.has(k) or a[k] != b[k]:
+			return false
+	return true
+
 func _klaar(_h, u: String, i: Dictionary) -> void:
 	uitkomst = u
 	uit_info = i
@@ -447,7 +456,9 @@ func _init() -> void:
 		var hel_a := Node2D.new()
 		hel_a.set_script(load("res://systemen/held.gd"))
 		ha.add_child(hel_a)
-		hel_a.start(ha, {"naam": "Sla%d" % z, "bezoeken": z % 3, "wrok": "", "zaad": 3000 + z, "kleur": Color(0.2, 0.4, 0.6)})
+		# om de beurt met een wrok tegen de put (loopt eerst naar kolom 5 of 9, boos teken)
+		var wr: String = "the Spike Pit" if z % 2 == 1 else ""
+		hel_a.start(ha, {"naam": "Sla%d" % z, "bezoeken": z % 3, "wrok": wr, "zaad": 3000 + z, "kleur": Color(0.2, 0.4, 0.6)})
 		for stp in 30 + z * 7:
 			if hel_a.staat != "weg":
 				hel_a.stap(1.0 / 15.0)
@@ -459,11 +470,19 @@ func _init() -> void:
 		hb.add_child(hel_b)
 		hel_b.herstel(hb, JSON.parse_string(tekst))
 		var na := 0
+		var zelfde_pad := true
 		while hel_a.staat != "weg" and na < 5000:
 			hel_a.stap(1.0 / 15.0)
 			hel_b.stap(1.0 / 15.0)
 			na += 1
-		if hel_b.staat == "weg" and String(hel_a.info.get("wat", "")) == String(hel_b.info.get("wat", "")) and hel_b.info.get("kleur") is Color:
+			if hel_a.staat != hel_b.staat or hel_a.position.distance_to(hel_b.position) > 0.001:
+				zelfde_pad = false
+		var ia: Dictionary = hel_a.info.duplicate()
+		var ib: Dictionary = hel_b.info.duplicate()
+		for kk in ["kleur", "hoed", "zaad"]:
+			ia.erase(kk)
+			ib.erase(kk)
+		if zelfde_pad and hel_b.staat == "weg" and hel_a.klappen == hel_b.klappen and _zelfde(ia, ib) and String(hel_a.info.get("wat", "")) == String(hel_b.info.get("wat", "")) and hel_b.info.get("kleur") is Color:
 			gelijk += 1
 		ha.free()
 		hb.free()

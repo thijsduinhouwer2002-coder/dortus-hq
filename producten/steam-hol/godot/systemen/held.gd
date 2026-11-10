@@ -100,11 +100,16 @@ func start(h, i: Dictionary) -> void:
 	_kies_doel()
 
 # Bewaren van een held die nog in het hol loopt (Olaf, kan-punt 00:40: bij wisselen van hoogte of afsluiten
-# verdween hij). naar_dict() geeft alleen JSON-veilige waarden (kleuren als tekst, het zaad als tekst want
-# JSON rekent met doubles); herstel(hol, d) zet hem precies terug, ook midden in een val.
+# verdween hij). naar_dict() geeft alleen JSON-veilige waarden (kleuren als tekst, rng.state als tekst want
+# JSON rekent met doubles); herstel(hol, d) zet hem precies terug, ook midden in een val. Roep herstel aan na
+# add_child (anders vindt hij de bewoners niet). Een held die al "weg" is geeft {}: niet bewaren.
+# Alleen de velden hieronder worden weer een Color of een heel getal; een nieuw kleurveld hier bijzetten.
 const KLEUR_VELDEN := ["kleur", "hoed"]
+const HEEL_VELDEN := ["bezoeken", "hoed_nr", "kleur_nr", "hoeden_bewoner", "zaad", "taai"]
 
 func naar_dict() -> Dictionary:
+	if staat == "weg":
+		return {}
 	var i := {}
 	for k in info.keys():
 		var v = info[k]
@@ -118,7 +123,13 @@ func herstel(h, d: Dictionary) -> void:
 	for k in KLEUR_VELDEN:
 		if i.get(k) is String:
 			i[k] = Color(String(i[k]))
+	for k in HEEL_VELDEN:
+		if i.get(k) is float:
+			i[k] = int(i[k])
+	var gezien_v = i.get("gezien_vijand", null)
 	start(h, i)
+	if gezien_v != null:
+		info["gezien_vijand"] = gezien_v   # start() zet hem terug op false via _kies_doel
 	staat = String(d.get("staat", staat))
 	position = Vector2(float(d.get("x", position.x)), float(d.get("y", position.y)))
 	doel_kol = int(d.get("doel_kol", doel_kol))
