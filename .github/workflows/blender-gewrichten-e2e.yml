@@ -79,6 +79,9 @@ jobs:
           python3 -I e2e/toets_zips.py /tmp/click_joints.zip /tmp/click_joints_betaald.zip
           /tmp/blender/blender --command extension validate /tmp/click_joints_betaald.zip
           /tmp/blender/blender -b --factory-startup --python e2e/test_betaald.py -- /tmp/click_joints_betaald.zip /tmp/click_joints.zip
+          mkdir -p "e2e/screenshots/${{ matrix.blender }}"
+          cp /tmp/click_joints_betaald.zip "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-1.0.0.zip"
+          sha256sum /tmp/click_joints_betaald.zip | tee "e2e/screenshots/${{ matrix.blender }}/click_joints_pro-1.0.0.sha256"
       - name: Schermafbeeldingen van het scharnier (betaalde zip, plaatjes 11 en 12)
         # Eis 8 van het scharnier: eigen stap en eigen lege mappen, zodat de gratis schermtest gelijk blijft.
         env:
