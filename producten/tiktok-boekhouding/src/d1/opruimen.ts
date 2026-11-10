@@ -4,6 +4,7 @@
 import { isBudgetOp, type Budget } from "../budget.ts";
 import { DAG, INTREKKEN_MAX_DUUR, WINKEL_TABELLEN, intrekkenKlaar, intrekStatement, ontkoppel, trekMoneybirdIn, type IntrekDeps } from "./ontkoppel.ts";
 import type { D1, D1Statement } from "./opslag.ts";
+import { PolarClient, type OpzegUitkomst, type PolarInstellingen } from "../polar/client.ts";
 
 /** (a) Hoogstens zoveel winkels per aanroep opnieuw intrekken (elk één fetch). */
 export const INTREKKEN_PER_AANROEP = 5;
@@ -15,11 +16,34 @@ export const KALE_RIJ_MAX = 23 * DAG;
 export const VERLOPEN_MAX = 21 * DAG;
 /** (d) Hoogstens zoveel winkels per aanroep ontkoppelen. */
 export const ONTKOPPELEN_PER_AANROEP = 3;
+/** (e) Hoogstens zoveel winkels per aanroep opzeggen bij Polar (elk 1 tot ±3 verzoeken), en per winkel hoogstens één poging per uur. */
+export const OPZEGGEN_PER_AANROEP = 3;
+export const OPZEGGEN_WACHT = 3600;
+
+/**
+ * (e) Wat een opzegpoging in D1 betekent (vorm van `taken` in ontkoppel.ts): gelukt haalt `$.opzeggen` weg en zet
+ * `polar_klant` op NULL; later telt `pogingen` op met `laatste_poging` en `laatste_fout`; uitgesteld schrijft niets.
+ */
+export function opzegStatement(db: D1, winkel: string, u: OpzegUitkomst, nu: number): D1Statement | undefined {
+  if (u.uitkomst === "uitgesteld") return undefined;
+  if (u.uitkomst === "gelukt") {
+    return db.prepare(`UPDATE winkels SET polar_klant = NULL, taken = json_remove(taken, '$.opzeggen') WHERE id = ? AND ontkoppeld_op IS NOT NULL`).bind(winkel);
+  }
+  return db
+    .prepare(
+      `UPDATE winkels SET taken = json_set(taken, '$.opzeggen.pogingen', coalesce(json_extract(taken, '$.opzeggen.pogingen'), 0) + 1,
+         '$.opzeggen.laatste_poging', ?, '$.opzeggen.laatste_fout', ?)
+       WHERE id = ? AND ontkoppeld_op IS NOT NULL AND json_extract(taken, '$.opzeggen') IS NOT NULL`,
+    )
+    .bind(nu, u.fout.slice(0, 200), winkel);
+}
 
 export interface OpruimUitkomst {
   ingetrokken: number;
   alarmen: number;
   ontkoppeld: number;
+  /** (e) Opzeggingen bij Polar die lukten. */
+  opgezegd: number;
   /** true: het budget raakte op; de volgende cron gaat verder. */
   budgetOp: boolean;
 }
@@ -67,16 +91,17 @@ export function verwijderKaleRijen(db: D1, nu: number): D1Statement {
     .bind(nu - KALE_RIJ_MAX);
 }
 
-export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps: IntrekDeps): Promise<OpruimUitkomst> {
+/** `polar`: zonder (geen POLAR_TOKEN) wordt niet opgezegd; dan volgt na dag 23 het dagelijkse ALARM. */
+export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps: IntrekDeps & { polar?: PolarInstellingen }): Promise<OpruimUitkomst> {
   const teller = budget.opslagTeller();
-  const uit: OpruimUitkomst = { ingetrokken: 0, alarmen: 0, ontkoppeld: 0, budgetOp: false };
+  const uit: OpruimUitkomst = { ingetrokken: 0, alarmen: 0, ontkoppeld: 0, opgezegd: 0, budgetOp: false };
   try {
     teller.neem();
   } catch (e) {
     if (!isBudgetOp(e)) throw e;
     return { ...uit, budgetOp: true };
   }
-  const [verlopenIntr, opnieuw, opzeg, verlopen] = await db.batch([
+  const [verlopenIntr, opnieuw, opzeg, verlopen, teOpzeggen] = await db.batch([
     // (a) intrekken langer dan 7 dagen geprobeerd: token toch weg, ALARM
     db.prepare(`SELECT id FROM winkels WHERE ontkoppeld_op IS NOT NULL AND ${INTREKKEN_OPEN} AND ${EERSTE_POGING} <= ? LIMIT 50`).bind(nu - INTREKKEN_MAX_DUUR),
     // (a) opnieuw proberen, langst niet geprobeerd eerst
@@ -103,6 +128,14 @@ export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps:
          ORDER BY winkelfout_sinds LIMIT ?`,
       )
       .bind(nu - VERLOPEN_MAX, ONTKOPPELEN_PER_AANROEP),
+    // (e) opzeggen bij Polar, langst niet geprobeerd eerst, hoogstens één poging per uur per winkel
+    db
+      .prepare(
+        `SELECT id FROM winkels WHERE ontkoppeld_op IS NOT NULL AND ${OPZEGGEN_OPEN}
+         AND coalesce(json_extract(taken, '$.opzeggen.laatste_poging'), 0) <= ?
+         ORDER BY coalesce(json_extract(taken, '$.opzeggen.laatste_poging'), 0), id LIMIT ?`,
+      )
+      .bind(nu - OPZEGGEN_WACHT, OPZEGGEN_PER_AANROEP),
   ]);
   const rijen = <T>(r: { results?: unknown[] }) => (r.results ?? []) as T[];
 
@@ -120,7 +153,21 @@ export async function ruimOntkoppeldOp(db: D1, nu: number, budget: Budget, deps:
     if (u === "alarm") uit.alarmen++;
     schrijf.push(intrekStatement(db, id, u, nu)!);
   }
+  // (e) Eerst opzeggen; wat nu lukt krijgt geen ALARM meer.
+  const gelukt = new Set<string>();
+  if (deps.polar?.token) {
+    const polar = new PolarClient({ instellingen: deps.polar, budget, fetchFn: deps.fetchFn, nu: () => nu });
+    for (const { id } of rijen<{ id: string }>(teOpzeggen)) {
+      const u = await polar.zegOp(id);
+      if (u.uitkomst === "uitgesteld") { uit.budgetOp = true; break; }
+      if (u.uitkomst === "gelukt") { uit.opgezegd++; gelukt.add(id); }
+      // 401 of 403 (geen AlreadyCanceled): meestal een verkeerd POLAR_TOKEN, dus meteen ALARM in plaats van pas na dag 23.
+      else deps.log(`${/: 40[13]\b/.test(u.fout) ? "ALARM " : ""}winkel ${id}: opzeggen bij Polar mislukt, later opnieuw (${u.fout})`);
+      schrijf.push(opzegStatement(db, id, u, nu)!);
+    }
+  }
   for (const { id, pogingen } of rijen<{ id: string; pogingen: number }>(opzeg)) {
+    if (gelukt.has(id)) continue;
     const wat = Number(pogingen) > 0 ? `${pogingen} keer mislukt` : "na 23 dagen nog niet gedaan";
     deps.log(`ALARM winkel ${id}: abonnement bij Polar opzeggen ${wat}; zeg handmatig op in Polar (external_customer_id ${id})`);
     uit.alarmen++;
