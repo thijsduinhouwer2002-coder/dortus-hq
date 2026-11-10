@@ -307,29 +307,60 @@ def warm(im, lichten):
     uit = Image.fromarray((a * 255).astype(np.uint8)).convert("RGBA")
     uit.putalpha(im.split()[3]); return uit
 
-def dicht(Wp, Hp, vloer, S, licht, dingen, lichten):
+def dicht(Wp, Hp, vloer, S, licht, dingen, lichten, fijn=1):
     """Kamer van dichtbij: muur tot boven, vloer van aarde. Licht (gloed) op de achtergrond, warm licht sterk op de muur
-    en zwak op de figuren, zodat Gloop groen blijft."""
+    en zwak op de figuren, zodat Gloop groen blijft. fijn=2: muur en vloer op halve maat achter een scherpe Gloop
+    (keuring 4, kan 4: library op schaal 20 was grof en wazig)."""
+    fg_maat, S_fg = (Wp, Hp), S
+    Wp, Hp, vloer, S = Wp * fijn, Hp * fijn, vloer * fijn, S // fijn
+    licht = [(cx * fijn, cy * fijn, st) for cx, cy, st in licht]
     bg = Image.new("RGBA", (Wp, Hp), (0x1d, 0x14, 0x26, 255))
     for kx in range(Wp // 16 + 2):
         ry = 0
         while vloer - 16 * (ry + 1) > -16:
             bg.alpha_composite(cel(TEG, 1 if ry == 1 else 0, rij=1), (kx * 16, vloer - 16 * (ry + 1))); ry += 1
         for ry in range((Hp - vloer) // 16 + 1):
-            bg.alpha_composite(cel(TEG, (kx * 3 + ry * 5) % 8, rij=0), (kx * 16, vloer + ry * 16))
+            i = (kx * 3 + ry * 5) % 8
+            if vloer + ry * 16 + 16 > Hp: i = (1, 3, 4, 7)[i % 4]   # keuring 4 (Daan 1 en 3): geen steentje dat de onderrand afsnijdt
+            bg.alpha_composite(cel(TEG, i, rij=0), (kx * 16, vloer + ry * 16))
     for cx, cy, st in licht:
         bg = gloed(bg, cx, cy, st)
-    fg = Image.new("RGBA", (Wp, Hp), (0, 0, 0, 0))
+    fg = Image.new("RGBA", fg_maat, (0, 0, 0, 0))
     for f in dingen:
         f(fg)
     bg = warm(schaal(bg, S), lichten)
-    fg = warm(schaal(fg, S), [(cx, cy, r, st * 0.4) for cx, cy, r, st in lichten])
+    fg = warm(schaal(fg, S_fg), [(cx, cy, r, st * 0.4) for cx, cy, r, st in lichten])
     bg.alpha_composite(fg)
     return bg
+
+def munt(im, cx, cy, kant=False):
+    """Eén munt (3 x 2 plus schaduw), of op zijn kant (1 x 3) zodat hij rechtop staat."""
+    px = ((0, -1, GOUD[2]), (0, 0, GOUD[0]), (0, 1, GOUD[3])) if kant else \
+         ((0, 0, GOUD[3]), (1, 0, GOUD[1]), (2, 0, GOUD[3]), (0, -1, GOUD[2]), (1, -1, GOUD[0]), (2, -1, GOUD[2]))
+    rand = (0x5a, 0x34, 0x1a, 255)
+    for dx, dy, _ in px:   # donkere omtrek, dan de munt erop: zo snijdt hij los van de hoop
+        for ox, oy in ((-1, 0), (1, 0), (0, -1)):
+            x, y = cx + dx + ox, cy + dy + oy
+            if 0 <= x < im.width and 0 <= y < im.height and (ox, oy) != (0, 0) and im.getpixel((x, y))[3] == 0:
+                im.putpixel((x, y), rand)
+    for dx, dy, kl in px:
+        if 0 <= cx + dx < im.width and 0 <= cy + dy < im.height: im.putpixel((cx + dx, cy + dy), kl)
+
+def boven_de_rand(fg, sx, vloer):
+    """Keuring 4, kan 2: de omtrek van de hoop las nog als broodje. Een paar munten die boven de rand uitsteken (twee
+    rechtop) breken die gladde boog. Zelfde munten als in het spel, alleen anders neergelegd."""
+    hoop = cel(SCHAT, 1, 24, 16)
+    def top(kx):
+        for y in range(16):
+            if hoop.getpixel((kx, y))[3] > 0: return vloer - 16 + y
+        return vloer
+    for kx, kant in ((2, False), (4, True), (19, True), (21, False)):
+        munt(fg, sx + kx, top(kx) - (2 if kant else 1), kant)
 
 def schat(fg, sx, vloer, fakkel=True, n=0):
     if fakkel: fg.alpha_composite(cel(FAKKEL, 2, 8, 12), (sx, vloer - 34))
     fg.alpha_composite(cel(SCHAT, 1, 24, 16), (sx, vloer - 16))
+    boven_de_rand(fg, sx, vloer)
     if n: munten(fg, sx + 22, vloer, zaad=4, n=n)
 def schat_licht(sx, vloer, fakkel=True):
     return [(sx + 12, vloer - 6, 1.0), (sx + 10, vloer - 18, .6)] + ([(sx + 4, vloer - 30, .6)] if fakkel else [])
@@ -374,7 +405,7 @@ def library_v5():
         munten(f, gx + 7, V, zaad=2, n=3)
     im = dicht(W, H, V, S, [(W, V - 6, 1.0), (W - 2, V - 18, .7), (gx, V - 12, .6)],
                [voeten, lambda f: gloop_met_toren(f, gx, V, TOREN)],
-               [(600, 800, 760, .85), (300, 640, 380, .35)])
+               [(600, 800, 760, .85), (300, 640, 380, .35)], fijn=2)
     lg = schaal(logo(2), 6)
     lg = lg if lg.width <= 568 else schaal(logo(2), 5)
     im.alpha_composite(lg, ((600 - lg.width) // 2, 22))

@@ -101,3 +101,9 @@ Alles nagemeten in de png's (GEZIEN).
 - **Rijen naast de toppers** (vers via de winkel van Steam, 10 nov): `vergelijk-v5-header.png`, `vergelijk-v5-klein.png`, `vergelijk-v5-library.png`, `vergelijk-v5-main.png`. Eerlijk oordeel: in de header- en kleine rij zijn we niet meer de zwakste (groot logo, warm, de grap met de hoeden leest). In de library-rij houdt Gloop nu stand naast Rusty. Op main blijven de geschilderde toppers rijker; wij winnen op het idee en de herkenbaarheid, niet op detail.
 - Nog open: kan 7 uit keuring 1 (goudhoop als croissant), kan 8 (hero rijker).
 - **Later in run 6, kan 7 (croissant):** de goudhoop in het spel zelf (`kunst/schat.png`) is nu een hoop losse munten; header, main, staand en hero zijn opnieuw gemaakt met dat plaatje, dus ze blijven eerlijk. Op de hero is alleen de schat veranderd. Voor en na: `ontwerp/steam/mila/schat-voor-na-10x.png`.
+
+## Versie 6 (Mila, 10 nov ±03:55 NL): keuring 4 van Daan
+- **Moet 1, staand:** het lichte steentje onderaan was een vloertegel met een kiezel die de onderrand afsneed. Nu krijgt elke vloertegel die door de onderrand gaat een tegel zonder steentje (`dicht()` in `bron/maak_capsules.py`). Zelfde regel lost **kan 3** op main op, en ook op de header. Bekeken met Read: de onderrand is rustig.
+- **Kan 2, broodje:** vier munten steken nu boven de omtrek van de goudhoop uit, twee rechtop op de flanken en twee plat. De gladde boog is gebroken; vergroot lees je losse munten op een hoop (GEZIEN). Het plaatje van het spel zelf is niet veranderd; het zijn dezelfde munten als in `hol.gd`, anders neergelegd.
+- **Kan 4, library:** muur en vloer op halve maat (schaal 10) achter een scherpe Gloop op schaal 20. De stenen zijn nu scherp en rustig, Gloop springt er meer uit. Waarom: zo voelt het als diepte in plaats van een wazige vlek.
+- Hero, klein en logo niet veranderd.
