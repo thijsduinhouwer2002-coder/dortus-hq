@@ -8,3 +8,5 @@
 - **Wacht op Thijs:** zichtbaar maken (Publish Plugin) na de mails van JetBrains over keuring en verkoop, zie `organisatie/lijst-thijs.md`.
 - **Tweede product:** nog geen voorstel bij Hans. Groeimeting aanraadlijsten 9 nov gedaan en nagekeken (`data/aanraden-groei-2026-11-09.md`): Batch blijft het enige gat (467 per dag naar plugins van 2015 en 2021), maar nog geen bewijs van betalen (BatchCraft 0 reviews), dus geen nieuw feit. Volgende stap: weekmeting 15 nov.
 - **Markt (GEZIEN 6 nov):** nieuwe plugins halen een mediaan van 111 downloads; JetBrains houdt 15%. Oudere statusregels: `data/status-archief-2026-11-09.md`.
+
+- **10 nov 15:43 (hoofdchat):** JetBrains mailde 9 nov 21:38 dat de keuring wacht op de trader details (stond ongelezen in de inbox). Thijs vulde ze 10 nov ±15:42 in als Individual (niet in een handelsregister, ID-document), en verstuurde. Antwoord aan JetBrains staat als concept in Gmail in dezelfde mailwisseling; Thijs verstuurt. Daarna keuring, dan zichtbaar maken (lijst-thijs).
