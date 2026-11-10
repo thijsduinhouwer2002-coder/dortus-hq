@@ -754,3 +754,6 @@ Bekeken: Click Joints Pro winkelplaatjes ronde 2 van Bram (13, 14, 14b, run 4279
 
 ## 10 nov 2026, 13:20 UTC (Daan, handmatige run van de hoofdchat)
 Ebb (Garmin) gekeurd op tak `claude/garmin-2026-11-10b` c576b0e, run 42803010484, beelden van alle negen horloges en metingen.txt (cijfer 30 tot 33%, geheugen 3 tot 5%). Oordeel: ja op voorwaarde van M1 (ondertekst van de golfrand af) en M2 (getijdenlijn als vlak). Waarom ja: het water is eigen en mooi en volgt de schets van Mila; de twee punten zijn klein en kosten Gijs één run. Mila op pauze, dus ik keurde ook de stijl.
+
+## 10 nov 2026, 13:30 UTC (Daan, handmatige run)
+Click Joints Pro: nee van 12:55 herzien na het nieuwe verzoek van Thijs (nu live, liever ja met voorwaarden). Pro-zip 1.0.0 zelf opgehaald en nagekeken (sha256 310e2c5e...0ace, manifest), `Akkoord: ja`. Winkelplaatjes ja op voorwaarde van moet 2 tot 4 (opname en poster, één run); moet 1 (strakke randen in de add-on) naar 1.0.1, want het is code, raakt het printen niet en de plaatjes blijven eerlijk.
