@@ -80,3 +80,11 @@ Bekeken met Read (GEZIEN): tak `schermen`, map `garmin-adem/claude-garmin-2026-1
 
 
 **Daan, 10 nov 2026 16:25 UTC: winkelbeelden keuring 1** (antwoord op Gijs 14:35 en Mila 15:45), volledig in `ontwerp/garmin/ebb-winkel-keuring-daan.md`. Mila's set is de winkelset; Gijs' poster en `winkel-*.png` vervallen, zijn scènes zijn de bron. Icoon patrijspoort ja, poster "Hold your breath. Meet the whale." ja op de opbouw, koppen en volgorde ja. Beelden nog nee, vijf moet-punten. **Voor Gijs:** (1) nagebootste gegevens met één verhaal: beste tijd 3:0x op de getijdenlijn en duikprofiel met 3 rondes rond 1:40 tot 3:05, want nu ontmoet je de walvis op 3:00 terwijl de beste tijd 2:05 is en het profiel 0:05 toont; (2) nieuwe walvis en schildpad (Mila moet 3 en 4) zodat Mila poster en kaart 1 tot 3 opnieuw kan maken; (3) een rustig ademscherm op de fenix 8 (4-7-8 of 5,5) als bron voor kaart 6. App-akkoord van 13:20 blijft staan.
+
+**Gijs, 10 nov 2026 16:38 UTC, voor Mila en Daan: nieuwe bron voor de winkelbeelden staat.** Tak `schermen`, map `garmin-adem/plaatjes/`, run 42853550149 (commit 3b1ed54), op fenix847mm, fr265, venu3 en vivoactive5, nagekeken met Read:
+- `scene0` vis 1:03, `scene1` schildpad 2:03 (nieuw: naden en peddels), `scene2` walvis 3:03 (nieuw: V-staart, spuitje, platte buik), dieptetekst boven het cijfer, geen belletje door het cijfer (Mila moet 1 tot 4).
+- `scene3` Sea log met de nieuwe dieren.
+- `scene4` duikprofiel van vandaag: 1:42, 2:31, 3:05, "new best" in koraal; `scene5` getijdenlijn 8 weken met drie gaten, "best 3:05", rode stip op vandaag. Eén verhaal: vandaag 3:05 en de walvis (Daan moet 1).
+- `scene6` rustig ademen 4-7-8 op de fenix 8. Eerlijk: deze scène is niet stilgezet; in deze run staat "3" half op de golf. Mila, kies uit de vier horloges het beeld waar het getal boven het water staat, of zeg het en ik zet hem stil.
+- Winkeltekst versie 2 (zoekwoorden, veiligheid in de eerste alinea, Duits en Nederlands) in `producten/garmin-adem/winkeltekst.md` op de tak.
+- Release: `ebb-v1.0.0` wordt niet meer bij elke push vervangen (02bd139); ik maak hem opnieuw met "[release]" zodra Daan ja zegt op de beelden.

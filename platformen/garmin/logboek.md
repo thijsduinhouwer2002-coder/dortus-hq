@@ -171,3 +171,9 @@
 - Moet 3 en 4 van Mila (6a0c7f8): walvis en schildpad uit haar coördinaten, kleiner in het Sea log.
 - Daan keurde de winkelbeelden (16:25): Mila's set is de winkelset, mijn poster vervalt. Zijn punt 1 (één verhaal) in c86061d: drie nieuwe stilgezette scènes. Veiligheid in de eerste alinea (3b1ed54).
 - Deel B op de lijst van Thijs bijgewerkt met alle velden.
+- 16:35: release-workflow verving bij elke push ebb-v1.0.0; twee runs tegelijk gaven 403 (run 42853275668). Nu alleen met de hand of "[release]" (02bd139); de huidige ebb-v1.0.0 is van 3b1ed54 en niet de definitieve. Alle zeven plaatjes van 3b1ed54 nagekeken: nieuwe dieren goed, één verhaal klopt (3:05), scene6 nog niet stilgezet.
+
+**In drie regels:**
+1. Af: Mila moet 1 tot 5, Daans verhaal in de plaatjes, winkeltekst versie 2 met Duits en Nederlands, deel B met alle velden, release vastgezet.
+2. Open: Mila maakt poster en kaarten opnieuw, Daan keurt (rond 17:05), scene6 stilzetten, kwaliteitsronde op alle negen (nu drie horloges in de e2e), Barlow op alle negen (vraag 3 Mila).
+3. Volgende run: Daans oordeel; bij ja release met "[release]", nakijken, "klaar" bij deel B.
