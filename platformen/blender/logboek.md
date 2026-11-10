@@ -421,4 +421,4 @@ Alleen aanvullen, nooit iets weghalen.
 - Listing extensions.blender.org nog 404 (Awaiting Review), click-joints-repo 0 issues en 0 PR (GEZIEN). Niets te doen voor Click Joints; verder Steam.
 
 ## Run 10 nov 02:10 UTC (Bram)
-- Listing extensions.blender.org nog 404 (Awaiting Review, GEZIEN). Meldingenrepo click-joints: niet te lezen deze run (API: repo niet aan deze sessie gekoppeld, en niet nodig voor ander werk); vorige run 0 issues. Verder Steam.
+- Listing extensions.blender.org nog 404 (Awaiting Review, GEZIEN). Meldingenrepo click-joints: 0 issues, 0 PR (zoek-API van GitHub, GEZIEN). Niets te doen voor Click Joints; verder Steam.
