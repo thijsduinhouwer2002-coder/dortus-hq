@@ -145,3 +145,6 @@ Nieuwe kansen kiezen we op één getal: verwachte euro's in 90 dagen (laag, midd
 
 ## 10 nov 11:55: Polar-sleutel staat als secret POLAR_TOKEN (Thijs)
 Repo-secret `POLAR_TOKEN` in dortus-hq, gemaakt door Thijs. Let op: deze sleutel heeft lees- én schrijfrechten (keuze Thijs, advies hoofdchat was alleen lezen). Regel: de ploeg gebruikt hem alleen om te lezen (verkopen, klanten, abonnementen, cijfers). Prijzen, producten, kortingscodes, terugbetalingen en alles wat iets verandert in Polar alleen na een ja van de hoofdchat. Nooit de waarde tonen, loggen of in een bestand zetten.
+
+## 10 nov 14:56: Klopt in de kast (Thijs)
+TikTok vraagt voor de bedrijfscheck een KvK-nummer van 8 cijfers en een bedrijf dat langer dan een jaar bestaat (GEZIEN in Partner Center). Klopt kan dus voorlopig niet live. Account, partnernaam Dortus (in keuring) en de app Klopt (draft) blijven staan; app key en secret blijven in Partner Center, nog niet in GitHub. Niemand werkt aan Klopt tot de hoofdchat het weer oppakt. Tess en Jet staan uit. Wat er ligt (Worker, betaalstuk, 292 tests, schermen) blijft bewaard.
