@@ -19,20 +19,20 @@ HOL begin: doorlopen (Tibbe)
 HOL kroniek 25.1 (wacht 2.1): Tibbe has a map. It is wrong.
 HOL kroniek 26.2 (wacht 0.1): Bram fled. Grudge: the Spike Pit.
 HOL gegraven kolom 4
-HOL kroniek 28.7 (wacht 1.0): Gloop ate Odo. Kept the hat. +6
+HOL kroniek 28.7 (wacht 1.0): Odo is lunch. Gloop got a crown. +6
 HOL kroniek vervallen 29.2: Bram's song got popular. Uh oh.
 HOL begin: terug (Bram)
-HOL kroniek 31.3 (wacht 0.5): Bram remembers the Spike Pit.
+HOL kroniek 31.3 (wacht 0.5): Bram limps back to the Spike Pit.
 HOL kroniek 34.4 (wacht 0.0): Gloop is flat. Back soon.
 HOL gegraven kolom 1
-HOL kroniek 36.9 (wacht 0.0): Tibbe touched your hoard!
-HOL kroniek 43.3 (wacht 0.0): The Spike Pit wins round two. +9
-HOL begin: opgegeten2 (Pim)
+HOL kroniek 36.9 (wacht 0.0): Tibbe tried to lift it. Too heavy.
+HOL kroniek 43.3 (wacht 0.0): The Spike Pit won. Grudge settled. +9
+HOL begin: opgegeten2 (Lotte)
 HOL gegraven kolom 3
-HOL kroniek 45.8 (wacht 0.9): Pim asks if this is the song hole.
+HOL kroniek 45.8 (wacht 0.7): Lotte hums the song. Off-key.
 HOL kroniek vervallen 46.5: Gloop is up again. Wobbly.
 HOL kroniek 48.3 (wacht 0.4): Tibbe ran. Hands smell of gold.
-HOL kroniek 51.8 (wacht 0.0): Lotte read about you in a tavern.
+HOL kroniek 51.2 (wacht 0.0): Pim brought a torch. And hope.
 HOL gegraven kolom 6
-HOL kroniek 55.6 (wacht 0.0): Gloop ate Pim. Kept the bucket. +6
-HOL kroniek 59.0 (wacht 0.0): Tibbe the Hoard-Toucher is back for Gloop.
+HOL kroniek 55.9 (wacht 0.0): Gloop ate Lotte. Wears the bucket. +6
+HOL kroniek 58.4 (wacht 0.9): Joost knocks first. Polite.
