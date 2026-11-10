@@ -11,6 +11,9 @@ Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`,
 - `src/opslag.ts`: interface `Opslag`, `GeheugenOpslag` voor toetsen, fout `Ontkoppeld`.
 - `src/d1/opslag.ts` en `src/d1/schema.sql`: de echte opslag in Cloudflare D1. Lezen per afrekening in één batch, schrijven in een wachtrij die meegaat met de volgende statuswissel, slot altijd vers. Triggers weigeren schrijven na ontkoppelen.
 - `src/d1/tokens.ts`: tokens van TikTok (`tt_tokens`) en Moneybird (`mb_tokens`) per soort met `TokenBron`: AES-GCM met winkel-id als AAD en sleutelversie in de tekst, verversen binnen een uur, voorwaardelijk opslaan op `tt_versie`/`mb_versie`, na een 401 één keer verversen (`met`), dan `WinkelStop` `koppeling_verlopen`; alles in het ene budget.
+- `src/d1/ontkoppel.ts`: `ontkoppel` (punt 7). Eén batch zet `ontkoppeld_op`, maakt alles in `winkels` leeg behalve de kale rij (id, `ontkoppeld_op`, `taken`, en bij een open taak `mb_tokens`/`polar_klant`) en wist de rijen in `statussen`, `transacties`, `bestellingen` en `sloten`. Daarna Moneybird intrekken (`trekIn`, refresh token via `ontsleutel` uit `tokens.ts`): 200 token weg, 403 `ALARM` en token weg, anders later opnieuw. Hoogstens 3 uit het budget. Ook `ontkoppelOpShopId` voor de webhook. Bovenin staat de vorm van `taken`.
+- `src/d1/opruimen.ts`: `ruimOntkoppeldOp` voor de cron: intrekken opnieuw (hoogstens 5, na 7 dagen token weg en `ALARM`), wissen herhalen als vangnet (hoogstens 20 winkels, één batch), kale rij weg als beide taken klaar zijn of op dag 23 (behalve als `opzeggen` nog openstaat: dan blijft de rij met elke dag een `ALARM`), en winkels die 21 dagen onafgebroken `koppeling_verlopen` aan de kant van TikTok hebben ontkoppelen (hoogstens 3).
+- `src/d1/winkels.ts`: `winkelsAanDeBeurt` (cron-query, alleen gekoppelde winkels, gedeeltelijke index) en `winkelfoutStatement` (winkelfout als JSON `{soort, bericht, kant}` met `winkelfout_sinds`, voor de slotbatch van de consumer).
 - Basis voor TikTok (client, endpoints, fouten) staat in `../tiktok-shop-basis/`.
 
 ## Samenhang van één aanroep
@@ -18,11 +21,11 @@ Kort overzicht van de onderdelen en hoe ze samenhangen. Ontwerpen: `ontwerp.md`,
 2. `verwerkWinkel` leest markering en open lijst, loopt de afrekeningen langs. Per afrekening: status lezen, slot nemen, status opnieuw lezen, `haalSamen`.
 3. Compleet: vingerafdruk, dan `startBoeking` (status `onzeker` "boeking gestart" in dezelfde batch als de slotcontrole), dan `boekAfrekening`, dan de echte status. Budget op of winkelstop van Moneybird: oude status terug.
 4. Stopt de aanroep tussen POST en status, dan blijft "boeking gestart" staan: 10 minuten wachten, dan zoekt `boekAfrekening` op kenmerk en vindt het document.
-5. Na ontkoppelen geeft D1 de fout `ontkoppeld`; `D1Opslag` maakt daar `Ontkoppeld` van en `verwerkWinkel` stopt netjes met winkelfout `ontkoppeld`.
-6. Aan het eind `klaar()`: de rest van de wachtrij naar D1.
+5. Na ontkoppelen (knop, webhook of 21 dagen `koppeling_verlopen`) weigeren de triggers elke INSERT en UPDATE en geeft D1 de fout `ontkoppeld`; `D1Opslag` maakt daar `Ontkoppeld` van en `verwerkWinkel` stopt netjes met winkelfout `ontkoppeld`.
+6. Aan het eind `klaar()`: de rest van de wachtrij naar D1, met `winkelfoutStatement` in dezelfde batch.
 
 ## Toetsen
-`npm test` (Node 22, type stripping, geen afhankelijkheden). D1 wordt nagebootst op `node:sqlite` met dezelfde SQL (`test/d1-nep.ts`). `test/boekrun-d1.test.ts` en `test/verwerk-d1.test.ts` draaien de bestaande verwerk-toetsen nog eens met `D1Opslag`.
+`npm test` (Node 22, type stripping, geen afhankelijkheden). D1 wordt nagebootst op `node:sqlite` met dezelfde SQL (`test/d1-nep.ts`). `test/boekrun-d1.test.ts` en `test/verwerk-d1.test.ts` draaien de bestaande verwerk-toetsen nog eens met `D1Opslag`. `test/ontkoppel.test.ts`, `test/ontkoppel-lopend.test.ts` en `test/opruimen.test.ts` toetsen punt 7 (l, m, n en het cron-deel van o).
 
 ## Nog niet gebouwd
-De Worker (`src/worker.ts`), `ontkoppel` en wissen, opruimen per cron, webhook.
+De Worker (`src/worker.ts`): cron (roept `winkelsAanDeBeurt` en `ruimOntkoppeldOp` aan), consumer (zet de winkelfout met de juiste `kant`), de knop Ontkoppelen. De webhook type 6 en 7 (handtekening nog niet uit de docs gehaald; `ontkoppelOpShopId` staat klaar). Het betaalstuk dat de taak `opzeggen` uitvoert bij Polar.

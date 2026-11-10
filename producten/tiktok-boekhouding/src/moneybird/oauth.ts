@@ -50,5 +50,6 @@ export function ververs(app: OAuthApp, refreshToken: string, fetchFn: typeof fet
 export async function trekIn(app: OAuthApp, token: string, fetchFn: typeof fetch = fetch): Promise<void> {
   const body = new URLSearchParams({ client_id: app.clientId, client_secret: app.clientSecret, token });
   const res = await fetchFn(`${MONEYBIRD_OAUTH}/revoke`, { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: body.toString() });
-  if (!res.ok) throw new Error(`Moneybird intrekken mislukt (${res.status})`);
+  // httpStatus erbij, zodat ontkoppelen een 403 (verkeerde app, niet herhalen) van 5xx en 429 (later opnieuw) kan scheiden.
+  if (!res.ok) throw Object.assign(new Error(`Moneybird intrekken mislukt (${res.status})`), { httpStatus: res.status });
 }

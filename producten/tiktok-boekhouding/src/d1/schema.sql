@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS winkels (
   administratie TEXT,
   instellingen TEXT,                 -- JSON
   markering INTEGER,
-  winkelfout TEXT,
+  winkelfout TEXT,                   -- JSON {soort, bericht, kant}, zie src/d1/winkels.ts
+  winkelfout_sinds INTEGER,          -- sinds wanneer dezelfde winkelfout onafgebroken staat (21 dagen regel, punt 7)
   volgende_run INTEGER NOT NULL DEFAULT 0,
   snel_teller INTEGER NOT NULL DEFAULT 0,
   ontkoppeld_op INTEGER,             -- gezet: kale rij, er wordt niets meer geschreven
@@ -19,6 +20,8 @@ CREATE TABLE IF NOT EXISTS winkels (
   polar_klant TEXT
 );
 CREATE INDEX IF NOT EXISTS winkels_volgende_run ON winkels(volgende_run) WHERE ontkoppeld_op IS NULL;
+-- Webhook type 6 zoekt de winkel op shop_id (punt 7).
+CREATE INDEX IF NOT EXISTS winkels_shop_id ON winkels(shop_id) WHERE shop_id IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS sloten (
   winkel TEXT NOT NULL,
