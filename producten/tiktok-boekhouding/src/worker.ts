@@ -87,7 +87,7 @@ export async function cron(o: Omgeving, nu: number): Promise<CronUitkomst> {
     o.log(`cron: winkels in de wachtrij zetten mislukt: ${foutTekst(e)}`);
   }
   try {
-    await ruimOntkoppeldOp(o.db, nu, budget, { app: o.moneybirdApp, sleutels: o.sleutels, fetchFn: o.fetchFn, log: o.log });
+    await ruimOntkoppeldOp(o.db, nu, budget, { app: o.moneybirdApp, sleutels: o.sleutels, fetchFn: o.fetchFn, log: o.log, polar: o.polar });
   } catch (e) {
     o.log(`cron: opruimen mislukt: ${foutTekst(e)}`);
   }
