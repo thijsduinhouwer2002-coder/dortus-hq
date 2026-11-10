@@ -14,6 +14,8 @@ export interface Samenstelling {
   uitbetaaldCenten?: number;
   /** Bestellingen die nog (opnieuw) opgehaald moeten worden voor deze afrekening. */
   ontbrekend: string[];
+  /** Bij compleet: `n` voor de gratis grens, unieke order_id van ORDER-transacties (ontwerp-betalen.md, punt 1). */
+  bestellingen?: number;
 }
 
 /** Leeg of ontbrekend is onbekend (null), niet 0. */
@@ -121,5 +123,5 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
     return leeg("fout_gegevens", `gegevens van TikTok niet te lezen: ${(e as Error).message}`);
   }
 
-  return { status: "compleet", regels, waarschuwingen: w, ontbrekend: [], ...(uit === null ? {} : { uitbetaaldCenten: uit }) };
+  return { status: "compleet", regels, waarschuwingen: w, ontbrekend: [], bestellingen: bestellingenVan(transacties).length, ...(uit === null ? {} : { uitbetaaldCenten: uit }) };
 }

@@ -3,7 +3,7 @@ import type { Instellingen } from "../src/verwerk.ts";
 
 // Nagebootste TikTok (vorm van de docs) en een kleine nagebootste Moneybird met memoriaalboekingen in het geheugen.
 export const T0 = 1_794_000_000; // nov 2026
-export interface Afr { id: string; time: number; status: string; trans: any[]; kop?: any }
+export interface Afr { id: string; time: number; status: string; trans: any[]; kop?: any; /** `revenue_amount` in Get Statements (anders weggelaten). */ omzet?: string }
 
 export function wereld() {
   const afr: Afr[] = [];
@@ -42,7 +42,7 @@ export function wereld() {
     let m;
     if (u.pathname === "/finance/202309/statements") {
       const vanaf = Number(u.searchParams.get("statement_time_ge") ?? 0);
-      return ok({ statements: afr.filter((a) => a.time >= vanaf).sort((a, b) => a.time - b.time).map((a) => ({ id: a.id, statement_time: a.time, payment_status: a.status, currency: "EUR", settlement_amount: "0", fee_amount: "0", adjustment_amount: "0" })) });
+      return ok({ statements: afr.filter((a) => a.time >= vanaf).sort((a, b) => a.time - b.time).map((a) => ({ id: a.id, statement_time: a.time, payment_status: a.status, currency: "EUR", settlement_amount: "0", fee_amount: "0", adjustment_amount: "0", ...(a.omzet !== undefined ? { revenue_amount: a.omzet } : {}) })) });
     }
     if ((m = /^\/finance\/202501\/statements\/(\d+)\/statement_transactions$/.exec(u.pathname))) {
       const a = afr.find((x) => x.id === m![1])!;

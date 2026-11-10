@@ -142,3 +142,17 @@ export function schrijfVlag(db: D1, winkel: string, betalingMislukt: boolean, st
     )
     .bind(jsonBool(betalingMislukt), stand, winkel, stand);
 }
+
+/**
+ * "Actief" (ontwerp-betalen.md, punt 2): `actief` en `tot` > nu, uit de kolom `winkels.abonnement`. Leeg, kapot of zonder
+ * `tot`: niet actief (dan geldt de gratis grens; nooit meer boeken dan betaald is).
+ */
+export function abonnementActief(kolom: string | null | undefined, nu: number): boolean {
+  if (!kolom) return false;
+  try {
+    const a = JSON.parse(kolom) as Abonnement;
+    return a?.actief === true && typeof a.tot === "number" && a.tot > nu;
+  } catch {
+    return false;
+  }
+}

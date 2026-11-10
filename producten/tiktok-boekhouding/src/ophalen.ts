@@ -38,13 +38,19 @@ export function winkelStop(e: unknown): WinkelStop | null {
   return null;
 }
 
-export type Ophaling = Samenstelling | { status: "bezig_met_ophalen"; reden: string; regels: []; waarschuwingen: []; ontbrekend: string[] };
+export type Ophaling =
+  | Samenstelling
+  | { status: "bezig_met_ophalen"; reden: string; regels: []; waarschuwingen: []; ontbrekend: string[] }
+  /** `wachtBij` gaf true: de losse bestellingen zijn niet opgehaald (ontwerp-betalen.md, punt 2 stap 2). */
+  | { status: "wacht_grens"; reden: string; regels: []; waarschuwingen: []; ontbrekend: string[] };
 
 export interface OphaalOpties {
   /** Zoveel verzoeken moeten over blijven vóór een nieuwe bestelling (12 bij boeken, 0 bij de proef). */
   reserve: number;
   /** "Opnieuw sinds T": alleen bestellingen opgehaald op of na T tellen. */
   sinds?: number;
+  /** Gratis grens (stap 2): met `n` bestellingen in de transacties; true = niet verder ophalen, `wacht_grens`. */
+  wachtBij?: (n: number) => boolean;
 }
 
 /**
@@ -93,6 +99,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
   if (nieuw && !(voor.status === "onvolledig" && !voor.ontbrekend.length)) await d.opslag.schrijfTransacties(statementId, { kop, transacties, opgehaaldOp: d.nu() });
   if (!(voor.status === "onvolledig" && voor.ontbrekend.length)) return klaar(voor);
   const ontbrekend = voor.ontbrekend;
+  if (o.wachtBij?.(bestellingenVan(transacties).length)) return { status: "wacht_grens", reden: "gratis grens van de maand bereikt", regels: [], waarschuwingen: [], ontbrekend };
 
   const mislukt: string[] = [];
   for (let i = 0; i < ontbrekend.length; i++) {

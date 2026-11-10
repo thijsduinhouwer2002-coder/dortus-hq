@@ -68,15 +68,50 @@ test("(d) aanpassing zonder enig bedrag: fout_gegevens, niet geboekt", async () 
   assert.equal(w.docs.size, 0);
 });
 
-test("(f) zonder abonnement: wacht_op_abonnement en geen schrijfactie naar Moneybird; na betalen geboekt", async () => {
+test("(d, f) zonder abonnement: 30 bestellingen per maand gratis (precies 30 wel), daarboven wacht_op_abonnement zonder Moneybird; na betalen geboekt", async () => {
   const w = wereld();
-  w.voegToe("7001", T0 + 86400, "PAID", [10]);
+  w.voegToe("7001", T0 + 86400, "PAID", Array(20).fill(10));
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", Array(10).fill(10));
+  w.voegToe("7003", T0 + 3 * 86400, "PAID", [10]);
   const o = maakOpslag();
-  await verwerkWinkel(deps(w, o), inst({ magBoeken: false }));
-  assert.equal(await status(o, "7001"), "wacht_op_abonnement");
-  assert.equal(mbVerzoeken(w), 0);
-  await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst());
+  for (let i = 0; i < 8; i++) await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst({ magBoeken: false }));
   assert.equal(await status(o, "7001"), "geboekt");
+  assert.equal(await status(o, "7002"), "geboekt", "20 + 10 = 30: precies op de grens mag");
+  assert.equal(await status(o, "7003"), "wacht_op_abonnement", "31e bestelling: afrekening in zijn geheel op wacht");
+  assert.equal(w.docs.size, 2);
+  const t = (o as any).telling as Map<string, { maand: string; bestellingen: number }>;
+  assert.deepEqual([...t.keys()].sort(), ["7001", "7002"]);
+  assert.equal(t.get("7001")!.maand, "2026-11");
+  assert.equal(t.get("7001")!.bestellingen, 20);
+  await verwerkWinkel(deps(w, o, T0 + 11 * 86400), inst());
+  assert.equal(await status(o, "7003"), "geboekt", "met abonnement geen grens");
+  assert.equal(((o as any).telling as Map<string, unknown>).size, 3, "betaalde afrekening telt ook mee");
+});
+
+test("(e) telling: weg bij terug (Moneybird weigert de winkel), blijft bij geboekt en bij opnieuw boeken; onzeker gaat niet op wacht", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", Array(30).fill(10));
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", [10]);
+  const o = maakOpslag();
+  const telling = () => (o as any).telling as Map<string, unknown>;
+  // Eerst ophalen (30 bestellingen kosten meer dan één aanroep), dan bij het boeken een 401 van Moneybird.
+  for (let i = 0; i < 8 && mbVerzoeken(w) === 0; i++) {
+    w.mbStatus.volgende = 401;
+    await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst({ magBoeken: false }));
+  }
+  assert.ok(mbVerzoeken(w) > 0, "boeken geprobeerd");
+  assert.equal(await status(o, "7001"), "bezig_met_ophalen", "status van daarvoor (vorige run) terug");
+  assert.equal(telling().size, 0, "terug: rij van deze poging weg");
+  for (let i = 0; i < 6; i++) await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + 5000 + i * 1000), inst({ magBoeken: false }));
+  assert.equal(await status(o, "7001"), "geboekt");
+  assert.equal(await status(o, "7002"), "wacht_op_abonnement", "maand vol");
+  assert.ok(telling().has("7001"), "geboekt: rij blijft");
+  // Opnieuw boeken van een geboekte afrekening in een volle maand: vrijgesteld, nooit op wacht, rij blijft.
+  await opnieuw({ opslag: o, nu: () => T0 + 12 * 86400 }, "7001");
+  for (let i = 0; i < 6; i++) await verwerkWinkel(deps(w, o, T0 + 12 * 86400 + 10 + i * 1000), inst({ magBoeken: false }));
+  assert.ok(["geboekt", "geboekt_met_waarschuwing"].includes(String(await status(o, "7001"))));
+  assert.ok(telling().has("7001"));
+  assert.equal(telling().size, 1, "nooit dubbel");
 });
 
 for (const [http, soort] of [[401, "koppeling_verlopen"], [402, "geen_abonnement"], [403, "geblokkeerd"]] as const) {
@@ -286,4 +321,42 @@ test("twee runs om elkaar heen: B boekt tussen de lezing en het slot van A, A do
   assert.equal(w.urls.filter((u) => u.startsWith("POST MB")).length, 1);
   assert.equal(w.docs.size, 1);
   assert.equal(await status(o, "7001"), "geboekt");
+});
+
+test("(e) opnieuw boeken van een geboekte afrekening zonder rij in een volle maand: vrijgesteld; bij terug blijft de nieuwe rij (vorige status geboekt)", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", Array(30).fill(10));
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", [10]);
+  const o = maakOpslag();
+  const telling = () => (o as any).telling as Map<string, unknown>;
+  for (let i = 0; i < 8; i++) await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst());
+  assert.equal(await status(o, "7002"), "geboekt");
+  // Geboekt vóór deel 2: geen rij in telling.
+  const sqlite = (o as any).db?.sqlite;
+  if (sqlite) sqlite.prepare("DELETE FROM telling WHERE statement_id = '7002'").run();
+  else telling().delete("7002");
+  assert.equal(telling().has("7002"), false);
+  // Opnieuw boeken met een andere tegenrekening (dus echt opnieuw), zonder abonnement, en Moneybird weigert de winkel.
+  await opnieuw({ opslag: o, nu: () => T0 + 12 * 86400 }, "7002");
+  const anders = inst({ magBoeken: false, koppeling: { ...koppeling, tegenrekeningId: "501" } });
+  for (let i = 0; i < 4 && telling().has("7002") === false; i++) {
+    w.mbStatus.volgende = 401;
+    await verwerkWinkel(deps(w, o, T0 + 12 * 86400 + 10 + i * 1000), anders);
+  }
+  assert.equal(await status(o, "7002"), "geboekt", "nooit op wacht door de grens");
+  assert.ok(telling().has("7002"), "rij ingevoegd en bij terug blijven staan (vorige status was geboekt)");
+});
+
+test("(e) weigering uit boekAfrekening (422): fout, en de rij van deze poging gaat weg (geeft de gratis ruimte terug)", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", Array(5).fill(10));
+  const o = maakOpslag();
+  const telling = () => (o as any).telling as Map<string, unknown>;
+  for (let i = 0; i < 4 && mbVerzoeken(w) === 0; i++) {
+    w.mbStatus.volgende = 422;
+    await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst({ magBoeken: false }));
+  }
+  assert.equal(await status(o, "7001"), "fout");
+  assert.equal(telling().size, 0);
+  assert.equal(w.docs.size, 0);
 });

@@ -3,7 +3,7 @@
 import { NepD1 } from "./d1-nep.ts";
 import { D1Opslag } from "../src/d1/opslag.ts";
 import { Budget } from "../src/budget.ts";
-import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag } from "../src/opslag.ts";
+import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag, TellingVast } from "../src/opslag.ts";
 
 export class D1ToetsOpslag implements Opslag {
   readonly db: NepD1;
@@ -31,7 +31,7 @@ export class D1ToetsOpslag implements Opslag {
   geefSlotTerug(id: string, eigenaar: string) { return this.binnen.geefSlotTerug(id, eigenaar); }
   startBoeking(id: string, eigenaar: string, s: AfrekeningStatus, minTot: number) { return this.binnen.startBoeking(id, eigenaar, s, minTot); }
   leesStatus(id: string) { return this.binnen.leesStatus(id); }
-  schrijfStatus(id: string, s: AfrekeningStatus) { return this.binnen.schrijfStatus(id, s); }
+  schrijfStatus(id: string, s: AfrekeningStatus, wis?: boolean) { return this.binnen.schrijfStatus(id, s, wis); }
   wisStatus(id: string) { return this.binnen.wisStatus(id); }
   leesBestelling(id: string, orderId: string) { return this.binnen.leesBestelling(id, orderId); }
   schrijfBestelling(id: string, orderId: string, b: BewaardeBestelling) { return this.binnen.schrijfBestelling(id, orderId, b); }
@@ -40,4 +40,14 @@ export class D1ToetsOpslag implements Opslag {
   leesOpen(open: string[]) { return this.binnen.leesOpen(open); }
   leesMarkering() { return this.binnen.leesMarkering(); }
   schrijfMarkering(t: number) { return this.binnen.schrijfMarkering(t); }
+  legTellingVast(id: string, eigenaar: string, t: TellingVast) { return this.binnen.legTellingVast(id, eigenaar, t); }
+  wisTelling(id: string, eigenaar: string) { return this.binnen.wisTelling(id, eigenaar); }
+  zetTerug(id: string, vorige: AfrekeningStatus | undefined, wis: boolean) { return this.binnen.zetTerug(id, vorige, wis); }
+  leesTelling() { return this.binnen.leesTelling(); }
+  maandwissel(grens: number) { return this.binnen.maandwissel(grens); }
+  /** Zelfde vorm als GeheugenOpslag.telling (alleen lezen). */
+  get telling() {
+    const rijen = this.db.sqlite.prepare("SELECT statement_id, maand, bestellingen FROM telling WHERE winkel = 'w1'").all() as Array<{ statement_id: string; maand: string; bestellingen: number }>;
+    return new Map(rijen.map((r) => [r.statement_id, { maand: r.maand, bestellingen: Number(r.bestellingen) }]));
+  }
 }
