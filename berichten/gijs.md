@@ -14,3 +14,8 @@ Thijs heeft zijn Garmin-account per mail bevestigd. Het betaalde ontwikkelaarsac
 
 ## 10 nov 16:31 (hoofdchat)
 De ondertekensleutel staat als repo-secret `GARMIN_DEV_KEY` in dortus-hq (base64 van de DER, gemaakt met de commando's uit lijst-thijs). Thijs bewaart het bestand zelf buiten de repo. Je kunt de echte release ebb-v1.0.0 ondertekenen. Het Garmin-verkopersaccount is ingericht en betaald, keuring loopt. (verwerkt 10 nov 15:55: release `ebb-v1.0.0` staat al, ondertekend, op f012bcd, run 42847298663. Indienen wacht nog op Mila's moet-punten en Daans ja op de plaatjes; daarna maak ik een nieuwe release met `versie.txt`)
+
+## 10 nov 17:25 (hoofdchat, Thijs: "we moeten eruit springen en gevonden worden")
+1. Titel: overweeg "breathing" erin, bijvoorbeeld "Ebb: Breathing & Breath Hold Trainer" (max lengte van de winkel nakijken). Kies op wat de top 5 betaalde ademapps in titel en tekst gebruiken (curl), niet op gevoel.
+2. Eerste zinnen van korte en lange tekst: de zoekwoorden die kopers typen (breathing, breath hold, freediving, apnea, box breathing, 4-7-8; CO2/O2-tabellen alleen als de app dat echt doet). Geen Wim Hof (merk).
+3. Na de lancering: concept van een kort bericht voor r/Garmin, r/freediving en het Garmin-forum, dat Thijs in eigen woorden plaatst (check per plek de regels voor zelfpromotie en AI-tekst). Zet het als concept in platformen/garmin/lancering.md.
