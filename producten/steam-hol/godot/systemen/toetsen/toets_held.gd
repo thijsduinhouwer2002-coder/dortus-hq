@@ -654,5 +654,13 @@ func _init() -> void:
 	ok(is_equal_approx(HS.kans_factor("magier", "stekelput"), 0.3) and is_equal_approx(HS.kans_factor("magier", "stekelput", true), 1.0), "Trick Lid: magier van 0,3 naar 1,0 voor de put")
 	ok(is_equal_approx(HS.kans_factor("dief", "stekelput", true), 0.5) and is_equal_approx(HS.kans_factor("magier", "slijm", true), 1.25), "Trick Lid verandert niets voor de dief of voor Gloop")
 
+	# Muzieknootjes (Sanne toets 10 punt 1)
+	var HB = load("res://systemen/held_beeld.gd")
+	ok(HB.nootjes("bard", false, "lopen", 0.5).size() == 1 and HB.nootjes("bard", false, "lopen", 2.5).size() == 2 and HB.nootjes("bard", false, "vluchten", 9.0).size() == 2, "bard: elke 2 s een nootje, 2 tegelijk, ook vluchtend")
+	var nt0: Array = HB.nootjes("bard", false, "lopen", 0.1)[0]
+	var nt1: Array = HB.nootjes("bard", false, "lopen", 1.9)[0]
+	ok(int(nt1[1]) < int(nt0[1]) and float(nt1[2]) < float(nt0[2]), "nootje stijgt op en vervaagt")
+	ok(HB.nootjes("bard", false, "vallen", 1.0).is_empty() and HB.nootjes("", false, "lopen", 1.0).is_empty() and HB.nootjes("ridder", false, "lopen", 1.0).is_empty(), "geen nootjes bij vallen of bij andere helden")
+	ok(HB.nootjes("", true, "afdalen", 1.0).size() == 1 and HB.nootjes("", true, "lopen", 2.5).is_empty(), "held door het lied: de eerste 2 s één nootje")
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
