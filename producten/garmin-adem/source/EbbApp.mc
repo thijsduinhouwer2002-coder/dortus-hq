@@ -35,9 +35,35 @@ class EbbView extends WatchUi.View {
         _timer.stop();
     }
 
+    private var _vorigeFase as Number = -1;
+    private var _vorigIn as Boolean = false;
+
     function tik() as Void {
-        sessie.bijwerken(System.getTimer());
+        var nu = System.getTimer();
+        sessie.bijwerken(nu);
+        trilBijWissel(nu);
         WatchUi.requestUpdate();
+    }
+
+    // Trilt één keer bij elke wissel van fase of van in naar uit (eis 6).
+    function trilBijWissel(nu as Number) as Void {
+        var fase = sessie.fase as Number;
+        var isIn = (fase == Ebb.FASE_ADEMEN) && sessie.isIn(nu);
+        if (fase != _vorigeFase) {
+            if (fase == Ebb.FASE_ADEMEN) {
+                EbbTrillen.tril(_vorigeFase == Ebb.FASE_HERSTEL ? EbbTrillen.M_LOS : EbbTrillen.M_IN);
+            } else if (fase == Ebb.FASE_INHOUDEN) {
+                EbbTrillen.tril(EbbTrillen.M_INHOUDEN);
+            } else if (fase == Ebb.FASE_HERSTEL) {
+                EbbTrillen.tril(EbbTrillen.M_HERSTEL);
+            } else if (fase == Ebb.FASE_KLAAR) {
+                EbbTrillen.tril(EbbTrillen.M_KLAAR);
+            }
+        } else if (fase == Ebb.FASE_ADEMEN && isIn != _vorigIn) {
+            EbbTrillen.tril(isIn ? EbbTrillen.M_IN : EbbTrillen.M_UIT);
+        }
+        _vorigeFase = fase;
+        _vorigIn = isIn;
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
