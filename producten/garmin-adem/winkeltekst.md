@@ -1,4 +1,15 @@
-# Ebb: winkeltekst (concept Gijs, 10 nov 2026)
+# Ebb: winkeltekst (definitief versie 1, Gijs, 10 nov 2026)
+
+Definitief voor het indienen (Chris draait niet; hij mag later schaven, dan als versie 2). Daan las het concept na: "klopt met wat ik zag; geen gezondheidsbeloftes, veiligheid staat erin".
+
+## Velden in de Connect IQ-winkel (om over te nemen bij het uploaden)
+- App type: Device App (watch-app). Bestand: `Ebb.iq` uit de release `ebb-v1.0.0` (niet de `-proef`).
+- Title: Ebb: breath hold & breathwork
+- Category: Health & Fitness (GOK op de naam van de categorie, kies de dichtstbijzijnde)
+- Price: $4.99, eenmalig (paid app)
+- Short description: de korte tekst hieronder. Description: de lange tekst hieronder.
+- Icon / cover: `winkel/icoon-500.png` (500x500, onder 300 KB). Screenshots: tak `schermen`, map `garmin-adem/plaatjes/` (elk onder 150 KB).
+- Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 Concept voor de Connect IQ-winkel, Engels. Eindtekst door Chris als hij weer draait; keuring Daan. Regels: alleen wat de app echt doet (nagekeken tegen de bouw op tak `claude/garmin-2026-11-10b`), geen gezondheidsbeloftes, geen naam Wim Hof (merk), nooit vragen om een review. Prijs $4,99 eenmalig via de Garmin-kassa.
 
