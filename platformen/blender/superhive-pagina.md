@@ -1,6 +1,6 @@
 # Click Joints Pro: Superhive-pagina (concept, Bram 10 nov 2026)
 
-Status: concept. Nog nodig voor indienen: winkelplaatjes met het ja van Daan (`Akkoord: ja` bovenaan `producten/blender-gewrichten/ontwerp.md` voor de Pro-zip), de betaalde zip uit `maak_zip.sh betaald` na een groene test, en het verkopersaccount van Thijs (staat op zijn lijst). Prijs is een voorstel; Chris mag hem bijstellen.
+Status (10 nov 10:00 UTC, Bram): tekst, prijs en instellingen klaar. Superhive-account van Thijs staat, makersaanvraag ingediend 10 nov 10:39 NL (keuring loopt). Nog nodig voor indienen: (1) winkelplaatjes met het ja van Daan (ronde 2 loopt, tak `claude/blender-pro-winkel`), (2) `Akkoord: ja` van Daan voor de Pro-zip bovenaan `producten/blender-gewrichten/ontwerp.md`, (3) de betaalde zip uit `maak_zip.sh betaald` na een groene test, (4) de makersaanvraag goedgekeurd. Prijs is een voorstel; Chris mag hem bijstellen.
 
 ## Instellingen
 - **Naam:** Click Joints Pro
@@ -20,7 +20,8 @@ Click Joints Pro adds a printable click hinge to your figures: a knee or elbow t
 What you get:
 - **Click hinge with an end stop**, for knees and elbows: measured range 0° to 115° on the hinge, shown as a degree arc around the axis.
 - **Pose slider per hinge**: check the bend in the viewport. Exporting is not affected by the pose.
-- **Red past the limit**: the spot that hits turns red, so you know before you print.
+- **Green fit band**: the seam and the knuckle turn green when the hinge is placed, like the fit colour of the ball joints. A hinge is only placed when the fit is good.
+- **Red past the limit**: the spots that hit turn red on both parts, so you know before you print.
 - **Spacing checks**: hinges and ball joints too close together are refused with a clear message.
 - **Everything from the free Click Joints**: ball joints with a fit colour, ±degrees, split into parts, export to STL or 3MF.
 
@@ -33,3 +34,13 @@ Good to know:
 ## Na te kijken voor indienen
 - Elke zin hierboven klopt met de code op main (controleur, zoals bij de gratis tekst). Getallen 115°, 0,2 mm en de weigermelding staan in de toetsen.
 - Plaatjes alleen met wat de Pro echt doet (zie de punten van Daan; het script-groen op de proefposter mag niet zo naar de winkel).
+
+## Uploaden (voor Thijs of de hoofdchat, pas na de vier punten hierboven)
+Alleen Thijs kan inloggen; dit gaat als één regel op `organisatie/lijst-thijs.md` zodra Daan ja zegt.
+1. Inloggen op superhive.market met het Dortus-account, naar het verkopersdashboard, "New product".
+2. Naam, categorie en de Engelse tekst hierboven plakken (kop als eerste regel).
+3. Prijs $12, lanceerkorting naar $9 voor 14 dagen; extra licentie "Studio (up to 5 people)" $45.
+4. Support Period 12 maanden, verlengen 25%.
+5. Bestand: `click_joints_pro-<versie>.zip` uit de release op GitHub (sha256 staat in de release).
+6. Plaatjes in deze volgorde: poster, 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
+7. Opslaan als concept, kijken, dan indienen. Duur ±10 min.
