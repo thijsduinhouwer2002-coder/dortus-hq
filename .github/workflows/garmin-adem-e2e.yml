@@ -17,7 +17,8 @@ jobs:
     permissions:
       contents: read
     env:
-      IMAGE: ghcr.io/matco/connectiq-tester:latest
+      # Vastgezet op de digest van :latest van 10 nov 2026 (ghcr.io), zodat een nieuwe image de toets niet ongemerkt verandert.
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
       APP: producten/garmin-adem
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +34,7 @@ jobs:
           mkdir -p "$GITHUB_WORKSPACE/$APP/schermen"
           cat > /tmp/schermen.sh <<'SH'
           set -x
-          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick xdotool >/dev/null || apt-get install -y -qq imagemagick >/dev/null
           openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
           openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
           touch /tmp/merk
@@ -58,6 +59,15 @@ jobs:
             import -window root "schermen/$d-a.png"
             sleep 3
             import -window root "schermen/$d-b.png"
+            # Proef: met toetsen naar startmenu (m) en rustig ademen, Box (r). Lukt het niet, dan alleen geen beeld.
+            if command -v xdotool >/dev/null; then
+              W=$(xdotool search --onlyvisible --name "Simulator" 2>/dev/null | head -1)
+              [ -n "$W" ] && xdotool windowactivate "$W" 2>/dev/null
+              xdotool key Return; sleep 3
+              import -window root "schermen/$d-m.png"
+              xdotool key Down; sleep 1; xdotool key Return; sleep 7
+              import -window root "schermen/$d-r.png"
+            fi
             kill "$MD" 2>/dev/null || true
             sleep 2
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"

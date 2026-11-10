@@ -19,6 +19,15 @@ class EbbApp extends Application.AppBase {
         if (_view != null && (_view as EbbView).opname.loopt()) {
             (_view as EbbView).weggooien();
         }
+        if (_rustig != null && (_rustig as RustigView).opname.loopt()) {
+            (_rustig as RustigView).opname.weggooien();
+        }
+    }
+
+    private var _rustig as RustigView or Null = null;
+
+    function zetRustig(view as RustigView) as Void {
+        _rustig = view;
     }
 
     private var _view as EbbView or Null = null;

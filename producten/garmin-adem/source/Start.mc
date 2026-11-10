@@ -57,9 +57,11 @@ class StartDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id instanceof Number) {
             var n = id as Number;
             var rv = new RustigView(Ebb.patronen()[n], EbbStart.PATROON_NAMEN[n]);
+            (Application.getApp() as EbbApp).zetRustig(rv);
             WatchUi.pushView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
         } else if (id == :eigen) {
             var ev = new RustigView(EbbInstellingen.eigenPatroon(), "My pattern");
+            (Application.getApp() as EbbApp).zetRustig(ev);
             WatchUi.pushView(ev, new RustigDelegate(ev), WatchUi.SLIDE_LEFT);
         } else if (id == :instellingen) {
             WatchUi.pushView(EbbStart.instellingen(), new InstellingenDelegate(), WatchUi.SLIDE_LEFT);
