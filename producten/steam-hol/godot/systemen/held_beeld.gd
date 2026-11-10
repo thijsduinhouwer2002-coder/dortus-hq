@@ -72,5 +72,5 @@ static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int,
 static func poef_beeld(fase: float) -> int:
 	return clampi(int(fase * 4.0), 0, 3)
 
-static func _poef(h, midden_y: int, fase: float) -> void:
+static func _poef(h, midden_y: int, fase: float) -> void:   # midden_y = onder - 4 (zoals het oude wolkje), bovenkant beeld = midden_y - 4
 	h.draw_texture_rect_region(POEF, Rect2(-6, midden_y - 4, 12, 10), Rect2(poef_beeld(fase) * 12, 0, 12, 10))
