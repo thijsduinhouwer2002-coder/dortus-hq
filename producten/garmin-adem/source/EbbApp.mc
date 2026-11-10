@@ -319,7 +319,7 @@ class EbbView extends WatchUi.View {
             var soort = EbbProfiel.dier(t);
             if (soort >= 0) {
                 var p = (t - EbbProfiel.DREMPELS[soort]).toFloat() / EbbProfiel.IN_BEELD_MS;
-                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (0.66 * d).toNumber());
+                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (0.80 * d).toNumber());   // onder de diepte-tekst (plaatjes run 42833605030: op 0,66 liep het dier door "63 m")
             }
             var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
