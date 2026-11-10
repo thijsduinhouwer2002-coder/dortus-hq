@@ -92,7 +92,7 @@ def voorbij_grens():
 
 
 def plat_lid():
-    """Plaatje 7 (ronde l, eis b van Daan): plat, hoekig lid (16 x 12 mm; 12 x 8 is te dun voor een kogel, afgeschuinde hoeken) met een
+    """Plaatje 7 (ronde l, eis b van Daan): plat, hoekig lid (16 x 12 mm; 12 x 8 is te dun voor een kogel, ronde hoeken) met een
     kogelgewricht in rechte stand, opengewerkt beeld uit, zodat je de naad over vlakke zijden en hoeken ziet."""
     for ob in list(bpy.data.objects):
         bpy.data.objects.remove(ob)

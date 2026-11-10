@@ -9,7 +9,7 @@ _register_kern, _unregister_kern = register, unregister  # noqa: F821  (fragment
 def register():  # noqa: F811
     _betaald.weiger_dubbel(__package__)
     _register_kern()
-    _betaald.register()
+    _betaald.register(__package__)
 
 
 def unregister():  # noqa: F811
