@@ -189,5 +189,6 @@
 - **Dieren v4:** zes nieuwe (krab, zeepaardje, octopus, zeester, kogelvis, zeekomkommer), 0 pixels buiten MIP, bekeken vergroot en op 260.
 - Gemeten (GEZIEN): kader binnen 0,5 px op 28 beelden, optisch binnen 2,3 px op 260, kleinste letter 20 px.
 - Regel op lijst-thijs (v4 in plaats van v3), bericht aan Gijs.
-- Volgende run: de laatste veertien dieren tekenen; wat Thijs zegt op v4; zeepaardje minder hoekig.
+- Later in de run: nog zeven dieren (clownvis, rog, dolfijn, zeehond, inktvis, kreeft, zeeotter), nu 17 van de 24, nummers gelijk aan de tabel. Otter eerst een bruine vlek (GEZIEN), nu met lichte kop en schelp; blijft de zwakste.
+- Volgende run: de laatste zeven dieren; wat Thijs zegt op v4; otter en zeepaardje beter.
 

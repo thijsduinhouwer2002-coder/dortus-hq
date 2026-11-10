@@ -31,14 +31,14 @@ Tellers van Gijs (`EbbTrouw`, 4fa11ef): sessies (rondes en rustig ademen tellen 
 | 6 | Starfish | 7 sessions | ja (nieuw) |
 | 7 | Octopus | 5 days in a row | ja (nieuw) |
 | 8 | Pufferfish | 10 sessions | ja (nieuw) |
-| 9 | Clownfish | 12 sessions | volgende run |
+| 9 | Clownfish | 12 sessions | ja (nieuw) |
 | 10 | Sea cucumber | back after a break (eerste sessie na 7 of meer dagen zonder) | ja (nieuw) |
-| 11 | Ray | 15 sessions | volgende run |
-| 12 | Dolphin | 7 days in a row | volgende run |
-| 13 | Seal | 18 sessions | volgende run |
-| 14 | Squid | 21 sessions | volgende run |
-| 15 | Lobster | 10 days in a row | volgende run |
-| 16 | Otter | 25 sessions | volgende run |
+| 11 | Ray | 15 sessions | ja (nieuw) |
+| 12 | Dolphin | 7 days in a row | ja (nieuw) |
+| 13 | Seal | 18 sessions | ja (nieuw) |
+| 14 | Squid | 21 sessions | ja (nieuw) |
+| 15 | Lobster | 10 days in a row | ja (nieuw) |
+| 16 | Otter | 25 sessions | ja (nieuw) |
 | 17 | Anglerfish | 28 sessions | volgende run |
 | 18 | Manatee | 14 days in a row | volgende run |
 | 19 | Shark | 32 sessions | volgende run |
@@ -53,9 +53,9 @@ Tellers van Gijs (`EbbTrouw`, 4fa11ef): sessies (rondes en rustig ademen tellen 
 Tekst op 6b: naam groot, eronder de reden in geel ("3 days in a row" / "10 sessions" / "back after a break"). Bij een reeks staan er zeven dagstippen onder (zoveel gevuld als de reeks, tot 7); bij sessies niet.
 
 ## Dieren v4 (`ebb-dieren-v4.png`)
-Zes nieuwe in dezelfde stijl als v3 (gevulde vlakken in MIP-kleuren, lijf, licht deel, donker deel, hetzelfde oog met glans): krab (oranje, nu vrij omdat de ring weg is), zeepaardje (geel), octopus (paars), zeester, kogelvis (geel met stekels), zeekomkommer (slaperig). Elk dier heeft een eigen kleur, zodat je de 24 op de sea log uit elkaar houdt. Gemeten: 0 pixels buiten MIP op 260 voor alle tien. Bekeken met Read op 454 en vergroot. Zwakste: het zeepaardje oogt nog wat hoekig; de zeekomkommer leest als een worstje, maar dat is hier de bedoeling.
+Dertien nieuwe in dezelfde stijl als v3 (gevulde vlakken in MIP-kleuren, lijf, licht deel, donker deel, hetzelfde oog met glans): krab (oranje, nu vrij omdat de ring weg is), zeepaardje (geel), octopus (paars), zeester, kogelvis (geel met stekels), zeekomkommer (slaperig), clownvis, rog, dolfijn, zeehond, inktvis, kreeft en zeeotter (op zijn rug met een schelp). Daarmee staan er 17 van de 24; de nummers op het blad zijn die uit de tabel. Elk dier heeft een eigen kleur, zodat je de 24 op de sea log uit elkaar houdt. Gemeten: 0 pixels buiten MIP op 260 voor alle tien. Bekeken met Read op 454 en vergroot. Zwakste: de otter (leest pas als otter als je weet dat hij op zijn rug ligt) en het zeepaardje (wat hoekig). De zeekomkommer leest als een worstje, maar dat is hier de bedoeling.
 
-Voor Gijs: dezelfde vorm als nu in `Teken.mc` (polygonen in eenheden van de diermaat, punten staan in `bron/ebb_dieren_v4.py`, functie `nieuwe_delen`). Volgende run teken ik de laatste veertien.
+Voor Gijs: dezelfde vorm als nu in `Teken.mc` (polygonen in eenheden van de diermaat, punten staan in `bron/ebb_dieren_v4.py`, functie `nieuwe_delen`). Volgende run teken ik de laatste zeven (Anglerfish, Manatee, Shark, Swordfish, Manta, Orca, Narwhal) en maak ik otter en zeepaardje beter.
 
 ## Gemeten (`blad4/meting-v4.txt`) en bekeken
 - Kader van alles wat getekend is: binnen 0,5 px van het midden op alle 28 beelden.
