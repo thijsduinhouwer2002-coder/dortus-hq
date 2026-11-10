@@ -32,13 +32,7 @@ signal klaar(held, uitkomst: String, info: Dictionary)
 
 # Kunst van Daan (kunst/LEESMIJ.md, Karakter-laag 19:45): lijf in 5 vaste kleuren, littekens als losse laag,
 # hoed met een hap als Gloop hem beet, tekens (8 x 8) boven het hoofd. Nooit schalen (halve pixels).
-const LIJF := preload("res://kunst/held_lijf_kleuren.png")   # 4 loopframes x 5 rijen (rood, groen, paars, oker, zeegroen)
-const HOEDEN := preload("res://kunst/held_hoeden.png")
-const HOEDEN_HAP := preload("res://kunst/held_hoeden_hap.png")
-const LITTEKENS := preload("res://kunst/held_littekens.png")  # pleister, ooglap, schram, verband
-const WAPENS := preload("res://kunst/held_wapens.png")
-const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
-const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
+const HELD_BEELD := preload("res://systemen/held_beeld.gd")   # lijf, littekens, hoed, wapen, teken en de val
 const HOED_SOORTEN := 10        # Mila 21:55: 10 hoeden in held_hoeden.png en held_hoeden_hap.png
 const HOED_TOP := [0, 0, 2, 3, 2, 0, 0, 0, 2, 0]   # Mila 23:00 en 23:10: helm met kam vanaf rij 0, kroon 2 (hoed erboven zakt tussen de punten); bovenste pixel per hoed (helm, puntmuts, kap, pet, kroon, koksmuts, emmer, hoge hoed, pan, veermuts)
 const OOGLAP := 1
@@ -366,65 +360,6 @@ func val_beeld(vt: float) -> Dictionary:
 	return {"hop": hop, "zak": zak, "teken": tk, "poef_fase": clampf(vt / VAL_TEKEN_S, 0.0, 1.0),
 		"hoed": String(info.get("hoed_naar", "")) == ""}
 
-# ---- tekenen: Daans lijf + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven ----
-# Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
-func _laag(tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:
-	var h := 16 - zak
-	if h <= 0:
-		return
-	draw_texture_rect_region(tex, Rect2(-8, y, 16, h), Rect2(bron_x, bron_y, 16, h), kleur)
-
+# ---- tekenen: in systemen/held_beeld.gd (opgesplitst 10 nov, held.gd bleef anders boven de 400 regels) ----
 func _draw() -> void:
-	if staat == "weg":
-		return
-	var frame := 0
-	if staat in ["lopen", "vluchten"]:
-		frame = int(t * 8) % 4
-	var omlaag := 1 if frame in [1, 3] else 0
-	var links := staat == "vluchten"
-	var wapen := 2 if trek == "schijterig" else 0       # schijterig neemt een fakkel mee, hebzuchtig een zwaard
-	var kleur := Color.WHITE
-	if t < geraakt_tot and int(t * 10) % 2 == 0:
-		kleur = Color(1, 0.55, 0.55)
-	var vb := {}
-	var zak := 0
-	var hop := 0
-	if staat == "vallen":
-		vb = val_beeld(val_t)
-		zak = int(vb.zak)
-		hop = int(vb.hop)
-	if links:
-		draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
-	var y := -16 + zak + hop
-	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
-	_laag(LIJF, frame * 16, kleur_nr * 16, y, zak, kleur)
-	for l in littekens:
-		_laag(LITTEKENS, l * 16, 0, y + omlaag, zak, kleur)
-	if vb.is_empty() or bool(vb.hoed):
-		_laag(HOEDEN_HAP if is_gebeten() else HOEDEN, hoed_nr * 16, 0, y + omlaag, zak, kleur)
-	if staat != "vallen":
-		_laag(WAPENS, wapen * 16, 0, y + omlaag, 0, kleur)
-	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
-	var tk: String = teken_nu() if staat != "vallen" else String(vb.teken)
-	if tk == "":
-		return
-	var onder: int = y + int(HOED_TOP[hoed_nr]) + omlaag - 1
-	if tk == "poef":
-		_poef(onder - 4, float(vb.poef_fase))
-		return
-	draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
-
-# Het boze wolkje knapt: eerst nog even het wolkje, dan vier plukjes die naar buiten schieten en vervagen.
-# Hele pixels, geen schalen. Mila mag dit vervangen door een getekende poef (zelfde plek, zelfde tijd).
-func _poef(midden_y: int, fase: float) -> void:
-	if fase < 0.25:
-		draw_texture_rect_region(TEKENS, Rect2(-4, midden_y - 4, 8, 8), Rect2(int(TEKEN["boos"]) * 8, 0, 8, 8))
-		return
-	var p := (fase - 0.25) / 0.75
-	var d := 1 + int(p * 4.0)
-	var c := Color(0.85, 0.85, 0.9, 1.0 - p)
-	for r in [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]:
-		draw_rect(Rect2(r.x * d - 1, midden_y + r.y * d - 1, 2, 2), c)
-	if p < 0.4:
-		draw_rect(Rect2(-1, midden_y - 1, 2, 2), Color(1, 1, 1, 1.0 - p * 2.0))
+	HELD_BEELD.teken(self)
