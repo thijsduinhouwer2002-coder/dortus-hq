@@ -10,7 +10,7 @@ import { MoneybirdFout } from "./moneybird/fouten.ts";
 import type { OAuthApp } from "./moneybird/oauth.ts";
 import { isOntkoppeld } from "./opslag.ts";
 import { WinkelStop } from "./ophalen.ts";
-import { verwerkWinkel, type Instellingen } from "./verwerk.ts";
+import { verwerkWinkel, type Instellingen, type RunUitkomst } from "./verwerk.ts";
 import { D1Opslag, type D1 } from "./d1/opslag.ts";
 import { ruimOntkoppeldOp } from "./d1/opruimen.ts";
 import { TokenBron, moneybirdSoort, tiktokSoort, type Sleutelbos } from "./d1/tokens.ts";
@@ -195,22 +195,27 @@ async function verwerkOnderSlot(
       // Tokens: alleen hier, onder het winkelslot (tokens.ts, versie 3b).
       let bron: "tiktok" | "moneybird" = "tiktok";
       try {
-        const tt = await new TokenBron({ ...tokenDeps, soort: tiktokSoort(o.tiktokApp) }).geef();
+        const ttBron = new TokenBron({ ...tokenDeps, soort: tiktokSoort(o.tiktokApp) });
+        const mbBron = new TokenBron({ ...tokenDeps, soort: moneybirdSoort(o.moneybirdApp) });
+        const tt = await ttBron.geef();
         bron = "moneybird";
-        const mb = await new TokenBron({ ...tokenDeps, soort: moneybirdSoort(o.moneybirdApp) }).geef();
+        await mbBron.geef();
         if (tt.waarschuwing) o.log(`winkel ${winkel}: refresh token van TikTok verloopt binnen 14 dagen; verkoper moet opnieuw koppelen`);
         const f = budget.omhul(volg);
         const slaap = o.slaap ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
-        const uit = await verwerkWinkel(
-          {
-            tiktok: new TikTokClient({ appKey: o.tiktokApp.appKey, appSecret: o.tiktokApp.appSecret, fetchFn: f, nu: klok, slaap }),
-            moneybird: new MoneybirdClient({ accessToken: mb.tokens.accessToken, fetchFn: f, nu: klok, slaap }),
-            accessToken: tt.tokens.accessToken,
-            shopCipher: rij.shop_cipher,
-            opslag, budget, nu: klok, eigenaar,
-          },
-          inst,
-        );
+        const run = (ttTok: string, mbTok: string) =>
+          verwerkWinkel(
+            {
+              tiktok: new TikTokClient({ appKey: o.tiktokApp.appKey, appSecret: o.tiktokApp.appSecret, fetchFn: f, nu: klok, slaap }),
+              moneybird: new MoneybirdClient({ accessToken: mbTok, fetchFn: f, nu: klok, slaap }),
+              accessToken: ttTok,
+              shopCipher: rij.shop_cipher!,
+              opslag, budget, nu: klok, eigenaar,
+            },
+            inst,
+          );
+        // Punt 5: na een 401 één keer verversen en opnieuw, in dezelfde aanroep en hetzelfde budget, via TokenBron.met.
+        const uit = await metVerversen(ttBron, mbBron, run, (k) => { bron = k; });
         if (uit.winkel?.soort === "ontkoppeld") return "ontkoppeld";
         if (uit.winkel) fout = { soort: uit.winkel.soort, bericht: uit.winkel.bericht, kant: kantVan(uit.winkel.soort, laatste) };
         nogWerk = uit.budgetOp || uit.verwerkt.some((v) => v.status === "bezig_met_ophalen");
@@ -240,6 +245,49 @@ async function verwerkOnderSlot(
   ];
   await opslag.klaar(extra);
   return "verwerkt";
+}
+
+/** Herkent een 401 van de ene kant zonder dat `is401` in de andere TokenBron hem ziet (geen httpStatus of soort). */
+class Kant401 extends Error {
+  readonly uit: RunUitkomst;
+  constructor(uit: RunUitkomst) { super("401 midden in de run"); this.uit = uit; }
+}
+class MbStop extends Error {
+  readonly stop: WinkelStop;
+  constructor(stop: WinkelStop) { super(stop.message); this.stop = stop; }
+}
+
+/**
+ * `verwerkWinkel` vangt fouten van de clients zelf af en geeft ze terug als `uit.winkel`: `token_verlopen` is de 401
+ * van TikTok, `koppeling_verlopen` die van Moneybird. Die zetten we hier om in een fout, zodat `TokenBron.met` één keer
+ * ververst en de run opnieuw doet (statussen zijn teruggezet, markering staat vast, dus opnieuw is veilig). Tweede keer
+ * weer 401: WinkelStop `koppeling_verlopen` van die kant. Ook een geldig paar dat al door een andere aanroep ververst
+ * werd, komt zo terug (TokenBron leest D1 opnieuw).
+ */
+async function metVerversen(
+  tt: TokenBron<{ accessToken: string }>, mb: TokenBron<{ accessToken: string }>,
+  run: (ttTok: string, mbTok: string) => Promise<RunUitkomst>, kant: (k: "tiktok" | "moneybird") => void,
+): Promise<RunUitkomst> {
+  try {
+    return await tt.met(async (ttTok) => {
+      try {
+        return await mb.met(async (mbTok) => {
+          const uit = await run(ttTok.accessToken, mbTok.accessToken);
+          if (uit.winkel?.soort === "token_verlopen") throw new Kant401(uit); // niet voor mb.met
+          if (uit.winkel?.soort === "koppeling_verlopen") throw Object.assign(new Error(uit.winkel.bericht), { httpStatus: 401 });
+          return uit;
+        });
+      } catch (e) {
+        if (e instanceof Kant401) throw Object.assign(new Error(e.message), { httpStatus: 401 }); // nu wel voor tt.met
+        if (e instanceof WinkelStop) throw new MbStop(e); // tweede 401 van Moneybird: niet tt.met laten verversen
+        throw e;
+      }
+    });
+  } catch (e) {
+    if (e instanceof MbStop) { kant("moneybird"); throw e.stop; }
+    if (e instanceof WinkelStop) kant("tiktok");
+    throw e;
+  }
 }
 
 // ---------------------------------------------------------------------------------------------------------------

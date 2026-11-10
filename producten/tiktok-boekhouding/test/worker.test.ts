@@ -144,29 +144,54 @@ test("(h) bericht altijd bevestigd, ook als iets gooit; consumer gooit nooit", a
   assert.equal(acks, 2);
 });
 
-test("(j) CPU van één consumer-aanroep met 30 bestellingen (doel onder 5 ms in Node)", async () => {
+test("(h) 401 van Moneybird midden in de run: één keer verversen en opnieuw in dezelfde aanroep (TokenBron.met)", async () => {
+  const db = new NepD1();
+  await winkel(db, "a");
+  const w = wereld();
+  w.voegToe("704", T0 + 86400, "PAID", [10]);
+  let ververst = 0;
+  let eerste401 = true;
+  const fn = (async (input: any, init: any = {}) => {
+    const u = String(input);
+    if (u.includes("/oauth/token")) { ververst++; return new Response(JSON.stringify({ access_token: "mb-a2", refresh_token: "mb-r2", scope: "documents" })); }
+    if (u.includes("moneybird") && eerste401) { eerste401 = false; return new Response(JSON.stringify({ error: "verlopen" }), { status: 401 }); }
+    return w.fn(input, init);
+  }) as typeof fetch;
+  const { o } = omgeving(db, fn);
+  assert.equal(await consumer({ winkel: "a" }, o, NU), "verwerkt");
+  assert.equal(ververst, 1);
+  assert.equal(rij(db, "a").winkelfout, null);
+  assert.equal(rij(db, "a").mb_versie, 1);
+  assert.equal(w.docs.size, 1, "na het verversen toch geboekt");
+});
+
+// (j) Meten bij het laden, zodat de toets als bekende fout (todo) kan staan als het doel niet gehaald wordt (besluit Jet).
+async function meetCpu() {
   const ronde = async () => {
     const db = new NepD1();
     await winkel(db, "a");
     const w = wereld();
     w.voegToe("801", T0 + 86400, "PAID", Array(30).fill(12.5));
-    const { o } = omgeving(db, w.fn);
-    return { db, o };
+    return omgeving(db, w.fn).o;
   };
-  const warm = await ronde();
-  await consumer({ winkel: "a" }, warm.o, NU); // opwarmen
+  await consumer({ winkel: "a" }, await ronde(), NU); // opwarmen
   const metingen: number[] = [];
   let st = "";
   for (let i = 0; i < 3; i++) {
-    const { o } = await ronde();
+    const o = await ronde();
     const start = process.cpuUsage();
     const uit = await consumer({ winkel: "a" }, o, NU);
     const d = process.cpuUsage(start);
-    assert.equal(uit, "verwerkt");
+    if (uit !== "verwerkt") throw new Error(`consumer gaf ${uit}`);
     st = String((o.db as any).sqlite.prepare("SELECT status FROM statussen").get()?.status);
     metingen.push((d.user + d.system) / 1000);
   }
-  const ms = Math.min(...metingen);
-  console.log(`(j) CPU consumer-aanroep met 30 bestellingen: ${ms.toFixed(2)} ms (beste van 3: ${metingen.map((m) => m.toFixed(2)).join(", ")}; inclusief nagebootste D1 op node:sqlite en nep-fetch; status na de aanroep: ${st})`);
-  if (ms >= 5) console.log(`(j) LET OP: boven het doel van 5 ms; risico voor Tess`);
+  return { ms: Math.min(...metingen), metingen, st };
+}
+const cpu = await meetCpu();
+const cpuTekst = `${cpu.ms.toFixed(2)} ms (beste van 3: ${cpu.metingen.map((m) => m.toFixed(2)).join(", ")}; inclusief nagebootste D1 op node:sqlite en nep-fetch; status na de aanroep: ${cpu.st})`;
+console.log(`(j) CPU consumer-aanroep met 30 bestellingen: ${cpuTekst}`);
+
+test("(j) CPU van één consumer-aanroep met 30 bestellingen onder 5 ms in Node", cpu.ms >= 5 ? { todo: "CPU boven 5 ms in Node, risico bij Tess" } : {}, () => {
+  assert.ok(cpu.ms < 5, `CPU ${cpuTekst}`);
 });
