@@ -150,6 +150,34 @@ module Ebb {
             return patroon[0] + patroon[1] + patroon[2] + patroon[3];
         }
 
+        // Pauze: de klok staat stil; bij doorgaan schuift het begin op met de pauzeduur.
+        var pauzeSinds as Number = -1;
+
+        function pauzeer(nu as Number) as Void {
+            if (pauzeSinds < 0) {
+                pauzeSinds = nu;
+            }
+        }
+
+        function hervat(nu as Number) as Void {
+            if (pauzeSinds >= 0) {
+                startMs += nu - pauzeSinds;
+                pauzeSinds = -1;
+            }
+        }
+
+        // De klok voor het scherm: tijdens pauze het moment van pauzeren.
+        function klok(nu as Number) as Number {
+            return pauzeSinds >= 0 ? pauzeSinds : nu;
+        }
+
+        // Hele seconden die nog over zijn in de huidige fase (afgerond naar boven), voor het grote getal.
+        function overS(nu as Number) as Number {
+            var i = faseIndex(nu);
+            var rest = patroon[i] - (nu - faseStart(nu));
+            return (rest + 999) / 1000;
+        }
+
         // Index van de fase: 0 in, 1 vast (vol), 2 uit, 3 vast (leeg).
         function faseIndex(nu as Number) as Number {
             var c = cyclus();

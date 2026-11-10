@@ -165,3 +165,20 @@ function testPauzeDubbelVeilig(logger as Test.Logger) as Boolean {
     s.hervat(40000);
     return start1 == 0 && s.segmentStart == 20000;
 }
+
+// Rustig ademen: pauze zet de klok stil, doorgaan gaat verder in dezelfde fase met dezelfde resttijd.
+(:test)
+function testRustigPauze(logger as Test.Logger) as Boolean {
+    var r = new Ebb.Rustig([4000, 4000, 4000, 4000] as Array<Number>, 0);
+    var voor = r.faseIndex(5500);
+    var restVoor = r.overS(5500);
+    r.pauzeer(5500);
+    var stil = r.klok(60000) == 5500;
+    r.hervat(65500);
+    var na = r.faseIndex(65500);
+    var restNa = r.overS(65500);
+    var later = r.faseIndex(65500 + 2600);
+    logger.debug("fase " + voor + " rest " + restVoor + " na " + na + " rest " + restNa + " later " + later);
+    return voor == 1 && restVoor == 3 && stil && na == 1 && restNa == 3 && later == 2
+        && new Ebb.Rustig([4000, 4000, 4000, 4000] as Array<Number>, 0).overS(4000) == 4;
+}
