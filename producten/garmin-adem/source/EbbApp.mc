@@ -73,6 +73,8 @@ class EbbApp extends Application.AppBase {
             }
             if (k == 6) {
                 var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
+                // Stilgezet 0,3 s in de fase "in": getal 4, water nog laag, dus het getal staat helemaal boven de golf.
+                rv.plaatjeMs = 300;
                 zetRustig(rv);
                 return [rv, new RustigDelegate(rv)];
             }

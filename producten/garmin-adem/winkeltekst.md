@@ -9,7 +9,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Title (44 tekens): `Ebb: Breath Hold, Breathwork & Box Breathing`
 - Category: Health & Fitness (bijna alle ademapps staan in categorie-id 219, GOK dat dat deze is)
 - Price: $4.99, eenmalig (paid app)
-- Description: de Engelse tekst hieronder, van "Ebb turns" tot en met de regel "Tags:" (±2.700 tekens, onder de grens van 4.000).
+- Description: de Engelse tekst hieronder, van "Breathing exercises" tot en met de regel "Tags:" (±2.700 tekens, onder de grens van 4.000).
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon / cover en screenshots: na het ja van Daan de bestanden die Mila noemt (`winkel/icoon-500-v2.png`, `winkel/0-poster-v2.png`, `winkel/1-...` tot `6-...`); tot dan `winkel/icoon-500.png` en tak `schermen`, map `garmin-adem/plaatjes/`.

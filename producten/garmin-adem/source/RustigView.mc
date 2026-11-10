@@ -15,6 +15,8 @@ class RustigView extends WatchUi.View {
     private var _gestart as Boolean = false;
     private var _vorige as Number = -1;
     private var _golf as Float = 0.0;
+    // Winkelplaatje (B3, Daan keuring 2): >= 0 zet de klok vast op zoveel ms na de start, zodat het grote getal boven de golf staat.
+    var plaatjeMs as Number = -1;
 
     function initialize(patroon as Array<Number>, naam as String) {
         View.initialize();
@@ -45,7 +47,9 @@ class RustigView extends WatchUi.View {
             EbbTrillen.tril(i == 0 ? EbbTrillen.M_IN : (i == 2 ? EbbTrillen.M_UIT : EbbTrillen.M_VAST));
             _vorige = i;
         }
-        _golf += 0.15;
+        if (plaatjeMs < 0) {
+            _golf += 0.15;
+        }
         WatchUi.requestUpdate();
     }
 
@@ -56,7 +60,7 @@ class RustigView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        var nu = sessie.klok(System.getTimer());
+        var nu = plaatjeMs >= 0 ? sessie.startMs + plaatjeMs : sessie.klok(System.getTimer());
         var i = sessie.faseIndex(nu);
         var peil = 0.2 + 0.52 * sessie.water(nu);
         EbbTeken.water(dc, d, peil, EbbTeken.DIEPTE[i == 3 ? 1 : 0], _golf);
