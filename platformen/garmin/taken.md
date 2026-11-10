@@ -6,7 +6,7 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Eis 3, 4, 5, 6, 9 (run 10 nov 05:29, 15 toetsen).
   - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).
   - [x] Eis 2, 7, 8: veiligheidsscherm, duikprofiel en getijdenlijn, dieren, 6 toetsen (10 nov 06:50).
-  - [ ] Eis 10 bijna: opname werkt op fenix7. **Eerst:** na weggooien lekt een lap (inhoud 9, duur 0) in de volgende opname op een ander horloge. Uitzoeken of het de simulator is (zelfde horloge twee keer, zonder setData voor weggooien, forum lezen met curl); zo nodig de testbouw per horloge in een eigen container.
+  - [x] Eis 10 (10 nov 07:20, run 42773779291): opname goed op drie horloges, na weggooien geen bestand. Simulator start per horloge opnieuw. Open voor een echt horloge: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s.
   - [ ] Eis 11: schermafbeeldingen van alle negen horloges (nu vier), groot getal minstens 30% van de breedte meten.
   - [ ] Eis 12: geheugen loggen op het zwaarste moment (duikprofiel en getijdenlijn met dier), overal onder 80%.
   - [ ] Instellingen op het horloge (ademhalingen, tempo, rondes, herstel, eigen patroon, trillen, veiligheidsscherm opnieuw), rustig ademen in het scherm, startmenu.

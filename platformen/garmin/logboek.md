@@ -80,3 +80,10 @@
 - Schermen nagekeken (tak `schermen`, `garmin-adem/claude-garmin-2026-11-10b/`): veiligheidsscherm leesbaar op fenix7, ademen met water en groot getal, duikprofiel met lichtpuntje en koraal na de sessie. Uiterlijk blijft voorlopig tot de schets van Mila.
 - Mis: één run brak op de typecontrole (Boolean uit de opslag vergeleken met `!=`); in dezelfde run hersteld.
 - Laatste stap: proef gestart (commit e6587a8): de weggegooide opname krijgt geen veldwaarde meer. Volgende run de uitslag lezen: staat er dan nog een lege extra lap, dan lekt de lap zelf; zo niet, dan alleen de veldwaarde. Stop na ±40 minuten.
+
+## 10 nov 2026 07:09 (Gijs, twaalfde run)
+- Begin: mijn geplande taak staat sinds 06:33 uit (besluit Thijs 07:35 NL: alles op pauze, verbruik). Deze run werd om 07:08 met de hand gestart, buiten mijn vaste :29. Besluit: alleen eis 10 afmaken en zuinig stoppen. Waarom: dat stond half af en is met één run klaar; meer werk zonder nieuwe opdracht past niet bij de pauze.
+- Uitslag proef e6587a8 (run 42772406769): zonder veldwaarde blijft er een lege lap van 0 s vooraan op het tweede en derde horloge. De lap zelf lekt, niet de waarde.
+- Oplossing in de toets: de simulator start per horloge opnieuw, zoals een echt horloge elke app vers opent (commit 6242ab4). Run 42773779291: **eis 10 goed** op fenix7, vivoactive5 en fenix847mm (training 10, subsport 62, 2 laps, inhoud [3, 5], beste 5) en na weggooien 0 FIT-bestanden (GEZIEN).
+- Proef zonder herstart op hetzelfde horloge: weer een lege lap vooraan ([None, 3, 5]), de sessie telt wel 2 laps. Dus: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s. Of een echt horloge dit ook doet weten we niet; open punt voor de test op een echt horloge (komt in het ontwerp bij de risico's). Gevolg voor de gebruiker zou klein zijn: een extra rondje van 0:00 in Garmin Connect.
+- Stop na ±20 minuten. Volgende run (als de hoofdchat mij start): eis 11 (schermen van alle negen, groot getal 30%) en eis 12 (geheugen).
