@@ -36,6 +36,15 @@ const KIES_GEWICHT := {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5
 const EERSTE_GEWOON := 10
 const LIED_HELDEN := 2        # zoveel helden extra na een lied (strook.gd laat ze binnen de volgende minuut komen)
 
+# Sanne features.md (eerste tien minuten): geen aartsvijand in het eerste uur van een nieuw spel. Geteld in nieuwe
+# helden (helden_nr staat al in de save van strook.gd): ±60 per uur open tijd. Gemeten met python3 sim.py aarts (GEZIEN,
+# 60 zaden): zonder regel krijgt 32% van de nieuwe spellen een aartsvijand in uur 1 (vroegste na 11 min); met 60 helden
+# 1 van 60 net voor het uur (0,98 u), mediaan eerste aartsvijand 2,25 u, 58 van 60 binnen 6 u.
+const AARTS_NA_HELDEN := 60
+
+static func aarts_mag(helden_nr: int) -> bool:
+	return helden_nr >= AARTS_NA_HELDEN
+
 # Rij in kunst/held_soort.png (Mila 10 nov: kleding per soort, zelfde volgorde als SOORTEN); -1 = gewone held.
 static func rij(s: String) -> int:
 	return SOORTEN.find(s)

@@ -83,3 +83,13 @@ Trick Lid (stap 3 van de put) ziet eruit als vloer, dus de magiër ziet hem niet
 - alle 10 hoeden (als elke held een willekeurige hoed draagt): 0,6 / 1,1 / 1,9 u.
 - hoedenberg 1000: 31 / 32 / 33 u, 3000: 93 / 94 / 96 u (Sanne rekende 110 u; Gloop eet nu iets meer door upgrades en soorten). 10.000 komt pas na ±300 u.
 Dus: hoofdstuk 1 en de hoeden zijn op dag 1 klaar (zoals Sanne verwachtte), de bergstempels bij een werkdag open op dag ±4 en ±12, de aartsvijanden lopen altijd door. Karakters (hoofdstuk 2) zitten niet in de sim; de trekken komen na held 10 met 1 op 5, dus ook dag 1.
+
+## Eerste aartsvijand (Bram, 10 nov 04:20 UTC, `python3 sim.py aarts`, 60 zaden, 6 u, GEZIEN)
+Sanne vraagt in `features.md` (eerste tien minuten): geen aartsvijand in het eerste uur van een nieuw spel.
+| regel | met soorten | aartsvijand in uur 1 | vroegste | mediaan eerste | binnen 6 u |
+|---|---|---|---|---|---|
+| geen regel (nu in strook.gd) | nee | 12 van 60 (20%) | 0,18 u | 1,82 u | 54 |
+| geen regel (nu in strook.gd) | ja | 19 van 60 (32%) | 0,18 u | 1,60 u | 56 |
+| pas na 3600 s open tijd | ja | 0 | 1,00 u | 2,29 u | 58 |
+| pas vanaf 60 nieuwe helden | ja | 1 (0,98 u) | 0,98 u | 2,25 u | 58 |
+In uur 1 komen 50 tot 69 nieuwe helden (mediaan 60). Advies: tel in nieuwe helden (`helden_nr` staat al in de save), dan hoeft er geen open tijd bij. `heldensoort.aarts_mag(helden_nr)` geeft true vanaf 60. De aartsvijand komt dan gemiddeld na ±2,3 u, nog steeds op dag 1.

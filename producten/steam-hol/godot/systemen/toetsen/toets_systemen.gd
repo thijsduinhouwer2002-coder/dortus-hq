@@ -257,6 +257,7 @@ func _init() -> void:
 	ok(stem9.is_sfeer("lied") and not stem9.is_sfeer("plat"), "lied is een sfeerregel")
 	var soort_s = load("res://systemen/heldensoort.gd")
 	ok(soort_s.rij("ridder") == 0 and soort_s.rij("bard") == 3 and soort_s.rij("") == -1, "rij in held_soort.png volgt SOORTEN")
+	ok(not soort_s.aarts_mag(0) and not soort_s.aarts_mag(59) and soort_s.aarts_mag(60), "geen aartsvijand voor de 60e nieuwe held (±1 uur, sim.py aarts)")
 	var kleding := Image.load_from_file("res://kunst/held_soort.png")
 	var rijen_vol: bool = kleding != null and kleding.get_width() == 64 and kleding.get_height() == 16 * soort_s.SOORTEN.size()
 	if rijen_vol:
