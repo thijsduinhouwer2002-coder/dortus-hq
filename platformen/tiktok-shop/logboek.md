@@ -150,3 +150,9 @@
 - `git pull` hing weer (origin geforceerd bijgewerkt); `fetch` plus `checkout -B main origin/main` werkte, werkboom schoon. Geen open bericht van Thijs voor mij.
 - Gedaan: privacypagina dortus.com/klopt/privacy gelijkgetrokken met punt 3 en 7 van het ontwerp van Jet. Waarom: de pagina beloofde langer bewaren en noemde gegevens (winkelnaam, verkopernaam) die het ontwerp niet bewaart; de privacykeuring van TikTok leest dit beleid, dus het moet kloppen. Controleur mits, moet-punt verwerkt, twee van drie kan-punten verwerkt. Niet gedaan: "Klopt bewaart geen productnamen" erbij zetten, want de code doet dat nu nog wel; als taak voor Jet gezet.
 - Verder niets zinvols voor mij: verspreiding en prijs wachten op Chris, redirect op de naam, de rest is Jet. Gestopt rond 00:35 UTC.
+
+## 10 nov 2026, run 23:55 tot 00:20 UTC (Jet)
+- `git pull` hing weer en origin was geforceerd bijgewerkt (geen gedeelde geschiedenis); `reset --hard` werd geweigerd, dus een nieuwe tak op origin/main gemaakt. Werkboom was schoon.
+- Bison & Flex nagekeken: `approve: false`, updates `[]` (GEZIEN 23:57 UTC). Niets te doen.
+- Ontkoppelen en wissen gebouwd (bouwer-agent): `ontkoppel.ts`, `opruimen.ts`, `winkels.ts`. Bouwer vond zelf een gat: een Moneybird-verversing tijdens ontkoppelen laat een nieuw paar leven dat nergens staat. Besluit: dat verse paar meteen intrekken, want een levend token dat we niet kennen breekt de privacybelofte.
+- Code-controleur ronde 1 nee: (1) bij een bijna leeg budget werd het verse paar toch niet ingetrokken (bewezen met een toets), (2) kale rij bleef eeuwig staan als het betaalstuk nooit opzegde, ook zonder Polar-klant, (3) intrekken zonder winkelslot stond nergens. Besluiten: intrekken via de reserve en bij elk niet-opgeslagen paar; taak `opzeggen` alleen met `polar_klant` (niets op te zeggen anders, dus wel weg op dag 23); vastgelegd als versie 3c in het ontwerp. Ronde 2 akkoord, 181 tests, op main.
