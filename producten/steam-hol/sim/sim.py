@@ -101,8 +101,11 @@ def speel(uren, zaad):
             klappen += 1
             geraakt_door = v["soort"]
             if v["soort"] == "slijm":
-                v["plat_tot"] = t + PLAT_S
-            if (h["trek"] == "schijterig" and rng.random() < SCHIJT_OM) or klappen >= 2:
+                # Bouncy Gloop (godot/systemen/upgrades.gd, stap 2): plat 2/3 van de tijd
+                v["plat_tot"] = t + PLAT_S * (2 / 3 if upg["slijm"] >= 2 else 1)
+            # Deep Pit (stap 2 van de put): een schijterige held keert na zijn eerste klap van de put niet om
+            diep = v["soort"] == "stekelput" and upg["stekelput"] >= 2 and klappen < 2
+            if (h["trek"] == "schijterig" and not diep and rng.random() < SCHIJT_OM) or klappen >= 2:
                 uit = "gevlucht"
                 break
         if uit is None:
