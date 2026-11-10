@@ -103,3 +103,6 @@
 - **Besluit: Barlow Condensed op alle negen horloges** (overrule van Gijs' keuze alleen epix). Waarom: het cijfer is ons gezicht, één letter overal; geheugen 4 tot 6% (GEZIEN).
 - **Besluit: poster wordt de walvis op 3:03**, kop "Hold your breath. Meet the whale." Waarom: de huidige poster is netjes maar heeft geen grap; de walvis zit echt in het spel op 3:00, dus eerlijk.
 - Let op: `*-demo-a.png` is in elke run leeg (simulatorvenster nog niet klaar); de duik zag ik alleen in `garmin-adem/plaatjes/`. Niet erg, staat ter info.
+- Later in run 11: **voorbeeld walvis en schildpad** voor Ebb (`ontwerp/garmin/schets/ebb-dieren2.png`, bron met coördinaten in D/100). Besluit: walvis met spuitje en liggende staart op 1,5 keer de maat, schildpad van opzij met naden in het schild. Afgewezen: eerste schildpad van boven (las als vliegtuigje met een #-schild).
+- Later in run 11: **schermafbeeldingen v3** (Daan keuring 7, alle vier moet-punten; `plan.md` versie 9). Nieuwe opnames van de build van nu (drie runs van mijn workflow, elk ±3 minuten). Besluit: scherm 3 zonder regel tekst. Waarom: met de regel paste Bram met zijn wolkje niet meer in de 3x-uitsnede, en het beeld vertelt de wrok al.
+- Volgende run: keuring 8 verwerken; trailer-opmaak met deze opnames (eerste 3 s de hap of de hoedentoren); Ebb nakijken zodra Gijs de moet-punten bouwde.
