@@ -3,9 +3,13 @@ name: Het Hol winkelbeelden (1920 breed, Mila)
 # Mila, 10 nov 2026. Opnames voor de schermafbeeldingen en de trailer op de winkelpagina (Daan keuring 6, moet 1):
 # de strook over de hele breedte van een scherm van 1920 x 1080, zoals een koper hem krijgt.
 # Raakt de gewone test van Olaf (steam-hol.yml) niet. Losse PNG's (met doorzichtige lucht) op de tak schermen,
-# map steam-hol/winkel-1920/.
+# map steam-hol/winkel-1920-<soort>/ (demo of week).
 on:
   workflow_dispatch:
+    inputs:
+      soort:
+        description: "demo (de film van een minuut) of week (een hol na ±een week spelen, uit een save)"
+        default: "week"
   push:
     branches: [main]
     paths: [".github/workflows/steam-hol-winkel.yml"]
@@ -17,6 +21,8 @@ jobs:
   winkel:
     runs-on: windows-latest
     timeout-minutes: 30
+    env:
+      SOORT: ${{ inputs.soort || 'week' }}
     steps:
       - uses: actions/checkout@v4
       - name: Scherm op 1920 x 1080
@@ -37,6 +43,7 @@ jobs:
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64_console.exe" -ArgumentList "--headless --path producten/steam-hol/godot --import" -PassThru -NoNewWindow
           if (-not $p.WaitForExit(180000)) { Stop-Process -Id $p.Id -Force }
       - name: Bureaublad met de strook (echt, ter vergelijking)
+        if: env.SOORT == 'demo'
         shell: pwsh
         run: |
           $uit = "producten/steam-hol/e2e/winkel"
@@ -47,7 +54,29 @@ jobs:
           & producten/steam-hol/e2e/scherm.ps1 "$uit/bureaublad-echt.png"
           $p.WaitForExit(30000) | Out-Null
           if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force }
-      - name: Film op 1920 breed, 75 s, elk 5e beeld bewaard
+      - name: Save van een hol na een week (alleen bij week)
+        if: env.SOORT == 'week'
+        shell: pwsh
+        run: |
+          # Een echte save in het formaat van kern/opslag.gd (versie 3). Lang gang, vijf kamers, drie stekelputten,
+          # 320 opgegeten hoeden (berg maat 4: na ±15 uur open, Sanne 21:50), Royal Gloop en Deep Pit gekocht.
+          # 'tijd' 3 uur geleden, zodat het spel bij openen vertelt wat er gebeurde terwijl je weg was.
+          $dir = Join-Path $env:APPDATA "Godot/app_userdata/Het Hol"
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          $gang = @(); $boven = @()
+          for ($i = 0; $i -lt 40; $i++) { $gang += ($i -ge 1 -and $i -le 29); $boven += ($i -in 4,5,9,10,15,16,21,22) }
+          $r = New-Object System.Random 11
+          $hoeden = @(4, 8, 6, 2); for ($i = 0; $i -lt 316; $i++) { $hoeden += $r.Next(0, 10) }
+          $nu = [int][double]::Parse((Get-Date -UFormat %s))
+          $data = [ordered]@{ versie = 3; tijd = $nu - 10800; gang = $gang; boven = $boven; eerste_held_gedaan = $true
+            vallen = @{ "7" = "stekelput"; "13" = "stekelput"; "19" = "stekelput" }; ingang_kol = 2; schat_kol = 29
+            gevallen_namen = @{ "Kees" = 1; "Odo" = 1; "Mara" = 1 }; goud = 240; terugkomers = @(); kroniek = @()
+            begin_gedaan = @("vallen", "vluchten", "opgegeten", "terug", "doorlopen"); begin_vlucht = ""; helden_nr = 340; lied_helden = 0
+            pensioen_namen = @(); slijm = @{ hoeden = $hoeden; gegeten = 320; gespuugd = 0; keer_plat = 12 }
+            upgrades = @{ slijm = 3; stekelput = 2 } }
+          $data | ConvertTo-Json -Depth 5 -Compress | Set-Content -Encoding utf8NoBOM (Join-Path $dir "hol.json")
+          Get-Content (Join-Path $dir "hol.json") | Select-Object -First 1
+      - name: Film op 1920 breed, elk 5e beeld bewaard
         shell: pwsh
         run: |
           $uit = "producten/steam-hol/e2e/winkel"
@@ -55,7 +84,7 @@ jobs:
           New-Item -ItemType Directory -Force $film | Out-Null
           $log = ($film -replace '\\','/') + "/film.log"
           $p = Start-Process -FilePath "godot/Godot_v4.3-stable_win64.exe" `
-            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after 1125 -- hoogte=120 demo=1 vers=1 film=1 log=$log" -PassThru
+            -ArgumentList "--path producten/steam-hol/godot --rendering-driver opengl3_angle --write-movie `"$film/f.png`" --fixed-fps 15 --quit-after $(if ($env:SOORT -eq 'week') { 1350 } else { 1125 }) -- hoogte=120 $(if ($env:SOORT -eq 'week') { 'demo=0 vers=0' } else { 'demo=1 vers=1' }) film=1 log=$log" -PassThru
           if (-not $p.WaitForExit(900000)) { Stop-Process -Id $p.Id -Force }
           Get-Content $log -ErrorAction SilentlyContinue
           $alle = Get-ChildItem $film -Filter "f*.png" | Sort-Object Name
@@ -79,7 +108,7 @@ jobs:
           for poging in 1 2 3 4 5; do
             rm -rf "$T"
             git clone -q --depth 1 --branch schermen "$URL" "$T" || exit 1
-            D="$T/steam-hol/winkel-1920"
+            D="$T/steam-hol/winkel-1920-$SOORT"
             rm -rf "$D" && mkdir -p "$D" && cp -r "$SRC"/. "$D"/
             echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
             cd "$T" && git add -A && git commit -q -m "Winkelbeelden steam-hol run ${GITHUB_RUN_ID}" || exit 0
