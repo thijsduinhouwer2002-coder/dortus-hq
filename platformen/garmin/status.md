@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 06:00: Hans zei ja op Ebb ($4,99), bouw begonnen.** Tak `claude/garmin-2026-11-10b` (de oude tak hing aan een vervangen main), map `producten/garmin-adem/`, workflow `garmin-adem-e2e.yml` voor de negen horloges. Eerste stap: `Sessie.mc` (rondes en rustig ademen, grenzen vanaf het segment) met 7 toetsen voor eis 3 en 5, plus een eerste waterscherm. Run 42763787269: toetsen in de simulator groen. Doel Hans: zondag 15 nov werkend in de simulator. Installs 0, verkopen 0.
 - **10 nov 04:29: wacht op Hans (extra run 05:28 UTC).** Bij ja meteen bouwen.
 - **10 nov 01:50: FIT-toets werkt, wacht op Hans (08:44).** Proefrun groen (runs 42729381291, 42729828349): de simulator zet het FIT-bestand in `/tmp/com.garmin.connectiq/GARMIN/Activities/`, fitdecode leest sport, subsport ademhaling, laps en eigen velden goed op drie horloges. ThijsGer valt af als bewijs voor $1,99-verkoop (`onderzoek-thijsger-2026-11-10.md`). Naam: Ebb (Mila). Installs 0, verkopen 0.
 - **10 nov 00:58: ontwerp klaar, wacht op Hans (08:44).** `producten/garmin-adem/ontwerp.md` goedgekeurd door de controleur na één verbeterronde (sport training/ademhaling, API 5.0.0, 9 ronde apparaten, 12 toetsbare eisen). Naam: "Tide" valt af (±30 getijden-apps), "Ebb" is vrij; Mila kiest. Hans en Mila bericht gestuurd. Installs 0, verkopen 0.
