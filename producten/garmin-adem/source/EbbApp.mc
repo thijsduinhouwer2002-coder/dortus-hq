@@ -312,20 +312,36 @@ class EbbView extends WatchUi.View {
             // 2. Duiken: bijna alles water, per 15 s een tint dieper, belletjes stijgen, dier in koraal.
             var tint = t / 15000;
             EbbTeken.water(dc, d, 0.93, EbbTeken.DIEPTE[tint > 3 ? 3 : tint], golfFase);
+            yGroot = 0.30;
+            // Mila keuring 1, moet 1: de dieptetekst staat minstens 4% D onder de onderkant van het cijfer,
+            // het dier zwemt daar weer onder (run 42836983971: "123 m" plakte onder "2:03").
+            var fh = dc.getFontHeight(font).toFloat() / d;
+            yKlein = yGroot + fh + 0.04;
+            var yDier = yKlein + dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d + 0.07;
+            if (yDier > 0.86) { yDier = 0.86; }
+            // Moet 2: belletjes gaan achter het cijfer langs. Een belletje in de band van het cijfer wordt niet
+            // getekend, zodat er geen kringetje door de cijfers loopt; erboven en eronder stijgt het gewoon.
             var stijg = (t % 8000) / 8000.0;
-            EbbTeken.bellen(dc, d, [
+            var alle = [
                 [0.30, 0.70 - 0.30 * stijg, 0.018], [0.33, 0.85 - 0.30 * stijg, 0.012],
-                [0.70, 0.55 - 0.30 * stijg, 0.015], [0.68, 0.45 - 0.25 * stijg, 0.009]] as Array<Array<Float> >);
+                [0.70, 0.55 - 0.30 * stijg, 0.015], [0.68, 0.45 - 0.25 * stijg, 0.009]] as Array<Array<Float> >;
+            var zichtbaar = [] as Array<Array<Float> >;
+            for (var b = 0; b < alle.size(); b += 1) {
+                var by = alle[b][1];
+                var br = alle[b][2];
+                if (by + br < yGroot || by - br > yGroot + fh) {
+                    zichtbaar.add(alle[b]);
+                }
+            }
+            EbbTeken.bellen(dc, d, zichtbaar);
             var soort = EbbProfiel.dier(t);
             if (soort >= 0) {
                 var p = (t - EbbProfiel.DREMPELS[soort]).toFloat() / EbbProfiel.IN_BEELD_MS;
-                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (0.80 * d).toNumber());   // onder de diepte-tekst (plaatjes run 42833605030: op 0,66 liep het dier door "63 m")
+                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (yDier * d).toNumber());
             }
             var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             klein = s + " m";
-            yGroot = 0.30;
-            yKlein = 0.62;
         } else if (fase == Ebb.FASE_HERSTEL) {
             // 3. Boven: water schiet in 0,5 s van 93% naar 72%, plons van vijf belletjes.
             var peil = (t < 500) ? 0.93 - 0.21 * t / 500.0 : 0.72;
