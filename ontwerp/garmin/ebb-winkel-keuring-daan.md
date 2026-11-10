@@ -61,3 +61,30 @@ Halve belletjes onderin naar binnen; donker nachtblauw boven het water in het ic
 Waarom ja op voorwaarde en geen nee: de app is goed en eigen, de tekst is eerlijk op drie zinnen na, en de opbouw van de beelden is het sterkste in de rij. Wat overblijft is een tegenspraak in testgegevens, de walvis die de poster belooft, en drie zinnen. Dat zijn geen nieuwe ontwerpkeuzes.
 
 Controleur (agent): ging elke bewering van de tekst na in de code; vond T2 en T3 en bevestigde T1. Overgenomen.
+
+## Keuring 3 (10 nov 2026, 18:45 UTC): nakijkronde v2, nee door de walvis
+
+Bekeken met Read: Mila's v2 op tak `claude/garmin-2026-11-10b` (dd460d0: icoon, poster, kaart 1, 2 en 6, rij `ontwerp/garmin/winkel/ebb-winkel-v2-rij.png`), de winkeltekst versie 3 (T1 tot T3 en beide kan-punten) en de tekencode van de dieren (`Teken.mc` walvis en schildpad, `EbbApp.mc` ±359). Daarbij het oordeel van Thijs zelf (19:33 NL, `berichten/daan.md`): de walvis is "niet mooi en heel makkelijk" en "staat niet in het midden".
+
+**Akkoord voor indienen: nee.** Niet indienen met release `ebb-v1.0.0`: de walvis zit in de app zelf, dus er komt een nieuwe build en release.
+
+**Ja, klaar en vast (niet meer aan zitten):**
+- Winkeltekst versie 3: T1, T2, T3 en de kan-punten kloppen (regel 26, 39, 47, 48 en de patroonnamen in alle drie de talen).
+- B1, B3, B4 en de ondertitel van kaart 1: gedaan. Kaart 6 (fenix 8, 4-7-8, getal boven de golf) is goed.
+- Opbouw, koppen, icoonvorm met bouten, nachtblauw boven het water: blijft.
+
+**Thijs heeft gelijk, en ik had dit zelf moeten tegenhouden.** In keuring 1 en 2 keurde ik de vorm van de walvis ("V-staart, spuitje, platte buik") op lijstje af in plaats van te vragen of hij mooi is. Naast elkaar op de poster: een vlakke rode veelhoek, de onderkaak is een losse spleet, geen buik, geen vin, het oog is een gat. Zo ziet clipart eruit, en de walvis is precies wat de poster verkoopt ("Meet the whale").
+
+**Moet (op volgorde), geldt voor app, icoon, poster en kaarten:**
+- **W1. Een walvis met karakter en diepte** (Mila tekent, Gijs bouwt in `Teken.mc`). Bolle kop die vloeiend naar de staartsteel loopt (geen knik), buik in de lichte tint `0xFFAAAA` met drie keelgroeven, een ronde borstvin die naar achteren hangt, een oog met een witte glans (stip van 40%), een bek als zachte lijn met de mondhoek omhoog (vriendelijk, geen spleet), het spuitje mag blijven. Alleen MIP-kleuren, geen verloop. Richting (geen eindontwerp, Mila is de baas over de stijl): `ontwerp/garmin/winkel/walvis-richting-daan.png`, bron `ontwerp/garmin/bron/walvis_richting_daan.py`, links in de patrijspoort, midden op 454 px, rechts op 260 px. Eén gesloten vorm: nu staat op de poster een lichte naad tussen buik en vin. Toets: op 260 px zie je nog buik, oog en vin.
+- **W2. Het midden van de tekening is het midden van het dier.** Nu loopt de walvis van -11 tot +14,5 rond cx, dus hij staat altijd 1,75 eenheid rechts van waar de code denkt. Verticaal zit hij er nog verder naast: van -9,2 (spuitje) tot +3,4 (vin), dus 2,9 eenheden boven cy. Zet de punten zo dat het kader van het hele dier (met spuitje) rond (0,0) ligt, en haal dan het lapmiddel `yd = yDier + 0.06` (`EbbApp.mc` ±362) weg.
+- **W3. Op het horloge in het midden onder de klok.** De dieren zwemmen nu in één beweging van rechts naar links door het beeld (`(1.1 - 1.2 * p) * d`), dus elk stilstaand frame vangt ze ergens onderweg. Beter voor beeld en gevoel: het dier zwemt in, blijft ±2 s rustig in het midden onder het getal hangen (heel licht op en neer), en zwemt dan door. Winkelbeelden kiezen een frame uit dat stuk.
+- **W4. De patrijspoort-loep netjes gecentreerd.** Nu valt de kop links tegen de rand en de staart rechts eraf: het dier past niet in de loep. Het hele dier (met spuitje en staart) binnen ±78% van de binnenmaat, met het midden van het kader op het midden van de loep. Alleen het waterbeeld in de loep: nu vergroot de loep onderaan een zwarte boog en streepjes van de wijzerplaat mee. Geldt voor poster en kaart 2.
+- **W5. De schildpad dezelfde ronde.** Zelfde probleem: het schild met losse kruislijnen leest als een gebroken bord, de pootjes als losse plakjes. Schild met een lichte rand of plaatjes in `0xFFAAAA`, kop met oog en glans, peddels als één vloeiende vorm. Vis en kwal kijken we mee na; ze zijn klein en kort in beeld, maar moeten bij dezelfde familie horen.
+- **W6. Het icoon gelijk aan de nieuwe walvis**, ook gecentreerd in de patrijspoort.
+
+**Volgorde:** Mila tekent W1, W5 en W6 (bron in `ontwerp/garmin/bron/`), Gijs bouwt W1 tot W3 en W5 in de app, groene test op de negen horloges, release `ebb-v1.0.1`; Mila draait haar script opnieuw met W4. Daarna kijk ik alleen W1 tot W6 na, op winkelformaat én op het echte formaat van het horloge. Tekst en de rest van de beelden zijn al ja.
+
+**De vraag die ik nu bij elk dier stel:** zou een koper de poster stilzetten om naar de walvis te kijken? Bij v2 is het antwoord nee.
+
+Controleur (agent): W1 tot W6 kloppen met de plaatjes en de code. Vond erbij: de walvis zit ook verticaal 2,9 eenheden scheef, de loep vergroot de rand van het horloge mee, en een naad tussen buik en vin; overgenomen in W1, W2 en W4. Over mijn richting-schets: beter, maar de keelgroeven zijn op dit formaat bijna onzichtbaar, de snelheidsstreepjes achter de staart botsen met W3 (stil in het midden) en trekken het kader scheef, er staat geen getal in om "onder de klok" te toetsen, en het oog met glans haalt 260 px maar net. Daarom is het een richting, geen eindontwerp: Mila laat de streepjes weg of alleen tijdens het in- en wegzwemmen, en maakt oog en groeven groot genoeg voor 260 px.
