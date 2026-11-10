@@ -7,7 +7,7 @@
 // aanroepen tegelijk, dan kan de één het paar van de ander ongeldig maken of andersom. Het voorwaardelijk opslaan voorkomt
 // alleen dat een oud paar over een nieuw heen wordt geschreven; het maakt gelijktijdig verversen niet veilig.
 import { ververs as ttVervers, verlooptBinnen, type AppGegevens, type Tokens } from "../../../tiktok-shop-basis/src/auth.ts";
-import { ververs as mbVervers, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
+import { ververs as mbVervers, trekIn, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
 import { isBudgetOp, type Budget } from "../budget.ts";
 import { Ontkoppeld } from "../opslag.ts";
 import { WinkelStop } from "../ophalen.ts";
@@ -81,6 +81,8 @@ export interface TokenSoort<T> {
   accessVerlooptOp(t: T): number | undefined;
   /** Alleen TikTok: refresh token verloopt, dan waarschuwen. */
   refreshVerlooptOp?(t: T): number | undefined;
+  /** Alleen Moneybird: een vers paar intrekken dat niet meer opgeslagen kon worden (winkel intussen ontkoppeld, punt 7). */
+  intrekken?(t: T, fetchFn: typeof fetch): Promise<void>;
 }
 
 export function tiktokSoort(app: AppGegevens): TokenSoort<Tokens> {
@@ -103,6 +105,7 @@ export function moneybirdSoort(app: OAuthApp): TokenSoort<MoneybirdTokens> {
     },
     refreshToken: (t) => t.refreshToken,
     accessVerlooptOp: (t) => t.verlooptOp,
+    intrekken: (t, f) => trekIn(app, t.refreshToken, f),
   };
 }
 
@@ -142,6 +145,8 @@ export interface TokenDeps<T> {
   fetchFn?: typeof fetch;
   /** Unix-seconden. */
   nu?: () => number;
+  /** Log van de Worker, voor `ALARM`-regels. Zonder log: console.error. */
+  log?: (regel: string) => void;
 }
 
 /** Tokens van één soort voor één winkel, binnen één aanroep. */
@@ -236,6 +241,26 @@ export class TokenBron<T> {
     }
     if (await this.bewaar(nieuw, oud.versie)) return nieuw;
     // changes = 0: een andere aanroep was eerder, of de winkel is ontkoppeld (dan gooit lees `Ontkoppeld`).
-    return (await this.lees()).tokens;
+    try {
+      return (await this.lees()).tokens;
+    } catch (e) {
+      if (e instanceof Ontkoppeld) await this.trekVersPaarIn(nieuw, fetchFn);
+      throw e;
+    }
+  }
+
+  /**
+   * Punt 7: tijdens het verversen is de winkel ontkoppeld. Het nieuwe paar staat nergens en het oude refresh token is bij
+   * Moneybird al ongeldig, dus `ontkoppel` zou het verkeerde token intrekken. Daarom hier meteen het nieuwe intrekken,
+   * binnen hetzelfde budget. Lukt dat niet: ALARM (het paar is nergens bewaard, dus later opnieuw proberen kan niet).
+   */
+  private async trekVersPaarIn(nieuw: T, fetchFn: typeof fetch): Promise<void> {
+    if (!this.d.soort.intrekken) return;
+    try {
+      await this.d.soort.intrekken(nieuw, fetchFn);
+    } catch (e) {
+      const log = this.d.log ?? ((r: string) => console.error(r));
+      log(`ALARM winkel ${this.d.winkel}: ververst ${this.kolom}-paar na ontkoppelen niet ingetrokken (${(e as Error)?.message}); trek de koppeling handmatig in`);
+    }
   }
 }
