@@ -7,6 +7,7 @@ Op Steam ziet een speler straks overal hetzelfde Dortus: het profiel dortusgames
 
 ## Hoe het eruit gaat zien (proef op een echte Steam-pagina)
 - Profiel: `merk/proef/steam-profiel-kort-op-steam.png`.
+- Definitief (avatar v2): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png`.
 - Hele ontwikkelaarspagina met kop v2, logo v2 en achtergrond v3, met paginakleur Nacht: `merk/proef/steam-pagina-v3-nacht-op-steam-1280.png`, `-1920.png` en `-2560.png`.
 - Zelfde zonder eigen paginakleur (dan zwart naast het plaatje): `merk/proef/steam-pagina-v3-op-steam-2560.png`. (De spellen in de proef zijn van Klei, wiens pagina ik als mal gebruikte; bij ons staat daar Hats of the Fallen.)
 
