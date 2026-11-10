@@ -159,7 +159,6 @@ class EbbView extends WatchUi.View {
     }
 
     var opname as EbbOpname = new EbbOpname();
-    var koraal as Boolean = false;
     // Dieren die je deze sessie verdiende (nummers in EbbTrouw.DIEREN); het scherm "new friend" komt met blad v4.
     var nieuweDieren as Array<Number> = [] as Array<Number>;
     var opnemen as Boolean = true;
@@ -219,11 +218,8 @@ class EbbView extends WatchUi.View {
         // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
         nieuweDieren = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(dag));
         System.println("TROUW nieuwe dieren " + nieuweDieren);
-        // Het record wordt nog bewaard (zichtbaar), maar er hoort geen beloning meer bij: geen koraal, geen "new best".
-        var record = EbbProfiel.record();
-        if (EbbProfiel.nieuwRecord(sessie.inhoudtijden, record * 1000 + 999)) {
-            EbbProfiel.bewaarRecord(sessie.inhoudtijden[EbbProfiel.diepste(sessie.inhoudtijden)] / 1000);
-        }
+        // Keuring blad v4.1 (G1): geen record meer bewaard, geen "new best", geen "best" (oude spel weg).
+        Application.Storage.deleteValue("record");
         return ok;
     }
 
@@ -481,7 +477,7 @@ class EbbView extends WatchUi.View {
 
     // Eis 7: duikprofiel na de sessie (schets Mila scherm 4): oppervlakte op 32%, per ronde een V tot evenredige
     // diepte (diepste tot 70%), vlakken in oplopende tint, schuimlijn erover; stip bij de diepste met de tijd links;
-    // koraal en "new best" alleen bij een record, anders lichtgeel en het aantal rondes.
+    // de stip in lichtgeel en onderaan het aantal rondes (geen "new best" meer, keuring G1).
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
         var t = sessie.inhoudtijden;
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
@@ -509,15 +505,15 @@ class EbbView extends WatchUi.View {
         }
         var j = EbbProfiel.diepste(t);
         var diep = p[2 * j + 1];
-        var kleur = koraal ? EbbTeken.KORAAL : EbbTeken.LICHT;
+        var kleur = EbbTeken.LICHT;
         var r = (d * 0.022).toNumber();
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.fillCircle(diep[0], diep[1], r > 3 ? r : 3);
         var s = t[j] / 1000;
         dc.drawText(diep[0] - (r * 16) / 10 - (d * 0.02).toNumber(), diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
-        dc.setColor(koraal ? EbbTeken.KORAAL : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, koraal ? "new best" : t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     // Getijdenlijn van 8 weken (in de testbouw nagebootst, zodat de schermafbeelding iets laat zien).
@@ -608,13 +604,10 @@ class EbbView extends WatchUi.View {
             dc.drawText(d / 2, (d * 0.44).toNumber(), Graphics.FONT_SMALL, "no dives yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
         }
-        var top = p[j] as Array<Number>;
-        var r = (d * 0.022).toNumber();
-        dc.setColor(EbbTeken.KORAAL, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(top[0], top[1], r > 3 ? r : 3);
-        var s = (lijn[j] as Array<Number>)[0];
+        // Keuring G1 en P5: geen record ("best") en geen koraalstip meer; onderaan het gemiddelde over 8 weken.
+        var s = EbbProfiel.gemiddeldeLijn(lijn);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.72).toNumber(), Graphics.FONT_SMALL, "best " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
+        dc.drawText(d / 2, (d * 0.72).toNumber(), Graphics.FONT_SMALL, "avg " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.86).toNumber(), Graphics.FONT_XTINY, dagen + " days", Graphics.TEXT_JUSTIFY_CENTER);

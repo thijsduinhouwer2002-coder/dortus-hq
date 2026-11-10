@@ -15,11 +15,24 @@ function testDuikprofielV(logger as Test.Logger) as Boolean {
         && EbbProfiel.diepste([60000, 120000, 90000] as Array<Number>) == 1;
 }
 
+// Keuring G1: geen record meer; onderaan de getijdenlijn het gemiddelde van de dagen met een sessie.
 (:test)
-function testKoraalAlleenBijRecord(logger as Test.Logger) as Boolean {
-    var t = [70, 95, 80] as Array<Number>;
-    return EbbProfiel.nieuwRecord(t, 90) && !EbbProfiel.nieuwRecord(t, 95) && !EbbProfiel.nieuwRecord(t, 120)
-        && !EbbProfiel.nieuwRecord([] as Array<Number>, 0);
+function testGemiddeldeLijn(logger as Test.Logger) as Boolean {
+    var lijn = [[100, 80], null, [120, 91]] as Array<Array<Number> or Null>;
+    return EbbProfiel.gemiddeldeLijn(lijn) == 86 && EbbProfiel.gemiddeldeLijn([null] as Array<Array<Number> or Null>) == 0;
+}
+
+// Keuring G2: voor de dieren tellen hoogstens 2 sessies per dag; 8 weeks telt ze wel allemaal.
+(:test)
+function testHoogstensTweePerDag(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var a = EbbTrouw.naSessie(200);
+    var b = EbbTrouw.naSessie(200);
+    var c = EbbTrouw.naSessie(200);
+    var dd = EbbTrouw.naSessie(201);
+    var lijst = EbbTrouw.sessieDagen().size();
+    EbbTrouw.wis();
+    return a[0] == 1 && b[0] == 2 && c[0] == 2 && dd[0] == 3 && lijst == 4;
 }
 
 // Getijdenlijn na 8 weken nagebootste gegevens met overgeslagen dagen: 56 dagen, gaten waar geen sessie was.

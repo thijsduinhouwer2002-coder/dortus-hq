@@ -31,9 +31,18 @@ module EbbProfiel {
         return beste;
     }
 
-    // Koraal alleen bij een nieuw record over alle tijd (strikt langer dan het oude record).
-    function nieuwRecord(tijden as Array<Number>, record as Number) as Boolean {
-        return tijden.size() > 0 && tijden[diepste(tijden)] > record;
+    // Gemiddelde van de daggemiddelden over de getijdenlijn (s), 0 zonder dagen. Vervangt "best" (keuring G1).
+    function gemiddeldeLijn(lijn as Array<Array<Number> or Null>) as Number {
+        var som = 0;
+        var n = 0;
+        for (var i = 0; i < lijn.size(); i += 1) {
+            var g = lijn[i];
+            if (g != null) {
+                som += g[1];
+                n += 1;
+            }
+        }
+        return (n > 0) ? (som + n / 2) / n : 0;
     }
 
     // Getijdenlijn: 56 dagen, oudste eerst, eindigend op vandaag. Per dag [beste, gemiddelde] of null (gat).
@@ -125,14 +134,6 @@ module EbbProfiel {
         return p.toFloat() / IN_BEELD_MS;
     }
 
-    function record() as Number {
-        var r = Application.Storage.getValue("record");
-        return (r instanceof Number) ? r as Number : 0;
-    }
-
-    function bewaarRecord(s as Number) as Void {
-        Application.Storage.setValue("record", s);
-    }
 }
 
 // Eis 2: het veiligheidsscherm komt alleen tot het bevestigd is, en weer na "opnieuw tonen" in de instellingen.
@@ -177,6 +178,8 @@ module EbbTrouw {
     const PAUZE = "trPauze";      // 1 zodra je terugkwam na 7 of meer dagen zonder sessie (zeekomkommer)
     const SESDAGEN = "trSesDagen"; // dagnummer van elke opgeslagen sessie in de laatste 56 dagen (8 weeks)
     const PAUZE_DAGEN = 7;
+    const DAGSES = "trDagSes";     // sessies vandaag (voor de grens van 2 per dag)
+    const MAX_PER_DAG = 2;         // keuring G2: voor de dieren tellen hoogstens 2 sessies per dag
 
     // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie.
     // Zelfde dag: gelijk. De dag erna: plus één. Later (of de klok terug): opnieuw 1.
@@ -221,7 +224,7 @@ module EbbTrouw {
         if (nieuw.size() > 400) {
             nieuw = nieuw.slice(nieuw.size() - 400, null);
         }
-        Application.Storage.setValue(SESDAGEN, nieuw);
+        Application.Storage.setValue(SESDAGEN, nieuw as Array<Application.Storage.ValueType>);
     }
 
     // Na opslaan: tellers bijwerken. Geeft [sessies, reeks, beste reeks, terug na pauze (1 of 0)].
@@ -231,7 +234,9 @@ module EbbTrouw {
             Application.Storage.setValue(PAUZE, 1);
         }
         bewaarSessieDag(dag);
-        var sessies = getal(SESSIES) + 1;
+        var vandaagAl = (dag == getal(DAG) && getal(SESSIES) > 0) ? getal(DAGSES) : 0;
+        var sessies = getal(SESSIES) + ((vandaagAl < MAX_PER_DAG) ? 1 : 0);
+        Application.Storage.setValue(DAGSES, vandaagAl + 1);
         var reeks = volgendeReeks(getal(DAG), getal(REEKS), dag);
         var beste = getal(BESTE);
         if (reeks > beste) {
@@ -368,5 +373,6 @@ module EbbTrouw {
         Application.Storage.deleteValue(BESTE);
         Application.Storage.deleteValue(PAUZE);
         Application.Storage.deleteValue(SESDAGEN);
+        Application.Storage.deleteValue(DAGSES);
     }
 }
