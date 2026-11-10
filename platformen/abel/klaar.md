@@ -42,4 +42,4 @@ Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI gesc
 ## Wat nog ontbreekt
 - Mila: social per repo (rollwright, click-joints); tot dan `social-1280x640-v2-nu.png`. Kan-punt Daan: og, social en Steam-logo nog met de scharnieren van avatar v1.
 - ~~Obsidian: plek van het vinkje~~ opgelost: Preferences > Profile, bovenaan (broncode Discourse).
-- Steam: de naam van het kleurveld voor de paginakleur in de editor is een GOK.
+- Steam: paginakleur instellen is door Valve beschreven en aangeraden (docs); alleen de exacte knopnaam heb ik niet gezien.
