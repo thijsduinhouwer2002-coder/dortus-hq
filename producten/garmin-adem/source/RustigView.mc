@@ -58,7 +58,7 @@ class RustigView extends WatchUi.View {
         dc.clear();
         var nu = sessie.klok(System.getTimer());
         var i = sessie.faseIndex(nu);
-        var peil = 0.2 + 0.6 * sessie.water(nu);
+        var peil = 0.2 + 0.52 * sessie.water(nu);
         EbbTeken.water(dc, d, peil, EbbTeken.DIEPTE[i == 3 ? 1 : 0], _golf);
         dc.setColor(peil > EbbTeken.PEIL_DONKER ? EbbTeken.DIEPTE[3] : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.13).toNumber(), Graphics.FONT_SMALL, WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER);
