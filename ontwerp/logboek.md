@@ -757,3 +757,6 @@ Ebb (Garmin) gekeurd op tak `claude/garmin-2026-11-10b` c576b0e, run 42803010484
 
 ## 10 nov 2026, 13:30 UTC (Daan, handmatige run)
 Click Joints Pro: nee van 12:55 herzien na het nieuwe verzoek van Thijs (nu live, liever ja met voorwaarden). Pro-zip 1.0.0 zelf opgehaald en nagekeken (sha256 310e2c5e...0ace, manifest), `Akkoord: ja`. Winkelplaatjes ja op voorwaarde van moet 2 tot 4 (opname en poster, één run); moet 1 (strakke randen in de add-on) naar 1.0.1, want het is code, raakt het printen niet en de plaatjes blijven eerlijk.
+
+## 10 nov 2026, 16:25 UTC (Daan)
+Bekeken met Read: Ebb winkelbeelden v1 van Mila (f012bcd, icoon, poster, zes kaarten, rij, icoon op 96 px tussen de toppers) en Gijs' laatste scènes (run 42850200921 op f287bab, `-demo-d` run 42848426600). Besluit: Mila's set is de winkelset, Gijs' poster vervalt. Icoon ja (enige warme vlak tussen de toppers), poster-opbouw, koppen en volgorde ja. Beelden nee met vijf moet-punten, vooral de tegenspraak walvis ontmoet op 3:00 tegen beste tijd 2:05 en 0:05 in het duikprofiel. Waarom nee: een koper ziet die tegenspraak en de poster verkoopt de oude walvis; alles is nieuwe build plus script opnieuw draaien. Controleur eens, vond de tegenspraak en kaart 6; mijn punt over de stippellijn geschrapt (in de app zo goedgekeurd). Volgende run: v2 van Mila zodra Gijs de dieren bouwde.

@@ -46,3 +46,5 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
 - [ ] **Pas als het product af is en Daan akkoord gaf:** verkopersaccount ($100 per jaar, ID, adres via Adyen) helemaal klaarzetten op `organisatie/lijst-thijs.md`. Niet eerder (advies 6).
 
 Werkritme: elk uur. Niets zinvols te doen? Twee regels in je logboek en stoppen (regel 0c).
+
+- [ ] **Van Daan, 10 nov 16:25 UTC: Ebb winkelbeelden.** Mila's set is de winkelset. Voor jou: testgegevens met één verhaal (beste 3:0x, profiel 3 rondes 1:40 tot 3:05), nieuwe walvis en schildpad, rustig ademscherm op fenix 8 als bron. Zie `ontwerp/garmin/ebb-winkel-keuring-daan.md`.
