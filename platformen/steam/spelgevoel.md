@@ -2,6 +2,24 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 6: de film van main na de kroniek-wachtrij, 10 nov 2026 (run 42723851206, commit 4c7bd5d, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit 8c9397e, 1024 x 120, 298 beelden, 60 s), twee bladen met een beeld per 3 s, `film/film.log`, `cpu.txt` (1,49 CPU-s per 10 s, 114 MB).
+
+**Wat nu goed is:**
+- **Tekst en beeld lopen samen.** Kees valt en in hetzelfde beeld (12 s) vliegen de muntjes naar de schat, gaat de teller van 0 naar 6 en staat er "Kees fell to the Spike Pit. +6". Punt 1 van toets 5 is opgelost; het was verdringen, zoals Olaf vond.
+- **Geen grap twee keer:** "read about you in a tavern" staat er nog maar één keer in (Joost, 44 s). Punt 3 opgelost.
+- De kroon blijft de haak: Gloop met kroon vanaf 27 s, plat met de kroon naast zich (33 tot 40 s), "Gloop is up again. Wobbly." Het hol groeit zichtbaar naar links (ingang schuift van ±150 naar ±50 px).
+- De Hoard-Toucher eindigt nu binnen de minuut: "Ties the Hoard-Toucher ran." (50,6 s).
+
+**Wat niet goed is (in volgorde van belang):**
+1. **De wrok heeft geen afloop.** Bram komt terug ("Bram is back for the Spike Pit.", 33,7 s, met het boze teken boven zijn helm) en daarna staat er "Bram escaped with a limp." (53,1 s). De kijker ziet hem dus nooit krijgen wat hij zocht. Dit is ons eigen stuk en de beste grap van de minuut ligt open: hij komt terug voor de put en valt erin. **Eis voor de demo:** de terugkomer valt in precies de val waar hij een wrok tegen heeft, met een eigen regel, bijvoorbeeld "Bram came back for the Spike Pit. The Spike Pit won. +6". In het echte spel mag hij soms weer ontsnappen (dan groeit de wrok naar aartsvijand), maar in de demo-minuut moet de grap af zijn. **Voor Olaf** (demo in `strook.gd`) en **Bram** (de regel in `kroniek_regels.gd`).
+2. **Bijna iedereen draagt de paarse puntmuts.** Rond 45 s lopen drie van de vier helden met dezelfde paarse muts; Ties, Bram (bij binnenkomst) en Joost lijken op elkaar. De hoeden zijn de haak van de winkelpagina en de trailer. **Eis voor de demo:** elke vaste held in de demo-minuut een andere hoed uit Mila's tien (kroon blijft bij Odo; daarnaast bijvoorbeeld koksmuts, emmer, koekenpan, helm), zodat de minuut zelf laat zien dat er veel hoeden zijn. **Voor Olaf** (demo) en **Mila** (welke vijf het best lezen op 120 px).
+3. **Nog 3 tot 4 s achter in de drukke stap.** Ties staat rond 30 tot 33 s met een uitroepteken bij de schat, maar "Ties is now the Hoard-Toucher." komt pas op 36,3 s (wacht 1,1 s na twee andere regels). Olafs verklaring (de demo laat vier dingen binnen 2 s gebeuren) klopt; met punt 1 erbij wordt het drukker. Voorstel: de Hoard-Toucher 4 s later laten binnenkomen, net als de terugkomer.
+4. **CPU van 1,16 naar 1,49 CPU-s per 10 s** (toets 5 naar nu, zelfde hoogte). Nog ruim zuinig, maar 28% meer in één dag; Olaf, kijk of iets elk beeld tekent wat stil staat.
+5. **Paneel:** nog altijd ±320 van de 1024 px. Blijft bij Mila en Olaf.
+
+**Oordeel:** de minuut klopt nu als film: wat je ziet, lees je. Wat nog ontbreekt is de clou van onze eigen grap (punt 1) en dat de minuut de hoeden laat zien (punt 2). Met die twee is dit de film waar de trailer uit gesneden kan worden.
+
 ## Toets 5: de film van main met kroon en muntje, 9 nov 2026 (run 42714582677, commit 4b51856, main)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit 9499a26, 1024 x 120, 298 beelden, 60 s), een strook van het rechterdeel per 2 s met de tijd erbij, drie uitsneden van Gloop drie keer vergroot (28 s, 34 s, 60 s), `film/film.log` en `cpu.txt` (1,16 CPU-s per 10 s, 115 MB; iets meer dan 1,09 bij toets 4, nog ruim zuinig).
 
