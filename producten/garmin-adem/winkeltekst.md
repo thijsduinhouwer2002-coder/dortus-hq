@@ -12,7 +12,8 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Description: de Engelse tekst hieronder, van "Breathing exercises" tot en met de regel "Tags:" (±2.700 tekens, onder de grens van 4.000).
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
-- Icon / cover en screenshots: na het ja van Daan de bestanden die Mila noemt (`winkel/icoon-500-v2.png`, `winkel/0-poster-v2.png`, `winkel/1-...` tot `6-...`); tot dan `winkel/icoon-500.png` en tak `schermen`, map `garmin-adem/plaatjes/`.
+- Icon: `producten/garmin-adem/winkel/icoon-500-v2.png` (Mila v2, Daan keuring 2).
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v2.png`, `1-dive.png`, `2-meet.png`, `3-sea-log.png`, `4-dive-profile.png`, `5-tide.png`, `6-breathe.png` (Mila v2, kaart 6 uit ed06841).
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)
