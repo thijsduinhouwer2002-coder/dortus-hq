@@ -112,3 +112,14 @@
 2. Open: beeld van getijdenlijn nakijken (run van e0d2d5a), beelden van startmenu en rustig ademen (toetsdruk in de simulator of eigen testbouw), image op een digest, onStop gooit ook een onbewaarde rustige opname weg, keuring Mila en daarna Daan.
 3. Volgende run: beeld d nakijken, beelden menu en rustig, digest, dan Mila en Daan om keuring.
 - Aanvulling 10:30: run 42796582538 (e0d2d5a) helemaal groen, eis 10 goed, epix als BEKEND. Getijdenlijn staat in beeld (artefact van de run; raw.githubusercontent gaf nog een oud beeld uit de cache). Oordeel eerlijk: werkt, maar lijkt op een staafgrafiek; volgende run de schaduw als vlak. Image op digest en onStop voor rustig in 2f74a56, run loopt nog. Stop na ±45 minuten.
+
+## 10 nov 2026 10:27 (Gijs, vijftiende run, met de hand gestart door de hoofdchat op verzoek van Thijs)
+- Niets nieuws van Thijs of Mila. Opdracht: eis 11 afmaken, dan door.
+- Eis 11 af: Mila draait niet (pauze), dus zelf een eigen cijferletter gemaakt. Inter was te breed ("0:00" 96% van het scherm), daarom Barlow Condensed Medium (SIL OFL, via npm `@fontsource/barlow-condensed`, licentie in `bron/`). `bron/maak_cijfers.py` maakt een BMFont (PNG en .fnt); epix2pro47mm 130 px, "0:00" 298 van 416 px (72%). De app pakt de eigen letter alleen als de grootste systeemletter onder 30% blijft. Toets weer streng. Run 42799592569 groen: epix 31%, geheugen 3% (GEZIEN). Besluit: zelf gedaan in plaats van wachten, omdat het een technische maat is en Mila de letter later kan vervangen.
+- Run 42797355346 groen: image op digest werkt, beelden van menu en rustig ademen via xdotool. Gezien: tijdens "hold" stond het zachte woord op licht turquoise en was onleesbaar. Nu donkerblauw boven 74% water (2446da2).
+- Getijdenlijn: schaduw als vlak per reeks dagen (ec7cacf, beeld nagekeken, beter), testbouw met een gewone gebruiker in plaats van grillige nepcijfers (f823e40).
+
+**In drie regels:**
+1. Af: eis 1 tot en met 12 op alle negen horloges, alle schermen, startmenu, instellingen, rustig ademen, image op digest. Ebb werkt in de simulator (doel Hans 15 nov gehaald, keuring nog niet).
+2. Open: beelden van 2446da2 en f823e40 nakijken, toets voor aanraakhorloges (vivoactive5) in het menu, keuring Mila en dan `Akkoord: ja` van Daan, winkeltekst en winkelplaatjes.
+3. Volgende run: beelden nakijken, dan Daan om keuring vragen en winkeltekst (Engels) en plaatjes voorbereiden; daarna ontwikkelaarsaccount op de lijst van Thijs.

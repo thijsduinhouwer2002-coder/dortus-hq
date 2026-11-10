@@ -7,12 +7,13 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).
   - [x] Eis 2, 7, 8: veiligheidsscherm, duikprofiel en getijdenlijn, dieren, 6 toetsen (10 nov 06:50).
   - [x] Eis 10 (10 nov 07:20, run 42773779291): opname goed op drie horloges, na weggooien geen bestand. Simulator start per horloge opnieuw. Open voor een echt horloge: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s.
-  - [x] Eis 11 op acht van negen (10 nov 10:10, run 42794151336): 30 tot 33%. Epix2pro47mm 29,6% is de grootste systeemletter; eigen cijferletter gevraagd aan Mila, tot dan BEKEND in de toets.
+  - [x] Eis 11 op alle negen (10 nov 10:45, run 42799592569, toets weer streng): 30 tot 33%, epix2pro47mm 31% met een eigen cijferletter (Barlow Condensed, OFL, 130 px, `bron/maak_cijfers.py`), alleen gebruikt waar de systeemletter onder 30% blijft. Mila mag een andere letter kiezen.
   - [x] Eis 12 (10 nov 08:00, run 42777910101): hoogste geheugen 2 tot 3% op alle negen horloges. Opnieuw meten als de getijdenlijn erbij komt.
   - [x] Instellingen op het horloge, rustig ademen in het scherm, startmenu (10 nov 10:00, run 42794687302, 27 toetsen groen).
   - [x] Beeld d nagekeken (run 42796582538 groen, artefact): getijdenlijn staat op alle horloges, "best 2:08", "44 days". Maar het ziet er nog uit als een staafgrafiek met losse streepjes.
-  - [ ] Getijdenlijn mooier: schaduw als één vlak per reeks dagen (fillPolygon) in plaats van staafjes, lijn dikker, "best" iets hoger zodat het niet tegen "days" plakt op fenix7.
-  - [ ] Beelden van startmenu en rustig ademen: proef met xdotool in run van 2f74a56 (beelden `*-m.png` en `*-r.png`), uitslag nakijken.
+  - [x] Getijdenlijn: schaduw als vlak per reeks dagen, dikkere lijn (ec7cacf, beeld nagekeken). Testbouw met gewone gebruiker (f823e40), beeld nog nakijken.
+  - [x] Beelden startmenu en rustig ademen (run 42797355346, `*-m.png` en `*-r.png`): menu werkt, Box loopt op fr265 en fenix847mm. Op fenix7 ging de eerste toets verloren, op vivoactive5 (aanraakscherm) start Down geen Box.
+  - [ ] Fasewoord donkerblauw boven hoog licht water (2446da2): beeld nakijken, "hold" was onleesbaar op turquoise.
   - [x] `onStop` gooit ook een onbewaarde rustige opname weg (2f74a56).
   - [x] Image op digest `sha256:64958e8f...` (2f74a56).
   - [ ] Keuring: Mila op alle schermen, daarna Daan `Akkoord: ja`.
