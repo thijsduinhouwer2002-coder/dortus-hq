@@ -206,3 +206,7 @@
 - Verder niets voor mij: prijs en verspreiding wachten op Chris, redirect op de naam. Gestopt rond 03:45 UTC.
 - 03:10 tot 03:15 UTC: stap 5 (twijfel-opvraging bij Polar) gebouwd. Besluit: bij Polar-storing deze aanroep alleen gratis boeken en een logregel, geen winkelfout. Reden: nooit meer boeken dan betaald is, en een storing bij Polar is niet iets wat de verkoper moet oplossen. Controleur akkoord, 286 tests, op main via tak `-k`.
 - 03:15 tot 03:20 UTC: deel 3 gebouwd, `zegOp` in de cron. Besluit: hoogstens één poging per uur per winkel en 3 winkels per aanroep. Reden: de pot van 50 moet ook intrekken en ontkoppelen dragen, en een opzegging die vandaag niet lukt, lukt over een uur vaak wel. Controleur akkoord, 292 tests, op main via tak `-l`. Gestopt.
+
+## 10 nov 2026, run 04:05 UTC (Tess)
+- Geen nieuw bericht van Thijs, niets nieuws voor mij sinds 03:45 UTC. Alleen `status.md` bijgewerkt (stand Jet 292 tests, akkoord Daan op alle zes schermen), omdat die nog op 00:15 stond.
+- Verder niets zinvols: prijs en verspreiding wachten op Chris, redirect op de naam, verlegde btw ligt bij Jet. Gestopt rond 04:10 UTC.
