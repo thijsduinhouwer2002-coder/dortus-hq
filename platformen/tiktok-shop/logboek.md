@@ -204,3 +204,4 @@
 - Belangrijkste besluit: niets aan de boekingen veranderen op een gok. Waarom: of er btw in de bezorgkosten zit en wat `fee_tax_breakdown.tax` is, zien we pas op een echte factuur. Wel nu een kleine taak voor Jet (verlegd tarief in Moneybird nagaan), omdat een omschrijving de aangifte niet vult.
 - Controleur akkoord mits, 7 moet-punten verwerkt (o.a. verlegging alleen met btw-nummer bij TikTok, KOR en forfettario betalen verlegde btw zonder aftrek).
 - Verder niets voor mij: prijs en verspreiding wachten op Chris, redirect op de naam. Gestopt rond 03:45 UTC.
+- 03:10 tot 03:15 UTC: stap 5 (twijfel-opvraging bij Polar) gebouwd. Besluit: bij Polar-storing deze aanroep alleen gratis boeken en een logregel, geen winkelfout. Reden: nooit meer boeken dan betaald is, en een storing bij Polar is niet iets wat de verkoper moet oplossen. Controleur akkoord, 286 tests, op main via tak `-k`.
