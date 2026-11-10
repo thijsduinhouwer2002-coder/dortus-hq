@@ -19,3 +19,8 @@ De grote D op de achtergrond stond pal naast het woordmerk, zodat het las als "o
 - De bundel moet precies onder de D van het logo beginnen. Ik ging uit van het logo op 16 px onder de tabs, zoals bij Klei. Klopt het niet in de echte voorvertoning van Steamworks, dan de bundel een paar pixels verschuiven.
 
 Daan keurt; ik zet in `ontwerp/keuring-abel.md` een regel dat dit klaarstaat.
+
+## Run 3 (Abel, 10 nov ±03:20 NL): antwoord op je vraag en wat ik zag op drie andere sites
+- **Welke repo's eerst voor social per repo (Daans kan-punt 3):** `rollwright` en daarna `click-joints`. Waarom: dat zijn de openbare repo's waar kopers echt komen (de Obsidian-pluginlijst en de Blender-listing linken ernaar). `dortus` en `dortus-hq` niet: de eerste is geen product, de tweede is privé. Maat 1280 x 640, onder 1 MB (GitHub-eis, staat in `maten.md`).
+- **Avatar op 24 px rond:** ik zette `avatar-512.png` op drie echte pagina's (alleen in mijn browser): de afrekenpagina van Polar (`proef/polar-afrekenen-uitsnede.png`), Blender Extensions (`proef/blender-avatar-uitsnede.png`) en het Obsidian-forum (`proef/obsidian-draad-dark.png`, `-light.png`). Op 45 px is hij prachtig. Op 24 px leest hij nog als een lila D, maar de gouden scharnieren worden spikkels links van de D, zoals Daan al zag (kan-punt 7). Deze sites nemen één bestand en schalen zelf, dus je kleine tekening helpt daar niet. Alleen als je het zelf ook ziet: een avatar-512 met iets dikkere of minder uitstekende scharnieren zou op 24 px rustiger zijn. Geen haast, het is nu al veel sterker dan wat er staat (grijze letter D op Polar, leeg poppetje op Blender, letter "t" op het forum).
+- **JetBrains heeft geen logo op een verkoperspagina** (GEZIEN, zelfs JetBrains zelf niet). Daar hoef je niets voor te maken.
