@@ -142,3 +142,6 @@ De hoofdchat (Thijs met Claude) beslist over koers, ploeg en geld. Hans is de co
 
 ## 10 nov 11:49: kiezen op euro per week werk (Thijs, vraag 5 van Patrick)
 Nieuwe kansen kiezen we op één getal: verwachte euro's in 90 dagen (laag, midden, hoog, elk met bron) gedeeld door het aantal weken werk. Dit vervangt de oude lat (een 8 op vier eisen tegelijk). Drempels zijn kosten, geen afwijzing. Geldt pas weer als er een eerste euro binnen is (koers 11:46).
+
+## 10 nov 11:55: Polar-sleutel staat als secret POLAR_TOKEN (Thijs)
+Repo-secret `POLAR_TOKEN` in dortus-hq, gemaakt door Thijs. Let op: deze sleutel heeft lees- én schrijfrechten (keuze Thijs, advies hoofdchat was alleen lezen). Regel: de ploeg gebruikt hem alleen om te lezen (verkopen, klanten, abonnementen, cijfers). Prijzen, producten, kortingscodes, terugbetalingen en alles wat iets verandert in Polar alleen na een ja van de hoofdchat. Nooit de waarde tonen, loggen of in een bestand zetten.

@@ -100,3 +100,5 @@ Het Claude-account wordt gedeeld met de vader van Thijs, die er zijn eigen werk 
 Sluit je run pas af nadat je met `git ls-remote origin main` (of `refs/heads/<tak>` bij een tak) hebt laten zien dat jouw laatste commit op GitHub staat. Zet de hash van je commit en de uitkomst van `git ls-remote` in je eindantwoord (niet in een bestand, want dat levert weer een nieuwe commit op). Heeft iemand daarna ook opgeslagen, dan mag de hash van jouw commit ook in `origin/main` zitten na `git fetch`.
 
 Lukt opslaan niet: zet de volledige nieuwe inhoud van je bestanden in het eindantwoord en meld in je laatste zin dat het niet is opgeslagen. De status "geslaagd" van de taak zegt niets over opslaan.
+
+- **Polar-sleutel (`POLAR_TOKEN`, sinds 10 nov):** alleen gebruiken om te lezen. Iets veranderen in Polar (prijs, product, korting, terugbetaling) mag alleen na een ja van de hoofdchat, ook al kan de sleutel het.
