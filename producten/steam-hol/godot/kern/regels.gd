@@ -5,6 +5,10 @@ extends RefCounted
 # Te lang na invullen (meer dan 42 tekens): dan de eerste regel van de soort die wel past (die zijn bewust kort).
 
 const MAX := 42
+# Soorten die hier niet staan komen uit Brams voorraad (systemen/kroniek_regels.gd): binnen_ridder, binnen_dief,
+# binnen_magier, binnen_bard, binnen_slaapkop, binnen_wraakzuchtig, binnen_opschepper, dutje, lied. Zo is er voor die
+# regels één plek (Bram en Sanne schrijven ze), en houden ze hier de schudzak (Olaf 10 nov, heldensoorten aansluiten).
+const BRAM := preload("res://systemen/kroniek_regels.gd")
 
 const VOORRAAD := {
 	"binnen": ["{naam} climbs into your hole.", "{naam} is here for your gold.", "{naam} brought a torch. And hope.",
@@ -53,7 +57,7 @@ func vul(r: String, w: Dictionary) -> String:
 var vorig := {}    # soort -> laatst gekozen index
 
 func kies(soort: String, w: Dictionary, erbij := 0) -> String:
-	var lijst: Array = VOORRAAD.get(soort, ["..."])
+	var lijst: Array = VOORRAAD.get(soort, BRAM.VOORRAAD.get(soort, ["..."]))
 	if rng == null:
 		rng = RandomNumberGenerator.new()
 	var geweest: Array = vorige.get(soort, [])

@@ -6,10 +6,13 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
 	b["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld"]:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
+		# bard: hij zingt over je hol en er komen helden bij (heldensoort.gd, Bram 02:30): de regel en de eerste extra
+		# held binnen 8 tot 20 s (strook.gd telt lied_helden af). De lied-regel komt na de vlucht-regel.
+		var lied := int(info.get("lied", 0))
 		b.bezoeken = int(info.get("bezoeken", 0)) + 1
 		var oud_wrok: String = String(info.get("wrok", ""))
 		b.wrok = info.get("laatst_geraakt", oud_wrok if oud_wrok != "" else "your Hoard")
@@ -37,6 +40,11 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		else:
 			var w: String = String(b.wrok)
 			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
+		if lied > 0:
+			s._kroniek(s.regels.kies("lied", {"naam": info.naam}))
+			s.lied_helden += lied
+			if not s.demo:
+				s.volgende_held = minf(s.volgende_held, s.t + s.rng.randf_range(8.0, 20.0))
 	else:
 		# goud per val: 6, plus 3 per eerder bezoek; een held met een wrok is een beloning (balans.md punt 1, besluit Olaf)
 		var buit := 6 + 3 * int(info.get("bezoeken", 0))
