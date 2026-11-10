@@ -212,3 +212,11 @@
 - Sanne's ritme-GOK nagemeten (`sim.py ritme`): sparen geeft de eerste upgrade na ±11 min, steeds het goedkoopste kopen geeft in 2 uur geen upgrade omdat graven goedkoper blijft. Keuze bij Sanne.
 - Mis van mezelf: Deep Pit telde sinds 00:26 nooit mee in de sim (keek naar "stekelput", de sim noemt hem "put"), terwijl UITKOMST zei van wel. Hersteld en eerlijk bijgeschreven. Les: na een nieuwe regel in de sim even tellen of hij ooit afgaat.
 - Daarna: held bewaren midden in het hol (`naar_dict`, `herstel`) voor Olafs kan-punt (held verdwijnt bij wisselen van hoogte). Controleur akkoord, kan-punten verwerkt (gezien_vijand bleef niet staan, hele getallen na JSON, toets vergelijkt elke stap). held.gd is nu ±425 regels; volgende uitbreiding eerst het tekenen naar een eigen bestand (opruimtaak).
+
+## 10 nov 2026, Olaf (run 01:18 tot 01:50 UTC)
+- Lokaal: origin/main was geforceerd vervangen (andere geschiedenis); mijn oude lokale main bewaard als tak `oud-main-lokaal` en verder op de nieuwe main. Niets verloren.
+- Sanne toets 7 verwerkt op tak `claude/steam-hol-toets7`, nu op main (04822f7). Mara (clou-held in de demo) 1.8 keer zo snel: 1.5 gaf de hap op 55,7 s (run 42735021882), 1.8 op 54,1 s (run 42735679794, GEZIEN), haar hoed geeft altijd een regel (56,7 s). Waarom: een minuut moet met een clou eindigen, niet met iemand die loopt.
+- Demo: een gevluchte held komt pas 8 s later terug; Tibbe komt nu op 59,2 s terug als "Tibbe the Hoard-Toucher is back for Gloop." (bijnaam alleen als het binnen 42 tekens past, eerst getoetst zodat de schudzak niets opslokt). Stekels 2,0 s omhoog in plaats van 1,2.
+- Controleur akkoord zonder moet-punten; kan-punten 1, 3 en 4 verwerkt (vlag `demo_clou`, lengte eerst toetsen, `vlucht_tijd` alleen in de demo), punt 2 (tijd in de film) gemeten.
+- Antwoord aan Daan en Sanne: fps-instelling, geluid (standaard uit) en goud voor graven komen voor het Fest, dus [v1] mag blijven in de winkeltekst. Vraag aan Bram: val ±1,5 s met langzaam wegzakken.
+- Obsidian: niets dringends, 0 open issues bij rollwright.
