@@ -8,6 +8,7 @@ import { MoneybirdFout } from "./moneybird/fouten.ts";
 import { boekAfrekening, type AdministratieInfo } from "./moneybird/boeken.ts";
 import type { AfrekeningInvoer, Koppeling, MbSoort } from "./moneybird/memoriaal.ts";
 import { haalSamen, UITBETAALD, WinkelStop, winkelStop, type Ophaling, type TikTokDeps } from "./ophalen.ts";
+import { GRATIS_PER_MAAND, maandVan } from "./telling.ts";
 
 export { haalSamen, proef, WinkelStop, type OphaalOpties, type Ophaling, type ProefAfrekening, type ProefUitkomst, type TikTokDeps } from "./ophalen.ts";
 // ---------------------------------------------------------------------------------------------------------------
@@ -22,7 +23,11 @@ export interface BoekDeps extends TikTokDeps {
 export interface Instellingen {
   /** Unix-seconden: afrekeningen daarvoor worden niet opgehaald en niet geboekt. */
   startdatum: number;
-  /** Abonnement betaald (of binnen de gratis grens): mag schrijven naar Moneybird. */
+  /**
+   * Abonnement actief: geen gratis grens (ontwerp-betalen.md, punt 2). Zonder boekt een afrekening alleen als de maand
+   * (zonder deze afrekening) plus haar bestellingen hoogstens 30 is; anders `wacht_op_abonnement`.
+   * Tijdelijk (deel 2, stap 3 en 4): de aanroeper zet dit nog zelf; het lezen van `winkels.abonnement` komt later.
+   */
   magBoeken: boolean;
   administratie: AdministratieInfo;
   koppeling: Koppeling;
@@ -238,7 +243,6 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     }
 
     // Compleet.
-    if (!inst.magBoeken) return zet("wacht_op_abonnement");
     const invoer: AfrekeningInvoer = { statementId: id, statementTime: tijd, valuta: "EUR", regels: s.regels, ...(s.uitbetaaldCenten !== undefined ? { uitbetaaldCenten: s.uitbetaaldCenten } : {}) };
     const afdruk = await vingerafdruk(invoer, inst.koppeling, inst.administratie.id);
     if (herstel && oud?.documentId && oud.vingerafdruk === afdruk && GEBOEKT.includes(oud.status)) return zet(oud.status, { uitkomst: "ongewijzigd", opnieuwSinds: undefined, pogingen: 0, eerstePoging: undefined });
@@ -246,15 +250,33 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     // tussen de POST en de echte status, dan blijft hij onzeker: 10 minuten wachten, dan zoeken op kenmerk.
     const { opnieuwFout: _of, reden: _rd, vorigeStatus: _vs, ...kaal } = basis;
     const gestart: AfrekeningStatus = { ...kaal, status: "onzeker", reden: BOEKING_GESTART, sinds: d.nu(), ...(oud ? { vorigeStatus: oud.status } : {}) };
+    // Stap 3 (ontwerp-betalen.md, punt 2): de telling vastleggen in één batch vóór die van startBoeking, met de grens in de
+    // SQL. Vrijgesteld (stap 0): een afrekening die al geboekt, onzeker of "boeking gestart" was, gaat nooit door de grens
+    // op wacht (zoeken op kenmerk en herstellen mogen niet stilvallen). Een rij van een eerdere poging telt als vrijstelling.
+    const vrij = inst.magBoeken || (oud !== undefined && (GEBOEKT.includes(oud.status) || oud.status === "onzeker")) || gelezen?.reden === BOEKING_GESTART;
+    const telling = await d.opslag.legTellingVast(id, d.eigenaar, {
+      maand: maandVan(tijd), bestellingen: s.bestellingen ?? 0, vrij, grens: GRATIS_PER_MAAND, minTot: d.nu() + SLOT_MARGE,
+    });
+    if (!telling.slot) return { stop: true }; // slot verloren: niets schrijven (zelfde vangnet als bij startBoeking)
+    if (!telling.rij) return zet("wacht_op_abonnement"); // grens bereikt: niets verstuurd, bestellingen staan bewaard
+    // Stap 4: de rij gaat alleen weg als deze poging hem invoegde en de status van daarvoor niet geboekt was.
+    const wisRij = telling.ingevoegd && !(oud !== undefined && GEBOEKT.includes(oud.status));
     const tot = await d.opslag.startBoeking(id, d.eigenaar, gestart, d.nu() + SLOT_MARGE);
-    if (tot === null || tot - d.nu() < SLOT_MARGE) return { stop: true }; // vangnet: niet schrijven zonder geldig slot
-    // Niets verstuurd (budget op, of Moneybird weigerde de hele winkel): de status van daarvoor terug.
-    const terug = async () => (gelezen ? d.opslag.schrijfStatus(id, gelezen) : d.opslag.wisStatus(id));
+    if (tot === null || tot - d.nu() < SLOT_MARGE) {
+      if (wisRij) await d.opslag.wisTelling(id); // er is niets gestart
+      return { stop: true }; // vangnet: niet schrijven zonder geldig slot
+    }
+    // Niets verstuurd (budget op, of Moneybird weigerde de hele winkel): de status van daarvoor terug, en de telling weg in
+    // dezelfde schrijfactie als deze poging hem invoegde.
+    const terug = async () => d.opslag.zetTerug(id, gelezen, wisRij);
 
     let b;
     try {
       b = await boekAfrekening(d.moneybird, inst.administratie, invoer, inst.koppeling, { ...(oud?.documentId ? { bekendId: oud.documentId } : {}), btwToegestaan: inst.btwToegestaan });
     } catch (e) {
+      // boekAfrekening gooit alleen vóór de POST of bij een weigering: er is niets aangemaakt (een POST die misschien
+      // aankwam geeft `onzeker` en gooit niet). Daarom ook bij de andere fouten de telling weg (stap 4).
+      if (wisRij && !isBudgetOp(e) && !(e instanceof MoneybirdFout && MB_WINKEL_STOP.includes(e.soort))) await d.opslag.wisTelling(id);
       if (isBudgetOp(e)) {
         await terug();
         return { stop: true, budgetOp: true }; // niets verstuurd: geen onzeker

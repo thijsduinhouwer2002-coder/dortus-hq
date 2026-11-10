@@ -2,8 +2,9 @@
 // fetch: elke pagina, bestelling, Moneybird-verzoek en herhaling telt. Gratis plan: 50 uitgaande verzoeken per aanroep.
 
 export const START_BUDGET = 45; // 5 over voor tokens verversen en onvoorzien
-/** Slechtste geval van één boeking: GET bekendId 3x, zoeken 3x, schrijven 3x bij 429, plus DELETE en POST als terugval. */
-export const RESERVE_BOEKING = 12;
+/** Slechtste geval van één boeking: GET bekendId 3x, zoeken 3x, schrijven 3x bij 429, plus DELETE en POST als terugval,
+ * plus 1 voor het vastleggen van de telling (ontwerp-betalen.md, punt 2 stap 3). */
+export const RESERVE_BOEKING = 13;
 
 /** Gegooid vóórdat een verzoek vertrekt: er is niets verstuurd en niets geschreven. Volgende aanroep gaat verder. */
 export class BudgetOp extends Error {

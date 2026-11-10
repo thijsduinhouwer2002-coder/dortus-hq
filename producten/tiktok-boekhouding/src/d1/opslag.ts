@@ -1,7 +1,7 @@
 // D1-versie van de interface Opslag (ontwerp-d1-worker.md, punt 2). Eén exemplaar per winkel en per aanroep.
 // Lezen per afrekening in één batch, schrijven gebundeld met de volgende statuswissel, slot altijd vers.
 import { GEBOEKT } from "../verwerk.ts";
-import { Ontkoppeld, type AfrekeningStatus, type BewaardeBestelling, type BewaardeTransacties, type Opslag } from "../opslag.ts";
+import { Ontkoppeld, type AfrekeningStatus, type BewaardeBestelling, type BewaardeTransacties, type Opslag, type TellingVast } from "../opslag.ts";
 
 /** Het deel van de D1-API dat we gebruiken (Cloudflare D1Database), zodat de tests een nagebootste versie kunnen geven. */
 export interface D1Statement {
@@ -227,6 +227,49 @@ export class D1Opslag implements Opslag {
   async klaar(extra: D1Statement[] = []): Promise<void> {
     if (this.ontkoppeld) return;
     if (this.wachtrij.length || extra.length) await this.batchMetWachtrij(extra);
+  }
+
+  // ---- telling (ontwerp-betalen.md, punt 2 stap 3 en 4) ----
+  async legTellingVast(id: string, eigenaar: string, t: TellingVast): Promise<{ rij: boolean; ingevoegd: boolean; slot: boolean }> {
+    this.schrijfacties++;
+    const [ins, lees] = await this.batchMetWachtrij([
+      this.db
+        .prepare(
+          `INSERT OR IGNORE INTO telling (winkel, statement_id, maand, bestellingen)
+           SELECT ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ? AND tot >= ?)
+           AND (? OR (SELECT COALESCE(SUM(bestellingen), 0) FROM telling WHERE winkel = ? AND maand = ? AND statement_id <> ?) + ? <= ?)`,
+        )
+        .bind(this.winkel, id, t.maand, t.bestellingen, this.winkel, id, eigenaar, t.minTot, t.vrij ? 1 : 0, this.winkel, t.maand, id, t.bestellingen, t.grens),
+      this.db
+        .prepare(
+          `SELECT EXISTS (SELECT 1 FROM telling WHERE winkel = ? AND statement_id = ?) AS rij,
+           EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ? AND tot >= ?) AS slot`,
+        )
+        .bind(this.winkel, id, this.winkel, id, eigenaar, t.minTot),
+    ]);
+    const r = ((lees.results ?? [])[0] ?? {}) as { rij?: number; slot?: number };
+    return { rij: Number(r.rij) === 1, ingevoegd: ins.meta.changes === 1, slot: Number(r.slot) === 1 };
+  }
+
+  async wisTelling(id: string): Promise<void> {
+    this.schrijfacties++;
+    await this.batchMetWachtrij([this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id)]);
+  }
+
+  async zetTerug(id: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean): Promise<void> {
+    this.schrijfacties++;
+    const status = vorige
+      ? this.db
+          .prepare(
+            `INSERT INTO statussen (winkel, statement_id, status, statement_time, opnieuw_sinds, gegevens) VALUES (?, ?, ?, ?, ?, ?)
+             ON CONFLICT(winkel, statement_id) DO UPDATE SET status = excluded.status, statement_time = excluded.statement_time,
+             opnieuw_sinds = excluded.opnieuw_sinds, gegevens = excluded.gegevens`,
+          )
+          .bind(this.winkel, id, vorige.status, vorige.statementTime ?? null, vorige.opnieuwSinds ?? null, JSON.stringify(vorige))
+      : this.db.prepare(`DELETE FROM statussen WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id);
+    const extra = [status];
+    if (wisTelling) extra.push(this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id));
+    await this.batchMetWachtrij(extra);
   }
 
   /** Wachtrij plus `extra` in één batch (één transactie). Afmaken: mag de reserve gebruiken. */

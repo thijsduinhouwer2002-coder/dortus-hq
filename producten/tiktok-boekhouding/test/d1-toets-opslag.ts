@@ -3,7 +3,7 @@
 import { NepD1 } from "./d1-nep.ts";
 import { D1Opslag } from "../src/d1/opslag.ts";
 import { Budget } from "../src/budget.ts";
-import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag } from "../src/opslag.ts";
+import type { AfrekeningStatus, BewaardeBestelling, BewaardeTransacties, Opslag, TellingVast } from "../src/opslag.ts";
 
 export class D1ToetsOpslag implements Opslag {
   readonly db: NepD1;
@@ -40,4 +40,12 @@ export class D1ToetsOpslag implements Opslag {
   leesOpen(open: string[]) { return this.binnen.leesOpen(open); }
   leesMarkering() { return this.binnen.leesMarkering(); }
   schrijfMarkering(t: number) { return this.binnen.schrijfMarkering(t); }
+  legTellingVast(id: string, eigenaar: string, t: TellingVast) { return this.binnen.legTellingVast(id, eigenaar, t); }
+  wisTelling(id: string) { return this.binnen.wisTelling(id); }
+  zetTerug(id: string, vorige: AfrekeningStatus | undefined, wis: boolean) { return this.binnen.zetTerug(id, vorige, wis); }
+  /** Zelfde vorm als GeheugenOpslag.telling (alleen lezen). */
+  get telling() {
+    const rijen = this.db.sqlite.prepare("SELECT statement_id, maand, bestellingen FROM telling WHERE winkel = 'w1'").all() as Array<{ statement_id: string; maand: string; bestellingen: number }>;
+    return new Map(rijen.map((r) => [r.statement_id, { maand: r.maand, bestellingen: Number(r.bestellingen) }]));
+  }
 }
