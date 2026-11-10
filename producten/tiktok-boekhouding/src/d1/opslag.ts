@@ -110,7 +110,7 @@ export class D1Opslag implements Opslag {
     return rij ? (JSON.parse(rij.gegevens) as AfrekeningStatus) : undefined;
   }
 
-  async schrijfStatus(id: string, s: AfrekeningStatus): Promise<void> {
+  async schrijfStatus(id: string, s: AfrekeningStatus, wisTelling = false): Promise<void> {
     this.schrijfacties++;
     const st = this.db
       .prepare(
@@ -120,6 +120,7 @@ export class D1Opslag implements Opslag {
       )
       .bind(this.winkel, id, s.status, s.statementTime ?? null, s.opnieuwSinds ?? null, JSON.stringify(s));
     const extra = [st];
+    if (wisTelling) extra.push(this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id));
     if (AF.includes(s.status) && s.opnieuwSinds === undefined) {
       // Met opnieuwSinds loopt "opnieuw boeken" nog (staat via leesOpen op de lijst): dan niets weggooien.
       // Af: wat voor deze afrekening nog in de wachtrij of in D1 staat hoeft niet meer bewaard (opnieuw boeken haalt opnieuw op).
@@ -237,9 +238,9 @@ export class D1Opslag implements Opslag {
         .prepare(
           `INSERT OR IGNORE INTO telling (winkel, statement_id, maand, bestellingen)
            SELECT ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ? AND tot >= ?)
-           AND (? OR (SELECT COALESCE(SUM(bestellingen), 0) FROM telling WHERE winkel = ? AND maand = ? AND statement_id <> ?) + ? <= ?)`,
+           AND (? OR ? = 0 OR (SELECT COALESCE(SUM(bestellingen), 0) FROM telling WHERE winkel = ? AND maand = ? AND statement_id <> ?) + ? <= ?)`,
         )
-        .bind(this.winkel, id, t.maand, t.bestellingen, this.winkel, id, eigenaar, t.minTot, t.vrij ? 1 : 0, this.winkel, t.maand, id, t.bestellingen, t.grens),
+        .bind(this.winkel, id, t.maand, t.bestellingen, this.winkel, id, eigenaar, t.minTot, t.vrij ? 1 : 0, t.bestellingen, this.winkel, t.maand, id, t.bestellingen, t.grens),
       this.db
         .prepare(
           `SELECT EXISTS (SELECT 1 FROM telling WHERE winkel = ? AND statement_id = ?) AS rij,
@@ -251,9 +252,13 @@ export class D1Opslag implements Opslag {
     return { rij: Number(r.rij) === 1, ingevoegd: ins.meta.changes === 1, slot: Number(r.slot) === 1 };
   }
 
-  async wisTelling(id: string): Promise<void> {
+  async wisTelling(id: string, eigenaar: string): Promise<void> {
     this.schrijfacties++;
-    await this.batchMetWachtrij([this.db.prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ?`).bind(this.winkel, id)]);
+    await this.batchMetWachtrij([
+      this.db
+        .prepare(`DELETE FROM telling WHERE winkel = ? AND statement_id = ? AND EXISTS (SELECT 1 FROM sloten WHERE winkel = ? AND statement_id = ? AND eigenaar = ?)`)
+        .bind(this.winkel, id, this.winkel, id, eigenaar),
+    ]);
   }
 
   async zetTerug(id: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean): Promise<void> {

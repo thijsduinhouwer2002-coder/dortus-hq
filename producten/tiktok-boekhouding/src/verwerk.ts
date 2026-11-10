@@ -199,6 +199,10 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
       await d.opslag.schrijfStatus(id, { ...rest, status, sinds: d.nu(), ...extra });
       return { status };
     };
+    // Stap 4 (ontwerp-betalen.md, punt 2): gezet zodra deze poging de telling invoegde en de status van daarvoor niet
+    // geboekt was. Dan gaat de rij weg bij `faal` (een weigering uit boekAfrekening: niets aangemaakt) en bij `terug()`,
+    // in dezelfde schrijfactie als de status.
+    let wisRij = false;
     // Bij "opnieuw" blijft een geboekte status staan tot het nieuwe resultaat er is; een fout komt erbij.
     const faal = async (status: string, reden: string): Promise<AfrekeningUitkomst> => {
       if (herstel && oud && GEBOEKT.includes(oud.status)) {
@@ -207,7 +211,7 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
         return { status: oud.status };
       }
       const { opnieuwSinds: _o, ...rest } = basis;
-      await d.opslag.schrijfStatus(id, { ...rest, status, reden, sinds: d.nu(), pogingen: 0, eerstePoging: undefined });
+      await d.opslag.schrijfStatus(id, { ...rest, status, reden, sinds: d.nu(), pogingen: 0, eerstePoging: undefined }, wisRij);
       return { status };
     };
 
@@ -260,10 +264,11 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
     if (!telling.slot) return { stop: true }; // slot verloren: niets schrijven (zelfde vangnet als bij startBoeking)
     if (!telling.rij) return zet("wacht_op_abonnement"); // grens bereikt: niets verstuurd, bestellingen staan bewaard
     // Stap 4: de rij gaat alleen weg als deze poging hem invoegde en de status van daarvoor niet geboekt was.
-    const wisRij = telling.ingevoegd && !(oud !== undefined && GEBOEKT.includes(oud.status));
+    wisRij = telling.ingevoegd && !(oud !== undefined && GEBOEKT.includes(oud.status));
     const tot = await d.opslag.startBoeking(id, d.eigenaar, gestart, d.nu() + SLOT_MARGE);
     if (tot === null || tot - d.nu() < SLOT_MARGE) {
-      if (wisRij) await d.opslag.wisTelling(id); // er is niets gestart
+      // Er is niets gestart. Alleen weg zolang het slot nog van ons is: anders kan een andere aanroep op deze rij boeken.
+      if (wisRij) await d.opslag.wisTelling(id, d.eigenaar);
       return { stop: true }; // vangnet: niet schrijven zonder geldig slot
     }
     // Niets verstuurd (budget op, of Moneybird weigerde de hele winkel): de status van daarvoor terug, en de telling weg in
@@ -275,8 +280,8 @@ async function verwerkAfrekening(d: BoekDeps, inst: Instellingen, a: Afrekening)
       b = await boekAfrekening(d.moneybird, inst.administratie, invoer, inst.koppeling, { ...(oud?.documentId ? { bekendId: oud.documentId } : {}), btwToegestaan: inst.btwToegestaan });
     } catch (e) {
       // boekAfrekening gooit alleen vóór de POST of bij een weigering: er is niets aangemaakt (een POST die misschien
-      // aankwam geeft `onzeker` en gooit niet). Daarom ook bij de andere fouten de telling weg (stap 4).
-      if (wisRij && !isBudgetOp(e) && !(e instanceof MoneybirdFout && MB_WINKEL_STOP.includes(e.soort))) await d.opslag.wisTelling(id);
+      // aankwam geeft `onzeker` en gooit niet). Budget op en winkelstop: `terug()`; een weigering: `faal`; beide wissen
+      // de telling mee (stap 4). Een onbekende fout gooit door met "boeking gestart": de rij blijft (te ruim is veilig).
       if (isBudgetOp(e)) {
         await terug();
         return { stop: true, budgetOp: true }; // niets verstuurd: geen onzeker

@@ -31,7 +31,7 @@ export class D1ToetsOpslag implements Opslag {
   geefSlotTerug(id: string, eigenaar: string) { return this.binnen.geefSlotTerug(id, eigenaar); }
   startBoeking(id: string, eigenaar: string, s: AfrekeningStatus, minTot: number) { return this.binnen.startBoeking(id, eigenaar, s, minTot); }
   leesStatus(id: string) { return this.binnen.leesStatus(id); }
-  schrijfStatus(id: string, s: AfrekeningStatus) { return this.binnen.schrijfStatus(id, s); }
+  schrijfStatus(id: string, s: AfrekeningStatus, wis?: boolean) { return this.binnen.schrijfStatus(id, s, wis); }
   wisStatus(id: string) { return this.binnen.wisStatus(id); }
   leesBestelling(id: string, orderId: string) { return this.binnen.leesBestelling(id, orderId); }
   schrijfBestelling(id: string, orderId: string, b: BewaardeBestelling) { return this.binnen.schrijfBestelling(id, orderId, b); }
@@ -41,7 +41,7 @@ export class D1ToetsOpslag implements Opslag {
   leesMarkering() { return this.binnen.leesMarkering(); }
   schrijfMarkering(t: number) { return this.binnen.schrijfMarkering(t); }
   legTellingVast(id: string, eigenaar: string, t: TellingVast) { return this.binnen.legTellingVast(id, eigenaar, t); }
-  wisTelling(id: string) { return this.binnen.wisTelling(id); }
+  wisTelling(id: string, eigenaar: string) { return this.binnen.wisTelling(id, eigenaar); }
   zetTerug(id: string, vorige: AfrekeningStatus | undefined, wis: boolean) { return this.binnen.zetTerug(id, vorige, wis); }
   /** Zelfde vorm als GeheugenOpslag.telling (alleen lezen). */
   get telling() {

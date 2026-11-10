@@ -47,6 +47,28 @@ for (const [naam, maak] of [["geheugen", () => new GeheugenOpslag()], ["D1", () 
     assert.deepEqual(await leg("e", 5, { maand: "2026-12" }), { rij: true, ingevoegd: true, slot: true }, "andere maand");
     assert.deepEqual(await leg("f", 99, { vrij: true }), { rij: true, ingevoegd: true, slot: true }, "abonnement of vrijstelling");
     assert.deepEqual(await leg("a", 20), { rij: true, ingevoegd: false, slot: true }, "rij van een eerdere poging: wel rij, niet ingevoegd");
+    // De maand staat nu op 20 + 10 + 99 = 129 (door de vrijstelling): zonder bestellingen mag nog steeds, één niet.
+    assert.deepEqual(await leg("g", 0), { rij: true, ingevoegd: true, slot: true }, "0 bestellingen ook boven 30");
+    assert.deepEqual(await leg("h", 1), { rij: false, ingevoegd: false, slot: true });
+  });
+
+  test(`(e) wisTelling alleen met eigen slot; schrijfStatus met wis haalt de rij in dezelfde schrijfactie weg (${naam})`, async () => {
+    const o = maak();
+    const heeft = (id: string) => ((o as any).telling as Map<string, unknown>).has(id);
+    await o.neemSlot("p", "run", NU + 300, NU);
+    await o.legTellingVast("p", "run", t(4));
+    await o.neemSlot("p", "ander", NU + 900, NU + 400); // ons slot verlopen, een ander nam het
+    await o.wisTelling("p", "run");
+    assert.equal(heeft("p"), true, "slot van een ander: rij blijft (die aanroep kan erop boeken)");
+    await o.wisTelling("p", "ander");
+    assert.equal(heeft("p"), false);
+    await o.neemSlot("q", "run", NU + 300, NU);
+    await o.legTellingVast("q", "run", t(4));
+    await o.schrijfStatus("q", { status: "fout", sinds: NU });
+    assert.equal(heeft("q"), true, "zonder wis blijft hij");
+    await o.schrijfStatus("q", { status: "fout", sinds: NU }, true);
+    assert.equal(heeft("q"), false);
+    assert.equal((await o.leesStatus("q"))?.status, "fout");
   });
 
   test(`(d, e) slot vereist en zetTerug (${naam}): zonder geldig slot geen rij; terug zet status en wist de rij samen`, async () => {

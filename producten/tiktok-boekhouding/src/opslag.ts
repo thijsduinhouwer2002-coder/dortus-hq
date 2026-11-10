@@ -58,7 +58,8 @@ export interface Opslag {
    */
   startBoeking(statementId: string, eigenaar: string, s: AfrekeningStatus, minTot: number): Promise<number | null>;
   leesStatus(statementId: string): Promise<AfrekeningStatus | undefined>;
-  schrijfStatus(statementId: string, s: AfrekeningStatus): Promise<void>;
+  /** `wisTelling`: de telling van deze afrekening in dezelfde schrijfactie weg (stap 4 bij `faal`, ontwerp-betalen.md). */
+  schrijfStatus(statementId: string, s: AfrekeningStatus, wisTelling?: boolean): Promise<void>;
   /** Alleen om "boeking gestart" terug te draaien als er eerder geen status was. */
   wisStatus(statementId: string): Promise<void>;
   leesBestelling(statementId: string, orderId: string): Promise<BewaardeBestelling | undefined>;
@@ -71,14 +72,14 @@ export interface Opslag {
   schrijfMarkering(statementTime: number): Promise<void>;
   /**
    * Stap 3 van ontwerp-betalen.md, punt 2: de telling vastleggen, alleen als het slot van `eigenaar` nog tot `minTot` geldt
-   * en (`vrij` of de som van de maand zonder deze afrekening plus `bestellingen` hoogstens `grens` is). In één schrijfactie
+   * en (`vrij`, of `bestellingen` is 0, of de som van de maand zonder deze afrekening plus `bestellingen` hoogstens `grens` is). In één schrijfactie
    * (D1: één batch, één transactie), zodat twee aanroepen tegelijk samen niet over de grens komen. `rij`: er staat nu een
    * rij voor deze afrekening (ook een van een eerdere poging); `ingevoegd`: deze aanroep voegde hem in; `slot`: het slot
    * gold nog tot `minTot` (zo niet, dan is "geen rij" geen grens maar een verloren slot).
    */
   legTellingVast(statementId: string, eigenaar: string, t: TellingVast): Promise<{ rij: boolean; ingevoegd: boolean; slot: boolean }>;
-  /** Telling van deze afrekening weg (stap 4: alleen als deze poging hem invoegde). */
-  wisTelling(statementId: string): Promise<void>;
+  /** Telling van deze afrekening weg (stap 4: alleen als deze poging hem invoegde), en alleen zolang het slot nog van `eigenaar` is. */
+  wisTelling(statementId: string, eigenaar: string): Promise<void>;
   /** `terug()` van stap 4: status van daarvoor terug (of weg) en, als `wisTelling`, de telling weg, in één schrijfactie. */
   zetTerug(statementId: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean): Promise<void>;
 }
@@ -124,9 +125,10 @@ export class GeheugenOpslag implements Opslag {
     const s = this.statussen.get(id);
     return s ? structuredClone(s) : undefined;
   }
-  async schrijfStatus(id: string, s: AfrekeningStatus) {
+  async schrijfStatus(id: string, s: AfrekeningStatus, wisTelling = false) {
     this.schrijfacties++;
     this.statussen.set(id, structuredClone(s));
+    if (wisTelling) this.telling.delete(id);
   }
   async wisStatus(id: string) {
     this.schrijfacties++;
@@ -164,16 +166,16 @@ export class GeheugenOpslag implements Opslag {
     let ingevoegd = false;
     if (tot !== null && tot >= t.minTot && !this.telling.has(id)) {
       const som = [...this.telling].filter(([k, r]) => k !== id && r.maand === t.maand).reduce((n, [, r]) => n + r.bestellingen, 0);
-      if (t.vrij || som + t.bestellingen <= t.grens) {
+      if (t.vrij || t.bestellingen === 0 || som + t.bestellingen <= t.grens) {
         this.telling.set(id, { maand: t.maand, bestellingen: t.bestellingen });
         ingevoegd = true;
       }
     }
     return { rij: this.telling.has(id), ingevoegd, slot: tot !== null && tot >= t.minTot };
   }
-  async wisTelling(id: string) {
+  async wisTelling(id: string, eigenaar: string) {
     this.schrijfacties++;
-    this.telling.delete(id);
+    if (this.sloten.get(id)?.eigenaar === eigenaar) this.telling.delete(id);
   }
   async zetTerug(id: string, vorige: AfrekeningStatus | undefined, wisTelling: boolean) {
     this.schrijfacties++;

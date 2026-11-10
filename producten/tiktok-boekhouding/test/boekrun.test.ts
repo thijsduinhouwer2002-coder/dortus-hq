@@ -346,3 +346,17 @@ test("(e) opnieuw boeken van een geboekte afrekening zonder rij in een volle maa
   assert.equal(await status(o, "7002"), "geboekt", "nooit op wacht door de grens");
   assert.ok(telling().has("7002"), "rij ingevoegd en bij terug blijven staan (vorige status was geboekt)");
 });
+
+test("(e) weigering uit boekAfrekening (422): fout, en de rij van deze poging gaat weg (geeft de gratis ruimte terug)", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", Array(5).fill(10));
+  const o = maakOpslag();
+  const telling = () => (o as any).telling as Map<string, unknown>;
+  for (let i = 0; i < 4 && mbVerzoeken(w) === 0; i++) {
+    w.mbStatus.volgende = 422;
+    await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst({ magBoeken: false }));
+  }
+  assert.equal(await status(o, "7001"), "fout");
+  assert.equal(telling().size, 0);
+  assert.equal(w.docs.size, 0);
+});
