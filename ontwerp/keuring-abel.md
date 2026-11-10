@@ -55,3 +55,4 @@ Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met war
 
 ---
 **Abel, 10 nov ±01:45 NL: klaar voor keuring 2.** Moet-punten 1 en 2 en kan-punt 3 verwerkt in `merk/teksten.md` (v2) en `accounts/steam.md` (v2, met de beelden van Mila per stap). Mila's beelden heb ik op een echte Steam-ontwikkelaarspagina gezet: `platformen/abel/merk/proef/`. Twee vondsten met voorstel in `merk/voor-mila.md`: de kop (deur viel op 1024 px weg, v1b schuift hem naar het midden) en de achtergrond (tweede grote D naast het logo las als "ortusD", v1b laat het licht uit de D van het logo vallen).
+- **Mila, 10 nov ±02:20 NL: uniform v2 klaar voor keuring.** Bestanden met `-v2`, uitleg en welke punten onderaan `platformen/abel/merk/uniform.md`, proef op Steam in `merk/proef/steam-pagina-v2-op-steam-*.png`.

@@ -33,8 +33,8 @@ Letter: **Inter Display ExtraBold** voor het woord, **Inter Medium** voor regels
 | `avatar-184.png` | 184 | Steam profiel, groep en ontwikkelaarspagina |
 | `avatar-32.png`, `avatar-16.png` | 32, 16 | eigen kleine tekening (grotere D, deur verder open, geen scharnieren) |
 | `merkteken.svg` | vector | favicon dortus.com en alles wat scherp moet blijven (`merkteken-klein.svg` voor 16 en 32 px, beter als favicon) |
-| `steam-logo-1200x460.png` | 1200 x 460, doorzichtig | logo bovenaan de ontwikkelaarspagina |
-| `steam-kop-1500x220.png` | 1500 x 220 | kop achter de naam: links rustig donker (daar staat de tekst), rechts de deur |
+| `steam-logo-1200x460.png` | 1200 x 460, doorzichtig | logo bovenaan de ontwikkelaarspagina (v1; v2 hieronder staat in het midden) |
+| ~~`steam-kop-1500x220.png`~~ | 1500 x 220 | **niet gebruiken** (deur valt op 1024 px weg). Gebruik `steam-kop-1500x220-v1b.png` (akkoord Daan) of v2 na keuring |
 | `steam-achtergrond-1920.png` | 1920 x 1200 | achtergrond ontwikkelaarspagina, met de spullen in het licht |
 | `og-1200x630.png` | 1200 x 630 | deelplaatje dortus.com |
 | `social-1280x640.png` | 1280 x 640 | GitHub social preview (algemeen) |
@@ -44,7 +44,7 @@ Alle avatars zijn rond te knippen: de D valt binnen de middelste 70% (GEZIEN in 
 
 ## Regels voor wie het gebruikt
 1. Niets aan de D veranderen (kleur, vorm, deur). Alleen schalen.
-2. Achtergrond altijd Nacht of donkerder. Nooit de D op wit zonder het donkere vlak eromheen.
+2. Achtergrond altijd Nacht of donkerder. Nooit de D op wit zonder het donkere vlak eromheen. Het Steam-logo (doorzichtig, "ortus" in crème) alleen op Nacht of Steam-donker.
 3. Per product mag in het licht van de deur iets van dat product liggen (social preview per repo): dat volgt in v2, Abel zegt welke repo's eerst.
 4. Producten houden hun eigen icoon (Bison & Flex, Click Joints, Rollwright, Het Hol). Het uniform zit in de avatar, de kop en de deelplaatjes.
 
@@ -56,3 +56,19 @@ Alle avatars zijn rond te knippen: de D valt binnen de middelste 70% (GEZIEN in 
 
 ## Keuring Daan
 **Akkoord: ja 10 nov 2026 (Daan, 00:30 UTC)** voor v1, **Steam-kop alleen v1b** (v1 valt op 1024 px half weg), Steam-achtergrond pas na moet-punt 1 (D niet achter de middenkolom van de pagina). Volledige keuring met kan-punten voor v2: `ontwerp/keuring-abel.md`, keuring 2.
+
+## Versie 2 (Mila, 10 nov ±02:20 NL): wacht op keuring Daan
+Alle punten van Daan (keuring 2) en Abel (`voor-mila.md`) verwerkt. Nieuwe bestanden hebben `-v2` in de naam; de v1-bestanden blijven staan tot Daan v2 keurt. Avatars en merkteken veranderen niet.
+
+| Bestand | Wat er anders is | Punt |
+|---|---|---|
+| `steam-kop-1500x220-v2.png` | **Geen tweede D meer.** Het licht valt vanaf links over de vloer naar rechts, alsof het uit de deur in de avatar komt, en daarin rollen kroon, dobbelsteen en accolades. Op 1024, 1280 en 1920 breed staat het licht steeds net rechts van de avatar (GEZIEN in `proef/steam-pagina-v2-op-steam-*.png`); de spullen staan op kop-x 600 tot 1080, op 1024 buiten het grijze verloop, en boven y 200 zodat de tabs ze niet afknippen. | Daan 6, Abel punt 1 |
+| `steam-achtergrond-1920-v2.png` | Abels v1b overgenomen (geen tweede D, het licht valt uit de D van het paginalogo), nu precies onder de lichte opening van het logo v2, en **alle drie de spullen terug** in de kantlijn, elk in een eigen gloed: kroon en dobbelsteen links, accolades rechts. Hoger gezet, want de achtergrond begint pas onder de tabs. | Daan 1, Abel punt 2 |
+| `steam-logo-1200x460-v2.png` | Woordmerk precies in het midden (gemeten, niet geschat). | Daan 8 |
+| `og-1200x630-v2.png`, `social-1280x640-v2.png` | Lichtbundel en spullen nieuw (zie hieronder). | Daan 2 en 4 |
+
+Wat overal nieuw is:
+- **Het licht komt uit de kier.** De bundel begint smal onder de lichte opening (tussen deurblad en boog) en wordt daarna breder, met een fellere kern. Je leest nu "het licht valt door de deur naar buiten".
+- **De spullen hebben diepte:** de kroon ligt iets scheef, met een band, glans en drie steentjes; de dobbelsteen is een echte kubus met lichte bovenkant en een stofwolkje erachter (hij rolt nog); de accolades hebben een donkere rand en een schaduwkant.
+- Eén nadeel, eerlijk: op een venster van 1024 breed schaalt Steam het paginalogo, de achtergrond niet, dus daar sluit de bundel op de achtergrond niet aan op de D (de kop wel). Op 1280 en breder klopt het.
+- Nog niet gedaan (Daan 3): social per repo met het productbeeld groot in het licht. Volgt als Abel zegt welke repo's eerst.
