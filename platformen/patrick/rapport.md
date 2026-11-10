@@ -1,18 +1,21 @@
 # Rapport Patrick, perfectionist (nacht 9 op 10 nov 2026)
 
-Stand: run 2 (10 nov, ±01:45 NL). Runs van 03:13 en 05:13 controleren en schaven; na 05:13 is dit de versie voor Thijs om 08:00.
 Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/internet.md` en `bronnen/toegang-ruw.md`. Volledige teksten om over te nemen: `voorstellen/01` tot `12`.
 
 ## Voor Thijs: vijf keer ja of nee (±3 minuten), daarna 5 minuten werk
-1. Koerszin "eerst de eerste eerlijke euro, daarna spreiden" (hieronder): ja / nee.
-2. Ploeg op de eerste euro (punt 1): Bram terug naar Click Joints, Klopt stil tot de KvK-datum, 6 Claudes elk uur: ja / nee. Plus één datum: wanneer verwacht je de KvK?
-3. Hoofdchat beslist, Hans controleert één keer per dag, ploeg verandert alleen om 09:00 en 21:00 (punt 4): ja / nee.
-4. Kansen kiezen op verwachte euro's per week werk in plaats van de 8-meetlat (punt 4): ja / nee.
-5. dortus-hq privé maken (zie "Ook belangrijk"): ja / nee.
-Werk: één Polar-sleutel die alleen kan lezen (punt 2, 5 minuten). De rest (punt 3 en 5) voert de hoofdchat zelf door.
+Zeg je nee, dan blijft alles zoals het nu is; de hoofdchat vraagt niet opnieuw.
+1. **dortus-hq privé maken** (2 minuten, GitHub, Settings). De repo is openbaar: iedereen leest je Steam-partner-ID, mailadres, W-8BEN-stand en alle logboeken. Dit is het dringendste punt: ja / nee.
+2. **Koers:** "eerst de eerste eerlijke euro, daarna spreiden": ja / nee.
+3. **Ploeg op de eerste euro:** Bram (bouwer van Click Joints, de Blender-add-on) van Steam terug naar de betaalde versie van Click Joints; Klopt (de TikTok-boekhoudapp) stil tot de KvK er is; 6 Claudes elk uur in plaats van ±9: ja / nee. Plus: wanneer verwacht je de KvK? Een gok is goed.
+4. **Sturing:** de hoofdchat (jij plus de chat waarin je met Claude praat) beslist; Hans (de Claude-hoofdmanager) controleert nog één keer per dag; de ploeg verandert alleen om 09:00 en 21:00; een manager kiest zelf zijn volgende product binnen zijn platform: ja / nee.
+5. **Kiezen op geld:** nieuwe kansen kiezen op verwachte euro's per week werk, in plaats van de huidige lat waar je een 8 moet halen op vier eisen tegelijk: ja / nee.
+
+Werk voor jou: één Polar-sleutel die alleen kan lezen (5 minuten, stappen staan op je lijst). Later, verspreid: ±40 minuten sleutels (punt 2), één post per week (5 minuten). De rest voert de hoofdchat zelf door.
+
+**Wie is wie.** Producten: Rollwright (Obsidian-plugin, te koop), Click Joints (Blender-add-on, in keuring), Bison & Flex (JetBrains-plugin, in keuring), Het Hol (Steam-spel), Klopt (TikTok Shop-boekhouding), ademapp (Garmin-horloge). Claudes: Olaf, Sanne, Mila, Bram bouwen of ontwerpen Het Hol; Daan keurt alle ontwerpen; Tess en Jet doen Klopt (Jet ook Bison & Flex); Gijs doet Garmin; Abel de accounts. Het bord is één bestand met per product de stand. Euro-datum: de vroegste dag dat een product eerlijk geld kan opleveren. GEZIEN is zelf nagekeken, GOK is een schatting.
 
 ## In één alinea
-In drie dagen maakte de ploeg ±1.650 commits. Opbrengst: één product te koop (Rollwright, skins $6, 26 downloads), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en ziet niemand in de ploeg of er iets verkocht is. De vijf punten hieronder lossen dat op.
+In drie dagen maakte de ploeg ±1.640 commits (zonder samenvoegingen). Opbrengst: één product te koop (Rollwright, skins $6, 26 downloads), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en ziet niemand in de ploeg of er iets verkocht is. De vijf punten hieronder lossen dat op.
 
 ## Vóór alles: één koerszin (keuze Thijs, 1 minuut)
 Nu staan er vier koersen door elkaar (CLAUDE.md "gebruikers en later geld", projectbeschrijving "eerst bereik", `doelen.md` "geld gaat voor bereik", besluit 22:56 "echt geld nu"). Elke afweging leunt hierop. Advies: **"Eerst de eerste eerlijke euro, daarna spreiden. Bereik telt omdat het tot geld leidt: elk product is vanaf dag 1 te koop."** Uitwerking: `voorstellen/10-koers-in-een-zin.md`.
@@ -20,10 +23,10 @@ Nu staan er vier koersen door elkaar (CLAUDE.md "gebruikers en later geld", proj
 ## Top 5
 
 ### 1. Zet de ploeg op de eerste euro (keuze Thijs, 1 minuut)
-- **Wat er mis is.** Per product de vroegste euro (`voorstellen/12-eerste-euro.md`): Click Joints Pro binnen ±1 week als we alleen het scharnier verkopen via Polar (kassa staat al; scharnier staat op een tak, nog 1 tot 2 dagen werk plus Daan), Garmin-ademapp eind november, Bison & Flex half december (30 dagen proef na goedkeuring), Het Hol half januari, Klopt pas 4 tot 8 weken na een KvK die er nog niet is. Toch draaien Tess en Jet elk uur op Klopt, en zit Bram (de bouwer van Click Joints) op Steam als vijfde man. **Gemeten vannacht (10 nov 00:00 tot 02:30 UTC, 86 commits):** Jet 22 commits aan het betaalstuk van Klopt (251 tests), dat pas na de KvK iets kan opleveren; Steam samen ±40; Click Joints Pro 0; Garmin 0 gebouwd, want Gijs wacht op een ja van Hans om 08:44 en stopt elk uur na 5 minuten.
+- **Wat er mis is.** Per product de vroegste euro (`voorstellen/12-eerste-euro.md`): Click Joints Pro binnen ±1 week als we alleen het scharnier verkopen via Polar (kassa staat al; scharnier staat op een tak, nog 1 tot 2 dagen werk plus Daan), Garmin-ademapp eind november, Bison & Flex half december (30 dagen proef na goedkeuring), Het Hol half januari, Klopt pas 4 tot 8 weken na een KvK die er nog niet is. Toch draaien Tess en Jet elk uur op Klopt, en zit Bram (de bouwer van Click Joints) op Steam. **Gemeten vannacht (10 nov 00:00 tot 02:30 UTC, 86 commits):** Jet 22 commits, vooral aan het betaalstuk van Klopt (nu 251 tests, om 00:15 nog 181), dat pas na de KvK iets kan opleveren; Steam (Olaf, Bram, Sanne, Mila) 33; Click Joints Pro 0; Garmin 0 gebouwd, want Gijs wacht op een ja van Hans om 08:44 en stopt elk uur na 5 minuten.
 - **Voorstel.** Elk uur: Olaf, Sanne, Mila (Steam), Bram (Click Joints Pro tot hij te koop staat), Gijs (Garmin), Daan (zijn akkoord is nodig om in te dienen). Klopt stil tot de KvK-datum vaststaat; Jet op afroep voor de lancering van Bison & Flex. Per product één kanaal om gevonden te worden: de ploeg schrijft de tekst, Thijs post hooguit één keer per week (5 minuten), want posten blijft bij hem. Geen nieuw platform tot er een euro binnen is. Elk product krijgt op het bord een "euro-datum"; schuift die twee keer, dan kleiner of stoppen.
 - **Eerlijk over geld.** Minder Claudes bespaart zelf geen euro: het abonnement is vast. Het spaart weeklimiet en overleg. De echte kostenknop is een kleiner abonnement; meet na de reset (wo 21:00) een week en beslis dan. GOK, niet gemeten.
-- **Oplevert.** Twee kansen op een euro in november in plaats van nul, zonder dat Steam trager gaat (de bouwer blijft).
+- **Oplevert.** Een kans op een euro in november in plaats van geen. Eerlijk: ±1 week voor Click Joints Pro is de vroegste dag, en dan moet er nog iemand kopen; Garmin eind november is een GOK met nog een keuring en een verkopersaccount. Steam gaat niet trager (Olaf bouwt door).
 
 ### 2. Toegang met officiële sleutels (gewoon goed, Thijs ±5 minuten nu, ±40 later)
 - **Wat er mis is.** Niemand in de ploeg ziet verkopen zonder Thijs, en elke Blender-update en Steam-build zou via hem lopen. Er zijn nu maar twee sleutels: JetBrains-upload en Moneybird-proef (GEZIEN in de workflows).
@@ -54,12 +57,13 @@ Nu staan er vier koersen door elkaar (CLAUDE.md "gebruikers en later geld", proj
 4. `.gitignore` (06), `lijst-thijs.md` met archief (04), dashboard (09).
 5. Let op bij stap 2: (a) Hans gaat in 01 en 02 het bord mee bijhouden; dat is een nieuw besluit, zet het in `besluiten.md`. (b) Maps zonder `status.md` (abel, hoofdchat, herweger, zijpad, patrick) krijgen er een uit het sjabloon of gaan naar `uit/`. (c) 01, 03, 04, 07 en 08 verwijzen naar elkaar en naar mappen die nog niet bestaan (`berichten/archief/`, `organisatie/archief/`, `organisatie/rollen/uit/`, `organisatie/sjablonen/status.md`): alleen samen doorvoeren.
 
-Controle: een agent die de voorstellen niet schreef, legde de huidige CLAUDE.md en regels.md regel voor regel naast 01 en 07 (10 nov 00:30). Weggevallen grenzen zijn teruggezet (alle gegevens invullen, lezen en WebSearch, nooit uit logboeken weghalen, berichten aan een ander, afsluiten na fetch). Bewust losser, dus keuze voor de hoofdchat: code samenvoegen op groene tests zonder controleur (gewijzigde tests wel), en `besluiten.md` alleen lezen vóór een groot besluit.
+Controle: een frisse agent legde de huidige CLAUDE.md en regels.md naast 01 en 07; niets is weggevallen. Bewust losser (keuze hoofdchat): samenvoegen op groene tests zonder controleur, en `besluiten.md` alleen lezen vóór een groot besluit.
 
 ## Ook belangrijk, niet in de top 5
+- **Een stopgrens ontbreekt** (keuze Thijs). Er staat nergens wanneer we minder gaan uitgeven als er geen euro komt. Advies: staat er op 31 december nog geen eerste euro, dan een kleiner abonnement en hooguit twee producten. Zo weet je vooraf wat €1000 erbij hooguit wordt. GOK op de datum: dan hebben Click Joints Pro, Garmin en Bison & Flex elk minstens een maand te koop gestaan.
 - **dortus-hq is openbaar** (GEZIEN via de GitHub API, `"private": false`). Iedereen kan lezen: besluiten (Steamworks-account, partner-ID, mailadres, W-8BEN ingediend), lijst-thijs, logboeken, en elke log van Actions. Dat maakt phishing op Thijs makkelijker en laat concurrenten meelezen. Keuze Thijs: privé maken (2 minuten, Settings), dan moeten de ploeg en `regels.md` de testuitslag met `gh api` lezen in plaats van met kale curl (regels.md noemt dit al). Kan dat niet meteen: zet in elk geval geen account-, betaal-, ID- of klantgegevens meer in de repo.
 - **Weeklimiet: niemand kijkt.** 55% op ma 13:40 (herinnering "Verbruik-check", nu uit), reset wo 21:00, daarna kwamen er vier Claudes bij. Raakt hij op, dan stopt alles tegelijk. Punt 1 helpt direct; noodknop: boven 85% alleen nog Olaf, Bram en Gijs elk uur.
-- **Repo afslanken** (06). `.git` is 2,7 GB; een `.gitignore` voor ruwe data kost 10 minuten.
+- **Repo afslanken** (06). `.git` is 2,7 GB; `git pull` hangt in zes logboeken, en ondiep ophalen geeft een valse melding "main geforceerd vervangen" waarop Claudes hun main terugzetten (nagekeken: niemand vervangt main). Vast begincommando in 01, en een `.gitignore` voor ruwe data (10 minuten).
 - **dortus.com draait op GitHub Pages** (GEZIEN). Volgens GitHub niet bedoeld voor een commerciële dienst; afrekenen gebeurt bij Polar, dus voor nu prima. Bij echte verkoop van Klopt naar Cloudflare Pages (11).
 - **Eerst de regels van een plek lezen** voor je ergens iets plaatst (Reddit-ban bij Rollwright). Staat in 07.
 - **Zes rollen staan uit.** Verplaats ze naar `organisatie/rollen/uit/`.
