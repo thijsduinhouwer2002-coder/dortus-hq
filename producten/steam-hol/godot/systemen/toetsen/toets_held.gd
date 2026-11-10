@@ -347,5 +347,20 @@ func _init() -> void:
 	ok(g2.hoeden == g.hoeden and g2.gegeten == 3000, "hoeden komen terug uit de save (%d)" % g2.hoeden.size())
 	hol5.free()
 
+	# Sanne toets 6 punt 1: moet_afgerekend. Wrok tegen de put: overleeft Gloop (kolom 6), valt in de put (kolom 9)
+	var af := 0
+	var af_bew := 0
+	for z in 30:
+		r = speel({"naam": "Bram", "bezoeken": 1, "wrok": "the Spike Pit", "moet_afgerekend": true, "zaad": 700 + z})
+		if r.uitkomst == "gevallen" and r.info.laatst_geraakt == "the Spike Pit" and String(r.info.wat).begins_with("finally"):
+			af += 1
+		r = speel({"naam": "Wim", "bezoeken": 1, "wrok": "Gloop the Slime", "moet_afgerekend": true, "zaad": 800 + z})
+		if r.uitkomst == "gevallen" and r.info.laatst_geraakt == "Gloop the Slime" and r.slijm_hoeden.size() == 1:
+			af_bew += 1
+	ok(af == 30, "moet_afgerekend: wrok tegen de put, valt precies in de put (%d van 30)" % af)
+	ok(af_bew == 30, "moet_afgerekend: wrok tegen Gloop, Gloop eet hem en draagt zijn hoed (%d van 30)" % af_bew)
+	r = speel({"naam": "Bram", "bezoeken": 1, "wrok": "the Spike Pit", "moet_afgerekend": true, "zaad": 9}, false, true)
+	ok(r.uitkomst == "ontsnapt" and bool(r.info.get("hoard_toucher", false)), "moet_afgerekend zonder put: overleeft Gloop en raakt de schat aan")
+
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

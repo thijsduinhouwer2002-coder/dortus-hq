@@ -99,8 +99,14 @@ func gevallen(naam: String, waardoor: String, buit: int) -> String:
 	var achter := " +%d" % buit
 	var regel := ""
 	if h["gevlucht"] > 0 and waardoor == h["wrok"]:
-		var soort := "afgerekend_aarts" if int(h["gevlucht"]) >= 3 else "afgerekend"
-		regel = _regel(soort, _vars(naam, waardoor), "Grudge settled." + achter, achter)
+		# Sanne toets 6: eigen regel per soort vijand ("Bram came back. The Spike Pit won. +9"); aartsvijand apart
+		var v := _vars(naam, waardoor)
+		var soort := "afgerekend_aarts"
+		if int(h["gevlucht"]) < 3:
+			soort = "afgerekend_val" if String(v["val"]) != "" else "afgerekend_bewoner"
+		regel = _regel(soort, v, "", achter)
+		if regel == "":
+			regel = _regel("afgerekend", v, "Grudge settled." + achter, achter)
 	else:
 		regel = _regel("valt", _vars(naam, waardoor), "%s fell.%s" % [naam, achter], achter)
 	_schrijf(regel)

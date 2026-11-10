@@ -34,7 +34,7 @@ func _init() -> void:
 	k.gevlucht("Wim", "Gloop the Slime")
 	k.binnen("Wim")
 	k.gevallen("Wim", "Gloop the Slime", 5)
-	ok(k.laatste_soort == "afgerekend" and k.laatste().ends_with(" +5") and not k.laatste().contains("wall")
+	ok(k.laatste_soort == "afgerekend_bewoner" and k.laatste().ends_with(" +5") and not k.laatste().contains("wall")
 		and not k.laatste().contains("Nemesis"), "wrok vereffend, gewone held zonder wand of Nemesis: " + k.laatste())
 	# regels van Sanne: hooguit 42 tekens, goud in dezelfde regel, niet twee keer dezelfde achter elkaar
 	var k3 = K.new()
@@ -229,6 +229,25 @@ func _init() -> void:
 	k9.gevallen("Kees", "the Spike Pit", 6)
 	k9.binnen("Kees II")
 	ok(not k9.laatste().contains("II II") and not k9.laatste().contains("{") and k9.laatste().contains("Kees II"), "naamgenoot met {oud}: " + k9.laatste())
+	# Sanne toets 6 punt 1: de wrok krijgt een afloop, met een eigen regel die de vijand noemt
+	var k11 = K.new()
+	k11.binnen("Bram")
+	k11.gevlucht("Bram", "the Spike Pit")
+	k11.binnen("Bram")
+	k11.gevallen("Bram", "the Spike Pit", 9)
+	var ra: String = k11.laatste()
+	ok(k11.laatste_soort == "afgerekend_val" and ra.contains("The Spike Pit") and ra.ends_with(" +9") and ra.length() <= 42
+		and not ra.contains("{"), "wrok tegen de put: eigen afloop-regel met hoofdletter: " + ra)
+	var lang := 0
+	for soort in ["afgerekend_val", "afgerekend_bewoner"]:
+		for sj in stem.VOORRAAD[soort]:
+			var vol: String = stem.vul(sj, {"naam": "Bram", "val": "the Spike Pit", "bewoner": "Gloop"}) + " +12"
+			if vol.length() > 42 or vol.contains("{"):
+				lang += 1
+				print("  te lang of open: ", vol)
+	ok(lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % lang)
+	ok(stem.kies("afgerekend_val", {"naam": "Bram", "val": ""}) == "", "afloop-regel met {Val} komt niet zonder val")
+	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
 
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

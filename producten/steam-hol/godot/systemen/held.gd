@@ -19,6 +19,9 @@ extends Node2D
 # - info["moet_vluchten"]: overleeft de eerste verdediging en rent dan weg (krijgt zijn wrok).
 # - info["moet_doorlopen"]: overleeft alles, rent nergens voor weg en raakt de schat aan (Hoard-Toucher).
 # - info["moet_opgegeten"]: de eerste bewoner op zijn pad eet hem (vallen overleeft hij); zijn hoed gaat op de toren.
+# - info["moet_afgerekend"]: een terugkomer met een wrok overleeft alles tot zijn vijand en valt precies daar
+#   (Sanne toets 6 punt 1: in de demo-minuut moet de grap af zijn, "Bram came back. The Spike Pit won.").
+#   Staat zijn vijand er niet (meer), dan loopt hij door naar de schat zoals altijd.
 # - valt hij door een bewoner, dan gaat zijn hoed naar diens hoedentoren: info "hoed_naar" ("bewoner", of "wand"
 #   voor een aartsvijand zodra WAND_ER waar is) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
@@ -241,6 +244,8 @@ func _onderweg() -> void:
 		valt = false           # overleeft alles en raakt de schat aan: Hoard-Toucher
 	if bool(info.get("moet_opgegeten", false)):
 		valt = b != null       # een bewoner krijgt hem (held 5: eerste hoed op Gloop); een val overleeft hij
+	if bool(info.get("moet_afgerekend", false)):
+		valt = is_vijand       # alles onderweg overleeft hij, zijn eigen vijand krijgt hem
 	if valt:
 		info["laatst_geraakt"] = naam_vijand
 		info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand
@@ -271,7 +276,7 @@ func _onderweg() -> void:
 	var rent := (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2
 	if bool(info.get("moet_vluchten", false)):
 		rent = true
-	if bool(info.get("moet_doorlopen", false)) or bool(info.get("moet_opgegeten", false)):
+	if bool(info.get("moet_doorlopen", false)) or bool(info.get("moet_opgegeten", false)) or bool(info.get("moet_afgerekend", false)):
 		rent = false
 	if rent:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand

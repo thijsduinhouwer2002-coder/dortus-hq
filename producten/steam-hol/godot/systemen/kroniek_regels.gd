@@ -37,6 +37,11 @@ const VOORRAAD := {
 	# aartsvijanden (3 keer gevlucht) krijgen een eigen lijst, zoals afgerekend_aarts in kern/regels.gd.
 	"afgerekend": ["Grudge settled. {naam} rests.", "{bewoner} wins. {naam} is done."],
 	"afgerekend_aarts": ["Nemesis {naam}: finally stays.", "Grudge settled. Nemesis {naam} rests."],
+	# Sanne toets 6 punt 1: de wrok krijgt een afloop. Een terugkomer valt in precies wat hij zocht, met een eigen regel.
+	# {Val} = {val} met een hoofdletter ("The Spike Pit"). Aartsvijanden houden afgerekend_aarts.
+	"afgerekend_val": ["{naam} came back. {Val} won.", "Rematch. {Val} won.", "{naam} had a plan. {Val} won."],
+	"afgerekend_bewoner": ["{naam} came back. {bewoner} won.", "Rematch. {bewoner} won. Burp.",
+		"{naam} had a plan. {bewoner} ate it."],
 	# Soorten die kern/strook.gd (Olaf) gebruikt; zo is dit de enige voorraad (Olaf 22:35, controleur punt 4).
 	"terug_bewoner": ["{naam} is back for {bewoner}.", "{held} is back. Grudge: {bewoner}", "{naam} wrote a song about {bewoner}."],
 	"terug_val": ["{naam} remembers {val}.", "{naam} is back for {val}.", "{naam} limps back to {val}."],
@@ -74,11 +79,13 @@ static func vul(sjabloon: String, v: Dictionary) -> String:
 	var r := sjabloon
 	for sleutel in ["held", "naam", "bewoner", "val", "n", "bijnaam", "oud"]:
 		r = r.replace("{%s}" % sleutel, str(v.get(sleutel, "")))
+	var val := str(v.get("val", ""))
+	r = r.replace("{Val}", val.substr(0, 1).to_upper() + val.substr(1))
 	return r
 
 # Noemt deze regel de wrok of de bijnaam? (Sanne toets 3 punt 6: een terugkomer zegt altijd waarom)
 static func noemt_waarom(s: String, v: Dictionary) -> bool:
-	if s.contains("{bewoner}") or s.contains("{val}"):
+	if s.contains("{bewoner}") or s.contains("{val}") or s.contains("{Val}"):
 		return true
 	return s.contains("{held}") and String(v.get("held", "")) != String(v.get("naam", ""))
 
@@ -95,7 +102,7 @@ func kies(soort: String, v: Dictionary, achter = "", moet_noemen := false) -> St
 	for s in VOORRAAD.get(soort, []):
 		if s.contains("{bewoner}") and String(v.get("bewoner", "")) == "":
 			continue
-		if s.contains("{val}") and String(v.get("val", "")) == "":
+		if (s.contains("{val}") or s.contains("{Val}")) and String(v.get("val", "")) == "":
 			continue
 		passend.append(s)
 		if vul(s, v).length() + vrij > MAX:
