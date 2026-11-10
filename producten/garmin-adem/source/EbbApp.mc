@@ -309,7 +309,7 @@ class EbbView extends WatchUi.View {
         if (groot.length() > 0 && !_grootGemeld[fase]) {
             _grootGemeld[fase] = true;
             var b = dc.getTextWidthInPixels(groot, font);
-            var hoog = dc.getFontAscent(font);
+            var hoog = Graphics.getFontAscent(font);
             System.println("GROOT fase " + fase + " tekst " + groot + " breedte " + b + " hoogte " + hoog + " van " + w + " = " + (hoog * 100 / w) + "%");
         }
         var st = System.getSystemStats();
