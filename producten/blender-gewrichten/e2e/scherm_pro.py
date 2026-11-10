@@ -8,8 +8,8 @@ Plaatjes (alle 1920x1080, hele X-scherm):
 En pro-knie.json met de echte getallen (bereik, speling, stand) en de plek in beeld van H en de lidas, voor de poster.
 
 Wat het script zelf doet en de add-on niet (alleen weergave, de export verandert niet):
-- Groene band: de vlakken van A en B die binnen speling + 0,35 mm van het andere deel liggen (de spleet rond de
-  knokkel) krijgen het passingmateriaal "Good fit" van de gratis versie, zodat het één familie is met plaatje 8.
+- Groene band: de vlakken van A en B die binnen speling + 2 mm van het andere deel liggen (een band langs de naad en de
+  spleet rond de knokkel) krijgen het passingmateriaal "Good fit" van de gratis versie, zodat het één familie is met plaatje 8.
   De add-on kleurt het scharnier zelf (nog) niet; de band toont waar de 0,2 mm speling zit.
 - Op 14 is B doorzichtig (materiaal met alpha), zodat het rode vlak van A achter B als vlak te zien is.
 - Eigen effen donkere achtergrond (viewport-kleur), geen selectie, geen middelpunt.
@@ -35,7 +35,7 @@ from scherm_basis import log, schiet, toestand, weergave, zijbalk, zip_pad  # no
 POSE = 60.0
 VOORBIJ = 3.0
 SPELING = 0.2
-BAND_MM = 0.35        # groen: vlakken binnen speling + dit van het andere deel
+BAND_MM = 2.0         # groen: vlakken binnen speling + dit van het andere deel (band langs de naad, als RING_MM 3 gratis)
 ACHTERGROND = (0.017, 0.019, 0.026)  # #23262D van de gratis poster (lineair)
 HOUT = (0.80, 0.58, 0.36, 1.0)
 HOOGTE, BREEDTE = 0.62, 0.80
@@ -311,7 +311,7 @@ def verslag(naam, soort, graden, rood_vlakken, boog_aan):
         "pose klopt": bool(b) and abs(b.get("cj_pose_graden", -1) - graden) < 1e-6,
         "niets geselecteerd": not any(o.select_get() for o in bpy.context.view_layer.objects),
         "geen oranje rand": oranje < 40,
-        "eigen achtergrond": float(rand.mean()) < 0.12,
+        "eigen achtergrond": float(rand.mean()) < 0.2 and float(rand[..., 2].mean() - rand[..., 0].mean()) > 0.02,
         "groene band in beeld": groen >= 300,
         "rode vlakken alleen voorbij": (rood_vlakken > 0) == voorbij,
         "boog zoals gevraagd": bool(bpy.context.window_manager.cj_scharnier_boog) == boog_aan,
@@ -335,12 +335,28 @@ def doorzichtig_b():
         if m is not None and m.name.startswith("Hout"):
             glas = m.copy()
             glas.name = "Hout doorzichtig"
-            glas.diffuse_color = (HOUT[0], HOUT[1], HOUT[2], 0.28)
+            glas.diffuse_color = (HOUT[0], HOUT[1], HOUT[2], 0.18)
             if hasattr(glas, "surface_render_method"):
                 glas.surface_render_method = "BLENDED"
             elif hasattr(glas, "blend_method"):
                 glas.blend_method = "BLEND"
             b.data.materials[i] = glas
+
+
+def kijk_van_boven():
+    """Op 14 meer van de buigkant (boven) op de stop, zodat het rode stopvlak van A door B heen als vlak leest."""
+    a = staat.get("a")
+    _, gebied, _ = zijbalk()
+    if a is None or gebied is None:
+        return
+    rv3d = gebied.spaces.active.region_3d
+    h = Vector(a["cj_scharnier_as"]).normalized()
+    lidas = Vector(a["cj_as"]).normalized()
+    buig = Vector(a["cj_buigkant"]).normalized()
+    kijk = (h * math.cos(math.radians(20)) + lidas * math.sin(math.radians(20))).normalized()
+    kijk = (kijk * math.cos(math.radians(50)) + buig * math.sin(math.radians(50))).normalized()
+    rv3d.view_rotation = kijk.to_track_quat("-Z", "Y")
+    gebied.tag_redraw()
 
 
 def stap():
@@ -373,8 +389,12 @@ def stap():
         staat["voorbij"] = round(float(a["cj_bereik_graden"]) + VOORBIJ, 1) if a else 0.0
         doorzichtig_b()
         staat["rood14"] = zet(staat["voorbij"])
+        kijk_van_boven()
         return 2.5
     if n == 6:
+        kader()
+        return 1.5
+    if n == 7:
         schiet("14-pro-knie-rood.png")
         verslag("14-pro-knie-rood-x.png", "rood", staat["voorbij"], staat["rood14"], True)
         return 0.5
