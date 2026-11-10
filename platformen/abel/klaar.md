@@ -1,15 +1,15 @@
 # Klaar: volgorde voor de hoofdchat (Abel)
 
-Versie 4, 10 nov 2026 04:45 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
+Versie 5, 10 nov 2026 05:35 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
 
 ## Stand in één zin
-De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Steam-logo v2, Steam-achtergrond v3, og en social v2 (met een onderregel die vandaag klopt). Elk plan noemt de definitieve bestanden en is getoetst op de echte pagina van dat platform. Grootste open punt: **dortusgames is vrijwel zeker een beperkt Steam-account**; dan kan Thijs geen groep en dus geen ontwikkelaarspagina maken. €5 op de Steam-portemonnee lost het op (zijn keuze, staat op zijn lijst).
+De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Steam-logo v2b, Steam-achtergrond v3, og en social v2b (met een onderregel die vandaag klopt). Overal hetzelfde uniform: de scharnieren van de deur-D zijn in elk beeld gelijk (keuring 5, 10 nov 04:45). Elk plan noemt de definitieve bestanden en is getoetst op de echte pagina van dat platform. Grootste open punt: **dortusgames is vrijwel zeker een beperkt Steam-account**; dan kan Thijs geen groep en dus geen ontwikkelaarspagina maken. €5 op de Steam-portemonnee lost het op (zijn keuze, staat op zijn lijst).
 
 ## Alle beelden in één keer
-`platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh v2` (of `v2b`).
+`platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh` (maakt v2b, de goedgekeurde versie). Alle tien bestanden samen bekeken op 10 nov 05:25.
 
 ## Zo ziet het eruit (proeven op echte pagina's, alleen in onze browser vervangen)
-- Steam-ontwikkelaarspagina, definitief (avatar v2, kop v2, logo v2, achtergrond v3, paginakleur Nacht): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png`. Breed scherm: `steam-pagina-v3-nacht-op-steam-2560.png`.
+- Steam-ontwikkelaarspagina, definitief (avatar v2, kop v2, logo v2b, achtergrond v3, paginakleur Nacht): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png` (opnieuw gemaakt 10 nov 05:23 met logo v2b; de spellen in de proef zijn van Klei, de pagina die ik als mal gebruikte). Breed scherm: `steam-pagina-v3-nacht-op-steam-2560.png`.
 - Steam-profiel: `merk/proef/steam-profiel-kort-op-steam.png`
 - Polar-afrekenpagina: `merk/proef/polar-afrekenen-uitsnede.png` (nu staat daar een grijze letter D)
 - Blender Extensions: `merk/proef/blender-avatar-uitsnede.png` (nu een leeg poppetje)
@@ -43,7 +43,7 @@ Waarom deze volgorde: Steam eerst (opdracht Thijs), en stap 0 vóór alles omdat
 Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI geschreven antwoorden verboden (`communities.md`).
 
 ## Wat nog ontbreekt
-- Mila: social per repo (rollwright, click-joints); tot dan `social-1280x640-v2-nu.png`.
-- Kan-punt Daan (scharnieren van og, social en Steam-logo gelijk met avatar v2): door Abel gemaakt als `-v2b` (Mila's eigen regel, `merk/proef/scharnier-v2-v2b.png`), wacht op Daans ja. Bij ja: `upload/` opnieuw maken met `v2b` en plannen wisselen. Bij geen antwoord blijft v2, ook goedgekeurd.
+- Mila: social per repo (rollwright, click-joints); tot dan `social-1280x640-v2b-nu.png` (één plaatje voor beide, goedgekeurd).
+- ~~Kan-punt Daan (scharnieren gelijk met avatar v2)~~ klaar: Daan zei ja (keuring 5); `upload/`, de zip en alle plannen gebruiken nu v2b.
 - ~~Obsidian: plek van het vinkje~~ opgelost: Preferences > Profile, bovenaan (broncode Discourse).
 - Steam: paginakleur instellen is door Valve beschreven en aangeraden (docs); alleen de exacte knopnaam heb ik niet gezien.
