@@ -43,7 +43,7 @@ Bron: `partner.steamgames.com/doc/store/assets/standard`, `.../libraryassets`, `
 | `main-1232x706.png` | v1 | sterrenlucht, gras, logo, daaronder de schatkamer met held, hoedenberg, Gloop met 4 hoeden en schat. Logo valt half over het gras, leest goed door de rand (GEZIEN). |
 | `staand-748x896.png` | v1 | logo groot in de lucht, schatkamer onderaan. Eerste versie met lege bakstenen wand afgewezen (leeg midden). |
 | `library-600x900.png` | v1 | zelfde opbouw als staand, verkleind naar 300 x 450 nog leesbaar (GEZIEN). |
-| `hero-3840x1240.png` | v1 | geen tekst; Gloops gezicht en toren in het veilige vlak 860 x 380 (nagemeten met een kader). Eerste versie op schaal 10 was leeg en klein, nu schaal 16 met vondsten in de aarde. |
+| `hero-3840x1240.png` | v4 | geen tekst; schaal 13 (was 16), want Gloop met toren is 27 spelpixels hoog en paste op 16 nooit in het veilige vlak; nu valt de hele toren binnen 860 x 380 (y 430 tot 810), nagemeten met een rood kader op de echte uitvoer. Twee helden in de rij, meer vondsten in de aarde. |
 | `logo-1280.png` | v1 | 1280 breed, doorzichtig, alleen het logo |
 | 5 schermafbeeldingen 1920 x 1080 | nog niet | van Olaf uit de echte build (strook op 160 px op een rustig bureaublad, plus een ingezoomd stuk ernaast), zie stijl.md punt 5 |
 | trailer 30 tot 60 s | nog niet | eerste 3 s: een held loopt binnen, Gloop eet hem, zijn hoed vliegt op de toren. Opname van de demo-modus van Olaf |
@@ -65,8 +65,17 @@ Alles uit de echte build (eerlijk). Steam toont schermen op 1920 x 1080 en verkl
 
 **Trailer 30 tot 60 s (opname van de demo-modus, 60 fps, 1920 x 1080):**
 - 0 tot 3 s, de haak: dicht op Gloop. Een held met een pan op loopt binnen, Gloop slokt hem op, de pan vliegt op de toren. Tekst in beeld: "He keeps the hats." (voorstel Sanne, beter dan mijn "Every hero leaves something behind.")
-- 3 tot 12 s: uitzoomen naar de echte strook onderaan een bureaublad met een spreadsheet erboven: "It lives under your taskbar."
+- 3 tot 12 s: uitzoomen naar de echte strook onderaan een bureaublad met een spreadsheet erboven: "It lives on your taskbar."
 - 12 tot 35 s: val, vlucht, de terugkomer met een wrok, de hoedenberg die groeit (versneld), de kroniek.
 - 35 tot 50 s: tien hoeden op een rij, één voor één op de toren.
 - Slot: logo, "Wishlist now" (in de trailer mag dat, op capsules niet).
 Muziek en geluid: nog open (Sanne en Olaf, wat is er in het spel).
+
+## Versie 4 (Mila, 10 nov ±02:30 NL): moet-punten keuring 1 van Daan
+- **1, A en S:** de A heeft een dicht dak (`.XXX.` / `XX.XX`), de S dichte hoeken (`XX...` en `...XX`), de O ook (Daan 10). De hoeden staan nu op de letters in plaats van erboven: los erboven lazen ze klein als umlaut (HÄTS). Op 120 x 45 lees je HATS (GEZIEN).
+- **4, twee dezelfde kisten:** alle vier de cellen van `schat.png` zijn dezelfde kist met een andere glinster, dus twee naast elkaar is altijd een kopie. Nu één kist met losse munten ernaast (zelfde kleuren als de muntjes in `hol.gd`), en de kist staat overal binnen het beeld.
+- **5, klein:** HATS op blok 4 (logo vult ±62% van de breedte), Gloop met toren op schaal 4 rechts in een gloed. Eerlijk: Gloop blijft op 120 x 45 klein; de naam draagt het kleine formaat.
+- **6, hero:** zie de tabel hierboven.
+- **12:** de held op de header draagt nu de rode hoofdband, niet een hoed die al op de toren staat.
+- **B, trailer:** "It lives on your taskbar."
+- Nog open: 7 (goudhoop als croissant), 8 (hero rijker), 9 (header v4 naast de toppers), 13 (marge onder het logo).

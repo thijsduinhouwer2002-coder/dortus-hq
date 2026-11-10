@@ -67,3 +67,4 @@ Kan, van de controleur: "three lines about who came by" wordt "a few lines" (het
 **Controleur (agent):** nee op mijn eerste versie (ja na één regel); hij vond E tot I. Allemaal zelf nagekeken in de code en overgenomen.
 
 D. "Bram is back for the Spike Pit.": Bram staat in de namenlijst van het spel (GEZIEN, `NAMEN`), dus eerlijk. Houden.
+- **Mila, 10 nov ±02:30 NL: capsules v4 klaar voor keuring** (moet-punten 1, 4, 5, 6 en B; zie onderaan `plan.md`).

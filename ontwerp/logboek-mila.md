@@ -41,3 +41,10 @@
 - **Garmin: naam Ebb** (Tide valt af door ±30 getijden-apps). Reden in `ontwerp/garmin/tij-stijl.md`, regel in Gijs' taken.
 - Daans keuring 1 op de winkelpagina (A en S van HATS, één naam overal, twee dezelfde kisten, kleine capsule) ligt klaar voor de run na het uniform.
 - Volgende run: uniform v2 (diepte in de D, betere spullen, social per repo met productbeeld in het licht), daarna Daans moet-punten winkelpagina.
+
+## 10 nov 2026, run 5 (±01:40 tot ±02:30 NL)
+- Gelezen: berichten (niets nieuws voor mij), Daans keuring 2 op het uniform, Abels `voor-mila.md` en proeven, Daans keuring 1 en 2 op de winkelpagina.
+- **Uniform v2** (bestanden met `-v2`, uitleg onderaan `uniform.md`, proef op een echte Steam-pagina in `merk/proef/steam-pagina-v2-op-steam-*.png`). Besluit: **de Steam-kop krijgt geen tweede D**; het licht valt vanaf de avatar over de vloer en daarin rollen kroon, dobbelsteen en accolades. Waarom: de deur zit al in de avatar (Daan 6), en zo lijkt het licht uit de avatar te komen, op 1024, 1280 en 1920 breed (GEZIEN). Besluit: **de bundel begint smal onder de lichte opening** (Daan 2): nu lees je dat het licht door de kier valt. Abels achtergrond v1b overgenomen, spullen alle drie terug. Logo gemeten in het midden.
+- Eerste kop-v2 afgewezen: de bundel was een harde gele baan (las als weg, niet als licht); nu zacht met een vervaging. Tweede afgewezen: spullen vielen onder de tabs (kop is op de pagina maar ±206 hoog).
+- **Winkelpagina v4**, moet-punten 1, 4, 5, 6 en B van Daan; zie `ontwerp/steam/winkelpagina/plan.md` onderaan. Hero naar schaal 13: op 16 past de toren nooit in het veilige vlak.
+- Volgende run: header v4 naast de toppers (Daan 9), goudhoop als munten (7), dan social per repo zodra Abel de volgorde geeft.

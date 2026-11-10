@@ -18,10 +18,10 @@ DONKER = (0x12, 0x0b, 0x18, 255)
 # ---------- letters: eigen pixelletter, 5 breed, 7 hoog ----------
 G = {
  "H": ["X...X", "X...X", "X...X", "XXXXX", "X...X", "X...X", "X...X"],
- "A": ["..X..", ".X.X.", "X...X", "X...X", "XXXXX", "X...X", "X...X"],
+ "A": [".XXX.", "XX.XX", "X...X", "XXXXX", "X...X", "X...X", "X...X"],   # v4: dicht dak (Daan 1: las als HÄTS)
  "T": ["XXXXX", "..X..", "..X..", "..X..", "..X..", "..X..", "..X.."],
- "S": [".XXXX", "X....", "X....", ".XXX.", "....X", "....X", "XXXX."],
- "O": [".XXX.", "X...X", "X...X", "X...X", "X...X", "X...X", ".XXX."],
+ "S": [".XXXX", "XX...", "XX...", ".XXX.", "...XX", "...XX", "XXXX."],   # v4: dichte hoeken (Daan 1: las als 5)
+ "O": [".XXX.", "XX.XX", "X...X", "X...X", "X...X", "XX.XX", ".XXX."],   # v4: dichte hoeken (Daan 10)
  "F": ["XXXXX", "X....", "X....", "XXXX.", "X....", "X....", "X...."],
  "E": ["XXXXX", "X....", "X....", "XXXX.", "X....", "X....", "XXXXX"],
  "L": ["X....", "X....", "X....", "X....", "X....", "X....", "XXXXX"],
@@ -86,10 +86,20 @@ def logo(blok_groot=2, met_hoeden=True):
         # kroon op H, koksmuts op A, pan op T, veermuts op S (de grap: de letters zijn ook opgegeten helden)
         for n, h in enumerate([4, 5, 8, 9]):
             lx = hx + 2 + n * 6 * (blok_groot + 1) + (5 * (blok_groot + 1)) // 2 - 8 + [0, 0, 0, 1][n]
-            ly = hoog + 2 - HOED_ONDER[h] - 1 + (0 if n == 1 else 1)
+            ly = hoog + 3 - HOED_ONDER[h]   # v4: hoed staat op de letter, zweeft niet (las klein als umlaut)
             im.alpha_composite(cel(HOED, h), (lx, ly))
     im.alpha_composite(rest, ((w - rest.width) // 2, hoog + hats.height - 1))
     return im
+
+def munten(im, x, vloer, zaad=1, n=7):
+    """Losse munten naast de kist (Daan 4 en 7): 3 px breed, gouden rand, een glimpixel. Zelfde kleuren als de muntjes in hol.gd."""
+    r = random.Random(zaad)
+    plekken = [(0, 0), (4, 0), (2, -2), (8, 0), (6, -1), (11, 0), (-4, 0), (14, 0), (9, -3)][:n]
+    for dx, dy in plekken:
+        cx, cy = x + dx + r.choice([0, 0, 1]), vloer - 2 + dy
+        for px, py, kl in ((0, 0, GOUD[3]), (1, 0, GOUD[1]), (2, 0, GOUD[3]), (0, -1, GOUD[2]), (1, -1, GOUD[0]), (2, -1, GOUD[2]), (1, 1, (0x8a, 0x55, 0x22, 255))):
+            if 0 <= cx + px < im.width and 0 <= cy + py < im.height:
+                im.putpixel((cx + px, cy + py), kl)
 
 # ---------- hol ----------
 def tegel(open_, x, y, kol, rij):
@@ -176,11 +186,12 @@ def header():
         for ry in range(3):
             im.alpha_composite(cel(TEG, 1 if ry == 1 else 0, rij=1), (kx * 16, vloer - 16 * (ry + 1)))
         im.alpha_composite(cel(TEG, (kx * 3) % 8, rij=0), (kx * 16, vloer))
-    for gx_, gy_, st in ((62, vloer - 6, 1.0), (54, vloer - 12, .7), (70, vloer - 18, .6), (40, vloer - 8, .35)):
+    for gx_, gy_, st in ((62, vloer - 6, 1.0), (50, vloer - 12, .7), (66, vloer - 18, .6), (36, vloer - 8, .35)):
         im = gloed(im, gx_, gy_, st)
-    im.alpha_composite(cel(SCHAT, 1, 24, 16), (62, vloer - 16))
-    gloop_met_toren(im, 52, vloer, [7, 5, 4, 9])
-    held(im, 4, vloer, 0, 8, wapen=0)
+    im.alpha_composite(cel(SCHAT, 1, 24, 16), (50, vloer - 16))
+    munten(im, 70, vloer, zaad=4, n=2)
+    gloop_met_toren(im, 44, vloer, [7, 5, 4, 9])
+    held(im, 4, vloer, 0, 3, wapen=0)   # andere hoed dan op de toren (Daan 12)
     im = schaal(im, S)
     lg = schaal(logo(2), 5)
     im.alpha_composite(lg, (4, 0))
@@ -193,11 +204,17 @@ def klein():
     lucht(im, H)
     for kx in range(W // 16 + 1):
         im.alpha_composite(cel(TEG, (kx * 5) % 8, rij=0), (kx * 16, H - 6))
-    im = gloed(im, 132, H - 14, .9)
-    gloop_met_toren(im, 132, H - 6, [7, 5, 4, 9])
-    lg = logo(2, met_hoeden=True)
-    im.alpha_composite(lg, (2, (H - lg.height) // 2))
-    return schaal(im, S)
+    im = gloed(im, 136, H - 20, 1.0)
+    lg = logo(3, met_hoeden=True)                 # v4: HATS op blok 4, vult ±62% van de breedte (Daan 5)
+    im.alpha_composite(lg, (1, (H - lg.height) // 2))
+    uit = schaal(im, S)
+    g = Image.new("RGBA", (26, 60), (0, 0, 0, 0))
+    gloop_met_toren(g, 13, 60, [7, 5, 4, 9])
+    g = g.crop(g.getbbox())
+    sg = max(1, (174 - 10) // g.height)            # zo groot als de hoogte toelaat (schaal 4 of 5): leest op 120 x 45
+    g = schaal(g, sg)
+    uit.alpha_composite(g, (462 - g.width - 8, 174 - 6 - g.height))
+    return uit
 
 # ---------- schatkamer als losse scene (voor main, staand, library, hero) ----------
 def kamer(W, H, vloer, gx, hx, sx, berg_hoeden=(0, 1, 3, 2, 6, 1), toren=(7, 5, 4, 9), wand_rijen=3, held_kleur=0, held_hoed=8, gras_y=None):
@@ -221,7 +238,7 @@ def kamer(W, H, vloer, gx, hx, sx, berg_hoeden=(0, 1, 3, 2, 6, 1), toren=(7, 5, 
     im = gloed(im, sx + 10, vloer - 8, .9); im = gloed(im, gx, vloer - 14, .35); im = gloed(im, sx + 16, vloer - 30, .5)
     im.alpha_composite(cel(FAKKEL, 2, 8, 12), (sx + 12, vloer - 34))
     im.alpha_composite(cel(SCHAT, 1, 24, 16), (sx, vloer - 16))
-    im.alpha_composite(cel(SCHAT, 3, 24, 16), (sx + 12, vloer - 16))
+    munten(im, sx + 20, vloer, zaad=sx, n=6)
     berg(im, gx - 1, vloer, list(berg_hoeden))
     gloop_met_toren(im, gx, vloer, list(toren))
     if hx is not None:
@@ -255,14 +272,16 @@ def library():        # 600 x 900: schaal 6 = 100 x 150
     return im.crop((0, 0, 600, 900))
 
 def hero():           # 3840 x 1240, geen tekst; Gloops gezicht in het veilige midden (860 x 380 rond het midden)
-    S = 16; W, H = 240, 78
-    im = kamer(W, H, 50, 120, 68, 134, berg_hoeden=(0, 1, 3, 2, 6, 1, 0, 3, 2, 1), wand_rijen=2)
-    held(im, 44, 50, 2, 3, wapen=1)
-    im.alpha_composite(cel(VERS, 4), (26, 50 - 16))
+    # v4: schaal 13 in plaats van 16, want Gloop met toren is 27 spelpixels hoog en past op 16 nooit in 380 px (Daan 6)
+    S = 13; W, H = 296, 96; V = 62; G = 148
+    im = kamer(W, H, V, G, G - 52, G + 14, berg_hoeden=(0, 1, 3, 2, 6, 1, 0, 3, 2, 1), wand_rijen=2)
+    held(im, G - 76, V, 2, 3, wapen=1)
+    held(im, G - 112, V, 1, 6, wapen=0)
+    im.alpha_composite(cel(VERS, 4), (G - 94, V - 16))
     r = random.Random(5)
-    for _ in range(9):
-        im.alpha_composite(cel(VOND, r.randrange(5)), (r.randrange(W - 16), r.choice([r.randrange(0, 2), r.randrange(54, 60)])))
-    return schaal(im, S).crop((0, 4, 3840, 1244))
+    for _ in range(16):
+        im.alpha_composite(cel(VOND, r.randrange(5)), (r.randrange(W - 16), r.choice([r.randrange(0, 30), r.randrange(V + 4, H - 14)])))
+    return schaal(im, S).crop((0, 0, 3840, 1240))   # v4: 80 px lager dan v3, toren in het veilige vlak (y 430 tot 810)
 
 def logo_los():       # 1280 breed, doorzichtig
     lg = logo(2); s = 1280 // lg.width
