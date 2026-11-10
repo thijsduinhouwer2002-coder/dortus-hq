@@ -187,6 +187,21 @@ export class TokenBron<T> {
     return this.huidig;
   }
 
+  /**
+   * Zelfde als `lees`, maar met kolommen die de aanroeper al in zijn eigen query meelas (de Worker leest winkelrij en
+   * beide tokens in één query: scheelt 2 van de 50). Alleen gebruiken met een rij die met `ontkoppeld_op IS NULL` gelezen
+   * is, onder het winkelslot. Verversen en herlezen gaan daarna gewoon via `lees`.
+   * Verschil met los lezen: de Moneybird-kolommen komen uit de rij van vóór een TikTok-verversing. Wordt de winkel
+   * juist dan ontkoppeld, dan merkt de run dat pas bij de eerste schrijfactie (Ontkoppeld); niets wordt bewaard of
+   * geboekt, en een vers Moneybird-paar wordt dan via `trekVersPaarIn` ingetrokken.
+   */
+  async vanRij(t: string | null | undefined, v: number | null | undefined): Promise<{ tokens: T; versie: number }> {
+    if (!t) throw new WinkelStop("koppeling_verlopen", new Error(`geen ${this.kolom} voor winkel ${this.d.winkel}`));
+    const tokens = JSON.parse(await ontsleutel(this.d.sleutels, this.d.winkel, t)) as T;
+    this.huidig = { tokens, versie: Number(v) };
+    return this.huidig;
+  }
+
   /** Voorwaardelijk opslaan. Geeft false als een andere aanroep al opsloeg (versie veranderd) of de winkel ontkoppeld is. */
   async bewaar(tokens: T, versie: number): Promise<boolean> {
     const tekst = await versleutel(this.d.sleutels, this.d.winkel, JSON.stringify(tokens));
