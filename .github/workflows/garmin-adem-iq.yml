@@ -111,7 +111,7 @@ jobs:
           ls -la "$APP/plaatjes"
       - name: Poster (eerste winkelplaatje)
         run: |
-          pip install -q pillow
+          python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
           python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"
       - uses: actions/upload-artifact@v4
         with:
