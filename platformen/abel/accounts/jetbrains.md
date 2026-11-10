@@ -24,7 +24,7 @@ Dortus makes small, focused plugins that fill a real gap in your tools. Made by 
 4. Niets aan adres, belasting of verkoopgegevens veranderen.
 
 ## Ter info voor Thijs (geen actie nu)
-- Het adres in Hengelo staat openbaar op de Marketplace. Bij de verhuizing naar Amsterdam moet het daar bijgewerkt worden (staat al op de lijst). Wil Thijs zijn woonadres niet openbaar: een zakelijk postadres (betaalde dienst) is de enige weg; dat is geld, dus zijn keuze. Ik zet het niet als actie, alleen als weetje.
+- Het woonadres van Thijs staat openbaar op de Marketplace. Bij de verhuizing naar Amsterdam moet het daar bijgewerkt worden (staat al op de lijst). Wil Thijs zijn woonadres niet openbaar: een zakelijk postadres (betaalde dienst) is de enige weg; dat is geld, dus zijn keuze. Ik zet het niet als actie, alleen als weetje.
 - "Niet geverifieerd" gaat over het blauwe vinkje van JetBrains voor bekende bedrijven; niet iets wat we nu kunnen aanvragen met één plugin (GOK).
 
 ## Klaar als

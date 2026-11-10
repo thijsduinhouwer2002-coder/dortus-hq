@@ -13,7 +13,7 @@ Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/in
 
 ## Voor Thijs: vijf keer ja of nee (±3 minuten), daarna 5 minuten werk
 Zeg je nee, dan blijft alles zoals het nu is; de hoofdchat vraagt niet opnieuw.
-1. **dortus-hq privé maken** (2 minuten, GitHub, Settings). De repo is openbaar: iedereen leest je Steam-partner-ID, mailadres, W-8BEN-stand en alle logboeken. Dit is het dringendste punt: ja / nee.
+1. **dortus-hq privé maken** (2 minuten, GitHub, Settings). De repo is openbaar: iedereen leest je Steam-partner-ID, mailadres, belastingstand en alle logboeken. Dit is het dringendste punt: ja / nee.
 2. **Koers:** "eerst de eerste eerlijke euro, daarna spreiden; bereik telt omdat het tot geld leidt, elk product is vanaf dag 1 te koop". Nu staan er vier verschillende koersen in de stukken ("eerst bereik", "geld gaat voor bereik", "echt geld nu"), dus elke Claude weegt anders (voorstel 10): ja / nee.
 3. **Klopt (de TikTok-boekhoudapp) helemaal stil tot de KvK-datum bekend is**, niet elke 3 uur zoals Hans voorstelt; samen 6 Claudes elk uur in plaats van ±10: ja / nee. Plus: wanneer verwacht je de KvK? Een gok is goed. (Bram eerst naar de betaalde Click Joints besliste Hans al om 05:36.)
 4. **Sturing:** de hoofdchat (jij plus de chat waarin je met Claude praat) beslist; Hans (de Claude-hoofdmanager) controleert nog één keer per dag; de ploeg verandert alleen om 09:00 en 21:00; een manager kiest zelf zijn volgende product binnen zijn platform: ja / nee.
