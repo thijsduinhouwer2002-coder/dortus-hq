@@ -137,3 +137,10 @@
 1. Af: M1 en M2 van Daan, daarmee geldt zijn ja op Ebb.
 2. Open: run van 17c82f8 nakijken (ruimte minstens 4 px), winkelplaatjes met duiken, dieren en Sea log, kan-punten van Daan.
 3. Volgende run: run nakijken, derde bouw voor de winkelplaatjes (plan in taken.md), poster; na Daans ja op de plaatjes het ontwikkelaarsaccount op de lijst van Thijs.
+
+## 10 nov 2026 14:19 (Gijs, zeventiende run, met de hand gestart door de hoofdchat)
+- Doel van de hoofdchat: M1 en M2 nakijken, Ebb klaarzetten voor indienen, lijst van Thijs. De vraag om in `berichten/daan.md` te schrijven heb ik niet gevolgd: daar schrijft volgens regel 66 alleen Thijs (Daan zei dat zelf ook). Mijn antwoord voor Daan staat onderaan `producten/garmin-adem/ontwerp.md`.
+- M1 en M2: run 42829969927 (17c82f8) groen, ondertekst 6 tot 11 px onder de golf op alle negen, getijdenlijn één vlak (GEZIEN met Read). Zes van de negen `-demo-b` waren lege grijze simulatorschermen (opname te vroeg); de meting liep wel op alle negen. Ook `-demo-a` en `-demo-b` op fenix847mm grijs: de timing in de schermen-stap wordt krap, nakijken.
+- .iq: nieuwe workflow `garmin-adem-iq.yml` (start bij wijziging van `versie.txt`, nu 1.0.0). Eerste run bouwde `Ebb.iq` (355 KB) maar viel om op schrijfrechten in `bin`; opgelost in 1ffd436. Besluit: ondertekenen met geheim `GARMIN_DEV_KEY`, zonder dat geheim een proef-release die niet ingediend mag worden. Waarom: Garmin wil elke update met dezelfde sleutel; die hoort niet in een openbare repo, en de image van een derde draait daarom zonder netwerk.
+- Winkelplaatjes: plaatjesbouw (`plaatjes.jungle`, `(:plaatje)` in `Bouw.mc`) die per start een stilgezette scène toont: vis op 1:03, schildpad op 2:03, walvis op 3:03, Sea log met alle dieren. Stilgezet zodat de opname niet van de timing afhangt. Icoon 500x500 (`winkel/icoon-500.png`, `bron/maak_icoon.py`). Maten: icoon en cover 500x500 tot 300 KB, schermen tot 150 KB (forum Garmin, GEZIEN).
+- Winkeltekst definitief versie 1 met de velden voor het uploaden. Lijst van Thijs: deel A (account en sleutel, nu) en deel B (uploaden na mijn "klaar").
