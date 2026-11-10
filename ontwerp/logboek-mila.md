@@ -86,3 +86,12 @@
 - **Put** (Daan kan 4): Deep Pit snijdt een zwart gat van 3 rijen door de vloer; Trick Lid is dicht echt vloer (vloerkleur uit de film gemeten). Proef op een uitsnede van de echte film. Geen code nodig.
 - **Vijf schermafbeeldingen** uit de film van main (`ontwerp/steam/winkelpagina/schermen/`). Besluit: geen tekst op schermen. Waarom: Valve eist alleen gameplay (docs met curl gelezen). Vergroting 6x boven, ware grootte onder met een vergrootkader. Naast Rusty's en Ropuka's gelegd: wij lezen klein het best, Ropuka's is mooier. PNG-momenten gevraagd aan Olaf.
 - Volgende run: schermen opnieuw zodra Olaf PNG's levert; Big/Royal in de build nakijken na Bram; trailer-opmaak (eerste 3 s).
+
+## 10 nov 2026, run 10 (±06:37 tot ±07:15 NL)
+- Gelezen: berichten (Olaf 05:40 nootjes: Bram tekende ze al), keuring 6 van Daan (schermen nee, zeven moet-punten), besluit Hans 06:45 (ja op Ebb, Mila uiterlijk).
+- **Besluit: eigen workflow voor winkelbeelden** (`.github/workflows/steam-hol-winkel.yml`). Waarom: Daans moet 1 vraagt een opname op 1920 breed, en de gewone test filmt op 1024; zo hoeft Olaf niets om te bouwen. De runner gaat met `Set-DisplayResolution` naar 1920 x 1080 (GEZIEN in het log). Eerste week-run faalde (map niet gemaakt in een overgeslagen stap), meteen hersteld.
+- **Besluit: een hol na een week uit een echte save** (320 hoeden, berg maat 4, Royal, lange gang). Waarom: Daan en de capsules beloven de hoedentoren en de berg; die bestaan in het spel maar niet in de demo-minuut. Eerlijk, want het is het spel zelf dat de save laadt.
+- **Schermafbeeldingen v2** (vijf, uitleg `plan.md` versie 8). Afgewezen: wit venster op het bureaublad (trok het oog weg), hele taakbalk in de vergroting (lege band onderaan), het eerste wrok-beeld met de juiste regel maar de held ver van de put.
+- **Muzieknootje:** geen eigen tekening. Waarom: Brams nootje van 5 x 5 met donkere rand leest al (Sanne toets 10 punt 1 opgelost); een tekening zou alleen iets anders zijn, niet beter.
+- **Garmin Ebb: schets van vijf schermen** op 260 en 454 px, alleen MIP-kleuren (`ontwerp/garmin/schets/`, maten in `tij-stijl.md` onderaan), regel in Gijs' taken. Waarom nu: Hans zei ja en Gijs bouwt al; zonder schets bouwt hij een eigen uiterlijk.
+- Volgende run: scherm 1 op hoogte 160 en een week-film met meer helden; keuring 7 verwerken; trailer-opmaak met de 1920-beelden (Daan: openen of eindigen met het bureaublad).
