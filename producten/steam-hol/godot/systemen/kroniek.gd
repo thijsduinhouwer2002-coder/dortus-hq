@@ -65,7 +65,9 @@ func binnen(naam: String, trek := "", soort_held := "") -> Dictionary:
 	elif h["bezoeken"] == 1 and soort_held != "":
 		regel = _regel("binnen_" + soort_held, v, "%s climbs in." % naam)   # de soort zie je meteen (kies in heldensoort.gd)
 	elif h["bezoeken"] == 1:
-		var soort := "binnen_" + trek if trek != "" and stem.rng.randf() < 0.3 else "binnen"
+		# de drie nieuwe trekken (heldensoort.TREKKEN_NIEUW) zie je alleen in de kroniek bij binnenkomst: altijd hun eigen regel
+		var eigen := trek in ["slaapkop", "wraakzuchtig", "opschepper"]
+		var soort := "binnen_" + trek if trek != "" and (eigen or stem.rng.randf() < 0.3) else "binnen"
 		regel = _regel(soort, v, "%s climbs in." % naam)
 	elif int(h["gevlucht"]) >= 3:
 		regel = _regel("aartsvijand", v, "%s is back." % naam)

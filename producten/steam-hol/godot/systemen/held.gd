@@ -249,6 +249,8 @@ func stap(delta: float) -> void:
 			if vijand_kol < 0:
 				doel_kol = hol.schat().x   # de schat schuift mee als je graaft
 			var doel: Vector2 = hol.cel_naar_pos(Vector2i(doel_kol, 0))
+			if dut_kol >= 0 and hol.pos_naar_cel(position).x == dut_kol and (hol.val_op(Vector2i(dut_kol, 0)) != "" or _bewoner_op(dut_kol) != null):
+				dut_kol = dut_kol + 1 if dut_kol + 1 < hol.schat().x else -1   # niet bovenop een val of bewoner slapen: een kolom verder
 			if dut_kol >= 0 and hol.pos_naar_cel(position).x == dut_kol and vijand_kol < 0:
 				dut_kol = -1
 				dut_tot = t + SOORT.DUT_S
