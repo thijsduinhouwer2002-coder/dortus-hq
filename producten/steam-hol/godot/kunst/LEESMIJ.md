@@ -36,3 +36,4 @@ Voorbeeld: `ontwerp/steam/kunst-bron/voorbeeld-aarde.png` (ware grootte, 3 rijen
 - Aarde en holwand zijn **pruim** in plaats van bruin (palet in `ontwerp/steam/kunst-bron/maak_kunst.py` en `maak_aarde.py`). Zelfde bladen, zelfde maten. Harde bruine kleuren in code: holwand donker `#1d1426`, aarde `#3f2846`.
 - **Gloop heeft één oog**, een scheve grijns en één tand, in alle frames van `slijm.png` en `slijm_leven.png`. Het oog kijkt naar rechts; naar links = het frame spiegelen.
 - Komt eraan: Gloops hoedentoren (zie `ontwerp/steam/mila/stijl.md`, bouw Bram in `slijm.gd`).
+- `poef.png` (4 beelden van 12 x 10, Mila 10 nov): het boze wolkje knapt als een held met een wrok in een val valt. Midden van het wolkje op (6, 3), dus teken het op de plek van het oude wolkje min 2 px in x. 10 fps, één keer. Bron `ontwerp/steam/mila/bron/poef.py`.
