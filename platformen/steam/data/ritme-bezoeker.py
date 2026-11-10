@@ -21,9 +21,14 @@ assert src.index("st['bezoek'] = t") > src.index("goud += 6")
 _lus = src[src.index("st['bezoek'] = t"):src.index('    st["helden"] = helden')]
 assert "helden += 1" not in _lus and "goud +=" not in _lus   # na het kopen komt niets meer in de lus
 
-def meet(bezoek, muntje, graaf="5 + 1.2 * gangen", upg="60 * 2.8 ** upg[s]", Z=20):
+# Sinds Bram 10 nov 02:15 staan de prijzen als getallen bovenin sim.py (UPG_BASIS, GRAAF_DREMPEL); die zet ik per meting
+# in de namespace, in plaats van tekst te vervangen (de oude tekstvervanging vond niets meer en telde de toeslag dubbel).
+assert "UPG_BASIS" in src and "GRAAF_DREMPEL" in src and "def graaf_prijs" in src
+
+def meet(bezoek, muntje, upg_basis=60, drempel=9999, Z=20):
     ns = {"BEZOEK": bezoek, "MUNTJE_EERST": muntje}
-    exec(src.replace("5 + 1.2 * gangen", graaf, 1).replace("60 * 2.8 ** upg[s]", upg, 1), ns)
+    exec(src, ns)
+    ns["UPG_BASIS"], ns["GRAAF_DREMPEL"] = upg_basis, drempel   # functies lezen deze bij het aanroepen
     e, n1, alles, g1 = [], [], [], []
     for z in range(1, Z + 1):
         s = ns["speel"](10, z)
@@ -35,12 +40,13 @@ def meet(bezoek, muntje, graaf="5 + 1.2 * gangen", upg="60 * 2.8 ** upg[s]", Z=2
     return "eerste upg %5.1f/%5.1f/%5.1f min | aankopen uur1 %2d-%2d | gangen na 1u %2d-%2d | alles na %.1f-%.1f u" % (
         e[0], statistics.median(e), e[-1], min(n1), max(n1), min(g1), max(g1), min(alles), max(alles))
 
+print("-- oud: upgrade 1 op 60, graven zonder toeslag --")
 for bezoek in (5, 15, 30):
     for muntje in (False, True):
         print("bezoek elke %2d min, muntje eerst %-5s | %s" % (bezoek, muntje, meet(bezoek, muntje)))
 print("-- met upgrade 1 op 45 --")
 for bezoek in (5, 15, 30):
-    print("bezoek elke %2d min, muntje eerst True  | %s" % (bezoek, meet(bezoek, True, upg="45 * 2.8 ** upg[s]")))
-print("-- met upgrade 1 op 45 en graven +3 per gang boven 12 --")
+    print("bezoek elke %2d min, muntje eerst True  | %s" % (bezoek, meet(bezoek, True, upg_basis=45)))
+print("-- nu in het spel: upgrade 1 op 45 en graven +3 per gang boven 12 --")
 for bezoek in (5, 15, 30):
-    print("bezoek elke %2d min, muntje eerst True  | %s" % (bezoek, meet(bezoek, True, graaf="5 + 1.2 * gangen + 3 * max(0, gangen - 12)", upg="45 * 2.8 ** upg[s]")))
+    print("bezoek elke %2d min, muntje eerst True  | %s" % (bezoek, meet(bezoek, True, upg_basis=45, drempel=12)))

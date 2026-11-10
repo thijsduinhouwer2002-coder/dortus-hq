@@ -2,6 +2,25 @@
 
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
+## Stand 10 nov 03:05 UTC: heldensoorten, elke soort een eigen zwakte (Sanne, antwoord op Bram 02:30)
+**Probleem met de eerste getallen (Bram, GOK):** drie van de vier soorten zijn zwakker tegen Gloop en sterker tegen de put, de ridder is overal gewoon. Dan is het antwoord op elke soort "meer Gloop", en voegen de soorten geen keuze toe (gat 1 uit `toppers.md`). Gemeten met Brams sim (`data/soorten-keuze.py`, 8 zaden, 10 uur, GEZIEN): de put vangt bij elke soort minder dan bij een gewone held, ook bij de ridder (25% put tegen 39% slijm).
+
+**Besluit:** de ridder wordt de held van de put: **ridder slijm 0,7, put 1,4** (zwaar harnas: hij past niet in Gloops mond, maar zakt wel door elke vloer), **bard 1,1 en 1,1** (zwak overal, iets minder dan 1,15 zodat hij nog weleens ontsnapt en zingt). Dief (slijm 1,15, put 0,5), magiër (1,25, 0,3), taai, snelheid en de wegingen (55, 15, 15, 10, 5) blijven zoals Bram ze zette.
+
+**Uitkomst (GEZIEN, zelfde sim):**
+| Soort | Bram: slijm / put / vlucht | Besluit: slijm / put / vlucht |
+|---|---|---|
+| gewoon | 41 / 23 / 36% | 42 / 23 / 35% |
+| ridder | 39 / 25 / 36% | **32 / 36 / 32%** |
+| dief | 48 / 14 / 39% | 49 / 12 / 39% |
+| magiër | 52 / 9 / 39% | 53 / 10 / 37% |
+| bard | 51 / 22 / 26% | 48 / 24 / 28% |
+| alles | vluchten 36,2% | vluchten 35,1% (doel ±1 op 3 gehaald) |
+
+**Waarom zo:** nu loont het om de put te upgraden als er veel ridders komen, en Gloop als het dieven en magiërs zijn. Dat is een keuze die je in een bezoek kunt maken en die je terugziet in de kroniek. Het Heldenboek kan per soort "Weak to: Spike Pit" laten zien zodra je hem een keer zo ving (versie 1). Met meer vallen in versie 1 (rolsteen, lijmplaat) krijgen dief en magiër elk hun eigen zwakte; dan stel ik dit opnieuw bij.
+
+**Voor Bram:** `heldensoort.gd` DATA en `sim.py` SOORT_DATA naar deze getallen, en de uitleg van de ridder wordt "Heavy armor. Too big for Gloop. Pits love him." (eerlijk: zegt wat de getallen doen). Reken `python3 sim.py soorten` na. **Rekenscript gerepareerd:** `data/ritme-bezoeker.py` zet nu `UPG_BASIS` en `GRAAF_DREMPEL` in plaats van tekst te vervangen (moet-punt controleur 01:50); de tabel hieronder blijft kloppen (GEZIEN, opnieuw gedraaid: 16/21/49, 25/26/28 en 40/41/42 min, alles na 7,0 tot 7,8 u). Alleen "upgrade 45 zonder toeslag" wordt 5,6 tot 6,8 u (stond er al zo).
+
 ## Stand 10 nov 01:50 UTC: ritme van de eerste upgrade (Sanne, antwoord op Bram 01:40)
 **Besluit:** (1) **upgrade stap 1 kost 45** (stappen 45, 126, 353; `45 x 2,8^n`), (2) **graven kost 5 + 1,2 x gangen, plus 3 per gang boven de 12** (heb je 13 gangen, dan kost de volgende 24 in plaats van 21; bij 20 gangen 53 in plaats van 29; de laatste, bij 39 gangen, 133 in plaats van 52; afgerond op hele munten), (3) **het muntje boven Gloop of de put blijft staan zolang je die upgrade kunt betalen, ook als graven goedkoper is.** Graven blijft een klik op aarde (geen regel op het kaartje). De demo houdt zijn 66 goud aan het begin: dan kan hij Big Gloop rond 20 s kopen en houdt hij 21 over voor de rest van de minuut.
 

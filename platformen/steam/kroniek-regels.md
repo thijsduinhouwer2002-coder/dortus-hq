@@ -109,3 +109,14 @@ Geen straf, gewoon een grapje bij het openen, hooguit één per keer:
 - `Quiet. Too quiet.`
 - `The hole waits.`
 - `A worm passes by.`
+
+## Kopen (Sanne 10 nov, toets 8 punt 4; voor `upgrades.koop_regel()`, eerste regel is de vaste als er maar één past)
+Eén regel per aankoop, meteen na "Buy". Kort (past in het paneel, max ±42 tekens), en de grap zit in wat het ding nu is.
+- Big Gloop: `{bewoner} is now Big {bewoner}. Bigger mouth.` / `{bewoner} grew. The hats fit better.` / `More {bewoner}. Same appetite. Worse.`
+- Bouncy Gloop: `{bewoner} bounces now. Back up in 40 s.` / `{bewoner} learned to bounce. Smug.` / `Boing. {bewoner} is Bouncy {bewoner}.`
+- Royal Gloop: `{bewoner} wears a slime crown. Royal.` / `All hail Royal {bewoner}. Burp.` / `{bewoner} is royalty now. Insufferable.`
+- Rusty Spikes: `The Spike Pit got rusty. Ouch.` / `Rust on the spikes. On purpose.` / `The spikes are rusty now. Tetanus.`
+- Deep Pit: `The pit got deeper. Echo, echo.` / `Deeper pit. Nobody turns back now.` / `The pit is very deep now. Hello?`
+- Trick Lid: `The pit has a lid. Looks like floor.` / `New floor. Not floor.` / `The Spike Pit hides now. Shh.`
+- Undo: `{naam} undone. +{goud}` blijft zo (eerlijk en duidelijk, geen grap nodig).
+Let op eerlijkheid: elke regel zegt wat de stap echt doet (40 s, dieper, deksel); geen regel belooft meer dan het spel doet.

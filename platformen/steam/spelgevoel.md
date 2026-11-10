@@ -2,6 +2,26 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 8: het kaartje, de eerste keuze in een bezoek, 10 nov 2026 (run 42743682321, commit 98a1354, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit b51fbe6, 1024 x 120, 298 beelden, 60 s), een blad per seconde van 15 tot 27 s, ingezoomd per 0,4 s op 18 tot 21,4 s (rechterdeel, 2x) en per 1,2 s op 52 tot 59,6 s, `film/film.log`, `cpu.txt` (0,84 CPU-s per 10 s, 117 MB). Mila's nieuwe Gloop per stap en het muntje van twee beelden (ae3dd79, d2d90a3) zitten nog niet in deze film.
+
+**Wat nu goed is:**
+- **Er valt iets te kiezen, en het is twee klikken.** Op 18,5 s wordt het paneel het kaartje: "Big Gloop / Bigger mouth. More heroes fall. / Buy 45", goud 72 rechtsboven. Je leest in één blik wat het is, wat het doet en wat het kost, zonder venster buiten de strook. Op 20,1 s gekocht, goud 72 naar 27, regel "Gloop is now Big Gloop." in hetzelfde beeld. Dit is gat 1 uit `toppers.md` (in een bezoek valt niets te kiezen) en het is dicht. Goed gedaan.
+- **De muntjes gaan de goede kant op.** Van de schat in een boogje naar Gloop (20,2 tot 21,2 s): je voelt dat het goud ergens heen ging. Het omgekeerde van een val, dus dezelfde taal.
+- **Het muntje volgt de regel.** Na het kopen (27 goud) zijn beide muntjes weg; op 54,4 s (48 goud) staat er weer één boven de put (45) en niet boven Gloop (126). Precies wat balans.md vraagt.
+- **De rest van de minuut houdt stand.** Mara wordt opgegeten op 54,2 s met regel en hoed op de toren (punt 1 van toets 7 opgelost), Tibbe komt pas na 11 s terug met zijn bijnaam (punt 3 opgelost), de minuut eindigt op een terugkomer: een goede cliffhanger.
+- **CPU** 0,84 CPU-s per 10 s, het zuinigste tot nu toe.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **Kopen verandert niets dat je ziet.** Big Gloop is in de film dezelfde Gloop. De muntjes vliegen en de regel staat er, en dan is het voorbij. Een aankoop moet het beeld veranderen, anders voelt het als een getal. Mila heeft de tekeningen per stap net klaar (`slijm_upgrades.png`, `slijm_groot.png`, put per stap). **Eis:** bij het kopen een kort moment (Gloop wipt omhoog en zwelt in 3 beelden naar de nieuwe maat, of de put schudt en de nieuwe stekels komen omhoog), daarna blijft hij zo. **Voor Olaf** (aansluiten in `hol.gd` en `slijm.gd` met Bram). Dit is nu het grootste gat van de minuut.
+2. **Het muntje boven Gloop hangt los in de muur.** Het staat bovenaan de open schacht (OPP + 2, `hol.gd` regel ±281), ±25 spelpixels boven Gloop, dus het leest als een muntje dat in de aarde zit, niet als "hier kun je iets kopen". Bij de put (gang erboven dicht) staat het wel dicht bij het object. **Eis:** het muntje 3 spelpixels boven het bovenste wat het object draagt (de bovenste hoed van de toren bij Gloop, de stekels bij de put), met het wipje van Mila's twee beelden. **Voor Olaf, klein.**
+3. **Undo zie je nooit.** Na "Buy" gaat het kaartje meteen dicht (log: "kaartje dicht 20.1"), dus "Undo +45" verschijnt pas als je opnieuw op Gloop klikt. Wie per ongeluk koopt, weet niet dat het terug kan; dat is juist onze belofte (geen onomkeerbare keuzes). **Voorstel:** na het kopen blijft het kaartje 2,5 s staan met de nieuwe naam ("Big Gloop") en alleen "Undo +45", dan dicht. De eigen regel komt daarna. **Voor Olaf, jouw keuze hoe.**
+4. **De koopregel is braaf.** "Gloop is now Big Gloop." zegt wat er gebeurde maar is niet grappig, terwijl elke andere regel in de minuut wel een grap heeft. Ik schrijf er per stap drie in `kroniek-regels.md` (onderaan, "Kopen"), Bram neemt ze over in `koop_regel()`.
+
+**Winkeltekst:** "Upgrade Gloop" mag nu in de tekst, want het zit in de build. "Gloop grows" pas als punt 1 erin zit.
+
+**Oordeel:** de minuut heeft nu een keuze, en die is snel en duidelijk. Met punt 1 (je ziet wat je kocht) is dit het moment dat in de trailer na de wrok-clou komt.
+
 ## Toets 7: de film van main met de afloop van de wrok, 10 nov 2026 (run 42728963292, commit 4be7165, main)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit d64caf8, 1024 x 120, 298 beelden, 60 s), twee bladen met een beeld per 3 s, ingezoomd op 39 tot 46 s en 46 tot 60 s, `film/film.log`, `cpu.txt` (1,13 CPU-s per 10 s, 115 MB).
 
