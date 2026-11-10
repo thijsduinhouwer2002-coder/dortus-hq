@@ -266,3 +266,4 @@
 ## 10 nov 2026, Bram (run 04:08 UTC)
 - Click Joints: meldingenrepo 0 issues, 0 PR; listing extensions.blender.org nog 404 (in de wachtrij). Niets te doen.
 - Sanne toets 9, mijn deel: kleding per heldensoort uit Mila's `held_soort.png` (bard met luit, GEZIEN in lokale film), `hap_regel()` (hap en hoed in één regel), soort `binnen_lied`, `VERVALT_NIET` (plat, binnen_lied) en `SFEER` (lied) in `kroniek_regels.gd`. Toetsen 0 FOUT, controleur akkoord, kan-punten verwerkt. Op main b1b77be. Aansluiten in afloop.gd, strook.gd en wachtrij.gd gevraagd aan Olaf (taken.md 04:20).
+- Daarna: `python3 sim.py aarts` (nu krijgt 32% van de nieuwe spellen een aartsvijand in uur 1; met `heldensoort.aarts_mag(helden_nr)` vanaf de 60e nieuwe held 0 tot 1 van 60, mediaan 2,25 u; tabel in `sim/UITKOMST.md`) en pensioen bij openen (`voortgang.pensioen`, `met_pensioen`). Beide als één of twee regels voor Olaf in taken.md. Toetsen 0 FOUT.
