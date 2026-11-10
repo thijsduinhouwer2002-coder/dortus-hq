@@ -24,5 +24,5 @@
  260  8 sea log          kader x  +1.5 px   optisch x  +2.8 px   pixels buiten MIP 0
  260  9 settings         kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
  260  10 veiligheid      kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
-kleinste tekst op 260: "Calm 4-7-8" 20 px, "1:45" 20 px, "1:00" 20 px, "whale found" 20 px, "3 of 4 found" 20 px, "1:20" 20 px
+kleinste tekst op 260: "next 3:00" 20 px, "3 of 4 found" 20 px, "up from 1:05" 20 px, "Never hold your" 20 px, "breath in water" 20 px, "!" 20 px
 kapitaalhoogte bij 20 px: 14 px

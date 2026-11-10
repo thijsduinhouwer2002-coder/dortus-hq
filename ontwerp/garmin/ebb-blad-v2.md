@@ -1,6 +1,6 @@
-# Ebb blad v2.3: alle schermen (Mila, 10 nov run 17 tot 19)
+# Ebb blad v2 (Mila, 10 nov run 17 tot 19)
 
-**Nieuwste blad: `ontwerp/garmin/ebb-blad-v2.3.png`** (per scherm links 454 px AMOLED, rechts 260 px MIP, ware grootte; icoon ook op 70 en 40 px). Losse beelden en meting in `ontwerp/garmin/blad23/` (`meting-v23.txt`), bron `ontwerp/garmin/bron/ebb_blad_v23.py`. Vervangt v2.2 (`ebb-blad-v2.png`, `blad2/`, die blijven staan ter vergelijking). Gaat eerst naar Thijs via de hoofdchat; Gijs bouwt pas na zijn ja.
+**Nieuwste blad is v3: zie `ontwerp/garmin/ebb-blad-v3.md`.** Wat hieronder v2.3 heet, is nu v3: `ontwerp/garmin/ebb-blad-v3.png` (per scherm links 454 px AMOLED, rechts 260 px MIP, ware grootte; icoon ook op 70 en 40 px). Losse beelden en meting in `ontwerp/garmin/blad3/` (`meting-v3.txt`), bron `ontwerp/garmin/bron/ebb_blad_v3.py`. Vervangt v2.2 (`ebb-blad-v2.png`, `blad2/`, die blijven staan ter vergelijking). Gaat eerst naar Thijs via de hoofdchat; Gijs bouwt pas na zijn ja.
 
 ## Vierde frisse keuring (v2.2, 6 van 10, elf moet-punten). Wat ik deed in v2.3 (GEZIEN met Read, gemeten)
 **Grootste besluit: twee gezichten van één app.** De keurder had gelijk: op 454 zag het eruit als een opgeblazen MIP-scherm. Een AMOLED-horloge kan echte kleuren en zachte randen; het kleine MIP-horloge kan dat niet. Dus:
@@ -30,7 +30,7 @@ Kan-punten: (2) walvissen 1,2% D naar links op menu, 3b, sea log en icoon (zwaar
 - Icoon: dunnere ring, geen bouten, walvis groter; leest op 40 px als walvis in water (GEZIEN).
 - Niet gedaan, voor Gijs en de hoofdchat: **meer dieren** (keurder: 4 dieren tot 3:00 is in een week uitgespeeld, voorstel 10 tot 12 van 0:30 tot 4:00). Dat is een productkeuze, geen schermkeuze; vraag bij Gijs gezet. Het veiligheidsscherm ook voor de eerste ronde: idem.
 
-**Gemeten (`blad23/meting-v23.txt`):** kader van alles wat getekend is binnen 1,5 px van het midden op alle 26 beelden (sea log 1,5 px door de walvis die bewust naar links staat). Optisch midden op 260 binnen 2 px, behalve today (+5,7 px) en 8 weeks (+4,2 px): het record staat nu rechts, omdat het vandaag is. Dat is de data, geen scheefstand.
+**Gemeten (`blad3/meting-v3.txt`):** kader van alles wat getekend is binnen 1,5 px van het midden op alle 26 beelden (sea log 1,5 px door de walvis die bewust naar links staat). Optisch midden op 260 binnen 2 px, behalve today (+5,7 px) en 8 weeks (+4,2 px): het record staat nu rechts, omdat het vandaag is. Dat is de data, geen scheefstand.
 
 **Beeldtaal, wat er verandert ten opzichte van de 10 regels hieronder:** regel 4 wordt "één schaal van vier blauwtinten: op AMOLED als zacht verloop, op MIP als harde vlakken zonder dithering"; regel 5 krijgt "oranje = voortgang"; regel 6: kleinste letter 20 px op 260 (14 px kapitaalhoogte), op AMOLED zachte letters; regel 8: dieren elk in hun eigen tint (walvis, vis en kwal warm, schildpad groen), verder dezelfde stijl.
 

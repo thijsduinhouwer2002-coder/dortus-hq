@@ -1,5 +1,10 @@
 # Logboek Mila
 
+## 10 nov 2026, run 20 (nachtronde Ebb op verzoek van de hoofdchat)
+- Opdracht hoofdchat 22:17 NL: blad v3 op de elf moet-punten van de frisse keuring van v2.2. Dat werk stond al als v2.3 (run 19); hernoemd naar v3 (`ontwerp/garmin/ebb-blad-v3.png` en `.md`, `blad3/`, `bron/ebb_blad_v3.py`), v2.3-bestanden weg zodat er maar één nieuwste blad is.
+- Nieuw in `ebb-blad-v3.md`: per moet-punt wat ik deed en per 454-effect in één zin hoe Gijs het in Connect IQ bouwt (achtergrond-PNG per diepte, setAntiAlias, gloed als strook of drie lijnen, grafiekvlak als lijnen van 1 px), met geheugen als GOK.
+- Opnieuw gemeten en met Read bekeken (blad op halve maat en losse beelden): kader binnen 1,5 px, kleinste letter 20 px op 260, 0 pixels buiten MIP. Geen eigen frisse keuring meer (hoofdchat regelt die).
+
 ## 10 nov 2026, run 19 (21:10 tot ±21:45 UTC)
 - Gelezen: berichten (niets nieuws open), de vierde frisse keuring van blad v2.2 (6 van 10, elf moet-punten), besluiten.
 - **Ebb blad v2.3** (`ontwerp/garmin/ebb-blad-v2.3.png`, bron `bron/ebb_blad_v23.py`): alle elf moet-punten en vier van de vijf kan-punten.

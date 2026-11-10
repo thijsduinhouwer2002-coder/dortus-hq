@@ -1,10 +1,10 @@
-# Ontwerpblad Ebb v2.3 (Mila, 10 nov run 19): na de vierde frisse keuring (v2.2, 6/10, elf moet-punten).
+# Ontwerpblad Ebb v3 (Mila, 10 nov run 19 en 20; eerst v2.3 genoemd): na de vierde frisse keuring (v2.2, 6/10, elf moet-punten).
 # Twee gezichten van dezelfde app:
 #  - 454 (AMOLED): echte verlopen in de zee, zachte randen, zachte letters, lichtstralen onder water.
 #    Getekend op 3x en verkleind (zoals het horloge met setAntiAlias en verloop-bitmaps tekent).
 #  - 260 (MIP): strak, harde vlakken, alleen MIP-kleuren, geen dithering langs de golfranden.
 # Alle maten als deel van D.
-# Gebruik: python3 ebb_blad_v23.py <uitmap> <pad naar BarlowCondensed-Medium.ttf>
+# Gebruik: python3 ebb_blad_v3.py <uitmap> <pad naar BarlowCondensed-Medium.ttf>
 import math, sys, os
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
@@ -498,13 +498,13 @@ def maak(uit):
     os.makedirs(uit, exist_ok=True); rap = []; beelden = {}
     for D in (454, 260):
         for naam, fn in SCHERMEN:
-            im = teken(fn, D); beelden[(naam, D)] = im; im.save(f'{uit}/ebb-v23-{naam.split()[0]}-{D}.png')
+            im = teken(fn, D); beelden[(naam, D)] = im; im.save(f'{uit}/ebb-v3-{naam.split()[0]}-{D}.png')
             if D == 260:
                 rap.append(f'{D:4d}  {naam:18s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   pixels buiten MIP {niet_mip(im)}')
             else:
                 rap.append(f'{D:4d}  {naam:18s} kader x {kader_x(im, D):+5.1f} px   kleuren {kleuren(im)} (verloop en zachte randen)')
-    ic = teken(s_icoon, 560); ic.save(f'{uit}/ebb-v23-icoon-560.png')
-    for z in (70, 40): ic.resize((z, z), Image.LANCZOS).save(f'{uit}/ebb-v23-icoon-{z}.png')
+    ic = teken(s_icoon, 560); ic.save(f'{uit}/ebb-v3-icoon-560.png')
+    for z in (70, 40): ic.resize((z, z), Image.LANCZOS).save(f'{uit}/ebb-v3-icoon-{z}.png')
     klein = sorted({(t, p) for D, t, p in LOG if D == 260}, key=lambda z: z[1])[:6]
     rap.append('kleinste tekst op 260: ' + ', '.join(f'"{t}" {p} px' for t, p in klein))
     fk = f(20); bb = fk.getbbox('H'); rap.append(f'kapitaalhoogte bij 20 px: {bb[3]-bb[1]} px')
@@ -514,7 +514,7 @@ def maak(uit):
     rijen = (len(cellen) + kol - 1)//kol
     W = gap + kol*(cel_b + gap); H = 110 + rijen*(cel_h + gap)
     blad = Image.new('RGB', (W, H), (14, 16, 24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 30), 'Ebb blad v2.3 (Mila): links 454 px AMOLED (verloop, zachte randen), rechts 260 px MIP (harde vlakken), ware grootte',
+    d.text((gap, 30), 'Ebb blad v3 (Mila): links 454 px AMOLED (verloop, zachte randen), rechts 260 px MIP (harde vlakken), ware grootte',
            font=f(44), fill=(220, 230, 240))
     for i, (naam, fn) in enumerate(cellen):
         r, k = divmod(i, kol); x = gap + k*(cel_b + gap); y = 110 + r*(cel_h + gap)
@@ -524,11 +524,11 @@ def maak(uit):
             blad.paste(ic.resize((454, 454), Image.LANCZOS), (x, y))
             blad.paste(ic.resize((70, 70), Image.LANCZOS), (x+478, y+194)); blad.paste(ic.resize((40, 40), Image.LANCZOS), (x+578, y+209))
         d.text((x, y+462), naam, font=f(32), fill=(170, 190, 210))
-    blad.save(f'{uit}/../ebb-blad-v2.3.png')
+    blad.save(f'{uit}/../ebb-blad-v3.png')
     return rap
 
 if __name__ == '__main__':
     FONT = sys.argv[2]
     rap = maak(sys.argv[1])
     print('\n'.join(rap))
-    with open(os.path.join(sys.argv[1], 'meting-v23.txt'), 'w') as fh: fh.write('\n'.join(rap) + '\n')
+    with open(os.path.join(sys.argv[1], 'meting-v3.txt'), 'w') as fh: fh.write('\n'.join(rap) + '\n')
