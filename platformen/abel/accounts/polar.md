@@ -14,7 +14,7 @@ De afrekenpagina is het moment waarop iemand zijn betaalgegevens invult. Een eig
 Nagezocht in de openbare broncode van Polar (GEZIEN, github.com/polarsource/polar, `OrganizationProfileSettings.tsx`, 10 nov): bij de organisatie-instellingen staat links bovenaan een veld **Logo**, een klein rondje. Klikken op dat rondje opent het kiezen van een bestand. Toegestaan: jpg, png, gif, webp, svg, tot 1 MB.
 1. Inloggen op https://polar.sh en de organisatie **Dortus** kiezen.
 2. Links **Settings** (de eerste tab, General). Bovenaan staat "Logo" met het rondje en daarnaast "Organization Name".
-3. Klik op het rondje en kies `platformen/abel/merk/avatar-512.png` (40 kB).
+3. Klik op het rondje en kies `platformen/abel/merk/avatar-512-v2.png` (37 kB).
 4. Naam `Dortus` laten staan. Website `https://dortus.com` laten staan of invullen. Niets anders veranderen.
 5. Onderaan op **Save** klikken (zonder opslaan blijft het oude rondje).
 6. Controle: open de afrekenlink van Rollwright Skins (staat in de README van rollwright). Linksboven naast "Dortus" moet de lila D staan in plaats van de grijze letter.

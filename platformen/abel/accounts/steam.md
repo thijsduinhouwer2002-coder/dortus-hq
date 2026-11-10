@@ -1,6 +1,6 @@
 # Steam: kant-en-klaar plan (Abel)
 
-Versie 4, 10 nov 2026 03:28 NL. Status: plan akkoord (Daan, keuring 2), beelden nu **v2** (akkoord Daan, keuring 3); achtergrond v3 wacht op keuring 4 maar haalt in mijn proef alle drie de moet-punten. **Eerst stap 0, want een beperkt Steam-account kan bijna niets van dit plan.**
+Versie 4, 10 nov 2026 03:28 NL. Status: plan akkoord (Daan, keuring 2), beelden **v2**, achtergrond **v3** en avatar **v2**: alles akkoord (Daan, keuring 3 en 4). **Eerst stap 0, want een beperkt Steam-account kan bijna niets van dit plan.**
 
 ## In één zin
 Op Steam ziet een speler straks overal hetzelfde Dortus: het profiel dortusgames, de groep en de ontwikkelaarspagina dragen dezelfde deur-D en dezelfde korte tekst, en de winkelpagina van Hats of the Fallen linkt naar die ontwikkelaarspagina, zodat iemand op "Follow" kan klikken.
@@ -39,7 +39,7 @@ Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rech
 | Eigen URL | `dortus` (wordt steamcommunity.com/id/dortus) |
 | Land | Netherlands |
 | Samenvatting | zie hieronder |
-| Avatar (tab Avatar) | `platformen/abel/merk/avatar-184.png` |
+| Avatar (tab Avatar) | `platformen/abel/merk/avatar-184-v2.png` |
 | Privacy (tab Privacy) | Mijn profiel: Openbaar. Spellendetails: Privé. Opmerkingen: Alleen vrienden (geen spam onder ons profiel). |
 
 Samenvatting om te plakken:
@@ -65,7 +65,7 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 | Afkorting | `DORTUS` |
 | Groeps-URL | `dortus` |
 | Openbaar | Ja, iedereen mag lid worden |
-| Avatar | `avatar-184.png` (zelfde als het profiel) |
+| Avatar | `avatar-184-v2.png` (zelfde als het profiel) |
 | Kop (headline) | `Focused tools today, small games on the way` |
 | Samenvatting | de lange versie: `Dortus makes small games and focused tools.` / `Our first game, Hats of the Fallen, is a tiny dungeon on your taskbar: heroes come for the slime's treasure, and he keeps their hats.` / `Made by Thijs in the Netherlands. Questions or bugs: thijs@dortus.com` (drie regels) |
 | Website | `https://dortus.com`, pas als de hoofdpagina niet meer over Confluence gaat (zie `dortus-com.md`). Tot dan leeg. |
@@ -74,9 +74,9 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 1. Steamworks > app van Hats of the Fallen > Winkelpagina bewerken > tab **Basisinformatie**: ontwikkelaar `Dortus`, uitgever `Dortus`. Opslaan, dan op **link** naast elk veld klikken en de groep Dortus kiezen.
 2. Steamworks > Apps & pakketten > **Creator Homepage Custom URL Setup**: `dortus`. Dan werkt store.steampowered.com/developer/dortus. Valve ziet dit als handelsnaam; Dortus is van ons (dortus.com).
 3. Ontwikkelaarspagina > tab **admin**:
-   - Logo links in de kop (184 x 184): `merk/avatar-184.png`.
+   - Logo links in de kop (184 x 184): `merk/avatar-184-v2.png`.
    - Achtergrond van de kop (1500 x 220): `merk/steam-kop-1500x220-v2.png` (niet v1 of v1b).
-4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `merk/steam-logo-1200x460-v2.png` en als achtergrond `merk/steam-achtergrond-1920-v3.png` (na Daans ja op v3; anders wachten, v1, v1b en v2 niet gebruiken). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). De precieze naam van het kleurveld in de editor is een GOK; zoek bij de instellingen van de pagina-achtergrond. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
+4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `merk/steam-logo-1200x460-v2.png` en als achtergrond `merk/steam-achtergrond-1920-v3.png` (akkoord Daan, keuring 4; v1, v1b en v2 niet gebruiken). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). De precieze naam van het kleurveld in de editor is een GOK; zoek bij de instellingen van de pagina-achtergrond. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
 5. Kijk in de voorvertoning of de lichtbundel van de achtergrond onder de D van het logo begint. Zo niet: zeg het, dan schuift Mila hem een paar pixels.
 6. Tab **publish** > publiceren. Terug naar admin > Creator Home v2 > bij "Inactive" op **Set as Active** (ster).
 
@@ -98,14 +98,14 @@ Waarom zo: kort, één vaste zin voor het spel (keuring Daan), en we beloven nie
 - **Eerlijkheid AI:** in de Content Survey (verplicht bij het indienen) vraagt Valve of er inhoud in het spel zit die met hulp van AI-tools gemaakt is en die spelers zien. Dat moet je beschrijven; Valve toont het op de winkelpagina. DERDEN: https://partner.steamgames.com/doc/gettingstarted/contentsurvey. Voorstel (Thijs keurt): "The pixel art, text and code were made with the help of AI tools (Anthropic's Claude) and reviewed by the developer. No AI runs while you play." Alleen invullen wat waar is. Staat ter info op `organisatie/lijst-thijs.md`.
 
 ## Beelden (allemaal van Mila, v1b is mijn verschuiving met haar eigen code)
-Welke versie: kop, logo en og v2 zijn akkoord (Daan, keuring 3, 10 nov). De achtergrond v2 kreeg nee; v3 wacht op keuring 4. Mijn proef van v3 (10 nov 03:27): op 1280 geen half voorwerp (munten en sleutel helemaal weg), op 1920 alles heel, op 2560 naadloos mits paginakleur `#1d1426` (randpixels gemeten: 29, 20, 38 aan beide kanten van de naad). Avatar: v1 tot Daan Mila's avatar v2 keurt; dan overal `avatar-184-v2.png`.
+Welke versie: kop, logo en og v2 zijn akkoord (Daan, keuring 3, 10 nov). De achtergrond v2 kreeg nee; v3 en avatar v2 kregen ja (keuring 4), met als voorwaarde de paginakleur Nacht. Mijn proef van v3 (10 nov 03:27): op 1280 geen half voorwerp (munten en sleutel helemaal weg), op 1920 alles heel, op 2560 naadloos mits paginakleur `#1d1426` (randpixels gemeten: 29, 20, 38 aan beide kanten van de naad).
 
 | Waar | Bestand | Maat |
 |---|---|---|
-| Profiel, groep, logo in de kop | `merk/avatar-184.png` | 184 x 184 |
+| Profiel, groep, logo in de kop | `merk/avatar-184-v2.png` | 184 x 184 |
 | Kop ontwikkelaarspagina | `merk/steam-kop-1500x220-v2.png` | 1500 x 220 |
 | Paginalogo | `merk/steam-logo-1200x460-v2.png` | 1200 x 460, doorzichtig |
-| Achtergrond | `merk/steam-achtergrond-1920-v3.png` (na Daans ja) | 1920 x 1200, paginakleur `#1d1426` |
+| Achtergrond | `merk/steam-achtergrond-1920-v3.png` | 1920 x 1200, paginakleur `#1d1426` |
 
 ## Klaar als
 Stap 0 is opgelost (geen beperkt account), profiel en groep staan, en na de app-ID de ontwikkelaarspagina. Akkoord Daan: ja (keuring 2, 10 nov).

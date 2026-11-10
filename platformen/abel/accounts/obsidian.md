@@ -9,7 +9,7 @@ Versie 2, 10 nov 2026 02:45 NL. Status: klaar. Avatar van Mila, akkoord Daan (ke
 
 ## Stap 1. Forumprofiel (Thijs, ±3 min)
 Inloggen op https://forum.obsidian.md > avatar rechtsboven > **Preferences**.
-- Account > **Profile picture** > uploaden: `platformen/abel/merk/avatar-512.png` (Discourse knipt hem rond; Mila houdt de vorm binnen de middelste 70%).
+- Account > **Profile picture** > uploaden: `platformen/abel/merk/avatar-512-v2.png` (Discourse knipt hem rond; Mila houdt de vorm binnen de middelste 70%).
 - Account > Name: `Thijs`.
 - Profile > **About me**:
 ```

@@ -1,6 +1,6 @@
 # GitHub: kant-en-klaar plan (Abel)
 
-Versie 3, 10 nov 2026 03:30 NL. Status: klaar, akkoord Daan (keuring 2 voor avatar en teksten, keuring 3 voor social v2). Avatar `merk/avatar-512.png` tot Daan Mila's avatar v2 keurt; dan `avatar-512-v2.png`.
+Versie 3, 10 nov 2026 03:30 NL. Status: klaar, akkoord Daan (keuring 2 voor avatar en teksten, keuring 3 voor social v2). Avatar `merk/avatar-512-v2.png` (akkoord Daan, keuring 4); social `-v2-nu` (akkoord Daan, na keuring 4).
 
 ## Proef
 `merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Het vak About staat er nog leeg in, zo ziet het er nu uit; stap 2 vult het.
@@ -21,7 +21,7 @@ github.com > avatar rechtsboven > **Settings** > Public profile.
 
 | Veld | Invullen |
 |---|---|
-| Profielfoto | `platformen/abel/merk/avatar-512.png` |
+| Profielfoto | `platformen/abel/merk/avatar-512-v2.png` |
 | Name | `Thijs · Dortus` |
 | Bio | `Focused tools for Obsidian, Blender and JetBrains. A tiny dungeon game is on its way to Steam.` (95 tekens, max 160) |
 | URL | `https://dortus.com` |

@@ -14,7 +14,7 @@ De moderatoren kijken nu naar Click Joints. Een maker met een echte avatar en ee
 ## Stap 1. Avatar (Thijs, ±3 min)
 Het profiel op extensions.blender.org komt van je **Blender ID**. Nagezocht in de openbare broncode (GEZIEN, projects.blender.org/infrastructure/blender-id en extensions-website, 10 nov): Blender ID heeft een eigen avatarveld, geen Gravatar. Bij een nieuwe avatar stuurt Blender ID een seintje naar extensions.blender.org, dat hem dan overneemt. Dezelfde avatar verschijnt ook op Blender Artists en devtalk (die loggen in met Blender ID).
 1. Inloggen op https://id.blender.org en naar **https://id.blender.org/settings/profile**.
-2. Onder **Avatar** op "Choose file" en kies `platformen/abel/merk/avatar-512.png`. Toegestaan: png, jpg, webp, tot 2 MB (ons bestand is 40 kB).
+2. Onder **Avatar** op "Choose file" en kies `platformen/abel/merk/avatar-512-v2.png`. Toegestaan: png, jpg, webp, tot 2 MB (ons bestand is 37 kB).
 3. Weergavenaam en nickname laten staan (`Thijs-Dortus` is de naam waaronder Click Joints is ingediend; nu wijzigen kan verwarren tijdens de keuring).
 4. Onderaan **Save Changes**.
 5. Controle: open https://extensions.blender.org/approval-queue/click-joints/ en scroll naar Activity. Naast "Thijs-Dortus changed review status" moet het rondje de lila D tonen in plaats van het grijze poppetje.
