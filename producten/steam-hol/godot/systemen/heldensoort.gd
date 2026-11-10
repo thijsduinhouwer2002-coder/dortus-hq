@@ -52,9 +52,17 @@ static func kies(nr: int, r: RandomNumberGenerator) -> String:
 			return String(k)
 	return ""
 
-static func kans_factor(s: String, verdediging: String) -> float:
+# Trick Lid (stap 3 van de put) ziet eruit als vloer: wie vallen ziet, ziet deze niet (idee Sanne 10 nov 03:10).
+# De magier gaat van 0,3 naar 1,0 voor de put; zo heeft de put een echte tegenzet voor hem.
+# Gemeten met sim.py (TRICK_MAGIER = 1.0, 8 zaden, 10 uur, GEZIEN): magier met Trick Lid in de put 10,6% wordt 19,3%,
+# vluchten van de magier 27,9% wordt 22,2%, vluchten van alle helden 35,1% wordt 34,8%.
+const VERBORGEN_X := {"magier": 1.0}
+
+static func kans_factor(s: String, verdediging: String, verborgen := false) -> float:
 	if not DATA.has(s):
 		return 1.0
+	if verborgen and verdediging == "stekelput" and VERBORGEN_X.has(s):
+		return float(VERBORGEN_X[s])
 	return float(DATA[s]["kans_x"].get(verdediging, 1.0))
 
 static func snel(s: String) -> float:

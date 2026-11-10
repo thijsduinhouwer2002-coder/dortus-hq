@@ -31,6 +31,7 @@ SOORT_DATA = {"ridder": ({"slijm": 0.7, "put": 1.4}, True), "dief": ({"slijm": 1
               "magier": ({"slijm": 1.25, "put": 0.3}, False), "bard": ({"slijm": 1.1, "put": 1.1}, False)}  # ridder en bard: Sanne 10 nov 03:05 (balans.md)
 SOORT_GEWICHT = {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5}
 LIED_HELDEN = 2
+TRICK_MAGIER = 1.0   # None = uit; 1.0 = Trick Lid zet de factor van de magier voor de put op 1,0 (meting 10 nov 03:30)
 
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
@@ -108,7 +109,10 @@ def speel(uren, zaad):
             if v["soort"] == "slijm" and t < v["plat_tot"]:
                 continue
             # soortfactor alleen op de basiskans, zoals held.gd (controleur 10 nov): upgrade en ROEKELOOS komen erbij
-            kans = (KANS[v["soort"]] * sd[0].get(v["soort"], 1.0) + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
+            fs = sd[0].get(v["soort"], 1.0)
+            if TRICK_MAGIER is not None and h.get("soort", "") == "magier" and v["soort"] == "put" and upg["put"] >= 3:
+                fs = TRICK_MAGIER   # Trick Lid: de put ziet eruit als vloer, de magier ziet hem niet (idee Sanne 10 nov 03:10)
+            kans = (KANS[v["soort"]] * fs + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
             is_vijand = v["soort"] == vijand
             if is_vijand:
                 kans += ROEKELOOS * (2 if h["trek"] == "wraakzuchtig" else 1)

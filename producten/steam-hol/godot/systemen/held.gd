@@ -316,8 +316,9 @@ func _onderweg() -> void:
 		b = null   # val en bewoner in dezelfde kolom: hij vecht tegen de val
 	var naam_vijand: String = NAAM_PUT if soort != "" else b.naam()
 	var soort_vd: String = soort if soort != "" else String(b.get("soort") if "soort" in b else "slijm")
-	var kans: float = KANS.get(soort_vd, KANS_ANDERS) * SOORT.kans_factor(soort_held, soort_vd)
 	var upg = _upgrades()
+	var verborgen: bool = upg != null and soort_vd == "stekelput" and upg.put_verborgen()
+	var kans: float = KANS.get(soort_vd, KANS_ANDERS) * SOORT.kans_factor(soort_held, soort_vd, verborgen)
 	if upg != null:
 		kans += upg.kans_erbij(soort_vd)   # systemen/upgrades.gd: +7 procentpunt per gekochte stap (balans.md)
 	var is_vijand := vijand_kol >= 0 and cel.x == vijand_kol

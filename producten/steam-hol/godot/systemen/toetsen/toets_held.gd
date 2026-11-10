@@ -632,5 +632,9 @@ func _init() -> void:
 	ok(sl_u.frame_nu()[0] == sl_u.LEVEN and sl_u.niveau() == 0, "Undo: weer het gewone blad")
 	hol_u.free()
 
+	# Trick Lid: de magier ziet de put niet meer (idee Sanne 10 nov 03:10)
+	ok(is_equal_approx(HS.kans_factor("magier", "stekelput"), 0.3) and is_equal_approx(HS.kans_factor("magier", "stekelput", true), 1.0), "Trick Lid: magier van 0,3 naar 1,0 voor de put")
+	ok(is_equal_approx(HS.kans_factor("dief", "stekelput", true), 0.5) and is_equal_approx(HS.kans_factor("magier", "slijm", true), 1.25), "Trick Lid verandert niets voor de dief of voor Gloop")
+
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
