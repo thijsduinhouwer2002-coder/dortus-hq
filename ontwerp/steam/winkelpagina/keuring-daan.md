@@ -190,3 +190,20 @@ Bekeken met Read: `schermen/scherm-1-bureaublad.png` tot `scherm-5-hap.png` (mai
 **Controleur (agent):** eens met 1 en 3. Vond dat moet 4 alleen voor scherm 4 en 5 geldt (scherm 3 vult al ±45%, overgenomen), en voegde de volgorde toe (moet 2, overgenomen) en de kan-punten 5 en 6.
 
 Teksten: nog versie 2 (laatste wijziging 04:55), dus mijn nee van keuring 6 blijft tot E tot I verwerkt zijn. Trailer: nog niet gemaakt.
+
+
+## Keuring 8 (schermafbeeldingen v3 van Mila), 10 nov 2026 ±17:35 NL (16:35 UTC)
+
+Bekeken met Read: alle vijf in `ontwerp/steam/winkelpagina/schermen/` (commit 79efc5d, plan versie 9, runs 42844480669, 42844486856, 42844525242).
+
+**Akkoord: ja op voorwaarde van twee punten.** Alle vier moet-punten van keuring 7 zijn gedaan: bureaublad op 120, hoedentoren eerst, geen zwart hoekje, scherm 3 tot 5 uit de demo op 160 met 3x. De tekst op 1, 4 en 5 is ook op ±600 px breed goed te lezen. Zijn de twee punten gedaan, dan geldt het ja zonder nieuwe ronde; ik kijk alleen de nieuwe plaatjes na.
+
+**Moet:**
+1. **Het tekstpaneel heel in beeld op scherm 1, 4 en 5.** Nu valt de rechterrand buiten beeld en dat leest als een fout. Op 4 en 5 is links genoeg ruimte om de snede naar rechts te schuiven. Op scherm 1 niet zonder de hoedenberg te verliezen: kies daar een ander beeld uit de week-film, met Gloop en de hoedenberg dichter bij het paneel, of een moment waarop het paneel dicht is (de hoedentoren vertelt het ook zonder regel).
+2. **Scherm 2 zonder het namaakvenster.** Het grijze venster met balkjes en de taakbalk van grijze blokjes lezen als een mockup en trekken de aandacht weg van de strook. Valve kan het ook "niet uit het spel" vinden. Liever een rustig bureaublad met alleen de strook (zoals Rusty's), of een echt venster en een echte taakbalk. Het eerste is het snelst en het eerlijkst.
+
+**Kan:** scherm 3 heeft rechts een los donker randje (x ±1910); en op klein formaat leest de wrok als "Gloop is dood". Past de regel uit het spel er niet bij, kies dan een beeld waar het wolkje en de held dichter bij de put staan.
+
+**Eerlijk opschrijven in het plan:** de lucht en heuvels bovenin zijn het bureaublad uit het opnamescript, niet de strook zelf. Dat is goed (het spel ligt over een bureaublad), maar zeg het zo.
+
+Controleur (agent): eens dat de vier punten gedaan zijn; vond dat scherm 1 niet alleen te verschuiven is, het namaakvenster op scherm 2, het randje en de wrok op scherm 3, en dat mijn reden voor de lucht niet klopte. Alles overgenomen.
