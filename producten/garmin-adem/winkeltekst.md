@@ -23,9 +23,9 @@ Breathing exercises and breath hold training on your Garmin watch: breath hold r
 BREATH HOLD ROUNDS
 • A set number of deep breaths at a steady pace, then breathe out and hold for as long as you like.
 • Press any button to end the hold, then take one full breath and hold it to recover.
-• The hold is a dive: the water darkens, bubbles rise and the depth counts up.
-• A fish, a jellyfish, a turtle and a whale swim by at 1:00, 1:30, 2:00 and 3:00.
-• The Sea log keeps every animal you have met.
+• The hold is a dive: the water darkens and bubbles rise. Your live heart rate shows small under the timer.
+• Collect 24 sea animals by showing up: sessions and days in a row, never by holding longer. New friends appear at the end of a session.
+• The Sea log shows the animals you have and exactly how to get the next one.
 
 BOX BREATHING AND CALM PATTERNS
 • Box breathing 4-4-4-4
@@ -35,12 +35,13 @@ BOX BREATHING AND CALM PATTERNS
 
 SEE YOUR PROGRESS
 • After every session a dive profile: one V per round, as deep as your hold.
-• Your deepest round is marked; a new personal best shows in coral.
+• Your longest round is marked.
 • After each session, the tide screen shows your best breath hold per day over 8 weeks.
 
 BREATHE WITH YOUR EYES CLOSED
-• Every phase has its own vibration, so you can follow the breathing without looking.
-• Vibration can be turned off.
+• Every phase has its own vibration, so you can follow the breathing without looking. The last three breaths before the hold feel different.
+• A soft tick every 30 seconds while you hold (can be turned off), and a gentle signal at 3 minutes.
+• The touchscreen is locked during a session; only the buttons work. Vibration can be turned off; Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
 • Each session is saved as a breathing activity.
@@ -48,7 +49,7 @@ SAVED IN GARMIN CONNECT
 • A finished session saves itself. Press back to pause: resume, save or discard.
 
 SETTINGS ON THE WATCH
-Breaths per round, pace, rounds, recovery hold, your own pattern, vibration on or off. No phone needed.
+Breaths per round, pace, rounds, recovery hold, your own pattern, vibration on or off, hold tick on or off. No phone needed.
 
 WHAT EBB IS NOT
 Ebb is breathwork and dry breath hold practice on land. It is not a freediving or apnea trainer, it has no CO2 or O2 tables, and it is not a medical device.
@@ -74,10 +75,10 @@ Titel (47 tekens): `Ebb: Atemübungen, Atem anhalten & Box Breathing`
 
 Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Atemrunden, Box Breathing, 4-7-8 und ruhiges Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen und wird zum Tauchgang, wenn du die Luft anhältst. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
-• Atemrunden: feste Anzahl tiefer Atemzüge, dann ausatmen und so lange halten, wie du willst. Bei 1:00, 1:30, 2:00 und 3:00 schwimmen Fisch, Qualle, Schildkröte und Wal vorbei; das Sea log merkt sich jedes Tier.
+• Atemrunden: feste Anzahl tiefer Atemzüge, dann ausatmen und so lange halten, wie du willst. Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Tage in Folge), nie durch längeres Halten; neue Tiere kommen am Ende einer Sitzung.
 • Box Breathing 4-4-4-4, 4-7-8, Calm (5,5 ein und 5,5 aus) und ein eigenes Muster.
 • Nach jeder Sitzung ein Tauchprofil (ein V pro Runde) und eine Gezeitenlinie deiner besten Haltezeit über 8 Wochen.
-• Eigene Vibration für jede Phase, auch mit geschlossenen Augen.
+• Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten ein sanfter Tick alle 30 Sekunden (abschaltbar) und ein leises Signal bei 3 Minuten. Touchscreen während der Sitzung gesperrt.
 • Wird als Atemaktivität in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap, mit Haltezeit. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein Konto, keine Handy-App.
 
@@ -90,10 +91,10 @@ Titel (42 tekens): `Ebb: Ademhalingsoefeningen & Adem inhouden`
 
 Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: ademrondes, box breathing, 4-7-8 en rustig ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt en wordt een duik als je je adem inhoudt. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
-• Ademrondes: een vast aantal diepe ademhalingen, dan uitademen en inhouden zo lang je wilt. Op 1:00, 1:30, 2:00 en 3:00 zwemmen een vis, kwal, schildpad en walvis voorbij; het Sea log bewaart elk dier.
+• Ademrondes: een vast aantal diepe ademhalingen, dan uitademen en inhouden zo lang je wilt. Verzamel 24 zeedieren door vol te houden (sessies en dagen op rij), nooit door langer in te houden; nieuwe dieren komen aan het eind van een sessie.
 • Box breathing 4-4-4-4, 4-7-8, Calm (5,5 in en 5,5 uit) en een eigen patroon.
 • Na elke sessie een duikprofiel (een V per ronde) en een getijdenlijn van je beste inhoudtijd over 8 weken.
-• Eigen trilling per fase, ook met je ogen dicht.
+• Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tik (uit te zetten) en een zacht signaal na 3 minuten. Aanraakscherm op slot tijdens een sessie.
 • Opgeslagen als ademactiviteit in Garmin Connect; bij ademrondes een ronde per lap, met inhoudtijd. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen account, geen telefoonapp.
 
@@ -107,3 +108,4 @@ Tags: ademhalingsoefeningen, ademhaling, adem inhouden, box breathing, ontspanni
 - Freediving en apnea staan in de eerste alinea alleen als "dry static holds, no apnea tables": waar, want het is een inhoudklok met voortgang en zonder tabellen. Titel blijft (zie logboek 10 nov 17:55).
 - Veiligheid staat in de eerste alinea van elke taal, niet alleen onderaan (Daan, keuring winkelbeelden 1, 16:25), omdat de beelden een horloge in zee tonen.
 - Geen review-vraag in de app: bewuste keuze, zie logboek 10 nov 16:30.
+- Versie 4 (65bb1ee, concept, Daan keurt opnieuw): besluit 22:53. Geen diepte in meters en geen dieren op tijd meer; dieren voor trouw (`EbbTrouw` in `Profiel.mc`), hartslag op het inhoudscherm, tik laatste 3 ademhalingen, tik elke 30 s, signaal na 3 min, aanraakscherm op slot (`EbbApp.mc`, `RustigView.mc`), geen koraal bij een record. Na blad v4: 8 weeks-zin aanpassen (gemiddelde en dagen per week).
