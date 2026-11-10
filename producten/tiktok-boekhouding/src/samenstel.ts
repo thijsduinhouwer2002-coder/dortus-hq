@@ -97,7 +97,7 @@ export function stelSamen(statementId: string, kop: AfrekeningKop | undefined, t
       if (t.type === "ORDER" && t.order_id) continue;
       if (t.type === "ORDER") w.push(`transactie ${t.id}: ORDER zonder order_id, geboekt als correctie`);
       if (t.type === "RESERVE") {
-        const r = bedrag((t as any).reserve_amount, valuta);
+        const r = bedrag(t.reserve_amount, valuta);
         if (r === null) return leeg("fout_gegevens", `reservering ${t.id} zonder reserve_amount`);
         voeg("correctie", r);
         w.push(`reservering ${t.id} (${r}) geboekt als correctie; hoort volgens TikTok alleen bij VK en VS`);

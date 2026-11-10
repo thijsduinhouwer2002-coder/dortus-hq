@@ -7,6 +7,7 @@ import { isBudgetOp, RESERVE_BOEKING, type Budget } from "./budget.ts";
 import type { MbSoort } from "./moneybird/memoriaal.ts";
 import type { Opslag } from "./opslag.ts";
 import { bestellingenVan, bruikbaar, stelSamen, type Samenstelling } from "./samenstel.ts";
+import { slankeBestelling, slankeKop, slankeTransacties } from "./slank.ts";
 
 export interface TikTokDeps {
   tiktok: TikTokClient;
@@ -65,6 +66,9 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
     const vers = d.budget.overVoorNieuw + d.budget.opslag >= d.budget.totaal - d.budget.reserve - VERS_MARGE;
     try {
       ({ kop, transacties } = await transactiesVanAfrekening(d.tiktok, d.accessToken, d.shopCipher, statementId));
+      // Meteen slank maken (punt 3): rekenen en bewaren zien dezelfde velden.
+      kop = slankeKop(kop);
+      transacties = slankeTransacties(transacties);
     } catch (e) {
       // Met een vol budget lukt het nooit: dan onvolledig, zodat de grens van 5 runs of 24 uur geldt (geen eindeloze stilstand).
       if (isBudgetOp(e)) return vers ? { status: "onvolledig", reden: "afrekening te groot voor één aanroep (te veel transactiepagina's)", regels: [], waarschuwingen: [], ontbrekend: [] } : bezig("budget op bij de transacties van de afrekening");
@@ -97,7 +101,7 @@ export async function haalSamen(d: TikTokDeps, statementId: string, o: OphaalOpt
     if (d.budget.overVoorNieuw <= o.reserve + (o.reserve > 0 ? MAX_POGINGEN - 1 : 0)) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
     let antwoord;
     try {
-      antwoord = await transactiesVanBestelling(d.tiktok, d.accessToken, d.shopCipher, id);
+      antwoord = slankeBestelling(await transactiesVanBestelling(d.tiktok, d.accessToken, d.shopCipher, id));
     } catch (e) {
       if (isBudgetOp(e)) return bezig(`budget op, nog ${ontbrekend.length - i} bestelling(en) op te halen`, ontbrekend.slice(i));
       const stop = winkelStop(e);
