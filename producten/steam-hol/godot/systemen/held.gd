@@ -214,6 +214,12 @@ func _aangekomen() -> void:
 	info["wat"] = "touched your hoard, took nothing and ran"
 	staat = "vluchten"
 
+# De upgrades (systemen/upgrades.gd) hangen aan het hol als dat een eigenschap "upgrades" heeft; anders null.
+func _upgrades():
+	if hol != null and "upgrades" in hol:
+		return hol.get("upgrades")
+	return null
+
 func _onderweg() -> void:
 	var cel: Vector2i = hol.pos_naar_cel(position)
 	if gezien.has(cel.x):
@@ -226,7 +232,11 @@ func _onderweg() -> void:
 	if soort != "":
 		b = null   # val en bewoner in dezelfde kolom: hij vecht tegen de val
 	var naam_vijand: String = NAAM_PUT if soort != "" else b.naam()
-	var kans: float = KANS.get(soort if soort != "" else String(b.get("soort") if "soort" in b else "slijm"), KANS_ANDERS)
+	var soort_vd: String = soort if soort != "" else String(b.get("soort") if "soort" in b else "slijm")
+	var kans: float = KANS.get(soort_vd, KANS_ANDERS)
+	var upg = _upgrades()
+	if upg != null:
+		kans += upg.kans_erbij(soort_vd)   # systemen/upgrades.gd: +7 procentpunt per gekochte stap (balans.md)
 	var is_vijand := vijand_kol >= 0 and cel.x == vijand_kol
 	if is_vijand:
 		info["gezien_vijand"] = true
@@ -274,6 +284,8 @@ func _onderweg() -> void:
 		doel_kol = hol.schat().x
 	# schijterig draait na een klap de helft van de keren om, hebzuchtig pas na twee klappen
 	var rent := (trek == "schijterig" and rng.randf() < 0.5) or klappen >= 2
+	if soort != "" and upg != null and upg.put_houdt_vast() and klappen < 2:
+		rent = false           # Deep Pit: een schijterige held vergeet om te keren
 	if bool(info.get("moet_vluchten", false)):
 		rent = true
 	if bool(info.get("moet_doorlopen", false)) or bool(info.get("moet_opgegeten", false)) or bool(info.get("moet_afgerekend", false)):

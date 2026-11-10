@@ -16,9 +16,10 @@ func _klaar(_h, u: String, i: Dictionary) -> void:
 	uit_info = i
 
 # Bouw een hol met slijm op kolom 6 en (optioneel) een put op kolom 9; laat één held lopen tot hij klaar is.
-func speel(info: Dictionary, met_put := true, met_slijm := true) -> Dictionary:
+func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> Dictionary:
 	var hol := Node2D.new()
 	hol.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	hol.upgrades = upg
 	if met_put:
 		hol.vallen[9] = "stekelput"
 	var wezens := Node2D.new()
@@ -361,6 +362,43 @@ func _init() -> void:
 	ok(af_bew == 30, "moet_afgerekend: wrok tegen Gloop, Gloop eet hem en draagt zijn hoed (%d van 30)" % af_bew)
 	r = speel({"naam": "Bram", "bezoeken": 1, "wrok": "the Spike Pit", "moet_afgerekend": true, "zaad": 9}, false, true)
 	ok(r.uitkomst == "ontsnapt" and bool(r.info.get("hoard_toucher", false)), "moet_afgerekend zonder put: overleeft Gloop en raakt de schat aan")
+
+	# upgrades (systemen/upgrades.gd): +7 procentpunt per stap, Deep Pit, Bouncy Gloop
+	var U = load("res://systemen/upgrades.gd")
+	var vol = U.new()
+	vol.van_dict({"slijm": 3, "stekelput": 3})
+	var zonder_upg := 0
+	var met_upg := 0
+	for z in 300:
+		r = speel({"naam": "U%d" % z, "bezoeken": 0, "wrok": "", "trek": "hebzuchtig", "zaad": 1000 + z}, false, true)
+		if r.uitkomst == "gevallen":
+			zonder_upg += 1
+		r = speel({"naam": "U%d" % z, "bezoeken": 0, "wrok": "", "trek": "hebzuchtig", "zaad": 1000 + z}, false, true, vol)
+		if r.uitkomst == "gevallen":
+			met_upg += 1
+	# hebzuchtig, alleen Gloop: een keer gooien (daarna plat), dus ±45% zonder en ±66% met drie stappen
+	ok(zonder_upg > 105 and zonder_upg < 165, "zonder upgrades valt ±45%% bij Gloop (%d van 300)" % zonder_upg)
+	ok(met_upg > 170 and met_upg < 230 and met_upg > zonder_upg + 30, "met Royal Gloop valt ±66%% (%d van 300)" % met_upg)
+	var diep = U.new()
+	diep.van_dict({"stekelput": 2})
+	var omgekeerd := 0
+	for z in 100:
+		r = speel({"naam": "S%d" % z, "bezoeken": 0, "wrok": "", "trek": "schijterig", "zaad": 2000 + z}, true, false, diep)
+		if r.uitkomst == "ontsnapt" and not bool(r.info.get("hoard_toucher", false)):
+			omgekeerd += 1
+	ok(omgekeerd == 0, "Deep Pit: een schijterige held keert na de put niet om (%d keer wel)" % omgekeerd)
+	var hol_b := Node2D.new()
+	hol_b.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	var bouncy = U.new()
+	bouncy.van_dict({"slijm": 2})
+	hol_b.upgrades = bouncy
+	var sl := Node2D.new()
+	sl.set_script(load("res://systemen/slijm.gd"))
+	hol_b.add_child(sl)
+	sl.zet(hol_b, 6)
+	sl.plat()
+	ok(absf(sl.plat_tot - sl.t - 40.0) < 0.01, "Bouncy Gloop: plat 40 s in plaats van 60 (%.1f)" % (sl.plat_tot - sl.t))
+	hol_b.free()
 
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

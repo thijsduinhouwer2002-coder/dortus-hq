@@ -1,6 +1,7 @@
 extends Node2D
 # Nep-hol voor de toetsen (Bram): dezelfde functies als hol/hol.gd, gang van kolom 2 tot 12.
 var vallen := {}
+var upgrades = null   # systemen/upgrades.gd, of null (zoals een hol zonder upgrades)
 var ingang_kol := 2
 var schat_kol := 12
 var vloer_y := 36.0   # het echte hol staat sinds 9 nov 19:40 op 38

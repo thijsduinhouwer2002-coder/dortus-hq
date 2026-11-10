@@ -248,6 +248,33 @@ func _init() -> void:
 	ok(lang == 0, "afloop-regels met Bram en +12 passen in 42 tekens (%d niet)" % lang)
 	ok(stem.kies("afgerekend_val", {"naam": "Bram", "val": ""}) == "", "afloop-regel met {Val} komt niet zonder val")
 	ok(stem.kies("afgerekend_val", {"naam": "Bartholomew-Maximus", "val": "the Spike Pit"}, 4) != "", "getal-vorm: afloop-regel nooit leeg")
+	# upgrades (Bram 10 nov, feature 5, balans.md): 60, 168, 470, drie per soort, volle prijs terug, opslaan
+	var u = load("res://systemen/upgrades.gd").new()
+	ok(u.kost("slijm") == 60 and u.kost("stekelput") == 60 and u.kost("draak") == -1, "eerste upgrade kost 60")
+	ok(u.koop("slijm", 59) == -1 and u.niveau("slijm") == 0, "te weinig goud: niets gekocht")
+	ok(u.koop("slijm", 100) == 40 and u.niveau("slijm") == 1 and u.kost("slijm") == 168, "kopen: 40 over, volgende kost 168")
+	ok(u.koop("slijm", 168) == 0 and u.kost("slijm") == 470, "derde kost 470 (balans.md)")
+	ok(u.koop("slijm", 470) == 0 and u.kost("slijm") == -1 and u.volgende("slijm").is_empty(), "na drie stappen is alles gekocht")
+	ok(absf(u.kans_erbij("slijm") - 0.21) < 0.0001 and u.kans_erbij("stekelput") == 0.0, "+7 procentpunt per stap")
+	ok(u.verkoop("slijm") == 470 and u.niveau("slijm") == 2, "weghalen geeft de volle prijs terug")
+	var u2 = load("res://systemen/upgrades.gd").new()
+	u2.van_dict(u.naar_dict())
+	ok(u2.niveau("slijm") == 2 and u2.plat_s() == 40.0, "opslaan en laden, Bouncy Gloop 40 s")
+	u2.van_dict({"slijm": 9, "stekelput": -3})
+	ok(u2.niveau("slijm") == 3 and u2.niveau("stekelput") == 0, "kapotte save: niveaus tussen 0 en 3")
+	var regels_ok := 0
+	var u3 = load("res://systemen/upgrades.gd").new()
+	for soort in ["slijm", "stekelput"]:
+		for n in 3:
+			var vg: Dictionary = u3.volgende(soort)
+			u3.koop(soort, 1000)
+			var kr: String = u3.koop_regel(soort)
+			if kr.length() <= 42 and String(vg.naam).length() <= 22 and String(vg.uitleg).length() <= 34:
+				regels_ok += 1
+			else:
+				print("  te lang: ", kr, " | ", vg)
+	ok(regels_ok == 6, "namen, uitleg en kroniekregel passen (%d van 6)" % regels_ok)
+	ok(u3.koop_regel("slijm") == "Gloop is now Royal Gloop." and u3.put_verborgen(), "regel: " + u3.koop_regel("slijm"))
 
 	print("[hol-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)
