@@ -38,6 +38,8 @@ export interface Transactie {
   shipping_cost_amount?: string;
   fee_tax_amount?: string;
   adjustment_amount?: string;
+  /** Alleen bij type RESERVE (VK en VS); samenstel boekt het als correctie. */
+  reserve_amount?: string;
   [veld: string]: unknown;
 }
 

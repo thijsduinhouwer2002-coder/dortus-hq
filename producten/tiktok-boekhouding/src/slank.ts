@@ -7,10 +7,10 @@
 
 import type { AfrekeningKop, BestellingTransacties, SkuTransactie, Transactie } from "../../tiktok-shop-basis/src/endpoints.ts";
 
-const KOP = ["id", "create_time", "status", "currency", "payable_amount", "total_settlement_amount", "total_count"] as const;
-const TRANSACTIE = ["id", "type", "order_id", "order_create_time", "settlement_amount", "revenue_amount", "shipping_cost_amount", "fee_tax_amount", "adjustment_amount"] as const;
-const BESTELLING = ["order_id", "order_create_time", "currency", "revenue_amount", "fee_and_tax_amount", "shipping_cost_amount", "settlement_amount", "total_count"] as const;
-const SKU = ["sku_id", "statement_id", "quantity", "settlement_amount", "revenue_amount", "revenue_breakdown", "shipping_cost_amount", "shipping_cost_breakdown", "fee_tax_amount", "fee_tax_breakdown"] as const;
+export const KOP = ["id", "create_time", "status", "currency", "payable_amount", "total_settlement_amount", "total_count"] as const;
+export const TRANSACTIE = ["id", "type", "order_id", "order_create_time", "settlement_amount", "revenue_amount", "shipping_cost_amount", "fee_tax_amount", "adjustment_amount", "reserve_amount"] as const;
+export const BESTELLING = ["order_id", "order_create_time", "currency", "revenue_amount", "fee_and_tax_amount", "shipping_cost_amount", "settlement_amount", "total_count"] as const;
+export const SKU = ["sku_id", "statement_id", "quantity", "settlement_amount", "revenue_amount", "revenue_breakdown", "shipping_cost_amount", "shipping_cost_breakdown", "fee_tax_amount", "fee_tax_breakdown"] as const;
 
 function kies<T>(bron: unknown, velden: readonly string[]): T {
   // Geen object (bijv. null of een lijst): ongewijzigd doorgeven, dan geven de controles verderop dezelfde melding.
