@@ -26,6 +26,7 @@ extends Node2D
 #   voor een aartsvijand zodra WAND_ER waar is) en "hoeden_bewoner" (hoeveel hoeden die bewoner nu heeft, voor kroniek.hoed()).
 #
 # - info["soort_held"]: "ridder", "dief", "magier" of "bard" (systemen/heldensoort.gd, versie 1); leeg = zoals hierboven.
+#   info["trek"] mag ook "slaapkop", "wraakzuchtig" of "opschepper" zijn (heldensoort.kies_trek); slaapkop zet info "dutje".
 #   Een bard die vlucht (ook als Hoard-Toucher) zet info["lied"] = 2; strook.gd moet dan 2 helden extra laten komen
 #   (nog aan te sluiten door Olaf, taken.md 10 nov). Zonder soort_held verandert er niets.
 #
@@ -64,6 +65,8 @@ var hol
 var info := {}
 var trek := "hebzuchtig"
 var soort_held := ""         # systemen/heldensoort.gd, uit info["soort_held"]; "" = gewone held
+var dut_kol := -1            # slaapkop: kolom waar hij een dutje doet (-1 = geen of al gedaan)
+var dut_tot := 0.0
 var staat := "afdalen"       # afdalen, lopen, vluchten, klimmen, vallen
 var doel_kol := 0
 var vijand_kol := -1         # kolom van zijn vijand, -1 als hij er geen (meer) heeft
@@ -96,6 +99,9 @@ func start(h, i: Dictionary) -> void:
 	soort_held = String(info.get("soort_held", ""))
 	if not SOORT.geldig(soort_held):
 		soort_held = ""
+	dut_kol = -1
+	if trek == "slaapkop":
+		dut_kol = int(round(lerpf(float(hol.ingang().x), float(hol.schat().x), 0.5)))   # halverwege het hol
 	var p: Vector2 = hol.cel_naar_pos(hol.ingang())
 	vloer = p.y
 	position = Vector2(p.x, 2)
@@ -119,7 +125,8 @@ func naar_dict() -> Dictionary:
 		i[k] = (v as Color).to_html(false) if v is Color else v
 	return {"info": i, "staat": staat, "x": position.x, "y": position.y, "doel_kol": doel_kol, "vijand_kol": vijand_kol,
 		"klappen": klappen, "t": t, "geraakt_tot": geraakt_tot, "val_t": val_t, "val_teken": val_teken,
-		"gezien": gezien.keys(), "verdedigingen": verdedigingen, "rng": str(rng.state)}
+		"gezien": gezien.keys(), "verdedigingen": verdedigingen, "rng": str(rng.state),
+		"dut_kol": dut_kol, "dut_tot": dut_tot}
 
 func herstel(h, d: Dictionary) -> void:
 	var i: Dictionary = (d.get("info", {}) as Dictionary).duplicate()
@@ -146,6 +153,8 @@ func herstel(h, d: Dictionary) -> void:
 	for k in d.get("gezien", []):
 		gezien[int(k)] = true
 	verdedigingen = int(d.get("verdedigingen", 0))
+	dut_kol = int(d.get("dut_kol", dut_kol))
+	dut_tot = float(d.get("dut_tot", 0.0))
 	if d.has("rng"):
 		rng.state = String(d.rng).to_int()
 
@@ -181,6 +190,8 @@ func is_gebeten() -> bool:
 
 # Welk teken boven zijn hoofd, "" voor geen. Eén tegelijk: boos > zweet > uitroep > ster.
 func teken_nu() -> String:
+	if staat == "dutten":
+		return "zzz"           # slaapkop doet een dutje in je hol
 	if staat == "lopen" and vijand_kol >= 0:
 		return "boos"          # wrok en op weg naar zijn vijand
 	if staat in ["vluchten", "klimmen"]:
@@ -238,10 +249,20 @@ func stap(delta: float) -> void:
 			if vijand_kol < 0:
 				doel_kol = hol.schat().x   # de schat schuift mee als je graaft
 			var doel: Vector2 = hol.cel_naar_pos(Vector2i(doel_kol, 0))
-			position.x = move_toward(position.x, doel.x, SNEL * (1.25 if trek == "hebzuchtig" else 1.0) * delta)
+			if dut_kol >= 0 and hol.pos_naar_cel(position).x == dut_kol and vijand_kol < 0:
+				dut_kol = -1
+				dut_tot = t + SOORT.DUT_S
+				staat = "dutten"
+				info["dutje"] = true
+				return
+			var tempo := 1.25 if trek == "hebzuchtig" else (0.8 if trek == "opschepper" else 1.0)
+			position.x = move_toward(position.x, doel.x, SNEL * tempo * delta)
 			_onderweg()
 			if staat == "lopen" and absf(position.x - doel.x) < 0.5:
 				_aangekomen()
+		"dutten":
+			if t >= dut_tot:
+				staat = "lopen"   # wakker, verder (dezelfde kolom gooit hij niet nog eens)
 		"vluchten":
 			var terug: Vector2 = hol.cel_naar_pos(hol.ingang())
 			position.x = move_toward(position.x, terug.x, SNEL * 1.5 * delta)
@@ -300,7 +321,7 @@ func _onderweg() -> void:
 	var is_vijand := vijand_kol >= 0 and cel.x == vijand_kol
 	if is_vijand:
 		info["gezien_vijand"] = true
-		kans += ROEKELOOS
+		kans += ROEKELOOS * (2.0 if trek == "wraakzuchtig" else 1.0)
 	if bool(info.get("hoard_toucher", false)):
 		kans *= BRUTAAL
 	verdedigingen += 1

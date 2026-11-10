@@ -76,6 +76,12 @@ func binnen(naam: String, trek := "", soort_held := "") -> Dictionary:
 	return {"naam": naam, "bezoeken": h["bezoeken"] - 1, "wrok": h["wrok"], "bijnaam": h["bijnaam"], "littekens": h["littekens"],
 		"soort_held": soort_held}
 
+# Een slaapkop deed een dutje (held.gd zet info "dutje"): één regel, strook.gd kiest wanneer.
+func dutje(naam: String) -> String:
+	var r := _regel("dutje", _vars(naam), "%s took a nap." % naam)
+	_schrijf(r)
+	return r
+
 # Een bard ontsnapte en zingt (held.gd zet info "lied"): één regel; strook.gd laat info.lied helden extra komen.
 func lied(naam: String) -> String:
 	var r := _regel("lied", _vars(naam), "%s sang about you." % naam)

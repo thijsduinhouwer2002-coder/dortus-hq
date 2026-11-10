@@ -548,5 +548,55 @@ func _init() -> void:
 	hol_d.get_child(0).add_child(hd2)
 	hd2.herstel(hol_d, dsoort)
 	ok(hd2.soort_held == "ridder", "soort blijft na bewaren en laden")
+	# karaktertrekken erbij (Bram 10 nov, versie 1): slaapkop, wraakzuchtig, opschepper
+	var x_tsk := 0.0
+	var x_tgw := 0.0
+	var x_dutjes := 0
+	for z in 40:
+		var x_rk := speel({"naam": "Slaap%d" % z, "zaad": 9100 + z, "trek": "slaapkop"}, false, false)
+		var x_rg := speel({"naam": "Slaap%d" % z, "zaad": 9100 + z, "trek": "hebzuchtig"}, false, false)
+		x_tsk += x_rk.tijd / 40.0
+		x_tgw += x_rg.tijd / 40.0
+		if bool(x_rk.info.get("dutje", false)):
+			x_dutjes += 1
+	ok(x_dutjes == 40 and x_tsk > x_tgw + 3.0, "slaapkop doet een dutje in een leeg hol (%d van 40, %.1f s tegen %.1f s)" % [x_dutjes, x_tsk, x_tgw])
+	var hslaap := Node2D.new()
+	hslaap.set_script(load("res://systemen/held.gd"))
+	var x_hol_s := Node2D.new()
+	x_hol_s.set_script(load("res://systemen/toetsen/nep_hol.gd"))
+	x_hol_s.add_child(Node2D.new())
+	x_hol_s.get_child(0).add_child(hslaap)
+	hslaap.start(x_hol_s, {"naam": "Dut", "zaad": 5, "trek": "slaapkop"})
+	var x_stappen_s := 0
+	while hslaap.staat != "dutten" and x_stappen_s < 3000:
+		hslaap.stap(1.0 / 15.0)
+		x_stappen_s += 1
+	ok(hslaap.staat == "dutten" and hslaap.teken_nu() == "zzz", "tijdens het dutje zzz boven zijn hoofd")
+	var dslaap: Dictionary = JSON.parse_string(JSON.stringify(hslaap.naar_dict()))
+	var hslaap2 := Node2D.new()
+	hslaap2.set_script(load("res://systemen/held.gd"))
+	x_hol_s.get_child(0).add_child(hslaap2)
+	hslaap2.herstel(x_hol_s, dslaap)
+	ok(hslaap2.staat == "dutten" and is_equal_approx(hslaap2.dut_tot, hslaap.dut_tot) and hslaap2.dut_kol == -1, "midden in een dutje bewaard en terug: slaapt verder, geen tweede dutje")
+	var x_af_w := 0
+	var x_af_g := 0
+	for z in 150:
+		var x_rw := speel({"naam": "Wraak%d" % z, "zaad": 9500 + z, "trek": "wraakzuchtig", "wrok": "the Spike Pit", "bezoeken": 1})
+		var x_rn := speel({"naam": "Wraak%d" % z, "zaad": 9500 + z, "trek": "hebzuchtig", "wrok": "the Spike Pit", "bezoeken": 1})
+		if String(x_rw.info.get("wat", "")).begins_with("finally"):
+			x_af_w += 1
+		if String(x_rn.info.get("wat", "")).begins_with("finally"):
+			x_af_g += 1
+	ok(x_af_w > x_af_g, "wraakzuchtig valt vaker in zijn eigen vijand (%d tegen %d van 150)" % [x_af_w, x_af_g])
+	var x_tr := RandomNumberGenerator.new()
+	x_tr.seed = 11
+	var x_tk_tel := {}
+	var x_tk_eerst := true
+	for nr in range(1, 1001):
+		var x_tk: String = HS.kies_trek(nr, x_tr)
+		if nr <= 10 and x_tk != "":
+			x_tk_eerst = false
+		x_tk_tel[x_tk] = int(x_tk_tel.get(x_tk, 0)) + 1
+	ok(x_tk_eerst and x_tk_tel.size() == 4 and int(x_tk_tel[""]) > 700, "nieuwe trekken pas na held 10, dan ±1 op 5 %s" % str(x_tk_tel))
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

@@ -90,6 +90,8 @@ def speel(uren, zaad):
                  "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0, "soort": ""}
             if SOORTEN and nieuw_nr > 10:
                 h["soort"] = rng.choices(list(SOORT_GEWICHT), weights=list(SOORT_GEWICHT.values()))[0]
+                if rng.random() < 0.2:   # heldensoort.kies_trek: slaapkop, wraakzuchtig, opschepper (gedragen zich verder als hebzuchtig)
+                    h["trek"] = rng.choice(["slaapkop", "wraakzuchtig", "opschepper"])
         sd = SOORT_DATA.get(h.get("soort", ""), ({}, False))
         if h["gevlucht"] >= 3:
             st["aartsvijand_bezoek"] += 1
@@ -109,7 +111,7 @@ def speel(uren, zaad):
             kans = (KANS[v["soort"]] * sd[0].get(v["soort"], 1.0) + UPGRADE * upg[v["soort"]]) * max(FAAM_BODEM, FAAM_FACTOR ** faam)
             is_vijand = v["soort"] == vijand
             if is_vijand:
-                kans += ROEKELOOS
+                kans += ROEKELOOS * (2 if h["trek"] == "wraakzuchtig" else 1)
                 vijand = ""   # na het duel door naar de schat
             if h["hoard"]:
                 kans *= BRUTAAL

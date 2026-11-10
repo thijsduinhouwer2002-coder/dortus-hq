@@ -294,8 +294,10 @@ func _init() -> void:
 	ok(String(ib2.soort_held) == "ridder", "terugkomer houdt zijn soort")
 	var lr: String = ks.lied("Fenna")
 	ok(lr != "" and lr.length() <= 42, "bard zingt: " + lr)
+	var dr: String = ks.dutje("Pim")
+	ok(dr != "" and dr.length() <= 42, "slaapkop dutje: " + dr)
 	var soort_lang := 0
-	for sj in ["binnen_ridder", "binnen_dief", "binnen_magier", "binnen_bard", "lied"]:
+	for sj in ["binnen_ridder", "binnen_dief", "binnen_magier", "binnen_bard", "lied", "binnen_slaapkop", "binnen_wraakzuchtig", "binnen_opschepper", "dutje"]:
 		for rsj in ks.stem.VOORRAAD[sj]:
 			if ks.stem.vul(rsj, {"naam": "Joost III", "held": "Joost III", "bewoner": "Gloop", "val": "the Spike Pit"}).length() > 42:
 				soort_lang += 1

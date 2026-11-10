@@ -70,3 +70,18 @@ static func naam(s: String) -> String:
 
 static func zingt(s: String) -> bool:
 	return s == "bard"
+
+# Karaktertrekken erbij (versie 1, features.md: zes in totaal). hebzuchtig en schijterig kiest held.gd zelf (op naam);
+# de drie hieronder geeft strook.gd mee als info["trek"], na de eerste 10 helden en dan 1 op 5:
+#   slaapkop:     doet halverwege een dutje in je hol (4 s stil met zzz), een makkelijk doel voor wie wakker is.
+#   wraakzuchtig: tegen zijn eigen vijand dubbel roekeloos (de wrok-grap krijgt vaker een afloop).
+#   opschepper:   loopt langzaam en pocht (alleen in de kroniek); rent pas na twee klappen, net als hebzuchtig.
+# "verdwaald" uit features.md komt later: in één rij gangen is "de verkeerde gang" nog niet te zien.
+const TREKKEN_NIEUW := ["slaapkop", "wraakzuchtig", "opschepper"]
+const TREK_KANS := 0.2
+const DUT_S := 4.0
+
+static func kies_trek(nr: int, r: RandomNumberGenerator) -> String:
+	if nr <= EERSTE_GEWOON or r.randf() >= TREK_KANS:
+		return ""
+	return TREKKEN_NIEUW[r.randi_range(0, TREKKEN_NIEUW.size() - 1)]

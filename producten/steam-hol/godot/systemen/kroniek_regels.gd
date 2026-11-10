@@ -55,6 +55,10 @@ const VOORRAAD := {
 	"binnen_dief": ["{naam} the Thief tiptoes in.", "{naam} sneaks in. Nobody saw. You saw.", "{naam} picks the lock. It was open."],
 	"binnen_magier": ["{naam} the Wizard sniffs for traps.", "{naam} casts Light. It is a candle.", "{naam} knows every trap. Almost."],
 	"binnen_bard": ["{naam} the Bard tunes his lute.", "{naam} hums on the way in.", "{naam} is here for a story."],
+	"binnen_slaapkop": ["{naam} yawns. Long walk.", "{naam} brought a pillow.", "{naam} the Sleepy shuffles in."],
+	"binnen_wraakzuchtig": ["{naam} holds grudges. Hard.", "{naam} the Spiteful is here.", "{naam} keeps a list of names."],
+	"binnen_opschepper": ["{naam} tells everyone he slew a dragon.", "{naam} the Boastful struts in.", "{naam} signs autographs. Nobody asked."],
+	"dutje": ["{naam} took a nap in your hole.", "{naam} snored. Gloop watched.", "{naam} slept. Rude."],
 	# Een bard die ontsnapt zingt over je hol: er komen helden bij (heldensoort.LIED_HELDEN).
 	"lied": ["{naam} sang about your hole. More came.", "{naam}'s song got popular. Uh oh.", "A song about you! Heroes on the way."],
 	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
