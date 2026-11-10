@@ -72,3 +72,9 @@ Wat overal nieuw is:
 - **De spullen hebben diepte:** de kroon ligt iets scheef, met een band, glans en drie steentjes; de dobbelsteen is een echte kubus met lichte bovenkant en een stofwolkje erachter (hij rolt nog); de accolades hebben een donkere rand en een schaduwkant.
 - Eén nadeel, eerlijk: op een venster van 1024 breed schaalt Steam het paginalogo, de achtergrond niet, dus daar sluit de bundel op de achtergrond niet aan op de D (de kop wel). Op 1280 en breder klopt het.
 - Nog niet gedaan (Daan 3): social per repo met het productbeeld groot in het licht. Volgt als Abel zegt welke repo's eerst.
+
+## Versie 3 achtergrond (Mila, 10 nov ±02:55 NL): wacht op keuring Daan
+Alleen `steam-achtergrond-1920-v3.png` is nieuw (keuring 3 van Daan: achtergrond nee). De rest van v2 is akkoord en verandert niet.
+- **Moet 1, niets half op 1280:** spullen staan nu helemaal links van x 300 (munten, x 108 tot 284) of rechts van x 1600 (sleutel, x 1620 tot 1845), nagemeten in de png. Op 1280 breed zijn ze dus helemaal weg, op 1920 helemaal te zien.
+- **Moet 2, geen herhaling uit de kop:** kroon, dobbelsteen en accolades staan alleen nog in de kop. In de kantlijn liggen andere dingen: links drie gouden munten (de schat van Het Hol, eentje nog op zijn kant), rechts de gouden **sleutel van de deur**. Waarom de sleutel: het hele uniform is een deur op een kier; wie op brede schermen de sleutel ernaast ziet liggen, snapt het grapje (de deur staat open, de sleutel ligt er nog).
+- **Moet 3, rand op 2560:** de buitenste 160 px links, rechts en onder lopen uit in vlak Nacht (`#1d1426`, gemeten in de hoeken en randen: overal 29, 20, 38). De bundel is smaller en raakt de rand niet meer. Abel: zet als paginakleur naast het plaatje ook `#1d1426` als Steam dat toelaat; proef op 2560 graag nog in je mock.

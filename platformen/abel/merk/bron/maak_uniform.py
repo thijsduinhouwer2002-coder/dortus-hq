@@ -171,6 +171,54 @@ def achtergrond_v2(W=1920, H=1200):
             + f'<circle cx="1720" cy="600" r="190" fill="url(#gloed)" opacity="0.7"/>'
             + kroon(200, 560, 110) + dobbel(270, 740, 84) + haakjes(1720, 560, 96))
 
+def munten(cx, cy, z):
+    """Drie losse gouden munten (de schat van Het Hol): een op zijn kant, twee plat, met randje en schaduw."""
+    uit = f'<ellipse cx="{cx:.1f}" cy="{cy+z*0.32:.1f}" rx="{z*1.0:.1f}" ry="{z*0.13:.1f}" fill="#000" fill-opacity="0.4"/>'
+    for ox, oy, rx, ry in ((-0.55, 0.22, 0.42, 0.16), (0.35, 0.26, 0.42, 0.16)):
+        x, y = cx+ox*z, cy+oy*z
+        uit += (f'<ellipse cx="{x:.1f}" cy="{y+z*0.05:.1f}" rx="{rx*z:.1f}" ry="{ry*z:.1f}" fill="#b8741f"/>'
+                f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="{rx*z:.1f}" ry="{ry*z:.1f}" fill="{GOUD}" stroke="#8a5522" stroke-width="{z*0.03:.1f}"/>'
+                f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="{rx*z*0.62:.1f}" ry="{ry*z*0.62:.1f}" fill="none" stroke="#e8a93a" stroke-width="{z*0.03:.1f}"/>')
+    x, y = cx - 0.05*z, cy - 0.12*z     # munt op zijn kant, iets scheef
+    uit += (f'<g transform="rotate(14 {x:.1f} {y:.1f})"><ellipse cx="{x+z*0.06:.1f}" cy="{y:.1f}" rx="{z*0.16:.1f}" ry="{z*0.42:.1f}" fill="#b8741f"/>'
+            f'<ellipse cx="{x:.1f}" cy="{y:.1f}" rx="{z*0.16:.1f}" ry="{z*0.42:.1f}" fill="{GOUD}" stroke="#8a5522" stroke-width="{z*0.03:.1f}"/>'
+            f'<path d="M{x-z*0.04:.1f},{y-z*0.25:.1f} V{y+z*0.2:.1f}" stroke="#fff6c9" stroke-width="{z*0.04:.1f}" stroke-linecap="round"/></g>')
+    return uit
+
+def sleutel(cx, cy, z):
+    """Een gouden sleutel op de vloer: hoort bij de deur. Ring links, baard rechts, met schaduw en glans."""
+    r = z*0.28
+    return (f'<ellipse cx="{cx+z*0.1:.1f}" cy="{cy+z*0.2:.1f}" rx="{z*0.95:.1f}" ry="{z*0.1:.1f}" fill="#000" fill-opacity="0.4"/>'
+            f'<g transform="rotate(-8 {cx:.1f} {cy:.1f})" stroke="#8a5522" stroke-width="{z*0.035:.1f}" stroke-linejoin="round">'
+            f'<circle cx="{cx-z*0.55:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="{GOUD}"/>'
+            f'<circle cx="{cx-z*0.55:.1f}" cy="{cy:.1f}" r="{r*0.45:.1f}" fill="{NACHT}"/>'
+            f'<rect x="{cx-z*0.3:.1f}" y="{cy-z*0.06:.1f}" width="{z*0.95:.1f}" height="{z*0.12:.1f}" fill="{GOUD}"/>'
+            f'<path d="M{cx+z*0.4:.1f},{cy+z*0.06:.1f} v{z*0.2:.1f} h{z*0.1:.1f} v{-z*0.1:.1f} h{z*0.08:.1f} v{z*0.14:.1f} h{z*0.12:.1f} v{-z*0.24:.1f} Z" fill="{GOUD}"/>'
+            f'<path d="M{cx-z*0.25:.1f},{cy-z*0.02:.1f} H{cx+z*0.55:.1f}" stroke="#fff6c9" stroke-width="{z*0.03:.1f}" stroke-linecap="round"/></g>')
+
+def achtergrond_v3(W=1920, H=1200):
+    """Steam-achtergrond v3 (Daan keuring 3): (1) spullen alleen links van x 320 of rechts van x 1600, zodat ze op
+    1280 breed helemaal weg zijn; (2) geen herhaling van kroon, dobbelsteen en accolades uit de kop: in de kantlijn
+    liggen munten (schat van Het Hol) en de sleutel van de deur; (3) de buitenste 160 px lopen uit in vlak NACHT,
+    dus naast een smal plaatje op 2560 breed geen harde rand in het licht. Bundel smaller zodat hij de rand niet raakt."""
+    s = 0.5; dx = 360 + LOGO_X + 22*s; dy = 106 + (460-280)/2 - 90
+    rand = (f'<defs><linearGradient id="randl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{NACHT}"/>'
+            f'<stop offset="1" stop-color="{NACHT}" stop-opacity="0"/></linearGradient>'
+            f'<linearGradient id="randr" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="{NACHT}"/>'
+            f'<stop offset="1" stop-color="{NACHT}" stop-opacity="0"/></linearGradient>'
+            f'<linearGradient id="randb" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{NACHT}"/>'
+            f'<stop offset="1" stop-color="{NACHT}" stop-opacity="0"/></linearGradient></defs>')
+    return (rand + f'<rect width="{W}" height="{H}" fill="{NACHT}"/>'
+            f'<rect y="{dy+560*s:.0f}" width="{W}" height="{H-dy-560*s:.0f}" fill="url(#vloerdonker)"/>'
+            f'<circle cx="960" cy="250" r="700" fill="url(#gloed)" opacity="0.45"/>'
+            f'<circle cx="{dx+300*s:.0f}" cy="{dy+300*s:.0f}" r="460" fill="url(#gloed)" opacity="0.9"/>'
+            + straal(dx, dy, s, H, 520) + sterren(W, H*0.8, int(W*H/9000))
+            + f'<circle cx="200" cy="640" r="190" fill="url(#gloed)" opacity="0.85"/>'
+            + f'<circle cx="1745" cy="610" r="180" fill="url(#gloed)" opacity="0.75"/>'
+            + munten(200, 640, 110) + sleutel(1745, 610, 150)
+            + f'<rect width="160" height="{H}" fill="url(#randl)"/><rect x="{W-160}" width="160" height="{H}" fill="url(#randr)"/>'
+            + f'<rect y="{H-160}" width="{W}" height="160" fill="url(#randb)"/>')
+
 def woord_midden(w, h, hoogte):
     """Woordmerk precies in het midden van een doorzichtig vlak (kan-punt 8): breedte gemeten in een eerste render."""
     import tempfile
@@ -198,6 +246,7 @@ if __name__ == "__main__":
     schrijf("steam-logo-1200x460-v2", 1200, 460, woord_midden(1200, 460, 280))
     schrijf("steam-kop-1500x220-v2", 1500, 220, kop_v2())
     schrijf("steam-achtergrond-1920-v2", 1920, 1200, achtergrond_v2())
+    schrijf("steam-achtergrond-1920-v3", 1920, 1200, achtergrond_v3())
     for naam, w, h in (("og-1200x630-v2", 1200, 630), ("social-1280x640-v2", 1280, 640)):
         sc = h / 1000
         inhoud = (kamer(w, h, w - 600*sc*1.1, 90*sc, 0.95*sc*1.1, 1.0, True)

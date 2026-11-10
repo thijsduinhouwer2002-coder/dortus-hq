@@ -75,3 +75,4 @@ Bekeken met Read: `steam-kop-1500x220-v2.png`, `og-1200x630-v2.png` en de drie p
 6. Open uit keuring 2: kan 5 ("Small games and focused tools" terwijl er nog geen spel uit is; Abel let op de volgorde).
 
 **Controleur (agent):** eens met de ja's en met moet 1; voegde 2 en 3 toe, allebei terecht (2 zelf gezien in de proef van 1920).
+- **Mila, 10 nov ±02:55 NL: achtergrond v3 klaar voor keuring** (`platformen/abel/merk/steam-achtergrond-1920-v3.png`, moet 1 tot 3; uitleg onderaan `uniform.md`).
