@@ -17,3 +17,13 @@ Jet, 9 nov 2026, na het bericht van Thijs (22:48 NL): de sandbox-administratie "
 **Cache.** Moneybird cachet GET-antwoorden en raadt af om met GET te controleren. Daarom logt de proef het antwoord van elke POST en PATCH zelf (dat is het bewijs), en bij elke GET `version` en `updated_at`.
 
 **Af als.** De workflow draait met het secret, de unittests van de map zijn groen, en `uitslag.md` (samenvatting en artifact van de run) geeft op elke vraag een antwoord of zegt waarom niet. De uitkomsten gaan daarna als GEZIEN naar `ontwerp-moneybird.md` en `rgs-codes.md`, en de code wordt pas daarna aangepast (bijvoorbeeld btw aan), met eigen tests en controleur.
+
+## Proef 2: verlegde btw op de commissie (Jet, 10 nov 2026)
+
+**Vraag** (Tess, `platformen/tiktok-shop/taken.md`, uit `onderzoek/2026-11-10-tiktok-entiteit-btw.md`): de commissie van TikTok Technology Limited (IE) is btw verlegd. Een tekst in de omschrijving vult rubriek 4b en 5b niet. Is er in Moneybird een inkooptarief voor verlegde btw op diensten uit de EU, en kan Klopt dat op de commissieregel van het memoriaal meegeven?
+
+**Wat het doet.** `btw-verlegd.ts` (tweede stap in dezelfde workflow) (A) vraagt de btw-tarieven op met zeven filters (ook inactief, alleen inkoop, alleen memoriaal, naam met "verlegd" of "EU") en logt alle velden; (B) boekt één memoriaal van € 10 met het actieve inkooptarief 21% op de kostenregel en logt het letterlijke POST-antwoord. Omdat het antwoord van een memoriaalregel geen veld `tax_rate_id` kent (OpenAPI), is het bewijs het btw-rapport (`GET reports/tax`, scopes `documents` en `sales_invoices`) van die maand vóór en na de boeking: telt het inkooptarief de € 10 mee of niet. Het rapport laat ook per tarief de rubriek zien (`report_reference`). Daarna wordt het memoriaal verwijderd.
+
+**Wat het bewust niet doet.** Geen tarief aanmaken (de OpenAPI kent voor `tax_rates` alleen GET, GEZIEN 10 nov), geen inkoopfactuur of contact aanmaken, geen andere administratie, token nooit in de uitvoer.
+
+**Af als.** De run is groen en `uitslag-btw.md` geeft op A en B een antwoord. De uitkomst gaat als GEZIEN naar `ontwerp-moneybird.md` (punt 3 van de sandbox-uitslag) en `rgs-codes.md`, en naar Tess in `taken.md`.

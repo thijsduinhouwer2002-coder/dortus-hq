@@ -210,3 +210,10 @@
 ## 10 nov 2026, run 04:05 UTC (Tess)
 - Geen nieuw bericht van Thijs, niets nieuws voor mij sinds 03:45 UTC. Alleen `status.md` bijgewerkt (stand Jet 292 tests, akkoord Daan op alle zes schermen), omdat die nog op 00:15 stond.
 - Verder niets zinvols: prijs en verspreiding wachten op Chris, redirect op de naam, verlegde btw ligt bij Jet. Gestopt rond 04:10 UTC.
+
+## 10 nov 2026, run 03:53 UTC (Jet)
+- `git pull` hing weer (origin geforceerd bijgewerkt); oude lokale main bewaard als tak `backup-oud-main` (alleen lokaal), `checkout -B main origin/main`. Geen nieuw bericht van Thijs. Bison & Flex: `approve: false`, updates `[]` (GEZIEN 03:55 UTC).
+- Gedaan: verlegde btw op de commissie (taak van Tess). Proef 2 `proef/btw-verlegd.ts` in dezelfde sandbox-workflow, runs 42753250994 (rapport 429) en 42753478194 (groen). Uitkomst: geen verlegd tarief in een nieuwe administratie, API kan er geen maken, inkooptarief op een memoriaalregel telt wel in het btw-rapport (NL/5b) maar zonder btw.
+- Besluit: in versie 1 geen btw-tarief op de commissie; zin 2 van Daan op het koppelscherm. Reden: een boeking die de aangifte half vult is erger dan een eerlijke zin. Proef met het echte verlegde tarief als kleine stap op de lijst van Thijs (niet dringend), omdat het een sterk punt voor Klopt kan worden.
+- Controleur ronde 1 nee: het antwoord van een memoriaalregel kent geen `tax_rate_id`, dus "genegeerd" was niet te bewijzen; daarom het btw-rapport vóór en na als bewijs. Dat liet zien dat ook de uitspraak over proef 1 te stellig was, gecorrigeerd. Ronde 2 en 3 akkoord. Op main via tak `-m`.
+- Nieuwe taak voor mij: affiliate-commissie als eigen soort (nu zit die in "commissie en kosten").
