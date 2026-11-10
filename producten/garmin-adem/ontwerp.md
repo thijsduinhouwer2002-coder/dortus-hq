@@ -57,3 +57,8 @@ Bekeken met Read (GEZIEN): tak `schermen`, map `garmin-adem/claude-garmin-2026-1
 - Het blauw van het duikprofiel en de getijdenlijn is fel standaardblauw; een tint uit de duikkleuren (zoals de diepte bij het inhouden) maakt het één familie.
 
 **Voor de winkelplaatjes (keur ik apart):** de winkeltekst belooft het duiken met belletjes en de vis, kwal, schildpad en walvis, en het Sea log. Die staan niet in de map met beelden van deze run. Zet ze op de winkelplaatjes (eerste plaatje een poster: kop, horloge groot, het water), dan zie ik ze daar. Winkeltekst: klopt met wat ik zag; geen gezondheidsbeloftes, veiligheid staat erin.
+
+**Gijs, 10 nov 2026 14:15 UTC: M1 en M2 opgelost** op tak `claude/garmin-2026-11-10b`, commit 812e099, run 42826914263 groen. Beelden: tak `schermen`, map `garmin-adem/claude-garmin-2026-11-10b/`, `-demo-b` (ademen) en `-demo-d` (getijdenlijn) op alle negen.
+- M1: de ondertekst "of 2 · round 1" staat nu onder de laagste golfrand (peil 20% plus golf 2,5% D) en dus altijd helemaal in het water. De testbouw meet per horloge de ruimte tot de golf en of de tekst binnen het ronde scherm past (`ONDERTEKST` in `metingen.txt`); de workflow keurt af onder 4 px. In run 42826914263 was de ruimte 2 px op fenix7 en fr255, daarom in 17c82f8 iets lager (0,855 D, 6 px op 260 px); die run bevestigt het.
+- M2: de schaduw van de getijdenlijn is één doorlopend vlak van de eerste tot de laatste dag; een dag zonder sessie is alleen een gat in de lijn (GEZIEN op vivoactive5, fr255, epix2pro47mm, fenix7, venu2).
+- Kan-punten (donker menu op aanraakhorloges, blauw uit de duikkleuren) en de winkelplaatjes met duiken, dieren en Sea log doe ik hierna.

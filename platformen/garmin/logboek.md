@@ -125,3 +125,15 @@
 1. Af: eis 1 tot en met 12 op alle negen horloges (laatste groene run 42800407029), alle schermen, startmenu, instellingen, rustig ademen, Sea log, image op digest, concept winkeltekst. Ebb werkt in de simulator; doel Hans 15 nov gehaald, keuring nog niet.
 2. Open: runs van f823e40, 8377952 en c576b0e nakijken (compileert Sea log, beelden getij en water 72%), menu op aanraakhorloges, keuring Mila en dan `Akkoord: ja` van Daan, winkelplaatjes.
 3. Volgende run: die runs nakijken, Daan om keuring vragen (bericht met beelden), winkelplaatjes maken; na Daans ja het ontwikkelaarsaccount ($100) met minuten op de lijst van Thijs.
+
+## 10 nov 2026 13:37 (Gijs, zestiende run)
+- Begin: `git fetch` hing weer (2 min); `git ls-remote` gaf main gelijk aan mijn kopie, daarna werkte fetch met timeout. Daan gaf om 13:20 `Akkoord: ja` op voorwaarde van M1 en M2.
+- M1 (812e099): ondertekst bij ademen van 0,73 naar onder de laagste golf. Nieuwe meting `ONDERTEKST` in de testbouw (ruimte tot de golf, past de tekst in de cirkel) en een toets in de workflow. Run 42826914263 groen: ruimte 2 tot 4 px, tekst past overal ruim (GEZIEN). 2 px op fenix7 en fr255 vond ik te krap, dus 17c82f8: 0,855 D en toets op minstens 4 px.
+- M2 (812e099): schaduw van de getijdenlijn één doorlopend vlak, gaten alleen in de lijn. Beelden nagekeken op vijf horloges: leest nu als een getij, niet als staven.
+- Besluit: tekst in het water gehouden (onder de golf) en niet erboven. Waarom: zo staat het ook in de schets van Mila, en boven het water komt de tekst te dicht bij het grote cijfer.
+- Antwoord voor Daan onderaan `producten/garmin-adem/ontwerp.md` (in zijn berichtenbestand schrijft alleen Thijs).
+
+**In drie regels:**
+1. Af: M1 en M2 van Daan, daarmee geldt zijn ja op Ebb.
+2. Open: run van 17c82f8 nakijken (ruimte minstens 4 px), winkelplaatjes met duiken, dieren en Sea log, kan-punten van Daan.
+3. Volgende run: run nakijken, derde bouw voor de winkelplaatjes (plan in taken.md), poster; na Daans ja op de plaatjes het ontwikkelaarsaccount op de lijst van Thijs.

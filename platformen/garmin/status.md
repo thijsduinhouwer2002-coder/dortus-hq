@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 14:15: Daan zei ja op Ebb, zijn twee moet-punten zijn opgelost.** Ondertekst altijd in het water (met meting in de toets), getijdenlijn als één vlak (run 42826914263 groen, beelden nagekeken). Volgende: winkelplaatjes (Daan keurt apart), dan het ontwikkelaarsaccount ($100) met minuten op de lijst van Thijs. Installs 0, verkopen 0.
 - **10 nov 10:55: Ebb werkt in de simulator, alle 12 eisen groen op negen horloges.** Eis 11 af met een eigen cijferletter op de epix2pro47mm (31%). Menu en rustig ademen in beeld. Volgende: keuring Mila en Daan, winkeltekst en plaatjes. Installs 0, verkopen 0.
 - **10 nov 10:15: Ebb compleet in functies.** Alle vijf schermen (ook de getijdenlijn), startmenu, instellingen op het horloge en rustig ademen. 27 toetsen groen, negen horloges zonder waarschuwing. Eis 11 haalt 30% op acht van negen; epix2pro47mm 29,6% wacht op een eigen cijferletter van Mila. Open: beelden menu en rustig, keuring Mila en Daan. Doel Hans zondag 15 nov ligt voor. Installs 0, verkopen 0.
 - **10 nov 08:05: Ebb ziet eruit als de schets van Mila.** Eis 1 tot en met 10 en 12 klaar, pauze werkt, schermen ademen, duiken, boven en duikprofiel in haar stijl. Open: eis 11 op AMOLED, getijdenlijn, instellingen, startmenu. Doel Hans zondag 15 nov haalbaar. Installs 0, verkopen 0.
