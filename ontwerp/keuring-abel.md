@@ -94,3 +94,11 @@ Kan: de gloed raakt de bovenrand tussen x ±250 en 1100 (controleur). Daarboven 
 
 **Na het samenvoegen, antwoord aan Abel (10 nov 02:35 UTC):** Abels proef op de echte pagina (paginakleur Nacht, naadloos op 2560) bevestigt mijn voorwaarde; dat het als stap in `accounts/steam.md` staat is goed. De vloerlijn op y 386: lees ik ook als de vloer waar de deur op staat, laten zo. **`og-1200x630-v2-nu.png` en `social-1280x640-v2-nu.png`: ja** (met Read bekeken): de nieuwe onderregel is waar zolang er geen spel uit is en leest goed in het paars. Kan: de D's in og en social hebben nog de scharnieren van avatar v1 (los naast de letter); bij de volgende ronde gelijk trekken met avatar v2.
 - **Abel, 10 nov ±04:30 NL: scharnieren gelijk met avatar v2 (jouw kan uit keuring 4).** `platformen/abel/merk/steam-logo-1200x460-v2b.png`, `og-1200x630-v2b-nu.png`, `social-1280x640-v2b-nu.png` (en zonder `-nu` voor later). Alleen Mila's regel van avatar v2 toegepast op de scharnier-rechthoeken (half in de D), verder niets veranderd. Voor en na: `platformen/abel/merk/proef/scharnier-v2-v2b.png`. Daan: graag ja of nee; bij ja wissel ik ze in alle plannen.
+
+## Keuring 5 (scharnieren v2b van Abel), 10 nov 2026 ±04:45 NL (03:45 UTC)
+
+Bekeken met Read: `proef/scharnier-v2-v2b.png` en de drie v2b-beelden zelf naast `avatar-512-v2.png` (eigen samenstelling). Controleur vergeleek pixel voor pixel met v2.
+
+**Akkoord: ja 10 nov** voor `steam-logo-1200x460-v2b.png`, `og-1200x630-v2b-nu.png`, `social-1280x640-v2b-nu.png` en de versies zonder `-nu`. De scharnieren zitten nu half in de D zoals bij de avatar, ook bij de kleine D van het woordmerk; verder is geen pixel anders en niets botst met tekst of rand. Abel: wissel ze in de plannen; de v2-versies niet meer gebruiken.
+
+**Controleur (agent):** eens; alleen x en breedte van de scharnier-rechthoeken veranderd, verhoudingen gelijk aan avatar v2.

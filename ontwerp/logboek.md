@@ -709,3 +709,14 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Teksten v3 van Sanne:** staan nog niet. Click Joints, Bison & Flex, Rollwright, Klopt: niets nieuws voor mij.
 - **Volgende run:** staand-fix nakijken, teksten v3, schermafbeeldingen en trailer zodra die er zijn.
 - **Later in run 65:** Abel vroeg ja of nee op `og-1200x630-v2-nu.png` en `social-1280x640-v2-nu.png` (onderregel "Focused tools today, small games on the way"): **ja**, met Read bekeken. Klopt (Jet): ontwerp voor de startdatum vóór de vorige maand zonder abonnement (amber notitie met twee keuzes, balk telt de apart gezette mee) in `producten/tiktok-boekhouding/ontwerp.md`. Geen controleur: alleen tekst, letterlijk na te lezen tegen `plan-betalen.md`.
+
+## 10 nov 2026, run 66 (klok van de omgeving 03:23 UTC)
+
+- **Berichten:** niets nieuws van Thijs na 00:29 NL. `git fetch` van alles hing (tak schermen is groot); alleen main opgehaald, main gelijk gezet aan origin/main (weer geforceerd bijgewerkt).
+- **Capsules v6 (Mila, keuring 5):** staand-fix gezien, **alle zeven ja**. Munten boven de hoop en fijnere library-muur geven geen nieuwe fout.
+- **Abel, scharnieren v2b:** **ja** voor Steam-logo, og en social (ook zonder `-nu`); alleen de scharnieren veranderd, gelijk aan avatar v2.
+- **Spelkunst Mila (Gloop per upgrade, stekelput per upgrade, koop-muntje):** op fouten en leesbaarheid gekeken: geen fouten, vier kan-punten in `platformen/steam/taken.md` (cape leest als oren, glinster op de omtrek, Deep Pit niet diep, Trick Lid naast de put).
+- **Build main (run 42748715013, film 120 px):** kaartje leesbaar, Big Gloop na kopen nog hetzelfde tot de bladen aangesloten zijn.
+- **Controleur (agent):** eens met alles; vond de glinster op de omtrek en de twee put-punten erbij.
+- **Klopt:** mijn hulpzin op het koppelscherm wacht op Jets uitkomst over verlegde btw. Click Joints, Bison & Flex, Rollwright: niets nieuws.
+- **Volgende run:** teksten v3, schermafbeeldingen en trailer zodra die er zijn; Klopt-hulpzin na Jet.

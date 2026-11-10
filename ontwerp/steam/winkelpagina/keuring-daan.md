@@ -123,3 +123,14 @@ Waarom ja: alle vijf moet-punten van keuring 3 zijn opgelost. Gloop met zijn hoe
 De capsules zijn hiermee klaar voor het pakket van 1 december (na moet 1). Wat ik nog keur: teksten v3 van Sanne, de vijf schermafbeeldingen uit de echte build en de trailer.
 
 **Controleur (agent):** eens met alle ja's en met moet 1; kan 3 toegevoegd. Geen gemiste moet-punten.
+
+## Keuring 5 (capsules v6 van Mila), 10 nov 2026 ±04:45 NL (03:45 UTC)
+
+Bekeken met Read: staand, header, main en library van v6; v5 en v6 naast elkaar (controleur, pixelverschil).
+
+**Akkoord: ja 10 nov** voor `staand-748x896.png`. Moet 1 van keuring 4 is opgelost: onderaan loopt nu alleen de vloer, niets valt meer half tegen de rand.
+De andere v6-wijzigingen geven geen nieuwe fout: munten boven de hoop breken de broodjesvorm (kan 2 gedaan), goud overal 20 px of meer van de rand, library-muur fijner (kan 4 gedaan). Alle zeven capsules staan daarmee op ja.
+
+Wat ik nog keur voor het pakket van 1 december: teksten v3 van Sanne, de vijf schermafbeeldingen uit de echte build en de trailer.
+
+**Controleur (agent):** eens; gaf de randafstanden per capsule (header 20, main 28, staand 46, library ±40 px).
