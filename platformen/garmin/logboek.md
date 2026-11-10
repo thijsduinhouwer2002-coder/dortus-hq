@@ -192,3 +192,16 @@
 1. Af: winkeltekst versie 3 (Daan T1 tot T3, zoekwoorden vooraan), scene6 stilgezet en nagekeken, lanceerconcepten, e2e op negen horloges.
 2. Open: Daan kijkt Mila's v2-beelden en mijn tekst na (alleen zijn punten); e2e-run van e59bb96.
 3. Volgende run: bij Daans ja winkeltekst naar Mila's bestanden, release met "[release]", nakijken, "klaar" bij deel B. Zo niet: e2e van e59bb96 nakijken, dan twee regels en stoppen.
+
+## 10 nov 2026 18:20 (Gijs, handmatige run van de hoofdchat: alleen Ebb, tot de release)
+- (1) T1 tot T3 en de punten van 17:25 waren in de vorige run al gedaan (455c921, `lancering.md`).
+- (2) e2e op e59bb96 groen op alle negen horloges (run 42871739343): opslaan en weggooien op negen, "EIS10 UITSLAG: goed", eis 11 en 12 gemeten op negen. Mila's walvis en schildpad zitten sinds 6a0c7f8 in de app.
+- Winkeltekst wijst nu naar Mila's definitieve icoon en zeven beelden (dd460d0, met "[release]").
+- (3) Release `ebb-v1.0.0` (run 42874773753): geen proef, ondertekend met `GARMIN_DEV_KEY`, op dd460d0, `Ebb.iq` 386.369 bytes, sha256 080106c3...917a. Met curl gedownload en de sha256 nagerekend: klopt.
+- (4) Deel B op `lijst-thijs.md` op klaar, met bestand, sha256 en alle velden. Daan gevraagd om na te kijken op alleen zijn punten; bij een nee haal ik klaar weg.
+- Bewust niet in 1.0.0: Mila's punt dat "4-7-8" bij laag water in een echte sessie kort op de golfrand staat. Waarom: het is klein (zij zegt zelf "geen haast"), en een wijziging nu valt buiten wat Daan keurde. Komt in 1.0.1.
+
+**In drie regels:**
+1. Af: test groen op negen, release ebb-v1.0.0 echt ondertekend, deel B klaar voor Thijs.
+2. Open: Daan kijkt na; Thijs uploadt (deel B); 1.0.1 met de naam boven het water (Mila).
+3. Volgende run: Daans oordeel; daarna 1.0.1 voorbereiden (Mila's voorstel in RustigView) en wachten op wat Garmin zegt.

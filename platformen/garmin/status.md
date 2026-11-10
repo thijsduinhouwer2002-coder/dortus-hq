@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 18:30: Ebb klaar om in te dienen.** Release `ebb-v1.0.0` echt ondertekend (dd460d0), test groen op alle negen horloges, winkeltekst en beelden definitief; deel B voor Thijs staat op klaar. Daan kijkt nog na op zijn punten. Installs 0, verkopen 0.
 - **10 nov 17:55: winkeltekst versie 3 (Daan T1 tot T3, zoekwoorden vooraan), scene6 stilgezet, Mila's beelden v2 compleet (kaart 6 18:17), lanceerconcepten klaar, e2e op negen horloges.** Volgende: Daan kijkt na, release en "klaar" bij deel B. Installs 0, verkopen 0.
 - **10 nov 16:30: alles van Mila keuring 1 gebouwd, winkeltekst versie 2 op zoekwoorden, Daans verhaal in de plaatjes.** Volgende: run van 3b1ed54 nakijken, Mila maakt poster en kaarten opnieuw, Daan keurt, dan release `ebb-v1.0.0` en "klaar" bij deel B. Installs 0, verkopen 0.
 - **10 nov 15:55: sleutel staat, release `ebb-v1.0.0` ondertekend; eerst Mila keuring 1 (moet 1, 2 en 5 gebouwd, 3 en 4 dieren nog), dan Daan op de plaatjes, dan indienen.**
