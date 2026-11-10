@@ -1,0 +1,22 @@
+ 454  1 menu            zwaartepunt x  +0.25 px  kader x  +0.0 px  verste tekst/figuur 22.8% van de straal
+ 454  2 ademen          zwaartepunt x  +0.07 px  kader x  +0.0 px  verste tekst/figuur 36.1% van de straal
+ 454  3 duiken          zwaartepunt x  -0.01 px  kader x  +0.0 px  verste tekst/figuur 55.4% van de straal
+ 454  3b walvis 3:03    zwaartepunt x  -0.01 px  kader x  +0.0 px  verste tekst/figuur 64.8% van de straal
+ 454  4 boven           zwaartepunt x  +0.03 px  kader x  +0.0 px  verste tekst/figuur 71.0% van de straal
+ 454  5 rustig 4-7-8    zwaartepunt x  +0.18 px  kader x  +0.0 px  verste tekst/figuur 28.7% van de straal
+ 454  6 today           zwaartepunt x  +6.62 px  kader x  +0.0 px  verste tekst/figuur 67.1% van de straal
+ 454  7 8 weeks         zwaartepunt x +22.66 px  kader x  -0.5 px  verste tekst/figuur 61.6% van de straal
+ 454  8 sea log         zwaartepunt x  -0.27 px  kader x  +0.0 px  verste tekst/figuur 61.4% van de straal
+ 454  9 settings        zwaartepunt x  +0.18 px  kader x  +0.5 px  verste tekst/figuur 19.2% van de straal
+ 454  10 veiligheid     zwaartepunt x  -0.40 px  kader x  +0.0 px  verste tekst/figuur 69.4% van de straal
+ 260  1 menu            zwaartepunt x  +0.23 px  kader x  +0.0 px  verste tekst/figuur 22.2% van de straal
+ 260  2 ademen          zwaartepunt x  +0.04 px  kader x  +0.0 px  verste tekst/figuur 35.9% van de straal
+ 260  3 duiken          zwaartepunt x  -0.01 px  kader x  +0.0 px  verste tekst/figuur 55.6% van de straal
+ 260  3b walvis 3:03    zwaartepunt x  -0.01 px  kader x  +0.0 px  verste tekst/figuur 64.9% van de straal
+ 260  4 boven           zwaartepunt x  +0.01 px  kader x  +0.0 px  verste tekst/figuur 70.4% van de straal
+ 260  5 rustig 4-7-8    zwaartepunt x  +0.11 px  kader x  +0.0 px  verste tekst/figuur 28.8% van de straal
+ 260  6 today           zwaartepunt x  +3.70 px  kader x  +0.5 px  verste tekst/figuur 66.9% van de straal
+ 260  7 8 weeks         zwaartepunt x +13.02 px  kader x  -0.5 px  verste tekst/figuur 61.1% van de straal
+ 260  8 sea log         zwaartepunt x  -0.00 px  kader x  +0.0 px  verste tekst/figuur 61.0% van de straal
+ 260  9 settings        zwaartepunt x  +0.25 px  kader x  +0.5 px  verste tekst/figuur 18.4% van de straal
+ 260  10 veiligheid     zwaartepunt x  -0.11 px  kader x  +0.0 px  verste tekst/figuur 69.6% van de straal

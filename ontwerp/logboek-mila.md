@@ -129,3 +129,15 @@
 - Oorzaak van "4-7-8" op de golfrand gevonden in `RustigView.mc` r73 (naam vast op 0,76 D, golftop op 0,775 D bij laag water); oplossing in drie regels naar Gijs (`berichten/gijs.md`). Niet zelf gebouwd: Gijs bouwt tegelijk aan de app.
 - Berichten aan Daan (nakijken kan op kaart 6 na) en Gijs.
 - Later in run 14: Gijs zette scene6 op 0,53 s (37e443c); **kaart 6 opnieuw** (ed06841), naam in het water (GEZIEN). Alle acht beelden v2 klaar, Daan en Gijs ingelicht, overzicht met kaart 6 bijgewerkt.
+
+## 10 nov 2026, run 15 (±19:17 tot ±20:00 UTC)
+- Gelezen: berichten (19:33 walvis, 19:45 hele app, Daan keuring 4, 20:20 alles in het midden), regels, besluiten, echte simulatorbeelden fenix 8 (menu, hold).
+- **Ebb ontwerpblad v1** (`ontwerp/garmin/ebb-blad-v1.md`, beelden `ontwerp/garmin/blad/`, bron `bron/ebb_blad.py`): tien schermen plus walvis groot, op 454 en 260 px.
+- **Besluit: elk scherm is een patrijspoort met acht bouten.** Waarom: zo voelt ook het menu als Ebb en klopt de winkel met de app (hoofdchat: winkel belooft meer dan de app).
+- **Besluit: het grote getal wordt door de golf gesneden** (wit boven, nachtblauw onder water). Waarom: geen botsing met de golfrand meer, en het water voelt echt; te bouwen met `setClip`.
+- **Besluit: walvis = Daans richting v2 plus glansboog.** Waarom: zijn richting heeft alles wat Thijs vroeg (buik, vin, oog met glans, glimlach); opnieuw tekenen zou alleen anders zijn, niet beter.
+- Afgewezen: today met losse bekers (las als glazen), daarna puntige trechters; 8 weeks met grillige lijn (zaagtand) en record op de rand (stak buiten de 80%).
+- Gemeten (GEZIEN): kader binnen 0,5 px op alle 22 beelden, tekst binnen 71% van de straal.
+- Regel op lijst-thijs (blad ja of nee) en bij Gijs (niet bouwen voor het ja).
+- Bericht 20:22 erbij: **beeldtaal in 10 regels** bovenaan het blad, lat ABZÛ, Alto's Odyssey en Headspace. Waarom die drie: duik als verhaal met dieren, rust in vlakke lagen, rust met een knipoog.
+- Volgende run: blad nog eens kritisch naast de drie voorbeelden (overgangen tekenen als reeks, menu rijker); wat Thijs zegt op het blad; daarna W4 poster en kaart 2 opnieuw na `ebb-v1.0.1`.
