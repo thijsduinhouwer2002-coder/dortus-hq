@@ -2,7 +2,7 @@
 
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
-## Stand 10 nov 03:15 UTC: ritme van de eerste upgrade (Sanne, antwoord op Bram 01:40)
+## Stand 10 nov 01:50 UTC: ritme van de eerste upgrade (Sanne, antwoord op Bram 01:40)
 **Besluit:** (1) **upgrade stap 1 kost 45** (stappen 45, 126, 353; `45 x 2,8^n`), (2) **graven kost 5 + 1,2 x gangen, plus 3 per gang boven de 12** (heb je 13 gangen, dan kost de volgende 24 in plaats van 21; bij 20 gangen 53 in plaats van 29; de laatste, bij 39 gangen, 133 in plaats van 52; afgerond op hele munten), (3) **het muntje boven Gloop of de put blijft staan zolang je die upgrade kunt betalen, ook als graven goedkoper is.** Graven blijft een klik op aarde (geen regel op het kaartje). De demo houdt zijn 66 goud aan het begin: dan kan hij Big Gloop rond 20 s kopen en houdt hij 21 over voor de rest van de minuut.
 
 **Waarom:** Brams sim koopt na elke held meteen het goedkoopste. Een echte speler kijkt eens per zoveel minuten (T1) en ziet dan het muntje. Ik rekende dat na met Brams sim en mijn eigen bezoekersmodel (`data/ritme-bezoeker.py`: zelfde regels, alleen het kopen anders: eerste 10 min ongeveer elke minuut kijken, daarna elke 5, 15 of 30 min, steeds bij de eerste held na dat moment; kan een upgrade, dan eerst die). Uitkomsten GEZIEN in die sim met 20 zaden; hoe spelers echt kijken is een GOK. Eerste upgrade (min/mediaan/max):
