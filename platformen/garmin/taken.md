@@ -7,11 +7,15 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).
   - [x] Eis 2, 7, 8: veiligheidsscherm, duikprofiel en getijdenlijn, dieren, 6 toetsen (10 nov 06:50).
   - [x] Eis 10 (10 nov 07:20, run 42773779291): opname goed op drie horloges, na weggooien geen bestand. Simulator start per horloge opnieuw. Open voor een echt horloge: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s.
-  - [ ] Eis 11 bijna: schermen van alle negen staan op de tak `schermen`, meting in het log. MIP 30%, AMOLED 26 tot 27%; grotere letter in 8492990, uitslag nakijken.
+  - [x] Eis 11 op acht van negen (10 nov 10:10, run 42794151336): 30 tot 33%. Epix2pro47mm 29,6% is de grootste systeemletter; eigen cijferletter gevraagd aan Mila, tot dan BEKEND in de toets.
   - [x] Eis 12 (10 nov 08:00, run 42777910101): hoogste geheugen 2 tot 3% op alle negen horloges. Opnieuw meten als de getijdenlijn erbij komt.
-  - [ ] Instellingen op het horloge (ademhalingen, tempo, rondes, herstel, eigen patroon, trillen, veiligheidsscherm opnieuw), rustig ademen in het scherm, startmenu.
+  - [x] Instellingen op het horloge, rustig ademen in het scherm, startmenu (10 nov 10:00, run 42794687302, 27 toetsen groen).
+  - [ ] Beelden van startmenu en rustig ademen in de simulator (toetsdruk of eigen testbouw), beeld d (getijdenlijn) nakijken na run van e0d2d5a.
+  - [ ] `onStop` gooit ook een onbewaarde rustige opname weg (nu alleen bij rondes).
+  - [ ] Image op een digest zetten in plaats van `:latest`.
+  - [ ] Keuring: Mila op alle schermen, daarna Daan `Akkoord: ja`.
   - [x] Pauze zet de klok stil (10 nov 07:30): klok en opname staan stil achter het pauzemenu, doorgaan of terug gaat verder waar je was; 2 toetsen groen (run 42775398560).
-  - [ ] Stijl van Mila: schermen 1 tot 4 (ademen, duiken met dieren en belletjes, boven, duikprofiel) ingebouwd 10 nov 07:30 in `Teken.mc` en `EbbApp.mc`, uitslag in de simulator nakijken. Nog te doen: scherm 5 (getijdenlijn per week) tekenen.
+  - [ ] Stijl van Mila: schermen 1 tot 4 (ademen, duiken met dieren en belletjes, boven, duikprofiel) ingebouwd 10 nov 07:30 in `Teken.mc` en `EbbApp.mc`, uitslag in de simulator nakijken. Scherm 5 (getijdenlijn) gebouwd 10 nov 09:55 (a84da0f), bericht aan Mila 10:15.
 - [ ] **Eerste taak: uitzoeken wat we bouwen.** Een hulp- of sportapp (geen spel, geen wijzerplaat) die vanaf dag 1 betaald is, in de simulator te testen is (geen eigen apparaat nodig, dus Bluetooth-apparaten zoals de loopband-app van Vera alleen als het ook zonder apparaat te testen is), en waar de nummer één zwak is. Volg "Het volgende product" en "Markt bewijzen" in `organisatie/rollen/platformmanager.md`: vraag met eigen cijfers (GEZIEN), de 3 sterkste concurrenten, de belofte in één zin, en de prijs. Durf hoger dan $2,25 (Multipassionate verkoopt voor $8,49). Voorstel in `volgend-product.md`, Hans beslist.
   - [x] Ronde 1 (9 nov 21:29): sauna, squash, springtouw, CrossFit, cafeïne/alcohol, bloeddruk, getijden afgevallen. Zie `kandidaten-ronde-1.md`.
   - [x] Ronde 2a (9 nov 21:50, onderzoeker): zwemmen en skiën af (Garmin doet het zelf, weinig klachten), kracht en boksen af (druk, niet te testen). Zie `onderzoek-ronde-2-2026-11-09.md`. Nieuw feit: veel "leiders" zijn gratis of ontgrendelen buiten de winkel met een jaarcode, en dat ergert kopers (F3b: "subscription is required each year").

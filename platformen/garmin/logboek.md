@@ -98,3 +98,16 @@
 1. Af: eis 1 tot en met 10 en 12, pauze, schermen 1 tot 4 in de stijl van Mila.
 2. Open: eis 11 (cijfer op AMOLED, uitslag run van 8492990 lezen; let op dat het cijfer niet buiten 75% van de breedte valt), scherm 5 getijdenlijn, instellingen op het horloge, rustig ademen in het scherm, startmenu.
 3. Volgende run: run van 8492990 nakijken (log onderaan en tak `schermen`), dan getijdenlijn en startmenu; daarna Mila vragen te keuren op de schermen.
+
+## 10 nov 2026 09:45 (Gijs, veertiende run)
+- Begin: lokale main liep 50 achter en 92 voor (oude stand); hernoemd naar `oud-main-lokaal` en main vers van origin gezet, geen eigen werk verloren. Bericht van Thijs (account bevestigd, ontwikkelaarsaccount pas bij indienen) gelezen en verwerkt. Mijn geplande taak draait weer.
+- Eis 11: run van 8492990 nakijken. Acht horloges 30 tot 33%, de epix2pro47mm 29% (GEZIEN). Oorzaak: ik koos de letter op `getFontHeight` (telt ruimte onder de letter mee). Nu op ascent (hoogstens 40% D) en de breedte van "0:00" (hoogstens 72% D, binnen de cirkel), commit 601dfbf. De log van alle letters laat zien: de grootste systeemletter van de epix2pro47mm is 123 van 416 px = 29,6%. Hoger kan alleen met een eigen cijferletter; gevraagd aan Mila. Tot dan meldt de toets epix als BEKEND en niet als rood (f8ebd7e). Besluit en reden: een rode toets om 0,4% verbergt echte fouten, en het punt staat zichtbaar in de toets en hier.
+- Scherm 5 gebouwd (a84da0f): getijdenlijn van 56 dagen, beste als lijn, gemiddelde als schaduw, gaten, weekstreepjes, koraal bij de hoogste dag. Omhoog en omlaag wisselen na de sessie tussen duikprofiel en getijdenlijn. Toets `testGetijPunten`. In de testbouw nagebootste 8 weken voor het beeld. Eerste beeld kwam te vroeg (nog duikprofiel), tijd aangepast in e0d2d5a.
+- Startmenu en instellingen (a9caafc): Rounds, Settings met ademhalingen (20 tot 60), tempo (1,2 tot 2,4 s), rondes (1 tot 6), herstel (10 tot 30 s), eigen patroon (per fase 1 tot 12 s, vast 0 tot 12), trillen aan of uit, veiligheidsscherm opnieuw. Kiezen zet een stap verder en bewaart. Toets `testInstellingen`.
+- Rustig ademen in het scherm (126c115): Box, 4-7-8, Calm en My pattern in het startmenu, eigen `RustigView` met hetzelfde water, fasewoord, seconden over in de fase, trillen per fase, pauzemenu met opslaan als activiteit. Pauze in `Ebb.Rustig` (begin schuift op). Toets `testRustigPauze`.
+- Run 42794687302 (126c115): 27 toetsen PASS, negen horloges 0 waarschuwingen, eis 10 goed op drie horloges, 0 bestanden na weggooien (GEZIEN). Enige rood: epix 29%, nu als bekend gemeld.
+
+**In drie regels:**
+1. Af: eis 1 tot en met 10 en 12, eis 11 op acht van negen (epix wacht op eigen letter), alle vijf schermen, startmenu, instellingen, rustig ademen.
+2. Open: beeld van getijdenlijn nakijken (run van e0d2d5a), beelden van startmenu en rustig ademen (toetsdruk in de simulator of eigen testbouw), image op een digest, onStop gooit ook een onbewaarde rustige opname weg, keuring Mila en daarna Daan.
+3. Volgende run: beeld d nakijken, beelden menu en rustig, digest, dan Mila en Daan om keuring.

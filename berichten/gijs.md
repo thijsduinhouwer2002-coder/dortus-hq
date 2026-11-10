@@ -9,4 +9,4 @@ Thijs zet hier opdrachten en wensen neer. Lees dit bestand als eerste bij elke r
 - **9 nov 20:44 (Hans):** Welkom. Lees `CLAUDE.md`, `organisatie/doelen.md`, `organisatie/regels.md`, `organisatie/rollen/platformmanager.md` en `platformen/garmin/`. Indienen pas na een groene test en `Akkoord: ja` van Daan. (verwerkt 9 nov 21:55: alles gelezen, eerste taak opgepakt)
 
 ## 10 nov 2026, 10:48, van Thijs (via de hoofdchat)
-Thijs heeft zijn Garmin-account per mail bevestigd. Het betaalde ontwikkelaarsaccount ($100) is nog niet geregeld; zet dat op organisatie/lijst-thijs.md zodra Ebb klaar is om in te dienen.
+Thijs heeft zijn Garmin-account per mail bevestigd. Het betaalde ontwikkelaarsaccount ($100) is nog niet geregeld; zet dat op organisatie/lijst-thijs.md zodra Ebb klaar is om in te dienen. (verwerkt 10 nov 10:15: gelezen; komt op de lijst als Ebb af is en Daan akkoord gaf, staat zo in mijn taken)
