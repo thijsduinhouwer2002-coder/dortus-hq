@@ -14,6 +14,8 @@ Barlow Condensed Medium **op alle horloges**, niet alleen op de epix. Waarom: he
 4. **De schildpad leest als een varkentje of kever.** Geef het schild twee of drie lijnen in de waterkleur (0x000055) door het koraal, zodat er vakjes in komen, en maak de vier pootjes plat als peddels die schuin naar achteren wijzen. Kop iets verder naar voren. Op de lijst "met so far" geldt hetzelfde.
 5. **Startmenu op vivoactive5 is wit** (systeemthema licht). Dat breekt de patrijspoort meteen bij het openen. Teken het menu zelf (`WatchUi.CustomMenu` met eigen `drawBackground`/`drawTitle`, of een eigen lijstscherm): zwarte achtergrond, gekozen regel met een golfje 0x00FFFF eronder, titel "Ebb" in Barlow. Dan is het menu op elk horloge hetzelfde en van ons.
 
+**Voorbeeld voor moet 3 en 4:** `ontwerp/garmin/schets/ebb-dieren2.png` (op 454 en 260 px en vergroot), coördinaten in D/100 rond het midden van het dier in `ontwerp/garmin/bron/ebb_dieren2.py`, zodat je ze met `x * D / 100` in `Teken.mc` overneemt. Walvis op 1,5 keer die maat (het grootste dier), schildpad op 1,25. Het spuitje in 0x55AAFF leest op 260 px nog als walvis (GEZIEN).
+
 ## Kan
 - Titel "Ebb" in het menu met een klein golflijntje erachter, zoals de waterlijn: het eerste wat je ziet als je de app opent.
 - Duikprofiel: "0:05" staat tegen de stip aan; schuif de tijd 2% D verder naar links.

@@ -79,10 +79,11 @@ def taakbalk(d, k):
         d.rounded_rectangle(((cx - 14) * k, (y + 10) * k, (cx + 14) * k, (y + 38) * k), radius=6 * k, fill=(0x34, 0x2c, 0x3f))
     d.rounded_rectangle(((W - 120) * k, (y + 18) * k, (W - 30) * k, (y + 30) * k), radius=3 * k, fill=(0x34, 0x2c, 0x3f))
 
-def bureau(k, opname):
+def bureau(k, opname, met_venster=True):
     im = lucht(W * k, H * k, k)
     d = ImageDraw.Draw(im)
-    venster(d, k)
+    if met_venster:                    # v3 (Daan keuring 7 moet 3): in de vergrotingen geen venster, het hoekje las als fout
+        venster(d, k)
     taakbalk(d, k)
     s = Image.open(opname).convert("RGBA")
     sh = s.size[1]                     # 120 standaard, 96 tot 160 instelbaar
@@ -98,7 +99,7 @@ if __name__ == "__main__":
         bureau(1, sys.argv[2]).save(sys.argv[3])
     else:
         opname, xm, k, uit = sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
-        groot = bureau(k, opname)
+        groot = bureau(k, opname, met_venster=False)
         cw, ch = W, H                      # uitsnede in pixels van het k-keer bureaublad
         x0 = max(0, min(W * k - cw, xm * k - cw // 2))
         x0 -= x0 % k                       # hele scherm-pixels
