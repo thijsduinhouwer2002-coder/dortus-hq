@@ -62,7 +62,30 @@ const VOORRAAD := {
 	# Een bard die ontsnapt zingt over je hol: er komen helden bij (heldensoort.LIED_HELDEN).
 	"lied": ["{naam} sang about your hole. More came.", "{naam}'s song got popular. Uh oh.", "A song about you! Heroes on the way."],
 	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
+	# Sanne toets 9 punt 2b: hap en hoed in één regel op het moment van de hap ({hoed} = "crown", "bucket"...), zo komt de
+	# hoed-regel niet 4 tot 6 s na de hap. Eerste hoed altijd de eerste regel. Kies via hap_regel() hieronder.
+	"hap_hoed_eerste": ["{bewoner} ate {naam}. Kept the {hoed}."],
+	"hap_hoed": ["{bewoner} ate {naam}. Kept the {hoed}.", "{bewoner} ate {naam}. The {hoed} fits.",
+		"{bewoner} ate {naam}. Wears the {hoed} now.", "{naam} is gone. The {hoed} stays.", "{bewoner} ate {naam}, saved the {hoed}."],
+	# Sanne toets 9 punt 3 (kroniek-regels.md, "Binnenkomst na het lied van een bard"): de afloop van het lied, vervalt niet.
+	"binnen_lied": ["{naam} heard the song. Came to see.", "{naam} hums the song. Off-key.", "{naam} knows all the words. Sadly.",
+		"{naam} came for the gold in the song.", "{naam} asks if this is the song hole."],
 }
+
+# Voorrang in de wachtrij van strook.gd (Sanne toets 9 punt 2): deze soorten vervallen nooit, ook als ze als
+# binnenkom-regel (laag) in de rij staan: "plat" zolang Gloop plat ligt, "binnen_lied" is de afloop van het lied.
+const VERVALT_NIET := ["plat", "binnen_lied"]
+# Sfeerregels: je ziet niet wat ze zeggen, dus zelfde voorrang als een binnenkom-regel (mogen vervallen).
+const SFEER := ["lied"]
+
+static func vervalt_nooit(soort: String) -> bool:
+	return VERVALT_NIET.has(soort)
+
+static func is_sfeer(soort: String) -> bool:
+	return SFEER.has(soort)
+
+# Hoednamen voor in een regel, zelfde volgorde als held_hoeden.png en boek.gd HOED_NAMEN (toets vergelijkt ze).
+const HOED_KORT := ["helmet", "pointy hat", "hood", "cap", "crown", "chef's hat", "bucket", "top hat", "pan", "feather cap"]
 
 var rng := RandomNumberGenerator.new()
 var vorige := {}       # soort -> laatst gekozen regels (sjablonen), nieuwste achteraan
@@ -88,7 +111,7 @@ static func korte_bewoner(naam: String) -> String:
 
 static func vul(sjabloon: String, v: Dictionary) -> String:
 	var r := sjabloon
-	for sleutel in ["held", "naam", "bewoner", "val", "n", "bijnaam", "oud"]:
+	for sleutel in ["held", "naam", "bewoner", "val", "n", "bijnaam", "oud", "hoed"]:
 		r = r.replace("{%s}" % sleutel, str(v.get(sleutel, "")))
 	var val := str(v.get("val", ""))
 	r = r.replace("{Val}", val.substr(0, 1).to_upper() + val.substr(1))
@@ -160,3 +183,19 @@ func kies(soort: String, v: Dictionary, achter = "", moet_noemen := false) -> St
 	if laatste_alles.size() > GEHEUGEN_ALLES:
 		laatste_alles.pop_front()
 	return vul(gekozen, v) + plak
+
+# Eén regel voor een hap van een bewoner, met de hoed erin als die op de toren gaat (Sanne toets 9 punt 2b).
+# hoed_nr: hoed van de held (-1 = geen hoed naar de bewoner), n_hoed: aantal hoeden op de toren na deze hap.
+# vrij: zoveel tekens blijven vrij voor " +6" (getal-vorm, zoals kies()). Past geen hoed-regel, dan de gewone
+# "val_bewoner" en geeft hoed_apart() true, zodat de beller de losse hoed-regel kan doen zoals voorheen.
+var hoed_apart := false
+func hap_regel(naam: String, bewoner: String, hoed_nr: int, n_hoed: int, vrij: int) -> String:
+	hoed_apart = false
+	var v := {"naam": naam, "bewoner": bewoner}
+	if hoed_nr >= 0 and hoed_nr < HOED_KORT.size() and n_hoed > 0:
+		v["hoed"] = HOED_KORT[hoed_nr]
+		var r := kies("hap_hoed_eerste" if n_hoed == 1 else "hap_hoed", v, "".lpad(vrij))
+		if r != "":
+			return r.substr(0, r.length() - vrij)
+		hoed_apart = true
+	return kies("val_bewoner", v, vrij)
