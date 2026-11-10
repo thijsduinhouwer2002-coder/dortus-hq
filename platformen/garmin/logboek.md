@@ -111,3 +111,4 @@
 1. Af: eis 1 tot en met 10 en 12, eis 11 op acht van negen (epix wacht op eigen letter), alle vijf schermen, startmenu, instellingen, rustig ademen.
 2. Open: beeld van getijdenlijn nakijken (run van e0d2d5a), beelden van startmenu en rustig ademen (toetsdruk in de simulator of eigen testbouw), image op een digest, onStop gooit ook een onbewaarde rustige opname weg, keuring Mila en daarna Daan.
 3. Volgende run: beeld d nakijken, beelden menu en rustig, digest, dan Mila en Daan om keuring.
+- Aanvulling 10:30: run 42796582538 (e0d2d5a) helemaal groen, eis 10 goed, epix als BEKEND. Getijdenlijn staat in beeld (artefact van de run; raw.githubusercontent gaf nog een oud beeld uit de cache). Oordeel eerlijk: werkt, maar lijkt op een staafgrafiek; volgende run de schaduw als vlak. Image op digest en onStop voor rustig in 2f74a56, run loopt nog. Stop na ±45 minuten.

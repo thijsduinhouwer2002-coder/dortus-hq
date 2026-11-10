@@ -10,9 +10,11 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Eis 11 op acht van negen (10 nov 10:10, run 42794151336): 30 tot 33%. Epix2pro47mm 29,6% is de grootste systeemletter; eigen cijferletter gevraagd aan Mila, tot dan BEKEND in de toets.
   - [x] Eis 12 (10 nov 08:00, run 42777910101): hoogste geheugen 2 tot 3% op alle negen horloges. Opnieuw meten als de getijdenlijn erbij komt.
   - [x] Instellingen op het horloge, rustig ademen in het scherm, startmenu (10 nov 10:00, run 42794687302, 27 toetsen groen).
-  - [ ] Beelden van startmenu en rustig ademen in de simulator (toetsdruk of eigen testbouw), beeld d (getijdenlijn) nakijken na run van e0d2d5a.
-  - [ ] `onStop` gooit ook een onbewaarde rustige opname weg (nu alleen bij rondes).
-  - [ ] Image op een digest zetten in plaats van `:latest`.
+  - [x] Beeld d nagekeken (run 42796582538 groen, artefact): getijdenlijn staat op alle horloges, "best 2:08", "44 days". Maar het ziet er nog uit als een staafgrafiek met losse streepjes.
+  - [ ] Getijdenlijn mooier: schaduw als één vlak per reeks dagen (fillPolygon) in plaats van staafjes, lijn dikker, "best" iets hoger zodat het niet tegen "days" plakt op fenix7.
+  - [ ] Beelden van startmenu en rustig ademen: proef met xdotool in run van 2f74a56 (beelden `*-m.png` en `*-r.png`), uitslag nakijken.
+  - [x] `onStop` gooit ook een onbewaarde rustige opname weg (2f74a56).
+  - [x] Image op digest `sha256:64958e8f...` (2f74a56).
   - [ ] Keuring: Mila op alle schermen, daarna Daan `Akkoord: ja`.
   - [x] Pauze zet de klok stil (10 nov 07:30): klok en opname staan stil achter het pauzemenu, doorgaan of terug gaat verder waar je was; 2 toetsen groen (run 42775398560).
   - [ ] Stijl van Mila: schermen 1 tot 4 (ademen, duiken met dieren en belletjes, boven, duikprofiel) ingebouwd 10 nov 07:30 in `Teken.mc` en `EbbApp.mc`, uitslag in de simulator nakijken. Scherm 5 (getijdenlijn) gebouwd 10 nov 09:55 (a84da0f), bericht aan Mila 10:15.
