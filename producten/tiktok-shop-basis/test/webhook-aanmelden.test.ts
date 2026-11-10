@@ -27,6 +27,14 @@ test("webhook aanmelden: fout van TikTok wordt een fout, ongeldig adres gaat nie
   await assert.rejects(meldWebhookAan(client, "t", "c", "UPCOMING_AUTHORIZATION_EXPIRATION", "https://a.example/w"));
   assert.equal(verzoeken.length, 1);
   await assert.rejects(meldWebhookAan(client, "t", "c", "SELLER_DEAUTHORIZATION", "ftp://a.example"));
-  await assert.rejects(meldWebhookAan(client, "t", "c", "SELLER_DEAUTHORIZATION", "https://a.example/" + "x".repeat(250)));
+  await assert.rejects(meldWebhookAan(client, "t", "c", "SELLER_DEAUTHORIZATION", "https://a.example/" + "x".repeat(238)), "256 tekens");
+  assert.equal(verzoeken.length, 1);
+});
+
+test("webhook aanmelden: precies 255 tekens mag", async () => {
+  const { client, verzoeken } = nepClient([{ json: DOCS_ANTWOORD }]);
+  const adres = "https://a.example/" + "x".repeat(237);
+  assert.equal(adres.length, 255);
+  await meldWebhookAan(client, "t", "c", "SELLER_DEAUTHORIZATION", adres);
   assert.equal(verzoeken.length, 1);
 });
