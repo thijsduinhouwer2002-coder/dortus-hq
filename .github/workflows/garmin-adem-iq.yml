@@ -14,7 +14,7 @@ name: Garmin Ebb .iq (winkelbestand)
 on:
   push:
     branches: [main, "claude/garmin-*"]
-    paths: ["producten/garmin-adem/versie.txt", ".github/workflows/garmin-adem-iq.yml"]
+    paths: ["producten/garmin-adem/versie.txt", "producten/garmin-adem/plaatjes.jungle", ".github/workflows/garmin-adem-iq.yml"]
   workflow_dispatch:
 
 jobs:
@@ -62,6 +62,78 @@ jobs:
             producten/garmin-adem/bin/Ebb.iq
             producten/garmin-adem/bin/Ebb.iq.sha256
             producten/garmin-adem/bin/bouw.log
+
+  # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
+  plaatjes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    env:
+      IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
+      APP: producten/garmin-adem
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Image ophalen
+        run: for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      - name: Scènes in de simulator
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/$APP/plaatjes"
+          cat > /tmp/plaatjes.sh <<'SH'
+          set -x
+          apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
+          openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
+          openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          export DISPLAY=:1
+          Xvfb :1 -screen 0 1280x1024x24 &
+          sleep 2
+          for d in fenix847mm fr265 vivoactive5 venu3; do
+            monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
+            pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
+            for k in 0 1 2 3; do
+              monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
+              MD=$!
+              sleep 12
+              import -window root "plaatjes/$d-scene$k.png"
+              kill "$MD" 2>/dev/null || true; sleep 3
+              cat "/tmp/plaatje-$d-$k.log"
+            done
+          done
+          mogrify -fuzz 2% -trim +repage plaatjes/*.png
+          SH
+          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
+          ls -la "$APP/plaatjes"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ebb-plaatjes
+          path: producten/garmin-adem/plaatjes
+
+  plaatjes-openbaar:
+    needs: plaatjes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ebb-plaatjes
+          path: plaatjes
+      - name: Naar tak schermen (garmin-adem/plaatjes)
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898233+github-actions[bot]@users.noreply.github.com"
+          for poging in 1 2 3 4 5; do
+            rm -rf /tmp/s && git clone -q --depth 1 --branch schermen "$URL" /tmp/s || exit 1
+            D=/tmp/s/garmin-adem/plaatjes; rm -rf "$D" && mkdir -p "$D" && cp -r plaatjes/. "$D"/
+            echo "run ${GITHUB_RUN_ID}, commit ${GITHUB_SHA}, $(date -u +%FT%TZ)" > "$D/RUN.txt"
+            (cd /tmp/s && git add -A && git commit -q -m "Plaatjes Ebb run ${GITHUB_RUN_ID}" && git push -q origin schermen) && break
+            sleep $((poging * 3))
+          done
 
   release:
     needs: bouw

@@ -5,11 +5,22 @@ import Toybox.Lang;
 (:demo)
 module EbbBouw {
     const DEMO = true;
+    const PLAATJE = false;
     const INHOUD_MS = [3000, 5000] as Array<Number>;
 }
 
 (:echt)
 module EbbBouw {
     const DEMO = false;
+    const PLAATJE = false;
+    const INHOUD_MS = [] as Array<Number>;
+}
+
+// Bouw voor de winkelplaatjes (plaatjes.jungle): elke start toont één vaste scène, stilgezet zodat de
+// schermafbeelding niet van de timing afhangt. Neemt niets op.
+(:plaatje)
+module EbbBouw {
+    const DEMO = false;
+    const PLAATJE = true;
     const INHOUD_MS = [] as Array<Number>;
 }

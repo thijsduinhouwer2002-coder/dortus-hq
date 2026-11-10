@@ -58,6 +58,23 @@ class EbbApp extends Application.AppBase {
                 System.println("OPNAME proef weggegooid");
             }
         }
+        if (EbbBouw.PLAATJE) {
+            // Scène per start: 0 vis (1:03), 1 schildpad (2:03), 2 walvis (3:03), 3 Sea log met alle dieren.
+            var keer = Application.Storage.getValue("plaatjekeer");
+            var k = ((keer instanceof Number) ? keer as Number : 0) % 4;
+            Application.Storage.setValue("plaatjekeer", k + 1);
+            EbbTrillen.aan = false;
+            System.println("PLAATJE scene " + k);
+            if (k == 3) {
+                Application.Storage.setValue("dieren", 15);
+                return [new DierenView(), new WatchUi.BehaviorDelegate()];
+            }
+            var drempel = [60000, 120000, 180000] as Array<Number>;
+            view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
+            view.opnemen = false;
+            view.plaatjeMs = drempel[k] + 3300;
+            return [view, new EbbDelegate(view)];
+        }
         if (!EbbBouw.DEMO) {
             EbbTrillen.aan = EbbInstellingen.trillen();
             if (EbbVeilig.moetTonen()) {
@@ -121,6 +138,8 @@ class EbbView extends WatchUi.View {
     var opname as EbbOpname = new EbbOpname();
     var koraal as Boolean = false;
     var opnemen as Boolean = true;
+    // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
+    var plaatjeMs as Number = -1;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
     const YKLEIN_ADEMEN = 0.855;
@@ -133,6 +152,12 @@ class EbbView extends WatchUi.View {
         if (!_gestart) {
             _gestart = true;
             sessie.segmentStart = System.getTimer();
+            if (plaatjeMs >= 0) {
+                var nu = System.getTimer();
+                sessie.fase = Ebb.FASE_INHOUDEN;
+                sessie.segmentStart = nu - plaatjeMs;
+                sessie.pauzeer(nu);
+            }
             if (opnemen) {
                 opname.start();
             }
