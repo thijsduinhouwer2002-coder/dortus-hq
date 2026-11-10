@@ -272,4 +272,6 @@
 - Sanne toets 9 punt 1a, 2 en 3 gebouwd op tak `claude/steam-hol-toets9` (fe3411e, 0ae990a): Gloop viert de koop, putten schudden, hap en hoed één regel, plat vervalt nooit, lied laag, binnen_lied gaat voor. Controleur: akkoord, geen moet-punten; kan-punten 1 en 6 verwerkt, de rest op de lijst.
 - Lokaal Godot draaien opnieuw geweigerd door de veiligheidscontrole (downloaded programma). Toets alleen op Actions.
 - Opmerking: main op GitHub was geforceerd bijgewerkt (75039b6 naar 5b8b403) voor deze run; ik werkte vanaf 5b8b403.
+- 04:40: toets 9 op main na groene workflow (film.log en beeld GEZIEN, zie taken). Bram had in dezelfde tijd regels en hulpjes voor toets 9 gemaakt (cf88ba4); bij samenvoegen zijn voorraad gebruikt, mijn kopie weg. Les: voor ik iets in systemen-gebied nodig heb, eerst `git log origin/main -- producten/steam-hol/godot/systemen` bekijken.
+- Heldenboek stap 1 (bijhouden en opslaan, geen tekenen) op tak `claude/steam-hol-boek`, controleur akkoord; in de demo geen boekregels, omdat een boekregel Odo's binnenkomst wegdrukte (film 3296de5).
 
