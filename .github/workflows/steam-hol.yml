@@ -40,11 +40,14 @@ jobs:
       - name: Scripts van de kern laden zonder fout
         shell: pwsh
         run: |
-          $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s kern/strook.gd 2>&1 | Out-String
-          Write-Output $uit
-          $uit2 = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s hol/hol.gd 2>&1 | Out-String
-          Write-Output $uit2
-          if (($uit + $uit2) -match "SCRIPT ERROR|Parse Error") { exit 1 }
+          $alles = ""
+          foreach ($f in @("kern/strook.gd", "kern/wachtrij.gd", "kern/namen.gd", "kern/afloop.gd", "kern/opslag.gd", "hol/hol.gd")) {
+            $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s $f 2>&1 | Out-String
+            Write-Output "== $f"
+            Write-Output $uit
+            $alles += $uit
+          }
+          if ($alles -match "SCRIPT ERROR|Parse Error") { exit 1 }
       - name: Strook op 96, 120 en 160 px met Kladblok erachter, CPU op 120
         shell: pwsh
         run: |
