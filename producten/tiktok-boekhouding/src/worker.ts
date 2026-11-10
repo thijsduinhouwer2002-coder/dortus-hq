@@ -5,6 +5,7 @@ import { TikTokClient } from "../../tiktok-shop-basis/src/client.ts";
 import { TikTokApiError } from "../../tiktok-shop-basis/src/fouten.ts";
 import type { AppGegevens } from "../../tiktok-shop-basis/src/auth.ts";
 import { Budget, isBudgetOp } from "./budget.ts";
+import { webhook } from "./webhook.ts";
 import { MoneybirdClient } from "./moneybird/client.ts";
 import { MoneybirdFout } from "./moneybird/fouten.ts";
 import type { OAuthApp } from "./moneybird/oauth.ts";
@@ -336,6 +337,17 @@ export function omgevingVan(env: WorkerEnv): Omgeving {
 const seconden = (ms: number) => Math.floor(ms / 1000);
 
 export default {
+  // Webhook van TikTok (type 6: ontkoppelen). Zie src/webhook.ts.
+  async fetch(request: Request, env: WorkerEnv): Promise<Response> {
+    let o: Omgeving;
+    try {
+      o = omgevingVan(env);
+    } catch (e) {
+      console.log(`fetch: env onbruikbaar: ${foutTekst(e)}`);
+      return new Response("", { status: 500 });
+    }
+    return webhook(request, o, seconden(Date.now()));
+  },
   async scheduled(controller: { scheduledTime: number }, env: WorkerEnv, ctx: { waitUntil(p: Promise<unknown>): void }) {
     ctx.waitUntil(cron(omgevingVan(env), seconden(controller.scheduledTime)).catch((e) => console.log(`cron: ${foutTekst(e)}`)));
   },
