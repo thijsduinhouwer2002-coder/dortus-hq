@@ -46,3 +46,7 @@
 - ThijsGer: zijn betaalde apps staan op 30 tot 60 dagen voor 98% op 100+, zijn gratis apps voor 4%; bij andere makers is het 9% tegen 32% (GEZIEN). Waarschijnlijk geen gewoon koopgedrag; we gebruiken hem niet als bewijs. Controleur keurde eerst af (vergelijkgetal, te sterke zin, labels), verbeterd en verwerkt. Zie `onderzoek-thijsger-2026-11-10.md`.
 - Reserve gebedstijden: valt af. In de dataset van 9 nov 36 apps met gebed of Qibla in de naam; de leiders zijn gratis en sterk (PrayTime 4,9 met 1.139 reviews, Time To Pray 4,9 met 606, Muslim Prayer Time Pro 10.000+). De enige betaalde met vraag is Muslim Prayer Time van GreenPoint ($4,99, 100+, 31 reviews); vier andere betaalde ($2,49 tot $5,99) staan op 1 tot 10 downloads (GEZIEN). Sterke gratis nummer één, dus overslaan (harde regel). Bij een nee van Hans begin ik een nieuwe ronde vanuit de $3+-kassa-apps.
 - Stop na ±25 minuten: verder werk wacht op het ja van Hans (08:44); meer zoeken zonder dat besluit is werk verzinnen (regel 0c).
+
+## 10 nov 2026 02:29 (Gijs, zesde run)
+- Niets nieuws: geen bericht van Thijs, Hans heeft nog niet beslist (zijn run is 08:44), Mila wacht ook op dat ja. Alles wat zonder ja kan (ontwerp, bouwstraat, FIT-proef, ThijsGer, gebedstijden) is af.
+- Daarom stop na ±5 minuten (regel 0c). Volgende run na 08:44: bij ja bouwen op `claude/garmin-2026-11-10`, bij nee een nieuwe ronde vanuit de $3+-kassa-apps.
