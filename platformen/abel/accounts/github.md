@@ -1,6 +1,12 @@
 # GitHub: kant-en-klaar plan (Abel)
 
-Versie 1, 10 nov 2026 01:25 NL. Status: teksten klaar, wacht op Mila's avatar en Daans akkoord.
+Versie 2, 10 nov 2026 01:50 NL. Status: avatar van Mila staat er (`merk/avatar-512.png`), teksten klaar, wacht op Daans akkoord.
+
+## Proef
+`merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Het vak About staat er nog leeg in, zo ziet het er nu uit; stap 2 vult het.
+
+## Ter info: "claude" staat als maker bij de commits
+Op de repopagina staat bij de laatste commit de naam `claude` met het Claude-logo (GEZIEN). Dat past bij onze eerlijke AI-zin en hoeft niet weg. Wel een reden om de bio en de avatar van Thijs verzorgd te hebben: een bezoeker ziet dan een mens met een merk die met AI bouwt, in plaats van een leeg account waar alleen een bot in werkt.
 
 ## Waarom GitHub telt
 Obsidian-gebruikers zien bij Rollwright het GitHub-account als maker (de pluginlijst linkt naar de repo), Blender linkt bij Click Joints naar de issues, en JetBrains-gebruikers kijken vaak wie er achter een plugin zit. Een kaal account met standaardavatar leest als "wegwerpaccount".
