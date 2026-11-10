@@ -78,3 +78,11 @@
 - **Geluid: zes geluidjes zelf gemaakt** (`godot/geluid/`). Besluit: zacht en rond, geen blokgolf, piek -9 dB. Waarom: past naast werk, geen licentie. **Muziek: "Gloop's Lullaby"**, getokkelde luit, 80 s naadloos, zuiver gestemd (nagemeten). Waarom: grootste gat tegenover Spirit City. Eerlijk: niet gehoord, alleen gemeten; regel op de lijst van Thijs.
 - Eerlijke vergelijking beeld en klank met de toppers in `ontwerp/steam/mila/stijl.md` punt 7.
 - Volgende run: schermafbeeldingen zodra Olaf opnames levert (anders zelf uit een lokale build, Olaf deed dat met Godot 4.3 en Xvfb); val en hap met meer tussenbeelden (beweging is ons grootste gat in beeld).
+
+## 10 nov 2026, run 9 (±05:40 tot ±06:20 NL)
+- Gelezen: berichten (niets nieuws), Sanne toets 9 (Big Gloop niet te zien), Daans kan-punten 03:45 (cape, ster, put), taken Steam. Let op: main op GitHub was geforceerd herschreven; ik werkte vanaf de nieuwe origin/main en heb niets geforceerd.
+- **Big Gloop 2 spelpixels groter rondom** (`kunst/slijm_groot2.png`, `slijm_leven_groot2.png`, frames 20 x 16). Besluit: nieuwe bestanden met bredere frames in plaats van de oude te overschrijven. Waarom: 16 breed was op de platte frames al vol; zo breekt de build niet tot Bram de code omzet (zes regels, in taken).
+- **Royal: mantel met bovenzoom en gouden gesp vóór Gloop** (Daan kan 1). Afgewezen: hermelijnkraag die boven de schouders uitstak (las weer als oren), en een strakke mantel zonder zoom (las als een paarse rand). **Ster los van de omtrek** met wit hart en groene punten (Daan kan 2), eerst las hij als plusteken.
+- **Put** (Daan kan 4): Deep Pit snijdt een zwart gat van 3 rijen door de vloer; Trick Lid is dicht echt vloer (vloerkleur uit de film gemeten). Proef op een uitsnede van de echte film. Geen code nodig.
+- **Vijf schermafbeeldingen** uit de film van main (`ontwerp/steam/winkelpagina/schermen/`). Besluit: geen tekst op schermen. Waarom: Valve eist alleen gameplay (docs met curl gelezen). Vergroting 6x boven, ware grootte onder met een vergrootkader. Naast Rusty's en Ropuka's gelegd: wij lezen klein het best, Ropuka's is mooier. PNG-momenten gevraagd aan Olaf.
+- Volgende run: schermen opnieuw zodra Olaf PNG's levert; Big/Royal in de build nakijken na Bram; trailer-opmaak (eerste 3 s).
