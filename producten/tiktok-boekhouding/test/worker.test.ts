@@ -165,7 +165,7 @@ test("(h) 401 van Moneybird midden in de run: één keer verversen en opnieuw in
   assert.equal(w.docs.size, 1, "na het verversen toch geboekt");
 });
 
-// (j) Meten bij het laden, zodat de toets als bekende fout (todo) kan staan als het doel niet gehaald wordt (besluit Jet).
+// (j) Meten in de toets zelf, na een opwarmrun.
 async function meetCpu() {
   const ronde = async () => {
     const db = new NepD1();
@@ -188,10 +188,11 @@ async function meetCpu() {
   }
   return { ms: Math.min(...metingen), metingen, st };
 }
-const cpu = await meetCpu();
-const cpuTekst = `${cpu.ms.toFixed(2)} ms (beste van 3: ${cpu.metingen.map((m) => m.toFixed(2)).join(", ")}; inclusief nagebootste D1 op node:sqlite en nep-fetch; status na de aanroep: ${cpu.st})`;
-console.log(`(j) CPU consumer-aanroep met 30 bestellingen: ${cpuTekst}`);
-
-test("(j) CPU van één consumer-aanroep met 30 bestellingen onder 5 ms in Node", cpu.ms >= 5 ? { todo: "CPU boven 5 ms in Node, risico bij Tess" } : {}, () => {
+test("(j) CPU van één consumer-aanroep met 30 bestellingen onder 5 ms in Node", async (t) => {
+  const cpu = await meetCpu();
+  const cpuTekst = `${cpu.ms.toFixed(2)} ms (beste van 3: ${cpu.metingen.map((m) => m.toFixed(2)).join(", ")}; inclusief nagebootste D1 op node:sqlite en nep-fetch; status na de aanroep: ${cpu.st})`;
+  console.log(`(j) CPU consumer-aanroep met 30 bestellingen: ${cpuTekst}`);
+  // Besluit Jet: boven 5 ms een bekende fout (todo), maar de assert loopt wel echt.
+  if (cpu.ms >= 5) t.todo("CPU boven 5 ms in Node, risico bij Tess");
   assert.ok(cpu.ms < 5, `CPU ${cpuTekst}`);
 });
