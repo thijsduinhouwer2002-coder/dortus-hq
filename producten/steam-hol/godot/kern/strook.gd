@@ -13,6 +13,7 @@ const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
 const KAARTJE := preload("res://kern/kaartje.gd")
+const BOEK := preload("res://systemen/boek.gd")         # het Heldenboek (Bram 03:45); stap 1: bijhouden, opslaan, regel
 const SOORT := preload("res://systemen/heldensoort.gd")   # ridder, dief, magier, bard en drie trekken (Bram, versie 1)
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
@@ -74,6 +75,7 @@ var demo_koop := 0          # demo: 0 nog niets, 1 kaartje open, 2 gekocht (kern
 var kaart_regel := ""       # na Buy blijft het kaartje 2,5 s staan; deze regel komt als het dichtgaat (Sanne toets 8, punt 3)
 var kaart_gekocht := false  # het kaartje staat in die 2,5 s (alleen de nieuwe naam en Undo)
 var helden_nr := 0          # hoeveelste nieuwe held van dit spel (in de save); de eerste 10 zijn gewoon (heldensoort.gd)
+var boek = BOEK.new()        # wat er in het Heldenboek staat (in de save); de bladzijde in het paneel volgt in stap 2
 var lied_helden := 0        # zoveel helden komen nog snel na het lied van een gevluchte bard (in de save)
 # Demo: de held die moet vluchten is een bard, zodat de minuut één lied laat zien (2 helden snel erachter, Bram 02:30)
 const DEMO_BARD := true
