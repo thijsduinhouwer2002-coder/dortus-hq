@@ -133,6 +133,7 @@ def schoon_beeld():
     venster, gebied, _ = zijbalk()
     ruimte = gebied.spaces.active
     ruimte.show_region_ui = ruimte.show_region_toolbar = ruimte.show_region_header = False
+    ruimte.show_gizmo_navigate = False  # geen assenkruis en knoppen rechtsboven (in 4.2 wel in beeld)
     ov = ruimte.overlay
     ov.show_text = ov.show_cursor = ov.show_axis_x = ov.show_axis_y = ov.show_floor = False
     ov.show_outline_selected = False
