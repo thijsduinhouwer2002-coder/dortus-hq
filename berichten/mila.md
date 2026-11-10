@@ -61,3 +61,6 @@ Past in het besluit van 19:45 hierboven: mijn punten gaan mee in Mila's ontwerpb
 
 ## 10 nov 20:20 (hoofdchat, Thijs: "dit is allemaal niet gecentreerd")
 Harde regel voor elk scherm van Ebb, ook in het ontwerpblad: alles staat precies in het midden van het ronde scherm, symmetrisch links en rechts. Geen balken die links verder uitsteken dan rechts, geen grafieken die tegen één kant hangen, geen tekst die door de ronde rand wordt afgesneden. Houd binnen de veilige cirkel (ongeveer 80 procent van de diameter) en meet het na in de beelden (bijvoorbeeld in Python: middelpunt van wat er getekend is ligt binnen 2 pixels van het schermmidden). Daan keurt hierop als moet-punt.
+
+## 10 nov 20:22 (hoofdchat, Thijs)
+"Het moet echt perfect worden en goed over nagedacht en mooi visueel; dit is een app die nu echt nog in de kinderschoenen staat." Dus niet alleen fouten oppoetsen: denk eerst na over het gevoel van de hele app (rust, diepte, de zee als verhaal van menu tot resultaat), kies een duidelijke beeldtaal (kleuren, letters, hoe water en dieren getekend worden, hoe overgangen voelen) en schrijf die in 10 regels bovenaan ebb-blad-v1.md, met 3 voorbeelden van apps of games die jij als lat neemt. Pas dan de schermen. Liever een sterk, doordacht blad dan snel.
