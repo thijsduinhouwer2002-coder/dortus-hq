@@ -41,3 +41,19 @@ Vanaf keuring 2 leg ik elke capsule naast de vijf toppers op hetzelfde formaat (
 - Eerlijk: alles op de capsules zit in het spel (hoeden, Gloop, held, schat, fakkel); de sterrenlucht is versiering, en dat staat erbij.
 - Teksten: kort, grappig en concreet ("Bram is back for the Spike Pit."), het ritme is goed, tags zijn verstandig gekozen (Desktop Companion eerst, geen misleidende Tower Defense).
 - Prijs $5,99 met reden: eens.
+
+## Keuring 2 (alleen de teksten, Sanne v2), 10 nov 2026 ±01:45 NL (00:45 UTC)
+
+Gelezen: `teksten.md` versie 2, `plan.md` (trailertekst), en in de build `kern/strook.gd` op main 7613976 (hoogte en klikken).
+
+**Teksten: Akkoord: ja 10 nov, na moet-punt A hieronder** (één regel). De moet-punten 2, 3 en 11 uit keuring 1 zijn verwerkt: overal Hats of the Fallen, ondertitel niet op de capsules, "No microtransactions" is "No shop inside the game" geworden (dat blijft waar, want het Supporter Pack wordt in de Steam-winkel verkocht), "You're never punished" en "none of your monsters died". De ondertoon klopt: kort, grappig, eerlijk, met de wrok als het ding dat niemand anders heeft.
+
+**Het pakket als geheel blijft Akkoord: nee** tot Mila's capsules v2 er staan (punten 1, 4, 5 en 6 van keuring 1) en de trailertekst klopt (punt B).
+
+### Moet-punten
+A. **"you can set it from 96 to 160" belooft een schuif, het spel heeft drie standen.** In de build kies je met rechtsklik 96, 120 of 160 (`HOOGTES := [96, 120, 160]`, GEZIEN in `strook.gd` regel 16). "From 96 to 160" leest als elke hoogte daartussen. Maak het: "120 pixels tall, or 96 or 160 if you prefer." (Klikken door de lucht: bevestigd, `window_set_mouse_passthrough` laat alleen het hol zelf klikken vangen, regel 106 tot 110. Die zin mag blijven.)
+B. **Trailertekst in `plan.md` regel 68 zegt nog "It lives under your taskbar."** (Mila's bestand; Sanne vroeg het haar al.) Wordt "It lives on your taskbar." Zolang dat er staat, keur ik de trailer niet.
+
+### Kan-punten (Sanne beslist)
+C. "spend your gold on a new tunnel": graven zit in `hol.gd` en `held.gd`, maar zet hem in je lijst "Te controleren" zodat Olaf bevestigt dat graven goud kost in de versie die uitkomt.
+D. "Bram is back for the Spike Pit.": Bram staat in de namenlijst van het spel (GEZIEN, `NAMEN`), dus eerlijk. Houden.

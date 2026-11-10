@@ -23,3 +23,25 @@ Gelezen: `platformen/abel/merk/teksten.md`, `merk/maten.md`, en de plannen in `p
 - Eerlijke AI-zin, rustig verwoord, met de reden erbij.
 - Geen gekochte profielthema's, geen halflege Polar-winkel, geen tekstwijziging aan Click Joints tijdens de keuring.
 - Elke stap voor Thijs met waar, wat en hoe lang.
+
+## Keuring 2: beelden van het uniform (Mila v1), 10 nov 2026 ±01:45 NL (00:45 UTC)
+
+Bekeken met Read: `toets-klein.png` (avatar rond en vierkant op 184, 64, 32, 20 en 16, op Steam-donker en GitHub-wit), `avatar-512.png`, `og-1200x630.png`, `social-1280x640.png`, `steam-kop-1500x220.png`, `steam-achtergrond-1920.png`, en `steam-logo-1200x460.png` zelf op Steam-blauw (#1b2838) gelegd. Contrast nagerekend (GEZIEN): crème op Nacht 16,3:1, lila onderregel op Nacht 6,6:1.
+
+**Uniform v1: Akkoord: ja 10 nov** voor avatar (alle maten), merkteken, Steam-logo, Steam-kop, og en social. **Steam-achtergrond: ja, mits punt 1.** Daarmee zijn ook **de plannen van Abel akkoord** (de teksten waren al ja na keuring 1): Abel mag ze per account klaarzetten op de lijst van Thijs.
+
+Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met warm licht is een idee dat je in één blik snapt, het oude logo leeft er herkenbaar in voort (de bolletjes zijn nu scharnieren), en het leest nog op 16 px als een lila D met een gouden hart. Naast de grijs-gele GitHub-blokjes van nu is het verschil enorm. Mijn vier maten uit keuring 1 (16, 32, 64, cirkel) zijn getoetst en kloppen.
+
+### Moet-punt
+1. **Steam-achtergrond: de grote D mag niet onder de inhoud van de pagina vallen.** De D staat op x ±1230 tot 1700 van 1920. De middenkolom van een Steam-pagina is ±940 tot 1000 px breed (GOK, uit het hoofd), dus ongeveer x 460 tot 1460: dan valt de linkerhelft van de D (scharnieren en deur) achter de tekst. Abel: zet de achtergrond in de v2-editor op proef (voorbeeldweergave, niets publiceren) of meet de kolombreedte op een bestaande ontwikkelaarspagina, en schuif de D zo nodig naar x ≥ 1480 of maak hem kleiner. Pas dan gebruiken.
+
+### Kan-punten (Mila beslist, v2)
+2. **Het licht komt nu van onder de D, niet uit de deur.** Op og, social, kop en achtergrond begint de lichtbaan op de vloer over de hele breedte van de onderkant van de D, terwijl de deuropening links in de D zit. Laat de baan smal beginnen precies onder de deuropening en daarna breder worden: dan lees je "het licht valt door de kier naar buiten", en dat is het hele idee.
+3. Op og en social staan twee D's (woordmerk links, grote deur rechts). Dat is mooi, maar de grote deur trekt alle aandacht weg van het woord. Overweeg op social per repo (v2) alleen het woordmerk klein en het productbeeld groot in het licht.
+4. De spullen (kroon, dobbelsteen, accolades) zijn vlak tegenover de deur, die wel diepte heeft; de accolades zweven. Mila noemt het zelf al voor v2 (licht, schaduw, stofwolkje).
+5. Tekst "Small games and focused tools": er is nog geen spel uit. Prima zolang Hats of the Fallen als binnenkort op Steam staat voordat dit plaatje live gaat; anders eerst "Small tools and games in the making" of iets anders dat vandaag waar is. Abel let op de volgorde.
+
+### Goed, houden
+- Eén vaste set kleuren, goud gelijk aan de schat van Het Hol: het merk en het spel voelen familie zonder dat Gloop in het merk zit.
+- Eigen kleine tekening voor 32 en 16 px in plaats van verkleinen: precies goed.
+- De kop van Steam is links rustig waar de naam staat, zoals Valve vraagt.
