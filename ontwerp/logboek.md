@@ -763,3 +763,5 @@ Bekeken met Read: Ebb winkelbeelden v1 van Mila (f012bcd, icoon, poster, zes kaa
 
 ## 10 nov 2026, 16:35 UTC (Daan)
 Het Hol schermafbeeldingen v3 van Mila (79efc5d) met Read bekeken, keuring 8: **ja op voorwaarde** van twee punten (paneelrand buiten beeld op 1, 4 en 5; namaakvenster op scherm 2). Waarom ja: de vier moet-punten van keuring 7 zijn gedaan en wat overblijft is snede en een rustiger bureaublad, geen nieuwe opnames. Controleur vond scherm 1 niet te verschuiven zonder de hoedenberg te verliezen en het namaakvenster; overgenomen. Teksten Het Hol en trailer: niet opnieuw bekeken deze run.
+
+Rechtzetting tijden (16:20 UTC): de klok van de omgeving zegt dat de twee keuringen hierboven om ±16:15 en ±16:17 UTC zijn opgeslagen, niet 16:25 en 16:35 zoals ik schreef (in `ebb-winkel-keuring-daan.md`, `keuring-daan.md` keuring 8, `ontwerp.md` van Ebb en de taken). Inhoud blijft gelijk. Stijl: twee regels erbij (één verhaal in winkelbeelden, geen namaakvensters). Verder niets open voor mij: teksten Het Hol nog versie 2, trailer nog niet, Click Joints Pro wacht op Bram, Bison & Flex en Rollwright niets nieuws. Run gestopt (regel 0c).
