@@ -322,3 +322,27 @@ test("twee runs om elkaar heen: B boekt tussen de lezing en het slot van A, A do
   assert.equal(w.docs.size, 1);
   assert.equal(await status(o, "7001"), "geboekt");
 });
+
+test("(e) opnieuw boeken van een geboekte afrekening zonder rij in een volle maand: vrijgesteld; bij terug blijft de nieuwe rij (vorige status geboekt)", async () => {
+  const w = wereld();
+  w.voegToe("7001", T0 + 86400, "PAID", Array(30).fill(10));
+  w.voegToe("7002", T0 + 2 * 86400, "PAID", [10]);
+  const o = maakOpslag();
+  const telling = () => (o as any).telling as Map<string, unknown>;
+  for (let i = 0; i < 8; i++) await verwerkWinkel(deps(w, o, T0 + 10 * 86400 + i * 1000), inst());
+  assert.equal(await status(o, "7002"), "geboekt");
+  // Geboekt vóór deel 2: geen rij in telling.
+  const sqlite = (o as any).db?.sqlite;
+  if (sqlite) sqlite.prepare("DELETE FROM telling WHERE statement_id = '7002'").run();
+  else telling().delete("7002");
+  assert.equal(telling().has("7002"), false);
+  // Opnieuw boeken met een andere tegenrekening (dus echt opnieuw), zonder abonnement, en Moneybird weigert de winkel.
+  await opnieuw({ opslag: o, nu: () => T0 + 12 * 86400 }, "7002");
+  const anders = inst({ magBoeken: false, koppeling: { ...koppeling, tegenrekeningId: "501" } });
+  for (let i = 0; i < 4 && telling().has("7002") === false; i++) {
+    w.mbStatus.volgende = 401;
+    await verwerkWinkel(deps(w, o, T0 + 12 * 86400 + 10 + i * 1000), anders);
+  }
+  assert.equal(await status(o, "7002"), "geboekt", "nooit op wacht door de grens");
+  assert.ok(telling().has("7002"), "rij ingevoegd en bij terug blijven staan (vorige status was geboekt)");
+});
