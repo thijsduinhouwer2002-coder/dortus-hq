@@ -168,3 +168,16 @@ export async function transactiesVanBestelling(
   const d = (a.data ?? {}) as BestellingTransacties;
   return { ...d, sku_transactions: d.sku_transactions ?? [] };
 }
+
+/** De twee webhooksoorten die Klopt per winkel aanmeldt (ontwerp-schermen.md, stap 1). */
+export type WebhookSoort = "SELLER_DEAUTHORIZATION" | "UPCOMING_AUTHORIZATION_EXPIRATION";
+
+/**
+ * Update Shop Webhook (GEZIEN 10 nov 2026 in de docs, document 650aa064defece02be6df919): `PUT /event/202309/webhooks`
+ * met `shop_cipher` en body `{address, event_type}`, één soort per aanroep, adres hoogstens 255 tekens. Antwoord `data` is leeg.
+ * Of een bestaand adres wordt overschreven staat niet in de docs (GOK: ja, "Updates the shop's webhook URL").
+ */
+export async function meldWebhookAan(c: TikTokClient, accessToken: string, shopCipher: string, soort: WebhookSoort, adres: string): Promise<void> {
+  if (!/^https?:\/\//.test(adres) || adres.length > 255) throw new Error("webhook-adres moet http(s) zijn en hoogstens 255 tekens");
+  await c.roep<Record<string, never>>({ method: "PUT", path: "/event/202309/webhooks", accessToken, shopCipher, body: { address: adres, event_type: soort } });
+}
