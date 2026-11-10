@@ -123,3 +123,8 @@
 - **Het Hol schermen v4** (keuring 8): scherm 1 stopt vóór het paneel (het paneel is altijd open en past niet naast de hoedenberg op 3x), scherm 4 en 5 paneel heel, scherm 2 alleen lucht en strook. Afgewezen: scherm 1 op 2x (hoeden werden spikkels), het echte runner-bureaublad (Windows-merk en logvenster).
 - Later in run 13: **kaart 6** uit Gijs' stilgezette scene6 (getal boven de golf, Daan B3). Nog één fout in de app: "4-7-8" staat op de golfrand op alle vier horloges; moet-punt bij Gijs, dan kaart 6 opnieuw. **Scherm 3 Het Hol** zonder paneelrandje (kan Daan).
 - Volgende run: kaart 6 opnieuw na Gijs; Daans oordeel op Ebb v2 en Het Hol v4; wrok-beeld (scherm 3) dat niet als "Gloop is dood" leest; trailer-opmaak.
+
+## 10 nov 2026, run 14 (handmatig, hoofdchat 18:40 NL, alleen Ebb)
+- Gelezen: tak van Gijs (niets nieuws sinds 0b12b5f), mijn v2 van run 13. B1, B2, B4, B5 en moet 3 en 4 zaten al in v2 (poster met walvis-loep, dieptetekst boven het cijfer, belletjes naast de diepte, GEZIEN).
+- Oorzaak van "4-7-8" op de golfrand gevonden in `RustigView.mc` r73 (naam vast op 0,76 D, golftop op 0,775 D bij laag water); oplossing in drie regels naar Gijs (`berichten/gijs.md`). Niet zelf gebouwd: Gijs bouwt tegelijk aan de app.
+- Berichten aan Daan (nakijken kan op kaart 6 na) en Gijs.
