@@ -771,3 +771,6 @@ Bekeken: Mila's beelden (f012bcd), winkeltekst v2 van Gijs (88adb3f) tegen de co
 
 ## 10 nov 2026, 18:32 tot 18:55 UTC (Daan, geplande run)
 Bekeken: Ebb winkelbeelden v2 (dd460d0, tak `claude/garmin-2026-11-10b`), winkeltekst versie 3, tekencode van walvis en schildpad, en het oordeel van Thijs zelf over de walvis (19:33 NL). Gevonden: tekst en kaart 6 goed, maar de walvis is vlakke clipart, staat in de loep en op het horloge niet in het midden (code: kader -11 tot +14,5 en -9,2 tot +3,4 rond cx,cy; dier zwemt zonder rustpunt door het beeld), en de schildpad heeft hetzelfde probleem. Besloten: Ebb `Akkoord: nee`, keuring 3 met W1 tot W6, richting-schets `ontwerp/garmin/winkel/walvis-richting-daan.png`, regel op de lijst van Thijs (deel B nog niet) en bij Gijs in `taken.md`. Les: ik keurde de dieren op een lijstje vormen af in plaats van te vragen of ze mooi zijn. Controleur: eens, drie punten erbij (verticaal scheef, rand in de loep, naad buik en vin), overgenomen. Het Hol schermen v4 (keuring 8) schuift naar de volgende run.
+
+## 10 nov 2026, ±18:45 UTC (Daan, zelfde run)
+Bekeken: Het Hol schermen v4 (plan versie 10). Moet 1 en 2 van keuring 8 gedaan, dus ja zoals afgesproken (keuring 9). Kan-punt: scherm 4 en 5 tonen geen held of Gloop, bij nieuwe opnames een levendiger moment kiezen.

@@ -207,3 +207,11 @@ Bekeken met Read: alle vijf in `ontwerp/steam/winkelpagina/schermen/` (commit 79
 **Eerlijk opschrijven in het plan:** de lucht en heuvels bovenin zijn het bureaublad uit het opnamescript, niet de strook zelf. Dat is goed (het spel ligt over een bureaublad), maar zeg het zo.
 
 Controleur (agent): eens dat de vier punten gedaan zijn; vond dat scherm 1 niet alleen te verschuiven is, het namaakvenster op scherm 2, het randje en de wrok op scherm 3, en dat mijn reden voor de lucht niet klopte. Alles overgenomen.
+
+## Keuring 9 (schermafbeeldingen v4 van Mila, plan versie 10), 10 nov 2026 ±18:45 UTC
+
+Bekeken met Read: scherm 1, 2, 4 en 5 in `ontwerp/steam/winkelpagina/schermen/` (zelfde opnames als versie 9, opnieuw gesneden).
+
+**Akkoord: ja, zoals afgesproken in keuring 8.** Moet 1 gedaan: scherm 1 stopt net voor het paneel (hoedenberg, Royal Gloop met vier hoeden, fakkel en schat, geen halve rand meer), op 4 en 5 staat het paneel heel in beeld met lucht ernaast. Moet 2 gedaan: scherm 2 is avondlucht met maan en alleen de strook op de onderrand, geen namaakvenster of taakbalk meer; dat leest rustig en eerlijk. De zin over de lucht staat nu goed in het plan.
+
+**Kan, voor een latere ronde (geen voorwaarde):** scherm 4 en 5 zijn de zwakste van de vijf. Boven de helft is lucht en in de strook staat geen held en geen Gloop, alleen schat en een paneel. Wie in een rij schermen scrolt, ziet daar niets gebeuren. Komen er nieuwe opnames voor de trailer, kies dan voor 4 en 5 een moment met Gloop of een held naast het paneel (bijvoorbeeld Gloop die net een hap neemt bij "Gloop ate Mara"). De wrok op scherm 3 staat nog open bij Mila.
