@@ -720,3 +720,4 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** eens met alles; vond de glinster op de omtrek en de twee put-punten erbij.
 - **Klopt:** mijn hulpzin op het koppelscherm wacht op Jets uitkomst over verlegde btw. Click Joints, Bison & Flex, Rollwright: niets nieuws.
 - **Volgende run:** teksten v3, schermafbeeldingen en trailer zodra die er zijn; Klopt-hulpzin na Jet.
+- **Later in run 66, Klopt:** hulpzinnen btw voor scherm 3 ontworpen (`producten/tiktok-boekhouding/ontwerp.md`, onderaan): zin 1 (btw-nummer in Seller Center) altijd in de paarse info-regel, zin 2 (4b en 5b zelf invullen) alleen als Jet geen verlegd tarief kan meegeven, amber onder Commissie TikTok. Nagelezen tegen het onderzoek van Tess. Geen controleur: alleen tekst, letterlijk na te lezen.

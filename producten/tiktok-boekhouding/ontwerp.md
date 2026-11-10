@@ -165,3 +165,19 @@ De datum is altijd de eerste dag van de vorige maand, voluit in het Nederlands (
 **De balk onderaan moet het ook zeggen** (zelfde regel als moet 3: de balk telt echt): "We maken N rekeningen aan en boeken meteen M uitbetalingen vanaf 1 oktober. K oudere zetten we apart. Daarna elke nieuwe vanzelf." M en K echt geteld; is K nul, dan valt die zin weg.
 
 **Waarom zo:** de verkoper die ver terug kiest wil zijn achterstand inhalen, dus hij moet het hier lezen, vóór de eerste run, en niet pas als er een rij grijze pillen in zijn overzicht staat. Amber omdat er niets misgaat: het is een keuze. Twee links, zodat beide wegen één klik zijn en niemand zich in een betaalmuur gedrukt voelt.
+
+### Koppelscherm, hulpzin btw-nummer en verlegde btw (Daan, 10 nov 2026, 03:40 UTC)
+Taak uit `platformen/tiktok-shop/taken.md` (onderzoek Tess `onderzoek/2026-11-10-tiktok-entiteit-btw.md`). Zin 1 staat los van Jets uitkomst; zin 2 alleen als Klopt geen verlegd inkooptarief kan meegeven.
+
+**Zin 1, altijd. Waar:** scherm 3, in de paarse info-regel bovenaan (waar nu "Btw splitsen we nog niet" staat), als tweede regel. Niet als losse balk: er gaat niets mis, het is een controle.
+> Controleer of je btw-nummer in TikTok Seller Center staat. Zonder btw-nummer rekent TikTok Ierse btw over de commissie.
+Engels: "Check that your VAT number is in TikTok Seller Center. Without it, TikTok charges Irish VAT on its commission."
+Geen link naar Seller Center zolang we de juiste pagina niet GEZIEN hebben; dan liever geen link dan een verkeerde.
+
+**Zin 2, alleen als Klopt geen verlegd tarief op de commissieregel kan zetten. Waar:** scherm 3, als uitlegregel onder de soort "Commissie TikTok", in amber label-tekst (`#9A5B00`, zelfde als "kies met je boekhouder"), en één keer in het detailscherm van elke geboekte uitbetaling onder de commissieregel (zachte tekst).
+> De commissie van TikTok is btw verlegd. Vul rubriek 4b en 5b van je aangifte zelf in.
+Engels: "TikTok's commission is reverse-charged VAT. Fill in boxes 4b and 5b of your VAT return yourself."
+Kan Klopt het tarief wel meegeven: zin 2 vervalt helemaal, ook in het detailscherm; dan zegt de uitlegregel alleen "Btw verlegd, staat goed in je aangifte" als Jet in de sandbox GEZIEN heeft dat Moneybird het in 4b en 5b zet. Anders niets.
+
+**Alleen voor kosten van TikTok Technology Limited** (onderzoek Tess): affiliate-commissie krijgt geen van beide zinnen.
+**Waarom zo:** de verkoper moet het lezen op het moment dat hij zijn rekeningen kiest, niet pas bij de aangifte; paars voor de controle (niets mis), amber voor wat hij zelf moet doen, nooit rood.
