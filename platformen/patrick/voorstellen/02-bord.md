@@ -21,7 +21,7 @@ Euro-datum: de vroegste datum waarop het product eerlijk geld kan opleveren (voo
 | Click Joints Pro (scharnier) | Blender, verkoop via Polar | Bram | nee | ±eind week 46 | scharnier naar main, akkoord Daan, Polar-product (Thijs), losse pagina |
 | Ademapp ($4,99) | Garmin Connect IQ | Gijs | nee | eind nov | ja Hans 08:44, bouwen, verkopersaccount Thijs pas als de app af is |
 | Bison & Flex (Pro $19/$49) | JetBrains | Jet (op afroep) | na keuring | half dec (30 dagen proef) | bij goedkeuring zichtbaar maken (Thijs, 2 min) |
-| Rollwright (skins $6) | Obsidian | hoofdchat | ja | nu | geparkeerd, alleen bugs |
+| Rollwright (skins $6) | Obsidian | Olaf (alleen bugs) | ja | nu | geparkeerd, alleen bugs |
 | Het Hol | Steam | Olaf | nee | 14 tot 18 jan 2027 (Companion Fest) | bouwen; uitbrengen pas als Thijs het spel goed vindt |
 | Klopt | TikTok Shop EU | Tess (stil) | nee | 4 tot 8 weken na de KvK | stil tot de KvK-datum vaststaat; code blijft op main |
 

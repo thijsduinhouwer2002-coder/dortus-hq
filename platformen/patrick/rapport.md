@@ -3,8 +3,16 @@
 Stand: run 2 (10 nov, ±01:45 NL). Runs van 03:13 en 05:13 controleren en schaven; na 05:13 is dit de versie voor Thijs om 08:00.
 Bewijs: `bevindingen.md`. Bronnen van buiten (33 lessen, met links): `bronnen/internet.md` en `bronnen/toegang-ruw.md`. Volledige teksten om over te nemen: `voorstellen/01` tot `12`.
 
+## Voor Thijs: vijf keer ja of nee (±3 minuten), daarna 5 minuten werk
+1. Koerszin "eerst de eerste eerlijke euro, daarna spreiden" (hieronder): ja / nee.
+2. Ploeg op de eerste euro (punt 1): Bram terug naar Click Joints, Klopt stil tot de KvK-datum, 6 Claudes elk uur: ja / nee.
+3. Hoofdchat beslist, Hans controleert één keer per dag, ploeg verandert alleen om 09:00 en 21:00 (punt 4): ja / nee.
+4. Kansen kiezen op verwachte euro's per week werk in plaats van de 8-meetlat (punt 4): ja / nee.
+5. dortus-hq privé maken (zie "Ook belangrijk"): ja / nee.
+Werk: één Polar-sleutel die alleen kan lezen (punt 2, 5 minuten). De rest (punt 3 en 5) voert de hoofdchat zelf door.
+
 ## In één alinea
-In drie dagen maakte de ploeg ±1.650 commits. Opbrengst: één product te koop (Rollwright, skins $6, 26 downloads), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en moet Thijs voor elke release of telling zelf iets doen. De vijf punten hieronder lossen dat op.
+In drie dagen maakte de ploeg ±1.650 commits. Opbrengst: één product te koop (Rollwright, skins $6, 26 downloads), twee in keuring, €0 binnen, ±€1000 uitgegeven. Bouwen gaat goed. Wat niet goed gaat: het werk zit het meest bij producten waar de euro het verst weg is (TikTok: pas na de KvK; Steam: januari), en het minst bij wat binnen een week of twee te koop kan staan (Click Joints Pro, Garmin). Daarnaast leest elke run eerst ±100 KB, sturen drie lagen door elkaar, en ziet niemand in de ploeg of er iets verkocht is. De vijf punten hieronder lossen dat op.
 
 ## Vóór alles: één koerszin (keuze Thijs, 1 minuut)
 Nu staan er vier koersen door elkaar (CLAUDE.md "gebruikers en later geld", projectbeschrijving "eerst bereik", `doelen.md` "geld gaat voor bereik", besluit 22:56 "echt geld nu"). Elke afweging leunt hierop. Advies: **"Eerst de eerste eerlijke euro, daarna spreiden. Bereik telt omdat het tot geld leidt: elk product is vanaf dag 1 te koop."** Uitwerking: `voorstellen/10-koers-in-een-zin.md`.
