@@ -1,13 +1,13 @@
 # Steam: kant-en-klaar plan (Abel)
 
-Versie 4, 10 nov 2026 03:28 NL. Status: plan akkoord (Daan, keuring 2), beelden **v2**, achtergrond **v3** en avatar **v2**: alles akkoord (Daan, keuring 3 en 4). **Eerst stap 0, want een beperkt Steam-account kan bijna niets van dit plan.**
+Versie 5, 10 nov 2026 06:30 NL. Status: plan akkoord (Daan, keuring 2), alle beelden definitief en akkoord (avatar v2, kop v2, logo v2b, achtergrond v3; Daan, keuring 3 tot 5). **Bestanden: pak ze uit `platformen/abel/upload/1-steam/` (of de zip `dortus-beelden.zip`); de naam zegt waar elk bestand heen gaat.** **Eerst stap 0, want een beperkt Steam-account kan bijna niets van dit plan.**
 
 ## In één zin
 Op Steam ziet een speler straks overal hetzelfde Dortus: het profiel dortusgames, de groep en de ontwikkelaarspagina dragen dezelfde deur-D en dezelfde korte tekst, en de winkelpagina van Hats of the Fallen linkt naar die ontwikkelaarspagina, zodat iemand op "Follow" kan klikken.
 
 ## Hoe het eruit gaat zien (proef op een echte Steam-pagina)
 - Profiel: `merk/proef/steam-profiel-kort-op-steam.png`.
-- Definitief (avatar v2): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png`.
+- Definitief (avatar v2, logo v2b): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png`.
 - Hele ontwikkelaarspagina met kop v2, logo v2 en achtergrond v3, met paginakleur Nacht: `merk/proef/steam-pagina-v3-nacht-op-steam-1280.png`, `-1920.png` en `-2560.png`.
 - Zelfde zonder eigen paginakleur (dan zwart naast het plaatje): `merk/proef/steam-pagina-v3-op-steam-2560.png`. (De spellen in de proef zijn van Klei, wiens pagina ik als mal gebruikte; bij ons staat daar Hats of the Fallen.)
 
@@ -31,7 +31,7 @@ Telt de $100 van Steam Direct mee? Op Valves lijst staan alleen aankopen in de S
 **Oplossing (geld, dus jouw keuze):** €5 of meer op de Steam-portemonnee van dortusgames zetten (Steam > je naam > Account details > "Add funds to your Steam Wallet"). Het geld is niet weg: het blijft op dortusgames staan, bijvoorbeeld om later een spel te kopen dat we als voorbeeld willen bekijken. Mijn advies: doen, want zonder dit staan stap 1, 2 en 3 stil, en dus ook de "Follow"-knop die volgers geeft voor het fest van 14 januari. Staat op `organisatie/lijst-thijs.md`.
 
 ## Stap 1. Profiel dortusgames (Thijs, ±5 min, kan nu)
-Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rechtsboven > **Profiel bekijken** > **Profiel bewerken**.
+Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rechtsboven > **Profiel bekijken** > **Profiel bewerken** (in het Engels: View my profile > Edit Profile).
 
 | Veld | Invullen |
 |---|---|
@@ -40,7 +40,7 @@ Waar: Steam (app of steamcommunity.com), ingelogd als dortusgames > je naam rech
 | Eigen URL | `dortus` (wordt steamcommunity.com/id/dortus) |
 | Land | Netherlands |
 | Samenvatting | zie hieronder |
-| Avatar (tab Avatar) | `platformen/abel/merk/avatar-184-v2.png` |
+| Avatar (tab Avatar) | `upload/1-steam/profiel-en-groep-avatar-184.png` |
 | Privacy (tab Privacy) | Mijn profiel: Openbaar. Spellendetails: Privé. Opmerkingen: Alleen vrienden (geen spam onder ons profiel). |
 
 Samenvatting om te plakken:
@@ -66,7 +66,7 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 | Afkorting | `DORTUS` |
 | Groeps-URL | `dortus` |
 | Openbaar | Ja, iedereen mag lid worden |
-| Avatar | `avatar-184-v2.png` (zelfde als het profiel) |
+| Avatar | `upload/1-steam/profiel-en-groep-avatar-184.png` (zelfde als het profiel) |
 | Kop (headline) | `Focused tools today, small games on the way` |
 | Samenvatting | de lange versie: `Dortus makes small games and focused tools.` / `Our first game, Hats of the Fallen, is a tiny dungeon on your taskbar: heroes come for the slime's treasure, and he keeps their hats.` / `Made by Thijs in the Netherlands. Questions or bugs: thijs@dortus.com` (drie regels) |
 | Website | `https://dortus.com`, pas als de hoofdpagina niet meer over Confluence gaat (zie `dortus-com.md`). Tot dan leeg. |
@@ -75,9 +75,9 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 1. Steamworks > app van Hats of the Fallen > Winkelpagina bewerken > tab **Basisinformatie**: ontwikkelaar `Dortus`, uitgever `Dortus`. Opslaan, dan op **link** naast elk veld klikken en de groep Dortus kiezen.
 2. Steamworks > Apps & pakketten > **Creator Homepage Custom URL Setup**: `dortus`. Dan werkt store.steampowered.com/developer/dortus. Valve ziet dit als handelsnaam; Dortus is van ons (dortus.com).
 3. Ontwikkelaarspagina > tab **admin**:
-   - Logo links in de kop (184 x 184): `merk/avatar-184-v2.png`.
-   - Achtergrond van de kop (1500 x 220): `merk/steam-kop-1500x220-v2.png` (niet v1 of v1b).
-4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `merk/steam-logo-1200x460-v2b.png` en als achtergrond `merk/steam-achtergrond-1920-v3.png` (akkoord Daan, keuring 4 en 5; v1, v1b en logo v2 niet gebruiken). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). Valve raadt precies dit aan: achtergrond met aan de zijkanten en onderaan een vlakke kleur, en "set the page background color to match this solid color in Steamworks" (DERDEN, https://partner.steamgames.com/doc/marketing/event_tools/sales/tools; de Creator Home-editor werkt hetzelfde: "customize your page colors and imagery", https://partner.steamgames.com/doc/marketing/event_tools/creatorhome/tools). Het veld staat bij de achtergrond van de pagina; de exacte knopnaam heb ik niet gezien. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
+   - Logo links in de kop (184 x 184): `upload/1-steam/profiel-en-groep-avatar-184.png`.
+   - Achtergrond van de kop (1500 x 220): `upload/1-steam/ontwikkelaarspagina-kop-1500x220.png`.
+4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `upload/1-steam/ontwikkelaarspagina-logo-1200x460.png` en als achtergrond `upload/1-steam/ontwikkelaarspagina-achtergrond-1920x1200.png` (akkoord Daan, keuring 4 en 5). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). Valve raadt precies dit aan: achtergrond met aan de zijkanten en onderaan een vlakke kleur, en "set the page background color to match this solid color in Steamworks" (DERDEN, https://partner.steamgames.com/doc/marketing/event_tools/sales/tools; de Creator Home-editor werkt hetzelfde: "customize your page colors and imagery", https://partner.steamgames.com/doc/marketing/event_tools/creatorhome/tools). Het veld staat bij de achtergrond van de pagina; de exacte knopnaam heb ik niet gezien. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
 5. Kijk in de voorvertoning of de lichtbundel van de achtergrond onder de D van het logo begint. Zo niet: zeg het, dan schuift Mila hem een paar pixels.
 6. Tab **publish** > publiceren. Terug naar admin > Creator Home v2 > bij "Inactive" op **Set as Active** (ster).
 
@@ -98,15 +98,15 @@ Waarom zo: kort, één vaste zin voor het spel (keuring Daan), en we beloven nie
 - Website-link op de winkelpagina: `https://dortus.com/hats-of-the-fallen/` zodra die pagina er is. Tot dan geen website-link: de huidige hoofdpagina gaat over Confluence en wekt wantrouwen.
 - **Eerlijkheid AI:** in de Content Survey (verplicht bij het indienen) vraagt Valve of er inhoud in het spel zit die met hulp van AI-tools gemaakt is en die spelers zien. Dat moet je beschrijven; Valve toont het op de winkelpagina. DERDEN: https://partner.steamgames.com/doc/gettingstarted/contentsurvey. Voorstel (Thijs keurt): "The pixel art, text and code were made with the help of AI tools (Anthropic's Claude) and reviewed by the developer. No AI runs while you play." Alleen invullen wat waar is. Staat ter info op `organisatie/lijst-thijs.md`.
 
-## Beelden (allemaal van Mila, v1b is mijn verschuiving met haar eigen code)
-Welke versie: kop, logo en og v2 zijn akkoord (Daan, keuring 3, 10 nov). De achtergrond v2 kreeg nee; v3 en avatar v2 kregen ja (keuring 4), met als voorwaarde de paginakleur Nacht. Mijn proef van v3 (10 nov 03:27): op 1280 geen half voorwerp (munten en sleutel helemaal weg), op 1920 alles heel, op 2560 naadloos mits paginakleur `#1d1426` (randpixels gemeten: 29, 20, 38 aan beide kanten van de naad).
+## Beelden (van Mila; bij het logo trok ik de scharnieren gelijk met de avatar, v2b)
+Welke versie: kop v2 akkoord (Daan, keuring 3), logo v2b akkoord (keuring 5, scharnieren gelijk met de avatar). De achtergrond v2 kreeg nee; v3 en avatar v2 kregen ja (keuring 4), met als voorwaarde de paginakleur Nacht. Mijn proef van v3 (10 nov 03:27): op 1280 geen half voorwerp (munten en sleutel helemaal weg), op 1920 alles heel, op 2560 naadloos mits paginakleur `#1d1426` (randpixels gemeten: 29, 20, 38 aan beide kanten van de naad).
 
-| Waar | Bestand | Maat |
-|---|---|---|
-| Profiel, groep, logo in de kop | `merk/avatar-184-v2.png` | 184 x 184 |
-| Kop ontwikkelaarspagina | `merk/steam-kop-1500x220-v2.png` | 1500 x 220 |
-| Paginalogo | `merk/steam-logo-1200x460-v2b.png` | 1200 x 460, doorzichtig |
-| Achtergrond | `merk/steam-achtergrond-1920-v3.png` | 1920 x 1200, paginakleur `#1d1426` |
+| Waar | Bestand in `upload/1-steam/` | Bron in `merk/` | Maat |
+|---|---|---|---|
+| Profiel, groep, logo in de kop | `profiel-en-groep-avatar-184.png` | `avatar-184-v2.png` | 184 x 184 |
+| Kop ontwikkelaarspagina | `ontwikkelaarspagina-kop-1500x220.png` | `steam-kop-1500x220-v2.png` | 1500 x 220 |
+| Paginalogo | `ontwikkelaarspagina-logo-1200x460.png` | `steam-logo-1200x460-v2b.png` | 1200 x 460, doorzichtig |
+| Achtergrond | `ontwikkelaarspagina-achtergrond-1920x1200.png` | `steam-achtergrond-1920-v3.png` | 1920 x 1200, paginakleur `#1d1426` |
 
 ## Klaar als
 Stap 0 is opgelost (geen beperkt account), profiel en groep staan, en na de app-ID de ontwikkelaarspagina. Akkoord Daan: ja (keuring 2, 10 nov).

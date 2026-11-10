@@ -1,9 +1,19 @@
 # Klaar: volgorde voor de hoofdchat (Abel)
 
-Versie 5, 10 nov 2026 05:35 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
+Versie 6, 10 nov 2026 06:35 NL. Wordt per run bijgewerkt; definitief na de run van 07:19, bijgeschaafd om 08:19.
 
 ## Stand in één zin
 De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Steam-logo v2b, Steam-achtergrond v3, og en social v2b (met een onderregel die vandaag klopt). Overal hetzelfde uniform: de scharnieren van de deur-D zijn in elk beeld gelijk (keuring 5, 10 nov 04:45). Elk plan noemt de definitieve bestanden en is getoetst op de echte pagina van dat platform. Grootste open punt: **dortusgames is vrijwel zeker een beperkt Steam-account**; dan kan Thijs geen groep en dus geen ontwikkelaarspagina maken. €5 op de Steam-portemonnee lost het op (zijn keuze, staat op zijn lijst).
+
+## Controle als Thijs (10 nov 06:30)
+Alle zeven plannen van boven naar onder gelezen alsof ik Thijs ben met de zip open. Wat ik rechtzette:
+- Elk plan noemt nu het bestand uit `upload/` (de naam die Thijs in de zip ziet), niet meer een bestand in `merk/` met v-nummers. Kop van elk plan zegt in één regel welke map.
+- Steam: kop van het plan zei nog "beelden v2"; nu v2b voor het logo. Knopnamen ook in het Engels (View my profile > Edit Profile), want Steam staat misschien in het Engels.
+- GitHub: de bio beloofde nog "A tiny dungeon game is on its way to Steam". Mijn logboek van run 4 zei dat dat eruit was, maar het stond er nog. Nu `Small games on the way`, gelijk aan og en social (Daan, kan 5).
+- Polar: oude zin over "spikkels" weg; met avatar v2 zijn het inkepingen.
+- Obsidian: bovenaan gezet dat eerst "Hide my public profile" uit moet, anders ziet niemand de rest.
+- Nagemeten met `cmp` dat de Steam- en GitHub-avatar in `upload/` dezelfde zijn als de goedgekeurde v2.
+Bewuste uitzondering: op Steam (profiel en groep) noemen we Hats of the Fallen wel, want daar komt het spel; we zeggen nergens dat het al uit is.
 
 ## Alle beelden in één keer
 `platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh` (maakt v2b, de goedgekeurde versie). Alle tien bestanden samen bekeken op 10 nov 05:25.

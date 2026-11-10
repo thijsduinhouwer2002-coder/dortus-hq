@@ -1,6 +1,6 @@
 # Polar: kant-en-klaar plan (Abel)
 
-Versie 2, 10 nov 2026 02:55 NL. Status: klaar. Avatar van Mila, akkoord Daan (keuring 2), proef op de echte afrekenpagina bekeken.
+Versie 3, 10 nov 2026 06:30 NL. Status: klaar. Avatar v2 van Mila, akkoord Daan (keuring 4), proef op de echte afrekenpagina bekeken. **Bestand: `platformen/abel/upload/2-polar/logo-512.png`.**
 
 ## Wat er nu staat (GEZIEN 10 nov 00:45)
 - De afrekenpagina van Rollwright Skins (buy.polar.sh/polar_cl_...) heet "Dortus | Rollwright Skins". Organisatie: naam **Dortus**, slug **dortus**.
@@ -14,12 +14,12 @@ De afrekenpagina is het moment waarop iemand zijn betaalgegevens invult. Een eig
 Nagezocht in de openbare broncode van Polar (GEZIEN, github.com/polarsource/polar, `OrganizationProfileSettings.tsx`, 10 nov): bij de organisatie-instellingen staat links bovenaan een veld **Logo**, een klein rondje. Klikken op dat rondje opent het kiezen van een bestand. Toegestaan: jpg, png, gif, webp, svg, tot 1 MB.
 1. Inloggen op https://polar.sh en de organisatie **Dortus** kiezen.
 2. Links **Settings** (de eerste tab, General). Bovenaan staat "Logo" met het rondje en daarnaast "Organization Name".
-3. Klik op het rondje en kies `platformen/abel/merk/avatar-512-v2.png` (37 kB).
+3. Klik op het rondje en kies `upload/2-polar/logo-512.png` (zelfde als `merk/avatar-512-v2.png`).
 4. Naam `Dortus` laten staan. Website `https://dortus.com` laten staan of invullen. Niets anders veranderen.
 5. Onderaan op **Save** klikken (zonder opslaan blijft het oude rondje).
 6. Controle: open de afrekenlink van Rollwright Skins (staat in de README van rollwright). Linksboven naast "Dortus" moet de lila D staan in plaats van de grijze letter.
 
-Zo ziet het eruit: `merk/proef/polar-afrekenen-uitsnede.png` (de echte afrekenpagina, alleen in mijn browser het rondje vervangen). Op 24 px rond leest het als een lila D op donker; de gouden scharnieren worden daar spikkels, zoals Daan al zag (kan-punt 7), maar het blijft herkenbaar en veel sterker dan de grijze letter.
+Zo ziet het eruit: `merk/proef/polar-afrekenen-uitsnede.png` (de echte afrekenpagina, alleen in mijn browser het rondje vervangen). Op 24 px rond leest het als een lila D op donker; sinds avatar v2 zitten de gouden scharnieren half in de D en lezen ze als inkepingen, niet meer als losse spikkels (Daan, keuring 4).
 
 ## Stap 2. Openbare winkelpagina: uit laten
 De Polar-winkelpagina (polar.sh/dortus) toont alleen wat we via Polar verkopen (nu alleen Rollwright Skins). Kopers komen via de plugin, niet via die pagina. Een halflege winkel met één product wekt minder vertrouwen dan geen winkel. Aanzetten pas als er drie of meer producten via Polar lopen.
