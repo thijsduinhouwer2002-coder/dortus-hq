@@ -76,7 +76,8 @@ jobs:
           # Simulator per horloge opnieuw starten: een echt horloge opent elke app vers. Zonder herstart lekte
           # een lege lap van een weggegooide opname in de volgende opname op een ander horloge (run 42772406769).
           herstart() { pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 8; }
-          for d in fenix7 vivoactive5 fenix847mm; do
+          # Kwaliteitsronde (10 nov 18:10): opslaan en weggooien nu op alle negen horloges, niet alleen op drie.
+          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
             herstart
             touch /tmp/demo-$d
             monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
@@ -108,23 +109,6 @@ jobs:
             find / -xdev -iname '*.fit' -newer /tmp/weg-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
               ls -la "$f"; cp "$f" "schermen/fit-weg/$d/$(basename "$f")"
             done
-          done
-          # Eis 11 en 12: de andere zes horloges één keer door de testbouw, schermen plus meting van getal en geheugen.
-          for d in fr255 venu2 fr265 epix2pro47mm fr965 venu3; do
-            herstart
-            monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
-            MD=$!
-            sleep 7
-            import -window root "schermen/$d-demo-a.png"
-            sleep 4
-            import -window root "schermen/$d-demo-b.png"
-            sleep 17
-            import -window root "schermen/$d-demo-c.png"
-            sleep 16
-            import -window root "schermen/$d-demo-d.png"
-            kill "$MD" 2>/dev/null || true
-            sleep 2
-            echo "== uitvoer testbouw $d"; cat "/tmp/demo-$d.log"
           done
           # Eis 11 en 12 nakijken: groot getal minstens 30% van de breedte, geheugen onder 80%.
           grep -H "GROOT\|GEHEUGEN\|ONDERTEKST" /tmp/demo-*.log | sed "s,/tmp/demo-,," | tee /tmp/metingen.txt schermen/metingen.txt
@@ -164,7 +148,7 @@ jobs:
                           velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
                           dev = {f.name: f.value for f in fr.fields if type(f.field_def).__name__ == "DevField"}
                           print(fr.name, velden, "dev:", dev)
-          # Eis 10 nakijken: per horloge precies één bestand (het weggegooide geeft er geen), training 10, subsport 62, 2 laps, inhoud 3 en 5, beste 5.
+          # Eis 10 nakijken (alle negen): per horloge precies één bestand (het weggegooide geeft er geen), training 10, subsport 62, 2 laps, inhoud 3 en 5, beste 5.
           import os
           fout = []
           mappen = sorted(glob.glob(sys.argv[1] + "/fit/*/"))
@@ -172,8 +156,8 @@ jobs:
           print("EIS10 FIT-bestanden na weggooien:", len(weg))
           if weg:
               fout.append("na weggooien toch %d FIT-bestanden" % len(weg))
-          if len(mappen) != 3:
-              fout.append("verwacht 3 horloges, gevonden %d" % len(mappen))
+          if len(mappen) != 9:
+              fout.append("verwacht 9 horloges, gevonden %d" % len(mappen))
           for m in mappen:
               fits = sorted(glob.glob(m + "*.fit"))
               naam = os.path.basename(m.rstrip("/"))
