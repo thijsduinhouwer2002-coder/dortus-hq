@@ -114,6 +114,7 @@ class EbbView extends WatchUi.View {
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
     private var _klaarSinds as Number = -1;
+    private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
 
@@ -211,9 +212,10 @@ class EbbView extends WatchUi.View {
         if (sessie.fase == Ebb.FASE_KLAAR && _klaarSinds < 0) {
             _klaarSinds = nu;
         }
-        // Testbouw: 20 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding.
-        if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 20000) {
+        // Testbouw: 15 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding d.
+        if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 15000) {
             getij = true;
+            System.println("GETIJ getoond, klaar na " + (_klaarSinds - _startTijd) + " ms");
         }
         trilBijWissel(nu);
         WatchUi.requestUpdate();

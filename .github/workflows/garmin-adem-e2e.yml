@@ -77,7 +77,7 @@ jobs:
             import -window root "schermen/$d-demo-b.png"
             sleep 17
             import -window root "schermen/$d-demo-c.png"
-            sleep 12
+            sleep 16
             import -window root "schermen/$d-demo-d.png"
             kill "$MD" 2>/dev/null || true
             sleep 2
@@ -110,7 +110,7 @@ jobs:
             import -window root "schermen/$d-demo-b.png"
             sleep 17
             import -window root "schermen/$d-demo-c.png"
-            sleep 12
+            sleep 16
             import -window root "schermen/$d-demo-d.png"
             kill "$MD" 2>/dev/null || true
             sleep 2
