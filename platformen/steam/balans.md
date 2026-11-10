@@ -2,6 +2,25 @@
 
 Stand 9 nov 2026, ±19:10 UTC. Voorstel voor de **eerste speelbare versie**, zodat Olaf en Bram niet met losse gokgetallen bouwen. Bram's `sim/` is de echte toets; dit is een ruwe proef om te starten (`platformen/steam/data/balans-proef.py`, vast zaad, speler koopt steeds het goedkoopste). Alle getallen GOK tot Bram's sim en een speelronde ze bevestigen.
 
+## Stand 10 nov 03:15 UTC: ritme van de eerste upgrade (Sanne, antwoord op Bram 01:40)
+**Besluit:** (1) **upgrade stap 1 kost 45** (stappen 45, 126, 353; `45 x 2,8^n`), (2) **graven kost 5 + 1,2 x gangen, plus 3 per gang boven de 12** (heb je 13 gangen, dan kost de volgende 24 in plaats van 21; bij 20 gangen 53 in plaats van 29; de laatste, bij 39 gangen, 133 in plaats van 52; afgerond op hele munten), (3) **het muntje boven Gloop of de put blijft staan zolang je die upgrade kunt betalen, ook als graven goedkoper is.** Graven blijft een klik op aarde (geen regel op het kaartje). De demo houdt zijn 66 goud aan het begin: dan kan hij Big Gloop rond 20 s kopen en houdt hij 21 over voor de rest van de minuut.
+
+**Waarom:** Brams sim koopt na elke held meteen het goedkoopste. Een echte speler kijkt eens per zoveel minuten (T1) en ziet dan het muntje. Ik rekende dat na met Brams sim en mijn eigen bezoekersmodel (`data/ritme-bezoeker.py`: zelfde regels, alleen het kopen anders: eerste 10 min ongeveer elke minuut kijken, daarna elke 5, 15 of 30 min, steeds bij de eerste held na dat moment; kan een upgrade, dan eerst die). Uitkomsten GEZIEN in die sim met 20 zaden; hoe spelers echt kijken is een GOK. Eerste upgrade (min/mediaan/max):
+| Speler | upgrade 60, graven zonder toeslag | upgrade 45 + toeslag graven |
+|---|---|---|
+| koopt steeds het goedkoopste (Brams sim) | 136 / 154 / 170 min | 50 / 61 / 72 min (`data/ritme-varianten.py`) |
+| kijkt elke 5 min, muntje eerst | 28 / 48 / 87 min | 16 / 21 / 49 min |
+| kijkt elke 15 min, muntje eerst | 25 / 26 / 43 min | 25 / 26 / 28 min |
+| kijkt elke 30 min, muntje eerst | 40 / 41 / 42 min | 40 / 41 / 42 min |
+
+Het muntje doet het meeste werk: wie maar af en toe kijkt, heeft het goud al bij elkaar en koopt de upgrade bij het eerste bezoek. De 45 helpt wie vaak kijkt en dus steeds graaft. De toeslag op graven heeft een andere reden: bij Brams speler staat het hol nu na 1 uur op 20 tot 24 gangen en is alles na 5,9 tot 6,6 uur gekocht; met het besluit 18 tot 19 gangen na 1 uur (bezoekers 11 tot 18) en alles na 7,0 tot 7,8 uur (doel was ±7). Het hol groeit dan over dagen, niet in een middag (T2: elke week groter). Upgrade 45 zonder toeslag zou alles al na 5,6 tot 6,8 uur laten zijn.
+
+**Wat het verandert en wat niet:**
+- Vluchten blijft 33 tot 39% (was 31 tot 38%; alleen gemeten bij Brams speler, `ritme-varianten.py`).
+- Aankopen in uur 1: bezoekers 8 tot 14 (was met 60 en het muntje 6 tot 17). Wie vaak kijkt koopt iets minder, want graven wordt duurder; wie elke 30 min kijkt iets meer.
+- **Het langste gat zonder aankoop in uur 1 wordt groter:** bij Brams speler 6,7 tot 16,5 min (was 5,5 tot 13,4). Dat accepteer ik: in dat gat spaar je naar iets dat je ziet (Big Gloop), en het muntje laat zien wanneer het kan. Bram: reken je doel "langste wacht" na met de nieuwe getallen; komt het boven 20 min, dan zakt de toeslag naar 2.
+- Graven kost in het spel nog geen goud (Olaf 01:50: komt voor het Fest); dit is het getal waarmee dat gebouwd wordt. Bram: `BASIS` in `upgrades.gd` naar 45 en beide in `sim.py`.
+
 ## Stand 9 nov 19:50 UTC: Bram's sim gaat voor (Sanne akkoord)
 Bram's simulatie (`producten/steam-hol/sim/UITKOMST.md`) liet zien dat mijn startgetallen 68 tot 74% vluchten gaven, omdat een held in het spel omdraait na een klap. Zijn nieuwe getallen gelden, ik ben het met elk punt eens: **slijm 45%, put 35%, schijterig draait de helft van de keren om, faam x 0,97 per niveau met bodem 0,75, volgende held is een terugkomer 25%, een gevluchte held komt 60% ooit terug (aartsvijanden altijd), een aartsvijand die aan de beurt is komt 15%.** Uitkomst: 36 tot 41% vluchten, aartsvijand ongeveer één keer per dag, langste wacht 7 tot 11 min in het eerste uur, alles gekocht na 6,4 tot 7,1 uur. Kosten en goud hieronder blijven.
 
@@ -17,9 +36,9 @@ Drie dingen die ik er nog bij zie:
 | Kans dat een held valt per verdediging op zijn pad | slijm 30%, stekelput 22%, +7 procentpunt per upgrade |
 | Helden worden sterker met faam | elke 60 helden één faamniveau: kans per verdediging × 0,9, goud per val +10% |
 | Goud per gevallen held | 6 × (1 + 0,1 × faam) × (1 + gangen / 40) |
-| Graven, één cel | 5 + 1,2 × aantal gangcellen (start met 6 cellen, dus de eerste kost 12; max 40 cellen) |
+| Graven, één cel | 5 + 1,2 × aantal gangcellen (start met 6 cellen, dus de eerste kost 12; max 40 cellen); vanaf 10 nov plus 3 per gang boven de 12 (zie boven) |
 | Extra slijm of put | je begint met één van elk; extra kost 104, 270, 703 (40 × 2,6^aantal; max 4 van elk; de tweede pas bij 8 gangcellen, de derde bij 16, de vierde bij 24) |
-| Upgrade per bewoner of val | 60, 168, 470 (× 2,8; drie per soort) |
+| Upgrade per bewoner of val | 60, 168, 470 (× 2,8; drie per soort); vanaf 10 nov 45, 126, 353 (zie boven) |
 | Weghalen of dichtgooien | volle prijs terug |
 | **De eerste held van een nieuw spel** | valt altijd (een schijterige held die in de put struikelt), zodat je in de eerste minuut goud ziet (toets 1 in `spelgevoel.md`) |
 
