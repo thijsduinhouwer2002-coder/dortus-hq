@@ -105,4 +105,4 @@ Alleen aanvullen, nooit weghalen.
 - Beschrijving zonder antwoordtijd. Waarom: niemand leest die berichten nu elke dag; geen belofte die we niet halen.
 - `upload/7-superhive/` en de zip opnieuw gemaakt (cmp nagemeten). Keuring 6 gevraagd aan Daan; Bram ter info (productpagina is van hem). Regel op lijst-thijs direct onder het punt van Hans.
 - `klaar.md` versie 7, definitief.
-- Volgende run (08:19, laatste): Daans antwoord op de banner verwerken (ja: niets doen; nee: banner uit plan en upload); Superhive in het overzichtsblad zetten; klaar.md nalezen.
+- Volgende run (08:19, laatste): Daans antwoord op de banner verwerken (ja: niets doen; nee: banner uit plan en upload); klaar.md nalezen (Superhive staat sinds run 8 al in het overzichtsblad, rij 7).

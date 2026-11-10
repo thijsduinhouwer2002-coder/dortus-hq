@@ -19,7 +19,7 @@ Bewuste uitzondering: op Steam (profiel en groep) noemen we Hats of the Fallen w
 `platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh` (maakt v2b, de goedgekeurde versie). Alle tien bestanden samen bekeken op 10 nov 05:25.
 
 ## Zo ziet het eruit (proeven op echte pagina's, alleen in onze browser vervangen)
-**Alles op één blad: `merk/proef/overzicht-alle-accounts.png`** (Steam pagina en profiel, Polar, GitHub, Blender, Obsidian en de nieuwe hoofdpagina van dortus.com onder elkaar; goed om Thijs als eerste te laten zien). Opnieuw maken: `python3 merk/bron/abel_overzicht.py` vanuit `merk/`.
+**Alles op één blad: `merk/proef/overzicht-alle-accounts.png`** (Steam pagina en profiel, Polar, GitHub, Blender, Obsidian, de nieuwe hoofdpagina van dortus.com en de Superhive-winkel onder elkaar; goed om Thijs als eerste te laten zien). Opnieuw maken: `python3 merk/bron/abel_overzicht.py` vanuit `merk/`.
 - Steam-ontwikkelaarspagina, definitief (avatar v2, kop v2, logo v2b, achtergrond v3, paginakleur Nacht): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png` (opnieuw gemaakt 10 nov 05:23 met logo v2b; de spellen in de proef zijn van Klei, de pagina die ik als mal gebruikte). Breed scherm: `steam-pagina-v3-nacht-op-steam-2560.png`.
 - Steam-profiel: `merk/proef/steam-profiel-kort-op-steam.png`
 - Polar-afrekenpagina: `merk/proef/polar-afrekenen-uitsnede.png` (nu staat daar een grijze letter D)
@@ -63,4 +63,3 @@ Niet op Blender Artists, het Godot-forum en r/ObsidianMD: daar zijn door AI gesc
 - ~~Obsidian: plek van het vinkje~~ opgelost: Preferences > Profile, bovenaan (broncode Discourse).
 - Steam: paginakleur instellen is door Valve beschreven en aangeraden (docs); alleen de exacte knopnaam heb ik niet gezien.
 - Superhive: Daans ja op de banner (gevraagd 10 nov 07:45). Bij nee alleen de avatar zetten en de banner leeg laten; het plan zegt hoe. Ook niet gezien: het instellingenscherm zelf (alleen na inloggen); veldnamen komen uit Superhive's eigen hulppagina's.
-- Superhive staat nog niet in het overzichtsblad (`overzicht-alle-accounts.png`); de drie proeven staan los in `merk/proef/`.
