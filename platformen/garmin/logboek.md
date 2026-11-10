@@ -219,3 +219,20 @@
 1. Af: basisfuncties uit het besluit van 22:53 in de code, met toetsen.
 2. Open: schermen en FIT van run 42910993260 (56db8a4) nakijken; hartslag in het FIT-bestand; schermen wachten op blad v4.
 3. Volgende run: die run nakijken en zo nodig repareren; daarna wachten op blad v4 (twee regels en stoppen als er niets is).
+
+## 10 nov 2026 22:08 (Gijs, nachtronde Ebb, met de hand gestart door de hoofdchat)
+- Opdracht: alleen code en logica volgens besluit 22:53, niets indienen. Blad v4 van Mila stond er net (9ac0ec5).
+- (1) Eerlijk nagekeken wat er al was: staat per punt in `status.md` (22:40). Tempo, alleen trillen, pauzeren zonder verlies, knoptijd en inhoudtijd per ronde in de FIT waren er al; tikken, signaal na 3 min en schermslot zijn van deze avond.
+- (2, 3) Live hartslag: `EbbOpname.hartslag()` uit `Activity.getActivityInfo()`, klein op het inhoudscherm op de plek van de oude meters ("72 bpm", leeg zonder meting). Hartslag in de FIT: de opname neemt de polshartslag mee; de e2e drukt vanaf 65bb1ee per horloge af hoeveel records hartslag hebben (alleen ter info, de simulator heeft mogelijk geen hartslag).
+- (4) Dieren voor trouw: `EbbTrouw.DIEREN`, 24 dieren met drempels op sessies (1 tot 60) en dagen op rij (2 tot 30), bewaard als bits op het horloge, nieuw alleen bij het afsluiten van een sessie (`nieuweDieren`). Weg uit de logica: dieren op 1:00/1:30/2:00/3:00, het bewaren daarvan, koraal en "new best" bij een record, de meters. Tijdens het inhouden zwemt het hoogste getekende dier dat je hebt mee in een vaste cyclus van 20 s, los van je inhoudtijd. Sea log toont "x of 24" en hoe je elk getekend dier krijgt.
+- Waarom de walvis op 60 sessies en niet 30 zoals op Mila's blad: met 30 is alles in ±7 weken binnen; het besluit zegt "over een paar maanden". Mila mag namen en volgorde aanpassen (bericht 22:40).
+- Winkeltekst versie 4 als concept (bcf2e00): geen meters en geen dieren op tijd meer, wel trouw, tikken, schermslot. Daan keurt opnieuw.
+- Toetsen: run 42912105886 (65bb1ee) stap tests groen; .iq bouwt voor alle negen (run 42912105945). Schermafbeeldingen en FIT: zie hieronder.
+- Uitslagen: e2e groen op alle negen horloges voor b5ae59e (run 42910450734), 56db8a4 (run 42910993260) en 65bb1ee (run 42912105886): eis 10 tot 12 goed, opslaan en weggooien op negen. Trouw werkt over herstarts heen (uitvoer "TROUW nieuwe dieren [0]", [1], later [4] bij 5 sessies). Hartslag: 0 records met hartslag in de simulator; daarom in ce84792 de polssensor aan bij de opname (permissie Sensor). Tests en bouw voor negen horloges groen op ce84792; volledige e2e liep nog.
+- Plaatjes van ee56dee (run 42912712998) met Read bekeken: duikscherm zonder meters, schildpad zwemt mee (GEZIEN); Sea log "7 of 24", maar "3 days in a row" liep door de ronde rand. In 8f73450 korter ("3-day streak") en het blok meer naar het midden; nakijken.
+
+**In drie regels:**
+1. Af: alle logica van besluit 22:53 (functies, trouw met 24 dieren, geen beloning op inhoudtijd, geen meters, live hartslag, polssensor), winkeltekst versie 4 concept.
+2. Open: e2e en plaatjes van 8f73450 nakijken; hartslag alleen op een echt horloge te zien; schermen volgens blad v4 (wacht op ja van Thijs op het blad, zoals bij v1 tot v3).
+3. Volgende run: run van 8f73450 nakijken, dan blad v4 bouwen als er een ja is; anders de 20 ontbrekende dieren met Mila.
+
