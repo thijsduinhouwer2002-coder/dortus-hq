@@ -41,7 +41,7 @@ jobs:
         shell: pwsh
         run: |
           $alles = ""
-          foreach ($f in @("kern/strook.gd", "kern/wachtrij.gd", "kern/namen.gd", "kern/afloop.gd", "kern/opslag.gd", "hol/hol.gd")) {
+          foreach ($f in @("kern/strook.gd", "kern/wachtrij.gd", "kern/namen.gd", "kern/afloop.gd", "kern/opslag.gd", "kern/kaartje.gd", "kern/tekst.gd", "hol/hol.gd")) {
             $uit = & "godot/Godot_v4.3-stable_win64_console.exe" --headless --path producten/steam-hol/godot --check-only -s $f 2>&1 | Out-String
             Write-Output "== $f"
             Write-Output $uit

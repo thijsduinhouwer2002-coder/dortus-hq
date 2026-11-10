@@ -10,6 +10,10 @@ var hoogte := 120.0
 var schaal := 3
 const PANEEL := preload("res://kunst/paneel.png")   # Daan: 12 x 12, 9-slice rand 4 (kunst.json)
 const R := 4
+# Het kaartje voor upgrades (kern/kaartje.gd): als dit niet leeg is, toont het paneel het kaartje in plaats van de kroniek.
+var kaart := {}
+var knop_koop := Rect2()   # in vensterpixels, voor de klik (strook.gd); leeg als er geen knop staat
+var knop_undo := Rect2()
 
 # Daans paneel als 9-slice, met de schaal van de strook (scherpe pixels)
 func _paneel(rect: Rect2) -> void:
@@ -59,7 +63,56 @@ func hover_vak() -> Rect2:
 	var top := y0 - binnen + 2
 	return Rect2(links, top, breedte - links, hoogte - top)
 
+# Een knop in het paneel: donker vlak, gouden rand van één spelpixel, tekst in het midden. Geeft het vak terug.
+func _knop(x: float, y: float, h: float, tekst_: String, maat: int, font: Font) -> Rect2:
+	var w := font.get_string_size(tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 6 * schaal
+	var r := Rect2(x, y, w, h)
+	draw_rect(r, Color("#f2c14e"))
+	draw_rect(r.grow(-schaal), Color("#503856"))
+	draw_string(font, Vector2(x + 3 * schaal, y + h / 2.0 + maat * 0.35), tekst_, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#f3e2c0"))
+	return r
+
+# Het kaartje (Sanne, features.md feature 5): naam, uitleg, kost met muntje, "Buy" of "x more gold", en "Undo +45".
+# Zelfde vak als het paneel bij hover (hover_vak), dus ook op 96 px past het en vangt strook.gd daar de muis.
+func _draw_kaart() -> void:
+	var font := ThemeDB.fallback_font
+	var maat := 12 if hoogte < 110 else 13
+	var regel_h := maat + 4
+	var bw := vak_breedte()
+	var x := breedte - bw - 8
+	var vak := hover_vak()
+	_paneel(Rect2(vak.position.x, vak.position.y, breedte - 2 - vak.position.x, hoogte - 2 - vak.position.y))
+	var y0 := hoogte - 2 - (5 * schaal - 2) - regel_h * 4
+	draw_string(font, Vector2(x, y0 + maat), String(kaart.titel), HORIZONTAL_ALIGNMENT_LEFT, bw * 0.62, maat, Color("#ffe07a"))
+	# rechts op de kopregel: wat je hebt, als muntje plus getal (zelfde plek als bij de kroniek)
+	var gw := font.get_string_size(str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x
+	var gx := x + bw - gw - 5 * schaal - 6
+	_munt(Vector2(gx, y0 + maat / 2.0 - 2 * schaal + 1))
+	draw_string(font, Vector2(gx + 5 * schaal + 2, y0 + maat), str(goud), HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#ffe07a"))
+	draw_string(font, Vector2(x, y0 + regel_h + maat), String(kaart.uitleg), HORIZONTAL_ALIGNMENT_LEFT, bw, maat - 1, Color("#f3e2c0"))
+	var ky := y0 + regel_h * 2 + 3
+	var kh := float(regel_h + 2 * schaal)
+	var kx := x
+	knop_koop = Rect2()
+	knop_undo = Rect2()
+	if int(kaart.kost) >= 0:
+		if bool(kaart.kan):
+			knop_koop = _knop(kx, ky, kh, "Buy  %d" % int(kaart.kost), maat, font)
+			kx = knop_koop.end.x + 4 * schaal
+		else:
+			var grijs := "%d  (%d more gold)" % [int(kaart.kost), int(kaart.tekort)]
+			_munt(Vector2(kx, ky + kh / 2.0 - 2 * schaal))
+			draw_string(font, Vector2(kx + 5 * schaal + 2, ky + kh / 2.0 + maat * 0.35), grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat, Color("#9a8a9a"))
+			kx += 5 * schaal + 2 + font.get_string_size(grijs, HORIZONTAL_ALIGNMENT_LEFT, -1, maat).x + 4 * schaal
+	if int(kaart.terug) > 0:
+		knop_undo = _knop(kx, ky, kh, "Undo  +%d" % int(kaart.terug), maat - 1, font)
+
 func _draw() -> void:
+	if not kaart.is_empty():
+		_draw_kaart()
+		return
+	knop_koop = Rect2()
+	knop_undo = Rect2()
 	var font := ThemeDB.fallback_font
 	var maat := 12 if hoogte < 110 else 13
 	var n := 3 if hover else 1

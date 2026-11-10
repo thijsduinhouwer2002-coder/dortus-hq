@@ -12,6 +12,7 @@ const OPSLAG_M := preload("res://kern/opslag.gd")
 const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
+const KAARTJE := preload("res://kern/kaartje.gd")
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
 const INSTELLING := "user://instellingen.json"
@@ -65,6 +66,9 @@ var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als
 var slijm
 var slijm_plat := false
 var regels                  # voorraad korte regels (kern/regels.gd), willekeurig per soort
+var kaart_soort := ""       # het kaartje voor upgrades (kern/kaartje.gd): "" dicht, anders "slijm" of "stekelput"
+var kaart_t := 0.0          # laatste klik op het kaartje (dicht na 6 s)
+var demo_koop := 0          # demo: 0 nog niets, 1 kaartje open, 2 gekocht (kern/kaartje.gd, demo_stap)
 
 func log_regel(tekst_: String) -> void:
 	print(tekst_)
@@ -146,6 +150,8 @@ func _ready() -> void:
 	if not vers:
 		laad()
 		bewaar()   # meteen bewaren, anders telt dezelfde weg-tijd na een harde afsluiting nog een keer
+	if demo:
+		hol.goud = KAARTJE.DEMO_GOUD
 	if kroniek.is_empty():
 		_kroniek("Your hole is open. Heroes will come.")
 	hol.gegraven.connect(func(cel): log_regel("HOL gegraven kolom %d" % cel.x))
@@ -162,6 +168,8 @@ func _kroniek(r: String, binnen := false, soort := "") -> void:
 	_toon()
 
 func _toon() -> void:
+	if kaart_soort != "":
+		return   # het kaartje staat in het paneel: de kroniek wacht tot het dicht is, zo mis je geen regel
 	WACHTRIJ.toon(self)
 
 # namen, bijnamen en de terugkomer-regel: kern/namen.gd
@@ -326,8 +334,13 @@ func _process(delta: float) -> void:
 				hi["schat_gemeld"] = true
 				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
 	_toon()
+	KAARTJE.tik(self)
+	if demo:
+		KAARTJE.demo_stap(self)
 	if tekst.goud != hol.goud:
 		tekst.zet(kroniek, hol.goud)
+		if kaart_soort != "":
+			KAARTJE.ververs(self)
 	if t >= volgende_held and helden < 3:
 		var begin := _begin_stap() != ""
 		if _nieuwe_held():
@@ -369,6 +382,9 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if KAARTJE.klik(self, event.position):
+			log_regel("HOL klik op %s: kaartje" % event.position)
+			return
 		var p: Vector2 = (event.position - hol.position) / schaal
 		var wat: String = hol.klik(p)
 		log_regel("HOL klik op %s: %s" % [event.position, wat if wat != "" else "niets"])
@@ -383,7 +399,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
 		tekst.hover = false
 		tekst.queue_redraw()
-		_muis_vlak(false)
+		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		bewaar()
 

@@ -41,6 +41,7 @@ var munten: Array = []        # vliegende muntjes van een val naar de schat: {va
 # alles op niveau 0 verandert niets. Kopen komt met het kaartje (features.md feature 5, Olaf).
 var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
+var koop_munt: Array = []     # kolommen met een klein muntje erboven: hier kun je iets kopen (kern/kaartje.gd)
 
 func maak(breedte_spelpixels: int) -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -71,6 +72,12 @@ func leg_aan(s: int, lengte := 10) -> void:
 func munt_regen(k: int, n := 3) -> void:
 	for i in n:
 		munten.append({"van": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
+	set_process(true)
+
+# na kopen: muntjes vliegen van de schat naar het object, omgekeerd van een val (Sanne, het kaartje)
+func munt_naar(k: int, n := 3) -> void:
+	for i in n:
+		munten.append({"van": float(schat_kol * KOL + KOL / 2.0), "naar": float(k * KOL + KOL / 2.0), "t": -0.15 * i})
 	set_process(true)
 
 # de schatkamer achteraan is twee rijen hoog (Sanne, 9 nov 19:00), en Gloops plek ervoor ook (kolom schat - 2):
@@ -263,7 +270,16 @@ func _draw() -> void:
 		if m.t < 0.0:
 			continue
 		var f: float = m.t / MUNT_S
-		var x: float = lerpf(m.van, doel, f)
+		var x: float = lerpf(m.van, float(m.get("naar", doel)), f)
 		var y: float = vloer - 6 - sin(f * PI) * 12
 		draw_rect(Rect2(x - 1, y - 1, 3, 3), Color("#7a4a12"))
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
+	# kun je iets kopen, dan een klein muntje boven Gloop of de put (Sanne, het kaartje): 2 bij 2 spelpixels met rand, twee beelden
+	# die rustig wisselen als er toch getekend wordt; geen getal, geen geluid, niets buiten de strook
+	for k in koop_munt:
+		var mx: float = k * KOL + KOL / 2.0 - 1
+		var my: float = (OPP + 2) if boven[k] else (GANG_BOVEN + 1)
+		draw_rect(Rect2(mx - 1, my - 1, 4, 4), Color("#7a4a12"))
+		draw_rect(Rect2(mx, my, 2, 2), Color("#f2c14e"))
+		if (anim / 3) % 2 == 0:
+			draw_rect(Rect2(mx, my, 1, 1), Color("#fff4c0"))
