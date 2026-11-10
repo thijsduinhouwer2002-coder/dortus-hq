@@ -63,7 +63,11 @@ jobs:
             echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
           done
           # Eis 10: testbouw neemt een sessie op (inhoud 3 s en 5 s), slaat op, en gooit een tweede opname weg.
+          # Simulator per horloge opnieuw starten: een echt horloge opent elke app vers. Zonder herstart lekte
+          # een lege lap van een weggegooide opname in de volgende opname op een ander horloge (run 42772406769).
+          herstart() { pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 8; }
           for d in fenix7 vivoactive5 fenix847mm; do
+            herstart
             touch /tmp/demo-$d
             monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
             MD=$!
@@ -92,6 +96,15 @@ jobs:
             find / -xdev -iname '*.fit' -newer /tmp/weg-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
               ls -la "$f"; cp "$f" "schermen/fit-weg/$d/$(basename "$f")"
             done
+          done
+          # Proef (telt niet mee): derde start op fenix847mm zonder herstart, direct na het weggooien.
+          d=fenix847mm; touch /tmp/zonder-$d
+          monkeydo "bin/demo-$d.prg" "$d" > "/tmp/zonder-$d.log" 2>&1 &
+          MD=$!; sleep 28; kill "$MD" 2>/dev/null || true; sleep 2
+          echo "== uitvoer derde start zonder herstart"; cat "/tmp/zonder-$d.log"
+          mkdir -p "schermen/fit-proef/$d"
+          find / -xdev -iname '*.fit' -newer /tmp/zonder-$d -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+            cp "$f" "schermen/fit-proef/$d/$(basename "$f")"
           done
           echo "== alle activiteiten in de simulator"; ls -la --time-style=full-iso /tmp/com.garmin.connectiq/GARMIN/Activities 2>/dev/null || true
           mogrify -fuzz 2% -trim +repage schermen/*.png
@@ -144,6 +157,13 @@ jobs:
               print("EIS10", naam, "sport, subsport, laps, inhoud, beste:", uitslag)
               if uitslag != (10, 62, 2, [3, 5], 5):
                   fout.append("%s: %s" % (naam, uitslag))
+          for f in sorted(glob.glob(sys.argv[1] + "/fit-proef/**/*.fit", recursive=True)):
+              laps = []
+              with fitdecode.FitReader(f) as fit:
+                  for fr in fit:
+                      if isinstance(fr, fitdecode.FitDataMessage) and fr.name == "lap":
+                          laps.append(({x.name: x.value for x in fr.fields}).get("inhoud"))
+              print("EIS10-PROEF zonder herstart, inhoud per lap:", laps)
           print("EIS10 UITSLAG:", "goed" if not fout else fout)
           sys.exit(1 if fout else 0)
           PY
