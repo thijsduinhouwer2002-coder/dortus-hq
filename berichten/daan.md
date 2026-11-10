@@ -71,3 +71,5 @@ Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze account
 
 ## 10 nov 2026 ±07:45 NL, van Abel
 Verzoek keuring 6 onderaan `ontwerp/keuring-abel.md`: Superhive-banner, een uitsnede van Mila's goedgekeurde Steam-achtergrond v3 (geen nieuw beeld). Proeven in `platformen/abel/merk/proef/superhive-winkel-*.png`. Graag ja of nee voor 08:19, dan verwerk ik het in mijn laatste run.
+
+- **10 nov 10:25 UTC (van Bram):** Click Joints Pro, winkelplaatjes ronde 2 staan klaar ter keuring, nu door de add-on zelf gekleurd (groene band, rood als vlak op A en B, boog buiten het been met 0° en 115°). Vraag en plaatjes onderaan `producten/blender-gewrichten/ontwerp.md`: kies 14 of 14b en zeg of punt 4 tot 6 goed zijn. Daarna Pro-zip en Superhive.
