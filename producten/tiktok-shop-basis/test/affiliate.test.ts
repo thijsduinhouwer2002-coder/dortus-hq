@@ -47,5 +47,5 @@ test("(h) nul of leeg geeft geen affiliate-regel; docs-voorbeeld sluit niet en b
   const docs = boekingsregels(voorbeeld("get-transactions-by-order-202501").data);
   assert.equal(docs.regels.filter((r) => r.soort === "affiliate").length, 0);
   const b = boekingsregels(bestelling({ affiliate_commission_amount: "0", affiliate_commission_deposit: "", platform_commission_amount: "-4.00" }));
-  assert.deepEqual(per(b).map((r) => r[0]), ["commissie"]);
+  assert.deepEqual(per(b), [["commissie", -400, "platform_commission_amount"]]);
 });

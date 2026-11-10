@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { maakMemoriaal, SOORTEN, type AfrekeningInvoer, type Koppeling } from "../src/moneybird/memoriaal.ts";
 import { MoneybirdFout } from "../src/moneybird/fouten.ts";
 import { RGS_PER_SOORT } from "../src/moneybird/rgs.ts";
+import { CODE_VERSIE, vingerafdruk } from "../src/verwerk.ts";
 
 const S = "7300000000000000001";
 const invoer = (regels: Array<[any, number]>): AfrekeningInvoer => ({ statementId: S, statementTime: 1794312000, valuta: "EUR", regels: regels.map(([soort, bedragCenten]) => ({ soort, bedragCenten, statementId: S })) });
@@ -42,4 +43,18 @@ test("(d) zonder rekening voor commissie en affiliate: de fout noemt de affiliat
 test("(e) RGS-voorstel voor affiliate: WBedVkkCom, eigen naam, zoeken op naam", () => {
   assert.deepEqual(RGS_PER_SOORT.affiliate, { rgs: "WBedVkkCom", accountType: "expenses", naam: "Affiliate-commissie TikTok Shop (creators)", aanmaken: true, zoekOpNaam: true });
   assert.notEqual(RGS_PER_SOORT.affiliate.naam, RGS_PER_SOORT.commissie.naam);
+});
+
+test("(d) lege keuze voor affiliate (grootboekId leeg) valt ook terug op de commissierekening", () => {
+  const k: Koppeling = { ...basis, per: { ...basis.per, affiliate: { grootboekId: "" } } };
+  const m = maakMemoriaal(invoer([["omzet", 5000], ["affiliate", -300]]), k);
+  assert.equal(m.regels[1].grootboekId, "300");
+});
+
+test("(h) vingerafdruk zonder affiliate gelijk aan vóór de wijziging, CODE_VERSIE niet opgehoogd", async () => {
+  assert.equal(CODE_VERSIE, "1");
+  // Waarde berekend op main vóór de wijziging (10 nov, commit 95134ac) en erna: gelijk.
+  const inv = { statementId: "900", statementTime: 1794312000, valuta: "EUR", regels: [{ soort: "omzet" as const, bedragCenten: 5000, statementId: "900" }, { soort: "commissie" as const, bedragCenten: -400, statementId: "900" }] };
+  assert.equal(await vingerafdruk(inv, { per: { omzet: { grootboekId: "100" }, commissie: { grootboekId: "300" } }, tegenrekeningId: "500" }, "123"),
+    "bedd38dc2b2a39db4d4741f80a9ccaa64463b88c1e99217f4ba146eacf2adb75");
 });

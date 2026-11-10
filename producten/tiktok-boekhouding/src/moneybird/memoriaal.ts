@@ -125,7 +125,8 @@ export function maakMemoriaal(invoer: AfrekeningInvoer, koppeling: Koppeling, op
     const c = som.get(soort) ?? 0;
     if (c === 0) continue;
     // Affiliate zonder eigen rekening valt terug op de rekening van de commissie, nooit op het btw-tarief daarvan (ontwerp-affiliate.md).
-    const k = koppeling.per[soort] ?? (soort === "affiliate" && koppeling.per.commissie?.grootboekId ? { grootboekId: koppeling.per.commissie.grootboekId } : undefined);
+    const eigen = koppeling.per[soort];
+    const k = soort === "affiliate" && !eigen?.grootboekId && koppeling.per.commissie?.grootboekId ? { grootboekId: koppeling.per.commissie.grootboekId } : eigen;
     if (!k?.grootboekId) throw new MoneybirdFout("instelling", `geen grootboekrekening gekozen voor "${naam}"`);
     // Een leeg btw-tarief (lege keuzelijst in instellingen) betekent: geen btw.
     if (!/^\d+$/.test(k.grootboekId) || (k.btwTariefId && !/^\d+$/.test(k.btwTariefId))) throw new MoneybirdFout("instelling", `rekening of btw-tarief bij "${naam}" moet een id uit cijfers zijn`);
