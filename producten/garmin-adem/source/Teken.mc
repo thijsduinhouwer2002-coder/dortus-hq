@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.WatchUi;
 import Toybox.Math;
 
 // Uiterlijk volgens de schets van Mila (ontwerp/garmin/tij-stijl.md en ontwerp/garmin/bron/ebb_schets.py).
@@ -90,15 +91,27 @@ module EbbTeken {
     // en waarin "0:00" niet breder is dan 72% van D, zodat niets buiten de cirkel valt.
     // Eerst kozen we op getFontHeight, maar die telt ruimte onder de letter mee en
     // verschilt per horloge; op de epix2pro47mm viel het cijfer zo op 29%.
-    function grootFont(dc as Graphics.Dc, d as Number) as Graphics.FontDefinition {
+    // Haalt de grootste systeemletter geen 30% van D (epix2pro47mm: 123 van 416 px), dan de eigen cijferletter
+    // (resources-<horloge>/fonts, 130 px op 416), één keer geladen.
+    function grootFont(dc as Graphics.Dc, d as Number) as Graphics.FontType {
         var lijst = GROOT_LIJST;
+        var gekozen = Graphics.FONT_NUMBER_MILD;
         for (var i = 0; i < lijst.size(); i += 1) {
             if (Graphics.getFontAscent(lijst[i]) <= d * 0.40 && dc.getTextWidthInPixels("0:00", lijst[i]) <= d * 0.72) {
-                return lijst[i];
+                gekozen = lijst[i];
+                break;
             }
         }
-        return Graphics.FONT_NUMBER_MILD;
+        if (Graphics.getFontAscent(gekozen) * 100 >= d * 30) {
+            return gekozen;
+        }
+        if (_eigen == null) {
+            _eigen = WatchUi.loadResource(Rez.Fonts.EbbCijfers) as WatchUi.FontResource;
+        }
+        return _eigen as WatchUi.FontResource;
     }
+
+    var _eigen as WatchUi.FontResource or Null = null;
 
     const GROOT_LIJST = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
 }

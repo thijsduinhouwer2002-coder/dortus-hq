@@ -335,7 +335,7 @@ class EbbView extends WatchUi.View {
     private var _geheugenGemeld as Boolean = false;
 
     // Eis 11 meet de hoogte van de cijfers (ascent; een "1" is nooit 30% breed), breedte staat er ter info bij.
-    function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String, font as Graphics.FontDefinition) as Void {
+    function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String, font as Graphics.FontType) as Void {
         if (groot.length() > 0 && !_grootGemeld[fase]) {
             _grootGemeld[fase] = true;
             if (fase == 0) {
