@@ -9,7 +9,7 @@ static func bewaar(s) -> void:
 	var data := {"versie": OPSLAG_VERSIE, "tijd": Time.get_unix_time_from_system(), "gang": s.hol.gang, "boven": s.hol.boven,
 		"eerste_held_gedaan": s.eerste_held_gedaan, "vallen": s.hol.vallen, "ingang_kol": s.hol.ingang_kol, "gevallen_namen": s.gevallen_namen,
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
-		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht,
+		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
 		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {}}
 	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
@@ -48,6 +48,8 @@ static func laad(s, begin) -> void:
 	# een save van voor de eerste tien minuten: dat begin is voorbij
 	s.begin_gedaan = data.get("begin_gedaan", begin.duplicate() if s.eerste_held_gedaan else [])
 	s.begin_vlucht = String(data.get("begin_vlucht", ""))
+	s.helden_nr = int(data.get("helden_nr", 0))
+	s.lied_helden = int(data.get("lied_helden", 0))
 	if s.slijm.has_method("van_dict"):
 		s.slijm.van_dict(data.get("slijm", {}))
 	s.hol.goud = int(data.get("goud", 0))

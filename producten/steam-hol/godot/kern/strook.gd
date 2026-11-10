@@ -13,6 +13,7 @@ const NAMEN_M := preload("res://kern/namen.gd")
 const WACHTRIJ := preload("res://kern/wachtrij.gd")
 const AFLOOP := preload("res://kern/afloop.gd")
 const KAARTJE := preload("res://kern/kaartje.gd")
+const SOORT := preload("res://systemen/heldensoort.gd")   # ridder, dief, magier, bard en drie trekken (Bram, versie 1)
 # Hoogte van de strook, in het spel te kiezen met rechtsklik (96, 120, 160), bewaard los van het spel
 # (eerlijk in de winkeltekst: "you can set it from 96 to 160", Sanne en Daan 10 nov 00:00)
 const INSTELLING := "user://instellingen.json"
@@ -70,6 +71,12 @@ var kaart_soort := ""       # het kaartje voor upgrades (kern/kaartje.gd): "" di
 var kaart_t := 0.0          # laatste klik op het kaartje (dicht na 6 s)
 var kaart_kol := -1         # kolom van het aangeklikte object (muntjes vliegen daarheen, Remove haalt die put weg)
 var demo_koop := 0          # demo: 0 nog niets, 1 kaartje open, 2 gekocht (kern/kaartje.gd, demo_stap)
+var kaart_regel := ""       # na Buy blijft het kaartje 2,5 s staan; deze regel komt als het dichtgaat (Sanne toets 8, punt 3)
+var kaart_gekocht := false  # het kaartje staat in die 2,5 s (alleen de nieuwe naam en Undo)
+var helden_nr := 0          # hoeveelste nieuwe held van dit spel (in de save); de eerste 10 zijn gewoon (heldensoort.gd)
+var lied_helden := 0        # zoveel helden komen nog snel na het lied van een gevluchte bard (in de save)
+# Demo: de held die moet vluchten is een bard, zodat de minuut één lied laat zien (2 helden snel erachter, Bram 02:30)
+const DEMO_BARD := true
 
 func log_regel(tekst_: String) -> void:
 	print(tekst_)
@@ -249,14 +256,31 @@ func _nieuwe_held() -> bool:
 			_kroniek(regels.kies("terug", {"naam": info.naam, "held": _held_naam(info)}))
 	else:
 		var naam := _vrije_naam()
+		helden_nr += 1
 		info = {"naam": naam, "bezoeken": 0, "wrok": "",
 			"kleur": KLEUREN[rng.randi_range(0, KLEUREN.size() - 1)], "hoed": HOEDEN[rng.randi_range(0, HOEDEN.size() - 1)],
 			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 9)}   # alle tien hoeden (Bram 22:40)
 		if demo:
 			info["hoed_nr"] = DEMO_HOEDEN[demo_hoed_i % DEMO_HOEDEN.size()]
 			demo_hoed_i += 1
+		# heldensoort en trek (Bram, versie 1): niet in de vaste stappen van het begin, en de eerste 10 helden gewoon
+		var soort_h := ""
+		var trek_h := ""
+		if stap == "":
+			soort_h = SOORT.kies(helden_nr, rng)
+			trek_h = SOORT.kies_trek(helden_nr, rng)
+		elif stap == "vluchten" and demo and DEMO_BARD:
+			soort_h = "bard"
+		if soort_h != "":
+			info["soort_held"] = soort_h
+		if trek_h != "":
+			info["trek"] = trek_h
 		if naam.ends_with(" II") or naam.ends_with(" III"):
 			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
+		elif soort_h != "":
+			_kroniek(regels.kies("binnen_" + soort_h, {"naam": naam}), true)   # de soort zie je meteen ("Sir Odo clanks in.")
+		elif trek_h != "":
+			_kroniek(regels.kies("binnen_" + trek_h, {"naam": naam}), true)    # de drie nieuwe trekken zie je alleen hier
 		else:
 			_kroniek(regels.kies("binnen", {"naam": naam}), true)
 	match stap:
@@ -334,6 +358,10 @@ func _process(delta: float) -> void:
 			if hi is Dictionary and String(hi.get("wat", "")).begins_with("touched") and not hi.has("schat_gemeld"):
 				hi["schat_gemeld"] = true
 				_kroniek(regels.kies("schat", {"naam": hi.get("naam", "")}))
+			# slaapkop (Bram, versie 1): zijn dutje een lage regel, zoals binnenkomst (hij ligt er 4 s, de regel mag wachten)
+			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
+				hi["dutje_gemeld"] = true
+				_kroniek(regels.kies("dutje", {"naam": hi.get("naam", "")}), true)
 	_toon()
 	KAARTJE.tik(self)
 	if demo:
@@ -348,6 +376,12 @@ func _process(delta: float) -> void:
 			# ritme: gemiddeld een held per ±50 s (balans.md), in de eerste tien minuten ±40 s;
 			# in de demo sneller zodat de film van een minuut iets laat zien
 			volgende_held = t + ((rng.randf_range(5.0, 7.0) if begin else rng.randf_range(6.0, 9.0)) if demo else (rng.randf_range(35.0, 45.0) if begin else rng.randf_range(40.0, 60.0)))
+			# na het lied van een bard: de volgende helden komen 8 tot 20 s na elkaar (Bram 02:30); in de demo blijft het
+			# eigen snelle ritme staan (dat is al korter), alleen de teller loopt af
+			if lied_helden > 0:
+				lied_helden -= 1
+				if lied_helden > 0 and not demo:
+					volgende_held = t + rng.randf_range(8.0, 20.0)
 		else:
 			volgende_held = t + 2.0   # een vaste stap moet nog even wachten
 	# fakkels en schat bewegen alleen als er toch al getekend wordt (er loopt een held): 6 beeldjes per seconde
@@ -402,6 +436,7 @@ func _notification(what: int) -> void:
 		tekst.queue_redraw()
 		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
+		KAARTJE.dicht(self)   # een wachtende koopregel komt eerst in de kroniek, dan bewaren (controleur kan-punt 1)
 		bewaar()
 
 # Welk deel van het venster de muis vangt. Normaal alleen het hol; bij hover ook het paneel met drie regels (L-vorm),
@@ -424,6 +459,7 @@ func _muis_vlak(paneel: bool) -> void:
 # Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
 func zet_hoogte(h: int) -> void:
 	log_regel("HOL hoogte %d -> %d" % [hoogte, h])
+	KAARTJE.dicht(self)
 	bewaar()
 	var f := FileAccess.open(INSTELLING, FileAccess.WRITE)
 	if f:

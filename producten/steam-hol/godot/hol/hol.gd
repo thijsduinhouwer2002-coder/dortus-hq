@@ -25,6 +25,8 @@ const PUT := preload("res://kunst/stekelput.png")
 const FAKKEL := preload("res://kunst/fakkel.png")
 const DECO := preload("res://kunst/versiering.png")
 const GLOED := preload("res://kunst/gloed.png")
+const KOOP_MUNT := preload("res://kunst/koop_munt.png")            # Mila 03:15: munt van twee beelden die draait
+const PUT_UPG := preload("res://kunst/stekelput_upgrades.png")     # Mila 03:05: rij niveau - 1, zelfde indeling als stekelput.png
 
 var kolommen := 0
 var gang: Array[bool] = []    # onderste rij
@@ -42,6 +44,7 @@ var munten: Array = []        # vliegende muntjes van een val naar de schat: {va
 var upgrades = load("res://systemen/upgrades.gd").new() if ResourceLoader.exists("res://systemen/upgrades.gd") else null
 const MUNT_S := 0.9           # zo lang vliegt een muntje
 var koop_munt: Array = []     # kolommen met een klein muntje erboven: hier kun je iets kopen (kern/kaartje.gd)
+var koop_munt_y := {}         # kolom -> bovenkant van wat daar staat (Gloop met hoeden); het muntje komt 3 erboven
 
 func maak(breedte_spelpixels: int) -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -247,9 +250,14 @@ func _draw() -> void:
 		elif h < 36 and not boven[k]:
 			draw_texture_rect_region(DECO, Rect2(k * KOL, GANG_BOVEN, KOL, KOL), Rect2(6 * KOL, 0, KOL, KOL))   # spinrag
 	# vallen: stekelput dicht, en even open na een klap
+	# gekochte stappen (Rusty Spikes, Deep Pit, Trick Lid) hebben elk een eigen rij in stekelput_upgrades.png
+	var put_niv: int = upgrades.niveau("stekelput") if upgrades != null else 0
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
-		draw_texture_rect_region(PUT, Rect2(k * KOL, vloer - 7, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
+		if put_niv > 0:
+			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
+		else:
+			draw_texture_rect_region(PUT, Rect2(k * KOL, vloer - 7, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
@@ -276,10 +284,10 @@ func _draw() -> void:
 		draw_rect(Rect2(x - 1, y - 1, 2, 2), Color("#f2c14e"))
 	# kun je iets kopen, dan een klein muntje boven Gloop of de put (Sanne, het kaartje): 2 bij 2 spelpixels met rand, twee beelden
 	# die rustig wisselen als er toch getekend wordt; geen getal, geen geluid, niets buiten de strook
+	# Mila's koop_munt.png: twee beelden van 8 x 8 om en om, leest als een munt die draait. Boven Gloop 3 spelpixels boven
+	# zijn bovenste hoed (kaartje.gd munt_top), boven een put net onder het plafond van de gang.
 	for k in koop_munt:
 		var mx: float = k * KOL + KOL / 2.0 - 1
-		var my: float = (OPP + 2) if boven[k] else (GANG_BOVEN + 1)
-		draw_rect(Rect2(mx - 1, my - 1, 4, 4), Color("#7a4a12"))
-		draw_rect(Rect2(mx, my, 2, 2), Color("#f2c14e"))
-		if (anim / 3) % 2 == 0:
-			draw_rect(Rect2(mx, my, 1, 1), Color("#fff4c0"))
+		var onder_y: float = float(koop_munt_y[k]) - 3.0 if koop_munt_y.has(k) else float(GANG_BOVEN + 8)
+		var my: float = maxf(onder_y - 6.0, float(OPP + 1))   # munt 6 hoog (rij 1 tot 6 van het beeld), nooit boven het gras
+		draw_texture_rect_region(KOOP_MUNT, Rect2(mx - 3, my - 1, 8, 8), Rect2(((anim / 3) % 2) * 8, 0, 8, 8))

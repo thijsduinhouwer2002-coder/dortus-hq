@@ -11,6 +11,8 @@ extends RefCounted
 const HOL := preload("res://hol/hol.gd")
 const UPG := preload("res://systemen/upgrades.gd")
 const OPEN_S := 6.0   # zo lang blijft het kaartje staan na de laatste klik
+const DUBBELKLIK_S := 0.4   # zo lang na Buy telt een klik op Undo niet
+const NA_KOOP_S := 2.5   # na Buy: de nieuwe naam en alleen "Undo", dan de eigen regel (Sanne toets 8, punt 3: Undo zag je nooit)
 # Demo: begint met 66 goud, alsof het hol al even open is, en koopt rond 20 s Big Gloop: twee klikken, zoals een speler
 # (Sanne, toets voor het kaartje: muntjes naar Gloop en de regel in de film van een minuut)
 const DEMO_GOUD := 66
@@ -53,6 +55,13 @@ static func beschrijving(s, soort: String) -> Dictionary:
 		d.kan = up.kan_kopen(soort, s.hol.goud)
 		d.tekort = maxi(0, int(v.kost) - int(s.hol.goud))
 	d.terug = terug_bedrag(up, soort)
+	if s.kaart_gekocht and up.niveau(soort) > 0:
+		# net gekocht: de naam van wat je kocht, geen nieuwe Buy en geen Remove, alleen Undo
+		var nu: String = String(UPG.STAPPEN[soort][up.niveau(soort) - 1]["naam"])
+		d.titel = nu.replace("Gloop", bew) if soort == "slijm" else nu
+		d.uitleg = "Bought."
+		d.kost = -1
+		d.weg = false
 	return d
 
 # Wat "Undo" teruggeeft: de volle prijs van de bovenste stap (balans.md), 0 als er niets gekocht is.
@@ -75,10 +84,15 @@ static func dicht(s, toon := true) -> void:
 		return
 	s.log_regel("HOL kaartje dicht %.1f" % s.t)
 	s.kaart_soort = ""
+	s.kaart_gekocht = false
 	s.tekst.kaart = {}
 	s.tekst.queue_redraw()
 	s._muis_vlak(s.tekst.hover)
-	if toon:
+	var r: String = s.kaart_regel
+	s.kaart_regel = ""
+	if r != "":
+		_eigen_regel(s, r)   # de koopregel na de 2,5 s (of eerder bij een klik ernaast), voor de rest van de wachtrij
+	elif toon:
 		s._toon()   # wat in de wachtrij stond komt nu
 
 static func ververs(s) -> void:
@@ -95,8 +109,11 @@ static func koop(s) -> void:
 	s.hol.goud = rest
 	s.hol.munt_naar(s.kaart_kol, 4)
 	s.log_regel("HOL koop %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
-	dicht(s, false)   # eerst de eigen regel, anders flitst een oude regel 0 s voorbij (controleur kan-punt 1)
-	_eigen_regel(s, up.koop_regel(soort, s._bewoner()))
+	# het kaartje blijft 2,5 s staan met de nieuwe naam en Undo; de koopregel komt als het dichtgaat (dicht())
+	s.kaart_gekocht = true
+	s.kaart_regel = up.koop_regel(soort, s._bewoner())
+	s.kaart_t = s.t
+	ververs(s)
 	s.bewaar()
 
 static func undo(s) -> void:
@@ -109,6 +126,7 @@ static func undo(s) -> void:
 	s.hol.goud += terug
 	s.hol.munt_regen(s.kaart_kol, 4)   # het goud vliegt terug naar de schat
 	s.log_regel("HOL undo %.1f: %s niveau %d, goud %d" % [s.t, soort, up.niveau(soort), s.hol.goud])
+	s.kaart_regel = ""   # Undo binnen de 2,5 s na Buy: de koopregel vervalt, alleen "undone"
 	dicht(s, false)
 	if soort == "slijm":
 		naam = naam.replace("Gloop", s._bewoner())
@@ -153,6 +171,9 @@ static func klik(s, pos: Vector2) -> bool:
 			koop(s)
 			return true
 		if s.tekst.knop_undo.has_point(pos):
+			# na Buy schuift Undo naar de plek van Buy: een dubbelklik op Buy mag de koop niet meteen terugdraaien (controleur)
+			if s.kaart_gekocht and s.t - s.kaart_t < DUBBELKLIK_S:
+				return true
 			undo(s)
 			return true
 		if s.tekst.knop_weg.has_point(pos):
@@ -176,7 +197,7 @@ static func klik(s, pos: Vector2) -> bool:
 static func tik(s) -> void:
 	if not kan(s):
 		return
-	if s.kaart_soort != "" and s.t - s.kaart_t > OPEN_S:
+	if s.kaart_soort != "" and s.t - s.kaart_t > (NA_KOOP_S if s.kaart_gekocht else OPEN_S):
 		dicht(s)
 	var up = s.hol.upgrades
 	var munt: Array = []
@@ -185,9 +206,32 @@ static func tik(s) -> void:
 	if up.kan_kopen("stekelput", s.hol.goud):
 		for k in s.hol.vallen:
 			munt.append(int(k))
-	if munt != s.hol.koop_munt:
+	# het muntje boven Gloop staat 3 spelpixels boven het bovenste wat hij draagt (Sanne toets 8, punt 2: het hing
+	# ±25 spelpixels boven hem in de schacht). Vaste rust-hoogte, niet de wiebel, anders tekent het hol elk beeld opnieuw.
+	var my := {}
+	if munt.has(slijm_kol(s)):
+		my[slijm_kol(s)] = munt_top(s)
+	if munt != s.hol.koop_munt or my != s.hol.koop_munt_y:
 		s.hol.koop_munt = munt
+		s.hol.koop_munt_y = my
 		s.hol.queue_redraw()
+
+# Bovenkant (hol-spelpixels) van Gloop met zijn hoedentoren, in rust. Zelfde rekensom als slijm.gd toren():
+# elke hoed staat met HOED_ONDER in de bovenkant van wat eronder staat en steekt tot HOED_TOP uit.
+static func munt_top(s) -> float:
+	var sl = s.slijm
+	var top := -16.0 + 6.0   # RUST_TOP van het rust-frame
+	if sl.has_method("is_plat") and sl.is_plat():
+		return sl.position.y - 16.0 + 10.0
+	# Big Gloop wordt 1 spelpixel hoger zodra slijm.gd slijm_groot.png tekent (Mila 02:55, Bram); dan hier ook -1
+	if sl.has_method("hoeden_op_hoofd"):
+		var c: Dictionary = sl.get_script().get_script_constant_map()
+		var onder: Array = c.get("HOED_ONDER", [])
+		var boven: Array = c.get("HOED_TOP", [])
+		for h in sl.hoeden_op_hoofd():
+			if int(h) < onder.size() and int(h) < boven.size():
+				top -= float(int(onder[int(h)]) - int(boven[int(h)]))
+	return sl.position.y + top
 
 static func demo_stap(s) -> void:
 	if s.demo_koop == 0 and s.t >= DEMO_KLIK_T and kan(s):
