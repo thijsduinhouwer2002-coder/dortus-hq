@@ -144,3 +144,9 @@
 - .iq: nieuwe workflow `garmin-adem-iq.yml` (start bij wijziging van `versie.txt`, nu 1.0.0). Eerste run bouwde `Ebb.iq` (355 KB) maar viel om op schrijfrechten in `bin`; opgelost in 1ffd436. Besluit: ondertekenen met geheim `GARMIN_DEV_KEY`, zonder dat geheim een proef-release die niet ingediend mag worden. Waarom: Garmin wil elke update met dezelfde sleutel; die hoort niet in een openbare repo, en de image van een derde draait daarom zonder netwerk.
 - Winkelplaatjes: plaatjesbouw (`plaatjes.jungle`, `(:plaatje)` in `Bouw.mc`) die per start een stilgezette scène toont: vis op 1:03, schildpad op 2:03, walvis op 3:03, Sea log met alle dieren. Stilgezet zodat de opname niet van de timing afhangt. Icoon 500x500 (`winkel/icoon-500.png`, `bron/maak_icoon.py`). Maten: icoon en cover 500x500 tot 300 KB, schermen tot 150 KB (forum Garmin, GEZIEN).
 - Winkeltekst definitief versie 1 met de velden voor het uploaden. Lijst van Thijs: deel A (account en sleutel, nu) en deel B (uploaden na mijn "klaar").
+- 14:45: plaatjes nagekeken met Read (run 42835394639): vis, schildpad, walvis en Sea log staan goed op vier horloges, dier nu onder "63 m". Poster gemaakt (`bron/maak_poster.py`) en winkelmaat zonder simulatorbalken (`bron/maak_winkel.py`, 2009aa6). Release `ebb-v1.0.0-proef` met `Ebb.iq` staat. Vraag aan Daan onderaan ontwerp.md.
+
+**In drie regels:**
+1. Af: M1 en M2, .iq en release (proef), winkeltekst definitief, icoon, poster en plaatjes, lijst van Thijs deel A.
+2. Open: keuring plaatjes door Daan, `GARMIN_DEV_KEY` van Thijs, daarna echte release en "klaar" bij deel B; grijze beelden in de e2e-schermen.
+3. Volgende run: run van 2009aa6 nakijken (winkelmaat), Daans oordeel verwerken, kan-punten.
