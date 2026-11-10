@@ -234,46 +234,67 @@ class EbbView extends WatchUi.View {
         dc.clear();
 
         var fase = sessie.fase;
-        var kleur = 0x00AAFF;
-        if (fase == Ebb.FASE_INHOUDEN) {
-            var diepte = sessie.verstreken(nu) / 15000;
-            kleur = (diepte < 1) ? 0x0055AA : 0x000055;
-        }
-        var lijn = h - (sessie.water(nu) * h * 0.8).toNumber() - h / 10;
-        dc.setColor(kleur, kleur);
-        dc.fillRectangle(0, lijn, w, h - lijn);
-        dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(3);
-        dc.drawLine(0, lijn, w, lijn);
-
+        var d = (w < h) ? w : h;
+        var golfFase = (nu % 3142) / 500.0;   // golf schuift ±2 rad per seconde
+        var t = sessie.verstreken(nu);
         var woord = "";
         var groot = "";
+        var klein = "";
+        var yGroot = 0.38;
+        var yKlein = 0.73;
+        var font = EbbTeken.grootFont(dc, d, 0.42);
         if (fase == Ebb.FASE_ADEMEN) {
+            // 1. Ademen: peil volgt de adem, onderin 20% bij uit, 80% bij in.
+            EbbTeken.water(dc, d, 0.2 + 0.6 * sessie.water(nu), EbbTeken.DIEPTE[0], golfFase);
             woord = sessie.isIn(nu) ? "in" : "out";
             groot = sessie.ademhaling(nu).toString();
+            klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
         } else if (fase == Ebb.FASE_INHOUDEN) {
-            woord = "hold";
-            var s = sessie.verstreken(nu) / 1000;
+            // 2. Duiken: bijna alles water, per 15 s een tint dieper, belletjes stijgen, dier in koraal.
+            var tint = t / 15000;
+            EbbTeken.water(dc, d, 0.93, EbbTeken.DIEPTE[tint > 3 ? 3 : tint], golfFase);
+            var stijg = (t % 8000) / 8000.0;
+            EbbTeken.bellen(dc, d, [
+                [0.30, 0.70 - 0.30 * stijg, 0.018], [0.33, 0.85 - 0.30 * stijg, 0.012],
+                [0.70, 0.55 - 0.30 * stijg, 0.015], [0.68, 0.45 - 0.25 * stijg, 0.009]] as Array<Array<Float> >);
+            var soort = EbbProfiel.dier(t);
+            if (soort >= 0) {
+                var p = (t - EbbProfiel.DREMPELS[soort]).toFloat() / EbbProfiel.IN_BEELD_MS;
+                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (0.66 * d).toNumber());
+            }
+            var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
+            klein = s + " m";
+            yGroot = 0.30;
+            yKlein = 0.62;
         } else if (fase == Ebb.FASE_HERSTEL) {
-            woord = "hold in";
-            groot = ((sessie.herstelMs - sessie.verstreken(nu)) / 1000 + 1).toString();
+            // 3. Boven: water schiet in 0,5 s van 93% naar 80%, plons van vijf belletjes.
+            var peil = (t < 500) ? 0.93 - 0.13 * t / 500.0 : 0.80;
+            EbbTeken.water(dc, d, peil.toFloat(), EbbTeken.DIEPTE[0], golfFase);
+            EbbTeken.bellen(dc, d, [[0.22, 0.20, 0.022], [0.30, 0.12, 0.014], [0.50, 0.08, 0.018],
+                [0.70, 0.13, 0.012], [0.78, 0.22, 0.020]] as Array<Array<Float> >);
+            groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
+            klein = "hold · recover";
+            yGroot = 0.30;
+            yKlein = 0.66;
         } else {
-            woord = "done";
-            tekenProfiel(dc, w, h);
+            // 4. Duikprofiel.
+            tekenProfiel(dc, d);
+        }
+        if (woord.length() > 0) {
+            dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, (d * 0.13).toNumber(), Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, h / 6, Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(w / 2, h / 2, Graphics.FONT_NUMBER_THAI_HOT, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        if (EbbBouw.DEMO) {
-            meet(dc, w, fase as Number, groot);
+        if (groot.length() > 0) {
+            dc.drawText(w / 2, (d * yGroot).toNumber() + dc.getFontHeight(font) / 2, font, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-        if (fase == Ebb.FASE_INHOUDEN) {
-            var d = EbbProfiel.dier(sessie.verstreken(nu));
-            if (d >= 0) {
-                var namen = ["a fish", "a jellyfish", "a turtle", "a whale"];
-                dc.drawText(w / 2, (h * 3) / 4, Graphics.FONT_XTINY, namen[d] + " swims by", Graphics.TEXT_JUSTIFY_CENTER);
-            }
+        if (klein.length() > 0) {
+            dc.setColor(fase == Ebb.FASE_INHOUDEN ? EbbTeken.ZACHT : Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, (d * yKlein).toNumber(), Graphics.FONT_XTINY, klein, Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        if (EbbBouw.DEMO) {
+            meet(dc, w, fase as Number, groot, font);
         }
     }
 
@@ -283,11 +304,13 @@ class EbbView extends WatchUi.View {
     private var _maxGeheugen as Number = 0;
     private var _geheugenGemeld as Boolean = false;
 
-    function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String) as Void {
+    // Eis 11 meet de hoogte van de cijfers (ascent; een "1" is nooit 30% breed), breedte staat er ter info bij.
+    function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String, font as Graphics.FontDefinition) as Void {
         if (groot.length() > 0 && !_grootGemeld[fase]) {
             _grootGemeld[fase] = true;
-            var b = dc.getTextWidthInPixels(groot, Graphics.FONT_NUMBER_THAI_HOT);
-            System.println("GROOT fase " + fase + " tekst " + groot + " breedte " + b + " van " + w + " = " + (b * 100 / w) + "%");
+            var b = dc.getTextWidthInPixels(groot, font);
+            var hoog = dc.getFontAscent(font);
+            System.println("GROOT fase " + fase + " tekst " + groot + " breedte " + b + " hoogte " + hoog + " van " + w + " = " + (hoog * 100 / w) + "%");
         }
         var st = System.getSystemStats();
         if (st.usedMemory > _maxGeheugen) {
@@ -299,28 +322,44 @@ class EbbView extends WatchUi.View {
         }
     }
 
-    // Eis 7: duikprofiel na de sessie, een V per ronde, lichtpuntje bij de diepste, koraal bij een nieuw record.
-    // Voorlopig uiterlijk tot de schets van Mila.
-    function tekenProfiel(dc as Graphics.Dc, w as Number, h as Number) as Void {
+    // Eis 7: duikprofiel na de sessie (schets Mila scherm 4): oppervlakte op 32%, per ronde een V tot evenredige
+    // diepte (diepste tot 70%), vlakken in oplopende tint, schuimlijn erover; stip bij de diepste met de tijd links;
+    // koraal en "new best" alleen bij een record, anders lichtgeel en het aantal rondes.
+    function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
         var t = sessie.inhoudtijden;
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, "today", Graphics.TEXT_JUSTIFY_CENTER);
         if (t.size() == 0) {
             return;
         }
-        var p = EbbProfiel.vPunten(t, w / 6, h / 3, (w * 2) / 3, h / 3);
-        dc.setPenWidth(3);
-        dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);
-        for (var i = 0; i + 1 < p.size(); i += 1) {
-            dc.drawLine(p[i][0], p[i][1], p[i + 1][0], p[i + 1][1]);
+        var opp = (d * 0.32).toNumber();
+        var x0 = (d * 0.16).toNumber();
+        var p = EbbProfiel.vPunten(t, x0, opp, (d * 0.68).toNumber(), (d * 0.38).toNumber());
+        dc.setPenWidth(d / 160 > 1 ? d / 160 : 1);
+        dc.drawLine(x0 - d / 25, opp, x0 + (d * 0.68).toNumber() + d / 25, opp);
+        for (var i = 0; i < t.size(); i += 1) {
+            var a = p[2 * i];
+            var tip = p[2 * i + 1];
+            var b = p[2 * i + 2];
+            var k = EbbTeken.DIEPTE[1 + (i < 2 ? i : 2)];
+            dc.setColor(k, k);
+            dc.fillPolygon([[a[0], a[1]], [tip[0], tip[1]], [b[0], b[1]]]);
+            dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(d / 110 > 2 ? d / 110 : 2);
+            dc.drawLine(a[0], a[1], tip[0], tip[1]);
+            dc.drawLine(tip[0], tip[1], b[0], b[1]);
         }
-        var diep = p[2 * EbbProfiel.diepste(t) + 1];
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(diep[0], diep[1], 5);
-        if (koraal) {
-            dc.setColor(0xFF5555, Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(diep[0] - 8, diep[1] + 10, 4);
-            dc.fillCircle(diep[0] + 8, diep[1] + 10, 4);
-            dc.fillCircle(diep[0], diep[1] + 14, 4);
-        }
+        var j = EbbProfiel.diepste(t);
+        var diep = p[2 * j + 1];
+        var kleur = koraal ? EbbTeken.KORAAL : EbbTeken.LICHT;
+        var r = (d * 0.022).toNumber();
+        dc.setColor(kleur, kleur);
+        dc.fillCircle(diep[0], diep[1], r > 3 ? r : 3);
+        var s = t[j] / 1000;
+        dc.drawText(diep[0] - (r * 16) / 10, diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
+            Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(koraal ? EbbTeken.KORAAL : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, koraal ? "new best" : t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
 
