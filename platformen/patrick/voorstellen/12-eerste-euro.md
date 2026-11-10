@@ -25,7 +25,7 @@ Geen bestand om over te nemen; dit is een besluit voor de hoofdchat met Thijs. U
 Elk uur: Olaf, Sanne, Mila (Steam), Bram (Click Joints Pro), Gijs (Garmin), Daan (zijn akkoord is verplicht voor indienen; tot Pro en de ademapp te koop staan). Op afroep: Jet (lancering Bison & Flex). Eén keer per dag: Hans (zie voorstel 05). Samen 6 elk uur in plaats van ±9.
 
 ## Zonder bezoekers geen euro
-Te koop staan is de helft. Per product één kanaal, en wie het doet. Posten blijft bij Thijs (regel), dus: de manager schrijft één eerlijke tekst met plaatje voor één plek waar dat volgens de regels van die plek mag (eerst de regels lezen, les Reddit), en zet die als punt van 5 minuten op de lijst van Thijs. Rollwright: het forum heeft er al één. Click Joints: na goedkeuring één plek kiezen (bijvoorbeeld een forum voor Blender-add-ons; regels nog na te lezen). Garmin en JetBrains: de winkel zelf is het kanaal (nieuwlijsten), dus daar telt de winkelpagina.
+Te koop staan is de helft. Per product één kanaal, en wie het doet. Posten blijft bij Thijs (regel), dus: de manager schrijft één eerlijke tekst met plaatje voor één plek waar dat volgens de regels van die plek mag (eerst de regels lezen, les Reddit), en zet die als punt van 5 minuten op de lijst van Thijs. Rollwright: het forum heeft er al één. Click Joints: de winkels zelf (extensions.blender.org na goedkeuring, Superhive voor Pro) plus een korte film op de productpagina. **Niet Blender Artists met een tekst van ons**: daar zijn door AI geschreven berichten verboden (Abel, `platformen/abel/communities.md`, bron blenderartists.org/t/1598841). Hetzelfde geldt voor het Godot-forum en r/ObsidianMD. Daar alleen iets als Thijs het zelf schrijft. Waar geen AI-regel staat (forum.obsidian.md, JetBrains-forum, Steam) mag een korte, geteste tekst die Thijs leest en voor zijn rekening neemt. Garmin en JetBrains: de winkel zelf is het kanaal (nieuwlijsten), dus daar telt de winkelpagina.
 
 ## Eén nieuwe regel voor iedereen (in rollen en bord)
 Elk product heeft op het bord een regel **"euro-datum"**: de datum waarop het op zijn vroegst geld kan opleveren, en wat daarvoor nog moet. Werk dat de euro-datum niet vervroegt of het product niet verkoopbaarder maakt, gaat naar onderen. Schuift een euro-datum twee keer op, dan beslist de hoofdchat: kleiner of stoppen.
@@ -33,7 +33,7 @@ Elk product heeft op het bord een regel **"euro-datum"**: de datum waarop het op
 ## Wat Thijs hiervoor doet (±15 minuten, deze week)
 - Ja of nee op deze ploeg (1 minuut).
 - Sleutel 1 uit voorstel 11 (5 minuten).
-- Hooguit één post per week van 5 minuten, tekst klaar van de ploeg.
+- Hooguit één post per week van 5 minuten, tekst klaar van de ploeg, alleen op een plek die AI-hulp niet verbiedt.
 - Garmin-verkopersaccount pas als de app af is, niet eerder.
 
 ## Waarom niet anders
