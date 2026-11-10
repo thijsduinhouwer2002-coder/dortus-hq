@@ -1,36 +1,36 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
-HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 6.9 (wacht 0.0): Bram the Bard tunes his lute.
+HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 7.0 (wacht 0.0): Bram the Bard tunes his lute.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 3
 HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
-HOL kroniek 14.1 (wacht 2.5): New page: the Hero. The pit got him.
-HOL kroniek vervallen 15.3: Odo climbs into your hole.
+HOL kroniek 14.2 (wacht 2.5): New page: the Hero. The pit got him.
+HOL kroniek vervallen 15.4: Odo climbs into your hole.
 HOL gegraven kolom 4
 HOL demo klik op Gloop
-HOL kaartje open 18.5: slijm
+HOL kaartje open 18.6: slijm
 HOL demo klik op Buy
 HOL koop 20.0: slijm niveau 1, goud 27
 HOL kaartje dicht 22.6
 HOL kroniek 22.6 (wacht 0.0): Gloop is now Big Gloop. Bigger mouth.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 25.1 (wacht 0.3): Gloop ate Odo. Kept the crown. +6
-HOL kroniek vervallen 26.0: Tibbe has a map. It is wrong.
+HOL kroniek 25.1 (wacht 0.2): Gloop ate Odo. Kept the crown. +6
+HOL kroniek vervallen 26.2: Tibbe has a map. It is wrong.
 HOL gegraven kolom 5
 HOL kroniek 27.6 (wacht 2.5): Bram escaped with a limp.
-HOL kroniek vervallen 28.2: Bram's song got popular. Uh oh.
-HOL kroniek 30.6 (wacht 0.0): Bram limps back to the Spike Pit.
+HOL kroniek 30.2 (wacht 5.0): Bram's song got popular. Uh oh.
 HOL begin: terug (Bram)
-HOL kroniek 33.2 (wacht 2.0): Gloop is flat. Back soon.
-HOL kroniek 34.2 (wacht 0.4): Tibbe tried to lift it. Too heavy.
-HOL kroniek 40.2 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 31.2 (wacht 0.5): Bram limps back to the Spike Pit.
+HOL kroniek 33.8 (wacht 2.5): Gloop is flat. Back soon.
+HOL kroniek 34.8 (wacht 0.9): Tibbe tried to lift it. Too heavy.
+HOL kroniek 40.4 (wacht 0.0): Gloop is up again. Wobbly.
 HOL begin: opgegeten2 (Mara)
-HOL kroniek 41.2 (wacht 0.2): Mara knows all the words. Sadly.
-HOL kroniek 43.8 (wacht 2.1): The Spike Pit wins round two. +9
-HOL kroniek 46.3 (wacht 4.3): Tibbe ran. Hands smell of gold.
-HOL kroniek 48.8 (wacht 1.2): Mara is lunch. Gloop got a bucket. +6
-HOL kroniek vervallen 49.7: Pim brought a torch. And hope.
+HOL kroniek 41.4 (wacht 0.2): Mara knows all the words. Sadly.
+HOL kroniek 43.9 (wacht 2.1): The Spike Pit wins round two. +9
+HOL kroniek 46.4 (wacht 4.3): Tibbe ran. Hands smell of gold.
+HOL kroniek 49.0 (wacht 1.2): Mara is lunch. Gloop got a bucket. +6
+HOL kroniek vervallen 49.8: Pim brought a torch. And hope.
 HOL einde na 50 s, fps=15, goud=48, terugkomers=1
