@@ -1,0 +1,90 @@
+import Toybox.Application;
+import Toybox.Lang;
+import Toybox.Test;
+
+// Eis 7: per ronde een V naar evenredige diepte, lichtpuntje bij de diepste, koraal alleen bij nieuw record.
+(:test)
+function testDuikprofielV(logger as Test.Logger) as Boolean {
+    var p = EbbProfiel.vPunten([60000, 120000, 90000] as Array<Number>, 0, 10, 300, 100);
+    logger.debug("punten " + p);
+    return p.size() == 7
+        && p[1][0] == 50 && p[1][1] == 60
+        && p[3][0] == 150 && p[3][1] == 110
+        && p[5][0] == 250 && p[5][1] == 85
+        && p[6][0] == 300 && p[6][1] == 10
+        && EbbProfiel.diepste([60000, 120000, 90000] as Array<Number>) == 1;
+}
+
+(:test)
+function testKoraalAlleenBijRecord(logger as Test.Logger) as Boolean {
+    var t = [70, 95, 80] as Array<Number>;
+    return EbbProfiel.nieuwRecord(t, 90) && !EbbProfiel.nieuwRecord(t, 95) && !EbbProfiel.nieuwRecord(t, 120)
+        && !EbbProfiel.nieuwRecord([] as Array<Number>, 0);
+}
+
+// Getijdenlijn na 8 weken nagebootste gegevens met overgeslagen dagen: 56 dagen, gaten waar geen sessie was.
+(:test)
+function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
+    EbbOpslag.wis();
+    var o = new EbbOpslag();
+    var vandaag = 20402;
+    var sessies = 0;
+    for (var d = vandaag - 70; d <= vandaag; d += 1) {
+        if (d % 3 != 0) {
+            o.voegToe(d, 60 + (d % 50));
+            sessies += 1;
+        }
+    }
+    var lijn = EbbProfiel.getijden(o, vandaag);
+    var gaten = 0;
+    var fout = 0;
+    for (var i = 0; i < lijn.size(); i += 1) {
+        var d = vandaag - 55 + i;
+        var g = lijn[i];
+        if (g == null) {
+            gaten += 1;
+            if (d % 3 != 0) { fout += 1; }
+        } else if (d % 3 == 0 || g[0] != 60 + (d % 50)) {
+            fout += 1;
+        }
+    }
+    logger.debug("dagen " + lijn.size() + ", gaten " + gaten + ", fout " + fout);
+    EbbOpslag.wis();
+    return lijn.size() == 56 && gaten == 18 && fout == 0;
+}
+
+// Eis 8: met nagebootste klok het juiste dier bij 1:00, 1:30, 2:00 en 3:00; een eerste keer wordt één keer bewaard.
+(:test)
+function testDierenOpTijd(logger as Test.Logger) as Boolean {
+    return EbbProfiel.dier(59999) == -1 && EbbProfiel.dier(60000) == 0 && EbbProfiel.dier(67999) == 0
+        && EbbProfiel.dier(68000) == -1 && EbbProfiel.dier(90000) == 1 && EbbProfiel.dier(120500) == 2
+        && EbbProfiel.dier(150000) == -1 && EbbProfiel.dier(180000) == 3 && EbbProfiel.dier(200000) == -1
+        && EbbProfiel.gehaald(200000) == 3 && EbbProfiel.gehaald(30000) == -1;
+}
+
+(:test)
+function testDierEenKeerBewaard(logger as Test.Logger) as Boolean {
+    Application.Storage.deleteValue("dieren");
+    var eerste = EbbProfiel.eersteKeer(2);
+    var tweede = EbbProfiel.eersteKeer(2);
+    var bits = EbbProfiel.dierenGezien();
+    var ander = EbbProfiel.eersteKeer(0);
+    var bits2 = EbbProfiel.dierenGezien();
+    Application.Storage.deleteValue("dieren");
+    logger.debug("bits " + bits + " daarna " + bits2);
+    return eerste && !tweede && bits == 4 && ander && bits2 == 5;
+}
+
+// Eis 2: na bevestigen nooit meer, behalve na "opnieuw tonen".
+(:test)
+function testVeiligheidsschermEenKeer(logger as Test.Logger) as Boolean {
+    EbbVeilig.opnieuwTonen();
+    var begin = EbbVeilig.moetTonen();
+    EbbVeilig.bevestig();
+    var na = EbbVeilig.moetTonen();
+    var nogmaals = EbbVeilig.moetTonen();
+    EbbVeilig.opnieuwTonen();
+    var weer = EbbVeilig.moetTonen();
+    EbbVeilig.opnieuwTonen();
+    return begin && !na && !nogmaals && weer;
+}

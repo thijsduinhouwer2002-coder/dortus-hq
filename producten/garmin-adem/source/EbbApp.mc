@@ -13,13 +13,76 @@ class EbbApp extends Application.AppBase {
         AppBase.initialize();
     }
 
+    // Stopt de app zonder opslaan (bijvoorbeeld afgesloten van buitenaf), dan wordt de opname weggegooid:
+    // alleen "Save" in het pauzemenu of het einde van de sessie bewaart een activiteit.
+    function onStop(state as Dictionary?) as Void {
+        if (_view != null && (_view as EbbView).opname.loopt()) {
+            (_view as EbbView).weggooien();
+        }
+    }
+
+    private var _view as EbbView or Null = null;
+
     function getInitialView() as [WatchUi.Views] or [WatchUi.Views, WatchUi.InputDelegates] {
         var view = new EbbView();
+        _view = view;
         if (EbbBouw.DEMO) {
             // Testbouw eis 10: 2 ademhalingen van 250 ms, 2 rondes, herstel 500 ms.
             view.sessie = new Ebb.Rondes(2, 250, 2, 500, System.getTimer());
+            // Eis 10, tweede helft: een opname die wordt weggegooid mag geen FIT-bestand geven.
+            var eerst = new EbbOpname();
+            eerst.start();
+            eerst.inhouden(9);
+            eerst.weggooien();
+            System.println("OPNAME eerste proef weggegooid");
+        }
+        if (!EbbBouw.DEMO && EbbVeilig.moetTonen()) {
+            return [new VeiligView(), new VeiligDelegate(view)];
         }
         return [view, new EbbDelegate(view)];
+    }
+}
+
+// Eis 2: veiligheidsscherm bij de eerste start; na bevestigen nooit meer (tenzij "opnieuw tonen").
+class VeiligView extends WatchUi.View {
+    function initialize() {
+        View.initialize();
+    }
+
+    function onUpdate(dc as Graphics.Dc) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
+        var regels = ["Sit or lie down.", "Never in or near water,", "never while driving.", "Dizzy? Stop."];
+        var f = Graphics.FONT_XTINY;
+        var lh = dc.getFontHeight(f);
+        var y = h / 2 - (regels.size() * lh) / 2 - lh / 2;
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        for (var i = 0; i < regels.size(); i += 1) {
+            dc.drawText(w / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        dc.setColor(0x00AAFF, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, y + regels.size() * lh + lh / 2, f, "Press start: OK", Graphics.TEXT_JUSTIFY_CENTER);
+    }
+}
+
+class VeiligDelegate extends WatchUi.BehaviorDelegate {
+    private var _view as EbbView;
+
+    function initialize(view as EbbView) {
+        BehaviorDelegate.initialize();
+        _view = view;
+    }
+
+    function onSelect() as Boolean {
+        EbbVeilig.bevestig();
+        WatchUi.switchToView(_view, new EbbDelegate(_view), WatchUi.SLIDE_LEFT);
+        return true;
+    }
+
+    function onTap(evt as WatchUi.ClickEvent) as Boolean {
+        return onSelect();
     }
 }
 
@@ -33,12 +96,14 @@ class EbbView extends WatchUi.View {
     }
 
     var opname as EbbOpname = new EbbOpname();
+    var koraal as Boolean = false;
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
 
     function onShow() as Void {
         if (!_gestart) {
             _gestart = true;
+            sessie.segmentStart = System.getTimer();
             opname.start();
         }
         _timer.start(method(:tik), 100, true);
@@ -51,6 +116,9 @@ class EbbView extends WatchUi.View {
             return false;
         }
         opname.inhouden((tijd + 500) / 1000);
+        for (var i = 0; i <= EbbProfiel.gehaald(tijd); i += 1) {
+            EbbProfiel.eersteKeer(i);
+        }
         return true;
     }
 
@@ -69,13 +137,10 @@ class EbbView extends WatchUi.View {
             opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
         }
         opslag.bewaar();
-        if (EbbBouw.DEMO) {
-            // Eis 10, tweede helft: een opname die wordt weggegooid mag geen FIT-bestand geven.
-            var tweede = new EbbOpname();
-            tweede.start();
-            tweede.inhouden(9);
-            tweede.weggooien();
-            System.println("OPNAME tweede weggegooid");
+        var record = EbbProfiel.record();
+        koraal = EbbProfiel.nieuwRecord(sessie.inhoudtijden, record * 1000 + 999);
+        if (koraal) {
+            EbbProfiel.bewaarRecord(sessie.inhoudtijden[EbbProfiel.diepste(sessie.inhoudtijden)] / 1000);
         }
         return ok;
     }
@@ -169,10 +234,42 @@ class EbbView extends WatchUi.View {
             groot = ((sessie.herstelMs - sessie.verstreken(nu)) / 1000 + 1).toString();
         } else {
             woord = "done";
+            tekenProfiel(dc, w, h);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, h / 6, Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
         dc.drawText(w / 2, h / 2, Graphics.FONT_NUMBER_THAI_HOT, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (fase == Ebb.FASE_INHOUDEN) {
+            var d = EbbProfiel.dier(sessie.verstreken(nu));
+            if (d >= 0) {
+                var namen = ["a fish", "a jellyfish", "a turtle", "a whale"];
+                dc.drawText(w / 2, (h * 3) / 4, Graphics.FONT_XTINY, namen[d] + " swims by", Graphics.TEXT_JUSTIFY_CENTER);
+            }
+        }
+    }
+
+    // Eis 7: duikprofiel na de sessie, een V per ronde, lichtpuntje bij de diepste, koraal bij een nieuw record.
+    // Voorlopig uiterlijk tot de schets van Mila.
+    function tekenProfiel(dc as Graphics.Dc, w as Number, h as Number) as Void {
+        var t = sessie.inhoudtijden;
+        if (t.size() == 0) {
+            return;
+        }
+        var p = EbbProfiel.vPunten(t, w / 6, h / 3, (w * 2) / 3, h / 3);
+        dc.setPenWidth(3);
+        dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);
+        for (var i = 0; i + 1 < p.size(); i += 1) {
+            dc.drawLine(p[i][0], p[i][1], p[i + 1][0], p[i + 1][1]);
+        }
+        var diep = p[2 * EbbProfiel.diepste(t) + 1];
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.fillCircle(diep[0], diep[1], 5);
+        if (koraal) {
+            dc.setColor(0xFF5555, Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(diep[0] - 8, diep[1] + 10, 4);
+            dc.fillCircle(diep[0] + 8, diep[1] + 10, 4);
+            dc.fillCircle(diep[0], diep[1] + 14, 4);
+        }
     }
 }
 
