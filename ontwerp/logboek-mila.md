@@ -106,3 +106,12 @@
 - Later in run 11: **voorbeeld walvis en schildpad** voor Ebb (`ontwerp/garmin/schets/ebb-dieren2.png`, bron met coördinaten in D/100). Besluit: walvis met spuitje en liggende staart op 1,5 keer de maat, schildpad van opzij met naden in het schild. Afgewezen: eerste schildpad van boven (las als vliegtuigje met een #-schild).
 - Later in run 11: **schermafbeeldingen v3** (Daan keuring 7, alle vier moet-punten; `plan.md` versie 9). Nieuwe opnames van de build van nu (drie runs van mijn workflow, elk ±3 minuten). Besluit: scherm 3 zonder regel tekst. Waarom: met de regel paste Bram met zijn wolkje niet meer in de 3x-uitsnede, en het beeld vertelt de wrok al.
 - Volgende run: keuring 8 verwerken; trailer-opmaak met deze opnames (eerste 3 s de hap of de hoedentoren); Ebb nakijken zodra Gijs de moet-punten bouwde.
+
+## 10 nov 2026, run 12 (handmatig, hoofdchat: "alle zeilen bij Ebb", alleen Garmin)
+- Gelezen: status Garmin (Daan ja op de app 14:15, account ingericht 16:19 NL), keuring Daan in `ontwerp.md`, winkeltekst van Gijs.
+- Winkelbeelden van de vier sterkste ademapps opgehaald met de winkel-API (icoon en schermen). Alles blauw of zwart met een ring, geen figuur, geen grap.
+- **Besluit: icoon wordt een patrijspoort met een koraal walvis.** Waarom: uniek van vorm, onze belofte in één beeld, en de enige warme kleur in de rij (GEZIEN op 96 px tussen de toppers).
+- **Besluit: poster "Hold your breath. Meet the whale." en zes kaarten met één kop en één koraalwoord**, horloge zakt in zee. Waarom: korte grap in plaats van een opsomming zoals Bitochi; prijsbelofte op de poster. Afgewezen: eerste versie waarin de regel onderaan over de horlogeband liep, en water dat de kast afsneed.
+- **Besluit: Barlow Condensed blijft** voor winkel en cijfers. Waarom: leest groot en is al de letter van de app.
+- Beelden op de tak van Gijs (alleen `winkel/`), uitleg `ontwerp/garmin/ebb-winkel.md`, wensen bij Gijs, keuring gevraagd bij Daan.
+- Volgende run: poster en kaart 1 tot 3 opnieuw zodra de nieuwe walvis en schildpad gebouwd zijn.
