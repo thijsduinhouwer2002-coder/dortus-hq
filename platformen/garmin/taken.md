@@ -7,8 +7,8 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).
   - [x] Eis 2, 7, 8: veiligheidsscherm, duikprofiel en getijdenlijn, dieren, 6 toetsen (10 nov 06:50).
   - [x] Eis 10 (10 nov 07:20, run 42773779291): opname goed op drie horloges, na weggooien geen bestand. Simulator start per horloge opnieuw. Open voor een echt horloge: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s.
-  - [ ] Eis 11: schermafbeeldingen van alle negen horloges (nu vier), groot getal minstens 30% van de breedte meten.
-  - [ ] Eis 12: geheugen loggen op het zwaarste moment (duikprofiel en getijdenlijn met dier), overal onder 80%.
+  - [ ] Eis 11 bijna: schermen van alle negen staan op de tak `schermen`, meting in het log. MIP 30%, AMOLED 26 tot 27%; grotere letter in 8492990, uitslag nakijken.
+  - [x] Eis 12 (10 nov 08:00, run 42777910101): hoogste geheugen 2 tot 3% op alle negen horloges. Opnieuw meten als de getijdenlijn erbij komt.
   - [ ] Instellingen op het horloge (ademhalingen, tempo, rondes, herstel, eigen patroon, trillen, veiligheidsscherm opnieuw), rustig ademen in het scherm, startmenu.
   - [x] Pauze zet de klok stil (10 nov 07:30): klok en opname staan stil achter het pauzemenu, doorgaan of terug gaat verder waar je was; 2 toetsen groen (run 42775398560).
   - [ ] Stijl van Mila: schermen 1 tot 4 (ademen, duiken met dieren en belletjes, boven, duikprofiel) ingebouwd 10 nov 07:30 in `Teken.mc` en `EbbApp.mc`, uitslag in de simulator nakijken. Nog te doen: scherm 5 (getijdenlijn per week) tekenen.

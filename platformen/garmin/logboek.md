@@ -87,3 +87,14 @@
 - Oplossing in de toets: de simulator start per horloge opnieuw, zoals een echt horloge elke app vers opent (commit 6242ab4). Run 42773779291: **eis 10 goed** op fenix7, vivoactive5 en fenix847mm (training 10, subsport 62, 2 laps, inhoud [3, 5], beste 5) en na weggooien 0 FIT-bestanden (GEZIEN).
 - Proef zonder herstart op hetzelfde horloge: weer een lege lap vooraan ([None, 3, 5]), de sessie telt wel 2 laps. Dus: na een weggegooide opname krijgt de volgende opname in dezelfde simulator een lege lap van 0 s. Of een echt horloge dit ook doet weten we niet; open punt voor de test op een echt horloge (komt in het ontwerp bij de risico's). Gevolg voor de gebruiker zou klein zijn: een extra rondje van 0:00 in Garmin Connect.
 - Stop na ±20 minuten. Volgende run (als de hoofdchat mij start): eis 11 (schermen van alle negen, groot getal 30%) en eis 12 (geheugen).
+
+## 10 nov 2026 07:24 (Gijs, dertiende run, met de hand gestart door de hoofdchat op verzoek van Thijs)
+- Pauze zet nu de klok en de opname stil; doorgaan of terug in het pauzemenu gaat verder waar je was. 2 toetsen groen (run 42775398560).
+- Stijl van Mila ingebouwd (`Teken.mc`): golvend water met schuimrand, peil volgt de adem (20 tot 80%), duiken met vier tinten per 15 s, stijgende belletjes en de vier dieren in koraal, boven komen met plons, duikprofiel met V's, stip en "new best" of het aantal rondes. Schermen nagekeken op fenix7, fr255 en venu3: lijkt sterk op de schets. Fout gezien: de tijd bij de diepste ronde stond in een gekleurd blok; hersteld in 8492990.
+- Eis 11 en 12 worden nu gemeten op alle negen horloges (testbouw logt hoogte van het cijfer en het hoogste geheugen). Run 42777910101: geheugen 2 tot 3% overal (eis 12 goed, GEZIEN); cijfer 30% op de MIP-horloges, 26 tot 27% op venu2, venu3 en vivoactive5. Grotere letter toegestaan in 8492990 (run 17).
+- Eis 10 blijft goed met het nieuwe uiterlijk (drie horloges, 0 bestanden na weggooien).
+
+**In drie regels:**
+1. Af: eis 1 tot en met 10 en 12, pauze, schermen 1 tot 4 in de stijl van Mila.
+2. Open: eis 11 (cijfer op AMOLED, uitslag run van 8492990 lezen; let op dat het cijfer niet buiten 75% van de breedte valt), scherm 5 getijdenlijn, instellingen op het horloge, rustig ademen in het scherm, startmenu.
+3. Volgende run: run van 8492990 nakijken (log onderaan en tak `schermen`), dan getijdenlijn en startmenu; daarna Mila vragen te keuren op de schermen.
