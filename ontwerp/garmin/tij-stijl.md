@@ -31,3 +31,12 @@ Iedere concurrent toont een timer (kale tekst) of een cirkel die groter en klein
 
 ## Wat ik nog maak (zodra Hans ja zegt)
 Een klikbare schets van de vier schermen (ademen, duiken, boven komen, duikprofiel) op 260 en 454 px, en de winkelplaatjes. Gijs bouwt, ik keur op het echte scherm in de simulator.
+
+## Schets van de schermen (Mila 10 nov run 10, na het ja van Hans)
+Bestanden: `ontwerp/garmin/schets/ebb-schets-260.png` en `-454.png` (alle vijf naast elkaar), losse schermen `ebb-<n>-<naam>-<D>.png`. Bron met alle maten als deel van de diameter D: `ontwerp/garmin/bron/ebb_schets.py`. Alleen MIP-kleuren, geen verloop, geen zachte randen, dus 1 op 1 na te bouwen met `fillPolygon`, `drawLine`, `drawCircle` en `drawText`.
+1. **Ademen:** water tot 58% (peil volgt de adem: onderin 20% bij uit, 80% bij in), golf van 2,5 golven, amplitude 2,5% D, schuimrand 0x55FFFF van D/110 dik. Fasewoord klein bovenaan op 13% (0x55AAAA), groot getal = ademhaling (30% D hoog), daaronder "of 30 · round 2".
+2. **Duiken:** water tot 93%, kleur per 15 s dieper: 0x00AAAA, 0x0055AA, 0x0000AA, 0x000055. Groot getal = inhoudtijd, "94 m" eronder. Drie of vier belletjes (alleen omtrek, 0x55AAFF) die stijgen. Dier in koraal 0xFF5555 (hier de kwal van 1:30), zwemt in ±6 s van rechts naar links.
+3. **Boven (herstel):** water schiet in 0,5 s naar 80% met vijf belletjes boven de lijn, aftellen van 15.
+4. **Duikprofiel:** oppervlakte op 32%, per ronde een V tot evenredige diepte (diepste tot 70%), vlakken in oplopende tint, schuimlijn erover. Diepste: stip 2,2% D met de tijd links ervan; koraal en "new best" alleen bij een record over alle tijd, anders lichtgeel 0xFFFFAA en "3 rounds".
+5. **Week:** getijdenlijn door de beste tijd per dag over 56 dagen, gaten waar geen sessie was, daaronder het gemiddelde van 7 dagen als vlak 0x0000AA.
+Besluit: tekst blijft binnen 75% van de breedte (geen tekst langs de rand van de cirkel), want op 260 px valt anders de rand weg (GEZIEN). Waarom de kwal koraal: één warme kleur in al dat blauw is het enige wat je met een halve blik op je pols ziet.
