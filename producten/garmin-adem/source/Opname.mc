@@ -2,6 +2,7 @@ import Toybox.Activity;
 import Toybox.ActivityRecording;
 import Toybox.FitContributor;
 import Toybox.Lang;
+import Toybox.Sensor;
 
 // Eis 10: elke sessie wordt een activiteit (training, subsport ademhaling 62), één lap per ronde,
 // eigen veld "inhoud" (s) op de lap en "beste" (s) op de sessie. Label en eenheid in resources/fitcontributions.
@@ -32,6 +33,11 @@ class EbbOpname {
     function start() as Void {
         if (_sessie != null || !(Toybox has :ActivityRecording)) {
             return;
+        }
+        // Hartslag (besluit 22:53): polssensor aan, zodat de opname hartslag in de records zet en het
+        // inhoudscherm de live hartslag krijgt. In de simulator komt er geen hartslag (run 42912105886: 0 records met hartslag).
+        if (Sensor has :setEnabledSensors) {
+            Sensor.setEnabledSensors([Sensor.SENSOR_HEARTRATE] as Array<Sensor.SensorType>);
         }
         var s = ActivityRecording.createSession({
             :sport => Activity.SPORT_TRAINING,
