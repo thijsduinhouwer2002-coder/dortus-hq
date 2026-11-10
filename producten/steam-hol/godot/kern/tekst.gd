@@ -47,6 +47,18 @@ func zet(r: Array[String], g: int) -> void:
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
+# Het vak van het paneel bij hover (drie regels), in vensterpixels: strook.gd laat de muis daar vangen, zodat het
+# paneel op 96 px niet dichtklapt als de muis boven het maaiveld komt (zelfde rekensom als _draw).
+func hover_vak() -> Rect2:
+	var maat := 12 if hoogte < 110 else 13
+	var regel_h := maat + 4
+	var binnen := 5 * schaal
+	var x := breedte - vak_breedte() - 8
+	var y0 := hoogte - 2 - (binnen - 2) - regel_h * 4
+	var links := x - binnen + 4
+	var top := y0 - binnen + 2
+	return Rect2(links, top, breedte - links, hoogte - top)
+
 func _draw() -> void:
 	var font := ThemeDB.fallback_font
 	var maat := 12 if hoogte < 110 else 13

@@ -106,9 +106,8 @@ func _ready() -> void:
 	var boven := (spel_h - HOL.H) * schaal   # lege (doorzichtige) rand bovenaan bij 96 px
 	# klikken gaan door de lucht en het gras heen naar het venster erachter; alleen het hol zelf (onder het maaiveld)
 	# vangt de muis (graven, hover op het paneel). Zo blokkeert de strook nooit meer dan de rijen van het hol.
-	var vangt := boven + HOL.OPP * schaal
-	DisplayServer.window_set_mouse_passthrough(PackedVector2Array([
-		Vector2(0, vangt), Vector2(scherm.size.x, vangt), Vector2(scherm.size.x, hoogte), Vector2(0, hoogte)]))
+	vangt_y = boven + HOL.OPP * schaal
+	_muis_vlak(false)
 
 	hol = Node2D.new()
 	hol.set_script(HOL)
@@ -512,13 +511,32 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion and not tekst.hover:
 		tekst.hover = true
 		tekst.queue_redraw()
+		_muis_vlak(true)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_MOUSE_EXIT and tekst:
 		tekst.hover = false
 		tekst.queue_redraw()
+		_muis_vlak(false)
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		bewaar()
+
+# Welk deel van het venster de muis vangt. Normaal alleen het hol; bij hover ook het paneel met drie regels (L-vorm),
+# want dat reikt bij 96 px tot boven het maaiveld en zou anders meteen weer dichtklappen (controleur 00:30). Lucht en gras
+# naast het paneel laten klikken altijd door.
+var vangt_y := 0
+func _muis_vlak(paneel: bool) -> void:
+	var w := DisplayServer.window_get_size()
+	var y := float(vangt_y)
+	var vlak := PackedVector2Array([Vector2(0, y), Vector2(w.x, y), Vector2(w.x, w.y), Vector2(0, w.y)])
+	if paneel and tekst and tekst.has_method("hover_vak"):
+		var r: Rect2 = tekst.hover_vak()
+		var top := clampf(r.position.y, 0.0, y)
+		var links := clampf(r.position.x, 0.0, float(w.x))
+		if top < y:
+			vlak = PackedVector2Array([Vector2(0, y), Vector2(links, y), Vector2(links, top), Vector2(w.x, top),
+				Vector2(w.x, w.y), Vector2(0, w.y)])
+	DisplayServer.window_set_mouse_passthrough(vlak)
 
 # Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
 func zet_hoogte(h: int) -> void:
