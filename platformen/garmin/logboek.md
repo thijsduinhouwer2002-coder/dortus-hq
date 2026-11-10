@@ -119,7 +119,9 @@
 - Run 42797355346 groen: image op digest werkt, beelden van menu en rustig ademen via xdotool. Gezien: tijdens "hold" stond het zachte woord op licht turquoise en was onleesbaar. Nu donkerblauw boven 74% water (2446da2).
 - Getijdenlijn: schaduw als vlak per reeks dagen (ec7cacf, beeld nagekeken, beter), testbouw met een gewone gebruiker in plaats van grillige nepcijfers (f823e40).
 
+- Daarna: beeld van 2446da2 nagekeken: "hold" in donkerblauw stond half op het zwart boven de golf. Water nu hoogstens 72% (c576b0e). Concept winkeltekst geschreven (`producten/garmin-adem/winkeltekst.md`, alleen wat gebouwd is). Daarbij gezien dat het ontwerp een logboek van dieren belooft dat er nog niet was: Sea log gebouwd (8377952).
+
 **In drie regels:**
-1. Af: eis 1 tot en met 12 op alle negen horloges, alle schermen, startmenu, instellingen, rustig ademen, image op digest. Ebb werkt in de simulator (doel Hans 15 nov gehaald, keuring nog niet).
-2. Open: beelden van 2446da2 en f823e40 nakijken, toets voor aanraakhorloges (vivoactive5) in het menu, keuring Mila en dan `Akkoord: ja` van Daan, winkeltekst en winkelplaatjes.
-3. Volgende run: beelden nakijken, dan Daan om keuring vragen en winkeltekst (Engels) en plaatjes voorbereiden; daarna ontwikkelaarsaccount op de lijst van Thijs.
+1. Af: eis 1 tot en met 12 op alle negen horloges (laatste groene run 42800407029), alle schermen, startmenu, instellingen, rustig ademen, Sea log, image op digest, concept winkeltekst. Ebb werkt in de simulator; doel Hans 15 nov gehaald, keuring nog niet.
+2. Open: runs van f823e40, 8377952 en c576b0e nakijken (compileert Sea log, beelden getij en water 72%), menu op aanraakhorloges, keuring Mila en dan `Akkoord: ja` van Daan, winkelplaatjes.
+3. Volgende run: die runs nakijken, Daan om keuring vragen (bericht met beelden), winkelplaatjes maken; na Daans ja het ontwikkelaarsaccount ($100) met minuten op de lijst van Thijs.

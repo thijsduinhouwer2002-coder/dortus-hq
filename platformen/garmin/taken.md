@@ -13,7 +13,9 @@ Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md
   - [x] Beeld d nagekeken (run 42796582538 groen, artefact): getijdenlijn staat op alle horloges, "best 2:08", "44 days". Maar het ziet er nog uit als een staafgrafiek met losse streepjes.
   - [x] Getijdenlijn: schaduw als vlak per reeks dagen, dikkere lijn (ec7cacf, beeld nagekeken). Testbouw met gewone gebruiker (f823e40), beeld nog nakijken.
   - [x] Beelden startmenu en rustig ademen (run 42797355346, `*-m.png` en `*-r.png`): menu werkt, Box loopt op fr265 en fenix847mm. Op fenix7 ging de eerste toets verloren, op vivoactive5 (aanraakscherm) start Down geen Box.
-  - [ ] Fasewoord donkerblauw boven hoog licht water (2446da2): beeld nakijken, "hold" was onleesbaar op turquoise.
+  - [x] Fasewoord: donkerblauw leesbaar maar stond half op zwart (run 42800407029). Nu water hoogstens 72% in plaats van 80% (c576b0e), beeld nakijken.
+  - [x] Sea log: scherm met de dieren die je zag, in het startmenu (8377952), compileren en beeld nog nakijken.
+  - [x] Concept winkeltekst Engels: `producten/garmin-adem/winkeltekst.md` op de tak (alleen wat gebouwd is), eindtekst Chris, keuring Daan.
   - [x] `onStop` gooit ook een onbewaarde rustige opname weg (2f74a56).
   - [x] Image op digest `sha256:64958e8f...` (2f74a56).
   - [ ] Keuring: Mila op alle schermen, daarna Daan `Akkoord: ja`.
