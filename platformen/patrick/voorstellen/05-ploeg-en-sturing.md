@@ -16,13 +16,11 @@ Waarom: 1.640 commits in 3 dagen en 0 euro. Niet omdat er slecht gebouwd wordt (
 ## 2. Hooguit drie producten tegelijk, elk met een lanceerdatum (advies: ja)
 **Bewijs.** Nu lopen Steam (5 Claudes), TikTok (2), Garmin (1 plus Mila), Click Joints en Bison & Flex (wachten), Rollwright (geparkeerd). 8 Claudes elk uur, ±192 runs per dag. Op 9 nov veranderde de ploeg zes keer (besluiten 9 nov). Het Steam-team van vijf schrijft elkaar veel: 104 commits aan berichten op één dag, en er was al een samenvoegfout (commit "Kunst-LEESMIJ van Daan hersteld (samenvoegfout van Olaf)").
 **Bron.** Agent teams-docs (bron 11): begin met 3 tot 5, "coordination overhead increases", lang onbewaakt draaien vergroot verspild werk. Multi-agent kost ±15 keer de tokens van een chat (bron 10).
-**Voorstel.**
-- Steam: 3 Claudes elk uur (Olaf bouwt, Sanne spel, Mila beeld). Bram terug naar Click Joints zodra die goedgekeurd is, anders mee als tweede bouwer maar om de 2 uur.
-- TikTok: Tess en Jet om de 2 uur (er is veel wachten op Thijs: KvK, testaccount).
-- Garmin: Gijs om de 2 uur tot er een productkeuze is; pas daarna elk uur.
-- Daan: eindakkoord voor indienen, om de 2 uur.
-- Elk product heeft in het bord een **richtdatum voor lancering**. Schuift die twee keer: Thijs beslist doorgaan of stoppen.
-**Oplevert (GOK):** ±40% minder runs, minder heen en weer, zelfde bouwtempo op Steam. **Keuze Thijs** (hij zei 9 nov 21:15 dat verbruik nu niet belangrijk is; mijn punt is niet alleen verbruik maar ook het overleg).
+**Voorstel.** De ploeg staat in `12-eerste-euro.md` (bijgewerkt in run 2, na het bericht van Thijs over de eerste euro; dat gaat voor wat hier eerst stond):
+- Elk uur: Olaf, Sanne, Mila (Steam), Bram (Click Joints Pro tot hij te koop staat), Gijs (Garmin), Daan (akkoord voor indienen).
+- Op afroep: Jet (lancering Bison & Flex). Stil tot de KvK-datum vaststaat: Tess (Klopt).
+- Elk product heeft in het bord een **euro-datum** (vroegste datum van de eerste euro). Schuift die twee keer: de hoofdchat beslist kleiner of stoppen.
+**Oplevert (GOK):** ±30% minder runs, minder heen en weer, zelfde bouwtempo op Steam. **Keuze Thijs** (hij zei 9 nov 21:15 dat verbruik nu niet belangrijk is; mijn punt is niet alleen verbruik maar ook het overleg).
 
 ## 3. Agents en controleurs alleen waar ze iets toevoegen
 **Bewijs.** `platformmanager.md` stap 3 zegt: elke run "1 of 2 agents" (bouwer en controleur). 187 commits sinds 8 nov noemen de controleur. Bij kleine taken ("hoed met hap alleen als hij echt gebeten is", "bijnaam Hoard-Toucher") is een aparte controleur duur.

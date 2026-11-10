@@ -9,23 +9,25 @@ Bijgehouden door de hoofdchat en Hans, in dezelfde commit als het besluit dat ie
 Laatst bijgewerkt: 10 nov 2026, 09:00 (hoofdchat).
 
 ## Koers
-- Zo snel mogelijk echt geld; liever een eerlijke gok met kans op geld dan zekerheid zoeken (Thijs 9 nov 22:56). Grenzen: geen platformregels breken, niets nep, geen grote bedragen zonder Thijs.
+- Eerst de eerste eerlijke euro, daarna spreiden; liever een eerlijke gok met kans op geld dan zekerheid zoeken (Thijs 9 nov 22:56). Grenzen: geen platformregels breken, niets nep, geen grote bedragen zonder Thijs.
 - Tussendoel: 20 dec 2026 één product met 1.000+ gebruikers en de eerste € 100 per maand.
 - Zoeken naar nieuwe platformen staat stil (Thijs 9 nov 18:30). Een nieuwe zoekronde beslist Thijs.
 
 ## Producten en wie
-| Product | Platform | Eigenaar | Team | Stand en volgende stap |
-|---|---|---|---|---|
-| Het Hol | Steam | Olaf (beslist bouw) | Bram, Sanne, Mila (stijl), Daan (eindakkoord) | bouwen naar lancering; Steamworks en $100 bij Thijs (23:05); uitbrengen pas als Thijs het spel goed vindt |
-| Klopt (boekhoudkoppeling) | TikTok Shop EU | Tess (kiest) | Jet (bouwt), Daan | kern plus Moneybird eerst, dan Italië; zonder KvK bouwen |
-| Click Joints | Blender | Bram | Daan | in keuring sinds 8 nov; bij goedkeuring Chris aan; Pro naar Superhive |
-| Bison & Flex | JetBrains | Jet | Daan | in keuring; bij goedkeuring zichtbaar maken (Thijs, 2 min), Chris aan |
-| Rollwright | Obsidian | Olaf | | geparkeerd: alleen bugs; hooguit één versie per week via Thijs |
-| (nog te kiezen) | Garmin Connect IQ | Gijs | Mila | product kiezen dat vanaf dag 1 betaald is |
+Euro-datum: de vroegste datum waarop het product eerlijk geld kan opleveren (voorstel 12). Werk dat die datum niet vervroegt, gaat naar onderen.
+
+| Product | Platform | Eigenaar | Te koop? | Euro-datum (GOK) | Volgende stap |
+|---|---|---|---|---|---|
+| Click Joints Pro (scharnier) | Blender, verkoop via Polar | Bram | nee | ±eind week 46 | scharnier naar main, akkoord Daan, Polar-product (Thijs), losse pagina |
+| Ademapp ($4,99) | Garmin Connect IQ | Gijs | nee | eind nov | ja Hans 08:44, bouwen, verkopersaccount Thijs pas als de app af is |
+| Bison & Flex (Pro $19/$49) | JetBrains | Jet (op afroep) | na keuring | half dec (30 dagen proef) | bij goedkeuring zichtbaar maken (Thijs, 2 min) |
+| Rollwright (skins $6) | Obsidian | hoofdchat | ja | nu | geparkeerd, alleen bugs |
+| Het Hol | Steam | Olaf | nee | 14 tot 18 jan 2027 (Companion Fest) | bouwen; uitbrengen pas als Thijs het spel goed vindt |
+| Klopt | TikTok Shop EU | Tess (stil) | nee | 4 tot 8 weken na de KvK | stil tot de KvK-datum vaststaat; code blijft op main |
 
 ## Ploeg
-- Elk uur: Olaf, Bram, Sanne, Mila, Daan, Tess, Jet, Gijs. Hans 08:44 en 20:44 (zie voorstel 05 voor een andere verdeling; vul in wat Thijs kiest).
-- Uit: Vera, Noor, Kees, Lotte (zoeken), Chris (aan bij een goedkeuring), Stijn.
+- Elk uur: Olaf, Sanne, Mila (Steam), Bram (Click Joints), Gijs (Garmin), Daan (akkoord). Hans 08:44. Op afroep: Jet. (Vul in wat Thijs om 09:00 kiest uit voorstel 05 en 12.)
+- Uit: Tess (tot KvK-datum), Vera, Noor, Kees, Lotte (zoeken; geen nieuw platform tot de eerste euro), Chris, Stijn, Abel (na 10 nov 08:19).
 
 ## Vaste afspraken die nog gelden (met datum)
 - Bovenaan de lijst van Thijs het blok "Vandaag van Thijs", samen hooguit 15 minuten (Hans 9 nov 20:44).
