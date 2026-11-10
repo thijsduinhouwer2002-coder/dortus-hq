@@ -48,3 +48,12 @@
 - Volgende run (05:13): rapport nog één keer helemaal lezen op lengte (top 5 korter: "Wat anderen doen"-regels kunnen naar de voorstellen), nieuwe berichten, kijken of Hans/Gijs iets veranderd hebben, laatste getallen (Click Joints keuring, Bison & Flex).
 - Daarna: rapport ingekort en omgebouwd: bovenaan "wie is wie" en "Top 5 in het kort" (vijf regels), dan de vijf ja/nee-vragen, dan de uitwerking; "Hoe doorvoeren" en de controle staan nu onderaan onder "Voor de hoofdchat". Koerszin zit in vraag 2. lijst-thijs is 86 KB (was 82 in het rapport).
 - Einde run 3. Run 4 (05:13): nieuwe berichten, rapport op lengte (nu ±2.200 woorden; doel: alles boven "Top 5 uitgewerkt" in 3 minuten), laatste stand Click Joints en Bison & Flex, Gijs en Hans.
+
+## Run 4, 10 nov 2026, 04:14 tot ~05:00 UTC
+- Geen nieuwe berichten voor mij. Repo stond al vers; fetch met timeout werkte.
+- Nachtmeting bijgewerkt tot 04:15 UTC (±150 commits): Jet ±37 aan Klopt (292 tests om 03:18), Steam ±60, Click Joints Pro 0, Garmin 0 (Gijs acht runs gestopt, wacht op Hans; hoofdchat plande een extra Hans-run om 05:28 UTC). In rapport punt 1 en kort.
+- Vondst Abel verwerkt: Blender Artists, Godot-forum en r/ObsidianMD verbieden door AI geschreven berichten. Mijn voorstel "ploeg schrijft, Thijs post" klopte daar niet. Aangepast in 12 en rapport punt 1: voor Click Joints zijn de winkels het kanaal.
+- Cijfer Rollwright: 23 downloads (community-plugin-stats.json, GEZIEN 04:20), niet 26.
+- list_triggers (alleen lezen): opdracht Tess zegt nog "elke 3 uur" en "bouw pas na ja van Hans"; herinnering van woensdag noemt Jet "uit". In rapport punt 3. Elk uur draaien nu ±10 Claudes.
+- Blender: Click Joints nog 404 (keuring loopt sinds 8 nov 22:18).
+- Rapport is af na deze run. Run 5 (07:13): geldplan van Hans (organisatie/geldplan.md, komt na 05:28 UTC) naast mijn punt 1 en 12 leggen en tegenstrijdigheden in het rapport noemen; nieuwe berichten; verder alleen schaven.
