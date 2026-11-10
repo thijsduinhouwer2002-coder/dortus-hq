@@ -12,11 +12,16 @@ const WEBHOOK_BUDGET = 50;
 
 const tekst = (status: number, body = "") => new Response(body, { status });
 
-/** Verwachte handtekening voor deze body. */
-export async function handtekening(appKey: string, appSecret: string, rauw: string): Promise<string> {
+/** Over de ruwe bytes (app_key ervoor), zodat een BOM of ongeldige UTF-8 niet stil verandert wat getekend is. */
+export async function handtekening(appKey: string, appSecret: string, rauw: string | Uint8Array): Promise<string> {
   const enc = new TextEncoder();
   const sleutel = await crypto.subtle.importKey("raw", enc.encode(appSecret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  const mac = new Uint8Array(await crypto.subtle.sign("HMAC", sleutel, enc.encode(appKey + rauw)));
+  const kop = enc.encode(appKey);
+  const body = typeof rauw === "string" ? enc.encode(rauw) : rauw;
+  const data = new Uint8Array(kop.length + body.length);
+  data.set(kop, 0);
+  data.set(body, kop.length);
+  const mac = new Uint8Array(await crypto.subtle.sign("HMAC", sleutel, data));
   return Array.from(mac, (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
@@ -37,12 +42,17 @@ export async function webhook(request: Request, o: Omgeving, nu: number): Promis
   if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY) return tekst(413);
   const bytes = new Uint8Array(await request.arrayBuffer());
   if (bytes.length > MAX_BODY) return tekst(413);
-  const rauw = new TextDecoder().decode(bytes);
 
-  // Handtekening eerst, vóór JSON.
+  // Zonder app key of secret valt er niets te controleren: nooit doorlaten.
+  if (!o.tiktokApp.appKey || !o.tiktokApp.appSecret) {
+    o.log("webhook: TIKTOK_APP_KEY of TIKTOK_APP_SECRET ontbreekt");
+    return tekst(500);
+  }
+  // Handtekening eerst, over de ruwe bytes, vóór JSON.
   const kop = request.headers.get("authorization") ?? "";
-  const verwacht = await handtekening(o.tiktokApp.appKey, o.tiktokApp.appSecret, rauw);
+  const verwacht = await handtekening(o.tiktokApp.appKey, o.tiktokApp.appSecret, bytes);
   if (!kop || !gelijk(kop, verwacht)) return tekst(401);
+  const rauw = new TextDecoder().decode(bytes);
 
   let bericht: unknown;
   try {
@@ -68,7 +78,7 @@ export async function webhook(request: Request, o: Omgeving, nu: number): Promis
       if (!uit.ontkoppeld) o.log(`webhook type 6: shop_id ${shopId} onbekend of al ontkoppeld`);
       return tekst(200, "ok");
     } catch (e) {
-      o.log(`webhook type 6: ontkoppelen van shop_id ${shopId} mislukt: ${String((e as Error)?.message ?? e)}`);
+      o.log(`webhook type 6: ontkoppelen van shop_id ${shopId} mislukt of niet afgemaakt (kijk of ontkoppeld_op gezet is): ${String((e as Error)?.message ?? e)}`);
       return tekst(500);
     }
   }

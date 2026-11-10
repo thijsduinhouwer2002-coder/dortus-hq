@@ -122,3 +122,24 @@ test("(o) export default fetch: env onbruikbaar geeft 500, anders naar de webhoo
   const r = await worker.fetch(await verzoek(type6()), { TOKEN_SLEUTELS: "geen json" } as any);
   assert.equal(r.status, 500);
 });
+
+test("(o) handtekening over ruwe bytes: BOM telt mee; leeg secret geeft 500 zonder iets te doen", async () => {
+  const { db, o, log } = await opzet();
+  const metBom = new Uint8Array([0xef, 0xbb, 0xbf, ...new TextEncoder().encode(type6())]);
+  const goed = await handtekening(APP.appKey, APP.appSecret, metBom);
+  assert.notEqual(goed, await handtekening(APP.appKey, APP.appSecret, type6()));
+  const r = await webhook(new Request(`https://k${WEBHOOK_PAD}`, { method: "POST", headers: { authorization: goed }, body: metBom }), o, NU);
+  // Handtekening over de bytes met BOM klopt; TextDecoder haalt de BOM daarna weg, dus de JSON is te lezen.
+  assert.equal(r.status, 200);
+  assert.ok(rij(db, "w1")!.ontkoppeld_op);
+  // Zonder BOM getekend maar met BOM verstuurd: andere bytes, dus 401.
+  const { db: db2, o: o2 } = await opzet();
+  const r2 = await webhook(new Request(`https://k${WEBHOOK_PAD}`, { method: "POST", headers: { authorization: await handtekening(APP.appKey, APP.appSecret, type6()) }, body: metBom }), o2, NU);
+  assert.equal(r2.status, 401);
+  assert.equal(rij(db2, "w1")!.ontkoppeld_op, null);
+  const voor = JSON.stringify(rij(db, "w1"));
+  o.tiktokApp = { appKey: "abcdef", appSecret: "" };
+  assert.equal((await webhook(await verzoek(type6(), { kop: await handtekening("abcdef", "x", type6()) }), o, NU)).status, 500);
+  assert.equal(JSON.stringify(rij(db, "w1")), voor);
+  assert.ok(log.some((l) => l.includes("TIKTOK_APP_SECRET")));
+});
