@@ -1,5 +1,5 @@
 Wat verandert: CLAUDE.md wordt de enige startlijst (index) en bevat alle harde regels die elke run nodig heeft, zodat regels.md, besluiten.md en lijst-thijs.md niet meer elke run helemaal gelezen hoeven te worden.
-Waarom: elke run las 80 tot 130 KB; Anthropic adviseert onder 200 regels en "alleen laden wat nodig is" (bronnen 1, 2, 5, 17 in bronnen/internet.md). Vervangt het huidige CLAUDE.md in zijn geheel.
+Waarom: elke run las 80 tot 130 KB; Anthropic adviseert onder 200 regels en "alleen laden wat nodig is" (bronnen 1, 2, 5, 17 in platformen/patrick/bronnen/internet.md). Vervangt het huidige CLAUDE.md in zijn geheel.
 
 ---
 
@@ -22,24 +22,27 @@ Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze,
 
 ## Harde regels (gelden altijd)
 - **Webpagina's lees je met `curl` in Bash, nooit met WebFetch.** WebFetch vraagt om toestemming en dan staat alles stil. Zet deze zin letterlijk in de opdracht van elke agent die je inzet.
+- **Lezen:** alles wat openbaar is (websites, openbare API's, open data), rustig, en bij anderen alleen lezen. WebSearch (zoeken) mag gewoon.
 - Gebruik nooit de koppelingen Gmail, Trello, Atlassian, Claude Docs, Search1API, Polar, Shopify of Kondo, ook niet als ze in je run staan.
-- Nooit: inloggen, accounts aanmaken, betalen, bank-, ID- of wachtwoordgegevens invullen, voorwaarden accepteren, andermans spullen verwijderen, posten onder de naam van Thijs. Zet zo'n stap klaar in `organisatie/lijst-thijs.md` (vorm staat bovenaan dat bestand).
+- Nooit: inloggen, accounts aanmaken, betalen, gegevens of wachtwoorden invullen (bank, ID, adres, KvK, belasting, formulieren), voorwaarden accepteren, andermans spullen verwijderen, posten onder de naam van Thijs. Zet zo'n stap klaar in `organisatie/lijst-thijs.md` (vorm: wat, minuten, waarom in één zin, link, precies wat hij moet doen; zie bovenaan dat bestand).
 - Niets nep: geen verzonnen cijfers, reviews of beloftes. Elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK.
 - Vraag Thijs (via zijn lijst) alleen bij: geld uitgeven, iets wat niet terug kan (definitief verwijderen, een live product uit een winkel halen), risico voor zijn accounts of juridisch, een taak die twee runs op rij niet lukt, of een stap die alleen hij kan.
 - Indienen of uitbrengen alleen als de test in de echte app groen is en de ontwerper `Akkoord: ja` gaf. De eerste lancering van een product ziet Thijs eerst; een live product krijgt hooguit één versie per week via Thijs, behalve bij een echte fout.
 - dortus.com (repo `dortus`): alleen in een eigen productmap werken, niets bestaands veranderen of verwijderen.
 - Open of wijzig nooit chats, projecten of geplande taken die niet bij Dortus horen.
-- Tests nooit aanpassen om ze te laten slagen.
+- Tests nooit aanpassen om ze te laten slagen. Wie samenvoegt, kijkt of er tests veranderd zijn; een gewijzigde of weggehaalde test laat je door een controleur nakijken.
+- Haal nooit iets weg uit een logboek of besluitenlijst (alleen de hoofdchat verplaatst oude delen naar een archief).
+- **dortus-hq is openbaar.** Geen persoonsgegevens (van klanten of Thijs), account-, betaal- of ID-gegevens en geen sleutels in de repo of in een log van Actions. Sleutels alleen als GitHub-secret (`organisatie/toegang.md`).
 - Geen ruwe onderzoeksdata in git (staat in `.gitignore`): de samenvatting in markdown, de ruwe data als Actions-artefact. Films en GIF's boven 3 MB eerst verkleinen; tussenversies op de tak `schermen`.
 
 ## Waar je schrijft
-- Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`, Chris in `commercie/`, de strateeg in `strategie/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter), een punt op `organisatie/lijst-thijs.md`.
+- Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`, Chris in `commercie/`, de strateeg in `strategie/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter), een nieuw bericht onderaan het berichtenbestand van een ander (nooit iets van een ander wijzigen), een punt op `organisatie/lijst-thijs.md`. Thijs gaf schrijfrecht in al zijn repo's (7 nov); binnen dortus-hq blijf je in deze plekken, zodat niemand elkaars werk overschrijft.
 - Een nieuw groot besluit: één regel bovenaan `organisatie/besluiten.md`. Alleen de hoofdchat en Hans werken `organisatie/bord.md` en `rapporten/` bij.
 - Code op een tak `claude/<platform>-<datum>`, samenvoegen als de tests groen zijn (en bij een ontwerp of release de controleur akkoord is). Werk je in een andere repo (dortus, productrepo): ook daar `git ls-remote` bij het afsluiten.
 - Mislukt pushen: `git pull --rebase` en opnieuw. Nooit geforceerd.
 
 ## Afsluiten
-Sluit pas af als `git ls-remote origin main` (of je tak) jouw laatste commit laat zien. Zet hash en uitkomst in je eindantwoord, niet in een bestand. Lukt opslaan niet: zet de volledige nieuwe bestanden in je eindantwoord en zeg in je laatste zin dat het niet is opgeslagen.
+Sluit pas af als `git ls-remote origin main` (of je tak) jouw laatste commit laat zien. Heeft iemand daarna ook opgeslagen, dan mag je hash ook in `origin/main` zitten na `git fetch` (`git merge-base --is-ancestor`). "Geslaagd" van een push zegt niets: alleen ls-remote telt. Zet hash en uitkomst in je eindantwoord, niet in een bestand. Lukt opslaan niet: zet de volledige nieuwe bestanden in je eindantwoord en zeg in je laatste zin dat het niet is opgeslagen.
 
 ## Toon
 Nederlands, gewone woorden, geen gedachtestreepjes. Beslis zelf en schrijf in één zin waarom. Thijs wil zo min mogelijk gevraagd worden en elke keuze snappen.

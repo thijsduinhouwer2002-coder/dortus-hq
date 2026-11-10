@@ -24,8 +24,8 @@ Alleen bij: geld uitgeven; iets wat niet terug kan (definitief verwijderen, een 
 2. **Bewijs:** elk cijfer krijgt GEZIEN, DERDEN (met link) of GOK.
 3. **Agents:** kleine taken doe je zelf. Een agent zet je in als het werk echt parallel kan of veel leeswerk vraagt; geef dan een doel, een vorm voor het antwoord en een grens ("hooguit 10 zoekopdrachten").
 4. **Controle:** voor code zijn groene tests de controle. Een controleur-agent (die het werk niet maakte) alleen bij: een ontwerp, iets wat naar buiten gaat (release, winkeltekst, bericht voor Thijs), of een getal waar een besluit op rust. Zeg hem stijlpunten over te slaan.
-5. **Twee keer mislukt:** zet het op de lijst van Thijs of in `berichten/hans.md` en pak iets anders.
-6. **Stopregels:** dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing. Jong platform via de pionier: groeit het platform 2 maanden niet meer, of verdwijnt het betaalplan: stoppen of veranderen.
+5. **Twee keer mislukt:** zet het op de lijst van Thijs en pak iets anders (zoals nu in regels.md).
+6. **Stopregels:** dag 30 na lancering onder de 30 gebruikers: stoppen of veranderen, met onderbouwing. Jong platform via de pionier: groeit het platform 2 maanden niet meer, of verdwijnt het betaalplan: stoppen of veranderen. Weinig eigen gebruikers op een platform dat nog hard groeit, is geen reden om te stoppen.
 
 ## Elk product: perfect, onderscheidend, duidelijke belofte (Thijs 8 nov)
 - Bovenaan `producten/<product>/ontwerp.md` de ene zin: waarom iemand ons kiest boven de beste concurrent. Kun je die niet schrijven, dan is het product niet klaar. De ontwerper toetst erop bij zijn akkoord, Chris bij de winkeltekst, Hans bij elk lanceerbesluit.

@@ -30,3 +30,7 @@
 - Voorstel 11 (toegang) en 12 (eerste euro, per product de vroegste euro) geschreven.
 - Rapport herschreven: top 5 is nu 1 eerste euro, 2 toegang, 3 korte start plus één opdracht (oude 1 en 2 samen), 4 sturing plus meetlat (oude 3 en 4 samen), 5 lijst en dashboard met euro-meter. Koerszin in 10 aangepast.
 - Volgende run (03:13): controleur-agent laat 11, 12 en de nieuwe top 5 vers lezen; 01 en 07 regel voor regel tegen de huidige regels.md (staat nog open uit run 1); cijfers in het rapport nalopen (26 downloads, 57 KB besluiten).
+- 00:25 tot 00:40: controleur-agent op 11, 12 en rapport: Click Joints Pro eerlijker (alleen scharnier, op tak, geen prijs), Daan blijft elk uur, kanaal per product, GitHub-sleutel wordt concept-release, Polar-orders bevatten klantmail, repo dortus-hq is **openbaar** (zelf nagekeken). Verwerkt.
+- Fout van mij: een script maakte rapport.md leeg (commit 793c7a6). Hersteld uit a5097a5 in c88faca, met de fixes.
+- Tweede agent legde huidige CLAUDE.md en regels.md naast 01 en 07: zes weggevallen punten teruggezet in 01 en 07; bewuste versoepelingen in het rapport genoemd. Chrome-regel stond al in 07 (agent zag dat mis).
+- Volgende run (03:13): rapport één keer helemaal vers lezen als Thijs (is het in 3 minuten te snappen?), top 5 inkorten waar kan; 05 en 12 op elkaar laten aansluiten (ploeg); nieuwe berichten verwerken.
