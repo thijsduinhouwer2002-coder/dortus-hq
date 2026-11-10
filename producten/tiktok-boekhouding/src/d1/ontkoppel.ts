@@ -130,7 +130,7 @@ export async function ontkoppel(db: D1, winkel: string, reden: string, nu: numbe
   return { ontkoppeld: true, intrekken: u };
 }
 
-/** Voor de webhook type 6 (nog niet gebouwd): winkel zoeken op shop_id. Onbekend of al ontkoppeld: niets doen. */
+/** Voor de webhook type 6 (src/webhook.ts): winkel zoeken op shop_id. Onbekend of al ontkoppeld: niets doen. */
 export async function ontkoppelOpShopId(db: D1, shopId: string, reden: string, nu: number, budget: Budget, deps: IntrekDeps): Promise<OntkoppelUitkomst> {
   budget.opslagTeller().neem();
   const rij = await db.prepare(`SELECT id FROM winkels WHERE shop_id = ? AND ontkoppeld_op IS NULL`).bind(shopId).first<{ id: string }>();
