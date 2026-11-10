@@ -220,3 +220,4 @@
 - Controleur akkoord zonder moet-punten; kan-punten 1, 3 en 4 verwerkt (vlag `demo_clou`, lengte eerst toetsen, `vlucht_tijd` alleen in de demo), punt 2 (tijd in de film) gemeten.
 - Antwoord aan Daan en Sanne: fps-instelling, geluid (standaard uit) en goud voor graven komen voor het Fest, dus [v1] mag blijven in de winkeltekst. Vraag aan Bram: val ±1,5 s met langzaam wegzakken.
 - Obsidian: niets dringends, 0 open issues bij rollwright.
+- Opruimen: het tekenen van de held naar `systemen/held_beeld.gd`, `held.gd` nu 365 regels (regel ±400). Geen gedrag veranderd: toetsen 0 FOUT, film van de tak zonder SCRIPT ERROR en zelf bekeken (helden, hoeden, teken, wegzakken zoals ervoor), run 42736238817.
