@@ -109,6 +109,10 @@ jobs:
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
           ls -la "$APP/plaatjes"
+      - name: Poster (eerste winkelplaatje)
+        run: |
+          pip install -q pillow
+          python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"
       - uses: actions/upload-artifact@v4
         with:
           name: ebb-plaatjes
