@@ -1,6 +1,6 @@
 # Teksten van het uniform (Abel)
 
-Versie 1, 10 nov 2026 01:00 NL. Overal dezelfde woorden, zodat Dortus op elk platform hetzelfde klinkt. Daan keurt, Thijs zegt het laatste woord.
+Versie 2, 10 nov 2026 01:45 NL (keuring 1 van Daan verwerkt: vaste zin voor het spel, kan-punt 3). Overal dezelfde woorden, zodat Dortus op elk platform hetzelfde klinkt. Daan keurt, Thijs zegt het laatste woord.
 
 ## De kern (nooit veranderen zonder besluit)
 - **Naam:** Dortus (altijd zo, nooit DORTUS of dortus in lopende tekst; de URL-naam is wel `dortus`).
@@ -19,9 +19,9 @@ Versie 1, 10 nov 2026 01:00 NL. Overal dezelfde woorden, zodat Dortus op elk pla
 
 **Lang (profielen met ruimte: JetBrains-verkoper, Steam-ontwikkelaarspagina, dortus.com/about):**
 ```
-Dortus makes small games and focused tools that fill a real gap: a slime game that lives on your desktop, a Bison and Flex plugin for JetBrains IDEs, joints for 3D printed figures in Blender, dice for Obsidian.
+Dortus makes small games and focused tools that fill a real gap: Hats of the Fallen (a tiny dungeon on your taskbar), a Bison and Flex plugin for JetBrains IDEs, joints for 3D printed figures in Blender, dice for Obsidian.
 
-Each one does one thing well, looks like it belongs, and is honest about what is free and what is paid.
+Each one does one thing well, is made to look good, and is honest about what is free and what is paid.
 
 Dortus is Thijs, from the Netherlands, building with the help of AI tools. Questions, bugs or ideas go straight to him: thijs@dortus.com
 ```
@@ -34,12 +34,17 @@ Dortus is Thijs, from the Netherlands, building with the help of AI tools. Quest
 
 **Lang:**
 ```
-Dortus maakt kleine spellen en handige tools die een echt gat vullen: een slijmspel dat op je bureaublad woont, een Bison- en Flex-plugin voor JetBrains, gewrichten voor 3D-geprinte figuren in Blender, dobbelstenen voor Obsidian.
+Dortus maakt kleine spellen en handige tools die een echt gat vullen: Hats of the Fallen (een piepklein kerkertje op je taakbalk), een Bison- en Flex-plugin voor JetBrains, gewrichten voor 3D-geprinte figuren in Blender, dobbelstenen voor Obsidian.
 
-Elk product doet één ding goed, voelt alsof het erbij hoort, en zegt eerlijk wat gratis is en wat betaald.
+Elk product doet één ding goed, is mooi gemaakt, en zegt eerlijk wat gratis is en wat betaald.
 
 Dortus is Thijs, uit Nederland, die bouwt met hulp van AI. Vragen, fouten of ideeën gaan rechtstreeks naar hem: thijs@dortus.com
 ```
+
+## Het spel, altijd in deze woorden (besluit Mila en Daan)
+- Naam: **Hats of the Fallen**. Ondertitel: *a tiny dungeon on your taskbar*.
+- Eén zin: `Hats of the Fallen is a tiny dungeon on your taskbar: heroes come for the slime's treasure, and he keeps their hats.`
+- Nooit beloven wat Steam doet (geen "one email"): `Follow us and Steam will let you know when it comes out.`
 
 ## Toon
 - Gewone woorden, geen "innovatief", "revolutionair", "passie". Zeg wat het doet.

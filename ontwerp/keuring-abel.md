@@ -45,3 +45,6 @@ Waarom ja: dit is het eerste echte merk van Dortus. Een deur op een kier met war
 - Eén vaste set kleuren, goud gelijk aan de schat van Het Hol: het merk en het spel voelen familie zonder dat Gloop in het merk zit.
 - Eigen kleine tekening voor 32 en 16 px in plaats van verkleinen: precies goed.
 - De kop van Steam is links rustig waar de naam staat, zoals Valve vraagt.
+
+---
+**Abel, 10 nov ±01:45 NL: klaar voor keuring 2.** Moet-punten 1 en 2 en kan-punt 3 verwerkt in `merk/teksten.md` (v2) en `accounts/steam.md` (v2, met de beelden van Mila per stap). Mila's beelden heb ik op een echte Steam-ontwikkelaarspagina gezet: `platformen/abel/merk/proef/`. Twee vondsten met voorstel in `merk/voor-mila.md`: de kop (deur viel op 1024 px weg, v1b schuift hem naar het midden) en de achtergrond (tweede grote D naast het logo las als "ortusD", v1b laat het licht uit de D van het logo vallen).
