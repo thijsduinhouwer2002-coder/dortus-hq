@@ -68,15 +68,21 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			else:
 				r = s.regels.kies("afgerekend", {"naam": naam}, extra.length())
 		elif wat.ends_with(s.slijm.naam()):
-			r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 			# hap en hoed in een regel op het moment van de hap (Sanne toets 9, besluit 2b): eerst kwam de hoed-regel 4 tot
 			# 6 s na de hap, terwijl de hoed al op zijn kop stond. Wanneer: zoals de hoed-regel hieronder (eerste hoed, de
 			# clou in de demo, anders een op de vier); bij 25 en 100 blijft de bijnaam een eigen regel.
 			var n_h := int(info.get("hoeden_bewoner", 0))
 			if String(info.get("hoed_naar", "")) == "bewoner" and n_h > 0 and n_h != 25 and n_h != 100:
+				# de hoed die hij echt op had: held.gd rekent hem zelf uit als hoed_nr ontbreekt (oude save), controleur kan-punt 6
+				var hn = _held.get("hoed_nr") if _held != null else null
+				if hn == null:
+					hn = info.get("hoed_nr", -1)
 				if n_h == 1 or bool(info.get("demo_clou", false)) or s.rng.randf() < 0.25:
-					r = s.regels.kies("hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(info.get("hoed_nr", 0)))}, extra.length())
+					r = s.regels.kies("hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(hn))}, extra.length())
 				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
+			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
+			if r == "":
+				r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
 		else:
 			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
