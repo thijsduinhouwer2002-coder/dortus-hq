@@ -44,7 +44,7 @@ func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> 
 	while uitkomst == "" and stappen < 20000:
 		held.stap(1.0 / 15.0)
 		stappen += 1
-		if held.staat in ["vallen", "weg"] and uitkomst != "ontsnapt":
+		if held.staat in ["vallen", "weg"]:
 			val_stappen += 1
 	var r := {"uitkomst": uitkomst, "info": uit_info, "eerste_doel": eerste_doel, "trek": trek, "tijd": stappen / 15.0,
 		"slijm_plat": slijm != null and not slijm.kan_vechten(), "slijm_gegeten": slijm.gegeten if slijm != null else 0,

@@ -277,7 +277,8 @@ func _onderweg() -> void:
 				n = b.raak(-1 if naar_wand else hoed_nr)
 			else:
 				b.raak()          # stand-in van Olaf (kern/standin_slijm.gd) kent geen hoeden
-			info["hoed_naar"] = "wand" if naar_wand else "bewoner"
+			if b.has_method("hoeden_op_hoofd") or naar_wand:
+				info["hoed_naar"] = "wand" if naar_wand else "bewoner"   # stand-in zonder toren: hoed blijft op zijn hoofd
 			info["hoeden_bewoner"] = 0 if naar_wand or n == null else int(n)   # voor kroniek.hoed(naam, bewoner, aantal)
 		return
 	# overleefd: geraakt, wrok tegen dit ding; een bewoner die verliest is even plat
