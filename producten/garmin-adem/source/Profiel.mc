@@ -184,3 +184,61 @@ module EbbVeilig {
         Application.Storage.deleteValue(SLEUTEL);
     }
 }
+
+// Trouw (besluit 22:53): dieren verdien je met sessies en dagen op rij, niet met inhoudtijd.
+// Hier alleen de tellers; welke dieren bij welke stand horen komt uit blad v4 van Mila.
+// Een opgeslagen sessie telt (rondes en rustig ademen); weggooien telt niet.
+module EbbTrouw {
+    const SESSIES = "trSessies";
+    const DAG = "trDag";
+    const REEKS = "trReeks";
+    const BESTE = "trBeste";
+
+    // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie.
+    // Zelfde dag: gelijk. De dag erna: plus één. Later (of de klok terug): opnieuw 1.
+    function volgendeReeks(vorigeDag as Number, reeks as Number, dag as Number) as Number {
+        if (reeks <= 0) {
+            return 1;
+        }
+        if (dag == vorigeDag) {
+            return reeks;
+        }
+        if (dag == vorigeDag + 1) {
+            return reeks + 1;
+        }
+        return 1;
+    }
+
+    function getal(sleutel as String) as Number {
+        var v = Application.Storage.getValue(sleutel);
+        return (v instanceof Number) ? v as Number : 0;
+    }
+
+    // Na opslaan: tellers bijwerken. Geeft [sessies, reeks, beste reeks].
+    function naSessie(dag as Number) as Array<Number> {
+        var sessies = getal(SESSIES) + 1;
+        var reeks = volgendeReeks(getal(DAG), getal(REEKS), dag);
+        var beste = getal(BESTE);
+        if (reeks > beste) {
+            beste = reeks;
+        }
+        Application.Storage.setValue(SESSIES, sessies);
+        Application.Storage.setValue(DAG, dag);
+        Application.Storage.setValue(REEKS, reeks);
+        Application.Storage.setValue(BESTE, beste);
+        return [sessies, reeks, beste] as Array<Number>;
+    }
+
+    // De reeks zoals die vandaag telt: na een gemiste dag is hij voorbij (0), ook zonder nieuwe sessie.
+    function reeksOp(vandaag as Number) as Number {
+        var dag = getal(DAG);
+        return (vandaag == dag || vandaag == dag + 1) ? getal(REEKS) : 0;
+    }
+
+    function wis() as Void {
+        Application.Storage.deleteValue(SESSIES);
+        Application.Storage.deleteValue(DAG);
+        Application.Storage.deleteValue(REEKS);
+        Application.Storage.deleteValue(BESTE);
+    }
+}

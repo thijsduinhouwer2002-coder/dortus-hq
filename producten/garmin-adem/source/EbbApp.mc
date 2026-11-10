@@ -212,6 +212,7 @@ class EbbView extends WatchUi.View {
             opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
         }
         opslag.bewaar();
+        EbbTrouw.naSessie(dag);
         var record = EbbProfiel.record();
         koraal = EbbProfiel.nieuwRecord(sessie.inhoudtijden, record * 1000 + 999);
         if (koraal) {

@@ -131,6 +131,7 @@ class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {
             _view.hervat();
         } else if (id == :opslaan) {
             _view.opname.opslaan();
+            EbbTrouw.naSessie(EbbView.vandaag());
             System.exit();
         } else if (id == :weggooien) {
             _view.opname.weggooien();

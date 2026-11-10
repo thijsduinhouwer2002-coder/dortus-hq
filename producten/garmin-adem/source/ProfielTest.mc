@@ -146,3 +146,22 @@ function testVeiligElkeDertigDagen(logger as Test.Logger) as Boolean {
     EbbVeilig.opnieuwTonen();
     return eerste && !dag29 && dag30 && klokTerug && oudeWaarde;
 }
+
+// Trouw: sessies tellen, dagen op rij, beste reeks blijft staan na een gat.
+(:test)
+function testTrouwTellers(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    EbbTrouw.naSessie(100);
+    EbbTrouw.naSessie(100);          // zelfde dag: reeks blijft 1
+    EbbTrouw.naSessie(101);
+    var t = EbbTrouw.naSessie(102);  // drie dagen op rij
+    var drie = t[0] == 4 && t[1] == 3 && t[2] == 3;
+    var vandaagNog = EbbTrouw.reeksOp(103) == 3;
+    var voorbij = EbbTrouw.reeksOp(104) == 0;
+    var g = EbbTrouw.naSessie(105);  // gat: opnieuw 1, beste blijft 3
+    var gat = g[0] == 5 && g[1] == 1 && g[2] == 3;
+    var terug = EbbTrouw.volgendeReeks(200, 4, 190) == 1;
+    logger.debug("na drie " + t + ", na gat " + g);
+    EbbTrouw.wis();
+    return drie && vandaagNog && voorbij && gat && terug;
+}
