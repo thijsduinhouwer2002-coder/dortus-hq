@@ -47,8 +47,8 @@ jobs:
             cat "/tmp/bouw-$d.log"; [ $R -eq 0 ] || exit 1
             echo "WAARSCHUWINGEN $d: $(grep -ci warning "/tmp/bouw-$d.log")"
           done
-          for d in fenix7 vivoactive5 fenix847mm; do
-            echo "== testbouw eis 10 $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
+          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
+            echo "== testbouw $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
           done
           for d in fenix7 vivoactive5 fr265 fenix847mm; do
             touch /tmp/merk-$d
@@ -97,6 +97,26 @@ jobs:
               ls -la "$f"; cp "$f" "schermen/fit-weg/$d/$(basename "$f")"
             done
           done
+          # Eis 11 en 12: de andere zes horloges één keer door de testbouw, schermen plus meting van getal en geheugen.
+          for d in fr255 venu2 fr265 epix2pro47mm fr965 venu3; do
+            herstart
+            monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
+            MD=$!
+            sleep 7
+            import -window root "schermen/$d-demo-a.png"
+            sleep 4
+            import -window root "schermen/$d-demo-b.png"
+            sleep 17
+            import -window root "schermen/$d-demo-c.png"
+            kill "$MD" 2>/dev/null || true
+            sleep 2
+            echo "== uitvoer testbouw $d"; cat "/tmp/demo-$d.log"
+          done
+          # Eis 11 en 12 nakijken: groot getal minstens 30% van de breedte, geheugen onder 80%.
+          grep -H "GROOT\|GEHEUGEN" /tmp/demo-*.log | tee /tmp/metingen.txt
+          awk '/GROOT/ { p=$NF; sub("%","",p); if (p+0 < 30) { print "EIS11 TE KLEIN: " $0; f=1 } }
+               /GEHEUGEN/ { n++; p=$NF; sub("%","",p); if (p+0 >= 80) { print "EIS12 TE VOL: " $0; f=1 } }
+               END { print "EIS12 horloges met meting: " n; if (n < 9) f=1; exit f }' /tmp/metingen.txt || { echo "EIS11/12 FOUT"; touch schermen/eis11-12-fout; }
           # Proef (telt niet mee): derde start op fenix847mm zonder herstart, direct na het weggooien.
           d=fenix847mm; touch /tmp/zonder-$d
           monkeydo "bin/demo-$d.prg" "$d" > "/tmp/zonder-$d.log" 2>&1 &
@@ -164,6 +184,8 @@ jobs:
                       if isinstance(fr, fitdecode.FitDataMessage) and fr.name == "lap":
                           laps.append(({x.name: x.value for x in fr.fields}).get("inhoud"))
               print("EIS10-PROEF zonder herstart, inhoud per lap:", laps)
+          if os.path.exists(sys.argv[1] + "/eis11-12-fout"):
+              fout.append("eis 11 of 12 niet gehaald, zie metingen in de stap ervoor")
           print("EIS10 UITSLAG:", "goed" if not fout else fout)
           sys.exit(1 if fout else 0)
           PY

@@ -156,6 +156,18 @@ class EbbView extends WatchUi.View {
         return ok;
     }
 
+    // Pauze zet de klok en de opname stil; doorgaan gaat verder waar je was.
+    function pauzeer(nu as Number) as Void {
+        sessie.pauzeer(nu);
+        opname.pauzeer();
+    }
+
+    function hervat(nu as Number) as Void {
+        sessie.hervat(nu);
+        opname.hervat();
+        _vorigIn = sessie.isIn(nu);
+    }
+
     function weggooien() as Void {
         opname.weggooien();
         System.println("OPNAME weggegooid");
@@ -170,6 +182,9 @@ class EbbView extends WatchUi.View {
 
     function tik() as Void {
         var nu = System.getTimer();
+        if (sessie.gepauzeerd()) {
+            return;
+        }
         if (EbbBouw.DEMO && sessie.fase == Ebb.FASE_INHOUDEN) {
             var doel = EbbBouw.INHOUD_MS[sessie.ronde % EbbBouw.INHOUD_MS.size()];
             if (sessie.verstreken(nu) >= doel) {
@@ -250,12 +265,37 @@ class EbbView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, h / 6, Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
         dc.drawText(w / 2, h / 2, Graphics.FONT_NUMBER_THAI_HOT, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (EbbBouw.DEMO) {
+            meet(dc, w, fase as Number, groot);
+        }
         if (fase == Ebb.FASE_INHOUDEN) {
             var d = EbbProfiel.dier(sessie.verstreken(nu));
             if (d >= 0) {
                 var namen = ["a fish", "a jellyfish", "a turtle", "a whale"];
                 dc.drawText(w / 2, (h * 3) / 4, Graphics.FONT_XTINY, namen[d] + " swims by", Graphics.TEXT_JUSTIFY_CENTER);
             }
+        }
+    }
+
+    // Eis 11 en 12, alleen in de testbouw: breedte van het grote getal per fase (eerste keer)
+    // en het hoogste geheugengebruik, gemeld zodra het duikprofiel getekend is.
+    private var _grootGemeld as Array<Boolean> = [false, false, false, false, false] as Array<Boolean>;
+    private var _maxGeheugen as Number = 0;
+    private var _geheugenGemeld as Boolean = false;
+
+    function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String) as Void {
+        if (groot.length() > 0 && !_grootGemeld[fase]) {
+            _grootGemeld[fase] = true;
+            var b = dc.getTextWidthInPixels(groot, Graphics.FONT_NUMBER_THAI_HOT);
+            System.println("GROOT fase " + fase + " tekst " + groot + " breedte " + b + " van " + w + " = " + (b * 100 / w) + "%");
+        }
+        var st = System.getSystemStats();
+        if (st.usedMemory > _maxGeheugen) {
+            _maxGeheugen = st.usedMemory;
+        }
+        if (fase == Ebb.FASE_KLAAR && !_geheugenGemeld) {
+            _geheugenGemeld = true;
+            System.println("GEHEUGEN hoogste " + _maxGeheugen + " van " + st.totalMemory + " = " + (_maxGeheugen.toLong() * 100 / st.totalMemory) + "%");
         }
     }
 
@@ -315,6 +355,7 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         if (terugActie() == :stop) {
             return stop();
         }
+        _view.pauzeer(System.getTimer());
         var menu = new WatchUi.Menu2({:title => "Paused"});
         menu.addItem(new WatchUi.MenuItem("Resume", null, :doorgaan, null));
         menu.addItem(new WatchUi.MenuItem("Save", null, :opslaan, null));
@@ -352,12 +393,20 @@ class PauzeDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as WatchUi.MenuItem) as Void {
         var id = item.getId();
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-        if (id == :opslaan) {
+        if (id == :doorgaan) {
+            _view.hervat(System.getTimer());
+        } else if (id == :opslaan) {
             _view.opslaan();
             System.exit();
         } else if (id == :weggooien) {
             _view.weggooien();
             System.exit();
         }
+    }
+
+    // Terug in het pauzemenu is ook doorgaan.
+    function onBack() as Void {
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        _view.hervat(System.getTimer());
     }
 }

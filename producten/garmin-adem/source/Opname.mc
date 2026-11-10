@@ -57,12 +57,29 @@ class EbbOpname {
         }
     }
 
+    // Pauze: de opname stopt (de activiteitstijd loopt niet door) en gaat bij doorgaan verder.
+    function pauzeer() as Void {
+        var s = _sessie;
+        if (s != null && s.isRecording()) {
+            s.stop();
+        }
+    }
+
+    function hervat() as Void {
+        var s = _sessie;
+        if (s != null && !s.isRecording()) {
+            s.start();
+        }
+    }
+
     function opslaan() as Boolean {
         var s = _sessie;
         if (s == null) {
             return false;
         }
-        s.stop();
+        if (s.isRecording()) {
+            s.stop();
+        }
         var ok = s.save();
         _sessie = null;
         return ok;
@@ -73,7 +90,9 @@ class EbbOpname {
         if (s == null) {
             return;
         }
-        s.stop();
+        if (s.isRecording()) {
+            s.stop();
+        }
         s.discard();
         _sessie = null;
     }

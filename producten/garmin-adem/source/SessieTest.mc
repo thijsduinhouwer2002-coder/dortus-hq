@@ -133,3 +133,35 @@ function testRustigVastePatronen(logger as Test.Logger) as Boolean {
 function testRustigEigenPatroon(logger as Test.Logger) as Boolean {
     return patroonKlopt([3000, 0, 9000, 2000] as Array<Number>, logger);
 }
+
+// Pauze zet de klok stil: 60 s pauze tijdens het ademen schuift het einde van het ademen 60 s op.
+(:test)
+function testPauzeZetKlokStil(logger as Test.Logger) as Boolean {
+    var s = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    s.bijwerken(10000);
+    var adem = s.ademhaling(10000);
+    s.pauzeer(10000);
+    s.bijwerken(70000);
+    var tijdensPauze = s.ademhaling(69999);
+    var stilFase = s.fase;
+    s.hervat(70000);
+    s.bijwerken(155999);
+    var voorGrens = s.fase;
+    s.bijwerken(156000);
+    logger.debug("ademhaling " + adem + "/" + tijdensPauze + ", fase voor grens " + voorGrens + ", na grens " + s.fase);
+    return adem == tijdensPauze && stilFase == Ebb.FASE_ADEMEN && voorGrens == Ebb.FASE_ADEMEN
+        && s.fase == Ebb.FASE_INHOUDEN && !s.gepauzeerd();
+}
+
+// Dubbel pauzeren of hervatten zonder pauze verandert niets.
+(:test)
+function testPauzeDubbelVeilig(logger as Test.Logger) as Boolean {
+    var s = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    s.hervat(5000);
+    var start1 = s.segmentStart;
+    s.pauzeer(10000);
+    s.pauzeer(20000);
+    s.hervat(30000);
+    s.hervat(40000);
+    return start1 == 0 && s.segmentStart == 20000;
+}

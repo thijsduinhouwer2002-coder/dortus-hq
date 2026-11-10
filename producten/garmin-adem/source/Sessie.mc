@@ -42,8 +42,32 @@ module Ebb {
             return ademhalingen * 2 * tempoMs;
         }
 
+        var pauzeVan as Number = -1;      // -1: niet gepauzeerd
+
+        function gepauzeerd() as Boolean {
+            return pauzeVan >= 0;
+        }
+
+        // Pauze zet de klok stil: bij doorgaan schuift het huidige stuk op met de pauzeduur.
+        function pauzeer(nu as Number) as Void {
+            if (pauzeVan < 0 && fase != FASE_KLAAR) {
+                bijwerken(nu);
+                pauzeVan = nu;
+            }
+        }
+
+        function hervat(nu as Number) as Void {
+            if (pauzeVan >= 0) {
+                segmentStart += nu - pauzeVan;
+                pauzeVan = -1;
+            }
+        }
+
         // Werk de fase bij tot tijdstip nu. Grenzen liggen op vaste tijden vanaf het segment.
         function bijwerken(nu as Number) as Void {
+            if (pauzeVan >= 0) {
+                return;
+            }
             var doorgaan = true;
             while (doorgaan) {
                 doorgaan = false;
@@ -71,23 +95,30 @@ module Ebb {
             return tijd;
         }
 
-        // Tijd in het huidige stuk.
+        // Tijd in het huidige stuk (tijdens pauze stilgezet op het pauzemoment).
         function verstreken(nu as Number) as Number {
-            return nu - segmentStart;
+            return klok(nu) - segmentStart;
+        }
+
+        function klok(nu as Number) as Number {
+            return (pauzeVan >= 0) ? pauzeVan : nu;
         }
 
         // Tijdens ademen: welke ademhaling (1-gebaseerd).
         function ademhaling(nu as Number) as Number {
+            nu = klok(nu);
             return (nu - segmentStart) / (2 * tempoMs) + 1;
         }
 
         // Tijdens ademen: true bij in, false bij uit.
         function isIn(nu as Number) as Boolean {
+            nu = klok(nu);
             return (nu - segmentStart) % (2 * tempoMs) < tempoMs;
         }
 
         // Hoogte van het water, 0.0 leeg tot 1.0 vol.
         function water(nu as Number) as Float {
+            nu = klok(nu);
             if (fase == FASE_ADEMEN) {
                 var p = (nu - segmentStart) % (2 * tempoMs);
                 if (p < tempoMs) {
