@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 15:55: sleutel staat, release `ebb-v1.0.0` ondertekend; eerst Mila keuring 1 (moet 1, 2 en 5 gebouwd, 3 en 4 dieren nog), dan Daan op de plaatjes, dan indienen.**
 - **10 nov 15:50: kan-punten Daan gedaan, wacht op twee dingen.** Donker eigen menu op aanraakhorloges en blauw uit de duikkleuren (5a338db, runs 42844723793 en 42844722616 groen, beelden nagekeken). Winkelplaatjes uit run 42836983972 zelf nagekeken. Wacht op: Daans oordeel over de plaatjes en de sleutel `GARMIN_DEV_KEY` van Thijs (verkopersaccount is ingericht). Installs 0, verkopen 0.
 - **10 nov 14:35: Ebb bijna klaar om in te dienen.** M1 en M2 groen op alle negen. `Ebb.iq` bouwt (release `ebb-v1.0.0-proef`, wegwerpsleutel: echt ondertekenen na het geheim `GARMIN_DEV_KEY`). Winkeltekst definitief, icoon 500x500, plaatjes met vis, schildpad, walvis en Sea log uit de simulator; poster en keuring Daan nog open. Account en sleutel staan voor Thijs op de lijst (deel A). Installs 0, verkopen 0.
 - **10 nov 14:15: Daan zei ja op Ebb, zijn twee moet-punten zijn opgelost.** Ondertekst altijd in het water (met meting in de toets), getijdenlijn als één vlak (run 42826914263 groen, beelden nagekeken). Volgende: winkelplaatjes (Daan keurt apart), dan het ontwikkelaarsaccount ($100) met minuten op de lijst van Thijs. Installs 0, verkopen 0.

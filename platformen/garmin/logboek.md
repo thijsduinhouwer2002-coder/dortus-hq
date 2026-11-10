@@ -161,3 +161,4 @@
 1. Af: winkelmaat nagekeken, beide kan-punten van Daan.
 2. Open: oordeel Daan over de winkelplaatjes, `GARMIN_DEV_KEY` van Thijs, grijze beelden in de e2e-schermen.
 3. Volgende run: komt Daans ja en de sleutel, dan `versie.txt` aanraken, release `ebb-v1.0.0` nakijken en "klaar" bij deel B. Zo niet: twee regels en stoppen, of de grijze beelden aanpakken.
+- 15:50: bij het opslaan bleek dat Mila keuring 1 schreef (stijl ja, vijf moet-punten) en dat de hoofdchat de sleutel zette; release `ebb-v1.0.0` (ondertekend) staat op f012bcd. Moet 5 (donker menu) had ik net gedaan. Moet 1 en 2 meteen gebouwd (3db7ca3): dieptetekst op cijferhoogte plus 4% D, dier daar weer onder, belletjes in de band van het cijfer niet tekenen. Run nakijken de volgende keer. Besluit: niet indienen met de release van 15:44, want Mila's dieren en poster horen erbij en Daan moet de plaatjes nog keuren.
