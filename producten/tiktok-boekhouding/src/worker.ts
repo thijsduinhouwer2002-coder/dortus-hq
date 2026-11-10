@@ -95,6 +95,10 @@ interface WinkelRij {
   shop_cipher: string | null;
   instellingen: string | null;
   snel_teller: number;
+  tt_tokens: string | null;
+  tt_versie: number;
+  mb_tokens: string | null;
+  mb_versie: number;
 }
 
 /** Soorten die alleen bij één kant voorkomen. `te_veel_verzoeken` en `server` komen bij beide voor. */
@@ -171,7 +175,8 @@ async function verwerkOnderSlot(
 ): Promise<ConsumerUitkomst> {
   teller.neem();
   const rij = await o.db
-    .prepare(`SELECT shop_cipher, instellingen, snel_teller FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
+    // Winkelrij en beide tokens in één query (scheelt 2 per aanroep); TokenBron.vanRij gebruikt de tokenkolommen.
+    .prepare(`SELECT shop_cipher, instellingen, snel_teller, tt_tokens, tt_versie, mb_tokens, mb_versie FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`)
     .bind(winkel)
     .first<WinkelRij>();
   if (!rij) return "ontkoppeld";
@@ -197,8 +202,10 @@ async function verwerkOnderSlot(
       try {
         const ttBron = new TokenBron({ ...tokenDeps, soort: tiktokSoort(o.tiktokApp) });
         const mbBron = new TokenBron({ ...tokenDeps, soort: moneybirdSoort(o.moneybirdApp) });
+        await ttBron.vanRij(rij.tt_tokens, rij.tt_versie);
         const tt = await ttBron.geef();
         bron = "moneybird";
+        await mbBron.vanRij(rij.mb_tokens, rij.mb_versie);
         await mbBron.geef();
         if (tt.waarschuwing) o.log(`winkel ${winkel}: refresh token van TikTok verloopt binnen 14 dagen; verkoper moet opnieuw koppelen`);
         const f = budget.omhul(volg);

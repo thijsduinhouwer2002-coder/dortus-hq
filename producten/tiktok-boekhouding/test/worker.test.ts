@@ -82,7 +82,7 @@ test("(h) consumer: twee tegelijk voor één winkel, maar één werkt; tokens al
   let tokenLezingen = 0;
   const prepare = db.prepare.bind(db);
   db.prepare = ((sql: string) => {
-    if (/SELECT (tt|mb)_tokens/.test(sql)) {
+    if (/^SELECT\b[^;]*\b(tt|mb)_tokens\b[^;]*FROM winkels/.test(sql)) {
       tokenLezingen++;
       const slot = db.sqlite.prepare("SELECT tot FROM sloten WHERE winkel = 'a' AND statement_id = ?").get(WINKELSLOT) as any;
       assert.ok(slot && slot.tot > NU, "tokens gelezen zonder winkelslot");
@@ -92,7 +92,7 @@ test("(h) consumer: twee tegelijk voor één winkel, maar één werkt; tokens al
   const { o } = omgeving(db, w.fn);
   const [x, y] = await Promise.all([consumer({ winkel: "a" }, o, NU), consumer({ winkel: "a" }, o, NU)]);
   assert.deepEqual([x, y].sort(), ["slot_bezet", "verwerkt"]);
-  assert.equal(tokenLezingen, 2); // één keer TikTok, één keer Moneybird
+  assert.equal(tokenLezingen, 1); // winkelrij en beide tokens in één query (TokenBron.vanRij)
   assert.equal(w.urls.filter((u) => u.includes("/statements") && !u.includes("statement_transactions")).length, 1);
   assert.equal(db.sqlite.prepare("SELECT count(*) n FROM sloten WHERE statement_id = ?").get(WINKELSLOT)!.n, 0, "winkelslot terug");
   assert.equal(rij(db, "a").volgende_run, NU + GEWOON);
@@ -112,6 +112,31 @@ test("(h) consumer: 15 minuten als het budget op raakt, na 8 keer snel weer 6 uu
   await consumer({ winkel: "a" }, o, NU + 1000);
   assert.equal(rij(db, "a").volgende_run, NU + 1000 + GEWOON);
   assert.equal(rij(db, "a").snel_teller, 0);
+});
+
+test("(h) consumer: geen TikTok-tokens in de winkelrij: koppeling_verlopen aan de kant van TikTok, niets verstuurd", async () => {
+  const db = new NepD1();
+  await winkel(db, "a");
+  db.sqlite.prepare("UPDATE winkels SET tt_tokens = NULL WHERE id = 'a'").run();
+  const w = wereld();
+  const { o } = omgeving(db, w.fn);
+  assert.equal(await consumer({ winkel: "a" }, o, NU), "verwerkt");
+  const f = JSON.parse(rij(db, "a").winkelfout);
+  assert.deepEqual([f.soort, f.kant], ["koppeling_verlopen", "tiktok"]);
+  assert.equal(w.urls.length, 0);
+});
+
+test("(h) consumer: een D1-query minder per token dan vroeger (één leesquery op winkels vóór het werk)", async () => {
+  const db = new NepD1();
+  await winkel(db, "a");
+  const w = wereld();
+  w.voegToe("703", T0 + 86400, "PAID", [10]);
+  const selects: string[] = [];
+  const prepare = db.prepare.bind(db);
+  db.prepare = ((sql: string) => { if (/^SELECT\b[^;]*FROM winkels/.test(sql)) selects.push(sql); return prepare(sql); }) as any;
+  const { o } = omgeving(db, w.fn);
+  assert.equal(await consumer({ winkel: "a" }, o, NU), "verwerkt");
+  assert.equal(selects.filter((q) => /tt_tokens|mb_tokens|shop_cipher/.test(q)).length, 1, selects.join("\n"));
 });
 
 test("(h) consumer: winkelfout met kant; ontkoppeld netjes stoppen", async () => {
