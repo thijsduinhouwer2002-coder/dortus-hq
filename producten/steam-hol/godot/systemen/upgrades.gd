@@ -3,7 +3,7 @@ extends RefCounted
 # grootste gat tegenover de toppers (platformen/steam/toppers.md, gat 1): in een bezoek van 30 s iets te kiezen
 # dat je de minuut erna terugziet.
 #
-# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 60, 168, 470 (60 x 2,8^n),
+# Getallen uit platformen/steam/balans.md (Sanne) en sim/sim.py: drie upgrades per soort, kost 45, 126, 353 (45 x 2,8^n, Sanne 10 nov),
 # elke upgrade +7 procentpunt kans dat een held valt. Daarbovenop heeft elke stap iets eigens dat je ziet of merkt,
 # zodat het een keuze is en geen getal:
 #   slijm:     1 Big Gloop (groter, +7)  2 Bouncy Gloop (+7, en plat 40 s in plaats van 60)  3 Royal Gloop (+7, kroon van slijm)
@@ -19,7 +19,7 @@ extends RefCounted
 
 const SOORTEN := ["slijm", "stekelput"]
 const MAX_NIVEAU := 3
-const BASIS := 60.0
+const BASIS := 45.0   # Sanne 10 nov 01:50 (balans.md): 45, 126, 353; was 60
 const FACTOR := 2.8
 const KANS_PER := 0.07
 

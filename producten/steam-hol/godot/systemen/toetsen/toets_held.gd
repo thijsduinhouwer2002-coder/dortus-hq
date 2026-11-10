@@ -434,6 +434,14 @@ func _init() -> void:
 	ok(int(b1.zak) > 0 and int(b1.zak) < int(b2.zak) and int(b2.zak) < 16, "dan zakt hij zichtbaar in stappen (%d, %d)" % [b1.zak, b2.zak])
 	ok(int(b3.zak) == 16, "op 1,0 s helemaal onder de vloer (%d)" % b3.zak)
 	ok(String(b0.teken) == "poef" and String(b3.teken) == "", "boze wolkje knapt als poef, daarna geen teken")
+	var hbeeld = load("res://systemen/held_beeld.gd")
+	var fasen: Array = []
+	for i in 8:
+		var vbi: Dictionary = hv.val_beeld(i * 0.05)
+		if String(vbi.teken) == "poef":
+			fasen.append(hbeeld.poef_beeld(float(vbi.poef_fase)))
+	ok(fasen == [0, 0, 1, 1, 2, 2, 3, 3], "poef: Mila's 4 beelden op 10 fps, één keer (%s)" % str(fasen))
+	ok(hbeeld.POEF.get_width() == 48 and hbeeld.POEF.get_height() == 10, "poef.png is 4 beelden van 12 x 10")
 	hv.val_teken = ""
 	ok(String(hv.val_beeld(0.1).teken) == "uitroep", "zonder wrok: uitroepteken bij de schrik")
 	ok(bool(hv.val_beeld(0.5).hoed), "in de put zakt de hoed mee")

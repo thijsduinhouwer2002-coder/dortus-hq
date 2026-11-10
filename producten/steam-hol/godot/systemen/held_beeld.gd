@@ -9,6 +9,7 @@ const HOEDEN := preload("res://kunst/held_hoeden.png")
 const HOEDEN_HAP := preload("res://kunst/held_hoeden_hap.png")
 const LITTEKENS := preload("res://kunst/held_littekens.png")  # pleister, ooglap, schram, verband
 const WAPENS := preload("res://kunst/held_wapens.png")
+const POEF := preload("res://kunst/poef.png")                 # Mila 10 nov: boze wolkje knapt, 4 x (12 x 10)
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
 
@@ -65,16 +66,11 @@ static func _laag(h, tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int,
 		return
 	h.draw_texture_rect_region(tex, Rect2(-8, y, 16, hoogte), Rect2(bron_x, bron_y, 16, hoogte), kleur)
 
-# Het boze wolkje knapt: eerst nog even het wolkje, dan vier plukjes die naar buiten schieten en vervagen.
-# Hele pixels, geen schalen. Mila mag dit vervangen door een getekende poef (zelfde plek, zelfde tijd).
+# Het boze wolkje knapt: Mila's poef.png (kunst/LEESMIJ.md, 10 nov), 4 beelden van 12 x 10, 10 fps, één keer.
+# Midden van het wolkje op (6, 3) in het beeld, dus op de plek van het oude wolkje min 2 px in x. Nooit schalen.
+# fase loopt van 0 tot 1 in VAL_TEKEN_S (0,4 s), dus 4 beelden in 0,4 s = 10 fps.
+static func poef_beeld(fase: float) -> int:
+	return clampi(int(fase * 4.0), 0, 3)
+
 static func _poef(h, midden_y: int, fase: float) -> void:
-	if fase < 0.25:
-		h.draw_texture_rect_region(TEKENS, Rect2(-4, midden_y - 4, 8, 8), Rect2(int(TEKEN["boos"]) * 8, 0, 8, 8))
-		return
-	var p := (fase - 0.25) / 0.75
-	var d := 1 + int(p * 4.0)
-	var c := Color(0.85, 0.85, 0.9, 1.0 - p)
-	for r in [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]:
-		h.draw_rect(Rect2(r.x * d - 1, midden_y + r.y * d - 1, 2, 2), c)
-	if p < 0.4:
-		h.draw_rect(Rect2(-1, midden_y - 1, 2, 2), Color(1, 1, 1, 1.0 - p * 2.0))
+	h.draw_texture_rect_region(POEF, Rect2(-6, midden_y - 4, 12, 10), Rect2(poef_beeld(fase) * 12, 0, 12, 10))

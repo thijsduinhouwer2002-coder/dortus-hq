@@ -19,6 +19,12 @@ FAAM_FACTOR = 0.97
 FAAM_BODEM = 0.75
 TERUG_KANS = 0.25      # kans dat de volgende held een terugkomer is (als die er zijn)
 BLIJFT_KANS = 0.6      # kans dat een gevluchte held ooit terugkomt (anders gaat hij met pensioen en vertelt over je hol)
+UPG_BASIS = 45         # Sanne 10 nov 01:50 (balans.md): 45, 126, 353 (45 x 2,8^n); was 60
+GRAAF_DREMPEL = 12     # Sanne 10 nov 01:50: graven 5 + 1,2 x gangen, plus 3 per gang boven de 12
+
+def graaf_prijs(gangen):
+    return 5 + 1.2 * gangen + 3 * max(0, gangen - GRAAF_DREMPEL)
+
 STRATEGIE = "goedkoopst"   # of "spaar": koopt alleen upgrades, nooit graven (Sannes "als je niet graaft", features.md feature 5)
 NAMEN = ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
 
@@ -42,14 +48,14 @@ def speel(uren, zaad):
     def koop_lijst():
         k = []
         if gangen < 40:
-            k.append(("graaf", 5 + 1.2 * gangen))
+            k.append(("graaf", graaf_prijs(gangen)))
         for s in ("slijm", "put"):
             n = aantal[s]
             drempel = {1: 8, 2: 16, 3: 24}.get(n, 99)
             if n < 4 and gangen >= drempel:
                 k.append(("extra_" + s, 40 * 2.6 ** n))
             if upg[s] < 3:
-                k.append(("upg_" + s, 60 * 2.8 ** upg[s]))
+                k.append(("upg_" + s, UPG_BASIS * 2.8 ** upg[s]))
         if STRATEGIE == "spaar":
             k = [x for x in k if x[0].startswith("upg_")]
         return k
@@ -158,7 +164,7 @@ def wachttijden(aankopen, tot):
     return max(b - a for a, b in zip(ts, ts[1:])) if len(ts) > 1 else tot
 
 def ritme(zaden=20):
-    """Wanneer kan de speler zijn eerste upgrade (60) kopen? Sanne gokte ±10 min open tijd als je niet graaft."""
+    """Wanneer kan de speler zijn eerste upgrade (UPG_BASIS) kopen? Sanne gokte ±10 min open tijd als je niet graaft."""
     global STRATEGIE
     for strat in ("spaar", "goedkoopst"):
         STRATEGIE = strat
