@@ -21,6 +21,14 @@ v3.TINT.update({
     'inktvis':((255,170,255),(255,255,255), (170,85,170)),
     'kreeft': ((170,0,0),    (255,85,85),   (85,0,0)),
     'otter':  ((170,85,0),   (255,170,85),  (85,0,0)),
+    'garnaal':((255,170,170),(255,255,255), (255,85,85)),
+    'maanvis':((170,170,255),(255,255,255), (85,85,170)),
+    'haai':   ((85,85,170),  (255,255,255), (0,0,85)),
+    'zwaard': ((85,85,255),  (255,255,255), (0,0,85)),
+    'manta':  ((85,85,85),   (255,255,255), (0,0,0)),
+    'orka':   ((0,0,0),      (255,255,255), (85,85,85)),
+    'narwal': ((170,170,255),(255,255,255), (85,85,170)),
+    'reuzeninkt': ((170,0,85), (255,85,170), (85,0,0)),
 })
 _oud = v3.dier_delen
 
@@ -155,6 +163,66 @@ def nieuwe_delen(soort):
         neus = ellips(-0.97, -0.08, 0.06, 0.05)
         return [(staart,'donker'), (lijf,'lijf'), (kop,'licht'), (neus,'donker'), (schelp,'licht'),
                 (pootjes[0],'donker'), (pootjes[1],'donker')], [(-0.74,-0.20)]
+    if soort == 'garnaal':
+        lijf = bez((-0.70,-0.10),(-0.20,-0.55),(0.50,-0.20),10) + bez((0.50,-0.20),(0.80,0.10),(0.55,0.45),6) \
+             + bez((0.55,0.45),(0.35,0.20),(0.20,0.10),4) + bez((0.20,0.10),(-0.30,0.15),(-0.70,0.10),8)
+        segs = [([(x,-0.38+abs(x)*0.3),(x+0.05,-0.38+abs(x)*0.3),(x+0.05,0.12),(x,0.12)],'donker') for x in (-0.15, 0.10, 0.32)]
+        staart = [(0.55,0.40),(0.85,0.55),(0.40,0.65)]
+        voel = [(poot(-0.65,-0.10,-0.95,-0.60,-0.60,-0.95,0.035),'donker'), (poot(-0.60,-0.05,-1.0,-0.30,-1.05,-0.70,0.035),'donker')]
+        pootjes = [(poot(x,0.10,x-0.05,0.30,x-0.12,0.42,0.05),'donker') for x in (-0.40,-0.20,0.0)]
+        return voel + pootjes + [(staart,'lijf'), (lijf,'lijf')] + segs, [(-0.48,-0.18)]
+    if soort == 'maanvis':
+        lijf = ellips(0, 0, 0.62, 0.62)
+        vin_b = [(0.05,-0.55),(0.28,-1.0),(0.42,-0.50)]; vin_o = [(0.05,0.55),(0.28,1.0),(0.42,0.50)]
+        staart = [(0.55,-0.40),(0.78,-0.30),(0.78,0.30),(0.55,0.40)]
+        buik = ellips(0, 0.10, 0.50, 0.42, 20, 160)
+        mond = ellips(-0.60, 0.05, 0.06, 0.05)
+        return [(vin_b,'donker'), (vin_o,'donker'), (staart,'donker'), (lijf,'lijf'), (buik,'licht'), (mond,'donker')], [(-0.30,-0.15)]
+    if soort == 'haai':
+        lijf = bez((-1.0,0.05),(-0.60,-0.40),(0.30,-0.25),10) + bez((0.30,-0.25),(0.65,-0.15),(0.80,-0.02),6) \
+             + bez((0.80,-0.02),(0.50,0.25),(0.0,0.25),6) + bez((0.0,0.25),(-0.60,0.25),(-1.0,0.05),8)
+        buik = bez((-0.95,0.08),(-0.40,0.02),(0.30,0.15),6) + bez((0.30,0.15),(-0.40,0.27),(-0.95,0.10),6)
+        vin = [(-0.20,-0.32),(0.0,-0.80),(0.20,-0.28)]
+        staart = [(0.75,-0.05),(1.05,-0.50),(0.98,-0.02),(1.02,0.30)]
+        flip = [(-0.40,0.20),(-0.15,0.52),(-0.05,0.22)]
+        kieuw = [([(x,-0.08),(x+0.03,-0.08),(x+0.03,0.10),(x,0.10)],'donker') for x in (-0.50,-0.42)]
+        lach = bez((-0.92,0.10),(-0.80,0.18),(-0.66,0.10),5) + bez((-0.66,0.10),(-0.80,0.14),(-0.92,0.12),5)
+        return [(staart,'lijf'), (vin,'lijf'), (flip,'donker'), (lijf,'lijf'), (buik,'licht')] + kieuw + [(lach,'donker')], [(-0.70,-0.10)]
+    if soort == 'zwaard':
+        lijf = ellips(0, 0, 0.60, 0.26)
+        zwaard = [(-0.55,-0.04),(-1.15,0.02),(-0.55,0.06)]
+        buik = ellips(0, 0.06, 0.52, 0.16, 0, 180)
+        zeil = bez((-0.30,-0.20),(-0.10,-0.85),(0.35,-0.22),8)
+        staart = [(0.55,0),(0.95,-0.45),(0.80,0),(0.95,0.45)]
+        return [(staart,'donker'), (zeil,'donker'), (zwaard,'donker'), (lijf,'lijf'), (buik,'licht')], [(-0.36,-0.06)]
+    if soort == 'manta':
+        lijf = bez((-1.0,0.0),(-0.50,-0.45),(-0.12,-0.25),8) + [(-0.18,-0.50),(-0.06,-0.30),(0.06,-0.30),(0.18,-0.50)] \
+             + bez((0.12,-0.25),(0.50,-0.45),(1.0,0.0),8) + bez((1.0,0.0),(0.40,0.12),(0.10,0.35),6) + bez((-0.10,0.35),(-0.40,0.12),(-1.0,0.0),6)
+        staart = [(-0.03,0.30),(0.03,0.30),(0.02,0.95),(-0.02,0.95)]
+        buik = ellips(0, 0.05, 0.36, 0.16, 0, 180)
+        vlek = [ellips(-0.45,-0.12,0.08,0.05), ellips(0.45,-0.12,0.08,0.05)]
+        return [(staart,'lijf'), (lijf,'lijf'), (buik,'licht'), (vlek[0],'licht'), (vlek[1],'licht')], [(-0.16,-0.14), (0.16,-0.14)]
+    if soort == 'orka':
+        lijf = bez((-1.0,0.05),(-0.70,-0.40),(0.30,-0.28),10) + bez((0.30,-0.28),(0.65,-0.15),(0.78,0.0),6) \
+             + bez((0.78,0.0),(0.40,0.30),(-0.20,0.30),6) + bez((-0.20,0.30),(-0.80,0.30),(-1.0,0.05),8)
+        buik = bez((-0.95,0.12),(-0.40,0.05),(0.20,0.18),6) + bez((0.20,0.18),(-0.40,0.32),(-0.95,0.16),6)
+        oogvlek = ellips(-0.52, -0.14, 0.14, 0.07)
+        vin = [(-0.10,-0.34),(0.05,-0.95),(0.22,-0.30)]
+        staart = [(0.72,-0.04),(1.05,-0.35),(0.98,0.0),(1.05,0.30)]
+        flip = [(-0.45,0.22),(-0.25,0.58),(-0.10,0.26)]
+        return [(staart,'lijf'), (vin,'lijf'), (flip,'lijf'), (lijf,'lijf'), (buik,'licht'), (oogvlek,'licht')], [(-0.50,-0.14)]
+    if soort == 'narwal':
+        lijf = bez((-0.85,0.0),(-0.75,-0.40),(0.10,-0.30),10) + bez((0.10,-0.30),(0.60,-0.15),(0.75,0.0),6) \
+             + bez((0.75,0.0),(0.40,0.30),(-0.20,0.30),6) + bez((-0.20,0.30),(-0.80,0.28),(-0.85,0.0),8)
+        buik = ellips(-0.10, 0.14, 0.55, 0.12)
+        tand = [(-0.80,-0.14),(-1.25,-0.42),(-0.78,-0.06)]
+        vlek = [(ellips(x, -0.12 + 0.03*k, 0.05, 0.04), 'donker') for k, x in enumerate((-0.20, 0.05, 0.30, 0.50))]
+        staart = [(0.70,-0.04),(1.02,-0.32),(0.95,0.0),(1.02,0.28)]
+        flip = [(-0.40,0.22),(-0.22,0.52),(-0.10,0.24)]
+        return [(staart,'lijf'), (flip,'donker'), (tand,'licht'), (lijf,'lijf'), (buik,'licht')] + vlek, [(-0.58,-0.10)]
+    if soort == 'reuzeninkt':
+        delen, ogen = nieuwe_delen('inktvis')
+        return delen + [(poot(-0.30,0.05,-0.80,0.60,-0.55,1.05,0.07),'donker'), (poot(0.30,0.05,0.80,0.60,0.55,1.05,0.07),'donker')], ogen
     return _oud(soort)
 
 SLAPERIG = {'komkom'}
@@ -187,8 +255,11 @@ def dier_beeld(soort, s, kleur_override=None, hoek=0):
 v3.dier_delen = nieuwe_delen
 v3.dier_beeld = dier_beeld
 
-ALLE = [('vis','Fish'), ('kwal','Jellyfish'), ('krab','Crab'), ('pad','Turtle'), ('paard','Seahorse'),
-        ('ster','Starfish'), ('octo','Octopus'), ('kogel','Pufferfish'), ('clown','Clownfish'), ('komkom','Sea cucumber'), ('rog','Ray'), ('dolfijn','Dolphin'), ('zeehond','Seal'), ('inktvis','Squid'), ('kreeft','Lobster'), ('otter','Otter'), ('walvis','Whale')]
+ALLE = [('vis','Fish'), ('garnaal','Shrimp'), ('kwal','Jellyfish'), ('pad','Turtle'), ('krab','Crab'), ('paard','Seahorse'),
+        ('ster','Starfish'), ('clown','Clownfish'), ('kogel','Pufferfish'), ('octo','Octopus'), ('inktvis','Squid'), ('rog','Ray'),
+        ('zeehond','Seal'), ('dolfijn','Dolphin'), ('zwaard','Swordfish'), ('otter','Sea otter'), ('manta','Manta'), ('haai','Shark'),
+        ('maanvis','Sunfish'), ('orka','Orca'), ('narwal','Narwhal'), ('reuzeninkt','Giant squid'), ('komkom','Sea cucumber'), ('walvis','Whale')]
+RESERVE = [('kreeft','Lobster')]
 
 def dier_scherm(soort, naam):
     def fn(D):
@@ -206,15 +277,15 @@ def dier_scherm(soort, naam):
 if __name__ == '__main__':
     v3.FONT = sys.argv[2]; uit = sys.argv[1]; os.makedirs(uit, exist_ok=True)
     from ebb_blad_v3 import f
-    gap = 24; cel = 454 + 16 + 260; kol = 4; rijen = (len(ALLE)+kol-1)//kol
+    gap = 24; cel = 454 + 16 + 260; kol = 6; rijen = (len(ALLE)+kol-1)//kol
     blad = Image.new('RGB', (gap + kol*(cel+gap), 100 + rijen*(454+60+gap)), (14,16,24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 28), f'Ebb dieren v4 (Mila): {len(ALLE)} van de 24, zelfde stijl, links 454 AMOLED, rechts 260 MIP', font=f(44), fill=(220,230,240))
+    d.text((gap, 28), f'Ebb dieren v4 (Mila): alle 24 in de volgorde van de sea log, zelfde stijl, links 454 AMOLED, rechts 260 MIP', font=f(44), fill=(220,230,240))
     rap = []
     for i, (soort, naam) in enumerate(ALLE):
         r, k = divmod(i, kol); x = gap + k*(cel+gap); y = 100 + r*(454+60+gap)
         a = teken(dier_scherm(soort, naam), 454); b = teken(dier_scherm(soort, naam), 260)
         a.save(f'{uit}/dier-{soort}-454.png'); b.save(f'{uit}/dier-{soort}-260.png')
         blad.paste(a, (x, y)); blad.paste(b, (x+470, y+194))
-        d.text((x, y+460), f'{24 if soort == "walvis" else i+1}. {naam}', font=f(30), fill=(170,190,210))
+        d.text((x, y+460), f'{i+1}. {naam}', font=f(30), fill=(170,190,210))
         rap.append(f'{naam:14s} pixels buiten MIP op 260: {niet_mip(b)}')
     blad.save(f'{uit}/../ebb-dieren-v4.png'); print('\n'.join(rap))
