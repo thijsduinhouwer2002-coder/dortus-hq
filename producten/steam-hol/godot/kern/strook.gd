@@ -173,6 +173,7 @@ func _ready() -> void:
 var wachtrij: Array = []        # [{r, binnen, sinds}]
 var regel_sinds := -100.0       # wanneer de getoonde regel kwam
 var regel_binnen := false       # is de getoonde regel een binnenkom-regel
+var regel_nu: Dictionary = {}   # de getoonde regel zelf (wachtrij.gd: te kort gestaan, dan één keer terug)
 
 func _kroniek(r: String, binnen := false, soort := "") -> void:
 	wachtrij.append({"r": r, "binnen": binnen, "sinds": t, "soort": soort})
