@@ -13,6 +13,8 @@ BRUTAAL = 0.8
 PLAT_S = 60
 SCHIJT_OM = 0.5
 GOUD_PER_BEZOEK = 3   # Sanne 9 nov 19:55: +3 goud per eerder bezoek (een terugkomer is een beloning)
+AARTS_NA_HELDEN = 0   # zelfde regel, geteld in nieuwe helden (helden_nr in de save van strook.gd)
+AARTS_NA = 0          # Sanne: geen aartsvijand in het eerste uur; 3600 = regel aan (python3 sim.py aarts meet beide)
 AARTS_KANS = 0.15      # een aartsvijand die aan de beurt is, komt maar 15% van de keren echt (zeldzaam = feest)
 # Voorstel Bram (uit deze sim, zie UITKOMST.md); balans.md had faam x 0,9 per niveau zonder bodem.
 FAAM_FACTOR = 0.97
@@ -79,7 +81,7 @@ def speel(uren, zaad):
         # wie komt er?
         if terug and rng.random() < TERUG_KANS:
             i = rng.randrange(len(terug))
-            if terug[i]["gevlucht"] < 3 or rng.random() < AARTS_KANS:
+            if terug[i]["gevlucht"] < 3 or (t >= AARTS_NA and nieuw_nr >= AARTS_NA_HELDEN and rng.random() < AARTS_KANS):
                 h = terug.pop(i)
             else:
                 h = None
@@ -87,6 +89,8 @@ def speel(uren, zaad):
             h = None
         if h is None:
             nieuw_nr += 1
+            if t < 3600:
+                st["nieuw_uur1"] = nieuw_nr
             h = {"naam": "%s%d" % (rng.choice(NAMEN), nieuw_nr), "gevlucht": 0, "wrok": "", "hoard": False,
                  "trek": rng.choice(["hebzuchtig", "schijterig"]), "bezoeken": 0, "soort": ""}
             if SOORTEN and nieuw_nr > 10:
@@ -96,6 +100,8 @@ def speel(uren, zaad):
         sd = SOORT_DATA.get(h.get("soort", ""), ({}, False))
         if h["gevlucht"] >= 3:
             st["aartsvijand_bezoek"] += 1
+            if st.get("eerste_aarts") is None:
+                st["eerste_aarts"] = t
         st["soort_tel"][h.get("soort", "")] = st["soort_tel"].get(h.get("soort", ""), 0) + 1
         moet_vallen = helden == 1
         # pad: verdediging in volgorde van de gang (slijm en put om en om, zoals je ze neerzet)
@@ -216,6 +222,32 @@ if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "soorten":
         print("soorten %-5s | vlucht %% %s | helden/u %s | langste wacht uur 1 %s min | alles na %s u | aartsvijand/u %s | liederen/u %s" % (
             aan, k(0), k(1), k(2), k(3), k(4), k(5)))
     sys.exit()
+
+# Sanne features.md (eerste tien minuten): geen aartsvijand in het eerste uur van een nieuw spel. Hoe vaak gebeurt dat nu?
+def aarts(zaden=60, uren=6):
+    tijden = []
+    uur1 = []
+    for z in range(zaden):
+        s = speel(uren, 1000 + z)
+        tijden.append(s.get("eerste_aarts"))
+        uur1.append(s.get("nieuw_uur1", 0))
+    uur1.sort()
+    print("nieuwe helden in uur 1: min %d, mediaan %d, max %d |" % (uur1[0], uur1[len(uur1) // 2], uur1[-1]), end=" ")
+    echt = sorted(x / 3600 for x in tijden if x is not None)
+    in_uur1 = sum(1 for x in echt if x < 1)
+    mediaan = echt[len(echt) // 2] if echt else None
+    print("aarts | %d zaden, %d u | eerste aartsvijand in uur 1: %d (%.0f%%) | ooit binnen %d u: %d | vroegste %.2f u | mediaan %s u" % (
+        zaden, uren, in_uur1, 100 * in_uur1 / zaden, uren, len(echt), echt[0] if echt else -1,
+        "%.2f" % mediaan if mediaan is not None else "-"))
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "aarts":
+    for sr in (False, True):
+        SOORTEN = sr
+        for na, nh in ((0, 0), (3600, 0), (0, 60)):
+            AARTS_NA, AARTS_NA_HELDEN = na, nh
+            print("soorten %s, aartsvijand pas na %d s / %d nieuwe helden:" % (sr, na, nh), end=" ")
+            aarts()
+    sys.exit(0)
 
 if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] == "ritme":
     ritme()

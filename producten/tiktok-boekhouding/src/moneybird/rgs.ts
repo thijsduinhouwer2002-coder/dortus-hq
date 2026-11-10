@@ -12,6 +12,8 @@ export interface RgsVoorstel {
   naam: string;
   /** false: niet automatisch aanmaken, de verkoper kiest een bestaande rekening (bijv. btw). */
   aanmaken: boolean;
+  /** true: vóór aanmaken alleen op naam zoeken, niet op RGS-code (de code deelt hij met een andere soort). */
+  zoekOpNaam?: boolean;
 }
 
 const OMZET: RgsVoorstel = { rgs: "WOmzNohOlh", accountType: "revenue", naam: "Omzet TikTok Shop", aanmaken: true };
@@ -30,6 +32,8 @@ export const RGS_PER_SOORT: Record<MbSoort, RgsVoorstel> = {
   verzendkosten_totaal: VRACHT,
   commissie: COMMISSIE,
   kosten_en_belasting_totaal: COMMISSIE,
+  // Zelfde code als commissie (dubbel mag, proef 1), eigen naam; zoeken op naam, anders vind je de commissierekening.
+  affiliate: { rgs: "WBedVkkCom", accountType: "expenses", naam: "Affiliate-commissie TikTok Shop (creators)", aanmaken: true, zoekOpNaam: true },
   // GOK: of TikTok Nederlandse btw op de kosten rekent. Btw-rekeningen bestaan al in Moneybird: niet aanmaken.
   belasting_op_kosten: { rgs: "BSchBepBtwVoo", accountType: "current_liabilities", naam: "Voorbelasting", aanmaken: false },
   belasting: { rgs: "WBedVkkObs", accountType: "expenses", naam: "Belastingen TikTok Shop", aanmaken: true },

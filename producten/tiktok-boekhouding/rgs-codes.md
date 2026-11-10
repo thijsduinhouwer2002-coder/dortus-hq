@@ -12,6 +12,7 @@ Controleur (9 nov 21:20 UTC): akkoord, codes, uittreksel en `account_type` nagek
 | korting, korting_terug | WOmzKebVekVkh | Verleende kortingen op handelsgoederen | revenue | ja |
 | verzendkosten, verzendkosten_totaal | WBedVkkVrk | Vrachtkosten (verkoop) | expenses | ja |
 | commissie, kosten_en_belasting_totaal | WBedVkkCom | Commissies (verkoop) | expenses | ja |
+| affiliate (sinds 10 nov) | WBedVkkCom | Commissies (verkoop), eigen naam "Affiliate-commissie TikTok Shop (creators)", zoeken op naam | expenses | ja |
 | belasting_op_kosten | BSchBepBtwVoo | Voorbelasting | (bestaat al) | **nee** |
 | belasting | WBedVkkObs | Overige belastingen inzake verkoopactiviteiten | expenses | ja |
 | correctie | WBedVkkOvr | Overige verkoopkosten | expenses | ja |

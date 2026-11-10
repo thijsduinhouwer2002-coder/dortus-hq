@@ -220,6 +220,68 @@ func _init() -> void:
 		if not stem.VOORRAAD.has(soort):
 			mist.append(soort)
 	ok(mist.is_empty(), "alle soorten van strook.gd staan in kroniek_regels.gd (mist: %s)" % str(mist))
+	# Sanne toets 9: hap en hoed in één regel, binnenkomst na het lied, voorrang in de wachtrij
+	var stem9 = load("res://systemen/kroniek_regels.gd").new()
+	ok(stem9.VOORRAAD.has("hap_hoed") and stem9.VOORRAAD.has("hap_hoed_eerste") and stem9.VOORRAAD.has("binnen_lied"), "soorten hap_hoed en binnen_lied staan erin")
+	var namen_boek: Array = load("res://systemen/boek.gd").HOED_NAMEN
+	var hoed_gelijk: bool = namen_boek.size() == stem9.HOED_KORT.size()
+	for hi in mini(namen_boek.size(), stem9.HOED_KORT.size()):
+		hoed_gelijk = hoed_gelijk and String(namen_boek[hi]).to_lower() == stem9.HOED_KORT[hi]
+	ok(hoed_gelijk, "hoednamen in de regels gelijk aan boek.gd (zelfde volgorde als held_hoeden.png)")
+	var r_eerste: String = stem9.hap_regel("Odo", "Gloop", 4, 1, 3)
+	ok(r_eerste == "Gloop ate Odo. Kept the crown." and not stem9.hoed_apart, "eerste hoed: vaste regel met de hoed erin (%s)" % r_eerste)
+	var hap_te_lang := 0
+	for sj in stem9.VOORRAAD["hap_hoed"] + stem9.VOORRAAD["hap_hoed_eerste"]:
+		for hn in stem9.HOED_KORT:
+			var vol9: String = stem9.vul(sj, {"naam": "Lotte", "bewoner": "Gloop", "hoed": hn}) + " +6"
+			if vol9.length() > 42 or vol9.contains("{"):
+				hap_te_lang += 1
+	ok(hap_te_lang <= 3, "hap-hoed-regels met Lotte en +6: bijna alle hoeden passen (%d niet, die kiest hap_regel dan niet)" % hap_te_lang)
+	var r_n: Array[String] = []
+	var hap_ok := true
+	for z in 12:
+		var rr: String = stem9.hap_regel("Lotte", "Gloop", z % 10, 2 + z, 3)
+		r_n.append(rr)
+		hap_ok = hap_ok and rr != "" and rr.length() + 3 <= 42 and not rr.contains("{") and rr.contains(stem9.HOED_KORT[z % 10]) and not stem9.hoed_apart
+	ok(hap_ok, "12 happen met hoed: altijd één regel met de hoed, past met +6 (%s)" % r_n[1])
+	var r_lang: String = stem9.hap_regel("Bartholomew the Unbudged", "Gloop", 9, 7, 3)
+	ok(r_lang != "" and stem9.hoed_apart and not r_lang.contains("feather"), "lange naam: gewone hap-regel en hoed_apart, de beller doet de hoed los (%s)" % r_lang)
+	var r_geen: String = stem9.hap_regel("Pim", "Gloop", -1, 0, 3)
+	ok(r_geen != "" and not stem9.hoed_apart and stem9.VOORRAAD["val_bewoner"].has(r_geen.replace("Pim", "{naam}").replace("Gloop", "{bewoner}")), "zonder hoed: gewone hap-regel (%s)" % r_geen)
+	var lied_lang := 0
+	for sj in stem9.VOORRAAD["binnen_lied"]:
+		if stem9.vul(sj, {"naam": "Bartholomew"}).length() > 42:
+			lied_lang += 1
+	ok(lied_lang == 0, "binnen_lied: alle vijf passen met een lange naam (%d niet)" % lied_lang)
+	ok(stem9.vervalt_nooit("plat") and stem9.vervalt_nooit("binnen_lied") and not stem9.vervalt_nooit("binnen"), "plat en binnen_lied vervallen nooit, binnen wel")
+	ok(stem9.is_sfeer("lied") and not stem9.is_sfeer("plat"), "lied is een sfeerregel")
+	var soort_s = load("res://systemen/heldensoort.gd")
+	ok(soort_s.rij("ridder") == 0 and soort_s.rij("bard") == 3 and soort_s.rij("") == -1, "rij in held_soort.png volgt SOORTEN")
+	ok(not soort_s.aarts_mag(0) and not soort_s.aarts_mag(59) and soort_s.aarts_mag(60), "geen aartsvijand voor de 60e nieuwe held (±1 uur, sim.py aarts)")
+	# pensioen bij openen (Sanne kroniek-regels.md): hooguit één, alleen na 30 min weg
+	var Vp = load("res://systemen/voortgang.gd")
+	var rp = load("res://systemen/kroniek_regels.gd").new()
+	var lijst_p: Array = []
+	for np in ["Kees", "Odo", "Mara", "Tibbe", "Pim", "Lotte", "Odo"]:
+		lijst_p = Vp.met_pensioen(lijst_p, np)
+	ok(lijst_p == ["Mara", "Tibbe", "Pim", "Lotte", "Odo"], "pensioenlijst: hooguit 5, oudste eraf, geen dubbele (%s)" % str(lijst_p))
+	ok(Vp.pensioen(lijst_p, {"weg_s": 600}, rp).is_empty() and Vp.pensioen([], {"weg_s": 7200}, rp).is_empty(), "pensioen: niet na 10 min weg, niet zonder namen")
+	var pp: Dictionary = Vp.pensioen(lijst_p, {"weg_s": 7200}, rp)
+	ok(pp.get("naam", "") == "Mara" and String(pp.regel).begins_with("Mara ") and String(pp.regel).length() <= 42 and rp.VOORRAAD["pensioen"].has(String(pp.regel).replace("Mara", "{naam}")), "pensioen na 2 uur: de oudste, regel uit de voorraad (%s)" % str(pp))
+	var pp2: Dictionary = Vp.pensioen(["Bartholomew the Unbudged"], {"weg_s": 7200}, rp)
+	ok(String(pp2.get("regel", "")).length() <= 42 and String(pp2.get("regel", "")) != "", "pensioen met lange naam past (%s)" % str(pp2))
+	var kleding := Image.load_from_file("res://kunst/held_soort.png")
+	var rijen_vol: bool = kleding != null and kleding.get_width() == 64 and kleding.get_height() == 16 * soort_s.SOORTEN.size()
+	if rijen_vol:
+		for ri in soort_s.SOORTEN.size():
+			for fi in 4:
+				var gevuld := false
+				for py in 16:
+					for px in 16:
+						if kleding.get_pixel(fi * 16 + px, ri * 16 + py).a > 0.5:
+							gevuld = true
+				rijen_vol = rijen_vol and gevuld
+	ok(rijen_vol, "held_soort.png: 4 beelden per soort, elk met kleding (de luit zelf: Sanne op de film)")
 	var rv: String = stem.kies("val", {"naam": "Bartholomew", "val": "the Spike Pit"}, 4)
 	ok(rv != "" and rv.length() <= 38 and not rv.contains("+"), "kies met getal: ruimte voor ' +12', niets erachter (%s)" % rv)
 	ok(stem.kies("plat", {"bewoner": "Gloop"}) == "Gloop is flat. Back soon.", "plat-regel uit dezelfde voorraad")

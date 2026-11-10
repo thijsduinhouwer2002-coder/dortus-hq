@@ -132,6 +132,31 @@ static func verhaal(uitkomst: Dictionary, helden: Dictionary, vijand_namen: Arra
 		uit.append(_kort("%d came, %d fell. +%d gold." % [int(uitkomst.helden), int(uitkomst.gevallen), int(uitkomst.goud)]))
 	return uit
 
+# Met pensioen (Sanne kroniek-regels.md: bij openen, hooguit één per keer, geen straf maar een grapje).
+# 40% van wie vlucht komt nooit terug (sim/UITKOMST.md) en strook.gd laat ze nu stil verdwijnen. Bewaar hun namen
+# (oudste voorop, hooguit PENSIOEN_MAX) en vraag bij openen deze regel: alleen als je minstens PENSIOEN_NA_S weg was,
+# zodat het klopt dat hij intussen iets anders is gaan doen. Geeft {"naam", "regel"} (haal die naam uit je lijst) of {}.
+# regels: systemen/kroniek_regels.gd (zelfde voorraad als de kroniek, dus geen regel uit de laatste 10).
+const PENSIOEN_NA_S := 30 * 60
+const PENSIOEN_MAX := 5
+static func pensioen(namen: Array, uitkomst: Dictionary, regels) -> Dictionary:
+	if namen.is_empty() or int(uitkomst.get("weg_s", 0)) < PENSIOEN_NA_S or regels == null:
+		return {}
+	var naam := String(namen[0])
+	var r: String = regels.kies("pensioen", {"naam": naam})
+	if r == "":
+		r = _kort("%s retired." % naam)
+	return {"naam": naam, "regel": r}
+
+# Lijst bijwerken als een held niet terugkomt: achteraan erbij, de oudste eraf boven PENSIOEN_MAX, geen dubbele.
+static func met_pensioen(namen: Array, naam: String) -> Array:
+	var uit := namen.duplicate()
+	uit.erase(naam)
+	uit.append(naam)
+	while uit.size() > PENSIOEN_MAX:
+		uit.pop_front()
+	return uit
+
 # Eerste bewoner uit de namen, kort ("Gloop the Slime" -> "Gloop"); vallen beginnen met "the ".
 static func _bewoner(namen: Array) -> String:
 	for n in namen:

@@ -77,7 +77,7 @@ Waar: steamcommunity.com > je profiel > **Groepen** > **Groep aanmaken**.
 3. Ontwikkelaarspagina > tab **admin**:
    - Logo links in de kop (184 x 184): `merk/avatar-184-v2.png`.
    - Achtergrond van de kop (1500 x 220): `merk/steam-kop-1500x220-v2.png` (niet v1 of v1b).
-4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `merk/steam-logo-1200x460-v2.png` en als achtergrond `merk/steam-achtergrond-1920-v3.png` (akkoord Daan, keuring 4; v1, v1b en v2 niet gebruiken). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). Valve raadt precies dit aan: achtergrond met aan de zijkanten en onderaan een vlakke kleur, en "set the page background color to match this solid color in Steamworks" (DERDEN, https://partner.steamgames.com/doc/marketing/event_tools/sales/tools; de Creator Home-editor werkt hetzelfde: "customize your page colors and imagery", https://partner.steamgames.com/doc/marketing/event_tools/creatorhome/tools). Het veld staat bij de achtergrond van de pagina; de exacte knopnaam heb ik niet gezien. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
+4. Admin > **Creator Home v2** > Create New. Houd de standaardsecties; Valve raadt aan "On your wishlist" en "Recommended" te houden. Zet als paginalogo `merk/steam-logo-1200x460-v2b.png` en als achtergrond `merk/steam-achtergrond-1920-v3.png` (akkoord Daan, keuring 4 en 5; v1, v1b en logo v2 niet gebruiken). **Zet de achtergrondkleur van de pagina op `#1d1426`** (Nacht). Waarom: op schermen breder dan 1920 toont Steam die kleur naast het plaatje. Klei heeft daar zwart staan (GEZIEN in hun pagina, 10 nov 03:27), en dan zie je op 2560 breed een harde rand; met Nacht loopt het naadloos door (GEZIEN, proef 2560). Valve raadt precies dit aan: achtergrond met aan de zijkanten en onderaan een vlakke kleur, en "set the page background color to match this solid color in Steamworks" (DERDEN, https://partner.steamgames.com/doc/marketing/event_tools/sales/tools; de Creator Home-editor werkt hetzelfde: "customize your page colors and imagery", https://partner.steamgames.com/doc/marketing/event_tools/creatorhome/tools). Het veld staat bij de achtergrond van de pagina; de exacte knopnaam heb ik niet gezien. Voeg bovenaan één **tekstblok** toe (tekst hieronder).
 5. Kijk in de voorvertoning of de lichtbundel van de achtergrond onder de D van het logo begint. Zo niet: zeg het, dan schuift Mila hem een paar pixels.
 6. Tab **publish** > publiceren. Terug naar admin > Creator Home v2 > bij "Inactive" op **Set as Active** (ster).
 
@@ -105,7 +105,7 @@ Welke versie: kop, logo en og v2 zijn akkoord (Daan, keuring 3, 10 nov). De acht
 |---|---|---|
 | Profiel, groep, logo in de kop | `merk/avatar-184-v2.png` | 184 x 184 |
 | Kop ontwikkelaarspagina | `merk/steam-kop-1500x220-v2.png` | 1500 x 220 |
-| Paginalogo | `merk/steam-logo-1200x460-v2.png` | 1200 x 460, doorzichtig |
+| Paginalogo | `merk/steam-logo-1200x460-v2b.png` | 1200 x 460, doorzichtig |
 | Achtergrond | `merk/steam-achtergrond-1920-v3.png` | 1920 x 1200, paginakleur `#1d1426` |
 
 ## Klaar als

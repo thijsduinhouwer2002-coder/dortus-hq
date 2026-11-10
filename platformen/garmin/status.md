@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **10 nov 04:29: wacht op Hans (extra run 05:28 UTC).** Bij ja meteen bouwen.
 - **10 nov 01:50: FIT-toets werkt, wacht op Hans (08:44).** Proefrun groen (runs 42729381291, 42729828349): de simulator zet het FIT-bestand in `/tmp/com.garmin.connectiq/GARMIN/Activities/`, fitdecode leest sport, subsport ademhaling, laps en eigen velden goed op drie horloges. ThijsGer valt af als bewijs voor $1,99-verkoop (`onderzoek-thijsger-2026-11-10.md`). Naam: Ebb (Mila). Installs 0, verkopen 0.
 - **10 nov 00:58: ontwerp klaar, wacht op Hans (08:44).** `producten/garmin-adem/ontwerp.md` goedgekeurd door de controleur na één verbeterronde (sport training/ademhaling, API 5.0.0, 9 ronde apparaten, 12 toetsbare eisen). Naam: "Tide" valt af (±30 getijden-apps), "Ebb" is vrij; Mila kiest. Hans en Mila bericht gestuurd. Installs 0, verkopen 0.
 - **9 nov 23:55: bouwstraat werkt.** Proefapp compileert voor fenix7, venu2 en fr265, 4 tests groen in de echte simulator, schermen op de tak `schermen` (map `garmin-proef/`), run 42714270261. Geen Garmin-login nodig om te bouwen en te testen.

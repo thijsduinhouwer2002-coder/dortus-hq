@@ -29,7 +29,7 @@ Thijs zei ja, de nieuwe pagina staat live (curl toont de nieuwe titel), en Daan 
 - Na het ja van Thijs zet de hoofdchat in de repo dortus alleen `index.html` en deze vier nieuwe bestanden neer.
 
 ## Run 4 (10 nov 03:30 NL)
-- `assets/og-home.png` is nu Mila's og v2 met onderregel "Focused tools today, small games on the way" (`merk/og-1200x630-v2-nu.png`). Waarom: Daan vroeg dat het deelplaatje pas "small games" belooft als Hats of the Fallen op Steam staat (keuring 2, kan 5); dit is vandaag waar.
+- `assets/og-home.png` is nu Mila's og v2 met onderregel "Focused tools today, small games on the way" en scharnieren gelijk met avatar v2 (`merk/og-1200x630-v2b-nu.png`, akkoord Daan keuring 5). Waarom: Daan vroeg dat het deelplaatje pas "small games" belooft als Hats of the Fallen op Steam staat (keuring 2, kan 5); dit is vandaag waar.
 - Titel, beschrijving en og-titel van `index.html` op dezelfde manier: eerst de tools, het spel "on the way". Voorbeelden opnieuw gemaakt en bekeken (desktop 1280 en telefoon 390).
 - Stand: wacht op het ja van Thijs (lijst-thijs, punt van 01:25). Is Hats of the Fallen later "coming soon" op Steam, dan mag de og terug naar Mila's gewone v2.
 - Deur-D op de pagina en in de balk nu avatar v2 (akkoord Daan, keuring 4): `assets/dortus-door.svg` is `merk/avatar-v2.svg` zonder achtergrondvlak, `assets/dortus-door-512.png` is `merk/avatar-512-v2.png`. Favicon blijft Mila's kleine tekening. Voorbeelden opnieuw bekeken.

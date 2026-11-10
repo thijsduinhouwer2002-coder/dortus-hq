@@ -9,11 +9,12 @@ const HOEDEN := preload("res://kunst/held_hoeden.png")
 const HOEDEN_HAP := preload("res://kunst/held_hoeden_hap.png")
 const LITTEKENS := preload("res://kunst/held_littekens.png")  # pleister, ooglap, schram, verband
 const WAPENS := preload("res://kunst/held_wapens.png")
+const KLEDING := preload("res://kunst/held_soort.png")          # Mila 10 nov: 4 loopframes x 4 rijen (ridder, dief, magier, bard)
 const POEF := preload("res://kunst/poef.png")                 # Mila 10 nov: boze wolkje knapt, 4 x (12 x 10)
 const TEKENS := preload("res://kunst/tekens.png")            # boos, uitroep, zweet, zzz, ster
 const TEKEN := {"boos": 0, "uitroep": 1, "zweet": 2, "zzz": 3, "ster": 4}
 
-# Daans lijf + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven.
+# Daans lijf + kleding per soort (Mila) + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven.
 static func teken(h) -> void:
 	var staat: String = String(h.staat)
 	if staat == "weg":
@@ -44,6 +45,9 @@ static func teken(h) -> void:
 	var hoed_nr: int = int(h.hoed_nr)
 	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
 	_laag(h, LIJF, frame * 16, int(h.kleur_nr) * 16, y, zak, kleur)
+	var rij: int = h.SOORT.rij(String(h.soort_held))
+	if rij >= 0:
+		_laag(h, KLEDING, frame * 16, rij * 16, y, zak, kleur)    # direct na het lijf, voor littekens en hoed (kunst/LEESMIJ.md)
 	for l in h.littekens:
 		_laag(h, LITTEKENS, int(l) * 16, 0, y + omlaag, zak, kleur)
 	if vb.is_empty() or bool(vb.hoed):

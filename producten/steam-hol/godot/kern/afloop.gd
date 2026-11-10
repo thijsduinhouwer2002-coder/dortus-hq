@@ -82,7 +82,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				if hn == null:
 					hn = info.get("hoed_nr", -1)
 				if n_h == 1 or bool(info.get("demo_clou", false)) or s.rng.randf() < 0.25:
-					r = s.regels.kies("hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(hn))}, extra.length())
+					r = s.regels.kies("hap_hoed_eerste" if n_h == 1 else "hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(hn))}, extra.length())
+					if r.length() > RG.MAX - extra.length():
+						r = ""   # te lang met deze namen: dan de gewone hap-regel (de hoed staat toch op de toren)
 				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
 			# alleen een gewone hap-regel als het geen hap_hoed werd (controleur kan-punt 1: anders verbruikt de schudzak een regel die niemand ziet)
 			if r == "":
@@ -122,10 +124,11 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				s._kroniek(s.regels.kies(soort, w))
 
-# Engelse naam van hoed i in Mila's held_hoeden.png (volgorde als in strook.gd bij DEMO_HOEDEN), voor "hap_hoed".
-const HOED_NAMEN := ["helmet", "pointy hat", "hood", "cap", "crown", "chef hat", "bucket", "top hat", "pan", "feather cap"]
+# Engelse naam van hoed i voor "hap_hoed": Brams lijst (kroniek_regels.gd HOED_KORT, zijn toets vergelijkt hem met boek.gd).
+const KR := preload("res://systemen/kroniek_regels.gd")
+const RG := preload("res://kern/regels.gd")
 static func hoed_naam(i: int) -> String:
-	return HOED_NAMEN[i] if i >= 0 and i < HOED_NAMEN.size() else "hat"
+	return String(KR.HOED_KORT[i]) if i >= 0 and i < KR.HOED_KORT.size() else "hat"
 
 # Een regel uit het Heldenboek: laag, zoals binnenkomst (een nieuwe bladzijde is fijn om te lezen, maar wat je ziet
 # gaat voor; Sanne toets 9). Vervalt hij, dan staat hij nog steeds in het boek. Soort "boek" voor de log.
