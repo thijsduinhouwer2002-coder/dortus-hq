@@ -123,10 +123,64 @@ def geen_stop(voor):
     return voor >= MAX_VOOR - 1e-6
 
 
+GROEI_MM = 1.0  # rood als vlak (Daan punt 5): ook de vlakken binnen 1 mm van een rakend vlak, anders zie je alleen een lijn
+
+
+def _terug(ob):
+    """Vorige rode vlakken van ob terug naar hun eigen materiaalvak."""
+    me = ob.data
+    oud = list(ob.get("cj_rood_vlakken", []))
+    for i in range(0, len(oud), 2):
+        if oud[i] < len(me.polygons):
+            me.polygons[oud[i]].material_index = oud[i + 1]
+    ob["cj_rood_vlakken"] = []
+
+
+def _groei(ob, vlakken, afstand):
+    """De rakende vlakken plus alle vlakken van ob waarvan het middelpunt binnen `afstand` van een rakend vlak ligt."""
+    if not vlakken or afstand <= 0:
+        return set(vlakken)
+    from mathutils.kdtree import KDTree
+    me = ob.data
+    n = len(me.polygons)
+    c = np.empty(n * 3, dtype=np.float64)
+    me.polygons.foreach_get("center", c)
+    c = c.reshape(n, 3)
+    boom = KDTree(n)
+    for i in range(n):
+        boom.insert(c[i], i)
+    boom.balance()
+    uit = set(vlakken)
+    for v in vlakken:
+        for _co, j, _d in boom.find_range(c[v], afstand):
+            uit.add(j)
+    return uit
+
+
+def _kleur(ob, vlakken, kleur_rood):
+    me = ob.data
+    if not vlakken:
+        return
+    if len(me.materials) == 0:
+        me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is het hele deel rood
+    namen = [m.name if m else None for m in me.materials]
+    if kleur_rood.name in namen:
+        vak = namen.index(kleur_rood.name)
+    else:
+        me.materials.append(kleur_rood)
+        vak = len(me.materials) - 1
+    lijst = []
+    for v in sorted(vlakken):
+        lijst += [v, me.polygons[v].material_index]
+        me.polygons[v].material_index = vak
+    ob["cj_rood_vlakken"] = lijst
+
+
 def pose(a, b, graden, kleur_rood=None):
     """Eis 8 (plaatjes 11 en 12): deel B in de weergave `graden` naar voren om H draaien, zoals de beweegproef.
-    Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A die B raken het rode materiaal
-    (kleur_rood); de vorige rode vlakken eerst terug. Geeft het aantal rode vlakken."""
+    Voorbij de gemeten eindstop (cj_bereik_graden) krijgen de vlakken van A en B die elkaar raken het rode materiaal
+    (kleur_rood), plus de vlakken binnen GROEI_MM daarvan, zodat het rood als vlak leest (Daan, Pro punt 5); de vorige
+    rode vlakken eerst terug. Geeft het aantal rode vlakken van A (zoals eerst); die van B staan in cj_rood_vlakken van B."""
     # Alleen de weergave: de draaiing staat in delta_rotation en delta_location van deel B (zet_scharnier),
     # net als de pose van de kogel. location, rotation en matrix_world-zonder-delta's blijven van de gebruiker,
     # dus de export (echte_plek) en echte_matrix zien deel B recht.
@@ -139,34 +193,32 @@ def pose(a, b, graden, kleur_rood=None):
     punt = Vector(b["cj_scharnier_punt"])
     draai = (Matrix.Translation(punt) @ pose_q(b).to_matrix().to_4x4() @ Matrix.Translation(-punt))
     me = a.data
-    oud = list(a.get("cj_rood_vlakken", []))
-    for i in range(0, len(oud), 2):
-        if oud[i] < len(me.polygons):
-            me.polygons[oud[i]].material_index = oud[i + 1]
-    a["cj_rood_vlakken"] = []
+    _terug(a)
+    _terug(b)
     if graden <= float(a.get("cj_bereik_graden", MAX_VOOR)) or kleur_rood is None:
         me.update()
+        b.data.update()
         return 0
     me.calc_loop_triangles()
-    mw = a.matrix_world
-    bvh_a = BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
+    b.data.calc_loop_triangles()
+    ma = echte_matrix(a)
+    bvh_a = BVHTree.FromPolygons([ma @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
     mb = draai @ echte_matrix(b)  # waar B echt zou staan bij deze stand, zonder Exploded view
     bvh_b = BVHTree.FromPolygons([mb @ v.co for v in b.data.vertices],
-                                 [tuple(p.vertices) for p in b.data.polygons])
-    vlakken = sorted({me.loop_triangles[i].polygon_index for i, _ in bvh_a.overlap(bvh_b)})
-    if vlakken:
-        if len(me.materials) == 0:
-            me.materials.append(None)  # eerst een leeg vak 0, anders wordt rood vak 0 en is heel A rood
-        namen = [m.name if m else None for m in me.materials]
-        if kleur_rood.name in namen:
-            vak = namen.index(kleur_rood.name)
-        else:
-            me.materials.append(kleur_rood)
-            vak = len(me.materials) - 1
-        lijst = []
-        for v in vlakken:
-            lijst += [v, me.polygons[v].material_index]
-            me.polygons[v].material_index = vak
-        a["cj_rood_vlakken"] = lijst
+                                 [tuple(t.vertices) for t in b.data.loop_triangles])
+    paren = bvh_a.overlap(bvh_b)
+    raak_a = {me.loop_triangles[i].polygon_index for i, _ in paren}
+    raak_b = {b.data.loop_triangles[j].polygon_index for _, j in paren}
+    try:
+        from ..eigenschappen import eenheid_per_mm
+        u = eenheid_per_mm(bpy.context.scene)
+    except Exception:  # noqa: BLE001  zonder scene: rekenen in mm
+        u = 1.0
+    # Groeien in de eigen coördinaten van het deel: schaal van het object eruit halen (mesh-eenheden per mm).
+    vlakken_a = _groei(a, raak_a, GROEI_MM * u / max(1e-9, ma.to_scale().length / 3 ** 0.5))
+    vlakken_b = _groei(b, raak_b, GROEI_MM * u / max(1e-9, echte_matrix(b).to_scale().length / 3 ** 0.5))
+    _kleur(a, vlakken_a, kleur_rood)
+    _kleur(b, vlakken_b, kleur_rood)
     me.update()
-    return len(vlakken)
+    b.data.update()
+    return len(vlakken_a)

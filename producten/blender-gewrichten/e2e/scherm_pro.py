@@ -7,10 +7,10 @@ Plaatjes (alle 1920x1080, hele X-scherm):
   14-pro-knie-rood-x.png    3 graden voorbij de gemeten stop, rood van de add-on op A, B doorzichtig
 En pro-knie.json met de echte getallen (bereik, speling, stand) en de plek in beeld van H en de lidas, voor de poster.
 
+Wat de add-on nu zelf doet (ronde 2, 10 nov): de groene passingband langs de naad en rond de knokkel
+(betaald/scharnier_kleur.py), rood als vlak op A en B voorbij de stop (scharnier_beweeg.pose, plus 1 mm rond de rakende
+vlakken) en de gradenboog buiten het been met 0° en 115° aan de uiteinden (scharnier_boog.straal). Het script kleurt niets.
 Wat het script zelf doet en de add-on niet (alleen weergave, de export verandert niet):
-- Groene band: de vlakken van A en B die binnen speling + 2 mm van het andere deel liggen (een band langs de naad en de
-  spleet rond de knokkel) krijgen het passingmateriaal "Good fit" van de gratis versie, zodat het één familie is met plaatje 8.
-  De add-on kleurt het scharnier zelf (nog) niet; de band toont waar de 0,2 mm speling zit.
 - Op 14 is B doorzichtig (materiaal met alpha), zodat het rode vlak van A achter B als vlak te zien is.
 - Eigen effen donkere achtergrond (viewport-kleur), geen selectie, geen middelpunt.
 Regels "PRO OK pose", "PRO OK schoon" en "PRO OK rood" zijn wat de workflow eist."""
@@ -35,7 +35,6 @@ from scherm_basis import log, schiet, toestand, weergave, zijbalk, zip_pad  # no
 POSE = 60.0
 VOORBIJ = 3.0
 SPELING = 0.2
-BAND_MM = 2.0         # groen: vlakken binnen speling + dit van het andere deel (band langs de naad, als RING_MM 3 gratis)
 ACHTERGROND = (0.017, 0.019, 0.026)  # #23262D van de gratis poster (lineair)
 HOUT = (0.80, 0.58, 0.36, 1.0)
 HOOGTE, BREEDTE = 0.62, 0.80
@@ -97,35 +96,6 @@ def been(naam="been"):
     return ob
 
 
-def _bvh_wereld(ob, mw):
-    me = ob.data
-    me.calc_loop_triangles()
-    return BVHTree.FromPolygons([mw @ v.co for v in me.vertices], [tuple(t.vertices) for t in me.loop_triangles])
-
-
-def groene_band(a, b):
-    """Vlakken van A en B binnen SPELING + BAND_MM van het andere deel (rechte stand) krijgen "Good fit"."""
-    echte = _mod("uit_elkaar").echte_matrix
-    groen = _mod("kleur").materiaal("groen")
-    tel = {}
-    for ob, ander in ((a, b), (b, a)):
-        bvh = _bvh_wereld(ander, echte(ander))
-        mw = echte(ob)
-        me = ob.data
-        if groen.name not in [m.name if m else None for m in me.materials]:
-            me.materials.append(groen)
-        vak = [m.name if m else None for m in me.materials].index(groen.name)
-        n = 0
-        for p in me.polygons:
-            hit = bvh.find_nearest(mw @ p.center, SPELING + BAND_MM)
-            if hit[0] is not None:
-                p.material_index = vak
-                n += 1
-        me.update()
-        tel[ob.name] = n
-    return tel
-
-
 def schoon_beeld():
     venster, gebied, _ = zijbalk()
     with bpy.context.temp_override(window=venster, area=gebied):
@@ -170,8 +140,8 @@ def plaats():
     gebied = schoon_beeld()
     if a is None or b is None:
         return
-    staat["groen"] = groene_band(a, b)
-    log(f"PRO groene band: {staat['groen']}")
+    staat["groen"] = {o.name: int(o.get("cj_band_vlakken", 0)) for o in (a, b)}  # van de add-on, niet van het script
+    log(f"PRO groene band van de add-on: {staat['groen']}")
     rv3d = gebied.spaces.active.region_3d
     rv3d.view_perspective = "PERSP"
     h = Vector(a["cj_scharnier_as"]).normalized()
@@ -264,7 +234,7 @@ def schrijf_json():
     zij = voor_as.cross(d)
     boog_mod = _mod("betaald.scharnier_boog")
     grens = boog_mod.grens(a)
-    R = 15.0  # mm, buiten het been (dij hoogstens 7,2 mm dik)
+    R = boog_mod.straal(a, b)  # dezelfde straal als de boog van de add-on (buiten het been)
     boog = [in_beeld(c + R * (d * math.cos(math.radians(g)) + zij * math.sin(math.radians(g))))
             for g in range(0, grens + 1)]
     pose_r = Matrix.Rotation(math.radians(POSE), 3, voor_as)
@@ -316,9 +286,21 @@ def verslag(naam, soort, graden, rood_vlakken, boog_aan):
         "groene band in beeld": groen >= 300,
         "rode vlakken alleen voorbij": (rood_vlakken > 0) == voorbij,
         "boog zoals gevraagd": bool(bpy.context.window_manager.cj_scharnier_boog) == boog_aan,
+        "groene band van de add-on op A en B": bool(a) and bool(b) and a.get("cj_band_vlakken", 0) > 0
+        and b.get("cj_band_vlakken", 0) > 0,
     }
+    if boog_aan:
+        boog_mod = _mod("betaald.scharnier_boog")
+        bogen = boog_mod.laatst.get("bogen", [])
+        tb = bogen[0] if len(bogen) == 1 else {}
+        dikte = boog_mod.dikte(a, b) if a and b else 0.0
+        eisen["boog buiten het been"] = tb.get("straal", 0.0) >= 1.5 * dikte > 0
+        eisen["0 graden getekend"] = bool(tb.get("nul_getekend"))
+        eisen["grensgetal getekend"] = bool(tb.get("getal_getekend"))
+        log(f"PRO boog straal={tb.get('straal')} dikte={dikte:.2f} laatst={boog_mod.laatst}")
     if voorbij:
         eisen["rood als vlak"] = rood >= ROOD_MIN
+        eisen["rood ook op B"] = bool(b) and len(b.get("cj_rood_vlakken", [])) > 0
     else:
         eisen["geen rood"] = rood < 50
     mis = [k for k, ok in eisen.items() if not ok]

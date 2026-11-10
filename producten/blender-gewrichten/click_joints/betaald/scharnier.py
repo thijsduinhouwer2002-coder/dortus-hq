@@ -26,6 +26,7 @@ from ..uit_elkaar import echte_matrix
 from .. import uit_elkaar
 from . import afstand
 from . import scharnier_beweeg as beweeg
+from . import scharnier_kleur
 from . import scharnier_neus as neus
 from . import scharnier_vorm as vorm
 
@@ -182,6 +183,8 @@ class CLICK_JOINTS_OT_plaats_scharnier(bpy.types.Operator):
             lijst = [e for e in oude if vorm.kant(frame, maat, e[0]) == deel["cj_deel"]]
             deel["cj_scharnieren"] = afstand.plat(lijst + [(Vector(punt), gegevens["cj_reik"], maat["r"])])
             uit_elkaar.zet(deel, inst.uit_elkaar)  # eis 6 (via de module: het omhulsel van betaald/__init__ telt mee): Exploded view schuift deel B langs L
+        # Groene passingband langs de naad (Daan, Pro-winkelplaatjes punt 4): alleen weergave, export gelijk.
+        scharnier_kleur.band(deel_a, deel_b, s, u, 1.5 * math.hypot(maat["wx"], maat["wy"]) + maat["rn"])
         bron.hide_set(True)
         for o in context.view_layer.objects:
             if o is not None:

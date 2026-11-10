@@ -16,7 +16,10 @@ from . import scharnier_beweeg as beweeg
 
 WIT = (1.0, 1.0, 1.0)
 ROOD = (1.0, 0x4D / 255.0, 0x4D / 255.0)  # zelfde rood als de kogelboog
-STRAAL = 3.5        # keer de knokkelstraal
+STRAAL = 3.5        # keer de knokkelstraal: de kleinste straal
+DIKTE_X = 2.1       # boogstraal minstens zoveel keer de halve dikte van het lid bij de knie (Daan, Pro punt 6: de boog
+                    # buiten het deel, niet door de knokkel; de poster van ronde 1 had 15 mm op een been van 7,2 mm)
+_dikte = {}         # (naam A, naam B, aantal hoekpunten) -> halve dikte; in de tekenbeurt mag niets op het object
 STREEP = 5          # graden tussen twee streepjes
 POSE_LANG = 1.15
 ROOD_PX = 24        # "+N° past limit": groot genoeg voor een winkelplaatje (16 was te klein)
@@ -48,6 +51,37 @@ def paar(scene, ob):
     return a, b
 
 
+def dikte(a, b):
+    """Halve dikte van het lid bij de knie in het buigvlak: de verste afstand langs de buigkant (beide kanten) tot het
+    draaipunt van de hoekpunten van A en B binnen 2 knokkelstralen van het draaipunt langs de lidas, rechte stand."""
+    sleutel = (a.name, b.name, len(a.data.vertices), len(b.data.vertices))
+    if sleutel in _dikte:
+        return _dikte[sleutel]
+    import numpy as np
+    from ..uit_elkaar import echte_matrix
+    c = np.array(a["cj_scharnier_punt"], dtype=np.float64)
+    lid = np.array(Vector(a["cj_as"]).normalized())
+    buig = np.array(Vector(a["cj_buigkant"]).normalized())
+    k = float(a["cj_knokkel_r"])
+    best = k
+    for ob in (a, b):
+        n = len(ob.data.vertices)
+        co = np.empty(n * 3, dtype=np.float64)
+        ob.data.vertices.foreach_get("co", co)
+        mw = np.array(echte_matrix(ob), dtype=np.float64)
+        rel = co.reshape(n, 3) @ mw[:3, :3].T + mw[:3, 3] - c
+        dicht = np.abs(rel @ lid) <= 2.0 * k
+        if dicht.any():
+            best = max(best, float(np.abs(rel[dicht] @ buig).max()))
+    _dikte[sleutel] = best
+    return best
+
+
+def straal(a, b):
+    """Straal van de boog: buiten het lid (DIKTE_X keer de halve dikte), nooit kleiner dan STRAAL knokkelstralen."""
+    return max(STRAAL * float(a["cj_knokkel_r"]), DIKTE_X * dikte(a, b))
+
+
 def vorm(a, b, pose):
     """De boog in wereldcoördinaten. Beginrichting: de lidas naar de kant van B in rechte stand."""
     c = Vector(a["cj_scharnier_punt"])
@@ -60,7 +94,7 @@ def vorm(a, b, pose):
     midden_b = sum(hoeken, Vector()) / 8.0
     d = lid if (midden_b - c).dot(lid) >= 0 else -lid
     zij = voor_as.cross(d)  # draaien om voor_as brengt d hierheen
-    R = STRAAL * float(a["cj_knokkel_r"])
+    R = straal(a, b)
 
     def punt(g, r=R):
         t = math.radians(g)
@@ -73,7 +107,7 @@ def vorm(a, b, pose):
         rood = [punt(n + (pose - n) * i / stappen) for i in range(stappen + 1)]
     return {
         "getal": n, "centrum": c, "normaal": voor_as, "boog": [punt(g) for g in range(n + 1)],
-        "as_eind": punt(0), "grens_eind": punt(n), "label": punt(n, R * 1.25),
+        "as_eind": punt(0), "grens_eind": punt(n), "label": punt(n, R * 1.25), "label_0": punt(0, R * 1.25),
         "streepjes": [(g, punt(g), punt(g, R * 1.1)) for g in range(0, n + 1, STREEP)],
         "pose_eind": punt(pose, R * POSE_LANG) if pose > 0 else None, "voorbij": voorbij, "rood_vlak": rood,
         "voorbij_tekst": f"+{max(1, int(round(pose - n)))}° past limit" if voorbij else None,
@@ -165,12 +199,14 @@ def _teken_een(regio, rv3d, a, b, schaal):
     waaier._lijn(dik, regio, [q["centrum"], q["grens_eind"]], (*WIT, 0.9), 3.0 * schaal)
     waaier._lijn(dik, regio, boog, (*WIT, 0.9), 3.0 * schaal)
     hoek = waaier.kijkhoek(rv3d, v)
-    streep, getal = [], False
+    streep, getal, nul = [], False, False
     if hoek >= waaier.SCHUIN_MIN:
         streep = waaier.streep_lijnen([(g, p(s0), p(s1)) for g, s0, s1 in v["streepjes"]], schaal)
         for _, s0, s1 in streep:
             waaier._lijn(dik, regio, [s0, s1], (*WIT, 0.9), 2.0 * schaal)
         getal = waaier._tekst(0, q["label"], f"{v['getal']}°", WIT, int(20 * schaal))
+        # Ook 0° aan het begin (Daan, Pro punt 6): dan lees je de boog als "van 0° tot 115°".
+        nul = waaier._tekst(0, p(v["label_0"]), "0°", WIT, int(20 * schaal))
     rood_tekst, vrij = False, None
     if q["pose_eind"] is not None:
         if v["voorbij"]:
@@ -191,7 +227,8 @@ def _teken_een(regio, rv3d, a, b, schaal):
     kop = tekst(a)
     kop_getekend = waaier._tekst(0, Vector((regio.width / 2.0, regio.height - 60.0 * schaal)), kop, WIT,
                                  int(28 * schaal))
-    return {"pose": round(pose, 3), "getal": f"{v['getal']}°", "getal_getekend": getal,
+    return {"pose": round(pose, 3), "getal": f"{v['getal']}°", "getal_getekend": getal, "nul_getekend": nul,
+            "straal": round((v["boog"][0] - v["centrum"]).length, 3),
             "streepjes": len(streep), "kijkhoek": round(hoek, 1), "voorbij": v["voorbij"],
             "voorbij_tekst": v["voorbij_tekst"] if rood_tekst else None,
             "kop": kop if kop_getekend else None, "rood_vrij": vrij}
