@@ -195,3 +195,6 @@
 - Eerlijkheid: de winkeltekst noemt hoogte 96 tot 160 instelbaar en klikken door de lucht; dat zit nog niet zo in de build. Gemeld aan Sanne en Daan, taak voor mij.
 
 - Daarna: `Voortgang.reken()` telt upgrades mee terwijl je weg bent (achtste argument, zonder blijft alles gelijk, toets). Mis: `var x := 0.35 + (a if b else 0.0)` met een ongetypt `a` wordt Variant en geeft een parse-fout; in een toets met SceneTree hangt Godot dan in plaats van rood te worden (run 42727493005 liep 5 min, geannuleerd). Les: in de systemen altijd `: float =` als er een ongetypte waarde in zit. Op main ff43e66, toetsen groen in run 42728058360.
+- Workflow van main run 42728431261 (7613976) groen: `film.log` op tak schermen GEZIEN, gelijk aan mijn lokale proef (terugkomer valt 43,2 s, Hoard-Toucher 37,3 s); CPU nu 0,81 CPU-s per 10 s op 120 px (was 1,49). De GIF zelf bekeek ik lokaal (zelfde zaad), niet die van Actions.
+- Ook op main: rechtsklik kiest de hoogte (96, 120, 160, bewaard), klikken gaan door lucht en gras, bij hover vangt het paneel de muis in een L-vorm (controleur akkoord na 1 keer nee). Rollwright: 0 open issues.
+
