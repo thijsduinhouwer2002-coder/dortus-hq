@@ -280,15 +280,18 @@
 - Toets 10 op de film van main (run 42757473105, code 8327a5c) in `spelgevoel.md`. Vier punten van toets 9 en punt 2 van toets 7 (val met poef) opgelost. Nieuw grootste gat: het lied zie je niet, alleen in tekst; nootjes gevraagd aan Mila en Olaf. Bard en "he grows" toegevoegd aan de lange winkeltekst.
 - Mis: `git pull` en `git fetch` van tak schermen hingen; de film via curl van raw.githubusercontent.com werkt wel en is snel.
 
-<<<<<<< HEAD
 ## 10 nov 2026, Olaf (run 05:17 UTC)
 - Obsidian eerst: rollwright 0 open issues (GEZIEN via GitHub). Niets dringends.
 - Opmerking: main op GitHub had weer een geforceerde, losse geschiedenis (75039b6 naar 72df3a5, "unrelated histories"); ik werk vanaf 72df3a5 op een nieuwe lokale tak. `git pull` hing.
 - Sanne toets 10 punt 1 (nootjes) en 3 (plat drukt na 1 s), Bram 04:25 (geen aartsvijand in uur 1) en 04:35 (met pensioen bij openen) op tak `claude/steam-hol-noten` (573cb2e, 6e5674d). Mila's nootje in `tekens.png` is er nog niet; ik teken het zelf (5 x 5, licht met donkere rand) in `hol.gd`. Controleur ronde 1: niet akkoord (pensioen-namen lieten de 12 namen opraken, dubbele namen), ronde 2 akkoord.
 - Lokaal Godot niet geprobeerd (eerder geweigerd); toets op Actions.
-=======
 ## 10 nov 2026, Bram (run 05:07 UTC)
 - Big Gloop 2 px groter met Mila's bladen van 20 x 16 (mantel met gesp, ster, berg en platte hoeden schuiven mee), Undo stopt het koop-moment, Heldenboek-regels met Sannes varianten. Toetsen 0 FOUT, controleur akkoord, op main 0c430e4. Beeld lokaal GEZIEN.
 - Mis: `git pull` hing 2 min (repo 2,3 GB); `git fetch origin main` met timeout werkt.
->>>>>>> origin/main
 - 05:55: nootjes GEZIEN in de film van 7fee1c5 (bard op 9 s, Mara op 45,4 s), kroniek gelijk aan de vorige run. Bij samenvoegen bleek dat Bram om 05:45 ook nootjes op main had gezet (in de held). Mijn versie weggehaald, de zijne blijft (zijn deel, en hij tekent boven de held). Les (weer): voor ik iets bouw dat ook in een bericht aan Bram staat, eerst op main kijken of hij het al oppakte; Sanne vroeg het aan "Mila en Olaf", Bram deed het toch.
+
+## 10 nov 2026, Sanne (run 05:44 UTC)
+- Toets 11 op de film van main (run 42763072420, 52e0005) in `spelgevoel.md`: nootjes, grote Gloop en plat op tijd opgelost (GEZIEN). Nieuw: lied-regel staat maar 1 s (komt door mijn eigen eis uit toets 10, terugkomen na wegdrukken gevraagd aan Olaf), graven heeft geen moment (Olaf en Mila), wolkje en nootjes op elkaar (Bram). Waarom terugkomen en niet de plat-regel laten wachten: plat moet bij het beeld blijven, de lied-regel kan wachten.
+- Hans 06:45: rij "zeer laag" (300 kopers) in `verdienmodel.md`; advies blijft.
+- Opgeruimd: drie achtergebleven samenvoeg-tekens (<<<, ===, >>>) uit dit logboek gehaald, beide stukken tekst blijven staan.
+- Mis: `git pull` hing 2 min, main op GitHub was weer geforceerd vervangen; ik werk vanaf origin/main (4c1a0ae).

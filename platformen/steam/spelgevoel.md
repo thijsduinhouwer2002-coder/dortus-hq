@@ -2,6 +2,26 @@
 
 Hier toets ik elke GIF en elke schermafbeelding van het prototype: is het leuk, is het duidelijk, is het grappig. Nieuwste bovenaan. Wat er in het spel hoort staat in `features.md`.
 
+## Toets 11: nootjes, grote Gloop, plat op tijd, 10 nov 2026 (run 42763072420, commit 52e0005, main)
+**Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit bed6b09 "Schermen steam-hol/main run 42763072420", 05:40 UTC, 1024 x 120, 298 beelden, 60 s), beelden op 0 tot 59,6 s (31 stuks), ingezoomd op de linkerkant van 15,4 tot 17,8 s en van 35,8 tot 36,8 s per 0,2 s, `film/film.log`, `cpu.txt` (1,16 CPU-s per 10 s, 118 MB).
+
+**Wat nu goed is:**
+- **Het lied zie je.** De bard heeft vanaf 9 s gele nootjes die boven hem opstijgen, ook als hij hinkend terugkomt (33,6 tot 40 s, samen met het boze wolkje). Mara komt op 46 s binnen met een nootje boven haar hoofd en meteen "Mara knows all the words. Sadly." Punt 1 van toets 10 opgelost, en het leest op ware maat.
+- **Big Gloop is groter zonder inzoom.** Op 21 s, na Buy, staat er duidelijk een dikkere Gloop met de muntjes ernaar toe; op 29 s draagt hij de kroon, op 54 s de emmer erop. Punt 2 opgelost.
+- **"Gloop is flat. Back soon." komt op tijd** (34,8 s, Gloop ligt plat vanaf ±35 s). Punt 3 opgelost.
+- **CPU** 1,16 per 10 s, lager dan de vorige film.
+
+**Wat niet goed is (in volgorde van belang):**
+1. **"Bram's song got popular. Uh oh." staat er nog maar 1 seconde** (33,8 tot 34,8 s; op 34,2 s zie je hem, op 35,0 s is hij weg). Dat komt door mijn eigen punt 3 van toets 10: de plat-regel drukt hem na 1 s weg en hij komt niet terug. Zeven woorden in 1 s leest niemand, en daardoor mist Mara's grap (46 s) weer haar aanloop. Dat was nu juist het mooiste stukje van toets 10. **Eis, voor Olaf (klein, `kern/wachtrij.gd`):** een regel die is weggedrukt voordat hij 2,5 s in beeld stond, komt direct na de regel die hem wegdrukte nog één keer terug (zonder die opnieuw te laten wachten), en gaat dan pas weg. In de demo zou het dan zijn: lied 33,8, plat 34,8, lied terug ±37,3, Hoard-Toucher daarna. Liever zo dan de plat-regel weer laten wachten, want plat moet bij het beeld blijven. Alternatief als dit lastig is: de lied-regel komt eerder (hij wachtte 7,7 s) door hem na "Bram fled" voor te laten gaan op de terugkom-regel.
+2. **Graven heeft geen moment.** Een nieuwe kolom springt in één beeld open (op ±18 s en tussen 36,0 en 36,2 s): de ingang, het bordje en de fakkel springen 50 pixels naar links. Het leest als een hapering, niet als "het hol groeit". Graven is wat je in een bezoek het vaakst doet, dus dit gevoel telt. **Eis, voor Olaf (hol) en Mila (beeld):** (a) de nieuwe kolom brokkelt in 3 tot 4 beelden open (stofwolkje, steentjes die vallen, net als de poef bij de put), en (b) het bordje en de fakkel schuiven in ±0,4 s mee in plaats van te springen. Geen geluid nodig.
+3. **Wolkje en nootje door elkaar.** Bij de terugkomende bard (36 tot 40 s) staan het boze wolkje en zijn nootjes op dezelfde plek; op 120 px wordt het een grijs-geel propje. **Voor Bram (`held_beeld.gd`), klein:** als een held het boze wolkje heeft, gaan de nootjes 3 spelpixels opzij (of om en om: 2 s wolkje, 1 s nootje). Het wolkje gaat voor, want dat is de wrok.
+4. **Trailer (blijft, voor Olaf):** open met 42 tot 44 s (put) of 53 tot 55 s (emmer op de kroon). Met de nootjes kan ook 33,6 tot 35 s (hinkende bard met nootjes, Gloop gaat plat) een sterke tweede opening zijn.
+5. **Paneel:** nog ±320 van de 1024 px. Blijft bij Mila en Olaf.
+
+**Winkeltekst:** niets nieuws dat er nog niet in staat. Graven noem ik al; "Big Gloop" zie je nu, staat er al in als "Gloop grows".
+
+**Oordeel:** de drie punten van toets 10 zijn alle drie zichtbaar opgelost. Wat overblijft is een regel die te kort staat (punt 1) en het graven dat nog geen gevoel heeft (punt 2). Na punt 1 is de demo-minuut wat mij betreft af als verhaal; punt 2 is het eerste stuk voor het echte spel.
+
 ## Toets 10: koop zichtbaar, hap en hoed in één regel, lied met afloop, 10 nov 2026 (run 42757473105, commit 1f29de3, main; code van 8327a5c)
 **Bekeken (GEZIEN):** `film.gif` op tak `schermen` (`steam-hol/main/`, commit "Schermen steam-hol/main run 42757473105", 04:46 UTC, 1024 x 120, 298 beelden, 60 s), een beeld per seconde van 0 tot 59 s, ingezoomd 3x op Gloop van 19,4 tot 22,8 s per 0,2 s, op de put van 41,8 tot 44 s per 0,2 s en op Gloop van 53 tot 59,8 s per 0,3 s, `film/film.log`, `cpu.txt` (1,26 CPU-s per 10 s, 117 MB). Mila's Big Gloop van 2 spelpixels (42514b7) zit nog niet in deze film.
 

@@ -36,9 +36,12 @@ Aannames (GOK, eerlijk gezegd ruw): netto ±55% van de winkelprijs na de afdrach
 
 | Schatting | Betaald $4,99: kopers | Netto basisspel | Netto DLC | **Totaal betaald** | Gratis: spelers | **Totaal gratis** |
 |---|---|---|---|---|---|---|
+| Zeer laag (Hans 10 nov) | 300 | $820 | $80 | **±$900** | 1.500 | **±$80** |
 | Laag | 2.000 | $5.500 | $500 | **±$6.000** | 10.000 | **±$550** |
 | Midden | 10.000 | $27.400 | $4.000 | **±$31.400** | 50.000 | **±$5.000** |
 | Hoog | 40.000 | $109.800 | $23.800 | **±$133.600** | 200.000 | **±$38.500** |
+
+Toegevoegd 10 nov 06:00 UTC (Sanne, na Hans 06:45): Hans vindt 2.000 kopers als laagste schatting aan de hoge kant. Vanaf nu reken ik met **300 tot 2.000 kopers in jaar 1** als lage kant (GOK). Het advies verandert er niet door: ook bij 300 kopers levert betaald ±11 keer zoveel op als gratis met dezelfde verhouding.
 
 Betaald levert ±$3,00 tot $3,30 netto per koper op, gratis $0,06 tot $0,19 per speler. Gratis wint dus pas als het 15 tot 55 keer zoveel spelers trekt als betaald kopers (in de tabel is dat 5 keer, een GOK die de hele uitkomst bepaalt). Bongo Cat haalde zulk bereik, maar met drops en bots, en bleef toch op een paar duizend dollar per maand.
 
