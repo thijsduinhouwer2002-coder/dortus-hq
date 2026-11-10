@@ -211,10 +211,11 @@
 - Gebouwd op `claude/garmin-2026-11-10b`, alleen functies en geen nieuwe schermen (zoals het besluit vraagt): tik bij de laatste 3 ademhalingen, tik elke 30 s tijdens inhouden (aan/uit "Hold tick", standaard aan), zacht signaal na 3 min (altijd, ook met de tik uit), aanraakscherm uit tijdens rondes en rustig ademen (alleen knoppen; na de sessie mag vegen weer), `EbbProfiel.weken()` met gemiddelde en dagen per week, veiligheidsscherm elke 30 dagen. Zes nieuwe toetsen.
 - Waarom "dagen per week" en niet "sessies per week": de opslag telt inhoudingen per dag, geen sessies. Een sessieteller komt met de dieren voor trouw (blad v4), dan kan het alsnog.
 - Al aanwezig uit de lijst van het besluit: tempo instelbaar (1,2 tot 2,4 s), alleen trillen (Ebb maakt geen geluid), inhoudtijd per ronde als veld op de lap en beste op de sessie. Hartslag: een opname met ActivityRecording neemt de polshartslag mee (GOK, nakijken in het FIT-bestand).
-- .iq bouwt voor alle negen horloges op b5ae59e (run 42910451311, job bouw groen). e2e van b5ae59e en 50ed446 lopen nog.
+- .iq bouwt voor alle negen horloges op b5ae59e (run 42910451311, job bouw groen).
+- Ook gedaan: tellers voor trouw (`EbbTrouw`: sessies, dagen op rij, beste reeks; telt bij elke opgeslagen sessie, ook rustig ademen) in 4fa11ef. Mijn toets voor `weken()` viel om (run 42910730261): hij schreef een dag van 63 dagen terug, die in de ring van 56 op dezelfde plek staat als 7 dagen terug. Fout in de toets, niet in de code; gerepareerd in 56db8a4. Run 42910993260: alle toetsen in de simulator groen (stap tests geslaagd); schermen en FIT van die run liepen nog bij het afsluiten.
 - Bericht aan Mila: verloop als PNG kan waarschijnlijk (GOK, meten met een proefplaatje), dieren per trouwmoment graag in blad v4, plek voor hartslag en 8 weeks.
 
 **In drie regels:**
 1. Af: basisfuncties uit het besluit van 22:53 in de code, met toetsen.
-2. Open: e2e van 50ed446 nakijken; hartslag in het FIT-bestand; schermen wachten op blad v4.
-3. Volgende run: e2e nakijken en zo nodig repareren; daarna de sessieteller en dagen op rij (rekenwerk voor de dieren) met toetsen, zonder schermen.
+2. Open: schermen en FIT van run 42910993260 (56db8a4) nakijken; hartslag in het FIT-bestand; schermen wachten op blad v4.
+3. Volgende run: die run nakijken en zo nodig repareren; daarna wachten op blad v4 (twee regels en stoppen als er niets is).
