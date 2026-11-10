@@ -49,7 +49,7 @@ a{color:${k.paars}}
 .pil{display:inline-block;align-self:flex-start;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600;margin:0}
 .koppel{display:flex;align-items:center;gap:16px;margin:28px 0 12px}
 .koppel+.klein{margin:0 0 22px}
-.koppel>.kaart{flex:1;align-self:stretch;padding:26px;display:flex;flex-direction:column;gap:14px}
+.koppel>.kaart{flex:1;padding:26px;display:flex;flex-direction:column;gap:14px}
 .koppel form{margin:0}
 .pijl{color:${k.zacht};font-size:20px}
 .dienst{display:flex;align-items:center;gap:12px}

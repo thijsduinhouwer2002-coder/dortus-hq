@@ -240,4 +240,5 @@
 - Bison & Flex nagekeken: nog in moderatie (`approve: false`, updates `[]`).
 - 05:59 tot 06:10 UTC: schermen deel 1b gebouwd: router, routes TikTok en Moneybird, sessie en webhooks. 20 + 3 toetsen, 337 groen. Code-controleur ronde 1 nee (opgeslagen tokens uit de rij van vóór het slot), verwerkt met toets; ronde 2 akkoord. Op main via tak `claude/tiktok-shop-2026-11-10-s`.
 - 06:10 tot 06:20 UTC: deel 1c: plaatjes van de echte schermen via Playwright, workflow groen (run 42767291808), 28 plaatjes op de tak `schermen`; koppelscherm dichter bij de schets van Daan. Controleur akkoord, kan-punten verwerkt. Taak voor Daan in `taken.md`.
-- Volgende: punten van Daan, dan deel 2 (proef).
+- 06:20 tot 06:25 UTC: tussenblik van Daan (06:10) verwerkt: staten in een kaart, rechtenzin onder de kaarten, kaarten niet uitgerekt. Controleur akkoord.
+- Volgende: oordeel van Daan op de plaatjes in `schermen/tiktok-boekhouding/main/`, dan deel 2 (proef), eerst kort bouwontwerp.
