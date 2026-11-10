@@ -1,6 +1,6 @@
 # Stijl van Dortus
 
-Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 27, 8 november 2026. Groeit mee na elke beoordeling.
+Beheerd door Daan (`organisatie/rollen/ontwerper.md`). Wat we altijd doen en nooit doen, voor alle producten, winkelpagina's en dortus.com. Versie 28, 10 november 2026. Groeit mee na elke beoordeling.
 
 ## Het gevoel in één zin
 
@@ -51,6 +51,8 @@ Nooit:
 - Een knop zegt wat er gebeurt: "Roll", "Replace", "Activate". Niet "OK" of "Submit".
 - Foutmeldingen zeggen wat er mis is en wat je kunt doen, in gewone woorden: "This formula ends with +. Add a number or a die after it." Nooit een technische melding of een stack.
 - Geen uitroeptekens, geen emoji, geen verkooppraat in de app.
+- **Elke belofte op een winkelpagina is in de code nagezocht** (sinds versie 28, les van Hats of the Fallen). Een instelling, geluid, een prijs, "you can set it": wie keurt, zoekt het op in de bouw, met bestand en regel. Een getal dat in de app een keuze uit drie is, schrijf je niet als bereik ("96, 120 or 160", niet "from 96 to 160"). Wat er nog niet in zit, krijgt het label [v1] of gaat eruit.
+- Eén woord per ding, in de app én in de winkel (spel zegt Nemesis, dan zegt de winkel ook Nemesis).
 
 ## Leeg begin
 
