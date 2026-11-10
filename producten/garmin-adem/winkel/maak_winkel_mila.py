@@ -47,7 +47,7 @@ def icoon(uit):
         d.ellipse([bx - br, by - br, bx + br, by + br], fill=(0x9f, 0xb3, 0xc8))
         d.ellipse([bx - br * 0.45, by - br * 0.45 - br * 0.25, bx + br * 0.45, by + br * 0.45 - br * 0.25], fill=(0xd8, 0xe4, 0xf0))
     glas = Image.new("RGBA", (N, N), (0, 0, 0, 0)); g = ImageDraw.Draw(glas)
-    g.rectangle([0, 0, N, N], fill=NACHT)
+    g.rectangle([0, 0, N, N], fill=(0x06, 0x0c, 0x30))     # nachtblauw boven het water, geen zwarte balk (kan Daan)
     for (y0, kl, amp, f) in [(0.30, ONDIEP, 26, 0.6), (0.50, MIDDEN, 20, 2.2), (0.68, DIEP, 16, 4.0)]:
         lijn = golf(N * y0, amp, N, f)
         g.polygon(lijn + [(N, N), (0, N)], fill=kl)
@@ -83,7 +83,7 @@ def zee(im, water_y):
     lijn = golf(water_y, H * 0.014, W, 0.8)
     d.polygon(lijn + [(W, H), (0, H)], fill=DIEP)
     d.line(lijn, fill=SCHUIM, width=max(3, W // 200))
-    for bx, by, br in [(0.10, 0.06, 0.014), (0.14, 0.10, 0.008), (0.88, 0.05, 0.011), (0.91, 0.11, 0.006)]:
+    for bx, by, br in [(0.13, 0.035, 0.013), (0.17, 0.065, 0.007), (0.85, 0.03, 0.011), (0.88, 0.06, 0.006)]:
         x, y, r = W * bx, water_y + H * by, H * br
         d.ellipse([x - r, y - r, x + r, y + r], outline=BEL, width=max(2, W // 330))
 
@@ -131,3 +131,66 @@ if __name__ == "__main__":
     if a[1] == "icoon": icoon(a[2])
     elif a[1] == "kaart": kaart(a[2], a[3], a[4], a[5], a[6])
     elif a[1] == "poster": poster(a[2], a[3])
+
+def koraal_vak(pad):
+    """Vak rond de koraal pixels (het dier) in het simulatorbeeld."""
+    im = Image.open(pad).convert("RGB"); px = im.load(); xs, ys = [], []
+    for y in range(40, im.height - 40):
+        for x in range(im.width):
+            r, g, b = px[x, y]
+            if r > 200 and 60 < g < 120 and 60 < b < 120: xs.append(x); ys.append(y)
+    return im, (min(xs), min(ys), max(xs), max(ys))
+
+def patrijspoort_ring(d, cx, cy, r, dikte):
+    """Ring met bouten zoals het icoon."""
+    R = r + dikte
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=(0x2c, 0x38, 0x48), outline=(0x1c, 0x24, 0x30), width=max(3, dikte // 5))
+    for i in range(8):
+        a = math.pi / 8 + i * math.pi / 4
+        bx, by, br = cx + math.cos(a) * (r + dikte / 2), cy + math.sin(a) * (r + dikte / 2), dikte * 0.22
+        d.ellipse([bx - br, by - br, bx + br, by + br], fill=(0x9f, 0xb3, 0xc8))
+        d.ellipse([bx - br * 0.45, by - br * 0.7, bx + br * 0.45, by + br * 0.2], fill=(0xd8, 0xe4, 0xf0))
+
+def kaart_loep(sim, kop, koraal, onder, uit, W=800, H=800):
+    """Kaart met het horloge en een patrijspoort die het dier uit hetzelfde beeld vergroot (echte pixels)."""
+    im = Image.new("RGB", (W, H), NACHT); d = ImageDraw.Draw(im)
+    kop_met_koraal(d, W, H * 0.04, kop, koraal, letter(800, int(H * 0.11)))
+    d.text((W / 2, H * 0.185), onder, font=letter(500, int(H * 0.045)), fill=TEAL, anchor="mt")
+    top, h = int(H * 0.26), int(H * 0.80)
+    w = horloge(sim, h); wx = int(W * 0.36 - w.width / 2)
+    im.paste(w, (wx, top), w)
+    zee(im, top + h * 0.845)
+    loep(im, sim, int(W * 0.165), int(W * 0.79), int(H * 0.66), "2:00  ·  turtle", int(H * 0.042))
+    bewaar(im, uit)
+
+def loep(im, sim, r, cx, cy, label, maat, ruim=0.70):
+    """Patrijspoort die het koraal dier uit hetzelfde simulatorbeeld vergroot (echte pixels, niets bijgetekend)."""
+    bron, (x0, y0, x1, y1) = koraal_vak(sim)
+    mx, my = (x0 + x1) / 2, (y0 + y1) / 2; br = max(x1 - x0, y1 - y0) * ruim
+    uitsnede = bron.crop((int(mx - br), int(my - br), int(mx + br), int(my + br)))
+    groot = uitsnede.resize((2 * r, 2 * r), Image.LANCZOS)
+    masker = Image.new("L", (2 * r, 2 * r), 0); ImageDraw.Draw(masker).ellipse([0, 0, 2 * r - 1, 2 * r - 1], fill=255)
+    d = ImageDraw.Draw(im)
+    patrijspoort_ring(d, cx, cy, r, int(r * 0.2))
+    im.paste(groot, (cx - r, cy - r), masker)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=(0x0c, 0x10, 0x18), width=5)
+    d.text((cx, cy + r * 1.28), label, font=letter(700, maat), fill=KORAAL, anchor="mt")
+
+def poster_loep(sim, uit, W=1000, H=1000):
+    im = Image.new("RGB", (W, H), NACHT); d = ImageDraw.Draw(im)
+    d.text((W / 2, H * 0.035), "Hold your breath.", font=letter(800, int(H * 0.115)), fill=WIT, anchor="mt")
+    kop_met_koraal(d, W, H * 0.13, "Meet the whale.", "whale", letter(800, int(H * 0.115)))
+    d.text((W / 2, H * 0.272), "Breath-hold rounds  ·  calm breathing  ·  your sea log", font=letter(500, int(H * 0.04)), fill=TEAL, anchor="mt")
+    top, h = int(H * 0.335), int(H * 0.72)
+    w = horloge(sim, h)
+    im.paste(w, (int(W * 0.37 - w.width / 2), top), w)
+    zee(im, top + h * 0.79)
+    loep(im, sim, int(W * 0.17), int(W * 0.785), int(H * 0.60), "3:00  ·  whale", int(H * 0.04), ruim=0.56)
+    d = ImageDraw.Draw(im)
+    d.text((W / 2, H * 0.985), "One payment  ·  no subscription  ·  no account", font=letter(700, int(H * 0.034)), fill=WIT, anchor="mb")
+    bewaar(im, uit)
+
+if __name__ == "__main__" and sys.argv[1] == "posterloep":
+    poster_loep(sys.argv[2], sys.argv[3])
+if __name__ == "__main__" and sys.argv[1] == "loep":
+    kaart_loep(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
