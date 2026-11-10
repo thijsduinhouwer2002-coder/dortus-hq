@@ -53,6 +53,26 @@ function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
     return lijn.size() == 56 && gaten == 18 && fout == 0;
 }
 
+// Scherm 5: punten van de getijdenlijn. Hoogste beste is de volle hoogte, gemiddelde eronder, gaten blijven gaten.
+(:test)
+function testGetijPunten(logger as Test.Logger) as Boolean {
+    var lijn = [[60, 40], null, [120, 90], [90, 90], null] as Array<Array<Number> or Null>;
+    var p = EbbProfiel.getijPunten(lijn, 10, 200, 400, 100);
+    logger.debug("punten " + p);
+    var a = p[0] as Array<Number>;
+    var c = p[2] as Array<Number>;
+    var e = p[3] as Array<Number>;
+    var leeg = EbbProfiel.getijPunten([null, null] as Array<Array<Number> or Null>, 0, 100, 50, 50);
+    return p.size() == 5 && p[1] == null && p[4] == null
+        && a[0] == 10 && a[1] == 150 && a[2] == 167
+        && c[0] == 210 && c[1] == 100 && c[2] == 125
+        && e[0] == 310 && e[1] == 125 && e[2] == 125
+        && leeg[0] == null && leeg[1] == null
+        && EbbProfiel.hoogsteDag(lijn) == 2
+        && EbbProfiel.hoogsteDag([[50, 50], [50, 40]] as Array<Array<Number> or Null>) == 1
+        && EbbProfiel.hoogsteDag([null] as Array<Array<Number> or Null>) == -1;
+}
+
 // Eis 8: met nagebootste klok het juiste dier bij 1:00, 1:30, 2:00 en 3:00; een eerste keer wordt één keer bewaard.
 (:test)
 function testDierenOpTijd(logger as Test.Logger) as Boolean {

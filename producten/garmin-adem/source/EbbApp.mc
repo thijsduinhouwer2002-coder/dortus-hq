@@ -106,6 +106,9 @@ class EbbView extends WatchUi.View {
     var opname as EbbOpname = new EbbOpname();
     var koraal as Boolean = false;
     var opnemen as Boolean = true;
+    // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
+    var getij as Boolean = false;
+    private var _klaarSinds as Number = -1;
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
 
@@ -200,6 +203,13 @@ class EbbView extends WatchUi.View {
         if (sessie.fase == Ebb.FASE_KLAAR && opname.loopt()) {
             opslaan();
         }
+        if (sessie.fase == Ebb.FASE_KLAAR && _klaarSinds < 0) {
+            _klaarSinds = nu;
+        }
+        // Testbouw: 20 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding.
+        if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 20000) {
+            getij = true;
+        }
         trilBijWissel(nu);
         WatchUi.requestUpdate();
     }
@@ -278,8 +288,12 @@ class EbbView extends WatchUi.View {
             yGroot = 0.30;
             yKlein = 0.66;
         } else {
-            // 4. Duikprofiel.
-            tekenProfiel(dc, d);
+            // 4. Duikprofiel, of 5. getijdenlijn.
+            if (getij) {
+                tekenGetij(dc, d);
+            } else {
+                tekenProfiel(dc, d);
+            }
         }
         if (woord.length() > 0) {
             dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
@@ -367,6 +381,86 @@ class EbbView extends WatchUi.View {
         dc.setColor(koraal ? EbbTeken.KORAAL : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, koraal ? "new best" : t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
     }
+
+    // Getijdenlijn van 8 weken (in de testbouw nagebootst, zodat de schermafbeelding iets laat zien).
+    function getijLijn() as Array<Array<Number> or Null> {
+        if (EbbBouw.DEMO) {
+            var lijn = [] as Array<Array<Number> or Null>;
+            for (var i = 0; i < EbbOpslag.DAGEN; i += 1) {
+                if (i % 7 == 3 || i % 11 == 5) {
+                    lijn.add(null);
+                } else {
+                    var beste = 55 + i + (i % 4) * 6;
+                    lijn.add([beste, beste - 12 - (i % 3) * 5] as Array<Number>);
+                }
+            }
+            return lijn;
+        }
+        return EbbProfiel.getijden(new EbbOpslag(), vandaag());
+    }
+
+    // Scherm 5 (schets Mila, tij-stijl.md): golvende lijn door je beste tijd per dag, het gemiddelde als
+    // lichte schaduw eronder, gaten waar je niet ademde, weekstreepjes op de bodem, koraal bij je hoogste dag.
+    function tekenGetij(dc as Graphics.Dc, d as Number) as Void {
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, "8 weeks", Graphics.TEXT_JUSTIFY_CENTER);
+        var lijn = getijLijn();
+        var x0 = (d * 0.14).toNumber();
+        var bodem = (d * 0.68).toNumber();
+        var w = (d * 0.72).toNumber();
+        var p = EbbProfiel.getijPunten(lijn, x0, bodem, w, (d * 0.36).toNumber());
+        var stap = (p.size() > 1) ? w / (p.size() - 1) : w;
+        var half = (stap / 2 > 1) ? stap / 2 : 1;
+        // Schaduw: per dag een strook van de bodem tot het gemiddelde.
+        dc.setColor(EbbTeken.DIEPTE[2], EbbTeken.DIEPTE[2]);
+        for (var i = 0; i < p.size(); i += 1) {
+            if (p[i] != null) {
+                var q = p[i] as Array<Number>;
+                dc.fillRectangle(q[0] - half, q[2], 2 * half + 1, bodem - q[2]);
+            }
+        }
+        // Bodem met een streepje per week.
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(1);
+        dc.drawLine(x0 - half, bodem, x0 + w + half, bodem);
+        for (var k = 0; k <= 8; k += 1) {
+            var x = x0 + (w * k * 7) / (EbbOpslag.DAGEN - 1 > 0 ? EbbOpslag.DAGEN - 1 : 1);
+            if (x > x0 + w) { x = x0 + w; }
+            dc.drawLine(x, bodem, x, bodem + d / 40);
+        }
+        // Lijn door de beste tijden, onderbroken bij een gat.
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(d / 110 > 2 ? d / 110 : 2);
+        var dagen = 0;
+        for (var i = 0; i < p.size(); i += 1) {
+            if (p[i] != null) {
+                var q = p[i] as Array<Number>;
+                dagen += 1;
+                if (i > 0 && p[i - 1] != null) {
+                    var v = p[i - 1] as Array<Number>;
+                    dc.drawLine(v[0], v[1], q[0], q[1]);
+                } else if (i + 1 >= p.size() || p[i + 1] == null) {
+                    dc.fillCircle(q[0], q[1], d / 110 > 2 ? d / 110 : 2);
+                }
+            }
+        }
+        var j = EbbProfiel.hoogsteDag(lijn);
+        if (j < 0) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(d / 2, (d * 0.44).toNumber(), Graphics.FONT_SMALL, "no dives yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            return;
+        }
+        var top = p[j] as Array<Number>;
+        var r = (d * 0.022).toNumber();
+        dc.setColor(EbbTeken.KORAAL, Graphics.COLOR_TRANSPARENT);
+        dc.fillCircle(top[0], top[1], r > 3 ? r : 3);
+        var s = (lijn[j] as Array<Number>)[0];
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.76).toNumber(), Graphics.FONT_SMALL, "best " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
+            Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.86).toNumber(), Graphics.FONT_XTINY, dagen + " days", Graphics.TEXT_JUSTIFY_CENTER);
+    }
 }
 
 class EbbDelegate extends WatchUi.BehaviorDelegate {
@@ -417,12 +511,22 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         return stop();
     }
 
-    function onNextPage() as Boolean {
+    // Na de sessie wisselen omhoog en omlaag tussen duikprofiel en getijdenlijn; anders stoppen ze het inhouden.
+    function wissel() as Boolean {
+        if (_view.sessie.fase == Ebb.FASE_KLAAR) {
+            _view.getij = !_view.getij;
+            WatchUi.requestUpdate();
+            return true;
+        }
         return stop();
     }
 
+    function onNextPage() as Boolean {
+        return wissel();
+    }
+
     function onPreviousPage() as Boolean {
-        return stop();
+        return wissel();
     }
 }
 

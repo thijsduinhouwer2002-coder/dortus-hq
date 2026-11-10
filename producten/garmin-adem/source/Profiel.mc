@@ -46,6 +46,42 @@ module EbbProfiel {
         return lijn;
     }
 
+    // Scherm 5 (getijdenlijn per week): per dag [x, y beste, y gemiddelde] of null bij een gat.
+    // De hoogste beste tijd van de 56 dagen is de volle hoogte h; y0 is de bodem, hoger water is een kleinere y.
+    function getijPunten(lijn as Array<Array<Number> or Null>, x0 as Number, y0 as Number, w as Number, h as Number) as Array<Array<Number> or Null> {
+        var max = 0;
+        for (var i = 0; i < lijn.size(); i += 1) {
+            var g = lijn[i];
+            if (g != null && g[0] > max) {
+                max = g[0];
+            }
+        }
+        var uit = [] as Array<Array<Number> or Null>;
+        var n = lijn.size();
+        for (var i = 0; i < n; i += 1) {
+            var g = lijn[i];
+            if (g == null || max == 0) {
+                uit.add(null);
+            } else {
+                var x = (n > 1) ? x0 + (w * i) / (n - 1) : x0;
+                uit.add([x, y0 - (h * g[0]) / max, y0 - (h * g[1]) / max] as Array<Number>);
+            }
+        }
+        return uit;
+    }
+
+    // Index van de dag met de hoogste beste tijd (de laatste bij gelijk, zodat een nieuw record rechts staat), of -1.
+    function hoogsteDag(lijn as Array<Array<Number> or Null>) as Number {
+        var j = -1;
+        for (var i = 0; i < lijn.size(); i += 1) {
+            var g = lijn[i];
+            if (g != null && (j < 0 || g[0] >= (lijn[j] as Array<Number>)[0])) {
+                j = i;
+            }
+        }
+        return j;
+    }
+
     // Dieren bij 1:00, 1:30, 2:00 en 3:00 inhouden (vis, kwal, schildpad, walvis), elk 8 s in beeld.
     const DREMPELS = [60000, 90000, 120000, 180000] as Array<Number>;
     const IN_BEELD_MS = 8000;
