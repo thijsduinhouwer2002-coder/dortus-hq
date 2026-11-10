@@ -1,0 +1,29 @@
+ 454  1 menu                 kader x  +0.0 px   kleuren 4903
+ 454  2 ademen               kader x  +0.0 px   kleuren 7482
+ 454  3 duiken 0:48          kader x  +0.0 px   kleuren 11646
+ 454  3b duiken 2:34         kader x  +0.0 px   kleuren 12025
+ 454  3c na 3 min            kader x  +0.0 px   kleuren 12784
+ 454  4 boven                kader x  +0.0 px   kleuren 9161
+ 454  5 rustig 4-7-8         kader x  +0.0 px   kleuren 6255
+ 454  6 today                kader x  +0.0 px   kleuren 2130
+ 454  6b einde: nieuw dier   kader x  +0.0 px   kleuren 10139
+ 454  7 8 weeks              kader x  +0.0 px   kleuren 1770
+ 454  8 sea log              kader x  +0.0 px   kleuren 6092
+ 454  8b sea log nog niet    kader x  +0.0 px   kleuren 4766
+ 454  9 settings             kader x  +0.0 px   kleuren 1460
+ 454  10 veiligheid          kader x  +0.5 px   kleuren 1324
+ 260  1 menu                 kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
+ 260  2 ademen               kader x  +0.0 px   optisch x  -0.2 px   pixels buiten MIP 0
+ 260  3 duiken 0:48          kader x  +0.0 px   optisch x  +1.1 px   pixels buiten MIP 0
+ 260  3b duiken 2:34         kader x  +0.0 px   optisch x  -0.0 px   pixels buiten MIP 0
+ 260  3c na 3 min            kader x  +0.0 px   optisch x  +0.2 px   pixels buiten MIP 0
+ 260  4 boven                kader x  +0.0 px   optisch x  -1.6 px   pixels buiten MIP 0
+ 260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   pixels buiten MIP 0
+ 260  6 today                kader x  +0.0 px   optisch x  +1.4 px   pixels buiten MIP 0
+ 260  6b einde: nieuw dier   kader x  +0.0 px   optisch x  -1.4 px   pixels buiten MIP 0
+ 260  7 8 weeks              kader x  +0.5 px   optisch x  +0.2 px   pixels buiten MIP 0
+ 260  8 sea log              kader x  +0.0 px   optisch x  -2.3 px   pixels buiten MIP 0
+ 260  8b sea log nog niet    kader x  +0.0 px   optisch x  +1.1 px   pixels buiten MIP 0
+ 260  9 settings             kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
+ 260  10 veiligheid          kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
+kleinste tekst op 260: "Sit. Stop if dizzy." 20 px, "Sea log  ·  Settings" 20 px, "7 of 24" 20 px, "3 days in a row" 20 px, "no. 24" 20 px, "round 2" 20 px
