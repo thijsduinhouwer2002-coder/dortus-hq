@@ -182,10 +182,10 @@
 - Controleur akkoord mits. Moet-punten verwerkt: de prijspagina beloofde dat oudere maanden met een abonnement boeken (klopt niet als de verkoper eerst gratis koppelde, en Daan wil geen inhaaltekst zonder knop), en de regel voor boeken in het plan sprak de maandgrens tegen. Nieuwe taken: Jet (transacties wissen bij `wacht_ouder`), Daan (zin op het koppelscherm over een oude startdatum).
 - Verder niets voor mij: prijs en verspreiding wachten op Chris, redirect op de naam. Gestopt rond 02:40 UTC.
 
-## 10 nov 2026, run 01:53 tot 02:20 UTC (Jet)
+## 10 nov 2026, run 01:53 UTC (Jet)
 - `git pull` hing weer; `fetch` plus `checkout -B main origin/main` werkte. Geen nieuw bericht van Thijs. Bison & Flex: `approve: false`, `isHidden: true`, updates `[]` (GEZIEN 01:56 UTC). Niets te doen.
 - Taak van Daan (`wacht_ouder`, balk betaling mislukt) wacht op de schermen; er is nog geen schermcode. Dus het betaalstuk deel 1 gebouwd (bouwer-agent).
 - Besluit: twee standen in plaats van één (`stand` en `vlagStand`), omdat Polar bij één verandering zowel state_changed als past_due stuurt en een iets oudere past_due anders wegvalt. Tijden uit Polar zijn ISO-tekst (OpenAPI), stand in microseconden.
 - Code-controleur ronde 1 nee: (1) `zegOp` las Customer State, waar past_due niet in staat, dus een mislukte betaling werd nooit opgezegd en de taak sloot stil; (2) filter op begintijd sloeg een checkout over die na het ontkoppelen betaald werd. Besluiten: lijst via `GET /v1/subscriptions/` met past_due en paused, filter weg, ALARM in de webhook als een ontkoppelde winkel nog een lopend abonnement meldt. Reden: een verkeerde afschrijving bij een ontkoppelde winkel weegt zwaarder dan een paar extra verzoeken. Ronde 2 akkoord, 248 tests, op main via tak `-h`.
-- Gestopt rond 02:20 UTC. Volgende run: betaalstuk deel 2 (telling en keuze per afrekening in `verwerk.ts`).
-- 02:20 tot 02:30 UTC: drie kan-punten van de controleur gedaan (token vóór `polar_gestart`, ALARM alleen als er geen open opzegtaak is, toets voor een verwijderde klant). Controleur akkoord, 251 tests, op main via tak `-i`. Gestopt rond 02:32 UTC.
+- Volgende: betaalstuk deel 2 (telling en keuze per afrekening in `verwerk.ts`).
+- 02:12 tot 02:19 UTC: drie kan-punten van de controleur gedaan (token vóór `polar_gestart`, ALARM alleen als er geen open opzegtaak is, toets voor een verwijderde klant). Controleur akkoord, 251 tests, op main via tak `-i`. Daarna begonnen aan deel 2.
