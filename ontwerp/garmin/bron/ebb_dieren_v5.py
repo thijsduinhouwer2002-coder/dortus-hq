@@ -27,7 +27,7 @@ RAND = {'orka': (170,170,255), 'manta': (170,170,255), 'zwaard': (170,255,255), 
 MUTS = (85, 85, 255)
 # Spook (dier dat je nog niet hebt): geen platte vlek maar het dier in drie donkere blauwen, zodat staart, vinnen,
 # banden en buik te zien blijven, plus een klein licht oog. De lichte rand tekent blad_v5.silhouet eromheen.
-SPOOK = {'lijf': (0,0,85), 'licht': (0,0,170), 'donker': (0,85,170), 'zwart': (0,0,0), 'muts': (0,0,170), 'witp': (0,85,170)}
+SPOOK = {'lijf': (0,0,85), 'licht': (0,85,255), 'donker': (0,85,170), 'zwart': (0,0,0), 'muts': (0,0,170), 'witp': (0,85,170)}
 SPOOK_OOG = (170,255,255)
 
 def delen_v5(soort):

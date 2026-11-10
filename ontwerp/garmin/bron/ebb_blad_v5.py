@@ -151,10 +151,10 @@ def einde_zee(im, D):
 def s_einde5(D):
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop5(d, D)
-    stralenkrans(im, D, D/2, D*0.545)
+    stralenkrans(im, D, D/2, D*0.515)
     d = ImageDraw.Draw(im)
     bellen(d, D, [(0.22, 0.55, 0.012), (0.19, 0.50, 0.007), (0.80, 0.58, 0.010), (0.83, 0.52, 0.006), (0.25, 0.45, 0.005)])
-    dier(im, 'ster', D/2, D*0.545, D*0.228)       # ±40 % van de breedte (V5, M4)
+    dier(im, 'ster', D/2, D*0.515, D*0.222)       # ±40 % van de breedte (V5, M4)
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.728), 'new friend!', D*0.085, GEEL)
     tekst(d, D, (D/2, D*0.800), 'Starfish · 4 days in a row', D*0.066, WIT)
@@ -215,8 +215,7 @@ def s_weken5(D):
     rand(im, D); return im
 
 # ---------------- 8 sea log: 3 x 3 per blad, 3 bladen (V1, V2) ----------------
-HINT = {n: h for n, h in enumerate(['1x', '2x', '2d', '3d', '5x', '8x', '4d', '10x', '5d', '12x', '6d', '15x', '7d', '18x', '10d',
-                                     '21x', '14d', '25x', '30x', '21d', '40x', '30d', 'break', '60x'])}
+# (oude HINT-tabel weg: het schema staat alleen in SCHEMA)
 def s_rooster5(D, pagina, gevonden=7, kies=3):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.135), 'sea log', D*0.075, TITEL)

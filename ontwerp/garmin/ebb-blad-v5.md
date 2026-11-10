@@ -87,12 +87,12 @@
 
 ## Naast elkaar gelegd en bekeken met Read
 - **2, 3a, 3b, 3c:** het water wordt donkerder en het dier en de belletjes bewegen. Kop, groot getal en hartregel blijven op hun plek.
-- **6b en 6c:** hetzelfde skelet; het dier tegenover het spook, en "new friend!" tegenover "Pufferfish tomorrow".
+- **6b en 6c:** hetzelfde skelet; het dier tegenover het spook, en "new friend!" tegenover "next: Clownfish".
 - **8, 8b, 8d:** kop, raster en paginanummer blijven vast. Alleen de regel bovenaan wisselt tussen "7 of 24" en de eis van het gekozen spook.
 - **9 en 9b, 10, 10b en 10c:** kop en knop staan vast.
 
 ## Wat Thijs hier als eerste van zegt
-Mijn gok: "het water en het nieuwe dier zijn nu goed." Wat hij nog kan zeggen: today blijft een rij trechters zonder uitleg, en de otter blijft het zwakste dier. Allebei staat het op mijn lijst voor na de volgende keuring.
+Mijn gok: "het water en het nieuwe dier zijn nu goed." Wat hij nog kan zeggen: "ik adem 4 keer per week, haal ik 6 of 7 dagen op rij wel?" (zie open vraag onderaan) en "die zeehond en zeekomkommer zijn nog klein en vlekkerig". Allebei staat het op mijn lijst voor na de volgende keuring.
 
 ## v5.4: punten van de drie aparte beoordelaars op v5.3 (veiligheid 8, visueel 7, product 7)
 **Product**
@@ -143,3 +143,20 @@ Bij dagen op rij telt je beste reeks ooit. Een reeks van 5 tot 7 dagen komt bij 
 - In de code staat de tekst letterlijk gelijk aan het blad, ook op 390 en 416 px.
 - Connect toont geen "Longest hold" meer, maar alleen de inhoudtijd per lap en "Hold times 1:20 · 1:45 · 3:04" in de samenvatting.
 - **Winkeltekst (`ebb-winkel.md`):** "new best", "best 3:05", "Who will you meet? Fish 1:00 ... whale 3:00" en "Best hold per day" moeten weg voordat er iets in de winkel komt. Daar komen de korte veiligheidsregels en "Not a medical device" voor in de plaats. Dat doe ik zodra het blad vast staat.
+
+## Tweede ronde op v5.4 (visueel 7, product 7) en wat ik deed
+- **Visueel 1:** op 6b raakte de ster op 260 de tekst. De ster staat nu hoger en is iets kleiner (s = 0,222 D, nog steeds ongeveer 40 procent).
+- **Visueel 2, 3:00+ lichter dan 2:30:** dat is bewust, uit het besluit van Thijs (10 nov 23:38): "na 3:00 kleurt het rustig iets lichter samen met breathe when ready, zodat het water nooit aanmoedigt om door te gaan". Ik houd het zo. Op het blad staat het nu ook bij de strook uitgelegd.
+- **Product 4:** de oude `HINT`-tabel is weg uit de bron, de verouderde zinnen in deze md zijn bijgewerkt en de spoken hebben nu lichtere banden (0055FF), zodat het clownvis-spook niet op de vis lijkt.
+- **Open voor de volgende run:** 8 weeks en today rijker maken, nummer of vraagteken bij de spoken, en zeehond, zeekomkommer en walvis opnieuw tekenen.
+
+## Open vraag voor de hoofdchat en Thijs (dieren voor trouw)
+De productbeoordelaar vindt dat dieren voor dagen op rij oneerlijk zijn voor wie 4 keer per week ademt. Wie verspreid ademt, haalt zelfs 2 dagen op rij niet. Hij stelt voor om er weken op rij van te maken, met minstens 3 sessies per week, en de 7 stippen te laten tellen als sessies deze week. Daarnaast zou hij de zeekomkommer buiten de 24 houden, als bonus, zodat wie nooit stopt toch 24 van 24 haalt.
+
+Besluit 22:53 zegt letterlijk "sessies en dagen op rij", dus dit verander ik niet zelf.
+
+**Mijn advies:** beide doen.
+- Weken op rij past beter bij hoe mensen ademwerk doen en voelt niet als falen.
+- De zeekomkommer als bonus 25 houdt de grap en maakt 24 van 24 haalbaar.
+
+Zegt Thijs ja, dan pas ik schema, stippen en tabel in één run aan.
