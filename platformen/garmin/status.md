@@ -1,5 +1,15 @@
 # Garmin Connect IQ: status
 
+- **10 nov 22:40: nachtronde Ebb, logica volgens besluit 22:53 (niets ingediend).** Eerlijk nagekeken wat de app al had vóór deze avond:
+  - Instelbaar ademtempo: ja, al sinds 10 nov 10:00 (1,2 tot 2,4 s per in of uit, plus aantal ademhalingen, rondes en herstel).
+  - Trillen bij de laatste ademhalingen: nee, nu gebouwd (twee lichte tikjes bij elk van de laatste 3 inademingen).
+  - Trillen tijdens inhouden: nee (alleen bij het begin), nu elke 30 s een zachte tik, aan/uit "Hold tick", standaard aan; zacht signaal na 3 min altijd.
+  - Alleen trillen: ja, Ebb maakt nergens geluid; trillen zelf kan uit.
+  - Aanraakscherm uit: nee (een tik stopte het inhouden), nu uit tijdens rondes en rustig ademen; alleen knoppen.
+  - Pauzeren zonder verlies: ja, klok en opname staan stil achter het pauzemenu, doorgaan gaat verder waar je was (toets sinds 10 nov 07:30).
+  - Knoppen zonder vertraging: ja voor het stoppen van het inhouden: de tijd wordt in de knophandler zelf gelezen (toets: afwijking hoogstens 100 ms); het scherm ververst elke 100 ms. Op een echt horloge niet gemeten.
+  - Inhoudtijd per ronde in Garmin Connect: ja, eigen veld op elke lap plus beste op de sessie (eis 10, in elke e2e met fitdecode nagekeken). Hartslag: de opname legt de polshartslag vast zoals elke activiteit (GOK voor een echt horloge; de e2e laat vanaf 65bb1ee zien of de simulator hartslag in de records zet).
+  Nieuw in de logica: 24 dieren voor trouw (sessies en dagen op rij, bewaard op het horloge, alleen bij het afsluiten van een sessie), geen dier of koraal meer op inhoudtijd, geen meters (op die plek de live hartslag), 8 weeks met gemiddelde en dagen per week, veiligheidsscherm elke 30 dagen. Schermen volgens blad v4 van Mila komen hierna. Installs 0, verkopen 0.
 - **10 nov 22:15: Ebb niet indienen, nieuw spelconcept (besluit Thijs 22:53).** Basisfuncties zonder nieuwe schermen gebouwd (tikken, signaal na 3 min, aanraakscherm uit, 8 weeks rekenwerk, veiligheid elke 30 dagen). Schermen wachten op blad v4 van Mila. Release `ebb-v1.0.0` blijft staan, wordt niet geüpload. Installs 0, verkopen 0.
 - **10 nov 18:30: Ebb klaar om in te dienen.** Release `ebb-v1.0.0` echt ondertekend (dd460d0), test groen op alle negen horloges, winkeltekst en beelden definitief; deel B voor Thijs staat op klaar. Daan kijkt nog na op zijn punten. Installs 0, verkopen 0.
 - **10 nov 17:55: winkeltekst versie 3 (Daan T1 tot T3, zoekwoorden vooraan), scene6 stilgezet, Mila's beelden v2 compleet (kaart 6 18:17), lanceerconcepten klaar, e2e op negen horloges.** Volgende: Daan kijkt na, release en "klaar" bij deel B. Installs 0, verkopen 0.
