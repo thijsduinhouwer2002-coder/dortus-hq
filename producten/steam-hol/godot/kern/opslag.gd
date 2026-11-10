@@ -63,6 +63,8 @@ static func laad(s, begin) -> void:
 	# terwijl je weg was (Bram, voortgang.gd): alleen winst, plafond 12 uur, 2 tot 3 regels met namen
 	if s.hol.upgrades != null and data.get("upgrades") is Dictionary:
 		s.hol.upgrades.van_dict(data.get("upgrades"))
+		if s.slijm != null and s.slijm.has_method("upgrade_veranderd"):
+			s.slijm.upgrade_veranderd()   # het lijf van zijn gekochte stap meteen bij openen (Bram 03:25)
 	# gekochte stappen tellen ook terwijl je weg was (Bram, voortgang.gd); gangen en faam zoals voorheen (6 en 0)
 	var weg := VOORTGANG.reken(int(data.get("tijd", 0)), int(Time.get_unix_time_from_system()), s.hol.vallen.size(), 1, 7, 6, 0, s.hol.upgrades)
 	if int(weg.helden) > 0:

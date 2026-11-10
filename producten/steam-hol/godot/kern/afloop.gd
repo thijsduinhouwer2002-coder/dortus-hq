@@ -6,7 +6,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 	var b := info.duplicate()
 	b["kleur"] = (info.kleur as Color).to_html(false)
 	b["hoed"] = (info.hoed as Color).to_html(false)
-	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld"]:
+	for v in ["moet_vallen", "moet_vluchten", "moet_doorlopen", "moet_opgegeten", "hoed_naar", "hoeden_bewoner", "schat_gemeld", "snelheid", "demo_clou", "lied", "dutje", "dutje_gemeld", "lied_held", "hoed_gemeld"]:
 		b.erase(v)
 	b.erase("wat")
 	if uitkomst == "ontsnapt":
@@ -41,7 +41,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			var w: String = String(b.wrok)
 			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
 		if lied > 0:
-			s._kroniek(s.regels.kies("lied", {"naam": info.naam}))
+			# sfeerregel: je ziet het lied niet, dus laag zoals binnenkomst en mag vervallen (Sanne toets 9, besluit 2a);
+			# de afloop zie je wel: de helden die erdoor komen krijgen een eigen regel die voorgaat (binnen_lied, strook.gd)
+			s._kroniek(s.regels.kies("lied", {"naam": info.naam}), true, "lied")
 			s.lied_helden += lied
 			if not s.demo:
 				s.volgende_held = minf(s.volgende_held, s.t + s.rng.randf_range(8.0, 20.0))
@@ -67,13 +69,21 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				r = s.regels.kies("afgerekend", {"naam": naam}, extra.length())
 		elif wat.ends_with(s.slijm.naam()):
 			r = s.regels.kies("val_bewoner", {"naam": naam, "bewoner": s._bewoner()}, extra.length())
+			# hap en hoed in een regel op het moment van de hap (Sanne toets 9, besluit 2b): eerst kwam de hoed-regel 4 tot
+			# 6 s na de hap, terwijl de hoed al op zijn kop stond. Wanneer: zoals de hoed-regel hieronder (eerste hoed, de
+			# clou in de demo, anders een op de vier); bij 25 en 100 blijft de bijnaam een eigen regel.
+			var n_h := int(info.get("hoeden_bewoner", 0))
+			if String(info.get("hoed_naar", "")) == "bewoner" and n_h > 0 and n_h != 25 and n_h != 100:
+				if n_h == 1 or bool(info.get("demo_clou", false)) or s.rng.randf() < 0.25:
+					r = s.regels.kies("hap_hoed", {"naam": naam, "bewoner": s._bewoner(), "hoed": hoed_naam(int(info.get("hoed_nr", 0)))}, extra.length())
+				info["hoed_gemeld"] = true   # geen losse hoed-regel meer, ook niet als de hap-regel de hoed niet noemde
 		else:
 			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
 		# hoedentoren: zijn hoed staat nu op Gloop (slijm.gd, Bram). Eerste hoed altijd een regel, bij 25 en 100 de bijnaam,
 		# anders hooguit een op de vier, zodat de val-regel niet verdrongen wordt (kroniek-regels.md)
 		var n_hoed := int(info.get("hoeden_bewoner", 0))
-		if String(info.get("hoed_naar", "")) == "bewoner" and n_hoed > 0:
+		if String(info.get("hoed_naar", "")) == "bewoner" and n_hoed > 0 and not bool(info.get("hoed_gemeld", false)):
 			var w := {"bewoner": s._bewoner(), "naam": basis}
 			if n_hoed == 1:
 				s._kroniek(s.regels.kies("hoed_eerste", w))
@@ -85,3 +95,8 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				s._kroniek(s.regels.kies(soort, w))
+
+# Engelse naam van hoed i in Mila's held_hoeden.png (volgorde als in strook.gd bij DEMO_HOEDEN), voor "hap_hoed".
+const HOED_NAMEN := ["helmet", "pointy hat", "hood", "cap", "crown", "chef hat", "bucket", "top hat", "pan", "feather cap"]
+static func hoed_naam(i: int) -> String:
+	return HOED_NAMEN[i] if i >= 0 and i < HOED_NAMEN.size() else "hat"

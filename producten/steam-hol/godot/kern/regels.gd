@@ -41,6 +41,13 @@ const VOORRAAD := {
 		"{bewoner}'s hat pile is taller than him."],
 	"hoed_klein": ["{bewoner} tries on {naam}'s hat. Fits.", "{bewoner} adds {naam}'s hat to the pile."],
 	"hoed_bijnaam": ["{bewoner} is now known as the {bijnaam}."],
+	# hap en hoed in een regel (Sanne toets 9, besluit 2b); de eerste is kort, voor als de rest niet past met het goud erbij
+	"hap_hoed": ["{bewoner} ate {naam}. Kept the hat.", "{bewoner} ate {naam}. Kept the {hoed}.",
+		"{bewoner} ate {naam}. Wears the {hoed}.", "{naam} is lunch. {bewoner} got a {hoed}."],
+	# een held die komt door het lied van een bard (Sanne kroniek-regels.md, toets 9 punt 3): gaat voor, vervalt niet.
+	# Tot Bram ze in systemen/kroniek_regels.gd heeft; staan ze daar, dan gaan ze hier weg (een plek).
+	"binnen_lied": ["{naam} heard the song. Came to see.", "{naam} hums the song. Off-key.",
+		"{naam} knows all the words. Sadly.", "{naam} came for the gold in the song.", "{naam} asks if this is the song hole."],
 }
 
 var rng: RandomNumberGenerator

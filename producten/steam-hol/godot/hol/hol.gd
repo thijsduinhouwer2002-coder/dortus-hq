@@ -124,6 +124,16 @@ func pad(van: Vector2i, naar: Vector2i) -> Array[Vector2i]:
 		x += stap
 	return uit
 
+# koop-moment van de put (Sanne toets 8 punt 1, toets 9): alle putten schudden 0,5 s heen en weer (1 spelpixel),
+# want de gekochte stap geldt voor elke put. Alleen uiterlijk; tekent alleen zolang het schudt.
+const SCHUD_S := 0.5
+const SCHUD_X := [1, -1, 1, -1, 0]
+var put_schud := 0.0
+func put_koop() -> void:
+	put_schud = SCHUD_S
+	set_process(true)
+	queue_redraw()
+
 # een put klapt even open als er een held op komt (alleen uiterlijk)
 func put_klap(kol: int) -> void:
 	put_open[kol] = 2.0   # stekels blijven langer omhoog, zodat de val van de terugkomer een moment is (Sanne toets 7, punt 2)
@@ -136,12 +146,15 @@ func _process(delta: float) -> void:
 		if put_open[k] <= 0.0:
 			put_open.erase(k)
 			queue_redraw()
+	if put_schud > 0.0:
+		put_schud = maxf(0.0, put_schud - delta)
+		queue_redraw()
 	for m in munten:
 		m.t += delta
 	munten = munten.filter(func(m): return m.t < MUNT_S)
 	if not munten.is_empty():
 		queue_redraw()
-	if put_open.is_empty() and munten.is_empty():
+	if put_open.is_empty() and munten.is_empty() and put_schud <= 0.0:
 		set_process(false)
 
 # fakkels en schat bewegen alleen als er toch al getekend wordt (een held loopt); stil beeld kost bijna niets
@@ -252,12 +265,15 @@ func _draw() -> void:
 	# vallen: stekelput dicht, en even open na een klap
 	# gekochte stappen (Rusty Spikes, Deep Pit, Trick Lid) hebben elk een eigen rij in stekelput_upgrades.png
 	var put_niv: int = upgrades.niveau("stekelput") if upgrades != null else 0
+	var sx := 0
+	if put_schud > 0.0:
+		sx = int(SCHUD_X[mini(SCHUD_X.size() - 1, int((SCHUD_S - put_schud) / SCHUD_S * SCHUD_X.size()))])
 	for k in vallen:
 		var f := 2 if put_open.has(k) else 0
 		if put_niv > 0:
-			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
+			draw_texture_rect_region(PUT_UPG, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, (put_niv - 1) * 8, KOL, 8))
 		else:
-			draw_texture_rect_region(PUT, Rect2(k * KOL, vloer - 7, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
+			draw_texture_rect_region(PUT, Rect2(k * KOL + sx, vloer - 7, KOL, 8), Rect2(f * KOL, 0, KOL, 8))
 	# fakkels met gloed: bij de ingang en in de schatkamer
 	var fk := [ingang_kol + 1, schat_kol - 1]
 	var lamp := Color(1, 0.75, 0.45, 0.35)
