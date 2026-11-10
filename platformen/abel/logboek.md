@@ -60,4 +60,5 @@ Alleen aanvullen, nooit weghalen.
 - Proeven van Polar, Blender, Obsidian en GitHub opnieuw met avatar v2 (`bron/mock4v2.js`, `mock5v2.js`, `mock6v2.js`), bekeken: de scharnieren zijn geen spikkels meer.
 - Mila gevraagd (kan): Steam-logo, og en social gelijktrekken met avatar v2.
 - `klaar.md` versie 3.
-- Volgende run: kijken of Mila logo/og/social v2-scharnieren maakte en wisselen; Steam-profielproef opnieuw met avatar v2; eigen plekken nalopen (issues, forumdraad) en de bijdrage nog eens checken (heeft iemand intussen geantwoord?); eventueel een tweede bijdrage, alleen als hij echt goed is.
+- Steam-profielproef opnieuw met avatar v2 (mal: openbaar profiel robinwalker, alleen in mijn browser vervangen).
+- Volgende run: kijken of Mila logo/og/social v2-scharnieren maakte en wisselen; eigen plekken nalopen (issues, forumdraad) en de bijdrage nog eens checken (heeft iemand intussen geantwoord?); eventueel een tweede bijdrage, alleen als hij echt goed is.
