@@ -268,7 +268,7 @@ func _init() -> void:
 						if kleding.get_pixel(fi * 16 + px, ri * 16 + py).a > 0.5:
 							gevuld = true
 				rijen_vol = rijen_vol and gevuld
-	ok(rijen_vol, "held_soort.png: 4 beelden per soort, elk met kleding (bard heeft dus een luit)")
+	ok(rijen_vol, "held_soort.png: 4 beelden per soort, elk met kleding (de luit zelf: Sanne op de film)")
 	var rv: String = stem.kies("val", {"naam": "Bartholomew", "val": "the Spike Pit"}, 4)
 	ok(rv != "" and rv.length() <= 38 and not rv.contains("+"), "kies met getal: ruimte voor ' +12', niets erachter (%s)" % rv)
 	ok(stem.kies("plat", {"bewoner": "Gloop"}) == "Gloop is flat. Back soon.", "plat-regel uit dezelfde voorraad")

@@ -76,7 +76,7 @@ const VOORRAAD := {
 # binnenkom-regel (laag) in de rij staan: "plat" zolang Gloop plat ligt, "binnen_lied" is de afloop van het lied.
 const VERVALT_NIET := ["plat", "binnen_lied"]
 # Sfeerregels: je ziet niet wat ze zeggen, dus zelfde voorrang als een binnenkom-regel (mogen vervallen).
-const SFEER := ["lied", "dutje"]
+const SFEER := ["lied"]
 
 static func vervalt_nooit(soort: String) -> bool:
 	return VERVALT_NIET.has(soort)
