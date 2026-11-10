@@ -165,3 +165,9 @@ Thijs: "vind het bizar dat als ik kort kritiek lever het ineens wel beter kan; i
 6. 8 weeks toont gemiddelde per sessie en sessies per week, niet alleen het record.
 7. Menu: twee gelijke keuzes (Rounds en Calm), daaronder Sea log en instellingen.
 Bron: platformen/garmin/productkeuring-ebb-2026-11-10.md. Dit kost een paar dagen extra; kwaliteit gaat voor.
+
+## 10 nov 23:39: controle door de hoofdchat, vaste stappen (na twee missers die Thijs zag)
+Thijs zag op blad v4.1 dat het water op elk inhoudscherm gelijk was en dat steeds dezelfde kwal meezwom; de hoofdchat had dat gemist. Daarom checkt de hoofdchat, en elke frisse beoordelaar, bij elk blad en elke bouw:
+1. Elk geldend besluit punt voor punt afvinken (zit het er echt in, ja of nee).
+2. Opeenvolgende schermen naast elkaar leggen en nagaan of verandert wat moet veranderen (en niets verandert wat vast moet blijven).
+3. De vraag "wat zegt Thijs hier als eerste van?" beantwoorden voordat iets naar Thijs gaat.
