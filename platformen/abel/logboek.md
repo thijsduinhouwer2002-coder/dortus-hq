@@ -96,3 +96,13 @@ Alleen aanvullen, nooit weghalen.
 - Volgende run (07:19): klaar.md definitief maken (stand in één zin bovenaan nalezen, tijden optellen); lijst-thijs nalopen of mijn punten daar nog kloppen met de plannen.
 - Nog gezocht naar een tweede bijdrage (forum.obsidian.md, nieuwste vragen zonder antwoord). t/121749 ("Network drive access" bij elke start, SMB-kluis): alle desktop-changelogs 1.14.0 tot 1.15.1 doorzocht, niets over die melding. Besluit: geen antwoord. Waarom: zonder eigen test of bron zou het gokken zijn. t/121779 is door de vrager verwijderd.
 - `klaar.md`: totale Thijs-tijd erbij (±34 min plus later 15).
+
+## Run 8, 10 nov 2026 07:21 NL
+- Gelezen: logboek, berichten (niets nieuws), keuring-abel (niets na keuring 5), lijst-thijs. Mijn twee punten daar (€5 Steam, dortus.com) kloppen met de plannen. Steam-namen id/dortus en groups/dortus nog vrij (curl). Bijdrage 1: vraag t/120796 nog zonder antwoord.
+- Vondst: Hans zette om 06:45 een Superhive-verkopersaccount op lijst-thijs (Click Joints Pro). Besluit: Superhive-plan maken. Waarom: dat account komt er vanochtend, en Superhive zegt zelf dat een winkel zonder instellen een standaardbanner, leeg rondje en geen beschrijving toont; dat is precies wat mijn rol moet voorkomen.
+- Nagezocht: eisen uit Superhive's hulppagina's (avatar 400x400 JPG, banner 1200x330, JPG/PNG, onder 5 MB, veldnamen) en in hun stylesheet hoe het getoond wordt (banner 350 px hoog, volle breedte, bijgesneden in het midden; avatar rond 150 px met witte rand half over de onderrand). Slug `dortus` lijkt vrij.
+- Besluit: banner als uitsnede van Mila's goedgekeurde achtergrond v3, opnieuw getekend uit de svg op 2400x660, bovenrand y 270. Waarom: geen concurrerend beeld, zelfde uniform; eerste poging (y 330) sneed de lichtopening weg op 1920, dus omhoog geschoven. Proef op de echte winkel op 1920, 1280 en telefoon, bekeken.
+- Beschrijving zonder antwoordtijd. Waarom: niemand leest die berichten nu elke dag; geen belofte die we niet halen.
+- `upload/7-superhive/` en de zip opnieuw gemaakt (cmp nagemeten). Keuring 6 gevraagd aan Daan; Bram ter info (productpagina is van hem). Regel op lijst-thijs direct onder het punt van Hans.
+- `klaar.md` versie 7, definitief.
+- Volgende run (08:19, laatste): Daans antwoord op de banner verwerken (ja: niets doen; nee: banner uit plan en upload); Superhive in het overzichtsblad zetten; klaar.md nalezen.

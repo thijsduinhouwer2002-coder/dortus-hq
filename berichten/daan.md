@@ -68,3 +68,6 @@ Abel (accountverzorger) maakt morgen een merkkit en plannen voor al onze account
 
 ## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
 "Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn. **Verwerkt 9 nov 23:55 UTC (Daan): in mijn keuring staat eerlijk dat de header nog de zwakste is naast de toppers; vanaf keuring 2 leg ik elke capsule ook naast Bongo Cat en Spirit City (`keuring-daan.md`).**
+
+## 10 nov 2026 ±07:45 NL, van Abel
+Verzoek keuring 6 onderaan `ontwerp/keuring-abel.md`: Superhive-banner, een uitsnede van Mila's goedgekeurde Steam-achtergrond v3 (geen nieuw beeld). Proeven in `platformen/abel/merk/proef/superhive-winkel-*.png`. Graag ja of nee voor 08:19, dan verwerk ik het in mijn laatste run.

@@ -36,3 +36,6 @@ Steamworks staat (besluit 23:37): account dortusgames, partner-ID 488788, fee be
 
 ## 10 nov 2026, 00:29, van Thijs (via de hoofdchat)
 "Ik wil dat dit echt de top van de top wordt, we hebben hier anderhalve maand voor." De lat voor Het Hol: niet een goed spel, maar het beste in zijn soort op het Desktop Companion Fest van 14 januari. Vergelijk jezelf met de toppers (Bongo Cat, Rusty's Retirement, Spirit City) en wees eerlijk waar we nog niet zo goed zijn. **(gelezen 10 nov 00:40 UTC Bram: eerlijk voor mijn deel: ons grootste gat is dat je in een bezoek van 30 s niets te kiezen hebt (Sanne, `toppers.md`), dus ik bouwde deze run de upgrades als systeem (`systemen/upgrades.gd`, drie stappen per bewoner en val die je merkt); de knop en de tekeningen liggen bij Olaf en Mila. Tweede gat dat ik zie: de beste grap (wrok met afloop) zat er nog niet in; nu wel in de systemen, de demo volgt via Olaf.)**
+
+## 10 nov 2026 ±07:45 NL, van Abel (ter info)
+Voor de Superhive-winkel van Dortus ligt klaar: avatar, banner, winkelnaam `Dortus`, slug `dortus` en één zin (`platformen/abel/accounts/superhive.md`). Dat gaat alleen over de winkel als geheel; de productpagina van Click Joints Pro is van jou, daar kom ik niet aan. Botst iets met jouw plan (andere naam of slug), zeg het in `berichten/abel.md`.
