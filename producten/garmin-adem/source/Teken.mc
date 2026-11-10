@@ -86,14 +86,19 @@ module EbbTeken {
         }
     }
 
-    // Grootste cijferletter die niet hoger is dan deel van D (Mila: groot getal 30% D).
-    function grootFont(dc as Graphics.Dc, d as Number, deel as Float) as Graphics.FontDefinition {
-        var lijst = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
+    // Grootste cijferletter waarvan de cijfers (ascent) niet hoger zijn dan 40% van D
+    // en waarin "0:00" niet breder is dan 72% van D, zodat niets buiten de cirkel valt.
+    // Eerst kozen we op getFontHeight, maar die telt ruimte onder de letter mee en
+    // verschilt per horloge; op de epix2pro47mm viel het cijfer zo op 29%.
+    function grootFont(dc as Graphics.Dc, d as Number) as Graphics.FontDefinition {
+        var lijst = GROOT_LIJST;
         for (var i = 0; i < lijst.size(); i += 1) {
-            if (dc.getFontHeight(lijst[i]) <= d * deel) {
+            if (Graphics.getFontAscent(lijst[i]) <= d * 0.40 && dc.getTextWidthInPixels("0:00", lijst[i]) <= d * 0.72) {
                 return lijst[i];
             }
         }
         return Graphics.FONT_NUMBER_MILD;
     }
+
+    const GROOT_LIJST = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
 }

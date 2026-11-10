@@ -242,7 +242,7 @@ class EbbView extends WatchUi.View {
         var klein = "";
         var yGroot = 0.38;
         var yKlein = 0.73;
-        var font = EbbTeken.grootFont(dc, d, 0.55);
+        var font = EbbTeken.grootFont(dc, d);
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, onderin 20% bij uit, 80% bij in.
             EbbTeken.water(dc, d, 0.2 + 0.6 * sessie.water(nu), EbbTeken.DIEPTE[0], golfFase);
@@ -308,6 +308,12 @@ class EbbView extends WatchUi.View {
     function meet(dc as Graphics.Dc, w as Number, fase as Number, groot as String, font as Graphics.FontDefinition) as Void {
         if (groot.length() > 0 && !_grootGemeld[fase]) {
             _grootGemeld[fase] = true;
+            if (fase == 0) {
+                for (var i = 0; i < EbbTeken.GROOT_LIJST.size(); i += 1) {
+                    var f = EbbTeken.GROOT_LIJST[i];
+                    System.println("LETTER " + i + " ascent " + Graphics.getFontAscent(f) + " hoogte " + dc.getFontHeight(f) + " breedte0:00 " + dc.getTextWidthInPixels("0:00", f) + " van " + w);
+                }
+            }
             var b = dc.getTextWidthInPixels(groot, font);
             var hoog = Graphics.getFontAscent(font);
             System.println("GROOT fase " + fase + " tekst " + groot + " breedte " + b + " hoogte " + hoog + " van " + w + " = " + (hoog * 100 / w) + "%");
