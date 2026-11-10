@@ -1,6 +1,6 @@
 # Obsidian: kant-en-klaar plan (Abel)
 
-Versie 1, 10 nov 2026 01:45 NL. Status: wacht op Mila's avatar en Daans akkoord.
+Versie 2, 10 nov 2026 02:45 NL. Status: klaar. Avatar van Mila, akkoord Daan (keuring 2), proef op de echte forumdraad bekeken.
 
 ## Wat er nu staat (GEZIEN 10 nov 00:55)
 - Rollwright in de pluginlijst: auteur **Dortus**, authorUrl https://dortus.com (manifest.json 0.3.5). Goed, maar die link landt op de Confluence-hoofdpagina (zie `dortus-com.md`).
@@ -13,11 +13,17 @@ Inloggen op https://forum.obsidian.md > avatar rechtsboven > **Preferences**.
 - Account > Name: `Thijs`.
 - Profile > **About me**:
 ```
-Thijs from the Netherlands. I make Rollwright (dice in your notes) under the name Dortus, built with the help of AI tools. Happy to help with dice, tables and TTRPG setups in Obsidian.
+Thijs from the Netherlands. I make Rollwright (dice in your notes) under the name Dortus. The code is written by AI agents; I direct and test the work. Happy to help with dice, tables and TTRPG setups in Obsidian.
 ```
 - Profile > Website: `https://dortus.com/rollwright/` (niet de hoofdpagina zolang die over Confluence gaat).
 
 Waarom de AI-zin hier wel: de Obsidian-community is er gevoelig voor (r/ObsidianMD bant AI-projecten, 9 nov), en de gedragscode van Obsidian verbiedt misleiding. Wie het vooraf in het profiel leest, kan niet later roepen dat het verzwegen is. Thijs mag de zin schrappen, maar dan ook nergens iets anders beweren.
+
+- Vondst (GEZIEN, forum.obsidian.md/u/Thijs.Dortus.json, 10 nov 02:30): het profiel staat op **verborgen** (`profile_hidden: true`). Dan ziet niemand About me of website, en dan heeft de stap hierboven geen zin. In Preferences het vinkje **"Hide my public profile and presence features"** uitzetten (staat bij Account of Interface, GOK welke van de twee) en opslaan.
+
+Waarom de About me nu dezelfde woorden gebruikt als de draad: in de draad van 8 nov schreef Thijs al "The code is written by AI agents that my small studio, Dortus, runs. I direct and test the work". Het profiel zegt nu precies hetzelfde, korter. Twee verschillende versies ("built with the help of AI tools" tegenover "written by AI agents") zouden lezen als afzwakken.
+
+Zo ziet het eruit: `merk/proef/obsidian-draad-dark.png` en `obsidian-draad-light.png` (de echte draad, alleen in mijn browser de letter "t" vervangen). De D leest op 45 px rond, op licht en donker.
 
 ## Stap 2. Wat het plan voor GitHub en dortus.com hier oplost
 Avatar en bio op GitHub (`github.md`) en een nieuwe hoofdpagina (`dortus-com.md`) maken de pluginlijst vanzelf verzorgder. Hier hoeft verder niets.
