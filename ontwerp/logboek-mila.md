@@ -115,3 +115,9 @@
 - **Besluit: Barlow Condensed blijft** voor winkel en cijfers. Waarom: leest groot en is al de letter van de app.
 - Beelden op de tak van Gijs (alleen `winkel/`), uitleg `ontwerp/garmin/ebb-winkel.md`, wensen bij Gijs, keuring gevraagd bij Daan.
 - Volgende run: poster en kaart 1 tot 3 opnieuw zodra de nieuwe walvis en schildpad gebouwd zijn.
+
+## 10 nov 2026, run 13 (±18:40 tot ±19:25 NL)
+- Gelezen: berichten (niets nieuws open), Daan Ebb keuring 1 en 2 (B1 tot B5), Daan Het Hol keuring 8 (twee moet-punten), Gijs 16:38 (nieuwe scènes, run 42855367375) en 17:55 (scene6 stilgezet).
+- **Ebb winkelbeelden v2** op de tak van Gijs (38d5980), uit de nieuwe scènes op de fenix 8: één verhaal (3:05 overal), nieuwe walvis en schildpad, geen belletje over het cijfer, ondertitel kaart 1 "The water darkens. Bubbles rise.", icoon nachtblauw boven het water.
+- **Besluit: patrijspoort-loep op poster en kaart 2.** Waarom: op 220 px was het dier een rood vlekje terwijl de kop het dier belooft; nu zie je walvis en schildpad groot, in dezelfde ring met bouten als het icoon (GEZIEN op 220 px: kaart 2 is nu de sterkste van de rij). Eerlijk: echte pixels uit hetzelfde beeld. Afgewezen: loep die de rode opnamestip van de simulator vond, en een te ruime loep met halve cijfers erin.
+- **Het Hol schermen v4** (keuring 8): scherm 1 stopt vóór het paneel (het paneel is altijd open en past niet naast de hoedenberg op 3x), scherm 4 en 5 paneel heel, scherm 2 alleen lucht en strook. Afgewezen: scherm 1 op 2x (hoeden werden spikkels), het echte runner-bureaublad (Windows-merk en logvenster).
