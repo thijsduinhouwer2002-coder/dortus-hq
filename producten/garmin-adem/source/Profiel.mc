@@ -101,7 +101,8 @@ module EbbVeilig {
     const SLEUTEL = "veilig";
 
     function moetTonen() as Boolean {
-        return Application.Storage.getValue(SLEUTEL) != true;
+        var v = Application.Storage.getValue(SLEUTEL);
+        return !((v instanceof Boolean) && (v as Boolean));
     }
 
     function bevestig() as Void {
