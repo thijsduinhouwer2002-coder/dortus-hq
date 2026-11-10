@@ -19,6 +19,8 @@ const VOORRAAD := {
 		"{naam} will not be leaving."],
 	"val_bewoner": ["{bewoner} ate {naam}. Burp.", "{bewoner} says thanks for the snack.", "{naam} stays forever."],
 	# "{naam}'s hat goes on the wall." komt pas terug als de wand te zien is (Sanne toets 4, punt 1)
+	# de wrok tegen een val krijgt zijn afloop (Sanne toets 6, punt 1); {Val} = "The Spike Pit"
+	"afgerekend_val": ["{naam} came back. {Val} won.", "{Val} won. Grudge settled.", "{Val} wins round two."],
 	"afgerekend": ["Grudge settled. {naam} rests.", "{naam} came back once too often."],
 	"afgerekend_aarts": ["Nemesis {naam}: finally stays.", "Grudge settled. {naam} rests."],
 	"vlucht": ["{naam} fled. Grudge: {bewoner}.", "{naam} ran. Swore revenge.", "{naam} escaped with a limp.",

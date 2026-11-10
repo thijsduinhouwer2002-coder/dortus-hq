@@ -13,7 +13,12 @@ const OPSLAG := "user://hol.json"
 
 const REGELS := preload("res://kern/regels.gd")
 const VOORTGANG := preload("res://systemen/voortgang.gd")
-const NAMEN := ["Bram", "Odo", "Wil", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Ties", "Lotte", "Kees"]
+# Geen namen met een Engelse betekenis: "Ties" leest als stropdassen, "Wil" als Will (Daan 23:45, keuring-build.md)
+const NAMEN := ["Bram", "Odo", "Wout", "Gerda", "Pim", "Rik", "Mara", "Joost", "Fenna", "Tibbe", "Lotte", "Kees"]
+# Demo: elke nieuwe held een andere hoed uit Mila's tien, zodat de minuut zelf laat zien dat er veel hoeden zijn
+# (Sanne toets 6, punt 2). Index: 0 helm, 1 puntmuts, 2 kap, 3 pet, 4 kroon, 5 koksmuts, 6 emmer, 7 hoge hoed, 8 pan,
+# 9 veermuts. De kroon blijft voor de held die Gloop opeet (eerste hoed op Gloop).
+const DEMO_HOEDEN := [5, 0, 8, 6, 7, 9, 3, 2, 1]
 const KLEUREN := ["#3f6fb5", "#8a4fb0", "#3f9a6a", "#c07a2a", "#6a6a7a", "#b0404a"]
 const HOEDEN := ["#b33a3a", "#e0b040", "#2a5aa0", "#3a7a3a", "#7a3a8a", "#d06a2a"]
 
@@ -48,6 +53,8 @@ const BEGIN_DEMO := ["vallen", "vluchten", "opgegeten", "doorlopen", "terug", "o
 var begin_gedaan: Array = []   # welke stappen al geweest zijn (in de save)
 var begin_vlucht := ""         # naam van de held die moest vluchten: hij is de terugkomer
 var vlucht_t := -100.0         # wanneer hij vluchtte (demo: terug pas 4 s later)
+var opgegeten_t := -100.0      # demo: wanneer de held die opgegeten wordt binnenkwam (Hoard-Toucher pas 10 s later)
+var demo_hoed_i := 0           # demo: volgende hoed uit DEMO_HOEDEN
 var anim_t := 0.0
 var gevallen_namen := {}   # naam -> hoe vaak gevallen; die naam komt daarna als "Kees II" (Sanne toets 2, punt 4)
 var slijm
@@ -239,6 +246,8 @@ func _begin_stap() -> String:
 			continue
 		if stap == "terug" and demo and t - vlucht_t < 4.0:
 			return "wacht"     # demo: niet meteen na zijn vlucht terug, anders komen vier regels in 2 s (film run 42721290569)
+		if stap == "doorlopen" and demo and t - opgegeten_t < 10.0:
+			return "wacht"     # demo: Hoard-Toucher 4 s later dan voorheen, de drukke stap rond 30 s (Sanne toets 6, punt 3)
 		if stap.begins_with("opgegeten") and slijm.has_method("kan_vechten") and not slijm.kan_vechten():
 			wacht = true       # Gloop ligt plat; wacht tot hij weer op is
 			continue
@@ -292,24 +301,40 @@ func _nieuwe_held() -> bool:
 		var naam := _vrije_naam()
 		info = {"naam": naam, "bezoeken": 0, "wrok": "",
 			"kleur": KLEUREN[rng.randi_range(0, KLEUREN.size() - 1)], "hoed": HOEDEN[rng.randi_range(0, HOEDEN.size() - 1)],
-			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 3)}
+			"taai": rng.randi_range(0, 1), "hoed_nr": rng.randi_range(0, 9)}   # alle tien hoeden (Bram 22:40)
+		if demo:
+			info["hoed_nr"] = DEMO_HOEDEN[demo_hoed_i % DEMO_HOEDEN.size()]
+			demo_hoed_i += 1
 		if naam.ends_with(" II") or naam.ends_with(" III"):
 			_kroniek(regels.kies("naamgenoot", {"naam": naam, "oud": naam.split(" ")[0]}), true)
 		else:
 			_kroniek(regels.kies("binnen", {"naam": naam}), true)
 	match stap:
 		"vallen": info["moet_vallen"] = true
+		"terug":
+			# de wrok krijgt een afloop: hij komt terug voor de put en valt erin, of Gloop eet hem (Sanne toets 6, punt 1).
+			# Alleen in de eerste tien minuten; daarna kan een terugkomer weer ontsnappen en groeit zijn wrok.
+			if String(info.get("wrok", "")).begins_with("the "):
+				info["moet_vallen"] = true     # eerste verdediging op zijn pad is zijn vijand: hij loopt eerst naar de put
+			else:
+				info["moet_opgegeten"] = true
 		"vluchten":
 			info["moet_vluchten"] = true
 			begin_vlucht = String(info.naam)
 		"opgegeten", "opgegeten2":
 			info["moet_opgegeten"] = true
 			if stap == "opgegeten":
+				opgegeten_t = t
+				if demo:
+					demo_hoed_i -= 1   # hij krijgt de kroon; zijn plek in DEMO_HOEDEN gaat naar de volgende (pan voor de Hoard-Toucher)
 				# de eerste hoed op Gloop moet in één beeld lezen: de kroon (index 4 in Mila's held_hoeden.png),
 				# zolang held.gd nog maar 4 hoeden kent de paarse puntmuts (index 1) (Sanne toets 4, punt 2)
 				var tops: Array = held_script.get_script_constant_map().get("HOED_TOP", [])
 				info["hoed_nr"] = 4 if tops.size() >= 10 else 1
-		"doorlopen": info["moet_doorlopen"] = true
+		"doorlopen":
+			info["moet_doorlopen"] = true
+			if demo:
+				info["snelheid"] = 1.4   # held.gd (Bram 23:30): raakt de schat binnen de minuut en rent nog weg
 	if stap != "":
 		begin_gedaan.append(stap)
 		log_regel("HOL begin: %s (%s)" % [stap, info.naam])
@@ -369,7 +394,14 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 		var r := ""
 		var extra := " +%d" % buit
 		if wat.begins_with("finally"):
-			r = regels.kies("afgerekend_aarts" if int(info.get("bezoeken", 0)) >= 3 else "afgerekend", {"naam": naam}, extra.length())
+			var vijand := wat.replace("finally fell to ", "")
+			if int(info.get("bezoeken", 0)) >= 3:
+				r = regels.kies("afgerekend_aarts", {"naam": naam}, extra.length())
+			elif vijand.begins_with("the "):
+				# "Bram came back. The Spike Pit won." (Sanne toets 6, punt 1: de grap moet af zijn)
+				r = regels.kies("afgerekend_val", {"naam": naam, "Val": "The" + vijand.substr(3)}, extra.length())
+			else:
+				r = regels.kies("afgerekend", {"naam": naam}, extra.length())
 		elif wat.ends_with(slijm.naam()):
 			r = regels.kies("val_bewoner", {"naam": naam, "bewoner": _bewoner()}, extra.length())
 		else:
