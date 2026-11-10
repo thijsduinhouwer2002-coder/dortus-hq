@@ -36,6 +36,10 @@ const KIES_GEWICHT := {"": 55, "ridder": 15, "dief": 15, "magier": 10, "bard": 5
 const EERSTE_GEWOON := 10
 const LIED_HELDEN := 2        # zoveel helden extra na een lied (strook.gd laat ze binnen de volgende minuut komen)
 
+# Rij in kunst/held_soort.png (Mila 10 nov: kleding per soort, zelfde volgorde als SOORTEN); -1 = gewone held.
+static func rij(s: String) -> int:
+	return SOORTEN.find(s)
+
 static func geldig(s: String) -> bool:
 	return DATA.has(s)
 
