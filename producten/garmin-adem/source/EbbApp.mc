@@ -68,7 +68,8 @@ class EbbApp extends Application.AppBase {
             EbbTrillen.aan = false;
             System.println("PLAATJE scene " + k);
             if (k == 3) {
-                Application.Storage.setValue("dieren", 15);
+                // Trouw (besluit 22:53): zeven dieren gevonden, zoals op blad v4 ("7 of 24").
+                Application.Storage.setValue(EbbTrouw.BITS, 127);
                 return [new DierenView(), new WatchUi.BehaviorDelegate()];
             }
             if (k == 6) {
@@ -88,6 +89,10 @@ class EbbApp extends Application.AppBase {
                 return [view, new EbbDelegate(view)];
             }
             var drempel = [60000, 120000, 180000] as Array<Number>;
+            // Het dier hangt niet meer van de tijd af maar van wat je hebt: vis, schildpad, of alles (walvis).
+            var bits = [1, 15, (1 << 24) - 1] as Array<Number>;
+            Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
+            view.gezelschap = EbbTrouw.gezelschap();
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
             view.plaatjeMs = drempel[k] + 3300;
