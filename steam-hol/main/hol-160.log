@@ -1,28 +1,28 @@
 HOL kroniek 0.0 (wacht 0.0): Your hole is open. Heroes will come.
 HOL start hoogte=160 schaal=4 spelpixels=256x40 venster=(1024, 160) pos=(0, 560) held=res://systemen/held.gd
 HOL begin: vallen (Kees)
-HOL kroniek 2.6 (wacht 2.0): Kees is here for your gold.
-HOL kroniek 7.0 (wacht 0.0): Bram climbs into your hole.
+HOL kroniek 2.5 (wacht 2.0): Kees is here for your gold.
+HOL kroniek 6.9 (wacht 0.0): Bram climbs into your hole.
 HOL begin: vluchten (Bram)
 HOL gegraven kolom 3
 HOL kroniek 11.6 (wacht 0.0): Kees fell to the Spike Pit. +6
 HOL begin: opgegeten (Odo)
-HOL kroniek 14.2 (wacht 1.8): Odo has a map. It is wrong.
+HOL kroniek 14.1 (wacht 1.8): Odo has a map. It is wrong.
 HOL gegraven kolom 4
-HOL kroniek 23.1 (wacht 0.0): Tibbe brought a torch. And hope.
+HOL kroniek 23.0 (wacht 0.0): Tibbe brought a torch. And hope.
 HOL begin: doorlopen (Tibbe)
-HOL kroniek 24.9 (wacht 0.0): Odo stays forever. +6
+HOL kroniek 24.8 (wacht 0.0): Odo stays forever. +6
 HOL gegraven kolom 5
 HOL kroniek 27.4 (wacht 2.5): Gloop wears Odo's hat now.
-HOL kroniek 30.0 (wacht 4.8): Bram escaped with a limp.
+HOL kroniek 29.9 (wacht 4.8): Bram escaped with a limp.
 HOL begin: terug (Bram)
-HOL kroniek 32.5 (wacht 1.7): Bram is back for the Spike Pit.
-HOL kroniek vervallen 34.3: Gloop is flat. Back soon.
+HOL kroniek 32.4 (wacht 1.7): Bram is back for the Spike Pit.
+HOL kroniek vervallen 34.2: Gloop is flat. Back soon.
 HOL kroniek 35.0 (wacht 1.1): Tibbe is now the Hoard-Toucher.
-HOL kroniek 40.4 (wacht 0.0): Gloop is up again. Wobbly.
+HOL kroniek 40.3 (wacht 0.0): Gloop is up again. Wobbly.
 HOL begin: opgegeten2 (Joost)
 HOL kroniek 41.8 (wacht 0.0): Bram came back. The Spike Pit won. +9
 HOL kroniek vervallen 44.0: Joost read about you in a tavern.
-HOL kroniek 44.4 (wacht 2.3): Tibbe ran off, giggling.
-HOL kroniek 46.9 (wacht 0.4): Tibbe is back for Gloop.
+HOL kroniek 44.3 (wacht 2.3): Tibbe ran off, giggling.
+HOL kroniek 46.8 (wacht 0.4): Tibbe is back for Gloop.
 HOL einde na 50 s, fps=15, goud=21, terugkomers=0
