@@ -258,6 +258,18 @@ func _init() -> void:
 	var soort_s = load("res://systemen/heldensoort.gd")
 	ok(soort_s.rij("ridder") == 0 and soort_s.rij("bard") == 3 and soort_s.rij("") == -1, "rij in held_soort.png volgt SOORTEN")
 	ok(not soort_s.aarts_mag(0) and not soort_s.aarts_mag(59) and soort_s.aarts_mag(60), "geen aartsvijand voor de 60e nieuwe held (±1 uur, sim.py aarts)")
+	# pensioen bij openen (Sanne kroniek-regels.md): hooguit één, alleen na 30 min weg
+	var Vp = load("res://systemen/voortgang.gd")
+	var rp = load("res://systemen/kroniek_regels.gd").new()
+	var lijst_p: Array = []
+	for np in ["Kees", "Odo", "Mara", "Tibbe", "Pim", "Lotte", "Odo"]:
+		lijst_p = Vp.met_pensioen(lijst_p, np)
+	ok(lijst_p == ["Mara", "Tibbe", "Pim", "Lotte", "Odo"], "pensioenlijst: hooguit 5, oudste eraf, geen dubbele (%s)" % str(lijst_p))
+	ok(Vp.pensioen(lijst_p, {"weg_s": 600}, rp).is_empty() and Vp.pensioen([], {"weg_s": 7200}, rp).is_empty(), "pensioen: niet na 10 min weg, niet zonder namen")
+	var pp: Dictionary = Vp.pensioen(lijst_p, {"weg_s": 7200}, rp)
+	ok(pp.get("naam", "") == "Mara" and String(pp.regel).begins_with("Mara ") and String(pp.regel).length() <= 42 and rp.VOORRAAD["pensioen"].has(String(pp.regel).replace("Mara", "{naam}")), "pensioen na 2 uur: de oudste, regel uit de voorraad (%s)" % str(pp))
+	var pp2: Dictionary = Vp.pensioen(["Bartholomew the Unbudged"], {"weg_s": 7200}, rp)
+	ok(String(pp2.get("regel", "")).length() <= 42 and String(pp2.get("regel", "")) != "", "pensioen met lange naam past (%s)" % str(pp2))
 	var kleding := Image.load_from_file("res://kunst/held_soort.png")
 	var rijen_vol: bool = kleding != null and kleding.get_width() == 64 and kleding.get_height() == 16 * soort_s.SOORTEN.size()
 	if rijen_vol:
