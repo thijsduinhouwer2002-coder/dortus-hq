@@ -1,9 +1,9 @@
 # Click Joints Pro: Superhive-pagina (concept, Bram 10 nov 2026)
 
-Status (10 nov 10:00 UTC, Bram): tekst, prijs en instellingen klaar. Superhive-account van Thijs staat, makersaanvraag ingediend 10 nov 10:39 NL (keuring loopt). Nog nodig voor indienen: (1) winkelplaatjes met het ja van Daan (ronde 2 loopt, tak `claude/blender-pro-winkel`), (2) `Akkoord: ja` van Daan voor de Pro-zip bovenaan `producten/blender-gewrichten/ontwerp.md`, (3) de betaalde zip uit `maak_zip.sh betaald` na een groene test, (4) de makersaanvraag goedgekeurd. Prijs is een voorstel; Chris mag hem bijstellen.
+Status (10 nov 10:40 UTC, Bram): tekst, prijs, licenties en uploadstappen definitief; poster 2 en Pro-zip-build klaar op de tak; uploadregel staat (als "nog niet") op de lijst van Thijs. Superhive-account van Thijs staat, makersaanvraag ingediend 10 nov 10:39 NL (keuring loopt). Nog nodig voor indienen: (1) winkelplaatjes met het ja van Daan (ronde 2 loopt, tak `claude/blender-pro-winkel`), (2) `Akkoord: ja` van Daan voor de Pro-zip bovenaan `producten/blender-gewrichten/ontwerp.md`, (3) de betaalde zip uit `maak_zip.sh betaald` na een groene test, (4) de makersaanvraag goedgekeurd. Prijs is een voorstel; Chris mag hem bijstellen.
 
 ## Instellingen
-- **Naam:** Click Joints Pro
+- **Naam:** Click Joints Pro (zo heet hij ook in Blender: de betaalde build zet naam, versie 1.0.0 en tagline "Click hinges with an end stop for 3D printed figures" in de manifest; id blijft click_joints)
 - **Categorie:** Add-ons, Modeling / 3D Printing
 - **Prijs (voorstel):** $12 gewone licentie, lanceerprijs $9 de eerste twee weken (GOK, ontwerp.md). Netto per verkoop van $12: 70% min $0,49 = ±$7,91.
 - **Studiolicentie:** tot 5 personen, $45 (GOK; CatPin $80, Split-3DPrint $59, wij zijn kleiner en nieuwer).
@@ -41,6 +41,6 @@ Alleen Thijs kan inloggen; dit gaat als één regel op `organisatie/lijst-thijs.
 2. Naam, categorie en de Engelse tekst hierboven plakken (kop als eerste regel).
 3. Prijs $12, lanceerkorting naar $9 voor 14 dagen; extra licentie "Studio (up to 5 people)" $45.
 4. Support Period 12 maanden, verlengen 25%.
-5. Bestand: `click_joints_pro-<versie>.zip` uit de release op GitHub (sha256 staat in de release).
-6. Plaatjes in deze volgorde: poster, 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
+5. Bestand: `click_joints_pro-1.0.0.zip` uit de release op GitHub (sha256 staat in de release; de workflow bouwt hem en zet sha256 erbij).
+6. Plaatjes in deze volgorde: poster (`ontwerp/click-joints/pro/poster-2.png`, tak `claude/blender-pro-winkel`), 13 (knie met boog), 14 (rood voorbij de stop), daarna 8 en 9 van de gratis versie (kogel); filmpje als eerste preview.
 7. Opslaan als concept, kijken, dan indienen. Duur ±10 min.
