@@ -25,6 +25,9 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 			s.vlucht_tijd[String(info.naam)] = s.t
 		if s.demo or b.bezoeken >= 3 or s.rng.randf() < 0.6 or String(info.naam) == s.begin_vlucht:
 			s.terugkomers.append(b)
+		# Heldenboek: wie drie keer vluchtte is een aartsvijand en krijgt een bladzijde, ook als hij niet terugkomt
+		if int(b.bezoeken) >= 3:
+			boek_regel(s, s.boek.aarts(String(info.naam), {"bijnaam": "Thrice-Fled", "wrok": String(b.wrok), "bezoeken": int(b.bezoeken)}))
 		# plafond van 8: anders raken de namen op en groeit de save; de oudste die geen aartsvijand is gaat met pensioen
 		if s.terugkomers.size() > 8:
 			var weg_i := 0
@@ -40,6 +43,7 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		else:
 			var w: String = String(b.wrok)
 			s._kroniek(s.regels.kies("vlucht", {"naam": info.naam, "bewoner": w.replace(" the Slime", "") if w != "your Hoard" else "you"}))
+		boek_regel(s, s.boek.held(String(info.get("soort_held", "")), "ontsnapt", String(info.naam), s._bewoner()))
 		if lied > 0:
 			# sfeerregel: je ziet het lied niet, dus laag zoals binnenkomst en mag vervallen (Sanne toets 9, besluit 2a);
 			# de afloop zie je wel: de helden die erdoor komen krijgen een eigen regel die voorgaat (binnen_lied, strook.gd)
@@ -88,6 +92,22 @@ static func held_klaar(s, _held, uitkomst: String, info: Dictionary) -> void:
 		else:
 			r = s.regels.kies("val", {"naam": naam, "val": wat.replace("fell to ", "")}, extra.length())
 		s._kroniek(r + extra)
+		# Heldenboek: een stempel door Gloop of door de put (bij afgerekend: wie hem kreeg)
+		# (put alleen als het echt de put was; anders Gloop, ook als zijn bijnaam net veranderde, controleur kan-punt 6)
+		var door := "stekelput" if wat.ends_with("the Spike Pit") else "slijm"
+		boek_regel(s, s.boek.held(String(info.get("soort_held", "")), door, naam, s._bewoner()))
+		if wat.begins_with("finally") and int(info.get("bezoeken", 0)) >= 3:
+			# eerst zorgen dat hij in het boek staat (aartsvijand uit een save van voor het boek), dan afrekenen.
+			# Geen regel: er is nog geen dagteller en "settled on day 1" op dag 5 is niet waar (controleur kan-punt 5)
+			s.boek.aarts(naam, {"bijnaam": "Thrice-Fled", "wrok": String(info.get("wrok", "")), "bezoeken": int(info.get("bezoeken", 3))})
+			s.boek.aarts_af(naam, s._bewoner() if door == "slijm" else "the Spike Pit", 1)
+		if String(info.get("hoed_naar", "")) == "bewoner" and int(info.get("hoeden_bewoner", 0)) > 0:
+			var hb = _held.get("hoed_nr") if _held != null else null
+			var rh: String = s.boek.hoed(int(hb) if hb != null else int(info.get("hoed_nr", -1)), naam)
+			# noemde de kroniek de hoed al (hap_hoed of de eerste hoed), dan alleen in het boek, geen tweede regel (kan-punt 2)
+			if not bool(info.get("hoed_gemeld", false)) and int(info.get("hoeden_bewoner", 0)) != 1:
+				boek_regel(s, rh)
+			boek_regel(s, s.boek.berg(int(info.get("hoeden_bewoner", 0))))
 		# hoedentoren: zijn hoed staat nu op Gloop (slijm.gd, Bram). Eerste hoed altijd een regel, bij 25 en 100 de bijnaam,
 		# anders hooguit een op de vier, zodat de val-regel niet verdrongen wordt (kroniek-regels.md)
 		var n_hoed := int(info.get("hoeden_bewoner", 0))
@@ -109,3 +129,12 @@ const KR := preload("res://systemen/kroniek_regels.gd")
 const RG := preload("res://kern/regels.gd")
 static func hoed_naam(i: int) -> String:
 	return String(KR.HOED_KORT[i]) if i >= 0 and i < KR.HOED_KORT.size() else "hat"
+
+# Een regel uit het Heldenboek: laag, zoals binnenkomst (een nieuwe bladzijde is fijn om te lezen, maar wat je ziet
+# gaat voor; Sanne toets 9). Vervalt hij, dan staat hij nog steeds in het boek. Soort "boek" voor de log.
+# Demo: geen boekregels (wel in het boek). Zelfs een enkele drukte "Odo climbs into your hole." weg (film 3296de5),
+# en Odo is de held met de kroon. In de film komt het boek pas in beeld met het boekje in het paneel (stap 2).
+static func boek_regel(s, r: String) -> void:
+	if r == "" or s.demo:
+		return
+	s._kroniek(r, true, "boek")

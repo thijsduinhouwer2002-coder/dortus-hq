@@ -11,7 +11,8 @@ static func bewaar(s) -> void:
 		"schat_kol": s.hol.schat_kol, "goud": s.hol.goud, "terugkomers": s.terugkomers, "kroniek": s._kroniek_bewaar(),
 		"begin_gedaan": s.begin_gedaan, "begin_vlucht": s.begin_vlucht, "helden_nr": s.helden_nr, "lied_helden": s.lied_helden,
 		"slijm": s.slijm.naar_dict() if s.slijm.has_method("naar_dict") else {},
-		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {}}
+		"upgrades": s.hol.upgrades.naar_dict() if s.hol.upgrades != null else {},
+		"boek": s.boek.naar_dict() if s.boek != null else {}}
 	var f := FileAccess.open(OPSLAG, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify(data))
@@ -61,6 +62,8 @@ static func laad(s, begin) -> void:
 	for r in data.get("kroniek", []):
 		s.kroniek.append(String(r))
 	# terwijl je weg was (Bram, voortgang.gd): alleen winst, plafond 12 uur, 2 tot 3 regels met namen
+	if s.boek != null and data.get("boek") is Dictionary:
+		s.boek.van_dict(data.get("boek"))
 	if s.hol.upgrades != null and data.get("upgrades") is Dictionary:
 		s.hol.upgrades.van_dict(data.get("upgrades"))
 		if s.slijm != null and s.slijm.has_method("upgrade_veranderd"):
