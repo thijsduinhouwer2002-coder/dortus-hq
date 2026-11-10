@@ -22,7 +22,7 @@ const kort = (x: unknown, n = 1500) => {
   return s.length > n ? s.slice(0, n) + " …(ingekort)" : s;
 };
 
-async function ruw(methode: string, pad: string, body?: unknown): Promise<{ status: number; tekst: string; json: any }> {
+async function ruw(methode: string, pad: string, body?: unknown): Promise<{ status: number; tekst: string; json: any; wacht?: string | null }> {
   const res = await fetch(`${API}${pad}${pad.includes("?") ? "" : ".json"}`, {
     method: methode,
     headers: { authorization: `Bearer ${token}`, accept: "application/json", ...(body ? { "content-type": "application/json" } : {}) },
@@ -31,7 +31,7 @@ async function ruw(methode: string, pad: string, body?: unknown): Promise<{ stat
   const tekst = await res.text();
   let json: any;
   try { json = tekst ? JSON.parse(tekst) : undefined; } catch { json = undefined; }
-  return { status: res.status, tekst, json };
+  return { status: res.status, tekst, json, wacht: res.headers.get("retry-after") };
 }
 const tarieven = (filter?: string) => ruw("GET", `/${ADM}/tax_rates.json?per_page=100${filter ? `&filter=${encodeURIComponent(filter)}` : ""}`);
 const regel = (t: any) => `${t.name} | ${t.percentage}% | ${t.tax_rate_type} | actief ${t.active} | land ${t.country} | show_tax ${t.show_tax}`;
@@ -116,7 +116,15 @@ async function hoofd() {
 
 /** Btw-rapport van één maand (scopes documents en sales_invoices; een 403 loggen we gewoon). */
 async function btwRapport(periode: string, wanneer: string): Promise<any[] | undefined> {
-  const r = await ruw("GET", `/${ADM}/reports/tax.json?period=${periode}`);
+  // Run 42753250994 gaf hier twee keer 429 "Retry later" (rapporten hebben kennelijk een strengere grens), dus wachten en opnieuw.
+  let r = await ruw("GET", `/${ADM}/reports/tax.json?period=${periode}`);
+  for (let poging = 1; r.status === 429 && poging <= 4; poging++) {
+    const ra = Number(r.wacht);
+    const sec = Math.min(60, Math.max(5, Number.isFinite(ra) ? (ra > 1e9 ? ra - Date.now() / 1000 : ra) : 15 * poging));
+    log(`  - 429 (Retry-After ${r.wacht ?? "geen"}), poging ${poging}: ${Math.round(sec)} s wachten`);
+    await new Promise((k) => setTimeout(k, sec * 1000));
+    r = await ruw("GET", `/${ADM}/reports/tax.json?period=${periode}`);
+  }
   const rij = Array.isArray(r.json?.tax_rates) ? r.json.tax_rates : undefined;
   log(`- btw-rapport ${periode} ${wanneer}: ${r.status}${rij ? `, ${rij.length} tarieven: ${rij.map((t: any) => `"${t.name}" ${t.type} ${t.report_reference} grondslag ${t.amount} btw ${t.tax}`).join("; ") || "leeg"}` : ` ${kort(r.tekst, 400)}`}`);
   return rij;
