@@ -66,6 +66,8 @@ static func beschrijving(s, soort: String) -> Dictionary:
 
 # Wat "Undo" teruggeeft: de volle prijs van de bovenste stap (balans.md), 0 als er niets gekocht is.
 static func terug_bedrag(up, soort: String) -> int:
+	if up.has_method("terug"):
+		return int(up.terug(soort))   # Brams formule op één plek (upgrades.gd terug(), kan-punt controleur 02:40)
 	var n: int = up.niveau(soort)
 	if n <= 0:
 		return 0
@@ -223,7 +225,8 @@ static func munt_top(s) -> float:
 	var top := -16.0 + 6.0   # RUST_TOP van het rust-frame
 	if sl.has_method("is_plat") and sl.is_plat():
 		return sl.position.y - 16.0 + 10.0
-	# Big Gloop wordt 1 spelpixel hoger zodra slijm.gd slijm_groot.png tekent (Mila 02:55, Bram); dan hier ook -1
+	if sl.has_method("is_groot") and sl.is_groot():
+		top -= 1.0   # Big Gloop is 1 spelpixel hoger (slijm.gd top_nu, Bram 762fd71)
 	if sl.has_method("hoeden_op_hoofd"):
 		var c: Dictionary = sl.get_script().get_script_constant_map()
 		var onder: Array = c.get("HOED_ONDER", [])
