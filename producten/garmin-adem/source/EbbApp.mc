@@ -59,15 +59,31 @@ class EbbApp extends Application.AppBase {
             }
         }
         if (EbbBouw.PLAATJE) {
-            // Scène per start: 0 vis (1:03), 1 schildpad (2:03), 2 walvis (3:03), 3 Sea log met alle dieren.
+            // Scène per start: 0 vis (1:03), 1 schildpad (2:03), 2 walvis (3:03), 3 Sea log met alle dieren,
+            // 4 duikprofiel en 5 getijdenlijn met één verhaal (Daan keuring winkelbeelden 1: beste 3:05, de dag van
+            // de walvis), 6 rustig ademen 4-7-8.
             var keer = Application.Storage.getValue("plaatjekeer");
-            var k = ((keer instanceof Number) ? keer as Number : 0) % 4;
+            var k = ((keer instanceof Number) ? keer as Number : 0) % 7;
             Application.Storage.setValue("plaatjekeer", k + 1);
             EbbTrillen.aan = false;
             System.println("PLAATJE scene " + k);
             if (k == 3) {
                 Application.Storage.setValue("dieren", 15);
                 return [new DierenView(), new WatchUi.BehaviorDelegate()];
+            }
+            if (k == 6) {
+                var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
+                zetRustig(rv);
+                return [rv, new RustigDelegate(rv)];
+            }
+            if (k == 4 || k == 5) {
+                view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.sessie.inhoudtijden = [102000, 151000, 185000] as Array<Number>;
+                view.koraal = true;
+                view.opnemen = false;
+                view.getij = (k == 5);
+                return [view, new EbbDelegate(view)];
             }
             var drempel = [60000, 120000, 180000] as Array<Number>;
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
@@ -478,14 +494,15 @@ class EbbView extends WatchUi.View {
 
     // Getijdenlijn van 8 weken (in de testbouw nagebootst, zodat de schermafbeelding iets laat zien).
     function getijLijn() as Array<Array<Number> or Null> {
-        if (EbbBouw.DEMO) {
+        if (EbbBouw.DEMO || EbbBouw.PLAATJE) {
             var lijn = [] as Array<Array<Number> or Null>;
             for (var i = 0; i < EbbOpslag.DAGEN; i += 1) {
-                // Iemand die één dag per week overslaat en langzaam beter wordt, met wat schommeling.
-                if (i % 7 == 3) {
+                // Iemand die drie dagen overslaat en langzaam beter wordt tot 3:03 (Daan: één verhaal met de walvis op 3:00).
+                if (i == 10 || i == 27 || i == 41) {
                     lijn.add(null);
                 } else {
-                    var beste = (62 + 1.1 * i + 7 * Math.sin(i / 2.5)).toNumber();
+                    var beste = (100 + 1.5 * i + 6 * Math.sin(i / 2.5)).toNumber();
+                    if (i == EbbOpslag.DAGEN - 1) { beste = 185; }   // vandaag: 3:05, dezelfde als het duikprofiel
                     lijn.add([beste, beste - 14 - (i % 3) * 3] as Array<Number>);
                 }
             }
