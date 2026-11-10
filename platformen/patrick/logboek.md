@@ -34,3 +34,6 @@
 - Fout van mij: een script maakte rapport.md leeg (commit 793c7a6). Hersteld uit a5097a5 in c88faca, met de fixes.
 - Tweede agent legde huidige CLAUDE.md en regels.md naast 01 en 07: zes weggevallen punten teruggezet in 01 en 07; bewuste versoepelingen in het rapport genoemd. Chrome-regel stond al in 07 (agent zag dat mis).
 - Volgende run (03:13): rapport één keer helemaal vers lezen als Thijs (is het in 3 minuten te snappen?), top 5 inkorten waar kan; 05 en 12 op elkaar laten aansluiten (ploeg); nieuwe berichten verwerken.
+- 05 en 02 sluiten nu aan op 12 (ploeg van 6, euro-datum per product op het bord). Rapport begint met vijf ja/nee-vragen voor Thijs plus de vraag naar de KvK-datum. In 12 staat dat Klopt stilzetten twee besluiten omdraait, met het nieuwe feit.
+- Einde run 2. Stand: rapport met ja/nee-blok, koerszin en top 5 staat; voorstellen 01 tot 12 staan; 01 en 07 zijn tegen de huidige regels gecontroleerd.
+- Run 3 (03:13): nieuwe berichten; rapport vers lezen als Thijs en inkorten (doel: top 5 in 3 minuten te lezen); getallen nalopen (commits: API zegt 1.868 sinds 7 nov met samenvoegingen); 04 en 09 laten aansluiten op de Polar-leessleutel en de euro-datum.
