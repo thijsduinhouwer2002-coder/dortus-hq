@@ -211,26 +211,30 @@ def s_ademen(D):
     im = leeg(D)
     zee(im, D, [(D*0.64, W0), (D*0.72, W1), (D*0.86, W2)])
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.18), 'in', D*0.090, TITEL)
+    tekst(d, D, (D/2, D*0.18), 'breathe in', D*0.085, TITEL)
     tekst(d, D, (D/2, D*0.41), '23', D*0.32, WIT)           # getal helemaal boven het water (moet-punt 1)
     tekst(d, D, (D/2, D*0.80), 'of 30 · round 2', D*0.066, WIT)
     rand(im, D); return im
 
-def duik_zee(im, D):
-    zee(im, D, [(D*0.10, W0), (D*0.17, W1), (D*0.50, W2), (D*0.78, W3)], amp=D*0.014)
+def duik_zee(im, D, meter=94):
+    # hoe dieper, hoe hoger de donkere banden: op 183 m is bijna alles nacht (keuring 3, moet-punt 1)
+    k = min(1, meter/183)
+    zee(im, D, [(D*0.12, W0), (D*(0.19 - 0.04*k), W1), (D*(0.62 - 0.30*k), W2), (D*(0.90 - 0.32*k), W3)], amp=D*0.014)
 
 def s_duik(D, diepte, tijd, soort, s, bel, hoek=0, sec=0, vorig=0, volgend=0):
-    im = leeg(D); duik_zee(im, D); d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.25), diepte, D*0.066, SCHUIM)
+    im = leeg(D); duik_zee(im, D, int(diepte.split()[0])); d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.255), diepte, D*0.085, SCHUIM)
     tekst(d, D, (D/2, D*0.44), tijd, D*0.30, WIT)
     bellen(d, D, bel)
     dier(im, soort, D/2, D*0.700, s*D, hoek=hoek)
     d = ImageDraw.Draw(im)
     # voortgang naar het volgende dier: dunne boog langs de rand, vanaf boven met de klok mee (keuring 2)
     w = max(3, round(D/110)); m = max(2, round(D/150)) + w/2 + 1
-    frac = (sec - vorig)/(volgend - vorig) if volgend else 1
-    d.arc([m, m, D-1-m, D-1-m], -90, -90 + 360*frac, fill=SCHUIM, width=w)
-    tekst(d, D, (D/2, D*0.865), f'next {volgend//60}:{volgend%60:02d}' if volgend else 'all met', D*0.066, SCHUIM)
+    if volgend:   # boog met een zwarte rand, zodat hij ook over de golf leest; bij alles gevonden geen boog
+        frac = (sec - vorig)/(volgend - vorig)
+        d.arc([m-1, m-1, D-m, D-m], -91, -89 + 360*frac, fill=ZWART, width=w+2)
+        d.arc([m, m, D-1-m, D-1-m], -90, -90 + 360*frac, fill=SCHUIM, width=w)
+    tekst(d, D, (D/2, D*0.865), f'next {volgend//60}:{volgend%60:02d}' if volgend else 'all found', D*0.066, SCHUIM)
     rand(im, D); return im
 def s_duiken(D): return s_duik(D, '94 m', '1:34', 'kwal', 0.085, [(0.33, 0.62, 0.016), (0.30, 0.565, 0.009), (0.65, 0.64, 0.011), (0.68, 0.60, 0.006)], sec=94, vorig=90, volgend=120)
 def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)], hoek=9, sec=183, vorig=180, volgend=0)   # walvis daalt mee de diepte in
@@ -314,9 +318,8 @@ def s_weken(D):
         d.line([(x, bod), (x, bod+D*0.02)], fill=GRIJS, width=max(1, round(D/230)))
     r = D*0.022; px_, py_ = L+pk*dx, Y(1.0)
     d.ellipse([px_-r, py_-r, px_+r, py_+r], fill=GOUD)
-    tekst(d, D, (L, bod + D*0.065), '8 wk', D*0.066, GRIJS, anker='lm'); tekst(d, D, (R, bod + D*0.065), 'now', D*0.066, GRIJS, anker='rm')
-    tekst(d, D, (D/2, D*0.765), 'best 2:08', D*0.085, GOUD)
-    tekst(d, D, (D/2, D*0.845), '44 days breathed', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.755), 'best 2:08', D*0.085, GOUD)
+    tekst(d, D, (D/2, D*0.845), 'longest hold per day', D*0.066, GRIJS)
     rand(im, D); return im, (px_, py_, r)
 
 def s_weken_beeld(D): return s_weken(D)[0]
@@ -325,7 +328,7 @@ def s_zeelog(D):
     """Drie kolommen op gelijke afstand, drie dieren even zwaar (zelfde oppervlak), walvis groot eronder (moet-punt 8)."""
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.18), 'sea log', D*0.085, TITEL)
-    tekst(d, D, (D/2, D*0.27), '3 of 4 met', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.27), '3 of 4 found', D*0.066, GRIJS)
     kol = D*0.215; y1 = D*0.425; opp = (D*0.105)**2*0.55
     for k, (soort, t) in enumerate((('vis', '1:00'), ('kwal', '1:30'), ('pad', '2:00'))):
         x = D/2 + (k-1)*kol
@@ -348,12 +351,12 @@ def pijltjes(d, D, x, y, kleur):
 def s_instellingen(D):
     im = leeg(D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.20), 'settings', D*0.085, TITEL)
-    tekst(d, D, (D/2, D*0.330), 'Rounds  3', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.330), 'Rounds 3', D*0.066, GRIJS)
     pil(d, D, 0.50, 0.64, 0.24)
     tekst(d, D, (D/2, D*0.465), 'Breaths', D*0.090, WIT)
     tekst(d, D, (D/2, D*0.555), '30', D*0.066, SCHUIM)
     pijltjes(d, D, D/2 - D*0.075, D*0.555, SCHUIM); pijltjes(d, D, D/2 + D*0.075, D*0.555, SCHUIM)
-    tekst(d, D, (D/2, D*0.670), 'Buzz  on', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.670), 'Buzz on', D*0.066, GRIJS)
     tekst(d, D, (D/2, D*0.765), 'My pattern', D*0.066, GRIJS)
     startknop(d, D)
     rand(im, D); return im
@@ -379,8 +382,8 @@ def s_beloning(D):
     bellen(d, D, [(0.27, 0.40, 0.012), (0.24, 0.35, 0.007), (0.74, 0.55, 0.010), (0.77, 0.50, 0.006)])
     dier(im, 'pad', D/2, D*0.465, D*0.17, hoek=-6)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.665), 'turtle  2:03', D*0.090, WIT)
-    tekst(d, D, (D/2, D*0.77), '3 of 4 met', D*0.066, SCHUIM)
+    tekst(d, D, (D/2, D*0.665), 'turtle 2:03', D*0.090, WIT)
+    tekst(d, D, (D/2, D*0.77), '3 of 4 found', D*0.066, SCHUIM)
     rand(im, D); return im
 
 def s_icoon(D):
@@ -455,7 +458,7 @@ def maak(uit):
     rijen = (len(cellen) + kol - 1)//kol
     W = gap + kol*(cel_b + gap); H = 110 + rijen*(cel_h + gap)
     blad = Image.new('RGB', (W, H), (14, 16, 24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 30), 'Ebb blad v2.1 (Mila): links 454 px (AMOLED), rechts 260 px (MIP), ware grootte, harde randen zoals op het horloge',
+    d.text((gap, 30), 'Ebb blad v2.2 (Mila): links 454 px (AMOLED), rechts 260 px (MIP), ware grootte, harde randen zoals op het horloge',
            font=f(44), fill=(220, 230, 240))
     for i, (naam, fn) in enumerate(cellen):
         r, k = divmod(i, kol); x = gap + k*(cel_b + gap); y = 110 + r*(cel_h + gap)

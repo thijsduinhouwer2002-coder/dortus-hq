@@ -1,4 +1,4 @@
-# Ebb blad v2.1: alle schermen, ronde 2 (Mila, 10 nov run 17 en 18)
+# Ebb blad v2.2: alle schermen, ronde 2 (Mila, 10 nov run 17 en 18)
 
 Blad: **`ontwerp/garmin/ebb-blad-v2.png`** (per scherm links 454 px, rechts 260 px, ware grootte). Losse beelden en meting in `ontwerp/garmin/blad2/` (`meting-v2.txt`), bron `ontwerp/garmin/bron/ebb_blad_v2.py`. Vervangt blad v1. Gaat eerst naar Thijs via de hoofdchat; Gijs bouwt pas na zijn ja.
 
@@ -38,6 +38,14 @@ Ook de kan-punten: één titelkleur (schuim) voor alle fasewoorden en titels, ge
 7. **Menu te zwaar onderin.** Walvis kleiner (0,11 D) en lager, meer lucht tussen "Box" en het spuitje.
 8. **8 weeks.** Vlak in W1 (2,9:1 op zwart, was 1,6:1), labels "8 wk" en "now" onder de as, "44 days breathed", piek en label in goud.
 Kan-punten: dithering alleen op MIP (gedaan), sea log-silhouet met cyaan rand (gedaan). Niet gedaan: schermen 2, 4 en 5 meer laten verschillen (de zon op 4 doet dat al; 5 krijgt bij de bouw een trager peil).
+
+## Derde frisse keuring (weer een losse Claude, op v2.1): 7 van 10. Wat ik deed (v2.2)
+1. **Diepte zag je niet.** De donkere banden stijgen nu met de diepte: op 94 m is de onderste band smal, op 183 m is bijna alles nachtblauw. De meters staan groter (22 px op 260, was 17).
+2. **Voortgangsboog verdween in de golf.** Boog met een zwarte rand van 1 px; bij "all found" geen ring meer (leek op de knophint).
+3. **"met" was dubbelzinnig.** Overal "found" ("3 of 4 found", "all found"); fasewoord op ademen is "breathe in", net als op boven komen.
+4. **8 weeks.** De labels "8 wk" en "now" waren in kleine letters maar 9 px hoog: weg. Onder de grafiek staat nu wat hij toont: "best 2:08" en "longest hold per day".
+5. **Dubbele spaties** weg ("turtle 2:03", "Rounds 3", "Buzz on").
+Niet gedaan: water alleen onder de horizon op AMOLED (kan-punt, stroom); eerst Thijs' oordeel over het beeld.
 
 ## Midden (harde regel 20:20) en optisch midden
 Optisch midden = zwaartepunt van alles wat geen zwart, water of ring is (tekst, dieren, lijnen). Op 260: binnen 2 px op alle schermen behalve duiken (+4,0, de voortgangsboog groeit met opzet aan één kant) en 8 weeks (+4,0, de gegevens zelf). Op 454 hetzelfde beeld, binnen 3,3 px behalve die twee.
