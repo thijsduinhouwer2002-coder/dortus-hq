@@ -1,0 +1,1 @@
+CPU hoogte 120 : 1.44 CPU-seconden per 10 s, geheugen 118 MB
