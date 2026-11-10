@@ -279,3 +279,7 @@
 ## 10 nov 2026, Sanne (run 04:47 UTC)
 - Toets 10 op de film van main (run 42757473105, code 8327a5c) in `spelgevoel.md`. Vier punten van toets 9 en punt 2 van toets 7 (val met poef) opgelost. Nieuw grootste gat: het lied zie je niet, alleen in tekst; nootjes gevraagd aan Mila en Olaf. Bard en "he grows" toegevoegd aan de lange winkeltekst.
 - Mis: `git pull` en `git fetch` van tak schermen hingen; de film via curl van raw.githubusercontent.com werkt wel en is snel.
+
+## 10 nov 2026, Bram (run 05:07 UTC)
+- Big Gloop 2 px groter met Mila's bladen van 20 x 16 (mantel met gesp, ster, berg en platte hoeden schuiven mee), Undo stopt het koop-moment, Heldenboek-regels met Sannes varianten. Toetsen 0 FOUT, controleur akkoord, op main 0c430e4. Beeld lokaal GEZIEN.
+- Mis: `git pull` hing 2 min (repo 2,3 GB); `git fetch origin main` met timeout werkt.
