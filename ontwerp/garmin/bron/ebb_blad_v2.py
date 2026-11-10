@@ -12,6 +12,8 @@ ZWART=(0,0,0); WIT=(255,255,255); GRIJS=(170,170,170); SCHUIM=(85,255,255); RING
 # één waterschaal, van ondiep naar diep (moet-punt 5)
 W0=(0,170,255); W1=(0,85,170); W2=(0,0,170); W3=(0,0,85)
 GEEL=(255,255,170); KORAAL=(255,85,85); DONKERROOD=(170,0,0)
+GOUD=(255,170,0)       # record (keuring 2): rood alleen nog voor gevaar
+HINT=(170,255,255)     # knophint bij START, telt niet mee in de midden-meting (hoort bij de knop, niet bij het scherm)
 TITEL = SCHUIM          # één titelkleur voor alle fasewoorden en schermtitels (kan-punt 1)
 MIN = 17/260            # kleinste letter: 17 px op 260 = 12 px kapitaalhoogte (moet-punt 2)
 FONT = None
@@ -22,6 +24,7 @@ def f(px): return ImageFont.truetype(FONT, int(round(px)))
 def tekst(d, D, xy, t, px, kleur, anker='mm'):
     px = max(px, MIN*D)
     LOG.append((D, t, int(round(px))))
+    d.fontmode = '1'   # harde randen, zoals het horloge tekent (keuring 2, moet-punt 1)
     d.text(xy, t, font=f(px), fill=kleur, anchor=anker)
 
 # ---------------- water ----------------
@@ -46,7 +49,7 @@ def zee(im, D, banden, amp=None, n=2, schuim=True):
     for k, (peil, kleur) in enumerate(banden):
         g = golf(D, peil, amp*(1 if k == 0 else 0.6), n if k == 0 else n+1, 0 if k == 0 else 0.8*k)
         vol = Image.new('RGB', (D, D), kleur)
-        if k > 0:
+        if k > 0 and D < 300:   # dithering alleen op MIP; op AMOLED (454) vlakke banden, anders flikkert het
             for stap, dicht in ((2, 25), (1, 50)):
                 gm = masker_onder(D, [(x, y - stap*h) for x, y in g])
                 im.paste(vol, (0, 0), ImageChops.multiply(gm, schaakbord(D, dicht)))
@@ -183,22 +186,27 @@ def bellen(d, D, lijst):
 def pil(d, D, y, w, h, kleur=W1):
     d.rounded_rectangle([D/2-w*D/2, y*D-h*D/2, D/2+w*D/2, y*D+h*D/2], radius=h*D/2, fill=kleur)
 
+def startknop(d, D):
+    """Garmin-hint bij de START-knop: korte boog rechtsboven op 30 graden, waar gebruikers hem kennen."""
+    w = max(3, round(D/90)); m = w
+    d.arc([m, m, D-1-m, D-1-m], -38, -22, fill=HINT, width=w)
+
 def s_menu(D):
     im = leeg(D)
-    s = D*0.15
-    laag, (zx, zy) = dier(im, 'walvis', D/2, D*0.835, s)    # walvis komt boven in het lage tij
+    s = D*0.11
+    dier(im, 'walvis', D/2, D*0.865, s)                        # walvis komt boven in het lage tij, kleiner en lager
     d = ImageDraw.Draw(im)
-    spuit(d, D, D/2 - 0.36*s, D*0.835 - 0.42*s, s)          # blaasgat boven de kop, aan de oppervlakte
-    zee(im, D, [(D*0.845, W1), (D*0.92, W2)], amp=D*0.010)
+    spuit(d, D, D/2 - 0.36*s, D*0.865 - 0.42*s, s)
+    zee(im, D, [(D*0.872, W1), (D*0.94, W2)], amp=D*0.008)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.17), 'Ebb', D*0.11, TITEL)
-    tekst(d, D, (D/2, D*0.315), 'Calm', D*0.066, GRIJS)
-    pil(d, D, 0.475, 0.64, 0.22)
-    tekst(d, D, (D/2, D*0.445), 'Rounds', D*0.090, WIT)
-    tekst(d, D, (D/2, D*0.530), '3 x 30', D*0.066, SCHUIM)
-    tekst(d, D, (D/2, D*0.635), 'Box', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.19), 'Ebb', D*0.11, TITEL)
+    tekst(d, D, (D/2, D*0.335), 'Calm', D*0.066, GRIJS)
+    pil(d, D, 0.495, 0.64, 0.22)
+    tekst(d, D, (D/2, D*0.465), 'Rounds', D*0.090, WIT)
+    tekst(d, D, (D/2, D*0.550), '3 x 30', D*0.066, SCHUIM)
+    tekst(d, D, (D/2, D*0.655), 'Box', D*0.066, GRIJS)
+    startknop(d, D)
     rand(im, D); return im
-
 def s_ademen(D):
     im = leeg(D)
     zee(im, D, [(D*0.64, W0), (D*0.72, W1), (D*0.86, W2)])
@@ -211,17 +219,22 @@ def s_ademen(D):
 def duik_zee(im, D):
     zee(im, D, [(D*0.10, W0), (D*0.17, W1), (D*0.50, W2), (D*0.78, W3)], amp=D*0.014)
 
-def s_duik(D, diepte, tijd, soort, s, bel, hoek=0):
+def s_duik(D, diepte, tijd, soort, s, bel, hoek=0, sec=0, vorig=0, volgend=0):
     im = leeg(D); duik_zee(im, D); d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.25), diepte, D*0.066, SCHUIM)
     tekst(d, D, (D/2, D*0.44), tijd, D*0.30, WIT)
     bellen(d, D, bel)
-    dier(im, soort, D/2, D*0.715, s*D, hoek=hoek)
+    dier(im, soort, D/2, D*0.700, s*D, hoek=hoek)
+    d = ImageDraw.Draw(im)
+    # voortgang naar het volgende dier: dunne boog langs de rand, vanaf boven met de klok mee (keuring 2)
+    w = max(3, round(D/110)); m = max(2, round(D/150)) + w/2 + 1
+    frac = (sec - vorig)/(volgend - vorig) if volgend else 1
+    d.arc([m, m, D-1-m, D-1-m], -90, -90 + 360*frac, fill=SCHUIM, width=w)
+    tekst(d, D, (D/2, D*0.865), f'next {volgend//60}:{volgend%60:02d}' if volgend else 'all met', D*0.066, SCHUIM)
     rand(im, D); return im
-
-def s_duiken(D): return s_duik(D, '94 m', '1:34', 'kwal', 0.085, [(0.42, 0.61, 0.012), (0.39, 0.575, 0.007), (0.66, 0.66, 0.016), (0.70, 0.60, 0.009)])
-def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)], hoek=9)   # walvis daalt mee de diepte in
-def s_schildpad(D): return s_duik(D, '123 m', '2:03', 'pad', 0.105, [(0.33, 0.66, 0.009), (0.30, 0.62, 0.014), (0.68, 0.64, 0.007)], hoek=-6)   # schildpad zweeft omhoog
+def s_duiken(D): return s_duik(D, '94 m', '1:34', 'kwal', 0.085, [(0.33, 0.62, 0.016), (0.30, 0.565, 0.009), (0.65, 0.64, 0.011), (0.68, 0.60, 0.006)], sec=94, vorig=90, volgend=120)
+def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)], hoek=9, sec=183, vorig=180, volgend=0)   # walvis daalt mee de diepte in
+def s_schildpad(D): return s_duik(D, '123 m', '2:03', 'pad', 0.105, [(0.33, 0.66, 0.009), (0.30, 0.62, 0.014), (0.68, 0.64, 0.007)], hoek=-6, sec=123, vorig=120, volgend=180)   # schildpad zweeft omhoog
 
 def s_boven(D):
     im = leeg(D); d = ImageDraw.Draw(im)
@@ -264,10 +277,10 @@ def s_today(D):
     d.line([(L, opp), (R, opp)], fill=SCHUIM, width=max(2, round(D/150)))
     for i, (t, sec) in enumerate(tijden):
         xm = L + (i+0.5)*breed
-        tekst(d, D, (xm, opp + maxdiep + D*0.065), t, D*0.070, KORAAL if sec == 128 else WIT)
+        tekst(d, D, (xm, opp + maxdiep + D*0.065), t, D*0.070, GOUD if sec == 128 else WIT)
     rr = D*0.018; xm = L + 1.5*breed; yb = opp + maxdiep
-    d.ellipse([xm-rr, yb-rr, xm+rr, yb+rr], fill=KORAAL)
-    tekst(d, D, (D/2, D*0.80), 'new best', D*0.066, KORAAL)
+    d.ellipse([xm-rr, yb-rr, xm+rr, yb+rr], fill=GOUD)
+    tekst(d, D, (D/2, D*0.80), 'new best', D*0.066, GOUD)
     rand(im, D); return im
 
 def s_weken(D):
@@ -288,7 +301,7 @@ def s_weken(D):
         if b is None:
             l = next(best[j] for j in range(i, -1, -1) if best[j]); r = next(best[j] for j in range(i, 56) if best[j]); b = (l+r)/2
         vul.append((L+i*dx, Y(b)))
-    d.polygon(vul + [(R, bod), (L, bod)], fill=W2)
+    d.polygon(vul + [(R, bod), (L, bod)], fill=W1)   # W1 i.p.v. W2: beter contrast op zwart
     seg = []
     for i, b in enumerate(best + [None]):
         if b is None:
@@ -300,9 +313,10 @@ def s_weken(D):
         x = L + w*(R-L)/8
         d.line([(x, bod), (x, bod+D*0.02)], fill=GRIJS, width=max(1, round(D/230)))
     r = D*0.022; px_, py_ = L+pk*dx, Y(1.0)
-    d.ellipse([px_-r, py_-r, px_+r, py_+r], fill=KORAAL)
-    tekst(d, D, (D/2, D*0.735), 'best 2:08', D*0.085, WIT)
-    tekst(d, D, (D/2, D*0.825), '44 days', D*0.066, GRIJS)
+    d.ellipse([px_-r, py_-r, px_+r, py_+r], fill=GOUD)
+    tekst(d, D, (L, bod + D*0.065), '8 wk', D*0.066, GRIJS, anker='lm'); tekst(d, D, (R, bod + D*0.065), 'now', D*0.066, GRIJS, anker='rm')
+    tekst(d, D, (D/2, D*0.765), 'best 2:08', D*0.085, GOUD)
+    tekst(d, D, (D/2, D*0.845), '44 days breathed', D*0.066, GRIJS)
     rand(im, D); return im, (px_, py_, r)
 
 def s_weken_beeld(D): return s_weken(D)[0]
@@ -317,22 +331,32 @@ def s_zeelog(D):
         x = D/2 + (k-1)*kol
         dier(im, soort, x, y1, schaal_voor_gewicht(soort, opp))
         tekst(ImageDraw.Draw(im), D, (x, D*0.535), t, D*0.070, WIT)
+    for ox, oy in ((-1,0),(1,0),(0,-1),(0,1),(-2,0),(2,0),(0,-2),(0,2))[:4 if D < 300 else 8]:   # cyaan rand: een lokkertje
+        dier(im, 'walvis', D/2+ox, D*0.665+oy, D*0.105, kleur=SCHUIM)
     dier(im, 'walvis', D/2, D*0.665, D*0.105, kleur=W1)      # nog niet gezien: donkerblauw silhouet
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2 - D*0.02, D*0.665), '?', D*0.075, SCHUIM)
     tekst(d, D, (D/2, D*0.785), '3:00', D*0.070, GRIJS)
     rand(im, D); return im
 
+def pijltjes(d, D, x, y, kleur):
+    """Omhoog en omlaag (knoppen), geen links en rechts."""
+    a = D*0.016
+    d.polygon([(x, y-a*1.7), (x+a, y-a*0.3), (x-a, y-a*0.3)], fill=kleur)
+    d.polygon([(x, y+a*1.7), (x+a, y+a*0.3), (x-a, y+a*0.3)], fill=kleur)
+
 def s_instellingen(D):
     im = leeg(D); d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.18), 'settings', D*0.085, TITEL)
-    tekst(d, D, (D/2, D*0.32), 'Rounds  3', D*0.066, GRIJS)
-    pil(d, D, 0.48, 0.64, 0.22)
-    tekst(d, D, (D/2, D*0.450), 'Breaths', D*0.090, WIT)
-    tekst(d, D, (D/2, D*0.535), '< 30 >', D*0.066, SCHUIM)
-    tekst(d, D, (D/2, D*0.64), 'Buzz  on', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.20), 'settings', D*0.085, TITEL)
+    tekst(d, D, (D/2, D*0.330), 'Rounds  3', D*0.066, GRIJS)
+    pil(d, D, 0.50, 0.64, 0.24)
+    tekst(d, D, (D/2, D*0.465), 'Breaths', D*0.090, WIT)
+    tekst(d, D, (D/2, D*0.555), '30', D*0.066, SCHUIM)
+    pijltjes(d, D, D/2 - D*0.075, D*0.555, SCHUIM); pijltjes(d, D, D/2 + D*0.075, D*0.555, SCHUIM)
+    tekst(d, D, (D/2, D*0.670), 'Buzz  on', D*0.066, GRIJS)
+    tekst(d, D, (D/2, D*0.765), 'My pattern', D*0.066, GRIJS)
+    startknop(d, D)
     rand(im, D); return im
-
 def s_veilig(D):
     """Rustig: teken, twee regels, knop, geen golf (kan-punt 4)."""
     im = leeg(D); d = ImageDraw.Draw(im)
@@ -343,6 +367,20 @@ def s_veilig(D):
     tekst(d, D, (D/2, D*0.53), 'Never driving.', D*0.080, WIT)
     pil(d, D, 0.69, 0.34, 0.12)
     tekst(d, D, (D/2, D*0.69), 'OK', D*0.075, WIT)
+    startknop(d, D)
+    rand(im, D); return im
+
+def s_beloning(D):
+    """Na de duik: nieuw dier. Het dier groot in het midden, de tijd, de stand in de sea log (keuring 2)."""
+    im = leeg(D)
+    zee(im, D, [(D*0.12, W1), (D*0.62, W2), (D*0.84, W3)], amp=D*0.012, schuim=False)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.22), 'new friend', D*0.085, TITEL)
+    bellen(d, D, [(0.27, 0.40, 0.012), (0.24, 0.35, 0.007), (0.74, 0.55, 0.010), (0.77, 0.50, 0.006)])
+    dier(im, 'pad', D/2, D*0.465, D*0.17, hoek=-6)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.665), 'turtle  2:03', D*0.090, WIT)
+    tekst(d, D, (D/2, D*0.77), '3 of 4 met', D*0.066, SCHUIM)
     rand(im, D); return im
 
 def s_icoon(D):
@@ -364,16 +402,30 @@ def s_icoon(D):
     return im
 
 SCHERMEN = [('1 menu', s_menu), ('2 ademen', s_ademen), ('3 duiken', s_duiken), ('3b walvis 3:03', s_walvis), ('3c schildpad 2:03', s_schildpad),
-            ('4 boven', s_boven), ('5 rustig 4-7-8', s_rustig), ('6 today', s_today), ('7 8 weeks', s_weken_beeld),
+            ('3d nieuw dier', s_beloning), ('4 boven', s_boven), ('5 rustig 4-7-8', s_rustig), ('6 today', s_today), ('7 8 weeks', s_weken_beeld),
             ('8 sea log', s_zeelog), ('9 settings', s_instellingen), ('10 veiligheid', s_veilig)]
 
 # ---------------- nameten ----------------
 def kader_x(im, D):
     a = np.array(im).astype(int); y, x = np.mgrid[0:D, 0:D]
     r = np.hypot(x+0.5-D/2, y+0.5-D/2)
-    niet = (a.sum(axis=2) > 0) & (r < D*0.47)
+    hint = (a[:, :, 0] == HINT[0]) & (a[:, :, 1] == HINT[1]) & (a[:, :, 2] == HINT[2])
+    niet = (a.sum(axis=2) > 0) & (r < D*0.47) & ~hint
     xs = np.nonzero(niet.any(axis=0))[0]
     return (xs.min() + xs.max() + 1)/2 - D/2
+
+def optisch_x(im, D):
+    """Zwaartepunt (x) van de voorgrond: alles behalve zwart, water, ring en knophint. Dat is wat het oog weegt."""
+    a = np.array(im).astype(int)
+    achter = [ZWART, W0, W1, W2, W3, RING, HINT]
+    m = np.ones(a.shape[:2], bool)
+    for c in achter: m &= ~((a[:, :, 0] == c[0]) & (a[:, :, 1] == c[1]) & (a[:, :, 2] == c[2]))
+    ys, xs = np.nonzero(m)
+    return xs.mean() + 0.5 - D/2
+
+def niet_mip(im):
+    a = np.array(im).reshape(-1, 3)
+    return int((~np.isin(a, [0, 85, 170, 255]).all(axis=1)).sum())
 
 def contrast(a, b):
     def L(c):
@@ -386,7 +438,7 @@ def maak(uit):
     for D in (454, 260):
         for naam, fn in SCHERMEN:
             im = fn(D); im.save(f'{uit}/ebb-v2-{naam.split()[0]}-{D}.png')
-            rap.append(f'{D:4d}  {naam:18s} kader x {kader_x(im, D):+5.1f} px')
+            rap.append(f'{D:4d}  {naam:18s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   pixels buiten MIP {niet_mip(im)}')
     s_icoon(560).save(f'{uit}/ebb-v2-icoon-560.png')
     # dieren: zwaartepunt t.o.v. de plek waar ze moeten staan (altijd 0 door dier()), en gewicht in de sea log
     for soort in ('vis', 'kwal', 'pad'):
@@ -396,14 +448,14 @@ def maak(uit):
         afst = D/2 - math.hypot(px_-D/2, py_-D/2) - r; rap.append(f'8 weeks {D}: piekstip {afst:.0f} px van de rand')
     klein = sorted({(t, p) for D, t, p in LOG if D == 260}, key=lambda z: z[1])[:6]
     rap.append('kleinste tekst op 260: ' + ', '.join(f'"{t}" {p} px' for t, p in klein))
-    rap.append(f'contrast grijs #AAAAAA op zwart {contrast(GRIJS, ZWART):.1f}:1, wit op W1 {contrast(WIT, W1):.1f}:1, schuim op W1 {contrast(SCHUIM, W1):.1f}:1, wit op W2 {contrast(WIT, W2):.1f}:1')
+    rap.append(f'contrast grijs #AAAAAA op zwart {contrast(GRIJS, ZWART):.1f}:1, W1 op zwart {contrast(W1, ZWART):.1f}:1, goud op zwart {contrast(GOUD, ZWART):.1f}:1, wit op W1 {contrast(WIT, W1):.1f}:1, schuim op W1 {contrast(SCHUIM, W1):.1f}:1, wit op W2 {contrast(WIT, W2):.1f}:1')
     # het blad
     gap = 30; cel_b = 454 + 24 + 260; kol = 4; cel_h = 454 + 64
     cellen = SCHERMEN + [('icoon (alleen hier bouten)', None)]
     rijen = (len(cellen) + kol - 1)//kol
     W = gap + kol*(cel_b + gap); H = 110 + rijen*(cel_h + gap)
     blad = Image.new('RGB', (W, H), (14, 16, 24)); d = ImageDraw.Draw(blad)
-    d.text((gap, 30), 'Ebb blad v2 (Mila): links 454 px, rechts 260 px, ware grootte. Dunne ring, één waterschaal, dieren in één stijl',
+    d.text((gap, 30), 'Ebb blad v2.1 (Mila): links 454 px (AMOLED), rechts 260 px (MIP), ware grootte, harde randen zoals op het horloge',
            font=f(44), fill=(220, 230, 240))
     for i, (naam, fn) in enumerate(cellen):
         r, k = divmod(i, kol); x = gap + k*(cel_b + gap); y = 110 + r*(cel_h + gap)

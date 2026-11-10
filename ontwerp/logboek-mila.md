@@ -1,5 +1,10 @@
 # Logboek Mila
 
+## 10 nov 2026, run 18 (handmatige nachtronde Ebb)
+- Blad v2 stond al (run 17). Een frisse beoordelaar (losse Claude zonder voorkennis, alleen de beelden) gaf v2 een 7 van 10 met acht moet-punten. Alle acht verwerkt in v2.1 (`ontwerp/garmin/ebb-blad-v2.png`), plus twee kan-punten. Belangrijkste besluiten: letters en randen hard zoals het horloge (geen mooier blad dan de app), een eigen beloningsscherm voor elk nieuw dier, goud voor records zodat rood alleen gevaar is, voortgangsboog naar het volgende dier.
+- Beeldtaal in 10 regels bijgewerkt bovenaan `ebb-blad-v2.md` (regel 3, 4, 5, 7, 8).
+- Gemeten: 0 pixels buiten MIP, kleinste letter 17 px op 260, optisch midden binnen 2 px op 260 behalve duiken en 8 weeks (met reden). Zelf bekeken met Read.
+
 ## 10 nov 2026, run 17 (20:13 tot ±21:00 UTC)
 - Gelezen: berichten, de frisse keuring van blad v1 (5/10, tien moet-punten, overgenomen door de hoofdchat).
 - **Ebb blad v2 gemaakt** (`ontwerp/garmin/ebb-blad-v2.png`, bron `bron/ebb_blad_v2.py`): alle tien moet-punten en vier van de vijf kan-punten. Besluiten: getal nooit meer in de golf (leesbaarheid gaat voor de grap; de haak zit nu in de dieren en de sea log); bouten weg van de schermen (zwaar en nep, de keurder had gelijk), alleen in het icoon; één waterschaal W0 tot W3 met dithering in plaats van harde banden; vier dieren opnieuw getekend in één stijl, elk een eigen koraaltint, geplaatst op hun zwaartepunt.
