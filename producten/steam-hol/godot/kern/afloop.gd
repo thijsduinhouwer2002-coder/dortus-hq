@@ -129,11 +129,9 @@ static func hoed_naam(i: int) -> String:
 
 # Een regel uit het Heldenboek: laag, zoals binnenkomst (een nieuwe bladzijde is fijn om te lezen, maar wat je ziet
 # gaat voor; Sanne toets 9). Vervalt hij, dan staat hij nog steeds in het boek. Soort "boek" voor de log.
-# Demo: alleen de eerste nieuwe bladzijde krijgt een regel, anders vervallen binnenkom- en lied-regels achter
-# boekregels (controleur kan-punt 1); de rest staat wel in het boek.
+# Demo: geen boekregels (wel in het boek). Zelfs een enkele drukte "Odo climbs into your hole." weg (film 3296de5),
+# en Odo is de held met de kroon. In de film komt het boek pas in beeld met het boekje in het paneel (stap 2).
 static func boek_regel(s, r: String) -> void:
-	if r == "":
-		return
-	if s.demo and s.boek.log_nieuw.size() > 1:
+	if r == "" or s.demo:
 		return
 	s._kroniek(r, true, "boek")
