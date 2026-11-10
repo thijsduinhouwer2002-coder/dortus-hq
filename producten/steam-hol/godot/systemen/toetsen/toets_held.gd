@@ -40,13 +40,17 @@ func speel(info: Dictionary, met_put := true, met_slijm := true, upg = null) -> 
 	var eerste_doel: int = held.doel_kol
 	var trek: String = held.trek
 	var stappen := 0
+	var val_stappen := 0
 	while uitkomst == "" and stappen < 20000:
 		held.stap(1.0 / 15.0)
 		stappen += 1
+		if held.staat in ["vallen", "weg"] and uitkomst != "ontsnapt":
+			val_stappen += 1
 	var r := {"uitkomst": uitkomst, "info": uit_info, "eerste_doel": eerste_doel, "trek": trek, "tijd": stappen / 15.0,
 		"slijm_plat": slijm != null and not slijm.kan_vechten(), "slijm_gegeten": slijm.gegeten if slijm != null else 0,
 		"slijm_bestaat": slijm != null and is_instance_valid(slijm),
-		"slijm_hoeden": slijm.hoeden.duplicate() if slijm != null else []}
+		"slijm_hoeden": slijm.hoeden.duplicate() if slijm != null else [],
+		"val_teken": held.val_teken, "val_tijd": val_stappen / 15.0}
 	hol.free()
 	return r
 
@@ -405,6 +409,28 @@ func _init() -> void:
 	sl_b.plat()
 	ok(absf(sl_b.plat_tot - sl_b.t - 40.0) < 0.01, "Bouncy Gloop: plat 40 s in plaats van 60 (%.1f)" % (sl_b.plat_tot - sl_b.t))
 	hol_b.free()
+
+	# Sanne toets 7 punt 2: de val duurt ±1 s en je ziet hem wegzakken (niet één beeld half doorzichtig)
+	r = speel({"naam": "Bram", "bezoeken": 1, "wrok": "the Spike Pit", "moet_afgerekend": true, "zaad": 5})
+	ok(r.val_tijd >= 1.0 and r.val_tijd <= 1.3, "de val duurt ±1 s tot klaar() (%.2f s)" % r.val_tijd)
+	ok(r.val_teken == "boos", "terugkomer op weg naar zijn put had het boze wolkje toen hij viel (%s)" % r.val_teken)
+	var hv := Node2D.new()
+	hv.set_script(load("res://systemen/held.gd"))
+	hv.val_teken = "boos"
+	var b0: Dictionary = hv.val_beeld(0.05)
+	var b1: Dictionary = hv.val_beeld(0.45)
+	var b2: Dictionary = hv.val_beeld(0.7)
+	var b3: Dictionary = hv.val_beeld(1.0)
+	ok(int(b0.hop) < 0 and int(b0.zak) == 0, "eerst schrik: hop omhoog, nog niet gezakt (hop %d)" % b0.hop)
+	ok(int(b1.zak) > 0 and int(b1.zak) < int(b2.zak) and int(b2.zak) < 16, "dan zakt hij zichtbaar in stappen (%d, %d)" % [b1.zak, b2.zak])
+	ok(int(b3.zak) == 16, "op 1,0 s helemaal onder de vloer (%d)" % b3.zak)
+	ok(String(b0.teken) == "poef" and String(b3.teken) == "", "boze wolkje knapt als poef, daarna geen teken")
+	hv.val_teken = ""
+	ok(String(hv.val_beeld(0.1).teken) == "uitroep", "zonder wrok: uitroepteken bij de schrik")
+	ok(bool(hv.val_beeld(0.5).hoed), "in de put zakt de hoed mee")
+	hv.info["hoed_naar"] = "bewoner"
+	ok(not bool(hv.val_beeld(0.5).hoed), "opgegeten: de hoed staat al op de toren, dus niet ook nog op zijn hoofd")
+	hv.free()
 
 	print("[held-toets] klaar: %d FOUT" % fout)
 	quit(1 if fout > 0 else 0)

@@ -53,6 +53,13 @@ const NAAM_PUT := "the Spike Pit"
 # Sanne 22:55: zolang de wand niet te zien is gaat ook de hoed van een aartsvijand op de bewoner die hem at
 # (een trofee, en een hoed verdwijnt nooit zonder dat je ziet waarheen). Wand er (versie 1): op true.
 const WAND_ER := false
+# De val zelf (Sanne toets 7 punt 2: "duurt één beeld"): schrik (hop van 2 pixels), dan zakt hij in hele pixels
+# weg onder de vloerlijn (bijgesneden, niet vervaagd en niet geschaald), het boze wolkje knapt als een poef.
+# klaar() komt pas als hij helemaal weg is, dus muntjes en regel vallen samen met het verdwijnen.
+const VAL_S := 1.1           # hele val, daarna klaar()
+const VAL_SCHRIK := 0.2      # hop omhoog voordat hij zakt
+const VAL_WEG := 1.0         # op dit moment is hij helemaal onder de vloer
+const VAL_TEKEN_S := 0.4     # zo lang staat het uitroepteken of de poef erboven
 
 var hol
 var info := {}
@@ -64,6 +71,7 @@ var klappen := 0
 var t := 0.0
 var geraakt_tot := 0.0
 var val_t := 0.0
+var val_teken := ""          # het teken op het moment dat hij viel ("boos" wordt een poef)
 var gezien := {}             # kolommen waar hij al gegooid heeft
 var rng := RandomNumberGenerator.new()
 var verdedigingen := 0       # hoeveel keer hij al gooide (voor moet_vallen)
@@ -197,7 +205,7 @@ func stap(delta: float) -> void:
 				queue_free()
 		"vallen":
 			val_t += echt
-			if val_t >= 1.0:
+			if val_t >= VAL_S:
 				staat = "weg"
 				klaar.emit(self, "gevallen", info)
 				queue_free()
@@ -259,6 +267,7 @@ func _onderweg() -> void:
 	if valt:
 		info["laatst_geraakt"] = naam_vijand
 		info["wat"] = ("finally fell to " if is_vijand else "fell to ") + naam_vijand
+		val_teken = teken_nu()
 		staat = "vallen"
 		if b != null and b.has_method("raak"):
 			# hoedentoren: zijn hoed gaat naar de bewoner; een aartsvijand pas naar de wand als die te zien is (WAND_ER)
@@ -294,7 +303,29 @@ func _onderweg() -> void:
 		info["wat"] = "got hurt by %s and ran" % naam_vijand
 		staat = "vluchten"
 
+# Hoe de val eruitziet op tijd vt (los van _draw, zodat de toets het kan nakijken zonder te tekenen):
+# hop (negatief = omhoog), zak (0 tot 16 pixels onder de vloer), teken erboven ("uitroep", "poef" of ""),
+# poef_fase (0 tot 1) en of de hoed nog getekend wordt (niet als hij al op de toren van de bewoner staat).
+func val_beeld(vt: float) -> Dictionary:
+	var hop := 0
+	if vt < VAL_SCHRIK:
+		hop = -2 if vt < VAL_SCHRIK * 0.5 else -1
+	var u := clampf((vt - VAL_SCHRIK) / (VAL_WEG - VAL_SCHRIK), 0.0, 1.0)
+	var zak := int(round(16.0 * u * u))    # eerst langzaam, dan snel: hij wordt naar binnen getrokken
+	var tk := ""
+	if vt < VAL_TEKEN_S:
+		tk = "poef" if val_teken == "boos" else "uitroep"
+	return {"hop": hop, "zak": zak, "teken": tk, "poef_fase": clampf(vt / VAL_TEKEN_S, 0.0, 1.0),
+		"hoed": String(info.get("hoed_naar", "")) == ""}
+
 # ---- tekenen: Daans lijf + litteken + hoed + wapen (16 x 16, anker midden onder), teken erboven ----
+# Eén laag van 16 x 16 tekenen, onder de vloerlijn (y 0) afgesneden: zo zakt hij weg zonder te schalen.
+func _laag(tex: Texture2D, bron_x: int, bron_y: int, y: int, zak: int, kleur: Color) -> void:
+	var h := 16 - zak
+	if h <= 0:
+		return
+	draw_texture_rect_region(tex, Rect2(-8, y, 16, h), Rect2(bron_x, bron_y, 16, h), kleur)
+
 func _draw() -> void:
 	if staat == "weg":
 		return
@@ -307,25 +338,45 @@ func _draw() -> void:
 	var kleur := Color.WHITE
 	if t < geraakt_tot and int(t * 10) % 2 == 0:
 		kleur = Color(1, 0.55, 0.55)
+	var vb := {}
 	var zak := 0
+	var hop := 0
 	if staat == "vallen":
-		# weg: zakt in hele pixels de vloer in en vervaagt (niet schalen, Daan)
-		kleur.a = clampf(1.0 - val_t, 0.0, 1.0)
-		zak = int(val_t * 6)
+		vb = val_beeld(val_t)
+		zak = int(vb.zak)
+		hop = int(vb.hop)
 	if links:
 		draw_set_transform(Vector2.ZERO, 0, Vector2(-1, 1))   # spiegelen, geen halve pixels
-	var y := -16 + zak
-	draw_texture_rect_region(LIJF, Rect2(-8, y, 16, 16), Rect2(frame * 16, kleur_nr * 16, 16, 16), kleur)
+	var y := -16 + zak + hop
+	# bij een hop staat hij boven de vloer: niets afsnijden; bij zakken alles onder y 0 weg
+	_laag(LIJF, frame * 16, kleur_nr * 16, y, zak, kleur)
 	for l in littekens:
-		draw_texture_rect_region(LITTEKENS, Rect2(-8, y + omlaag, 16, 16), Rect2(l * 16, 0, 16, 16), kleur)
-	draw_texture_rect_region(HOEDEN_HAP if is_gebeten() else HOEDEN, Rect2(-8, y + omlaag, 16, 16), Rect2(hoed_nr * 16, 0, 16, 16), kleur)
+		_laag(LITTEKENS, l * 16, 0, y + omlaag, zak, kleur)
+	if vb.is_empty() or bool(vb.hoed):
+		_laag(HOEDEN_HAP if is_gebeten() else HOEDEN, hoed_nr * 16, 0, y + omlaag, zak, kleur)
 	if staat != "vallen":
-		draw_texture_rect_region(WAPENS, Rect2(-8, y + omlaag, 16, 16), Rect2(wapen * 16, 0, 16, 16), kleur)
+		_laag(WAPENS, wapen * 16, 0, y + omlaag, 0, kleur)
 	draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-	if staat == "vallen":
-		return
 	# teken: één lege rij boven de bovenkant van de hoed (Sanne toets 2: 1 tot 2 spelpixels boven het hoofd)
-	var tk := teken_nu()
-	if tk != "":
-		var onder: int = -16 + int(HOED_TOP[hoed_nr]) + omlaag - 1
-		draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+	var tk: String = teken_nu() if staat != "vallen" else String(vb.teken)
+	if tk == "":
+		return
+	var onder: int = y + int(HOED_TOP[hoed_nr]) + omlaag - 1
+	if tk == "poef":
+		_poef(onder - 4, float(vb.poef_fase))
+		return
+	draw_texture_rect_region(TEKENS, Rect2(-4, onder - 8, 8, 8), Rect2(int(TEKEN[tk]) * 8, 0, 8, 8))
+
+# Het boze wolkje knapt: eerst nog even het wolkje, dan vier plukjes die naar buiten schieten en vervagen.
+# Hele pixels, geen schalen. Mila mag dit vervangen door een getekende poef (zelfde plek, zelfde tijd).
+func _poef(midden_y: int, fase: float) -> void:
+	if fase < 0.25:
+		draw_texture_rect_region(TEKENS, Rect2(-4, midden_y - 4, 8, 8), Rect2(int(TEKEN["boos"]) * 8, 0, 8, 8))
+		return
+	var p := (fase - 0.25) / 0.75
+	var d := 1 + int(p * 4.0)
+	var c := Color(0.85, 0.85, 0.9, 1.0 - p)
+	for r in [Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]:
+		draw_rect(Rect2(r.x * d - 1, midden_y + r.y * d - 1, 2, 2), c)
+	if p < 0.4:
+		draw_rect(Rect2(-1, midden_y - 1, 2, 2), Color(1, 1, 1, 1.0 - p * 2.0))
