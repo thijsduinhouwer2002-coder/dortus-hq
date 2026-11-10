@@ -36,6 +36,7 @@ jobs:
           apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
           openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
           openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
+          touch /tmp/merk
           export DISPLAY=:1
           Xvfb :1 -screen 0 1280x1024x24 &
           sleep 2
@@ -51,11 +52,37 @@ jobs:
             import -window root "schermen/$d-b.png"
             kill "$MD" 2>/dev/null || true
             sleep 2
+            echo "== uitvoer app $d"; cat "/tmp/do-$d.log"
+            echo "== FIT-bestanden na $d (nieuwer dan de start)"
+            mkdir -p "schermen/fit/$d"
+            find / -xdev -iname '*.fit' -newer /tmp/merk -not -path '/proc/*' -not -path '/app/*' 2>/dev/null | while read -r f; do
+              ls -la "$f"; cp "$f" "schermen/fit/$d/$(basename "$f")"
+            done
           done
+          echo "== mappen van de simulator in /tmp"; ls -laR /tmp/com.garmin.connectiq 2>/dev/null | head -80 || true
           mogrify -fuzz 2% -trim +repage schermen/*.png
           ls -la schermen
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+      - name: FIT-bestanden lezen met fitdecode
+        if: always()
+        run: |
+          pip install -q fitdecode
+          cat > /tmp/leesfit.py <<'PY'
+          import glob, sys, fitdecode
+          bestanden = sorted(glob.glob(sys.argv[1] + "/**/*.fit", recursive=True))
+          print("aantal FIT-bestanden:", len(bestanden))
+          for pad in bestanden:
+              print("==", pad)
+              with fitdecode.FitReader(pad) as fit:
+                  for fr in fit:
+                      if isinstance(fr, fitdecode.FitDataMessage) and fr.name in ("sport", "session", "lap", "field_description", "developer_data_id"):
+                          gewoon = ("sport", "sub_sport", "name", "num_laps", "total_elapsed_time", "field_name", "units", "developer_data_index", "field_definition_number")
+                          velden = {f.name: f.value for f in fr.fields if f.name in gewoon}
+                          dev = {f.name: f.value for f in fr.fields if getattr(f, "is_developer_data", False)}
+                          print(fr.name, velden, "dev:", dev)
+          PY
+          python3 /tmp/leesfit.py "$APP/schermen/fit"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

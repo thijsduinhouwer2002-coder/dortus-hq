@@ -7,6 +7,7 @@ import Toybox.WatchUi;
 class AdemView extends WatchUi.View {
     private var _timer as Timer.Timer = new Timer.Timer();
     private var _start as Number = 0;
+    private var _opname as Opname = new Opname();
 
     function initialize() {
         View.initialize();
@@ -15,6 +16,7 @@ class AdemView extends WatchUi.View {
     function onShow() as Void {
         _start = System.getTimer();
         _timer.start(method(:tik), 50, true);
+        _opname.start();
     }
 
     function onHide() as Void {
