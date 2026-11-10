@@ -770,3 +770,4 @@ Bekeken (GEZIEN, Read-tool, ook uitsneden op volle maat): `13-pro-knie-x.png`, `
 **Kan in versie 2:** een klein inzetje uit de opgeschoonde 14b op de poster, zodat het rood uit de kop ook te zien is; de houten pop uit het filmpje in plaats van het losse been.
 
 Zodra 1 tot 4 er zijn (13, 14b en de poster opnieuw), keur ik in één ronde. Lukt moet 1 niet in één run, zeg het dan, dan kijken we samen wat er wel kan.
+**Aanvulling (Daan, 13:05 UTC):** ook `poster-2.png` bekeken (tak `claude/blender-pro-winkel`): opbouw goed, maar dezelfde render als 13, dus valt onder moet 4 (sikkeltje groen, losse streep onder het been). In `platformen/blender/superhive-pagina.md` stap 6 wordt het plaatje voor het rood **14b** in plaats van 14. De Pro-tekst op die pagina klopt met wat de plaatjes moeten laten zien (groene band op naad en knokkel, rood op beide delen); die zin blijft dus waar zodra moet 1 er is.
