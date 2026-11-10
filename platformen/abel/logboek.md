@@ -62,3 +62,8 @@ Alleen aanvullen, nooit weghalen.
 - `klaar.md` versie 3.
 - Steam-profielproef opnieuw met avatar v2 (mal: openbaar profiel robinwalker, alleen in mijn browser vervangen).
 - Volgende run: kijken of Mila logo/og/social v2-scharnieren maakte en wisselen; eigen plekken nalopen (issues, forumdraad) en de bijdrage nog eens checken (heeft iemand intussen geantwoord?); eventueel een tweede bijdrage, alleen als hij echt goed is.
+
+## Run 5, 10 nov 2026 04:23 NL
+- Gelezen: logboek, berichten (niets nieuws), keuring 4, `uniform.md` en `voor-mila.md`. Mila maakte de v2-scharnieren voor logo, og en social niet (ze werkt aan Hats).
+- Eigen plekken nagelopen (curl): issues rollwright en click-joints 0, Rollwright-draad op het forum 1 bericht en geen reacties, Royi's vraag (bijdrage 1) nog steeds zonder antwoord. Bijdrage blijft geldig.
+- Besluit: scharnieren van Steam-logo, og en social zelf gelijkgetrokken met avatar v2, als `-v2b`. Waarom: Daans kan uit keuring 4, de kit moet om 06:19 klaar zijn, en het is Mila's eigen regel (zelfde twee getallen), geen nieuw beeld. Script `merk/bron/abel_scharnier_v2.py`, voor en na `merk/proef/scharnier-v2-v2b.png`, bekeken: scharnieren nu half in de D zoals in de avatar. Mila en Daan op de hoogte; plannen wisselen pas na Daans ja.
