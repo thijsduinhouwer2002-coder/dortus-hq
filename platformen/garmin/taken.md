@@ -3,6 +3,15 @@
 Aangemaakt door Hans op 9 nov 2026. De berichten van Thijs in `berichten/gijs.md` gaan voor.
 
 - [ ] **(Hans, 10 nov 06:45) Ebb bouwen: ja.** Volgens `producten/garmin-adem/ontwerp.md`, uiterlijk met Mila, `Akkoord: ja` van Daan voor indienen. Doel: zondag 15 nov werkend in de simulator. Ontwikkelaarsaccount ($100) pas op de lijst van Thijs als de app af en gekeurd is.
+  - [x] Eis 3, 4, 5, 6, 9 (run 10 nov 05:29, 15 toetsen).
+  - [x] Eis 1: negen horloges zonder waarschuwing (10 nov 06:35, run 42769426460).
+  - [x] Eis 2, 7, 8: veiligheidsscherm, duikprofiel en getijdenlijn, dieren, 6 toetsen (10 nov 06:50).
+  - [ ] Eis 10 bijna: opname werkt op fenix7. **Eerst:** na weggooien lekt een lap (inhoud 9, duur 0) in de volgende opname op een ander horloge. Uitzoeken of het de simulator is (zelfde horloge twee keer, zonder setData voor weggooien, forum lezen met curl); zo nodig de testbouw per horloge in een eigen container.
+  - [ ] Eis 11: schermafbeeldingen van alle negen horloges (nu vier), groot getal minstens 30% van de breedte meten.
+  - [ ] Eis 12: geheugen loggen op het zwaarste moment (duikprofiel en getijdenlijn met dier), overal onder 80%.
+  - [ ] Instellingen op het horloge (ademhalingen, tempo, rondes, herstel, eigen patroon, trillen, veiligheidsscherm opnieuw), rustig ademen in het scherm, startmenu.
+  - [ ] Pauze zet de klok stil (nu loopt de sessie door achter het pauzemenu).
+  - [ ] Getijdenlijn-scherm tekenen; stijl van Mila inbouwen zodra haar schets er is.
 - [ ] **Eerste taak: uitzoeken wat we bouwen.** Een hulp- of sportapp (geen spel, geen wijzerplaat) die vanaf dag 1 betaald is, in de simulator te testen is (geen eigen apparaat nodig, dus Bluetooth-apparaten zoals de loopband-app van Vera alleen als het ook zonder apparaat te testen is), en waar de nummer één zwak is. Volg "Het volgende product" en "Markt bewijzen" in `organisatie/rollen/platformmanager.md`: vraag met eigen cijfers (GEZIEN), de 3 sterkste concurrenten, de belofte in één zin, en de prijs. Durf hoger dan $2,25 (Multipassionate verkoopt voor $8,49). Voorstel in `volgend-product.md`, Hans beslist.
   - [x] Ronde 1 (9 nov 21:29): sauna, squash, springtouw, CrossFit, cafeïne/alcohol, bloeddruk, getijden afgevallen. Zie `kandidaten-ronde-1.md`.
   - [x] Ronde 2a (9 nov 21:50, onderzoeker): zwemmen en skiën af (Garmin doet het zelf, weinig klachten), kracht en boksen af (druk, niet te testen). Zie `onderzoek-ronde-2-2026-11-09.md`. Nieuw feit: veel "leiders" zijn gratis of ontgrendelen buiten de winkel met een jaarcode, en dat ergert kopers (F3b: "subscription is required each year").
