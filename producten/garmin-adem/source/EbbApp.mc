@@ -315,9 +315,12 @@ class EbbView extends WatchUi.View {
             yGroot = 0.30;
             // Mila keuring 1, moet 1: de dieptetekst staat minstens 4% D onder de onderkant van het cijfer,
             // het dier zwemt daar weer onder (run 42836983971: "123 m" plakte onder "2:03").
+            // Run 42848426637: onder het cijfer was op fenix847mm geen plek meer voor tekst en dier samen
+            // (het dier zwom door "123 m"). Daarom de dieptetekst boven het cijfer (Mila staat dat toe) en het
+            // dier 4% D onder het cijfer.
             var fh = dc.getFontHeight(font).toFloat() / d;
-            yKlein = yGroot + fh + 0.04;
-            var yDier = yKlein + dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d + 0.07;
+            yKlein = yGroot - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d - 0.01;
+            var yDier = yGroot + fh + 0.09;
             if (yDier > 0.86) { yDier = 0.86; }
             // Moet 2: belletjes gaan achter het cijfer langs. Een belletje in de band van het cijfer wordt niet
             // getekend, zodat er geen kringetje door de cijfers loopt; erboven en eronder stijgt het gewoon.
