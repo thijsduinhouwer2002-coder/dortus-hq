@@ -357,8 +357,8 @@ func _nieuwe_held() -> bool:
 			info["moet_opgegeten"] = true
 			if stap == "opgegeten2" and demo:
 				# Sanne toets 7, punt 1: de minuut eindigt met een clou. Zij kwam rond 43 s binnen en liep 16 s naar Gloop
-				# (hap op 59,8 s, niet te zien); 1.5 keer zo snel is de hap rond 54 s, met regel en hoed op de toren
-				info["snelheid"] = 1.5
+				# (hap op 59,8 s, niet te zien); 1.5 gaf de hap op 55,7 s (run 42735021882), 1.8 rond 53,5 s, met regel en hoed op de toren
+				info["snelheid"] = 1.8
 				info["demo_clou"] = true   # haar hoed op de toren krijgt altijd een regel (controleur kan-punt 1)
 			if stap == "opgegeten":
 				opgegeten_t = t
@@ -457,7 +457,7 @@ func _held_klaar(_held, uitkomst: String, info: Dictionary) -> void:
 				w["bijnaam"] = "Hatted" if n_hoed == 25 else "Milliner"
 				_kroniek(regels.kies("hoed_bijnaam", w))
 			elif rng.randf() < 0.25 or bool(info.get("demo_clou", false)):
-				# demo: de tweede hoed altijd een regel, de toren groeit in beeld (Sanne toets 7, punt 1)
+				# demo: de hoed van de clou-held (Mara) altijd een regel, de toren groeit in beeld (Sanne toets 7, punt 1)
 				# "hat pile is taller than him" klopt pas bij een echte stapel (controleur punt 6)
 				var soort := "hoed" if n_hoed >= 5 else "hoed_klein"
 				_kroniek(regels.kies(soort, w))
