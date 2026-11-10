@@ -436,6 +436,7 @@ func _notification(what: int) -> void:
 		tekst.queue_redraw()
 		_muis_vlak(kaart_soort != "")   # een open kaartje blijft de muis vangen
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
+		KAARTJE.dicht(self)   # een wachtende koopregel komt eerst in de kroniek, dan bewaren (controleur kan-punt 1)
 		bewaar()
 
 # Welk deel van het venster de muis vangt. Normaal alleen het hol; bij hover ook het paneel met drie regels (L-vorm),
@@ -458,6 +459,7 @@ func _muis_vlak(paneel: bool) -> void:
 # Andere hoogte: bewaar spel en instelling, dan de strook opnieuw opbouwen (schaal en venster hangen ervan af).
 func zet_hoogte(h: int) -> void:
 	log_regel("HOL hoogte %d -> %d" % [hoogte, h])
+	KAARTJE.dicht(self)
 	bewaar()
 	var f := FileAccess.open(INSTELLING, FileAccess.WRITE)
 	if f:

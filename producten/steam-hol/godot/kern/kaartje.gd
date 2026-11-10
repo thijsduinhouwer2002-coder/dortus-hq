@@ -11,6 +11,7 @@ extends RefCounted
 const HOL := preload("res://hol/hol.gd")
 const UPG := preload("res://systemen/upgrades.gd")
 const OPEN_S := 6.0   # zo lang blijft het kaartje staan na de laatste klik
+const DUBBELKLIK_S := 0.4   # zo lang na Buy telt een klik op Undo niet
 const NA_KOOP_S := 2.5   # na Buy: de nieuwe naam en alleen "Undo", dan de eigen regel (Sanne toets 8, punt 3: Undo zag je nooit)
 # Demo: begint met 66 goud, alsof het hol al even open is, en koopt rond 20 s Big Gloop: twee klikken, zoals een speler
 # (Sanne, toets voor het kaartje: muntjes naar Gloop en de regel in de film van een minuut)
@@ -170,6 +171,9 @@ static func klik(s, pos: Vector2) -> bool:
 			koop(s)
 			return true
 		if s.tekst.knop_undo.has_point(pos):
+			# na Buy schuift Undo naar de plek van Buy: een dubbelklik op Buy mag de koop niet meteen terugdraaien (controleur)
+			if s.kaart_gekocht and s.t - s.kaart_t < DUBBELKLIK_S:
+				return true
 			undo(s)
 			return true
 		if s.tekst.knop_weg.has_point(pos):
@@ -219,8 +223,7 @@ static func munt_top(s) -> float:
 	var top := -16.0 + 6.0   # RUST_TOP van het rust-frame
 	if sl.has_method("is_plat") and sl.is_plat():
 		return sl.position.y - 16.0 + 10.0
-	if s.hol.upgrades != null and s.hol.upgrades.niveau("slijm") > 0:
-		top -= 1.0   # Big Gloop is 1 spelpixel hoger (Mila 02:55)
+	# Big Gloop wordt 1 spelpixel hoger zodra slijm.gd slijm_groot.png tekent (Mila 02:55, Bram); dan hier ook -1
 	if sl.has_method("hoeden_op_hoofd"):
 		var c: Dictionary = sl.get_script().get_script_constant_map()
 		var onder: Array = c.get("HOED_ONDER", [])
