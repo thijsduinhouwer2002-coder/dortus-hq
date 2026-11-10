@@ -123,6 +123,7 @@ class EbbView extends WatchUi.View {
     var opnemen as Boolean = true;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
+    const YKLEIN_ADEMEN = 0.84;
     private var _klaarSinds as Number = -1;
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
@@ -279,6 +280,9 @@ class EbbView extends WatchUi.View {
             woord = sessie.isIn(nu) ? "in" : "out";
             groot = sessie.ademhaling(nu).toString();
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
+            // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,84),
+            // zodat hij altijd helemaal in het water staat en nooit op de schuimrand.
+            yKlein = YKLEIN_ADEMEN;
         } else if (fase == Ebb.FASE_INHOUDEN) {
             // 2. Duiken: bijna alles water, per 15 s een tint dieper, belletjes stijgen, dier in koraal.
             var tint = t / 15000;
@@ -331,7 +335,27 @@ class EbbView extends WatchUi.View {
         }
         if (EbbBouw.DEMO) {
             meet(dc, w, fase as Number, groot, font);
+            if (fase == Ebb.FASE_ADEMEN && !_onderGemeld && klein.length() > 0) {
+                meetOnder(dc, d, klein);
+            }
         }
+    }
+
+    // Daan M1, alleen in de testbouw: ruimte tussen de laagste golfrand en de ondertekst, en of de ondertekst
+    // op zijn breedste regel (de onderkant) binnen het ronde scherm past. Alles in pixels.
+    private var _onderGemeld as Boolean = false;
+    function meetOnder(dc as Graphics.Dc, d as Number, klein as String) as Void {
+        _onderGemeld = true;
+        var golf = (d * (1.0 - 0.2 + 0.025)).toNumber() + (d / 110 > 2 ? d / 110 : 2) / 2 + 1;
+        var top = (d * YKLEIN_ADEMEN).toNumber();
+        var leeg = dc.getFontHeight(Graphics.FONT_XTINY) - Graphics.getFontAscent(Graphics.FONT_XTINY) - Graphics.getFontDescent(Graphics.FONT_XTINY);
+        var letterTop = top + (leeg > 0 ? leeg : 0);
+        var onder = top + Graphics.getFontAscent(Graphics.FONT_XTINY) + (leeg > 0 ? leeg : 0);
+        var breed = dc.getTextWidthInPixels(klein, Graphics.FONT_XTINY);
+        var r = d / 2.0;
+        var dy = onder - r;
+        var koorde = (dy < r) ? (2.0 * Math.sqrt(r * r - dy * dy)).toNumber() : 0;
+        System.println("ONDERTEKST golf " + golf + " lettertop " + letterTop + " ruimte " + (letterTop - golf) + " breedte " + breed + " koorde " + koorde + " over " + (koorde - breed));
     }
 
     // Eis 11 en 12, alleen in de testbouw: breedte van het grote getal per fase (eerste keer)
@@ -434,26 +458,29 @@ class EbbView extends WatchUi.View {
         var p = EbbProfiel.getijPunten(lijn, x0, bodem, w, (d * 0.36).toNumber());
         var stap = (p.size() > 1) ? w / (p.size() - 1) : w;
         var half = (stap / 2 > 1) ? stap / 2 : 1;
-        // Schaduw: per reeks dagen achter elkaar één vlak van de bodem tot het gemiddelde (een eiland per reeks).
+        // Schaduw (Daan M2): één doorlopend vlak van de eerste tot de laatste dag met een sessie, van de bodem
+        // tot het gemiddelde; een dag zonder sessie wordt overbrugd, alleen de lijn erboven krijgt daar een gat.
         dc.setColor(EbbTeken.DIEPTE[2], EbbTeken.DIEPTE[2]);
-        var i0 = 0;
-        while (i0 < p.size()) {
-            if (p[i0] == null) {
-                i0 += 1;
+        var vlak = [] as Array<[Numeric, Numeric]>;
+        var eerste = null as Array<Number> or Null;
+        var laatste = null as Array<Number> or Null;
+        for (var i = 0; i < p.size(); i += 1) {
+            if (p[i] == null) {
                 continue;
             }
-            var vlak = [] as Array<[Numeric, Numeric]>;
-            var eerste = p[i0] as Array<Number>;
-            vlak.add([eerste[0] - half, bodem]);
-            vlak.add([eerste[0] - half, eerste[2]]);
-            var laatste = eerste;
-            while (i0 < p.size() && p[i0] != null) {
-                laatste = p[i0] as Array<Number>;
-                vlak.add([laatste[0], laatste[2]]);
-                i0 += 1;
+            var q = p[i] as Array<Number>;
+            if (eerste == null) {
+                eerste = q;
+                vlak.add([q[0] - half, bodem]);
+                vlak.add([q[0] - half, q[2]]);
             }
-            vlak.add([laatste[0] + half, laatste[2]]);
-            vlak.add([laatste[0] + half, bodem]);
+            vlak.add([q[0], q[2]]);
+            laatste = q;
+        }
+        if (eerste != null && laatste != null) {
+            var z = laatste as Array<Number>;
+            vlak.add([z[0] + half, z[2]]);
+            vlak.add([z[0] + half, bodem]);
             dc.fillPolygon(vlak);
         }
         // Bodem met een streepje per week.
