@@ -431,6 +431,8 @@ func _init() -> void:
 				bv_lang += 1
 		if zaad == 0:
 			print("[hol-toets] boekregels zaad 0: ", bv.log_nieuw)
+	# 3 pagina x 2 hoe-slijm + put/weg-varianten op stempels, 3 hoed, 3 moment, 3 berg, 3 aarts, 3 aarts_af
+	ok(bv_zinnen.size() >= 3 + 3 + 3 + 3 + 3, "over 40 zaden komen veel varianten voor (%d verschillend)" % bv_zinnen.size())
 	ok(bv_lang == 0, "alle varianten met Tibbe, dag 123 en 10000 hoeden in 42 tekens (%d te lang)" % bv_lang)
 	var bv2 = load("res://systemen/boek.gd").new()
 	var bv_vorige := -1
