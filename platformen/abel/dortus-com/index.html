@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dortus: small games and focused tools that fill a real gap</title>
   <meta name="description" content="Dortus makes small games and focused tools: Rollwright for Obsidian, Bison &amp; Flex for JetBrains IDEs, Click Joints for Blender. Made by Thijs in the Netherlands." />
-  <meta name="theme-color" content="#14111c" />
-  <link rel="icon" href="/assets/dortus-mark.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#1d1426" />
+  <link rel="icon" href="/assets/dortus-door-small.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/dortus-door-512.png" />
   <link rel="canonical" href="https://dortus.com/" />
   <meta property="og:title" content="Dortus: small games and focused tools" />
   <meta property="og:description" content="Tools that fill a real gap in Obsidian, JetBrains IDEs and Blender. Made by Thijs in the Netherlands." />
@@ -19,7 +19,7 @@
   <style>
     @font-face { font-family: "Archivo"; font-weight: 500 800; font-display: swap; src: url("/assets/fonts/archivo-latin.woff2") format("woff2"); }
     @font-face { font-family: "Public Sans"; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/publicsans-latin.woff2") format("woff2"); }
-    :root { --bg: #14111c; --bg-2: #1d1828; --card: #221c30; --line: #352c47; --ink: #f4f1fa; --ink-2: #bdb4cf; --ink-3: #8d84a3; --accent: #ffd25c; }
+    :root { --bg: #1d1426; --bg-2: #160f1d; --card: #2a1e33; --line: #3f2846; --ink: #fff4e0; --ink-2: #cdbfd8; --ink-3: #9a8aa8; --accent: #ffd25c; --lila: #a58cff; }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Public Sans", system-ui, sans-serif; }
@@ -28,6 +28,8 @@
     header { padding: 22px 0; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font: 700 22px "Archivo", sans-serif; text-decoration: none; }
     .brand img { width: 36px; height: 36px; border-radius: 9px; }
+    .hero { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 32px; }
+    .door { width: 100%; max-width: 340px; justify-self: center; }
     .hero { padding: 64px 0 56px; }
     .hero h1 { font: 800 clamp(36px, 6vw, 64px)/1.05 "Archivo", sans-serif; letter-spacing: -0.02em; margin: 0 0 20px; max-width: 14ch; }
     .hero h1 em { font-style: normal; color: var(--accent); }
@@ -47,22 +49,24 @@
     .about p { margin: 0; color: var(--ink-2); }
     footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--ink-3); font-size: 15px; }
     footer nav { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .about { grid-template-columns: 1fr; } .hero { padding: 36px 0 40px; } }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .door { max-width: 160px; justify-self: start; order: -1; } .grid { grid-template-columns: 1fr; } .about { grid-template-columns: 1fr; } .hero { padding: 36px 0 40px; } }
     @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <!-- BEELDMERK: vervangen door het beeldmerk van Mila (merk/avatar-512.png of merkteken.svg) -->
-      <a class="brand" href="/"><img src="/assets/logo-dortus-d-512.png" alt="" />Dortus</a>
+      <a class="brand" href="/"><img src="/assets/dortus-door-512.png" alt="" />Dortus</a>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
+      <div>
       <h1>Small tools that fill a <em>real gap.</em></h1>
-      <p>Dortus makes focused plugins and small games. Each one does one thing well, looks like it belongs, and says plainly what is free and what is paid.</p>
+      <p>Dortus makes focused plugins and small games. Each one does one thing well, is made to look good, and says plainly what is free and what is paid.</p>
+      </div>
+      <img class="door" src="/assets/dortus-door.svg" alt="The Dortus D: a door standing ajar with warm light behind it" />
     </section>
 
     <section class="grid" aria-label="Products">

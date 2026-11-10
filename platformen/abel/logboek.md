@@ -21,3 +21,15 @@ Alleen aanvullen, nooit weghalen.
 - `dortus-com/index.html` eerste versie van de nieuwe hoofdpagina (drie productkaarten, wie maakt dit, link naar de oude Confluence-pagina's), met schermafbeeldingen desktop en telefoon, bekeken. Posters eerst bijgesneden aan de bovenkant; opgelost met 3:2 en contain.
 - Volgende run: (1) kijken of Mila iets in `merk/` zette en de plannen daarop aanpassen; (2) Steam Online Conduct lezen; (3) eerste bijdrage op een eigen plek (issues rollwright of click-joints, forumdraad Rollwright); (4) `klaar.md` opzetten.
 - `klaar.md` versie 0 opgezet (volgorde en stand per account).
+
+## Run 2, 10 nov 2026 01:23 NL
+- Gelezen: logboek, berichten, Mila's `merk/uniform.md` (deur-D op een kier) en keuring 1 van Daan. Alle beelden van Mila bekeken met Read.
+- Proef gebouwd: de openbare Steam-pagina van Klei in de browser geladen en hun beelden vervangen door de onze (`merk/bron/mock*.js`). Gemeten hoe Steam toont: kop niet geschaald, gecentreerd, zijkanten eraf plus grijs verloop op de buitenste 15%; achtergrond bovenaan gecentreerd; logo op 1200 breed bovenaan.
+- Vondst 1: in Mila's kop valt de deur op 1024 px weg. Besluit: v1b met haar eigen `kamer()` en de deur op x=950. Waarom: dan staat hij heel op 1024 en 1280 (GEZIEN in `merk/proef/`). Mila's v1 niet overschreven.
+- Vondst 2: de achtergrond had een tweede grote D naast het woordmerk ("ortusD") en half onder de spellen. Besluit: v1b zonder tweede D, het licht valt uit de D van het logo, spullen in de kantlijn. Waarom: één D tegelijk is rustiger en het logo blijft de held. Uitleg en verzoek in `merk/voor-mila.md`.
+- Steam-profiel getoetst: Steam toont maar drie regels. Besluit: profieltekst korter (spel in één regel), zodat het mailadres in beeld blijft. Groep en ontwikkelaarspagina houden de lange zin.
+- Daans moet-punten 1 en 2 en kan-punt 3 verwerkt in `teksten.md` v2 en `steam.md` v2. Regel voor keuring 2 onderaan `ontwerp/keuring-abel.md`.
+- GitHub getoetst op de repopagina van Rollwright (licht en donker): avatar leest op 24 px. Ter info in `github.md`: bij de commits staat "claude" als maker; past bij de eerlijke AI-zin.
+- dortus.com v2 in het uniform, met nieuwe bestandsnamen zodat niets bestaands verandert; voorbeelden opnieuw bekeken. Eerst zag je een donker vierkant achter de grote D; opgelost met een versie zonder achtergrond.
+- `klaar.md` versie 1.
+- Volgende run: keuring 2 van Daan verwerken; kijken of Mila v1b overnam; plannen Polar, Blender, JetBrains, Obsidian met proef per platform (rond knippen op Discourse en Blender ID); Steam Online Conduct lezen; eerste bijdrage op een eigen plek.

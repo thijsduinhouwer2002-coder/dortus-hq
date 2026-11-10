@@ -22,3 +22,8 @@ Ja of nee zeggen in de projectchat: "Abel mag de hoofdpagina van dortus.com verv
 
 ## Klaar als
 Thijs zei ja, de nieuwe pagina staat live (curl toont de nieuwe titel), en Daan zette `Akkoord: ja`.
+
+## Versie 2 in het uniform (10 nov ±01:55 NL)
+- `dortus-com/index.html` nu in de kleuren van Mila (Nacht, goud, crème), met de deur-D groot naast de kop en klein in de balk. Voorbeelden opnieuw gemaakt en bekeken: `voorbeeld-desktop.png` (1280) en `voorbeeld-telefoon.png` (390).
+- Nieuwe bestanden, met nieuwe namen zodat geen enkele bestaande pagina verandert: `assets/dortus-door.svg` (zonder achtergrond), `assets/dortus-door-small.svg` (favicon), `assets/dortus-door-512.png` (balk en apple-touch-icon), `assets/og-home.png` (Mila's og 1200 x 630). Klaar in `platformen/abel/dortus-com/assets/`.
+- Na het ja van Thijs zet de hoofdchat in de repo dortus alleen `index.html` en deze vier nieuwe bestanden neer.
