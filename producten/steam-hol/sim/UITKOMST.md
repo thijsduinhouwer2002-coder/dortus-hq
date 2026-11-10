@@ -76,3 +76,10 @@ Ridder slijm 0,7 en put 1,4 (held van de put), bard 1,1 en 1,1; zelfde getallen 
 
 ## 10 nov 03:35 UTC (Bram): Trick Lid tegen de magiër (idee Sanne, features.md 03:10)
 Trick Lid (stap 3 van de put) ziet eruit als vloer, dus de magiër ziet hem niet: factor put 0,3 wordt 1,0 (`heldensoort.VERBORGEN_X`, `sim.py TRICK_MAGIER`). Gemeten met een teller per soort (8 zaden, 10 uur, GEZIEN), alleen helden die kwamen terwijl Trick Lid er lag: magiër in de put **10,6% wordt 19,3%**, magiër Gloop 61,5 wordt 58,5%, magiër vlucht 27,9 wordt 22,2%. Gewone held en ridder gelijk (binnen ruis). Alle helden: vluchten 35,1 wordt 34,8%. `sim.py soorten`: vluchten 31,5 tot 40,7%, langste wacht uur 1 6,6 tot 9,3 min, alles gekocht na 7,0 tot 7,9 u. Doelen blijven gehaald. Klein effect op het geheel, wel een echte tegenzet die je in het Heldenboek kunt teruglezen.
+
+## 10 nov 03:50 UTC (Bram): hoe snel vult het Heldenboek (Sanne features.md 03:10, "Bram meet na")
+`python3 boek_meting.py` (sim met heldensoorten, 8 zaden, 140 uur, speler koopt het goedkoopste, GEZIEN), uren open tijd min / mediaan / max:
+- hoofdstuk 1 vol (5 soorten x 3 stempels): 1,0 / 1,8 / 3,0 u; de laatste stempel is meestal de magiër in de put (0,2 / 1,8 / 3,0 u).
+- alle 10 hoeden (als elke held een willekeurige hoed draagt): 0,6 / 1,1 / 1,9 u.
+- hoedenberg 1000: 31 / 32 / 33 u, 3000: 93 / 94 / 96 u (Sanne rekende 110 u; Gloop eet nu iets meer door upgrades en soorten). 10.000 komt pas na ±300 u.
+Dus: hoofdstuk 1 en de hoeden zijn op dag 1 klaar (zoals Sanne verwachtte), de bergstempels bij een werkdag open op dag ±4 en ±12, de aartsvijanden lopen altijd door. Karakters (hoofdstuk 2) zitten niet in de sim; de trekken komen na held 10 met 1 op 5, dus ook dag 1.
