@@ -20,7 +20,7 @@ G = {
  "H": ["X...X", "X...X", "X...X", "XXXXX", "X...X", "X...X", "X...X"],
  "A": [".XXX.", "XX.XX", "X...X", "XXXXX", "X...X", "X...X", "X...X"],   # v4: dicht dak (Daan 1: las als HÄTS)
  "T": ["XXXXX", "..X..", "..X..", "..X..", "..X..", "..X..", "..X.."],
- "S": [".XXXX", "XX...", "XX...", ".XXX.", "...XX", "...XX", "XXXX."],   # v4: dichte hoeken (Daan 1: las als 5)
+ "S": [".XXX.", "XX..X", "XX...", ".XXX.", "...XX", "X..XX", ".XXX."],   # v5: beide uiteinden krullen om (Daan 3.4: platte bovenkant las als 5)
  "O": [".XXX.", "XX.XX", "X...X", "X...X", "X...X", "XX.XX", ".XXX."],   # v4: dichte hoeken (Daan 10)
  "F": ["XXXXX", "X....", "X....", "XXXX.", "X....", "X....", "X...."],
  "E": ["XXXXX", "X....", "X....", "XXXX.", "X....", "X....", "XXXXX"],
@@ -73,6 +73,8 @@ def woord(tekst, blok, kleuren, rand=DONKER, gat=1, binnenrand=None):
 GOUD = [(0xff, 0xe9, 0x9a, 255), (0xff, 0xd2, 0x5c, 255), (0xf2, 0xb2, 0x3a, 255), (0xd9, 0x8a, 0x2a, 255)]
 MUNT = [(0xb8, 0xf5, 0xd2, 255), (0x7e, 0xe0, 0xae, 255), (0x4f, 0xc0, 0x8f, 255)]
 
+LOGO_HOEDEN = [4, 1, 8, 9]     # kroon op H, puntmuts op A, pan op T, veermuts op S
+LOGO_DX = [0, 0, 0, -1]
 def logo(blok_groot=2, met_hoeden=True):
     """HATS groot met op elke letter een echte hoed uit het spel; 'OF THE FALLEN' eronder."""
     hats = woord("HATS", blok_groot + 1, GOUD, binnenrand=(0xa8, 0x5a, 0x1e, 255))
@@ -84,8 +86,10 @@ def logo(blok_groot=2, met_hoeden=True):
     im.alpha_composite(hats, (hx, hoog))
     if met_hoeden:
         # kroon op H, koksmuts op A, pan op T, veermuts op S (de grap: de letters zijn ook opgegeten helden)
-        for n, h in enumerate([4, 5, 8, 9]):
-            lx = hx + 2 + n * 6 * (blok_groot + 1) + (5 * (blok_groot + 1)) // 2 - 8 + [0, 0, 0, 1][n]
+        # v5 (Daan keuring 3 punt 4): koksmuts las klein als umlaut, dus de A krijgt de paarse puntmuts (spits op spits,
+        # zit vast aan de letter); de veermuts staat midden op de S, niet op het uiteinde (las als 5)
+        for n, h in enumerate(LOGO_HOEDEN):
+            lx = hx + 2 + n * 6 * (blok_groot + 1) + (5 * (blok_groot + 1)) // 2 - 8 + LOGO_DX[n]
             ly = hoog + 3 - HOED_ONDER[h]   # v4: hoed staat op de letter, zweeft niet (las klein als umlaut)
             im.alpha_composite(cel(HOED, h), (lx, ly))
     im.alpha_composite(rest, ((w - rest.width) // 2, hoog + hats.height - 1))
@@ -286,13 +290,100 @@ def hero():           # 3840 x 1240, geen tekst; Gloops gezicht in het veilige m
 def logo_los():       # 1280 breed, doorzichtig
     lg = logo(2); s = 1280 // lg.width
     lg = schaal(lg, s)
-    uit = Image.new("RGBA", (1280, lg.height), (0, 0, 0, 0)); uit.alpha_composite(lg, ((1280 - lg.width) // 2, 0))
-    return uit
+    uit = Image.new("RGBA", (1280, lg.height + 64), (0, 0, 0, 0)); uit.alpha_composite(lg, ((1280 - lg.width) // 2, 32))
+    bb = uit.getbbox()                                  # v5 (Daan kan 7): bijsnijden tot ±16 px lucht boven en onder
+    return uit.crop((0, bb[1] - 16, 1280, bb[3] + 16))
+
+# ---------- v5 (Daan keuring 3): close-ups. Gloop met toren is het hoofdbeeld, warm licht van schat en fakkel ----------
+import numpy as np
+def warm(im, lichten):
+    """Zacht warm licht op volle maat (screen), zoals de gloed in het spel maar groter. lichten = [(cx, cy, r, sterkte)]."""
+    a = np.asarray(im.convert("RGB")).astype(np.float32) / 255
+    yy, xx = np.mgrid[0:im.height, 0:im.width]
+    k = np.array((255, 168, 70), np.float32) / 255
+    for cx, cy, r, st in lichten:
+        m = np.clip(1 - np.hypot(xx - cx, yy - cy) / r, 0, 1) ** 1.6 * st
+        a = 1 - (1 - a) * (1 - k * m[..., None])
+    uit = Image.fromarray((a * 255).astype(np.uint8)).convert("RGBA")
+    uit.putalpha(im.split()[3]); return uit
+
+def dicht(Wp, Hp, vloer, S, licht, dingen, lichten):
+    """Kamer van dichtbij: muur tot boven, vloer van aarde. Licht (gloed) op de achtergrond, warm licht sterk op de muur
+    en zwak op de figuren, zodat Gloop groen blijft."""
+    bg = Image.new("RGBA", (Wp, Hp), (0x1d, 0x14, 0x26, 255))
+    for kx in range(Wp // 16 + 2):
+        ry = 0
+        while vloer - 16 * (ry + 1) > -16:
+            bg.alpha_composite(cel(TEG, 1 if ry == 1 else 0, rij=1), (kx * 16, vloer - 16 * (ry + 1))); ry += 1
+        for ry in range((Hp - vloer) // 16 + 1):
+            bg.alpha_composite(cel(TEG, (kx * 3 + ry * 5) % 8, rij=0), (kx * 16, vloer + ry * 16))
+    for cx, cy, st in licht:
+        bg = gloed(bg, cx, cy, st)
+    fg = Image.new("RGBA", (Wp, Hp), (0, 0, 0, 0))
+    for f in dingen:
+        f(fg)
+    bg = warm(schaal(bg, S), lichten)
+    fg = warm(schaal(fg, S), [(cx, cy, r, st * 0.4) for cx, cy, r, st in lichten])
+    bg.alpha_composite(fg)
+    return bg
+
+def schat(fg, sx, vloer, fakkel=True, n=0):
+    if fakkel: fg.alpha_composite(cel(FAKKEL, 2, 8, 12), (sx, vloer - 34))
+    fg.alpha_composite(cel(SCHAT, 1, 24, 16), (sx, vloer - 16))
+    if n: munten(fg, sx + 22, vloer, zaad=4, n=n)
+def schat_licht(sx, vloer, fakkel=True):
+    return [(sx + 12, vloer - 6, 1.0), (sx + 10, vloer - 18, .6)] + ([(sx + 4, vloer - 30, .6)] if fakkel else [])
+
+TOREN = [7, 5, 4, 9]
+def header_v5():
+    # 920 x 430 op schaal 10 (92 x 43): logo links op 24 px marge en ±53% breed, Gloop met toren ±64% hoog
+    S, W, H, V, gx, sx = 10, 92, 43, 41, 59, 66
+    im = dicht(W, H, V, S, schat_licht(sx, V, False) + [(gx, V - 12, .5)],
+               [lambda f: schat(f, sx, V, False, 0), lambda f: gloop_met_toren(f, gx, V, TOREN),
+                lambda f: held(f, 35, V, 0, 3, wapen=0)],
+               [(780, 380, 640, .8), (560, 300, 300, .35)])
+    im.alpha_composite(schaal(logo(2), 6), (24, 0))
+    return im.crop((0, 0, 920, 430))
+
+def main_v5():
+    # 1232 x 706 op schaal 14 (88 x 51): logo linksboven, Gloop met toren groot (±54% hoog), held komt van links binnen
+    S, W, H, V, gx, sx = 14, 88, 51, 48, 53, 62
+    im = dicht(W, H, V, S, schat_licht(sx, V) + [(gx, V - 12, .5)],
+               [lambda f: schat(f, sx, V, True, 0),
+                lambda f: gloop_met_toren(f, gx, V, TOREN), lambda f: held(f, 29, V, 0, 3, wapen=0)],
+               [(1000, 620, 860, .8), (720, 500, 380, .35)])
+    im.alpha_composite(schaal(logo(2), 7), (40, 24))
+    return im.crop((0, 0, 1232, 706))
+
+def staand_v5():
+    # 748 x 896 op schaal 13 (58 x 69): logo boven, Gloop met toren groot (±39% hoog) naast zijn schat
+    S, W, H, V, gx, sx = 13, 58, 69, 64, 17, 30
+    im = dicht(W, H, V, S, schat_licht(sx, V, False) + [(gx, V - 12, .5)],
+               [lambda f: schat(f, sx, V, False), lambda f: gloop_met_toren(f, gx, V, TOREN)],
+               [(560, 780, 760, .8), (240, 620, 360, .35)])
+    lg = schaal(logo(2), 8)
+    lg = lg if lg.width <= 700 else schaal(logo(2), 7)
+    im.alpha_composite(lg, ((748 - lg.width) // 2, 28))
+    return im.crop((0, 0, 748, 896))
+
+def library_v5():
+    # 600 x 900 op schaal 20 (30 x 45): een portret. Gloop kijkt je aan met zijn toren (±60% hoog), munten aan zijn voeten,
+    # het licht van de schat (buiten beeld rechts) op hem. Naast de toppers is dit het figuur dat je aankijkt (Daan 3.1).
+    S, W, H, V, gx = 20, 30, 45, 43, 14
+    def voeten(f):
+        munten(f, gx + 7, V, zaad=2, n=3)
+    im = dicht(W, H, V, S, [(W, V - 6, 1.0), (W - 2, V - 18, .7), (gx, V - 12, .6)],
+               [voeten, lambda f: gloop_met_toren(f, gx, V, TOREN)],
+               [(600, 800, 760, .85), (300, 640, 380, .35)])
+    lg = schaal(logo(2), 6)
+    lg = lg if lg.width <= 568 else schaal(logo(2), 5)
+    im.alpha_composite(lg, ((600 - lg.width) // 2, 22))
+    return im.crop((0, 0, 600, 900))
 
 if __name__ == "__main__":
     os.makedirs(UIT, exist_ok=True)
-    h = header(); print("header", h.size); h.convert("RGB").save(os.path.join(UIT, "header-920x430.png"))
+    h = header_v5(); print("header", h.size); h.convert("RGB").save(os.path.join(UIT, "header-920x430.png"))
     k = klein(); print("klein", k.size); k.convert("RGB").save(os.path.join(UIT, "klein-462x174.png"))
-    for naam, f in (("main-1232x706", main_capsule), ("staand-748x896", staand), ("library-600x900", library), ("hero-3840x1240", hero)):
+    for naam, f in (("main-1232x706", main_v5), ("staand-748x896", staand_v5), ("library-600x900", library_v5), ("hero-3840x1240", hero)):
         b = f(); print(naam, b.size); b.convert("RGB").save(os.path.join(UIT, naam + ".png"))
     l = logo_los(); print("logo", l.size); l.save(os.path.join(UIT, "logo-1280.png"))

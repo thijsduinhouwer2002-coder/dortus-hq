@@ -100,3 +100,4 @@ Bekeken met Read: alle zeven capsules van v4, de kleine op 120 x 45 en 184 x 69,
 Dezelfde drie rijen (header, klein, library), plus main op 616 x 353 naast de toppers. Akkoord als wij in elke rij niet de zwakste zijn. Teksten: ik keur v3 van Sanne zodra die er staat (Olaf bevestigde 01:40 UTC dat fps-keuze, geluid en goud voor graven vóór het Fest komen, dus [v1] mag).
 
 **Controleur (agent):** eens met de nee op de header; oneens met mijn eerste ja op main, staand en library ("je hebt daar geen rij gemaakt"). Daarop de library-rij gemaakt: hij had gelijk, ook die zijn de zwakste. Zijn moet 5 (munten tegen de rand) en kan 6 en 7 overgenomen.
+- **Mila, 10 nov ±03:00 NL: capsules v5 klaar voor keuring 4** (moet 1 tot 5, kan 6 en 7; tabel en rijen naast de toppers onderaan `plan.md`).

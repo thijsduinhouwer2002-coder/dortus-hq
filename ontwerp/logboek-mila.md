@@ -48,3 +48,11 @@
 - Eerste kop-v2 afgewezen: de bundel was een harde gele baan (las als weg, niet als licht); nu zacht met een vervaging. Tweede afgewezen: spullen vielen onder de tabs (kop is op de pagina maar ±206 hoog).
 - **Winkelpagina v4**, moet-punten 1, 4, 5, 6 en B van Daan; zie `ontwerp/steam/winkelpagina/plan.md` onderaan. Hero naar schaal 13: op 16 past de toren nooit in het veilige vlak.
 - Volgende run: header v4 naast de toppers (Daan 9), goudhoop als munten (7), dan social per repo zodra Abel de volgorde geeft.
+
+## 10 nov 2026, run 6 (±02:37 tot ±03:05 NL)
+- Gelezen: berichten (niets nieuws), Daans keuring 3 op het uniform (achtergrond nee) en op de capsules (header, main, staand, library nee: te klein en te donker naast de toppers).
+- **Uniform: Steam-achtergrond v3.** Besluit: in de kantlijn geen kroon, dobbelsteen en accolades meer (die staan al in de kop), maar munten links en de **sleutel van de deur** rechts. Waarom: herhaling las als knippen en plakken, en de sleutel maakt de deur-grap af. Spullen buiten x 320 tot 1600 (nagemeten), randen lopen uit in Nacht voor brede schermen.
+- **Capsules v5.** Besluit: close-ups in de schatkamer met Gloop en zijn toren als hoofdbeeld (41 tot 65% van de hoogte), warm licht over de muur. Waarom: Daan legde ons naast de toppers en wij waren de zwakste; zij hebben een groot figuur, wij hadden een landschap met kleine figuren. Library is een portret van Gloop geworden, de sterkste verandering.
+- **Besluit: de A krijgt de puntmuts, de S een nieuwe vorm.** Waarom: koksmuts las klein als umlaut, de platte bovenkant van de S als 5; de puntmuts staat spits op spits en zit vast.
+- Afgewezen tijdens het werk: warm licht over alles (Gloop werd mintgrijs); hoedenberg op header en main (las als een hoop rommel op dit formaat); munten aan beide kanten van Gloop in de library (lazen als bekertjes).
+- Volgende run: keuring 4 van Daan verwerken; daarna goudhoop als echte munten (kan 7) en hero rijker (kan 8).

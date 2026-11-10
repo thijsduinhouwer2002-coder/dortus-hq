@@ -79,3 +79,24 @@ Muziek en geluid: nog open (Sanne en Olaf, wat is er in het spel).
 - **12:** de held op de header draagt nu de rode hoofdband, niet een hoed die al op de toren staat.
 - **B, trailer:** "It lives on your taskbar."
 - Nog open: 7 (goudhoop als croissant), 8 (hero rijker), 9 (header v4 naast de toppers), 13 (marge onder het logo).
+
+## Versie 5 (Mila, 10 nov ±03:00 NL): moet-punten keuring 3 van Daan
+Header, main, staand en library zijn opnieuw opgebouwd als **close-up in de schatkamer**: geen lucht en gras meer, een stenen muur tot boven, en Gloop met zijn hoedentoren als hoofdbeeld. Klein en logo kregen alleen de nieuwe letters; de hero is niet veranderd (die had akkoord).
+
+| Capsule | Schaal | Gloop met toren (28 spelpixels) | Logo | Goud tot de rand |
+|---|---|---|---|---|
+| header 920 x 430 | 10 | 280 px = **65%** van de hoogte | 486 px = **53%** van de breedte, 24 px van links | 30 px |
+| main 1232 x 706 | 14 | 392 px = **56%** | 567 px = 46%, 40 px van links | 42 px |
+| staand 748 x 896 | 13 | 364 px = **41%** | schaal 8, midden | 59 px |
+| library 600 x 900 | 20 | 560 px = **62%** (een portret: Gloop kijkt je aan) | schaal 6, midden | 40 px |
+Alles nagemeten in de png's (GEZIEN).
+
+- **Daan 1, Gloop groot:** zie de tabel. De library is nu een portret van Gloop met zijn toren, munten aan zijn voeten en het licht van de schat (buiten beeld) op hem. Waarom: in de rij met de toppers was dat het verschil: zij hebben een figuur dat je aankijkt, wij hadden een muur. Gloop met één oog kijkt je nu aan.
+- **Daan 2, logo groot:** header 53% breed met 24 px marge links.
+- **Daan 3, warmer en lichter:** warm licht (schatgoud en fakkel) valt nu groot over de muur, van rechtsonder; bovenin blijft het pruim. Het licht ligt sterk op de muur en zwak op de figuren, zodat Gloop groen blijft (eerste poging maakte hem mintgrijs, afgewezen).
+- **Daan 4, letters:** de A draagt nu de paarse **puntmuts** (spits op spits, zit vast aan de letter) in plaats van de witte koksmuts, die klein als umlaut las. De S is opnieuw getekend met twee omkrullende uiteinden (`.XXX.` / `XX..X` boven, `X..XX` / `.XXX.` onder): de platte bovenkant gaf de 5. Veermuts één pixel naar het midden. Op 120 x 45 en 184 x 69 lees je HATS (GEZIEN, `vergelijk-v5-klein.png`).
+- **Daan 5, goud binnen het beeld:** minstens 30 px van de rand op alle vier (tabel). De losse munt rechts op header en main is weg, want die liep tegen de rand.
+- **Kan 6:** de held draagt overal de rode hoofdband (geen hoed uit de toren). Op staand en library staat geen held: daar is geen ruimte naast Gloop en zijn schat zonder de figuren weer klein te maken.
+- **Kan 7:** `logo-1280.png` bijgesneden tot 16 px lucht boven en onder (1280 x 617). Het gaatje in de A laat ik open: dat is de binnenkant van de letter, net als bij elke A; dicht maakt hem weer een blok.
+- **Rijen naast de toppers** (vers via de winkel van Steam, 10 nov): `vergelijk-v5-header.png`, `vergelijk-v5-klein.png`, `vergelijk-v5-library.png`, `vergelijk-v5-main.png`. Eerlijk oordeel: in de header- en kleine rij zijn we niet meer de zwakste (groot logo, warm, de grap met de hoeden leest). In de library-rij houdt Gloop nu stand naast Rusty. Op main blijven de geschilderde toppers rijker; wij winnen op het idee en de herkenbaarheid, niet op detail.
+- Nog open: kan 7 uit keuring 1 (goudhoop als croissant), kan 8 (hero rijker).
