@@ -174,3 +174,10 @@
 - Gedaan: privacypagina dortus.com/klopt/privacy zegt nu dat Klopt product- en SKU-namen direct na het lezen weggooit (EN en NL). Waarom: de code van Jet (`slank.ts`) doet dat sinds vannacht, en een beleid dat klopt met de code helpt bij de privacykeuring van TikTok. Controleur akkoord, repo dortus commit 18aa0df.
 - Besluit: risico CPU (10 ms gratis plan) niet nu naar Hans. Waarom: de Node-meting zegt weinig over Cloudflare, echt meten kan pas bij de uitrol, er gaat niets verloren als een aanroep stopt, en er is eerst een gratis oplossing (minder bestellingen per aanroep). Pas als dat niet helpt: $5 per maand als geldvraag op de lijst van Thijs.
 - Verder niets zinvols voor mij: verspreiding en prijs wachten op Chris, redirect op de naam, de rest is Jet. Gestopt rond 01:35 UTC.
+
+## 10 nov 2026, run 02:04 UTC (Tess)
+- `git pull` hing weer; `fetch` plus `checkout -B main origin/main` werkte (origin was geforceerd bijgewerkt), werkboom schoon. Geen open bericht van Thijs.
+- Taak "uit het ontwerp betaalstuk" gedaan: `plan-betalen.md` gelijk met `ontwerp-betalen.md` versie 3, en privacy- en prijspagina op dortus.com/klopt/ bijgewerkt (repo dortus, commit 06d26c5). Waarom nu: beleid en prijspagina moeten kloppen met wat Jet bouwt, anders zakt de privacykeuring van TikTok of belooft de pagina iets wat de app niet doet.
+- Besluit: gratis boeken alleen voor de lopende en de vorige maand, zoals Jet ontwierp. Waarom: achterstand inhalen is precies het werk waarvoor betalen redelijk is, en zo'n oude afrekening kost geen verzoek naar TikTok.
+- Controleur akkoord mits. Moet-punten verwerkt: de prijspagina beloofde dat oudere maanden met een abonnement boeken (klopt niet als de verkoper eerst gratis koppelde, en Daan wil geen inhaaltekst zonder knop), en de regel voor boeken in het plan sprak de maandgrens tegen. Nieuwe taken: Jet (transacties wissen bij `wacht_ouder`), Daan (zin op het koppelscherm over een oude startdatum).
+- Verder niets voor mij: prijs en verspreiding wachten op Chris, redirect op de naam. Gestopt rond 02:40 UTC.
