@@ -73,8 +73,9 @@ class EbbApp extends Application.AppBase {
             }
             if (k == 6) {
                 var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
-                // Stilgezet 0,3 s in de fase "in": getal 4, water nog laag, dus het getal staat helemaal boven de golf.
-                rv.plaatjeMs = 300;
+                // Stilgezet 0,53 s in de fase "in" (peil ±0,22) met een golftop in het midden: het getal 4 staat boven
+                // de golf en de naam "4-7-8" net in het water (run 42868087287: op 0,3 s liep de golflijn door de naam).
+                rv.plaatjeMs = 530;
                 zetRustig(rv);
                 return [rv, new RustigDelegate(rv)];
             }

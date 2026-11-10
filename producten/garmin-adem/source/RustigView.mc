@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.Timer;
 import Toybox.WatchUi;
@@ -27,6 +28,9 @@ class RustigView extends WatchUi.View {
     function onShow() as Void {
         if (!_gestart) {
             _gestart = true;
+            if (plaatjeMs >= 0) {
+                _golf = Math.PI.toFloat();
+            }
             sessie.startMs = System.getTimer();
             opname.start();
         }
