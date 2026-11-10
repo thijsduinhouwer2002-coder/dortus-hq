@@ -33,3 +33,16 @@ Alleen aanvullen, nooit weghalen.
 - dortus.com v2 in het uniform, met nieuwe bestandsnamen zodat niets bestaands verandert; voorbeelden opnieuw bekeken. Eerst zag je een donker vierkant achter de grote D; opgelost met een versie zonder achtergrond.
 - `klaar.md` versie 1.
 - Volgende run: keuring 2 van Daan verwerken; kijken of Mila v1b overnam; plannen Polar, Blender, JetBrains, Obsidian met proef per platform (rond knippen op Discourse en Blender ID); Steam Online Conduct lezen; eerste bijdrage op een eigen plek.
+
+## Run 3, 10 nov 2026 ±02:20 NL
+- Gelezen: logboek, berichten (niets nieuws voor mij), Mila's v2 onderaan `merk/uniform.md` (wacht op keuring 3 van Daan), keuring 2.
+- Blender: in de openbare broncode van Blender ID en extensions-website nagezocht dat er een eigen avatarveld is (png/jpg/webp, max 2 MB, wordt JPEG), dat extensions.blender.org hem via een seintje overneemt, en waar het veld staat (id.blender.org/settings/profile). Onzekerheid over Gravatar weg. Proef in de echte wachtrijpagina. Plan v2.
+- Obsidian: vondst, het forumprofiel staat op verborgen (`profile_hidden: true`), dus About me zou niemand zien. Stap toegevoegd. Besluit: About me met dezelfde woorden als de draad van 8 nov ("The code is written by AI agents; I direct and test the work"). Waarom: twee versies van de AI-zin lezen als afzwakken. Proef op de echte draad, licht en donker. Plan v2.
+- Polar: logoveld nagezocht in de broncode van Polar (rondje "Logo" in Settings, max 1 MB, ook svg). Op de afrekenpagina staat nu een grijze letter D (logo.dev vond niets). Eén bezoek aan de afrekenpagina, niets ingevuld; proef met onze D. Plan v2. Besluit: Polar in de volgorde naar voren. Waarom: dat is waar iemand betaalt.
+- JetBrains: vondst, een verkoperspagina heeft geen logo (zelfs JetBrains zelf niet, GEZIEN in de browser). Logo-stap geschrapt, alleen een kleine tekstwijziging over, laagste voorrang. Plan v2.
+- Steam: grootste vondst. Valve: een account met minder dan $5 uitgegeven in de winkel kan geen groep maken en zijn profiel niet aan niet-vrienden tonen (help.steampowered.com en Steamworks-docs, GEZIEN). dortusgames is nieuw, de $100 fee telt waarschijnlijk niet (GOK). Besluit: stap 0 in het Steam-plan (v3) en een ja/nee voor €5 op de portemonnee op lijst-thijs. Waarom: zonder dat lopen profiel, groep en ontwikkelaarspagina vast.
+- Daans moet-punt 1 (grote D achter de middenkolom) genoteerd als opgelost: v1b en v2 hebben geen tweede D. In het Steam-plan staat welke versie (v1b nu, v2 na keuring 3).
+- Mila geantwoord in `merk/voor-mila.md`: social per repo eerst rollwright, dan click-joints; avatar op 24 px rond leest, scharnieren worden spikkels (kan-punt, geen haast).
+- Communityregels: Obsidian-gedragscode gelezen (geen AI-regel, wel "participate more than you promote"), Steam Online Conduct gelezen (geen AI-regel; geen advertenties, wedstrijden of reviews sturen). Eigen plekken: 0 issues, geen reacties in de draad; niets te beantwoorden.
+- `klaar.md` versie 2.
+- Volgende run: keuring 3 van Daan verwerken (v2-bestanden in alle plannen); GitHub-plan nalopen op v2 en social per repo; dortus.com-pagina controleren tegen v2; nagaan of de hoofdchat de dortus.com-vraag al stelde.
