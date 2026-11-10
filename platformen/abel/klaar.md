@@ -9,6 +9,7 @@ De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Stea
 `platformen/abel/upload/` (per account een map, bestandsnamen zeggen waar ze heen gaan, met `LEESMIJ.md`) en hetzelfde als één zip: `platformen/abel/dortus-beelden.zip` (0,8 MB). Thijs hoeft dus niet in `merk/` te zoeken tussen v1, v1b, v2 en v3. Opnieuw maken: `sh merk/bron/maak_upload.sh` (maakt v2b, de goedgekeurde versie). Alle tien bestanden samen bekeken op 10 nov 05:25.
 
 ## Zo ziet het eruit (proeven op echte pagina's, alleen in onze browser vervangen)
+**Alles op één blad: `merk/proef/overzicht-alle-accounts.png`** (Steam pagina en profiel, Polar, GitHub, Blender, Obsidian onder elkaar; goed om Thijs als eerste te laten zien). Opnieuw maken: `python3 merk/bron/abel_overzicht.py` vanuit `merk/`.
 - Steam-ontwikkelaarspagina, definitief (avatar v2, kop v2, logo v2b, achtergrond v3, paginakleur Nacht): `merk/proef/steam-pagina-definitief-1920.png` en `-1280.png` (opnieuw gemaakt 10 nov 05:23 met logo v2b; de spellen in de proef zijn van Klei, de pagina die ik als mal gebruikte). Breed scherm: `steam-pagina-v3-nacht-op-steam-2560.png`.
 - Steam-profiel: `merk/proef/steam-profiel-kort-op-steam.png`
 - Polar-afrekenpagina: `merk/proef/polar-afrekenen-uitsnede.png` (nu staat daar een grijze letter D)
