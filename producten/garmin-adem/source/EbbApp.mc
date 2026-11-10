@@ -243,6 +243,8 @@ class EbbView extends WatchUi.View {
 
     private var _vorigeFase as Number = -1;
     private var _vorigIn as Boolean = false;
+    private var _vorigInhoudMs as Number = 0;
+    private var _tik30 as Boolean = EbbInstellingen.tik30();
 
     function tik() as Void {
         var nu = System.getTimer();
@@ -284,6 +286,7 @@ class EbbView extends WatchUi.View {
             if (fase == Ebb.FASE_ADEMEN) {
                 EbbTrillen.tril(_vorigeFase == Ebb.FASE_HERSTEL ? EbbTrillen.M_LOS : EbbTrillen.M_IN);
             } else if (fase == Ebb.FASE_INHOUDEN) {
+                _vorigInhoudMs = 0;
                 EbbTrillen.tril(EbbTrillen.M_INHOUDEN);
             } else if (fase == Ebb.FASE_HERSTEL) {
                 EbbTrillen.tril(EbbTrillen.M_HERSTEL);
@@ -291,7 +294,20 @@ class EbbView extends WatchUi.View {
                 EbbTrillen.tril(EbbTrillen.M_KLAAR);
             }
         } else if (fase == Ebb.FASE_ADEMEN && isIn != _vorigIn) {
-            EbbTrillen.tril(isIn ? EbbTrillen.M_IN : EbbTrillen.M_UIT);
+            if (isIn && sessie.laatsteDrie(nu)) {
+                EbbTrillen.tril(EbbTrillen.M_LAATSTE);
+            } else {
+                EbbTrillen.tril(isIn ? EbbTrillen.M_IN : EbbTrillen.M_UIT);
+            }
+        } else if (fase == Ebb.FASE_INHOUDEN) {
+            var ms = sessie.verstreken(nu);
+            var sig = Ebb.inhoudSignaal(_vorigInhoudMs, ms, _tik30);
+            if (sig == 2) {
+                EbbTrillen.tril(EbbTrillen.M_DRIE_MIN);
+            } else if (sig == 1) {
+                EbbTrillen.tril(EbbTrillen.M_DERTIG);
+            }
+            _vorigInhoudMs = ms;
         }
         _vorigeFase = fase;
         _vorigIn = isIn;
@@ -640,8 +656,18 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         return stop();
     }
 
+    // Aanraakscherm uit tijdens een sessie (productkeuring): tikken en vegen doen niets, alleen de knoppen werken.
+    // Na de sessie mag vegen weer wisselen tussen vandaag en 8 weken.
+    function aanraakAan() as Boolean {
+        return _view.sessie.fase == Ebb.FASE_KLAAR;
+    }
+
     function onTap(evt as WatchUi.ClickEvent) as Boolean {
-        return stop();
+        return !aanraakAan();
+    }
+
+    function onSwipe(evt as WatchUi.SwipeEvent) as Boolean {
+        return !aanraakAan();
     }
 
     // Na de sessie wisselen omhoog en omlaag tussen duikprofiel en getijdenlijn; anders stoppen ze het inhouden.

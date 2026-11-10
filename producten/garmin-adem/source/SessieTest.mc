@@ -182,3 +182,37 @@ function testRustigPauze(logger as Test.Logger) as Boolean {
     return voor == 1 && restVoor == 3 && stil && na == 1 && restNa == 3 && later == 2
         && new Ebb.Rustig([4000, 4000, 4000, 4000] as Array<Number>, 0).overS(4000) == 4;
 }
+
+// Productkeuring 10 nov: zacht signaal na 3 minuten (altijd) en elke 30 s een tik (alleen als die aan staat).
+(:test)
+function testInhoudSignaal(logger as Test.Logger) as Boolean {
+    var dertig = Ebb.inhoudSignaal(29900, 30000, true) == 1 && Ebb.inhoudSignaal(59950, 60050, true) == 1;
+    var tussen = Ebb.inhoudSignaal(30000, 30100, true) == 0 && Ebb.inhoudSignaal(0, 100, true) == 0;
+    var uit = Ebb.inhoudSignaal(29900, 30000, false) == 0;
+    var drie = Ebb.inhoudSignaal(179950, 180050, true) == 2 && Ebb.inhoudSignaal(179950, 180050, false) == 2;
+    var naDrie = Ebb.inhoudSignaal(180050, 180150, false) == 0 && Ebb.inhoudSignaal(209950, 210050, true) == 1;
+    // Een tik telt maar één keer, ook als de klok een paar honderd ms verspringt.
+    var tellen = 0;
+    var vorig = 0;
+    for (var ms = 100; ms <= 240000; ms += 100) {
+        if (Ebb.inhoudSignaal(vorig, ms, true) > 0) {
+            tellen += 1;
+        }
+        vorig = ms;
+    }
+    logger.debug("signalen in 4 min: " + tellen);
+    return dertig && tussen && uit && drie && naDrie && tellen == 8;
+}
+
+// Productkeuring 10 nov: de laatste drie ademhalingen voor het inhouden krijgen een eigen tik.
+(:test)
+function testLaatsteDrie(logger as Test.Logger) as Boolean {
+    var r = new Ebb.Rondes(30, 1600, 3, 15000, 0);
+    var adem = 2 * 1600;
+    var nr27 = r.laatsteDrie(26 * adem + 10);   // ademhaling 27
+    var nr28 = r.laatsteDrie(27 * adem + 10);   // ademhaling 28
+    var nr30 = r.laatsteDrie(29 * adem + 10);   // ademhaling 30
+    r.bijwerken(30 * adem + 10);
+    var inhouden = r.laatsteDrie(30 * adem + 10);
+    return !nr27 && nr28 && nr30 && !inhouden;
+}

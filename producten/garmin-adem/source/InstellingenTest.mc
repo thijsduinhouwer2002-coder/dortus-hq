@@ -25,3 +25,13 @@ function testInstellingen(logger as Test.Logger) as Boolean {
     return standaard && zes == 6 && rond == 1 && s.rondes == 1 && s.tempoMs == 1800 && s.herstelMs == 15000
         && tekst.equals("1.8 s") && uit && eigen[0] == 4000 && eigen[1] == 4000 && eigen[2] == 6000 && eigen[3] == 2000;
 }
+
+(:test)
+function testTik30(logger as Test.Logger) as Boolean {
+    EbbInstellingen.wis();
+    var standaard = EbbInstellingen.tik30();
+    EbbInstellingen.zetTik30(false);
+    var uit = !EbbInstellingen.tik30();
+    EbbInstellingen.wis();
+    return standaard && uit && EbbInstellingen.tik30();
+}

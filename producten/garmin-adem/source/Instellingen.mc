@@ -26,6 +26,7 @@ module EbbInstellingen {
     ] as Array<Array>;
 
     const TRILLEN = "trillen";
+    const TIK30 = "tik30";
 
     // Waarde uit de opslag; onbekend of buiten de grenzen geeft de standaard.
     function waarde(i as Number) as Number {
@@ -53,6 +54,17 @@ module EbbInstellingen {
             Application.Storage.deleteValue(LIJST[i][0] as String);
         }
         Application.Storage.deleteValue(TRILLEN);
+        Application.Storage.deleteValue(TIK30);
+    }
+
+    // Tijdens inhouden elke 30 s een zachte tik; standaard aan (je weet de tijd met je ogen dicht).
+    function tik30() as Boolean {
+        var v = Application.Storage.getValue(TIK30);
+        return !((v instanceof Boolean) && !(v as Boolean));
+    }
+
+    function zetTik30(aan as Boolean) as Void {
+        Application.Storage.setValue(TIK30, aan);
     }
 
     function trillen() as Boolean {

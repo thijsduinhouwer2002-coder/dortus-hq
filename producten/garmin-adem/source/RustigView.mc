@@ -105,6 +105,15 @@ class RustigDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.pushView(menu, new RustigPauzeDelegate(_view), WatchUi.SLIDE_UP);
         return true;
     }
+
+    // Aanraakscherm uit tijdens rustig ademen: alleen de knoppen werken (productkeuring).
+    function onTap(evt as WatchUi.ClickEvent) as Boolean {
+        return true;
+    }
+
+    function onSwipe(evt as WatchUi.SwipeEvent) as Boolean {
+        return true;
+    }
 }
 
 class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {

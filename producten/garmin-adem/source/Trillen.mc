@@ -11,7 +11,10 @@ module EbbTrillen {
         M_HERSTEL = 3,     // begin herstel (volle teug): drie korte
         M_LOS = 4,         // einde herstel, laat los: lang en sterk
         M_VAST = 5,        // rustig ademen, vasthouden: twee zachte
-        M_KLAAR = 6        // sessie klaar: kort, pauze, lang
+        M_KLAAR = 6,       // sessie klaar: kort, pauze, lang
+        M_LAATSTE = 7,     // begin van elk van de laatste drie inademingen: twee lichte tikjes
+        M_DERTIG = 8,      // tijdens inhouden elke 30 s: één zachte (aan/uit in de instellingen)
+        M_DRIE_MIN = 9     // 3 minuten inhouden: zacht signaal, twee lange zachte
     }
 
     var aan as Boolean = true;
@@ -24,6 +27,9 @@ module EbbTrillen {
             case M_HERSTEL: return [[80, 80], [0, 100], [80, 80], [0, 100], [80, 80]] as Array<Array<Number> >;
             case M_LOS: return [[100, 600]] as Array<Array<Number> >;
             case M_VAST: return [[30, 120], [0, 150], [30, 120]] as Array<Array<Number> >;
+            case M_LAATSTE: return [[50, 60], [0, 90], [50, 60]] as Array<Array<Number> >;
+            case M_DERTIG: return [[25, 150]] as Array<Array<Number> >;
+            case M_DRIE_MIN: return [[40, 400], [0, 300], [40, 400]] as Array<Array<Number> >;
             default: return [[80, 100], [0, 200], [80, 500]] as Array<Array<Number> >;
         }
     }

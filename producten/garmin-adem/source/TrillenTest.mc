@@ -3,9 +3,9 @@ import Toybox.Test;
 
 (:test)
 function testTrilpatronenAllemaalAnders(logger as Test.Logger) as Boolean {
-    var namen = ["in", "uit", "inhouden", "herstel", "los", "vast", "klaar"] as Array<String>;
+    var namen = ["in", "uit", "inhouden", "herstel", "los", "vast", "klaar", "laatste", "dertig", "drie min"] as Array<String>;
     var gezien = {} as Dictionary<String, String>;
-    for (var m = 0; m < 7; m += 1) {
+    for (var m = 0; m < 10; m += 1) {
         var k = EbbTrillen.sleutel(m as EbbTrillen.Moment);
         logger.debug(namen[m] + " -> " + k);
         if (gezien.hasKey(k)) {

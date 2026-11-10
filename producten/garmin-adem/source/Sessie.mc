@@ -18,6 +18,18 @@ module Ebb {
         return ((1.0 - Math.cos(Math.PI * x)) / 2.0).toFloat();
     }
 
+    // Signaal tijdens het inhouden tussen twee tikken (inhoudtijd vorig en nu, ms):
+    // 2 bij het passeren van 3 minuten (zacht signaal, altijd), 1 bij elke 30 s als elke30 aan staat, anders 0.
+    function inhoudSignaal(vorigMs as Number, nuMs as Number, elke30 as Boolean) as Number {
+        if (vorigMs < 180000 && nuMs >= 180000) {
+            return 2;
+        }
+        if (elke30 && nuMs >= 30000 && nuMs / 30000 > vorigMs / 30000) {
+            return 1;
+        }
+        return 0;
+    }
+
     // Rondes: ademhalingen in vast tempo, dan inhouden tot een knop, dan herstel.
     class Rondes {
         var ademhalingen as Number;   // per ronde
@@ -108,6 +120,11 @@ module Ebb {
         function ademhaling(nu as Number) as Number {
             nu = klok(nu);
             return (nu - segmentStart) / (2 * tempoMs) + 1;
+        }
+
+        // Tijdens ademen: zit je in de laatste drie ademhalingen voor het inhouden?
+        function laatsteDrie(nu as Number) as Boolean {
+            return fase == FASE_ADEMEN && ademhaling(nu) > ademhalingen - 3;
         }
 
         // Tijdens ademen: true bij in, false bij uit.

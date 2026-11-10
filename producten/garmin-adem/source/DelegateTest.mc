@@ -41,3 +41,19 @@ function testOpnameZonderSessieVeilig(logger as Test.Logger) as Boolean {
     o.weggooien();
     return !ok && !o.loopt() && o.laps == 0;
 }
+
+// Productkeuring 10 nov: aanraakscherm uit tijdens een sessie, na de sessie weer aan (wisselen vandaag en 8 weken).
+(:test)
+function testAanraakUitTijdensSessie(logger as Test.Logger) as Boolean {
+    var view = new EbbView();
+    view.sessie = new Ebb.Rondes(30, 1600, 1, 15000, 0);
+    var d = new EbbDelegate(view);
+    var ademen = !d.aanraakAan();
+    view.sessie.bijwerken(96000);
+    var inhouden = !d.aanraakAan();
+    d.stopOp(120000);
+    view.sessie.bijwerken(140000);
+    var klaar = d.aanraakAan();
+    // Tikken tijdens het inhouden stopt niet meer: alleen de knop.
+    return ademen && inhouden && klaar && view.sessie.fase == Ebb.FASE_KLAAR;
+}
