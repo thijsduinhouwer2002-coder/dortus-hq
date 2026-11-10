@@ -159,17 +159,6 @@ class VeiligView extends WatchUi.View {
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, y + n * lh + lh / 2, f, EbbVeiligTekst.knop(blad), Graphics.TEXT_JUSTIFY_CENTER);
-        // Drie stipjes onder de knop: waar je bent.
-        var r = h / 100 > 2 ? h / 100 : 2;
-        var yy = y + (n + 1) * lh + lh / 2 + r * 2;
-        for (var i = 0; i < 3; i += 1) {
-            var x = w / 2 + (i - 1) * r * 4;
-            if (i == blad) {
-                dc.fillCircle(x, yy, r);
-            } else {
-                dc.drawCircle(x, yy, r);
-            }
-        }
     }
 }
 
