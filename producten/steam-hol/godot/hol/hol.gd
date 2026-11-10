@@ -171,8 +171,9 @@ func _process(delta: float) -> void:
 			if h == null:
 				n.t = n.duur
 			else:
-				n.x = h.position.x
-				n.y = h.position.y - 21.0
+				# naast zijn hoofd, niet erboven: in de schacht zou het achter hem vallen (film 6e5674d, Mara)
+				n.x = h.position.x + 7.0
+				n.y = h.position.y - 17.0
 	if not noten.is_empty():
 		noten = noten.filter(func(n): return n.t < n.duur)
 		queue_redraw()
@@ -336,7 +337,7 @@ func _draw() -> void:
 		var los: bool = n.volg == null
 		var a: float = (1.0 - maxf(0.0, f - 0.5) * 2.0) if los else (1.0 if f < 0.85 else (1.0 - f) / 0.15)
 		var nx: float = round(n.x + (sin(n.t * 5.0) * 1.0 if los else 0.0)) - 2.0
-		var ny: float = maxf(round(n.y - (f * NOOT_STIJG if los else 0.0)), float(OPP + 1))
+		var ny: float = maxf(round(n.y - (f * NOOT_STIJG if los else 0.0)), 1.0)
 		var rand := Color(0.17, 0.08, 0.16, a)
 		var licht := Color(0.98, 0.91, 0.66, a)
 		for r in 5:

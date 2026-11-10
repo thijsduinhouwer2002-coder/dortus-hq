@@ -372,10 +372,10 @@ func _process(delta: float) -> void:
 			# niet als hij valt); een held die door het lied komt krijgt bij binnenkomst 2 s een nootje boven zijn hoofd
 			if str(w.get("soort_held")) == "bard" and str(w.get("staat")) != "vallen" and t >= float(w.get_meta("noot_t", 0.0)):
 				w.set_meta("noot_t", t + 2.0)   # geen rng: die bepaalt de demo-film
-				hol.noot(w.position.x + 5.0, w.position.y - 18.0)
+				hol.noot(w.position.x + 7.0, w.position.y - 18.0)
 			if hi is Dictionary and bool(hi.get("lied_held", false)) and not w.has_meta("lied_noot"):
 				w.set_meta("lied_noot", true)
-				hol.noot(w.position.x, w.position.y - 21.0, 2.0, w)
+				hol.noot(w.position.x + 7.0, w.position.y - 17.0, 2.0, w)
 			# slaapkop (Bram, versie 1): zijn dutje een lage regel, zoals binnenkomst (hij ligt er 4 s, de regel mag wachten)
 			if hi is Dictionary and bool(hi.get("dutje", false)) and not hi.has("dutje_gemeld"):
 				hi["dutje_gemeld"] = true
