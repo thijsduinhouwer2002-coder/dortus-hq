@@ -17,6 +17,8 @@ export interface ClientOpties {
   nu?: () => number;
   /** Wachten in milliseconden; te vervangen in tests. */
   slaap?: (ms: number) => Promise<void>;
+  /** Pogingen in totaal (standaard MAX_POGINGEN). 1 voor een verzoek waar iemand op wacht, zoals koppelen. */
+  pogingen?: number;
 }
 
 export interface Aanroep {
@@ -50,17 +52,19 @@ export class TikTokClient {
       fetchFn: (...a) => fetch(...a),
       nu: () => Math.floor(Date.now() / 1000),
       slaap: (ms) => new Promise((r) => setTimeout(r, ms)),
+      pogingen: MAX_POGINGEN,
       ...opties,
     };
   }
 
   async roep<T>(a: Aanroep): Promise<Antwoord<T>> {
     let laatste: TikTokApiError | undefined;
-    for (let poging = 1; poging <= MAX_POGINGEN; poging++) {
+    const max = Math.max(1, Math.floor(this.o.pogingen));
+    for (let poging = 1; poging <= max; poging++) {
       const { fout, antwoord, retryAfter } = await this.eenPoging<T>(a);
       if (antwoord) return antwoord;
       laatste = fout!;
-      if (!opnieuwProberen(laatste) || poging === MAX_POGINGEN) break;
+      if (!opnieuwProberen(laatste) || poging === max) break;
       await this.o.slaap(wachttijd(poging, retryAfter));
     }
     throw laatste!;

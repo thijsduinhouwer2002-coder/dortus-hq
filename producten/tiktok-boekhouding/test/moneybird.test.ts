@@ -220,7 +220,7 @@ test("(g) OAuth: inloglink, code inwisselen en verversen form-encoded", async ()
   const app = { clientId: "cid", clientSecret: "geheim", redirectUri: "https://dortus.com/tiktok-boekhouding/moneybird" };
   const u = new URL(inlogLink(app, "st8"));
   assert.equal(u.origin + u.pathname, "https://moneybird.com/oauth/authorize");
-  assert.deepEqual(Object.fromEntries(u.searchParams), { client_id: "cid", redirect_uri: app.redirectUri, response_type: "code", scope: "documents", state: "st8" });
+  assert.deepEqual(Object.fromEntries(u.searchParams), { client_id: "cid", redirect_uri: app.redirectUri, response_type: "code", scope: "documents settings", state: "st8" });
   const antwoord = { access_token: "b3f3", token_type: "bearer", refresh_token: "9ef3", scope: "documents", created_at: 1471524338 };
   const nep = nepFetch([{ json: antwoord }, { json: { ...antwoord, expires_in: 3600 } }]);
   const t = await wisselCode(app, "1192", nep.fn);

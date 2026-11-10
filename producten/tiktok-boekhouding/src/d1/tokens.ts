@@ -9,6 +9,9 @@
 // Intrekken door `ontkoppel` en de cron (src/d1/ontkoppel.ts, opruimen.ts) mag ZONDER winkelslot: intrekken is geen
 // verversen. Ververst een aanroep tegelijk, dan kan hij zijn verse paar niet meer opslaan (winkel ontkoppeld) en trekt
 // hij dat paar zelf in (`trekVersPaarIn` hieronder).
+// Uitzondering (ontwerp-schermen.md, stap 1 en 4): verse tokens die net uit een code komen slaan de schermen ZONDER
+// winkelslot op (src/web/koppelen.ts en moneybird.ts). De nieuwe toestemming van de verkoper wint altijd; de consumer
+// valt via herlezen en de nieuwe versie netjes terug, en bij Moneybird wordt het vervangen paar ingetrokken.
 import { ververs as ttVervers, verlooptBinnen, type AppGegevens, type Tokens } from "../../../tiktok-shop-basis/src/auth.ts";
 import { ververs as mbVervers, trekIn, type MoneybirdTokens, type OAuthApp } from "../moneybird/oauth.ts";
 import { isBudgetOp, type Budget } from "../budget.ts";

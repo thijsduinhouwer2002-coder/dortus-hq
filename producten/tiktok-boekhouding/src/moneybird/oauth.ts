@@ -1,8 +1,8 @@
 // OAuth bij Moneybird. Bron: developer.moneybird.com/authentication.md. Tokens bewaart de app zelf.
 
 export const MONEYBIRD_OAUTH = "https://moneybird.com/oauth";
-/** `documents` is genoeg om te boeken en rekeningen en btw-tarieven te lezen; `settings` pas bij rekeningen aanmaken. */
-export const SCOPES = ["documents"];
+/** `documents` om te boeken en rekeningen en btw-tarieven te lezen; `settings` om rekeningen aan te maken (ontwerp-schermen.md, stap 3). */
+export const SCOPES = ["documents", "settings"];
 
 export interface OAuthApp {
   clientId: string;

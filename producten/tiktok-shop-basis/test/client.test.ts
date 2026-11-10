@@ -128,3 +128,14 @@ test("5xx drie keer mislukt geeft soort server na 3 pogingen", async () => {
   assert.equal(verzoeken.length, 3);
   assert.deepEqual(slapen, [1000, 2000]);
 });
+
+test("pogingen: 1 geeft na één 503 meteen de fout, zonder wachten (koppelen, iemand wacht)", async () => {
+  const { nepFetch } = await import("./hulp.ts");
+  const { TikTokClient } = await import("../src/client.ts");
+  const nep = nepFetch([{ status: 503, tekst: "storing" }]);
+  const slapen: number[] = [];
+  const client = new TikTokClient({ ...APP, fetchFn: nep.fn, nu: () => 1625484268, slaap: async (ms) => { slapen.push(ms); }, pogingen: 1 });
+  await assert.rejects(geautoriseerdeWinkels(client, "t"), (e: unknown) => e instanceof TikTokApiError && e.soort === "server");
+  assert.equal(nep.verzoeken.length, 1);
+  assert.deepEqual(slapen, []);
+});

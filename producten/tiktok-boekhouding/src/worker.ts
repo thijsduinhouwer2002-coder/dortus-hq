@@ -21,6 +21,7 @@ import { D1Opslag, type D1 } from "./d1/opslag.ts";
 import { ruimOntkoppeldOp } from "./d1/opruimen.ts";
 import { TokenBron, moneybirdSoort, tiktokSoort, type Sleutelbos } from "./d1/tokens.ts";
 import { winkelfoutStatement, winkelsAanDeBeurt, type OpgeslagenWinkelfout } from "./d1/winkels.ts";
+import { isAppPad, router, type WebOmgeving } from "./web/router.ts";
 
 /** Budget per aanroep (gratis plan: 50 subrequests, D1 en de wachtrij tellen mee). */
 export const WORKER_BUDGET = 50;
@@ -337,14 +338,21 @@ export interface WorkerEnv {
   POLAR_PRODUCT_ID?: string;
   /** Waar de verkoper na checkout of portaal terugkomt (success_url en return_url). */
   POLAR_TERUG_URL?: string;
+  /** Schermen (ontwerp-schermen.md): secret JSON `{"s1": "<32 bytes base64>"}`, versie om mee te tekenen, service-id, eigen origin. */
+  SESSIE_SLEUTELS: string;
+  SESSIE_SLEUTEL_HUIDIG: string;
+  TIKTOK_SERVICE_ID: string;
+  APP_ADRES: string;
+}
+
+const bytesVan = (json: string) => Object.fromEntries(Object.entries(JSON.parse(json) as Record<string, string>).map(([v, b]) => [v, Uint8Array.from(atob(b), (c) => c.charCodeAt(0))]));
+
+export function webOmgevingVan(env: WorkerEnv, o: Omgeving): WebOmgeving {
+  return { ...o, sessie: { huidig: env.SESSIE_SLEUTEL_HUIDIG, sleutels: bytesVan(env.SESSIE_SLEUTELS) }, tiktokServiceId: env.TIKTOK_SERVICE_ID, appAdres: env.APP_ADRES };
 }
 
 export function omgevingVan(env: WorkerEnv): Omgeving {
-  const ruw = JSON.parse(env.TOKEN_SLEUTELS) as Record<string, string>;
-  const sleutels: Sleutelbos = {
-    huidig: env.TOKEN_SLEUTEL_HUIDIG,
-    sleutels: Object.fromEntries(Object.entries(ruw).map(([v, b]) => [v, Uint8Array.from(atob(b), (c) => c.charCodeAt(0))])),
-  };
+  const sleutels: Sleutelbos = { huidig: env.TOKEN_SLEUTEL_HUIDIG, sleutels: bytesVan(env.TOKEN_SLEUTELS) };
   return {
     db: env.DB,
     wachtrij: env.WACHTRIJ,
@@ -366,7 +374,7 @@ export function omgevingVan(env: WorkerEnv): Omgeving {
 const seconden = (ms: number) => Math.floor(ms / 1000);
 
 export default {
-  // Webhooks: Polar (src/polar/webhook.ts) en TikTok (type 6: ontkoppelen, src/webhook.ts).
+  // Schermen onder /app (src/web/router.ts), webhooks: Polar (src/polar/webhook.ts) en TikTok (type 6, src/webhook.ts).
   async fetch(request: Request, env: WorkerEnv): Promise<Response> {
     let o: Omgeving;
     try {
@@ -375,7 +383,9 @@ export default {
       console.log(`fetch: env onbruikbaar: ${foutTekst(e)}`);
       return new Response("", { status: 500 });
     }
-    if (new URL(request.url).pathname === POLAR_WEBHOOK_PAD) return polarWebhook(request, o, seconden(Date.now()));
+    const pad = new URL(request.url).pathname;
+    if (isAppPad(pad)) return router(request, webOmgevingVan(env, o), seconden(Date.now()));
+    if (pad === POLAR_WEBHOOK_PAD) return polarWebhook(request, o, seconden(Date.now()));
     return webhook(request, o, seconden(Date.now()));
   },
   async scheduled(controller: { scheduledTime: number }, env: WorkerEnv, ctx: { waitUntil(p: Promise<unknown>): void }) {
