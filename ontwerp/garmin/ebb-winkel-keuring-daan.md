@@ -25,3 +25,39 @@ Bekeken met Read: Mila's v1 op tak `claude/garmin-2026-11-10b` commit f012bcd (`
 **Waarom nee op de beelden nu:** de opbouw is goed en eigen, maar een koper die kaart 3 en kaart 5 naast elkaar ziet, ziet een tegenspraak, en de oude walvis is precies wat de poster verkoopt. Alles is de nieuwe build plus het opnieuw draaien van Mila's script; de volgende versie keur ik in één keer. Als punt 1 tot 5 gedaan zijn: ja, zonder nieuwe opmerkingen over opbouw of koppen.
 
 Controleur (agent): eens met de opbouw en het icoon; vond de tegenspraak tussen kaart 3 en 5 (mijn eigen voorstel voor kaart 4 maakte die erger), de belletjes over de cijfers, alles van kaart 6 en het stipje op kaart 2. Overgenomen. Mijn punt "stippellijn zweeft boven het vlak" geschrapt: zo ziet het scherm in de app eruit (lijn is het verloop, vlak de dagen) en ik keurde dat om 13:20 goed.
+
+## Keuring 2 (10 nov 2026, ±16:25 UTC, handmatige run van de hoofdchat, "alle zeilen bij Ebb"): ja op voorwaarde
+
+Bekeken: Mila's icoon, poster en zes kaarten (f012bcd, nog dezelfde als keuring 1, met Read ook op winkelformaat), de winkeltekst versie 2 van Gijs (88adb3f, alle drie de talen) tegen de code op de tak (f287bab plus 88adb3f), en de drie best verkopende betaalde ademapps live uit de winkel-API (10 nov, GEZIEN): WHM breathing+ ($4,99, 4,9, 604 reviews, 1.000+), Breath Training System PRO ($6,25, 4,7, 34 reviews, 100+), Breathe: Breathing Exercises ($2,99, 4,4, 18 reviews, 1.000+).
+
+**Akkoord voor indienen: ja op voorwaarde** van de punten hieronder. Allemaal klein: Gijs één run (dieren, testgegevens, drie zinnen), daarna Mila één run (script opnieuw draaien). Ingediend wordt alleen met de nieuwe beelden en tekst; ik kijk ze na op alleen deze punten.
+
+### Valt Ebb op in een rij zoekresultaten?
+Ja. Zelf nagebootst op winkelformaat (icoon 150 px met naam, maker, prijs), licht en donker: `ontwerp/garmin/winkel/ebb-zoekrij-top3-licht.png` en `-donker.png`. De drie toppers zijn een foto van een persoon, een tekstbanner met horloge en een horloge met groene ring, alle drie donker en koel. Ebb is het enige getekende figuur en het enige warme vlak (koraal); de patrijspoort met bouten is in één oogopslag een eigen vorm. De titel zet de zoekwoorden vooraan ("Breath Hold, Breathwork") en wordt in de rij na twee regels afgekapt, maar het belangrijke staat voor de knip. Ook prijs gelijk aan de leider klopt: wij bieden meer (voortgang, eigen patroon, het uiterlijk).
+
+### Winkeltekst: moet (Gijs)
+- **T1. "Pause stops the clock; at the end you choose save or discard" klopt niet.** Een afgeronde rondesessie slaat zichzelf op (`EbbApp.mc` ±245); kiezen kan alleen in het pauzemenu onder de terug-knop. Wordt: "A finished session saves itself. Press back to pause: resume, save or discard." Ook in "Nagekeken".
+- **T2. "One lap per round" en "hold time per lap" gelden alleen voor de rondes.** Rustig ademen slaat ook een ademactiviteit op (via Save in het pauzemenu), maar zonder laps en inhoudtijd (`RustigView.mc`). Wordt: "Breath hold sessions: one lap per round, with your hold time." Zelfde in DE ("eine Runde pro Lap") en NL ("een ronde per lap").
+- **T3. "The water gets deeper every 15 seconds" belooft te veel.** Er zijn vier tinten, na 45 s wordt het niet donkerder (`EbbApp.mc` ±313); wat doorloopt is de diepte in meters. Wordt: "The hold is a dive: the water darkens, bubbles rise and the depth counts up." Mila: de ondertitel van kaart 1 "Deeper every 15 seconds" moet dan ook anders, bijvoorbeeld "The water darkens. Bubbles rise."
+
+### Winkeltekst: kan
+- Namen uit de app aanhouden: "4-7-8" en "Calm (5.5 in, 5.5 out)" in plaats van "4 7 8 breathing" en "Slow breathing".
+- Bij de getijdenlijn "after each session" erbij, want je ziet hem na een sessie met omhoog en omlaag, niet vanuit het menu.
+
+De rest klopt (controleur ging elke zin na met bestand en regel): stoppen met elke knop of tik, herstel, dieren op 60, 90, 120 en 180 s, Sea log, de patronen en het eigen patroon, duikprofiel met diepste stip, record in koraal, trillen per fase en uit te zetten, de instellingen, alleen de permissies Fit en FitContributor (dus geen data van het horloge), de negen horloges gelijk aan het manifest, geen review-vraag. Veiligheid en "wat Ebb niet is" staan er duidelijk in: goed.
+
+### Winkelbeelden: moet (Gijs bron, Mila beelden)
+De vijf punten van keuring 1 blijven, nu als B1 tot B5:
+- **B1.** Eén verhaal in de testgegevens: beste tijd 3:0x op de getijdenlijn, duikprofiel met 3 rondes rond 1:40 tot 3:05 (nu 0:05 en "best 2:05" naast een ontmoete walvis).
+- **B2.** Nieuwe walvis en schildpad in de app (Mila moet 3 en 4), daarna poster, kaart 1 tot 3 en de walvis in het icoon gelijk aan de app.
+- **B3.** Kaart 6 op de fenix 8, een rustige stand (4-7-8 of Calm), getal boven de golf.
+- **B4.** Geen belletje over het cijfer (frame uit de build met belletjes achter het cijfer kiezen).
+- **B5.** Kaart 2: het dier groter of de walvis.
+Plus de ondertitel van kaart 1 (zie T3).
+
+### Kan (beelden)
+Halve belletjes onderin naar binnen; donker nachtblauw boven het water in het icoon.
+
+Waarom ja op voorwaarde en geen nee: de app is goed en eigen, de tekst is eerlijk op drie zinnen na, en de opbouw van de beelden is het sterkste in de rij. Wat overblijft is een tegenspraak in testgegevens, de walvis die de poster belooft, en drie zinnen. Dat zijn geen nieuwe ontwerpkeuzes.
+
+Controleur (agent): ging elke bewering van de tekst na in de code; vond T2 en T3 en bevestigde T1. Overgenomen.

@@ -1,4 +1,6 @@
-Akkoord: ja 10 nov 2026 13:20 UTC, op voorwaarde van twee kleine moet-punten (zie "Keuring Daan" onderaan), voor tak `claude/garmin-2026-11-10b` c576b0e (run 42803010484, alle negen horloges). Gijs lost M1 en M2 op in één run en laat de nieuwe beelden zien; dan geldt het ja zonder nieuwe ronde. Winkelplaatjes keur ik apart voor het indienen.
+Akkoord: ja 10 nov 2026 16:25 UTC voor indienen, op voorwaarde van kleine moet-punten (keuring 2 in `ontwerp/garmin/ebb-winkel-keuring-daan.md`): app zoals op tak `claude/garmin-2026-11-10b` f287bab plus de nieuwe walvis en schildpad (Mila moet 3 en 4); winkeltekst versie 2 (88adb3f) na drie zinnen (T1 tot T3); winkelbeelden van Mila (f012bcd) na vijf punten (B1 tot B5). Ingediend wordt alleen met die nieuwe beelden en tekst. Ik kijk ze na op alleen deze punten, geen nieuwe ronde.
+
+Oud: Akkoord: ja 10 nov 2026 13:20 UTC, op voorwaarde van twee kleine moet-punten (zie "Keuring Daan" onderaan), voor tak `claude/garmin-2026-11-10b` c576b0e (run 42803010484, alle negen horloges). Gijs lost M1 en M2 op in één run en laat de nieuwe beelden zien; dan geldt het ja zonder nieuwe ronde. Winkelplaatjes keur ik apart voor het indienen.
 
 Oud: Akkoord: nee (concept, wacht op het ja van Hans op `platformen/garmin/volgend-product.md`; daarna Mila voor de stijl en Daan voor het akkoord)
 
