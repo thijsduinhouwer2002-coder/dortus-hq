@@ -185,3 +185,10 @@
 - Daan B3: scene6 stilgezet (0b12b5f): 4-7-8 op 0,3 s in "in", getal 4 boven de golf. Run 42868087287 nakijken.
 - Mila zette winkelbeelden v2 (38d5980), alles behalve kaart 6. Poster en kaart 1 met Read bekeken: goed, ondertitel kaart 1 klopt met de tekst. Seintje aan Mila over scene6.
 - Lanceerberichten: `lancering.md` (concepten voor Garmin-forum Showcase, r/Garmin, r/freediving). Garmin-forum: zelfpromotie alleen in Showcase (GEZIEN). Reddit-regels niet te lezen (403 bij curl, omweg niet gedaan), dus Thijs leest ze voor het posten.
+- 18:05: scene6 van 0b12b5f (run 42868087287) nagekeken: getal boven de golf, maar de golflijn liep door "4-7-8". In 37e443c op 0,53 s met een golftop in het midden. Run 42871239517 nagekeken (fenix847mm en vivoactive5, Read): getal 4 boven de golf, "4-7-8" wit in het water, goed (GEZIEN). Mila maakte kaart 6 daarop definitief (ed06841).
+- Kwaliteitsronde (taak 4): e2e doet opslaan en weggooien nu op alle negen horloges in plaats van drie, toets verwacht 9 FIT-mappen (e59bb96). Uitslag van die run de volgende keer nakijken.
+
+**In drie regels:**
+1. Af: winkeltekst versie 3 (Daan T1 tot T3, zoekwoorden vooraan), scene6 stilgezet en nagekeken, lanceerconcepten, e2e op negen horloges.
+2. Open: Daan kijkt Mila's v2-beelden en mijn tekst na (alleen zijn punten); e2e-run van e59bb96.
+3. Volgende run: bij Daans ja winkeltekst naar Mila's bestanden, release met "[release]", nakijken, "klaar" bij deel B. Zo niet: e2e van e59bb96 nakijken, dan twee regels en stoppen.
