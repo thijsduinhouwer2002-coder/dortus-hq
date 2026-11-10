@@ -276,7 +276,7 @@ def verslag(naam, soort, graden, rood_vlakken, boog_aan):
     # Oranje selectierand van Blender (rond 1,0 / 0,6 / 0,2): mag er niet zijn.
     oranje = int(np.count_nonzero((px[:, 0] > 0.85) & (px[:, 1] > 0.45) & (px[:, 1] < 0.7) & (px[:, 2] < 0.3)))
     rand = px.reshape(maat[1], maat[0], 4)[:20, :, :3]
-    voorbij = soort == "rood"
+    voorbij = soort.startswith("rood")
     eisen = {
         "maat 1920x1080": maat == (1920, 1080),
         "pose klopt": bool(b) and abs(b.get("cj_pose_graden", -1) - graden) < 1e-6,
@@ -380,6 +380,22 @@ def stap():
     if n == 7:
         schiet("14-pro-knie-rood.png")
         verslag("14-pro-knie-rood-x.png", "rood", staat["voorbij"], staat["rood14"], True)
+        # 14b (ronde 2, proef): zelfde stand met Exploded view van de add-on, B weer van hout, zodat de rakende
+        # stopvlakken van A en B open liggen in plaats van alleen als lijn langs de naad.
+        b = staat.get("b")
+        if b is not None:
+            for i, m in enumerate(b.data.materials):
+                if m is not None and m.name == "Hout doorzichtig":
+                    b.data.materials[i] = bpy.data.materials.get("Hout") or m
+        bpy.context.scene.click_joints.uit_elkaar = True
+        staat["rood14b"] = zet(staat["voorbij"])
+        return 2.0
+    if n == 8:
+        kader()
+        return 1.5
+    if n == 9:
+        schiet("14b-pro-knie-rood-los.png")
+        verslag("14b-pro-knie-rood-los-x.png", "rood-los", staat["voorbij"], staat["rood14b"], True)
         return 0.5
     bpy.ops.wm.quit_blender()
     return None
