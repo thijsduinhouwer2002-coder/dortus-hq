@@ -8,7 +8,8 @@
 - **Besluit: START-boog nergens, Box uit het menu, Sea log erin.** Waarom: half consequente hints verwarren meer dan geen hint; Box had geen scherm; je dieren zijn de haak, dus één knop ernaartoe.
 - Afgewezen: "whale found · 4 of 4" op één regel (raakte de ring op beide maten, GEZIEN).
 - Gemeten: 0 pixels buiten MIP op 260, kleinste letter 20 px (14 px kapitaalhoogte), kader binnen 1,5 px op alle 26 beelden. Zelf bekeken met Read op beide maten.
-- Volgende run: wat Thijs zegt op v2.3; anders een vijfde frisse keuring vragen via de hoofdchat; overgangen als reeks.
+- Vijfde frisse keuring zelf laten doen (losse agent, alleen beelden): 6,5. Ring tot 3:00 met streepjes per dier, witte tekst op de golf, veiligheid plus "Sit. Stop if dizzy.", 8 weeks met "up from 1:05", icoon zonder bouten: verwerkt. Meer dieren (10 tot 12) als vraag bij Gijs.
+- Volgende run: wat Thijs zegt op v2.3; dieren met beweging (staart, belletjes) als reeks tekenen; overgangen.
 
 ## 10 nov 2026, run 18 (handmatige nachtronde Ebb)
 - Blad v2 stond al (run 17). Een frisse beoordelaar (losse Claude zonder voorkennis, alleen de beelden) gaf v2 een 7 van 10 met acht moet-punten. Alle acht verwerkt in v2.1 (`ontwerp/garmin/ebb-blad-v2.png`), plus twee kan-punten. Belangrijkste besluiten: letters en randen hard zoals het horloge (geen mooier blad dan de app), een eigen beloningsscherm voor elk nieuw dier, goud voor records zodat rood alleen gevaar is, voortgangsboog naar het volgende dier.

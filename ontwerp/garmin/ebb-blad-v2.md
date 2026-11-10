@@ -22,6 +22,14 @@ Per moet-punt:
 
 Kan-punten: (2) walvissen 1,2% D naar links op menu, 3b, sea log en icoon (zwaartepunt bleef optisch rechts); (4) icoon met vier grotere bouten en water tot boven in de poort, leest nu op 70 en 40 px (GEZIEN); (5) AMOLED: boven het water blijft het zwart, alleen het water licht op. (1) hoofdletterregel: titels klein (today, sea log, settings), items met hoofdletter (Rounds, Sea log, Buzz on): stond al zo. (3) "round 1, 2, 3" bij today: niet gedaan, de drie tijden zeggen het al en op 260 is er geen ruimte voor een vierde regel zonder te kleine letters.
 
+**Vijfde frisse keuring (losse Claude, alleen de beelden van v2.3): 6,5 van 10.** Meteen verwerkt in dezelfde v2.3:
+- Voortgangsring meet nu de hele weg tot 3:00, met een wit streepje bij elk dier (1:00, 1:30, 2:00, 3:00 bovenaan); hij begint niet meer bij elk dier opnieuw.
+- Tekst op de golf wit in plaats van cyaan ("round 2", "4 of 4", "next", "held 2:03 · 3 of 4"): las slecht op 260.
+- Veiligheid: extra regel "Sit. Stop if dizzy." in geel.
+- 8 weeks: schaal met "up from 1:05" onder "best 2:08 today".
+- Icoon: dunnere ring, geen bouten, walvis groter; leest op 40 px als walvis in water (GEZIEN).
+- Niet gedaan, voor Gijs en de hoofdchat: **meer dieren** (keurder: 4 dieren tot 3:00 is in een week uitgespeeld, voorstel 10 tot 12 van 0:30 tot 4:00). Dat is een productkeuze, geen schermkeuze; vraag bij Gijs gezet. Het veiligheidsscherm ook voor de eerste ronde: idem.
+
 **Gemeten (`blad23/meting-v23.txt`):** kader van alles wat getekend is binnen 1,5 px van het midden op alle 26 beelden (sea log 1,5 px door de walvis die bewust naar links staat). Optisch midden op 260 binnen 2 px, behalve today (+5,7 px) en 8 weeks (+4,2 px): het record staat nu rechts, omdat het vandaag is. Dat is de data, geen scheefstand.
 
 **Beeldtaal, wat er verandert ten opzichte van de 10 regels hieronder:** regel 4 wordt "één schaal van vier blauwtinten: op AMOLED als zacht verloop, op MIP als harde vlakken zonder dithering"; regel 5 krijgt "oranje = voortgang"; regel 6: kleinste letter 20 px op 260 (14 px kapitaalhoogte), op AMOLED zachte letters; regel 8: dieren elk in hun eigen tint (walvis, vis en kwal warm, schildpad groen), verder dezelfde stijl.

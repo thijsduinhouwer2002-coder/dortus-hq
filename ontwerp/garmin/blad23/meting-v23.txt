@@ -1,16 +1,16 @@
  454  1 menu             kader x  +0.0 px   kleuren 5051 (verloop en zachte randen)
- 454  2 ademen           kader x  +0.0 px   kleuren 7462 (verloop en zachte randen)
- 454  3 duiken           kader x  +0.0 px   kleuren 13780 (verloop en zachte randen)
- 454  3b walvis 3:03     kader x  +0.0 px   kleuren 15002 (verloop en zachte randen)
- 454  3c schildpad 2:03  kader x  +0.0 px   kleuren 13809 (verloop en zachte randen)
- 454  3d nieuw dier      kader x  +0.0 px   kleuren 10350 (verloop en zachte randen)
+ 454  2 ademen           kader x  +0.0 px   kleuren 7482 (verloop en zachte randen)
+ 454  3 duiken           kader x  +0.0 px   kleuren 15598 (verloop en zachte randen)
+ 454  3b walvis 3:03     kader x  +0.0 px   kleuren 14947 (verloop en zachte randen)
+ 454  3c schildpad 2:03  kader x  +0.0 px   kleuren 15631 (verloop en zachte randen)
+ 454  3d nieuw dier      kader x  +0.0 px   kleuren 10502 (verloop en zachte randen)
  454  4 boven            kader x  +0.0 px   kleuren 9161 (verloop en zachte randen)
  454  5 rustig 4-7-8     kader x  +0.0 px   kleuren 6255 (verloop en zachte randen)
  454  6 today            kader x  +0.0 px   kleuren 2780 (verloop en zachte randen)
- 454  7 8 weeks          kader x  +0.5 px   kleuren 2617 (verloop en zachte randen)
+ 454  7 8 weeks          kader x  +0.5 px   kleuren 2609 (verloop en zachte randen)
  454  8 sea log          kader x  +1.5 px   kleuren 2638 (verloop en zachte randen)
  454  9 settings         kader x  +0.0 px   kleuren 1488 (verloop en zachte randen)
- 454  10 veiligheid      kader x  +0.5 px   kleuren 796 (verloop en zachte randen)
+ 454  10 veiligheid      kader x  +0.5 px   kleuren 1324 (verloop en zachte randen)
  260  1 menu             kader x  +0.5 px   optisch x  -1.4 px   pixels buiten MIP 0
  260  2 ademen           kader x  +0.0 px   optisch x  -0.2 px   pixels buiten MIP 0
  260  3 duiken           kader x  +0.0 px   optisch x  +0.4 px   pixels buiten MIP 0
@@ -20,9 +20,9 @@
  260  4 boven            kader x  +0.0 px   optisch x  -1.6 px   pixels buiten MIP 0
  260  5 rustig 4-7-8     kader x  +0.0 px   optisch x  -1.7 px   pixels buiten MIP 0
  260  6 today            kader x  +0.0 px   optisch x  +5.7 px   pixels buiten MIP 0
- 260  7 8 weeks          kader x  +0.0 px   optisch x  +4.2 px   pixels buiten MIP 0
+ 260  7 8 weeks          kader x  +0.0 px   optisch x  +5.7 px   pixels buiten MIP 0
  260  8 sea log          kader x  +1.5 px   optisch x  +2.8 px   pixels buiten MIP 0
  260  9 settings         kader x  +0.5 px   optisch x  -1.2 px   pixels buiten MIP 0
  260  10 veiligheid      kader x  +0.0 px   optisch x  -0.6 px   pixels buiten MIP 0
-kleinste tekst op 260: "3 x 30" 20 px, "Buzz on" 20 px, "1:30" 20 px, "breath in water" 20 px, "new best" 20 px, "held 1:34" 20 px
+kleinste tekst op 260: "Calm 4-7-8" 20 px, "1:45" 20 px, "1:00" 20 px, "whale found" 20 px, "3 of 4 found" 20 px, "1:20" 20 px
 kapitaalhoogte bij 20 px: 14 px

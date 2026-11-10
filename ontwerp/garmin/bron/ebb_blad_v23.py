@@ -235,7 +235,11 @@ def voortgang(d, D, frac, vol=False):
     if vol:
         d.arc(bb, 0, 360, fill=ORANJE, width=w); return
     d.arc(bb, -90, -90 + 360*frac, fill=ORANJE, width=w)
-    a = math.radians(-90 + 360*frac); rr = (D-1-2*m)/2
+    rr = (D-1-2*m)/2
+    for t in (60, 90, 120, 180):   # een streepje per dier: vis, kwal, schildpad, walvis (bovenaan)
+        a = math.radians(-90 + 360*t/180)
+        d.line([(D/2 + (rr-w*1.2)*math.cos(a), D/2 + (rr-w*1.2)*math.sin(a)), (D/2 + (rr+w*0.5)*math.cos(a), D/2 + (rr+w*0.5)*math.sin(a))], fill=WIT, width=max(2, round(w*0.5)))
+    a = math.radians(-90 + 360*frac)
     x, y = D/2 + rr*math.cos(a), D/2 + rr*math.sin(a); R = w*1.05
     d.ellipse([x-R-2, y-R-2, x+R+2, y+R+2], fill=ZWART); d.ellipse([x-R, y-R, x+R, y+R], fill=WIT)
 
@@ -266,7 +270,7 @@ def s_ademen(D):
     tekst(d, D, (D/2, D*0.18), 'in', D*0.095, TITEL)                   # wisselt in / out (moet-punt 5)
     tekst(d, D, (D/2, D*0.41), '23', D*0.32, WIT)
     tekst(d, D, (D/2, D*0.80), 'breath 23 of 30', D*0.068, WIT)
-    tekst(d, D, (D/2, D*0.875), 'round 2', D*0.068, SCHUIM)
+    tekst(d, D, (D/2, D*0.875), 'round 2', D*0.068, WIT)
     rand(im, D); return im
 
 def duik_zee(im, D, meter=94):
@@ -281,12 +285,12 @@ def s_duik(D, diepte, tijd, soort, s, bel, hoek=0, sec=0, vorig=0, volgend=0, on
     cx = D/2 + (WX*D if soort == 'walvis' else 0)
     dier(im, soort, cx, D*(0.675 if onder else 0.700), s*D, hoek=hoek)
     d = ImageDraw.Draw(im)
-    voortgang(d, D, (sec - vorig)/(volgend - vorig) if volgend else 1, vol=not volgend)
+    voortgang(d, D, min(1, sec/180), vol=not volgend)
     if onder:   # twee regels, anders raakt de tekst de ring
         tekst(d, D, (D/2, D*0.815), onder[0], D*0.075, WIT)
-        tekst(d, D, (D/2, D*0.885), onder[1], D*0.068, SCHUIM)
+        tekst(d, D, (D/2, D*0.885), onder[1], D*0.068, WIT)
     else:
-        tekst(d, D, (D/2, D*0.865), f'next {volgend//60}:{volgend%60:02d}', D*0.068, SCHUIM)
+        tekst(d, D, (D/2, D*0.865), f'next {volgend//60}:{volgend%60:02d}', D*0.068, WIT)
     rand(im, D); return im
 def s_duiken(D): return s_duik(D, '94 m', '1:34', 'kwal', 0.085, [(0.33, 0.62, 0.016), (0.30, 0.565, 0.009), (0.65, 0.64, 0.011), (0.68, 0.60, 0.006)], sec=94, vorig=90, volgend=120)
 def s_walvis(D): return s_duik(D, '183 m', '3:03', 'walvis', 0.135, [(0.30, 0.66, 0.010), (0.27, 0.615, 0.016), (0.31, 0.575, 0.007)], hoek=9, onder=('whale found', '4 of 4'))   # moet-punt 3
@@ -373,7 +377,7 @@ def s_weken(D):
     r = D*0.024; px_, py_ = R, Y(1.0)
     d.ellipse([px_-r-2, py_-r-2, px_+r+2, py_+r+2], fill=ZWART); d.ellipse([px_-r, py_-r, px_+r, py_+r], fill=GOUD)
     tekst(d, D, (D/2, D*0.755), 'best 2:08 today', D*0.085, GOUD)
-    tekst(d, D, (D/2, D*0.845), 'longest hold per day', D*0.068, GRIJS)
+    tekst(d, D, (D/2, D*0.845), 'up from 1:05', D*0.068, GRIJS)   # schaal: waar je begon (keuring 5, punt 5)
     rand(im, D); return im, (px_, py_, r)
 
 def s_weken_beeld(D): return s_weken(D)[0]
@@ -418,11 +422,12 @@ def s_instellingen(D):
 def s_veilig(D):
     """Moet-punt 10: de regel voluit, het blok lager. Geen START-boog meer (moet-punt 11: nergens)."""
     im = leeg(D); d = ImageDraw.Draw(im)
-    s = D*0.075; y = D*0.27
+    s = D*0.065; y = D*0.215
     d.polygon([(D/2, y-s*0.78), (D/2+s*0.88, y+s*0.66), (D/2-s*0.88, y+s*0.66)], fill=KORAAL)
     tekst(d, D, (D/2, y+s*0.14), '!', s*0.95, W3)
     for k, regel in enumerate(('Never hold your', 'breath in water', 'or while driving.')):
-        tekst(d, D, (D/2, D*(0.445 + 0.083*k)), regel, D*0.075, WIT)
+        tekst(d, D, (D/2, D*(0.37 + 0.083*k)), regel, D*0.075, WIT)
+    tekst(d, D, (D/2, D*0.635), 'Sit. Stop if dizzy.', D*0.072, GEEL)
     pil(d, D, 0.765, 0.30, 0.11)
     tekst(d, D, (D/2, D*0.765), 'OK', D*0.072, WIT)
     rand(im, D); return im
@@ -437,21 +442,21 @@ def s_beloning(D):
     dier(im, 'pad', D/2, D*0.465, D*0.17, hoek=-6)
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.665), 'turtle found', D*0.090, WIT)
-    tekst(d, D, (D/2, D*0.77), 'held 2:03 · 3 of 4', D*0.068, SCHUIM)
+    tekst(d, D, (D/2, D*0.77), 'held 2:03 · 3 of 4', D*0.068, WIT)
     rand(im, D); return im
 
 def s_icoon(D):
     """Icoon: walvis in de patrijspoort, vier grote bouten (kan-punt 4: leest op 40 tot 70 px)."""
     im = leeg(D); d = ImageDraw.Draw(im)
-    c = D/2; R = D*0.48; r = D*0.37
+    c = D/2; R = D*0.48; r = D*0.425
     d.ellipse([c-R, c-R, c+R, c+R], fill=(0, 120, 120) if amo(D) else RING)
     binnen = Image.new('RGB', (D, D), ZWART)
     zee(binnen, D, [(D*0.06, W0), (D*0.30, W1), (D*0.62, W2), (D*0.80, W3)], amp=D*0.014, stralen=True)
     m = Image.new('L', (D, D), 0); ImageDraw.Draw(m).ellipse([c-r, c-r, c+r, c+r], fill=255)
     im.paste(binnen, (0, 0), m)
-    dier(im, 'walvis', c + WX*D, c + D*0.04, r*0.66)
+    dier(im, 'walvis', c + WX*D, c + D*0.03, r*0.74)
     d = ImageDraw.Draw(im)
-    for k in range(4):
+    for k in range(0):
         a = math.pi/4 + k*math.pi/2; bx = c+(R+r)/2*math.cos(a); by = c+(R+r)/2*math.sin(a); q = D*0.028
         d.ellipse([bx-q, by-q, bx+q, by+q], fill=(85,170,170))
     return im
