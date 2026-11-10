@@ -101,3 +101,25 @@ Dezelfde drie rijen (header, klein, library), plus main op 616 x 353 naast de to
 
 **Controleur (agent):** eens met de nee op de header; oneens met mijn eerste ja op main, staand en library ("je hebt daar geen rij gemaakt"). Daarop de library-rij gemaakt: hij had gelijk, ook die zijn de zwakste. Zijn moet 5 (munten tegen de rand) en kan 6 en 7 overgenomen.
 - **Mila, 10 nov ±03:00 NL: capsules v5 klaar voor keuring 4** (moet 1 tot 5, kan 6 en 7; tabel en rijen naast de toppers onderaan `plan.md`).
+
+## Keuring 4 (capsules v5 van Mila), 10 nov 2026 ±03:30 NL (02:30 UTC)
+
+Bekeken met Read: alle zeven capsules van v5 en de vier rijen naast de toppers die Mila maakte (header, klein, library, main; topperbeelden vers via de winkel van Steam). Ingezoomd op de onderrand van staand. Controleur (agent) bekeek alles opnieuw, ook klein op 120 x 45 en 184 x 69, de hero met het veilige vlak en het logo op magenta.
+
+**Akkoord: ja 10 nov** voor `header-920x430.png`, `main-1232x706.png`, `library-600x900.png`, `klein-462x174.png`, `hero-3840x1240.png` en `logo-1280.png`.
+**Akkoord: ja 10 nov, na één fix** voor `staand-748x896.png` (moet 1 hieronder). Is die fix gedaan, dan hoeft er geen nieuwe keuring; ik kijk hem na in de volgende run.
+
+Waarom ja: alle vijf moet-punten van keuring 3 zijn opgelost. Gloop met zijn hoedentoren is nu het hoofdbeeld (41 tot 65% van de hoogte), het logo vult de header voor de helft, het warme licht van de schat ligt over de muur, HATS leest op 120 x 45 en de munten blijven van de rand. In de header- en kleine rij zijn we niet meer de zwakste: naast Bongo Cat en Deskrawl houden we stand, en de grap (een slijm met een toren gestolen hoeden) snap je in een halve seconde, wat bij geen van de toppers zo scherp is. De library is een portret van Gloop dat je aankijkt en staat naast Rusty overeind. Eerlijk: op main en library blijven Rusty, Spirit City en Tiny Pasture rijker geschilderd; wij winnen op het idee en de herkenbaarheid, niet op detail. Dat is genoeg voor de winkelpagina; meer detail kan later in de hero en de schermafbeeldingen.
+
+### Moet-punt
+1. **Staand: half afgesneden lichte vorm onderaan in het midden** (x ±475 tot 530, y ±865 tot 896), een steentje of munt dat tegen de onderrand valt. Weghalen of helemaal in beeld zetten. (Gezien door mij en de controleur.)
+
+### Kan-punten (Mila beslist)
+2. De goudhoop leest op header en main als goud met een kist, maar de omtrek is nog een beetje een broodje of krans. Een paar munten die boven de rand uitsteken of een losse munt ernaast breekt die vorm.
+3. Main: onderaan worden stukjes vloertegel door de rand afgesneden (x ±255 tot 310 en ±515 tot 560, y ±688 tot 706, controleur). Hoort bij de achtergrond, valt nauwelijks op.
+4. Library: de bakstenen achtergrond is op schaal 20 grof en wazig. In de rij valt het niet op; een fijnere muur (schaal 10) achter een scherpe Gloop zou rustiger zijn.
+
+### Volgende
+De capsules zijn hiermee klaar voor het pakket van 1 december (na moet 1). Wat ik nog keur: teksten v3 van Sanne, de vijf schermafbeeldingen uit de echte build en de trailer.
+
+**Controleur (agent):** eens met alle ja's en met moet 1; kan 3 toegevoegd. Geen gemiste moet-punten.

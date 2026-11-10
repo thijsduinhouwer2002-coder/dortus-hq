@@ -1,6 +1,6 @@
 # GitHub: kant-en-klaar plan (Abel)
 
-Versie 2, 10 nov 2026 01:50 NL. Status: avatar van Mila staat er (`merk/avatar-512.png`), teksten klaar, wacht op Daans akkoord.
+Versie 3, 10 nov 2026 04:00 NL. Status: klaar, akkoord Daan (keuring 2 voor avatar en teksten, keuring 3 voor social v2). Avatar `merk/avatar-512.png` tot Daan Mila's avatar v2 keurt; dan `avatar-512-v2.png`.
 
 ## Proef
 `merk/proef/github-repo-light.png` en `-dark.png`: de repopagina van Rollwright met de nieuwe avatar (op 24 px leest hij als een lila D, op wit en op donker). Het vak About staat er nog leeg in, zo ziet het er nu uit; stap 2 vult het.
@@ -23,7 +23,7 @@ github.com > avatar rechtsboven > **Settings** > Public profile.
 |---|---|
 | Profielfoto | `platformen/abel/merk/avatar-512.png` |
 | Name | `Thijs · Dortus` |
-| Bio | `Small games and focused tools that fill a real gap. Obsidian, Blender, JetBrains, Steam.` (max 160 tekens) |
+| Bio | `Focused tools for Obsidian, Blender and JetBrains. A tiny dungeon game is on its way to Steam.` (95 tekens, max 160) |
 | URL | `https://dortus.com` |
 | Company | `Dortus` |
 | Location | `Netherlands` |
@@ -44,8 +44,10 @@ Let op: de beschrijving van Rollwright moet kloppen met de README. Elk deel staa
 ## Stap 2b. Vastgezette repo's (Thijs, ±1 min)
 Profielpagina > **Customize your pins** > kies `rollwright` en `click-joints` (later ook het spel als dat een openbare repo krijgt). Niet `dortus-hq`: die is openbaar (nodig om de testuitslagen te lezen), maar het is ons interne kantoor met Nederlandse logboeken. Een bezoeker die op zoek is naar een pluginmaker moet eerst de producten zien.
 
-## Stap 3. Social preview (later, ±1 min per repo)
-Settings van de repo > Social preview > `social-1280x640.png` per product (Mila, maat 1280 x 640, DERDEN in `merk/maten.md`). Pas als Mila die maakt; niet nodig voor de eerste ronde.
+## Stap 3. Social preview (±1 min per repo)
+Dit plaatje toont GitHub als iemand een repolink deelt (Discord, Reddit, forum). Nu is dat een grijs standaardkaartje.
+Repo > **Settings** > General > **Social preview** > Edit > Upload an image: `platformen/abel/merk/social-1280x640-v2-nu.png` (1280 x 640, 129 kB; GitHub wil minder dan 1 MB). Doen bij `rollwright` en `click-joints`.
+Waarom de `-nu`-versie: dat is Mila's social v2 (akkoord Daan, keuring 3) met als onderregel "Focused tools today, small games on the way" in plaats van "Small games and focused tools". Daan vroeg dat het plaatje pas over spellen praat als Hats of the Fallen op Steam staat (keuring 2, kan 5). Komt Mila met een eigen plaatje per repo, dan dat gebruiken.
 
 ## Wat ik niet zelf doe
 Beschrijving en topics van een repo kan ik niet zetten (mijn GitHub-tools hebben geen "repo bijwerken"). README's van Rollwright en Click Joints komen uit dortus-hq via de publiceerscripts van hun managers; daar kom ik niet aan.

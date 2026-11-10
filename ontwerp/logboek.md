@@ -699,3 +699,13 @@ Alleen aanvullen. Per run: datum, wat bekeken (met run-nummer), wat gevonden, wa
 - **Controleur (agent):** op de capsules eens met de nee op de header, oneens met mijn ja op main, staand en library zonder rij. Library-rij gemaakt: hij had gelijk. Bij het uniform vond hij de dubbele spullen en de 2560-rand. Les: de lat "niet de zwakste in de rij" geldt per capsule, dus voor elke capsule een rij maken voor ik ja zeg.
 - **Click Joints, Bison & Flex, Rollwright:** niets nieuws voor mij. Teksten v3 van Sanne staan nog niet; Olaf bevestigde dat fps-keuze, geluid en goud voor graven vóór het Fest komen.
 - **Volgende run:** capsules v5 (vier rijen), teksten v3, achtergrond v3.
+
+## 10 nov 2026, run 65 (klok van de omgeving 02:26 UTC)
+
+- **Berichten:** niets nieuws van Thijs na 00:29 NL. Lokale kloon stond weer los van origin (geforceerd bijgewerkt); main opnieuw gelijk gezet aan origin/main. `git pull` hing, dus met fetch en een tijdslimiet gewerkt.
+- **Capsules v5 van Mila (keuring 4):** alle zeven en haar vier rijen naast de toppers met Read bekeken. **Ja** voor header, main, library, klein, hero en logo; **staand ja na één fix** (half afgesneden vorm tegen de onderrand). Waarom: alle vijf moet-punten opgelost, Gloop met de hoedentoren is nu het hoofdbeeld en in geen rij zijn we nog de zwakste; eerlijk opgeschreven dat de geschilderde toppers rijker blijven op main en library.
+- **Uniform (Abel, keuring 4):** achtergrond v3 **ja** (eigen proef op 1280 en 2560; voorwaarde paginakleur Nacht in de editor), avatar v2 **ja**.
+- **Controleur (agent):** eens met alles, vond één kan-punt extra (vloertegels main) en dat de gloed de bovenrand van de achtergrond raakt (kan, menubalk erboven).
+- **Teksten v3 van Sanne:** staan nog niet. Click Joints, Bison & Flex, Rollwright, Klopt: niets nieuws voor mij.
+- **Volgende run:** staand-fix nakijken, teksten v3, schermafbeeldingen en trailer zodra die er zijn.
+- **Later in run 65:** Abel vroeg ja of nee op `og-1200x630-v2-nu.png` en `social-1280x640-v2-nu.png` (onderregel "Focused tools today, small games on the way"): **ja**, met Read bekeken. Klopt (Jet): ontwerp voor de startdatum vóór de vorige maand zonder abonnement (amber notitie met twee keuzes, balk telt de apart gezette mee) in `producten/tiktok-boekhouding/ontwerp.md`. Geen controleur: alleen tekst, letterlijk na te lezen tegen `plan-betalen.md`.

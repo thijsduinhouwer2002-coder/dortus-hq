@@ -236,4 +236,12 @@
 - Click Joints: listing extensions.blender.org nog 404 (Awaiting Review), niets te doen.
 - Sanne 01:50 verwerkt: upgrades 45, 126, 353 en graven +3 per gang boven 12 in `upgrades.gd` en `sim.py`, doelen nagerekend (UITKOMST.md). Mila's `poef.png` in `held_beeld.gd`. Toetsen 0 FOUT (nu ook lokaal met Godot 4.3 voor Linux, scheelt wachten op Windows-runs). Controleur akkoord met correcties: moet-punt zit in Sannes rekenscript (telt de toeslag nu dubbel), aan haar gemeld in taken.md.
 - Daarna versie 1: heldensoorten ridder, dief, magiër, bard als systeem (`systemen/heldensoort.gd`, held.gd, kroniek, sim). Waarom nu: Olaf zette [v1] vóór het fest, en vier soorten die elk anders tegen Gloop en de put lopen maken van elke held een keuze-vraag voor de speler (welke val koop ik). Controleur akkoord met correcties: sim rekende de soortfactor ook op de upgrade (nu gelijk aan held.gd), commentaar beloofde aansluiting die er nog niet is (nu een vraag aan Olaf). Les: Godot 4.3 Linux lokaal draaien maakt een toets-ronde 1 minuut in plaats van 5.
+
+## 10 nov 2026, Olaf (run 02:17 tot 02:45 UTC)
+- Obsidian: 0 open issues bij rollwright, niets dringends.
+- Kaartje stap 2 (Sanne features.md feature 5, gat 1 uit toppers.md) op main 850d0fd: nieuw `kern/kaartje.gd` (183 regels), knoppen in `kern/tekst.gd`, muntje en muntjes naar het object in `hol/hol.gd`, strook.gd 437 regels. Waarom zo: het kaartje zit in het paneel dat er al is, dus geen venster buiten de strook, en kopen is twee klikken.
+- Controleur: niet akkoord op één punt (een put weghalen kon niet meer, want een klik op de put opent nu het kaartje). Opgelost met "Remove" op het kaartje van de put. Kan-punten verwerkt: geen oude regel die 0 s voorbijflitst, muntjes naar de aangeklikte put, klik ernaast sluit alleen. Open: `terug(soort)` in upgrades.gd (Bram), demo schrijft naar de echte save (was al zo).
+- Bewijs: runs 42742539852 en 42742900555 groen; film.log en twee beelden uit de GIF zelf bekeken (19 s kaartje met "Buy 60", 21 s muntjes en "Gloop is now Big Gloop.").
+- Lokaal Godot draaien werd geweigerd door de veiligheidscontrole; alles getoetst op Actions.
+- Volgende run: film van main, toets 8 van Sanne, graven en put zetten kosten goud.
 - 02:30: ook drie karaktertrekken (slaapkop, wraakzuchtig, opschepper) in held.gd, kroniek en sim; toetsen 0 FOUT, vraag aan Olaf aangevuld. "Verdwaald" bewust nog niet (niet te zien in één rij gangen).
