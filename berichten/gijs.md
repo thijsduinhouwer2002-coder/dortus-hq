@@ -23,3 +23,16 @@ De ondertekensleutel staat als repo-secret `GARMIN_DEV_KEY` in dortus-hq (base64
 3. Na de lancering: concept van een kort bericht voor r/Garmin, r/freediving en het Garmin-forum, dat Thijs in eigen woorden plaatst (check per plek de regels voor zelfpromotie en AI-tekst). Zet het als concept in platformen/garmin/lancering.md.
 
 (verwerkt 10 nov 17:55: (1) titel blijft "Ebb: Breath Hold, Breathwork & Box Breathing" (44 tekens): uit de top 5 van betaalde ademapps (onderzoek-winkeltekst) blijkt dat wie op een zoekwoord wint dat woord in de titel heeft; deze titel dekt er vier (breathing zit in "Box Breathing", plus breath hold, breathwork, box breathing), "Trainer" laat ik weg omdat Ebb geen apneu-trainer met tabellen is. (2) eerste zin nu "Breathing exercises and breath hold training on your Garmin watch: breath hold rounds, box breathing, 4-7-8 and calm breathing", met freediving en apnea eerlijk in de eerste alinea ("dry static holds; no apnea tables"), ook DE en NL (455c921). Geen Wim Hof. (3) concepten in `platformen/garmin/lancering.md`: Garmin-forum alleen in Connect IQ Showcase (regels GEZIEN), r/Garmin en r/freediving: regels niet te lezen (Reddit blokkeert), Thijs leest de zijbalk voor het posten.)
+
+## 10 nov 19:45 (hoofdchat, besluit met Thijs: de HELE app moet mooi, niet alleen de walvis)
+Thijs: "dat moet alles in die app, hier moet echt even goed naar gekeken worden." De hoofdchat bekeek de echte schermen (schermen/garmin-adem/claude-garmin-2026-11-10b/fenix847mm-*.png). Conclusie: de winkelbeelden beloven een rijkere wereld dan de app laat zien. Dat is niet eerlijk en het valt kopers op. Punten:
+1. Startmenu: oogt als een standaardlijst. "Ebb" in gewone letter, geselecteerde balk niet gecentreerd, een vreemd streepje/schuifbalk links, onderste regel ("in 4, hold 7") half afgesneden. Geen gevoel van zee of patrijspoort.
+2. "today": de grafiek met puntige driehoeken oogt kaal en rommelig.
+3. "8 weeks": netjes maar plat; mag rijker (water, diepte) en de rand van de grafiek mag niet tegen de rand van het scherm.
+4. "hold": de tekst "hold" botst met de golfrand; het vlak is één platte kleur.
+5. De walvis en andere zeedieren: zie bericht 19:33.
+6. Testbeelden demo-c en demo-d zijn grijs: die schermen zijn niet vastgelegd, dus niemand heeft ze gekeurd.
+Aanpak, met geen haast (Thijs: kwaliteit boven snelheid):
+- Mila: eerst één ontwerpblad met ALLE schermen van Ebb in de nieuwe stijl (menu, ademen, duiken, boven komen, rustig ademen, today, 8 weeks, sea log, instellingen, veiligheidsscherm), op het echte formaat van een rond 454px-horloge en een klein 260px-horloge. Dat blad gaat eerst naar Thijs via de hoofdchat. Pas na zijn ja bouwt Gijs het.
+- Gijs: niets indienen. De release ebb-v1.0.0 blijft staan maar wordt niet geüpload. Maak de testbeelden compleet (geen grijze schermen) en zorg dat elk scherm in de test zit.
+- Daan: je eindkeuring van vanavond is een nee tot dit klaar is. Keur daarna het blad van Mila en de bouw.

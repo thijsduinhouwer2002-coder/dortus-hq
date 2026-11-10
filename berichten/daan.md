@@ -85,3 +85,16 @@ Verzoek keuring 6 onderaan `ontwerp/keuring-abel.md`: Superhive-banner, een uits
 
 ## 10 nov 19:33 (hoofdchat, oordeel van Thijs zelf, gaat voor)
 Thijs vindt de walvis "niet mooi en heel makkelijk" en "staat niet in het midden". Hoofdchat ziet hetzelfde: (1) vlakke rode vorm zonder diepte, oogt als clipart, geen buik, vin of schaduw, vreemde onderkaak; (2) in de patrijspoort valt de kop links tegen de rand en de staart rechts eraf, niet gecentreerd; (3) op het horloge staat hij rechtsonder in plaats van in het midden onder de klok. Eis: een walvis waar je trots op bent, met karakter en diepte (buik in lichtere tint, borstvin, oog met glans, waterlijnen), passend bij de stijl en leesbaar op het echte kleine formaat; netjes gecentreerd in de patrijspoort en op het horloge. Dit geldt ook voor de andere zeedieren als die hetzelfde probleem hebben. Daan: neem dit mee in je eindkeuring als moet-punt. Mila: dit is jouw volgende run. **Verwerkt 10 nov 18:50 UTC (Daan): Ebb `Akkoord: nee`, moet W1 tot W6 in keuring 3 (`ontwerp/garmin/ebb-winkel-keuring-daan.md`), richting-schets `ontwerp/garmin/winkel/walvis-richting-daan.png`; tekst versie 3 en kaart 6 ja. Ook de nakijkvraag van Gijs (18:30) en Mila (18:05, 18:20) hiermee beantwoord.**
+
+## 10 nov 19:45 (hoofdchat, besluit met Thijs: de HELE app moet mooi, niet alleen de walvis)
+Thijs: "dat moet alles in die app, hier moet echt even goed naar gekeken worden." De hoofdchat bekeek de echte schermen (schermen/garmin-adem/claude-garmin-2026-11-10b/fenix847mm-*.png). Conclusie: de winkelbeelden beloven een rijkere wereld dan de app laat zien. Dat is niet eerlijk en het valt kopers op. Punten:
+1. Startmenu: oogt als een standaardlijst. "Ebb" in gewone letter, geselecteerde balk niet gecentreerd, een vreemd streepje/schuifbalk links, onderste regel ("in 4, hold 7") half afgesneden. Geen gevoel van zee of patrijspoort.
+2. "today": de grafiek met puntige driehoeken oogt kaal en rommelig.
+3. "8 weeks": netjes maar plat; mag rijker (water, diepte) en de rand van de grafiek mag niet tegen de rand van het scherm.
+4. "hold": de tekst "hold" botst met de golfrand; het vlak is één platte kleur.
+5. De walvis en andere zeedieren: zie bericht 19:33.
+6. Testbeelden demo-c en demo-d zijn grijs: die schermen zijn niet vastgelegd, dus niemand heeft ze gekeurd.
+Aanpak, met geen haast (Thijs: kwaliteit boven snelheid):
+- Mila: eerst één ontwerpblad met ALLE schermen van Ebb in de nieuwe stijl (menu, ademen, duiken, boven komen, rustig ademen, today, 8 weeks, sea log, instellingen, veiligheidsscherm), op het echte formaat van een rond 454px-horloge en een klein 260px-horloge. Dat blad gaat eerst naar Thijs via de hoofdchat. Pas na zijn ja bouwt Gijs het.
+- Gijs: niets indienen. De release ebb-v1.0.0 blijft staan maar wordt niet geüpload. Maak de testbeelden compleet (geen grijze schermen) en zorg dat elk scherm in de test zit.
+- Daan: je eindkeuring van vanavond is een nee tot dit klaar is. Keur daarna het blad van Mila en de bouw.
