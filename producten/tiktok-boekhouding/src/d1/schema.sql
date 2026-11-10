@@ -17,7 +17,9 @@ CREATE TABLE IF NOT EXISTS winkels (
   snel_teller INTEGER NOT NULL DEFAULT 0,
   ontkoppeld_op INTEGER,             -- gezet: kale rij, er wordt niets meer geschreven
   taken TEXT,                        -- JSON, bijv. intrekken en opzeggen na ontkoppelen
-  polar_klant TEXT
+  polar_klant TEXT,
+  abonnement TEXT,                   -- JSON {actief, tot, id, opgezegd, stand, betalingMislukt, vlagStand}, zie src/polar/abonnement.ts
+  polar_gestart INTEGER              -- tijdstip van de eerste checkout (ontwerp-betalen.md, punt 1)
 );
 CREATE INDEX IF NOT EXISTS winkels_volgende_run ON winkels(volgende_run) WHERE ontkoppeld_op IS NULL;
 -- Webhook type 6 zoekt de winkel op shop_id (punt 7). Uniek: één gekoppelde rij per TikTok-winkel.
@@ -62,6 +64,16 @@ CREATE TABLE IF NOT EXISTS bestellingen (
   PRIMARY KEY (winkel, statement_id, order_id)
 );
 
+-- Gratis grens (ontwerp-betalen.md, punt 1 en 2): één rij per afrekening die boekt; de stand van een maand is SUM(bestellingen).
+CREATE TABLE IF NOT EXISTS telling (
+  winkel TEXT NOT NULL,
+  statement_id TEXT NOT NULL,
+  maand TEXT NOT NULL,               -- JJJJ-MM van statement_time in Europe/Amsterdam
+  bestellingen INTEGER NOT NULL,
+  PRIMARY KEY (winkel, statement_id)
+);
+CREATE INDEX IF NOT EXISTS telling_maand ON telling(winkel, maand);
+
 -- Punt 7: na ontkoppelen (of zonder rij in winkels) weigert elke INSERT en UPDATE; een batch is één transactie,
 -- dus een aanroep die al liep zet niets meer terug.
 CREATE TRIGGER IF NOT EXISTS statussen_ontkoppeld_insert BEFORE INSERT ON statussen
@@ -79,4 +91,8 @@ BEGIN SELECT RAISE(ABORT, 'ontkoppeld') WHERE NOT EXISTS (SELECT 1 FROM winkels 
 CREATE TRIGGER IF NOT EXISTS sloten_ontkoppeld_insert BEFORE INSERT ON sloten
 BEGIN SELECT RAISE(ABORT, 'ontkoppeld') WHERE NOT EXISTS (SELECT 1 FROM winkels WHERE id = NEW.winkel AND ontkoppeld_op IS NULL); END;
 CREATE TRIGGER IF NOT EXISTS sloten_ontkoppeld_update BEFORE UPDATE ON sloten
+BEGIN SELECT RAISE(ABORT, 'ontkoppeld') WHERE NOT EXISTS (SELECT 1 FROM winkels WHERE id = NEW.winkel AND ontkoppeld_op IS NULL); END;
+CREATE TRIGGER IF NOT EXISTS telling_ontkoppeld_insert BEFORE INSERT ON telling
+BEGIN SELECT RAISE(ABORT, 'ontkoppeld') WHERE NOT EXISTS (SELECT 1 FROM winkels WHERE id = NEW.winkel AND ontkoppeld_op IS NULL); END;
+CREATE TRIGGER IF NOT EXISTS telling_ontkoppeld_update BEFORE UPDATE ON telling
 BEGIN SELECT RAISE(ABORT, 'ontkoppeld') WHERE NOT EXISTS (SELECT 1 FROM winkels WHERE id = NEW.winkel AND ontkoppeld_op IS NULL); END;

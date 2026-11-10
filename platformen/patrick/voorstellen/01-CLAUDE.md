@@ -8,7 +8,7 @@ Waarom: elke run las 80 tot 130 KB; Anthropic adviseert onder 200 regels en "all
 Dortus is het bedrijf van Thijs. Een ploeg Claudes bouwt producten op app-platformen. Doel nu: zo snel mogelijk echt geld, eerlijk verdiend (besluit Thijs 9 nov 22:56).
 
 ## Begin van elke run (in deze volgorde, verder niets verplicht)
-1. `git pull --rebase` (ondiep klonen mag: `git clone --depth 50`).
+1. `timeout 100 git fetch --depth=50 origin main` en daarna `git rebase origin/main` (ondiep klonen mag: `git clone --depth 50`). Zegt git "forced update": dat komt door het ondiepe ophalen, niemand heeft main vervangen. Gebruik nooit `reset --hard` of `checkout -B main origin/main` als je eigen commits nog niet op GitHub staan.
 2. `berichten/<jouw naam>.md`: alleen berichten zonder "verwerkt" erachter. Berichten van Thijs gaan voor alles. Verwerkt: zet "verwerkt" erachter; de hoofdchat verplaatst verwerkte berichten wekelijks naar `berichten/archief/`.
 3. `organisatie/rollen/<jouw rol>.md`: wat jij doet.
 4. `organisatie/bord.md`: wat nu geldt en wie wat doet (hooguit 40 regels).
@@ -39,7 +39,7 @@ Lees de rest alleen als je taak erom vraagt: `organisatie/regels.md` (werkwijze,
 - Je eigen map in `platformen/` (de ontwerpers in `ontwerp/`, Chris in `commercie/`, de strateeg in `strategie/`), je eigen product in `producten/`, je eigen bestand in `berichten/` (alleen "verwerkt" erachter), een nieuw bericht onderaan het berichtenbestand van een ander (nooit iets van een ander wijzigen), een punt op `organisatie/lijst-thijs.md`. Thijs gaf schrijfrecht in al zijn repo's (7 nov); binnen dortus-hq blijf je in deze plekken, zodat niemand elkaars werk overschrijft.
 - Een nieuw groot besluit: één regel bovenaan `organisatie/besluiten.md`. Alleen de hoofdchat en Hans werken `organisatie/bord.md` en `rapporten/` bij.
 - Code op een tak `claude/<platform>-<datum>`, samenvoegen als de tests groen zijn (en bij een ontwerp of release de controleur akkoord is). Werk je in een andere repo (dortus, productrepo): ook daar `git ls-remote` bij het afsluiten.
-- Mislukt pushen: `git pull --rebase` en opnieuw. Nooit geforceerd.
+- Mislukt pushen: `timeout 100 git fetch --depth=50 origin main`, `git rebase origin/main` en opnieuw. Nooit geforceerd.
 
 ## Afsluiten
 Sluit pas af als `git ls-remote origin main` (of je tak) jouw laatste commit laat zien. Heeft iemand daarna ook opgeslagen, dan mag je hash ook in `origin/main` zitten na `git fetch` (`git merge-base --is-ancestor`). "Geslaagd" van een push zegt niets: alleen ls-remote telt. Zet hash en uitkomst in je eindantwoord, niet in een bestand. Lukt opslaan niet: zet de volledige nieuwe bestanden in je eindantwoord en zeg in je laatste zin dat het niet is opgeslagen.

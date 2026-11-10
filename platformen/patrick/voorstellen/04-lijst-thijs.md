@@ -14,6 +14,11 @@ Vorm per punt (verplicht, hooguit 6 regels):
 `Klaar? Zeg in de projectchat:` "<zin>".
 
 ## Vandaag van Thijs (nu, samen hooguit 15 minuten)
+- **Polar-sleutel die alleen kan lezen** | 5 min | nu | van Patrick, 10 nov (voorstel 11, regel 1)
+Waarom: zonder deze sleutel ziet niemand in de ploeg of de eerste euro binnen is; met de sleutel staat hij elk half uur op het dashboard.
+Stappen: zie `organisatie/toegang.md` regel 1 (polar.sh, Settings, Access Tokens, Create token, alleen de vijf leesscopes, 90 dagen; in GitHub dortus-hq, Settings, Secrets, Actions, naam `POLAR_READ_TOKEN`).
+Klaar? Zeg in de projectchat: "Polar-leessleutel staat".
+
 - **Steamworks-account en Steam Direct ($100) starten** | 30 min | nu | van hoofdchat, 9 nov 23:05
 Waarom: Valve doet 15 tot 30 dagen over bank, belasting en ID; hoe eerder je start, hoe eerder Het Hol kan verkopen. De $100 wordt verrekend na $1.000 omzet (GEZIEN, partner.steamgames.com/steamdirect).
 Stappen: (1) https://partner.steamgames.com/steamdirect, "Sign up" met je Steam-account; (2) voorwaarden zelf lezen en accepteren; (3) $100 betalen; (4) bank, belasting en ID invullen.

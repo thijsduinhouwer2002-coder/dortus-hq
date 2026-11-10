@@ -6,7 +6,7 @@ import { Budget } from "../src/budget.ts";
 import { ontkoppel, ontkoppelOpShopId } from "../src/d1/ontkoppel.ts";
 import { DAG, NU, deps, nepRevoke, rij, taken, tel, vulWinkel } from "./ontkoppel-hulp.ts";
 
-const TABELLEN = ["statussen", "transacties", "bestellingen", "sloten"];
+const TABELLEN = ["statussen", "transacties", "bestellingen", "sloten", "telling"];
 const KALE_RIJ = ["id", "ontkoppeld_op", "taken", "mb_tokens", "polar_klant"];
 
 test("(m) na ontkoppel: geen rijen meer, alleen de kale rij; andere winkel ongemoeid; alles in één budget van 50", async () => {
@@ -124,4 +124,41 @@ test("webhook-hulp ontkoppelOpShopId: bekende shop_id ontkoppelt, onbekende of d
   assert.equal(rij(db, "w2")!.ontkoppeld_op, null);
   const plan = JSON.stringify(db.sqlite.prepare("EXPLAIN QUERY PLAN SELECT id FROM winkels WHERE shop_id = ? AND ontkoppeld_op IS NULL").all("x"));
   assert.match(plan, /winkels_shop_id/);
+});
+
+test("(j) betaalstuk: abonnement, polar_gestart en telling weg bij ontkoppelen; trigger weigert telling daarna", async () => {
+  const db = new NepD1();
+  await vulWinkel(db, "w1", { polar: "polar-1", betaald: true });
+  await vulWinkel(db, "w2", { betaald: true });
+  // Vóór ontkoppelen mag schrijven in telling gewoon.
+  db.sqlite.prepare("INSERT INTO telling VALUES ('w1', 's9', '2026-11', 3)").run();
+  db.sqlite.prepare("UPDATE telling SET bestellingen = 4 WHERE winkel = 'w1' AND statement_id = 's9'").run();
+  await ontkoppel(db, "w1", "knop", NU, new Budget(50), deps(nepRevoke(200).fn).d);
+  const r = rij(db, "w1")!;
+  assert.equal(r.abonnement, null);
+  assert.equal(r.polar_gestart, null);
+  assert.equal(tel(db, "telling", "w1"), 0);
+  assert.throws(() => db.sqlite.prepare("INSERT INTO telling VALUES ('w1', 's3', '2026-11', 1)").run(), /ontkoppeld/);
+  assert.throws(() => db.sqlite.prepare("INSERT INTO telling VALUES ('onbekend', 's3', '2026-11', 1)").run(), /ontkoppeld/, "zonder winkelrij ook niet");
+  // UPDATE na ontkoppelen: rij nagebootst die toch bleef staan (trigger houdt hem tegen).
+  db.sqlite.exec("DROP TRIGGER telling_ontkoppeld_insert");
+  db.sqlite.prepare("INSERT INTO telling VALUES ('w1', 's4', '2026-11', 1)").run();
+  assert.throws(() => db.sqlite.prepare("UPDATE telling SET bestellingen = 9 WHERE winkel = 'w1'").run(), /ontkoppeld/);
+  assert.equal(Number((db.sqlite.prepare("SELECT bestellingen b FROM telling WHERE winkel = 'w1'").get() as any).b), 1, "UPDATE geweigerd");
+  const w2 = rij(db, "w2")!;
+  assert.ok(w2.abonnement && w2.polar_gestart, "andere winkel ongemoeid");
+  assert.equal(tel(db, "telling", "w2"), 1);
+});
+
+test("(i) opzegtaak ook zonder polar_klant: alleen polar_gestart of alleen abonnement is genoeg", async () => {
+  const db = new NepD1();
+  for (const w of ["gestart", "abon", "niets"]) await vulWinkel(db, w);
+  db.sqlite.prepare("UPDATE winkels SET polar_gestart = 1799990000 WHERE id = 'gestart'").run();
+  db.sqlite.prepare(`UPDATE winkels SET abonnement = '{"actief":false,"stand":1}' WHERE id = 'abon'`).run();
+  for (const w of ["gestart", "abon", "niets"]) await ontkoppel(db, w, "knop", NU, new Budget(50), deps(nepRevoke(200).fn).d);
+  assert.deepEqual(taken(db, "gestart"), { reden: "knop", opzeggen: { voor: NU, pogingen: 0 } });
+  assert.deepEqual(taken(db, "abon"), { reden: "knop", opzeggen: { voor: NU, pogingen: 0 } });
+  assert.deepEqual(taken(db, "niets"), { reden: "knop" });
+  assert.equal(rij(db, "gestart")!.polar_gestart, null, "polar_gestart is niet nodig voor zegOp: meteen weg");
+  assert.equal(rij(db, "abon")!.abonnement, null);
 });

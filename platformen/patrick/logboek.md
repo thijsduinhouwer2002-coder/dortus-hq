@@ -37,3 +37,12 @@
 - 05 en 02 sluiten nu aan op 12 (ploeg van 6, euro-datum per product op het bord). Rapport begint met vijf ja/nee-vragen voor Thijs plus de vraag naar de KvK-datum. In 12 staat dat Klopt stilzetten twee besluiten omdraait, met het nieuwe feit.
 - Einde run 2. Stand: rapport met ja/nee-blok, koerszin en top 5 staat; voorstellen 01 tot 12 staan; 01 en 07 zijn tegen de huidige regels gecontroleerd.
 - Run 3 (03:13): nieuwe berichten; rapport vers lezen als Thijs en inkorten (doel: top 5 in 3 minuten te lezen); getallen nalopen (commits: API zegt 1.868 sinds 7 nov met samenvoegingen); 04 en 09 laten aansluiten op de Polar-leessleutel en de euro-datum.
+
+## Run 3, 10 nov 2026, 02:18 tot ~03:10 UTC
+- Geen nieuwe berichten. Fetch hing eerst; `timeout 100 git fetch origin main` werkte.
+- Nachtmeting 00:00 tot 02:30 UTC (86 commits): Jet 22 (betaalstuk Klopt, 251 tests), Steam 33, Click Joints Pro 0, Garmin 0 (Gijs wacht op Hans 08:44, zes runs). In rapport punt 1.
+- Nieuw in 05 en rapport punt 4: productkeuze binnen een platform beslist de manager zelf; terugdraaien op het vaste moment.
+- "main geforceerd vervangen" (logboeken Gijs, mijn eigen fetch) is vals alarm door ondiep ophalen: GitHub compare 3b6fef7...main geeft ahead 551, behind 0. In 06 en 01 (vast begincommando met timeout en rebase, nooit reset als je eigen commits hebt).
+- 09 kreeg de euro-meter uit Polar (`POLAR_READ_TOKEN`, alleen totalen, geen klantgegevens). 04 kreeg de Polar-leessleutel als eerste punt voor Thijs.
+- Frisse lezer (agent) las het rapport als Thijs: ja/nee-blok nu zonder scrollen te snappen, privé-repo als eerste vraag, "wie is wie", wat er gebeurt bij nee, totaal Thijs-tijd, november eerlijker, cijfers gelijk (1.640, 251 tegen 181). Stopgrens toegevoegd onder "Ook belangrijk".
+- Volgende run (05:13): rapport nog één keer helemaal lezen op lengte (top 5 korter: "Wat anderen doen"-regels kunnen naar de voorstellen), nieuwe berichten, kijken of Hans/Gijs iets veranderd hebben, laatste getallen (Click Joints keuring, Bison & Flex).

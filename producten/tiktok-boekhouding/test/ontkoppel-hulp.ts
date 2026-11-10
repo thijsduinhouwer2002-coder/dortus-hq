@@ -27,8 +27,8 @@ export function deps(fetchFn: typeof fetch) {
   return { d, log, alarmen: () => log.filter((r) => r.startsWith("ALARM")) };
 }
 
-/** Een volledig gekoppelde winkel met rijen in alle vier de tabellen. */
-export async function vulWinkel(db: NepD1, w: string, opties: { mb?: boolean; polar?: string } = {}) {
+/** Een volledig gekoppelde winkel met rijen in alle vijf de tabellen. `betaald`: ook `abonnement` en `polar_gestart`. */
+export async function vulWinkel(db: NepD1, w: string, opties: { mb?: boolean; polar?: string; betaald?: boolean } = {}) {
   const mb = opties.mb === false ? null : await versleutel(bos, w, JSON.stringify({ accessToken: `GEHEIM-a-${w}`, refreshToken: `GEHEIM-r-${w}`, scope: "documents" }));
   const tt = await versleutel(bos, w, JSON.stringify({ accessToken: "GEHEIM-tt" }));
   db.sqlite
@@ -44,6 +44,12 @@ export async function vulWinkel(db: NepD1, w: string, opties: { mb?: boolean; po
   db.sqlite.prepare("INSERT INTO transacties VALUES (?, 's2', '{}', 1)").run(w);
   db.sqlite.prepare("INSERT INTO bestellingen VALUES (?, 's2', 'o1', '{}', 1)").run(w);
   db.sqlite.prepare("INSERT INTO sloten VALUES (?, '__winkel', 'run-x', 999999999999)").run(w);
+  db.sqlite.prepare("INSERT INTO telling VALUES (?, 's1', '2026-11', 12)").run(w);
+  if (opties.betaald) {
+    db.sqlite
+      .prepare(`UPDATE winkels SET abonnement = '{"actief":true,"tot":1900000000,"id":"sub-1","opgezegd":false,"stand":1}', polar_gestart = 1799990000 WHERE id = ?`)
+      .run(w);
+  }
 }
 
 export const tel = (db: NepD1, tabel: string, w: string) => Number((db.sqlite.prepare(`SELECT count(*) n FROM ${tabel} WHERE winkel = ?`).get(w) as any).n);
