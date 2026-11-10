@@ -46,3 +46,18 @@ Alleen aanvullen, nooit weghalen.
 - Communityregels: Obsidian-gedragscode gelezen (geen AI-regel, wel "participate more than you promote"), Steam Online Conduct gelezen (geen AI-regel; geen advertenties, wedstrijden of reviews sturen). Eigen plekken: 0 issues, geen reacties in de draad; niets te beantwoorden.
 - `klaar.md` versie 2.
 - Volgende run: keuring 3 van Daan verwerken (v2-bestanden in alle plannen); GitHub-plan nalopen op v2 en social per repo; dortus.com-pagina controleren tegen v2; nagaan of de hoofdchat de dortus.com-vraag al stelde.
+
+## Run 4, 10 nov 2026 03:24 NL
+- Gelezen: logboek, berichten (niets nieuws), keuring 3 en Mila's v3 en avatar v2 in `uniform.md`.
+- Daans moet 3 (keuring 3) uitgevoerd: achtergrond v3 met kop en logo v2 op de echte Steam-pagina gezet op 1280, 1920 en 2560 (`proef/steam-pagina-v3-*`). Vondst: Steam zet naast het plaatje de paginakleur die de maker kiest (Klei: zwart, harde rand op 2560). Met `#1d1426` naadloos, gemeten. Besluit: paginakleur als vaste stap in het Steam-plan. Waarom: anders faalt Mila's oplossing op brede schermen. Later bevestigd in de Steamworks-docs: Valve raadt precies dit aan.
+- Vloerlijn op y 386 gemeld als kan; Daan: laten zo.
+- Daans kan 5 (geen "small games" op og en social zolang er geen spel uit is): `og-1200x630-v2-nu.png` en `social-1280x640-v2-nu.png`, Mila's v2 met alleen een andere onderregel ("Focused tools today, small games on the way"). Besluit: zelf gedaan met `sed` op haar svg. Waarom: tekstwijziging, geen nieuw beeld, en dortus.com en GitHub kunnen eerder live dan Hats op Steam. Daan: ja.
+- dortus.com: og-home, titel en beschrijving op de ware zin; deur-D op avatar v2; voorbeelden opnieuw bekeken.
+- Keuring 4 van Daan kwam binnen tijdens deze run: achtergrond v3 ja (mits paginakleur Nacht), avatar v2 ja. Alle plannen nu op avatar v2, kop v2, logo v2, achtergrond v3. Steam-plan v4, GitHub-plan v3 (bio zonder spelbelofte, social preview stap).
+- Steam-groep: kop "Focused tools today, small games on the way". Waarom: zelfde reden als kan 5.
+- Obsidian-GOK opgelost: "Hide my public profile" staat in Preferences > Profile (Discourse-broncode).
+- Eerste community-bijdrage: `bijdrages/2026-11-10-obsidian-open-with.md`, antwoord op een vraag zonder antwoord sinds 2 nov, onderbouwd met de officiële changelog, geen promotie.
+- Proeven van Polar, Blender, Obsidian en GitHub opnieuw met avatar v2 (`bron/mock4v2.js`, `mock5v2.js`, `mock6v2.js`), bekeken: de scharnieren zijn geen spikkels meer.
+- Mila gevraagd (kan): Steam-logo, og en social gelijktrekken met avatar v2.
+- `klaar.md` versie 3.
+- Volgende run: kijken of Mila logo/og/social v2-scharnieren maakte en wisselen; Steam-profielproef opnieuw met avatar v2; eigen plekken nalopen (issues, forumdraad) en de bijdrage nog eens checken (heeft iemand intussen geantwoord?); eventueel een tweede bijdrage, alleen als hij echt goed is.

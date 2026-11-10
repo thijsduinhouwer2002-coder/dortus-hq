@@ -14,7 +14,7 @@ De hele merkkit staat en is door Daan goedgekeurd: avatar v2, Steam-kop v2, Stea
 - GitHub: `merk/proef/github-repo-light.png`
 - dortus.com nieuw: `dortus-com/voorbeeld-desktop.png` en `voorbeeld-telefoon.png`
 - Avatar v1 en v2 klein en rond naast elkaar: `merk/proef/avatar-v1-v2-klein-rond.png`
-(Enkele oudere proeven tonen nog avatar v1; de plannen noemen overal v2.)
+(Proeven van Polar, Blender, Obsidian en GitHub opnieuw gemaakt met avatar v2 op 10 nov 03:40; alleen de Steam-profielproef toont nog v1. De plannen noemen overal v2.)
 
 ## Volgorde
 | # | Account | Plan | Thijs-tijd | Hangt af van | Stand |
