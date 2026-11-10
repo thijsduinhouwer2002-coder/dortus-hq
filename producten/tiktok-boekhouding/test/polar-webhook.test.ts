@@ -322,3 +322,25 @@ test("ALARM: state_changed met een lopend, niet opgezegd abonnement voor een ont
   assert.equal(alarmen().length, 2);
   assert.equal(rij(db, "w2")!.abonnement, null, "niets geschreven");
 });
+
+test("ALARM niet bij een ontkoppelde winkel met open taak opzeggen (de cron zegt op), wel zonder taak; één query", async () => {
+  const { db, o, log } = await opzet();
+  const alarmen = () => log.filter((r) => r.startsWith("ALARM"));
+  db.sqlite.prepare(`INSERT INTO winkels (id, ontkoppeld_op, taken) VALUES ('met-taak', ?, '{"reden":"knop","opzeggen":{"voor":1,"pogingen":0}}')`).run(NU);
+  db.sqlite.prepare(`INSERT INTO winkels (id, ontkoppeld_op, taken) VALUES ('taak-klaar', ?, '{"reden":"knop"}')`).run(NU);
+  const subs = [{ id: "sub-1", eind: NU + 1000 }];
+  const q0 = db.queries;
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "met-taak", subs })), 202);
+  assert.equal(db.queries - q0, 2, "UPDATE plus één opzoekquery");
+  assert.equal(alarmen().length, 0, "open taak: geen ALARM");
+  assert.ok(log.some((r) => r.includes("met-taak") && r.includes("taak opzeggen staat open")));
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "taak-klaar", subs })), 202);
+  assert.equal(alarmen().length, 1, "taak al klaar en toch een lopend abonnement: ALARM");
+  assert.match(alarmen()[0], /taak-klaar/);
+});
+
+test("ALARM niet bij een verwijderde klant, ook als er nog een abonnement in de lijst staat", async () => {
+  const { o, log } = await opzet();
+  assert.equal(await status(o, stateChanged(iso(NU), { winkel: "w9", verwijderd: true, subs: [{ id: "sub-1", eind: NU + 1000 }] })), 202);
+  assert.deepEqual(log.filter((r) => r.startsWith("ALARM")), []);
+});

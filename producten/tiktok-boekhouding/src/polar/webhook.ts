@@ -176,11 +176,19 @@ export async function polarWebhook(request: Request, o: Omgeving, nu: number): P
     }
     // Niets geschreven. Loopt er een abonnement dat niet opgezegd is, kijk dan of de winkel weg is (alleen in dit
     // zeldzame geval een tweede query): dan betaalt iemand voor een winkel die er niet meer is, bijvoorbeeld een checkout
-    // die na het ontkoppelen betaald werd. De taak `opzeggen` vangt dat op als de kale rij er nog is; dit valt op.
+    // die na het ontkoppelen betaald werd. ALARM alleen als niets het opvangt: geen rij meer, of ontkoppeld zonder open taak
+    // `opzeggen`. Staat de taak open, dan zegt de cron het op (en geeft zelf ALARM als dat niet lukt). In één query.
     if (lopendNietOpgezegd) {
-      const gekoppeld = await o.db.prepare(`SELECT 1 AS j FROM winkels WHERE id = ? AND ontkoppeld_op IS NULL`).bind(winkel).first();
-      if (!gekoppeld) {
-        o.log(`ALARM polar-webhook ${type} winkel ${winkel} ${webhookId}: actief abonnement zonder opzegging voor een onbekende of ontkoppelde winkel; controleer in Polar`);
+      const w = await o.db
+        .prepare(`SELECT ontkoppeld_op IS NULL AS gekoppeld, json_extract(taken, '$.opzeggen') IS NOT NULL AS taak FROM winkels WHERE id = ?`)
+        .bind(winkel)
+        .first<{ gekoppeld: number; taak: number }>();
+      if (!w || (!w.gekoppeld && !w.taak)) {
+        o.log(`ALARM polar-webhook ${type} winkel ${winkel} ${webhookId}: actief abonnement zonder opzegging voor een ${w ? "ontkoppelde winkel zonder opzegtaak" : "onbekende winkel"}; zeg op in Polar`);
+        return tekst(202);
+      }
+      if (!w.gekoppeld) {
+        log(winkel, "ontkoppeld met lopend abonnement; taak opzeggen staat open");
         return tekst(202);
       }
     }
