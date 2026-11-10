@@ -44,6 +44,8 @@ Bewuste uitzondering: op Steam (profiel en groep) noemen we Hats of the Fallen w
 | 8 | JetBrains: beschrijving (één woord) | `accounts/jetbrains.md` | ±2 min | niets | klaar; er bestaat geen logoveld |
 | later | Steam: ontwikkelaarspagina | `accounts/steam.md` stap 3 | ±15 min | stap 0 en app-ID van Hats of the Fallen | beelden en teksten klaar, paginakleur `#1d1426` niet vergeten |
 
+Samen: ±34 min Thijs-tijd voor 0 tot en met 8 (plus €5 als stap 0 nodig is); de ontwikkelaarspagina later ±15 min.
+
 Waarom deze volgorde: Steam eerst (opdracht Thijs), en stap 0 vóór alles omdat stap 1 tot 3 er anders op vastlopen. Polar naar voren: dat is waar iemand betaalt, en daar staat nu een grijze letter. Blender ID omdat de moderatoren nu naar Click Joints kijken. JetBrains als laatste: alleen een tekstje, geen beeld mogelijk.
 
 ## Community-bijdrages (elk apart een ja van Thijs)

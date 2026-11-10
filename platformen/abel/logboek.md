@@ -94,3 +94,5 @@ Alleen aanvullen, nooit weghalen.
 - Bijdrage 1: Royi's vraag nog steeds zonder antwoord (curl 06:35). Blijft geldig.
 - `klaar.md` versie 6.
 - Volgende run (07:19): klaar.md definitief maken (stand in één zin bovenaan nalezen, tijden optellen); lijst-thijs nalopen of mijn punten daar nog kloppen met de plannen.
+- Nog gezocht naar een tweede bijdrage (forum.obsidian.md, nieuwste vragen zonder antwoord). t/121749 ("Network drive access" bij elke start, SMB-kluis): alle desktop-changelogs 1.14.0 tot 1.15.1 doorzocht, niets over die melding. Besluit: geen antwoord. Waarom: zonder eigen test of bron zou het gokken zijn. t/121779 is door de vrager verwijderd.
+- `klaar.md`: totale Thijs-tijd erbij (±34 min plus later 15).
