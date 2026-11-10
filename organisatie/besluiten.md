@@ -148,3 +148,10 @@ Repo-secret `POLAR_TOKEN` in dortus-hq, gemaakt door Thijs. Let op: deze sleutel
 
 ## 10 nov 14:56: Klopt in de kast (Thijs)
 TikTok vraagt voor de bedrijfscheck een KvK-nummer van 8 cijfers en een bedrijf dat langer dan een jaar bestaat (GEZIEN in Partner Center). Klopt kan dus voorlopig niet live. Account, partnernaam Dortus (in keuring) en de app Klopt (draft) blijven staan; app key en secret blijven in Partner Center, nog niet in GitHub. Niemand werkt aan Klopt tot de hoofdchat het weer oppakt. Tess en Jet staan uit. Wat er ligt (Worker, betaalstuk, 292 tests, schermen) blijft bewaard.
+
+## 10 nov 22:52: de kwaliteitslat, altijd (Thijs)
+Thijs: "vind het bizar dat als ik kort kritiek lever het ineens wel beter kan; ik wil dat jij dit altijd handhaaft." Vanaf nu, voor elk product:
+1. Niets heet "klaar" of gaat naar Thijs als af, voordat een frisse beoordelaar (een losse Claude zonder voorkennis, met meten in Python) minstens een 8 van 10 geeft op uiterlijk, centreren, leesbaarheid op het kleinste scherm, inhoud van teksten en samenhang.
+2. De hoofdchat kijkt zelf naar de echte schermen (niet alleen naar het oordeel van de ploeg) voordat iets gemeld wordt.
+3. Eerst ontwerpblad met alle schermen, dan bouwen. Daan keurt de echte bouw, niet de tekening.
+4. Kritiek van Thijs wordt een vaste regel in het ontwerp, zodat hij hem nooit twee keer hoeft te geven.

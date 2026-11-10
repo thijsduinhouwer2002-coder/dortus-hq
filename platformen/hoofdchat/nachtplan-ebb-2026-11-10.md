@@ -16,3 +16,6 @@ Doel: de hele app Ebb mooi, gecentreerd en af, op het niveau van de winkelbeelde
 - Niemand werkt tegelijk in dezelfde bestanden: Mila in ontwerp/garmin en producten/garmin-adem/winkel, Gijs in de code.
 - Thijs' oordeel gaat voor. Morgen om 08:00: een kort overzicht met het blad, de echte schermen en wat de beoordelaars zeiden.
 - Stop om 08:00.
+
+## Erbij (22:52, Thijs: "ook de hele app zelf en qua uitbreidingen")
+Naast het uiterlijk: een frisse productkeuring van Ebb als geheel. Wat mist een koper van $4,99 vergeleken met de concurrenten (reviews van WHM breathing+ en anderen)? Welke uitbreidingen maken het beter zonder het rommelig te maken? Uitkomst als voorstel voor Thijs om 08:00 (wat in versie 1 moet, wat in een latere update), niets bouwen zonder zijn ja.
