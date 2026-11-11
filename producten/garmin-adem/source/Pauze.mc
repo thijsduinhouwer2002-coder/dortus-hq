@@ -33,13 +33,7 @@ class PauzeView extends WatchUi.View {
         var d = (w < h) ? w : h;
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        // Stille zee: platte kamlijn op 84, één tint 0055AA, vanaf 208 de diepte 000055.
-        dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
-        dc.fillRectangle(0, EbbTeken.px(d, 84), w, EbbTeken.px(d, 208) - EbbTeken.px(d, 84));
-        dc.setColor(EbbTeken.ZEE_KLEUR[3], EbbTeken.ZEE_KLEUR[3]);
-        dc.fillRectangle(0, EbbTeken.px(d, 208), w, h - EbbTeken.px(d, 208));
-        dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
-        dc.fillRectangle(0, EbbTeken.px(d, 84) - 1, w, d >= 300 ? 3 : 2);
+        EbbZee.stil(dc, d);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, EbbTeken.px(d, 24), EbbTeken.fS(), "paused", Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);

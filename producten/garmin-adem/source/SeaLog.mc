@@ -100,11 +100,11 @@ class DierenView extends WatchUi.View {
 
     // Plek van dier k op het blad in px: [x, y, maat] (zwaartepunt), volgens blad v9.
     function plek(d as Number, blad as Number, k as Number) as Array<Number> {
-        var m = (23 * d + 130) / 260;
+        var m = EbbTeken.px(d, 23);
         if (blad == BLADEN - 1) {
-            return [d / 2, (132 * d + 130) / 260, m + 14] as Array<Number>;
+            return [d / 2, EbbTeken.px(d, 132), m + 14] as Array<Number>;
         }
-        return [d / 2 + (k % 3 - 1) * ((62 * d + 130) / 260), ((103 + (k / 3) * 47) * d + 130) / 260, m] as Array<Number>;
+        return [d / 2 + (k % 3 - 1) * EbbTeken.px(d, 62), EbbTeken.px(d, 103 + (k / 3) * 47), m] as Array<Number>;
     }
 
     // Het zwarte plaatje van een blad: van de bovenkant van het hoogste dier tot de onderkant van het laagste,
@@ -222,10 +222,10 @@ class DierenView extends WatchUi.View {
         EbbTeken.tekst260(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
         EbbTeken.tekst260(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.ZEE_KLEUR[0]);
         // Bladstippen op y 236: actief vol in schuim, de andere als ring in 00AAFF (blad v9).
-        var stap = (9 * d + 130) / 260;
-        var rb = (2 * d + 130) / 260;
+        var stap = EbbTeken.px(d, 9);
+        var rb = EbbTeken.px(d, 2);
         rb = rb < 2 ? 2 : rb;
-        var yStip = (236 * d + 130) / 260;
+        var yStip = EbbTeken.px(d, 236);
         dc.setPenWidth(1);
         for (var b = 0; b < BLADEN; b += 1) {
             var x = w / 2 + (b * 2 - (BLADEN - 1)) * stap / 2;

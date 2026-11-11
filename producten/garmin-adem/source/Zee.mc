@@ -126,4 +126,16 @@ module EbbZee {
         golf(dc, d, 0.885, d * 0.008, EbbTeken.ZEE_KLEUR[1], 0.0, true);
         golf(dc, d, 0.935, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.1, false);
     }
+
+    // Stille zee van het pauzemenu (blad v10): platte kamlijn op 84 (1/260 D), één tint 0055AA, vanaf 208 de diepte 000055.
+    function stil(dc as Graphics.Dc, d as Number) as Void {
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+        dc.fillRectangle(0, EbbTeken.px(d, 84), w, EbbTeken.px(d, 208) - EbbTeken.px(d, 84));
+        dc.setColor(EbbTeken.ZEE_KLEUR[3], EbbTeken.ZEE_KLEUR[3]);
+        dc.fillRectangle(0, EbbTeken.px(d, 208), w, h - EbbTeken.px(d, 208));
+        dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+        dc.fillRectangle(0, EbbTeken.px(d, 84) - 1, w, d >= 300 ? 3 : 2);
+    }
 }

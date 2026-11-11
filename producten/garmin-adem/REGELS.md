@@ -6,7 +6,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 2. **Hoogstens 300 regels per codebestand.** Toetsen (`*Test.mc`) tellen niet. Wordt een bestand groter, splits het eerst. De workflow `garmin-adem-e2e.yml` controleert dit (stap "Regels: bestanden hoogstens 300 regels").
 3. **Eerst zoeken of iets al bestaat** (grep in `source/`) voordat je een nieuwe functie schrijft.
 4. **Dieren alleen via de gedeelde functies.** `EbbDierPlaatje.laag` is de enige plek die een dier tekent (rand, lijf, ogen, silhouet). Een scherm tekent een dier met `EbbDierVoorraad.teken` of `EbbDierMaat.inBand` (één laag per beurt, tegen de watchdog). Alleen de sea log bouwt zijn blad zelf op, maar ook met `EbbDierPlaatje.laag`.
-5. **Zee alleen via `EbbZee`** (`Zee.mc`): `zee` (inhouden in standen), `ademZee` (ademen en rustig), `zeeBanden` (elke andere zee), `strook` (dunne zee onder today, 8 weeks, settings). Geen eigen golven of banden in een scherm.
+5. **Zee alleen via `EbbZee`** (`Zee.mc`): `zee` (inhouden in standen), `ademZee` (ademen en rustig), `zeeBanden` (elke andere zee), `strook` (dunne zee onder today, 8 weeks, settings), `stil` (platte zee van het pauzemenu). Geen eigen golven of banden in een scherm.
 6. **Opruimen verandert niets aan wat de app doet.** Bewijs met de testbeelden: vóór en na pixel voor pixel gelijk (`bron/vergelijk_plaatjes.py`).
 
 ## Kaart van `source/`
