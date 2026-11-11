@@ -496,3 +496,15 @@
 1. Veiligheidstekst op elk horloge leesbaar, dier groter, sea complete groeit zichtbaar, winkelbeelden eerlijk en nieuw.
 2. Open: sea complete groepsfoto (Mila v10) en sneller op 454, pauzemenu in Ebb-stijl, punt 5 tot 9, rest van 10, plaatjesrun op alle horloges nakijken.
 3. Volgende run eerst: plaatjesrun van 8f99ceb bekijken (Venu 3S, vivoactive 5, FR165), dan Mila v10 punt 1 (groepsfoto).
+
+## Run 38 (11 nov 08:50 tot 09:00 UTC, handmatig gestart): Mila v10 punt 1 en 2
+- Opdracht van deze start (leesbare tekst, winkelbeelden) stond al af in run 37; door met de volgende punten.
+- 7209317: sea complete als groepsfoto volgens Mila v10 (walvis maat 32/260, 23 vrienden in rijen 4, 7, 6, 6, fontein onder de kamlijn). Eerst met een tijdsbudget van 30 ms per beurt: watchdog op FR255 (lokaal gezien). Nu vast: één laag per beurt, drie op 416 en 454. GEZIEN compleet op fenix 8 en FR255 na 25 s, geen crash.
+- 7209317: pauzemenu als eigen scherm (`Pauze.mc`, PauzeView en PauzeDelegate): stille zee, "paused", "round 2 · 1:12", Resume/Save/Discard met pil in schuim, krab wijst de keuze aan. Scène 35 "pauze", workflow telt 36 scènes. GEZIEN op fenix 8 en FR255.
+- 38f98ea: winkelkaart 5-sea-complete uit de groepsfoto op fenix 8.
+- Lokaal één scène los draaien: kopie van de app met `var k = <scène>` in Scenes.mc (alleen in de kladmap, niet in git).
+
+**In drie regels:**
+1. Sea complete is nu een rustige groepsfoto op elk formaat, pauzemenu in Ebb-stijl.
+2. Open: Calm-pauze ook in Ebb-stijl, keuring bouw 5 punt 5, 7, 8, 9, rest van 10, plaatjesrun van 38f98ea op alle horloges.
+3. Volgende run eerst: plaatjesrun nakijken (geen crash op twaalf?), dan punt 5 uiterlijk.
