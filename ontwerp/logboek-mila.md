@@ -261,7 +261,7 @@
 - Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-2-keuring-drie.md`: dieren v8.2 (otter, narwal, drie tinten, zeepaardje, rog). Berichten: verder niets open.
 - **Besluit: otter als bootje op de rug** (kop omhoog links, voeten omhoog rechts, schelp in het midden). Waarom: zo heeft de omtrek drie herkenbare punten (kop met oor, schelp, voeten) en is hij geen blok meer; en het is de houding die iedereen van zeeotters kent.
 - **Besluit: rog in zandkleur en als ruit.** Waarom: de lolly kwam van de ronde schijf; puntige vleugels en een spitse snuit maken de vleugelvorm, en zand houdt hem gevonden apart van de grijze manta.
-- **Besluit: haai staalgroen, zwaardvis indigo met paars.** Waarom: de haai had dezelfde kleur als de maanvis, en dolfijn en zwaardvis hadden hetzelfde blauw.
+- **Besluit: haai staalgroen, zwaardvis indigo met lila.** Waarom: de haai had dezelfde kleur als de maanvis, en dolfijn en zwaardvis hadden hetzelfde blauw.
 - Gemaakt: `bron/ebb_dieren_v82.py`, `bron/maak_v82.py`, `ebb-blad-v82.png`, `blad82/`, `dieren82/`, `ebb-dieren-v82-data.json`, uitleg in `ebb-blad-v8.md`, bericht Gijs. Barlow-ttf gemaakt uit Gijs' woff (alleen in mijn werkmap).
 - Gezien met Read: oud en nieuw naast elkaar op 260 vergroot, overzicht van 25, blad. Eerste otter werd een witte vlek (oog groter dan de kop), opgelost.
 - Volgende run: otter-voeten iets lichter; teksten van het dierenblad naar besluit 04:30 (weken, geen "next") als Gijs dat bouwt; contrastmeting op v8.2.

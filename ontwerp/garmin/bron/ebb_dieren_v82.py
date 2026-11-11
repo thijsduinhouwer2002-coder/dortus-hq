@@ -15,7 +15,7 @@ from ebb_dieren_v4 import poot
 # Alleen MIP-kleuren (elk kanaal 0, 85, 170 of 255). (lijf, licht, donker)
 v3.TINT.update({
     'dolfijn': ((85,170,255),  (170,255,255), (0,85,170)),     # hemelsblauw, lichte buik (blijft)
-    'zwaard':  ((85,85,255),   (255,255,255), (170,85,255)),   # indigo met zilveren buik, paarse zeil en zwaard
+    'zwaard':  ((85,85,255),   (255,255,255), (170,170,255)),  # indigo met witte buik, lila zeil, zwaard en staart (3,0:1 op het lijf)
     'haai':    ((85,170,170),  (255,255,255), (0,85,85)),      # staalgrijs-groen, witte buik
     'otter':   ((170,85,0),    (255,255,170), (85,0,0)),       # bruin met roomkleurige snuit
     'rog':     ((170,170,85),  (255,255,170), (85,85,0)),      # zand
