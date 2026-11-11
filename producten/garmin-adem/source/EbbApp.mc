@@ -114,6 +114,23 @@ class EbbApp extends Application.AppBase {
             }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
+            if (k == 26) {
+                // Keuring bouw 3 punt 14: Calm onder 1 minuut (45 s, telt niet mee: "from 1 min it counts").
+                Application.Storage.setValue(EbbTrouw.BITS, 15);
+                return [new CalmEindeView(45000, 4, [] as Array<Number>, 5), new CalmEindeDelegate()];
+            }
+            if (k == 25) {
+                // Keuring bouw 3 punt 12 en 14: alle 24 gevonden, "sea complete", reeks 12 weken.
+                Application.Storage.setValue(EbbTrouw.BITS, (1 << 25) - 1);
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, 23);
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.opgeslagen = true;
+                view.einde = true;
+                view.eindReeks = 12;
+                view.sessie.inhoudtijden = [80000, 105000, 118000] as Array<Number>;
+                view.eindVolgend = -1;
+                return [view, new EbbDelegate(view)];
+            }
             if (k == 21) {
                 // Calm-eindscherm 6d (blad v7): 4 min, 12 ademhalingen, je schildpad, 5 dagen op rij.
                 Application.Storage.setValue(EbbTrouw.BITS, 15);
@@ -932,7 +949,13 @@ class EbbView extends WatchUi.View {
             EbbDierData.silhouet(dc, eindVolgend, w / 2, cy, (d * (n > 3 ? 0.09 : 0.105)).toNumber());
             tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
         } else {
-            tekstInRonde(dc, d, 0.645, "all " + EbbTrouw.totaal() + " found", Graphics.COLOR_WHITE);
+            // Keuring bouw 3 punt 12 (besluit 2): na de walvis "sea complete" met je eigen dier; de reeks in weken
+            // eronder blijft groeien ("12 weeks in a row"), zonder nieuwe dieren.
+            var eigen = EbbTrouw.zwemmer();
+            if (eigen >= 0) {
+                EbbDierData.teken(dc, eigen, w / 2, cy, EbbDierMaat.inVak(eigen, (d * 0.26).toNumber(), (d * 0.18).toNumber()), -1);
+            }
+            tekstInRonde(dc, d, 0.645, "sea complete", EbbTeken.LICHT);
         }
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = vandaag();
@@ -951,13 +974,14 @@ class EbbView extends WatchUi.View {
     // Keuring bouw 2 punt 4: geen "next:" (besluit 22:53 punt 3), wel wat er nog nodig is: "1 more session",
     // "2 more weeks in a row", of "next session" als het dier al klaar ligt.
     function volgendTekst() as String {
+        // Keuring bouw 3 punt 11: zeg wat er komt ("1 more session: new friend").
         if (eindRest <= 0) {
-            return "next session";
+            return "next session: new friend";
         }
         if ((EbbTrouw.DIEREN[eindVolgend][1] as Number) == EbbTrouw.SOORT_REEKS) {
-            return eindRest + (eindRest == 1 ? " more week in a row" : " more weeks in a row");
+            return eindRest + (eindRest == 1 ? " more week: new friend" : " more weeks: new friend");
         }
-        return eindRest + (eindRest == 1 ? " more session" : " more sessions");
+        return eindRest + (eindRest == 1 ? " more session: new friend" : " more sessions: new friend");
     }
 
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
