@@ -143,9 +143,9 @@ module EbbScenes {
             return [new CalmEindeView(240000, 12, [] as Array<Number>, 5), new CalmEindeDelegate()];
         }
         if (k == 19 || k == 20) {
-            // Settings 1 en 2 (blad v7 scherm 9 en 9b): keuze op Breathing pace, en op "Ebb makes no sound".
+            // Settings 1 en 2 (blad v7 scherm 9 en 9b): keuze op Breathing pace, en op Safety info met de vaste regel "Ebb makes no sound" eronder.
             var iv = new EbbInstellingenView();
-            iv.keuze = (k == 19) ? 1 : 12;
+            iv.keuze = (k == 19) ? 1 : 13;
             return [iv, new EbbInstellingenDelegate(iv)];
         }
         if (k >= 16 && k <= 18) {

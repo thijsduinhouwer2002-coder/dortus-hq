@@ -3,10 +3,12 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-// Sea log volgens blad v7 en v8: raster over bladen met Mila's dieren; dieren tekenen via EbbDierPlaatje.laag.
+// Sea log volgens Mila blad v9 punt 1: 4 bladen van 6 (2 rijen van 3) voor de 24 gewone dieren, blad 5 alleen de
+// zeekomkommer (bonus), groot. Maten in 1/260 van D (ontwerp/garmin/ebb-blad-v9.md). Dieren via EbbDierPlaatje.laag.
 class DierenView extends WatchUi.View {
     var keuze as Number = 0;
-    const PER_BLAD = 9;
+    const PER_BLAD = 6;
+    const BLADEN = 5;
     // Run 42953647184: met 3 per beurt (15 keer tekenen) trapte de watchdog op de FR255; 1 dier (5 keer) per beurt.
     const NIEUW_PER_BEURT = 1;
     var _plaatje as Graphics.BufferedBitmapReference or Null = null;
@@ -39,8 +41,21 @@ class DierenView extends WatchUi.View {
 
     // Voor de toets: staat het hele blad in het plaatje?
     function klaar() as Boolean {
-        var blad = keuze / PER_BLAD;
-        return _plaatje != null && (_getekend >= PER_BLAD || blad * PER_BLAD + _getekend >= EbbTrouw.DIEREN.size());
+        return _plaatje != null && _getekend >= opBlad(bladVan(keuze));
+    }
+
+    // Blad van dier i: nr 1 tot 24 in bladen van 6, de bonus (laatste) alleen op blad 5.
+    function bladVan(i as Number) as Number {
+        return EbbTrouw.bonus(i) ? BLADEN - 1 : i / PER_BLAD;
+    }
+
+    // Aantal dieren op een blad, en het eerste nummer.
+    function opBlad(blad as Number) as Number {
+        return blad == BLADEN - 1 ? 1 : PER_BLAD;
+    }
+
+    function eerste(blad as Number) as Number {
+        return blad == BLADEN - 1 ? EbbTrouw.ZEEKOMKOMMER : blad * PER_BLAD;
     }
 
     function initialize() {
@@ -50,7 +65,7 @@ class DierenView extends WatchUi.View {
     }
 
     function bladen() as Number {
-        return (EbbTrouw.DIEREN.size() + PER_BLAD - 1) / PER_BLAD;
+        return BLADEN;
     }
 
     function verschuif(stap as Number) as Void {
@@ -83,69 +98,38 @@ class DierenView extends WatchUi.View {
         return (nog <= 1) ? "next session" : "at " + drempel + " sessions";
     }
 
-    function grens(i as Number) as Array<Number> {
-        var g = EbbDierMaat.grenzen(i);
-        return [g[2], g[3]] as Array<Number>;
+    // Plek van dier k op het blad in px: [x, y, maat] (zwaartepunt), volgens blad v9.
+    function plek(d as Number, blad as Number, k as Number) as Array<Number> {
+        var m = (23 * d + 130) / 260;
+        if (blad == BLADEN - 1) {
+            return [d / 2, (132 * d + 130) / 260, m + 14] as Array<Number>;
+        }
+        return [d / 2 + (k % 3 - 1) * ((62 * d + 130) / 260), ((103 + (k / 3) * 47) * d + 130) / 260, m] as Array<Number>;
     }
 
-    // Opbouw van een blad (keuring bouw 3 punt 9): rijen 3 px uit elkaar (op 260; groter scherm iets meer), het raster
-    // tussen de telling en de naam; past het niet, dan wordt de diermaat voor dat blad kleiner. Zet _maat, _rijY, _boven, _onder.
-    var _maat as Number = 20;
-    var _rijY as Array<Number> = [0, 0, 0] as Array<Number>;
+    // Het zwarte plaatje van een blad: van de bovenkant van het hoogste dier tot de onderkant van het laagste,
+    // met de rand erbij. Zet _boven en _onder.
     var _boven as Number = 0;
     var _onder as Number = 0;
-    var _grenzen as Array<Array<Number> > = [] as Array<Array<Number> >;
 
-    function bouwBlad(dc as Graphics.Dc, d as Number, blad as Number) as Void {
-        var schaal = EbbDierData.SCHAAL;
-        var rijen = 0;
-        var top = [0, 0, 0] as Array<Number>;
-        var bod = [0, 0, 0] as Array<Number>;
-        _grenzen = [] as Array<Array<Number> >;
-        for (var k = 0; k < PER_BLAD; k += 1) {
-            var i = blad * PER_BLAD + k;
-            if (i >= EbbTrouw.DIEREN.size()) {
-                break;
-            }
-            var g = grens(i);
-            _grenzen.add(g);
-            var r = k / 3;
-            rijen = r + 1;
-            if (g[0] < top[r]) { top[r] = g[0]; }
-            if (g[1] > bod[r]) { bod[r] = g[1]; }
+    function bouwBlad(d as Number, blad as Number) as Void {
+        _boven = d;
+        _onder = 0;
+        for (var k = 0; k < opBlad(blad); k += 1) {
+            var p = plek(d, blad, k);
+            var g = EbbDierMaat.grenzen(eerste(blad) + k);
+            var r = EbbDierData.randPx(p[2]) + 1;
+            var t = p[1] + g[2] * p[2] / EbbDierData.SCHAAL - r;
+            var o = p[1] + g[3] * p[2] / EbbDierData.SCHAAL + r;
+            _boven = t < _boven ? t : _boven;
+            _onder = o > _onder ? o : _onder;
         }
-        var tussen = (d * 0.0116).toNumber();
-        tussen = tussen < 3 ? 3 : tussen;
-        var fs = dc.getFontHeight(EbbTeken.fS());
-        var fx = dc.getFontHeight(EbbTeken.fX());
-        var boven = (d * 0.135).toNumber() + fs / 2 + fx + 2;
-        var naamLucht = (d * 0.0385).toNumber();
-        naamLucht = naamLucht < 10 ? 10 : naamLucht;
-        // Onder het raster: naam, regel en bladstippen, met de stippen hoogstens op 0,91 D.
-        // Beelden run 42961476036: met 0,91 D en een rand van 3 px werden de dieren op 260 te klein (maat 12); nu 0,93 D en de echte rand.
-        var eronder = naamLucht + fs + 2 + fs + (d * 0.03).toNumber();
-        var ruimte = (d * 0.93).toNumber() - eronder - boven;
-        var eenheden = 0;
-        for (var r = 0; r < rijen; r += 1) {
-            eenheden += bod[r] - top[r];
-        }
-        var rand = EbbDierData.randPx((d * 0.078).toNumber());
-        var vast = rijen * 2 * rand + (rijen - 1) * tussen;
-        var maat = (d * 0.078).toNumber();
-        if (eenheden * maat / schaal + vast > ruimte) {
-            maat = (ruimte - vast) * schaal / eenheden;
-            maat = maat < 8 ? 8 : maat;
-        }
-        _maat = maat;
-        var hoog = eenheden * maat / schaal + vast;
-        var y = (d * 0.475).toNumber() - hoog / 2;
-        y = y < boven ? boven : y;
-        _boven = y;
-        for (var r = 0; r < rijen; r += 1) {
-            _rijY[r] = y + rand - top[r] * maat / schaal;
-            y += (bod[r] - top[r]) * maat / schaal + 2 * rand + tussen;
-        }
-        _onder = y - tussen;
+    }
+
+    // Tekst met de bovenkant op y (1/260 D), zoals op het blad.
+    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as WatchUi.FontResource, s as String, kleur as Number) as Void {
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (y * d + 130) / 260, f, s, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -153,17 +137,15 @@ class DierenView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
-        var blad = keuze / PER_BLAD;
-        // Keuring bouw 2 punt 1 (watchdog): de dieren van een blad komen in één plaatje op zwart (het raster), dat over
-        // een paar beurten vol getekend wordt: hoogstens NIEUW_PER_BEURT dieren per beurt, elke beurt een eigen watchdog.
+        var blad = bladVan(keuze);
+        // Keuring bouw 2 punt 1 (watchdog): de dieren van een blad komen in één plaatje op zwart, één laag per beurt.
         // Is het plaatje af, dan kost een beurt alleen nog het plakken. Opnieuw na een ander blad of een nieuw dier.
         var ox = (d * 0.13).toNumber();
         var sleutel = blad * 100000000 + EbbTrouw.getal(EbbTrouw.BITS) % 100000000;
         var ref = _plaatje;
         var bb = (ref != null) ? ref.get() : null;
         if (bb == null || sleutel != _sleutel) {
-            bouwBlad(dc, d, blad);
+            bouwBlad(d, blad);
             ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => _onder - _boven + 2, :palette => palet()});
             _plaatje = ref;
             bb = ref.get();
@@ -178,70 +160,63 @@ class DierenView extends WatchUi.View {
             _opbouwBeurt = true;
         }
         var oy = _boven;
-        var maat = _maat;
         var plaatje = bb as Graphics.BufferedBitmap;
         var pdc = plaatje.getDc();
         var gekozenY = 0;
         var gekozenX = 0;
         var nu = 0;
-        for (var k = 0; k < PER_BLAD; k += 1) {
-            var i = blad * PER_BLAD + k;
-            if (i >= EbbTrouw.DIEREN.size()) {
-                break;
-            }
-            var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
-            var y = _rijY[k / 3];
+        var n = opBlad(blad);
+        for (var k = 0; k < n; k += 1) {
+            var i = eerste(blad) + k;
+            var p = plek(d, blad, k);
             if (k >= _getekend && nu < NIEUW_PER_BEURT && !_opbouwBeurt) {
                 // Eén laag per beurt: gevonden 4 keer stickerrand en dan het dier, silhouet 8 keer rand en het vlak.
-                if (tekenLaag(pdc, i, x - ox, y - oy, maat)) {
+                if (tekenLaag(pdc, i, p[0] - ox, p[1] - oy, p[2])) {
                     _getekend = k + 1;
                     _laag = 0;
                 }
                 nu += 1;
             }
             if (i == keuze) {
-                gekozenX = x;
-                gekozenY = y + (_grenzen[k][1] * maat) / EbbDierData.SCHAAL;
+                gekozenX = p[0];
+                gekozenY = p[1] + EbbDierMaat.grenzen(i)[3] * p[2] / EbbDierData.SCHAAL + EbbDierData.randPx(p[2]);
             }
         }
         _opbouwBeurt = false;
-        var later = _getekend < PER_BLAD && blad * PER_BLAD + _getekend < EbbTrouw.DIEREN.size();
         dc.drawBitmap(ox, oy, plaatje);
-        // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
-        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        // Beelden run 42953647184: "sea log" en "8 of 24" liepen in elkaar; nu de telling kleiner eronder.
-        dc.drawText(w / 2, (d * 0.135).toNumber(), EbbTeken.fS(), "sea log", midden);
-        dc.drawText(w / 2, (d * 0.135).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + dc.getFontHeight(EbbTeken.fX()) / 2, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
-        // Keuzestip 3 px onder de onderkant van het gekozen dier (blad v8, keuring bouw 3 punt 9), na de stickerrand.
-        dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+        // Tekst na het plaatje, zodat het zwarte raster de tekst niet bedekt (blad v9: kop y 28, telling 58, naam 184, regel 210).
+        tekst(dc, d, 28, EbbTeken.fS(), "sea log", EbbTeken.SCHUIM);
+        tekst(dc, d, 58, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), EbbTeken.ZEE_KLEUR[0]);
+        if (blad == BLADEN - 1) {
+            tekst(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
+        }
+        // Keuzestip 2 px onder het gekozen dier (met zijn rand), in schuim.
         var rs = (d * 0.011).toNumber();
         rs = rs < 3 ? 3 : rs;
-        dc.fillCircle(gekozenX, gekozenY + 3 + 3 + rs, rs);
-        // Naam 10 px onder het raster (op 260), regel en bladstippen eronder.
-        var fs = dc.getFontHeight(EbbTeken.fS());
-        var lucht = (d * 0.0385).toNumber();
-        lucht = lucht < 10 ? 10 : lucht;
-        var yNaam = _onder + lucht + fs / 2;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
-        dc.drawText(w / 2, yNaam, EbbTeken.fS(), naam, midden);
-        var tekst = regel(keuze);
-        var f = (dc.getTextWidthInPixels(tekst, EbbTeken.fS()) <= d * 0.74) ? EbbTeken.fS() : EbbTeken.fX();
-        dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-        var yRegel = yNaam + fs / 2 + 2 + dc.getFontHeight(f) / 2;
-        dc.drawText(w / 2, yRegel, f, tekst, midden);
-        // Bladstippen: actief schuim, de andere 00AAFF (blad v8).
-        var n = bladen();
-        var stap = (d * 0.04).toNumber();
-        var rb = (d * 0.009).toNumber();
-        rb = rb < 2 ? 2 : rb;
-        var yStip = yRegel + dc.getFontHeight(f) / 2 + (d * 0.02).toNumber();
-        for (var b = 0; b < n; b += 1) {
-            var kleur = (b == blad) ? EbbTeken.SCHUIM : EbbTeken.ZEE_KLEUR[0];
-            dc.setColor(kleur, kleur);
-            dc.fillCircle(w / 2 + (b - (n - 1) / 2.0) * stap, yStip, rb);
+        if (n > 1) {
+            dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+            dc.fillCircle(gekozenX, gekozenY + 2 + rs, rs);
         }
-        if (later) {
+        var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
+        tekst(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
+        tekst(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.ZEE_KLEUR[0]);
+        // Bladstippen op y 236: actief vol in schuim, de andere als ring in 00AAFF (blad v9).
+        var stap = (9 * d + 130) / 260;
+        var rb = (2 * d + 130) / 260;
+        rb = rb < 2 ? 2 : rb;
+        var yStip = (236 * d + 130) / 260;
+        dc.setPenWidth(1);
+        for (var b = 0; b < BLADEN; b += 1) {
+            var x = w / 2 + (b * 2 - (BLADEN - 1)) * stap / 2;
+            if (b == blad) {
+                dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+                dc.fillCircle(x, yStip, rb);
+            } else {
+                dc.setColor(EbbTeken.ZEE_KLEUR[0], Graphics.COLOR_TRANSPARENT);
+                dc.drawCircle(x, yStip, rb);
+            }
+        }
+        if (_getekend < n) {
             WatchUi.requestUpdate();
         }
     }

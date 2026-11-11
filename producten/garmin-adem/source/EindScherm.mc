@@ -22,6 +22,11 @@ module EbbEindScherm {
     // of het volgende dier als silhouet (6c), een regel, stippen voor het weekdoel met de reeks in weken.
     // Past bij 1 tot 6 rondes: tot 3 tijden op één regel, daarna twee regels in de kleine letter.
     function teken(dc as Graphics.Dc, d as Number, v as EbbView) as Void {
+        // Mila blad v9 punt 3: na de walvis een eigen feestscherm, zonder tijden.
+        if (v.nieuweDieren.size() == 0 && v.eindVolgend < 0) {
+            EbbSeaComplete.teken(dc, d, v.eindReeks);
+            return;
+        }
         var w = d;
         var n = v.sessie.inhoudtijden.size();
         var tijden = [] as Array<String>;
@@ -65,18 +70,10 @@ module EbbEindScherm {
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
             EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
-        } else if (v.eindVolgend >= 0) {
+        } else {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
             EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
             tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
-        } else {
-            // Keuring bouw 3 punt 12 (besluit 2): na de walvis "sea complete" met je eigen dier; de reeks in weken
-            // eronder blijft groeien ("12 weeks in a row"), zonder nieuwe dieren.
-            var eigen = EbbTrouw.zwemmer();
-            if (eigen >= 0) {
-                EbbDierMaat.inBand(dc, eigen, w / 2, bandTop, bandOnder, (d * 0.26).toNumber(), (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
-            }
-            tekstInRonde(dc, d, 0.645, "sea complete", EbbTeken.LICHT);
         }
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = EbbView.vandaag();

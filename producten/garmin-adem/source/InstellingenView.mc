@@ -10,12 +10,14 @@ import Toybox.WatchUi;
 // het aanraakscherm doet tijdens een sessie altijd niets.
 class EbbInstellingenView extends WatchUi.View {
     var keuze as Number = 0;
-    // Per regel [naam, soort, sleutel]: soort 0 waarde uit EbbInstellingen, 1 aan/uit, 2 actie, 3 vaste regel.
+    // Per regel [naam, soort, sleutel]: soort 0 waarde uit EbbInstellingen, 1 aan/uit, 2 actie.
+    // Keuring bouw 4 punt 11: "Ebb makes no sound" is geen knop maar een vaste regel onder de laatste instelling.
+    const GEEN_GELUID = "Ebb makes no sound";
     const REGELS = [
         ["Rounds", 0, 2], ["Breathing pace", 0, 1], ["Breaths", 0, 0], ["Recovery hold", 0, 3], ["Weekly goal", 0, 8],
         ["Buzz every 30 s", 1, :tik30], ["Buzz on last 3 breaths", 1, :laatste3], ["Vibration", 1, :trillen],
         ["My pattern: in", 0, 4], ["My pattern: hold", 0, 5], ["My pattern: out", 0, 6], ["My pattern: rest", 0, 7],
-        ["Start my pattern", 2, :eigen], ["Ebb makes no sound", 3, :geluid], ["Safety info", 2, :veilig]
+        ["Start my pattern", 2, :eigen], ["Safety info", 2, :veilig]
     ] as Array<Array>;
     var veiligGezet as Boolean = false;
 
@@ -39,9 +41,6 @@ class EbbInstellingenView extends WatchUi.View {
         var id = regel[2] as Symbol;
         if (id == :eigen) {
             return EbbStart.eigenTekst();
-        }
-        if (id == :geluid) {
-            return "vibration only";
         }
         if (id == :veilig) {
             return veiligGezet ? "next start" : null;
@@ -114,6 +113,12 @@ class EbbInstellingenView extends WatchUi.View {
         }
         if (keuze + 2 < aantal()) {
             regelKort(dc, d, keuze + 2, (y1 + fx + lucht).toFloat() / d);
+        }
+        // Onder de laatste instelling de vaste regel, in de zachte kleur zodat hij niet als knop leest.
+        if (keuze + 1 >= aantal() - 1) {
+            var yg = (keuze + 1 == aantal()) ? y1 : y1 + fx + lucht;
+            dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, yg, EbbTeken.fX(), GEEN_GELUID, midden);
         }
     }
 

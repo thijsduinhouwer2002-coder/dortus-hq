@@ -193,8 +193,9 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
+    // Keuring bouw 4 punt 12: terug in het startmenu sluit de app; het systeem doet dat zelf als we false geven
+    // (geen System.exit met een onbereikbare return erachter).
     function onBack() as Boolean {
-        System.exit();
-        return true;
+        return false;
     }
 }
