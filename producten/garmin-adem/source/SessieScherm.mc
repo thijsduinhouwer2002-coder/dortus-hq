@@ -52,6 +52,8 @@ module EbbSessieScherm {
             var s = t / 1000;
             var stand = EbbProfiel.zeeStand(s);
             EbbZee.zee(dc, d, stand, golfFase);
+            // Wereld van je dier onderin (Wereld.mc); tekent alleen in de proefscènes tot de werelden gekeurd zijn.
+            EbbWereld.teken(dc, v.gezelschap, d);
             var fhT = dc.getFontHeight(EbbTeken.fS());
             var fhK = dc.getFontHeight(EbbTeken.fX());
             var yKop = (d * 0.20).toNumber();

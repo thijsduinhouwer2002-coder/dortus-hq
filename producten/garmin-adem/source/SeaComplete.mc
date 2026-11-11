@@ -52,12 +52,14 @@ module EbbSeaComplete {
         if (bb == null) {
             _ref = null;
             _mis += 1;
-            System.println("SEA plaatje niet gekregen, poging " + _mis);
+            System.println("SEA plaatje niet gekregen, poging " + _mis + ", maat " + EbbTeken.px(d, 232) + " x " + EbbTeken.px(d, 144));
             return;
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
         dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
         dc.clear();
+        // Keuring bouw 8 punt 7: de maat van het plaatje in het log, naast "GEHEUGEN SEA klaar".
+        System.println("SEA plaatje " + EbbTeken.px(d, 232) + " x " + EbbTeken.px(d, 144) + " gekregen, eerdere mislukte pogingen " + _mis);
     }
 
     // Eén laag erbij (drie op AMOLED vanaf 390 px); true als alle 24 dieren erin staan.

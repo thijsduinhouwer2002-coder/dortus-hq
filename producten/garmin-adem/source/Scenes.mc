@@ -213,6 +213,13 @@ module EbbScenes {
             view.sessie.ronde = 1;
             view.plaatjeFase = Ebb.FASE_ADEMEN;
             view.plaatjeMs = 22 * 3000 + 2100;
+        } else if (k >= 39) {
+            // Proef werelden (besluit Thijs 11 nov 23:13): inhouden op 1:45 met schildpad, krab en clownvis in hun wereld.
+            Application.Storage.setValue(EbbTrouw.BITS, 255);
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([3, 4, 7] as Array<Number>)[k - 39]);
+            EbbWereld.proef = true;
+            view.sessie.ronde = 1;
+            view.plaatjeMs = 105000;
         } else if (k == 24) {
             // Inhouden op 1:45 met de krab als gekozen maatje (4 dieren gevonden plus de krab).
             Application.Storage.setValue(EbbTrouw.BITS, 31);
