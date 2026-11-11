@@ -240,3 +240,6 @@ Thijs: ideeën goed, maak Ebb af op topniveau en laat zien dat de hoofdchat een 
 6. **Later (1.1):** andere dieren die langszwemmen.
 Wanneer is het top: alle keuringscijfers 8 of hoger, uiterlijk en winkelbeelden 9 naast de best verkopende Connect IQ-ademapps, en de hoofdchat heeft elk scherm zelf op drie horloges bekeken. Eerder zegt de hoofdchat niet "klaar".
 **Nieuwe vaste stap:** elke ronde een vierde frisse beoordelaar die geen fouten zoekt maar drie voorstellen doet om Ebb mooier of onderscheidender te maken, naast de beste horloge- en mobiele apps. De hoofdchat kiest en legt alleen de keuze voor.
+
+## 12 nov 00:27 (Thijs): schattingen in agent-tijd
+De agents lopen 24 uur per dag door. Een schatting geeft de hoofdchat daarom altijd op twee manieren: uren werk (rondes) en kloktijd bij doorlopen, met de marge apart genoemd. Maatstaf van Thijs: 3 tot 5 dagen is veel voor het afmaken van Ebb, maar weinig voor Het Hol (Steam), waar hij rekent op ongeveer 20 dagen met meerdere agents. Schatting Ebb op 12 nov 00:27: 18 tot 22 uur werk Gijs, 6 tot 8 uur Mila; 1,5 tot 2 dagen kloktijd als alles meezit, marge tot maandag 16 nov.
