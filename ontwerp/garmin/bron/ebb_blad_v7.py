@@ -189,8 +189,11 @@ def s_rooster7(D, pagina, kies, extra_dx):
         dier_vak(rooster, soort, x, y, D*0.17, D*0.105, kleur=None if n in GEVONDEN else 'silhouet')
         rd = ImageDraw.Draw(rooster)
     a = np.array(rooster).astype(float).sum(axis=2); xs_ = np.arange(D)[None, :] + 0.5
-    dx = 0 if a.sum() == 0 else (a*xs_).sum()/a.sum() - D/2
-    dx = extra_dx*D/260   # v7: raster op zijn kader; het optische midden hangt af van welke dieren je hebt (blad 2: alleen de octopus in kleur)
+    # v7.1: optisch centreren op de vorm: elk dier telt even zwaar, gevonden of silhouet (een gekleurd dier is niet "zwaarder"
+    # dan een silhouet met rand). Zwaartepunt van alle niet-zwarte pixels van het raster in het midden, hoogstens 8 px op 260.
+    m = (a > 0).astype(float)
+    dx = 0 if m.sum() == 0 else (m*xs_).sum()/m.sum() - D/2
+    dx = max(-D*0.031, min(D*0.031, dx)) + extra_dx*D/260
     im.paste(rooster, (int(round(-dx)), 0), Image.fromarray((a > 0).astype('uint8')*255))
     d = ImageDraw.Draw(im)
     naam, wat = eis(kies)
@@ -229,13 +232,22 @@ SCHERMEN = [('1 menu', s_menu6), ('1b start', s_start7), ('1c eerste keer', s_ui
             ('8 sea log 1 van 3', s_rooster_1), ('8b sea log 2 van 3', s_rooster_2), ('8d sea log 3 van 3', s_rooster_3), ('8c sea log dier', s_zeelog7),
             ('9 settings', met_strook(s_instel_a)), ('9b settings', met_strook(s_instel_b)), ('10 veilig 1', met_strook(s_veilig_a)), ('10c veilig 3', met_strook(s_veilig_c))]
 
+def vorm_x(im, D):
+    """Zwaartepunt van alles wat niet zwart is binnen 0,44 R (ring en water niet; silhouetten tellen wel mee, anders dan optisch_x)."""
+    a = np.array(im).astype(int); m = a.sum(axis=2) > 0
+    for c in (RING, W1, W2):
+        m &= ~((a[:, :, 0] == c[0]) & (a[:, :, 1] == c[1]) & (a[:, :, 2] == c[2]))
+    y, x = np.mgrid[0:D, 0:D]; m &= np.hypot(x+0.5-D/2, y+0.5-D/2) < D*0.44
+    ys, xs = np.nonzero(m)
+    return xs.mean() + 0.5 - D/2
+
 def maak(uit):
     os.makedirs(uit, exist_ok=True); rap = []; beelden = {}
     for D in (454, 260):
         for naam, fn in SCHERMEN:
             im = teken7(fn, D); beelden[(naam, D)] = im; im.save(f'{uit}/ebb-v7-{naam.split()[0]}-{D}.png')
             if D == 260:
-                rap.append(f'{D:4d}  {naam:22s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   buiten MIP {niet_mip(im)}   tekst tot {tekst_r(im, D):.2f} R')
+                rap.append(f'{D:4d}  {naam:22s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   vorm x {vorm_x(im, D):+5.1f} px   buiten MIP {niet_mip(im)}   tekst tot {tekst_r(im, D):.2f} R')
     klein = sorted({(t, p) for D, t, p in v3.LOG if D == 260}, key=lambda z: z[1])[:6]
     rap.append('kleinste tekst op 260: ' + ', '.join(f'"{t}" {p} px' for t, p in klein))
     gap = 30; cel_b = 454 + 24 + 260; kol = 4; cel_h = 454 + 64
