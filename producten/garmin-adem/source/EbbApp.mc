@@ -207,6 +207,14 @@ class VeiligView extends WatchUi.View {
         if (onder > d * (yPil - 0.05)) {
             yPil = (onder + d * 0.05) / d.toFloat();
         }
+        // Daan B5: de pil blijft minstens 0,02 D boven de hoogste golftop van de strook; zo nodig schuift het blok omhoog.
+        var bh = (d * 0.10).toNumber();
+        bh = bh < lh + 4 ? lh + 4 : bh;
+        var pilMax = (EbbTeken.STROOK_TOP - 0.02) * d - bh / 2.0;
+        if (yPil * d > pilMax) {
+            top -= (yPil * d - pilMax).toNumber();
+            yPil = pilMax / d;
+        }
         EbbTeken.driehoek(dc, d, top + s / 2, s);
         var y = top + s + lh / 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -307,7 +315,7 @@ class StartCheckView extends WatchUi.View {
             dc.setColor(i < 3 ? Graphics.COLOR_WHITE : EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
             dc.drawText(d / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
         }
-        EbbTeken.pil(dc, d, 0.79, 0.30, 0.10, "OK", f);
+        EbbTeken.pil(dc, d, 0.77, 0.30, 0.10, "OK", f);
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -321,8 +329,9 @@ class StartCheckView extends WatchUi.View {
         }
         // Blad v6 scherm 1b: kop met rondes en ademhalingen, groot "Seated / or lying?", knop Start als pil, zee onderaan.
         var d = (w < h) ? w : h;
-        EbbTeken.golf(dc, d, 0.80, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
-        EbbTeken.golf(dc, d, 0.88, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
+        // Daan B5: zee iets lager (0,83 D), zodat de pil Start ruim boven de golf blijft.
+        EbbTeken.golf(dc, d, 0.83, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
+        EbbTeken.golf(dc, d, 0.90, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, EbbStart.startKop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
