@@ -2,6 +2,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 import Toybox.Math;
+import Toybox.System;
 
 // Uiterlijk volgens de schets van Mila (ontwerp/garmin/tij-stijl.md en ontwerp/garmin/bron/ebb_schets.py).
 // Alle maten als deel van de diameter D, alleen MIP-kleuren, geen verloop.
@@ -168,6 +169,108 @@ module EbbTeken {
             _eigen = WatchUi.loadResource(Rez.Fonts.EbbCijfers) as WatchUi.FontResource;
         }
         return _eigen as WatchUi.FontResource;
+    }
+
+    // Blad v6: de waterschaal W0 tot W3 (Mila ebb_blad_v3.py) voor de zee tijdens het inhouden.
+    const ZEE_KLEUR = [0x00AAFF, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
+    const LICHTCYAAN = 0xAAFFFF;
+    const GEEL = 0xFFFF55;
+
+    // AMOLED-scherm (burn-in bescherming): daar mag het water per stand 10 procent donkerder (blad v5 en v6).
+    function amoled() as Boolean {
+        var s = System.getDeviceSettings();
+        return (s has :requiresBurnInProtection) && s.requiresBurnInProtection;
+    }
+
+    // Kleur k met helderheid pct (100 is gelijk).
+    function dimmer(k as Number, pct as Number) as Number {
+        var r = ((k >> 16) & 0xFF) * pct / 100;
+        var g = ((k >> 8) & 0xFF) * pct / 100;
+        var b = (k & 0xFF) * pct / 100;
+        return (r << 16) | (g << 8) | b;
+    }
+
+    // Blad v6, inhoudscherm: zee in stand 0 tot 5 (EbbProfiel.ZEE). Bovenste band met golf en schuimrand op 0,12 D,
+    // de banden eronder als zachte golf zonder schuim. Op AMOLED het hele water 10 procent donkerder per stand.
+    function zee(dc as Graphics.Dc, d as Number, stand as Number, fase as Float) as Void {
+        var banden = EbbProfiel.ZEE[stand];
+        var pct = amoled() ? EbbProfiel.amoledHelderheid(stand) : 100;
+        for (var b = 0; b < banden.size(); b += 2) {
+            var kleur = ZEE_KLEUR[banden[b + 1]];
+            if (pct < 100) {
+                kleur = dimmer(kleur, pct);
+            }
+            var top = banden[b] / 100.0;
+            if (b == 0) {
+                golf(dc, d, top, d * 0.014, kleur, fase, true);
+            } else {
+                golf(dc, d, top, d * 0.008, kleur, fase + 1.3 * b, false);
+            }
+        }
+    }
+
+    // Vlak vanaf hoogte top (deel van D vanaf boven) tot de onderkant, met een golvende bovenrand.
+    function golf(dc as Graphics.Dc, d as Number, top as Float, amp as Float, kleur as Number, fase as Float, schuim as Boolean) as Void {
+        var y0 = d * top;
+        var pts = [] as Array<[Numeric, Numeric]>;
+        for (var i = 0; i <= GOLF_PUNTEN; i += 1) {
+            var x = (d * i) / GOLF_PUNTEN;
+            var y = y0 + amp * Math.sin(2.0 * Math.PI * 2.0 * i / GOLF_PUNTEN + fase);
+            pts.add([x, y.toNumber()]);
+        }
+        var vlak = [] as Array<[Numeric, Numeric]>;
+        vlak.addAll(pts);
+        vlak.add([d, d]);
+        vlak.add([0, d]);
+        dc.setColor(kleur, kleur);
+        dc.fillPolygon(vlak);
+        if (schuim) {
+            dc.setColor(SCHUIM, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(d / 160 > 1 ? d / 160 : 1);
+            for (var i = 0; i < GOLF_PUNTEN; i += 1) {
+                dc.drawLine(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1]);
+            }
+        }
+    }
+
+    // Klein hartje (KORAAL), midden op (cx, cy), breedte s.
+    function hart(dc as Graphics.Dc, cx as Number, cy as Number, s as Number) as Void {
+        var r = s / 4 > 1 ? s / 4 : 1;
+        dc.setColor(KORAAL, KORAAL);
+        dc.fillCircle(cx - r, cy - r / 2, r);
+        dc.fillCircle(cx + r, cy - r / 2, r);
+        dc.fillPolygon([[cx - 2 * r, cy - r / 4], [cx + 2 * r, cy - r / 4], [cx, cy + 3 * r / 2 + 1]]);
+    }
+
+    // Blad v6 (regel_hart_ronde): hartje + hartslag in wit en "  ·  round N" in lichtcyaan, samen gecentreerd.
+    function hartRonde(dc as Graphics.Dc, d as Number, y as Number, bpm as Number, ronde as Number) as Void {
+        var font = Graphics.FONT_XTINY;
+        var a = bpm > 0 ? bpm.toString() : "--";
+        var b = "  ·  round " + ronde;
+        var fh = dc.getFontHeight(font);
+        var s = (fh * 6) / 10;
+        var gap = fh / 5;
+        var wa = dc.getTextWidthInPixels(a, font);
+        var wb = dc.getTextWidthInPixels(b, font);
+        var x0 = d / 2 - (s + gap + wa + wb) / 2;
+        hart(dc, x0 + s / 2, y, s);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x0 + s + gap, y, font, a, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x0 + s + gap + wa, y, font, b, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Blad v6 punt 3: twee gespiegelde trilboogjes links en rechts van een regel van breedte breed, in geel.
+    function trilboog(dc as Graphics.Dc, d as Number, cy as Number, breed as Number) as Void {
+        dc.setColor(GEEL, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
+        var rs = [0.026, 0.044] as Array<Float>;
+        for (var j = 0; j < 2; j += 1) {
+            var r = (rs[j] * d).toNumber();
+            var off = breed / 2 + (d * 0.008).toNumber();
+            dc.drawArc(d / 2 + off, cy, r, Graphics.ARC_COUNTER_CLOCKWISE, 300, 60);
+            dc.drawArc(d / 2 - off, cy, r, Graphics.ARC_COUNTER_CLOCKWISE, 120, 240);
+        }
     }
 
     var _eigen as WatchUi.FontResource or Null = null;

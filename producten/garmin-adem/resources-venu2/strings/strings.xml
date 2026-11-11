@@ -1,0 +1,4 @@
+<strings>
+    <!-- Geen START-knop met die naam: de bovenste knop stopt het inhouden (keuring 01:55 punt 6). -->
+    <string id="StopTekst">top button to breathe</string>
+</strings>

@@ -399,9 +399,48 @@ class EbbView extends WatchUi.View {
             if (fase == Ebb.FASE_ADEMEN) {
                 EbbTrillen.tril(_vorigeFase == Ebb.FASE_HERSTEL ? EbbTrillen.M_LOS : EbbTrillen.M_IN);
             } else if (fase == Ebb.FASE_INHOUDEN) {
-                _vorigInhoudMs = 0;
-                EbbTrillen.tril(EbbTrillen.M_INHOUDEN);
-            } else if (fase == Ebb.FASE_HERSTEL) {
+            // Blad v6 (3a, 3b, 3d, 3c; keuring 01:55 punt 2): de zee wordt elke 30 s een stand donkerder tot 2:30
+            // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
+            // daaronder hoe je stopt, dan de tijd, je dier, en onderaan hartslag en ronde.
+            var s = t / 1000;
+            var stand = EbbProfiel.zeeStand(s);
+            EbbTeken.zee(dc, d, stand, golfFase);
+            var fhT = dc.getFontHeight(Graphics.FONT_SMALL);
+            var fhK = dc.getFontHeight(Graphics.FONT_XTINY);
+            var yKop = (d * 0.20).toNumber();
+            if (s < 180) {
+                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(w / 2, yKop, Graphics.FONT_SMALL, "hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            } else {
+                var tb = "time to breathe";
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(w / 2, yKop, Graphics.FONT_XTINY, tb, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                EbbTeken.trilboog(dc, d, yKop, dc.getTextWidthInPixels(tb, Graphics.FONT_XTINY));
+            }
+            var yStop = yKop + fhT / 2 + fhK / 2;
+            dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, yStop, Graphics.FONT_XTINY, stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            // De tijd direct onder de stopregel: de lege ruimte boven de cijfers (hoogte min ascent min descent)
+            // valt weg, zodat de cijfers 2% D onder de stopregel beginnen.
+            var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+            var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - (leeg > 0 ? leeg : 0);
+            yGroot = yTijd.toFloat() / d;
+            var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
+            var yRegel = (d * 0.83).toNumber();
+            var yDier = (onderCijfer + yRegel) / 2;
+            // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
+            if (stand < 5) {
+                var stijg = (t % 8000) / 8000.0;
+                var yd = yDier.toFloat() / d;
+                EbbTeken.bellen(dc, d, [[0.28, yd + 0.03 - 0.08 * stijg, 0.012], [0.72, yd - 0.01 - 0.08 * stijg, 0.009]] as Array<Array<Float> >);
+            }
+            var p = EbbProfiel.zwem(t);
+            if (p >= 0.0) {
+                EbbTeken.dier(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
+            }
+            groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
+            EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
+        } else if (fase == Ebb.FASE_HERSTEL) {
                 EbbTrillen.tril(EbbTrillen.M_HERSTEL);
             } else if (fase == Ebb.FASE_KLAAR) {
                 EbbTrillen.tril(EbbTrillen.M_KLAAR);
@@ -424,6 +463,15 @@ class EbbView extends WatchUi.View {
         }
         _vorigeFase = fase;
         _vorigIn = isIn;
+    }
+
+    // Keuring 01:55 punt 6: hoe je het inhouden stopt, per horloge de juiste knop (resources-venu2, -venu3, -vivoactive5).
+    private var _stop as String or Null = null;
+    function stopTekst() as String {
+        if (_stop == null) {
+            _stop = WatchUi.loadResource(Rez.Strings.StopTekst) as String;
+        }
+        return _stop as String;
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
