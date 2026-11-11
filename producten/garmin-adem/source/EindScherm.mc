@@ -109,8 +109,9 @@ module EbbEindScherm {
     function kamlijn(d as Number, onderTekst as Number) as Number {
         var k = EbbTeken.px(d, KAM);
         // Beeld run 43104956914 (FR255, 6 rondes): met 7 raakte de tweede regel tijden de golf. Met 11 gemeten in run
-        // 43108922082: 6 px lucht op FR255 en ±13 px op fenix 8; keuring bouw 8 punt 2 vraagt 10 en 16, daarom 15.
-        var t = onderTekst + EbbTeken.px(d, 15);
+        // 43108922082: 6 px lucht op FR255 en ±13 px op fenix 8; keuring bouw 8 punt 2 vraagt 10 en 16. Met 15 gemeten in run
+        // 43113167622: 9 px op FR255 en ±17 px op fenix 8; daarom 17.
+        var t = onderTekst + EbbTeken.px(d, 17);
         return t > k ? t : k;
     }
 

@@ -117,7 +117,8 @@ class EbbMenuView extends WatchUi.View {
             dc.drawText(x, y, f, WOORDEN[i], Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             if (gekozen) {
                 // Keuring bouw 8 punt 3: het gekozen woord in een pil met schuimrand (was een streep van 1 px).
-                var pad = wm / 2 - 1;
+                // Beeld run 43113167622: met de halve tussenruimte raakte de rand het puntje ernaast; nu een derde.
+                var pad = wm / 3;
                 var maxPad = (d * 0.03).toNumber();
                 pad = pad > maxPad ? maxPad : (pad < 3 ? 3 : pad);
                 var ph = fh + 2;
