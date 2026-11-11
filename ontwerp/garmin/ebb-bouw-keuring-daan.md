@@ -38,3 +38,48 @@ De hoofdchat keurt v7 met drie beoordelaars; dit zijn alleen de fouten die ik za
 - **L1. 1c "how it works":** de pil "Next" ligt op de zeestrook en raakt "BACK stops" erboven (454 en 260). Zelfde regel als B5: 0,02 D lucht boven en onder de pil.
 - **L2. 6c einde zonder dier:** onderaan staan drie regels plus stippen op elkaar ("next: Clownfish, 1 more", stippen, "4 days in a row", "1 rest day is fine"); op 454 raken de laatste twee regels elkaar bijna, op 260 is het een propje tegen de rand. Eén regel minder (bijvoorbeeld "4 days in a row · rest day ok" of de rustdag-zin alleen tonen als je gisteren rustte).
 - Verder geen lees- of rekenfouten gezien; stickerrand maakt de dieren op 260 goed leesbaar.
+
+## Bouwkeuring 2, 11 nov 2026, ±02:10 UTC (handmatige run hoofdchat: bouw zonder dieren, scherm voor scherm)
+
+**Bekeken:** plaatjes run 42940068457 (1bc3d89, 16 scènes op fenix 8, FR265, vivoactive 5, FR255), e2e run 42940068326 (1bc3d89, alle negen horloges: fenix 7, fenix 8, epix 2 pro, FR255, FR265, FR965, Venu 2, Venu 3, vivoactive 5), naast blad v6. Ook de keuring door drie van de hoofdchat (`ebb-bouw-1-keuring-drie.md`) gelezen; ik ben het met alle twaalf punten eens. Gijs' commits van na 1bc3d89 (521493a herstelkop, e4b1e8a uitlegzin en dubbel opslaan) staan nog niet in beeld, die keur ik op de volgende beelden.
+
+**Akkoord: nee** voor de bouw zonder dieren.
+
+### Scherm voor scherm tegen blad v6
+| Blad | In testbeeld? | Letter | Kleur en zee | Opmaak en centreren (gemeten) | Oordeel |
+|---|---|---|---|---|---|
+| 1 menu | ja (e2e `-m`, plaatjes 10, Venu `-veeg`) | systeem | strook vlak, zonder lichte kam; **rode vis** in plaats van je eigen dier | pillen en tekst in het midden (dx 0 tot +2 px) | nee: eigen dier, kam |
+| 1b start | ja (`-s`, 12) | systeem | goed | in het midden; Start raakt de strook op vivoactive 5 | bijna |
+| 1c uitleg | ja (`-u`, 11) | systeem | goed | tot 0,87 R op fenix 8 (grens 0,80); oude zin "while the sea gets dark" in beeld (e4b1e8a nog niet gezien) | nee |
+| 2 ademen in | ja (`demo-b`, 9) | systeem | **turkoois vlak** (`0x00AAAA`) i.p.v. blauwe zee | cijfer zakt door de golf op alle horloges | nee |
+| 2 ademen uit | **ontbreekt** | | | | |
+| 3a/3b/3d/3c inhouden | alleen plaatjes 0 tot 3, **niet in de e2e** | systeem | zee wordt per stap donkerder: ja, goed te zien; op AMOLED rechte banden i.p.v. verloop | dier links of rechts naast de tijd (FR255 3:04 +6 px), vis raakt "0:30"; hart "--" | nee |
+| 4 herstel | alleen plaatjes 8 | systeem | goed (zon, lichte zee) | kop tot 0,94 R, letters afgesneden op vivoactive 5 (521493a nog niet gezien) | nee |
+| 5 rustig 4-7-8 | e2e `-r`, plaatjes 7 | systeem | **oud turkoois vlak** over het hele scherm (wit op teal 2,9:1), "4-7-8" op de schuimlijn | blad: zwart, zee onderaan, groot cijfer met s, "Calm 4-7-8" in het water | nee |
+| 6 today | ja (`demo-c`, 5) | systeem | goed | kader dx +1 px | ja |
+| 6 today, 6 rondes / 3 sessies | **ontbreekt** | | | | |
+| 6b einde met dier | **ontbreekt** (wacht op dieren) | | | | |
+| 6c einde zonder dier | **ontbreekt** (Gijs bezig) | | | | |
+| 6d einde Calm (v7) | **ontbreekt** | | | | |
+| 7 8 weeks | ja (`demo-d`, 6) | systeem | goed | kader dx +1 px, staven rechts is echte data | ja |
+| 8, 8b, 8d sea log | **nee**: lijst van 4 i.p.v. raster 3 x 3 | | | lijst hangt +14 px rechts | nee (wacht op v7-data) |
+| 8c sea log dier | **ontbreekt** | | | | |
+| 9, 9b settings | **ontbreekt** (07e7ca3 nog niet in beeld) | | | | |
+| 10, 10b, 10c veiligheid | ja (`-a`, `-a2`, `-a3`, 13 tot 15) | systeem | goed | tekst in het midden (dx 0 tot +2), binnen 0,74 R; OK raakt de strook op fenix 8 | bijna |
+| pauzemenu | **ontbreekt** | | | | |
+
+**Grijs:** `demo-a` is op **alle negen** horloges een leeg grijs vlak (epix 2 pro, fenix 7, fenix 8, FR255, FR265, FR965, Venu 2, Venu 3, vivoactive 5). Epix 2 pro, FR965, Venu 2 en Venu 3 hebben verder alleen `demo-b` tot `demo-d` (en Venu `-veeg`); de plaatjesbouw draait alleen op vier horloges.
+
+### Moet-punten voor de bouw zonder dieren (D1 tot D9)
+Dezelfde volgorde als de keuring door drie, met mijn maat erbij.
+- **D1. Letter Barlow Condensed** (OFL) als eigen font, mijn kan-punt K1 wordt moet: het blad leunt erop en het lost de randproblemen (B4) op. Drie maten per schermmaat: groot cijfer (alleen 0 tot 9, : en s, dat houdt het klein), kop, regel. Meet het geheugen eerst op fenix 7 en FR255; past het groot cijfer niet, dan daar de systeemletter voor het cijfer en Barlow voor de rest.
+- **D2. Eén zee.** `DIEPTE[0]` naar `0x00AAFF`. Ademen: blauwe zee met lichte kam zoals blad 2; rustig: zoals blad 5 (zwart, zee onderaan, "7 s" groot, "Calm 4-7-8" in het water), geen teal vlak meer.
+- **D3. AMOLED verloop** (fenix 8, epix, FR265, FR965, Venu, vivoactive 5): zee met verloop en lichte kam, geen rechte banden achter de cijfers. Op MIP vaste tinten met golvende randen.
+- **D4. Tekst nooit in de golf:** minstens 0,03 D tussen tekst en de hoogste golftop (ademen "2" en "23", rustig "4-7-8", herstel "15" en zon).
+- **D5. Alles binnen 0,80 R:** herstelkop, uitleg (meet op de tekstregels zelf, niet op het kader met de schuimlijn).
+- **D6. Knoppen los van de zee:** 0,02 D lucht onder Start, OK en Next.
+- **D7. Dier op het inhoudscherm en in het menu:** je eigen dier (niet de rode vis), in rust in het midden onder de tijd, lucht erboven en eronder; in de plaatjes in rustpositie. Tot de dieren van Mila er zijn mag het de schildpad zijn.
+- **D8. Testbeelden compleet, met vaste namen:** elk scherm uit de tabel hierboven dat ontbreekt (ademen uit, inhouden in de e2e, 6c, 6d, today 6 rondes en 3 sessies, settings 1 en 2, pauzemenu, sea log 1/2/3 en dier zodra gebouwd), op 454, 416, 390 en 260; `demo-a` repareren; plaatjes ook op Venu 2, Venu 3, epix 2 pro en FR965. Hartslag in de plaatjes nagebootst (bijvoorbeeld 61).
+- **D9. Settings in Ebb-stijl** zoals blad v7 9 en 9b (zwart, gekozen regel als blauwe pil, woorden van v7).
+
+Wanneer ja: als D1 tot D9 in beeld staan op de vier maten en alles gemeten binnen de grenzen valt (centreren 2 px, 0,80 R, 0,03 D vrij van de golf). Sea log en eindscherm met dier keur ik apart na Mila's dieren v8.
