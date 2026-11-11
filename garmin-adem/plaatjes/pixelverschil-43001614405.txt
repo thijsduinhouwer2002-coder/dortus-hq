@@ -11,7 +11,7 @@ VERSCHIL einde-6c-fenix7xpro.png 16785 pixels in (100, 206, 378, 421)
 VERSCHIL einde-6c-krab-fenix7xpro.png 16370 pixels in (100, 206, 378, 421)
 VERSCHIL einde-6d-fenix7xpro.png 10714 pixels in (103, 206, 375, 402)
 VERSCHIL einde-na-feest-fenix7xpro.png 16316 pixels in (100, 206, 378, 402)
-VERSCHIL einde-sea-complete-fenix7xpro.png 940 pixels in (183, 364, 271, 389)
+VERSCHIL einde-sea-complete-fenix7xpro.png 379 pixels in (278, 364, 297, 391)
 VERSCHIL einde-weekdoel-fenix7xpro.png 16939 pixels in (100, 206, 378, 421)
 GELIJK herstel-fenix7xpro.png
 VERSCHIL inhouden-0-30-fenix7xpro.png 937 pixels in (199, 339, 278, 394)
@@ -21,6 +21,8 @@ VERSCHIL inhouden-3-04-fenix7xpro.png 881 pixels in (209, 352, 269, 394)
 VERSCHIL inhouden-krab-fenix7xpro.png 776 pixels in (199, 349, 278, 394)
 VERSCHIL menu-krab-fenix7xpro.png 1371 pixels in (148, 353, 331, 369)
 VERSCHIL menu-leeg-fenix7xpro.png 1371 pixels in (148, 353, 331, 369)
+ONTBREEKT menu-today-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT overzicht-menu-fenix7xpro.png (voor: False, na: True)
 GELIJK pauze-fenix7xpro.png
 GELIJK rustig-fenix7xpro.png
 GELIJK sealog-1-fenix7xpro.png
@@ -35,4 +37,4 @@ GELIJK uitleg-fenix7xpro.png
 GELIJK veilig-1-fenix7xpro.png
 GELIJK veilig-2-fenix7xpro.png
 GELIJK veilig-3-fenix7xpro.png
-37 beelden, 23 met verschil of ontbrekend
+39 beelden, 25 met verschil of ontbrekend

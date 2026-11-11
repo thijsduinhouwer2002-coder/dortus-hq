@@ -1,38 +1,40 @@
-GELIJK 8weeks-fenix847mm.png
-GELIJK ademen-in-fenix847mm.png
-GELIJK ademen-uit-fenix847mm.png
-VERSCHIL calm-45s-fenix847mm.png 82222 pixels in (135, 301, 589, 654)
-VERSCHIL calm-einde-krab-fenix847mm.png 82707 pixels in (135, 301, 589, 654)
-GELIJK calmcheck-fenix847mm.png
-VERSCHIL einde-6b-fenix847mm.png 90523 pixels in (135, 301, 589, 656)
-VERSCHIL einde-6b-zeekomkommer-fenix847mm.png 91253 pixels in (135, 301, 589, 656)
-VERSCHIL einde-6c-6rondes-fenix847mm.png 81419 pixels in (135, 287, 589, 658)
-VERSCHIL einde-6c-fenix847mm.png 89924 pixels in (135, 301, 589, 656)
-VERSCHIL einde-6c-krab-fenix847mm.png 90306 pixels in (135, 301, 589, 656)
-VERSCHIL einde-6d-fenix847mm.png 82741 pixels in (135, 301, 589, 654)
-VERSCHIL einde-na-feest-fenix847mm.png 89906 pixels in (135, 301, 589, 656)
-GELIJK einde-sea-complete-fenix847mm.png
-VERSCHIL einde-weekdoel-fenix847mm.png 89743 pixels in (135, 301, 589, 656)
-GELIJK herstel-fenix847mm.png
-GELIJK inhouden-0-30-fenix847mm.png
-GELIJK inhouden-1-45-fenix847mm.png
-GELIJK inhouden-2-30-fenix847mm.png
-GELIJK inhouden-3-04-fenix847mm.png
-GELIJK inhouden-krab-fenix847mm.png
-GELIJK menu-krab-fenix847mm.png
-GELIJK menu-leeg-fenix847mm.png
-GELIJK pauze-fenix847mm.png
-GELIJK rustig-fenix847mm.png
-GELIJK sealog-1-fenix847mm.png
-GELIJK sealog-2-fenix847mm.png
-GELIJK sealog-3-alle25-fenix847mm.png
-GELIJK settings-1-fenix847mm.png
-GELIJK settings-2-fenix847mm.png
-GELIJK start-fenix847mm.png
-GELIJK startcheck-fenix847mm.png
-GELIJK today-fenix847mm.png
-GELIJK uitleg-fenix847mm.png
-GELIJK veilig-1-fenix847mm.png
-GELIJK veilig-2-fenix847mm.png
-GELIJK veilig-3-fenix847mm.png
-37 beelden, 10 met verschil of ontbrekend
+GELIJK 8weeks-fr165.png
+GELIJK ademen-in-fr165.png
+GELIJK ademen-uit-fr165.png
+VERSCHIL calm-45s-fr165.png 65653 pixels in (87, 302, 477, 606)
+VERSCHIL calm-einde-krab-fr165.png 65507 pixels in (87, 302, 477, 606)
+GELIJK calmcheck-fr165.png
+VERSCHIL einde-6b-fr165.png 62368 pixels in (87, 302, 477, 609)
+VERSCHIL einde-6b-zeekomkommer-fr165.png 63250 pixels in (87, 302, 477, 609)
+VERSCHIL einde-6c-6rondes-fr165.png 60367 pixels in (87, 290, 477, 609)
+VERSCHIL einde-6c-fr165.png 62299 pixels in (87, 302, 477, 609)
+VERSCHIL einde-6c-krab-fr165.png 62401 pixels in (87, 302, 477, 609)
+VERSCHIL einde-6d-fr165.png 66034 pixels in (87, 302, 477, 606)
+VERSCHIL einde-na-feest-fr165.png 62061 pixels in (87, 302, 477, 609)
+GELIJK einde-sea-complete-fr165.png
+VERSCHIL einde-weekdoel-fr165.png 62201 pixels in (87, 302, 477, 609)
+GELIJK herstel-fr165.png
+GELIJK inhouden-0-30-fr165.png
+GELIJK inhouden-1-45-fr165.png
+GELIJK inhouden-2-30-fr165.png
+GELIJK inhouden-3-04-fr165.png
+GELIJK inhouden-krab-fr165.png
+GELIJK menu-krab-fr165.png
+GELIJK menu-leeg-fr165.png
+ONTBREEKT menu-today-fr165.png (voor: False, na: True)
+ONTBREEKT overzicht-menu-fr165.png (voor: False, na: True)
+GELIJK pauze-fr165.png
+GELIJK rustig-fr165.png
+GELIJK sealog-1-fr165.png
+GELIJK sealog-2-fr165.png
+GELIJK sealog-3-alle25-fr165.png
+GELIJK settings-1-fr165.png
+GELIJK settings-2-fr165.png
+GELIJK start-fr165.png
+GELIJK startcheck-fr165.png
+GELIJK today-fr165.png
+GELIJK uitleg-fr165.png
+GELIJK veilig-1-fr165.png
+GELIJK veilig-2-fr165.png
+GELIJK veilig-3-fr165.png
+39 beelden, 12 met verschil of ontbrekend
