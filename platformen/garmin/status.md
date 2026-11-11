@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **11 nov 09:55: keuring bouw 6 punt 1 tot 4 en 8 in de code (niets ingediend).** E2e-eis 11 nu 25 procent (besluit hoofdchat), feestscherm alleen de eerste keer en daarna weer tijden, sea complete toont nooit meer een half dier, pauzemenu in Ebb-stijl ook voor Calm, minder hertekenen voor de batterij, keuze in de sea log als belletje (Mila v11), winkeltekst v10. Installs 0, verkopen 0.
 - **11 nov 09:00: sea complete als groepsfoto en pauzemenu in Ebb-stijl (niets ingediend).** Beide gezien op fenix 8 en FR255, geen crash. Installs 0, verkopen 0.
 - **11 nov 08:55: keuring bouw 5 punt 1 tot 4 gebouwd (niets ingediend).** Veiligheidstekst nu op elk horloge leesbaar (systeemletter op MIP, een maat groter op AMOLED), dier tijdens inhouden groter, sea complete groeit vanaf de walvis, nieuwe eerlijke winkelbeelden (poster van Mila plus vijf kaarten uit de bouw van nu). Installs 0, verkopen 0.
 - **11 nov 08:15: opruimen bewezen op fenix 8 en FR255 (beide 35 van 35 scènes gelijk), Mila v9 gebouwd (niets ingediend).** Sea log in 2 rijen van 3 met grotere dieren, gladde silhouetten, volgend dier als schaduw in het water, sea complete als eigen feestscherm (op fenix 8 nog zonder dieren). Installs 0, verkopen 0.

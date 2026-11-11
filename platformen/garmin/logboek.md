@@ -508,3 +508,17 @@
 1. Sea complete is nu een rustige groepsfoto op elk formaat, pauzemenu in Ebb-stijl.
 2. Open: Calm-pauze ook in Ebb-stijl, keuring bouw 5 punt 5, 7, 8, 9, rest van 10, plaatjesrun van 38f98ea op alle horloges.
 3. Volgende run eerst: plaatjesrun nakijken (geen crash op twaalf?), dan punt 5 uiterlijk.
+
+## Run 39 (11 nov 09:20 tot 10:00 UTC): keuring bouw 6 punt 1 tot 4, 8, 9 en Mila v11
+- Begin: `git pull` hing weer; `timeout 60 git fetch` lukte, main op GitHub weer geforceerd vervangen, lokaal op origin/main gezet (geen eigen werk). Docs op main via een tweede werkmap, code op `claude/garmin-2026-11-10b`.
+- 1f329b9: e2e-eis 11 van 30 naar 25 procent met het besluit van de hoofdchat in de workflow (alle negen horloges meten 25 tot 25,4 procent in run 42991019138). Feestscherm sea complete alleen de eerste keer (Storage-vlag `trFeest`), daarna het gewone eindscherm met tijden, je eigen dier en "24 of 24 friends"; scène 36 "einde-na-feest". Sea complete: elk dier eerst los in een eigen EbbDierPlaatje, pas af in de groepsfoto (geen halve witte krab meer), 3 lagen per beurt op AMOLED vanaf 390, regel "GEHEUGEN SEA klaar". Plaatjesrun 20 s per scène op AMOLED. Pauzemenu: één PauzeDelegate met Methods voor Rounds en Calm (systeemmenu van Calm weg), tik kiest de regel, Discard gooit weg en gaat naar het menu.
+- Run 42996271963 rood: compileerfout (Storage-waarde vergeleken met true). c51411b: met `instanceof Boolean`. Daarna .iq gebouwd voor 40 toestellen, 0 waarschuwingen (run 42996562232).
+- 3754f98: hertekenen alleen als nodig (inhouden als de seconde verspringt, eindscherm bij binnenkomst; dieren uit de voorraad vragen zelf een beurt tot ze af zijn). `px`, `tekst260`, `tekstInRonde` één keer in Teken.mc; REGELS-kaart met Pauze.mc en SeaComplete.mc.
+- e3656ce: Mila v11 belletje in de sea log, scène 33 "back after a break"; winkeltekst v10 (titel "Ebb: Breathing, Breath Hold Rounds & 4-7-8", 42 tekens, "no extra account" in drie talen).
+- d6ec40c: lange naam van een nieuw dier op twee regels, dier tijdens inhouden 10 procent groter.
+- Venu X1: niet toegevoegd, eerst in de toestelstap nakijken of de SDK in de image `venux1` kent (log kwam afgekapt binnen).
+
+**In drie regels:**
+1. Keuring bouw 6 punt 1 tot 4 in de code, plus batterij, opruimen en Mila v11; .iq bouwt.
+2. Open: beelden van deze bouw nakijken (sea complete op fenix 8, epix, Venu 3S; scène 36; belletje; pauze Calm), punt 5 rest, 6 kaarten v4, 7 Venu, 9 pixelstap.
+3. Volgende run eerst: e2e- en plaatjesrun van de laatste commit nakijken, dan kaart 5 met winkel_v4.py.
