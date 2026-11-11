@@ -103,4 +103,4 @@ Bundel pushes. Bekijk elk beeld zelf vergroot voor je iets af noemt.
 
 ## 11 nov 21:20 NL (hoofdchat): volledige keuring bouw 7
 De volledige lijst staat nu in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`, "Voor Gijs". Die volgorde gaat voor op het bericht van 21:10 (zelfde punten, aangevuld). Eerst de Venu 4-tekst: dat is veiligheid.
-(deels verwerkt 11 nov 20:45 UTC, run 41: punt 1 Venu 4-tekst, 2 kaarten v4 in `winkel/` (gezien), 3 stapelen, 5 winkeltekst v11, 6 Today in het menu, 7 deels; code 8469536 gepusht en 1780678 volgt na de lopende runs; e2e 43094386800 en plaatjesrun 43094387097 nog niet uit. Open: 4, rest 7, 8, 9. Zie logboek run 41.)
+(deels verwerkt 11 nov 20:45 UTC, run 41: punt 1 Venu 4-tekst, 2 kaarten v4 in `winkel/` (gezien), 3 stapelen, 5 winkeltekst v11, 6 Today in het menu, 7 deels; alles gepusht tot bd14732, ook poster v4 en icoon v3 van Mila; .iq bouwt op 28 horloges, beelden nog niet gezien (runs 43096796434 en 43096796412). Open: 4, rest 7, 8, 9. Zie logboek run 41.)

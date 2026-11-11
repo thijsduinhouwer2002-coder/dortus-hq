@@ -548,4 +548,16 @@
   - Punt 2: winkelkaarten v4 in `winkel/`, opnieuw gemaakt met Mila's `winkel_v4.py` uit de fenix 8-opnames van de groene run 43001614405. GEZIEN vergroot: kaart 3 met belletje, kaart 4 met alle 24 dieren (geteld), kaart 5 "back after a break" met kop "Back? Meet a bonus friend." even groot als de rest. Oude `4-calm.png` en `5-sea-complete.png` weg, schermlijst in winkeltekst.md bijgewerkt.
   - Punt 7: toets `testPauzeTikEnSchuif` (tik kiest de regel op 260, 390 en 454; bladeren loopt rond), `PauzeDelegate.regelBij` als losse functie.
 - Niet gedaan: punt 4 (MIP-maten), rest van 7 (SeaLog en Pauze via EbbTeken.px en EbbZee, `--negeer`, graphics pool), 8 Venu X1, 9 release. Poster v4 en icoon liggen bij Mila.
+- Vervolg run 41 (tot 20:40 UTC):
+  - Mila leverde intussen poster v4 en icoon v3 (`ontwerp/garmin/blad12/`). Beide vergroot bekeken en overgenomen in 2d28171: `winkel/0-poster-v4.png` (1000 x 1000, 58 KB na kleurverlaging), `winkel/icoon-500-v3.png`, en haar kleine walvis als startpictogram op elke horlogemaat (40, 54, 56, 60, 65, 70 px; 54 tot 70 verkleind uit haar 80). Oude poster v3 en iconen v1 en v2 weg uit `winkel/`.
+  - 61a1e3b: punt 4 deels. Op FR255 zag ik in run 43001614405 dat "Breathing pace" en "15 per min" in de pil over elkaar staan; de pil wordt nu zo hoog als de twee regels samen plus 8 px als ze anders niet passen. Op grote schermen verandert niets.
+  - bd14732: pixelstap met `--negeer-onder 24` (statusbalk van de simulator), lokaal getest met twee nagemaakte verschillen.
+  - Punt 4, eindschermdieren 50 tot 55 px op 260: niet gebouwd. Nagerekend: tussen de kamlijn en "new friend" is op 260 maar 30 px hoogte, en bouw 6 punt 5 eist dat het dier helemaal onder de kamlijn blijft. 50 px breed kan dus alleen met een andere indeling (dier over de kamlijn zoals op het Calm-eindscherm, of de tekst lager). Dat is ontwerp: gevraagd aan Mila.
+  - Alles gepusht in één bundel (bd14732). Runs op bd14732: e2e 43096796434, plaatjes 43096796412 (in de wachtrij).
+  - Uitslag 8469536: de .iq bouwt op alle 28 horloges (taak "bouw" groen). In de e2e staan alle stappen op klaar zonder fout, alleen het uploaden van de bestanden hangt; in de plaatjesrun is "Scènes in de simulator" op FR255 klaar, maar ook daar hangt het uploaden bij alle dertien horloges (GitHub gaf 502 op de logs). NIET GEZIEN deze run: het menu met "Today", de Venu 4-tekst, de pil op FR255, de nieuwe startpictogrammen op het horloge. De stap "Geen crash" is nog niet gelopen.
+
+**In drie regels:**
+1. Keuring bouw 7 punt 1, 2, 3, 5, 6 gebouwd, 4 en 7 deels; winkelpakket compleet in v4 (poster, vijf kaarten, icoon), alles gepusht.
+2. Niet bewezen in beeld: menu met "Today" (past het op 260?), Venu 4, instellingenpil, stapelen. Open: 4 rest (wacht op Mila voor het eindscherm op 260), 7 rest, 8 Venu X1, 9 release.
+3. Volgende run eerst: e2e 43096796434 en plaatjesrun 43096796412 lezen en de beelden op FR255, fenix 8 en Venu 4 vergroot bekijken; rood eerst herstellen.
 
