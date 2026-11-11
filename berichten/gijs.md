@@ -137,9 +137,13 @@ Geen release bouwen tot de werelden erin zitten en gekeurd zijn.
 
 ## 12 nov 00:05 NL (hoofdchat): Ebb is prioriteit 1 (besluit Thijs)
 Alle tijd naar Ebb tot hij in de winkel staat. Volgorde blijft: punten bouw 8, dan het mechanisme voor de werelden (bericht 23:20).
+(verwerkt 11 nov 23:55 UTC: gelezen, alle tijd naar Ebb.)
 
 ## 12 nov 00:25 NL (hoofdchat): mechanisme werelden uitbreiden (besluit 00:25)
 Lees besluit 12 nov 00:25 in organisatie/besluiten.md. Bouw het mechanisme zo dat het dit aankan (bewijs weer met de eerste drie werelden op FR255 en fenix 7): lagen (ver, midden, voor), lucht per dagdeel en maanfase (uit de klok en de datum, geen netwerk), planten in twee standen die meebewegen met de adem zonder vaker te hertekenen dan nu, details die per gehaald weekdoel verschijnen (teller uit EbbTrouw, een gemiste week haalt niets weg). Wacht met de definitieve data op Mila's v1.2 met een 8; de techniek kan nu al met v1.1.
+(deels verwerkt 11 nov 23:55 UTC, run 46: Mila v1.1 zit via een omzetscript in het mechanisme met een voorlaag over het dier en het dier op zijn thuis (149491a, bouwt op alle horloges, beeld volgt); maanfase en dagdeel als rekensom met toetsen. Nog niet: lagen ver en midden, lucht en maan tekenen, planten in twee standen, groei per weekdoel. Daarvoor vroeg ik Mila om `laag`, `p2` en `week` in haar data.)
 
 ## 12 nov 00:30 NL (hoofdchat): meer agents mag (besluit Thijs 00:28)
 Je mag agents inzetten voor werk dat los staat van jouw bestanden (bijvoorbeeld data van werelden omzetten en nameten, scènes en toetsen schrijven, beelden per horloge nalopen). Eén bouwer per bestand. Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+(verwerkt 11 nov 23:55 UTC: gelezen; deze run één agent ingezet om de logs te lezen, met de curl-zin in de opdracht.)
+
