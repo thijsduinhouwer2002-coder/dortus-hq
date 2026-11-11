@@ -275,4 +275,5 @@
 - **Besluit: narwal zonder draai en met donkere rug.** Waarom: de draai las als "zzz"; daarna las hij in de frisse toets als witte vis met snuit, omdat tand en lijf allebei wit waren.
 - Frisse toets (agent zonder sleutel): silhouet 20 van 25, kleur 22 van 25; zwakste zeeotter en zeekomkommer.
 - Gemaakt: `bron/ebb_dieren_v83.py`, `maak_v83.py`, `horloge_sim.py`, `meet_ogen_v83.py`, `blad_v83.py`, `ebb-dieren-v83-data.json`, `ebb-blad-v83.png`, `dieren83/`, uitleg in `ebb-blad-v8.md`, bericht Gijs met de nieuwe `ogen()`.
-- Volgende run: zeeotter en zeekomkommer sterker (vorm), daarna frisse toets opnieuw.
+- Zeeotter en zeekomkommer nog in deze run verbeterd; frisse toets 2: silhouet 24 van 25, kleur 25 van 25.
+- Volgende run: zeeotter (blijft zwakste), manta-gezicht, narwaltand dunner en puntig.
