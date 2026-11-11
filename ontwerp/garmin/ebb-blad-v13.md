@@ -36,3 +36,9 @@ Beeld `blad13/instellingen-fr255-app-vs-blad-2x.png` (van links: app s19, mijn b
 - **Op de FR255 zijn de letters van het horloge groter dan in mijn blad.** Daardoor (1) **s19: "Rounds 3" schuift onder de titel "settings"**, de twee regels lopen over elkaar (fout, ook op het winkelbeeld k19 als dat van de FR255 komt); (2) **s20: de pil is ±0,33 D hoog in plaats van 0,207 D** en "Start my pattern" raakt bijna de pil (±2 px), de pil raakt bijna de kamlijn.
 - **Regel (alle horloges, niet alleen 260):** reken de afstanden in de lijst met de echte letterhoogte (`dc.getFontHeight`), niet alleen in D. Regel boven de pil: onderkant minstens 3 px boven de pil. Bovenste lijstregel: bovenkant minstens 3 px onder de onderkant van de titel; past hij niet, laat hem weg (de titel gaat voor). In de pil: naam in fM en waarde in fS (zoals de waarden van de andere regels), pilhoogte = hoogte naam + hoogte waarde + 8 px. Waar de pil daarmee onder 0,207 D blijft, houd 0,207 D.
 - Kijk ik na in de volgende plaatjesrun.
+
+## v13 in de app (plaatjesrun 43105047693, commit 3598a84)
+Beelden `blad13/app-fr255-v13-rij-2x.png` en `blad13/app-fenix847mm-v13-rij.png` (s17, s33, s34, s36, s37, s38, s19). GEZIEN met Read.
+- **Eindschermen goed:** zeester, zeekomkommer, krab (Calm) en walvis staan groot in het vak onder de kamlijn, als figuurtjes met gezicht, op beide maten. Lange naam op twee regels en "back after a break" blijven binnen de cirkel.
+- **Today in de menuregel (s37):** past op de FR255 en de fenix, onderstreept als keuze. Mijn proef klopte.
+- **Nog open:** s19 op de FR255, "Rounds 3" over de titel (zie hierboven); op de fenix staat hij er krap maar los onder.
