@@ -25,6 +25,7 @@ module EbbSeaComplete {
     var _los as EbbDierPlaatje or Null = null;   // het dier dat nu los wordt opgebouwd
     var _x0 as Number = 0;     // linksboven van het plaatje op het scherm
     var _y0 as Number = 0;
+    var _mis as Number = 0;    // hoe vaak het plaatje niet te krijgen was (graphics pool vol); na 3 keer stoppen we met proberen
 
     // Plek op het scherm en maat van volgnummer k: [x, y, maat]. Maat vrienden floor(11 D / 260), onder 250 px één
     // kleiner; walvis round(32 D / 260).
@@ -46,8 +47,15 @@ module EbbSeaComplete {
         _x0 = EbbTeken.px(d, 14);
         _y0 = EbbTeken.px(d, 62);
         _ref = Graphics.createBufferedBitmap({:width => EbbTeken.px(d, 232), :height => EbbTeken.px(d, 144)});
-        var bb = (_ref as Graphics.BufferedBitmapReference).get() as Graphics.BufferedBitmap;
-        var dc = bb.getDc();
+        // Codelezing hoofdchat 11 nov: is de graphics pool vol, dan geeft get() null. Niet crashen: zonder plaatje verder.
+        var bb = (_ref as Graphics.BufferedBitmapReference).get();
+        if (bb == null) {
+            _ref = null;
+            _mis += 1;
+            System.println("SEA plaatje niet gekregen, poging " + _mis);
+            return;
+        }
+        var dc = (bb as Graphics.BufferedBitmap).getDc();
         dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
         dc.clear();
     }
@@ -56,11 +64,16 @@ module EbbSeaComplete {
     // Keuring bouw 6 punt 3: een dier wordt eerst los opgebouwd in een eigen EbbDierPlaatje en pas als het af is in de
     // groepsfoto geplakt. Zo staat er nooit een half dier (de witte halve krab op Venu 3S) en groeit de foto per dier.
     function verder() as Boolean {
-        var bb = (_ref as Graphics.BufferedBitmapReference).get();
+        var bb = _ref != null ? (_ref as Graphics.BufferedBitmapReference).get() : null;
         if (bb == null) {
             // Keuring bouw 7 punt 7: het systeem gaf het plaatje vrij; opnieuw maken en van voren af aan opbouwen.
+            // Na drie mislukte pogingen is het scherm "klaar" zonder groepsfoto (tekst en zee staan er wel), zodat het
+            // horloge niet eindeloos blijft hertekenen.
+            if (_mis >= 3) {
+                return true;
+            }
             maak(_d);
-            bb = (_ref as Graphics.BufferedBitmapReference).get();
+            bb = _ref != null ? (_ref as Graphics.BufferedBitmapReference).get() : null;
             if (bb == null) {
                 return false;
             }
@@ -97,10 +110,12 @@ module EbbSeaComplete {
         _ref = null;
         _los = null;
         _d = 0;
+        _mis = 0;
     }
 
     function teken(dc as Graphics.Dc, d as Number, reeks as Number) as Void {
-        if (_ref == null || _d != d) {
+        if (_d != d) {
+            _mis = 0;
             maak(d);
         }
         var top = 58.0 / 260;
@@ -115,7 +130,7 @@ module EbbSeaComplete {
         }
         dc.setPenWidth(1);
         var klaar = verder();
-        var bb = (_ref as Graphics.BufferedBitmapReference).get();
+        var bb = _ref != null ? (_ref as Graphics.BufferedBitmapReference).get() : null;
         if (bb != null) {
             dc.drawBitmap(_x0, _y0, bb as Graphics.BufferedBitmap);
         }

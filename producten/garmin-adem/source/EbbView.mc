@@ -108,11 +108,7 @@ class EbbView extends WatchUi.View {
         eindRest = v[1];
         // Keuring bouw 6 punt 2: het feestscherm alleen de eerste keer dat alles gevonden is; daarna weer het gewone
         // eindscherm met de rondetijden (de winkeltekst belooft tijden na elke sessie).
-        feest = false;
-        if (meetelt && eindVolgend < 0 && !(Application.Storage.getValue(EbbTrouw.FEEST) instanceof Boolean)) {
-            feest = true;
-            Application.Storage.setValue(EbbTrouw.FEEST, true);
-        }
+        feest = EbbTrouw.feestNu(meetelt, tellers);
         System.println("TROUW nieuwe dieren " + nieuweDieren);
         return ok;
     }

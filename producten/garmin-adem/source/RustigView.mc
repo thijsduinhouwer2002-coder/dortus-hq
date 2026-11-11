@@ -123,6 +123,8 @@ class RustigView extends WatchUi.View {
         System.println("TROUW telt " + meetelt + " nieuwe dieren " + nieuw);
         var c = sessie.cyclus();
         var ev = new CalmEindeView(ms, c > 0 ? ms / c : 0, nieuw, tellers[1]);
+        // Codelezing hoofdchat 11 nov: komt het 24e dier door Calm, dan ook hier het feestscherm (één keer).
+        ev.feest = EbbTrouw.feestNu(meetelt, tellers);
         WatchUi.switchToView(ev, new CalmEindeDelegate(), WatchUi.SLIDE_UP);
     }
 
@@ -172,6 +174,11 @@ class CalmEindeView extends WatchUi.View {
     var nieuw as Array<Number>;
     var reeks as Number;
     var telt as Boolean = true;
+    var feest as Boolean = false;
+
+    function onHide() as Void {
+        EbbSeaComplete.los();
+    }
 
     function initialize(ms as Number, ademhalingen as Number, nieuw as Array<Number>, reeks as Number) {
         View.initialize();
@@ -187,6 +194,10 @@ class CalmEindeView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
+        if (feest) {
+            EbbSeaComplete.teken(dc, d, reeks);
+            return;
+        }
         // Keuring bouw 3 punt 6: de regel onder "calm done" minstens 10 px (454) of 6 px (260) eronder, de zee daaronder.
         var gat = (d * 0.022).toNumber();
         gat = gat < 6 ? 6 : gat;

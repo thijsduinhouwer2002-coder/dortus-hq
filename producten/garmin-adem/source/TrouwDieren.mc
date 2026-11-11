@@ -100,6 +100,16 @@ module EbbTrouw {
         return [beste, besteRest] as Array<Number>;
     }
 
+    // Feestscherm sea complete: alleen de eerste keer dat een sessie die meetelt alles compleet maakt (keuring bouw 6
+    // punt 2). Eén plek voor Rounds en Calm (codelezing hoofdchat 11 nov: het 24e dier kan ook door Calm komen).
+    function feestNu(meetelt as Boolean, tellers as Array<Number>) as Boolean {
+        if (!meetelt || volgende(tellers)[0] >= 0 || (Application.Storage.getValue(FEEST) instanceof Boolean)) {
+            return false;
+        }
+        Application.Storage.setValue(FEEST, true);
+        return true;
+    }
+
     function heeft(i as Number) as Boolean {
         return (getal(BITS) & (1 << i)) != 0;
     }
