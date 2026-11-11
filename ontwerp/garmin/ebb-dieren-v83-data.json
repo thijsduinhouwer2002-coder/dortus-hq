@@ -4963,9 +4963,9 @@
 "soort": "narwal",
 "naam": "Narwhal",
 "tint": [
+"0x5555AA",
 "0xFFFFFF",
-"0xFFFFFF",
-"0x5555AA"
+"0xAAAAFF"
 ],
 "rand": "0xFFFFFF",
 "slaperig": false,

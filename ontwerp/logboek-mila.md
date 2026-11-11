@@ -266,3 +266,13 @@
 - Gezien met Read: oud en nieuw naast elkaar op 260 vergroot, overzicht van 25, blad. Eerste otter werd een witte vlek (oog groter dan de kop), opgelost.
 - Volgende run: otter-voeten iets lichter; teksten van het dierenblad naar besluit 04:30 (weken, geen "next") als Gijs dat bouwt; contrastmeting op v8.2.
 - Nachtronde 04:30 (handmatige start) vroeg dezelfde v8.2; die stond al. Erbij: omtrektoets v8.2 op 260 zonder naam, 25 van 25 (eigen toets, frisse blik telt zwaarder), in `ebb-blad-v8.md`.
+
+## 11 nov 2026, run 31 (vanaf 04:28 UTC, alleen Ebb)
+- Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-3-keuring-drie.md` (ogen, kogelvis, alle 25 op de echte FR255-beelden). Berichten: verder niets open.
+- **Besluit: eerst Gijs' tekencode nabootsen** (`bron/horloge_sim.py`). Waarom: de plusjes kwamen niet uit mijn tekening maar uit `fillCircle` met straal 2 en 1 op het horloge; mijn eigen tekenaar liet dat niet zien. De nabootsing valt samen met het echte FR255-beeld.
+- **Besluit: oog is een zwart vierkantje zonder wit** (2 x 2 op 260, 3 x 3 op 454, rond pas vanaf maat 60). Waarom: zo vraagt de keuring het, en een vierkantje van 2 px is op MIP het enige dat echt een stip blijft. Acht oogpunten verschoven zodat het oog op een lichte plek valt (gemeten, `bron/meet_ogen_v83.py`).
+- **Besluit: kogelvis met weinig dikke stekels en een grote staart.** Waarom: veel dunne stekels plus de rand van 2 px maakten een harige ring; de staart en tuitmond maken er een vis van.
+- **Besluit: narwal zonder draai en met donkere rug.** Waarom: de draai las als "zzz"; daarna las hij in de frisse toets als witte vis met snuit, omdat tand en lijf allebei wit waren.
+- Frisse toets (agent zonder sleutel): silhouet 20 van 25, kleur 22 van 25; zwakste zeeotter en zeekomkommer.
+- Gemaakt: `bron/ebb_dieren_v83.py`, `maak_v83.py`, `horloge_sim.py`, `meet_ogen_v83.py`, `blad_v83.py`, `ebb-dieren-v83-data.json`, `ebb-blad-v83.png`, `dieren83/`, uitleg in `ebb-blad-v8.md`, bericht Gijs met de nieuwe `ogen()`.
+- Volgende run: zeeotter en zeekomkommer sterker (vorm), daarna frisse toets opnieuw.

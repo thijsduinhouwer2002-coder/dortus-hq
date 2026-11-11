@@ -12,6 +12,10 @@ import ebb_dieren_v8 as dv8
 import ebb_blad_v3 as v3
 from ebb_blad_v3 import ellips
 
+# Narwal: wit lijf met witte tand las in de frisse toets als "witte vis met lange snuit". Nu een gevlekte grijsblauwe rug
+# (5555AA met lichte vlekken AAAAFF) en witte buik, zodat de witte tand los van de kop staat en als hoorn leest.
+v3.TINT['narwal'] = ((85, 85, 170), (255, 255, 255), (170, 170, 255))
+
 _oud = dv8.delen_v8   # is na het importeren van v8.2 al delen_v82
 
 def delen_v83(soort):
