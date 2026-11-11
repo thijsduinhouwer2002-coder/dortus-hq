@@ -51,7 +51,7 @@ jobs:
         run: |
           docker run --rm --network none --entrypoint bash "$IMAGE" -c \
             'cd /root/.Garmin/ConnectIQ/Devices; for d in fenix7 fr255 venu2 fenix843mm fenix847mm fenix8pro47mm fenix8solar47mm fenix8solar51mm fenix7pro fenix7xpro fenix7x epix2pro42mm epix2pro47mm epix2pro51mm fr165 fr165m fr57042mm fr57047mm fr955 fr970 vivoactive6 venu3s venux1 venu441mm venu445mm; do
-               echo "TOESTEL $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"connectIQVersion\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"type\":\"watchApp\"[^}]*" | tr "\n" " ")"; done; for d in fr255 fenix7xpro vivoactive5 fr265 fenix847mm venu2; do echo "LETTERS $d"; ls $d; tr -d " \n\t" < $d/simulator.json | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done' || true
+               echo "TOESTEL $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"connectIQVersion\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"type\":\"watchApp\"[^}]*" | tr "\n" " ")"; done; for d in fr255 fenix7xpro vivoactive5 fr265 fenix847mm venu2; do echo "LETTERS $d"; ls $d; tr -d " \n\t" < $d/simulator.json | grep -o "\"fonts\":\[.\{0,3000\}" | head -c 3000; echo; done; for d in venu3 venu441mm venux1; do echo "KNOPPEN $d"; ls -d $d 2>/dev/null || echo "ONBEKEND $d"; tr -d " \n\t" < $d/simulator.json 2>/dev/null | grep -o "\"keys\":\[.\{0,1500\}" | head -c 1500; echo; tr -d " \n\t" < $d/compiler.json 2>/dev/null | grep -o "\"resolution\":{[^}]*}\|\"displayType\":\"[^\"]*\"\|\"enhancedReadabilityModes\|\"shape\":\"[^\"]*\""; done' || true
       - name: .iq bouwen (alle horloges uit manifest.xml)
         run: |
           mkdir -p /tmp/uit && chmod 777 /tmp/uit
@@ -76,6 +76,7 @@ jobs:
     timeout-minutes: 25
     permissions:
       contents: read
+      actions: read
     strategy:
       fail-fast: false
       matrix:
@@ -140,6 +141,18 @@ jobs:
           python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
           if [ -f "$APP/plaatjes/fenix847mm-scene0.png" ]; then python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"; fi
           for f in "$APP"/plaatjes/*-scene*.png; do python3 "$APP/bron/maak_winkel.py" "$f" "$APP/plaatjes/winkel-$(basename "$f")"; done
+      # Keuring bouw 6 punt 9: pixelvergelijking met de laatste groene run op deze tak, per scherm (informatief:
+      # bedoelde veranderingen mogen; bij opruimen moet hier overal 0 staan, REGELS.md punt 6).
+      - name: Pixelvergelijking met de vorige groene run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          vorige=$(gh run list -R "$GITHUB_REPOSITORY" -w garmin-adem-iq.yml -b "$GITHUB_REF_NAME" -s success -L 1 --json databaseId -q '.[0].databaseId' || true)
+          echo "vorige groene run: ${vorige:-geen}"
+          if [ -n "$vorige" ]; then gh run download "$vorige" -R "$GITHUB_REPOSITORY" -n "ebb-plaatjes-$D" -D /tmp/vorige || true; fi
+          if [ -d /tmp/vorige/namen ] && [ -d "$APP/plaatjes/namen" ]; then
+            python3 "$APP/bron/vergelijk_plaatjes.py" /tmp/vorige/namen "$APP/plaatjes/namen" | tee "$APP/plaatjes/pixelverschil-$vorige.txt" || true
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
