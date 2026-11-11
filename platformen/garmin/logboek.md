@@ -345,4 +345,11 @@
 - 4c11da6: Mila's dieren v8.1 in de app via een nieuw script `bron/maak_dieren_json.py` dat haar json leest (6270 bytes). Eel in plaats van Squid (ook in `EbbTrouw.DIEREN`), witte stickerrand om elk gevonden dier, silhouet met rand en kenmerk in 00AAFF. 6c gebruikt dit silhouet.
 - f136388, punt 8: sea log als raster 3 x 3 over drie bladen volgens blad v8 C: "sea log", "8 of 24", keuzestip, naam en wat er nog nodig is, bladstippen; omhoog en omlaag schuift, select kiest je meezwemmer. Testbeeld scène 4 zoals blad v8 C1 (8 gevonden, keuze op Pufferfish).
 - Toetsen groen in de simulator voor 4c11da6 en f136388 (fenix 7 en FR255).
+- 30750d1 Daan K2: nagebootste hartslag 61 in de testbeelden. efa50f7 punt 11 deels: winkeltekst "sit or lie down" in drie talen, geen "one V per round", geen "touch lock" als instelling. Box en de letterlijke veiligheidszinnen wachten op Thijs (08:00) en de keuring.
+- Beelden GEZIEN (plaatjes run 42943259261, bd8d7cb, alle scènes op fenix 8): eigen dier klein in het midden op het inhoudscherm, rustig 4-7-8 zwart met zee onderaan, menu met eigen dier. Fout gevonden: scène 16 tot 18 toonden today in plaats van 6c en 6b, omdat de tik `einde` in de plaatjesbouw terugzette op false. Hersteld in cc33da1. Ademen stond in die run nog op de oude turkoois zee (run was van voor 3c02860).
+
+**In drie regels:**
+1. Af: bouw 2 punt 1, 2, 5, 6, 7, 8, 12 en deels 11; Daan B1, B2 (ademen en rustig), B3, B5, K2; dieren v8.1 als data met stickerrand en silhouet. Toetsen groen voor elke commit tot en met f136388.
+2. Open: punt 3 eigen letter (Barlow Condensed), punt 4 AMOLED-verloop, punt 9 settings (andere run), punt 10 testbeelden met vaste namen en meer horloges, herstel "15" en zon (B2), Calm-eindscherm 6d, Box (Thijs).
+3. Volgende run: plaatjes van cc33da1 nakijken (6b, 6c, 6c met 6 rondes, sea log, ademen), dan punt 4 of punt 3.
 
