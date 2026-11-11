@@ -34,3 +34,17 @@ Eerlijke toets, eerst benoemd en daarna met de sleutel nagekeken:
 - **Eerste ronde (v8): 22 van 25.** Mis: garnaal (werd een bol door het vullen van de krul), zeeotter (blok), zeekomkommer (bol met balletje).
 - Opnieuw getekend: **garnaal** als open C met waaierstaart buiten de krul en dikke sprieten; **zeeotter** met gezicht en schelp als uitsparing en grotere oren; **zeekomkommer** met bulten boven de rug, vijf voetjes eronder en drie voelers schuin omhoog (geen staart meer, eerst las hij als vis).
 - **Tweede ronde (v8.1): 24 van 25 zonder twijfel.** Twijfel blijft: zeeotter (je ziet een liggend dier met gezicht en voeten, "otter" zeg je pas na even kijken). De rog leest als een lolly met staart, maar niet als iets anders.
+
+## v8.2: punten "Voor Mila" uit keuring bouw 2 (run 30, 11 nov)
+Bron `bron/ebb_dieren_v82.py` (bouwt op v8, alleen wat verandert), alles opnieuw gemaakt met `bron/maak_v82.py`. Blad `ebb-blad-v82.png`, schermen `blad82/`, overzicht en omtrektoets `dieren82/`, data `ebb-dieren-v82-data.json` (6372 bytes). De v8-bestanden staan er nog naast.
+- [ja] 1. **Zeeotter:** drijft op de rug als een bootje. Kop in profiel omhoog links (rond, met oor, roomkleurige snuit als uitsparing en zwarte neus), pootjes houden de schelp boven de buik, twee voeten omhoog rechts, korte platte staart. Bruin (AA5500) met room (FFFFAA), niet meer dezelfde oranje als de vis. 45 x 29 px (was 45 x 24, een blok met vlekken).
+- [ja] 2. **Narwal:** lijf, buik, vlekken en vinnen 1,3 keer hoger, tand gelijk. 45 x 24 px (was 45 x 19): 5 px hoger.
+- [ja] 3. **Eigen tint:** dolfijn hemelsblauw 55AAFF met lichte buik (blijft), zwaardvis indigo 5555FF met witte buik en paars zeil en zwaard AA55FF, haai staalgroen 55AAAA met witte buik (was AAAAFF, gelijk aan de maanvis). Orka blijft grijs 555555. Alle vier nu in één blik uit elkaar.
+- [ja] 4. **Zeepaardje voller:** dikke buik met ringen, lange snuit, grote rugvin, staart krult naar buiten. 32 x 37 px (was 25 x 37).
+- [ja] 5. **Rog:** ruit met spitse snuit en puntige vleugels, achterkant rond met twee bekkenvinnen, dunne staart met stekel, lichte middenrug. Zandkleur AAAA55, zodat hij ook gevonden niet op de grijze manta lijkt. Als omtrek: vlieger met staart, de manta heeft hoorns. 45 x 36 px.
+
+Gemeten op 260 (`blad82/meting-v82.txt`): vorm x binnen 0,4 px van het midden op alle zes schermen, 0 pixels buiten MIP, tekst tot 0,84 R (sea log 1, gelijk aan v8). Kader x op sea log 3 is -2,5 px (was -0,5): de rog is breder; het kader is het raster, de vorm zelf staat op 0,0. Data opnieuw getekend en vergeleken: 1,6 tot 5,5% randpixels verschil, zoals v8.
+
+Bekeken met Read: de vijf dieren oud en nieuw naast elkaar op 260, 3 en 6 keer vergroot, gevonden en als omtrek; alle 25 in het overzicht; het blad. Eerste otter (lang en plat met lange staart) las als een witte vlek, want het oog was groter dan de kop; kop groter en staart korter gemaakt. Zwakste nu: de voeten van de otter zijn donkerbruin op bruin en vallen op 260 een beetje weg; de vorm leest wel.
+
+Let op: de teksten op dit blad ("next: Starfish", "3 days in a row") volgen nog v8. Besluit hoofdchat 11 nov 04:30 (weken op rij, geen "next") gaat voor en staat bij Gijs punt 4 en 5; dit blad gaat alleen over de dieren.
