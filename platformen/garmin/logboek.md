@@ -334,3 +334,11 @@
 1. Af: testbeelden van elk v6-scherm op 260, 390, 416 en 454; groen op negen; Daan ingelicht.
 2. Open: meetscript alleen tekst laten meten, instellingen en rustig ademen in de stijl van v6, eindschermen 6b, 6c, 6d, dieren na keuring v7.
 3. Volgende run: beelden van de laatste commit nakijken (herstelkop), meetscript, dan instellingen.
+
+## 11 nov 2026 01:55 UTC (Gijs, run 27, keuring bouw 1 door drie en Daans bouwkeuring 1)
+- Let op: er liep tegelijk een andere Gijs-run op dezelfde tak (07e7ca3 "Ebb makes no sound", 521493a herstelkop). Geen botsing gehad; verdeling staat nu in `taken.md` bij "Keuring echte bouw 1" (wie een punt pakt zet het daar).
+- e4b1e8a, punt 1 (FOUT dubbel opslaan): na FASE_KLAAR opende BACK het pauzemenu en "Save" telde de sessie twee keer (today, 8 weeks, sessiedagen, dieren). Nu geeft BACK na de sessie het startscherm, en `opslaan()` telt hoogstens één keer (vlag `opgeslagen`). Toets `testNaSessieTerugNaarMenuEnNietDubbel`.
+- e4b1e8a, punt 2: uitleg "then hold only / while it feels easy" en dezelfde zin in de winkeltekst (Engels, Duits, Nederlands). Punt 12: dode code weg (oude systeemmenu, StartDelegate, menuregels, vPunten, diepste, getijPunten, gemiddeldeLijn en drie toetsen). Box blijft in `PATROON_NAMEN`: dat is de open vraag voor Thijs om 08:00.
+- 2c78bf2, punt 7: eindschermen 6b en 6c volgens blad v7. Na de sessie eerst het eindscherm, dan today en 8 weeks. 6c toont het volgende dier als silhouet met rand 00AAFF en "next: Clownfish, 1 more" (nieuw: `EbbTrouw.volgende`, met toets); 6b het nieuwe dier groot met "new friend". Zeven stippen voor de reeks, "1 rest day is fine". 4 tot 6 rondes op twee regels. Testbeelden scène 16 (6c), 17 (6b), 18 (6c met 6 rondes).
+- 52d035e Daan B1: `DIEPTE[0]` 00AAFF. bd8d7cb punt 6 en Daan B3: je eigen dier (keuze, anders laatst gevonden) in Mila's kleuren op het startscherm en tijdens het inhouden, in rust in het midden onder de tijd. 4d57148 en 3c02860 punt 5 en Daan B2: ademen en rustig met dezelfde zee onderaan die mee ademt (0,68 tot 0,60 D), getal altijd erboven, ondertekst en "Calm 4-7-8" in de 0055AA-band. 5af7008 Daan B5: pillen minstens 0,02 D boven de zee.
+- Toetsen in de simulator groen (fenix 7 en FR255) voor e4b1e8a, 2c78bf2 en 4d57148. Beelden van de eindschermen: plaatjesrun 42942975593 liep nog bij het schrijven.
