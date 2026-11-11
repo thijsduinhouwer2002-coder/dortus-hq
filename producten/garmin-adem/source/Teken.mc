@@ -13,7 +13,8 @@ module EbbTeken {
         var r = (d * 0.014).toNumber();
         r = r < 3 ? 3 : r;
         var stap = (d * 0.05).toNumber();
-        var sy = (d * 0.705).toNumber();
+        // Beelden run 42953647184: de stippen raakten de regel erboven ("1 more session"); nu 0,73 D.
+        var sy = (d * 0.73).toNumber();
         dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
         for (var i = 0; i < doel; i += 1) {
             var sx = d / 2 + ((2 * i - (doel - 1)) * stap) / 2;

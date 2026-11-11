@@ -10,6 +10,11 @@ on:
     paths: ["producten/garmin-adem/**", ".github/workflows/garmin-adem-e2e.yml"]
   workflow_dispatch:
 
+# Gijs 11 nov: een nieuwe push op dezelfde tak stopt de oudere run (anders staan er tientallen runs in de rij).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bouw:
     runs-on: ubuntu-latest

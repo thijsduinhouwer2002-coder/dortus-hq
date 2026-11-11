@@ -38,7 +38,7 @@ function testDierenData(logger as Test.Logger) as Boolean {
 }
 
 // Keuring bouw 2 punt 2: de echte sea log (DierenView.onUpdate) op 260 en 454 px, met alle dieren gevonden en met
-// niets gevonden, blad 1 en blad 3 (walvis, dier 24). Per beurt hoogstens 3 dieren in het bladplaatje, dus na vijf
+// niets gevonden, blad 1 en blad 3 (walvis, dier 24). Per beurt 1 dier in het bladplaatje, dus na tien
 // beurten moet het blad af zijn.
 // De watchdog zelf telt in de toets niet; die vangt de plaatjesrun (stap "Geen crash").
 (:test)
@@ -60,7 +60,7 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
             for (var b = 0; b < 2; b += 1) {
                 view.keuze = bladen[b];
                 var t0 = System.getTimer();
-                for (var beurt = 0; beurt < 5; beurt += 1) {
+                for (var beurt = 0; beurt < 10; beurt += 1) {
                     view.onUpdate(dc);
                 }
                 if (!view.klaar()) {

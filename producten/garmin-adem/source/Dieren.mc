@@ -9,7 +9,8 @@ import Toybox.WatchUi;
 class DierenView extends WatchUi.View {
     var keuze as Number = 0;
     const PER_BLAD = 9;
-    const NIEUW_PER_BEURT = 3;
+    // Run 42953647184: met 3 per beurt (15 keer tekenen) trapte de watchdog op de FR255; 1 dier (5 keer) per beurt.
+    const NIEUW_PER_BEURT = 1;
     var _plaatje as Graphics.BufferedBitmapReference or Null = null;
     var _sleutel as Number = -1;
     var _getekend as Number = 0;
@@ -123,8 +124,9 @@ class DierenView extends WatchUi.View {
         dc.drawBitmap(ox, oy, _plaatje.get() as Graphics.BufferedBitmap);
         // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.15).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
-        dc.drawText(w / 2, (d * 0.22).toNumber(), Graphics.FONT_SMALL, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
+        // Beelden run 42953647184: "sea log" en "8 of 24" liepen in elkaar; nu de telling kleiner eronder.
+        dc.drawText(w / 2, (d * 0.135).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
+        dc.drawText(w / 2, (d * 0.135).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + dc.getFontHeight(Graphics.FONT_XTINY) / 2, Graphics.FONT_XTINY, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
         // Keuzestip vast onder het gekozen dier.
         dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
         var rs = (d * 0.011).toNumber();

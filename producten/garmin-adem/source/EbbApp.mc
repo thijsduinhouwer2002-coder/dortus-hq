@@ -835,10 +835,11 @@ class EbbView extends WatchUi.View {
             var s = (sessie.inhoudtijden[i] + 500) / 1000;
             tijden.add((s / 60) + ":" + (s % 60).format("%02d"));
         }
-        EbbTeken.golf(dc, d, 0.326, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
+        // Beelden run 42953647184: bij 4 tot 6 rondes raakte de tweede regel tijden de schuimkam; dan zakt de zee.
+        EbbTeken.golf(dc, d, (n > 3) ? 0.37 : 0.326, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
         EbbTeken.golf(dc, d, 0.60, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.7, false);
         EbbTeken.golf(dc, d, 0.88, d * 0.006, EbbTeken.ZEE_KLEUR[3], 2.9, false);
-        var kopY = (n > 3) ? 0.15 : 0.17;
+        var kopY = (n > 3) ? 0.14 : 0.17;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * kopY).toNumber(), Graphics.FONT_SMALL, n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -867,7 +868,7 @@ class EbbView extends WatchUi.View {
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = vandaag();
         var label = EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel());
-        tekstInRonde(dc, d, 0.77, label, EbbTeken.LICHTCYAAN);
+        tekstInRonde(dc, d, 0.795, label, EbbTeken.LICHTCYAAN);
     }
 
     function regel(tijden as Array<String>, van as Number, tot as Number) as String {
