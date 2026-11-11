@@ -62,7 +62,7 @@ class EbbApp extends Application.AppBase {
             // Testbeelden van elk scherm (nachtronde 11 nov 01:58, voor Daans keuring van de echte bouw), één scène per start:
             // 0 tot 3 inhouden 0:30, 1:45, 2:30, 3:04 (blad v6 3a, 3b, 3d, 3c), 4 sea log, 5 today, 6 8 weeks, 7 rustig 4-7-8,
             // 8 herstel, 9 ademen, 10 startscherm, 11 uitleg, 12 startcheck, 13 tot 15 veiligheid 1 tot 3,
-            // 16 eindscherm 6c, 17 eindscherm 6b, 18 eindscherm 6c met 6 rondes, 19 en 20 settings 1 en 2.
+            // 16 eindscherm 6c, 17 eindscherm 6b, 18 eindscherm 6c met 6 rondes, 19 en 20 settings 1 en 2, 21 Calm-eindscherm 6d.
             // Keuring v5 G1: het dier hangt niet van de inhoudtijd af (vis, schildpad, walvis, schildpad).
             var keer = Application.Storage.getValue("plaatjekeer");
             var k = ((keer instanceof Number) ? keer as Number : 0) % EbbBouw.SCENES;
@@ -100,6 +100,11 @@ class EbbApp extends Application.AppBase {
             }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
+            if (k == 21) {
+                // Calm-eindscherm 6d (blad v7): 4 min, 12 ademhalingen, je schildpad, 5 dagen op rij.
+                Application.Storage.setValue(EbbTrouw.BITS, 15);
+                return [new CalmEindeView(240000, 12, [] as Array<Number>, 5), new CalmEindeDelegate()];
+            }
             if (k == 19 || k == 20) {
                 // Settings 1 en 2 (blad v7 scherm 9 en 9b): keuze op Breathing pace, en op "Ebb makes no sound".
                 var iv = new EbbInstellingenView();

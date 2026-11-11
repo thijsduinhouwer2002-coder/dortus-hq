@@ -141,9 +141,15 @@ class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {
             _view.hervat();
         } else if (id == :opslaan) {
             _view.opname.opslaan();
-            // Ook rustig ademen telt voor trouw; het eindscherm met een nieuw dier komt met blad v4.1.
-            System.println("TROUW nieuwe dieren " + EbbTrouw.nieuweDieren(EbbTrouw.naSessie(EbbView.vandaag())));
-            System.exit();
+            // Ook rustig ademen telt voor trouw; daarna het eindscherm 6d (blad v7, "counts as a session").
+            var tellers = EbbTrouw.naSessie(EbbView.vandaag());
+            var nieuw = EbbTrouw.nieuweDieren(tellers);
+            System.println("TROUW nieuwe dieren " + nieuw);
+            var s = _view.sessie;
+            var ms = s.klok(System.getTimer()) - s.startMs;
+            var c = s.cyclus();
+            var ev = new CalmEindeView(ms, c > 0 ? ms / c : 0, nieuw, tellers[1]);
+            WatchUi.switchToView(ev, new CalmEindeDelegate(), WatchUi.SLIDE_UP);
         } else if (id == :weggooien) {
             _view.opname.weggooien();
             System.exit();
@@ -153,5 +159,98 @@ class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {
     function onBack() as Void {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         _view.hervat();
+    }
+}
+
+// Blad v7 scherm 6d (Calm-eindscherm): "calm done", minuten en ademhalingen, je dier in de zee (een nieuw dier groot
+// met "new friend"), "counts as a session", zeven stippen voor de reeks met label. Terug of select: naar het startscherm.
+class CalmEindeView extends WatchUi.View {
+    var ms as Number;
+    var ademhalingen as Number;
+    var nieuw as Array<Number>;
+    var reeks as Number;
+
+    function initialize(ms as Number, ademhalingen as Number, nieuw as Array<Number>, reeks as Number) {
+        View.initialize();
+        self.ms = ms;
+        self.ademhalingen = ademhalingen;
+        self.nieuw = nieuw;
+        self.reeks = reeks;
+    }
+
+    function onUpdate(dc as Graphics.Dc) as Void {
+        var w = dc.getWidth();
+        var d = w < dc.getHeight() ? w : dc.getHeight();
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
+        EbbTeken.golf(dc, d, 0.326, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
+        EbbTeken.golf(dc, d, 0.60, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.7, false);
+        EbbTeken.golf(dc, d, 0.88, d * 0.006, EbbTeken.ZEE_KLEUR[3], 2.9, false);
+        var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (d * 0.17).toNumber(), Graphics.FONT_SMALL, "calm done", midden);
+        var minuten = (ms + 30000) / 60000;
+        minuten = minuten < 1 ? 1 : minuten;
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_SMALL, minuten + " min · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
+        var cy = (d * 0.465).toNumber();
+        var regel = "counts as a session";
+        var kleur = Graphics.COLOR_WHITE;
+        if (nieuw.size() > 0) {
+            EbbDierData.teken(dc, nieuw[0], w / 2, cy, (d * 0.15).toNumber(), -1);
+            regel = "new friend: " + EbbDierData.NAMEN[nieuw[0]];
+            kleur = EbbTeken.LICHT;
+        } else {
+            var dier = EbbTrouw.zwemmer();
+            if (dier >= 0) {
+                EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.105).toNumber(), -1);
+            }
+        }
+        tekst(dc, d, 0.645, regel, kleur);
+        var r = (d * 0.014).toNumber();
+        r = r < 3 ? 3 : r;
+        var stap = (d * 0.05).toNumber();
+        var sy = (d * 0.705).toNumber();
+        dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
+        for (var i = 0; i < 7; i += 1) {
+            var sx = w / 2 + (i - 3) * stap;
+            if (i < reeks) {
+                dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+                dc.fillCircle(sx, sy, r);
+            } else {
+                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.drawCircle(sx, sy, r);
+            }
+        }
+        var dagen = reeks < 1 ? 1 : reeks;
+        tekst(dc, d, 0.77, dagen + (dagen == 1 ? " day in a row" : " days in a row"), EbbTeken.LICHTCYAAN);
+    }
+
+    function tekst(dc as Graphics.Dc, d as Number, y as Float, t as String, kleur as Number) as Void {
+        var dy = y - 0.5;
+        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
+        var f = (dc.getTextWidthInPixels(t, Graphics.FONT_SMALL) <= koorde) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * y).toNumber(), f, t, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+}
+
+class CalmEindeDelegate extends WatchUi.BehaviorDelegate {
+    function initialize() {
+        BehaviorDelegate.initialize();
+    }
+
+    function naarMenu() as Boolean {
+        var mv = new EbbMenuView();
+        WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+        return true;
+    }
+
+    function onBack() as Boolean {
+        return naarMenu();
+    }
+
+    function onSelect() as Boolean {
+        return naarMenu();
     }
 }

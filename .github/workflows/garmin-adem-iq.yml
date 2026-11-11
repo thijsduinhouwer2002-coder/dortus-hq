@@ -95,7 +95,7 @@ jobs:
           for d in fenix847mm fr265 vivoactive5 fr255 venu2 venu3 epix2pro47mm fr965; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in $(seq 0 20); do
+            for k in $(seq 0 21); do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               sleep 12
@@ -106,7 +106,7 @@ jobs:
           done
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
-          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2"
+          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d"
           mkdir -p plaatjes/namen
           for f in plaatjes/*-scene*.png; do
             b=$(basename "$f" .png); d=${b%-scene*}; k=${b##*-scene}
