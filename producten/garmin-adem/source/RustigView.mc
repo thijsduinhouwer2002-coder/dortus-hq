@@ -32,6 +32,7 @@ class RustigView extends WatchUi.View {
                 _golf = Math.PI.toFloat();
             }
             sessie.startMs = System.getTimer();
+            opname.metRondes = false;
             opname.start();
         }
         _timer.start(method(:tik), 100, true);

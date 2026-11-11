@@ -14,6 +14,8 @@ class EbbOpname {
     private var _adem as FitContributor.Field or Null = null;     // blad v5 P2: "Breaths" per lap
     private var _rondes as FitContributor.Field or Null = null;   // blad v5 P2: "Rounds" in de samenvatting
     var laps as Number = 0;
+    // Keuring bouw 2 punt 12: velden voor rondes (inhoud, ademhalingen, Hold times, Rounds) alleen bij rondes, niet bij Calm.
+    var metRondes as Boolean = true;
 
     function initialize() {
     }
@@ -53,10 +55,12 @@ class EbbOpname {
             :subSport => Activity.SUB_SPORT_BREATHING,
             :name => "Ebb"
         });
-        _inhoud = s.createField("inhoud", 0, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_LAP, :units => "s"});
-        _tijden = s.createField("tijden", 4, FitContributor.DATA_TYPE_STRING, {:mesgType => FitContributor.MESG_TYPE_SESSION, :count => 48});
-        _adem = s.createField("adem", 2, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_LAP});
-        _rondes = s.createField("rondes", 3, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_SESSION});
+        if (metRondes) {
+            _inhoud = s.createField("inhoud", 0, FitContributor.DATA_TYPE_UINT16, {:mesgType => FitContributor.MESG_TYPE_LAP, :units => "s"});
+            _tijden = s.createField("tijden", 4, FitContributor.DATA_TYPE_STRING, {:mesgType => FitContributor.MESG_TYPE_SESSION, :count => 48});
+            _adem = s.createField("adem", 2, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_LAP});
+            _rondes = s.createField("rondes", 3, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_SESSION});
+        }
         s.start();
         _sessie = s;
         laps = 0;
@@ -65,7 +69,7 @@ class EbbOpname {
 
     // Na het inhouden: inhoudtijd en ademhalingen op de lap van deze ronde, alle tijden en het aantal rondes op de sessie.
     function inhouden(inhoudS as Number, adem as Number) as Void {
-        if (_sessie == null) {
+        if (_sessie == null || _inhoud == null) {
             return;
         }
         var s = (inhoudS > 65535) ? 65535 : inhoudS;
@@ -109,6 +113,7 @@ class EbbOpname {
         }
         var ok = s.save();
         _sessie = null;
+        sensorUit();
         return ok;
     }
 
@@ -122,5 +127,13 @@ class EbbOpname {
         }
         s.discard();
         _sessie = null;
+        sensorUit();
+    }
+
+    // Keuring bouw 2 punt 12: na de sessie de hartslagsensor weer uit (spaart de batterij).
+    function sensorUit() as Void {
+        if (Sensor has :setEnabledSensors) {
+            Sensor.setEnabledSensors([] as Array<Sensor.SensorType>);
+        }
     }
 }

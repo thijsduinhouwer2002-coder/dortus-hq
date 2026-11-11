@@ -311,18 +311,6 @@ module EbbTrouw {
         return nieuw;
     }
 
-    // Hoeveel dieren er nog klaarliggen voor een volgende sessie (verdiend maar nog niet getoond).
-    function wachtend() as Number {
-        var klaar = verdiend(getal(SESSIES), getal(BESTE), getal(PAUZE)) & ~getal(BITS);
-        var n = 0;
-        for (var i = 0; i < DIEREN.size(); i += 1) {
-            if ((klaar & (1 << i)) != 0) {
-                n += 1;
-            }
-        }
-        return n;
-    }
-
     // Keuring bouw 1 punt 7 (scherm 6c): het volgende gewone dier dat je nog niet hebt, het dichtstbij eerst
     // (laagste nummer bij gelijk). Geeft [nummer, nog nodig]: sessies voor een sessiedier, dagen op rij voor een
     // reeksdier, 0 als het al verdiend is en bij de volgende sessie komt. [-1, 0] als je alle gewone dieren hebt.
@@ -360,34 +348,6 @@ module EbbTrouw {
             }
         }
         return n;
-    }
-
-    // Eerlijke tekst hoe je een dier krijgt, bijvoorbeeld "3-day streak" of "30 sessions".
-    // Kort, want "3 days in a row" liep in het Sea log door de ronde rand (plaatjes run 42912712998, fenix847mm).
-    function hoe(i as Number) as String {
-        var r = DIEREN[i];
-        var n = r[2] as Number;
-        if ((r[1] as Number) == SOORT_PAUZE) {
-            return "bonus";   // besluit 00:55: "comes after a break" weg; hij blijft een verrassing bij je terugkeer
-        }
-        if ((r[1] as Number) == SOORT_REEKS) {
-            return n + "-week streak";
-        }
-        return n == 1 ? "1 session" : n + " sessions";
-    }
-
-    // Van de vier dieren die we nu kunnen tekenen (vis, kwal, schildpad, walvis): het nummer in DIEREN.
-    const GETEKEND = [0, 2, 3, 23] as Array<Number>;
-
-    // Welk getekend dier mee zwemt tijdens het inhouden: het hoogste dat je hebt, anders de vis.
-    // Het hangt niet af van hoe lang je inhoudt (geen beloning voor inhoudtijd).
-    function gezelschap() as Number {
-        for (var s = GETEKEND.size() - 1; s > 0; s -= 1) {
-            if (heeft(GETEKEND[s])) {
-                return s;
-            }
-        }
-        return 0;
     }
 
     // Blad v5 (T1): kies in de sea log het dier dat meezwemt; alleen een dier dat je hebt. Geeft of het lukte.

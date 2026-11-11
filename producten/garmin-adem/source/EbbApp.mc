@@ -77,7 +77,7 @@ class EbbApp extends Application.AppBase {
                 return [dv, new DierenDelegate(dv)];
             }
             if (k == 7) {
-                var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
+                var rv = new RustigView(Ebb.patronen()[1], EbbStart.CALM_NAAM);
                 // Stilgezet 0,53 s in de fase "in": het getal staat boven de golf (run 42868087287).
                 rv.plaatjeMs = 530;
                 zetRustig(rv);
@@ -378,7 +378,7 @@ class StartCheckDelegate extends WatchUi.BehaviorDelegate {
         }
         System.println("STARTCHECK start");
         if (_view.calm) {
-            var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
+            var rv = new RustigView(Ebb.patronen()[1], EbbStart.CALM_NAAM);
             (Application.getApp() as EbbApp).zetRustig(rv);
             WatchUi.switchToView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
             return true;
@@ -490,8 +490,6 @@ class EbbView extends WatchUi.View {
         eindVolgend = v[0];
         eindRest = v[1];
         System.println("TROUW nieuwe dieren " + nieuweDieren);
-        // Keuring blad v4.1 (G1): geen record meer bewaard, geen "new best", geen "best" (oude spel weg).
-        Application.Storage.deleteValue("record");
         return ok;
     }
 

@@ -180,11 +180,6 @@ rest = '''
         dc.drawBitmap(cx - bb.getWidth() / 2, cy - bb.getHeight() / 2, bb);
     }
 
-    // Oude aanroep: kleur -1 is het gevonden dier zonder rand, anders alle delen in die kleur.
-    function vlakken(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, kleur as Number) as Number {
-        return delen(dc, i, cx, cy, maat, kleur, kleur < 0 ? 0 : 1);
-    }
-
     // modus 0: eigen kleuren, rol 9 overslaan. 1: alle delen in kleur. 2: alle delen behalve rol 9 in kleur (stickerrand).
     // 3: alleen het kenmerk (rol 7, 8, 10) in kleur. Geeft de plek in de bytes waar de ogen beginnen.
     function delen(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, kleur as Number, modus as Number) as Number {

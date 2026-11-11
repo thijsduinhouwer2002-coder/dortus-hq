@@ -15,12 +15,8 @@ module EbbStart {
         return r + (r == 1 ? " round · " : " rounds · ") + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " breaths";
     }
 
-    function rondesKop() as String {
-        return "Rounds " + EbbInstellingen.waarde(EbbInstellingen.RONDES) + " x " + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN);
-    }
-
-    // De drie vaste patronen uit Ebb.patronen(), in dezelfde volgorde.
-    const PATROON_NAMEN = ["Box", "4-7-8", "Calm"] as Array<String>;
+    // Keuring bouw 2 punt 12: "Box" weg (besluit 2); in het menu staat alleen Calm 4-7-8 (Ebb.patronen()[1]).
+    const CALM_NAAM = "4-7-8";
 
     function eigenTekst() as String {
         var p = EbbInstellingen.eigenPatroon();
