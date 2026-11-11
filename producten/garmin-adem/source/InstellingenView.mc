@@ -106,6 +106,14 @@ class EbbInstellingenView extends WatchUi.View {
         var hV = dc.getFontHeight(EbbTeken.fS());
         var krap = (v != null) && (hN + hV + 8 > bh);
         if (krap) {
+            // Beeld run 43104540264 (FR255 scène 19): de hogere pil duwde de regel erboven in de kop "settings".
+            // De bovenkant van de pil blijft nu waar hij was (de pil groeit naar beneden) en de lucht om de pil is
+            // kleiner, zodat de onderste regel op zijn plek blijft.
+            if (!laag) {
+                py += (hN + hV + 8 - bh) / 2;
+                lucht = lucht * 5 / 9;
+                lucht = lucht < 4 ? 4 : lucht;
+            }
             bh = hN + hV + 8;
         }
         if (laag) {
