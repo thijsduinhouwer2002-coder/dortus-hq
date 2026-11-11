@@ -234,6 +234,19 @@ module EbbTeken {
         }
     }
 
+    // Blad v6 scherm 2 en 5 (keuring bouw 1 punt 5, Daan B2): zee onderaan die zacht mee ademt. water 0 (uit) tot 1 (in):
+    // bovenkant van 0,68 D naar 0,60 D, golf 0,012 D, dus de hoogste golftop is 0,588 D en het grote getal (midden 0,39 D)
+    // blijft er altijd boven. Bovenste band 00AAFF, daaronder 0055AA (daar staat de ondertekst, wit haalt 6:1), onderin 0000AA.
+    const ADEM_TOP = 0.68;
+    const ADEM_SLAG = 0.08;
+    const ADEM_AMP = 0.012;
+    function ademZee(dc as Graphics.Dc, d as Number, water as Float, fase as Float) as Void {
+        var top = ADEM_TOP - ADEM_SLAG * water;
+        golf(dc, d, top, d * ADEM_AMP, ZEE_KLEUR[0], fase, true);
+        golf(dc, d, top + 0.09, d * 0.007, ZEE_KLEUR[1], fase + 1.7, false);
+        golf(dc, d, 0.93, d * 0.006, ZEE_KLEUR[2], fase + 2.9, false);
+    }
+
     // Blad v6.4: dunne zeestrook onderaan (today, 8 weeks, settings, veiligheid), zodat elk scherm bij dezelfde zee hoort.
     function strook(dc as Graphics.Dc, d as Number) as Void {
         golf(dc, d, 0.885, d * 0.008, ZEE_KLEUR[1], 0.0, false);

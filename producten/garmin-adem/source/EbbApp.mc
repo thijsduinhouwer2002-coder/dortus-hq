@@ -584,9 +584,9 @@ class EbbView extends WatchUi.View {
         var grootDx = 0;
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, 20% bij uit, 72% bij in (Mila 80%; lager zodat het fasewoord nooit onder water staat, beeld run 42800407029).
-            var peilA = 0.2 + 0.52 * sessie.water(nu);
-            EbbTeken.water(dc, d, peilA, EbbTeken.DIEPTE[0], golfFase);
-            donker = peilA > EbbTeken.PEIL_DONKER;
+            // Keuring bouw 1 punt 5 en Daan B2: zee onderaan zoals blad v6 scherm 2, het getal altijd erboven.
+            EbbTeken.ademZee(dc, d, sessie.water(nu), golfFase);
+            yGroot = 0.39 - dc.getFontHeight(font).toFloat() / d / 2;
             woord = sessie.isIn(nu) ? "breathe in" : "breathe out";   // blad v6 scherm 2
             groot = sessie.ademhaling(nu).toString();
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
@@ -709,7 +709,7 @@ class EbbView extends WatchUi.View {
     private var _onderGemeld as Boolean = false;
     function meetOnder(dc as Graphics.Dc, d as Number, klein as String) as Void {
         _onderGemeld = true;
-        var golf = (d * (1.0 - 0.2 + 0.025)).toNumber() + (d / 110 > 2 ? d / 110 : 2) / 2 + 1;
+        var golf = (d * (EbbTeken.ADEM_TOP + EbbTeken.ADEM_AMP)).toNumber() + (d / 160 > 1 ? d / 160 : 1) / 2 + 1;
         var top = (d * YKLEIN_ADEMEN).toNumber();
         var leeg = dc.getFontHeight(Graphics.FONT_XTINY) - Graphics.getFontAscent(Graphics.FONT_XTINY) - Graphics.getFontDescent(Graphics.FONT_XTINY);
         var letterTop = top + (leeg > 0 ? leeg : 0);

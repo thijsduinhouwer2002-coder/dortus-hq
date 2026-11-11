@@ -68,16 +68,14 @@ class RustigView extends WatchUi.View {
         var i = sessie.faseIndex(nu);
         // Keuring bouw 1 punt 5 (blad v6 scherm 5): zwart, fasewoord bovenaan, groot cijfer met "s", de zee onderaan
         // die zacht mee ademt (hoogste golf 0,60 D), het cijfer staat altijd boven de hoogste golfstand; geen teal vlak.
-        var top = 0.68 - 0.08 * sessie.water(nu);
-        EbbTeken.golf(dc, d, top, d * 0.012, EbbTeken.ZEE_KLEUR[1], _golf, true);
-        EbbTeken.golf(dc, d, top + 0.17, d * 0.007, EbbTeken.ZEE_KLEUR[2], _golf + 1.7, false);
+        EbbTeken.ademZee(dc, d, sessie.water(nu), _golf);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         var font = EbbTeken.grootFont(dc, d);
         var getal = sessie.overS(nu).toString();
         var gb = dc.getTextWidthInPixels(getal, font);
         var sb = dc.getTextWidthInPixels("s", Graphics.FONT_SMALL);
-        var cy = (d * 0.40).toNumber();
+        var cy = (d * 0.39).toNumber();
         var cx = w / 2 - sb / 2 - 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, cy, font, getal, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -86,7 +84,7 @@ class RustigView extends WatchUi.View {
         dc.drawText(cx + gb / 2 + 4, onder - Graphics.getFontAscent(Graphics.FONT_SMALL), Graphics.FONT_SMALL, "s", Graphics.TEXT_JUSTIFY_LEFT);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         var label = naam.equals("4-7-8") ? "Calm 4-7-8" : naam;
-        dc.drawText(w / 2, (d * 0.80).toNumber(), Graphics.FONT_SMALL, label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.84).toNumber(), Graphics.FONT_SMALL, label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     function pauzeer() as Void {
