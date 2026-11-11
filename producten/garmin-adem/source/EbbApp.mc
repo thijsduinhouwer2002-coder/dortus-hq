@@ -687,10 +687,17 @@ class EbbView extends WatchUi.View {
         } else if (fase == Ebb.FASE_HERSTEL) {
             // Blad v6 scherm 4 (herstel): de zon komt op achter de zee (W0, W1, W2), bovenaan "big breath in, hold",
             // groot de seconden met een kleine "s", onderaan "round 2 held 1:45".
-            // Keuring bouw 2 punt 10: de zon kleiner en lager, minstens 10 px los van "15 s" (top 0,57 D).
+            // Keuring bouw 2 punt 10 en beelden run 42955254555: de zon raakte de onderkant van "15" nog. Nu staat de
+            // bovenkant van de zon 10 px onder de onderkant van de cijfers (zelfde rekensom als hieronder voor "s").
             var zr = (d * 0.10).toNumber();
+            var yG = 0.415 - dc.getFontHeight(font).toFloat() / d / 2;
+            var leegZ = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+            var onderZ = (d * yG).toNumber() + (leegZ > 0 ? leegZ : 0) + Graphics.getFontAscent(font);
+            var zcy = onderZ + 10 + zr;
+            var zMin = (d * 0.67).toNumber();
+            zcy = zcy < zMin ? zMin : zcy;
             dc.setColor(EbbTeken.GEEL, EbbTeken.GEEL);
-            dc.fillCircle(w / 2, (d * 0.67).toNumber(), zr);
+            dc.fillCircle(w / 2, zcy, zr);
             EbbTeken.golf(dc, d, 0.64, d * 0.014, EbbTeken.ZEE_KLEUR[0], golfFase, true);
             EbbTeken.golf(dc, d, 0.72, d * 0.008, EbbTeken.ZEE_KLEUR[1], golfFase + 1.3, false);
             EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], golfFase + 2.6, false);
@@ -835,11 +842,19 @@ class EbbView extends WatchUi.View {
             var s = (sessie.inhoudtijden[i] + 500) / 1000;
             tijden.add((s / 60) + ":" + (s % 60).format("%02d"));
         }
-        // Beelden run 42953647184: bij 4 tot 6 rondes raakte de tweede regel tijden de schuimkam; dan zakt de zee.
-        EbbTeken.golf(dc, d, (n > 3) ? 0.37 : 0.326, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
+        var kopY = (n > 3) ? 0.14 : 0.17;
+        // Beelden run 42955254555: bij 4 tot 6 rondes raakte de tweede regel tijden de schuimkam. De zee begint nu
+        // 8 px plus de golfhoogte onder de onderkant van de tweede regel, gerekend met de echte letterhoogtes.
+        var lhX = dc.getFontHeight(Graphics.FONT_XTINY);
+        var y1 = (d * kopY).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + 6 + lhX / 2;
+        var zeeTop = 0.326;
+        if (n > 3) {
+            var t = (y1 + lhX + lhX / 2 + 8 + d * 0.02) / d.toFloat();
+            zeeTop = t > zeeTop ? t : zeeTop;
+        }
+        EbbTeken.golf(dc, d, zeeTop, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
         EbbTeken.golf(dc, d, 0.60, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.7, false);
         EbbTeken.golf(dc, d, 0.88, d * 0.006, EbbTeken.ZEE_KLEUR[3], 2.9, false);
-        var kopY = (n > 3) ? 0.14 : 0.17;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * kopY).toNumber(), Graphics.FONT_SMALL, n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -848,8 +863,7 @@ class EbbView extends WatchUi.View {
         } else {
             var helft = (n + 1) / 2;
             // Keuring bouw 2 punt 4: twee regels van 3, de eerste 6 px onder de titel.
-            var lh = dc.getFontHeight(Graphics.FONT_XTINY);
-            var y1 = (d * kopY).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + 6 + lh / 2;
+            var lh = lhX;
             dc.drawText(w / 2, y1, Graphics.FONT_XTINY, regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.drawText(w / 2, y1 + lh, Graphics.FONT_XTINY, regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
@@ -867,8 +881,8 @@ class EbbView extends WatchUi.View {
         }
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = vandaag();
-        var label = EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel());
-        tekstInRonde(dc, d, 0.795, label, EbbTeken.LICHTCYAAN);
+        var boven = (d * 0.645).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
     }
 
     function regel(tijden as Array<String>, van as Number, tot as Number) as String {

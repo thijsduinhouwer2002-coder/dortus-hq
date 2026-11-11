@@ -9,12 +9,13 @@ import Toybox.System;
 module EbbTeken {
     // Besluit hoofdchat 11 nov 04:30: onder elk eindscherm de week. Eén stip per sessie van het weekdoel (2 tot 7),
     // gevuld wat je deze week deed, en de regel "3 weeks in a row" of, zonder reeks, "2 of 3 this week".
-    function weekStippen(dc as Graphics.Dc, d as Number, reeks as Number, dezeWeek as Number, doel as Number) as String {
+    // Beelden run 42955254555 (FR255): vaste hoogtes lieten stippen en regels overlappen. Nu volgt alles uit de
+    // letterhoogte: stippen 4 px onder boven (de onderkant van de regel erboven), de weekregel 4 px onder de stippen.
+    function weekStippen(dc as Graphics.Dc, d as Number, reeks as Number, dezeWeek as Number, doel as Number, boven as Number) as Void {
         var r = (d * 0.014).toNumber();
         r = r < 3 ? 3 : r;
         var stap = (d * 0.05).toNumber();
-        // Beelden run 42953647184: de stippen raakten de regel erboven ("1 more session"); nu 0,73 D.
-        var sy = (d * 0.73).toNumber();
+        var sy = boven + 4 + r;
         dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
         for (var i = 0; i < doel; i += 1) {
             var sx = d / 2 + ((2 * i - (doel - 1)) * stap) / 2;
@@ -27,11 +28,16 @@ module EbbTeken {
             }
         }
         dc.setPenWidth(1);
+        var label = "";
         if (reeks >= 1) {
-            return reeks + (reeks == 1 ? " week in a row" : " weeks in a row");
+            label = reeks + (reeks == 1 ? " week in a row" : " weeks in a row");
+        } else {
+            var n = dezeWeek < doel ? dezeWeek : doel;
+            label = n + " of " + doel + " this week";
         }
-        var n = dezeWeek < doel ? dezeWeek : doel;
-        return n + " of " + doel + " this week";
+        var f = Graphics.FONT_XTINY;
+        dc.setColor(LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, sy + r + 4, f, label, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     const SCHUIM = 0x55FFFF;

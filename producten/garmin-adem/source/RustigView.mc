@@ -212,8 +212,8 @@ class CalmEindeView extends WatchUi.View {
             }
         }
         tekst(dc, d, 0.645, regel, kleur);
-        var label = EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel());
-        tekst(dc, d, 0.795, label, EbbTeken.LICHTCYAAN);
+        var boven = (d * 0.645).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel(), boven);
     }
 
     function tekst(dc as Graphics.Dc, d as Number, y as Float, t as String, kleur as Number) as Void {
