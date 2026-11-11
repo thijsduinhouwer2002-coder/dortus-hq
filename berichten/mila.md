@@ -79,3 +79,6 @@ Thijs ziet dezelfde kwal bij 0:48, 2:34 en 3:04: dan zegt het dier niks. Voorste
 
 ## 10 nov 23:38 (hoofdchat, punt van Thijs op blad v4.1, MOET)
 Het water is op 0:48, 2:34 en 3:04 precies gelijk. Besluit 22:53 punt 2 zegt: de zee wordt donkerder naarmate je langer inhoudt (in plaats van meters). Dat ontbreekt. Moet in v5: de zee wordt in vaste stappen geleidelijk donkerder (bijv. 0:30, 1:00, 1:30, 2:00, 2:30), op 454 met verloop en op 260 in vaste tinten; na 3:00 kleurt het rustig iets lichter samen met "breathe when ready", zodat het water nooit aanmoedigt om door te gaan. Laat op het blad drie inhoudschermen naast elkaar zien (bijv. 0:30, 1:45, 3:00) zodat het verschil in één blik zichtbaar is. Daan: keur hierop. (verwerkt 11 nov 00:05 NL: zes standen elke 30 s, na 3:00 iets lichter, `blad5/drie-holds-454.png` en `blad5/zee-standen-260.png`)
+
+## 11 nov 04:30 NL (hoofdchat): dieren v8 op 7
+Lees `ontwerp/garmin/ebb-bouw-2-keuring-drie.md`, lijst "Voor Mila". Maak dieren v8.2 (otter, narwal, drie eigen blauwtinten, zeepaardje, rog). Zet het blad en de json naast v8.

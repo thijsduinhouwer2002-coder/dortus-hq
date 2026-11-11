@@ -171,3 +171,10 @@ Thijs zag op blad v4.1 dat het water op elk inhoudscherm gelijk was en dat steed
 1. Elk geldend besluit punt voor punt afvinken (zit het er echt in, ja of nee).
 2. Opeenvolgende schermen naast elkaar leggen en nagaan of verandert wat moet veranderen (en niets verandert wat vast moet blijven).
 3. De vraag "wat zegt Thijs hier als eerste van?" beantwoorden voordat iets naar Thijs gaat.
+
+## 11 nov 04:30 (hoofdchat, Ebb, bij keuring bouw 2)
+1. Reeks telt in weken op rij, weekdoel standaard 3 sessies (2 tot 7). Waarom: met dagen breekt de reeks wekelijks voor wie ma-wo-vr traint.
+2. Box, Calm 5.5 en eigen patroon uit de winkeltekst. Titel "Ebb: Breath Hold Rounds, Breathwork & 4-7-8". Waarom: eerlijk, en Box kan later.
+3. Een sessie telt mee vanaf 1 inhoud of 1 minuut Calm.
+4. Calm krijgt ook de "Sit or lie down"-check.
+Thijs kan dit om 08:00 terugdraaien.
