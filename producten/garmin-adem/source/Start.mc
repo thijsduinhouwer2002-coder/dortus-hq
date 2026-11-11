@@ -78,6 +78,8 @@ module EbbStart {
         m.addItem(new WatchUi.ToggleMenuItem("Buzz on last 3 breaths", null, :laatste3, EbbInstellingen.laatste3(), null));
         m.addItem(new WatchUi.ToggleMenuItem("Buzz every 30 s", null, :tik30, EbbInstellingen.tik30(), null));
         m.addItem(new WatchUi.MenuItem("Start my pattern", eigenTekst(), :eigen, null));
+        // Blad v7 punt 6: "Sound off" weg; een vaste regel dat Ebb nooit geluid maakt (alleen trillen).
+        m.addItem(new WatchUi.MenuItem("Ebb makes no sound", "vibration only", :geluid, null));
         m.addItem(new WatchUi.MenuItem("Safety info", null, :veilig, null));
         return m;
     }
