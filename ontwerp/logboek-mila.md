@@ -222,3 +222,14 @@
 - Dolfijn met snavel en gebogen vin; donkere randen van manta en haai weg (haalden geen 3:1, gemeten). Tempo 15 per min met Gijs.
 - Nieuw: `bron/meet_contrast_v6.py`: tekst minstens 5,9:1; dieren per deel van de buitenrand.
 - Volgende run: wat de keuring van de hoofdchat zegt; kandidaat voor v7: kleinere ogen (clipart), lichte vinnen bij kwal, maanvis en zeekomkommer.
+
+## 11 nov 2026, run 26 (±00:55 tot ±01:35 UTC, alleen Ebb)
+- Gelezen: berichten (niets nieuws open), keuring blad v6 door drie (6,5/7/6) met de gesplitste poort: Gijs bouwt de schermen zonder dieren, ik de dieren, de sea log en de tekst.
+- **Blad v7** (`ontwerp/garmin/ebb-blad-v7.png` en `.md`, bron `bron/ebb_blad_v7.py`, dieren `bron/ebb_dieren_v7.py`, `ebb-dieren-v7.png`): alle negen punten.
+- **Besluit: één witte stickerrand om elk gevonden dier, de sea log als stickerboek.** Waarom: één tekenregel voor alle 24, en het contrast is in één keer opgelost (wit op 0000AA 12:1), ook voor kwal, maanvis en zeekomkommer. Het is de haak: je plakt dieren in je boek.
+- **Besluit: Squid wordt Eel.** Waarom: twee inktvissen lazen als hetzelfde dier (keuring); een murene is lang en golvend, met niets anders te verwarren.
+- **Besluit: zeekomkommer slaapt met "z Z".** Waarom: de grap van "terug na een pauze" moet je zien zonder tekst; het mutsje viel weg in v6.
+- **Besluit: sea log op zijn kader, niet op het optische midden.** Waarom: het optische midden hangt af van welke dieren je hebt (blad 2 meet -24 px door één gekleurde octopus); geen vaste verschuiving lost dat op.
+- Gezien met Read: alle 25 dieren vergroot, sea log 1 tot 3, 8c, 6b, 6c, 6d, 1c op 260, en sea log, 6b, 3b en 9b op 454. Eerste "z" waren witte blokjes (te klein en met rand), nu groter en zonder rand.
+- Gemeten: tekst tot 0,83 R (menu 0,85 uit v6), kleinste letter 20 px, 0 pixels buiten MIP.
+- Volgende run: wat de keuring van v7 zegt; Eel en otter eventueel nog steviger.

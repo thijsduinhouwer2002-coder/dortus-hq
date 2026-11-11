@@ -109,6 +109,8 @@ def dier_beeld(soort, s, kleur_override=None, hoek=0, oog_s=None):
     delen, ogen = delen_v7(soort)
     lijf, licht, donker = v3.TINT[soort]
     rol = {'lijf': lijf, 'licht': licht, 'donker': donker, 'zwart': (0,0,0), 'muts': dv5.MUTS, 'witp': WIT, 'zz': WIT}
+    hint = kleur_override == 'hint'          # 6c: silhouet van het volgende dier, met zijn kenmerk (banden) in de randkleur
+    if hint: kleur_override = 'silhouet'
     stil = kleur_override == 'silhouet'
     if isinstance(kleur_override, dict): rol = dict(kleur_override)
     elif kleur_override and not stil: rol = {k: kleur_override for k in rol}
@@ -126,6 +128,10 @@ def dier_beeld(soort, s, kleur_override=None, hoek=0, oog_s=None):
     if stil:
         im.paste(Image.new('RGBA', (W, W), SIL_RAND + (255,)), (0, 0), groot)
         im.paste(Image.new('RGBA', (W, W), SIL + (255,)), (0, 0), vorm)
+        if hint:
+            d = ImageDraw.Draw(im)
+            for pts, r in delen:
+                if r == 'licht': d.polygon([(c + x*s, c + y*s) for x, y in pts], fill=SIL_RAND + (255,))
     else:
         if not kleur_override:   # de stickerrand: zelfde dikte voor elk dier
             im.paste(Image.new('RGBA', (W, W), WIT + (255,)), (0, 0), groot)
