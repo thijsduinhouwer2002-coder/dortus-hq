@@ -71,11 +71,15 @@ class EbbInstellingenView extends WatchUi.View {
         // Keuring bouw 2 punt 6: regels gelijk verdeeld (0,325 boven, pil 0,40 tot 0,61, dan 0,685 en 0,765: telkens
         // 0,075 D lucht tot de pil en 0,08 D tussen de regels). De pil is 24 px breder dan de langste regel erin,
         // hoogstens 0,83 D; past de naam niet in de grote letter, dan een kleinere.
-        if (keuze > 0) {
-            regelKort(dc, d, keuze - 1, 0.325);
-        }
+        // Keuring bouw 3 punt 6: pil 10 px hoger (0,022 D), regels buiten de pil in één lettermaat, gelijk verdeeld:
+        // telkens dezelfde lucht (0,035 D) tussen pil en regel en tussen de regels.
         var bh = (d * 0.21).toNumber();
-        var py = (d * 0.505).toNumber();
+        var py = (d * 0.483).toNumber();
+        var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+        var lucht = (d * 0.035).toNumber();
+        if (keuze > 0) {
+            regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
+        }
         var maxW = (d * 0.83).toNumber();
         var naam = REGELS[keuze][0] as String;
         var v = waarde(keuze);
@@ -104,11 +108,12 @@ class EbbInstellingenView extends WatchUi.View {
             dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, py + (d * 0.055).toNumber(), Graphics.FONT_SMALL, v as String, midden);
         }
+        var y1 = py + bh / 2 + lucht + fx / 2;
         if (keuze + 1 < aantal()) {
-            regelKort(dc, d, keuze + 1, 0.685);
+            regelKort(dc, d, keuze + 1, y1.toFloat() / d);
         }
         if (keuze + 2 < aantal()) {
-            regelKort(dc, d, keuze + 2, 0.765);
+            regelKort(dc, d, keuze + 2, (y1 + fx + lucht).toFloat() / d);
         }
     }
 
@@ -118,7 +123,7 @@ class EbbInstellingenView extends WatchUi.View {
         var tekst = (REGELS[r][0] as String) + ((v != null && (REGELS[r][1] as Number) != 3) ? "  " + v : "");
         var dy = y - 0.5;
         var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.84;
-        var f = (dc.getTextWidthInPixels(tekst, Graphics.FONT_SMALL) <= koorde) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        var f = Graphics.FONT_XTINY;
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }

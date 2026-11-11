@@ -187,13 +187,18 @@ class CalmEindeView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        EbbTeken.zeeBanden(dc, d, [0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        // Keuring bouw 3 punt 6: de regel onder "calm done" minstens 10 px (454) of 6 px (260) eronder, de zee daaronder.
+        var gat = (d * 0.022).toNumber();
+        gat = gat < 6 ? 6 : gat;
+        var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + gat + dc.getFontHeight(Graphics.FONT_XTINY) / 2;
+        var zt = (yRegel1 + dc.getFontHeight(Graphics.FONT_XTINY) / 2 + 8 + d * 0.02) / d.toFloat();
+        EbbTeken.zeeBanden(dc, d, [zt > 0.326 ? zt : 0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.17).toNumber(), Graphics.FONT_SMALL, "calm done", midden);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Keuring bouw 3 punt 11: onder 1 minuut seconden ("45 s"), niet "1 min"; punt 6: deze regel kleiner.
-        dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_XTINY, EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
+        dc.drawText(w / 2, yRegel1, Graphics.FONT_XTINY, EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
         var cy = (d * 0.465).toNumber();
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
         var regel = telt ? "counts as a session" : "from 1 min it counts";
