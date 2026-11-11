@@ -201,3 +201,15 @@
 - Gemeten: kader binnen 2,0 px op 32 beelden, kleinste letter 20 px op 260.
 - Volgende run: wat Thijs zegt op v4.1; otter en zeepaardje beter.
 
+
+## 11 nov 2026, run 24 (±23:56 tot ±00:25 UTC, alleen Ebb)
+- Gelezen: berichten (Gijs 23:20 en 23:45), keuring v5 door drie beoordelaars (6,5/7/6) met 12 moet-punten en besluiten zee en reeks.
+- **Ebb blad v6** (`ontwerp/garmin/ebb-blad-v6.png` en `.md`, bron `bron/ebb_blad_v6.py`, dieren `bron/ebb_dieren_v6.py`): 22 schermen, nu ook 3d op 2:30.
+- **Besluit: de inhoudschermen horen bij de sessie zonder dier.** Waarom: zo heeft 6b (met dier) kortere holds dan 6c en ziet niemand een koppeling tussen lang inhouden en een beloning.
+- **Besluit: Lobster wordt nr. 23, zeekomkommer bonus 25.** Waarom: besluit 00:55 maakt de komkommer bonus; met 23 dieren klopt "of 24" niet, en de kreeft was al getekend.
+- **Besluit: silhouet = één vlak 000055 met buitenrand 0055AA, nummer erop.** Waarom: de spookdieren met binnenlijnen lazen als streepjescode (keuring), een egaal vlak is rustig en de gevonden dieren dragen de pagina.
+- **Besluit: today en 8 weeks met egale staande staven in één tint.** Waarom: elk verloop gaf de langste staaf toch nadruk (GEZIEN op 454).
+- Otter (op zijn rug, schelp, voeten omhoog) en zeehond (liggend, flipper, snor) opnieuw; vergroot en op 260 bekeken, nu herkenbaar (GEZIEN).
+- Afgewezen: dieren in de sea log op hun kader centreren (zwaartepunt schoof van -3,7 naar -6,1 px).
+- Drie frisse keuringen: 7, 7, 7,3. Gemeten: tekst binnen 0,80 R op alle 22 schermen op 260, 0 pixels buiten MIP.
+- Volgende run: sea log centreren (gekozen dier in het midden of stip in plaats van ring), clipart (ogen kleiner, één stijl), dunne zeestrook op today, 8 weeks, settings en veiligheid, dolfijn en orka, teksten veiligheid. Dan opnieuw keuren tot 8.

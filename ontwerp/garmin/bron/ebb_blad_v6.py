@@ -165,9 +165,15 @@ def s_einde6(D):
     dagstippen(d, D, D*0.848, 4)
     rand(im, D); return im
 
-def silhouet6(im, D, soort, x, y, s, nr):
-    """Punt 6: egaal silhouet 0000AA met dunne rand 0055FF, geen ogen of strepen, met het nummer erop."""
-    dier(im, soort, x, y, s, kleur='silhouet')
+def dier_cel(im, soort, x, y, s, kleur=None):
+    """Sea log: het dier op het midden van zijn kader in de cel (niet op zijn zwaartepunt), zodat het raster in het midden staat."""
+    laag, _, _ = v3.dier_beeld(soort, s, kleur)
+    l, t, r, b = laag.getbbox()
+    im.paste(laag, (int(round(x - (l + r)/2)), int(round(y - (t + b)/2))), laag)
+
+def silhouet6(im, D, soort, x, y, s, nr, cel=False):
+    """Punt 6: egaal silhouet 000055 met dunne rand 0055AA, geen ogen of strepen, met het nummer erop."""
+    (dier_cel if cel else dier)(im, soort, x, y, s, kleur='silhouet')
     d = ImageDraw.Draw(im)
     tekst(d, D, (x, y), str(nr), max(D*0.060, MIN*D), LICHTCYAAN)
 
@@ -244,13 +250,28 @@ def s_rooster_2(D): return s_rooster6(D, 1, kies=9)
 def s_rooster_3(D): return s_rooster6(D, 2, kies=23)
 
 # ---------------- 9b: gewone woorden (punt 4) ----------------
-def s_instel_b(D): return instel(D, 'Buzz last 3 breaths  on', 'Sound', 'off', ['Touch lock  on', 'Safety info'])
+def s_instel_a(D): return instel(D, 'Rounds  3', 'Breathing pace', '15 per min', ['Breaths  30', 'Buzz in hold  on'])
+def s_instel_b(D): return instel(D, 'Buzz before hold  on', 'Sound', 'off', ['Touch lock  on', 'Safety info'])
+
+def s_zeelog6(D):
+    im = leeg(D)
+    zee(im, D, [(D*0.30, W2), (D*0.75, W3)], amp=D*0.010, schuim=False)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.16), 'sea log', D*0.075, TITEL)
+    bellen(d, D, [(0.29, 0.44, 0.010), (0.72, 0.38, 0.007)])
+    dier(im, 'pad', D/2, D*0.415, D*0.15, hoek=-6)
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.585), 'Turtle', D*0.090, WIT)
+    tekst(d, D, (D/2, D*0.665), 'after 3 days in a row', D*0.066, LICHTCYAAN)
+    v4.pil(d, D, 0.775, 0.56, 0.11)
+    tekst(d, D, (D/2, D*0.775), 'joins your holds', D*0.066, WIT)
+    rand(im, D); return im
 
 SCHERMEN = [('1 menu', s_menu6), ('1b start', s_start6), ('2 ademen', s_ademen6), ('3a hold 0:30', s_duik_a),
             ('3b hold 1:45', s_duik_b), ('3d hold 2:30', s_duik_d), ('3c hold 3:04', s_duik_c), ('4 herstel', s_boven6),
             ('5 rustig 4-7-8', v3.s_rustig), ('6 today', s_today6), ('6b einde met dier', s_einde6), ('6c einde zonder dier', s_einde_gewoon6),
             ('7 8 weeks', s_weken6), ('8 sea log 1 van 3', s_rooster_1), ('8b sea log 2 van 3', s_rooster_2), ('8d sea log 3 van 3', s_rooster_3),
-            ('8c sea log dier', v5.s_zeelog5), ('9 settings', v5.s_instel_a), ('9b settings', s_instel_b), ('10 veilig 1', v5.s_veilig_a),
+            ('8c sea log dier', s_zeelog6), ('9 settings', s_instel_a), ('9b settings', s_instel_b), ('10 veilig 1', v5.s_veilig_a),
             ('10b veilig 2', v5.s_veilig_b), ('10c veilig 3', v5.s_veilig_c)]
 
 def tekst_r(im, D):

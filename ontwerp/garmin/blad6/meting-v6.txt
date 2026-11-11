@@ -31,15 +31,15 @@
  260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   buiten MIP 0   tekst tot 0.71 R
  260  6 today                kader x  +0.0 px   optisch x  +0.2 px   buiten MIP 0   tekst tot 0.75 R
  260  6b einde met dier      kader x  +0.0 px   optisch x  -0.6 px   buiten MIP 0   tekst tot 0.80 R
- 260  6c einde zonder dier   kader x  +0.0 px   optisch x  +0.5 px   buiten MIP 0   tekst tot 0.80 R
+ 260  6c einde zonder dier   kader x  +0.0 px   optisch x  -0.4 px   buiten MIP 0   tekst tot 0.80 R
  260  7 8 weeks              kader x  +0.5 px   optisch x  +3.4 px   buiten MIP 0   tekst tot 0.72 R
- 260  8 sea log 1 van 3      kader x  -4.5 px   optisch x  -0.6 px   buiten MIP 0   tekst tot 0.79 R
- 260  8b sea log 2 van 3     kader x  -2.0 px   optisch x  -2.2 px   buiten MIP 0   tekst tot 0.79 R
- 260  8d sea log 3 van 3     kader x  +5.5 px   optisch x  +1.3 px   buiten MIP 0   tekst tot 0.79 R
- 260  8c sea log dier        kader x  +0.0 px   optisch x  +0.0 px   buiten MIP 0   tekst tot 0.79 R
- 260  9 settings             kader x  +0.5 px   optisch x  -2.7 px   buiten MIP 0   tekst tot 0.78 R
- 260  9b settings            kader x  +0.5 px   optisch x  -1.7 px   buiten MIP 0   tekst tot 0.70 R
+ 260  8 sea log 1 van 3      kader x  -4.5 px   optisch x  -6.5 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8b sea log 2 van 3     kader x  -2.0 px   optisch x  -4.6 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8d sea log 3 van 3     kader x  +5.5 px   optisch x  +4.2 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8c sea log dier        kader x  +0.0 px   optisch x  +0.1 px   buiten MIP 0   tekst tot 0.76 R
+ 260  9 settings             kader x  +0.5 px   optisch x  -2.2 px   buiten MIP 0   tekst tot 0.72 R
+ 260  9b settings            kader x  +0.5 px   optisch x  -1.7 px   buiten MIP 0   tekst tot 0.66 R
  260  10 veilig 1            kader x  +0.0 px   optisch x  -0.3 px   buiten MIP 0   tekst tot 0.64 R
  260  10b veilig 2           kader x  -0.5 px   optisch x  -0.9 px   buiten MIP 0   tekst tot 0.64 R
  260  10c veilig 3           kader x  +0.5 px   optisch x  -0.3 px   buiten MIP 0   tekst tot 0.65 R
-kleinste tekst op 260: "1:10" 20 px, "1:20" 20 px, "Never standing," 20 px, "14" 20 px, "1 / 3" 20 px, "swims with you: on" 20 px
+kleinste tekst op 260: "6 holds · avg 1:44" 20 px, "Buzz in hold  on" 20 px, "Never standing," 20 px, "18" 20 px, "7:40" 20 px, "Touch lock  on" 20 px
