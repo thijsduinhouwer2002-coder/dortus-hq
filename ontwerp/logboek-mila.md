@@ -213,3 +213,12 @@
 - Afgewezen: dieren in de sea log op hun kader centreren (zwaartepunt schoof van -3,7 naar -6,1 px).
 - Drie frisse keuringen: 7, 7, 7,3. Gemeten: tekst binnen 0,80 R op alle 22 schermen op 260, 0 pixels buiten MIP.
 - Volgende run: sea log centreren (gekozen dier in het midden of stip in plaats van ring), clipart (ogen kleiner, één stijl), dunne zeestrook op today, 8 weeks, settings en veiligheid, dolfijn en orka, teksten veiligheid. Dan opnieuw keuren tot 8.
+
+## 11 nov 2026, run 25 (nachtronde hoofdchat 00:58 NL, alleen Ebb)
+- Opdracht: blad v6 met afvinklijst van 22:53, v4-keuring en v5-keuring, tempo met Gijs, meten (zwaartepunt, letters, contrast), geen eigen frisse keuringen meer.
+- **Blad v6.4**: afvinklijst bovenaan `ebb-blad-v6.md`, alle punten ja (een paar "aangepast" door het besluit van 00:55).
+- **Besluit: sea log met een stip onder het gekozen dier en het raster op zijn zwaartepunt.** Waarom: de ring trok het beeld 6 px naar links; nu binnen 1,6 px (GEZIEN en gemeten). Kader schuift daardoor tot 5,5 px, dat is het eerlijke ruilen.
+- **Besluit: dunne zeestrook onder today, 8 weeks, settings en veiligheid.** Waarom: die schermen waren de "kale" in alle drie de keuringen; nu hoort elk scherm bij dezelfde zee.
+- Dolfijn met snavel en gebogen vin; donkere randen van manta en haai weg (haalden geen 3:1, gemeten). Tempo 15 per min met Gijs.
+- Nieuw: `bron/meet_contrast_v6.py`: tekst minstens 5,9:1; dieren per deel van de buitenrand.
+- Volgende run: wat de keuring van de hoofdchat zegt; kandidaat voor v7: kleinere ogen (clipart), lichte vinnen bij kwal, maanvis en zeekomkommer.

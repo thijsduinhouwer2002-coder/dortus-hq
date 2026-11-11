@@ -21,7 +21,8 @@ v3.TINT.update({
     'narwal':     ((255,255,255), (255,255,255), (85,85,170)),
     'kreeft':     ((255,85,85),   (255,170,170), (170,0,0)),     # lichter: haalt 3:1 op 0000AA
 })
-RAND = dict(dv5.RAND); RAND.update({'orka': (170,170,255), 'manta': (85,85,85), 'kreeft': (255,170,170)})
+RAND = dict(dv5.RAND); RAND.update({'orka': (170,170,255), 'kreeft': (255,170,170)})
+RAND.pop('manta', None); RAND.pop('haai', None)   # v6.4: hun lijf (AAAAAA, AAAAFF) is zelf licht genoeg; een donkere rand haalde geen 3:1
 DIK = {'orka', 'kreeft'}                           # rand 2 px, ook op 260
 GROTER = {'walvis': 1.30, 'reuzeninkt': 1.25, 'orka': 1.15, 'kreeft': 1.20, 'haai': 1.10, 'otter': 1.15, 'zeehond': 1.10}   # zeldzaam = groter, in de sea log en op 6b
 SIL = (0,0,85); SIL_RAND = (0,85,170)   # v6.3: rustiger (keuring v6.1), rand leest op zwart en op 0000AA

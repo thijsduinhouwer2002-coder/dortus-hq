@@ -344,7 +344,7 @@ def maak(uit):
     Dd = 260; cel = 120; dk = Image.new('RGB', (25*cel + 20, 2*cel + 80), (14, 16, 24)); dd = ImageDraw.Draw(dk)
     for i, (soort, naam) in enumerate(ALLE):
         for j in (0, 1):
-            vak = Image.new('RGB', (cel, cel), W2 if j == 0 else W3)
+            vak = Image.new('RGB', (cel, cel), W2 if j == 0 else ZWART)   # silhouetten op zwart, zoals in de sea log
             sc = v3.schaal_voor_gewicht(soort, (Dd*0.13)**2*0.55) * dv6.GROTER.get(soort, 1)
             v3.dier(vak, soort, cel/2, cel/2, sc, kleur=None if j == 0 else 'silhouet')
             dk.paste(vak, (10 + i*cel, 10 + j*cel))

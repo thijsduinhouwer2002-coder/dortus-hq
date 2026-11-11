@@ -1,0 +1,48 @@
+ebb-v6-1-260.png             laagste tekstcontrast  17.1:1  ((85, 255, 255) op (0, 0, 0), 663 px)
+ebb-v6-10-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 65 px)
+ebb-v6-10b-260.png           laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 65 px)
+ebb-v6-10c-260.png           laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 40 px)
+ebb-v6-1b-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 69 px)
+ebb-v6-2-260.png             laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 148 px)
+ebb-v6-3a-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 71 px)
+ebb-v6-3b-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 71 px)
+ebb-v6-3c-260.png            laagste tekstcontrast  16.3:1  ((170, 255, 255) op (0, 0, 85), 367 px)
+ebb-v6-3d-260.png            laagste tekstcontrast  15.1:1  ((85, 255, 255) op (0, 0, 85), 71 px)
+ebb-v6-4-260.png             laagste tekstcontrast   2.1:1  ((85, 255, 255) op (0, 170, 255), 35 px)
+ebb-v6-5-260.png             laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 120 px)
+ebb-v6-6-260.png             laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 48 px)
+ebb-v6-6b-260.png            laagste tekstcontrast  10.8:1  ((85, 255, 255) op (0, 0, 170), 39 px)
+ebb-v6-6c-260.png            laagste tekstcontrast  10.8:1  ((85, 255, 255) op (0, 0, 170), 39 px)
+ebb-v6-7-260.png             laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 17 px)
+ebb-v6-8-260.png             laagste tekstcontrast  16.3:1  ((170, 255, 255) op (0, 0, 85), 41 px)
+ebb-v6-8b-260.png            laagste tekstcontrast   6.4:1  ((170, 255, 255) op (0, 85, 170), 30 px)
+ebb-v6-8c-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 186 px)
+ebb-v6-8d-260.png            laagste tekstcontrast   6.4:1  ((170, 255, 255) op (0, 85, 170), 30 px)
+ebb-v6-9-260.png             laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 117 px)
+ebb-v6-9b-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 32 px)
+
+Fish          buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Shrimp        buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Jellyfish     buitenrand met 3:1 of meer: op 0000AA   31 %   op 000055   31 %
+Turtle        buitenrand met 3:1 of meer: op 0000AA   98 %   op 000055   98 %
+Crab          buitenrand met 3:1 of meer: op 0000AA   67 %   op 000055   67 %
+Seahorse      buitenrand met 3:1 of meer: op 0000AA   89 %   op 000055  100 %
+Starfish      buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Clownfish     buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Pufferfish    buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Octopus       buitenrand met 3:1 of meer: op 0000AA   99 %   op 000055   99 %
+Squid         buitenrand met 3:1 of meer: op 0000AA   89 %   op 000055  100 %
+Ray           buitenrand met 3:1 of meer: op 0000AA   72 %   op 000055   72 %
+Seal          buitenrand met 3:1 of meer: op 0000AA   64 %   op 000055   64 %
+Dolphin       buitenrand met 3:1 of meer: op 0000AA   69 %   op 000055   69 %
+Swordfish     buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Sea otter     buitenrand met 3:1 of meer: op 0000AA   56 %   op 000055  100 %
+Manta         buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Shark         buitenrand met 3:1 of meer: op 0000AA   85 %   op 000055   85 %
+Sunfish       buitenrand met 3:1 of meer: op 0000AA   44 %   op 000055   44 %
+Orca          buitenrand met 3:1 of meer: op 0000AA   99 %   op 000055   99 %
+Narwhal       buitenrand met 3:1 of meer: op 0000AA   61 %   op 000055   61 %
+Giant squid   buitenrand met 3:1 of meer: op 0000AA   60 %   op 000055   60 %
+Lobster       buitenrand met 3:1 of meer: op 0000AA  100 %   op 000055  100 %
+Whale         buitenrand met 3:1 of meer: op 0000AA   99 %   op 000055   99 %
+Sea cucumber  buitenrand met 3:1 of meer: op 0000AA   49 %   op 000055   49 %
