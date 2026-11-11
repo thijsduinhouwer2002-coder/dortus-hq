@@ -121,8 +121,6 @@ class EbbInstellingenView extends WatchUi.View {
     function regelKort(dc as Graphics.Dc, d as Number, r as Number, y as Float) as Void {
         var v = waarde(r);
         var tekst = (REGELS[r][0] as String) + ((v != null && (REGELS[r][1] as Number) != 3) ? "  " + v : "");
-        var dy = y - 0.5;
-        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.84;
         var f = Graphics.FONT_XTINY;
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);

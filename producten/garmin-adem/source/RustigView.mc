@@ -211,13 +211,13 @@ class CalmEindeView extends WatchUi.View {
         var regel = telt ? "counts as a session" : "from 1 min it counts";
         var kleur = Graphics.COLOR_WHITE;
         if (nieuw.size() > 0) {
-            EbbDierData.teken(dc, nieuw[0], w / 2, cy, (d * 0.15).toNumber(), -1);
+            EbbDierVoorraad.teken(dc, nieuw[0], w / 2, cy, (d * 0.15).toNumber(), false);
             regel = "new friend: " + EbbDierData.NAMEN[nieuw[0]];
             kleur = EbbTeken.LICHT;
         } else {
             var dier = EbbTrouw.zwemmer();
             if (dier >= 0) {
-                EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.105).toNumber(), -1);
+                EbbDierVoorraad.teken(dc, dier, w / 2, cy, (d * 0.105).toNumber(), false);
             }
         }
         tekst(dc, d, 0.645, regel, kleur);

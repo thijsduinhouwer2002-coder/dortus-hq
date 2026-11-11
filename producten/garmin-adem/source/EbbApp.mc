@@ -124,8 +124,37 @@ class EbbApp extends Application.AppBase {
                 vv.blad = k - 13;
                 return [vv, new VeiligDelegate(vv)];
             }
+            // Keuring bouw 4 punt 2: elk dierscherm met de krab en de zeekomkommer (watchdog): 31 menu met de krab,
+            // 34 Calm-einde met de krab als nieuw dier; 32 en 33 hieronder.
+            if (k == 31) {
+                Application.Storage.setValue(EbbTrouw.BITS, 31);
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, 4);
+                var mvk = new EbbMenuView();
+                return [mvk, new EbbMenuDelegate(mvk)];
+            }
+            if (k == 34) {
+                Application.Storage.setValue(EbbTrouw.BITS, 31);
+                return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
+            }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
+            if (k == 32 || k == 33) {
+                // 32: eindscherm 6c met de krab als silhouet (volgende dier); 33: eindscherm 6b met de zeekomkommer nieuw.
+                Application.Storage.setValue(EbbTrouw.BITS, 15);
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.opgeslagen = true;
+                view.einde = true;
+                view.eindReeks = 4;
+                view.sessie.inhoudtijden = [80000, 105000, 118000] as Array<Number>;
+                if (k == 32) {
+                    view.eindVolgend = 4;
+                    view.eindRest = 1;
+                } else {
+                    view.nieuweDieren = [24] as Array<Number>;
+                }
+                view.gezelschap = EbbTrouw.zwemmer();
+                return [view, new EbbDelegate(view)];
+            }
             if (k == 29) {
                 // Keuring bouw 3 punt 14: weekdoel gehaald (3 van 3 deze week, 5 weken op rij), eindscherm zonder nieuw dier.
                 view.sessie.fase = Ebb.FASE_KLAAR;
@@ -589,6 +618,17 @@ class EbbView extends WatchUi.View {
         return ok;
     }
 
+    // Keuring bouw 4 punt 9: opslaan uit het pauzemenu sluit de sessie af en toont het eindscherm; terug gaat dan
+    // naar het menu, net als na een volledige sessie.
+    function opslaanEnTonen() as Void {
+        opslaan();
+        sessie.pauzeVan = -1;
+        sessie.fase = Ebb.FASE_KLAAR;
+        _klaarSinds = System.getTimer();
+        einde = true;
+        WatchUi.requestUpdate();
+    }
+
     // Pauze zet de klok en de opname stil; doorgaan gaat verder waar je was.
     function pauzeer(nu as Number) as Void {
         sessie.pauzeer(nu);
@@ -780,7 +820,7 @@ class EbbView extends WatchUi.View {
                 var yd2 = yOnder - gz[3] * mz / EbbDierData.SCHAAL;
                 var dp = _dierPlaatje;
                 if (dp == null || dp.dier != gezelschap || dp.maat != mz) {
-                    dp = new EbbDierPlaatje(gezelschap, mz);
+                    dp = new EbbDierPlaatje(gezelschap, mz, false);
                     _dierPlaatje = dp;
                 }
                 if (dp.verder()) {
@@ -989,18 +1029,18 @@ class EbbView extends WatchUi.View {
         if (nieuweDieren.size() > 0) {
             var dier = nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
-            EbbDierData.teken(dc, dier, w / 2, cy + (d * 0.033).toNumber(), (d * 0.15).toNumber(), -1);
+            EbbDierVoorraad.teken(dc, dier, w / 2, cy + (d * 0.033).toNumber(), (d * 0.15).toNumber(), false);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (eindVolgend >= 0) {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
-            EbbDierData.silhouet(dc, eindVolgend, w / 2, cy, (d * (n > 3 ? 0.09 : 0.105)).toNumber());
+            EbbDierVoorraad.teken(dc, eindVolgend, w / 2, cy, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), true);
             tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
         } else {
             // Keuring bouw 3 punt 12 (besluit 2): na de walvis "sea complete" met je eigen dier; de reeks in weken
             // eronder blijft groeien ("12 weeks in a row"), zonder nieuwe dieren.
             var eigen = EbbTrouw.zwemmer();
             if (eigen >= 0) {
-                EbbDierData.teken(dc, eigen, w / 2, cy, EbbDierMaat.inVak(eigen, (d * 0.26).toNumber(), (d * 0.18).toNumber()), -1);
+                EbbDierVoorraad.teken(dc, eigen, w / 2, cy, EbbDierMaat.inVak(eigen, (d * 0.26).toNumber(), (d * 0.18).toNumber()), false);
             }
             tekstInRonde(dc, d, 0.645, "sea complete", EbbTeken.LICHT);
         }
@@ -1277,8 +1317,8 @@ class PauzeDelegate extends WatchUi.Menu2InputDelegate {
         if (id == :doorgaan) {
             _view.hervat(System.getTimer());
         } else if (id == :opslaan) {
-            _view.opslaan();
-            System.exit();
+            // Keuring bouw 4 punt 9: na opslaan het eindscherm (met een verdiend dier), niet meteen de app dicht.
+            _view.opslaanEnTonen();
         } else if (id == :weggooien) {
             _view.weggooien();
             System.exit();

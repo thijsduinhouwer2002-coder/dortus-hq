@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.WatchUi;
 
 // Sea log volgens blad v7 en v8 (keuring bouw 1 punt 8): raster 3 x 3 over drie bladen met Mila's dieren als data.
@@ -43,39 +44,59 @@ module EbbDierMaat {
 // Plaatjesrun 42963243152: op de FR255 trapte de watchdog op het inhoudscherm met de krab (zee, belletjes, hart en
 // het dier met stickerrand in één beurt). Daarom het dier één keer in een eigen plaatje, één laag per beurt
 // (4 keer rand, dan lijf en ogen); daarna kost een beurt alleen het plakken.
+// Keuring bouw 4 punt 1: op AMOLED stond er een zwart blok achter het dier. Het palet met COLOR_TRANSPARENT werkt
+// op MIP (FR255, fenix 7) wel, maar op AMOLED kwam de doorzichtige kleur zwart uit. Op AMOLED daarom een plaatje
+// zonder palet (volle kleur met doorzichtigheid, alle horloges hebben API 5); op MIP het bewezen palet van 64 kleuren.
+// Punt 2: ook het silhouet (4 keer rand, vlak, kenmerk: 6 lagen) gaat via dit plaatje.
 class EbbDierPlaatje {
     var dier as Number;
     var maat as Number;
+    var sil as Boolean;
     var stap as Number = 0;
     var links as Number = 0;   // van het plaatje tot het zwaartepunt
     var boven as Number = 0;
     private var _ref as Graphics.BufferedBitmapReference or Null = null;
 
-    function initialize(i as Number, m as Number) {
+    function initialize(i as Number, m as Number, s as Boolean) {
         dier = i;
         maat = m;
+        sil = s;
         var g = EbbDierMaat.grenzen(i);
-        var r = EbbDierData.randPx(m) + 1;
+        var r = (s ? 2 : EbbDierData.randPx(m)) + 1;
         links = -g[0] * m / EbbDierData.SCHAAL + r;
         boven = -g[2] * m / EbbDierData.SCHAAL + r;
-        var p = [Graphics.COLOR_TRANSPARENT] as Array<Number>;
-        for (var a = 0; a < 4; a += 1) {
-            for (var b = 0; b < 4; b += 1) {
-                for (var c = 0; c < 4; c += 1) {
-                    p.add(a * 0x550000 + b * 0x5500 + c * 0x55);
+        var br = links + g[1] * m / EbbDierData.SCHAAL + r + 1;
+        var ho = boven + g[3] * m / EbbDierData.SCHAAL + r + 1;
+        if (EbbDierPlaatje.amoled()) {
+            _ref = Graphics.createBufferedBitmap({:width => br, :height => ho});
+        } else {
+            var p = [Graphics.COLOR_TRANSPARENT] as Array<Number>;
+            for (var a = 0; a < 4; a += 1) {
+                for (var b = 0; b < 4; b += 1) {
+                    for (var c = 0; c < 4; c += 1) {
+                        p.add(a * 0x550000 + b * 0x5500 + c * 0x55);
+                    }
                 }
             }
+            _ref = Graphics.createBufferedBitmap({:width => br, :height => ho, :palette => p});
         }
-        _ref = Graphics.createBufferedBitmap({:width => links + g[1] * m / EbbDierData.SCHAAL + r + 1,
-            :height => boven + g[3] * m / EbbDierData.SCHAAL + r + 1, :palette => p});
         var bb = (_ref as Graphics.BufferedBitmapReference).get() as Graphics.BufferedBitmap;
         var dc = bb.getDc();
         dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
         dc.clear();
     }
 
+    static function amoled() as Boolean {
+        var ds = System.getDeviceSettings();
+        return (ds has :requiresBurnInProtection) && ds.requiresBurnInProtection;
+    }
+
+    function lagen() as Number {
+        return sil ? 6 : 5;
+    }
+
     function klaar() as Boolean {
-        return stap >= 5;
+        return stap >= lagen();
     }
 
     // Eén laag erbij; geeft true als het plaatje af is.
@@ -88,12 +109,22 @@ class EbbDierPlaatje {
             return false;
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
-        var k = EbbDierData.randPx(maat);
-        if (stap < 4) {
-            EbbDierData.delen(dc, dier, links + EbbDierData.RAND_DX[stap] * k, boven + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[dier][3], 2);
+        if (sil) {
+            if (stap < 4) {
+                EbbDierData.delen(dc, dier, links + EbbDierData.RAND_DX[stap] * 2, boven + EbbDierData.RAND_DY[stap] * 2, maat, EbbDierData.SIL_RAND, 1);
+            } else if (stap == 4) {
+                EbbDierData.delen(dc, dier, links, boven, maat, EbbDierData.SIL_VLAK, 1);
+            } else {
+                EbbDierData.delen(dc, dier, links, boven, maat, EbbDierData.SIL_RAND, 3);
+            }
         } else {
-            var o = EbbDierData.delen(dc, dier, links, boven, maat, -1, 0);
-            EbbDierData.ogen(dc, dier, o, links, boven, maat);
+            var k = EbbDierData.randPx(maat);
+            if (stap < 4) {
+                EbbDierData.delen(dc, dier, links + EbbDierData.RAND_DX[stap] * k, boven + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[dier][3], 2);
+            } else {
+                var o = EbbDierData.delen(dc, dier, links, boven, maat, -1, 0);
+                EbbDierData.ogen(dc, dier, o, links, boven, maat);
+            }
         }
         stap += 1;
         return klaar();
@@ -105,6 +136,32 @@ class EbbDierPlaatje {
         if (bb != null) {
             dc.drawBitmap(cx - links, cy - boven, bb as Graphics.BufferedBitmap);
         }
+    }
+}
+
+// Keuring bouw 4 punt 2: elk dierscherm (menu, eindschermen, Calm-einde) tekent zijn dier via een plaatje, één laag
+// per beurt, zodat de watchdog nergens meer de zee en een heel dier in één beurt ziet. Hoogstens vier plaatjes
+// tegelijk; daarna begint de voorraad opnieuw.
+module EbbDierVoorraad {
+    var _plaatjes as Dictionary<String, EbbDierPlaatje> = {} as Dictionary<String, EbbDierPlaatje>;
+
+    // Tekent dier i (sil: als silhouet) met zwaartepunt op (cx, cy); true als het er staat, anders volgt er een beurt.
+    function teken(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, sil as Boolean) as Boolean {
+        var sleutel = i + "/" + maat + (sil ? "s" : "");
+        var p = _plaatjes[sleutel];
+        if (p == null) {
+            if (_plaatjes.size() >= 4) {
+                _plaatjes = {} as Dictionary<String, EbbDierPlaatje>;
+            }
+            p = new EbbDierPlaatje(i, maat, sil);
+            _plaatjes[sleutel] = p;
+        }
+        if ((p as EbbDierPlaatje).verder()) {
+            (p as EbbDierPlaatje).plak(dc, cx, cy);
+            return true;
+        }
+        WatchUi.requestUpdate();
+        return false;
     }
 }
 

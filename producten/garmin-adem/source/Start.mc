@@ -83,7 +83,7 @@ class EbbMenuView extends WatchUi.View {
             // Keuring bouw 2 punt 7: het dier ±80 px breed op 454 (0,17 D), op de kamlijn (0,775 D), onder "Sea log · Settings".
             // Keuring bouw 3 punt 8: menu-dier 80 px breed op 454 (0,176 D).
             var mm = EbbDierMaat.inVak(eigen, (d * 0.176).toNumber(), (d * 0.14).toNumber());
-            EbbDierData.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, -1);
+            EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, false);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.165).toNumber(), Graphics.FONT_MEDIUM, "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
