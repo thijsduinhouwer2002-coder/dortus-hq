@@ -11,8 +11,11 @@ import Toybox.WatchUi;
 class EbbInstellingenView extends WatchUi.View {
     var keuze as Number = 0;
     // Per regel [naam, soort, sleutel]: soort 0 waarde uit EbbInstellingen, 1 aan/uit, 2 actie.
-    // Keuring bouw 4 punt 11: "Ebb makes no sound" is geen knop maar een vaste regel onder de laatste instelling.
-    const GEEN_GELUID = "Ebb makes no sound";
+    // Mila blad v12 punt 3: bij de laatste twee regels ben je op de bodem. De zee komt hoger (kamlijn 0,745 D), de
+    // vaste zin staat wit in het water (geen knop) en je eigen dier zit eronder. Bij Safety info zakt de pil één plek.
+    const GEEN_GELUID = "Ebb is silent. Buzz only.";
+    const ZEE_BODEM = 0.745;
+    var dier as Number = EbbTrouw.zwemmer();
     const REGELS = [
         ["Rounds", 0, 2], ["Breathing pace", 0, 1], ["Breaths", 0, 0], ["Recovery hold", 0, 3], ["Weekly goal", 0, 8],
         ["Buzz every 30 s", 1, :tik30], ["Buzz on last 3 breaths", 1, :laatste3], ["Vibration", 1, :trillen],
@@ -43,7 +46,7 @@ class EbbInstellingenView extends WatchUi.View {
             return EbbStart.eigenTekst();
         }
         if (id == :veilig) {
-            return veiligGezet ? "next start" : null;
+            return veiligGezet ? "next start" : "read again";
         }
         return null;
     }
@@ -63,7 +66,13 @@ class EbbInstellingenView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        EbbZee.strook(dc, d);
+        var bodem = keuze >= aantal() - 2;
+        var laag = keuze == aantal() - 1;
+        if (bodem) {
+            EbbZee.zeeBanden(dc, d, [ZEE_BODEM, 0.86, 0.93] as Array<Float>, [1, 2, 3] as Array<Number>, 0.008, 0.0);
+        } else {
+            EbbZee.strook(dc, d);
+        }
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.21).toNumber(), EbbTeken.fS(), "settings", midden);
@@ -73,7 +82,7 @@ class EbbInstellingenView extends WatchUi.View {
         // Keuring bouw 3 punt 6: pil 10 px hoger (0,022 D), regels buiten de pil in één lettermaat, gelijk verdeeld:
         // telkens dezelfde lucht (0,035 D) tussen pil en regel en tussen de regels.
         var bh = (d * 0.21).toNumber();
-        var py = (d * 0.483).toNumber();
+        var py = (d * (laag ? 0.564 : 0.483)).toNumber();
         var fx = dc.getFontHeight(EbbTeken.fX());
         var lucht = (d * 0.035).toNumber();
         var maxW = (d * 0.83).toNumber();
@@ -99,7 +108,11 @@ class EbbInstellingenView extends WatchUi.View {
         if (krap) {
             bh = hN + hV + 8;
         }
-        if (keuze > 0) {
+        if (laag) {
+            // Twee regels boven de lage pil, op de vaste plekken van blad v12 (0,304 en 0,384 D).
+            regelKort(dc, d, keuze - 2, 0.304);
+            regelKort(dc, d, keuze - 1, 0.384);
+        } else if (keuze > 0) {
             regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
         }
         var bw = langst + 24;
@@ -119,14 +132,15 @@ class EbbInstellingenView extends WatchUi.View {
         if (keuze + 1 < aantal()) {
             regelKort(dc, d, keuze + 1, y1.toFloat() / d);
         }
-        if (keuze + 2 < aantal()) {
+        if (keuze + 2 < aantal() && !bodem) {
             regelKort(dc, d, keuze + 2, (y1 + fx + lucht).toFloat() / d);
         }
-        // Onder de laatste instelling de vaste regel, in de zachte kleur zodat hij niet als knop leest.
-        if (keuze + 1 >= aantal() - 1) {
-            var yg = (keuze + 1 == aantal()) ? y1 : y1 + fx + lucht;
-            dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, yg, EbbTeken.fX(), GEEN_GELUID, midden);
+        if (bodem) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, (d * 0.802).toNumber(), EbbTeken.fX(), GEEN_GELUID, midden);
+            if (dier >= 0) {
+                EbbDierVoorraad.teken(dc, dier, w / 2, (d * 0.890).toNumber(), EbbTeken.px(d, 12), EbbDierPlaatje.GEVONDEN);
+            }
         }
     }
 
