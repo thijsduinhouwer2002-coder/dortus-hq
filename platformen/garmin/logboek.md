@@ -436,3 +436,14 @@
 - Vervolg 05:33 tot 05:48: ae6abb6 punt 6: Calm en herstel met het cijfer zelf in het midden en "s" los erachter, kop 12 px (454) of 6 px (260) boven de cijfers (hoogstens tot 0,12 D). Plaatjesrun 42966268846 (c304861): stap "Geen crash" ROOD op FR255 in de nieuwe scène 27 (sea log blad 2): watchdog in `silhouet` in dezelfde beurt als de opbouw van het blad. 15ed6f3: geen dier in de opbouwbeurt en daarna één laag per beurt (zoals het inhoudscherm); toets `testSeaLogEcht` gaat tot 60 beurten, reden in de commit. Toetsen groen op fenix 7 en FR255 voor 15ed6f3 (run 42967655404); plaatjes van 15ed6f3 nog niet bekeken.
 - Letterhoogtes GEZIEN (systeemletters, xtiny/small/medium in px): 260: 19/32/37; 280: 19/34/40; 390: 30 tot 32 / 45 tot 48 / 53 tot 54; 416: 31 tot 34 / 47 tot 50 / 55 tot 58; 454: 35 tot 37 / 50 tot 53 / 58 tot 61. Daarmee maak ik de Barlow-letters per maat.
 - Volgende run eerst: plaatjes van 15ed6f3 nakijken (FR255 "Geen crash", sea log blad 2, punt 6 op 6b en settings), dan punt 5 Barlow.
+
+## Run 33 (11 nov 05:58 tot 06:42 UTC): keuring bouw 4
+- 137df8c punt 1, 2, 9, 12: op AMOLED kwam de doorzichtige kleur uit het palet zwart uit. Nu op AMOLED (`requiresBurnInProtection`) een plaatje zonder palet, op MIP het palet. Menu, eindschermen 6b en 6c (ook het silhouet, 6 lagen), sea complete en Calm-einde tekenen via `EbbDierVoorraad`, één laag per beurt. Scènes 31 menu-krab, 32 einde-6c-krab, 33 einde-6b-zeekomkommer, 34 calm-einde-krab. Save in het pauzemenu toont nu het eindscherm.
+- Plaatjesrun 42970833817 groen, "Geen crash" op alle twaalf, 35 scènes. GEZIEN op fenix 8 en FR255: geen zwart blok meer, dieren goed op AMOLED en MIP. Wel: krab op Calm-einde en krabsilhouet op 6c raakten de tekstregel erboven.
+- f4f8ec6 punt 5: die dieren passen nu tussen de tekstregels (`EbbDierMaat.inBand`). c3eea8b winkeltekst versie 8 (punt 8). 646a7b7 menu-belofte bij de eerste start (punt 11). Samen in één push na de groene run.
+
+**In drie regels:**
+1. Zwart blok weg en alle dierschermen tegen de watchdog beschermd, gezien in een groene run.
+2. Open: Barlow voor alle tekst (4), winkelbeelden (3), krab 24 en zeester 17 los van tekst, sea log (6), rest uiterlijk (7), horloges (10).
+3. Volgende run eerst: beelden van f4f8ec6 nakijken (6b, 6c, Calm-einde, menu-leeg), dan Barlow.
+
