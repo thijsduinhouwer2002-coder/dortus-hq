@@ -417,3 +417,19 @@
 - Vervolg 04:50 tot 05:05: toetsen groen op fenix 7 en FR255 voor cc434ee (alle logica van deze run plus v8.3). Plaatjesrun 42961476036 (11c98a3): alle 12 horloges groen, ook "Geen crash" op de nieuwe (fenix 7, fenix 7X Pro, FR165, Venu 3S). Beelden GEZIEN: "Calm 4-7-8" op de fenix 7X Pro; sea log op FR255 met rijen los en de keuzestip onder de kogelvis, maar de dieren werden te klein (maat 12 in plaats van 20); "START: swims with you" past. Scène 24 (krab) viel in de tak van de eindschermen (k >= 16). f8226c6: beide opgelost (echte stickerrand, raster tot 0,93 D, verwacht ±maat 15 op 260; tak 16 tot 18). 944b690 punt 8: dier tijdens inhouden in 90 x 70 (50 x 40 op 260), 8 px boven de hartslagregel, menu-dier 80 px, nieuw dier 15 px lager, testreeks steeds de schildpad. Beide nog niet in beeld.
 - Afweging sea log op 260: drie rijen met 3 px lucht, telling erboven en naam, regel en stippen eronder passen niet bij maat 20; kleinere dieren met lucht ertussen is eerlijker dan dieren die elkaar raken. Mila kan beslissen of de regel onder de naam weg mag om ruimte te winnen.
 - Slot 05:10: voor f8226c6 toetsen groen op fenix 7 en FR255 (run 42963243082) en .iq voor alle 28 horloges groen (run 42963243152); plaatjes van f8226c6 lopen nog, beelden volgende run.
+
+## 11 nov 2026 05:10 UTC (Gijs, run 32, nachtronde handmatig gestart, zelfde opdracht)
+- Verder met "Voor Gijs" uit keuring bouw 3. Geen nieuwe berichten.
+- Plaatjesrun 42963243152 (f8226c6): stap "Geen crash" ROOD op FR255: watchdog op het inhoudscherm met de krab (`EbbApp.mc:732`), die scène liep voor het eerst echt. a404eab: het meezwemmende dier wordt één keer in een eigen plaatje getekend, één laag per beurt (`EbbDierPlaatje`), daarna alleen plakken. Plaatjesrun 42964748035: FR255 groen, krab in beeld (GEZIEN, 79,2 van 507,7 kB).
+- fe402d8 punt 11 en 12: "1 more session: new friend"; na de walvis "sea complete" met je eigen dier en de reeks in weken telt door; scènes sea complete en Calm 45 s. Beide GEZIEN (fenix 8, FR255).
+- b1de1f2 punt 13: winkeltekst versie 7 (twee per dag, My pattern, trillen aan of uit behalve 3:00, sea complete, 28 horloges, Nagekeken opgeschoond), DE en NL mee.
+- 9a71bd1 punt 7: één zeefunctie `zeeBanden` voor startcheck, menu, ademen, herstel, eindschermen en Calm; op AMOLED een echt verloop (GEZIEN op 6d fenix 8, geen harde stroken meer). Of de zee op de eindschermen echt "onderaan" moet (nu vanaf ±0,33 D) is een ontwerpkeuze: dat vraag ik Mila.
+- 9a720e7 punt 6: tijden en Calm-regel 0,022 D onder de titel (10 px op 454, 6 px op 260), zee schuift mee; settings-pil 10 px hoger, regels erbuiten in één lettermaat en gelijk verdeeld. Nog niet in beeld.
+- 7387101 punt 14: scènes sea log blad 2, menu bij eerste start, weekdoel gehaald, ademen uit (31 scènes). Pauzemenu nog niet.
+- Punt 5 (Barlow overal): geheugen GEZIEN FR255 79,2 van 507,7 kB, Venu 2 79,3 van 763,6 kB; ruimte genoeg. Systeemletters per horloge uit de SDK gelezen (FR255 Roboto 13/20/24 bold, AMOLED vector Roboto). c304861 laat de plaatjesbouw de echte letterhoogtes melden; daarmee maak ik volgende run Barlow-letters in precies die hoogtes, zodat de opmaak niet verschuift.
+- Toetsen groen op fenix 7 en FR255 voor a404eab, 9a720e7 en 7387101.
+
+**In drie regels:**
+1. Bouw 3 punt 6, 7, 11 rest, 12, 13 en 14 grotendeels af; crash met de krab op FR255 gevonden en opgelost.
+2. Open: 1 winkelbeelden, 5 Barlow overal, rest van 6 (kop boven cijfer, Calm-cijfer, titel binnen de rand), 8 "new friend" groter, pauzemenu-beeld.
+3. Volgende run: letterhoogtes uit het log van c304861, Barlow bouwen, beelden van 7387101/c304861 nameten, dan winkelbeelden.
