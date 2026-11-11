@@ -64,7 +64,7 @@ class EbbInstellingenView extends WatchUi.View {
         var d = w < dc.getHeight() ? w : dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        EbbTeken.strook(dc, d);
+        EbbZee.strook(dc, d);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.21).toNumber(), EbbTeken.fS(), "settings", midden);

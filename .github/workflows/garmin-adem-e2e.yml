@@ -29,6 +29,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      # Besluit Thijs 11 nov 07:41 (producten/garmin-adem/REGELS.md): geen codebestand boven 300 regels, toetsen tellen niet.
+      - name: "Regels: bestanden hoogstens 300 regels"
+        run: |
+          te_lang=$(for f in "$APP"/source/*.mc; do case "$f" in *Test.mc) continue;; esac; n=$(wc -l < "$f"); [ "$n" -gt 300 ] && echo "$f $n"; done; true)
+          if [ -n "$te_lang" ]; then echo "Te lang (REGELS.md punt 2):"; echo "$te_lang"; exit 1; fi
+          echo "alle codebestanden hoogstens 300 regels"
       - name: Image ophalen (tot drie pogingen)
         run: |
           for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1

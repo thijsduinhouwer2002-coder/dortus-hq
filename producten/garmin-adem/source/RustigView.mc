@@ -69,7 +69,7 @@ class RustigView extends WatchUi.View {
         var i = sessie.faseIndex(nu);
         // Keuring bouw 1 punt 5 (blad v6 scherm 5): zwart, fasewoord bovenaan, groot cijfer met "s", de zee onderaan
         // die zacht mee ademt (hoogste golf 0,60 D), het cijfer staat altijd boven de hoogste golfstand; geen teal vlak.
-        EbbTeken.ademZee(dc, d, sessie.water(nu), _golf);
+        EbbZee.ademZee(dc, d, sessie.water(nu), _golf);
         var font = EbbTeken.grootFont(dc, d);
         var getal = sessie.overS(nu).toString();
         var gb = dc.getTextWidthInPixels(getal, font);
@@ -199,7 +199,7 @@ class CalmEindeView extends WatchUi.View {
         gat = gat < 6 ? 6 : gat;
         var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + gat + dc.getFontHeight(EbbTeken.fX()) / 2;
         var zt = (yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8 + d * 0.02) / d.toFloat();
-        EbbTeken.zeeBanden(dc, d, [zt > 0.326 ? zt : 0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        EbbZee.zeeBanden(dc, d, [zt > 0.326 ? zt : 0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.17).toNumber(), EbbTeken.fS(), "calm done", midden);

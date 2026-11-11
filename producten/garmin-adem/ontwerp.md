@@ -1,5 +1,7 @@
 Akkoord: nee (concept, wacht op het ja van Hans op `platformen/garmin/volgend-product.md`; daarna Mila voor de stijl en Daan voor het akkoord)
 
+**Code: lees eerst `producten/garmin-adem/REGELS.md`** (één taak per bestand, hoogstens 300 regels, eerst zoeken of iets al bestaat, dieren en zee alleen via de gedeelde functies).
+
 **Waarom wij (één zin):** adem met je ogen dicht op trillingen aan je pols, en zie week na week je inhoudtijd groeien, in een app die zelf ademt als water.
 
 # Ontwerp: ademhalingsapp voor Garmin (werktitel "Tij", naam volgt)

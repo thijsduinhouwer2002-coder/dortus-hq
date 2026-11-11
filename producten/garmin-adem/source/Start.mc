@@ -76,7 +76,7 @@ class EbbMenuView extends WatchUi.View {
             System.println("LETTERHOOGTE d " + d + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY) + " small " + dc.getFontHeight(Graphics.FONT_SMALL)
                 + " medium " + dc.getFontHeight(EbbTeken.fM()) + " ascent " + Graphics.getFontAscent(EbbTeken.fX()) + "/" + Graphics.getFontAscent(EbbTeken.fS()) + "/" + Graphics.getFontAscent(EbbTeken.fM()));
         }
-        EbbTeken.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
+        EbbZee.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
         var eigen = EbbTrouw.zwemmer();
         if (eigen >= 0) {
