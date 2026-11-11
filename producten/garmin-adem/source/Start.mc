@@ -84,6 +84,13 @@ class EbbMenuView extends WatchUi.View {
             // Keuring bouw 3 punt 8: menu-dier 80 px breed op 454 (0,176 D).
             var mm = EbbDierMaat.inVak(eigen, (d * 0.176).toNumber(), (d * 0.14).toNumber());
             EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, false);
+        } else {
+            // Keuring bouw 4 punt 11: bij de eerste start een belofte waar straks het dier zwemt.
+            var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+            var yb = (d * 0.79).toNumber() - fx / 2;   // twee regels om 0,79 D, waar anders het dier zit
+            dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(d / 2, yb, Graphics.FONT_XTINY, "first friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, yb + fx, Graphics.FONT_XTINY, "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.165).toNumber(), Graphics.FONT_MEDIUM, "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
