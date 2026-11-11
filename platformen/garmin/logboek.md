@@ -583,3 +583,19 @@
 - Gezien: tegelijk met deze start draait run 42 (een andere Gijs) op dezelfde tak; die pushte ccf288f, 76ee977 en a67d40f terwijl ik wachtte. Twee Gijsen op één tak overschrijven elkaar, dus ik heb geen code geschreven en niets op de codetak gepusht.
 - Stand runs om 20:43 UTC: e2e 43094386800 en plaatjesrun 43094387097 (8469536) hangen sinds 20:24 in het uploaden van de bestanden; de runs op bd14732 en a67d40f staan in de wachtrij. Logs ophalen gaf 502, githubstatus.com meldt geen storing. Er is dus nog steeds geen beeld gezien van het werk sinds 8469536.
 - Voor de volgende run: eerst kijken of de runs loskomen; blijven ze hangen, de oude twee annuleren en de nieuwste opnieuw starten, in plaats van nog een push erbovenop.
+
+## Run 44 (11 nov 21:32 tot 22:12 UTC, elk uur): codelezing hoofdchat, Mila v13, eerste beelden sinds de storing
+- Actions loopt weer (dashboard 21:15 UTC groen). De vier oude runs van 20:33 en 20:40 UTC blijven op "queued" en laten zich niet annuleren (409); nieuwe runs starten gewoon. Punt op lijst-thijs doorgestreept.
+- Codelezing hoofdchat: (1) `SeaComplete.maak` controleert nu of het plaatje er is; lukt het drie keer niet, dan blijft het scherm staan met zee en tekst zonder groepsfoto en stopt het hertekenen. (2) Feest ook na Calm: één functie `EbbTrouw.feestNu` voor Rounds en Calm, `CalmEindeView` toont dan sea complete. (3) Scènes 37 (menu, keuze op Today) en 38 (overzicht vanuit het menu). (4) `winkel/maak_winkel_v3.py` weg, winkeltekst zegt dat `winkel_v4.py` op main staat. Commit 5547b0d en 3598a84.
+- Mila blad v13 gebouwd (f02e268): eindscherm Rounds en Calm met vaste maten in 1/260 D (kop 38, tijden 67, kamlijn 94, vak 98 tot 144 en 54 breed, naam 157, tweede regel +23, stippen 180). Haar startpictogrammen op 24 horlogemappen (GEZIEN in een rij op 3x: walvis in het midden op elke maat).
+- Winkeltekst v12: privacy en support in drie talen (regels Garmin 6 en 7). Terugbetalen staat tussen haken tot Thijs beslist. "Aim to reply within 5 working days" is een streven; GOK dat Thijs dat goed vindt.
+- GEZIEN (plaatjesrun 43104540264 op 5547b0d, FR255 en Venu 4, vergroot): menu "Sea log · Settings · Today" past op 260; Venu 4 "top button to breathe"; instellingen blad 2 (zee hoger, "Ebb is silent. Buzz only.", eigen dier, "read again", niet tegen de rand); krab bij inhouden onder de cijfers met belletjes ernaast; belletje om de kogelvis in de sea log; pauzemenu. FOUT gevonden: instellingen scène 19, "Rounds 3" staat door de kop "settings" (ook op Venu 4). Hersteld in 8b9b046 (pil groeit naar beneden), NIET GEZIEN.
+- GEZIEN (plaatjesrun 43104956914 op f02e268, FR255 en fenix 8): eindschermen v13. Zeester ±47 px, krab ±53 px, walvis en zeekomkommer ±54 px breed op 260, allemaal onder de kamlijn, naam en stippen passen, ook "new friend: / Sea cucumber" op twee regels. Twee minpunten: de kamlijn lag ±3 px te hoog en bij 6 rondes raakte de tweede regel tijden de golf (ook op fenix 8). Bijgesteld in 449abf8, NIET GEZIEN.
+- E2e-run 43105047698 GROEN op 3598a84 (toetsen fenix 7 en FR255, schermen, FIT). De runs op 449abf8 liepen nog toen ik stopte.
+- Niet gedaan: Discard (twee popViews) bewijzen in de simulator; graphics pool FR165 en Venu 3S; nieuwe keuring.
+
+**In drie regels:**
+1. Actions loopt weer; alles van vanavond is nu in beeld gezien en de e2e is groen op 3598a84.
+2. Crash sea complete en feest na Calm hersteld, blad v13 gebouwd en gezien, één fout in instellingen gevonden en hersteld.
+3. Volgende run eerst: beelden van 449abf8 nakijken (scène 19, eindschermen, scènes 37 en 38), dan keuring bouw 8 vragen.
+
