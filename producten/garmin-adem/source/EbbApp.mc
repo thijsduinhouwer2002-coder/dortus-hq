@@ -77,6 +77,18 @@ class EbbApp extends Application.AppBase {
                 cc.zetCalm();
                 return [cc, new StartCheckDelegate(cc)];
             }
+            // Keuring bouw 3 punt 14: 27 sea log blad 2, 28 menu bij de eerste start (nog geen dier).
+            if (k == 27) {
+                Application.Storage.setValue(EbbTrouw.BITS, 255);
+                var dv2 = new DierenView();
+                dv2.keuze = 12;
+                return [dv2, new DierenDelegate(dv2)];
+            }
+            if (k == 28) {
+                Application.Storage.setValue(EbbTrouw.BITS, 0);
+                var mv0 = new EbbMenuView();
+                return [mv0, new EbbMenuDelegate(mv0)];
+            }
             if (k == 23) {
                 Application.Storage.setValue(EbbTrouw.BITS, (1 << 25) - 1);
                 var dv3 = new DierenView();
@@ -114,6 +126,19 @@ class EbbApp extends Application.AppBase {
             }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
+            if (k == 29) {
+                // Keuring bouw 3 punt 14: weekdoel gehaald (3 van 3 deze week, 5 weken op rij), eindscherm zonder nieuw dier.
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.opgeslagen = true;
+                view.einde = true;
+                view.eindReeks = 5;
+                view.plaatjeWeek = 3;
+                view.sessie.inhoudtijden = [70000, 85000, 100000] as Array<Number>;
+                view.eindVolgend = 7;
+                view.eindRest = 2;
+                view.gezelschap = EbbTrouw.zwemmer();
+                return [view, new EbbDelegate(view)];
+            }
             if (k == 26) {
                 // Keuring bouw 3 punt 14: Calm onder 1 minuut (45 s, telt niet mee: "from 1 min it counts").
                 Application.Storage.setValue(EbbTrouw.BITS, 15);
@@ -178,6 +203,12 @@ class EbbApp extends Application.AppBase {
                 view.sessie.ronde = 1;
                 view.plaatjeFase = Ebb.FASE_ADEMEN;
                 view.plaatjeMs = 22 * 3000 + 400;
+            } else if (k == 30) {
+                // Keuring bouw 3 punt 14: ademen uit (ademhaling 23, tweede helft).
+                view.sessie.inhoudtijden = [80000] as Array<Number>;
+                view.sessie.ronde = 1;
+                view.plaatjeFase = Ebb.FASE_ADEMEN;
+                view.plaatjeMs = 22 * 3000 + 2100;
             } else if (k == 24) {
                 // Inhouden op 1:45 met de krab als gekozen maatje (4 dieren gevonden plus de krab).
                 Application.Storage.setValue(EbbTrouw.BITS, 31);
@@ -469,6 +500,7 @@ class EbbView extends WatchUi.View {
     // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
     var plaatjeMs as Number = -1;
     var plaatjeFase as Ebb.Fase = Ebb.FASE_INHOUDEN;
+    var plaatjeWeek as Number = 2;   // sessies deze week in de testbeelden
     // Na de sessie: today en 8 weeks (getij = true) wisselen met de knoppen.
     var getij as Boolean = false;
     // Keuring bouw 1 punt 7: eerst het eindscherm (6b met nieuw dier, 6c zonder), daarna today en 8 weeks.
@@ -969,7 +1001,7 @@ class EbbView extends WatchUi.View {
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = vandaag();
         var boven = (d * 0.645).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2;
-        EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
+        EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? plaatjeWeek : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
     }
 
     function regel(tijden as Array<String>, van as Number, tot as Number) as String {
