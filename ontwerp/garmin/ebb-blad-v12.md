@@ -1,6 +1,6 @@
 # Ebb blad v12 (Mila, run 36, 11 nov ±21:15 NL): poster v4, icoon met blauwe walvis, instellingen blad 2
 
-Opdracht: "Voor Mila" in `ebb-bouw-7-keuring-drie.md`. Bron: plaatjesrun op tak `schermen` (`garmin-adem/plaatjes/`, stand 11 nov avond), fenix847mm en fr255. Alle beelden in `blad12/`.
+Opdracht: "Voor Mila" in `ebb-bouw-7-keuring-drie.md`. Bron: plaatjesrun op tak `schermen` (`garmin-adem/plaatjes/`, run 43001614405; de nieuwe run 43094387097 stond nog niet op de tak), fenix847mm en fr255. Alle beelden in `blad12/`.
 
 ## 1. Poster v4 (één stijl met de kaarten)
 Beeld `blad12/poster-v4.png` (1000 x 1000, 163 KB), op winkelformaat `blad12/poster-v4-150.png`. Script `bron/poster_v4.py <fenix847mm-scene24.png> <uit.png>`.
@@ -11,6 +11,7 @@ Beeld `blad12/poster-v4.png` (1000 x 1000, 163 KB), op winkelformaat `blad12/pos
 - **Haak:** de 23 vrienden zwemmen in een U om de patrijspoort, in de volgorde waarin je ze vindt (vis linksboven, kreeft rechts), en de blauwe walvis met fontein sluit de optocht af. Je ziet in één blik: er is veel te vinden.
 - **Onder:** "One payment · no subscription · no extra account" (zoals gevraagd met "extra").
 - **Eerlijk:** scherm is scène 24 (inhouden 1:45 met krab), dieren zijn de app-dieren v8.3. Geen getallen meer bij de dieren (v3 noemde "50 sessions" bij de walvis, dat klopt niet meer met het schema).
+- **Naast de kaarten op 220 px:** `blad12/poster-v4-naast-kaarten-220.png`: één familie (GEZIEN). Ik probeerde ook scène 34 (new friend: Crab) als scherm, maar dan zegt de kop "Hold your breath" en het scherm "calm done"; het grote 1:45 leest op 150 px en past bij de kop, dus scène 24 blijft. Het verschil met kaart 1 is de optocht.
 - **Voor Gijs:** draai het script op de verse scène 24 uit de eindrun en zet hem als `winkel/0-poster-v4.png`.
 
 ## 2. Icoon v3: blauwe walvis
