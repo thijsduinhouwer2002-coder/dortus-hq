@@ -95,6 +95,11 @@ def delen_v7(soort):
             if 5 <= i <= 9:
                 p = [(kx + (x - kx)*k, ky + (y - ky)*k) for x, y in p]
             uit.append((p, r))
+        # v7.1: schelp op de buik in plaats van op de bovenrand (daar verdween hij in de witte stickerrand), blauwviolet, pootjes erop
+        uit = [(p, r) for p, r in uit if r != 'witp']
+        schelp = bez((-0.44,-0.02),(-0.14,-0.50),(0.16,-0.02),6) + [(-0.14,0.04)]
+        uit = [x for x in uit if not (x[1] == 'donker' and len(x[0]) > 30 and max(y for _, y in x[0]) < -0.10)]   # oude handjes weg
+        uit += [(schelp, 'muts'), (ellips(-0.36, -0.08, 0.08, 0.07), 'donker'), (ellips(0.08, -0.08, 0.08, 0.07), 'donker')]
         return uit, [(kx + (ogen[0][0]-kx)*k, ky + (ogen[0][1]-ky)*k)]
     if soort == 'komkom':    # slaapt: halfdichte ogen en "z z" boven zijn kop
         delen, ogen = dv6.delen_v6('komkom')

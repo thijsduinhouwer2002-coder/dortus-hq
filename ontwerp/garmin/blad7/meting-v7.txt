@@ -11,11 +11,11 @@
  260  6d einde calm          kader x  +0.0 px   optisch x  +0.2 px   vorm x  +0.1 px   buiten MIP 0   tekst tot 0.73 R
  260  7 8 weeks              kader x  +0.5 px   optisch x  +3.0 px   vorm x +23.8 px   buiten MIP 0   tekst tot 0.72 R
  260  8 sea log 1 van 3      kader x  +2.0 px   optisch x  -2.7 px   vorm x  -0.1 px   buiten MIP 0   tekst tot 0.83 R
- 260  8b sea log 2 van 3     kader x  +3.0 px   optisch x -22.6 px   vorm x  +0.3 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8b sea log 2 van 3     kader x  +3.0 px   optisch x -22.6 px   vorm x  +0.5 px   buiten MIP 0   tekst tot 0.79 R
  260  8d sea log 3 van 3     kader x  -1.0 px   optisch x  +1.7 px   vorm x  +0.4 px   buiten MIP 0   tekst tot 0.77 R
  260  8c sea log dier        kader x  +0.0 px   optisch x  +0.3 px   vorm x  -0.0 px   buiten MIP 0   tekst tot 0.72 R
  260  9 settings             kader x  +0.5 px   optisch x  -2.4 px   vorm x  -2.4 px   buiten MIP 0   tekst tot 0.78 R
  260  9b settings            kader x  +0.0 px   optisch x  -1.3 px   vorm x  -1.3 px   buiten MIP 0   tekst tot 0.77 R
  260  10 veilig 1            kader x  +0.0 px   optisch x  -0.4 px   vorm x  -0.4 px   buiten MIP 0   tekst tot 0.64 R
  260  10c veilig 3           kader x  +0.5 px   optisch x  -0.3 px   vorm x  -0.3 px   buiten MIP 0   tekst tot 0.65 R
-kleinste tekst op 260: "1:45" 20 px, "Not if: pregnant," 20 px, "Never while standing," 20 px, "Buzz on last 3 breaths  on" 20 px, "1:40" 20 px, "OK" 20 px
+kleinste tekst op 260: "Rounds  3" 20 px, "4 days in a row" 20 px, "calm done" 20 px, "on" 20 px, "how it works" 20 px, "1:40" 20 px

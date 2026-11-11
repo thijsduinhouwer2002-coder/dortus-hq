@@ -234,9 +234,9 @@
 - Gemeten: tekst tot 0,83 R (menu 0,85 uit v6), kleinste letter 20 px, 0 pixels buiten MIP.
 - Volgende run: wat de keuring van v7 zegt; Eel en otter eventueel nog steviger.
 
-## 11 nov 2026, run 27 (nachtronde hoofdchat 01:58 NL, ±01:01 tot ±01:25 UTC, alleen Ebb)
+## 11 nov 2026, run 27 (nachtronde hoofdchat 01:58 NL, vanaf ±01:01 UTC, alleen Ebb)
 - Opdracht: blad v7 (dieren, sea log, tekst), dieren als data voor Gijs, maten en contrast nameten, geen eigen frisse keuringen. Blad v7 stond al uit run 26; deze run de gaten gedicht (v7.1).
 - **Besluit: sea log optisch centreren op de vorm, niet op kleur.** Waarom: de opdracht vraagt optisch gecentreerd; de oude meting telde silhouetten als achtergrond, zodat blad 2 (één gekleurde octopus) -23 px gaf. Nu telt elk dier even zwaar: alle drie de bladen binnen 0,4 px.
 - **Dieren als data:** `ontwerp/garmin/ebb-dieren-v7-data.json` in Gijs' byteformaat, met een controle die de dieren uit de data opnieuw tekent (afwijking 1,2 tot 4,7%, randpixels). Rol 6 `zz` voor de "z Z" zonder rand.
 - **Contrast nagemeten** (`bron/meet_contrast_v7.py`): alle 25 dieren 100% (krab 99%) met 3:1 rondom, gevonden en silhouet; tekst laagste 5,9:1.
-- Gezien met Read: otter, zeehond, garnaal, aal, kogelvis en maanvis vergroot in het sea-log-vak. Otter blijft de zwakste (schelp valt weg tegen de stickerrand); kandidaat voor de volgende ronde.
+- Gezien met Read: otter, zeehond, garnaal, aal, kogelvis en maanvis vergroot in het sea-log-vak. Otter was de zwakste (schelp viel weg in de stickerrand); nu een blauwe schelp op de buik, vergroot en op 260 bekeken (GEZIEN), data en metingen opnieuw gedraaid. Volgende run: wat de keuring van v7 zegt.
