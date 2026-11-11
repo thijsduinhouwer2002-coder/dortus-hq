@@ -65,6 +65,7 @@ module EbbEindScherm {
         var bandTop = onderTijden + 8;
         var bandOnder = (d * 0.645).toNumber() - lhS / 2 - 6;
         var bandBreed = (d * 0.30).toNumber();
+        var extra = 0;
         if (v.nieuweDieren.size() > 0) {
             var dier = v.nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
@@ -74,10 +75,14 @@ module EbbEindScherm {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
             EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
             tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
+            // Mila blad v9 punt 4: "a new friend" in geel onder de regel; de week schuift een regel op.
+            extra = dc.getFontHeight(EbbTeken.fX());
+            dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, (d * 0.645).toNumber() + lhS / 2 + extra / 2, EbbTeken.fX(), "a new friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = EbbView.vandaag();
-        var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
+        var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + extra;
         EbbTeken.weekStippen(dc, d, v.eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? v.plaatjeWeek : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
     }
 
@@ -92,13 +97,13 @@ module EbbEindScherm {
     // Keuring bouw 2 punt 4: geen "next:" (besluit 22:53 punt 3), wel wat er nog nodig is: "1 more session",
     // "2 more weeks in a row", of "next session" als het dier al klaar ligt.
     function volgendTekst(v as EbbView) as String {
-        // Keuring bouw 3 punt 11: zeg wat er komt ("1 more session: new friend").
+        // Keuring bouw 3 punt 11 en Mila blad v9 punt 4: wat er nog nodig is ("1 more session:"), "a new friend" staat eronder.
         if (v.eindRest <= 0) {
-            return "next session: new friend";
+            return "next session:";
         }
         if ((EbbTrouw.DIEREN[v.eindVolgend][1] as Number) == EbbTrouw.SOORT_REEKS) {
-            return v.eindRest + (v.eindRest == 1 ? " more week: new friend" : " more weeks: new friend");
+            return v.eindRest + (v.eindRest == 1 ? " more week:" : " more weeks:");
         }
-        return v.eindRest + (v.eindRest == 1 ? " more session: new friend" : " more sessions: new friend");
+        return v.eindRest + (v.eindRest == 1 ? " more session:" : " more sessions:");
     }
 }
