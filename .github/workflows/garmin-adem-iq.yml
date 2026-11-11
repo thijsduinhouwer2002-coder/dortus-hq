@@ -50,7 +50,8 @@ jobs:
       - name: Horloges die de SDK in de image kent (keuring bouw 3 punt 2)
         run: |
           docker run --rm --network none --entrypoint bash "$IMAGE" -c \
-            'for d in $(find / -type d -name Devices -path "*ConnectIQ*" 2>/dev/null); do echo "MAP $d"; ls "$d" | tr "\n" " "; echo; done' || true
+            'cd /root/.Garmin/ConnectIQ/Devices; for d in fenix7 fr255 venu2 fenix843mm fenix847mm fenix8pro47mm fenix8solar47mm fenix8solar51mm fenix7pro fenix7xpro fenix7x epix2pro42mm epix2pro47mm epix2pro51mm fr165 fr165m fr57042mm fr57047mm fr955 fr970 vivoactive6 venu3s venux1 venu441mm venu445mm; do
+               echo "TOESTEL $d $(tr -d " \n\t" < $d/compiler.json | grep -o "\"resolution\":{[^}]*}\|\"launcherIcon\":{[^}]*}\|\"connectIQVersion\":\"[^\"]*\"\|\"watchApp\",\"memoryLimit\":[0-9]*\|\"type\":\"watchApp\"[^}]*" | tr "\n" " ")"; done; tr -d " \n\t" < fr255/compiler.json | head -c 2500' || true
       - name: .iq bouwen (alle horloges uit manifest.xml)
         run: |
           mkdir -p /tmp/uit && chmod 777 /tmp/uit
