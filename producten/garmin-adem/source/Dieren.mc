@@ -87,15 +87,20 @@ class DierenView extends WatchUi.View {
         var ox = (d * 0.13).toNumber();
         var oy = (d * 0.20).toNumber();
         var sleutel = blad * 100000000 + EbbTrouw.getal(EbbTrouw.BITS) % 100000000;
-        if (_plaatje == null || sleutel != _sleutel || _plaatje.get() == null) {
-            _plaatje = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => (d * 0.56).toNumber(), :palette => palet()});
-            var pdc0 = (_plaatje.get() as Graphics.BufferedBitmap).getDc();
+        var ref = _plaatje;
+        var bb = (ref != null) ? ref.get() : null;
+        if (bb == null || sleutel != _sleutel) {
+            ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => (d * 0.56).toNumber(), :palette => palet()});
+            _plaatje = ref;
+            bb = ref.get();
+            var pdc0 = (bb as Graphics.BufferedBitmap).getDc();
             pdc0.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
             pdc0.clear();
             _sleutel = sleutel;
             _getekend = 0;
         }
-        var pdc = (_plaatje.get() as Graphics.BufferedBitmap).getDc();
+        var plaatje = bb as Graphics.BufferedBitmap;
+        var pdc = plaatje.getDc();
         var gekozenY = 0;
         var gekozenX = 0;
         var nu = 0;
@@ -121,7 +126,7 @@ class DierenView extends WatchUi.View {
             }
         }
         var later = _getekend < PER_BLAD && blad * PER_BLAD + _getekend < EbbTrouw.DIEREN.size();
-        dc.drawBitmap(ox, oy, _plaatje.get() as Graphics.BufferedBitmap);
+        dc.drawBitmap(ox, oy, plaatje);
         // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         // Beelden run 42953647184: "sea log" en "8 of 24" liepen in elkaar; nu de telling kleiner eronder.
