@@ -66,6 +66,17 @@ module EbbScenes {
             var mv = new EbbMenuView();
             return [mv, new EbbMenuDelegate(mv)];
         }
+        // Codelezing hoofdchat 11 nov punt 3: 37 het menu met de keuze op Today, 38 het overzicht vanuit het menu.
+        if (k == 37) {
+            Application.Storage.setValue(EbbTrouw.BITS, 15);
+            var mv4 = new EbbMenuView();
+            mv4.keuze = 4;
+            return [mv4, new EbbMenuDelegate(mv4)];
+        }
+        if (k == 38) {
+            var ov = new EbbOverzichtView();
+            return [ov, new EbbOverzichtDelegate(ov)];
+        }
         if (k == 11 || k == 12) {
             Application.Storage.setValue(EbbStart.UITLEG, k == 12);
             var sc = new StartCheckView();
