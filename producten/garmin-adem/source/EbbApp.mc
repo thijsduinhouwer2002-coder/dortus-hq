@@ -480,6 +480,7 @@ class EbbView extends WatchUi.View {
     const ONDER_MIDDEN = 0.84;
     private var _klaarSinds as Number = -1;
     var gezelschap as Number = EbbTrouw.zwemmer();
+    private var _dierPlaatje as EbbDierPlaatje or Null = null;
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
@@ -745,7 +746,16 @@ class EbbView extends WatchUi.View {
                 var gz = EbbDierMaat.grenzen(gezelschap);
                 var yOnder = yRegel - dc.getFontHeight(Graphics.FONT_XTINY) / 2 - 8 - EbbDierData.randPx(mz);
                 var yd2 = yOnder - gz[3] * mz / EbbDierData.SCHAAL;
-                EbbDierData.teken(dc, gezelschap, w / 2 + dx, yd2 < yDier ? yDier : yd2, mz, -1);
+                var dp = _dierPlaatje;
+                if (dp == null || dp.dier != gezelschap || dp.maat != mz) {
+                    dp = new EbbDierPlaatje(gezelschap, mz);
+                    _dierPlaatje = dp;
+                }
+                if (dp.verder()) {
+                    dp.plak(dc, w / 2 + dx, yd2 < yDier ? yDier : yd2);
+                } else {
+                    WatchUi.requestUpdate();
+                }
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.

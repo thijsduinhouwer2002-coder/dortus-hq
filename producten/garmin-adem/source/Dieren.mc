@@ -40,6 +40,74 @@ module EbbDierMaat {
     }
 }
 
+// Plaatjesrun 42963243152: op de FR255 trapte de watchdog op het inhoudscherm met de krab (zee, belletjes, hart en
+// het dier met stickerrand in één beurt). Daarom het dier één keer in een eigen plaatje, één laag per beurt
+// (4 keer rand, dan lijf en ogen); daarna kost een beurt alleen het plakken.
+class EbbDierPlaatje {
+    var dier as Number;
+    var maat as Number;
+    var stap as Number = 0;
+    var links as Number = 0;   // van het plaatje tot het zwaartepunt
+    var boven as Number = 0;
+    private var _ref as Graphics.BufferedBitmapReference or Null = null;
+
+    function initialize(i as Number, m as Number) {
+        dier = i;
+        maat = m;
+        var g = EbbDierMaat.grenzen(i);
+        var r = EbbDierData.randPx(m) + 1;
+        links = -g[0] * m / EbbDierData.SCHAAL + r;
+        boven = -g[2] * m / EbbDierData.SCHAAL + r;
+        var p = [Graphics.COLOR_TRANSPARENT] as Array<Number>;
+        for (var a = 0; a < 4; a += 1) {
+            for (var b = 0; b < 4; b += 1) {
+                for (var c = 0; c < 4; c += 1) {
+                    p.add(a * 0x550000 + b * 0x5500 + c * 0x55);
+                }
+            }
+        }
+        _ref = Graphics.createBufferedBitmap({:width => links + g[1] * m / EbbDierData.SCHAAL + r + 1,
+            :height => boven + g[3] * m / EbbDierData.SCHAAL + r + 1, :palette => p});
+        var bb = (_ref as Graphics.BufferedBitmapReference).get() as Graphics.BufferedBitmap;
+        var dc = bb.getDc();
+        dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
+        dc.clear();
+    }
+
+    function klaar() as Boolean {
+        return stap >= 5;
+    }
+
+    // Eén laag erbij; geeft true als het plaatje af is.
+    function verder() as Boolean {
+        if (klaar()) {
+            return true;
+        }
+        var bb = (_ref as Graphics.BufferedBitmapReference).get();
+        if (bb == null) {
+            return false;
+        }
+        var dc = (bb as Graphics.BufferedBitmap).getDc();
+        var k = EbbDierData.randPx(maat);
+        if (stap < 4) {
+            EbbDierData.delen(dc, dier, links + EbbDierData.RAND_DX[stap] * k, boven + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[dier][3], 2);
+        } else {
+            var o = EbbDierData.delen(dc, dier, links, boven, maat, -1, 0);
+            EbbDierData.ogen(dc, dier, o, links, boven, maat);
+        }
+        stap += 1;
+        return klaar();
+    }
+
+    // Plak het dier met zijn zwaartepunt op (cx, cy).
+    function plak(dc as Graphics.Dc, cx as Number, cy as Number) as Void {
+        var bb = (_ref != null) ? (_ref as Graphics.BufferedBitmapReference).get() : null;
+        if (bb != null) {
+            dc.drawBitmap(cx - links, cy - boven, bb as Graphics.BufferedBitmap);
+        }
+    }
+}
+
 class DierenView extends WatchUi.View {
     var keuze as Number = 0;
     const PER_BLAD = 9;
