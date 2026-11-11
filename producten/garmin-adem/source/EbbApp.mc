@@ -556,8 +556,11 @@ class EbbView extends WatchUi.View {
             var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - (leeg > 0 ? leeg : 0);
             yGroot = yTijd.toFloat() / d;
             var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
-            var yRegel = (d * 0.83).toNumber();
-            var yDier = (onderCijfer + yRegel) / 2;
+            // Beelden run 42938098473 (fr265): de walvis raakte de hartregel en met zijn fontein bijna de cijfers.
+            // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
+            var yDier = onderCijfer + (d * 0.075).toNumber();
+            var yRegel = yDier + (d * 0.10).toNumber();
+            if (yRegel > d * 0.86) { yRegel = (d * 0.86).toNumber(); }
             // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
             if (stand < 5) {
                 var stijg = (t % 8000) / 8000.0;
@@ -566,7 +569,7 @@ class EbbView extends WatchUi.View {
             }
             var p = EbbProfiel.zwem(t);
             if (p >= 0.0) {
-                EbbTeken.dier(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
+                EbbTeken.dierKlein(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
