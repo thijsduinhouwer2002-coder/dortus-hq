@@ -117,7 +117,11 @@ class EbbMenuView extends WatchUi.View {
         dc.clear();
         EbbTeken.golf(dc, d, 0.775, d * 0.008, EbbTeken.ZEE_KLEUR[1], 0.0, true);
         EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
-        EbbTeken.dierKlein(dc, d, EbbTrouw.gezelschap(), d / 2, (d * 0.875).toNumber());
+        // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
+        var eigen = EbbTrouw.zwemmer();
+        if (eigen >= 0) {
+            EbbDierData.teken(dc, eigen, d / 2, (d * 0.875).toNumber(), (d * 0.05).toNumber(), -1);
+        }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.165).toNumber(), Graphics.FONT_MEDIUM, "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         pilRand(dc, d, 0.335, "Rounds", keuze == 0);

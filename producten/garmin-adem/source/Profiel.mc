@@ -374,6 +374,21 @@ module EbbTrouw {
         return -1;
     }
 
+    // Keuring bouw 1 punt 6 en Daan B3: het dier op het startscherm en tijdens het inhouden is je eigen dier
+    // (keuze, anders het laatst gevonden), anders het hoogste dat je hebt (oude opslag zonder "laatst"), anders -1.
+    function zwemmer() as Number {
+        var m = meezwemmer();
+        if (m >= 0) {
+            return m;
+        }
+        for (var i = DIEREN.size() - 1; i >= 0; i -= 1) {
+            if (heeft(i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     function wis() as Void {
         Application.Storage.deleteValue(LAATST);
         Application.Storage.deleteValue(GEKOZEN);

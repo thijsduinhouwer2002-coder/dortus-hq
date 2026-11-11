@@ -141,7 +141,7 @@ class EbbApp extends Application.AppBase {
                 view.sessie.ronde = ronde[k];
                 view.plaatjeMs = tijd[k];
             }
-            view.gezelschap = EbbTrouw.gezelschap();
+            view.gezelschap = EbbTrouw.zwemmer();
             return [view, new EbbDelegate(view)];
         }
         if (!EbbBouw.DEMO) {
@@ -383,7 +383,7 @@ class EbbView extends WatchUi.View {
     var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
     const YKLEIN_ADEMEN = 0.855;
     private var _klaarSinds as Number = -1;
-    var gezelschap as Number = EbbTrouw.gezelschap();
+    var gezelschap as Number = EbbTrouw.zwemmer();
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;
@@ -632,9 +632,10 @@ class EbbView extends WatchUi.View {
                 var yd = yDier.toFloat() / d;
                 EbbTeken.bellen(dc, d, [[0.28, yd + 0.03 - 0.08 * stijg, 0.012], [0.72, yd - 0.01 - 0.08 * stijg, 0.009]] as Array<Array<Float> >);
             }
-            var p = EbbProfiel.zwem(t);
-            if (p >= 0.0) {
-                EbbTeken.dierKlein(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
+            // Daan B3 en keuring bouw 1 punt 6: je eigen dier rust in het midden onder de tijd (geen rode vis die
+            // voorbij zwemt), in de eigen kleuren van Mila's data; zonder dier (nieuwe gebruiker) alleen de zee.
+            if (gezelschap >= 0) {
+                EbbDierData.teken(dc, gezelschap, w / 2, yDier, (d * 0.05).toNumber(), -1);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
