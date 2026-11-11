@@ -319,3 +319,8 @@
 - Echte beelden van run 43104540264 (5547b0d, nog zonder v13) nagekeken: scène 20 klopt, maar op de FR255 loopt "Rounds 3" over de titel (s19) en is de pil te hoog (s20), omdat de horlogeletters groter zijn dan in mijn blad. Regel en beeld in `ebb-blad-v13.md`, bericht Gijs.
 - Plaatjesrun 43105047693 (3598a84) kwam binnen: v13-eindschermen en Today in het menu staan goed op FR255 en fenix847mm (GEZIEN). Alleen s19 op de FR255 blijft fout (overlap titel).
 - Volgende run: s19 en s20 op de FR255 nalopen na Gijs' aanpassing; Steam scherm 4 met figuur als er een nieuwe opname komt.
+
+## Run 39 (11 nov ±23:45 NL): werelden voor Ebb (besluit Thijs 23:13)
+- Blad werelden v1: schildpad (zeegrasweide), krab (rotsen, verloren slipper), clownvis (anemoon), op alle zes schermsoorten, 260 en 454. Script `bron/werelden_v1.py`, contrast op de inkt van elke letter gemeten. Frisse keuring: 5.
+- v1.1: maan en sterren, golvende kam, geen rechte diepe band, dier met thuis en echt gedrag, randen tot 120, pixeltoets (0 pixels buiten MIP), toets op botsende tekst. Frisse keuring: 6.
+- Volgende run: de acht punten in `ebb-werelden-v1.md` (slipper, arm, clownvis vrij, schildpadwereld, middenvlak, rotsen, bouwdata, maan op hold), dan opnieuw fris keuren. Bouw-8-punten voor mij (poster, kaart 1 en 2, staafjes today) wachten tot de werelden op 8 staan.

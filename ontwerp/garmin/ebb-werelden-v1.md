@@ -54,3 +54,16 @@ Punten: schildpad 65, krab 72, clownvis 76, plus maan en sterren 7 (gedeeld). La
 **Bouwbaarheid (punt 10), voor Gijs:** teken niet het hele scherm als plaatje. Zee en lucht blijven zoals nu (een paar lijnen per beurt), de wereld komt in een BufferedBitmap van alleen de onderste strook plus de randen: op 260 een bitmap van 260 x 140 (y 120 tot 260) met een palet van de kleuren van die wereld (hoogstens 16, dus 4 bit, ±18 kB), op 454 454 x 245 (±56 kB bij 4 bit). Het dier en de `voor`-laag teken je er elke beurt overheen. Meet het geheugen op FR255 en fenix 7 en zet het in status.md.
 
 GEZIEN met Read (260 dubbel, 454, en ware grootte 1x): het scherm is nu een plek met een eigen nacht, eigen bodem en een dier dat daar woont. Zwak nog: de hap in de spriet leest op 260 als een groen wantje; de anemoonarm komt dicht bij de bpm-regel (contrast wel goed).
+
+## Frisse keuring v1.1: 6 van 10 (tweede frisse Opus, 11 nov nacht)
+Goed: zwart weg, maan als haak bij de naam, golvende kam, krabwereld "op 8-niveau", alle metingen kloppen (5,8:1, 0 vreemde pixels, 0 botsingen, 65 tot 76 punten). Nog niet naar Gijs.
+**Moet voor de bouw (volgende run, in deze volgorde):**
+1. Slipper leest op 1x als roze vlieger: teenslipper van boven, zool ±40 x 14 schuin 15 graden, FF55AA rand AA0055, wit V-bandje 2 px vanaf de teen. Mijn "GEZIEN" klopte niet; ik trek het in.
+2. Anemoonarm leest als tube tandpasta: arm met 3 vingertoppen FFAAFF en een knik, minstens 8/260 onder de bpm-regel.
+3. Clownvis verdwijnt in de anemoon: thuis naar ±(44, 190), hoogstens 2 vingers over hem, oog en witte banden vrij.
+4. Schildpadwereld is de zwakste (standaard aquarium): zand FFFFAA met AAAA55 brokjes, en een haak die op 20 px leest.
+5. Middenvlak is ±60 procent plat 0055AA: 3 tot 5 kleine dingen per wereld (lichtvlekjes 00AAFF, opdwarrelend zand), buiten de tekst.
+6. Grijze rotsen lezen dood: lichte kant AAAAAA, vlek 5555AA.
+7. Voor Gijs op het blad: bitmap met doorzichtige kleur (hoogstens 15 kleuren plus doorzichtig), golf als veelhoek en dierposities per scherm in de data, maat voor "gehaald" (vrije heap ±20 kB op FR255, eerste beeld binnen 200 ms).
+8. Eerlijk: maan op hold laten zien of het maanverhaal pas in de winkeltekst als het in de bouw zit.
+**Later:** natte glans op wat bij eb droog staat (of kam niet onder ±175 bij hoge randen), op AMOLED donkerder water 0000AA, eigen detail boven per familie, klein stukje wereld onder het dier op eind en sea log, tweede schuimlijn.
