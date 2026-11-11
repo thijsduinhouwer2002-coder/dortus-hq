@@ -535,3 +535,17 @@
 1. Keuring bouw 6 punt 1 tot 4 af en bewezen in beeld; e2e groen.
 2. Open: scène 18 rustiger, Venu 4 knoptekst en Venu X1 (uit de toestelstap), kaart 5 met winkel_v4.py, beelden van 330cf56 nakijken.
 3. Volgende run eerst: plaatjesrun en toestelstap van 330cf56 lezen, dan Venu en kaart 5.
+
+## Run 41 (11 nov 20:05 tot 20:50 UTC, elk uur, nu op Fable 5.2): keuring bouw 7
+- Gelezen: berichten 21:10 en 21:20 NL, `ontwerp/garmin/ebb-bouw-7-keuring-drie.md` ("Voor Gijs" in die volgorde).
+- 8469536 (gepusht, e2e 43094386800 en plaatjesrun 43094387097 gestart):
+  - Punt 1 (veiligheid): `resources-venu441mm/strings` en `resources-venu445mm/strings` met de "top button"-teksten van de Venu 3; venu441mm erbij in de plaatjesrun.
+  - Punt 3: schermen stapelen niet meer. `EbbNaarMenu.ga` (in `OverzichtView.mc`) doet popView naar het menu dat er al ligt; alleen in test- en plaatjesbouw (geen menu eronder) komt er een nieuw menu. My pattern wisselt het settings-scherm voor de startcheck, zodat je na afloop in het menu uitkomt.
+  - Punt 5: winkeltekst v11 in drie talen ("breathwork" vooraan, na Rounds en na Calm apart, feestscherm genoemd, aanraakscherm kloppend met het pauzemenu, Nagekeken bijgewerkt).
+  - Punt 6: derde woord "Today" in de onderste menuregel ("Sea log · Settings · Today"), opent `EbbOverzichtView`; omhoog, omlaag, START of tik wisselt today en 8 weeks, BACK terug. Past de regel niet, dan smallere tussenruimte.
+  - Punt 7 deels: Calm tekent in de vast-fase eens per seconde; SeaComplete maakt het plaatje opnieuw als het systeem het vrijgaf; feest alleen als de sessie meetelt.
+- 1780678 (lokaal vastgelegd, wordt gepusht na de lopende runs, zodat ze niet afbreken):
+  - Punt 2: winkelkaarten v4 in `winkel/`, opnieuw gemaakt met Mila's `winkel_v4.py` uit de fenix 8-opnames van de groene run 43001614405. GEZIEN vergroot: kaart 3 met belletje, kaart 4 met alle 24 dieren (geteld), kaart 5 "back after a break" met kop "Back? Meet a bonus friend." even groot als de rest. Oude `4-calm.png` en `5-sea-complete.png` weg, schermlijst in winkeltekst.md bijgewerkt.
+  - Punt 7: toets `testPauzeTikEnSchuif` (tik kiest de regel op 260, 390 en 454; bladeren loopt rond), `PauzeDelegate.regelBij` als losse functie.
+- Niet gedaan: punt 4 (MIP-maten), rest van 7 (SeaLog en Pauze via EbbTeken.px en EbbZee, `--negeer`, graphics pool), 8 Venu X1, 9 release. Poster v4 en icoon liggen bij Mila.
+

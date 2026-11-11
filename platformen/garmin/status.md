@@ -1,5 +1,6 @@
 # Garmin Connect IQ: status
 
+- **11 nov 20:45: keuring bouw 7 punt 1, 2, 3, 5, 6 en deel van 7 gebouwd (niets ingediend).** Venu 4 zegt nu "top button" in plaats van START, schermen stapelen niet meer, Today en 8 weeks staan in het menu, winkeltekst v11, winkelkaarten v4 uit verse opnames in `winkel/` (gezien). De bouw is nog niet bewezen: e2e 43094386800 en plaatjesrun 43094387097 lopen. Installs 0, verkopen 0.
 - **11 nov 10:15: e2e weer groen, sea complete af op elk horloge (niets ingediend).** E2e-run 42997997071 groen met eis 11 op 25 procent. Sea complete toont nu alle 24 dieren op Venu 3S, fenix 8, FR265 en FR255 (was 6 en 17), geen crash op twaalf horloges. Belletje in de sea log, "back after a break" en "24 of 24 + bonus" gezien. Installs 0, verkopen 0.
 - **11 nov 09:55: keuring bouw 6 punt 1 tot 4 en 8 in de code (niets ingediend).** E2e-eis 11 nu 25 procent (besluit hoofdchat), feestscherm alleen de eerste keer en daarna weer tijden, sea complete toont nooit meer een half dier, pauzemenu in Ebb-stijl ook voor Calm, minder hertekenen voor de batterij, keuze in de sea log als belletje (Mila v11), winkeltekst v10. Installs 0, verkopen 0.
 - **11 nov 09:00: sea complete als groepsfoto en pauzemenu in Ebb-stijl (niets ingediend).** Beide gezien op fenix 8 en FR255, geen crash. Installs 0, verkopen 0.
