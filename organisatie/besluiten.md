@@ -183,3 +183,6 @@ Thijs kan dit om 08:00 terugdraaien.
 1. My pattern blijft, maar loopt via de check "Sit or lie down" en komt in de winkeltekst.
 2. Na de walvis een scherm "sea complete"; na week 7 groeit de reeksteller door zonder nieuwe dieren.
 3. Ebb komt op meer horloges (fenix 8 43/51, fenix 7 Pro/X, epix Pro, FR 165/570/955/970, vivoactive 6, Venu 3S, Venu X1).
+
+## 11 nov 07:13 (Thijs)
+"ja nou fix alles naar minimaal een 8." Reeks in weken is goed. Ebb gaat door tot alle onderdelen van de keuring door drie frisse beoordelaars minstens een 8 hebben (code, veiligheid, uiterlijk, product, dieren). Ritme: elk uur Gijs en Mila, daarna eigen controle van de hoofdchat en drie keurders, tot alles 8 of hoger is. Daarna pas winkelbeelden definitief en samen met Thijs uploaden.
