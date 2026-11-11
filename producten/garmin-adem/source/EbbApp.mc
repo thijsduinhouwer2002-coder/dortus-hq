@@ -406,48 +406,9 @@ class EbbView extends WatchUi.View {
             if (fase == Ebb.FASE_ADEMEN) {
                 EbbTrillen.tril(_vorigeFase == Ebb.FASE_HERSTEL ? EbbTrillen.M_LOS : EbbTrillen.M_IN);
             } else if (fase == Ebb.FASE_INHOUDEN) {
-            // Blad v6 (3a, 3b, 3d, 3c; keuring 01:55 punt 2): de zee wordt elke 30 s een stand donkerder tot 2:30
-            // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
-            // daaronder hoe je stopt, dan de tijd, je dier, en onderaan hartslag en ronde.
-            var s = t / 1000;
-            var stand = EbbProfiel.zeeStand(s);
-            EbbTeken.zee(dc, d, stand, golfFase);
-            var fhT = dc.getFontHeight(Graphics.FONT_SMALL);
-            var fhK = dc.getFontHeight(Graphics.FONT_XTINY);
-            var yKop = (d * 0.20).toNumber();
-            if (s < 180) {
-                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(w / 2, yKop, Graphics.FONT_SMALL, "hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            } else {
-                var tb = "time to breathe";
-                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(w / 2, yKop, Graphics.FONT_XTINY, tb, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-                EbbTeken.trilboog(dc, d, yKop, dc.getTextWidthInPixels(tb, Graphics.FONT_XTINY));
-            }
-            var yStop = yKop + fhT / 2 + fhK / 2;
-            dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, yStop, Graphics.FONT_XTINY, stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            // De tijd direct onder de stopregel: de lege ruimte boven de cijfers (hoogte min ascent min descent)
-            // valt weg, zodat de cijfers 2% D onder de stopregel beginnen.
-            var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
-            var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - (leeg > 0 ? leeg : 0);
-            yGroot = yTijd.toFloat() / d;
-            var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
-            var yRegel = (d * 0.83).toNumber();
-            var yDier = (onderCijfer + yRegel) / 2;
-            // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
-            if (stand < 5) {
-                var stijg = (t % 8000) / 8000.0;
-                var yd = yDier.toFloat() / d;
-                EbbTeken.bellen(dc, d, [[0.28, yd + 0.03 - 0.08 * stijg, 0.012], [0.72, yd - 0.01 - 0.08 * stijg, 0.009]] as Array<Array<Float> >);
-            }
-            var p = EbbProfiel.zwem(t);
-            if (p >= 0.0) {
-                EbbTeken.dier(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
-            }
-            groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
-            EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
-        } else if (fase == Ebb.FASE_HERSTEL) {
+                _vorigInhoudMs = 0;
+                EbbTrillen.tril(EbbTrillen.M_INHOUDEN);
+            } else if (fase == Ebb.FASE_HERSTEL) {
                 EbbTrillen.tril(EbbTrillen.M_HERSTEL);
             } else if (fase == Ebb.FASE_KLAAR) {
                 EbbTrillen.tril(EbbTrillen.M_KLAAR);
@@ -513,47 +474,47 @@ class EbbView extends WatchUi.View {
             // zodat hij altijd helemaal in het water staat en nooit op de schuimrand.
             yKlein = YKLEIN_ADEMEN;
         } else if (fase == Ebb.FASE_INHOUDEN) {
-            // 2. Duiken: bijna alles water, per 15 s een tint dieper, belletjes stijgen, dier in koraal.
-            var tint = t / 15000;
-            EbbTeken.water(dc, d, 0.93, EbbTeken.DIEPTE[tint > 3 ? 3 : tint], golfFase);
-            yGroot = 0.30;
-            // Mila keuring 1, moet 1: de dieptetekst staat minstens 4% D onder de onderkant van het cijfer,
-            // het dier zwemt daar weer onder (run 42836983971: "123 m" plakte onder "2:03").
-            // Run 42848426637: onder het cijfer was op fenix847mm geen plek meer voor tekst en dier samen
-            // (het dier zwom door "123 m"). Daarom de dieptetekst boven het cijfer (Mila staat dat toe) en het
-            // dier 4% D onder het cijfer.
-            var fh = dc.getFontHeight(font).toFloat() / d;
-            yKlein = yGroot - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d - 0.01;
-            var yDier = yGroot + fh + 0.09;
-            if (yDier > 0.86) { yDier = 0.86; }
-            // Moet 2: belletjes gaan achter het cijfer langs. Een belletje in de band van het cijfer wordt niet
-            // getekend, zodat er geen kringetje door de cijfers loopt; erboven en eronder stijgt het gewoon.
-            var stijg = (t % 8000) / 8000.0;
-            var alle = [
-                [0.30, 0.70 - 0.30 * stijg, 0.018], [0.33, 0.85 - 0.30 * stijg, 0.012],
-                [0.70, 0.55 - 0.30 * stijg, 0.015], [0.68, 0.45 - 0.25 * stijg, 0.009]] as Array<Array<Float> >;
-            var zichtbaar = [] as Array<Array<Float> >;
-            for (var b = 0; b < alle.size(); b += 1) {
-                var by = alle[b][1];
-                var br = alle[b][2];
-                if (by + br < yGroot || by - br > yGroot + fh) {
-                    zichtbaar.add(alle[b]);
-                }
+            // Blad v6 (3a, 3b, 3d, 3c; keuring 01:55 punt 2): de zee wordt elke 30 s een stand donkerder tot 2:30
+            // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
+            // daaronder hoe je stopt, dan de tijd, je dier, en onderaan hartslag en ronde.
+            var s = t / 1000;
+            var stand = EbbProfiel.zeeStand(s);
+            EbbTeken.zee(dc, d, stand, golfFase);
+            var fhT = dc.getFontHeight(Graphics.FONT_SMALL);
+            var fhK = dc.getFontHeight(Graphics.FONT_XTINY);
+            var yKop = (d * 0.20).toNumber();
+            if (s < 180) {
+                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(w / 2, yKop, Graphics.FONT_SMALL, "hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            } else {
+                var tb = "time to breathe";
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(w / 2, yKop, Graphics.FONT_XTINY, tb, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                EbbTeken.trilboog(dc, d, yKop, dc.getTextWidthInPixels(tb, Graphics.FONT_XTINY));
             }
-            EbbTeken.bellen(dc, d, zichtbaar);
+            var yStop = yKop + fhT / 2 + fhK / 2;
+            dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, yStop, Graphics.FONT_XTINY, stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            // De tijd direct onder de stopregel: de lege ruimte boven de cijfers (hoogte min ascent min descent)
+            // valt weg, zodat de cijfers 2% D onder de stopregel beginnen.
+            var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+            var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - (leeg > 0 ? leeg : 0);
+            yGroot = yTijd.toFloat() / d;
+            var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
+            var yRegel = (d * 0.83).toNumber();
+            var yDier = (onderCijfer + yRegel) / 2;
+            // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
+            if (stand < 5) {
+                var stijg = (t % 8000) / 8000.0;
+                var yd = yDier.toFloat() / d;
+                EbbTeken.bellen(dc, d, [[0.28, yd + 0.03 - 0.08 * stijg, 0.012], [0.72, yd - 0.01 - 0.08 * stijg, 0.009]] as Array<Array<Float> >);
+            }
             var p = EbbProfiel.zwem(t);
             if (p >= 0.0) {
-                var soort = gezelschap;
-                // De walvis (moet 3) heeft een spuitje tot 14% D boven zijn midden: iets lager, zodat het cijfer vrij blijft.
-                var yd = (soort == 3) ? yDier + 0.06 : yDier;
-                if (yd > 0.86) { yd = 0.86; }
-                EbbTeken.dier(dc, d, soort, ((1.1 - 1.2 * p) * d).toNumber(), (yd * d).toNumber());
+                EbbTeken.dier(dc, d, gezelschap, ((1.1 - 1.2 * p) * d).toNumber(), yDier);
             }
-            var s = t / 1000;
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
-            // Besluit 22:53: geen meters. Op die plek de live hartslag, klein (leeg zonder meting).
-            var hr = EbbOpname.hartslag();
-            klein = (hr > 0) ? hr + " bpm" : "";
+            EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
         } else if (fase == Ebb.FASE_HERSTEL) {
             // Blad v6 scherm 4 (herstel): de zon komt op achter de zee (W0, W1, W2), bovenaan "big breath in, hold",
             // groot de seconden met een kleine "s", onderaan "round 2 held 1:45".
