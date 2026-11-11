@@ -170,8 +170,8 @@ class EbbApp extends Application.AppBase {
             } else {
                 var tijd = [30000, 105000, 150000, 184000] as Array<Number>;
                 var ronde = [0, 1, 2, 2] as Array<Number>;
-                var bits = [1, 15, (1 << 25) - 1, 15] as Array<Number>;
-                Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
+                // Keuring bouw 3 punt 8: de testreeks steeds met hetzelfde eigen dier (de schildpad).
+                Application.Storage.setValue(EbbTrouw.BITS, 15);
                 view.sessie.ronde = ronde[k];
                 view.plaatjeMs = tijd[k];
             }
@@ -724,7 +724,12 @@ class EbbView extends WatchUi.View {
             if (gezelschap >= 0) {
                 // Rustig heen en weer: ±1,5 procent D in 8 s (in de testbeelden stil in het midden).
                 var dx = EbbBouw.PLAATJE ? 0 : (Math.sin((t % 8000) * 2.0 * Math.PI / 8000.0) * d * 0.015).toNumber();
-                EbbDierData.teken(dc, gezelschap, w / 2 + dx, yDier, (d * 0.095).toNumber(), -1);
+                // Keuring bouw 3 punt 8: het dier past in 90 x 70 op 454 (50 x 40 op 260), onderkant 8 px boven de hartslagregel.
+                var mz = EbbDierMaat.inVak(gezelschap, (d * 0.198).toNumber(), (d * 0.154).toNumber());
+                var gz = EbbDierMaat.grenzen(gezelschap);
+                var yOnder = yRegel - dc.getFontHeight(Graphics.FONT_XTINY) / 2 - 8 - EbbDierData.randPx(mz);
+                var yd2 = yOnder - gz[3] * mz / EbbDierData.SCHAAL;
+                EbbDierData.teken(dc, gezelschap, w / 2 + dx, yd2 < yDier ? yDier : yd2, mz, -1);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.
@@ -919,7 +924,8 @@ class EbbView extends WatchUi.View {
         var cy = (d * (n > 3 ? 0.48 : 0.465)).toNumber();
         if (nieuweDieren.size() > 0) {
             var dier = nieuweDieren[0];
-            EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.15).toNumber(), -1);
+            // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
+            EbbDierData.teken(dc, dier, w / 2, cy + (d * 0.033).toNumber(), (d * 0.15).toNumber(), -1);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (eindVolgend >= 0) {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.

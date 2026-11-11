@@ -6,6 +6,40 @@ import Toybox.WatchUi;
 // Gevonden dieren in eigen kleuren met witte stickerrand, de rest als silhouet met kenmerk. Bovenaan "sea log" en
 // "8 of 24", onderaan naam en eerlijk wat er nog nodig is, daaronder drie bladstippen. Omhoog en omlaag (of vegen)
 // verschuift de keuze; select kiest een gevonden dier dat met je meezwemt.
+// Keuring bouw 3 punt 8 en 9: maten van een dier uit zijn eigen punten, zodat het in een vak past.
+module EbbDierMaat {
+    // [links, rechts, boven, onder] in 1/SCHAAL van de diermaat.
+    function grenzen(i as Number) as Array<Number> {
+        var b = EbbDierData.DATA[i];
+        var o = 1;
+        var g = [0, 0, 0, 0] as Array<Number>;
+        for (var deel = 0; deel < b[0]; deel += 1) {
+            var n = b[o + 1];
+            o += 2;
+            for (var k = 0; k < n; k += 1) {
+                var x = EbbDierData.s8(b[o]);
+                var y = EbbDierData.s8(b[o + 1]);
+                if (x < g[0]) { g[0] = x; }
+                if (x > g[1]) { g[1] = x; }
+                if (y < g[2]) { g[2] = y; }
+                if (y > g[3]) { g[3] = y; }
+                o += 2;
+            }
+        }
+        return g;
+    }
+
+    // Grootste maat waarbij dier i (met stickerrand) binnen breed x hoog px past.
+    function inVak(i as Number, breed as Number, hoog as Number) as Number {
+        var g = grenzen(i);
+        var s = EbbDierData.SCHAAL;
+        var mb = (breed - 4) * s / (g[1] - g[0]);
+        var mh = (hoog - 4) * s / (g[3] - g[2]);
+        var m = mb < mh ? mb : mh;
+        return m < 4 ? 4 : m;
+    }
+}
+
 class DierenView extends WatchUi.View {
     var keuze as Number = 0;
     const PER_BLAD = 9;
@@ -74,23 +108,9 @@ class DierenView extends WatchUi.View {
         return (nog <= 1) ? "next session" : "at " + drempel + " sessions";
     }
 
-    // Keuring bouw 3 punt 9: boven- en onderkant van dier i in 1/SCHAAL van de diermaat (uit de punten zelf).
     function grens(i as Number) as Array<Number> {
-        var b = EbbDierData.DATA[i];
-        var o = 1;
-        var boven = 0;
-        var onder = 0;
-        for (var deel = 0; deel < b[0]; deel += 1) {
-            var n = b[o + 1];
-            o += 2;
-            for (var k = 0; k < n; k += 1) {
-                var y = EbbDierData.s8(b[o + 1]);
-                if (y < boven) { boven = y; }
-                if (y > onder) { onder = y; }
-                o += 2;
-            }
-        }
-        return [boven, onder] as Array<Number>;
+        var g = EbbDierMaat.grenzen(i);
+        return [g[2], g[3]] as Array<Number>;
     }
 
     // Opbouw van een blad (keuring bouw 3 punt 9): rijen 3 px uit elkaar (op 260; groter scherm iets meer), het raster
