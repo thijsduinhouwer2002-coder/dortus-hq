@@ -67,3 +67,29 @@ Goed: zwart weg, maan als haak bij de naam, golvende kam, krabwereld "op 8-nivea
 7. Voor Gijs op het blad: bitmap met doorzichtige kleur (hoogstens 15 kleuren plus doorzichtig), golf als veelhoek en dierposities per scherm in de data, maat voor "gehaald" (vrije heap ±20 kB op FR255, eerste beeld binnen 200 ms).
 8. Eerlijk: maan op hold laten zien of het maanverhaal pas in de winkeltekst als het in de bouw zit.
 **Later:** natte glans op wat bij eb droog staat (of kam niet onder ±175 bij hoge randen), op AMOLED donkerder water 0000AA, eigen detail boven per familie, klein stukje wereld onder het dier op eind en sea log, tweede schuimlijn.
+
+# v1.2 (Mila, run 40, 12 nov nacht): na keuring v1.1, de vier punten van Gijs (11 nov 23:55) en besluit 12 nov 00:25
+Beelden `werelden12/werelden-260-rij-2x.png`, `werelden12/werelden-454-rij.png`, ware grootte `werelden12/ware-grootte-1x.png`, groei `werelden12/groei-260-2x.png` (menu bij week 0 tot 4). Script `bron/werelden_v12.py`, data `werelden12/ebb-werelden-v12-data.json`, metingen `werelden12/contrast.txt` en `werelden12/punten.txt`.
+
+**Besluit: diepte in drie lagen zonder extra werk per wereld.** Verre rug (0000AA, bij de clownvis 000055) laag `ver` in elke wereld; lichtstralen 0055FF en twee scholen van drie visjes 00AAFF zijn gedeeld en horen bij het water (top van de straal volgt de kam, visjes alleen als de kam minstens 10 erboven staat: geen vliegende vissen bij lage zee). Waarom: besluit 00:25 punt 1, en zo kost het geen punten per wereld.
+**Besluit: groei als vier schatjes op een vaste rij in het zand** (x 72, 88, 104, 120, onderkant y 240, elk ±12 x 12 in een eigen felle kleur: schelp, zeester, slak, koraaltak; per wereld andere kleuren). Waarom: eerste versie had stipjes die je op 1x niet zag; groei is de reden om terug te komen, dus de beloning moet je zien. Een rij leest als "verzameling" en blijft uit alle tekst.
+**Besluit: haak schildpad wordt een zandkasteel met kantelen en rood vlaggetje** (hap uit de spriet vervalt). Waarom: de hap las op 20 px als groen wantje; het vlaggetje leest zelfs op 1x, en een schildpad graaft echt met zijn vinnen.
+
+Keuringspunten v1.1:
+1. Slipper: teenslipper 36 x 14, ronde brede teen, smalle hiel, donkere V (AA0055) met punt op 1/4 vanaf de teen, 15 graden schuin, op (152, 236). Witte streep weg.
+2. Anemoonarm: lichte arm FFAAFF op de donkere anemoon, knik, drie toppen van 3 x 3, hoogste top op 192 (bpm-regel eindigt op ±180).
+3. Clownvis thuis (44, 188), alleen twee voorste vingers over hem.
+4. Schildpad: zand FFFFAA met AAAA55 brokje, zandkasteel 50 x 58 (x 169 tot 219, binnen de cirkel).
+5. Midden: stralen, scholen visjes, lichtvlekjes; achter de cijfers blijft het water rustig (leesbaarheid gaat voor).
+6. Keien: lichte kant AAAAAA groot, vlekken 5555AA.
+7. Bouw: zie hieronder.
+8. Maan: alleen waar lucht te zien is; op hold dekt het water hem, dus het maanverhaal pas in de winkeltekst als het gebouwd is.
+Clownvisbodem lichter (FFAAAA).
+
+**Voor Gijs (data):** elk vlak heeft `laag` (ver, midden; `voor_het_dier` is laag voor), `week` (0 = altijd, 1 tot 4 = vanaf zoveel gehaalde weekdoelen) en bij planten `p2` (stand bij inademen, zelfde aantal punten; wissel alleen als de adem omslaat). `schermen` geeft per scherm kam, dier (plek en maat 260 en 454) en de y en maat van elke tekstregel. `stralen` en `visjes` staan los (gedeeld). Geen palet (jouw meting), volle kleur. Alles op of onder y 118 (`strook_vanaf_y`); hoogste punt is 120. Namen `vlakken`, `voor_het_dier`, `thuis`, `nr` zoals afgesproken.
+Gemeten: schildpad 113, krab 113, clownvis 111 punten (grens 120), 13 tot 15 kleuren, 0 pixels buiten MIP, 0 botsende teksten, laagste contrast 5,4:1 (geel op een lichtstraal).
+
+GEZIEN met Read: rij 260 dubbel, ware grootte 1x (twee keer), groei 2x (twee keer). Wat werkt: echte diepte, clownvis vrij, slipper leest nu als slipper, groei is een kleurige rij die opvalt. Zwak nog: de koraaltak leest op 1x als een "Y"; het kasteel staat op hold half achter de rand rechtsonder; groei-schatjes zijn bij alle drie dezelfde vormen.
+
+## Frisse keuring v1.2 (eerste versie, vóór de laatste ronde): 7 van 10
+Opgelost: clownvis vrij, keien, maan. Moest nog: slipper (voetvorm), groei zichtbaar maken, visjes lichter als school, kasteel binnen de cirkel met kantelen, arm met lucht en lichte toppen, clownvisbodem lichter. Alle zes daarna gedaan (dit blad). Volgende run: opnieuw fris keuren; bij 8 gaat het naar Gijs.

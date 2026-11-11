@@ -42,31 +42,38 @@ def vlekjes(lijst, c='0x00AAFF', week=0):
     """Lichtvlekjes op de bodem (zon door de golven): ruitjes van 4 punten."""
     return [it(c, [(x - w, y), (x, y - 2), (x + w, y), (x, y + 2)], 'midden', week=week) for x, y, w in lijst]
 
+# groei: vier schatjes van ±12 x 12 op een vaste rij in het zand (x 72, 88, 104, 120; onderkant y 240), elk in een eigen felle kleur
+SCHELP = [(0, 0), (-6, -5), (-4, -11), (4, -11), (6, -5)]
+STER = [(0, -12), (2, -7), (7, -7), (3, -4), (5, 1), (0, -2), (-5, 1), (-3, -4), (-7, -7), (-2, -7)]
+SLAK = [(-6, 0), (-6, -5), (-2, -10), (4, -9), (6, -4), (7, 0)]
+KORAAL = [(-1, 0), (-1, -5), (-6, -9), (-4, -11), (0, -7), (3, -12), (5, -11), (1, -4), (1, 0)]
+VORM = {'schelp': SCHELP, 'zeester': STER, 'slak': SLAK, 'koraaltak': KORAAL}
+
+def schatten(rij):
+    """rij: [(naam, kleur)] voor week 1 tot 4."""
+    return [it(c, [(x + 72 + 16 * i, y + 240) for x, y in VORM[n]], week=i + 1) for i, (n, c) in enumerate(rij)]
+
 # ---------------- werelden ----------------
 def schildpad():
     z = [ver_rug()]
     z.append(it('0xFFFFAA', [(0, 228), (45, 222), (95, 226), (135, 221), (175, 225), (220, 219), (260, 225), (260, 260), (0, 260)]))
-    z.append(it('0xAAAA55', [(66, 240), (80, 237), (92, 241), (80, 243)]))
-    z += vlekjes([(118, 232, 6), (140, 246, 5)])
-    for a, t, b, bu, c, wk in [((6, 234), (0, 120), 6, 7, '0x00AA55', 0), ((20, 234), (22, 140), 6, -6, '0x55AA00', 0),
-                               ((16, 236), (34, 176), 4, 8, '0x005500', 0), ((40, 230), (48, 184), 4, 5, '0x55AA00', 0),
-                               ((254, 232), (260, 124), 6, -7, '0x00AA55', 0), ((240, 232), (236, 140), 6, 6, '0x55AA00', 0),
-                               ((244, 234), (226, 178), 4, -8, '0x005500', 0), ((122, 230), (118, 214), 3, -2, '0x55AA00', 2)]:
-        z.append(zeegras(*a, *t, b, bu, c, week=wk))
-    # de haak: een zandkasteel met vlaggetje (schildpadden graven met hun vinnen, deze bouwt dus ook)
-    z.append(it('0xFFAA55', [(181, 242), (181, 222), (200, 222), (200, 204), (212, 204), (212, 222), (231, 222), (231, 242)]))
-    z.append(it('0xAA5500', [(202, 242), (202, 232), (206, 228), (210, 232), (210, 242)]))     # deurtje
-    z.append(it('0xFFFFFF', [(205, 201), (207, 201), (207, 184), (205, 184)]))                # stokje
-    z.append(it('0xFF0000', [(207, 184), (222, 188), (207, 194)]))                           # vlag
-    # groeit met trouw: week 1 schelp, week 2 extra spriet (hierboven), week 3 de hap uit de brede spriet, week 4 zeester
-    z.append(it('0xFFAAAA', [(106, 237), (116, 229), (126, 237), (116, 240)], week=1))
-    z.append(it('0x00AA55', [(52, 232), (56, 206), (60, 198), (66, 202), (62, 206), (62, 212), (66, 216), (64, 232)],
-                p2=[(52, 232), (58, 206), (64, 198), (70, 202), (66, 206), (64, 212), (68, 216), (64, 232)], week=3))
-    z.append(it('0xFF5500', [(151, 233), (154, 225), (157, 233), (165, 235), (159, 238), (160, 246), (154, 241), (148, 246),
-                             (149, 238), (143, 235)], week=4))
+    z.append(it('0xAAAA55', [(130, 244), (144, 241), (156, 245), (144, 247)]))
+    z += vlekjes([(140, 232, 6), (60, 236, 5)])
+    for a, t, b, bu, c in [((6, 234), (0, 120), 6, 7, '0x00AA55'), ((20, 234), (22, 140), 6, -6, '0x55AA00'),
+                           ((16, 236), (34, 176), 4, 8, '0x005500'), ((40, 230), (48, 184), 4, 5, '0x55AA00'),
+                           ((254, 232), (260, 124), 6, -7, '0x00AA55'), ((240, 232), (236, 140), 6, 6, '0x55AA00'),
+                           ((244, 234), (226, 178), 4, -8, '0x005500')]:
+        z.append(zeegras(*a, *t, b, bu, c))
+    # de haak: een zandkasteel met kantelen en vlaggetje (schildpadden graven met hun vinnen, deze bouwt dus ook)
+    z.append(it('0xFFAA55', [(169, 240), (169, 222), (188, 222), (188, 198), (192, 198), (192, 201), (196, 201), (196, 198),
+                             (200, 198), (200, 222), (219, 222), (219, 240)]))
+    z.append(it('0x550000', [(191, 240), (191, 232), (194, 229), (197, 232), (197, 240)]))     # deurtje
+    z.append(it('0xFFFFFF', [(193, 198), (195, 198), (195, 188), (193, 188)]))                # stokje
+    z.append(it('0xFF0000', [(195, 188), (208, 191), (195, 195)]))                           # vlag
+    z += schatten([('schelp', '0xFFAAAA'), ('zeester', '0xFF5500'), ('slak', '0xAA55FF'), ('koraaltak', '0xFF0055')])
     return dict(dier='Turtle', nr=3, plek='zeegrasweide', items=z, thuis=(92, 214),
-                haak='een zandkasteel met rood vlaggetje op de bodem: de schildpad graaft toch al, dus hij bouwt ook',
-                details={1: 'schelp', 2: 'extra spriet', 3: 'hap uit de brede spriet', 4: 'zeester'})
+                haak='een zandkasteel met kantelen en rood vlaggetje: de schildpad graaft toch al, dus hij bouwt ook',
+                details={1: 'schelp (roze)', 2: 'zeester (oranje)', 3: 'slak (paars)', 4: 'koraaltak (rood)'})
 
 def krab():
     z = [ver_rug()]
@@ -77,63 +84,50 @@ def krab():
     z.append(it('0x555555', [(0, 126), (16, 120), (32, 134), (36, 170), (52, 198), (60, 232), (0, 236)]))
     z.append(it('0xAAAAAA', [(0, 130), (16, 122), (30, 136), (32, 168), (20, 178), (0, 160)]))
     z.append(it('0x5555AA', [(10, 196), (20, 190), (26, 198), (16, 204)]))
-    z.append(it('0x5555AA', [(46, 232), (58, 210), (78, 206), (92, 220), (94, 234)]))
+    z.append(it('0x5555AA', [(36, 232), (44, 212), (60, 208), (68, 222), (68, 234)]))
     z.append(it('0x555555', [(260, 132), (244, 126), (228, 140), (224, 172), (210, 204), (206, 232), (260, 236)]))
     z.append(it('0xAAAAAA', [(260, 134), (244, 128), (230, 140), (228, 170), (238, 182), (260, 166)]))
     z.append(it('0x5555AA', [(238, 204), (248, 198), (254, 206), (244, 212)]))
-    z.append(it('0x5555AA', [(214, 233), (200, 218), (184, 220), (178, 234)]))
-    # de grap: teenslipper van boven, zool 40 x 14, 15 graden schuin, V-bandje vanaf de teen
-    zool = [(-20, 0), (-15, -6), (-2, -5), (14, -7), (21, 0), (14, 7), (-2, 5), (-15, 6)]
-    rand = [(x * 1.12, y * 1.25) for x, y in zool]
-    band = [(13, -1), (13, 1), (-3, 6), (-5, 5), (10, 0), (-5, -5), (-3, -6)]
-    z.append(it('0xAA0055', draai(rand, 128, 238, -15)))
-    z.append(it('0xFF55AA', draai(zool, 128, 238, -15)))
-    z.append(it('0xFFFFFF', draai(band, 128, 238, -15)))
-    # groeit met trouw
-    z.append(it('0xFFAAAA', [(166, 241), (176, 231), (186, 241), (176, 244)], week=1))              # schelp
-    z.append(it('0xFFFFFF', [(222, 149), (228, 142), (234, 149), (228, 152)], week=2))               # zeepok op de kei
-    z.append(it('0xFF5500', [(66, 244), (76, 238), (86, 244), (76, 249)], week=3))                   # oranje steentje
-    z.append(it('0xAA0055', [(191, 250), (204, 245), (220, 250), (204, 255)], week=4))               # roze steentje (past bij de slipper)
-    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(184, 214),
+    # de grap: teenslipper van boven, 36 x 14: ronde brede teen, smalle hiel, donkere V met punt op 1/4 vanaf de teen
+    zool = [(18, 0), (16, -5), (10, -7), (2, -6), (-6, -4), (-13, -4), (-18, -2), (-18, 2), (-13, 4), (-6, 4), (2, 6), (10, 7), (16, 5)]
+    band = [(10, 0), (0, -6), (-2, -4), (7, 0), (-2, 4), (0, 6)]
+    z.append(it('0xFF55AA', draai(zool, 152, 236, -15)))
+    z.append(it('0xAA0055', draai(band, 152, 236, -15)))
+    z += schatten([('schelp', '0xFFFFFF'), ('zeester', '0xFF00AA'), ('slak', '0x00AAAA'), ('koraaltak', '0xFF5500')])
+    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(200, 214),
                 haak='een verloren roze teenslipper; de krab blijft op de bodem ernaast en blaast belletjes',
-                details={1: 'schelp', 2: 'zeepok op de kei', 3: 'oranje steentje', 4: 'roze steentje'})
+                details={1: 'schelp (wit)', 2: 'zeester (roze)', 3: 'slak (blauwgroen)', 4: 'koraaltak (oranje)'})
 
 def clownvis():
     z = [ver_rug('0x000055')]
-    z.append(it('0xAA5555', [(0, 226), (50, 222), (110, 228), (160, 222), (210, 226), (260, 220), (260, 260), (0, 260)]))
-    z.append(it('0xFFAA55', [(84, 240), (100, 235), (120, 240), (100, 244)]))
+    z.append(it('0xFFAAAA', [(0, 226), (50, 222), (110, 228), (160, 222), (210, 226), (260, 220), (260, 260), (0, 260)]))
     z.append(it('0xFFAA55', [(150, 236), (166, 232), (180, 237), (166, 240)]))
-    z += vlekjes([(130, 232, 5)], '0xFFAAAA')
     z.append(it('0xAA0055', [(0, 236), (4, 206), (64, 206), (70, 236)]))
     xs = [-10, 2, 12, 22, 32, 44, 56, 70]; tops = [134, 146, 158, 166, 176, 184, 196]
     z.append(it('0xFF55AA', vinger(xs, 212, tops), p2=vinger(xs, 212, tops, golf=4)))
     # voor het dier: alleen de twee voorste vingers (oog en banden van de vis blijven vrij)
     voor = [it('0xFFAAFF', [(18, 216), (22, 196), (28, 216)], 'voor', [(18, 216), (25, 196), (28, 216)]),
             it('0xFFAAFF', [(54, 216), (58, 200), (64, 216)], 'voor', [(54, 216), (61, 200), (64, 216)])]
-    # zwaaiende arm met knik en drie vingertoppen; top op 190, dus 10/260 onder de bpm-regel (onderkant 180)
-    arm = [(58, 216), (60, 204), (68, 198), (74, 194), (72, 190), (76, 188), (78, 192), (81, 189), (84, 192), (82, 196),
-           (76, 202), (68, 208), (68, 216)]
-    z.append(it('0xFFAAFF', arm, p2=[(x + (0 if y > 205 else 3), y) for x, y in arm]))
-    z.append(it('0xFFFFAA', [(71, 191), (73, 188), (75, 191)]))
-    z.append(it('0xFFFFAA', [(77, 189), (79, 186), (81, 189)]))
+    # zwaaiende arm met knik en drie vingertoppen van 3 x 3; hoogste top op 192 (bpm-regel eindigt op ±180)
+    arm = [(53, 218), (55, 206), (63, 200), (67, 196), (66, 192), (70, 192), (71, 195), (73, 192), (77, 192), (77, 196),
+           (80, 194), (81, 198), (71, 204), (63, 210), (63, 218)]
+    z.append(it('0xFFAAFF', arm, p2=[(x + (0 if y > 207 else 3), y) for x, y in arm]))
     z.append(it('0xAA55FF', [(260, 128), (238, 136), (226, 172), (212, 206), (224, 226), (260, 230)]))
     z.append(it('0x550055', [(246, 222), (240, 160), (243, 160), (250, 222)]))
     z.append(it('0xFFAA00', [(196, 228), (193, 212), (188, 204), (191, 202), (197, 208), (200, 198), (204, 199), (202, 214), (204, 228)]))
-    z.append(it('0xFFFFFF', [(148, 243), (154, 236), (160, 243), (154, 246)], week=1))     # schelp
-    z.append(it('0xFF5500', [(230, 194), (236, 187), (242, 194), (236, 200)], week=2))     # zeesterretje op de waaier
-    z.append(it('0xAA55FF', [(108, 240), (114, 230), (120, 240)], week=3))                 # paars koraaltje
-    z.append(it('0x55FFFF', [(174, 237), (180, 230), (186, 237), (180, 240)], week=4))     # blauw steentje
+    z += schatten([('schelp', '0xFFFFFF'), ('zeester', '0xFFFF00'), ('slak', '0x0055FF'), ('koraaltak', '0xAA00FF')])
     return dict(dier='Clownfish', nr=7, plek='anemoon met zwaaiende arm', items=z + voor, thuis=(44, 188),
                 haak='hij zit thuis in zijn anemoon, en één arm zwaait met drie vingers naar hem',
-                details={1: 'schelp', 2: 'zeesterretje', 3: 'paars koraaltje', 4: 'blauw steentje'})
+                details={1: 'schelp (wit)', 2: 'zeester (geel)', 3: 'slak (blauw)', 4: 'koraaltak (paars)'})
 
 WERELDEN = [schildpad(), krab(), clownvis()]
 # lichtstralen: gedeeld, geen werelddata; top volgt de kam, onderkant y 205, alleen aan de randen
 STRALEN = [dict(x_top=14, x_onder=46, breed=8), dict(x_top=40, x_onder=64, breed=4), dict(x_top=230, x_onder=206, breed=8)]
 STRAAL_KLEUR = '0x0055FF'
-VIS_KLEUR = '0x0000AA'
-VISJES = [[(26, 136), (36, 131), (43, 136), (48, 131), (48, 141), (36, 141)],
-          [(234, 128), (224, 123), (217, 128), (212, 123), (212, 133), (224, 133)]]
+VIS_KLEUR = '0x00AAFF'
+def vis(x, y, r=1):   # 8 x 4 met staartknip; r=-1 zwemt naar links
+    return [(x, y), (x + 3 * r, y - 2), (x + 6 * r, y), (x + 8 * r, y - 2), (x + 8 * r, y + 2), (x + 3 * r, y + 2)]
+VISJES = [vis(24, 136), vis(34, 131), vis(32, 142), vis(236, 128, -1), vis(226, 134, -1), vis(238, 140, -1)]   # twee scholen van drie
 
 def punten(w): return sum(len(i['p']) for i in w['items'])
 

@@ -324,3 +324,10 @@
 - Blad werelden v1: schildpad (zeegrasweide), krab (rotsen, verloren slipper), clownvis (anemoon), op alle zes schermsoorten, 260 en 454. Script `bron/werelden_v1.py`, contrast op de inkt van elke letter gemeten. Frisse keuring: 5.
 - v1.1: maan en sterren, golvende kam, geen rechte diepe band, dier met thuis en echt gedrag, randen tot 120, pixeltoets (0 pixels buiten MIP), toets op botsende tekst. Frisse keuring: 6.
 - Volgende run: de acht punten in `ebb-werelden-v1.md` (slipper, arm, clownvis vrij, schildpadwereld, middenvlak, rotsen, bouwdata, maan op hold), dan opnieuw fris keuren. Bouw-8-punten voor mij (poster, kaart 1 en 2, staafjes today) wachten tot de werelden op 8 staan.
+
+## Run 40 (12 nov ±00:00 UTC): werelden v1.2
+- Gelezen: berichten (Gijs 23:55: vier bouwpunten voor v1.2), besluiten 00:03 (Ebb prioriteit 1) en 00:25 (diepte, adem, groei).
+- **Besluit: diepte in drie lagen**, stralen en visjes gedeeld bij het water. **Besluit: groei als vier schatjes op een vaste rij.** **Besluit: zandkasteel als haak van de schildpad.** Waarom: zie `ebb-werelden-v1.md` v1.2.
+- Data met `laag`, `p2`, `week`, `schermen`; alles onder y 118; 111 tot 113 punten; 0 pixels buiten MIP; contrast 5,4:1.
+- Frisse keuring op de eerste versie: 7. Alle zes punten daarna gedaan (slipper, groei, visjes, kasteel, arm, bodem). GEZIEN met Read: rij, ware grootte en groei.
+- Volgende run: opnieuw fris keuren; zwak nog: koraaltak leest als "Y", kasteel half achter de rand op hold, schatjes bij alle werelden dezelfde vormen. Bij 8 naar Gijs.
