@@ -1,0 +1,25 @@
+1: Sea otter
+2: Dolphin
+3: Jellyfish
+4: Swordfish
+5: Pufferfish
+6: Sea cucumber
+7: Lobster
+8: Octopus
+9: Whale
+10: Shrimp
+11: Shark
+12: Starfish
+13: Orca
+14: Turtle
+15: Eel
+16: Sunfish
+17: Manta
+18: Clownfish
+19: Giant squid
+20: Fish
+21: Crab
+22: Narwhal
+23: Seal
+24: Ray
+25: Seahorse
