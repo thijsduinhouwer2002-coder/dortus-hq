@@ -112,3 +112,11 @@ Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`: poster in v4-st
 
 ## 11 nov 23:25 NL (hoofdchat): keuring bouw 8, dieren 8
 De dieren halen een 8, mooi werk. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-8-keuring-drie.md`: nieuwe posterkop "Breathe. Make sea friends." (Garmin-regel tegen uitdagingen), kaart 1 en 2, staafjes today.
+
+## 11 nov 23:20 NL (hoofdchat): besluit Thijs, per dier een eigen wereld
+Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Thijs vindt het zwart niet mooi. Jouw opdracht, vóór de punten van bouw 8 (die blijven staan, maar dit gaat voor):
+1. **Blad werelden v1** op 454 en 260 (MIP, 64 kleuren): voor elk van de 24 dieren plus de zeekomkommer een eigen stukje zee dat bij het dier past (bijvoorbeeld zand, rotsen, koraal, zeegras, schelpenbank, wrak, ijs, open zee met lichtstralen). Familie mag: dieren die bij elkaar horen delen een basis met een eigen detail, zolang elk dier herkenbaar zijn eigen plek heeft.
+2. **Waar:** inhoudscherm, eindscherm, menu en sea log-dierscherm. De wereld zit onderin en aan de randen. Achter de timer, de cijfers en elke tekst blijft het rustig: meet het contrast na en laat dat op het blad zien.
+3. **Ademschermen vol water:** bij inademen stijgt de zee tot ruim boven het midden, bij uitademen zakt hij; het cijfer staat leesbaar in of boven het water. Today, 8 weeks en instellingen: diep nachtblauw in plaats van zwart. Veiligheidsschermen blijven zwart met wit.
+4. **Bouwbaar:** simpele vlakken in jouw dierenstijl, per wereld hoogstens ±120 punten (de krab met 255 punten gaf de watchdog), geen verlopen op MIP. Lever de data zoals bij de dieren.
+5. Begin met drie werelden helemaal af (schildpad, krab, clownvis) zodat Gijs de techniek kan bewijzen; daarna de rest. Laat het blad door een frisse beoordelaar keuren (8 of hoger) voor je het Gijs geeft.

@@ -209,3 +209,12 @@ Terugbetaalbeleid voorlopig: "Not happy? Mail us within 14 days of buying and we
 
 ## 11 nov 23:25 (hoofdchat, Ebb)
 Posterkop wordt "Breathe. Make sea friends.", kaart 1 "Breathe in rounds. A friend swims along." Waarom: "Hold your breath" naast een timer leest als beloning voor inhouden; Garmin verbiedt uitdagingen met lichamelijk risico.
+
+## 11 nov 23:13 (Thijs): Ebb krijgt per dier een eigen wereld
+Thijs vindt de zwarte achtergrond niet mooi en kiest optie C: elk van de 24 dieren (plus bonus) neemt zijn eigen stukje zee mee (zand, rotsen, koraal, zeegras, open zee, enzovoort), en de ademschermen worden vol water in plaats van zwart. De hoofdchat adviseerde vijf soorten bodem (A); Thijs koos alle 24. Gevolg: de lancering schuift dagen op; dat is zijn keuze ("dit moet perfect").
+Uitvoering (hoofdchat), in stappen zodat de lat van 8 blijft staan:
+1. Eerst blad, dan bouwen (besluit 10 nov 22:52): Mila ontwerpt de werelden op 454 en 260, fris gekeurd op 8+, vóór Gijs ze bouwt.
+2. Leesbaarheid gaat voor: de wereld zit onderin en aan de randen; achter de timer, de cijfers en elke tekst blijft het rustig (contrast nameten). Veiligheidsschermen blijven zwart met witte tekst.
+3. Techniek eerst bewijzen: Gijs bouwt het mechanisme (wereld één keer als plaatje, via de gedeelde tekenfunctie) met drie werelden en bewijst op FR255 en fenix 7: geen watchdog, geheugen en batterij gemeten. Pas dan de overige.
+4. De open punten van keuring bouw 8 gaan gewoon door; die staan los van de werelden.
+5. Sea log en winkelbeelden tonen daarna de werelden; winkeltekst noemt ze pas als ze in de bouw zitten.

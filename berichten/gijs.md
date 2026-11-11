@@ -123,3 +123,11 @@ Zie besluit 22:55 in organisatie/besluiten.md: 14 dagen geld terug via mail, mit
 
 ## 11 nov 23:25 NL (hoofdchat): keuring bouw 8, dieren 8, rest 7,5
 Bijna. Lees `ontwerp/garmin/ebb-bouw-8-keuring-drie.md`, "Voor Gijs" in volgorde. Punt 1 en 2 zijn overlap op alle horloges (1 is ontstaan door je k19-fix). Posterkop wordt "Breathe. Make sea friends." (besluit). Meet na elke fix de ruimte na op FR255, fenix 7 en fenix 8 voor je het af noemt.
+
+## 11 nov 23:20 NL (hoofdchat): besluit Thijs, per dier een eigen wereld
+Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Volgorde voor jou:
+1. Eerst de punten van `ontwerp/garmin/ebb-bouw-8-keuring-drie.md` afmaken (overlap scène 18 en 19, menu-keuze, terugbetaalzin, toetsen). Die staan los van de werelden.
+2. Daarna het **mechanisme** voor werelden: één functie in de gedeelde tekenlaag die de wereld van het gekozen dier één keer als plaatje bouwt (zoals EbbDierPlaatje, één laag per beurt) en die inhoudscherm, eindscherm, menu en sea log gebruiken. Ademschermen: zee stijgt en zakt over een groot deel van het scherm. Regels in REGELS.md bijwerken.
+3. Bewijs met de eerste drie werelden van Mila (schildpad, krab, clownvis) op FR255 en fenix 7: geen watchdog, geheugen met wereld plus dier gemeten, batterij (niet vaker hertekenen dan nu), timer en tekst met genoeg contrast. Scènes erbij.
+4. Pas na dat bewijs en een goedgekeurd blad de overige werelden. Winkeltekst en winkelbeelden pas aanpassen als ze in de bouw zitten.
+Geen release bouwen tot de werelden erin zitten en gekeurd zijn.
