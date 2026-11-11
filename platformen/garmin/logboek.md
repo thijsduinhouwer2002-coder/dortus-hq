@@ -353,3 +353,12 @@
 2. Open: punt 3 eigen letter (Barlow Condensed), punt 4 AMOLED-verloop, punt 9 settings (andere run), punt 10 testbeelden met vaste namen en meer horloges, herstel "15" en zon (B2), Calm-eindscherm 6d, Box (Thijs).
 3. Volgende run: plaatjes van cc33da1 nakijken (6b, 6c, 6c met 6 rondes, sea log, ademen), dan punt 4 of punt 3.
 
+## 11 nov 2026 02:29 UTC (Gijs, run 28, nachtronde hoofdchat 02:58 NL, handmatig gestart)
+- Opdracht: de 12 punten "Voor Gijs" uit `ontwerp/garmin/ebb-bouw-1-keuring-drie.md` plus Daans D1 tot D9. Punt 1, 2, 5, 6, 7, 8, 12 en deels 11 deed ik in run 27 al (zie hierboven); deze run de rest.
+- 2d75f12, punt 9 en D9: settings als eigen scherm in Ebb-stijl (blad v7 scherm 9 en 9b): kop "settings", gekozen regel als blauwe pil met naam en waarde, een regel erboven en twee eronder, zeestrook. Geen "touch lock" (geen instelling). Het systeemmenu en zijn delegate zijn weg. Testbeelden scène 19 en 20.
+- 1f8d4b9, punt 10 en D8 (deels): de plaatjesbouw zet elk beeld ook onder een vaste naam (`plaatjes/namen/<scherm>-<horloge>.png`) en draait nu ook op Venu 2, Venu 3, epix 2 pro en FR965 (acht horloges).
+- 07d2a9f, punt 4 en D3: op AMOLED onder de schuimkam 18 smalle golvende stroken die geleidelijk mengen, in plaats van rechte banden; MIP houdt vaste tinten.
+- e3ae963, punt 3 en D1 (deels): het grote getal altijd in Barlow Condensed, per schermmaat een eigen cijferletter (390 123 px, 416 130 px, 454 143 px, 260 82 px). Koppen en regels staan nog in de systeemletter.
+- f46c3fb: Calm-eindscherm 6d na "Save" bij rustig ademen ("calm done", minuten en ademhalingen, je dier, "counts as a session", reeks). Testbeeld scène 21.
+- Toetsen groen voor 2d75f12 en 07d2a9f. Beelden van deze run nog niet gezien: de plaatjesbouw met acht horloges duurt ±45 minuten.
+
