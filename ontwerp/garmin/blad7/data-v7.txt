@@ -1,0 +1,26 @@
+ 1 Fish           148 bytes, 40 punten max, vorm wijkt af: 1.8%
+ 2 Shrimp         258 bytes, 32 punten max, vorm wijkt af: 2.6%
+ 3 Jellyfish      302 bytes, 42 punten max, vorm wijkt af: 2.4%
+ 4 Turtle         176 bytes, 24 punten max, vorm wijkt af: 2.2%
+ 5 Crab           548 bytes, 40 punten max, vorm wijkt af: 3.4%
+ 6 Seahorse       188 bytes, 40 punten max, vorm wijkt af: 2.3%
+ 7 Starfish       212 bytes, 16 punten max, vorm wijkt af: 1.7%
+ 8 Clownfish      172 bytes, 40 punten max, vorm wijkt af: 2.0%
+ 9 Pufferfish     276 bytes, 40 punten max, vorm wijkt af: 1.6%
+10 Octopus        326 bytes, 21 punten max, vorm wijkt af: 1.9%
+11 Eel            240 bytes, 37 punten max, vorm wijkt af: 2.1%
+12 Ray            156 bytes, 12 punten max, vorm wijkt af: 2.5%
+13 Seal           306 bytes, 25 punten max, vorm wijkt af: 3.5%
+14 Dolphin        150 bytes, 27 punten max, vorm wijkt af: 3.0%
+15 Swordfish      136 bytes, 32 punten max, vorm wijkt af: 2.8%
+16 Sea otter      408 bytes, 40 punten max, vorm wijkt af: 3.3%
+17 Manta          130 bytes, 32 punten max, vorm wijkt af: 2.8%
+18 Shark          150 bytes, 25 punten max, vorm wijkt af: 3.5%
+19 Sunfish        174 bytes, 40 punten max, vorm wijkt af: 1.2%
+20 Orca           212 bytes, 28 punten max, vorm wijkt af: 2.7%
+21 Narwhal        314 bytes, 31 punten max, vorm wijkt af: 3.1%
+22 Giant squid    206 bytes, 22 punten max, vorm wijkt af: 4.7%
+23 Lobster        360 bytes, 35 punten max, vorm wijkt af: 3.8%
+24 Whale          170 bytes, 25 punten max, vorm wijkt af: 2.5%
+25 Sea cucumber   430 bytes, 27 punten max, vorm wijkt af: 2.0%
+totaal 6148 bytes

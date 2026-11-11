@@ -162,3 +162,7 @@ v3.dier_delen = delen_v7
 v3.dier_beeld = dier_beeld
 
 ALLE = [(('aal', 'Eel') if s == 'inktvis' else (s, n)) for s, n in dv6.ALLE]
+
+# Voor Gijs' maak_dieren_data.py (tak v7): elk gevonden dier dezelfde witte rand; rol 'zz' (de "z Z" van de zeekomkommer) zonder rand.
+RAND = {s: WIT for s, _ in ALLE}
+ROL_V7 = {'lijf': 0, 'licht': 1, 'donker': 2, 'zwart': 3, 'muts': 4, 'witp': 5, 'zz': 6}

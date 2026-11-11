@@ -1,0 +1,48 @@
+ebb-v7-1-260.png             laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 35 px)
+ebb-v7-10-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 65 px)
+ebb-v7-10c-260.png           laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 40 px)
+ebb-v7-1b-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 70 px)
+ebb-v7-1c-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 31 px)
+ebb-v7-2-260.png             laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 148 px)
+ebb-v7-3b-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 71 px)
+ebb-v7-3c-260.png            laagste tekstcontrast  16.3:1  ((170, 255, 255) op (0, 0, 85), 368 px)
+ebb-v7-4-260.png             laagste tekstcontrast   2.1:1  ((85, 255, 255) op (0, 170, 255), 35 px)
+ebb-v7-6-260.png             laagste tekstcontrast   2.1:1  ((85, 255, 255) op (0, 170, 255), 48 px)
+ebb-v7-6b-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 100 px)
+ebb-v7-6c-260.png            laagste tekstcontrast  10.8:1  ((85, 255, 255) op (0, 0, 170), 82 px)
+ebb-v7-6d-260.png            laagste tekstcontrast   7.3:1  ((255, 255, 255) op (0, 85, 170), 84 px)
+ebb-v7-7-260.png             laagste tekstcontrast   2.1:1  ((85, 255, 255) op (0, 170, 255), 17 px)
+ebb-v7-8-260.png             laagste tekstcontrast  17.1:1  ((85, 255, 255) op (0, 0, 0), 112 px)
+ebb-v7-8b-260.png            laagste tekstcontrast  17.1:1  ((85, 255, 255) op (0, 0, 0), 114 px)
+ebb-v7-8c-260.png            laagste tekstcontrast  10.8:1  ((85, 255, 255) op (0, 0, 170), 152 px)
+ebb-v7-8d-260.png            laagste tekstcontrast  17.1:1  ((85, 255, 255) op (0, 0, 0), 107 px)
+ebb-v7-9-260.png             laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 117 px)
+ebb-v7-9b-260.png            laagste tekstcontrast   5.9:1  ((85, 255, 255) op (0, 85, 170), 29 px)
+
+Dieren op 260 (s=20, stickerrand 2 px). Gevonden: buitenrand tegen 0000AA en 000055. Niet gevonden (silhouet): tegen zwart en 0000AA.
+Fish          gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Shrimp        gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Jellyfish     gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Turtle        gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Crab          gevonden 3:1+: op 0000AA   99 %  op 000055   99 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Seahorse      gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Starfish      gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Clownfish     gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Pufferfish    gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Octopus       gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Eel           gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Ray           gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Seal          gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Dolphin       gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Swordfish     gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Sea otter     gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Manta         gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Shark         gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Sunfish       gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Orca          gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Narwhal       gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Giant squid   gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Lobster       gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Whale         gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Sea cucumber  gevonden 3:1+: op 0000AA  100 %  op 000055  100 %   silhouet 3:1+: op zwart  100 %  op 0000AA  100 %
+Losse paren: wit op 0000AA 13.3:1, 00AAFF op zwart 8.2:1, 00AAFF op 0000AA 5.2:1, 00AAFF (staaf) op zwart 8.2:1, 0055AA (oude staaf) op zwart 2.9:1
