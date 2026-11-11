@@ -1,18 +1,18 @@
 GELIJK 8weeks-fenix847mm.png
 GELIJK ademen-in-fenix847mm.png
 GELIJK ademen-uit-fenix847mm.png
-GELIJK calm-45s-fenix847mm.png
-GELIJK calm-einde-krab-fenix847mm.png
+VERSCHIL calm-45s-fenix847mm.png 43382 pixels in (135, 393, 589, 653)
+VERSCHIL calm-einde-krab-fenix847mm.png 42371 pixels in (135, 393, 589, 653)
 GELIJK calmcheck-fenix847mm.png
-GELIJK einde-6b-fenix847mm.png
-GELIJK einde-6b-zeekomkommer-fenix847mm.png
-GELIJK einde-6c-6rondes-fenix847mm.png
-GELIJK einde-6c-fenix847mm.png
-GELIJK einde-6c-krab-fenix847mm.png
-GELIJK einde-6d-fenix847mm.png
-GELIJK einde-na-feest-fenix847mm.png
+VERSCHIL einde-6b-fenix847mm.png 42964 pixels in (135, 393, 589, 653)
+VERSCHIL einde-6b-zeekomkommer-fenix847mm.png 43333 pixels in (135, 393, 589, 653)
+VERSCHIL einde-6c-6rondes-fenix847mm.png 78259 pixels in (135, 397, 589, 655)
+VERSCHIL einde-6c-fenix847mm.png 42172 pixels in (135, 393, 589, 653)
+VERSCHIL einde-6c-krab-fenix847mm.png 41365 pixels in (135, 393, 589, 653)
+VERSCHIL einde-6d-fenix847mm.png 43449 pixels in (135, 393, 589, 653)
+VERSCHIL einde-na-feest-fenix847mm.png 43254 pixels in (135, 393, 589, 653)
 GELIJK einde-sea-complete-fenix847mm.png
-GELIJK einde-weekdoel-fenix847mm.png
+VERSCHIL einde-weekdoel-fenix847mm.png 42044 pixels in (135, 393, 589, 653)
 GELIJK herstel-fenix847mm.png
 GELIJK inhouden-0-30-fenix847mm.png
 GELIJK inhouden-1-45-fenix847mm.png
@@ -37,4 +37,4 @@ GELIJK uitleg-fenix847mm.png
 GELIJK veilig-1-fenix847mm.png
 GELIJK veilig-2-fenix847mm.png
 GELIJK veilig-3-fenix847mm.png
-39 beelden, 1 met verschil of ontbrekend
+39 beelden, 11 met verschil of ontbrekend
