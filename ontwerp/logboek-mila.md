@@ -248,3 +248,4 @@
 - Gemaakt: `ebb-dieren-v8.png`, `ebb-blad-v8.png` en `.md`, `ebb-dieren-v8-data.json` (6280 bytes, controle 1,4 tot 5,5% randpixels), bron `bron/ebb_dieren_v8.py`, `ebb_blad_v8.py`, `exporteer_dieren_v8.py`, `overzicht_dieren_v8.py`. Bericht aan Gijs.
 - Gezien met Read: alle 25 op 260 vergroot, gevonden en silhouet, en het blad. Eerste poging maakte armen dicht (reuzeninktvis werd een klok); nu sluiten alleen bij de krab en een vuldeel voor de garnaal.
 - Volgende run: zeeotter als omtrek is nog een blok; maanvis blijft hoog (30 x 37); contrastmeting v7 opnieuw draaien op v8.
+- Daan L2 (6c te vol) meteen verwerkt in blad v8: rustdag-zin alleen na een rustdag. L1 (pil Next op 1c) hoort bij v7-scherm 1c, volgende run.

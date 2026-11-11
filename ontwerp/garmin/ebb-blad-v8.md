@@ -12,7 +12,7 @@
 - [ja] 3. Silhouet alleen buitenomtrek: gaten worden gevuld, de krul van de garnaal wordt gevuld met een deel dat alleen in het silhouet meedoet (rol 9), bij de krab gaan smalle spleten dicht; armen van octopus, kwal en reuzeninktvis blijven los. Eén oogvorm voor alle dieren (wit met pupil, glans vanaf maat 30; het halfdichte oog is weg). Zeepaardje op de volle vakhoogte, net als kwal, krab en zeester (37 px met rand). Orka-lijf donkergrijs 555555, zadel AAAAAA.
 - [ja] 4. Sea log: keuzestip vast 3 px onder de onderkant van het gekozen dier (gemeten aan het dier, niet aan het vak); niet-actieve bladstippen 00AAFF; blad 3 raster om hetzelfde midden als blad 1 en 2 (lager dan v7). Namen in het dierenoverzicht heel (geen "Jellyfis" meer).
 - [ja] 5. Eén verhaal, van links naar rechts op het blad, met het schema en "hoogstens één nieuw dier per sessie, laagste nummer eerst":
-  - A. 6c, dag 3 avond: sessie 11, reeks 3, geen nieuw dier: "next: Starfish, 1 more day", 3 days in a row.
+  - A. 6c, dag 3 avond: sessie 11, reeks 3, geen nieuw dier: "next: Starfish, 1 more day", 3 days in a row. Daan L2: de zin "1 rest day is fine" staat alleen als je gisteren rustte, hier dus niet; onderaan nog twee regels plus stippen.
   - B. 6b, dag 4 ochtend: sessie 12, reeks 4. Starfish (4d) en Octopus (12x) halen allebei hun drempel; Starfish (nr. 7) gaat voor: "new friend: Starfish".
   - C. Sea log daarna: "8 of 24"; blad 1 Pufferfish "1 more day in a row", blad 2 Octopus "next session", blad 3 Whale "at 50 sessions".
   - D. 6d, dag 4 avond: Calm telt als sessie 13: "new friend: Octopus", 4 days in a row.

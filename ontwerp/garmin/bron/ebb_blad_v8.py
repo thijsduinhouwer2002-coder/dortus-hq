@@ -73,8 +73,8 @@ def s_einde_gewoon8(D):   # A: dag 3 avond, sessie 11, het volgende dier is de S
     dier_vak(im, 'ster', D/2, D*0.465, D*0.20, D*0.15, kleur='silhouet')
     d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.632), 'next: Starfish, 1 more day', D*0.070, WIT)
-    stippen_label(d, D, D*0.700, 3)
-    tekst(d, D, (D/2, D*0.822), '1 rest day is fine', D*0.060, WIT)
+    stippen_label(d, D, D*0.715, 3)
+    # Daan L2: "1 rest day is fine" alleen als je gisteren rustte; op dag 3 van een reeks dus niet (één regel minder)
     rand(im, D); return im
 
 def s_calm_einde8(D):     # D: dag 4 avond, Calm telt als sessie 13: de Octopus komt
