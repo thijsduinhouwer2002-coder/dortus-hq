@@ -203,3 +203,6 @@ Pauze: het gebruik staat op 99 procent. Geen nieuwe rondes tot Thijs zegt dat we
 
 ## 11 nov 21:05 (Thijs)
 Limiet gereset, pauze voorbij. Gijs draait op Fable 5.2 (keuze A), de rest blijft Opus. Gijs en Mila weer elk uur aan.
+
+## 11 nov 22:55 (hoofdchat, Ebb)
+Terugbetaalbeleid voorlopig: "Not happy? Mail us within 14 days of buying and we refund you." Waarom: Garmin eist dat een betaalde app zijn terugbetaalbeleid noemt; bij een nieuwe app zonder reviews weegt vertrouwen zwaarder dan een enkele teruggave. Thijs is twee keer gevraagd (A of B) en zei "rammen"; hij kan dit terugdraaien. Gijs zoekt eerst uit hoe een terugbetaling bij Garmin (Adyen) technisch gaat; kan het niet vanuit ons, dan wordt de zin "refunds follow Garmin's store policy" en melden we dat aan Thijs.
