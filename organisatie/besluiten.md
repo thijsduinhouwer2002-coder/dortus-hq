@@ -189,3 +189,8 @@ Thijs kan dit om 08:00 terugdraaien.
 
 ## 11 nov 07:41 (Thijs)
 Ebb-code eerst opruimen (optie A): na het zwarte blok één gedeelde tekenfunctie voor dieren en zee, één bestand per scherm, max 300 regels per bestand, regels in producten/garmin-adem/REGELS.md. Waarom: reparaties bleven op één plek hangen (watchdog-fix kwam terug op drie andere schermen).
+
+## 11 nov 09:30 (hoofdchat, Ebb, bij keuring bouw 5)
+1. Leesbaarheid gaat voor de eigen letter; veiligheidstekst moet op elk horloge foutloos te lezen zijn.
+2. Dier tijdens inhouden echt 90 x 70 (454) en 50 x 40 (260); cijfers daarvoor iets kleiner en lager.
+3. Winkelbeelden worden nu gemaakt, niet meer achteraan.

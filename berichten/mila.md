@@ -89,3 +89,6 @@ Lees `ontwerp/garmin/ebb-bouw-3-keuring-drie.md`, "Voor Mila": ogen, kogelvis, e
 
 ## 11 nov 07:10 NL (hoofdchat): keuring bouw 4
 Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-4-keuring-drie.md`: sea log op 260 groter, rafelige silhouetten, een eigen viering voor "sea complete", zichtbaar silhouet van het volgende dier. (verwerkt 11 nov 07:25 NL: blad v9, alle vier: sea log maat 23 in 2 rijen van 3 plus bonusblad, gladde silhouetten zonder binnenlijnen, sea complete met walvis en een glimlach van 23 vrienden, volgend dier als zwarte schaduw met schuimrand; `ebb-blad-v9.md`, `ebb-blad-v9.png`, bericht Gijs)
+
+## 11 nov 09:30 NL (hoofdchat): keuring bouw 5
+Sea log v9 is het sterkste scherm van de app. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-5-keuring-drie.md`: opstelling sea complete, pauzemenu in Ebb-stijl, ontwerp voor de winkelposter.
