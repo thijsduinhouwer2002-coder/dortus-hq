@@ -20,6 +20,25 @@ v3.TINT['narwal'] = ((85, 85, 170), (255, 255, 255), (170, 170, 255))
 _oud = dv8.delen_v8   # is na het importeren van v8.2 al delen_v82
 
 def delen_v83(soort):
+    if soort == 'manta':
+        # frisse toets 2: "gezicht als een kat" (twee hoorns als oren, ogen en mond ertussen). Nu: geen mond, ogen
+        # opzij aan de hoorns, vleugels met spitse punten die naar achteren zwiepen (vogel/vlieger in plaats van kattenkop).
+        lijf = bez((-1.15,0.12),(-0.60,-0.46),(-0.18,-0.26),8) + bez((0.18,-0.26),(0.60,-0.46),(1.15,0.12),8) \
+             + bez((1.15,0.12),(0.45,0.04),(0.12,0.32),6) + bez((-0.12,0.32),(-0.45,0.04),(-1.15,0.12),6)
+        kopvin = [[(k*0.08,-0.24),(k*0.10,-0.58),(k*0.18,-0.64),(k*0.24,-0.54),(k*0.24,-0.24)] for k in (-1, 1)]
+        staart = [(-0.03,0.28),(0.03,0.28),(0.01,0.82),(-0.01,0.82)]
+        buik = bez((-0.70,0.06),(0,0.04),(0.70,0.06),6) + bez((0.70,0.06),(0.20,0.20),(-0.70,0.06),6)
+        return [(staart,'lijf'), (kopvin[0],'lijf'), (kopvin[1],'lijf'), (lijf,'lijf'), (buik,'licht')], [(-0.30,-0.22), (0.30,-0.22)]
+    if soort == 'narwal':
+        # frisse toets 2: de tand las als losse stok (dik en recht). Nu dunner, puntig, en hij groeit uit de bovenlip.
+        delen, ogen = _oud(soort)
+        uit = []
+        for pts, r in delen:
+            if r == 'donker_k': continue
+            if r == 'licht' and min(x for x, _ in pts) < -1.0:
+                pts = [(-0.62,-0.12),(-1.34,-0.10),(-0.62,-0.03)]
+            uit.append((pts, r))
+        return uit, ogen
     if soort == 'komkom':
         # frisse toets: "blok met bobbels" en de voelers lazen als een walvisfontein. Nu een lange worst (1,3 keer zo lang),
         # puntige bulten op de rug, voetjes eronder, en de voelers als bloemetje vooruit aan de kop in plaats van omhoog.
