@@ -73,7 +73,9 @@ module EbbEindScherm {
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
-            EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
+            // Beelden run 42980590755: de schaduw stak met de scharen boven de kamlijn uit; Mila v9: alleen in het water.
+            var inWater = (d * (zeeTop + 0.010)).toNumber() + 6;
+            EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop > inWater ? bandTop : inWater, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
             tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
             // Mila blad v9 punt 4: "a new friend" in geel onder de regel; de week schuift een regel op.
             extra = dc.getFontHeight(EbbTeken.fX());
