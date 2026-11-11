@@ -194,3 +194,18 @@ function testMeezwemmer(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
     return leeg && laatst && nietGehad && wel && gekozen && blijft;
 }
+
+// Keuring bouw 1 punt 7 (scherm 6c): het volgende dier is het dichtstbij, met wat er nog nodig is.
+(:test)
+function testVolgendDier(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var leeg = EbbTrouw.volgende([0, 0, 0, 0] as Array<Number>);       // niets: vis, nog 1 sessie
+    EbbTrouw.nieuweDieren(EbbTrouw.naSessie(400));                    // vis
+    var na1 = EbbTrouw.volgende([1, 1, 1, 0] as Array<Number>);        // garnaal en kwal beide nog 1: laagste nummer
+    var klaar = EbbTrouw.volgende([9, 1, 9, 0] as Array<Number>);      // 9 sessies: garnaal ligt klaar (0)
+    var reeks = EbbTrouw.volgende([1, 1, 3, 0] as Array<Number>);      // beste reeks 3: kwal verdiend, ligt klaar
+    logger.debug("leeg " + leeg + " na1 " + na1 + " klaar " + klaar + " reeks " + reeks);
+    EbbTrouw.wis();
+    return leeg[0] == 0 && leeg[1] == 1 && na1[0] == 1 && na1[1] == 1 && klaar[0] == 1 && klaar[1] == 0
+        && reeks[0] == 2 && reeks[1] == 0;
+}

@@ -285,6 +285,31 @@ module EbbTrouw {
         return n;
     }
 
+    // Keuring bouw 1 punt 7 (scherm 6c): het volgende gewone dier dat je nog niet hebt, het dichtstbij eerst
+    // (laagste nummer bij gelijk). Geeft [nummer, nog nodig]: sessies voor een sessiedier, dagen op rij voor een
+    // reeksdier, 0 als het al verdiend is en bij de volgende sessie komt. [-1, 0] als je alle gewone dieren hebt.
+    function volgende(tellers as Array<Number>) as Array<Number> {
+        var beste = -1;
+        var besteRest = 0;
+        for (var i = 0; i < DIEREN.size(); i += 1) {
+            if (bonus(i) || heeft(i)) {
+                continue;
+            }
+            var r = DIEREN[i];
+            var stand = ((r[1] as Number) == SOORT_SESSIES) ? tellers[0] : tellers[1];
+            if ((r[1] as Number) == SOORT_REEKS && tellers[2] >= (r[2] as Number)) {
+                stand = tellers[2];
+            }
+            var rest = (r[2] as Number) - stand;
+            rest = rest < 0 ? 0 : rest;
+            if (beste < 0 || rest < besteRest) {
+                beste = i;
+                besteRest = rest;
+            }
+        }
+        return [beste, besteRest] as Array<Number>;
+    }
+
     function heeft(i as Number) as Boolean {
         return (getal(BITS) & (1 << i)) != 0;
     }

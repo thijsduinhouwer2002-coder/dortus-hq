@@ -61,7 +61,8 @@ class EbbApp extends Application.AppBase {
         if (EbbBouw.PLAATJE) {
             // Testbeelden van elk scherm (nachtronde 11 nov 01:58, voor Daans keuring van de echte bouw), één scène per start:
             // 0 tot 3 inhouden 0:30, 1:45, 2:30, 3:04 (blad v6 3a, 3b, 3d, 3c), 4 sea log, 5 today, 6 8 weeks, 7 rustig 4-7-8,
-            // 8 herstel, 9 ademen, 10 startscherm, 11 uitleg, 12 startcheck, 13 tot 15 veiligheid 1 tot 3.
+            // 8 herstel, 9 ademen, 10 startscherm, 11 uitleg, 12 startcheck, 13 tot 15 veiligheid 1 tot 3,
+            // 16 eindscherm 6c, 17 eindscherm 6b, 18 eindscherm 6c met 6 rondes.
             // Keuring v5 G1: het dier hangt niet van de inhoudtijd af (vis, schildpad, walvis, schildpad).
             var keer = Application.Storage.getValue("plaatjekeer");
             var k = ((keer instanceof Number) ? keer as Number : 0) % EbbBouw.SCENES;
@@ -89,13 +90,31 @@ class EbbApp extends Application.AppBase {
                 var sc = new StartCheckView();
                 return [sc, new StartCheckDelegate(sc)];
             }
-            if (k >= 13) {
+            if (k >= 13 && k <= 15) {
                 var vv = new VeiligView();
                 vv.blad = k - 13;
                 return [vv, new VeiligDelegate(vv)];
             }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
+            if (k >= 16) {
+                // Eindschermen (keuring bouw 1 punt 7): 16 is 6c (3 rondes, Clownfish nog 1), 17 is 6b (Starfish nieuw),
+                // 18 is 6c met 6 rondes (past het op 260?).
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.opgeslagen = true;
+                view.einde = true;
+                view.eindReeks = 4;
+                if (k == 17) {
+                    view.sessie.inhoudtijden = [70000, 85000, 100000] as Array<Number>;
+                    view.nieuweDieren = [6] as Array<Number>;
+                } else {
+                    view.sessie.inhoudtijden = (k == 16) ? [80000, 105000, 184000] as Array<Number>
+                        : [62000, 75000, 81000, 95000, 104000, 112000] as Array<Number>;
+                    view.eindVolgend = 7;
+                    view.eindRest = 1;
+                }
+                return [view, new EbbDelegate(view)];
+            }
             if (k == 5 || k == 6) {
                 view.sessie.fase = Ebb.FASE_KLAAR;
                 view.sessie.inhoudtijden = [85000, 118000, 96000] as Array<Number>;
@@ -357,6 +376,11 @@ class EbbView extends WatchUi.View {
     var plaatjeFase as Ebb.Fase = Ebb.FASE_INHOUDEN;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
+    // Keuring bouw 1 punt 7: eerst het eindscherm (6b met nieuw dier, 6c zonder), daarna today en 8 weeks.
+    var einde as Boolean = false;
+    var eindReeks as Number = 0;      // dagen op rij na deze sessie
+    var eindVolgend as Number = -1;   // volgende dier (nummer in EbbTrouw.DIEREN), -1 als je alles hebt
+    var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
     const YKLEIN_ADEMEN = 0.855;
     private var _klaarSinds as Number = -1;
     var gezelschap as Number = EbbTrouw.gezelschap();
@@ -422,7 +446,12 @@ class EbbView extends WatchUi.View {
         var klok = System.getClockTime();
         EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
         // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
-        nieuweDieren = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(dag));
+        var tellers = EbbTrouw.naSessie(dag);
+        nieuweDieren = EbbTrouw.nieuweDieren(tellers);
+        eindReeks = tellers[1];
+        var v = EbbTrouw.volgende(tellers);
+        eindVolgend = v[0];
+        eindRest = v[1];
         System.println("TROUW nieuwe dieren " + nieuweDieren);
         // Keuring blad v4.1 (G1): geen record meer bewaard, geen "new best", geen "best" (oude spel weg).
         Application.Storage.deleteValue("record");
@@ -478,6 +507,7 @@ class EbbView extends WatchUi.View {
         }
         if (sessie.fase == Ebb.FASE_KLAAR && _klaarSinds < 0) {
             _klaarSinds = nu;
+            einde = !EbbBouw.DEMO && !EbbBouw.PLAATJE;
         }
         // Testbouw: 15 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding d.
         if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 15000) {
@@ -644,7 +674,9 @@ class EbbView extends WatchUi.View {
             yKlein = 0.80 - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
         } else {
             // 4. Duikprofiel, of 5. getijdenlijn.
-            if (getij) {
+            if (einde) {
+                tekenEinde(dc, d);
+            } else if (getij) {
                 tekenGetij(dc, d);
             } else {
                 tekenProfiel(dc, d);
@@ -734,6 +766,105 @@ class EbbView extends WatchUi.View {
             lijst.add([-1, secs] as Array);
         }
         return lijst;
+    }
+
+    // Tekst midden op hoogte y; FONT_SMALL als hij binnen de koorde past (met marge), anders FONT_XTINY.
+    function tekstInRonde(dc as Graphics.Dc, d as Number, y as Float, tekst as String, kleur as Number) as Void {
+        var dy = y - 0.5;
+        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
+        var f = (dc.getTextWidthInPixels(tekst, Graphics.FONT_SMALL) <= koorde) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Blad v7 scherm 6b en 6c (keuring bouw 1 punt 7): kop "3 rounds done", de tijden, de zee met het nieuwe dier (6b)
+    // of het volgende dier als silhouet (6c), een regel, zeven stippen voor de reeks met label, en op 6c "1 rest day is fine".
+    // Past bij 1 tot 6 rondes: tot 3 tijden op één regel, daarna twee regels in de kleine letter.
+    function tekenEinde(dc as Graphics.Dc, d as Number) as Void {
+        var w = d;
+        var n = sessie.inhoudtijden.size();
+        var tijden = [] as Array<String>;
+        for (var i = 0; i < n; i += 1) {
+            var s = (sessie.inhoudtijden[i] + 500) / 1000;
+            tijden.add((s / 60) + ":" + (s % 60).format("%02d"));
+        }
+        EbbTeken.golf(dc, d, 0.326, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
+        EbbTeken.golf(dc, d, 0.60, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.7, false);
+        EbbTeken.golf(dc, d, 0.88, d * 0.006, EbbTeken.ZEE_KLEUR[3], 2.9, false);
+        var kopY = (n > 3) ? 0.15 : 0.17;
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (d * kopY).toNumber(), Graphics.FONT_SMALL, n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        if (n <= 3) {
+            dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_SMALL, regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        } else {
+            var helft = (n + 1) / 2;
+            var lh = dc.getFontHeight(Graphics.FONT_XTINY);
+            var y1 = (d * 0.235).toNumber() - lh / 2;
+            dc.drawText(w / 2, y1, Graphics.FONT_XTINY, regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2, y1 + lh, Graphics.FONT_XTINY, regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
+        var cy = (d * 0.465).toNumber();
+        if (nieuweDieren.size() > 0) {
+            var dier = nieuweDieren[0];
+            EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.15).toNumber(), -1);
+            tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
+        } else if (eindVolgend >= 0) {
+            var m = (d * 0.105).toNumber();
+            var k = d / 150 > 2 ? d / 150 : 2;
+            for (var dx = -1; dx <= 1; dx += 1) {
+                for (var dy = -1; dy <= 1; dy += 1) {
+                    if (dx != 0 || dy != 0) {
+                        EbbDierData.vlakken(dc, eindVolgend, w / 2 + dx * k, cy + dy * k, m, EbbTeken.ZEE_KLEUR[0]);
+                    }
+                }
+            }
+            EbbDierData.vlakken(dc, eindVolgend, w / 2, cy, m, EbbTeken.ZEE_KLEUR[3]);
+            tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
+        } else {
+            tekstInRonde(dc, d, 0.645, "all " + EbbTrouw.totaal() + " found", Graphics.COLOR_WHITE);
+        }
+        // Zeven stippen: gevuld tot de reeks (hoogstens 7).
+        var r = (d * 0.014).toNumber();
+        r = r < 3 ? 3 : r;
+        var stap = (d * 0.05).toNumber();
+        var sy = (d * 0.705).toNumber();
+        dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
+        for (var i = 0; i < 7; i += 1) {
+            var sx = w / 2 + (i - 3) * stap;
+            if (i < eindReeks) {
+                dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
+                dc.fillCircle(sx, sy, r);
+            } else {
+                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.drawCircle(sx, sy, r);
+            }
+        }
+        var dagen = eindReeks < 1 ? 1 : eindReeks;
+        tekstInRonde(dc, d, 0.77, dagen + (dagen == 1 ? " day in a row" : " days in a row"), EbbTeken.LICHTCYAAN);
+        if (nieuweDieren.size() == 0) {
+            tekstInRonde(dc, d, 0.83, "1 rest day is fine", Graphics.COLOR_WHITE);
+        }
+    }
+
+    function regel(tijden as Array<String>, van as Number, tot as Number) as String {
+        var s = "";
+        for (var i = van; i < tot; i += 1) {
+            s += (i > van ? "   " : "") + tijden[i];
+        }
+        return s;
+    }
+
+    // "next: Clownfish, 1 more" (sessies), "next: Manta, 2 more days" (reeks), "next: Crab, next session" (ligt klaar).
+    function volgendTekst() as String {
+        var naam = EbbDierData.NAMEN[eindVolgend];
+        if (eindRest <= 0) {
+            return "next: " + naam + ", next session";
+        }
+        if ((EbbTrouw.DIEREN[eindVolgend][1] as Number) == EbbTrouw.SOORT_REEKS) {
+            return "next: " + naam + ", " + eindRest + (eindRest == 1 ? " more day" : " more days");
+        }
+        return "next: " + naam + ", " + eindRest + " more";
     }
 
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
@@ -935,10 +1066,17 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         return !aanraakAan();
     }
 
-    // Na de sessie wisselen omhoog en omlaag tussen duikprofiel en getijdenlijn; anders stoppen ze het inhouden.
+    // Na de sessie wisselen omhoog en omlaag in de rij eindscherm, today, 8 weeks; anders stoppen ze het inhouden.
     function wissel() as Boolean {
         if (_view.sessie.fase == Ebb.FASE_KLAAR) {
-            _view.getij = !_view.getij;
+            if (_view.einde) {
+                _view.einde = false;
+                _view.getij = false;
+            } else if (!_view.getij) {
+                _view.getij = true;
+            } else {
+                _view.einde = true;
+            }
             WatchUi.requestUpdate();
             return true;
         }
