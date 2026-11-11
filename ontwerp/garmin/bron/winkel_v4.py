@@ -54,7 +54,9 @@ def kaart(sim, tekst, geel, onder, uit):
     maat = int(H * 0.105)
     while dr.textlength(tekst, font=f(FX, maat)) > W * 0.93: maat -= 2   # lange kop past altijd, kleiner in plaats van afgesneden
     kop(dr, H * 0.025 + (int(H * 0.105) - maat) * 0.6, tekst, geel, f(FX, maat))
-    dr.text((W / 2, H * 0.165), onder, font=f(FM, int(H * 0.044)), fill=SCHUIM, anchor='mt')
+    om = int(H * 0.058)
+    while dr.textlength(onder, font=f(FM, om)) > W * 0.94: om -= 2
+    dr.text((W / 2, H * 0.160), onder, font=f(FM, om), fill=WIT, anchor='mt')   # frisse toets: op 220 px moet de ondertekst leesbaar zijn
     rs = int(W * SCHERM / 2)
     w = uitsnede(sim, rs)
     cy = int(H * 0.605)
@@ -70,9 +72,10 @@ def kaart(sim, tekst, geel, onder, uit):
 KAARTEN = [
     (24, '1-hold.png', 'Hold. Bring a friend.', 'friend', 'Breath-hold rounds. The sea darkens as you hold.'),
     (34, '2-new-friend.png', 'Come back. Meet a crab.', 'crab', 'New sea friends for sessions and weeks in a row.'),
-    (23, '3-sea-log.png', 'Fill your sea log.', 'sea log', '24 sea friends to find, plus one bonus.'),
+    (4, '3-sea-log.png', 'Fill your sea log.', 'sea log', '24 sea friends to find. Who is that shadow?'),
     (25, '4-sea-complete.png', 'Then the whole sea parties.', 'parties', 'Find all 24 and every friend comes to celebrate.'),
-    (35, '5-pause.png', 'Pause. The sea waits.', 'waits', 'Resume, save or discard. Any time.'),
+    (33, '5-sea-cucumber.png', 'Took a break? Meet the sea cucumber.', 'sea cucumber', 'A bonus friend for coming back after a break.'),
+    (35, 'extra-pause.png', 'Pause. The sea waits.', 'waits', 'Resume, save or discard. Any time.'),
     (7, 'extra-calm.png', 'Calm 4-7-8, drawn as water.', '4-7-8', 'Breathe in 4, hold 7, out 8. A buzz per phase.'),
 ]
 

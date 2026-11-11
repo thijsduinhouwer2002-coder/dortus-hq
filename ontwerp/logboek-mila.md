@@ -308,4 +308,5 @@
 - **Besluit: keuze in de sea log als belletje (gevulde ellips met schuimrand en glimpje).** Waarom: een ronde ring past niet tussen de dieren (45 px breed, rijen 47 px) en verdween achter de poten in de eerste proef; het belletje leest op 260 in één blik en past bij de belletjes van het inhouden.
 - Gemaakt: `bron/winkel_v4.py`, `winkel4/` (6 kaarten, rij, vergelijking op 220), `bron/blad_v11.py`, `blad11/`, `ebb-blad-v11.md`, bericht Gijs.
 - Gezien met Read: rij v3, rij v4 (twee keer, koppen liepen eerst buiten beeld), v3 naast v4 op 220 px, kaart 2 op ware grootte, sea complete na kleurverlaging, keuze A en B op 260 en 454 (eerste B met ronde ring was onzichtbaar).
-- Volgende run: kaart 3 opnieuw zodra "+ bonus" in de app staat; belletje nalopen op de echte FR255-beelden na Gijs' bouw.
+- Frisse toets (agent) gaf v4 een 6: ondertekst op 220 onleesbaar, pauzekaart saai, 24 of 24 verklapte het eind. **Besluit: zeekomkommer-kaart in plaats van pauze, sea log op 8 of 24, ondertekst wit en groter.** Waarom: een dier groot plus een grap verkoopt, een menu niet.
+- Volgende run: belletje nalopen op de echte FR255-beelden na Gijs' bouw.
