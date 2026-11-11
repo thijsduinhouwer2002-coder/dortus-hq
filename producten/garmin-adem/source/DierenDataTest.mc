@@ -71,10 +71,14 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
                 System.println("SEALOG " + d + " px, alles " + alles + ", blad " + b + ": " + (System.getTimer() - t0) + " ms");
             }
         }
-        // Inhoudscherm en eindschermen tekenen één dier direct (5 keer met de rand): dier 4 en 24 groot.
-        EbbDierData.teken(dc, 4, d / 2, d / 2, (d * 0.15).toNumber(), -1);
-        EbbDierData.teken(dc, 24, d / 2, d / 2, (d * 0.15).toNumber(), -1);
-        EbbDierData.silhouet(dc, 23, d / 2, d / 2, (d * 0.105).toNumber());
+        // Inhoudscherm en eindschermen: dier 4 en 24 groot, 23 als silhouet, laag voor laag via de gedeelde functie.
+        for (var stap = 0; stap < 6; stap += 1) {
+            if (stap < 5) {
+                EbbDierPlaatje.laag(dc, 4, d / 2, d / 2, (d * 0.15).toNumber(), false, stap);
+                EbbDierPlaatje.laag(dc, 24, d / 2, d / 2, (d * 0.15).toNumber(), false, stap);
+            }
+            EbbDierPlaatje.laag(dc, 23, d / 2, d / 2, (d * 0.105).toNumber(), true, stap);
+        }
     }
     EbbTrouw.wis();
     return goed;

@@ -31,8 +31,8 @@ kop = '''import Toybox.Graphics;
 import Toybox.Lang;
 
 // GEMAAKT door bron/maak_dieren_json.py uit Mila's %s (%d dieren). Niet met de hand wijzigen.
-// %d bytes voor alle dieren samen. Gevonden: EbbDierData.teken(dc, nummer, cx, cy, maat, -1) (met witte stickerrand);
-// niet gevonden: EbbDierData.silhouet(dc, nummer, cx, cy, maat) (vlak %06X, rand en kenmerk %06X).
+// %d bytes voor alle dieren samen. Tekenen: EbbDierPlaatje.laag
+// (gevonden met stickerrand, niet gevonden als silhouet: vlak %06X, rand %06X), zie REGELS.md.
 module EbbDierData {
     const NAMEN = [%s] as Array<String>;
     // Per dier [lijf, licht, donker, stickerrand].
@@ -62,31 +62,7 @@ rest = '''
     const RAND_DX = [-1, 1, -1, 1] as Array<Number>;
     const RAND_DY = [-1, -1, 1, 1] as Array<Number>;
 
-    // Gevonden dier i op zijn zwaartepunt (cx, cy); maat in px per eenheid (het dier is ±2 eenheden breed).
-    // kleur -1: witte stickerrand (alle delen in wit, 4 keer verschoven), dan het dier in eigen kleuren, dan ogen.
-    // kleur >= 0: het hele dier in die ene kleur, zonder ogen.
-    function teken(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, kleur as Number) as Void {
-        if (kleur >= 0) {
-            delen(dc, i, cx, cy, maat, kleur, 1);
-            return;
-        }
-        var k = randPx(maat);
-        for (var r = 0; r < 4; r += 1) {
-            delen(dc, i, cx + RAND_DX[r] * k, cy + RAND_DY[r] * k, maat, TINT[i][3], 2);
-        }
-        var o = delen(dc, i, cx, cy, maat, -1, 0);
-        ogen(dc, i, o, cx, cy, maat);
-    }
-
-    // Niet gevonden (Mila v8): de buitenvorm met alle delen (ook rol 9) in de randkleur 2 px verschoven (4 richtingen),
-    // dan in het vlak, daarna het kenmerk (rol 7, 8 en 10) in de randkleur erover. Zonder ogen.
-    function silhouet(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number) as Void {
-        for (var r = 0; r < 4; r += 1) {
-            delen(dc, i, cx + RAND_DX[r] * 2, cy + RAND_DY[r] * 2, maat, SIL_RAND, 1);
-        }
-        delen(dc, i, cx, cy, maat, SIL_VLAK, 1);
-        delen(dc, i, cx, cy, maat, SIL_RAND, 3);
-    }
+    // Tekenen gaat alleen via EbbDierPlaatje.laag (REGELS.md punt 4); hier alleen de data en delen() en ogen().
 
     // modus 0: eigen kleuren, rol 9 overslaan. 1: alle delen in kleur. 2: alle delen behalve rol 9 in kleur (stickerrand).
     // 3: alleen het kenmerk (rol 7, 8, 10) in kleur. Geeft de plek in de bytes waar de ogen beginnen.
