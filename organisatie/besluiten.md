@@ -194,3 +194,6 @@ Ebb-code eerst opruimen (optie A): na het zwarte blok één gedeelde tekenfuncti
 1. Leesbaarheid gaat voor de eigen letter; veiligheidstekst moet op elk horloge foutloos te lezen zijn.
 2. Dier tijdens inhouden echt 90 x 70 (454) en 50 x 40 (260); cijfers daarvoor iets kleiner en lager.
 3. Winkelbeelden worden nu gemaakt, niet meer achteraan.
+
+## 11 nov 10:45 (hoofdchat, Ebb)
+E2e-eis 11 (cijfers tijdens inhouden 30 procent van het scherm) wordt 25 procent, omdat het eigen dier 90 x 70 voorgaat (besluit 09:30).

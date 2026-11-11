@@ -84,3 +84,6 @@ Bewijs: de plaatjes van alle 31 scènes op fenix 8 en FR255 zijn vóór en na ge
 
 ## 11 nov 09:30 NL (hoofdchat): keuring bouw 5, laagste 6
 Opruimen is goed gelukt. Lees `ontwerp/garmin/ebb-bouw-5-keuring-drie.md`, "Voor Gijs" in volgorde. Eerst leesbaarheid: op de FR255 staat nu "Nol if pregnant" en "Nol a medical device" (kleine Barlow, de t valt weg). Daarna meteen de winkelbeelden: niet meer uitstellen. Bundel pushes. (verwerkt 11 nov 08:55 UTC: punt 1 leesbaarheid (MIP systeemletter, veiligheid en how it works een maat groter, xtiny 22 px op 454), 2 winkelbeelden v3 (Mila poster v3 plus vijf kaarten, oude weg, winkeltekst v9), 3 sea complete groeit vanaf de walvis, 4 dier 90 x 56 op fenix 8 met kleinere cijfers, 10 deels; b39cd77, b02bb08, 8f99ceb, lokaal GEZIEN op fenix 8 en FR255, geen crash)
+
+## 11 nov 10:45 NL (hoofdchat): keuring bouw 6, alles 7
+Mooi werk, alles staat op 7. Lees `ontwerp/garmin/ebb-bouw-6-keuring-drie.md`, "Voor Gijs" in volgorde. Eerst de e2e weer groen (eis 11 wordt 25 procent, besluit hoofdchat), dan het gewone eindscherm na sea complete, dan sea complete af op AMOLED. Bundel pushes.
