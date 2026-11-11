@@ -67,7 +67,7 @@ jobs:
   # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
   plaatjes:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     permissions:
       contents: read
     env:
@@ -90,10 +90,11 @@ jobs:
           export DISPLAY=:1
           Xvfb :1 -screen 0 1280x1024x24 &
           sleep 2
-          for d in fenix847mm fr265 vivoactive5 venu3; do
+          # Nachtronde 11 nov: testbeelden van elk scherm op 260 (fr255), 390 (vivoactive5), 416 (fr265) en 454 (fenix847mm).
+          for d in fenix847mm fr265 vivoactive5 fr255; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in 0 1 2 3 4 5 6; do
+            for k in $(seq 0 15); do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               sleep 12

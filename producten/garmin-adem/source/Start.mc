@@ -7,6 +7,7 @@ import Toybox.WatchUi;
 // Startmenu (ontwerp, bediening): rondes beginnen of de instellingen openen.
 module EbbStart {
     const MENU_AANTAL = 4;
+    const UITLEG = "uitlegGezien";   // blad v7 scherm 1c gezien
     // Op aanraakhorloges (vivoactive, venu) is het systeemmenu een wit vlak; daar een eigen donker menu
     // in de kleuren van Ebb (kan-punt Daan 10 nov). Knophorloges houden het systeemmenu, dat is daar al donker.
     function menu() as WatchUi.Menu2 {

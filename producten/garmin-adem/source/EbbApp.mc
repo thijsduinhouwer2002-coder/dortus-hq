@@ -59,43 +59,70 @@ class EbbApp extends Application.AppBase {
             }
         }
         if (EbbBouw.PLAATJE) {
-            // Scène per start: 0 vis, 1 schildpad, 2 walvis (inhouden), 3 Sea log, 4 rondes van vandaag, 5 8 weeks,
-            // 6 rustig ademen 4-7-8. Keuring v5 G1: geen tijden die bij een dier horen; de walvis krijgt juist de kortste
-            // hold, zodat geen beeld zegt "langer inhouden geeft een groter dier".
+            // Testbeelden van elk scherm (nachtronde 11 nov 01:58, voor Daans keuring van de echte bouw), één scène per start:
+            // 0 tot 3 inhouden 0:30, 1:45, 2:30, 3:04 (blad v6 3a, 3b, 3d, 3c), 4 sea log, 5 today, 6 8 weeks, 7 rustig 4-7-8,
+            // 8 herstel, 9 ademen, 10 startscherm, 11 uitleg, 12 startcheck, 13 tot 15 veiligheid 1 tot 3.
+            // Keuring v5 G1: het dier hangt niet van de inhoudtijd af (vis, schildpad, walvis, schildpad).
             var keer = Application.Storage.getValue("plaatjekeer");
-            var k = ((keer instanceof Number) ? keer as Number : 0) % 7;
+            var k = ((keer instanceof Number) ? keer as Number : 0) % EbbBouw.SCENES;
             Application.Storage.setValue("plaatjekeer", k + 1);
             EbbTrillen.aan = false;
             System.println("PLAATJE scene " + k);
-            if (k == 3) {
-                // Trouw (besluit 22:53): zeven dieren gevonden, zoals op blad v4 ("7 of 24").
+            if (k == 4) {
                 Application.Storage.setValue(EbbTrouw.BITS, 127);
                 return [new DierenView(), new WatchUi.BehaviorDelegate()];
             }
-            if (k == 6) {
+            if (k == 7) {
                 var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
-                // Stilgezet 0,53 s in de fase "in" (peil ±0,22) met een golftop in het midden: het getal 4 staat boven
-                // de golf en de naam "4-7-8" net in het water (run 42868087287: op 0,3 s liep de golflijn door de naam).
+                // Stilgezet 0,53 s in de fase "in": het getal staat boven de golf (run 42868087287).
                 rv.plaatjeMs = 530;
                 zetRustig(rv);
                 return [rv, new RustigDelegate(rv)];
             }
-            if (k == 4 || k == 5) {
-                view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
-                view.sessie.fase = Ebb.FASE_KLAAR;
-                view.sessie.inhoudtijden = [85000, 118000, 96000] as Array<Number>;   // gewone sessie, geen oplopend record
-                view.opnemen = false;
-                view.getij = (k == 5);
-                return [view, new EbbDelegate(view)];
+            if (k == 10) {
+                Application.Storage.setValue(EbbTrouw.BITS, 15);
+                var mv = new EbbMenuView();
+                return [mv, new EbbMenuDelegate(mv)];
             }
-            var drempel = [93000, 72000, 48000] as Array<Number>;
-            // Het dier hangt niet meer van de tijd af maar van wat je hebt: vis, schildpad, of alles (walvis).
-            var bits = [1, 15, (1 << 25) - 1] as Array<Number>;
-            Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
-            view.gezelschap = EbbTrouw.gezelschap();
+            if (k == 11 || k == 12) {
+                Application.Storage.setValue(EbbStart.UITLEG, k == 12);
+                var sc = new StartCheckView();
+                return [sc, new StartCheckDelegate(sc)];
+            }
+            if (k >= 13) {
+                var vv = new VeiligView();
+                vv.blad = k - 13;
+                return [vv, new VeiligDelegate(vv)];
+            }
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
-            view.plaatjeMs = drempel[k];
+            if (k == 5 || k == 6) {
+                view.sessie.fase = Ebb.FASE_KLAAR;
+                view.sessie.inhoudtijden = [85000, 118000, 96000] as Array<Number>;
+                view.getij = (k == 6);
+                return [view, new EbbDelegate(view)];
+            }
+            if (k == 8) {
+                // Herstel na ronde 2 (1:45), "15 s" (blad v6 scherm 4).
+                view.sessie.inhoudtijden = [80000, 105000] as Array<Number>;
+                view.sessie.ronde = 1;
+                view.plaatjeFase = Ebb.FASE_HERSTEL;
+                view.plaatjeMs = 200;
+            } else if (k == 9) {
+                // Ademen: ademhaling 23 van 30, ronde 2, in (blad v6 scherm 2).
+                view.sessie.inhoudtijden = [80000] as Array<Number>;
+                view.sessie.ronde = 1;
+                view.plaatjeFase = Ebb.FASE_ADEMEN;
+                view.plaatjeMs = 22 * 3000 + 400;
+            } else {
+                var tijd = [30000, 105000, 150000, 184000] as Array<Number>;
+                var ronde = [0, 1, 2, 2] as Array<Number>;
+                var bits = [1, 15, (1 << 25) - 1, 15] as Array<Number>;
+                Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
+                view.sessie.ronde = ronde[k];
+                view.plaatjeMs = tijd[k];
+            }
+            view.gezelschap = EbbTrouw.gezelschap();
             return [view, new EbbDelegate(view)];
         }
         if (!EbbBouw.DEMO) {
@@ -228,12 +255,11 @@ class VeiligDelegate extends WatchUi.BehaviorDelegate {
 // Blad v5 (S2): bij elke Rounds-start eerst "Seated or lying?" met START. Terug gaat naar het menu.
 class StartCheckView extends WatchUi.View {
     // Blad v7 punt 8: bij de eerste Rounds eerst één uitlegscherm "how it works" (blad 0), daarna de startcheck (blad 1).
-    const UITLEG = "uitlegGezien";
     var blad as Number = 1;
 
     function initialize() {
         View.initialize();
-        var g = Application.Storage.getValue(UITLEG);
+        var g = Application.Storage.getValue(EbbStart.UITLEG);
         blad = ((g instanceof Boolean) && (g as Boolean)) ? 1 : 0;
     }
 
@@ -242,7 +268,7 @@ class StartCheckView extends WatchUi.View {
     }
 
     function verder() as Void {
-        Application.Storage.setValue(UITLEG, true);
+        Application.Storage.setValue(EbbStart.UITLEG, true);
         blad = 1;
         System.println("STARTCHECK");
         WatchUi.requestUpdate();
@@ -328,6 +354,7 @@ class EbbView extends WatchUi.View {
     var opnemen as Boolean = true;
     // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
     var plaatjeMs as Number = -1;
+    var plaatjeFase as Number = Ebb.FASE_INHOUDEN;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
     const YKLEIN_ADEMEN = 0.855;
@@ -343,7 +370,7 @@ class EbbView extends WatchUi.View {
             sessie.segmentStart = System.getTimer();
             if (plaatjeMs >= 0) {
                 var nu = System.getTimer();
-                sessie.fase = Ebb.FASE_INHOUDEN;
+                sessie.fase = plaatjeFase;
                 sessie.segmentStart = nu - plaatjeMs;
                 sessie.pauzeer(nu);
             }
