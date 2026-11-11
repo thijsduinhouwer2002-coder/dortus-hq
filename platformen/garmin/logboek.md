@@ -482,3 +482,17 @@
 2. Open: sea complete op fenix 8 (dieren ontbreken), scène bonusblad, keuring bouw 4 punt 3 winkelbeelden, 7 rest uiterlijk, 10 horloges, 11 testverhaal.
 3. Volgende run eerst: sea complete op fenix 8 lokaal meten en oplossen.
 
+
+## Run 37 (11 nov 08:19 tot 08:58 UTC): keuring bouw 5 punt 1 tot 4
+- Lokale main liep 50 commits achter; werk op een verse tak vanaf origin/main (niets weggegooid). Simulator lokaal (docker, image van de workflow), scènes 0 tot 25 op fenix 8 en FR255.
+- Punt 1 leesbaarheid (besluit 09:30): op MIP (FR255, fenix 7X, fenix 8 solar) alle tekst in de systeemletter (`EbbTeken.fX/fS/fM`), veiligheid en how it works een maat groter op AMOLED (`fLees`, regelafstand 80 procent), xtiny op 390 tot 454 met hoofdletters 60 procent (22 px op 454). how it works als één groep boven de pil. GEZIEN: FR255 veiligheid en how it works scherp, elke t heel; fenix 8 past binnen de cirkel.
+- Punt 2 winkelbeelden v3: oude zes weg; poster volgens Mila blad v10 met inhouden met dier (s2), kaarten 1-hold, 2-new-friend, 3-sea-log, 4-calm, 5-sea-complete (FR255, op 454 nog niet af binnen 17 s). `winkel/maak_winkel_v3.py alles`. Winkeltekst v9, Nagekeken tegen de opgeruimde code.
+- Punt 3 sea complete: walvis eerst, elke beurt wordt geplakt wat er staat, plaatje los bij verlaten. GEZIEN op fenix 8: walvis en buitenboog na 17 s, binnenboog nog bezig (120 beurten).
+- Punt 4 dier tijdens inhouden: cijfers in een eigen letter van 80 procent (`EbbCijfersKlein`), rest van de ruimte laat de cijfers zakken. Schildpad op fenix 8 van 61 x 37 naar 82 x 50 simulatorpixels (±92 x 56 echt, breedte 90 is de grens bij zijn vorm).
+- Punt 10 deels: pycache uit git, dubbele `EbbDierPlaatje.amoled` weg, kop DierMaat.mc.
+- Pushes gebundeld: b39cd77 en b02bb08 samen, 8f99ceb (poster) erna.
+
+**In drie regels:**
+1. Veiligheidstekst op elk horloge leesbaar, dier groter, sea complete groeit zichtbaar, winkelbeelden eerlijk en nieuw.
+2. Open: sea complete groepsfoto (Mila v10) en sneller op 454, pauzemenu in Ebb-stijl, punt 5 tot 9, rest van 10, plaatjesrun op alle horloges nakijken.
+3. Volgende run eerst: plaatjesrun van 8f99ceb bekijken (Venu 3S, vivoactive 5, FR165), dan Mila v10 punt 1 (groepsfoto).
