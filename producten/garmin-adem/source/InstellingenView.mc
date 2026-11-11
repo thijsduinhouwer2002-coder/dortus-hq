@@ -145,9 +145,10 @@ class EbbInstellingenView extends WatchUi.View {
                 EbbInstellingen.zetTrillen(nieuw);
             }
         } else if ((regel[2] as Symbol) == :eigen) {
-            var ev = new RustigView(EbbInstellingen.eigenPatroon(), "My pattern");
-            (Application.getApp() as EbbApp).zetRustig(ev);
-            WatchUi.pushView(ev, new RustigDelegate(ev), WatchUi.SLIDE_LEFT);
+            // Keuring bouw 3 punt 3: ook My pattern eerst via "Sit or lie down".
+            var sc = new StartCheckView();
+            sc.zetEigen();
+            WatchUi.pushView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
             return true;
         } else if ((regel[2] as Symbol) == :veilig) {
             EbbVeilig.opnieuwTonen();

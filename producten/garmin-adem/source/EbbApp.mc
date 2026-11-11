@@ -69,6 +69,20 @@ class EbbApp extends Application.AppBase {
             Application.Storage.setValue("plaatjekeer", k + 1);
             EbbTrillen.aan = false;
             System.println("PLAATJE scene " + k);
+            // Keuring bouw 3 punt 4: de zwaarste schermen echt in de simulator (alleen deze scènes bewijzen geen watchdog).
+            // 22 Calm-check ("Calm 4-7-8" als kop), 23 sea log blad 3 met alle 25 dieren (keuze 18), 24 inhouden met de krab.
+            Application.Storage.deleteValue(EbbTrouw.GEKOZEN);
+            if (k == 22) {
+                var cc = new StartCheckView();
+                cc.zetCalm();
+                return [cc, new StartCheckDelegate(cc)];
+            }
+            if (k == 23) {
+                Application.Storage.setValue(EbbTrouw.BITS, (1 << 25) - 1);
+                var dv3 = new DierenView();
+                dv3.keuze = 18;
+                return [dv3, new DierenDelegate(dv3)];
+            }
             if (k == 4) {
                 // Blad v8 C1: 8 gevonden, de keuze op de Pufferfish (nog niet gevonden).
                 Application.Storage.setValue(EbbTrouw.BITS, 255);
@@ -147,6 +161,12 @@ class EbbApp extends Application.AppBase {
                 view.sessie.ronde = 1;
                 view.plaatjeFase = Ebb.FASE_ADEMEN;
                 view.plaatjeMs = 22 * 3000 + 400;
+            } else if (k == 24) {
+                // Inhouden op 1:45 met de krab als gekozen maatje (4 dieren gevonden plus de krab).
+                Application.Storage.setValue(EbbTrouw.BITS, 31);
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, 4);
+                view.sessie.ronde = 1;
+                view.plaatjeMs = 105000;
             } else {
                 var tijd = [30000, 105000, 150000, 184000] as Array<Number>;
                 var ronde = [0, 1, 2, 2] as Array<Number>;
@@ -300,10 +320,30 @@ class StartCheckView extends WatchUi.View {
     var blad as Number = 1;
     // Besluit hoofdchat 11 nov 04:30 (besluit 4): ook Calm krijgt de check, want ook daar houd je 7 s in. Zonder uitleg.
     var calm as Boolean = false;
+    // Keuring bouw 3 punt 3: ook My pattern loopt via deze check; dan een ander patroon en een andere naam.
+    var rustPatroon as Array<Number>? = null;
+    var rustNaam as String = EbbStart.CALM_NAAM;
 
     function zetCalm() as Void {
         calm = true;
         blad = 1;
+        rustPatroon = Ebb.patronen()[1];
+        rustNaam = EbbStart.CALM_NAAM;
+    }
+
+    function zetEigen() as Void {
+        calm = true;
+        blad = 1;
+        rustPatroon = EbbInstellingen.eigenPatroon();
+        rustNaam = "My pattern";
+    }
+
+    // Keuring bouw 3 punt 3: bij Calm de naam als kop ("Calm 4-7-8"), niet het aantal rondes.
+    function kop() as String {
+        if (!calm) {
+            return EbbStart.startKop();
+        }
+        return rustNaam.equals(EbbStart.CALM_NAAM) ? "Calm " + EbbStart.CALM_NAAM : rustNaam + " " + EbbStart.eigenTekst();
     }
 
     function initialize() {
@@ -355,7 +395,7 @@ class StartCheckView extends WatchUi.View {
         EbbTeken.golf(dc, d, 0.83, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
         EbbTeken.golf(dc, d, 0.90, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, EbbStart.startKop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, kop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Blad v7 punt 7: "Sit or lie down" in plaats van "Seated or lying?".
         dc.drawText(w / 2, (d * 0.385).toNumber(), Graphics.FONT_MEDIUM, "Sit or", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -379,7 +419,7 @@ class StartCheckDelegate extends WatchUi.BehaviorDelegate {
         }
         System.println("STARTCHECK start");
         if (_view.calm) {
-            var rv = new RustigView(Ebb.patronen()[1], EbbStart.CALM_NAAM);
+            var rv = new RustigView(_view.rustPatroon as Array<Number>, _view.rustNaam);
             (Application.getApp() as EbbApp).zetRustig(rv);
             WatchUi.switchToView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
             return true;
