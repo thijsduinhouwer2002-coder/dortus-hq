@@ -56,14 +56,14 @@ def ogen(dr, dier, o, cx, cy, maat, oog_modus):
             if maat >= 30:
                 g = max(1, (35*maat + 500) // 1000)
                 fill_circle(dr, x - r*55 // 100, y - r // 2, g, (255, 255, 255))
-        else:   # v8.3: klein (maat < 30) één zwart vierkantje van 2 x 2; groot een rond zwart oog met één wit glimpje
-            if maat < 30:
-                dr.rectangle([x - 1, y - 1, x, y], fill=(0, 0, 0))
+        else:   # v8.3: tot maat 60 een zwart vierkantje (2 x 2 op 260, 3 x 3 op 454); vanaf 60 een rond zwart oog met 1 px glimp
+            if maat < 60:
+                e = max(2, (8*maat + 50) // 100)
+                dr.rectangle([x - e // 2, y - e // 2, x - e // 2 + e - 1, y - e // 2 + e - 1], fill=(0, 0, 0))
             else:
-                r = max(2, 7*maat // 100)
+                r = max(3, maat // 20)
                 fill_circle(dr, x, y, r, (0, 0, 0))
-                g = max(1, r // 3)
-                dr.rectangle([x - r // 2 - g // 2, y - r // 2 - g // 2, x - r // 2 + (g - 1) - g // 2, y - r // 2 + (g - 1) - g // 2], fill=(255, 255, 255))
+                dr.point((x - 1, y - 1), fill=(255, 255, 255))
 
 def teken(dr, dier, cx, cy, maat, oog_modus='v83'):
     k = 3 if maat >= 60 else 2

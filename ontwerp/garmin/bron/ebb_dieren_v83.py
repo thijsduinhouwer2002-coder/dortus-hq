@@ -4,6 +4,7 @@
 #    Acht dieren kregen een ander oogpunt, zodat het zwarte oog op een lichte plek valt (zie OOG_NIEUW en OOG_SCHUIF).
 # 2. Kogelvis: 14 dunne stekels werden op 260 een harige ring. Nu een bolle vis met 6 korte dikke stekels (alleen boven en onder), een
 #    waaierstaart, een vinnetje, getuite lippen als kenmerk (zodat ook het silhouet een vis met een tuitmond is).
+# 3. Narwal: de draai op de tand las op 260 als "zzz" (slapen); tand nu glad, de lange tand is zelf het kenmerk.
 import math, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ebb_dieren_v82 as dv82
@@ -29,6 +30,9 @@ def delen_v83(soort):
         lippen = [(-0.70,0.00),(-0.92,-0.06),(-0.96,0.10),(-0.92,0.24),(-0.70,0.18)]
         return [(staart,'donker')] + stekels + [(lippen,'donker_k'), (lijf,'lijf'), (buik,'licht'), (vin,'donker')], [(-0.40,-0.16)]
     delen, ogen = _oud(soort)
+    if soort == 'narwal':
+        # de draai op de tand (drie schuine streepjes) las op 260 als "zzz", dus een slapend dier; tand nu glad
+        delen = [(p, r) for p, r in delen if r != 'donker_k']
     if soort in OOG_NIEUW: return delen, OOG_NIEUW[soort]
     if soort in OOG_SCHUIF: return delen, [(x + dx/90, y + dy/90) for (x, y), (dx, dy) in zip(ogen, OOG_SCHUIF[soort])]
     return delen, ogen
