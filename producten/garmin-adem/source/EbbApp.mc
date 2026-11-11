@@ -411,8 +411,7 @@ class StartCheckView extends WatchUi.View {
         // Blad v6 scherm 1b: kop met rondes en ademhalingen, groot "Seated / or lying?", knop Start als pil, zee onderaan.
         var d = (w < h) ? w : h;
         // Daan B5: zee iets lager (0,83 D), zodat de pil Start ruim boven de golf blijft.
-        EbbTeken.golf(dc, d, 0.83, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
-        EbbTeken.golf(dc, d, 0.90, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
+        EbbTeken.zeeBanden(dc, d, [0.83, 0.90] as Array<Float>, [1, 2] as Array<Number>, 0.010, 0.0);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, kop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -765,9 +764,7 @@ class EbbView extends WatchUi.View {
             zcy = zcy < zMin ? zMin : zcy;
             dc.setColor(EbbTeken.GEEL, EbbTeken.GEEL);
             dc.fillCircle(w / 2, zcy, zr);
-            EbbTeken.golf(dc, d, 0.64, d * 0.014, EbbTeken.ZEE_KLEUR[0], golfFase, true);
-            EbbTeken.golf(dc, d, 0.72, d * 0.008, EbbTeken.ZEE_KLEUR[1], golfFase + 1.3, false);
-            EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], golfFase + 2.6, false);
+            EbbTeken.zeeBanden(dc, d, [0.64, 0.72, 0.86] as Array<Float>, [0, 1, 2] as Array<Number>, 0.014, golfFase);
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
             // Beelden run 42940068457: op vivoactive 5 en fenix 8 liep deze regel in FONT_SMALL door de ronde rand.
             // Past hij niet binnen 80 procent van de koorde op 0,215 D, dan de kleinere letter.
@@ -923,9 +920,7 @@ class EbbView extends WatchUi.View {
             var t = (y1 + lhX + lhX / 2 + 8 + d * 0.02) / d.toFloat();
             zeeTop = t > zeeTop ? t : zeeTop;
         }
-        EbbTeken.golf(dc, d, zeeTop, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.4, true);
-        EbbTeken.golf(dc, d, 0.60, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.7, false);
-        EbbTeken.golf(dc, d, 0.88, d * 0.006, EbbTeken.ZEE_KLEUR[3], 2.9, false);
+        EbbTeken.zeeBanden(dc, d, [zeeTop, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * kopY).toNumber(), Graphics.FONT_SMALL, n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);

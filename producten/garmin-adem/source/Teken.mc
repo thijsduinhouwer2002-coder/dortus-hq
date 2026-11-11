@@ -167,6 +167,25 @@ module EbbTeken {
         }
     }
 
+    // Keuring bouw 3 punt 7: één zee voor alle schermen. Bovenste golf met dezelfde kamlijn, daaronder de banden.
+    // Op MIP harde banden (alleen 64 kleuren), op AMOLED een echt verloop (zeeVerloop), ook op de eindschermen.
+    // tops in delen van D, tinten als index in ZEE_KLEUR; amp is de golf van de bovenste band.
+    function zeeBanden(dc as Graphics.Dc, d as Number, tops as Array<Float>, tinten as Array<Number>, amp as Float, fase as Float) as Void {
+        if (amoled()) {
+            var banden = [] as Array<Number>;
+            for (var i = 0; i < tops.size(); i += 1) {
+                banden.add((tops[i] * 100 + 0.5).toNumber());
+                banden.add(tinten[i]);
+            }
+            zeeVerloop(dc, d, banden, 100, fase);
+            return;
+        }
+        golf(dc, d, tops[0], d * amp, ZEE_KLEUR[tinten[0]], fase, true);
+        for (var i = 1; i < tops.size(); i += 1) {
+            golf(dc, d, tops[i], d * 0.007, ZEE_KLEUR[tinten[i]], fase + 1.3 * i, false);
+        }
+    }
+
     // Kleur tussen a (f = 0) en b (f = 1).
     function meng(a as Number, b as Number, f as Float) as Number {
         var r = (((a >> 16) & 0xFF) * (1.0 - f) + ((b >> 16) & 0xFF) * f).toNumber();
@@ -217,9 +236,7 @@ module EbbTeken {
     const ADEM_AMP = 0.012;
     function ademZee(dc as Graphics.Dc, d as Number, water as Float, fase as Float) as Void {
         var top = ADEM_TOP - ADEM_SLAG * water;
-        golf(dc, d, top, d * ADEM_AMP, ZEE_KLEUR[0], fase, true);
-        golf(dc, d, top + 0.09, d * 0.007, ZEE_KLEUR[1], fase + 1.7, false);
-        golf(dc, d, 0.93, d * 0.006, ZEE_KLEUR[2], fase + 2.9, false);
+        zeeBanden(dc, d, [top, top + 0.09, 0.93] as Array<Float>, [0, 1, 2] as Array<Number>, ADEM_AMP, fase);
     }
 
     // Blad v6.4: dunne zeestrook onderaan (today, 8 weeks, settings, veiligheid), zodat elk scherm bij dezelfde zee hoort.

@@ -71,8 +71,7 @@ class EbbMenuView extends WatchUi.View {
         var d = (w < h) ? w : h;
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        EbbTeken.golf(dc, d, 0.775, d * 0.008, EbbTeken.ZEE_KLEUR[1], 0.0, true);
-        EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
+        EbbTeken.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
         var eigen = EbbTrouw.zwemmer();
         if (eigen >= 0) {
