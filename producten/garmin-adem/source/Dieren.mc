@@ -77,19 +77,9 @@ class EbbDierPlaatje {
         boven = -g[2] * m / EbbDierData.SCHAAL + r;
         var br = links + g[1] * m / EbbDierData.SCHAAL + r + 1;
         var ho = boven + g[3] * m / EbbDierData.SCHAAL + r + 1;
-        if (EbbDierPlaatje.amoled()) {
-            _ref = Graphics.createBufferedBitmap({:width => br, :height => ho});
-        } else {
-            var p = [Graphics.COLOR_TRANSPARENT] as Array<Number>;
-            for (var a = 0; a < 4; a += 1) {
-                for (var b = 0; b < 4; b += 1) {
-                    for (var c = 0; c < 4; c += 1) {
-                        p.add(a * 0x550000 + b * 0x5500 + c * 0x55);
-                    }
-                }
-            }
-            _ref = Graphics.createBufferedBitmap({:width => br, :height => ho, :palette => p});
-        }
+        // Beelden run 42973269112 (FR255): met het palet kwam op MIP soms een wit blok achter het dier (krabsilhouet op
+        // 6c, walvis bij sea complete). Daarom nu overal een plaatje zonder palet, zoals op AMOLED al goed ging.
+        _ref = Graphics.createBufferedBitmap({:width => br, :height => ho});
         var bb = (_ref as Graphics.BufferedBitmapReference).get() as Graphics.BufferedBitmap;
         var dc = bb.getDc();
         dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
