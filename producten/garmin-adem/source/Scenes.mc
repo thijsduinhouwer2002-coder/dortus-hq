@@ -84,6 +84,12 @@ module EbbScenes {
             var mvk = new EbbMenuView();
             return [mvk, new EbbMenuDelegate(mvk)];
         }
+        if (k == 35) {
+            // Keuring bouw 5 punt 6: het pauzemenu in Ebb-stijl (Mila blad v10 punt 2), met de krab als meezwemmer.
+            Application.Storage.setValue(EbbTrouw.BITS, 31);
+            var pv = new PauzeView("round 2 · 1:12", EbbTrouw.zwemmer());
+            return [pv, new WatchUi.BehaviorDelegate()];
+        }
         if (k == 34) {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];

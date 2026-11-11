@@ -52,11 +52,9 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
             return true;
         }
         _view.pauzeer(System.getTimer());
-        var menu = new WatchUi.Menu2({:title => "Paused"});
-        menu.addItem(new WatchUi.MenuItem("Resume", null, :doorgaan, null));
-        menu.addItem(new WatchUi.MenuItem("Save", null, :opslaan, null));
-        menu.addItem(new WatchUi.MenuItem("Discard", null, :weggooien, null));
-        WatchUi.pushView(menu, new PauzeDelegate(_view), WatchUi.SLIDE_UP);
+        // Mila blad v10 punt 2: pauzemenu in Ebb-stijl (Pauze.mc).
+        var pv = new PauzeView(PauzeView.regelVan(_view), _view.gezelschap);
+        WatchUi.pushView(pv, new PauzeDelegate(_view, pv), WatchUi.SLIDE_UP);
         return true;
     }
 
@@ -101,35 +99,5 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
 
     function onPreviousPage() as Boolean {
         return wissel();
-    }
-}
-
-// Pauzemenu: doorgaan, opslaan (activiteit en 56 dagen) of weggooien (geen FIT-bestand).
-class PauzeDelegate extends WatchUi.Menu2InputDelegate {
-    private var _view as EbbView;
-
-    function initialize(view as EbbView) {
-        Menu2InputDelegate.initialize();
-        _view = view;
-    }
-
-    function onSelect(item as WatchUi.MenuItem) as Void {
-        var id = item.getId();
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        if (id == :doorgaan) {
-            _view.hervat(System.getTimer());
-        } else if (id == :opslaan) {
-            // Keuring bouw 4 punt 9: na opslaan het eindscherm (met een verdiend dier), niet meteen de app dicht.
-            _view.opslaanEnTonen();
-        } else if (id == :weggooien) {
-            _view.weggooien();
-            System.exit();
-        }
-    }
-
-    // Terug in het pauzemenu is ook doorgaan.
-    function onBack() as Void {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        _view.hervat(System.getTimer());
     }
 }
