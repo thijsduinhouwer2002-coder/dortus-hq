@@ -104,7 +104,8 @@ class EbbApp extends Application.AppBase {
                 var vv = new VeiligView();
                 return [vv, new VeiligDelegate(vv)];
             }
-            return [EbbStart.menu(), new StartDelegate()];
+            var mv = new EbbMenuView();
+            return [mv, new EbbMenuDelegate(mv)];
         }
         return [view, new EbbDelegate(view)];
     }
@@ -191,7 +192,8 @@ class VeiligDelegate extends WatchUi.BehaviorDelegate {
         }
         System.println("VEILIG bevestigd");
         EbbVeilig.bevestig();
-        WatchUi.switchToView(EbbStart.menu(), new StartDelegate(), WatchUi.SLIDE_LEFT);
+        var mv = new EbbMenuView();
+        WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_LEFT);
         return true;
     }
 
