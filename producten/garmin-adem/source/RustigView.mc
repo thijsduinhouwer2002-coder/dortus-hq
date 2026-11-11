@@ -206,18 +206,21 @@ class CalmEindeView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Keuring bouw 3 punt 11: onder 1 minuut seconden ("45 s"), niet "1 min"; punt 6: deze regel kleiner.
         dc.drawText(w / 2, yRegel1, Graphics.FONT_XTINY, EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
-        var cy = (d * 0.465).toNumber();
+        // Keuring bouw 4 punt 5: het dier tussen de regel "4 min · 12 breaths" en de regel eronder.
+        var bandTop = yRegel1 + dc.getFontHeight(Graphics.FONT_XTINY) / 2 + 8;
+        var bandOnder = (d * 0.645).toNumber() - dc.getFontHeight(Graphics.FONT_SMALL) / 2 - 6;
+        var bandBreed = (d * 0.30).toNumber();
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
         var regel = telt ? "counts as a session" : "from 1 min it counts";
         var kleur = Graphics.COLOR_WHITE;
         if (nieuw.size() > 0) {
-            EbbDierVoorraad.teken(dc, nieuw[0], w / 2, cy, (d * 0.15).toNumber(), false);
+            EbbDierMaat.inBand(dc, nieuw[0], w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), false);
             regel = "new friend: " + EbbDierData.NAMEN[nieuw[0]];
             kleur = EbbTeken.LICHT;
         } else {
             var dier = EbbTrouw.zwemmer();
             if (dier >= 0) {
-                EbbDierVoorraad.teken(dc, dier, w / 2, cy, (d * 0.105).toNumber(), false);
+                EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.105).toNumber(), false);
             }
         }
         tekst(dc, d, 0.645, regel, kleur);

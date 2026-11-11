@@ -1025,22 +1025,25 @@ class EbbView extends WatchUi.View {
             dc.drawText(w / 2, y1, Graphics.FONT_XTINY, regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.drawText(w / 2, y1 + lh, Graphics.FONT_XTINY, regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-        var cy = (d * (n > 3 ? 0.48 : 0.465)).toNumber();
+        // Keuring bouw 4 punt 5: het dier past tussen de tijden en de regel eronder (8 px lucht boven, 6 px onder).
+        var bandTop = onderTijden + 8;
+        var bandOnder = (d * 0.645).toNumber() - lhS / 2 - 6;
+        var bandBreed = (d * 0.30).toNumber();
         if (nieuweDieren.size() > 0) {
             var dier = nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
-            EbbDierVoorraad.teken(dc, dier, w / 2, cy + (d * 0.033).toNumber(), (d * 0.15).toNumber(), false);
+            EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), false);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (eindVolgend >= 0) {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
-            EbbDierVoorraad.teken(dc, eindVolgend, w / 2, cy, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), true);
+            EbbDierMaat.inBand(dc, eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), true);
             tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
         } else {
             // Keuring bouw 3 punt 12 (besluit 2): na de walvis "sea complete" met je eigen dier; de reeks in weken
             // eronder blijft groeien ("12 weeks in a row"), zonder nieuwe dieren.
             var eigen = EbbTrouw.zwemmer();
             if (eigen >= 0) {
-                EbbDierVoorraad.teken(dc, eigen, w / 2, cy, EbbDierMaat.inVak(eigen, (d * 0.26).toNumber(), (d * 0.18).toNumber()), false);
+                EbbDierMaat.inBand(dc, eigen, w / 2, bandTop, bandOnder, (d * 0.26).toNumber(), (d * 0.15).toNumber(), false);
             }
             tekstInRonde(dc, d, 0.645, "sea complete", EbbTeken.LICHT);
         }
