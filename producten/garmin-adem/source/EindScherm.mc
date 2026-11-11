@@ -65,7 +65,18 @@ module EbbEindScherm {
             var dier = v.nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
             EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
-            EbbTeken.tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
+            // Keuring bouw 6 punt 5: een lange naam op twee regels in de gewone letter in plaats van kleiner.
+            var zin = "new friend: " + EbbDierData.NAMEN[dier];
+            var dy = 0.145;
+            var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
+            if (dc.getTextWidthInPixels(zin, EbbTeken.fS()) <= koorde) {
+                EbbTeken.tekstInRonde(dc, d, 0.645, zin, EbbTeken.LICHT);
+            } else {
+                dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(w / 2, (d * 0.645).toNumber(), EbbTeken.fS(), "new friend:", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w / 2, (d * 0.645).toNumber() + lhS, EbbTeken.fS(), EbbDierData.NAMEN[dier], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                extra = lhS;
+            }
         } else {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
             // Beelden run 42980590755: de schaduw stak met de scharen boven de kamlijn uit; Mila v9: alleen in het water.

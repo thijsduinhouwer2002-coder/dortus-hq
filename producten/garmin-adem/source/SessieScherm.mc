@@ -108,8 +108,9 @@ module EbbSessieScherm {
                 var bandTop = onderCijfer + gat;
                 var bandOnder = yRegel - dc.getFontHeight(EbbTeken.fX()) / 2 - 8;
                 var hb = bandOnder - bandTop;
-                var hMax = (d * 0.154).toNumber();
-                var mz = EbbDierMaat.inVak(v.gezelschap, (d * 0.198).toNumber(), hb < hMax ? hb : hMax);
+                // Keuring bouw 6 punt 5: het dier 10 procent groter (was 0,198 breed en 0,154 hoog).
+                var hMax = (d * 0.169).toNumber();
+                var mz = EbbDierMaat.inVak(v.gezelschap, (d * 0.218).toNumber(), hb < hMax ? hb : hMax);
                 var gz = EbbDierMaat.grenzen(v.gezelschap);
                 var yd2 = (bandTop + bandOnder) / 2 - (gz[2] + gz[3]) * mz / (2 * EbbDierData.SCHAAL);
                 EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
