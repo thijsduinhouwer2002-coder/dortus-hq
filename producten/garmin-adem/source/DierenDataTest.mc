@@ -60,7 +60,8 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
             for (var b = 0; b < 2; b += 1) {
                 view.keuze = bladen[b];
                 var t0 = System.getTimer();
-                for (var beurt = 0; beurt < 10; beurt += 1) {
+                // Eén laag per beurt (plaatjesrun 42966268846): 1 opbouwbeurt plus hoogstens 9 dieren x 6 lagen.
+                for (var beurt = 0; beurt < 60; beurt += 1) {
                     view.onUpdate(dc);
                 }
                 if (!view.klaar()) {

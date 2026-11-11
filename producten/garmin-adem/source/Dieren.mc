@@ -116,6 +116,34 @@ class DierenView extends WatchUi.View {
     var _plaatje as Graphics.BufferedBitmapReference or Null = null;
     var _sleutel as Number = -1;
     var _getekend as Number = 0;
+    var _laag as Number = 0;
+    var _opbouwBeurt as Boolean = false;
+
+    // Tekent laag _laag van dier i; geeft true als het dier af is.
+    function tekenLaag(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number) as Boolean {
+        var l = _laag;
+        _laag += 1;
+        if (EbbTrouw.heeft(i)) {
+            if (l < 4) {
+                var k = EbbDierData.randPx(maat);
+                EbbDierData.delen(dc, i, cx + EbbDierData.RAND_DX[l] * k, cy + EbbDierData.RAND_DY[l] * k, maat, EbbDierData.TINT[i][3], 2);
+                return false;
+            }
+            var o = EbbDierData.delen(dc, i, cx, cy, maat, -1, 0);
+            EbbDierData.ogen(dc, i, o, cx, cy, maat);
+            return true;
+        }
+        if (l < 4) {
+            EbbDierData.delen(dc, i, cx + EbbDierData.RAND_DX[l] * 2, cy + EbbDierData.RAND_DY[l] * 2, maat, EbbDierData.SIL_RAND, 1);
+            return false;
+        }
+        if (l == 4) {
+            EbbDierData.delen(dc, i, cx, cy, maat, EbbDierData.SIL_VLAK, 1);
+            return false;
+        }
+        EbbDierData.delen(dc, i, cx, cy, maat, EbbDierData.SIL_RAND, 3);
+        return true;
+    }
 
     // De 64 kleuren van het MIP-scherm: alle dieren en silhouetten gebruiken alleen deze, 1 byte per pixel.
     function palet() as Array<Number> {
@@ -265,6 +293,10 @@ class DierenView extends WatchUi.View {
             pdc0.clear();
             _sleutel = sleutel;
             _getekend = 0;
+            _laag = 0;
+            // Plaatjesrun 42966268846: op FR255 trapte de watchdog op blad 2 (opbouw plus een silhouet in één beurt).
+            // Daarom in de beurt van de opbouw nog geen dier.
+            _opbouwBeurt = true;
         }
         var oy = _boven;
         var maat = _maat;
@@ -280,20 +312,20 @@ class DierenView extends WatchUi.View {
             }
             var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
             var y = _rijY[k / 3];
-            if (k >= _getekend && nu < NIEUW_PER_BEURT) {
-                if (EbbTrouw.heeft(i)) {
-                    EbbDierData.teken(pdc, i, x - ox, y - oy, maat, -1);
-                } else {
-                    EbbDierData.silhouet(pdc, i, x - ox, y - oy, maat);
+            if (k >= _getekend && nu < NIEUW_PER_BEURT && !_opbouwBeurt) {
+                // Eén laag per beurt: gevonden 4 keer stickerrand en dan het dier, silhouet 4 keer rand, vlak, kenmerk.
+                if (tekenLaag(pdc, i, x - ox, y - oy, maat)) {
+                    _getekend = k + 1;
+                    _laag = 0;
                 }
                 nu += 1;
-                _getekend = k + 1;
             }
             if (i == keuze) {
                 gekozenX = x;
                 gekozenY = y + (_grenzen[k][1] * maat) / EbbDierData.SCHAAL;
             }
         }
+        _opbouwBeurt = false;
         var later = _getekend < PER_BLAD && blad * PER_BLAD + _getekend < EbbTrouw.DIEREN.size();
         dc.drawBitmap(ox, oy, plaatje);
         // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
