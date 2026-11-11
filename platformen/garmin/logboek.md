@@ -397,3 +397,20 @@
 1. Bouw 2: punt 1 tot 8, 10, 11 en 12 af en in beeld nagekeken; geen crash op acht horloges.
 2. Open: punt 9 (eigen letter voor koppen, eerst geheugen), 6d-regel van de kam, winkelbeelden opnieuw uit de bouw, daarna keuring door drie en Daan.
 3. Volgende run: geheugen meten (FR255, Venu 2), dan punt 9; nieuwe winkelbeelden; keuring aanvragen bij de hoofdchat.
+
+## 11 nov 2026 04:28 UTC (Gijs, run 31, keuring bouw 3)
+- Opdracht: `ontwerp/garmin/ebb-bouw-3-keuring-drie.md`, "Voor Gijs" in volgorde, met Mila's v8.3 ertussen. Punt 1 (winkelbeelden) bewust later: de keuring zegt pas na punt 4 tot 8.
+- Punt 3 (c2d4301): My pattern start nu via "Sit or lie down" (`StartCheckView.zetEigen`), kop op de check "Calm 4-7-8" of "My pattern 4-4-4-4" in plaats van rondes. GEZIEN op FR255 (scène calmcheck).
+- Punt 4 (c2d4301): scènes 22 Calm-check, 23 sea log blad 3 met alle 25 (keuze 18), 24 inhouden met de krab. Plaatjesrun 42959896534: alle acht horloges groen, stap "Geen crash" groen, FR255 75,7 van 507,7 kB (GEZIEN). Op de fenix 8 heette "inhouden-krab" een eindscherm: de namen volgden de lus, niet de app. 11c98a3: de workflow noemt elk plaatje nu naar de scène die de app zelf meldt.
+- Punt 2 (fa62bce): scherm, icoon, API en geheugen van elk horloge uit de SDK in de image gelezen (iq-run 42960207173, GEZIEN), daarna 19 horloges erbij: fenix 8 43, 47 Pro, Solar 47 en 51; fenix 7 Pro, 7X, 7X Pro; epix Pro 42 en 51; FR 165, 165M, 570 42 en 47, 955, 970; vivoactive 6; Venu 3S; Venu 4 41 en 45. Eigen cijferletter en icoon per maat met `maak_cijfers.py` en `maak_icoon.py`. .iq-bouw voor alle 28 groen (run 42960881829). Venu X1 niet: 448 x 486, Ebb tekent rond in de bovenste 448 px; eerst verticaal centreren. Plaatjes nu ook op fenix 7, fenix 7X Pro (280 px), FR165 en Venu 3S.
+- Punt 11 (fc68ed9, 9f26c19): Calm onder 1 minuut "45 s" (toets), regel kleiner; 8 weeks van maandag tot zondag en "no sessions yet" alleen zonder sessies (Calm telt); geen lege sessie in Today. Toets weken aangepast met reden in de commit (vaste datum was een maandag).
+- Punt 10 (9f26c19): vlag "week gehaald", een week telt één keer, ook bij wisselen van het weekdoel; opslagversie 2 wist de oude reeks en beste reeks in dagen één keer. Twee toetsen erbij.
+- Punt 15 (9f26c19): `getijden`, `zwem`, `CYCLUS_MS`, `IN_BEELD_MS`, Box en 5,5 weg; twee toetsen op dode code weg, met reden.
+- Punt 9 (64a2336): sea log rekent de rijen uit de boven- en onderkant van de dieren zelf, 3 px tussen rijen op 260, keuzestip 3 px onder het gekozen dier, naam 10 px onder het raster; past het niet, dan een kleinere diermaat voor dat blad. Hint "START: swims with you" ("Top button" op de aanraakhorloges).
+- Mila v8.3 (cc434ee): 6112 bytes en haar nieuwe ogen in het maakscript.
+- Waarom deze volgorde: eerst wat fout of onveilig was (veiligheidscheck, weekdoel, kleine fouten), dan bereik (horloges), dan uiterlijk; letter en zee (5, 7) zijn de grootste stukken en vragen een eigen run met beelden.
+
+**In drie regels:**
+1. Bouw 3 punt 2, 3, 4, 9, 10, 11, 15 en Mila v8.3 in de code; Calm-check en zware scènes zonder crash in beeld.
+2. Open: 1 winkelbeelden, 5 Barlow overal, 6 ruimte rond tekst, 7 één zee, 8 diermaten, 12 einde, 13 winkeltekst, 14 rest testbeelden.
+3. Volgende run: beelden van de laatste plaatjesrun nakijken (sea log op 260, ogen, nieuwe horloges), dan punt 8, 7, 6, 5.
