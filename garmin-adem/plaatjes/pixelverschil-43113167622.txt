@@ -4,15 +4,15 @@ GELIJK ademen-uit-fenix847mm.png
 GELIJK calm-45s-fenix847mm.png
 GELIJK calm-einde-krab-fenix847mm.png
 GELIJK calmcheck-fenix847mm.png
-VERSCHIL einde-6b-fenix847mm.png 42521 pixels in (135, 397, 589, 654)
-VERSCHIL einde-6b-zeekomkommer-fenix847mm.png 41258 pixels in (135, 397, 589, 654)
-VERSCHIL einde-6c-6rondes-fenix847mm.png 36950 pixels in (135, 411, 589, 656)
-VERSCHIL einde-6c-fenix847mm.png 41889 pixels in (135, 397, 589, 654)
-VERSCHIL einde-6c-krab-fenix847mm.png 43047 pixels in (135, 397, 589, 654)
+VERSCHIL einde-6b-fenix847mm.png 1794 pixels in (324, 422, 401, 497)
+VERSCHIL einde-6b-zeekomkommer-fenix847mm.png 1687 pixels in (314, 440, 408, 483)
+VERSCHIL einde-6c-6rondes-fenix847mm.png 37525 pixels in (135, 415, 589, 657)
+VERSCHIL einde-6c-fenix847mm.png 1222 pixels in (318, 433, 411, 489)
+VERSCHIL einde-6c-krab-fenix847mm.png 2229 pixels in (317, 422, 407, 498)
 GELIJK einde-6d-fenix847mm.png
-VERSCHIL einde-na-feest-fenix847mm.png 42690 pixels in (135, 397, 589, 654)
+VERSCHIL einde-na-feest-fenix847mm.png 1639 pixels in (325, 429, 418, 494)
 GELIJK einde-sea-complete-fenix847mm.png
-VERSCHIL einde-weekdoel-fenix847mm.png 41662 pixels in (135, 397, 589, 654)
+VERSCHIL einde-weekdoel-fenix847mm.png 1222 pixels in (318, 433, 411, 489)
 GELIJK herstel-fenix847mm.png
 GELIJK inhouden-0-30-fenix847mm.png
 GELIJK inhouden-1-45-fenix847mm.png
@@ -21,7 +21,7 @@ GELIJK inhouden-3-04-fenix847mm.png
 GELIJK inhouden-krab-fenix847mm.png
 GELIJK menu-krab-fenix847mm.png
 GELIJK menu-leeg-fenix847mm.png
-VERSCHIL menu-today-fenix847mm.png 693 pixels in (428, 524, 520, 565)
+VERSCHIL menu-today-fenix847mm.png 594 pixels in (428, 524, 520, 564)
 GELIJK overzicht-menu-fenix847mm.png
 GELIJK pauze-fenix847mm.png
 GELIJK rustig-fenix847mm.png
@@ -29,7 +29,7 @@ GELIJK sealog-1-fenix847mm.png
 GELIJK sealog-2-fenix847mm.png
 GELIJK sealog-3-alle25-fenix847mm.png
 GELIJK settings-1-fenix847mm.png
-VERSCHIL settings-2-fenix847mm.png 5666 pixels in (231, 375, 495, 439)
+GELIJK settings-2-fenix847mm.png
 GELIJK start-fenix847mm.png
 GELIJK startcheck-fenix847mm.png
 GELIJK today-fenix847mm.png
@@ -37,4 +37,7 @@ GELIJK uitleg-fenix847mm.png
 GELIJK veilig-1-fenix847mm.png
 GELIJK veilig-2-fenix847mm.png
 GELIJK veilig-3-fenix847mm.png
-39 beelden, 9 met verschil of ontbrekend
+ONTBREEKT wereld-clownvis-fenix847mm.png (voor: False, na: True)
+ONTBREEKT wereld-krab-fenix847mm.png (voor: False, na: True)
+ONTBREEKT wereld-schildpad-fenix847mm.png (voor: False, na: True)
+42 beelden, 11 met verschil of ontbrekend
