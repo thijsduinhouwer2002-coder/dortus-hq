@@ -311,9 +311,11 @@
 - 5adf8da en b8c01ec: inhoudscherm volgens 3a tot 3c. Fout van mij: het blok kwam eerst in `trilBijWissel` terecht (zoekterm kwam twee keer voor), compileerfout in run 42935963826; hersteld.
 - ca51830 en a88f82d: today als staven voor de hele dag (nieuwe opslag `EbbVandaag`, tot 3 sessies met klok, met toets) en 8 weeks als sessies per week. Compileerfout over getypte opslag hersteld.
 - a97b573: herstel met opkomende zon, "breathe in" en "breathe out". 5297553: veiligheidsbladen en startcheck in de stijl van blad v6. a47afaf en 7d7ec76: tekstpunten van blad v7 en het uitlegscherm "how it works" bij de eerste Rounds.
-- Toetsen groen op fenix 7 en FR255 voor 5f47d8a en a88f82d; de beelden van de nieuwe schermen liepen nog bij het afsluiten.
+- a0eacd5 en b8918fe: startscherm als eigen scherm (blad v6 scherm 1): twee gelijke pillen Rounds en Calm 4-7-8, "Sea log · Settings", zee met je dier; bladeren, vegen en tikken. Box uit het menu, "Start my pattern" in de instellingen. Twee compileerfouten hersteld (opslagvlag als Boolean, constante in de module).
+- Uitslag: run 42935688158 (5f47d8a) en run 42936678291 (a88f82d) groen op alle negen horloges. Toetsen ook groen voor b8918fe (run 42938098428, beelden liepen nog).
+- Beelden GEZIEN (a88f82d en plaatjes van b8918fe): today met zes staven en "6 holds · avg 1:44", 8 weeks met stippen en staven 3 en 6, inhoudscherm met zee, "hold", stopregel, tijd en hartregel. Fout gezien op de FR265: de walvis raakte de hartregel; in 6748171 het kleine dier vlak onder de tijd en de hartregel eronder. Nog niet nagemeten met `bron/meet_scherm.py`.
 
 **In drie regels:**
-1. Af: inhouden, ademen, herstel, today, 8 weeks, veiligheid, startcheck en uitleg in de stijl van blad v6; Lobster, tempo, teksten.
-2. Open: beelden van alle schermen nakijken en meten (centreren, 80 procent, 260 px), menu en settings als eigen scherm, eindschermen 6b, 6c, 6d.
-3. Volgende run: beelden van de laatste groene run nakijken met `bron/meet_scherm.py`, dan het menu.
+1. Af: startscherm, inhouden, ademen, herstel, today, 8 weeks, veiligheid, startcheck en uitleg in de stijl van blad v6; Lobster, tempo, teksten; groen op negen voor 5f47d8a en a88f82d.
+2. Open: uitslag en beelden van 6748171 (menu, uitleg, startcheck, inhouden) meten op 260, 390, 416, 454; settings als eigen scherm met "Ebb makes no sound"; eindschermen 6b, 6c, 6d.
+3. Volgende run: beelden van 6748171 nakijken en meten, dan settings en de eindschermen.
