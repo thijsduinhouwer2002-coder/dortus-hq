@@ -252,3 +252,21 @@
 3. Volgende run: CI nakijken; is er een ja op blad v5, dan bouwen (eerst de dieren in sea log en eindscherm, met G3 tot G5); anders twee regels en stoppen.
 - Aanvulling 23:35: Mila's bericht van 00:15 NL (blad v5.1) verwerkt voor zover het logica is: `EbbProfiel.zeeStand(sec)` (elke 30 s een stand, hoogstens 5, vanaf 3:00 terug naar 4) met haar banden als `ZEE` en AMOLED 10 procent donkerder per stand; `EbbTrouw.meezwemmer()` en `kies()` (gekozen dier uit de sea log, anders het laatst gevonden) (18fe0fa). FIT-velden "Breaths" per lap en "Rounds" in de samenvatting (35f1f1e).
 - Uitslag 35f1f1e (run 42921839088): toetsen groen, e2e groen op alle negen horloges (EIS10 goed, "adem op de lap" en "rondes" staan in elk FIT-bestand), geheugen 6 procent (fr255 10 procent; was 5, de dierdata kost ±11 kB). .iq bouwt voor alle negen (run 42921838947). Hartslag in de simulator: 0 records, zoals verwacht.
+
+## 11 nov 2026 00:05 NL (Gijs, nachtronde Ebb, met de hand gestart door de hoofdchat, 23:34 tot 00:05 UTC)
+- Opdracht: G1 tot G5 uit `ontwerp/garmin/ebb-blad-v4-keuring-drie.md`, S1 en S2 in de code, niets indienen, geen nieuwe schermen behalve de veiligheid. Plus Mila's punten van 00:35 NL.
+- G1 en G2 waren al klaar (0d028f1, vorige run).
+- Mila 00:35 (0039b1c): dierenschema v5.4 (walvis op 50, laagste nummer eerst bij twee kandidaten; de voorrang voor de zeekomkommer is weg), trilling op 3:00 altijd (ook met trillen uit) en daarna elke 30 s, Connect "Hold times 0:03 · 0:05" in plaats van "Longest hold". Toetsen aangepast.
+- S1 (0039b1c, b87b243): drie veiligheidsbladen met de tekst letterlijk van blad v5 (`EbbVeiligTekst`), Next, Next, OK, "Not a medical device." in geel. Bladertoetsen en vegen doen niets, terug gaat een blad terug, op blad 1 sluit terug de app zonder bevestigen. S2: "Rounds 3 x 30 / Seated or lying? / Start" bij elke Rounds-start. Vormgeving eenvoudig; Mila's opmaak komt met het ja op blad v5. Waarom nu al: veiligheid gaat voor en de hoofdchat vroeg erom; de tekst is vast.
+- Bekeken (fenix 7, run 42924916105, GEZIEN): blad 1, 2, 3, menu, "Seated or lying?" en daarna de sessie, in die volgorde; de bladertoetsen sloegen niets over.
+- G4 (7190dd3): toets die de zwaarste sea log-pagina tekent (9 dieren met rand, 45 tekenbeurten) draait op fenix 7 en FR255 zonder watchdog: 81 en 51 ms in de simulator. Een echt horloge is trager; GOK dat het past, want de watchdog telt instructies en die zijn gelijk.
+- G3 (9257c43): de e2e veegt in het menu op vivoactive 5, Venu 2 en Venu 3: 16.939, 15.287 en 19.386 pixels anders na vegen, dus het menu schuift op alle drie.
+- G5: S1, S2 en menu staan nu als beeld in de e2e op 390 (vivoactive 5) en 416 (FR265); plus de veegbeelden op Venu 2 en 3.
+- Eindrun b87b243 (run 42925453166): 40 toetsen groen op fenix 7 en FR255, e2e groen op alle negen (EIS10 goed, "Hold times" in elk FIT-bestand), geheugen 7 procent (FR255 10).
+- Fout in de e2e, nog niet opgelost: de simulator bewaart de opslag van Ebb over horloges heen, dus na fenix 7 is de veiligheid al bevestigd en zien vivoactive 5, FR265 en fenix 8 meteen het menu (log: "S1 S2 ... NIET gezien"). Telt nu niet mee als fout. Volgende run: opslag van de app wissen voor elk horloge.
+- Ook gezien: op vivoactive 5 doet de Enter-toets in het menu niets (aanraakscherm), dus S2 en rustig ademen zijn daar niet met toetsen te testen; dat was al zo.
+
+**In drie regels:**
+1. Af: S1 en S2 in de code, trilling op 3:00 altijd, schema v5.4, Hold times, G3 tot G5, groen op negen.
+2. Open: opslag wissen per horloge in de e2e zodat S1 op alle vier getest wordt; S2 op aanraakhorloges met een tik in plaats van Enter.
+3. Volgende run: die twee e2e-punten; daarna wachten op het ja op blad v5.
