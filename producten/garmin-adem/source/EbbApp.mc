@@ -500,12 +500,13 @@ class EbbView extends WatchUi.View {
         var yKlein = 0.73;
         var font = EbbTeken.grootFont(dc, d);
         var donker = false;
+        var grootDx = 0;
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, 20% bij uit, 72% bij in (Mila 80%; lager zodat het fasewoord nooit onder water staat, beeld run 42800407029).
             var peilA = 0.2 + 0.52 * sessie.water(nu);
             EbbTeken.water(dc, d, peilA, EbbTeken.DIEPTE[0], golfFase);
             donker = peilA > EbbTeken.PEIL_DONKER;
-            woord = sessie.isIn(nu) ? "in" : "out";
+            woord = sessie.isIn(nu) ? "breathe in" : "breathe out";   // blad v6 scherm 2
             groot = sessie.ademhaling(nu).toString();
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
             // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,855; run 42826914263 gaf bij 0,84 maar 2 px ruimte op 260 px),
@@ -554,16 +555,31 @@ class EbbView extends WatchUi.View {
             var hr = EbbOpname.hartslag();
             klein = (hr > 0) ? hr + " bpm" : "";
         } else if (fase == Ebb.FASE_HERSTEL) {
-            // 3. Boven: water schiet in 0,5 s van 93% naar 72%, plons van vijf belletjes.
-            var peil = (t < 500) ? 0.93 - 0.21 * t / 500.0 : 0.72;
-            EbbTeken.water(dc, d, peil.toFloat(), EbbTeken.DIEPTE[0], golfFase);
-            donker = peil > EbbTeken.PEIL_DONKER;
-            EbbTeken.bellen(dc, d, [[0.22, 0.20, 0.022], [0.30, 0.12, 0.014], [0.50, 0.08, 0.018],
-                [0.70, 0.13, 0.012], [0.78, 0.22, 0.020]] as Array<Array<Float> >);
+            // Blad v6 scherm 4 (herstel): de zon komt op achter de zee (W0, W1, W2), bovenaan "big breath in, hold",
+            // groot de seconden met een kleine "s", onderaan "round 2 held 1:45".
+            var zr = (d * 0.12).toNumber();
+            dc.setColor(EbbTeken.GEEL, EbbTeken.GEEL);
+            dc.fillCircle(w / 2, (d * 0.66).toNumber(), zr);
+            EbbTeken.golf(dc, d, 0.64, d * 0.014, EbbTeken.ZEE_KLEUR[0], golfFase, true);
+            EbbTeken.golf(dc, d, 0.72, d * 0.008, EbbTeken.ZEE_KLEUR[1], golfFase + 1.3, false);
+            EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], golfFase + 2.6, false);
+            dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2, (d * 0.215).toNumber(), Graphics.FONT_SMALL, "big breath in, hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
-            klein = "big breath in, hold";   // keuring v5 G1: zeg wat je doet
-            yGroot = 0.30;
-            yKlein = 0.66;
+            var bs = dc.getTextWidthInPixels("s", Graphics.FONT_SMALL);
+            grootDx = -bs / 2 - 2;
+            yGroot = 0.415 - dc.getFontHeight(font).toFloat() / d / 2;
+            var leegH = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+            var onderH = (d * yGroot).toNumber() + (leegH > 0 ? leegH : 0) + Graphics.getFontAscent(font);
+            var bg = dc.getTextWidthInPixels(groot, font);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(w / 2 + grootDx + bg / 2 + 3, onderH - Graphics.getFontAscent(Graphics.FONT_SMALL), Graphics.FONT_SMALL, "s", Graphics.TEXT_JUSTIFY_LEFT);
+            var n = sessie.inhoudtijden.size();
+            if (n > 0) {
+                var hs = (sessie.inhoudtijden[n - 1] + 500) / 1000;
+                klein = "round " + n + " held " + (hs / 60).toString() + ":" + (hs % 60).format("%02d");
+            }
+            yKlein = 0.80 - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
         } else {
             // 4. Duikprofiel, of 5. getijdenlijn.
             if (getij) {
@@ -574,12 +590,12 @@ class EbbView extends WatchUi.View {
         }
         if (woord.length() > 0) {
             // Staat het lichte water tot boven, dan leest het zachte woord niet meer: dan donkerblauw.
-            dc.setColor(donker ? EbbTeken.DIEPTE[3] : EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(donker ? EbbTeken.DIEPTE[3] : EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, (d * 0.13).toNumber(), Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         if (groot.length() > 0) {
-            dc.drawText(w / 2, (d * yGroot).toNumber() + dc.getFontHeight(font) / 2, font, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2 + grootDx, (d * yGroot).toNumber() + dc.getFontHeight(font) / 2, font, groot, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         if (klein.length() > 0) {
             dc.setColor(fase == Ebb.FASE_INHOUDEN ? EbbTeken.ZACHT : Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
