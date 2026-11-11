@@ -599,7 +599,7 @@
 2. Crash sea complete en feest na Calm hersteld, blad v13 gebouwd en gezien, één fout in instellingen gevonden en hersteld.
 3. Volgende run eerst: beelden van 449abf8 nakijken (scène 19, eindschermen, scènes 37 en 38), dan keuring bouw 8 vragen.
 
-## Run 45 (11 nov 22:29 tot 23:15 UTC, elk uur): keuring bouw 8, terugbetalen, plan werelden
+## Run 45 (11 nov 22:29 tot 23:08 UTC, elk uur): keuring bouw 8, terugbetalen, plan werelden
 - Gelezen: berichten 22:55, 23:20 en 23:25 NL, besluit 23:13 (werelden) en 23:14, keuring bouw 8. De keuring keek naar 3598a84; mijn twee fixes van daarna (8b9b046, 449abf8) zaten er nog niet in.
 - E2e 43108922116 en plaatjesrun 43108922082 GROEN op 449abf8. Beelden FR255 en fenix 8 opgehaald en gemeten (rijen met tekst en met blauw, in het uitgesneden horlogebeeld; FR255 ±1 beeldpunt per px, fenix 8 ±0,55):
   - Scène 19: "settings" tot "Rounds 3" 9 px op FR255 en 11 beeldpunten (±20 px) op fenix 8. Punt 1 eerste helft was dus al opgelost door 8b9b046.
@@ -609,4 +609,13 @@
 - Terugbetalen (besluit hoofdchat 22:55 NL). De gewone pagina's van Garmin zijn met JavaScript opgebouwd, maar de bronartikelen zijn met curl te lezen: `developer.garmin.com/connect-iq/articles/monetization/App_Sales.html` en `Account_Management.html`. GEZIEN: "Funds are not captured from customers until the 48-hour return window has passed" en "Customers who have purchases still in their return window are allowed to request refunds". NIET GEZIEN: dat een verkoper zelf geld terugstuurt (woord refund komt in App_Sales niet voor). Dus de terugvalzin: "Refunds follow Garmin's Connect IQ Store policy: Garmin gives a 48-hour return window after you buy." in EN, DE en NL (winkeltekst v13). GOK: de koper vraagt het bij Garmin aan; hoe precies staat er niet.
 - Plan voor de werelden geschreven vóór Mila's blad, met de vorm waarin ze moet leveren: `platformen/garmin/werelden-techniek-2026-11-11.md`. Nog geen code: zonder haar eerste drie werelden valt er niets te bewijzen en lokaal bouwen kan niet.
 - Niet gedaan: Discard bewijzen in de simulator, graphics pool loggen, blok Nagekeken in de winkeltekst, winkelbeelden (wacht op Mila).
+- Uitslag 5a4e4ac: e2e 43113167756 GROEN (met de nieuwe toets) en plaatjesrun 43113167622 GROEN, geen crash. GEZIEN vergroot op FR255 en fenix 8 en gemeten: scène 20 één regel, 14 px boven en 8 px onder op FR255, 17 en ±12 beeldpunten op fenix 8; scène 18 tijden tot schuim 9 px op FR255 (eis 10) en 9 beeldpunten (±17 px) op fenix 8; menu "Today" in een pil met schuimrand, de rand raakte het puntje links ervan. Bijgesteld in e9fb33c: kamlijn 17 in plaats van 15, rand een derde van de tussenruimte in plaats van de helft. NIET GEZIEN.
+- Werelden, eerste bouw (edc0ad7): `Wereld.mc` met `EbbWereldData` (drie proefwerelden van mij: zeegras, rotsen, anemonen; geen ontwerp), `EbbWereldPlaatje` (strook van D x 0,40 D, één laag per beurt, try/catch en null-check rond het plaatje) en `EbbWereld.teken`. Aangehaakt in het inhoudscherm, maar staat uit behalve in de nieuwe scènes 39 tot 41 (`EbbWereld.proef`), zodat de gewone beelden en de winkelkaarten gelijk blijven. Log "GEHEUGEN WERELD" als de wereld af is. REGELS.md punt 7 en de kaart bijgewerkt. Lokaal bouwen kan niet, dus dit is blind geschreven: run 43116215667 op e9fb33c had na 3 minuten geen mislukte taak (de bouw duurt ±2 minuten), verder NIET bewezen.
+- Keuring bouw 8 punt 7: `SeaComplete.maak` schrijft de maat van het plaatje en het aantal mislukte pogingen in het log (edc0ad7).
+- De tijden in de eerste regels van deze run (status en berichten zeiden eerst 22:45 en 22:50) waren geschat; de metingen op 449abf8 waren rond 22:35 UTC.
+
+**In drie regels:**
+1. Keuring bouw 8 punt 1 tot 4 gebouwd, groen en in beeld gemeten; terugbetalen wordt het beleid van de winkel (48 uur), want zelf terugbetalen is nergens gezien.
+2. Eerste bouw van de werelden staat op de tak, met proefwerelden in drie testscènes; nog niet in beeld.
+3. Volgende run eerst: uitslag op e9fb33c en de drie wereldscènes bekijken, dan Mila's werelden erin.
 

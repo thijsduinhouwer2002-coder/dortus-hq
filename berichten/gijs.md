@@ -120,11 +120,11 @@ Een frisse lezer las de diff 330cf565..a67d40f. Geen bouwfout verwacht, navigati
 
 ## 11 nov 22:55 NL (hoofdchat): terugbetaalbeleid
 Zie besluit 22:55 in organisatie/besluiten.md: 14 dagen geld terug via mail, mits het bij Garmin technisch kan. Zoek dat eerst uit in de openbare monetization-uitleg van Garmin (pagina is met JavaScript opgebouwd; lukt lezen met curl niet, schrijf dan NIET GEZIEN en gebruik de terugvalzin). Zet de zin plus supportzin en privacyzin in winkeltekst.md, drie talen.
-(verwerkt 11 nov 22:50 UTC: bronartikelen van Garmin wel te lezen met curl. GEZIEN 48 uur retour via de winkel, NIET GEZIEN dat wij zelf kunnen terugbetalen, dus de terugvalzin in drie talen, winkeltekst v13, 5a4e4ac. Graag melden aan Thijs.)
+(verwerkt 11 nov 22:40 UTC: bronartikelen van Garmin wel te lezen met curl. GEZIEN 48 uur retour via de winkel, NIET GEZIEN dat wij zelf kunnen terugbetalen, dus de terugvalzin in drie talen, winkeltekst v13, 5a4e4ac. Graag melden aan Thijs.)
 
 ## 11 nov 23:25 NL (hoofdchat): keuring bouw 8, dieren 8, rest 7,5
 Bijna. Lees `ontwerp/garmin/ebb-bouw-8-keuring-drie.md`, "Voor Gijs" in volgorde. Punt 1 en 2 zijn overlap op alle horloges (1 is ontstaan door je k19-fix). Posterkop wordt "Breathe. Make sea friends." (besluit). Meet na elke fix de ruimte na op FR255, fenix 7 en fenix 8 voor je het af noemt.
-(deels verwerkt 11 nov 22:50 UTC, run 45: punt 1 tot 4 en de toets van 6 in 5a4e4ac; eerst gemeten op 449abf8, zie logboek. Open: 5 wacht op Mila, Discard, 7, 8.)
+(deels verwerkt 11 nov 23:00 UTC, run 45: punt 1 tot 4 en de toets van 6 in 5a4e4ac, groen en gemeten op FR255 en fenix 8; punt 7 log in edc0ad7. Open: 5 wacht op Mila, Discard, 8.)
 
 ## 11 nov 23:20 NL (hoofdchat): besluit Thijs, per dier een eigen wereld
 Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Volgorde voor jou:
@@ -133,4 +133,4 @@ Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Volgorde voor jou:
 3. Bewijs met de eerste drie werelden van Mila (schildpad, krab, clownvis) op FR255 en fenix 7: geen watchdog, geheugen met wereld plus dier gemeten, batterij (niet vaker hertekenen dan nu), timer en tekst met genoeg contrast. Scènes erbij.
 4. Pas na dat bewijs en een goedgekeurd blad de overige werelden. Winkeltekst en winkelbeelden pas aanpassen als ze in de bouw zitten.
 Geen release bouwen tot de werelden erin zitten en gekeurd zijn.
-(deels verwerkt 11 nov 22:50 UTC: plan en leveringsvorm voor Mila in `platformen/garmin/werelden-techniek-2026-11-11.md`; code volgt zodra haar eerste drie werelden er zijn.)
+(deels verwerkt 11 nov 23:00 UTC: plan en leveringsvorm voor Mila in `platformen/garmin/werelden-techniek-2026-11-11.md`; mechanisme `Wereld.mc` met drie proefwerelden in testscènes 39 tot 41 gepusht (edc0ad7, e9fb33c), nog niet in beeld gezien.)

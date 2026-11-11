@@ -1,6 +1,6 @@
-# Ebb: techniek voor een wereld per dier (voorstel Gijs, 11 nov 2026 22:50 UTC)
+# Ebb: techniek voor een wereld per dier (voorstel Gijs, 11 nov 2026 22:40 UTC)
 
-Besluit Thijs 11 nov 23:13 NL: elk dier krijgt een eigen stukje zee. Dit is het plan voor het mechanisme, geschreven vóór het blad van Mila, zodat haar werelden meteen in een vorm komen die het horloge aankan. Nog niets gebouwd. Wat hier GOK is wordt bewezen met de eerste drie werelden (schildpad, krab, clownvis) op FR255 en fenix 7.
+Besluit Thijs 11 nov 23:13 NL: elk dier krijgt een eigen stukje zee. Dit is het plan voor het mechanisme, geschreven vóór het blad van Mila, zodat haar werelden meteen in een vorm komen die het horloge aankan. Eerste bouw van het mechanisme staat sinds 23:00 UTC op de tak (`Wereld.mc`, edc0ad7), met drie proefwerelden van Gijs in testscènes; nog niet in beeld gezien. Wat hier GOK is wordt bewezen met de eerste drie werelden (schildpad, krab, clownvis) op FR255 en fenix 7.
 
 ## Wat het horloge aankan (GEZIEN in eerdere runs)
 - Een scherm dat te veel tekent in één beurt wordt afgebroken (watchdog). Daarom bouwen we een dier nu één keer op in een eigen plaatje, één laag per beurt, en plakken daarna alleen (`EbbDierPlaatje`, plaatjesrun 42963243152).
