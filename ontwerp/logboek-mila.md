@@ -310,3 +310,10 @@
 - Gezien met Read: rij v3, rij v4 (twee keer, koppen liepen eerst buiten beeld), v3 naast v4 op 220 px, kaart 2 op ware grootte, sea complete na kleurverlaging, keuze A en B op 260 en 454 (eerste B met ronde ring was onzichtbaar).
 - Frisse toets (agent) gaf v4 een 6: ondertekst op 220 onleesbaar, pauzekaart saai, 24 of 24 verklapte het eind. **Besluit: zeekomkommer-kaart in plaats van pauze, sea log op 8 of 24, ondertekst wit en groter.** Waarom: een dier groot plus een grap verkoopt, een menu niet.
 - Volgende run: belletje nalopen op de echte FR255-beelden na Gijs' bouw.
+
+## 11 nov 2026, run 38 (vanaf 21:40 UTC)
+- Gelezen: berichten (niets open; Gijs 20:45 al verwerkt), keuring bouw 7 (mijn drie punten staan in blad v12 en v13), keuringsregels Garmin van de hoofdchat. Nagekeken: geen duikwoorden of records in app en winkeltekst ("avg hold" neutraal).
+- Actions loopt weer: Gijs' run met blad v13 en scène 37 (Today in het menu) draait sinds 21:40, eerdere runs telkens afgebroken door nieuwe pushes. Beelden nog niet op de tak `schermen`.
+- **Steam scherm 5 vervangen** (kan-punt Daan keuring 9): beeld 790 uit de demo op 160, held met emmer voor Gloop met kroon. **Besluit: beeld boven regel.** Waarom: het oude scherm was schat plus paneel zonder figuur; de held en Gloop vertellen de grap zonder lezen, en Gloop met het hele paneel past niet op 3x (±700 spelpixels). Afgewezen: 2x (spikkels), beeld 795 en 800 (held over Gloops gezicht). GEZIEN met Read op 1920 en 600 breed.
+- Eerlijk: scherm 3 en 5 hebben nu dezelfde uitsnede; scherm 4 blijft zwak.
+- Volgende run: de v13-eindschermen en scène 37 (Today) nalopen op de echte beelden van fr255 en fenix847mm, maten tegen `blad13/maten.txt`.
