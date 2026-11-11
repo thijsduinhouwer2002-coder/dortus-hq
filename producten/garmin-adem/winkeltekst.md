@@ -25,7 +25,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v2.png` (Mila v2, Daan keuring 2).
-- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/` (v3, echte opnames uit de plaatjesbouw, gemaakt met `winkel/maak_winkel_v3.py`): `0-poster-v3.png` (inhouden met je dier en de sea log), `1-hold.png`, `2-new-friend.png`, `3-sea-log.png`, `4-calm.png`, `5-sea-complete.png`.
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/` (v3, echte opnames uit de plaatjesbouw, gemaakt met `winkel/maak_winkel_v3.py`): `0-poster-v3.png` (ontwerp Mila blad v10, `ontwerp/garmin/bron/poster_v3.py`, gevuld met de opname inhouden met dier s2 op fenix 8 van b39cd77), `1-hold.png`, `2-new-friend.png`, `3-sea-log.png`, `4-calm.png`, `5-sea-complete.png`.
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)

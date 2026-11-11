@@ -44,8 +44,10 @@ KAARTEN = [
 
 
 def alles(bron, uitmap, groot="fenix847mm", klein="fr255"):
+    # De poster in de winkel is Mila's ontwerp (blad v10): python3 ontwerp/garmin/bron/poster_v3.py <s2> 0-poster-v3.png.
+    # poster() hieronder is mijn eerdere proef en schrijft alleen nog 0-poster-proef.png.
     p = lambda h, k: os.path.join(bron, f"{h}-scene{k}.png")
-    poster(p(groot, 2), p(klein, 4), os.path.join(uitmap, "0-poster-v3.png"))
+    poster(p(groot, 2), p(klein, 4), os.path.join(uitmap, "0-poster-proef.png"))
     for k, naam, kop, koraal, onder in KAARTEN:
         # Sea complete van het kleine horloge: op 454 bouwt het feest in 120 beurten op (keuring bouw 5 punt 3),
         # op 260 staat het binnen de opnametijd helemaal.
