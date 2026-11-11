@@ -80,7 +80,8 @@ module EbbEindScherm {
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = EbbView.vandaag();
         var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + extra;
-        EbbTeken.weekStippen(dc, d, v.eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? v.plaatjeWeek : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
+        var bonusNu = v.nieuweDieren.size() > 0 && EbbTrouw.bonus(v.nieuweDieren[0]);
+        EbbTeken.weekStippen(dc, d, bonusNu ? -1 : v.eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? v.plaatjeWeek : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
     }
 
     function regel(tijden as Array<String>, van as Number, tot as Number) as String {

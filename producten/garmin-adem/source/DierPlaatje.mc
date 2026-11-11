@@ -112,6 +112,27 @@ class EbbDierPlaatje {
 module EbbDierVoorraad {
     var _plaatjes as Dictionary<String, EbbDierPlaatje> = {} as Dictionary<String, EbbDierPlaatje>;
 
+    // Bouwt het plaatje van dier i een laag verder zonder te plakken; true als het af is (dan plakt teken meteen).
+    function bereid(i as Number, maat as Number, soort as Number) as Boolean {
+        var sleutel = i + "/" + maat + "/" + soort;
+        var p = _plaatjes[sleutel];
+        if (p == null) {
+            if (_plaatjes.size() >= 4) {
+                _plaatjes = {} as Dictionary<String, EbbDierPlaatje>;
+            }
+            p = new EbbDierPlaatje(i, maat, soort);
+            _plaatjes[sleutel] = p;
+            WatchUi.requestUpdate();
+            return false;
+        }
+        if ((p as EbbDierPlaatje).klaar()) {
+            return true;
+        }
+        (p as EbbDierPlaatje).verder();
+        WatchUi.requestUpdate();
+        return false;
+    }
+
     // Tekent dier i (soort: EbbDierPlaatje.GEVONDEN, SILHOUET of SCHADUW) met zwaartepunt op (cx, cy); true als het er staat, anders volgt er een beurt.
     function teken(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, soort as Number) as Boolean {
         var sleutel = i + "/" + maat + "/" + soort;

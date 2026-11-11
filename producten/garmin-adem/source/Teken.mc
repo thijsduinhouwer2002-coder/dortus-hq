@@ -29,7 +29,10 @@ module EbbTeken {
         }
         dc.setPenWidth(1);
         var label = "";
-        if (reeks >= 1) {
+        // Reeks -1: de bonus (zeekomkommer) is net gevonden, die komt na een pauze (Mila blad v11 punt 1).
+        if (reeks < 0) {
+            label = "back after a break";
+        } else if (reeks >= 1) {
             label = reeks + (reeks == 1 ? " week in a row" : " weeks in a row");
         } else {
             var n = dezeWeek < doel ? dezeWeek : doel;

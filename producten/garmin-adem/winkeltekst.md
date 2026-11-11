@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 9, CONCEPT, Gijs, 11 nov 2026 08:45 UTC)
+# Ebb: winkeltekst (versie 10, CONCEPT, Gijs, 11 nov 2026 09:40 UTC)
+
+Versie 10: keuring bouw 6 punt 6 (`ontwerp/garmin/ebb-bouw-6-keuring-drie.md`). Titel wordt `Ebb: Breathing, Breath Hold Rounds & 4-7-8` (42 tekens): "Breathing" vooraan omdat daarop het meest gezocht wordt. "no account" wordt "no extra account" (een Garmin-account heb je wel nodig voor de winkel), ook in het Duits en Nederlands.
 
 Versie 9: keuring bouw 5 punt 2 en besluit 11 nov 09:30 punt 3 (`ontwerp/garmin/ebb-bouw-5-keuring-drie.md`): nieuwe winkelbeelden uit de bouw van nu (poster v3 en vijf kaarten), de oude beelden met meters en dieren voor langer inhouden zijn weg. Tekst zelf ongewijzigd. Nagekeken opnieuw tegen de code na het opruimen.
 
@@ -18,7 +20,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Velden in de Connect IQ-winkel (om letterlijk over te nemen bij het uploaden)
 - App type: Device App (watch-app). Bestand: `Ebb.iq` uit de release `ebb-v1.0.0` (niet de `-proef`).
-- Title (43 tekens): `Ebb: Breath Hold Rounds, Breathwork & 4-7-8`
+- Title (42 tekens): `Ebb: Breathing, Breath Hold Rounds & 4-7-8`
 - Category: Health & Fitness (bijna alle ademapps staan in categorie-id 219, GOK dat dat deze is)
 - Price: $4.99, eenmalig (paid app)
 - Description: de Engelse tekst hieronder, van "Breathing exercises" tot en met de regel "Tags:" (±2.700 tekens, onder de grens van 4.000).
@@ -72,7 +74,7 @@ Ebb is breathwork and dry breath hold practice on land. It is not a freediving o
 
 HONEST
 • One payment in the Garmin store.
-• No subscription, no unlock code by e-mail, no account, no phone app.
+• No subscription, no unlock code by e-mail, no extra account, no phone app.
 • No data leaves your watch, except the activity you choose to save to Garmin Connect.
 • Ebb will never nag you for a review.
 
@@ -97,7 +99,7 @@ Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atme
 • Nach jeder Sitzung deine Haltezeiten; heute deine Sitzungen als Balken (bis drei); über 8 Wochen Sitzungen pro Woche und deine durchschnittliche Haltezeit.
 • Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer ab 3:00 alle 30 Sekunden; Vibration ganz abschaltbar, außer ab 3:00. Touchscreen während der Sitzung gesperrt. Ebb macht keinen Ton.
 • Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
-• Einmal zahlen. Kein Abo, kein Code per E-Mail, kein Konto, keine Handy-App.
+• Einmal zahlen. Kein Abo, kein Code per E-Mail, kein zusätzliches Konto, keine Handy-App.
 
 Die App ist auf Englisch. Kein Freediving- oder Apnoe-Trainer, keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
@@ -114,7 +116,7 @@ Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ade
 • Na elke sessie je inhoudtijden; vandaag je sessies als staven (tot drie); over 8 weken sessies per week en je gemiddelde inhoudtijd.
 • Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd vanaf 3:00 elke 30 seconden; trillen helemaal uit te zetten, behalve vanaf 3:00. Aanraakscherm op slot tijdens een sessie. Ebb maakt geen geluid.
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
-• Eén keer betalen. Geen abonnement, geen code per mail, geen account, geen telefoonapp.
+• Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
 
 De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
@@ -130,4 +132,4 @@ Versie 9, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het oprui
 - Today hoogstens 3 sessies (`Vandaag.mc`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`Profiel.mc`, `Overzicht.mc`).
 - Horloges: de 28 in `manifest.xml`.
 - Winkelbeelden v3: elk horloge is een ongewijzigde opname uit de plaatjesbouw; poster en kaarten zeggen niets over meters of dieren voor langer inhouden (dieren komen door sessies en weken op rij, `TrouwDieren.mc`).
-- Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal. Geen review-vraag in de app. Titel 43 tekens, Duits 39, Nederlands 49 (grens 50).
+- Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal. Geen review-vraag in de app. Titel 42 tekens, Duits 39, Nederlands 49 (grens 50). Versie 10: "no extra account" klopt (alleen het Garmin-account dat je al hebt).

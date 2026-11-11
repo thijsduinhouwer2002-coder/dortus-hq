@@ -126,6 +126,30 @@ class DierenView extends WatchUi.View {
         }
     }
 
+    // Belletje (blad v11): ellips rx 30, ry 22 in 1/260 D om het midden van het dier, vlak 0055AA, rand 00FFFF
+    // (2 px onder 390, 3 px daarboven), wit glimpje linksboven, dan het dier er opnieuw in (zwaartepunt cx, cy).
+    function belletje(dc as Graphics.Dc, d as Number, i as Number, cx as Number, cy as Number, m as Number) as Void {
+        var soort = EbbTrouw.heeft(i) ? EbbDierPlaatje.GEVONDEN : EbbDierPlaatje.SILHOUET;
+        if (!EbbDierVoorraad.bereid(i, m, soort)) {
+            return;
+        }
+        var g = EbbDierMaat.grenzen(i);
+        var mx = cx + (g[0] + g[1]) * m / (2 * EbbDierData.SCHAAL);
+        var my = cy + (g[2] + g[3]) * m / (2 * EbbDierData.SCHAAL);
+        var rx = EbbTeken.px(d, 30);
+        var ry = EbbTeken.px(d, 22);
+        dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+        dc.fillEllipse(mx, my, rx, ry);
+        dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(d < 390 ? 2 : 3);
+        dc.drawEllipse(mx, my, rx, ry);
+        dc.setPenWidth(1);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_WHITE);
+        var gl = EbbTeken.px(d, 3);
+        dc.fillCircle(mx - rx * 62 / 100, my - ry * 50 / 100, gl < 2 ? 2 : gl);
+        EbbDierVoorraad.teken(dc, i, cx, cy, m, soort);
+    }
+
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var d = w < dc.getHeight() ? w : dc.getHeight();
@@ -158,6 +182,7 @@ class DierenView extends WatchUi.View {
         var pdc = plaatje.getDc();
         var gekozenY = 0;
         var gekozenX = 0;
+        var gekozenM = 0;
         var nu = 0;
         var n = opBlad(blad);
         for (var k = 0; k < n; k += 1) {
@@ -173,7 +198,8 @@ class DierenView extends WatchUi.View {
             }
             if (i == keuze) {
                 gekozenX = p[0];
-                gekozenY = p[1] + EbbDierMaat.grenzen(i)[3] * p[2] / EbbDierData.SCHAAL + EbbDierData.randPx(p[2]);
+                gekozenY = p[1];
+                gekozenM = p[2];
             }
         }
         _opbouwBeurt = false;
@@ -184,12 +210,11 @@ class DierenView extends WatchUi.View {
         if (blad == BLADEN - 1) {
             EbbTeken.tekst260(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
         }
-        // Keuzestip 2 px onder het gekozen dier (met zijn rand), in schuim.
-        var rs = (d * 0.011).toNumber();
-        rs = rs < 3 ? 3 : rs;
-        if (n > 1) {
-            dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
-            dc.fillCircle(gekozenX, gekozenY + 2 + rs, rs);
+        // Mila blad v11 punt 2 (keuring bouw 6 punt 5): de keuze is een belletje om het dier, geen stip eronder.
+        // Pas als het blad af is (de beurt kost dan alleen plakken), en pas als het losse dierplaatje klaar is,
+        // zodat het belletje het dier nooit even bedekt.
+        if (n > 1 && _getekend >= n) {
+            belletje(dc, d, keuze, gekozenX, gekozenY, gekozenM);
         }
         var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
         EbbTeken.tekst260(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
