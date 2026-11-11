@@ -206,7 +206,9 @@ class DierenView extends WatchUi.View {
         dc.drawBitmap(ox, oy, plaatje);
         // Tekst na het plaatje, zodat het zwarte raster de tekst niet bedekt (blad v9: kop y 28, telling 58, naam 184, regel 210).
         EbbTeken.tekst260(dc, d, 28, EbbTeken.fS(), "sea log", EbbTeken.SCHUIM);
-        EbbTeken.tekst260(dc, d, 58, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), EbbTeken.ZEE_KLEUR[0]);
+        // Keuring bouw 6 punt 6: de bonus telt zichtbaar mee ("24 of 24 + bonus").
+        var telling = EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal() + (EbbTrouw.heeft(EbbTrouw.ZEEKOMKOMMER) ? " + bonus" : "");
+        EbbTeken.tekst260(dc, d, 58, EbbTeken.fX(), telling, EbbTeken.ZEE_KLEUR[0]);
         if (blad == BLADEN - 1) {
             EbbTeken.tekst260(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
         }
