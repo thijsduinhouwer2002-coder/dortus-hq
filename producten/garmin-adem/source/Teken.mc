@@ -196,6 +196,10 @@ module EbbTeken {
     function zee(dc as Graphics.Dc, d as Number, stand as Number, fase as Float) as Void {
         var banden = EbbProfiel.ZEE[stand];
         var pct = amoled() ? EbbProfiel.amoledHelderheid(stand) : 100;
+        if (amoled()) {
+            zeeVerloop(dc, d, banden, pct, fase);
+            return;
+        }
         for (var b = 0; b < banden.size(); b += 2) {
             var kleur = ZEE_KLEUR[banden[b + 1]];
             if (pct < 100) {
@@ -208,6 +212,38 @@ module EbbTeken {
                 golf(dc, d, top, d * 0.008, kleur, fase + 1.3 * b, false);
             }
         }
+    }
+
+    // Daan B6 en D3, keuring bouw 1 punt 4: op AMOLED een zacht verloop in plaats van rechte banden. Onder de bovenste golf
+    // (met schuimkam) 18 smalle stroken met een lichte golf, de kleur loopt geleidelijk van band naar band.
+    const VERLOOP_STROKEN = 18;
+    function zeeVerloop(dc as Graphics.Dc, d as Number, banden as Array<Number>, pct as Number, fase as Float) as Void {
+        var top = banden[0] / 100.0;
+        var kleur0 = dimmer(ZEE_KLEUR[banden[1]], pct);
+        golf(dc, d, top, d * 0.014, kleur0, fase, true);
+        var n = banden.size() / 2;
+        for (var j = 1; j < VERLOOP_STROKEN; j += 1) {
+            var y = top + (1.0 - top) * j / VERLOOP_STROKEN;
+            // Band waarin y valt, en hoe ver naar de volgende grens (de laatste band loopt door tot 000055).
+            var b = 0;
+            while (b + 1 < n && banden[2 * (b + 1)] / 100.0 <= y) {
+                b += 1;
+            }
+            var van = banden[2 * b] / 100.0;
+            var tot = (b + 1 < n) ? banden[2 * (b + 1)] / 100.0 : 1.0;
+            var k1 = ZEE_KLEUR[banden[2 * b + 1]];
+            var k2 = (b + 1 < n) ? ZEE_KLEUR[banden[2 * (b + 1) + 1]] : ZEE_KLEUR[3];
+            var f = (tot > van) ? (y - van) / (tot - van) : 0.0;
+            golf(dc, d, y, d * 0.004, dimmer(meng(k1, k2, f), pct), fase + 0.35 * j, false);
+        }
+    }
+
+    // Kleur tussen a (f = 0) en b (f = 1).
+    function meng(a as Number, b as Number, f as Float) as Number {
+        var r = (((a >> 16) & 0xFF) * (1.0 - f) + ((b >> 16) & 0xFF) * f).toNumber();
+        var g = (((a >> 8) & 0xFF) * (1.0 - f) + ((b >> 8) & 0xFF) * f).toNumber();
+        var c = ((a & 0xFF) * (1.0 - f) + (b & 0xFF) * f).toNumber();
+        return (r << 16) | (g << 8) | c;
     }
 
     // Vlak vanaf hoogte top (deel van D vanaf boven) tot de onderkant, met een golvende bovenrand.
