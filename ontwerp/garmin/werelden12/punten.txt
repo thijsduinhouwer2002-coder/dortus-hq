@@ -1,0 +1,6 @@
+Turtle (zeegrasweide): 105 punten, 20 vlakken, 9 met p2, kleuren 13
+Crab (rotsen met verloren slipper): 107 punten, 19 vlakken, 0 met p2, kleuren 12
+Clownfish (anemoon met zwaaiende arm): 108 punten, 19 vlakken, 4 met p2, kleuren 14
+teksten die elkaar raken (minder dan 3 px ertussen): 0 []
+pixels buiten de 64 MIP-kleuren (alle schermen zonder letters): 0
+hoogste punt van alle werelden: y 120 (strook vanaf 118)
