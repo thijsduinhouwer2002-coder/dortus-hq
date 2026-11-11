@@ -21,7 +21,7 @@ Oorzaak van het rafelige: het silhouet krijgt nu de rand door het dier 4 keer sc
 ## 3. "Sea complete": een eigen feest
 Geen gewoon eindscherm meer. Eén keer in je leven, dus het mag knallen:
 - De zee staat hoog (kamlijn op y 77), de **walvis groot in het midden** (maat 38 op 260, 66 op 454, op y 108) met drie belletjes als fontein.
-- **De 23 andere vrienden zwemmen in een glimlach onder hem**, in twee bogen rond (130, 98): buitenboog straal 90 met 14 dieren van hoek 30° tot 150°, binnenboog straal 64 met 9 dieren van 42° tot 138° (90° is recht onder), maat 11 op 260 en 19 op 454, volgorde nr 1 tot 23. Dat is de grap: je hele zee lacht naar je.
+- **De 23 andere vrienden zwemmen in een glimlach onder hem**, in twee bogen rond (130, 98): buitenboog straal 93 met 14 dieren van hoek 32° tot 148°, binnenboog straal 62 met 9 dieren van 46° tot 134° (90° is recht onder), maat 11 op 260 en 19 op 454, volgorde nr 1 tot 23. Dat is de grap: je hele zee lacht naar je.
 - Tekst: "sea complete" in geel (SemiBold 23, y 26), "24 of 24 friends" in schuim (y 51), "12 weeks in a row" onderin (y 206).
 - **Geen tijden op dit scherm**: die staan één knop verder in het duikprofiel. Eerlijk: wat je ziet zijn je eigen 24 dieren.
 - Gemeten: 0 pixels buiten 0,85 R, kader op het midden.

@@ -287,3 +287,4 @@
 - **Besluit: volgend dier als zwarte schaduw met schuimrand.** Waarom: zwart werkt op elke zeetint, op AMOLED en MIP; "wie zwemt daar?".
 - Gemaakt: `bron/blad_v9.py`, `bron/fonts/` (Barlow Condensed, OFL), `blad9/`, `ebb-blad-v9.png`, `ebb-blad-v9.md`, `blad9/meting-v9.txt`, bericht Gijs.
 - Volgende run: na de bouw van Gijs v9 op de echte beelden nalopen; de binnenboog van sea complete op 260 iets ruimer als het past.
+- Tweede start (handmatig, 07:10-opdracht stond al af): bogen van sea complete verder uit elkaar (straal 93 en 62), zodat de twee rijen op 260 minder over elkaar vallen; nog steeds 0 pixels buiten 0,85 R.

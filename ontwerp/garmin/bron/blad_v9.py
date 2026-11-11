@@ -95,7 +95,7 @@ def sea_complete(D_, weken=12):
         dr.ellipse([x - rr, y - rr, x + rr, y + rr], outline=SCHUIM, width=max(1, round(s)))
     h.teken(dr, D[23], c, round(108 * s), 38 if D_ < 300 else 66)
     m = 11 if D_ < 300 else 19; mx, my = c, 98 * s
-    bogen = ((90, 14, 30, 150), (64, 9, 42, 138))      # straal, aantal, van hoek, tot hoek (graden, 90 = onder)
+    bogen = ((93, 14, 32, 148), (62, 9, 46, 134))      # straal, aantal, van hoek, tot hoek (graden, 90 = onder)
     nr = 0
     for R, n, a0, a1 in bogen:
         for i in range(n):
