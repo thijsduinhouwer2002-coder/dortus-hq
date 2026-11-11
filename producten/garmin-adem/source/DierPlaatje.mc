@@ -46,11 +46,6 @@ class EbbDierPlaatje {
         dc.clear();
     }
 
-    static function amoled() as Boolean {
-        var ds = System.getDeviceSettings();
-        return (ds has :requiresBurnInProtection) && ds.requiresBurnInProtection;
-    }
-
     // Aantal lagen van een dier van deze soort.
     static function lagenVan(s as Number) as Number {
         return s == GEVONDEN ? 5 : 9;

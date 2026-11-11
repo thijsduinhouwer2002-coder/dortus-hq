@@ -4,6 +4,7 @@
 # uit de plaatjesbouw (simulator), niets bijgetekend op het scherm.
 #   python3 maak_winkel_v3.py poster <inhouden-met-dier.png> <sea-log.png> <uit.png>
 #   python3 maak_winkel_v3.py kaart <simulator.png> "<kop>" "<koraalwoord>" "<ondertekst>" <uit.png>
+#   python3 maak_winkel_v3.py alles <map met <horloge>-scene<k>.png> <uitmap> [groot=fenix847mm] [klein=fr255]
 import os
 import sys
 
@@ -16,7 +17,7 @@ def poster(hoofd, klein, uit, W=1000, H=1000):
     """Eén beeld dat zegt wat Ebb is: ademrondes met inhouden, de zee, en zeevrienden die je vindt door terug te komen."""
     im = Image.new("RGB", (W, H), m.NACHT)
     d = ImageDraw.Draw(im)
-    m.kop_met_koraal(d, W, H * 0.03, "Breathe. Hold. Find friends.", "friends", m.letter(800, int(H * 0.098)))
+    m.kop_met_koraal(d, W, H * 0.03, "Breathe. Hold. Find friends.", "friends", m.letter(800, int(H * 0.088)))
     d.text((W / 2, H * 0.150), "Breath-hold rounds and calm breathing on your watch.", font=m.letter(500, int(H * 0.040)), fill=m.WIT, anchor="mt")
     d.text((W / 2, H * 0.200), "Come back, and the sea gives you a new friend: 24 to find.", font=m.letter(500, int(H * 0.040)), fill=m.TEAL, anchor="mt")
     # groot horloge: inhouden met je dier; klein horloge rechts ervoor: de sea log
@@ -32,9 +33,34 @@ def poster(hoofd, klein, uit, W=1000, H=1000):
     m.bewaar(im, uit)
 
 
+# Kaarten v3: scène in de plaatjesbouw (Scenes.mc), bestandsnaam, kop, koraalwoord, ondertekst.
+KAARTEN = [
+    (2, "1-hold.png", "Hold while easy.", "easy", "The sea darkens. Your sea friend swims along."),
+    (17, "2-new-friend.png", "A new friend.", "friend", "For sessions and weeks in a row, not long holds."),
+    (4, "3-sea-log.png", "Your sea log.", "sea", "24 sea friends to find, and one bonus."),
+    (7, "4-calm.png", "Calm 4-7-8.", "Calm", "Breathe in 4, hold 7, out 8, drawn as water."),
+    (25, "5-sea-complete.png", "Sea complete.", "complete", "Find all 24 and the whole sea comes to celebrate."),
+]
+
+
+def alles(bron, uitmap, groot="fenix847mm", klein="fr255"):
+    p = lambda h, k: os.path.join(bron, f"{h}-scene{k}.png")
+    poster(p(groot, 2), p(klein, 4), os.path.join(uitmap, "0-poster-v3.png"))
+    for k, naam, kop, koraal, onder in KAARTEN:
+        # Sea complete van het kleine horloge: op 454 bouwt het feest in 120 beurten op (keuring bouw 5 punt 3),
+        # op 260 staat het binnen de opnametijd helemaal.
+        h = klein if k == 25 else groot
+        if os.path.exists(p(h, k)):
+            m.kaart(p(h, k), kop, koraal, onder, os.path.join(uitmap, naam))
+        else:
+            print("ONTBREEKT", p(h, k))
+
+
 if __name__ == "__main__":
     a = sys.argv
     if a[1] == "poster":
         poster(a[2], a[3], a[4])
+    elif a[1] == "alles":
+        alles(*a[2:])
     elif a[1] == "kaart":
         m.kaart(a[2], a[3], a[4], a[5], a[6])

@@ -3,10 +3,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-// Sea log volgens blad v7 en v8 (keuring bouw 1 punt 8): raster 3 x 3 over drie bladen met Mila's dieren als data.
-// Gevonden dieren in eigen kleuren met witte stickerrand, de rest als silhouet met kenmerk. Bovenaan "sea log" en
-// "8 of 24", onderaan naam en eerlijk wat er nog nodig is, daaronder drie bladstippen. Omhoog en omlaag (of vegen)
-// verschuift de keuze; select kiest een gevonden dier dat met je meezwemt.
+// Maat en plaats van een dier in een vak (sea log, inhouden, eindschermen, menu).
 // Keuring bouw 3 punt 8 en 9: maten van een dier uit zijn eigen punten, zodat het in een vak past.
 module EbbDierMaat {
     // [links, rechts, boven, onder] in 1/SCHAAL van de diermaat.

@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 8, CONCEPT, Gijs, 11 nov 2026 06:15 UTC)
+# Ebb: winkeltekst (versie 9, CONCEPT, Gijs, 11 nov 2026 08:45 UTC)
+
+Versie 9: keuring bouw 5 punt 2 en besluit 11 nov 09:30 punt 3 (`ontwerp/garmin/ebb-bouw-5-keuring-drie.md`): nieuwe winkelbeelden uit de bouw van nu (poster v3 en vijf kaarten), de oude beelden met meters en dieren voor langer inhouden zijn weg. Tekst zelf ongewijzigd. Nagekeken opnieuw tegen de code na het opruimen.
 
 Versie 8: keuring bouw 4 punt 8 (`ontwerp/garmin/ebb-bouw-4-keuring-drie.md`): "the sea at the bottom rises and falls" in plaats van "the screen fills", trillen "from 3:00 on, every 30 seconds", "shows" in plaats van "says", Duits "Halte den Atem nur an", Nagekeken bijgewerkt.
 
@@ -23,7 +25,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v2.png` (Mila v2, Daan keuring 2).
-- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v2.png`, `1-dive.png`, `2-meet.png`, `3-sea-log.png`, `4-dive-profile.png`, `5-tide.png`, `6-breathe.png` (Mila v2, kaart 6 uit ed06841).
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/` (v3, echte opnames uit de plaatjesbouw, gemaakt met `winkel/maak_winkel_v3.py`): `0-poster-v3.png` (inhouden met je dier en de sea log), `1-hold.png`, `2-new-friend.png`, `3-sea-log.png`, `4-calm.png`, `5-sea-complete.png`.
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)
@@ -119,12 +121,13 @@ De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, ge
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
-Versie 8, elke zin tegen de code op tak `claude/garmin-2026-11-10b` (137df8c). Oudere versies staan in de git-geschiedenis van dit bestand.
-- Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`EbbApp.mc`, `Start.mc`, `InstellingenView.mc`); beeld calmcheck GEZIEN.
-- Twee per dag: `EbbTrouw.MAX_PER_DAG = 2` (`Profiel.mc`). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s).
-- Reeks in weken met weekdoel 2 tot 7, standaard 3, telt een week één keer: `EbbTrouw.weekStap`. Sea complete na alle 24: `tekenEinde` (scène einde-sea-complete).
-- Trillen aan of uit: `EbbInstellingen.zetTrillen`; trilling vanaf 3:00 elke 30 s altijd (`Trillen.mc` regel 38). "time to breathe" vanaf 3:00 als tekst bovenaan (`EbbApp.mc`, `s < 180`). Zee onderaan stijgt bij in en zakt bij uit (ademscherm, blad 2). Buzz every 30 s en last 3 breaths: instellingen `tik30`, `laatste3`.
+Versie 9, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het opruimen (b39cd77 en later). Oudere versies staan in de git-geschiedenis van dit bestand.
+- Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`StartCheck.mc`); beeld calmcheck GEZIEN.
+- Twee per dag: `EbbTrouw.MAX_PER_DAG = 2` (`Trouw.mc`). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s).
+- Reeks in weken met weekdoel 2 tot 7, standaard 3, telt een week één keer: `EbbTrouw.weekStap` (`Trouw.mc`). Sea complete na alle 24: `EbbSeaComplete` (`SeaComplete.mc`, scène einde-sea-complete).
+- Trillen aan of uit: `EbbInstellingen.zetTrillen` (`Instellingen.mc`); trilling vanaf 3:00 elke 30 s altijd (`Trillen.mc`). "time to breathe" vanaf 3:00 bovenaan (`SessieScherm.mc`, `s < 180`). Zee onderaan stijgt bij in en zakt bij uit (`EbbZee.ademZee`). Buzz every 30 s en last 3 breaths: `tik30`, `laatste3` (`Instellingen.mc`).
 - My pattern: `EbbInstellingen.eigenPatroon` (in, vast, uit, leeg).
-- Today hoogstens 3 sessies (`EbbVandaag`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`EbbProfiel.weken`).
-- Horloges: de 28 in `manifest.xml`; .iq-bouw groen voor alle 28 (run 42963243152).
-- Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal (Daan, keuring winkelbeelden 1). Geen review-vraag in de app (logboek 10 nov 16:30). Titel 43 tekens, Duits 39, Nederlands 49 (grens 50).
+- Today hoogstens 3 sessies (`Vandaag.mc`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`Profiel.mc`, `Overzicht.mc`).
+- Horloges: de 28 in `manifest.xml`.
+- Winkelbeelden v3: elk horloge is een ongewijzigde opname uit de plaatjesbouw; poster en kaarten zeggen niets over meters of dieren voor langer inhouden (dieren komen door sessies en weken op rij, `TrouwDieren.mc`).
+- Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal. Geen review-vraag in de app. Titel 43 tekens, Duits 39, Nederlands 49 (grens 50).
