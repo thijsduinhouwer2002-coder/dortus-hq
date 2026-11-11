@@ -22,8 +22,8 @@ v3.TINT.update({
     'kreeft':     ((255,85,85),   (255,170,170), (170,0,0)),     # lichter: haalt 3:1 op 0000AA
 })
 RAND = dict(dv5.RAND); RAND.update({'orka': (170,170,255), 'manta': (85,85,85), 'kreeft': (255,170,170)})
-DIK = {'orka'}                           # rand 2 px, ook op 260
-GROTER = {'walvis': 1.30, 'reuzeninkt': 1.25, 'orka': 1.10, 'haai': 1.10, 'otter': 1.15, 'zeehond': 1.10}   # zeldzaam = groter, in de sea log en op 6b
+DIK = {'orka', 'kreeft'}                           # rand 2 px, ook op 260
+GROTER = {'walvis': 1.30, 'reuzeninkt': 1.25, 'orka': 1.15, 'kreeft': 1.20, 'haai': 1.10, 'otter': 1.15, 'zeehond': 1.10}   # zeldzaam = groter, in de sea log en op 6b
 SIL = (0,0,85); SIL_RAND = (0,85,170)   # v6.3: rustiger (keuring v6.1), rand leest op zwart en op 0000AA
 
 def delen_v6(soort):
@@ -44,6 +44,16 @@ def delen_v6(soort):
         staart = [(0.70,-0.04),(1.02,-0.34),(0.94,0.0),(1.02,0.30)]
         flip = [(-0.38,0.20),(-0.22,0.50),(-0.08,0.22)]
         return [(staart,'donker'), (flip,'donker'), (tand,'licht'), (lijf,'lijf'), (buik,'licht')] + vlek + ribbel, [(-0.50,-0.10)]
+    if soort == 'dolfijn':  # dolfijn: ronde kop met duidelijke snavel, gebogen rugvin, glimlach (haai heeft spitse kop en kieuwen)
+        lijf = bez((-0.70,-0.02),(-0.55,-0.38),(0.30,-0.28),10) + bez((0.30,-0.28),(0.70,-0.16),(0.84,-0.04),6) \
+             + bez((0.84,-0.04),(0.55,0.22),(0.05,0.24),6) + bez((0.05,0.24),(-0.50,0.24),(-0.70,0.06),8)
+        snavel = [(-0.66,-0.04),(-1.04,0.02),(-1.04,0.08),(-0.64,0.10)]
+        buik = bez((-0.95,0.06),(-0.40,0.02),(0.30,0.15),6) + bez((0.30,0.15),(-0.40,0.25),(-0.95,0.09),6)
+        vin = bez((-0.10,-0.30),(0.05,-0.62),(0.32,-0.66),5) + bez((0.32,-0.66),(0.14,-0.48),(0.22,-0.28),5)
+        staart = [(0.78,-0.06),(1.06,-0.34),(0.98,-0.02),(1.08,0.24)]
+        flip = [(-0.30,0.18),(-0.08,0.48),(0.02,0.20)]
+        mond = [(-1.02,0.05),(-0.66,0.08),(-0.64,0.10),(-1.02,0.07)]
+        return [(staart,'lijf'), (vin,'donker'), (flip,'donker'), (lijf,'lijf'), (snavel,'lijf'), (buik,'licht'), (mond,'donker')], [(-0.50,-0.10)]
     if soort == 'otter':    # zeeotter drijft op zijn rug: lang lijf, witte kop links, buik boven met witte schelp, voeten omhoog
         lijf = bez((-0.55,0.05),(-0.10,-0.30),(0.60,-0.10),8) + bez((0.60,-0.10),(0.80,0.0),(0.70,0.18),4) \
              + bez((0.70,0.18),(0.10,0.32),(-0.55,0.22),8)

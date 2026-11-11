@@ -230,6 +230,7 @@ def s_rooster6(D, pagina, gevonden=7, kies=3):
     else:
         tekst(d, D, (D/2, D*0.140), 'sea log', D*0.075, TITEL)
         tekst(d, D, (D/2, D*0.215), f'{gevonden} of 24', D*0.060, LICHTCYAAN)
+    rooster = leeg(D); rd = ImageDraw.Draw(rooster)
     xs = (-0.25, 0, 0.25); ys = (0.37, 0.555, 0.74)
     opp = (D*0.112)**2*0.55
     n_op = min(9, 25 - pagina*9)
@@ -238,11 +239,17 @@ def s_rooster6(D, pagina, gevonden=7, kies=3):
         rij_n = min(3, n_op - r_*3)                          # halve laatste rij in het midden
         x = D/2 + (xs[k_] + (3 - rij_n)*0.125)*D; y = ys[r_]*D
         sc = v3.schaal_voor_gewicht(soort, opp) * dv6.GROTER.get(soort, 1)
-        if n == kies:
-            rr = D*0.098; d.ellipse([x-rr, y-rr, x+rr, y+rr], outline=SCHUIM, width=max(1, round(D/200)))
-        if n < gevonden: dier(im, soort, x, y, sc)
-        else: silhouet6(im, D, soort, x, y, sc*0.92, n+1 if n < 24 else '+')
-        d = ImageDraw.Draw(im)
+        if n == kies:   # v6.4: gekozen = schuimkleurige stip onder het dier (een ring trok het raster scheef)
+            rr = D*0.012; rd.ellipse([x-rr, y+D*0.075-rr, x+rr, y+D*0.075+rr], fill=SCHUIM)
+        if n < gevonden: dier(rooster, soort, x, y, sc)
+        else: silhouet6(rooster, D, soort, x, y, sc*0.92, n+1 if n < 24 else '+')
+        rd = ImageDraw.Draw(rooster)
+    # optisch centreren: het raster als geheel zo schuiven dat zijn zwaartepunt (licht gewogen) in het midden ligt, hoogstens 6 px op 260
+    a = np.array(rooster).astype(float).sum(axis=2); xs_ = np.arange(D)[None, :] + 0.5
+    dx = 0 if a.sum() == 0 else (a*xs_).sum()/a.sum() - D/2
+    dx = max(-D*0.023, min(D*0.023, dx))
+    im.paste(rooster, (int(round(-dx)), 0), Image.fromarray((a > 0).astype('uint8')*255))
+    d = ImageDraw.Draw(im)
     tekst(d, D, (D/2, D*0.862), f'{pagina+1} / 3', D*0.058, LICHTCYAAN)
     rand(im, D); return im
 def s_rooster_1(D): return s_rooster6(D, 0)
@@ -267,12 +274,27 @@ def s_zeelog6(D):
     tekst(d, D, (D/2, D*0.775), 'joins your holds', D*0.066, WIT)
     rand(im, D); return im
 
+# v6.4: veiligheid in duidelijker woorden (keuring v6.3); Gijs zet dezelfde tekst in EbbVeiligTekst
+def s_veilig_a(D): return veilig(D, ['Sit or lie down.', 'Never while standing,', 'never in or near water,', 'never while driving.'], None, 'Next')
+def s_veilig_c(D): return veilig(D, ['Not if: pregnant,', 'under 18, epilepsy,', 'heart or blood', 'pressure problems.'], 'Not a medical device.', 'OK')
+
+def met_strook(fn):
+    """v6.4: dunne zeestrook onderaan, zoals menu en start, zodat elk scherm bij dezelfde zee hoort. Alleen op zwarte pixels."""
+    def scherm(D):
+        im = fn(D); st = leeg(D)
+        zee(st, D, [(D*0.885, W1), (D*0.935, W2)], amp=D*0.008)
+        zwart = (np.array(im).sum(axis=2) == 0)
+        im.paste(st, (0, 0), Image.fromarray(zwart.astype('uint8')*255))
+        rand(im, D); return im
+    scherm.__name__ = fn.__name__
+    return scherm
+
 SCHERMEN = [('1 menu', s_menu6), ('1b start', s_start6), ('2 ademen', s_ademen6), ('3a hold 0:30', s_duik_a),
             ('3b hold 1:45', s_duik_b), ('3d hold 2:30', s_duik_d), ('3c hold 3:04', s_duik_c), ('4 herstel', s_boven6),
-            ('5 rustig 4-7-8', v3.s_rustig), ('6 today', s_today6), ('6b einde met dier', s_einde6), ('6c einde zonder dier', s_einde_gewoon6),
-            ('7 8 weeks', s_weken6), ('8 sea log 1 van 3', s_rooster_1), ('8b sea log 2 van 3', s_rooster_2), ('8d sea log 3 van 3', s_rooster_3),
-            ('8c sea log dier', s_zeelog6), ('9 settings', s_instel_a), ('9b settings', s_instel_b), ('10 veilig 1', v5.s_veilig_a),
-            ('10b veilig 2', v5.s_veilig_b), ('10c veilig 3', v5.s_veilig_c)]
+            ('5 rustig 4-7-8', v3.s_rustig), ('6 today', met_strook(s_today6)), ('6b einde met dier', s_einde6), ('6c einde zonder dier', s_einde_gewoon6),
+            ('7 8 weeks', met_strook(s_weken6)), ('8 sea log 1 van 3', s_rooster_1), ('8b sea log 2 van 3', s_rooster_2), ('8d sea log 3 van 3', s_rooster_3),
+            ('8c sea log dier', s_zeelog6), ('9 settings', met_strook(s_instel_a)), ('9b settings', met_strook(s_instel_b)), ('10 veilig 1', met_strook(s_veilig_a)),
+            ('10b veilig 2', met_strook(v5.s_veilig_b)), ('10c veilig 3', met_strook(s_veilig_c))]
 
 def tekst_r(im, D):
     """Verste witte, lichtcyaan, schuim- of gele pixel (tekst) tot het midden, als deel van de straal."""
@@ -285,7 +307,7 @@ def tekst_r(im, D):
     from scipy import ndimage
     lab, n = ndimage.label(m, structure=np.ones((3, 3)))
     for i, sl in enumerate(ndimage.find_objects(lab), 1):
-        if sl[1].stop - sl[1].start > 0.6*D or sl[0].stop < 0.16*D: m[lab == i] = False   # golflijn of schuim bovenin
+        if sl[1].stop - sl[1].start > 0.6*D or sl[0].stop < 0.16*D or sl[0].start > 0.86*D: m[lab == i] = False   # golflijn of schuim bovenin
     if os.environ.get('WAAR'):
         yy, xx = np.unravel_index(np.argmax(np.where(m, r, 0)), r.shape); print('   verst bij', xx, yy)
     return float(r[m].max()) if m.any() else 0
