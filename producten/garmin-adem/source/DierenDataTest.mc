@@ -44,11 +44,11 @@ function testDierenData(logger as Test.Logger) as Boolean {
 (:test)
 function testSeaLogEcht(logger as Test.Logger) as Boolean {
     var goed = true;
-    var view0 = new DierenView();
     var maten = [260, 454] as Array<Number>;
     for (var m = 0; m < 2; m += 1) {
         var d = maten[m];
-        var bmp = Graphics.createBufferedBitmap({:width => d, :height => d, :palette => view0.palet()}).get() as Graphics.BufferedBitmap;
+        // Zonder palet: tekst met zachte randen kan niet in een plaatje met palet (de sea log zet tekst op het scherm zelf).
+        var bmp = Graphics.createBufferedBitmap({:width => d, :height => d}).get() as Graphics.BufferedBitmap;
         var dc = bmp.getDc();
         for (var alles = 0; alles < 2; alles += 1) {
             EbbTrouw.wis();
