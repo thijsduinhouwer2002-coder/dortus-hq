@@ -14,7 +14,8 @@ module EbbTeken {
     const LICHT = 0xFFFFAA;
     // Boven dit peil raakt het lichte water het fasewoord bovenaan; dan wordt het woord donkerblauw.
     const PEIL_DONKER = 0.74;
-    const DIEPTE = [0x00AAAA, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
+    // Daan bouwkeuring 1 B1: ademen en rustig in het blauw van het blad (00AAFF), niet turkoois.
+    const DIEPTE = [0x00AAFF, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
     const GOLF_PUNTEN = 28;
 
     // Water met een golvende rand: peil is de hoogte vanaf de onderkant als deel van D, fase schuift de golf op.
