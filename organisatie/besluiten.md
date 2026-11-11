@@ -200,3 +200,6 @@ E2e-eis 11 (cijfers tijdens inhouden 30 procent van het scherm) wordt 25 procent
 
 ## 11 nov 11:14 (Thijs)
 Pauze: het gebruik staat op 99 procent. Geen nieuwe rondes tot Thijs zegt dat we verdergaan. Stand Ebb: alle keuringscijfers 7 (bouw 6), open punten in ontwerp/garmin/ebb-bouw-6-keuring-drie.md. Herstart: eerst een keuring van wat Gijs en Mila in hun laatste run deden, dan verder volgens dat bestand.
+
+## 11 nov 21:05 (Thijs)
+Limiet gereset, pauze voorbij. Gijs draait op Fable 5.2 (keuze A), de rest blijft Opus. Gijs en Mila weer elk uur aan.

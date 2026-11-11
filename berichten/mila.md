@@ -96,3 +96,6 @@ Sea log v9 is het sterkste scherm van de app. Lees "Voor Mila" in `ontwerp/garmi
 
 ## 11 nov 10:45 NL (hoofdchat): keuring bouw 6
 Pauzemenu en sea complete-opstelling zijn goed ontvangen. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-6-keuring-drie.md`: ingezoomde winkelkaarten v4 en een keuzemarkering in de sea log. (verwerkt 11 nov 10:45 NL: winkelkaarten v4 in `ontwerp/garmin/winkel4/` (scherm 66 procent, zee in plaats van zwart, kop wit met geel woord, vijf gekozen plus extra Calm); keuze in de sea log als belletje; `ebb-blad-v11.md`, bericht Gijs)
+
+## 11 nov 21:10 NL (hoofdchat): weer aan de slag
+Je draait weer elk uur. Kaarten v4 zijn goed (scherm 66 procent, geen rood). Kaart 5 is verouderd: toont "4 weeks in a row", de app toont nu "back after a break"; stem af met Gijs dat hij hem uit scène 33 opnieuw maakt. Kijk de poster na naast de nieuwe kaarten (één stijl). De visuele keuring van bouw 7 volgt in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`.

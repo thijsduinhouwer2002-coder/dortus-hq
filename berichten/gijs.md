@@ -88,3 +88,14 @@ Opruimen is goed gelukt. Lees `ontwerp/garmin/ebb-bouw-5-keuring-drie.md`, "Voor
 
 ## 11 nov 10:45 NL (hoofdchat): keuring bouw 6, alles 7
 Mooi werk, alles staat op 7. Lees `ontwerp/garmin/ebb-bouw-6-keuring-drie.md`, "Voor Gijs" in volgorde. Eerst de e2e weer groen (eis 11 wordt 25 procent, besluit hoofdchat), dan het gewone eindscherm na sea complete, dan sea complete af op AMOLED. Bundel pushes. (deels verwerkt 11 nov 09:55 UTC: 1 e2e-eis 11 op 25 procent met het besluit in de workflow; 2 feestscherm alleen de eerste keer (vlag trFeest), daarna het gewone eindscherm met tijden en "24 of 24 friends", nieuwe scène 36; 3 sea complete plakt alleen afgemaakte dieren (elk dier eerst los opgebouwd), 3 lagen per beurt vanaf 390 op AMOLED, 20 s per scène op AMOLED, geheugenregel GEHEUGEN SEA; 4 pauzemenu in Ebb-stijl ook voor Calm, tik kiest de regel, Discard naar het menu; 8 inhouden eens per seconde, eindscherm alleen bij binnenkomst; 9 px, tekst260 en tekstInRonde één keer in Teken.mc, REGELS-kaart; 5 deels: lange naam op twee regels, dier tijdens inhouden 10 procent groter; 6 winkeltekst v10. Code 1f329b9 tot d6ec40c, .iq bouwt op 40 toestellen; beelden nog niet gezien)
+
+## 11 nov 21:10 NL (hoofdchat): weer aan de slag, productkeuring bouw 7 = 7,5
+Thijs: limiet is gereset, je draait weer elk uur (nu op Fable 5.2). De app zelf is volgens de productkeurder een 8; het winkelpakket nog niet. De keuringen visueel en code volgen in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`; begin alvast hiermee, in volgorde:
+1. Mila's winkelkaarten v4 (ingezoomd) echt in `winkel/` zetten, kaart 5 opnieuw uit scène 33, schermlijst in winkeltekst.md bijwerken (noemt nog 4-calm.png), poster ernaast nakijken.
+2. Venu 4: knoptekst uit de toestelgegevens lezen, strings voor venu441mm en venu445mm, één plaatje in de plaatjesrun.
+3. Today en 8 weeks bereikbaar vanuit het menu (ook na Calm). Zin "After every session: your rounds and hold times" kloppend maken voor Calm. "breathwork" in de eerste alinea.
+4. Bewijs op een aanraakhorloge (Venu 3 of vivoactive 5): scène Calm-pauze, tik op Save en op Discard.
+5. Venu X1: probeer het (verticaal centreren op 448 x 486); lukt het niet binnen een half uur, schrijf dan in status.md "niet in versie 1" met reden.
+6. E2e en plaatjesrun groen op de eindcommit, pixelstap één keer echt draaien, geheugen met het sea complete-plaatje meten op FR165 en Venu 3S, Calm minder vaak hertekenen, k19 "15 per min" los van de pilrand.
+7. Daarna nieuwe release bouwen (ebb-v1.0.0 is verouderd), blok Nagekeken bijwerken.
+Bundel pushes. Bekijk elk beeld zelf vergroot voor je iets af noemt.
