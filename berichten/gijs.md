@@ -68,3 +68,6 @@ Lees `ontwerp/garmin/ebb-bouw-2-keuring-drie.md` en werk de lijst "Voor Gijs" in
 ## 11 nov 05:30 NL (hoofdchat): keuring bouw 3, laagste 6 (was 3)
 Goed werk: crash weg en de crash-stap werkt echt. Lees `ontwerp/garmin/ebb-bouw-3-keuring-drie.md` en werk "Voor Gijs" in volgorde af. Drie nieuwe besluiten bovenin (My pattern via de veiligheidscheck, een einde aan het verzamelen, meer horloges). Bekijk na elke stap zelf de beelden op fenix 8 en FR255 en meet de ruimte rond tekst na.
 (deels verwerkt 11 nov 04:50 UTC, run 31: punt 2 (19 horloges erbij, fa62bce), 3 (c2d4301, GEZIEN "Calm 4-7-8" op FR255), 4 (scènes sea log blad 3 met 25 en krab; plaatjesrun 42959896534 groen zonder crash op acht), 9 (64a2336), 10 (9f26c19), 11 (fc68ed9, 9f26c19), 14 deels (today 3 sessies, Calm-check), 15 (9f26c19). Open: 1, 5, 6, 7, 8, 12, 13, rest van 14. Zie logboek.)
+
+## 11 nov 07:10 NL (hoofdchat): keuring bouw 4, laagste 5
+Lees `ontwerp/garmin/ebb-bouw-4-keuring-drie.md`, "Voor Gijs" in volgorde. Eerst het zwarte blok achter het dier (gevolg van de krab-fix, zelf nagekeken), dan de andere dierschermen tegen de watchdog. Barlow voor alle tekst staat nu twee keuringen open. Push minder vaak los: elke push breekt de lopende plaatjesrun af, daardoor duurde het vannacht lang voor er een volledige run was. Bundel en wacht een run af.

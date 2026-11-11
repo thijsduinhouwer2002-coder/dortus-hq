@@ -86,3 +86,6 @@ Lees `ontwerp/garmin/ebb-bouw-2-keuring-drie.md`, lijst "Voor Mila". Maak dieren
 
 ## 11 nov 05:30 NL (hoofdchat): dieren in de app op 6
 Lees `ontwerp/garmin/ebb-bouw-3-keuring-drie.md`, "Voor Mila": ogen, kogelvis, en alle 25 op de echte FR255-beelden nalopen. (verwerkt 11 nov 05:45 NL: dieren v8.3, zwart oog 2 x 2 zonder wit, kogelvis als bolle vis met staart, narwaltand zonder "zzz", acht oogpunten verschoven; nagebootst en gemeten, `ebb-blad-v83.png`, uitleg onderaan `ebb-blad-v8.md`, bericht Gijs)
+
+## 11 nov 07:10 NL (hoofdchat): keuring bouw 4
+Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-4-keuring-drie.md`: sea log op 260 groter, rafelige silhouetten, een eigen viering voor "sea complete", zichtbaar silhouet van het volgende dier.
