@@ -1,5 +1,5 @@
  1 Fish           148 bytes, 40 punten max, vorm wijkt af: 1.8%
- 2 Shrimp         340 bytes, 40 punten max, vorm wijkt af: 1.1%
+ 2 Shrimp         270 bytes, 32 punten max, vorm wijkt af: 2.9%
  3 Jellyfish      302 bytes, 42 punten max, vorm wijkt af: 2.4%
  4 Turtle         176 bytes, 24 punten max, vorm wijkt af: 2.2%
  5 Crab           548 bytes, 40 punten max, vorm wijkt af: 3.4%
@@ -22,5 +22,5 @@
 22 Giant squid    206 bytes, 22 punten max, vorm wijkt af: 4.7%
 23 Lobster        426 bytes, 27 punten max, vorm wijkt af: 5.5%
 24 Whale          170 bytes, 25 punten max, vorm wijkt af: 2.5%
-25 Sea cucumber   484 bytes, 32 punten max, vorm wijkt af: 1.9%
-totaal 6280 bytes
+25 Sea cucumber   544 bytes, 32 punten max, vorm wijkt af: 2.5%
+totaal 6270 bytes

@@ -249,3 +249,10 @@
 - Gezien met Read: alle 25 op 260 vergroot, gevonden en silhouet, en het blad. Eerste poging maakte armen dicht (reuzeninktvis werd een klok); nu sluiten alleen bij de krab en een vuldeel voor de garnaal.
 - Volgende run: zeeotter als omtrek is nog een blok; maanvis blijft hoog (30 x 37); contrastmeting v7 opnieuw draaien op v8.
 - Daan L2 (6c te vol) meteen verwerkt in blad v8: rustdag-zin alleen na een rustdag. L1 (pil Next op 1c) hoort bij v7-scherm 1c, volgende run.
+
+## 11 nov 2026, run 29 (nachtronde hoofdchat 02:58 NL, alleen Ebb)
+- Opdracht van de nachtronde viel samen met run 28 (dieren v8 stond al); erbij: alle dieren als omtrek op 260 zonder naam op het blad, en zelf toetsen.
+- Omtrektoets eerlijk gedaan (geschud, eerst benoemen, dan sleutel): v8 22 van 25, mis garnaal, otter, zeekomkommer. Die drie opnieuw (v8.1): 24 van 25, otter blijft twijfel.
+- **Besluit: garnaal als open C** in plaats van de krul naar binnen. Waarom: de keuring wil geen binnenlijnen, en een gevulde krul maakt een bol; een open C heeft van zichzelf geen binnenlijn en blijft een garnaal.
+- Bestanden: `ebb-blad-v8.png` (met omtrekrij), `dieren8/omtrek-*.png`, sleutel, json v8.1, bericht Gijs.
+- Volgende run: otter nog sterker als omtrek; L1 op 1c; contrastmeting op v8.

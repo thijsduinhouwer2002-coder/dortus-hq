@@ -1,9 +1,9 @@
-# Ebb blad v8: dieren v8 en sea log (Mila, 11 nov run 28)
+# Ebb blad v8 (stand v8.1): dieren v8 en sea log (Mila, 11 nov run 28 en 29)
 
 **Opdracht:** "Voor Mila" in `ebb-bouw-1-keuring-drie.md` (dieren v8, sea log, verhaallijn, data voor Gijs).
 **Dieren:** `ebb-dieren-v8.png` (alle 25 in het vak 40 x 32 van de sea log op 260; boven gevonden op 0000AA, onder niet gevonden op zwart), vergroot `dieren8/overzicht-v8-3x.png`, maten `dieren8/maten-v8.txt`.
 **Blad:** `ebb-blad-v8.png` (6 schermen, links 454, rechts 260 op ware grootte), losse beelden en meting in `blad8/`.
-**Data voor Gijs:** `ebb-dieren-v8-data.json` (zelfde formaat als v7, 6280 bytes, controle `blad8/data-v8.txt`).
+**Data voor Gijs:** `ebb-dieren-v8-data.json` (zelfde formaat als v7, 6270 bytes, controle `blad8/data-v8.txt`).
 **Bron:** `bron/ebb_dieren_v8.py`, `bron/ebb_blad_v8.py`, `bron/exporteer_dieren_v8.py`, `bron/overzicht_dieren_v8.py` (bouwen op v7).
 
 ## Afvinklijst (keuring bouw 1, voor Mila)
@@ -22,8 +22,15 @@ Vorm x op alle zes schermen binnen 0,4 px van het midden; 0 pixels buiten de 64 
 
 ## Voor Gijs
 - `ebb-dieren-v8-data.json`, formaat als v7 (int8 in 1/90, op het zwaartepunt, hoogstens 42 punten). Nieuw: **rol 7 = licht_k, rol 8 = donker_k**. Gevonden: teken ze als rol 1 en 2. Silhouet: eerst de buitenvorm (alle delen in 00AAFF, 2 px verschoven, dan alle delen in 000055), daarna alleen rol 7 en 8 in 00AAFF erover. Rol 6 (`zz`) komt niet meer voor.
-- **Rol 9 = sil**: alleen in het silhouet (vult de krul van de garnaal, zodat de omtrek geen binnenlijnen heeft); gevonden sla je hem over. Alleen de garnaal heeft er een. Andere gaten ontstaan op het horloge niet, omdat je volle veelhoeken tekent.
+- **v8.1: rol 10 = muts_k** (schelp van de zeeotter: gevonden in MUTS 5555FF, als silhouet in 00AAFF). Rol 9 `sil` komt in v8.1 niet meer voor (de garnaal is nu een open C zonder krul naar binnen). Gaten ontstaan op het horloge niet, omdat je volle veelhoeken tekent.
 - Halfdicht oog (`slaperig`) weg: elk dier hetzelfde oog. Komkom heeft nu een glimlach (rol 3).
 
 ## Bekeken met Read
 Alle 25 dieren op 260, 4 keer vergroot, gevonden en silhouet; het blad op ware grootte. Gezien: orka, haai en dolfijn zijn als omtrek nu uit elkaar te houden (vlek, kieuwen, boog); de reuzeninktvis verloor eerst zijn armen door het dichtmaken, nu alleen bij de krab; de garnaal krijgt een vuldeel (rol 9). Zwakste nog: de zeeotter als omtrek (een blok met voeten) en de maanvis die hoog blijft (30 x 37).
+
+## v8.1: omtrektoets op 260 zonder naam (run 29, opdracht nachtronde 02:58)
+Onderaan het blad en in `dieren8/omtrek-260.png` (ware grootte) en `omtrek-4x.png`: alle 25 als omtrek, zonder naam, in geschudde volgorde (sleutel `dieren8/omtrek-sleutel.txt`, script `bron/omtrek_toets_v8.py`).
+Eerlijke toets, eerst benoemd en daarna met de sleutel nagekeken:
+- **Eerste ronde (v8): 22 van 25.** Mis: garnaal (werd een bol door het vullen van de krul), zeeotter (blok), zeekomkommer (bol met balletje).
+- Opnieuw getekend: **garnaal** als open C met waaierstaart buiten de krul en dikke sprieten; **zeeotter** met gezicht en schelp als uitsparing en grotere oren; **zeekomkommer** met bulten boven de rug, vijf voetjes eronder en drie voelers schuin omhoog (geen staart meer, eerst las hij als vis).
+- **Tweede ronde (v8.1): 24 van 25 zonder twijfel.** Twijfel blijft: zeeotter (je ziet een liggend dier met gezicht en voeten, "otter" zeg je pas na even kijken). De rog leest als een lolly met staart, maar niet als iets anders.

@@ -139,7 +139,14 @@ def maak(uit):
                 rap.append(f'{D:4d}  {naam:24s} kader x {kader_x(im, D):+5.1f} px   vorm x {b7.vorm_x(im, D):+5.1f} px   buiten MIP {niet_mip(im)}   tekst tot {b7.tekst_r(im, D):.2f} R')
     gap = 30; cel_b = 454 + 24 + 260; kol = 3; cel_h = 454 + 64
     rijen = (len(SCHERMEN) + kol - 1)//kol
-    blad = Image.new('RGB', (gap + kol*(cel_b + gap), 110 + rijen*(cel_h + gap)), (14, 16, 24)); d = ImageDraw.Draw(blad)
+    import omtrek_toets_v8  # noqa: maakt omtrek-260.png (alle 25 als omtrek, zonder naam, geschud)
+    om = Image.open(os.path.join(uit, '..', 'dieren8', 'omtrek-260.png'))
+    extra = om.height*3 + 90
+    blad = Image.new('RGB', (gap + kol*(cel_b + gap), 110 + rijen*(cel_h + gap) + extra), (14, 16, 24)); d = ImageDraw.Draw(blad)
+    y_om = 110 + rijen*(cel_h + gap)
+    d.text((gap, y_om), 'Alle 25 als omtrek (niet gevonden), zonder naam, geschud: links ware grootte op 260, rechts 3 keer. Sleutel: dieren8/omtrek-sleutel.txt',
+           font=f(32), fill=(220, 230, 240))
+    blad.paste(om, (gap, y_om + 60)); blad.paste(om.resize((om.width*3, om.height*3), Image.NEAREST), (gap + om.width + 60, y_om + 60))
     d.text((gap, 30), 'Ebb blad v8 (Mila): dieren v8 en de sea log, één verhaal van links naar rechts (A dag 3, B en C dag 4, D dag 4 avond)',
            font=f(36), fill=(220, 230, 240))
     for i, (naam, fn) in enumerate(SCHERMEN):

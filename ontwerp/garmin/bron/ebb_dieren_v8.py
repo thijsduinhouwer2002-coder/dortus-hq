@@ -139,29 +139,50 @@ def delen_v8(soort):
         buik = bez((-0.32,-0.02),(0.05,-0.26),(0.44,-0.10),6) + bez((0.44,-0.10),(0.10,0.04),(-0.32,0.08),6)
         kop = ellips(-0.56, -0.02, 0.32, 0.29)
         gezicht = ellips(-0.60, 0.03, 0.23, 0.19)
-        oor = [ellips(-0.76, -0.25, 0.07, 0.06), ellips(-0.38, -0.28, 0.07, 0.06)]
+        oor = [ellips(-0.78, -0.26, 0.09, 0.08), ellips(-0.36, -0.29, 0.09, 0.08)]
         neus = ellips(-0.78, 0.00, 0.06, 0.05)
         schelp = bez((-0.24,-0.06),(-0.02,-0.48),(0.20,-0.06),6) + [(-0.02,0.00)]
         handen = [ellips(-0.18, -0.10, 0.08, 0.07), ellips(0.14, -0.10, 0.08, 0.07)]
         voet1 = [(0.38,-0.14),(0.46,-0.52),(0.58,-0.50),(0.54,-0.10)]
         voet2 = [(0.54,-0.06),(0.72,-0.40),(0.82,-0.32),(0.66,0.02)]
         return [(voet1,'donker'), (voet2,'donker'), (lijf,'lijf'), (buik,'licht'), (oor[0],'lijf'), (oor[1],'lijf'),
-                (kop,'lijf'), (gezicht,'licht'), (neus,'zwart'), (schelp,'muts'), (handen[0],'donker'), (handen[1],'donker')], [(-0.56,-0.08)]
-    if soort == 'komkom':    # bonus: dikke boon met voetjes en een kroontje voelers, glimlach, zonder Zzz
-        lijf = bez((-0.70,0.06),(-0.70,-0.40),(-0.10,-0.38),8) + bez((-0.10,-0.38),(0.62,-0.36),(0.70,0.04),8) \
-             + bez((0.70,0.04),(0.66,0.36),(0.0,0.36),8) + bez((0.0,0.36),(-0.70,0.38),(-0.70,0.06),8)
-        buik = bez((-0.58,0.16),(0.0,0.10),(0.58,0.16),6) + bez((0.58,0.16),(0.0,0.40),(-0.58,0.16),6)
-        bult = [(ellips(x, -0.30 + 0.10*abs(x), 0.09, 0.07), 'donker') for x in (-0.30, 0.0, 0.30, 0.54)]
-        voet = [(ellips(x, 0.38, 0.06, 0.06), 'donker') for x in (-0.40, -0.14, 0.12, 0.38)]
-        kroon = [(ellips(-0.80 + 0.10*math.cos(a), -0.12 + 0.12*math.sin(a), 0.07, 0.06), 'licht') for a in (math.radians(140), math.radians(180), math.radians(220))]
-        lach = bez((-0.66,0.10),(-0.56,0.20),(-0.44,0.10),4) + bez((-0.44,0.10),(-0.56,0.15),(-0.66,0.10),4)
-        return voet + kroon + [(lijf,'lijf'), (buik,'licht')] + bult + [(lach,'zwart')], [(-0.50,-0.10)]
-    if soort == 'garnaal':   # rol 'sil': alleen in het silhouet, vult de krul zodat de omtrek geen binnenlijnen heeft
-        delen, ogen = dv7.delen_v7('garnaal')
-        return [(ellips(0.05, 0.08, 0.44, 0.40), 'sil')] + delen, ogen
+                (kop,'lijf'), (gezicht,'licht_k'), (neus,'zwart'), (schelp,'muts_k'), (handen[0],'donker'), (handen[1],'donker')], [(-0.56,-0.08)]
+    if soort == 'komkom':    # bonus, v8.1: bulten steken boven de rug uit en voetjes eronder, kroon van voelers: leest ook als omtrek
+        lijf = bez((-0.70,0.06),(-0.70,-0.34),(-0.10,-0.32),8) + bez((-0.10,-0.32),(0.62,-0.30),(0.70,0.04),8) \
+             + bez((0.70,0.04),(0.66,0.32),(0.0,0.32),8) + bez((0.0,0.32),(-0.70,0.34),(-0.70,0.06),8)
+        buik = bez((-0.58,0.14),(0.0,0.08),(0.58,0.14),6) + bez((0.58,0.14),(0.0,0.34),(-0.58,0.14),6)
+        bult = [(ellips(x, -0.34 + 0.06*abs(x), 0.09, 0.10), 'donker') for x in (-0.36, -0.08, 0.20, 0.46)]
+        voet = [(ellips(x, 0.36, 0.06, 0.07), 'donker') for x in (-0.44, -0.20, 0.04, 0.28, 0.50)]
+        kroon = []
+        for a_ in (205, 240, 275):
+            r_ = math.radians(a_); x0, y0 = -0.56 + 0.04*math.cos(r_), -0.22 + 0.04*math.sin(r_)
+            x1, y1 = -0.56 + 0.30*math.cos(r_), -0.22 + 0.30*math.sin(r_)
+            kroon.append((poot(x0, y0, (x0+x1)/2, (y0+y1)/2, x1, y1, 0.035), 'licht'))
+            kroon.append((ellips(x1, y1, 0.06, 0.06), 'licht'))
+        lach = bez((-0.62,0.10),(-0.52,0.20),(-0.40,0.10),4) + bez((-0.40,0.10),(-0.52,0.15),(-0.62,0.10),4)
+        return voet + kroon + bult + [(lijf,'lijf'), (buik,'licht'), (lach,'zwart')], [(-0.46,-0.10)]
+    if soort == 'garnaal':   # v8.1: open C (krul van 200 naar -10 graden), waaierstaart buiten de krul, dikke sprieten: leest ook als omtrek
+        N = 16; hoek = [math.radians(200 - 210*i/(N-1)) for i in range(N)]
+        lijn = [(0.05 + 0.48*math.cos(a), 0.0 - 0.48*math.sin(a)) for a in hoek]
+        dik = [0.25 - 0.14*i/(N-1) for i in range(N)]
+        lijf = dv7._buis(lijn, dik)
+        ex, ey = lijn[-1]
+        staart = [(ex-0.06, ey-0.02), (ex+0.26, ey+0.34), (ex+0.02, ey+0.30), (ex-0.20, ey+0.38), (ex-0.10, ey+0.04)]
+        segs = []
+        for i in (4, 6, 8, 10, 12):
+            (x, y), tt = lijn[i], dik[i]
+            pa = lijn[i-1]; pb = lijn[i+1]; dx, dy = pb[0]-pa[0], pb[1]-pa[1]; n = math.hypot(dx, dy); nx, ny = -dy/n, dx/n
+            ux, uy = dx/n*0.025, dy/n*0.025
+            segs.append(([(x+nx*tt-ux, y+ny*tt-uy), (x+nx*tt+ux, y+ny*tt+uy), (x-nx*tt+ux, y-ny*tt+uy), (x-nx*tt-ux, y-ny*tt-uy)], 'donker'))
+        kx, ky = lijn[0]
+        voel = [(poot(kx-0.04, ky-0.08, kx-0.30, ky-0.55, kx+0.30, ky-0.80, 0.05), 'donker'),
+                (poot(kx-0.08, ky-0.02, kx-0.50, ky-0.20, kx-0.55, ky-0.62, 0.05), 'donker')]
+        pootjes = [(poot(lijn[i][0], lijn[i][1], lijn[i][0]*0.55+0.03, lijn[i][1]*0.55+0.02, lijn[i][0]*0.30+0.04, lijn[i][1]*0.30+0.04, 0.045), 'donker') for i in (3, 5, 7, 9)]
+        snuit = [(kx-0.10, ky-0.12), (kx-0.42, ky-0.02), (kx-0.10, ky+0.06)]
+        return voel + pootjes + [(staart, 'donker'), (lijf, 'lijf'), (snuit, 'donker')] + segs, [(kx+0.02, ky-0.08)]
     return dv7.delen_v7(soort)
 
-KENMERK = {'licht_k': 'licht', 'donker_k': 'donker'}
+KENMERK = {'licht_k': 'licht', 'donker_k': 'donker', 'muts_k': 'muts'}
 
 def _vorm(delen, s, c, W, stil=False):
     m = Image.new('L', (W, W), 0); d = ImageDraw.Draw(m)
@@ -184,7 +205,7 @@ def dier_beeld(soort, s, kleur_override=None, hoek=0, oog_s=None):
     delen, ogen = delen_v8(soort)
     lijf, licht, donker = v3.TINT[soort]
     rol = {'lijf': lijf, 'licht': licht, 'donker': donker, 'zwart': (0,0,0), 'muts': dv5.MUTS, 'witp': WIT, 'zz': WIT,
-           'licht_k': licht, 'donker_k': donker}
+           'licht_k': licht, 'donker_k': donker, 'muts_k': dv5.MUTS}
     if kleur_override == 'hint': kleur_override = 'silhouet'      # v8: het silhouet ís al met kenmerk
     stil = kleur_override == 'silhouet'
     if isinstance(kleur_override, dict): rol.update(kleur_override)
@@ -237,4 +258,4 @@ dv7.delen_v7_oud = dv7.delen_v7
 
 ALLE = dv7.ALLE
 RAND = {s: WIT for s, _ in ALLE}
-ROL_V8 = {'lijf': 0, 'licht': 1, 'donker': 2, 'zwart': 3, 'muts': 4, 'witp': 5, 'zz': 6, 'licht_k': 7, 'donker_k': 8, 'sil': 9}
+ROL_V8 = {'lijf': 0, 'licht': 1, 'donker': 2, 'zwart': 3, 'muts': 4, 'witp': 5, 'zz': 6, 'licht_k': 7, 'donker_k': 8, 'sil': 9, 'muts_k': 10}
