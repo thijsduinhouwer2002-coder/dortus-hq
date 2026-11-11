@@ -1,4 +1,4 @@
-# Ebb: winkeltekst (versie 11, CONCEPT, Gijs, 11 nov 2026 20:30 UTC)
+# Ebb: winkeltekst (versie 12, CONCEPT, Gijs, 11 nov 2026 21:45 UTC)
 
 Versie 11: keuring bouw 7 punt 5 en 6 (`ontwerp/garmin/ebb-bouw-7-keuring-drie.md`). "breathwork" in de eerste alinea. "After every session" gesplitst in Rounds en Calm, met het feestscherm erbij. Today en 8 weeks "from the menu, any time" (nieuw in de app). Aanraakscherm: doet niets tijdens ademen en inhouden; in het pauzemenu kun je wel tikken. Drie talen gelijk.
 
@@ -29,7 +29,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v3.png` (Mila v3, blauwe walvis in de patrijspoort, `ontwerp/garmin/blad12/`). Het startpictogram op het horloge is haar kleine versie (walvis groot, zonder rand), per horlogemaat in `resources*/drawables/launcher_icon.png`.
-- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v4.png` (Mila blad12, zelfde stijl als de kaarten, "no extra account", 1000 x 1000, 58 KB), daarna de vijf kaarten v4 (ontwerp Mila blad v11, 800 x 800, elk onder 150 KB, gemaakt met `ontwerp/garmin/bron/winkel_v4.py` uit de ongewijzigde fenix 8-opnames van plaatjesrun 43001614405, code 330cf56): `1-hold.png` (scène 24), `2-new-friend.png` (scène 34), `3-sea-log.png` (scène 4, met het belletje), `4-sea-complete.png` (scène 25, alle 24 dieren geteld), `5-sea-cucumber.png` (scène 33, "back after a break"; kop "Back? Meet a bonus friend." even groot als de andere koppen).
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v4.png` (Mila blad12, zelfde stijl als de kaarten, "no extra account", 1000 x 1000, 58 KB), daarna de vijf kaarten v4 (ontwerp Mila blad v11, 800 x 800, elk onder 150 KB, gemaakt met `ontwerp/garmin/bron/winkel_v4.py` (staat op main, niet op de codetak) uit de ongewijzigde fenix 8-opnames van plaatjesrun 43001614405, code 330cf56): `1-hold.png` (scène 24), `2-new-friend.png` (scène 34), `3-sea-log.png` (scène 4, met het belletje), `4-sea-complete.png` (scène 25, alle 24 dieren geteld), `5-sea-cucumber.png` (scène 33, "back after a break"; kop "Back? Meet a bonus friend." even groot als de andere koppen).
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)
@@ -81,13 +81,18 @@ HONEST
 • No data leaves your watch, except the activity you choose to save to Garmin Connect.
 • Ebb will never nag you for a review.
 
+PRIVACY
+Ebb collects nothing. Your sessions, sea animals and settings stay on your watch. Only an activity you choose to save goes to Garmin Connect, under Garmin's own privacy policy. No analytics, no ads, no account with us.
+
+SUPPORT AND REFUNDS
+Something not working? Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days.
+[REFUNDS: één zin, wacht op het besluit van Thijs; Garmin eist dat het terugbetaalbeleid genoemd wordt, ook als er geen is.]
+
 SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems.
 
 WATCHES
 fenix 7, 7 Pro, 7X, 7X Pro; fenix 8 43 mm, 47 mm, 47 mm Pro, Solar 47 and 51 mm; epix Pro 42, 47 and 51 mm; Forerunner 165, 165 Music, 255, 265, 570 (42 and 47 mm), 955, 965 and 970; Venu 2, Venu 3, Venu 3S, Venu 4 (41 and 45 mm); vivoactive 5 and 6.
-
-Questions or ideas: thijs@dortus.com
 
 Tags: breathing, breathwork, breath hold, breath training, 4-7-8 breathing, calm breathing, relaxation, breathing exercises, breath holding
 
@@ -103,6 +108,8 @@ Breathwork auf deiner Garmin-Uhr: Atemübungen und Atem anhalten, Runden aus kr�
 • Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer ab 3:00 alle 30 Sekunden; Vibration ganz abschaltbar, außer ab 3:00. Beim Atmen und Halten reagiert der Touchscreen nicht; im Pausenmenü kannst du tippen. Ebb macht keinen Ton.
 • Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein zusätzliches Konto, keine Handy-App.
+• Datenschutz: Ebb sammelt nichts. Sitzungen, Tiere und Einstellungen bleiben auf der Uhr; nur eine Aktivität, die du speicherst, geht an Garmin Connect (Datenschutzerklärung von Garmin). Keine Analyse, keine Werbung.
+• Support: thijs@dortus.com, mit deinem Uhrenmodell. Wir antworten möglichst innerhalb von 5 Werktagen. [ERSTATTUNG: wacht op Thijs]
 
 Die App ist auf Englisch. Kein Freediving- oder Apnoe-Trainer, keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
@@ -120,12 +127,15 @@ Breathwork op je Garmin-horloge: ademhalingsoefeningen en adem inhouden, rondes 
 • Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd vanaf 3:00 elke 30 seconden; trillen helemaal uit te zetten, behalve vanaf 3:00. Tijdens ademen en inhouden doet het aanraakscherm niets; in het pauzemenu kun je tikken. Ebb maakt geen geluid.
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
+• Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een activiteit die je opslaat gaat naar Garmin Connect (privacybeleid van Garmin). Geen metingen, geen advertenties.
+• Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. [TERUGBETALEN: wacht op Thijs]
 
 De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
+- Versie 12 (11 nov 21:45 UTC, regels Garmin gelezen door de hoofdchat, `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`): privacyzin en supportzin erbij in drie talen (regel 6 en 7). De zin over terugbetalen ontbreekt nog met opzet: dat beleid beslist Thijs; de plek staat tussen rechte haken en moet weg voor het indienen. "Within 5 working days" is een streven ("aim"), geen belofte; aanpassen als Thijs iets anders wil. Privacy nagekeken tegen manifest.xml: de app vraagt geen recht om met internet of de telefoon te praten.
 Versie 11, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het opruimen (b39cd77 en later). Oudere versies staan in de git-geschiedenis van dit bestand.
 - Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`StartCheck.mc`); beeld calmcheck GEZIEN.
 - Twee per dag: `EbbTrouw.MAX_PER_DAG = 2` (`Trouw.mc`). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s).

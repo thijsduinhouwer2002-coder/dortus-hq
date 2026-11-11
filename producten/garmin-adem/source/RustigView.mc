@@ -198,42 +198,37 @@ class CalmEindeView extends WatchUi.View {
             EbbSeaComplete.teken(dc, d, reeks);
             return;
         }
-        // Keuring bouw 3 punt 6: de regel onder "calm done" minstens 10 px (454) of 6 px (260) eronder, de zee daaronder.
-        var gat = (d * 0.022).toNumber();
-        gat = gat < 6 ? 6 : gat;
-        var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + gat + dc.getFontHeight(EbbTeken.fX()) / 2;
-        var zt = (yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8 + d * 0.02) / d.toFloat();
-        zt = zt > 0.326 ? zt : 0.326;
-        EbbZee.zeeBanden(dc, d, [zt, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        // Mila blad v13: zelfde indeling als het eindscherm van Rounds (kop 38, regel 67, kamlijn 94, dier in het vak
+        // 98 tot 144 onder de kamlijn, in 1/260 D).
+        var yKop = EbbTeken.px(d, EbbEindScherm.KOP);
+        var yRegel1 = EbbTeken.px(d, EbbEindScherm.TIJD);
+        var kam = EbbEindScherm.kamlijn(d, yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2);
+        EbbZee.zeeBanden(dc, d, [EbbEindScherm.zeeTopBij(d, kam), 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.17).toNumber(), EbbTeken.fS(), "calm done", midden);
+        dc.drawText(w / 2, yKop, EbbTeken.fS(), "calm done", midden);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Keuring bouw 3 punt 11: onder 1 minuut seconden ("45 s"), niet "1 min"; punt 6: deze regel kleiner.
         dc.drawText(w / 2, yRegel1, EbbTeken.fX(), EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
-        // Keuring bouw 4 punt 5: het dier tussen de regel "4 min · 12 breaths" en de regel eronder.
-        var bandTop = yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8;
-        // Keuring bouw 7 punt 4 (krab s34): het dier begint onder de kamlijn, zoals op het eindscherm van Rounds.
-        var inWater = (d * (zt + 0.010)).toNumber() + 3;
-        bandTop = bandTop > inWater ? bandTop : inWater;
-        var bandOnder = (d * 0.645).toNumber() - dc.getFontHeight(EbbTeken.fS()) / 2 - 6;
-        var bandBreed = (d * 0.30).toNumber();
+        var bandTop = EbbEindScherm.vakTop(d, kam);
+        var bandOnder = EbbTeken.px(d, EbbEindScherm.VAK_ONDER);
+        var bandBreed = EbbTeken.px(d, EbbEindScherm.VAK_BREED);
+        var naamY = EbbEindScherm.NAAM / 260.0;
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
         var regel = telt ? "counts as a session" : "from 1 min it counts";
         var kleur = Graphics.COLOR_WHITE;
         if (nieuw.size() > 0) {
-            EbbDierMaat.inBand(dc, nieuw[0], w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
+            EbbDierMaat.inBand(dc, nieuw[0], w / 2, bandTop, bandOnder, bandBreed, d, EbbDierPlaatje.GEVONDEN);
             regel = "new friend: " + EbbDierData.NAMEN[nieuw[0]];
             kleur = EbbTeken.LICHT;
         } else {
             var dier = EbbTrouw.zwemmer();
             if (dier >= 0) {
-                EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.105).toNumber(), EbbDierPlaatje.GEVONDEN);
+                EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, d, EbbDierPlaatje.GEVONDEN);
             }
         }
-        EbbTeken.tekstInRonde(dc, d, 0.645, regel, kleur);
-        var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
-        EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel(), boven);
+        EbbTeken.tekstInRonde(dc, d, naamY, regel, kleur);
+        EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel(), EbbTeken.px(d, EbbEindScherm.STIP));
     }
 }
 
