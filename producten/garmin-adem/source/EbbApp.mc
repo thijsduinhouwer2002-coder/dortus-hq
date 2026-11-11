@@ -233,7 +233,8 @@ class StartCheckView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
-        blad = (Application.Storage.getValue(UITLEG) == true) ? 1 : 0;
+        var g = Application.Storage.getValue(UITLEG);
+        blad = ((g instanceof Boolean) && (g as Boolean)) ? 1 : 0;
     }
 
     function onShow() as Void {

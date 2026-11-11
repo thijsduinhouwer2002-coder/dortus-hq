@@ -6,6 +6,7 @@ import Toybox.WatchUi;
 
 // Startmenu (ontwerp, bediening): rondes beginnen of de instellingen openen.
 module EbbStart {
+    const MENU_AANTAL = 4;
     // Op aanraakhorloges (vivoactive, venu) is het systeemmenu een wit vlak; daar een eigen donker menu
     // in de kleuren van Ebb (kan-punt Daan 10 nov). Knophorloges houden het systeemmenu, dat is daar al donker.
     function menu() as WatchUi.Menu2 {
@@ -205,8 +206,7 @@ class EbbMenuItem extends WatchUi.CustomMenuItem {
 // "Ebb" bovenaan, twee gelijke pillen Rounds en Calm 4-7-8 (gekozen = dikke schuimrand), daaronder "Sea log · Settings",
 // onderaan de zee met je eigen dier. Box staat er niet meer in; My pattern zit in de instellingen.
 class EbbMenuView extends WatchUi.View {
-    var keuze as Number = 0;   // 0 Rounds, 1 Calm 4-7-8, 2 Sea log, 3 Settings
-    const AANTAL = 4;
+    var keuze as Number = 0;   // 0 Rounds, 1 Calm 4-7-8, 2 Sea log, 3 Settings (EbbStart.MENU_AANTAL)
 
     function initialize() {
         View.initialize();
@@ -280,7 +280,7 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function stap(n as Number) as Boolean {
-        _view.keuze = (_view.keuze + n + EbbMenuView.AANTAL) % EbbMenuView.AANTAL;
+        _view.keuze = (_view.keuze + n + EbbStart.MENU_AANTAL) % EbbStart.MENU_AANTAL;
         System.println("MENU keuze " + _view.keuze);
         WatchUi.requestUpdate();
         return true;
