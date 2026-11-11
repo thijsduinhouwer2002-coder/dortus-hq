@@ -522,3 +522,16 @@
 1. Keuring bouw 6 punt 1 tot 4 in de code, plus batterij, opruimen en Mila v11; .iq bouwt.
 2. Open: beelden van deze bouw nakijken (sea complete op fenix 8, epix, Venu 3S; scène 36; belletje; pauze Calm), punt 5 rest, 6 kaarten v4, 7 Venu, 9 pixelstap.
 3. Volgende run eerst: e2e- en plaatjesrun van de laatste commit nakijken, dan kaart 5 met winkel_v4.py.
+
+## Run 40 (11 nov 09:47 tot 10:15 UTC, handmatig gestart): nakijken en punt 5, 7, 9
+- Opdracht van deze start (keuring bouw 6, "Voor Gijs") stond grotendeels af in run 39; door met nakijken en de open punten.
+- GEZIEN in plaatjesrun 42996562232 (c51411b, groen, geen crash op twaalf horloges): sea complete compleet met 24 dieren op Venu 3S, fenix 8, FR265 en FR255 (keuring zag 6 en 17); scène 36 gewoon eindscherm met tijden en "24 of 24 friends"; pauzemenu. In 42997997042 (29640e0) op FR255: belletje in de sea log, "new friend:" en "Sea cucumber" op twee regels met "back after a break", "24 of 24 + bonus".
+- E2e-run 42997997071 (29640e0) GROEN: EIS10 UITSLAG goed, eis 11 overal 25 procent.
+- Gezien: dieren op het eindscherm staken boven de kamlijn uit (walvis, zeekomkommer). 412d6c0: band begint altijd in het water; scène 28 "first friend after 1 session" in het water. 330cf56: schuimkam op de dunne zee (today, 8 weeks, uitleg, veiligheid, settings).
+- fbeff63: plaatjesrun vergelijkt elk scherm met de vorige groene run (bron/vergelijk_plaatjes.py, informatief); toestelstap print knoppen en scherm van venu3, venu441mm, venux1.
+- Pushes gebundeld: drie commits in één push na de groene e2e.
+
+**In drie regels:**
+1. Keuring bouw 6 punt 1 tot 4 af en bewezen in beeld; e2e groen.
+2. Open: scène 18 rustiger, Venu 4 knoptekst en Venu X1 (uit de toestelstap), kaart 5 met winkel_v4.py, beelden van 330cf56 nakijken.
+3. Volgende run eerst: plaatjesrun en toestelstap van 330cf56 lezen, dan Venu en kaart 5.
