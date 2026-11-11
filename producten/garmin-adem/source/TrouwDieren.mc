@@ -173,6 +173,7 @@ module EbbTrouw {
         Application.Storage.deleteValue(WEEK);
         Application.Storage.deleteValue(WEEKSES);
         Application.Storage.deleteValue(WEEKGEH);
+        Application.Storage.deleteValue(WEKENTOT);
         Application.Storage.deleteValue(VERSIE);
         Application.Storage.deleteValue(SESDAGEN);
         Application.Storage.deleteValue(DAGSES);

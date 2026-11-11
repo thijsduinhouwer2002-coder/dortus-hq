@@ -2,6 +2,8 @@
 # Gebruik: python3 bron/maak_werelden.py bron/ebb-werelden-v11-data.json source/WereldData.mc
 # Eenheid blijft 1/260 D. De strook begint op BOVEN (hoogste punt van alle werelden, naar beneden afgerond op even);
 # y in de data is al min BOVEN, zodat het horloge niets hoeft te verschuiven.
+# Een vlak met "week": n in de json is een detail dat pas verschijnt na n gehaalde weekdoelen (besluit 12 nov 00:25
+# punt 4); die komen in details() als [week, kleur, x, y, ...], oplopend op week.
 # Toetst: alleen MIP-kleuren (elk kanaal 00, 55, AA, FF), hoogstens 64 punten per veelhoek, hoogstens 120 punten per wereld.
 import json, sys
 bron, uit = sys.argv[1], sys.argv[2]
@@ -14,9 +16,9 @@ def kleur(s):
     return k
 boven = min(p[1] for w in W for laag in ('vlakken', 'voor_het_dier') for v in w.get(laag, []) for p in v['p'])
 boven -= boven % 2
-def rij(v):
+def rij(v, week=False):
     assert 3 <= len(v['p']) <= 64, 'veelhoek met %d punten' % len(v['p'])
-    g = ['0x%06X' % kleur(v['kleur'])]
+    g = ([str(int(v['week']))] if week else []) + ['0x%06X' % kleur(v['kleur'])]
     for x, y in v['p']:
         g += [str(int(round(x))), str(int(round(y)) - boven)]
     return '[' + ', '.join(g) + ']'
@@ -24,11 +26,15 @@ def blok(naam, laag):
     r = ['    function %s(dier as Number) as Array<Array<Number> > or Null {' % naam]
     for w in W:
         vl = w.get(laag, [])
+        if laag == 'vlakken':
+            vl = [v for v in vl if 'week' not in v]
+        if laag == 'details':
+            vl = sorted([v for v in w.get('vlakken', []) if 'week' in v], key=lambda v: v['week'])
         if not vl:
             continue
         r.append('        if (dier == %d) {   // %s: %s' % (w['nr'] - 1, w['dier'], w['plek']))
         r.append('            return [')
-        r.append(',\n'.join('                ' + rij(v) for v in vl))
+        r.append(',\n'.join('                ' + rij(v, laag == 'details') for v in vl))
         r.append('            ] as Array<Array<Number> >;')
         r.append('        }')
     r.append('        return null;')
@@ -41,7 +47,7 @@ t = ['import Toybox.Lang;', '',
      '// GEMAAKT door bron/maak_werelden.py uit %s (%s). Niet met de hand wijzigen.' % (bron.split('/')[-1], d['versie']),
      '// Per veelhoek [kleur, x, y, x, y, ...] in 1/260 D; y telt vanaf de bovenkant van de strook (BOVEN).',
      'module EbbWereldData {', '    const EENHEID = 260;', '    const BOVEN = %d;' % boven, '',
-     blok('vlakken', 'vlakken'), '', '    // Komt over het dier heen (bijvoorbeeld de voorste vingers van de anemoon).', blok('voor', 'voor_het_dier'), '',
+     blok('vlakken', 'vlakken'), '', '    // Details die met trouw verschijnen: [week, kleur, x, y, ...], oplopend op week.', blok('details', 'details'), '', '    // Komt over het dier heen (bijvoorbeeld de voorste vingers van de anemoon).', blok('voor', 'voor_het_dier'), '',
      '    // Waar het dier woont (midden van het dier), in 1/260 D van het hele scherm.',
      '    function thuis(dier as Number) as Array<Number> or Null {']
 for w in W:

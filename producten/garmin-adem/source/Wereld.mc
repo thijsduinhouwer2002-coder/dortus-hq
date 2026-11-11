@@ -19,6 +19,8 @@ class EbbWereldPlaatje {
     var hoog as Number;
     var stap as Number = 0;
     var klaar as Boolean = false;
+    var weken as Number = 0;
+    private var _eersteDetail as Number = 9999;
     private var _vl as Array<Array<Number> > or Null = null;
     private var _ref as Graphics.BufferedBitmapReference or Null = null;
 
@@ -29,6 +31,17 @@ class EbbWereldPlaatje {
         var l = EbbWereldData.vlakken(i);
         if (l == null) {
             return;
+        }
+        // Besluit 12 nov 00:25 punt 4: details die je met gehaalde weekdoelen verdiende komen er als laatste bij.
+        weken = EbbTrouw.wekenTotaal();
+        var det = EbbWereldData.details(i);
+        if (det != null) {
+            var n = EbbWereld.verdiend(det, weken);
+            if (n > 0) {
+                l = l.slice(0, null);
+                _eersteDetail = l.size();
+                l.addAll(det.slice(0, n));
+            }
         }
         try {
             var ref = Graphics.createBufferedBitmap({:width => maat, :height => hoog});
@@ -71,7 +84,7 @@ class EbbWereldPlaatje {
         var tot = stap + PER_BEURT;
         tot = tot > vl.size() ? vl.size() : tot;
         while (stap < tot) {
-            EbbWereld.veelhoek(dc, vl[stap], d, 0, 0);
+            EbbWereld.veelhoekVanaf(dc, vl[stap], stap >= _eersteDetail ? 1 : 0, d, 0, 0);
             stap += 1;
         }
         if (stap >= vl.size()) {
@@ -99,12 +112,26 @@ module EbbWereld {
 
     // Eén veelhoek [kleur, x, y, ...] in 1/260 D, afgekapt zoals bij de dieren, verschoven met (dx, dy) in px.
     function veelhoek(dc as Graphics.Dc, v as Array<Number>, d as Number, dx as Number, dy as Number) as Void {
+        veelhoekVanaf(dc, v, 0, d, dx, dy);
+    }
+
+    // Zelfde, maar de kleur staat op plek k (bij een detail staat de week ervoor).
+    function veelhoekVanaf(dc as Graphics.Dc, v as Array<Number>, k as Number, d as Number, dx as Number, dy as Number) as Void {
         var pts = [] as Array<[Numeric, Numeric]>;
-        for (var j = 1; j + 1 < v.size(); j += 2) {
+        for (var j = k + 1; j + 1 < v.size(); j += 2) {
             pts.add([v[j] * d / EbbWereldData.EENHEID + dx, v[j + 1] * d / EbbWereldData.EENHEID + dy]);
         }
-        dc.setColor(v[0], Graphics.COLOR_TRANSPARENT);
+        dc.setColor(v[k], Graphics.COLOR_TRANSPARENT);
         dc.fillPolygon(pts);
+    }
+
+    // Hoeveel details (oplopend op week, week op plek 0) zijn er verdiend met dit aantal gehaalde weken?
+    function verdiend(details as Array<Array<Number> >, weken as Number) as Number {
+        var n = 0;
+        while (n < details.size() && details[n][0] <= weken) {
+            n += 1;
+        }
+        return n;
     }
 
     // Heeft dit dier een wereld en staat hij aan?
@@ -117,7 +144,7 @@ module EbbWereld {
         if (!proef || dier < 0) {
             return false;
         }
-        if (_p == null || (_p as EbbWereldPlaatje).dier != dier || (_p as EbbWereldPlaatje).d != d) {
+        if (_p == null || (_p as EbbWereldPlaatje).dier != dier || (_p as EbbWereldPlaatje).d != d || (_p as EbbWereldPlaatje).weken != EbbTrouw.wekenTotaal()) {
             _p = new EbbWereldPlaatje(dier, d);
         }
         var p = _p as EbbWereldPlaatje;

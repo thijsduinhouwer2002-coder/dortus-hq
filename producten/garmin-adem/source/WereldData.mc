@@ -58,6 +58,11 @@ module EbbWereldData {
         return null;
     }
 
+    // Details die met trouw verschijnen: [week, kleur, x, y, ...], oplopend op week.
+    function details(dier as Number) as Array<Array<Number> > or Null {
+        return null;
+    }
+
     // Komt over het dier heen (bijvoorbeeld de voorste vingers van de anemoon).
     function voor(dier as Number) as Array<Array<Number> > or Null {
         if (dier == 7) {   // Clownfish: anemoon met zwaaiende arm

@@ -15,6 +15,7 @@ module EbbTrouw {
     const WEEK = "trWeek";         // weeknummer (maandag tot zondag) van de laatste sessie
     const WEEKSES = "trWeekSes";   // tellende sessies in die week
     const WEEKGEH = "trWeekGeh";   // keuring bouw 3 punt 10: 1 als het weekdoel deze week al een week opleverde
+    const WEKENTOT = "trWekenTot"; // besluit 12 nov 00:25 punt 4: alle weken waarin je je weekdoel haalde; gaat nooit omlaag (groei van de wereld)
     const VERSIE = "trVersie";     // opslagversie; 2 = reeks in weken (oude trReeks en trBeste waren dagen)
     const OPSLAG_VERSIE = 2;
 
@@ -71,6 +72,20 @@ module EbbTrouw {
         return [reeks, weekSes, gehaald ? 1 : 0] as Array<Number>;
     }
 
+    // Besluit 12 nov 00:25 punt 4: de wereld groeit met elk gehaald weekdoel en een gemiste week haalt niets weg.
+    // Het totaal gaat één omhoog op het moment dat een week voor het eerst gehaald is, en nooit omlaag.
+    function wekenTotaalNa(totaal as Number, vorigeWeek as Number, wasGehaald as Boolean, week as Number, nuGehaald as Boolean) as Number {
+        if (nuGehaald && !(wasGehaald && week == vorigeWeek)) {
+            return totaal + 1;
+        }
+        return totaal;
+    }
+
+    // Aantal gehaalde weken tot nu toe (voor de details in de wereld).
+    function wekenTotaal() as Number {
+        return getal(WEKENTOT);
+    }
+
     // Sessies die deze week al tellen (voor "2 of 3 this week").
     function dezeWeek(vandaag as Number) as Number {
         return (weekVan(vandaag) == getal(WEEK)) ? getal(WEEKSES) : 0;
@@ -121,6 +136,7 @@ module EbbTrouw {
         werkOpslagBij();
         var wr = weekStap(getal(WEEK), getal(WEEKSES), getal(WEEKGEH) == 1, getal(REEKS), weekVan(dag), weekdoel(), telt);
         var reeks = wr[0];
+        Application.Storage.setValue(WEKENTOT, wekenTotaalNa(getal(WEKENTOT), getal(WEEK), getal(WEEKGEH) == 1, weekVan(dag), wr[2] == 1));
         Application.Storage.setValue(WEEK, weekVan(dag));
         Application.Storage.setValue(WEEKSES, wr[1]);
         Application.Storage.setValue(WEEKGEH, wr[2]);

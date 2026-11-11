@@ -48,3 +48,26 @@ function testWereldGegevens(logger as Test.Logger) as Boolean {
     }
     return goed;
 }
+
+(:test)
+function testWekenTotaalGroeitEnZaktNiet(logger as Test.Logger) as Boolean {
+    // Week 20 gehaald: 0 naar 1. Nog een sessie in dezelfde week: blijft 1. Week 21 nog niet gehaald: blijft 1.
+    // Week 25 na vier gemiste weken gehaald: 2 (een gemiste week haalt niets weg).
+    var t = EbbTrouw.wekenTotaalNa(0, 20, false, 20, true);
+    var a = t;
+    t = EbbTrouw.wekenTotaalNa(t, 20, true, 20, true);
+    var b = t;
+    t = EbbTrouw.wekenTotaalNa(t, 20, true, 21, false);
+    var c = t;
+    t = EbbTrouw.wekenTotaalNa(t, 21, false, 25, true);
+    logger.debug("weken " + a + " " + b + " " + c + " " + t);
+    return a == 1 && b == 1 && c == 1 && t == 2;
+}
+
+(:test)
+function testDetailsVerdiend(logger as Test.Logger) as Boolean {
+    // Details op week 1, 1 en 3: met 0 weken geen, met 1 week twee, met 2 weken twee, met 3 of meer alle drie.
+    var det = [[1, 0xFFFFFF, 0, 0, 1, 0, 1, 1], [1, 0xFFFFFF, 0, 0, 1, 0, 1, 1], [3, 0xFFFFFF, 0, 0, 1, 0, 1, 1]] as Array<Array<Number> >;
+    return EbbWereld.verdiend(det, 0) == 0 && EbbWereld.verdiend(det, 1) == 2 && EbbWereld.verdiend(det, 2) == 2
+        && EbbWereld.verdiend(det, 3) == 3 && EbbWereld.verdiend(det, 40) == 3;
+}
