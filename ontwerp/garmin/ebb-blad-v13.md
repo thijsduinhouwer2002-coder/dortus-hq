@@ -26,3 +26,6 @@ Op ware grootte (GEZIEN met Read, 1x) lezen de dieren nu als figuurtjes met gezi
 
 ## Nog open
 - "Today" in de menuregel op 260: plaatjesrun 43094387097 staat nog niet op de tak `schermen` (nieuwste is 43001614437 van 10:34 UTC). Volgende run.
+
+## Startpictogram per maat (aanbod Gijs 20:40 UTC)
+Getekend op elke maat (niet verkleind): `blad12/launcher-40.png`, `-54`, `-56`, `-60`, `-65`, `-70`, `-80.png`, rij op ware grootte `blad12/launcher-rij-1x.png`. Nieuw in `bron/icoon_v3.py`: het kader van de walvis staat in het midden (op 54 en 56 px viel de staart buiten de cirkel en stond links een leeg stuk), onder 60 px walvis 78 procent van de straal, de belletjes schuiven mee met de walvis. Het winkelicoon is gelijk gebleven (byte voor byte). GEZIEN met Read op 3x: staart en fontein binnen de cirkel op elke maat.

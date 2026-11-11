@@ -29,8 +29,13 @@ def binnen(n, cx, cy, r, ring):
     band(top + r * 0.42, DIEP, 1.4)
     band(top + r * 0.78, (0, 0, 120), 2.6)
     # walvis: breed, half boven het water, kijkt naar links (zoals in de app)
-    m = r * (0.70 if ring else 0.84)
+    m = r * (0.70 if ring else 0.78)
     wx, wy = cx + r * 0.05, cy + r * (0.12 if ring else 0.16)
+    sh = 0
+    if not ring or r > 0.45 * n:   # startpictogram (zonder staalring)
+        # run 37: startpictogram met het kader van de walvis in het midden (de staart viel er op 54 en 56 px af)
+        t_ = Image.new('RGB', (n, n)); h.teken(ImageDraw.Draw(t_), D[WALVIS], round(wx), round(wy), round(m))
+        bx = t_.getbbox(); sh = cx - (bx[0] + bx[2]) / 2; wx += sh
     # walvis op een eigen laag, met een dikke witte stickerrand eromheen: blauw op blauw moet ook op 64 px opvallen
     laag = Image.new('RGB', (n, n), (255, 0, 255)); h.teken(ImageDraw.Draw(laag), D[WALVIS], round(wx), round(wy), round(m))
     mk = ImageChops.difference(laag, Image.new('RGB', (n, n), (255, 0, 255))).convert('L').point(lambda v: 255 if v > 8 else 0)
@@ -41,7 +46,7 @@ def binnen(n, cx, cy, r, ring):
     # fontein: drie belletjes boven de kop (alleen als het icoon groot genoeg is)
     if ring:
         for bx, by, br in [(-0.62, -0.46, 0.08), (-0.47, -0.60, 0.06), (-0.70, -0.66, 0.05)]:
-            dr.ellipse([cx + bx * r - br * r, cy + by * r - br * r, cx + bx * r + br * r, cy + by * r + br * r],
+            dr.ellipse([cx + sh + bx * r - br * r, cy + by * r - br * r, cx + sh + bx * r + br * r, cy + by * r + br * r],
                        outline=SCHUIM, width=max(2, round(r * 0.035)))
     m_ = Image.new('L', (n, n), 0); ImageDraw.Draw(m_).ellipse([cx - r, cy - r, cx + r, cy + r], fill=255)
     return im, m_
