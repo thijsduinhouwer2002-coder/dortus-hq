@@ -1,13 +1,15 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.WatchUi;
 
 // Mila blad v10 punt 1: "sea complete" als groepsfoto. Hoge zee (kamlijn 58/260), de walvis groot in het midden met
 // een fontein van drie belletjes onder de kamlijn, de 23 andere vrienden in rijen eromheen (4 naast de walvis, dan
 // 7, 6 en 6), op volgorde van het schema. "sea complete" bovenaan, "24 of 24 friends" en de reeks onderaan. Geen tijden.
-// Watchdog: alle 24 dieren komen één keer in één doorzichtig plaatje via EbbDierPlaatje.laag; per beurt één laag, op
-// grote AMOLED-schermen (416 en 454) drie (lokaal gemeten: een tijdsbudget van 30 ms gaf op FR255 toch de watchdog). Keuring bouw 5 punt 3: de walvis eerst, en elke beurt
-// wordt geplakt wat er al staat, zodat het feest meteen zichtbaar is en aangroeit. Bij verlaten laat los() het plaatje los.
+// Watchdog: alle 24 dieren komen één keer in één doorzichtig plaatje; per beurt één laag, op AMOLED vanaf 390 px drie
+// (lokaal gemeten: een tijdsbudget van 30 ms gaf op FR255 toch de watchdog). Keuring bouw 5 punt 3: de walvis eerst, en
+// elke beurt wordt geplakt wat er al staat, zodat het feest meteen zichtbaar is en aangroeit. Keuring bouw 6 punt 3:
+// alleen afgemaakte dieren komen in het plaatje (zie verder). Bij verlaten laat los() het plaatje los.
 module EbbSeaComplete {
     const WALVIS = 23;
     // Plek van vriend 0 tot 22 in 1/260 D: x vanaf het midden, y vanaf de bovenkant (blad v10, tabel).
@@ -19,7 +21,8 @@ module EbbSeaComplete {
     var _ref as Graphics.BufferedBitmapReference or Null = null;
     var _d as Number = 0;
     var _dier as Number = 0;   // hoeveelste in de opbouw (0 is de walvis, daarna vriend 0 tot 22)
-    var _laag as Number = 0;
+    var _gemeld as Boolean = false;
+    var _los as EbbDierPlaatje or Null = null;   // het dier dat nu los wordt opgebouwd
     var _x0 as Number = 0;     // linksboven van het plaatje op het scherm
     var _y0 as Number = 0;
 
@@ -41,7 +44,8 @@ module EbbSeaComplete {
     function maak(d as Number) as Void {
         _d = d;
         _dier = 0;
-        _laag = 0;
+        _los = null;
+        _gemeld = false;
         // Plaatje van x 14 tot 246 en y 62 tot 206 (in 1/260 D): alle dieren met stickerrand, binnen 0,85 R.
         _x0 = px(d, 14);
         _y0 = px(d, 62);
@@ -52,26 +56,37 @@ module EbbSeaComplete {
         dc.clear();
     }
 
-    // Eén laag erbij (drie op 416 en 454); true als alle 24 dieren erin staan.
+    // Eén laag erbij (drie op AMOLED vanaf 390 px); true als alle 24 dieren erin staan.
+    // Keuring bouw 6 punt 3: een dier wordt eerst los opgebouwd in een eigen EbbDierPlaatje en pas als het af is in de
+    // groepsfoto geplakt. Zo staat er nooit een half dier (de witte halve krab op Venu 3S) en groeit de foto per dier.
     function verder() as Boolean {
         var bb = (_ref as Graphics.BufferedBitmapReference).get();
         if (bb == null) {
             return false;
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
-        var lagen = EbbDierPlaatje.lagenVan(EbbDierPlaatje.GEVONDEN);
-        var n = (EbbTeken.amoled() && _d >= 416) ? 3 : 1;
+        var n = (EbbTeken.amoled() && _d >= 390) ? 3 : 1;
         while (_dier <= WALVIS && n > 0) {
             n -= 1;
             // Volgorde: eerst de walvis (23), dan 0 tot 22.
             var k = (_dier + WALVIS) % (WALVIS + 1);
             var p = plek(_d, k);
-            EbbDierPlaatje.laag(dc, k, p[0] - _x0, p[1] - _y0, p[2], EbbDierPlaatje.GEVONDEN, _laag);
-            _laag += 1;
-            if (_laag >= lagen) {
-                _laag = 0;
+            if (_los == null) {
+                _los = new EbbDierPlaatje(k, p[2], EbbDierPlaatje.GEVONDEN);
+            }
+            var bezig = _los as EbbDierPlaatje;
+            if (bezig.verder()) {
+                bezig.plak(dc, p[0] - _x0, p[1] - _y0);
+                _los = null;
                 _dier += 1;
             }
+        }
+        if (_dier > WALVIS && !_gemeld) {
+            // Keuring bouw 6 punt 3: geheugen meten met het plaatje erbij (de plaatjes zelf staan in de graphics pool,
+            // die meet de app niet; een tekort daar geeft een crash die de stap "Geen crash" vangt).
+            _gemeld = true;
+            var st = System.getSystemStats();
+            System.println("GEHEUGEN SEA klaar " + st.usedMemory + " van " + st.totalMemory + " = " + (st.usedMemory.toLong() * 100 / st.totalMemory) + "%");
         }
         return _dier > WALVIS;
     }
@@ -79,6 +94,7 @@ module EbbSeaComplete {
     // Plaatje loslaten als het scherm weggaat (geheugen voor de rest van de app).
     function los() as Void {
         _ref = null;
+        _los = null;
         _d = 0;
     }
 

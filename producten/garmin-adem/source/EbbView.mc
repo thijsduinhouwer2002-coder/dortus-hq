@@ -28,6 +28,7 @@ class EbbView extends WatchUi.View {
     var getij as Boolean = false;
     // Keuring bouw 1 punt 7: eerst het eindscherm (6b met nieuw dier, 6c zonder), daarna today en 8 weeks.
     var einde as Boolean = false;
+    var feest as Boolean = false;     // dit eindscherm is het feestscherm sea complete (alleen de eerste keer)
     var eindReeks as Number = 0;      // weken op rij na deze sessie
     var eindVolgend as Number = -1;   // volgende dier (nummer in EbbTrouw.DIEREN), -1 als je alles hebt
     var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
@@ -105,6 +106,13 @@ class EbbView extends WatchUi.View {
         var v = EbbTrouw.volgende(tellers);
         eindVolgend = v[0];
         eindRest = v[1];
+        // Keuring bouw 6 punt 2: het feestscherm alleen de eerste keer dat alles gevonden is; daarna weer het gewone
+        // eindscherm met de rondetijden (de winkeltekst belooft tijden na elke sessie).
+        feest = false;
+        if (eindVolgend < 0 && Application.Storage.getValue(EbbTrouw.FEEST) != true) {
+            feest = true;
+            Application.Storage.setValue(EbbTrouw.FEEST, true);
+        }
         System.println("TROUW nieuwe dieren " + nieuweDieren);
         return ok;
     }
@@ -130,6 +138,10 @@ class EbbView extends WatchUi.View {
         sessie.hervat(nu);
         opname.hervat();
         _vorigIn = sessie.isIn(nu);
+    }
+
+    function hervatNu() as Void {
+        hervat(System.getTimer());
     }
 
     function weggooien() as Void {

@@ -131,8 +131,9 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 15);
             return [new CalmEindeView(45000, 4, [] as Array<Number>, 5), new CalmEindeDelegate()];
         }
-        if (k == 25) {
+        if (k == 25 || k == 36) {
             // Keuring bouw 3 punt 12 en 14: alle 24 gevonden, "sea complete", reeks 12 weken.
+            // Keuring bouw 6 punt 2: 36 is de sessie daarna, het gewone eindscherm met de tijden en "24 of 24 friends".
             Application.Storage.setValue(EbbTrouw.BITS, (1 << 25) - 1);
             Application.Storage.setValue(EbbTrouw.GEKOZEN, 23);
             view.sessie.fase = Ebb.FASE_KLAAR;
@@ -141,6 +142,8 @@ module EbbScenes {
             view.eindReeks = 12;
             view.sessie.inhoudtijden = [80000, 105000, 118000] as Array<Number>;
             view.eindVolgend = -1;
+            view.feest = (k == 25);
+            view.gezelschap = EbbTrouw.zwemmer();
             return [view, new EbbDelegate(view)];
         }
         if (k == 21) {

@@ -54,7 +54,7 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         _view.pauzeer(System.getTimer());
         // Mila blad v10 punt 2: pauzemenu in Ebb-stijl (Pauze.mc).
         var pv = new PauzeView(PauzeView.regelVan(_view), _view.gezelschap);
-        WatchUi.pushView(pv, new PauzeDelegate(_view, pv), WatchUi.SLIDE_UP);
+        WatchUi.pushView(pv, new PauzeDelegate(pv, _view.method(:hervatNu), _view.method(:opslaanEnTonen), _view.method(:weggooien)), WatchUi.SLIDE_UP);
         return true;
     }
 

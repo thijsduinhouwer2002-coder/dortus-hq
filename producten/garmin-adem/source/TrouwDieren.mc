@@ -38,6 +38,7 @@ module EbbTrouw {
     const LAATST = "trLaatst";   // nummer van het laatst gevonden dier
     const GEKOZEN = "trGekozen"; // dier dat je in de sea log koos ("swims with you", blad v5 8c)
     const BITS = "trDieren";
+    const FEEST = "trFeest";     // true zodra het feestscherm sea complete één keer getoond is (keuring bouw 6 punt 2)
 
     // Welke dieren je hebt bij deze tellers: één bit per dier. pauze is 1 als je ooit terugkwam na een pauze.
     function verdiend(sessies as Number, besteReeks as Number, pauze as Number) as Number {

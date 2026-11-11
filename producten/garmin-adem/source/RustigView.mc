@@ -100,6 +100,23 @@ class RustigView extends WatchUi.View {
         opname.pauzeer();
     }
 
+    // Save uit het pauzemenu: opslaan, trouw tellen, dan het eindscherm 6d (blad v7, "counts as a session").
+    function opslaanEnTonen() as Void {
+        opname.opslaan();
+        var ms = sessie.klok(System.getTimer()) - sessie.startMs;
+        var meetelt = EbbTrouw.telt(0, ms);
+        var tellers = meetelt ? EbbTrouw.naSessie(EbbView.vandaag()) : EbbTrouw.stand(EbbView.vandaag());
+        var nieuw = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
+        System.println("TROUW telt " + meetelt + " nieuwe dieren " + nieuw);
+        var c = sessie.cyclus();
+        var ev = new CalmEindeView(ms, c > 0 ? ms / c : 0, nieuw, tellers[1]);
+        WatchUi.switchToView(ev, new CalmEindeDelegate(), WatchUi.SLIDE_UP);
+    }
+
+    function weggooien() as Void {
+        opname.weggooien();
+    }
+
     function hervat() as Void {
         sessie.hervat(System.getTimer());
         opname.hervat();
@@ -114,13 +131,13 @@ class RustigDelegate extends WatchUi.BehaviorDelegate {
         _view = view;
     }
 
+    // Keuring bouw 6 punt 4: ook Calm pauzeert in het pauzemenu in Ebb-stijl (Pauze.mc), niet in het systeemmenu.
     function onBack() as Boolean {
         _view.pauzeer();
-        var menu = new WatchUi.Menu2({:title => "Paused"});
-        menu.addItem(new WatchUi.MenuItem("Resume", null, :doorgaan, null));
-        menu.addItem(new WatchUi.MenuItem("Save", null, :opslaan, null));
-        menu.addItem(new WatchUi.MenuItem("Discard", null, :weggooien, null));
-        WatchUi.pushView(menu, new RustigPauzeDelegate(_view), WatchUi.SLIDE_UP);
+        var s = (_view.sessie.klok(System.getTimer()) - _view.sessie.startMs) / 1000;
+        s = s < 0 ? 0 : s;
+        var pv = new PauzeView("calm · " + (s / 60) + ":" + (s % 60).format("%02d"), EbbTrouw.zwemmer());
+        WatchUi.pushView(pv, new PauzeDelegate(pv, _view.method(:hervat), _view.method(:opslaanEnTonen), _view.method(:weggooien)), WatchUi.SLIDE_UP);
         return true;
     }
 
@@ -131,43 +148,6 @@ class RustigDelegate extends WatchUi.BehaviorDelegate {
 
     function onSwipe(evt as WatchUi.SwipeEvent) as Boolean {
         return true;
-    }
-}
-
-class RustigPauzeDelegate extends WatchUi.Menu2InputDelegate {
-    private var _view as RustigView;
-
-    function initialize(view as RustigView) {
-        Menu2InputDelegate.initialize();
-        _view = view;
-    }
-
-    function onSelect(item as WatchUi.MenuItem) as Void {
-        var id = item.getId();
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        if (id == :doorgaan) {
-            _view.hervat();
-        } else if (id == :opslaan) {
-            _view.opname.opslaan();
-            // Ook rustig ademen telt voor trouw; daarna het eindscherm 6d (blad v7, "counts as a session").
-            var s = _view.sessie;
-            var ms = s.klok(System.getTimer()) - s.startMs;
-            var meetelt = EbbTrouw.telt(0, ms);
-            var tellers = meetelt ? EbbTrouw.naSessie(EbbView.vandaag()) : EbbTrouw.stand(EbbView.vandaag());
-            var nieuw = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
-            System.println("TROUW telt " + meetelt + " nieuwe dieren " + nieuw);
-            var c = s.cyclus();
-            var ev = new CalmEindeView(ms, c > 0 ? ms / c : 0, nieuw, tellers[1]);
-            WatchUi.switchToView(ev, new CalmEindeDelegate(), WatchUi.SLIDE_UP);
-        } else if (id == :weggooien) {
-            _view.opname.weggooien();
-            System.exit();
-        }
-    }
-
-    function onBack() as Void {
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        _view.hervat();
     }
 }
 

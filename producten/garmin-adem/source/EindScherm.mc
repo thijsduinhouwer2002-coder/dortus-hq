@@ -22,8 +22,8 @@ module EbbEindScherm {
     // of het volgende dier als silhouet (6c), een regel, stippen voor het weekdoel met de reeks in weken.
     // Past bij 1 tot 6 rondes: tot 3 tijden op één regel, daarna twee regels in de kleine letter.
     function teken(dc as Graphics.Dc, d as Number, v as EbbView) as Void {
-        // Mila blad v9 punt 3: na de walvis een eigen feestscherm, zonder tijden.
-        if (v.nieuweDieren.size() == 0 && v.eindVolgend < 0) {
+        // Mila blad v9 punt 3: na de walvis een eigen feestscherm, zonder tijden; keuring bouw 6 punt 2: alleen de eerste keer.
+        if (v.feest) {
             EbbSeaComplete.teken(dc, d, v.eindReeks);
             return;
         }
@@ -66,7 +66,11 @@ module EbbEindScherm {
         var bandOnder = (d * 0.645).toNumber() - lhS / 2 - 6;
         var bandBreed = (d * 0.30).toNumber();
         var extra = 0;
-        if (v.nieuweDieren.size() > 0) {
+        if (v.nieuweDieren.size() == 0 && v.eindVolgend < 0) {
+            // Keuring bouw 6 punt 2: alles gevonden en het feest al gezien: je eigen dier en "24 of 24 friends".
+            EbbDierMaat.inBand(dc, v.gezelschap, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
+            tekstInRonde(dc, d, 0.645, "24 of 24 friends", EbbTeken.LICHT);
+        } else if (v.nieuweDieren.size() > 0) {
             var dier = v.nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
             EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);

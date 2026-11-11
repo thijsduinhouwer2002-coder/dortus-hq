@@ -73,14 +73,20 @@ class PauzeView extends WatchUi.View {
 }
 
 // Knoppen van het pauzemenu: omhoog en omlaag kiezen, START of tik kiest, terug is doorgaan.
+// Keuring bouw 6 punt 4: één delegate voor Rounds en Calm; wat Resume, Save en Discard doen komt binnen als Method.
+// Discard gooit weg en gaat terug naar het startmenu in plaats van de app te sluiten.
 class PauzeDelegate extends WatchUi.BehaviorDelegate {
-    private var _view as EbbView;
     private var _pv as PauzeView;
+    private var _hervat as Method() as Void;
+    private var _opslaan as Method() as Void;
+    private var _weg as Method() as Void;
 
-    function initialize(view as EbbView, pv as PauzeView) {
+    function initialize(pv as PauzeView, hervat as Method() as Void, opslaan as Method() as Void, weg as Method() as Void) {
         BehaviorDelegate.initialize();
-        _view = view;
         _pv = pv;
+        _hervat = hervat;
+        _opslaan = opslaan;
+        _weg = weg;
     }
 
     function schuif(stap as Number) as Boolean {
@@ -98,16 +104,36 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onSelect() as Boolean {
-        var k = _pv.keuze;
+        return kies(_pv.keuze);
+    }
+
+    function kies(k as Number) as Boolean {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         if (k == 0) {
-            _view.hervat(System.getTimer());
+            _hervat.invoke();
         } else if (k == 1) {
             // Keuring bouw 4 punt 9: na opslaan het eindscherm (met een verdiend dier), niet meteen de app dicht.
-            _view.opslaanEnTonen();
+            _opslaan.invoke();
         } else {
-            _view.weggooien();
-            System.exit();
+            _weg.invoke();
+            var mv = new EbbMenuView();
+            WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+        }
+        return true;
+    }
+
+    // Keuring bouw 6 punt 4 (Venu, vivoactive): een tik kiest de regel waarop je tikt; buiten de regels niets.
+    function onTap(evt as WatchUi.ClickEvent) as Boolean {
+        var xy = evt.getCoordinates();
+        var ds = System.getDeviceSettings();
+        var d = ds.screenWidth < ds.screenHeight ? ds.screenWidth : ds.screenHeight;
+        var half = _pv.px(d, 19);
+        for (var i = 0; i < PauzeView.Y.size(); i += 1) {
+            var y = _pv.px(d, PauzeView.Y[i]);
+            if (xy[1] >= y - half && xy[1] < y + half) {
+                _pv.keuze = i;
+                return kies(i);
+            }
         }
         return true;
     }
@@ -115,7 +141,7 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
     // Terug in het pauzemenu is ook doorgaan.
     function onBack() as Boolean {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-        _view.hervat(System.getTimer());
+        _hervat.invoke();
         return true;
     }
 }
