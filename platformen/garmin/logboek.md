@@ -362,3 +362,21 @@
 - f46c3fb: Calm-eindscherm 6d na "Save" bij rustig ademen ("calm done", minuten en ademhalingen, je dier, "counts as a session", reeks). Testbeeld scène 21.
 - Toetsen groen voor 2d75f12 en 07d2a9f. Beelden van deze run nog niet gezien: de plaatjesbouw met acht horloges duurt ±45 minuten.
 
+
+## 11 nov 2026 03:19 UTC (Gijs, run 29, keuring bouw 2 door drie, laagste 3)
+- Opdracht: lijst "Voor Gijs" uit `ontwerp/garmin/ebb-bouw-2-keuring-drie.md`, in volgorde, plus de vijf besluiten. Alles op tak `claude/garmin-2026-11-10b`.
+- Punt 1 crash (watchdog in sea log en inhoudscherm). Eerste aanpak 9df424d: elk dier als doorzichtig plaatje (BufferedBitmap met doorzichtige kleur in het palet). Beelden van run 42952605591 GEZIEN op fenix 8: geen crash meer, maar elk dier stond op een wit of blauw vierkant, dus doorzichtig wissen werkt niet in de simulator. Tweede aanpak 139ce85: rand in 4 schuine richtingen (5 keer tekenen in plaats van 9) en de sea log tekent zijn 9 dieren in één bladplaatje op zwart, 3 per beurt (elke beurt een eigen watchdog), daarna alleen plakken. Beelden van 139ce85 nog niet gezien.
+- Punt 2: plaatjesrun wordt rood bij "watchdog", "app crash", "unhandled exception" of "out of memory" in de log (stap "Geen crash"). Nieuwe toets `testSeaLogEcht`: de echte `DierenView.onUpdate` op 260 en 454, blad 1 en 3, alles en niets gevonden, plus dier 4 en 24 groot en het walvis-silhouet. De oude toets die altijd true gaf is weg.
+- Punt 3: plaatjes per horloge in een matrix (8 jobs). Run 42952605591: elk horloge ±6 minuten, alle 22 scènes, geen crash.
+- Punt 4 en 5 (30d6f3c): reeks in weken met weekdoel (instelling "Weekly goal", 2 tot 7, standaard 3; week van maandag tot zondag; `volgendeWeekReeks`, `reeksOp`, `dezeWeek`), toetsen herschreven. Sessie telt pas met 1 inhoud of 1 minuut Calm (`EbbTrouw.telt`). Calm krijgt ook "Sit or lie down" (`StartCheckView.zetCalm`). Eindschermen: geen "next:" meer maar "1 more session" of "2 more weeks in a row", geen rustdagzin, stippen voor het weekdoel met "3 weeks in a row" of "2 of 3 this week", bij 4 tot 6 rondes de tijden 6 px onder de titel.
+- Punt 6 (b7f2ddd): settings-pil 24 px breder dan de langste regel (hoogstens 0,83 D), regels gelijk verdeeld.
+- Punt 7 (a922e68): dier tijdens inhouden ±0,19 D breed, rustig heen en weer, belletjes bij het dier. Menu-dier nog niet.
+- Punt 11 (ce3c65d): winkeltekst versie 6 in drie talen, titel "Ebb: Breath Hold Rounds, Breathwork & 4-7-8" (43 tekens), geen Box, 5.5 of eigen patroon, weken, today en 8 weeks zoals de schermen.
+- Punt 12 (62f282e): dode code weg, FIT-velden alleen bij rondes, hartslagsensor uit na de sessie.
+- Mila's dieren v8.2 in de app (a922e68).
+- Open: punt 8 (zee op AMOLED, na 3:00 niet lichter), punt 9 (Barlow voor koppen), punt 10 (herstel: zon, onderste regel, driehoek), menu-dier 80 px, beelden van 139ce85 nameten (overlap eindschermen, settings, sea log op 260), oude winkelbeelden weg en nieuwe uit de bouw.
+
+**In drie regels:**
+1. Af in de code: bouw 2 punt 1 tot 7, 11 en 12, dieren v8.2; crash in de sea log weg (beeld GEZIEN), plaatjesrun nu ±6 minuten per horloge.
+2. Open: punt 8, 9, 10, menu-dier, en nakijken van de beelden van 139ce85 (doorzichtige plaatjes werkten niet, nu bladplaatje op zwart).
+3. Volgende run: beelden 139ce85 meten (sea log, 6b, 6c, 6d, settings, inhouden op 454 en 260), dan punt 10, 8, 9.
