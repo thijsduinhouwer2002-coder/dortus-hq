@@ -212,7 +212,7 @@ module EbbTrouw {
     const DIEREN = [
         ["Fish", 0, 1], ["Shrimp", 0, 2], ["Jellyfish", 1, 2], ["Turtle", 1, 3],
         ["Crab", 0, 4], ["Seahorse", 0, 6], ["Starfish", 1, 4], ["Clownfish", 0, 10],
-        ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 0, 14], ["Ray", 0, 16],
+        ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Eel", 0, 14], ["Ray", 0, 16],
         ["Seal", 1, 6], ["Dolphin", 0, 18], ["Swordfish", 0, 20], ["Sea otter", 0, 22],
         ["Manta", 1, 7], ["Shark", 0, 25], ["Sunfish", 0, 28], ["Orca", 0, 32],
         ["Narwhal", 0, 36], ["Giant squid", 0, 42], ["Lobster", 0, 46], ["Whale", 0, 50],

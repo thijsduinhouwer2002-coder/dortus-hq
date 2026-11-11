@@ -3,7 +3,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.Test;
 
-// Mila's 24 dieren plus bonus als data (bron/maak_dieren_data.py): elk dier leest precies tot het eind van zijn bytes,
+// Mila's 24 dieren plus bonus als data (v8 json via bron/maak_dieren_json.py): elk dier leest precies tot het eind van zijn bytes,
 // elke veelhoek heeft 3 tot 60 punten (fillPolygon kan er 64), namen gelijk aan de lijst voor trouw.
 (:test)
 function testDierenData(logger as Test.Logger) as Boolean {
@@ -15,7 +15,7 @@ function testDierenData(logger as Test.Logger) as Boolean {
         var o = 1;
         for (var deel = 0; deel < b[0]; deel += 1) {
             var n = b[o + 1];
-            if (n < 3 || n > 60 || b[o] > 5) {
+            if (n < 3 || n > 60 || b[o] > 10 || b[o] == 6) {
                 logger.debug("dier " + i + " deel " + deel + " punten " + n);
                 return false;
             }

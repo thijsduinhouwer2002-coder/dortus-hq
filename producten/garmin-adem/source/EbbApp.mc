@@ -820,16 +820,8 @@ class EbbView extends WatchUi.View {
             EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.15).toNumber(), -1);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (eindVolgend >= 0) {
-            var m = (d * 0.105).toNumber();
-            var k = d / 150 > 2 ? d / 150 : 2;
-            for (var dx = -1; dx <= 1; dx += 1) {
-                for (var dy = -1; dy <= 1; dy += 1) {
-                    if (dx != 0 || dy != 0) {
-                        EbbDierData.vlakken(dc, eindVolgend, w / 2 + dx * k, cy + dy * k, m, EbbTeken.ZEE_KLEUR[0]);
-                    }
-                }
-            }
-            EbbDierData.vlakken(dc, eindVolgend, w / 2, cy, m, EbbTeken.ZEE_KLEUR[3]);
+            // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
+            EbbDierData.silhouet(dc, eindVolgend, w / 2, cy, (d * 0.105).toNumber());
             tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
         } else {
             tekstInRonde(dc, d, 0.645, "all " + EbbTrouw.totaal() + " found", Graphics.COLOR_WHITE);
