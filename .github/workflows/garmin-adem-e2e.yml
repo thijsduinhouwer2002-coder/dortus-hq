@@ -54,7 +54,8 @@ jobs:
           for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
             echo "== testbouw $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
           done
-          for d in fenix7 vivoactive5 fr265 fenix847mm; do
+          for d in fenix7 fr255 vivoactive5 fr265 fenix847mm; do
+            # Keuring v5 G5: ook de FR255 (260 px MIP), het kleinste scherm, voor de veiligheidsbladen binnen de rand.
             # S1 S2 op elk horloge (run 42925453166: na fenix7 sloegen de anderen de veiligheid over en kwamen er geen
             # toetsen aan): simulator per horloge opnieuw en de opslag van de app weg, zodat elk horloge een eerste start is.
             pkill -f simulator 2>/dev/null; sleep 2
