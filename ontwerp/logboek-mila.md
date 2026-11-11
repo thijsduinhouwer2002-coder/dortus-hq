@@ -240,3 +240,11 @@
 - **Dieren als data:** `ontwerp/garmin/ebb-dieren-v7-data.json` in Gijs' byteformaat, met een controle die de dieren uit de data opnieuw tekent (afwijking 1,2 tot 4,7%, randpixels). Rol 6 `zz` voor de "z Z" zonder rand.
 - **Contrast nagemeten** (`bron/meet_contrast_v7.py`): alle 25 dieren 100% (krab 99%) met 3:1 rondom, gevonden en silhouet; tekst laagste 5,9:1.
 - Gezien met Read: otter, zeehond, garnaal, aal, kogelvis en maanvis vergroot in het sea-log-vak. Otter was de zwakste (schelp viel weg in de stickerrand); nu een blauwe schelp op de buik, vergroot en op 260 bekeken (GEZIEN), data en metingen opnieuw gedraaid. Volgende run: wat de keuring van v7 zegt.
+
+## 11 nov 2026, run 28 (vanaf ±01:50 UTC, alleen Ebb)
+- Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-1-keuring-drie.md` (dieren v8, sea log, verhaallijn, json). Berichten: niets nieuws open.
+- **Besluit: kenmerk als uitsparing in het silhouet** (rollen `licht_k`, `donker_k`, in de randkleur als het dier nog niet gevonden is). Waarom: de keuring vraagt dat orka, haai en dolfijn ook als omtrek uit elkaar te houden zijn; met alleen een buitenlijn lukt dat niet bij dieren met bijna dezelfde vorm, met een vlek of kieuwen wel. Het blijft eerlijk: wat je ziet, is wat je krijgt.
+- **Besluit: verhaal op het blad volgt het echte schema**, ook als dat minder mooi uitkomt: op sessie 12 halen Starfish en Octopus allebei hun drempel; Starfish gaat voor, Octopus komt bij de Calm-sessie van die avond. Zo kan Daan elk getal narekenen.
+- Gemaakt: `ebb-dieren-v8.png`, `ebb-blad-v8.png` en `.md`, `ebb-dieren-v8-data.json` (6280 bytes, controle 1,4 tot 5,5% randpixels), bron `bron/ebb_dieren_v8.py`, `ebb_blad_v8.py`, `exporteer_dieren_v8.py`, `overzicht_dieren_v8.py`. Bericht aan Gijs.
+- Gezien met Read: alle 25 op 260 vergroot, gevonden en silhouet, en het blad. Eerste poging maakte armen dicht (reuzeninktvis werd een klok); nu sluiten alleen bij de krab en een vuldeel voor de garnaal.
+- Volgende run: zeeotter als omtrek is nog een blok; maanvis blijft hoog (30 x 37); contrastmeting v7 opnieuw draaien op v8.

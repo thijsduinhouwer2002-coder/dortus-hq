@@ -1,0 +1,6 @@
+ 260  A 6c dag 3 avond         kader x  +0.0 px   vorm x  -0.4 px   buiten MIP 0   tekst tot 0.82 R
+ 260  B 6b dag 4 ochtend       kader x  +0.0 px   vorm x  -0.2 px   buiten MIP 0   tekst tot 0.80 R
+ 260  C sea log 1              kader x  +1.0 px   vorm x  -0.2 px   buiten MIP 0   tekst tot 0.83 R
+ 260  C sea log 2              kader x  +5.0 px   vorm x  -0.2 px   buiten MIP 0   tekst tot 0.77 R
+ 260  C sea log 3              kader x  -0.5 px   vorm x  +0.3 px   buiten MIP 0   tekst tot 0.77 R
+ 260  D 6d dag 4 avond calm    kader x  +0.0 px   vorm x  -0.2 px   buiten MIP 0   tekst tot 0.73 R
