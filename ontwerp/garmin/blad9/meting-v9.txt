@@ -1,0 +1,16 @@
+Meting blad v9 (inhoud zonder zeebanden en kamlijn, randpixels van letters onder 40 tellen niet): midden van het kader t.o.v. schermmidden, en pixels buiten 0,85 R.
+De dieren staan op hun zwaartepunt (zoals DierenData.mc); een breed dier rechts (walvis, orka) schuift het kader, niet de plek.
+einde-schaduw-260.png: kader x-midden -0.5 px, pixels buiten 0,85 R: 1
+einde-schaduw-454.png: kader x-midden +0.5 px, pixels buiten 0,85 R: 3
+einde-schaduw-oud-260.png: kader x-midden -0.5 px, pixels buiten 0,85 R: 1
+einde-schaduw-oud-454.png: kader x-midden +0.5 px, pixels buiten 0,85 R: 3
+sea-complete-260.png: kader x-midden +0.0 px, pixels buiten 0,85 R: 24
+sea-complete-454.png: kader x-midden -0.5 px, pixels buiten 0,85 R: 53
+sealog-1-260.png: kader x-midden -1.5 px, pixels buiten 0,85 R: 0
+sealog-1-454.png: kader x-midden -3.0 px, pixels buiten 0,85 R: 0
+sealog-2-260.png: kader x-midden +1.5 px, pixels buiten 0,85 R: 0
+sealog-2-454.png: kader x-midden +2.0 px, pixels buiten 0,85 R: 0
+sealog-4-260.png: kader x-midden +6.5 px, pixels buiten 0,85 R: 3
+sealog-4-454.png: kader x-midden +11.0 px, pixels buiten 0,85 R: 5
+sealog-5-260.png: kader x-midden +0.5 px, pixels buiten 0,85 R: 0
+sealog-5-454.png: kader x-midden +0.5 px, pixels buiten 0,85 R: 0

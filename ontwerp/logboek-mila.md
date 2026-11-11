@@ -277,3 +277,13 @@
 - Gemaakt: `bron/ebb_dieren_v83.py`, `maak_v83.py`, `horloge_sim.py`, `meet_ogen_v83.py`, `blad_v83.py`, `ebb-dieren-v83-data.json`, `ebb-blad-v83.png`, `dieren83/`, uitleg in `ebb-blad-v8.md`, bericht Gijs met de nieuwe `ogen()`.
 - Zeeotter en zeekomkommer nog in deze run verbeterd; frisse toets 2: silhouet 24 van 25, kleur 25 van 25.
 - Volgende run: zeeotter (blijft zwakste), manta-gezicht, narwaltand dunner en puntig.
+
+## 11 nov 2026, run 33 (vanaf 06:09 UTC, alleen Ebb)
+- Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-4-keuring-drie.md` (4 punten) en de vraag van Gijs van 05:35. Besluit Thijs 07:13: door tot elk cijfer minstens 8.
+- Eerst de echte beelden (FR255 en fenix 8, sea log, 6b, 6c, sea complete) van de tak `schermen` bekeken met Read.
+- **Besluit: sea log 2 rijen van 3, maat 23, plus een bonusblad.** Waarom: 24 deelt precies in 4 x 6, de zeekomkommer krijgt zo een eigen "bonus"-moment, en de regel onder de naam kan blijven.
+- **Besluit: silhouet zonder binnenlijnen, rand 1 px in 8 richtingen.** Waarom: de 4 schuine kopieen op 2 px plus de kenmerklijnen gaven bij dunne vinnen dubbele randen; een raadsel heeft geen details nodig.
+- **Besluit: sea complete als feest, walvis met een glimlach van 23 vrienden, geen tijden.** Waarom: de keuring vroeg een eigen viering; tijden staan een knop verder. Eerste versie (ring rond het scherm) was een rommelige krans die door tekst liep; de glimlach leest in één blik.
+- **Besluit: volgend dier als zwarte schaduw met schuimrand.** Waarom: zwart werkt op elke zeetint, op AMOLED en MIP; "wie zwemt daar?".
+- Gemaakt: `bron/blad_v9.py`, `bron/fonts/` (Barlow Condensed, OFL), `blad9/`, `ebb-blad-v9.png`, `ebb-blad-v9.md`, `blad9/meting-v9.txt`, bericht Gijs.
+- Volgende run: na de bouw van Gijs v9 op de echte beelden nalopen; de binnenboog van sea complete op 260 iets ruimer als het past.
