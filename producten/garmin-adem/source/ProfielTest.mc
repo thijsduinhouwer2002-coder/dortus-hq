@@ -18,7 +18,7 @@ function testDuikprofielV(logger as Test.Logger) as Boolean {
 // Keuring G1: geen record meer; onderaan de getijdenlijn het gemiddelde van de dagen met een sessie.
 (:test)
 function testGemiddeldeLijn(logger as Test.Logger) as Boolean {
-    var lijn = [[100, 80], null, [120, 91]] as Array<Array<Number> or Null>;
+    var lijn = [[80], null, [91]] as Array<Array<Number> or Null>;
     return EbbProfiel.gemiddeldeLijn(lijn) == 86 && EbbProfiel.gemiddeldeLijn([null] as Array<Array<Number> or Null>) == 0;
 }
 
@@ -66,10 +66,10 @@ function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
     return lijn.size() == 56 && gaten == 18 && fout == 0;
 }
 
-// Scherm 5: punten van de getijdenlijn. Hoogste beste is de volle hoogte, gemiddelde eronder, gaten blijven gaten.
+// Scherm 5: punten van de getijdenlijn. Hoogste daggemiddelde is de volle hoogte, gaten blijven gaten (keuring v5 G1: geen beste).
 (:test)
 function testGetijPunten(logger as Test.Logger) as Boolean {
-    var lijn = [[60, 40], null, [120, 90], [90, 90], null] as Array<Array<Number> or Null>;
+    var lijn = [[60], null, [120], [90], null] as Array<Array<Number> or Null>;
     var p = EbbProfiel.getijPunten(lijn, 10, 200, 400, 100);
     logger.debug("punten " + p);
     var a = p[0] as Array<Number>;
@@ -77,9 +77,9 @@ function testGetijPunten(logger as Test.Logger) as Boolean {
     var e = p[3] as Array<Number>;
     var leeg = EbbProfiel.getijPunten([null, null] as Array<Array<Number> or Null>, 0, 100, 50, 50);
     return p.size() == 5 && p[1] == null && p[4] == null
-        && a[0] == 10 && a[1] == 150 && a[2] == 167
-        && c[0] == 210 && c[1] == 100 && c[2] == 125
-        && e[0] == 310 && e[1] == 125 && e[2] == 125
+        && a.size() == 2 && a[0] == 10 && a[1] == 150
+        && c[0] == 210 && c[1] == 100
+        && e[0] == 310 && e[1] == 125
         && leeg[0] == null && leeg[1] == null;
 }
 

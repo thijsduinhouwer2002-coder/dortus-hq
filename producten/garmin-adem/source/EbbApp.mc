@@ -59,9 +59,9 @@ class EbbApp extends Application.AppBase {
             }
         }
         if (EbbBouw.PLAATJE) {
-            // Scène per start: 0 vis (1:03), 1 schildpad (2:03), 2 walvis (3:03), 3 Sea log met alle dieren,
-            // 4 duikprofiel en 5 getijdenlijn met één verhaal (Daan keuring winkelbeelden 1: beste 3:05, de dag van
-            // de walvis), 6 rustig ademen 4-7-8.
+            // Scène per start: 0 vis, 1 schildpad, 2 walvis (inhouden), 3 Sea log, 4 rondes van vandaag, 5 8 weeks,
+            // 6 rustig ademen 4-7-8. Keuring v5 G1: geen tijden die bij een dier horen; de walvis krijgt juist de kortste
+            // hold, zodat geen beeld zegt "langer inhouden geeft een groter dier".
             var keer = Application.Storage.getValue("plaatjekeer");
             var k = ((keer instanceof Number) ? keer as Number : 0) % 7;
             Application.Storage.setValue("plaatjekeer", k + 1);
@@ -83,19 +83,19 @@ class EbbApp extends Application.AppBase {
             if (k == 4 || k == 5) {
                 view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
                 view.sessie.fase = Ebb.FASE_KLAAR;
-                view.sessie.inhoudtijden = [102000, 151000, 185000] as Array<Number>;
+                view.sessie.inhoudtijden = [85000, 118000, 96000] as Array<Number>;   // gewone sessie, geen oplopend record
                 view.opnemen = false;
                 view.getij = (k == 5);
                 return [view, new EbbDelegate(view)];
             }
-            var drempel = [60000, 120000, 180000] as Array<Number>;
+            var drempel = [93000, 72000, 48000] as Array<Number>;
             // Het dier hangt niet meer van de tijd af maar van wat je hebt: vis, schildpad, of alles (walvis).
             var bits = [1, 15, (1 << 24) - 1] as Array<Number>;
             Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
             view.gezelschap = EbbTrouw.gezelschap();
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
-            view.plaatjeMs = drempel[k] + 3300;
+            view.plaatjeMs = drempel[k];
             return [view, new EbbDelegate(view)];
         }
         if (!EbbBouw.DEMO) {
@@ -318,7 +318,7 @@ class EbbView extends WatchUi.View {
     // Opslaan: activiteit bewaren en de inhoudtijden in de 56 dagen zetten.
     function opslaan() as Boolean {
         var ok = opname.opslaan();
-        System.println("OPNAME opgeslagen " + ok + " laps " + (opname.laps + 1) + " beste " + opname.besteS);
+        System.println("OPNAME opgeslagen " + ok + " laps " + (opname.laps + 1));
         var opslag = new EbbOpslag();
         var dag = vandaag();
         for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
@@ -622,13 +622,12 @@ class EbbView extends WatchUi.View {
         if (EbbBouw.DEMO || EbbBouw.PLAATJE) {
             var lijn = [] as Array<Array<Number> or Null>;
             for (var i = 0; i < EbbOpslag.DAGEN; i += 1) {
-                // Iemand die drie dagen overslaat en langzaam beter wordt tot 3:03 (Daan: één verhaal met de walvis op 3:00).
+                // Iemand die drie dagen overslaat en rustig doorgaat.
                 if (i == 10 || i == 27 || i == 41) {
                     lijn.add(null);
                 } else {
-                    var beste = (100 + 1.5 * i + 6 * Math.sin(i / 2.5)).toNumber();
-                    if (i == EbbOpslag.DAGEN - 1) { beste = 185; }   // vandaag: 3:05, dezelfde als het duikprofiel
-                    lijn.add([beste, beste - 14 - (i % 3) * 3] as Array<Number>);
+                    // Keuring v5 G1: alleen het daggemiddelde, geen beste en geen uitschieter op de laatste dag.
+                    lijn.add([(86 + 1.5 * i + 6 * Math.sin(i / 2.5) - (i % 3) * 3).toNumber()] as Array<Number>);
                 }
             }
             return lijn;
@@ -663,14 +662,14 @@ class EbbView extends WatchUi.View {
             if (eerste == null) {
                 eerste = q;
                 vlak.add([q[0] - half, bodem]);
-                vlak.add([q[0] - half, q[2]]);
+                vlak.add([q[0] - half, q[1]]);
             }
-            vlak.add([q[0], q[2]]);
+            vlak.add([q[0], q[1]]);
             laatste = q;
         }
         if (eerste != null && laatste != null) {
             var z = laatste as Array<Number>;
-            vlak.add([z[0] + half, z[2]]);
+            vlak.add([z[0] + half, z[1]]);
             vlak.add([z[0] + half, bodem]);
             dc.fillPolygon(vlak);
         }
@@ -693,9 +692,9 @@ class EbbView extends WatchUi.View {
                 dagen += 1;
                 if (i > 0 && p[i - 1] != null) {
                     var v = p[i - 1] as Array<Number>;
-                    dc.drawLine(v[0], v[2], q[0], q[2]);
+                    dc.drawLine(v[0], v[1], q[0], q[1]);
                 } else if (i + 1 >= p.size() || p[i + 1] == null) {
-                    dc.fillCircle(q[0], q[2], d / 110 > 2 ? d / 110 : 2);
+                    dc.fillCircle(q[0], q[1], d / 110 > 2 ? d / 110 : 2);
                 }
             }
         }

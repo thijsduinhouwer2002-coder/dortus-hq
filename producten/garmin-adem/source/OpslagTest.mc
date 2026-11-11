@@ -16,8 +16,8 @@ function testTweedeSessieZelfdeDag(logger as Test.Logger) as Boolean {
     o.voegToe(20400, 60);
     o.voegToe(20400, 90);
     var d = o.dag(20400) as Array<Number>;
-    logger.debug("beste " + d[0] + " gemiddeld " + d[1] + " aantal " + d[2]);
-    return d[0] == 90 && d[1] == 75 && d[2] == 2;
+    logger.debug("gemiddeld " + d[0] + " aantal " + d[1]);
+    return d.size() == 2 && d[0] == 75 && d[1] == 2;   // keuring v5 G1: geen "beste" meer in de opslag
 }
 
 (:test)

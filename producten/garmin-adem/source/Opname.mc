@@ -13,7 +13,6 @@ class EbbOpname {
     private var _tekst as String = "";
     private var _adem as FitContributor.Field or Null = null;     // blad v5 P2: "Breaths" per lap
     private var _rondes as FitContributor.Field or Null = null;   // blad v5 P2: "Rounds" in de samenvatting
-    var besteS as Number = 0;
     var laps as Number = 0;
 
     function initialize() {
@@ -60,12 +59,11 @@ class EbbOpname {
         _rondes = s.createField("rondes", 3, FitContributor.DATA_TYPE_UINT8, {:mesgType => FitContributor.MESG_TYPE_SESSION});
         s.start();
         _sessie = s;
-        besteS = 0;
         laps = 0;
         _tekst = "";
     }
 
-    // Na het inhouden: inhoudtijd en ademhalingen op de lap van deze ronde, de langste en het aantal rondes op de sessie.
+    // Na het inhouden: inhoudtijd en ademhalingen op de lap van deze ronde, alle tijden en het aantal rondes op de sessie.
     function inhouden(inhoudS as Number, adem as Number) as Void {
         if (_sessie == null) {
             return;
@@ -74,9 +72,6 @@ class EbbOpname {
         (_inhoud as FitContributor.Field).setData(s);
         (_adem as FitContributor.Field).setData(adem > 255 ? 255 : adem);
         (_rondes as FitContributor.Field).setData(laps + 1);
-        if (s > besteS) {
-            besteS = s;
-        }
         _tekst = EbbOpname.tijdenTekst(_tekst, s);
         (_tijden as FitContributor.Field).setData(_tekst);
     }

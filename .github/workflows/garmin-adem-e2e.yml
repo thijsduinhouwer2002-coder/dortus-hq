@@ -55,6 +55,12 @@ jobs:
             echo "== testbouw $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
           done
           for d in fenix7 vivoactive5 fr265 fenix847mm; do
+            # S1 S2 op elk horloge (run 42925453166: na fenix7 sloegen de anderen de veiligheid over en kwamen er geen
+            # toetsen aan): simulator per horloge opnieuw en de opslag van de app weg, zodat elk horloge een eerste start is.
+            pkill -f simulator 2>/dev/null; sleep 2
+            echo "== opslag simulator voor $d:"; find /tmp/com.garmin.connectiq/GARMIN/APPS -maxdepth 2 2>/dev/null | head -20
+            rm -rf /tmp/com.garmin.connectiq/GARMIN/APPS/DATA /tmp/com.garmin.connectiq/GARMIN/APPS/SETTINGS 2>/dev/null
+            simulator > /tmp/sim.log 2>&1 & sleep 8
             touch /tmp/merk-$d
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/do-$d.log" 2>&1 &
             MD=$!

@@ -38,19 +38,19 @@ module EbbProfiel {
         for (var i = 0; i < lijn.size(); i += 1) {
             var g = lijn[i];
             if (g != null) {
-                som += g[1];
+                som += g[0];
                 n += 1;
             }
         }
         return (n > 0) ? (som + n / 2) / n : 0;
     }
 
-    // Getijdenlijn: 56 dagen, oudste eerst, eindigend op vandaag. Per dag [beste, gemiddelde] of null (gat).
+    // Getijdenlijn: 56 dagen, oudste eerst, eindigend op vandaag. Per dag [gemiddelde] of null (gat).
     function getijden(opslag as EbbOpslag, vandaag as Number) as Array<Array<Number> or Null> {
         var lijn = [] as Array<Array<Number> or Null>;
         for (var d = vandaag - EbbOpslag.DAGEN + 1; d <= vandaag; d += 1) {
             var g = opslag.dag(d);
-            lijn.add(g == null ? null : [g[0], g[1]] as Array<Number>);
+            lijn.add(g == null ? null : [g[0]] as Array<Number>);
         }
         return lijn;
     }
@@ -69,8 +69,8 @@ module EbbProfiel {
             for (var d = van; d <= tot; d += 1) {
                 var g = opslag.dag(d);
                 if (g != null) {
-                    som += g[1] * g[2];
-                    n += g[2];
+                    som += g[0] * g[1];
+                    n += g[1];
                 }
             }
             var sessies = 0;
@@ -84,8 +84,8 @@ module EbbProfiel {
         return uit;
     }
 
-    // Scherm 5 (getijdenlijn per week): per dag [x, y beste, y gemiddelde] of null bij een gat.
-    // De hoogste beste tijd van de 56 dagen is de volle hoogte h; y0 is de bodem, hoger water is een kleinere y.
+    // Scherm 5 (getijdenlijn per week): per dag [x, y gemiddelde] of null bij een gat.
+    // Het hoogste daggemiddelde van de 56 dagen is de volle hoogte h; y0 is de bodem, hoger water is een kleinere y.
     function getijPunten(lijn as Array<Array<Number> or Null>, x0 as Number, y0 as Number, w as Number, h as Number) as Array<Array<Number> or Null> {
         var max = 0;
         for (var i = 0; i < lijn.size(); i += 1) {
@@ -102,7 +102,7 @@ module EbbProfiel {
                 uit.add(null);
             } else {
                 var x = (n > 1) ? x0 + (w * i) / (n - 1) : x0;
-                uit.add([x, y0 - (h * g[0]) / max, y0 - (h * g[1]) / max] as Array<Number>);
+                uit.add([x, y0 - (h * g[0]) / max] as Array<Number>);
             }
         }
         return uit;

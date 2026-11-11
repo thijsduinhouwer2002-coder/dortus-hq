@@ -1,7 +1,8 @@
 import Toybox.Application;
 import Toybox.Lang;
 
-// Eis 9: 56 dagen als één ByteArray van 56 x 11 = 616 B. Per dag: dagnummer 4 B, beste 2 B (s), som 4 B (s), aantal 1 B.
+// Eis 9: 56 dagen als één ByteArray van 56 x 11 = 616 B. Per dag: dagnummer 4 B, 2 B vrij (was "beste", weg sinds
+// keuring v5 G1: Ebb houdt geen record bij), som 4 B (s), aantal 1 B. De maat bleef gelijk, zodat oude opslag blijft werken.
 // Plek in de rij is dagnummer % 56, dus een dag van 56 dagen geleden wordt vanzelf overschreven.
 class EbbOpslag {
     static const DAGEN = 56;
@@ -36,23 +37,20 @@ class EbbOpslag {
             bytes[o + 10] = 0;
         }
         var s = (inhoudS > 65535) ? 65535 : inhoudS;
-        if (s > lees(o + 4, Lang.NUMBER_FORMAT_UINT16)) {
-            schrijf(s, o + 4, Lang.NUMBER_FORMAT_UINT16);
-        }
         schrijf(lees(o + 6, Lang.NUMBER_FORMAT_UINT32) + s, o + 6, Lang.NUMBER_FORMAT_UINT32);
         if (bytes[o + 10] < 255) {
             bytes[o + 10] = bytes[o + 10] + 1;
         }
     }
 
-    // [beste, gemiddelde, aantal] voor dag, of null als er die dag geen sessie was (een gat in de getijdenlijn).
+    // [gemiddelde, aantal] voor dag, of null als er die dag geen sessie was (een gat in de getijdenlijn).
     function dag(dag as Number) as Array<Number> or Null {
         var o = (dag % DAGEN) * MAAT;
         var n = bytes[o + 10];
         if (dag <= 0 || lees(o, Lang.NUMBER_FORMAT_UINT32) != dag || n == 0) {
             return null;
         }
-        return [lees(o + 4, Lang.NUMBER_FORMAT_UINT16), lees(o + 6, Lang.NUMBER_FORMAT_UINT32) / n, n] as Array<Number>;
+        return [lees(o + 6, Lang.NUMBER_FORMAT_UINT32) / n, n] as Array<Number>;
     }
 
     function bewaar() as Void {
