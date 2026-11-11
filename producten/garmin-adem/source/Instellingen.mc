@@ -6,7 +6,7 @@ import Toybox.Lang;
 // verder; na de grootste begint hij weer bij de kleinste.
 module EbbInstellingen {
     const ADEMHALINGEN = 0;   // per ronde, 20 tot 60
-    const TEMPO = 1;          // ms per in of uit, 1200 tot 2400
+    const TEMPO = 1;          // ademhalingen per minuut, 10 tot 20 (blad v6 en keuring 01:55 punt 4)
     const RONDES = 2;         // 1 tot 6
     const HERSTEL = 3;        // s, 10 tot 30
     const EIGEN_IN = 4;       // eigen patroon, s per fase; vast mag 0
@@ -16,7 +16,8 @@ module EbbInstellingen {
 
     const LIJST = [
         ["ademhalingen", 20, 60, 5, 30],
-        ["tempo", 1200, 2400, 200, 1600],
+        // Nieuwe sleutel "tempoMin": de oude "tempo" was ms per in of uit en mag niet als per minuut gelezen worden.
+        ["tempoMin", 10, 20, 1, 15],
         ["rondes", 1, 6, 1, 3],
         ["herstel", 10, 30, 5, 15],
         ["eigenIn", 1, 12, 1, 4],
@@ -84,14 +85,19 @@ module EbbInstellingen {
 
     // Een nieuwe rondesessie met de bewaarde instellingen.
     function rondes(startMs as Number) as Ebb.Rondes {
-        return new Ebb.Rondes(waarde(ADEMHALINGEN), waarde(TEMPO), waarde(RONDES), waarde(HERSTEL) * 1000, startMs);
+        return new Ebb.Rondes(waarde(ADEMHALINGEN), tempoMs(), waarde(RONDES), waarde(HERSTEL) * 1000, startMs);
     }
 
-    // Tekst onder een menuregel, bijvoorbeeld "1.6 s" of "15 s".
+    // Duur van in en ook van uit in ms bij het gekozen tempo: 15 per minuut is 4 s per ademhaling, 2000 ms per helft.
+    function tempoMs() as Number {
+        return 30000 / waarde(TEMPO);
+    }
+
+    // Tekst onder een menuregel, bijvoorbeeld "15 per min" of "15 s".
     function tekst(i as Number) as String {
         var v = waarde(i);
         if (i == TEMPO) {
-            return (v / 1000) + "." + ((v % 1000) / 100) + " s";
+            return v + " per min";
         }
         if (i == HERSTEL || i >= EIGEN_IN) {
             return v + " s";

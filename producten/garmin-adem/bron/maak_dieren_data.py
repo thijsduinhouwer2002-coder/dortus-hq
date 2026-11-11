@@ -1,5 +1,5 @@
-# Zet Mila's 24 dieren (ontwerp/garmin/bron/ebb_dieren_v5.py, of v4) om naar compacte data voor het horloge.
-# Gebruik: python3 maak_dieren_data.py <map met Mila's bron> <uit: source/DierenData.mc> [v5|v4]
+# Zet Mila's dieren (ontwerp/garmin/bron/ebb_dieren_v6.py: 24 plus bonus; of v5, v4) om naar compacte data voor het horloge.
+# Gebruik: python3 maak_dieren_data.py <map met Mila's bron> <uit: source/DierenData.mc> [v6|v5|v4]
 # Per dier één ByteArray: [aantal delen, per deel: rol, aantal punten, x, y, ...; aantal ogen, per oog: x, y].
 # Punten in honderdsten van de diermaat (int8, -127..127), al verschoven naar het zwaartepunt van het getekende dier,
 # zodat het dier op (cx, cy) optisch in het midden staat (Mila moet-punt 7, Daan W2).
@@ -9,7 +9,11 @@ sys.path.insert(0, os.path.abspath(sys.argv[1]))
 _argv = sys.argv; sys.argv = ['x']
 VERSIE = _argv[3] if len(_argv) > 3 else 'v5'
 import ebb_blad_v3 as v3
-if VERSIE == 'v5':
+if VERSIE == 'v6':
+    import ebb_dieren_v6 as m
+    DELEN = m.delen_v6
+    RAND = m.RAND
+elif VERSIE == 'v5':
     import ebb_dieren_v5 as m
     DELEN = m.delen_v5
     RAND = m.RAND
@@ -22,6 +26,8 @@ sys.argv = _argv
 # Rollen: kleur uit TINT (lijf, licht, donker), of vast: zwart, muts (0x5555FF), wit.
 ROL = {'lijf': 0, 'licht': 1, 'donker': 2, 'zwart': 3, 'muts': 4, 'witp': 5}
 MAX = 60
+# Punten in 1/SCHAAL eenheid: 90 in plaats van 100, zodat de slagtand van de narwal (v6, tot 1,4 eenheid) in int8 past.
+SCHAAL = 90
 
 def rdp(pts, eps):
     if len(pts) < 3:
@@ -52,7 +58,7 @@ def vereenvoudig(pts):
     return uit
 
 def i8(v):
-    v = int(round(v * 100))
+    v = int(round(v * SCHAAL))
     assert -127 <= v <= 127, v
     return v
 
@@ -85,7 +91,7 @@ with open(sys.argv[2], 'w') as f:
     f.write('''import Toybox.Graphics;
 import Toybox.Lang;
 
-// GEMAAKT door bron/maak_dieren_data.py uit Mila's ebb_dieren_%s.py (24 dieren). Niet met de hand wijzigen.
+// GEMAAKT door bron/maak_dieren_data.py uit Mila's ebb_dieren_%s.py (%d dieren). Niet met de hand wijzigen.
 // %d bytes voor alle dieren samen. Tekenen met EbbDierData.teken(dc, nummer, cx, cy, maat).
 module EbbDierData {
     const NAMEN = [%s] as Array<String>;
@@ -93,10 +99,12 @@ module EbbDierData {
     const TINT = [%s] as Array<Array<Number> >;
     // Zeekomkommer: ooglid half dicht.
     const SLAPERIG = %d;
+    // Punten in 1/SCHAAL van de diermaat.
+    const SCHAAL = %d;
     const DATA = [
 %s
     ] as Array<ByteArray>;
-''' % (VERSIE, totaal, ', '.join('"%s"' % n for n in namen), ', '.join(tinten), [s for s, _ in m.ALLE].index('komkom'), ',\n'.join(regels)))
+''' % (VERSIE, len(namen), totaal, ', '.join('"%s"' % n for n in namen), ', '.join(tinten), [s for s, _ in m.ALLE].index('komkom'), SCHAAL, ',\n'.join(regels)))
     f.write('''
     function s8(b as Number) as Number {
         return b > 127 ? b - 256 : b;
@@ -133,7 +141,7 @@ module EbbDierData {
             o += 2;
             var pts = new [n] as Array<[Numeric, Numeric]>;
             for (var k = 0; k < n; k += 1) {
-                pts[k] = [cx + (s8(b[o]) * maat) / 100, cy + (s8(b[o + 1]) * maat) / 100] as [Numeric, Numeric];
+                pts[k] = [cx + (s8(b[o]) * maat) / SCHAAL, cy + (s8(b[o + 1]) * maat) / SCHAAL] as [Numeric, Numeric];
                 o += 2;
             }
             var c = kleur;
@@ -154,8 +162,8 @@ module EbbDierData {
         var aantal = b[o];
         o += 1;
         for (var k = 0; k < aantal; k += 1) {
-            var x = cx + (s8(b[o]) * maat) / 100;
-            var y = cy + (s8(b[o + 1]) * maat) / 100;
+            var x = cx + (s8(b[o]) * maat) / SCHAAL;
+            var y = cy + (s8(b[o + 1]) * maat) / SCHAAL;
             o += 2;
             var r = (13 * maat) / 100;
             r = r < 2 ? 2 : r;

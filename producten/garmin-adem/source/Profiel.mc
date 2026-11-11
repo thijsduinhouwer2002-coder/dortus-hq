@@ -268,7 +268,7 @@ module EbbTrouw {
         return (vandaag >= dag && vandaag <= dag + 1 + RUSTDAGEN) ? getal(REEKS) : 0;
     }
 
-    // De 24 dieren voor trouw (besluit 22:53, lijst van blad v4.1 van Mila). Per dier [naam, soort, drempel]:
+    // De 24 dieren voor trouw plus de bonus (besluit 22:53, lijst van blad v6 van Mila). Per dier [naam, soort, drempel]:
     // soort 0 is aantal opgeslagen sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt
     // niets af), soort 2 is "back after a break": je eerste sessie na 7 of meer dagen zonder (de zeekomkommer).
     // Schema van blad v5.4 (eerlijk voor wie ±4 keer per week ademt; de walvis bij 50 sessies, ±3 maanden).
@@ -281,11 +281,12 @@ module EbbTrouw {
         ["Pufferfish", 1, 5], ["Octopus", 0, 12], ["Squid", 0, 14], ["Ray", 0, 16],
         ["Seal", 1, 6], ["Dolphin", 0, 18], ["Swordfish", 0, 20], ["Sea otter", 0, 22],
         ["Manta", 1, 7], ["Shark", 0, 25], ["Sunfish", 0, 28], ["Orca", 0, 32],
-        ["Narwhal", 0, 36], ["Giant squid", 0, 42], ["Sea cucumber", 2, 7], ["Whale", 0, 50]
+        ["Narwhal", 0, 36], ["Giant squid", 0, 42], ["Lobster", 0, 46], ["Whale", 0, 50],
+        ["Sea cucumber", 2, 7]
     ] as Array<Array>;
-    const ZEEKOMKOMMER = 22;
+    const ZEEKOMKOMMER = 24;
     // Besluit hoofdchat 11 nov 00:55: de zeekomkommer is een bonus. Hij telt niet mee in "x of N", zodat je alle
-    // gewone dieren haalt zonder ooit te stoppen. Hij staat nog op nummer 22 omdat de tekeningen zo genummerd zijn.
+    // gewone dieren haalt zonder ooit te stoppen. Blad v6 (keuring 01:55, punt 3): de Lobster vult nr. 23 (46 sessies), de zeekomkommer staat achteraan als 25e.
     function bonus(i as Number) as Boolean {
         return i == ZEEKOMKOMMER;
     }

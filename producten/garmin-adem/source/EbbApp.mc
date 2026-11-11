@@ -90,7 +90,7 @@ class EbbApp extends Application.AppBase {
             }
             var drempel = [93000, 72000, 48000] as Array<Number>;
             // Het dier hangt niet meer van de tijd af maar van wat je hebt: vis, schildpad, of alles (walvis).
-            var bits = [1, 15, (1 << 24) - 1] as Array<Number>;
+            var bits = [1, 15, (1 << 25) - 1] as Array<Number>;
             Application.Storage.setValue(EbbTrouw.BITS, bits[k]);
             view.gezelschap = EbbTrouw.gezelschap();
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
@@ -115,9 +115,9 @@ class EbbApp extends Application.AppBase {
 // vegen en de bladertoetsen doen niets, terug gaat een blad terug (op het eerste blad: de app sluit, zonder bevestigen).
 module EbbVeiligTekst {
     const BLADEN = [
-        ["Sit or lie down.", "Never standing,", "never in or near water,", "never while driving."],
+        ["Sit or lie down.", "Never while standing,", "never in or near water,", "never while driving."],
         ["You can faint", "without warning.", "Never force a hold.", "Stop if dizzy."],
-        ["Not if pregnant,", "under 18, epilepsy,", "heart or blood", "pressure problems."]
+        ["Not if: pregnant,", "under 18, epilepsy,", "heart or blood", "pressure problems."]
     ] as Array<Array<String> >;
     const GEEL = "Not a medical device.";
 

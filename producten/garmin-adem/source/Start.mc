@@ -59,7 +59,7 @@ module EbbStart {
         return (p[0] / 1000) + "-" + (p[1] / 1000) + "-" + (p[2] / 1000) + "-" + (p[3] / 1000);
     }
 
-    const NAMEN = ["Breaths per round", "Pace", "Rounds", "Recovery hold", "My pattern: in", "My pattern: hold", "My pattern: out", "My pattern: rest"] as Array<String>;
+    const NAMEN = ["Breaths per round", "Breathing pace", "Rounds", "Recovery hold", "My pattern: in", "My pattern: hold", "My pattern: out", "My pattern: rest"] as Array<String>;
 
     function instellingen() as WatchUi.Menu2 {
         var m = new WatchUi.Menu2({:title => "Settings", :theme => WatchUi.MENU_THEME_CYAN});
@@ -67,8 +67,8 @@ module EbbStart {
             m.addItem(new WatchUi.MenuItem(NAMEN[i], EbbInstellingen.tekst(i), i, null));
         }
         m.addItem(new WatchUi.ToggleMenuItem("Vibration", null, :trillen, EbbInstellingen.trillen(), null));
-        m.addItem(new WatchUi.ToggleMenuItem("Hold tick", "every 30 s", :tik30, EbbInstellingen.tik30(), null));
-        m.addItem(new WatchUi.MenuItem("Show safety note", null, :veilig, null));
+        m.addItem(new WatchUi.ToggleMenuItem("Buzz in hold", "every 30 s", :tik30, EbbInstellingen.tik30(), null));
+        m.addItem(new WatchUi.MenuItem("Safety info", null, :veilig, null));
         return m;
     }
 }

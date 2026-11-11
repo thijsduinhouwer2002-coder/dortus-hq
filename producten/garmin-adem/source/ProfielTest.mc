@@ -95,8 +95,8 @@ function testZwemZonderBeloning(logger as Test.Logger) as Boolean {
 (:test)
 function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
-    var lijst = EbbTrouw.DIEREN.size() == 24 && (EbbTrouw.DIEREN[22][0] as String).equals("Sea cucumber")
-        && (EbbTrouw.DIEREN[23][0] as String).equals("Whale");
+    var lijst = EbbTrouw.DIEREN.size() == 25 && (EbbTrouw.DIEREN[22][0] as String).equals("Lobster")
+        && (EbbTrouw.DIEREN[23][0] as String).equals("Whale") && (EbbTrouw.DIEREN[24][0] as String).equals("Sea cucumber");
     var geen = EbbTrouw.aantal() == 0 && EbbTrouw.gezelschap() == 0;
     var eerste = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(100));        // 1 sessie: vis
     var tweede = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(101));        // 2 sessies, 2 dagen: garnaal, kwal wacht
@@ -108,17 +108,17 @@ function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     // Na 6 dagen zonder geen zeekomkommer; na 7 dagen zonder wel.
     var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(109));           // dag 103 t/m 108 zonder: 6 dagen, geen zeekomkommer; 6 sessies: zeepaardje
     var zeven = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(117));         // dag 110 t/m 116 zonder: 7 dagen
-    var gehouden = EbbTrouw.aantal() == 7 && EbbTrouw.aantalGewoon() == 6 && EbbTrouw.totaal() == 23
-        && EbbTrouw.bonus(22) && !EbbTrouw.bonus(23);
-    var alles = EbbTrouw.verdiend(50, 7, 1) == (1 << 24) - 1 && EbbTrouw.verdiend(50, 7, 0) != (1 << 24) - 1
-        && EbbTrouw.verdiend(49, 7, 1) != (1 << 24) - 1 && EbbTrouw.verdiend(50, 6, 1) != (1 << 24) - 1;
+    var gehouden = EbbTrouw.aantal() == 7 && EbbTrouw.aantalGewoon() == 6 && EbbTrouw.totaal() == 24
+        && EbbTrouw.bonus(24) && !EbbTrouw.bonus(23) && !EbbTrouw.bonus(22);
+    var alles = EbbTrouw.verdiend(50, 7, 1) == (1 << 25) - 1 && EbbTrouw.verdiend(50, 7, 0) != (1 << 25) - 1
+        && EbbTrouw.verdiend(49, 7, 1) != (1 << 25) - 1 && EbbTrouw.verdiend(50, 6, 1) != (1 << 25) - 1;
     var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("50 sessions")
-        && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(22).equals("bonus");
+        && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(24).equals("bonus") && EbbTrouw.hoe(22).equals("46 sessions");
     logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde + " zes " + zes + " zeven " + zeven);
     EbbTrouw.wis();
     return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 1 && tweede[0] == 1 && wacht
         && zelfde.size() == 1 && zelfde[0] == 2 && derde.size() == 1 && derde[0] == 3 && vijf.size() == 1 && vijf[0] == 4 && na
-        && zes.size() == 1 && zes[0] == 5 && zeven.size() == 1 && zeven[0] == 22 && gehouden && alles && tekst;
+        && zes.size() == 1 && zes[0] == 5 && zeven.size() == 1 && zeven[0] == 24 && gehouden && alles && tekst;
 }
 
 // Eis 2: na bevestigen nooit meer, behalve na "opnieuw tonen".

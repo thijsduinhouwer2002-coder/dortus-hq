@@ -3,14 +3,14 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.Test;
 
-// Mila's 24 dieren als data (bron/maak_dieren_data.py): elk dier leest precies tot het eind van zijn bytes,
+// Mila's 24 dieren plus bonus als data (bron/maak_dieren_data.py): elk dier leest precies tot het eind van zijn bytes,
 // elke veelhoek heeft 3 tot 60 punten (fillPolygon kan er 64), namen gelijk aan de lijst voor trouw.
 (:test)
 function testDierenData(logger as Test.Logger) as Boolean {
-    if (EbbDierData.DATA.size() != 24 || EbbTrouw.DIEREN.size() != 24) {
+    if (EbbDierData.DATA.size() != 25 || EbbTrouw.DIEREN.size() != 25) {
         return false;
     }
-    for (var i = 0; i < 24; i += 1) {
+    for (var i = 0; i < 25; i += 1) {
         var b = EbbDierData.DATA[i];
         var o = 1;
         for (var deel = 0; deel < b[0]; deel += 1) {
@@ -33,7 +33,7 @@ function testDierenData(logger as Test.Logger) as Boolean {
     }
     var t = EbbDierData.telling(23);
     logger.debug("walvis " + t);
-    return t[0] == 5 && t[2] == 1;
+    return t[0] == 6 && t[2] == 1;   // blad v6: walvis met fontein (zesde vlak)
 }
 
 // Keuring G4: de zwaarste sea log-pagina (9 dieren, elk met lichte rand = 5 tekenbeurten per dier, plus 9 silhouetten
