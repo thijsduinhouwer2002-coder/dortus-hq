@@ -89,3 +89,27 @@ function testNaSessieTerugNaarMenuEnNietDubbel(logger as Test.Logger) as Boolean
     logger.debug("klaar " + klaar + " actie " + actie + " tweede " + tweedeKeer);
     return klaar && actie == :menu && !eerste && view.opgeslagen && !tweedeKeer;
 }
+
+// Keuring bouw 7 punt 7: een tik in het pauzemenu kiest de regel waarop je tikt, daarbuiten niets; omlaag en omhoog
+// lopen rond over Resume, Save, Discard.
+(:test)
+function testPauzeTikEnSchuif(logger as Test.Logger) as Boolean {
+    var goed = true;
+    var maten = [260, 390, 454] as Array<Number>;
+    for (var m = 0; m < maten.size(); m += 1) {
+        var d = maten[m];
+        for (var i = 0; i < 3; i += 1) {
+            goed = goed && PauzeDelegate.regelBij(d, EbbTeken.px(d, PauzeView.Y[i])) == i;
+        }
+        goed = goed && PauzeDelegate.regelBij(d, EbbTeken.px(d, 40)) == -1 && PauzeDelegate.regelBij(d, EbbTeken.px(d, 240)) == -1;
+    }
+    var pv = new PauzeView("round 1 · 0:10", -1);
+    var view = new EbbView();
+    var pd = new PauzeDelegate(pv, view.method(:hervatNu), view.method(:opslaanEnTonen), view.method(:weggooien));
+    pd.schuif(1);
+    pd.schuif(1);
+    var discard = pv.keuze == 2;
+    pd.schuif(1);
+    logger.debug("tik goed " + goed + " discard " + discard + " rond " + pv.keuze);
+    return goed && discard && pv.keuze == 0;
+}

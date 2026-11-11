@@ -122,15 +122,24 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
         var xy = evt.getCoordinates();
         var ds = System.getDeviceSettings();
         var d = ds.screenWidth < ds.screenHeight ? ds.screenWidth : ds.screenHeight;
+        var i = regelBij(d, xy[1]);
+        if (i >= 0) {
+            _pv.keuze = i;
+            return kies(i);
+        }
+        return true;
+    }
+
+    // Welke regel (0 Resume, 1 Save, 2 Discard) ligt op hoogte y; -1 als de tik buiten de regels valt.
+    static function regelBij(d as Number, yTik as Number) as Number {
         var half = EbbTeken.px(d, 19);
         for (var i = 0; i < PauzeView.Y.size(); i += 1) {
             var y = EbbTeken.px(d, PauzeView.Y[i]);
-            if (xy[1] >= y - half && xy[1] < y + half) {
-                _pv.keuze = i;
-                return kies(i);
+            if (yTik >= y - half && yTik < y + half) {
+                return i;
             }
         }
-        return true;
+        return -1;
     }
 
     // Terug in het pauzemenu is ook doorgaan.

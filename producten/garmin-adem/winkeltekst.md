@@ -29,7 +29,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v2.png` (Mila v2, Daan keuring 2).
-- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/` (v3, echte opnames uit de plaatjesbouw, gemaakt met `winkel/maak_winkel_v3.py`): `0-poster-v3.png` (ontwerp Mila blad v10, `ontwerp/garmin/bron/poster_v3.py`, gevuld met de opname inhouden met dier s2 op fenix 8 van b39cd77), `1-hold.png`, `2-new-friend.png`, `3-sea-log.png`, `4-calm.png`, `5-sea-complete.png`.
+- Screenshots, in deze volgorde, alle uit `producten/garmin-adem/winkel/`: `0-poster-v3.png` (Mila maakt nog een poster in v4-stijl; tot die er is blijft v3), daarna de vijf kaarten v4 (ontwerp Mila blad v11, 800 x 800, elk onder 150 KB, gemaakt met `ontwerp/garmin/bron/winkel_v4.py` uit de ongewijzigde fenix 8-opnames van plaatjesrun 43001614405, code 330cf56): `1-hold.png` (scène 24), `2-new-friend.png` (scène 34), `3-sea-log.png` (scène 4, met het belletje), `4-sea-complete.png` (scène 25, alle 24 dieren geteld), `5-sea-cucumber.png` (scène 33, "back after a break"; kop "Back? Meet a bonus friend." even groot als de andere koppen).
 - Support e-mail: thijs@dortus.com (supportadres van Dortus, `ontwerp/stijl.md`).
 
 ## Description (English)
@@ -135,5 +135,5 @@ Versie 11, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het opru
 - Today hoogstens 3 sessies (`Vandaag.mc`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`Profiel.mc`, `Overzicht.mc`).
 - Horloges: de 28 in `manifest.xml`.
 - Versie 11: na Rounds tijden per ronde (`EindScherm.mc`), na Calm duur en ademhalingen (`CalmEindeView` in `RustigView.mc`), feestscherm één keer en alleen als de sessie meetelt (`EbbView.opslaan`, vlag `EbbTrouw.FEEST`). Today en 8 weeks uit het menu: `EbbOverzichtView` (`OverzichtView.mc`), keuze "Today" in `Start.mc`. Tik doet niets tijdens de sessie (`EbbDelegate.onTap`, `RustigDelegate.onTap`), wel in het pauzemenu (`PauzeDelegate.onTap`). NOG NIET IN BEELD GEZIEN: het menu met "Today" en het overzicht vanuit het menu.
-- Winkelbeelden v3: elk horloge is een ongewijzigde opname uit de plaatjesbouw; poster en kaarten zeggen niets over meters of dieren voor langer inhouden (dieren komen door sessies en weken op rij, `TrouwDieren.mc`).
+- Winkelbeelden v4 (11 nov 20:20 UTC, zelf vergroot bekeken): elk horloge is een ongewijzigde opname uit de plaatjesbouw; poster en kaarten zeggen niets over meters of dieren voor langer inhouden (dieren komen door sessies en weken op rij, `TrouwDieren.mc`).
 - Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal. Geen review-vraag in de app. Titel 42 tekens, Duits 39, Nederlands 49 (grens 50). Versie 10: "no extra account" klopt (alleen het Garmin-account dat je al hebt).
