@@ -68,7 +68,8 @@ class EbbMenuView extends WatchUi.View {
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
         var eigen = EbbTrouw.zwemmer();
         if (eigen >= 0) {
-            EbbDierData.teken(dc, eigen, d / 2, (d * 0.875).toNumber(), (d * 0.05).toNumber(), -1);
+            // Keuring bouw 2 punt 7: het dier ±80 px breed op 454 (0,17 D), op de kamlijn (0,775 D), onder "Sea log · Settings".
+            EbbDierData.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), (d * 0.085).toNumber(), -1);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.165).toNumber(), Graphics.FONT_MEDIUM, "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
