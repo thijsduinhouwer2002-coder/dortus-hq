@@ -212,7 +212,8 @@ class VeiligView extends WatchUi.View {
         var f = Graphics.FONT_XTINY;
         var lh = dc.getFontHeight(f);
         var n = regels.size() + (geel ? 1 : 0);
-        var s = (d * 0.07).toNumber();
+        // Keuring bouw 2 punt 10: driehoek 44 px op 454 (0,097 D).
+        var s = (d * 0.097).toNumber();
         var yPil = 0.79;
         // Driehoek en regels samen rond 0,45 D (de breedste regels dicht bij het midden, binnen 80 procent van de cirkel).
         var blok = s + lh / 2 + n * lh;
@@ -418,6 +419,7 @@ class EbbView extends WatchUi.View {
     var eindVolgend as Number = -1;   // volgende dier (nummer in EbbTrouw.DIEREN), -1 als je alles hebt
     var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
     const YKLEIN_ADEMEN = 0.855;
+    const ONDER_MIDDEN = 0.84;
     private var _klaarSinds as Number = -1;
     var gezelschap as Number = EbbTrouw.zwemmer();
     private var _startTijd as Number = System.getTimer();
@@ -630,7 +632,8 @@ class EbbView extends WatchUi.View {
             klein = "of " + sessie.ademhalingen + " · round " + (sessie.ronde + 1);
             // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,855; run 42826914263 gaf bij 0,84 maar 2 px ruimte op 260 px),
             // zodat hij altijd helemaal in het water staat en nooit op de schuimrand.
-            yKlein = YKLEIN_ADEMEN;
+            // Keuring bouw 2 punt 10: onderste regel op alle ademschermen op dezelfde hoogte, midden op 0,84 D (381 px op 454).
+            yKlein = ONDER_MIDDEN - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
         } else if (fase == Ebb.FASE_INHOUDEN) {
             // Blad v6 (3a, 3b, 3d, 3c; keuring 01:55 punt 2): de zee wordt elke 30 s een stand donkerder tot 2:30
             // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
@@ -663,8 +666,7 @@ class EbbView extends WatchUi.View {
             // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
             // Keuring bouw 2 punt 7: het dier groter (±0,19 D breed: 86 px op 454, 49 px op 260), midden onder de tijd.
             var yDier = onderCijfer + (d * 0.085).toNumber();
-            var yRegel = yDier + (d * 0.125).toNumber();
-            if (yRegel > d * 0.86) { yRegel = (d * 0.86).toNumber(); }
+            var yRegel = (d * ONDER_MIDDEN).toNumber();
             // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
             if (stand < 5) {
                 var stijg = (t % 8000) / 8000.0;
@@ -685,9 +687,10 @@ class EbbView extends WatchUi.View {
         } else if (fase == Ebb.FASE_HERSTEL) {
             // Blad v6 scherm 4 (herstel): de zon komt op achter de zee (W0, W1, W2), bovenaan "big breath in, hold",
             // groot de seconden met een kleine "s", onderaan "round 2 held 1:45".
-            var zr = (d * 0.12).toNumber();
+            // Keuring bouw 2 punt 10: de zon kleiner en lager, minstens 10 px los van "15 s" (top 0,57 D).
+            var zr = (d * 0.10).toNumber();
             dc.setColor(EbbTeken.GEEL, EbbTeken.GEEL);
-            dc.fillCircle(w / 2, (d * 0.66).toNumber(), zr);
+            dc.fillCircle(w / 2, (d * 0.67).toNumber(), zr);
             EbbTeken.golf(dc, d, 0.64, d * 0.014, EbbTeken.ZEE_KLEUR[0], golfFase, true);
             EbbTeken.golf(dc, d, 0.72, d * 0.008, EbbTeken.ZEE_KLEUR[1], golfFase + 1.3, false);
             EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], golfFase + 2.6, false);
@@ -715,7 +718,7 @@ class EbbView extends WatchUi.View {
                 var hs = (sessie.inhoudtijden[n - 1] + 500) / 1000;
                 klein = "round " + n + " held " + (hs / 60).toString() + ":" + (hs % 60).format("%02d");
             }
-            yKlein = 0.80 - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
+            yKlein = ONDER_MIDDEN - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
         } else {
             // 4. Duikprofiel, of 5. getijdenlijn.
             if (einde) {
