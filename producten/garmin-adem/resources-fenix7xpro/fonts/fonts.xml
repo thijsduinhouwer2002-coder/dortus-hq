@@ -1,4 +1,8 @@
 <fonts>
     <!-- Eigen cijferletter voor het grote getal (eis 11), gemaakt met bron/maak_cijfers.py. -->
     <font id="EbbCijfers" filename="ebb_cijfers.fnt" filter="0123456789:" antialias="true"/>
+    <!-- Keuring bouw 4 punt 4: Barlow Condensed voor alle tekst, gemaakt met bron/maak_letters.py. -->
+    <font id="EbbXtiny" filename="ebb_xtiny.fnt" antialias="true"/>
+    <font id="EbbSmall" filename="ebb_small.fnt" antialias="true"/>
+    <font id="EbbMedium" filename="ebb_medium.fnt" antialias="true"/>
 </fonts>

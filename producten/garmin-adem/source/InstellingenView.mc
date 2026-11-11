@@ -67,7 +67,7 @@ class EbbInstellingenView extends WatchUi.View {
         EbbTeken.strook(dc, d);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.21).toNumber(), Graphics.FONT_SMALL, "settings", midden);
+        dc.drawText(w / 2, (d * 0.21).toNumber(), EbbTeken.fS(), "settings", midden);
         // Keuring bouw 2 punt 6: regels gelijk verdeeld (0,325 boven, pil 0,40 tot 0,61, dan 0,685 en 0,765: telkens
         // 0,075 D lucht tot de pil en 0,08 D tussen de regels). De pil is 24 px breder dan de langste regel erin,
         // hoogstens 0,83 D; past de naam niet in de grote letter, dan een kleinere.
@@ -75,7 +75,7 @@ class EbbInstellingenView extends WatchUi.View {
         // telkens dezelfde lucht (0,035 D) tussen pil en regel en tussen de regels.
         var bh = (d * 0.21).toNumber();
         var py = (d * 0.483).toNumber();
-        var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+        var fx = dc.getFontHeight(EbbTeken.fX());
         var lucht = (d * 0.035).toNumber();
         if (keuze > 0) {
             regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
@@ -83,16 +83,16 @@ class EbbInstellingenView extends WatchUi.View {
         var maxW = (d * 0.83).toNumber();
         var naam = REGELS[keuze][0] as String;
         var v = waarde(keuze);
-        var fNaam = Graphics.FONT_MEDIUM;
+        var fNaam = EbbTeken.fM();
         if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
-            fNaam = Graphics.FONT_SMALL;
+            fNaam = EbbTeken.fS();
         }
         if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
-            fNaam = Graphics.FONT_XTINY;
+            fNaam = EbbTeken.fX();
         }
         var langst = dc.getTextWidthInPixels(naam, fNaam);
         if (v != null) {
-            var vw = dc.getTextWidthInPixels(v as String, Graphics.FONT_SMALL);
+            var vw = dc.getTextWidthInPixels(v as String, EbbTeken.fS());
             langst = vw > langst ? vw : langst;
         }
         var bw = langst + 24;
@@ -106,7 +106,7 @@ class EbbInstellingenView extends WatchUi.View {
         } else {
             dc.drawText(w / 2, py - (d * 0.045).toNumber(), fNaam, naam, midden);
             dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, py + (d * 0.055).toNumber(), Graphics.FONT_SMALL, v as String, midden);
+            dc.drawText(w / 2, py + (d * 0.055).toNumber(), EbbTeken.fS(), v as String, midden);
         }
         var y1 = py + bh / 2 + lucht + fx / 2;
         if (keuze + 1 < aantal()) {
@@ -121,7 +121,7 @@ class EbbInstellingenView extends WatchUi.View {
     function regelKort(dc as Graphics.Dc, d as Number, r as Number, y as Float) as Void {
         var v = waarde(r);
         var tekst = (REGELS[r][0] as String) + ((v != null && (REGELS[r][1] as Number) != 3) ? "  " + v : "");
-        var f = Graphics.FONT_XTINY;
+        var f = EbbTeken.fX();
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }

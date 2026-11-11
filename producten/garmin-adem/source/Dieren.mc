@@ -304,8 +304,8 @@ class DierenView extends WatchUi.View {
         }
         var tussen = (d * 0.0116).toNumber();
         tussen = tussen < 3 ? 3 : tussen;
-        var fs = dc.getFontHeight(Graphics.FONT_SMALL);
-        var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+        var fs = dc.getFontHeight(EbbTeken.fS());
+        var fx = dc.getFontHeight(EbbTeken.fX());
         var boven = (d * 0.135).toNumber() + fs / 2 + fx + 2;
         var naamLucht = (d * 0.0385).toNumber();
         naamLucht = naamLucht < 10 ? 10 : naamLucht;
@@ -398,23 +398,23 @@ class DierenView extends WatchUi.View {
         // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         // Beelden run 42953647184: "sea log" en "8 of 24" liepen in elkaar; nu de telling kleiner eronder.
-        dc.drawText(w / 2, (d * 0.135).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
-        dc.drawText(w / 2, (d * 0.135).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + dc.getFontHeight(Graphics.FONT_XTINY) / 2, Graphics.FONT_XTINY, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
+        dc.drawText(w / 2, (d * 0.135).toNumber(), EbbTeken.fS(), "sea log", midden);
+        dc.drawText(w / 2, (d * 0.135).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + dc.getFontHeight(EbbTeken.fX()) / 2, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
         // Keuzestip 3 px onder de onderkant van het gekozen dier (blad v8, keuring bouw 3 punt 9), na de stickerrand.
         dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
         var rs = (d * 0.011).toNumber();
         rs = rs < 3 ? 3 : rs;
         dc.fillCircle(gekozenX, gekozenY + 3 + 3 + rs, rs);
         // Naam 10 px onder het raster (op 260), regel en bladstippen eronder.
-        var fs = dc.getFontHeight(Graphics.FONT_SMALL);
+        var fs = dc.getFontHeight(EbbTeken.fS());
         var lucht = (d * 0.0385).toNumber();
         lucht = lucht < 10 ? 10 : lucht;
         var yNaam = _onder + lucht + fs / 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
-        dc.drawText(w / 2, yNaam, Graphics.FONT_SMALL, naam, midden);
+        dc.drawText(w / 2, yNaam, EbbTeken.fS(), naam, midden);
         var tekst = regel(keuze);
-        var f = (dc.getTextWidthInPixels(tekst, Graphics.FONT_SMALL) <= d * 0.74) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        var f = (dc.getTextWidthInPixels(tekst, EbbTeken.fS()) <= d * 0.74) ? EbbTeken.fS() : EbbTeken.fX();
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         var yRegel = yNaam + fs / 2 + 2 + dc.getFontHeight(f) / 2;
         dc.drawText(w / 2, yRegel, f, tekst, midden);

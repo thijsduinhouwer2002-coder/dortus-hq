@@ -308,7 +308,7 @@ class VeiligView extends WatchUi.View {
         EbbTeken.strook(dc, d);
         var regels = EbbVeiligTekst.BLADEN[blad];
         var geel = (blad == EbbVeiligTekst.BLADEN.size() - 1);
-        var f = Graphics.FONT_XTINY;
+        var f = EbbTeken.fX();
         var lh = dc.getFontHeight(f);
         var n = regels.size() + (geel ? 1 : 0);
         // Keuring bouw 2 punt 10: driehoek 44 px op 454 (0,097 D).
@@ -446,8 +446,8 @@ class StartCheckView extends WatchUi.View {
     function tekenUitleg(dc as Graphics.Dc, d as Number) as Void {
         EbbTeken.strook(dc, d);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.20).toNumber(), Graphics.FONT_SMALL, "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        var f = Graphics.FONT_XTINY;
+        dc.drawText(d / 2, (d * 0.20).toNumber(), EbbTeken.fS(), "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        var f = EbbTeken.fX();
         var lh = dc.getFontHeight(f);
         var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold only", "while it feels easy.",
             WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK stops."] as Array<String>;
@@ -473,12 +473,12 @@ class StartCheckView extends WatchUi.View {
         // Daan B5: zee iets lager (0,83 D), zodat de pil Start ruim boven de golf blijft.
         EbbTeken.zeeBanden(dc, d, [0.83, 0.90] as Array<Float>, [1, 2] as Array<Number>, 0.010, 0.0);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, kop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.235).toNumber(), EbbTeken.fX(), kop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Blad v7 punt 7: "Sit or lie down" in plaats van "Seated or lying?".
-        dc.drawText(w / 2, (d * 0.385).toNumber(), Graphics.FONT_MEDIUM, "Sit or", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        dc.drawText(w / 2, (d * 0.49).toNumber(), Graphics.FONT_MEDIUM, "lie down", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        EbbTeken.pil(dc, d, 0.655, 0.40, 0.13, "Start", Graphics.FONT_SMALL);
+        dc.drawText(w / 2, (d * 0.385).toNumber(), EbbTeken.fM(), "Sit or", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.49).toNumber(), EbbTeken.fM(), "lie down", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        EbbTeken.pil(dc, d, 0.655, 0.40, 0.13, "Start", EbbTeken.fS());
     }
 }
 
@@ -767,7 +767,7 @@ class EbbView extends WatchUi.View {
             // Daan M1: laagste golfrand ligt op 1 - 0,20 + 0,025 = 0,825 D; de ondertekst begint eronder (0,855; run 42826914263 gaf bij 0,84 maar 2 px ruimte op 260 px),
             // zodat hij altijd helemaal in het water staat en nooit op de schuimrand.
             // Keuring bouw 2 punt 10: onderste regel op alle ademschermen op dezelfde hoogte, midden op 0,84 D (381 px op 454).
-            yKlein = ONDER_MIDDEN - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
+            yKlein = ONDER_MIDDEN - dc.getFontHeight(EbbTeken.fX()).toFloat() / d / 2;
         } else if (fase == Ebb.FASE_INHOUDEN) {
             // Blad v6 (3a, 3b, 3d, 3c; keuring 01:55 punt 2): de zee wordt elke 30 s een stand donkerder tot 2:30
             // (EbbProfiel.zeeStand), daarna gelijk. Bovenaan "hold" (na 3:00 "time to breathe" met trilteken),
@@ -775,21 +775,21 @@ class EbbView extends WatchUi.View {
             var s = t / 1000;
             var stand = EbbProfiel.zeeStand(s);
             EbbTeken.zee(dc, d, stand, golfFase);
-            var fhT = dc.getFontHeight(Graphics.FONT_SMALL);
-            var fhK = dc.getFontHeight(Graphics.FONT_XTINY);
+            var fhT = dc.getFontHeight(EbbTeken.fS());
+            var fhK = dc.getFontHeight(EbbTeken.fX());
             var yKop = (d * 0.20).toNumber();
             if (s < 180) {
                 dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(w / 2, yKop, Graphics.FONT_SMALL, "hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w / 2, yKop, EbbTeken.fS(), "hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 var tb = "time to breathe";
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(w / 2, yKop, Graphics.FONT_XTINY, tb, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-                EbbTeken.trilboog(dc, d, yKop, dc.getTextWidthInPixels(tb, Graphics.FONT_XTINY));
+                dc.drawText(w / 2, yKop, EbbTeken.fX(), tb, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                EbbTeken.trilboog(dc, d, yKop, dc.getTextWidthInPixels(tb, EbbTeken.fX()));
             }
             var yStop = yKop + fhT / 2 + fhK / 2;
             dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, yStop, Graphics.FONT_XTINY, stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2, yStop, EbbTeken.fX(), stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             // De tijd direct onder de stopregel: de lege ruimte boven de cijfers (hoogte min ascent min descent)
             // valt weg, zodat de cijfers 2% D onder de stopregel beginnen.
             var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
@@ -816,7 +816,7 @@ class EbbView extends WatchUi.View {
                 // Keuring bouw 3 punt 8: het dier past in 90 x 70 op 454 (50 x 40 op 260), onderkant 8 px boven de hartslagregel.
                 var mz = EbbDierMaat.inVak(gezelschap, (d * 0.198).toNumber(), (d * 0.154).toNumber());
                 var gz = EbbDierMaat.grenzen(gezelschap);
-                var yOnder = yRegel - dc.getFontHeight(Graphics.FONT_XTINY) / 2 - 8 - EbbDierData.randPx(mz);
+                var yOnder = yRegel - dc.getFontHeight(EbbTeken.fX()) / 2 - 8 - EbbDierData.randPx(mz);
                 var yd2 = yOnder - gz[3] * mz / EbbDierData.SCHAAL;
                 var dp = _dierPlaatje;
                 if (dp == null || dp.dier != gezelschap || dp.maat != mz) {
@@ -851,10 +851,10 @@ class EbbView extends WatchUi.View {
             // Beelden run 42940068457: op vivoactive 5 en fenix 8 liep deze regel in FONT_SMALL door de ronde rand.
             // Past hij niet binnen 80 procent van de koorde op 0,215 D, dan de kleinere letter.
             var kop = "big breath in, hold";
-            var kopF = Graphics.FONT_SMALL;
+            var kopF = EbbTeken.fS();
             var koorde = 2.0 * Math.sqrt(0.16 - 0.285 * 0.285) * d;   // binnen de cirkel van 0,8 D op 0,215 D
             if (dc.getTextWidthInPixels(kop, kopF) > koorde) {
-                kopF = Graphics.FONT_XTINY;
+                kopF = EbbTeken.fX();
             }
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
             // Keuring bouw 3 punt 6: het cijfer zelf in het midden, "s" los erachter; de kop minstens 12 px (454)
@@ -871,13 +871,13 @@ class EbbView extends WatchUi.View {
             var onderH = (d * yGroot).toNumber() + (leegH > 0 ? leegH : 0) + Graphics.getFontAscent(font);
             var bg = dc.getTextWidthInPixels(groot, font);
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2 + grootDx + bg / 2 + 3, onderH - Graphics.getFontAscent(Graphics.FONT_SMALL), Graphics.FONT_SMALL, "s", Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(w / 2 + grootDx + bg / 2 + 3, onderH - Graphics.getFontAscent(EbbTeken.fS()), EbbTeken.fS(), "s", Graphics.TEXT_JUSTIFY_LEFT);
             var n = sessie.inhoudtijden.size();
             if (n > 0) {
                 var hs = (sessie.inhoudtijden[n - 1] + 500) / 1000;
                 klein = "round " + n + " held " + (hs / 60).toString() + ":" + (hs % 60).format("%02d");
             }
-            yKlein = ONDER_MIDDEN - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
+            yKlein = ONDER_MIDDEN - dc.getFontHeight(EbbTeken.fX()).toFloat() / d / 2;
         } else {
             // Na de sessie: eindscherm, 8 weeks of today.
             if (einde) {
@@ -891,7 +891,7 @@ class EbbView extends WatchUi.View {
         if (woord.length() > 0) {
             // Staat het lichte water tot boven, dan leest het zachte woord niet meer: dan donkerblauw.
             dc.setColor(donker ? EbbTeken.DIEPTE[3] : EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (d * 0.13).toNumber(), Graphics.FONT_SMALL, woord, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2, (d * 0.13).toNumber(), EbbTeken.fS(), woord, Graphics.TEXT_JUSTIFY_CENTER);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         if (groot.length() > 0) {
@@ -899,7 +899,7 @@ class EbbView extends WatchUi.View {
         }
         if (klein.length() > 0) {
             dc.setColor(fase == Ebb.FASE_INHOUDEN ? EbbTeken.ZACHT : Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (d * yKlein).toNumber(), Graphics.FONT_XTINY, klein, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(w / 2, (d * yKlein).toNumber(), EbbTeken.fX(), klein, Graphics.TEXT_JUSTIFY_CENTER);
         }
         if (EbbBouw.DEMO) {
             meet(dc, w, fase as Number, groot, font);
@@ -916,10 +916,10 @@ class EbbView extends WatchUi.View {
         _onderGemeld = true;
         var golf = (d * (EbbTeken.ADEM_TOP + EbbTeken.ADEM_AMP)).toNumber() + (d / 160 > 1 ? d / 160 : 1) / 2 + 1;
         var top = (d * YKLEIN_ADEMEN).toNumber();
-        var leeg = dc.getFontHeight(Graphics.FONT_XTINY) - Graphics.getFontAscent(Graphics.FONT_XTINY) - Graphics.getFontDescent(Graphics.FONT_XTINY);
+        var leeg = dc.getFontHeight(EbbTeken.fX()) - Graphics.getFontAscent(EbbTeken.fX()) - Graphics.getFontDescent(EbbTeken.fX());
         var letterTop = top + (leeg > 0 ? leeg : 0);
-        var onder = top + Graphics.getFontAscent(Graphics.FONT_XTINY) + (leeg > 0 ? leeg : 0);
-        var breed = dc.getTextWidthInPixels(klein, Graphics.FONT_XTINY);
+        var onder = top + Graphics.getFontAscent(EbbTeken.fX()) + (leeg > 0 ? leeg : 0);
+        var breed = dc.getTextWidthInPixels(klein, EbbTeken.fX());
         var r = d / 2.0;
         var dy = onder - r;
         var koorde = (dy < r) ? (2.0 * Math.sqrt(r * r - dy * dy)).toNumber() : 0;
@@ -982,7 +982,7 @@ class EbbView extends WatchUi.View {
     function tekstInRonde(dc as Graphics.Dc, d as Number, y as Float, tekst as String, kleur as Number) as Void {
         var dy = y - 0.5;
         var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
-        var f = (dc.getTextWidthInPixels(tekst, Graphics.FONT_SMALL) <= koorde) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        var f = (dc.getTextWidthInPixels(tekst, EbbTeken.fS()) <= koorde) ? EbbTeken.fS() : EbbTeken.fX();
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
@@ -1001,8 +1001,8 @@ class EbbView extends WatchUi.View {
         var kopY = (n > 3) ? 0.14 : 0.17;
         // Beelden run 42955254555: bij 4 tot 6 rondes raakte de tweede regel tijden de schuimkam. De zee begint nu
         // 8 px plus de golfhoogte onder de onderkant van de tweede regel, gerekend met de echte letterhoogtes.
-        var lhX = dc.getFontHeight(Graphics.FONT_XTINY);
-        var lhS = dc.getFontHeight(Graphics.FONT_SMALL);
+        var lhX = dc.getFontHeight(EbbTeken.fX());
+        var lhS = dc.getFontHeight(EbbTeken.fS());
         // Keuring bouw 3 punt 6: tijden minstens 10 px onder de titel op 454 en 6 px op 260 (0,022 D).
         var gat = (d * 0.022).toNumber();
         gat = gat < 6 ? 6 : gat;
@@ -1014,16 +1014,16 @@ class EbbView extends WatchUi.View {
         zeeTop = t > zeeTop ? t : zeeTop;
         EbbTeken.zeeBanden(dc, d, [zeeTop, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * kopY).toNumber(), Graphics.FONT_SMALL, n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * kopY).toNumber(), EbbTeken.fS(), n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         if (n <= 3) {
-            dc.drawText(w / 2, yTijden, Graphics.FONT_SMALL, regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2, yTijden, EbbTeken.fS(), regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         } else {
             var helft = (n + 1) / 2;
             // Keuring bouw 2 punt 4: twee regels van 3, de eerste 6 px onder de titel.
             var lh = lhX;
-            dc.drawText(w / 2, y1, Graphics.FONT_XTINY, regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            dc.drawText(w / 2, y1 + lh, Graphics.FONT_XTINY, regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2, y1, EbbTeken.fX(), regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(w / 2, y1 + lh, EbbTeken.fX(), regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         // Keuring bouw 4 punt 5: het dier past tussen de tijden en de regel eronder (8 px lucht boven, 6 px onder).
         var bandTop = onderTijden + 8;
@@ -1049,7 +1049,7 @@ class EbbView extends WatchUi.View {
         }
         // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
         var dag = vandaag();
-        var boven = (d * 0.645).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
         EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? plaatjeWeek : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel(), boven);
     }
 
@@ -1076,13 +1076,13 @@ class EbbView extends WatchUi.View {
 
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, "today", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "today", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbTeken.strook(dc, d);
         var sessies = vandaagSessies();
         var samen = EbbVandaag.samen(sessies);
         if (samen[0] == 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, d / 2, Graphics.FONT_SMALL, "no holds yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, d / 2, EbbTeken.fS(), "no holds yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
         }
         var lo = d * 0.20;
@@ -1126,13 +1126,13 @@ class EbbView extends WatchUi.View {
             var k = sessies[i][0] as Number;
             if (k < 0) { continue; }
             var tekst = EbbVandaag.klokTekst(k);
-            if (dc.getTextWidthInPixels(tekst, Graphics.FONT_XTINY) <= breedte[i] + gat * 0.8) {
-                dc.drawText(midden[i].toNumber(), bod + (d * 0.055).toNumber(), Graphics.FONT_XTINY, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            if (dc.getTextWidthInPixels(tekst, EbbTeken.fX()) <= breedte[i] + gat * 0.8) {
+                dc.drawText(midden[i].toNumber(), bod + (d * 0.055).toNumber(), EbbTeken.fX(), tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             }
         }
         var gem = samen[1];
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.775).toNumber(), Graphics.FONT_XTINY,
+        dc.drawText(d / 2, (d * 0.775).toNumber(), EbbTeken.fX(),
             samen[0] + (samen[0] == 1 ? " hold · avg " : " holds · avg ") + (gem / 60) + ":" + (gem % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
@@ -1153,7 +1153,7 @@ class EbbView extends WatchUi.View {
 
     function tekenGetij(dc as Graphics.Dc, d as Number) as Void {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, "8 weeks", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "8 weeks", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbTeken.strook(dc, d);
         var weken = wekenData();
         var hoogN = 7;
@@ -1169,7 +1169,7 @@ class EbbView extends WatchUi.View {
         // Keuring bouw 3 punt 11: leeg is zonder sessies, niet zonder inhouden (alleen Calm telt ook).
         if (sessies == 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, d / 2, Graphics.FONT_SMALL, "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, d / 2, EbbTeken.fS(), "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
         }
         var lo = d * 0.20;
@@ -1186,7 +1186,7 @@ class EbbView extends WatchUi.View {
                 dc.setColor(EbbTeken.staafKleur(), EbbTeken.staafKleur());
                 dc.fillRoundedRectangle(xm - bw / 2, bod - h, bw, h, r);
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(xm, bod - h - (d * 0.045).toNumber(), Graphics.FONT_XTINY, n.toString(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(xm, bod - h - (d * 0.045).toNumber(), EbbTeken.fX(), n.toString(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);   // lege week: kleine stip, donkerder dan de staven
                 var rr = (d * 0.013).toNumber();
@@ -1197,13 +1197,13 @@ class EbbView extends WatchUi.View {
         dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
         dc.drawLine(lo.toNumber(), bod, (d * 0.80).toNumber(), bod);
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.665).toNumber(), Graphics.FONT_XTINY, "sessions per week", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(d / 2, (d * 0.665).toNumber(), EbbTeken.fX(), "sessions per week", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         if (holds == 0) {
             return;
         }
         var gem = (som + holds / 2) / holds;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.75).toNumber(), Graphics.FONT_XTINY, "avg hold " + (gem / 60) + ":" + (gem % 60).format("%02d"),
+        dc.drawText(d / 2, (d * 0.75).toNumber(), EbbTeken.fX(), "avg hold " + (gem / 60) + ":" + (gem % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }

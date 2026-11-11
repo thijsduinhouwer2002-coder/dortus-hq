@@ -35,7 +35,7 @@ module EbbTeken {
             var n = dezeWeek < doel ? dezeWeek : doel;
             label = n + " of " + doel + " this week";
         }
-        var f = Graphics.FONT_XTINY;
+        var f = EbbTeken.fX();
         dc.setColor(LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, sy + r + 4, f, label, Graphics.TEXT_JUSTIFY_CENTER);
     }
@@ -287,7 +287,7 @@ module EbbTeken {
 
     // Blad v6 (regel_hart_ronde): hartje + hartslag in wit en "  ·  round N" in lichtcyaan, samen gecentreerd.
     function hartRonde(dc as Graphics.Dc, d as Number, y as Number, bpm as Number, ronde as Number) as Void {
-        var font = Graphics.FONT_XTINY;
+        var font = EbbTeken.fX();
         var a = bpm > 0 ? bpm.toString() : "--";
         var b = "  ·  round " + ronde;
         var fh = dc.getFontHeight(font);
@@ -317,6 +317,33 @@ module EbbTeken {
     }
 
     var _eigen as WatchUi.FontResource or Null = null;
+
+    // Keuring bouw 4 punt 4: alle tekst in Barlow Condensed (OFL), per schermmaat gemaakt met bron/maak_letters.py,
+    // met dezelfde regelhoogte als FONT_XTINY, FONT_SMALL en FONT_MEDIUM op dat horloge. Eén keer geladen.
+    var _x as WatchUi.FontResource or Null = null;
+    var _s as WatchUi.FontResource or Null = null;
+    var _m as WatchUi.FontResource or Null = null;
+
+    function fX() as WatchUi.FontResource {
+        if (_x == null) {
+            _x = WatchUi.loadResource(Rez.Fonts.EbbXtiny) as WatchUi.FontResource;
+        }
+        return _x as WatchUi.FontResource;
+    }
+
+    function fS() as WatchUi.FontResource {
+        if (_s == null) {
+            _s = WatchUi.loadResource(Rez.Fonts.EbbSmall) as WatchUi.FontResource;
+        }
+        return _s as WatchUi.FontResource;
+    }
+
+    function fM() as WatchUi.FontResource {
+        if (_m == null) {
+            _m = WatchUi.loadResource(Rez.Fonts.EbbMedium) as WatchUi.FontResource;
+        }
+        return _m as WatchUi.FontResource;
+    }
 
     const GROOT_LIJST = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
 }

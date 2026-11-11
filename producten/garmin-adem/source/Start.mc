@@ -51,7 +51,7 @@ class EbbMenuView extends WatchUi.View {
 
     function pilRand(dc as Graphics.Dc, d as Number, y as Float, tekst as String, gekozen as Boolean) as Void {
         var bw = (d * 0.62).toNumber();
-        var fh = dc.getFontHeight(Graphics.FONT_SMALL);
+        var fh = dc.getFontHeight(EbbTeken.fS());
         var bh = (d * 0.15).toNumber();
         bh = bh < fh + 6 ? fh + 6 : bh;
         var lw = (d / 130 > 2 ? d / 130 : 2) * (gekozen ? 2 : 1);
@@ -62,7 +62,7 @@ class EbbMenuView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.fillRoundedRectangle(x0 + lw, y0 + lw, bw - 2 * lw, bh - 2 * lw, (bh - 2 * lw) / 2);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * y).toNumber(), Graphics.FONT_SMALL, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(d / 2, (d * y).toNumber(), EbbTeken.fS(), tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -74,7 +74,7 @@ class EbbMenuView extends WatchUi.View {
         if (EbbBouw.PLAATJE) {
             // Bouw 3 punt 5: hoogtes van de systeemletters, zodat Barlow straks precies even hoog wordt (staat in het log).
             System.println("LETTERHOOGTE d " + d + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY) + " small " + dc.getFontHeight(Graphics.FONT_SMALL)
-                + " medium " + dc.getFontHeight(Graphics.FONT_MEDIUM) + " ascent " + Graphics.getFontAscent(Graphics.FONT_XTINY) + "/" + Graphics.getFontAscent(Graphics.FONT_SMALL) + "/" + Graphics.getFontAscent(Graphics.FONT_MEDIUM));
+                + " medium " + dc.getFontHeight(EbbTeken.fM()) + " ascent " + Graphics.getFontAscent(EbbTeken.fX()) + "/" + Graphics.getFontAscent(EbbTeken.fS()) + "/" + Graphics.getFontAscent(EbbTeken.fM()));
         }
         EbbTeken.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
@@ -86,18 +86,18 @@ class EbbMenuView extends WatchUi.View {
             EbbDierVoorraad.teken(dc, eigen, d / 2, (d * 0.795).toNumber(), mm, false);
         } else {
             // Keuring bouw 4 punt 11: bij de eerste start een belofte waar straks het dier zwemt.
-            var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+            var fx = dc.getFontHeight(EbbTeken.fX());
             var yb = (d * 0.79).toNumber() - fx / 2;   // twee regels om 0,79 D, waar anders het dier zit
             dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, yb, Graphics.FONT_XTINY, "first friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            dc.drawText(d / 2, yb + fx, Graphics.FONT_XTINY, "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, yb, EbbTeken.fX(), "first friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, yb + fx, EbbTeken.fX(), "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.165).toNumber(), Graphics.FONT_MEDIUM, "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(d / 2, (d * 0.165).toNumber(), EbbTeken.fM(), "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         pilRand(dc, d, 0.335, "Rounds", keuze == 0);
         pilRand(dc, d, 0.510, "Calm 4-7-8", keuze == 1);
         // "Sea log · Settings": het gekozen woord wit met een schuimstreep eronder, het andere lichtcyaan.
-        var f = Graphics.FONT_XTINY;
+        var f = EbbTeken.fX();
         var a = "Sea log";
         var m = "  ·  ";
         var b = "Settings";

@@ -81,18 +81,18 @@ class RustigView extends WatchUi.View {
         var topC = cy - dc.getFontHeight(font) / 2 + (leeg > 0 ? leeg : 0);
         var gat = (d * 0.026).toNumber();
         gat = gat < 6 ? 6 : gat;
-        var yKop = topC - gat - dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        var yKop = topC - gat - dc.getFontHeight(EbbTeken.fS()) / 2;
         var yKop0 = (d * 0.18).toNumber();
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (yKop < yKop0 ? (yKop < d * 0.12 ? (d * 0.12).toNumber() : yKop) : yKop0), Graphics.FONT_SMALL, WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (yKop < yKop0 ? (yKop < d * 0.12 ? (d * 0.12).toNumber() : yKop) : yKop0), EbbTeken.fS(), WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, cy, font, getal, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         var onder = cy - dc.getFontHeight(font) / 2 + (dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font)) / 2 + Graphics.getFontAscent(font);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx + gb / 2 + 4, onder - Graphics.getFontAscent(Graphics.FONT_SMALL), Graphics.FONT_SMALL, "s", Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(cx + gb / 2 + 4, onder - Graphics.getFontAscent(EbbTeken.fS()), EbbTeken.fS(), "s", Graphics.TEXT_JUSTIFY_LEFT);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         var label = naam.equals("4-7-8") ? "Calm 4-7-8" : naam;
-        dc.drawText(w / 2, (d * 0.84).toNumber(), Graphics.FONT_SMALL, label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.84).toNumber(), EbbTeken.fS(), label, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     function pauzeer() as Void {
@@ -197,18 +197,18 @@ class CalmEindeView extends WatchUi.View {
         // Keuring bouw 3 punt 6: de regel onder "calm done" minstens 10 px (454) of 6 px (260) eronder, de zee daaronder.
         var gat = (d * 0.022).toNumber();
         gat = gat < 6 ? 6 : gat;
-        var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + gat + dc.getFontHeight(Graphics.FONT_XTINY) / 2;
-        var zt = (yRegel1 + dc.getFontHeight(Graphics.FONT_XTINY) / 2 + 8 + d * 0.02) / d.toFloat();
+        var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + gat + dc.getFontHeight(EbbTeken.fX()) / 2;
+        var zt = (yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8 + d * 0.02) / d.toFloat();
         EbbTeken.zeeBanden(dc, d, [zt > 0.326 ? zt : 0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.17).toNumber(), Graphics.FONT_SMALL, "calm done", midden);
+        dc.drawText(w / 2, (d * 0.17).toNumber(), EbbTeken.fS(), "calm done", midden);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         // Keuring bouw 3 punt 11: onder 1 minuut seconden ("45 s"), niet "1 min"; punt 6: deze regel kleiner.
-        dc.drawText(w / 2, yRegel1, Graphics.FONT_XTINY, EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
+        dc.drawText(w / 2, yRegel1, EbbTeken.fX(), EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
         // Keuring bouw 4 punt 5: het dier tussen de regel "4 min · 12 breaths" en de regel eronder.
-        var bandTop = yRegel1 + dc.getFontHeight(Graphics.FONT_XTINY) / 2 + 8;
-        var bandOnder = (d * 0.645).toNumber() - dc.getFontHeight(Graphics.FONT_SMALL) / 2 - 6;
+        var bandTop = yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8;
+        var bandOnder = (d * 0.645).toNumber() - dc.getFontHeight(EbbTeken.fS()) / 2 - 6;
         var bandBreed = (d * 0.30).toNumber();
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
         var regel = telt ? "counts as a session" : "from 1 min it counts";
@@ -224,14 +224,14 @@ class CalmEindeView extends WatchUi.View {
             }
         }
         tekst(dc, d, 0.645, regel, kleur);
-        var boven = (d * 0.645).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
         EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel(), boven);
     }
 
     function tekst(dc as Graphics.Dc, d as Number, y as Float, t as String, kleur as Number) as Void {
         var dy = y - 0.5;
         var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
-        var f = (dc.getTextWidthInPixels(t, Graphics.FONT_SMALL) <= koorde) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
+        var f = (dc.getTextWidthInPixels(t, EbbTeken.fS()) <= koorde) ? EbbTeken.fS() : EbbTeken.fX();
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * y).toNumber(), f, t, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
