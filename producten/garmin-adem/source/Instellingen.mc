@@ -28,6 +28,7 @@ module EbbInstellingen {
 
     const TRILLEN = "trillen";
     const TIK30 = "tik30";
+    const LAATSTE3 = "laatste3";
 
     // Waarde uit de opslag; onbekend of buiten de grenzen geeft de standaard.
     function waarde(i as Number) as Number {
@@ -56,6 +57,17 @@ module EbbInstellingen {
         }
         Application.Storage.deleteValue(TRILLEN);
         Application.Storage.deleteValue(TIK30);
+        Application.Storage.deleteValue(LAATSTE3);
+    }
+
+    // Blad v7 punt 6: "Buzz on last 3 breaths", standaard aan. Uit: de laatste drie inademingen trillen als elke inademing.
+    function laatste3() as Boolean {
+        var v = Application.Storage.getValue(LAATSTE3);
+        return !((v instanceof Boolean) && !(v as Boolean));
+    }
+
+    function zetLaatste3(aan as Boolean) as Void {
+        Application.Storage.setValue(LAATSTE3, aan);
     }
 
     // Tijdens inhouden elke 30 s een zachte tik; standaard aan (je weet de tijd met je ogen dicht).

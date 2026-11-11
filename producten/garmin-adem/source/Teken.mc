@@ -264,6 +264,11 @@ module EbbTeken {
         dc.fillRectangle(cx - b / 2, cy + s / 4, b > 1 ? b : 2, b > 1 ? b : 2);
     }
 
+    // Blad v7: staven van today en 8 weeks in 00AAFF op MIP (0055AA haalde maar 2,9:1), op AMOLED 0055AA zoals blad v6.
+    function staafKleur() as Number {
+        return amoled() ? ZEE_KLEUR[1] : ZEE_KLEUR[0];
+    }
+
     // Klein hartje (KORAAL), midden op (cx, cy), breedte s.
     function hart(dc as Graphics.Dc, cx as Number, cy as Number, s as Number) as Void {
         var r = s / 4 > 1 ? s / 4 : 1;
@@ -291,9 +296,9 @@ module EbbTeken {
         dc.drawText(x0 + s + gap + wa, y, font, b, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    // Blad v6 punt 3: twee gespiegelde trilboogjes links en rechts van een regel van breedte breed, in geel.
+    // Blad v6 punt 3: twee gespiegelde trilboogjes links en rechts van een regel van breedte breed; blad v7 punt 7: wit.
     function trilboog(dc as Graphics.Dc, d as Number, cy as Number, breed as Number) as Void {
-        dc.setColor(GEEL, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
         var rs = [0.026, 0.044] as Array<Float>;
         for (var j = 0; j < 2; j += 1) {

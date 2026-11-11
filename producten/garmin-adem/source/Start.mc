@@ -73,7 +73,8 @@ module EbbStart {
             m.addItem(new WatchUi.MenuItem(NAMEN[i], EbbInstellingen.tekst(i), i, null));
         }
         m.addItem(new WatchUi.ToggleMenuItem("Vibration", null, :trillen, EbbInstellingen.trillen(), null));
-        m.addItem(new WatchUi.ToggleMenuItem("Buzz in hold", "every 30 s", :tik30, EbbInstellingen.tik30(), null));
+        m.addItem(new WatchUi.ToggleMenuItem("Buzz on last 3 breaths", null, :laatste3, EbbInstellingen.laatste3(), null));
+        m.addItem(new WatchUi.ToggleMenuItem("Buzz every 30 s", null, :tik30, EbbInstellingen.tik30(), null));
         m.addItem(new WatchUi.MenuItem("Safety info", null, :veilig, null));
         return m;
     }
@@ -122,6 +123,8 @@ class InstellingenDelegate extends WatchUi.Menu2InputDelegate {
             item.setSubLabel(EbbInstellingen.tekst(id as Number));
         } else if (id == :trillen) {
             EbbInstellingen.zetTrillen((item as WatchUi.ToggleMenuItem).isEnabled());
+        } else if (id == :laatste3) {
+            EbbInstellingen.zetLaatste3((item as WatchUi.ToggleMenuItem).isEnabled());
         } else if (id == :tik30) {
             EbbInstellingen.zetTik30((item as WatchUi.ToggleMenuItem).isEnabled());
         } else if (id == :veilig) {

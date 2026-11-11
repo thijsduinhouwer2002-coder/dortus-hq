@@ -33,5 +33,9 @@ function testTik30(logger as Test.Logger) as Boolean {
     EbbInstellingen.zetTik30(false);
     var uit = !EbbInstellingen.tik30();
     EbbInstellingen.wis();
-    return standaard && uit && EbbInstellingen.tik30();
+    var laatste = EbbInstellingen.laatste3();
+    EbbInstellingen.zetLaatste3(false);
+    var laatsteUit = !EbbInstellingen.laatste3();
+    EbbInstellingen.wis();
+    return standaard && uit && EbbInstellingen.tik30() && laatste && laatsteUit && EbbInstellingen.laatste3();
 }

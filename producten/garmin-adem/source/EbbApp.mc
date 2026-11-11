@@ -245,8 +245,9 @@ class StartCheckView extends WatchUi.View {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, EbbStart.startKop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.385).toNumber(), Graphics.FONT_MEDIUM, "Seated", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        dc.drawText(w / 2, (d * 0.49).toNumber(), Graphics.FONT_MEDIUM, "or lying?", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        // Blad v7 punt 7: "Sit or lie down" in plaats van "Seated or lying?".
+        dc.drawText(w / 2, (d * 0.385).toNumber(), Graphics.FONT_MEDIUM, "Sit or", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.49).toNumber(), Graphics.FONT_MEDIUM, "lie down", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbTeken.pil(dc, d, 0.655, 0.40, 0.13, "Start", Graphics.FONT_SMALL);
     }
 }
@@ -375,6 +376,7 @@ class EbbView extends WatchUi.View {
     private var _vorigIn as Boolean = false;
     private var _vorigInhoudMs as Number = 0;
     private var _tik30 as Boolean = EbbInstellingen.tik30();
+    private var _laatste3 as Boolean = EbbInstellingen.laatste3();
 
     function tik() as Void {
         var nu = System.getTimer();
@@ -424,7 +426,7 @@ class EbbView extends WatchUi.View {
                 EbbTrillen.tril(EbbTrillen.M_KLAAR);
             }
         } else if (fase == Ebb.FASE_ADEMEN && isIn != _vorigIn) {
-            if (isIn && sessie.laatsteDrie(nu)) {
+            if (isIn && _laatste3 && sessie.laatsteDrie(nu)) {
                 EbbTrillen.tril(EbbTrillen.M_LAATSTE);
             } else {
                 EbbTrillen.tril(isIn ? EbbTrillen.M_IN : EbbTrillen.M_UIT);
@@ -672,7 +674,7 @@ class EbbView extends WatchUi.View {
         var bw = (kol * 0.62).toNumber();
         bw = bw < 2 ? 2 : bw;
         var r = (bw * 3) / 10;
-        dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+        dc.setColor(EbbTeken.staafKleur(), EbbTeken.staafKleur());
         var x = lo;
         var midden = [] as Array<Float>;
         var breedte = [] as Array<Float>;
@@ -751,12 +753,12 @@ class EbbView extends WatchUi.View {
             var xm = (lo + kol * (i + 0.5)).toNumber();
             if (n > 0) {
                 var h = ((bod - top) * n / hoogN).toNumber();
-                dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+                dc.setColor(EbbTeken.staafKleur(), EbbTeken.staafKleur());
                 dc.fillRoundedRectangle(xm - bw / 2, bod - h, bw, h, r);
                 dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
                 dc.drawText(xm, bod - h - (d * 0.045).toNumber(), Graphics.FONT_XTINY, n.toString(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
-                dc.setColor(EbbTeken.ZEE_KLEUR[0], EbbTeken.ZEE_KLEUR[0]);
+                dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);   // lege week: kleine stip, donkerder dan de staven
                 var rr = (d * 0.013).toNumber();
                 dc.fillCircle(xm, bod - (d * 0.03).toNumber(), rr < 2 ? 2 : rr);
             }
