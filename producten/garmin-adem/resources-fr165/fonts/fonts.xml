@@ -1,6 +1,8 @@
 <fonts>
     <!-- Eigen cijferletter voor het grote getal (eis 11), gemaakt met bron/maak_cijfers.py. -->
     <font id="EbbCijfers" filename="ebb_cijfers.fnt" filter="0123456789:" antialias="true"/>
+    <!-- Besluit 11 nov 09:30 punt 2: de tijd tijdens inhouden 80 procent, zodat het dier 90 x 70 (454) krijgt. -->
+    <font id="EbbCijfersKlein" filename="ebb_cijfers_klein.fnt" filter="0123456789:" antialias="true"/>
     <!-- Keuring bouw 4 punt 4: Barlow Condensed voor alle tekst, gemaakt met bron/maak_letters.py. -->
     <font id="EbbXtiny" filename="ebb_xtiny.fnt" antialias="true"/>
     <font id="EbbSmall" filename="ebb_small.fnt" antialias="true"/>

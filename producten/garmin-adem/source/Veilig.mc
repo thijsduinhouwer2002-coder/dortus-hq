@@ -45,8 +45,8 @@ class VeiligView extends WatchUi.View {
         EbbZee.strook(dc, d);
         var regels = EbbVeiligTekst.BLADEN[blad];
         var geel = (blad == EbbVeiligTekst.BLADEN.size() - 1);
-        var f = EbbTeken.fX();
-        var lh = dc.getFontHeight(f);
+        var f = EbbTeken.fLees();
+        var lh = EbbTeken.leesRegel(dc, f);
         var n = regels.size() + (geel ? 1 : 0);
         // Keuring bouw 2 punt 10: driehoek 44 px op 454 (0,097 D).
         var s = (d * 0.097).toNumber();

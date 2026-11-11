@@ -8,6 +8,8 @@ import Toybox.WatchUi;
 // "sea complete", "24 of 24 friends" en de reeks in weken. Geen tijden (die staan één knop verder).
 // Watchdog: alle 24 dieren komen één keer in één doorzichtig plaatje, één laag per beurt via EbbDierPlaatje.laag;
 // daarna kost een beurt alleen de zee, de tekst en het plakken.
+// Keuring bouw 5 punt 3: op 416 en 454 bleef het scherm 120 beurten leeg. Nu komt de walvis eerst en wordt elke beurt
+// geplakt wat er al staat, zodat het feest meteen zichtbaar is en aangroeit. Bij verlaten laat los() het plaatje los.
 module EbbSeaComplete {
     const WALVIS = 23;
     // [straal, aantal, van hoek, tot hoek] in 1/260 D en graden (90 is recht onder), midden (130, 98).
@@ -62,8 +64,10 @@ module EbbSeaComplete {
         if (bb == null) {
             return false;
         }
-        var p = plek(_d, _dier);
-        EbbDierPlaatje.laag((bb as Graphics.BufferedBitmap).getDc(), _dier, p[0] - _x0, p[1] - _y0, p[2], EbbDierPlaatje.GEVONDEN, _laag);
+        // Volgorde: eerst de walvis (23), dan 0 tot 22.
+        var k = (_dier + WALVIS) % (WALVIS + 1);
+        var p = plek(_d, k);
+        EbbDierPlaatje.laag((bb as Graphics.BufferedBitmap).getDc(), k, p[0] - _x0, p[1] - _y0, p[2], EbbDierPlaatje.GEVONDEN, _laag);
         _laag += 1;
         if (_laag >= EbbDierPlaatje.lagenVan(EbbDierPlaatje.GEVONDEN)) {
             _laag = 0;
@@ -72,7 +76,13 @@ module EbbSeaComplete {
         return _dier > WALVIS;
     }
 
-    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as WatchUi.FontResource, s as String, kleur as Number) as Void {
+    // Plaatje loslaten als het scherm weggaat (geheugen voor de rest van de app).
+    function los() as Void {
+        _ref = null;
+        _d = 0;
+    }
+
+    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number) as Void {
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, px(d, y), f, s, Graphics.TEXT_JUSTIFY_CENTER);
     }
@@ -92,12 +102,12 @@ module EbbSeaComplete {
             dc.drawCircle(d / 2 + px(d, bel[i][0]), px(d, bel[i][1]), r < 1 ? 1 : r);
         }
         dc.setPenWidth(1);
-        if (verder()) {
-            var bb = (_ref as Graphics.BufferedBitmapReference).get();
-            if (bb != null) {
-                dc.drawBitmap(_x0, _y0, bb as Graphics.BufferedBitmap);
-            }
-        } else {
+        var klaar = verder();
+        var bb = (_ref as Graphics.BufferedBitmapReference).get();
+        if (bb != null) {
+            dc.drawBitmap(_x0, _y0, bb as Graphics.BufferedBitmap);
+        }
+        if (!klaar) {
             WatchUi.requestUpdate();
         }
         tekst(dc, d, 26, EbbTeken.fS(), "sea complete", EbbTeken.LICHT);

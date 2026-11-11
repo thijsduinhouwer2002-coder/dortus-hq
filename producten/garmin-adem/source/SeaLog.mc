@@ -127,7 +127,7 @@ class DierenView extends WatchUi.View {
     }
 
     // Tekst met de bovenkant op y (1/260 D), zoals op het blad.
-    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as WatchUi.FontResource, s as String, kleur as Number) as Void {
+    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number) as Void {
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (y * d + 130) / 260, f, s, Graphics.TEXT_JUSTIFY_CENTER);
     }

@@ -21,10 +21,13 @@ REGEL = {260: (19, 32, 37), 280: (19, 34, 40), 390: (31, 46, 53), 416: (32, 48, 
 NAMEN = ("ebb_xtiny", "ebb_small", "ebb_medium")
 IDS = ("EbbXtiny", "EbbSmall", "EbbMedium")
 CAP = 0.52
+# Besluit hoofdchat 11 nov 09:30: kleine tekst op 454 minstens 22 px hoog. De xtiny krijgt op de grote AMOLED-schermen
+# (390, 416, 454) hoofdletters van 60 procent van de regel (22 px op 454). Op MIP gebruikt de app de systeemletter.
+CAP_XTINY_GROOT = 0.60
 
 
-def lettergrootte(regel):
-    doel = round(regel * CAP)
+def lettergrootte(regel, cap=CAP):
+    doel = round(regel * cap)
     g = regel
     for _ in range(30):
         f = ImageFont.truetype(LETTER, g)
@@ -36,8 +39,8 @@ def lettergrootte(regel):
     return ImageFont.truetype(LETTER, g), g
 
 
-def maak(regel, uitmap, naam, fid):
-    f, g = lettergrootte(regel)
+def maak(regel, uitmap, naam, fid, cap=CAP):
+    f, g = lettergrootte(regel, cap)
     cap = -f.getbbox("H", anchor="ls")[1]
     base = (regel + cap) // 2          # hoofdletters in het midden van de regel (VCENTER zoals de systeemletters)
     rand = 1
@@ -80,11 +83,13 @@ def main(app):
             continue
         lh = int(re.search(r"lineHeight=(\d+)", open(cij).read()).group(1))
         maat = MAAT[lh]
-        groottes = [maak(r, fm, n, i) for r, n, i in zip(REGEL[maat], NAMEN, IDS)]
+        groottes = [maak(r, fm, n, i, CAP_XTINY_GROOT if (n == "ebb_xtiny" and maat >= 390) else CAP) for r, n, i in zip(REGEL[maat], NAMEN, IDS)]
         with open(os.path.join(fm, "fonts.xml"), "w") as uit:
             uit.write("<fonts>\n")
             uit.write("    <!-- Eigen cijferletter voor het grote getal (eis 11), gemaakt met bron/maak_cijfers.py. -->\n")
             uit.write('    <font id="EbbCijfers" filename="ebb_cijfers.fnt" filter="0123456789:" antialias="true"/>\n')
+            uit.write("    <!-- Besluit 11 nov 09:30 punt 2: de tijd tijdens inhouden 80 procent, zodat het dier 90 x 70 (454) krijgt. -->\n")
+            uit.write('    <font id="EbbCijfersKlein" filename="ebb_cijfers_klein.fnt" filter="0123456789:" antialias="true"/>\n')
             uit.write("    <!-- Keuring bouw 4 punt 4: Barlow Condensed voor alle tekst, gemaakt met bron/maak_letters.py. -->\n")
             for n, i in zip(NAMEN, IDS):
                 uit.write(f'    <font id="{i}" filename="{n}.fnt" antialias="true"/>\n')

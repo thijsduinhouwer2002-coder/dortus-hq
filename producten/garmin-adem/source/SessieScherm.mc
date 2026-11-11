@@ -69,10 +69,20 @@ module EbbSessieScherm {
             dc.drawText(w / 2, yStop, EbbTeken.fX(), v.stopTekst(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             // De tijd direct onder de stopregel: de lege ruimte boven de cijfers (hoogte min ascent min descent)
             // valt weg, zodat de cijfers 2% D onder de stopregel beginnen.
+            // Besluit 11 nov 09:30 punt 2: kleinere cijfers, zodat het dier 90 x 70 (454) en 50 x 40 (260) krijgt.
+            // Blijft er meer ruimte over dan het dier nodig heeft, dan zakken de cijfers met de helft daarvan.
+            font = EbbTeken.grootKlein();
             var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
-            var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - (leeg > 0 ? leeg : 0);
+            leeg = leeg > 0 ? leeg : 0;
+            var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - leeg;
+            var gatD = (d * 0.022).toNumber();
+            gatD = gatD < 6 ? 6 : gatD;
+            var ruimte = ((d * ONDER_MIDDEN).toNumber() - fhK / 2 - 8) - (yTijd + leeg + Graphics.getFontAscent(font) + gatD) - (d * 0.154).toNumber();
+            if (ruimte > 1) {
+                yTijd += ruimte / 2;
+            }
             yGroot = yTijd.toFloat() / d;
-            var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
+            var onderCijfer = yTijd + leeg + Graphics.getFontAscent(font);
             // Beelden run 42938098473 (fr265): de walvis raakte de hartregel en met zijn fontein bijna de cijfers.
             // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
             // Keuring bouw 2 punt 7: het dier groter (±0,19 D breed: 86 px op 454, 49 px op 260), midden onder de tijd.

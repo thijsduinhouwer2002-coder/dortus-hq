@@ -59,18 +59,32 @@ class StartCheckView extends WatchUi.View {
     // Blad v7 scherm 1c: "how it works", in gewone woorden, met de juiste knop per horloge.
     function tekenUitleg(dc as Graphics.Dc, d as Number) as Void {
         EbbZee.strook(dc, d);
-        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.20).toNumber(), EbbTeken.fS(), "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        var f = EbbTeken.fX();
-        var lh = dc.getFontHeight(f);
+        // Besluit 11 nov 09:30 punt 1: de regels een maat groter (fLees). Kop, regels en pil als één groep rond 0,47 D;
+        // de pil blijft 0,02 D boven de hoogste golftop van de strook.
+        var f = EbbTeken.fLees();
+        var lh = EbbTeken.leesRegel(dc, f);
+        var kh = dc.getFontHeight(EbbTeken.fS());
         var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold only", "while it feels easy.",
             WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK stops."] as Array<String>;
-        var y = (d * 0.46).toNumber() - (regels.size() * lh) / 2;
+        var gat = (d * 0.025).toNumber();
+        var bh = (d * 0.10).toNumber();
+        var fh = dc.getFontHeight(f);
+        bh = bh < fh + 4 ? fh + 4 : bh;
+        var groep = kh + gat + regels.size() * lh + 2 * gat + bh;
+        var top = (d * 0.47).toNumber() - groep / 2;
+        var onderMax = ((EbbZee.STROOK_TOP - 0.02) * d).toNumber();
+        if (top + groep > onderMax) {
+            top = onderMax - groep;
+        }
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, top + kh / 2, EbbTeken.fS(), "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        var y = top + kh + gat;
         for (var i = 0; i < regels.size(); i += 1) {
             dc.setColor(i < 3 ? Graphics.COLOR_WHITE : EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(d / 2, y + i * lh + lh / 2, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-        EbbTeken.pil(dc, d, 0.77, 0.30, 0.10, "OK", f);
+        var yPil = y + regels.size() * lh + 2 * gat + bh / 2;
+        EbbTeken.pil(dc, d, yPil / d.toFloat(), 0.30, 0.10, "OK", f);
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {

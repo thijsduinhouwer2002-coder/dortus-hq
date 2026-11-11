@@ -77,6 +77,17 @@ module EbbTeken {
         return _eigen as WatchUi.FontResource;
     }
 
+    // Besluit 11 nov 09:30 punt 2: de tijd tijdens inhouden in 80 procent van de cijferletter (bron/maak_cijfers.py),
+    // zodat het eigen dier 90 x 70 (454) en 50 x 40 (260) krijgt.
+    var _eigenKlein as WatchUi.FontResource or Null = null;
+
+    function grootKlein() as Graphics.FontType {
+        if (_eigenKlein == null) {
+            _eigenKlein = WatchUi.loadResource(Rez.Fonts.EbbCijfersKlein) as WatchUi.FontResource;
+        }
+        return _eigenKlein as WatchUi.FontResource;
+    }
+
     // Blad v6: de waterschaal W0 tot W3 (Mila ebb_blad_v3.py) voor de zee tijdens het inhouden.
     const ZEE_KLEUR = [0x00AAFF, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
     const LICHTCYAAN = 0xAAFFFF;
@@ -188,25 +199,49 @@ module EbbTeken {
     var _s as WatchUi.FontResource or Null = null;
     var _m as WatchUi.FontResource or Null = null;
 
-    function fX() as WatchUi.FontResource {
+    // Besluit hoofdchat 11 nov 09:30 punt 1: leesbaarheid gaat voor de eigen letter. Op MIP-schermen (FR255, fenix 7X,
+    // fenix 8 solar) valt de kleine Barlow met grijze randen weg in het palet van 64 kleuren ("Nol if pregnant"); daar
+    // gebruikt alle tekst de systeemletter, die voor dat scherm gemaakt is. Zelfde regelhoogte, dus de opmaak blijft.
+    function fX() as Graphics.FontType {
+        if (!amoled()) {
+            return Graphics.FONT_XTINY;
+        }
         if (_x == null) {
             _x = WatchUi.loadResource(Rez.Fonts.EbbXtiny) as WatchUi.FontResource;
         }
         return _x as WatchUi.FontResource;
     }
 
-    function fS() as WatchUi.FontResource {
+    function fS() as Graphics.FontType {
+        if (!amoled()) {
+            return Graphics.FONT_SMALL;
+        }
         if (_s == null) {
             _s = WatchUi.loadResource(Rez.Fonts.EbbSmall) as WatchUi.FontResource;
         }
         return _s as WatchUi.FontResource;
     }
 
-    function fM() as WatchUi.FontResource {
+    function fM() as Graphics.FontType {
+        if (!amoled()) {
+            return Graphics.FONT_MEDIUM;
+        }
         if (_m == null) {
             _m = WatchUi.loadResource(Rez.Fonts.EbbMedium) as WatchUi.FontResource;
         }
         return _m as WatchUi.FontResource;
+    }
+
+    // Besluit 11 nov 09:30 punt 1: veiligheid en "how it works" een maat groter op AMOLED; op MIP de systeemletter
+    // XTINY (al scherp en heel, en een maat groter past niet op 260 px).
+    function fLees() as Graphics.FontType {
+        return amoled() ? fS() : Graphics.FONT_XTINY;
+    }
+
+    // Regelafstand voor fLees: de Barlow-regel is ruim (hoofdletters 52 procent), op AMOLED 80 procent daarvan.
+    function leesRegel(dc as Graphics.Dc, f as Graphics.FontType) as Number {
+        var lh = dc.getFontHeight(f);
+        return amoled() ? (lh * 4) / 5 : lh;
     }
 
     const GROOT_LIJST = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
