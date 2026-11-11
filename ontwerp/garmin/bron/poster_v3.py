@@ -71,6 +71,7 @@ def optocht(dr):
             a = abs(dx / n) * (r[k][0] + r[k + 1][0]) + abs(dy / n) * (r[k][1] + r[k + 1][1])
             s.append(s[-1] + a + 6)
         if s[-1] <= L[-1]: break
+    s = [v * L[-1] / s[-1] for v in s]   # rest gelijk verdelen, zodat de optocht precies tot de walvis loopt
     plek = [pts[min(range(N + 1), key=lambda j: abs(L[j] - v))] for v in s]
     for k, (x, y) in enumerate(plek):
         h.teken(dr, D[k], round(x), round(y), maat(k, g))
