@@ -110,7 +110,10 @@ jobs:
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               sleep 12
-              import -window root "plaatjes/$d-scene$k.png"
+              # Bouw 3: de naam volgt de scène die de app zelf meldt ("PLAATJE scene k"), niet de teller van de lus;
+              # een overgeslagen start schoof anders alle namen op (inhouden-krab toonde een eindscherm).
+              s=$(grep -o "PLAATJE scene [0-9]*" "/tmp/plaatje-$d-$k.log" | tail -1 | awk '{print $3}')
+              if [ -n "$s" ]; then import -window root "plaatjes/$d-scene$s.png"; else echo "GEEN SCENE bij start $k"; import -window root "plaatjes/$d-mis$k.png"; fi
               kill "$MD" 2>/dev/null || true; sleep 3
               cat "/tmp/plaatje-$d-$k.log"
             done
