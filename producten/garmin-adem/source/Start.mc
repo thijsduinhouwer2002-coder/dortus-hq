@@ -71,6 +71,11 @@ class EbbMenuView extends WatchUi.View {
         var d = (w < h) ? w : h;
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
+        if (EbbBouw.PLAATJE) {
+            // Bouw 3 punt 5: hoogtes van de systeemletters, zodat Barlow straks precies even hoog wordt (staat in het log).
+            System.println("LETTERHOOGTE d " + d + " xtiny " + dc.getFontHeight(Graphics.FONT_XTINY) + " small " + dc.getFontHeight(Graphics.FONT_SMALL)
+                + " medium " + dc.getFontHeight(Graphics.FONT_MEDIUM) + " ascent " + Graphics.getFontAscent(Graphics.FONT_XTINY) + "/" + Graphics.getFontAscent(Graphics.FONT_SMALL) + "/" + Graphics.getFontAscent(Graphics.FONT_MEDIUM));
+        }
         EbbTeken.zeeBanden(dc, d, [0.775, 0.86] as Array<Float>, [1, 2] as Array<Number>, 0.008, 0.0);
         // Keuring bouw 1 punt 6: je eigen dier (niet de rode vis), in de eigen kleuren; zonder dier alleen de zee.
         var eigen = EbbTrouw.zwemmer();
