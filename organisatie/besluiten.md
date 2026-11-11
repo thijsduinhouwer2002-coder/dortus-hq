@@ -206,3 +206,6 @@ Limiet gereset, pauze voorbij. Gijs draait op Fable 5.2 (keuze A), de rest blijf
 
 ## 11 nov 22:55 (hoofdchat, Ebb)
 Terugbetaalbeleid voorlopig: "Not happy? Mail us within 14 days of buying and we refund you." Waarom: Garmin eist dat een betaalde app zijn terugbetaalbeleid noemt; bij een nieuwe app zonder reviews weegt vertrouwen zwaarder dan een enkele teruggave. Thijs is twee keer gevraagd (A of B) en zei "rammen"; hij kan dit terugdraaien. Gijs zoekt eerst uit hoe een terugbetaling bij Garmin (Adyen) technisch gaat; kan het niet vanuit ons, dan wordt de zin "refunds follow Garmin's store policy" en melden we dat aan Thijs.
+
+## 11 nov 23:25 (hoofdchat, Ebb)
+Posterkop wordt "Breathe. Make sea friends.", kaart 1 "Breathe in rounds. A friend swims along." Waarom: "Hold your breath" naast een timer leest als beloning voor inhouden; Garmin verbiedt uitdagingen met lichamelijk risico.

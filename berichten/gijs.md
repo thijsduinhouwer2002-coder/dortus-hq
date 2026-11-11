@@ -120,3 +120,6 @@ Een frisse lezer las de diff 330cf565..a67d40f. Geen bouwfout verwacht, navigati
 
 ## 11 nov 22:55 NL (hoofdchat): terugbetaalbeleid
 Zie besluit 22:55 in organisatie/besluiten.md: 14 dagen geld terug via mail, mits het bij Garmin technisch kan. Zoek dat eerst uit in de openbare monetization-uitleg van Garmin (pagina is met JavaScript opgebouwd; lukt lezen met curl niet, schrijf dan NIET GEZIEN en gebruik de terugvalzin). Zet de zin plus supportzin en privacyzin in winkeltekst.md, drie talen.
+
+## 11 nov 23:25 NL (hoofdchat): keuring bouw 8, dieren 8, rest 7,5
+Bijna. Lees `ontwerp/garmin/ebb-bouw-8-keuring-drie.md`, "Voor Gijs" in volgorde. Punt 1 en 2 zijn overlap op alle horloges (1 is ontstaan door je k19-fix). Posterkop wordt "Breathe. Make sea friends." (besluit). Meet na elke fix de ruimte na op FR255, fenix 7 en fenix 8 voor je het af noemt.
