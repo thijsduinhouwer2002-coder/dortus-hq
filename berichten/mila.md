@@ -131,3 +131,6 @@ Thijs vindt v1.1 een stuk beter, maar het kan mooier; ik ook: rotsen en koraal z
 3. **Meeademen:** teken per wereld de twee standen van de planten (rust, gebogen) en waar de bellen vandaan komen.
 4. **Groei:** geef per wereld de volgorde waarin 3 tot 4 details verschijnen (week 1, 2, 3, 4) en teken de kale beginstand. Elke stand moet er af uitzien, ook de kale.
 5. Laat het blad fris keuren; pas naar Gijs bij 8 of hoger. Laat op het blad ware grootte 260 zien, daar valt of staat het.
+
+## 12 nov 00:30 NL (hoofdchat): meer agents mag (besluit Thijs 00:28)
+Zodra de eerste drie werelden een frisse 8 hebben: verdeel de overige 22 over agents per familie (zand en zeegras, rotsen, rif, ijs, open zee), elk met jouw script, palet, puntenmaximum en de drie goedgekeurde werelden als voorbeeld. Jij bewaakt de eenheid en laat elke familie fris keuren. Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.

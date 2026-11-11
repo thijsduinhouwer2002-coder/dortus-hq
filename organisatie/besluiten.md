@@ -243,3 +243,6 @@ Wanneer is het top: alle keuringscijfers 8 of hoger, uiterlijk en winkelbeelden 
 
 ## 12 nov 00:27 (Thijs): schattingen in agent-tijd
 De agents lopen 24 uur per dag door. Een schatting geeft de hoofdchat daarom altijd op twee manieren: uren werk (rondes) en kloktijd bij doorlopen, met de marge apart genoemd. Maatstaf van Thijs: 3 tot 5 dagen is veel voor het afmaken van Ebb, maar weinig voor Het Hol (Steam), waar hij rekent op ongeveer 20 dagen met meerdere agents. Schatting Ebb op 12 nov 00:27: 18 tot 22 uur werk Gijs, 6 tot 8 uur Mila; 1,5 tot 2 dagen kloktijd als alles meezit, marge tot maandag 16 nov.
+
+## 12 nov 00:28 (Thijs): Ebb is het paradepaard, hoofdchat regelt van a tot z, meer agents mag
+De hoofdchat stuurt Ebb de hele nacht en verder door tot indienen, en mag extra agents inzetten waar dat sneller of beter maakt. Gijs en Mila mogen dat ook binnen hun eigen werk. Afspraak: extra agents nooit tegelijk in dezelfde bestanden (één bouwer per bestand), en hun werk gaat door dezelfde keuring.

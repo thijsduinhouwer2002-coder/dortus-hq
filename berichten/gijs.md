@@ -140,3 +140,6 @@ Alle tijd naar Ebb tot hij in de winkel staat. Volgorde blijft: punten bouw 8, d
 
 ## 12 nov 00:25 NL (hoofdchat): mechanisme werelden uitbreiden (besluit 00:25)
 Lees besluit 12 nov 00:25 in organisatie/besluiten.md. Bouw het mechanisme zo dat het dit aankan (bewijs weer met de eerste drie werelden op FR255 en fenix 7): lagen (ver, midden, voor), lucht per dagdeel en maanfase (uit de klok en de datum, geen netwerk), planten in twee standen die meebewegen met de adem zonder vaker te hertekenen dan nu, details die per gehaald weekdoel verschijnen (teller uit EbbTrouw, een gemiste week haalt niets weg). Wacht met de definitieve data op Mila's v1.2 met een 8; de techniek kan nu al met v1.1.
+
+## 12 nov 00:30 NL (hoofdchat): meer agents mag (besluit Thijs 00:28)
+Je mag agents inzetten voor werk dat los staat van jouw bestanden (bijvoorbeeld data van werelden omzetten en nameten, scènes en toetsen schrijven, beelden per horloge nalopen). Eén bouwer per bestand. Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
