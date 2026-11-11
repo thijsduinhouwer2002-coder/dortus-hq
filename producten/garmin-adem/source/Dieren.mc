@@ -54,7 +54,8 @@ class DierenView extends WatchUi.View {
     // "2 more days in a row" of "at 50 sessions"; de bonus blijft een verrassing.
     function regel(i as Number) as String {
         if (EbbTrouw.heeft(i)) {
-            return (EbbTrouw.zwemmer() == i) ? "swims with you" : "found · select to pick";
+            // Keuring bouw 3 punt 9: de hint zegt welke knop ("START: swims with you").
+            return (EbbTrouw.zwemmer() == i) ? "swims with you" : WatchUi.loadResource(Rez.Strings.KiesHint) as String;
         }
         if (EbbTrouw.bonus(i)) {
             return "a surprise";
@@ -73,6 +74,84 @@ class DierenView extends WatchUi.View {
         return (nog <= 1) ? "next session" : "at " + drempel + " sessions";
     }
 
+    // Keuring bouw 3 punt 9: boven- en onderkant van dier i in 1/SCHAAL van de diermaat (uit de punten zelf).
+    function grens(i as Number) as Array<Number> {
+        var b = EbbDierData.DATA[i];
+        var o = 1;
+        var boven = 0;
+        var onder = 0;
+        for (var deel = 0; deel < b[0]; deel += 1) {
+            var n = b[o + 1];
+            o += 2;
+            for (var k = 0; k < n; k += 1) {
+                var y = EbbDierData.s8(b[o + 1]);
+                if (y < boven) { boven = y; }
+                if (y > onder) { onder = y; }
+                o += 2;
+            }
+        }
+        return [boven, onder] as Array<Number>;
+    }
+
+    // Opbouw van een blad (keuring bouw 3 punt 9): rijen 3 px uit elkaar (op 260; groter scherm iets meer), het raster
+    // tussen de telling en de naam; past het niet, dan wordt de diermaat voor dat blad kleiner. Zet _maat, _rijY, _boven, _onder.
+    var _maat as Number = 20;
+    var _rijY as Array<Number> = [0, 0, 0] as Array<Number>;
+    var _boven as Number = 0;
+    var _onder as Number = 0;
+    var _grenzen as Array<Array<Number> > = [] as Array<Array<Number> >;
+
+    function bouwBlad(dc as Graphics.Dc, d as Number, blad as Number) as Void {
+        var schaal = EbbDierData.SCHAAL;
+        var rijen = 0;
+        var top = [0, 0, 0] as Array<Number>;
+        var bod = [0, 0, 0] as Array<Number>;
+        _grenzen = [] as Array<Array<Number> >;
+        for (var k = 0; k < PER_BLAD; k += 1) {
+            var i = blad * PER_BLAD + k;
+            if (i >= EbbTrouw.DIEREN.size()) {
+                break;
+            }
+            var g = grens(i);
+            _grenzen.add(g);
+            var r = k / 3;
+            rijen = r + 1;
+            if (g[0] < top[r]) { top[r] = g[0]; }
+            if (g[1] > bod[r]) { bod[r] = g[1]; }
+        }
+        var tussen = (d * 0.0116).toNumber();
+        tussen = tussen < 3 ? 3 : tussen;
+        var fs = dc.getFontHeight(Graphics.FONT_SMALL);
+        var fx = dc.getFontHeight(Graphics.FONT_XTINY);
+        var boven = (d * 0.135).toNumber() + fs / 2 + fx + 4;
+        var naamLucht = (d * 0.0385).toNumber();
+        naamLucht = naamLucht < 10 ? 10 : naamLucht;
+        // Onder het raster: naam, regel en bladstippen, met de stippen hoogstens op 0,91 D.
+        var eronder = naamLucht + fs + 2 + fs + (d * 0.04).toNumber();
+        var ruimte = (d * 0.91).toNumber() - eronder - boven;
+        var eenheden = 0;
+        for (var r = 0; r < rijen; r += 1) {
+            eenheden += bod[r] - top[r];
+        }
+        var rand = 3;
+        var vast = rijen * 2 * rand + (rijen - 1) * tussen;
+        var maat = (d * 0.078).toNumber();
+        if (eenheden * maat / schaal + vast > ruimte) {
+            maat = (ruimte - vast) * schaal / eenheden;
+            maat = maat < 8 ? 8 : maat;
+        }
+        _maat = maat;
+        var hoog = eenheden * maat / schaal + vast;
+        var y = (d * 0.475).toNumber() - hoog / 2;
+        y = y < boven ? boven : y;
+        _boven = y;
+        for (var r = 0; r < rijen; r += 1) {
+            _rijY[r] = y + rand - top[r] * maat / schaal;
+            y += (bod[r] - top[r]) * maat / schaal + 2 * rand + tussen;
+        }
+        _onder = y - tussen;
+    }
+
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var d = w < dc.getHeight() ? w : dc.getHeight();
@@ -80,17 +159,16 @@ class DierenView extends WatchUi.View {
         dc.clear();
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         var blad = keuze / PER_BLAD;
-        var maat = (d * 0.078).toNumber();
         // Keuring bouw 2 punt 1 (watchdog): de dieren van een blad komen in één plaatje op zwart (het raster), dat over
         // een paar beurten vol getekend wordt: hoogstens NIEUW_PER_BEURT dieren per beurt, elke beurt een eigen watchdog.
         // Is het plaatje af, dan kost een beurt alleen nog het plakken. Opnieuw na een ander blad of een nieuw dier.
         var ox = (d * 0.13).toNumber();
-        var oy = (d * 0.20).toNumber();
         var sleutel = blad * 100000000 + EbbTrouw.getal(EbbTrouw.BITS) % 100000000;
         var ref = _plaatje;
         var bb = (ref != null) ? ref.get() : null;
         if (bb == null || sleutel != _sleutel) {
-            ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => (d * 0.56).toNumber(), :palette => palet()});
+            bouwBlad(dc, d, blad);
+            ref = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => _onder - _boven + 2, :palette => palet()});
             _plaatje = ref;
             bb = ref.get();
             var pdc0 = (bb as Graphics.BufferedBitmap).getDc();
@@ -99,6 +177,8 @@ class DierenView extends WatchUi.View {
             _sleutel = sleutel;
             _getekend = 0;
         }
+        var oy = _boven;
+        var maat = _maat;
         var plaatje = bb as Graphics.BufferedBitmap;
         var pdc = plaatje.getDc();
         var gekozenY = 0;
@@ -110,7 +190,7 @@ class DierenView extends WatchUi.View {
                 break;
             }
             var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
-            var y = (d * (0.335 + 0.14 * (k / 3))).toNumber();
+            var y = _rijY[k / 3];
             if (k >= _getekend && nu < NIEUW_PER_BEURT) {
                 if (EbbTrouw.heeft(i)) {
                     EbbDierData.teken(pdc, i, x - ox, y - oy, maat, -1);
@@ -122,7 +202,7 @@ class DierenView extends WatchUi.View {
             }
             if (i == keuze) {
                 gekozenX = x;
-                gekozenY = y;
+                gekozenY = y + (_grenzen[k][1] * maat) / EbbDierData.SCHAAL;
             }
         }
         var later = _getekend < PER_BLAD && blad * PER_BLAD + _getekend < EbbTrouw.DIEREN.size();
@@ -132,27 +212,34 @@ class DierenView extends WatchUi.View {
         // Beelden run 42953647184: "sea log" en "8 of 24" liepen in elkaar; nu de telling kleiner eronder.
         dc.drawText(w / 2, (d * 0.135).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
         dc.drawText(w / 2, (d * 0.135).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + dc.getFontHeight(Graphics.FONT_XTINY) / 2, Graphics.FONT_XTINY, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
-        // Keuzestip vast onder het gekozen dier.
+        // Keuzestip 3 px onder de onderkant van het gekozen dier (blad v8, keuring bouw 3 punt 9), na de stickerrand.
         dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
         var rs = (d * 0.011).toNumber();
         rs = rs < 3 ? 3 : rs;
-        dc.fillCircle(gekozenX, gekozenY + (d * 0.065).toNumber(), rs);
+        dc.fillCircle(gekozenX, gekozenY + 3 + 3 + rs, rs);
+        // Naam 10 px onder het raster (op 260), regel en bladstippen eronder.
+        var fs = dc.getFontHeight(Graphics.FONT_SMALL);
+        var lucht = (d * 0.0385).toNumber();
+        lucht = lucht < 10 ? 10 : lucht;
+        var yNaam = _onder + lucht + fs / 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
-        dc.drawText(w / 2, (d * 0.735).toNumber(), Graphics.FONT_SMALL, naam, midden);
+        dc.drawText(w / 2, yNaam, Graphics.FONT_SMALL, naam, midden);
         var tekst = regel(keuze);
         var f = (dc.getTextWidthInPixels(tekst, Graphics.FONT_SMALL) <= d * 0.74) ? Graphics.FONT_SMALL : Graphics.FONT_XTINY;
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.81).toNumber(), f, tekst, midden);
+        var yRegel = yNaam + fs / 2 + 2 + dc.getFontHeight(f) / 2;
+        dc.drawText(w / 2, yRegel, f, tekst, midden);
         // Bladstippen: actief schuim, de andere 00AAFF (blad v8).
         var n = bladen();
         var stap = (d * 0.04).toNumber();
         var rb = (d * 0.009).toNumber();
         rb = rb < 2 ? 2 : rb;
+        var yStip = yRegel + dc.getFontHeight(f) / 2 + (d * 0.02).toNumber();
         for (var b = 0; b < n; b += 1) {
             var kleur = (b == blad) ? EbbTeken.SCHUIM : EbbTeken.ZEE_KLEUR[0];
             dc.setColor(kleur, kleur);
-            dc.fillCircle(w / 2 + (b - (n - 1) / 2.0) * stap, (d * 0.875).toNumber(), rb);
+            dc.fillCircle(w / 2 + (b - (n - 1) / 2.0) * stap, yStip, rb);
         }
         if (later) {
             WatchUi.requestUpdate();
