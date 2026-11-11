@@ -70,8 +70,11 @@ class EbbApp extends Application.AppBase {
             EbbTrillen.aan = false;
             System.println("PLAATJE scene " + k);
             if (k == 4) {
-                Application.Storage.setValue(EbbTrouw.BITS, 127);
-                return [new DierenView(), new WatchUi.BehaviorDelegate()];
+                // Blad v8 C1: 8 gevonden, de keuze op de Pufferfish (nog niet gevonden).
+                Application.Storage.setValue(EbbTrouw.BITS, 255);
+                var dv = new DierenView();
+                dv.keuze = 8;
+                return [dv, new DierenDelegate(dv)];
             }
             if (k == 7) {
                 var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);

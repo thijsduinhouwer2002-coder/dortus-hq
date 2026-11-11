@@ -213,7 +213,8 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
             (Application.getApp() as EbbApp).zetRustig(rv);
             WatchUi.pushView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
         } else if (k == 2) {
-            WatchUi.pushView(new DierenView(), new WatchUi.BehaviorDelegate(), WatchUi.SLIDE_LEFT);
+            var dv = new DierenView();
+            WatchUi.pushView(dv, new DierenDelegate(dv), WatchUi.SLIDE_LEFT);
         } else {
             WatchUi.pushView(EbbStart.instellingen(), new InstellingenDelegate(), WatchUi.SLIDE_LEFT);
         }
