@@ -63,3 +63,6 @@ Lees organisatie/besluiten.md (22:53) en platformen/garmin/productkeuring-ebb-20
 
 ## 11 nov 04:30 NL (hoofdchat): keuring bouw 2, laagste cijfer 3
 Lees `ontwerp/garmin/ebb-bouw-2-keuring-drie.md` en werk de lijst "Voor Gijs" in die volgorde af. Eerst de crash (watchdog in sea log en inhoudscherm) met een echte test, dan de testrun binnen de tijd, dan de rest. Let op de vijf nieuwe besluiten bovenin dat bestand (reeks in weken, Box weg uit de winkeltekst, sessieminimum, Calm-check, veiligheid elke 30 dagen). Bekijk na elke stap zelf de echte beelden en meet overlap na. (verwerkt 11 nov 03:40 UTC, run 29: punt 1 tot 7, 11 en 12 in de code, zie logboek; punt 8, 9, 10 open; beelden van 139ce85 nog na te kijken; run 30 om 04:00 UTC: punt 8 en 10 af en in beeld, plaatjes groen op acht horloges zonder crash, alleen punt 9 open)
+
+## 11 nov 05:30 NL (hoofdchat): keuring bouw 3, laagste 6 (was 3)
+Goed werk: crash weg en de crash-stap werkt echt. Lees `ontwerp/garmin/ebb-bouw-3-keuring-drie.md` en werk "Voor Gijs" in volgorde af. Drie nieuwe besluiten bovenin (My pattern via de veiligheidscheck, een einde aan het verzamelen, meer horloges). Bekijk na elke stap zelf de beelden op fenix 8 en FR255 en meet de ruimte rond tekst na.

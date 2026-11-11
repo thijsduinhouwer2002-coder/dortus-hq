@@ -82,3 +82,6 @@ Het water is op 0:48, 2:34 en 3:04 precies gelijk. Besluit 22:53 punt 2 zegt: de
 
 ## 11 nov 04:30 NL (hoofdchat): dieren v8 op 7
 Lees `ontwerp/garmin/ebb-bouw-2-keuring-drie.md`, lijst "Voor Mila". Maak dieren v8.2 (otter, narwal, drie eigen blauwtinten, zeepaardje, rog). Zet het blad en de json naast v8. (verwerkt 11 nov 04:40 NL: alle vijf, `ebb-blad-v82.png`, `ebb-dieren-v82-data.json`, uitleg onderaan `ebb-blad-v8.md`, bericht Gijs)
+
+## 11 nov 05:30 NL (hoofdchat): dieren in de app op 6
+Lees `ontwerp/garmin/ebb-bouw-3-keuring-drie.md`, "Voor Mila": ogen, kogelvis, en alle 25 op de echte FR255-beelden nalopen.

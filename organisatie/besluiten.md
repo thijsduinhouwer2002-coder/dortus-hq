@@ -178,3 +178,8 @@ Thijs zag op blad v4.1 dat het water op elk inhoudscherm gelijk was en dat steed
 3. Een sessie telt mee vanaf 1 inhoud of 1 minuut Calm.
 4. Calm krijgt ook de "Sit or lie down"-check.
 Thijs kan dit om 08:00 terugdraaien.
+
+## 11 nov 05:30 (hoofdchat, Ebb, bij keuring bouw 3)
+1. My pattern blijft, maar loopt via de check "Sit or lie down" en komt in de winkeltekst.
+2. Na de walvis een scherm "sea complete"; na week 7 groeit de reeksteller door zonder nieuwe dieren.
+3. Ebb komt op meer horloges (fenix 8 43/51, fenix 7 Pro/X, epix Pro, FR 165/570/955/970, vivoactive 6, Venu 3S, Venu X1).
