@@ -191,11 +191,21 @@ module EbbTeken {
         dc.setColor(kleur, kleur);
         dc.fillPolygon(vlak);
         if (schuim) {
+            // Keuring bouw 2 punt 8: op AMOLED een kamlijn van 3 px met een zachte gloed eronder (een brede lijn in
+            // een menging van water en schuim); op MIP de harde lijn zoals op het blad. Geldt voor elke zee met schuim.
+            if (amoled()) {
+                dc.setColor(meng(kleur, SCHUIM, 0.45), Graphics.COLOR_TRANSPARENT);
+                dc.setPenWidth(9);
+                for (var i = 0; i < GOLF_PUNTEN; i += 1) {
+                    dc.drawLine(pts[i][0], pts[i][1] + 2, pts[i + 1][0], pts[i + 1][1] + 2);
+                }
+            }
             dc.setColor(SCHUIM, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(d / 160 > 1 ? d / 160 : 1);
+            dc.setPenWidth(amoled() ? 3 : (d / 160 > 1 ? d / 160 : 1));
             for (var i = 0; i < GOLF_PUNTEN; i += 1) {
                 dc.drawLine(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1]);
             }
+            dc.setPenWidth(1);
         }
     }
 
