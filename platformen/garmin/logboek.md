@@ -561,3 +561,16 @@
 2. Niet bewezen in beeld: menu met "Today" (past het op 260?), Venu 4, instellingenpil, stapelen. Open: 4 rest (wacht op Mila voor het eindscherm op 260), 7 rest, 8 Venu X1, 9 release.
 3. Volgende run eerst: e2e 43096796434 en plaatjesrun 43096796412 lezen en de beelden op FR255, fenix 8 en Venu 4 vergroot bekijken; rood eerst herstellen.
 
+
+## Run 42 (11 nov 20:30 tot 21:05 UTC, elk uur): Mila v12 punt 3, punt 4 en 7 rest, Venu X1
+- Bij de start liep run 41 nog (pushte om 20:33). Daarom eerst werk gekozen dat run 41 niet deed, en pas gepusht toen run 41 klaar was. Lokale `main` van de kloon liep 50 commits uit de pas met GitHub (oude geschiedenis); niet aangeraakt, gewerkt op een eigen tak vanaf `origin/main`.
+- ccf288f: Mila blad v12 punt 3 (scène 20). Bij de laatste twee regels zee via `EbbZee.zeeBanden` met kamlijn 0,745 D, "Ebb is silent. Buzz only." wit op 0,802 D, eigen dier op 0,890 D maat 12/260. Bij Safety info pil op 0,564 D met twee regels erboven (0,304 en 0,384), waarde "read again". Losse regel "Ebb makes no sound" weg. Scène 20 zet vier dieren klaar zodat het dier in beeld komt.
+- 76ee977: punt 7. Sea log rekent zijn maten via `EbbTeken.px` (zes plekken, zelfde som), pauzemenu tekent de stille zee via de nieuwe `EbbZee.stil` (code verplaatst, niet veranderd). REGELS.md bijgewerkt.
+- a67d40f: punt 4. Calm-einde: band van het dier begint 3 px onder de kamlijn (krab s34 stak erdoor). Inhouden: dier rust onderin de band in plaats van in het midden; belletjes beginnen lager en stijgen tot hoogstens 0,04 D boven het dier, zodat ze de cijfers niet raken. Sea log: belletje minstens 5/260 D ruimer dan het kader van het dier, hoogstens 31 bij 27 (nagerekend uit de dierdata: maanvis 31 x 40 en reuzeninktvis 30 x 48 pasten niet in 60 x 44).
+- Punt 8 Venu X1: niet in versie 1. Nagekeken met curl in de API-lijst van `Toybox.Graphics.Dc`: er is geen functie om een tekening te verschuiven. Reden en gevolg staan in status.md.
+- NIET GEZIEN en niet gebouwd in deze run: hier is geen simulator en geen docker; GitHub Actions hield alle runs in de wachtrij (ook 43096796434 en 43096796412 van run 41 kregen geen taken; logs gaven 502). Runs op a67d40f: e2e 43097460747, plaatjes 43097460866.
+
+**In drie regels:**
+1. Mila v12 punt 3, punt 4 (drie van de vier MIP-punten) en punt 7 (opruimen) in de code en gepusht; Venu X1 besloten: niet in versie 1.
+2. Niets hiervan is gebouwd of gezien: de runs staan in de wachtrij bij GitHub. Open: eindschermdieren op 260 (wacht op Mila), graphics pool, 9 release.
+3. Volgende run eerst: uitslag van 43097460747 en 43097460866; rood eerst herstellen, dan alle beelden vergroot bekijken.
