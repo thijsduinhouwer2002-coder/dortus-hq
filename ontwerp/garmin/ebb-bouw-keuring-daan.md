@@ -32,3 +32,9 @@ Midden van het scherm uit een zwart scherm (scène 13) per horloge, daarna per s
 
 ### Volgende keer
 Zodra B1 tot B7 op de tak staan en de plaatjesbouw groen is, keur ik in één ronde alle scènes opnieuw op dezelfde vier horloges, plus settings, eindschermen en sea log. Daarna pas winkelbeelden uit de echte bouw.
+
+## Blad v7.1 van Mila, alleen fouten en leesbaarheid (11 nov ±02:05 UTC)
+De hoofdchat keurt v7 met drie beoordelaars; dit zijn alleen de fouten die ik zag, zodat ze niet in de bouw komen.
+- **L1. 1c "how it works":** de pil "Next" ligt op de zeestrook en raakt "BACK stops" erboven (454 en 260). Zelfde regel als B5: 0,02 D lucht boven en onder de pil.
+- **L2. 6c einde zonder dier:** onderaan staan drie regels plus stippen op elkaar ("next: Clownfish, 1 more", stippen, "4 days in a row", "1 rest day is fine"); op 454 raken de laatste twee regels elkaar bijna, op 260 is het een propje tegen de rand. Eén regel minder (bijvoorbeeld "4 days in a row · rest day ok" of de rustdag-zin alleen tonen als je gisteren rustte).
+- Verder geen lees- of rekenfouten gezien; stickerrand maakt de dieren op 260 goed leesbaar.
