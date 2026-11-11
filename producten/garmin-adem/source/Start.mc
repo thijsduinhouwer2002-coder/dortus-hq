@@ -27,57 +27,9 @@ module EbbStart {
         return (p[0] / 1000) + "-" + (p[1] / 1000) + "-" + (p[2] / 1000) + "-" + (p[3] / 1000);
     }
 
-    const NAMEN = ["Breaths per round", "Breathing pace", "Rounds", "Recovery hold", "My pattern: in", "My pattern: hold", "My pattern: out", "My pattern: rest"] as Array<String>;
 
-    function instellingen() as WatchUi.Menu2 {
-        var m = new WatchUi.Menu2({:title => "Settings", :theme => WatchUi.MENU_THEME_CYAN});
-        for (var i = 0; i < NAMEN.size(); i += 1) {
-            m.addItem(new WatchUi.MenuItem(NAMEN[i], EbbInstellingen.tekst(i), i, null));
-        }
-        m.addItem(new WatchUi.ToggleMenuItem("Vibration", null, :trillen, EbbInstellingen.trillen(), null));
-        m.addItem(new WatchUi.ToggleMenuItem("Buzz on last 3 breaths", null, :laatste3, EbbInstellingen.laatste3(), null));
-        m.addItem(new WatchUi.ToggleMenuItem("Buzz every 30 s", null, :tik30, EbbInstellingen.tik30(), null));
-        m.addItem(new WatchUi.MenuItem("Start my pattern", eigenTekst(), :eigen, null));
-        // Blad v7 punt 6: "Sound off" weg; een vaste regel dat Ebb nooit geluid maakt (alleen trillen).
-        m.addItem(new WatchUi.MenuItem("Ebb makes no sound", "vibration only", :geluid, null));
-        m.addItem(new WatchUi.MenuItem("Safety info", null, :veilig, null));
-        return m;
-    }
 }
 
-class InstellingenDelegate extends WatchUi.Menu2InputDelegate {
-    function initialize() {
-        Menu2InputDelegate.initialize();
-    }
-
-    function onSelect(item as WatchUi.MenuItem) as Void {
-        var id = item.getId();
-        if (id instanceof Number) {
-            EbbInstellingen.volgende(id as Number);
-            item.setSubLabel(EbbInstellingen.tekst(id as Number));
-        } else if (id == :trillen) {
-            EbbInstellingen.zetTrillen((item as WatchUi.ToggleMenuItem).isEnabled());
-        } else if (id == :laatste3) {
-            EbbInstellingen.zetLaatste3((item as WatchUi.ToggleMenuItem).isEnabled());
-        } else if (id == :tik30) {
-            EbbInstellingen.zetTik30((item as WatchUi.ToggleMenuItem).isEnabled());
-        } else if (id == :eigen) {
-            var ev = new RustigView(EbbInstellingen.eigenPatroon(), "My pattern");
-            (Application.getApp() as EbbApp).zetRustig(ev);
-            WatchUi.pushView(ev, new RustigDelegate(ev), WatchUi.SLIDE_LEFT);
-            return;
-        } else if (id == :veilig) {
-            EbbVeilig.opnieuwTonen();
-            item.setSubLabel("next start");
-        }
-        WatchUi.requestUpdate();
-    }
-
-    // Terug naar het startscherm (blad v6, eigen scherm onder de instellingen).
-    function onBack() as Void {
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
-    }
-}
 
 // Blad v6 scherm 1 (keuring 01:55, besluit 22:53 punt 7): eigen startscherm in plaats van een systeemmenu.
 // "Ebb" bovenaan, twee gelijke pillen Rounds en Calm 4-7-8 (gekozen = dikke schuimrand), daaronder "Sea log · Settings",
@@ -216,7 +168,8 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
             var dv = new DierenView();
             WatchUi.pushView(dv, new DierenDelegate(dv), WatchUi.SLIDE_LEFT);
         } else {
-            WatchUi.pushView(EbbStart.instellingen(), new InstellingenDelegate(), WatchUi.SLIDE_LEFT);
+            var iv = new EbbInstellingenView();
+            WatchUi.pushView(iv, new EbbInstellingenDelegate(iv), WatchUi.SLIDE_LEFT);
         }
         return true;
     }

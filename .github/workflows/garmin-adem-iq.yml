@@ -94,7 +94,7 @@ jobs:
           for d in fenix847mm fr265 vivoactive5 fr255; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in $(seq 0 18); do
+            for k in $(seq 0 20); do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               sleep 12
