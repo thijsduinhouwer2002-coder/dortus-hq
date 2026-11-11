@@ -383,3 +383,17 @@
 1. Af in de code: bouw 2 punt 1 tot 7, 10, 11 en 12, dieren v8.2; crash in de sea log weg op fenix 8 (GEZIEN), FR255 met 1 dier per beurt zonder crash (run 42955254555); plaatjesrun ±6 minuten per horloge.
 2. Open: punt 8 (kamlijn en gloed op AMOLED), punt 9 (eigen letter voor koppen, eerst geheugen), beelden van 0accb80 op alle acht horloges (stap "Geen crash" groen?), winkelbeelden opnieuw.
 3. Volgende run: plaatjesrun van 0accb80 nakijken (FR255 sea log, 6c met 6 rondes, settings, herstel), dan punt 8 en 9, dan keuring door drie vragen.
+
+## 11 nov 2026 04:00 UTC (Gijs, run 30, nachtronde handmatig gestart, zelfde opdracht)
+- Punt 1 tot 3 waren in run 29 al af (zie hierboven); deze run de beelden nagekeken en de rest opgepakt.
+- Beelden van 0accb80 GEZIEN (fenix 8 en FR255): zon raakte "15" nog, bij 6 rondes raakte de tweede regel tijden de schuimkam, op de FR255 liepen "1 more session", de weekstippen en "4 weeks in a row" in elkaar.
+- 08e5502: zon 10 px onder de onderkant van de cijfers (uit de lettermaat), weekstippen en weekregel (nu kleine letter) volgen de letterhoogte, zee bij 4 tot 6 rondes onder de tweede regel tijden.
+- 09a38e8, punt 8: op AMOLED een kamlijn van 3 px met zachte gloed op elke zee met schuim; MIP houdt de harde lijn. Na 3:00 is de zee even donker als op 2:30 (al eerder gemeten).
+- Beelden van 09a38e8 GEZIEN (plaatjesrun 42956563037, groen op alle acht, geen crash): zon los van "15 s" op fenix 8 en FR255, 6 rondes vrij van de kam, stippen en weekregel los op FR255, kamlijn met gloed op het inhoudscherm van de fenix 8. Toetsen groen op fenix 7 en FR255.
+- Klein punt voor later: op 6d (calm done) staat "4 min · 12 breaths" dicht op de schuimkam.
+- Punt 9 (Barlow voor koppen): schatting letterbeeld Barlow Condensed met hoofd- en kleine letters, cijfers en leestekens: ±25.000 pixels op 22 px, ±41.000 op 30 px, ±63.000 op 38 px. Eerst het geheugen meten op FR255 en Venu 2 voordat er twee maten per horloge bij komen.
+
+**In drie regels:**
+1. Bouw 2: punt 1 tot 8, 10, 11 en 12 af en in beeld nagekeken; geen crash op acht horloges.
+2. Open: punt 9 (eigen letter voor koppen, eerst geheugen), 6d-regel van de kam, winkelbeelden opnieuw uit de bouw, daarna keuring door drie en Daan.
+3. Volgende run: geheugen meten (FR255, Venu 2), dan punt 9; nieuwe winkelbeelden; keuring aanvragen bij de hoofdchat.
