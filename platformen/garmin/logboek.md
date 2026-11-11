@@ -303,3 +303,17 @@
 2. Open: G2 tempo (wacht op Mila), 23 of 24 dieren (Mila), e2e-controle S1 S2 op het beeld in plaats van de log, G5 op FR255 (run a74800b liep nog), schermen pas na blad v6 met drie keer een 8.
 3. Volgende run: uitslag a74800b en 6c5e425, dan de beeldcontrole in de e2e.
 
+
+
+## 11 nov 2026 00:54 UTC (Gijs, vijfentwintigste run, keuring blad v6: schermen zonder dieren bouwen)
+- Opdracht uit `ontwerp/garmin/ebb-blad-v6-keuring-drie.md` (01:55 NL): Gijs bouwt nu de schermen zonder dieren. Mila's berichten 01:25, 01:40 en 02:30 NL meegenomen.
+- 5f47d8a: Lobster nr. 23 (46 sessies), Whale 24, zeekomkommer bonus als 25e; dieren als data uit `ebb_dieren_v6.py` (25 stuks, 5,8 kB). Punten nu in 1/90 in plaats van 1/100, omdat de slagtand van de narwal tot 1,4 eenheid reikt en anders niet in int8 past (Mila's v7-json gebruikt ook 1/90). Tempo in ademhalingen per minuut, 10 tot 20, standaard 15, onder een nieuwe opslagsleutel zodat oude waarden in ms niet verkeerd gelezen worden. Veiligheidstekst letterlijk gelijk aan blad v6.4.
+- 5adf8da en b8c01ec: inhoudscherm volgens 3a tot 3c. Fout van mij: het blok kwam eerst in `trilBijWissel` terecht (zoekterm kwam twee keer voor), compileerfout in run 42935963826; hersteld.
+- ca51830 en a88f82d: today als staven voor de hele dag (nieuwe opslag `EbbVandaag`, tot 3 sessies met klok, met toets) en 8 weeks als sessies per week. Compileerfout over getypte opslag hersteld.
+- a97b573: herstel met opkomende zon, "breathe in" en "breathe out". 5297553: veiligheidsbladen en startcheck in de stijl van blad v6. a47afaf en 7d7ec76: tekstpunten van blad v7 en het uitlegscherm "how it works" bij de eerste Rounds.
+- Toetsen groen op fenix 7 en FR255 voor 5f47d8a en a88f82d; de beelden van de nieuwe schermen liepen nog bij het afsluiten.
+
+**In drie regels:**
+1. Af: inhouden, ademen, herstel, today, 8 weeks, veiligheid, startcheck en uitleg in de stijl van blad v6; Lobster, tempo, teksten.
+2. Open: beelden van alle schermen nakijken en meten (centreren, 80 procent, 260 px), menu en settings als eigen scherm, eindschermen 6b, 6c, 6d.
+3. Volgende run: beelden van de laatste groene run nakijken met `bron/meet_scherm.py`, dan het menu.
