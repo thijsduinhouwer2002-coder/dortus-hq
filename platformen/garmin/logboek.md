@@ -574,3 +574,9 @@
 1. Mila v12 punt 3, punt 4 (drie van de vier MIP-punten) en punt 7 (opruimen) in de code en gepusht; Venu X1 besloten: niet in versie 1.
 2. Niets hiervan is gebouwd of gezien: de runs staan in de wachtrij bij GitHub. Open: eindschermdieren op 260 (wacht op Mila), graphics pool, 9 release.
 3. Volgende run eerst: uitslag van 43097460747 en 43097460866; rood eerst herstellen, dan alle beelden vergroot bekijken.
+
+## Run 43 (11 nov 20:35 tot 20:45 UTC, handmatig gestart, gestopt zonder codewerk)
+- Opdracht van de start: bericht 21:10 NL, de 7 punten. Die waren in run 41 al grotendeels verwerkt en het bericht van 21:20 NL gaat voor.
+- Gezien: tegelijk met deze start draait run 42 (een andere Gijs) op dezelfde tak; die pushte ccf288f, 76ee977 en a67d40f terwijl ik wachtte. Twee Gijsen op één tak overschrijven elkaar, dus ik heb geen code geschreven en niets op de codetak gepusht.
+- Stand runs om 20:43 UTC: e2e 43094386800 en plaatjesrun 43094387097 (8469536) hangen sinds 20:24 in het uploaden van de bestanden; de runs op bd14732 en a67d40f staan in de wachtrij. Logs ophalen gaf 502, githubstatus.com meldt geen storing. Er is dus nog steeds geen beeld gezien van het werk sinds 8469536.
+- Voor de volgende run: eerst kijken of de runs loskomen; blijven ze hangen, de oude twee annuleren en de nieuwste opnieuw starten, in plaats van nog een push erbovenop.
