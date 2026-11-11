@@ -325,6 +325,13 @@ class EbbView extends WatchUi.View {
             opslag.voegToe(dag, (sessie.inhoudtijden[i] + 500) / 1000);
         }
         opslag.bewaar();
+        // Blad v6 today: de hele dag, per sessie de klok en de inhoudtijden.
+        var secs = [] as Array<Number>;
+        for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
+            secs.add((sessie.inhoudtijden[i] + 500) / 1000);
+        }
+        var klok = System.getClockTime();
+        EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
         // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
         nieuweDieren = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(dag));
         System.println("TROUW nieuwe dieren " + nieuweDieren);
@@ -633,131 +640,149 @@ class EbbView extends WatchUi.View {
         }
     }
 
-    // Eis 7: duikprofiel na de sessie (schets Mila scherm 4): oppervlakte op 32%, per ronde een V tot evenredige
-    // diepte (diepste tot 70%), vlakken in één tint, schuimlijn erover, onderaan het aantal rondes.
-    // Keuring v5 G1: geen stip en geen tijd meer bij de langste ronde (geen nadruk op het record).
-    function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
-        var t = sessie.inhoudtijden;
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, "today", Graphics.TEXT_JUSTIFY_CENTER);
-        if (t.size() == 0) {
-            return;
-        }
-        var opp = (d * 0.32).toNumber();
-        var x0 = (d * 0.16).toNumber();
-        var p = EbbProfiel.vPunten(t, x0, opp, (d * 0.68).toNumber(), (d * 0.38).toNumber());
-        dc.setPenWidth(d / 160 > 1 ? d / 160 : 1);
-        dc.drawLine(x0 - d / 25, opp, x0 + (d * 0.68).toNumber() + d / 25, opp);
-        for (var i = 0; i < t.size(); i += 1) {
-            var a = p[2 * i];
-            var tip = p[2 * i + 1];
-            var b = p[2 * i + 2];
-            // Kan-punt Daan: één tint uit de duikkleuren, geen fel blauw; de schuimlijn geeft de vorm.
-            var k = EbbTeken.DIEPTE[1];
-            dc.setColor(k, k);
-            dc.fillPolygon([[a[0], a[1]], [tip[0], tip[1]], [b[0], b[1]]]);
-            dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(d / 110 > 2 ? d / 110 : 2);
-            dc.drawLine(a[0], a[1], tip[0], tip[1]);
-            dc.drawLine(tip[0], tip[1], b[0], b[1]);
-        }
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
-    }
-
-    // Getijdenlijn van 8 weken (in de testbouw nagebootst, zodat de schermafbeelding iets laat zien).
-    function getijLijn() as Array<Array<Number> or Null> {
+    // Blad v6 scherm 6 (today, keuring 01:55 punt 2 en 5): de hele dag als staande staven in één egale tint
+    // (geen nadruk op de langste), per sessie een groepje met de klok eronder, onderaan "6 holds · avg 1:44".
+    function vandaagSessies() as Array<Array> {
         if (EbbBouw.DEMO || EbbBouw.PLAATJE) {
-            var lijn = [] as Array<Array<Number> or Null>;
-            for (var i = 0; i < EbbOpslag.DAGEN; i += 1) {
-                // Iemand die drie dagen overslaat en rustig doorgaat.
-                if (i == 10 || i == 27 || i == 41) {
-                    lijn.add(null);
-                } else {
-                    // Keuring v5 G1: alleen het daggemiddelde, geen beste en geen uitschieter op de laatste dag.
-                    lijn.add([(86 + 1.5 * i + 6 * Math.sin(i / 2.5) - (i % 3) * 3).toNumber()] as Array<Number>);
-                }
-            }
-            return lijn;
+            return [[460, [70, 85, 100]], [1275, [80, 105, 184]]] as Array<Array>;
         }
-        return EbbProfiel.getijden(new EbbOpslag(), vandaag());
+        var lijst = EbbVandaag.lees(vandaag());
+        if (lijst.size() == 0 && sessie.inhoudtijden.size() > 0) {
+            // Niet opgeslagen (weggegooid): dan alleen deze sessie, zonder klok.
+            var secs = [] as Array<Number>;
+            for (var i = 0; i < sessie.inhoudtijden.size(); i += 1) {
+                secs.add((sessie.inhoudtijden[i] + 500) / 1000);
+            }
+            lijst.add([-1, secs] as Array);
+        }
+        return lijst;
     }
 
-    // Scherm 5 (schets Mila, tij-stijl.md): het gemiddelde per dag als vlak met een lijn erover, gaten waar je
-    // niet ademde, weekstreepjes op de bodem. Keuring v5 G1: geen lijn door de beste tijd per dag meer.
-    function tekenGetij(dc as Graphics.Dc, d as Number) as Void {
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, "8 weeks", Graphics.TEXT_JUSTIFY_CENTER);
-        var lijn = getijLijn();
-        var x0 = (d * 0.14).toNumber();
-        var bodem = (d * 0.68).toNumber();
-        var w = (d * 0.72).toNumber();
-        var p = EbbProfiel.getijPunten(lijn, x0, bodem, w, (d * 0.36).toNumber());
-        var stap = (p.size() > 1) ? w / (p.size() - 1) : w;
-        var half = (stap / 2 > 1) ? stap / 2 : 1;
-        // Schaduw (Daan M2): één doorlopend vlak van de eerste tot de laatste dag met een sessie, van de bodem
-        // tot het gemiddelde; een dag zonder sessie wordt overbrugd, alleen de lijn erboven krijgt daar een gat.
-        // Kleur (kan-punt Daan): de diepte van het inhouden (DIEPTE[1]) in plaats van fel blauw.
-        dc.setColor(EbbTeken.DIEPTE[1], EbbTeken.DIEPTE[1]);
-        var vlak = [] as Array<[Numeric, Numeric]>;
-        var eerste = null as Array<Number> or Null;
-        var laatste = null as Array<Number> or Null;
-        for (var i = 0; i < p.size(); i += 1) {
-            if (p[i] == null) {
-                continue;
-            }
-            var q = p[i] as Array<Number>;
-            if (eerste == null) {
-                eerste = q;
-                vlak.add([q[0] - half, bodem]);
-                vlak.add([q[0] - half, q[1]]);
-            }
-            vlak.add([q[0], q[1]]);
-            laatste = q;
-        }
-        if (eerste != null && laatste != null) {
-            var z = laatste as Array<Number>;
-            vlak.add([z[0] + half, z[1]]);
-            vlak.add([z[0] + half, bodem]);
-            dc.fillPolygon(vlak);
-        }
-        // Bodem met een streepje per week.
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(1);
-        dc.drawLine(x0 - half, bodem, x0 + w + half, bodem);
-        for (var k = 0; k <= 8; k += 1) {
-            var x = x0 + (w * k * 7) / (EbbOpslag.DAGEN - 1 > 0 ? EbbOpslag.DAGEN - 1 : 1);
-            if (x > x0 + w) { x = x0 + w; }
-            dc.drawLine(x, bodem, x, bodem + d / 40);
-        }
-        // Lijn over het gemiddelde, onderbroken bij een gat.
+    function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(d / 80 > 2 ? d / 80 : 2);
-        var dagen = 0;
-        for (var i = 0; i < p.size(); i += 1) {
-            if (p[i] != null) {
-                var q = p[i] as Array<Number>;
-                dagen += 1;
-                if (i > 0 && p[i - 1] != null) {
-                    var v = p[i - 1] as Array<Number>;
-                    dc.drawLine(v[0], v[1], q[0], q[1]);
-                } else if (i + 1 >= p.size() || p[i + 1] == null) {
-                    dc.fillCircle(q[0], q[1], d / 110 > 2 ? d / 110 : 2);
-                }
-            }
-        }
-        if (dagen == 0) {
+        dc.drawText(d / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, "today", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        EbbTeken.strook(dc, d);
+        var sessies = vandaagSessies();
+        var samen = EbbVandaag.samen(sessies);
+        if (samen[0] == 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, (d * 0.44).toNumber(), Graphics.FONT_SMALL, "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, d / 2, Graphics.FONT_SMALL, "no holds yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
         }
-        // Keuring G1 en P5: geen record ("best") en geen koraalstip meer; onderaan het gemiddelde over 8 weken.
-        var s = EbbProfiel.gemiddeldeLijn(lijn);
+        var lo = d * 0.20;
+        var ro = d * 0.80;
+        var bod = (d * 0.62).toNumber();
+        var hoog = d * 0.27;
+        var gat = d * 0.08;
+        var maxS = 200;
+        for (var i = 0; i < sessies.size(); i += 1) {
+            var t = sessies[i][1] as Array<Number>;
+            for (var j = 0; j < t.size(); j += 1) {
+                if (t[j] > maxS) { maxS = t[j]; }
+            }
+        }
+        var kol = (ro - lo - gat * (sessies.size() - 1)) / samen[0];
+        var bw = (kol * 0.62).toNumber();
+        bw = bw < 2 ? 2 : bw;
+        var r = (bw * 3) / 10;
+        dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+        var x = lo;
+        var midden = [] as Array<Float>;
+        var breedte = [] as Array<Float>;
+        for (var i = 0; i < sessies.size(); i += 1) {
+            var t = sessies[i][1] as Array<Number>;
+            midden.add(x + kol * t.size() / 2.0);
+            breedte.add(kol * t.size());
+            for (var j = 0; j < t.size(); j += 1) {
+                var xm = x + kol * (j + 0.5);
+                var h = (hoog * t[j] / maxS).toNumber();
+                h = h < 2 ? 2 : h;
+                dc.fillRoundedRectangle((xm - bw / 2.0).toNumber(), bod - h, bw, h, r);
+            }
+            x += kol * t.size() + gat;
+        }
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
+        dc.drawLine((lo - d * 0.01).toNumber(), bod, (ro + d * 0.01).toNumber(), bod);
+        // Klok onder elke sessie, alleen als hij onder zijn groepje past (anders lopen de tijden in elkaar).
+        dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+        for (var i = 0; i < sessies.size(); i += 1) {
+            var k = sessies[i][0] as Number;
+            if (k < 0) { continue; }
+            var tekst = EbbVandaag.klokTekst(k);
+            if (dc.getTextWidthInPixels(tekst, Graphics.FONT_XTINY) <= breedte[i] + gat * 0.8) {
+                dc.drawText(midden[i].toNumber(), bod + (d * 0.055).toNumber(), Graphics.FONT_XTINY, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
+        }
+        var gem = samen[1];
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.72).toNumber(), Graphics.FONT_SMALL, "avg " + (s / 60).toString() + ":" + (s % 60).format("%02d"),
-            Graphics.TEXT_JUSTIFY_CENTER);
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * 0.86).toNumber(), Graphics.FONT_XTINY, dagen + " days", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(d / 2, (d * 0.775).toNumber(), Graphics.FONT_XTINY,
+            samen[0] + (samen[0] == 1 ? " hold · avg " : " holds · avg ") + (gem / 60) + ":" + (gem % 60).format("%02d"),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Blad v6 scherm 7 (8 weeks, keuring 01:55 punt 2): sessies per week als staven met het getal erboven, een lege
+    // week als stip, onderaan "sessions per week" en het gemiddelde over 8 weken als getal.
+    function wekenData() as Array<Array<Number> > {
+        if (EbbBouw.DEMO || EbbBouw.PLAATJE) {
+            var nep = [] as Array<Array<Number> >;
+            var n = [0, 0, 0, 0, 0, 0, 3, 6] as Array<Number>;
+            for (var i = 0; i < 8; i += 1) {
+                nep.add([n[i] > 0 ? 101 : 0, n[i], n[i] * 3] as Array<Number>);
+            }
+            return nep;
+        }
+        return EbbProfiel.weken(new EbbOpslag(), EbbTrouw.sessieDagen(), vandaag());
+    }
+
+    function tekenGetij(dc as Graphics.Dc, d as Number) as Void {
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, "8 weeks", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        EbbTeken.strook(dc, d);
+        var weken = wekenData();
+        var hoogN = 7;
+        var som = 0;
+        var holds = 0;
+        for (var i = 0; i < weken.size(); i += 1) {
+            if (weken[i][1] > hoogN) { hoogN = weken[i][1]; }
+            som += weken[i][0] * weken[i][2];
+            holds += weken[i][2];
+        }
+        if (holds == 0) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(d / 2, d / 2, Graphics.FONT_SMALL, "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            return;
+        }
+        var lo = d * 0.20;
+        var top = d * 0.33;
+        var bod = (d * 0.58).toNumber();
+        var kol = d * 0.60 / 8;
+        var bw = (kol * 0.66).toNumber();
+        var r = (bw * 3) / 10;
+        for (var i = 0; i < weken.size(); i += 1) {
+            var n = weken[i][1];
+            var xm = (lo + kol * (i + 0.5)).toNumber();
+            if (n > 0) {
+                var h = ((bod - top) * n / hoogN).toNumber();
+                dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
+                dc.fillRoundedRectangle(xm - bw / 2, bod - h, bw, h, r);
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(xm, bod - h - (d * 0.045).toNumber(), Graphics.FONT_XTINY, n.toString(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            } else {
+                dc.setColor(EbbTeken.ZEE_KLEUR[0], EbbTeken.ZEE_KLEUR[0]);
+                var rr = (d * 0.013).toNumber();
+                dc.fillCircle(xm, bod - (d * 0.03).toNumber(), rr < 2 ? 2 : rr);
+            }
+        }
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
+        dc.drawLine(lo.toNumber(), bod, (d * 0.80).toNumber(), bod);
+        var gem = (som + holds / 2) / holds;
+        dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.665).toNumber(), Graphics.FONT_XTINY, "sessions per week", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.75).toNumber(), Graphics.FONT_XTINY, "avg hold " + (gem / 60) + ":" + (gem % 60).format("%02d"),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }
 

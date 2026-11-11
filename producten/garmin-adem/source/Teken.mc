@@ -233,6 +233,12 @@ module EbbTeken {
         }
     }
 
+    // Blad v6.4: dunne zeestrook onderaan (today, 8 weeks, settings, veiligheid), zodat elk scherm bij dezelfde zee hoort.
+    function strook(dc as Graphics.Dc, d as Number) as Void {
+        golf(dc, d, 0.885, d * 0.008, ZEE_KLEUR[1], 0.0, false);
+        golf(dc, d, 0.935, d * 0.006, ZEE_KLEUR[2], 1.1, false);
+    }
+
     // Klein hartje (KORAAL), midden op (cx, cy), breedte s.
     function hart(dc as Graphics.Dc, cx as Number, cy as Number, s as Number) as Void {
         var r = s / 4 > 1 ? s / 4 : 1;
