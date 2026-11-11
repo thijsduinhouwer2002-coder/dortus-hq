@@ -610,7 +610,15 @@ class EbbView extends WatchUi.View {
             EbbTeken.golf(dc, d, 0.72, d * 0.008, EbbTeken.ZEE_KLEUR[1], golfFase + 1.3, false);
             EbbTeken.golf(dc, d, 0.86, d * 0.008, EbbTeken.ZEE_KLEUR[2], golfFase + 2.6, false);
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, (d * 0.215).toNumber(), Graphics.FONT_SMALL, "big breath in, hold", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            // Beelden run 42940068457: op vivoactive 5 en fenix 8 liep deze regel in FONT_SMALL door de ronde rand.
+            // Past hij niet binnen 80 procent van de koorde op 0,215 D, dan de kleinere letter.
+            var kop = "big breath in, hold";
+            var kopF = Graphics.FONT_SMALL;
+            var koorde = 2.0 * Math.sqrt(0.16 - 0.285 * 0.285) * d;   // binnen de cirkel van 0,8 D op 0,215 D
+            if (dc.getTextWidthInPixels(kop, kopF) > koorde) {
+                kopF = Graphics.FONT_XTINY;
+            }
+            dc.drawText(w / 2, (d * 0.215).toNumber(), kopF, kop, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
             var bs = dc.getTextWidthInPixels("s", Graphics.FONT_SMALL);
             grootDx = -bs / 2 - 2;
