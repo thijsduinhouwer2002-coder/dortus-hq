@@ -87,7 +87,8 @@ class EbbMenuView extends WatchUi.View {
         } else {
             // Keuring bouw 4 punt 11: bij de eerste start een belofte waar straks het dier zwemt.
             var fx = dc.getFontHeight(EbbTeken.fX());
-            var yb = (d * 0.79).toNumber() - fx / 2;   // twee regels om 0,79 D, waar anders het dier zit
+            // Keuring bouw 6 punt 5 (scène 28): beide regels helemaal in het water, 4 px onder de golftop (0,783 D).
+            var yb = (d * 0.783).toNumber() + 4 + fx / 2;
             dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
             dc.drawText(d / 2, yb, EbbTeken.fX(), "first friend", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.drawText(d / 2, yb + fx, EbbTeken.fX(), "after 1 session", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
