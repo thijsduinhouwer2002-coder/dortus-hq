@@ -91,7 +91,8 @@ jobs:
           Xvfb :1 -screen 0 1280x1024x24 &
           sleep 2
           # Nachtronde 11 nov: testbeelden van elk scherm op 260 (fr255), 390 (vivoactive5), 416 (fr265) en 454 (fenix847mm).
-          for d in fenix847mm fr265 vivoactive5 fr255; do
+          # Daan D8: ook Venu 2, Venu 3, epix 2 pro en FR965.
+          for d in fenix847mm fr265 vivoactive5 fr255 venu2 venu3 epix2pro47mm fr965; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
             for k in $(seq 0 20); do
@@ -104,6 +105,14 @@ jobs:
             done
           done
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
+          # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
+          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2"
+          mkdir -p plaatjes/namen
+          for f in plaatjes/*-scene*.png; do
+            b=$(basename "$f" .png); d=${b%-scene*}; k=${b##*-scene}
+            n=$(echo $NAMEN | cut -d' ' -f$((k+1)))
+            if [ -n "$n" ]; then cp "$f" "plaatjes/namen/$n-$d.png"; fi
+          done
           # Winkelmaat: hoogstens 500 px hoog en onder 150 KB (Connect IQ-winkel), minder kleuren zonder zichtbaar verlies.
           SH
           docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
