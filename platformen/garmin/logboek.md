@@ -287,3 +287,19 @@
 2. Open: "beste" uit opslag en opname, e2e wist de opslag per horloge (S1 S2 op alle vier), antwoord Mila op 24e dier en tempo, G5 metingen horen bij de v6-bouw.
 3. Volgende run: e2e van e24281e nakijken, dan opslag zonder "beste".
 
+
+## 11 nov 2026 00:06 (Gijs, vierentwintigste run, nachtronde hoofdchat 00:58 NL)
+- Correctie op run 23: de tijden "00:40" daar zijn geschat; de klok zei 23:56 bij de start en die run eindigde rond 00:05 UTC.
+- Opdracht: G1 tot G5 uit `ontwerp/garmin/ebb-blad-v5-keuring-drie.md`, geen nieuwe schermen. G3, G4 en het grootste deel van G1 stonden al (b834b14, e24281e).
+- G1 rest (ddd24b5): "beste" is uit de opslag. De bytes blijven 616 B per 56 dagen (2 B per dag vrij), zodat oude opslag blijft werken; `dag()` geeft [gemiddelde, aantal]. `besteS` is uit de opname. De getijdenlijn rekent alleen met daggemiddelden. Plaatjesscènes: geen tijden meer die bij een dier horen (vis 1:33, schildpad 1:12, walvis 0:48, juist de kortste), profiel 1:25, 1:58, 1:36 in plaats van oplopend naar 3:05. Waarom: geen beeld mag zeggen dat langer inhouden een groter dier geeft (keuring moet-punt 1). Drie toetsen volgen de nieuwe vorm, met reden in de commit.
+- e2e (ddd24b5, a74800b): S1 en S2 per horloge met een nieuwe simulator en lege app-opslag, en de FR255 (260 px) erbij voor G5. Nieuw meetscript `producten/garmin-adem/bron/meet_scherm.py`: zoekt het ronde scherm in het simulatorbeeld en meet of de tekening binnen 2 px van het midden ligt en binnen 80 procent van de diameter blijft. Op de beelden van b87b243: veiligheidsbladen fenix 7 dx 0,5 tot 1,0 px, uiterst 0,48 tot 0,61 van de straal (GOED); het oude menu op vivoactive 5 tot 0,96 (wordt vervangen door het menu van blad v6).
+- Toetsen in de simulator groen op fenix 7 en FR255 voor b834b14, ddd24b5 en a74800b (stap tests geslaagd). .iq bouwt voor b834b14, e24281e en ddd24b5.
+- G2 tempo: nog geen antwoord van Mila op mijn voorstel (15 per minuut). Geen werk verzonnen: wacht.- Uitslag e24281e (run 42928405117) en ddd24b5 (run 42928918137): groen op alle negen horloges. EIS10 goed, geheugen 6 tot 7 procent (FR255 10), sea log 38 tot 59 ms, vegen schuift het menu op vivoactive 5, Venu 2 en Venu 3. Toetsen met "beste" weg en de nieuwe reeks en zee: groen.
+- S1 en S2 op meer horloges: met de nieuwe simulator per horloge staat op de FR265 eerst veiligheidsblad 1 en na de toetsen "Seated or lying?" (beelden fr265-a en fr265-s, GEZIEN). De log zegt toch "NIET gezien": na het eerste horloge komt de uitvoer van de app niet meer in het logbestand van monkeydo (de app draait wel; de opslag is per horloge een eigen bestand, APP-FENIX7.DAT). Op vivoactive 5 blad 1 wel te zien, daarna het oude menu; of de toetsen daar aankomen is nog niet zeker. Volgende stap: de controle in de e2e op het beeld laten doen met `bron/meet_scherm.py` in plaats van op de log.
+- Meetscript nagemeten op echte beelden (6c5e4250): veiligheidsblad fenix 7 dx -0,5 tot 0,5 px, uiterst 0,55 tot 0,65 van de straal; FR265 dx 0,5 tot 1,0 px, uiterst 0,68 tot 0,71; vivoactive 5 blad 1 dx 2,0 px, uiterst 0,68. Alles binnen 2 px en binnen 80 procent. Het oude menu op vivoactive 5 komt tot 0,96: dat menu wordt vervangen door het menu van blad v6.
+
+**In drie regels:**
+1. Af: G1 helemaal (ook opslag, opname en plaatjes), G3, G4 concept; groen op negen voor ddd24b5; meetscript voor G5.
+2. Open: G2 tempo (wacht op Mila), 23 of 24 dieren (Mila), e2e-controle S1 S2 op het beeld in plaats van de log, G5 op FR255 (run a74800b liep nog), schermen pas na blad v6 met drie keer een 8.
+3. Volgende run: uitslag a74800b en 6c5e425, dan de beeldcontrole in de e2e.
+
