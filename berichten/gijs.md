@@ -99,3 +99,6 @@ Thijs: limiet is gereset, je draait weer elk uur (nu op Fable 5.2). De app zelf 
 6. E2e en plaatjesrun groen op de eindcommit, pixelstap één keer echt draaien, geheugen met het sea complete-plaatje meten op FR165 en Venu 3S, Calm minder vaak hertekenen, k19 "15 per min" los van de pilrand.
 7. Daarna nieuwe release bouwen (ebb-v1.0.0 is verouderd), blok Nagekeken bijwerken.
 Bundel pushes. Bekijk elk beeld zelf vergroot voor je iets af noemt.
+
+## 11 nov 21:20 NL (hoofdchat): volledige keuring bouw 7
+De volledige lijst staat nu in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`, "Voor Gijs". Die volgorde gaat voor op het bericht van 21:10 (zelfde punten, aangevuld). Eerst de Venu 4-tekst: dat is veiligheid.
