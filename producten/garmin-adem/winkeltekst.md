@@ -28,7 +28,7 @@ BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
 • While you hold, the sea darkens every 30 seconds and a sea animal you found swims along. Your live heart rate shows small under the timer. At 3:00 the watch says "time to breathe" and buzzes.
-• Before every set of rounds Ebb asks: seated or lying?
+• Before every set of rounds Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP
 • 24 sea animals, earned with sessions and days in a row, never by holding longer. One rest day does not break your streak.
@@ -42,13 +42,14 @@ BOX BREATHING AND CALM PATTERNS
 • One pattern of your own: set in, hold, out and rest on the watch
 
 SEE YOUR PRACTICE
-• After every session: your rounds side by side, one V per round.
+• After every session: your rounds and hold times, your streak, and the next animal.
+• Today: every hold of the day as a bar, session by session.
 • 8 weeks: your average hold per session and how many sessions you did each week.
 
 BREATHE WITH YOUR EYES CLOSED
 • Every phase has its own vibration, so you can follow the breathing without looking. The last three breaths before the hold feel different.
 • A soft buzz every 30 seconds while you hold (can be turned off), and always a buzz at 3:00.
-• The touchscreen is locked during a session; only the buttons work. Ebb makes no sound.
+• The touchscreen does nothing during a session, so a sleeve cannot stop it; only the buttons work. Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
 • Each session is saved as a breathing activity, with your heart rate.
@@ -56,7 +57,7 @@ SAVED IN GARMIN CONNECT
 • A finished session saves itself. Press back to pause: resume, save or discard.
 
 SETTINGS ON THE WATCH
-Breaths per round, breathing pace, rounds, your own pattern, buzz every 30 s, buzz on the last 3 breaths, touch lock, and the safety info. No phone needed.
+Breaths per round, breathing pace, rounds, your own pattern, buzz every 30 s, buzz on the last 3 breaths, and the safety info. No phone needed.
 
 WHAT EBB IS NOT
 Ebb is breathwork and dry breath hold practice on land. It is not a freediving or apnea trainer, it has no CO2 or O2 tables, and it is not a medical device.
@@ -82,7 +83,7 @@ Titel (47 tekens): `Ebb: Atemübungen, Atem anhalten & Box Breathing`
 
 Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen, Box Breathing, 4-7-8 und ruhiges Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen. Halte nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
-• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Runde fragt Ebb: sitzend oder liegend?
+• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Runde erinnert Ebb: setz oder leg dich hin.
 • Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Tage in Folge, ein Ruhetag unterbricht die Serie nicht), nie durch längeres Halten. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier.
 • Box Breathing 4-4-4-4, 4-7-8, Calm (5,5 ein und 5,5 aus) und ein eigenes Muster.
 • Nach jeder Sitzung deine Runden nebeneinander; über 8 Wochen dein Durchschnitt pro Sitzung und Sitzungen pro Woche.
@@ -99,7 +100,7 @@ Titel (42 tekens): `Ebb: Ademhalingsoefeningen & Adem inhouden`
 
 Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden, box breathing, 4-7-8 en rustig ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
-• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke reeks rondes vraagt Ebb: zittend of liggend?
+• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke reeks rondes zegt Ebb: ga zitten of liggen.
 • Verzamel 24 zeedieren door vol te houden (sessies en dagen op rij, één rustdag breekt je reeks niet), nooit door langer in te houden. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier.
 • Box breathing 4-4-4-4, 4-7-8, Calm (5,5 in en 5,5 uit) en een eigen patroon.
 • Na elke sessie je rondes naast elkaar; over 8 weken je gemiddelde per sessie en sessies per week.
