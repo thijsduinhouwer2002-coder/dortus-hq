@@ -661,19 +661,23 @@ class EbbView extends WatchUi.View {
             var onderCijfer = yTijd + (leeg > 0 ? leeg : 0) + Graphics.getFontAscent(font);
             // Beelden run 42938098473 (fr265): de walvis raakte de hartregel en met zijn fontein bijna de cijfers.
             // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
-            var yDier = onderCijfer + (d * 0.075).toNumber();
-            var yRegel = yDier + (d * 0.10).toNumber();
+            // Keuring bouw 2 punt 7: het dier groter (±0,19 D breed: 86 px op 454, 49 px op 260), midden onder de tijd.
+            var yDier = onderCijfer + (d * 0.085).toNumber();
+            var yRegel = yDier + (d * 0.125).toNumber();
             if (yRegel > d * 0.86) { yRegel = (d * 0.86).toNumber(); }
             // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
             if (stand < 5) {
                 var stijg = (t % 8000) / 8000.0;
                 var yd = yDier.toFloat() / d;
-                EbbTeken.bellen(dc, d, [[0.28, yd + 0.03 - 0.08 * stijg, 0.012], [0.72, yd - 0.01 - 0.08 * stijg, 0.009]] as Array<Array<Float> >);
+                // Keuring bouw 2 punt 7: belletjes alleen bij het dier, net naast zijn kop en staart.
+                EbbTeken.bellen(dc, d, [[0.37, yd - 0.02 - 0.06 * stijg, 0.011], [0.63, yd - 0.04 - 0.06 * stijg, 0.008]] as Array<Array<Float> >);
             }
             // Daan B3 en keuring bouw 1 punt 6: je eigen dier rust in het midden onder de tijd (geen rode vis die
             // voorbij zwemt), in de eigen kleuren van Mila's data; zonder dier (nieuwe gebruiker) alleen de zee.
             if (gezelschap >= 0) {
-                EbbDierData.teken(dc, gezelschap, w / 2, yDier, (d * 0.05).toNumber(), -1);
+                // Rustig heen en weer: ±1,5 procent D in 8 s (in de testbeelden stil in het midden).
+                var dx = EbbBouw.PLAATJE ? 0 : (Math.sin((t % 8000) * 2.0 * Math.PI / 8000.0) * d * 0.015).toNumber();
+                EbbDierData.teken(dc, gezelschap, w / 2 + dx, yDier, (d * 0.095).toNumber(), -1);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.
