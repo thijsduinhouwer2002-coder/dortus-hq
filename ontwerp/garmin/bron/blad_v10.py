@@ -29,6 +29,10 @@ RIJEN = ((100, (-86, -58, 58, 86)),
          (188, (-72, -45, -17, 17, 45, 72)))
 VRIEND = 11            # maat op 260 (op 454: 19)
 
+def vriend_maat(D_):   # 218: 8, 240: 9, 260: 11, 280: 11, 360: 15, 390: 16, 416: 17, 454: 19
+    return math.floor(VRIEND * D_ / 260) - (1 if D_ < 250 else 0)   # de stickerrand is altijd 2 px, dus onder 250 een maat kleiner
+def walvis_maat(D_): return round(WALVIS[2] * D_ / 260)   # 260: 32, 416: 51, 454: 56
+
 def plekken():
     p = []
     for y, xs in RIJEN:
@@ -42,8 +46,8 @@ def sea_complete(D_, weken=12):
         x, y, rr = c + dx * s, dy * s, max(2, round(r * s))
         dr.ellipse([x - rr, y - rr, x + rr, y + rr], outline=SCHUIM, width=max(1, round(s)))
     wx, wy, wm = WALVIS
-    h.teken(dr, D[23], c + round(wx * s), round(wy * s), wm if D_ < 300 else 56)
-    m = VRIEND if D_ < 300 else 19
+    h.teken(dr, D[23], c + round(wx * s), round(wy * s), walvis_maat(D_))
+    m = vriend_maat(D_)
     for nr, (x, y) in enumerate(plekken()):
         h.teken(dr, D[nr], c + round(x * s), round(y * s), m)
     tekst(dr, c, 18 * s, 'sea complete', f(FS, round(25 * s)), GEEL)
@@ -67,7 +71,7 @@ def pauze(D_, kies=0, dier=4, ronde=2, tijd='1:12'):
             dr.rounded_rectangle([c - pw // 2, y - ph // 2, c + pw // 2, y + ph // 2], radius=ph // 2, fill=SCHUIM)
             dr.text((c - w / 2, y), k, font=fk, fill=NACHT, anchor='lm')
             # je eigen dier zwemt naast je keuze (wijst hem aan)
-            m = 12 if D_ < 300 else 21
+            m = round(12 * D_ / 260)
             h.teken(dr, D[dier], c - pw // 2 - round(22 * s), y, m)
         else:
             dr.text((c - w / 2, y), k, font=fk, fill=WIT, anchor='lm')
@@ -79,10 +83,10 @@ def groot(im, k): return im.resize((im.width * k, im.height * k), Image.NEAREST)
 def overlap_check(D_):
     """Raken twee dieren in de groepsfoto elkaar (met 1 px marge)? En staat er een pixel buiten 0,85 R? Gemeten op pixels."""
     from PIL import ImageFilter, ImageChops
-    s = D_ / 260; c = D_ // 2; m = VRIEND if D_ < 300 else 19; R = 0.85 * D_ / 2; ms = []
+    s = D_ / 260; c = D_ // 2; m = vriend_maat(D_); R = 0.85 * D_ / 2; ms = []
     for nr, (x, y) in enumerate(plekken() + [(0, WALVIS[1])]):
         t = Image.new('RGB', (D_, D_))
-        h.teken(ImageDraw.Draw(t), D[nr if nr < 23 else 23], c + round(x * s), round(y * s), m if nr < 23 else (WALVIS[2] if D_ < 300 else 56))
+        h.teken(ImageDraw.Draw(t), D[nr if nr < 23 else 23], c + round(x * s), round(y * s), m if nr < 23 else walvis_maat(D_))
         ms.append(t.convert('L').point(lambda v: 255 if v else 0))
     raak = [(i + 1, j + 1) for i in range(len(ms)) for j in range(i + 1, len(ms))
             if ImageChops.multiply(ms[i].filter(ImageFilter.MaxFilter(3)), ms[j]).getbbox()]
@@ -91,7 +95,7 @@ def overlap_check(D_):
     return raak, buiten
 
 if __name__ == '__main__':
-    for D_ in (260, 454):
+    for D_ in (218, 240, 260, 280, 360, 390, 416, 454):
         sea_complete(D_).save(os.path.join(uit, f'sea-complete-{D_}.png'))
         for k in range(3): pauze(D_, k).save(os.path.join(uit, f'pauze-{k + 1}-{D_}.png'))
         r, b = overlap_check(D_)

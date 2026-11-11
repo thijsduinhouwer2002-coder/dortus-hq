@@ -29,6 +29,7 @@ y van de tekst is de bovenkant. De dieren staan op hun zwaartepunt (zoals `Diere
 - **Gemeten op pixels** (`overlap_check` in `blad_v10.py`): op 260 en 454 raakt geen dier een ander, ook niet met 1 px marge; 0 dierpixels buiten 0,85 R.
 - **Voor de watchdog:** 24 dieren één keer in het plaatje tekenen, zoals keuring punt 3 zegt (walvis eerst, dan per beurt een rij). De rijen zijn daar handig voor: 5 beurten (walvis, rij 0, 1, 2, 3).
 - Geen tijden op dit scherm, zoals in v9.
+- **Alle schermmaten (tweede start, 09:30-opdracht):** posities schalen met D/260. Maat vrienden `floor(11 * D / 260)`, onder 250 px een maat kleiner (de stickerrand blijft 2 px): 218: 8, 240: 9, 260: 11, 280: 11, 360: 15, 390: 16, 416: 17, 454: 19. Walvis `round(32 * D / 260)` (416: 51, 454: 56). Gemeten op 218, 240, 260, 280, 360, 390, 416 en 454: niets raakt, 0 pixels buiten 0,85 R (`blad10/meting-v10.txt`, beeld `blad10/sea-complete-alle-maten.png`). Op 218 en 240 wordt de tekst onderin te klein voor Barlow: daar de systeemletter, zoals besluit 1 van de hoofdchat.
 
 Toets: de groepsfoto is de grap (je hele zee poseert voor je), en het is het rustigste beeld van alle 25 dieren tegelijk. Zwakste: op 260 zijn de vrienden ±26 px breed; herkenbaar als je kijkt, maar het gaat om het geheel.
 

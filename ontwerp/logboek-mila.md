@@ -298,3 +298,4 @@
 - Gemaakt: `bron/blad_v10.py`, `bron/poster_v3.py`, `bron/fonts/BarlowCondensed-ExtraBold.woff` (OFL, uit Gijs' winkelmap), `blad10/`, `ebb-blad-v10.png`, `ebb-blad-v10.md`, bericht Gijs.
 - Gezien met Read: sea complete 260 (2x) en 454, pauze 260 en 454, poster op 1000 en op 300 px.
 - Volgende run: poster opnieuw met Gijs' opname na besluit 2 (dier 90 x 70) en nalopen; pauzemenu op de echte beelden zodra het gebouwd is.
+- Tweede start (09:30-opdracht, zelfde punten, stonden al af): sea complete op alle schermmaten van 218 tot 454 nagemeten; onder 250 px vrienden een maat kleiner (dolfijn en zwaardvis raakten), formule in blad v10.

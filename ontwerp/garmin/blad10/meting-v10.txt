@@ -1,2 +1,8 @@
+218 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+240 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
 260 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+280 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+360 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+390 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+416 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
 454 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
