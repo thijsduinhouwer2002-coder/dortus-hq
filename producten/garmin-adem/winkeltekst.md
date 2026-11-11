@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 6, CONCEPT, Gijs, 11 nov 2026 03:30 UTC)
+# Ebb: winkeltekst (versie 7, CONCEPT, Gijs, 11 nov 2026 05:20 UTC)
+
+Versie 7: keuring bouw 3 punt 13 (`ontwerp/garmin/ebb-bouw-3-keuring-drie.md`): "up to two a day", My pattern (besluit 1: blijft, via "Sit or lie down") en trillen aan of uit erin, "sea complete" na de walvis (besluit 2), de 28 horloges, blok Nagekeken opgeschoond.
 
 Versie 6: keuring bouw 2 door drie (`ontwerp/garmin/ebb-bouw-2-keuring-drie.md`, besluit 2 en punt 11). Box, Calm 5.5 en het eigen patroon uit titel, tekst en tags (de app toont in het menu alleen Rounds en Calm 4-7-8). Reeks in weken met weekdoel (besluit 1), sessie telt vanaf 1 inhoud of 1 minuut Calm (besluit 3), "sit or lie down" ook voor Calm (besluit 4). "every hold of the day" en "average hold per session" vervangen door wat de schermen echt tonen.
 
@@ -30,16 +32,18 @@ BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
 • While you hold, the sea darkens every 30 seconds and a sea animal you found swims along. Your live heart rate shows small under the timer. At 3:00 the watch says "time to breathe" and buzzes.
-• Before every session Ebb reminds you: sit or lie down.
+• Before every session, also Calm and My pattern, Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP
 • 24 sea animals, earned with sessions and weeks in a row, never by holding longer. Your streak counts weeks in which you reach your weekly goal (3 sessions, or set 2 to 7), so rest days never break it.
-• A session counts with at least one hold, or one minute of calm breathing.
+• A session counts with at least one hold, or one minute of calm breathing. Up to two sessions a day count for the animals.
 • New animals appear at the end of a session, one at a time. There is also one bonus animal to discover.
 • The Sea log shows the animals you have and exactly how to get the next one. Pick the one that swims with you.
+• Found all 24? Your sea is complete, and your streak of weeks keeps counting.
 
-CALM 4-7-8
+CALM 4-7-8 AND MY PATTERN
 • Breathe in for 4, hold for 7, out for 8, with the sea rising and falling at the bottom of the screen.
+• My pattern: set your own seconds in, hold, out and hold in the settings.
 
 SEE YOUR PRACTICE
 • After every session: your rounds and hold times, your week, and what the next animal needs.
@@ -48,7 +52,7 @@ SEE YOUR PRACTICE
 
 BREATHE WITH YOUR EYES CLOSED
 • Every phase has its own vibration, so you can follow the breathing without looking. The last three breaths before the hold feel different.
-• A soft buzz every 30 seconds while you hold (can be turned off), and always a buzz at 3:00.
+• A soft buzz every 30 seconds while you hold (can be turned off), and always a buzz at 3:00. Vibration can be switched off entirely, except that buzz at 3:00.
 • The touchscreen does nothing during a session, so a sleeve cannot stop it; only the buttons work. Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
@@ -57,7 +61,7 @@ SAVED IN GARMIN CONNECT
 • A finished session saves itself. Press back to pause: resume, save or discard.
 
 SETTINGS ON THE WATCH
-Breaths per round, breathing pace, rounds, recovery hold, weekly goal, buzz every 30 s, buzz on the last 3 breaths, and the safety info. No phone needed.
+Breaths per round, breathing pace, rounds, recovery hold, weekly goal, vibration on or off, buzz every 30 s, buzz on the last 3 breaths, My pattern, and the safety info. No phone needed.
 
 WHAT EBB IS NOT
 Ebb is breathwork and dry breath hold practice on land. It is not a freediving or apnea trainer, it has no CO2 or O2 tables, and it is not a medical device.
@@ -72,7 +76,7 @@ SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems.
 
 WATCHES
-fenix 7, fenix 8 47 mm, epix Pro 47 mm, Forerunner 255, 265 and 965, Venu 2, Venu 3, vivoactive 5.
+fenix 7, 7 Pro, 7X, 7X Pro; fenix 8 43 mm, 47 mm, 47 mm Pro, Solar 47 and 51 mm; epix Pro 42, 47 and 51 mm; Forerunner 165, 165 Music, 255, 265, 570 (42 and 47 mm), 955, 965 and 970; Venu 2, Venu 3, Venu 3S, Venu 4 (41 and 45 mm); vivoactive 5 and 6.
 
 Questions or ideas: thijs@dortus.com
 
@@ -83,11 +87,11 @@ Titel (39 tekens): `Ebb: Atemübungen, Atem anhalten & 4-7-8`
 
 Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen und ruhiges 4-7-8-Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen. Halte nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
-• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Sitzung erinnert Ebb: setz oder leg dich hin.
-• Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Wochen in Folge mit deinem Wochenziel, standardmäßig 3 Sitzungen, einstellbar 2 bis 7; Ruhetage unterbrechen die Serie nie), nie durch längeres Halten. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier.
-• Calm 4-7-8: 4 ein, 7 halten, 8 aus. Eine Sitzung zählt ab einer Atempause oder einer Minute Calm.
+• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Sitzung, auch bei Calm und My pattern, erinnert Ebb: setz oder leg dich hin.
+• Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Wochen in Folge mit deinem Wochenziel, standardmäßig 3 Sitzungen, einstellbar 2 bis 7; Ruhetage unterbrechen die Serie nie), nie durch längeres Halten. Pro Tag zählen bis zu zwei Sitzungen. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier. Alle 24 gefunden: dein Meer ist komplett, deine Wochenserie zählt weiter.
+• Calm 4-7-8: 4 ein, 7 halten, 8 aus. My pattern: eigene Sekunden in den Einstellungen. Eine Sitzung zählt ab einer Atempause oder einer Minute Calm.
 • Nach jeder Sitzung deine Haltezeiten; heute deine Sitzungen als Balken (bis drei); über 8 Wochen Sitzungen pro Woche und deine durchschnittliche Haltezeit.
-• Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer bei 3:00. Touchscreen während der Sitzung gesperrt. Ebb macht keinen Ton.
+• Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer bei 3:00; Vibration ganz abschaltbar, außer bei 3:00. Touchscreen während der Sitzung gesperrt. Ebb macht keinen Ton.
 • Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein Konto, keine Handy-App.
 
@@ -100,11 +104,11 @@ Titel (49 tekens): `Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8`
 
 Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden en rustig 4-7-8-ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
-• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke sessie zegt Ebb: ga zitten of liggen.
-• Verzamel 24 zeedieren door vol te houden (sessies en weken op rij met je weekdoel, standaard 3 sessies, in te stellen van 2 tot 7; rustdagen breken je reeks nooit), nooit door langer in te houden. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier.
-• Calm 4-7-8: 4 in, 7 vasthouden, 8 uit. Een sessie telt vanaf één inhoud of één minuut Calm.
+• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke sessie, ook Calm en My pattern, zegt Ebb: ga zitten of liggen.
+• Verzamel 24 zeedieren door vol te houden (sessies en weken op rij met je weekdoel, standaard 3 sessies, in te stellen van 2 tot 7; rustdagen breken je reeks nooit), nooit door langer in te houden. Per dag tellen hoogstens twee sessies. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier. Alle 24 gevonden: je zee is compleet en je reeks in weken telt door.
+• Calm 4-7-8: 4 in, 7 vasthouden, 8 uit. My pattern: eigen seconden in de instellingen. Een sessie telt vanaf één inhoud of één minuut Calm.
 • Na elke sessie je inhoudtijden; vandaag je sessies als staven (tot drie); over 8 weken sessies per week en je gemiddelde inhoudtijd.
-• Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd op 3:00. Aanraakscherm op slot tijdens een sessie. Ebb maakt geen geluid.
+• Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd op 3:00; trillen helemaal uit te zetten, behalve op 3:00. Aanraakscherm op slot tijdens een sessie. Ebb maakt geen geluid.
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen account, geen telefoonapp.
 
@@ -113,11 +117,12 @@ De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, ge
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
-- Elke zin tegen de bouw op tak `claude/garmin-2026-11-10b` (f287bab): rondes, inhouden met knop, herstel, dieren op 1:00/1:30/2:00/3:00, Sea log, drie patronen plus eigen, duikprofiel met koraal, getijdenlijn 8 weken, trillen per fase en uit te zetten, FIT met laps en eigen velden, instellingen op het horloge (`Start.mc`, `Instellingen.mc`, `Opname.mc`).
-- Versie 3 (02bd139): afgeronde sessie slaat zichzelf op, Resume/Save/Discard alleen in het pauzemenu (`EbbApp.mc` 629, `RustigView.mc` 94, Daan T1); laps en inhoudtijd alleen bij rondes (T2); vier tinten, `DIEPTE[tint > 3 ? 3 : tint]` in `EbbApp.mc` 330, dus geen "every 15 seconds" (T3); patroonnamen "Box", "4-7-8", "Calm" uit `Start.mc` 49.
-- Freediving en apnea staan in de eerste alinea alleen als "dry static holds, no apnea tables": waar, want het is een inhoudklok met voortgang en zonder tabellen. Titel blijft (zie logboek 10 nov 17:55).
-- Veiligheid staat in de eerste alinea van elke taal, niet alleen onderaan (Daan, keuring winkelbeelden 1, 16:25), omdat de beelden een horloge in zee tonen.
-- Geen review-vraag in de app: bewuste keuze, zie logboek 10 nov 16:30.
-- Versie 4 (65bb1ee, concept, Daan keurt opnieuw): besluit 22:53. Geen diepte in meters en geen dieren op tijd meer; dieren voor trouw (`EbbTrouw` in `Profiel.mc`), hartslag op het inhoudscherm, tik laatste 3 ademhalingen, tik elke 30 s, signaal na 3 min, aanraakscherm op slot (`EbbApp.mc`, `RustigView.mc`), geen koraal bij een record. Na blad v4: 8 weeks-zin aanpassen (gemiddelde en dagen per week).
-- Versie 5 (concept, 11 nov 00:35): keuring v5 G4. Elke zin tegen de code op b834b14: zee per 30 s tot 2:30 (`zeeStand`), meezwemmer en kiezen (`EbbTrouw.meezwemmer`, `kies`), rustdag (`RUSTDAGEN`), bonus (`EbbTrouw.bonus`), "Seated or lying?" (STARTCHECK, e2e fenix7), trilling op 3:00 altijd, FIT "Hold time", "Breaths", "Hold times", "Rounds" (`Opname.mc`), geen stip bij de langste ronde en 8 weeks zonder lijn door de beste dag. Nog niet in beeld: zee in zes standen, "time to breathe", 8 weeks als staven per week, sea log met kiezen; die zinnen gelden pas na de bouw van blad v6.
-- Versie 6 (11 nov 03:30 UTC, op de code van b7f2ddd): titel 43 tekens (`len` nagekeken), Duits 39, Nederlands 49 (grens 50). Menu `Start.mc`: alleen Rounds en Calm (`Ebb.patronen()[1]`, 4-7-8); Box en 5.5 staan niet in het menu, het eigen patroon staat alleen in settings en niet meer in de tekst. Reeks in weken: `EbbTrouw.volgendeWeekReeks`, `weekdoel` (instelling "Weekly goal", 2 tot 7, standaard 3). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s Calm). Calm-check: `StartCheckView.zetCalm`. Today: `EbbVandaag.MAX = 3`. 8 weeks: "sessions per week" en "avg hold" (`EbbApp.mc` tekenWeken). Slaat zichzelf op: `opslaan()` bij FASE_KLAAR (`EbbApp.mc` 543). Nog na te kijken in de beelden van de matrix-plaatjesrun.
+Versie 7, elke zin tegen de code op tak `claude/garmin-2026-11-10b` (fe402d8). Oudere versies staan in de git-geschiedenis van dit bestand.
+- Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`EbbApp.mc`, `Start.mc`, `InstellingenView.mc`); beeld calmcheck GEZIEN.
+- Twee per dag: `EbbTrouw.MAX_PER_DAG = 2` (`Profiel.mc`). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s).
+- Reeks in weken met weekdoel 2 tot 7, standaard 3, telt een week één keer: `EbbTrouw.weekStap`. Sea complete na alle 24: `tekenEinde` (scène einde-sea-complete).
+- Trillen aan of uit: `EbbInstellingen.zetTrillen`; trilling op 3:00 altijd (`Trillen.mc`). Buzz every 30 s en last 3 breaths: instellingen `tik30`, `laatste3`.
+- My pattern: `EbbInstellingen.eigenPatroon` (in, vast, uit, leeg).
+- Today hoogstens 3 sessies (`EbbVandaag`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`EbbProfiel.weken`).
+- Horloges: de 28 in `manifest.xml`; .iq-bouw groen voor alle 28 (run 42963243152).
+- Freediving en apnea alleen als "not a freediving or apnea trainer"; veiligheid in de eerste alinea van elke taal (Daan, keuring winkelbeelden 1). Geen review-vraag in de app (logboek 10 nov 16:30). Titel 43 tekens, Duits 39, Nederlands 49 (grens 50).
