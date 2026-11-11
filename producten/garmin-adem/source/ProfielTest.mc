@@ -61,27 +61,30 @@ function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     var lijst = EbbTrouw.DIEREN.size() == 25 && (EbbTrouw.DIEREN[22][0] as String).equals("Lobster")
         && (EbbTrouw.DIEREN[23][0] as String).equals("Whale") && (EbbTrouw.DIEREN[24][0] as String).equals("Sea cucumber");
     var geen = EbbTrouw.aantal() == 0 && EbbTrouw.gezelschap() == 0;
-    var eerste = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(100));        // 1 sessie: vis
-    var tweede = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(101));        // 2 sessies, 2 dagen: garnaal, kwal wacht
-    var wacht = EbbTrouw.wachtend() == 1;
-    var zelfde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(101));        // zelfde dag: de wachtende kwal
-    var derde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));         // 3 dagen op rij: schildpad
-    var vijf = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));          // 5 sessies: krab
-    var na = EbbTrouw.aantal() == 5 && EbbTrouw.gezelschap() == 2 && EbbTrouw.wachtend() == 0;
+    EbbInstellingen.wis();
+    var eerste = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(95));         // 1 sessie: vis
+    var tweede = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(96));         // 2 sessies: garnaal
+    var derde = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(97));          // 3 sessies, 1 week: niets (kwal wil 2 weken)
+    var vier = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(98));           // 4 sessies: krab
+    var vijf = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(102));          // week 15, 5 sessies: niets
+    var zesS = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(103));          // 6 sessies: zeepaardje
+    var kwal = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(104));          // doel week 15: 2 weken op rij, kwal
+    var na = EbbTrouw.aantal() == 5;
     // Na 6 dagen zonder geen zeekomkommer; na 7 dagen zonder wel.
-    var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(109));           // dag 103 t/m 108 zonder: 6 dagen, geen zeekomkommer; 6 sessies: zeepaardje
-    var zeven = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(117));         // dag 110 t/m 116 zonder: 7 dagen
-    var gehouden = EbbTrouw.aantal() == 7 && EbbTrouw.aantalGewoon() == 6 && EbbTrouw.totaal() == 24
+    var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(111));           // dag 105 t/m 110 zonder: 6 dagen
+    var zeven = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(119));         // dag 112 t/m 118 zonder: 7 dagen
+    var gehouden = EbbTrouw.aantal() == 6 && EbbTrouw.aantalGewoon() == 5 && EbbTrouw.totaal() == 24
         && EbbTrouw.bonus(24) && !EbbTrouw.bonus(23) && !EbbTrouw.bonus(22);
     var alles = EbbTrouw.verdiend(50, 7, 1) == (1 << 25) - 1 && EbbTrouw.verdiend(50, 7, 0) != (1 << 25) - 1
         && EbbTrouw.verdiend(49, 7, 1) != (1 << 25) - 1 && EbbTrouw.verdiend(50, 6, 1) != (1 << 25) - 1;
-    var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("50 sessions")
+    var tekst = EbbTrouw.hoe(3).equals("3-week streak") && EbbTrouw.hoe(23).equals("50 sessions")
         && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(24).equals("bonus") && EbbTrouw.hoe(22).equals("46 sessions");
-    logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde + " zes " + zes + " zeven " + zeven);
+    logger.debug("eerste " + eerste + " tweede " + tweede + " derde " + derde + " vier " + vier + " zesS " + zesS + " kwal " + kwal + " zes " + zes + " zeven " + zeven);
     EbbTrouw.wis();
-    return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 1 && tweede[0] == 1 && wacht
-        && zelfde.size() == 1 && zelfde[0] == 2 && derde.size() == 1 && derde[0] == 3 && vijf.size() == 1 && vijf[0] == 4 && na
-        && zes.size() == 1 && zes[0] == 5 && zeven.size() == 1 && zeven[0] == 24 && gehouden && alles && tekst;
+    return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 1 && tweede[0] == 1
+        && derde.size() == 0 && vier.size() == 1 && vier[0] == 4 && vijf.size() == 0 && zesS.size() == 1 && zesS[0] == 5
+        && kwal.size() == 1 && kwal[0] == 2 && na && zes.size() == 0 && zeven.size() == 1 && zeven[0] == 24
+        && gehouden && alles && tekst;
 }
 
 // Eis 2: na bevestigen nooit meer, behalve na "opnieuw tonen".
@@ -146,27 +149,33 @@ function testVeiligElkeDertigDagen(logger as Test.Logger) as Boolean {
     return eerste && !dag29 && dag30 && klokTerug && oudeWaarde;
 }
 
-// Trouw: sessies tellen, dagen op rij, beste reeks blijft staan na een gat.
+// Trouw (besluit 11 nov 04:30): de reeks telt weken op rij met het weekdoel (standaard 3). Week 14 is dag 95 tot 101
+// (maandag tot zondag), week 15 dag 102 tot 108. Beste reeks blijft staan na een gemiste week.
 (:test)
 function testTrouwTellers(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
-    EbbTrouw.naSessie(100);
-    EbbTrouw.naSessie(100);          // zelfde dag: reeks blijft 1
-    EbbTrouw.naSessie(101);
-    var t = EbbTrouw.naSessie(102);  // drie dagen op rij
-    var drie = t[0] == 4 && t[1] == 3 && t[2] == 3;
-    var vandaagNog = EbbTrouw.reeksOp(103) == 3;
-    var rustdag = EbbTrouw.reeksOp(104) == 3;          // besluit 00:55: één rustdag mag
-    var voorbij = EbbTrouw.reeksOp(105) == 0;          // twee lege dagen: voorbij
-    var g = EbbTrouw.naSessie(106);  // gat van 3 dagen: opnieuw 1, beste blijft 3
-    var gat = g[0] == 5 && g[1] == 1 && g[2] == 3;
-    var r = EbbTrouw.naSessie(108);  // na één rustdag: 2
-    var naRust = r[1] == 2;
-    var terug = EbbTrouw.volgendeReeks(200, 4, 190) == 1 && EbbTrouw.volgendeReeks(200, 4, 202) == 5
-        && EbbTrouw.volgendeReeks(200, 4, 203) == 1;
-    logger.debug("na drie " + t + ", na gat " + g + ", na rustdag " + r);
+    EbbInstellingen.wis();
+    var maandag = EbbTrouw.weekVan(95) == 14 && EbbTrouw.weekVan(101) == 14 && EbbTrouw.weekVan(102) == 15;
+    EbbTrouw.naSessie(95);
+    var twee = EbbTrouw.naSessie(97);                 // 2 van 3: nog geen week
+    var t = EbbTrouw.naSessie(100);                   // doel gehaald: 1 week
+    var een = twee[1] == 0 && t[0] == 3 && t[1] == 1 && t[2] == 1 && EbbTrouw.dezeWeek(100) == 3;
+    var zondag = EbbTrouw.reeksOp(101) == 1;
+    var weekErna = EbbTrouw.reeksOp(108) == 1 && EbbTrouw.dezeWeek(102) == 0;   // nieuwe week, reeks loopt nog
+    var voorbij = EbbTrouw.reeksOp(109) == 0;         // een hele week zonder: voorbij
+    EbbTrouw.naSessie(102);
+    EbbTrouw.naSessie(104);
+    var w2 = EbbTrouw.naSessie(106);                  // tweede week: 2
+    var gemist = EbbTrouw.naSessie(117);              // week 16 overgeslagen: opnieuw 0, beste 2
+    var gat = w2[1] == 2 && gemist[1] == 0 && gemist[2] == 2;
+    // Rekenregel los: week erna houdt de reeks alleen als het doel gehaald was.
+    var r1 = EbbTrouw.volgendeWeekReeks(20, 3, 4, 21, 3, true);   // [4, 1]
+    var r2 = EbbTrouw.volgendeWeekReeks(20, 2, 4, 21, 3, true);   // [0, 1]
+    var r3 = EbbTrouw.volgendeWeekReeks(20, 1, 4, 20, 2, true);   // doel 2 gehaald: [5, 2]
+    var regel = r1[0] == 4 && r1[1] == 1 && r2[0] == 0 && r3[0] == 5 && r3[1] == 2;
+    logger.debug("na week 1 " + t + ", week 2 " + w2 + ", na gat " + gemist);
     EbbTrouw.wis();
-    return drie && vandaagNog && rustdag && voorbij && gat && naRust && terug;
+    return maandag && een && zondag && weekErna && voorbij && gat && regel;
 }
 
 // Blad v5 T2 met besluit 00:55: elke 30 s een stand donkerder tot 2:30 (stand 5), daarna gelijk. Zes standen met banden.

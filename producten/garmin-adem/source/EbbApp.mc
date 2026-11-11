@@ -297,6 +297,13 @@ class VeiligDelegate extends WatchUi.BehaviorDelegate {
 class StartCheckView extends WatchUi.View {
     // Blad v7 punt 8: bij de eerste Rounds eerst één uitlegscherm "how it works" (blad 0), daarna de startcheck (blad 1).
     var blad as Number = 1;
+    // Besluit hoofdchat 11 nov 04:30 (besluit 4): ook Calm krijgt de check, want ook daar houd je 7 s in. Zonder uitleg.
+    var calm as Boolean = false;
+
+    function zetCalm() as Void {
+        calm = true;
+        blad = 1;
+    }
 
     function initialize() {
         View.initialize();
@@ -370,6 +377,12 @@ class StartCheckDelegate extends WatchUi.BehaviorDelegate {
             return true;
         }
         System.println("STARTCHECK start");
+        if (_view.calm) {
+            var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
+            (Application.getApp() as EbbApp).zetRustig(rv);
+            WatchUi.switchToView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
+            return true;
+        }
         var view = new EbbView();
         (Application.getApp() as EbbApp).zetView(view);
         WatchUi.switchToView(view, new EbbDelegate(view), WatchUi.SLIDE_LEFT);
@@ -401,7 +414,7 @@ class EbbView extends WatchUi.View {
     var getij as Boolean = false;
     // Keuring bouw 1 punt 7: eerst het eindscherm (6b met nieuw dier, 6c zonder), daarna today en 8 weeks.
     var einde as Boolean = false;
-    var eindReeks as Number = 0;      // dagen op rij na deze sessie
+    var eindReeks as Number = 0;      // weken op rij na deze sessie
     var eindVolgend as Number = -1;   // volgende dier (nummer in EbbTrouw.DIEREN), -1 als je alles hebt
     var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
     const YKLEIN_ADEMEN = 0.855;
@@ -469,8 +482,9 @@ class EbbView extends WatchUi.View {
         var klok = System.getClockTime();
         EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
         // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
-        var tellers = EbbTrouw.naSessie(dag);
-        nieuweDieren = EbbTrouw.nieuweDieren(tellers);
+        var meetelt = EbbTrouw.telt(sessie.inhoudtijden.size(), 0);
+        var tellers = meetelt ? EbbTrouw.naSessie(dag) : EbbTrouw.stand(dag);
+        nieuweDieren = meetelt ? EbbTrouw.nieuweDieren(tellers) : [] as Array<Number>;
         eindReeks = tellers[1];
         var v = EbbTrouw.volgende(tellers);
         eindVolgend = v[0];
@@ -806,7 +820,7 @@ class EbbView extends WatchUi.View {
     }
 
     // Blad v7 scherm 6b en 6c (keuring bouw 1 punt 7): kop "3 rounds done", de tijden, de zee met het nieuwe dier (6b)
-    // of het volgende dier als silhouet (6c), een regel, zeven stippen voor de reeks met label, en op 6c "1 rest day is fine".
+    // of het volgende dier als silhouet (6c), een regel, stippen voor het weekdoel met de reeks in weken.
     // Past bij 1 tot 6 rondes: tot 3 tijden op één regel, daarna twee regels in de kleine letter.
     function tekenEinde(dc as Graphics.Dc, d as Number) as Void {
         var w = d;
@@ -827,44 +841,28 @@ class EbbView extends WatchUi.View {
             dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_SMALL, regel(tijden, 0, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         } else {
             var helft = (n + 1) / 2;
+            // Keuring bouw 2 punt 4: twee regels van 3, de eerste 6 px onder de titel.
             var lh = dc.getFontHeight(Graphics.FONT_XTINY);
-            var y1 = (d * 0.235).toNumber() - lh / 2;
+            var y1 = (d * kopY).toNumber() + dc.getFontHeight(Graphics.FONT_SMALL) / 2 + 6 + lh / 2;
             dc.drawText(w / 2, y1, Graphics.FONT_XTINY, regel(tijden, 0, helft), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.drawText(w / 2, y1 + lh, Graphics.FONT_XTINY, regel(tijden, helft, n), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
-        var cy = (d * 0.465).toNumber();
+        var cy = (d * (n > 3 ? 0.48 : 0.465)).toNumber();
         if (nieuweDieren.size() > 0) {
             var dier = nieuweDieren[0];
             EbbDierData.teken(dc, dier, w / 2, cy, (d * 0.15).toNumber(), -1);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (eindVolgend >= 0) {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
-            EbbDierData.silhouet(dc, eindVolgend, w / 2, cy, (d * 0.105).toNumber());
+            EbbDierData.silhouet(dc, eindVolgend, w / 2, cy, (d * (n > 3 ? 0.09 : 0.105)).toNumber());
             tekstInRonde(dc, d, 0.645, volgendTekst(), Graphics.COLOR_WHITE);
         } else {
             tekstInRonde(dc, d, 0.645, "all " + EbbTrouw.totaal() + " found", Graphics.COLOR_WHITE);
         }
-        // Zeven stippen: gevuld tot de reeks (hoogstens 7).
-        var r = (d * 0.014).toNumber();
-        r = r < 3 ? 3 : r;
-        var stap = (d * 0.05).toNumber();
-        var sy = (d * 0.705).toNumber();
-        dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
-        for (var i = 0; i < 7; i += 1) {
-            var sx = w / 2 + (i - 3) * stap;
-            if (i < eindReeks) {
-                dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
-                dc.fillCircle(sx, sy, r);
-            } else {
-                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-                dc.drawCircle(sx, sy, r);
-            }
-        }
-        var dagen = eindReeks < 1 ? 1 : eindReeks;
-        tekstInRonde(dc, d, 0.77, dagen + (dagen == 1 ? " day in a row" : " days in a row"), EbbTeken.LICHTCYAAN);
-        if (nieuweDieren.size() == 0) {
-            tekstInRonde(dc, d, 0.83, "1 rest day is fine", Graphics.COLOR_WHITE);
-        }
+        // Besluit 11 nov 04:30: de week in plaats van dagen op rij; geen rustdagzin meer (een week heeft vanzelf rust).
+        var dag = vandaag();
+        var label = EbbTeken.weekStippen(dc, d, eindReeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(dag)), EbbTrouw.weekdoel());
+        tekstInRonde(dc, d, 0.77, label, EbbTeken.LICHTCYAAN);
     }
 
     function regel(tijden as Array<String>, van as Number, tot as Number) as String {
@@ -875,16 +873,16 @@ class EbbView extends WatchUi.View {
         return s;
     }
 
-    // "next: Clownfish, 1 more" (sessies), "next: Manta, 2 more days" (reeks), "next: Crab, next session" (ligt klaar).
+    // Keuring bouw 2 punt 4: geen "next:" (besluit 22:53 punt 3), wel wat er nog nodig is: "1 more session",
+    // "2 more weeks in a row", of "next session" als het dier al klaar ligt.
     function volgendTekst() as String {
-        var naam = EbbDierData.NAMEN[eindVolgend];
         if (eindRest <= 0) {
-            return "next: " + naam + ", next session";
+            return "next session";
         }
         if ((EbbTrouw.DIEREN[eindVolgend][1] as Number) == EbbTrouw.SOORT_REEKS) {
-            return "next: " + naam + ", " + eindRest + (eindRest == 1 ? " more day" : " more days");
+            return eindRest + (eindRest == 1 ? " more week in a row" : " more weeks in a row");
         }
-        return "next: " + naam + ", " + eindRest + " more";
+        return eindRest + (eindRest == 1 ? " more session" : " more sessions");
     }
 
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {

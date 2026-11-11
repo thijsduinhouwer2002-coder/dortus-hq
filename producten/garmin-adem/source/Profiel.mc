@@ -125,22 +125,41 @@ module EbbTrouw {
     const PAUZE_DAGEN = 7;
     const DAGSES = "trDagSes";     // sessies vandaag (voor de grens van 2 per dag)
     const MAX_PER_DAG = 2;         // keuring G2: voor de dieren tellen hoogstens 2 sessies per dag
+    const WEEK = "trWeek";         // weeknummer (maandag tot zondag) van de laatste sessie
+    const WEEKSES = "trWeekSes";   // tellende sessies in die week
 
-    // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie. De reeks telt dagen mét een
-    // sessie; één rustdag ertussen mag (besluit hoofdchat 11 nov 00:55: een reeks breekt pas na 2 lege dagen).
-    // Zelfde dag: gelijk. De dag erna of na één rustdag: plus één. Later (of de klok terug): opnieuw 1.
-    const RUSTDAGEN = 1;
-    function volgendeReeks(vorigeDag as Number, reeks as Number, dag as Number) as Number {
-        if (reeks <= 0) {
-            return 1;
+    // Besluit hoofdchat 11 nov 04:30 (keuring bouw 2, besluit 1): de reeks telt weken op rij waarin je je weekdoel
+    // haalde (standaard 3 sessies, instelbaar 2 tot 7). Wie ma, wo, vr ademt breekt zo nooit zijn reeks.
+    // Dag 0 (1 jan 1970) was een donderdag, dus (dag + 3) / 7 begint elke week op maandag.
+    function weekVan(dag as Number) as Number {
+        return (dag + 3) / 7;
+    }
+
+    function weekdoel() as Number {
+        return EbbInstellingen.waarde(EbbInstellingen.WEEKDOEL);
+    }
+
+    // Na een sessie in week: [reeks, sessies deze week]. Een nieuwe week houdt de reeks alleen als de vorige week
+    // direct ervoor zat en het doel haalde. Bij het halen van het doel komt er een week bij.
+    function volgendeWeekReeks(vorigeWeek as Number, weekSes as Number, reeks as Number, week as Number, doel as Number, telt as Boolean) as Array<Number> {
+        if (week != vorigeWeek) {
+            if (!(week == vorigeWeek + 1 && weekSes >= doel)) {
+                reeks = 0;
+            }
+            weekSes = 0;
         }
-        if (dag == vorigeDag) {
-            return reeks;
+        if (telt) {
+            weekSes += 1;
+            if (weekSes == doel) {
+                reeks += 1;
+            }
         }
-        if (dag > vorigeDag && dag <= vorigeDag + 1 + RUSTDAGEN) {
-            return reeks + 1;
-        }
-        return 1;
+        return [reeks, weekSes] as Array<Number>;
+    }
+
+    // Sessies die deze week al tellen (voor "2 of 3 this week").
+    function dezeWeek(vandaag as Number) as Number {
+        return (weekVan(vandaag) == getal(WEEK)) ? getal(WEEKSES) : 0;
     }
 
     function getal(sleutel as String) as Number {
@@ -182,9 +201,13 @@ module EbbTrouw {
         }
         bewaarSessieDag(dag);
         var vandaagAl = (dag == getal(DAG) && getal(SESSIES) > 0) ? getal(DAGSES) : 0;
-        var sessies = getal(SESSIES) + ((vandaagAl < MAX_PER_DAG) ? 1 : 0);
+        var telt = vandaagAl < MAX_PER_DAG;
+        var sessies = getal(SESSIES) + (telt ? 1 : 0);
         Application.Storage.setValue(DAGSES, vandaagAl + 1);
-        var reeks = volgendeReeks(getal(DAG), getal(REEKS), dag);
+        var wr = volgendeWeekReeks(getal(WEEK), getal(WEEKSES), getal(REEKS), weekVan(dag), weekdoel(), telt);
+        var reeks = wr[0];
+        Application.Storage.setValue(WEEK, weekVan(dag));
+        Application.Storage.setValue(WEEKSES, wr[1]);
         var beste = getal(BESTE);
         if (reeks > beste) {
             beste = reeks;
@@ -196,14 +219,29 @@ module EbbTrouw {
         return [sessies, reeks, beste, getal(PAUZE)] as Array<Number>;
     }
 
-    // De reeks zoals die vandaag telt: na 2 lege dagen is hij voorbij (0), ook zonder nieuwe sessie.
+    // Besluit hoofdchat 11 nov 04:30 (besluit 3): een sessie telt pas mee met minstens 1 inhoud, of bij Calm 1 minuut.
+    const CALM_MIN_MS = 60000;
+    function telt(inhouden as Number, calmMs as Number) as Boolean {
+        return inhouden >= 1 || calmMs >= CALM_MIN_MS;
+    }
+
+    // De tellers zonder nieuwe sessie (voor een eindscherm van een sessie die niet meetelt).
+    function stand(dag as Number) as Array<Number> {
+        return [getal(SESSIES), reeksOp(dag), getal(BESTE), getal(PAUZE)] as Array<Number>;
+    }
+
+    // De reeks in weken zoals die vandaag telt: in dezelfde week, of de week erna als de vorige week het doel haalde.
     function reeksOp(vandaag as Number) as Number {
-        var dag = getal(DAG);
-        return (vandaag >= dag && vandaag <= dag + 1 + RUSTDAGEN) ? getal(REEKS) : 0;
+        var w = weekVan(vandaag);
+        var vorige = getal(WEEK);
+        if (w == vorige || (w == vorige + 1 && getal(WEEKSES) >= weekdoel())) {
+            return getal(REEKS);
+        }
+        return 0;
     }
 
     // De 24 dieren voor trouw plus de bonus (besluit 22:53, lijst van blad v6 van Mila). Per dier [naam, soort, drempel]:
-    // soort 0 is aantal opgeslagen sessies, soort 1 is dagen op rij (je beste reeks telt, dus een gemiste dag pakt
+    // soort 0 is aantal opgeslagen sessies, soort 1 is weken op rij met je weekdoel (besluit 11 nov 04:30; je beste reeks telt, dus een gemiste week pakt
     // niets af), soort 2 is "back after a break": je eerste sessie na 7 of meer dagen zonder (de zeekomkommer).
     // Schema van blad v5.4 (eerlijk voor wie ±4 keer per week ademt; de walvis bij 50 sessies, ±3 maanden).
     const SOORT_SESSIES = 0;
@@ -333,7 +371,7 @@ module EbbTrouw {
             return "bonus";   // besluit 00:55: "comes after a break" weg; hij blijft een verrassing bij je terugkeer
         }
         if ((r[1] as Number) == SOORT_REEKS) {
-            return n + "-day streak";
+            return n + "-week streak";
         }
         return n == 1 ? "1 session" : n + " sessions";
     }
@@ -398,6 +436,8 @@ module EbbTrouw {
         Application.Storage.deleteValue(REEKS);
         Application.Storage.deleteValue(BESTE);
         Application.Storage.deleteValue(PAUZE);
+        Application.Storage.deleteValue(WEEK);
+        Application.Storage.deleteValue(WEEKSES);
         Application.Storage.deleteValue(SESDAGEN);
         Application.Storage.deleteValue(DAGSES);
     }

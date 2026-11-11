@@ -13,6 +13,7 @@ module EbbInstellingen {
     const EIGEN_VAST = 5;
     const EIGEN_UIT = 6;
     const EIGEN_LEEG = 7;
+    const WEEKDOEL = 8;       // besluit hoofdchat 11 nov 04:30: sessies per week voor de reeks, 2 tot 7, standaard 3
 
     const LIJST = [
         ["ademhalingen", 20, 60, 5, 30],
@@ -23,7 +24,8 @@ module EbbInstellingen {
         ["eigenIn", 1, 12, 1, 4],
         ["eigenVast", 0, 12, 1, 4],
         ["eigenUit", 1, 12, 1, 6],
-        ["eigenLeeg", 0, 12, 1, 2]
+        ["eigenLeeg", 0, 12, 1, 2],
+        ["weekdoel", 2, 7, 1, 3]
     ] as Array<Array>;
 
     const TRILLEN = "trillen";
@@ -111,7 +113,10 @@ module EbbInstellingen {
         if (i == TEMPO) {
             return v + " per min";
         }
-        if (i == HERSTEL || i >= EIGEN_IN) {
+        if (i == WEEKDOEL) {
+            return v + " a week";
+        }
+        if (i == HERSTEL || (i >= EIGEN_IN && i <= EIGEN_LEEG)) {
             return v + " s";
         }
         return v.toString();

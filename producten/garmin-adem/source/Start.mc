@@ -161,9 +161,10 @@ class EbbMenuDelegate extends WatchUi.BehaviorDelegate {
             var sc = new StartCheckView();
             WatchUi.pushView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
         } else if (k == 1) {
-            var rv = new RustigView(Ebb.patronen()[1], EbbStart.PATROON_NAMEN[1]);
-            (Application.getApp() as EbbApp).zetRustig(rv);
-            WatchUi.pushView(rv, new RustigDelegate(rv), WatchUi.SLIDE_LEFT);
+            // Besluit 11 nov 04:30 (besluit 4): ook voor Calm eerst "Sit or lie down".
+            var sc = new StartCheckView();
+            sc.zetCalm();
+            WatchUi.pushView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
         } else if (k == 2) {
             var dv = new DierenView();
             WatchUi.pushView(dv, new DierenDelegate(dv), WatchUi.SLIDE_LEFT);

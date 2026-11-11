@@ -44,7 +44,7 @@ class DierenView extends WatchUi.View {
             if (rest <= 0) {
                 return "next session";
             }
-            return rest + (rest == 1 ? " more day in a row" : " more days in a row");
+            return rest + (rest == 1 ? " more week in a row" : " more weeks in a row");
         }
         var nog = drempel - EbbTrouw.getal(EbbTrouw.SESSIES);
         return (nog <= 1) ? "next session" : "at " + drempel + " sessions";

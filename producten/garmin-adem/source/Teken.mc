@@ -7,6 +7,32 @@ import Toybox.System;
 // Uiterlijk volgens de schets van Mila (ontwerp/garmin/tij-stijl.md en ontwerp/garmin/bron/ebb_schets.py).
 // Alle maten als deel van de diameter D, alleen MIP-kleuren, geen verloop.
 module EbbTeken {
+    // Besluit hoofdchat 11 nov 04:30: onder elk eindscherm de week. Eén stip per sessie van het weekdoel (2 tot 7),
+    // gevuld wat je deze week deed, en de regel "3 weeks in a row" of, zonder reeks, "2 of 3 this week".
+    function weekStippen(dc as Graphics.Dc, d as Number, reeks as Number, dezeWeek as Number, doel as Number) as String {
+        var r = (d * 0.014).toNumber();
+        r = r < 3 ? 3 : r;
+        var stap = (d * 0.05).toNumber();
+        var sy = (d * 0.705).toNumber();
+        dc.setPenWidth(r / 2 > 1 ? r / 2 : 1);
+        for (var i = 0; i < doel; i += 1) {
+            var sx = d / 2 + ((2 * i - (doel - 1)) * stap) / 2;
+            if (i < dezeWeek) {
+                dc.setColor(SCHUIM, SCHUIM);
+                dc.fillCircle(sx, sy, r);
+            } else {
+                dc.setColor(SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.drawCircle(sx, sy, r);
+            }
+        }
+        dc.setPenWidth(1);
+        if (reeks >= 1) {
+            return reeks + (reeks == 1 ? " week in a row" : " weeks in a row");
+        }
+        var n = dezeWeek < doel ? dezeWeek : doel;
+        return n + " of " + doel + " this week";
+    }
+
     const SCHUIM = 0x55FFFF;
     const ZACHT = 0x55AAAA;
     const BEL = 0x55AAFF;
