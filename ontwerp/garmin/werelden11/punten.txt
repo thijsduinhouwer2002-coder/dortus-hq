@@ -1,0 +1,6 @@
+Turtle (zeegrasweide): 65 punten, 14 vlakken
+Crab (rotsen met verloren slipper): 72 punten, 14 vlakken
+Clownfish (anemoon met zwaaiende arm): 76 punten, 11 vlakken
+maan en sterren: 2 cirkels en 5 punten (gedeeld door alle werelden)
+teksten die elkaar raken (minder dan 3 px ertussen): 0 []
+pixels buiten de 64 MIP-kleuren (alle schermen zonder letters): 0
