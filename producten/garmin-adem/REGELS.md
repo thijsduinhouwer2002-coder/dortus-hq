@@ -21,17 +21,19 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 | `StartCheck.mc` | "how it works" en "Sit or lie down" voor Rounds en Calm |
 | `EbbView.mc` | de sessie met rondes: klok, opslaan, pauze, trillen |
 | `SessieScherm.mc` | tekenen van ademen, inhouden en herstel |
-| `EindScherm.mc` | eindscherm na de rondes (6b, 6c, sea complete) |
+| `EindScherm.mc` | eindscherm na de rondes (6b, 6c, alles gevonden; de eerste keer sea complete) |
+| `SeaComplete.mc` | feestscherm sea complete: groepsfoto van alle 24, dier voor dier geplakt |
+| `Pauze.mc` | pauzemenu in Ebb-stijl voor Rounds en Calm (Resume, Save, Discard; knoppen en tik) |
 | `Overzicht.mc` | today en 8 weeks |
-| `EbbDelegate.mc` | knoppen tijdens de sessie en het pauzemenu |
-| `RustigView.mc` | Calm (rustig ademen) en het Calm-eindscherm |
+| `EbbDelegate.mc` | knoppen tijdens de sessie; opent het pauzemenu |
+| `RustigView.mc` | Calm (rustig ademen), opent het pauzemenu, en het Calm-eindscherm |
 | `InstellingenView.mc`, `Instellingen.mc` | settings: scherm en opgeslagen waarden |
 | `SeaLog.mc` | sea log |
 | `DierPlaatje.mc` | de dier-tekenfunctie, het dierplaatje en de voorraad |
 | `DierMaat.mc` | maat en plaats van een dier in een vak |
 | `DierenData.mc` | de punten en kleuren van Mila's dieren (gemaakt door `bron/maak_dieren_json.py`) |
 | `Zee.mc` | de zee |
-| `Teken.mc` | kleuren, letters, pil, hart, weekstippen en andere kleine tekenhulpen |
+| `Teken.mc` | kleuren, letters, pil, hart, weekstippen en kleine tekenhulpen: `px` (maat in 1/260 D), `tekst260` (tekst met bovenkant op y/260), `tekstInRonde` (tekst die in de cirkel past) |
 | `Sessie.mc` | rekenwerk van rondes en rustig ademen (geen tekenen) |
 | `Trouw.mc`, `TrouwDieren.mc` | tellers en reeks in weken; welke dieren je hebt |
 | `Profiel.mc` | 8 weeks rekenwerk, zeestand, veiligheid elke 30 dagen |

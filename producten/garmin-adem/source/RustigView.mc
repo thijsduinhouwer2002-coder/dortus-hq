@@ -203,17 +203,9 @@ class CalmEindeView extends WatchUi.View {
                 EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.105).toNumber(), EbbDierPlaatje.GEVONDEN);
             }
         }
-        tekst(dc, d, 0.645, regel, kleur);
+        EbbTeken.tekstInRonde(dc, d, 0.645, regel, kleur);
         var boven = (d * 0.645).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
         EbbTeken.weekStippen(dc, d, reeks, ((EbbBouw.DEMO || EbbBouw.PLAATJE) ? 2 : EbbTrouw.dezeWeek(EbbView.vandaag())), EbbTrouw.weekdoel(), boven);
-    }
-
-    function tekst(dc as Graphics.Dc, d as Number, y as Float, t as String, kleur as Number) as Void {
-        var dy = y - 0.5;
-        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
-        var f = (dc.getTextWidthInPixels(t, EbbTeken.fS()) <= koorde) ? EbbTeken.fS() : EbbTeken.fX();
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * y).toNumber(), f, t, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }
 

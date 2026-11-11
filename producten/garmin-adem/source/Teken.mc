@@ -245,4 +245,25 @@ module EbbTeken {
     }
 
     const GROOT_LIJST = [Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD] as Array<Graphics.FontDefinition>;
+
+    // Keuring bouw 6 punt 9: gedeelde hulpen die eerst in meer schermen dubbel stonden.
+    // Maat v in 1/260 van de schermdoorsnede d (Mila's bladen), afgerond.
+    function px(d as Number, v as Number) as Number {
+        return (v * d + 130) / 260;
+    }
+
+    // Tekst midden, met de bovenkant op y (1/260 D), zoals op het blad (sea log, sea complete).
+    function tekst260(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number) as Void {
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, px(d, y), f, s, Graphics.TEXT_JUSTIFY_CENTER);
+    }
+
+    // Tekst midden op hoogte y (deel van D); FONT_SMALL als hij binnen de koorde past (met marge), anders FONT_XTINY.
+    function tekstInRonde(dc as Graphics.Dc, d as Number, y as Float, tekst as String, kleur as Number) as Void {
+        var dy = y - 0.5;
+        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
+        var f = (dc.getTextWidthInPixels(tekst, fS()) <= koorde) ? fS() : fX();
+        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
 }

@@ -9,15 +9,6 @@ import Toybox.WatchUi;
 
 // Eindscherm na de sessie (blad v7 6b en 6c): kop, tijden, zee met het dier, weekstippen.
 module EbbEindScherm {
-    // Tekst midden op hoogte y; FONT_SMALL als hij binnen de koorde past (met marge), anders FONT_XTINY.
-    function tekstInRonde(dc as Graphics.Dc, d as Number, y as Float, tekst as String, kleur as Number) as Void {
-        var dy = y - 0.5;
-        var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
-        var f = (dc.getTextWidthInPixels(tekst, EbbTeken.fS()) <= koorde) ? EbbTeken.fS() : EbbTeken.fX();
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (d * y).toNumber(), f, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-    }
-
     // Blad v7 scherm 6b en 6c (keuring bouw 1 punt 7): kop "3 rounds done", de tijden, de zee met het nieuwe dier (6b)
     // of het volgende dier als silhouet (6c), een regel, stippen voor het weekdoel met de reeks in weken.
     // Past bij 1 tot 6 rondes: tot 3 tijden op één regel, daarna twee regels in de kleine letter.
@@ -69,18 +60,18 @@ module EbbEindScherm {
         if (v.nieuweDieren.size() == 0 && v.eindVolgend < 0) {
             // Keuring bouw 6 punt 2: alles gevonden en het feest al gezien: je eigen dier en "24 of 24 friends".
             EbbDierMaat.inBand(dc, v.gezelschap, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
-            tekstInRonde(dc, d, 0.645, "24 of 24 friends", EbbTeken.LICHT);
+            EbbTeken.tekstInRonde(dc, d, 0.645, "24 of 24 friends", EbbTeken.LICHT);
         } else if (v.nieuweDieren.size() > 0) {
             var dier = v.nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
             EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
-            tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
+            EbbTeken.tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
             // Beelden run 42980590755: de schaduw stak met de scharen boven de kamlijn uit; Mila v9: alleen in het water.
             var inWater = (d * (zeeTop + 0.010)).toNumber() + 6;
             EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop > inWater ? bandTop : inWater, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
-            tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
+            EbbTeken.tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
             // Mila blad v9 punt 4: "a new friend" in geel onder de regel; de week schuift een regel op.
             extra = dc.getFontHeight(EbbTeken.fX());
             dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);

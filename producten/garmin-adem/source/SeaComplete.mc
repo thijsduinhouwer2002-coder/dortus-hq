@@ -26,19 +26,15 @@ module EbbSeaComplete {
     var _x0 as Number = 0;     // linksboven van het plaatje op het scherm
     var _y0 as Number = 0;
 
-    function px(d as Number, v as Number) as Number {
-        return (v * d + 130) / 260;
-    }
-
     // Plek op het scherm en maat van volgnummer k: [x, y, maat]. Maat vrienden floor(11 D / 260), onder 250 px één
     // kleiner; walvis round(32 D / 260).
     function plek(d as Number, k as Number) as Array<Number> {
         if (k == WALVIS) {
-            return [d / 2, px(d, 100), px(d, 32)] as Array<Number>;
+            return [d / 2, EbbTeken.px(d, 100), EbbTeken.px(d, 32)] as Array<Number>;
         }
         var m = 11 * d / 260;
         m = d < 250 ? m - 1 : m;
-        return [d / 2 + px(d, PLEK[k][0]), px(d, PLEK[k][1]), m] as Array<Number>;
+        return [d / 2 + EbbTeken.px(d, PLEK[k][0]), EbbTeken.px(d, PLEK[k][1]), m] as Array<Number>;
     }
 
     function maak(d as Number) as Void {
@@ -47,9 +43,9 @@ module EbbSeaComplete {
         _los = null;
         _gemeld = false;
         // Plaatje van x 14 tot 246 en y 62 tot 206 (in 1/260 D): alle dieren met stickerrand, binnen 0,85 R.
-        _x0 = px(d, 14);
-        _y0 = px(d, 62);
-        _ref = Graphics.createBufferedBitmap({:width => px(d, 232), :height => px(d, 144)});
+        _x0 = EbbTeken.px(d, 14);
+        _y0 = EbbTeken.px(d, 62);
+        _ref = Graphics.createBufferedBitmap({:width => EbbTeken.px(d, 232), :height => EbbTeken.px(d, 144)});
         var bb = (_ref as Graphics.BufferedBitmapReference).get() as Graphics.BufferedBitmap;
         var dc = bb.getDc();
         dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
@@ -98,11 +94,6 @@ module EbbSeaComplete {
         _d = 0;
     }
 
-    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number) as Void {
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, px(d, y), f, s, Graphics.TEXT_JUSTIFY_CENTER);
-    }
-
     function teken(dc as Graphics.Dc, d as Number, reeks as Number) as Void {
         if (_ref == null || _d != d) {
             maak(d);
@@ -114,8 +105,8 @@ module EbbSeaComplete {
         dc.setPenWidth(d / 260 > 1 ? d / 260 : 1);
         var bel = [[0, 71, 3], [-6, 64, 2], [5, 62, 2]] as Array<Array<Number> >;
         for (var i = 0; i < bel.size(); i += 1) {
-            var r = px(d, bel[i][2]);
-            dc.drawCircle(d / 2 + px(d, bel[i][0]), px(d, bel[i][1]), r < 2 ? 2 : r);
+            var r = EbbTeken.px(d, bel[i][2]);
+            dc.drawCircle(d / 2 + EbbTeken.px(d, bel[i][0]), EbbTeken.px(d, bel[i][1]), r < 2 ? 2 : r);
         }
         dc.setPenWidth(1);
         var klaar = verder();
@@ -126,8 +117,8 @@ module EbbSeaComplete {
         if (!klaar) {
             WatchUi.requestUpdate();
         }
-        tekst(dc, d, 18, EbbTeken.fS(), "sea complete", EbbTeken.LICHT);
-        tekst(dc, d, 206, EbbTeken.fX(), "24 of 24 friends", EbbTeken.SCHUIM);
-        tekst(dc, d, 226, EbbTeken.fX(), reeks + (reeks == 1 ? " week in a row" : " weeks in a row"), EbbTeken.SCHUIM);
+        EbbTeken.tekst260(dc, d, 18, EbbTeken.fS(), "sea complete", EbbTeken.LICHT);
+        EbbTeken.tekst260(dc, d, 206, EbbTeken.fX(), "24 of 24 friends", EbbTeken.SCHUIM);
+        EbbTeken.tekst260(dc, d, 226, EbbTeken.fX(), reeks + (reeks == 1 ? " week in a row" : " weeks in a row"), EbbTeken.SCHUIM);
     }
 }

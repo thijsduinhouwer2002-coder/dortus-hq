@@ -27,10 +27,6 @@ class PauzeView extends WatchUi.View {
         return "round " + (view.sessie.ronde + 1) + " · " + (s / 60) + ":" + (s % 60).format("%02d");
     }
 
-    function px(d as Number, v as Number) as Number {
-        return (v * d + 130) / 260;
-    }
-
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var h = dc.getHeight();
@@ -39,21 +35,21 @@ class PauzeView extends WatchUi.View {
         dc.clear();
         // Stille zee: platte kamlijn op 84, één tint 0055AA, vanaf 208 de diepte 000055.
         dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
-        dc.fillRectangle(0, px(d, 84), w, px(d, 208) - px(d, 84));
+        dc.fillRectangle(0, EbbTeken.px(d, 84), w, EbbTeken.px(d, 208) - EbbTeken.px(d, 84));
         dc.setColor(EbbTeken.ZEE_KLEUR[3], EbbTeken.ZEE_KLEUR[3]);
-        dc.fillRectangle(0, px(d, 208), w, h - px(d, 208));
+        dc.fillRectangle(0, EbbTeken.px(d, 208), w, h - EbbTeken.px(d, 208));
         dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
-        dc.fillRectangle(0, px(d, 84) - 1, w, d >= 300 ? 3 : 2);
+        dc.fillRectangle(0, EbbTeken.px(d, 84) - 1, w, d >= 300 ? 3 : 2);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, px(d, 24), EbbTeken.fS(), "paused", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(w / 2, EbbTeken.px(d, 24), EbbTeken.fS(), "paused", Graphics.TEXT_JUSTIFY_CENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, px(d, 56), EbbTeken.fX(), regel, Graphics.TEXT_JUSTIFY_CENTER);
-        var pb = px(d, 110);
-        var ph = px(d, 32);
+        dc.drawText(w / 2, EbbTeken.px(d, 56), EbbTeken.fX(), regel, Graphics.TEXT_JUSTIFY_CENTER);
+        var pb = EbbTeken.px(d, 110);
+        var ph = EbbTeken.px(d, 32);
         var fh = dc.getFontHeight(EbbTeken.fS());
         ph = ph < fh + 2 ? fh + 2 : ph;
         for (var i = 0; i < KEUZES.size(); i += 1) {
-            var y = px(d, Y[i]);
+            var y = EbbTeken.px(d, Y[i]);
             if (i == keuze) {
                 dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
                 dc.fillRoundedRectangle(w / 2 - pb / 2, y - ph / 2, pb, ph, ph / 2);
@@ -65,10 +61,10 @@ class PauzeView extends WatchUi.View {
         }
         // Je eigen dier wijst de keuze aan: midden 22 px (in 1/260) links van de pilrand.
         if (dier >= 0) {
-            EbbDierVoorraad.teken(dc, dier, w / 2 - pb / 2 - px(d, 22), px(d, Y[keuze]), px(d, 12), EbbDierPlaatje.GEVONDEN);
+            EbbDierVoorraad.teken(dc, dier, w / 2 - pb / 2 - EbbTeken.px(d, 22), EbbTeken.px(d, Y[keuze]), EbbTeken.px(d, 12), EbbDierPlaatje.GEVONDEN);
         }
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, px(d, 214), EbbTeken.fX(), "the sea waits", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(w / 2, EbbTeken.px(d, 214), EbbTeken.fX(), "the sea waits", Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
 
@@ -127,9 +123,9 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
         var xy = evt.getCoordinates();
         var ds = System.getDeviceSettings();
         var d = ds.screenWidth < ds.screenHeight ? ds.screenWidth : ds.screenHeight;
-        var half = _pv.px(d, 19);
+        var half = EbbTeken.px(d, 19);
         for (var i = 0; i < PauzeView.Y.size(); i += 1) {
-            var y = _pv.px(d, PauzeView.Y[i]);
+            var y = EbbTeken.px(d, PauzeView.Y[i]);
             if (xy[1] >= y - half && xy[1] < y + half) {
                 _pv.keuze = i;
                 return kies(i);

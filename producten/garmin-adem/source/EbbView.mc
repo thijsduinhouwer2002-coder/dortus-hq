@@ -193,7 +193,31 @@ class EbbView extends WatchUi.View {
             System.println("GETIJ getoond, klaar na " + (_klaarSinds - _startTijd) + " ms");
         }
         trilBijWissel(nu);
-        WatchUi.requestUpdate();
+        hertekenAls(nu);
+    }
+
+    // Keuring bouw 6 punt 8 (batterij): niet elke 100 ms hertekenen. Ademen en herstel bewegen wel vloeiend; inhouden
+    // eens per seconde (als de klok verspringt); het eindscherm staat stil en wordt alleen bij binnenkomst getekend
+    // (knoppen en sea complete vragen zelf een nieuwe tekening).
+    private var _getekendFase as Number = -1;
+    private var _getekendSec as Number = -1;
+    private var _getekendGetij as Boolean = false;
+
+    function hertekenAls(nu as Number) as Void {
+        var f = sessie.fase as Number;
+        var sec = sessie.verstreken(nu) / 1000;
+        var nodig = (f != _getekendFase) || (getij != _getekendGetij);
+        if (!nodig && f == Ebb.FASE_INHOUDEN) {
+            nodig = (sec != _getekendSec);
+        } else if (!nodig && f != Ebb.FASE_KLAAR) {
+            nodig = true;
+        }
+        if (nodig) {
+            _getekendFase = f;
+            _getekendSec = sec;
+            _getekendGetij = getij;
+            WatchUi.requestUpdate();
+        }
     }
 
     // Trilt één keer bij elke wissel van fase of van in naar uit (eis 6).

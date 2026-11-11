@@ -126,12 +126,6 @@ class DierenView extends WatchUi.View {
         }
     }
 
-    // Tekst met de bovenkant op y (1/260 D), zoals op het blad.
-    function tekst(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number) as Void {
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(d / 2, (y * d + 130) / 260, f, s, Graphics.TEXT_JUSTIFY_CENTER);
-    }
-
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var d = w < dc.getHeight() ? w : dc.getHeight();
@@ -185,10 +179,10 @@ class DierenView extends WatchUi.View {
         _opbouwBeurt = false;
         dc.drawBitmap(ox, oy, plaatje);
         // Tekst na het plaatje, zodat het zwarte raster de tekst niet bedekt (blad v9: kop y 28, telling 58, naam 184, regel 210).
-        tekst(dc, d, 28, EbbTeken.fS(), "sea log", EbbTeken.SCHUIM);
-        tekst(dc, d, 58, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), EbbTeken.ZEE_KLEUR[0]);
+        EbbTeken.tekst260(dc, d, 28, EbbTeken.fS(), "sea log", EbbTeken.SCHUIM);
+        EbbTeken.tekst260(dc, d, 58, EbbTeken.fX(), EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), EbbTeken.ZEE_KLEUR[0]);
         if (blad == BLADEN - 1) {
-            tekst(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
+            EbbTeken.tekst260(dc, d, 88, EbbTeken.fX(), "bonus", EbbTeken.LICHT);
         }
         // Keuzestip 2 px onder het gekozen dier (met zijn rand), in schuim.
         var rs = (d * 0.011).toNumber();
@@ -198,8 +192,8 @@ class DierenView extends WatchUi.View {
             dc.fillCircle(gekozenX, gekozenY + 2 + rs, rs);
         }
         var naam = (EbbTrouw.bonus(keuze) && !EbbTrouw.heeft(keuze)) ? "Bonus" : EbbDierData.NAMEN[keuze];
-        tekst(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
-        tekst(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.ZEE_KLEUR[0]);
+        EbbTeken.tekst260(dc, d, 184, EbbTeken.fS(), naam, Graphics.COLOR_WHITE);
+        EbbTeken.tekst260(dc, d, 210, EbbTeken.fX(), regel(keuze), EbbTeken.ZEE_KLEUR[0]);
         // Bladstippen op y 236: actief vol in schuim, de andere als ring in 00AAFF (blad v9).
         var stap = (9 * d + 130) / 260;
         var rb = (2 * d + 130) / 260;
