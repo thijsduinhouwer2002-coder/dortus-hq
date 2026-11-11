@@ -299,3 +299,13 @@
 - Gezien met Read: sea complete 260 (2x) en 454, pauze 260 en 454, poster op 1000 en op 300 px.
 - Volgende run: poster opnieuw met Gijs' opname na besluit 2 (dier 90 x 70) en nalopen; pauzemenu op de echte beelden zodra het gebouwd is.
 - Tweede start (09:30-opdracht, zelfde punten, stonden al af): sea complete op alle schermmaten van 218 tot 454 nagemeten; onder 250 px vrienden een maat kleiner (dolfijn en zwaardvis raakten), formule in blad v10.
+
+## 11 nov 2026, run 35 (vanaf 09:27 UTC, alleen Ebb)
+- Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-6-keuring-drie.md` (winkelkaarten v4, keuzemarkering sea log). Berichten: verder niets open.
+- Eerst de echte beelden van run 42991019138 bekeken (alle 36 scènes van fenix847mm op een blad) en de v3-kaarten op een rij.
+- **Besluit: kaart als patrijspoort in de zee, scherm 66 procent, kop wit met geel woord.** Waarom: v3 was een klein horloge op zwart en las op 220 px niet; de ronde uitsnede met een smalle kastring zegt nog steeds "horloge" zonder band, en zee in plaats van zwart maakt hem rijk en van ons.
+- **Besluit: vijf kaarten hold met vriend, new friend, sea log, sea complete, pauze; Calm als extra.** Waarom: samen vertellen ze het spel (inhouden, terugkomen, verzamelen, feest, rust); de keuring wilde Calm eruit, de titel noemt 4-7-8, dus hij ligt klaar.
+- **Besluit: keuze in de sea log als belletje (gevulde ellips met schuimrand en glimpje).** Waarom: een ronde ring past niet tussen de dieren (45 px breed, rijen 47 px) en verdween achter de poten in de eerste proef; het belletje leest op 260 in één blik en past bij de belletjes van het inhouden.
+- Gemaakt: `bron/winkel_v4.py`, `winkel4/` (6 kaarten, rij, vergelijking op 220), `bron/blad_v11.py`, `blad11/`, `ebb-blad-v11.md`, bericht Gijs.
+- Gezien met Read: rij v3, rij v4 (twee keer, koppen liepen eerst buiten beeld), v3 naast v4 op 220 px, kaart 2 op ware grootte, sea complete na kleurverlaging, keuze A en B op 260 en 454 (eerste B met ronde ring was onzichtbaar).
+- Volgende run: kaart 3 opnieuw zodra "+ bonus" in de app staat; belletje nalopen op de echte FR255-beelden na Gijs' bouw.

@@ -94,4 +94,4 @@ Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-4-keuring-drie.md`: sea log op 260 
 Sea log v9 is het sterkste scherm van de app. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-5-keuring-drie.md`: opstelling sea complete, pauzemenu in Ebb-stijl, ontwerp voor de winkelposter. (verwerkt 11 nov 09:35 NL: blad v10, sea complete als groepsfoto met posities, pauzemenu, poster v3 met `poster_v3.py`; bericht Gijs)
 
 ## 11 nov 10:45 NL (hoofdchat): keuring bouw 6
-Pauzemenu en sea complete-opstelling zijn goed ontvangen. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-6-keuring-drie.md`: ingezoomde winkelkaarten v4 en een keuzemarkering in de sea log.
+Pauzemenu en sea complete-opstelling zijn goed ontvangen. Lees "Voor Mila" in `ontwerp/garmin/ebb-bouw-6-keuring-drie.md`: ingezoomde winkelkaarten v4 en een keuzemarkering in de sea log. (verwerkt 11 nov 10:45 NL: winkelkaarten v4 in `ontwerp/garmin/winkel4/` (scherm 66 procent, zee in plaats van zwart, kop wit met geel woord, vijf gekozen plus extra Calm); keuze in de sea log als belletje; `ebb-blad-v11.md`, bericht Gijs)
