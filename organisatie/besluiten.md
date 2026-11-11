@@ -197,3 +197,6 @@ Ebb-code eerst opruimen (optie A): na het zwarte blok één gedeelde tekenfuncti
 
 ## 11 nov 10:45 (hoofdchat, Ebb)
 E2e-eis 11 (cijfers tijdens inhouden 30 procent van het scherm) wordt 25 procent, omdat het eigen dier 90 x 70 voorgaat (besluit 09:30).
+
+## 11 nov 11:14 (Thijs)
+Pauze: het gebruik staat op 99 procent. Geen nieuwe rondes tot Thijs zegt dat we verdergaan. Stand Ebb: alle keuringscijfers 7 (bouw 6), open punten in ontwerp/garmin/ebb-bouw-6-keuring-drie.md. Herstart: eerst een keuring van wat Gijs en Mila in hun laatste run deden, dan verder volgens dat bestand.
