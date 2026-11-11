@@ -319,3 +319,18 @@
 1. Af: startscherm, inhouden, ademen, herstel, today, 8 weeks, veiligheid, startcheck en uitleg in de stijl van blad v6; Lobster, tempo, teksten; groen op negen voor 5f47d8a en a88f82d.
 2. Open: uitslag en beelden van 6748171 (menu, uitleg, startcheck, inhouden) meten op 260, 390, 416, 454; settings als eigen scherm met "Ebb makes no sound"; eindschermen 6b, 6c, 6d.
 3. Volgende run: beelden van 6748171 nakijken en meten, dan settings en de eindschermen.
+
+
+## 11 nov 2026 01:31 UTC (Gijs, zesentwintigste run, nachtronde hoofdchat 01:58 NL: bouwen naar blad v6)
+- De acht punten "Voor Gijs" stonden grotendeels al uit run 25. Deze run: testbeelden van elk scherm en de keuring door Daan klaarzetten.
+- 8cd0071 en 1bc3d89: de plaatjesbouw toont nu 16 stilgezette scènes (vier holds, sea log, today, 8 weeks, rustig, herstel, ademen, startscherm, uitleg, startcheck, drie veiligheidsbladen) op fr255, vivoactive5, fr265 en fenix847mm. Run 42940068457: alle 64 beelden staan op `schermen/garmin-adem/plaatjes/`.
+- GEZIEN op alle vier maten: zee per stand donkerder, "time to breathe" met trilteken op 3:04, juiste knopnaam ("top button to breathe" op vivoactive 5), today en 8 weeks gecentreerd, veiligheid letterlijk. Fout: "big breath in, hold" liep door de rand op 390 en 454; hersteld (kleinere letter als hij niet past).
+- 07e7ca3: vaste regel "Ebb makes no sound" in de instellingen.
+- Uitslag: 6748171 groen op negen (run 42939485112), b8918fe groen op negen (run 42938098428).
+- Meetscript: geeft op schermen met zee tot de rand "uiterst 0,99" (de zee telt mee); niet bruikbaar zo. Met het oog nagekeken.
+- Daan heeft in `berichten/daan.md` de lijst met beelden die klaar zijn en wat nog niet.
+
+**In drie regels:**
+1. Af: testbeelden van elk v6-scherm op 260, 390, 416 en 454; groen op negen; Daan ingelicht.
+2. Open: meetscript alleen tekst laten meten, instellingen en rustig ademen in de stijl van v6, eindschermen 6b, 6c, 6d, dieren na keuring v7.
+3. Volgende run: beelden van de laatste commit nakijken (herstelkop), meetscript, dan instellingen.
