@@ -108,30 +108,16 @@ module EbbProfiel {
         return uit;
     }
 
-    // Index van de dag met de hoogste beste tijd (de laatste bij gelijk, zodat een nieuw record rechts staat), of -1.
-    function hoogsteDag(lijn as Array<Array<Number> or Null>) as Number {
-        var j = -1;
-        for (var i = 0; i < lijn.size(); i += 1) {
-            var g = lijn[i];
-            if (g != null && (j < 0 || g[0] >= (lijn[j] as Array<Number>)[0])) {
-                j = i;
-            }
-        }
-        return j;
-    }
-
     // Besluit 22:53: geen dieren meer op inhoudtijd. Tijdens het inhouden zwemt je gezelschap (een dier dat je al hebt)
     // rustig voorbij in een vaste cyclus van 20 s: 16 s in beeld, 4 s weg. Hoe lang je inhoudt verandert er niets aan.
     const CYCLUS_MS = 20000;
     const IN_BEELD_MS = 16000;
 
     // Plek van het dier in de cyclus, 0.0 (rechts erin) tot 1.0 (links eruit), of -1.0 als het even weg is.
-    // Blad v5 (Mila T2): de zee wordt elke 30 s inhouden een stand donkerder (0 tot 5); vanaf 3:00 terug naar
-    // stand 4, iets lichter, zodat het water nooit aanmoedigt om langer te gaan.
+    // Blad v5 (Mila T2) met het besluit van de hoofdchat (keuring v5, 11 nov 00:55): de zee wordt elke 30 s inhouden
+    // een stand donkerder tot 2:30 (stand 5) en blijft daarna gelijk. Niet lichter na 3:00: dan zou de kleur een
+    // verborgen doel zijn. Het seintje na 3:00 is tekst, trilteken en buzz, niet de kleur.
     function zeeStand(sec as Number) as Number {
-        if (sec >= 180) {
-            return 4;
-        }
         var s = sec / 30;
         return s > 5 ? 5 : (s < 0 ? 0 : s);
     }
@@ -206,8 +192,10 @@ module EbbTrouw {
     const DAGSES = "trDagSes";     // sessies vandaag (voor de grens van 2 per dag)
     const MAX_PER_DAG = 2;         // keuring G2: voor de dieren tellen hoogstens 2 sessies per dag
 
-    // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie.
-    // Zelfde dag: gelijk. De dag erna: plus één. Later (of de klok terug): opnieuw 1.
+    // Nieuwe reeks na een sessie op dag, gegeven de dag en reeks van de vorige sessie. De reeks telt dagen mét een
+    // sessie; één rustdag ertussen mag (besluit hoofdchat 11 nov 00:55: een reeks breekt pas na 2 lege dagen).
+    // Zelfde dag: gelijk. De dag erna of na één rustdag: plus één. Later (of de klok terug): opnieuw 1.
+    const RUSTDAGEN = 1;
     function volgendeReeks(vorigeDag as Number, reeks as Number, dag as Number) as Number {
         if (reeks <= 0) {
             return 1;
@@ -215,7 +203,7 @@ module EbbTrouw {
         if (dag == vorigeDag) {
             return reeks;
         }
-        if (dag == vorigeDag + 1) {
+        if (dag > vorigeDag && dag <= vorigeDag + 1 + RUSTDAGEN) {
             return reeks + 1;
         }
         return 1;
@@ -274,10 +262,10 @@ module EbbTrouw {
         return [sessies, reeks, beste, getal(PAUZE)] as Array<Number>;
     }
 
-    // De reeks zoals die vandaag telt: na een gemiste dag is hij voorbij (0), ook zonder nieuwe sessie.
+    // De reeks zoals die vandaag telt: na 2 lege dagen is hij voorbij (0), ook zonder nieuwe sessie.
     function reeksOp(vandaag as Number) as Number {
         var dag = getal(DAG);
-        return (vandaag == dag || vandaag == dag + 1) ? getal(REEKS) : 0;
+        return (vandaag >= dag && vandaag <= dag + 1 + RUSTDAGEN) ? getal(REEKS) : 0;
     }
 
     // De 24 dieren voor trouw (besluit 22:53, lijst van blad v4.1 van Mila). Per dier [naam, soort, drempel]:
@@ -296,6 +284,21 @@ module EbbTrouw {
         ["Narwhal", 0, 36], ["Giant squid", 0, 42], ["Sea cucumber", 2, 7], ["Whale", 0, 50]
     ] as Array<Array>;
     const ZEEKOMKOMMER = 22;
+    // Besluit hoofdchat 11 nov 00:55: de zeekomkommer is een bonus. Hij telt niet mee in "x of N", zodat je alle
+    // gewone dieren haalt zonder ooit te stoppen. Hij staat nog op nummer 22 omdat de tekeningen zo genummerd zijn.
+    function bonus(i as Number) as Boolean {
+        return i == ZEEKOMKOMMER;
+    }
+
+    // Aantal gewone dieren (zonder bonus), voor "x of N" in de sea log.
+    function totaal() as Number {
+        return DIEREN.size() - 1;
+    }
+
+    // Gevonden gewone dieren (zonder bonus).
+    function aantalGewoon() as Number {
+        return aantal() - (heeft(ZEEKOMKOMMER) ? 1 : 0);
+    }
     const LAATST = "trLaatst";   // nummer van het laatst gevonden dier
     const GEKOZEN = "trGekozen"; // dier dat je in de sea log koos ("swims with you", blad v5 8c)
     const BITS = "trDieren";
@@ -367,7 +370,7 @@ module EbbTrouw {
         var r = DIEREN[i];
         var n = r[2] as Number;
         if ((r[1] as Number) == SOORT_PAUZE) {
-            return "back after a break";
+            return "bonus";   // besluit 00:55: "comes after a break" weg; hij blijft een verrassing bij je terugkeer
         }
         if ((r[1] as Number) == SOORT_REEKS) {
             return n + "-day streak";

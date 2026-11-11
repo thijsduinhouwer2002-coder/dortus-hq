@@ -506,7 +506,7 @@ class EbbView extends WatchUi.View {
             EbbTeken.bellen(dc, d, [[0.22, 0.20, 0.022], [0.30, 0.12, 0.014], [0.50, 0.08, 0.018],
                 [0.70, 0.13, 0.012], [0.78, 0.22, 0.020]] as Array<Array<Float> >);
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
-            klein = "hold · recover";
+            klein = "big breath in, hold";   // keuring v5 G1: zeg wat je doet
             yGroot = 0.30;
             yKlein = 0.66;
         } else {
@@ -586,8 +586,8 @@ class EbbView extends WatchUi.View {
     }
 
     // Eis 7: duikprofiel na de sessie (schets Mila scherm 4): oppervlakte op 32%, per ronde een V tot evenredige
-    // diepte (diepste tot 70%), vlakken in oplopende tint, schuimlijn erover; stip bij de diepste met de tijd links;
-    // de stip in lichtgeel en onderaan het aantal rondes (geen "new best" meer, keuring G1).
+    // diepte (diepste tot 70%), vlakken in één tint, schuimlijn erover, onderaan het aantal rondes.
+    // Keuring v5 G1: geen stip en geen tijd meer bij de langste ronde (geen nadruk op het record).
     function tekenProfiel(dc as Graphics.Dc, d as Number) as Void {
         var t = sessie.inhoudtijden;
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
@@ -613,15 +613,6 @@ class EbbView extends WatchUi.View {
             dc.drawLine(a[0], a[1], tip[0], tip[1]);
             dc.drawLine(tip[0], tip[1], b[0], b[1]);
         }
-        var j = EbbProfiel.diepste(t);
-        var diep = p[2 * j + 1];
-        var kleur = EbbTeken.LICHT;
-        var r = (d * 0.022).toNumber();
-        dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(diep[0], diep[1], r > 3 ? r : 3);
-        var s = t[j] / 1000;
-        dc.drawText(diep[0] - (r * 16) / 10 - (d * 0.02).toNumber(), diep[1], Graphics.FONT_SMALL, (s / 60).toString() + ":" + (s % 60).format("%02d"),
-            Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.80).toNumber(), Graphics.FONT_XTINY, t.size() + " rounds", Graphics.TEXT_JUSTIFY_CENTER);
     }
@@ -645,8 +636,8 @@ class EbbView extends WatchUi.View {
         return EbbProfiel.getijden(new EbbOpslag(), vandaag());
     }
 
-    // Scherm 5 (schets Mila, tij-stijl.md): golvende lijn door je beste tijd per dag, het gemiddelde als
-    // lichte schaduw eronder, gaten waar je niet ademde, weekstreepjes op de bodem, koraal bij je hoogste dag.
+    // Scherm 5 (schets Mila, tij-stijl.md): het gemiddelde per dag als vlak met een lijn erover, gaten waar je
+    // niet ademde, weekstreepjes op de bodem. Keuring v5 G1: geen lijn door de beste tijd per dag meer.
     function tekenGetij(dc as Graphics.Dc, d as Number) as Void {
         dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.12).toNumber(), Graphics.FONT_XTINY, "8 weeks", Graphics.TEXT_JUSTIFY_CENTER);
@@ -692,7 +683,7 @@ class EbbView extends WatchUi.View {
             if (x > x0 + w) { x = x0 + w; }
             dc.drawLine(x, bodem, x, bodem + d / 40);
         }
-        // Lijn door de beste tijden, onderbroken bij een gat.
+        // Lijn over het gemiddelde, onderbroken bij een gat.
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(d / 80 > 2 ? d / 80 : 2);
         var dagen = 0;
@@ -702,16 +693,15 @@ class EbbView extends WatchUi.View {
                 dagen += 1;
                 if (i > 0 && p[i - 1] != null) {
                     var v = p[i - 1] as Array<Number>;
-                    dc.drawLine(v[0], v[1], q[0], q[1]);
+                    dc.drawLine(v[0], v[2], q[0], q[2]);
                 } else if (i + 1 >= p.size() || p[i + 1] == null) {
-                    dc.fillCircle(q[0], q[1], d / 110 > 2 ? d / 110 : 2);
+                    dc.fillCircle(q[0], q[2], d / 110 > 2 ? d / 110 : 2);
                 }
             }
         }
-        var j = EbbProfiel.hoogsteDag(lijn);
-        if (j < 0) {
+        if (dagen == 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(d / 2, (d * 0.44).toNumber(), Graphics.FONT_SMALL, "no dives yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(d / 2, (d * 0.44).toNumber(), Graphics.FONT_SMALL, "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
         }
         // Keuring G1 en P5: geen record ("best") en geen koraalstip meer; onderaan het gemiddelde over 8 weken.

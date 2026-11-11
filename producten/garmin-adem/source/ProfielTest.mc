@@ -80,10 +80,7 @@ function testGetijPunten(logger as Test.Logger) as Boolean {
         && a[0] == 10 && a[1] == 150 && a[2] == 167
         && c[0] == 210 && c[1] == 100 && c[2] == 125
         && e[0] == 310 && e[1] == 125 && e[2] == 125
-        && leeg[0] == null && leeg[1] == null
-        && EbbProfiel.hoogsteDag(lijn) == 2
-        && EbbProfiel.hoogsteDag([[50, 50], [50, 40]] as Array<Array<Number> or Null>) == 1
-        && EbbProfiel.hoogsteDag([null] as Array<Array<Number> or Null>) == -1;
+        && leeg[0] == null && leeg[1] == null;
 }
 
 // Besluit 22:53: het dier tijdens het inhouden hangt niet af van de inhoudtijd; het zwemt in een vaste cyclus van 20 s.
@@ -111,11 +108,12 @@ function testDierenVoorTrouw(logger as Test.Logger) as Boolean {
     // Na 6 dagen zonder geen zeekomkommer; na 7 dagen zonder wel.
     var zes = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(109));           // dag 103 t/m 108 zonder: 6 dagen, geen zeekomkommer; 6 sessies: zeepaardje
     var zeven = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(117));         // dag 110 t/m 116 zonder: 7 dagen
-    var gehouden = EbbTrouw.aantal() == 7;
+    var gehouden = EbbTrouw.aantal() == 7 && EbbTrouw.aantalGewoon() == 6 && EbbTrouw.totaal() == 23
+        && EbbTrouw.bonus(22) && !EbbTrouw.bonus(23);
     var alles = EbbTrouw.verdiend(50, 7, 1) == (1 << 24) - 1 && EbbTrouw.verdiend(50, 7, 0) != (1 << 24) - 1
         && EbbTrouw.verdiend(49, 7, 1) != (1 << 24) - 1 && EbbTrouw.verdiend(50, 6, 1) != (1 << 24) - 1;
     var tekst = EbbTrouw.hoe(3).equals("3-day streak") && EbbTrouw.hoe(23).equals("50 sessions")
-        && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(22).equals("back after a break");
+        && EbbTrouw.hoe(0).equals("1 session") && EbbTrouw.hoe(22).equals("bonus");
     logger.debug("eerste " + eerste + " tweede " + tweede + " zelfde " + zelfde + " derde " + derde + " zes " + zes + " zeven " + zeven);
     EbbTrouw.wis();
     return lijst && geen && eerste.size() == 1 && eerste[0] == 0 && tweede.size() == 1 && tweede[0] == 1 && wacht
@@ -195,21 +193,25 @@ function testTrouwTellers(logger as Test.Logger) as Boolean {
     var t = EbbTrouw.naSessie(102);  // drie dagen op rij
     var drie = t[0] == 4 && t[1] == 3 && t[2] == 3;
     var vandaagNog = EbbTrouw.reeksOp(103) == 3;
-    var voorbij = EbbTrouw.reeksOp(104) == 0;
-    var g = EbbTrouw.naSessie(105);  // gat: opnieuw 1, beste blijft 3
+    var rustdag = EbbTrouw.reeksOp(104) == 3;          // besluit 00:55: één rustdag mag
+    var voorbij = EbbTrouw.reeksOp(105) == 0;          // twee lege dagen: voorbij
+    var g = EbbTrouw.naSessie(106);  // gat van 3 dagen: opnieuw 1, beste blijft 3
     var gat = g[0] == 5 && g[1] == 1 && g[2] == 3;
-    var terug = EbbTrouw.volgendeReeks(200, 4, 190) == 1;
-    logger.debug("na drie " + t + ", na gat " + g);
+    var r = EbbTrouw.naSessie(108);  // na één rustdag: 2
+    var naRust = r[1] == 2;
+    var terug = EbbTrouw.volgendeReeks(200, 4, 190) == 1 && EbbTrouw.volgendeReeks(200, 4, 202) == 5
+        && EbbTrouw.volgendeReeks(200, 4, 203) == 1;
+    logger.debug("na drie " + t + ", na gat " + g + ", na rustdag " + r);
     EbbTrouw.wis();
-    return drie && vandaagNog && voorbij && gat && terug;
+    return drie && vandaagNog && rustdag && voorbij && gat && naRust && terug;
 }
 
-// Blad v5 T2: elke 30 s een stand donkerder, hoogstens 5; vanaf 3:00 terug naar 4. Zes standen met banden.
+// Blad v5 T2 met besluit 00:55: elke 30 s een stand donkerder tot 2:30 (stand 5), daarna gelijk. Zes standen met banden.
 (:test)
 function testZeeStand(logger as Test.Logger) as Boolean {
     return EbbProfiel.zeeStand(0) == 0 && EbbProfiel.zeeStand(29) == 0 && EbbProfiel.zeeStand(30) == 1
         && EbbProfiel.zeeStand(105) == 3 && EbbProfiel.zeeStand(150) == 5 && EbbProfiel.zeeStand(179) == 5
-        && EbbProfiel.zeeStand(180) == 4 && EbbProfiel.zeeStand(400) == 4
+        && EbbProfiel.zeeStand(180) == 5 && EbbProfiel.zeeStand(400) == 5
         && EbbProfiel.ZEE.size() == 6 && EbbProfiel.amoledHelderheid(5) == 50;
 }
 
