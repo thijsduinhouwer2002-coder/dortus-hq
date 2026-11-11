@@ -9,6 +9,7 @@ import Toybox.WatchUi;
 class DierenView extends WatchUi.View {
     var keuze as Number = 0;
     const PER_BLAD = 9;
+    const NIEUW_PER_BEURT = 3;
 
     function initialize() {
         View.initialize();
@@ -62,6 +63,10 @@ class DierenView extends WatchUi.View {
         var maat = (d * 0.078).toNumber();
         var gekozenY = 0;
         var gekozenX = 0;
+        // Keuring bouw 2 punt 1: hoogstens NIEUW_PER_BEURT nieuwe plaatjes per tekenbeurt, de rest in de volgende beurt
+        // (elke beurt krijgt een eigen watchdog). Klaar staande plaatjes kosten bijna niets.
+        var nieuw = 0;
+        var later = false;
         for (var k = 0; k < PER_BLAD; k += 1) {
             var i = blad * PER_BLAD + k;
             if (i >= EbbTrouw.DIEREN.size()) {
@@ -69,7 +74,17 @@ class DierenView extends WatchUi.View {
             }
             var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
             var y = (d * (0.335 + 0.14 * (k / 3))).toNumber();
-            if (EbbTrouw.heeft(i)) {
+            var soort = EbbTrouw.heeft(i) ? 0 : 1;
+            if (!EbbDierData.klaar(i, maat, soort)) {
+                if (nieuw >= NIEUW_PER_BEURT) {
+                    later = true;
+                } else {
+                    nieuw += 1;
+                }
+            }
+            if (later && !EbbDierData.klaar(i, maat, soort)) {
+                // komt in de volgende beurt
+            } else if (soort == 0) {
                 EbbDierData.teken(dc, i, x, y, maat, -1);
             } else {
                 EbbDierData.silhouet(dc, i, x, y, maat);
@@ -100,6 +115,9 @@ class DierenView extends WatchUi.View {
             var kleur = (b == blad) ? EbbTeken.SCHUIM : EbbTeken.ZEE_KLEUR[0];
             dc.setColor(kleur, kleur);
             dc.fillCircle(w / 2 + (b - (n - 1) / 2.0) * stap, (d * 0.875).toNumber(), rb);
+        }
+        if (later) {
+            WatchUi.requestUpdate();
         }
     }
 }

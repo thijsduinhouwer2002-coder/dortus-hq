@@ -65,12 +65,18 @@ jobs:
             /tmp/uit/bouw.log
 
   # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
+  # Keuring bouw 2 punt 3: één job per horloge (8 x 22 scènes paste niet in 40 minuten), elk ±10 minuten.
   plaatjes:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 25
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965]
     env:
+      D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
       APP: producten/garmin-adem
     steps:
@@ -92,7 +98,7 @@ jobs:
           sleep 2
           # Nachtronde 11 nov: testbeelden van elk scherm op 260 (fr255), 390 (vivoactive5), 416 (fr265) en 454 (fenix847mm).
           # Daan D8: ook Venu 2, Venu 3, epix 2 pro en FR965.
-          for d in fenix847mm fr265 vivoactive5 fr255 venu2 venu3 epix2pro47mm fr965; do
+          for d in $D; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
             for k in $(seq 0 21); do
@@ -103,7 +109,10 @@ jobs:
               kill "$MD" 2>/dev/null || true; sleep 3
               cat "/tmp/plaatje-$d-$k.log"
             done
+            cp /tmp/sim.log "/tmp/sim-$d.log" 2>/dev/null || true
           done
+          # Keuring bouw 2 punt 2: een crash (watchdog of fout) in een scène maakt de run rood (stap "Geen crash").
+          grep -iE "watchdog|app crash|unhandled exception|out of memory" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D.txt || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
           NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d"
@@ -115,27 +124,34 @@ jobs:
           done
           # Winkelmaat: hoogstens 500 px hoog en onder 150 KB (Connect IQ-winkel), minder kleuren zonder zichtbaar verlies.
           SH
-          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
+          docker run --rm --entrypoint bash -e D="$D" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
           ls -la "$APP/plaatjes"
       - name: Poster en winkelmaat (zonder simulatorbalken, onder 150 KB)
         run: |
           python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
-          python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"
+          if [ -f "$APP/plaatjes/fenix847mm-scene0.png" ]; then python3 "$APP/bron/maak_poster.py" "$APP/plaatjes/fenix847mm-scene0.png" "$APP/plaatjes/winkel-0-poster.png"; fi
           for f in "$APP"/plaatjes/*-scene*.png; do python3 "$APP/bron/maak_winkel.py" "$f" "$APP/plaatjes/winkel-$(basename "$f")"; done
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: ebb-plaatjes
+          name: ebb-plaatjes-${{ matrix.horloge }}
           path: producten/garmin-adem/plaatjes
+      - name: Geen crash
+        run: |
+          if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH in de scènes op $D"; exit 1; fi
+          echo "geen crash op $D"
 
   plaatjes-openbaar:
     needs: plaatjes
+    if: always()
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: ebb-plaatjes
+          pattern: ebb-plaatjes-*
+          merge-multiple: true
           path: plaatjes
       - name: Naar tak schermen (garmin-adem/plaatjes)
         env:
