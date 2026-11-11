@@ -650,7 +650,8 @@ class EbbView extends WatchUi.View {
                 EbbDierData.teken(dc, gezelschap, w / 2, yDier, (d * 0.05).toNumber(), -1);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
-            EbbTeken.hartRonde(dc, d, yRegel, EbbOpname.hartslag(), sessie.ronde + 1);
+            // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.
+            EbbTeken.hartRonde(dc, d, yRegel, EbbBouw.PLAATJE ? 61 : EbbOpname.hartslag(), sessie.ronde + 1);
         } else if (fase == Ebb.FASE_HERSTEL) {
             // Blad v6 scherm 4 (herstel): de zon komt op achter de zee (W0, W1, W2), bovenaan "big breath in, hold",
             // groot de seconden met een kleine "s", onderaan "round 2 held 1:45".
