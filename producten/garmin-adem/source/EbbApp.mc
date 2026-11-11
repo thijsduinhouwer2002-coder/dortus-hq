@@ -91,7 +91,7 @@ class EbbApp extends Application.AppBase {
                 return [dv, new DierenDelegate(dv)];
             }
             if (k == 7) {
-                var rv = new RustigView(Ebb.patronen()[1], EbbStart.CALM_NAAM);
+                var rv = new RustigView(Ebb.calm(), EbbStart.CALM_NAAM);
                 // Stilgezet 0,53 s in de fase "in": het getal staat boven de golf (run 42868087287).
                 rv.plaatjeMs = 530;
                 zetRustig(rv);
@@ -179,6 +179,8 @@ class EbbApp extends Application.AppBase {
             return [view, new EbbDelegate(view)];
         }
         if (!EbbBouw.DEMO) {
+            // Keuring bouw 3 punt 10: oude reeks in dagen één keer wissen (opslagversie 2).
+            EbbTrouw.werkOpslagBij();
             EbbTrillen.aan = EbbInstellingen.trillen();
             if (EbbVeilig.moetTonen()) {
                 var vv = new VeiligView();
@@ -327,7 +329,7 @@ class StartCheckView extends WatchUi.View {
     function zetCalm() as Void {
         calm = true;
         blad = 1;
-        rustPatroon = Ebb.patronen()[1];
+        rustPatroon = Ebb.calm();
         rustNaam = EbbStart.CALM_NAAM;
     }
 
@@ -451,7 +453,7 @@ class EbbView extends WatchUi.View {
     // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
     var plaatjeMs as Number = -1;
     var plaatjeFase as Ebb.Fase = Ebb.FASE_INHOUDEN;
-    // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
+    // Na de sessie: today en 8 weeks (getij = true) wisselen met de knoppen.
     var getij as Boolean = false;
     // Keuring bouw 1 punt 7: eerst het eindscherm (6b met nieuw dier, 6c zonder), daarna today en 8 weeks.
     var einde as Boolean = false;
@@ -592,7 +594,7 @@ class EbbView extends WatchUi.View {
                 einde = true;
             }
         }
-        // Testbouw: 15 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding d.
+        // Testbouw: 15 s na het today vanzelf naar 8 weeks, voor de schermafbeelding d.
         if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 15000) {
             getij = true;
             System.println("GETIJ getoond, klaar na " + (_klaarSinds - _startTijd) + " ms");
@@ -770,7 +772,7 @@ class EbbView extends WatchUi.View {
             }
             yKlein = ONDER_MIDDEN - dc.getFontHeight(Graphics.FONT_XTINY).toFloat() / d / 2;
         } else {
-            // 4. Duikprofiel, of 5. getijdenlijn.
+            // Na de sessie: eindscherm, 8 weeks of today.
             if (einde) {
                 tekenEinde(dc, d);
             } else if (getij) {

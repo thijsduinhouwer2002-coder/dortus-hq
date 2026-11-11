@@ -15,46 +15,6 @@ function testHoogstensTweePerDag(logger as Test.Logger) as Boolean {
     return a[0] == 1 && b[0] == 2 && c[0] == 2 && dd[0] == 3 && lijst == 4;
 }
 
-// Getijdenlijn na 8 weken nagebootste gegevens met overgeslagen dagen: 56 dagen, gaten waar geen sessie was.
-(:test)
-function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
-    EbbOpslag.wis();
-    var o = new EbbOpslag();
-    // Keuring bouw 3 punt 11: weken van maandag tot zondag. 20404 is een woensdag (was 20402, een maandag: dan viel
-    // "deze week, drie dagen" over twee weken). Zondag 20401 telt in de vorige week.
-    var vandaag = 20404;
-    var sessies = 0;
-    for (var d = vandaag - 70; d <= vandaag; d += 1) {
-        if (d % 3 != 0) {
-            o.voegToe(d, 60 + (d % 50));
-            sessies += 1;
-        }
-    }
-    var lijn = EbbProfiel.getijden(o, vandaag);
-    var gaten = 0;
-    var fout = 0;
-    for (var i = 0; i < lijn.size(); i += 1) {
-        var d = vandaag - 55 + i;
-        var g = lijn[i];
-        if (g == null) {
-            gaten += 1;
-            if (d % 3 != 0) { fout += 1; }
-        } else if (d % 3 == 0 || g[0] != 60 + (d % 50)) {
-            fout += 1;
-        }
-    }
-    logger.debug("dagen " + lijn.size() + ", gaten " + gaten + ", fout " + fout);
-    EbbOpslag.wis();
-    return lijn.size() == 56 && gaten == 18 && fout == 0;
-}
-
-// Besluit 22:53: het dier tijdens het inhouden hangt niet af van de inhoudtijd; het zwemt in een vaste cyclus van 20 s.
-(:test)
-function testZwemZonderBeloning(logger as Test.Logger) as Boolean {
-    return EbbProfiel.zwem(0) == 0.0 && EbbProfiel.zwem(8000) == 0.5 && EbbProfiel.zwem(16000) == -1.0
-        && EbbProfiel.zwem(20000) == 0.0 && EbbProfiel.zwem(188000) == 0.5;
-}
-
 // Dieren voor trouw: 24 stuks, elk één keer, hoogstens één nieuw per sessie (de rest wacht), alleen bij het afsluiten
 // van een sessie, beste reeks telt (blad v4.1).
 (:test)
@@ -220,4 +180,41 @@ function testVolgendDier(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
     return leeg[0] == 0 && leeg[1] == 1 && na1[0] == 1 && na1[1] == 1 && klaar[0] == 1 && klaar[1] == 0
         && reeks[0] == 2 && reeks[1] == 0;
+}
+
+// Keuring bouw 3 punt 10: het weekdoel midden in de week wisselen geeft geen tweede week en slaat er geen over.
+(:test)
+function testWeekdoelWisselen(logger as Test.Logger) as Boolean {
+    // Doel 3, drie sessies: 1 week. Dan doel 4 en een vierde sessie: blijft 1 (was 2).
+    var a = EbbTrouw.weekStap(20, 0, false, 0, 20, 3, true);
+    a = EbbTrouw.weekStap(20, a[1], a[2] == 1, a[0], 20, 3, true);
+    a = EbbTrouw.weekStap(20, a[1], a[2] == 1, a[0], 20, 3, true);
+    var naDrie = a[0] == 1 && a[2] == 1;
+    a = EbbTrouw.weekStap(20, a[1], a[2] == 1, a[0], 20, 4, true);
+    var geenDubbel = a[0] == 1 && a[1] == 4;
+    // Doel 4, drie sessies: 0. Dan doel 2 en een vierde sessie: telt nu wel (was 0, want 4 == 2 kwam nooit).
+    var b = [0, 3, 0] as Array<Number>;
+    b = EbbTrouw.weekStap(30, b[1], b[2] == 1, b[0], 30, 2, true);
+    var telt = b[0] == 1 && b[2] == 1;
+    // Nieuwe week: vlag weer uit, reeks blijft omdat de vorige week gehaald was.
+    var c = EbbTrouw.weekStap(30, b[1], b[2] == 1, b[0], 31, 2, true);
+    var nieuweWeek = c[0] == 1 && c[1] == 1 && c[2] == 0;
+    logger.debug("a " + a + " b " + b + " c " + c);
+    return naDrie && geenDubbel && telt && nieuweWeek;
+}
+
+// Keuring bouw 3 punt 10: oude opslag (reeks en beste in dagen) wordt één keer gewist, daarna niet meer.
+(:test)
+function testOpslagVersieWistDagenReeks(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    EbbInstellingen.wis();
+    Application.Storage.setValue(EbbTrouw.REEKS, 12);
+    Application.Storage.setValue(EbbTrouw.BESTE, 30);
+    var eerst = EbbTrouw.werkOpslagBij();
+    var weg = EbbTrouw.getal(EbbTrouw.REEKS) == 0 && EbbTrouw.getal(EbbTrouw.BESTE) == 0;
+    Application.Storage.setValue(EbbTrouw.BESTE, 2);
+    var tweede = EbbTrouw.werkOpslagBij();
+    var blijft = EbbTrouw.getal(EbbTrouw.BESTE) == 2;
+    EbbTrouw.wis();
+    return eerst && weg && !tweede && blijft;
 }

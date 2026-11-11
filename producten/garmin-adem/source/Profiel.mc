@@ -1,17 +1,8 @@
 import Toybox.Application;
 import Toybox.Lang;
 
-// Eis 7 en 8: rekenwerk voor duikprofiel, getijdenlijn, record en dieren, los van het tekenen zodat het te toetsen is.
+// Rekenwerk voor 8 weeks, de zee tijdens het inhouden en de dieren, los van het tekenen zodat het te toetsen is.
 module EbbProfiel {
-    // Getijdenlijn: 56 dagen, oudste eerst, eindigend op vandaag. Per dag [gemiddelde] of null (gat).
-    function getijden(opslag as EbbOpslag, vandaag as Number) as Array<Array<Number> or Null> {
-        var lijn = [] as Array<Array<Number> or Null>;
-        for (var d = vandaag - EbbOpslag.DAGEN + 1; d <= vandaag; d += 1) {
-            var g = opslag.dag(d);
-            lijn.add(g == null ? null : [g[0]] as Array<Number>);
-        }
-        return lijn;
-    }
 
     // 8 weeks (besluit 22:53, punt 6, blad v4.1 scherm 7): per week, oudste eerst, eindigend met de week tot en met
     // vandaag, [gemiddelde inhoudtijd in s over alle inhoudingen, aantal opgeslagen sessies, aantal inhoudingen].
@@ -45,12 +36,6 @@ module EbbProfiel {
         return uit;
     }
 
-    // Besluit 22:53: geen dieren meer op inhoudtijd. Tijdens het inhouden zwemt je gezelschap (een dier dat je al hebt)
-    // rustig voorbij in een vaste cyclus van 20 s: 16 s in beeld, 4 s weg. Hoe lang je inhoudt verandert er niets aan.
-    const CYCLUS_MS = 20000;
-    const IN_BEELD_MS = 16000;
-
-    // Plek van het dier in de cyclus, 0.0 (rechts erin) tot 1.0 (links eruit), of -1.0 als het even weg is.
     // Blad v5 (Mila T2) met het besluit van de hoofdchat (keuring v5, 11 nov 00:55): de zee wordt elke 30 s inhouden
     // een stand donkerder tot 2:30 (stand 5) en blijft daarna gelijk. Niet lichter na 3:00: dan zou de kleur een
     // verborgen doel zijn. Het seintje na 3:00 is tekst, trilteken en buzz, niet de kleur.
@@ -72,14 +57,6 @@ module EbbProfiel {
     // AMOLED: bovenop de banden het hele water 10 procent donkerder per stand (in procenten helderheid).
     function amoledHelderheid(stand as Number) as Number {
         return 100 - 10 * stand;
-    }
-
-    function zwem(ms as Number) as Float {
-        var p = ms % CYCLUS_MS;
-        if (p >= IN_BEELD_MS) {
-            return -1.0;
-        }
-        return p.toFloat() / IN_BEELD_MS;
     }
 
 }
@@ -130,6 +107,23 @@ module EbbTrouw {
     const MAX_PER_DAG = 2;         // keuring G2: voor de dieren tellen hoogstens 2 sessies per dag
     const WEEK = "trWeek";         // weeknummer (maandag tot zondag) van de laatste sessie
     const WEEKSES = "trWeekSes";   // tellende sessies in die week
+    const WEEKGEH = "trWeekGeh";   // keuring bouw 3 punt 10: 1 als het weekdoel deze week al een week opleverde
+    const VERSIE = "trVersie";     // opslagversie; 2 = reeks in weken (oude trReeks en trBeste waren dagen)
+    const OPSLAG_VERSIE = 2;
+
+    // Keuring bouw 3 punt 10: oude opslag één keer bijwerken. De reeks en beste reeks waren dagen en zijn nu weken;
+    // bewaard laten zou dieren op weken geven voor dagen. Geeft true als er gewist is.
+    function werkOpslagBij() as Boolean {
+        if (getal(VERSIE) >= OPSLAG_VERSIE) {
+            return false;
+        }
+        var oud = Application.Storage.getValue(REEKS) != null || Application.Storage.getValue(BESTE) != null;
+        Application.Storage.deleteValue(REEKS);
+        Application.Storage.deleteValue(BESTE);
+        Application.Storage.setValue(WEEKGEH, getal(WEEKSES) >= weekdoel() ? 1 : 0);
+        Application.Storage.setValue(VERSIE, OPSLAG_VERSIE);
+        return oud;
+    }
 
     // Besluit hoofdchat 11 nov 04:30 (keuring bouw 2, besluit 1): de reeks telt weken op rij waarin je je weekdoel
     // haalde (standaard 3 sessies, instelbaar 2 tot 7). Wie ma, wo, vr ademt breekt zo nooit zijn reeks.
@@ -145,19 +139,29 @@ module EbbTrouw {
     // Na een sessie in week: [reeks, sessies deze week]. Een nieuwe week houdt de reeks alleen als de vorige week
     // direct ervoor zat en het doel haalde. Bij het halen van het doel komt er een week bij.
     function volgendeWeekReeks(vorigeWeek as Number, weekSes as Number, reeks as Number, week as Number, doel as Number, telt as Boolean) as Array<Number> {
+        var r = weekStap(vorigeWeek, weekSes, weekSes >= doel, reeks, week, doel, telt);
+        return [r[0], r[1]] as Array<Number>;
+    }
+
+    // Keuring bouw 3 punt 10: met de vlag "week gehaald" telt een week één keer, ook als je het weekdoel midden in
+    // de week wisselt (van 3 naar 4 na 3 sessies gaf eerst een tweede week; van 4 naar 2 na 3 sessies gaf er geen).
+    // Geeft [reeks, sessies deze week, gehaald (1 of 0)].
+    function weekStap(vorigeWeek as Number, weekSes as Number, gehaald as Boolean, reeks as Number, week as Number, doel as Number, telt as Boolean) as Array<Number> {
         if (week != vorigeWeek) {
-            if (!(week == vorigeWeek + 1 && weekSes >= doel)) {
+            if (!(week == vorigeWeek + 1 && gehaald)) {
                 reeks = 0;
             }
             weekSes = 0;
+            gehaald = false;
         }
         if (telt) {
             weekSes += 1;
-            if (weekSes == doel) {
-                reeks += 1;
-            }
         }
-        return [reeks, weekSes] as Array<Number>;
+        if (weekSes >= doel && !gehaald) {
+            reeks += 1;
+            gehaald = true;
+        }
+        return [reeks, weekSes, gehaald ? 1 : 0] as Array<Number>;
     }
 
     // Sessies die deze week al tellen (voor "2 of 3 this week").
@@ -207,10 +211,12 @@ module EbbTrouw {
         var telt = vandaagAl < MAX_PER_DAG;
         var sessies = getal(SESSIES) + (telt ? 1 : 0);
         Application.Storage.setValue(DAGSES, vandaagAl + 1);
-        var wr = volgendeWeekReeks(getal(WEEK), getal(WEEKSES), getal(REEKS), weekVan(dag), weekdoel(), telt);
+        werkOpslagBij();
+        var wr = weekStap(getal(WEEK), getal(WEEKSES), getal(WEEKGEH) == 1, getal(REEKS), weekVan(dag), weekdoel(), telt);
         var reeks = wr[0];
         Application.Storage.setValue(WEEK, weekVan(dag));
         Application.Storage.setValue(WEEKSES, wr[1]);
+        Application.Storage.setValue(WEEKGEH, wr[2]);
         var beste = getal(BESTE);
         if (reeks > beste) {
             beste = reeks;
@@ -237,7 +243,7 @@ module EbbTrouw {
     function reeksOp(vandaag as Number) as Number {
         var w = weekVan(vandaag);
         var vorige = getal(WEEK);
-        if (w == vorige || (w == vorige + 1 && getal(WEEKSES) >= weekdoel())) {
+        if (w == vorige || (w == vorige + 1 && getal(WEEKGEH) == 1)) {
             return getal(REEKS);
         }
         return 0;
@@ -401,6 +407,8 @@ module EbbTrouw {
         Application.Storage.deleteValue(PAUZE);
         Application.Storage.deleteValue(WEEK);
         Application.Storage.deleteValue(WEEKSES);
+        Application.Storage.deleteValue(WEEKGEH);
+        Application.Storage.deleteValue(VERSIE);
         Application.Storage.deleteValue(SESDAGEN);
         Application.Storage.deleteValue(DAGSES);
     }

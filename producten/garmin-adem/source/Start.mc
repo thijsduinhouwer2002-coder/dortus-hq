@@ -15,7 +15,7 @@ module EbbStart {
         return r + (r == 1 ? " round · " : " rounds · ") + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " breaths";
     }
 
-    // Keuring bouw 2 punt 12: "Box" weg (besluit 2); in het menu staat alleen Calm 4-7-8 (Ebb.patronen()[1]).
+    // Keuring bouw 2 punt 12: "Box" weg (besluit 2); in het menu staat alleen Calm 4-7-8 (Ebb.calm()).
     const CALM_NAAM = "4-7-8";
 
     // Duur van een Calm-sessie: onder 1 minuut in seconden ("45 s"), anders afgerond op minuten ("4 min").

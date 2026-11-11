@@ -43,7 +43,7 @@ class EbbOpslag {
         }
     }
 
-    // [gemiddelde, aantal] voor dag, of null als er die dag geen sessie was (een gat in de getijdenlijn).
+    // [gemiddelde, aantal] voor dag, of null als er die dag geen sessie was (een lege dag).
     function dag(dag as Number) as Array<Number> or Null {
         var o = (dag % DAGEN) * MAAT;
         var n = bytes[o + 10];

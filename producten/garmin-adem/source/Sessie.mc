@@ -239,12 +239,8 @@ module Ebb {
         }
     }
 
-    // De vaste patronen (ontwerp): box 4-4-4-4, 4-7-8, rustig 5,5 in en 5,5 uit.
-    function patronen() as Array<Array<Number> > {
-        return [
-            [4000, 4000, 4000, 4000],
-            [4000, 7000, 8000, 0],
-            [5500, 0, 5500, 0]
-        ] as Array<Array<Number> >;
+    // Keuring bouw 3 punt 15: alleen Calm 4-7-8 staat in de app (Box en 5,5 zijn weg, besluit bouw 2); eigen patronen via My pattern.
+    function calm() as Array<Number> {
+        return [4000, 7000, 8000, 0] as Array<Number>;
     }
 }

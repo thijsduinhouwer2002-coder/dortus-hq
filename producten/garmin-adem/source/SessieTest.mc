@@ -125,8 +125,9 @@ function patroonKlopt(patroon as Array<Number>, logger as Test.Logger) as Boolea
 
 (:test)
 function testRustigVastePatronen(logger as Test.Logger) as Boolean {
-    var p = Ebb.patronen();
-    return patroonKlopt(p[0], logger) && patroonKlopt(p[1], logger) && patroonKlopt(p[2], logger);
+    // Keuring bouw 3 punt 15: Box en 5,5 zijn uit de app; dezelfde vormen blijven getoetst als eigen patroon (My pattern).
+    return patroonKlopt(Ebb.calm(), logger) && patroonKlopt([4000, 4000, 4000, 4000] as Array<Number>, logger)
+        && patroonKlopt([5500, 0, 5500, 0] as Array<Number>, logger);
 }
 
 (:test)
