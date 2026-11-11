@@ -226,3 +226,6 @@ Uitvoering (hoofdchat), in stappen zodat de lat van 8 blijft staan:
 3. Keuren zodra er een nieuwe groene bouw is, door drie frisse beoordelaars (Opus), plus eigen controle van de echte schermen.
 4. Lat: eerst alles 8. Daarna voor uiterlijk, dieren en winkelbeelden 9, gemeten naast de schermen van de best verkopende Connect IQ-ademapps.
 5. Wat de hoofdchat niet kan zien: het verbruik. Raakt de limiet op, dan ligt alles stil tot de reset; Thijs meldt het als het hard gaat.
+
+## 12 nov 00:03 (Thijs): Ebb is prioriteit 1
+Tot Ebb in de winkel staat gaat alle tijd van Gijs en Mila naar Ebb. Ander werk (Steam, Het Hol, overige platformen) wacht, tenzij Ebb op iets buiten hen wacht (lopende test, keuring).

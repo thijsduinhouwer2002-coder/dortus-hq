@@ -134,3 +134,6 @@ Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Volgorde voor jou:
 4. Pas na dat bewijs en een goedgekeurd blad de overige werelden. Winkeltekst en winkelbeelden pas aanpassen als ze in de bouw zitten.
 Geen release bouwen tot de werelden erin zitten en gekeurd zijn.
 (deels verwerkt 11 nov 23:00 UTC: plan en leveringsvorm voor Mila in `platformen/garmin/werelden-techniek-2026-11-11.md`; mechanisme `Wereld.mc` met drie proefwerelden in testscènes 39 tot 41 gepusht (edc0ad7, e9fb33c), nog niet in beeld gezien.)
+
+## 12 nov 00:05 NL (hoofdchat): Ebb is prioriteit 1 (besluit Thijs)
+Alle tijd naar Ebb tot hij in de winkel staat. Volgorde blijft: punten bouw 8, dan het mechanisme voor de werelden (bericht 23:20).

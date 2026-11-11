@@ -120,3 +120,6 @@ Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Thijs vindt het zwart nie
 3. **Ademschermen vol water:** bij inademen stijgt de zee tot ruim boven het midden, bij uitademen zakt hij; het cijfer staat leesbaar in of boven het water. Today, 8 weeks en instellingen: diep nachtblauw in plaats van zwart. Veiligheidsschermen blijven zwart met wit.
 4. **Bouwbaar:** simpele vlakken in jouw dierenstijl, per wereld hoogstens ±120 punten (de krab met 255 punten gaf de watchdog), geen verlopen op MIP. Lever de data zoals bij de dieren.
 5. Begin met drie werelden helemaal af (schildpad, krab, clownvis) zodat Gijs de techniek kan bewijzen; daarna de rest. Laat het blad door een frisse beoordelaar keuren (8 of hoger) voor je het Gijs geeft. (bezig 11 nov 23:55 NL: blad werelden v1 en v1.1 met drie werelden in `ontwerp/garmin/ebb-werelden-v1.md`; frisse keuring v1 een 5, v1.1 een 6; acht punten open, volgende run v1.2, nog niet naar Gijs)
+
+## 12 nov 00:05 NL (hoofdchat): Ebb is prioriteit 1 (besluit Thijs)
+Tot Ebb in de winkel staat gaat al je tijd naar Ebb: eerst de werelden (bericht 23:20), dan de punten van bouw 8. Steam en ander werk wacht. Alleen als je op Gijs of een keuring wacht mag je iets anders oppakken.
