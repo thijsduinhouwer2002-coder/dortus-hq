@@ -515,7 +515,7 @@
 - Run 42996271963 rood: compileerfout (Storage-waarde vergeleken met true). c51411b: met `instanceof Boolean`. Daarna .iq gebouwd voor 40 toestellen, 0 waarschuwingen (run 42996562232).
 - 3754f98: hertekenen alleen als nodig (inhouden als de seconde verspringt, eindscherm bij binnenkomst; dieren uit de voorraad vragen zelf een beurt tot ze af zijn). `px`, `tekst260`, `tekstInRonde` één keer in Teken.mc; REGELS-kaart met Pauze.mc en SeaComplete.mc.
 - e3656ce: Mila v11 belletje in de sea log, scène 33 "back after a break"; winkeltekst v10 (titel "Ebb: Breathing, Breath Hold Rounds & 4-7-8", 42 tekens, "no extra account" in drie talen).
-- d6ec40c: lange naam van een nieuw dier op twee regels, dier tijdens inhouden 10 procent groter.
+- d6ec40c: lange naam van een nieuw dier op twee regels, dier tijdens inhouden 10 procent groter. 29640e0: sea log telt de bonus mee ("24 of 24 + bonus"). Alles gepusht om 09:50; de e2e van c51411b is daardoor gestopt, de nieuwe e2e en plaatjesrun draaien op 29640e0.
 - Venu X1: niet toegevoegd, eerst in de toestelstap nakijken of de SDK in de image `venux1` kent (log kwam afgekapt binnen).
 
 **In drie regels:**
