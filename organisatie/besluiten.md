@@ -218,3 +218,11 @@ Uitvoering (hoofdchat), in stappen zodat de lat van 8 blijft staan:
 3. Techniek eerst bewijzen: Gijs bouwt het mechanisme (wereld één keer als plaatje, via de gedeelde tekenfunctie) met drie werelden en bewijst op FR255 en fenix 7: geen watchdog, geheugen en batterij gemeten. Pas dan de overige.
 4. De open punten van keuring bouw 8 gaan gewoon door; die staan los van de werelden.
 5. Sea log en winkelbeelden tonen daarna de werelden; winkeltekst noemt ze pas als ze in de bouw zitten.
+
+## 11 nov 23:14 (Thijs): hoofdchat stuurt Ebb dagenlang door, zonder stilstand
+"Als jij zegt dat het dagen duurt, verwacht ik dat jij ze dagen lang aanstuurt, het niet stilligt en het niveau naar een insane hoog niveau wordt getild." Afspraak hoofdchat:
+1. Na elke ronde plant de hoofdchat de volgende in (send_later), dag en nacht, tot Ebb in de winkel staat. Geen ronde eindigt zonder een volgende afspraak.
+2. Elke ronde: stilstand opsporen (geen commit van Gijs of Mila in 90 minuten, rode of hangende runs) en meteen oplossen of melden.
+3. Keuren zodra er een nieuwe groene bouw is, door drie frisse beoordelaars (Opus), plus eigen controle van de echte schermen.
+4. Lat: eerst alles 8. Daarna voor uiterlijk, dieren en winkelbeelden 9, gemeten naast de schermen van de best verkopende Connect IQ-ademapps.
+5. Wat de hoofdchat niet kan zien: het verbruik. Raakt de limiet op, dan ligt alles stil tot de reset; Thijs meldt het als het hard gaat.
