@@ -108,3 +108,10 @@ De volledige lijst staat nu in `ontwerp/garmin/ebb-bouw-7-keuring-drie.md`, "Voo
 
 ## 11 nov 22:05 NL (hoofdchat): Garmin-regels gelezen
 Lees `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`. Nieuw voor de winkeltekst: terugbetaalbeleid (wacht op Thijs), supportzin, privacyzin. Het verkopersaccount is goedgekeurd (mail 10 nov).
+
+## 11 nov 22:10 NL (hoofdchat): codelezing van je werk van vanavond (Actions lag plat)
+Een frisse lezer las de diff 330cf565..a67d40f. Geen bouwfout verwacht, navigatie en veiligheid kloppen. Wel:
+1. **Crash (zeker):** `SeaComplete.mc` `maak()` regel 49-50 doet `(_ref).get() as BufferedBitmap` en meteen `bb.getDc()` zonder null-check. De noodroute in `verder` (58-67) roept `maak(_d)` juist aan als de graphics pool vol is, dus dan crasht hij daar. In `maak` eerst op null controleren (`_ref = null; return`) en `verder` en `teken` daarmee laten omgaan.
+2. **Feest na Calm:** het feestscherm zit alleen in `EbbView.opslaan`. Komt het 24e dier door een Calm-sessie, dan komt het feest pas bij de volgende Rounds. Ook in `RustigView.opslaanEnTonen` op `EbbTrouw.FEEST` letten.
+3. **Nakijken in beeld zodra Actions weer draait:** Discard doet twee popViews in één knopdruk (Pauze.mc:100-110): landt hij echt in het menu? Instellingen keuze 11 en 12 "Safety info  read again" op 260 tegen de rand? Menu met Today en het overzicht vanuit het menu zijn nog nooit in beeld gezien: scènes erbij.
+4. Opruimen: `winkel/maak_winkel_v3.py` noemt bestanden die weg zijn; winkeltekst verwijst naar `ontwerp/garmin/bron/winkel_v4.py` (staat op main, niet op de tak).
