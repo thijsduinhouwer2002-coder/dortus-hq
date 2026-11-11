@@ -193,10 +193,9 @@ class CalmEindeView extends WatchUi.View {
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.17).toNumber(), Graphics.FONT_SMALL, "calm done", midden);
-        var minuten = (ms + 30000) / 60000;
-        minuten = minuten < 1 ? 1 : minuten;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_SMALL, minuten + " min · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
+        // Keuring bouw 3 punt 11: onder 1 minuut seconden ("45 s"), niet "1 min"; punt 6: deze regel kleiner.
+        dc.drawText(w / 2, (d * 0.25).toNumber(), Graphics.FONT_XTINY, EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
         var cy = (d * 0.465).toNumber();
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.
         var regel = telt ? "counts as a session" : "from 1 min it counts";

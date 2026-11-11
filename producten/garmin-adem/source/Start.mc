@@ -18,6 +18,14 @@ module EbbStart {
     // Keuring bouw 2 punt 12: "Box" weg (besluit 2); in het menu staat alleen Calm 4-7-8 (Ebb.patronen()[1]).
     const CALM_NAAM = "4-7-8";
 
+    // Duur van een Calm-sessie: onder 1 minuut in seconden ("45 s"), anders afgerond op minuten ("4 min").
+    function duurTekst(ms as Number) as String {
+        if (ms < 60000) {
+            return (ms / 1000) + " s";
+        }
+        return ((ms + 30000) / 60000) + " min";
+    }
+
     function eigenTekst() as String {
         var p = EbbInstellingen.eigenPatroon();
         return (p[0] / 1000) + "-" + (p[1] / 1000) + "-" + (p[2] / 1000) + "-" + (p[3] / 1000);

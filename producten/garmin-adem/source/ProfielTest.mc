@@ -20,7 +20,9 @@ function testHoogstensTweePerDag(logger as Test.Logger) as Boolean {
 function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
     EbbOpslag.wis();
     var o = new EbbOpslag();
-    var vandaag = 20402;
+    // Keuring bouw 3 punt 11: weken van maandag tot zondag. 20404 is een woensdag (was 20402, een maandag: dan viel
+    // "deze week, drie dagen" over twee weken). Zondag 20401 telt in de vorige week.
+    var vandaag = 20404;
     var sessies = 0;
     for (var d = vandaag - 70; d <= vandaag; d += 1) {
         if (d % 3 != 0) {
@@ -105,7 +107,9 @@ function testVeiligheidsschermEenKeer(logger as Test.Logger) as Boolean {
 function testWekenGemiddeldeEnSessies(logger as Test.Logger) as Boolean {
     EbbOpslag.wis();
     var o = new EbbOpslag();
-    var vandaag = 20402;
+    // Keuring bouw 3 punt 11: weken van maandag tot zondag. 20404 is een woensdag (was 20402, een maandag: dan viel
+    // "deze week, drie dagen" over twee weken). Zondag 20401 telt in de vorige week.
+    var vandaag = 20404;
     // Deze week: drie dagen, elk twee inhoudingen van 60 en 90 s (gemiddeld 75); vier sessies (één dag twee keer).
     for (var d = vandaag - 2; d <= vandaag; d += 1) {
         o.voegToe(d, 60);
@@ -114,8 +118,8 @@ function testWekenGemiddeldeEnSessies(logger as Test.Logger) as Boolean {
     // Vorige week: één dag met één inhouding van 100 s. Week 3 terug leeg. Oudste dag van week 1 telt mee.
     // (Niet ouder dan 56 dagen proberen: die plek in de ring is van een nieuwere dag.)
     o.voegToe(vandaag - 7, 100);
-    o.voegToe(vandaag - 55, 200);
-    var sd = [vandaag - 55, vandaag - 7, vandaag - 2, vandaag - 1, vandaag, vandaag, vandaag - 60] as Array<Number>;
+    o.voegToe(vandaag - 51, 200);
+    var sd = [vandaag - 51, vandaag - 7, vandaag - 3, vandaag - 2, vandaag - 1, vandaag, vandaag, vandaag - 60] as Array<Number>;
     var w = EbbProfiel.weken(o, sd, vandaag);
     logger.debug("weken " + w);
     EbbOpslag.wis();
@@ -128,7 +132,7 @@ function testWekenGemiddeldeEnSessies(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
     return w.size() == 8
         && w[7][0] == 75 && w[7][1] == 4 && w[7][2] == 6
-        && w[6][0] == 100 && w[6][1] == 1 && w[6][2] == 1
+        && w[6][0] == 100 && w[6][1] == 2 && w[6][2] == 1
         && w[5][0] == 0 && w[5][1] == 0 && w[0][0] == 200 && w[0][1] == 1 && w[0][2] == 1
         && bewaard.size() == 2 && bewaard[0] == 120 && bewaard[1] == 160;
 }

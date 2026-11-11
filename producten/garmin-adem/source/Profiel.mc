@@ -19,9 +19,12 @@ module EbbProfiel {
     // Een lege week is [0, 0, 0].
     function weken(opslag as EbbOpslag, sessieDagen as Array<Number>, vandaag as Number) as Array<Array<Number> > {
         var uit = [] as Array<Array<Number> >;
+        // Keuring bouw 3 punt 11: weken van maandag tot zondag (dag 0 was een donderdag), de laatste is deze week.
+        var zondag = vandaag - (vandaag + 3) % 7 + 6;
         for (var w = 7; w >= 0; w -= 1) {
-            var van = vandaag - w * 7 - 6;
-            var tot = vandaag - w * 7;
+            var tot = zondag - w * 7;
+            var van = tot - 6;
+            tot = tot > vandaag ? vandaag : tot;
             var som = 0;
             var n = 0;
             for (var d = van; d <= tot; d += 1) {

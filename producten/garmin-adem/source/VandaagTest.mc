@@ -22,3 +22,14 @@ function testVandaag(logger as Test.Logger) as Boolean {
     return leeg && twee.size() == 2 && s[0] == 6 && s[1] == 104 && klok && drie.size() == 3
         && (drie[0][0] as Number) == 1275 && (drie[2][0] as Number) == 1310 && andere && nieuw;
 }
+
+// Keuring bouw 3 punt 11: Calm onder 1 minuut toont seconden, daarboven afgeronde minuten.
+(:test)
+function testCalmDuurTekst(logger as Test.Logger) as Boolean {
+    var a = EbbStart.duurTekst(45000);
+    var b = EbbStart.duurTekst(59999);
+    var c = EbbStart.duurTekst(240000);
+    var e = EbbStart.duurTekst(89000);
+    logger.debug(a + " / " + b + " / " + c + " / " + e);
+    return a.equals("45 s") && b.equals("59 s") && c.equals("4 min") && e.equals("1 min");
+}

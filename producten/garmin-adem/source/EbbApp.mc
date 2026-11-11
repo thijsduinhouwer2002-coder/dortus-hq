@@ -522,7 +522,10 @@ class EbbView extends WatchUi.View {
             secs.add((sessie.inhoudtijden[i] + 500) / 1000);
         }
         var klok = System.getClockTime();
-        EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
+        // Keuring bouw 3 punt 11: geen lege sessie in Today bij 0 inhouden.
+        if (secs.size() > 0) {
+            EbbVandaag.bewaar(dag, klok.hour * 60 + klok.min, secs);
+        }
         // Trouw: tellers en nieuwe dieren pas aan het eind van de sessie (besluit 22:53, punt 1 en 4).
         var meetelt = EbbTrouw.telt(sessie.inhoudtijden.size(), 0);
         var tellers = meetelt ? EbbTrouw.naSessie(dag) : EbbTrouw.stand(dag);
@@ -847,7 +850,11 @@ class EbbView extends WatchUi.View {
     // Blad v6 scherm 6 (today, keuring 01:55 punt 2 en 5): de hele dag als staande staven in één egale tint
     // (geen nadruk op de langste), per sessie een groepje met de klok eronder, onderaan "6 holds · avg 1:44".
     function vandaagSessies() as Array<Array> {
-        if (EbbBouw.DEMO || EbbBouw.PLAATJE) {
+        if (EbbBouw.PLAATJE) {
+            // Keuring bouw 3 punt 14: today met 3 sessies (het meeste dat Today toont).
+            return [[460, [70, 85, 100]], [765, [92, 110]], [1275, [80, 105, 184]]] as Array<Array>;
+        }
+        if (EbbBouw.DEMO) {
             return [[460, [70, 85, 100]], [1275, [80, 105, 184]]] as Array<Array>;
         }
         var lijst = EbbVandaag.lees(vandaag());
@@ -1030,12 +1037,15 @@ class EbbView extends WatchUi.View {
         var hoogN = 7;
         var som = 0;
         var holds = 0;
+        var sessies = 0;
         for (var i = 0; i < weken.size(); i += 1) {
             if (weken[i][1] > hoogN) { hoogN = weken[i][1]; }
             som += weken[i][0] * weken[i][2];
             holds += weken[i][2];
+            sessies += weken[i][1];
         }
-        if (holds == 0) {
+        // Keuring bouw 3 punt 11: leeg is zonder sessies, niet zonder inhouden (alleen Calm telt ook).
+        if (sessies == 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             dc.drawText(d / 2, d / 2, Graphics.FONT_SMALL, "no sessions yet", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             return;
@@ -1064,9 +1074,12 @@ class EbbView extends WatchUi.View {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(d / 150 > 2 ? d / 150 : 2);
         dc.drawLine(lo.toNumber(), bod, (d * 0.80).toNumber(), bod);
-        var gem = (som + holds / 2) / holds;
         dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.665).toNumber(), Graphics.FONT_XTINY, "sessions per week", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (holds == 0) {
+            return;
+        }
+        var gem = (som + holds / 2) / holds;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.75).toNumber(), Graphics.FONT_XTINY, "avg hold " + (gem / 60) + ":" + (gem % 60).format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
