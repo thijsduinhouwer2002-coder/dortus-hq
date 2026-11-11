@@ -48,3 +48,5 @@ Gemeten op 260 (`blad82/meting-v82.txt`): vorm x binnen 0,4 px van het midden op
 Bekeken met Read: de vijf dieren oud en nieuw naast elkaar op 260, 3 en 6 keer vergroot, gevonden en als omtrek; alle 25 in het overzicht; het blad. Eerste otter (lang en plat met lange staart) las als een witte vlek, want het oog was groter dan de kop; kop groter en staart korter gemaakt. Zwakste nu: de voeten van de otter zijn donkerbruin op bruin en vallen op 260 een beetje weg; de vorm leest wel.
 
 Let op: de teksten op dit blad ("next: Starfish", "3 days in a row") volgen nog v8. Besluit hoofdchat 11 nov 04:30 (weken op rij, geen "next") gaat voor en staat bij Gijs punt 4 en 5; dit blad gaat alleen over de dieren.
+
+Omtrektoets v8.2 (`dieren82/omtrek-4x.png`, sleutel `dieren82/omtrek-sleutel.txt`): eerst alle 25 benoemd, daarna met de sleutel nagekeken: **25 van 25** (v8.1: 24 van 25, otter twijfel). Eerlijk: ik tekende ze zelf, dus een frisse beoordelaar telt zwaarder. De otter leest nu door kop met oor, schelp en voeten omhoog; hij blijft de minst strakke vorm van de 25.

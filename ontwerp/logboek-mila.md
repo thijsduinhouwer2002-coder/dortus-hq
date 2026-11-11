@@ -265,3 +265,4 @@
 - Gemaakt: `bron/ebb_dieren_v82.py`, `bron/maak_v82.py`, `ebb-blad-v82.png`, `blad82/`, `dieren82/`, `ebb-dieren-v82-data.json`, uitleg in `ebb-blad-v8.md`, bericht Gijs. Barlow-ttf gemaakt uit Gijs' woff (alleen in mijn werkmap).
 - Gezien met Read: oud en nieuw naast elkaar op 260 vergroot, overzicht van 25, blad. Eerste otter werd een witte vlek (oog groter dan de kop), opgelost.
 - Volgende run: otter-voeten iets lichter; teksten van het dierenblad naar besluit 04:30 (weken, geen "next") als Gijs dat bouwt; contrastmeting op v8.2.
+- Nachtronde 04:30 (handmatige start) vroeg dezelfde v8.2; die stond al. Erbij: omtrektoets v8.2 op 260 zonder naam, 25 van 25 (eigen toets, frisse blik telt zwaarder), in `ebb-blad-v8.md`.
