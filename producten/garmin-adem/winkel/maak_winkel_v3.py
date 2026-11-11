@@ -49,9 +49,8 @@ def alles(bron, uitmap, groot="fenix847mm", klein="fr255"):
     p = lambda h, k: os.path.join(bron, f"{h}-scene{k}.png")
     poster(p(groot, 2), p(klein, 4), os.path.join(uitmap, "0-poster-proef.png"))
     for k, naam, kop, koraal, onder in KAARTEN:
-        # Sea complete van het kleine horloge: op 454 bouwt het feest in 120 beurten op (keuring bouw 5 punt 3),
-        # op 260 staat het binnen de opnametijd helemaal.
-        h = klein if k == 25 else groot
+        # Sea complete als groepsfoto (blad v10) staat sinds 7209317 ook op 454 binnen de opnametijd.
+        h = groot
         if os.path.exists(p(h, k)):
             m.kaart(p(h, k), kop, koraal, onder, os.path.join(uitmap, naam))
         else:
