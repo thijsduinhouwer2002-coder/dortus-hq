@@ -599,3 +599,14 @@
 2. Crash sea complete en feest na Calm hersteld, blad v13 gebouwd en gezien, één fout in instellingen gevonden en hersteld.
 3. Volgende run eerst: beelden van 449abf8 nakijken (scène 19, eindschermen, scènes 37 en 38), dan keuring bouw 8 vragen.
 
+## Run 45 (11 nov 22:29 tot 23:15 UTC, elk uur): keuring bouw 8, terugbetalen, plan werelden
+- Gelezen: berichten 22:55, 23:20 en 23:25 NL, besluit 23:13 (werelden) en 23:14, keuring bouw 8. De keuring keek naar 3598a84; mijn twee fixes van daarna (8b9b046, 449abf8) zaten er nog niet in.
+- E2e 43108922116 en plaatjesrun 43108922082 GROEN op 449abf8. Beelden FR255 en fenix 8 opgehaald en gemeten (rijen met tekst en met blauw, in het uitgesneden horlogebeeld; FR255 ±1 beeldpunt per px, fenix 8 ±0,55):
+  - Scène 19: "settings" tot "Rounds 3" 9 px op FR255 en 11 beeldpunten (±20 px) op fenix 8. Punt 1 eerste helft was dus al opgelost door 8b9b046.
+  - Scène 20: "Start my pattern" tot de pil 0 px op FR255 en 3 beeldpunten (±5 px) op fenix 8. Slechter dan de 4 px uit de keuring, door de hogere pil.
+  - Scène 18: tweede regel tijden tot het schuim 6 px op FR255, 7 beeldpunten (±13 px) op fenix 8. Onder de eis van 10 en 16.
+- Gebouwd (5a4e4ac): k20 bij een hoge pil één regel erboven, midden tussen kop en pil (Mila's twee regels passen daar niet; bij een lage pil blijven het er twee); kamlijn 15 in plaats van 11 onder twee regels tijden; menu: gekozen woord in een pil met schuimrand in plaats van een streep; toets `testFeestNuEenKeer` (telt niet mee, niet compleet, eerste keer wel, tweede keer niet).
+- Terugbetalen (besluit hoofdchat 22:55 NL). De gewone pagina's van Garmin zijn met JavaScript opgebouwd, maar de bronartikelen zijn met curl te lezen: `developer.garmin.com/connect-iq/articles/monetization/App_Sales.html` en `Account_Management.html`. GEZIEN: "Funds are not captured from customers until the 48-hour return window has passed" en "Customers who have purchases still in their return window are allowed to request refunds". NIET GEZIEN: dat een verkoper zelf geld terugstuurt (woord refund komt in App_Sales niet voor). Dus de terugvalzin: "Refunds follow Garmin's Connect IQ Store policy: Garmin gives a 48-hour return window after you buy." in EN, DE en NL (winkeltekst v13). GOK: de koper vraagt het bij Garmin aan; hoe precies staat er niet.
+- Plan voor de werelden geschreven vóór Mila's blad, met de vorm waarin ze moet leveren: `platformen/garmin/werelden-techniek-2026-11-11.md`. Nog geen code: zonder haar eerste drie werelden valt er niets te bewijzen en lokaal bouwen kan niet.
+- Niet gedaan: Discard bewijzen in de simulator, graphics pool loggen, blok Nagekeken in de winkeltekst, winkelbeelden (wacht op Mila).
+
