@@ -154,18 +154,10 @@ module EbbTeken {
     // verschilt per horloge; op de epix2pro47mm viel het cijfer zo op 29%.
     // Haalt de grootste systeemletter geen 30% van D (epix2pro47mm: 123 van 416 px), dan de eigen cijferletter
     // (resources-<horloge>/fonts, 130 px op 416), één keer geladen.
+    // Keuring bouw 1 punt 3 en Daan D1: het grote getal altijd in Ebbs eigen letter (Barlow Condensed Medium, OFL),
+    // per schermmaat een eigen maat (resources: 260 82 px, 390 123 px, 416 130 px, 454 143 px, ±31 procent van D),
+    // zodat Ebb niet als een standaard Garmin-scherm oogt en "0:00" overal binnen 72 procent van de breedte past.
     function grootFont(dc as Graphics.Dc, d as Number) as Graphics.FontType {
-        var lijst = GROOT_LIJST;
-        var gekozen = Graphics.FONT_NUMBER_MILD;
-        for (var i = 0; i < lijst.size(); i += 1) {
-            if (Graphics.getFontAscent(lijst[i]) <= d * 0.40 && dc.getTextWidthInPixels("0:00", lijst[i]) <= d * 0.72) {
-                gekozen = lijst[i];
-                break;
-            }
-        }
-        if (Graphics.getFontAscent(gekozen) * 100 >= d * 30) {
-            return gekozen;
-        }
         if (_eigen == null) {
             _eigen = WatchUi.loadResource(Rez.Fonts.EbbCijfers) as WatchUi.FontResource;
         }
