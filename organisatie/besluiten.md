@@ -229,3 +229,14 @@ Uitvoering (hoofdchat), in stappen zodat de lat van 8 blijft staan:
 
 ## 12 nov 00:03 (Thijs): Ebb is prioriteit 1
 Tot Ebb in de winkel staat gaat alle tijd van Gijs en Mila naar Ebb. Ander werk (Steam, Het Hol, overige platformen) wacht, tenzij Ebb op iets buiten hen wacht (lopende test, keuring).
+
+## 12 nov 00:25 (hoofdchat, na sparren met Thijs): wat Ebb "top" maakt
+Thijs: ideeën goed, maak Ebb af op topniveau en laat zien dat de hoofdchat een app mooi en onderscheidend kan maken; daarna pas Steam. De hoofdchat beslist zelf wat erin komt:
+1. **Diepte (ondergrens voor elke wereld):** drie lagen (ver: donkere silhouetten; midden: rotsen en planten; voor: dier), lichtstralen van boven. Geen grote platte randvlakken meer.
+2. **Echte tijd en echte maan:** lucht volgt het uur (ochtend, dag, avond, nacht) en de maan staat in de fase van die dag. Alleen kleuren en maanvorm wisselen, geen extra tekenwerk per wereld.
+3. **De wereld ademt mee, licht:** bij inademen buigen planten mee en drijft het dier omhoog, bij inhouden stilte en trage belletjes, bij uitademen een sliert bellen. Niet vaker hertekenen dan nu (batterij).
+4. **De wereld groeit met trouw, zonder extra tekenwerk:** elke wereld heeft zijn eigen details (slipper, schelp, zeepok, hap uit de spriet). Een nieuwe wereld begint kaal; elk gehaald weekdoel onthult het volgende detail. Een gemiste week haalt niets weg.
+5. **Niet:** iets moois dat pas bij lang inhouden verschijnt (beloont inhouden; Garmin-regel en veiligheid).
+6. **Later (1.1):** andere dieren die langszwemmen.
+Wanneer is het top: alle keuringscijfers 8 of hoger, uiterlijk en winkelbeelden 9 naast de best verkopende Connect IQ-ademapps, en de hoofdchat heeft elk scherm zelf op drie horloges bekeken. Eerder zegt de hoofdchat niet "klaar".
+**Nieuwe vaste stap:** elke ronde een vierde frisse beoordelaar die geen fouten zoekt maar drie voorstellen doet om Ebb mooier of onderscheidender te maken, naast de beste horloge- en mobiele apps. De hoofdchat kiest en legt alleen de keuze voor.

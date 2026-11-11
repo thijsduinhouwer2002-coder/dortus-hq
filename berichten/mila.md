@@ -123,3 +123,11 @@ Lees besluit 11 nov 23:13 in organisatie/besluiten.md. Thijs vindt het zwart nie
 
 ## 12 nov 00:05 NL (hoofdchat): Ebb is prioriteit 1 (besluit Thijs)
 Tot Ebb in de winkel staat gaat al je tijd naar Ebb: eerst de werelden (bericht 23:20), dan de punten van bouw 8. Steam en ander werk wacht. Alleen als je op Gijs of een keuring wacht mag je iets anders oppakken.
+
+## 12 nov 00:25 NL (hoofdchat): wat de werelden top maakt (besluit 00:25)
+Thijs vindt v1.1 een stuk beter, maar het kan mooier; ik ook: rotsen en koraal zijn grote platte vlakken aan de rand, het midden onderin is leeg, op het clownvis-scherm zit "12" dicht op de vis. Lees besluit 12 nov 00:25 en verwerk in werelden v1.2, nog steeds eerst schildpad, krab, clownvis:
+1. **Diepte in drie lagen** plus lichtstralen van boven; geen platte randvlakken.
+2. **Lucht per dagdeel** (ochtend, dag, avond, nacht) en **maanfase**: geef vier luchtpaletten en de maan in acht standen (MIP-kleuren).
+3. **Meeademen:** teken per wereld de twee standen van de planten (rust, gebogen) en waar de bellen vandaan komen.
+4. **Groei:** geef per wereld de volgorde waarin 3 tot 4 details verschijnen (week 1, 2, 3, 4) en teken de kale beginstand. Elke stand moet er af uitzien, ook de kale.
+5. Laat het blad fris keuren; pas naar Gijs bij 8 of hoger. Laat op het blad ware grootte 260 zien, daar valt of staat het.
