@@ -36,8 +36,8 @@ def trilboog(d, D, cx, cy, breed, kleur):
     """Twee trilboogjes links en rechts van een regel, gespiegeld, zodat het midden blijft."""
     lw = max(2, round(D/150))
     for k in (-1, 1):
-        for j, r in enumerate((0.030, 0.052)):
-            x = cx + k*(breed/2 + D*0.018); R = r*D
+        for j, r in enumerate((0.026, 0.044)):
+            x = cx + k*(breed/2 + D*0.008); R = r*D
             box = [x - R, cy - R, x + R, cy + R]
             d.arc(box, 300, 60, fill=kleur, width=lw) if k == 1 else d.arc(box, 120, 240, fill=kleur, width=lw)
 
@@ -51,14 +51,14 @@ def s_duik6(D, sec, ronde, bpm, hoek):
     if sec < 180:
         tekst(d, D, (D/2, D*0.200), 'hold', D*0.085, SCHUIM)
     else:   # punt 3: trilteken bij "time to breathe" (gespiegelde boogjes)
-        px = D*0.080; tekst(d, D, (D/2, D*0.200), 'time to breathe', px, WIT)
-        trilboog(d, D, D/2, D*0.200, f(max(px, MIN*D)).getlength('time to breathe'), GEEL)
-    tekst(d, D, (D/2, D*0.290), 'press  START  to breathe' if D < 300 else 'press START to breathe', D*0.056, LICHTCYAAN)   # punt 3: zo stop je
+        px = D*0.072; tekst(d, D, (D/2, D*0.225), 'time to breathe', px, WIT)
+        trilboog(d, D, D/2, D*0.225, f(max(px, MIN*D)).getlength('time to breathe'), GEEL)
+    tekst(d, D, (D/2, D*0.295), 'press  START  to breathe' if D < 300 else 'press START to breathe', D*0.056, LICHTCYAAN)   # punt 3: zo stop je
     tekst(d, D, (D/2, D*0.455), f'{sec//60}:{sec%60:02d}', D*0.28, WIT)
     bellen(d, D, BELLEN[sec])
     dier(im, 'pad', D/2, D*0.665, D*0.10, hoek=hoek)
     d = ImageDraw.Draw(im)
-    regel_hart_ronde(d, D, D*0.825, bpm, ronde)
+    regel_hart_ronde(d, D, D*0.815, bpm, ronde)
     rand(im, D); return im
 def s_duik_a(D): return s_duik6(D, 30, 1, 66, -4)
 def s_duik_b(D): return s_duik6(D, 105, 2, 61, 0)    # punt 11: schildpad recht, niet op zijn schild
@@ -84,13 +84,28 @@ def s_menu6(D):
     tekst(d, D, (D/2, D*0.655), 'Sea log  ·  Settings', D*0.066, LICHTCYAAN)
     rand(im, D); return im
 
+# ---------------- 4 herstel: kop lager zodat hij binnen 80 % blijft ----------------
+def s_boven6(D):
+    im = leeg(D); d = ImageDraw.Draw(im)
+    zr = D*0.12
+    if amo(D):
+        gl = Image.new('L', (D, D), 0); ImageDraw.Draw(gl).ellipse([D/2-zr*1.9, D*0.66-zr*1.9, D/2+zr*1.9, D*0.66+zr*1.9], fill=90)
+        im.paste(Image.new('RGB', (D, D), (255, 200, 90)), (0, 0), gl.filter(ImageFilter.GaussianBlur(D/30)))
+    d.ellipse([D/2-zr, D*0.66-zr, D/2+zr, D*0.66+zr], fill=GEEL)
+    zee(im, D, [(D*0.64, W0), (D*0.72, W1), (D*0.86, W2)])
+    d = ImageDraw.Draw(im)
+    tekst(d, D, (D/2, D*0.215), 'big breath in, hold', D*0.070, TITEL)
+    getal_eenheid(d, D, D*0.415, '15', D*0.24, 's', D*0.10, WIT)
+    tekst(d, D, (D/2, D*0.80), 'round 2 held 1:45', D*0.068, WIT)
+    rand(im, D); return im
+
 # ---------------- 1b en 2: teksten (punt 4) ----------------
 def s_start6(D):
     im = leeg(D)
     zee(im, D, [(D*0.80, W1), (D*0.88, W2)], amp=D*0.010)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.20), '3 rounds · 30 breaths', D*0.070, TITEL)
-    tekst(d, D, (D/2, D*0.38), 'Seated', D*0.12, WIT)
+    tekst(d, D, (D/2, D*0.235), '3 rounds · 30 breaths', D*0.066, TITEL)
+    tekst(d, D, (D/2, D*0.385), 'Seated', D*0.12, WIT)
     tekst(d, D, (D/2, D*0.49), 'or lying?', D*0.12, WIT)
     v4.pil(d, D, 0.655, 0.40, 0.13)
     tekst(d, D, (D/2, D*0.655), 'Start', D*0.080, WIT)
@@ -135,19 +150,19 @@ def einde_zee(im, D):   # punt 10: golf iets hoger, zodat het dier helemaal onde
     zee(im, D, [(D*0.320, W1), (D*0.60, W2), (D*0.84, W3)], amp=D*0.010, schuim=True, stralen=True)
 
 def einde_kop6(d, D, tijden):
-    tekst(d, D, (D/2, D*0.150), '3 rounds done', D*0.075, TITEL)
+    tekst(d, D, (D/2, D*0.165), '3 rounds done', D*0.070, TITEL)
     for k, t in enumerate(tijden):
-        tekst(d, D, (D/2 + (-0.15, 0, 0.15)[k]*D, D*0.235), t, D*0.068, WIT)
+        tekst(d, D, (D/2 + (-0.15, 0, 0.15)[k]*D, D*0.245), t, D*0.068, WIT)
 
 def s_einde6(D):
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop6(d, D, [mmss(s) for s in OCHTEND])
     bellen(d, D, [(0.24, 0.56, 0.011), (0.21, 0.51, 0.006), (0.78, 0.58, 0.010), (0.81, 0.53, 0.006)])
-    dier(im, 'ster', D/2, D*0.525, D*0.165)       # punt 10: 20 % kleiner, helemaal onder water, geen stralenkrans
+    dier(im, 'ster', D/2, D*0.490, D*0.145)       # punt 10: 20 % kleiner, helemaal onder water, geen stralenkrans
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.750), 'new friend!', D*0.085, GEEL)
-    tekst(d, D, (D/2, D*0.815), 'Starfish · 4 days in a row', D*0.066, WIT)
-    dagstippen(d, D, D*0.872, 4)
+    tekst(d, D, (D/2, D*0.690), 'new friend!', D*0.085, GEEL)
+    tekst(d, D, (D/2, D*0.772), 'Starfish · 4 days', D*0.066, WIT)
+    dagstippen(d, D, D*0.848, 4)
     rand(im, D); return im
 
 def silhouet6(im, D, soort, x, y, s, nr):
@@ -159,11 +174,11 @@ def silhouet6(im, D, soort, x, y, s, nr):
 def s_einde_gewoon6(D):
     im = leeg(D); einde_zee(im, D)
     d = ImageDraw.Draw(im); einde_kop6(d, D, [mmss(s) for s in AVOND])
-    silhouet6(im, D, 'clown', D/2, D*0.525, D*0.17, 8)
+    silhouet6(im, D, 'clown', D/2, D*0.490, D*0.15, 8)
     d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.750), 'next: Clownfish', D*0.075, WIT)
-    tekst(d, D, (D/2, D*0.815), 'in 1 more session', D*0.066, LICHTCYAAN)
-    dagstippen(d, D, D*0.872, 4)
+    tekst(d, D, (D/2, D*0.690), 'next: Clownfish', D*0.075, WIT)
+    tekst(d, D, (D/2, D*0.772), 'in 1 more session', D*0.066, LICHTCYAAN)
+    dagstippen(d, D, D*0.848, 4)
     rand(im, D); return im
 
 # ---------------- punt 9: 8 weeks hoger, alle weken zichtbaar ----------------
@@ -195,15 +210,20 @@ SCHEMA = ['1x', '2x', '2d', '3d', '4x', '6x', '4d', '10x', '5d', '12x', '14x', '
           '22x', '7d', '25x', '28x', '32x', '36x', '42x', '46x', '50x', 'bonus']
 def _eis(n):
     naam = ALLE[n][1]; dr = SCHEMA[n]
-    if dr == 'bonus': return 'bonus · a surprise'
+    if dr == 'bonus': return 'Bonus · a surprise'
     if dr.endswith('x'): return f'{naam} · {int(dr[:-1]) - SESSIES_NU} more sessions'
     return f'{naam} · {dr[:-1]} days in a row'
 EIS = {n: _eis(n) for n in range(25)}
 
 def s_rooster6(D, pagina, gevonden=7, kies=3):
     im = leeg(D); d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.135), 'sea log', D*0.075, TITEL)
-    tekst(d, D, (D/2, D*0.205), EIS[kies] if kies >= gevonden else f'{gevonden} of 24', D*0.060, WIT if kies >= gevonden else LICHTCYAAN)
+    if kies >= gevonden:   # punt 2 frisse keuring: naam en eis op twee regels, binnen 80 %
+        naam, eis = EIS[kies].split(' · ')
+        tekst(d, D, (D/2, D*0.140), naam, D*0.075, TITEL)
+        tekst(d, D, (D/2, D*0.215), eis, D*0.060, WIT)
+    else:
+        tekst(d, D, (D/2, D*0.140), 'sea log', D*0.075, TITEL)
+        tekst(d, D, (D/2, D*0.215), f'{gevonden} of 24', D*0.060, LICHTCYAAN)
     xs = (-0.25, 0, 0.25); ys = (0.37, 0.555, 0.74)
     opp = (D*0.112)**2*0.55
     n_op = min(9, 25 - pagina*9)
@@ -213,11 +233,11 @@ def s_rooster6(D, pagina, gevonden=7, kies=3):
         x = D/2 + (xs[k_] + (3 - rij_n)*0.125)*D; y = ys[r_]*D
         sc = v3.schaal_voor_gewicht(soort, opp) * dv6.GROTER.get(soort, 1)
         if n == kies:
-            rr = D*0.098; d.ellipse([x-rr, y-rr, x+rr, y+rr], outline=SCHUIM, width=max(2, round(D/130)))
+            rr = D*0.098; d.ellipse([x-rr, y-rr, x+rr, y+rr], outline=SCHUIM, width=max(1, round(D/200)))
         if n < gevonden: dier(im, soort, x, y, sc)
         else: silhouet6(im, D, soort, x, y, sc*0.92, n+1 if n < 24 else '+')
         d = ImageDraw.Draw(im)
-    tekst(d, D, (D/2, D*0.875), f'{pagina+1} / 3', D*0.058, LICHTCYAAN)
+    tekst(d, D, (D/2, D*0.862), f'{pagina+1} / 3', D*0.058, LICHTCYAAN)
     rand(im, D); return im
 def s_rooster_1(D): return s_rooster6(D, 0)
 def s_rooster_2(D): return s_rooster6(D, 1, kies=9)
@@ -227,11 +247,27 @@ def s_rooster_3(D): return s_rooster6(D, 2, kies=23)
 def s_instel_b(D): return instel(D, 'Buzz last 3 breaths  on', 'Sound', 'off', ['Touch lock  on', 'Safety info'])
 
 SCHERMEN = [('1 menu', s_menu6), ('1b start', s_start6), ('2 ademen', s_ademen6), ('3a hold 0:30', s_duik_a),
-            ('3b hold 1:45', s_duik_b), ('3d hold 2:30', s_duik_d), ('3c hold 3:04', s_duik_c), ('4 herstel', v5.s_boven5),
+            ('3b hold 1:45', s_duik_b), ('3d hold 2:30', s_duik_d), ('3c hold 3:04', s_duik_c), ('4 herstel', s_boven6),
             ('5 rustig 4-7-8', v3.s_rustig), ('6 today', s_today6), ('6b einde met dier', s_einde6), ('6c einde zonder dier', s_einde_gewoon6),
             ('7 8 weeks', s_weken6), ('8 sea log 1 van 3', s_rooster_1), ('8b sea log 2 van 3', s_rooster_2), ('8d sea log 3 van 3', s_rooster_3),
             ('8c sea log dier', v5.s_zeelog5), ('9 settings', v5.s_instel_a), ('9b settings', s_instel_b), ('10 veilig 1', v5.s_veilig_a),
             ('10b veilig 2', v5.s_veilig_b), ('10c veilig 3', v5.s_veilig_c)]
+
+def tekst_r(im, D):
+    """Verste witte, lichtcyaan, schuim- of gele pixel (tekst) tot het midden, als deel van de straal."""
+    a = np.array(im).astype(int); m = np.zeros(a.shape[:2], bool)
+    for c in (WIT, LICHTCYAAN, SCHUIM, GEEL):
+        m |= (a[:, :, 0] == c[0]) & (a[:, :, 1] == c[1]) & (a[:, :, 2] == c[2])
+    y, x = np.mgrid[0:D, 0:D]; r = np.hypot(x+0.5-D/2, y+0.5-D/2)/(D/2)
+    m &= r < 0.95
+    # golfschuim telt niet: elk stuk dat breder is dan 0,6 D is de golflijn, geen tekst
+    from scipy import ndimage
+    lab, n = ndimage.label(m, structure=np.ones((3, 3)))
+    for i, sl in enumerate(ndimage.find_objects(lab), 1):
+        if sl[1].stop - sl[1].start > 0.6*D or sl[0].stop < 0.16*D: m[lab == i] = False   # golflijn of schuim bovenin
+    if os.environ.get('WAAR'):
+        yy, xx = np.unravel_index(np.argmax(np.where(m, r, 0)), r.shape); print('   verst bij', xx, yy)
+    return float(r[m].max()) if m.any() else 0
 
 def maak(uit):
     os.makedirs(uit, exist_ok=True); rap = []; beelden = {}
@@ -239,7 +275,7 @@ def maak(uit):
         for naam, fn in SCHERMEN:
             im = teken(fn, D); beelden[(naam, D)] = im; im.save(f'{uit}/ebb-v6-{naam.split()[0]}-{D}.png')
             if D == 260:
-                rap.append(f'{D:4d}  {naam:22s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   buiten MIP {niet_mip(im)}')
+                rap.append(f'{D:4d}  {naam:22s} kader x {kader_x(im, D):+5.1f} px   optisch x {optisch_x(im, D):+5.1f} px   buiten MIP {niet_mip(im)}   tekst tot {tekst_r(im, D):.2f} R')
             else:
                 rap.append(f'{D:4d}  {naam:22s} kader x {kader_x(im, D):+5.1f} px')
     klein = sorted({(t, p) for D, t, p in v3.LOG if D == 260}, key=lambda z: z[1])[:6]

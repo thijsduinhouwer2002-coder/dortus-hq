@@ -12,34 +12,34 @@
  454  6c einde zonder dier   kader x  +0.0 px
  454  7 8 weeks              kader x  +0.0 px
  454  8 sea log 1 van 3      kader x  -9.5 px
- 454  8b sea log 2 van 3     kader x  +0.0 px
- 454  8d sea log 3 van 3     kader x  +6.5 px
+ 454  8b sea log 2 van 3     kader x  -3.5 px
+ 454  8d sea log 3 van 3     kader x +10.5 px
  454  8c sea log dier        kader x  +0.0 px
  454  9 settings             kader x  +0.0 px
  454  9b settings            kader x  +0.0 px
  454  10 veilig 1            kader x  +0.5 px
  454  10b veilig 2           kader x  +0.5 px
  454  10c veilig 3           kader x  +0.5 px
- 260  1 menu                 kader x  +0.0 px   optisch x  +0.3 px   buiten MIP 0
- 260  1b start               kader x  +0.0 px   optisch x  +1.7 px   buiten MIP 0
- 260  2 ademen               kader x  +0.0 px   optisch x  +0.3 px   buiten MIP 0
- 260  3a hold 0:30           kader x  +0.0 px   optisch x  +1.2 px   buiten MIP 0
- 260  3b hold 1:45           kader x  +0.0 px   optisch x  +2.0 px   buiten MIP 0
- 260  3d hold 2:30           kader x  +0.0 px   optisch x  +2.0 px   buiten MIP 0
- 260  3c hold 3:04           kader x  +0.0 px   optisch x  +0.9 px   buiten MIP 0
- 260  4 herstel              kader x  +0.0 px   optisch x  -1.1 px   buiten MIP 0
- 260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   buiten MIP 0
- 260  6 today                kader x  +0.0 px   optisch x  +0.2 px   buiten MIP 0
- 260  6b einde met dier      kader x  +0.0 px   optisch x  -1.1 px   buiten MIP 0
- 260  6c einde zonder dier   kader x  +0.0 px   optisch x  +0.9 px   buiten MIP 0
- 260  7 8 weeks              kader x  +0.5 px   optisch x  +3.4 px   buiten MIP 0
- 260  8 sea log 1 van 3      kader x  -5.0 px   optisch x  -3.7 px   buiten MIP 0
- 260  8b sea log 2 van 3     kader x  -0.5 px   optisch x  -2.8 px   buiten MIP 0
- 260  8d sea log 3 van 3     kader x  +4.5 px   optisch x  +2.9 px   buiten MIP 0
- 260  8c sea log dier        kader x  +0.0 px   optisch x  +0.0 px   buiten MIP 0
- 260  9 settings             kader x  +0.5 px   optisch x  -2.7 px   buiten MIP 0
- 260  9b settings            kader x  +0.5 px   optisch x  -1.7 px   buiten MIP 0
- 260  10 veilig 1            kader x  +0.0 px   optisch x  -0.3 px   buiten MIP 0
- 260  10b veilig 2           kader x  -0.5 px   optisch x  -0.9 px   buiten MIP 0
- 260  10c veilig 3           kader x  +0.5 px   optisch x  -0.3 px   buiten MIP 0
-kleinste tekst op 260: "Never force a hold." 20 px, "!" 20 px, "2 / 3" 20 px, "10" 20 px, "1:40" 20 px, "never while driving." 20 px
+ 260  1 menu                 kader x  +0.0 px   optisch x  +0.3 px   buiten MIP 0   tekst tot 0.77 R
+ 260  1b start               kader x  +0.0 px   optisch x  +1.7 px   buiten MIP 0   tekst tot 0.80 R
+ 260  2 ademen               kader x  +0.0 px   optisch x  +0.3 px   buiten MIP 0   tekst tot 0.78 R
+ 260  3a hold 0:30           kader x  +0.0 px   optisch x  +1.2 px   buiten MIP 0   tekst tot 0.79 R
+ 260  3b hold 1:45           kader x  +0.0 px   optisch x  +2.0 px   buiten MIP 0   tekst tot 0.79 R
+ 260  3d hold 2:30           kader x  +0.0 px   optisch x  +2.0 px   buiten MIP 0   tekst tot 0.79 R
+ 260  3c hold 3:04           kader x  +0.0 px   optisch x  +0.9 px   buiten MIP 0   tekst tot 0.79 R
+ 260  4 herstel              kader x  +0.0 px   optisch x  -0.9 px   buiten MIP 0   tekst tot 0.79 R
+ 260  5 rustig 4-7-8         kader x  +0.0 px   optisch x  -1.7 px   buiten MIP 0   tekst tot 0.71 R
+ 260  6 today                kader x  +0.0 px   optisch x  +0.2 px   buiten MIP 0   tekst tot 0.75 R
+ 260  6b einde met dier      kader x  +0.0 px   optisch x  -0.6 px   buiten MIP 0   tekst tot 0.80 R
+ 260  6c einde zonder dier   kader x  +0.0 px   optisch x  +0.5 px   buiten MIP 0   tekst tot 0.80 R
+ 260  7 8 weeks              kader x  +0.5 px   optisch x  +3.4 px   buiten MIP 0   tekst tot 0.72 R
+ 260  8 sea log 1 van 3      kader x  -4.5 px   optisch x  -0.6 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8b sea log 2 van 3     kader x  -2.0 px   optisch x  -2.2 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8d sea log 3 van 3     kader x  +5.5 px   optisch x  +1.3 px   buiten MIP 0   tekst tot 0.79 R
+ 260  8c sea log dier        kader x  +0.0 px   optisch x  +0.0 px   buiten MIP 0   tekst tot 0.79 R
+ 260  9 settings             kader x  +0.5 px   optisch x  -2.7 px   buiten MIP 0   tekst tot 0.78 R
+ 260  9b settings            kader x  +0.5 px   optisch x  -1.7 px   buiten MIP 0   tekst tot 0.70 R
+ 260  10 veilig 1            kader x  +0.0 px   optisch x  -0.3 px   buiten MIP 0   tekst tot 0.64 R
+ 260  10b veilig 2           kader x  -0.5 px   optisch x  -0.9 px   buiten MIP 0   tekst tot 0.64 R
+ 260  10c veilig 3           kader x  +0.5 px   optisch x  -0.3 px   buiten MIP 0   tekst tot 0.65 R
+kleinste tekst op 260: "1:10" 20 px, "1:20" 20 px, "Never standing," 20 px, "14" 20 px, "1 / 3" 20 px, "swims with you: on" 20 px
