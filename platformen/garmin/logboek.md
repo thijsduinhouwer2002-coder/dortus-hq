@@ -458,3 +458,15 @@
 2. Open: beelden van a7160db nakijken (wit blok weg, Barlow overal, geheugen FR255 en Venu 2), winkelbeelden (3), sea log (6), rest uiterlijk (7), horloges (10), "no sound" als tekst.
 3. Volgende run eerst: run 42975297309 bekijken, pas dan nieuwe pushes.
 
+## Run 35 (11 nov 07:01 tot 07:45 UTC): code opruimen (besluit Thijs 07:41)
+- Simulator nu ook lokaal in deze werkruimte (dockerd plus de image van de workflow): bouwen in 13 s en scènes draaien zonder push.
+- 74448c2 opruimen: EbbApp.mc (1343 regels) naar EbbApp, Scenes, Veilig, StartCheck, EbbView, SessieScherm, EindScherm, Overzicht, EbbDelegate; Dieren.mc naar DierMaat, DierPlaatje, SeaLog; Profiel.mc naar Profiel, Trouw, TrouwDieren; zee naar Zee.mc (EbbZee). `EbbDierPlaatje.laag` is de enige dier-tekenfunctie (plaatje, voorraad en sea log), het inhoudscherm gebruikt nu ook de voorraad. In de plaatjesbouw staat de golf stil, anders kun je niet pixel voor pixel vergelijken. REGELS.md, verwijzing in ontwerp.md, e2e-stap voor 300 regels. c9c4c28: dubbele `EbbDierData.teken` en `silhouet` weg (alleen een toets gebruikte ze).
+- Bewijs, lokaal, a7160db (met de golf-stil-regel) tegen 74448c2, `bron/vergelijk_plaatjes.py`: fenix 8 35 van 35 scènes gelijk met 20 s per scène; alleen de geheugenregel van de simulator onder het horloge verschilt (19 beelden, y 952 tot 962). FR255 met 12 s en vier simulators tegelijk: 28 van 33 gelijk, 5 te vroeg vastgelegd (sea log en krabsilhouet nog half getekend, in vóór en in na), geen echt verschil gezien. GEZIEN: inhouden met krab op fenix 8 na het opruimen.
+- Plaatjesrun 42979111879 (74448c2): "Geen crash" groen op alle twaalf horloges.
+- e79985d Mila v9 punt 2 en 4: silhouet glad (8 richtingen, geen binnenlijnen), volgend dier als zwarte schaduw met schuimrand. Gepusht samen met c9c4c28 na de groene run.
+
+**In drie regels:**
+1. Code opgeruimd zonder dat de app verandert: fenix 8 pixel voor pixel gelijk, geen crash op twaalf.
+2. Open: FR255-vergelijking met 20 s per scène, beelden van e79985d (silhouet en schaduw), Mila v9 punt 1 en 3, keuring bouw 4 punt 3, 6, 7, 10, 11.
+3. Volgende run eerst: plaatjesrun van e79985d bekijken, dan FR255 vergelijken, dan sea log 2 x 3.
+
