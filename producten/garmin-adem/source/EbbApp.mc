@@ -814,17 +814,24 @@ class EbbView extends WatchUi.View {
                 // Rustig heen en weer: ±1,5 procent D in 8 s (in de testbeelden stil in het midden).
                 var dx = EbbBouw.PLAATJE ? 0 : (Math.sin((t % 8000) * 2.0 * Math.PI / 8000.0) * d * 0.015).toNumber();
                 // Keuring bouw 3 punt 8: het dier past in 90 x 70 op 454 (50 x 40 op 260), onderkant 8 px boven de hartslagregel.
-                var mz = EbbDierMaat.inVak(gezelschap, (d * 0.198).toNumber(), (d * 0.154).toNumber());
+                // Keuring bouw 4 punt 5 (scène 24): de krab raakte "1:45". Het dier past nu tussen de onderkant van de
+                // cijfers (plus 0,022 D, minstens 6 px) en de hartslagregel (8 px erboven), in het midden van die band.
+                var gat = (d * 0.022).toNumber();
+                gat = gat < 6 ? 6 : gat;
+                var bandTop = onderCijfer + gat;
+                var bandOnder = yRegel - dc.getFontHeight(EbbTeken.fX()) / 2 - 8;
+                var hb = bandOnder - bandTop;
+                var hMax = (d * 0.154).toNumber();
+                var mz = EbbDierMaat.inVak(gezelschap, (d * 0.198).toNumber(), hb < hMax ? hb : hMax);
                 var gz = EbbDierMaat.grenzen(gezelschap);
-                var yOnder = yRegel - dc.getFontHeight(EbbTeken.fX()) / 2 - 8 - EbbDierData.randPx(mz);
-                var yd2 = yOnder - gz[3] * mz / EbbDierData.SCHAAL;
+                var yd2 = (bandTop + bandOnder) / 2 - (gz[2] + gz[3]) * mz / (2 * EbbDierData.SCHAAL);
                 var dp = _dierPlaatje;
                 if (dp == null || dp.dier != gezelschap || dp.maat != mz) {
                     dp = new EbbDierPlaatje(gezelschap, mz, false);
                     _dierPlaatje = dp;
                 }
                 if (dp.verder()) {
-                    dp.plak(dc, w / 2 + dx, yd2 < yDier ? yDier : yd2);
+                    dp.plak(dc, w / 2 + dx, yd2);
                 } else {
                     WatchUi.requestUpdate();
                 }
