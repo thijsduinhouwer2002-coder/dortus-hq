@@ -19,9 +19,9 @@ class DierenView extends WatchUi.View {
     function tekenLaag(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number) as Boolean {
         var l = _laag;
         _laag += 1;
-        var sil = !EbbTrouw.heeft(i);
-        EbbDierPlaatje.laag(dc, i, cx, cy, maat, sil, l);
-        return l >= (sil ? 5 : 4);
+        var soort = EbbTrouw.heeft(i) ? EbbDierPlaatje.GEVONDEN : EbbDierPlaatje.SILHOUET;
+        EbbDierPlaatje.laag(dc, i, cx, cy, maat, soort, l);
+        return l >= EbbDierPlaatje.lagenVan(soort) - 1;
     }
 
     // De 64 kleuren van het MIP-scherm: alle dieren en silhouetten gebruiken alleen deze, 1 byte per pixel.
@@ -192,7 +192,7 @@ class DierenView extends WatchUi.View {
             var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
             var y = _rijY[k / 3];
             if (k >= _getekend && nu < NIEUW_PER_BEURT && !_opbouwBeurt) {
-                // Eén laag per beurt: gevonden 4 keer stickerrand en dan het dier, silhouet 4 keer rand, vlak, kenmerk.
+                // Eén laag per beurt: gevonden 4 keer stickerrand en dan het dier, silhouet 8 keer rand en het vlak.
                 if (tekenLaag(pdc, i, x - ox, y - oy, maat)) {
                     _getekend = k + 1;
                     _laag = 0;

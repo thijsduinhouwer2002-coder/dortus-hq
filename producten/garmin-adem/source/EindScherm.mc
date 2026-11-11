@@ -63,18 +63,18 @@ module EbbEindScherm {
         if (v.nieuweDieren.size() > 0) {
             var dier = v.nieuweDieren[0];
             // Keuring bouw 3 punt 8: het nieuwe dier 15 px lager (op 454).
-            EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), false);
+            EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
             tekstInRonde(dc, d, 0.645, "new friend: " + EbbDierData.NAMEN[dier], EbbTeken.LICHT);
         } else if (v.eindVolgend >= 0) {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.
-            EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), true);
+            EbbDierMaat.inBand(dc, v.eindVolgend, w / 2, bandTop, bandOnder, bandBreed, (d * (n > 3 ? 0.09 : 0.105)).toNumber(), EbbDierPlaatje.SCHADUW);
             tekstInRonde(dc, d, 0.645, volgendTekst(v), Graphics.COLOR_WHITE);
         } else {
             // Keuring bouw 3 punt 12 (besluit 2): na de walvis "sea complete" met je eigen dier; de reeks in weken
             // eronder blijft groeien ("12 weeks in a row"), zonder nieuwe dieren.
             var eigen = EbbTrouw.zwemmer();
             if (eigen >= 0) {
-                EbbDierMaat.inBand(dc, eigen, w / 2, bandTop, bandOnder, (d * 0.26).toNumber(), (d * 0.15).toNumber(), false);
+                EbbDierMaat.inBand(dc, eigen, w / 2, bandTop, bandOnder, (d * 0.26).toNumber(), (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN);
             }
             tekstInRonde(dc, d, 0.645, "sea complete", EbbTeken.LICHT);
         }

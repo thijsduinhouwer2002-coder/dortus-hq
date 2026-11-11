@@ -60,8 +60,8 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
             for (var b = 0; b < 2; b += 1) {
                 view.keuze = bladen[b];
                 var t0 = System.getTimer();
-                // Eén laag per beurt (plaatjesrun 42966268846): 1 opbouwbeurt plus hoogstens 9 dieren x 6 lagen.
-                for (var beurt = 0; beurt < 60; beurt += 1) {
+                // Eén laag per beurt (plaatjesrun 42966268846): 1 opbouwbeurt plus hoogstens 9 dieren x 9 lagen (blad v9).
+                for (var beurt = 0; beurt < 90; beurt += 1) {
                     view.onUpdate(dc);
                 }
                 if (!view.klaar()) {
@@ -72,12 +72,12 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
             }
         }
         // Inhoudscherm en eindschermen: dier 4 en 24 groot, 23 als silhouet, laag voor laag via de gedeelde functie.
-        for (var stap = 0; stap < 6; stap += 1) {
+        for (var stap = 0; stap < 9; stap += 1) {
             if (stap < 5) {
-                EbbDierPlaatje.laag(dc, 4, d / 2, d / 2, (d * 0.15).toNumber(), false, stap);
-                EbbDierPlaatje.laag(dc, 24, d / 2, d / 2, (d * 0.15).toNumber(), false, stap);
+                EbbDierPlaatje.laag(dc, 4, d / 2, d / 2, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN, stap);
+                EbbDierPlaatje.laag(dc, 24, d / 2, d / 2, (d * 0.15).toNumber(), EbbDierPlaatje.GEVONDEN, stap);
             }
-            EbbDierPlaatje.laag(dc, 23, d / 2, d / 2, (d * 0.105).toNumber(), true, stap);
+            EbbDierPlaatje.laag(dc, 23, d / 2, d / 2, (d * 0.105).toNumber(), EbbDierPlaatje.SILHOUET, stap);
         }
     }
     EbbTrouw.wis();

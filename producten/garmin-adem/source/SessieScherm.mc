@@ -102,7 +102,7 @@ module EbbSessieScherm {
                 var mz = EbbDierMaat.inVak(v.gezelschap, (d * 0.198).toNumber(), hb < hMax ? hb : hMax);
                 var gz = EbbDierMaat.grenzen(v.gezelschap);
                 var yd2 = (bandTop + bandOnder) / 2 - (gz[2] + gz[3]) * mz / (2 * EbbDierData.SCHAAL);
-                EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, false);
+                EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.

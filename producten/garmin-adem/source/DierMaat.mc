@@ -32,12 +32,12 @@ module EbbDierMaat {
 
     // Keuring bouw 4 punt 5 (beelden run 42970833817): dier tussen twee tekstregels, binnen top en onder (px) en
     // hoogstens breed px breed, nooit groter dan maxMaat; het vak zelf staat in het midden tussen top en onder.
-    function inBand(dc as Graphics.Dc, i as Number, cx as Number, top as Number, onder as Number, breed as Number, maxMaat as Number, sil as Boolean) as Void {
+    function inBand(dc as Graphics.Dc, i as Number, cx as Number, top as Number, onder as Number, breed as Number, maxMaat as Number, soort as Number) as Void {
         var m = inVak(i, breed, onder - top);
         m = m > maxMaat ? maxMaat : m;
         var g = grenzen(i);
         var cy = (top + onder) / 2 - (g[2] + g[3]) * m / (2 * EbbDierData.SCHAAL);
-        EbbDierVoorraad.teken(dc, i, cx, cy, m, sil);
+        EbbDierVoorraad.teken(dc, i, cx, cy, m, soort);
     }
 
     // Grootste maat waarbij dier i (met stickerrand) binnen breed x hoog px past.
