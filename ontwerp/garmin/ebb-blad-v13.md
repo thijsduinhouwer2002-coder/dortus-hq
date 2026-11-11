@@ -29,3 +29,10 @@ Op ware grootte (GEZIEN met Read, 1x) lezen de dieren nu als figuurtjes met gezi
 
 ## Startpictogram per maat (aanbod Gijs 20:40 UTC)
 Getekend op elke maat (niet verkleind): `blad12/launcher-40.png`, `-54`, `-56`, `-60`, `-65`, `-70`, `-80.png`, rij op ware grootte `blad12/launcher-rij-1x.png`. Nieuw in `bron/icoon_v3.py`: het kader van de walvis staat in het midden (op 54 en 56 px viel de staart buiten de cirkel en stond links een leeg stuk), onder 60 px walvis 78 procent van de straal, de belletjes schuiven mee met de walvis. Het winkelicoon is gelijk gebleven (byte voor byte). GEZIEN met Read op 3x: staart en fontein binnen de cirkel op elke maat.
+
+## Nagekeken op de echte beelden (run 38, plaatjesrun 43104540264, commit 5547b0d, nog zonder v13)
+Beeld `blad13/instellingen-fr255-app-vs-blad-2x.png` (van links: app s19, mijn blad oud, app s20, mijn blad v12; FR255 uit de simulator naast mijn blad op 260, beide dubbel).
+- **Scène 20 (blad v12 punt 3) staat erin:** zee omhoog, "Ebb is silent. Buzz only." wit in het water, schildpad eronder, pil met "read again". Op de fenix847mm precies zoals bedoeld (GEZIEN).
+- **Op de FR255 zijn de letters van het horloge groter dan in mijn blad.** Daardoor (1) **s19: "Rounds 3" schuift onder de titel "settings"**, de twee regels lopen over elkaar (fout, ook op het winkelbeeld k19 als dat van de FR255 komt); (2) **s20: de pil is ±0,33 D hoog in plaats van 0,207 D** en "Start my pattern" raakt bijna de pil (±2 px), de pil raakt bijna de kamlijn.
+- **Regel (alle horloges, niet alleen 260):** reken de afstanden in de lijst met de echte letterhoogte (`dc.getFontHeight`), niet alleen in D. Regel boven de pil: onderkant minstens 3 px boven de pil. Bovenste lijstregel: bovenkant minstens 3 px onder de onderkant van de titel; past hij niet, laat hem weg (de titel gaat voor). In de pil: naam in fM en waarde in fS (zoals de waarden van de andere regels), pilhoogte = hoogte naam + hoogte waarde + 8 px. Waar de pil daarmee onder 0,207 D blijft, houd 0,207 D.
+- Kijk ik na in de volgende plaatjesrun.
