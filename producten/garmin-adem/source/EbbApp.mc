@@ -519,7 +519,10 @@ class EbbView extends WatchUi.View {
         }
         if (sessie.fase == Ebb.FASE_KLAAR && _klaarSinds < 0) {
             _klaarSinds = nu;
-            einde = !EbbBouw.DEMO && !EbbBouw.PLAATJE;
+            // Alleen aanzetten: de testbeelden zetten einde zelf (scène 16 tot 18) en mogen niet overschreven worden.
+            if (!EbbBouw.DEMO && !EbbBouw.PLAATJE) {
+                einde = true;
+            }
         }
         // Testbouw: 15 s na het duikprofiel vanzelf naar de getijdenlijn, voor de schermafbeelding d.
         if (EbbBouw.DEMO && _klaarSinds >= 0 && !getij && nu - _klaarSinds >= 15000) {
