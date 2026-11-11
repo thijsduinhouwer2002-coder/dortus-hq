@@ -270,3 +270,20 @@
 1. Af: S1 en S2 in de code, trilling op 3:00 altijd, schema v5.4, Hold times, G3 tot G5, groen op negen.
 2. Open: opslag wissen per horloge in de e2e zodat S1 op alle vier getest wordt; S2 op aanraakhorloges met een tik in plaats van Enter.
 3. Volgende run: die twee e2e-punten; daarna wachten op het ja op blad v5.
+
+
+## 11 nov 2026 00:40 (Gijs, drieëntwintigste run)
+- Begin: geen nieuw bericht van Thijs. Nieuw: keuring blad v5 door drie beoordelaars (6,5/7/6, `ontwerp/garmin/ebb-blad-v5-keuring-drie.md`), met besluiten van de hoofdchat over zee en reeks en punten G1 tot G5 voor mij. Schermen bouw ik nog niet (laagste 6, eerst blad v6).
+- Uitslag b87b243 (run 42925453166): groen. EIS10 goed op negen, "Hold times 0:03 · 0:05" in elk FIT-bestand, G4 zwaarste sea log-pagina 51 en 81 ms (fenix 7 en FR255, ver onder de watchdog), G3 vegen: vivoactive 5 16.939 pixels anders na vegen (het menu schuift). S1 en S2 alleen op fenix 7 bevestigd; op de drie horloges daarna start de app meteen in het menu en komen er geen toetsen aan (beeld vivoactive5-a en -m gelijk, GEZIEN). Waarschijnlijk onthoudt de simulator de bevestiging van fenix 7 (GOK). Taak erbij: opslag van de app wissen per horloge in de e2e.
+- Besluit zee (b834b14): `zeeStand` blijft op 5 vanaf 2:30, niet meer lichter na 3:00. Waarom: besluit hoofdchat, de kleur mag geen verborgen doel zijn.
+- Besluit reeks (b834b14): één rustdag breekt de reeks niet (`RUSTDAGEN = 1`), ook in `reeksOp`. Zeekomkommer is bonus: `bonus()`, `totaal()` = 23, sea log toont "x of 23", tekst "bonus". Hij houdt nummer 22 omdat de tekeningen zo genummerd zijn; hernummeren kost risico op verkeerde dieren voor wie al speelt. Open: zonder hem zijn er 23 gewone dieren, de hoofdchat schreef 24 van 24; vraag aan Mila.
+- G1 (b834b14): geen stip en tijd bij de langste ronde, 8 weeks met de lijn over het gemiddelde in plaats van de beste dag, `hoogsteDag` weg, "no sessions yet", herstel zegt "big breath in, hold". Nog niet: "beste" uit de opslag (de 616 B per dag) en `besteS` in de opname; dat raakt de bewaarvorm en toetsen, volgende run.
+- Toetsen aangepast met reden in de commit (zee, reeks, bonus, hoogsteDag); elk besluit kreeg een nieuwe controle. Toetsen op fenix 7 en FR255 groen voor b834b14 (run 42928083116, stap tests geslaagd); e2e liep nog.
+- G4 (e24281e): winkeltekst versie 5 als concept in drie talen, 3.441 tekens Engels, veiligheid gelijk aan blad 10b. Geldt pas na de bouw van v6.
+- G2 tempo: voorstel aan Mila, 15 per minuut standaard, 10 tot 20 instelbaar.
+
+**In drie regels:**
+1. Af: besluiten zee en reeks in de code, zeekomkommer bonus, G1 grotendeels, winkeltekst v5 concept, uitslag b87b243 nagekeken.
+2. Open: "beste" uit opslag en opname, e2e wist de opslag per horloge (S1 S2 op alle vier), antwoord Mila op 24e dier en tempo, G5 metingen horen bij de v6-bouw.
+3. Volgende run: e2e van e24281e nakijken, dan opslag zonder "beste".
+
