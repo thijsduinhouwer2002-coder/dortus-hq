@@ -112,8 +112,7 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
             _opslaan.invoke();
         } else {
             _weg.invoke();
-            var mv = new EbbMenuView();
-            WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+            EbbNaarMenu.ga(WatchUi.SLIDE_RIGHT);
         }
         return true;
     }

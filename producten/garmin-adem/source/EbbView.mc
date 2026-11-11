@@ -109,7 +109,7 @@ class EbbView extends WatchUi.View {
         // Keuring bouw 6 punt 2: het feestscherm alleen de eerste keer dat alles gevonden is; daarna weer het gewone
         // eindscherm met de rondetijden (de winkeltekst belooft tijden na elke sessie).
         feest = false;
-        if (eindVolgend < 0 && !(Application.Storage.getValue(EbbTrouw.FEEST) instanceof Boolean)) {
+        if (meetelt && eindVolgend < 0 && !(Application.Storage.getValue(EbbTrouw.FEEST) instanceof Boolean)) {
             feest = true;
             Application.Storage.setValue(EbbTrouw.FEEST, true);
         }

@@ -156,7 +156,8 @@ class EbbInstellingenView extends WatchUi.View {
             // Keuring bouw 3 punt 3: ook My pattern eerst via "Sit or lie down".
             var sc = new StartCheckView();
             sc.zetEigen();
-            WatchUi.pushView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
+            // Keuring bouw 7 punt 3: wisselen in plaats van stapelen, zodat je na My pattern in het menu uitkomt.
+            WatchUi.switchToView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
             return true;
         } else if ((regel[2] as Symbol) == :veilig) {
             EbbVeilig.opnieuwTonen();

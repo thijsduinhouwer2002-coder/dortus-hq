@@ -11,7 +11,7 @@ import Toybox.WatchUi;
 module EbbOverzicht {
     // Blad v6 scherm 6 (today, keuring 01:55 punt 2 en 5): de hele dag als staande staven in één egale tint
     // (geen nadruk op de langste), per sessie een groepje met de klok eronder, onderaan "6 holds · avg 1:44".
-    function vandaagSessies(v as EbbView) as Array<Array> {
+    function vandaagSessies(v as EbbView or Null) as Array<Array> {
         if (EbbBouw.PLAATJE) {
             // Keuring bouw 3 punt 14: today met 3 sessies (het meeste dat Today toont).
             return [[460, [70, 85, 100]], [765, [92, 110]], [1275, [80, 105, 184]]] as Array<Array>;
@@ -20,7 +20,7 @@ module EbbOverzicht {
             return [[460, [70, 85, 100]], [1275, [80, 105, 184]]] as Array<Array>;
         }
         var lijst = EbbVandaag.lees(EbbView.vandaag());
-        if (lijst.size() == 0 && v.sessie.inhoudtijden.size() > 0) {
+        if (lijst.size() == 0 && v != null && v.sessie.inhoudtijden.size() > 0) {
             // Niet opgeslagen (weggegooid): dan alleen deze sessie, zonder klok.
             var secs = [] as Array<Number>;
             for (var i = 0; i < v.sessie.inhoudtijden.size(); i += 1) {
@@ -31,7 +31,7 @@ module EbbOverzicht {
         return lijst;
     }
 
-    function vandaag(dc as Graphics.Dc, d as Number, v as EbbView) as Void {
+    function vandaag(dc as Graphics.Dc, d as Number, v as EbbView or Null) as Void {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "today", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbZee.strook(dc, d);
@@ -108,7 +108,7 @@ module EbbOverzicht {
         return EbbProfiel.weken(new EbbOpslag(), EbbTrouw.sessieDagen(), EbbView.vandaag());
     }
 
-    function weken(dc as Graphics.Dc, d as Number, v as EbbView) as Void {
+    function weken(dc as Graphics.Dc, d as Number, v as EbbView or Null) as Void {
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, (d * 0.18).toNumber(), EbbTeken.fS(), "8 weeks", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         EbbZee.strook(dc, d);

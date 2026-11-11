@@ -58,7 +58,12 @@ module EbbSeaComplete {
     function verder() as Boolean {
         var bb = (_ref as Graphics.BufferedBitmapReference).get();
         if (bb == null) {
-            return false;
+            // Keuring bouw 7 punt 7: het systeem gaf het plaatje vrij; opnieuw maken en van voren af aan opbouwen.
+            maak(_d);
+            bb = (_ref as Graphics.BufferedBitmapReference).get();
+            if (bb == null) {
+                return false;
+            }
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
         var n = (EbbTeken.amoled() && _d >= 390) ? 3 : 1;

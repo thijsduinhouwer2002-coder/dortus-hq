@@ -52,11 +52,24 @@ class RustigView extends WatchUi.View {
             EbbTrillen.tril(i == 0 ? EbbTrillen.M_IN : (i == 2 ? EbbTrillen.M_UIT : EbbTrillen.M_VAST));
             _vorige = i;
         }
+        // Keuring bouw 7 punt 7 (batterij): tijdens vasthouden staat de zee stil en verandert alleen het cijfer,
+        // dus dan eens per seconde tekenen in plaats van tien keer.
+        if (i == 1 || i == 3) {
+            var sec = sessie.overS(sessie.klok(System.getTimer()));
+            if (sec == _getekendSec) {
+                return;
+            }
+            _getekendSec = sec;
+        } else {
+            _getekendSec = -1;
+        }
         if (plaatjeMs < 0) {
             _golf += 0.15;
         }
         WatchUi.requestUpdate();
     }
+
+    private var _getekendSec as Number = -1;
 
     static const WOORDEN = ["in", "hold", "out", "hold"] as Array<String>;
 
@@ -215,8 +228,7 @@ class CalmEindeDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function naarMenu() as Boolean {
-        var mv = new EbbMenuView();
-        WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+        EbbNaarMenu.ga(WatchUi.SLIDE_RIGHT);
         return true;
     }
 

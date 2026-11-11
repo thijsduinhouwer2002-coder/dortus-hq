@@ -25,6 +25,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 | `SeaComplete.mc` | feestscherm sea complete: groepsfoto van alle 24, dier voor dier geplakt |
 | `Pauze.mc` | pauzemenu in Ebb-stijl voor Rounds en Calm (Resume, Save, Discard; knoppen en tik) |
 | `Overzicht.mc` | today en 8 weeks |
+| `OverzichtView.mc` | today en 8 weeks als eigen scherm vanuit het menu; `EbbNaarMenu.ga` (na een sessie terug naar het menu dat er al ligt, niet stapelen) |
 | `EbbDelegate.mc` | knoppen tijdens de sessie; opent het pauzemenu |
 | `RustigView.mc` | Calm (rustig ademen), opent het pauzemenu, en het Calm-eindscherm |
 | `InstellingenView.mc`, `Instellingen.mc` | settings: scherm en opgeslagen waarden |

@@ -47,8 +47,7 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         if (actie == :menu) {
             // De sessie is af en al bewaard (tik slaat op bij FASE_KLAAR); opslaan() telt hoogstens één keer.
             _view.opslaan();
-            var mv = new EbbMenuView();
-            WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+            EbbNaarMenu.ga(WatchUi.SLIDE_RIGHT);
             return true;
         }
         _view.pauzeer(System.getTimer());
