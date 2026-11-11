@@ -225,12 +225,41 @@ class VeiligDelegate extends WatchUi.BehaviorDelegate {
 
 // Blad v5 (S2): bij elke Rounds-start eerst "Seated or lying?" met START. Terug gaat naar het menu.
 class StartCheckView extends WatchUi.View {
+    // Blad v7 punt 8: bij de eerste Rounds eerst één uitlegscherm "how it works" (blad 0), daarna de startcheck (blad 1).
+    const UITLEG = "uitlegGezien";
+    var blad as Number = 1;
+
     function initialize() {
         View.initialize();
+        blad = (Application.Storage.getValue(UITLEG) == true) ? 1 : 0;
     }
 
     function onShow() as Void {
+        System.println(blad == 0 ? "STARTCHECK uitleg" : "STARTCHECK");
+    }
+
+    function verder() as Void {
+        Application.Storage.setValue(UITLEG, true);
+        blad = 1;
         System.println("STARTCHECK");
+        WatchUi.requestUpdate();
+    }
+
+    // Blad v7 scherm 1c: "how it works", in gewone woorden, met de juiste knop per horloge.
+    function tekenUitleg(dc as Graphics.Dc, d as Number) as Void {
+        EbbTeken.strook(dc, d);
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * 0.20).toNumber(), Graphics.FONT_SMALL, "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        var f = Graphics.FONT_XTINY;
+        var lh = dc.getFontHeight(f);
+        var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold while", "the sea gets dark.",
+            WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK stops."] as Array<String>;
+        var y = (d * 0.46).toNumber() - (regels.size() * lh) / 2;
+        for (var i = 0; i < regels.size(); i += 1) {
+            dc.setColor(i < 3 ? Graphics.COLOR_WHITE : EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(d / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
+        }
+        EbbTeken.pil(dc, d, 0.79, 0.30, 0.10, "OK", f);
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -238,6 +267,10 @@ class StartCheckView extends WatchUi.View {
         var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
+        if (blad == 0) {
+            tekenUitleg(dc, (w < h) ? w : h);
+            return;
+        }
         // Blad v6 scherm 1b: kop met rondes en ademhalingen, groot "Seated / or lying?", knop Start als pil, zee onderaan.
         var d = (w < h) ? w : h;
         EbbTeken.golf(dc, d, 0.80, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
@@ -253,11 +286,18 @@ class StartCheckView extends WatchUi.View {
 }
 
 class StartCheckDelegate extends WatchUi.BehaviorDelegate {
-    function initialize() {
+    private var _view as StartCheckView;
+
+    function initialize(view as StartCheckView) {
         BehaviorDelegate.initialize();
+        _view = view;
     }
 
     function onSelect() as Boolean {
+        if (_view.blad == 0) {
+            _view.verder();
+            return true;
+        }
         System.println("STARTCHECK start");
         var view = new EbbView();
         (Application.getApp() as EbbApp).zetView(view);

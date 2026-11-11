@@ -89,7 +89,8 @@ class StartDelegate extends WatchUi.Menu2InputDelegate {
         var id = item.getId();
         if (id == :rondes) {
             // Blad v5 (S2): eerst "Seated or lying?", pas dan de sessie.
-            WatchUi.pushView(new StartCheckView(), new StartCheckDelegate(), WatchUi.SLIDE_LEFT);
+            var sc = new StartCheckView();
+            WatchUi.pushView(sc, new StartCheckDelegate(sc), WatchUi.SLIDE_LEFT);
         } else if (id instanceof Number) {
             var n = id as Number;
             var rv = new RustigView(Ebb.patronen()[n], EbbStart.PATROON_NAMEN[n]);

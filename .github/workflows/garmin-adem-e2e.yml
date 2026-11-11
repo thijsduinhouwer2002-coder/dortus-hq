@@ -82,7 +82,9 @@ jobs:
               import -window root "schermen/$d-a3.png"
               xdotool key Return; sleep 3
               import -window root "schermen/$d-m.png"
-              # Blad v5 S2: Rounds begint met "Seated or lying?"; terug naar het menu.
+              # Blad v5 S2: Rounds begint met de startcheck; blad v7: bij de eerste keer eerst "how it works" (-u), dan de startcheck (-s); terug naar het menu.
+              xdotool key Return; sleep 2
+              import -window root "schermen/$d-u.png"
               xdotool key Return; sleep 2
               import -window root "schermen/$d-s.png"
               xdotool key Escape; sleep 2
