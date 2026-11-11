@@ -151,7 +151,7 @@ jobs:
           echo "vorige groene run: ${vorige:-geen}"
           if [ -n "$vorige" ]; then gh run download "$vorige" -R "$GITHUB_REPOSITORY" -n "ebb-plaatjes-$D" -D /tmp/vorige || true; fi
           if [ -d /tmp/vorige/namen ] && [ -d "$APP/plaatjes/namen" ]; then
-            python3 "$APP/bron/vergelijk_plaatjes.py" /tmp/vorige/namen "$APP/plaatjes/namen" | tee "$APP/plaatjes/pixelverschil-$vorige.txt" || true
+            python3 "$APP/bron/vergelijk_plaatjes.py" /tmp/vorige/namen "$APP/plaatjes/namen" --negeer-onder 24 | tee "$APP/plaatjes/pixelverschil-$vorige.txt" || true
           fi
       - uses: actions/upload-artifact@v4
         if: always()

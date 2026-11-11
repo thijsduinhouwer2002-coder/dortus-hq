@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Vergelijk testbeelden pixel voor pixel (REGELS.md punt 6: opruimen verandert niets aan wat de app doet).
 
-Gebruik: python3 vergelijk_plaatjes.py <map vóór> <map na> [--negeer y0-y1 ...]
+Gebruik: python3 vergelijk_plaatjes.py <map vóór> <map na> [--negeer y0-y1 ...] [--negeer-onder N]
+--negeer-onder N: de onderste N rijen tellen niet mee (keuring bouw 7 punt 7: de statusbalk van de simulator is op
+elk horloge de onderste 22 rijen van het beeld; de plaatjesrun gebruikt 24).
 --negeer: rijen die niet meetellen, zoals de statusbalk van de simulator onder het horloge (die toont het
 geheugen, en dat verandert bij opruimen wel). Op fr255 is dat y 598-620, op fenix847mm zie de uitvoer.
 Per beeld met dezelfde naam: aantal pixels dat verschilt. Exit 1 als er een verschil of een ontbrekend beeld is.
@@ -14,6 +16,10 @@ negeer = []
 for i, a in enumerate(sys.argv):
     if a == '--negeer':
         y0, y1 = sys.argv[i + 1].split('-'); negeer.append((int(y0), int(y1)))
+onder = 0
+for i, a in enumerate(sys.argv):
+    if a == '--negeer-onder':
+        onder = int(sys.argv[i + 1])
 namen = sorted(set(f for f in os.listdir(voor) if f.endswith('.png')) | set(f for f in os.listdir(na) if f.endswith('.png')))
 fout = 0
 for n in namen:
@@ -26,6 +32,8 @@ for n in namen:
     diff = ImageChops.difference(ia, ib)
     for y0, y1 in negeer:
         diff.paste((0, 0, 0), (0, y0, diff.size[0], y1 + 1))
+    if onder:
+        diff.paste((0, 0, 0), (0, diff.size[1] - onder, diff.size[0], diff.size[1]))
     box = diff.getbbox()
     if box is None:
         print(f"GELIJK {n}")
