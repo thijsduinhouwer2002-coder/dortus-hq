@@ -70,14 +70,21 @@ class RustigView extends WatchUi.View {
         // Keuring bouw 1 punt 5 (blad v6 scherm 5): zwart, fasewoord bovenaan, groot cijfer met "s", de zee onderaan
         // die zacht mee ademt (hoogste golf 0,60 D), het cijfer staat altijd boven de hoogste golfstand; geen teal vlak.
         EbbTeken.ademZee(dc, d, sessie.water(nu), _golf);
-        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.18).toNumber(), Graphics.FONT_SMALL, WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         var font = EbbTeken.grootFont(dc, d);
         var getal = sessie.overS(nu).toString();
         var gb = dc.getTextWidthInPixels(getal, font);
-        var sb = dc.getTextWidthInPixels("s", Graphics.FONT_SMALL);
         var cy = (d * 0.39).toNumber();
-        var cx = w / 2 - sb / 2 - 2;
+        // Keuring bouw 3 punt 6 (scène 7): het cijfer zelf in het midden, "s" los erachter.
+        var cx = w / 2;
+        // Kop minstens 12 px (454) of 6 px (260) boven de bovenkant van de cijfers.
+        var leeg = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+        var topC = cy - dc.getFontHeight(font) / 2 + (leeg > 0 ? leeg : 0);
+        var gat = (d * 0.026).toNumber();
+        gat = gat < 6 ? 6 : gat;
+        var yKop = topC - gat - dc.getFontHeight(Graphics.FONT_SMALL) / 2;
+        var yKop0 = (d * 0.18).toNumber();
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (yKop < yKop0 ? (yKop < d * 0.12 ? (d * 0.12).toNumber() : yKop) : yKop0), Graphics.FONT_SMALL, WOORDEN[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, cy, font, getal, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         var onder = cy - dc.getFontHeight(font) / 2 + (dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font)) / 2 + Graphics.getFontAscent(font);

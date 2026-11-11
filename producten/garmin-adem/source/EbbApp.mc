@@ -816,12 +816,18 @@ class EbbView extends WatchUi.View {
             if (dc.getTextWidthInPixels(kop, kopF) > koorde) {
                 kopF = Graphics.FONT_XTINY;
             }
-            dc.drawText(w / 2, (d * 0.215).toNumber(), kopF, kop, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             groot = ((sessie.herstelMs - t) / 1000 + 1).toString();
-            var bs = dc.getTextWidthInPixels("s", Graphics.FONT_SMALL);
-            grootDx = -bs / 2 - 2;
+            // Keuring bouw 3 punt 6: het cijfer zelf in het midden, "s" los erachter; de kop minstens 12 px (454)
+            // of 6 px (260) boven de bovenkant van de cijfers.
+            grootDx = 0;
             yGroot = 0.415 - dc.getFontHeight(font).toFloat() / d / 2;
             var leegH = dc.getFontHeight(font) - Graphics.getFontAscent(font) - Graphics.getFontDescent(font);
+            var topH = (d * yGroot).toNumber() + (leegH > 0 ? leegH : 0);
+            var gatH = (d * 0.026).toNumber();
+            gatH = gatH < 6 ? 6 : gatH;
+            var yKopH = topH - gatH - dc.getFontHeight(kopF) / 2;
+            var yKop0 = (d * 0.215).toNumber();
+            dc.drawText(w / 2, (yKopH < yKop0 ? (yKopH < d * 0.12 ? (d * 0.12).toNumber() : yKopH) : yKop0), kopF, kop, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             var onderH = (d * yGroot).toNumber() + (leegH > 0 ? leegH : 0) + Graphics.getFontAscent(font);
             var bg = dc.getTextWidthInPixels(groot, font);
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
