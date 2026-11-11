@@ -76,9 +76,6 @@ class EbbInstellingenView extends WatchUi.View {
         var py = (d * 0.483).toNumber();
         var fx = dc.getFontHeight(EbbTeken.fX());
         var lucht = (d * 0.035).toNumber();
-        if (keuze > 0) {
-            regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
-        }
         var maxW = (d * 0.83).toNumber();
         var naam = REGELS[keuze][0] as String;
         var v = waarde(keuze);
@@ -94,6 +91,17 @@ class EbbInstellingenView extends WatchUi.View {
             var vw = dc.getTextWidthInPixels(v as String, EbbTeken.fS());
             langst = vw > langst ? vw : langst;
         }
+        // Keuring bouw 7 punt 4 (k19 op 260): passen naam en waarde niet onder elkaar in de pil, dan wordt de pil
+        // zo hoog als de twee regels samen plus 8 px, en staan de regels strak onder elkaar zonder te raken.
+        var hN = dc.getFontHeight(fNaam);
+        var hV = dc.getFontHeight(EbbTeken.fS());
+        var krap = (v != null) && (hN + hV + 8 > bh);
+        if (krap) {
+            bh = hN + hV + 8;
+        }
+        if (keuze > 0) {
+            regelKort(dc, d, keuze - 1, (py - bh / 2 - lucht - fx / 2).toFloat() / d);
+        }
         var bw = langst + 24;
         var minW = (d * 0.5).toNumber();
         bw = bw < minW ? minW : (bw > maxW ? maxW : bw);
@@ -103,9 +111,9 @@ class EbbInstellingenView extends WatchUi.View {
         if (v == null) {
             dc.drawText(w / 2, py, fNaam, naam, midden);
         } else {
-            dc.drawText(w / 2, py - (d * 0.045).toNumber(), fNaam, naam, midden);
+            dc.drawText(w / 2, krap ? py - (hN + hV) / 2 + hN / 2 : py - (d * 0.045).toNumber(), fNaam, naam, midden);
             dc.setColor(EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(w / 2, py + (d * 0.055).toNumber(), EbbTeken.fS(), v as String, midden);
+            dc.drawText(w / 2, krap ? py + (hN + hV) / 2 - hV / 2 : py + (d * 0.055).toNumber(), EbbTeken.fS(), v as String, midden);
         }
         var y1 = py + bh / 2 + lucht + fx / 2;
         if (keuze + 1 < aantal()) {
