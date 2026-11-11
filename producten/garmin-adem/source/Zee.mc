@@ -122,7 +122,8 @@ module EbbZee {
     // Blad v6.4: dunne zeestrook onderaan (today, 8 weeks, settings, veiligheid), zodat elk scherm bij dezelfde zee hoort.
     const STROOK_TOP = 0.877;   // hoogste golftop van de strook (0,885 min amplitude 0,008)
     function strook(dc as Graphics.Dc, d as Number) as Void {
-        golf(dc, d, 0.885, d * 0.008, EbbTeken.ZEE_KLEUR[1], 0.0, false);
+        // Keuring bouw 6 punt 5: ook de dunne zee (today, 8 weeks, uitleg, veiligheid, settings) krijgt de schuimkam.
+        golf(dc, d, 0.885, d * 0.008, EbbTeken.ZEE_KLEUR[1], 0.0, true);
         golf(dc, d, 0.935, d * 0.006, EbbTeken.ZEE_KLEUR[2], 1.1, false);
     }
 }
