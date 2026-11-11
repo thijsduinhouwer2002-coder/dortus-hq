@@ -1,0 +1,2 @@
+/tmp/plaatje-fr255-4.log:Error: Watchdog Tripped Error - Code Executed Too Long
+/tmp/plaatje-fr255-4.log:Encountered an app crash.
