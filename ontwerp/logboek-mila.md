@@ -288,3 +288,13 @@
 - Gemaakt: `bron/blad_v9.py`, `bron/fonts/` (Barlow Condensed, OFL), `blad9/`, `ebb-blad-v9.png`, `ebb-blad-v9.md`, `blad9/meting-v9.txt`, bericht Gijs.
 - Volgende run: na de bouw van Gijs v9 op de echte beelden nalopen; de binnenboog van sea complete op 260 iets ruimer als het past.
 - Tweede start (handmatig, 07:10-opdracht stond al af): bogen van sea complete verder uit elkaar (straal 93 en 62), zodat de twee rijen op 260 minder over elkaar vallen; nog steeds 0 pixels buiten 0,85 R.
+
+## 11 nov 2026, run 34 (vanaf 08:21 UTC, alleen Ebb)
+- Opdracht: "Voor Mila" in `ontwerp/garmin/ebb-bouw-5-keuring-drie.md` (sea complete rustig, pauzemenu, poster). Berichten: verder niets open.
+- Eerst de echte sea complete bekeken (FR255: twee bogen over elkaar en belletjes boven de kamlijn; fr965 leeg, dat is de opbouw bij Gijs).
+- **Besluit: sea complete als groepsfoto (walvis in het midden, vrienden in rijen 4, 7, 6, 6).** Waarom: de glimlach in twee bogen werd op 260 een kluwen; rijen volgen het ronde scherm, niets raakt (gemeten op pixels met 1 px marge) en ze passen bij de opbouw per beurt.
+- **Besluit: pauzemenu met stille zee en het meezwemdier als wijzer.** Waarom: een platte kamlijn zegt "pauze" zonder woorden, en je eigen dier naast je keuze is de haak; het witte systeemmenu paste niet bij Ebb.
+- **Besluit: poster "Breathe in rounds. Make sea friends." met de 23 dieren in een U om het horloge en de walvis die aan de kamlijn blaast.** Waarom: de keuring wil één beeld dat ademrondes, zee en trouw laat zien; de optocht met "1 session", "12 sessions", "50 sessions" zegt dat dieren komen door terug te komen. Eerste versies: optocht in een boog rechts was te kort (dieren maat 10 tot 15); een U om het midden geeft maat 25 tot 30.
+- Gemaakt: `bron/blad_v10.py`, `bron/poster_v3.py`, `bron/fonts/BarlowCondensed-ExtraBold.woff` (OFL, uit Gijs' winkelmap), `blad10/`, `ebb-blad-v10.png`, `ebb-blad-v10.md`, bericht Gijs.
+- Gezien met Read: sea complete 260 (2x) en 454, pauze 260 en 454, poster op 1000 en op 300 px.
+- Volgende run: poster opnieuw met Gijs' opname na besluit 2 (dier 90 x 70) en nalopen; pauzemenu op de echte beelden zodra het gebouwd is.

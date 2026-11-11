@@ -1,0 +1,2 @@
+260 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
+454 dieren die elkaar raken (1 px marge): [] ; dieren met pixels buiten 0,85 R: 0
