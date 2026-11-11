@@ -570,6 +570,7 @@
 - Punt 8 Venu X1: niet in versie 1. Nagekeken met curl in de API-lijst van `Toybox.Graphics.Dc`: er is geen functie om een tekening te verschuiven. Reden en gevolg staan in status.md.
 - NIET GEZIEN en niet gebouwd in deze run: hier is geen simulator en geen docker; GitHub Actions hield alle runs in de wachtrij (ook 43096796434 en 43096796412 van run 41 kregen geen taken; logs gaven 502). Runs op a67d40f: e2e 43097460747, plaatjes 43097460866.
 - Actions staat stil (GEZIEN 20:45 UTC via de GitHub-koppeling): in de hele repo is de laatste afgeronde run "Dashboard (elk half uur)" van 14:02 UTC; daarna niets meer, ook geen dashboardruns. Zes Ebb-runs op "queued" (43094386800 en 43094387097 van 20:12, 43096796434 en 43096796412, 43097460747 en 43097460866), geen enkele taak gestart. Run 41 las dit als "uploaden hangt"; het is breder. githubstatus.com meldt geen storing. 43094386800 geannuleerd (verouderd), hielp niet. Op lijst-thijs gezet.
+- `lancering.md` bijgewerkt: de drie concepten beschreven nog de oude app (dieren op tijd, walvis bij 3:00, duikprofiel). Nu gelijk met winkeltekst v11: dieren door terugkomen, 28 horloges, "no extra account".
 
 **In drie regels:**
 1. Mila v12 punt 3, punt 4 (drie van de vier MIP-punten) en punt 7 (opruimen) in de code en gepusht; Venu X1 besloten: niet in versie 1.

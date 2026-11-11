@@ -9,36 +9,38 @@ Opdracht Thijs 10 nov 17:25: na de lancering een kort bericht voor r/Garmin, r/f
 - **AI-tekst:** daarom zijn de concepten kort en kaal. Herschrijf ze in je eigen woorden; zet er iets bij dat alleen jij weet (waarom je het wilde, wat je zelf haalt).
 - Altijd eerlijk: Ebb is voor droog oefenen op het land, geen apneu-trainer met tabellen, geen medisch hulpmiddel. Nooit "train for freediving safely" of gezondheidsbeloftes.
 
+**Bijgewerkt 11 nov 20:55 UTC (run 42).** De concepten van 10 nov beschreven de oude app (dieren op 1:00, 1:30, 2:00 en 3:00, een walvis bij 3:00, duikprofiel, beste tijd per dag). Dat klopt niet meer: sinds het besluit van 10 nov 22:53 verdien je dieren met terugkomen, nooit met langer inhouden. Hieronder de teksten die passen bij winkeltekst v11. Lees ze vlak voor het plaatsen nog één keer naast `producten/garmin-adem/winkeltekst.md`.
+
 ## 1. Garmin-forum, Connect IQ Showcase
 
-Titel: `Ebb: breath hold and breathing app drawn as water (round watches)`
+Titel: `Ebb: breath hold and breathwork app where you collect sea animals (round watches)`
 
-> Hi all. I made Ebb, a breathing app for round Garmin watches. The screen is a porthole: it fills as you breathe in, empties as you breathe out, and the breath hold is a dive with bubbles and a depth counter. Animals swim by at 1:00, 1:30, 2:00 and 3:00.
+> Hi all. I made Ebb, a breathing app for round Garmin watches. The screen is the sea: it rises and falls as you breathe, and gets darker the longer you hold.
 >
-> It has breath hold rounds, box breathing, 4-7-8, a calm pattern and one pattern of your own. After a session you get a dive profile and a tide line of your best hold per day. Sessions save as breathing activities in Garmin Connect.
+> It has breath hold rounds, calm 4-7-8 breathing and one pattern of your own. You collect 24 sea animals by showing up: sessions and weeks in a row, never by holding longer. Rest days don't break your streak. Every phase has its own vibration, so you can do it with your eyes closed. Sessions save as breathing activities in Garmin Connect.
 >
-> $4.99 once, no subscription, no unlock code, no phone app. Land only, it's not an apnea table trainer.
+> $4.99 once, no subscription, no unlock code, no extra account, no phone app. Land only: sit or lie down. It's not an apnea table trainer.
 >
 > Store: <link>
 > Bugs and ideas welcome in this thread.
 
 ## 2. r/Garmin
 
-Titel: `I made a breathing app where your watch face turns into a porthole`
+Titel: `I made a breathing app for Garmin where you collect sea animals by coming back`
 
-> Maker here (so yes, this is my own app). Ebb does breath hold rounds and box breathing / 4-7-8 on round Garmins, drawn as water: the hold is a dive, and a whale shows up if you make it to 3:00. Saves to Connect as a breathing activity. One-time $4.99, no subscription or unlock codes. Works on fenix 7/8, epix Pro, FR 255/265/965, Venu 2/3, vivoactive 5.
+> Maker here (so yes, this is my own app). Ebb does breath hold rounds and calm 4-7-8 breathing on round Garmins, drawn as a sea. You find 24 sea animals by doing sessions and keeping a streak of weeks, not by holding longer, so there is no reason to push. Saves to Connect as a breathing activity. One-time $4.99, no subscription or unlock codes. Works on 28 round watches, among them fenix 7 and 8, epix Pro, Forerunner 165, 255, 265, 570, 955, 965 and 970, Venu 2, 3 and 4, vivoactive 5 and 6.
 >
 > Happy to hear what's missing. <link>
 
-Tip: één schermafbeelding erbij (de poster met de walvis), geen video met muziek.
+Tip: één schermafbeelding erbij (de poster met de optocht van dieren), geen video met muziek.
 
 ## 3. r/freediving
 
 Alleen als de regels het toelaten, en dan als vraag, niet als reclame. Freedivers zijn streng op veiligheid; noem dat als eerste.
 
-Titel: `Dry static practice on a Garmin: is a simple hold timer with progress useful to you?`
+Titel: `Dry breath holds on a Garmin without chasing times: is that useful to you?`
 
-> I built a small Garmin app for dry breath holds on land (not in water, no CO2/O2 tables, so not a replacement for a proper apnea trainer). It shows each hold as a dive and keeps your best hold per day over 8 weeks. Curious if people here do dry statics on the watch, and what you'd want from it. Link if you want to look: <link>
+> I built a small Garmin app for dry breath holds on land (never in water, no CO2/O2 tables, so not a replacement for a proper apnea trainer). It rewards coming back, not longer holds: you collect sea animals with sessions and weeks in a row, and it shows your hold times per round without a score. Curious if people here do dry statics on the watch, and what you'd want from it. Link if you want to look: <link>
 
 ## Na het plaatsen
 - Link en datum per plek in `platformen/garmin/logboek.md` (Gijs zet dat erin als Thijs het in de berichten meldt).
