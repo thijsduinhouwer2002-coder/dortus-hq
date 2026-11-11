@@ -1,0 +1,26 @@
+nr naam maat260 b x h (px) maat454 b x h (px)
+1 Fish 25 54x31 44 92x52
+2 Shrimp 29 54x37 52 94x62
+3 Jellyfish 24 43x46 43 73x80
+4 Turtle 26 54x36 46 93x59
+5 Crab 24 53x45 44 94x79
+6 Seahorse 22 40x45 40 68x80
+7 Starfish 24 47x45 44 83x80
+8 Clownfish 27 54x33 48 93x54
+9 Pufferfish 25 53x44 46 94x77
+10 Octopus 25 53x45 46 93x78
+11 Eel 23 53x21 42 94x35
+12 Ray 23 53x42 43 94x74
+13 Seal 22 54x34 40 94x60
+14 Dolphin 23 54x33 41 94x57
+15 Swordfish 21 52x30 39 94x52
+16 Sea otter 26 54x34 47 94x58
+17 Manta 21 53x35 39 94x61
+18 Shark 23 54x39 41 93x65
+19 Sunfish 24 37x45 44 63x80
+20 Orca 24 54x45 44 94x78
+21 Narwhal 21 54x27 38 94x45
+22 Giant squid 20 31x45 37 53x80
+23 Lobster 26 53x46 47 92x80
+24 Whale 24 54x37 43 93x63
+25 Sea cucumber 24 53x24 44 94x41
