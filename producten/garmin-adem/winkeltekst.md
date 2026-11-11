@@ -1,4 +1,6 @@
-# Ebb: winkeltekst (versie 7, CONCEPT, Gijs, 11 nov 2026 05:20 UTC)
+# Ebb: winkeltekst (versie 8, CONCEPT, Gijs, 11 nov 2026 06:15 UTC)
+
+Versie 8: keuring bouw 4 punt 8 (`ontwerp/garmin/ebb-bouw-4-keuring-drie.md`): "the sea at the bottom rises and falls" in plaats van "the screen fills", trillen "from 3:00 on, every 30 seconds", "shows" in plaats van "says", Duits "Halte den Atem nur an", Nagekeken bijgewerkt.
 
 Versie 7: keuring bouw 3 punt 13 (`ontwerp/garmin/ebb-bouw-3-keuring-drie.md`): "up to two a day", My pattern (besluit 1: blijft, via "Sit or lie down") en trillen aan of uit erin, "sea complete" na de walvis (besluit 2), de 28 horloges, blok Nagekeken opgeschoond.
 
@@ -26,12 +28,12 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Description (English)
 
-Breathing exercises and breath hold training on your Garmin watch: rounds of power breathing with breath holds, and calm 4-7-8 breathing, drawn as water. Ebb turns your round watch face into a porthole: the screen fills as you breathe in, empties as you breathe out. Hold only while it feels easy; the sea slowly darkens while you do. For practice on land only: sit or lie down, never in or near water, never while driving.
+Breathing exercises and breath hold training on your Garmin watch: rounds of power breathing with breath holds, and calm 4-7-8 breathing, drawn as water. Ebb turns your round watch face into a porthole: the sea at the bottom rises as you breathe in and falls as you breathe out. Hold only while it feels easy; the sea slowly darkens while you do. For practice on land only: sit or lie down, never in or near water, never while driving.
 
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
-• While you hold, the sea darkens every 30 seconds and a sea animal you found swims along. Your live heart rate shows small under the timer. At 3:00 the watch says "time to breathe" and buzzes.
+• While you hold, the sea darkens every 30 seconds and a sea animal you found swims along. Your live heart rate shows small under the timer. From 3:00 on the watch shows "time to breathe" and buzzes every 30 seconds.
 • Before every session, also Calm and My pattern, Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP
@@ -52,7 +54,7 @@ SEE YOUR PRACTICE
 
 BREATHE WITH YOUR EYES CLOSED
 • Every phase has its own vibration, so you can follow the breathing without looking. The last three breaths before the hold feel different.
-• A soft buzz every 30 seconds while you hold (can be turned off), and always a buzz at 3:00. Vibration can be switched off entirely, except that buzz at 3:00.
+• A soft buzz every 30 seconds while you hold (can be turned off), and always from 3:00 on, every 30 seconds. Vibration can be switched off entirely, except those buzzes from 3:00.
 • The touchscreen does nothing during a session, so a sleeve cannot stop it; only the buttons work. Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
@@ -85,13 +87,13 @@ Tags: breathing, breathwork, breath hold, breath training, 4-7-8 breathing, calm
 ## Deutsch
 Titel (39 tekens): `Ebb: Atemübungen, Atem anhalten & 4-7-8`
 
-Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen und ruhiges 4-7-8-Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen. Halte nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
+Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen und ruhiges 4-7-8-Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: das Meer unten steigt beim Einatmen und sinkt beim Ausatmen. Halte den Atem nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
-• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Sitzung, auch bei Calm und My pattern, erinnert Ebb: setz oder leg dich hin.
+• Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Ab 3:00 zeigt die Uhr "time to breathe" und vibriert alle 30 Sekunden. Vor jeder Sitzung, auch bei Calm und My pattern, erinnert Ebb: setz oder leg dich hin.
 • Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Wochen in Folge mit deinem Wochenziel, standardmäßig 3 Sitzungen, einstellbar 2 bis 7; Ruhetage unterbrechen die Serie nie), nie durch längeres Halten. Pro Tag zählen bis zu zwei Sitzungen. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier. Alle 24 gefunden: dein Meer ist komplett, deine Wochenserie zählt weiter.
 • Calm 4-7-8: 4 ein, 7 halten, 8 aus. My pattern: eigene Sekunden in den Einstellungen. Eine Sitzung zählt ab einer Atempause oder einer Minute Calm.
 • Nach jeder Sitzung deine Haltezeiten; heute deine Sitzungen als Balken (bis drei); über 8 Wochen Sitzungen pro Woche und deine durchschnittliche Haltezeit.
-• Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer bei 3:00; Vibration ganz abschaltbar, außer bei 3:00. Touchscreen während der Sitzung gesperrt. Ebb macht keinen Ton.
+• Eigene Vibration für jede Phase, auch mit geschlossenen Augen; beim Halten alle 30 Sekunden ein sanftes Vibrieren (abschaltbar) und immer ab 3:00 alle 30 Sekunden; Vibration ganz abschaltbar, außer ab 3:00. Touchscreen während der Sitzung gesperrt. Ebb macht keinen Ton.
 • Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein Konto, keine Handy-App.
 
@@ -102,13 +104,13 @@ Tags: Atemübungen, Atemtraining, Atem anhalten, 4-7-8, Entspannung, Atmung
 ## Nederlands
 Titel (49 tekens): `Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8`
 
-Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden en rustig 4-7-8-ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
+Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden en rustig 4-7-8-ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: de zee onderin stijgt als je inademt en zakt als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
-• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke sessie, ook Calm en My pattern, zegt Ebb: ga zitten of liggen.
+• Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Vanaf 3:00 toont het horloge "time to breathe" en trilt het elke 30 seconden. Voor elke sessie, ook Calm en My pattern, zegt Ebb: ga zitten of liggen.
 • Verzamel 24 zeedieren door vol te houden (sessies en weken op rij met je weekdoel, standaard 3 sessies, in te stellen van 2 tot 7; rustdagen breken je reeks nooit), nooit door langer in te houden. Per dag tellen hoogstens twee sessies. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier. Alle 24 gevonden: je zee is compleet en je reeks in weken telt door.
 • Calm 4-7-8: 4 in, 7 vasthouden, 8 uit. My pattern: eigen seconden in de instellingen. Een sessie telt vanaf één inhoud of één minuut Calm.
 • Na elke sessie je inhoudtijden; vandaag je sessies als staven (tot drie); over 8 weken sessies per week en je gemiddelde inhoudtijd.
-• Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd op 3:00; trillen helemaal uit te zetten, behalve op 3:00. Aanraakscherm op slot tijdens een sessie. Ebb maakt geen geluid.
+• Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden elke 30 seconden een zachte tril (uit te zetten) en altijd vanaf 3:00 elke 30 seconden; trillen helemaal uit te zetten, behalve vanaf 3:00. Aanraakscherm op slot tijdens een sessie. Ebb maakt geen geluid.
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen account, geen telefoonapp.
 
@@ -117,11 +119,11 @@ De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, ge
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
-Versie 7, elke zin tegen de code op tak `claude/garmin-2026-11-10b` (fe402d8). Oudere versies staan in de git-geschiedenis van dit bestand.
+Versie 8, elke zin tegen de code op tak `claude/garmin-2026-11-10b` (137df8c). Oudere versies staan in de git-geschiedenis van dit bestand.
 - Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`EbbApp.mc`, `Start.mc`, `InstellingenView.mc`); beeld calmcheck GEZIEN.
 - Twee per dag: `EbbTrouw.MAX_PER_DAG = 2` (`Profiel.mc`). Sessieminimum: `EbbTrouw.telt` (1 inhoud of 60 s).
 - Reeks in weken met weekdoel 2 tot 7, standaard 3, telt een week één keer: `EbbTrouw.weekStap`. Sea complete na alle 24: `tekenEinde` (scène einde-sea-complete).
-- Trillen aan of uit: `EbbInstellingen.zetTrillen`; trilling op 3:00 altijd (`Trillen.mc`). Buzz every 30 s en last 3 breaths: instellingen `tik30`, `laatste3`.
+- Trillen aan of uit: `EbbInstellingen.zetTrillen`; trilling vanaf 3:00 elke 30 s altijd (`Trillen.mc` regel 38). "time to breathe" vanaf 3:00 als tekst bovenaan (`EbbApp.mc`, `s < 180`). Zee onderaan stijgt bij in en zakt bij uit (ademscherm, blad 2). Buzz every 30 s en last 3 breaths: instellingen `tik30`, `laatste3`.
 - My pattern: `EbbInstellingen.eigenPatroon` (in, vast, uit, leeg).
 - Today hoogstens 3 sessies (`EbbVandaag`); 8 weeks sessies per week, maandag tot zondag, en "avg hold" (`EbbProfiel.weken`).
 - Horloges: de 28 in `manifest.xml`; .iq-bouw groen voor alle 28 (run 42963243152).
