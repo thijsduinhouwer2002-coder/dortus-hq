@@ -470,3 +470,15 @@
 2. Open: FR255-vergelijking met 20 s per scène, beelden van e79985d (silhouet en schaduw), Mila v9 punt 1 en 3, keuring bouw 4 punt 3, 6, 7, 10, 11.
 3. Volgende run eerst: plaatjesrun van e79985d bekijken, dan FR255 vergelijken, dan sea log 2 x 3.
 
+## Run 36 (11 nov 07:39 tot 08:20 UTC): bewijs FR255, Mila v9, keuring bouw 4 punt 11 en 12
+- FR255 vóór (a7160db) en na (74448c2) opnieuw met 20 s per scène, twee simulators: 35 van 35 pixel voor pixel gelijk (alleen de geheugenregel van de simulator telt niet). Daarmee is het opruimen op fenix 8 en FR255 bewezen. e2e van e79985d helemaal groen (toetsen fenix 7 en FR255, schermen, FIT, regel van 300).
+- Beelden run 42980590755 (e79985d) GEZIEN: schaduw leest goed, maar de scharen staken boven de kamlijn uit (81ae64c: schaduw begint onder de kam).
+- 54318fb: sea log volgens blad v9 (4 bladen van 6 plus bonusblad, maat 23/40, stippen als ringen), SeaComplete.mc (walvis, fontein, glimlach van 23, alles in één plaatje), "Ebb makes no sound" als vaste regel, terug in het menu zonder onbereikbare return (bouw zonder waarschuwingen). f861f7b: "1 more session:" wit en "a new friend" geel.
+- Plaatjesrun 42983660035 (81ae64c) GEZIEN: sea log goed op FR255 en fenix 8, schaduw in het water, sea complete compleet op FR255; op fenix 8 staan de dieren er niet (zee, fontein en tekst wel). Geen crash-bestand.
+- Lokaal scènes per stuk draaien (snel.sh) werkte niet: de app meldde zich niet binnen 40 s. Volgende keer de volledige plaatjes.sh met 20 s.
+
+**In drie regels:**
+1. Opruimen bewezen op beide horloges; Mila v9 punt 1 tot 4 gebouwd en grotendeels gezien.
+2. Open: sea complete op fenix 8 (dieren ontbreken), scène bonusblad, keuring bouw 4 punt 3 winkelbeelden, 7 rest uiterlijk, 10 horloges, 11 testverhaal.
+3. Volgende run eerst: sea complete op fenix 8 lokaal meten en oplossen.
+
