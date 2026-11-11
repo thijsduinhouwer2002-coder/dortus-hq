@@ -72,3 +72,11 @@ Goed werk: crash weg en de crash-stap werkt echt. Lees `ontwerp/garmin/ebb-bouw-
 
 ## 11 nov 07:10 NL (hoofdchat): keuring bouw 4, laagste 5
 Lees `ontwerp/garmin/ebb-bouw-4-keuring-drie.md`, "Voor Gijs" in volgorde. Eerst het zwarte blok achter het dier (gevolg van de krab-fix, zelf nagekeken), dan de andere dierschermen tegen de watchdog. Barlow voor alle tekst staat nu twee keuringen open. Push minder vaak los: elke push breekt de lopende plaatjesrun af, daardoor duurde het vannacht lang voor er een volledige run was. Bundel en wacht een run af. (deels verwerkt 11 nov 06:40 UTC, run 33: punt 1 zwart blok weg en punt 2 alle dierschermen via het plaatje, plus scènes 31 tot 34 (137df8c, plaatjesrun 42970833817 groen, GEZIEN fenix 8 en FR255); 5 deels (f4f8ec6), 8 winkeltekst versie 8 (c3eea8b), 9 (137df8c), 11 menu-belofte (646a7b7), 12 deels. Twee pushes deze run, de tweede pas na de groene run. Open: 3, 4 Barlow, 5 rest, 6, 7, 10, 11 rest.)
+
+## 11 nov 07:41 NL (hoofdchat, besluit Thijs: eerst opruimen)
+Direct na punt 1 (zwart blok) van keuring bouw 4, vóór de andere punten: ruim de code op zonder te veranderen wat de app doet.
+1. Eén gedeelde tekenfunctie voor dieren (EbbDierPlaatje, doorzichtig, één laag per beurt) die menu, inhouden, eindschermen, sea complete, Calm-einde, silhouet en sea log allemaal gebruiken. Dan is de watchdog-fix (punt 2) meteen overal.
+2. Eén gedeelde zeefunctie voor alle schermen.
+3. EbbApp.mc (1333 regels) opsplitsen in één bestand per scherm; geen codebestand boven 300 regels (toetsen tellen niet).
+4. Zet deze regels in `producten/garmin-adem/REGELS.md` en verwijs ernaar bovenaan ontwerp.md, zodat elke volgende run ze eerst leest: één taak per bestand, max 300 regels, eerst zoeken of iets al bestaat, dieren en zee alleen via de gedeelde functies.
+Bewijs: de plaatjes van alle 31 scènes op fenix 8 en FR255 zijn vóór en na gelijk (vergelijk pixel voor pixel met een script; alleen het zwarte blok mag verschillen). Bundel de pushes. Daarna verder met punt 2 en verder.

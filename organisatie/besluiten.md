@@ -186,3 +186,6 @@ Thijs kan dit om 08:00 terugdraaien.
 
 ## 11 nov 07:13 (Thijs)
 "ja nou fix alles naar minimaal een 8." Reeks in weken is goed. Ebb gaat door tot alle onderdelen van de keuring door drie frisse beoordelaars minstens een 8 hebben (code, veiligheid, uiterlijk, product, dieren). Ritme: elk uur Gijs en Mila, daarna eigen controle van de hoofdchat en drie keurders, tot alles 8 of hoger is. Daarna pas winkelbeelden definitief en samen met Thijs uploaden.
+
+## 11 nov 07:41 (Thijs)
+Ebb-code eerst opruimen (optie A): na het zwarte blok één gedeelde tekenfunctie voor dieren en zee, één bestand per scherm, max 300 regels per bestand, regels in producten/garmin-adem/REGELS.md. Waarom: reparaties bleven op één plek hangen (watchdog-fix kwam terug op drie andere schermen).
