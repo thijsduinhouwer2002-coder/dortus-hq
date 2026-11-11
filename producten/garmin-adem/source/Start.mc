@@ -97,7 +97,7 @@ class EbbMenuView extends WatchUi.View {
         dc.drawText(d / 2, (d * 0.165).toNumber(), EbbTeken.fM(), "Ebb", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         pilRand(dc, d, 0.335, "Rounds", keuze == 0);
         pilRand(dc, d, 0.510, "Calm 4-7-8", keuze == 1);
-        // "Sea log · Settings · Today": het gekozen woord wit met een schuimstreep eronder, de andere lichtcyaan.
+        // "Sea log · Settings · Today": het gekozen woord wit in een pil met schuimrand, de andere lichtcyaan.
         // Keuring bouw 7 punt 6: today en 8 weeks ook vanuit het menu. Past de regel niet, dan smallere tussenruimte.
         var f = EbbTeken.fX();
         var y = (d * 0.655).toNumber();
@@ -116,8 +116,15 @@ class EbbMenuView extends WatchUi.View {
             dc.setColor(gekozen ? Graphics.COLOR_WHITE : EbbTeken.LICHTCYAAN, Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y, f, WOORDEN[i], Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             if (gekozen) {
-                dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
-                dc.fillRectangle(x, y + fh / 2, ww, d / 130 > 2 ? d / 130 : 2);
+                // Keuring bouw 8 punt 3: het gekozen woord in een pil met schuimrand (was een streep van 1 px).
+                var pad = wm / 2 - 1;
+                var maxPad = (d * 0.03).toNumber();
+                pad = pad > maxPad ? maxPad : (pad < 3 ? 3 : pad);
+                var ph = fh + 2;
+                dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+                dc.setPenWidth(d / 130 > 2 ? d / 130 : 2);
+                dc.drawRoundedRectangle(x - pad, y - ph / 2, ww + 2 * pad, ph, ph / 2);
+                dc.setPenWidth(1);
             }
             x += ww;
             // Tot hier (midden van de tussenruimte) hoort een tik bij dit woord.

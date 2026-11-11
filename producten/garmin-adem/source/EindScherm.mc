@@ -108,8 +108,9 @@ module EbbEindScherm {
     // Kamlijn in px: op 94/260 D, of lager als de tekst erboven verder doorloopt (twee regels tijden).
     function kamlijn(d as Number, onderTekst as Number) as Number {
         var k = EbbTeken.px(d, KAM);
-        // Beeld run 43104956914 (FR255, 6 rondes): met 7 raakte de tweede regel tijden de golf; nu 11.
-        var t = onderTekst + EbbTeken.px(d, 11);
+        // Beeld run 43104956914 (FR255, 6 rondes): met 7 raakte de tweede regel tijden de golf. Met 11 gemeten in run
+        // 43108922082: 6 px lucht op FR255 en ±13 px op fenix 8; keuring bouw 8 punt 2 vraagt 10 en 16, daarom 15.
+        var t = onderTekst + EbbTeken.px(d, 15);
         return t > k ? t : k;
     }
 

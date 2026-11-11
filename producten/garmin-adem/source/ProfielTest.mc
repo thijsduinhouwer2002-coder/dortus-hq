@@ -218,3 +218,21 @@ function testOpslagVersieWistDagenReeks(logger as Test.Logger) as Boolean {
     EbbTrouw.wis();
     return eerst && weg && !tweede && blijft;
 }
+
+// Keuring bouw 8 punt 6: het feestscherm sea complete komt alleen als de sessie meetelt, alleen als alle gewone dieren
+// er zijn, en maar één keer.
+(:test)
+function testFeestNuEenKeer(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    Application.Storage.deleteValue(EbbTrouw.FEEST);
+    var tellers = [0, 0, 0] as Array<Number>;
+    var nietCompleet = EbbTrouw.feestNu(true, tellers);
+    Application.Storage.setValue(EbbTrouw.BITS, (1 << 25) - 1);
+    var teltNiet = EbbTrouw.feestNu(false, tellers);
+    var eerste = EbbTrouw.feestNu(true, tellers);
+    var tweede = EbbTrouw.feestNu(true, tellers);
+    logger.debug("niet compleet " + nietCompleet + " telt niet " + teltNiet + " eerste " + eerste + " tweede " + tweede);
+    EbbTrouw.wis();
+    Application.Storage.deleteValue(EbbTrouw.FEEST);
+    return !nietCompleet && !teltNiet && eerste && !tweede;
+}

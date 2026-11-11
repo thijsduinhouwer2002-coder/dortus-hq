@@ -86,7 +86,7 @@ Ebb collects nothing. Your sessions, sea animals and settings stay on your watch
 
 SUPPORT AND REFUNDS
 Something not working? Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days.
-[REFUNDS: één zin, wacht op het besluit van Thijs; Garmin eist dat het terugbetaalbeleid genoemd wordt, ook als er geen is.]
+Refunds follow Garmin's Connect IQ Store policy: Garmin gives a 48-hour return window after you buy.
 
 SAFETY
 Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems.
@@ -109,7 +109,7 @@ Breathwork auf deiner Garmin-Uhr: Atemübungen und Atem anhalten, Runden aus kr�
 • Wird als Atemaktivität mit Herzfrequenz in Garmin Connect gespeichert; bei Atemrunden eine Runde pro Lap mit Haltezeit und Atemzügen, nur zur Info, ohne Bewertung. Eine fertige Sitzung speichert sich selbst; Zurück-Taste für Pause: weiter, speichern oder verwerfen.
 • Einmal zahlen. Kein Abo, kein Code per E-Mail, kein zusätzliches Konto, keine Handy-App.
 • Datenschutz: Ebb sammelt nichts. Sitzungen, Tiere und Einstellungen bleiben auf der Uhr; nur eine Aktivität, die du speicherst, geht an Garmin Connect (Datenschutzerklärung von Garmin). Keine Analyse, keine Werbung.
-• Support: thijs@dortus.com, mit deinem Uhrenmodell. Wir antworten möglichst innerhalb von 5 Werktagen. [ERSTATTUNG: wacht op Thijs]
+• Support: thijs@dortus.com, mit deinem Uhrenmodell. Wir antworten möglichst innerhalb von 5 Werktagen. Erstattungen folgen den Regeln des Garmin Connect IQ Store: Garmin gibt dir nach dem Kauf 48 Stunden Rückgabefrist.
 
 Die App ist auf Englisch. Kein Freediving- oder Apnoe-Trainer, keine CO2-Tabellen, kein Medizinprodukt. Sicherheit: im Sitzen oder Liegen. Nie im oder am Wasser, nie in der Badewanne, nie beim Autofahren. Schwindelig oder Kribbeln? Aufhören und normal atmen. Nicht bei Schwangerschaft, unter 18, bei Epilepsie, Herz- oder Blutdruckproblemen.
 
@@ -128,13 +128,14 @@ Breathwork op je Garmin-horloge: ademhalingsoefeningen en adem inhouden, rondes 
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
 • Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een activiteit die je opslaat gaat naar Garmin Connect (privacybeleid van Garmin). Geen metingen, geen advertenties.
-• Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. [TERUGBETALEN: wacht op Thijs]
+• Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Terugbetalen volgt de regels van de Garmin Connect IQ Store: Garmin geeft je na je aankoop 48 uur om terug te geven.
 
 De app is in het Engels. Geen freediving- of apneutrainer, geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.
 
 Tags: ademhalingsoefeningen, ademhaling, adem inhouden, 4-7-8, ontspanning
 
 ## Nagekeken
+- Versie 13 (11 nov 22:40 UTC, keuring bouw 8 punt 4 en besluit hoofdchat 22:55): terugbetaalzin in drie talen, rechte haken weg. GEZIEN in Garmins eigen uitleg (developer.garmin.com/connect-iq/articles/monetization/App_Sales.html en Account_Management.html, gelezen met curl): "Funds are not captured from customers until the 48-hour return window has passed" en "Customers who have purchases still in their return window are allowed to request refunds". NIET GEZIEN: een manier waarop wij als verkoper zelf geld terugsturen. Daarom de terugvalzin uit het besluit (beleid van de winkel, 48 uur) en geen belofte van 14 dagen die we niet kunnen waarmaken.
 - Versie 12 (11 nov 21:45 UTC, regels Garmin gelezen door de hoofdchat, `platformen/garmin/upload-en-keuringsregels-2026-11-11.md`): privacyzin en supportzin erbij in drie talen (regel 6 en 7). De zin over terugbetalen ontbreekt nog met opzet: dat beleid beslist Thijs; de plek staat tussen rechte haken en moet weg voor het indienen. "Within 5 working days" is een streven ("aim"), geen belofte; aanpassen als Thijs iets anders wil. Privacy nagekeken tegen manifest.xml: de app vraagt geen recht om met internet of de telefoon te praten.
 Versie 11, elke zin tegen de code op tak `claude/garmin-2026-11-10b` na het opruimen (b39cd77 en later). Oudere versies staan in de git-geschiedenis van dit bestand.
 - Startcheck "Sit or lie down" voor Rounds, Calm en My pattern: `StartCheckView`, `zetCalm`, `zetEigen` (`StartCheck.mc`); beeld calmcheck GEZIEN.

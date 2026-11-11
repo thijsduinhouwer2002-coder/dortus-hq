@@ -116,7 +116,12 @@ class EbbInstellingenView extends WatchUi.View {
             }
             bh = hN + hV + 8;
         }
-        if (laag) {
+        if (laag && krap) {
+            // Keuring bouw 8 punt 1 (k20), gemeten in run 43108922082: op FR255 0 px tussen "Start my pattern" en de
+            // hoge pil, op fenix 8 ±5 px. Is de pil hoog, dan één regel erboven, midden tussen de kop en de pil.
+            var kopOnder = (d * 0.21).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2;
+            regelKort(dc, d, keuze - 1, ((kopOnder + py - bh / 2) / 2).toFloat() / d);
+        } else if (laag) {
             // Twee regels boven de lage pil, op de vaste plekken van blad v12 (0,304 en 0,384 D).
             regelKort(dc, d, keuze - 2, 0.304);
             regelKort(dc, d, keuze - 1, 0.384);
