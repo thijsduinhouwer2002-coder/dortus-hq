@@ -281,7 +281,7 @@ class StartCheckView extends WatchUi.View {
         dc.drawText(d / 2, (d * 0.20).toNumber(), Graphics.FONT_SMALL, "how it works", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         var f = Graphics.FONT_XTINY;
         var lh = dc.getFontHeight(f);
-        var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold while", "the sea gets dark.",
+        var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold only", "while it feels easy.",
             WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK stops."] as Array<String>;
         var y = (d * 0.46).toNumber() - (regels.size() * lh) / 2;
         for (var i = 0; i < regels.size(); i += 1) {
@@ -397,7 +397,15 @@ class EbbView extends WatchUi.View {
     }
 
     // Opslaan: activiteit bewaren en de inhoudtijden in de 56 dagen zetten.
+    // Keuring bouw 1 punt 1: een sessie telt maar één keer (today, 8 weeks, dagen, dieren), ook als opslaan twee keer wordt gevraagd.
+    var opgeslagen as Boolean = false;
+
     function opslaan() as Boolean {
+        if (opgeslagen) {
+            System.println("OPNAME al opgeslagen, niet dubbel");
+            return false;
+        }
+        opgeslagen = true;
         var ok = opname.opslaan();
         System.println("OPNAME opgeslagen " + ok + " laps " + (opname.laps + 1));
         var opslag = new EbbOpslag();
@@ -878,14 +886,27 @@ class EbbDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
-    // Wat terug doet: tijdens inhouden stoppen, anders het pauzemenu (doorgaan, opslaan, weggooien).
+    // Wat terug doet: tijdens inhouden stoppen, na de sessie naar het menu (nooit het pauzemenu,
+    // keuring bouw 1 punt 1), anders het pauzemenu (doorgaan, opslaan, weggooien).
     function terugActie() as Symbol {
-        return (_view.sessie.fase == Ebb.FASE_INHOUDEN) ? :stop : :pauze;
+        var f = _view.sessie.fase;
+        if (f == Ebb.FASE_KLAAR) {
+            return :menu;
+        }
+        return (f == Ebb.FASE_INHOUDEN) ? :stop : :pauze;
     }
 
     function onBack() as Boolean {
-        if (terugActie() == :stop) {
+        var actie = terugActie();
+        if (actie == :stop) {
             return stop();
+        }
+        if (actie == :menu) {
+            // De sessie is af en al bewaard (tik slaat op bij FASE_KLAAR); opslaan() telt hoogstens één keer.
+            _view.opslaan();
+            var mv = new EbbMenuView();
+            WatchUi.switchToView(mv, new EbbMenuDelegate(mv), WatchUi.SLIDE_RIGHT);
+            return true;
         }
         _view.pauzeer(System.getTimer());
         var menu = new WatchUi.Menu2({:title => "Paused"});

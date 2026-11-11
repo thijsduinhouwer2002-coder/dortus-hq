@@ -2,26 +2,6 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.Test;
 
-// Eis 7: per ronde een V naar evenredige diepte, lichtpuntje bij de diepste, koraal alleen bij nieuw record.
-(:test)
-function testDuikprofielV(logger as Test.Logger) as Boolean {
-    var p = EbbProfiel.vPunten([60000, 120000, 90000] as Array<Number>, 0, 10, 300, 100);
-    logger.debug("punten " + p);
-    return p.size() == 7
-        && p[1][0] == 50 && p[1][1] == 60
-        && p[3][0] == 150 && p[3][1] == 110
-        && p[5][0] == 250 && p[5][1] == 85
-        && p[6][0] == 300 && p[6][1] == 10
-        && EbbProfiel.diepste([60000, 120000, 90000] as Array<Number>) == 1;
-}
-
-// Keuring G1: geen record meer; onderaan de getijdenlijn het gemiddelde van de dagen met een sessie.
-(:test)
-function testGemiddeldeLijn(logger as Test.Logger) as Boolean {
-    var lijn = [[80], null, [91]] as Array<Array<Number> or Null>;
-    return EbbProfiel.gemiddeldeLijn(lijn) == 86 && EbbProfiel.gemiddeldeLijn([null] as Array<Array<Number> or Null>) == 0;
-}
-
 // Keuring G2: voor de dieren tellen hoogstens 2 sessies per dag; 8 weeks telt ze wel allemaal.
 (:test)
 function testHoogstensTweePerDag(logger as Test.Logger) as Boolean {
@@ -64,23 +44,6 @@ function testGetijdenlijnAchtWeken(logger as Test.Logger) as Boolean {
     logger.debug("dagen " + lijn.size() + ", gaten " + gaten + ", fout " + fout);
     EbbOpslag.wis();
     return lijn.size() == 56 && gaten == 18 && fout == 0;
-}
-
-// Scherm 5: punten van de getijdenlijn. Hoogste daggemiddelde is de volle hoogte, gaten blijven gaten (keuring v5 G1: geen beste).
-(:test)
-function testGetijPunten(logger as Test.Logger) as Boolean {
-    var lijn = [[60], null, [120], [90], null] as Array<Array<Number> or Null>;
-    var p = EbbProfiel.getijPunten(lijn, 10, 200, 400, 100);
-    logger.debug("punten " + p);
-    var a = p[0] as Array<Number>;
-    var c = p[2] as Array<Number>;
-    var e = p[3] as Array<Number>;
-    var leeg = EbbProfiel.getijPunten([null, null] as Array<Array<Number> or Null>, 0, 100, 50, 50);
-    return p.size() == 5 && p[1] == null && p[4] == null
-        && a.size() == 2 && a[0] == 10 && a[1] == 150
-        && c[0] == 210 && c[1] == 100
-        && e[0] == 310 && e[1] == 125
-        && leeg[0] == null && leeg[1] == null;
 }
 
 // Besluit 22:53: het dier tijdens het inhouden hangt niet af van de inhoudtijd; het zwemt in een vaste cyclus van 20 s.

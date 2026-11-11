@@ -22,7 +22,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 
 ## Description (English)
 
-Breathing exercises and breath hold training on your Garmin watch: rounds of power breathing with breath holds, box breathing, 4-7-8 and calm breathing, drawn as water. Ebb turns your round watch face into a porthole: the screen fills as you breathe in, empties as you breathe out, and the sea slowly darkens while you hold. For practice on land only: sit or lie down, never in or near water, never while driving.
+Breathing exercises and breath hold training on your Garmin watch: rounds of power breathing with breath holds, box breathing, 4-7-8 and calm breathing, drawn as water. Ebb turns your round watch face into a porthole: the screen fills as you breathe in, empties as you breathe out. Hold only while it feels easy; the sea slowly darkens while you do. For practice on land only: sit or lie down, never in or near water, never while driving.
 
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
@@ -80,7 +80,7 @@ Tags: breathing, breathwork, breath hold, breath training, box breathing, 4-7-8 
 ## Deutsch
 Titel (47 tekens): `Ebb: Atemübungen, Atem anhalten & Box Breathing`
 
-Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen, Box Breathing, 4-7-8 und ruhiges Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen, und das Meer wird beim Anhalten langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
+Atemübungen und Atem anhalten auf deiner Garmin-Uhr: Runden aus kräftigem Atmen mit Atempausen, Box Breathing, 4-7-8 und ruhiges Atmen, gezeichnet als Wasser. Ebb macht dein rundes Zifferblatt zu einem Bullauge: der Bildschirm füllt sich beim Einatmen, leert sich beim Ausatmen. Halte nur an, solange es leicht fällt; das Meer wird dabei langsam dunkler. Nur an Land üben: im Sitzen oder Liegen, nie im oder am Wasser, nie beim Autofahren.
 
 • Atemrunden: tiefe Atemzüge in festem Tempo, dann ausatmen und halten, solange es sich gut anfühlt. Bei 3:00 sagt die Uhr "time to breathe" und vibriert. Vor jeder Runde fragt Ebb: sitzend oder liegend?
 • Sammle 24 Meerestiere durch Dranbleiben (Sitzungen und Tage in Folge, ein Ruhetag unterbricht die Serie nicht), nie durch längeres Halten. Neue Tiere kommen am Ende einer Sitzung, dazu ein Bonustier.
@@ -97,7 +97,7 @@ Tags: Atemübungen, Atemtraining, Atem anhalten, Box Breathing, Entspannung, Atm
 ## Nederlands
 Titel (42 tekens): `Ebb: Ademhalingsoefeningen & Adem inhouden`
 
-Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden, box breathing, 4-7-8 en rustig ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt, en de zee wordt langzaam donkerder terwijl je inhoudt. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
+Ademhalingsoefeningen en adem inhouden op je Garmin-horloge: rondes krachtig ademen met inhouden, box breathing, 4-7-8 en rustig ademen, getekend als water. Ebb maakt van je ronde horloge een patrijspoort: het scherm loopt vol als je inademt, loopt leeg als je uitademt. Houd alleen in zolang het makkelijk gaat; de zee wordt intussen langzaam donkerder. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 
 • Ademrondes: diepe ademhalingen in een vast tempo, dan uitademen en inhouden zolang het goed voelt. Op 3:00 zegt het horloge "time to breathe" en trilt. Voor elke reeks rondes vraagt Ebb: zittend of liggend?
 • Verzamel 24 zeedieren door vol te houden (sessies en dagen op rij, één rustdag breekt je reeks niet), nooit door langer in te houden. Nieuwe dieren komen aan het eind van een sessie, plus één bonusdier.

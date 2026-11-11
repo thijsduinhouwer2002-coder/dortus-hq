@@ -71,3 +71,21 @@ function testTijdenTekst(logger as Test.Logger) as Boolean {
     logger.debug("tijden " + t + " lang " + lang);
     return t.equals("1:20 · 1:45 · 3:04") && lang.toUtf8Array().size() <= 47 && lang.length() > 0;
 }
+
+// Keuring bouw 1 punt 1: na de sessie geeft terug het menu (geen pauzemenu) en opslaan telt maar één keer.
+(:test)
+function testNaSessieTerugNaarMenuEnNietDubbel(logger as Test.Logger) as Boolean {
+    var view = new EbbView();
+    view.sessie = new Ebb.Rondes(30, 1600, 1, 15000, 0);
+    var d = new EbbDelegate(view);
+    view.sessie.bijwerken(96000);
+    d.stopOp(120000);
+    view.sessie.bijwerken(140000);
+    var klaar = view.sessie.fase == Ebb.FASE_KLAAR;
+    var actie = d.terugActie();
+    var eerste = view.opgeslagen;
+    view.opslaan();
+    var tweedeKeer = view.opslaan();
+    logger.debug("klaar " + klaar + " actie " + actie + " tweede " + tweedeKeer);
+    return klaar && actie == :menu && !eerste && view.opgeslagen && !tweedeKeer;
+}

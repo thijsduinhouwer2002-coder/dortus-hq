@@ -3,48 +3,6 @@ import Toybox.Lang;
 
 // Eis 7 en 8: rekenwerk voor duikprofiel, getijdenlijn, record en dieren, los van het tekenen zodat het te toetsen is.
 module EbbProfiel {
-    // Duikprofiel: per ronde een V. Geeft punten [x, y]: begin aan de oppervlakte, diepste punt in het midden
-    // van de ronde op diepte evenredig met de inhoudtijd (langste ronde is de volle hoogte), weer naar boven.
-    function vPunten(tijden as Array<Number>, x0 as Number, y0 as Number, w as Number, h as Number) as Array<Array<Number> > {
-        var punten = [[x0, y0]] as Array<Array<Number> >;
-        var n = tijden.size();
-        if (n == 0) {
-            return punten;
-        }
-        var max = tijden[diepste(tijden)];
-        for (var i = 0; i < n; i += 1) {
-            var diep = (max > 0) ? (h * tijden[i]) / max : 0;
-            punten.add([x0 + (w * (2 * i + 1)) / (2 * n), y0 + diep]);
-            punten.add([x0 + (w * (i + 1)) / n, y0]);
-        }
-        return punten;
-    }
-
-    // Index van de langste inhoudtijd (bij gelijk de eerste); daar komt het lichtpuntje.
-    function diepste(tijden as Array<Number>) as Number {
-        var beste = 0;
-        for (var i = 1; i < tijden.size(); i += 1) {
-            if (tijden[i] > tijden[beste]) {
-                beste = i;
-            }
-        }
-        return beste;
-    }
-
-    // Gemiddelde van de daggemiddelden over de getijdenlijn (s), 0 zonder dagen. Vervangt "best" (keuring G1).
-    function gemiddeldeLijn(lijn as Array<Array<Number> or Null>) as Number {
-        var som = 0;
-        var n = 0;
-        for (var i = 0; i < lijn.size(); i += 1) {
-            var g = lijn[i];
-            if (g != null) {
-                som += g[0];
-                n += 1;
-            }
-        }
-        return (n > 0) ? (som + n / 2) / n : 0;
-    }
-
     // Getijdenlijn: 56 dagen, oudste eerst, eindigend op vandaag. Per dag [gemiddelde] of null (gat).
     function getijden(opslag as EbbOpslag, vandaag as Number) as Array<Array<Number> or Null> {
         var lijn = [] as Array<Array<Number> or Null>;
@@ -80,30 +38,6 @@ module EbbProfiel {
                 }
             }
             uit.add([(n > 0) ? (som + n / 2) / n : 0, sessies, n] as Array<Number>);
-        }
-        return uit;
-    }
-
-    // Scherm 5 (getijdenlijn per week): per dag [x, y gemiddelde] of null bij een gat.
-    // Het hoogste daggemiddelde van de 56 dagen is de volle hoogte h; y0 is de bodem, hoger water is een kleinere y.
-    function getijPunten(lijn as Array<Array<Number> or Null>, x0 as Number, y0 as Number, w as Number, h as Number) as Array<Array<Number> or Null> {
-        var max = 0;
-        for (var i = 0; i < lijn.size(); i += 1) {
-            var g = lijn[i];
-            if (g != null && g[0] > max) {
-                max = g[0];
-            }
-        }
-        var uit = [] as Array<Array<Number> or Null>;
-        var n = lijn.size();
-        for (var i = 0; i < n; i += 1) {
-            var g = lijn[i];
-            if (g == null || max == 0) {
-                uit.add(null);
-            } else {
-                var x = (n > 1) ? x0 + (w * i) / (n - 1) : x0;
-                uit.add([x, y0 - (h * g[0]) / max] as Array<Number>);
-            }
         }
         return uit;
     }
