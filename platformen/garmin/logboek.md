@@ -447,3 +447,14 @@
 2. Open: Barlow voor alle tekst (4), winkelbeelden (3), krab 24 en zeester 17 los van tekst, sea log (6), rest uiterlijk (7), horloges (10).
 3. Volgende run eerst: beelden van f4f8ec6 nakijken (6b, 6c, Calm-einde, menu-leeg), dan Barlow.
 
+## Run 34 (11 nov 06:33 tot 07:02 UTC): keuring bouw 4 vervolg
+- Beelden f4f8ec6 (run 42973269112, geen crash) GEZIEN op FR255: krab op Calm-einde, zeester en zeekomkommer staan los van de tekst; menu bij de eerste start toont "first friend / after 1 session". Fout: op FR255 een wit blok achter het krabsilhouet (6c) en de walvis (sea complete), dus het palet op MIP is niet betrouwbaar. a7160db: dierplaatje nu overal zonder palet.
+- 25b7a93 punt 4 Barlow voor alle tekst: `bron/maak_letters.py` maakt per schermmaat EbbXtiny, EbbSmall en EbbMedium (Barlow Condensed Medium, OFL) met dezelfde regelhoogte als de systeemletters, hoofdletters in het midden van de regel; alle 95 plekken gaan via `EbbTeken.fX/fS/fM`. Proefbeeld van de letters in Python klopte (midden van de regel, geen afgesneden staarten).
+- a71fb02 punt 5 scène 24: dier op het inhoudscherm in de band tussen cijfers en hartslagregel.
+- Pushes gebundeld: één na de groene run van f4f8ec6, één kort daarna voor het witte blok (de run van a71fb02 was net begonnen). Run 42975297309 voor a7160db stond om 07:00 nog in de wachtrij.
+
+**In drie regels:**
+1. Barlow voor alle tekst gebouwd, dieren los van tekst op eindschermen gezien, wit blok op MIP gevonden en aangepakt.
+2. Open: beelden van a7160db nakijken (wit blok weg, Barlow overal, geheugen FR255 en Venu 2), winkelbeelden (3), sea log (6), rest uiterlijk (7), horloges (10), "no sound" als tekst.
+3. Volgende run eerst: run 42975297309 bekijken, pas dan nieuwe pushes.
+
