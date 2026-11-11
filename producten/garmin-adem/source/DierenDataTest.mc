@@ -38,16 +38,17 @@ function testDierenData(logger as Test.Logger) as Boolean {
 }
 
 // Keuring bouw 2 punt 2: de echte sea log (DierenView.onUpdate) op 260 en 454 px, met alle dieren gevonden en met
-// niets gevonden, blad 1 en blad 3 (walvis, dier 24). Per beurt hoogstens 3 nieuwe plaatjes, dus vijf beurten tekenen
-// alles; daarna moet elk dier klaar staan. Het inhoudscherm tekent dier 4 en 24 groot via dezelfde plaatjes.
+// niets gevonden, blad 1 en blad 3 (walvis, dier 24). Per beurt hoogstens 3 dieren in het bladplaatje, dus na vijf
+// beurten moet het blad af zijn.
 // De watchdog zelf telt in de toets niet; die vangt de plaatjesrun (stap "Geen crash").
 (:test)
 function testSeaLogEcht(logger as Test.Logger) as Boolean {
     var goed = true;
+    var view0 = new DierenView();
     var maten = [260, 454] as Array<Number>;
     for (var m = 0; m < 2; m += 1) {
         var d = maten[m];
-        var bmp = Graphics.createBufferedBitmap({:width => d, :height => d, :palette => EbbDierData.palet()}).get() as Graphics.BufferedBitmap;
+        var bmp = Graphics.createBufferedBitmap({:width => d, :height => d, :palette => view0.palet()}).get() as Graphics.BufferedBitmap;
         var dc = bmp.getDc();
         for (var alles = 0; alles < 2; alles += 1) {
             EbbTrouw.wis();
@@ -62,21 +63,17 @@ function testSeaLogEcht(logger as Test.Logger) as Boolean {
                 for (var beurt = 0; beurt < 5; beurt += 1) {
                     view.onUpdate(dc);
                 }
-                var maat = (d * 0.078).toNumber();
-                var eerste = (bladen[b] / 9) * 9;
-                for (var k = 0; k < 9 && eerste + k < 25; k += 1) {
-                    var i = eerste + k;
-                    if (!EbbDierData.klaar(i, maat, EbbTrouw.heeft(i) ? 0 : 1)) {
-                        logger.debug("niet klaar " + d + " dier " + i);
-                        goed = false;
-                    }
+                if (!view.klaar()) {
+                    logger.debug("blad niet af " + d + " blad " + b);
+                    goed = false;
                 }
                 System.println("SEALOG " + d + " px, alles " + alles + ", blad " + b + ": " + (System.getTimer() - t0) + " ms");
             }
         }
+        // Inhoudscherm en eindschermen tekenen één dier direct (5 keer met de rand): dier 4 en 24 groot.
         EbbDierData.teken(dc, 4, d / 2, d / 2, (d * 0.15).toNumber(), -1);
         EbbDierData.teken(dc, 24, d / 2, d / 2, (d * 0.15).toNumber(), -1);
-        goed = goed && EbbDierData.klaar(4, (d * 0.15).toNumber(), 0) && EbbDierData.klaar(24, (d * 0.15).toNumber(), 0);
+        EbbDierData.silhouet(dc, 23, d / 2, d / 2, (d * 0.105).toNumber());
     }
     EbbTrouw.wis();
     return goed;

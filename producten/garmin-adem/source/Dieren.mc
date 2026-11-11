@@ -10,6 +10,28 @@ class DierenView extends WatchUi.View {
     var keuze as Number = 0;
     const PER_BLAD = 9;
     const NIEUW_PER_BEURT = 3;
+    var _plaatje as Graphics.BufferedBitmapReference or Null = null;
+    var _sleutel as Number = -1;
+    var _getekend as Number = 0;
+
+    // De 64 kleuren van het MIP-scherm: alle dieren en silhouetten gebruiken alleen deze, 1 byte per pixel.
+    function palet() as Array<Number> {
+        var p = [] as Array<Number>;
+        for (var r = 0; r < 4; r += 1) {
+            for (var g = 0; g < 4; g += 1) {
+                for (var b = 0; b < 4; b += 1) {
+                    p.add(r * 0x550000 + g * 0x5500 + b * 0x55);
+                }
+            }
+        }
+        return p;
+    }
+
+    // Voor de toets: staat het hele blad in het plaatje?
+    function klaar() as Boolean {
+        var blad = keuze / PER_BLAD;
+        return _plaatje != null && (_getekend >= PER_BLAD || blad * PER_BLAD + _getekend >= EbbTrouw.DIEREN.size());
+    }
 
     function initialize() {
         View.initialize();
@@ -56,17 +78,26 @@ class DierenView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
-        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, (d * 0.15).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
-        dc.drawText(w / 2, (d * 0.22).toNumber(), Graphics.FONT_SMALL, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
         var blad = keuze / PER_BLAD;
         var maat = (d * 0.078).toNumber();
+        // Keuring bouw 2 punt 1 (watchdog): de dieren van een blad komen in één plaatje op zwart (het raster), dat over
+        // een paar beurten vol getekend wordt: hoogstens NIEUW_PER_BEURT dieren per beurt, elke beurt een eigen watchdog.
+        // Is het plaatje af, dan kost een beurt alleen nog het plakken. Opnieuw na een ander blad of een nieuw dier.
+        var ox = (d * 0.13).toNumber();
+        var oy = (d * 0.20).toNumber();
+        var sleutel = blad * 100000000 + EbbTrouw.getal(EbbTrouw.BITS) % 100000000;
+        if (_plaatje == null || sleutel != _sleutel || _plaatje.get() == null) {
+            _plaatje = Graphics.createBufferedBitmap({:width => (d * 0.74).toNumber(), :height => (d * 0.56).toNumber(), :palette => palet()});
+            var pdc0 = (_plaatje.get() as Graphics.BufferedBitmap).getDc();
+            pdc0.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            pdc0.clear();
+            _sleutel = sleutel;
+            _getekend = 0;
+        }
+        var pdc = (_plaatje.get() as Graphics.BufferedBitmap).getDc();
         var gekozenY = 0;
         var gekozenX = 0;
-        // Keuring bouw 2 punt 1: hoogstens NIEUW_PER_BEURT nieuwe plaatjes per tekenbeurt, de rest in de volgende beurt
-        // (elke beurt krijgt een eigen watchdog). Klaar staande plaatjes kosten bijna niets.
-        var nieuw = 0;
-        var later = false;
+        var nu = 0;
         for (var k = 0; k < PER_BLAD; k += 1) {
             var i = blad * PER_BLAD + k;
             if (i >= EbbTrouw.DIEREN.size()) {
@@ -74,26 +105,26 @@ class DierenView extends WatchUi.View {
             }
             var x = (d * (0.29 + 0.21 * (k % 3))).toNumber();
             var y = (d * (0.335 + 0.14 * (k / 3))).toNumber();
-            var soort = EbbTrouw.heeft(i) ? 0 : 1;
-            if (!EbbDierData.klaar(i, maat, soort)) {
-                if (nieuw >= NIEUW_PER_BEURT) {
-                    later = true;
+            if (k >= _getekend && nu < NIEUW_PER_BEURT) {
+                if (EbbTrouw.heeft(i)) {
+                    EbbDierData.teken(pdc, i, x - ox, y - oy, maat, -1);
                 } else {
-                    nieuw += 1;
+                    EbbDierData.silhouet(pdc, i, x - ox, y - oy, maat);
                 }
-            }
-            if (later && !EbbDierData.klaar(i, maat, soort)) {
-                // komt in de volgende beurt
-            } else if (soort == 0) {
-                EbbDierData.teken(dc, i, x, y, maat, -1);
-            } else {
-                EbbDierData.silhouet(dc, i, x, y, maat);
+                nu += 1;
+                _getekend = k + 1;
             }
             if (i == keuze) {
                 gekozenX = x;
                 gekozenY = y;
             }
         }
+        var later = _getekend < PER_BLAD && blad * PER_BLAD + _getekend < EbbTrouw.DIEREN.size();
+        dc.drawBitmap(ox, oy, _plaatje.get() as Graphics.BufferedBitmap);
+        // Kop na het plaatje, zodat het zwarte raster de tekst niet bedekt.
+        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (d * 0.15).toNumber(), Graphics.FONT_SMALL, "sea log", midden);
+        dc.drawText(w / 2, (d * 0.22).toNumber(), Graphics.FONT_SMALL, EbbTrouw.aantalGewoon() + " of " + EbbTrouw.totaal(), midden);
         // Keuzestip vast onder het gekozen dier.
         dc.setColor(EbbTeken.SCHUIM, EbbTeken.SCHUIM);
         var rs = (d * 0.011).toNumber();

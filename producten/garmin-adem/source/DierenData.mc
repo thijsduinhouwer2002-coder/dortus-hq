@@ -49,127 +49,35 @@ module EbbDierData {
         return maat >= 60 ? 3 : 2;
     }
 
-    // Keuring bouw 2 punt 1 (watchdog in sea log en inhoudscherm): elk dier wordt één keer in een BufferedBitmap
-    // getekend en daarna als plaatje hergebruikt. De rand komt uit een masker (het dier één keer in de randkleur) dat
-    // het horloge zelf 8 keer verschoven plakt, zonder bytecode per punt. Eerst 9 keer alle punten per dier per beurt.
-    var _cache as Dictionary<Number, Graphics.BufferedBitmapReference> = {} as Dictionary<Number, Graphics.BufferedBitmapReference>;
-    var _palet as Array<Number>? = null;
-    const CACHE_MAX = 14;
-
-    // De 64 kleuren van het MIP-scherm plus doorzichtig; alle dieren gebruiken alleen deze kleuren.
-    function palet() as Array<Number> {
-        if (_palet == null) {
-            var p = [Graphics.COLOR_TRANSPARENT] as Array<Number>;
-            for (var r = 0; r < 4; r += 1) {
-                for (var g = 0; g < 4; g += 1) {
-                    for (var b = 0; b < 4; b += 1) {
-                        p.add(r * 0x550000 + g * 0x5500 + b * 0x55);
-                    }
-                }
-            }
-            _palet = p;
-        }
-        return _palet as Array<Number>;
-    }
-
-    function sleutel(i as Number, maat as Number, soort as Number) as Number {
-        return (i * 512 + maat) * 2 + soort;
-    }
-
-    // Staat het plaatje al klaar? soort 0 gevonden, 1 silhouet. De sea log maakt per beurt maar een paar nieuwe.
-    function klaar(i as Number, maat as Number, soort as Number) as Boolean {
-        var r = _cache.get(sleutel(i, maat, soort));
-        return r != null && r.get() != null;
-    }
-
-    // Halve breedte van het plaatje: verste punt of oog, plus oog, rand en marge.
-    function halve(i as Number, maat as Number) as Number {
-        var b = DATA[i];
-        var m = 0;
-        var o = 1;
-        for (var deel = 0; deel < b[0]; deel += 1) {
-            var n = b[o + 1];
-            o += 2;
-            for (var k = 0; k < 2 * n; k += 1) {
-                var v = s8(b[o + k]);
-                v = v < 0 ? -v : v;
-                m = v > m ? v : m;
-            }
-            o += 2 * n;
-        }
-        var aantalOgen = b[o];
-        for (var k = 0; k < 2 * aantalOgen; k += 1) {
-            var v = s8(b[o + 1 + k]);
-            v = v < 0 ? -v : v;
-            m = v > m ? v : m;
-        }
-        return (m * maat) / SCHAAL + (13 * maat) / 100 + randPx(maat) + 3;
-    }
-
-    function leeg(dc as Graphics.Dc) as Void {
-        dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
-        dc.clear();
-    }
-
-    function plaatje(i as Number, maat as Number, soort as Number) as Graphics.BufferedBitmap {
-        var s = sleutel(i, maat, soort);
-        var r = _cache.get(s);
-        if (r != null) {
-            var oud = r.get();
-            if (oud != null) {
-                return oud as Graphics.BufferedBitmap;
-            }
-        }
-        if (_cache.size() >= CACHE_MAX) {
-            _cache = {} as Dictionary<Number, Graphics.BufferedBitmapReference>;
-        }
-        var h = halve(i, maat);
-        var z = 2 * h + 1;
-        var ref = Graphics.createBufferedBitmap({:width => z, :height => z, :palette => palet()});
-        var bb = ref.get() as Graphics.BufferedBitmap;
-        var dc = bb.getDc();
-        leeg(dc);
-        var k = (soort == 0) ? randPx(maat) : 2;
-        var randKleur = (soort == 0) ? TINT[i][3] : SIL_RAND;
-        var mref = Graphics.createBufferedBitmap({:width => z, :height => z, :palette => [Graphics.COLOR_TRANSPARENT, randKleur] as Array<Number>});
-        var mb = mref.get() as Graphics.BufferedBitmap;
-        var mdc = mb.getDc();
-        leeg(mdc);
-        delen(mdc, i, h, h, maat, randKleur, (soort == 0) ? 2 : 1);
-        for (var dx = -1; dx <= 1; dx += 1) {
-            for (var dy = -1; dy <= 1; dy += 1) {
-                if (dx != 0 || dy != 0) {
-                    dc.drawBitmap(dx * k, dy * k, mb);
-                }
-            }
-        }
-        if (soort == 0) {
-            var o = delen(dc, i, h, h, maat, -1, 0);
-            ogen(dc, i, o, h, h, maat);
-        } else {
-            delen(dc, i, h, h, maat, SIL_VLAK, 1);
-            delen(dc, i, h, h, maat, SIL_RAND, 3);
-        }
-        _cache.put(s, ref);
-        return bb;
-    }
+    // Keuring bouw 2 punt 1 (watchdog): de rand in 4 schuine richtingen in plaats van 8, dus 5 keer tekenen per dier
+    // in plaats van 9. De sea log tekent zijn dieren daarbij over een paar beurten in een eigen plaatje (DierenView).
+    const RAND_DX = [-1, 1, -1, 1] as Array<Number>;
+    const RAND_DY = [-1, -1, 1, 1] as Array<Number>;
 
     // Gevonden dier i op zijn zwaartepunt (cx, cy); maat in px per eenheid (het dier is ±2 eenheden breed).
-    // kleur -1: met witte stickerrand en ogen, uit het plaatje. kleur >= 0: het hele dier in die ene kleur, zonder ogen.
+    // kleur -1: witte stickerrand (alle delen in wit, 4 keer verschoven), dan het dier in eigen kleuren, dan ogen.
+    // kleur >= 0: het hele dier in die ene kleur, zonder ogen.
     function teken(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, kleur as Number) as Void {
         if (kleur >= 0) {
             delen(dc, i, cx, cy, maat, kleur, 1);
             return;
         }
-        var bb = plaatje(i, maat, 0);
-        dc.drawBitmap(cx - bb.getWidth() / 2, cy - bb.getHeight() / 2, bb);
+        var k = randPx(maat);
+        for (var r = 0; r < 4; r += 1) {
+            delen(dc, i, cx + RAND_DX[r] * k, cy + RAND_DY[r] * k, maat, TINT[i][3], 2);
+        }
+        var o = delen(dc, i, cx, cy, maat, -1, 0);
+        ogen(dc, i, o, cx, cy, maat);
     }
 
-    // Niet gevonden (Mila v8): de buitenvorm met alle delen (ook rol 9) in de randkleur 2 px verschoven, dan in het vlak,
-    // daarna het kenmerk (rol 7, 8 en 10) in de randkleur erover. Zonder ogen. Uit het plaatje.
+    // Niet gevonden (Mila v8): de buitenvorm met alle delen (ook rol 9) in de randkleur 2 px verschoven (4 richtingen),
+    // dan in het vlak, daarna het kenmerk (rol 7, 8 en 10) in de randkleur erover. Zonder ogen.
     function silhouet(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number) as Void {
-        var bb = plaatje(i, maat, 1);
-        dc.drawBitmap(cx - bb.getWidth() / 2, cy - bb.getHeight() / 2, bb);
+        for (var r = 0; r < 4; r += 1) {
+            delen(dc, i, cx + RAND_DX[r] * 2, cy + RAND_DY[r] * 2, maat, SIL_RAND, 1);
+        }
+        delen(dc, i, cx, cy, maat, SIL_VLAK, 1);
+        delen(dc, i, cx, cy, maat, SIL_RAND, 3);
     }
 
     // modus 0: eigen kleuren, rol 9 overslaan. 1: alle delen in kleur. 2: alle delen behalve rol 9 in kleur (stickerrand).
