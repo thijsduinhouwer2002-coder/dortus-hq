@@ -79,7 +79,14 @@ module EbbSessieScherm {
             var yTijd = yStop + fhK / 2 + (d * 0.02).toNumber() - leeg;
             var gatD = (d * 0.022).toNumber();
             gatD = gatD < 6 ? 6 : gatD;
+            // Wereld (Mila werelden v1.1, hold): de hartslagregel staat hoger (bovenkant op 162/260 D) en het dier zit
+            // thuis in zijn wereld onderin; de cijfers staan dan midden tussen de stopregel en de hartslagregel.
+            var wer = EbbWereld.heeft(v.gezelschap);
+            var yRegel = wer ? (d * 162 / 260 + fhK / 2) : (d * ONDER_MIDDEN).toNumber();
             var ruimte = ((d * ONDER_MIDDEN).toNumber() - fhK / 2 - 8) - (yTijd + leeg + Graphics.getFontAscent(font) + gatD) - (d * 0.154).toNumber();
+            if (wer) {
+                ruimte = (yRegel - fhK / 2 - 6) - (yTijd + leeg + Graphics.getFontAscent(font));
+            }
             if (ruimte > 1) {
                 yTijd += ruimte / 2;
             }
@@ -89,14 +96,19 @@ module EbbSessieScherm {
             // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
             // Keuring bouw 2 punt 7: het dier groter (±0,19 D breed: 86 px op 454, 49 px op 260), midden onder de tijd.
             var yDier = onderCijfer + (d * 0.085).toNumber();
-            var yRegel = (d * ONDER_MIDDEN).toNumber();
+            var huis = wer ? EbbWereldData.thuis(v.gezelschap) : null;
+            var xBel = 0.5;
+            if (huis != null) {
+                yDier = huis[1] * d / 260;
+                xBel = huis[0] / 260.0;
+            }
             // Belletjes links en rechts van het dier, vanaf 2:30 geen belletjes meer (blad v6 punt 5).
             if (stand < 5) {
                 var stijg = (t % 8000) / 8000.0;
                 var yd = yDier.toFloat() / d;
                 // Keuring bouw 2 punt 7: belletjes alleen bij het dier, net naast zijn kop en staart.
                 // Keuring bouw 7 punt 4: belletjes vrij van de cijfers; ze stijgen tot hoogstens 0,04 D boven het dier.
-                EbbTeken.bellen(dc, d, [[0.37, yd + 0.03 - 0.05 * stijg, 0.011], [0.63, yd + 0.01 - 0.05 * stijg, 0.008]] as Array<Array<Float> >);
+                EbbTeken.bellen(dc, d, [[xBel - 0.13, yd + 0.03 - 0.05 * stijg, 0.011], [xBel + 0.13, yd + 0.01 - 0.05 * stijg, 0.008]] as Array<Array<Float> >);
             }
             // Daan B3 en keuring bouw 1 punt 6: je eigen dier rust in het midden onder de tijd (geen rode vis die
             // voorbij zwemt), in de eigen kleuren van Mila's data; zonder dier (nieuwe gebruiker) alleen de zee.
@@ -118,7 +130,13 @@ module EbbSessieScherm {
                 // Keuring bouw 7 punt 4: het dier rust onderin de band (op de hartslagregel af), niet in het midden,
                 // zodat het los van de cijfers staat.
                 var yd2 = bandOnder - 2 - gz[3] * mz / EbbDierData.SCHAAL;
-                EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
+                if (huis != null) {
+                    // Maat 20/260 D (Mila: 20 op 260, 35 op 454), midden van het dier op zijn thuis; daarna wat ervoor hoort.
+                    EbbDierVoorraad.teken(dc, v.gezelschap, (w - d) / 2 + huis[0] * d / 260 + dx, yDier, 20 * d / 260, EbbDierPlaatje.GEVONDEN);
+                    EbbWereld.voor(dc, v.gezelschap, d);
+                } else {
+                    EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
+                }
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
             // Daan K2: in de stilgezette testbeelden een nagebootste hartslag (61), zodat je ziet hoe het eruitziet als het werkt.

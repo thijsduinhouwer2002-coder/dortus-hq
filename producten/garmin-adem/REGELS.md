@@ -7,7 +7,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 3. **Eerst zoeken of iets al bestaat** (grep in `source/`) voordat je een nieuwe functie schrijft.
 4. **Dieren alleen via de gedeelde functies.** `EbbDierPlaatje.laag` is de enige plek die een dier tekent (rand, lijf, ogen, silhouet). Een scherm tekent een dier met `EbbDierVoorraad.teken` of `EbbDierMaat.inBand` (één laag per beurt, tegen de watchdog). Alleen de sea log bouwt zijn blad zelf op, maar ook met `EbbDierPlaatje.laag`.
 5. **Zee alleen via `EbbZee`** (`Zee.mc`): `zee` (inhouden in standen), `ademZee` (ademen en rustig), `zeeBanden` (elke andere zee), `strook` (dunne zee onder today, 8 weeks, settings), `stil` (platte zee van het pauzemenu). Geen eigen golven of banden in een scherm.
-7. **Werelden alleen via `EbbWereld`** (`Wereld.mc`): `EbbWereld.teken(dc, dier, d)` bouwt de wereld van het dier één keer als strook onderin (één laag per beurt) en plakt hem daarna. Lukt het plaatje niet, dan blijft de zee zonder wereld staan. Geen scherm tekent zelf een bodem, planten of rotsen.
+7. **Werelden alleen via `EbbWereld`** (`Wereld.mc`): `EbbWereld.teken(dc, dier, d)` bouwt de wereld van het dier één keer als strook onderin (hoogstens 4 veelhoeken per beurt) en plakt hem daarna; `EbbWereld.voor` tekent na het dier wat eroverheen hoort, `EbbWereldData.thuis` zegt waar het dier woont. De gegevens in `WereldData.mc` maak je met `bron/maak_werelden.py` uit Mila's json, nooit met de hand. Maan en dagdeel reken je alleen via `EbbLucht` (`Lucht.mc`). Lukt het plaatje niet, dan blijft de zee zonder wereld staan. Geen scherm tekent zelf een bodem, planten of rotsen.
 6. **Opruimen verandert niets aan wat de app doet.** Bewijs met de testbeelden: vóór en na pixel voor pixel gelijk (`bron/vergelijk_plaatjes.py`).
 
 ## Kaart van `source/`
@@ -35,7 +35,7 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 | `DierMaat.mc` | maat en plaats van een dier in een vak |
 | `DierenData.mc` | de punten en kleuren van Mila's dieren (gemaakt door `bron/maak_dieren_json.py`) |
 | `Zee.mc` | de zee |
-| `Wereld.mc` | de wereld per dier: gegevens (nu drie proefwerelden), het wereldplaatje en `EbbWereld.teken` |
+| `Wereld.mc` | de wereld per dier (gegevens in `WereldData.mc`, gemaakt uit Mila's json; maan en dagdeel in `Lucht.mc`): het wereldplaatje en `EbbWereld.teken` |
 | `Teken.mc` | kleuren, letters, pil, hart, weekstippen en kleine tekenhulpen: `px` (maat in 1/260 D), `tekst260` (tekst met bovenkant op y/260), `tekstInRonde` (tekst die in de cirkel past) |
 | `Sessie.mc` | rekenwerk van rondes en rustig ademen (geen tekenen) |
 | `Trouw.mc`, `TrouwDieren.mc` | tellers en reeks in weken; welke dieren je hebt |

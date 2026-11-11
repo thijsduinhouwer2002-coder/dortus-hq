@@ -5,56 +5,28 @@ import Toybox.WatchUi;
 
 // Besluit Thijs 11 nov 23:13 NL: elk dier zijn eigen stukje zee. Dit bestand is het mechanisme (bericht hoofdchat
 // 23:20 punt 2), zie platformen/garmin/werelden-techniek-2026-11-11.md op main en REGELS.md punt 7.
-// De wereld is een strook onderin (volle breedte, 0,40 D hoog), één keer opgebouwd in een eigen plaatje, één laag
+// De wereld is een strook onderin (volle breedte, van EbbWereldData.BOVEN tot de onderkant; bij Mila v1.1 142/260 D hoog), één keer opgebouwd in een eigen plaatje, één laag
 // per beurt (tegen de watchdog, zoals EbbDierPlaatje), daarna alleen plakken. Hoogstens één wereld tegelijk.
 // Lukt het plaatje niet (voorraad van het horloge vol), dan tekent het scherm gewoon de zee zonder wereld.
 
-// PROEF: drie werelden van Gijs om de techniek te bewijzen (geen ontwerp). Mila's werelden vervangen deze.
-// Een laag is [kleur, soort, vormen]: soort 0 = veelhoeken (per veelhoek x, y, x, y, ...), soort 1 = cirkels
-// (x, y, straal, ...). Maten in 1/100 D: x 0 tot 100, y 0 (bovenkant strook) tot 40. Alleen MIP-kleuren.
-module EbbWereldData {
-    const HOOG = 40;
-
-    function lagen(dier as Number) as Array<Array> or Null {
-        var zand = [0xFFAA55, 0, [[0, 31, 30, 29, 50, 30, 70, 29, 100, 31, 100, 40, 0, 40]]] as Array;
-        if (dier == 3) {
-            // Schildpad: zeegras links en rechts.
-            return [zand,
-                [0x00AA55, 0, [[17, 31, 19, 31, 14, 10], [20, 31, 22, 31, 20, 14], [14, 31, 16, 31, 9, 16],
-                    [83, 31, 81, 31, 86, 10], [80, 31, 78, 31, 80, 14], [86, 31, 84, 31, 91, 16]]] as Array,
-                [0x005500, 0, [[18, 31, 20, 31, 17, 18], [82, 31, 80, 31, 83, 18]]] as Array] as Array<Array>;
-        }
-        if (dier == 4) {
-            // Krab: rotsen en kiezels.
-            return [zand,
-                [0x555555, 0, [[7, 31, 9, 21, 14, 16, 20, 18, 23, 25, 22, 31], [78, 31, 77, 24, 81, 17, 87, 15, 92, 22, 93, 31]]] as Array,
-                [0xAAAAAA, 0, [[10, 22, 14, 17, 18, 19, 13, 23], [80, 23, 83, 18, 87, 17, 84, 23]]] as Array,
-                [0xAA5500, 1, [40, 33, 1, 58, 34, 1, 50, 36, 1]] as Array] as Array<Array>;
-        }
-        if (dier == 7) {
-            // Clownvis: anemonen.
-            return [zand,
-                [0xAA0055, 0, [[14, 31, 16, 31, 13, 17, 12, 17], [17, 31, 19, 31, 18, 14, 17, 14], [20, 31, 22, 31, 23, 17, 22, 17],
-                    [86, 31, 84, 31, 87, 17, 88, 17], [83, 31, 81, 31, 82, 14, 83, 14], [80, 31, 78, 31, 77, 17, 78, 17]]] as Array,
-                [0xFF55AA, 1, [12, 16, 2, 17, 13, 2, 23, 16, 2, 88, 16, 2, 83, 13, 2, 77, 16, 2]] as Array] as Array<Array>;
-        }
-        return null;
-    }
-}
-
+// De gegevens staan in WereldData.mc, gemaakt door bron/maak_werelden.py uit Mila's json (nu v1.1: schildpad, krab,
+// clownvis). Geen palet: op de FR255 gaf een plaatje met palet een wit blok (zie DierPlaatje.mc), dus volle kleur.
+// Een beurt tekent hoogstens PER_BEURT veelhoeken (tegen de watchdog).
 class EbbWereldPlaatje {
+    const PER_BEURT = 4;
     var dier as Number;
     var d as Number;
     var hoog as Number;
     var stap as Number = 0;
-    private var _lagen as Array<Array> or Null = null;
+    var klaar as Boolean = false;
+    private var _vl as Array<Array<Number> > or Null = null;
     private var _ref as Graphics.BufferedBitmapReference or Null = null;
 
     function initialize(i as Number, maat as Number) {
         dier = i;
         d = maat;
-        hoog = maat * EbbWereldData.HOOG / 100;
-        var l = EbbWereldData.lagen(i);
+        hoog = maat - EbbWereldData.BOVEN * maat / EbbWereldData.EENHEID;
+        var l = EbbWereldData.vlakken(i);
         if (l == null) {
             return;
         }
@@ -66,7 +38,7 @@ class EbbWereldPlaatje {
                 dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
                 dc.clear();
                 _ref = ref;
-                _lagen = l;
+                _vl = l;
             }
         } catch (e instanceof Lang.Exception) {
             _ref = null;
@@ -79,16 +51,16 @@ class EbbWereldPlaatje {
 
     // Wordt er nog gebouwd? Nee als dit dier geen wereld heeft of het plaatje niet lukte.
     function bezig() as Boolean {
-        return _ref != null && _lagen != null && stap < (_lagen as Array<Array>).size();
+        return _ref != null && _vl != null && stap < (_vl as Array<Array<Number> >).size();
     }
 
-    // Eén laag verder. Geeft true als de wereld af is.
+    // Een paar veelhoeken verder. Geeft true als de wereld af is.
     function verder() as Boolean {
-        if (_ref == null || _lagen == null) {
+        if (_ref == null || _vl == null) {
             return false;
         }
-        var lagen = _lagen as Array<Array>;
-        if (stap >= lagen.size()) {
+        var vl = _vl as Array<Array<Number> >;
+        if (stap >= vl.size()) {
             return true;
         }
         var bb = (_ref as Graphics.BufferedBitmapReference).get();
@@ -96,29 +68,17 @@ class EbbWereldPlaatje {
             return false;
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
-        var laag = lagen[stap] as Array;
-        dc.setColor(laag[0] as Number, Graphics.COLOR_TRANSPARENT);
-        if ((laag[1] as Number) == 0) {
-            var vormen = laag[2] as Array<Array>;
-            for (var v = 0; v < vormen.size(); v += 1) {
-                var p = vormen[v] as Array<Number>;
-                var pts = [] as Array<[Numeric, Numeric]>;
-                for (var j = 0; j + 1 < p.size(); j += 2) {
-                    pts.add([p[j] * d / 100, p[j + 1] * d / 100]);
-                }
-                dc.fillPolygon(pts);
-            }
-        } else {
-            var c = laag[2] as Array<Number>;
-            for (var n = 0; n + 2 < c.size(); n += 3) {
-                var r = c[n + 2] * d / 100;
-                dc.fillCircle(c[n] * d / 100, c[n + 1] * d / 100, r < 1 ? 1 : r);
-            }
+        var tot = stap + PER_BEURT;
+        tot = tot > vl.size() ? vl.size() : tot;
+        while (stap < tot) {
+            EbbWereld.veelhoek(dc, vl[stap], d, 0, 0);
+            stap += 1;
         }
-        stap += 1;
-        if (stap >= lagen.size()) {
+        if (stap >= vl.size()) {
             var st = System.getSystemStats();
-            System.println("GEHEUGEN WERELD dier " + dier + " plaatje " + d + " x " + hoog + " lagen " + stap + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " = " + (st.usedMemory.toLong() * 100 / st.totalMemory) + "%");
+            System.println("GEHEUGEN WERELD dier " + dier + " plaatje " + d + " x " + hoog + " vlakken " + stap + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " = " + (st.usedMemory.toLong() * 100 / st.totalMemory) + "%");
+            _vl = null;
+            klaar = true;
             return true;
         }
         return false;
@@ -137,6 +97,21 @@ module EbbWereld {
     var proef as Boolean = false;
     var _p as EbbWereldPlaatje or Null = null;
 
+    // Eén veelhoek [kleur, x, y, ...] in 1/260 D, afgekapt zoals bij de dieren, verschoven met (dx, dy) in px.
+    function veelhoek(dc as Graphics.Dc, v as Array<Number>, d as Number, dx as Number, dy as Number) as Void {
+        var pts = [] as Array<[Numeric, Numeric]>;
+        for (var j = 1; j + 1 < v.size(); j += 2) {
+            pts.add([v[j] * d / EbbWereldData.EENHEID + dx, v[j + 1] * d / EbbWereldData.EENHEID + dy]);
+        }
+        dc.setColor(v[0], Graphics.COLOR_TRANSPARENT);
+        dc.fillPolygon(pts);
+    }
+
+    // Heeft dit dier een wereld en staat hij aan?
+    function heeft(dier as Number) as Boolean {
+        return proef && dier >= 0 && EbbWereldData.thuis(dier) != null;
+    }
+
     // Tekent de wereld van dit dier onderin. Geeft true als hij er staat; anders staat er alleen de zee.
     function teken(dc as Graphics.Dc, dier as Number, d as Number) as Boolean {
         if (!proef || dier < 0) {
@@ -146,7 +121,7 @@ module EbbWereld {
             _p = new EbbWereldPlaatje(dier, d);
         }
         var p = _p as EbbWereldPlaatje;
-        if (p.verder()) {
+        if (p.klaar || p.verder()) {
             p.plak(dc);
             return true;
         }
@@ -154,6 +129,21 @@ module EbbWereld {
             WatchUi.requestUpdate();
         }
         return false;
+    }
+
+    // Wat over het dier heen komt (hoogstens een paar veelhoeken, direct getekend). Na het dier aanroepen.
+    function voor(dc as Graphics.Dc, dier as Number, d as Number) as Void {
+        if (!proef || dier < 0 || _p == null || !(_p as EbbWereldPlaatje).klaar) {
+            return;
+        }
+        var vl = EbbWereldData.voor(dier);
+        if (vl == null) {
+            return;
+        }
+        var dy = EbbWereldData.BOVEN * d / EbbWereldData.EENHEID;
+        for (var i = 0; i < vl.size(); i += 1) {
+            veelhoek(dc, vl[i], d, (dc.getWidth() - d) / 2, dy);
+        }
     }
 
     function los() as Void {
