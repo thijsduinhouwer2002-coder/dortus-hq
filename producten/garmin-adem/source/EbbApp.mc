@@ -125,7 +125,7 @@ class EbbApp extends Application.AppBase {
                 iv.keuze = (k == 19) ? 1 : 12;
                 return [iv, new EbbInstellingenDelegate(iv)];
             }
-            if (k >= 16) {
+            if (k >= 16 && k <= 18) {
                 // Eindschermen (keuring bouw 1 punt 7): 16 is 6c (3 rondes, Clownfish nog 1), 17 is 6b (Starfish nieuw),
                 // 18 is 6c met 6 rondes (past het op 260?).
                 view.sessie.fase = Ebb.FASE_KLAAR;

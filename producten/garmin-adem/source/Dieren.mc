@@ -143,17 +143,18 @@ class DierenView extends WatchUi.View {
         tussen = tussen < 3 ? 3 : tussen;
         var fs = dc.getFontHeight(Graphics.FONT_SMALL);
         var fx = dc.getFontHeight(Graphics.FONT_XTINY);
-        var boven = (d * 0.135).toNumber() + fs / 2 + fx + 4;
+        var boven = (d * 0.135).toNumber() + fs / 2 + fx + 2;
         var naamLucht = (d * 0.0385).toNumber();
         naamLucht = naamLucht < 10 ? 10 : naamLucht;
         // Onder het raster: naam, regel en bladstippen, met de stippen hoogstens op 0,91 D.
-        var eronder = naamLucht + fs + 2 + fs + (d * 0.04).toNumber();
-        var ruimte = (d * 0.91).toNumber() - eronder - boven;
+        // Beelden run 42961476036: met 0,91 D en een rand van 3 px werden de dieren op 260 te klein (maat 12); nu 0,93 D en de echte rand.
+        var eronder = naamLucht + fs + 2 + fs + (d * 0.03).toNumber();
+        var ruimte = (d * 0.93).toNumber() - eronder - boven;
         var eenheden = 0;
         for (var r = 0; r < rijen; r += 1) {
             eenheden += bod[r] - top[r];
         }
-        var rand = 3;
+        var rand = EbbDierData.randPx((d * 0.078).toNumber());
         var vast = rijen * 2 * rand + (rijen - 1) * tussen;
         var maat = (d * 0.078).toNumber();
         if (eenheden * maat / schaal + vast > ruimte) {
