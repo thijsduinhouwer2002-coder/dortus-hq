@@ -15,12 +15,12 @@ module EbbVandaag {
         while (oud.size() > MAX) {
             oud = oud.slice(1, null);
         }
-        var uit = [dag] as Array;
+        var uit = [dag] as Array<Application.Storage.ValueType>;
         for (var i = 0; i < oud.size(); i += 1) {
-            uit.add(oud[i][0]);
-            uit.add(oud[i][1]);
+            uit.add(oud[i][0] as Number);
+            uit.add(oud[i][1] as Array<Application.Storage.ValueType>);
         }
-        Application.Storage.setValue(SLEUTEL, uit as Array<Application.PropertyValueType>);
+        Application.Storage.setValue(SLEUTEL, uit);
     }
 
     // De sessies van dag, oudste eerst, elk [klok, tijden]. Andere dag of kapotte opslag: leeg.
