@@ -42,6 +42,12 @@ module EbbStart {
     }
 
     // Kop van het startscherm (blad v5, 1b): "Rounds 3 x 30".
+    // Blad v6 scherm 1b: "3 rounds · 30 breaths".
+    function startKop() as String {
+        var r = EbbInstellingen.waarde(EbbInstellingen.RONDES);
+        return r + (r == 1 ? " round · " : " rounds · ") + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " breaths";
+    }
+
     function rondesKop() as String {
         return "Rounds " + EbbInstellingen.waarde(EbbInstellingen.RONDES) + " x " + EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN);
     }

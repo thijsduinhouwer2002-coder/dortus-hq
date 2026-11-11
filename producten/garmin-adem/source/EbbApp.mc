@@ -142,23 +142,35 @@ class VeiligView extends WatchUi.View {
         var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
+        // Blad v6 scherm 10, 10b, 10c: rode driehoek, de regels wit (de laatste regel van blad 3 geel), knop als pil,
+        // dunne zeestrook onderaan.
+        var d = (w < h) ? w : h;
+        EbbTeken.strook(dc, d);
         var regels = EbbVeiligTekst.BLADEN[blad];
         var geel = (blad == EbbVeiligTekst.BLADEN.size() - 1);
         var f = Graphics.FONT_XTINY;
         var lh = dc.getFontHeight(f);
         var n = regels.size() + (geel ? 1 : 0);
-        // Blok van regels plus knop (anderhalve regel lager) precies in het midden.
-        var y = h / 2 - ((n + 1) * lh + lh / 2) / 2;
+        var s = (d * 0.07).toNumber();
+        var yPil = 0.79;
+        // Driehoek en regels samen rond 0,45 D (de breedste regels dicht bij het midden, binnen 80 procent van de cirkel).
+        var blok = s + lh / 2 + n * lh;
+        var top = (d * 0.45 - blok / 2).toNumber();
+        var onder = top + blok + lh;
+        if (onder > d * (yPil - 0.05)) {
+            yPil = (onder + d * 0.05) / d.toFloat();
+        }
+        EbbTeken.driehoek(dc, d, top + s / 2, s);
+        var y = top + s + lh / 2;
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         for (var i = 0; i < regels.size(); i += 1) {
             dc.drawText(w / 2, y + i * lh, f, regels[i], Graphics.TEXT_JUSTIFY_CENTER);
         }
         if (geel) {
-            dc.setColor(0xFFFF55, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(EbbTeken.GEEL, Graphics.COLOR_TRANSPARENT);
             dc.drawText(w / 2, y + regels.size() * lh, f, EbbVeiligTekst.GEEL, Graphics.TEXT_JUSTIFY_CENTER);
         }
-        dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, y + n * lh + lh / 2, f, EbbVeiligTekst.knop(blad), Graphics.TEXT_JUSTIFY_CENTER);
+        EbbTeken.pil(dc, d, yPil, 0.30, 0.10, EbbVeiligTekst.knop(blad), f);
     }
 }
 
@@ -226,18 +238,16 @@ class StartCheckView extends WatchUi.View {
         var h = dc.getHeight();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
-        var f = Graphics.FONT_XTINY;
-        var lh = dc.getFontHeight(f);
-        var fs = Graphics.FONT_SMALL;
-        var ls = dc.getFontHeight(fs);
-        var blok = lh + ls + lh / 2 + lh;
-        var y = h / 2 - blok / 2;
-        dc.setColor(EbbTeken.ZACHT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, y, f, EbbStart.rondesKop(), Graphics.TEXT_JUSTIFY_CENTER);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, y + lh, fs, "Seated or lying?", Graphics.TEXT_JUSTIFY_CENTER);
+        // Blad v6 scherm 1b: kop met rondes en ademhalingen, groot "Seated / or lying?", knop Start als pil, zee onderaan.
+        var d = (w < h) ? w : h;
+        EbbTeken.golf(dc, d, 0.80, d * 0.010, EbbTeken.ZEE_KLEUR[1], 0.0, true);
+        EbbTeken.golf(dc, d, 0.88, d * 0.008, EbbTeken.ZEE_KLEUR[2], 1.3, false);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(w / 2, y + lh + ls + lh / 2, f, "Start", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(w / 2, (d * 0.235).toNumber(), Graphics.FONT_XTINY, EbbStart.startKop(), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(w / 2, (d * 0.385).toNumber(), Graphics.FONT_MEDIUM, "Seated", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(w / 2, (d * 0.49).toNumber(), Graphics.FONT_MEDIUM, "or lying?", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        EbbTeken.pil(dc, d, 0.655, 0.40, 0.13, "Start", Graphics.FONT_SMALL);
     }
 }
 

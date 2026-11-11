@@ -239,6 +239,31 @@ module EbbTeken {
         golf(dc, d, 0.935, d * 0.006, ZEE_KLEUR[2], 1.1, false);
     }
 
+    // Blad v6: knop als pil (0055AA) met witte tekst, midden op hoogte y (deel van D).
+    function pil(dc as Graphics.Dc, d as Number, y as Float, breed as Float, hoog as Float, tekst as String, font as Graphics.FontType) as Void {
+        var bw = (d * breed).toNumber();
+        var bh = (d * hoog).toNumber();
+        var fh = dc.getFontHeight(font);
+        bh = bh < fh + 4 ? fh + 4 : bh;
+        var tw = dc.getTextWidthInPixels(tekst, font) + fh;
+        bw = bw < tw ? tw : bw;
+        dc.setColor(ZEE_KLEUR[1], ZEE_KLEUR[1]);
+        dc.fillRoundedRectangle(d / 2 - bw / 2, (d * y).toNumber() - bh / 2, bw, bh, bh / 2);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(d / 2, (d * y).toNumber(), font, tekst, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Blad v6 scherm 10: rode waarschuwingsdriehoek met wit uitroepteken, midden op (d/2, cy), hoogte s.
+    function driehoek(dc as Graphics.Dc, d as Number, cy as Number, s as Number) as Void {
+        var cx = d / 2;
+        dc.setColor(KORAAL, KORAAL);
+        dc.fillPolygon([[cx, cy - s / 2], [cx + (s * 58) / 100, cy + s / 2], [cx - (s * 58) / 100, cy + s / 2]]);
+        var b = s / 10 > 1 ? s / 10 : 1;
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_WHITE);
+        dc.fillRectangle(cx - b / 2, cy - s / 6, b > 1 ? b : 2, s / 3);
+        dc.fillRectangle(cx - b / 2, cy + s / 4, b > 1 ? b : 2, b > 1 ? b : 2);
+    }
+
     // Klein hartje (KORAAL), midden op (cx, cy), breedte s.
     function hart(dc as Graphics.Dc, cx as Number, cy as Number, s as Number) as Void {
         var r = s / 4 > 1 ? s / 4 : 1;
