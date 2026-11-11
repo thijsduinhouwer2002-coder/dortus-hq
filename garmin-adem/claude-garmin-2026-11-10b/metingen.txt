@@ -1,4 +1,4 @@
-epix2pro47mm.log:GROOT fase 0 tekst 2 breedte 79 hoogte 130 van 416 = 31%
+epix2pro47mm.log:GROOT fase 0 tekst 1 breedte 52 hoogte 130 van 416 = 31%
 epix2pro47mm.log:ONDERTEKST golf 345 lettertop 355 ruimte 10 breedte 135 koorde 236 over 101
 epix2pro47mm.log:GROOT fase 1 tekst 0:00 breedte 298 hoogte 130 van 416 = 31%
 epix2pro47mm.log:GROOT fase 2 tekst 1 breedte 52 hoogte 130 van 416 = 31%
