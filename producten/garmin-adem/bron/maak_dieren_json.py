@@ -135,7 +135,8 @@ rest = '''
         return o;
     }
 
-    // Mila v8: één oogvorm voor alle dieren (wit oog, donkere pupil, glimpje vanaf maat 30).
+    // Mila v8.3 (keuring bouw 3, voor Mila punt 1): één donkere pupil zonder wit. Onder maat 60 een vierkantje van
+    // ±0,08 maat (2 x 2 op 260), daarboven een rondje met één wit glimpunt (3 x 3 op 454). Geen witte plusjes meer.
     function ogen(dc as Graphics.Dc, i as Number, o as Number, cx as Number, cy as Number, maat as Number) as Void {
         var b = DATA[i];
         var aantal = b[o];
@@ -144,19 +145,18 @@ rest = '''
             var x = cx + (s8(b[o]) * maat) / SCHAAL;
             var y = cy + (s8(b[o + 1]) * maat) / SCHAAL;
             o += 2;
-            var r = (13 * maat) / 100;
-            r = r < 2 ? 2 : r;
-            var p = (7 * maat) / 100;
-            p = p < 1 ? 1 : p;
-            dc.setColor(0xFFFFFF, 0xFFFFFF);
-            dc.fillCircle(x, y, r);
-            dc.setColor(0x000055, 0x000055);
-            dc.fillCircle(x - (r * 3) / 10, y, p);
-            if (maat >= 30) {
-                var g = (35 * maat + 500) / 1000;
-                g = g < 1 ? 1 : g;
+            if (maat < 60) {
+                var e = (8 * maat + 50) / 100;
+                e = e < 2 ? 2 : e;
+                dc.setColor(0x000000, 0x000000);
+                dc.fillRectangle(x - e / 2, y - e / 2, e, e);
+            } else {
+                var r = maat / 20;
+                r = r < 3 ? 3 : r;
+                dc.setColor(0x000000, 0x000000);
+                dc.fillCircle(x, y, r);
                 dc.setColor(0xFFFFFF, 0xFFFFFF);
-                dc.fillCircle(x - (r * 55) / 100, y - r / 2, g);
+                dc.drawPoint(x - 1, y - 1);
             }
         }
     }
