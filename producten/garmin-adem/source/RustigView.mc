@@ -192,7 +192,8 @@ class CalmEindeView extends WatchUi.View {
         gat = gat < 6 ? 6 : gat;
         var yRegel1 = (d * 0.17).toNumber() + dc.getFontHeight(EbbTeken.fS()) / 2 + gat + dc.getFontHeight(EbbTeken.fX()) / 2;
         var zt = (yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8 + d * 0.02) / d.toFloat();
-        EbbZee.zeeBanden(dc, d, [zt > 0.326 ? zt : 0.326, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        zt = zt > 0.326 ? zt : 0.326;
+        EbbZee.zeeBanden(dc, d, [zt, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.17).toNumber(), EbbTeken.fS(), "calm done", midden);
@@ -201,6 +202,9 @@ class CalmEindeView extends WatchUi.View {
         dc.drawText(w / 2, yRegel1, EbbTeken.fX(), EbbStart.duurTekst(ms) + " · " + ademhalingen + (ademhalingen == 1 ? " breath" : " breaths"), midden);
         // Keuring bouw 4 punt 5: het dier tussen de regel "4 min · 12 breaths" en de regel eronder.
         var bandTop = yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2 + 8;
+        // Keuring bouw 7 punt 4 (krab s34): het dier begint onder de kamlijn, zoals op het eindscherm van Rounds.
+        var inWater = (d * (zt + 0.010)).toNumber() + 3;
+        bandTop = bandTop > inWater ? bandTop : inWater;
         var bandOnder = (d * 0.645).toNumber() - dc.getFontHeight(EbbTeken.fS()) / 2 - 6;
         var bandBreed = (d * 0.30).toNumber();
         // Besluit 11 nov 04:30 (besluit 3): Calm telt pas vanaf 1 minuut.

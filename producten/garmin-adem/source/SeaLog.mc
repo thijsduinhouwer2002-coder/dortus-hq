@@ -136,8 +136,16 @@ class DierenView extends WatchUi.View {
         var g = EbbDierMaat.grenzen(i);
         var mx = cx + (g[0] + g[1]) * m / (2 * EbbDierData.SCHAAL);
         var my = cy + (g[2] + g[3]) * m / (2 * EbbDierData.SCHAAL);
+        // Keuring bouw 7 punt 4: het belletje ruim om hoge dieren (maanvis, reuzeninktvis): minstens 5/260 D lucht
+        // rond het kader van het dier, hoogstens 31 bij 27 zodat het de buren niet raakt.
         var rx = EbbTeken.px(d, 30);
         var ry = EbbTeken.px(d, 22);
+        var hw = (g[1] - g[0]) * m / (2 * EbbDierData.SCHAAL) + EbbTeken.px(d, 5);
+        var hh = (g[3] - g[2]) * m / (2 * EbbDierData.SCHAAL) + EbbTeken.px(d, 5);
+        rx = hw > rx ? hw : rx;
+        ry = hh > ry ? hh : ry;
+        rx = rx > EbbTeken.px(d, 31) ? EbbTeken.px(d, 31) : rx;
+        ry = ry > EbbTeken.px(d, 27) ? EbbTeken.px(d, 27) : ry;
         dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
         dc.fillEllipse(mx, my, rx, ry);
         dc.setColor(0x00FFFF, Graphics.COLOR_TRANSPARENT);

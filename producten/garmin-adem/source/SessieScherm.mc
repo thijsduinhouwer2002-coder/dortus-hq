@@ -93,7 +93,8 @@ module EbbSessieScherm {
                 var stijg = (t % 8000) / 8000.0;
                 var yd = yDier.toFloat() / d;
                 // Keuring bouw 2 punt 7: belletjes alleen bij het dier, net naast zijn kop en staart.
-                EbbTeken.bellen(dc, d, [[0.37, yd - 0.02 - 0.06 * stijg, 0.011], [0.63, yd - 0.04 - 0.06 * stijg, 0.008]] as Array<Array<Float> >);
+                // Keuring bouw 7 punt 4: belletjes vrij van de cijfers; ze stijgen tot hoogstens 0,04 D boven het dier.
+                EbbTeken.bellen(dc, d, [[0.37, yd + 0.03 - 0.05 * stijg, 0.011], [0.63, yd + 0.01 - 0.05 * stijg, 0.008]] as Array<Array<Float> >);
             }
             // Daan B3 en keuring bouw 1 punt 6: je eigen dier rust in het midden onder de tijd (geen rode vis die
             // voorbij zwemt), in de eigen kleuren van Mila's data; zonder dier (nieuwe gebruiker) alleen de zee.
@@ -112,7 +113,9 @@ module EbbSessieScherm {
                 var hMax = (d * 0.169).toNumber();
                 var mz = EbbDierMaat.inVak(v.gezelschap, (d * 0.218).toNumber(), hb < hMax ? hb : hMax);
                 var gz = EbbDierMaat.grenzen(v.gezelschap);
-                var yd2 = (bandTop + bandOnder) / 2 - (gz[2] + gz[3]) * mz / (2 * EbbDierData.SCHAAL);
+                // Keuring bouw 7 punt 4: het dier rust onderin de band (op de hartslagregel af), niet in het midden,
+                // zodat het los van de cijfers staat.
+                var yd2 = bandOnder - 2 - gz[3] * mz / EbbDierData.SCHAAL;
                 EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
             }
             groot = (s / 60).toString() + ":" + (s % 60).format("%02d");
