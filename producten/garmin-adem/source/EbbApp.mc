@@ -354,7 +354,7 @@ class EbbView extends WatchUi.View {
     var opnemen as Boolean = true;
     // Alleen in de plaatjesbouw: start meteen in het inhouden op deze tijd en zet de klok stil.
     var plaatjeMs as Number = -1;
-    var plaatjeFase as Number = Ebb.FASE_INHOUDEN;
+    var plaatjeFase as Ebb.Fase = Ebb.FASE_INHOUDEN;
     // Scherm 5: na de sessie wisselen tussen duikprofiel (vandaag) en getijdenlijn (8 weken) met de knoppen.
     var getij as Boolean = false;
     const YKLEIN_ADEMEN = 0.855;
