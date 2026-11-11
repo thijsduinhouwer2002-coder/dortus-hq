@@ -108,13 +108,15 @@ module EbbEindScherm {
     // Kamlijn in px: op 94/260 D, of lager als de tekst erboven verder doorloopt (twee regels tijden).
     function kamlijn(d as Number, onderTekst as Number) as Number {
         var k = EbbTeken.px(d, KAM);
-        var t = onderTekst + EbbTeken.px(d, 7);
+        // Beeld run 43104956914 (FR255, 6 rondes): met 7 raakte de tweede regel tijden de golf; nu 11.
+        var t = onderTekst + EbbTeken.px(d, 11);
         return t > k ? t : k;
     }
 
-    // De zee tekent haar kam ongeveer 0,026 D onder de opgegeven top (gemeten op FR255: top 105, kamlijn 112).
+    // De zee tekent haar kam iets onder de opgegeven top. Beeld run 43104956914 (FR255): met 0,026 D lag de kam
+    // gemiddeld 3 px boven de 94 van het blad en maar 7 px onder de tijden; daarom 0,014 D.
     function zeeTopBij(d as Number, kam as Number) as Float {
-        return (kam - d * 0.026) / d.toFloat();
+        return (kam - d * 0.014) / d.toFloat();
     }
 
     function vakTop(d as Number, kam as Number) as Number {
