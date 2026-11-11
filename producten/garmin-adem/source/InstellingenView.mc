@@ -68,18 +68,34 @@ class EbbInstellingenView extends WatchUi.View {
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, (d * 0.21).toNumber(), Graphics.FONT_SMALL, "settings", midden);
-        // Regel erboven (0,34), de pil (0,50), twee eronder (0,72 en 0,80).
+        // Keuring bouw 2 punt 6: regels gelijk verdeeld (0,325 boven, pil 0,40 tot 0,61, dan 0,685 en 0,765: telkens
+        // 0,075 D lucht tot de pil en 0,08 D tussen de regels). De pil is 24 px breder dan de langste regel erin,
+        // hoogstens 0,83 D; past de naam niet in de grote letter, dan een kleinere.
         if (keuze > 0) {
-            regelKort(dc, d, keuze - 1, 0.335);
+            regelKort(dc, d, keuze - 1, 0.325);
         }
-        var bw = (d * 0.66).toNumber();
         var bh = (d * 0.21).toNumber();
         var py = (d * 0.505).toNumber();
+        var maxW = (d * 0.83).toNumber();
+        var naam = REGELS[keuze][0] as String;
+        var v = waarde(keuze);
+        var fNaam = Graphics.FONT_MEDIUM;
+        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
+            fNaam = Graphics.FONT_SMALL;
+        }
+        if (dc.getTextWidthInPixels(naam, fNaam) > maxW - 24) {
+            fNaam = Graphics.FONT_XTINY;
+        }
+        var langst = dc.getTextWidthInPixels(naam, fNaam);
+        if (v != null) {
+            var vw = dc.getTextWidthInPixels(v as String, Graphics.FONT_SMALL);
+            langst = vw > langst ? vw : langst;
+        }
+        var bw = langst + 24;
+        var minW = (d * 0.5).toNumber();
+        bw = bw < minW ? minW : (bw > maxW ? maxW : bw);
         dc.setColor(EbbTeken.ZEE_KLEUR[1], EbbTeken.ZEE_KLEUR[1]);
         dc.fillRoundedRectangle(w / 2 - bw / 2, py - bh / 2, bw, bh, bh / 2);
-        var naam = REGELS[keuze][0] as String;
-        var fNaam = (dc.getTextWidthInPixels(naam, Graphics.FONT_MEDIUM) <= bw - d * 0.06) ? Graphics.FONT_MEDIUM : Graphics.FONT_SMALL;
-        var v = waarde(keuze);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         if (v == null) {
             dc.drawText(w / 2, py, fNaam, naam, midden);
@@ -89,10 +105,10 @@ class EbbInstellingenView extends WatchUi.View {
             dc.drawText(w / 2, py + (d * 0.055).toNumber(), Graphics.FONT_SMALL, v as String, midden);
         }
         if (keuze + 1 < aantal()) {
-            regelKort(dc, d, keuze + 1, 0.69);
+            regelKort(dc, d, keuze + 1, 0.685);
         }
         if (keuze + 2 < aantal()) {
-            regelKort(dc, d, keuze + 2, 0.77);
+            regelKort(dc, d, keuze + 2, 0.765);
         }
     }
 
