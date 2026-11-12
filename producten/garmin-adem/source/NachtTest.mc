@@ -28,11 +28,11 @@ function testNachtregel(logger as Test.Logger) as Boolean {
 }
 
 // Nachtregel v1.4 voor de held (run 73): groen, bruin en elke koele kleur (blauw minstens zo sterk als rood) houden
-// op MIP hun dagkleur en op AMOLED 80 procent; warm gaat door de gewone regel. De orka (555555) was op MIP zwart
-// op zwart water.
+// op MIP hun dagkleur en op AMOLED 80 procent; warm gaat door de gewone regel, en ook het donkergrijs van de orka (555555): hij
+// blijft zwart met wit en krijgt een lichte rand.
 (:test)
 function testNachtHeld(logger as Test.Logger) as Boolean {
-    var rij = [0x555555, 0x555555, 0x444444, 0x5555FF, 0x5555FF, 0x4444CC, 0x5555AA, 0x5555AA, 0x444488,
+    var rij = [0x555555, 0x000000, 0x141414, 0x5555FF, 0x5555FF, 0x4444CC, 0x5555AA, 0x5555AA, 0x444488,
         0x55AAFF, 0x55AAFF, 0x4488CC, 0xAA55FF, 0xAA55FF, 0x8844CC, 0x00AA55, 0x00AA55, 0x008844,
         0xFFFF55, 0xFFFF55, 0xCCCC44, 0xAA5500, 0xAA5500, 0x884400, 0xAAAAAA, 0xAAAAAA, 0x888888,
         0xFFFFFF, 0xFFFFFF, 0xCCCCCC, 0x000000, 0x000000, 0x000000] as Array<Number>;

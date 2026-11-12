@@ -20,7 +20,9 @@ module EbbNacht {
         // water): ook elke koele kleur blijft (blauw minstens zo sterk als rood: blauw, paars, grijs, zeegroen, wit).
         // Alleen warm (rood, oranje, roze, donkerrood) wordt bij nacht nog gedempt. Zo valt binnen een dier niets
         // samen: lijf, buik en accent houden hun onderlinge verschil.
-        if ((g >= r && g > b) || (r >= g && g > b && r <= 0xAA) || b >= r) {
+        // Uitzondering: donkergrijs (555555, het lijf van de orka) volgt de gewone regel en wordt bijna zwart. De
+        // orka is zwart met wit; zijn lichte nachtrand (DierPlaatje) en de witte vlekken maken hem zichtbaar.
+        if (((g >= r && g > b) || (r >= g && g > b && r <= 0xAA) || b >= r) && !(r == g && g == b && r > 0 && r <= 0x55)) {
             return am ? (((r * 4 / 5) << 16) | ((g * 4 / 5) << 8) | (b * 4 / 5)) : c;
         }
         return k(c, am);
