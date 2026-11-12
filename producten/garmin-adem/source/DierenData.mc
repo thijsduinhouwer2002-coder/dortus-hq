@@ -101,7 +101,7 @@ module EbbDierData {
                 }
             }
             if (nacht != 0) {
-                c = EbbNacht.k(c, nacht == 2);
+                c = EbbNacht.held(c, nacht == 2);
             }
             dc.setColor(c, c);
             dc.fillPolygon(pts);
@@ -119,7 +119,23 @@ module EbbDierData {
             var x = cx + (s8(b[o]) * maat) / SCHAAL;
             var y = cy + (s8(b[o + 1]) * maat) / SCHAAL;
             o += 2;
-            if (maat < 60) {
+            if (i == 3 && maat >= 34) {
+                // Mila run 55 (frisse keuring 3 punt 1): de schildpad krijgt een groot oog, zodat zijn gezicht in één
+                // blik leest: wit rondje met donkere rand, zwarte pupil, wit lichtpuntje (straal 3 op 260).
+                var r = (73 * maat + 500) / 1000;
+                r = r < 3 ? 3 : r;
+                var wit = (nacht != 0) ? EbbNacht.k(0xFFFFFF, nacht == 2) : 0xFFFFFF;
+                dc.setColor(0x000055, 0x000055);
+                dc.fillCircle(x, y, r + 1);
+                dc.setColor(wit, wit);
+                dc.fillCircle(x, y, r);
+                var pr = (62 * r + 50) / 100;
+                pr = pr < 1 ? 1 : pr;
+                dc.setColor(0x000000, 0x000000);
+                dc.fillCircle(x - 1, y, pr);
+                dc.setColor(wit, wit);
+                dc.drawPoint(x - 1 - pr / 2, y - pr / 2);
+            } else if (maat < 60) {
                 var e = (8 * maat + 50) / 100;
                 e = e < 2 ? 2 : e;
                 dc.setColor(0x000000, 0x000000);

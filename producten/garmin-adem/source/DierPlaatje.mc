@@ -111,13 +111,24 @@ class EbbDierPlaatje {
             var am = EbbTeken.amoled();
             EbbDierData.nacht = (s == NACHT) ? (am ? 2 : 1) : 0;
             var k = EbbDierData.randPx(maat);
+            // Nachtregel v1.3: bij nacht is de omtrek een smalle lichte rand 5555AA (vaste kleur, niet door de regel).
+            var nachtStand = EbbDierData.nacht;
             if (stap < 4 && am) {
-                EbbDierData.delen(dc, i, x + EbbDierData.RAND_DX[stap] * k, y + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[i][3], 2);
+                if (s == NACHT) {
+                    EbbDierData.nacht = 0;
+                    EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, 0x5555AA, 2);
+                    EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, 0x5555AA, 2);
+                } else {
+                    EbbDierData.delen(dc, i, x + EbbDierData.RAND_DX[stap] * k, y + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[i][3], 2);
+                }
             } else if (stap < 4) {
                 // MIP (Mila keuring 2 punt 3): donkere omtrek van 1 px in acht richtingen, twee per beurt, in
                 // plaats van de witte stickerrand (die gaf korrelige trapjes).
-                EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, 0x000000, 2);
-                EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, 0x000000, 2);
+                EbbDierData.nacht = 0;
+                var ok = (s == NACHT) ? 0x5555AA : 0x000000;
+                EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, ok, 2);
+                EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, ok, 2);
+                EbbDierData.nacht = nachtStand;
             } else {
                 var o = EbbDierData.delen(dc, i, x, y, maat, -1, 0);
                 EbbDierData.ogen(dc, i, o, x, y, maat);

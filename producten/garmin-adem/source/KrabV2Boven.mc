@@ -73,9 +73,8 @@ module KrabV2Boven {
             if (stap == 2) {
                 KrabV2Vonk.opWater(v, dc, top, nacht);
             }
-        } else if (stap == 3 && v.wereld == 1) {
-            KrabV2Schild.blad(v, dc, top);
         }
+        // Het drijvende blad van de schildpad is weg (Mila run 55: het las als een wurmpje, keuring 3 punt 4).
         // De verre slipper van het paar is weg: de krab zit nu in een zwemband (Mila keuring 2, 12 nov 04:25 UTC).
     }
 }

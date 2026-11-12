@@ -10,6 +10,18 @@ module EbbNacht {
         return i < 2 ? 0 : (i - 1) * 85;
     }
 
+    // Nachtregel v1.3 (Mila run 55, held_nacht): groen (G >= R en G > B) en bruin of olijf (R >= G > B, R hooguit AA)
+    // van de held houden bij nacht hun dagkleur op MIP en 80 procent ervan op AMOLED; de rest volgt de gewone regel.
+    function held(c as Number, am as Boolean) as Number {
+        var r = (c >> 16) & 0xFF;
+        var g = (c >> 8) & 0xFF;
+        var b = c & 0xFF;
+        if ((g >= r && g > b) || (r >= g && g > b && r <= 0xAA)) {
+            return am ? (((r * 4 / 5) << 16) | ((g * 4 / 5) << 8) | (b * 4 / 5)) : c;
+        }
+        return k(c, am);
+    }
+
     function k(c as Number, am as Boolean) as Number {
         var r = (c >> 16) & 0xFF;
         var g = (c >> 8) & 0xFF;

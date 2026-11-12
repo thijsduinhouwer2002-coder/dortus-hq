@@ -40,7 +40,7 @@ Eén bestand `source/KrabV2<Naam>.mc` met één module `KrabV2<Naam>`, hoogstens
 | `kantel(s as Number) as Float` | per scherm de hoek in graden (min is neus omhoog, het dier kijkt naar links) |
 | `onder(v, dc, stap, am, nacht, scherm)` | onder water, laag 1 tot 3: ver (ruggen, zand), midden (planten aan de randen), dichtbij (klein spul) |
 | `onderHeld(v, dc, scherm, am, h)` | onder water, laag 4: schaduw of voorwerp direct onder de held (`h` is de uitkomst van `held`) |
-| `boven(v, dc, top)` | boven water, laag 3: één drijvend ding onder het oppervlak (bij de schildpad heet dit nu nog `blad`) |
+| `boven(v, dc, top)` | boven water, laag 3: één drijvend ding onder het oppervlak, alleen als een frisse kijker het herkent (krab en schildpad hebben er nu geen: de verre slipper en het drijvende blad lazen niet) |
 | `voor(v, dc, scherm, am, nacht, h, graden)` | elke beurt na de held: de grap en wat voor het dier langs loopt (golfje voor de buik, voorhelft van de zwemband) |
 
 `v` is de `KrabV2View`, `dc` het tekenvlak, `am` waar op een AMOLED-scherm, `nacht` waar bij nacht. Welk dier de held is (het nummer uit `DierenData.mc`) geef je door aan Gijs; het dier zelf teken je nooit (regel 4).
@@ -49,8 +49,10 @@ Eén bestand `source/KrabV2<Naam>.mc` met één module `KrabV2<Naam>`, hoogstens
 
 - **Kleur:** altijd `v.kleur(dc, 0xRRGGBB)` voor een vlak en `v.pen(dc, 0xRRGGBB)` voor een lijn, nooit `dc.setColor`. Die twee doen de nachtregel (`Nacht.mc`, Mila v1.2) en de 64 kleuren van MIP vanzelf. Je geeft dus alleen de dagkleur op.
 - **Vormen:** `v.rondje` (ovaal met rand en glans), `v.blob` (ronde veelhoek), `v.golf`, `v.gloed` en `v.glas` (doorschijnend, alleen AMOLED), `KrabV2Lagen.verloop`, `KrabV2Lagen.vierhoek`.
-- **Een los voorwerp plaatsen:** `KrabV2Lagen.inRond(x, y, r)` schuift het naar binnen tot het 3/260 van de ronde rand blijft (regel 10). Alleen bodem, rotsen en water mogen door de rand lopen.
-- **Versiering (belletje, ster, vonk, meeuw):** vraag eerst `KrabV2Tekst.vrij(v, x, y, r)`. Geeft die onwaar, dan teken je het niet (regel 9).
+- **Een los voorwerp plaatsen:** `KrabV2Lagen.inRond(x, y, r)` schuift het naar binnen tot het 10/260 van de ronde rand blijft (regel 10); meld het daarna met `KrabV2Rand.meet(v, scherm, naam, x, y, r)`, dan staat de meting in het log. Alleen bodem, rotsen en water mogen door de rand lopen.
+- **Voorwerp bij tekst:** `KrabV2Tekst.raakt(v, x, y, r)` zegt of het binnen 6/260 van tekst staat; dan niet tekenen of korter maken (zie de sprieten in `KrabV2Schild.onder`).
+- **Achter de held** staat nooit iets in zijn eigen kleurfamilie: laat een open plek (`KrabV2Schild.openPlek`).
+- **Versiering (belletje, ster, vonk):** vraag eerst `KrabV2Tekst.vrij(v, x, y, r)`. Geeft die onwaar, dan teken je het niet (regel 9).
 - **Tekst teken je niet.** Alle tekst van de zes schermen staat in `KrabV2Tekst.mc`.
 
 ## 5. Waar je werk op getoetst wordt
@@ -59,7 +61,7 @@ De plaatjesrun (`.github/workflows/garmin-adem-iq.yml`) start op dertien horloge
 
 1. **Veilige zone (regel 8):** minstens 6/260 lucht tussen elk tekstvak en de held met zijn grap, ook als hij kantelt. De app meet het zelf en schrijft `VEILIG wereld N scherm S ... ja` of `NEE`. Staat je held te hoog, dan zet je hem lager in `held`; de tekst schuift niet.
 2. **Versiering:** het log zegt `VERSIERING wereld N scherm S getekend X, geweken voor tekst Y`. Wijkt bijna alles, dan staat je versiering op de verkeerde plek.
-3. **Rand:** niets los door de ronde rand (kijk op de schermafbeelding van de FR255 en de fenix 8).
+3. **Rand:** een los voorwerp staat 10/260 binnen de ronde rand. Het log zegt `VEILIG wereld N scherm S rand <naam> lucht X van 260, norm 10 ja` of `NEE`.
 4. **Contrast:** elke tekstregel haalt 4,5 op 1 tegen wat jij erachter tekent. Geen licht voorwerp achter witte tekst.
 5. **Grap herkenbaar (besluit 12 nov 06:00):** een frisse kijker ziet alleen het beeld van 260 pixels en zegt wat het is. Herkent die de grap niet, dan gaat de grap eruit. Dat doet de hoofdchat, niet de bouwer.
 6. **Regels van de code:** hoogstens 300 regels per bestand, bouwt zonder waarschuwingen (`-l 2`); de toetsworkflow `garmin-adem-e2e.yml` controleert dat.

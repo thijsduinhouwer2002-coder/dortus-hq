@@ -65,22 +65,14 @@ module KrabV2Schild {
         dc.setPenWidth(1);
     }
 
-    // Boven water, laag 3: een losgeraakt blad zeegras drijft onder het oppervlak.
-    function blad(v as KrabV2View, dc as Graphics.Dc, top as Number) as Void {
-        var y = top + 74;
-        if (y >= 236) {
-            return;
+    // Open plek in de weide (Mila run 55): achter de held staat geen groen. Bij inhouden en menu van 1,45 x maat
+    // links tot 1,2 x maat rechts van zijn midden; op het eindscherm links (x 20 tot 132). Geeft true als x vrij is.
+    function openPlek(scherm as Number, x as Numeric) as Boolean {
+        if (scherm == 5) {
+            return x < 20 || x > 132;
         }
-        var p = [] as Array<Float>;
-        for (var i = 0; i <= 10; i += 1) {
-            p.add((162 + i * 3.4).toFloat());
-            p.add((y + 4 * Math.sin(i * 0.5)).toFloat());
-        }
-        for (var i = 10; i >= 0; i -= 1) {
-            p.add((162 + i * 3.4).toFloat());
-            p.add((y + 5 + 4 * Math.sin(i * 0.5)).toFloat());
-        }
-        v.blob(dc, p, GRAS, GRAS_L, 1.1);
+        var h = held(scherm);
+        return x < h[0] - 1.45 * h[2] || x > h[0] + 1.2 * h[2];
     }
 
     // Onder water, laag 1 tot 3 van de weide: verre ruggen en zand, hoge sprieten aan de randen, klein spul vooraan.
@@ -103,8 +95,21 @@ module KrabV2Schild {
             // Mila run 53: op menu en eindscherm de hoge sprieten 8/260 korter, zodat "Today" en de naam vrij blijven
             var kort = (scherm >= 4) ? 8 : 0;
             for (var i = 0; i < 8; i += 1) {
-                var x = s[5 * i];
-                spriet(v, dc, sp ? 260 - x : x, (i < 4 ? 222 : 224) + zak, s[5 * i + 1] - kort, sp ? -s[5 * i + 3] : s[5 * i + 3], s[5 * i + 2], s[5 * i + 4] == 1 ? GRAS : GRAS_D, false);
+                var x = sp ? 260 - s[5 * i] : s[5 * i];
+                var buig = sp ? -s[5 * i + 3] : s[5 * i + 3];
+                var y0 = (i < 4 ? 222 : 224) + zak;
+                var len = s[5 * i + 1] - kort;
+                if (!openPlek(scherm, x) || !openPlek(scherm, x + buig)) {
+                    continue;
+                }
+                // Keuring 3 punt 5: een spriet blijft 6/260 van tekst; hij wordt korter tot hij vrij staat.
+                while (len > 24 && KrabV2Tekst.raakt(v, x + buig, y0 - len, s[5 * i + 2] / 2)) {
+                    len -= 8;
+                }
+                if (len <= 24) {
+                    continue;
+                }
+                spriet(v, dc, x, y0, len, buig, s[5 * i + 2], s[5 * i + 4] == 1 ? GRAS : GRAS_D, false);
             }
         } else if (stap == 3) {
             // een schelp en een steentje op het zand, vier plukken, een zeester: de weide is een plek, geen behang
@@ -112,20 +117,26 @@ module KrabV2Schild {
             v.rondje(dc, sp ? 164 : 96, 244 + zak, 5, 3, 0xAAAAFF, 0xFFFFFF, -1);
             var p = [34, 232, 5, 30, 0, 52, 240, 4, 20, 1, 226, 232, 5, 32, 1, 206, 242, 4, 18, 0] as Array<Number>;
             for (var i = 0; i < 4; i += 1) {
-                pluk(v, dc, sp ? 260 - p[5 * i] : p[5 * i], p[5 * i + 1] + zak, p[5 * i + 2], p[5 * i + 3], p[5 * i + 4] == 1 ? GRAS : GRAS_D);
+                var px = sp ? 260 - p[5 * i] : p[5 * i];
+                if (openPlek(scherm, px)) {
+                    pluk(v, dc, px, p[5 * i + 1] + zak, p[5 * i + 2], p[5 * i + 3], p[5 * i + 4] == 1 ? GRAS : GRAS_D);
+                }
             }
+            // Keuring 3 punt 4: de zeester stond half buiten beeld; nu 10/260 binnen de rand, gemeten.
+            var os = KrabV2Lagen.inRond(sp ? 70 : 190, 230 + zak, 9);
+            KrabV2Rand.meet(v, scherm, "zeester", (sp ? 70 : 190) + os[0], 230 + zak + os[1], 9);
             var ster = [] as Array<Float>;
             for (var i = 0; i < 10; i += 1) {
                 var a = -Math.PI / 2 + i * Math.PI / 5;
                 var rr = (i % 2 == 0) ? 7.5 : 3.15;
-                ster.add(((sp ? 70 : 190) + rr * Math.cos(a)).toFloat());
-                ster.add((230 + zak + rr * Math.sin(a)).toFloat());
+                ster.add(((sp ? 70 : 190) + os[0] + rr * Math.cos(a)).toFloat());
+                ster.add((230 + zak + os[1] + rr * Math.sin(a)).toFloat());
             }
             v.blob(dc, ster, 0xFFAA00, 0xFFFFFF, 1.4);
         }
     }
 
-    // Onder water, laag 4 (inhouden en menu): schaduw onder de schildpad en de spriet waar hij een hap uit nam.
+    // Onder water, laag 4 (inhouden en menu): schaduw onder de schildpad (de spriet met hap is weg, Mila run 55).
     function onderHeld(v as KrabV2View, dc as Graphics.Dc, scherm as Number, am as Boolean, h as Array<Number>) as Void {
         if (scherm != 3 && scherm != 4) {
             return;
@@ -136,22 +147,6 @@ module KrabV2Schild {
         } else {
             v.rondje(dc, h[0] + 4, h[1] + m * 0.72, m * 0.9, 4, 0xAAAA55, -1, -1);
         }
-        spriet(v, dc, h[0] - 0.86 * m - 8, h[1] + m * 0.8, m * 1.15, 4, 10, GRAS, true);
-    }
-
-    // Breed blad zeegras tussen de kaken (bx, by is de bek), k is de schaal.
-    function inBek(v as KrabV2View, dc as Graphics.Dc, bx as Float, by as Float, k as Float) as Void {
-        var b = [4, -4, -14, -6, -30, -2, -38, 8, -28, 8, -12, 5, 4, 4] as Array<Number>;
-        var p = [] as Array<Float>;
-        for (var i = 0; i < 7; i += 1) {
-            p.add((bx + b[2 * i] * k).toFloat());
-            p.add((by + b[2 * i + 1] * k).toFloat());
-        }
-        v.blob(dc, p, GRAS, 0xFFFFFF, 1.5);
-        v.pen(dc, GRAS_D);
-        dc.setPenWidth(v.q(1.2) < 1 ? 1 : v.q(1.2));
-        dc.drawLine(v.q(bx + 2 * k), v.q(by), v.q(bx - 26 * k), v.q(by + 2 * k));
-        dc.setPenWidth(1);
     }
 
     // Een meeuw die op het schild staat en de andere kant op kijkt dan de schildpad (de grap). Ook bij nacht wit.
@@ -209,18 +204,7 @@ module KrabV2Schild {
             meeuw(v, dc, mp[0], mp[1], 1.4);
             return;
         }
-        // run 55: 5 naar links en 3 lager dan het blad, anders ligt het blad over zijn oog (beelden f1433af)
-        var bx = (h[0] - 0.86 * m - 5).toFloat();
-        var by = (scherm == 5) ? (h[1] + 1).toFloat() : (h[1] + 0.06 * m - 2).toFloat();
-        inBek(v, dc, bx, by, scherm == 5 ? 0.8 : 1.0);
-        if (scherm != 5) {
-            var kr = [-9.0, -6.0, 2.0, -14.0, 2.0, 1.5] as Array<Float>;
-            for (var i = 0; i < 2; i += 1) {
-                var cx = bx + kr[3 * i];
-                var cy = by + kr[3 * i + 1];
-                var r = kr[3 * i + 2];
-                v.blob(dc, [cx - r, cy, cx, cy - r * 1.4, cx + r, cy, cx, cy + r * 0.8] as Array<Float>, GRAS_L, 0xFFFFFF, 0.9);
-            }
-        }
+        // Onder water niets meer voor de held: het blad in zijn bek las drie keer niet als eten en maakte zijn gezicht
+        // onleesbaar (Mila run 55, frisse keuring 3). Zijn grap is de meeuw boven water.
     }
 }
