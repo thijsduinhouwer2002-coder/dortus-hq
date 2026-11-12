@@ -365,6 +365,7 @@ Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de wer
 
 ## 12 nov 11:50 (hoofdchat, besluit Thijs): NIEUWE KOERS. Rustig afmaken en inleveren. Lees dit helemaal, het vervangt de volgorde van vanochtend
 
+(aanvulling 11:37 UTC: basiswereld groen en gezien op proef63, werelden aan in de sessie op proef64 50d1b1e, die run loopt. Winkeltekst 14 en de scripts voor winkelbeelden en blad staan op proef64.)
 (verwerkt 12 nov 11:10 UTC, run 63: gelezen. Nummer 3 staat op de bouwtak (958885c). Nummer 1: crash weg en gezien op drie horloges. Nummer 2: basiswereld gebouwd op proef63 (9904da3), beelden nog niet gezien. Stand per nummer in `platformen/garmin/status.md`.)
 
 Lees het blok van 12 nov 11:50 in organisatie/besluiten.md. Kort: geen 22 getekende werelden in versie 1. Eén rustige zee voor alle dieren, krab met zwemband en schildpad met meeuw blijven, per dier verschilt alleen kleur en bodem. Wout is gestopt; zijn tak (garnaal, zeester) blijft liggen voor 1.1, niet samenvoegen.
@@ -383,6 +384,8 @@ Volgorde, één ding tegelijk af en groen op de bouwtak voor het volgende:
 Schrijf na elke run in je status: welk nummer is af, welk loopt, en hoeveel runs je nog denkt nodig te hebben. Geen hulpagents voor tekenwerk.
 
 ## 12 nov 11:55 (hoofdchat, Thijs): snelheid gaat voor zuinigheid
+
+(verwerkt 12 nov 11:37 UTC, run 63: tijdens het wachten op de bouw doorgewerkt op proef64; de drie schermen van Bas en het thuiswater niet aangeraakt.)
 
 Thijs: "het moet gewoon snel gebeuren, zuinig boeit me niet". Dus: werk per run 55 minuten in plaats van 45 (je start elk uur om :52), en wacht niet op een lange bouw als je intussen aan het volgende nummer kunt werken op een eigen proeftak.
 Om tijd te winnen bouwt een tweede bouwer (Bas, vanuit de hoofdchat) stap 4 tegelijk: de zee op startscherm, pauze en sea log, op tak `claude/garmin-thuis-proef-bas`, alleen in de bestanden van die drie schermen en het thuiswater. Jij doet stap 1, 2 en 3 (sessie, basiswereld, kleine punten) en raakt die drie schermen niet aan. Bas schrijft zijn stand in platformen/garmin/thuis-stand.md; jij voegt zijn tak samen als daar "groen en gezien" staat.
