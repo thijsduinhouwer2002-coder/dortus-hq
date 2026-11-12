@@ -7,6 +7,7 @@ thuis-pauze-dag
 thuis-pauze-nacht
 uitleg
 pauze
-# Run 69: eindscherm met "5:00 auto" (einde-6c, tijdelijk) en met "Fish stays with you" (einde-6b, tijdelijk)
+# Run 69: eindschermen (de tijdelijke kijkproef met "5:00 auto" en "Fish stays with you" is teruggedraaid) en de terugval (grens 60 ms)
 einde-6c
 einde-6b
+sessie-terugval-*
