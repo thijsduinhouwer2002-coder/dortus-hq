@@ -238,7 +238,7 @@ module KrabV2Tekst {
             // (run 43190187315: op de FR255 en de fenix 8 liep "1:58" in het belletje), dan zegt de kop het zelf:
             // "3 holds done", met de tijden er direct onder.
             var tijden = "1:20   1:45   1:58";
-            var grens = v.q(heldBoven(v, 5, 0)) < v.q(80) ? v.q(heldBoven(v, 5, 0)) : v.q(80);
+            var grens = v.q(heldBoven(v, 5, 0)) < v.q(88) ? v.q(heldBoven(v, 5, 0)) : v.q(88);
             var metLabel = v.q(26) + dc.getFontHeight(EbbTeken.fM()) * 82 / 100 + dc.getFontHeight(EbbTeken.fX()) * 78 / 100
                 + dc.getFontHeight(EbbTeken.fS()) + v.q(6) <= grens;
             y = regel(dc, d, v.q(26), EbbTeken.fM(), metLabel ? "3 rounds done" : "3 holds done", geel, 82);
@@ -252,14 +252,17 @@ module KrabV2Tekst {
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
             if (_meet) {
-                // Hoofdchat 10:55 punt 1: het belletje van de nieuwe vriend (midden 184, 122, straal 42) telt als vak:
+                // Hoofdchat 10:55 punt 1: het belletje van de nieuwe vriend (midden 184, 123, 39 breed en 34 hoog) telt als vak:
                 // versiering en gras blijven er 6/260 vandaan.
-                _vak.addAll([v.q(142), v.q(80), v.q(226), v.q(164)] as Array<Number>);
+                _vak.addAll([v.q(144), v.q(88), v.q(224), v.q(158)] as Array<Number>);
                 return;
             }
             veilig(v, scherm, yt, v.q(heldBoven(v, 5, 0)));
             // De tijden blijven 6/260 boven het belletje; anders NEE en een rode run.
-            var bl = v.q(80) - yt;
+            // Gemeten vanaf de onderkant van de cijfers zelf (bovenkant van de regel plus de stokhoogte van de
+            // letter), niet vanaf de onderkant van de regel: run 43195856046 gaf zo NEE op elk horloge terwijl de
+            // cijfers vrij stonden.
+            var bl = v.q(88) - (yt - dc.getFontHeight(EbbTeken.fS()) + Graphics.getFontAscent(EbbTeken.fS()));
             System.println("VEILIG wereld " + v.wereld + " scherm 5 belletje lucht " + bl + " px, norm " + v.q(6) + (bl >= v.q(6) ? " ja" : " NEE"));
             // Keuring 4 punt 4: de drie bolletjes zijn weg. Het waren de weekstippen (geen pagina's); zonder uitleg
             // zeggen ze niets en ze lagen over rots en zand. De week staat in Today.
