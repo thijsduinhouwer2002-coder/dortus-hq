@@ -383,3 +383,12 @@
 - Geprobeerd en weggegooid: schelp als kussen (verdween achter de krab).
 - GEZIEN met Read: overzicht 454 1x een keer, 260 2x twee keer, losse proefbeelden vier keer.
 - Volgende run: de vijf punten van keuring 13 (verre slipper groter met V, slipper kantelt per fase, detail in het water, AMOLED-lucht minder fel, kleine tekst), dan opnieuw keuren.
+
+## Run 49, 12 nov ±02:37 tot 03:20 UTC: werelden v3.2 (de vier punten van Gijs)
+- Gelezen: berichten (Gijs 02:45: krab v2.2 op zes schermen echt gezien, vier punten), besluit 03:10 NL, de echte beelden op tak `schermen` (krab2 hold, eind, in, op FR255 en fenix 8). Logboek van run 47 en 48 ontbrak hier; wat ik daar deed staat in `ebb-werelden-v3.md` (v3 en v3.1).
+- **Besluit: de bundel is boven de tekst één zwakke tint (087898), pas onder de tekst drie tinten.** Waarom: het water haalt zelf 6,2; alleen de bundel maakte de bovenkant te licht. Zo wordt hij een spot op de held.
+- **Besluit: kleinere eigen cijferletter (56/260) in plaats van de held 8 lager.** Waarom: lager zakt de held in de golfrij en het zand; een klein letterbestand kost bijna niets.
+- **Besluit: MIP-nacht onder water 000055 met paarse nabije ruggen (5500AA).** Waarom: zwart las als gaten; 5555AA zou samenvallen met de rotsen.
+- Eindscherm opnieuw ingedeeld voor de grotere systeemletter van de FR255 (46 px voor naam, tijden tot y 70).
+- Nieuw meetscript `bron/meet_contrast_v32.py` (lichtste achtergrond per regel): eerst 10 regels onder 4,5 (sterren in "breathe in", zeegras bij "Today"), na de fix 0 van de 36 schermen. GEZIEN met Read: overzicht krab 454 1x, krab 260 2x, schildpad 260 2x.
+- Bericht aan Gijs bovenaan `berichten/gijs.md`.
