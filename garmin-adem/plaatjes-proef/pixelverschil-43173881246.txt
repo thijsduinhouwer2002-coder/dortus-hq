@@ -1,0 +1,27 @@
+GELIJK krab2-calm-dag-fr965.png
+VERSCHIL krab2-calm-nacht-fr965.png 3330 pixels in (264, 446, 401, 564)
+GELIJK krab2-eind-dag-fr965.png
+VERSCHIL krab2-eind-nacht-fr965.png 3506 pixels in (185, 434, 484, 539)
+GELIJK krab2-hold-dag-fr965.png
+VERSCHIL krab2-hold-nacht-fr965.png 3317 pixels in (240, 527, 400, 661)
+GELIJK krab2-in-dag-fr965.png
+VERSCHIL krab2-in-nacht-fr965.png 3215 pixels in (314, 445, 455, 570)
+GELIJK krab2-menu-dag-fr965.png
+VERSCHIL krab2-menu-nacht-fr965.png 2901 pixels in (249, 524, 391, 643)
+GELIJK krab2-uit-dag-fr965.png
+VERSCHIL krab2-uit-nacht-fr965.png 2562 pixels in (263, 490, 399, 604)
+VERSCHIL schild2-calm-dag-fr965.png 968 pixels in (349, 487, 459, 661)
+VERSCHIL schild2-calm-nacht-fr965.png 8642 pixels in (335, 452, 491, 661)
+VERSCHIL schild2-eind-dag-fr965.png 9338 pixels in (128, 479, 462, 692)
+VERSCHIL schild2-eind-nacht-fr965.png 17625 pixels in (128, 425, 481, 692)
+VERSCHIL schild2-hold-dag-fr965.png 3753 pixels in (205, 546, 462, 674)
+VERSCHIL schild2-hold-nacht-fr965.png 13500 pixels in (205, 527, 462, 674)
+VERSCHIL schild2-in-dag-fr965.png 959 pixels in (358, 468, 459, 640)
+VERSCHIL schild2-in-nacht-fr965.png 8623 pixels in (344, 438, 498, 640)
+VERSCHIL schild2-menu-dag-fr965.png 4691 pixels in (204, 508, 527, 694)
+VERSCHIL schild2-menu-nacht-fr965.png 12787 pixels in (204, 508, 527, 693)
+VERSCHIL schild2-uit-dag-fr965.png 157 pixels in (273, 540, 288, 555)
+VERSCHIL schild2-uit-nacht-fr965.png 7753 pixels in (260, 501, 415, 599)
+GELIJK thuis-start-dag-fr965.png
+VERSCHIL thuis-start-nacht-fr965.png 2065 pixels in (286, 554, 397, 647)
+26 beelden, 19 met verschil of ontbrekend
