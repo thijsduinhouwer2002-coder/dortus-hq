@@ -55,7 +55,7 @@ module EbbSessieScherm {
             var stand = EbbProfiel.zeeStand(s);
             EbbZee.zee(dc, d, stand, golfFase);
             // Wereld van je dier onderin (Wereld.mc); tekent alleen in de proefscènes tot de werelden gekeurd zijn.
-            EbbWereld.teken(dc, v.gezelschap, d);
+            EbbWereld.teken(dc, v.gezelschap, d, 0);
             var fhT = dc.getFontHeight(EbbTeken.fS());
             var fhK = dc.getFontHeight(EbbTeken.fX());
             var yKop = (d * 0.20).toNumber();
@@ -133,9 +133,9 @@ module EbbSessieScherm {
                 // zodat het los van de cijfers staat.
                 var yd2 = bandOnder - 2 - gz[3] * mz / EbbDierData.SCHAAL;
                 if (huis != null) {
-                    // Maat 20/260 D (Mila: 20 op 260, 35 op 454), midden van het dier op zijn thuis; daarna wat ervoor hoort.
-                    EbbDierVoorraad.teken(dc, v.gezelschap, (w - d) / 2 + huis[0] * d / 260 + dx, yDier, 20 * d / 260, EbbDierPlaatje.GEVONDEN);
-                    EbbWereld.voor(dc, v.gezelschap, d);
+                    // Maat uit Mila's gegevens (v1.3: 27/260 D), midden van het dier op zijn thuis; daarna wat ervoor hoort.
+                    EbbDierVoorraad.teken(dc, v.gezelschap, (w - d) / 2 + huis[0] * d / 260 + dx, yDier, EbbWereld.maat(v.gezelschap, d), EbbDierPlaatje.GEVONDEN);
+                    EbbWereld.voor(dc, v.gezelschap, d, 0);
                 } else {
                     EbbDierVoorraad.teken(dc, v.gezelschap, w / 2 + dx, yd2, mz, EbbDierPlaatje.GEVONDEN);
                 }

@@ -23,8 +23,9 @@ function testDagdeel(logger as Test.Logger) as Boolean {
 
 (:test)
 function testWereldGegevens(logger as Test.Logger) as Boolean {
-    // Schildpad, krab en clownvis hebben een wereld (geladen uit de gegevens) met een thuis binnen de strook; een dier
-    // zonder wereld geeft null. Elke wereld heeft zijn eigen bovenkant en hoogstens 120 punten.
+    // Schildpad, krab en clownvis hebben een wereld (geladen uit de gegevens) met een thuis binnen het scherm; een dier
+    // zonder wereld geeft null. Hoogstens 120 punten per wereld, hoogstens 40 direct getekend (planten en voorlaag),
+    // en een plant heeft in beide standen evenveel punten en dezelfde kleur.
     var goed = !EbbWereldData.heeft(0) && EbbWereldData.laad(0) == null;
     var dieren = [3, 4, 7] as Array<Number>;
     for (var i = 0; i < dieren.size(); i += 1) {
@@ -34,31 +35,48 @@ function testWereldGegevens(logger as Test.Logger) as Boolean {
             continue;
         }
         var b = w["b"] as Number;
+        var m = w["m"] as Number;
         var th = w["t"] as Array<Number>;
         var vl = w["v"] as Array<Array<Number> >;
-        var voor = w["f"] as Array<Array<Number> >;
         var det = w["d"] as Array<Array<Number> >;
-        if (vl.size() < 3 || b < 100 || b > 200 || th[0] < 20 || th[0] > 240 || th[1] < b || th[1] > 240) {
+        var pl = w["p"] as Array<Array<Number> >;
+        var pl2 = w["q"] as Array<Array<Number> >;
+        var voor = w["f"] as Array<Array<Number> >;
+        var voor2 = w["g"] as Array<Array<Number> or Null>;
+        if (vl.size() < 3 || b < 100 || b > 200 || m < 15 || m > 40 || th[0] < 20 || th[0] > 240 || th[1] < 100 || th[1] > 240
+            || pl2.size() != pl.size() || voor2.size() != voor.size()) {
             goed = false;
+            continue;
         }
         var punten = 0;
-        var lagen = [vl, voor] as Array<Array<Array<Number> > >;
-        for (var k = 0; k < lagen.size(); k += 1) {
-            for (var j = 0; j < lagen[k].size(); j += 1) {
-                var n = (lagen[k][j].size() - 1) / 2;
-                punten += n;
-                if (n < 3 || n > 64 || lagen[k][j].size() % 2 != 1) {
-                    goed = false;
-                }
-                for (var q = 2; q < lagen[k][j].size(); q += 2) {
-                    if (lagen[k][j][q] < 0 || lagen[k][j][q] > 260 - b) {
-                        goed = false;
-                    }
-                }
+        var direct = 0;
+        for (var j = 0; j < vl.size(); j += 1) {
+            punten += (vl[j].size() - 1) / 2;
+            if (vl[j].size() < 7 || vl[j].size() % 2 != 1) {
+                goed = false;
             }
         }
-        logger.debug("wereld " + dieren[i] + " boven " + b + " vlakken " + vl.size() + " details " + det.size() + " punten " + punten);
-        if (punten > 120) {
+        for (var j = 0; j < det.size(); j += 1) {
+            punten += (det[j].size() - 2) / 2;
+            if (det[j].size() < 8 || det[j].size() % 2 != 0 || det[j][0] < 1 || (j > 0 && det[j][0] < det[j - 1][0])) {
+                goed = false;
+            }
+        }
+        for (var j = 0; j < pl.size(); j += 1) {
+            direct += (pl[j].size() - 1) / 2;
+            if (pl[j].size() != pl2[j].size() || pl[j][0] != pl2[j][0]) {
+                goed = false;
+            }
+        }
+        for (var j = 0; j < voor.size(); j += 1) {
+            direct += (voor[j].size() - 1) / 2;
+            var v2 = voor2[j];
+            if (v2 != null && v2.size() != voor[j].size()) {
+                goed = false;
+            }
+        }
+        logger.debug("wereld " + dieren[i] + " boven " + b + " maat " + m + " vlakken " + vl.size() + " details " + det.size() + " planten " + pl.size() + " voor " + voor.size() + " punten " + (punten + direct) + " direct " + direct);
+        if (punten + direct > 120 || direct > 40) {
             goed = false;
         }
     }
@@ -79,13 +97,14 @@ function testWereldBouwtInBeurtenEnRuimtOp(logger as Test.Logger) as Boolean {
     }
     var th = EbbWereld.thuis(3, 260);
     var zelfde = EbbWereld.zorg(3, 260) == p;
+    var mt = EbbWereld.maat(3, 260);
     EbbWereld.los();
     var geen = EbbWereld.zorg(0, 260) == null;
     EbbWereld.proef = oud;
     logger.debug("beurten " + beurten + " klaar " + (p != null && p.klaar) + " pogingen " + (p != null ? p.pogingen : -1));
     // Lukt het plaatje in de testomgeving niet, dan is er niets gebouwd (beurten 0) en telt alleen de rest.
     var gebouwd = p != null && (p.klaar ? (beurten >= 1 && beurten <= 4) : beurten == 0);
-    return gebouwd && zelfde && geen && th != null && th[0] == 84 && th[1] == 214;
+    return gebouwd && zelfde && geen && th != null && th[0] == 92 && th[1] == 214 && mt == 27;
 }
 
 (:test)

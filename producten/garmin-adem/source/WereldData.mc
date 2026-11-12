@@ -1,9 +1,9 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-// GEMAAKT door bron/maak_werelden.py uit ebb-werelden-v11-data.json (werelden v1.1). Niet met de hand wijzigen.
+// GEMAAKT door bron/maak_werelden.py uit ebb-werelden-v13-data.json (werelden v1.3). Niet met de hand wijzigen.
 // Alleen de lijst van werelden; de punten staan per wereld in resources/werelden/werelden.xml en worden pas
-// geladen als het dier gekozen is. Sleutels: b bovenkant strook, t thuis, v vlakken, d details, f voor het dier.
+// geladen als het dier gekozen is. Sleutels: zie bron/maak_werelden.py (b, t, m, v, d, p, q, f, g).
 module EbbWereldData {
     const EENHEID = 260;
 

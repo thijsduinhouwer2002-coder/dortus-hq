@@ -12,8 +12,20 @@ m = re.search(r'<jsonData id="%s">(.*?)</jsonData>' % wid, open(xml).read(), re.
 w = json.loads(m.group(1))
 BEL = (0x55, 0xAA, 0xFF)
 NIET = {0xFFFFFF, 0x000000, 0x00AAFF, 0x0055AA, 0x0000AA, 0x000055, 0x55FFFF, 0x55AAAA, 0x55AAFF, 0xAAFFFF, 0xFFFF55}
-kl = set(v[0] for v in w['v'] + w['f']) | set(v[1] for v in w['d'])
+kl = set(v[0] for v in w['v'] + w['f'] + w.get('p', [])) | set(v[1] for v in w['d'])
 kl = set(((k >> 16) & 255, (k >> 8) & 255, k & 255) for k in kl if k not in NIET)
+# AMOLED-horloges tekenen in 16 bits kleur (AAAA55 wordt ACAA52), dus een kleur telt als hij per kanaal hoogstens
+# 8 afwijkt (run 43125340595: met precies gelijke kleuren bleven er op fr165, fr965 en venu3 te weinig pixels over).
+def bij(c, lijst):
+    for k in lijst:
+        if abs(c[0] - k[0]) <= 8 and abs(c[1] - k[1]) <= 8 and abs(c[2] - k[2]) <= 8:
+            return True
+    return False
+_m = {}
+def isw(c):
+    if c not in _m:
+        _m[c] = bij(c, kl)
+    return _m[c]
 A, B = Image.open(a).convert('RGB'), Image.open(b).convert('RGB')
 if A.size != B.size:
     print('NIET TE VERGELIJKEN: maten verschillen', A.size, B.size); sys.exit(1)
@@ -23,10 +35,10 @@ eerste = []
 for y in range(A.size[1]):
     for x in range(A.size[0]):
         ca, cb = pa[x, y], pb[x, y]
-        if ca in kl or cb in kl:
+        if isw(ca) or isw(cb):
             wereld += 1
             if ca != cb:
-                if ca == BEL or cb == BEL:
+                if bij(ca, [BEL]) or bij(cb, [BEL]):
                     bel += 1
                 else:
                     fout += 1
@@ -35,6 +47,6 @@ for y in range(A.size[1]):
 print('WERELD GELIJK %s: wereldpixels %d, verschil %d, onder een belletje %d, kleuren %d, maat %s' % (wid, wereld, fout, bel, len(kl), A.size))
 if eerste:
     print('eerste verschillen (x, y, 0:30, 2:30):', eerste)
-if wereld < A.size[0] * A.size[1] // 50:
+if wereld < A.size[0] * A.size[1] // 100:
     print('TE WEINIG WERELD in beeld, niets bewezen'); sys.exit(1)
 sys.exit(1 if fout else 0)

@@ -219,10 +219,12 @@ module EbbScenes {
             // Codekeuring bouw 9 punt 8 (veiligheid): scène 42 en 43 zijn de schildpad in zijn wereld op 0:30 en op
             // 2:30. bron/wereld_gelijk.py vergelijkt in de plaatjesrun de pixels van de wereld: die moeten gelijk
             // zijn, zodat de wereld langer inhouden nooit beloont.
-            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([3, 4, 7, 3, 3] as Array<Number>)[k - 39]);
+            // Keuring bouw 9 punt 9: scène 44 tot 46 zijn dezelfde drie werelden na vier gehaalde weekdoelen (alle details).
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([3, 4, 7, 3, 3, 3, 4, 7] as Array<Number>)[k - 39]);
+            Application.Storage.setValue(EbbTrouw.WEKENTOT, k >= 44 ? 4 : 0);
             EbbWereld.proef = true;
             view.sessie.ronde = 1;
-            view.plaatjeMs = ([105000, 105000, 105000, 30000, 150000] as Array<Number>)[k - 39];
+            view.plaatjeMs = ([105000, 105000, 105000, 30000, 150000, 105000, 105000, 105000] as Array<Number>)[k - 39];
         } else if (k == 24) {
             // Inhouden op 1:45 met de krab als gekozen maatje (4 dieren gevonden plus de krab).
             Application.Storage.setValue(EbbTrouw.BITS, 31);

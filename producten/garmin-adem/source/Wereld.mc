@@ -26,7 +26,13 @@ class EbbWereldPlaatje {
     var klaar as Boolean = false;
     var pogingen as Number = 0;
     var thuis as Array<Number> or Null = null;
+    var maat as Number = 20;      // maat van het dier op zijn thuis, in 1/260 D
+    // Direct getekend (codekeuring bouw 9 punt 2 en 7): planten na het plaatje, voorlaag na het dier. De tweede
+    // lijst is dezelfde vlakken in de stand bij inademen (zelfde aantal punten); bij de voorlaag mag die null zijn.
+    var planten as Array<Array<Number> > or Null = null;
+    var planten2 as Array<Array<Number> > or Null = null;
     var voorlaag as Array<Array<Number> > or Null = null;
+    var voorlaag2 as Array<Array<Number> or Null> or Null = null;
     private var _weken as Number;
     private var _eersteDetail as Number = 9999;
     private var _vl as Array<Array<Number> > or Null = null;
@@ -57,7 +63,11 @@ class EbbWereldPlaatje {
         }
         boven = w["b"] as Number;
         thuis = w["t"] as Array<Number>;
+        maat = w["m"] as Number;
+        planten = w["p"] as Array<Array<Number> >;
+        planten2 = w["q"] as Array<Array<Number> >;
         voorlaag = w["f"] as Array<Array<Number> >;
+        voorlaag2 = w["g"] as Array<Array<Number> or Null>;
         var l = w["v"] as Array<Array<Number> >;
         // Besluit 12 nov 00:25 punt 4: details die je met gehaalde weekdoelen verdiende komen er als laatste bij.
         var det = w["d"] as Array<Array<Number> >;
@@ -141,18 +151,33 @@ module EbbWereld {
     var proef as Boolean = false;
     var _p as EbbWereldPlaatje or Null = null;
 
-    // Eén veelhoek [kleur, x, y, ...] in 1/260 D, afgekapt zoals bij de dieren, verschoven met (dx, dy) in px.
-    function veelhoek(dc as Graphics.Dc, v as Array<Number>, d as Number, dx as Number, dy as Number) as Void {
-        veelhoekVanaf(dc, v, 0, d, dx, dy);
-    }
-
-    // Zelfde, maar de kleur staat op plek k (bij een detail staat de week ervoor).
+    // Eén veelhoek voor in het plaatje, in 1/260 D, afgekapt zoals bij de dieren, verschoven met (dx, dy) in px;
+    // de kleur staat op plek k (bij een detail staat de week ervoor).
     function veelhoekVanaf(dc as Graphics.Dc, v as Array<Number>, k as Number, d as Number, dx as Number, dy as Number) as Void {
         var pts = [] as Array<[Numeric, Numeric]>;
         for (var j = k + 1; j + 1 < v.size(); j += 2) {
             pts.add([v[j] * d / EbbWereldData.EENHEID + dx, v[j + 1] * d / EbbWereldData.EENHEID + dy]);
         }
         dc.setColor(v[k], Graphics.COLOR_TRANSPARENT);
+        dc.fillPolygon(pts);
+    }
+
+    // Punt 7: een vlak in twee standen. a is de stand bij uitademen en inhouden, b die bij inademen (zelfde aantal
+    // punten, of null als het vlak niet beweegt); f is de plek daartussen in duizendsten (0 = a, 1000 = b).
+    // Punten in 1/260 D vanaf de bovenkant van het scherm, dx in px (als het scherm breder is dan d).
+    function buig(dc as Graphics.Dc, a as Array<Number>, b as Array<Number> or Null, f as Number, d as Number, dx as Number) as Void {
+        var pts = [] as Array<[Numeric, Numeric]>;
+        var mee = b != null && f > 0 && (b as Array<Number>).size() == a.size();
+        for (var j = 1; j + 1 < a.size(); j += 2) {
+            var x = a[j];
+            var y = a[j + 1];
+            if (mee) {
+                x += ((b as Array<Number>)[j] - x) * f / 1000;
+                y += ((b as Array<Number>)[j + 1] - y) * f / 1000;
+            }
+            pts.add([x * d / EbbWereldData.EENHEID + dx, y * d / EbbWereldData.EENHEID]);
+        }
+        dc.setColor(a[0], Graphics.COLOR_TRANSPARENT);
         dc.fillPolygon(pts);
     }
 
@@ -195,13 +220,28 @@ module EbbWereld {
         return p != null ? p.thuis : null;
     }
 
-    // Tekent de wereld van dit dier onderin. Geeft true als hij er staat; anders staat er alleen de zee.
-    function teken(dc as Graphics.Dc, dier as Number, d as Number) as Boolean {
+    // Maat van het dier op zijn thuis in px (Mila: 27/260 D), zonder wereld 20/260.
+    function maat(dier as Number, d as Number) as Number {
+        var p = zorg(dier, d);
+        return (p != null ? p.maat : 20) * d / EbbWereldData.EENHEID;
+    }
+
+    // Tekent de wereld van dit dier onderin: het plaatje en daarna de planten in de stand van de adem
+    // (f in duizendsten: 0 bij uitademen en inhouden, 1000 bij ingeademd). Geeft true als hij er staat; anders
+    // staat er alleen de zee.
+    function teken(dc as Graphics.Dc, dier as Number, d as Number, f as Number) as Boolean {
         var p = zorg(dier, d);
         if (p == null) {
             return false;
         }
         if ((p.klaar || p.verder()) && p.plak(dc)) {
+            var pl = p.planten;
+            var p2 = p.planten2;
+            if (pl != null) {
+                for (var i = 0; i < pl.size(); i += 1) {
+                    buig(dc, pl[i], (p2 != null && i < p2.size()) ? p2[i] : null, f, d, (dc.getWidth() - d) / 2);
+                }
+            }
             return true;
         }
         if (p.bezig()) {
@@ -211,18 +251,18 @@ module EbbWereld {
     }
 
     // Wat over het dier heen komt (hoogstens een paar veelhoeken, direct getekend). Na het dier aanroepen.
-    function voor(dc as Graphics.Dc, dier as Number, d as Number) as Void {
+    function voor(dc as Graphics.Dc, dier as Number, d as Number, f as Number) as Void {
         if (_p == null || (_p as EbbWereldPlaatje).dier != dier || !(_p as EbbWereldPlaatje).klaar) {
             return;
         }
         var p = _p as EbbWereldPlaatje;
         var vl = p.voorlaag;
+        var v2 = p.voorlaag2;
         if (vl == null) {
             return;
         }
-        var dy = p.boven * d / EbbWereldData.EENHEID;
         for (var i = 0; i < vl.size(); i += 1) {
-            veelhoek(dc, vl[i], d, (dc.getWidth() - d) / 2, dy);
+            buig(dc, vl[i], (v2 != null && i < v2.size()) ? v2[i] : null, f, d, (dc.getWidth() - d) / 2);
         }
     }
 
