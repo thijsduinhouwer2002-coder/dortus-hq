@@ -2,12 +2,21 @@
 # Eén naam per regel, een sterretje mag. De namen staan in NAMEN in .github/workflows/garmin-adem-iq.yml.
 # Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
 # Leeg bestand: alle proefscènes vanaf 51 (lang).
-# Run 72: de dolfijn met de lichte luchtband (KrabV2Basis.lucht), Calm in de wereld, eindscherm op het thuiswater.
+# Run 73, proef73, KIJKPROEF (Scenes.mc): nachtregel v1.4 voor de held en de zwaardvis met de lichte luchtband.
+# sessie-krab is hier de zwaardvis, sessie-schild de narwal, sessie-basis de dolfijn, sessie-komkommer de orka,
+# sessie-kreeft de octopus, sessie-otter de reuzeninktvis.
 sessie-basis-in-dag
-sessie-basis-uit-dag
 sessie-basis-hold-dag
 sessie-basis-in-nacht
-rustig
-calm-45s
-einde-6b
-uitleg
+sessie-basis-hold-nacht
+sessie-krab-in-dag
+sessie-krab-in-nacht
+sessie-krab-hold-nacht
+sessie-schild-hold-dag
+sessie-schild-in-nacht
+sessie-schild-hold-nacht
+sessie-komkommer-in-nacht
+sessie-komkommer-hold-nacht
+sessie-kreeft-hold-nacht
+sessie-otter-in-nacht
+sessie-otter-hold-nacht

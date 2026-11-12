@@ -16,7 +16,11 @@ module EbbNacht {
         var r = (c >> 16) & 0xFF;
         var g = (c >> 8) & 0xFF;
         var b = c & 0xFF;
-        if ((g >= r && g > b) || (r >= g && g > b && r <= 0xAA)) {
+        // v1.4 (Gijs run 73, frisse keuring run 72: orka, zwaardvis en narwal vielen bij nacht weg tegen het donkere
+        // water): ook elke koele kleur blijft (blauw minstens zo sterk als rood: blauw, paars, grijs, zeegroen, wit).
+        // Alleen warm (rood, oranje, roze, donkerrood) wordt bij nacht nog gedempt. Zo valt binnen een dier niets
+        // samen: lijf, buik en accent houden hun onderlinge verschil.
+        if ((g >= r && g > b) || (r >= g && g > b && r <= 0xAA) || b >= r) {
             return am ? (((r * 4 / 5) << 16) | ((g * 4 / 5) << 8) | (b * 4 / 5)) : c;
         }
         return k(c, am);

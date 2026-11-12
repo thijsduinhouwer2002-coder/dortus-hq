@@ -219,7 +219,8 @@ class KrabV2WBasis extends KrabV2Wereld {
             // krijgt Mila's eerste band van de familie licht (roze).
             lu[1] = 0xFFAAFF;
             lu[4] = 0xFFAAE6;
-        } else if (_dier == 13) {
+        } else if (_dier == 13 || _dier == 14) {
+            // Run 73 (frisse keuring run 72): ook de zwaardvis (5555FF) liep op de FR255 weg in de band 55AAFF.
             // Run 72, beelden 43295837436 (hoofdchat 12 nov 20:15 punt 2): de dolfijn (55AAFF) had op MIP precies de
             // kleur van de luchtband van zijn familie en viel boven water weg. Hij krijgt de lichte band van koud.
             lu[1] = 0xAAFFFF;
