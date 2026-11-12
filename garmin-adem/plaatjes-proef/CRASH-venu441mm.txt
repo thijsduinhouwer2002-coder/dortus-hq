@@ -58,3 +58,4 @@
 /tmp/plaatje-venu441mm-76.log:VEILIG wereld 1 scherm 5 belletje lucht -8 px, norm 9 NEE
 /tmp/plaatje-venu441mm-76.log:VEILIG wereld 1 scherm 5 belletje lucht -8 px, norm 9 NEE
 /tmp/plaatje-venu441mm-76.log:VEILIG wereld 1 scherm 5 belletje lucht -8 px, norm 9 NEE
+/tmp/plaatje-venu441mm-80.log:Encountered an app crash.
