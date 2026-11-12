@@ -1,5 +1,5 @@
 {
- "uitleg": "Nachtregel Ebb v1.2 (Mila, run 52 en 53). Geldt voor alle werelden en alle schermen bij nacht. Teken het scherm met de NACHT-kleuren van werelden v3.2 (Today en 8 weeks: droog zand AAAA55 en nat zand 555500 als basis) en zet daarna elke kleur die geen tekst is door deze regel. Uitgezonderd: alle tekst met haar donkere rand, de paginastipjes en de randen van de keuzeknoppen in het menu. MIP: elke 64-kleur naar de kleur in mip (een trede omlaag per kanaal; groen hooguit zo sterk als rood of blauw, of 55). AMOLED: per kanaal amoled_kanaal[v], daarna G = min(G, max(R, B, 80)). v1.1: de groenvloer van 55/80 houdt groene dieren (schildpad, aal, zeekomkommer) zichtbaar; in v1 werden ze zwart. Tekst die overdag donker op zand staat (000055, 555500) wordt bij nacht FFFFAA. v1.2 (run 53): op AMOLED na de groenregel nog 30 procent naar grijs (R,G,B = 0,7 x kanaal + 0,3 x (0,299 R + 0,587 G + 0,114 B)), zodat rode en oranje dieren bij nacht rustiger zijn. Op MIP niet (getest: rood werd onzichtbaar, geel werd groen).",
+ "uitleg": "Nachtregel Ebb v1.2 (Mila, run 52 en 53). Geldt voor alle werelden en alle schermen bij nacht. Teken het scherm met de NACHT-kleuren van werelden v3.2 (Today en 8 weeks: droog zand AAAA55 en nat zand 555500 als basis) en zet daarna elke kleur die geen tekst is door deze regel. Uitgezonderd: alle tekst met haar donkere rand, de paginastipjes en de randen van de keuzeknoppen in het menu. MIP: elke 64-kleur naar de kleur in mip (een trede omlaag per kanaal; groen hooguit zo sterk als rood of blauw, of 55). AMOLED: per kanaal amoled_kanaal[v], daarna G = min(G, max(R, B, 80)). v1.1: de groenvloer van 55/80 houdt groene dieren (schildpad, aal, zeekomkommer) zichtbaar; in v1 werden ze zwart. Tekst die overdag donker op zand staat (000055, 555500) wordt bij nacht FFFFAA. v1.2 (run 53): op AMOLED na de groenregel nog 30 procent naar grijs (R,G,B = 0,7 x kanaal + 0,3 x (0,299 R + 0,587 G + 0,114 B)), zodat rode en oranje dieren bij nacht rustiger zijn. Op MIP niet (getest: rood werd onzichtbaar, geel werd groen). v1.3 (run 55, hoofdchat 07:35): de held valt niet weg, zie held_nacht; nachtwater op MIP gedempt, zie mip_nachtwater.",
  "mip": {
   "000000": "000000",
   "000055": "000000",
@@ -323,5 +323,47 @@
   176,
   177,
   178
- ]
+ ],
+ "held_nacht": {
+  "uitleg": "Geldt voor de pixels van de held (het dier in het midden en wat bij hem hoort: zwemband, mutsje, ballen) op elk scherm bij nacht. Zo bepaal je ze: teken het dier op zijn eigen laag; alles wat op die laag staat is held. (1) Groene en bruine kleuren van de held (groen: G >= R en G > B; bruin en olijf: R >= G > B en R <= AA) houden hun dagkleur op MIP, en 80 procent van de dagkleur per kanaal op AMOLED, dus een tint lichter dan de gewone regel. (2) De donkere omtrek van 1 px (000055) wordt bij nacht 5555AA op MIP en (85, 85, 170) op AMOLED: een smalle lichte rand. (3) Alle andere kleuren van de held (rood, oranje, roze, wit) gaan door de gewone regel hierboven; de krab bleef daarmee goed zichtbaar (frisse keuring 3: 7,5 en 7). (4) Tekst gaat altijd voor op de held.",
+  "mip_groen_bruin_blijft": {
+   "005500": "005500",
+   "00AA00": "00AA00",
+   "00AA55": "00AA55",
+   "00FF00": "00FF00",
+   "00FF55": "00FF55",
+   "00FFAA": "00FFAA",
+   "555500": "555500",
+   "55AA00": "55AA00",
+   "55AA55": "55AA55",
+   "55FF00": "55FF00",
+   "55FF55": "55FF55",
+   "55FFAA": "55FFAA",
+   "AA5500": "AA5500",
+   "AAAA00": "AAAA00",
+   "AAAA55": "AAAA55",
+   "AAFF00": "AAFF00",
+   "AAFF55": "AAFF55",
+   "AAFFAA": "AAFFAA",
+   "FFFF00": "FFFF00",
+   "FFFF55": "FFFF55",
+   "FFFFAA": "FFFFAA"
+  },
+  "omtrek_dag": "000055",
+  "omtrek_nacht_mip": "5555AA",
+  "omtrek_nacht_amoled": [
+   85,
+   85,
+   170
+  ],
+  "amoled_factor_groen_bruin": 0.8,
+  "regel_achter_de_held": "Achter de held staat nooit iets in dezelfde kleurfamilie als de held (hoofdchat 07:35). Laat in de wereld een open plek van 1,45 x maat links tot 1,2 x maat rechts van het midden van de held: daar geen sprieten, plukken of andere dingen in zijn familie."
+ },
+ "mip_nachtwater": {
+  "uitleg": "Nachtwater op MIP (frisse keuring 3 punt 6): geen felle blauwe vlakken. Elk watervlak dat bij nacht 0000AA of 0000FF zou worden, wordt 000055 (een gedempt diep blauw). Daarover dunne golflijnen van 1 px in 0000AA, om de 18 px op 260 (om de 31 px op 454), beginnend 30 px boven het midden, golf y = y0 + 2 x sin(x / D x 2 pi x 3 + y0). Lijnen niet door tekst en niet door de held. Lucht blijft 000000.",
+  "vlak": "000055",
+  "lijn": "0000AA",
+  "afstand_260": 18,
+  "dikte": 1
+ }
 }

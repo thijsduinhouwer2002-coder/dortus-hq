@@ -274,7 +274,7 @@ Zelf bekeken: winkel5/overzicht-500.png. Dit is voor het eerst een winkelpagina 
 
 Eerlijkheid: strand, sea log met onderwater en de drie werelden op kaart 3 moeten echt in de bouw zitten voordat deze beelden de winkel in gaan. Gijs vult ze met echte simulatorschermen; houd jouw ontwerp zo dat hij alleen de schermen hoeft te wisselen.
 
-Daarna: de herkenningstoets (frisse kijker, alleen 260-beeld) voor de overige 22 dieren afmaken en per dier "herkend ja of nee" in één tabel zetten. Wat nee is, krijgt een nieuwe grap.
+Daarna: de herkenningstoets (frisse kijker, alleen 260-beeld) voor de overige 22 dieren afmaken en per dier "herkend ja of nee" in één tabel zetten. Wat nee is, krijgt een nieuwe grap. (verwerkt 12 nov run 55: punt 1 tot 3 in winkelbeelden v5.1, `ontwerp/garmin/ebb-winkel-v51.md`; kop Breathe en het ademscherm op de poster, kaart 2 zonder tekst, nachthorloge met rand; zes beelden en winkeltekst nagelopen; herkenningstabel 22 dieren nog open)
 
 ## 12 nov 07:35 (hoofdchat): frisse keuring 3 op echte schermen: krab 7,5 en 7, schildpad 6,5 en 6
 
@@ -282,4 +282,4 @@ Lees ontwerp/garmin/ebb-krab-echt-keuring-3.md. De zwemband werkt: meteen herken
 1. Schildpad: de kop verdwijnt in het zeegras en het blad in de bek wordt niet herkend. Kop met donkere omlijning en duidelijk oog, blad losser en lichter (of een ander ding dat in één blik te lezen is, toets met een frisse kijker), en op het eindscherm een open plek zonder gras achter de schildpad. Regel voor alle werelden: achter de held staat nooit iets in dezelfde kleurfamilie als de held.
 2. Nachtregel: de held mag niet wegvallen. Groene en bruine dieren krijgen bij nacht een tint lichter of een smalle lichte rand. Voeg dit toe aan de json.
 3. Nachtwater op MIP: nu platte felle blauwe blokken met harde randen. Kies één dieper gedempt blauw met een paar golflijnen of een raster, lever als kleuren en maten aan Gijs.
-De schildpad moet even sterk getekend zijn als de krab.
+De schildpad moet even sterk getekend zijn als de krab. (verwerkt 12 nov run 55: `ontwerp/garmin/ebb-schild-keuring3-antwoord.md`: donkere omtrek en groot oog, blad weg na twee frisse kijkers, open plek ook op het eindscherm, nachtregel v1.3 en nachtwater MIP in de json, bericht aan Gijs)

@@ -423,3 +423,12 @@
 - Frisse kijker herkende de inktvis weer niet (vierde keer). Nieuw idee nodig; staat bij de hoofdchat in mijn berichtenbestand.
 - GEZIEN met Read: menu krab 2x, licht-familie 260, inktvis drie standen, strand dag en nacht, winkeloverzicht drie keer, rij 220 twee keer.
 - Volgende run: inktvis nieuw idee (grap met één groot voorwerp, met frisse toets), winkel v5.1 met meer afwisseling in de opbouw.
+
+## Run 55, 12 nov ±06:20 tot 07:00 UTC
+- Gelezen: hoofdchat 07:25 (winkelbeelden v5, harde eis posterkop) en 07:35 (frisse keuring 3), besluit 11 nov 23:25, winkeltekst v12 (curl, tak van Gijs).
+- Winkelbeelden v5.1 (`ontwerp/garmin/ebb-winkel-v51.md`): kop "Breathe. Make sea friends.", ademscherm in plaats van hold op de poster, kaart 2 uitsnede gemeten tussen cijfer en rondjesregel, nachthorloge met lichte rand. GEZIEN met Read: overzicht 500, rij 220, kaart 2.
+- **Besluit: ook het scherm op de poster mag geen inhoudtimer tonen.** Waarom: met de goede kop verkoopt "hold 1:45" groot in beeld toch inhouden.
+- Schildpad (`ebb-schild-keuring3-antwoord.md`): omtrek, groot oog, open plek, nachtregel v1.3, nachtwater MIP. Frisse keuringen 3b en 3c: 6 en 6, beide op het blad.
+- **Besluit: geen eten meer in de bek van de schildpad.** Waarom: derde keer niet herkend en het maakte zijn gezicht onleesbaar; zijn grap is de meeuw.
+- Bericht aan Gijs bovenaan `berichten/gijs.md`.
+- Volgende run: frisse keuring op de schildpad zonder blad, dan de herkenningstabel van de overige 22 dieren.
