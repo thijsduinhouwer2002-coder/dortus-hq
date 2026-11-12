@@ -2,10 +2,10 @@ GELIJK sessie-basis-hold-dag-fenix847mm.png
 GELIJK sessie-basis-hold-nacht-fenix847mm.png
 GELIJK sessie-basis-in-dag-fenix847mm.png
 GELIJK sessie-basis-in-nacht-fenix847mm.png
-VERSCHIL sessie-komkommer-hold-nacht-fenix847mm.png 855 pixels in (309, 538, 416, 626)
-VERSCHIL sessie-komkommer-in-nacht-fenix847mm.png 642 pixels in (309, 449, 416, 537)
+VERSCHIL sessie-komkommer-hold-nacht-fenix847mm.png 2521 pixels in (310, 539, 415, 625)
+VERSCHIL sessie-komkommer-in-nacht-fenix847mm.png 1882 pixels in (310, 450, 415, 536)
 GELIJK sessie-krab-hold-nacht-fenix847mm.png
-VERSCHIL sessie-krab-in-dag-fenix847mm.png 22457 pixels in (135, 439, 589, 504)
+GELIJK sessie-krab-in-dag-fenix847mm.png
 GELIJK sessie-krab-in-nacht-fenix847mm.png
 GELIJK sessie-kreeft-hold-nacht-fenix847mm.png
 GELIJK sessie-otter-hold-nacht-fenix847mm.png
@@ -13,4 +13,4 @@ GELIJK sessie-otter-in-nacht-fenix847mm.png
 GELIJK sessie-schild-hold-dag-fenix847mm.png
 GELIJK sessie-schild-hold-nacht-fenix847mm.png
 GELIJK sessie-schild-in-nacht-fenix847mm.png
-15 beelden, 3 met verschil of ontbrekend
+15 beelden, 2 met verschil of ontbrekend
