@@ -252,9 +252,15 @@ module KrabV2Tekst {
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
             if (_meet) {
+                // Hoofdchat 10:55 punt 1: het belletje van de nieuwe vriend (midden 184, 122, straal 42) telt als vak:
+                // versiering en gras blijven er 6/260 vandaan.
+                _vak.addAll([v.q(142), v.q(80), v.q(226), v.q(164)] as Array<Number>);
                 return;
             }
             veilig(v, scherm, yt, v.q(heldBoven(v, 5, 0)));
+            // De tijden blijven 6/260 boven het belletje; anders NEE en een rode run.
+            var bl = v.q(80) - yt;
+            System.println("VEILIG wereld " + v.wereld + " scherm 5 belletje lucht " + bl + " px, norm " + v.q(6) + (bl >= v.q(6) ? " ja" : " NEE"));
             // Keuring 4 punt 4: de drie bolletjes zijn weg. Het waren de weekstippen (geen pagina's); zonder uitleg
             // zeggen ze niets en ze lagen over rots en zand. De week staat in Today.
         }

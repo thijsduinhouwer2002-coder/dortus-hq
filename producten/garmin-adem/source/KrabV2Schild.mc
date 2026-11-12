@@ -84,8 +84,10 @@ module KrabV2Schild {
             var verder = am ? EbbTeken.meng(nacht ? 0x00003C : 0x001E46, zeeTop, 0.5) : (nacht ? 0x0000AA : 0x0055AA);
             v.rondje(dc, 60, 196 + zak, 90, 18, verder, -1, -1);
             v.rondje(dc, 210, 192 + zak, 80, 22, verder, -1, -1);
-            v.rondje(dc, 130, 273 + zak / 2.0, 190, 67 - zak / 2.0, 0xAAAA55, -1, -1);
-            v.rondje(dc, 130, 275 + zak / 2.0, 180, 65 - zak / 2.0, am ? 0xEBE196 : 0xFFFFAA, -1, -1);
+            // Keuring 4 punt 2: bij nacht op MIP gedempt zand met een smalle lichte kam, zoals bij de krab.
+            var dof = nacht && !am;
+            v.rondje(dc, 130, 273 + zak / 2.0, 190, 67 - zak / 2.0, dof ? 0xFFFFAA : 0xAAAA55, -1, -1);
+            v.rondje(dc, 130, 275 + zak / 2.0, 180, 65 - zak / 2.0, am ? 0xEBE196 : (dof ? 0xAAAA55 : 0xFFFFAA), -1, -1);
             if (am) {
                 v.gloed(dc, scherm == 5 ? 124 : held(scherm)[0], 230 + zak, 52, 10, 0xFFFFFF, 46, 0xEBE196);
             }
@@ -104,8 +106,11 @@ module KrabV2Schild {
                 }
                 // Keuring 3 punt 5: een spriet blijft 6/260 van tekst; hij wordt korter tot hij vrij staat.
                 // Gemeten langs de hele spriet, niet alleen de top: hij eindigt 8 onder het eerste punt dat tekst raakt.
-                for (var hh = 16; hh <= len; hh += 8) {
-                    if (KrabV2Tekst.raakt(v, x + buig * hh / len, y0 - hh, s[5 * i + 2] / 2)) {
+                // Hoofdchat 10:55 punt 2: gemeten vanaf de voet (was vanaf 16), met de buiging van de hele spriet;
+                // raakt de voet zelf al tekst of het belletje van de nieuwe vriend, dan staat de spriet er niet.
+                var vol = len;
+                for (var hh = 0; hh <= len; hh += 8) {
+                    if (KrabV2Tekst.raakt(v, x + buig * hh / vol, y0 - hh, s[5 * i + 2] / 2 + 1)) {
                         len = hh - 8;
                     }
                 }
