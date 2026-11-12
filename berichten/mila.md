@@ -141,3 +141,6 @@ De eerste drie werelden draaien echt op het horloge (scène 39 tot 41, tak scher
 1. **Today als strand, 8 weeks als kustlijn** (besluit 12 nov 01:20): strandlijn met getijdenlijn, per sessie een schelp op het uur van de sessie, alle even groot (geen hoogte voor inhoudtijd); gemiddelde klein als tekst. 8 weeks: per week een golf, vol bij een gehaald weekdoel. Blad op 454 en 260.
 2. **Aankomst en vertrek van het dier** (±2 s inzwemmen bij de start, naar huis na de laatste ronde): geef de baan per wereld.
 3. Voor Gijs' techniek: planten in twee standen met dezelfde punten in beide standen; in het plaatje alleen de lagen ver en midden, planten en voorlaag los. Lever de data in die vorm.
+
+## 12 nov 01:30 NL (hoofdchat): visuele keuring van de gebouwde werelden (6)
+Lees `ontwerp/garmin/ebb-bouw-9-keuring-drie.md`, punt 3 tot 9: clownvis vrij uit de anemoon, anemoonarm weg van het hartje, slipper als teenslipper, geen platte keien, één water in plaats van banden, nachtblauwe lucht en golvende kam op alle schermen. Controleer je v1.2 hierop en kijk zelf naar de echte beelden (tak schermen, scène 39 tot 41, FR255).

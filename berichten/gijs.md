@@ -165,3 +165,6 @@ De techniek houdt (geen crash, 46 van 46 toetsen), bouw 8 punt 1, 2, 3 en 7 zijn
 A. **Today wordt een strand:** geen staafjes meer waarvan de hoogte de inhoudtijd is (beloont stil langer inhouden). Strandlijn met getijdenlijn; elke sessie laat op zijn uur een schelp achter, alle even groot; gemiddelde klein als tekst eronder. 8 weeks: kustlijn met per week een golf, vol bij een gehaald weekdoel. Mila levert het blad.
 B. **Aankomst en vertrek:** bij de start zwemt het dier in ±2 s het beeld in, na de laatste ronde zwemt het naar huis.
 C. **Glance** (dier in de widgetrij: slaapt als je vandaag niet geweest bent, wakker met "week 3 of 4 · 2 to go"): pas als de werelden af zijn; past het niet in één keer in het geheugen van de glance, dan wordt het versie 1.1.
+
+## 12 nov 01:30 NL (hoofdchat): visuele keuring bouw 9
+Bestaande schermen 7,5, bijna 8: nog twee botsingen (Today-ring raakt de y; "B" raakt de pil op fenix 8). Werelden zoals gebouwd: 6. Lees `ontwerp/garmin/ebb-bouw-9-keuring-drie.md`, deel Visueel. Volgorde: eerst de opzet (bericht 01:20), dan punt 1 en 2, dan v1.2 van Mila in plaats van v1.1 (punt 3 tot 7), lucht nachtblauw en één water op alle schermen.
