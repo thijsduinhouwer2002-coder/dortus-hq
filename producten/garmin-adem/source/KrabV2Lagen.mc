@@ -164,13 +164,16 @@ module KrabV2Lagen {
                     }
                     v.blob(dc, p, 0xFFFFAA, -1, 0.0);
                 }
+                // plek en schaal uit KrabV2Tekst.bel: het belletje blijft 6/260 onder de tijden
+                var by = KrabV2Tekst.bel()[0];
+                var bk = KrabV2Tekst.bel()[1];
                 if (am) {
-                    v.gloed(dc, 184, 122, 35, 29, licht, 40, zeeTop);
+                    v.gloed(dc, 184, by, 35 * bk, 29 * bk, licht, 40, zeeTop);
                 }
                 // belletje van de sea log: vlak 0055AA, rand 00FFFF, glimpje
-                v.rondje(dc, 184, 122, am ? 40.2 : 42.4, am ? 35.2 : 37.4, 0x00FFFF, -1, -1);
-                v.rondje(dc, 184, 122, 40, 35, 0x0055AA, -1, -1);
-                v.rondje(dc, 159, 104.5, 4, 4, 0xFFFFFF, -1, -1);
+                v.rondje(dc, 184, by, (am ? 40.2 : 42.4) * bk, (am ? 35.2 : 37.4) * bk, 0x00FFFF, -1, -1);
+                v.rondje(dc, 184, by, 40 * bk, 35 * bk, 0x0055AA, -1, -1);
+                v.rondje(dc, 184 - 25 * bk, by - 17.5 * bk, 4, 4, 0xFFFFFF, -1, -1);
                 // roze hartje tussen de krab en zijn nieuwe vriend
                 var hart = [] as Array<Float>;
                 for (var i = 0; i < 20; i += 1) {

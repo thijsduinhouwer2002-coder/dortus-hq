@@ -25,6 +25,12 @@ module KrabV2Tekst {
     var _onder as Array<Number> = [0, 0] as Array<Number>;
     var _stond as Number = 0;
     var _weg as Number = 0;
+    // Belletje van de nieuwe vriend op het eindscherm: midden y (1/260) en schaal. De onderkant staat vast op 159,4.
+    var _bel as Array<Float> = [122.0, 1.0] as Array<Float>;
+
+    function bel() as Array<Float> {
+        return _bel;
+    }
 
     function meet(v as KrabV2View, dc as Graphics.Dc, d as Number, scherm as Number, am as Boolean, nacht as Boolean) as Void {
         _vak = [] as Array<Number>;
@@ -255,8 +261,16 @@ module KrabV2Tekst {
                 y = regel(dc, d, y, EbbTeken.fX(), "holds", wit, 78);
             }
             var yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
+            // Hoofdchat 12 nov 10:55: het belletje raakte "1:58" op de FR255. Het wordt van boven kleiner tot er
+            // 6/260 lucht is (onderkant blijft staan). De meting hieronder gebruikt de echte bovenkant; NEE maakt de run rood.
+            var bt = (yt + v.q(6) + 1) * 260.0 / d;
+            bt = bt < 84.6 ? 84.6 : (bt > 104.0 ? 104.0 : bt);
+            var bk = (159.4 - bt) / 74.8;
+            _bel = [(159.4 - 37.4 * bk).toFloat(), bk.toFloat()] as Array<Float>;
             if (!_meet) {
                 System.println("KRABV2 tekst scherm 5 label holds " + (metLabel ? "als eigen regel" : "in de kop") + ", tijden tot y " + yt + ", grens " + grens);
+                var lb = v.q(bt) - yt;
+                System.println("VEILIG wereld " + v.wereld + " scherm 5 belletje lucht " + lb + " px, norm " + v.q(6) + ", schaal " + bk.format("%.2f") + (lb >= v.q(6) ? " ja" : " NEE"));
             }
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
@@ -267,9 +281,6 @@ module KrabV2Tekst {
                 return;
             }
             veilig(v, scherm, yt, v.q(heldBoven(v, 5, 0)));
-            // De tijden blijven 6/260 boven het belletje; anders NEE en een rode run.
-            var bl = v.q(80) - yt;
-            System.println("VEILIG wereld " + v.wereld + " scherm 5 belletje lucht " + bl + " px, norm " + v.q(6) + (bl >= v.q(6) ? " ja" : " NEE"));
             // Keuring 4 punt 4: de drie bolletjes zijn weg. Het waren de weekstippen (geen pagina's); zonder uitleg
             // zeggen ze niets en ze lagen over rots en zand. De week staat in Today.
         }

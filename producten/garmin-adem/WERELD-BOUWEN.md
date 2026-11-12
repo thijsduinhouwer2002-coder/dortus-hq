@@ -52,6 +52,7 @@ Eén bestand `source/KrabV2<Naam>.mc`, hoogstens 300 regels (anders splitsen), m
 - **Een los voorwerp plaatsen:** `KrabV2Lagen.inRond(x, y, r)` schuift het naar binnen tot het 10/260 van de ronde rand blijft (regel 10); meld het daarna met `KrabV2Rand.meet(v, scherm, naam, x, y, r)`, dan staat de meting in het log. Alleen bodem, rotsen en water mogen door de rand lopen.
 - **Voorwerp bij tekst:** `KrabV2Tekst.raakt(v, x, y, r)` zegt of het binnen 6/260 van tekst staat; dan niet tekenen of korter maken (zie de sprieten in `KrabV2Schild.onder`).
 - **Achter de held** staat nooit iets in zijn eigen kleurfamilie: laat een open plek (`KrabV2Schild.openPlek`).
+- **Eindscherm (scherm 5):** geen voorwerp achter het tekstblok ("new friend" en de naam staan op een vrij vlak) en niets tegen het belletje van de nieuwe vriend. Het belletje is zelf een vak in `KrabV2Tekst`: wat je met `raakt` of `vrij` vraagt, blijft er vanzelf 6/260 vandaan. Een zeester of ander los ding teken je alleen als `KrabV2Tekst.raakt` nee zegt. Zand bij nacht op MIP gedempt (voorbeeld in `KrabV2Krab.mc`). De app meldt `VEILIG wereld N scherm 5 belletje lucht ... ja` of `NEE`.
 - **Versiering (belletje, ster, vonk):** vraag eerst `KrabV2Tekst.vrij(v, x, y, r)`. Geeft die onwaar, dan teken je het niet (regel 9).
 - **Tekst teken je niet.** Alle tekst van de zes schermen staat in `KrabV2Tekst.mc`.
 
