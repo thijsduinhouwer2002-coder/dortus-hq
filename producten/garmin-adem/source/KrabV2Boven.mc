@@ -12,7 +12,12 @@ module KrabV2Boven {
         var l0 = nacht ? 0x000055 : 0x0055AA;
         var l1 = nacht ? 0x0000AA : 0x00AAFF;
         // Mila v3: kam en twee golfrijen eronder (drie of vier rijen was te veel punten per beurt)
-        var rijY = [top, top + 34, top + 66] as Array<Number>;
+        // Keuring 05:25 punt 6: geen golflijn binnen 6/260 van de onderste regel. De rijen wijken voor het gemeten
+        // tekstvak (echte letter): rij 1 eindigt 6 erboven, rij 2 begint 6 eronder; de regel staat in een rustige band.
+        var orr = KrabV2Tekst.onderRegel();
+        var r1 = orr[0] * 260 / dc.getWidth() - 11;
+        var r2 = orr[1] * 260 / dc.getWidth() + 13;
+        var rijY = [top, r1 < top + 34 ? r1 : top + 34, r2 > top + 66 ? r2 : top + 66] as Array<Number>;
         var rijA = [4.0, 3.0, 3.5] as Array<Float>;
         var rijN = [2, 4, 3] as Array<Number>;
         var rijF = [1.2, 0.3, 2.0] as Array<Float>;
@@ -24,7 +29,8 @@ module KrabV2Boven {
             } else {
                 v.kleur(dc, l0);
                 dc.fillRectangle(0, 0, dc.getWidth(), v.q(top + 6));
-                if (!nacht) {
+                // bij de krab is de band 0055FF weg: zijn rand liep als een lijn dwars door de krab (keuring 05:25 punt 6)
+                if (!nacht && v.wereld != 0) {
                     v.golf(dc, top - 28, top + 6, 0x0055FF, 2.5, 2, 0.0);
                 }
             }
@@ -32,6 +38,9 @@ module KrabV2Boven {
                 var st = [56, 50, 204, 44, 222, 82, 34, 100, 184, 24, 96, 20, 238, 110] as Array<Number>;
                 v.kleur(dc, 0xFFFFFF);
                 for (var i = 0; i < 7; i += 1) {
+                    if (!KrabV2Tekst.vrij(v, st[2 * i], st[2 * i + 1], 1)) {
+                        continue;
+                    }
                     dc.fillCircle(v.q(st[2 * i]), v.q(st[2 * i + 1]), v.q(0.9) < 1 ? 1 : v.q(0.9));
                 }
                 v.rondje(dc, 40, 84, 13, 13, 0xFFFFAA, 0xAAAAFF, -1);
@@ -50,7 +59,7 @@ module KrabV2Boven {
                     v.rondje(dc, wo[4 * i], wo[4 * i + 1] - ronde, wo[4 * i + 2] - 2 * ronde, wo[4 * i + 3] - 1.5 * ronde, wk, -1, -1);
                 }
             }
-            if (!nacht && am && v.wereld == 0) {
+            if (!nacht && v.wereld == 0 && KrabV2Tekst.vrij(v, 196, 36, 10)) {
                 // Mila 12 nov 03:55 UTC: de meeuw rechts boven de wolk; op 260 weg (raakte "breathe out"); de schildpad heeft zijn eigen meeuw
                 dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
                 dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));

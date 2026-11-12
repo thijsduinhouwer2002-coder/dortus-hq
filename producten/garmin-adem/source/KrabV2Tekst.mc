@@ -13,6 +13,46 @@ module KrabV2Tekst {
 
     var _rand as Number = 0;
     var _cijfers as WatchUi.FontResource or Null = null;
+    // Tekstvakken van dit scherm in pixels (x0, y0, x1, y1 achter elkaar), gemeten met de echte letter van het
+    // horloge door dezelfde code die de tekst tekent (meet). Versiering vraagt met vrij() of ze mag staan.
+    var _meet as Boolean = false;
+    var _vak as Array<Number> = [] as Array<Number>;
+    var _onder as Array<Number> = [0, 0] as Array<Number>;
+    var _stond as Number = 0;
+    var _weg as Number = 0;
+
+    function meet(v as KrabV2View, dc as Graphics.Dc, d as Number, scherm as Number, am as Boolean, nacht as Boolean) as Void {
+        _vak = [] as Array<Number>;
+        _meet = true;
+        teken(v, dc, d, scherm, am, nacht);
+        _meet = false;
+    }
+
+    // Keuring 12 nov 05:25 NL punt 2 en 3: versiering (belletjes, sterren, vonkjes, lichtjes) blijft minstens 6/260
+    // weg van elk tekstvak, op elk scherm. Staat ze te dicht, dan wordt ze niet getekend. x, y, r in 1/260.
+    function vrij(v as KrabV2View, x as Numeric, y as Numeric, r as Numeric) as Boolean {
+        var m = v.q(r + 6);
+        var px = v.q(x);
+        var py = v.q(y);
+        for (var i = 0; i + 3 < _vak.size(); i += 4) {
+            if (px + m > _vak[i] && px - m < _vak[i + 2] && py + m > _vak[i + 1] && py - m < _vak[i + 3]) {
+                _weg += 1;
+                return false;
+            }
+        }
+        _stond += 1;
+        return true;
+    }
+
+    // Boven- en onderkant (pixels) van de onderste regel van het ademscherm: de golfrijen blijven daar 6/260 vandaan.
+    function onderRegel() as Array<Number> {
+        return _onder;
+    }
+
+    function meldVersiering(v as KrabV2View, scherm as Number) as Void {
+        System.println("VERSIERING wereld " + v.wereld + " scherm " + scherm + " getekend " + _stond + ", geweken voor tekst " + _weg + ", " + (_vak.size() / 4) + " tekstvakken, norm " + v.q(6) + " px");
+    }
+
 
     // Cijferletter van de wereldschermen: 85 procent van EbbCijfersKlein (56 van 260, de maat van Mila's blad),
     // zodat er lucht is tussen kop, cijfers, hartslagregel en de held (keuring 12 nov 04:05 NL punt 1 en 2).
@@ -39,7 +79,7 @@ module KrabV2Tekst {
     // Bovenkant van de held in 1/260: bij de krab de scharen (vaste maat van het blad), anders uit het kader van het dier.
     function heldBoven(v as KrabV2View, scherm as Number, top as Number) as Number {
         if (v.wereld == 0) {
-            return scherm <= 2 ? top - 24 : 164;
+            return scherm <= 2 ? v.held()[1] - 24 : 164;
         }
         var g = EbbDierMaat.grenzen(v.dier);
         var h = v.held();
@@ -57,6 +97,11 @@ module KrabV2Tekst {
 
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
+        if (_meet) {
+            var w = dc.getTextWidthInPixels(s, f);
+            _vak.addAll([d / 2 - w / 2, y, d / 2 + w / 2, y + dc.getFontHeight(f)] as Array<Number>);
+            return y + dc.getFontHeight(f) * pct / 100;
+        }
         if (_rand > 0) {
             // Keuring 12 nov 04:05 NL punt 4: donkere rand om de letters als een achtergrond het contrast onder 4,5 haalt.
             dc.setColor(DONKER, Graphics.COLOR_TRANSPARENT);
@@ -76,18 +121,22 @@ module KrabV2Tekst {
         var y = 0;
         _rand = 0; // de rand staat uit sinds de bundel boven de tekst zwak is (Mila v3.2 a); in de simulator kostte hij ±40 ms per beurt
         if (scherm <= 2) {
-            var top = KAM[scherm];
+            var top = v.kam();
             // Run 43139810543: de cijferletter vult zijn hele regel, dus geen overlap met de kop; de cijfers eindigen
             // 12/260 boven de scharen (keuring 12 nov 04:05 NL punt 2), de kop staat er direct boven (niet hoger dan 4/260).
             var hk = dc.getFontHeight(EbbTeken.fM()) * 92 / 100;
             var hb = heldBoven(v, scherm, top);
-            var yd = v.q(hb) - v.q(7 + kantelMaat(v)) - dc.getFontHeight(cijfers()); // 7 lucht plus wat door het kantelen omhoog komt
+            var yd = v.q(hb) - v.q((v.wereld == 0 ? 11 : 7) + kantelMaat(v)) - dc.getFontHeight(cijfers()); // krab 11 (keuring 05:25 punt 6: ruim), anders 7 lucht plus wat door het kantelen omhoog komt
             yd = yd > v.q(18) + hk ? v.q(18) + hk : yd;
             yd = yd < v.q(4) + hk ? v.q(4) + hk : yd;
             regel(dc, d, yd - hk, EbbTeken.fM(), scherm == 0 ? "breathe in" : "breathe out", wit, 100);
             var getal = (["12", "9", "5"] as Array<String>)[scherm];
             y = regel(dc, d, yd, cijfers(), getal, wit, 100);
-            regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
+            var yo = regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
+            if (_meet) {
+                _onder = [v.q(top + 38), yo] as Array<Number>;
+                return;
+            }
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", held vanaf " + v.q(hb));
             veilig(v, scherm, y, v.q(hb));
             if (v.wereld == 1) {
@@ -98,34 +147,65 @@ module KrabV2Tekst {
             y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
             y = regel(dc, d, y, cijfers(), "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
+            if (_meet) {
+                return;
+            }
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", held vanaf " + v.q(heldBoven(v, 3, 0)));
             veilig(v, scherm, y, v.q(heldBoven(v, 3, 0)));
         } else if (scherm == 4) {
             regel(dc, d, v.q(14), EbbTeken.fM(), "Ebb", geel, 100);
             var namen = ["Rounds", "Calm 4-7-8"] as Array<String>;
+            // vaste kleur (Mila v2.1): 001E3C overdag, 000032 bij nacht; op MIP 000055
+            var pk = am ? (nacht ? 0x000032 : 0x001E3C) : 0x000055;
+            // Keuring 05:25 punt 3: voetregel wit op een rustige band over de hele breedte
+            var by = v.q(116);
+            var bh = dc.getFontHeight(EbbTeken.fX()) + v.q(4);
+            if (_meet) {
+                _vak.addAll([v.q(60), v.q(52), v.q(200), v.q(114), 0, by, d, by + bh] as Array<Number>);
+                return;
+            }
             for (var i = 0; i < 2; i += 1) {
                 var py = 52 + 34 * i;
-                // vaste kleur (Mila v2.1): 001E3C overdag, 000032 bij nacht; op MIP 000055
-                var pk = am ? (nacht ? 0x000032 : 0x001E3C) : 0x000055;
-                dc.setColor(pk, pk);
+                // Keuring 05:25 punt 3: de gekozen knop is gevuld met lichtgeel, donkere letter en een pijltje;
+                // de andere is donker met een dunne rand.
+                var kn = (i == 0) ? geel : pk;
+                dc.setColor(kn, kn);
                 if (am && (dc has :setFill)) {
-                    dc.setFill(Graphics.createColor(255, (pk >> 16) & 0xFF, (pk >> 8) & 0xFF, pk & 0xFF));
+                    dc.setFill(Graphics.createColor(255, (kn >> 16) & 0xFF, (kn >> 8) & 0xFF, kn & 0xFF));
                 }
                 dc.fillRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
-                dc.setColor(i == 0 ? wit : 0x00AAFF, Graphics.COLOR_TRANSPARENT);
-                dc.setPenWidth(v.q(2.4) < 2 ? 2 : v.q(2.4));
-                dc.drawRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
-                dc.setPenWidth(1);
-                dc.setColor(wit, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(d / 2, v.q(py + 14), EbbTeken.fS(), namen[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                if (i == 0) {
+                    v.kleur(dc, pk);
+                    var pts = [] as Array<[Numeric, Numeric]>;
+                    pts.add([v.q(74), v.q(py + 8)]);
+                    pts.add([v.q(74), v.q(py + 20)]);
+                    pts.add([v.q(82), v.q(py + 14)]);
+                    dc.fillPolygon(pts);
+                } else {
+                    dc.setColor(0x00AAFF, Graphics.COLOR_TRANSPARENT);
+                    dc.drawRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
+                }
+                dc.setColor(i == 0 ? pk : wit, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(d / 2 + (i == 0 ? v.q(4) : 0), v.q(py + 14), EbbTeken.fS(), namen[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             }
-            regel(dc, d, v.q(118), EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", geel, 100);
+            dc.setColor(pk, pk);
+            if (am && (dc has :setFill)) {
+                dc.setFill(Graphics.createColor(255, (pk >> 16) & 0xFF, (pk >> 8) & 0xFF, pk & 0xFF));
+            }
+            dc.fillRectangle(0, by, d, bh);
+            regel(dc, d, by + v.q(2), EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", wit, 100);
+            veilig(v, scherm, by + bh, v.q(v.wereld == 0 ? 186 - 25 : heldBoven(v, 4, 0)));
         } else {
             y = regel(dc, d, v.q(26), EbbTeken.fM(), "3 rounds done", geel, 82);
-            regel(dc, d, y, EbbTeken.fS(), "1:20   1:45   1:58", wit, 100);
+            var yt = regel(dc, d, y, EbbTeken.fS(), "1:20   1:45   1:58", wit, 100);
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.wereld == 1 ? "Jellyfish" : "Shrimp", geel, 95);
             var sy = y + v.q(5);
+            if (_meet) {
+                _vak.addAll([v.q(112), sy - v.q(4), v.q(148), sy + v.q(4)] as Array<Number>);
+                return;
+            }
+            veilig(v, scherm, yt, v.q(v.wereld == 0 ? 130 - 22 : heldBoven(v, 5, 0)));
             v.kleur(dc, EbbTeken.SCHUIM);
             dc.fillCircle(v.q(130), sy, v.q(3.5));
             dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);

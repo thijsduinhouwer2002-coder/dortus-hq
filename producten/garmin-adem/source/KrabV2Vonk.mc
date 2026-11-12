@@ -12,7 +12,7 @@ module KrabV2Vonk {
             var x = w[3 * j];
             var y = top + w[3 * j + 1];
             var k = w[3 * j + 2];
-            if (y < 238.0) {
+            if (y < 238.0 && KrabV2Tekst.vrij(v, x, y, k)) {
                 if (nacht) {
                     v.rondje(dc, x, y, 1.5, 1.5, 0xFFFFAA, -1, -1);
                 } else {

@@ -27,10 +27,12 @@ class KrabV2View extends WatchUi.View {
     // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
     var wereld as Number = 0; // 0 krab, 1 schildpad (Mila v3.2)
     var dier as Number = 4;
-    var sl as Array<Float> = [158.0, 146.0, 1.4125, -13.0] as Array<Float>;
+    // Keuring 05:25 punt 6: bij inademen krab 8/260 lager en de kam 8 onder zijn midden (schuimlijn onder het lijf).
+    var sl as Array<Float> = [158.0, 154.0, 1.4125, -13.0] as Array<Float>;
     private var _kantel as Float = 4.8;
     private var _gedraaid as Number = 0;
-    private var _held as Array<Number> = [154, 134, 36] as Array<Number>;
+    private var _held as Array<Number> = [154, 142, 36] as Array<Number>;
+    private var _gemeten as Boolean = false;
 
     function initialize(s as Number, n as Boolean, w as Number) {
         View.initialize();
@@ -67,6 +69,10 @@ class KrabV2View extends WatchUi.View {
 
     function held() as Array<Number> {
         return _held;
+    }
+
+    function kam() as Number {
+        return (wereld == 0 && scherm == 0) ? 150 : KrabV2Tekst.KAM[scherm];
     }
 
     function heldMaat() as Number {
@@ -159,6 +165,10 @@ class KrabV2View extends WatchUi.View {
     // Eén beurt van wat stil staat. Boven water: lucht, golven, verre slipper, slipper. Onder water: water, ver en
     // zand, rotsen met anemoon en zeester, lichtjes en bellen, slipper.
     function laag(dc as Graphics.Dc, stap as Number) as Void {
+        if (!_gemeten) {
+            _gemeten = true;
+            KrabV2Tekst.meet(self, dc, _d, scherm, _am, nacht);
+        }
         if (stap == 4 && wereld == 1) {
             KrabV2Schild.onderHeld(self, dc, scherm, _am, _held);
         } else if (stap == 4) {
@@ -171,7 +181,7 @@ class KrabV2View extends WatchUi.View {
             }
             KrabV2Slipper.slipper(self, dc);
         } else if (scherm <= 2) {
-            KrabV2Boven.boven(self, dc, stap, _am, nacht, KrabV2Tekst.KAM[scherm]);
+            KrabV2Boven.boven(self, dc, stap, _am, nacht, kam());
         } else {
             KrabV2Lagen.onder(self, dc, stap, _am, nacht, scherm);
         }
@@ -239,6 +249,7 @@ class KrabV2View extends WatchUi.View {
         _msMax = ms > _msMax ? ms : _msMax;
         if (staat && !_gemeld) {
             _gemeld = true;
+            KrabV2Tekst.meldVersiering(self, scherm);
             var st = System.getSystemStats();
             System.println("KRABV2 wereld " + wereld + " scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
         }

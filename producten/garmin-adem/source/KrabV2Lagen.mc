@@ -88,14 +88,7 @@ module KrabV2Lagen {
             v.kleur(dc, am ? EbbTeken.meng(licht, zeeTop, 0.5) : (nacht ? 0x5555FF : 0x0055FF));
             dc.fillPolygon(pts);
             v.punten += pts.size();
-            if (nacht) {
-                if (am) {
-                    v.gloed(dc, 88, 5, 22, 17, 0xC8C8FF, 60, zeeTop);
-                } else {
-                    v.rondje(dc, 88, 6, 24, 12, 0x5555FF, -1, -1);
-                    v.rondje(dc, 88, 5, 14, 7, 0xAAAAFF, -1, -1);
-                }
-            }
+            // de maanvlek bovenin is weg: de ronde rand sneed hem half af (keuring 05:25 punt 5)
             if (am) {
                 var xo = eind ? 184 : (v.wereld == 1 ? (scherm == 3 ? 126 : 120) : 118);
                 var xh = eind ? 186 : (v.wereld == 1 ? (scherm == 3 ? 128 : 124) : 112);
@@ -137,7 +130,9 @@ module KrabV2Lagen {
             var sp = (scherm == 4);
             var ady = eind ? 14 : (sp ? 10 : 0);
             var adx = eind ? -8 : 0;
-            v.rondje(dc, sp ? 224 : 36, 202 + zak, 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
+            // Keuring 05:25 punt 5: anemoon en zeester staan heel in beeld; hun rots schuift mee.
+            var oa = inRond(sp ? 260 - 36 - adx : 36 + adx, 166 + zak + ady / 2, 30);
+            v.rondje(dc, (sp ? 224 : 36) + oa[0], 202 + zak + oa[1], 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
             var an = [18, 12, 158, 26, 22, 150, 36, 36, 146, 46, 50, 150, 54, 60, 160] as Array<Number>;
             for (var ronde = 0; ronde < 2; ronde += 1) {
                 for (var i = 0; i < 5; i += 1) {
@@ -147,21 +142,26 @@ module KrabV2Lagen {
                         x0 = 260 - x0;
                         x1 = 260 - x1;
                     }
-                    var y1 = an[3 * i + 2] + zak + ady;
+                    x0 += oa[0];
+                    x1 += oa[0];
+                    var y1 = an[3 * i + 2] + zak + ady + oa[1];
                     dc.setColor(ronde == 0 ? 0xFFFFFF : 0xAA55FF, Graphics.COLOR_TRANSPARENT);
                     dc.setPenWidth(v.q(ronde == 0 ? 8.6 : 5.6));
-                    dc.drawLine(v.q(x0), v.q(180 + zak), v.q(x1), v.q(y1));
+                    dc.drawLine(v.q(x0), v.q(180 + zak + oa[1]), v.q(x1), v.q(y1));
                     v.rondje(dc, x1, y1, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 0xFFFFFF : 0xFF55AA, -1, -1);
                 }
             }
             dc.setPenWidth(1);
-            var ax = sp ? 260 - 36 - adx : 36 + adx;
-            v.rondje(dc, ax, 180 + zak, 23.6, 8.6, 0xFFFFFF, -1, -1);
-            v.rondje(dc, ax, 180 + zak, 22, 7, 0xAA55FF, -1, -1);
+            var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
+            v.rondje(dc, ax, 180 + zak + oa[1], 23.6, 8.6, 0xFFFFFF, -1, -1);
+            v.rondje(dc, ax, 180 + zak + oa[1], 22, 7, 0xAA55FF, -1, -1);
             var rx = 222 - zak / 3;
-            v.rondje(dc, sp ? 260 - rx : rx, 210 + zak, 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
-            var ster = [] as Array<Float>;
             var sx = sp ? 260 - (218 - zak / 3) : 218 - zak / 3;
+            var os = inRond(sx, 197 + zak, 14);
+            sx += os[0];
+            zak += os[1];
+            v.rondje(dc, (sp ? 260 - rx : rx) + os[0], 210 + zak, 30, 22, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
+            var ster = [] as Array<Float>;
             for (var i = 0; i < 10; i += 1) {
                 var a = -Math.PI / 2 + i * Math.PI / 5;
                 var rr = (i % 2 == 0) ? 11.0 : 4.6;
@@ -174,6 +174,9 @@ module KrabV2Lagen {
             var pl = (nacht ? [22, 112, 34, 138, 16, 158, 48, 120, 232, 104, 244, 132, 220, 146, 208, 118, 60, 150, 196, 156, 30, 92, 236, 84]
                 : [20, 150, 36, 146, 240, 152, 242, 140, 214, 152, 18, 160, 30, 92, 230, 92, 44, 136, 216, 136]) as Array<Number>;
             for (var i = 0; i < pl.size() / 2; i += 1) {
+                if (!KrabV2Tekst.vrij(v, pl[2 * i], pl[2 * i + 1], 3)) {
+                    continue;
+                }
                 if (am && nacht) {
                     v.glas(dc, 66, 0x00FFAA, 0x000040);
                     dc.fillCircle(v.q(pl[2 * i]), v.q(pl[2 * i + 1]), v.q(3));
@@ -184,16 +187,26 @@ module KrabV2Lagen {
             var bl = (eind ? [40, 96, 3, 52, 82, 2, 224, 168, 2] : ((scherm == 3 && v.wereld == 0) ? [192, 160, 3, 198, 148, 2] : [])) as Array<Number>;
             dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
             for (var i = 0; i < bl.size() / 3; i += 1) {
+                if (!KrabV2Tekst.vrij(v, bl[3 * i], bl[3 * i + 1], bl[3 * i + 2])) {
+                    continue;
+                }
                 dc.drawCircle(v.q(bl[3 * i]), v.q(bl[3 * i + 1]), v.q(bl[3 * i + 2]));
             }
             if (!nacht) {
                 dc.setColor(0xAAFFFF, Graphics.COLOR_TRANSPARENT);
-                dc.drawCircle(v.q(26), v.q(132), v.q(2.6));
-                dc.drawCircle(v.q(234), v.q(128), v.q(2.2));
+                if (KrabV2Tekst.vrij(v, 26, 132, 3)) {
+                    dc.drawCircle(v.q(26), v.q(132), v.q(2.6));
+                }
+                if (KrabV2Tekst.vrij(v, 234, 128, 3)) {
+                    dc.drawCircle(v.q(234), v.q(128), v.q(2.2));
+                }
             }
             if (eind) {
                 var fo = [226, 82, 8, 146, 86, 5, 236, 146, 5] as Array<Number>;
                 for (var j = 0; j < 3; j += 1) {
+                    if (!KrabV2Tekst.vrij(v, fo[3 * j], fo[3 * j + 1], fo[3 * j + 2])) {
+                        continue;
+                    }
                     var p = [] as Array<Float>;
                     for (var i = 0; i < 8; i += 1) {
                         var a = i * Math.PI / 4;
@@ -221,5 +234,19 @@ module KrabV2Lagen {
                 v.blob(dc, hart, 0xFF55AA, 0xFFFFFF, 1.6);
             }
         }
+    }
+
+    // Keuring 05:25 punt 5: een los voorwerp staat heel in beeld. Geeft de verschuiving (1/260) die een cirkel
+    // (x, y, r) binnen de ronde rand brengt, met 3 lucht; 0 als hij al past.
+    function inRond(x as Numeric, y as Numeric, r as Numeric) as Array<Float> {
+        var dx = x - 130.0;
+        var dy = y - 130.0;
+        var l = Math.sqrt(dx * dx + dy * dy);
+        var max = 127.0 - r;
+        if (l <= max || l < 1.0) {
+            return [0.0, 0.0] as Array<Float>;
+        }
+        var f = (max - l) / l;
+        return [(dx * f).toFloat(), (dy * f).toFloat()] as Array<Float>;
     }
 }
