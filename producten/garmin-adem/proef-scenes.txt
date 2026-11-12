@@ -2,7 +2,18 @@
 # Eén naam per regel, een sterretje mag. De namen staan in NAMEN in .github/workflows/garmin-adem-iq.yml.
 # Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
 # Leeg bestand: alle proefscènes vanaf 51 (lang).
-sessie-komkommer-*
-sessie-kreeft-in-dag
-sessie-otter-in-dag
-lucht-ochtend-in
+# Run 68: de 39 beelden voor de winkelkaarten en het blad voor Thijs (ongeveer 16 minuten).
+sessie-krab-*
+sessie-schild-*
+sessie-basis-*
+sessie-otter-*
+sessie-eerste-*
+thuis-menu-leeg-dag
+thuis-menu-dag
+thuis-menu-nacht
+thuis-pauze-dag
+thuis-sealog-dag
+einde-6c-krab
+calm-einde-krab
+sealog-1
+einde-sea-complete
