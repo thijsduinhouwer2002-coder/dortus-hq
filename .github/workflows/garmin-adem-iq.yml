@@ -107,7 +107,7 @@ jobs:
           for d in $D; do
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in $(seq 0 41); do
+            for k in $(seq 0 43); do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               # Keuring bouw 6 punt 3: op AMOLED 20 s per scène, zodat sea complete af is als de foto genomen wordt.
@@ -125,7 +125,7 @@ jobs:
           grep -iE "watchdog|app crash|unhandled exception|out of memory" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D.txt || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
-          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d calmcheck sealog-3-alle25 inhouden-krab einde-sea-complete calm-45s sealog-2 menu-leeg einde-weekdoel ademen-uit menu-krab einde-6c-krab einde-6b-zeekomkommer calm-einde-krab pauze einde-na-feest menu-today overzicht-menu wereld-schildpad wereld-krab wereld-clownvis"
+          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d calmcheck sealog-3-alle25 inhouden-krab einde-sea-complete calm-45s sealog-2 menu-leeg einde-weekdoel ademen-uit menu-krab einde-6c-krab einde-6b-zeekomkommer calm-einde-krab pauze einde-na-feest menu-today overzicht-menu wereld-schildpad wereld-krab wereld-clownvis wereld-0-30 wereld-2-30"
           mkdir -p plaatjes/namen
           for f in plaatjes/*-scene*.png; do
             b=$(basename "$f" .png); d=${b%-scene*}; k=${b##*-scene}
@@ -158,6 +158,11 @@ jobs:
         with:
           name: ebb-plaatjes-${{ matrix.horloge }}
           path: producten/garmin-adem/plaatjes
+      # Codekeuring bouw 9 punt 8: de wereld ziet er op 0:30 en op 2:30 inhouden gelijk uit (beloont inhouden niet).
+      - name: Veiligheid, wereld gelijk op 0:30 en 2:30
+        run: |
+          python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
+          python3 "$APP/bron/wereld_gelijk.py" "$APP/plaatjes/$D-scene42.png" "$APP/plaatjes/$D-scene43.png" "$APP/resources/werelden/werelden.xml" wereld3
       - name: Geen crash
         run: |
           if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH in de scènes op $D"; exit 1; fi

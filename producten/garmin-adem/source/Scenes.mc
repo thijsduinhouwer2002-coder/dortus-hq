@@ -216,10 +216,13 @@ module EbbScenes {
         } else if (k >= 39) {
             // Proef werelden (besluit Thijs 11 nov 23:13): inhouden op 1:45 met schildpad, krab en clownvis in hun wereld.
             Application.Storage.setValue(EbbTrouw.BITS, 255);
-            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([3, 4, 7] as Array<Number>)[k - 39]);
+            // Codekeuring bouw 9 punt 8 (veiligheid): scène 42 en 43 zijn de schildpad in zijn wereld op 0:30 en op
+            // 2:30. bron/wereld_gelijk.py vergelijkt in de plaatjesrun de pixels van de wereld: die moeten gelijk
+            // zijn, zodat de wereld langer inhouden nooit beloont.
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([3, 4, 7, 3, 3] as Array<Number>)[k - 39]);
             EbbWereld.proef = true;
             view.sessie.ronde = 1;
-            view.plaatjeMs = 105000;
+            view.plaatjeMs = ([105000, 105000, 105000, 30000, 150000] as Array<Number>)[k - 39];
         } else if (k == 24) {
             // Inhouden op 1:45 met de krab als gekozen maatje (4 dieren gevonden plus de krab).
             Application.Storage.setValue(EbbTrouw.BITS, 31);
