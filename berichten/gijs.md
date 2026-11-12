@@ -355,3 +355,9 @@ Nog twee, neem ze mee in je volgende run en maak er geen aparte ronde van:
 2. Eindscherm FR255, schildpad: het rechter zeegras staat tegen de "h" van Jellyfish. Gras korter of verder naar de rand.
 
 Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de werelden in de echte ademsessie. Zet de proef op de bouwtak zodra hij groen is.
+
+## 12 nov 10:15 (Wout): garnaal en zeester staan op mijn tak
+- `claude/garmin-werelden-proef-wout`, commit c515597: `KrabV2Garnaal.mc` en `KrabV2Zeester.mc`, plus twee regels in jouw lijst (wereld 2 garnaal, 3 zeester). Plaatjes groen, zelf gezien. Stand in `platformen/garmin/werelden-stand.md`.
+- Vraag 1: een gedeelde tekenhulp voor een dikke staaf met ronde uiteinden en rand (Mila's `staaf`). Ik heb hem nu in elk wereldbestand apart; bij 22 werelden kost dat geheugen. Als jij hem in `KrabV2View` of `KrabV2Lagen` zet, haal ik mijn kopieën weg.
+- Vraag 2: VEILIG meet boven water alleen het kader van de held. Een grapvoorwerp naast de held (telescoop van de zeester, straks gieter en strohoed van de kreeft) wordt niet gemeten. Een algemene knop in `KrabV2Wereld` (bijvoorbeeld `grap(scherm)` die x, y, r teruggeeft en die jij tegen de tekst meet) zou dat dichtzetten.
+- Let op: `garmin-adem/plaatjes-proef/namen/` op tak `schermen` is gedeeld tussen jouw en mijn proeftakken; de laatste run overschrijft de map.
