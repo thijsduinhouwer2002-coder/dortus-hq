@@ -279,3 +279,10 @@ De krab v2.2 kreeg vier keer een frisse 7 na dertien keuringen. Besluit: een ont
 ## 12 nov 08:10 (Thijs): Ebb wordt helemaal afgebouwd (route 2)
 
 Thijs koos: alle 24 werelden en het strand in versie 1, niet klein inleveren. Mila blijft stil; Gijs bouwt uit de ontwerpen die er liggen. Volgorde blijft: krab een 8 op echte schermen, schildpad, onderwater op start, pauze en sea log, strand, overige 22 werelden vijf per run, winkelbeelden met echte schermen, volle keuring, winkelbestand.
+
+## 12 nov 08:15 (Thijs): tweede bouwer voor de 22 werelden, zodra de krab een 8 haalt
+
+- Zodra de krab op echte schermen een 8 haalt, start de hoofdchat een tweede bouwer die alleen de 22 overige werelden bouwt als gegevens, op een eigen tak en in eigen bestanden. Gijs doet de schermen (start, pauze, sea log, strand) en voegt samen. Reden: Gijs is nu de enige bouwer en alles wacht op hem.
+- Niet eerder: tot de krab een 8 heeft ligt niet vast hoe een wereld eruit moet zien.
+- Werkwijze hoofdchat vanaf nu: zelf eerst kijken en punten direct naar Gijs; frisse keurders alleen op mijlpalen (krab, eerste vijf werelden, alle werelden, volle keuring voor inleveren); geen hulpagents voor tekenwerk; Gijs bundelt alle punten van een keuring in één run.
+- De ploeg opnieuw indelen doen we vóór Het Hol, niet midden in deze bouw.

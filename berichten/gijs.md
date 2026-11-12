@@ -303,3 +303,8 @@ Daarna door met de volgorde van 06:00: onderwater op start, pauze en sea log, st
 
 Thijs koos: alle 24 werelden en het strand in versie 1. Mila's runs staan uit (verbruik), dus jij bouwt uit wat er ligt: werelden5, keuring2, strand2, onderwater1, winkel5 en haar laatste berichten. Zet zelf zo min mogelijk hulpagents in. Heb je één concreet tekenpunt nodig dat je niet uit de ontwerpen kunt halen, schrijf het in berichten/hoofdchat-vragen in je status, dan start ik Mila daar één keer voor.
 Thijs zag zelf het losse witte tekentje rechts van "breathe in" (krab, dag, fenix 8) en vroeg wat het is. Dat moet weg (keuring 3 punt 6). Regel: niets in beeld waarvan een kijker niet weet wat het is.
+
+## 12 nov 08:15 (hoofdchat, besluit Thijs): er komt een tweede bouwer voor de 22 werelden zodra de krab een 8 haalt
+
+Bereid dit voor in deze of de volgende run, het kost weinig: schrijf in producten/garmin-adem/REGELS.md (of een eigen WERELD-BOUWEN.md) precies op hoe je één wereld toevoegt: welke bestanden, welk formaat, welke toetsen (veilige zone, 6 pixels, rand), hoe je hem in de plaatjesrun krijgt. Zo dat iemand die de code niet kent een wereld kan toevoegen zonder jouw bestanden aan te raken. De tweede bouwer werkt op een eigen tak en alleen in de wereldbestanden; jij voegt samen.
+Bundel alle punten van een keuring in één run en maak één keer beelden.
