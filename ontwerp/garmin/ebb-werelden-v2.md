@@ -79,3 +79,12 @@ Zelfde map `werelden21/`, zelfde script.
 - **Ademschermen:** wolkje rechts (bij nacht donker), meeuw overdag, en de grap: ver weg op de kam drijft **de andere slipper van het paar**. De lichtstreepjes zijn weg (lazen als ladder). Krab dobbert boven de kam (bij uitademen 5 hoger). Cijfer en woord iets hoger, kam bij inademen 134: er zit lucht tussen scharen en cijfer. Onderregel staat tussen twee golfrijen (kam + 40), nooit op een lijn.
 - **Eindscherm:** de nieuwe vriend zelf (hier de garnaal) in een belletje in sea log-stijl (0055AA, rand 00FFFF, glimpje), groot rechts; de krab links in zijn slipper met een roze hartje ertussen. "new friend" klein, naam groot, stippen hoger.
 - Nog open uit keuring 12: de grap "slipper is zijn bed" zie je onder water niet (een schelp als kussen of het bandje als dekentje, zonder het dier aan te passen).
+
+### Frisse keuring 13 (op v2.2): **7**
+Sterkste beeld volgens de keurder: het eindscherm met de vriend in het belletje (geschikt als winkelfoto). Punten voor de volgende run:
+1. De verre slipper groter (een derde van de bootslipper) met dezelfde witte V; teenpaaltje bij de bootslipper duidelijker.
+2. In en uit verschillen alleen in zeehoogte. Houding van de krab per fase gaat niet zonder het dier te wijzigen; wel mogelijk: de slipper kantelt mee (neus omhoog bij inademen, plat bij uitademen) en bellen of een rimpel rond de slipper.
+3. Ademschermen onderin leeg: één eigen detail in het water (vinnetje of de schaduw van de volgende vriend), bij nacht een maanstreep in vaste tinten.
+4. AMOLED-lucht overdag minder fel: bovenin donkerder, fel blauw alleen als band boven de horizon (ook batterij).
+5. "press START to breathe" weg tijdens inhouden (of alleen de eerste seconden), bpm-regel een maat groter. Dit is een appbeslissing; gaat als vraag naar Gijs.
+Nog open: grap "slipper is bed" onder water (schelpkussen geprobeerd, verdween achter de krab, niet bewaard).

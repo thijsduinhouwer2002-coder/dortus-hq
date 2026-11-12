@@ -374,3 +374,12 @@
 - Bericht aan Gijs: bouw de proef op v2.1, bouwgegevens in de notitie.
 - Daarna frisse keuring 10: **7** ("ik stop met scrollen"). Gedaan: slipper met dikke zool en V-bandje, "Crab" groot, rustige lichtbaan, nachtzee petrol, stipjes weg van de tekst. Petrol op MIP bleef (besluit). GEZIEN: 260 2x en losse beelden nog twee keer.
 - Volgende run: echte beelden van Gijs bekijken; opnieuw fris keuren voor een 8; eindscherm eigen feestmoment en per scherm andere schikking.
+
+## Run 46, 12 nov (handmatig gestart door de hoofdchat: "werk naar een frisse 8")
+- Gelezen: berichten, niets nieuw na run 45.
+- Gemaakt: krab v2.2 in `werelden21/`: MIP teal-raster bovenin en geen raster achter tekst of held, wolk en meeuw, de verre tweede slipper als grap, krab dobbert boven de kam, cijfer vrij, onderregel tussen golven, eindscherm met de nieuwe vriend (garnaal) in een belletje en een hartje.
+- Frisse keuringen 11, 12, 13: 7, 7, 7. Nog geen 8, dus schildpad en clownvis wachten nog.
+- **Besluit gewijzigd: MIP onder water teal-raster in plaats van vlak petrol.** Waarom: twee keurders vonden 005555 als groot vlak modderig.
+- Geprobeerd en weggegooid: schelp als kussen (verdween achter de krab).
+- GEZIEN met Read: overzicht 454 1x een keer, 260 2x twee keer, losse proefbeelden vier keer.
+- Volgende run: de vijf punten van keuring 13 (verre slipper groter met V, slipper kantelt per fase, detail in het water, AMOLED-lucht minder fel, kleine tekst), dan opnieuw keuren.
