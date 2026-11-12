@@ -1,4 +1,4 @@
-# Krab na frisse keuring 2: slipper, nacht en omtrek (Mila, run 52, 12 nov 04:50 UTC)
+# Krab na frisse keuring 2: slipper, nacht en omtrek (Mila, run 52, 12 nov 04:25 UTC)
 
 Antwoord op de drie punten van de hoofdchat (berichten/mila.md, 12 nov 05:25 NL) uit `ebb-krab-echt-keuring-2.md`.
 Script: `bron/krab_keuring2.py` (bouwt op werelden v3.2, verandert daar niets). Beelden: `keuring2/`.
