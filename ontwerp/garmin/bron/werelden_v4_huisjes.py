@@ -5,9 +5,9 @@
 #              onder water is de fles op het zand zijn huis en ligt de kurk ernaast
 #  - octopus:  badje op pootjes dat op de bodem is gezakt / hij neemt een bad met een geel badeendje;
 #              onder water drijft het eendje boven hem aan het oppervlak
-#  - eel:      zand vol gaatjes / elektrische aal: grote witte stekker in zijn bek, dik snoer in een kronkel om hem heen
+#  - eel:      zand vol gaatjes / elektrische aal: brandende gloeilamp in zijn bek en twee bliksempjes (ronde 5, stekker las als zaklamp)
 #  - puffer:   zandbodem met schelp, steen en zee-egel / luchtballon: hij is de ballon, eronder een rieten mandje aan vier lijnen
-#  - cucumber: een schelp als bedje / spa-dag: twee plakjes komkommer op zijn ogen en een roze handdoekje op zijn kop
+#  - cucumber: een schelp als bedje / spa-dag: roze handdoekje op zijn kop, oog open, drie plakjes komkommer op zijn rug (ronde 5)
 # Coordinaten in 1/260 D.   python3 werelden_v4_huisjes.py <uitmap> [dier ...]
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -281,43 +281,51 @@ def handdoekje(d, f, m):
 
 
 def spa(d, cx, cy, m, hoek):
-    """Zeekomkommer met handdoekje en twee grote plakjes komkommer op zijn ogen."""
+    """Zeekomkommer met handdoekje op zijn kop, oog open en tevreden, en drie grote plakjes komkommer op zijn rug
+    (ronde 5: de plakjes lagen op zijn oog, het gezicht verdween en de kijker zag een groene klodder)."""
     f = R(cx, cy, hoek, m)
     kantel(d, cx, cy, m, CUKE, hoek)
     handdoekje(d, f, m)
-    r = max(4.6, .23 * m)
-    plakje(d, *f(-.16, -.12), r)
-    plakje(d, *f(-.74, -.04), r)
+    r = max(5.2, .2 * m)
+    for x in (.02, .44, .86):
+        plakje(d, *f(x, -.3), r)
 
 
-SNOER = (255, 255, 85)
-
-
-@held
-def snoer(d, f, m, pts):
-    q = glad([f(*p) for p in pts], 8)
-    lijn(d, q, DONKER, max(5.4, .2 * m)); lijn(d, q, SNOER, max(3.2, .12 * m))
+LAMP, LAMP_GLOED, VOET = (255, 255, 85), (255, 255, 170), (170, 170, 170)
 
 
 @held
-def stekker(d, f, m):
-    """Grote witte stekker in de bek met donkere rand, twee dikke gele pinnen naar links, gele vonkjes."""
-    for y0 in (-.04, .2):
-        d.blob([f(-1.5, y0 - .06), f(-1.86, y0 - .06), f(-1.86, y0 + .06), f(-1.5, y0 + .06)], (255, 255, 85), DONKER, 1.2)
-    d.blob([f(-.98, -.22), f(-1.44, -.26), f(-1.56, -.14), f(-1.56, .3), f(-1.44, .42), f(-.98, .38)], WIT, DONKER, 1.8)
-    lijn(d, [f(-1.3, -.16), f(-1.3, .32)], DONKER, max(1.2, .045 * m))
-    for a, b in (((-1.96, -.2), (-2.1, -.32)), ((-1.98, .08), (-2.16, .08)), ((-1.96, .36), (-2.1, .48))):
-        lijn(d, [f(*a), f(*b)], (255, 255, 85), max(1.4, .06 * m))
+def gloeilamp(d, f, m):
+    """Ronde 5: een brandende gloeilamp in zijn bek (een elektrische aal laat de lamp branden).
+    De stekker las als zaklamp. Een peer met een schroefvoet en stralen leest in een blik."""
+    bx, by = f(-1.62, -.02)            # midden van de peer, voor de bek
+    r = max(8.5, .34 * m)
+    for i in range(8):                 # stralen
+        a = math.radians(i * 45 + 22)
+        lijn(d, [(bx + (r + 3) * math.cos(a), by + (r + 3) * math.sin(a)), (bx + (r + 8) * math.cos(a), by + (r + 8) * math.sin(a))], LAMP, max(1.6, .07 * m))
+    if d.am: d.gloed_ellips(bx, by, r + 5, r + 5, LAMP_GLOED, .35)
+    d.rondje(bx, by, r, r, LAMP, DONKER, dikte=1.6)
+    d.rondje(bx - r * .35, by - r * .35, r * .25, r * .25, WIT)
+    # schroefvoet: grijs blokje met ribbels, schuin naar de bek
+    vx, vy = f(-1.16, -.02)
+    d.blob([(vx - r * .55, vy - r * .5), (vx + r * .2, vy - r * .42), (vx + r * .2, vy + r * .42), (vx - r * .55, vy + r * .5)], VOET, DONKER, 1.4)
+    for k in (-.3, -.05):
+        lijn(d, [(vx + k * r, vy - r * .45), (vx + k * r, vy + r * .45)], DONKER, max(1.0, .04 * m))
 
 
-SNOER_PAD = [(-1.26, .26), (-1.3, .5), (-1.05, .66), (-.5, .64), (.1, .58), (.7, .62), (1.2, .5), (1.4, .2), (1.32, -.12), (1.08, -.24)]
+@held
+def flitsjes(d, f, m):
+    """Twee gele bliksempjes boven zijn rug."""
+    for x0, y0 in ((-.1, -.46), (.8, -.5)):   # ronde 5: lager, 6 px van de tekst
+        pts = [f(x0, y0), f(x0 + .12, y0 - .16), f(x0 + .02, y0 - .18), f(x0 + .16, y0 - .36)]
+        lijn(d, pts, DONKER, max(3.6, .14 * m)); lijn(d, pts, LAMP, max(2.0, .08 * m))
 
 
 def elektrische_aal(d, cx, cy, m, hoek):
     f = R(cx, cy, hoek, m)
-    snoer(d, f, m, SNOER_PAD)
     kantel(d, cx, cy, m, EEL, hoek)
-    stekker(d, f, m)
+    gloeilamp(d, f, m)
+    flitsjes(d, f, m)
 
 
 MAND, MAND_R, MAND_L = (170, 85, 0), (85, 0, 0), (255, 170, 85)
@@ -454,8 +462,8 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
             gaatje(d, x, y + zak, rx, rx * .4)
         steentje(d, 226, 214 + zak, 4, 2.6, (255, 170, 170))
         if held_:
-            schaduw(d, 128, 230 + zak, 60)
-            elektrische_aal(d, 148, 190 + zak, 44, -4)
+            schaduw(d, 140, 232 + zak, 64)
+            elektrische_aal(d, 154, 192 + zak, 50, -4)   # ronde 5: groter, de aal zelf moet ook lezen
     elif dier == 'puffer':
         steentje(d, 44, 226 + zak, 6, 3.6); zee_egel(d, 62, 238 + zak, 4.4)
         schelp(d, 206, 232 + zak, 1.0)
@@ -488,7 +496,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         bad_met_octo(d, hx, y, m, hoek, 1.5, voeten=False)
         golfje(d, hx, y + 18, 46, nacht)
     elif dier == 'eel':
-        hx = {'in': 196, 'calm': 186, 'uit': 140}[fase]; y = top + dy - 10; m = 34
+        hx = {'in': 202, 'calm': 188, 'uit': 140}[fase]; y = top + dy - 8; m = 34   # ronde 5: lamp 6 px van de 12
         golfje(d, hx, y + 22, 54, nacht)
         elektrische_aal(d, hx, y, m, hoek)
     elif dier == 'puffer':

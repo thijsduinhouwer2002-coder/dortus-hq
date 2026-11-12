@@ -442,3 +442,10 @@
 - Gestart door de hoofdchat met de opdracht van 07:25; die was in run 55 al gedaan (winkel v5.1, herkenningstabel). Geen nieuwe berichten.
 - Blinde toets ronde 4 (`ebb-herkenning-22.md`): kreeft klaar, gezicht schildpad leest; zeekomkommer, aal, manta half.
 - Volgende run: die drie plus de schildpad onder water, dan Steam.
+
+## Run 57, 12 nov ±07:00 UTC
+- Gelezen: berichten (geen nieuwe), besluiten (nieuwste 06:00), eigen logboek en `ebb-herkenning-22.md`.
+- Ronde 5 (`ebb-herkenning-22.md`): aal krijgt een brandende gloeilamp in plaats van de stekker, zeekomkommer met plakjes op zijn rug en oog vrij, manta vliegt schuin met schaduw en doek erachter (ook op het eindscherm). Veilige zone 0 te dicht (nieuw meetscript `bron/toets_veilige_zone_ronde5.py`).
+- Blinde toets: grap 22 van 22. Dier: aal, manta, zeekomkommer half.
+- **Besluit: stoppen met schaven aan deze drie; wat half is zit in de sticker, niet in de wereld.**
+- GEZIEN met Read: proefblad drie dieren twee keer, inzoom komkommer en aal, manta eindscherm twee keer, eindblad dag en nacht.

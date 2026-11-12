@@ -79,3 +79,21 @@ Nieuwe kijker, genummerd, boven en onder water (`herkenning/ronde4-blind.png`).
 | zeekomkommer | "onduidelijk, misschien zeekomkommer", spa | half | nee (gezicht weg achter de schijfjes) |
 
 Uitkomst: kreeft klaar; het gezicht van de schildpad leest nu (dat was het punt van keuring 3). Open voor de volgende run: zeekomkommer met één schijfje op het oog en het andere oog open (gezicht blijft zichtbaar) en een herkenbare vorm (langwerpig, bobbels); aal met snoer dat duidelijk in een stopcontact of verlengsnoer eindigt, anders een andere grap; manta onder water los van het zand met het doek achter hem; schildpad onder water een eigen kleine grap zonder iets voor zijn gezicht (bijvoorbeeld de meeuw die boven het water te zien is, of niets: boven water draagt hij de grap).
+
+## Ronde 5 (run 57, 12 nov ±07:00 UTC): drie halve dieren opnieuw, blind getoetst
+Wat ik veranderde (scripts `bron/werelden_v4_huisjes.py` en `bron/werelden_v4_vliegers.py`, beelden `werelden4/` en `werelden5/` opnieuw gemaakt):
+- **Aal: de stekker is weg, er komt een brandende gloeilamp in zijn bek** (gele peer met witte glans en acht stralen, grijze schroefvoet met ribbels naar de bek) en twee gele bliksempjes boven zijn rug. De stekker las als zaklamp; een peer met schroefvoet leest in een blik en zegt "elektrisch". Snoer weg. Onder water groter (maat 50 in plaats van 44).
+- **Zeekomkommer: de plakjes gaan van zijn oog naar zijn rug** (drie op een rij), het oog en de glimlach blijven vrij, handdoekje blijft op zijn kop.
+- **Manta: hij vliegt, hij staat niet.** Onder water hoger (166, 183, maat 37), schuin in een bocht (12 graden), schaduw ver onder hem op het zand, het doek hoog achter hem met drie belletjes. Ook op het eindscherm: doek achter hem in plaats van eronder (daar las het ook als parasol).
+- Veilige zone nagemeten met `bron/toets_veilige_zone_ronde5.py` (tekstvakken opgemeten, held aan en uit vergeleken), alle zes schermen, dag en nacht, 260 en 454: **0 keer dichter dan 6/260 bij tekst.** Daarvoor zakte de manta 15, de bliksempjes zakten en de aal bij inademen 6 naar rechts (de lamp kwam te dicht bij de "12").
+
+Blinde toets, nieuwe kijker, genummerd, alleen het 260-beeld (`herkenning/ronde5-drie.png` is het eindblad dag en nacht):
+| Dier | Gezien als | Dier | Grap |
+|---|---|---|---|
+| aal | "sidderaal lijkt me het meest waarschijnlijk", lamp met stroom | half, beter | **ja**: "sidderaal die stroom maakt en een lamp laat branden" (was half) |
+| manta | rog of manta, banner als reclamevliegtuigje | half | **ja**, boven en onder water; geen parasol meer (was half) |
+| zeekomkommer | "misschien een zeekomkommer", spa | half | **ja**: "zeekomkommer met komkommers" |
+
+**Telling na ronde 5 (alle 22): grap herkend 22 van 22.** Dier herkend: 19 ja, 3 half (aal, manta, zeekomkommer). Alle grappen tellen nu volgens de regel van 06:00.
+**Besluit: hier stop ik met schaven aan deze drie.** Waarom: de grap leest bij alle drie; wat half blijft is het dier zelf, en dat zit in de sticker (de vorm staat als bytes in de app, `ebb-dieren-v83-data.json`), niet in de wereld. Op het eindscherm staat de naam erbij. Een nieuwe vorm voor drie stickers is een besluit voor de hele dierenset en hoort bij de echte schermen (besluit 03:10: de 8 meten we op het horloge).
+Schildpad onder water: geen eigen grap, zijn grap is de meeuw boven water. Dat laat ik zo: liever geen grap dan iets voor zijn gezicht (dat was keuring 3).
