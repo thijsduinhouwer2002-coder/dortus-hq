@@ -16,8 +16,47 @@ on:
     branches: [main, "claude/garmin-*"]
     paths: ["producten/garmin-adem/**", ".github/workflows/garmin-adem-iq.yml"]
   workflow_dispatch:
+    inputs:
+      vol:
+        description: "Volle ronde (alle horloges, alle scènes), ook op een proeftak"
+        type: boolean
+        default: false
 
 jobs:
+  # Snelle proef (12 nov 2026, platformen/garmin/snelle-proef.md): op een tak met "proef" in de naam draaien de
+  # plaatjes op drie horloges (fr255 MIP 260, fenix847mm AMOLED 454, venu3s kleinste AMOLED), de scènes verdeeld over
+  # 2 jobs per horloge met elk 3 simulators tegelijk, en compileert alle-horloges in 3 jobs naast elkaar (samen nog
+  # steeds alle 28). Volle ronde op een proeftak: "[vol]" in het commitbericht, of met de hand starten met vol aan.
+  # Op main en op de bouwtak verandert er niets: alle horloges, alle scènes, één simulator per job.
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: {}
+    outputs:
+      snel: ${{ steps.plan.outputs.snel }}
+      plaatjes: ${{ steps.plan.outputs.plaatjes }}
+      alle: ${{ steps.plan.outputs.alle }}
+    steps:
+      - id: plan
+        env:
+          TAK: ${{ github.ref_name }}
+          BERICHT: ${{ github.event.head_commit.message }}
+          INVOER: ${{ inputs.vol }}
+        run: |
+          SNEL=nee
+          case "$TAK" in *proef*) SNEL=ja ;; esac
+          case "$BERICHT" in *"[vol]"*) SNEL=nee ;; esac
+          [ "$INVOER" = "true" ] && SNEL=nee
+          if [ "$SNEL" = ja ]; then
+            echo 'plaatjes={"horloge":["fr255","fenix847mm","venu3s"],"deel":[1,2]}' >> "$GITHUB_OUTPUT"
+            echo 'alle={"deel":[1,2,3]}' >> "$GITHUB_OUTPUT"
+          else
+            echo 'plaatjes={"horloge":["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm"]}' >> "$GITHUB_OUTPUT"
+            echo 'alle={"deel":[0]}' >> "$GITHUB_OUTPUT"
+          fi
+          echo "snel=$SNEL" >> "$GITHUB_OUTPUT"
+          echo "snelle proef: $SNEL (tak $TAK)"
+
   bouw:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -73,11 +112,18 @@ jobs:
   # Deze job compileert de app, de toetsbouw (demo.jungle) en de plaatjesbouw (plaatjes.jungle) voor ELK horloge uit
   # manifest.xml, met typecontrole (-l 2). Alleen compileren, niet draaien: één NEE of minder dan 28 horloges is rood.
   alle-horloges:
+    needs: plan
+    name: alle-horloges${{ matrix.deel > 0 && format(' ({0} van 3)', matrix.deel) || '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.alle) }}
     env:
+      # Snelle proef: deel 1, 2 of 3 compileert elk een derde van het manifest; deel 0 is alles in één job.
+      DEEL: ${{ matrix.deel }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
       APP: producten/garmin-adem
     steps:
@@ -103,26 +149,36 @@ jobs:
             echo "COMPILEERT $d:$r"
           }
           export -f doe
-          grep -o 'iq:product id="[^"]*"' manifest.xml | cut -d'"' -f2 | xargs -P 4 -I{} bash -c 'doe {}' > /uit/regels.txt
+          grep -o 'iq:product id="[^"]*"' manifest.xml | cut -d'"' -f2 > /tmp/manifest.txt
+          # Snelle proef: elk derde horloge uit het manifest; de drie delen samen zijn alle horloges, en elk deel
+          # eist dat het manifest er minstens 28 heeft en dat al zijn eigen horloges een regel kregen.
+          if [ "${DEEL:-0}" -gt 0 ]; then awk -v d="$DEEL" 'NR % 3 == d % 3' /tmp/manifest.txt > /tmp/lijst.txt; else cp /tmp/manifest.txt /tmp/lijst.txt; fi
+          xargs -P 4 -I{} bash -c 'doe {}' < /tmp/lijst.txt > /uit/regels.txt
           sort /uit/regels.txt
           n=$(grep -c '^COMPILEERT ' /uit/regels.txt)
           echo "COMPILEERT horloges: $n"
           fout=0
+          if [ "${DEEL:-0}" -gt 0 ]; then
+            echo "deel $DEEL van 3: $(wc -l < /tmp/lijst.txt) van de $(wc -l < /tmp/manifest.txt) horloges uit het manifest"
+            [ "$n" -eq "$(wc -l < /tmp/lijst.txt)" ] || fout=1
+            n=$(wc -l < /tmp/manifest.txt)
+          fi
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
           [ "$n" -ge 28 ] || fout=1
           exit $fout
           SH
-          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
+          docker run --rm --network none --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app:ro" -v /tmp/k:/k:ro -v /tmp/alle:/uit -v /tmp/alle.sh:/alle.sh:ro -e DEEL="$DEEL" "$IMAGE" /alle.sh | tee /tmp/alle/uitslag.txt
           exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ebb-alle-horloges
+          name: ebb-alle-horloges${{ matrix.deel > 0 && format('-{0}', matrix.deel) || '' }}
           path: /tmp/alle
 
   # Winkelplaatjes: plaatjes.jungle toont per start één stilgezette scène (vis, schildpad, walvis, Sea log).
   # Keuring bouw 2 punt 3: één job per horloge (8 x 22 scènes paste niet in 40 minuten), elk ±10 minuten.
   plaatjes:
+    needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 44
     permissions:
@@ -130,10 +186,16 @@ jobs:
       actions: read
     strategy:
       fail-fast: false
-      matrix:
-        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965, fenix7, fenix7xpro, fr165, venu3s, venu441mm]
+      # Volle ronde: de dertien horloges (staan in job plan). Snelle proef: drie horloges, elk in twee delen.
+      matrix: ${{ fromJSON(needs.plan.outputs.plaatjes) }}
     env:
       D: ${{ matrix.horloge }}
+      # Snelle proef: DEEL 1 of 2 (leeg in de volle ronde), per deel STROKEN simulators tegelijk in eigen containers.
+      DEEL: ${{ matrix.deel }}
+      DELEN: 2
+      STROKEN: 3
+      SNEL: ${{ needs.plan.outputs.snel }}
+      ART: ebb-plaatjes-${{ matrix.horloge }}${{ matrix.deel && format('-{0}', matrix.deel) || '' }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
       APP: producten/garmin-adem
     steps:
@@ -147,6 +209,8 @@ jobs:
           mkdir -p "$GITHUB_WORKSPACE/$APP/plaatjes"
           cat > /tmp/plaatjes.sh <<'SH'
           set -x
+          # Snelle proef: elke strook werkt in een eigen kopie van de app (eigen Bouw.mc, eigen bin en plaatjes).
+          NR=""; if [ -n "$DEEL" ]; then NR="-$DEEL-$STROOK"; cp -r /app /tmp/app && cd /tmp/app && rm -rf plaatjes bin && mkdir plaatjes || exit 1; fi
           apt-get update -qq >/dev/null && apt-get install -y -qq imagemagick >/dev/null
           openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
           openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
@@ -167,10 +231,19 @@ jobs:
             # Proeftak (naam met "proef"): alleen de proefscènes vanaf 51, zodat de uitslag er in minuten is.
             # Tak thuis-proef (Bas, stap 4): alleen de laatste acht scènes (menu, pauze en sea log op het thuiswater).
             EERSTE=0; case "$GITHUB_REF_NAME" in *thuis-proef*) EERSTE=$((LAATSTE - 7)) ;; *proef*) EERSTE=51 ;; esac
+            # Volle ronde op een proeftak ("[vol]" of de invoer vol): toch alle scènes vanaf 0.
+            [ "$SNEL" = ja ] || EERSTE=0
+            TOT=$LAATSTE
+            # Snelle proef: deze strook neemt zijn eigen stuk van de scènes; alle stroken samen zijn EERSTE tot LAATSTE.
+            if [ -n "$DEEL" ]; then
+              T=$((DELEN * STROKEN)); I=$(((DEEL - 1) * STROKEN + STROOK - 1)); A=$((LAATSTE - EERSTE + 1))
+              TOT=$((EERSTE + A * (I + 1) / T - 1)); EERSTE=$((EERSTE + A * I / T))
+              echo "STROOK $STROOK van deel $DEEL op $d: scène $EERSTE tot $TOT"
+            fi
             sed -i "s/const EERSTE = 0;/const EERSTE = $EERSTE;/" source/Bouw.mc
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in $(seq $EERSTE $LAATSTE); do
+            for k in $(seq $EERSTE $TOT); do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               # Keuring bouw 6 punt 3: op AMOLED 20 s per scène, zodat sea complete af is als de foto genomen wordt.
@@ -185,7 +258,7 @@ jobs:
             cp /tmp/sim.log "/tmp/sim-$d.log" 2>/dev/null || true
           done
           # Keuring bouw 2 punt 2: een crash (watchdog of fout) in een scène maakt de run rood (stap "Geen crash").
-          grep -iE "watchdog|app crash|unhandled exception|out of memory|VEILIG .* NEE" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D.txt || rm -f plaatjes/CRASH-$D.txt
+          grep -iE "watchdog|app crash|unhandled exception|out of memory|VEILIG .* NEE" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D$NR.txt || rm -f plaatjes/CRASH-$D$NR.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
           NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d calmcheck sealog-3-alle25 inhouden-krab einde-sea-complete calm-45s sealog-2 menu-leeg einde-weekdoel ademen-uit menu-krab einde-6c-krab einde-6b-zeekomkommer calm-einde-krab pauze einde-na-feest menu-today overzicht-menu wereld-schildpad wereld-krab wereld-clownvis wereld-0-30 wereld-2-30 wereld-schildpad-week4 wereld-krab-week4 wereld-clownvis-week4 lucht-ochtend-in lucht-dag-uit lucht-avond-in lucht-nacht-uit thuis-start-dag thuis-start-nacht"
@@ -196,13 +269,27 @@ jobs:
           NAMEN="$NAMEN thuis-menu-dag thuis-menu-nacht thuis-pauze-dag thuis-pauze-nacht thuis-sealog-dag thuis-sealog-nacht thuis-menu-leeg-dag thuis-sealog-alle-nacht"
           mkdir -p plaatjes/namen
           for f in plaatjes/*-scene*.png; do
+            [ -e "$f" ] || continue
             b=$(basename "$f" .png); d=${b%-scene*}; k=${b##*-scene}
             n=$(echo $NAMEN | cut -d' ' -f$((k+1)))
             if [ -n "$n" ]; then cp "$f" "plaatjes/namen/$n-$d.png"; fi
           done
           # Winkelmaat: hoogstens 500 px hoog en onder 150 KB (Connect IQ-winkel), minder kleuren zonder zichtbaar verlies.
+          if [ -n "$DEEL" ]; then cp -r plaatjes/. /app/plaatjes/; fi
           SH
-          docker run --rm --entrypoint bash -e D="$D" -e GITHUB_REF_NAME="$GITHUB_REF_NAME" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
+          if [ -n "$DEEL" ]; then
+            # Snelle proef: STROKEN containers tegelijk, elk met een eigen simulator; één mislukte strook maakt de stap rood.
+            PIDS=""
+            for s in $(seq 1 "$STROKEN"); do
+              docker run --rm --entrypoint bash -e D="$D" -e GITHUB_REF_NAME="$GITHUB_REF_NAME" -e SNEL="$SNEL" -e DEEL="$DEEL" -e DELEN="$DELEN" -e STROKEN="$STROKEN" -e STROOK="$s" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh > "/tmp/strook-$s.log" 2>&1 &
+              PIDS="$PIDS $!"
+            done
+            fout=0; s=0
+            for p in $PIDS; do s=$((s + 1)); wait "$p" || { echo "STROOK $s MISLUKT"; fout=1; }; echo "::group::strook $s"; cat "/tmp/strook-$s.log"; echo "::endgroup::"; done
+            [ "$fout" -eq 0 ] || exit 1
+          else
+            docker run --rm --entrypoint bash -e D="$D" -e GITHUB_REF_NAME="$GITHUB_REF_NAME" -e SNEL="$SNEL" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/plaatjes.sh:/tmp/plaatjes.sh "$IMAGE" /tmp/plaatjes.sh
+          fi
           ls -la "$APP/plaatjes"
       - name: Poster en winkelmaat (zonder simulatorbalken, onder 150 KB)
         run: |
@@ -217,20 +304,20 @@ jobs:
         run: |
           vorige=$(gh run list -R "$GITHUB_REPOSITORY" -w garmin-adem-iq.yml -b "$GITHUB_REF_NAME" -s success -L 1 --json databaseId -q '.[0].databaseId' || true)
           echo "vorige groene run: ${vorige:-geen}"
-          if [ -n "$vorige" ]; then gh run download "$vorige" -R "$GITHUB_REPOSITORY" -n "ebb-plaatjes-$D" -D /tmp/vorige || true; fi
+          if [ -n "$vorige" ]; then gh run download "$vorige" -R "$GITHUB_REPOSITORY" -n "$ART" -D /tmp/vorige || true; fi
           if [ -d /tmp/vorige/namen ] && [ -d "$APP/plaatjes/namen" ]; then
             python3 "$APP/bron/vergelijk_plaatjes.py" /tmp/vorige/namen "$APP/plaatjes/namen" --negeer-onder 24 | tee "$APP/plaatjes/pixelverschil-$vorige.txt" || true
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ebb-plaatjes-${{ matrix.horloge }}
+          name: ${{ env.ART }}
           path: producten/garmin-adem/plaatjes
       # Codekeuring bouw 9 punt 8: de wereld ziet er op 0:30 en op 2:30 inhouden gelijk uit (beloont inhouden niet).
       - name: Veiligheid, wereld gelijk op 0:30 en 2:30
         run: |
           python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
-          case "$GITHUB_REF_NAME" in *proef*) echo "proeftak: alleen de proefscènes, geen scène 42 en 43"; exit 0 ;; esac
+          if [ "$SNEL" = ja ]; then echo "proeftak: alleen de proefscènes, geen scène 42 en 43"; exit 0; fi
           python3 "$APP/bron/wereld_gelijk_v2.py" "$APP/plaatjes/$D-scene42.png" "$APP/plaatjes/$D-scene43.png"
       - name: Geen crash
         run: |
