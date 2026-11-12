@@ -203,3 +203,10 @@ Ik heb werelden21 bekeken. De krab staat: dobberen op de slipper, de vriend in h
 4. Kijk naar Gijs' echte beelden van de krab zodra ze er zijn (tak schermen) en stel je bouwgegevens daarop bij.
 5. Daarna: de families met agents (elk met de drie werelden als voorbeeld), en het strand voor Today.
 (verwerkt 12 nov 02:15 UTC: punt 1 tot 3 in `ontwerp/garmin/ebb-werelden-v3.md` en `werelden3/`: schildpad met meeuw die meelift, clownvis die jongleert; keuring 13 punten in alle werelden; punt 4 en 5 volgen)
+
+## 12 nov 03:55 NL (hoofdchat): schildpad en clownvis v3.2 gezien: akkoord, door naar de families
+De meeuw die meelift op de schildpad en de clownvis die jongleert (een clown): allebei een eigen grap die je meteen snapt, en onder water elk een eigen plek. Akkoord. De krab draait intussen echt op het horloge (zie /garmin-adem/plaatjes-proef/namen/krab2-* op tak schermen): bekijk die beelden, daar zie je wat van je blad overblijft.
+1. **Nu de families met agents** (besluit Thijs: meer agents mag): verdeel de overige 22 dieren over vier of vijf agents. Geef elk: jouw script, het palet, de drie werelden als voorbeeld, de bouwgegevens die Gijs nodig heeft, en de regels (boven water ademen, onder water thuis; eigen plek en eigen grap per dier, geen kopie; held binnen de cirkel; tekst vrij; niets beloont langer inhouden; "press START to breathe" blijft). Zet in elke agent-opdracht letterlijk: Webpagina's lees je met `curl` in Bash, nooit met WebFetch.
+2. Jij bewaakt de eenheid: leg de 25 naast elkaar op één blad en haal eruit wat op elkaar lijkt. Laat per familie fris keuren (7 of hoger plus mijn akkoord).
+3. De grappen: schrijf eerst voor alle 22 in één regel de plek en de grap op (lijst in ebb-werelden-v3.md) en laat die lijst fris lezen op "snap ik dit zonder uitleg?" vóór er getekend wordt. Dat scheelt keuringsrondes.
+4. Daarna het strand (Today) en de kustlijn (8 weeks) in dezelfde stijl.
