@@ -280,7 +280,7 @@ def wereld_schild(d, dd, hx=124, hy=186, m=40, spiegel=False, held=True, zak=0):
             d.blob([(bek_x + dx * sg - r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy - r_ * 1.4), (bek_x + dx * sg + r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy + r_ * .8)], GRAS_L, WIT, .9)
 
 
-def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht=False, adx=0, huis=True, takje=True):
+def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht=False, adx=0, huis=True, takje=True, ak=1.0):
     """Rif: donkerpaarse koraalbult rechts met de grote anemoon (zijn huis), paarse waaier en geel takje links."""
     s = d.s
     verder = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else dd['mip_verder']
@@ -305,7 +305,7 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
     # rechts: rifbult met de anemoon als huis; de vis zit erin, twee vingers liggen voor hem
     if not huis: return
     d.rondje(222 + adx, 234 + zak, 66, 30, RIF, RIF_L, glans=RIF_L)     # brede lage rifbult: geen bloempot
-    vingers = [(-34, -34), (-24, -46), (-12, -54), (0, -58), (12, -54), (24, -46), (34, -34), (40, -20)]
+    vingers = [(a_ * ak, b_ * ak) for a_, b_ in [(-34, -34), (-24, -46), (-12, -54), (0, -58), (12, -54), (24, -46), (34, -34), (40, -20)]]
     ax, ay = 206 + adx, 200 + zak
     def vinger(i, vx_, vy_, c_rand=True):
         x1, y1 = ax + vx_, ay + vy_
@@ -315,17 +315,16 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
             d.dr.line([d.P(ax + vx_ * .3, ay), d.P(x1, y1)], fill=(255, 85, 170), width=round(6 * s)); d.rondje(x1, y1, 3.8, 3.8, (255, 170, 255))
     for i, (a, b) in enumerate(vingers): vinger(i, a, b)
     for i, (a, b) in enumerate(vingers): vinger(i, a, b, False)
-    d.rondje(ax, ay, 30, 9, (255, 85, 170), WIT, dikte=1.6)
+    d.rondje(ax, ay, 30 * ak, 9 * ak, (255, 85, 170), WIT, dikte=1.6)
     if held:
         dier_kantel(d, hx, hy, m, CLOWN, 0); clownshoed(d, hx, hy, m)
         # twee vingers vooraan liggen over zijn staart: hij woont erin (oog en banden blijven vrij)
         for a, b in [(-44, 2), (-50, -12), (-40, -26), (-28, -8)]:
-            x0, y0, x1, y1 = ax - 10, ay + 4, ax + a, ay + b
+            x0, y0, x1, y1 = ax - 10 * ak, ay + 4, ax + a * ak, ay + b * ak
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=WIT, width=round(9 * s)); d.rondje(x1, y1, 4.5, 4.5, WIT)
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=(255, 85, 170), width=round(6 * s)); d.rondje(x1, y1, 3.8, 3.8, (255, 170, 255))
-        if jong == 'rust':     # hold: de ballen liggen stil op de toppen van zijn anemoon, hij wacht met jou (keuring 17)
-            for (vx_, vy_), c in (((-12, -54), (255, 255, 0)), ((12, -54), (255, 85, 170)), ((34, -34), (85, 255, 85))):
-                x_, y_ = ax + vx_, ay + vy_ - 7
+        if jong == 'rust':     # hold: hij houdt alle drie de ballen stil in balans (op zijn neus, zijn mutsje en zijn staart), net als jij je adem (keuring 17 en 18)
+            for (x_, y_), c in (((hx - .56 * m, hy - .2 * m - 5.5), (255, 255, 0)), ((hx - .30 * m, hy - .98 * m - 5.2), (255, 85, 170)), ((hx + .30 * m, hy - .40 * m - 5), (85, 255, 85))):
                 d.rondje(x_, y_, 5.5, 5.5, c, (0, 0, 85), dikte=1.4); d.rondje(x_ - 2, y_ - 2, 1.5, 1.5, WIT)
         elif jong:
             jongleer(d, hx - m * .55, hy - m * .5, m * .66, 1.1, nacht)
@@ -355,7 +354,7 @@ def hold(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=126, xh=128); wereld_schild(d, dd, hx=136, hy=182, m=46)
     else:
-        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=155, hy=186, m=33, nacht=nacht, jong='rust')
+        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=134, hy=190, m=42, nacht=nacht, jong='rust', adx=16, ak=.78)   # v3.2: held groot, anemoon kleiner naar rechts (keuring 18)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
     d.tekst(130, 48, 'press START to breathe', 14, WIT, False)     # blijft altijd staan (veiligheid, besluit 12 nov 03:10)
@@ -371,7 +370,7 @@ def menu(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=192, m=42, spiegel=True, zak=18)   # v3.2: hoge sprieten onder de menuregel
     else:
-        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=147, hy=190, m=30, zak=4, nacht=nacht)
+        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=140, hy=194, m=38, zak=4, nacht=nacht, adx=16, ak=.78)
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
     for y, t in [(52, 'Rounds'), (86, 'Calm 4-7-8')]:
