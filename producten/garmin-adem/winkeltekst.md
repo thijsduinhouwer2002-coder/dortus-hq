@@ -47,7 +47,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Title (42 tekens): `Ebb: Breathing, Breath Hold Rounds & 4-7-8`
 - Category: Health & Fitness (bijna alle ademapps staan in categorie-id 219, GOK dat dat deze is)
 - Price: $4.99, eenmalig (paid app)
-- Description: de Engelse tekst hieronder, van "Breathwork rounds" tot en met de regel "Tags:" (3971 tekens, geteld in run 68; de grens is waarschijnlijk 4.000).
+- Description: de Engelse tekst hieronder, van "Breathwork rounds" tot en met de regel "Tags:" (3996 tekens, geteld in run 69; de grens is waarschijnlijk 4.000).
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v3.png` (Mila v3, blauwe walvis in de patrijspoort, `ontwerp/garmin/blad12/`). Het startpictogram op het horloge is haar kleine versie (walvis groot, zonder rand), per horlogemaat in `resources*/drawables/launcher_icon.png`.
@@ -61,7 +61,7 @@ Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
-• While you hold, you are under water with a sea animal. A small fish swims with you from your first session; new sea friends join as you keep coming back. The picture stays the same however long you hold. From 3:00 on the watch shows "breathe" at the top. A hold stops by itself after five minutes; the session then ends and saves, and that hold is not averaged.
+• While you hold, you are under water with a sea animal. A small fish swims with you from your first session; new sea friends join as you keep coming back. The picture stays the same however long you hold. From 3:00 on the watch shows "breathe" at the top. A hold stops by itself after five minutes; the session then ends and saves. That hold is not averaged.
 • Before every session Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP

@@ -222,6 +222,12 @@ jobs:
           done
           # Keuring bouw 2 punt 2: een crash (watchdog of fout) in een scène maakt de run rood (stap "Geen crash").
           grep -iE "watchdog|app crash|unhandled exception|out of memory|VEILIG .* NEE" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D.txt || rm -f plaatjes/CRASH-$D.txt
+          # Herkeuring 12 nov, veiligheid 3: de terugval zonder plaatje (regels "KRABV2 wereld ... DIRECT", scène sessie-terugval-*)
+          # mag op de fr255 per beurt niet trager worden dan 60 ms. Gemeten in run 43257045972: 5 tot 6 ms (met plaatje
+          # hoogstens 10 ms), dus tien keer marge. Let op: dit is de simulator, niet het horloge; het bewaakt dat de
+          # terugval licht blijft, niet de echte snelheid.
+          grep -h "KRABV2 wereld.*DIRECT" /tmp/plaatje-fr255-*.log 2>/dev/null | awk '{for (i = 1; i < NF - 1; i++) if ($i == "traagste" && $(i+1) == "beurt") { n++; if ($(i+2) + 0 > 60) print "TERUGVAL TRAAG (grens 60 ms): " $0 } } END { print "TERUGVAL fr255: " n + 0 " metingen, grens 60 ms" > "/dev/stderr" }' >> plaatjes/CRASH-$D.txt
+          [ -s plaatjes/CRASH-$D.txt ] || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
           mkdir -p plaatjes/namen
           for f in plaatjes/*-scene*.png; do
