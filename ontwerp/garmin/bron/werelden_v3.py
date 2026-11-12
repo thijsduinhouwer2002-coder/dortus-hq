@@ -49,7 +49,7 @@ def lucht(d, dd, nacht, top):
     else:
         d.verloop(0, top, dd['lucht'][0], dd['lucht'][1], [(top - 28, dd['lucht'][1] if not nacht else (0, 0, 85))])
     if nacht:
-        for x, y in [(56, 50), (204, 44), (222, 82), (34, 100), (184, 24), (96, 20), (238, 110)]:
+        for x, y in [(56, 50), (204, 44), (222, 82), (34, 100), (202, 22), (58, 22), (238, 110)]:
             d.rondje(x, y, .9, .9, WIT)
         d.rondje(40, 84, 13, 13, (255, 255, 170), (170, 170, 255), dikte=1.6)
         d.rondje(47, 82, 11, 12, dd['lucht'][1] if not d.am else (0, 25, 120))
@@ -333,7 +333,7 @@ def menu(D_, am, dd, nacht, wereld):
     if wereld == 'krab':
         onder(d, dd, nacht); w.wereld_onder(d, dd, held_y=186, held_maat=38, spiegel=True, anem_dy=10)
     elif wereld == 'schild':
-        onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=188, m=42, spiegel=True, zak=4)
+        onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=192, m=42, spiegel=True, zak=18)   # v3.2: hoge sprieten onder de menuregel
     else:
         onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=147, hy=190, m=30, zak=4, nacht=nacht)
     stofjes(d, dd); s = d.s

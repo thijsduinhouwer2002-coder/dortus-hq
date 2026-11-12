@@ -296,7 +296,7 @@ def adem_in(D_, am, dd, nacht, top=134, woord='breathe in', getal='12', onder='r
     d = Doek(D_, am)
     d.verloop(0, top, dd['lucht'][0], dd['lucht'][1], [(top - 28, dd['lucht'][1] if not nacht else (0, 0, 85))])   # nacht MIP: lucht donker, zee lichter
     if nacht:
-        for x, y in [(56, 50), (204, 44), (222, 82), (34, 100), (184, 24), (96, 20), (238, 110)]:
+        for x, y in [(56, 50), (204, 44), (222, 82), (34, 100), (202, 22), (58, 22), (238, 110)]:
             d.rondje(x, y, .9, .9, WIT)
         d.rondje(40, 84, 13, 13, (255, 255, 170), (170, 170, 255), dikte=1.6)       # maan (wassend), altijd boven de hoogste kam
         d.rondje(47, 82, 11, 12, dd['lucht'][1] if not am else (0, 25, 120))
