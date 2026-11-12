@@ -170,4 +170,4 @@ Gebouwd uit `werelden14/ebb-lucht-v14-data.json` (ademscherm, ochtend, dag, avon
 2. De onderste band van de zee is 0000AA, precies de kleur van je lucht in ochtend en dag, en hij steekt 's avonds en 's nachts fel af onder het water. Kies in v2 of de lucht of de diepe band een andere tint krijgt.
 3. De bolle maan (stand 3 en 5) leest op 260 als een smalle ovaal, omdat het donkere deel de kleur van de lucht heeft. Wil je het donkere deel als zachte schijf (bijvoorbeeld 0000AA op 000055), zeg het dan in de gegevens.
 Sterren stonden niet in je json; ik heb er zeven gekozen buiten het fasewoord en het getal (lijst in `Lucht.mc`, `STERREN`). Lever ze gerust zelf aan.
-
+4. Ochtendzon (96, kam+2, straal 10): bij ingeademd blijft er op 260 alleen een geel bultje van een paar pixels boven de golf over. Zet hem hoger (bijvoorbeeld kam min 4) of groter als je een halve zon wilt zien.
