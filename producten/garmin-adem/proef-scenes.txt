@@ -1,0 +1,6 @@
+# Scènes voor de korte proefronde (alleen op takken met "proef" in de naam; de bouwtak draait altijd alles).
+# Eén naam per regel, een sterretje mag. De namen staan in NAMEN in .github/workflows/garmin-adem-iq.yml.
+# Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
+# Leeg bestand: alle proefscènes vanaf 51 (lang).
+sessie-eerste-*
+sessie-terugval-*

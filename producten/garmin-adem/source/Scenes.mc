@@ -17,8 +17,9 @@ module EbbScenes {
         // 16 eindscherm 6c, 17 eindscherm 6b, 18 eindscherm 6c met 6 rondes, 19 en 20 settings 1 en 2, 21 Calm-eindscherm 6d.
         // Keuring v5 G1: het dier hangt niet van de inhoudtijd af (vis, schildpad, walvis, schildpad).
         var keer = Application.Storage.getValue("plaatjekeer");
-        var k = (((keer instanceof Number) ? keer as Number : 0) + EbbBouw.EERSTE) % EbbBouw.SCENES;
-        Application.Storage.setValue("plaatjekeer", k + 1 - EbbBouw.EERSTE);
+        var n = (keer instanceof Number) ? keer as Number : 0;
+        var k = EbbSceneKeuze.scene(n);
+        Application.Storage.setValue("plaatjekeer", n + 1);
         EbbTrillen.aan = false;
         System.println("PLAATJE scene " + k);
         // Keuring bouw 3 punt 4: de zwaarste schermen echt in de simulator (alleen deze scènes bewijzen geen watchdog).

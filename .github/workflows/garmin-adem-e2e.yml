@@ -38,7 +38,9 @@ jobs:
       - name: Image ophalen (tot drie pogingen)
         run: |
           for poging in 1 2 3; do docker pull -q "$IMAGE" && exit 0; sleep $((poging * 20)); done; exit 1
+      # Op een proeftak alleen de FR255 (het zwakste horloge); de bouwtak draait de toetsen op allebei.
       - name: Tests in de simulator (fenix7)
+        if: ${{ !contains(github.ref_name, 'proef') }}
         run: docker run --rm -v "$GITHUB_WORKSPACE/$APP:/app" -w /app "$IMAGE" fenix7
       # Keuring G4: dezelfde toetsen (met de zwaarste sea log-pagina) ook op de FR255, het zwakste horloge.
       - name: Tests in de simulator (fr255)
@@ -52,20 +54,28 @@ jobs:
           openssl genrsa -out /tmp/key.pem 4096 2>/dev/null
           openssl pkcs8 -topk8 -inform PEM -outform DER -in /tmp/key.pem -out /tmp/key.der -nocrypt
           touch /tmp/merk
+          # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges in plaats van negen:
+          # FR255 (MIP 260), fenix 8 47 mm (AMOLED 454) en vivoactive 5 (AMOLED 390, aanraakscherm). De bouwtak draait alles.
+          case "$GITHUB_REF_NAME" in
+            *proef*) ALLE="fr255 vivoactive5 fenix847mm"; MENU="fr255 fenix847mm"; VEEG="vivoactive5" ;;
+            *) ALLE="fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3"; MENU="fenix7 fr255 vivoactive5 fr265 fenix847mm"; VEEG="vivoactive5 venu2 venu3" ;;
+          esac
+          MIN=$(echo $ALLE | wc -w); echo "$MIN" > schermen/aantal-horloges.txt
+          echo "HORLOGES deze ronde ($MIN): $ALLE"
           export DISPLAY=:1
           Xvfb :1 -screen 0 1280x1024x24 &
           sleep 2
           simulator > /tmp/sim.log 2>&1 &
           sleep 8
-          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
+          for d in $ALLE; do
             echo "== bouw $d"; monkeyc -f monkey.jungle -d "$d" -o "bin/app-$d.prg" -y /tmp/key.der -l 2 -w > "/tmp/bouw-$d.log" 2>&1; R=$?
             cat "/tmp/bouw-$d.log"; [ $R -eq 0 ] || exit 1
             echo "WAARSCHUWINGEN $d: $(grep -ci warning "/tmp/bouw-$d.log")"
           done
-          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
+          for d in $ALLE; do
             echo "== testbouw $d"; monkeyc -f demo.jungle -d "$d" -o "bin/demo-$d.prg" -y /tmp/key.der -l 2 || exit 1
           done
-          for d in fenix7 fr255 vivoactive5 fr265 fenix847mm; do
+          for d in $MENU; do
             # Keuring v5 G5: ook de FR255 (260 px MIP), het kleinste scherm, voor de veiligheidsbladen binnen de rand.
             # S1 S2 op elk horloge (run 42925453166: na fenix7 sloegen de anderen de veiligheid over en kwamen er geen
             # toetsen aan): simulator per horloge opnieuw en de opslag van de app weg, zodat elk horloge een eerste start is.
@@ -109,7 +119,7 @@ jobs:
           done
           # Keuring G3: vegen in het menu op de aanraakhorloges. Na de veiligheidsbladen het menu, dan met de muis
           # van onder naar boven slepen over het scherm; het beeld moet veranderen (menu schuift). Telt nog niet mee.
-          for d in vivoactive5 venu2 venu3; do
+          for d in $VEEG; do
             monkeydo "bin/app-$d.prg" "$d" > "/tmp/veeg-$d.log" 2>&1 &
             MD=$!
             sleep 14
@@ -136,7 +146,7 @@ jobs:
           # een lege lap van een weggegooide opname in de volgende opname op een ander horloge (run 42772406769).
           herstart() { pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 8; }
           # Kwaliteitsronde (10 nov 18:10): opslaan en weggooien nu op alle negen horloges, niet alleen op drie.
-          for d in fenix7 fr255 vivoactive5 venu2 fr265 epix2pro47mm fenix847mm fr965 venu3; do
+          for d in $ALLE; do
             herstart
             touch /tmp/demo-$d
             monkeydo "bin/demo-$d.prg" "$d" > "/tmp/demo-$d.log" 2>&1 &
@@ -174,11 +184,11 @@ jobs:
           grep -H "GROOT\|GEHEUGEN\|ONDERTEKST\|WERELDCIJFERS" /tmp/demo-*.log | sed "s,/tmp/demo-,," | tee /tmp/metingen.txt schermen/metingen.txt
           # Epix2pro47mm: grootste systeemletter 123 van 416 px (29,6%), daarom daar de eigen cijferletter (130 px).
           # Wereldschermen: besluit hoofdchat 12 nov 13:55 NL, de cijfers op de wereldschermen minstens 20% (REGELS.md punt 11); telt mee, op alle negen.
-          awk '/GROOT/ { p=$NF; sub("%","",p); if (p+0 < 25) { print "EIS11 TE KLEIN: " $0; f=1 } }
+          awk -v min="$MIN" '/GROOT/ { p=$NF; sub("%","",p); if (p+0 < 25) { print "EIS11 TE KLEIN: " $0; f=1 } }
                /WERELDCIJFERS/ { c++; p=$NF; sub("%","",p); if (p+0 < 20) { print "EIS11 WERELD TE KLEIN: " $0; f=1 } }
                /ONDERTEKST/ { m++; for (i=1;i<NF;i++) { if ($i=="ruimte") r=$(i+1); if ($i=="over") o=$(i+1) } if (r+0 < 4 || o+0 < 0) { print "DAAN M1 FOUT: " $0; f=1 } }
                /GEHEUGEN/ { n++; p=$NF; sub("%","",p); if (p+0 >= 80) { print "EIS12 TE VOL: " $0; f=1 } }
-               END { print "EIS12 horloges met meting: " n ", ondertekst: " m ", wereldcijfers: " c; if (n < 9 || m < 9 || c < 9) f=1; exit f }' /tmp/metingen.txt || { echo "EIS11/12 FOUT"; touch schermen/eis11-12-fout; }
+               END { print "EIS12 horloges met meting: " n ", ondertekst: " m ", wereldcijfers: " c; if (n < min || m < min || c < min) f=1; exit f }' /tmp/metingen.txt || { echo "EIS11/12 FOUT"; touch schermen/eis11-12-fout; }
           # Proef (telt niet mee): derde start op fenix847mm zonder herstart, direct na het weggooien.
           d=fenix847mm; touch /tmp/zonder-$d
           monkeydo "bin/demo-$d.prg" "$d" > "/tmp/zonder-$d.log" 2>&1 &
@@ -209,7 +219,7 @@ jobs:
           mogrify -fuzz 2% -trim +repage schermen/*.png
           ls -la schermen
           SH
-          docker run --rm --entrypoint bash -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
+          docker run --rm --entrypoint bash -e GITHUB_REF_NAME="$GITHUB_REF_NAME" -v "$GITHUB_WORKSPACE/$APP:/app" -w /app -v /tmp/schermen.sh:/tmp/schermen.sh "$IMAGE" /tmp/schermen.sh
       - name: FIT-bestanden lezen met fitdecode
         if: always()
         run: |
@@ -235,8 +245,12 @@ jobs:
           print("EIS10 FIT-bestanden na weggooien:", len(weg))
           if weg:
               fout.append("na weggooien toch %d FIT-bestanden" % len(weg))
-          if len(mappen) != 9:
-              fout.append("verwacht 9 horloges, gevonden %d" % len(mappen))
+          # Op een proeftak drie horloges, anders negen (het aantal schrijft de stap hierboven op).
+          verwacht = 9
+          if os.path.exists(sys.argv[1] + "/aantal-horloges.txt"):
+              verwacht = int(open(sys.argv[1] + "/aantal-horloges.txt").read().strip())
+          if len(mappen) != verwacht:
+              fout.append("verwacht %d horloges, gevonden %d" % (verwacht, len(mappen)))
           for m in mappen:
               fits = sorted(glob.glob(m + "*.fit"))
               naam = os.path.basename(m.rstrip("/"))

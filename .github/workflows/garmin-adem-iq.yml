@@ -17,6 +17,12 @@ on:
     paths: ["producten/garmin-adem/**", ".github/workflows/garmin-adem-iq.yml"]
   workflow_dispatch:
 
+# Op een proeftak breekt een nieuwe push de oudere plaatjesrun af (anders stapelen de runs zich op in de rij van GitHub).
+# De bouwtak en main breken niets af.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ contains(github.ref_name, 'proef') }}
+
 jobs:
   bouw:
     runs-on: ubuntu-latest
@@ -73,6 +79,8 @@ jobs:
   # Deze job compileert de app, de toetsbouw (demo.jungle) en de plaatjesbouw (plaatjes.jungle) voor ELK horloge uit
   # manifest.xml, met typecontrole (-l 2). Alleen compileren, niet draaien: één NEE of minder dan 28 horloges is rood.
   alle-horloges:
+    # Alleen op de bouwtak en main (volle ronde); op een proeftak overgeslagen (hoofdchat 12 nov 14:00 NL).
+    if: ${{ !contains(github.ref_name, 'proef') }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     permissions:
@@ -107,6 +115,14 @@ jobs:
           sort /uit/regels.txt
           n=$(grep -c '^COMPILEERT ' /uit/regels.txt)
           echo "COMPILEERT horloges: $n"
+          # Vraag van de keuring code en veiligheid (12 nov): welke Connect IQ-versie heeft elk horloge, naast
+          # minApiLevel 5.0.0 in het manifest? Alleen ter info, telt niet mee.
+          F=$(find / -xdev -path '*/Devices/fenix7/compiler.json' 2>/dev/null | head -1)
+          if [ -n "$F" ]; then DEV=$(dirname "$(dirname "$F")")
+            for d in $(grep -o 'iq:product id="[^"]*"' manifest.xml | cut -d'"' -f2); do
+              echo "CIQVERSIE $d: $(grep -o '"connectIQVersion"[^,]*' "$DEV/$d/compiler.json" 2>/dev/null | sort -u | tr -d '"' | tr '\n' ' ')"
+            done
+          else echo "CIQVERSIE: map Devices niet gevonden"; fi
           fout=0
           if grep -q NEE /uit/regels.txt; then fout=1; for f in $(grep NEE /uit/regels.txt | cut -d' ' -f2 | tr -d ':'); do tail -8 /uit/*-$f.log; done; fi
           [ "$n" -ge 28 ] || fout=1
@@ -131,7 +147,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        horloge: [fenix847mm, fr265, vivoactive5, fr255, venu2, venu3, epix2pro47mm, fr965, fenix7, fenix7xpro, fr165, venu3s, venu441mm]
+        # Bericht hoofdchat 12 nov 14:00 NL: op een proeftak (naam met "proef") drie horloges: FR255 (MIP 260),
+        # fenix 8 47 mm (AMOLED 454) en Venu 3S (AMOLED 390, het kleinste AMOLED-scherm). De bouwtak draait ze alle dertien.
+        horloge: ${{ fromJSON(contains(github.ref_name, 'proef') && '["fr255","fenix847mm","venu3s"]' || '["fenix847mm","fr265","vivoactive5","fr255","venu2","venu3","epix2pro47mm","fr965","fenix7","fenix7xpro","fr165","venu3s","venu441mm"]') }}
     env:
       D: ${{ matrix.horloge }}
       IMAGE: ghcr.io/matco/connectiq-tester@sha256:64958e8fd2925d0c4986d72a9aa9d8e2101297a881354aab0118be2f1dc22105
@@ -163,6 +181,21 @@ jobs:
           LAATSTE=$((52 + 12 * $(echo $WERELDEN | wc -w) + 38))
           sed -i "s/const SCENES = [0-9]*;/const SCENES = $((LAATSTE + 1));/" source/Bouw.mc
           echo "WERELDEN: $WERELDEN laatste scène $LAATSTE"
+          # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
+          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d calmcheck sealog-3-alle25 inhouden-krab einde-sea-complete calm-45s sealog-2 menu-leeg einde-weekdoel ademen-uit menu-krab einde-6c-krab einde-6b-zeekomkommer calm-einde-krab pauze einde-na-feest menu-today overzicht-menu wereld-schildpad wereld-krab wereld-clownvis wereld-0-30 wereld-2-30 wereld-schildpad-week4 wereld-krab-week4 wereld-clownvis-week4 lucht-ochtend-in lucht-dag-uit lucht-avond-in lucht-nacht-uit thuis-start-dag thuis-start-nacht"
+          for w in $WERELDEN; do for n in dag nacht; do for s in in uit calm hold menu eind; do NAMEN="$NAMEN $w-$s-$n"; done; done; done
+          # Run 62 en 63: achttien scènes met de echte sessie in de wereld (krab, schildpad, dolfijn in de basiswereld).
+          for w in krab schild basis eerste terugval; do for s in in-dag uit-dag hold-dag in-nacht uit-nacht hold-nacht; do NAMEN="$NAMEN sessie-$w-$s"; done; done
+          # Thuiswater (Bas): de laatste acht scènes zijn menu, pauze en sea log op het thuiswater.
+          NAMEN="$NAMEN thuis-menu-dag thuis-menu-nacht thuis-pauze-dag thuis-pauze-nacht thuis-sealog-dag thuis-sealog-nacht thuis-menu-leeg-dag thuis-sealog-alle-nacht"
+          # Korte proefronde: op een proeftak alleen de scènes uit proef-scenes.txt (namen, een sterretje mag).
+          KEUZE=""
+          case "$GITHUB_REF_NAME" in *proef*) if [ -f proef-scenes.txt ]; then set -f
+            for n in $(grep -v "^#" proef-scenes.txt); do i=0; for m in $NAMEN; do case "$m" in $n) KEUZE="$KEUZE $i" ;; esac; i=$((i+1)); done; done
+          set +f; fi ;; esac
+          KEUZE=$(echo $KEUZE)
+          if [ -n "$KEUZE" ]; then sed -i "s/const KEUZE = \[\] as/const KEUZE = [$(echo $KEUZE | sed "s/ /, /g")] as/" source/SceneKeuze.mc; grep -n "const KEUZE" source/SceneKeuze.mc; fi
+          echo "KEUZE scènes: ${KEUZE:-alle}"
           for d in $D; do
             # Proeftak (naam met "proef"): alleen de proefscènes vanaf 51, zodat de uitslag er in minuten is.
             # Tak thuis-proef (Bas, stap 4): alleen de laatste acht scènes (menu, pauze en sea log op het thuiswater).
@@ -170,7 +203,8 @@ jobs:
             sed -i "s/const EERSTE = 0;/const EERSTE = $EERSTE;/" source/Bouw.mc
             monkeyc -f plaatjes.jungle -d "$d" -o "bin/plaatje-$d.prg" -y /tmp/key.der -l 2 || exit 1
             pkill -f simulator 2>/dev/null; sleep 2; simulator > /tmp/sim.log 2>&1 & sleep 10
-            for k in $(seq $EERSTE $LAATSTE); do
+            REEKS=$(seq $EERSTE $LAATSTE); if [ -n "$KEUZE" ]; then REEKS=$(seq 1 $(echo $KEUZE | wc -w)); fi
+            for k in $REEKS; do
               monkeydo "bin/plaatje-$d.prg" "$d" > "/tmp/plaatje-$d-$k.log" 2>&1 &
               MD=$!
               # Keuring bouw 6 punt 3: op AMOLED 20 s per scène, zodat sea complete af is als de foto genomen wordt.
@@ -187,13 +221,6 @@ jobs:
           # Keuring bouw 2 punt 2: een crash (watchdog of fout) in een scène maakt de run rood (stap "Geen crash").
           grep -iE "watchdog|app crash|unhandled exception|out of memory|VEILIG .* NEE" /tmp/plaatje-*.log /tmp/sim-*.log > plaatjes/CRASH-$D.txt || rm -f plaatjes/CRASH-$D.txt
           mogrify -fuzz 2% -trim +repage plaatjes/*.png
-          # Daan D8: vaste namen per scherm (zelfde volgorde als de scènes in EbbApp.getInitialView).
-          NAMEN="inhouden-0-30 inhouden-1-45 inhouden-2-30 inhouden-3-04 sealog-1 today 8weeks rustig herstel ademen-in start uitleg startcheck veilig-1 veilig-2 veilig-3 einde-6c einde-6b einde-6c-6rondes settings-1 settings-2 einde-6d calmcheck sealog-3-alle25 inhouden-krab einde-sea-complete calm-45s sealog-2 menu-leeg einde-weekdoel ademen-uit menu-krab einde-6c-krab einde-6b-zeekomkommer calm-einde-krab pauze einde-na-feest menu-today overzicht-menu wereld-schildpad wereld-krab wereld-clownvis wereld-0-30 wereld-2-30 wereld-schildpad-week4 wereld-krab-week4 wereld-clownvis-week4 lucht-ochtend-in lucht-dag-uit lucht-avond-in lucht-nacht-uit thuis-start-dag thuis-start-nacht"
-          for w in $WERELDEN; do for n in dag nacht; do for s in in uit calm hold menu eind; do NAMEN="$NAMEN $w-$s-$n"; done; done; done
-          # Run 62 en 63: achttien scènes met de echte sessie in de wereld (krab, schildpad, dolfijn in de basiswereld).
-          for w in krab schild basis eerste terugval; do for s in in-dag uit-dag hold-dag in-nacht uit-nacht hold-nacht; do NAMEN="$NAMEN sessie-$w-$s"; done; done
-          # Thuiswater (Bas): de laatste acht scènes zijn menu, pauze en sea log op het thuiswater.
-          NAMEN="$NAMEN thuis-menu-dag thuis-menu-nacht thuis-pauze-dag thuis-pauze-nacht thuis-sealog-dag thuis-sealog-nacht thuis-menu-leeg-dag thuis-sealog-alle-nacht"
           mkdir -p plaatjes/namen
           for f in plaatjes/*-scene*.png; do
             b=$(basename "$f" .png); d=${b%-scene*}; k=${b##*-scene}
