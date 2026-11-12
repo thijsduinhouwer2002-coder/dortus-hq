@@ -24,18 +24,22 @@ class KrabV2View extends WatchUi.View {
     private var _d as Number = 260;
     private var _am as Boolean = false;
     // slipper: hak x, y, schaal, hoek in graden; held: midden van het kader x, y en maat
-    private var _sl as Array<Float> = [158.0, 146.0, 1.4125, -5.0] as Array<Float>;
+    // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
+    private var _sl as Array<Float> = [158.0, 146.0, 1.4125, -13.0] as Array<Float>;
+    private var _kantel as Float = 4.8;
+    private var _gedraaid as Number = 0;
     private var _held as Array<Number> = [154, 134, 36] as Array<Number>;
 
     function initialize(s as Number, n as Boolean) {
         View.initialize();
         scherm = s;
         nacht = n;
+        _kantel = (s == 0) ? 4.8 : ((s == 2) ? 1.8 : 0.0);
         if (s == 1) {
             _sl = [128.0, 179.0, 1.4125, -5.0] as Array<Float>;
             _held = [124, 165, 36] as Array<Number>;
         } else if (s == 2) {
-            _sl = [128.0, 155.0, 1.4125, -5.0] as Array<Float>;
+            _sl = [128.0, 155.0, 1.4125, -8.0] as Array<Float>;
             _held = [124, 141, 36] as Array<Number>;
         } else if (s == 3) {
             _sl = [120.0, 207.65, 1.4907, -4.0] as Array<Float>;
@@ -255,7 +259,8 @@ class KrabV2View extends WatchUi.View {
             var m = q(_held[2]);
             var g = EbbDierMaat.grenzen(4);
             var s = EbbDierData.SCHAAL;
-            staat = EbbDierVoorraad.teken(dc, 4, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN);
+            _gedraaid = EbbDierVoorraad.tekenHoek(dc, 4, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN, _kantel, _am);
+            staat = _gedraaid > 0;
             if (staat) {
                 bandje(dc);
                 if (scherm == 5) {
@@ -274,7 +279,7 @@ class KrabV2View extends WatchUi.View {
         if (staat && !_gemeld) {
             _gemeld = true;
             var st = System.getSystemStats();
-            System.println("KRABV2 scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
+            System.println("KRABV2 scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
         }
     }
 }

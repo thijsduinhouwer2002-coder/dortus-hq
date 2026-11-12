@@ -54,17 +54,18 @@ module KrabV2Lagen {
         }
     }
 
-    // Boven water (in, uit, Calm): lucht met zon of maan, wolkje, meeuw, kam met schuim op hoogte top, vier golfrijen,
+    // Boven water (in, uit, Calm): lucht met zon of maan, wolkje, meeuw, kam met schuim op hoogte top, twee golfrijen,
     // ver weg de andere slipper van het paar.
     function boven(v as KrabV2View, dc as Graphics.Dc, stap as Number, am as Boolean, nacht as Boolean, top as Number) as Void {
         var l0 = nacht ? 0x000055 : 0x0055AA;
         var l1 = nacht ? 0x0000AA : 0x00AAFF;
-        var rijY = [top, top + 34, top + 66, top + 98] as Array<Number>;
-        var rijA = [4.0, 3.0, 3.5, 4.0] as Array<Float>;
-        var rijN = [2, 4, 3, 2] as Array<Number>;
-        var rijF = [1.2, 0.3, 2.0, 0.8] as Array<Float>;
-        var kl = (am ? (nacht ? [0x004B96, 0x00377D, 0x002364, 0x000F4B] : [0x0055AF, 0x004196, 0x002D7D, 0x001C5F])
-            : (nacht ? [0x0000AA, 0x0000AA, 0x000055, 0x000055] : [0x0055AA, 0x0055AA, 0x0000AA, 0x0000AA])) as Array<Number>;
+        // Mila v3: kam en twee golfrijen eronder (drie of vier rijen was te veel punten per beurt)
+        var rijY = [top, top + 34, top + 66] as Array<Number>;
+        var rijA = [4.0, 3.0, 3.5] as Array<Float>;
+        var rijN = [2, 4, 3] as Array<Number>;
+        var rijF = [1.2, 0.3, 2.0] as Array<Float>;
+        var kl = (am ? (nacht ? [0x004B96, 0x002D73, 0x000F4B] : [0x0055AF, 0x00378C, 0x001E64])
+            : (nacht ? [0x0000AA, 0x000055, 0x000055] : [0x0055AA, 0x0000AA, 0x000055])) as Array<Number>;
         if (stap == 0) {
             if (am) {
                 verloop(v, dc, 0, top + 6, l0, l1);
@@ -111,21 +112,25 @@ module KrabV2Lagen {
                 v.golf(dc, top - 3, 262, 0xFFFFFF, 4.0, 2, 1.2);
                 v.golf(dc, top, 262, kl[0], 4.0, 2, 1.2);
             }
-            for (var k = 2 * stap - 1; k <= 2 * stap && k < 4; k += 1) {
+            for (var k = 2 * stap - 1; k <= 2 * stap && k < 3; k += 1) {
                 v.golf(dc, rijY[k] - 1.6, 262, nacht ? 0x5555FF : 0x55AAFF, rijA[k], rijN[k], rijF[k]);
                 v.golf(dc, rijY[k], 262, kl[k], rijA[k], rijN[k], rijF[k]);
             }
+            if (stap == 2) {
+                KrabV2Vonk.opWater(v, dc, top, nacht);
+            }
         } else if (stap == 3) {
             // de grap: ver weg op de kam drijft de andere slipper van het paar
-            var zx = 76.0;
+            var zx = 72.0;
             var zy = top - 2.0;
-            var k = 1.7;
+            var k = 2.4;
             var p = [zx - 7 * k, zy, zx - 4 * k, zy - 2.6 * k, zx + 3 * k, zy - 2.2 * k, zx + 8 * k, zy - 0.4 * k, zx + 3 * k, zy + 1.2 * k, zx - 4 * k, zy + 1.2 * k] as Array<Float>;
             v.blob(dc, p, 0xFF55AA, 0xFFFFFF, 1.4);
             dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
-            dc.setPenWidth(v.q(1.4) < 1 ? 1 : v.q(1.4));
+            dc.setPenWidth(v.q(1.8) < 2 ? 2 : v.q(1.8));
             dc.drawLine(v.q(zx + 4 * k), v.q(zy - k), v.q(zx - k), v.q(zy - 2.4 * k));
-            dc.drawLine(v.q(zx - k), v.q(zy - 2.4 * k), v.q(zx + 4 * k), v.q(zy + 0.2 * k));
+            dc.drawLine(v.q(zx + 4 * k), v.q(zy - k), v.q(zx - k), v.q(zy + 0.3 * k));
+            dc.fillCircle(v.q(zx + 4 * k), v.q(zy - k), v.q(1.6) < 1 ? 1 : v.q(1.6));
             dc.setPenWidth(1);
         }
     }

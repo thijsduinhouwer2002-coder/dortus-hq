@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.WatchUi;
 
@@ -82,6 +83,25 @@ class EbbDierPlaatje {
         }
     }
 
+    // Plak het dier gedraaid om zijn zwaartepunt (graden, plus is tegen de klok in: neus omhoog bij een dier dat naar
+    // links kijkt). Eén plaatje, het horloge draait het bij het plakken (Mila 12 nov 02:15 UTC punt 4). Kan het
+    // horloge dat niet, dan recht geplakt; geeft terug of er gedraaid is.
+    function plakHoek(dc as Graphics.Dc, cx as Number, cy as Number, graden as Float, zacht as Boolean) as Boolean {
+        var bb = (_ref != null) ? (_ref as Graphics.BufferedBitmapReference).get() : null;
+        if (bb == null) {
+            return false;
+        }
+        if (graden == 0.0 || !(dc has :drawBitmap2) || !(Graphics has :AffineTransform)) {
+            dc.drawBitmap(cx - links, cy - boven, bb as Graphics.BufferedBitmap);
+            return false;
+        }
+        var t = new Graphics.AffineTransform();
+        t.rotate(-Math.toRadians(graden).toFloat());
+        t.translate(-links.toFloat(), -boven.toFloat());
+        dc.drawBitmap2(cx, cy, bb as Graphics.BufferedBitmap, {:transform => t, :filterMode => (zacht ? Graphics.FILTER_MODE_BILINEAR : Graphics.FILTER_MODE_POINT)});
+        return true;
+    }
+
     // De enige tekenfunctie voor een dier (besluit Thijs 11 nov 07:41): laag stap van dier i met zijn zwaartepunt op
     // (x, y). GEVONDEN: 4 keer stickerrand, dan lijf en ogen (5 lagen). SILHOUET en SCHADUW: 8 keer rand, dan het vlak
     // (9 lagen). Het plaatje hieronder en het blad van de sea log gebruiken allebei deze functie.
@@ -150,5 +170,14 @@ module EbbDierVoorraad {
         }
         WatchUi.requestUpdate();
         return false;
+    }
+
+    // Zoals teken, maar gedraaid geplakt (zie EbbDierPlaatje.plakHoek). 0 nog niet af, 1 recht geplakt, 2 gedraaid.
+    function tekenHoek(dc as Graphics.Dc, i as Number, cx as Number, cy as Number, maat as Number, soort as Number, graden as Float, zacht as Boolean) as Number {
+        if (!bereid(i, maat, soort)) {
+            return 0;
+        }
+        var p = _plaatjes[i + "/" + maat + "/" + soort] as EbbDierPlaatje;
+        return p.plakHoek(dc, cx, cy, graden, zacht) ? 2 : 1;
     }
 }
