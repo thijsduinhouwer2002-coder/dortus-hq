@@ -87,6 +87,24 @@ def gieter(d, x, y, k=1.0):
     d.dr.rectangle([d.P(x - 11.6 * k, y - 4 * k), d.P(x + 7.6 * k, y - 2 * k)], fill=GROEN_L)
 
 
+def gieter_klauw(d, cx, cy, k=1.4, kleur=None, druppels=True):
+    """Grote gieter met het handvat in de schaar (cx, cy); tuit wijst naar links, druppels vallen uit de broes."""
+    G, GL, GD = kleur or ((0, 170, 255), (85, 255, 255), (0, 0, 170))
+    x, y = cx - 7 * k, cy + 18 * k
+    X = lambda dx: x - dx * k
+    staaf(d, (X(6), y - 2 * k), (X(21), y - 15 * k), 3.6 * k, G, WIT, 1.4)           # tuit
+    d.rondje(X(22.5), y - 16 * k, 4.6 * k, 4.6 * k, GL, WIT, dikte=1.4)               # broes
+    d.dr.arc([d.P(X(2), y - 18 * k), d.P(X(-16), y - 2 * k)], 180, 360, fill=WIT, width=max(2, round(5.6 * k * d.s)))
+    d.dr.arc([d.P(X(2), y - 18 * k), d.P(X(-16), y - 2 * k)], 180, 360, fill=GD, width=max(1, round(3.0 * k * d.s)))
+    d.blob([(X(-12), y - 10 * k), (X(8), y - 10 * k), (X(7), y + 6 * k), (X(-11), y + 6 * k)], G, WIT, 1.8)
+    d.dr.rectangle([d.P(X(7.6), y - 4 * k), d.P(X(-11.6), y - 1.6 * k)], fill=GL)
+    if druppels:
+        bx, by = X(24), y - 12 * k
+        for dx, dy in ((-3, 6), (1, 11), (-5, 15), (-1, 19)):
+            px, py = bx + dx * k * .8, by + dy * k * .8
+            d.blob([(px, py - 2.6 * k), (px + 1.6 * k, py + .6 * k), (px, py + 1.8 * k), (px - 1.6 * k, py + .6 * k)], (85, 255, 255), WIT, .8)
+
+
 def bloempot(d, x, y, k=1.0, bloem=True):
     if bloem:
         staaf(d, (x, y - 6 * k), (x, y - 18 * k), 2 * k, GROEN, None)
@@ -132,6 +150,25 @@ def schelp(d, x, y, k=1.0, c=(255, 170, 170)):
     d.blob([(x + 9 * k * math.cos(t), y - 8 * k * math.sin(t)) for t in [math.pi * i / 10 for i in range(11)]] + [(x + 2 * k, y + 4 * k), (x - 2 * k, y + 4 * k)], c, WIT, 1.4)
     for a in (-60, -25, 25, 60):
         t = math.radians(90 + a); lijn(d, [(x, y + 2 * k), (x + 7 * k * math.cos(t), y - 6.5 * k * math.sin(t))], (255, 85, 85), 1.1 * k)
+
+
+def mok(d, x, yb, k=1.0, stoom=True):
+    """Grote rode mok warme chocolademelk (bruin bovenvlak, wit randje, oor rechts), wolkje stoom erboven. yb = onderkant."""
+    w_, h_ = 11 * k, 22 * k
+    # oor
+    d.rondje(x + w_ + 2 * k, yb - h_ * .5, 6 * k, 6.5 * k, WIT)
+    d.rondje(x + w_ + 2 * k, yb - h_ * .5, 4.4 * k, 4.9 * k, ROOD)
+    d.rondje(x + w_ + 2 * k, yb - h_ * .5, 2.0 * k, 2.6 * k, (0, 0, 85))
+    d.blob([(x - w_, yb - h_), (x + w_, yb - h_), (x + w_ * .92, yb - 2 * k), (x + w_ * .7, yb), (x - w_ * .7, yb), (x - w_ * .92, yb - 2 * k)], ROOD, WIT, 1.8)
+    d.rondje(x, yb - h_, w_, 3.4 * k, WIT)
+    d.rondje(x, yb - h_ + .3 * k, w_ - 1.8 * k, 2.2 * k, (170, 85, 0))              # chocolademelk
+    d.rondje(x - 3 * k, yb - h_ * .55, 2.6 * k, 2.6 * k, WIT)                         # hartje-stip op de mok
+    d.rondje(x + 3 * k, yb - h_ * .55, 2.6 * k, 2.6 * k, WIT)
+    d.blob([(x - 5.4 * k, yb - h_ * .5), (x + 5.4 * k, yb - h_ * .5), (x, yb - h_ * .22)], WIT)
+    if stoom:
+        for dx, ph in ((-4.5, 0), (4.5, 1)):
+            pts = [(x + dx * k + 2.6 * k * math.sin(i / 6 * 2 * math.pi + ph * math.pi), yb - h_ - 5 * k - i * 2.2 * k) for i in range(5)]
+            lijn(d, pts, WIT, 2.4 * k)
 
 
 def steentje(d, x, y, k=1.0):
@@ -182,9 +219,8 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         # zwemband van het water voor zijn onderkant: hij staat in de golf
     elif dier == 'lobster':
         hx = {134: 166, 146: 180, 170: 140}[top]; hy = top - 4
-        gieter(d, hx - 70 if not hoog else hx + 62, top + 4, 1.05)
-        bloempot(d, 60 if not hoog else 212, top + 2, 1.05) if not hoog else bloempot(d, hx - 64, top + 2, 1.0)
         v3.dier_kantel(d, hx, hy, 38, LOBSTER, hoek)
+        gieter_klauw(d, hx - 30, hy - 22, 1.35)      # ronde 4: alleen hoed en een grote gieter in zijn schaar
         strohoed(d, hx + 2, hy - 25, 1.15)
     elif dier == 'seal':
         hx = 140 if hoog else 176; hy = top - (16 if hoog else 11)
@@ -194,13 +230,12 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         hengel(d, (hx - 26, hy + 8), (hx - 60, hy - 18), dob)
         dobber(d, *dob, 1.2)
     elif dier == 'otter':
-        hx = 136 if hoog else 158; hy = top - 6
+        hx = 136 if hoog else 168; hy = top - 4
         # ronde 2: 70 tot 90 graden gedraaid geprobeerd (-80, 100, 180): dan staat hij rechtop of op zijn kop.
         # De sticker ligt zelf al op zijn rug met iets op zijn buik; plat laten en de schelp op die buik leggen.
         v3.dier_kantel(d, hx, hy, 36, OTTER, hoek * .6)
-        # ronde 3: een grote schelp op zijn buik en een steen erboven (twee vormen, samen ongeveer de helft van zijn breedte)
-        schelp(d, hx + 6, hy - 4, 2.0)
-        steentje(d, hx + 6, hy - 26, 1.6)
+        # ronde 4: een grote kop warme chocolademelk op zijn buik (zijn buik is een tafel), wolkje stoom
+        mok(d, hx + 2, hy - 4, 1.05)
     v3.tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -243,17 +278,17 @@ def plek(d, dd, dier, hx, hy, m, held=True, zak=0, nacht=False, stand='hold'):
     elif dier == 'lobster':   # tuin: groen gazon, wit tuinhekje, twee bloempotten op de bodem
         bodem(d, 222, (0, 170, 85), GROEN_L, zak)
         for x in range(14, 252, 16):
-            if 70 < x < 196 and held: continue          # hekje opzij: de held en zijn hartje staan vrij
+            if x < 204 and held: continue          # hekje opzij: de held en zijn hartje staan vrij
             e = 12 if stand == 'eind' else 0
             d.blob([(x - 4, 224 + zak), (x - 4, 196 + zak + e), (x, 191 + zak + e), (x + 4, 196 + zak + e), (x + 4, 224 + zak)], WIT, GRIJS_D, 1)
         for yy in (202, 216):
-            for x0, x1 in ((6, 74), (190, 254)) if held else ((6, 254),):
+            for x0, x1 in ((204, 254),) if held else ((6, 254),):
                 ee = 8 if stand == 'eind' else 0
                 d.dr.rectangle([d.P(x0, yy + zak + ee), d.P(x1, yy + 3 + zak + ee)], fill=WIT)
-        bloempot(d, 44, 238 + zak, 1.0); bloempot(d, 214, 240 + zak, .9)
         if held:
-            zeegras_hart(d, hx + m * 1.55, hy - m * .2, m * .62)
             d.dier(hx, hy, m, LOBSTER)
+            gieter_klauw(d, hx - .78 * m, hy - .58 * m, 1.45 * m / 40)
+            strohoed(d, hx + 2, hy - .66 * m, 1.15 * m / 38)
     elif dier == 'seal':   # onder het ijs: donkere ijsrand bovenin, een kleine schots, donkere stenen bodem
         s = d.s
         ijs, ijs_r = ((0, 85, 170), (85, 170, 255)) if not nacht else ((0, 0, 170), (85, 85, 255))
@@ -282,6 +317,7 @@ def plek(d, dd, dier, hx, hy, m, held=True, zak=0, nacht=False, stand='hold'):
         if held:
             lint_vast(d, hx + 6, 248, hx + 2, hy + m * .35, buig=6, b=5)
             d.dier(hx, hy, m, OTTER)
+            mok(d, hx + .04 * m, hy - .12 * m, 1.05 * m / 36)
             bx, by = hx + 2, hy + m * .38
             for sg in (-1, 1):
                 d.blob([(bx, by), (bx + sg * 10, by - 6), (bx + sg * 10, by + 6)], KELP, KELP_L, 1.2)
@@ -291,8 +327,8 @@ def plek(d, dd, dier, hx, hy, m, held=True, zak=0, nacht=False, stand='hold'):
 def hold(D_, am, dd, nacht, dier):
     v._KAP['y'] = 139
     d = Doek(D_, am)
-    hx, hy, m = {'shrimp': (110, 184, 44), 'starfish': (112, 188, 40), 'lobster': (104, 186, 42),
-                 'seal': (116, 192, 38), 'otter': (114, 190, 42)}[dier]
+    hx, hy, m = {'shrimp': (110, 184, 44), 'starfish': (112, 188, 40), 'lobster': (130, 194, 42),
+                 'seal': (116, 192, 38), 'otter': (116, 200, 42)}[dier]
     v3.onder(d, dd, nacht, xo=hx + 6, xh=hx + 8)
     plek(d, dd, dier, hx, hy, m, nacht=nacht)
     stofjes(d, dd)
@@ -306,7 +342,7 @@ def hold(D_, am, dd, nacht, dier):
 def menu(D_, am, dd, nacht, dier):
     v._KAP['y'] = 140
     d = Doek(D_, am)
-    hx, hy, m = {'shrimp': (112, 194, 38), 'starfish': (112, 196, 37), 'lobster': (106, 196, 36),
+    hx, hy, m = {'shrimp': (112, 194, 38), 'starfish': (112, 196, 37), 'lobster': (128, 196, 36),
                  'seal': (118, 200, 33), 'otter': (116, 198, 36)}[dier]
     v3.onder(d, dd, nacht, xo=hx + 6, xh=hx + 8)
     plek(d, dd, dier, hx, hy, m, zak=6, nacht=nacht, stand='menu')
@@ -344,12 +380,12 @@ def eind(D_, am, dd, nacht, dier):
     elif dier == 'starfish':
         telescoop(d, 104, 126, hoek=-30, k=.8, nacht=nacht, poten=False); d.dier(72, 116, 27, STAR)
     elif dier == 'lobster':
-        zeegras_hart(d, 104, 108, 14); d.dier(70, 118, 28, LOBSTER)
+        d.dier(76, 118, 28, LOBSTER); gieter_klauw(d, 76 - .78 * 28, 118 - .58 * 28, 1.0, druppels=False); strohoed(d, 78, 100, .85)
     elif dier == 'seal':
         d.dr.line([d.P(104, 78), d.P(104, 96)], fill=WIT, width=max(1, round(1.2 * d.s))); dobber(d, 104, 104, 1.0)
         visje(d, 110, 122, .8); d.dier(70, 120, 26, SEAL)
     elif dier == 'otter':
-        d.dier(76, 116, 30, OTTER); schelp(d, 80, 112, 1.0); steentje(d, 92, 118, .9)
+        d.dier(74, 124, 30, OTTER); mok(d, 75, 121, .82)
     d.tekst(130, 150, 'new friend', 18, WIT, False)
     d.tekst(130, 166, naam, 32 if len(naam) < 9 else 29, GEEL)
     stippen(d.dr, 130 * d.s, 212 * d.s, 3, 1, max(2, round(3.5 * d.s)), round(13 * d.s))

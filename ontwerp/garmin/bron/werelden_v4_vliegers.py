@@ -1,10 +1,10 @@
 # Werelden v4, familie vliegers (run 50, 12 nov): Ray, Manta, Dolphin, Swordfish in de opzet van krab, schildpad en clownvis (v3.2).
 # Hergebruikt werelden_v21 (Doek, water, tekst), werelden_v3 (lucht, zee, kantelen) en werelden_v32 (bundel, indeling).
 # Per dier een eigen plek onder water en een eigen grapvoorwerp (de sticker zelf blijft zoals hij is):
-#  - ray: wit zand met rimpels / hij is een vliegende schotel: lichtjes langs zijn rand en een bundel licht op de golf;
-#    onder water een rond landingsspoor met drie putjes in het zand
+#  - ray: wit zand met rimpels / toets 22: hij IS een vlieger: lattenkruis over zijn ruit, lange staart met drie strikjes
+#    (rood, geel, groen) en een touwtje naar de golfkam; onder water houdt hij touwtje en staart (ufo vervallen)
 #  - manta: open water met een zandbank ver weg / reclamevliegtuigje met een spandoekje met een hartje;
-#    onder water ligt het spandoekje opgerold op de zandbank
+#    onder water ligt het spandoekje opgerold op de zandbank; toets 22: manta donker van boven, witte schoudervlekken, hoornlobben
 #  - dolphin: open water met lichtvlekken / duikbril met snorkel die uit de golf steekt; onder water staat de bril op zijn voorhoofd
 #  - swordfish (ronde 3): open blauw met lichtstreepjes / zijn zwaard steekt door een grote roze donut met spikkels (boven, onder, eind);
 #    (eerdere krullijn en zandhartje lazen niet, keuring blad 7)
@@ -73,6 +73,70 @@ def hartje(d, cx, cy, k, c, rand=WIT, rd=1.4):
 
 
 # ---------------- grapvoorwerpen ----------------
+# toets 22: de manta donker van boven (vaste MIP-tinten), witte schoudervlekken (de V op zijn rug) en
+# twee duidelijke hoornlobben bij de bek. Grijs en zwart, dus nooit te verwarren met de olijfgroene rog-vlieger.
+MANTA = dict(N['Manta']); MANTA['tint'] = ['0x555555', '0xFFFFFF', '0x000000']
+def manta(d, cx, cy, m, hoek):
+    v3.dier_kantel(d, cx, cy, m, MANTA, hoek)
+    r = rot(cx, cy, m, hoek)
+    for s_ in (-1, 1):
+        x = lambda q: q * s_ - .04
+        # witte schoudervlek (de V op de rug van een manta)
+        d.blob([r(x(.30), -.24), r(x(.86), -.08), r(x(.50), -.06)], WIT)
+        # hoornlob: korte dikke krul naar voren aan elke kant van de bek, donker met witte rand
+        hart_ = [(.17 + .05 * math.sin(math.pi * t) - .05 * t ** 3, -.34 - .50 * math.sin(t * 1.35)) for t in [i / 14 for i in range(15)]]
+        bl, br_ = [], []
+        for i in range(len(hart_)):
+            a_, b_ = hart_[max(0, i - 1)], hart_[min(len(hart_) - 1, i + 1)]
+            tx, ty = b_[0] - a_[0], b_[1] - a_[1]; L_ = math.hypot(tx, ty) or 1
+            wd = .085 * (1 - .30 * i / 14)
+            bl.append((hart_[i][0] - ty / L_ * wd, hart_[i][1] + tx / L_ * wd)); br_.append((hart_[i][0] + ty / L_ * wd, hart_[i][1] - tx / L_ * wd))
+        lob = [r(x(px_), py_) for px_, py_ in bl + list(reversed(br_))]
+        d.blob(lob, (0, 0, 0), WIT, 1.4)
+
+
+# toets 22: de rog IS een vlieger. Lattenkruis over zijn ruit, een lange staart met drie strikjes en een touwtje.
+STRIK_KL = [(255, 0, 0), (255, 255, 0), (0, 255, 85)]
+def strikje(d, x, y, k, c):
+    for s_ in (-1, 1):
+        d.blob([(x, y), (x + 6 * k * s_, y - 4.2 * k), (x + 7 * k * s_, y), (x + 6 * k * s_, y + 4.2 * k)], c, DONKER, 1.2)
+    d.rondje(x, y, 1.8 * k, 1.8 * k, c, DONKER, dikte=1.0)
+
+
+def vlieger(d, cx, cy, m, hoek, touw_naar=None, staart=None, lat=True):
+    """De rog als vlieger. touw_naar: eindpunt van het touwtje (of None); staart: lijst richtingspunten t.o.v. de
+    staartpunt in eenheden van m (de staart golft daarlangs)."""
+    r = rot(cx, cy, m, hoek); k = max(.7, m / 38)
+    if touw_naar is not None:      # touwtje eerst: het komt onder zijn buik vandaan
+        a = r(0, .12); b = touw_naar
+        mid = ((a[0] + b[0]) / 2 + 4, (a[1] + b[1]) / 2 + 6)        # licht doorhangend
+        pts = [(a[0] * (1 - t) ** 2 + 2 * mid[0] * t * (1 - t) + b[0] * t * t, a[1] * (1 - t) ** 2 + 2 * mid[1] * t * (1 - t) + b[1] * t * t) for t in [i / 20 for i in range(21)]]
+        d.dr.line([d.P(*q) for q in pts], fill=DONKER, width=max(2, round(2.8 * d.s)), joint='curve')
+        d.dr.line([d.P(*q) for q in pts], fill=WIT, width=max(1, round(1.3 * d.s)), joint='curve')
+    v3.dier_kantel(d, cx, cy, m, WIE['ray'], hoek)
+    if lat:      # lattenkruis van een vlieger, dun bruin over de ruit
+        bruin = (170, 85, 0)
+        for p0, p1 in (((-.02, -.80), (-.04, .80)), ((-1.0, -.20), (1.0, -.20))):
+            d.dr.line([d.P(*r(*p0)), d.P(*r(*p1))], fill=bruin, width=max(1, round(1.5 * d.s)))
+    st = staart or [(.5, .5), (1.1, .7), (1.6, .6)]
+    x0, y0 = r(-.04, .84)
+    ankers = [(x0, y0)] + [(x0 + dx * m, y0 + dy * m) for dx, dy in st]
+    pts = []
+    for i in range(len(ankers) - 1):
+        (ax, ay), (bx, by) = ankers[i], ankers[i + 1]
+        for j in range(10):
+            t = j / 10; nx_, ny_ = -(by - ay), (bx - ax); L = math.hypot(nx_, ny_) or 1
+            g = 3.2 * k * math.sin(t * math.pi) * (1 if i % 2 else -1)
+            pts.append((ax + (bx - ax) * t + nx_ / L * g, ay + (by - ay) * t + ny_ / L * g))
+    pts.append(ankers[-1])
+    d.dr.line([d.P(*q) for q in pts], fill=DONKER, width=max(2, round(3.4 * d.s)), joint='curve')
+    d.dr.line([d.P(*q) for q in pts], fill=WIT, width=max(1, round(1.6 * d.s)), joint='curve')
+    n = len(pts)
+    for c, f in zip(STRIK_KL, (.30, .62, .96)):
+        q = pts[min(n - 1, round(f * (n - 1)))]; strikje(d, q[0], q[1], k * 1.35, c)
+
+
+
 RAY_IN, RAY_CALM = 28, 26     # hoogte van de rog boven de golf bij in en Calm (was 34 en 30)
 def ufo_koepel(d, cx, cy, m, hoek):
     """Ronde 4: glazen koepel bovenop zijn rug, zoals op een vliegende schotel: lichtblauw glas, donkere omtrek,
@@ -271,13 +335,12 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
     wie = WIE[dier]
     if dier == 'ray':
         # het landingsspoor: een ronde ring met drie putjes, de rog zweeft erboven met de lampjes uit
-        gx, gy, gr = (hx + 6, 238, 54) if scherm != 'eind' else (74, 238, 34)
-        spoor(d, gx, gy, gr)
+        # hij nam de vlieger mee naar beneden: touwtje hangt slap naar het zand, staart met strikjes golft achter hem
         if HELD_AAN:
-            ufo(d, hx, hy, m, 0, aan=False)
+            vlieger(d, hx, hy, m, 0, touw_naar=(hx - 34, 226), staart=[(.55, .30), (1.15, .25), (1.70, .05)])
     elif dier == 'manta':
         if HELD_AAN:
-            v3.dier_kantel(d, hx, hy, m, wie, 0)
+            manta(d, hx, hy, m, 0)
     elif dier == 'dolphin':
         schaduw(d, hx + 4, hy + m * .78, m * .9)
         if HELD_AAN:
@@ -307,8 +370,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         m = 38; hx = {'in': 196, 'calm': 194, 'uit': 150}[fase]
         hy = top - {'in': RAY_IN, 'calm': RAY_CALM, 'uit': 32}[fase]     # ronde 4: lager, de punt raakte de 12
         if HELD_AAN:
-            ufo_bundel(d, hx, hy, m, top + 12, nacht)
-            ufo(d, hx, hy, m, hoek)
+            vlieger(d, hx, hy, m, hoek, touw_naar=(hx - 58, top + 7), staart=[(.45, .35), (.95, .45), (1.35, .30)])
     elif dier == 'manta':
         m = 34; hx = {'in': 206, 'calm': 204, 'uit': 196}[fase]; hy = top - 22   # rechts, het doek waait achter hem naar links
         if HELD_AAN:
@@ -316,7 +378,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
             sx, sy = r(mk['staart'][0], mk['staart'][1] - .05)
             bx, by = hx - 46 - 66, hy + 4
             lijn(d, [(sx, sy), (bx + 66, by + 10)], DONKER, 2.4); lijn(d, [(sx, sy), (bx + 66, by + 10)], WIT, 1.2)
-            v3.dier_kantel(d, hx, hy, m, wie, hoek)
+            manta(d, hx, hy, m, hoek)
             spandoek(d, bx, by, 66, 20)
     elif dier == 'dolphin':
         m = 44; hx = 128 if top > 160 else 176; dy = 0 if top < 140 else -4
@@ -346,7 +408,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
 
 
 # held op hold en menu (x, y, maat), plus waar de bundel valt
-HOLD = {'ray': (112, 184, 46), 'manta': (130, 184, 46), 'dolphin': (140, 186, 48), 'swordfish': (150, 190, 46)}
+HOLD = {'ray': (112, 184, 46), 'manta': (130, 189, 46), 'dolphin': (140, 186, 48), 'swordfish': (150, 190, 46)}
 MENU = {'ray': (110, 178, 40), 'manta': (130, 186, 42), 'dolphin': (138, 194, 42), 'swordfish': (150, 197, 40)}
 
 
@@ -406,9 +468,9 @@ def eind(D_, am, dd, nacht, dier):
     wie = WIE[dier]
     if HELD_AAN:
         if dier == 'ray':
-            ufo(d, 74, 108, 30, 0)
+            vlieger(d, 72, 104, 30, 0, touw_naar=(40, 140), staart=[(.5, .25), (1.0, .35), (1.45, .2)])
         elif dier == 'manta':
-            v3.dier_kantel(d, 66, 106, 28, wie, 0)
+            manta(d, 66, 106, 28, 0)
             mk = merk(wie); sx, sy = 66 + mk['staart'][0] * 28, 106 + mk['staart'][1] * 28 - 1
             lijn(d, [(sx, sy), (sx + 6, sy + 10)], DONKER, 2.4); lijn(d, [(sx, sy), (sx + 6, sy + 10)], WIT, 1.2)
             spandoek(d, sx + 4, sy + 6, 40, 14)

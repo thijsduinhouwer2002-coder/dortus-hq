@@ -5,10 +5,9 @@
 #              onder water is de fles op het zand zijn huis en ligt de kurk ernaast
 #  - octopus:  badje op pootjes dat op de bodem is gezakt / hij neemt een bad met een geel badeendje;
 #              onder water drijft het eendje boven hem aan het oppervlak
-#  - eel:      zand vol gaatjes / hij heeft een idee: een lampje boven zijn kop, aan bij inademen; onder water uit
-#  - puffer:   zandbodem met een schelp / hij is een ballon aan een touwtje (hoogte volgt de adem, de sticker groeit niet);
-#              onder water zit het touwtje aan de schelp vastgeknoopt
-#  - cucumber: een schelp als bedje / hij slaapt altijd: kussen, slaapmuts en drie z'en; onder water een plukje kelp als deken
+#  - eel:      zand vol gaatjes / elektrische aal: grote witte stekker in zijn bek, dik snoer in een kronkel om hem heen
+#  - puffer:   zandbodem met schelp, steen en zee-egel / luchtballon: hij is de ballon, eronder een rieten mandje aan vier lijnen
+#  - cucumber: een schelp als bedje / spa-dag: twee plakjes komkommer op zijn ogen en een roze handdoekje op zijn kop
 # Coordinaten in 1/260 D.   python3 werelden_v4_huisjes.py <uitmap> [dier ...]
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -241,6 +240,112 @@ def bedschelp(d, cx, cy, k):
     d.blob([(cx - 66 * k, cy - 8 * k), (cx + 66 * k, cy - 8 * k), (cx + 66 * k, cy - 2 * k), (cx - 66 * k, cy - 2 * k)], (255, 85, 170), WIT, 1.2)
 
 
+
+# ---------------- nieuwe grappen (herkenningstoets 22, run 55) ----------------
+def glad(pts, n=6):
+    """Catmull-Rom: vloeiende lijn door de punten."""
+    uit = []
+    P_ = [pts[0]] + list(pts) + [pts[-1]]
+    for i in range(1, len(P_) - 2):
+        p0, p1, p2, p3 = P_[i - 1], P_[i], P_[i + 1], P_[i + 2]
+        for j in range(n):
+            t = j / n; t2, t3 = t * t, t * t * t
+            uit.append(tuple(.5 * (2 * p1[q] + (-p0[q] + p2[q]) * t + (2 * p0[q] - 5 * p1[q] + 4 * p2[q] - p3[q]) * t2
+                                   + (-p0[q] + 3 * p1[q] - 3 * p2[q] + p3[q]) * t3) for q in (0, 1)))
+    uit.append(pts[-1]); return uit
+
+
+KOMK, KOMK_R, PIT = (170, 255, 85), (0, 85, 0), (255, 255, 170)
+DOEK_R, DOEK_V = (255, 170, 255), (255, 85, 170)
+
+
+@held
+def plakje(d, x, y, r):
+    """Plakje komkommer: donkergroene schil, lichtgroen vruchtvlees, ring van lichte pitjes."""
+    d.rondje(x, y, r + 1.2, r + 1.2, WIT)
+    d.rondje(x, y, r, r, KOMK_R)
+    d.rondje(x, y, r * .78, r * .78, KOMK)
+    d.rondje(x, y, r * .2, r * .2, (255, 255, 170))
+    for i in range(6):
+        a = math.radians(i * 60 + 30)
+        d.rondje(x + r * .45 * math.cos(a), y + r * .45 * math.sin(a), max(.9, r * .1), max(.9, r * .14), PIT)
+
+
+@held
+def handdoekje(d, f, m):
+    """Roze handdoekje opgerold op zijn kop (tulband), met twee vouwlijnen en een witte rand."""
+    pts = [f(-1.0, -.2), f(-.98, -.42), f(-.82, -.58), f(-.58, -.66), f(-.32, -.6), f(-.18, -.44), f(-.2, -.26), f(-.6, -.2)]
+    d.blob(pts, DOEK_R, WIT, 1.5)
+    lijn(d, [f(-.9, -.36), f(-.62, -.46), f(-.3, -.42)], DOEK_V, max(1.2, .05 * m))
+    lijn(d, [f(-.82, -.52), f(-.56, -.58)], DOEK_V, max(1.0, .04 * m))
+    lijn(d, [f(-.95, -.24), f(-.25, -.3)], WIT, max(1.0, .035 * m))
+
+
+def spa(d, cx, cy, m, hoek):
+    """Zeekomkommer met handdoekje en twee plakjes komkommer op zijn ogen."""
+    f = R(cx, cy, hoek, m)
+    kantel(d, cx, cy, m, CUKE, hoek)
+    handdoekje(d, f, m)
+    r = .22 * m
+    plakje(d, *f(-.26, -.16), r)
+    plakje(d, *f(-.54, -.04), r)
+
+
+SNOER = (85, 85, 85)
+
+
+@held
+def snoer(d, f, m, pts):
+    q = glad([f(*p) for p in pts], 8)
+    lijn(d, q, WIT, max(3.4, .14 * m)); lijn(d, q, SNOER, max(2.0, .085 * m))
+
+
+@held
+def stekker(d, f, m):
+    """Grote witte stekker in de bek, pinnen naar links, gele vonkjes."""
+    for y0 in (-.02, .14):
+        d.blob([f(-1.44, y0 - .045), f(-1.7, y0 - .045), f(-1.7, y0 + .045), f(-1.44, y0 + .045)], (170, 170, 170), DONKER, 1.0)
+    d.blob([f(-1.02, -.14), f(-1.4, -.16), f(-1.48, -.08), f(-1.48, .2), f(-1.4, .28), f(-1.02, .26)], WIT, DONKER, 1.4)
+    lijn(d, [f(-1.3, -.1), f(-1.3, .22)], (170, 170, 170), max(1.0, .04 * m))
+    for a, b in (((-1.78, -.16), (-1.9, -.26)), ((-1.8, .06), (-1.96, .06)), ((-1.78, .28), (-1.9, .38))):
+        lijn(d, [f(*a), f(*b)], (255, 255, 85), max(1.2, .05 * m))
+
+
+SNOER_PAD = [(-1.26, .26), (-1.3, .5), (-1.05, .66), (-.5, .64), (.1, .58), (.7, .62), (1.2, .5), (1.4, .2), (1.32, -.12), (1.08, -.24)]
+
+
+def elektrische_aal(d, cx, cy, m, hoek):
+    f = R(cx, cy, hoek, m)
+    snoer(d, f, m, SNOER_PAD)
+    kantel(d, cx, cy, m, EEL, hoek)
+    stekker(d, f, m)
+
+
+MAND, MAND_R, MAND_L = (170, 85, 0), (85, 0, 0), (255, 170, 85)
+
+
+@held
+def mandje(d, f, m, cx=-.15):
+    """Rieten mandje aan vier dikke lichte lijnen, los onder het lijf."""
+    top, bod = 1.2, 1.6
+    for a, b in (((cx - .5, .34), (cx - .32, top)), ((cx - .2, .56), (cx - .11, top)),
+                 ((cx + .2, .56), (cx + .11, top)), ((cx + .5, .34), (cx + .32, top))):
+        lijn(d, [f(*a), f(*b)], DONKER, max(3.0, .12 * m)); lijn(d, [f(*a), f(*b)], (255, 255, 170), max(1.8, .07 * m))
+    d.blob([f(cx - .4, top), f(cx + .4, top), f(cx + .33, bod), f(cx - .33, bod)], MAND, WIT, 1.5)
+    for t in (.4, .72):
+        y = top + (bod - top) * t; wx = .4 - .07 * t
+        lijn(d, [f(cx - wx + .03, y), f(cx + wx - .03, y)], MAND_R, max(1.0, .045 * m))
+    for dx in (-.2, 0, .2):
+        lijn(d, [f(cx + dx, top + .1), f(cx + dx * .85, bod - .03)], MAND_R, max(1.0, .04 * m))
+    d.blob([f(cx - .45, top - .08), f(cx + .45, top - .08), f(cx + .45, top + .08), f(cx - .45, top + .08)], MAND_L, WIT, 1.2)
+
+
+def luchtballon(d, cx, cy, m, hoek):
+    f = R(cx, cy, hoek, m)
+    mandje(d, f, m)
+    kantel(d, cx, cy, m, PUFF, hoek)
+
+
 # ---------------- plekken ----------------
 def zandvlakte(d, dd, zak=0, hx=124, ruggen=((60, 196, 90, 18), (210, 192, 80, 22))):
     s = d.s
@@ -350,31 +455,20 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
             gaatje(d, x, y + zak, rx, rx * .4)
         steentje(d, 226, 214 + zak, 4, 2.6, (255, 170, 170))
         if held_:
-            tx, ty = 172, 214 + zak
-            gaatje(d, tx, ty, 11, 4.4)
-            schaduw(d, 118, 216 + zak, 50)
-            kantel(d, 122, 200 + zak, 46, EEL, -6)
-            lampje(d, 90, 170 + zak, 1.0, 'uit', nacht)
-            # zandlip voor het gaatje: zijn staart zit in het zand
-            d.blob([(tx - 13, ty + .6), (tx + 13, ty + .6), (tx + 11, ty + 4), (tx - 11, ty + 4)], ZAND if not d.am else (235, 225, 150))
+            schaduw(d, 128, 230 + zak, 60)
+            elektrische_aal(d, 138, 190 + zak, 46, -4)
     elif dier == 'puffer':
-        vlaggetjes(d, 52, 202 + zak, 210, 200 + zak, 16)
+        steentje(d, 44, 226 + zak, 6, 3.6); zee_egel(d, 62, 238 + zak, 4.4)
+        schelp(d, 206, 232 + zak, 1.0)
         if held_:
-            sx, sy = 160, 228 + zak
-            schaduw(d, 124, 222 + zak, 34)
-            touwtje(d, [(122, 214 + zak), (128, 218 + zak), (138, 222 + zak), (150, 224 + zak), (sx, sy - 2)])
-            schelp(d, sx, sy, 1.15)
-            kantel(d, 122, 180 + zak, 40, PUFF, 0)
-            knoopje(d, 122, 210 + zak, 1.0)
+            schaduw(d, 126, 236 + zak, 30)
+            luchtballon(d, 132, 179 + zak, 37, 0)
     elif dier == 'cucumber':
         steentje(d, 44, 226 + zak, 6, 3.6); steentje(d, 218, 230 + zak, 4.4, 2.8, (255, 170, 170))
         if not eind:
             bedschelp(d, 128, 212 + zak, .95)
         if held_:
-            kantel(d, 124, 196 + zak, 40, CUKE, 0)
-            kelpdeken(d, 128, 172, 200 + zak, 18)
-            slaapmuts(d, R(124, 196 + zak, 0, 40), 40)
-            zzz(d, [(168, 178 + zak, 3.4), (181, 170 + zak, 4.4), (196, 160 + zak, 5.4)])
+            spa(d, 130, 194 + zak, 46, 0)
 
 
 # ---------------- boven water ----------------
@@ -383,7 +477,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
     d = Doek(D_, am)
     v3.lucht(d, dd, nacht, top)
     v3.zee(d, nacht, top)
-    v3.volgende_vriend(d, nacht, top, x=74 if dier in ('puffer',) else 196)
+    v3.volgende_vriend(d, nacht, top, x=74 if dier in ('puffer', 'eel', 'cucumber') else 196)
     hoek = {'in': 8, 'calm': 3, 'uit': 0}[fase]
     dy = 0 if top < 140 else -4
     if dier == 'fish':
@@ -395,31 +489,17 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         bad_met_octo(d, hx, y, m, hoek, 1.5, voeten=False)
         golfje(d, hx, y + 18, 46, nacht)
     elif dier == 'eel':
-        hx = {'in': 190, 'calm': 180, 'uit': 134}[fase]; y = top + dy - 2; m = 36
-        kantel(d, hx, y, m, EEL, hoek)
-        golfje(d, hx, y + 9, 42, nacht)
-        f = R(hx, y, hoek, m)
-        lx, ly = f(-.28, -1.08)
-        lampje(d, lx, ly, 1.2, {'in': 'aan', 'calm': 'half', 'uit': 'uit'}[fase], nacht)
+        hx = {'in': 196, 'calm': 186, 'uit': 140}[fase]; y = top + dy - 10; m = 34
+        golfje(d, hx, y + 22, 54, nacht)
+        elektrische_aal(d, hx, y, m, hoek)
     elif dier == 'puffer':
-        hx = {'in': 192, 'calm': 180, 'uit': 134}[fase]; m = 28
-        sprong = {'in': 26, 'calm': 18, 'uit': 12}[fase]
-        y = top + dy - sprong - 12
-        f = R(hx, y, hoek, m)
-        bx, by = f(0, .86)
-        wy = top + dy + 12
-        touwtje(d, [(bx, by + 2), (bx + 3, by + (wy - by) * .35), (bx - 3, by + (wy - by) * .7), (bx + 1, wy)])
-        golfje(d, bx, wy - 2, 9, nacht)
-        kantel(d, hx, y, m, PUFF, hoek)
-        knoopje(d, bx, by - 1, .9)
+        hx = {'in': 196, 'calm': 186, 'uit': 172}[fase]; m = 28
+        y = top + dy + 4 - 1.6 * m - {'in': 8, 'calm': 4, 'uit': 0}[fase]
+        luchtballon(d, hx, y, m, hoek)
     elif dier == 'cucumber':
-        hx = {'in': 180, 'calm': 176, 'uit': 130}[fase]; y = top + dy - 14; m = 28
-        f = R(hx, y, hoek, m)
-        kussen(d, R(hx, y + .32 * m, hoek, m))
-        kantel(d, hx, y, m, CUKE, hoek)
-        slaapmuts(d, f, m)
-        golfje(d, hx, y + 34, 50, nacht)
-        zzz(d, [f(.5, -1.05) + (3.4,), f(1.0, -1.4) + (4.6,), f(1.6, -1.75) + (5.8,)])
+        hx = {'in': 186, 'calm': 180, 'uit': 134}[fase]; y = top + dy - 2; m = 36
+        spa(d, hx, y, m, hoek)
+        golfje(d, hx + 2, y + 10, 50, nacht)
     v3.tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -473,12 +553,11 @@ def held_eind(d, dier, nacht):
     elif dier == 'octopus':
         bad_met_octo(d, 80, 118, 25, 0, 1.0)
     elif dier == 'eel':
-        kantel(d, 84, 122, 30, EEL, 4); lampje(d, 70, 92, .9, 'uit', nacht)
+        elektrische_aal(d, 90, 116, 28, 4)
     elif dier == 'puffer':
-        kantel(d, 76, 104, 25, PUFF, 0); touwtje(d, [(76, 125), (80, 132), (88, 138), (94, 140)]); knoopje(d, 76, 124, .8); schelp(d, 98, 142, .8)
+        luchtballon(d, 82, 98, 26, 0)
     elif dier == 'cucumber':
-        bedschelp(d, 80, 132, .5); kantel(d, 78, 120, 28, CUKE, 0); kelpdeken(d, 82, 104, 124, 12)
-        slaapmuts(d, R(78, 120, 0, 28), 28); zzz(d, [(98, 100, 2.8), (106, 92, 3.6)])
+        bedschelp(d, 82, 134, .5); spa(d, 82, 118, 32, 0)
 
 
 def eind(D_, am, dd, nacht, dier):

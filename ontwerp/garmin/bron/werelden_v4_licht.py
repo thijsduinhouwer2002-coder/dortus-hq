@@ -77,20 +77,30 @@ def handvat(d, r, nacht):
     lijn(d, pts, GOUD_L if not nacht else (255, 255, 170), 7.0)
 
 
-def paal(d, x, y0, y1, knop=True, voet=False):
-    """Rood-witte draaimolenpaal van y0 (boven) tot y1, met een gouden knop bovenop."""
-    br = 3.4
-    d.dr.rectangle([(x - br - 1.2) * d.s, y0 * d.s, (x + br + 1.2) * d.s, y1 * d.s], fill=DONKER)
-    y = y0; i = 0
-    while y < y1:
-        y2 = min(y1, y + 7)
-        d.dr.polygon([d.P(x - br, y), d.P(x + br, y - 3), d.P(x + br, y2 - 3), d.P(x - br, y2)], fill=ROOD if i % 2 == 0 else WIT)
-        y = y2; i += 1
-    d.dr.rectangle([(x - br - 1.2) * d.s, (y0 - 4) * d.s, (x + br + 1.2) * d.s, y0 * d.s], fill=DONKER)
-    if knop:
-        d.rondje(x, y0 - 6, 6, 6, GOUD, DONKER, glans=GOUD_L, dikte=1.4)
-        d.rondje(x, y0 - 13.5, 2, 2, GOUD, DONKER, dikte=1.0)
-    if voet: d.rondje(x, y1 + 3, 6, 3.6, GOUD, DONKER, dikte=1.4)
+def dakje(d, x, y, b=20):
+    """Rond draaimolendakje: platte koepel in rood-witte banen met stippen, schulprandje, knop met vlaggetje; y = onderrand."""
+    h = b * .62
+    d.dr.pieslice([d.P(x - b - 1.8, y - h - 1.8), d.P(x + b + 1.8, y + h + 1.8)], 180, 360, fill=WIT)
+    for i in range(6):      # zes banen
+        d.dr.pieslice([d.P(x - b, y - h), d.P(x + b, y + h)], 180 + i * 30, 210 + i * 30, fill=ROOD if i % 2 == 0 else GOUD_L)
+    for i in range(6):      # stip in elke baan
+        t = math.radians(195 + i * 30)
+        d.rondje(x + .62 * b * math.cos(t), y + .62 * h * math.sin(t), 1.9, 1.9, WIT if i % 2 == 0 else ROOD)
+    for i in range(7):      # schulprandje
+        xx = x - b + (i + .5) * 2 * b / 7; rr = b / 7
+        d.rondje(xx, y + 1.2, rr + .9, rr + .9, WIT)
+        d.rondje(xx, y + 1.2, rr - .5, rr - .5, ROOD if i % 2 == 0 else GOUD_L)
+    d.rondje(x, y - h - 1, 2.8, 2.8, GOUD, WIT, dikte=1.0)
+
+
+def paal(d, x, y0, y1, knop=True, voet=False, dak=20):
+    """Gouden draaimolenpaal (geel met lichte rand) van y0 tot y1, met bovenop een rond dakje met stippen."""
+    br = 3.6
+    d.dr.rectangle([(x - br - 1.6) * d.s, y0 * d.s, (x + br + 1.6) * d.s, y1 * d.s], fill=WIT)
+    d.dr.rectangle([(x - br) * d.s, y0 * d.s, (x + br) * d.s, y1 * d.s], fill=GOUD)
+    d.dr.rectangle([(x - br + 1.2) * d.s, y0 * d.s, (x - br + 2.4) * d.s, y1 * d.s], fill=GOUD_L)
+    if knop and dak: dakje(d, x, y0, dak)
+    if voet: d.rondje(x, y1 + 3, 6, 3.6, GOUD, GOUD_L, dikte=1.4)
 
 
 def glas(d, r, m, cx, cy, k):
@@ -164,18 +174,18 @@ def held_jelly(d, hx, hy, m, hoek, nacht, boven=False):
 def held_seahorse(d, hx, hy, m, hoek, nacht, boven=False, paal_top=None):
     px = hx + .30 * m
     if not boven:
-        paal(d, px, paal_top if paal_top is not None else hy - 1.0 * m, hy + 1.0 * m + 20)
+        paal(d, px, paal_top if paal_top is not None else hy - 1.0 * m, hy + 1.0 * m + (20 if hy > 150 else 0))
     v3.dier_kantel(d, hx, hy, m, PAARD, hoek)
     if not boven:     # de paal loopt voor zijn staartkrul langs: zijn staart zit eromheen
-        d.dr.rectangle([(px - 4.6) * d.s, (hy + .62 * m) * d.s, (px + 4.6) * d.s, (hy + .70 * m) * d.s], fill=DONKER)
-        d.dr.rectangle([(px - 3.4) * d.s, (hy + .63 * m) * d.s, (px + 3.4) * d.s, (hy + .69 * m) * d.s], fill=ROOD)
+        d.dr.rectangle([(px - 4.6) * d.s, (hy + .62 * m) * d.s, (px + 4.6) * d.s, (hy + .70 * m) * d.s], fill=GOUD_L)
+        d.dr.rectangle([(px - 3.4) * d.s, (hy + .63 * m) * d.s, (px + 3.4) * d.s, (hy + .69 * m) * d.s], fill=GOUD)
 
 
 def held_sunfish(d, hx, hy, m, hoek, nacht, boven=False):
     r = rot(hx, hy, m, hoek)
     v3.dier_kantel(d, hx, hy, m, MAAN, hoek)
     if boven: zonnebril(d, r, omhoog=nacht)
-    else: zonnebril(d, r, omhoog=True, k=1.15)      # onder water: de bril op zijn kop
+    else: zonnebril(d, r, omhoog=True, k=.9)      # onder water: de bril op zijn kop
 
 
 def held_shark(d, hx, hy, m, hoek, nacht, boven=False):
@@ -265,8 +275,8 @@ VRIEND = dict(jelly=(D[5], 'Seahorse'), seahorse=(D[6], 'Starfish'), sunfish=(D[
 # positie (hx, hy, maat) bij hold, menu en eind
 POS = dict(
     jelly=dict(hold=(130, 189, 44), menu=(130, 188, 42), eind=(70, 106, 30)),
-    seahorse=dict(hold=(124, 198, 42), menu=(124, 199, 42), eind=(68, 119, 30)),
-    sunfish=dict(hold=(128, 192, 48), menu=(128, 194, 48), eind=(70, 108, 32)),
+    seahorse=dict(hold=(124, 204, 42), menu=(124, 205, 42), eind=(68, 124, 30)),
+    sunfish=dict(hold=(128, 194, 56), menu=(128, 198, 54), eind=(72, 110, 36)),
     shark=dict(hold=(136, 182, 36), menu=(136, 184, 34), eind=(74, 104, 28)),
 )
 
@@ -291,16 +301,17 @@ def adem(D_, am, dd, nacht, dier, fase):
     elif dier == 'seahorse':
         hx = 194; m = 36
         pb = top + 26                                         # paal stopt boven de regel 'round 2 · 18 left' (veilige zone)
-        paal(d, hx + .30 * m, 60, pb, voet=True)             # de paal staat vast, het paardje gaat op en neer met de zee
+        paal(d, hx + .30 * m, 70, pb, voet=True)             # de paal staat vast, het paardje gaat op en neer met de zee
         held_seahorse(d, hx, top - 6, m, hoek, nacht, boven=True)
         p = hx + .30 * m      # paal voor de staartkrul langs
-        d.dr.rectangle([(p - 4.6) * d.s, (top - 6 + .62 * m) * d.s, (p + 4.6) * d.s, (top - 6 + .70 * m) * d.s], fill=DONKER)
-        d.dr.rectangle([(p - 3.4) * d.s, (top - 6 + .63 * m) * d.s, (p + 3.4) * d.s, (top - 6 + .69 * m) * d.s], fill=ROOD)
+        d.dr.rectangle([(p - 4.6) * d.s, (top - 6 + .62 * m) * d.s, (p + 4.6) * d.s, (top - 6 + .70 * m) * d.s], fill=GOUD_L)
+        d.dr.rectangle([(p - 3.4) * d.s, (top - 6 + .63 * m) * d.s, (p + 3.4) * d.s, (top - 6 + .69 * m) * d.s], fill=GOUD)
     elif dier == 'sunfish':
-        hx = 196; m = 40; hy = top + 2
+        # ronde 4: groter en hoger in de kam, zodat de hoge ronde schijf met vin boven en onder heel boven water staat
+        hx = 200 if fase == 'in' else 190; m = 48; hy = top - (3 if nacht else 10)
         v3.dier_kantel(d, hx, hy, m, MAAN, hoek)
-        golfje(d, hx + 4, top + 12, m * .78, nacht)
-        zonnebril(d, rot(hx, hy, m, hoek), omhoog=nacht)
+        golfje(d, hx + 4, top + 16, m * .5, nacht)
+        zonnebril(d, rot(hx, hy, m, hoek), omhoog=nacht, k=.9)
     else:
         hx = 178 if fase == 'in' else (170 if fase == 'calm' else 150); m = 38; hy = top - 2
         v3.dier_kantel(d, hx, hy, m, HAAI, hoek)
@@ -316,7 +327,7 @@ def hold(D_, am, dd, nacht, dier):
     hx, hy, m = POS[dier]['hold']; HUIDIG['pos'] = (hx, hy, m)
     d = Doek(D_, am); v3.onder(d, dd, nacht, xo=hx - 4, xh=hx)
     PLEK[dier](d, dd, 0, nacht)
-    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
+    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - (.92 if hy < 150 else 1.0) * m)
     else: HELD[dier](d, hx, hy, m, 0, nacht)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
@@ -331,7 +342,7 @@ def menu(D_, am, dd, nacht, dier):
     hx, hy, m = POS[dier]['menu']; HUIDIG['pos'] = (hx, hy, m)
     d = Doek(D_, am); v3.onder(d, dd, nacht, xo=hx - 6, xh=hx)
     PLEK[dier](d, dd, 4, nacht)
-    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
+    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - (.92 if hy < 150 else 1.0) * m)
     else: HELD[dier](d, hx, hy, m, 0, nacht)
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
@@ -363,7 +374,7 @@ def eind(D_, am, dd, nacht, dier):
     d.tekst(130, 18, '3 rounds done', 27, GEEL)
     d.tekst(130, 46, '1:20   1:45   1:58', 22, WIT)
     hx, hy, m = POS[dier]['eind']; HUIDIG['pos'] = (hx, hy, m)
-    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - .80 * m)
+    if dier == 'seahorse': HELD[dier](d, hx, hy, m, 0, nacht, paal_top=hy - (.92 if hy < 150 else 1.0) * m)
     else: HELD[dier](d, hx, hy, m, 0, nacht)
     d.tekst(130, 150, 'new friend', 18, WIT, False)
     d.tekst(130, 166, naam, 32 if len(naam) < 9 else 29, GEEL)

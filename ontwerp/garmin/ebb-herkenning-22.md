@@ -45,3 +45,22 @@ Werkwijze: de 22 beelden `werelden5/<dier>-in-dag-260.png` blind hernoemd naar 0
 | maanvis | dier niet herkend | lijf hoger en ronder, geen staart maar de afgeknotte achterrand, zonnebril blijft (de grap leest al). |
 
 Volgende stap: de familie-agents tekenen deze tien opnieuw, daarna weer een blinde toets op 260 met een nieuwe kijker.
+
+## Ronde 2 (dezelfde run): tien dieren opnieuw getekend en blind getoetst
+Drie familie-agents tekenden de tien nieuwe grappen (scripts `bron/werelden_v4_huisjes.py`, `_vliegers.py`, `_koud.py`, `_strand.py`, `_licht.py`; beelden `werelden4/`, en `werelden5/` opnieuw gemaakt met `werelden_v5_lucht.py`). Alle drie melden contrast 4,5 of hoger en 0 regels te dicht (6/260). Nieuwe blinde kijker, genummerd 01 tot 10 in een andere volgorde, boven en onder water (`herkenning/ronde2-boven.png`, `ronde2-onder.png`). GEZIEN met Read: het blad boven water.
+
+| Dier | Gezien als | Dier | Grap gezien | Grap |
+|---|---|---|---|---|
+| inktvis | inktvis, "schrijft met zijn eigen inkt" | ja | ganzenveer en inktpotje | **ja** (was nee) |
+| zeeotter | zeeotter met rode mok en stoom | ja | warm drankje op zijn buik | **ja** (was nee) |
+| rog | rog, "is een vlieger" | ja (was nee) | vlieger met strikjes | **ja** (was nee) |
+| kogelvis | kogelvis als luchtballon met mandje | ja | luchtballon | **ja** (was nee) |
+| zeepaardje | zeepaardje met parasol | ja | leest als parasol, niet als draaimolen | ja, maar een andere grap dan bedoeld |
+| maanvis | "maanvis (mola)", twijfel | half (was nee) | zonnebril | ja |
+| kreeft | kreeft, tuinman pas onder water | ja | boven water "strandspullen" | half |
+| manta | manta met spandoek | ja (was half) | verband manta en doek niet duidelijk | half |
+| zeekomkommer | "groene klodder", spa | half (was nee) | komkommerschijfjes klein | nee |
+| aal | "aal of sidderaal" | half (was nee) | stekker en snoer klein en grijs | nee |
+
+**Telling na ronde 2 (alle 22):** grap herkend 19 van 22 (was 15), dier herkend 19 van 22 (was 17).
+Nog open voor de volgende run: zeekomkommer groter met de schijfjes als twee grote vlakken, aal met een witte of gele stekker en dikker snoer in een lichte kleur, manta met het spandoek vast aan zijn staart (touwtje zichtbaar) en onder water uitgerold, kreeft boven water met de gieter die gietend boven een plantje staat. Zeepaardje: parasol accepteren als grap (leest in een blik) of het dakje als draaimolen verduidelijken; ik kies parasol accepteren, want hij leest en het is één voorwerp.

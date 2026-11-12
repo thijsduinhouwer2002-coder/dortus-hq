@@ -3,7 +3,7 @@
 #  - Whale: open diep blauw / fontein met regenboog (nacht: witte maanboog); onder water een boog van gekleurde steentjes in het zand.
 #  - Orca: open water / rood strikje en muzieknootjes die met de adem stijgen en zakken; onder water een rijtje visjes met nootjes.
 #  - Narwhal: onder het ijs met een wak / sjaaltje en want hangen aan zijn tand te drogen; onder water hangt het sjaaltje nog.
-#  - Giant squid: schemerig water met lichtpuntjes / slecht verstoppen: achter een piepklein eilandje met een palmboom, onder water achter een klein steentje.
+#  - Giant squid: schemerig water met lichtpuntjes / schrijft met zijn eigen inkt: grote witte ganzenveer in een tentakel en een donker inktpotje (toets 22; eilandje en steentje vervallen).
 # Hergebruikt lucht, zee, water, bundel en tekstopzet uit werelden_v3 en werelden_v32. Coordinaten in 1/260 D.
 #   python3 werelden_v4_koud.py <uitmap> [whale orca narwhal squid]
 import sys, os, math
@@ -166,6 +166,55 @@ def eilandje(d, x, y, k=1.0):
     d.rondje(x - 6 * k, y - 4.4 * k, 2.4 * k, 1.2 * k, WIT)
 
 
+def ganzenveer(d, x0, y0, hoek, L):
+    """Grote witte ganzenveer: punt (pen) bij x0,y0, veer schuin omhoog onder hoek (graden, 0 = recht omhoog, + = naar rechts).
+    Witte vaan met donkere omtrek en grijze schacht, donkere pen met een druppel inkt. Alleen MIP-kleuren."""
+    a = math.radians(hoek)
+    ux, uy = math.sin(a), -math.cos(a); nx, ny = -uy, ux
+    P = lambda t, w_: (x0 + ux * L * t + nx * w_, y0 + uy * L * t + ny * w_)
+    # vaan: breed aan de ene kant, smaller aan de andere, punt bovenaan licht gebogen
+    links = [P(t, -L * .20 * math.sin(math.pi * (t - .22) / .80) ** .8) for t in [.22 + i * .78 / 12 for i in range(13)]]
+    rechts = [P(t, L * .13 * math.sin(math.pi * (t - .26) / .74) ** .8) for t in [.26 + i * .74 / 12 for i in range(13)]]
+    d.blob(links + list(reversed(rechts)), WIT, NAVY, 1.6)
+    for t in (.45, .62, .78):     # twee inkepingen in de vaan
+        q0 = P(t, -L * .20 * math.sin(math.pi * (t - .22) / .80) ** .8); q1 = P(t + .04, -L * .07)
+        d.dr.line([d.P(*q0), d.P(*q1)], fill=NAVY, width=max(1, round(1.2 * d.s)))
+    d.dr.line([d.P(*P(.10, 0)), d.P(*P(.97, 0))], fill=(170, 170, 170), width=max(1, round(1.6 * d.s)))
+    # pen: donker puntje met een druppel inkt
+    d.blob([P(0, 0), P(.12, -L * .04), P(.12, L * .04)], (0, 0, 0), WIT, 1.0)
+    d.rondje(x0 - 1, y0 + 3.2, 2.0, 2.4, (0, 0, 0), WIT, dikte=.8)
+
+
+def inktpot(d, x, y, k=1.0):
+    """Donker inktpotje (onderkant y): bol potje, hals, witte rand en een wit etiketje met een druppel."""
+    d.rondje(x, y - 9 * k, 11 * k, 9 * k, (0, 0, 85), WIT, dikte=1.6)
+    d.dr.rectangle([(x - 5 * k) * d.s, (y - 23 * k) * d.s, (x + 5 * k) * d.s, (y - 16 * k) * d.s], fill=(0, 0, 85), outline=WIT, width=max(1, round(1.4 * d.s)))
+    d.rondje(x, y - 23 * k, 6.4 * k, 2.0 * k, (0, 0, 0), WIT, dikte=1.2)
+    d.rondje(x, y - 9 * k, 5.6 * k, 4.2 * k, WIT)
+    d.blob([(x, y - 12.4 * k), (x + 2.6 * k, y - 8 * k), (x, y - 6 * k), (x - 2.6 * k, y - 8 * k)], (0, 0, 0))
+    d.rondje(x - 6 * k, y - 13 * k, 1.6 * k, 1.6 * k, (85, 85, 170))
+
+
+def tentakel(d, pts, k=1.0):
+    d.dr.line([d.P(*q) for q in pts], fill=WIT, width=max(2, round(5.4 * k * d.s)), joint='curve')
+    d.dr.line([d.P(*q) for q in pts], fill=PAARS, width=max(1, round(3.0 * k * d.s)), joint='curve')
+    q = pts[-1]; d.rondje(q[0], q[1], 2.6 * k, 2.6 * k, PAARS, WIT, dikte=1.0)
+
+
+def schrijfgerei(d, hx, hy, m, hoek_veer=24, pot=True, k=None):
+    """Inktvis met zijn schrijfgerei: rechts een tentakel met de ganzenveer schuin omhoog, links een tentakel met het inktpotje."""
+    k = k or m / 48
+    # veer: pen bij de rechterarm, veer omhoog naar rechts
+    gx, gy = hx + .62 * m, hy + .30 * m
+    tentakel(d, [(hx + .20 * m, hy + .30 * m), (hx + .42 * m, hy + .40 * m), (gx + 2 * k, gy + 2 * k)], k)
+    ganzenveer(d, gx, gy, hoek_veer, 1.5 * m)
+    d.rondje(gx + 4 * k, gy - 6 * k, 3.0 * k, 3.0 * k, PAARS, WIT, dikte=1.0)      # tentakelpuntje om de schacht
+    if pot:
+        px, py = hx - .74 * m, hy + .62 * m
+        tentakel(d, [(hx - .20 * m, hy + .34 * m), (hx - .46 * m, hy + .50 * m), (px + 6 * k, py - 10 * k)], k)
+        inktpot(d, px, py, 1.15 * k)
+
+
 def steentje(d, x, y, k=1.0):
     """Klein rond steentje op de bodem (lichtgrijs, witte rand, glimpje): veel te klein om achter te verstoppen."""
     d.rondje(x, y, 13 * k, 9 * k, (170, 170, 170), WIT, glans=WIT, dikte=1.6)
@@ -221,7 +270,11 @@ def adem(D_, am, dd, nacht, dier_naam, top=134, woord='breathe in', getal='12', 
         dier(d, hx, hy, m, INKT, hoek * .5)
         zee_over(d, nacht, top)                      # het water loopt over zijn onderkant: hij staat erin
         if HELD_AAN[0]:
-            eilandje(d, hx - 22, top + 5, 1.3)          # run 54: eilandje links van hem, zijn ogen gluren erlangs (de palm bedekte ze)
+            # run 22-toets: hij schrijft met zijn eigen inkt; veer rechts schuin omhoog, inktpotje links op het water
+            gx, gy = hx + 26, top + 2
+            ganzenveer(d, gx, gy, 24, 64)
+            tentakel(d, [(hx + 10, top + 8), (hx + 20, top + 6), (gx + 6, gy - 10)], 1.0)
+            inktpot(d, hx - 36, top + 8, 1.2)
     else:
         v3.zee(d, nacht, top)
         if dier_naam == 'narwhal':
@@ -351,7 +404,7 @@ def held_onder(d, nacht, dn, hx, hy, m, scherm):
     elif dn == 'squid':
         if d.am: d.gloed_ellips(hx, hy + m * .15, m * .85, m * .9, (170, 120, 255), .35, groei=.2)   # licht achter hem: hij komt los van het schemerwater
         v3.dier_kantel(d, hx, hy, m, INKT, 0)
-        steentje(d, hx, hy + m * .3, 1.0 if scherm != 'eind' else .62)   # een piepklein steentje voor zijn grote lijf: ogen erboven, armen ernaast
+        schrijfgerei(d, hx, hy, m, 24 if scherm != 'eind' else 20)       # run 22-toets: ganzenveer en inktpotje in zijn tentakels
 
 
 def hold(D_, am, dd, nacht, dn):

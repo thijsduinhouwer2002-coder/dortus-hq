@@ -434,3 +434,5 @@
 - Volgende run: frisse keuring op de schildpad zonder blad, dan de herkenningstabel van de overige 22 dieren.
 - Vervolg: blinde herkenningstoets van de overige 22 (`ontwerp/garmin/ebb-herkenning-22.md`): dier 17 van 22, grap 15 van 22. Tien nieuwe grappen of aanpassingen (spa-komkommer, stekker-aal, vlieger-rog, inktvis met ganzenveer, otter met chocolademelk, kogelvis-luchtballon, kreeft, zeepaardje, manta, maanvis).
 - **Besluit: de toets blind (genummerd, zonder namen).** Waarom: in de bestandsnamen staat het dier, en een kijker die de naam ziet herkent alles.
+- Ronde 2: drie familie-agents tekenden de tien opnieuw, blinde hertoets: grap 19 van 22, dier 19 van 22. Open: zeekomkommer, aal, manta, kreeft (zie `ebb-herkenning-22.md`).
+- **Besluit: het zeepaardje houdt de parasol als grap.** Waarom: de blinde kijker las 'parasol' meteen; een draaimolen las niet, en één voorwerp dat leest gaat voor op het bedoelde.
