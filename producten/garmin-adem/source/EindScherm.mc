@@ -38,8 +38,7 @@ module EbbEindScherm {
         var yTijden = EbbTeken.px(d, TIJD);   // midden van de ene regel tijden in de grote letter
         var onderTijden = (n > 3) ? y1 + lhX + lhX / 2 : yTijden + lhS / 2;
         var kam = kamlijn(d, onderTijden);
-        var zeeTop = zeeTopBij(d, kam);
-        EbbZee.zeeBanden(dc, d, [zeeTop, 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        water(dc, d, kam, onderTijden);
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, kopPx, EbbTeken.fS(), n + (n == 1 ? " round done" : " rounds done"), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -115,6 +114,21 @@ module EbbEindScherm {
         // 43113167622: 9 px op FR255 en ±17 px op fenix 8; daarom 17.
         var t = onderTekst + EbbTeken.px(d, 17);
         return t > k ? t : k;
+    }
+
+    // Hoofdchat 12 nov 20:15 punt 3: achter het eindscherm het thuiswater van start en pauze (Thuis.mc) in plaats van
+    // de effen golf. Tekstvakken: kop en tijden, het vak van het dier, de naamregels met de weekstippen. De indeling
+    // van de tekst en het dier is niet veranderd. Ook voor het Calm-eindscherm (RustigView).
+    function water(dc as Graphics.Dc, d as Number, kam as Number, onderTekst as Number) as Void {
+        var c = d / 2;
+        var b = EbbTeken.px(d, VAK_BREED) / 2 + EbbTeken.px(d, 6);
+        var t = (d * 0.40).toNumber();
+        var vakken = [c - t, 0, c + t, onderTekst,
+            c - b, vakTop(d, kam), c + b, EbbTeken.px(d, VAK_ONDER),
+            c - t, EbbTeken.px(d, NAAM) - dc.getFontHeight(EbbTeken.fS()) / 2, c + t, EbbTeken.px(d, STIP + REGEL2 + 8)] as Array<Number>;
+        if (!EbbThuis.teken(dc, d, EbbTeken.px(d, 222), vakken, EbbThuis.SEALOG)) {
+            WatchUi.requestUpdate();
+        }
     }
 
     // De zee tekent haar kam iets onder de opgegeven top. Beeld run 43104956914 (FR255): met 0,026 D lag de kam

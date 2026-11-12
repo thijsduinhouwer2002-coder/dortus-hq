@@ -230,7 +230,7 @@ class CalmEindeView extends WatchUi.View {
         var yKop = EbbTeken.px(d, EbbEindScherm.KOP);
         var yRegel1 = EbbTeken.px(d, EbbEindScherm.TIJD);
         var kam = EbbEindScherm.kamlijn(d, yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2);
-        EbbZee.zeeBanden(dc, d, [EbbEindScherm.zeeTopBij(d, kam), 0.60, 0.88] as Array<Float>, [1, 2, 3] as Array<Number>, 0.010, 0.4);
+        EbbEindScherm.water(dc, d, kam, yRegel1 + dc.getFontHeight(EbbTeken.fX()) / 2);
         var midden = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
         dc.setColor(EbbTeken.SCHUIM, Graphics.COLOR_TRANSPARENT);
         dc.drawText(w / 2, yKop, EbbTeken.fS(), "calm done", midden);

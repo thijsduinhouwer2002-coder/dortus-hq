@@ -7,3 +7,10 @@ uitleg
 startcheck
 thuis-pauze-dag
 thuis-start-dag
+# Run 71: eindscherm van Rounds en Calm op het thuiswater (hoofdchat 20:15 punt 3)
+einde-6c
+einde-6b
+einde-6c-6rondes
+einde-weekdoel
+calm-einde-krab
+einde-na-feest
