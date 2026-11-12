@@ -187,3 +187,22 @@ function testStartdierInEersteSessie(logger as Test.Logger) as Boolean {
         + " eerste " + eerste + " daarna " + daarna + " volgorde " + volgorde + " keuze " + keuze);
     return geen == -1 && start == 0 && nogNiet && wereld && inView && eerste && daarna && volgorde && keuze;
 }
+
+// Run 66: de onthouden grenzen zijn voor elk dier gelijk aan de telling, ook bij een tweede keer vragen.
+(:test)
+function testGrenzenOnthoudenGelijk(logger as Test.Logger) as Boolean {
+    var goed = true;
+    for (var i = 0; i < EbbDierData.DATA.size(); i += 1) {
+        var a = EbbDierMaat.grenzenTel(i);
+        var b = EbbDierMaat.grenzen(i);
+        var c = EbbDierMaat.grenzen(i);
+        for (var k = 0; k < 4; k += 1) {
+            if (a[k] != b[k] || a[k] != c[k]) {
+                logger.debug("dier " + i + " grens " + k + " anders");
+                goed = false;
+            }
+        }
+    }
+    logger.debug("GRENZEN dieren " + EbbDierData.DATA.size() + " goed " + goed);
+    return goed && EbbDierData.DATA.size() >= EbbTrouw.DIEREN.size();
+}

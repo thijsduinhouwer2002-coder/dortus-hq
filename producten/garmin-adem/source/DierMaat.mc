@@ -7,7 +7,27 @@ import Toybox.WatchUi;
 // Keuring bouw 3 punt 8 en 9: maten van een dier uit zijn eigen punten, zodat het in een vak past.
 module EbbDierMaat {
     // [links, rechts, boven, onder] in 1/SCHAAL van de diermaat.
+    // Run 66: onthouden per dier. De wereld vroeg de grenzen een paar keer per beeld op (kam, kader, held) en elke
+    // keer liep dit langs alle punten van het dier; met de garnaal gaf dat op de FR255 "Watchdog Tripped, Code
+    // Executed Too Long" en een crash bij het eerste beeld van de sessie (toetsrun 43228227771, tweede start fr255).
+    // Wie de grenzen krijgt mag ze niet wijzigen: het is de bewaarde lijst zelf.
+    var _grenzen as Array<Array<Number>?>? = null;
     function grenzen(i as Number) as Array<Number> {
+        if (_grenzen == null) {
+            _grenzen = new [EbbDierData.DATA.size()] as Array<Array<Number>?>;
+        }
+        var lijst = _grenzen as Array<Array<Number>?>;
+        var al = lijst[i];
+        if (al != null) {
+            return al;
+        }
+        var nieuw = grenzenTel(i);
+        lijst[i] = nieuw;
+        return nieuw;
+    }
+
+    // De telling zelf, langs alle punten (traag; alleen via grenzen aanroepen).
+    function grenzenTel(i as Number) as Array<Number> {
         var b = EbbDierData.DATA[i];
         var o = 1;
         var g = [0, 0, 0, 0] as Array<Number>;
