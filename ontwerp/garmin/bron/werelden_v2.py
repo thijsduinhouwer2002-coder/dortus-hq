@@ -99,6 +99,11 @@ class Doek:
 
     def klaar(self):
         im = self.im.resize((self.D, self.D), Image.LANCZOS) if self.am else self.im
+        if self.am:   # zacht donkerder naar de rand: de ronde kast voelt als een raampje in de zee
+            v = Image.new('L', (self.D, self.D), 0)
+            ImageDraw.Draw(v).ellipse([-self.D * .05, -self.D * .05, self.D * 1.05, self.D * 1.05], fill=255)
+            v = v.filter(ImageFilter.GaussianBlur(self.D * .08))
+            im = Image.composite(im, Image.new('RGB', im.size, (0, 0, 20)), v.point(lambda t: 90 + t * 165 // 255))
         return rond(im)
 
 
@@ -135,7 +140,7 @@ def bellen(d, lijst, c):
         d.dr.ellipse([(x - r_ * .45) * d.s, (y - r_ * .55) * d.s, (x - r_ * .05) * d.s, (y - r_ * .15) * d.s], fill=c)
 
 
-def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0, met_slipper=True):
+def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0, met_slipper=True, spiegel=False):
     """Krab onder water: ver de donkere ruggen, dan zand, twee ronde rotsen (anemoon, zeester), vooraan de held in zijn slipper."""
     s = d.s
     # ver: donkere ronde ruggen over de hele breedte (silhouet)
@@ -150,16 +155,17 @@ def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak
     if d.am:      # lichtvlek van de bundel op het zand
         laag = Image.new('L', (d.N, d.N), 0); ImageDraw.Draw(laag).ellipse([66 * s, 222 * s, 170 * s, 246 * s], fill=120)
         d.im.paste(Image.new('RGB', (d.N, d.N), WIT), (0, 0), laag.filter(ImageFilter.GaussianBlur(5 * s)))
-    # rots links met anemoon (paarse bolletjes die meeademen)
-    d.rondje(36, 202 + zak, 34, 26, ROTS, ROTS_R, glans=ROTS_R)
+    X = (lambda x: 260 - x) if spiegel else (lambda x: x)
+    # rots links met anemoon (paarse bolletjes die meeademen); bij spiegel rechts
+    d.rondje(X(36), 202 + zak, 34, 26, ROTS, ROTS_R, glans=ROTS_R)
     for x, y, r_ in [(30, 172, 7), (41, 169, 7.5), (51, 175, 6.5), (21, 178, 6)]:
-        d.rondje(x, y + zak, r_, r_, PAARS, WIT, glans=(255, 170, 255), dikte=1.8)
+        d.rondje(X(x), y + zak, r_, r_, PAARS, WIT, glans=(255, 170, 255), dikte=1.8)
     # rots rechts met zeester
-    d.rondje(222 - zak / 3, 210 + zak, 30, 22, ROTS, ROTS_R, glans=ROTS_R)
+    d.rondje(X(222 - zak / 3), 210 + zak, 30, 22, ROTS, ROTS_R, glans=ROTS_R)
     ster = []
     for i in range(10):
         a = -math.pi / 2 + i * math.pi / 5; rr = 11 if i % 2 == 0 else 4.6
-        ster.append((218 - zak / 3 + rr * math.cos(a), 197 + zak + rr * math.sin(a)))
+        ster.append((X(218 - zak / 3) + rr * math.cos(a), 197 + zak + rr * math.sin(a)))
     d.blob(ster, ZON, WIT, 1.8)
     # held: krab in zijn slipper
     sy = slipper_y if slipper_y is not None else held_y + 14
@@ -186,13 +192,13 @@ def water_onder(d, dd, maan=False, stralen=3):
             d.im.paste(Image.new('RGB', (d.N, d.N), (200, 200, 255)), (0, 0), laag.filter(ImageFilter.GaussianBlur(7 * d.s)))
         else:
             d.rondje(88, 6, 24, 12, (85, 85, 255)); d.rondje(88, 5, 14, 7, (170, 170, 255))
-    bundel(d, dd, maan)
+    if stralen: bundel(d, dd, maan)
 
 
 def bundel(d, dd, nacht, xo=118, xh=112, yh=236):
     """Een brede lichtbundel van het oppervlak (bij nacht van de maanvlek) die schuin op de held valt.
     AMOLED: zacht en vervagend. MIP: een vlak een stap lichter dan het water (wit haalt er nog 5:1 op)."""
-    top_b, onder_b = 26, 96
+    top_b, onder_b = (26, 96) if d.am else (16, 74)
     vlak = [d.P(xo - top_b, 0), d.P(xo + top_b, 0), d.P(xh + onder_b / 2, yh), d.P(xh - onder_b / 2, yh)]
     if d.am:
         laag = Image.new('L', (d.N, d.N), 0); ImageDraw.Draw(laag).polygon(vlak, fill=60 if not nacht else 45)
@@ -200,6 +206,22 @@ def bundel(d, dd, nacht, xo=118, xh=112, yh=236):
         d.im.paste(Image.new('RGB', (d.N, d.N), dd['licht']), (0, 0), laag)
     else:
         d.dr.polygon(vlak, fill=dd['mip_bundel'])
+
+
+def stofjes(d, dd):
+    """Zwevende lichtjes in het water (diepte): klein en weinig, nooit achter tekst (alleen opzij)."""
+    c = (170, 255, 255) if dd is DAG else (170, 170, 255)
+    for x, y, r_ in [(24, 120, 1.1), (36, 146, .8), (230, 112, 1.1), (242, 140, .8), (214, 152, .7), (18, 160, .7)]:
+        d.rondje(x, y, r_, r_, c)
+
+
+def fonkel(d, x, y, k):
+    """Feestvonkje: ster met vier punten in lichtgeel."""
+    pts = []
+    for i in range(8):
+        a = i * math.pi / 4; rr = k if i % 2 == 0 else k * .28
+        pts.append((x + rr * math.sin(a), y - rr * math.cos(a)))
+    d.blob(pts, (255, 255, 170))
 
 
 # ---------------- schermen ----------------
@@ -241,6 +263,7 @@ def adem_in(D_, am, dd, nacht):
 def hold(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
     wereld_onder(d, dd, held_y=198, held_maat=37)
+    stofjes(d, dd)
     bellen(d, [(184, 178, 3), (190, 168, 2.2)], WIT)
     d.tekst(130, 30, 'hold', 26, GEEL)
     d.tekst(130, 58, 'press START to breathe', 15, WIT, False)
@@ -251,7 +274,8 @@ def hold(D_, am, dd, nacht):
 
 def menu(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=200, held_maat=36)
+    wereld_onder(d, dd, held_y=200, held_maat=36, spiegel=True)
+    stofjes(d, dd)
     s = d.s
     d.tekst(130, 22, 'Ebb', 28, GEEL)
     for y, t in [(56, 'Rounds'), (96, 'Calm 4-7-8')]:
@@ -263,13 +287,18 @@ def menu(D_, am, dd, nacht):
 
 
 def eind(D_, am, dd, nacht):
-    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=2)
+    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0)
+    bundel(d, dd, nacht, xo=104, xh=104, yh=170)     # het licht staat recht op de nieuwe vriend
     wereld_onder(d, dd, held=False, zak=22, met_slipper=False)
+    stofjes(d, dd)
+    for x, y, r_ in [(44, 120, 4.5), (58, 98, 3), (40, 82, 2.2), (196, 132, 4), (212, 110, 3), (200, 88, 2)]:
+        bellen(d, [(x, y, r_)], WIT)
+    for x, y, k in [(58, 108, 9), (194, 96, 7.5), (176, 150, 5), (46, 142, 5)]:
+        fonkel(d, x, y, k)
     r = slipper(d, 98, 142, 1.3, hoek=-6)
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
     d.tekst(130, 58, '1:20   1:45   1:58', 24, WIT)
     d.dier(102, 122, 31); bandje(d, r, 1.3)
-    bellen(d, [(184, 100, 2.6), (190, 90, 1.8)], WIT)
     d.tekst(130, 163, 'new friend: Crab', 24, GEEL)
     stippen(d.dr, 130 * s_(d), 199 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
