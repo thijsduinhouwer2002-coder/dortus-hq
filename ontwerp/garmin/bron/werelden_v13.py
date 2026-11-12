@@ -112,19 +112,19 @@ def krab():
     # de grap: teenslipper van boven, 36 x 14: ronde brede teen, smalle hiel, donkere V met punt op 1/4 vanaf de teen
     zool = [(18, 0), (16, -5), (10, -7), (2, -6), (-6, -4), (-13, -4), (-18, -2), (-18, 2), (-13, 4), (-6, 4), (2, 6), (10, 7), (16, 5)]
     band = [(10, 0), (0, -6), (-2, -4), (7, 0), (-2, 4), (0, 6)]
-    z.append(it('0xFF55AA', draai([(x * 1.15, y * 1.15) for x, y in zool], 184, 232, -6)))
-    z.append(it('0xAA0055', draai([(x * 1.15, y * 1.15) for x, y in band], 184, 232, -6)))
-    z += schatten([('schelp', '0xFFFFFF'), ('parel', '0xAA55FF'), ('munt', '0xFFFF00')], 66, 11, 230)
-    z.append(los(PARELBOL, '0xFFFFFF', 77, 230, 2))
+    z.append(it('0xFF55AA', draai([(x * 1.75, y * 1.75) for x, y in zool], 158, 240, -4)))
+    z.append(it('0xFFFFFF', draai([(x * 1.75, y * 1.75) for x, y in band], 158, 240, -4), 'voor'))   # bandje voor de krab: hij zit erin
+    z += schatten([('schelp', '0xFFFFFF'), ('parel', '0xAA55FF'), ('munt', '0xFFFF00')], 190, 11, 228)
+    z.append(los(PARELBOL, '0xFFFFFF', 201, 228, 2))
     # week 4, de grap: de tweede slipper komt aanspoelen, het paar is compleet
     zool2 = [(18, 0), (14, 6), (2, 6), (-12, 4), (-18, 1), (-13, -4), (2, -6), (14, -6)]   # spiegelbeeld: de andere voet
     band2 = [(x, -y) for x, y in band]
-    z.append(it('0xFF55AA', draai([(x * 1.15, y * 1.15) for x, y in zool2], 128, 236, -6), week=4)); z.append(it('0xAA0055', draai([(x * 1.15, y * 1.15) for x, y in band2], 128, 236, -6), week=4))
-    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(184, 214),
+    z.append(it('0xFF55AA', draai([(x * 1.75, y * 1.75) for x, y in zool2], 92, 236, 4), week=4)); z.append(it('0xFFFFFF', draai([(x * 1.75, y * 1.75) for x, y in band2], 92, 236, 4), week=4))
+    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(156, 216),
                 haak='een verloren roze teenslipper; de krab woont erin als in een bootje en blaast belletjes',
                 details={1: 'schelp (wit)', 2: 'mosseltje met parel', 3: 'gouden munt', 4: 'de tweede roze slipper spoelt aan: het paar is compleet'},
-                aankomst=dict(baan=[[290, 226], [230, 222], [184, 214]], spiegel=False, sec=2, wat='loopt zijwaarts over het zand van rechts naar huis'),
-                vertrek=dict(baan=[[184, 214], [220, 222], [236, 230]], spiegel=False, sec=2, wat='schuift zijwaarts onder de rechterkei (dier achter de kei tekenen, dan weg)'))
+                aankomst=dict(baan=[[290, 226], [210, 222], [156, 216]], spiegel=False, sec=2, wat='loopt zijwaarts over het zand van rechts naar huis'),
+                vertrek=dict(baan=[[156, 216], [220, 222], [236, 230]], spiegel=False, sec=2, wat='schuift zijwaarts onder de rechterkei (dier achter de kei tekenen, dan weg)'))
 
 def clownvis():
     z = [ver_rug('0x000055')]

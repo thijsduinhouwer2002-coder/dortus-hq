@@ -119,3 +119,4 @@ Besluit 12 nov 00:25 punt 2 en 3 stonden nog open. Beelden en data: `werelden14/
   - **krab woont in zijn slipper als in een bootje** (thuis 184, 214, slipper eronder), de tweede slipper komt er in week 4 naast; schatjes iets hoger;
   - clownvis: geel zand in plaats van roze, zodat de roze anemoon loskomt; thuis 20 naar binnen (56, 188); zeester oranje, garnaal roze;
   - ochtend: roze en perzik streep met zon half boven de horizon; dag: grote wolk rechts en kleine links (buiten alle tekst).
+- **Vierde frisse keuring**: 6,5 (schildpad 6,5, krab 6, clownvis 7, dagdelen 6). Kern: de krab stond op een roze vlek. Daarna: slipper 1,75 keer zo groot met een **wit bandje dat vóór de krab ligt** (laag `voor`), zodat hij er echt in zit; de tweede slipper in week 4 even groot en gespiegeld links ernaast; de schatjes van de krab staan rechts naast de slipper (x 190 tot 212, y 228). GEZIEN met Read op hold en menu 2x.

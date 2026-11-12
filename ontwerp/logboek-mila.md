@@ -347,3 +347,4 @@
 - Gelezen: berichten (niets nieuw na run 41), besluit 00:25. Punt 2 (dagdelen, maanfase) en 3 (waar de bellen vandaan komen) stonden nog open.
 - Werelden v1.4 lucht: vier dagdelen, maan in acht standen, bellen per wereld. **Besluit: lucht nooit lichtblauw**, waarom: zie `ebb-werelden-v1.md` v1.4. GEZIEN met Read: dagdelen 2x (zonnen eerst achter planten en rotsen, verplaatst), dagdelen 1x, maanstanden 6x (bol leek eerst op een hap, opnieuw getekend met ellipsen).
 - Helden groter (27/260), derde frisse keuring 6,5, daarna emmertje als torenspits, krab in zijn slipper, geel zand bij de clownvis, ochtend en dag rijker. GEZIEN met Read: ware grootte 1x, groei 2x, dagdelen 1x (drie keer: zon en wolken eerst over de menuregel en "breathe out").
+- Vierde keuring 6,5; krab zit nu echt in een grote slipper met wit bandje ervoor. GEZIEN met Read.
