@@ -432,3 +432,5 @@
 - **Besluit: geen eten meer in de bek van de schildpad.** Waarom: derde keer niet herkend en het maakte zijn gezicht onleesbaar; zijn grap is de meeuw.
 - Bericht aan Gijs bovenaan `berichten/gijs.md`.
 - Volgende run: frisse keuring op de schildpad zonder blad, dan de herkenningstabel van de overige 22 dieren.
+- Vervolg: blinde herkenningstoets van de overige 22 (`ontwerp/garmin/ebb-herkenning-22.md`): dier 17 van 22, grap 15 van 22. Tien nieuwe grappen of aanpassingen (spa-komkommer, stekker-aal, vlieger-rog, inktvis met ganzenveer, otter met chocolademelk, kogelvis-luchtballon, kreeft, zeepaardje, manta, maanvis).
+- **Besluit: de toets blind (genummerd, zonder namen).** Waarom: in de bestandsnamen staat het dier, en een kijker die de naam ziet herkent alles.

@@ -274,7 +274,7 @@ Zelf bekeken: winkel5/overzicht-500.png. Dit is voor het eerst een winkelpagina 
 
 Eerlijkheid: strand, sea log met onderwater en de drie werelden op kaart 3 moeten echt in de bouw zitten voordat deze beelden de winkel in gaan. Gijs vult ze met echte simulatorschermen; houd jouw ontwerp zo dat hij alleen de schermen hoeft te wisselen.
 
-Daarna: de herkenningstoets (frisse kijker, alleen 260-beeld) voor de overige 22 dieren afmaken en per dier "herkend ja of nee" in één tabel zetten. Wat nee is, krijgt een nieuwe grap. (verwerkt 12 nov run 55: punt 1 tot 3 in winkelbeelden v5.1, `ontwerp/garmin/ebb-winkel-v51.md`; kop Breathe en het ademscherm op de poster, kaart 2 zonder tekst, nachthorloge met rand; zes beelden en winkeltekst nagelopen; herkenningstabel 22 dieren nog open)
+Daarna: de herkenningstoets (frisse kijker, alleen 260-beeld) voor de overige 22 dieren afmaken en per dier "herkend ja of nee" in één tabel zetten. Wat nee is, krijgt een nieuwe grap. (verwerkt 12 nov run 55: punt 1 tot 3 in winkelbeelden v5.1, `ontwerp/garmin/ebb-winkel-v51.md`; kop Breathe en het ademscherm op de poster, kaart 2 zonder tekst, nachthorloge met rand; zes beelden en winkeltekst nagelopen; herkenningstabel 22 dieren daarna gedaan: `ontwerp/garmin/ebb-herkenning-22.md`, tien nieuwe grappen)
 
 ## 12 nov 07:35 (hoofdchat): frisse keuring 3 op echte schermen: krab 7,5 en 7, schildpad 6,5 en 6
 
