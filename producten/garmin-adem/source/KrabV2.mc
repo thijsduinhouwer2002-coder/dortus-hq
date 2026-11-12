@@ -48,14 +48,20 @@ class KrabV2View extends WatchUi.View {
 
     function kleur(dc as Graphics.Dc, k as Number) as Void {
         dc.setColor(k, k);
-        if (_am) {
+        if (_am && (dc has :setFill)) {
             dc.setFill(Graphics.createColor(255, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
         }
     }
 
     // Doorschijnend vullen kan alleen met setFill (AMOLED); op MIP gebruiken we het niet.
+    // FR165 en vivoactive 5 kennen setFill niet (crash in run 43135243219): daar een vaste mengkleur.
     function glas(dc as Graphics.Dc, a as Number, k as Number) as Void {
-        dc.setFill(Graphics.createColor(a, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
+        if (dc has :setFill) {
+            dc.setFill(Graphics.createColor(a, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
+        } else {
+            var m = EbbTeken.meng(nacht ? 0x000040 : 0x004060, k, a / 255.0);
+            dc.setColor(m, m);
+        }
     }
 
     function rondje(dc as Graphics.Dc, cx as Numeric, cy as Numeric, rx as Numeric, ry as Numeric, k as Number, rand as Number, glans as Number) as Void {
@@ -69,16 +75,6 @@ class KrabV2View extends WatchUi.View {
             kleur(dc, glans);
             dc.fillEllipse(q(cx - rx * 0.62), q(cy - ry * 0.55), q(rx * 0.22), q(ry * 0.16));
         }
-    }
-
-    function vierhoek(dc as Graphics.Dc, x0 as Number, y0 as Number, x1 as Number, y1 as Number, x2 as Number, y2 as Number, x3 as Number, y3 as Number) as Void {
-        var pts = [] as Array<[Numeric, Numeric]>;
-        pts.add([x0, y0]);
-        pts.add([x1, y1]);
-        pts.add([x2, y2]);
-        pts.add([x3, y3]);
-        dc.fillPolygon(pts);
-        punten += 4;
     }
 
     // Golvende rand op hoogte y met het vlak eronder tot onder (n golven over de breedte).

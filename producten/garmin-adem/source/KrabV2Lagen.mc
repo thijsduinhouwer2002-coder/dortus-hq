@@ -16,6 +16,16 @@ module KrabV2Lagen {
         }
     }
 
+    function vierhoek(v as KrabV2View, dc as Graphics.Dc, x0 as Number, y0 as Number, x1 as Number, y1 as Number, x2 as Number, y2 as Number, x3 as Number, y3 as Number) as Void {
+        var pts = [] as Array<[Numeric, Numeric]>;
+        pts.add([x0, y0]);
+        pts.add([x1, y1]);
+        pts.add([x2, y2]);
+        pts.add([x3, y3]);
+        dc.fillPolygon(pts);
+        v.punten += 4;
+    }
+
     // Boven water (inademen): lucht met zon of maan, kam met schuim, vier golfrijen, baan van licht.
     function boven(v as KrabV2View, dc as Graphics.Dc, stap as Number, am as Boolean, nacht as Boolean) as Void {
         var top = 132;
@@ -57,7 +67,7 @@ module KrabV2Lagen {
             var gl = nacht ? 0xAAAAFF : 0xFFFFAA;
             if (am) {
                 v.glas(dc, 70, gl);
-                v.vierhoek(dc, v.q(28), v.q(top + 4), v.q(52), v.q(top + 4), v.q(44), v.q(top + 52), v.q(36), v.q(top + 52));
+                vierhoek(v, dc, v.q(28), v.q(top + 4), v.q(52), v.q(top + 4), v.q(44), v.q(top + 52), v.q(36), v.q(top + 52));
             }
             var vk = [34, 9, 9, 47, 11, 7, 40, 18, 10, 33, 26, 5, 45, 29, 6, 39, 37, 5, 42, 46, 3] as Array<Number>;
             v.kleur(dc, gl);
@@ -114,7 +124,7 @@ module KrabV2Lagen {
                 for (var i = 0; i < 3; i += 1) {
                     var f = 1.0 - 0.3 * i;
                     v.glas(dc, nacht ? 18 : 28, licht);
-                    v.vierhoek(dc, v.q(xo - 26 * f), 0, v.q(xo + 26 * f), 0, v.q(xh + 48 * f), v.q(yh), v.q(xh - 48 * f), v.q(yh));
+                    vierhoek(v, dc, v.q(xo - 26 * f), 0, v.q(xo + 26 * f), 0, v.q(xh + 48 * f), v.q(yh), v.q(xh - 48 * f), v.q(yh));
                 }
             }
         } else if (stap == 1) {
