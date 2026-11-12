@@ -108,6 +108,8 @@ module KrabV2Werelden {
     function maak(w as Number) as KrabV2Wereld {
         if (w == 0) { return new KrabV2WKrab(); } // naam: krab2
         if (w == 1) { return new KrabV2WSchild(); } // naam: schild2
+        if (w == 2) { return new KrabV2WGarnaal(); } // naam: garnaal
+        if (w == 3) { return new KrabV2WZeester(); } // naam: zeester
         return new KrabV2Wereld();
     }
 }
