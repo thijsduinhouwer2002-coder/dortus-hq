@@ -45,6 +45,7 @@ jobs:
         run: |
           SNEL=nee
           case "$TAK" in *proef*) SNEL=ja ;; esac
+          # Let op: alleen het bericht van de laatste commit van de push telt, en ook de eerste regel telt mee.
           case "$BERICHT" in *"[vol]"*) SNEL=nee ;; esac
           [ "$INVOER" = "true" ] && SNEL=nee
           if [ "$SNEL" = ja ]; then

@@ -40,6 +40,7 @@ jobs:
         run: |
           SNEL=nee
           case "$TAK" in *proef*) SNEL=ja ;; esac
+          # Let op: alleen het bericht van de laatste commit van de push telt, en ook de eerste regel telt mee.
           case "$BERICHT" in *"[vol]"*) SNEL=nee ;; esac
           [ "$INVOER" = "true" ] && SNEL=nee
           # naam: naam van de job en staart van het artefact. test1, test2: Run No Evil-toetsen. alle: bouwen, testbouw,
