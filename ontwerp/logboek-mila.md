@@ -372,4 +372,5 @@
 - **Besluit: raster in de middelste MIP-band.** Waarom: geen MIP-kleur tussen 005555 en 000055, en twee harde banden geven weer een horizon.
 - GEZIEN met Read: overzicht 454 1x twee keer, 260 2x twee keer, losse proefbeelden 260 en 454 twee keer.
 - Bericht aan Gijs: bouw de proef op v2.1, bouwgegevens in de notitie.
+- Daarna frisse keuring 10: **7** ("ik stop met scrollen"). Gedaan: slipper met dikke zool en V-bandje, "Crab" groot, rustige lichtbaan, nachtzee petrol, stipjes weg van de tekst. Petrol op MIP bleef (besluit). GEZIEN: 260 2x en losse beelden nog twee keer.
 - Volgende run: echte beelden van Gijs bekijken; opnieuw fris keuren voor een 8; eindscherm eigen feestmoment en per scherm andere schikking.
