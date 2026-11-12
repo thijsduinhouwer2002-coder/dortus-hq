@@ -19,18 +19,18 @@ GELIJK inhouden-1-45-fenix847mm.png
 GELIJK inhouden-2-30-fenix847mm.png
 GELIJK inhouden-3-04-fenix847mm.png
 GELIJK inhouden-krab-fenix847mm.png
-VERSCHIL krab2-calm-dag-fenix847mm.png 10747 pixels in (229, 471, 524, 556)
-VERSCHIL krab2-calm-nacht-fenix847mm.png 155929 pixels in (135, 247, 589, 701)
-VERSCHIL krab2-eind-dag-fenix847mm.png 4894 pixels in (202, 482, 376, 539)
-VERSCHIL krab2-eind-nacht-fenix847mm.png 154220 pixels in (135, 247, 589, 701)
-VERSCHIL krab2-hold-dag-fenix847mm.png 11623 pixels in (256, 584, 520, 662)
-VERSCHIL krab2-hold-nacht-fenix847mm.png 150381 pixels in (135, 247, 589, 701)
-VERSCHIL krab2-in-dag-fenix847mm.png 10868 pixels in (229, 458, 574, 554)
-VERSCHIL krab2-in-nacht-fenix847mm.png 154639 pixels in (135, 247, 589, 701)
-VERSCHIL krab2-menu-dag-fenix847mm.png 20715 pixels in (247, 338, 500, 644)
-VERSCHIL krab2-menu-nacht-fenix847mm.png 131141 pixels in (136, 247, 588, 701)
-VERSCHIL krab2-uit-dag-fenix847mm.png 10754 pixels in (229, 519, 525, 598)
-VERSCHIL krab2-uit-nacht-fenix847mm.png 155154 pixels in (135, 247, 589, 701)
+GELIJK krab2-calm-dag-fenix847mm.png
+GELIJK krab2-calm-nacht-fenix847mm.png
+GELIJK krab2-eind-dag-fenix847mm.png
+GELIJK krab2-eind-nacht-fenix847mm.png
+GELIJK krab2-hold-dag-fenix847mm.png
+GELIJK krab2-hold-nacht-fenix847mm.png
+GELIJK krab2-in-dag-fenix847mm.png
+GELIJK krab2-in-nacht-fenix847mm.png
+GELIJK krab2-menu-dag-fenix847mm.png
+GELIJK krab2-menu-nacht-fenix847mm.png
+GELIJK krab2-uit-dag-fenix847mm.png
+GELIJK krab2-uit-nacht-fenix847mm.png
 GELIJK lucht-avond-in-fenix847mm.png
 GELIJK lucht-dag-uit-fenix847mm.png
 GELIJK lucht-nacht-uit-fenix847mm.png
@@ -42,17 +42,17 @@ GELIJK overzicht-menu-fenix847mm.png
 GELIJK pauze-fenix847mm.png
 GELIJK rustig-fenix847mm.png
 GELIJK schild2-calm-dag-fenix847mm.png
-VERSCHIL schild2-calm-nacht-fenix847mm.png 156022 pixels in (135, 247, 589, 701)
-VERSCHIL schild2-eind-dag-fenix847mm.png 7013 pixels in (156, 468, 589, 653)
-VERSCHIL schild2-eind-nacht-fenix847mm.png 154114 pixels in (135, 247, 589, 701)
+GELIJK schild2-calm-nacht-fenix847mm.png
+GELIJK schild2-eind-dag-fenix847mm.png
+GELIJK schild2-eind-nacht-fenix847mm.png
 GELIJK schild2-hold-dag-fenix847mm.png
-VERSCHIL schild2-hold-nacht-fenix847mm.png 150631 pixels in (135, 247, 589, 701)
+GELIJK schild2-hold-nacht-fenix847mm.png
 GELIJK schild2-in-dag-fenix847mm.png
-VERSCHIL schild2-in-nacht-fenix847mm.png 154737 pixels in (135, 247, 589, 701)
-VERSCHIL schild2-menu-dag-fenix847mm.png 17931 pixels in (136, 338, 567, 665)
-VERSCHIL schild2-menu-nacht-fenix847mm.png 131343 pixels in (136, 247, 588, 701)
+GELIJK schild2-in-nacht-fenix847mm.png
+GELIJK schild2-menu-dag-fenix847mm.png
+GELIJK schild2-menu-nacht-fenix847mm.png
 GELIJK schild2-uit-dag-fenix847mm.png
-VERSCHIL schild2-uit-nacht-fenix847mm.png 155315 pixels in (135, 247, 589, 701)
+GELIJK schild2-uit-nacht-fenix847mm.png
 GELIJK sealog-1-fenix847mm.png
 GELIJK sealog-2-fenix847mm.png
 GELIJK sealog-3-alle25-fenix847mm.png
@@ -60,8 +60,8 @@ GELIJK settings-1-fenix847mm.png
 GELIJK settings-2-fenix847mm.png
 GELIJK start-fenix847mm.png
 GELIJK startcheck-fenix847mm.png
-ONTBREEKT thuis-start-dag-fenix847mm.png (voor: False, na: True)
-ONTBREEKT thuis-start-nacht-fenix847mm.png (voor: False, na: True)
+GELIJK thuis-start-dag-fenix847mm.png
+GELIJK thuis-start-nacht-fenix847mm.png
 GELIJK today-fenix847mm.png
 GELIJK uitleg-fenix847mm.png
 GELIJK veilig-1-fenix847mm.png
@@ -75,4 +75,4 @@ GELIJK wereld-krab-fenix847mm.png
 GELIJK wereld-krab-week4-fenix847mm.png
 GELIJK wereld-schildpad-fenix847mm.png
 GELIJK wereld-schildpad-week4-fenix847mm.png
-77 beelden, 22 met verschil of ontbrekend
+77 beelden, 0 met verschil of ontbrekend
