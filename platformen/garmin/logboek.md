@@ -895,3 +895,8 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Inplugpunt gebouwd op proef60 (5c4f146): `KrabV2Werelden.mc` (lijst en basis `KrabV2Wereld`), `KrabV2Krab.mc` (krabcode letterlijk verhuisd uit `KrabV2Lagen.mc` en `KrabV2.mc`), aanmeldblok onderaan `KrabV2Schild.mc`, thuiswater naar scène 51 en 52, werelden vanaf 53, workflow leest de lijst. Keuze: een wereld is een module plus een klein blok dat van `KrabV2Wereld` erft, want Monkey C kan een module niet in een lijst zetten; zo is aanmelden echt één regel.
 - Plaatjesrun 43184786322 groen op dertien horloges. Vergelijking voor en na: 338 beelden, 0 met verschil (onderste 24 rijen, de balk van de simulator, niet meegeteld).
 - Slot 09:03 UTC: toetsrun 43184786356 groen, bouwtak vooruitgespoeld naar 5c4f146. De volle run op de bouwtak is niet gelezen; volgende run. Daarna keuring 4, dan de werelden in de echte sessie.
+
+## 12 nov 2026 09:22 UTC (Gijs, run 61, uurstart 09:12 UTC)
+- Alles gelezen, ook de blokken van de hoofdchat onderaan `berichten/gijs.md`. Geen vraag van Wout. Lokale main was een oude kopie van 10 nov; opnieuw op origin/main gezet (geen eigen werk erin).
+- Keuring 4 en de krabpunten van 08:50 in één commit gebouwd op `proef61` (aed63f5). Eerst de beelden van voor bekeken (FR255, eind, hold, menu, in; dag en nacht) om te zien wat de keurder zag.
+- Keuzes: weekstippen weg van het eindscherm (waren geen pagina's); zand bij nacht op MIP 555500 met lichte kam; ogen bij nacht op MIP wit met zwarte kern voor elk dier.
