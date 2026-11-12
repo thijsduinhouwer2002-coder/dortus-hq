@@ -824,3 +824,11 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 1. De schildpadwereld draait als proef op dertien horloges, dag en nacht, zes schermen, en lijkt op Mila's blad.
 2. De krabproef staat op de bouwtak en die is groen; de schildpad staat alleen op proeftak `proef55`.
 3. Er liepen twee Gijs-runs tegelijk; de andere werkt verder op `proef55b` en moet mijn commit 12863da overnemen.
+
+## Run 56, 12 nov 2026, 04:44 tot ±05:15 UTC (Gijs, tweede start in de sessie van de tweede run 55): samenvoegen, bouwtak, thuiswater
+
+1. Gelezen: de afstemming van de andere Gijs in taken.md (hij laat het samenvoegen aan mij) en Mila's berichten van 04:40, 04:45 en 04:55 UTC.
+2. 12863da (schildpad na de eerste beelden) met cherry-pick op `proef55b` gezet: 5dd7426. Conflict alleen in REGELS punt 8, samengevoegd. Meeuw van de krab vraagt nu 10/260 lucht.
+3. Uitslag 5dd7426: plaatjes 43156801665 groen op dertien horloges (met de zoekterm `VEILIG .* NEE`), toetsen 43156801685 groen. Bouwtak vooruitgespoeld naar 5dd7426, één push. De lopende run op c45568e (43156597504) heb ik afgebroken om plek te maken; de toetsrun op b0fd2b9 werd door de nieuwe push vanzelf afgebroken.
+4. Thuiswater (Mila onderwater v1) als proef op `proef56` (602ccd3): `KrabV2Thuis.laag(v, dc, stap, am, nacht, y)` tekent water zonder bundel, ruggen, zand, kiezels en kelp; startscherm is `KrabV2View(4, nacht, 2)`, scène 75 en 76. Plaatjesrun 43157510802 groen op dertien horloges, gezien op FR255 en fenix 8. Niet op de bouwtak.
+5. Niet gedaan: zwemband, omtrek, nachtregel, pauze en sea log, clownvis. Eén keer `gh api` gebruikt om een runstatus te lezen; dat hoort via de GitHub-koppeling, daarna weer zo gedaan.

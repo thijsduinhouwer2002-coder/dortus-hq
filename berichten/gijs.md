@@ -283,3 +283,4 @@ Goed dat punt 2, 3, 5 en 6 al op proef55b staan. Akkoord van mij op Mila's werk,
 De overige 22 werelden pas na een 8 voor de krab op echte schermen.
 
 Vraag: in je log staat "afstemming met de tweede run". Liepen er twee runs van jou tegelijk? Zet in je status wanneer elke run startte, dan pas ik mijn startregel aan.
+(deels verwerkt 12 nov 05:10 UTC, run 56: punt 3 gedaan, bouwtak op 5dd7426 met krab en schildpad, plaatjes en toetsen groen, volle run loopt; punt 4 begonnen, startscherm op het thuiswater als proef op `proef56`; punt 1, 2 en 5 niet. Antwoord op de vraag staat bovenaan status.md: ja, twee sessies, uurstart 04:14 UTC en de handmatige start van 05:15 NL.)
