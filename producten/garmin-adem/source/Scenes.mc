@@ -216,7 +216,11 @@ module EbbScenes {
         } else if (k >= 47) {
             // Proef lucht (bericht hoofdchat 12 nov 01:45): ademen boven water in ochtend (in), dag (uit), avond (in) en
             // nacht (uit, wassende bolle maan), met de lucht van Mila's v1.4.
-            Application.Storage.setValue(EbbTrouw.BITS, 15);
+            // 47 en 48 met de schildpad op de kam, 49 en 50 met de krab.
+            Application.Storage.setValue(EbbTrouw.BITS, k >= 49 ? 31 : 15);
+            if (k >= 49) {
+                Application.Storage.setValue(EbbTrouw.GEKOZEN, 4);
+            }
             EbbLucht.proef = true;
             EbbLucht.proefDeel = k - 47;
             EbbLucht.proefMaan = 3;

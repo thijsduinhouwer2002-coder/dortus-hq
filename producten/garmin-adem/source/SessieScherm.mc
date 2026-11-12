@@ -36,11 +36,12 @@ module EbbSessieScherm {
         if (fase == Ebb.FASE_ADEMEN) {
             // 1. Ademen: peil volgt de adem, 20% bij uit, 72% bij in (Mila 80%; lager zodat het fasewoord nooit onder water staat, beeld run 42800407029).
             // Keuring bouw 1 punt 5 en Daan B2: zee onderaan zoals blad v6 scherm 2, het getal altijd erboven.
-            // Bericht hoofdchat 12 nov 01:45: boven water is ademen, met de lucht van het dagdeel. Nu alleen in de proefscènes.
+            // Bericht hoofdchat 12 nov 01:45: boven water is ademen (lucht, grote zee, dier op de kam). Nu alleen in de proefscènes.
             if (EbbLucht.proef) {
-                EbbLucht.teken(dc, d, EbbLucht.deelNu(), EbbLucht.maanNu(), (d * (EbbZee.ADEM_TOP - EbbZee.ADEM_SLAG * v.sessie.water(nu))).toNumber());
+                EbbBovenWater.teken(dc, d, v.sessie.water(nu), golfFase, v.gezelschap);
+            } else {
+                EbbZee.ademZee(dc, d, v.sessie.water(nu), golfFase);
             }
-            EbbZee.ademZee(dc, d, v.sessie.water(nu), golfFase);
             // Codekeuring bouw 9 punt 6: de wereld al tijdens het ademen bouwen, zodat hij er bij hold staat.
             EbbWereld.bouw(v.gezelschap, d);
             yGroot = 0.39 - dc.getFontHeight(font).toFloat() / d / 2;

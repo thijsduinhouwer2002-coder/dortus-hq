@@ -119,6 +119,23 @@ module EbbZee {
         zeeBanden(dc, d, [top, top + 0.09, 0.93] as Array<Float>, [0, 1, 2] as Array<Number>, ADEM_AMP, fase);
     }
 
+    // Bericht hoofdchat 12 nov 01:45 (boven water is ademen): de zee stijgt en zakt groot. Kam van 0,72 D (uit) naar
+    // 0,58 D (in): 36 px slag op 260 in plaats van 21. Het grote getal (onderkant ±0,51 D) blijft erboven en de
+    // onderregel (midden 0,84 D) staat altijd in de tweede band 0055AA (wit 7,3 op 1), nooit op het lichte water.
+    // Nu alleen in de proefscènes (EbbBovenWater).
+    const GROOT_TOP = 0.72;
+    const GROOT_SLAG = 0.14;
+    function grootTop(water as Float) as Float {
+        return GROOT_TOP - GROOT_SLAG * water;
+    }
+
+    function ademZeeGroot(dc as Graphics.Dc, d as Number, water as Float, fase as Float) as Void {
+        var top = grootTop(water);
+        var tweede = top + 0.09;
+        tweede = tweede > 0.78 ? 0.78 : tweede;
+        zeeBanden(dc, d, [top, tweede, 0.93] as Array<Float>, [0, 1, 2] as Array<Number>, ADEM_AMP, fase);
+    }
+
     // Blad v6.4: dunne zeestrook onderaan (today, 8 weeks, settings, veiligheid), zodat elk scherm bij dezelfde zee hoort.
     const STROOK_TOP = 0.877;   // hoogste golftop van de strook (0,885 min amplitude 0,008)
     function strook(dc as Graphics.Dc, d as Number) as Void {
