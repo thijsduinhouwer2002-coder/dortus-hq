@@ -790,3 +790,5 @@
 1. De zes punten van de keurder zijn verwerkt in de krabproef en gezien op FR255 en fenix 8; groen op dertien horloges.
 2. Er is nu een meting voor de veilige zone die de run rood maakt als tekst en held te dicht op elkaar staan.
 3. Open: gele koppen 4,4 in plaats van 4,5, en schildpad en clownvis bouwen.
+
+**Slot, run 54, 04:14 UTC:** de toetsen zijn groen op adcd6af (run 43149443865) en op c57b41e (run 43150745885); de plaatjesrun op c57b41e (43150745924) is ook groen, net als de volle run op 80cf3d4 op de bouwtak (43149147717 en 43149147478). Daarna de bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld van 80cf3d4 naar c57b41e, één push. De volle run op c57b41e op de bouwtak is gestart en NIET gelezen. Verbetering op het blok hierboven: fr965 liep nog toen ik de logs las; run 43150726564 eindigde daarna als geheel groen, dus alle dertien horloges.
