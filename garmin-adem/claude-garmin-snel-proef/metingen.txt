@@ -1,0 +1,4 @@
+fenix847mm.log:ONDERTEKST golf 267 lettertop 327 ruimte 60 breedte 218 koorde 346 over 128 wereld
+fenix847mm.log:WERELDCIJFERS scherm 0 tekst 1 hoogte 97 van 454 = 21%
+fenix847mm.log:GROOT fase 2 tekst 1 breedte 57 hoogte 143 van 454 = 31%
+fenix847mm.log:GEHEUGEN hoogste 146024 van 781888 = 18%
