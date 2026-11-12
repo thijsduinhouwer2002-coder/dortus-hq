@@ -2,44 +2,44 @@ epix2pro47mm.log:GROOT fase 0 tekst 1 breedte 52 hoogte 130 van 416 = 31%
 epix2pro47mm.log:ONDERTEKST golf 289 lettertop 355 ruimte 66 breedte 113 koorde 233 over 120
 epix2pro47mm.log:GROOT fase 1 tekst 0:00 breedte 237 hoogte 104 van 416 = 25%
 epix2pro47mm.log:GROOT fase 2 tekst 1 breedte 52 hoogte 130 van 416 = 31%
-epix2pro47mm.log:GEHEUGEN hoogste 119064 van 781888 = 15%
+epix2pro47mm.log:GEHEUGEN hoogste 127768 van 781888 = 16%
 fenix7.log:GROOT fase 0 tekst 1 breedte 32 hoogte 82 van 260 = 31%
 fenix7.log:ONDERTEKST golf 180 lettertop 222 ruimte 42 breedte 87 koorde 147 over 60
 fenix7.log:GROOT fase 1 tekst 0:00 breedte 152 hoogte 66 van 260 = 25%
 fenix7.log:GROOT fase 2 tekst 1 breedte 32 hoogte 82 van 260 = 31%
-fenix7.log:GEHEUGEN hoogste 107864 van 781888 = 13%
+fenix7.log:GEHEUGEN hoogste 116576 van 781888 = 14%
 fenix847mm.log:GROOT fase 0 tekst 1 breedte 57 hoogte 143 van 454 = 31%
 fenix847mm.log:ONDERTEKST golf 316 lettertop 388 ruimte 72 breedte 133 koorde 248 over 115
 fenix847mm.log:GROOT fase 1 tekst 0:00 breedte 259 hoogte 114 van 454 = 25%
 fenix847mm.log:GROOT fase 2 tekst 1 breedte 57 hoogte 143 van 454 = 31%
-fenix847mm.log:GEHEUGEN hoogste 119176 van 781888 = 15%
+fenix847mm.log:GEHEUGEN hoogste 127880 van 781888 = 16%
 fr255.log:GROOT fase 0 tekst 1 breedte 32 hoogte 82 van 260 = 31%
 fr255.log:ONDERTEKST golf 180 lettertop 222 ruimte 42 breedte 87 koorde 147 over 60
 fr255.log:GROOT fase 1 tekst 0:00 breedte 152 hoogte 66 van 260 = 25%
 fr255.log:GROOT fase 2 tekst 1 breedte 32 hoogte 82 van 260 = 31%
-fr255.log:GEHEUGEN hoogste 118368 van 519880 = 22%
+fr255.log:GEHEUGEN hoogste 127072 van 519880 = 24%
 fr265.log:GROOT fase 0 tekst 1 breedte 52 hoogte 130 van 416 = 31%
 fr265.log:ONDERTEKST golf 289 lettertop 355 ruimte 66 breedte 113 koorde 233 over 120
 fr265.log:GROOT fase 1 tekst 0:00 breedte 237 hoogte 104 van 416 = 25%
 fr265.log:GROOT fase 2 tekst 1 breedte 52 hoogte 130 van 416 = 31%
-fr265.log:GEHEUGEN hoogste 119128 van 781888 = 15%
+fr265.log:GEHEUGEN hoogste 127832 van 781888 = 16%
 fr965.log:GROOT fase 0 tekst 1 breedte 57 hoogte 143 van 454 = 31%
 fr965.log:ONDERTEKST golf 316 lettertop 388 ruimte 72 breedte 133 koorde 248 over 115
 fr965.log:GROOT fase 1 tekst 0:00 breedte 259 hoogte 114 van 454 = 25%
 fr965.log:GROOT fase 2 tekst 1 breedte 57 hoogte 143 van 454 = 31%
-fr965.log:GEHEUGEN hoogste 119128 van 781888 = 15%
+fr965.log:GEHEUGEN hoogste 127832 van 781888 = 16%
 venu2.log:GROOT fase 0 tekst 1 breedte 52 hoogte 130 van 416 = 31%
 venu2.log:ONDERTEKST golf 289 lettertop 355 ruimte 66 breedte 113 koorde 233 over 120
 venu2.log:GROOT fase 1 tekst 0:00 breedte 237 hoogte 104 van 416 = 25%
 venu2.log:GROOT fase 2 tekst 1 breedte 52 hoogte 130 van 416 = 31%
-venu2.log:GEHEUGEN hoogste 119088 van 781888 = 15%
+venu2.log:GEHEUGEN hoogste 127792 van 781888 = 16%
 venu3.log:GROOT fase 0 tekst 1 breedte 57 hoogte 143 van 454 = 31%
 venu3.log:ONDERTEKST golf 316 lettertop 388 ruimte 72 breedte 133 koorde 248 over 115
 venu3.log:GROOT fase 1 tekst 0:00 breedte 259 hoogte 114 van 454 = 25%
 venu3.log:GROOT fase 2 tekst 1 breedte 57 hoogte 143 van 454 = 31%
-venu3.log:GEHEUGEN hoogste 119112 van 781888 = 15%
+venu3.log:GEHEUGEN hoogste 127816 van 781888 = 16%
 vivoactive5.log:GROOT fase 0 tekst 1 breedte 49 hoogte 123 van 390 = 31%
 vivoactive5.log:ONDERTEKST golf 271 lettertop 333 ruimte 62 breedte 118 koorde 214 over 96
 vivoactive5.log:GROOT fase 1 tekst 0:00 breedte 224 hoogte 98 van 390 = 25%
 vivoactive5.log:GROOT fase 2 tekst 1 breedte 49 hoogte 123 van 390 = 31%
-vivoactive5.log:GEHEUGEN hoogste 119112 van 781888 = 15%
+vivoactive5.log:GEHEUGEN hoogste 127816 van 781888 = 16%
