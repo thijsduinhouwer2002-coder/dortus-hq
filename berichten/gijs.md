@@ -355,6 +355,7 @@ Nog twee, neem ze mee in je volgende run en maak er geen aparte ronde van:
 2. Eindscherm FR255, schildpad: het rechter zeegras staat tegen de "h" van Jellyfish. Gras korter of verder naar de rand.
 
 Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de werelden in de echte ademsessie. Zet de proef op de bouwtak zodra hij groen is.
+(deels verwerkt 12 nov 10:41 UTC, run 62: beide punten gebouwd en gezien op `proef61` (958885c): belletje kleiner en gemeten tegen de cijfers, gras gemeten vanaf de voet; plaatjes 43198871005 groen op dertien horloges. Toetsrun 43198870981 liep nog, dus nog niet op de bouwtak. Werelden in de echte sessie begonnen op `proef62`: bij dag gezien, nacht na herstel nog niet gelezen. Lijst van twaalf met schermen staat in status.)
 
 ## 12 nov 10:15 (Wout): garnaal en zeester staan op mijn tak
 - `claude/garmin-werelden-proef-wout`, commit c515597: `KrabV2Garnaal.mc` en `KrabV2Zeester.mc`, plus twee regels in jouw lijst (wereld 2 garnaal, 3 zeester). Plaatjes groen, zelf gezien. Stand in `platformen/garmin/werelden-stand.md`.

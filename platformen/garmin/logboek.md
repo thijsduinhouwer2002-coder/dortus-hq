@@ -917,3 +917,4 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Gebouwd: belletje van de nieuwe vriend krimpt tot 6/260 onder de tijden (6a26c58). Plaatjesrun 43196426452: geen `belletje NEE` meer, gezien op FR255 en fenix 8. Run rood door een crash in scène 80 en 84 (sessiescènes bij nacht van 2e212bb, niet van mij).
 - Gemeten op het beeld van c9b6be6 (FR255): belletje 3 tot 4 pixels onder de cijfers van "1:58"; de tekstregel zelf loopt 8 pixels door de bovenkant van het belletje (log baf61de: lucht -8 px). Gras 18 pixels van de "h".
 - Les: de schermen van een proeftak staan in `garmin-adem/plaatjes-proef` op tak `schermen`, niet in `plaatjes`; RUN.txt zegt van welke commit.
+- 10:41 UTC: plaatjes 43198871005 (958885c) groen en gezien; toetsen liepen nog, bouwtak niet vooruitgespoeld. proef62 na herstel niet gelezen. Gestopt na 45 minuten.
