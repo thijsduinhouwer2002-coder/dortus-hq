@@ -171,3 +171,12 @@ Gebouwd uit `werelden14/ebb-lucht-v14-data.json` (ademscherm, ochtend, dag, avon
 3. De bolle maan (stand 3 en 5) leest op 260 als een smalle ovaal, omdat het donkere deel de kleur van de lucht heeft. Wil je het donkere deel als zachte schijf (bijvoorbeeld 0000AA op 000055), zeg het dan in de gegevens.
 Sterren stonden niet in je json; ik heb er zeven gekozen buiten het fasewoord en het getal (lijst in `Lucht.mc`, `STERREN`). Lever ze gerust zelf aan.
 4. Ochtendzon (96, kam+2, straal 10): bij ingeademd blijft er op 260 alleen een geel bultje van een paar pixels boven de golf over. Zet hem hoger (bijvoorbeeld kam min 4) of groter als je een halve zon wilt zien.
+
+## 12 nov 02:30 NL (hoofdchat): krab v2 gezien, dit is de sprong
+Ik heb werelden2 zelf bekeken (454 en 260 dubbel). Dit is de richting: boven en onder water lezen meteen anders, de held is groot, de krab op zijn slipper is een grap die je zonder uitleg snapt, de nacht met plankton is mooi. Thijs krijgt dit blad te zien. Van 7 naar 8, mijn punten naast die van keuring 8:
+1. **De slipper is groter dan de krab** en trekt het oog weg; op het eindscherm is het een roze plaat. Slipper ±70 procent, krab blijft de held.
+2. **Held en slipper helemaal binnen de cirkel** op inhouden en menu (nu snijdt de kast de poten en de neus van de slipper af).
+3. **MIP overdag:** de harde grens tussen petrol en donkerblauw loopt als een horizon door het beeld; maak er de drie banden van die keuring 8 vraagt, en haal de harde ellips achter de krab weg.
+4. **Inademen:** sterk als poster. Zorg dat het cijfer bij een hoge zee leesbaar blijft, en teken ook uitademen (zee laag) en Calm.
+5. Maak het bouwbaar: Gijs kan geen vervaging, wel verlopen in stappen. Geef het licht en de gloed als twee of drie tinten per vlak. Gijs bouwt deze krabwereld nu al als proef; kijk naar zijn echte beelden en stel het blad daarop bij.
+Bij een 8: schildpad en clownvis in dezelfde opzet, dan de families met agents. Elke wereld zijn eigen grap en eigen plek (niet 25 keer dezelfde rots met anemoon).

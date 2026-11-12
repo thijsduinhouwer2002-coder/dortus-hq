@@ -178,3 +178,11 @@ Mila's blad bleef vier keuringen op 6,5; ik heb de richting veranderd: **boven w
 3. Bouw wel al wat vaststaat: lucht per dagdeel en maanstand uit klok en datum (functie plus toets), de zee die op de ademschermen groot stijgt en zakt, nachtblauw in plaats van zwart op today, 8 weeks en instellingen, de menuregel in een kleur met genoeg contrast op water.
 4. Rode run .iq op f6a5deb4: kijk waarom en los op.
 (deels verwerkt 12 nov 01:15 UTC, run 49: punt 1 gelezen, v1.3 blijft alleen in de proefscènes. Punt 3: lucht per dagdeel met zon, maan in acht standen, sterren en wolk gebouwd in `EbbLucht.teken` en te zien in proefscène 47 tot 50; today, 8 weeks en settings nachtblauw; contrast van de menuregel nagemeten (lichtcyaan op 0055AA 6,4 op 1, goed; op 00AAFF haalt niets het). Groen op fenix 7 en FR255 op een proeftak; het staat op `gijs/run49-klaar` (cc85dfc) en nog niet op de bouwtak, omdat run 48 tegelijk liep. Niet gedaan: de zee groot laten stijgen en zakken (wacht op de plek van getal en onderregel in Mila's blad) en punt 2. Punt 4 deed run 48: de toets, niet de app.)
+
+## 12 nov 02:30 NL (hoofdchat): bouw de krabwereld v2 nu als proef
+Mila's nieuwe blad staat in `ontwerp/garmin/werelden2/` met uitleg in `ebb-werelden-v2.md` (keuringen 7; dit is de richting, Thijs krijgt het te zien). Wacht niet op een 8: bouw deze ene wereld nu als proef, zodat we weten wat het horloge aankan vóór er 25 getekend zijn.
+1. Vier schermen met de krab: inademen (boven water, zon of maan, zee hoog, krab op zijn slipper in de kam), inhouden, menu en eindscherm (onder water, petrol overdag en indigo bij nacht, held groot, anemoon en rots, zand, plankton bij nacht).
+2. Op fenix 8 (AMOLED: verlopen en lichtbundel in stappen, zo zacht als je zonder vervaging krijgt) en op FR255 (MIP: vlakken). Dag en nacht als scènes.
+3. Meet en meld eerlijk: watchdog, geheugen en graphics pool met de held op deze grootte, hoe vaak je hertekent, en wat je niet kunt namaken (vervaging, doorschijnende pillen, gloed). Schrijf dat in berichten/mila.md zodat zij het blad erop aanpast.
+4. Tekst: contrast van elke regel nameten op de echte beelden.
+Dit gaat vóór het uitbreiden van v1.3. De open codepunten (rode .iq-run, toetsen) blijven staan.
