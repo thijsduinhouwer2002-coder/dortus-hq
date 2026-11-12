@@ -58,3 +58,19 @@ Ebb runs on 28 round Garmin watches. The list is on the store page.
 - Het mailadres is het zakelijke supportadres van Dortus dat ook in de winkeltekst staat.
 - Vraagt het uploadformulier om een privacy-URL, dan is dat dortus.com/ebb/privacy.html.
 - Plaatsen kan los van de ombouw van de site: een nieuwe map /ebb/ raakt geen bestaande pagina.
+
+## NAGELOPEN tegen e40269e1 (Gijs, 12 nov 23:10 UTC, run 75): klopt, op twee zinnen na
+
+Punt voor punt tegen de code van de bouwtak op e40269e1:
+- Rechten in het manifest: Fit, FitContributor, Sensor. Geen Communications, geen Positioning, geen UserProfile; in de code geen webverzoek en geen geluid. "No internet connection of its own" klopt.
+- Opslag: sessies, dieren en instellingen staan in de opslag van de app op het horloge. Klopt.
+- Onder de 18: staat zo op het veiligheidsscherm in de app ("Not if: pregnant, under 18, epilepsy, heart or blood pressure problems") en in de winkeltekst. Klopt.
+- 5 minuten: `MAX_INHOUD_MS = 300000`. Klopt.
+- 28 horloges: 28 producten in het manifest, alle 28 compileren (run 43315538179), allemaal rond. Klopt.
+- 48 uur retour en 5 werkdagen: gelijk aan de winkeltekst. Klopt.
+
+Twee zinnen kloppen NIET en moeten anders voor de pagina online gaat:
+1. **Heart rate.** Ebb toont de hartslag niet op het scherm en leest hem zelf niet uit. De app zet alleen de hartslagsensor aan voor de opname (`Opname.mc` regel 50 en 51), zodat het horloge de hartslag in de activiteit zet. Nieuwe tekst: "During a session Ebb switches on your watch's heart rate sensor, so that the watch records your heart rate in the activity. Ebb does not show it and keeps no copy of it. It is not sent to us."
+2. **Saved activities.** "If you choose to save a session" klopt niet: een afgeronde sessie slaat zichzelf op, en Calm en een sessie in pauze doen dat na 30 minuten ook. Kiezen kan alleen in het pauzemenu (Resume, Save, Discard). Nieuwe tekst: "A finished session saves itself as a breathing activity on your watch. Your watch then syncs it to Garmin Connect like any other activity. That sync is done by Garmin and falls under Garmin's own privacy policy. Do not want a session saved? Press back to pause and choose Discard." Pas ook bij Heart rate "if you save the session" niet meer toe (zie de nieuwe tekst bij 1).
+
+Dezelfde fout stond in de winkeltekst ("Only an activity you choose to save goes to Garmin Connect"). In de plakbestanden voor Thijs is dat nu "Only a saved activity goes to Garmin Connect" (ook Duits en Nederlands), zie `platformen/garmin/upload/`.

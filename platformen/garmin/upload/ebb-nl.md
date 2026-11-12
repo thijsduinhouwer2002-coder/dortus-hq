@@ -14,7 +14,7 @@ Ebb: Ademhalingsoefeningen, Adem inhouden & 4-7-8
 Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de trilling met je ogen dicht, terwijl een kleine zee zich vult met dieren als je blijft terugkomen. Ademhalingsoefeningen en adem inhouden met rondes krachtig ademen, getekend als water: je ronde horloge wordt een patrijspoort. Het water stijgt als je inademt en zakt als je uitademt, en bij inhouden ga je onder water. Houd alleen in zolang het makkelijk gaat. Alleen op het droge: zittend of liggend, nooit in of bij water, nooit achter het stuur.
 ```
 
-## Lange beschrijving (3255 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3251 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -28,7 +28,7 @@ Breathwork-rondes en rustig 4-7-8-ademen op je Garmin. Volg elke fase op de tril
 • Eigen trilling per fase, ook met je ogen dicht; tijdens inhouden als je wilt elke 30 seconden een zachte tril. Trillen kun je uitzetten. Eén tril blijft aan: elke 30 seconden na 3:00 inhouden, voor je veiligheid. Tijdens ademen en inhouden doet het aanraakscherm niets; in het pauzemenu kun je tikken. Ebb maakt geen geluid.
 • Opgeslagen als ademactiviteit met hartslag in Garmin Connect; bij ademrondes een ronde per lap met inhoudtijd en ademhalingen, alleen ter info, zonder score. Een afgeronde sessie slaat zichzelf op, Calm en een sessie in pauze doen dat na 30 minuten ook; terugknop voor pauze: doorgaan, opslaan of weggooien.
 • Eén keer betalen. Geen abonnement, geen code per mail, geen extra account, geen telefoonapp.
-• Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een activiteit die je opslaat gaat naar Garmin Connect (privacybeleid van Garmin). Geen tracking, geen advertenties.
+• Privacy: Ebb verzamelt niets. Sessies, dieren en instellingen blijven op je horloge; alleen een opgeslagen activiteit gaat naar Garmin Connect (privacybeleid van Garmin). Geen tracking, geen advertenties.
 • Support: thijs@dortus.com, met je horlogemodel. We proberen binnen 5 werkdagen te antwoorden. Terugbetalen volgt de regels van de Garmin Connect IQ Store: Garmin geeft je na je aankoop 48 uur om terug te geven.
 
 De app is in het Engels. Geen CO2-tabellen, geen medisch hulpmiddel. Veiligheid: zittend of liggend. Nooit in of bij water, nooit in bad, nooit achter het stuur. Duizelig of tintelingen? Stop en adem gewoon. Niet als je zwanger bent, onder de 18, of bij epilepsie, hart- of bloeddrukproblemen.

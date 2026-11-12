@@ -14,7 +14,7 @@ Ebb: Breathing, Breath Hold Rounds & 4-7-8
 Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by vibration with your eyes closed, while a small sea fills with animals as you keep coming back. Breathing exercises and breath hold training with rounds of power breathing, drawn as water: your round watch face becomes a porthole on a small sea. The water rises as you breathe in and falls as you breathe out, and when you hold your breath you go under water. Hold only while it feels easy. For practice on land only: sit or lie down, never in or near water, never while driving.
 ```
 
-## Lange beschrijving (3996 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
+## Lange beschrijving (3982 tekens met de regel Tags erbij, de grens is waarschijnlijk 4.000)
 
 Heeft het formulier GEEN apart veld voor trefwoorden, plak dan dit hele blok. Is er WEL een veld voor trefwoorden, laat dan de laatste regel (Tags) hier weg.
 
@@ -56,7 +56,7 @@ Breaths per round, pace, rounds, recovery hold, weekly goal, vibration and My pa
 
 HONEST AND PRIVATE
 • One payment in the Garmin store. No subscription, no unlock code by e-mail, no extra account, no phone app.
-• Ebb collects nothing. Your sessions, animals and settings stay on your watch. Only an activity you choose to save goes to Garmin Connect, under Garmin's privacy policy. No analytics, no ads.
+• Ebb collects nothing. Your sessions, animals and settings stay on your watch. Only a saved activity goes to Garmin Connect, under Garmin's privacy policy. No analytics, no ads.
 
 SUPPORT AND REFUNDS
 Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days. Refunds follow Garmin's Connect IQ Store policy: a 48-hour return window after you buy.
