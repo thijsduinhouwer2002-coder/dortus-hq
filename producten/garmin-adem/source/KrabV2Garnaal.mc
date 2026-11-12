@@ -101,12 +101,14 @@ module KrabV2Garnaal {
                 }
             }
         } else if (stap == 3) {
-            // kiezels in een rij, om de drie een roze; alleen wat heel binnen de ronde rand past
+            // kiezels in een rij, om de drie een roze. Eigen kijkronde: op 238 sneed de ronde rand bijna alle kiezels
+            // weg; nu hoger, en een kiezel die minder dan 4/260 van de rand blijft valt weg (hij hoort bij de bodem).
             var i = 0;
             for (var x = 10; x < 260; x += 15) {
-                var y = 238 + z + 5 * (i % 2);
-                var o = KrabV2Lagen.inRond(x, y, 7);
-                if (o[0] * o[0] + o[1] * o[1] < 1.0) {
+                var y = 231 + z / 2 + 5 * (i % 2);
+                var dx = x - 130;
+                var dy = y - 130;
+                if (Math.sqrt(dx * dx + dy * dy) + 7 <= 126) {
                     v.rondje(dc, x, y, 6.5, 4.6, (i % 3 == 0) ? 0xFFAAAA : KIEZEL, 0xFFFFFF, -1);
                 }
                 i += 1;

@@ -68,7 +68,7 @@ module KrabV2Zeester {
         return scherm == 4 ? 6 : (scherm == 5 ? 24 : 0);
     }
 
-    // Onder water: laag 1 verre ruggen en de grijze bodem, laag 2 de getijdenpoel en de rotsen, laag 3 mossels.
+    // Onder water: laag 1 verre ruggen en de grijze bodem, laag 2 de getijdenpoel en de rotsen.
     function onder(v as KrabV2View, dc as Graphics.Dc, stap as Number, am as Boolean, nacht as Boolean, scherm as Number) as Void {
         var z = zak(scherm);
         if (stap == 1) {
@@ -79,9 +79,9 @@ module KrabV2Zeester {
             v.golf(dc, 215.8 + z, 262, ROTS, 3.0, 2, 0.0);
             v.golf(dc, 218 + z, 262, ROTS_D, 3.0, 2, 0.0);
         } else if (stap == 2) {
-            v.rondje(dc, 130, 246 + z, 96, 20, 0x00AAAA, 0xFFFFFF, -1);
-            v.rondje(dc, 130, 250 + z, 80, 12, 0x55FFFF, -1, -1);
-            // rotsen aan de randen mogen door de ronde rand (regel 10); ze zakken als ze tekst raken
+            v.rondje(dc, 130, 240 + z, 96, 18, 0x00AAAA, 0xFFFFFF, -1);
+            v.rondje(dc, 130, 244 + z, 80, 11, 0x55FFFF, -1, -1);
+            // rotsen aan de randen mogen door de ronde rand (regel 10); een rots die tekst raakt valt weg
             var r = [22, 220, 26, 20, 238, 218, 26, 22, 40, 244, 16, 10, 222, 244, 16, 10] as Array<Number>;
             for (var i = 0; i < 4; i += 1) {
                 var y = r[4 * i + 1] + z;
@@ -90,19 +90,8 @@ module KrabV2Zeester {
                 }
                 v.rondje(dc, r[4 * i], y, r[4 * i + 2], r[4 * i + 3], ROTS, 0xFFFFFF, 0xFFFFFF);
             }
-        } else if (stap == 3) {
-            // mossels op de rotsen, heel binnen de ronde rand
-            var m = [30, 204, 44, 210, 230, 202, 216, 208] as Array<Number>;
-            for (var i = 0; i < 4; i += 1) {
-                var o = KrabV2Lagen.inRond(m[2 * i], m[2 * i + 1] + z, 6);
-                var x = m[2 * i] + o[0];
-                var y = m[2 * i + 1] + z + o[1];
-                if (KrabV2Tekst.raakt(v, x, y, 6)) {
-                    continue;
-                }
-                v.rondje(dc, x, y, 5, 3, 0x000055, 0x5555FF, -1);
-            }
         }
+        // De mossels zijn weg (Wout, eigen kijkronde): op het echte scherm lazen ze als losse blauwe ringetjes.
     }
 
     // Laag 4: boven water het telescoopje op pootjes naast de zeester, onder water de telescoop naast hem in de poel.
@@ -117,13 +106,14 @@ module KrabV2Zeester {
         var y = h[1] + m * 0.45;
         var k = 1.45 * m / 40.0;
         if (scherm == 5) {
-            x = 104;
-            y = 128;
+            // eigen kijkronde: bij -30 graden raakte de kop het hartje; nu lager en bijna vlak
+            x = 100;
+            y = 140;
             k = 0.8;
         }
         var o = KrabV2Lagen.inRond(x, y, 24 * k);
         KrabV2Rand.meet(v, scherm, "telescoop", x + o[0], y + o[1], 24 * k);
-        telescoop(v, dc, x + o[0], y + o[1], scherm == 5 ? -30 : -20, k, v.nacht, false);
+        telescoop(v, dc, x + o[0], y + o[1], scherm == 5 ? -10 : -20, k, v.nacht, false);
     }
 }
 
