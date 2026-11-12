@@ -44,28 +44,40 @@ def golfje(d, hx, y0, breed, nacht):
 
 
 # ---------------- grapvoorwerpen ----------------
-def regenwolk(d, x, y, nacht, druppels=True):
-    """Klein regenwolkje met druppels die op de hoed vallen: de kwal is een parapluutje."""
+def regenwolk(d, x, y, nacht, druppels=True, hoed=None):
+    """Regenwolkje met druppels die op de hoed vallen en er naast afketsen: de kwal is een paraplu.
+    hoed = (cx, top_y, halve breedte) van de kwalhoed."""
     wk = (170, 170, 170) if not nacht else (85, 85, 170)
     for cx, cy, rx, ry in [(x - 12, y + 2, 10, 7), (x, y - 3, 12, 10), (x + 12, y + 2, 9, 7)]: d.rondje(cx, cy, rx, ry, WIT)
     for cx, cy, rx, ry in [(x - 12, y + 2, 8.4, 5.4), (x, y - 3, 10.4, 8.4), (x + 12, y + 2, 7.4, 5.4)]: d.rondje(cx, cy, rx, ry, wk)
     d.rondje(x, y + 6, 20, 3.6, wk)
-    if druppels:
-        for dx, dy in [(-14, 14), (-4, 20), (6, 13), (15, 19), (-10, 26), (10, 27)]:
-            px, py = x + dx, y + dy
-            d.blob([(px, py - 3.6), (px + 2.1, py + .6), (px, py + 2.4), (px - 2.1, py + .6)], (85, 255, 255), WIT, .8)
+    if not druppels: return
+    blauw = (85, 255, 255)
+    def drup(px, py, k=1.0):
+        d.blob([(px, py - 4.2 * k), (px + 2.6 * k, py + .8 * k), (px, py + 3 * k), (px - 2.6 * k, py + .8 * k)], blauw, WIT, .9)
+    hx, ht, hb = hoed if hoed else (x, y + 30, 16)
+    for dx, f in [(-10, .35), (2, .45), (12, .3), (-4, .75), (8, .72)]:      # vallen recht op de hoed
+        drup(x + dx, y + 11 + f * (ht - y - 14))
+    for kant in (-1, 1):            # spatjes waar ze op de hoed tikken, en druppels die opzij wegketsen
+        sx, sy = hx + kant * hb * .55, ht + 3
+        for a in (-60, -20):
+            aa = math.radians(a)
+            d.dr.line([d.P(sx + kant * 2 * math.cos(aa), sy + 2 * math.sin(aa)), d.P(sx + kant * 6 * math.cos(aa), sy + 6 * math.sin(aa))],
+                      fill=WIT, width=max(1, round(1.4 * d.s)))
+        drup(hx + kant * (hb + 6), ht + 6, .85)
+        drup(hx + kant * (hb + 9), ht + 16, .75)
 
 
 def handvat(d, r, nacht):
-    """Paraplu-handvat onder de hoed: rechte steel en een krul (J), geel met donkere rand."""
-    steel = [r(0, -.1), r(0, 1.12)]
-    krul = [r(.24 * math.cos(t) + .24, 1.12 + .24 * math.sin(t)) for t in [math.pi * i / 12 for i in range(0, 13)]]
-    pts = steel + krul
-    lijn(d, pts, DONKER, 8.4)
-    lijn(d, pts, GOUD_L if not nacht else (255, 255, 170), 5.2)
+    """Dik paraplu-handvat recht onder het midden van de hoed: steel en een J-krul, geel met donkere rand."""
+    steel = [r(0, -.05), r(0, 1.22)]
+    krul = [r(.27 * math.cos(t) + .27, 1.22 + .27 * math.sin(t)) for t in [math.pi * (12 - i) / 12 for i in range(0, 13)]]
+    pts = steel + krul[1:]
+    lijn(d, pts, DONKER, 11.5)
+    lijn(d, pts, GOUD_L if not nacht else (255, 255, 170), 7.0)
 
 
-def paal(d, x, y0, y1, knop=True):
+def paal(d, x, y0, y1, knop=True, voet=False):
     """Rood-witte draaimolenpaal van y0 (boven) tot y1, met een gouden knop bovenop."""
     br = 3.4
     d.dr.rectangle([(x - br - 1.2) * d.s, y0 * d.s, (x + br + 1.2) * d.s, y1 * d.s], fill=DONKER)
@@ -78,21 +90,29 @@ def paal(d, x, y0, y1, knop=True):
     if knop:
         d.rondje(x, y0 - 6, 6, 6, GOUD, DONKER, glans=GOUD_L, dikte=1.4)
         d.rondje(x, y0 - 13.5, 2, 2, GOUD, DONKER, dikte=1.0)
+    if voet: d.rondje(x, y1 + 3, 6, 3.6, GOUD, DONKER, dikte=1.4)
 
 
-def zonnebril(d, r, omhoog=False, k=1.0):
-    """Zonnebril op de maanvis: glas over zijn oog, het tweede glas steekt voor zijn neus uit, pootje naar achter.
+def glas(d, r, m, cx, cy, k):
+    """Een groot zonnebrilglas (bovenkant recht, onderkant rond), zwart met witte rand en een witte glimstreep."""
+    pts = [r(cx + (-.24 + .48 * i / 12) * k, cy - .16 * k) for i in range(13)]
+    pts += [r(cx + .24 * k * math.cos(t), cy - .04 * k + .20 * k * math.sin(t)) for t in [math.pi * i / 12 for i in range(13)]]
+    d.blob(pts, (0, 0, 0), WIT, 1.8)
+    lijn(d, [r(cx - .13 * k, cy - .02 * k), r(cx - .02 * k, cy - .12 * k)], WIT, 2.0)
+    lijn(d, [r(cx + .02 * k, cy + .06 * k), r(cx + .08 * k, cy + .0 * k)], WIT, 1.4)
+
+
+def zonnebril(d, r, omhoog=False, k=1.2):
+    """Grote zonnebril op de maanvis: twee zwarte glazen met witte glimstreep, een brugje en een pootje naar achter.
     omhoog = bij nacht op zijn voorhoofd."""
-    dy = -.36 if omhoog else 0
-    g1, g2 = r(-.32, -.15 + dy), r(-.72, -.13 + dy)
-    lijn(d, [r(-.32, -.15 + dy), r(.10, -.24 + dy)], DONKER, 2.4)        # pootje
-    lijn(d, [g2, g1], DONKER, 2.6)                                        # brug
-    for g, rr in ((g1, .17), (g2, .13)):
-        dm = rr * (d.D and 1)
     m = math.hypot(r(1, 0)[0] - r(0, 0)[0], r(1, 0)[1] - r(0, 0)[1])
-    for g, rr in ((g1, .17 * k), (g2, .135 * k)):
-        d.rondje(g[0], g[1], rr * m, rr * m * .82, (0, 0, 0), WIT, dikte=1.3)
-        d.rondje(g[0] - rr * m * .35, g[1] - rr * m * .3, rr * m * .28, rr * m * .2, (85, 85, 170))
+    dy = -.30 if omhoog else 0
+    c1, c2, y = -.30, -.86, -.16 + dy
+    for c, dk in ((WIT, 5.6), ((0, 0, 0), 3.0)):
+        lijn(d, [r(c1 + .22 * k, y - .12 * k), r(.22, y - .20)], c, dk)                           # pootje
+        brug = [r(c2 + .20 * k + (c1 - c2 - .40 * k) * i / 8, y - .10 * k - .07 * k * math.sin(math.pi * i / 8)) for i in range(9)]
+        lijn(d, brug, c, dk)                                                                      # brugje
+    for c in (c1, c2): glas(d, r, m, c, y, k)
 
 
 def bril_aan_koord(d, r):
@@ -136,9 +156,9 @@ def poetsvisje(d, x, y, k=1.0, borstel=False, kijk=-1):
 # ---------------- held met grap (een groep: dier en voorwerp) ----------------
 def held_jelly(d, hx, hy, m, hoek, nacht, boven=False):
     r = rot(hx, hy, m, hoek)
-    handvat(d, r, nacht)
     v3.dier_kantel(d, hx, hy, m, KWAL, hoek)
-    if boven: regenwolk(d, hx + 2, hy - .88 * m - 30, nacht)
+    handvat(d, r, nacht)            # voor de tentakels: de steel moet als steel lezen
+    if boven: regenwolk(d, hx + 2, hy - .88 * m - 30, nacht, hoed=(hx, hy - .78 * m, .80 * m))
 
 
 def held_seahorse(d, hx, hy, m, hoek, nacht, boven=False, paal_top=None):
@@ -155,7 +175,7 @@ def held_sunfish(d, hx, hy, m, hoek, nacht, boven=False):
     r = rot(hx, hy, m, hoek)
     v3.dier_kantel(d, hx, hy, m, MAAN, hoek)
     if boven: zonnebril(d, r, omhoog=nacht)
-    else: zonnebril(d, r, omhoog=True, k=1.3)      # onder water: de bril groot op zijn kop
+    else: zonnebril(d, r, omhoog=True, k=1.15)      # onder water: de bril op zijn kop
 
 
 def held_shark(d, hx, hy, m, hoek, nacht, boven=False):
@@ -270,7 +290,8 @@ def adem(D_, am, dd, nacht, dier, fase):
         held_jelly(d, hx, hy, 34, hoek, nacht, boven=True)
     elif dier == 'seahorse':
         hx = 194; m = 36
-        paal(d, hx + .30 * m, 60, 262)                       # de paal staat vast, het paardje gaat op en neer met de zee
+        pb = top + 26                                         # paal stopt boven de regel 'round 2 · 18 left' (veilige zone)
+        paal(d, hx + .30 * m, 60, pb, voet=True)             # de paal staat vast, het paardje gaat op en neer met de zee
         held_seahorse(d, hx, top - 6, m, hoek, nacht, boven=True)
         p = hx + .30 * m      # paal voor de staartkrul langs
         d.dr.rectangle([(p - 4.6) * d.s, (top - 6 + .62 * m) * d.s, (p + 4.6) * d.s, (top - 6 + .70 * m) * d.s], fill=DONKER)

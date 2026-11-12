@@ -73,20 +73,45 @@ def hartje(d, cx, cy, k, c, rand=WIT, rd=1.4):
 
 
 # ---------------- grapvoorwerpen ----------------
-def ufo_lichtjes(d, cx, cy, m, hoek, aan=True):
-    """Lampjes langs de rand van de rog: vijf felle bolletjes met donkere rand, zoals onder een vliegende schotel."""
+RAY_IN, RAY_CALM = 28, 26     # hoogte van de rog boven de golf bij in en Calm (was 34 en 30)
+def ufo_koepel(d, cx, cy, m, hoek):
+    """Ronde 4: glazen koepel bovenop zijn rug, zoals op een vliegende schotel: lichtblauw glas, donkere omtrek,
+    witte glimstreep en een grijze voetring. Alleen vaste kleuren, dus ook op MIP goed."""
     r = rot(cx, cy, m, hoek)
-    kl = [(255, 255, 0), (85, 255, 255), (255, 85, 170), (85, 255, 85), (255, 255, 0)]
-    for (dx, dy), c in zip([(-.92, .12), (-.50, .40), (0, .55), (.50, .40), (.92, .12)], kl):
+    R = .42; by = .00          # voet van de koepel midden op de rug
+    boog = [r(R * math.cos(t), by - R * 1.05 * math.sin(t)) for t in [i / 16 * math.pi for i in range(17)]]
+    d.blob(boog, (170, 255, 255), DONKER, 1.6)
+    # glimstreep: dikke witte boog linksboven in het glas
+    gl = [r(R * .70 * math.cos(t), by - R * .75 * math.sin(t)) for t in [i / 10 * math.pi for i in range(5, 9)]]
+    d.dr.line([d.P(*q) for q in gl], fill=WIT, width=max(2, round(2.4 * d.s)), joint='curve')
+    x, y = r(-R * .22, by - R * .72); d.rondje(x, y, 1.6, 1.6, WIT)
+    # voetring
+    pts = [r(R * 1.25 * math.cos(t), by + .10 * math.sin(t)) for t in [i / 16 * 2 * math.pi for i in range(16)]]
+    d.blob(pts, (170, 170, 170), DONKER, 1.4)
+
+
+def ufo_lichtjes(d, cx, cy, m, hoek, aan=True):
+    """Ronde 4: drie grote gele lampen onder de rog, zoals onder een vliegende schotel."""
+    r = rot(cx, cy, m, hoek)
+    for dx, dy in [(-.52, .50), (0, .66), (.52, .50)]:
         x, y = r(dx, dy)
-        d.rondje(x, y, 4, 4, c if aan else (85, 85, 170), DONKER, dikte=1.2)
+        k = .15 * m
+        d.rondje(x, y, k, k, (255, 255, 0) if aan else (85, 85, 170), DONKER, dikte=1.4)
+        if aan: d.rondje(x - k * .35, y - k * .35, k * .3, k * .3, WIT)
+
+
+def ufo(d, cx, cy, m, hoek, aan=True):
+    v3.dier_kantel(d, cx, cy, m, WIE['ray'], hoek)
+    ufo_koepel(d, cx, cy, m, hoek)
+    ufo_lichtjes(d, cx, cy, m, hoek, aan)
 
 
 def ufo_bundel(d, cx, cy, m, yg, nacht):
-    """Ronde 3: bundel licht als duidelijke trapezium in drie vaste tinten, van zijn buik tot de golf, zonder vlek."""
-    y0 = cy + .40 * m
-    tinten = [(85, 170, 255), (170, 255, 255), (255, 255, 170)] if not nacht else [(85, 85, 170), (170, 170, 255), (255, 255, 170)]
-    for (bo, on), c in zip([(14, 34), (10, 24), (5, 13)], tinten):
+    """Ronde 4: een duidelijke gele trapezium van onder de lampen tot op de golf, smal boven en breed onder,
+    met een witte kern; drie vaste tinten, geen vlek."""
+    y0 = cy + .55 * m
+    tinten = [(255, 255, 85), (255, 255, 170), WIT]
+    for (bo, on), c in zip([(.40 * m, 30), (.28 * m, 21), (.14 * m, 10)], tinten):
         d.blob([(cx - bo, y0), (cx + bo, y0), (cx + on, yg), (cx - on, yg)], c)
 
 
@@ -249,7 +274,7 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
         gx, gy, gr = (hx + 6, 238, 54) if scherm != 'eind' else (74, 238, 34)
         spoor(d, gx, gy, gr)
         if HELD_AAN:
-            v3.dier_kantel(d, hx, hy, m, wie, 0); ufo_lichtjes(d, hx, hy, m, 0, aan=False)
+            ufo(d, hx, hy, m, 0, aan=False)
     elif dier == 'manta':
         if HELD_AAN:
             v3.dier_kantel(d, hx, hy, m, wie, 0)
@@ -280,11 +305,10 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
     if dier != 'swordfish': v3.volgende_vriend(d, nacht, top, x=70 if dier == 'manta' else 196)
     if dier == 'ray':
         m = 38; hx = {'in': 196, 'calm': 194, 'uit': 150}[fase]
-        hy = top - {'in': 34, 'calm': 30, 'uit': 32}[fase]
+        hy = top - {'in': RAY_IN, 'calm': RAY_CALM, 'uit': 32}[fase]     # ronde 4: lager, de punt raakte de 12
         if HELD_AAN:
-            ufo_bundel(d, hx, hy, m, top + 2, nacht)
-            v3.dier_kantel(d, hx, hy, m, wie, hoek)
-            ufo_lichtjes(d, hx, hy, m, hoek)
+            ufo_bundel(d, hx, hy, m, top + 12, nacht)
+            ufo(d, hx, hy, m, hoek)
     elif dier == 'manta':
         m = 34; hx = {'in': 206, 'calm': 204, 'uit': 196}[fase]; hy = top - 22   # rechts, het doek waait achter hem naar links
         if HELD_AAN:
@@ -382,7 +406,7 @@ def eind(D_, am, dd, nacht, dier):
     wie = WIE[dier]
     if HELD_AAN:
         if dier == 'ray':
-            v3.dier_kantel(d, 74, 108, 30, wie, 0); ufo_lichtjes(d, 74, 108, 30, 0)
+            ufo(d, 74, 108, 30, 0)
         elif dier == 'manta':
             v3.dier_kantel(d, 66, 106, 28, wie, 0)
             mk = merk(wie); sx, sy = 66 + mk['staart'][0] * 28, 106 + mk['staart'][1] * 28 - 1

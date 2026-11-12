@@ -15,7 +15,7 @@ def L(c):
     r = [(q/255)/12.92 if q/255 <= 0.03928 else ((q/255+0.055)/1.055)**2.4 for q in c[:3]]
     return 0.2126*r[0]+0.7152*r[1]+0.0722*r[2]
 slecht = fout = 0; krap = []; laagste = 99
-for dier in v.DIEREN:
+for dier in (sys.argv[1:] or v.DIEREN):
   for nacht in (False, True):
     dd = v.NACHT if nacht else v.DAG
     for D_, am in ((454, True), (260, False)):
