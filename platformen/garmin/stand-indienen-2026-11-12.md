@@ -37,3 +37,7 @@ Eén regel van de hoofdchat in `berichten/gijs.md`: weg A, B of C. En bij A: wie
 - GEZIEN bij het vergelijken: kaart 4 was pixel voor pixel gelijk aan de app van nu. Op kaart 2 en 5 stond het nieuwe dier groter dan de app het nu tekent (de app past het dier sinds keuring bouw 4 tussen waterlijn en tekst); daarom opnieuw gemaakt. Op kaart 3 was alleen het rondje om de kogelvis iets anders.
 - De tekst van de winkel is niet veranderd, alleen het veld Screenshots (`winkeltekst.md` versie 13).
 - Wat er bij weg A nu nog over is: keuring van de echte schermen en deze zes beelden, de tekst regel voor regel naast de schermen leggen, versie 1.0.1 met release, en de stap voor Thijs vernieuwen. Dat is één run van mij plus de keuring.
+
+## Aanvulling 07:14 UTC: besluit Thijs 08:15 gelezen
+
+Na het schrijven van dit advies kwam het besluit van 08:15 binnen: de werelden gaan door, met een tweede bouwer zodra de krab een 8 haalt. Daarmee is de keuze gemaakt en bouw ik niet aan weg A. De feiten hierboven blijven gelden. De winkelbeelden v4.1 zijn bruikbaar als er toch eerder ingeleverd wordt; anders vervangen Mila's v5.1 ze zodra de werelden in de app zitten. Hoe een wereld toegevoegd wordt staat in `producten/garmin-adem/WERELD-BOUWEN.md` (bouwtak, d130bab).
