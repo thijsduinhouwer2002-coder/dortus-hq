@@ -25,36 +25,48 @@ class KrabV2View extends WatchUi.View {
     private var _am as Boolean = false;
     // slipper: hak x, y, schaal, hoek in graden; held: midden van het kader x, y en maat
     // Mila v3.1: de slipper kantelt mee met de adem (min 5 min 8 / 3 / 0 graden bij in / Calm / uit), de krab 0,6 keer.
-    private var _sl as Array<Float> = [158.0, 146.0, 1.4125, -13.0] as Array<Float>;
+    var wereld as Number = 0; // 0 krab, 1 schildpad (Mila v3.2)
+    var dier as Number = 4;
+    var sl as Array<Float> = [158.0, 146.0, 1.4125, -13.0] as Array<Float>;
     private var _kantel as Float = 4.8;
     private var _gedraaid as Number = 0;
     private var _held as Array<Number> = [154, 134, 36] as Array<Number>;
 
-    function initialize(s as Number, n as Boolean) {
+    function initialize(s as Number, n as Boolean, w as Number) {
         View.initialize();
         scherm = s;
         nacht = n;
         _kantel = (s == 0) ? 4.8 : ((s == 2) ? 1.8 : 0.0);
         if (s == 1) {
-            _sl = [128.0, 179.0, 1.4125, -5.0] as Array<Float>;
+            sl = [128.0, 179.0, 1.4125, -5.0] as Array<Float>;
             _held = [124, 165, 36] as Array<Number>;
         } else if (s == 2) {
-            _sl = [128.0, 155.0, 1.4125, -8.0] as Array<Float>;
+            sl = [128.0, 155.0, 1.4125, -8.0] as Array<Float>;
             _held = [124, 141, 36] as Array<Number>;
         } else if (s == 3) {
-            _sl = [120.0, 215.65, 1.4907, -4.0] as Array<Float>;
+            sl = [120.0, 215.65, 1.4907, -4.0] as Array<Float>;
             _held = [118, 192, 43] as Array<Number>;
         } else if (s == 4) {
-            _sl = [120.0, 206.9, 1.3173, -4.0] as Array<Float>;
+            sl = [120.0, 206.9, 1.3173, -4.0] as Array<Float>;
             _held = [118, 186, 38] as Array<Number>;
         } else if (s == 5) {
-            _sl = [70.0, 152.0, 1.0, -6.0] as Array<Float>;
+            sl = [70.0, 152.0, 1.0, -6.0] as Array<Float>;
             _held = [76, 130, 34] as Array<Number>;
+        }
+        wereld = w;
+        if (w == 1) {
+            dier = 3;
+            _held = KrabV2Schild.held(s);
+            _kantel = KrabV2Schild.kantel(s);
         }
     }
 
     function kantel() as Float {
         return _kantel;
+    }
+
+    function held() as Array<Number> {
+        return _held;
     }
 
     function heldMaat() as Number {
@@ -144,82 +156,22 @@ class KrabV2View extends WatchUi.View {
         }
     }
 
-    // Punt op de slipper (hak op 0, neus op 62) naar 1/260 van het scherm.
-    function rs(x as Float, y as Float) as Array<Float> {
-        var a = Math.toRadians(_sl[3]);
-        var c = Math.cos(a);
-        var s = Math.sin(a);
-        return [(_sl[0] + (x * c - y * s) * _sl[2]).toFloat(), (_sl[1] + (x * s + y * c) * _sl[2]).toFloat()] as Array<Float>;
-    }
-
-    function halveBreedte(x as Float) as Float {
-        if (x < 0.0) {
-            return Math.sqrt(169.0 - x * x).toFloat();
-        } else if (x < 26.0) {
-            return 13.0 - 4.2 * x / 26.0;
-        } else if (x <= 50.0) {
-            return 8.8 + 6.2 * (x - 26.0) / 24.0;
-        }
-        var r = 225.0 - (x - 50.0) * (x - 50.0);
-        return r > 0.0 ? Math.sqrt(r).toFloat() : 0.0;
-    }
-
-    function slipper(dc as Graphics.Dc) as Void {
-        var p = [] as Array<Float>;
-        for (var i = 0; i <= 14; i += 1) {
-            var x = -13.0 + i * 78.0 / 14.0;
-            p.addAll(rs(x, -halveBreedte(x) * 0.8));
-        }
-        for (var i = 14; i >= 0; i -= 1) {
-            var x = -13.0 + i * 78.0 / 14.0;
-            p.addAll(rs(x, halveBreedte(x) * 0.8));
-        }
-        var zool = [] as Array<Float>;
-        for (var i = 0; i < p.size(); i += 2) {
-            zool.add(p[i] + 0.8 * _sl[2]);
-            zool.add(p[i + 1] + 3.2 * _sl[2]);
-        }
-        blob(dc, zool, 0xAA0055, 0xFFFFFF, 2.2);
-        blob(dc, p, 0xFF55AA, -1, 0.0);
-        var g = [] as Array<Float>;
-        g.addAll(rs(30.0, -4.5)); g.addAll(rs(46.0, -6.0)); g.addAll(rs(58.0, -4.0)); g.addAll(rs(46.0, -3.0));
-        blob(dc, g, 0xFFAAFF, -1, 0.0);
-        var t = [] as Array<Float>;
-        t.addAll(rs(52.0, -1.0)); t.addAll(rs(57.0, -3.5)); t.addAll(rs(61.0, -1.0)); t.addAll(rs(57.0, 1.5));
-        blob(dc, t, 0xAA0055, -1, 0.0);
-    }
-
-    // V-bandje over de krab heen: van het teenpaaltje naar beide kanten van de taille, wit en dik.
-    function bandje(dc as Graphics.Dc) as Void {
-        var sch = _sl[2];
-        var paal = rs(55.0, 0.0);
-        var py = paal[1] - 2.0 * sch;
-        var kant = [rs(31.0, -10.5), rs(31.0, 10.5)] as Array<Array<Float> >;
-        kleur(dc, 0xFFFFFF);
-        var w = q(5.0 * sch);
-        dc.setPenWidth(w < 2 ? 2 : w);
-        for (var i = 0; i < 2; i += 1) {
-            dc.drawLine(q(kant[i][0]), q(kant[i][1]), q(paal[0]), q(py));
-            dc.fillCircle(q(kant[i][0]), q(kant[i][1]), q(2.1 * sch));
-        }
-        dc.fillCircle(q(paal[0]), q(py), q(3.2 * sch));
-        dc.setPenWidth(1);
-    }
-
     // Eén beurt van wat stil staat. Boven water: lucht, golven, verre slipper, slipper. Onder water: water, ver en
     // zand, rotsen met anemoon en zeester, lichtjes en bellen, slipper.
     function laag(dc as Graphics.Dc, stap as Number) as Void {
-        if (stap == 4) {
+        if (stap == 4 && wereld == 1) {
+            KrabV2Schild.onderHeld(self, dc, scherm, _am, _held);
+        } else if (stap == 4) {
             if (scherm == 3 || scherm == 4) {
                 if (_am) {
-                    gloed(dc, _held[0] + 30, _sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
+                    gloed(dc, _held[0] + 30, sl[1] + 15, 33, 4, 0x5A5028, 53, 0xEBE196);
                 } else {
-                    rondje(dc, _held[0] + 30, _sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
+                    rondje(dc, _held[0] + 30, sl[1] + 15, 42, 5, 0xAAAA55, -1, -1);
                 }
             }
-            slipper(dc);
+            KrabV2Slipper.slipper(self, dc);
         } else if (scherm <= 2) {
-            KrabV2Lagen.boven(self, dc, stap, _am, nacht, KrabV2Tekst.KAM[scherm]);
+            KrabV2Boven.boven(self, dc, stap, _am, nacht, KrabV2Tekst.KAM[scherm]);
         } else {
             KrabV2Lagen.onder(self, dc, stap, _am, nacht, scherm);
         }
@@ -261,17 +213,22 @@ class KrabV2View extends WatchUi.View {
         if (af) {
             // Midden van het kader van het dier op de plek van het blad (de voorraad plakt op het zwaartepunt).
             var m = q(_held[2]);
-            var g = EbbDierMaat.grenzen(4);
+            var g = EbbDierMaat.grenzen(dier);
             var s = EbbDierData.SCHAAL;
-            _gedraaid = EbbDierVoorraad.tekenHoek(dc, 4, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN, _kantel, _am);
+            _gedraaid = EbbDierVoorraad.tekenHoek(dc, dier, q(_held[0]) - (g[0] + g[1]) * m / (2 * s), q(_held[1]) - (g[2] + g[3]) * m / (2 * s), m, EbbDierPlaatje.GEVONDEN, _kantel, _am);
             staat = _gedraaid > 0;
             if (staat) {
-                bandje(dc);
+                if (wereld == 1) {
+                    KrabV2Schild.voor(self, dc, scherm, _am, nacht, _held, _kantel);
+                } else {
+                    KrabV2Slipper.bandje(self, dc);
+                }
                 if (scherm == 5) {
                     // de nieuwe vriend (garnaal) in zijn belletje rechts
                     var m2 = q(31);
-                    var g2 = EbbDierMaat.grenzen(1);
-                    staat = EbbDierVoorraad.teken(dc, 1, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, EbbDierPlaatje.GEVONDEN);
+                    var vr = (wereld == 1) ? 2 : 1;
+                    var g2 = EbbDierMaat.grenzen(vr);
+                    staat = EbbDierVoorraad.teken(dc, vr, q(184) - (g2[0] + g2[1]) * m2 / (2 * s), q(123) - (g2[2] + g2[3]) * m2 / (2 * s), m2, EbbDierPlaatje.GEVONDEN);
                 }
             }
         } else {
@@ -283,7 +240,7 @@ class KrabV2View extends WatchUi.View {
         if (staat && !_gemeld) {
             _gemeld = true;
             var st = System.getSystemStats();
-            System.println("KRABV2 scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
+            System.println("KRABV2 wereld " + wereld + " scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
         }
     }
 }

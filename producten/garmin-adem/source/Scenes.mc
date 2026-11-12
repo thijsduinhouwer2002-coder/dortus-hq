@@ -108,7 +108,8 @@ module EbbScenes {
         if (k >= 51) {
             // Proef krabwereld v2.2 (berichten hoofdchat 12 nov 02:30 en 03:10 NL): 51 tot 56 in, uit, Calm, inhouden, menu,
             // eind bij dag, 57 tot 62 hetzelfde bij nacht.
-            return [new KrabV2View((k - 51) % 6, k >= 57), new WatchUi.BehaviorDelegate()];
+            // 63 tot 74: hetzelfde voor de schildpadwereld (Mila v3.2, run 55).
+            return [new KrabV2View((k - 51) % 6, ((k - 51) / 6) % 2 == 1, (k - 51) / 12), new WatchUi.BehaviorDelegate()];
         }
         view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
         view.opnemen = false;
