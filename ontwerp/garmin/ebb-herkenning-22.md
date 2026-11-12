@@ -67,3 +67,15 @@ Nog open voor de volgende run: zeekomkommer groter met de schijfjes als twee gro
 
 ## Ronde 3 (dezelfde run): de vier zwakste verbeterd
 Zeekomkommer groter (onder water 56, boven water 42) met twee grote komkommerschijven en een groter roze handdoekje; aal met witte stekker, gele pinnen en een dik geel snoer; manta sleept het doek aan een geel touw (zoals een reclamevliegtuigje), onder water rolt het doek achter hem uit; kreeft giet met een groene gieter boven een plantje in een potje op een drijvend eilandje, emmertje weg. Contrast 4,5 of hoger, 0 te dicht. GEZIEN met Read: `herkenning/ronde3-vier.png` (boven en onder water op 260): alle vier lezen nu voor mij in een blik. Nog niet blind getoetst: eerste stap van de volgende run.
+
+## Ronde 4 (run 56, 12 nov ±06:46 UTC): blinde toets van ronde 3 en van de schildpad zonder blad
+Nieuwe kijker, genummerd, boven en onder water (`herkenning/ronde4-blind.png`).
+| Dier | Gezien als | Grap | Gezicht |
+|---|---|---|---|
+| kreeft | kreeft, tuinman met gieter en plantje | **ja** | ja |
+| schildpad (zonder blad) | schildpad, meeuw op zijn rug; onder water "zwemt gewoon" | half (boven ja, onder geen grap) | **ja** |
+| manta | manta of rog met spandoek als reclamevliegtuigje; onder water "eerder een parasol" | half | nee |
+| aal | paling of murene met een "zaklamp" | half (stekker leest als zaklamp) | ja |
+| zeekomkommer | "onduidelijk, misschien zeekomkommer", spa | half | nee (gezicht weg achter de schijfjes) |
+
+Uitkomst: kreeft klaar; het gezicht van de schildpad leest nu (dat was het punt van keuring 3). Open voor de volgende run: zeekomkommer met één schijfje op het oog en het andere oog open (gezicht blijft zichtbaar) en een herkenbare vorm (langwerpig, bobbels); aal met snoer dat duidelijk in een stopcontact of verlengsnoer eindigt, anders een andere grap; manta onder water los van het zand met het doek achter hem; schildpad onder water een eigen kleine grap zonder iets voor zijn gezicht (bijvoorbeeld de meeuw die boven het water te zien is, of niets: boven water draagt hij de grap).

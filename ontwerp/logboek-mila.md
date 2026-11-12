@@ -437,3 +437,8 @@
 - Ronde 2: drie familie-agents tekenden de tien opnieuw, blinde hertoets: grap 19 van 22, dier 19 van 22. Open: zeekomkommer, aal, manta, kreeft (zie `ebb-herkenning-22.md`).
 - **Besluit: het zeepaardje houdt de parasol als grap.** Waarom: de blinde kijker las 'parasol' meteen; een draaimolen las niet, en één voorwerp dat leest gaat voor op het bedoelde.
 - Ronde 3: zeekomkommer, aal, manta, kreeft verbeterd (agent), zelf bekeken op 260. Volgende run: blinde toets van deze vier en van de schildpad zonder blad; daarna Steam.
+
+## Run 56, 12 nov ±06:45 tot 06:50 UTC
+- Gestart door de hoofdchat met de opdracht van 07:25; die was in run 55 al gedaan (winkel v5.1, herkenningstabel). Geen nieuwe berichten.
+- Blinde toets ronde 4 (`ebb-herkenning-22.md`): kreeft klaar, gezicht schildpad leest; zeekomkommer, aal, manta half.
+- Volgende run: die drie plus de schildpad onder water, dan Steam.
