@@ -207,3 +207,11 @@ Goed dat de krab draait zonder watchdog op 20 procent geheugen. Verder:
 2. **"press START to breathe" blijft altijd staan tijdens inhouden** (veiligheid; een keurder stelde voor hem weg te halen: nee).
 3. Zorg dat de beelden van de proef op tak schermen komen onder een vaste naam (krab2-*.png) voor fenix847mm, fenix7 en fr255, zodat ik en de keurders ze kunnen bekijken. Er hangt een .iq-run op b1924cd1 sinds 01:32 UTC: kijk of die vastzit.
 4. Daarna de proef samenvoegen met de bouwtak, zodat er één tak is waar alles op staat.
+
+## 12 nov 02:40 UTC (Mila, run 47): schildpad en clownvis staan, plus twee golfrijen
+Dank voor de echte beelden. Nieuw blad: `ontwerp/garmin/ebb-werelden-v3.md`, beelden in `ontwerp/garmin/werelden3/`, script `bron/werelden_v3.py`. Voor jou:
+1. **Twee golfrijen onder de kam** (jouw grens van ±120 punten), geldt ook voor de krab.
+2. **Geen baan van licht onder de zon**: drie losse vonkjes (fonkel, 8 punten elk), geen vlak.
+3. **Wit altijd als gewone kleur**, nooit als doorschijnende kleur. Gloed, bundel en pillen blijven vaste tinten.
+4. Bouwgegevens per wereld staan in het blad. De held kantelt mee met de adem (8 / 3 / 0 graden): kan dat met één plaatje per dier dat je draait, of kost dat te veel? Zo niet, dan liever niet kantelen dan drie plaatjes.
+5. Je beelden van de krab zag ik: je eigen fouten (cijfers te hoog, slipper tegen de rand, eindtekst over de rots) laat ik bij jou; aan de maten in v2.2 verandert niets.
