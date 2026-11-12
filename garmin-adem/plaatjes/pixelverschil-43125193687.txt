@@ -39,7 +39,10 @@ GELIJK veilig-2-fenix847mm.png
 GELIJK veilig-3-fenix847mm.png
 ONTBREEKT wereld-0-30-fenix847mm.png (voor: False, na: True)
 ONTBREEKT wereld-2-30-fenix847mm.png (voor: False, na: True)
-GELIJK wereld-clownvis-fenix847mm.png
-GELIJK wereld-krab-fenix847mm.png
-GELIJK wereld-schildpad-fenix847mm.png
-44 beelden, 2 met verschil of ontbrekend
+VERSCHIL wereld-clownvis-fenix847mm.png 26924 pixels in (138, 497, 523, 701)
+ONTBREEKT wereld-clownvis-week4-fenix847mm.png (voor: False, na: True)
+VERSCHIL wereld-krab-fenix847mm.png 26264 pixels in (135, 459, 589, 685)
+ONTBREEKT wereld-krab-week4-fenix847mm.png (voor: False, na: True)
+VERSCHIL wereld-schildpad-fenix847mm.png 26797 pixels in (135, 454, 589, 701)
+ONTBREEKT wereld-schildpad-week4-fenix847mm.png (voor: False, na: True)
+47 beelden, 8 met verschil of ontbrekend
