@@ -176,8 +176,7 @@ module KrabV2Lagen {
                 var xh = eind ? 186 : 112;
                 var yh = eind ? 164 : 236;
                 var basis = nacht ? 0x000040 : 0x004060;
-                // Mila v3.2 (a): boven de onderste tekstregel (kap) één zwakke tint, zodat wit daar 4,5 op 1 haalt
-                var kap = eind ? 72 : 140;
+                var kap = eind ? 72 : 140; // Mila v3.2 (a): boven de onderste tekstregel één zwakke tint (wit 4,5 op 1)
                 var t = kap / (yh * 1.0);
                 var bx = xo + (xh - xo) * t;
                 for (var i = 0; i < 4; i += 1) {
