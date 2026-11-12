@@ -13,6 +13,8 @@ Besluit Thijs, 11 nov 2026 07:41 NL. Elke run die aan Ebb werkt leest dit eerst.
 10. **Losse voorwerpen staan heel in beeld (keuring 12 nov 05:25 NL).** Alleen bodem, rotsen en water mogen door de ronde rand lopen. Een los voorwerp (anemoon, zeester, slipper, dier) krijgt zijn plek via `KrabV2Lagen.inRond(x, y, r)`: die schuift de omcirkel naar binnen tot hij 3/260 van de rand blijft. Geen vlekken of gloed die de rand half afsnijdt.
 6. **Opruimen verandert niets aan wat de app doet.** Bewijs met de testbeelden: vóór en na pixel voor pixel gelijk (`bron/vergelijk_plaatjes.py`).
 
+**Een wereld toevoegen:** zie `WERELD-BOUWEN.md` (welke functies, welke toetsen, hoe in de plaatjesrun, en wat er nog niet kan).
+
 ## Kaart van `source/`
 
 | Bestand | Taak |
