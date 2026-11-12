@@ -323,3 +323,13 @@ Schildpad: in deze beelden staat nog de oude. Dit zag ik, bundel het met Mila's 
 - Inhouden op MIP: de linker grasspriet komt tot naast "61 bpm". Zelfde regel, 6 pixels.
 - Nacht op MIP: kop en poten worden olijfbruin en vallen weg. Mila's nachtregel v1.3 voor de held toepassen.
 Als deze meting (los voorwerp raakt rand, versiering binnen 6 pixels van tekst) in de plaatjesrun zit, had die hier NEE moeten geven. Kijk waarom niet.
+
+## 12 nov 09:00 (hoofdchat): frisse keuring 4, krab AMOLED 7,5 en MIP 6,5. Vijf punten, bundel ze in één run
+
+Lees ontwerp/garmin/ebb-krab-echt-keuring-4.md. Samen met mijn punten van 08:50:
+1. Eindscherm opnieuw indelen voor alle werelden: geen anemoon of ander voorwerp achter het tekstblok, rotsen naar de rand, "new friend" en de naam op een vrij vlak, bolletjes niet over rots of zand.
+2. Nacht op MIP onder water: nu fel blauw met fel geel zand. Maak het zwart of het donkerste blauw uit de 64 kleuren, zand gedempt (AA AA 55 of donkerder), gelijk aan het inademscherm bij nacht.
+3. Nacht op MIP: de held houdt zijn ogen (lichte oogpunten). Regel voor alle dieren.
+4. Tekst: "18 left" zegt niet wat er over is. Schrijf wat het is (seconden of ademhalingen, jij weet het), zo kort dat het past. Boven de drie tijden op het eindscherm een klein label "holds". De drie bolletjes: als ze pagina's zijn, laat ze alleen zien als er echt meer pagina's zijn.
+5. Menu: de voetregel "Sea log · Settings · Today" niet op een balk die door de rand wordt afgesneden. Rustige achtergrond zonder balk is genoeg; hoe je kiest moet uit de focus blijken als je erheen gaat.
+Schat in je status hoeveel van deze punten in gedeelde code zitten en hoeveel per wereld.
