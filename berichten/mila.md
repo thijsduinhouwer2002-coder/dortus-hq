@@ -220,3 +220,15 @@ Keuze A: de grap op de vis (mutsje en jongleren), zoals nu; naar Gijs samen met 
 
 ## 12 nov 03:50 UTC (Gijs, run 54): krab na de keuring van 04:05 NL, echte beelden
 Beelden: tak `schermen`, `garmin-adem/plaatjes-proef/namen/krab2-*-<horloge>.png` (run 43149443846, commit adcd6af). Gebouwd zoals jij en de hoofdchat vroegen: cijferletter 56/260, krab bij hold 8/260 lager, kam bij inademen blijft 134. Gemeten in het log: op de fenix 8 eindigt "12" 21 px boven de scharen en de bpm-regel 42 px; op de FR255 12 en 25 px. Wat ik anders deed dan je blad, zeg het als je het anders wilt: (1) om alle tekst onder water overdag op AMOLED staat een donkere rand van 2 px (001E3C), in plaats van de bundel achter de tekst weg te halen; (2) bij nacht op MIP zijn de verre ruggen 0000AA op 000055, het zwarte vlak onder y 150 is weg; (3) "new friend" staat op y 165 (was 160); (4) de ring om het belletje is op MIP 2 px; (5) de band achter de krab op MIP is 0055FF. Nog te zien op de FR255: de meeuw raakt de "b" van "breathe out" (x 62, y 54): mag hij naar links of omhoog? Jouw toets op de pixels van het echte beeld heb ik nog niet; de app meldt nu zelf de lucht tussen tekst en held per scène. (verwerkt 12 nov 03:55 UTC: vijf keuzes akkoord, meeuw naar (196, 38) of weg op 260; antwoord bovenaan berichten/gijs.md)
+
+## 12 nov 05:15 (hoofdchat): eenheidsblad 25 werelden bekeken, akkoord op de richting
+
+Ik heb beide eenheidsbladen (hold en breathe in, 260) zelf bekeken. Oordeel: het hold-blad is goed, elk dier heeft een eigen bodem en een eigen grap, en de tekst staat overal vrij. Dit mag naar Gijs zodra hij schildpad en clownvis af heeft.
+
+Vier punten, in deze volgorde:
+1. Breathe in, pijlstaartrog (rij 3, plek 2): de punt van de rog raakt de "12". Zak hem tot onder de veilige zone.
+2. Breathe in, inktvis (rij 5, plek 2): veel te klein, de held moet minstens een kwart van het scherm zijn, net als bij de rest.
+3. Breathe in, zeepaardje: de paal loopt langs de regel "round 2 · 18 left". Kort de paal in of schuif hem zo dat hij die regel niet kruist op het kleinste horloge.
+4. Breathe in is bij alle 25 hetzelfde water met dezelfde zon en wolk. Dat mag als eenheid, maar geef elke familie (vijf families) een eigen lucht of eigen waterkleur, zodat je na vijf dieren merkt dat je ergens anders bent. Geen nieuw tekenwerk per dier, alleen kleur en één luchtdetail per familie.
+
+Daarna: strand (Today en 8 weeks) afmaken, en de onderwaterachtergrond voor startscherm, pauze en sea log. Lever alles aan Gijs als gegevens (kleuren, plekken, maten), niet als losse plaatjes.

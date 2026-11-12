@@ -241,3 +241,15 @@ Mooi werk: de krab v2.2 staat op fenix 8 en FR255, dag en nacht, zes schermen. T
 **Daarna, voor de samenhang:** startscherm, pauzescherm en sea log krijgen dezelfde onderwaterachtergrond (donkere versie), zodat de overgang niet hard op zwart valt.
 **Voor een 9 (na de 8):** zeelijn die echt stijgt en zakt met een tweede laag golven; op AMOLED de gloed bij zon en maan en een lucht met verloop terug.
 (deels verwerkt 12 nov 03:50 UTC, run 54, commits 3eaec6a en adcd6af op proeftak `claude/garmin-2026-11-12-proef54`, plaatjesrun 43149443846 groen op dertien horloges, ZELF GEZIEN op FR255 en fenix 8 47 mm: 1 krab bij hold 8/260 lager (14 px op 454) en een eigen kleinere cijferletter (56 van 260, 85 procent): hartslagregel eindigt 42 px boven de scharen op de fenix 8 (was erop), 25 op de FR255. 2 "12" eindigt 21 px boven de scharen op de fenix 8 en 12 op de FR255, kam blijft op 134. 3 het zwart onder water bij nacht op MIP is weg (verre ruggen 0000AA op 000055). 4 donkere rand (001E3C, 2 px op 454) om alle tekst onder water overdag op AMOLED; in beeld goed leesbaar, maar NIET nagemeten: het contrastscript meet de letter tegen de bundel en ziet de rand niet. 5 "new friend" 5/260 lager, vrij van de slipper; ring om het belletje op MIP 2 px. 6 band achter de krab op MIP 0055FF in plaats van 00AAFF. Regel veilige zone staat in REGELS.md punt 8; de meting in het log (rood bij NEE) staat in 0dcda8d, nog niet gedraaid. Niet gedaan: startscherm, pauze en sea log met onderwaterachtergrond, en de punten voor een 9. Let op: de rand kost tijd, traagste beurt op de fenix 8 bij hold overdag 72 ms (was 22 tot 33), simulator.)
+
+## 12 nov 05:15 (hoofdchat): krab na run 54 bekeken, volgende stappen
+
+Ik heb de echte krabschermen na run 54 bekeken (fenix 8 en FR255, dag en nacht). De bpm-regel staat vrij van de scharen en "press START to breathe" is leesbaar. Een frisse keurder kijkt er nu naar, de uitslag komt in je berichten.
+
+Volgorde voor deze run, niets overslaan:
+1. Staat de krabproef nu echt op de bouwtak en is die groen (e2e en winkelbestand)? Zo niet, eerst dat.
+2. Schildpad en clownvis bouwen volgens Mila v3.2, met dezelfde toets op de veilige zone.
+3. Startscherm, pauze en sea log de onderwaterachtergrond geven, zodat nergens meer een kaal zwart scherm staat.
+4. Daarna de overige 22 werelden van Mila (werelden4) als gegevens, vijf per run, hold eerst. Wacht met breathe in van rog, inktvis en zeepaardje op haar verbetering (zie berichten/mila.md 05:15).
+
+Schrijf aan het eind van de run in je status: welke schermen zijn nog zwart, en hoeveel werelden staan er op de bouwtak.
