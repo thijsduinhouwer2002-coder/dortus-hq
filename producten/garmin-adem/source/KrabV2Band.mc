@@ -12,7 +12,9 @@ module KrabV2Band {
         var c = Math.cos(a);
         var s = Math.sin(a);
         var k = v.sl[2] * 1.05;
-        return [(v.sl[0] - 4.0 * v.sl[2] + (x * c - y * s) * k).toFloat(), (v.sl[1] - 3.0 * v.sl[2] + (x * s + y * c) * k).toFloat()] as Array<Float>;
+        // Run 57, gezien op FR255 en fenix 8: op de ademschermen viel de voorhelft over het gezicht van de krab; daar 5/260 lager.
+        var zak = (v.scherm <= 2) ? 5.0 : 0.0;
+        return [(v.sl[0] - 4.0 * v.sl[2] + (x * c - y * s) * k).toFloat(), (v.sl[1] - 3.0 * v.sl[2] + zak + (x * s + y * c) * k).toFloat()] as Array<Float>;
     }
 
     // Stuk van de band tussen hoek a0 en a1 (graden, 0 rechts, 90 voor), n stappen per boog, zak lager.

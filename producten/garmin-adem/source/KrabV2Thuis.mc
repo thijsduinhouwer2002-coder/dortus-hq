@@ -52,9 +52,20 @@ module KrabV2Thuis {
         } else if (stap == 3) {
             KrabV2Lagen.onder(v, dc, 3, am, nacht, 4);
             // startscherm: twee belletjes boven het eigen dier
-            var bl = [150.0, 172.0, 2.2, 156.0, 162.0, 1.6] as Array<Float>;
+            // v1.1: je vriend blaast twee belletjes en de bovenste is een roze hartje op (166, 150): hij wacht op je
+            if (KrabV2Tekst.vrij(v, 166, 150, 6)) {
+                var hart = [] as Array<Float>;
+                for (var i = 0; i < 12; i += 1) {
+                    var t = i * Math.PI / 6;
+                    var sn = Math.sin(t);
+                    hart.add((166 + 0.3 * 16 * sn * sn * sn).toFloat());
+                    hart.add((150 - 0.3 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t))).toFloat());
+                }
+                v.blob(dc, hart, 0xFF55AA, 0xFFFFFF, 1.4);
+            }
+            var bl = [152.0, 170.0, 2.2] as Array<Float>;
             v.pen(dc, 0xAAFFFF);
-            for (var i = 0; i < 2; i += 1) {
+            for (var i = 0; i < 1; i += 1) {
                 if (KrabV2Tekst.vrij(v, bl[3 * i], bl[3 * i + 1], bl[3 * i + 2])) {
                     dc.drawCircle(v.q(bl[3 * i]), v.q(bl[3 * i + 1]), v.q(bl[3 * i + 2]) < 2 ? 2 : v.q(bl[3 * i + 2]));
                 }

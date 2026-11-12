@@ -100,9 +100,11 @@ module KrabV2Schild {
         } else if (stap == 2) {
             // x, lengte, breed, buig, tint (1 licht groen, 0 donker); links staan ze op 222, rechts op 224
             var s = [14, 86, 8, 10, 0, 28, 104, 9, 10, 0, 42, 74, 8, -8, 1, 56, 54, 7, 10, 1, 204, 60, 7, 9, 0, 218, 92, 9, -12, 1, 234, 78, 8, -12, 1, 248, 98, 8, 9, 1] as Array<Number>;
+            // Mila run 53: op menu en eindscherm de hoge sprieten 8/260 korter, zodat "Today" en de naam vrij blijven
+            var kort = (scherm >= 4) ? 8 : 0;
             for (var i = 0; i < 8; i += 1) {
                 var x = s[5 * i];
-                spriet(v, dc, sp ? 260 - x : x, (i < 4 ? 222 : 224) + zak, s[5 * i + 1], sp ? -s[5 * i + 3] : s[5 * i + 3], s[5 * i + 2], s[5 * i + 4] == 1 ? GRAS : GRAS_D, false);
+                spriet(v, dc, sp ? 260 - x : x, (i < 4 ? 222 : 224) + zak, s[5 * i + 1] - kort, sp ? -s[5 * i + 3] : s[5 * i + 3], s[5 * i + 2], s[5 * i + 4] == 1 ? GRAS : GRAS_D, false);
             }
         } else if (stap == 3) {
             // een schelp en een steentje op het zand, vier plukken, een zeester: de weide is een plek, geen behang
