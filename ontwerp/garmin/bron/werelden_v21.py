@@ -136,7 +136,8 @@ def slipper(d, cx, cy, sch=1.0, hoek=-8):
         return hak if x < 26 else neus
     xs = [-13 + i * 78 / 40 for i in range(41)]
     boven = [r(x, -w(x) * .8) for x in xs]; onder = [r(x, w(x) * .8) for x in reversed(xs)]
-    d.blob(boven + onder, ROZE, WIT, 2.2)
+    d.blob([(x + .8 * sch, y + 3.2 * sch) for x, y in boven + onder], (170, 0, 85), WIT, 2.2)   # dikke zool: donkerroze rand eronder
+    d.blob(boven + onder, ROZE, None)
     d.blob([r(30, -4.5), r(46, -6), r(58, -4), r(46, -3)], (255, 170, 255))          # glans op de neus
     d.blob([r(52, -1), r(57, -3.5), r(61, -1), r(57, 1.5)], (170, 0, 85))            # teenafdruk
     return r
@@ -144,11 +145,11 @@ def slipper(d, cx, cy, sch=1.0, hoek=-8):
 
 def bandje(d, r, sch=1.0):
     """V-bandje: van het teenpaaltje in de neus naar beide kanten van de taille, wit en dik."""
-    paal = r(50, -1)
-    for kant in (r(24, -9.5), r(26, 9)):
-        d.dr.line([d.P(*kant), d.P(paal[0], paal[1] - 5 * sch)], fill=WIT, width=max(2, round(5 * sch * d.s)))
+    paal = r(55, 0)
+    for kant in (r(31, -10.5), r(31, 10.5)):     # beide poten van de V vrij naast de krab
+        d.dr.line([d.P(*kant), d.P(paal[0], paal[1] - 2 * sch)], fill=WIT, width=max(2, round(5 * sch * d.s)))
         d.rondje(kant[0], kant[1], 2.1 * sch, 2.1 * sch, WIT)
-    d.rondje(paal[0], paal[1] - 5 * sch, 3 * sch, 3 * sch, WIT)
+    d.rondje(paal[0], paal[1] - 2 * sch, 3.2 * sch, 3.2 * sch, WIT)
 
 
 def bellen(d, lijst, c):
@@ -262,7 +263,7 @@ def stofjes(d, dd):
         for x, y, r_ in [(20, 150, 1.1), (36, 146, .8), (240, 152, 1.1), (242, 140, .8), (214, 152, .7), (18, 160, .7),
                          (30, 92, 1), (230, 92, 1), (44, 136, .8), (216, 136, .8)]:
             d.rondje(x, y, r_ * (1 if d.am else 1.3), r_ * (1 if d.am else 1.3), (170, 255, 255))
-        bellen(d, [(44, 104, 2.6), (216, 98, 2.2)], (170, 255, 255))
+        bellen(d, [(26, 132, 2.6), (234, 128, 2.2)], (170, 255, 255))
         return
     plankton = [(22, 112, 1.6), (34, 138, 1.1), (16, 158, 1.3), (48, 120, .9), (232, 104, 1.6), (244, 132, 1.1),
                 (220, 146, 1.3), (208, 118, .9), (60, 150, 1), (196, 156, 1), (30, 92, .9), (236, 84, .9)]
@@ -297,7 +298,7 @@ def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='r
         d.rondje(40, 86, 14, 14, ZON, WIT, glans=WIT, dikte=2)
     # zee: kam met schuim, daaronder drie golfrijen (achter smal en licht, voor breed en donker)
     golfkleur_am = [(0, 85, 175), (0, 65, 150), (0, 45, 125), (0, 28, 95)] if not nacht else \
-                   [(0, 50, 150), (0, 35, 125), (0, 20, 100), (0, 5, 75)]
+                   [(0, 75, 150), (0, 55, 125), (0, 35, 100), (0, 15, 75)]
     golfkleur_mip = [(0, 85, 170), (0, 85, 170), (0, 0, 170), (0, 0, 170)] if not nacht else \
                     [(0, 0, 170), (0, 0, 170), (0, 0, 85), (0, 0, 85)]
     d.golf(top - 3, 262, WIT, 4, 2, 1.2)
@@ -311,8 +312,7 @@ def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='r
         for k in (1.5, 1.0):     # zuil van licht in twee tinten
             v = [d.P(40 - 12 * k, top + 4), d.P(40 + 12 * k, top + 4), d.P(40 + 4 * k, top + 52), d.P(40 - 4 * k, top + 52)]
             d.tint(lambda ld, v=v: ld.polygon(v, fill=255), gl, .2)
-    for x, y, b in [(34, top + 9, 9), (47, top + 11, 7), (40, top + 18, 10), (33, top + 26, 5), (45, top + 29, 6),
-                    (39, top + 37, 5), (42, top + 46, 3)]:      # losse vonkjes, verspringend, naar beneden kleiner
+    for x, y, b in [(40, top + 9, 14), (40, top + 20, 9), (40, top + 31, 5)]:   # rustige baan recht onder zon of maan      # losse vonkjes, verspringend, naar beneden kleiner
         d.dr.rounded_rectangle([(x - b / 2) * d.s, y * d.s, (x + b / 2) * d.s, (y + 2.2) * d.s], radius=1.1 * d.s, fill=gl)
     # held: krab in zijn slipper, groot en midden op de kam
     sch = held_maat / 34 * 1.45 * SLIP * 1.15
@@ -370,8 +370,9 @@ def eind(D_, am, dd, nacht):
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
     d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
     d.dier(118, 126, 40); bandje(d, r, 1.5 * SLIP)
-    d.tekst(130, 172, 'new friend: Crab', 23, GEEL)
-    stippen(d.dr, 130 * s_(d), 205 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
+    d.tekst(130, 163, 'new friend', 15, WIT, False)
+    d.tekst(130, 173, 'Crab', 30, GEEL)       # de naam groot (keuring 8)
+    stippen(d.dr, 130 * s_(d), 213 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
 
 

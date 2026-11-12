@@ -64,3 +64,11 @@ Bestanden: `werelden21/krab-<scherm>-<dag|nacht>-<454|260>.png` met zes schermen
 - Lichtkring eindscherm: ellips (130, 124) 46 x 38, lichtkleur, T 0,4. Alleen AMOLED.
 - Plankton bij nacht: 2 stappen, straal 2,4 keer het stipje, 00FFAA, T 0,45.
 - Held: inhouden maat 43 op (118, 184), menu 38 op (118, 186), eind 40 op (118, 126). Slipper-hak op held_x + 2, schaal maat/30 × 1,3 × 0,8, hoek −4 (eind: hak 112, schaal 1,2, hoek −6). Boven water: maat 36, kam 126 (in), 146 (calm), 170 (uit); held_x 154 bij kam onder 140, anders 124.
+
+### Frisse keuring 10 (na keuring 9): **7**
+"Ik stop met scrollen: warm, valt op, het verhaal klopt." Punten en wat ik deed:
+1. Slipper leest als roze pil met een "7": nu een dikke zool (donkerroze rand eronder) en een symmetrische V vanaf het teenpaaltje naar beide kanten, vrij naast de krab.
+2. MIP onder water modderig groen: **niet veranderd.** Besluit petrol blijft (drie eerdere keurders zagen boven en onder als één blauw); te heroverwegen op Gijs zijn echte FR255-beelden.
+3. Gele streepjes lezen als ladder: nu drie rustige streepjes recht onder zon of maan; nachtzee duidelijker petrol (004B96).
+4. Eindscherm druk, stippen raken "Crab": "new friend" klein en "Crab" groot (ook keuring 8), stippen lager. "new friend" blijft: zo heet het vrijspelen van een dier in de app.
+5. Stipjes vlak tegen de kleine tekst: bellen en vonkjes weg uit de tekstregels.
