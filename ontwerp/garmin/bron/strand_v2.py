@@ -57,7 +57,7 @@ def lucht_klok(d, uur, kam, zon=True, tekst_tot=None):
 
 
 def zee_en_strand(d, kam, nat, droog, nacht=False):
-    ZAND_, NAT_ = ((85, 85, 170), (0, 0, 85)) if nacht else ((ZAND, NAT) if not d.am else ((255, 235, 170), (215, 195, 125)))   # bij nacht koel blauwgrijs zand (keuring: olijfgeel was te fel), dan de nachtregel
+    ZAND_, NAT_ = ((170, 170, 255), (170, 170, 170)) if nacht else ((ZAND, NAT) if not d.am else ((255, 235, 170), (215, 195, 125)))   # bij nacht koel blauwgrijs zand, run 54: een trede lichter (na de regel 5555AA droog en 555555 nat, zee 000055; hoofdchat 06:00 punt 5)
     # zee
     z1, z2 = ((0, 0, 170), (0, 0, 170)) if nacht else ((0, 85, 170), (0, 85, 255))     # nacht: zee een trede donkerder, dan de nachtregel
     if d.am: d.verloop(kam, nat, (0, 105, 160) if not nacht else (0, 30, 120), (0, 60, 130) if not nacht else (0, 15, 80))
@@ -115,7 +115,7 @@ def dier_gespiegeld(d, nr, cx, cy, maat260):
 def today(D_, am, sessies, nu, nr, eerste, nacht=False):
     """v2.1 (keuring 2 van run 53): tekst bovenin de lucht, het strand groter en voller, schelpen twee keer zo groot."""
     d = Doek(D_, am)
-    INKT, LABEL = ((170, 170, 170), (170, 170, 170)) if nacht else ((0, 0, 85), (85, 85, 0))
+    INKT, LABEL = ((255, 255, 170), (255, 255, 170)) if nacht else ((0, 0, 85), (85, 85, 0))
     kam, nat, droog = 64, 112, 150
     lucht_klok(d, nu, kam, tekst_tot=50); zee_en_strand(d, kam, nat, droog, nacht)
     n = len(sessies)

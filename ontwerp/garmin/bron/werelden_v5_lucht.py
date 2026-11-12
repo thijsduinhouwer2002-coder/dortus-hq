@@ -16,7 +16,7 @@ FAMILIE = {
     'vliegers': dict(boven=(0, 85, 170), band=(85, 170, 255), am=[(0, 35, 90), (0, 85, 170), (110, 185, 255)], detail='wind'),
     'huisjes':  dict(boven=(85, 0, 170), band=(255, 85, 85), am=[(40, 0, 90), (100, 20, 160), (255, 110, 90)], detail='avondzon'),
     'koud':     dict(boven=(0, 85, 170), band=(170, 255, 255), am=[(0, 40, 100), (0, 85, 160), (190, 245, 255)], detail='sneeuw', knik=.74),
-    'licht':    dict(boven=(0, 0, 170), band=(255, 170, 255), am=[(10, 0, 80), (40, 20, 170), (255, 170, 230)], detail='stralen'),
+    'licht':    dict(boven=(0, 0, 170), band=(255, 255, 170), am=[(10, 0, 80), (40, 20, 170), (255, 240, 160)], detail='stralen'),   # run 54: band licht geel in plaats van roze (roze kwal viel weg, hoofdchat 06:00 punt 3)
 }
 ORANJE, ROOD = (255, 170, 0), (255, 0, 0)
 

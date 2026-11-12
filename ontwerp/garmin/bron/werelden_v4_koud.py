@@ -217,11 +217,11 @@ def adem(D_, am, dd, nacht, dier_naam, top=134, woord='breathe in', getal='12', 
     if dier_naam == 'squid':
         # ronde 4: groot (m 54, armen 70 px breed) achter een piepklein eilandje met een palmboom; de zee loopt over zijn armen
         v3.zee(d, nacht, top)
-        m = 54; hx = 190; hy = top - 30
+        m = 50; hx = 192; hy = top - 4           # run 54 (hoofdchat 06:00 punt 4): 26 lager en iets kleiner, ogen net boven de zee, de punt blijft onder de veilige zone van de "12"
         dier(d, hx, hy, m, INKT, hoek * .5)
         zee_over(d, nacht, top)                      # het water loopt over zijn onderkant: hij staat erin
         if HELD_AAN[0]:
-            eilandje(d, hx + 3, top + 5, 1.3)
+            eilandje(d, hx - 22, top + 5, 1.3)          # run 54: eilandje links van hem, zijn ogen gluren erlangs (de palm bedekte ze)
     else:
         v3.zee(d, nacht, top)
         if dier_naam == 'narwhal':
