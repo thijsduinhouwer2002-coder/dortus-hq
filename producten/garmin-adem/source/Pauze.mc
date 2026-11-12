@@ -99,15 +99,25 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
 
     function kies(k as Number) as Boolean {
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-        if (k == 0) {
-            _hervat.invoke();
-        } else if (k == 1) {
-            // Keuring bouw 4 punt 9: na opslaan het eindscherm (met een verdiend dier), niet meteen de app dicht.
-            _opslaan.invoke();
-        } else {
-            _weg.invoke();
+        if (doe(k)) {
             EbbNaarMenu.ga(WatchUi.SLIDE_RIGHT);
         }
+        return true;
+    }
+
+    // De keuze zelf, zonder schermwissel, zodat een toets hem kan aanroepen (codekeuring bouw 9 punt 9):
+    // 0 Resume, 1 Save, 2 Discard. Geeft true als de app daarna naar het startmenu moet (alleen na Discard).
+    function doe(k as Number) as Boolean {
+        if (k == 0) {
+            _hervat.invoke();
+            return false;
+        }
+        if (k == 1) {
+            // Keuring bouw 4 punt 9: na opslaan het eindscherm (met een verdiend dier), niet meteen de app dicht.
+            _opslaan.invoke();
+            return false;
+        }
+        _weg.invoke();
         return true;
     }
 
