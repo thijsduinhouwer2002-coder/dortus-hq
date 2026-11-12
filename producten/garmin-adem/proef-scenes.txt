@@ -2,12 +2,10 @@
 # Eén naam per regel, een sterretje mag. De namen staan in NAMEN in .github/workflows/garmin-adem-iq.yml.
 # Zet hier per wijziging alleen de scènes die erbij horen: twaalf scènes op drie horloges is ongeveer 8 minuten.
 # Leeg bestand: alle proefscènes vanaf 51 (lang).
-# Run 68, proef69: pauzemenu (dubbele tik) en de uitleg met "BACK: pause."
+# Run 70, proef70: (:plaatje) op Scenes.mc (bouwt elke bouwsoort nog?) en de kijkproef van het pauzemenu na de eerste tik op Discard (thuis-pauze-nacht)
 thuis-pauze-dag
 thuis-pauze-nacht
 uitleg
-pauze
-# Run 69: eindschermen (de tijdelijke kijkproef met "5:00 auto" en "Fish stays with you" is teruggedraaid) en de terugval (grens 60 ms)
+start
 einde-6c
-einde-6b
 sessie-terugval-*

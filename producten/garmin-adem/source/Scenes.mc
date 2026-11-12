@@ -9,7 +9,7 @@ import Toybox.WatchUi;
 
 // Alleen in de plaatjesbouw (EbbBouw.PLAATJE): per start één stilgezette scène voor de testbeelden.
 // Volgorde en namen staan ook in .github/workflows/garmin-adem-iq.yml (NAMEN).
-module EbbScenes {
+(:plaatje) module EbbScenes {
     function start(app as EbbApp, view as EbbView) as [WatchUi.Views, WatchUi.InputDelegates] {
         // Testbeelden van elk scherm (nachtronde 11 nov 01:58, voor Daans keuring van de echte bouw), één scène per start:
         // 0 tot 3 inhouden 0:30, 1:45, 2:30, 3:04 (blad v6 3a, 3b, 3d, 3c), 4 sea log, 5 today, 6 8 weeks, 7 rustig 4-7-8,

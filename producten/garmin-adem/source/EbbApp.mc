@@ -79,7 +79,10 @@ class EbbApp extends Application.AppBase {
         }
         if (EbbBouw.PLAATJE) {
             // Testbeelden van elk scherm, één scène per start: zie Scenes.mc.
-            return EbbScenes.start(self, view);
+            var sc = EbbBouw.scene(self, view);
+            if (sc != null) {
+                return sc;
+            }
         }
         if (!EbbBouw.DEMO) {
             // Keuring bouw 3 punt 10: oude reeks in dagen één keer wissen (opslagversie 2).
