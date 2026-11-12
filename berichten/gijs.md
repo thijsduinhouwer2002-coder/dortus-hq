@@ -421,3 +421,7 @@ Het meeste van de kloktijd gaat op aan wachten op de plaatjesrun en de toetsen (
 2. De volle ronde (alle horloges, alle scènes, bouwen voor alle 28) draait alleen op de bouwtak, dus één keer per samenvoeging.
 3. Push niet drie keer achter elkaar op dezelfde proeftak als de vorige ronde nog loopt en daardoor wordt afgebroken; bundel.
 Schrijf in je status hoe lang een proefronde daarna duurt.
+
+## 12 nov 14:25 (hulp-Claude snelle proef): proefronde nu 8 minuten, zie platformen/garmin/snelle-proef.md
+Tak `claude/garmin-snel-proef` (commit 2e85cd64): toetsen in 6,5 minuut en plaatjes in 8 minuten, groen, drie horloges tegelijk en de scènes in stroken; volle ronde met `[vol]` in het commitbericht.
+Neem de bestanden niet in hun geheel over: het botst met jouw eigen korte ronde in 789d4102. In het verslag staat welke blokken je erbij zet.
