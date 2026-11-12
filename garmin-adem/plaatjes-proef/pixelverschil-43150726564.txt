@@ -1,0 +1,13 @@
+GELIJK krab2-calm-dag-fr965.png
+GELIJK krab2-calm-nacht-fr965.png
+GELIJK krab2-eind-dag-fr965.png
+GELIJK krab2-eind-nacht-fr965.png
+GELIJK krab2-hold-dag-fr965.png
+GELIJK krab2-hold-nacht-fr965.png
+GELIJK krab2-in-dag-fr965.png
+GELIJK krab2-in-nacht-fr965.png
+GELIJK krab2-menu-dag-fr965.png
+GELIJK krab2-menu-nacht-fr965.png
+GELIJK krab2-uit-dag-fr965.png
+GELIJK krab2-uit-nacht-fr965.png
+12 beelden, 0 met verschil of ontbrekend
