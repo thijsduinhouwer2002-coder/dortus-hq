@@ -67,7 +67,7 @@ def eind(D_, am, dd, nacht, wereld='krab'):
     elif wereld == 'schild':
         v3.wereld_schild(d, dd, held=False, zak=14); naam = 'Jellyfish'; vriend = v3.KWAL
     else:
-        v3.wereld_clown(d, dd, held=False, zak=32, adx=26); naam = 'Seahorse'; vriend = v3.PAARD
+        v3.wereld_clown(d, dd, held=False, zak=20, huis=False, takje=False); naam = 'Seahorse'; vriend = v3.PAARD
     stofjes(d, dd)
     for x, y, k in [(228, 76, 7), (236, 140, 5)]: fonkel(d, x, y, k)
     bx, by, brx, bry = 186, 108, 36, 32

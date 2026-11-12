@@ -100,19 +100,30 @@ def meeuw(d, x, y, k=1.0, nacht=False):
 
 
 def jongleer(d, cx, cy, r_, k=1.0, nacht=False):
-    """Drie belletjes in een boog boven de clownvis, met een stippellijn van de worp: hij jongleert."""
-    for i in range(9):
-        a = math.pi * (1.05 + i * .9 / 8)
-        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), .8 * k, .8 * k, (170, 255, 255))
-    for t, c in ((.12, (255, 255, 0)), (.5, (255, 85, 170)), (.88, (85, 255, 85))):     # drie felle ballen: jongleren, geen luchtbellen
+    """Drie ballen in een boog boven de clownvis: hij jongleert. v3.2: de worp is een duidelijke witte stippelboog die bij
+    zijn neus begint, de ballen zijn groter en elke bal heeft twee vaartstreepjes erachter (stripstijl), zodat het
+    jongleren leest zonder uitleg (keuring 14 en 15: belletjes lazen als luchtbellen of aureool)."""
+    for i in range(7):                       # worp: van de neus (links onder) over de top naar rechts
+        a = math.pi * (1.02 + i * .96 / 6)
+        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), 1.1 * k, 1.1 * k, WIT)
+    for t, c in ((.16, (255, 255, 0)), (.5, (255, 85, 170)), (.84, (85, 255, 85))):     # drie felle ballen
         a = math.pi * (1.0 + t)
         x, y = cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a)
-        d.rondje(x, y, 4.4 * k, 4.4 * k, c, WIT, glans=WIT, dikte=1.5)
+        # twee vaartstreepjes achter de bal, langs de boog (de bal vliegt met de klok mee): stripstijl
+        b = a - math.pi * .09
+        bx, by = cx + r_ * math.cos(b) * 1.15, cy + r_ * math.sin(b)
+        tx, ty = -math.sin(b) * 1.15, math.cos(b); n_ = math.hypot(tx, ty); tx, ty = tx / n_, ty / n_
+        rx_, ry_ = ty, -tx
+        for z in (-1, 1):
+            q = 2.4 * k * z
+            p0 = (bx + rx_ * q, by + ry_ * q); p1 = (p0[0] - tx * 6 * k, p0[1] - ty * 6 * k)
+            d.dr.line([d.P(*p0), d.P(*p1)], fill=WIT, width=max(1, round(1.5 * d.s)))
+        d.rondje(x, y, 5.2 * k, 5.2 * k, c, WIT, glans=WIT, dikte=1.6)
 
 
 def spat(d, x, y, k=1.0):
     """Spatwater waar de clownvis uit de golf springt: een kroontje van druppels."""
-    for dx, dy, r_ in [(-16, -6, 2.4), (-10, -14, 2.2), (-2, -19, 2.4), (8, -16, 2), (16, -8, 2.4), (21, -2, 1.8)]:
+    for dx, dy, r_ in [(-30, -3, 2.2), (-27, -11, 1.8), (-34, 3, 1.4), (34, -3, 2.2), (31, -11, 1.8), (39, 3, 1.4)]:   # v3.2: naast het lijf (onder het lijf lazen ze als wieltjes)
         d.rondje(x + dx * k, y + dy * k, r_ * k, r_ * k, WIT, (0, 85, 170), dikte=.9)
     # twee ringen in het water waar hij uitsprong (geen spijlen meer: die lazen als hekje, keuring 15)
     for rx, ry in ((18, 4), (26, 6)):
@@ -250,7 +261,7 @@ def wereld_schild(d, dd, hx=124, hy=186, m=40, spiegel=False, held=True, zak=0):
             d.blob([(bek_x + dx * sg - r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy - r_ * 1.4), (bek_x + dx * sg + r_, bek_y + dy), (bek_x + dx * sg, bek_y + dy + r_ * .8)], GRAS_L, WIT, .9)
 
 
-def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht=False, adx=0):
+def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht=False, adx=0, huis=True, takje=True):
     """Rif: donkerpaarse koraalbult rechts met de grote anemoon (zijn huis), paarse waaier en geel takje links."""
     s = d.s
     verder = tuple((a + b) // 2 for a, b in zip(dd['ver'], dd['zee_top'])) if d.am else dd['mip_verder']
@@ -266,12 +277,14 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
         d.dr.line([d.P(vx, vy), d.P(vx + L * math.cos(a), vy + L * math.sin(a))], fill=RIF_L, width=max(2, round(3.4 * s)))
     d.dr.line([d.P(vx - 34, vy - 26), d.P(vx - 4, vy - 46), d.P(vx + 30, vy - 30)], fill=RIF_L, width=max(2, round(2.4 * s)), joint='curve')
     d.rondje(vx, vy + 6, 24, 12, RIF, RIF_L, glans=RIF_L)
-    for (x0, y0), (x1, y1) in [((70, 230), (70, 204)), ((70, 214), (60, 200)), ((70, 218), (82, 202)), ((82, 202), (88, 194))]:
+    tak = [((70, 230), (70, 204)), ((70, 214), (60, 200)), ((70, 218), (82, 202)), ((82, 202), (88, 194))] if takje else []
+    for (x0, y0), (x1, y1) in tak:
         d.dr.line([d.P(x0, y0 + zak), d.P(x1, y1 + zak)], fill=WIT, width=round(6.4 * s))
-    for (x0, y0), (x1, y1) in [((70, 230), (70, 204)), ((70, 214), (60, 200)), ((70, 218), (82, 202)), ((82, 202), (88, 194))]:
+    for (x0, y0), (x1, y1) in tak:
         d.dr.line([d.P(x0, y0 + zak), d.P(x1, y1 + zak)], fill=ZON, width=round(4 * s))
         d.rondje(x1, y1 + zak, 2.4, 2.4, ZON)
     # rechts: rifbult met de anemoon als huis; de vis zit erin, twee vingers liggen voor hem
+    if not huis: return
     d.rondje(222 + adx, 234 + zak, 66, 30, RIF, RIF_L, glans=RIF_L)     # brede lage rifbult: geen bloempot
     vingers = [(-34, -34), (-24, -46), (-12, -54), (0, -58), (12, -54), (24, -46), (34, -34), (40, -20)]
     ax, ay = 206 + adx, 200 + zak
