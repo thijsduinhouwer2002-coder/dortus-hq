@@ -65,7 +65,7 @@ class StartCheckView extends WatchUi.View {
         var lh = EbbTeken.leesRegel(dc, f);
         var kh = dc.getFontHeight(EbbTeken.fS());
         var regels = [EbbInstellingen.waarde(EbbInstellingen.ADEMHALINGEN) + " deep breaths,", "then hold only", "while it feels easy.",
-            WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK stops."] as Array<String>;
+            WatchUi.loadResource(Rez.Strings.UitlegStart) as String, "BACK: pause."] as Array<String>;
         var gat = (d * 0.025).toNumber();
         var bh = (d * 0.10).toNumber();
         var fh = dc.getFontHeight(f);
