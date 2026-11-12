@@ -1,5 +1,5 @@
 Turtle (zeegrasweide): 118 punten, 21 vlakken, 7 met p2, kleuren 15
-Crab (rotsen met verloren slipper): 120 punten, 19 vlakken, 0 met p2, kleuren 13
+Crab (rotsen met verloren slipper): 120 punten, 19 vlakken, 0 met p2, kleuren 12
 Clownfish (anemoon met zwaaiende arm): 120 punten, 17 vlakken, 4 met p2, kleuren 13
 teksten die elkaar raken (minder dan 3 px ertussen): 0 []
 pixels buiten de 64 MIP-kleuren (alle schermen zonder letters): 0
