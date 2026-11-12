@@ -98,6 +98,15 @@ module KrabV2Tekst {
     }
 
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
+    // Vulkleur zonder nachtregel (knoppen en banden achter tekst). Wit met volle dekking is hetzelfde getal als
+    // doorzichtig, daarom een fractie onder wit.
+    function vul(dc as Graphics.Dc, am as Boolean, k as Number) as Void {
+        dc.setColor(k, k);
+        if (am && (dc has :setFill)) {
+            dc.setFill(Graphics.createColor(255, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k == 0xFFFFFF ? 0xFE : (k & 0xFF)));
+        }
+    }
+
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
         if (_meet) {
             var w = dc.getTextWidthInPixels(s, f);
@@ -168,26 +177,31 @@ module KrabV2Tekst {
             }
             for (var i = 0; i < 2; i += 1) {
                 var py = 52 + 34 * i;
-                // Keuring 05:25 punt 3: de gekozen knop is gevuld met lichtgeel, donkere letter en een pijltje;
-                // de andere is donker met een dunne rand.
-                var kn = (i == 0) ? geel : pk;
-                dc.setColor(kn, kn);
-                if (am && (dc has :setFill)) {
-                    dc.setFill(Graphics.createColor(255, (kn >> 16) & 0xFF, (kn >> 8) & 0xFF, kn & 0xFF));
-                }
+                // Keuring 05:25 punt 3: de gekozen knop is gevuld met een pijltje; de andere is donker met een dunne rand.
+                // Mila 12 nov 06:05 UTC (ebb-punten-0600.md punt 1): gekozen knop zoals Resume. Overdag vlak 00FFFF
+                // zonder rand met tekst 000055; bij nacht vlak 0055AA, rand 55AAFF 2 px, tekst wit. Knoppen vallen
+                // buiten de nachtregel.
+                var gt = nacht ? wit : 0x000055;
+                vul(dc, am, (i == 0) ? (nacht ? 0x0055AA : 0x00FFFF) : pk);
                 dc.fillRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
                 if (i == 0) {
-                    v.kleur(dc, pk);
+                    if (nacht) {
+                        dc.setColor(0x55AAFF, Graphics.COLOR_TRANSPARENT);
+                        dc.setPenWidth(v.q(2) < 2 ? 2 : v.q(2));
+                        dc.drawRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
+                        dc.setPenWidth(1);
+                    }
+                    vul(dc, am, gt);
                     var pts = [] as Array<[Numeric, Numeric]>;
                     pts.add([v.q(74), v.q(py + 8)]);
                     pts.add([v.q(74), v.q(py + 20)]);
                     pts.add([v.q(82), v.q(py + 14)]);
                     dc.fillPolygon(pts);
                 } else {
-                    dc.setColor(0x00AAFF, Graphics.COLOR_TRANSPARENT);
+                    dc.setColor(nacht ? 0x0055AA : 0x00AAFF, Graphics.COLOR_TRANSPARENT);
                     dc.drawRoundedRectangle(v.q(64), v.q(py), v.q(132), v.q(28), v.q(14));
                 }
-                dc.setColor(i == 0 ? pk : wit, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(i == 0 ? gt : wit, Graphics.COLOR_TRANSPARENT);
                 dc.drawText(d / 2 + (i == 0 ? v.q(4) : 0), v.q(py + 14), EbbTeken.fS(), namen[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             }
             dc.setColor(pk, pk);
