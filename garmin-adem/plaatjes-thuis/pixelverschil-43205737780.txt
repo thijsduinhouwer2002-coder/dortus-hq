@@ -1,0 +1,9 @@
+VERSCHIL thuis-menu-dag-epix2pro47mm.png 1096 pixels in (185, 460, 493, 626)
+VERSCHIL thuis-menu-leeg-dag-epix2pro47mm.png 424 pixels in (261, 460, 493, 672)
+VERSCHIL thuis-menu-nacht-epix2pro47mm.png 1105 pixels in (185, 460, 493, 626)
+VERSCHIL thuis-pauze-dag-epix2pro47mm.png 507 pixels in (223, 649, 437, 655)
+VERSCHIL thuis-pauze-nacht-epix2pro47mm.png 507 pixels in (223, 649, 437, 655)
+VERSCHIL thuis-sealog-alle-nacht-epix2pro47mm.png 350 pixels in (240, 659, 418, 663)
+VERSCHIL thuis-sealog-dag-epix2pro47mm.png 350 pixels in (240, 659, 418, 663)
+VERSCHIL thuis-sealog-nacht-epix2pro47mm.png 350 pixels in (240, 659, 418, 663)
+8 beelden, 8 met verschil of ontbrekend
