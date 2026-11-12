@@ -1,0 +1,25 @@
+GELIJK krab2-calm-dag-fenix847mm.png
+GELIJK krab2-calm-nacht-fenix847mm.png
+GELIJK krab2-eind-dag-fenix847mm.png
+GELIJK krab2-eind-nacht-fenix847mm.png
+GELIJK krab2-hold-dag-fenix847mm.png
+GELIJK krab2-hold-nacht-fenix847mm.png
+GELIJK krab2-in-dag-fenix847mm.png
+GELIJK krab2-in-nacht-fenix847mm.png
+GELIJK krab2-menu-dag-fenix847mm.png
+GELIJK krab2-menu-nacht-fenix847mm.png
+GELIJK krab2-uit-dag-fenix847mm.png
+GELIJK krab2-uit-nacht-fenix847mm.png
+GELIJK schild2-calm-dag-fenix847mm.png
+GELIJK schild2-calm-nacht-fenix847mm.png
+VERSCHIL schild2-eind-dag-fenix847mm.png 1202 pixels in (149, 467, 223, 496)
+VERSCHIL schild2-eind-nacht-fenix847mm.png 1202 pixels in (149, 467, 223, 496)
+VERSCHIL schild2-hold-dag-fenix847mm.png 1554 pixels in (226, 544, 314, 582)
+VERSCHIL schild2-hold-nacht-fenix847mm.png 1554 pixels in (226, 544, 314, 582)
+VERSCHIL schild2-in-dag-fenix847mm.png 6201 pixels in (356, 383, 522, 525)
+VERSCHIL schild2-in-nacht-fenix847mm.png 6412 pixels in (356, 383, 522, 525)
+VERSCHIL schild2-menu-dag-fenix847mm.png 1595 pixels in (225, 561, 313, 599)
+VERSCHIL schild2-menu-nacht-fenix847mm.png 1595 pixels in (225, 561, 313, 599)
+VERSCHIL schild2-uit-dag-fenix847mm.png 7305 pixels in (281, 440, 436, 587)
+VERSCHIL schild2-uit-nacht-fenix847mm.png 8206 pixels in (281, 440, 436, 587)
+24 beelden, 10 met verschil of ontbrekend
