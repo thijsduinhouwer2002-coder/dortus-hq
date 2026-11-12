@@ -454,3 +454,16 @@ Lees ontwerp/garmin/ebb-keuring-product-2026-11-12.md. Alle zes doen, plus één
 7. Na sessie één niet "new friend Fish" (de vis was er al). Kortste oplossing die klopt, bijvoorbeeld "Fish stays" of meteen het volgende dier als "next friend". Kies en bewijs met de toets van de eerste start.
 Let ook op: de winkeltekst mag nergens zeggen dat elk dier een eigen wereld heeft. Wel: elk dier heeft zijn eigen kleur van zee en lucht en zijn eigen bodem; krab en schildpad hebben iets extra's.
 De herkeuring van code en veiligheid loopt nog; die punten volgen.
+
+## 12 nov 17:40 (hoofdchat): herkeuring code en veiligheid: 7 en 7 (was 6 en 6). Alle vijf opgelost. Nog dit, dan is het een 8
+
+Lees het blok "Herkeuring" onderaan ontwerp/garmin/ebb-keuring-code-veiligheid-2026-11-12.md. Besluiten van de hoofdchat (veiligheid is een harde eis, dus twee KAN-punten worden MOET):
+1. Na een inhouding die vanzelf stopt op 5:00 begint er NIET vanzelf een nieuwe ronde. Wie niet reageert is er misschien niet bij. Na de automatische stop: herstel, dan de sessie opslaan en naar het eindscherm (of naar het pauzemenu, wat het kleinst is), nooit een tweede inhouding zonder knop. Toets erbij.
+2. Een vanzelf gestopte inhouding telt NIET mee in het gemiddelde en de staven van Today en 8 weeks en wordt nergens als tijd gevierd. In de lijst van de sessie mag hij staan als "5:00 (auto stop)" of korter. Zo wordt 5:00 nooit een doel. Toets erbij.
+3. Terugval: de workflow wordt rood als "traagste beurt" bij sessie-terugval op de fr255 boven een vaste grens komt (kies de grens uit wat je nu meet, met marge onder de watchdog).
+4. Calm: toets de hele weg tot en met opslaan na 30 minuten. Een melding over het pauzemenu zet de 30 minuten niet terug op nul.
+5. Winkeltekst: één zin dat Calm en pauze na 30 minuten vanzelf opslaan.
+6. Klein, meenemen: kop KrabV2.mc bijwerken, (:plaatje) op Scenes.mc, try/catch om Storage.setValue.
+Zet in je status de commit waarvan de release-.iq gebouwd wordt, zodat we zeker weten dat de winkelversie de gekeurde versie is.
+
+Volgorde voor deze en de volgende run: (a) volle plaatjesrun op de bouwtak groen; (b) deze zes plus de zeven productpunten van 17:20, gebundeld op één proeftak; (c) winkelbeelden en blad voor Thijs uit die versie.

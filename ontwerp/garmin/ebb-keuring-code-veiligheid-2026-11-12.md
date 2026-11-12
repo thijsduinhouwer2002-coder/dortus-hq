@@ -21,3 +21,23 @@ Stopregel altijd in beeld; Terug en knoppen stoppen het inhouden; veiligheidsbla
 
 ## Niet na te gaan door de keurder
 Snelheid en geheugen op echte horloges; of FR255, FR955 en fenix 7 API 5.0.0 halen; of de bovenste knop op Venu 4 en vivoactive 6 onSelect geeft; of het bestand voor alle 28 horloges compileert; waar het versienummer vandaan komt (manifest zonder versie, versie.txt zegt 1.0.0).
+
+# Herkeuring (12 nov 17:35 NL, bouwtak fc7bcf59)
+
+Keurder: fris, opus, alleen lezen. **Veiligheid en winkel 7, code 7** (was 6 en 6).
+
+De vijf MOET-punten van vanmiddag: alle vijf opgelost, vier met een toets. Inhouden stopt op 5:00 (EbbView.mc r.73 tot 83, DelegateTest.mc r.160 tot 175); Calm en pauze na 30 min (RustigView.mc r.51 tot 57, Pauze.mc r.30 tot 61; Calm alleen getoetst op teLang, niet tot en met opslaan); nooit de donkere zee (TrouwDieren.mc r.169, SessieScherm.mc r.61, WereldTest.mc r.151 en 169); terugval tekent een effen vlak (KrabV2.mc r.233 tot 243, geen toets op beurtduur); 28 horloges bouwen (job alle-horloges groen).
+
+## Nieuwe MOET
+1. Winkelbeelden kloppen nog niet (winkel/1-breathe.png is het oude zwarte scherm; veld Screenshots verouderd).
+2. Niet inleveren voor de plaatjesrun op alle 13 horloges groen is.
+3. Terugval zonder echte toets: laat de workflow bij sessie-terugval op de fr255 rood worden als "traagste beurt" (KrabV2.mc r.283) boven een vaste grens komt.
+
+## KAN
+1. Een vanzelf gestopte inhouding telt als 5:00 mee in Today, 8 weeks en de lap; blaast het gemiddelde op en 5:00 kan een doel lijken.
+2. Melding over het pauzemenu zet de 30 minuten terug op nul; en wie niets doet begint na het herstel vanzelf aan de volgende ronde, tot drie keer 5:00.
+3. Winkeltekst noemt de stop van Calm na 30 minuten niet.
+4. Open van vanmiddag: kop KrabV2.mc r.7 tot 11, Scenes.mc zonder (:plaatje), Storage.setValue zonder try/catch, vandaag() op de dag dat de zomertijd eindigt.
+
+## Niet na te gaan
+Snelheid, geheugen en batterij op echte horloges (ook het steeds opnieuw aanmaken van een schermgroot plaatje bij elke wissel); contrast van de basiswereld per familie; of de .iq van de release precies deze commit is.
