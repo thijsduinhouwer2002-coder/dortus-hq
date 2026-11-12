@@ -53,3 +53,23 @@ Opdracht hoofdchat 12 nov 20:15 NL punt 2. Dit is de eerste stap: een berekening
 4. Daarna de zes dieren in een proefronde in beeld brengen (dag en nacht, FR255 en fenix 8) en dezelfde tabel uit de pixels van de echte beelden maken.
 
 De berekening is opnieuw te maken uit de kleuren in `DierenData.mc`, `KrabV2Basis.mc` en `Nacht.mc`.
+
+## Uit echte beelden (run 72, 12 nov 20:24 UTC)
+
+Kijkproef op proef72 c6761f19, plaatjesrun 43295837436, FR255, fenix 8 47 mm en venu 3s. Bladen: `ontwerp/garmin/ebb-contrast-run72-fr255.png` en `ontwerp/garmin/ebb-contrast-run72-fenix8.png`.
+
+| dier | scène | FR255 | fenix 8 |
+|---|---|---|---|
+| Dolphin | in, dag | lijf gelijk aan de luchtband, alleen de omtrek te zien: FOUT | zwak maar te zien |
+| Dolphin | hold dag, in nacht, hold nacht | goed | goed |
+| Swordfish | in dag | goed | goed |
+| Swordfish | hold nacht | goed | donker, lichte rand, te zien |
+| Narwhal | hold dag | goed | goed |
+| Narwhal | in nacht | goed | goed |
+| Orca | in nacht, hold nacht | zwart lijf met lichte omtrek en witte vlekken, leest als orka | goed |
+| Octopus | hold nacht | goed | goed |
+| Giant squid | hold nacht | goed | donker, te zien |
+
+De berekening was te streng voor de vijf dieren onder de dolfijn, omdat ze de omtrek en de lichte vlakken niet meetelt. Alleen de dolfijn is aangepast: hij krijgt in `KrabV2Basis.lucht()` de lichte luchtband van de familie koud (AAFFFF op MIP, BEF5FF op AMOLED). Berekend: lucht bij dag van 0 naar 56 op MIP en van 10 naar 49 op AMOLED. Gezien op drie horloges, blad `ontwerp/garmin/ebb-dolfijn-lucht-run72.png` (commit f98d05f3, plaatjesrun 43297932255).
+
+Dit is het oordeel van Gijs uit de beelden, nog niet van een keurder. Niet bekeken: narwal en octopus boven water bij dag, haai, walvis en de andere zeventien dieren. Het rekenscript staat in `platformen/garmin/contrast_dieren.py`.

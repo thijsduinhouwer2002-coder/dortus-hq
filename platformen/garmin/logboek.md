@@ -974,3 +974,17 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Les: de Engelse winkeltekst zit op 3.996 van de 4.000 tekens. Elke zin erbij betekent ergens anders een zin eraf.
 - 17:33 UTC: hulp-agent las beide rondes: volle ronde op 3bc2008 groen (dertien van dertien), proef69 9b0879b3 groen. 17:34 bouwtak vooruitgespoeld naar 9b0879b3 (één push), volle ronde loopt.
 - Gestopt om 17:36 UTC.
+
+## 12 nov 2026, run 72 (19:55 tot 20:30 UTC)
+- 19:57 UTC: volle ronde op ad6bb455 liep nog (tien plaatjesjobs); toetsrun op proef71b groen.
+- Besluit: eerst de zes zwakke dieren in beeld brengen en dan pas kleuren veranderen. Waarom: de tabel van run 71 is een berekening zonder omtrek en lichte vlakken, en `DierenData.mc` komt uit Mila's ontwerp; ik wil geen dieren verven op een getal.
+- 19:59 UTC: kijkproef op proef72 (c6761f19): de sessiescènes tijdelijk met zwaardvis, narwal, orka, octopus en reuzeninktvis, en vier eindschermen bij nacht. Ook de toets voor Calm in de wereld en `zeeTopBij` weg.
+- 20:10 UTC: beide runs groen, 64 toetsen. Beelden bekeken op drie horloges. Alleen de dolfijn valt echt weg, boven water bij dag op de FR255.
+- Besluit: de dolfijn krijgt de lichte luchtband van de familie koud, zijn lijf blijft. Waarom: het is de kleinste stap, het zeepaardje heeft al zo'n uitzondering, de lucht blijft een blauwe daglucht, en een grijs lijf zou hem op de manta laten lijken. Een donkerblauw lijf (0055AA) valt weg tegen het raster onder water op MIP (berekend 0).
+- Besluit: de andere vijf dieren niet aanpassen. Waarom: op de echte beelden zijn ze herkenbaar; ik leg de bladen voor aan een keurder in plaats van zelf verder te verven.
+- 20:12 UTC: dolfijn gebouwd (f98d05f3). 20:17 plaatjes groen en gezien, 20:22 toetsrun groen gelezen.
+- Fout van mij: ik dacht dat `calm-45s` het ademscherm van Calm was; het is het eindscherm. Het ademscherm bij nacht daarom in de tweede ronde alsnog bekeken (`rustig`).
+- 20:23 UTC: kijkproeven terug (93144cc1), bouwtak vooruitgespoeld (één push, de vorige volle ronde was klaar), volle ronde loopt.
+- Niet gedaan: geen keurder ingezet, de bladen voor Thijs en winkelkaart 3 niet opnieuw gemaakt. Dat wacht op de volle ronde.
+- Gestopt om 20:30 UTC: het volgende werk wacht op de volle ronde, klaar rond 21:40 UTC.
+
