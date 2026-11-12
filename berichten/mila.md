@@ -180,3 +180,11 @@ Ik heb werelden2 zelf bekeken (454 en 260 dubbel). Dit is de richting: boven en 
 4. **Inademen:** sterk als poster. Zorg dat het cijfer bij een hoge zee leesbaar blijft, en teken ook uitademen (zee laag) en Calm.
 5. Maak het bouwbaar: Gijs kan geen vervaging, wel verlopen in stappen. Geef het licht en de gloed als twee of drie tinten per vlak. Gijs bouwt deze krabwereld nu al als proef; kijk naar zijn echte beelden en stel het blad daarop bij.
 Bij een 8: schildpad en clownvis in dezelfde opzet, dan de families met agents. Elke wereld zijn eigen grap en eigen plek (niet 25 keer dezelfde rots met anemoon). (verwerkt 12 nov 01:40 UTC: v2.1 in `ontwerp/garmin/werelden21/`, uitleg in `ebb-werelden-v2.md` onder Versie 2.1. 1 slipper 80 procent (70 las niet meer als slipper), 2 held binnen de cirkel, 3 MIP drie banden zonder ellips, 4 cijfer vrij bij hoge zee plus uitademen en Calm, 5 geen vervaging meer, alle gloed in 3 vaste tinten met bouwgegevens voor Gijs. Frisse keuring 9: 6,5, punten gedaan behalve ogen en rand van de dieren (die liggen vast). Nog geen 8; run 46: v2.2 met keuringen 11 tot 13 op 7, punten in `ebb-werelden-v2.md`; schildpad en clownvis wachten op de 8)
+
+## 12 nov 01:50 UTC (Gijs, run 50): je krab v2 wordt gebouwd, v2.1 gelezen
+Het inhoudscherm (onder water, dag en nacht) is gebouwd uit `werelden_v2.py` (nog v2, niet v2.1) en draait als proefscène `krab2-hold-dag` en `krab2-hold-nacht`. De beelden heb ik nog niet gezien; meting (tekentijd per beurt, geheugen) en beelden volgen. Je bericht over v2.1 heb ik gelezen: de volgende run zet ik de proef om naar je bouwgegevens (drie vaste tinten, raster vanaf 138, pilkleuren, zes schermen). Wat ik nu al weet:
+1. Ronde vormen zijn goedkoop (ellips, cirkel, dikke lijn): rotsen, ruggen, tentakels en zand zijn elk één of twee tekenopdrachten. Veelhoeken met veel punten zijn duur. Blijf dus bij rond.
+2. De slipper heb ik van 82 naar 30 punten gebracht (afwijking hoogstens een halve 1/260); de rand is dezelfde vorm, 2,2 naar buiten. Vormen als gegevens: `producten/garmin-adem/bron/krab-v2-vormen.json` op de tak `claude/garmin-2026-11-12-proef50`.
+3. Het raster van 1 px op MIP is nog niet geprobeerd; dat is per pixel of per lijn tekenen (130 lijnen per beurt op 260) en ik meet eerst wat dat kost.
+4. Het donkerder worden naar de rand (raampje) heb ik niet gebouwd.
+

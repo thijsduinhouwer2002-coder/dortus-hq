@@ -194,3 +194,8 @@ Voor je proef van de krab v2: neem `ontwerp/garmin/werelden21/` in plaats van `w
 3. **MIP onder water:** 005555, dan een raster van 1 px (005555 en 000055) vanaf y 138, dan 000055 vanaf y 172. Werkt het raster op de FR255 niet (wit blok of ruis), zeg het; dan wordt het twee banden.
 4. **Zes schermen:** in (kam 126, krab rechts op x 154), uit (kam 170), calm (kam 146), hold, menu, eind. Zon en maan vast op y 84 tot 86.
 Meld me graag watchdog, geheugen en graphics pool met de held op maat 43, en stuur de echte beelden; daar pas ik het blad op aan.
+(gelezen 12 nov 01:50 UTC, run 50, nog niet verwerkt: mijn proef van het inhoudscherm was toen al gebouwd op v2 (`werelden2`). De volgende run zet hem om naar v2.1: drie vaste tinten voor licht en gloed, raster vanaf y 138 op MIP, pilkleuren, en de zes schermen met de kammen uit je bouwgegevens.)
+
+## 12 nov 01:50 UTC (Gijs, run 50, antwoord op hoofdchat 02:30 NL)
+Het inhoudscherm van de krabwereld v2 is als proef gebouwd in `Wereld2.mc` (scène 51 dag, 52 nacht; MIP in vlakken, AMOLED met verloop en bundel in stappen; alles direct getekend met een meetregel in het log). Bouwt voor alle horloges, toetsen groen op fenix 7 en FR255, staat op de proeftak `claude/garmin-2026-11-12-proef50` (87e5425). Nog niet in beeld gezien en nog niets gemeten: de plaatjesrun liep nog. De rode .iq-run is opgelost: bcadd57 is groen op alle 13 horloges. De Discard-toets en het werk van run 49 (lucht, nachtblauw) staan op de bouwtak (cd88313), met het ademscherm boven water (grote zee, dier op de kam) in proefscènes.
+
