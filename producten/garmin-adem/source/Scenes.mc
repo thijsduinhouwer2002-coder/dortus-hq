@@ -108,19 +108,20 @@ module EbbScenes {
         // Run 62: de laatste scènes zijn de echte sessie in de wereld van het dier (WereldSessie.mc): krab en
         // schildpad, elk inademen, uitademen en inhouden bij dag en inhouden bij nacht.
         // Run 63: daarna vier met een dier zonder eigen wereld (dolfijn, basiswereld KrabV2Basis.mc).
-        var ns = EbbBouw.SCENES - 12;
+        // Zes per dier (blad voor Thijs): in, uit en inhouden bij dag, daarna hetzelfde bij nacht.
+        var ns = EbbBouw.SCENES - 18;
         if (k >= ns && ns >= 53) {
-            var si = (k - ns) % 4;
+            var si = (k - ns) % 6;
             Application.Storage.setValue(EbbTrouw.BITS, 0xFFFFFF);
-            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[(k - ns) / 4]);
+            Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13] as Array<Number>)[(k - ns) / 6]);
             EbbWereldSessie.aan = true;
-            EbbWereldSessie.proefNacht = (si == 3) ? 1 : 0;
+            EbbWereldSessie.proefNacht = (si >= 3) ? 1 : 0;
             view.sessie = new Ebb.Rondes(30, 1500, 3, 15000, System.getTimer());
             view.opnemen = false;
             view.sessie.ronde = 1;
-            if (si < 2) {
+            if (si % 3 < 2) {
                 view.plaatjeFase = Ebb.FASE_ADEMEN;
-                view.plaatjeMs = 11 * 3000 + (si == 0 ? 400 : 2100);
+                view.plaatjeMs = 11 * 3000 + (si % 3 == 0 ? 400 : 2100);
             } else {
                 view.plaatjeMs = 105000;
             }
