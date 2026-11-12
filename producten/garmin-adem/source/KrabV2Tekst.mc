@@ -28,7 +28,9 @@ module KrabV2Tekst {
     // De workflow maakt de run rood bij "VEILIG ... NEE". Meet nu in, uit, Calm en inhouden; menu en eind nog niet.
     function veilig(v as KrabV2View, scherm as Number, tekstOnder as Number, heldBoven as Number) as Void {
         var lucht = heldBoven - v.q(kantelMaat(v)) - tekstOnder;
-        System.println("VEILIG wereld " + v.wereld + " scherm " + scherm + " lucht " + lucht + " px, norm " + v.q(6) + (lucht >= v.q(6) ? " ja" : " NEE"));
+        // Bij de krab zijn de scharen de bovenkant: te weinig lucht is NEE (run rood). Bij een ander dier is dit het
+        // kader van het hele dier, te grof voor een rond schild naast de cijfers: daar meldt hij "krap" (niet rood).
+        System.println("VEILIG wereld " + v.wereld + " scherm " + scherm + (v.wereld == 0 ? " lucht " : " kader lucht ") + lucht + " px, norm " + v.q(6) + (lucht >= v.q(6) ? " ja" : (v.wereld == 0 ? " NEE" : " krap")));
     }
 
     function kantelMaat(v as KrabV2View) as Float {

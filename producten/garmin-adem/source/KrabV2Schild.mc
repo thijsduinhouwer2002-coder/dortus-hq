@@ -11,9 +11,10 @@ module KrabV2Schild {
     const GRAS_L = 0x55FF55;
     const GRAS_D = 0x005500;
 
-    // Midden van het kader en maat van de schildpad per scherm: in, uit, Calm, inhouden, menu, eind.
+    // Midden van het kader en maat van de schildpad per scherm: in, uit, Calm, inhouden, menu, eind. Run 55: bij
+    // inademen 5 naar rechts en bij uitademen 4 lager dan het blad, want de meeuw stond 3 px van de cijfers op de FR255.
     function held(s as Number) as Array<Number> {
-        return ([[172, 130, 44], [128, 162, 44], [172, 138, 44], [136, 182, 46], [132, 192, 42], [76, 134, 36]] as Array<Array<Number> >)[s];
+        return ([[177, 130, 44], [128, 166, 44], [172, 138, 44], [136, 182, 46], [132, 192, 42], [76, 134, 36]] as Array<Array<Number> >)[s];
     }
 
     // Kantelen in graden (min is met de klok mee: neus omhoog, het dier kijkt naar links).
@@ -206,8 +207,9 @@ module KrabV2Schild {
             meeuw(v, dc, mp[0], mp[1], 1.4);
             return;
         }
-        var bx = (h[0] - 0.86 * m).toFloat();
-        var by = (scherm == 5) ? (h[1] - 2).toFloat() : (h[1] + 0.06 * m - 5).toFloat();
+        // run 55: 5 naar links en 3 lager dan het blad, anders ligt het blad over zijn oog (beelden f1433af)
+        var bx = (h[0] - 0.86 * m - 5).toFloat();
+        var by = (scherm == 5) ? (h[1] + 1).toFloat() : (h[1] + 0.06 * m - 2).toFloat();
         inBek(v, dc, bx, by, scherm == 5 ? 0.8 : 1.0);
         if (scherm != 5) {
             var kr = [-9.0, -6.0, 2.0, -14.0, 2.0, 1.5] as Array<Float>;

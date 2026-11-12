@@ -20,6 +20,7 @@ class KrabV2View extends WatchUi.View {
     private var _direct as Boolean = false;
     private var _beurten as Number = 0;
     private var _msMax as Number = 0;
+    private var _msBij as Number = 0;
     private var _gemeld as Boolean = false;
     private var _d as Number = 260;
     private var _am as Boolean = false;
@@ -236,11 +237,14 @@ class KrabV2View extends WatchUi.View {
         }
         KrabV2Tekst.teken(self, dc, _d, scherm, _am, nacht);
         var ms = System.getTimer() - t0;
-        _msMax = ms > _msMax ? ms : _msMax;
+        if (ms > _msMax) {
+            _msMax = ms;
+            _msBij = _beurten;
+        }
         if (staat && !_gemeld) {
             _gemeld = true;
             var st = System.getSystemStats();
-            System.println("KRABV2 wereld " + wereld + " scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms, held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
+            System.println("KRABV2 wereld " + wereld + " scherm " + scherm + (nacht ? " nacht " : " dag ") + _d + (_am ? " amoled" : " mip") + (_direct ? " DIRECT" : " plaatje") + " (voorraad geschat " + (_d * _d * 2 / 1024) + " kB) beurten " + _beurten + " punten " + punten + " traagste beurt " + _msMax + " ms (beurt " + _msBij + "), held maat " + q(_held[2]) + " kantel " + _kantel + (_gedraaid == 2 ? " GEDRAAID" : " recht") + ", gebruikt " + st.usedMemory + " van " + st.totalMemory);
         }
     }
 }
