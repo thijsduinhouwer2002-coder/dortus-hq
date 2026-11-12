@@ -220,12 +220,12 @@ module EbbScenes {
             view.eindReeks = 4;
             if (k == 17) {
                 view.sessie.inhoudtijden = [70000, 85000, 100000] as Array<Number>;
-                view.nieuweDieren = [6] as Array<Number>;
+                view.nieuweDieren = [0] as Array<Number>;   // TIJDELIJK proef69: "Fish stays with you" zien
             } else {
-                view.sessie.inhoudtijden = (k == 16) ? [80000, 105000, 184000] as Array<Number>
+                view.sessie.inhoudtijden = (k == 16) ? [80000, 105000, 300000] as Array<Number>
                     : [62000, 75000, 81000, 95000, 104000, 112000] as Array<Number>;
                 view.eindVolgend = 7;
-                view.eindRest = 1;
+                view.eindRest = 1; view.sessie.vanzelf = (k == 16);   // TIJDELIJK proef69: "5:00 auto" zien
             }
             return [view, new EbbDelegate(view)];
         }

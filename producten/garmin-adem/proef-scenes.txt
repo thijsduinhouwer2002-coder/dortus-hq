@@ -7,3 +7,6 @@ thuis-pauze-dag
 thuis-pauze-nacht
 uitleg
 pauze
+# Run 69: eindscherm met "5:00 auto" (einde-6c, tijdelijk) en met "Fish stays with you" (einde-6b, tijdelijk)
+einde-6c
+einde-6b
