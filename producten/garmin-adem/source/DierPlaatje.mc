@@ -113,11 +113,14 @@ class EbbDierPlaatje {
             var k = EbbDierData.randPx(maat);
             // Nachtregel v1.3: bij nacht is de omtrek een smalle lichte rand 5555AA (vaste kleur, niet door de regel).
             var nachtStand = EbbDierData.nacht;
+            // Run 73 (frisse keuring: de orka las bij nacht als grijze haai en zijn rugvin viel weg): de orka is het
+            // enige donkergrijze dier en krijgt bij nacht een lichtere rand, zodat het donkere lijf los komt.
+            var nr = (i == 19) ? 0xAAAAFF : 0x5555AA;
             if (stap < 4 && am) {
                 if (s == NACHT) {
                     EbbDierData.nacht = 0;
-                    EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, 0x5555AA, 2);
-                    EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, 0x5555AA, 2);
+                    EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, nr, 2);
+                    EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, nr, 2);
                 } else {
                     EbbDierData.delen(dc, i, x + EbbDierData.RAND_DX[stap] * k, y + EbbDierData.RAND_DY[stap] * k, maat, EbbDierData.TINT[i][3], 2);
                 }
@@ -125,7 +128,7 @@ class EbbDierPlaatje {
                 // MIP (Mila keuring 2 punt 3): donkere omtrek van 1 px in acht richtingen, twee per beurt, in
                 // plaats van de witte stickerrand (die gaf korrelige trapjes).
                 EbbDierData.nacht = 0;
-                var ok = (s == NACHT) ? 0x5555AA : 0x000000;
+                var ok = (s == NACHT) ? nr : 0x000000;
                 EbbDierData.delen(dc, i, x + RAND8_DX[stap], y + RAND8_DY[stap], maat, ok, 2);
                 EbbDierData.delen(dc, i, x + RAND8_DX[stap + 4], y + RAND8_DY[stap + 4], maat, ok, 2);
                 EbbDierData.nacht = nachtStand;
