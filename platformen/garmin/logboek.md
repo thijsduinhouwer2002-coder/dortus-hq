@@ -768,3 +768,25 @@
 3. Het staat op de proeftak `proef53`, nog niet op de bouwtak; de volgende run leest de toetsen en voegt samen.
 
 **Nagekomen, run 53, 02:58 UTC:** FR165 en vivoactive 5 (390, AMOLED, de twee die `setFill` niet kennen) draaien de krab ook: het log van run 43142816001 zegt GEDRAAID bij inademen en Calm, traagste beurt 7 tot 9 ms, geheugen 116,6 kB van 782 kB, geen crash en geen "Could not find symbol" (regels gelezen door een agent). Niet samengevoegd met de bouwtak: de volle run van 41ff058 daar (43142238031 en 43142238059) en mijn e2e (43142816070) liepen om 02:58 UTC nog, en een push naar de bouwtak breekt die volle run af. Dat staat als eerste punt in taken.md.
+
+## Run 54, 12 nov 2026, 03:32 tot ±04:15 UTC (Gijs): keuring van 04:05 NL verwerkt in de krabproef
+- **Begin:** geen andere Gijs (laatste push 02:38 UTC; alle runs klaar). Gelezen: e2e 43142816070 op 80cf3d4 groen, volle run op 41ff058 groen (43142238031 en 43142238059). Daarom de bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld naar 80cf3d4 (proef53: zee van v3 en kantelen). BEZET-regel in taken gezet.
+- **Beslissing:** eerst de zes punten van de frisse keurder (bericht hoofdchat 04:05 NL), want de hoofdchat zegt: schildpad en clownvis pas als die verwerkt zijn. Waar Mila's v3.2 al een antwoord had (cijferletter 56/260, bundel zwak boven de tekst, geen zwart bij nacht op MIP) heb ik haar oplossing genomen in plaats van een eigen.
+- **Gebouwd** (proeftak `claude/garmin-2026-11-12-proef54b`, c57b41e; tussenstand adcd6af op `proef54`):
+  1. Eigen cijferletter voor de wereldschermen, `EbbCijfersWereld`: 85 procent van klein (56 van 260, 97 van 454), gemaakt met `bron/maak_cijfers.py` voor alle 24 fontmappen. Kam bij inademen blijft 134.
+  2. Krab bij inhouden 8/260 lager (14 px op 454).
+  3. Onder water bij nacht op MIP geen zwart vlak meer; verre ruggen 0000AA op 000055.
+  4. Lichtbundel: boven de onderste tekstregel één zwakke tint (10 procent, Mila v3.2 a), eronder de drie tinten. Eerst probeerde ik een donkere rand om de letters (adcd6af): leesbaar, maar het script zag hem niet en de traagste beurt op de fenix 8 ging van ±33 naar 72 ms. De rand staat nu uit.
+  5. "new friend" 5/260 lager; ring om het belletje op MIP 2 px.
+  6. Band achter de krab op MIP 0055FF (was 00AAFF).
+  7. Vonkjes 9, 7 en 5 breed op 260, bij nacht 3 (Mila 03:45 UTC).
+  8. Veilige zone: de app meldt per scène `VEILIG scherm N lucht X px, norm Y ja|NEE` (norm 6/260, kantelen meegeteld); de plaatjesrun wordt rood bij NEE. REGELS.md punt 8.
+- **BEWEZEN** (plaatjesrun 43150726564 op 93db436; c57b41e is dezelfde code met één commentaarregel korter): alle dertien horloges groen, geen crash. VEILIG ja op alle twaalf gelezen horloges (fr965 liep nog bij het lezen, de taak eindigde daarna groen in de lijst van run 43150659153): fenix 8 47 mm lucht 13 px bij inademen (norm 10), 27 bij Calm, 72 bij uitademen, 42 bij inhouden; FR255 7 (norm 6), 12, 38 en 25; FR165 11 (norm 9), 22, 61, 36. Traagste beurt fenix 8 inhouden overdag 45 ms, hoogste van alle horloges 70 ms (venu3), FR255 11 ms. Tijden van de simulator op een computer van GitHub, geen tijden van een echt horloge.
+- **ZELF GEZIEN** op FR255 en fenix 8 47 mm (hold, menu, eind, in; dag en nacht): cijfers en hartslagregel staan vrij van de scharen; geen zwart meer bij nacht op de FR255; ring om het belletje zichtbaar op de FR255; tekst op de fenix 8 overdag staat op rustig water.
+- **Contrast gemeten** met `bron/contrast_tekst.py` op de beelden van 93db436: fenix 8 overdag onder water de witte regels 7,0 (was 3,0 tot 3,2), menuregel 6,7, "new friend" 4,5. De gele koppen "hold", "Ebb" en "3 rounds done" 4,4: net onder de norm van 4,5 (het script rondt kleuren af op stappen van 32, dus dit is op de rand). Bij nacht alles 14 of hoger. FR255 laagste 5,7.
+- **NIET bewezen / niet gedaan:** de toetsen (e2e) op c57b41e liepen nog; de veilige zone meet alleen onderkant tekst tegen bovenkant held op in, uit, Calm en inhouden (menu, eind en de toets op de pixels niet); op het eindscherm van de fenix 8 is de overgang van de zwakke naar de sterke bundel als een rechte rand te zien; op de FR255 raakt de meeuw de "b" van "breathe out"; schildpad en clownvis niet gebouwd; de krabwereld zit nog niet in de echte schermen van de app.
+
+**In drie regels:**
+1. De zes punten van de keurder zijn verwerkt in de krabproef en gezien op FR255 en fenix 8; groen op dertien horloges.
+2. Er is nu een meting voor de veilige zone die de run rood maakt als tekst en held te dicht op elkaar staan.
+3. Open: gele koppen 4,4 in plaats van 4,5, en schildpad en clownvis bouwen.
