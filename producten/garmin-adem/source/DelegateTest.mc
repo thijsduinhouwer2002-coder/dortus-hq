@@ -156,6 +156,26 @@ function testPauzeDiscardGooitWeg(logger as Test.Logger) as Boolean {
     return naarMenu && naDiscard && !m1 && !m0 && t.weg == 1 && t.bewaar == 1 && t.hervat == 1 && m2 && !view.opgeslagen;
 }
 
+// Productkeuring 12 nov punt 1: op een aanraakscherm gooit één tik op Discard niets weg. De eerste tik kiest alleen
+// de regel, de tweede voert uit; voor Save hetzelfde. Een tik op een andere regel begint opnieuw. Resume mag in één tik.
+(:test)
+function testPauzeTikDiscardTweeKeer(logger as Test.Logger) as Boolean {
+    var t = new PauzeTeller();
+    var pv = new PauzeView("round 1 · 0:10", -1);
+    var pd = new PauzeDelegate(pv, t.method(:opHervat), t.method(:opBewaar), t.method(:opWeg));
+    var eerste = pd.tik(2);
+    var gekozen = pv.keuze == 2 && t.weg == 0;
+    var wissel = pd.tik(1);
+    var naWissel = pv.keuze == 1 && t.bewaar == 0;
+    var terug = pd.tik(2);
+    var tweede = pd.tik(2);
+    var save1 = pd.tik(1);
+    var save2 = pd.tik(1);
+    var resume = pd.tik(0);
+    logger.debug("TIK discard " + eerste + " " + gekozen + " wissel " + wissel + " " + naWissel + " terug " + terug + " tweede " + tweede + " save " + save1 + " " + save2 + " resume " + resume + " weg " + t.weg);
+    return !eerste && gekozen && !wissel && naWissel && !terug && tweede && !save1 && save2 && resume && t.weg == 0 && t.bewaar == 0;
+}
+
 // Keuring code en veiligheid 12 nov, punt 1: het inhouden stopt vanzelf op 5:00 en gaat door naar herstel.
 (:test)
 function testInhoudenStoptVanzelfOpVijfMinuten(logger as Test.Logger) as Boolean {

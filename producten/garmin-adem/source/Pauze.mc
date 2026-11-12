@@ -182,17 +182,29 @@ class PauzeDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    // Keuring bouw 6 punt 4 (Venu, vivoactive): een tik kiest de regel waarop je tikt; buiten de regels niets.
+    // Keuring bouw 6 punt 4 (Venu, vivoactive): een tik kiest de regel waarop je tikt (zie tik); buiten de regels niets.
     function onTap(evt as WatchUi.ClickEvent) as Boolean {
         var xy = evt.getCoordinates();
         var ds = System.getDeviceSettings();
         var d = ds.screenWidth < ds.screenHeight ? ds.screenWidth : ds.screenHeight;
         var i = regelBij(d, xy[1]);
         if (i >= 0) {
-            _pv.keuze = i;
-            return kies(i);
+            if (tik(i)) {
+                return kies(i);
+            }
+            WatchUi.requestUpdate();
         }
         return true;
+    }
+
+    // Productkeuring 12 nov punt 1: Save en Discard nooit met één tik. De eerste tik kiest de regel (false), een
+    // tweede tik op dezelfde regel of START voert uit (true). Resume mag in één tik: daar gaat niets mee verloren.
+    function tik(i as Number) as Boolean {
+        if (i == 0 || _pv.keuze == i) {
+            return true;
+        }
+        _pv.keuze = i;
+        return false;
     }
 
     // Welke regel (0 Resume, 1 Save, 2 Discard) ligt op hoogte y; -1 als de tik buiten de regels valt.
