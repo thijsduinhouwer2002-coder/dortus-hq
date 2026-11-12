@@ -50,15 +50,22 @@ def dier_klein(d, nr, cx, cy, maat, spiegel=False):
 def start(D_, am, dd, nacht, nr=3):
     """Startscherm (eerste keer, of als er nog geen wereld is): menu op het thuiswater, eigen dier onderin midden."""
     d = Doek(D_, am); achtergrond(d, dd, nacht); s = d.s
-    d.tekst(130, 16, 'Ebb', 25, GEEL)
+    G = (170, 170, 85) if nacht else GEEL      # nacht: geel gedimd naar zandgrijs
+    d.tekst(130, 16, 'Ebb', 25, G)
     for y, t, gekozen in [(52, 'Rounds', True), (86, 'Calm 4-7-8', False)]:
         fill = ((0, 30, 60) if dd is DAG else (0, 0, 50)) if am else (0, 0, 85)
         d.dr.rounded_rectangle([64 * s, y * s, 196 * s, (y + 28) * s], radius=14 * s, fill=fill,
                                outline=WIT if gekozen else (0, 170, 255), width=round((3.2 if gekozen else 2) * s))
         d.tekst(130, y + 2, t, 20, WIT)
-    d.tekst(130, 120, 'Sea log  ·  Settings  ·  Today', 16, GEEL, False)
+    d.tekst(130, 120, 'Sea log  ·  Settings  ·  Today', 16, G, False)
     dier_klein(d, nr, 130, 196, 30)
-    w.bellen(d, [(150, 172, 2.2), (156, 162, 1.6)], (170, 255, 255))
+    # de grap: je vriend blaast belletjes, de bovenste is een hartje (hij wacht op je)
+    w.bellen(d, [(152, 174, 2.2), (158, 164, 2.8)], (170, 255, 255))
+    hx, hy, r = 166, 150, 5.5
+    hart = [(hx + r * 16 * math.sin(t) ** 3 / 16, hy - r * (13 * math.cos(t) - 5 * math.cos(2 * t) - 2 * math.cos(3 * t) - math.cos(4 * t)) / 16)
+            for t in [i * 2 * math.pi / 40 for i in range(40)]]
+    d.blob(hart, (255, 85, 170), WIT, 1.2)
+    d.rondje(hx - 2.4, hy - 2.4, 1.1, 1.1, WIT)
     return d.klaar()
 
 
@@ -69,8 +76,9 @@ def pauze(D_, am, dd, nacht, keuze=0, nr=3):
     d.tekst(130, 46, 'round 2 · 1:12', 17, WIT, False)
     for i, (y, t) in enumerate([(98, 'Resume'), (134, 'Save'), (170, 'Discard')]):
         if i == keuze:
-            d.dr.rounded_rectangle([75 * s, (y - 2) * s, 185 * s, (y + 30) * s], radius=16 * s, fill=(0, 255, 255))
-            d.tekst(130, y, t, 24, (0, 0, 85))
+            d.dr.rounded_rectangle([75 * s, (y - 2) * s, 185 * s, (y + 30) * s], radius=16 * s, fill=(0, 85, 170) if nacht else (0, 255, 255),
+                                   outline=(85, 170, 255) if nacht else None, width=round(2 * s))
+            d.tekst(130, y, t, 24, WIT if nacht else (0, 0, 85))      # nacht: donker teal met witte tekst
             dier_klein(d, nr, 58, y + 14, 18)
         else:
             d.tekst(130, y, t, 24, WIT)
@@ -81,7 +89,7 @@ def pauze(D_, am, dd, nacht, keuze=0, nr=3):
 def sealog(D_, am, dd, nacht, gevonden=(0, 1, 2, 4, 5, 6, 7, 9), pagina=0, kies=1):
     """Sea log: 2 rijen van 3 belletjes op het thuiswater. Gevonden: het dier; nog niet: een schaduw."""
     d = Doek(D_, am); achtergrond(d, dd, nacht, bodem_y=222); s = d.s
-    d.tekst(130, 16, 'sea log', 24, GEEL)
+    d.tekst(130, 16, 'sea log', 24, (170, 170, 85) if nacht else GEEL)
     d.tekst(130, 42, f'{len(gevonden)} of 24', 16, WIT, False)
     for i in range(6):
         nr = pagina * 6 + i

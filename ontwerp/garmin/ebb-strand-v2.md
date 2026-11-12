@@ -28,3 +28,12 @@ Eerste keuring van v2: Today dag 6, nacht 4, 8 weeks dag 6, nacht 5 (onderwater:
 2. **8 weeks, grap te klein:** de zeven vorige weken klein (x 20 + i × 21, hoog 32), een gemiste week plat en kalm (4 hoog). **Deze week is één grote golf** van 50 breed op x 168, hoogte 30 + 26 × voortgang, altijd met schuimkrul, en het dier maat 26 staat erop op een gele surfplank met rode streep. Koppen 8 links (x 112) zodat de surfer vrij staat.
 3. **Today te standaard:** schelpen groter (1,3; afstand 23, tweede rij 17 hoger), schaal alleen streepjes met cijfers 0, 12 en 24 (maat 13), pootjes groter (2,4 × 1,7). Zwemmers liggen niet meer op het zand: ze **springen uit de branding** (dier op y 100, schuimboogje en vier druppels eronder).
 Meting na de wijzigingen: laagste 5,03, 0 te laag. GEZIEN met Read: rij 260 2x.
+
+## v2.1 na de tweede frisse keuring (run 53)
+Tweede keuring: Today dag 6, nacht 5, 8 weeks dag 5, nacht 4 (start 7, pauze 7, sea log 8). Punten: onderste helft leeg en modderig, golven lezen als tanden, nacht nog niet donker genoeg. Gedaan:
+- **Today nieuwe opbouw:** kam 64, getijdenlijn 112, droog zand 160. Kop "today" 22 op 8 (cyaan, nacht 55AAFF), het aantal ("3 shells" of "no shells yet") wit 22 op 28 in de lucht (nacht AAAAFF). Schelpen **2,0** (afstand 30, punt op getijdenlijn + 34, tweede rij 20 hoger), dier maat 36 (lopers op getijdenlijn + 22, zwemmers springen op getijdenlijn − 22 met schuimboog en druppels), pootjes op getijdenlijn + 12. Streepjes op 162 tot 165, cijfers 0, 12, 24 maat 13 op 165. "first shell 7:12" maat 16 op 198.
+- **Droog zand leeft:** twaalf korrels AAAA55, een oranje zeestertje FFAA00 met witte rand op (210, 206), een krabgaatje op (52, 208). AMOLED zand warmer: droog FFEBAA, nat D7C37D (MIP blijft FFFFAA en AAAA55).
+- **Zon nooit achter tekst:** staat hij tussen x 56 en 204, dan zie je hem als vier gele streepjes schittering op het water onder zijn plek. AMOLED-lucht wordt pas vlak boven de horizon licht (knik 0,8), MIP-band pas 5 boven de horizon.
+- **Nacht:** zee een trede donkerder als basis (MIP 0000AA, AMOLED 001E78 tot 000F50), tekst op het zand AAAAAA.
+- **8 weeks:** zeven golven 24 breed en 44 hoog met een donkerder vlak 0055FF in het lijf (diepte), gemiste week een platte golf van 6 hoog met witte rand 1,6; deze week 58 breed op x 170, hoogte 40 + 30 × voortgang, dier maat 34 op de surfplank. Koppen: "8 weeks" 24 op 12, "5 big waves" 22 op 40 en "one wave a week" 15 op 64, beide op x 104.
+Meting: laagste 5,06, 0 te laag. GEZIEN met Read: rij 260 2x en 454.

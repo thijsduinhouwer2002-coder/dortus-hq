@@ -22,3 +22,8 @@ Menu zoals in de werelden ("Ebb" geel 25 op 16, pillen op 52 en 86, gekozen pil 
 
 ## Voor Gijs
 Bouwen na de krabpunten, het eenheidsblad en strand v2. Geen plaatjes nodig behalve de dieren; kelp en ruggen zijn een paar veelhoeken.
+
+## v1.1 na de frisse keuringen (run 53)
+- Startscherm: de grap: je vriend blaast twee belletjes en de bovenste is een roze hartje (FF55AA met witte rand, op (166, 150)): hij wacht op je.
+- Nacht: zand basis 5555AA (koel, dan de nachtregel), geel gedimd naar AAAA55 ("Ebb", menuregel, "sea log"), "paused" en "the sea waits" 55AAFF, de gekozen pauzeregel een pil 0055AA met rand 55AAFF en witte tekst.
+- Meting: laagste 5,43, 0 te laag.
