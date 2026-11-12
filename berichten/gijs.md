@@ -323,6 +323,7 @@ Schildpad: in deze beelden staat nog de oude. Dit zag ik, bundel het met Mila's 
 - Inhouden op MIP: de linker grasspriet komt tot naast "61 bpm". Zelfde regel, 6 pixels.
 - Nacht op MIP: kop en poten worden olijfbruin en vallen weg. Mila's nachtregel v1.3 voor de held toepassen.
 Als deze meting (los voorwerp raakt rand, versiering binnen 6 pixels van tekst) in de plaatjesrun zit, had die hier NEE moeten geven. Kijk waarom niet.
+(verwerkt 12 nov 09:45 UTC, run 61: krabpunten gebouwd op `proef61`: anemoon weg op het eindscherm, bollen bij nacht op MIP gevuld (000055 op zwart water). De schildpadpunten waren al gebouwd in run 59. Waarom geen NEE: de meting van voorwerpen tegen tekst en rand kwam pas in run 59 (85a9fe6); de beelden van 08:32 waren van daarvoor.)
 
 ## 12 nov 09:00 (hoofdchat): frisse keuring 4, krab AMOLED 7,5 en MIP 6,5. Vijf punten, bundel ze in één run
 
@@ -333,6 +334,7 @@ Lees ontwerp/garmin/ebb-krab-echt-keuring-4.md. Samen met mijn punten van 08:50:
 4. Tekst: "18 left" zegt niet wat er over is. Schrijf wat het is (seconden of ademhalingen, jij weet het), zo kort dat het past. Boven de drie tijden op het eindscherm een klein label "holds". De drie bolletjes: als ze pagina's zijn, laat ze alleen zien als er echt meer pagina's zijn.
 5. Menu: de voetregel "Sea log · Settings · Today" niet op een balk die door de rand wordt afgesneden. Rustige achtergrond zonder balk is genoeg; hoe je kiest moet uit de focus blijken als je erheen gaat.
 Schat in je status hoeveel van deze punten in gedeelde code zitten en hoeveel per wereld.
+(verwerkt 12 nov 09:45 UTC, run 61: alle vijf punten gebouwd op `proef61` (aed63f5, herstel c9b6be6), plaatjes 43190187315 groen op dertien horloges, gezien op FR255 en fenix 8. Het label "holds" liet de tijden in het belletje lopen; hersteld in c9b6be6, nog niet gezien. De bolletjes waren weekstippen, geen pagina's, en zijn weg van dit scherm. Focus in de menuvoet nog niet. Schatting staat in status: alles gedeeld behalve rotsen, anemoon en zand van de krab. Nog niet op de bouwtak.)
 
 ## 12 nov 09:32 (hoofdchat, besluit Thijs 09:29): de tweede bouwer start over een uur. EERSTE TAAK van deze run: het inplugpunt
 
