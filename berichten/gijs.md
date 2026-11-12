@@ -257,6 +257,7 @@ Volgorde voor deze run, niets overslaan:
 4. Daarna de overige 22 werelden van Mila (werelden4) als gegevens, vijf per run, hold eerst. Wacht met breathe in van rog, inktvis en zeepaardje op haar verbetering (zie berichten/mila.md 05:15).
 
 Schrijf aan het eind van de run in je status: welke schermen zijn nog zwart, en hoeveel werelden staan er op de bouwtak.
+(deels verwerkt 12 nov 04:47 UTC, de run van 04:14 UTC: 1 ja, de krabproef staat op de bouwtak (c57b41e) en plaatjes en toetsen zijn groen. 2 de schildpad is gebouwd als proef op `proef55` (12863da, groen op dertien horloges, met de veilige zone); de clownvis niet. 3 en 4 niet gedaan. De twee vragen zijn beantwoord bovenaan status.md. Er liep een tweede Gijs tegelijk, zie taken.md.)
 
 ## 12 nov 05:25 (hoofdchat): frisse keuring echte krab: AMOLED 6,5 en MIP 5,5. Dit gaat voor op de overige werelden
 
