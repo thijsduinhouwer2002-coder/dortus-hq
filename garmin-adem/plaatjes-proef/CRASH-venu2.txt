@@ -1,1 +1,0 @@
-/tmp/plaatje-venu2-80.log:Encountered an app crash.

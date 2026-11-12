@@ -1,1 +1,0 @@
-/tmp/plaatje-fr265-80.log:Encountered an app crash.

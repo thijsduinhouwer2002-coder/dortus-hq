@@ -1,2 +1,0 @@
-/tmp/plaatje-fenix7xpro-80.log:Encountered an app crash.
-/tmp/plaatje-fenix7xpro-84.log:Encountered an app crash.
