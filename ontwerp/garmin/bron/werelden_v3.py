@@ -88,7 +88,7 @@ def tekst_adem(d, top, woord, getal, onder):
 
 def meeuw(d, x, y, k=1.0, nacht=False):
     """Een meeuw die staat (op het schild). Kijkt naar rechts: de andere kant op dan de schildpad, dat is de grap."""
-    lijf = WIT if not nacht else (170, 170, 255)
+    lijf = WIT      # ook bij nacht wit, anders verdwijnt hij tegen de lucht (keuring 14)
     d.dr.line([d.P(x - 2 * k, y + 3 * k), d.P(x - 2.6 * k, y + 8 * k)], fill=ORANJE, width=max(1, round(1.5 * k * d.s)))
     d.dr.line([d.P(x + 2 * k, y + 3 * k), d.P(x + 2.6 * k, y + 8 * k)], fill=ORANJE, width=max(1, round(1.5 * k * d.s)))
     d.blob([(x - 10 * k, y - 1 * k), (x - 4 * k, y - 4.5 * k), (x + 5 * k, y - 4 * k), (x + 7 * k, y + 1 * k), (x + 1 * k, y + 4.5 * k), (x - 6 * k, y + 3 * k)], lijf, (0, 0, 85), 1.2)
@@ -103,17 +103,19 @@ def jongleer(d, cx, cy, r_, k=1.0, nacht=False):
     for i in range(9):
         a = math.pi * (1.05 + i * .9 / 8)
         d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), .8 * k, .8 * k, (170, 255, 255))
-    for t in (.12, .5, .88):
+    for t, c in ((.12, (255, 255, 0)), (.5, (255, 85, 170)), (.88, (85, 255, 85))):     # drie felle ballen: jongleren, geen luchtbellen
         a = math.pi * (1.0 + t)
         x, y = cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a)
-        d.rondje(x, y, 4.4 * k, 4.4 * k, (85, 255, 255) if not nacht else (85, 170, 255), WIT, glans=WIT, dikte=1.5)
+        d.rondje(x, y, 4.4 * k, 4.4 * k, c, WIT, glans=WIT, dikte=1.5)
 
 
 def spat(d, x, y, k=1.0):
     """Spatwater waar de clownvis uit de golf springt: een kroontje van druppels."""
-    for dx, dy, r_ in [(-10, -4, 2.2), (-5, -9, 1.8), (2, -11, 2), (8, -7, 1.6), (13, -3, 2)]:
-        d.rondje(x + dx * k, y + dy * k, r_ * k, r_ * k, WIT, (85, 170, 255), dikte=.8)
-    d.rondje(x + 2 * k, y + 1.5 * k, 16 * k, 3.2 * k, WIT)
+    for dx, dy, r_ in [(-16, -6, 2.4), (-10, -14, 2.2), (-2, -19, 2.4), (8, -16, 2), (16, -8, 2.4), (21, -2, 1.8)]:
+        d.rondje(x + dx * k, y + dy * k, r_ * k, r_ * k, WIT, (0, 85, 170), dikte=.9)
+    for i in range(7):        # spatkroon: puntjes omhoog vanuit de golf
+        a = math.pi * (1.1 + i * .8 / 6); x0, y0 = x + 2 * k + 14 * k * math.cos(a) * 1.2, y + 2 * k
+        d.blob([(x0 - 2 * k, y0), (x0 + 6 * k * math.cos(a) * .6, y0 - 7 * k), (x0 + 2 * k, y0)], WIT)
 
 
 # ---------------- boven water ----------------
@@ -147,7 +149,7 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
     elif wereld == 'clown':
         hx = 188 if top < 160 else 176
         sprong = {'in': 26, 'calm': 18, 'uit': 12}[fase]         # bij inademen springt hij het hoogst
-        spat(d, hx + 6, top - 1, 1.0)
+        spat(d, hx + 6, top - 1, 1.0 if fase == 'in' else .8)
         dier_kantel(d, hx, top - sprong, 32, CLOWN, hoek + 10)
         jongleer(d, hx + 2, top - sprong - 16, 24, 1.0, nacht)
     tekst_adem(d, top, woord, getal, onder)
@@ -304,7 +306,6 @@ def eind(D_, am, dd, nacht, wereld):
     d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
     if wereld == 'schild':
         dier_kantel(d, 76, 134, 36, SCHILD, 6)
-        meeuw(d, 80, 100, 1.2, nacht)            # de meeuw is er ook bij: hij gaat overal mee
     else:
         dier_kantel(d, 74, 128, 29, CLOWN, 0)
         jongleer(d, 62, 116, 20, .8, nacht)

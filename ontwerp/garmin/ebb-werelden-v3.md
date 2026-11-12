@@ -30,3 +30,11 @@ Bestanden: `werelden3/<schild|clown>-<in|uit|calm|hold|menu|eind>-<dag|nacht>-<4
 - Clownvis met belletjes leest als jongleren; de bogen raken het cijfer niet.
 - Zwak: onder het schild steken flarden van de achterpoten onder het golfje uit (leest als poten in het water, mag); eindscherm clownvis heeft onderin weinig zand omdat het rif omlaag moest voor de naam "Seahorse".
 - Frisse keuring volgt (regel: door bij een frisse 7 plus akkoord hoofdchat).
+
+### Frisse keuring 14 (op v3): schildpad **7**, clownvis **6**
+Schildpad: de meeuw als lifter komt zonder uitleg over, ook op 260. Clownvis: de sprong komt over, jongleren maar half (lichtblauwe belletjes lazen als luchtbellen of aureool). Meteen gedaan in deze run:
+- Jongleerballen nu drie felle kleuren (geel, roze, groen) met witte rand: leest als jongleren.
+- Spat onder de springende vis: losse druppels en een spatkroon in plaats van een witte schijf (las als bootje), ook kleiner bij uitademen en Calm.
+- Meeuw ook bij nacht wit (verdween tegen de nachtlucht).
+- Meeuw weg van het eindscherm (stond onder water, klopte niet).
+Open voor de volgende run: zeegras eten duidelijker (breed blad tussen de kaken, spriet met hap ernaast), weide rijker (dichte plukken in twee tinten, zeester), overdag iets onder het eilandje, clownvis echt half in zijn anemoon, eindscherm clownvis met vis en anemoon samen in beeld. Daarna weer een frisse keuring; door naar Gijs bij een frisse 7 voor de clownvis plus akkoord hoofdchat.
