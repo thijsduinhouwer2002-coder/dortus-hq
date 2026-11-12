@@ -21,10 +21,6 @@ module EbbSessieScherm {
         dc.clear();
 
         var fase = v.sessie.fase;
-        // Werelden in de echte sessie (WereldSessie.mc, stap 1): ademen en inhouden in de wereld van je dier.
-        if (EbbWereldSessie.teken(v, dc, nu)) {
-            return;
-        }
         var d = (w < h) ? w : h;
         // Golf schuift ±2 rad per seconde; in de plaatjesbouw stil, zodat testbeelden vóór en na pixel voor pixel te vergelijken zijn.
         var golfFase = EbbBouw.PLAATJE ? 0.0 : (nu % 3142) / 500.0;

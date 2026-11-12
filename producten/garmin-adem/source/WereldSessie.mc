@@ -45,6 +45,9 @@ module EbbWereldSessie {
     // Tekent ademen of inhouden in de wereld van het dier. Geeft false als dat niet kan (uit, geen dier, geen
     // wereld, andere fase): dan tekent het gewone sessiescherm.
     function teken(v as EbbView, dc as Graphics.Dc, nu as Number) as Boolean {
+        if (aan) {
+            v.sessie.bijwerken(nu);
+        }
         var fase = v.sessie.fase;
         if (!aan || v.gezelschap < 0 || (fase != Ebb.FASE_ADEMEN && fase != Ebb.FASE_INHOUDEN)) {
             los();

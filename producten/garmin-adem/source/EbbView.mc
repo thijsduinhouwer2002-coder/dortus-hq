@@ -264,6 +264,10 @@ class EbbView extends WatchUi.View {
 
     // Tekenen staat in SessieScherm.mc (ademen, inhouden, herstel), EindScherm.mc en Overzicht.mc.
     function onUpdate(dc as Graphics.Dc) as Void {
-        EbbSessieScherm.teken(self, dc);
+        // Werelden in de echte sessie (WereldSessie.mc, stap 1): ademen en inhouden in de wereld van je dier.
+        // Hier en niet in SessieScherm.teken: elke aanroep minder telt (run 43196256905: Stack Overflow bij nacht).
+        if (!EbbWereldSessie.teken(self, dc, System.getTimer())) {
+            EbbSessieScherm.teken(self, dc);
+        }
     }
 }

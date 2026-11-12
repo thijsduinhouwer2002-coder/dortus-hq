@@ -81,11 +81,14 @@ class KrabV2View extends WatchUi.View {
 
     // Lijnkleur met doorzichtige achtergrond, ook door de nachtregel.
     function pen(dc as Graphics.Dc, k as Number) as Void {
-        dc.setColor(nk(k), Graphics.COLOR_TRANSPARENT);
+        // EbbNacht.k direct en niet via nk: de stapel is in de echte sessie krap (run 43196256905).
+        dc.setColor(nacht ? EbbNacht.k(k, _am) : k, Graphics.COLOR_TRANSPARENT);
     }
 
     function kleur(dc as Graphics.Dc, k as Number) as Void {
-        k = nk(k);
+        if (nacht) {
+            k = EbbNacht.k(k, _am);
+        }
         dc.setColor(k, k);
         if (_am && (dc has :setFill)) {
             // Wit met volle dekking is hetzelfde getal als "doorzichtig" (-1): daarom een fractie onder wit.
@@ -97,8 +100,10 @@ class KrabV2View extends WatchUi.View {
     // Vaste mengtint (Mila v2.1): a van 255 van kleur k over wat er ligt. Met setFill echt gemengd; FR165 en
     // vivoactive 5 kennen setFill niet (crash in run 43135243219): daar de mengkleur met de tint basis.
     function glas(dc as Graphics.Dc, a as Number, k as Number, basis as Number) as Void {
-        k = nk(k);
-        basis = nk(basis);
+        if (nacht) {
+            k = EbbNacht.k(k, _am);
+            basis = EbbNacht.k(basis, _am);
+        }
         if (dc has :setFill) {
             dc.setFill(Graphics.createColor(a, (k >> 16) & 0xFF, (k >> 8) & 0xFF, k & 0xFF));
         } else {

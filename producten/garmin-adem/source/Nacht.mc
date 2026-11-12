@@ -39,9 +39,13 @@ module EbbNacht {
             g = (7000 * g + 3 * y + 5000) / 10000;
             b = (7000 * b + 3 * y + 5000) / 10000;
         } else {
-            r = trede(r);
-            g = trede(g);
-            b = trede(b);
+            // trede() uitgeschreven: een aanroep minder diep (Stack Overflow in de echte sessie, run 43196256905)
+            r = (r + 42) / 85;
+            r = r < 2 ? 0 : (r - 1) * 85;
+            g = (g + 42) / 85;
+            g = g < 2 ? 0 : (g - 1) * 85;
+            b = (b + 42) / 85;
+            b = b < 2 ? 0 : (b - 1) * 85;
             m = r > b ? r : b;
             m = m < 85 ? 85 : m;
             g = g > m ? m : g;
