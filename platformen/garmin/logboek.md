@@ -989,3 +989,9 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Gestopt om 20:30 UTC: het volgende werk wacht op de volle ronde, klaar rond 21:40 UTC.
 - 20:27 UTC (aanvulling): toch nog een frisse keurder op de contrastbladen gezet. Uitslag 6, met vier MOET-punten bij nacht. Besluit: de keurder gaat voor op mijn eigen oordeel; niet meer deze run aanpassen. Waarom: het raakt de nachtregel van alle dieren en dat wil ik eerst doorrekenen en in beeld brengen, niet in de laatste tien minuten. Les: mijn eigen oog is te mild voor werk dat ik zelf gemaakt heb; eerst de keurder, dan pas de bouwtak.
 
+
+## Run 73, 12 nov 2026, 20:53 tot 21:40 UTC
+- Volle ronde op de bouwtak 93144cc1 gelezen: toetsen 64 keer goed op twee horloges (log gelezen), winkelrun dertien van dertien plaatjesjobs groen (alleen de uitslag).
+- Besluit: de nachtregel voor de held verruimen (v1.4) in plaats van per dier een kleur kiezen. Waarom: één regel voor alle koele dieren, en nagerekend valt binnen geen dier iets samen. Twee strengere varianten (alleen donkere koele kleuren) lieten de buik samenvallen met het lijf bij zeehond, manta, maanvis, orka en narwal en zijn daarom niet gebouwd.
+- Proeftak proef73, drie rondes, elk met een frisse keurder: 7,5, 7,5 en 7. Ronde 3 (zwarte orka met alleen een rand) teruggedraaid omdat hij slechter scoorde. Waarom gestopt: de orka vraagt een andere tekening, dat is niet in tien minuten te doen en hoort bij Mila.
+- Niet gedaan: de andere negentien dieren bij nacht bekeken, bladen voor Thijs, winkelkaart 3, herkeuring winkelset. Niets naar de bouwtak.
