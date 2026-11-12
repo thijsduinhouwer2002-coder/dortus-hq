@@ -138,36 +138,51 @@ module KrabV2Lagen {
             // Keuring 05:25 punt 5: anemoon en zeester staan heel in beeld; hun rots schuift mee.
             var oa = inRond(sp ? 260 - 36 - adx : 36 + adx, 166 + zak + ady / 2, 30);
             v.rondje(dc, (sp ? 224 : 36) + oa[0], 202 + zak + oa[1], 34, 26, 0x5555AA, 0xAAAAFF, 0xAAAAFF);
-            var acx = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
-            var acy = 166 + zak + ady / 2 + oa[1];
-            // Keuring 3 punt 5: staat de anemoon binnen 6/260 van tekst (eindscherm), dan blijft alleen zijn rots.
-            var anemoon = !KrabV2Tekst.raakt(v, acx, acy, 30);
-            if (anemoon) {
-                KrabV2Rand.meet(v, scherm, "anemoon", acx, acy, 30);
-            }
+            var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
+            var by = 180 + zak + oa[1];
             var an = [18, 12, 158, 26, 22, 150, 36, 36, 146, 46, 50, 150, 54, 60, 160] as Array<Number>;
-            for (var ronde = 0; anemoon && ronde < 2; ronde += 1) {
+            // Keuring 3 punt 5: de anemoon blijft 6/260 van tekst. Raakt een armpje tekst, dan worden de armen korter
+            // (0,8 en 0,6 keer); past het dan nog niet, dan blijft alleen zijn rots.
+            var tips = [] as Array<Float>;
+            for (var i = 0; i < 5; i += 1) {
+                var tx = an[3 * i + 1] + adx;
+                tips.add(((sp ? 260 - tx : tx) + oa[0]).toFloat());
+                tips.add((an[3 * i + 2] + zak + ady + oa[1]).toFloat());
+            }
+            var ak = 0.0;
+            var maten = [1.0, 0.8, 0.6] as Array<Float>;
+            for (var m = 0; m < 3 && ak == 0.0; m += 1) {
+                var past = true;
+                for (var i = 0; i < 5; i += 1) {
+                    if (KrabV2Tekst.raakt(v, ax + (tips[2 * i] - ax) * maten[m], by + (tips[2 * i + 1] - by) * maten[m], 5)) {
+                        past = false;
+                    }
+                }
+                if (past) {
+                    ak = maten[m];
+                }
+            }
+            if (ak > 0.0) {
+                KrabV2Rand.meet(v, scherm, "anemoon", ax, 166 + zak + ady / 2 + oa[1], 30 * ak);
+            }
+            for (var ronde = 0; ak > 0.0 && ronde < 2; ronde += 1) {
                 for (var i = 0; i < 5; i += 1) {
                     var x0 = an[3 * i] + adx;
-                    var x1 = an[3 * i + 1] + adx;
                     if (sp) {
                         x0 = 260 - x0;
-                        x1 = 260 - x1;
                     }
-                    x0 += oa[0];
-                    x1 += oa[0];
-                    var y1 = an[3 * i + 2] + zak + ady + oa[1];
+                    var x1 = ax + (tips[2 * i] - ax) * ak;
+                    var y1 = by + (tips[2 * i + 1] - by) * ak;
                     v.pen(dc, ronde == 0 ? 0xFFFFFF : 0xAA55FF);
                     dc.setPenWidth(v.q(ronde == 0 ? 8.6 : 5.6));
-                    dc.drawLine(v.q(x0), v.q(180 + zak + oa[1]), v.q(x1), v.q(y1));
+                    dc.drawLine(v.q(x0 + oa[0]), v.q(by), v.q(x1), v.q(y1));
                     v.rondje(dc, x1, y1, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 4.3 : 3.6, ronde == 0 ? 0xFFFFFF : 0xFF55AA, -1, -1);
                 }
             }
             dc.setPenWidth(1);
-            var ax = (sp ? 260 - 36 - adx : 36 + adx) + oa[0];
-            if (anemoon) {
-                v.rondje(dc, ax, 180 + zak + oa[1], 23.6, 8.6, 0xFFFFFF, -1, -1);
-                v.rondje(dc, ax, 180 + zak + oa[1], 22, 7, 0xAA55FF, -1, -1);
+            if (ak > 0.0) {
+                v.rondje(dc, ax, by, 23.6, 8.6, 0xFFFFFF, -1, -1);
+                v.rondje(dc, ax, by, 22, 7, 0xAA55FF, -1, -1);
             }
             var rx = 222 - zak / 3;
             var sx = sp ? 260 - (218 - zak / 3) : 218 - zak / 3;

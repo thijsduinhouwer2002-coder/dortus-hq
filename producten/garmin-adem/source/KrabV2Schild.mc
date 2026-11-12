@@ -103,8 +103,11 @@ module KrabV2Schild {
                     continue;
                 }
                 // Keuring 3 punt 5: een spriet blijft 6/260 van tekst; hij wordt korter tot hij vrij staat.
-                while (len > 24 && KrabV2Tekst.raakt(v, x + buig, y0 - len, s[5 * i + 2] / 2)) {
-                    len -= 8;
+                // Gemeten langs de hele spriet, niet alleen de top: hij eindigt 8 onder het eerste punt dat tekst raakt.
+                for (var hh = 16; hh <= len; hh += 8) {
+                    if (KrabV2Tekst.raakt(v, x + buig * hh / len, y0 - hh, s[5 * i + 2] / 2)) {
+                        len = hh - 8;
+                    }
                 }
                 if (len <= 24) {
                     continue;
