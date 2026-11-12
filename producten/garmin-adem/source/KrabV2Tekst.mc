@@ -233,22 +233,21 @@ module KrabV2Tekst {
             regel(dc, d, by + v.q(2), EbbTeken.fX(), "Sea log  ·  Settings  ·  Today", wit, 100);
             veilig(v, scherm, by + bh, v.q(heldBoven(v, 4, 0)));
         } else {
-            y = regel(dc, d, v.q(26), EbbTeken.fM(), "3 rounds done", geel, 82);
-            // Keuring 4 punt 4: klein label "holds" bij de drie tijden. Eerst als eigen regel erboven; is daar geen
-            // 6/260 lucht tot de held voor, dan ervoor op dezelfde regel; past ook dat niet binnen de rand, dan zonder.
+            // Keuring 4 punt 4: klein label "holds" boven de drie tijden. De tijden moeten 6/260 boven het belletje
+            // van de nieuwe vriend (bovenkant 80) en boven de held eindigen. Is daar met het label geen plek voor
+            // (run 43190187315: op de FR255 en de fenix 8 liep "1:58" in het belletje), dan zegt de kop het zelf:
+            // "3 holds done", met de tijden er direct onder.
             var tijden = "1:20   1:45   1:58";
-            var hx = dc.getFontHeight(EbbTeken.fX()) * 78 / 100;
-            var yt = 0;
-            if (y + hx + dc.getFontHeight(EbbTeken.fS()) + v.q(6) <= v.q(heldBoven(v, 5, 0))) {
+            var grens = v.q(heldBoven(v, 5, 0)) < v.q(80) ? v.q(heldBoven(v, 5, 0)) : v.q(80);
+            var metLabel = v.q(26) + dc.getFontHeight(EbbTeken.fM()) * 82 / 100 + dc.getFontHeight(EbbTeken.fX()) * 78 / 100
+                + dc.getFontHeight(EbbTeken.fS()) + v.q(6) <= grens;
+            y = regel(dc, d, v.q(26), EbbTeken.fM(), metLabel ? "3 rounds done" : "3 holds done", geel, 82);
+            if (metLabel) {
                 y = regel(dc, d, y, EbbTeken.fX(), "holds", wit, 78);
-                yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
-            } else if (dc.getTextWidthInPixels("holds  " + tijden, EbbTeken.fS()) <= breedteOp(v, 52, 76)) {
-                yt = regel(dc, d, y, EbbTeken.fS(), "holds  " + tijden, wit, 100);
-            } else {
-                yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
-                if (!_meet) {
-                    System.println("KRABV2 tekst scherm 5 label holds past niet");
-                }
+            }
+            var yt = regel(dc, d, y, EbbTeken.fS(), tijden, wit, 100);
+            if (!_meet) {
+                System.println("KRABV2 tekst scherm 5 label holds " + (metLabel ? "als eigen regel" : "in de kop") + ", tijden tot y " + yt + ", grens " + grens);
             }
             y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), v.w().vriendNaam(), geel, 95);
