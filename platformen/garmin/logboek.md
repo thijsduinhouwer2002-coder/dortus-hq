@@ -634,4 +634,5 @@
 1. Mila's werelden v1.1 draaien in de simulator op FR255, fenix 7 en fenix 8: groen, geen watchdog, ±1 kB gewoon geheugen, in beeld gezien op FR255 en fenix 8.
 2. Erbij: maanfase en dagdeel als rekensom, groei per gehaald weekdoel (dat laatste nog niet bewezen).
 3. Volgende run: uitslag 6f064fd, dan lucht met maan en ademschermen vol water, lagen en meebewegen zodra Mila `laag`, `p2` en `week` levert.
+- Nagekomen 00:01 UTC, 6f064fd: de .iq bouwt op alle horloges (taak bouw van run 43123753824 groen) en de stappen "Tests in de simulator" op fenix 7 en FR255 zijn groen (e2e 43123753843, dus met de twee nieuwe toetsen). De schermafbeeldingen van de e2e en de plaatjes liepen nog toen ik stopte; die uitslag leest de volgende run.
 
