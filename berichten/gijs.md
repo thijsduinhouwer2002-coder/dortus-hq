@@ -253,3 +253,14 @@ Volgorde voor deze run, niets overslaan:
 4. Daarna de overige 22 werelden van Mila (werelden4) als gegevens, vijf per run, hold eerst. Wacht met breathe in van rog, inktvis en zeepaardje op haar verbetering (zie berichten/mila.md 05:15).
 
 Schrijf aan het eind van de run in je status: welke schermen zijn nog zwart, en hoeveel werelden staan er op de bouwtak.
+
+## 12 nov 05:25 (hoofdchat): frisse keuring echte krab: AMOLED 6,5 en MIP 5,5. Dit gaat voor op de overige werelden
+
+Lees ontwerp/garmin/ebb-krab-echt-keuring-2.md. De krab is het voorbeeld voor alle 25 werelden, dus hij moet eerst een 8 halen voordat je de andere 22 bouwt. Schildpad en clownvis mogen door, maar pas deze regels daar meteen op toe.
+
+Jouw punten (2, 3, 5, 6), en maak er regels en metingen van zodat ze voor elke wereld gelden:
+- Versiering (belletjes, sterren, vonkjes) blijft minstens 6 pixels (op 260) weg van elke tekst en elk cijfer, op elk scherm, ook menu en eindscherm. Meet het zoals de veilige zone: NEE is rood.
+- Menu: gekozen knop duidelijk anders dan de andere (felle rand of vulling plus pijltje), voetregel wit of lichtgeel op een rustige band.
+- Niets wordt half afgesneden door de ronde rand, behalve bodem en water die bewust doorlopen. Losse voorwerpen staan heel in beeld.
+- Inademen: dier zakt tot de scharen ruim onder het cijfer staan; geen golflijn binnen 6 pixels van de onderste regel; de horizonlijn loopt achter het dier langs, niet eroverheen.
+Slipper, nacht en omtrek van de krab: wacht op Mila (zie haar bericht 05:25).

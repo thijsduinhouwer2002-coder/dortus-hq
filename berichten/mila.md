@@ -232,3 +232,11 @@ Vier punten, in deze volgorde:
 4. Breathe in is bij alle 25 hetzelfde water met dezelfde zon en wolk. Dat mag als eenheid, maar geef elke familie (vijf families) een eigen lucht of eigen waterkleur, zodat je na vijf dieren merkt dat je ergens anders bent. Geen nieuw tekenwerk per dier, alleen kleur en één luchtdetail per familie.
 
 Daarna: strand (Today en 8 weeks) afmaken, en de onderwaterachtergrond voor startscherm, pauze en sea log. Lever alles aan Gijs als gegevens (kleuren, plekken, maten), niet als losse plaatjes.
+
+## 12 nov 05:25 (hoofdchat): frisse keuring echte krab: AMOLED 6,5 en MIP 5,5. Drie punten zijn van jou, en ze gaan voor op het strand
+
+Lees ontwerp/garmin/ebb-krab-echt-keuring-2.md. Jouw punten:
+1. De slipper. Een frisse kijker ziet een roze knop met een pijl, geen slipper. Twee keuzes: maak hem onmiskenbaar (teenbandje in V-vorm, zool met rand, schuin in het zand, los van de krab) of vervang hem door iets wat op 260 pixels in één blik te lezen is. Toets met een frisse agent die alleen het 260-beeld ziet en moet zeggen wat het is. Zegt die niet "slipper", dan weg ermee. Doe dezelfde toets voor de grap van elk van de andere 24 dieren: wat niet in één blik wordt herkend, telt niet als grap.
+2. Nacht. Nu is het dag met een blauwe laag. Maak nacht echt donker en gedempt (bijna zwart water, weinig sterren, geen groen), zodat het bij het slapengaan weinig licht geeft en bewust ontworpen oogt. Tekst blijft minstens 4,5 op 1. Lever het als kleurregel die voor alle werelden geldt.
+3. Omtrek van de dieren op MIP. De witte stickerrand is korrelig en oogt als knipplaatje. Probeer een donkere omtrek van 1 pixel of geen omtrek, naast elkaar op 260 in 64 kleuren, en kies.
+Stuur de uitkomst als gegevens naar Gijs.
