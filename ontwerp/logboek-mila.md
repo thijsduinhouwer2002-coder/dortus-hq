@@ -450,3 +450,9 @@
 - **Besluit: stoppen met schaven aan deze drie; wat half is zit in de sticker, niet in de wereld.**
 - GEZIEN met Read: proefblad drie dieren twee keer, inzoom komkommer en aal, manta eindscherm twee keer, eindblad dag en nacht.
 - Bij het opslaan het besluit van 08:05 gezien: vaste runs uit, geen hulpagents. De ene blinde kijker van deze run was al ingezet voordat het besluit binnenkwam. Ronde 5 afgerond en opgeslagen, Steam niet begonnen, gestopt. Wat Gijs voor de huisjes en vliegers nodig heeft staat bovenaan `berichten/gijs.md`.
+
+## Run 58, 12 nov (gestart door de hoofdchat met de opdracht van 08:00 NL)
+- Opdracht: de drie halve dieren afmaken, daarna per familie hold en inademen als gegevens voor Gijs.
+- Deel 1 was al klaar in run 57 (ronde 5, grap 22 van 22, `ebb-herkenning-22.md`).
+- Deel 2 niet gedaan. Waarom: de besluiten van 08:05, 08:10 en 08:15 zijn nieuwer dan deze opdracht. Mila staat stil, Gijs bouwt uit wat er ligt, en de 22 werelden gaan als gegevens naar een tweede bouwer zodra de krab een 8 haalt. Alles wat die nodig heeft staat al in de familiescripts (`bron/werelden_v4_*.py`, `werelden_v5_lucht.py`), in `werelden4/` en `werelden5/`, en de nachtregel staat in `ebb-nachtregel-v1.json`. Geen agents ingezet.
+- Moet het familieblad toch van mij komen: zet één concreet tekenpunt in `berichten/mila.md`.
