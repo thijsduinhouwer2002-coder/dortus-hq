@@ -127,7 +127,7 @@ def bellen(d, lijst, c):
         d.dr.ellipse([(x - r_ * .45) * d.s, (y - r_ * .55) * d.s, (x - r_ * .05) * d.s, (y - r_ * .15) * d.s], fill=c)
 
 
-def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0):
+def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0, met_slipper=True):
     """Krab onder water: ver de donkere ruggen, dan zand, twee ronde rotsen (anemoon, zeester), vooraan de held in zijn slipper."""
     s = d.s
     # ver: donkere ronde ruggen over de hele breedte (silhouet)
@@ -141,16 +141,17 @@ def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak
     for x, y, r_ in [(30, 172, 7), (41, 169, 7.5), (51, 175, 6.5), (21, 178, 6)]:
         d.rondje(x, y + zak, r_, r_, PAARS, WIT, glans=(255, 170, 255), dikte=1.8)
     # rots rechts met zeester
-    d.rondje(226, 210 + zak, 30, 22, ROTS, ROTS_R, glans=ROTS_R)
+    d.rondje(222 - zak / 3, 210 + zak, 30, 22, ROTS, ROTS_R, glans=ROTS_R)
     ster = []
     for i in range(10):
         a = -math.pi / 2 + i * math.pi / 5; rr = 11 if i % 2 == 0 else 4.6
-        ster.append((222 + rr * math.cos(a), 197 + zak + rr * math.sin(a)))
+        ster.append((218 - zak / 3 + rr * math.cos(a), 197 + zak + rr * math.sin(a)))
     d.blob(ster, ZON, WIT, 1.8)
     # held: krab in zijn slipper
     sy = slipper_y if slipper_y is not None else held_y + 14
-    r = slipper(d, 130, sy, held_maat / 30 * 1.25)
-    bandje(d, r, held_maat / 30 * 1.25)
+    if met_slipper:
+        r = slipper(d, 130, sy, held_maat / 30 * 1.25)
+        bandje(d, r, held_maat / 30 * 1.25)
     if held:
         d.dier(132, held_y, held_maat)
 
@@ -171,7 +172,7 @@ def water_onder(d, dd, maan=False, stralen=3):
             d.im.paste(Image.new('RGB', (d.N, d.N), (200, 200, 255)), (0, 0), laag.filter(ImageFilter.GaussianBlur(7 * d.s)))
         else:
             d.rondje(88, 6, 24, 12, (85, 85, 255)); d.rondje(88, 5, 14, 7, (170, 170, 255))
-    d.stralen(dd['licht'] if d.am else dd['mip_licht'], dd['zee_top'], stralen if not maan else 1)
+    if d.am: d.stralen(dd['licht'], dd['zee_top'], stralen if not maan else 1)
 
 
 # ---------------- schermen ----------------
@@ -197,47 +198,53 @@ def adem_in(D_, am, dd, nacht):
     for x, y, b in [(44, 112, 22), (40, 122, 14), (50, 131, 9), (44, 140, 5)]:
         d.dr.rounded_rectangle([(x - b / 2) * d.s, y * d.s, (x + b / 2) * d.s, (y + 2.4) * d.s], radius=1.2 * d.s,
                                fill=(255, 255, 170) if not nacht else (170, 170, 255))
-    r = slipper(d, 204, top + 7, 0.95, hoek=-14)
-    bandje(d, r, 0.95); d.dier(205, top - 6, 24)
+    d.golf(196, 262, (0, 85, 170) if not nacht else (0, 0, 170), 3.5, 3, 0.4) if not am else None
+    if am:
+        g = Image.new('L', (d.N, d.N), 0)
+        ImageDraw.Draw(g).polygon([d.P(x, 196 + 3.5 * math.sin(x / 260 * 6 * math.pi + .4)) for x in range(0, 261, 2)] + [d.P(260, 262), d.P(0, 262)], fill=90)
+        d.im.paste(Image.new('RGB', (d.N, d.N), (0, 0, 40)), (0, 0), g)
+    r = slipper(d, 128, top + 12, 1.12, hoek=-6)
+    bandje(d, r, 1.12); d.dier(130, top + 1, 26)
     d.tekst(130, 30, 'breathe in', 25, WIT)
-    d.tekst(130, 58, 'round 2 · 18 left', 15, WIT, False)
-    d.tekst(130, 112, '12', 70, WIT)
+    d.tekst(130, 53, 'round 2 · 18 left', 15, WIT, False)
+    d.tekst(130, 130, '12', 62, WIT)
     return d.klaar()
 
 
 def hold(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=204, held_maat=28)
-    bellen(d, [(162, 184, 3), (168, 174, 2.2)], WIT)
+    wereld_onder(d, dd, held_y=200, held_maat=36)
+    bellen(d, [(172, 170, 3), (178, 160, 2.2)], WIT)
     d.tekst(130, 30, 'hold', 26, GEEL)
     d.tekst(130, 58, 'press START to breathe', 15, WIT, False)
-    d.tekst(130, 70, '1:45', 76, WIT)
-    d.tekst(130, 152, '61 bpm · round 2', 15, WIT, False)
+    d.tekst(130, 70, '1:45', 66, WIT)
+    d.tekst(130, 140, '61 bpm · round 2', 16, WIT, False)
     return d.klaar()
 
 
 def menu(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=192, held_maat=32)
+    wereld_onder(d, dd, held_y=200, held_maat=34)
     s = d.s
     d.tekst(130, 22, 'Ebb', 28, GEEL)
     for y, t in [(56, 'Rounds'), (96, 'Calm 4-7-8')]:
         d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=(0, 0, 85),
                                outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
         d.tekst(130, y + 3, t, 22, WIT)
-    d.tekst(130, 134, 'Sea log  ·  Settings  ·  Today', 15, GEEL, False)
+    d.tekst(130, 132, 'Sea log  ·  Settings  ·  Today', 17, GEEL, False)
     return d.klaar()
 
 
 def eind(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht, stralen=2)
-    wereld_onder(d, dd, held=False, held_maat=24, slipper_y=234, zak=22)
+    wereld_onder(d, dd, held=False, zak=22, met_slipper=False)
+    r = slipper(d, 128, 136, 1.05, hoek=-6); bandje(d, r, 1.05)
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
     d.tekst(130, 58, '1:20   1:45   1:58', 24, WIT)
-    d.dier(130, 122, 30)
-    bellen(d, [(170, 108, 2.6), (176, 98, 1.8)], WIT)
-    d.tekst(130, 152, 'new friend: Crab', 24, GEEL)
-    stippen(d.dr, 130 * s_(d), 190 * s_(d), 3, 1, max(2, round(3 * s_(d))), round(12 * s_(d)))
+    d.dier(130, 120, 28)
+    bellen(d, [(172, 104, 2.6), (178, 94, 1.8)], WIT)
+    d.tekst(130, 156, 'new friend: Crab', 24, GEEL)
+    stippen(d.dr, 130 * s_(d), 194 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
 
 
