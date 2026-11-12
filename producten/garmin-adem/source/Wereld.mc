@@ -5,21 +5,29 @@ import Toybox.WatchUi;
 
 // Besluit Thijs 11 nov 23:13 NL: elk dier zijn eigen stukje zee. Dit bestand is het mechanisme (bericht hoofdchat
 // 23:20 punt 2), zie platformen/garmin/werelden-techniek-2026-11-11.md op main en REGELS.md punt 7.
-// De wereld is een strook onderin (volle breedte, van EbbWereldData.BOVEN tot de onderkant; bij Mila v1.1 142/260 D hoog), één keer opgebouwd in een eigen plaatje, één laag
+// De wereld is een strook onderin (volle breedte, van de bovenkant van deze wereld tot de onderkant; bij Mila v1.1 132 tot 142/260 D hoog), één keer opgebouwd in een eigen plaatje, één laag
 // per beurt (tegen de watchdog, zoals EbbDierPlaatje), daarna alleen plakken. Hoogstens één wereld tegelijk.
 // Lukt het plaatje niet (voorraad van het horloge vol), dan tekent het scherm gewoon de zee zonder wereld.
 
-// De gegevens staan in WereldData.mc, gemaakt door bron/maak_werelden.py uit Mila's json (nu v1.1: schildpad, krab,
-// clownvis). Geen palet: op de FR255 gaf een plaatje met palet een wit blok (zie DierPlaatje.mc), dus volle kleur.
-// Een beurt tekent hoogstens PER_BEURT veelhoeken (tegen de watchdog).
+// De gegevens zijn geen code (codekeuring bouw 9 punt 1): bron/maak_werelden.py maakt per wereld één jsonData in
+// resources/werelden/werelden.xml uit Mila's json, en alleen de wereld van het gekozen dier wordt geladen
+// (EbbWereldData.laad). Geen palet: op de FR255 gaf een plaatje met palet een wit blok (zie DierPlaatje.mc).
+// Watchdog (punt 6): een beurt tekent hoogstens PUNTEN_PER_BEURT punten (altijd minstens één veelhoek).
+// Valt het plaatje uit de voorraad van het horloge (get() geeft null), dan bouwt hij opnieuw, hoogstens
+// MAX_POGINGEN keer (punt 3); daarna blijft de zee zonder wereld.
 class EbbWereldPlaatje {
-    const PER_BEURT = 4;
+    const PUNTEN_PER_BEURT = 200;
+    const MAX_POGINGEN = 3;
     var dier as Number;
     var d as Number;
-    var hoog as Number;
+    var boven as Number = 0;      // bovenkant van de strook van deze wereld, in 1/260 D
+    var hoog as Number = 0;
     var stap as Number = 0;
     var klaar as Boolean = false;
-    var weken as Number = 0;
+    var pogingen as Number = 0;
+    var thuis as Array<Number> or Null = null;
+    var voorlaag as Array<Array<Number> > or Null = null;
+    private var _weken as Number;
     private var _eersteDetail as Number = 9999;
     private var _vl as Array<Array<Number> > or Null = null;
     private var _ref as Graphics.BufferedBitmapReference or Null = null;
@@ -27,24 +35,40 @@ class EbbWereldPlaatje {
     function initialize(i as Number, maat as Number) {
         dier = i;
         d = maat;
-        hoog = maat - EbbWereldData.BOVEN * maat / EbbWereldData.EENHEID;
-        var l = EbbWereldData.vlakken(i);
-        if (l == null) {
+        // Punt 5: gehaalde weken één keer lezen per plaatje (dus per sessie), niet elke beurt.
+        _weken = EbbTrouw.wekenTotaal();
+        begin();
+    }
+
+    // Laadt de gegevens en maakt een leeg plaatje. Ook gebruikt om opnieuw te beginnen als het plaatje weg is.
+    function begin() as Void {
+        _ref = null;
+        _vl = null;
+        stap = 0;
+        klaar = false;
+        _eersteDetail = 9999;
+        if (pogingen >= MAX_POGINGEN) {
             return;
         }
-        // Besluit 12 nov 00:25 punt 4: details die je met gehaalde weekdoelen verdiende komen er als laatste bij.
-        weken = EbbTrouw.wekenTotaal();
-        var det = EbbWereldData.details(i);
-        if (det != null) {
-            var n = EbbWereld.verdiend(det, weken);
-            if (n > 0) {
-                l = l.slice(0, null);
-                _eersteDetail = l.size();
-                l.addAll(det.slice(0, n));
-            }
+        pogingen += 1;
+        var w = EbbWereldData.laad(dier);
+        if (w == null) {
+            return;
         }
+        boven = w["b"] as Number;
+        thuis = w["t"] as Array<Number>;
+        voorlaag = w["f"] as Array<Array<Number> >;
+        var l = w["v"] as Array<Array<Number> >;
+        // Besluit 12 nov 00:25 punt 4: details die je met gehaalde weekdoelen verdiende komen er als laatste bij.
+        var det = w["d"] as Array<Array<Number> >;
+        var n = EbbWereld.verdiend(det, _weken);
+        if (n > 0) {
+            _eersteDetail = l.size();
+            l.addAll(det.slice(0, n));
+        }
+        hoog = d - boven * d / EbbWereldData.EENHEID;
         try {
-            var ref = Graphics.createBufferedBitmap({:width => maat, :height => hoog});
+            var ref = Graphics.createBufferedBitmap({:width => d, :height => hoog});
             var bb = ref.get();
             if (bb != null) {
                 var dc = (bb as Graphics.BufferedBitmap).getDc();
@@ -58,7 +82,7 @@ class EbbWereldPlaatje {
         }
         if (_ref == null) {
             // Keuring bouw 8 punt 7: een mislukte poging staat in het log, met de maat.
-            System.println("WERELD plaatje mislukt " + maat + " x " + hoog);
+            System.println("WERELD plaatje mislukt " + d + " x " + hoog + " poging " + pogingen);
         }
     }
 
@@ -67,29 +91,29 @@ class EbbWereldPlaatje {
         return _ref != null && _vl != null && stap < (_vl as Array<Array<Number> >).size();
     }
 
-    // Een paar veelhoeken verder. Geeft true als de wereld af is.
+    // Een aantal veelhoeken verder (tot de puntengrens). Geeft true als de wereld af is.
     function verder() as Boolean {
         if (_ref == null || _vl == null) {
             return false;
         }
         var vl = _vl as Array<Array<Number> >;
-        if (stap >= vl.size()) {
-            return true;
-        }
         var bb = (_ref as Graphics.BufferedBitmapReference).get();
         if (bb == null) {
+            System.println("WERELD plaatje kwijt tijdens bouwen, poging " + pogingen);
+            begin();
             return false;
         }
         var dc = (bb as Graphics.BufferedBitmap).getDc();
-        var tot = stap + PER_BEURT;
-        tot = tot > vl.size() ? vl.size() : tot;
-        while (stap < tot) {
+        var punten = 0;
+        while (stap < vl.size() && (punten == 0 || punten + vl[stap].size() / 2 <= PUNTEN_PER_BEURT)) {
             EbbWereld.veelhoekVanaf(dc, vl[stap], stap >= _eersteDetail ? 1 : 0, d, 0, 0);
+            punten += vl[stap].size() / 2;
             stap += 1;
         }
         if (stap >= vl.size()) {
             var st = System.getSystemStats();
-            System.println("GEHEUGEN WERELD dier " + dier + " plaatje " + d + " x " + hoog + " vlakken " + stap + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " = " + (st.usedMemory.toLong() * 100 / st.totalMemory) + "%");
+            // De voorraad voor plaatjes meet de simulator niet; de schatting is breedte x hoogte x 2 bytes.
+            System.println("GEHEUGEN WERELD dier " + dier + " plaatje " + d + " x " + hoog + " (voorraad geschat " + (d * hoog * 2 / 1024) + " kB) vlakken " + stap + " poging " + pogingen + " gebruikt " + st.usedMemory + " van " + st.totalMemory + " = " + (st.usedMemory.toLong() * 100 / st.totalMemory) + "%");
             _vl = null;
             klaar = true;
             return true;
@@ -97,11 +121,18 @@ class EbbWereldPlaatje {
         return false;
     }
 
-    function plak(dc as Graphics.Dc) as Void {
+    // Plakt de strook. Geeft false als het plaatje uit de voorraad is gegooid; dan begint hij opnieuw (punt 3).
+    function plak(dc as Graphics.Dc) as Boolean {
         var bb = (_ref != null) ? (_ref as Graphics.BufferedBitmapReference).get() : null;
-        if (bb != null) {
-            dc.drawBitmap((dc.getWidth() - d) / 2, d - hoog, bb as Graphics.BufferedBitmap);
+        if (bb == null) {
+            if (klaar) {
+                System.println("WERELD plaatje kwijt, poging " + pogingen);
+                begin();
+            }
+            return false;
         }
+        dc.drawBitmap((dc.getWidth() - d) / 2, d - hoog, bb as Graphics.BufferedBitmap);
+        return true;
     }
 }
 
@@ -136,20 +167,41 @@ module EbbWereld {
 
     // Heeft dit dier een wereld en staat hij aan?
     function heeft(dier as Number) as Boolean {
-        return proef && dier >= 0 && EbbWereldData.thuis(dier) != null;
+        return proef && dier >= 0 && EbbWereldData.heeft(dier);
+    }
+
+    // Het plaatje van dit dier (maakt het als het er nog niet is), of null als er geen wereld hoort.
+    function zorg(dier as Number, d as Number) as EbbWereldPlaatje or Null {
+        if (!heeft(dier)) {
+            return null;
+        }
+        if (_p == null || (_p as EbbWereldPlaatje).dier != dier || (_p as EbbWereldPlaatje).d != d) {
+            _p = new EbbWereldPlaatje(dier, d);
+        }
+        return _p;
+    }
+
+    // Punt 6: al tijdens het ademen bouwen (zonder te tekenen), zodat de wereld er bij hold meteen staat.
+    function bouw(dier as Number, d as Number) as Void {
+        var p = zorg(dier, d);
+        if (p != null && !p.klaar) {
+            p.verder();
+        }
+    }
+
+    // Waar het dier woont (midden van het dier, 1/260 D van het hele scherm); null zonder wereld.
+    function thuis(dier as Number, d as Number) as Array<Number> or Null {
+        var p = zorg(dier, d);
+        return p != null ? p.thuis : null;
     }
 
     // Tekent de wereld van dit dier onderin. Geeft true als hij er staat; anders staat er alleen de zee.
     function teken(dc as Graphics.Dc, dier as Number, d as Number) as Boolean {
-        if (!proef || dier < 0) {
+        var p = zorg(dier, d);
+        if (p == null) {
             return false;
         }
-        if (_p == null || (_p as EbbWereldPlaatje).dier != dier || (_p as EbbWereldPlaatje).d != d || (_p as EbbWereldPlaatje).weken != EbbTrouw.wekenTotaal()) {
-            _p = new EbbWereldPlaatje(dier, d);
-        }
-        var p = _p as EbbWereldPlaatje;
-        if (p.klaar || p.verder()) {
-            p.plak(dc);
+        if ((p.klaar || p.verder()) && p.plak(dc)) {
             return true;
         }
         if (p.bezig()) {
@@ -160,19 +212,21 @@ module EbbWereld {
 
     // Wat over het dier heen komt (hoogstens een paar veelhoeken, direct getekend). Na het dier aanroepen.
     function voor(dc as Graphics.Dc, dier as Number, d as Number) as Void {
-        if (!proef || dier < 0 || _p == null || !(_p as EbbWereldPlaatje).klaar) {
+        if (_p == null || (_p as EbbWereldPlaatje).dier != dier || !(_p as EbbWereldPlaatje).klaar) {
             return;
         }
-        var vl = EbbWereldData.voor(dier);
+        var p = _p as EbbWereldPlaatje;
+        var vl = p.voorlaag;
         if (vl == null) {
             return;
         }
-        var dy = EbbWereldData.BOVEN * d / EbbWereldData.EENHEID;
+        var dy = p.boven * d / EbbWereldData.EENHEID;
         for (var i = 0; i < vl.size(); i += 1) {
             veelhoek(dc, vl[i], d, (dc.getWidth() - d) / 2, dy);
         }
     }
 
+    // Aan het einde van de sessie (EbbView.onHide): plaatje en gegevens weg (punt 4).
     function los() as Void {
         _p = null;
     }

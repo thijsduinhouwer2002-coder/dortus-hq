@@ -148,6 +148,7 @@ class EbbView extends WatchUi.View {
     function onHide() as Void {
         _timer.stop();
         EbbSeaComplete.los();
+        EbbWereld.los();
     }
 
     private var _vorigeFase as Number = -1;

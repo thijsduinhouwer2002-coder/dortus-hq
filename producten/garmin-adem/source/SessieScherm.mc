@@ -37,6 +37,8 @@ module EbbSessieScherm {
             // 1. Ademen: peil volgt de adem, 20% bij uit, 72% bij in (Mila 80%; lager zodat het fasewoord nooit onder water staat, beeld run 42800407029).
             // Keuring bouw 1 punt 5 en Daan B2: zee onderaan zoals blad v6 scherm 2, het getal altijd erboven.
             EbbZee.ademZee(dc, d, v.sessie.water(nu), golfFase);
+            // Codekeuring bouw 9 punt 6: de wereld al tijdens het ademen bouwen, zodat hij er bij hold staat.
+            EbbWereld.bouw(v.gezelschap, d);
             yGroot = 0.39 - dc.getFontHeight(font).toFloat() / d / 2;
             woord = v.sessie.isIn(nu) ? "breathe in" : "breathe out";   // blad v6 scherm 2
             groot = v.sessie.ademhaling(nu).toString();
@@ -96,7 +98,7 @@ module EbbSessieScherm {
             // Daarom het kleine dier (zoals in de sea log, blad v6: 0,10 D) vlak onder de cijfers en de hartregel lager.
             // Keuring bouw 2 punt 7: het dier groter (±0,19 D breed: 86 px op 454, 49 px op 260), midden onder de tijd.
             var yDier = onderCijfer + (d * 0.085).toNumber();
-            var huis = wer ? EbbWereldData.thuis(v.gezelschap) : null;
+            var huis = wer ? EbbWereld.thuis(v.gezelschap, d) : null;
             var xBel = 0.5;
             if (huis != null) {
                 yDier = huis[1] * d / 260;
