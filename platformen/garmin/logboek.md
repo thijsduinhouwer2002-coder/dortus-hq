@@ -850,3 +850,4 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 2. Het staat op proeftak `proef57` (9f66378), nog niet op de bouwtak: de toetsen liepen nog.
 3. De bouwtak zelf (krab met slipper en schildpad) is helemaal groen en de echte beelden staan op tak `schermen`.
 
+**Slot run 57 (06:23 UTC):** toetsrun 43164891549 op 9f66378 groen; bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld van 5dd7426 naar 9f66378. De volle run daarop is gestart en niet gelezen.
