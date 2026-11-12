@@ -115,7 +115,7 @@ module EbbScenes {
         if (k >= ns && k < ns + 48 && ns >= 53) {
             var si = (k - ns) % 6;
             var wie = (k - ns) / 6;
-            Application.Storage.setValue(EbbTrouw.BITS, wie == 3 ? 0 : 0xFFFFFF);
+            Application.Storage.setValue(EbbTrouw.BITS, wie == 3 ? 0 : (wie == 5 ? 0x1FFFFFF : 0xFFFFFF)); // 5: ook de bonus (bit 24), anders zwemt de walvis
             if (wie != 3) {
                 Application.Storage.setValue(EbbTrouw.GEKOZEN, ([4, 3, 13, 4, 4, 24, 22, 15] as Array<Number>)[wie]);
             }
