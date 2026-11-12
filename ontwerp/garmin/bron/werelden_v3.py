@@ -99,26 +99,21 @@ def meeuw(d, x, y, k=1.0, nacht=False):
     d.rondje(x + 7 * k, y - 6.6 * k, .9 * k, .9 * k, (0, 0, 0))
 
 
-def jongleer(d, cx, cy, r_, k=1.0, nacht=False):
-    """Drie ballen in een boog boven de clownvis: hij jongleert. v3.2: de worp is een duidelijke witte stippelboog die bij
-    zijn neus begint, de ballen zijn groter en elke bal heeft twee vaartstreepjes erachter (stripstijl), zodat het
-    jongleren leest zonder uitleg (keuring 14 en 15: belletjes lazen als luchtbellen of aureool)."""
-    for i in range(7):                       # worp: van de neus (links onder) over de top naar rechts
-        a = math.pi * (1.02 + i * .96 / 6)
-        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), 1.1 * k, 1.1 * k, WIT)
-    for t, c in ((.16, (255, 255, 0)), (.5, (255, 85, 170)), (.84, (85, 255, 85))):     # drie felle ballen
-        a = math.pi * (1.0 + t)
-        x, y = cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a)
-        # twee vaartstreepjes achter de bal, langs de boog (de bal vliegt met de klok mee): stripstijl
-        b = a - math.pi * .09
-        bx, by = cx + r_ * math.cos(b) * 1.15, cy + r_ * math.sin(b)
-        tx, ty = -math.sin(b) * 1.15, math.cos(b); n_ = math.hypot(tx, ty); tx, ty = tx / n_, ty / n_
-        rx_, ry_ = ty, -tx
-        for z in (-1, 1):
-            q = 2.4 * k * z
-            p0 = (bx + rx_ * q, by + ry_ * q); p1 = (p0[0] - tx * 6 * k, p0[1] - ty * 6 * k)
-            d.dr.line([d.P(*p0), d.P(*p1)], fill=WIT, width=max(1, round(1.5 * d.s)))
-        d.rondje(x, y, 5.2 * k, 5.2 * k, c, WIT, glans=WIT, dikte=1.6)
+def jongleer(d, cx, cy, r_, k=1.0, nacht=False, neus=None):
+    """Drie ballen in een boog boven de clownvis: hij jongleert. v3.2: groot, vlak met donkere rand en een glimpje,
+    een witte stippelboog als spoor, en (boven water) de eerste bal net boven zijn neus (keuring 16)."""
+    for i in range(9):
+        a = math.pi * (1.0 + i / 8)
+        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), 1.2 * k, 1.2 * k, WIT)
+    plekken = []
+    for t, c in ((.5, (255, 85, 170)), (.86, (85, 255, 85))):
+        a = math.pi * (1.0 + t); plekken.append((cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), c))
+    if neus: plekken.insert(0, (neus[0] - 1, neus[1] - 6.5 * k, (255, 255, 0)))
+    else:
+        a = math.pi * 1.14; plekken.insert(0, (cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), (255, 255, 0)))
+    for x, y, c in plekken:
+        d.rondje(x, y, 5 * k, 5 * k, c, (0, 0, 85), dikte=1.3 * k)
+        d.rondje(x - 1.8 * k, y - 1.8 * k, 1.4 * k, 1.4 * k, WIT)
 
 
 def spat(d, x, y, k=1.0):
@@ -179,11 +174,20 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
         w.bandje(d, r, sch)
         p = r(55, 0); d.rondje(p[0], p[1] - 2 * sch, 3.6 * sch, 3.6 * sch, WIT, (170, 0, 85), dikte=.9)    # teenpaaltje duidelijker
     elif wereld == 'clown':
-        hx = 188 if top < 160 else 176
-        sprong = {'in': 26, 'calm': 18, 'uit': 12}[fase]         # bij inademen springt hij het hoogst
-        spat(d, hx + 6, top - 1, 1.0 if fase == 'in' else .8)
-        dier_kantel(d, hx, top - sprong, 32, CLOWN, hoek + 10)
-        jongleer(d, hx + 2, top - sprong - 16, 24, 1.0, nacht)
+        # v3.2 (keuring 16): vis groter en dichter bij het midden, ballen groter, een bal op zijn neus,
+        # en links de grap: een vierde bal is al in zee gevallen en drijft weg
+        hx = 192 if top < 140 else (180 if top < 160 else 160)   # bij hoge zee rechts: het cijfer blijft vrij
+        sprong = {'in': 24, 'calm': 6, 'uit': 12}[fase]          # Calm: hij ligt rustig op de golfrug
+        m = 38
+        zx, zy = 70, top + 2                                       # de gevallen bal drijft op de kam
+        d.rondje(zx, zy - 3, 6.6, 6.6, (0, 170, 255), (0, 0, 85), dikte=1.6); d.rondje(zx - 2.3, zy - 5.3, 1.8, 1.8, WIT)
+        golfje = [(x, zy + 1 + 1.2 * math.sin((x - zx) / 3)) for x in range(int(zx - 12), int(zx + 13), 2)]
+        d.dr.line([d.P(*q) for q in golfje], fill=WIT, width=max(1, round(1.6 * d.s)))
+        if fase != 'calm':
+            spat(d, hx + 6, top - 1, 1.1 if fase == 'in' else .85)
+        dier_kantel(d, hx, top - sprong, m, CLOWN, hoek + (10 if fase != 'calm' else 0))
+        r_ = (26 if top < 140 else 30) if fase != 'calm' else 22
+        jongleer(d, hx + 2, top - sprong - m * .42, r_, 1.25, nacht, neus=(hx - m * .52, top - sprong - m * .18))
     tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -305,7 +309,7 @@ def wereld_clown(d, dd, hx=150, hy=178, m=34, held=True, zak=0, jong=True, nacht
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=WIT, width=round(9 * s)); d.rondje(x1, y1, 4.5, 4.5, WIT)
             d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=(255, 85, 170), width=round(6 * s)); d.rondje(x1, y1, 3.8, 3.8, (255, 170, 255))
         if jong:
-            jongleer(d, hx - m * .55, hy - m * .55, m * .7, .9, nacht)
+            jongleer(d, hx - m * .55, hy - m * .5, m * .66, 1.1, nacht)
 
 
 def anemoon(d, ax, ay, k=1.0, voor=False):
