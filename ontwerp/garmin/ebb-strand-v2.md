@@ -37,3 +37,10 @@ Tweede keuring: Today dag 6, nacht 5, 8 weeks dag 5, nacht 4 (start 7, pauze 7, 
 - **Nacht:** zee een trede donkerder als basis (MIP 0000AA, AMOLED 001E78 tot 000F50), tekst op het zand AAAAAA.
 - **8 weeks:** zeven golven 24 breed en 44 hoog met een donkerder vlak 0055FF in het lijf (diepte), gemiste week een platte golf van 6 hoog met witte rand 1,6; deze week 58 breed op x 170, hoogte 40 + 30 × voortgang, dier maat 34 op de surfplank. Koppen: "8 weeks" 24 op 12, "5 big waves" 22 op 40 en "one wave a week" 15 op 64, beide op x 104.
 Meting: laagste 5,06, 0 te laag. GEZIEN met Read: rij 260 2x en 454.
+
+## v2.1b na de derde frisse keuring (run 53)
+Derde keuring: Today dag 6, nacht 6, 8 weeks 5 en 5, start 6, pauze 6, sea log 7. De keurders verschillen per keer, maar twee punten kwamen elke keer terug, en die zijn gedaan:
+- **Schelp op het uur lees je niet:** de uurlijn (streepjes en cijfers 0, 6, 12, 18, 24, maat 13) staat nu direct onder de schelpen op de grens van nat en droog zand (droog vanaf 150, streepjes 151 tot 154, cijfers op 154); schelppunt op getijdenlijn + 33, tweede rij 19 hoger; dier op getijdenlijn + 16; "first shell" maat 16 op 176.
+- **Golven lezen als ijspegels:** 8 weeks is nu **één doorlopende zee met acht toppen** (oppervlak = basis 160 min een bult per week: gehaald 34 hoog en 10,5 breed met schuimkrul naar rechts, gemist 7 hoog met een witte stip erboven; deze week een bult van 44 + 26 × voortgang en 13 breed op x 206 met grote krul en het dier op zijn plank). Lichte zee 00AAFF, daaronder een diepere laag 0055FF, witte schuimrand 1,8.
+Meting: laagste 5,06, 0 te laag. GEZIEN met Read: rij 260 2x en `weeks-5-454.png`.
+Nog open: per scherm een eigen kleine grap (keurder 3), dieren bij nacht minder verzadigd (voorstel voor nachtregel v1.2: na het dimmen 30 procent naar grijs), en de onderste rand van Today nog voller.

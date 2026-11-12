@@ -116,7 +116,7 @@ def today(D_, am, sessies, nu, nr, eerste, nacht=False):
     """v2.1 (keuring 2 van run 53): tekst bovenin de lucht, het strand groter en voller, schelpen twee keer zo groot."""
     d = Doek(D_, am)
     INKT, LABEL = ((170, 170, 170), (170, 170, 170)) if nacht else ((0, 0, 85), (85, 85, 0))
-    kam, nat, droog = 64, 112, 160
+    kam, nat, droog = 64, 112, 150
     lucht_klok(d, nu, kam, tekst_tot=50); zee_en_strand(d, kam, nat, droog, nacht)
     n = len(sessies)
     d.tekst(130, 8, 'today', 22, (85, 170, 255) if nacht else CYAAN)
@@ -124,8 +124,8 @@ def today(D_, am, sessies, nu, nr, eerste, nacht=False):
     korrels(d, droog, nacht)
     for u in (0, 6, 12, 18, 24):       # kleine streepjes, alleen 0, 12 en 24 met een cijfer
         x = X_uur(u)
-        d.dr.rectangle([d.P(x - .6, droog + 2), d.P(x + .6, droog + 5)], fill=LABEL)
-        if u % 12 == 0: d.tekst(x, droog + 5, str(u), 13, LABEL, False)
+        d.dr.rectangle([d.P(x - .6, droog + 1), d.P(x + .6, droog + 4)], fill=LABEL)
+        d.tekst(x, droog + 4, str(u), 13, LABEL, False)      # uurlijn direct onder de schelpen
     # schelpen op hun uur (groot), tweede rij in het ondiepe water als het te druk wordt
     eind = [-99, -99]; xs = []
     for u in sessies:
@@ -133,32 +133,32 @@ def today(D_, am, sessies, nu, nr, eerste, nacht=False):
         if x - eind[0] >= 30: rij = 0
         elif x - eind[1] >= 30: rij = 1
         else: rij = 0; x = eind[0] + 30
-        xs.append((x, nat + 34 - rij * 20)); eind[rij] = x
+        xs.append((x, nat + 33 - rij * 19)); eind[rij] = x
     loper = nr in (3, 4)
     vorige = max([x for x, _ in xs], default=None)
     xd = X_uur(nu) if vorige is None else (vorige + 36 if vorige + 36 <= 208 else vorige - 36)
     xd = min(max(xd, 52), 208)
     if xs:
         a, b = min(xs[0][0], xd), max(xs[-1][0], xd)
-        if loper: pootjes(d, a, b, nat + 12)
+        if loper: pootjes(d, a, b, nat + 8)
         else:
             for x in range(int(a), int(b), 12): w.bellen(d, [(x, nat - 10 + 1.5 * math.sin(x), 2.4)], WIT)
     for x, y in xs: schelp(d, x, y, 2.0)
     d.blob([(X_uur(nu) + dx, nat - 1 + dy) for dx, dy in [(-7, 0), (-3.5, -3.5), (0, -4.5), (3.5, -3.5), (7, 0), (3.5, -1), (0, -2), (-3.5, -1)]], WIT)
     if loper:
-        dier_gespiegeld(d, nr, xd, nat + 22, 36)
+        dier_gespiegeld(d, nr, xd, nat + 16, 36)
     else:     # zwemmers springen uit de branding: boogje schuim en druppels onder hen
         dier_gespiegeld(d, nr, xd, nat - 22, 36)
         d.dr.arc([d.P(xd - 20, nat - 26), d.P(xd + 20, nat + 4)], 200, 340, fill=WIT, width=max(1, round(1.8 * d.s)))
         for dx, dy in [(-17, -7), (-12, -14), (14, -10), (18, -4)]: d.rondje(xd + dx, nat + dy, 1.7, 1.7, WIT)
-    d.tekst(130, 198, f'first shell {eerste}' if eerste else 'one session leaves one', 16, INKT, False)
+    d.tekst(130, 176, f'first shell {eerste}' if eerste else 'one session leaves one', 16, INKT, False)
     return d.klaar()
 
 
 def korrels(d, droog, nacht):
     """Droog zand met korrels, een zeestertje en een gaatje: het strand leeft (keuring 2 van run 53)."""
     c = (85, 85, 170) if nacht else (170, 170, 85)
-    for x, y in [(44, 182), (62, 196), (84, 186), (178, 184), (196, 196), (214, 182), (120, 228), (150, 232), (100, 220), (170, 222), (70, 214), (196, 214)]:
+    for x, y in [(40, 186), (62, 200), (84, 204), (178, 204), (200, 196), (222, 186), (120, 228), (150, 232), (100, 220), (170, 222), (70, 214), (196, 214)]:
         d.rondje(x, y, 1.1, 1.1, c)
     zx, zy, R = 210, 206, 7      # zeestertje
     pts = []
@@ -193,13 +193,25 @@ def weken(D_, am, gehaald, voortgang, nr, uur=14.0, nacht=False):
     kam, nat, droog = 150, 164, 178
     lucht_klok(d, uur, kam, zon=False); zee_en_strand(d, kam, nat, droog, nacht)
     d.tekst(130, 12, '8 weeks', 24, (85, 170, 255) if nacht else CYAAN)
-    basis, hoog = 156, 44
-    for i, g in enumerate(gehaald):          # zeven weken: gehaald = brekende golf, gemist = plat en kalm
-        golf(d, 12 + i * 21.5, basis, hoog, g, b=24)
-    # deze week: een grote golf (groeit met de voortgang) en het dier groot op een surfplank erop: de haak
-    hh = 40 + 30 * min(1, voortgang); xg = 170
-    golf(d, xg, basis, hh, True, kop=True, b=58)
-    tx, ty = xg + 58 * 16 / 22, basis - hh
+    # v2.1b: één doorlopende zee met acht toppen (keuring: losse golven lazen als ijspegels)
+    basis = 160
+    toppen = [(16 + i * 22, 34 if g else 7, 10.5, g) for i, g in enumerate(gehaald)]
+    hh = 44 + 26 * min(1, voortgang); xg = 206
+    toppen.append((xg, hh, 13, True))
+    def opp(x): return basis - sum(hgt * math.exp(-((x - cx) / br) ** 2) for cx, hgt, br, _ in toppen)
+    xs_ = [x * .5 for x in range(0, 521)]
+    d.blob([(x, opp(x)) for x in xs_] + [(260, nat), (0, nat)], (0, 170, 255))
+    d.blob([(x, opp(x) * .55 + basis * .45 + 8) for x in xs_] + [(260, nat), (0, nat)], (0, 85, 255))   # diepte
+    d.dr.line([d.P(x, opp(x)) for x in xs_], fill=WIT, width=max(1, round(1.8 * d.s)))                 # schuimrand
+    for cx, hgt, br, vol in toppen:
+        ty = opp(cx)
+        if vol:   # schuimkrul die naar rechts omkrult
+            krul = [(cx - 3, ty + 1), (cx + 1, ty - 3), (cx + 6, ty - 2.5), (cx + 8.5, ty + 2), (cx + 6.5, ty + 5), (cx + 5, ty + 1.5), (cx + 2, ty + .5)]
+            k = 1.6 if cx == xg else 1.0
+            d.blob([(cx + (x - cx) * k, ty + (y - ty) * k) for x, y in krul], WIT)
+        else:     # gemiste week: een rustige top met een stip erboven
+            d.rondje(cx, ty - 6, 1.8, 1.8, WIT)
+    tx, ty = xg - 3, opp(xg - 3)
     d.blob([(tx - 17, ty - 1), (tx + 15, ty - 5), (tx + 18, ty - 3), (tx - 15, ty + 3)], (255, 255, 85), WIT, 1.2)   # plank
     d.dr.line([d.P(tx - 14, ty + 1), d.P(tx + 15, ty - 3.5)], fill=(255, 0, 0), width=max(1, round(1.4 * d.s)))
     d.dier(tx, ty - 16, 34, w.D[nr])
