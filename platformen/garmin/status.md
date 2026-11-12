@@ -1,5 +1,10 @@
 # Garmin Connect IQ: status
 
+- **12 nov 20:28 UTC, run 72, slot. Frisse keuring van de zichtbaarheid van de dieren: 6. Mijn oordeel van 20:24 hieronder ("de andere vijf zijn herkenbaar") was te mild. 93144cc1 wordt daarom waarschijnlijk NIET de winkelversie, ook als de volle ronde groen is.**
+  - Verslag: `ontwerp/garmin/ebb-contrast-keuring-run72.md`. De keurder kende de app niet en kreeg mijn oordeel niet te zien.
+  - MOET volgens de keurder: orka bij nacht (valt weg op FR255 en fenix 8), zwaardvis bij nacht (beide) en bij dag op de FR255, narwal bij nacht (beide). KAN: dolfijn bij nacht op AMOLED, reuzeninktvis, een donkerder rand om de dolfijn bij dag op AMOLED.
+  - De nieuwe dolfijn: op de FR255 goed en veel beter; op AMOLED "goed maar krap", niet beter dan de oude.
+  - Niets hiervan is deze run nog aangepast. Het staat bovenaan in de taken. De volle ronde op 93144cc1 loopt door; hij bewijst de rest (uitleg, eindscherm, Calm, toets).
 - **12 nov 20:24 UTC, run 72. De bouwtak `claude/garmin-2026-11-10b` staat op 93144cc1 en daar loopt de volle ronde op (toetsrun 43299901503, winkelrun 43299901426, gestart 20:23 UTC, klaar rond 21:40). Is die groen, dan is 93144cc1 de kandidaat voor de release. Tot dan is er GEEN gekeurde commit voor de release.**
   - **Wat er in 93144cc1 zit bovenop ad6bb455:** uitleg, eindscherm en Calm zonder zwart (run 71, proef71b 66f3988f), plus van deze run: de dolfijn krijgt een lichte luchtband, een toets voor Calm in de wereld (`testCalmInDeWereld`, nu 64 toetsen), en `zeeTopBij` is weg.
   - **Gelezen, volle ronde op ad6bb455 (winkelrun 43286527189):** `bouw` en `alle-horloges` `success`, alle dertien plaatjesjobs `success`, `release` `skipped`. Alleen de uitslag per job gelezen, de logs NIET (dus `TERUGVAL fr255` en de pixelvergelijking niet nagekeken). Hij wordt niet de winkelversie, dus ik heb er geen tijd meer in gestoken.

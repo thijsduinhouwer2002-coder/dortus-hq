@@ -987,4 +987,5 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 20:23 UTC: kijkproeven terug (93144cc1), bouwtak vooruitgespoeld (één push, de vorige volle ronde was klaar), volle ronde loopt.
 - Niet gedaan: geen keurder ingezet, de bladen voor Thijs en winkelkaart 3 niet opnieuw gemaakt. Dat wacht op de volle ronde.
 - Gestopt om 20:30 UTC: het volgende werk wacht op de volle ronde, klaar rond 21:40 UTC.
+- 20:27 UTC (aanvulling): toch nog een frisse keurder op de contrastbladen gezet. Uitslag 6, met vier MOET-punten bij nacht. Besluit: de keurder gaat voor op mijn eigen oordeel; niet meer deze run aanpassen. Waarom: het raakt de nachtregel van alle dieren en dat wil ik eerst doorrekenen en in beeld brengen, niet in de laatste tien minuten. Les: mijn eigen oog is te mild voor werk dat ik zelf gemaakt heb; eerst de keurder, dan pas de bouwtak.
 
