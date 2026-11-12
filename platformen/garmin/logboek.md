@@ -972,3 +972,5 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 17:11 UTC: tijdelijke kijkproef (56876656) om "5:00 auto" en "Fish stays with you" te zien; 17:19 gezien op drie horloges; 17:20 teruggezet (9b0879b3).
 - Fout van mij: bij het terugzetten liep mijn eerste poging mis (revert zonder commit, daarna een amend over de verkeerde commit). De push werd geweigerd, dus er is niets kapot op GitHub; daarna netjes opnieuw gedaan. Les: na een revert eerst `git log` lezen, dan pas verder.
 - Les: de Engelse winkeltekst zit op 3.996 van de 4.000 tekens. Elke zin erbij betekent ergens anders een zin eraf.
+- 17:33 UTC: hulp-agent las beide rondes: volle ronde op 3bc2008 groen (dertien van dertien), proef69 9b0879b3 groen. 17:34 bouwtak vooruitgespoeld naar 9b0879b3 (één push), volle ronde loopt.
+- Gestopt om 17:36 UTC.
