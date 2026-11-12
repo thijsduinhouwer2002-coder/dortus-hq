@@ -86,9 +86,10 @@ def schildpad():
     z.append(it('0xFF0000', [(195, 188), (208, 191), (195, 195)]))                           # vlag
     z += schatten([('schelp', '0xFFAAAA'), ('zeester', '0xFF5500'), ('fles', '0x00FFAA')], 76, 16, 238)
     # week 4, de grap: zijn eigen zandemmertje naast het kasteel
-    # omgekeerd emmertje: wijd op de muur, smal boven, rood hengsel hangt aan de zijkanten omlaag
-    z.append(it('0xFFFF00', [(170, 222), (172, 208), (184, 208), (186, 222)], week=4))
-    z.append(it('0xFF0000', [(169, 222), (167, 214), (171, 210), (172, 212), (169, 215), (171, 222)], week=4))
+    # omgekeerd emmertje als nieuwe torenspits: wijd op de toren (dekt het oude vlaggetje), smal boven, vlag verhuist naar boven
+    z.append(it('0xFFFF00', [(185, 200), (190, 188), (204, 188), (211, 200)], week=4))
+    z.append(it('0xFFFFFF', [(196, 188), (198, 188), (198, 178), (196, 178)], week=4))
+    z.append(it('0xFF0000', [(198, 178), (209, 181), (198, 184)], week=4))
     return dict(dier='Turtle', nr=3, plek='zeegrasweide', items=z, thuis=(92, 214),
                 haak='een zandkasteel met kantelen en rood vlaggetje: de schildpad graaft toch al, dus hij bouwt ook',
                 details={1: 'schelp (roze)', 2: 'zeester (oranje)', 3: 'flesje met briefje (zeegroen)', 4: 'zijn eigen geel emmertje met rood hengsel naast het kasteel'},
@@ -111,23 +112,23 @@ def krab():
     # de grap: teenslipper van boven, 36 x 14: ronde brede teen, smalle hiel, donkere V met punt op 1/4 vanaf de teen
     zool = [(18, 0), (16, -5), (10, -7), (2, -6), (-6, -4), (-13, -4), (-18, -2), (-18, 2), (-13, 4), (-6, 4), (2, 6), (10, 7), (16, 5)]
     band = [(10, 0), (0, -6), (-2, -4), (7, 0), (-2, 4), (0, 6)]
-    z.append(it('0xFF55AA', draai([(x * 1.3, y * 1.3) for x, y in zool], 172, 236, -15)))
-    z.append(it('0xAA0055', draai([(x * 1.3, y * 1.3) for x, y in band], 172, 236, -15)))
-    z += schatten([('schelp', '0xFFFFFF'), ('parel', '0xAA55FF'), ('munt', '0xFFFF00')], 70, 11, 236)
-    z.append(los(PARELBOL, '0xFFFFFF', 81, 236, 2))
+    z.append(it('0xFF55AA', draai([(x * 1.15, y * 1.15) for x, y in zool], 184, 232, -6)))
+    z.append(it('0xAA0055', draai([(x * 1.15, y * 1.15) for x, y in band], 184, 232, -6)))
+    z += schatten([('schelp', '0xFFFFFF'), ('parel', '0xAA55FF'), ('munt', '0xFFFF00')], 66, 11, 230)
+    z.append(los(PARELBOL, '0xFFFFFF', 77, 230, 2))
     # week 4, de grap: de tweede slipper komt aanspoelen, het paar is compleet
     zool2 = [(18, 0), (14, 6), (2, 6), (-12, 4), (-18, 1), (-13, -4), (2, -6), (14, -6)]   # spiegelbeeld: de andere voet
     band2 = [(x, -y) for x, y in band]
-    z.append(it('0xFF55AA', draai([(x * 1.3, y * 1.3) for x, y in zool2], 124, 240, -15), week=4)); z.append(it('0xAA0055', draai([(x * 1.3, y * 1.3) for x, y in band2], 124, 240, -15), week=4))
-    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(200, 214),
-                haak='een verloren roze teenslipper; de krab blijft op de bodem ernaast en blaast belletjes',
+    z.append(it('0xFF55AA', draai([(x * 1.15, y * 1.15) for x, y in zool2], 128, 236, -6), week=4)); z.append(it('0xAA0055', draai([(x * 1.15, y * 1.15) for x, y in band2], 128, 236, -6), week=4))
+    return dict(dier='Crab', nr=4, plek='rotsen met verloren slipper', items=z, thuis=(184, 214),
+                haak='een verloren roze teenslipper; de krab woont erin als in een bootje en blaast belletjes',
                 details={1: 'schelp (wit)', 2: 'mosseltje met parel', 3: 'gouden munt', 4: 'de tweede roze slipper spoelt aan: het paar is compleet'},
-                aankomst=dict(baan=[[290, 226], [240, 222], [200, 214]], spiegel=False, sec=2, wat='loopt zijwaarts over het zand van rechts naar huis'),
-                vertrek=dict(baan=[[200, 214], [222, 222], [236, 230]], spiegel=False, sec=2, wat='schuift zijwaarts onder de rechterkei (dier achter de kei tekenen, dan weg)'))
+                aankomst=dict(baan=[[290, 226], [230, 222], [184, 214]], spiegel=False, sec=2, wat='loopt zijwaarts over het zand van rechts naar huis'),
+                vertrek=dict(baan=[[184, 214], [220, 222], [236, 230]], spiegel=False, sec=2, wat='schuift zijwaarts onder de rechterkei (dier achter de kei tekenen, dan weg)'))
 
 def clownvis():
     z = [ver_rug('0x000055')]
-    z.append(it('0xFFAAAA', [(0, 226), (50, 222), (110, 228), (160, 222), (210, 226), (260, 220), (260, 260), (0, 260)]))
+    z.append(it('0xFFFFAA', [(0, 226), (50, 222), (110, 228), (160, 222), (210, 226), (260, 220), (260, 260), (0, 260)]))
     z.append(it('0xFFAA55', [(150, 236), (166, 232), (180, 237), (166, 240)]))
     z.append(it('0xAA0055', [(0, 236), (4, 206), (64, 206), (70, 236)]))
     xs = [-10, 2, 12, 22, 32, 44, 56, 70]; tops = [134, 146, 158, 166, 176, 184, 196]
@@ -143,15 +144,15 @@ def clownvis():
     z.append(it('0x550055', [(246, 222), (240, 160), (243, 160), (250, 222)]))
     z.append(it('0xFFAA00', [(198, 228), (186, 214), (184, 204), (190, 196), (200, 194), (210, 198), (214, 208), (206, 220), (202, 228)]))   # waaierkoraal
     z.append(it('0xAA5500', [(199, 226), (193, 200), (207, 200)]))   # nerven
-    z += schatten([('schelp', '0xFFFFFF'), ('zeester', '0xFFFF00'), ('garnaal', '0xFFAA55')], 80)
+    z += schatten([('schelp', '0xFFFFFF'), ('zeester', '0xFF5500'), ('garnaal', '0xFF55AA')], 80)
     # week 4, de grap: een klein vriendje in de anemoon (oranje met witte band)
     z.append(it('0xFF5500', [(74, 212), (83, 206), (92, 206), (98, 212), (104, 206), (104, 218), (98, 212), (92, 218), (83, 218)], week=4))
     z.append(it('0xFFFFFF', [(84, 206), (88, 206), (88, 218), (84, 218)], week=4))
-    return dict(dier='Clownfish', nr=7, plek='anemoon met zwaaiende arm', items=z + voor, thuis=(44, 188),
+    return dict(dier='Clownfish', nr=7, plek='anemoon met zwaaiende arm', items=z + voor, thuis=(56, 188),
                 haak='hij zit thuis in zijn anemoon, en één arm zwaait met drie vingers naar hem',
-                details={1: 'schelp (wit)', 2: 'zeester (geel)', 3: 'garnaal (zalm)', 4: 'een klein clownvisje als vriendje'},
-                aankomst=dict(baan=[[-30, 170], [20, 150], [60, 166], [44, 188]], spiegel=False, sec=2, wat='schiet van links binnen in een boogje terug zijn anemoon in'),
-                vertrek=dict(baan=[[44, 188], [40, 200], [36, 214]], spiegel=False, sec=1.5, wat='duikt de anemoon in (voorste vingers erover), weg'))
+                details={1: 'schelp (wit)', 2: 'zeester (oranje)', 3: 'garnaal (roze)', 4: 'een klein clownvisje als vriendje'},
+                aankomst=dict(baan=[[-30, 170], [20, 150], [70, 166], [56, 188]], spiegel=False, sec=2, wat='schiet van links binnen in een boogje terug zijn anemoon in'),
+                vertrek=dict(baan=[[56, 188], [46, 200], [36, 214]], spiegel=False, sec=1.5, wat='duikt de anemoon in (voorste vingers erover), weg'))
 
 WERELDEN = [schildpad(), krab(), clownvis()]
 # lichtstralen: gedeeld, geen werelddata; top volgt de kam, onderkant y 205, alleen aan de randen

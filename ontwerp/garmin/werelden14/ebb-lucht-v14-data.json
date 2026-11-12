@@ -9,16 +9,18 @@
    ],
    "lucht": "0x0000AA",
    "rand": "0xFF55AA",
-   "rand_hoog": 8,
+   "rand_hoog": 9,
+   "rand2": "0xFFAA55",
+   "rand2_hoog": 4,
    "zon": {
     "kleur": "0xFFFF55",
     "x": 96,
-    "y": "kam+1",
+    "y": "kam+2",
     "r": 10
    },
    "sterren": false,
    "maan": false,
-   "wat": "roze streep op de horizon, zon komt links van het midden half uit het water (vrij van planten en rotsen)"
+   "wat": "roze en perzik streep op de horizon, grote zon komt links van het midden half uit het water (vrij van planten en rotsen)"
   },
   "dag": {
    "uren": [
@@ -36,37 +38,63 @@
    },
    "wolk": [
     [
-     182,
-     62
-    ],
-    [
-     190,
-     56
-    ],
-    [
-     200,
-     58
-    ],
-    [
-     206,
-     54
-    ],
-    [
-     216,
-     60
+     208,
+     96
     ],
     [
      214,
-     64
+     88
     ],
     [
-     184,
-     66
+     224,
+     88
+    ],
+    [
+     230,
+     80
+    ],
+    [
+     240,
+     82
+    ],
+    [
+     246,
+     90
+    ],
+    [
+     250,
+     96
+    ]
+   ],
+   "wolk2": [
+    [
+     14,
+     110
+    ],
+    [
+     20,
+     104
+    ],
+    [
+     30,
+     105
+    ],
+    [
+     36,
+     100
+    ],
+    [
+     46,
+     104
+    ],
+    [
+     50,
+     110
     ]
    ],
    "sterren": false,
    "maan": false,
-   "wat": "zon hoog rechts op de plek van de maan, een wolkje eronder"
+   "wat": "zon hoog rechts op de plek van de maan, een grote wolk ervoor en een kleine links"
   },
   "avond": {
    "uren": [

@@ -12,11 +12,11 @@ from PIL import Image, ImageDraw
 # Elk dagdeel: lucht (één vlak), rand (band van `rand_hoog` boven de kam, alleen waar lucht is), zon of maan, sterren.
 # Kleuren getoetst: kop 00FFFF, wit en menuregel 00AAFF houden minstens 4,5:1 op elke lucht (000055 14,8 / 0000AA 10,6 / 550055 11,0 en 5,4 voor 00AAFF).
 DAGDELEN = {
-    'ochtend': dict(uren=[6, 10], lucht='0x0000AA', rand='0xFF55AA', rand_hoog=8, zon=dict(kleur='0xFFFF55', x=96, y='kam+1', r=10),
-                    sterren=False, maan=False, wat='roze streep op de horizon, zon komt links van het midden half uit het water (vrij van planten en rotsen)'),
+    'ochtend': dict(uren=[6, 10], lucht='0x0000AA', rand='0xFF55AA', rand_hoog=9, rand2='0xFFAA55', rand2_hoog=4, zon=dict(kleur='0xFFFF55', x=96, y='kam+2', r=10),
+                    sterren=False, maan=False, wat='roze en perzik streep op de horizon, grote zon komt links van het midden half uit het water (vrij van planten en rotsen)'),
     'dag':     dict(uren=[10, 17], lucht='0x0000AA', rand=None, rand_hoog=0, zon=dict(kleur='0xFFFF55', x=214, y=40, r=8),
-                    wolk=[[182, 62], [190, 56], [200, 58], [206, 54], [216, 60], [214, 64], [184, 66]],
-                    sterren=False, maan=False, wat='zon hoog rechts op de plek van de maan, een wolkje eronder'),
+                    wolk=[[208, 96], [214, 88], [224, 88], [230, 80], [240, 82], [246, 90], [250, 96]], wolk2=[[14, 110], [20, 104], [30, 105], [36, 100], [46, 104], [50, 110]],
+                    sterren=False, maan=False, wat='zon hoog rechts op de plek van de maan, een grote wolk ervoor en een kleine links'),
     'avond':   dict(uren=[17, 21], lucht='0x550055', rand='0xFF5500', rand_hoog=7, zon=dict(kleur='0xFFAA00', x=166, y='kam+1', r=11),
                     sterren=True, maan=False, wat='paarse lucht, oranje streep, grote oranje zon zakt rechts van het midden in het water, eerste sterren'),
     'nacht':   dict(uren=[21, 6], lucht='0x000055', rand=None, rand_hoog=0, zon=None, sterren=True, maan=True,
@@ -59,11 +59,13 @@ def lucht_dagdeel(dr, D_, top_px):
     d = DAGDELEN[STAND['dagdeel']]; s = D_ / 260; kam = top_px / s
     dr.rectangle([0, 0, D_, D_], fill=hx(d['lucht']))
     if d['rand']: dr.rectangle([0, S(kam - d['rand_hoog'], D_), D_, D_], fill=hx(d['rand']))
+    if d.get('rand2'): dr.rectangle([0, S(kam - d['rand2_hoog'], D_), D_, D_], fill=hx(d['rand2']))
     if d['sterren']:
         e = 1 if D_ < 300 else 2
         for x, y in (STERREN if d['maan'] else STERREN[:3]):
             if y < kam - 8: dr.rectangle([S(x, D_), S(y, D_), S(x, D_) + e - 1, S(y, D_) + e - 1], fill=WIT)
-    if d.get('wolk'): dr.polygon([(S(x, D_), S(y, D_)) for x, y in d['wolk']], fill=WIT)
+    for k in ('wolk', 'wolk2'):
+        if d.get(k) and max(y for _, y in d[k]) < kam - 4: dr.polygon([(S(x, D_), S(y, D_)) for x, y in d[k]], fill=WIT)
     z = d['zon']
     if z:
         y = kam + int(z['y'][3:]) if isinstance(z['y'], str) else z['y']

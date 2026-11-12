@@ -113,3 +113,9 @@ Besluit 12 nov 00:25 punt 2 en 3 stonden nog open. Beelden en data: `werelden14/
 - **Maan in acht standen**, alles convex in drie aanroepen (schijf, halve schijf met rechthoek, ellips in luchtkleur voor een sikkel of in maankleur voor bol). Nieuwe maan als grijze schijf 555555. Stand uit de datum, afgerond op de dichtstbijzijnde van acht.
 - **Bellen per wereld:** schildpad uit de snuit bij uitademen, krab uit de mond altijd (twee ringen), clownvis uit de bek, in de anemoon tussen de vingers door.
 - Toetsen: 0 pixels buiten MIP, laagste contrast 5,2:1 (menuregel op 0000AA).
+- **Derde frisse keuring** (werelden plus dagdelen): 6,5 (schildpad 7, krab 7, clownvis 6, dagdelen 6). Daarna gedaan:
+  - helden groter: maat 27/260 (47 op 454) op menu, hold en adem in plaats van 20 en 21; staat in `schermen` in de data. **Gijs:** dit verschuift jouw maten per scherm.
+  - emmertje omgekeerd als nieuwe torenspits bovenop de toren, het vlaggetje verhuist naar boven (week 4);
+  - **krab woont in zijn slipper als in een bootje** (thuis 184, 214, slipper eronder), de tweede slipper komt er in week 4 naast; schatjes iets hoger;
+  - clownvis: geel zand in plaats van roze, zodat de roze anemoon loskomt; thuis 20 naar binnen (56, 188); zeester oranje, garnaal roze;
+  - ochtend: roze en perzik streep met zon half boven de horizon; dag: grote wolk rechts en kleine links (buiten alle tekst).
