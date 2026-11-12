@@ -887,3 +887,5 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 1. Krab keuring 3 punt 3 tot 6 en de schildpad van Mila zijn gebouwd en op echte beelden gezien; plaatjes groen op dertien horloges.
 2. Twee dingen waren op die beelden niet goed (anemoon weg op de FR255, spriet tegen "Jellyfish"); de verbetering staat op proef59 (242a3e7) en is nog niet gezien.
 3. Niets op de bouwtak, niets ingediend; onderwater op start, pauze en sea log is de volgende stap.
+
+**Slot run 59 (07:58 UTC):** plaatjes 43177413893 op 242a3e7 groen op dertien horloges; anemoon en "Jellyfish" gezien en goed op FR255, fenix 7 en fenix 8. Toetsen 43177413944 liepen nog: niet naar de bouwtak. Volgende run: toetsen lezen, bouwtak vooruitspoelen, dan onderwater op start, pauze en sea log.
