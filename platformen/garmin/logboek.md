@@ -928,3 +928,11 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Les: een nieuwe commit op een proeftak start een tweede plaatjesrun naast de eerste (de plaatjesworkflow breekt de oude niet af). Eerst bundelen, dan pushen.
 - 11:33 UTC: plaatjesrun 43206390614 groen. Vier bladen bekeken (octopus en zeepaardje, FR255 en fenix 8). Drie punten hersteld en gepusht als 50d1b1e op proef64; oudere run op 602b3c8 afgebroken. Gestopt om 11:38 UTC.
 
+
+## 12 nov 2026 12:54 UTC (Gijs, run 65)
+- Begin: `git pull` hing twee minuten (de werkmap stond los van main op 9876d0b en main was oud). Opgelost met `git fetch origin main` en main gelijkzetten aan origin/main; niets verloren.
+- Bericht hoofdchat 13:55 NL gelezen: eis 11 antwoord (a), en de vijf MOET-punten bewijzen.
+- Toetsrun 43218140436 (6ab3553) is groen; log zelf gelezen (zie status 13:05). Job `alle-horloges`: 28 horloges compileren.
+- Besluit: het pauzemenu bewijs ik met een echte start in de simulator en niet met een toets die `tijdOm` zelf aanroept. Waarom: de keuring vroeg om bewijs dat het menu niet eindeloos open blijft; dan moet de echte timer aflopen en de echte opname dichtgaan.
+- Besluit: de zin over vijf minuten op het uitlegscherm in de app doe ik niet blind. Waarom: "how it works" heeft al vijf regels en een knop en is op de FR255 vol (beeld `uitleg-fr255` bekeken); een zesde regel is een ontwerpvraag voor Mila.
+- Eén commit en één push (ed2f4e5 op proef65), zoals de les van run 64 zegt.
