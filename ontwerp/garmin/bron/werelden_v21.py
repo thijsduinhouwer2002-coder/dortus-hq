@@ -18,7 +18,7 @@ KRAB = D[4]
 SLIP = .8      # slipper 70 procent van v2: de krab blijft de held
 WIT, GEEL = (255, 255, 255), (255, 255, 170)
 DAG = dict(lucht=[(0, 85, 170), (0, 170, 255)], zee_top=(0, 105, 140), zee_bodem=(0, 22, 60), licht=(85, 255, 255),
-           ver=(0, 30, 70), mip_water=[(0, 85, 85), (0, 0, 85)], mip_licht=(0, 85, 255), mip_zee=(0, 85, 170), mip_ver=(0, 0, 85), mip_verder=(0, 85, 170), mip_bundel=(0, 85, 170))
+           ver=(0, 30, 70), mip_water=[(0, 85, 85), (0, 0, 85)], mip_boven=(0, 85, 170), mip_licht=(0, 85, 255), mip_zee=(0, 85, 170), mip_ver=(0, 0, 85), mip_verder=(0, 85, 170), mip_bundel=(0, 85, 170))
 NACHT = dict(lucht=[(0, 0, 85), (0, 0, 170)], zee_top=(0, 0, 105), zee_bodem=(0, 0, 22), licht=(170, 170, 255),
              ver=(0, 0, 60), mip_water=[(0, 0, 85), (0, 0, 0)], mip_licht=(0, 0, 170), mip_zee=(0, 0, 170), mip_ver=(0, 0, 170), mip_verder=(0, 0, 85), mip_bundel=(0, 0, 170))
 ROTS, ROTS_R, ROTS_DONKER = (85, 85, 170), (170, 170, 255), (0, 0, 85)
@@ -102,12 +102,13 @@ class Doek:
     def tekst(self, x, y, s, maat, c, dik=True):
         tekst(self.dr, x * self.s, y * self.s, s, f(FS if dik else FM, round(maat * self.s)), c)
 
-    def dier(self, cx, cy, maat260):
+    def dier(self, cx, cy, maat260, wie=None):
+        wie = KRAB if wie is None else wie
         m = round(maat260 * self.D / 260)
         lag = Image.new('RGB', (self.D, self.D)); ld = ImageDraw.Draw(lag)
-        _, _, ox, oy = kader(KRAB, m)
+        _, _, ox, oy = kader(wie, m)
         lag = Image.new('RGB', (self.D, self.D), (1, 2, 3)); ld = ImageDraw.Draw(lag)
-        h.teken(ld, KRAB, round(cx * self.D / 260 - ox), round(cy * self.D / 260 - oy), m)
+        h.teken(ld, wie, round(cx * self.D / 260 - ox), round(cy * self.D / 260 - oy), m)
         from PIL import ImageChops
         mk = ImageChops.difference(lag, Image.new('RGB', (self.D, self.D), (1, 2, 3))).convert('L').point(lambda v: 255 if v else 0)
         lag = lag.resize((self.N, self.N), Image.NEAREST); mk = mk.resize((self.N, self.N), Image.NEAREST)
@@ -208,22 +209,29 @@ def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak
         bandje(d, r, held_maat / 30 * 1.3 * SLIP)
 
 
-def water_onder(d, dd, maan=False, stralen=3):
+def water_onder(d, dd, maan=False, stralen=3, raster_y=None):
     if d.am:
         d.verloop(0, 260, dd['zee_top'], dd['zee_bodem'])
     else:
         # MIP: drie banden van licht naar donker met golvende randen; de middelste is een raster van de twee buren
         # (op 260 leest dat als een tussentint; Gijs zet het als plaatje). Geen harde horizon meer.
         c0, c2 = dd['mip_water']
-        d.verloop(0, 260, c0, None)
-        rast = Image.new('RGB', (d.N, d.N), c0); rp = rast.load()
-        for yy in range(d.N):
-            for xx in range(d.N):
-                if (xx + yy) % 2: rp[xx, yy] = c2
-        mk = Image.new('L', (d.N, d.N), 0)
-        ImageDraw.Draw(mk).polygon([d.P(x, 138 + 3 * math.sin(x / 260 * 2 * math.pi * 2)) for x in range(0, 261, 2)] + [d.P(260, 260), d.P(0, 260)], fill=255)
-        d.im.paste(rast, (0, 0), mk)
-        d.golf(172, 262, c2, 3, 2, 1.0)
+        def raster(a, b):
+            im = Image.new('RGB', (d.N, d.N), a); px = im.load()
+            for yy in range(d.N):
+                for xx in range(yy % 2, d.N, 2): px[xx, yy] = b
+            return im
+        def onder_golf(y):
+            mk = Image.new('L', (d.N, d.N), 0)
+            ImageDraw.Draw(mk).polygon([d.P(x, y + 3 * math.sin(x / 260 * 2 * math.pi * 2)) for x in range(0, 261, 2)] + [d.P(260, 260), d.P(0, 260)], fill=255)
+            return mk
+        boven = dd.get('mip_boven')
+        if boven:   # v2.2: bovenin een raster van 0055AA en 005555: leest als het teal van AMOLED, niet als modderig groen
+            d.im.paste(raster(c0, boven), (0, 0))
+        else:
+            d.verloop(0, 260, c0, None)
+        d.im.paste(raster(c0, c2), (0, 0), onder_golf(raster_y or (142 if boven else 148)))   # raster nooit achter tekst
+        d.golf(178, 262, c2, 3, 2, 1.0)
     # oppervlak: lichte golvende rand bovenin
     d.dr.polygon([d.P(x, 7 + 2.5 * math.sin(x / 260 * 2 * math.pi * 5)) for x in range(0, 261, 2)] + [d.P(260, 0), d.P(0, 0)],
                  fill=(dd['mip_licht'] if dd['mip_licht'] != (0, 0, 170) else (85, 85, 255)) if not d.am else tuple((a + b) // 2 for a, b in zip(dd['licht'], dd['zee_top'])))
@@ -306,19 +314,21 @@ def adem_in(D_, am, dd, nacht, top=126, woord='breathe in', getal='12', onder='r
     for k, (y, a, n, fa) in enumerate(rijen):
         if k: d.golf(y - 1.6, 262, (85, 170, 255) if not nacht else (85, 85, 255), a, n, fa)   # lichte rand op elke rij
         d.golf(y, 262, golfkleur_am[k] if am else golfkleur_mip[k], a, n, fa)
-    # baan van licht onder zon of maan
-    gl = (255, 255, 170) if not nacht else (170, 170, 255)
-    if am:      # zachte zuil van licht op het water onder de zon
-        for k in (1.5, 1.0):     # zuil van licht in twee tinten
-            v = [d.P(40 - 12 * k, top + 4), d.P(40 + 12 * k, top + 4), d.P(40 + 4 * k, top + 52), d.P(40 - 4 * k, top + 52)]
-            d.tint(lambda ld, v=v: ld.polygon(v, fill=255), gl, .2)
-    for x, y, b in [(40, top + 9, 14), (40, top + 20, 9), (40, top + 31, 5)]:   # rustige baan recht onder zon of maan      # losse vonkjes, verspringend, naar beneden kleiner
-        d.dr.rounded_rectangle([(x - b / 2) * d.s, y * d.s, (x + b / 2) * d.s, (y + 2.2) * d.s], radius=1.1 * d.s, fill=gl)
+    # boven water iets te zien: een wolkje (bij nacht donker) en overdag een meeuw
+    wk = (255, 255, 255) if not nacht else (85, 85, 170); wr = (170, 255, 255) if not nacht else (0, 0, 170)
+    for cx, cy, rx, ry in [(214, 70, 14, 8), (226, 64, 12, 10), (236, 72, 11, 7)]:
+        d.rondje(cx, cy, rx, ry, wr)
+    for cx, cy, rx, ry in [(214, 69, 12, 6.5), (226, 63, 10, 8.5), (236, 71, 9, 5.5)]:
+        d.rondje(cx, cy, rx, ry, wk)
+    if not nacht:
+        for x0, sgn in ((62, -1), (62, 1)):
+            d.dr.line([d.P(x0, 54), d.P(x0 + sgn * 5, 50), d.P(x0 + sgn * 9, 53)], fill=WIT, width=max(2, round(1.8 * d.s)), joint='curve')
     # held: krab in zijn slipper, groot en midden op de kam
     sch = held_maat / 34 * 1.45 * SLIP * 1.15
     hx = 124 if top > 140 else 154     # bij hoge zee schuift de krab naar rechts: het cijfer blijft vrij (punt 4)
-    r = slipper(d, hx + 4, top + 15, sch, hoek=-5)    # hak onder de krab, neus en bandje steken rechts uit
-    d.dier(hx, top + 2, held_maat); bandje(d, r, sch)
+    dy = 0 if top < 140 else -5      # bij lage zee iets hoger op de kam, zodat hij dobbert en niet verdrinkt
+    r = slipper(d, hx + 4, top + 12 + dy * .6, sch, hoek=-5)    # hak onder de krab, neus en bandje steken rechts uit
+    d.dier(hx, top + dy, held_maat); bandje(d, r, sch)
     d.tekst(130, 18 if top < 140 else 22, woord, 25, WIT)
     d.tekst(130, 36 if top < 140 else 42, getal, 56, WIT)
     d.tekst(130, min(212, max(top + 60, 196)), onder, 16, WIT, False)
@@ -357,21 +367,27 @@ def menu(D_, am, dd, nacht):
 
 
 def eind(D_, am, dd, nacht):
-    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0)
-    bundel(d, dd, nacht, xo=104, xh=104, yh=170)     # het licht staat recht op de nieuwe vriend
+    """Eindscherm: de krab in zijn slipper links, de nieuwe vriend (hier de garnaal) in een belletje rechts: dat heb je gewonnen."""
+    d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0, raster_y=176)
+    bundel(d, dd, nacht, xo=184, xh=186, yh=164)     # het licht staat op de nieuwe vriend
     wereld_onder(d, dd, held=False, zak=22, met_slipper=False, anem_dy=14, anem_dx=-8)
     stofjes(d, dd)
-    for x, y, r_ in [(44, 120, 4.5), (58, 98, 3), (40, 82, 2.2), (196, 132, 4), (212, 110, 3), (200, 88, 2)]:
+    for x, y, r_ in [(40, 96, 2.6), (52, 82, 1.8), (224, 168, 2.4)]:
         bellen(d, [(x, y, r_)], WIT)
-    for x, y, k in [(58, 108, 9), (194, 96, 7.5), (176, 150, 5), (46, 142, 5)]:
+    for x, y, k in [(222, 88, 8), (150, 92, 5.5), (234, 136, 5)]:
         fonkel(d, x, y, k)
-    kring(d, dd, 130, 124, 58)
-    r = slipper(d, 112, 150, 1.5 * SLIP, hoek=-6)
+    # belletje van de sea log (zelfde stijl als in de app: vlak 0055AA, rand 00FFFF, glimpje)
+    bx, by, brx, bry = 186, 124, 34, 30
+    kring(d, dd, bx, by, 44)
+    d.rondje(bx, by, brx, bry, (0, 85, 170), (0, 255, 255), dikte=2.4)
+    d.rondje(bx - .62 * brx, by - .5 * bry, 4, 4, WIT)
+    d.dier(bx, by + 1, 26, D[1])
+    r = slipper(d, 70, 152, 1.25 * SLIP, hoek=-6)
     d.tekst(130, 30, '3 rounds done', 25, GEEL)
     d.tekst(130, 56, '1:20   1:45   1:58', 19, WIT)
-    d.dier(118, 126, 40); bandje(d, r, 1.5 * SLIP)
+    d.dier(76, 130, 34); bandje(d, r, 1.25 * SLIP)
     d.tekst(130, 163, 'new friend', 15, WIT, False)
-    d.tekst(130, 173, 'Crab', 30, GEEL)       # de naam groot (keuring 8)
+    d.tekst(130, 173, 'Shrimp', 30, GEEL)       # de naam groot (keuring 8)
     stippen(d.dr, 130 * s_(d), 213 * s_(d), 3, 1, max(2, round(3.5 * s_(d))), round(13 * s_(d)))
     return d.klaar()
 
