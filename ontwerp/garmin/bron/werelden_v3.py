@@ -116,7 +116,9 @@ def meeuw(d, x, y, k=1.0, nacht=False):
 def jongleer(d, cx, cy, r_, k=1.0, nacht=False, neus=None):
     """Drie ballen in een boog boven de clownvis: hij jongleert. v3.2: groot, vlak met donkere rand en een glimpje,
     een witte stippelboog als spoor, en (boven water) de eerste bal net boven zijn neus (keuring 16)."""
-    # geen stippelboog meer: die las als een bellenspoor (keuring 21)
+    for i in range(9):      # stippelboog terug (zonder boog zakte keuring 22 naar 5: de ballen lazen als losse stippen)
+        a = math.pi * (1.0 + i / 8)
+        d.rondje(cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), 1.2 * k, 1.2 * k, WIT)
     plekken = []
     for t, c in ((.5, (255, 85, 170)), (.86, (85, 255, 85))):
         a = math.pi * (1.0 + t); plekken.append((cx + r_ * math.cos(a) * 1.15, cy + r_ * math.sin(a), c))
