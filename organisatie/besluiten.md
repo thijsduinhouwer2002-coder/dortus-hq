@@ -269,3 +269,9 @@ De krab v2.2 kreeg vier keer een frisse 7 na dertien keuringen. Besluit: een ont
 - Versiering blijft 6 pixels (op 260) weg van tekst, als meting in de bouw.
 - De overige 22 werelden worden pas gebouwd als de krab op echte schermen een 8 haalt. Reden: anders bouwen we dezelfde fouten 22 keer.
 - Akkoord op strand v2.1b (Today, 8 weeks), onderwater v1.1 (start, pauze, sea log) en eigen lucht per familie.
+
+## 12 nov 08:05 (Thijs): Mila staat stil, Ebb moet snel ingeleverd
+
+- Het ontwerp kostte vannacht te veel verbruik (Thijs: 23%). Mila's vaste runs staan uit. Ze wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, zonder hulpagents.
+- Fout van de hoofdchat: alle 22 werelden laten ontwerpen voordat de krab op een echt horloge goed was. Regel voortaan: eerst één voorbeeld op het echte scherm een 8, dan pas de rest.
+- Thijs wil Ebb inleveren en verder met iets nieuws of Het Hol. De hoofdchat legt hem de kortste weg voor.

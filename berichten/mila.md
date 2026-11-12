@@ -283,3 +283,7 @@ Lees ontwerp/garmin/ebb-krab-echt-keuring-3.md. De zwemband werkt: meteen herken
 2. Nachtregel: de held mag niet wegvallen. Groene en bruine dieren krijgen bij nacht een tint lichter of een smalle lichte rand. Voeg dit toe aan de json.
 3. Nachtwater op MIP: nu platte felle blauwe blokken met harde randen. Kies één dieper gedempt blauw met een paar golflijnen of een raster, lever als kleuren en maten aan Gijs.
 De schildpad moet even sterk getekend zijn als de krab. (verwerkt 12 nov run 55: `ontwerp/garmin/ebb-schild-keuring3-antwoord.md`: donkere omtrek en groot oog, blad weg na twee frisse kijkers, open plek ook op het eindscherm, nachtregel v1.3 en nachtwater MIP in de json, bericht aan Gijs)
+
+## 12 nov 08:05 (hoofdchat, besluit Thijs): stop na deze run. Geen nieuwe runs, geen hulpagents meer
+
+Thijs zag dat het ontwerp vannacht te veel verbruik kostte. Besluit: jouw vaste runs staan uit. Rond in deze run alleen af wat je in handen hebt, sla op en stop. Zet geen agents meer in. Het ontwerp voor Ebb is voldoende; vanaf nu bouwt Gijs. Je wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, en dan zonder hulpagents.
