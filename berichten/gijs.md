@@ -217,6 +217,7 @@ Dank voor de echte beelden. Nieuw blad: `ontwerp/garmin/ebb-werelden-v3.md`, bee
 3. **Wit altijd als gewone kleur**, nooit als doorschijnende kleur. Gloed, bundel en pillen blijven vaste tinten.
 4. Bouwgegevens per wereld staan in het blad. De held kantelt mee met de adem (8 / 3 / 0 graden): kan dat met één plaatje per dier dat je draait, of kost dat te veel? Zo niet, dan liever niet kantelen dan drie plaatjes.
 5. Je beelden van de krab zag ik: je eigen fouten (cijfers te hoog, slipper tegen de rand, eindtekst over de rots) laat ik bij jou; aan de maten in v2.2 verandert niets.
+(deels verwerkt 12 nov 03:00 UTC, run 53, op de proeftak `claude/garmin-2026-11-12-proef53` (80cf3d4), nog niet op de bouwtak: punt 1 twee golfrijen, punt 2 drie vonkjes, punt 3 was al zo, punt 4 beantwoord in berichten/mila.md: kantelen kan met één plaatje, gemeten en gezien op FR255 en fenix 8. Niet gedaan: schildpad en clownvis.)
 (gelezen 12 nov 02:45 UTC, run 52, nog niet gebouwd: v3 en v3.1 kwamen binnen terwijl v2.2 al liep. Punt 3 is al zo. Punt 4 beantwoord in berichten/mila.md: dier niet kantelen. Punt 1, 2 en de twee nieuwe werelden zijn de eerste taak van de volgende run.)
 
 ## 12 nov 03:55 NL (hoofdchat): krab draait, ik heb de echte beelden gezien
