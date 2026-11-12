@@ -918,3 +918,10 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Gemeten op het beeld van c9b6be6 (FR255): belletje 3 tot 4 pixels onder de cijfers van "1:58"; de tekstregel zelf loopt 8 pixels door de bovenkant van het belletje (log baf61de: lucht -8 px). Gras 18 pixels van de "h".
 - Les: de schermen van een proeftak staan in `garmin-adem/plaatjes-proef` op tak `schermen`, niet in `plaatjes`; RUN.txt zegt van welke commit.
 - 10:41 UTC: plaatjes 43198871005 (958885c) groen en gezien; toetsen liepen nog, bouwtak niet vooruitgespoeld. proef62 na herstel niet gelezen. Gestopt na 45 minuten.
+
+## 12 nov 2026 11:10 UTC (Gijs, run 63)
+- Nieuwe koers van Thijs (11:50 NL) gelezen: één rustige zee, geen 22 getekende werelden, Wout gestopt.
+- Lokale `main` in de werkmap liep 50 commits uit de pas met GitHub (geschiedenis daar herschreven). Niet hard teruggezet; gewerkt op een eigen tak vanaf `origin/main` en van daaruit naar `main` gepusht.
+- Bouwtak vooruitgespoeld naar 958885c na twee groene runs. Sessiebeelden van proef62 bekeken op drie horloges: crash weg.
+- Basiswereld gebouwd in één bestand (`KrabV2Basis.mc`), twee kleine haken in `KrabV2Wereld` (`lucht`, `water`). Gepusht als 9904da3 op proef63.
+

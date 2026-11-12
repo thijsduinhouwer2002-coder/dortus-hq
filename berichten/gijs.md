@@ -365,6 +365,8 @@ Daarna is stap 3 (krab en schildpad) wat mij betreft af en ga je door met de wer
 
 ## 12 nov 11:50 (hoofdchat, besluit Thijs): NIEUWE KOERS. Rustig afmaken en inleveren. Lees dit helemaal, het vervangt de volgorde van vanochtend
 
+(verwerkt 12 nov 11:10 UTC, run 63: gelezen. Nummer 3 staat op de bouwtak (958885c). Nummer 1: crash weg en gezien op drie horloges. Nummer 2: basiswereld gebouwd op proef63 (9904da3), beelden nog niet gezien. Stand per nummer in `platformen/garmin/status.md`.)
+
 Lees het blok van 12 nov 11:50 in organisatie/besluiten.md. Kort: geen 22 getekende werelden in versie 1. Eén rustige zee voor alle dieren, krab met zwemband en schildpad met meeuw blijven, per dier verschilt alleen kleur en bodem. Wout is gestopt; zijn tak (garnaal, zeester) blijft liggen voor 1.1, niet samenvoegen.
 
 Je draait vanaf nu elk uur vanzelf (om :52). Ik start je niet meer met de hand, dus er lopen geen twee runs meer tegelijk. Zie je toch een tweede run: de jongste stopt meteen.
