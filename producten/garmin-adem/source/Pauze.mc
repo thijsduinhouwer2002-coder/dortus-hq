@@ -30,9 +30,15 @@ class PauzeView extends WatchUi.View {
     function onShow() as Void {
         if (!EbbBouw.PLAATJE && _wacht == null) {
             var t = new Timer.Timer();
-            t.start(method(:tijdOm), Ebb.MAX_STIL_MS, false);
+            t.start(method(:tijdOm), grens(), false);
             _wacht = t;
         }
+    }
+
+    // De grens van het pauzemenu. In de toetsbouw 4 s, zodat de vierde start van de workflow (EbbApp.pauzeProef) de
+    // echte timer en de echte weg naar Save in de simulator laat zien; in de app 30 minuten.
+    static function grens() as Number {
+        return EbbBouw.DEMO ? 4000 : Ebb.MAX_STIL_MS;
     }
 
     function onHide() as Void {
@@ -46,7 +52,7 @@ class PauzeView extends WatchUi.View {
         _wacht = null;
         var m = naTijd;
         if (m != null) {
-            System.println("PAUZE 30 min, vanzelf opgeslagen");
+            System.println("PAUZE 30 min, vanzelf opgeslagen (grens " + grens() + " ms)");
             m.invoke();
         }
     }
