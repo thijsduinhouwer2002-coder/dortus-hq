@@ -220,7 +220,7 @@ def M(D_, a, b): return a if D_ < 300 else b
 def adem(D_, w, inn, week):
     s = D_ / 260; c = D_ // 2; top = 92 if inn else 186
     im, dr = basis(D_, top, w, week, inn); nm = f'adem-{"in" if inn else "uit"}-{w["dier"]}-{D_}'
-    m = M(D_, 21, 37)
+    m = M(D_, 27, 47)
     if w['dier'] == 'Turtle' and inn: pos = thuis(dr, w, D_, m, week, inn, (204, top + 4))     # kop boven water: lucht happen
     elif w['dier'] == 'Clownfish' and inn: pos = thuis(dr, w, D_, m, week, inn, (200, 150))    # zwemt uit
     else: pos = thuis(dr, w, D_, m, week, inn, (w['thuis'][0], w['thuis'][1] - (6 if inn else 0)))  # drijft iets op bij inademen
@@ -229,19 +229,19 @@ def adem(D_, w, inn, week):
     yc = 104 if inn else 92
     zet(dr, D_, nm, c, yc * s, '12', f(FS, round(70 * s)), WIT)
     noteer(f'adem-{"in" if inn else "uit"}', kam=top, kam_beweegt='lineair tussen 92 (in) en 186 (uit) over de adem',
-           dier=dict(x=pos[0], y=pos[1], maat_260=21, maat_454=37, waar='Turtle: (204, kam+4) bij in; Clownfish: (200,150) bij in; anders thuis, bij in 6 hoger'),
+           dier=dict(x=pos[0], y=pos[1], maat_260=27, maat_454=47, waar='Turtle: (204, kam+4) bij in; Clownfish: (200,150) bij in; anders thuis, bij in 6 hoger'),
            regels=[dict(tekst='breathe in / breathe out', y=34, maat=25), dict(tekst='round 2 · 18 left', y=62, maat=16),
                    dict(tekst='tel', y=yc, maat=70)], planten='p2' if inn else 'p')
     return rond(im), nm
 
 def hold(D_, w, week):
     s = D_ / 260; c = D_ // 2; im, dr = basis(D_, 30, w, week); nm = f'hold-{w["dier"]}-{D_}'
-    pos = thuis(dr, w, D_, M(D_, 20, 35), week)
+    pos = thuis(dr, w, D_, M(D_, 27, 47), week)
     zet(dr, D_, nm, c, 36 * s, 'hold', f(FS, round(26 * s)), SCHUIM)
     zet(dr, D_, nm, c, 64 * s, 'press START to breathe', f(FM, round(16 * s)), WIT)
     zet(dr, D_, nm, c, 76 * s, '1:45', f(FS, round(80 * s)), WIT)
     zet(dr, D_, nm, c, 162 * s, '61 bpm · round 2', f(FM, round(16 * s)), WIT)
-    noteer('hold', kam=30, dier=dict(x=pos[0], y=pos[1], maat_260=20, maat_454=35, waar='thuis'),
+    noteer('hold', kam=30, dier=dict(x=pos[0], y=pos[1], maat_260=27, maat_454=47, waar='thuis'),
            regels=[dict(tekst='hold', y=36, maat=26), dict(tekst='press START to breathe', y=64, maat=16),
                    dict(tekst='timer', y=76, maat=80), dict(tekst='bpm · round', y=162, maat=16)], planten='p')
     return rond(im), nm
@@ -263,13 +263,13 @@ def eind(D_, w, week):
 
 def menu(D_, w, week):
     s = D_ / 260; c = D_ // 2; im, dr = basis(D_, 176, w, week); nm = f'menu-{w["dier"]}-{D_}'
-    pos = thuis(dr, w, D_, M(D_, 20, 35), week)
+    pos = thuis(dr, w, D_, M(D_, 27, 47), week)
     zet(dr, D_, nm, c, 26 * s, 'Ebb', f(FS, round(28 * s)), SCHUIM)
     for y, t in ((62, 'Rounds'), (104, 'Calm 4-7-8')):
         dr.rounded_rectangle([c - 75 * s, y * s, c + 75 * s, (y + 34) * s], radius=17 * s, outline=LICHT, width=max(2, round(2 * s)), fill=NACHT)
         zet(dr, D_, nm, c, (y + 5) * s, t, f(FS, round(22 * s)), WIT)
     zet(dr, D_, nm, c, 146 * s, 'Sea log  ·  Settings  ·  Today', f(FM, round(16 * s)), LICHT)
-    noteer('menu', kam=176, dier=dict(x=pos[0], y=pos[1], maat_260=20, maat_454=35, waar='thuis'),
+    noteer('menu', kam=176, dier=dict(x=pos[0], y=pos[1], maat_260=27, maat_454=47, waar='thuis'),
            regels=[dict(tekst='Ebb', y=26, maat=28), dict(tekst='pil Rounds', y=62, hoog=34), dict(tekst='pil Calm', y=104, hoog=34),
                    dict(tekst='menuregel', y=146, maat=16)], planten='p')
     return rond(im), nm

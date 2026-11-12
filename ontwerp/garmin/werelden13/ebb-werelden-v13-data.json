@@ -237,8 +237,8 @@
    "dier": {
     "x": 204,
     "y": 96,
-    "maat_260": 21,
-    "maat_454": 37,
+    "maat_260": 27,
+    "maat_454": 47,
     "waar": "Turtle: (204, kam+4) bij in; Clownfish: (200,150) bij in; anders thuis, bij in 6 hoger"
    },
    "regels": [
@@ -266,8 +266,8 @@
    "dier": {
     "x": 92,
     "y": 214,
-    "maat_260": 21,
-    "maat_454": 37,
+    "maat_260": 27,
+    "maat_454": 47,
     "waar": "Turtle: (204, kam+4) bij in; Clownfish: (200,150) bij in; anders thuis, bij in 6 hoger"
    },
    "regels": [
@@ -294,8 +294,8 @@
    "dier": {
     "x": 92,
     "y": 214,
-    "maat_260": 20,
-    "maat_454": 35,
+    "maat_260": 27,
+    "maat_454": 47,
     "waar": "thuis"
    },
    "regels": [
@@ -366,8 +366,8 @@
    "dier": {
     "x": 92,
     "y": 214,
-    "maat_260": 20,
-    "maat_454": 35,
+    "maat_260": 27,
+    "maat_454": 47,
     "waar": "thuis"
    },
    "regels": [
