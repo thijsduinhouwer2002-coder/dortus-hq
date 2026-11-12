@@ -42,12 +42,13 @@ module KrabV2Basis {
         return m > max ? max : (m < 8 ? 8 : m);
     }
 
+    // Run 63 (beelden 43206390614): de held was te klein (vak 76 x 36); nu 84 x 50 boven water en 100 x 50 eronder.
     // Boven water (in, uit, Calm): midden onder de cijfers, 0,65 van zijn hoogte boven de kam (bovenkant nooit
     // hoger dan 118). Onder water: inhouden en menu midden onderin, eindscherm links naast het belletje.
     function held(dier as Number, s as Number) as Array<Number> {
         var k = kader(dier);
         if (s <= 2) {
-            var m = maat(dier, 76, 36, 46);
+            var m = maat(dier, 84, 50, 46);
             var h = k[1] * m;
             var top = kam(dier, s) - 0.65 * h;
             return [130, (top + h / 2).toNumber(), m] as Array<Number>;
@@ -56,7 +57,7 @@ module KrabV2Basis {
             var m5 = maat(dier, 60, 40, 36);
             return [76, 134, m5] as Array<Number>;
         }
-        var m3 = maat(dier, 90, 42, 50);
+        var m3 = maat(dier, 100, 50, 56);
         return [130, s == 3 ? 192 : 196, s == 3 ? m3 : m3 * 9 / 10] as Array<Number>;
     }
 
@@ -65,7 +66,7 @@ module KrabV2Basis {
         if (s == 1) {
             return KrabV2Tekst.KAM[1];
         }
-        var h = kader(dier)[1] * maat(dier, 76, 36, 46);
+        var h = kader(dier)[1] * maat(dier, 84, 50, 46);
         var y = (118 + 0.65 * h).toNumber();
         return y < 134 ? 134 : y;
     }
@@ -149,15 +150,15 @@ module KrabV2Basis {
             return;
         }
         var k = kader(dier);
-        var b = k[0] * h[2] * 0.62;
+        var b = k[0] * h[2] * 0.5;
         var y0 = v.kam() + 2;
         for (var ronde = 0; ronde < 2; ronde += 1) {
             var pts = [] as Array<[Numeric, Numeric]>;
             for (var x = h[0] - b; x <= h[0] + b; x += 8) {
                 pts.add([v.q(x), v.q(y0 + 1.8 * Math.sin((x - h[0]) / 7.0) - (ronde == 0 ? 1.6 : 0.0))]);
             }
-            pts.add([v.q(h[0] + b * 0.9), v.q(y0 + 8)]);
-            pts.add([v.q(h[0] - b * 0.9), v.q(y0 + 8)]);
+            pts.add([v.q(h[0] + b * 0.9), v.q(y0 + 6)]);
+            pts.add([v.q(h[0] - b * 0.9), v.q(y0 + 6)]);
             v.kleur(dc, ronde == 0 ? 0xFFFFFF : (am ? (nacht ? 0x004B96 : 0x0055AF) : (nacht ? 0x0000AA : 0x0055AA)));
             dc.fillPolygon(pts);
         }
@@ -208,7 +209,14 @@ class KrabV2WBasis extends KrabV2Wereld {
 
     function lucht() as Array<Number> or Null {
         var f = KrabV2Basis.fam(_dier) * 6;
-        return KrabV2Basis.LUCHT.slice(f, f + 6);
+        var lu = KrabV2Basis.LUCHT.slice(f, f + 6);
+        if (_dier == 5) {
+            // Run 63, beelden 43206390614: het gele zeepaardje viel weg tegen de gele band van zijn familie. Hij
+            // krijgt Mila's eerste band van de familie licht (roze).
+            lu[1] = 0xFFAAFF;
+            lu[4] = 0xFFAAE6;
+        }
+        return lu;
     }
 
     function water() as Number {
