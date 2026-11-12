@@ -37,7 +37,9 @@ GELIJK uitleg-fenix7xpro.png
 GELIJK veilig-1-fenix7xpro.png
 GELIJK veilig-2-fenix7xpro.png
 GELIJK veilig-3-fenix7xpro.png
-VERSCHIL wereld-clownvis-fenix7xpro.png 545 pixels in (106, 312, 378, 438)
-VERSCHIL wereld-krab-fenix7xpro.png 157 pixels in (117, 309, 378, 446)
+ONTBREEKT wereld-0-30-fenix7xpro.png (voor: False, na: True)
+ONTBREEKT wereld-2-30-fenix7xpro.png (voor: False, na: True)
+GELIJK wereld-clownvis-fenix7xpro.png
+GELIJK wereld-krab-fenix7xpro.png
 GELIJK wereld-schildpad-fenix7xpro.png
-42 beelden, 4 met verschil of ontbrekend
+44 beelden, 4 met verschil of ontbrekend
