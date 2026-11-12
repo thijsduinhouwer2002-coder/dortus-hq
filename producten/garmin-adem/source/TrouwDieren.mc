@@ -161,6 +161,16 @@ module EbbTrouw {
         return -1;
     }
 
+    // Hoofdchat 12 nov 14:50: de allereerste sessie van een koper was een zee zonder dier. Nu zwemt het eerste
+    // dier (de vis, nummer 0) vanaf de eerste sessie al mee. Hij is dan nog niet gevonden: de sea log blijft op 0
+    // staan en na de eerste sessie die meetelt wordt hij je eerste vriend, precies zoals eerst. De volgorde en de
+    // drempels van de dieren veranderen dus niet.
+    const STARTDIER = 0;
+    function sessieDier() as Number {
+        var z = zwemmer();
+        return z >= 0 ? z : STARTDIER;
+    }
+
     function wis() as Void {
         Application.Storage.deleteValue(LAATST);
         Application.Storage.deleteValue(GEKOZEN);

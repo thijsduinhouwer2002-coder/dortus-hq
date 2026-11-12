@@ -131,7 +131,7 @@ module EbbScenes {
             } else {
                 view.plaatjeMs = 105000;
             }
-            view.gezelschap = EbbTrouw.zwemmer();
+            view.gezelschap = EbbTrouw.sessieDier();
             return [view, new EbbDelegate(view)];
         }
         if (k >= 53) {

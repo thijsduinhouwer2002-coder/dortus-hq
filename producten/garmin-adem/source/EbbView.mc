@@ -33,7 +33,7 @@ class EbbView extends WatchUi.View {
     var eindVolgend as Number = -1;   // volgende dier (nummer in EbbTrouw.DIEREN), -1 als je alles hebt
     var eindRest as Number = 0;       // wat er nog nodig is voor dat dier (0: ligt klaar voor de volgende sessie)
     private var _klaarSinds as Number = -1;
-    var gezelschap as Number = EbbTrouw.zwemmer();
+    var gezelschap as Number = EbbTrouw.sessieDier();   // zonder dier: het startdier (de vis)
     private var _startTijd as Number = System.getTimer();
     private var _gestart as Boolean = false;
     private var _lapsGesloten as Number = 0;

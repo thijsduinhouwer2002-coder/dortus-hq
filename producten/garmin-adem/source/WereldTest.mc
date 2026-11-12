@@ -1,3 +1,4 @@
+import Toybox.Application;
 import Toybox.Lang;
 import Toybox.Test;
 
@@ -160,4 +161,29 @@ function testWereldOokZonderDier(logger as Test.Logger) as Boolean {
     }
     logger.debug("zonder dier: zwemmer " + geen + ", dieren " + EbbTrouw.DIEREN.size() + ", goed " + goed);
     return goed && !EbbWereldSessie.kan(geen, Ebb.FASE_HERSTEL as Number);
+}
+
+// Hoofdchat 12 nov 14:50: bij een lege opslag zwemt het startdier (de vis) in de eerste sessie al mee, in zijn
+// wereld, zonder dat hij al gevonden is; na de eerste sessie wordt hij gewoon het eerste dier (volgorde gelijk).
+(:test)
+function testStartdierInEersteSessie(logger as Test.Logger) as Boolean {
+    EbbTrouw.wis();
+    var geen = EbbTrouw.zwemmer();
+    var start = EbbTrouw.sessieDier();
+    var nogNiet = !EbbTrouw.heeft(start) && EbbTrouw.aantal() == 0;
+    var wereld = EbbWereldSessie.kan(start, Ebb.FASE_ADEMEN as Number) && EbbWereldSessie.kan(start, Ebb.FASE_INHOUDEN as Number)
+        && EbbWereldSessie.wereldVan(start) >= 0;
+    var view = new EbbView();
+    var inView = view.gezelschap == start;
+    var nieuw = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(95));
+    var eerste = nieuw.size() == 1 && nieuw[0] == EbbTrouw.STARTDIER && EbbTrouw.heeft(EbbTrouw.STARTDIER) && EbbTrouw.aantal() == 1;
+    var daarna = EbbTrouw.sessieDier() == EbbTrouw.zwemmer() && EbbTrouw.zwemmer() == EbbTrouw.STARTDIER;
+    var tweede = EbbTrouw.nieuweDieren(EbbTrouw.naSessie(96));
+    var volgorde = tweede.size() == 1 && tweede[0] == 1;
+    Application.Storage.setValue(EbbTrouw.GEKOZEN, 1);
+    var keuze = EbbTrouw.sessieDier() == 1;
+    EbbTrouw.wis();
+    logger.debug("STARTDIER zwemmer " + geen + " sessieDier " + start + " nogNiet " + nogNiet + " wereld " + wereld + " inView " + inView
+        + " eerste " + eerste + " daarna " + daarna + " volgorde " + volgorde + " keuze " + keuze);
+    return geen == -1 && start == 0 && nogNiet && wereld && inView && eerste && daarna && volgorde && keuze;
 }
