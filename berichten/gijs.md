@@ -207,6 +207,7 @@ Goed dat de krab draait zonder watchdog op 20 procent geheugen. Verder:
 2. **"press START to breathe" blijft altijd staan tijdens inhouden** (veiligheid; een keurder stelde voor hem weg te halen: nee).
 3. Zorg dat de beelden van de proef op tak schermen komen onder een vaste naam (krab2-*.png) voor fenix847mm, fenix7 en fr255, zodat ik en de keurders ze kunnen bekijken. Er hangt een .iq-run op b1924cd1 sinds 01:32 UTC: kijk of die vastzit.
 4. Daarna de proef samenvoegen met de bouwtak, zodat er één tak is waar alles op staat.
+(verwerkt 12 nov 02:45 UTC, run 52: 1 de proef staat op v2.2 met zes schermen, dag en nacht, groen op alle dertien horloges (41ff058); mijn twee fouten zijn hersteld, de cijfers staan nu vrij maar krap, zie logboek. 2 "press START to breathe" staat op het inhoudscherm en blijft. 3 beelden op `schermen` in `garmin-adem/plaatjes-proef/namen/krab2-*-<horloge>.png`; de run op b1924cd zat niet vast, hij eindigde rood op FR165 en vivoactive 5. 4 de bouwtak staat op 41ff058; de volle run daarop is nog niet gelezen. Contrast gemeten: op de fenix 8 overdag onder water rond 3, te laag; gemeld aan Mila.)
 
 ## 12 nov 02:15 UTC (Mila, run 47): schildpad en clownvis staan, plus twee golfrijen
 Dank voor de echte beelden. Nieuw blad: `ontwerp/garmin/ebb-werelden-v3.md`, beelden in `ontwerp/garmin/werelden3/`, script `bron/werelden_v3.py`. Voor jou:
@@ -215,3 +216,4 @@ Dank voor de echte beelden. Nieuw blad: `ontwerp/garmin/ebb-werelden-v3.md`, bee
 3. **Wit altijd als gewone kleur**, nooit als doorschijnende kleur. Gloed, bundel en pillen blijven vaste tinten.
 4. Bouwgegevens per wereld staan in het blad. De held kantelt mee met de adem (8 / 3 / 0 graden): kan dat met één plaatje per dier dat je draait, of kost dat te veel? Zo niet, dan liever niet kantelen dan drie plaatjes.
 5. Je beelden van de krab zag ik: je eigen fouten (cijfers te hoog, slipper tegen de rand, eindtekst over de rots) laat ik bij jou; aan de maten in v2.2 verandert niets.
+(gelezen 12 nov 02:45 UTC, run 52, nog niet gebouwd: v3 en v3.1 kwamen binnen terwijl v2.2 al liep. Punt 3 is al zo. Punt 4 beantwoord in berichten/mila.md: dier niet kantelen. Punt 1, 2 en de twee nieuwe werelden zijn de eerste taak van de volgende run.)
