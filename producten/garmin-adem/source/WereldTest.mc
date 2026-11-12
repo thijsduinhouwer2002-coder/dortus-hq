@@ -1,4 +1,5 @@
 import Toybox.Application;
+import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Test;
 
@@ -214,4 +215,37 @@ function testGrenzenOnthoudenGelijk(logger as Test.Logger) as Boolean {
     }
     logger.debug("GRENZEN dieren " + EbbDierData.DATA.size() + " goed " + goed);
     return goed && EbbDierData.DATA.size() >= EbbTrouw.DIEREN.size();
+}
+
+// Run 72 (hoofdchat 12 nov 20:15 punt 1): Calm tekent de zee boven water van de wereld, met dier (krab, vis in de
+// basiswereld) en zonder dier, bij dag en nacht, en zegt nee als de werelden uit staan (dan volgt het oude scherm).
+(:test)
+function testCalmInDeWereld(logger as Test.Logger) as Boolean {
+    var bmp = Graphics.createBufferedBitmap({:width => 260, :height => 260}).get() as Graphics.BufferedBitmap;
+    var dc = bmp.getDc();
+    var tekst = ["in", "4", "Calm 4-7-8", "Calm 4-7-8"] as Array<String>;
+    var oudAan = EbbWereldSessie.aan;
+    var oudNacht = EbbWereldSessie.proefNacht;
+    var goed = true;
+    var wie = [4, 0, -1] as Array<Number>;
+    for (var n = 0; n < 2; n += 1) {
+        EbbWereldSessie.proefNacht = n;
+        for (var i = 0; i < wie.size(); i += 1) {
+            EbbWereldSessie.aan = true;
+            for (var beurt = 0; beurt < 8; beurt += 1) {
+                if (!EbbWereldSessie.tekenCalm(dc, wie[i], tekst)) {
+                    logger.debug("calm tekent niet: dier " + wie[i] + " nacht " + n + " beurt " + beurt);
+                    goed = false;
+                }
+            }
+        }
+    }
+    EbbWereldSessie.aan = false;
+    var uit = EbbWereldSessie.tekenCalm(dc, 4, tekst);
+    var geen = EbbWereldSessie.wereldVan(99) < 0;
+    EbbWereldSessie.aan = oudAan;
+    EbbWereldSessie.proefNacht = oudNacht;
+    EbbWereldSessie.los();
+    logger.debug("calm in de wereld: met en zonder dier " + goed + ", werelden uit " + uit);
+    return goed && !uit && geen;
 }

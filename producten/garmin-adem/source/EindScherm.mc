@@ -133,12 +133,6 @@ module EbbEindScherm {
         }
     }
 
-    // De zee tekent haar kam iets onder de opgegeven top. Beeld run 43104956914 (FR255): met 0,026 D lag de kam
-    // gemiddeld 3 px boven de 94 van het blad en maar 7 px onder de tijden; daarom 0,014 D.
-    function zeeTopBij(d as Number, kam as Number) as Float {
-        return (kam - d * 0.014) / d.toFloat();
-    }
-
     function vakTop(d as Number, kam as Number) as Number {
         return kam + EbbTeken.px(d, 4);
     }
