@@ -115,6 +115,22 @@ def schelp(d, x, y, k=1.0):
         d.dr.line([d.P(x, y + 2 * k), d.P(x + 6.5 * k * math.cos(a), y + 5 * k * math.sin(a))], fill=WIT, width=max(1, round(.9 * d.s)))
 
 
+def ijsje(d, x, y, k=1.0):
+    """Ijshoorntje op de punt van de tand: bruin hoorntje (punt op de tand) met een roze bol en een witte rand."""
+    d.blob([(x, y + 1 * k), (x - 5 * k, y - 11 * k), (x + 5 * k, y - 11 * k)], (170, 85, 0), WIT, 1.3)
+    for t in (.35, .7):
+        d.dr.line([d.P(x - 5 * k * t, y - 11 * k * t), d.P(x + 5 * k * t, y - 11 * k * t)], fill=(85, 0, 0), width=max(1, round(.9 * d.s)))
+    d.rondje(x, y - 15 * k, 6.4 * k, 5.6 * k, (255, 170, 255), WIT, dikte=1.4)
+    d.rondje(x - 2.2 * k, y - 17 * k, 1.6 * k, 1.3 * k, WIT)
+
+
+def bootje(d, x, y, k=1.0):
+    """Papieren bootje van 13 px: wit, dunne donkere rand, romp met een punt in het midden."""
+    pts = [(x - 6.5 * k, y - 2 * k), (x - 2.4 * k, y - 2 * k), (x, y - 8 * k), (x + 2.4 * k, y - 2 * k), (x + 6.5 * k, y - 2 * k), (x + 4 * k, y + 2.5 * k), (x - 4 * k, y + 2.5 * k)]
+    d.blob(pts, WIT, NAVY, 1.1)
+    d.dr.line([d.P(x - 4.6 * k, y - .4 * k), d.P(x + 4.6 * k, y - .4 * k)], fill=(170, 170, 255), width=max(1, round(.8 * d.s)))
+
+
 def boei(d, x, y, k=1.0):
     """Piepkleine boei: rood-wit, een stokje met een lampje."""
     d.dr.line([d.P(x, y - 4 * k), d.P(x, y - 11 * k)], fill=WIT, width=max(1, round(1.4 * k * d.s)))
@@ -126,9 +142,9 @@ def boei(d, x, y, k=1.0):
 def plantje(d, x, y, k=1.0):
     """Een klein plantje: steeltje met vier ronde blaadjes."""
     d.dr.line([d.P(x, y), d.P(x, y - 20 * k)], fill=WIT, width=round(3.6 * k * d.s))
-    d.dr.line([d.P(x, y), d.P(x, y - 20 * k)], fill=(0, 170, 85), width=max(1, round(1.8 * k * d.s)))
+    d.dr.line([d.P(x, y), d.P(x, y - 20 * k)], fill=(0, 255, 0), width=max(1, round(1.8 * k * d.s)))
     for dx, dy, s in ((-5, -8, 1), (5, -12, 1), (-4, -17, .9), (3, -21, .8)):
-        d.rondje(x + dx * k, y + dy * k, 4 * k * s, 2.6 * k * s, GROEN, WIT, dikte=1.0)
+        d.rondje(x + dx * k, y + dy * k, 4.4 * k * s, 2.8 * k * s, (85, 255, 0), WIT, dikte=1.0)
 
 
 # ---------------- boven water ----------------
@@ -153,7 +169,7 @@ def adem(D_, am, dd, nacht, dier_naam, top=134, woord='breathe in', getal='12', 
         wx = 222; wk = WIT if not nacht else (85, 85, 170); wr = (170, 255, 255) if not nacht else (0, 0, 170)
         for cx, cy, rx, ry in [(wx - 8, 70, 14, 8), (wx + 4, 64, 12, 10), (wx + 14, 72, 11, 7)]: d.rondje(cx, cy, rx, ry, wr)
         for cx, cy, rx, ry in [(wx - 8, 69, 12, 6.5), (wx + 4, 63, 10, 8.5), (wx + 14, 71, 9, 5.5)]: d.rondje(cx, cy, rx, ry, wk)
-    hx = 128 if top > 160 else (176 if dier_naam == 'whale' else 170); dy = 0 if top < 140 else -4
+    hx = 128 if top > 160 else (176 if dier_naam == 'whale' else (184 if dier_naam == 'narwhal' and top < 140 else 170)); dy = 0 if top < 140 else -4
     if dier_naam == 'squid':
         # hij steekt achter de zee omhoog: eerst de inktvis, dan de zee eroverheen (de onderkant verdwijnt)
         m = 40; hy = top + dy - 4
@@ -161,7 +177,7 @@ def adem(D_, am, dd, nacht, dier_naam, top=134, woord='breathe in', getal='12', 
         v3.zee(d, nacht, top)
         v3.volgende_vriend(d, nacht, top)
         if HELD_AAN[0]:
-            boei(d, hx, top - 2, 1.4)          # ronde 2: 14 px breed, recht voor zijn gezicht; hij is veel te groot om erachter te passen
+            bootje(d, hx - 2, top - 1, 1.0)    # ronde 3: piepklein papieren bootje (13 px) vlak voor hem: hij verstopt zich erachter
     else:
         v3.zee(d, nacht, top)
         if dier_naam == 'narwhal':
@@ -188,12 +204,12 @@ def adem(D_, am, dd, nacht, dier_naam, top=134, woord='breathe in', getal='12', 
                 for nx, ny, k, dub in ((hx + 34, top - 16, 1.05, False), (hx + 50, top - 34, 1.1, True), (hx + 64, top - 18, .95, False)):
                     noot(d, nx, ny - hoog, k, GEEL_V, dub)
         elif dier_naam == 'narwhal':
-            m = 38; hy = top + dy - 2
+            m = 38; hy = top + dy - 2 + (3 if top < 140 else 0)      # bij inademen iets lager: het ijsje blijft vrij van het cijfer
             dier(d, hx, hy, m, NARWAL, hoek)
             golfje(d, hx, m, top + dy + 13, nacht)
             if HELD_AAN[0]:
                 tand(d, hx, hy, m, hoek)
-                p = R(hx, hy, m, hoek, -1.08, -.21); sjaal(d, *p, *p, 1.5)
+                ijsje(d, *R(hx, hy, m, hoek, -1.6, -.24), 1.0)
     v3.tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -257,7 +273,7 @@ def plek_narwhal(d, dd, nacht, zak=0, ijs=True):
 
 def plek_squid(d, dd, nacht, zak=0):
     """Schemerig water met lichtpuntjes (niet zwart): donkere ronde rotsen met lichte rand, gloeipuntjes bij de bodem."""
-    if d.am: d.tint(lambda ld: ld.rectangle([0, 146 * d.s, d.N, d.N], fill=255), (20, 0, 60), .35)
+    if d.am: d.tint(lambda ld: ld.rectangle([0, 146 * d.s, d.N, d.N], fill=255), (20, 0, 60), .2)
     verre_ruggen(d, dd, [(30, 200, 60, 26), (232, 196, 56, 30)], zak)
     d.rondje(130, 258 + zak, 70, 18, (85, 0, 170), PAARS)
     d.rondje(36, 228 + zak, 20, 12, (85, 0, 170), PAARS, glans=PAARS)
@@ -287,10 +303,11 @@ def held_onder(d, nacht, dn, hx, hy, m, scherm):
     elif dn == 'narwhal':
         v3.dier_kantel(d, hx, hy, m, NARWAL, 0)
         tand(d, hx, hy, m, 0)
-        p = R(hx, hy, m, 0, -1.08, -.21); sjaal(d, *p, *p, (1.8 if scherm != 'eind' else 1.2) * m / 42)
+        ijsje(d, *R(hx, hy, m, 0, -1.6, -.24), (1.3 if scherm != 'eind' else .85))
     elif dn == 'squid':
+        if d.am: d.gloed_ellips(hx, hy + m * .15, m * .85, m * .9, (170, 120, 255), .35, groei=.2)   # licht achter hem: hij komt los van het schemerwater
         v3.dier_kantel(d, hx, hy, m, INKT, 0)
-        plantje(d, hx - 2, hy + m * 1.12, 1.1 if scherm != 'eind' else .8)   # een klein plantje voor zijn grote lijf
+        plantje(d, hx - 2, hy + m * 1.12, 1.3 if scherm != 'eind' else .9)   # een klein plantje voor zijn grote lijf
 
 
 def hold(D_, am, dd, nacht, dn):

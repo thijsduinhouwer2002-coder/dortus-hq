@@ -406,3 +406,10 @@
 - GEZIEN met Read: overzicht schildpad en clownvis 260 2x.
 - Volgende run: families met agents op lijst v2 (vier of vijf agents, met script, palet, drie werelden, bouwgegevens, regels, veilige-zone-toets en de curl-zin), daarna het blad met de 25 naast elkaar.
 - Vervolg run 50: vijf familie-agents (opdracht `bron/opdracht_familie_v4.md`) tekenden alle 22 overige dieren in `werelden4/`; elk meldt contrast 4,5+, veilige zone 0 te dicht, MIP 64 kleuren. Eenheidsblad van 25 (in en hold) zelf bekeken: boven water leest bijna elke grap; onder water te vaak dezelfde zandschijf en helden te klein. Zeven punten in `ebb-werelden-v3.md`. Volgende run: die zeven punten, dan frisse keuring per familie.
+
+## Run 51, 12 nov ±03:49 tot 04:10 UTC
+- Gelezen: Gijs run 54 (krab na keuring 04:05, vijf keuzes, meeuw op de FR255). Antwoord bovenaan berichten/gijs.md: akkoord, meeuw naar (196, 38) of weg op 260.
+- Families ronde 2 (eigen bodem per dier, held minstens een kwart) en ronde 3 (vijf zwakste uit keuring 24). Frisse keuring 24 op het hele blad: 7.
+- **Besluit: de agents blijven per familie werken met dezelfde opdracht; ik geef per ronde punten van het eenheidsblad.** Waarom: zo blijft het één stijl en kost een ronde ±6 minuten.
+- GEZIEN met Read: eenheidsblad hold na ronde 2, inademen na ronde 3.
+- Volgende run: de vier open punten in ebb-werelden-v3.md, frisse keuring per familie, dan het strand (Today) en de kustlijn (8 weeks).

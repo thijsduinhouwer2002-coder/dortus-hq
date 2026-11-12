@@ -185,7 +185,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         gieter(d, hx - 70 if not hoog else hx + 62, top + 4, 1.05)
         bloempot(d, 60 if not hoog else 212, top + 2, 1.05) if not hoog else bloempot(d, hx - 64, top + 2, 1.0)
         v3.dier_kantel(d, hx, hy, 38, LOBSTER, hoek)
-        strohoed(d, hx + 2, hy - 30, 1.15)
+        strohoed(d, hx + 2, hy - 25, 1.15)
     elif dier == 'seal':
         hx = 140 if hoog else 176; hy = top - (16 if hoog else 11)
         ijsschots(d, hx + 6, top + 2, 52, 9)
@@ -198,9 +198,9 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         # ronde 2: 70 tot 90 graden gedraaid geprobeerd (-80, 100, 180): dan staat hij rechtop of op zijn kop.
         # De sticker ligt zelf al op zijn rug met iets op zijn buik; plat laten en de schelp op die buik leggen.
         v3.dier_kantel(d, hx, hy, 36, OTTER, hoek * .6)
-        schelp(d, hx + 4, hy - 8, 1.35)
-        steentje(d, hx + 20, hy - 2, 1.2)
-        lint_vast(d, hx + 40, top + 4, hx + 82, top + 6, buig=3, b=4.5)
+        # ronde 3: een grote schelp op zijn buik en een steen erboven (twee vormen, samen ongeveer de helft van zijn breedte)
+        schelp(d, hx + 6, hy - 4, 2.0)
+        steentje(d, hx + 6, hy - 26, 1.6)
     v3.tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -226,8 +226,6 @@ def plek(d, dd, dier, hx, hy, m, held=True, zak=0, nacht=False, stand='hold'):
         for px in (36, 224):
             staaf(d, (px, 132 + zak), (px, 236 + zak), 12, HOUT, HOUT_L, 1.8)
             for yy in (176, 204): d.rondje(px, yy + zak, 6, 2, (85, 170, 85))      # aangroei op de paal
-        if stand != 'eind':
-            d.dr.arc([d.P(36, 120 + zak), d.P(224, 190 + zak)], 20, 160, fill=HOUT_L, width=max(1, round(2 * d.s)))   # hangend touw tussen de palen
         if held:
             surfplank(d, hx + m * 1.25, hy + 4, m * .8, staand=True)
             d.dier(hx, hy, m, SHRIMP)

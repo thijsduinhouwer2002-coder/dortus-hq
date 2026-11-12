@@ -6,8 +6,8 @@
 #  - manta: open water met een zandbank ver weg / reclamevliegtuigje met een spandoekje met een hartje;
 #    onder water ligt het spandoekje opgerold op de zandbank
 #  - dolphin: open water met lichtvlekken / duikbril met snorkel die uit de golf steekt; onder water staat de bril op zijn voorhoofd
-#  - swordfish: open blauw met lichtstreepjes / met de punt van zijn zwaard tekent hij een witte krullijn langs de golf;
-#    onder water staat er een hartje in het zand getekend, zijn zwaardpunt aan het eind van de lijn
+#  - swordfish (ronde 3): open blauw met lichtstreepjes / zijn zwaard steekt door een grote roze donut met spikkels (boven, onder, eind);
+#    (eerdere krullijn en zandhartje lazen niet, keuring blad 7)
 # Coordinaten in 1/260 D.   python3 werelden_v4_vliegers.py <uitmap> [ray manta dolphin swordfish]
 import sys, os, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -79,19 +79,31 @@ def ufo_lichtjes(d, cx, cy, m, hoek, aan=True):
     kl = [(255, 255, 0), (85, 255, 255), (255, 85, 170), (85, 255, 85), (255, 255, 0)]
     for (dx, dy), c in zip([(-.92, .12), (-.50, .40), (0, .55), (.50, .40), (.92, .12)], kl):
         x, y = r(dx, dy)
-        d.rondje(x, y, 3.6, 3.6, c if aan else (85, 85, 170), DONKER, dikte=1.2)
+        d.rondje(x, y, 4, 4, c if aan else (85, 85, 170), DONKER, dikte=1.2)
 
 
 def ufo_bundel(d, cx, cy, m, yg, nacht):
-    """Bundel licht van onder de rog naar de golf, met een lichte vlek op het water. MIP: een vaste lichte kleur."""
-    y0 = cy + .45 * m
-    vlak = [(cx - 10, y0), (cx + 10, y0), (cx + 26, yg), (cx - 26, yg)]
-    if d.am:
-        d.tint(lambda ld: ld.polygon([d.P(*p) for p in vlak], fill=255), (255, 255, 170), .55)
-        d.gloed_ellips(cx, yg, 30, 6, (255, 255, 170), .7)
-    else:
-        d.blob(vlak, (255, 255, 170) if not nacht else (170, 170, 255))
-        d.rondje(cx, yg, 30, 5, (255, 255, 170), WIT, dikte=1.2)
+    """Ronde 3: bundel licht als duidelijke trapezium in drie vaste tinten, van zijn buik tot de golf, zonder vlek."""
+    y0 = cy + .40 * m
+    tinten = [(85, 170, 255), (170, 255, 255), (255, 255, 170)] if not nacht else [(85, 85, 170), (170, 170, 255), (255, 255, 170)]
+    for (bo, on), c in zip([(14, 34), (10, 24), (5, 13)], tinten):
+        d.blob([(cx - bo, y0), (cx + bo, y0), (cx + on, yg), (cx - on, yg)], c)
+
+
+def donut(d, cx, cy, R=12):
+    """Ronde 3 (swordfish): grote roze donut met spikkels; tekenen NA de vis, zodat het zwaard door het gat steekt."""
+    ring = R * .62
+    def ovaal(r_, c, dik):
+        d.dr.ellipse([(cx - r_) * d.s, (cy - r_) * d.s, (cx + r_) * d.s, (cy + r_) * d.s], outline=c, width=max(1, round(dik * d.s)))
+    ovaal(R + 1.4, WIT, ring + 2.8)
+    ovaal(R, (170, 85, 0), ring)
+    ovaal(R - .8, (255, 85, 170), ring * .78)
+    kl = [(255, 255, 0), (85, 255, 255), WIT, (85, 255, 85), (255, 255, 0), WIT, (85, 255, 255), (85, 255, 85)]
+    rm = R - ring / 2 - .4
+    for i, c in enumerate(kl):
+        t = i / len(kl) * 2 * math.pi + .3
+        x, y = cx + rm * math.cos(t), cy + rm * math.sin(t)
+        d.dr.line([d.P(x - 1.2 * math.sin(t + 1), y - 1.2 * math.cos(t + 1)), d.P(x + 1.2 * math.sin(t + 1), y + 1.2 * math.cos(t + 1))], fill=c, width=max(1, round(1.4 * d.s)))
 
 
 def spandoek(d, x0, y0, b=62, hg=20, opgerold=False):
@@ -118,7 +130,7 @@ def duikbril(d, cx, cy, m, hoek, wie, op_voorhoofd=False, snorkel=True, snorkel_
     mk = merk(wie); ex, ey = mk['oog']
     if op_voorhoofd: ey -= .30; ex += .06
     r = rot(cx, cy, m, hoek)
-    ox, oy = r(ex, ey); rx, ry = .24 * m, .18 * m
+    ox, oy = r(ex, ey); rx, ry = .31 * m, .23 * m
     a = math.radians(hoek)
     # bandje naar achter over de kop
     b0, b1 = r(ex + .20, ey - .03), r(ex + .62, ey - .12)
@@ -133,8 +145,8 @@ def duikbril(d, cx, cy, m, hoek, wie, op_voorhoofd=False, snorkel=True, snorkel_
         sx, sy = r(ex + .46, ey - .11)
         L = .95 * m * snorkel_l
         pts = [(sx, sy), (sx, sy - L)]
-        lijn(d, pts, DONKER, 6.0); lijn(d, pts, GEEL, 4.0)
-        d.rondje(sx, sy - L - 1, 3.6, 2.6, GEEL_D, DONKER, dikte=1.1)
+        lijn(d, pts, DONKER, 7.6); lijn(d, pts, GEEL, 5.2)
+        d.rondje(sx, sy - L - 2, 5.2, 3.6, (255, 85, 0), DONKER, dikte=1.3)
         return (sx, sy - L)
 
 
@@ -247,11 +259,11 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
             v3.dier_kantel(d, hx, hy, m, wie, 4); duikbril(d, hx, hy, m, 4, wie, op_voorhoofd=True, snorkel=False)
     else:
         mk = merk(wie)
-        hoek = -10       # neus omlaag: de punt van zijn zwaard staat in het zand
+        hoek = 0
         r = rot(hx, hy, m, hoek); tx, ty = r(*mk['neus'])
-        zand_hart(d, tx - 26, ty, 24)
         if HELD_AAN:
             v3.dier_kantel(d, hx, hy, m, wie, hoek)
+            dx_, dy_ = r(-.86, -.02); donut(d, dx_, dy_, 18)
         return (tx, ty)
 
 
@@ -298,8 +310,8 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         hy = top + dy - 4
         mk = merk(wie); r = rot(hx, hy, m, hoek); tx, ty = r(*mk['neus'])
         if HELD_AAN:
-            krullijn(d, tx, ty, 34 if top < 160 else 30, top - 12, nacht)
             v3.dier_kantel(d, hx, hy, m, wie, hoek)
+            dx_, dy_ = r(-.86, -.02); donut(d, dx_, dy_, 17)
         zk = ((0, 85, 175) if not nacht else (0, 75, 150)) if am else ((0, 85, 170) if not nacht else (0, 0, 170))
         y0 = top + dy + 10
         pts = [(x, y0 + 1.8 * math.sin((x - hx) / 7)) for x in range(int(hx - m * .7), int(hx + m * 1.2) + 1, 2)]
@@ -379,8 +391,8 @@ def eind(D_, am, dd, nacht, dier):
         elif dier == 'dolphin':
             v3.dier_kantel(d, 76, 116, 32, wie, 6); duikbril(d, 76, 116, 32, 6, wie, op_voorhoofd=True, snorkel=False)
         else:
-            zand_hart(d, 98, 230, 12)
             v3.dier_kantel(d, 82, 118, 30, wie, 4)
+            r = rot(82, 118, 30, 4); dx_, dy_ = r(-.86, -.02); donut(d, dx_, dy_, 12)
     d.tekst(130, 150, 'new friend', 18, WIT, False)
     naam = VRIEND[dier]
     d.tekst(130, 166, naam, 32 if len(naam) < 9 else 29, GEEL)
