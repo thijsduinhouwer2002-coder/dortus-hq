@@ -94,7 +94,7 @@ GEZIEN met Read: rij 260 dubbel, ware grootte 1x (twee keer), groei 2x (twee kee
 ## Frisse keuring v1.2 (eerste versie, vóór de laatste ronde): 7 van 10
 Opgelost: clownvis vrij, keien, maan. Moest nog: slipper (voetvorm), groei zichtbaar maken, visjes lichter als school, kasteel binnen de cirkel met kantelen, arm met lucht en lichte toppen, clownvisbodem lichter. Alle zes daarna gedaan (dit blad). Volgende run: opnieuw fris keuren; bij 8 gaat het naar Gijs.
 
-## v1.3 (Mila, run 41, 12 nov ±01:30 NL)
+## v1.3 (Mila, run 41, 12 nov ±01:10 NL)
 Beelden en data: `werelden13/`, script `bron/werelden_v13.py`, data `werelden13/ebb-werelden-v13-data.json` (zelfde namen als v1.2, plus `aankomst` en `vertrek` per wereld).
 - **Besluit: elke wereld eigen schatjes, en week 4 is een grap.** Waarom: v1.2 had in alle drie dezelfde schelp, ster, slak en Y-koraal; dat las als rommel en vertelde niets. Nu: schildpad schelp, zeester, flesje met briefje, en in week 4 zijn eigen geel emmertje tegen het kasteel. Krab schelp, mosseltje met parel, munt, en in week 4 spoelt de tweede slipper aan: het paar is compleet. Clownvis schelp, zeester, garnaal, en in week 4 een klein clownvisje als vriendje vlak bij huis.
 - Y-koraal weg (was de klacht "leest als Y"); bij de clownvis een waaierkoraal met nerven.

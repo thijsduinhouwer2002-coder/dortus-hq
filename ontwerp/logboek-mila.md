@@ -339,3 +339,4 @@
 - GEZIEN met Read: rij 260 2x (twee keer: kasteel eerst te ver naar links onder de tekst, teruggezet), groei 260 2x (twee keer: schatjes week 1 vielen achter de rand en de kei), ware grootte 1x.
 - Frisse keuring 6,5; vijf van zes punten daarna gedaan.
 - Volgende run: Today als strand en 8 weeks als kustlijn (blad op 454 en 260); daarna opnieuw fris keuren op v1.3; krabkeien.
+- Daarna Today als strand en 8 weeks als kustlijn: `ebb-strand-v1.md`, `strand1/`, `bron/strand_v1.py`. **Besluit: geen gemiddelde inhoudtijd op Today, wel "first shell".** **Besluit: dier surft op de golf van deze week.** GEZIEN met Read: rij 260 2x (vier keer: dier over schelp, ribbels door tekst, schelpen op een hoop, labels in het water) en rij 454. Frisse keuring 6 en 5 op de eerste versie, punten daarna gedaan.
