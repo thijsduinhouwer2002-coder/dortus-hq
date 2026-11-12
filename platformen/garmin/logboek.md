@@ -965,3 +965,10 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 15:24 UTC: bouwtak vooruitgespoeld naar fc7bcf5 (één push), volle ronde loopt.
 - Les: lees van een volle ronde ook alle plaatjesjobs, niet alleen de toetsrun. En kijk naar het beeld: het log zei niets over het verkeerde dier.
 - Gestopt om 15:30 UTC.
+
+## 12 nov 2026, run 69 (16:55 tot 17:30 UTC)
+- 16:59 UTC: veiligheid 1, 2, 4 en 6 in één commit op proef69 (d5b1bf9f), vier toetsen erbij. 17:09 beide runs groen, 63 toetsen.
+- 17:03 UTC: hulp-agent las het log van de fr255 uit de volle ronde: terugval 5 tot 6 ms per beurt. Grens in de workflow op 60 ms (3bc5a227).
+- 17:11 UTC: tijdelijke kijkproef (56876656) om "5:00 auto" en "Fish stays with you" te zien; 17:19 gezien op drie horloges; 17:20 teruggezet (9b0879b3).
+- Fout van mij: bij het terugzetten liep mijn eerste poging mis (revert zonder commit, daarna een amend over de verkeerde commit). De push werd geweigerd, dus er is niets kapot op GitHub; daarna netjes opnieuw gedaan. Les: na een revert eerst `git log` lezen, dan pas verder.
+- Les: de Engelse winkeltekst zit op 3.996 van de 4.000 tekens. Elke zin erbij betekent ergens anders een zin eraf.
