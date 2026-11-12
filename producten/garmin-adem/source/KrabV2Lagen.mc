@@ -73,7 +73,7 @@ module KrabV2Lagen {
                 v.kleur(dc, l0);
                 dc.fillRectangle(0, 0, dc.getWidth(), v.q(top + 6));
                 if (!nacht) {
-                    v.golf(dc, top - 28, top + 6, l1, 2.5, 2, 0.0);
+                    v.golf(dc, top - 28, top + 6, 0x0055FF, 2.5, 2, 0.0);
                 }
             }
             if (nacht) {
@@ -148,7 +148,6 @@ module KrabV2Lagen {
                 if (nacht) {
                     v.kleur(dc, 0x000055);
                     dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
-                    v.golf(dc, 150, 262, 0x000000, 3.0, 2, 1.0);
                 } else {
                     raster(v, dc, 0x005555, 0x0055AA, v.q(eind ? 152 : 148));
                     v.golf(dc, eind ? 146 : 142, 262, 0x000055, 3.0, 2, 1.0);
@@ -187,7 +186,7 @@ module KrabV2Lagen {
             }
         } else if (stap == 1) {
             var ver = am ? (nacht ? 0x00003C : 0x001E46) : (nacht ? 0x0000AA : 0x000055);
-            var verder = am ? EbbTeken.meng(ver, zeeTop, 0.5) : (nacht ? 0x000055 : 0x0055AA);
+            var verder = am ? EbbTeken.meng(ver, zeeTop, 0.5) : (nacht ? 0x0000AA : 0x0055AA); // nacht MIP: geen zwart (keuring 04:05 punt 3)
             var r1 = [40, 176, 60, 26, 150, 186, 70, 20, 240, 168, 46, 30] as Array<Number>;
             var r2 = [10, 192, 52, 36, 78, 208, 46, 20, 186, 206, 50, 20, 252, 186, 50, 40] as Array<Number>;
             for (var i = 0; i < 3; i += 1) {
@@ -276,7 +275,7 @@ module KrabV2Lagen {
                     v.gloed(dc, 184, 122, 35, 29, licht, 40, zeeTop);
                 }
                 // belletje van de sea log: vlak 0055AA, rand 00FFFF, glimpje
-                v.rondje(dc, 184, 122, 40.2, 35.2, 0x00FFFF, -1, -1);
+                v.rondje(dc, 184, 122, am ? 40.2 : 42.4, am ? 35.2 : 37.4, 0x00FFFF, -1, -1);
                 v.rondje(dc, 184, 122, 40, 35, 0x0055AA, -1, -1);
                 v.rondje(dc, 159, 104.5, 4, 4, 0xFFFFFF, -1, -1);
                 // roze hartje tussen de krab en zijn nieuwe vriend

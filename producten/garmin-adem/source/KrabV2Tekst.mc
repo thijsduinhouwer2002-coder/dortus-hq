@@ -6,8 +6,23 @@ import Toybox.System;
 // letterhoogte van het horloge (de systeemletter op MIP is hoger dan op het blad; in run 43135243219 liepen de
 // cijfers door de kop). "press START to breathe" staat altijd in beeld tijdens inhouden (besluit 12 nov 03:10).
 module KrabV2Tekst {
+    // Kam van de zee bij in, uit en Calm (1/260). Keuring 12 nov 04:05 NL punt 2: bij inademen 6 lager (was 134),
+    // zodat de scharen vrij blijven van de cijfers; de echte oplossing is een kleinere cijferletter (taken.md).
+    const KAM = [140, 170, 146] as Array<Number>;
+    const DONKER = 0x001E3C;
+
+    var _rand as Number = 0;
+
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
+        if (_rand > 0) {
+            // Keuring 12 nov 04:05 NL punt 4: donkere rand om de letters, want de lichtbundel haalt het contrast onder 4,5.
+            dc.setColor(DONKER, Graphics.COLOR_TRANSPARENT);
+            var o = [-1, -1, 0, -1, 1, -1, -1, 0, 1, 0, -1, 1, 0, 1, 1, 1] as Array<Number>;
+            for (var i = 0; i < 8; i += 1) {
+                dc.drawText(d / 2 + o[2 * i] * _rand, y + o[2 * i + 1] * _rand, f, s, Graphics.TEXT_JUSTIFY_CENTER);
+            }
+        }
         dc.setColor(kleur, Graphics.COLOR_TRANSPARENT);
         dc.drawText(d / 2, y, f, s, Graphics.TEXT_JUSTIFY_CENTER);
         return y + dc.getFontHeight(f) * pct / 100;
@@ -17,8 +32,9 @@ module KrabV2Tekst {
         var geel = EbbTeken.LICHT;
         var wit = 0xFFFFFF;
         var y = 0;
+        _rand = (am && !nacht && scherm >= 3) ? (d >= 416 ? 2 : 1) : 0;
         if (scherm <= 2) {
-            var top = ([134, 170, 146] as Array<Number>)[scherm];
+            var top = KAM[scherm];
             // Run 43139810543: de cijferletter vult zijn hele regel, dus geen overlap met de kop; de cijfers eindigen
             // 3 px boven de scharen, de kop staat er direct boven (niet hoger dan 4/260).
             var hk = dc.getFontHeight(EbbTeken.fM()) * 92 / 100;
@@ -34,7 +50,7 @@ module KrabV2Tekst {
             y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
             y = regel(dc, d, y, EbbTeken.grootKlein(), "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
-            System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", scharen vanaf " + v.q(184 - 28));
+            System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", scharen vanaf " + v.q(192 - 28));
         } else if (scherm == 4) {
             regel(dc, d, v.q(14), EbbTeken.fM(), "Ebb", geel, 100);
             var namen = ["Rounds", "Calm 4-7-8"] as Array<String>;
@@ -58,7 +74,7 @@ module KrabV2Tekst {
         } else {
             y = regel(dc, d, v.q(26), EbbTeken.fM(), "3 rounds done", geel, 82);
             regel(dc, d, y, EbbTeken.fS(), "1:20   1:45   1:58", wit, 100);
-            y = regel(dc, d, v.q(160), EbbTeken.fX(), "new friend", wit, 78);
+            y = regel(dc, d, v.q(165), EbbTeken.fX(), "new friend", wit, 78);
             y = regel(dc, d, y, EbbTeken.fM(), "Shrimp", geel, 95);
             var sy = y + v.q(5);
             v.kleur(dc, EbbTeken.SCHUIM);
