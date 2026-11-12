@@ -114,7 +114,16 @@ def nacht_pixel(c, am):
     else:
         r, g, b = (MIP_STAP[min(MIP_STAP, key=lambda k: abs(k - v))] for v in c)
     g = min(g, max(r, b, 80 if am else 85))   # geen fel groen: groen hooguit zo sterk als rood of blauw, of de laagste trede (groene dieren blijven zichtbaar)
-    return (r, g, b)
+    return ontzadig((r, g, b), am)
+
+
+def ontzadig(c, am):
+    """v1.2: bij nacht minder verzadigd. AMOLED: 30 procent naar grijs. MIP blijft zoals v1.1."""
+    r, g, b = c
+    if am:
+        gr = .299 * r + .587 * g + .114 * b
+        return tuple(round(v * .7 + gr * .3) for v in (r, g, b))
+    return (r, g, b)      # MIP: geen ontzadiging (getest: rood werd onzichtbaar en geel werd groen)
 
 
 def nacht_lut(am):
@@ -138,6 +147,12 @@ def nachtregel(im_met, im_zonder, am, masker_van=None):
     vloer = Image.new('L', r.size, 80 if am else 85)
     g = ImageChops.darker(g, ImageChops.lighter(ImageChops.lighter(r, b), vloer))
     donker = Image.merge('RGB', (r, g, b))
+    import numpy as np
+    a = np.asarray(donker).astype(np.int16)
+    if am:
+        gr = (.299 * a[..., 0] + .587 * a[..., 1] + .114 * a[..., 2])[..., None]
+        a = np.rint(a * .7 + gr * .3)
+    donker = Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGB')
     return Image.composite(im_met, donker, mk)
 
 
