@@ -924,4 +924,6 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Lokale `main` in de werkmap liep 50 commits uit de pas met GitHub (geschiedenis daar herschreven). Niet hard teruggezet; gewerkt op een eigen tak vanaf `origin/main` en van daaruit naar `main` gepusht.
 - Bouwtak vooruitgespoeld naar 958885c na twee groene runs. Sessiebeelden van proef62 bekeken op drie horloges: crash weg.
 - Basiswereld gebouwd in één bestand (`KrabV2Basis.mc`), twee kleine haken in `KrabV2Wereld` (`lucht`, `water`). Gepusht als 9904da3 op proef63.
+- 11:12 tot 11:17 UTC: tijdens het wachten op de plaatjesrun (rij bij GitHub: drie runs van elk veertien banen tegelijk, ook die van Bas) verder gewerkt op een eigen proeftak (opdracht hoofdchat 11:55): werelden aan in de sessie, winkeltekst 14, scripts voor winkelbeelden en blad. Eerste plaatjesrun van proef64 (43207193224) zelf afgebroken toen hij nog in de rij stond, en vervangen door één run op de nieuwste commit.
+- Les: een nieuwe commit op een proeftak start een tweede plaatjesrun naast de eerste (de plaatjesworkflow breekt de oude niet af). Eerst bundelen, dan pushen.
 
