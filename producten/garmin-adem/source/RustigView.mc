@@ -229,7 +229,7 @@ class CalmEindeView extends WatchUi.View {
         var kleur = Graphics.COLOR_WHITE;
         if (nieuw.size() > 0) {
             EbbDierMaat.inBand(dc, nieuw[0], w / 2, bandTop, bandOnder, bandBreed, d, EbbDierPlaatje.GEVONDEN);
-            regel = "new friend: " + EbbDierData.NAMEN[nieuw[0]];
+            regel = EbbTrouw.vriendKop(nieuw[0]) + " " + EbbTrouw.vriendRest(nieuw[0]);
             kleur = EbbTeken.LICHT;
         } else {
             var dier = EbbTrouw.zwemmer();

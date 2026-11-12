@@ -67,7 +67,7 @@ module EbbEindScherm {
             var dier = v.nieuweDieren[0];
             EbbDierMaat.inBand(dc, dier, w / 2, bandTop, bandOnder, bandBreed, d, EbbDierPlaatje.GEVONDEN);
             // Keuring bouw 6 punt 5: een lange naam op twee regels in de gewone letter in plaats van kleiner.
-            var zin = "new friend: " + EbbDierData.NAMEN[dier];
+            var zin = EbbTrouw.vriendKop(dier) + " " + EbbTrouw.vriendRest(dier);
             var dy = naamY - 0.5;
             var koorde = 2.0 * Math.sqrt(0.25 - dy * dy) * d * 0.86;
             if (dc.getTextWidthInPixels(zin, EbbTeken.fS()) <= koorde) {
@@ -75,8 +75,8 @@ module EbbEindScherm {
             } else {
                 dc.setColor(EbbTeken.LICHT, Graphics.COLOR_TRANSPARENT);
                 extra = EbbTeken.px(d, REGEL2);
-                dc.drawText(w / 2, naamPx, EbbTeken.fS(), "new friend:", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-                dc.drawText(w / 2, naamPx + extra, EbbTeken.fS(), EbbDierData.NAMEN[dier], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w / 2, naamPx, EbbTeken.fS(), EbbTrouw.vriendKop(dier), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(w / 2, naamPx + extra, EbbTeken.fS(), EbbTrouw.vriendRest(dier), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             }
         } else {
             // Mila v8: silhouet met rand en kenmerk (banden van de clownvis, vlek van de orka) in 00AAFF.

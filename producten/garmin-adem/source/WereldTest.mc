@@ -163,6 +163,15 @@ function testWereldOokZonderDier(logger as Test.Logger) as Boolean {
     return goed && !EbbWereldSessie.kan(geen, Ebb.FASE_HERSTEL as Number);
 }
 
+// Hoofdchat 12 nov 17:20 punt 7: het startdier is na sessie één geen "new friend"; elk ander dier wel.
+(:test)
+function testStartdierIsGeenNieuweVriend(logger as Test.Logger) as Boolean {
+    var vis = EbbTrouw.vriendKop(EbbTrouw.STARTDIER) + " " + EbbTrouw.vriendRest(EbbTrouw.STARTDIER);
+    var krab = EbbTrouw.vriendKop(4) + " " + EbbTrouw.vriendRest(4);
+    logger.debug("VRIEND start '" + vis + "' ander '" + krab + "'");
+    return vis.equals("Fish stays with you") && krab.equals("new friend: Crab") && vis.find("new friend") == null;
+}
+
 // Hoofdchat 12 nov 14:50: bij een lege opslag zwemt het startdier (de vis) in de eerste sessie al mee, in zijn
 // wereld, zonder dat hij al gevonden is; na de eerste sessie wordt hij gewoon het eerste dier (volgorde gelijk).
 (:test)

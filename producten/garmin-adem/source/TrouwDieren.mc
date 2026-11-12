@@ -171,6 +171,17 @@ module EbbTrouw {
         return z >= 0 ? z : STARTDIER;
     }
 
+    // Productkeuring 12 nov (hoofdchat 17:20 punt 7): na de eerste sessie is de vis geen "new friend", want hij zwom
+    // al mee. Voor het startdier staat er "Fish stays with you"; voor elk ander dier "new friend: <naam>". Twee delen,
+    // zodat het eindscherm een lange zin op twee regels kan zetten.
+    function vriendKop(dier as Number) as String {
+        return dier == STARTDIER ? EbbDierData.NAMEN[dier] + " stays" : "new friend:";
+    }
+
+    function vriendRest(dier as Number) as String {
+        return dier == STARTDIER ? "with you" : EbbDierData.NAMEN[dier];
+    }
+
     function wis() as Void {
         Application.Storage.deleteValue(LAATST);
         Application.Storage.deleteValue(GEKOZEN);
