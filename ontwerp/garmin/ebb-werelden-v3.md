@@ -71,3 +71,12 @@ Beide keurders: het jongleren leest pas als je het weet ("vis met bellen"), de v
 - Spat naast het lijf in plaats van eronder (twee druppels onder het lijf lazen als wieltjes).
 - Eindscherm: geen tweede grote anemoon meer en geen geel takje aan de rand (leek een vinkje).
 - Contrast na alles: elke regel op alle 36 schermen 4,5 of hoger (`bron/meet_contrast_v32.py`). GEZIEN met Read: overzicht clown 454 1x en 260 2x na elke stap, uitvergroting inademen 454 en hold 260.
+
+### Clownvis v3.2 vervolg: keuring 18 (6) en 19 (6,5) verwerkt
+Keuring 19 zag de grap nu zonder uitleg ("een clownvis is letterlijk een clown, met een feesthoedje op, die jongleert terwijl jij ademt"). Gedaan:
+- **Onder water is de held groot:** clownvis maat 42 bij hold (38 in het menu), anemoon 78 procent en naar rechts; geen geel takje meer (las als de letter Y).
+- **Hold heeft een eigen grap: hij houdt de drie ballen stil in balans,** op zijn neus, op de punt van zijn mutsje en op zijn rug. Stil houden, net als jij je adem. Menu en eind jongleren door.
+- **De ballen ademen mee:** inademen hoge boog (straal 30), Calm lager (22), uitademen laag en net gevangen (17).
+- **Circusding boven water: een rood-witte zwemband plat op het water,** hij springt er middenin uit; bij Calm ligt de band naast hem. Geprobeerd en weggegooid: een staande hoepel door de vis heen (rood-wit door oranje-wit las als extra strepen, rommelig). De gevallen blauwe bal is weg, de band vervangt hem.
+- Spat zonder ringen bij de clown (de band is nu de ring).
+- Contrast: alle 36 schermen elke regel 4,5 of hoger. GEZIEN met Read: overzicht 454 1x en 260 2x, hold 454 en 260 vergroot, in, uit en Calm 454 naast elkaar.

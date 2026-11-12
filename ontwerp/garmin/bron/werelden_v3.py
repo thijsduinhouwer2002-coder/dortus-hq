@@ -130,12 +130,12 @@ def jongleer(d, cx, cy, r_, k=1.0, nacht=False, neus=None):
         d.rondje(x - 1.8 * k, y - 1.8 * k, 1.4 * k, 1.4 * k, WIT)
 
 
-def spat(d, x, y, k=1.0):
+def spat(d, x, y, k=1.0, ringen=True):
     """Spatwater waar de clownvis uit de golf springt: een kroontje van druppels."""
     for dx, dy, r_ in [(-30, -3, 2.2), (-27, -11, 1.8), (-34, 3, 1.4), (34, -3, 2.2), (31, -11, 1.8), (39, 3, 1.4)]:   # v3.2: naast het lijf (onder het lijf lazen ze als wieltjes)
         d.rondje(x + dx * k, y + dy * k, r_ * k, r_ * k, WIT, (0, 85, 170), dikte=.9)
     # twee ringen in het water waar hij uitsprong (geen spijlen meer: die lazen als hekje, keuring 15)
-    for rx, ry in ((18, 4), (26, 6)):
+    for rx, ry in ((18, 4), (26, 6)) if ringen else ():
         d.dr.arc([(x + 2 * k - rx * k) * d.s, (y + 3 * k - ry * k) * d.s, (x + 2 * k + rx * k) * d.s, (y + 3 * k + ry * k) * d.s], 0, 180, fill=WIT, width=max(1, round(1.6 * d.s)))
 
 
@@ -193,16 +193,30 @@ def adem(D_, am, dd, nacht, wereld, top=134, woord='breathe in', getal='12', ond
         hx = 192 if top < 140 else (180 if top < 160 else 160)   # bij hoge zee rechts: het cijfer blijft vrij
         sprong = {'in': 24, 'calm': 6, 'uit': 12}[fase]          # Calm: hij ligt rustig op de golfrug
         m = 38
-        zx, zy = 70, top + 2                                       # de gevallen bal drijft op de kam
-        d.rondje(zx, zy - 3, 6.6, 6.6, (0, 170, 255), (0, 0, 85), dikte=1.6); d.rondje(zx - 2.3, zy - 5.3, 1.8, 1.8, WIT)
-        golfje = [(x, zy + 1 + 1.2 * math.sin((x - zx) / 3)) for x in range(int(zx - 12), int(zx + 13), 2)]
-        d.dr.line([d.P(*q) for q in golfje], fill=WIT, width=max(1, round(1.6 * d.s)))
+        # v3.2 (keuring 19): het circusding van deze wereld: een rood-witte hoepel; hij springt erdoorheen
+        fy = top - sprong
+        def hoepel(voor):
+            # rood-witte zwemband plat op het water: bij in en uit springt hij er middenin uit (zijn piste),
+            # bij Calm ligt de band naast hem (een staande hoepel door de vis heen las als extra strepen, weggegooid)
+            if fase == 'calm':
+                rx_, ry_, cx_, cy_ = 24, 7, hx - 50, top + 2
+            else:
+                rx_, ry_, cx_, cy_ = 26, 7.5, hx + 4, top + 1
+            for i in range(12):
+                a0 = i * 30; mid = (a0 + 15) % 360
+                achter = mid >= 180
+                if voor == achter: continue
+                kl = (255, 0, 0) if i % 2 == 0 else WIT
+                for dikte_, c_, e in ((6.6, (85, 0, 0), 2), (4.2, kl, 0)):
+                    d.dr.arc([(cx_ - rx_) * d.s, (cy_ - ry_) * d.s, (cx_ + rx_) * d.s, (cy_ + ry_) * d.s], a0 - e, a0 + 30 + e, fill=c_, width=max(2, round(dikte_ * d.s)))
+        hoepel(False)
         if fase != 'calm':
-            spat(d, hx + 6, top - 1, 1.1 if fase == 'in' else .85)
+            spat(d, hx + 6, top - 1, 1.1 if fase == 'in' else .85, ringen=False)
         dier_kantel(d, hx, top - sprong, m, CLOWN, hoek + (10 if fase != 'calm' else 0))
         clownshoed(d, hx, top - sprong, m, hoek + (10 if fase != 'calm' else 0))
-        r_ = (26 if top < 140 else 30) if fase != 'calm' else 22
-        jongleer(d, hx + 2, top - sprong - m * .42, r_, 1.25, nacht, neus=(hx - m * .52, top - sprong - m * .18))
+        hoepel(True)
+        r_ = {'in': 30, 'calm': 22, 'uit': 17}[fase]          # ballen ademen mee: hoog bij inademen, net gevangen bij uitademen
+        jongleer(d, hx + 2, top - sprong - m * (.42 if fase != 'uit' else .3), r_, 1.3, nacht, neus=(hx - m * .52, top - sprong - m * .18))
     tekst_adem(d, top, woord, getal, onder)
     return d.klaar()
 
@@ -354,7 +368,7 @@ def hold(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=126, xh=128); wereld_schild(d, dd, hx=136, hy=182, m=46)
     else:
-        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=134, hy=190, m=42, nacht=nacht, jong='rust', adx=16, ak=.78)   # v3.2: held groot, anemoon kleiner naar rechts (keuring 18)
+        onder(d, dd, nacht, xo=150, xh=152); wereld_clown(d, dd, hx=134, hy=190, m=42, nacht=nacht, jong='rust', adx=16, ak=.78, takje=False)   # v3.2: held groot, anemoon kleiner naar rechts (keuring 18)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
     d.tekst(130, 48, 'press START to breathe', 14, WIT, False)     # blijft altijd staan (veiligheid, besluit 12 nov 03:10)
@@ -370,7 +384,7 @@ def menu(D_, am, dd, nacht, wereld):
     elif wereld == 'schild':
         onder(d, dd, nacht, xo=120, xh=124); wereld_schild(d, dd, hx=132, hy=192, m=42, spiegel=True, zak=18)   # v3.2: hoge sprieten onder de menuregel
     else:
-        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=140, hy=194, m=38, zak=4, nacht=nacht, adx=16, ak=.78)
+        onder(d, dd, nacht, xo=142, xh=144); wereld_clown(d, dd, hx=140, hy=194, m=38, zak=4, nacht=nacht, adx=16, ak=.78, takje=False)
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
     for y, t in [(52, 'Rounds'), (86, 'Calm 4-7-8')]:
