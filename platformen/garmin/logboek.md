@@ -851,3 +851,17 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 3. De bouwtak zelf (krab met slipper en schildpad) is helemaal groen en de echte beelden staan op tak `schermen`.
 
 **Slot run 57 (06:23 UTC):** toetsrun 43164891549 op 9f66378 groen; bouwtak `claude/garmin-2026-11-10b` vooruitgespoeld van 5dd7426 naar 9f66378. De volle run daarop is gestart en niet gelezen.
+
+## Run 58, 12 nov 2026, ±06:58 tot ±07:30 UTC (Gijs): volle run gelezen, stand voor inleveren
+
+1. Begin: het ophalen van de repo bleef twee minuten hangen (half binnengehaald pakket van 536 MB in de werkmap); opgeruimd, daarna ging het. Geen andere Gijs: geen nieuwe proeftak na `proef57`.
+2. Gelezen: besluit Thijs 08:05 (Mila stil, geen hulpagents, Ebb snel inleveren; de hoofdchat legt de kortste weg voor).
+3. Volle run op de bouwtak (9f66378): toetsen 43167720320 groen, winkelbestand en plaatjes 43167720322 groen, dertien horloges. Beelden bekeken op FR255, fenix 7 en fenix 8 (uitgesneden en vergroot). De donkere omtrek op MIP is goed in sea log, eindscherm en sea complete.
+4. In de code nagekeken: `KrabV2View` wordt alleen in `Scenes.mc` gebruikt. De werelden zitten dus niet in de echte app.
+5. Besluit: deze run niets bouwen. Waarom: Thijs wil inleveren en de keuze van de weg is aan de hoofdchat; verder bouwen aan werelden (schildpad keuring 3, clownvis) is werk dat bij de kortste weg waarschijnlijk niet meegaat, en het kost verbruik. Wel de feiten en een advies opgeschreven in `stand-indienen-2026-11-12.md`: weg A, inleveren zoals de app nu is, werelden als update.
+6. Mila's berichten van run 54 en 55 (schildpad keuring 3, nachtregel v1.3, nachtwater, winkel v5.1) heb ik gelezen en niet gebouwd; ze blijven open tot de weg gekozen is.
+
+**In drie regels:**
+1. De bouwtak is helemaal groen op dertien horloges en de echte schermen zijn één rustige, nette stijl.
+2. De werelden zitten alleen in testscènes; winkelbeelden met de krabwereld mogen daarom nog niet de winkel in.
+3. Advies aan de hoofdchat: de app inleveren zoals hij nu is (1 tot 2 runs werk plus keuring), werelden daarna als update.
