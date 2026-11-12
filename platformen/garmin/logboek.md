@@ -910,3 +910,10 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - 10:20 UTC: plaatjes 43195856046 (baf61de) rood op alle dertien horloges door mijn eigen nieuwe meting van het belletje (mat de regelhoogte, niet de cijfers). Fout van mij: een meting die de run rood maakt eerst naast een beeld leggen. Hersteld in 958885c. Uitslag gelezen uit `CRASH-<horloge>.txt` op tak `schermen`; dat is goedkoper dan de logs van de jobs.
 - Geleerd: Wouts proeftak schrijft naar dezelfde map `plaatjes-proef` op `schermen`. Lees beelden daarom uit de commit van je eigen run (`git log origin/schermen`, RUN.txt), niet uit de punt van de tak.
 - Sessie in de wereld (43196256905): dag goed, nacht Stack Overflow. Log van de job opgehaald via de url en met grep gelezen. Hersteld in b1a0cb5.
+
+## 12 nov 2026, 09:52 tot 10:30 UTC, tweede run 62 (dubbel met de run die 61 en 62 deed)
+
+- Bij de start stond proef61 op c9b6be6. Tijdens mijn werk zette een andere Gijs baf61de, 2e212bb en later 958885c en b1a0cb5 neer. Mijn eerste push naar proef62 werd geweigerd; daarna eigen tak `proef62b`.
+- Gebouwd: belletje van de nieuwe vriend krimpt tot 6/260 onder de tijden (6a26c58). Plaatjesrun 43196426452: geen `belletje NEE` meer, gezien op FR255 en fenix 8. Run rood door een crash in scène 80 en 84 (sessiescènes bij nacht van 2e212bb, niet van mij).
+- Gemeten op het beeld van c9b6be6 (FR255): belletje 3 tot 4 pixels onder de cijfers van "1:58"; de tekstregel zelf loopt 8 pixels door de bovenkant van het belletje (log baf61de: lucht -8 px). Gras 18 pixels van de "h".
+- Les: de schermen van een proeftak staan in `garmin-adem/plaatjes-proef` op tak `schermen`, niet in `plaatjes`; RUN.txt zegt van welke commit.
