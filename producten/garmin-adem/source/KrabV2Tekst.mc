@@ -34,7 +34,7 @@ module KrabV2Tekst {
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
         if (_rand > 0) {
-            // Keuring 12 nov 04:05 NL punt 4: donkere rand om de letters, want de lichtbundel haalt het contrast onder 4,5.
+            // Keuring 12 nov 04:05 NL punt 4: donkere rand om de letters als een achtergrond het contrast onder 4,5 haalt.
             dc.setColor(DONKER, Graphics.COLOR_TRANSPARENT);
             var o = [-1, -1, 0, -1, 1, -1, -1, 0, 1, 0, -1, 1, 0, 1, 1, 1] as Array<Number>;
             for (var i = 0; i < 8; i += 1) {
@@ -50,7 +50,7 @@ module KrabV2Tekst {
         var geel = EbbTeken.LICHT;
         var wit = 0xFFFFFF;
         var y = 0;
-        _rand = (am && !nacht && scherm >= 3) ? (d >= 416 ? 2 : 1) : 0;
+        _rand = 0; // de rand staat uit sinds de bundel boven de tekst zwak is (Mila v3.2 a); in de simulator kostte hij ±40 ms per beurt
         if (scherm <= 2) {
             var top = KAM[scherm];
             // Run 43139810543: de cijferletter vult zijn hele regel, dus geen overlap met de kop; de cijfers eindigen

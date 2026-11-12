@@ -172,16 +172,24 @@ module KrabV2Lagen {
                 }
             }
             if (am) {
-                // lichtbundel in drie vaste tinten: buiten breed en zwak, binnen smal (bouwgegevens v2.1)
                 var xo = eind ? 184 : 118;
                 var xh = eind ? 186 : 112;
                 var yh = eind ? 164 : 236;
                 var basis = nacht ? 0x000040 : 0x004060;
-                for (var i = 0; i < 3; i += 1) {
-                    var f = 1.45 - 0.25 * i;
-                    var a = nacht ? 20 : 33;
-                    v.glas(dc, a, licht, EbbTeken.meng(basis, licht, a * i / 255.0));
-                    vierhoek(v, dc, v.q(xo - 26 * f), 0, v.q(xo + 26 * f), 0, v.q(xh + 48 * f), v.q(yh), v.q(xh - 48 * f), v.q(yh));
+                // Mila v3.2 (a): boven de onderste tekstregel (kap) één zwakke tint, zodat wit daar 4,5 op 1 haalt
+                var kap = eind ? 72 : 140;
+                var t = kap / (yh * 1.0);
+                var bx = xo + (xh - xo) * t;
+                for (var i = 0; i < 4; i += 1) {
+                    var f = (i == 3) ? 1.45 : 1.45 - 0.25 * i;
+                    var a = (i == 3) ? (nacht ? 18 : 26) : (nacht ? 20 : 33);
+                    var bw = (26 + 22 * t) * f;
+                    v.glas(dc, a, licht, (i == 3) ? zeeTop : EbbTeken.meng(basis, licht, a * i / 255.0));
+                    if (i == 3) {
+                        vierhoek(v, dc, v.q(xo - 26 * f), 0, v.q(xo + 26 * f), 0, v.q(bx + bw), v.q(kap), v.q(bx - bw), v.q(kap));
+                    } else {
+                        vierhoek(v, dc, v.q(bx - bw), v.q(kap), v.q(bx + bw), v.q(kap), v.q(xh + 48 * f), v.q(yh), v.q(xh - 48 * f), v.q(yh));
+                    }
                 }
             }
         } else if (stap == 1) {
