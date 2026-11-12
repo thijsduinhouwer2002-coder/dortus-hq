@@ -174,7 +174,7 @@ jobs:
         run: |
           python3 -c "import PIL" 2>/dev/null || pip install -q --break-system-packages pillow || pip install -q pillow
           case "$GITHUB_REF_NAME" in *proef*) echo "proeftak: alleen de proefscènes, geen scène 42 en 43"; exit 0 ;; esac
-          python3 "$APP/bron/wereld_gelijk.py" "$APP/plaatjes/$D-scene42.png" "$APP/plaatjes/$D-scene43.png" "$APP/resources/werelden/werelden.xml" wereld3
+          python3 "$APP/bron/wereld_gelijk_v2.py" "$APP/plaatjes/$D-scene42.png" "$APP/plaatjes/$D-scene43.png"
       - name: Geen crash
         run: |
           if ls "$APP"/plaatjes/CRASH-*.txt 2>/dev/null; then cat "$APP"/plaatjes/CRASH-*.txt; echo "CRASH in de scènes op $D"; exit 1; fi

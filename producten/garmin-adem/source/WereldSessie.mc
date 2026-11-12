@@ -47,7 +47,8 @@ module EbbWereldSessie {
         if (w < 0) {
             return false;
         }
-        var nacht = proefNacht >= 0 ? proefNacht == 1 : EbbLucht.deelNu() == 3;
+        // In de plaatjesbouw altijd dag tenzij de scène nacht vraagt: anders hangt het beeld af van het uur van de run.
+        var nacht = proefNacht >= 0 ? proefNacht == 1 : (!EbbBouw.PLAATJE && EbbLucht.deelNu() == 3);
         var ronde = "round " + (v.sessie.ronde + 1);
         var scherm = 3;
         var tekst = [] as Array<String>;
