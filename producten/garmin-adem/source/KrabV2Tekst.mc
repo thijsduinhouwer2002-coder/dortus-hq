@@ -23,6 +23,14 @@ module KrabV2Tekst {
         return _cijfers as WatchUi.FontResource;
     }
 
+    // Veilige zone (REGELS.md punt 8, toets van Mila 12 nov 03:45 UTC): minstens 6/260 lucht tussen de onderkant van
+    // de tekst en de bovenkant van de held (scharen; bij kantelen komt de rechter schaar ±1/260 per graad omhoog).
+    // De workflow maakt de run rood bij "VEILIG ... NEE". Meet nu in, uit, Calm en inhouden; menu en eind nog niet.
+    function veilig(v as KrabV2View, scherm as Number, tekstOnder as Number, heldBoven as Number) as Void {
+        var lucht = heldBoven - v.q(v.kantel()) - tekstOnder;
+        System.println("VEILIG scherm " + scherm + " lucht " + lucht + " px, norm " + v.q(6) + (lucht >= v.q(6) ? " ja" : " NEE"));
+    }
+
     // Tekent een regel met de bovenkant op y (pixels) en geeft de bovenkant van de volgende regel terug.
     function regel(dc as Graphics.Dc, d as Number, y as Number, f as Graphics.FontType, s as String, kleur as Number, pct as Number) as Number {
         if (_rand > 0) {
@@ -55,12 +63,14 @@ module KrabV2Tekst {
             y = regel(dc, d, yd, cijfers(), (["12", "9", "5"] as Array<String>)[scherm], wit, 100);
             regel(dc, d, v.q(top + 38), EbbTeken.fX(), scherm == 2 ? "4-7-8 · 2 of 4" : "round 2 · 18 left", wit, 100);
             System.println("KRABV2 tekst scherm " + scherm + " cijfers tot y " + y + " van " + d + ", scharen vanaf " + v.q(top - 24));
+            veilig(v, scherm, y, v.q(top - 24));
         } else if (scherm == 3) {
             y = regel(dc, d, v.q(12), EbbTeken.fM(), "hold", geel, 90);
             y = regel(dc, d, y, EbbTeken.fX(), "press START to breathe", wit, 100);
             y = regel(dc, d, y, cijfers(), "1:45", wit, 100);
             y = regel(dc, d, y, EbbTeken.fX(), "61 bpm · round 2", wit, 100);
             System.println("KRABV2 tekst scherm 3 onderkant hartslagregel y " + y + " van " + d + ", scharen vanaf " + v.q(192 - 28));
+            veilig(v, scherm, y, v.q(192 - 28));
         } else if (scherm == 4) {
             regel(dc, d, v.q(14), EbbTeken.fM(), "Ebb", geel, 100);
             var namen = ["Rounds", "Calm 4-7-8"] as Array<String>;

@@ -53,6 +53,10 @@ class KrabV2View extends WatchUi.View {
         }
     }
 
+    function kantel() as Float {
+        return _kantel;
+    }
+
     function heldMaat() as Number {
         return _held[2];
     }
