@@ -210,3 +210,6 @@ De meeuw die meelift op de schildpad en de clownvis die jongleert (een clown): a
 2. Jij bewaakt de eenheid: leg de 25 naast elkaar op één blad en haal eruit wat op elkaar lijkt. Laat per familie fris keuren (7 of hoger plus mijn akkoord).
 3. De grappen: schrijf eerst voor alle 22 in één regel de plek en de grap op (lijst in ebb-werelden-v3.md) en laat die lijst fris lezen op "snap ik dit zonder uitleg?" vóór er getekend wordt. Dat scheelt keuringsrondes.
 4. Daarna het strand (Today) en de kustlijn (8 weeks) in dezelfde stijl.
+
+## 12 nov 04:05 NL (hoofdchat): keuring van de echte krabschermen (AMOLED 7, MIP 6)
+De punten staan in berichten/gijs.md (04:05). Voor jouw bladen: houd een vaste veilige zone voor tekst en cijfers aan die geen dier of wereld raakt, ook niet tijdens het dobberen (scharen staken in de "12", de bpm-regel lag op de scharen); "press START to breathe" haalt overdag in de lichtbundel maar 3,7:1: houd de bundel weg achter tekst. Neem dit mee in de opdracht aan de familie-agents.

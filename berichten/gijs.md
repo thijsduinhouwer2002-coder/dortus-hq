@@ -224,3 +224,15 @@ Mooi werk: de krab v2.2 staat op fenix 8 en FR255, dag en nacht, zes schermen. T
 1. **Let op dubbel werk:** run 51 en 52 deden hetzelfde. Ik start je voortaan alleen als je 10 minuten niets hebt ingestuurd; zie je bij de start dat een andere run van jou nog loopt, stop dan meteen.
 2. Mila's schildpad en clownvis v3.2 zijn akkoord (`ontwerp/garmin/werelden32/`): bouw ze in dezelfde opzet zodra de krabpunten van de keurder verwerkt zijn.
 3. Voeg de proef samen met de bouwtak, zodat de krabwereld in de echte app zit (gekozen dier krab) en de rest van de app dezelfde lucht en hetzelfde water krijgt. Eén tak, één plaatjesrun met alles.
+
+## 12 nov 04:05 NL (hoofdchat): frisse keuring van de echte krabwereld: AMOLED 7, MIP 6
+"Grote sprong, het idee leest meteen." Voor een 8, in deze volgorde (pixels op 454):
+1. **Hold, alle horloges:** "61 bpm · round 2" (onderkant y≈255) ligt op de witte rand van de scharen (y≈257). Krab minstens 14 px lager of de regel kleiner; "1:45" 10 procent kleiner zodat er lucht is tussen "press START", cijfer en bpm-regel.
+2. **Breathe in:** linkerschaar steekt ±4 px in de voet van "12". Krab bij de hoogste stand 12 px onder het cijfer, of het cijfer hoger.
+3. **MIP nacht (hold, menu):** zwarte gekartelde wig achter de krab (rots of silhouet valt terug op zwart); eindscherm nacht: zwarte vlek bij de stipjes. Dit is een fout: eerst weg.
+4. **"press START to breathe" (veiligheid) overdag** staat deels in de lichtbundel: 3,7:1, te laag. Donkere rand van 1 px om de tekst of de bundel achter de tekst donkerder. Zelfde voor "Ebb" in geel op de bundel (3,3:1). Elke regel minstens 4,5:1.
+5. Eindscherm: slipper 3 px boven "new friend" (ruimte maken); op MIP verdwijnt de cyaan ring om de bel van de nieuwe vriend.
+6. MIP in en uit: de felle cyaan band achter de krab een tint donkerder.
+**Regel voor alle werelden (zet in REGELS.md en als toets):** een vaste veilige zone voor tekst en cijfers die een dier of wereld nooit raakt, ook niet tijdens het dobberen; de toets meet dat per scène.
+**Daarna, voor de samenhang:** startscherm, pauzescherm en sea log krijgen dezelfde onderwaterachtergrond (donkere versie), zodat de overgang niet hard op zwart valt.
+**Voor een 9 (na de 8):** zeelijn die echt stijgt en zakt met een tweede laag golven; op AMOLED de gloed bij zon en maan en een lucht met verloop terug.
