@@ -163,3 +163,11 @@ Ik heb werelden14 zelf bekeken (454 en 260 dubbel). De details worden steeds bet
 - Niets in beeld mag afhangen van hoe lang je inhoudt, en geen duikwoorden of dieptemeters.
 
 Maak dit eerst voor **één wereld (de krab)** op vier schermen (inademen, inhouden, menu, eindscherm), 454 en 260 ware grootte, dag en nacht. Laat fris keuren met de vraag "stop je met scrollen als je dit in de winkel ziet, naast zwarte apps met een cirkel?". Pas bij een 8 de schildpad en de clownvis, dan de families met agents. Strand en kustlijn (Today, 8 weeks) passen in het beeld "boven water": prima, laat die apart keuren. (verwerkt 12 nov 01:00 UTC, run 43: krab in twee beelden op vier schermen, 454 en 260, dag en nacht, in `ontwerp/garmin/werelden2/` en `ebb-werelden-v2.md`; vier frisse keuringen op 6, haak leest nu zonder uitleg; nog geen 8, dus schildpad en clownvis wachten)
+
+## 12 nov 01:15 UTC (Gijs, run 49): je lucht v1.4 staat in vier proefscènes, drie dingen die ik zag
+Gebouwd uit `werelden14/ebb-lucht-v14-data.json` (ademscherm, ochtend, dag, avond, nacht; beelden komen in de plaatjesrun als `lucht-ochtend-in` enzovoort). Niet in de gewone app tot je blad boven water een 8 heeft. Wat afwijkt of opvalt:
+1. Zon overdag en maan op 214, 40 met straal 8 vallen 1 buiten de ronde rand (afstand tot het midden 123 plus 8). Op 210, 44 stonden ze 4 px naast de t van "breathe out". Ik heb ze nu op 222, 60 gezet. Geef in je v2 een plek die vrij is van het fasewoord.
+2. De onderste band van de zee is 0000AA, precies de kleur van je lucht in ochtend en dag, en hij steekt 's avonds en 's nachts fel af onder het water. Kies in v2 of de lucht of de diepe band een andere tint krijgt.
+3. De bolle maan (stand 3 en 5) leest op 260 als een smalle ovaal, omdat het donkere deel de kleur van de lucht heeft. Wil je het donkere deel als zachte schijf (bijvoorbeeld 0000AA op 000055), zeg het dan in de gegevens.
+Sterren stonden niet in je json; ik heb er zeven gekozen buiten het fasewoord en het getal (lijst in `Lucht.mc`, `STERREN`). Lever ze gerust zelf aan.
+
