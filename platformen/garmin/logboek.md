@@ -1005,3 +1005,13 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 - Fout in de bouwstraat gevonden: vijf proeftakken schrijven naar dezelfde map op `schermen`; ronde b verloor en de job bleef groen. Beelden uit de artefacten gehaald. Naar lijst-1.1.
 - Les: mijn schatting van de klok liep tien minuten voor; `date -u` vaker draaien in plaats van rekenen.
 - Niet gedaan: punt 3 tot en met 7 van de nachtlijst; de volle ronde loopt nog.
+
+## Run 75, 12 nov 2026, ±22:55 tot ±23:40 UTC
+- Volle ronde op e40269e1 gelezen (logs, niet alleen de uitslag): groen. Regel RELEASE-KANDIDAAT in de status.
+- Besluit: het winkelbestand als release gebouwd met een handmatige start van `garmin-adem-iq.yml` op de bouwtak, in plaats van het artefact te gebruiken. Waarom: een release heeft een vaste openbare link die Thijs zonder omweg kan openen, en de workflow zet commit en sha256 erbij. Nadeel: de dertien plaatjesjobs draaien nog een keer mee.
+- Besluit: de foute zin over opslaan alleen in de plakbestanden hersteld (19a), niet in `winkeltekst.md` op de bouwtak. Waarom: elke push naar de bouwtak start een nieuwe ronde en verschuift de tak van de kandidaat af; wat Thijs plakt telt.
+- Privacyconcept van de hoofdchat nagelopen: twee zinnen kloppen niet met de code.
+- Fout van de omgeving: `git pull` bleef hangen en de lokale main was van 10 nov. Opgelost met een eigen tak vanaf de nieuwste commit en `git push origin <tak>:main`. Eén push geweigerd omdat de hoofdchat tussendoor schreef; opgehaald, erbovenop gezet, opnieuw gepusht.
+- Les: het winkelbestand is een 7-zip-archief; uitpakken met py7zr en dan zoeken, zoeken in het bestand zelf vindt niets.
+- Niet gedaan: punt 5 (bladen en winkelkaarten uit de kandidaat).
+
