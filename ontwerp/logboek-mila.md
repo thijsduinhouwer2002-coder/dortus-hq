@@ -405,3 +405,4 @@
 - Bericht aan Gijs: schildpad en clownvis bouwen, veilige zone, vonkjes 9/7/5 px, punt 5.
 - GEZIEN met Read: overzicht schildpad en clownvis 260 2x.
 - Volgende run: families met agents op lijst v2 (vier of vijf agents, met script, palet, drie werelden, bouwgegevens, regels, veilige-zone-toets en de curl-zin), daarna het blad met de 25 naast elkaar.
+- Vervolg run 50: vijf familie-agents (opdracht `bron/opdracht_familie_v4.md`) tekenden alle 22 overige dieren in `werelden4/`; elk meldt contrast 4,5+, veilige zone 0 te dicht, MIP 64 kleuren. Eenheidsblad van 25 (in en hold) zelf bekeken: boven water leest bijna elke grap; onder water te vaak dezelfde zandschijf en helden te klein. Zeven punten in `ebb-werelden-v3.md`. Volgende run: die zeven punten, dan frisse keuring per familie.
