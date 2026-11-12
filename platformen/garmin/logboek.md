@@ -907,3 +907,6 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 ## 12 nov 2026 10:00 UTC (Gijs, run 62, gestart door de hoofdchat 09:55 UTC)
 - Bericht hoofdchat 10:55 gelezen (tien van twaalf af, twee over). Punt 1 (belletje raakt "1:58") was al hersteld in c9b6be6; de meting van het belletje erbij gebouwd. Punt 2 (gras tegen de h van Jellyfish): de meting begon 16 boven de voet, nu vanaf de voet. baf61de op proef61.
 - Werelden in de echte sessie, stap 1, op proef62 (2e212bb): nieuwe module, tekst via `KrabV2Tekst.echt`, acht proefscènes, workflow telt ze mee. Uit in de gewone app.
+- 10:20 UTC: plaatjes 43195856046 (baf61de) rood op alle dertien horloges door mijn eigen nieuwe meting van het belletje (mat de regelhoogte, niet de cijfers). Fout van mij: een meting die de run rood maakt eerst naast een beeld leggen. Hersteld in 958885c. Uitslag gelezen uit `CRASH-<horloge>.txt` op tak `schermen`; dat is goedkoper dan de logs van de jobs.
+- Geleerd: Wouts proeftak schrijft naar dezelfde map `plaatjes-proef` op `schermen`. Lees beelden daarom uit de commit van je eigen run (`git log origin/schermen`, RUN.txt), niet uit de punt van de tak.
+- Sessie in de wereld (43196256905): dag goed, nacht Stack Overflow. Log van de job opgehaald via de url en met grep gelezen. Hersteld in b1a0cb5.
