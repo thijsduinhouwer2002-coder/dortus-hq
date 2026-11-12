@@ -140,7 +140,7 @@ def bellen(d, lijst, c):
         d.dr.ellipse([(x - r_ * .45) * d.s, (y - r_ * .55) * d.s, (x - r_ * .05) * d.s, (y - r_ * .15) * d.s], fill=c)
 
 
-def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0, met_slipper=True, spiegel=False):
+def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak=0, met_slipper=True, spiegel=False, anem_dy=0, anem_dx=0):
     """Krab onder water: ver de donkere ruggen, dan zand, twee ronde rotsen (anemoon, zeester), vooraan de held in zijn slipper."""
     s = d.s
     # ver: donkere ronde ruggen over de hele breedte (silhouet)
@@ -158,8 +158,16 @@ def wereld_onder(d, dd, held_y=200, held_maat=30, held=True, slipper_y=None, zak
     X = (lambda x: 260 - x) if spiegel else (lambda x: x)
     # rots links met anemoon (paarse bolletjes die meeademen); bij spiegel rechts
     d.rondje(X(36), 202 + zak, 34, 26, ROTS, ROTS_R, glans=ROTS_R)
-    for x, y, r_ in [(30, 172, 7), (41, 169, 7.5), (51, 175, 6.5), (21, 178, 6)]:
-        d.rondje(X(x), y + zak, r_, r_, PAARS, WIT, glans=(255, 170, 255), dikte=1.8)
+    # anemoon: vijf dikke tentakels met ronde roze toppen op de rots (geen druiven)
+    for bx, tx, ty in [(18, 12, 158), (26, 22, 150), (36, 36, 146), (46, 50, 150), (54, 60, 160)]:
+        x0, y0, x1, y1 = X(bx + anem_dx), 180 + zak, X(tx + anem_dx), ty + zak + anem_dy
+        d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=WIT, width=round(8.6 * d.s))
+        d.rondje(x1, y1, 4.3, 4.3, WIT)
+    for bx, tx, ty in [(18, 12, 158), (26, 22, 150), (36, 36, 146), (46, 50, 150), (54, 60, 160)]:
+        x0, y0, x1, y1 = X(bx + anem_dx), 180 + zak, X(tx + anem_dx), ty + zak + anem_dy
+        d.dr.line([d.P(x0, y0), d.P(x1, y1)], fill=PAARS, width=round(5.6 * d.s))
+        d.rondje(x1, y1, 3.6, 3.6, ROZE)
+    d.rondje(X(36 + anem_dx), 180 + zak, 22, 7, PAARS, WIT, dikte=1.6)
     # rots rechts met zeester
     d.rondje(X(222 - zak / 3), 210 + zak, 30, 22, ROTS, ROTS_R, glans=ROTS_R)
     ster = []
@@ -222,9 +230,18 @@ def kring(d, dd, cx, cy, r_):
 
 def stofjes(d, dd):
     """Zwevende lichtjes in het water (diepte): klein en weinig, nooit achter tekst (alleen opzij)."""
-    c = (170, 255, 255) if dd is DAG else (170, 170, 255)
-    for x, y, r_ in [(24, 120, 1.1), (36, 146, .8), (230, 112, 1.1), (242, 140, .8), (214, 152, .7), (18, 160, .7)]:
-        d.rondje(x, y, r_, r_, c)
+    if dd is DAG:
+        for x, y, r_ in [(24, 120, 1.1), (36, 146, .8), (230, 112, 1.1), (242, 140, .8), (214, 152, .7), (18, 160, .7)]:
+            d.rondje(x, y, r_, r_, (170, 255, 255))
+        return
+    plankton = [(22, 112, 1.6), (34, 138, 1.1), (16, 158, 1.3), (48, 120, .9), (232, 104, 1.6), (244, 132, 1.1),
+                (220, 146, 1.3), (208, 118, .9), (60, 150, 1), (196, 156, 1), (30, 92, .9), (236, 84, .9)]
+    if d.am:
+        laag = Image.new('L', (d.N, d.N), 0); ld = ImageDraw.Draw(laag)
+        for x, y, r_ in plankton: ld.ellipse([(x - r_ * 3) * d.s, (y - r_ * 3) * d.s, (x + r_ * 3) * d.s, (y + r_ * 3) * d.s], fill=110)
+        d.im.paste(Image.new('RGB', (d.N, d.N), (0, 255, 170)), (0, 0), laag.filter(ImageFilter.GaussianBlur(2 * d.s)))
+    for x, y, r_ in plankton:
+        d.rondje(x, y, r_, r_, (170, 255, 170) if d.am else (85, 255, 170))
 
 
 def fonkel(d, x, y, k):
@@ -279,25 +296,32 @@ def adem_in(D_, am, dd, nacht):
 
 def hold(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=198, held_maat=37)
+    wereld_onder(d, dd, held_y=184, held_maat=43)
     stofjes(d, dd)
-    bellen(d, [(184, 178, 3), (190, 168, 2.2)], WIT)
-    d.tekst(130, 30, 'hold', 26, GEEL)
-    d.tekst(130, 58, 'press START to breathe', 15, WIT, False)
-    d.tekst(130, 70, '1:45', 66, WIT)
-    d.tekst(130, 136, '61 bpm · round 2', 16, WIT, False)
+    bellen(d, [(192, 160, 3), (198, 148, 2.2)], WIT)
+    d.tekst(130, 24, 'hold', 24, GEEL)
+    d.tekst(130, 48, 'press START to breathe', 14, WIT, False)
+    d.tekst(130, 58, '1:45', 58, WIT)
+    d.tekst(130, 118, '61 bpm · round 2', 16, WIT, False)
     return d.klaar()
 
 
 def menu(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht)
-    wereld_onder(d, dd, held_y=200, held_maat=36, spiegel=True)
+    wereld_onder(d, dd, held_y=200, held_maat=36, spiegel=True, anem_dy=10)
     stofjes(d, dd)
     s = d.s
     d.tekst(130, 22, 'Ebb', 28, GEEL)
     for y, t in [(56, 'Rounds'), (96, 'Calm 4-7-8')]:
-        d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=(0, 0, 85),
-                               outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
+        if am:
+            laag = Image.new('L', (d.N, d.N), 0)
+            ImageDraw.Draw(laag).rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=140)
+            d.im.paste(Image.new('RGB', (d.N, d.N), (0, 0, 60)), (0, 0), laag)
+            d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s,
+                                   outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
+        else:
+            d.dr.rounded_rectangle([55 * s, y * s, 205 * s, (y + 32) * s], radius=16 * s, fill=(0, 0, 85),
+                                   outline=WIT if t == 'Rounds' else (0, 170, 255), width=round(2.4 * s))
         d.tekst(130, y + 3, t, 22, WIT)
     d.tekst(130, 132, 'Sea log  ·  Settings  ·  Today', 17, GEEL, False)
     return d.klaar()
@@ -306,7 +330,7 @@ def menu(D_, am, dd, nacht):
 def eind(D_, am, dd, nacht):
     d = Doek(D_, am); water_onder(d, dd, nacht, stralen=0)
     bundel(d, dd, nacht, xo=104, xh=104, yh=170)     # het licht staat recht op de nieuwe vriend
-    wereld_onder(d, dd, held=False, zak=22, met_slipper=False)
+    wereld_onder(d, dd, held=False, zak=22, met_slipper=False, anem_dy=14, anem_dx=-8)
     stofjes(d, dd)
     for x, y, r_ in [(44, 120, 4.5), (58, 98, 3), (40, 82, 2.2), (196, 132, 4), (212, 110, 3), (200, 88, 2)]:
         bellen(d, [(x, y, r_)], WIT)
