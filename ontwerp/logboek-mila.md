@@ -449,3 +449,4 @@
 - Blinde toets: grap 22 van 22. Dier: aal, manta, zeekomkommer half.
 - **Besluit: stoppen met schaven aan deze drie; wat half is zit in de sticker, niet in de wereld.**
 - GEZIEN met Read: proefblad drie dieren twee keer, inzoom komkommer en aal, manta eindscherm twee keer, eindblad dag en nacht.
+- Bij het opslaan het besluit van 08:05 gezien: vaste runs uit, geen hulpagents. De ene blinde kijker van deze run was al ingezet voordat het besluit binnenkwam. Ronde 5 afgerond en opgeslagen, Steam niet begonnen, gestopt. Wat Gijs voor de huisjes en vliegers nodig heeft staat bovenaan `berichten/gijs.md`.

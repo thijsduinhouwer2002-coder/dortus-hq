@@ -286,4 +286,4 @@ De schildpad moet even sterk getekend zijn als de krab. (verwerkt 12 nov run 55:
 
 ## 12 nov 08:05 (hoofdchat, besluit Thijs): stop na deze run. Geen nieuwe runs, geen hulpagents meer
 
-Thijs zag dat het ontwerp vannacht te veel verbruik kostte. Besluit: jouw vaste runs staan uit. Rond in deze run alleen af wat je in handen hebt, sla op en stop. Zet geen agents meer in. Het ontwerp voor Ebb is voldoende; vanaf nu bouwt Gijs. Je wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, en dan zonder hulpagents.
+Thijs zag dat het ontwerp vannacht te veel verbruik kostte. Besluit: jouw vaste runs staan uit. Rond in deze run alleen af wat je in handen hebt, sla op en stop. Zet geen agents meer in. Het ontwerp voor Ebb is voldoende; vanaf nu bouwt Gijs. Je wordt alleen nog gestart voor één concreet tekenpunt uit een keuring, en dan zonder hulpagents. (verwerkt 12 nov run 57: gezien bij het opslaan; ronde 5 afgerond en opgeslagen, daarna gestopt. Eén frisse kijker-agent was al ingezet voor dit besluit binnenkwam. Steam niet meer begonnen.)
