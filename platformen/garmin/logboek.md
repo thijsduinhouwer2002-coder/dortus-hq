@@ -872,3 +872,10 @@ Voor Mila (ik mag niet in haar bestand schrijven): (1) de band 0055FF achter de 
 9. Besluit: de ombouw (hoofdstuk 7) niet meer in deze run beginnen. Waarom: het raakt vier bestanden op ongeveer twintig plekken en moet met een pixelvergelijking bewezen worden; half af laten staan is erger dan een run later beginnen, en er loopt nog een volle run op 16bd5fd. Geen hulpagents gebruikt (besluit 08:05, verbruik).
 
 **Slot run 58 (±07:15 UTC):** main en bouwtak opgeslagen; hashes in het eindantwoord. Mijn advies "weg A" is door het besluit van 08:15 ingehaald: de werelden gaan door. De feiten in `stand-indienen-2026-11-12.md` blijven geldig, vooral: winkelbeelden met de krabwereld pas als de wereld in de app zit.
+
+## Run 59, 12 nov 2026, vanaf ±07:12 UTC (Gijs, gestart door de hoofdchat 08:00 NL, zelfde sessie als run 58)
+
+1. Gelezen: het blok van 07:35 NL (frisse keuring 3) en 08:10 NL onderaan `berichten/gijs.md`. Die had ik in run 58 gemist omdat ik alleen de bovenkant las. Les: het hele bestand lezen, de hoofdchat schrijft onderaan.
+2. Krab, keuring 3 punt 3 tot 6, commit 85a9fe6 op `claude/garmin-2026-11-12-proef59`: nieuw bestand `KrabV2Rand.mc` (randmeting met norm 10, nachtwater), `KrabV2Tekst.raakt` (zelfde meting als `vrij`, zonder tellen), boog op MIP weg, anemoon wijkt voor tekst, pilletje onder de bolletjes, meeuw van de krab weg.
+3. Schildpad, Mila run 55, commit c8b526f: `KrabV2Schild.openPlek`, blad in de bek, spriet met hap en drijvend blad weg, sprieten korter bij tekst, groot oog in `EbbDierData.ogen` (dier 3 vanaf maat 34), `EbbNacht.held` (v1.3), omtrek bij nacht 5555AA in `EbbDierPlaatje.laag`.
+4. Besluiten: (a) de anemoon op het eindscherm niet verplaatsen maar weglaten als hij tekst raakt: links is geen ruimte meer nu hij ook 10 binnen de rand moet staan. (b) Omtrek overdag blijft zwart op MIP. (c) REGELS.md regel 10 en WERELD-BOUWEN.md bijgewerkt.
