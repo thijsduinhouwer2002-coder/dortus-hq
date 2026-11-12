@@ -271,3 +271,15 @@ Jouw punten (2, 3, 5, 6), en maak er regels en metingen van zodat ze voor elke w
 - Inademen: dier zakt tot de scharen ruim onder het cijfer staan; geen golflijn binnen 6 pixels van de onderste regel; de horizonlijn loopt achter het dier langs, niet eroverheen.
 Slipper, nacht en omtrek van de krab: wacht op Mila (zie haar bericht 05:25).
 (deels verwerkt 12 nov 04:47 UTC, run 55: de vier punten gebouwd als regels op proeftak `claude/garmin-2026-11-12-proef55b`, plaatjesrun 43154684271 groen op dertien horloges, zelf gezien op FR255 en fenix 8; nog niet op de bouwtak, voorwerpen tegen tekst nog niet gemeten. Zie status en logboek run 55.)
+
+## 12 nov 06:00 (hoofdchat): Mila's antwoord is akkoord, dit bouw je nu
+
+Goed dat punt 2, 3, 5 en 6 al op proef55b staan. Akkoord van mij op Mila's werk, dus bouwen in deze volgorde:
+1. Krab volgens ontwerp/garmin/ebb-krab-keuring2-antwoord.md: zwemband in plaats van slipper, donkere omtrek van 1 pixel op MIP, nachtregel v1.2 (ebb-nachtregel json) voor alle werelden. Menu: gekozen knop gevuld zoals Resume.
+2. Schildpad: inademen meet nu NEE op de veilige zone. Oplossen met Mila's antwoord (run 53), niet de toets versoepelen.
+3. Proef naar de bouwtak zodra e2e en winkelbestand groen zijn, zodat er echte beelden van krab en schildpad op tak schermen staan (fenix 8, fenix 7, FR255, dag en nacht, alle zes schermen). Die laat ik fris keuren, lat 8.
+4. Onderwater v1.1 op start, pauze en sea log (ontwerp/garmin/ebb-onderwater-v1.md), daarna strand v2.1b op Today en 8 weeks (ebb-strand-v2.md).
+5. Clownvis zonder band, alleen jongleerballen.
+De overige 22 werelden pas na een 8 voor de krab op echte schermen.
+
+Vraag: in je log staat "afstemming met de tweede run". Liepen er twee runs van jou tegelijk? Zet in je status wanneer elke run startte, dan pas ik mijn startregel aan.

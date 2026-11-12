@@ -243,3 +243,23 @@ Stuur de uitkomst als gegevens naar Gijs. (verwerkt 12 nov 04:25 UTC: zwemband i
 
 ## 12 nov 04:35 UTC (Gijs, run 55): je schildpadwereld staat op het horloge
 Beelden: tak `schermen`, `garmin-adem/plaatjes-proef/namen/schild2-<in|uit|calm|hold|menu|eind>-<dag|nacht>-<horloge>.png` (proeftak `claude/garmin-2026-11-12-proef55`). Gebouwd uit `werelden_v3.py` en `werelden_v32.py`: weide met acht hoge sprieten, vier plukken, schelp, steentje en zeester, de spriet met de hap, het blad in zijn bek met twee kruimels, boven water het golfje voor zijn buik en de meeuw op zijn schild (kantelt mee), en het drijvende blad. Naast je blad gelegd op de fenix 8: het lijkt er sterk op. Wat ik anders deed, zeg het als je het anders wilt: (1) de schildpad staat bij inademen op x 177 (jij 172) en bij uitademen 4 lager: op de FR255 stond de meeuw 3 px van de "12" en 3 px onder de "9", omdat de koptekst daar hoger is dan op je blad; (2) het blad in de bek 5 naar links en 3 lager, het lag over zijn oog; (3) de plukken zijn dikke lijnen in plaats van veelhoeken, en de hoge sprieten hebben 5 stukken in plaats van 12 (punten per beurt); (4) het eindscherm heeft nog de oude indeling (belletje op 184, 122), niet die van v3.2 d. Wat ik zie en niet oploste: in het menu raakt op de FR255 de hoogste spriet rechts het woord "Today"; op het eindscherm staat "Jellyfish" over de sprieten rechts. Mag de weide in het menu en op het eindscherm 8 lager, of de buitenste sprieten korter? De clownvis bouw ik in de volgende run. (verwerkt 12 nov 04:40 UTC: (1) tot (3) goed, (4) eindscherm graag naar v3.2 d; menu en eind: de buitenste sprieten 8 korter, de weide blijft staan; antwoord bovenaan berichten/gijs.md)
+
+## 12 nov 06:00 (hoofdchat): run 52 en 53 bekeken, akkoord, en vijf kleine punten
+
+Zelf bekeken: keuring2/overzicht-krab-260-2x-donker1, strand2/strand-260-rij-2x, onderwater1/overzicht-onderwater-260-2x, werelden5/eenheid-families-in-dag-260-1x.
+
+Akkoord, mag allemaal naar Gijs:
+- Krab met zwemband, donkere omtrek van 1 pixel, nachtregel v1.2. Dit is een duidelijke stap vooruit. De herkenningstoets met frisse kijkers houd je voor elk dier.
+- Clownvis: band weg, alleen jongleerballen. De zwemband is van de krab.
+- Strand v2.1b (Today met schelpen op de uurlijn, 8 weeks als zee met toppen).
+- Onderwater v1.1 voor start, pauze en sea log.
+- Eigen lucht per familie.
+
+Punten:
+1. Menu: de gekozen knop (Rounds, witte rand) verschilt te weinig van Calm (blauwe rand). Doe het zoals Resume op het pauzescherm: gevuld in cyaan met donkere tekst. Eén regel voor alle menu's.
+2. Menu nacht: de voetregel "Sea log · Settings · Today" is dof geel op donker. Meet het, minstens 4,5 op 1.
+3. Familie met de roze band: de roze kwal valt weg tegen de roze lucht. Andere bandkleur voor die familie of de kwal naar een andere familie.
+4. Inktvis op het eilandje: de punt komt naast de "12" tot op hoogte van het cijfer. Hij moet onder de veilige zone blijven.
+5. Today bij nacht: het zand wordt bijna dezelfde kleur als het water. Houd een zichtbaar verschil (zand een trede lichter), anders is het strand weg.
+
+Daarna: winkelbeelden. De vijf winkelkaarten en de poster moeten opnieuw met de werelden erin (krab met zwemband voorop, één kaart met vijf werelden naast elkaar, één met dag en nacht). Maak het ontwerp; Gijs vult ze later met echte simulatorschermen.

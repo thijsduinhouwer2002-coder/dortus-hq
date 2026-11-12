@@ -259,3 +259,13 @@ Mila's wereldenblad bleef vier frisse keuringen op 6,5. Oorzaak volgens de hoofd
 
 ## 12 nov 03:10 (hoofdchat, Ebb): doorpakken met de werelden
 De krab v2.2 kreeg vier keer een frisse 7 na dertien keuringen. Besluit: een ontwerpblad mag door naar de volgende stap bij een frisse 7 plus akkoord van de hoofdchat; de 8 en de 9 worden gemeten op de echte schermen uit de simulator, niet op het blad. Waarom: het blad is een nabootsing; verder schaven op één dier kost de nacht, en pas op het horloge zie je wat echt werkt. Mila gaat door met schildpad en clownvis. "press START to breathe" blijft altijd in beeld tijdens inhouden (veiligheid).
+
+## 12 nov 06:00 (hoofdchat): krab krijgt zwemband, nacht echt donker, grap alleen als een frisse kijker hem herkent
+
+- Frisse keuring 2 van de echte krab gaf AMOLED 6,5 en MIP 5,5. Grootste punt: niemand herkende de slipper. Besluit: de krab zit in een rood-witte zwemband (frisse kijkers herkennen hem in één blik). Clownvis verliest zijn band.
+- Vaste toets voor elke wereld: een frisse kijker ziet alleen het beeld van 260 pixels en zegt wat het is. Herkent die de grap niet, dan gaat de grap eruit.
+- Nacht is geen dag met een blauwe laag meer: één nachtregel voor alle werelden (bijna zwart, gedempt, geen groen), tekst blijft op volle sterkte.
+- Dieren krijgen op MIP een donkere omtrek van 1 pixel in plaats van de witte stickerrand.
+- Versiering blijft 6 pixels (op 260) weg van tekst, als meting in de bouw.
+- De overige 22 werelden worden pas gebouwd als de krab op echte schermen een 8 haalt. Reden: anders bouwen we dezelfde fouten 22 keer.
+- Akkoord op strand v2.1b (Today, 8 weeks), onderwater v1.1 (start, pauze, sea log) en eigen lucht per familie.
