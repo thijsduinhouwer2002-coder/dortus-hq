@@ -64,7 +64,7 @@ class EbbInstellingenView extends WatchUi.View {
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var d = w < dc.getHeight() ? w : dc.getHeight();
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.setColor(EbbTeken.NACHT, EbbTeken.NACHT);
         dc.clear();
         var bodem = keuze >= aantal() - 2;
         var laag = keuze == aantal() - 1;

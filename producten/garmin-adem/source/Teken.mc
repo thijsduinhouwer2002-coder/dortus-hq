@@ -95,6 +95,8 @@ module EbbTeken {
     const ZEE_KLEUR = [0x00AAFF, 0x0055AA, 0x0000AA, 0x000055] as Array<Number>;
     const LICHTCYAAN = 0xAAFFFF;
     const GEEL = 0xFFFF55;
+    // Keuring bouw 9 punt 8 en bericht hoofdchat 12 nov 01:45: today, 8 weeks en settings op nachtblauw in plaats van zwart.
+    const NACHT = 0x000055;
 
     // AMOLED-scherm (burn-in bescherming): daar mag het water per stand 10 procent donkerder (blad v5 en v6).
     function amoled() as Boolean {

@@ -213,6 +213,17 @@ module EbbScenes {
             view.sessie.ronde = 1;
             view.plaatjeFase = Ebb.FASE_ADEMEN;
             view.plaatjeMs = 22 * 3000 + 2100;
+        } else if (k >= 47) {
+            // Proef lucht (bericht hoofdchat 12 nov 01:45): ademen boven water in ochtend (in), dag (uit), avond (in) en
+            // nacht (uit, wassende bolle maan), met de lucht van Mila's v1.4.
+            Application.Storage.setValue(EbbTrouw.BITS, 15);
+            EbbLucht.proef = true;
+            EbbLucht.proefDeel = k - 47;
+            EbbLucht.proefMaan = 3;
+            view.sessie.inhoudtijden = [80000] as Array<Number>;
+            view.sessie.ronde = 1;
+            view.plaatjeFase = Ebb.FASE_ADEMEN;
+            view.plaatjeMs = 22 * 3000 + ((k % 2 == 1) ? 400 : 2100);
         } else if (k >= 39) {
             // Proef werelden (besluit Thijs 11 nov 23:13): inhouden op 1:45 met schildpad, krab en clownvis in hun wereld.
             Application.Storage.setValue(EbbTrouw.BITS, 255);
