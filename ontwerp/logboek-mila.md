@@ -436,3 +436,4 @@
 - **Besluit: de toets blind (genummerd, zonder namen).** Waarom: in de bestandsnamen staat het dier, en een kijker die de naam ziet herkent alles.
 - Ronde 2: drie familie-agents tekenden de tien opnieuw, blinde hertoets: grap 19 van 22, dier 19 van 22. Open: zeekomkommer, aal, manta, kreeft (zie `ebb-herkenning-22.md`).
 - **Besluit: het zeepaardje houdt de parasol als grap.** Waarom: de blinde kijker las 'parasol' meteen; een draaimolen las niet, en één voorwerp dat leest gaat voor op het bedoelde.
+- Ronde 3: zeekomkommer, aal, manta, kreeft verbeterd (agent), zelf bekeken op 260. Volgende run: blinde toets van deze vier en van de schildpad zonder blad; daarna Steam.

@@ -213,6 +213,17 @@ def spandoek(d, x0, y0, b=62, hg=20, opgerold=False):
     return boven[0], onder[-1]
 
 
+def sleeptouw(d, sx, sy, bx, by, hg, dik=1.0):
+    """Sleeptouw van een reclamevliegtuigje: dik geel touw met donkere rand van de staart naar een knoop,
+    vandaar twee touwtjes naar de hoeken van het doek (bx, by is de rechterbovenhoek, hg de hoogte)."""
+    kx, ky = bx + 10 * dik, by + hg / 2
+    for a, b in (((sx, sy), (kx, ky)), ((kx, ky), (bx, by + 1)), ((kx, ky), (bx, by + hg - 1))):
+        lijn(d, [a, b], DONKER, 4.0 * dik); 
+    for a, b in (((sx, sy), (kx, ky)), ((kx, ky), (bx, by + 1)), ((kx, ky), (bx, by + hg - 1))):
+        lijn(d, [a, b], GEEL, 2.2 * dik)
+    d.rondje(kx, ky, 2.2 * dik, 2.2 * dik, GEEL, DONKER, dikte=1.0)
+
+
 def duikbril(d, cx, cy, m, hoek, wie, op_voorhoofd=False, snorkel=True, snorkel_l=1.0):
     """Duikbril om het oog (alleen een dikke gele rand met donkere omtrek, het oog blijft zichtbaar), bandje naar achter,
     en een gele snorkel met een oranje mondstuk die recht omhoog steekt."""
@@ -340,7 +351,12 @@ def held_onder(d, dier, hx, hy, m, nacht, scherm='hold'):
             vlieger(d, hx, hy, m, 0, touw_naar=(hx - 34, 226), staart=[(.55, .30), (1.15, .25), (1.70, .05)])
     elif dier == 'manta':
         if HELD_AAN:
+            # het spandoek uitgerold achter hem aan, aan het sleeptouw van zijn staart
+            mk = merk(wie); sx, sy = hx + mk['staart'][0] * m, hy + (mk['staart'][1] - .05) * m
+            b = 58; bx, by = sx - 36 - b, sy - 12
+            sleeptouw(d, sx, sy, bx + b, by, 18)
             manta(d, hx, hy, m, 0)
+            spandoek(d, bx, by, b, 18)
     elif dier == 'dolphin':
         schaduw(d, hx + 4, hy + m * .78, m * .9)
         if HELD_AAN:
@@ -376,8 +392,8 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         if HELD_AAN:
             mk = merk(wie); r = rot(hx, hy, m, hoek)
             sx, sy = r(mk['staart'][0], mk['staart'][1] - .05)
-            bx, by = hx - 46 - 66, hy + 4
-            lijn(d, [(sx, sy), (bx + 66, by + 10)], DONKER, 2.4); lijn(d, [(sx, sy), (bx + 66, by + 10)], WIT, 1.2)
+            bx, by = hx - 34 - 66, hy + 2
+            sleeptouw(d, sx, sy, bx + 66, by, 20)
             manta(d, hx, hy, m, hoek)
             spandoek(d, bx, by, 66, 20)
     elif dier == 'dolphin':
@@ -408,8 +424,8 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
 
 
 # held op hold en menu (x, y, maat), plus waar de bundel valt
-HOLD = {'ray': (112, 184, 46), 'manta': (130, 189, 46), 'dolphin': (140, 186, 48), 'swordfish': (150, 190, 46)}
-MENU = {'ray': (110, 178, 40), 'manta': (130, 186, 42), 'dolphin': (138, 194, 42), 'swordfish': (150, 197, 40)}
+HOLD = {'ray': (112, 184, 46), 'manta': (150, 189, 46), 'dolphin': (140, 186, 48), 'swordfish': (150, 190, 46)}
+MENU = {'ray': (110, 178, 40), 'manta': (148, 184, 42), 'dolphin': (138, 194, 42), 'swordfish': (150, 197, 40)}
 
 
 def hold(D_, am, dd, nacht, dier):
@@ -417,8 +433,6 @@ def hold(D_, am, dd, nacht, dier):
     hx, hy, m = HOLD[dier]
     v3.onder(d, dd, nacht, xo=hx - 6, xh=hx - 2)
     plek(d, dd, dier)
-    if dier == 'manta':
-        spandoek(d, 96, 230, 62, opgerold=True)
     held_onder(d, dier, hx, hy, m, nacht)
     stofjes(d, dd)
     d.tekst(130, 24, 'hold', 24, GEEL)
@@ -433,8 +447,6 @@ def menu(D_, am, dd, nacht, dier):
     hx, hy, m = MENU[dier]
     v3.onder(d, dd, nacht, xo=hx - 8, xh=hx - 4)
     plek(d, dd, dier, zak=4)
-    if dier == 'manta':
-        spandoek(d, 96, 234, 62, opgerold=True)
     held_onder(d, dier, hx, hy, m, nacht, 'menu')
     stofjes(d, dd); s = d.s
     d.tekst(130, 16, 'Ebb', 25, GEEL)
@@ -453,7 +465,6 @@ def eind(D_, am, dd, nacht, dier):
     d = Doek(D_, am); w.water_onder(d, dd, nacht, stralen=0, raster_y=146)
     v.bundel(d, dd, nacht, xo=184, xh=184, yh=136)
     plek(d, dd, dier, zak=14)
-    if dier == 'manta': spandoek(d, 120, 240, 50, opgerold=True)
     stofjes(d, dd)
     for x, y, k in [(228, 76, 7), (236, 140, 5)]: fonkel(d, x, y, k)
     bx, by, brx, bry = 186, 108, 36, 32
@@ -472,8 +483,8 @@ def eind(D_, am, dd, nacht, dier):
         elif dier == 'manta':
             manta(d, 66, 106, 28, 0)
             mk = merk(wie); sx, sy = 66 + mk['staart'][0] * 28, 106 + mk['staart'][1] * 28 - 1
-            lijn(d, [(sx, sy), (sx + 6, sy + 10)], DONKER, 2.4); lijn(d, [(sx, sy), (sx + 6, sy + 10)], WIT, 1.2)
-            spandoek(d, sx + 4, sy + 6, 40, 14)
+            sleeptouw(d, sx, sy, sx + 8, sy + 8, 14, .8)
+            spandoek(d, sx + 8, sy + 8, 40, 14)
         elif dier == 'dolphin':
             v3.dier_kantel(d, 76, 116, 32, wie, 6); duikbril(d, 76, 116, 32, 6, wie, op_voorhoofd=True, snorkel=False)
         else:

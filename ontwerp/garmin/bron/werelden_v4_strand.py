@@ -115,6 +115,19 @@ def bloempot(d, x, y, k=1.0, bloem=True):
     d.dr.rectangle([d.P(x - 10.5 * k, y - 8.5 * k), d.P(x + 10.5 * k, y - 4 * k)], fill=(170, 85, 0))
 
 
+def plantje_eiland(d, x, y, k=1.0, nacht=False):
+    """Drijvend eilandje (zandheuveltje met groen randje en witte omtrek) met een stekje in een terracotta potje.
+    (x, y) is de onderkant van het potje."""
+    d.rondje(x, y + 3 * k, 17 * k, 5.5 * k, (255, 255, 170), WIT, dikte=1.4)
+    d.rondje(x, y + 1.4 * k, 14 * k, 3 * k, (85, 255, 85))
+    # stekje: steeltje met twee dikke blaadjes
+    staaf(d, (x, y - 7 * k), (x, y - 17 * k), 1.8 * k, GROEN_D, None)
+    for s_ in (-1, 1):
+        d.blob([(x, y - 14 * k), (x + 4 * s_ * k, y - 20 * k), (x + 10 * s_ * k, y - 19 * k), (x + 6 * s_ * k, y - 13.5 * k)], (85, 255, 85), GROEN_D, 1.2)
+    d.blob([(x - 7 * k, y - 7 * k), (x + 7 * k, y - 7 * k), (x + 5 * k, y + 2 * k), (x - 5 * k, y + 2 * k)], (255, 85, 0), WIT, 1.4)
+    d.dr.rectangle([d.P(x - 8 * k, y - 9 * k), d.P(x + 8 * k, y - 5.6 * k)], fill=(170, 85, 0))
+
+
 def hart_pts(x, y, s):
     return [(x + s * 16 * math.sin(t) ** 3 / 16, y - s * (13 * math.cos(t) - 5 * math.cos(2 * t) - 2 * math.cos(3 * t) - math.cos(4 * t)) / 16)
             for t in [i / 40 * 2 * math.pi for i in range(40)]]
@@ -220,7 +233,14 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
     elif dier == 'lobster':
         hx = {134: 166, 146: 180, 170: 140}[top]; hy = top - 4
         v3.dier_kantel(d, hx, hy, 38, LOBSTER, hoek)
-        gieter_klauw(d, hx - 30, hy - 22, 1.35)      # ronde 4: alleen hoed en een grote gieter in zijn schaar
+        # ronde 2 blind: gieter gietend boven een stekje in een potje op een drijvend eilandje (tuinman ook boven water)
+        k = 1.25; gx, gy = hx - 30, hy - 26
+        bx, by = gx - 31 * k, gy + 6 * k
+        plantje_eiland(d, bx - 3, by + 43, 1.1, nacht)
+        gieter_klauw(d, gx, gy, k, kleur=(GROEN, GROEN_L, GROEN_D), druppels=False)
+        for dx, dy in ((-3, 5), (1, 10), (-5, 14), (-1, 18)):
+            px, py = bx + dx * k * .8, by + dy * k * .8
+            d.blob([(px, py - 3 * k), (px + 2 * k, py + .8 * k), (px, py + 2.2 * k), (px - 2 * k, py + .8 * k)], (85, 255, 255), DONKER, .9)
         strohoed(d, hx + 2, hy - 25, 1.15)
     elif dier == 'seal':
         hx = 140 if hoog else 176; hy = top - (16 if hoog else 11)

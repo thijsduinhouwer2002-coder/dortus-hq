@@ -261,54 +261,53 @@ DOEK_R, DOEK_V = (255, 170, 255), (255, 85, 170)
 
 @held
 def plakje(d, x, y, r):
-    """Plakje komkommer: donkergroene schil, lichtgroen vruchtvlees, ring van lichte pitjes."""
-    d.rondje(x, y, r + 1.2, r + 1.2, WIT)
+    """Groot plakje komkommer: witte rand, dikke donkergroene schil, licht vruchtvlees, een paar pitjes."""
+    d.rondje(x, y, r + 1.6, r + 1.6, WIT)
     d.rondje(x, y, r, r, KOMK_R)
-    d.rondje(x, y, r * .78, r * .78, KOMK)
-    d.rondje(x, y, r * .2, r * .2, (255, 255, 170))
-    for i in range(6):
-        a = math.radians(i * 60 + 30)
-        d.rondje(x + r * .45 * math.cos(a), y + r * .45 * math.sin(a), max(.9, r * .1), max(.9, r * .14), PIT)
+    d.rondje(x, y, r * .74, r * .74, PIT)
+    d.rondje(x, y, r * .5, r * .5, KOMK)
+    for i in range(5):
+        a = math.radians(i * 72 + 18)
+        d.rondje(x + r * .3 * math.cos(a), y + r * .3 * math.sin(a), max(.9, r * .09), max(.9, r * .13), PIT)
 
 
 @held
 def handdoekje(d, f, m):
-    """Roze handdoekje opgerold op zijn kop (tulband), met twee vouwlijnen en een witte rand."""
-    pts = [f(-1.0, -.2), f(-.98, -.42), f(-.82, -.58), f(-.58, -.66), f(-.32, -.6), f(-.18, -.44), f(-.2, -.26), f(-.6, -.2)]
-    d.blob(pts, DOEK_R, WIT, 1.5)
-    lijn(d, [f(-.9, -.36), f(-.62, -.46), f(-.3, -.42)], DOEK_V, max(1.2, .05 * m))
-    lijn(d, [f(-.82, -.52), f(-.56, -.58)], DOEK_V, max(1.0, .04 * m))
-    lijn(d, [f(-.95, -.24), f(-.25, -.3)], WIT, max(1.0, .035 * m))
+    """Groot roze handdoekje opgerold op zijn kop (tulband), met vouwlijnen en een witte rand."""
+    pts = [f(-1.08, -.2), f(-1.08, -.5), f(-.9, -.74), f(-.6, -.84), f(-.28, -.78), f(-.08, -.56), f(-.1, -.3), f(-.6, -.24)]
+    d.blob(pts, DOEK_R, WIT, 1.8)
+    lijn(d, [f(-.98, -.42), f(-.62, -.56), f(-.22, -.5)], DOEK_V, max(1.6, .06 * m))
+    lijn(d, [f(-.88, -.64), f(-.5, -.72)], DOEK_V, max(1.4, .05 * m))
 
 
 def spa(d, cx, cy, m, hoek):
-    """Zeekomkommer met handdoekje en twee plakjes komkommer op zijn ogen."""
+    """Zeekomkommer met handdoekje en twee grote plakjes komkommer op zijn ogen."""
     f = R(cx, cy, hoek, m)
     kantel(d, cx, cy, m, CUKE, hoek)
     handdoekje(d, f, m)
-    r = .22 * m
-    plakje(d, *f(-.26, -.16), r)
-    plakje(d, *f(-.54, -.04), r)
+    r = max(4.6, .23 * m)
+    plakje(d, *f(-.16, -.12), r)
+    plakje(d, *f(-.74, -.04), r)
 
 
-SNOER = (85, 85, 85)
+SNOER = (255, 255, 85)
 
 
 @held
 def snoer(d, f, m, pts):
     q = glad([f(*p) for p in pts], 8)
-    lijn(d, q, WIT, max(3.4, .14 * m)); lijn(d, q, SNOER, max(2.0, .085 * m))
+    lijn(d, q, DONKER, max(5.4, .2 * m)); lijn(d, q, SNOER, max(3.2, .12 * m))
 
 
 @held
 def stekker(d, f, m):
-    """Grote witte stekker in de bek, pinnen naar links, gele vonkjes."""
-    for y0 in (-.02, .14):
-        d.blob([f(-1.44, y0 - .045), f(-1.7, y0 - .045), f(-1.7, y0 + .045), f(-1.44, y0 + .045)], (170, 170, 170), DONKER, 1.0)
-    d.blob([f(-1.02, -.14), f(-1.4, -.16), f(-1.48, -.08), f(-1.48, .2), f(-1.4, .28), f(-1.02, .26)], WIT, DONKER, 1.4)
-    lijn(d, [f(-1.3, -.1), f(-1.3, .22)], (170, 170, 170), max(1.0, .04 * m))
-    for a, b in (((-1.78, -.16), (-1.9, -.26)), ((-1.8, .06), (-1.96, .06)), ((-1.78, .28), (-1.9, .38))):
-        lijn(d, [f(*a), f(*b)], (255, 255, 85), max(1.2, .05 * m))
+    """Grote witte stekker in de bek met donkere rand, twee dikke gele pinnen naar links, gele vonkjes."""
+    for y0 in (-.04, .2):
+        d.blob([f(-1.5, y0 - .06), f(-1.86, y0 - .06), f(-1.86, y0 + .06), f(-1.5, y0 + .06)], (255, 255, 85), DONKER, 1.2)
+    d.blob([f(-.98, -.22), f(-1.44, -.26), f(-1.56, -.14), f(-1.56, .3), f(-1.44, .42), f(-.98, .38)], WIT, DONKER, 1.8)
+    lijn(d, [f(-1.3, -.16), f(-1.3, .32)], DONKER, max(1.2, .045 * m))
+    for a, b in (((-1.96, -.2), (-2.1, -.32)), ((-1.98, .08), (-2.16, .08)), ((-1.96, .36), (-2.1, .48))):
+        lijn(d, [f(*a), f(*b)], (255, 255, 85), max(1.4, .06 * m))
 
 
 SNOER_PAD = [(-1.26, .26), (-1.3, .5), (-1.05, .66), (-.5, .64), (.1, .58), (.7, .62), (1.2, .5), (1.4, .2), (1.32, -.12), (1.08, -.24)]
@@ -456,7 +455,7 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
         steentje(d, 226, 214 + zak, 4, 2.6, (255, 170, 170))
         if held_:
             schaduw(d, 128, 230 + zak, 60)
-            elektrische_aal(d, 138, 190 + zak, 46, -4)
+            elektrische_aal(d, 148, 190 + zak, 44, -4)
     elif dier == 'puffer':
         steentje(d, 44, 226 + zak, 6, 3.6); zee_egel(d, 62, 238 + zak, 4.4)
         schelp(d, 206, 232 + zak, 1.0)
@@ -468,7 +467,7 @@ def plek_onder(d, dd, dier, zak=0, held_=True, nacht=False, eind=False):
         if not eind:
             bedschelp(d, 128, 212 + zak, .95)
         if held_:
-            spa(d, 130, 194 + zak, 46, 0)
+            spa(d, 132, 197 + zak, 56, 0)
 
 
 # ---------------- boven water ----------------
@@ -497,7 +496,7 @@ def adem(D_, am, dd, nacht, dier, top=134, woord='breathe in', getal='12', onder
         y = top + dy + 4 - 1.6 * m - {'in': 8, 'calm': 4, 'uit': 0}[fase]
         luchtballon(d, hx, y, m, hoek)
     elif dier == 'cucumber':
-        hx = {'in': 186, 'calm': 180, 'uit': 134}[fase]; y = top + dy - 2; m = 36
+        hx = {"in": 182, "calm": 176, "uit": 134}[fase]; y = top + dy + 4; m = 42
         spa(d, hx, y, m, hoek)
         golfje(d, hx + 2, y + 10, 50, nacht)
     v3.tekst_adem(d, top, woord, getal, onder)

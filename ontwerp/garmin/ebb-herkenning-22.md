@@ -64,3 +64,6 @@ Drie familie-agents tekenden de tien nieuwe grappen (scripts `bron/werelden_v4_h
 
 **Telling na ronde 2 (alle 22):** grap herkend 19 van 22 (was 15), dier herkend 19 van 22 (was 17).
 Nog open voor de volgende run: zeekomkommer groter met de schijfjes als twee grote vlakken, aal met een witte of gele stekker en dikker snoer in een lichte kleur, manta met het spandoek vast aan zijn staart (touwtje zichtbaar) en onder water uitgerold, kreeft boven water met de gieter die gietend boven een plantje staat. Zeepaardje: parasol accepteren als grap (leest in een blik) of het dakje als draaimolen verduidelijken; ik kies parasol accepteren, want hij leest en het is één voorwerp.
+
+## Ronde 3 (dezelfde run): de vier zwakste verbeterd
+Zeekomkommer groter (onder water 56, boven water 42) met twee grote komkommerschijven en een groter roze handdoekje; aal met witte stekker, gele pinnen en een dik geel snoer; manta sleept het doek aan een geel touw (zoals een reclamevliegtuigje), onder water rolt het doek achter hem uit; kreeft giet met een groene gieter boven een plantje in een potje op een drijvend eilandje, emmertje weg. Contrast 4,5 of hoger, 0 te dicht. GEZIEN met Read: `herkenning/ronde3-vier.png` (boven en onder water op 260): alle vier lezen nu voor mij in een blik. Nog niet blind getoetst: eerste stap van de volgende run.
