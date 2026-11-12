@@ -105,13 +105,11 @@ module EbbScenes {
             Application.Storage.setValue(EbbTrouw.BITS, 31);
             return [new CalmEindeView(240000, 12, [4] as Array<Number>, 5), new CalmEindeDelegate()];
         }
-        // Thuiswater (Bas, stap 4): de laatste acht scènes zijn menu, pauze en sea log op het thuiswater (ThuisSchermen.mc).
         var thuis = EbbThuisSchermen.scene(k);
         if (thuis != null) {
             return thuis;
         }
-        // Dertig scènes voor de laatste acht: de echte sessie in de wereld (WereldSessie.mc), zes per blok (in, uit en
-        // inhouden bij dag, dan bij nacht): krab, schildpad, dolfijn, eerste sessie zonder dier, terugval zonder plaatje.
+        // Dertig scènes voor de laatste acht, de echte sessie in de wereld: krab, schildpad, dolfijn, zonder dier, terugval.
         var ns = EbbBouw.SCENES - 38;
         if (k >= ns && k < ns + 30 && ns >= 53) {
             var si = (k - ns) % 6;
