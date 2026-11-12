@@ -2,6 +2,8 @@
 
 Versie 17 (run 68, productkeuring 12 nov punt 3, 4 en 5 en herkeuring code en veiligheid punt 5, `ontwerp/garmin/ebb-keuring-product-2026-11-12.md`): (1) eerste alinea Engels zoals de keurder voorstelde, de zoekwoorden staan in de tweede zin; Duits en Nederlands gelijk. (2) Trilblok herschreven in drie talen: "Vibration can be turned off. One buzz stays on: every 30 s after 3:00 of holding, for your safety."; de herhaling bij Breath Hold Rounds is weg. (3) Nederlands: "Geen tracking, geen advertenties." (4) Eén zin in drie talen dat Calm en een sessie in pauze na 30 minuten vanzelf opslaan (`RustigView.mc`, `Pauze.mc`, `Ebb.MAX_STIL_MS`). NOG NIET gedaan: het veld Screenshots (wacht op de nieuwe winkelbeelden) en de zin over wat er gebeurt na een inhouding die vanzelf stopt (besluit hoofdchat 17:40 punt 1: geen nieuwe ronde; "moves on to recovery" klopt dan nog, maar nalopen na het bouwen). Nog niet gekeurd.
 
+**Lengte (gevonden in run 68):** de Engelse beschrijving was 5.032 tekens in v16 en 5.158 na de wijzigingen hierboven, terwijl de winkel bijna zeker bij 4.000 afkapt (`platformen/garmin/onderzoek-winkeltekst-2026-11-10.md`: 118 teksten zitten tussen 3.990 en 4.000, geen enkele erboven; GOK, zeer waarschijnlijk). Het getal "±2.700" bij de velden klopte al lang niet meer. Ingekort tot onder de 4.000: de lijst van horloges is weg (de winkel toont die zelf), HONEST en PRIVACY zijn één blok, WHAT EBB IS NOT staat als één zin onder SAFETY, SEE YOUR PRACTICE en SETTINGS zijn korter. Weggevallen feiten, bewust: hartslag onder de timer, dat je in het pauzemenu kunt tikken, de zin dat Ebb nooit om een review vraagt, het feestscherm bij een complete zee, "what the next animal needs" op het eindscherm, de losse instellingen voor de tril. Geen enkele veiligheidszin is weg. Duits (3.342) en Nederlands (3.243) pasten al.
+
 (Oude kop: versie 16, CONCEPT, Gijs, 12 nov 2026 15:10 UTC)
 
 Versie 16 (run 67, hoofdchat 12 nov 15:30): de vis zwemt vanaf de eerste sessie mee, dus in het Engels geen "a sea animal you found" meer maar: "A small fish swims with you from your first session; new sea friends join as you keep coming back." De Duitse en Nederlandse tekst hadden die zin niet.
@@ -43,7 +45,7 @@ Versie 2 op basis van `platformen/garmin/onderzoek-winkeltekst-2026-11-10.md` (m
 - Title (42 tekens): `Ebb: Breathing, Breath Hold Rounds & 4-7-8`
 - Category: Health & Fitness (bijna alle ademapps staan in categorie-id 219, GOK dat dat deze is)
 - Price: $4.99, eenmalig (paid app)
-- Description: de Engelse tekst hieronder, van "Breathing exercises" tot en met de regel "Tags:" (±2.700 tekens, onder de grens van 4.000).
+- Description: de Engelse tekst hieronder, van "Breathwork rounds" tot en met de regel "Tags:" (3971 tekens, geteld in run 68; de grens is waarschijnlijk 4.000).
 - Extra taal (veld per taal in de winkel, `appLocalizations`): Deutsch en Nederlands, titel en tekst hieronder. De app zelf is Engels; dat staat in die teksten.
 - What's new: `First release.`
 - Icon: `producten/garmin-adem/winkel/icoon-500-v3.png` (Mila v3, blauwe walvis in de patrijspoort, `ontwerp/garmin/blad12/`). Het startpictogram op het horloge is haar kleine versie (walvis groot, zonder rand), per horlogemaat in `resources*/drawables/launcher_icon.png`.
@@ -57,62 +59,47 @@ Breathwork rounds and calm 4-7-8 breathing on your Garmin. Follow every phase by
 BREATH HOLD ROUNDS
 • Rounds of deep breaths at a steady pace, then breathe out and hold for as long as feels right.
 • Press a button to end the hold, then take one big breath in and hold it briefly to recover.
-• While you hold, you are under water with a sea animal. A small fish swims with you from your first session; new sea friends join as you keep coming back. The picture stays the same however long you hold. Your live heart rate shows small under the timer. From 3:00 on the watch shows "breathe" at the top. A hold stops by itself after five minutes and the watch moves on to recovery.
-• Before every session, also Calm and My pattern, Ebb reminds you: sit or lie down.
+• While you hold, you are under water with a sea animal. A small fish swims with you from your first session; new sea friends join as you keep coming back. The picture stays the same however long you hold. From 3:00 on the watch shows "breathe" at the top. A hold stops by itself after five minutes and the watch moves on to recovery.
+• Before every session Ebb reminds you: sit or lie down.
 
 COLLECT SEA ANIMALS BY SHOWING UP
 • 24 sea animals, earned with sessions and weeks in a row, never by holding longer. Your streak counts weeks in which you reach your weekly goal (3 sessions, or set 2 to 7), so rest days never break it.
-• A session counts with at least one hold, or one minute of calm breathing. Up to two sessions a day count for the animals.
-• New animals appear at the end of a session, one at a time. There is also one bonus animal to discover.
-• The Sea log shows the animals you have and exactly how to get the next one. Pick the one that swims with you.
-• Found all 24? Your sea is complete, and your streak of weeks keeps counting.
+• A session counts with at least one hold, or one minute of calm breathing. Up to two sessions a day count.
+• New animals appear at the end of a session, one at a time, plus one bonus animal to discover.
+• The Sea log shows your animals and exactly how to get the next one. Pick the one that swims with you.
+• Found all 24? Your streak of weeks keeps counting.
 
 CALM 4-7-8 AND MY PATTERN
-• Breathe in for 4, hold for 7, out for 8, with the sea rising and falling at the bottom of the screen.
+• Breathe in for 4, hold for 7, out for 8, with the sea rising and falling.
 • My pattern: set your own seconds in, hold, out and hold in the settings.
 
 SEE YOUR PRACTICE
-• After Rounds: your hold time for every round, your week, and what the next animal needs. After Calm: how long you breathed, your breaths, and your week.
-• The first time your sea is complete, you get a celebration screen with all 24 animals instead.
-• Today, from the menu at any time: the holds of your sessions today as bars, up to three sessions.
-• 8 weeks, one press further: how many sessions you did each week, and your average hold.
+• After Rounds: your hold time for every round and your week. After Calm: how long you breathed and your breaths.
+• Today, from the menu: the holds of your sessions today as bars. 8 weeks: your sessions per week and your average hold.
 
 BREATHE WITH YOUR EYES CLOSED
-• Every phase has its own vibration, so you can follow the breathing without looking. The last three breaths before the hold feel different.
+• Every phase has its own vibration. The last three breaths before the hold feel different.
 • A soft buzz every 30 seconds while you hold, if you like. Vibration can be turned off. One buzz stays on: every 30 s after 3:00 of holding, for your safety.
-• While you breathe and hold, the touchscreen does nothing, so a sleeve cannot stop a hold; only the buttons work. In the pause menu you can tap. Ebb makes no sound.
+• While you breathe and hold, the touchscreen does nothing, so a sleeve cannot stop a hold; only the buttons work. Ebb makes no sound.
 
 SAVED IN GARMIN CONNECT
-• Each session is saved as a breathing activity, with your heart rate.
-• Breath hold sessions: one lap per round, with the hold time and breaths of that round, and all hold times in the summary. For interest only; Ebb gives no score.
+• Each session is saved as a breathing activity with your heart rate. Rounds: one lap per round with its hold time and breaths. For interest only; Ebb gives no score.
 • A finished session saves itself. Calm breathing, and a session left paused, save by themselves after 30 minutes. Press back to pause: resume, save or discard.
 
 SETTINGS ON THE WATCH
-Breaths per round, breathing pace, rounds, recovery hold, weekly goal, vibration on or off, buzz every 30 s, buzz on the last 3 breaths, My pattern, and the safety info. No phone needed.
+Breaths per round, pace, rounds, recovery hold, weekly goal, vibration and My pattern. No phone needed.
 
-WHAT EBB IS NOT
-Ebb is breathwork and dry breath hold practice on land. It has no CO2 or O2 tables, and it is not a medical device.
-
-HONEST
-• One payment in the Garmin store.
-• No subscription, no unlock code by e-mail, no extra account, no phone app.
-• No data leaves your watch, except the activity you choose to save to Garmin Connect.
-• Ebb will never nag you for a review.
-
-PRIVACY
-Ebb collects nothing. Your sessions, sea animals and settings stay on your watch. Only an activity you choose to save goes to Garmin Connect, under Garmin's own privacy policy. No analytics, no ads, no account with us.
+HONEST AND PRIVATE
+• One payment in the Garmin store. No subscription, no unlock code by e-mail, no extra account, no phone app.
+• Ebb collects nothing. Your sessions, animals and settings stay on your watch. Only an activity you choose to save goes to Garmin Connect, under Garmin's privacy policy. No analytics, no ads.
 
 SUPPORT AND REFUNDS
-Something not working? Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days.
-Refunds follow Garmin's Connect IQ Store policy: Garmin gives a 48-hour return window after you buy.
+Mail thijs@dortus.com with your watch model. We aim to reply within 5 working days. Refunds follow Garmin's Connect IQ Store policy: a 48-hour return window after you buy.
 
 SAFETY
-Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems.
+Sit or lie down. Never practise breath holds in or near water, in the bath, or while driving. Feel dizzy or tingly? Stop and breathe normally. Not if pregnant, under 18, or with epilepsy, heart or blood pressure problems. Ebb has no CO2 or O2 tables and is not a medical device.
 
-WATCHES
-fenix 7, 7 Pro, 7X, 7X Pro; fenix 8 43 mm, 47 mm, 47 mm Pro, Solar 47 and 51 mm; epix Pro 42, 47 and 51 mm; Forerunner 165, 165 Music, 255, 265, 570 (42 and 47 mm), 955, 965 and 970; Venu 2, Venu 3, Venu 3S, Venu 4 (41 and 45 mm); vivoactive 5 and 6.
-
-Tags: breathing, breathwork, breath hold, breath training, 4-7-8 breathing, calm breathing, relaxation, breathing exercises, breath holding
+Tags: breathing, breathwork, breath hold, breath training, 4-7-8, relaxation
 
 ## Deutsch
 Titel (39 tekens): `Ebb: Atemübungen, Atem anhalten & 4-7-8`
